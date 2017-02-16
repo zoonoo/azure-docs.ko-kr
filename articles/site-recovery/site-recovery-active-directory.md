@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/16/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e9b7dcc2c7011a616d96c8623335c913f647a9b
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 9f3d87fe08b13f08622b4bd169240a2ec0683b00
 
 
 ---
@@ -75,17 +75,21 @@ Site Recovery에서 도메인 컨트롤러/DNS 가상 컴퓨터의 보호를 설
 또한 대부분의 응용 프로그램은 도메인 컨트롤러 및 DNS 서버가 있어야 작동하므로 응용 프로그램을 장애 조치하기 전에 테스트 장애 조치에 사용할 격리된 네트워크에 도메인 컨트롤러를 만들어야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Site Recovery를 사용하여 도메인 컨트롤러/DNS 가상 컴퓨터에서 보호를 사용하도록 설정하고 응용 프로그램 복구 계획의 테스트 장애 조치(failover)를 실행하기 전에 가상 컴퓨터의 테스트 장애 조치를 실행하는 것입니다. 그 방법은 다음과 같습니다.
 
 1. Site Recovery에서 도메인 컨트롤러/DNS 가상 컴퓨터에 대한 보호를 설정합니다.
-2. 격리된 네트워크를 만듭니다. Azure에서 생성되는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 범위를 프로덕션 네트워크와 동일하게 설정하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
-3. DNS 가상 컴퓨터를 가져올 것으로 예상되는 IP 주소로 만든 네트워크에서 DNS IP 주소를 제공합니다. Azure로 복제 중인 경우 VM 속성의 **대상 IP** 설정에서 장애 조치(failover)에 사용할 VM의 IP 주소를 제공합니다. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 지침을 따라 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](site-recovery-failover.md#prepare-dhcp)
+1. 격리된 네트워크를 만듭니다. Azure에서 생성되는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 범위를 프로덕션 네트워크와 동일하게 설정하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
+1. DNS 가상 컴퓨터를 가져올 것으로 예상되는 IP 주소로 만든 네트워크에서 DNS IP 주소를 제공합니다. Azure로 복제 중인 경우 VM 속성의 **대상 IP** 설정에서 장애 조치(failover)에 사용할 VM의 IP 주소를 제공합니다. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 지침을 따라 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](site-recovery-failover.md#prepare-dhcp)
 
-> [!NOTE]
-> 테스트 장애 조치(failover) 중에 가상 컴퓨터에 할당된 IP 주소는 이 IP 주소가 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 경우, 계획되거나 계획되지 않은 장애 조치(failover) 시 얻게 되는 IP 주소와 동일합니다. 그렇지 않다면 가상 컴퓨터는 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 다른 IP 주소를 수신합니다.
-> 
-> 
+    > [!NOTE]
+    > 테스트 장애 조치(failover) 중에 가상 컴퓨터에 할당된 IP 주소는 이 IP 주소가 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 경우, 계획되거나 계획되지 않은 장애 조치(failover) 시 얻게 되는 IP 주소와 동일합니다. 그렇지 않다면 가상 컴퓨터는 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 다른 IP 주소를 수신합니다.
+    > 
+    > 
 
-1. 도메인 컨트롤러 가상 컴퓨터에서 격리된 네트워크에서 해당 가상 컴퓨터의 테스트 장애 조치(failover)를 실행합니다. 테스트 장애 조치(failover)를 수행하려면 도메인 컨트롤러 가상 컴퓨터에서 사용 가능한 최신 응용 프로그램 일치 복구 지점을 사용합니다. 
-2. 응용 프로그램 복구 계획용 테스트 장애 조치(Failover)를 실행합니다.
-3. 테스트가 완료되면 Site Recovery 포털의 **작업** 탭에서 도메인 컨트롤러 가상 컴퓨터 및 복구 계획의 테스트 장애 조치(failover) 작업 상태를 '완료'로 표시합니다.
+1. 도메인 컨트롤러 가상 컴퓨터에서 격리된 네트워크에서 해당 가상 컴퓨터의 테스트 장애 조치(failover)를 실행합니다. 테스트 장애 조치(failover)를 수행하려면 도메인 컨트롤러 가상 컴퓨터에서 사용 가능한 최신 **응용 프로그램 일치** 복구 지점을 사용합니다. 
+1. 응용 프로그램 복구 계획용 테스트 장애 조치(Failover)를 실행합니다.
+1. 테스트가 완료되면 Site Recovery 포털의 **작업** 탭에서 도메인 컨트롤러 가상 컴퓨터 및 복구 계획의 테스트 장애 조치(failover) 작업 상태를 '완료'로 표시합니다.
+
+### <a name="removing-reference-to-other-domain-controllers"></a>다른 도메인 컨트롤러에 대한 참조 제거
+테스트 장애 조치를 수행하는 경우, 테스트 네트워크에 있는 모든 도메인 컨트롤러를 가져오지 않습니다. 프로덕션 환경에 존재하는 다른 도메인 컨트롤러에 대한 참조를 제거하려면 누락된 도메인 컨트롤러에 대해 [FSMO Active Directory 역할을 점유하고 메타데이터 정리를 수행](http://aka.ms/ad_seize_fsmo)해야 합니다. 
+
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>다른 컴퓨터에서 DNS 및 도메인 컨트롤러
 DNS가 도메인 컨트롤러와 같은 가상 컴퓨터에 없는 경우 테스트 장애 조치(failover)를 위한 DNS VM를 만들어야 합니다. DNS와 도메인 컨트롤러가 동일한 VM에 있는 경우에는 이 섹션의 작업을 건너뛸 수 있습니다.
@@ -114,6 +118,6 @@ Azure Site Recovery로 엔터프라이즈 워크로드를 보호하는 방법에
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

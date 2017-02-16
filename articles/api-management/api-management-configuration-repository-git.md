@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 
 ---
@@ -109,42 +109,58 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 원하는 폴더에서 Git 도구를 열고 게시자 포털에서 제공한 다음 명령을 실행하여 Git 리포지토리를 로컬 컴퓨터에 복제합니다.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 메시지가 표시되면 사용자 이름 및 암호를 제공합니다.
 
 오류가 발생하면 다음 예제와 같이 `git clone` 명령을 사용자 이름 및 암호를 포함하도록 수정해 보십시오.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 그래도 오류가 발생하면 명령의 암호 부분에 대해 URL 인코딩을 시도해 보십시오. 이렇게 하는 한 가지 빠른 방법은 Visual Studio를 열고 **직접 실행 창**에서 다음 명령을 실행하는 것입니다. **직접 실행 창**을 열려면 Visual Studio에서 솔루션 또는 프로젝트를 열고(또는 비어 있는 새 콘솔 응용 프로그램을 만들고) **디버그** 메뉴에서 **창**, **직접 실행**을 선택합니다.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 사용자 이름 및 리포지토리 위치와 함께 인코딩된 암호를 사용하여 Git 명령을 생성합니다.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 리포지토리가 복제된 후 로컬 파일 시스템에서 이를 보고 작업할 수 있습니다. 자세한 내용은 [로컬 Git 리포지토리의 파일 및 폴더 구조 참조](#file-and-folder-structure-reference-of-local-git-repository)를 참조하세요.
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
 게시자 포털에서 또는 REST API를 사용하여 API 관리 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이 작업을 수행하려면 게시자 포털의 **구성 리포지토리** 탭에서 **리포지토리에 구성 저장**을 클릭한 후 로컬 리포지토리에서 다음 명령을 실행합니다.
 
-    git pull
+```
+git pull
+```
 
 `git pull` 을 실행하기 전에 현재 로컬 리포지토리에 대한 폴더에 있는지 확인하십시오. `git clone` 명령을 방금 완료한 경우 다음과 같은 명령을 실행하여 디렉터리를 리포지토리로 변경해야 합니다.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면
 로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면 변경 내용을 커밋한 다음 이를 서버 리포지토리에 게시해야 합니다. 변경 내용을 커밋하려면 Git 명령 도구를 열고 로컬 리포지토리의 디렉터리로 전환한 후 다음 명령을 실행합니다.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 모든 커밋을 서버에 푸시하려면 다음 명령을 실행합니다.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>서비스 구성 변경 내용을 API 관리 서비스 인스턴스에 배포하려면
 로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API 관리 서비스 인스턴스에 배포할 수 있습니다.
@@ -190,19 +206,21 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="root-api-management-folder"></a>루트 api 관리 폴더
 루트 `api-management` 폴더에는 다음과 같은 형식의 서비스 인스턴스에 관한 최상위 정보를 포함하고 있는 `configuration.json` 파일이 포함되어 있습니다.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 처음 네 설정(`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` 및 `UserRegistrationTermsConsentRequired`)은 **보안** 섹션의 **ID** 탭에 있는 다음과 같은 설정에 매핑됩니다.
 
@@ -303,6 +321,6 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

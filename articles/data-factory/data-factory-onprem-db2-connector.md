@@ -1,5 +1,5 @@
 ---
-title: "DB2에서 데이터 이동 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 DB2에서 데이터 이동 | Microsoft Docs"
 description: "Azure 데이터 팩터리를 사용하여 DB2 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: e4c1ef1d52a3e0618bed572695b7a9f2b4b46e88
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 78adfcb8431305a94982b11586fce5d183fe35ec
 
 
 ---
@@ -291,7 +291,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## <a name="type-mapping-for-db2"></a> DB2에 대한 형식 매핑
+## <a name="type-mapping-for-db2"></a>DB2에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼, 복사 활동은 다음과 같은 2단계 방식을 사용해 소스 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
@@ -351,6 +351,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,28 +16,23 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
+ms.openlocfilehash: 23bf15555569c2c2f5ce9db1bead5da539df571d
 
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분석한 다음 Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다 
 
-> [!NOTE]
-> Windows 기반 HDInsight 클러스터(예: Python 및 Hive)와 함께 이 문서의 개별 항목을 사용할 수 있지만 이 문서의 여러 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 단계는 [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md) 을 참조하세요.
 * **Azure SQL 데이터베이스**. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 * **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하세요.
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="download-the-flight-data"></a>비행 데이터 다운로드
 1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website](영문)로 이동합니다.
@@ -215,7 +210,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
    
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         databaseName       dbo     delays      BASE TABLE
-5.  `exit` at the `1>` 를 입력하여 tsql 유틸리티를 종료합니다.
+5. `exit` at the `1>` 를 입력하여 tsql 유틸리티를 종료합니다.
 
 ## <a name="export-data-with-sqoop"></a>Sqoop으로 데이터 내보내기
 1. 다음 명령을 사용하여 Sqoop이 SQL 데이터베이스를 볼 수 있는지 확인합니다.
@@ -278,6 +273,6 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

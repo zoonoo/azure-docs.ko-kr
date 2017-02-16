@@ -1,5 +1,5 @@
 ---
-title: "Windows VM에 MongoDB 설치 | Microsoft Docs"
+title: "Azure에서 Windows VM에 MongoDB 설치 | Microsoft Docs"
 description: "Windows Server 2012 R2를 실행하는 Azure VM에 Resource Manager 배포 모델을 사용하여 만든 MongoDB를 설치하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 6f171df26ba58d01b1ad81e7ff33f9ce47f34c4c
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: 0772376d2d858b32dfdd06b64d61003388268361
 
 
 ---
@@ -47,7 +47,7 @@ MongoDB 설치 및 구성을 시작하려면 원격 데스크톱을 사용하여
      
      ![Internet Explorer 보안 설정 구성](./media/virtual-machines-windows-install-mongodb/configure-internet-explorer-security.png)
 4. [MongoDB - 다운로드](http://www.mongodb.org/downloads) 페이지(http://www.mongodb.org/downloads)로 이동합니다.
-5. 기본적으로 **커뮤니티 서버** 버전 및 Windows Server 2008 R2 64비트 이상의 안정판을 선택해야 합니다. 설치 관리자를 다운로드하려면 **다운로드(msi)**를 클릭합니다.
+5. 필요한 경우 **커뮤니티 서버** 버전을 선택한 후 Windows Server 2008 R2 64비트 이상의 안정판을 선택합니다. 설치 관리자를 다운로드하려면 **다운로드(msi)**를 클릭합니다.
    
     ![MongoDB 설치 관리자 다운로드](./media/virtual-machines-windows-install-mongodb/download-mongodb.png)
    
@@ -167,6 +167,6 @@ New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

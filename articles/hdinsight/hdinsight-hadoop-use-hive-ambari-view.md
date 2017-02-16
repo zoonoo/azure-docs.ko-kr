@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4cdc1f0a8958edd23f8df02c4d16d3f60fe648bd
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 688decb3e01b8de1f5c1047b4b9cdeff38b05552
 
 
 ---
@@ -33,6 +33,9 @@ Ambari는 Linux 기반 HDInsight 클러스터와 함께 제공되는 관리 및 
 
 ## <a name="prerequisites"></a>필수 조건
 * Linux 기반 HDInsight 클러스터입니다. 새 클러스터를 만드는 방법에 대한 정보는 [Linux 기반 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="open-the-hive-view"></a>Hive 뷰를 엽니다.
 Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 섹션에서 **Ambari 보기**를 선택하면 Ambari 보기를 볼 수 있습니다.
@@ -200,6 +203,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

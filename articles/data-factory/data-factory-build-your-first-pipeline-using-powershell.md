@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ec708440fd3ab5d18cb7482002e5432e3a5d373c
-ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 110a1a0ee760b5afe00f63443ee71c60c938ef55
 
 
 ---
@@ -42,29 +42,18 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 이 단계에서는 Azure PowerShell을 사용하여 **FirstDataFactoryPSH**라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 이 단계에서는 데이터 팩터리 만들기를 시작하겠습니다.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-   * 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
-    ```PowerShell
-    Login-AzureRmAccount
-    ```    
-   * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
-    ```PowerShell
-    Get-AzureRmSubscription 
-    ```
-   * 다음 명령을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-    ```     
+   * `Login-AzureRmAccount` 를 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
+   * `Get-AzureRmSubscription` 을 실행하여 이 계정의 모든 구독을 확인합니다.
+   * `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` 을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
 2. 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
-    
-    ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+
+        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
     이 자습서의 일부 단계에서는 ADFTutorialResourceGroup이라는 리소스 그룹을 사용한다고 가정합니다. 다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹을 사용해야 합니다.
 3. **FirstDataFactoryPSH**라는 데이터 팩터리를 만드는 **New-AzureRmDataFactory** cmdlet을 실행합니다.
 
-    ```PowerShell
-    New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
-    ```
+        New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
+
 다음 사항에 유의하세요.
 
 * Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 "FirstDataFactoryPSH"를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다.(예: yournameFirstDataFactoryPSH) 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
@@ -74,14 +63,11 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 
   * Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 공급자를 등록합니다.
 
-    ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    ```
+          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+
       데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
 
-    ```PowerShell
-    Get-AzureRmResourceProvider
-    ```
+          Get-AzureRmResourceProvider
   * Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 
 파이프라인을 만들기 전에 먼저 몇 가지 데이터 팩터리 엔터티를 만들어야 합니다. 먼저 데이터 저장소에 데이터 저장소/계산을 연결하는 연결된 서비스를 만들고 연결된 데이터 저장소에서 데이터를 나타내는 입력 및 출력 데이터 집합을 정의한 다음 이러한 데이터 집합을 사용하는 작업을 통해 파이프라인을 만듭니다.
@@ -94,35 +80,30 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 
 1. C:\ADFGetStarted 폴더에 다음과 같은 내용으로 StorageLinkedService.json이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStarted 폴더를 만듭니다.
 
-    ```json
-    {
-        "name": "StorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        {
+            "name": "StorageLinkedService",
+            "properties": {
+                "type": "AzureStorage",
+                "description": "",
+                "typeProperties": {
+                    "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+                }
             }
         }
-    }
-    ```
+
     **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../storage/storage-create-storage-account.md#manage-your-storage-account)의 저장소 액세스 키 보기, 복사 및 생성 방법 정보를 참조하세요.
 2. Azure PowerShell에서 ADFGetStarted 폴더로 전환합니다.
 3. 연결된 서비스를 만드는 **New-AzureRmDataFactoryLinkedService** cmdlet을 사용할 수 있습니다. 이 자습서에서 사용하는 이 cmdlet 및 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzureRmDataFactory**를 사용하여 **DataFactory** 개체를 가져온 다음 cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName*을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzureRmDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 
-    ```PowerShell
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
-    ```
+        $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 4. 이제 연결된 **StorageLinkedService** 서비스를 만드는 **New-AzureRmDataFactoryLinkedService** cmdlet을 실행합니다.
 
-    ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
-    ```
+        New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+
     **Get-AzureRmDataFactory** cmdlet을 실행하고 출력을 **$df** 변수에 할당하지 않은 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 다음과 같이 지정해야 합니다.
 
-    ```PowerShell
-    New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
-    ```
+        New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
+
     자습서 도중에 Azure PowerShell을 닫은 경우 자습서를 완료하려면 다음에 Azure PowerShell을 시작할 때 **Get-AzureRmDataFactory** cmdlet을 실행해야 합니다.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
@@ -130,20 +111,19 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **HDInsightOnDemandLinkedService**.json이라는 JSON 파일을 만듭니다.
 
-    ```json
-    {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "version": "3.2",
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "StorageLinkedService"
+        {
+          "name": "HDInsightOnDemandLinkedService",
+          "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+              "version": "3.2",
+              "clusterSize": 1,
+              "timeToLive": "00:30:00",
+              "linkedServiceName": "StorageLinkedService"
+            }
+          }
         }
-      }
-    }
-    ```
+
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
    | 속성 | 설명 |
@@ -163,10 +143,8 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 2. HDInsightOnDemandLinkedService라는 연결된 서비스를 만드는 **New-AzureRmDataFactoryLinkedService** cmdlet을 실행합니다.
-    
-    ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
-    ```
+
+        New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
 이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **StorageLinkedService** 를 참조합니다. 연결된 서비스는 Azure 저장소 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.
@@ -174,29 +152,28 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
 ### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **InputTable.json**이라는 JSON 파일을 만듭니다.
 
-    ```json
-    {
-        "name": "AzureBlobInput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "fileName": "input.log",
-                "folderPath": "adfgetstarted/inputdata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
+        {
+            "name": "AzureBlobInput",
+            "properties": {
+                "type": "AzureBlob",
+                "linkedServiceName": "StorageLinkedService",
+                "typeProperties": {
+                    "fileName": "input.log",
+                    "folderPath": "adfgetstarted/inputdata",
+                    "format": {
+                        "type": "TextFormat",
+                        "columnDelimiter": ","
+                    }
+                },
+                "availability": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "external": true,
+                "policy": {}
+            }
         }
-    }
-    ```
+
     JSON은 **AzureBlobInput**이라는 데이터 집합을 정의하며 이는 파이프라인의 작업에 대한 입력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
@@ -212,40 +189,37 @@ ms.openlocfilehash: 535b4ba102d8fe4d715a31dec610b8f10e04a5b7
    | external |입력 데이터가 데이터 팩터리 서비스에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. |
 2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
-    ```PowerShell
-    New-AzureRmDataFactoryDataset $df -File .\InputTable.json
-    ```
+        New-AzureRmDataFactoryDataset $df -File .\InputTable.json
+
 ### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
 Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이터 집합을 만듭니다.
 
 1. **C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **OutputTable.json**이라는 JSON 파일을 만듭니다.
 
-    ```json
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "adfgetstarted/partitioneddata",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
+        {
+          "name": "AzureBlobOutput",
+          "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+              "folderPath": "adfgetstarted/partitioneddata",
+              "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+              }
+            },
+            "availability": {
+              "frequency": "Month",
+              "interval": 1
+            }
           }
-        },
-        "availability": {
-          "frequency": "Month",
-          "interval": 1
         }
-      }
-    }
-    ```
+
     JSON은 **AzureBlobOutput**이라는 데이터 집합을 정의하고 이는 파이프라인의 작업에 대한 출력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 집합을 만듭니다.
 
-    ```PowerShell
-    New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
-    ```
+        New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
+
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **HDInsightHive** 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각이 매월(빈도: 월, 간격: 1)이고 출력 조각이 매월 생성되며 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 집합이 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON에서 사용되는 속성은 이 섹션의 끝에 설명되어 있습니다.
 
@@ -256,50 +230,49 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
    >
    >
 
-    ```json
-    {
-        "name": "MyFirstPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [
-                {
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                        "scriptLinkedService": "StorageLinkedService",
-                        "defines": {
-                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "policy": {
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Month",
-                        "interval": 1
-                    },
-                    "name": "RunSampleHiveActivity",
-                    "linkedServiceName": "HDInsightOnDemandLinkedService"
-                }
-            ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
-            "isPaused": false
+        {
+            "name": "MyFirstPipeline",
+            "properties": {
+                "description": "My first Azure Data Factory pipeline",
+                "activities": [
+                    {
+                        "type": "HDInsightHive",
+                        "typeProperties": {
+                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                            "scriptLinkedService": "StorageLinkedService",
+                            "defines": {
+                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                            }
+                        },
+                        "inputs": [
+                            {
+                                "name": "AzureBlobInput"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "AzureBlobOutput"
+                            }
+                        ],
+                        "policy": {
+                            "concurrency": 1,
+                            "retry": 3
+                        },
+                        "scheduler": {
+                            "frequency": "Month",
+                            "interval": 1
+                        },
+                        "name": "RunSampleHiveActivity",
+                        "linkedServiceName": "HDInsightOnDemandLinkedService"
+                    }
+                ],
+                "start": "2016-04-01T00:00:00Z",
+                "end": "2016-04-02T00:00:00Z",
+                "isPaused": false
+            }
         }
-    }
-    ```
+
     JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
     Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라고 하는 scriptLinkedService에 의해 지정됨)과 **adfgetstarted** 컨테이너에 있는 **스크립트** 폴더에 저장됩니다.
@@ -315,9 +288,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 2. Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** 파일이 표시되는지 확인하고 다음 명령을 실행하여 파이프라인을 배포합니다. **시작** 및 **종료** 시간이 과거에 설정되고 **isPaused**가 false로 설정되었기 때문에 파이프라인(파이프라인의 활동)은 실행을 배포한 후에 즉시 실행됩니다.
 
-    ```PowerShell
-    New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
-    ```
+       New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 3. 축하합니다. Azure PowerShell을 사용하여 첫 번째 파이프라인 만들기를 완료하였습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
@@ -325,55 +296,47 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 1. **Get-AzureRmDataFactory**를 실행하고 출력을 **$df** 변수에 할당합니다.
 
-    ```PowerShell
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
-    ```
+        $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 2. **Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 **EmpSQLTable**의 모든 조각에 대한 세부 정보를 가져옵니다.
 
-    ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
-    ```
+        Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
+
     여기에 지정하는 StartDateTime은 파이프라인 JSON에 지정된 것과 동일한 시작 시간입니다. 다음과 유사한 결과가 표시됩니다.
 
-    ```PowerShell
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : FirstDataFactoryPSH
-    DatasetName       : AzureBlobOutput
-    Start             : 4/1/2016 12:00:00 AM
-    End               : 4/2/2016 12:00:00 AM
-    RetryCount        : 0
-    State             : InProgress
-    SubState          :
-    LatencyStatus     :
-    LongRetryCount    : 0
-    ```
+        ResourceGroupName : ADFTutorialResourceGroup
+        DataFactoryName   : FirstDataFactoryPSH
+        DatasetName       : AzureBlobOutput
+        Start             : 4/1/2016 12:00:00 AM
+        End               : 4/2/2016 12:00:00 AM
+        RetryCount        : 0
+        State             : InProgress
+        SubState          :
+        LatencyStatus     :
+        LongRetryCount    : 0
 3. **Get-AzureRmDataFactoryRun** 을 실행하여 특정 조각에 대한 작업 실행의 세부 정보를 가져옵니다.
 
-    ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
-    ```
+        Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
     다음과 유사한 결과가 표시됩니다.
 
-    ```PowerShell
-    Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
-    ResourceGroupName   : ADFTutorialResourceGroup
-    DataFactoryName     : FirstDataFactoryPSH
-    DatasetName         : AzureBlobOutput
-    ProcessingStartTime : 12/18/2015 4:50:33 AM
-    ProcessingEndTime   : 12/31/9999 11:59:59 PM
-    PercentComplete     : 0
-    DataSliceStart      : 4/1/2016 12:00:00 AM
-    DataSliceEnd        : 4/2/2016 12:00:00 AM
-    Status              : AllocatingResources
-    Timestamp           : 12/18/2015 4:50:33 AM
-    RetryAttempt        : 0
-    Properties          : {}
-    ErrorMessage        :
-    ActivityName        : RunSampleHiveActivity
-    PipelineName        : MyFirstPipeline
-    Type                : Script
-    ```
+        Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
+        ResourceGroupName   : ADFTutorialResourceGroup
+        DataFactoryName     : FirstDataFactoryPSH
+        DatasetName         : AzureBlobOutput
+        ProcessingStartTime : 12/18/2015 4:50:33 AM
+        ProcessingEndTime   : 12/31/9999 11:59:59 PM
+        PercentComplete     : 0
+        DataSliceStart      : 4/1/2016 12:00:00 AM
+        DataSliceEnd        : 4/2/2016 12:00:00 AM
+        Status              : AllocatingResources
+        Timestamp           : 12/18/2015 4:50:33 AM
+        RetryAttempt        : 0
+        Properties          : {}
+        ErrorMessage        :
+        ActivityName        : RunSampleHiveActivity
+        PipelineName        : MyFirstPipeline
+        Type                : Script
+
     **준비** 상태 또는 **실패** 상태에 조각이 표시될 때가지 이 cmdlet을 계속 실행합니다. 조각이 준비 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.
 
     ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
@@ -411,6 +374,6 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

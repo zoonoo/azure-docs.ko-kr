@@ -1,5 +1,5 @@
 ---
-title: "v2.0 앱 등록 | Microsoft Docs"
+title: "포털을 사용하는 Azure AD v2.0 끝점에 응용 프로그램 등록 | Microsoft Docs"
 description: "v2.0 끝점을 사용하여 Microsoft 서비스 로그인 및 액세스를 사용하도록 설정하기 위해 Microsoft에 앱을 등록하는 방법"
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 0ca01c2ef66706502e19e5e30f878a509356c94c
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
 
 
 ---
@@ -58,6 +58,6 @@ MSA 와 Azure AD 로그인 모두를 허용하는 앱을 빌드하려면, 먼저
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

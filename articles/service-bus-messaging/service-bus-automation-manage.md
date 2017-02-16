@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/10/2017
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1912275b05948525486e4e30e2065bd7f63630cb
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 4817cda757b9f85f6225237f79293860c990ca88
 
 
 ---
@@ -31,7 +31,7 @@ Azure 자동화는 요구 사항에 맞게 크기가 조정되는 매우 안정�
 Azure 자동화에서 자동으로 실행되도록 클라우드 관리 작업을 이동하여 작업 오버헤드를 줄이고 IT 및 DevOps 직원들이 비즈니스 가치를 추가하는 작업에 집중할 수 있게 합니다.
 
 ## <a name="how-can-azure-automation-help-manage-azure-service-bus"></a>Azure 자동화를 통해 Azure 서비스 버스 관리를 간소화하는 방법
-[서비스 버스 REST API](https://msdn.microsoft.com/library/azure/mt639375.aspx)를 사용하여 Azure 자동화에서 서비스 버스를 관리할 수 있습니다. Azure 자동화 내에서 REST API를 사용하여 많은 서비스 버스 작업을 수행하는 PowerShell 스크립트를 실행할 수 있습니다. Azure 자동화에서 이러한 REST API 호출을 다른 Azure 서비스의cmdlet과 쌍을 이루어 Azure 서비스와 타사 시스템 간에 복잡한 작업을 자동화할 수도 있습니다.
+[서비스 버스 REST API](https://docs.microsoft.com/rest/api/servicebus/)를 사용하여 Azure 자동화에서 서비스 버스를 관리할 수 있습니다. Azure 자동화 내에서 REST API를 사용하여 많은 서비스 버스 작업을 수행하는 PowerShell 스크립트를 실행할 수 있습니다. Azure 자동화에서 이러한 REST API 호출을 다른 Azure 서비스의cmdlet과 쌍을 이루어 Azure 서비스와 타사 시스템 간에 복잡한 작업을 자동화할 수도 있습니다.
 
 PowerShell을 사용하여 Azure 서비스 버스를 관리하는 몇 가지 예는 다음과 같습니다.
 
@@ -45,11 +45,11 @@ PowerShell을 사용하여 Azure 서비스 버스를 관리하는 몇 가지 예
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 서비스 버스를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
 
 * Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)
-*  [PowerShell을 사용하여 서비스 버스를 관리](service-bus-powershell-how-to-provision.md)
+* [PowerShell을 사용하여 서비스 버스를 관리](service-bus-powershell-how-to-provision.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

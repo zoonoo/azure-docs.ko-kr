@@ -1,6 +1,6 @@
 ---
-title: "클라우드 서비스 FAQ | Microsoft Docs"
-description: "클라우드 서비스에 대한 질문과 대답입니다."
+title: "Azure Cloud Services 역할 FAQ | Microsoft Docs"
+description: "Azure Cloud Services에 대한 질문과 대답입니다. 인증서, 웹 역할 및 작업자 역할에 대한 몇 가지 일반적인 질문의 답변이 제공됩니다."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: f7bad9a46132dec43f73e561362c9e6441a5c1c0
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
 
 
 ---
@@ -28,9 +28,9 @@ ms.openlocfilehash: f7bad9a46132dec43f73e561362c9e6441a5c1c0
 * **내**  
   개인 키를 포함한 응용 프로그램 인증서(\*.pfx, \*.p12)
 * **CA**  
-   모든 중간 인증서를 이 저장소(정책 및 하위 CA)로 이동시킵니다.
+  모든 중간 인증서를 이 저장소(정책 및 하위 CA)로 이동시킵니다.
 * **루트**  
-   루트 CA 저장소이므로 기본 루트 CA 인증서를 여기로 이동시켜야 합니다.
+  루트 CA 저장소이므로 기본 루트 CA 인증서를 여기로 이동시켜야 합니다.
 
 ### <a name="i-cant-remove-expired-certificate"></a>만료된 인증서를 제거할 수 없습니다.
 Azure에서는 사용 중인 인증서를 제거할 수 없습니다. 인증서를 사용하는 배포를 삭제하거나 다른 또는 갱신된 인증서로 배포를 업데이트해야 합니다.
@@ -71,6 +71,6 @@ SSL 3.0을 사용하지 않도록 설정하고 TLS 보안을 사용하려면 htt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

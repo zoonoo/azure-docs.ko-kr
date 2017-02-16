@@ -1,10 +1,10 @@
 ---
-title: " 논리 앱에서 Slack 커넥터 사용 | Microsoft Docs"
-description: "Microsoft Azure 앱 서비스 논리 앱에서 Slack 커넥터를 사용을 시작"
+title: " Logic Apps에서 Slack 커넥터 사용 | Microsoft Docss"
+description: "Logic Apps에서 Slack 커넥터 사용 시작"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cacaa4a4a0089e1c3df54ae466af251026e1a55b
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 404776283ee10aa9410d002597e054757516bcab
 
 
 ---
@@ -33,7 +33,7 @@ Slack 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
 * 논리 앱 빌드
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>트리거 및 작업에 대한 정보
 Slack 커넥터를 작업으로 사용할 수 있습니다. 트리거는 없습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다. 
@@ -56,12 +56,12 @@ Slack 커넥터를 사용하려면 먼저 **연결** 을 만든 다음 이러한
 
 다음 단계를 따라 Slack에 로그인하고 논리 앱의 Slack **연결** 구성을 완료합니다.
 
-1.  **되풀이**
+1. **되풀이**
 2. **빈도**를 선택하고 **간격**을 입력합니다.
 3. **작업 추가**를 선택합니다.  
    ![Slack 구성][1]  
 4. 검색 상자에 Slack을 입력하고 이름에 Slack이 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
-5.  **Slack-메시지 게시**
+5. **Slack-메시지 게시**
 6. **Slack에 로그인**을 선택합니다.  
    ![Slack 구성][2]
 7. Slack 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다.    
@@ -109,7 +109,7 @@ Slack 커넥터를 사용하려면 먼저 **연결** 을 만든 다음 이러한
 
 - - -
 ## <a name="object-definitions"></a>개체 정의:
- **Message**: Yammer 메시지
+ **메시지**: Slack 메시지
 
 Message에 대한 필수 속성:
 
@@ -141,7 +141,7 @@ Message에 대한 필수 속성:
 | liked_by |정의되지 않음 |
 | system_message |부울 |
 
- **PostOperationRequest**: yammer에 게시할 Yammer 커넥터에 대한 게시 요청을 나타냅니다.
+ **PostOperationRequest**: Slack에 게시할 Slack 커넥터에 대한 게시 요청을 나타냅니다.
 
 PostOperationRequest에 대한 필수 속성:
 
@@ -231,7 +231,7 @@ YammmerEntity에 대한 필수 속성:
 | full_name |string |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## <a name="object-definitions"></a>개체 정의:
  **WebResultModel**: Bing 웹 검색 결과
@@ -400,7 +400,7 @@ MessageItem에 대한 필수 속성:
 | is_user-deleted |부울 |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 
@@ -411,6 +411,6 @@ MessageItem에 대한 필수 속성:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: f91f694dc8660cc55a9aa02bb4941083441d8acf
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5a0cd9ac88f30bb5f1ccba43260b86392dba6d7b
 
 
 ---
@@ -58,7 +58,7 @@ IoT Hub를 만들려면 IoT Hub의 이름을 지정해야 합니다. 이 이름�
 > 
 
 ### <a name="iot-hub-units"></a>IoT Hub 단위
-IoT Hub 단위에는 일일 특정 메시지 수가 포함됩니다. 이 허브에 대해 지원되는 총 메시지 수는 단위 수와 해당 계층에 대한 일일 메시지 수를 곱한 것입니다. 예를 들어 IoT Hub가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
+하루 단위당 허용되는 메시지의 수는 허브의 가격 책정 계층에 따라 다릅니다. 예를 들어 IoT Hub가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>클라우드 파티션 및 리소스 그룹에 대한 장치
 IoT Hub에 대한 파티션 수를 변경할 수 있습니다. 기본 파티션은 4로 설정되지만 드롭다운 목록에서 다른 파티션 수를 선택할 수 있습니다.
@@ -95,17 +95,20 @@ IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 
 
 ![][10]
 
-## <a name="messaging"></a>메시징
-**메시징** 을 클릭하여 수정할 IoT Hub에 대한 메시징 속성 목록을 표시합니다. **클라우드-장치** 및 **장치-클라우드**의 두 주요 유형의 속성을 수정하거나 복사할 수 있습니다.
+## <a name="endpoints"></a>끝점
+**끝점**을 클릭하여 수정할 IoT Hub에 대한 끝점 목록을 표시합니다. 끝점의 두 가지 주요 유형은 IoT Hub에 기본 제공된 끝점 및 끝점을 만든 후 IoT Hub에 추가한 끝점입니다.
 
-* **클라우드-장치 설정**: 이 설정에는 메시지에 대한 **클라우드-장치 TTL**(time-to-live) 및 **보존 시간**의 두 가지 하위 설정이 포함됩니다. IoT Hub를 처음 만들면 이러한 두 설정이 1시간이라는 기본값으로 생성됩니다. 이러한 값을 조정하려면 슬라이더를 사용하거나 값을 입력합니다.
-* **장치-클라우드** 설정: 이 설정에는 여러 하위 설정이 포함되며 이 중 일부는 IoT Hub가 만들어질 때 명명/할당되며 사용자 지정 가능한 기타 하위 설정으로 복사할 수만 있습니다. 이들 설정은 다음 섹션에 나열됩니다.
+### <a name="built-in-endpoints"></a>기본 제공 끝점
+두 가지 주요 기본 제공 끝점인 **클라우드-장치 피드백** 및 **이벤트**가 있습니다.
+
+* **클라우드-장치 피드백** 설정: 이 설정에는 메시지에 대한 **클라우드-장치 TTL**(time-to-live) 및 **보존 시간**의 두 가지 하위 설정이 포함됩니다. IoT Hub를 처음 만들면 이러한 두 설정이&1;시간이라는 기본값으로 생성됩니다. 이러한 값을 조정하려면 슬라이더를 사용하거나 값을 입력합니다.
+* **이벤트** 설정: 이 설정에는 여러 하위 설정이 포함되며 이 중 일부는 IoT Hub가 만들어질 때 명명/할당되며 사용자 지정 가능한 기타 하위 설정으로 복사할 수만 있습니다. 이들 설정은 다음 섹션에 나열됩니다.
 
 **파티션**: IoT Hub가 만들어질 때 이 값이 설정되고 이 설정을 통해 변경할 수 있습니다.
 
 **이벤트 허브 호환 이름 및 끝점**: IoT Hub가 만들어질 때 특정 상황에서 사용자가 액세스해야 하는 이벤트 허브가 내부적으로 만들어집니다. 이 이벤트 허브 호환 이름 및 끝점은 사용자 지정할 수 없지만 **복사** 단추를 통해 사용할 수 있습니다.
 
-**보존 시간**: 기본적으로 1일로 설정되지만 드롭다운 목록을 사용하여 다른 값으로 사용자 지정할 수 있습니다. 이 값은 클라우드-장치에 대한 유사한 설정처럼 시간 단위가 아니라 장치-클라우드에 대한 일 단위입니다.
+**보존 시간**: 기본적으로&1;일로 설정되지만 드롭다운 목록을 사용하여 다른 값으로 사용자 지정할 수 있습니다. 이 값은 클라우드-장치에 대한 유사한 설정처럼 시간 단위가 아니라 장치-클라우드에 대한 일 단위입니다.
 
 **소비자 그룹**: 소비자 그룹은 기타 응용 프로그램 또는 서비스를 IoT Hub에 연결하기 위해 데이터를 특정 방식으로 끌어오는 데 사용할 수 있는 다른 메시징 시스템과 유사한 설정입니다. 모든 IoT Hub가 기본 소비자 그룹으로 만들어집니다. 그러나 소비자 그룹을 IoT Hub에 추가 또는 삭제할 수 있습니다.
 
@@ -115,6 +118,22 @@ IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 
 > 
 
 ![][11]
+
+### <a name="custom-endpoints"></a>사용자 지정 끝점
+포털을 통해 IoT Hub에 사용자 지정 끝점을 추가할 수 있습니다. 끝점 블레이드에서 블레이드 맨 위의 **추가**를 클릭하여 **끝점 추가** 블레이드를 엽니다. 블레이드에 필요한 정보를 입력한 다음 **확인**을 클릭합니다. 사용자 지정 끝점이 기본 끝점 블레이드에 표시됩니다.
+
+![][13]
+
+[참조 - IoT Hub 끝점][lnk-devguide-endpoints]에서 사용자 지정 끝점에 대해 자세히 알아볼 수 있습니다.
+
+## <a name="routes"></a>경로
+**경로**를 클릭하여 IoT Hub가 장치를 클라우드 메시지에 디스패치하는 방법을 관리할 수 있습니다.
+
+![][14]
+
+블레이드 맨 위의 **추가**를 클릭하고 블레이드에 필요한 정보를 입력하고 **확인**을 클릭하여 IoT Hub에 추가 경로를 추가할 수 있습니다. 경로가 기본 끝점 블레이드에 표시됩니다. 경로 목록에서 클릭한 후 수정하여 경로를 편집할 수 있습니다. 경로를 사용하려면 경로 목록에서 클릭하고 활성화/비활성화 토글을 **사용 안함**으로 설정합니다. 블레이드의 맨 아래에서 **확인**을 클릭하여 변경 내용을 저장합니다.
+
+![][15]
 
 ## <a name="pricing-and-scale"></a>가격 및 크기 조정
 기존 IoT Hub의 가격 책정을 **가격 책정** 설정을 통해 변경할 수 있으며 단, 다음과 같은 예외가 적용됩니다.
@@ -148,6 +167,9 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
 [11]: ./media/iot-hub-create-through-portal/messaging-settings.png
 [12]: ./media/iot-hub-create-through-portal/pricing-error.png
+[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
+[14]: ./media/iot-hub-create-through-portal/routes-list.png
+[15]: ./media/iot-hub-create-through-portal/route-edit.png
 
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
@@ -156,9 +178,10 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
-1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop)를 참조하세요.
+1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop)를 참조하세요.
 2. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다.
    
     ![방화벽 프로그램 시작](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
@@ -96,6 +96,6 @@ SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "테스트 용이성 작업 | Microsoft Docs"
+title: "Azure 마이크로 서비스에서 시뮬레이션 실패 | Microsoft 문서"
 description: "이 문서에서는 Microsoft Azure 서비스 패브릭에서 발견되는 테스트 용이성 작업에 대해 다룹니다."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/19/2017
 ms.author: motanv;heeldin
 translationtype: Human Translation
-ms.sourcegitcommit: 1a9bec270650223cd40b3b60e5bc9fc7e212a207
-ms.openlocfilehash: 958be567a5e73eb52b6f99dee357ca97c7742677
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 4de9967b41c37bbfacf63caf0f993f625bf3c779
 
 
 ---
@@ -235,6 +235,6 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

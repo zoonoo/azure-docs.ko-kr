@@ -1,5 +1,5 @@
 ---
-title: "프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법 | Microsoft Docs"
+title: "프리미엄 Azure Redis Cache에 가상 네트워크 구성 | Microsoft Docs"
 description: "프리미엄 계층 Azure Redis Cache 인스턴스에 대한 가상 네트워크 지원을 만들고 관리하는 방법에 대해 알아봅니다."
 services: redis-cache
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: a3e1472ed737039157a4593404dce371c57906da
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 2cc95618b2edcb8d0f7c172a18156871887b8f69
 
 
 ---
@@ -56,7 +56,7 @@ VNet(가상 네트워크) 지원은 캐시를 만드는 중에 **새 Redis 캐�
 ![가상 네트워크][redis-cache-vnet-ip]
 
 > [!IMPORTANT]
-> 서브넷의 처음 4개 주소는 예약되어 있으므로 사용할 수 없습니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+> 서브넷의 처음&4;개 주소는 예약되어 있으므로 사용할 수 없습니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 > 
 > 
 
@@ -168,6 +168,6 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

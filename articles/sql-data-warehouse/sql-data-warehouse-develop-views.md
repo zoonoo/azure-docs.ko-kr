@@ -1,5 +1,5 @@
 ---
-title: "SQL Data Warehouse의 뷰 | Microsoft Docs"
+title: "Azure SQL Data Warehouse의 T-SQL 뷰 사용 | Microsoft Docs"
 description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Transact-SQL 뷰 사용을 위한 팁"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eada95920b3f539c70776964eb62ff9e4d219ddd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
 
 
 ---
@@ -66,13 +66,13 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.  따라
 * SQL 데이터 웨어하우스에 인덱싱된 뷰가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요.
+더 많은 개발 팁은 [SQL Data Warehouse 개발 개요][SQL Data Warehouse development overview]를 참조하세요.
 `CREATE VIEW` 구문에 대해서는 [CREATE VIEW][CREATE VIEW]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
@@ -81,6 +81,6 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.  따라
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

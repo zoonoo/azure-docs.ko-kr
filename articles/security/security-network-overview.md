@@ -1,6 +1,6 @@
 ---
-title: "Azure 네트워크 보안 개요 | Microsoft Docs"
-description: " 이 문서를 통해 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 훨씬 쉽게 이해할 수 있습니다. Azure에서 이러한 각 영역에서 제공해야 하는 사항에 대한 정보는 물론, 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공합니다. "
+title: "Azure의 네트워크 보안 개념 및 요구 사항 | Microsoft Docs"
+description: " 이 문서를 통해 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 훨씬 쉽게 이해할 수 있습니다. Azure에서 이러한 각 영역에서 제공해야 하는 사항에 대한 정보는 물론, 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공합니다.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f62d964dc5da9200a9f1944c00a4983e8d01b997
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
 
 
 ---
@@ -270,6 +270,6 @@ Azure 보안 센터는 다음과 같은 방법을 통해 네트워크 보안을 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

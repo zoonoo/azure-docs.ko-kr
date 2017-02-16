@@ -12,22 +12,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afcbb8ef1e8ca6b688ed556ee67f2f3d3da5bd45
+ms.sourcegitcommit: a8f597086aca67d41b23487c384d6d614bc9968a
+ms.openlocfilehash: 17c89493d83bcfbd04c9e7f617c2bb8fa1964636
 
 
 ---
 # <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
-이 문서에서는 HDInsight(Hadoop) 클러스터에서 HBase를 사용하여 Twitter의 빅 데이터를 실시간으로 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis) 하는 방법에 대해 알아봅니다.
+이 문서에서는 HDInsight(Hadoop) HBase 클러스터를 사용하여 Twitter의 빅 데이터를 실시간으로 [감정 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)하는 방법에 대해 알아봅니다.
 
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에는 다음을 수행하기 위한 콘솔 스트리밍 서비스 응용 프로그램과 ASP.NET 웹 응용 프로그램을 개발합니다.
 
 ![HDInsight HBase에서 Twitter 데이터 분석][img-app-arch]
 
 * 스트리밍 응용 프로그램
+
   * Twitter 스트리밍 API를 사용하여 실시간으로 지역 태그가 적용된 트윗 가져오기
   * 이러한 트윗의 데이터 평가
   * Microsoft HBase SDK를 사용하여 HBase에 데이터 정보 저장
@@ -633,41 +634,40 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
         *
         * Requirements:
         * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
+        * the HTML5 &lt;canvas> element, and therefore requires a browser that supports
         * this element. It has been tested on IE9, Firefox 3.6/4 and 
         * Chrome 10 browsers. If you can confirm whether it works on other browsers or
         * not, I'd love to hear from you!
-   
+        *
         * Usage:
         * The HeatMapLayer constructor requires:
         * - A reference to a map object
         * - An array or Microsoft.Maps.Location items
         * - Optional parameters to customise the appearance of the layer
         *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
-        *
         */
-   
+
         var HeatMapLayer = function (map, locations, options) {
-   
+
             /* Private Properties */
             var _map = map,
-              _canvas,
-              _temperaturemap,
-              _locations = [],
-              _viewchangestarthandler,
-              _viewchangeendhandler;
-   
+                _canvas,
+                _temperaturemap,
+                _locations = [],
+                _viewchangestarthandler,
+                _viewchangeendhandler;
+
             // Set default options
             var _options = {
                 // Opacity at the centre of each heat point
                 intensity: 0.5,
-   
+
                 // Affected radius of each heat point
                 radius: 1000,
-   
+
                 // Whether the radius is an absolute pixel value or meters
                 unit: 'meters',
-   
+
                 // Colour temperature gradient of the map
                 colourgradient: {
                     "0.00": 'rgba(255,0,255,20)',  // Magenta
@@ -676,55 +676,55 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
                     "0.75": 'rgba(255,255,0,120)', // Yellow
                     "1.00": 'rgba(255,0,0,150)'    // Red
                 },
-   
+
                 // Callback function to be fired after heatmap layer has been redrawn 
                 callback: null
             };
-   
+
             /* Private Methods */
             function _init() {
                 var _mapDiv = _map.getRootElement();
-   
+
                 if (_mapDiv.childNodes.length >= 3 && _mapDiv.childNodes[2].childNodes.length >= 2) {
                     // Create the canvas element
                     _canvas = document.createElement('canvas');
                     _canvas.style.position = 'relative';
-   
+
                     var container = document.createElement('div');
                     container.style.position = 'absolute';
                     container.style.left = '0px';
                     container.style.top = '0px';
                     container.appendChild(_canvas);
-   
+
                     _mapDiv.childNodes[2].childNodes[1].appendChild(container);
-   
+
                     // Override defaults with any options passed in the constructor
                     _setOptions(options);
-   
+
                     // Load array of location data
                     _setPoints(locations);
-   
+
                     // Create a colour gradient from the suppied colourstops
                     _temperaturemap = _createColourGradient(_options.colourgradient);
-   
+
                     // Wire up the event handler to redraw heatmap canvas
                     _viewchangestarthandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangestart', _clearHeatMap);
                     _viewchangeendhandler = Microsoft.Maps.Events.addHandler(_map, 'viewchangeend', _createHeatMap);
-   
+
                     _createHeatMap();
-   
+
                     delete _init;
                 } else {
                     setTimeout(_init, 100);
                 }
             }
-   
+
             // Resets the heat map
             function _clearHeatMap() {
                 var ctx = _canvas.getContext("2d");
                 ctx.clearRect(0, 0, _canvas.width, _canvas.height);
             }
-   
+
             // Creates a colour gradient from supplied colour stops on initialisation
             function _createColourGradient(colourstops) {
                 var ctx = document.createElement('canvas').getContext('2d');
@@ -736,7 +736,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
                 ctx.fillRect(0, 0, 256, 1);
                 return ctx.getImageData(0, 0, 256, 1).data;
             }
-   
+
             // Applies a colour gradient to the intensity map
             function _colouriseHeatMap() {
                 var ctx = _canvas.getContext("2d");
@@ -753,90 +753,90 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
                 }
                 ctx.putImageData(dat, 0, 0);
             }
-   
+
             // Sets any options passed in
             function _setOptions(options) {
                 for (attrname in options) {
                     _options[attrname] = options[attrname];
                 }
             }
-   
+
             // Sets the heatmap points from an array of Microsoft.Maps.Locations  
             function _setPoints(locations) {
                 _locations = locations;
             }
-   
+
             // Main method to draw the heatmap
             function _createHeatMap() {
                 // Ensure the canvas matches the current dimensions of the map
                 // This also has the effect of resetting the canvas
                 _canvas.height = _map.getHeight();
                 _canvas.width = _map.getWidth();
-   
+
                 _canvas.style.top = -_canvas.height / 2 + 'px';
                 _canvas.style.left = -_canvas.width / 2 + 'px';
-   
+
                 // Calculate the pixel radius of each heatpoint at the current map zoom
                 if (_options.unit == "pixels") {
                     radiusInPixel = _options.radius;
                 } else {
                     radiusInPixel = _options.radius / _map.getMetersPerPixel();
                 }
-   
+
                 var ctx = _canvas.getContext("2d");
-   
+
                 // Convert lat/long to pixel location
                 var pixlocs = _map.tryLocationToPixel(_locations, Microsoft.Maps.PixelReference.control);
                 var shadow = 'rgba(0, 0, 0, ' + _options.intensity + ')';
                 var mapWidth = 256 * Math.pow(2, _map.getZoom());
-   
+
                 // Create the Intensity Map by looping through each location
                 for (var i = 0, len = pixlocs.length; i < len; i++) {
                     var x = pixlocs[i].x;
                     var y = pixlocs[i].y;
-   
+
                     if (x < 0) {
                         x += mapWidth * Math.ceil(Math.abs(x / mapWidth));
                     }
-   
+
                     // Create radial gradient centred on this point
                     var grd = ctx.createRadialGradient(x, y, 0, x, y, radiusInPixel);
                     grd.addColorStop(0.0, shadow);
                     grd.addColorStop(1.0, 'transparent');
-   
+
                     // Draw the heatpoint onto the canvas
                     ctx.fillStyle = grd;
                     ctx.fillRect(x - radiusInPixel, y - radiusInPixel, 2 * radiusInPixel, 2 * radiusInPixel);
                 }
-   
+
                 // Apply the specified colour gradient to the intensity map
                 _colouriseHeatMap();
-   
+
                 // Call the callback function, if specified
                 if (_options.callback) {
                     _options.callback();
                 }
             }
-   
+
             /* Public Methods */
-   
+
             this.Show = function () {
                 if (_canvas) {
                     _canvas.style.display = '';
                 }
             };
-   
+
             this.Hide = function () {
                 if (_canvas) {
                     _canvas.style.display = 'none';
                 }
             };
-   
+
             // Sets options for intensity, radius, colourgradient etc.
             this.SetOptions = function (options) {
                 _setOptions(options);
             }
-   
+
             // Sets an array of Microsoft.Maps.Locations from which the heatmap is created
             this.SetPoints = function (locations) {
                 // Reset the existing heatmap layer
@@ -846,14 +846,14 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
                 // Recreate the layer
                 _createHeatMap();
             }
-   
+
             // Removes the heatmap layer from the DOM
             this.Remove = function () {
                 _canvas.parentNode.parentNode.removeChild(_canvas.parentNode);
-   
+
                 if (_viewchangestarthandler) { Microsoft.Maps.Events.removeHandler(_viewchangestarthandler); }
                 if (_viewchangeendhandler) { Microsoft.Maps.Events.removeHandler(_viewchangeendhandler); }
-   
+
                 _locations = null;
                 _temperaturemap = null;
                 _canvas = null;
@@ -861,11 +861,11 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
                 _viewchangestarthandler = null;
                 _viewchangeendhandler = null;
             }
-   
+
             // Call the initialisation routine
             _init();
         };
-   
+
         // Call the Module Loaded method
         Microsoft.Maps.moduleLoaded('HeatMapModule');
 
@@ -1141,7 +1141,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
         @{
             ViewBag.Title = "Tweet Sentiment";
         }
-   
+
         <div class="map_container">
             <div id="map_canvas"/>
         </div>
@@ -1192,14 +1192,14 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
 4. **긍정적**, **중립**, **부정적** 간을 전환하여 주제에 대한 데이터를 비교합니다.
 5. 다른 시간에 스트리밍 서비스를 실행한 다음 같은 키워드를 검색하여 결과를 비교해 봅니다.
 
-필요한 경우 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 관련 지침은 [Azure 웹 사이트 및 ASP.NET 시작][website-get-started]을 참조하세요.
+필요한 경우 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 관련 지침은 [Azure Websites 및 ASP.NET 시작][website-get-started]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 트윗을 가져와서 트윗 데이터를 분석하고 데이터를 HBase에 저장한 다음 실시간 Twitter 데이터를 Bing 지도에 표시하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 시작][hdinsight-get-started]
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
-* [HDInsight의 Hadoop에서 Twitter 데이터 분석][hdinsight-analyze-twitter-data]
+* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md) 
+* [HDInsight에서 Hadoop으로 Twitter 데이터 분석][hdinsight-analyze-twitter-data]
 * [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data]
 * [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
@@ -1230,7 +1230,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -1245,6 +1245,6 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/) 를 사용하여 요청 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

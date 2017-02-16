@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 3c406de579e3f09b521b60861230106c952f4357
+ms.sourcegitcommit: c9e736f7ce5330823f3890c669da40e2bb1ecf43
+ms.openlocfilehash: 13b69118c6732ed872bec11e880737db3b8fa3c5
 
 
 ---
@@ -159,6 +159,24 @@ DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스�
 
 함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 해당 ID의 문서가 이미 있는 경우 출력 문서는 이를 덮어씁니다. 
 
+다음 형식 중 하나를 사용하여 출력에 작성할 수 있습니다.
+
+* 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화에 유용합니다.
+  사용자 지정 출력 형식을 선언하는 경우(예: `out FooType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
+* 문자열(`out string paramName`)은 텍스트 Blob 데이터에 유용합니다. Functions 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 Blob을 생성합니다.
+
+C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
+
+* `TextWriter`
+* `Stream`
+* `CloudBlobStream`
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+여러 문서를 출력하기 위해 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
+
+
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>출력 샘플
@@ -290,6 +308,7 @@ module.exports = function (context) {
 ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

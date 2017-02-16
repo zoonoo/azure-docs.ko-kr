@@ -1,5 +1,5 @@
 ---
-title: "Azure Multi-Factor Authentication은 무엇을 의미하나요?"
+title: "2단계 인증 시작 | Microsoft Docs"
 description: "최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 12/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da55d4adaf00277a303a53a2b807ca3a28d2dbe0
+ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
+ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
 
 
 ---
@@ -32,26 +32,24 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 * **알림 또는 확인 코드를 사용하는 모바일 앱** - 모바일 앱을 사용하는 경우 응답하는 알림 받기 또는 확인 코드 받기 중에서 선택합니다.
 
 > [!NOTE]
-> IT 부서에서 위의 옵션 중 하나 이상을 사용할 수 없게 설정할 수 있습니다.  이 경우 등록 프로세스 동안 해당 옵션을 사용하지 못할 수 있습니다.
-> 
-> 
+> IT 부서에서 위의 옵션 중 하나 이상을 사용할 수 없게 설정할 수 있습니다.  이 경우 등록 프로세스 동안 해당 옵션을 사용하지 못할 수 있습니다.  
 
-이제 확인 방법을 결정했으면 등록을 할 수 있습니다.  [설치 환경](../multi-factor-authentication-end-user-first-time.md) 링크를 사용하여 등록 프로세스 진행을 시작합니다.
+이제 확인 방법을 결정했으면 등록을 할 수 있습니다.  [설치 환경](multi-factor-authentication-end-user-first-time.md) 링크를 사용하여 등록 프로세스 진행을 시작합니다.
 
 ## <a name="how-to-get-going-with-multi-factor-authentication"></a>다단계 인증을 진행하는 방법
 시작하려면 아래 항목 중 하나를 선택합니다.
 
 | 항목 | 설명 |
 |:--- |:--- |
-| [설치 환경](../multi-factor-authentication-end-user-first-time.md) |다단계 인증을 처음 설정하는 프로세스를 설명합니다. |
-| [로그인 환경](../multi-factor-authentication-end-user-signin.md) |휴대폰 또는 앱과 같은 다양한 방법을 사용하여 로그인할 때 예상되는 결과를 보여 줍니다. |
-| [설정 변경](../multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다. |
-| [앱 암호에 대한 도움말](../multi-factor-authentication-end-user-app-passwords.md) |앱 암호 만들기 및 사용에 대한 정보를 찾아보세요. |
-| [모바일 앱 사용](../multi-factor-authentication-microsoft-authenticator.md) |[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
+| [설치 환경](multi-factor-authentication-end-user-first-time.md) |다단계 인증을 처음 설정하는 프로세스를 설명합니다. |
+| [로그인 환경](multi-factor-authentication-end-user-signin.md) |휴대폰 또는 앱과 같은 다양한 방법을 사용하여 로그인할 때 예상되는 결과를 보여 줍니다. |
+| [설정 변경](multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다. |
+| [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md) |앱 암호 만들기 및 사용에 대한 정보를 찾아보세요. |
+| [모바일 앱 사용](microsoft-authenticator-app-how-to.md) |[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

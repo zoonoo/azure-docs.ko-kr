@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 
 ## <a name="prerequisites"></a>필수 조건
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
-* 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
+* 실행 중인 스트리밍 끝점이 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)
 * 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 * 이 도구를 시작하고 AMS 계정에 연결합니다.
 
@@ -47,14 +47,15 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 ## <a name="create-a-channel"></a>채널 만들기
 1. AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...** (채널 만들기...)을 선택합니다.
 
-![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-1. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. [채널 설정]에서 [Live Encoding] 옵션에 대해 **표준**을 선택하고, [입력 프로토콜]을 **RTMP**.로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
+2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. [채널 설정]에서 [Live Encoding] 옵션에 대해 **표준**을 선택하고, [입력 프로토콜]을 **RTMP**.로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
 
-**새 채널 지금 시작** 이 선택되었는지 확인합니다.
+    **새 채널 지금 시작** 이 선택되었는지 확인합니다.
 
-1. **채널 만들기**를 클릭합니다.
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. **채널 만들기**를 클릭합니다.
+
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > 채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
@@ -108,7 +109,8 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
    * 프로필: 기본
    * 키 프레임 간격: 60프레임
 
-     **오디오**
+    **오디오**
+
    * 대상 비트 전송률: 192kbps
    * 샘플 속도: 44.100kHz
 
@@ -141,9 +143,10 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 >
 
 ## <a name="test-playback"></a>테스트 재생
-1. AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생**을 가리키고 **Azure Media Player 사용**을 선택합니다.  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생**을 가리키고 **Azure Media Player 사용**을 선택합니다.  
+
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
 
@@ -157,7 +160,9 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 3. **지금 프로그램 시작** 상자를 선택합니다.
 4. **프로그램 만들기**를 클릭합니다.  
 
-    참고: 프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.    
+   >[!NOTE]
+   >프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.
+       
 5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **프로그램 재생**으로 이동한 다음 **Azure Media Player 사용**을 선택하여 재생을 확인합니다.  
 6. 확인되었으면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **출력 URL을 클립보드로 복사**를 선택하거나 메뉴의 **프로그램 정보 및 설정** 옵션에서 이 정보를 검색합니다.
 
@@ -174,6 +179,6 @@ ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

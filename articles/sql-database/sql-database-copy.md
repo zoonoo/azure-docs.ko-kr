@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 10/24/2016
 ms.author: sstein; sashan
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e6152f6539962653a582ba4921af82e4447fd76
+ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
+ms.openlocfilehash: c4f0b7eab07aa6a23bbb5489130d5cb92e18e5e2
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 3e6152f6539962653a582ba4921af82e4447fd76
 > 
 > 
 
-Azure [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md) 을 사용하여 SQL 데이터베이스의 복사본을 만들 수 있습니다. 데이터베이스 복사에는 지역에서 복제 기능과 동일한 기술이 사용됩니다. 그러나 지역에서 복제와 달리 시드 단계가 완료되면 복제 링크가 종료됩니다. 따라서 데이터베이스 복사는 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다.  
+Azure [활성 지역 복제](sql-database-geo-replication-overview.md) 기능을 사용하여 SQL Database의 복사본을 만들 수 있습니다. 그러나 지역에서 복제와 달리 시드 단계가 완료되면 복제 링크가 종료됩니다. 따라서 데이터베이스 복사는 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다.  
 동일한 서버 또는 다른 서버에 데이터베이스 복사본을 만들 수 있습니다. 데이터베이스 복사의 서버 계층과 성능 수준(가격 책정 계층)은 기본적으로 원본 데이터베이스와 동일합니다. API를 사용하는 경우 동일한 서비스 계층(버전) 내의 다양한 성능 수준을 선택할 수 있습니다. 복사 완료 후 사본은 완전히 작동하는 독립 데이터베이스입니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.  
 
 데이터베이스를 동일한 논리적 서버에 복사할 때 두 데이터베이스에서 동일한 로그인을 사용할 수 있습니다. 데이터베이스를 복사하는 데 사용하느 보안 주체는 새 데이터베이스의 데이터베이스 소유자(DBO)가 됩니다. 모든 데이터베이스 사용자, 권한 및 보안 식별자(SID)가 데이터베이스 사본에 복사됩니다.  
@@ -57,6 +58,6 @@ SQL Database를 복사하려면 다음이 필요합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "HDInsight에서 Kafka 클러스터를 만들고 사용할 때 필�
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 01/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 70d910f61fa414a0c58a22057133ef3b899dac05
+ms.sourcegitcommit: 34c1138a9c3b9313a12ffbf4bc4c3141db0a016e
+ms.openlocfilehash: 98b11144c049f9db780c7665610c83a753f23b21
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>HDInsight에서 Apache Kafka(미리 보기) 시작
@@ -71,6 +71,11 @@ ms.openlocfilehash: 70d910f61fa414a0c58a22057133ef3b899dac05
     마지막으로 **선택** 단추를 사용하여 이러한 설정을 저장합니다.
      
     ![클러스터 유형 선택](./media/hdinsight-apache-kafka-get-started/cluster-type.png)
+
+    > [!NOTE]
+    > Azure 구독에 Kafka 미리 보기에 대한 액세스 권한이 없는 경우 미리 보기 액세스 권한을 얻는 방법에 대한 지침이 표시됩니다. 표시되는 지침은 다음 이미지와 유사합니다.
+    >
+    > ![미리 보기 메시지: HDInsight에서 관리되는 Apache Kafka 클러스터를 배포하려는 경우에는 미리 보기 액세스 권한을 요청하는 전자 메일을 보내 주세요.](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
 
 4. **자격 증명**를 사용하여 클러스터 로그인 및 SSH 사용자 자격 증명을 구성합니다.  설정을 저장하려면 **선택** 단추를 사용합니다.
    
@@ -320,6 +325,6 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

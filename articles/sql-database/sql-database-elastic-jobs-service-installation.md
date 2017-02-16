@@ -8,6 +8,7 @@ author: ddove
 editor: 
 ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,19 +16,19 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56f8270666f4d132c5e07053f5a6d476878c9b5f
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
 
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>탄력적 데이터베이스 작업 설치 개요
 [**Elastic Database 작업**](sql-database-elastic-jobs-overview.md)은 Azure 클래식 포털을 통해 설치할 수 있습니다. PowerShell 패키지를 설치한 경우에만 PowerShell API를 사용하여 작업을 만들고 관리할 수 있습니다. 또한 PowerShell API는 현재 포털보다 훨씬 더 많은 기능을 제공합니다.
 
-포털을 통해 기존 **Elastic Database 풀**에서 **Elastic Database 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **탄력적 데이터베이스 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
+포털을 통해 기존 **탄력적 풀**에서 **Elastic Database 작업**을 이미 설치한 경우 최신 Powershell 미리 보기에는 기존 설치를 업그레이드하는 스크립트가 포함되어 있습니다. PowerShell API를 통해 노출된 새로운 기능을 활용하려면 최신 **탄력적 데이터베이스 작업** 구성 요소로 설치를 업그레이드하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Azure PowerShell. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 * [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe) 는 탄력적 데이터베이스 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>탄력적 데이터베이스 작업 PowerShell 패키지 다운로드 및 가져오기
@@ -146,11 +147,11 @@ ms.openlocfilehash: 56f8270666f4d132c5e07053f5a6d476878c9b5f
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>포털을 사용하여 탄력적 데이터베이스 작업 구성 요소 설치
-[탄력적 데이터베이스 풀을 만든](sql-database-elastic-pool-create-portal.md)후에 **탄력적 데이터베이스 작업** 구성 요소를 설치하여 탄력적 데이터베이스 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **탄력적 데이터베이스 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
+[탄력적 풀을 만든](sql-database-elastic-pool-create-portal.md)후에 **Elastic Database 작업** 구성 요소를 설치하여 탄력적 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **탄력적 데이터베이스 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
 
 **예상 완료 시간:** 10분
 
-1. [Azure 포털](https://portal.azure.com/#) 을 통해 탄력적 데이터베이스 풀의 대시보드 뷰에서 **작업 만들기**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/#)을 통해 탄력적 풀의 대시보드 뷰에서 **작업 만들기**를 클릭합니다.
 2. 처음으로 작업을 만드는 경우 **미리 보기 약관**을 클릭하여 **Elastic Database 작업**을 설치해야 합니다.
 3. 확인란을 클릭하여 약관에 동의합니다.
 4. "서비스 설치" 화면에서 **작업 자격 증명**을 클릭합니다.
@@ -169,7 +170,7 @@ ms.openlocfilehash: 56f8270666f4d132c5e07053f5a6d476878c9b5f
 제거해야 하는 경우 리소스 그룹을 삭제합니다. [탄력적 데이터베이스 작업 구성 요소를 제거하는 방법](sql-database-elastic-jobs-uninstall.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-스크립트 실행에 적절한 권한이 있는 자격 증명이 그룹의 각 데이터베이스에 만들어졌는지 확인합니다. 자세한 내용은 [SQL Database 보안](sql-database-security.md)을 참조하세요.
+스크립트 실행에 적절한 권한이 있는 자격 증명이 그룹의 각 데이터베이스에 만들어졌는지 확인합니다. 자세한 내용은 [SQL Database 보안](sql-database-manage-logins.md)을 참조하세요.
 시작하려면 [Elastic Database 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
 
 <!--Image references-->
@@ -180,6 +181,6 @@ ms.openlocfilehash: 56f8270666f4d132c5e07053f5a6d476878c9b5f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

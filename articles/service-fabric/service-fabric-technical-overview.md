@@ -12,16 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
+ms.sourcegitcommit: e0efcabbb876e77e5b23537ce023c30f9fd153cd
+ms.openlocfilehash: 884e43e36517c0c894b72ab6f4e8f6aadb1d9bcf
 
 
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 항목에서는 설명서에서 사용되는 용어를 이해할 수 있도록 서비스 패브릭에서 사용되는 용어에 대해 자세히 설명합니다.
+
+이 섹션에 나열된 개념은 Microsoft Virtual Academy 비디오, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">핵심 개념인</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">디자인 타임 개념</a> 및 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">런타임 개념</a>에서도 설명됩니다.
 
 ## <a name="infrastructure-concepts"></a>인프라 개념
 **클러스터**: 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.  클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
@@ -59,6 +61,8 @@ ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
 
 **구성 패키지**: 서비스 형식의 정적인 읽기 전용 구성 파일을 포함하는 디스크 디렉터리입니다(일반적으로 텍스트 파일). 서비스 형식의 `ServiceManifest.xml` 파일에서 구성 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 구성 패키지의 파일은 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 그러면 코드가 실행되기 시작하며, 이제 구성 파일에 액세스할 수 있습니다.
 
+**컨테이너**: 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 컨테이너는 응용 프로그램에서 기본 운영 체제를 가상화하는 가상화 기술입니다. 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제 구성물의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. Service Fabric은 Linux 및 Windows Server 컨테이너에서 Docker 컨테이너를 지원합니다.  자세한 내용은 [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)를 참조하세요.
+
 **파티션 구성표**: 명명된 서비스를 만들 때 파티션 구성표를 지정합니다. 많은 양의 상태가 있는 서비스는 클러스터의 노드에 분산하는 파티션에 데이터를 분할합니다. 이렇게 하면 명명된 서비스의 상태를 조정할 수 있습니다. 상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 명명된 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만을 가질 수 있습니다. 파티션 인스턴스를 가용성에 제공합니다. 인스턴스가 실패하면 다른 인스턴스는 계속 정상적으로 작동하고 서비스 패브릭은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션은 동기화 상태로 유지된 모든 상태를 가진 고유한 복제를 설정합니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
 
 자세한 내용은 [서비스 패브릭 Reliable Services 분할](service-fabric-concepts-partitioning.md) 문서를 참조하세요.
@@ -94,6 +98,6 @@ ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

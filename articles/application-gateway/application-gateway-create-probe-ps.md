@@ -4,7 +4,7 @@ description: "리소스 관리자에서 PowerShell을 사용하여 응용 프로
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: d6856256a9ab272e0620e82d140c5ec735e5eabc
 
 
 ---
@@ -27,8 +27,6 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 > * [Azure 포털](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -37,15 +35,15 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
-Login-AzureRmAccount를 사용하여 인증합니다.
+`Login-AzureRmAccount`을 사용하여 인증합니다.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 계정에 대한 구독을 확인합니다.
 
@@ -53,15 +51,15 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
-사용할 Azure 구독을 선택합니다. <BR>
+사용할 Azure 구독을 선택합니다.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
@@ -93,7 +91,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 응용 프로그램 게이트웨이를 만드는 다음 단계에 서브넷 변수를 할당합니다.
 
@@ -113,7 +111,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicI
 
 Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 **gatewayIP01**이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
@@ -192,11 +190,8 @@ $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType B
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-
 > [!NOTE]
-> **InstanceCount** 의 기본값은 2이고, 최대값은 10입니다. **GatewaySize** 의 기본값은 보통입니다. **Standard_Small**, **Standard_Medium** 및 **Standard_Large** 간에 선택할 수 있습니다.
-> 
-> 
+> **InstanceCount** 의 기본값은 2이고, 최대값은 10입니다. **GatewaySize** 의 기본값은 보통입니다. **Standard_Small**, **Standard_Medium** 및 **Standard_Large** 간에 선택할 수 있습니다. 
 
 ## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>New-AzureRmApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -256,7 +251,6 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
-
 ### <a name="step-2"></a>2단계
 
 `Remove-AzureRmApplicationGatewayProbeConfig`를 사용하여 Application Gateway에서 프로브 구성을 제거합니다.
@@ -313,11 +307,11 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
- [SSL 오프로드 구성](application-gateway-ssl-arm.md)
+[SSL 오프로드 구성](application-gateway-ssl-arm.md)을 방문하여 SSL 오프로드를 구성하는 방법을 알아봅니다.
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

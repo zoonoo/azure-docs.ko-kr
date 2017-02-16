@@ -1,5 +1,5 @@
 ---
-title: "RBAC: 기본 제공 역할 | Microsoft Docs"
+title: "Actions 및 NotActions - Azure RBAC의 역할 | Microsoft Docs"
 description: "이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 
 
 ---
@@ -28,8 +28,8 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 
 > [!NOTE]
 > Azure 역할 정의는 끊임없이 진화하고 있습니다. 이 문서는 가능한 최신 상태로 유지되지만 Azure PowerShell에서 항상 최신 역할 정의를 확인할 수 있습니다. 가능한 cmdlets `(get-azurermroledefinition "<role name>").actions` 또는 `(get-azurermroledefinition "<role name>").notactions`을(를) 사요ㅛㅇ합니다.
-> 
-> 
+>
+>
 
 | 역할 이름 | 설명 |
 | --- | --- |
@@ -555,7 +555,6 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

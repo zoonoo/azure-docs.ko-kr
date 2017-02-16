@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 12/06/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: a38f4a1742748deb11967b9f06a4726e57963d92
+ms.sourcegitcommit: 7583a1c81802bdedabdb70c125aac536b879204d
+ms.openlocfilehash: 38531c1b3cb7c7de9b832b4fbedd8991f40e3424
 
 
 ---
@@ -145,7 +145,7 @@ Azure 서비스 수준 계약은 온-프레미스 Microsoft 라이선스 계약�
 이 문제는 여러 가지 이유로 발생할 수 있습니다.
 
 * Azure를 구독한 지 30일 이내입니다.
-* 구독 형식이 무료 평가판 또는 신용 카드나 다른 결제 방법이 연결되지 않은 구성원 제안(MSDN/Open/BizSpark/DreamSpark) 중 하나입니다.
+* 구독 형식이 무료 평가판 또는 신용 카드나 다른 결제 방법이 연결되지 않은 구성원 제안(Visual Studio 구독자를 위한 월간 크레딧/Open/BizSpark/Imagine) 중 하나입니다.
 * 아직 송장 생성 날짜가 아닙니다.
 
 ### <a name="i-am-unable-to-log-in-to-the-azure-portal"></a>Azure 포털에 로그인할 수 없습니다.
@@ -180,7 +180,7 @@ Azure 지원 플랜을 온라인으로 구입할 때 첫 달에 대한 요금이
 자동 갱신을 원하지 않는 경우 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인하고 해당하는 지원 플랜을 선택한 다음 "갱신 세부 정보 변경"을 클릭하고 기본 옵션인 자동 갱신의 선택을 취소합니다.
 
 ### <a name="how-do-i-cancel-my-azure-support-plan"></a>Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?
-계정 소유자는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인한 다음 **구독**을 선택하여 Azure 지원 플랜을 취소할 수 있습니다. 구독이 있는 경우 구독 목록이 표시됩니다. 취소하려는 구독을 선택합니다. 그러면 구독 세부 정보가 표시되고 화면 오른쪽에 옵션 목록이 표시됩니다. **취소**를 선택하고 계속합니다. 구독이 없으면 “구독이 없습니다.”라는 메시지가  표시됩니다.
+계정 소유자는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인한 다음 **구독**을 선택하여 Azure 지원 플랜을 취소할 수 있습니다. 구독이 있는 경우 구독 목록이 표시됩니다. 취소하려는 구독을 선택합니다. 그러면 구독 세부 정보가 표시되고 화면 오른쪽에 옵션 목록이 표시됩니다. **취소**를 선택하고 계속합니다. 구독이 없으면 “구독이 없습니다.”라는 메시지가 표시됩니다.
 
 > [!NOTE]
 > Azure 지원 플랜 기간은 6개월이며, Microsoft는 해당 기간에 지속적인 현금 약정 금액을 요구합니다. 이 기간이 만료되기 전에 취소해도 나머지 약정이 면제되는 것은 아니며 선불 금액이 환불되지도 않습니다.
@@ -195,7 +195,7 @@ Azure 지원 플랜을 온라인으로 구입할 때 첫 달에 대한 요금이
 Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어](active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ### <a name="how-do-i-transfer-ownership-of-my-subscriptions"></a>내 구독 소유권을 양도하려면 어떻게 해야 하나요?
-이제 종량제, MSDN, Action Pack 또는 BizSpark 구독을 위해 Microsoft Azure 계정 센터에서 이를 쉽게 수행할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 소유하고 있는 종량제, MSDN, Action Pack 또는 BizSpark 구독의 계정 관리자를 변경할 수 있습니다. 받는 사람의 사용자 계정이 같은 국가에 있어야 하고 마켓플레이스 구매와 관련된 구독은 양도할 수 없습니다.
+이제 종량제, Visual Studio 구독자를 위한 월간 크레딧, Microsoft 파트너 네트워크 또는 BizSpark 구독에 대해 Microsoft Azure 계정 센터에서 쉽게 양도할 수 있습니다. 다른 사용자에게 구독을 양도하는 기능을 추가했습니다. 즉, 이제 소유하고 있는 종량제, Visual Studio 구독자를 위한 월간 크레딧, Microsoft 파트너 네트워크 또는 BizSpark 구독에 대한 계정 관리자를 변경할 수 있습니다. 받는 사람의 사용자 계정이 같은 국가에 있어야 하고 마켓플레이스 구매와 관련된 구독은 양도할 수 없습니다.
 자세한 내용은 [Azure 구독을 양도하는 방법](billing-subscription-transfer.md)문서를 참조하세요.
 
 ### <a name="can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure"></a>Azure 외부에서 구입한 내 기존 Windows 라이선스를 사용할 수 있나요?
@@ -242,14 +242,14 @@ Azure 계정 정보를 보고 편집하려면 계정 관리자로 Azure 계정 �
 Azure는 클라우드 규모의 응용 프로그램 및 서비스를 빌드하는 기업용입니다. 그러나 누구든 Azure 서비스를 구매할 수 있습니다.
 
 ### <a name="can-i-try-azure-for-free-without-any-risk-of-being-charged"></a>요금을 내지 않고 Azure를 무료로 사용해 볼 수 있나요?
-예. [지출 한도 기능](https://azure.microsoft.com/pricing/spending-limits/)을 사용하는 경우 무료 평가판, MSDN, MPN 또는 BizSpark 제품에 등록한 고객은 지출 한도 기능을 설정하는 한 요금이 부과되지 않고 Azure를 사용할 수 있습니다. 이러한 제품에 등록한 새 고객은 모두 지출 한도가 $0의 값으로 설정됩니다.
+예. [지출 한도 기능](https://azure.microsoft.com/pricing/spending-limits/)을 사용하는 경우 무료 평가판, Visual Studio 구독자를 위한 월간 크레딧, Microsoft 파트너 네트워크 또는 BizSpark 제품에 등록한 고객은 지출 한도 기능을 설정하는 한 요금이 부과되지 않고 Azure를 사용할 수 있습니다. 이러한 제품에 등록한 새 고객은 모두 지출 한도가 $0의 값으로 설정됩니다.
 
 ### <a name="can-i-turn-the-spending-limit-back-on-if-i-turn-off-it"></a>지출 한도 기능을 해제한 경우 다시 설정할 수 있나요?
-회원 혜택 제안(예: MSDN)에 등록한 고객은 지출 한도 기능을 다음 청구 주기가 시작될 때 다시 사용하도록 설정할 수 있습니다. 지출 한도 기능은 일단 끄면 현재 청구 기간에는 다시 사용하도록 설정할 수 없습니다.
+회원 혜택 제안(예: Visual Studio 구독자를 위한 월간 크레딧)의 경우 지출 한도 기능을 다음 결제 주기 시작에 다시 사용하도록 설정할 수 있습니다. 지출 한도 기능은 일단 끄면 현재 청구 기간에는 다시 사용하도록 설정할 수 없습니다.
 자세한 내용은 [Azure 지출 한도 변경](https://msdn.microsoft.com/library/azure/dn465781.aspx)을 참조하세요.
 
 ### <a name="can-i-adjust-the-amount-of-the-spending-limit"></a>지출 한도 금액을 조정할 수 있나요?
-이 기능의 초기 릴리스에서는 지출 한도가 $0로 설정되어 있으며 조정할 수 없습니다. 지출 한도 기능은 무료 평가판, MSDN, MPN 또는 BizSpark 제품을 사용하는 고객이 요금 부과 걱정 없이 Azure를 사용할 수 있게 하려는 의도로 만들어졌습니다.
+이 기능의 초기 릴리스에서는 지출 한도가 $0로 설정되어 있으며 조정할 수 없습니다. 지출 한도 기능은 무료 평가판, Visual Studio 구독자를 위한 월간 크레딧, Microsoft 파트너 네트워크 또는 BizSpark 제품을 사용하는 고객이 요금 부과 걱정 없이 Azure를 사용할 수 있게 하려는 의도로 만들어졌습니다.
 자세한 내용은 [Azure 지출 한도](https://azure.microsoft.com/pricing/spending-limits/)를 참조하세요.
 
 ### <a name="in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure"></a>Microsoft Azure가 상업적으로 제공되는 국가와 지역은 어디이며, Azure를 구매하는 데 사용할 수 있는 통화는 무엇인가요?
@@ -297,6 +297,6 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

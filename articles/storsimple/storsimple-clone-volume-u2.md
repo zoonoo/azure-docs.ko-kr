@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 볼륨 복제 | Microsoft Docs"
+title: "StorSimple 8000 시리즈 볼륨 복제 | Microsoft Docs"
 description: "다른 복제 유형 및 이를 사용하는 경우에 대해 설명하며, 백업 세트를 개별 볼륨 복제에 사용하는 방법에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/27/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 024b6bceb9eb150e60f68edf916cebacd3552af2
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
 
 
 ---
@@ -115,6 +115,6 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

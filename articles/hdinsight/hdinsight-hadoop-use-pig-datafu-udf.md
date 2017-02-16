@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: 42ef05571b77267dd2ba2522acf9bc21619f26e3
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 4ebe010ab1f3d9df8bef1a6fc2ac5c24a7d1f5ee
 
 
 ---
@@ -28,7 +28,11 @@ DataFu은 Hadoop과 함께 사용하기 위해 공개 소스 라이브러리의 
 
 * Azure 구독.
 * Azure HDInsight 클러스터(Linux 또는 Windows 기반)
-*  [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에 DataFu 설치
 
@@ -116,6 +120,6 @@ DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

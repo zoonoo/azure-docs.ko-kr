@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
+ms.openlocfilehash: 92e4094c5125d922a106c65d2cb3cd5b654856a5
 
 
 ---
@@ -283,7 +283,7 @@ Hdinsight에서 토폴로지를 실행하고 HBase bolt를 사용하도록 설�
 
 1. Azure에 로그인하고 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 단추를 클릭합니다.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
    
     ![HDInsight 매개 변수](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -499,6 +499,6 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

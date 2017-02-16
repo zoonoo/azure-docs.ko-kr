@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5041b2e4102bf8aaf72358e0812a7b045c804048
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 8650ad41d1d6ef3ee94c2792f435b84676a72d27
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 5041b2e4102bf8aaf72358e0812a7b045c804048
 ![게시자 포털][api-management-management-console]
 
 > [!NOTE]
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 > 
 > 
 
@@ -66,7 +66,7 @@ ms.openlocfilehash: 5041b2e4102bf8aaf72358e0812a7b045c804048
 
 **권한 부여 끝점 URL**을 입력합니다. Azure Active Directory의 경우 이 URL은 다음 URL과 비슷합니다. 여기서 `<client_id>`는 OAuth 2.0 서버에 대해 응용 프로그램을 식별하는 클라이언트 ID로 바뀝니다.
 
-    https://login.windows.net/<client_id>/oauth2/authorize
+`https://login.windows.net/<client_id>/oauth2/authorize`
 
 **권한 부여 요청 방법** 은 권한 부여 요청이 OAuth 2.0 서버로 전송되는 방법을 지정합니다. 기본적으로는 **GET** 이 선택됩니다.
 
@@ -76,7 +76,7 @@ ms.openlocfilehash: 5041b2e4102bf8aaf72358e0812a7b045c804048
 
 Azure Active Directory OAuth 2.0 서버의 경우 **토큰 끝점 URL**의 형식은 다음과 같습니다. `<APPID>`의 형식은 `yourapp.onmicrosoft.com`입니다.
 
-    https://login.windows.net/<APPID>/oauth2/token
+`https://login.windows.net/<APPID>/oauth2/token`
 
 **클라이언트 인증 방법**의 기본 설정은 **기본**이고 **액세스 토큰 전송 방법**의 기본 설정은 **권한 부여 헤더**입니다. 양식의 이 섹션에서 **기본 범위**와 함께 이러한 값을 구성합니다.
 
@@ -155,28 +155,28 @@ OAuth 2.0 및 API 관리 사용에 대한 자세한 내용은 다음 비디오 �
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
 
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 추가하고 게시하는 방법]: api-management-howto-add-products.md
-[모니터링 및 분석]: api-management-monitoring.md
-[제품에 API 추가]: api-management-howto-add-products.md#add-apis
-[제품 게시]: api-management-howto-add-products.md#publish-product
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API Management 정책 참조]: api-management-policy-reference.md
-[캐싱 정책]: api-management-policy-reference.md#caching-policies
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
-[필수 조건]: #prerequisites
-[API 관리에서 OAuth 2.0 권한 부여 서버 구성]: #step1
-[OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성]: #step2
-[개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트]: #step3
-[다음 단계]: #next-steps
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

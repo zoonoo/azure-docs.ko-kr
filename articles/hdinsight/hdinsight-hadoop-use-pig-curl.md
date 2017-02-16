@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 476af10550075cde145a9cf2153330f063ad17b3
 
 
 ---
@@ -37,6 +37,10 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터(Linux 기반 또는 Windows 기반)
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -127,6 +131,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

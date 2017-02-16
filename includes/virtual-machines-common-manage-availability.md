@@ -44,17 +44,17 @@ VM 내의 VHD(가상 하드 디스크)에서 사용한 저장소 계정과 관�
 
 1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
 2. 저장소 계정에 더 많은 VHD를 추가하는 경우 **저장소 계정 [제한](../articles/storage/storage-scalability-targets.md)을 고려해야 합니다.**
-3. **가용성 집합의 각 VM마다 별도의 저장소 계정을 사용합니다.** 동일한 가용성 집합의 여러 VM은 동일한 저장소 계정을 공유하지 않아야 합니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에 대해 저장소 계정을 공유할 수 있습니다.
+3. **각 가용성 집합에 여러 저장소 계정을 사용합니다.** 가용성 집합의 각 VM에 별도 저장소 계정을 사용합니다. 동일한 가용성 집합의 여러 VM은 동일한 저장소 계정을 공유하지 않아야 합니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에 대해 저장소 계정을 공유할 수 있습니다.
 
 <!-- Link references -->
 [중복성을 위해 가용성 집합에서 여러 가상 컴퓨터 구성]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
 [가용성 집합과 부하 분산 장치 결합]: #combine-a-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
+[가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]: #avoid-single-instance-virtual-machines-in-availability-sets
 [각 가용성 집합에 여러 저장소 계정 사용]: #use-multiple-storage-accounts-for-each-availability-set
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

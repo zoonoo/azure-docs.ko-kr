@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/28/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7851ea4ce3278cb74095b8683141681fd604d4b0
+ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
+ms.openlocfilehash: b2d8575d37994da6aa3a55d292d84cda12e88371
 
 
 ---
@@ -38,20 +38,20 @@ ms.openlocfilehash: 7851ea4ce3278cb74095b8683141681fd604d4b0
 * [앱 서비스의 개요](../app-service/app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
 
 ## <a name="adding-conditional-logic"></a>조건부 논리 추가
-원래 흐름이 제대로 작동해도 향상시킬 수 있는 일부 영역이 있습니다. 
+원래 흐름이 제대로 작동해도 향상시킬 수 있는 일부 영역이 있습니다.
 
 ### <a name="conditional"></a>조건부
-이 논리 앱에서는 많은 전자 메일을 받을 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 제공된 경우에만 메일을 받도록 하는 논리를 추가합니다. 
+이 논리 앱에서는 많은 전자 메일을 받을 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 제공된 경우에만 메일을 받도록 하는 논리를 추가합니다.
 
 1. 더하기를 클릭하고 Twitter에 대한 *Get User* 작업을 찾습니다.
 2. Twitter 사용자에 대한 정보를 가져오기 위해 트리거에서 **Tweeted by** 필드를 전달합니다.
-   
+
     ![Get User](./media/app-service-logic-use-logic-app-features/getuser.png)
 3. 더하기를 다시 클릭하되 이번에는 **Add Condition**
 4. 첫 번째 상자에서 **Get User** 아래의 **...**를 클릭하여 **Followers count** 필드를 찾습니다.
 5. 드롭다운에서 **Greater than**
 6. 두 번째 상자에서 원하는 사용자의 팔로워 수를 입력합니다.
-   
+
     ![조건부](./media/app-service-logic-use-logic-app-features/conditional.png)
 7. 마지막으로 전자 메일 상자를 **If Yes** 상자로 끌어 놓습니다. 그러면 팔로워 수가 충족되는 경우에만 전자 메일이 제공됩니다.
 
@@ -59,16 +59,16 @@ ms.openlocfilehash: 7851ea4ce3278cb74095b8683141681fd604d4b0
 forEach 루프는 작업을 반복하는 배열을 지정합니다. 배열이 아닌 경우 흐름이 실패합니다. 예를 들어 메시지의 배열을 출력하는 동작1이 있고 각 메시지를 전송하려는 경우 이 forEach 문을 작업의 속성에서 포함할 수 있습니다: forEach : "@action('action1').outputs.messages"
 
 ## <a name="using-the-code-view-to-edit-a-logic-app"></a>코드 보기를 사용하여 논리 앱 편집
-디자이너 외에도 논리 앱을 정의하는 코드를 다음과 같이 직접 편집할 수 있습니다. 
+디자이너 외에도 논리 앱을 정의하는 코드를 다음과 같이 직접 편집할 수 있습니다.
 
-1. 명령 모음에서 **코드 보기** 단추를 클릭합니다. 
-   
+1. 명령 모음에서 **코드 보기** 단추를 클릭합니다.
+
     방금 편집한 정의를 표시하는 전체 편집기가 열립니다.
-   
+
     ![코드 보기](./media/app-service-logic-use-logic-app-features/codeview.png)
-   
+
     텍스트 편집기를 사용하여 동일한 논리 앱 내에서 또는 논리 앱 간에 작업을 개수 제한 없이 복사 및 붙여넣을 수 있습니다. 정의에서 전체 섹션을 쉽게 추가하거나 제거하고 정의를 다른 사람들과 공유할 수도 있습니다.
-2. 코드 보기에서 변경한 후 **저장**을 클릭하기만 하면 됩니다. 
+2. 코드 보기에서 변경한 후 **저장**을 클릭하기만 하면 됩니다.
 
 ### <a name="parameters"></a>매개 변수
 코드 보기에서만 사용할 수 있는 논리 앱의 몇 가지 기능이 있습니다. 한 가지 예로 매개 변수가 있습니다. 매개 변수를 통해 논리 앱 전체에서 쉽게 값을 다시 사용할 수 있습니다. 예를 들어 여러 작업에서 사용할 메일 주소가 있는 경우 해당 주소를 매개 변수로 정의해야 합니다.
@@ -76,13 +76,13 @@ forEach 루프는 작업을 반복하는 배열을 지정합니다. 배열이 �
 다음 단계에서는 쿼리 용어에 매개 변수를 사용하도록 기존 논리 앱을 업데이트합니다.
 
 1. 코드 보기에서 `parameters : {}` 개체를 찾아 다음 topic 개체를 삽입합니다.
-   
+
         "topic" : {
             "type" : "string",
             "defaultValue" : "MicrosoftAzure"
         }
 2. `twitterconnector` 동작으로 스크롤하고 쿼리 값을 찾은 다음 `#@{parameters('topic')}`으로 바꿉니다.
-    **concat** 함수를 사용하여 둘 이상의 문자열을 함께 조인할 수 있습니다. 예를 들어 `@concat('#',parameters('topic'))`는 위의 동일합니다 
+    **concat** 함수를 사용하여 둘 이상의 문자열을 함께 조인할 수 있습니다. 예를 들어 `@concat('#',parameters('topic'))`는 위의 동일합니다
 
 매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](https://msdn.microsoft.com/library/mt643787.aspx)를 참조하세요.
 
@@ -97,13 +97,13 @@ forEach 루프는 작업을 반복하는 배열을 지정합니다. 배열이 �
 되풀이 트리거는 지정한 간격마다 실행됩니다. 트리거에 조건부 논리가 있을 경우 트리거가 워크플로를 실행할지 여부를 결정합니다. 트리거는 `200` 상태 코드를 반환하여 워크플로를 실행하도록 지정합니다. 실행할 필요가 없는 경우 `202` 상태 코드를 반환합니다.
 
 ### <a name="callback-using-rest-apis"></a>REST API를 사용한 콜백
-서비스에서 논리 앱 끝점을 호출하여 워크플로를 시작할 수 있습니다. 자세한 내용은 [호출 가능 끝점인 논리 앱](app-service-logic-connector-http.md) 을 참조하세요. 요청 시 이러한 종류의 논리 앱을 시작하려면 명령 모음에서 **지금 실행** 단추를 클릭합니다. 
+서비스에서 논리 앱 끝점을 호출하여 워크플로를 시작할 수 있습니다. 자세한 내용은 [호출 가능 끝점인 논리 앱](app-service-logic-http-endpoint.md) 을 참조하세요. 요청 시 이러한 종류의 논리 앱을 시작하려면 명령 모음에서 **지금 실행** 단추를 클릭합니다. 
 
 <!-- Shared links -->
-[Azure 포털]: https://portal.azure.com 
+[Azure 포털]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

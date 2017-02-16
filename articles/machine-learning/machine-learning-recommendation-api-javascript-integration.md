@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53a57ed45276e793dab16a3b62dd1477339e5331
+ms.sourcegitcommit: dc07007eec860e0ad7342a4926c6797341719c5b
+ms.openlocfilehash: 20791d5729a65497b5f76f929bf331906ac65818
 
 
 ---
@@ -76,10 +76,10 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
          if (typeof AzureMLRecommendationsEvent=="undefined") {         
                      AzureMLRecommendationsEvent = []; } AzureMLRecommendationsEvent.push({ event: "click", item: "18321116" });   </script>
 
-### <a name="31-limitations-and-browser-support"></a>3.1.    제한 사항 및 브라우저 지원
+### <a name="31----limitations-and-browser-support"></a>3.1.    제한 사항 및 브라우저 지원
 참조 구현이며, 있는 그대로 제공됩니다. 모든 주요 브라우저를 지원합니다.
 
-### <a name="32-type-of-events"></a>3.2.    이벤트 형식
+### <a name="32----type-of-events"></a>3.2.    이벤트 형식
 라이브러리에서 지원하는 5가지 이벤트 형식은 Click, Recommendation Click, Add to Shop Cart, Remove from Shop Cart 및 Purchase입니다. 사용자 컨텍스트를 설정하는 데 사용되는 Login이라는 추가 이벤트가 있습니다.
 
 #### <a name="321-click-event"></a>3.2.1. Click 이벤트
@@ -235,6 +235,6 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

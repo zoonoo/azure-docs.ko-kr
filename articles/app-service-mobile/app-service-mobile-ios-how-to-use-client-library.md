@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 388d733b52d32d77fa441c4045d4bce863c41866
-ms.openlocfilehash: 7558c41cbc9cde6748e1706a095598ea03e9ab6a
+ms.sourcegitcommit: 614038da2384b3efa48cd46ade347392ffef9d44
+ms.openlocfilehash: 2cb7b5aff47a81ae53d1ce68426b085eba4c96fc
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 7558c41cbc9cde6748e1706a095598ea03e9ab6a
 이 가이드에서는 최신 [Azure Mobile Apps iOS SDK][1]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure 모바일 앱을 처음 접하는 경우 먼저 [Azure 모바일 앱 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 서버 쪽 SDK에 대한 자세한 내용은 서버 SDK 사용 방법을 참조하세요.
 
 ## <a name="reference-documentation"></a>참조 설명서
-iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps iOS 클라이언트 참조][2]를 참조하세요.
+iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps iOS 클라이언트 참조][2](영문)에 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 iOS SDK는 iOS 버전 8.0 이상을 위한 Objective-C 프로젝트, Swift 2.2 프로젝트 및 Swift 2.3 프로젝트를 지원합니다.
@@ -423,7 +423,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 ## <a name="a-namecustomapiahow-to-call-custom-api"></a><a name="customapi"></a>방법: 사용자 지정 API 호출
 사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다. 백 엔드에서 사용자 지정 API를 만드는 방법에 대한 자세한 내용은 [사용자 지정 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용하려면 [`invokeAPI`][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
+사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용하려면 [의 다른 오버로드를 사용`invokeAPI`][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
 
 **Objective-C**:
 
@@ -497,12 +497,12 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-보안을 위해 요청에서 모든 태그가 제거됩니다.  설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure Mobile Apps][4]을 참조하세요.  등록된 이러한 템플릿을 활용하여 알림을 보내려면 [Notification Hubs API][3]로 작업합니다.
+보안을 위해 요청에서 모든 태그가 제거됩니다.  설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용][4]을 참조하세요.  이러한 등록된 템플릿을 사용하여 알림을 보내려면 [Notification Hubs API][3]로 작업하세요.
 
 ## <a name="a-nameerrorsahow-to-handle-errors"></a><a name="errors"></a>방법: 오류 처리
 Azure App Service 모바일 백 엔드를 호출할 때 완료 블록에 `NSError` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 앞의 코드 조각에서 보여준 것처럼, 코드에서 이 매개 변수를 확인하고 필요한 경우 오류를 처리해야 합니다.
 
-파일 [`<WindowsAzureMobileServices/MSError.h>`][6]은 상수 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey`을(를) 정의합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
+[`<WindowsAzureMobileServices/MSError.h>`][6] 파일은 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey` 상수를 정의합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
 
 **Objective-C**:
 
@@ -533,7 +533,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="a-nameadalahow-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>방법: Active Directory 인증 라이브러리를 사용하여 사용자 인증
 Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. ID 공급자 SDK를 사용하는 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. [Active Directory 로그인에 앱 서비스를 구성하는 방법][7] 자습서에 따라 AAD 로그인을 위한 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
+1. [Active Directory 로그인에 App Service를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
 2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음 정의를 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -615,8 +615,8 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 ## <a name="a-namefacebook-sdkahow-to-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>방법: iOS용 Facebook SDK를 사용하여 사용자 인증
 Facebook을 사용하여 응용 프로그램에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다.  클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. [Facebook 로그인을 위해 App Service를 구성하는 방법][9] 자습서에 따라 Facebook 로그인을 위한 모바일 앱 백 엔드를 구성합니다.
-2. [iOS용 Facebook SDK -시작 설명서][10]를 따라 iOS용 Facebook SDK를 설치합니다. 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
+1. [Facebook 로그인에 App Service를 구성하는 방법][9] 자습서를 수행하여 Facebook 로그인에 모바일 앱 백 엔드를 구성합니다.
+2. [iOS용 Facebook SDK - 시작][10] 설명서에 따라 iOS용 Facebook SDK를 설치합니다. 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
 3. Facebook의 설명서는 앱 대리자에서 일부 Objective-C 코드를 포함합니다. **Swift**를 사용 중인 경우 AppDelegate.swift에 다음 번역을 사용할 수 있습니다.
 
         // Add the following import to your bridging header:
@@ -818,54 +818,54 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
 
 <!-- Anchors. -->
 
-[Mobile Services의 정의]: #what-is
-[개념]: #concepts
-[설정 및 필수 조건]: #Setup
-[방법: 모바일 서비스 클라이언트 만들기]: #create-client
-[방법: 테이블 참조 만들기]: #table-reference
-[방법: 모바일 서비스에서 데이터 쿼리]: #querying
-[반환된 데이터 필터링]: #filtering
-[반환된 데이터 정렬]: #sorting
-[페이지에서 데이터 반환]: #paging
-[특정 열 선택]: #selecting
-[방법: 사용자 인터페이스에 데이터 바인딩]: #binding
-[방법: 모바일 서비스에 데이터 삽입]: #inserting
-[방법: 모바일 서비스의 데이터 수정]: #modifying
-[방법: 사용자 인증]: #authentication
-[인증 토큰 캐시]: #caching-tokens
-[방법: 이미지 및 큰 파일 업로드]: #blobs
-[방법: 오류 처리]: #errors
-[방법: 설계 단위 테스트]: #unit-testing
-[방법: 클라이언트 사용자 지정]: #customizing
-[요청 헤더 사용자 지정]: #custom-headers
-[데이터 형식 serialization 사용자 지정]: #custom-serialization
-[다음 단계]: #next-steps
-[방법: MSQuery 사용]: #query-object
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
+[Next Steps]: #next-steps
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Azure 모바일 앱 빠른 시작]: app-service-mobile-ios-get-started.md
 
-[기존 앱에 Mobile Services 추가]: /develop/mobile/tutorials/get-started-data
-[Mobile Services 시작]: /develop/mobile/tutorials/get-started-ios
-[Mobile Services에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[인증]: /develop/mobile/tutorials/get-started-with-users-ios
+[Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 
-[만료된 토큰 처리]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[권한]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[서비스 쪽 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
-[스크립트를 사용하여 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [동적 스키마]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[방법: 사용자 지정 매개 변수 액세스]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[테이블 만들기]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary 개체]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Mobile Services 테이블 관리를 위한 CLI]: ../virtual-machines-command-line-tools.md#Mobile_Tables
-[충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [패브릭 대시보드]: https://www.fabric.io/home
 [iOS용 Fabric - 시작]: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -882,6 +882,6 @@ Google 로그인을 사용하여 응용 프로그램에 사용자를 로그인�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

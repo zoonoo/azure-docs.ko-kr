@@ -1,5 +1,5 @@
 ---
-title: "리소스 그룹 지침 | Microsoft Docs"
+title: "Azure 리소스 그룹 지침 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 리소스 그룹을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c915429f5dc631a4498b6e3224a4bdff36d5407
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 0d7c84d811b37a16e018f0915d3a0fde5183653f
 
 
 ---
@@ -57,6 +57,6 @@ Azure에서 저장소 계정, 가상 네트워크 및 가상 컴퓨터(VM)와 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

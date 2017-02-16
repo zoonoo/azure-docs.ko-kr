@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+ms.sourcegitcommit: 24143b6866c4393b18636669b5b4281a0d18c3d1
+ms.openlocfilehash: 64e8c8b284f21320601208c798d354df2496274c
 
 
 ---
@@ -419,7 +419,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 ## <a name="data-source-reference-specification"></a>데이터 원본 참조 사양
 > [!NOTE]
 > 다음 테이블의 "DSL 구조" 열에는 Azure Data Catalog에 사용되는 "address" 속성 모음에 대한 연결 속성만 나열됩니다.("address" 속성 모음은 Azure Data Catalog에서 유지하는 데이터 원본의 다른 연결 속성을 포함할 수 있지만, 사용하지는 않습니다.)
-> 
+>
 > <table>
 > <tr>
 > <td><b>원본 유형</b></td>
@@ -1169,11 +1169,10 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 > <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table> 
+> </table>>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

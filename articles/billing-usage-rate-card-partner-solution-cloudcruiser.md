@@ -4,7 +4,7 @@ description: "경험으로 해당 제품에 Azure 청구 API를 통합하여 Mic
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 09/08/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;sirishap;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: fc40c33c7ae28adcd2975e89c395db4cfde90a49
 
 
 ---
@@ -49,7 +49,7 @@ RateCard API는 Azure에서 환율 정보를 제공합니다. 적절한 자격 �
 
 이 사용 사례를 설명하기 위해 Microsoft Azure 팩(WAP)을 실행하는 여러 인스턴스의 워크로드를 가정합니다. Azure에서 이 같은 워크로드를 시뮬레이션하고 이러한 마이그레이션을 수행하는 비용을 추정하는 것이 목표입니다. 이 시뮬레이션을 만들기 위해 두 주요 작업을 수행합니다.
 
-1. **RateCard API에서 수집한 서비스 정보 가져오기 및 처리하기.**  이 작업은 RateCard API에서 추출한 내용이 새 요금제로 변환되고 게시되는 워크북에서도 수행됩니다. 이 새 요금제는 Azure 가격을 추정하는 시뮬레이션에 사용됩니다.
+1. **RateCard API에서 수집한 서비스 정보 가져오기 및 처리하기.** 이 작업은 RateCard API에서 추출한 내용이 새 요금제로 변환되고 게시되는 워크북에서도 수행됩니다. 이 새 요금제는 Azure 가격을 추정하는 시뮬레이션에 사용됩니다.
 2. **IaaS에 대한 WAP 서비스 및 Azure 서비스 정규화.** Azure 서비스가 인스턴스 크기(A0, A1, A2 등)에 기반한 반면 WAP 서비스는 기본적으로 개별 리소스(CPU, 메모리 크기, 디스크 크기 등)에 기반합니다. 이 첫 번째 작업은 Cloud Cruiser ETL 엔진이라는 호출된 워크북에 의해 수행되고 이러한 리소스를 Azure 인스턴스 서비스와 비슷한 인스턴스 크기로 묶을 수 있습니다.
 
 ### <a name="import-data-from-the-ratecard-api"></a>RateCard API에서 데이터 가져오기
@@ -57,15 +57,15 @@ RateCard API는 Azure에서 환율 정보를 제공합니다. 적절한 자격 �
 
 각 워크북은 하나 또는 여러 컬렉션을 가질 수 있으며, 이를 통해 사용 데이터를 보완하거나 보강하도록 다양한 소스의 정보를 상호 연결하여 할 수 있습니다. 다음 두 개의 스크린샷은, 기존 워크북에서 새 *컬렉션*을 만들고 RateCard API의 *컬렉션*으로 정보를 가져오는 방법을 보여 줍니다.
 
-![그림 1-새 컬렉션 만들기][1]
+![그림 1 - 새 컬렉션 만들기][1]
 
-![그림 2-새 컬렉션에서 데이터 가져오기][2]
+![그림 2 - 새 컬렉션에서 데이터 가져오기][2]
 
 워크북에 데이터를 가져온 후 데이터를 수정하고 모델화하여 여러 단계 및 변환 프로세스를 만들 수 있습니다. 이 예제에서 IaaS(Infrastructure-as-a-Service)에 관심이 있으므로 IaaS가 아닌 다른 서비스와 관련된 불필요한 행 또는 레코드를 제거하는 변환 단계를 사용합니다.
 
 아래 스크린샷은 RateCard API에서 수집된 데이터를 처리하는 데 사용되는 변환 단계를 보여줍니다.
 
-![그림 3-RateCard API에서 수집된 데이터를 처리하는 변환 단계][3]
+![그림 3 - RateCard API에서 수집된 데이터를 처리하는 변환 단계][3]
 
 ### <a name="defining-new-services-and-rate-plans"></a>새로운 서비스 및 요금제 정의
 Cloud Cruiser에서 서비스를 정의하는 여러 가지 방법이 있습니다. 옵션 중 하나는 사용 데이터에서 서비스를 가져오는 것입니다. 이 메서드는 공급자가 서비스를 이미 정의한 경우에 공용 클라우드로 작업할 때 일반적으로 사용됩니다.
@@ -76,29 +76,29 @@ Cloud Cruiser에서 서비스를 정의하는 여러 가지 방법이 있습니�
 
 변환 프로세스가 끝날 때 새 단계를 만들고 새 서비스 및 요금으로 RateCard API에서 데이터를 게시할 수 있습니다.
 
-![그림 4-새 서비스 및 요금 RateCard API에 데이터 게시][4]
+![그림 4 - 새 서비스 및 요금 RateCard API에 데이터 게시][4]
 
 ### <a name="verify-azure-services-and-rates"></a>Azure 서비스 및 요금 확인
 서비스 및 요금을 게시한 후 Cloud Cruiser의 *서비스* 탭에서 가져온 서비스의 목록을 확인할 수 있습니다.
 
-![그림 5-새로운 서비스 확인][5]
+![그림 5 - 새로운 서비스 확인][5]
 
 *요금제* 탭에서 RateCard API에서 가져온 새 요금으로 "AzureSimulation"이라 불리는 새 요금제를 확인할 수 있습니다.
 
-![그림 6-새 요금제와 연결된 요금 확인][6]
+![그림 6 - 새 요금제와 연결된 요금 확인][6]
 
 ### <a name="normalize-wap-and-azure-services"></a>WAP 및 Azure 서비스 표준화
 기본적으로 WAP은 계산, 메모리 및 네트워크 리소스의 사용에 기반하여 사용 정보를 제공합니다. Cloud Cruiser에서 할당 또는 이러한 리소스의 요금제 사용에 직접 기반하여 서비스를 정의할 수 있습니다 예를 들어 CPU 사용의 각 시간 당 기본 요금을 설정하거나 인스턴스에 할당된 메모리의 GB에 비용을 청구할 수 있습니다.
 
 이 예제에서 WAP와 Azure 간의 비용을 비교하기 위해 WAP의 리소스 사용을 번들로 집계한 다음 Azure 서비스에 매핑할 수 있습니다. 이 변환은 워크북에서 쉽게 구현할 수 있습니다.
 
-![그림 7-서비스를 정규화하는 WAP 데이터 변환][7]
+![그림 7 - 서비스를 정규화하는 WAP 데이터 변환][7]
 
 워크북에서 마지막 단계는 Cloud Cruiser 데이터베이스로 데이터를 게시하는 것입니다. 이 단계 동안 사용 데이터는 이제 서비스에 번들되고(Azure 서비스에 매핑) 요금을 만들어 기본 요금을 연결됩니다.
 
 워크북을 마친 후 Scheduler에서 작업을 추가하고 실행할 워크북에 대한 시간 및 빈도를 지정하여 데이터 처리를 자동화할 수 있습니다.
 
-![그림 8- 워크북 예약][8]
+![그림 8 - 워크북 예약][8]
 
 ### <a name="create-reports-for-workload-cost-simulation-analysis"></a>워크로드 비용 시뮬레이션 분석에 대한 보고서 만들기
 사용량이 수집되고 Cloud Cruiser 데이터베이스에 요금이 로드된 후에, 원하는 워크로드 비용 시뮬레이션을 만들도록 Cloud Cruiser Insights 모듈을 활용할 수 있습니다.
@@ -140,7 +140,7 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 
 아래는 태그가 연결된 샘플 리소스 그룹을 보여주는 스크린샷입니다.
 
-![그림 11 - Azure 포털의 태그가 연결된 리소스 그룹][11]
+![그림 11 - Azure 포털의 태그가 연결된 리소스 그룹l][11]
 
 다음 단계는 사용량 API에서 클라우드 크루저로 정보를 가져오는 것입니다. 현재 사용량 API는 JSON 형식으로 응답을 제공합니다. 다음은 검색되는 데이터 샘플입니다.
 
@@ -209,15 +209,15 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 
 <!--Image references-->
 
-[1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "그림 1 - 새 컬렉션 만들기"
-[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "그림 2 - 새 컬렉션에서 데이터 가져오기"
-[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "그림 3 - RateCard API에서 수집된 데이터를 처리하는 변환 단계"
-[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "그림 4 - 새 서비스 및 요금 RateCard API에 데이터 게시"
-[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "그림 5 - 새로운 서비스 확인"
-[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "그림 6 - 새 요금제와 연결된 요금 확인"
-[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "그림 7 - 서비스를 정규화하는 WAP 데이터 변환"
-[8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "그림 8 - 워크북 예약"
-[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "그림 9 - 워크로드 비용 비교 시나리오에 대한 예제 보고서"
+[1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "그림 1-새 컬렉션 만들기"
+[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "그림 2-새 컬렉션에서 데이터 가져오기"
+[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "그림 3-RateCard API에서 수집된 데이터를 처리하는 변환 단계"
+[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "그림 4-새 서비스 및 요금 RateCard API에 데이터 게시"
+[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "그림 5-새로운 서비스 확인"
+[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "그림 6-새 요금제와 연결된 요금 확인"
+[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "그림 7-서비스를 정규화하는 WAP 데이터 변환"
+[8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "그림 8- 워크북 예약"
+[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "그림 9- 워크로드 비용 비교 시나리오에 대한 예제 보고서"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "그림 10 - 태그를 사용하는 명세 포함 보고서"
 [11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "그림 11 - Azure 포털의 태그가 연결된 리소스 그룹"
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "그림 12 - UsageAPI 시트로 가져온 사용량 API 데이터"
@@ -226,6 +226,6 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

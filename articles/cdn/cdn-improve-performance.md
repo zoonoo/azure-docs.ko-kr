@@ -3,7 +3,7 @@ title: "Azure CDN에서 파일을 압축하여 성능 향상 | Microsoft Docs"
 description: "Azure CDN에서 파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시키는 방법을 알아봅니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1ec71ac6e7054619d21ee22ec801d11519ced67b
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 
 
 ---
-# <a name="improve-performance-by-compressing-files"></a>파일을 압축하여 성능 향상
+# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공합니다.
 
 압축을 사용하도록 설정하는 방법은 두 가지입니다.
@@ -29,7 +29,7 @@ ms.openlocfilehash: 1ec71ac6e7054619d21ee22ec801d11519ced67b
 * CDN 에지 서버에서 직접 압축을 사용하도록 설정할 수 있으며, 이런 경우 CDN이 파일을 압축하여(원본 서버에 의해 압축되지 않더라도) 최종 사용자에게 제공합니다.
 
 > [!IMPORTANT]
-> CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다.   <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다.   <b>Verizon의 Azure CDN</b> 프로필의 경우, 변경 내용이 일반적으로 90분 내에 적용됩니다.  CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다렸다가 문제 해결을 시도하는 것이 좋습니다.
+> CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다.  <b>Akamai의 Azure CDN</b> 프로필의 경우, 일반적으로&1;분 이내에 전파가 완료됩니다.  <b>Verizon의 Azure CDN</b> 프로필의 경우, 변경 내용이 일반적으로 90분 내에 적용됩니다.  CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다렸다가 문제 해결을 시도하는 것이 좋습니다.
 > 
 > 
 
@@ -138,6 +138,6 @@ ms.openlocfilehash: 1ec71ac6e7054619d21ee22ec801d11519ced67b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

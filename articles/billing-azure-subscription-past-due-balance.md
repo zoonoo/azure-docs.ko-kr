@@ -1,5 +1,5 @@
 ---
-title: "Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하십니까| Microsoft Docs"
+title: "Azure의 미지불금액 전자 메일 | Microsoft Docs"
 description: "Azure 구독에 미지불금액이 있는 경우 결제 방법에 대해 설명합니다."
 services: 
 documentationcenter: 
@@ -13,21 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/24/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7eabdc787322b64dca77022d1f36cc403e3f0a29
+ms.sourcegitcommit: c5a8d378802dfdc0e0a764399f5bb6655e174619
+ms.openlocfilehash: b9f0bdac445c37090bc82218950624b4336c88f0
 
 
 ---
 # <a name="why-have-you-received-a-notification-that-your-azure-subscription-has-a-past-due-balance"></a>Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하십니까?
-Azure 구독의 계정 관리자이고, 정해진 기한에 결제하지 않으면 미지불액에 대한 통보를 메일로 받게 되거나 [https://account.windowsazure.com](https://account.windowsazure.com)이나 [https://portal.azure.com](https://portal.azure.com)에 경고가 표시됩니다.
-
-> [!NOTE]
-> 이 문서에서 언제든지 도움말이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-> 
-> 
+Azure 구독의 계정 관리자이고, 정해진 기한에 결제하지 않으면 미지불액에 대한 통보를 메일로 받게 되거나 [Azure 계정 센터](https://account.windowsazure.com) 또는 [Azure Portal](https://portal.azure.com)에 경고가 표시됩니다.
 
 어떤 이유로 지불을 처리할 수 없는 경우 다음과 유사한 메시지가 포함된 메일을 받을 수 있습니다.
 
@@ -51,15 +46,13 @@ Azure에서 지불 방식 변경에 대한 지침은 [Azure 구독 지불에 사
 
 > [!NOTE]
 > Azure 구독이 사용하지 않도록 설정되면 이 문서의 [Azure 구독을 사용하지 않도록 설정할 경우 어떻게 해야 하나요?](billing-subscription-become-disable.md)
-> 
-> [!NOTE]
-> 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하여 문제를 신속하게 해결하세요.
-> 
-> 
+>
+
+## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

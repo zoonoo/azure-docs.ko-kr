@@ -1,5 +1,5 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제 | Microsoft Docs"
+title: "클래식 포털에서 Azure에 VMware VM 및 물리적 서버 복제 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery를 배포하여 온-프레미스 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하는 방법에 대해 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 70ccb773b70f1b58f039ea5f4aca488d91fa3dad
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: e794f44cbf0b5e76c8a67e6e63129efb12090df8
 
 
 ---
@@ -250,7 +250,7 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 >
 
 
->[!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. **빠른 시작** 페이지에서 통합 설치 파일을 서버로 다운로드합니다.
@@ -335,7 +335,7 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 * /ProxySettingsFilePath. 선택 사항입니다. 사용자 지정 프록시(인증이 필요한 서버의 기본 프록시 또는 사용자 지정 프록시)에 대한 설정 지정
 
 ## <a name="step-6-set-up-credentials-for-the-vcenter-server"></a>6단계: vCenter Server에 대한 자격 증명 설정
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -377,7 +377,7 @@ VMware VM을 복제하는 경우 vCenter Server(또는 ESXi 호스트)를 추가
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## <a name="step-8-create-a-protection-group"></a>8단계: 보호 그룹 만들기
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -582,14 +582,14 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
      * 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 탭을 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 머신 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다.
        * 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
        * 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
-       * 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.
+       * 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가&4;를 지원하는 경우, 대상 컴퓨터에는&2;개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는&1;개의 어댑터만 있어야 합니다.
      * 가상 컴퓨터에 여러 네트워크가 있는 경우 모든 어댑터는 동일한 Azure 네트워크에 연결되어야 합니다.
    * **Azure 네트워크**: 장애 조치(failover) 후 Azure VM이 연결될 Azure 네트워크를 지정해야 합니다. 지정하지 않으면 Azure VM은 네트워크에 연결되지 않습니다. 또한 Azure에서 온-프레미스 사이트로 장애 복구(failback)하려면 Azure 네트워크를 지정해야 합니다. 장애 복구(failback)를 위해서는 Azure 네트워크와 온-프레미스 네트워크 간의 VPN 연결이 필요합니다.
    * **Azure IP 주소/서브넷**: 각 네트워크 어댑터에 대해 Azure VM을 연결할 서브넷을 선택합니다. 다음 사항에 유의하세요.
      * 원본 컴퓨터의 네트워크 어댑터가 고정 IP 주소를 사용하도록 구성된 경우 Azure VM의 고정 IP 주소를 지정할 수 있습니다. 고정 IP 주소를 제공하지 않으면 사용 가능한 모든 IP 주소가 할당됩니다. 대상 IP 주소가 지정되었지만 Azure의 다른 VM이 해당 주소를 이미 사용 중인 경우 장애 조치가 실패합니다. 원본 컴퓨터의 네트워크 어댑터가 DHCP를 사용하도록 구성된 경우 Azure에 대한 설정으로 DHCP를 포함합니다.
 
 ## <a name="step-12-create-a-recovery-plan-and-run-a-failover"></a>12단계: 복구 계획 만들기 및 장애 조치 실행
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 
@@ -637,7 +637,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
     ![가상 컴퓨터 추가](./media/site-recovery-vmware-to-azure-classic/test-failover3.png)
 4. 또한 장애 조치(failover)가 완료된 후 Azure portal > **가상 컴퓨터**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. Azure VM에 대한 RDP 연결을 시작하려는 경우 VM 끝점에 포트 3389를 열어야 합니다.
 5. 완료된 후 장애 조치가 테스트 완료 단계에 도달하면 테스트 완료를 클릭하여 마칩니다. 참고에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다.
-6. **테스트 장애 조치가 완료됨** 을 클릭하면 테스트 환경이 자동으로 정리됩니다. 이 작업이 완료되면 테스트 장애 조치(failover)가 **완료** 상태를 표시합니다. 테스트 장애 조치 중에 자동으로 생성된 모든 요소 또는 VM이 삭제됩니다. 테스트 장애 조치가 2주 이상 지속된다면 강제로 완료됩니다.
+6. **테스트 장애 조치가 완료됨** 을 클릭하면 테스트 환경이 자동으로 정리됩니다. 이 작업이 완료되면 테스트 장애 조치(failover)가 **완료** 상태를 표시합니다. 테스트 장애 조치 중에 자동으로 생성된 모든 요소 또는 VM이 삭제됩니다. 테스트 장애 조치가&2;주 이상 지속된다면 강제로 완료됩니다.
 
 ### <a name="run-an-unplanned-failover"></a>계획되지 않은 장애 조치 실행
 계획되지 않은 장애 조치가 Azure에서 시작되며 기본 사이트를 사용할 수 없는 경우에도 수행할 수 있습니다.
@@ -722,6 +722,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

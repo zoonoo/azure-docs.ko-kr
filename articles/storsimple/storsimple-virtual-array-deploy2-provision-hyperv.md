@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 배포 - Hyper-V에서 프로비전 | Microsoft Docs"
+title: "Hyper-V에서 StorSimple Virtual Array 프로비전 | Microsoft Docs"
 description: "StorSimple 가상 배열 배포에 대한 두 번째 자습서에는 Hyper-V에서 가상 배열을 프로비전하는 내용이 포함됩니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
@@ -217,6 +217,6 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 및 Linux VM 저장소 | Microsoft Docs"
+title: "Azure Linux VM 및 Azure Storage | Microsoft Docs"
 description: "Linux 가상 컴퓨터와 Azure Standard 및 Premium Storage를 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/04/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+ms.sourcegitcommit: a3dc017811cb891bc82b072e13e58b3af047a490
+ms.openlocfilehash: e74ede9b3132ff4b4c3e67e614b9996f56856ebc
 
 
 ---
@@ -68,7 +68,7 @@ Premium Storage 기능은 다음과 같습니다.
 
 * Premium Storage 디스크: Azure Premium Storage는DS, DSv2 또는 GS 시리즈 Azure VM에 연결할 수 있는 VM 디스크를 지원합니다.
 * 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
-* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다.
+* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본&3;개를 유지합니다.
 * [Premium Storage](../storage/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>프리미엄 저장소 지원 VM
@@ -119,10 +119,10 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 * RA-GRS(읽기 액세스 지역 중복 저장소)
 
 ### <a name="locally-redundant-storage"></a>로컬 중복 저장소
-로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한 3개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
+로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한&3;개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
 
 ### <a name="zone-redundant-storage"></a>영역 중복 저장소
-영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐 2~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
+영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐&2;~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
 
 ### <a name="geo-redundant-storage"></a>지역 중복 저장소
 지역 중복 저장소(GRS)는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터를 복제합니다. 저장소 계정에서 GRS를 활성화하면, 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해이더라도 데이터는 지속됩니다.
@@ -186,6 +186,6 @@ SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

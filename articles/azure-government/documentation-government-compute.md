@@ -1,23 +1,22 @@
 ---
 title: "Azure Government 계산 | Microsoft 문서"
 description: "Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
-ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
+ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 
 
 ---
@@ -26,16 +25,18 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 이 서비스와 사용 방법에 대한 자세한 정보는 [Azure Virtual Machines 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="variations"></a>변형
-다음 VM Sku는 Azure Government에서 일반 공급(GA)됩니다.
+제품(VM)는 Azure Government에서 사용할 수 있습니다.
 
-| VM SKU | 미국 정부 VA | 미국 정부 IA | 참고 사항 |
-| --- | --- | --- | --- |
-| 문자열(UTF-8 형식) 또는 |GA |GA |없음 |
-| Dv1 |GA |- |없음 |
-| DSv1 |GA |- |없음 |
-| Dv2 |GA |GA |15 출시 예정 |
-| F |GA |GA |없음 |
-| G |계획 |- |없음 |
+| 제품(VM) | 미국 정부 VA | 미국 정부 IA |
+| --- | --- | --- |
+| A0-A7 |Y |Y |
+| D 시리즈 |Y |N |
+| Dv2 시리즈 |Y |Y |
+| DS 시리즈 |Y |N |
+| F 시리즈 |Y |Y |
+| FS 시리즈 |N |N |
+| G 시리즈 |Y |N |
+| GS 시리즈 |Y |N |
 
 ### <a name="data-considerations"></a>데이터 고려 사항
 다음 정보는 Azure 가상 컴퓨터에 대한 Azure Government 경계를 식별합니다.
@@ -50,6 +51,6 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

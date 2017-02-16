@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
+ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
+ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
 
 ---
 
@@ -34,7 +34,7 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
 
 1. 데이터 소스 만들기
    * `type` 매개 변수를 `azuretable`로 설정합니다.
-   * 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다.
+   * 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다. 저장소 계정 블레이드 > **설정** > **키** (클래식 저장소 계정) 또는 **설정** > **액세스 키** (ARM 저장소 계정)로 이동하여 Azure Portal에서 연결 문자열을 가져올 수 있습니다. 현재 Azure Search에서는 공유 액세스 서명 자격 증명을 지원하지 않습니다. SAS를 사용하려는 경우 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc)에 투표하십시오.
    * `container.name` 매개 변수를 사용하여 테이블 이름을 지정합니다.
    * 필요에 따라 `container.query` 매개 변수를 사용하여 쿼리를 지정합니다. 가능한 경우 최상의 성능을 위해 PartitionKey에서 필터를 사용합니다. 다른 쿼리를 사용하면 전체 테이블이 검색되므로 테이블이 큰 경우 성능이 저하될 수 있습니다.
 2. 인덱싱하려는 테이블의 열에 해당하는 스키마로 검색 인덱스를 만듭니다.
@@ -48,7 +48,7 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
@@ -123,6 +123,6 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

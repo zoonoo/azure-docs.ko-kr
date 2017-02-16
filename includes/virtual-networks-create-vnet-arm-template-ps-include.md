@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>PowerShell을 사용하여 ARM 템플릿 배포
 PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../articles/powershell-install-configure.md) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 필요한 경우 **`New-AzureRmResourceGroup`** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 아래 명령은 *미국 중부* Azure 지역에서 *TestRG*라는 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/azure-resource-manager/resource-group-overview.md)를 참조하세요.
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
@@ -87,6 +87,6 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
                               }
                             ]
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

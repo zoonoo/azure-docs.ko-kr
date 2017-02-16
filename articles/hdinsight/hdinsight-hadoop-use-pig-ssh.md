@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6a03b5ce95d2bcdf0bd7b3007acedb1e030a379
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 271a15d258177c98ad72be007c20ae278df6236b
 
 
 ---
@@ -30,13 +30,16 @@ Pig Latin 프로그래밍 언어를 사용하면 원하는 출력을 생성하�
 
 > [!NOTE]
 > 이미 익숙한 Linux 기반 Hadoop 서버를 사용하지만 HDInsight는 처음인 경우 [Linux 기반 HDInsight 팁](hdinsight-hadoop-linux-information.md)을 참조하세요.
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Linux 기반 HDInsight(HDInsight의 Hadoop) 클러스터
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
@@ -150,6 +153,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

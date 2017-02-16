@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: 3e53aa3ed3c1612c76aec349e4dabfc064842cb9
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 477c766afbfaccd70313e73e5d2ec5873c12d105
 
 
 ---
@@ -35,6 +35,10 @@ ms.openlocfilehash: 3e53aa3ed3c1612c76aec349e4dabfc064842cb9
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Linux 기반 HDInsight(HDInsight의 Hadoop) 클러스터
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * SSH 클라이언트. Linux, Unix 및 Mac 운영 체제는 SSH 클라이언트와 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
@@ -116,6 +120,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

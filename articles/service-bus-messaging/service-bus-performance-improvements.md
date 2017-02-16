@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/25/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5402481a0adc27474f7ddd9b5be1d71dc2c91d44
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
 
 
 ---
@@ -89,7 +89,7 @@ AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 �
 ## <a name="client-side-batching"></a>클라이언트 쪽 일괄 처리
 클라이언트 쪽 일괄 처리에서는 큐 또는 토픽 클라이언트가 일정 시간 동안 메시지 전송을 연기할 수 있습니다. 클라이언트가 이 기간 동안 추가 메시지를 보내면 메시지를 단일 배치로 전송합니다. 또한 클라이언트 쪽 일괄 처리에서는 또한 큐/구독 클라이언트가 여러 **완료** 요청을 단일 요청으로 일괄 처리합니다. 일괄 처리는 비동기 **전송** 및 **완료** 작업에만 사용할 수 있습니다. 동기 작업은 서비스 버스 서비스에 즉시 보내집니다. 일괄 처리는 보기 또는 수신 작업에 대해 발생하지 않으며 클라이언트 전반에서도 발생하지 않습니다.
 
-배치가 최대 메시지 크기를 초과할 경우 마지막 메시지가 배치에서 제거되고 클라이언트가 배치를 즉시 보냅니다. 마지막 메시지는 다음 배치의 첫 번째 메시지가 됩니다. 기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
+기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
 
 일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예:
 
@@ -140,7 +140,7 @@ namespaceManager.CreateTopic(td);
 손실되어서는 안 되는 중요 정보가 포함된 메시지를 명시적 엔터티로 보낼 경우 발신기는 [ForcePersistence][ForcePersistence] 속성을 **true**로 설정하여 Service Bus가 메시지를 안정적 저장소에 즉시 기록하여 유지하도록 할 수 있습니다.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>분할된 큐 또는 토픽 사용
-Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][분할된 메시징 엔터티]를 참조하세요.
+Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
 ```
 // Create partitioned queue.
@@ -152,7 +152,7 @@ namespaceManager.CreateQueue(qd);
 ## <a name="use-of-multiple-queues"></a>여러 큐 사용
 분할된 큐 또는 토픽을 사용할 수 없거나 분할된 단일 큐 또는 토픽으로 예상 부하를 처리할 수 없을 경우 여러 메시징 엔터티를 사용해야 합니다. 여러 엔터티를 사용할 때는 모든 엔터티에 동일한 클라이언트를 사용하는 대신 각 엔터티의 전용 클라이언트를 만듭니다.
 
-## <a name="development-testing-features"></a>개발 및 테스트 기능
+## <a name="development--testing-features"></a>개발 및 테스트 기능
 Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되는** 개발에 사용되는 한 가지 기능이 있습니다.
 
 [TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
@@ -241,7 +241,7 @@ Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되�
 * 프리페치 수를 초당 예상 수신 속도의 20배로 설정합니다. 이렇게 하면 서비스 버스 클라이언트 프로토콜 전송 횟수가 줄어듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][분할된 메시징 엔터티]를 참조하세요.
+Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
 [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
 [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -254,10 +254,10 @@ Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 
 [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
 [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
 [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-[분할된 메시징 엔터티]: service-bus-partitioning.md
+[Partitioned messaging entities]: service-bus-partitioning.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

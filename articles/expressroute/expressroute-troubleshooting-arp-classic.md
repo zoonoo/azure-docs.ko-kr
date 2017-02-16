@@ -1,5 +1,5 @@
 ---
-title: "ExpressRoute 문제 해결 가이드: ARP 테이블 가져오기 | Microsoft 문서"
+title: "ARP 테이블 가져오기: 클래식: Azure ExpressRoute 문제 해결 | Microsoft Docs"
 description: "이 페이지에서는 Express 경로 회로의 ARP 테이블을 가져오는 방법을 제공합니다."
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
 
 
 ---
-# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Express 경로 문제 해결 가이드: 클래식 배포 모델에서 ARP 테이블 가져오기
+# <a name="getting-arp-tables-in-the-classic-deployment-model"></a>클래식 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - 클래식](expressroute-troubleshooting-arp-classic.md)
@@ -172,6 +172,6 @@ ARP 테이블은 계층 2 구성의 유효성을 검사하고 기본적인 계�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

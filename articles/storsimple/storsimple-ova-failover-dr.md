@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 가상 배열에 대한 재해 복구 및 장치 장애 조치(failover)"
+title: "StorSimple Virtual Array에 대한 재해 복구 및 장치 장애 조치| Microsoft Docs"
 description: "StorSimple 가상 배열 장애 조치 방법에 대해 자세히 알아봅니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2017fcdc7a5c36c7c00d8bcef5be973ed60e3f82
 
 
 ---
@@ -125,7 +125,7 @@ DR이 성공적으로 완료된 후에는, 원본 장치에 있는 클라우드 
 
 이 동영상은 StorSimple 온-프레미스 가상 장치를 또 다른 가상 장치에 장애 조치하는 방법을 보여줍니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 
@@ -153,6 +153,6 @@ DR이 시작된 후와 장치 복원이 완료되기 전에 클라우드 연결�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

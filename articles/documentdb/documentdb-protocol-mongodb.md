@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/16/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0703fa4f4d3eb9f23aa9b3c0b90267fac9557f13
-ms.openlocfilehash: 876fff6a63ccf1a3c10a6852927c60b454436954
+ms.sourcegitcommit: 2de367287a4bee05694070dbeeb4d4a458d47f11
+ms.openlocfilehash: 38d811a7a08a6f8a6dd07a29e9a49bb34810ee91
 
 
 ---
@@ -33,6 +33,12 @@ ms.openlocfilehash: 876fff6a63ccf1a3c10a6852927c60b454436954
 **엔터프라이즈급** - DocumentDB는 로컬 및 하위 지역 장애에 대비하여 99.99%의 가용성 및 데이터 보호 기능을 제공하는 다중 로컬 복제본을 지원합니다. DocumentDB에는 엔터프라이즈 급 [규정 준수 인증서](https://www.microsoft.com/trustcenter) 및 보안 기능이 있습니다. 
 
 **MongoDB 호환성** - MongoDB에 대한 DocumentDB 프로토콜 지원은 MongoDB와 호환되도록 설계되었습니다. 기존 코드, 응용 프로그램, 드라이버 및 도구를 사용하여 DocumentDB 작업을 수행할 수 있습니다. 
+
+Scott Hanselman과 DocumentDB 수석 엔지니어링 관리자 Kirill Gavrylyuk이 진행하는 이 Azure Friday 비디오를 통해 자세한 내용을 알아보세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
+> 
+
 
 ## <a name="how-to-get-started"></a>시작하는 방법
 [Azure Portal](https://portal.azure.com)에서 MongoDB에 대한 프로토콜을 지원하는 DocumentDB 계정을 만들고 새 계정에 연결합니다. 
@@ -50,6 +56,6 @@ ms.openlocfilehash: 876fff6a63ccf1a3c10a6852927c60b454436954
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

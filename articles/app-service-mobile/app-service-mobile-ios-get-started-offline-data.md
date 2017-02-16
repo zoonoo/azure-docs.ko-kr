@@ -1,6 +1,6 @@
 ---
 title: "Azure 모바일 앱(iOS)용 오프라인 동기화 사용"
-description: "앱 서비스 모바일 앱을 사용하여 iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
+description: "App Service Mobile Apps를 사용하여 iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
 documentationcenter: ios
 author: ysxu
 manager: yochayk
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c213f8f4f8de6f16efe70ac3332ccbc8c428b85b
+ms.sourcegitcommit: f9f5fd28db7babfe400aeb55ba1df9ac5d8d535b
+ms.openlocfilehash: 7aee0f60d331f40514f41c20e09fa2c9d9a21233
 
 
 ---
@@ -38,98 +38,92 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 1. **QSTodoService.m** (Objective-C) 또는 **ToDoTableViewController.swift** (Swift)에서 `syncTable` 멤버 형식은 `MSSyncTable`입니다. 오프라인 동기화에서는 `MSTable`대신 이 동기화 테이블 인터페이스를 사용합니다. 동기화 테이블을 사용하면 모든 작업이 로컬 저장소로 이동하고 명시적 푸시 및 끌어오기 작업이 있는 원격 백 엔드와만 동기화됩니다.
    
     동기화 테이블에 대한 참조를 얻으려면 `MSClient`에서 `syncTableWithName` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 `tableWithName` 을(를) 사용합니다.
+    
 2. 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 관련 코드는 다음과 같습니다. 
    
-    **Objective-C**:
+   **Objective-C**:
+
+   `QSTodoService.init` 메서드:
+   ```objc
+   MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
+   self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+   ```    
+   **Swift**:
+
+   `ToDoTableViewController.viewDidLoad` 메서드:
+   ```swift
+   let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
+   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+   self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
+   client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
+   ```
+   이 코드는 모바일 앱 SDK에 제공된 `MSCoreDataStore`인터페이스를 사용하여 로컬 저장소를 만듭니다. `MSSyncContextDataSource` 프로토콜을 구현하여 다른 로컬 저장소를 대신 제공할 수 있습니다. 또한 `MSSyncContext` 의 첫 번째 매개 변수는 충돌 처리기를 지정하는 데 사용됩니다. 여기서는 `nil`을 전달했으므로 충돌 발생 시 작업을 중단하는 기본 충돌 처리기를 얻게 됩니다.
+
+3. 이제 실제 동기화 작업을 수행하여 원격 백 엔드에서 데이터를 가져와 보겠습니다.
    
-    `QSTodoService.init` 메서드:
+   **Objective-C**:
 
-            MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
-            self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+   `syncData`는 새 변경 내용을 푸시한 다음 `pullData`를 호출하여 원격 백 엔드에서 데이터를 가져옵니다. 그러면 `pullData` 메서드는 쿼리와 일치하는 새 데이터를 가져옵니다.
+   ```objc
+   -(void)syncData:(QSCompletionBlock)completion
+   {
+       // push all changes in the sync context, then pull new data
+       [self.client.syncContext pushWithCompletion:^(NSError *error) {
+           [self logErrorIfNotNil:error];
+           [self pullData:completion];
+       }];
+   }
 
+   -(void)pullData:(QSCompletionBlock)completion
+   {
+       MSQuery *query = [self.syncTable query];
 
-    **Swift**:
+       // Pulls data from the remote server into the local table.
+       // We're pulling all items and filtering in the view
+       // query ID is used for incremental sync
+       [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+           [self logErrorIfNotNil:error];
 
-    `ToDoTableViewController.viewDidLoad` 메서드:
+           // Let the caller know that we have finished
+           if (completion != nil) {
+               dispatch_async(dispatch_get_main_queue(), completion);
+           }
+       }];
+   }
+   ```
+   **Swift**:
+   ```swift
+   func onRefresh(sender: UIRefreshControl!) {
+      UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
+      self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
+          (error) -> Void in
 
-            let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
-            let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
-            self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
-            client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
+          UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
+          if error != nil {
+              // A real application would handle various errors like network conditions,
+              // server conflicts, etc via the MSSyncContextDelegate
+              print("Error: \(error!.description)")
 
-    이 코드는 모바일 앱 SDK에 제공된 `MSCoreDataStore`인터페이스를 사용하여 로컬 저장소를 만듭니다. `MSSyncContextDataSource` 프로토콜을 구현하여 다른 로컬 저장소를 대신 제공할 수 있습니다. 
-
-    또한 `MSSyncContext` 의 첫 번째 매개 변수는 충돌 처리기를 지정하는 데 사용됩니다. 여기서는 `nil`을 전달했으므로 충돌 발생 시 작업을 중단하는 기본 충돌 처리기를 얻게 됩니다.
-
-1. 이제 실제 동기화 작업을 수행하여 원격 백 엔드에서 데이터를 가져와 보겠습니다.
-   
-    **Objective-C**:
-   
-    `syncData`는 새 변경 내용을 푸시한 다음 `pullData`를 호출하여 원격 백 엔드에서 데이터를 가져옵니다. 그러면 `pullData` 메서드는 쿼리와 일치하는 새 데이터를 가져옵니다.
-
-            -(void)syncData:(QSCompletionBlock)completion
-            {
-                // push all changes in the sync context, then pull new data
-                [self.client.syncContext pushWithCompletion:^(NSError *error) {
-                    [self logErrorIfNotNil:error];
-                    [self pullData:completion];
-                }];
-            }
-
-            -(void)pullData:(QSCompletionBlock)completion
-            {
-                MSQuery *query = [self.syncTable query];
-
-                // Pulls data from the remote server into the local table.
-                // We're pulling all items and filtering in the view
-                // query ID is used for incremental sync
-                [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
-                    [self logErrorIfNotNil:error];
-
-                    // Let the caller know that we have finished
-                    if (completion != nil) {
-                        dispatch_async(dispatch_get_main_queue(), completion);
-                    }
-                }];
-            }
-
-
-      **Swift**:
-
-
-        func onRefresh(sender: UIRefreshControl!) {
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-
-            self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
-                (error) -> Void in
-
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-
-                if error != nil {
-                    // A real application would handle various errors like network conditions,
-                    // server conflicts, etc via the MSSyncContextDelegate
-                    print("Error: \(error!.description)")
-
-                    // We will just discard our changes and keep the servers copy for simplicity
-                    if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
-                        for opError in opErrors {
-                            print("Attempted operation to item \(opError.itemId)")
-                            if (opError.operation == .Insert || opError.operation == .Delete) {
-                                print("Insert/Delete, failed discarding changes")
-                                opError.cancelOperationAndDiscardItemWithCompletion(nil)
-                            } else {
-                                print("Update failed, reverting to server's copy")
-                                opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
-                            }
-                        }
-                    }
-                }
-                self.refreshControl?.endRefreshing()
-            }
-        } 
-
+              // We will just discard our changes and keep the servers copy for simplicity
+              if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
+                  for opError in opErrors {
+                      print("Attempted operation to item \(opError.itemId)")
+                      if (opError.operation == .Insert || opError.operation == .Delete) {
+                          print("Insert/Delete, failed discarding changes")
+                          opError.cancelOperationAndDiscardItemWithCompletion(nil)
+                      } else {
+                          print("Update failed, reverting to server's copy")
+                          opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
+                      }
+                  }
+              }
+          }
+          self.refreshControl?.endRefreshing()
+      }
+   } 
+   ```
 
     Objective-C 버전의 `syncData`에서 먼저 동기화 컨텍스트에 대해 `pushWithCompletion`을 호출합니다. 이 메서드는 모든 테이블에서 변경 내용을 푸시하므로 동기화 테이블 자체가 아닌 `MSSyncContext`의 멤버입니다. CUD 작업을 통해 로컬에서 수정된 레코드만 서버에 전송됩니다. 그런 다음 `pullData` 도우미가 호출됩니다. 이 도우미는 `MSSyncTable.pullWithQuery`를 호출하여 원격 데이터를 검색하고 로컬 데이터베이스에 저장합니다.
 
@@ -146,7 +140,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 ## <a name="a-namereview-core-dataareview-the-core-data-model"></a><a name="review-core-data"></a>핵심 데이터 모델 검토
 핵심 데이터 오프라인 저장소를 사용하는 경우 데이터 모델에서 특정 테이블 및 필드를 정의해야 합니다. 샘플 앱에는 이미 올바른 형식의 데이터 모델이 포함되어 있습니다. 이 섹션에서는 이러한 테이블 및 사용 방법을 알아봅니다.
 
-* **QSDataModel.xcdatamodeld**를 엽니다. SDK에서 사용되는 3개의 테이블과 이 할 일 항목 자체에 사용되는 1개의 테이블 등 모두 4개의 테이블이 정의되어 있습니다.
+* **QSDataModel.xcdatamodeld**를 엽니다. SDK에서 사용되는&3;개의 테이블과 이 할 일 항목 자체에 사용되는&1;개의 테이블 등 모두&4;개의 테이블이 정의되어 있습니다.
   * MS_TableOperations: 서버와 동기화해야 하는 항목 추적
   * MS_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류를 추적
   * MS_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
@@ -214,43 +208,44 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
 1. **QSTodoListViewController.m**에서 **viewDidLoad** 메서드가 끝날 때 `[self refresh]` 호출을 제거하도록 이 메서드를 변경합니다. 이제 데이터가 앱 시작 시에는 서버와 동기화되지 않고 대신 로컬 저장소의 내용이 됩니다.
 2. **QSTodoService.m**에서 항목이 삽입된 후에 동기화되지 않도록 `addItem`의 정의를 수정합니다. `self syncData` 블록을 제거하고 다음 코드로 바꿉니다.
-   
-            if (completion != nil) {
-                dispatch_async(dispatch_get_main_queue(), completion);
-            }
-3. 위와 같이 `completeItem`의 정의를 수정하고 `self syncData`에 대한 블록을 제거한 후 다음 코드로 바꿉니다.
-   
-            if (completion != nil) {
-                dispatch_async(dispatch_get_main_queue(), completion);
-            }
 
+   ```objc
+   if (completion != nil) {
+       dispatch_async(dispatch_get_main_queue(), completion);
+   }
+   ```
+3. 위와 같이 `completeItem`의 정의를 수정하고 `self syncData`에 대한 블록을 제거한 후 다음 코드로 바꿉니다.
+   ```objc
+   if (completion != nil) {
+       dispatch_async(dispatch_get_main_queue(), completion);
+   }
+   ```
 **Swift**:
 
 1. 앱 시작 시 동기화를 중지하려면 **ToDoTableViewController.swift**의 `viewDidLoad`에서 이 두 줄을 주석 처리합니다. 이 문서를 작성할 당시에는 Swift Todo 앱이 누군가가 항목을 추가하거나 완료할 때는 서비스를 업데이트하지 않고 앱 시작 시에만 서비스를 업데이트했습니다.
-   
-        self.refreshControl?.beginRefreshing()
-        self.onRefresh(self.refreshControl)
 
+   ```swift
+  self.refreshControl?.beginRefreshing()
+  self.onRefresh(self.refreshControl)
+```
 ## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>앱 테스트
 이 섹션에서 오프라인 시나리오를 시뮬레이션하면 잘못된 URL로 연결됩니다. 데이터 항목을 추가하면 모바일 백 엔드에 동기화되지 않고 로컬 핵심 데이터 저장소에 보관됩니다.
 
 1. **QSTodoService.m** 의 모바일 앱 URL을 잘못된 URL로 변경하고 앱 다시 실행하기:
    
-    **Objective-C** 의 QSTodoService.m:
-   
-            self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
-   
-    **Swift** 의 ToDoTableViewController.swift:
-   
-        let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
+   **Objective-C** 의 QSTodoService.m:
+   ```objc
+   self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
+   ```
+   **Swift** 의 ToDoTableViewController.swift:
+   ```swift
+   let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
+   ```
 2. 몇 가지 할 일 항목을 추가합니다. 시뮬레이터를 끝내고(또는 강제로 앱 닫기) 다시 시작합니다. 변경 내용이 유지되는지 확인합니다.
-3. 원격 TodoItem 테이블의 내용 확인
-   
-   * Node.js 백 엔드의 경우 [Azure Portal](https://portal.azure.com/)로 이동하여 모바일 앱 백 엔드에서 **쉬운 테이블** > **TodoItem**을 클릭하여 `TodoItem` 테이블의 내용을 봅니다.
-     
-     * .NET 백 엔드의 경우 SQL Server Management Studio와 같은 SQL 도구나 Fiddler 또는 Postman 같은 REST 클라이언트를 사용하여 테이블 내용을 봅니다.
-     
-     새 항목이 서버와 동기화되지 *않았는지* 확인합니다.
+3. 원격 TodoItem 테이블의 내용 확인 
+   * Node.js 백 엔드의 경우 [Azure Portal](https://portal.azure.com/)로 이동하여 모바일 앱 백 엔드에서 **쉬운 테이블** > **TodoItem**을 클릭하여 `TodoItem` 테이블의 내용을 봅니다.  
+   * .NET 백 엔드의 경우 SQL Server Management Studio와 같은 SQL 도구나 Fiddler 또는 Postman 같은 REST 클라이언트를 사용하여 테이블 내용을 봅니다.
+새 항목이 서버와 동기화되지 *않았는지* 확인합니다.
 4. **QSTodoService.m** 의 URL을 올바르게 다시 변경하고 해당 앱을 다시 실행합니다. 항목 목록을 아래로 끌어서 새로 고침 제스처를 수행합니다. 진행률 회전자가 표시됩니다.
 5. TodoItem 데이터를 다시 봅니다. 이제 새 및 변경된 TodoItems가 나타납니다.
 
@@ -279,10 +274,10 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
 [Cloud Cover: Azure Mobile Services에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

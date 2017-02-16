@@ -1,5 +1,5 @@
 ---
-title: "코드 샘플: Application Insights에서 내보낸 데이터 구문 분석 | Microsoft Docs"
+title: "샘플: Azure Application Insights에서 내보낸 데이터 구문 분석 | Microsoft Docs"
 description: "연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다. SQL에 데이터를 저장합니다."
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: fedd078402bbd220bce9b71cd035508d46f92f82
 
 
 ---
 # <a name="code-sample-parse-data-exported-from-application-insights"></a>코드 샘플: Application Insights에서 내보낸 데이터 구문 분석
-이 문서에서는 [연속 내보내기][export]를 사용하여 [Azure Application Insights][시작]에서 내보낸 데이터를 처리하는 코드를 작성하는 방법을 보여 줍니다. 연속 내보내기는 원격 분석을 JSON 형식으로 Azure 저장소로 이동하므로, JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만드는 코드를 작성해 보겠습니다.
+이 문서에서는 [연속 내보내기][export]를 사용하여 [Azure Application Insights][start]에서 내보낸 데이터를 처리하는 코드를 작성하는 방법을 보여 줍니다. 연속 내보내기는 원격 분석을 JSON 형식으로 Azure 저장소로 이동하므로, JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만드는 코드를 작성해 보겠습니다.
 
 예를 들어 Application Insights에서 Azure SQL 데이터베이스로 원격 분석을 이동하는 코드를 작성합니다.
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
 * 이 예제에서는 Azure 작업자 역할에서 코드를 실행하여 Azure 데이터베이스로 데이터를 이동합니다. 하지만 온-프레미스 서버에서 실행되도록 이 코드를 조정하여 데이터를 온-프레미스 SQL Server로 가져올 수 있습니다.
 * 원격 분석을 내보내지 않고 Application Insights에서 [직접 액세스하는 코드를 작성](http://dev.applicationinsights.io/)할 수 있습니다.
 
-Application Insights를 사용하여 웹 응용 프로그램 모니터링을 아직 시작하지 않은 경우 [지금 시작][시작]합니다.
+Application Insights를 사용하여 웹 응용 프로그램 모니터링을 아직 시작하지 않은 경우 [지금 시작][start]합니다.
 
 
 
@@ -129,7 +129,7 @@ Visual Studio에서는 저장소 계정 연결 문자열로 작업자 역할 설
     }
 
 #### <a name="run-the-worker-at-regular-intervals"></a>주기적으로 작업자 실행
-기존 Run 메서드를 바꾸고 원하는 간격을 선택합니다. 내보내기 기능은 한 시간에 하나의 JSON 개체를 완료하므로 이 간격은 적어도 1시간이어야 합니다.
+기존 Run 메서드를 바꾸고 원하는 간격을 선택합니다. 내보내기 기능은 한 시간에 하나의 JSON 개체를 완료하므로 이 간격은 적어도&1;시간이어야 합니다.
 
     public override void Run()
     {
@@ -495,12 +495,12 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[시작]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

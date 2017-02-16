@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5da12320ffbf5c7c5a2bd984d753be53b5ca0fa
+ms.sourcegitcommit: 88e6ce0deeb5dab276b5ae49f6c99391e37495f4
+ms.openlocfilehash: 2a31f6d8aa00e89e8dbbe0089fc76ecbb2102b3c
 
 
 ---
@@ -42,8 +42,10 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
         using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+         CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            "<storage-account-name>",
+            "<access-key>"), true);
    
     **참고:** 다음 섹션의 코드 앞에서 위의 코드를 모두 사용합니다.
 3. **CloudBlobClient** 개체를 사용하여 저장소 계정의 기존 컨테이너에 **CloudBlobContainer** 참조를 가져옵니다.
@@ -153,6 +155,6 @@ Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **Delet
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
 
 
 ---
@@ -49,8 +49,8 @@ ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
 >
 >
 
-## <a name="azure-storage-retry-guidelines"></a>Azure 저장소 재시도 지침
-Azure 저장소 서비스에는 테이블 및 Blob 저장소, 파일 및 저장소 큐가 있습니다.
+## <a name="azure-storage-retry-guidelines"></a>Azure Storage 재시도 지침
+Azure Storage 서비스에는 테이블 및 Blob Storage, 파일 및 저장소 큐가 있습니다.
 
 ### <a name="retry-mechanism"></a>재시도 메커니즘
 재시도는 개별 REST 작업 수준에서 수행되며 클라이언트 API 구현의 중요한 부분입니다. 클라이언트 저장소 SDK는 [IExtendedRetryPolicy 인터페이스](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.aspx)를 구현하는 클래스를 사용합니다.
@@ -59,7 +59,7 @@ Azure 저장소 서비스에는 테이블 및 Blob 저장소, 파일 및 저장�
 
 기본 제공 클래스는 불규칙 다시 시도 간격으로 선형(일정한 지연) 및 지수를 지원합니다. 또한 다른 프로세스가 더 높은 수준에서 재시도를 처리하는 경우 사용할 재시도 정책이 없습니다. 그러나 기본 제공 클래스에서 제공하지 않는 특정 요구 사항이 있는 경우 고유한 재시도 클래스를 구현할 수 있습니다.
 
-RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하고 요청의 결과가 재시도 가능한 오류인 경우 기본과 보조 저장소 서비스 위치 간에 대체 재시도가 전환합니다. 자세한 내용은 [Azure 저장소 중복 옵션](http://msdn.microsoft.com/library/azure/dn727290.aspx) 을 참조하세요.
+RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하고 요청의 결과가 재시도 가능한 오류인 경우 기본과 보조 저장소 서비스 위치 간에 대체 재시도가 전환합니다. 자세한 내용은 [Azure Storage 중복 옵션](http://msdn.microsoft.com/library/azure/dn727290.aspx)을 참조하세요.
 
 ### <a name="policy-configuration"></a>정책 구성
 재시도 정책은 프로그래밍 방식으로 구성됩니다. 일반적인 프로시저는 **TableRequestOptions**, **BlobRequestOptions**, **FileRequestOptions** 또는 **QueueRequestOptions** 인스턴스를 만들고 채우는 것입니다.
@@ -110,7 +110,7 @@ var stats = await client.GetServiceStatsAsync(interactiveRequestOption, operatio
 
 | **컨텍스트** | **설정** | **기본값** | **의미** |
 | --- | --- | --- | --- |
-| 테이블/Blob/파일<br />QueueRequestOptions |MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy |120초<br /><br />없음<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy |모든 잠재적인 재시도 횟수를 포함하여 요청의 최대 실행 시간입니다.<br />요청에 대한 서버 제한 시간 간격(값은 초로 반올림됨)입니다. 지정하지 않으면 서버에 대한 모든 요청에 기본값이 사용됩니다. 일반적으로 최상의 옵션은 서버 기본값이 사용되도록 이 설정을 생략하는 것입니다.<br />RA-GRS(읽기 액세스 지역 중복 저장소) 복제 옵션을 사용하여 저장소 계정을 만드는 경우 위치 모드를 사용하여 요청을 수신할 위치를 나타낼 수 있습니다. 예를 들어 **PrimaryThenSecondary** 를 지정하면 요청은 항상 기본 위치로 먼저 전송됩니다. 요청이 실패하면 보조 위치로 전송됩니다.<br />각 옵션에 대한 자세한 내용은 아래를 참조하세요. |
+| 테이블/Blob/파일<br />QueueRequestOptions |MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy |120초<br /><br />없음<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy |모든 잠재적인 재시도 횟수를 포함하여 요청의 최대 실행 시간입니다.<br />요청에 대한 서버 제한 시간 간격(값은 초로 반올림됨)입니다. 지정하지 않으면 서버에 대한 모든 요청에 기본값이 사용됩니다. 일반적으로 최상의 옵션은 서버 기본값이 사용되도록 이 설정을 생략하는 것입니다.<br />RA-GRS(읽기 액세스 지역 중복 저장소) 복제 옵션을 사용하여 저장소 계정을 만드는 경우 위치 모드를 사용하여 요청을 수신할 위치를 나타낼 수 있습니다. 예를 들어 **PrimaryThenSecondary**를 지정하면 요청은 항상 기본 위치로 먼저 전송됩니다. 요청이 실패하면 보조 위치로 전송됩니다.<br />각 옵션에 대한 자세한 내용은 아래를 참조하세요. |
 | 지수 정책 |maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff |3<br />4초<br /><br /><br />3초<br /><br />30초 |재시도 횟수입니다.<br />재시도 사이의 백오프 간격입니다. 임의 요소를 포함하여 이 timespan의 배수가 이후 재시도 횟수에 사용됩니다.<br />deltaBackoff에서 계산된 모든 다시 시도 간격에 추가됩니다. 이 값은 변경할 수 없습니다.<br />계산된 다시 시도 간격이 MaxBackoff보다 큰 경우 MaxBackoff가 사용됩니다. 이 값은 변경할 수 없습니다. |
 | 선형 정책 |maxAttempt<br />deltaBackoff |3<br />30초 |재시도 횟수입니다.<br />재시도 사이의 백오프 간격입니다. |
 
@@ -121,7 +121,7 @@ var stats = await client.GetServiceStatsAsync(interactiveRequestOption, operatio
 * 일괄 작업, 백그라운드 작업 또는 비대화형 시나리오에서 **ExponentialRetry** 정책을 사용합니다. 이러한 시나리오에서는 일반적으로 서비스가 복구되는 데 더 많은 시간을 허용하여 결과적으로 작업이 성공할 가능성이 증가합니다.
 * **RequestOptions** 매개 변수의 **MaximumExecutionTime** 속성을 지정하여 총 실행 시간을 제한하고 제한 시간 값을 선택할 때 작업의 유형 및 크기를 고려하는 것이 좋습니다.
 * 사용자 지정 재시도를 구현해야 하는 경우 저장소 클라이언트 클래스 주위에 래퍼를 만들지 마세요. 대신 **IExtendedRetryPolicy** 인터페이스를 통해 기존 정책을 확장하는 기능을 사용하세요.
-* RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하는 경우 기본 액세스에 실패하면 **LocationMode** 를 사용하여 재시도에서 저장소의 보조 읽기 전용 복사본에 액세스하도록 지정할 수 있습니다. 그러나 이 옵션을 사용할 때 기본 저장소에서 복제가 아직 완료되지 않은 경우 응용 프로그램이 오래된 데이터에서 성공적으로 작동하는지 확인해야 합니다.
+* RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하는 경우 기본 액세스에 실패하면 **LocationMode**를 사용하여 재시도에서 저장소의 보조 읽기 전용 복사본에 액세스하도록 지정할 수 있습니다. 그러나 이 옵션을 사용할 때 기본 저장소에서 복제가 아직 완료되지 않은 경우 응용 프로그램이 오래된 데이터에서 성공적으로 작동하는지 확인해야 합니다.
 
 재시도 작업에 대해 다음 설정을 사용하여 시작하는 것이 좋습니다. 이러한 설정은 범용이므로 작업을 모니터링하고 고유한 시나리오에 맞게 값을 미세 조정해야 합니다.  
 
@@ -131,7 +131,7 @@ var stats = await client.GetServiceStatsAsync(interactiveRequestOption, operatio
 | 백그라운드<br />또는 일괄 처리 |30초 |지수 |maxAttempt<br />deltaBackoff |5<br />4초 |시도 1 - ~3초 지연<br />시도 2 - ~7초 지연<br />시도 3 - ~15초 지연 |
 
 ### <a name="telemetry"></a>원격 분석
-재시도 횟수는 **TraceSource**에 기록됩니다. 이벤트를 캡처하여 적합한 대상 로그에 기록하려면 **TraceListener** 를 구성해야 합니다. **TextWriterTraceListener** 또는 **XmlWriterTraceListener**를 사용하여 데이터를 로그 파일에 기록하거나, **EventLogTraceListener**를 사용하여 Windows 이벤트 로그에 기록하거나, **EventProviderTraceListener**를 사용하여 추적 데이터를 ETW 하위 시스템에 기록할 수 있습니다. 버퍼의 자동 플러시 및 기록될 이벤트의 자세한 정도(예: 오류, 경고, 정보 및 세부 정보 표시)를 구성할 수도 있습니다. 자세한 내용은 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx)을 참조하세요.
+재시도 횟수는 **TraceSource**에 기록됩니다. 이벤트를 캡처하여 적합한 대상 로그에 기록하려면 **TraceListener**를 구성해야 합니다. **TextWriterTraceListener** 또는 **XmlWriterTraceListener**를 사용하여 데이터를 로그 파일에 기록하거나, **EventLogTraceListener**를 사용하여 Windows 이벤트 로그에 기록하거나, **EventProviderTraceListener**를 사용하여 추적 데이터를 ETW 하위 시스템에 기록할 수 있습니다. 버퍼의 자동 플러시 및 기록될 이벤트의 자세한 정도(예: 오류, 경고, 정보 및 세부 정보 표시)를 구성할 수도 있습니다. 자세한 내용은 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx)을 참조하세요.
 
 작업은 **OperationContext** 인스턴스를 수신하여 사용자 지정 원격 분석 논리를 추가하는 데 사용할 수 있는 **Retrying** 이벤트를 표시할 수 있습니다. 자세한 내용은 [OperationContext.Retrying 이벤트](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)를 참조하세요.
 
@@ -212,14 +212,14 @@ namespace RetryCodeSamples
 ```
 
 ### <a name="more-information"></a>자세한 정보
-* [Azure 저장소 클라이언트 라이브러리 재시도 정책 권장 사항(영문)](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+* [Azure Storage 클라이언트 라이브러리 재시도 정책 권장 사항](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 * [저장소 클라이언트 라이브러리 2.0 – 재시도 정책 구현(영문)](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
-## <a name="sql-database-using-entity-framework-6-retry-guidelines"></a>Entity Framework 6을 사용하는 SQL 데이터베이스 재시도 지침
-SQL 데이터베이스는 다양한 크기와 표준(공유) 및 프리미엄(비공유) 서비스로 사용할 수 있는 호스트된 SQL 데이터베이스입니다. Entity Framework는 .NET 개발자가 도메인별 개체를 사용하여 관계형 데이터로 작업할 수 있는 개체 관계형 매퍼입니다. 여기서는 개발자가 일반적으로 작성해야 하는 대부분의 데이터 액세스 코드가 필요하지 않습니다.
+## <a name="sql-database-using-entity-framework-6-retry-guidelines"></a>Entity Framework 6을 사용하는 SQL Database 재시도 지침
+SQL Database는 다양한 크기와 표준(공유) 및 프리미엄(비공유) 서비스로 사용할 수 있는 호스트된 SQL Database입니다. Entity Framework는 .NET 개발자가 도메인별 개체를 사용하여 관계형 데이터로 작업할 수 있는 개체 관계형 매퍼입니다. 여기서는 개발자가 일반적으로 작성해야 하는 대부분의 데이터 액세스 코드가 필요하지 않습니다.
 
 ### <a name="retry-mechanism"></a>재시도 메커니즘
-재시도는 [연결 복원/재시도 논리](http://msdn.microsoft.com/data/dn456835.aspx)(영문)라는 메커니즘을 통해 Entity Framework 6.0 이상을 사용하는 SQL 데이터베이스에 액세스할 때 지원됩니다. 전체 사양은 Codeplex의 [.NET Entity Framework wiki](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) 에서 제공됩니다. 재시도 메커니즘의 주요 기능은 다음과 같습니다.
+재시도는 [연결 복원/재시도 논리](http://msdn.microsoft.com/data/dn456835.aspx)(영문)라는 메커니즘을 통해 Entity Framework 6.0 이상을 사용하는 SQL Database에 액세스할 때 지원됩니다. 전체 사양은 Codeplex의 [.NET Entity Framework wiki](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) 에서 제공됩니다. 재시도 메커니즘의 주요 기능은 다음과 같습니다.
 
 * 기본 추상화는 **IDbExecutionStrategy** 인터페이스입니다. 이 인터페이스는 다음을 수행합니다.:
   * 동기 및 비동기 **Execute*** 메서드를 정의합니다.
@@ -227,14 +227,14 @@ SQL 데이터베이스는 다양한 크기와 표준(공유) 및 프리미엄(�
   * 실패한 연결을 재시도할 시기 및 방법을 정의합니다.
 * 여기에는 다음과 같은 **IDbExecutionStrategy** 인터페이스의 여러 가지 기본 제공 구현이 포함됩니다.
   * 기본값 - 재시도하지 않음.
-  * SQL 데이터베이스(자동)에 대한 기본값 - 재시도하지 않지만 예외를 검사하고 SQL 데이터베이스 전략을 사용하는 제안으로 래핑합니다.
-  * SQL 데이터베이스에 대한 기본값 - 지수(기본 클래스에서 상속됨) 및 SQL 데이터베이스 검색 논리.
+  * SQL Database(자동)에 대한 기본값 - 재시도하지 않지만 예외를 검사하고 SQL Database 전략을 사용하는 제안으로 래핑합니다.
+  * SQL Database에 대한 기본값 - 지수(기본 클래스에서 상속됨) 및 SQL Database 검색 논리.
 * 불규칙을 포함하는 지수 백오프 전략을 구현합니다.
 * 기본 제공 재시도 클래스는 상태 저장 클래스이며 스레드로부터 안전하지 않습니다. 그러나 현재 작업이 완료된 후 다시 사용할 수 있습니다.
-* 지정된 재시도 횟수를 초과하는 경우 결과는 새 예외에 래핑되며, 현재 예외를 버블 업하지 않습니다.
+* 지정된 재시도 횟수를 초과하는 경우 결과는 새 예외에 래핑됩니다. 현재 예외를 버블 업하지 않습니다.
 
 ### <a name="policy-configuration"></a>정책 구성
-재시도는 Entity Framework 6.0 이상을 사용하는 SQL 데이터베이스에 액세스할 때 지원됩니다. 재시도 정책은 프로그래밍 방식으로 구성됩니다. 구성은 작업 단위로 변경할 수 없습니다.
+재시도는 Entity Framework 6.0 이상을 사용하는 SQL Database에 액세스할 때 지원됩니다. 재시도 정책은 프로그래밍 방식으로 구성됩니다. 구성은 작업 단위로 변경할 수 없습니다.
 
 컨텍스트에서 기본값으로 전략을 구성하는 경우 필요에 따라 새 전략을 만드는 함수를 지정합니다. 다음 코드에서는 **DbConfiguration** 기본 클래스를 확장하는 재시도 구성 클래스를 만드는 방법을 보여 줍니다.
 
@@ -260,7 +260,7 @@ public class BloggingContextConfiguration : DbConfiguration
     public class BloggingContext : DbContext
     { ...
 
-특정 작업에 다른 재시도 전략을 사용하거나 특정 작업에 대해 재시도를 사용하지 않도록 설정해야 하는 경우 **CallContext**에서 플래그를 설정하여 전략을 일시 중단하거나 교환할 수 있도록 하는 구성 클래스를 만들 수 있습니다. 구성 클래스는 이 플래그를 사용하여 전략을 전환하거나, 제공된 전략을 사용하지 않도록 설정하고 기본 전략을 사용할 수 있습니다. 자세한 내용은 재시도 실행 전략의 제한 사항(EF6 이상) 페이지에서 [실행 전략 일시 중단](http://msdn.microsoft.com/dn307226#transactions_workarounds) (영문)을 참조하세요.
+특정 작업에 다른 재시도 전략을 사용하거나 특정 작업에 대해 재시도를 사용하지 않도록 설정해야 하는 경우 **CallContext**에서 플래그를 설정하여 전략을 일시 중단하거나 교환할 수 있도록 하는 구성 클래스를 만들 수 있습니다. 구성 클래스는 이 플래그를 사용하여 전략을 전환하거나, 제공된 전략을 사용하지 않도록 설정하고 기본 전략을 사용할 수 있습니다. 자세한 내용은 재시도 실행 전략의 제한 사항(EF6 이상) 페이지에서 [실행 전략 일시 중단](http://msdn.microsoft.com/dn307226#transactions_workarounds)(영문)을 참조하세요.
 
 개별 작업에 특정 재시도 전략을 사용하기 위한 다른 기술은 필요한 전략 클래스의 인스턴스를 만들고 매개 변수를 통해 원하는 설정을 제공하는 것입니다. 그런 다음 **ExecuteAsync** 메서드를 호출합니다.
 
@@ -285,10 +285,10 @@ public class BloggingContextConfiguration : DbConfiguration
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable4.png)
 
 ### <a name="retry-usage-guidance"></a>재시도 사용 지침
-EF6을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 지침을 고려합니다.
+EF6을 사용하는 SQL Database에 액세스하는 경우 다음 지침을 고려합니다.
 
 * 적절한 서비스 옵션(공유 또는 프리미엄)을 선택합니다. 공유 인스턴스는 공유 서버의 다른 테넌트에서 사용되기 때문에 일반적인 연결 지연 및 제한보다 더 길게 영향을 받을 수 있습니다. 예측 가능한 성능 및 대기 시간이 짧은 안정적인 작업이 필요한 경우 프리미엄 옵션을 선택하는 것이 좋습니다.
-* Azure SQL 데이터베이스에는 고정 간격 전략을 사용하지 않는 것이 좋습니다. 대신 서비스가 오버로드될 수 있고 더 긴 지연으로 인해 복구에 더 많은 시간이 필요할 수 있으므로 지수 백오프 전략을 사용합니다.
+* Azure SQL Database에는 고정 간격 전략을 사용하지 않는 것이 좋습니다. 대신 서비스가 오버로드될 수 있고 더 긴 지연으로 인해 복구에 더 많은 시간이 필요할 수 있으므로 지수 백오프 전략을 사용합니다.
 * 연결을 정의할 때 연결 및 명령 제한 시간에 적합한 값을 선택합니다. 제한 시간은 비즈니스 논리 디자인 및 테스트를 기반으로 합니다. 시간에 따라 데이터의 양이나 비즈니스 프로세스가 변경되므로 이 값을 수정해야 할 수 있습니다. 제한 시간이 너무 짧으면 데이터베이스가 사용 중일 때 중간에 연결 오류가 발생할 수 있습니다. 제한 시간이 너무 길면 실패한 연결을 검색할 때까지 너무 오래 대기하여 재시도 논리가 올바르게 작동하지 못할 수 있습니다. 제한 시간 값은 종단 간 대기 시간의 구성 요소이지만 컨텍스트를 저장할 때 실행될 명령 수를 쉽게 확인할 수 없습니다. **DbContext** 인스턴스의 **CommandTimeout** 속성을 설정하여 기본 제한 시간을 변경할 수 있습니다.
 * Entity Framework는 구성 파일에 정의된 재시도 구성을 지원합니다. 그러나 Azure에서 최대한의 유연성을 제공하려면 응용 프로그램 내에서 프로그래밍 방식으로 구성을 만드는 것이 좋습니다. 재시도 정책에 대한 특정 매개 변수(예: 재시도 횟수 및 다시 시도 간격)는 서비스 구성 파일에 저장하여 런타임에 적절한 정책을 만드는 데 사용할 수 있습니다. 이렇게 하면 다시 시작해야 하는 응용 프로그램 내에서 설정을 변경할 수 있습니다.
 
@@ -297,7 +297,7 @@ EF6을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 지�
 | **컨텍스트** | **샘플 대상 E2E<br />최대 대기 시간** | **다시 시도 정책** | **설정** | **값** | **작동 방법** |
 | --- | --- | --- | --- | --- | --- |
 | 대화형, UI<br />또는 포그라운드 |2초 |지수 |MaxRetryCount<br />MaxDelay |3<br />750ms |시도 1 - 0초 지연<br />시도 2 - 750ms 지연<br />시도 3 – 750ms 지연 |
-| 백그라운드<br /> 또는 일괄 처리 |30초 |지수 |MaxRetryCount<br />MaxDelay |5<br />12초 |시도 1 - 0초 지연<br />시도 2 - ~1초 지연<br />시도 3 - ~3초 지연<br />시도 4 - ~7초 지연<br />시도 5 - 12초 지연 |
+| 백그라운드<br /> 또는 일괄 처리 |30초 |지수 |MaxRetryCount<br />MaxDelay |5<br />12초 |시도 1 - 0초 지연<br />시도 2 - ~1초 지연<br />시도 3 - ~3초 지연<br />시도 4 - ~7초 지연<br />시도 5 - ~12초 지연 |
 
 > [!NOTE]
 > 종단 간 대기 시간 대상은 서비스에 대한 연결의 기본 제한 시간을 가정합니다. 연결 제한 시간을 더 길게 지정하면 종단 간 대기 시간이 모든 재시도에 대해 이 추가 시간만큼 확장됩니다.
@@ -353,19 +353,19 @@ namespace RetryCodeSamples
 Entity Framework 재시도 메커니즘 사용에 대한 더 많은 예제는 [연결 복구/재시도 논리](http://msdn.microsoft.com/data/dn456835.aspx)(영문)에서 확인할 수 있습니다.
 
 ### <a name="more-information"></a>자세한 정보
-* [Azure SQL 데이터베이스 성능 및 탄력성 가이드(영문)](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
+* [Azure SQL Database 성능 및 탄력성 가이드(영문)](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
-## <a name="sql-database-using-adonet-retry-guidelines"></a>ADO.NET을 사용하는 SQL 데이터베이스 재시도 지침
-SQL 데이터베이스는 다양한 크기와 표준(공유) 및 프리미엄(비공유) 서비스로 사용할 수 있는 호스트된 SQL 데이터베이스입니다.
+## <a name="sql-database-using-adonet-retry-guidelines"></a>ADO.NET을 사용하는 SQL Database 재시도 지침
+SQL Database는 다양한 크기와 표준(공유) 및 프리미엄(비공유) 서비스로 사용할 수 있는 호스트된 SQL Database입니다.
 
 ### <a name="retry-mechanism"></a>재시도 메커니즘
-SQL 데이터베이스는 ADO.NET을 사용하여 액세스하는 경우 재시도에 대한 기본 제공 지원을 제공하지 않습니다. 그러나 요청에서 반환된 코드를 사용하여 요청이 실패한 이유를 확인할 수 있습니다. [Azure SQL 데이터베이스 제한](http://msdn.microsoft.com/library/dn338079.aspx) 페이지에서는 제한으로 연결을 방지하는 방법, 특정 상황에 대한 반환 코드, 이러한 코드 및 재시도 작업을 처리하는 방법 등에 대해 설명합니다.
+SQL Database는 ADO.NET을 사용하여 액세스하는 경우 재시도에 대한 기본 제공 지원을 제공하지 않습니다. 그러나 요청에서 반환된 코드를 사용하여 요청이 실패한 이유를 확인할 수 있습니다. [Azure SQL Database 제한](http://msdn.microsoft.com/library/dn338079.aspx) 페이지에서는 제한으로 연결을 방지하는 방법, 특정 상황에 대한 반환 코드, 이러한 코드 및 재시도 작업을 처리하는 방법 등에 대해 설명합니다.
 
-Nuget 패키지 EnterpriseLibrary.TransientFaultHandling.Data( **SqlAzureTransientErrorDetectionStrategy**클래스)에서 일시적인 오류 처리 응용 프로그램 블록(Topaz)을 사용하여 SQL 데이터베이스에 대한 재시도 메커니즘을 구현할 수 있습니다.
+Nuget 패키지 EnterpriseLibrary.TransientFaultHandling.Data(**SqlAzureTransientErrorDetectionStrategy**클래스)에서 일시적인 오류 처리 응용 프로그램 블록(Topaz)을 사용하여 SQL Database에 대한 재시도 메커니즘을 구현할 수 있습니다.
 
 또한 이 블록은 이전 ADO.NET 1.0 API(**DbConnection** 대신 **IDbConnection** 사용)를 구현하고 재시도 및 연결 관리를 내부적으로 수행하는 **ReliableSqlConnection** 클래스를 제공합니다. 편리하기는 하지만 재시도로 작업을 호출하는 데 다양한 메서드 집합을 사용해야 하므로 간단한 직접적인 대체가 아닙니다. 이 클래스는 Azure 서비스를 구현하고 사용할 때 권장되는 비동기 실행을 지원하지 않습니다. 또한 이 클래스는 ADO.NET 1.0을 사용하므로 ADO.NET의 최근 개선된 기능 및 업데이트의 이점을 사용할 수 없습니다.
 
-### <a name="policy-configuration-sql-database-using-adonet"></a>정책 구성(ADO.NET을 사용하는 SQL 데이터베이스)
+### <a name="policy-configuration-sql-database-using-adonet"></a>정책 구성(ADO.NET을 사용하는 SQL Database)
 일시적인 오류 처리 응용 프로그램 블록은 파일 기반 구성과 프로그래밍 방식 구성을 모두 지원합니다. 일반적으로 최대한의 유연성을 제공하려면 프로그래밍 방식 구성을 사용해야 합니다. 자세한 내용은 다음 세션의 참고를 참조하세요. 응용 프로그램 시작 시 한 번 실행되는 다음 코드에서는 **RetryManager**를 만들고 Azure SQL Database에서 사용하는 데 적합한 네 가지 재시도 목록으로 채웁니다. 또한 **RetryManager**에 대한 기본 전략을 설정합니다. 이러한 전략은 연결이나 명령을 만들 때 대체 전략을 지정하지 않은 경우 연결 및 명령에 사용됩니다.
 
 ```csharp
@@ -400,16 +400,16 @@ RetryManager.SetDefault(new RetryManager(
         }));
 ```
 
-Azure SQL 데이터베이스에 액세스할 때 구성한 재시도 정책을 사용하는 방법에 대한 자세한 내용은 아래의 [예제](#examples) 섹션을 참조하세요.
+Azure SQL Database에 액세스할 때 구성한 재시도 정책을 사용하는 방법에 대한 자세한 내용은 아래의 [예제](#examples) 섹션을 참조하세요.
 
 일시적인 오류 처리 응용 프로그램 블록에 대한 기본 전략은 이 지침의 끝에 있는 [일시적인 오류 처리 응용 프로그램 블록(Topaz) 전략](#transient-fault-handling-application-block-topaz-strategies) 섹션에 표시되어 있습니다.
 
 ### <a name="retry-usage-guidance"></a>재시도 사용 지침
-ADO.NET을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 지침을 고려합니다.
+ADO.NET을 사용하는 SQL Database에 액세스하는 경우 다음 지침을 고려합니다.
 
 * 적절한 서비스 옵션(공유 또는 프리미엄)을 선택합니다. 공유 인스턴스는 공유 서버의 다른 테넌트에서 사용되기 때문에 일반적인 연결 지연 및 제한보다 더 길게 영향을 받을 수 있습니다. 예측 가능한 성능 및 대기 시간이 짧은 안정적인 작업이 필요한 경우 프리미엄 옵션을 선택하는 것이 좋습니다.
 * 적절한 수준 또는 범위에서 재시도를 수행하여 데이터 불일치를 발생시키는 비멱등 작업을 방지해야 합니다. 이상적으로는 불일치를 발생시키지 않고 반복할 수 있도록 모든 작업이 멱등이어야 합니다. 그렇지 않으면 한 작업이 실패할 경우 모든 관련 변경 내용이 실행 취소되도록 하는 수준 또는 범위(예: 트랜잭션 범위 내)에서 재시도를 수행해야 합니다. 자세한 내용은 [클라우드 서비스의 기본 데이터 액세스 계층 – 일시적인 오류 처리](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx#Idempotent_Guarantee)(영문)를 참조하세요.
-* 고정 간격 전략은 매우 짧은 간격에 몇 번의 재시도만 수행되는 대화형 시나리오를 제외하고 Azure SQL 데이터베이스에서 사용하지 않는 것이 좋습니다. 대신 대부분의 시나리오에 지수 백오프 전략을 사용하는 것이 좋습니다.
+* 고정 간격 전략은 매우 짧은 간격에 몇 번의 재시도만 수행되는 대화형 시나리오를 제외하고 Azure SQL Database에서 사용하지 않는 것이 좋습니다. 대신 대부분의 시나리오에 지수 백오프 전략을 사용하는 것이 좋습니다.
 * 연결을 정의할 때 연결 및 명령 제한 시간에 적합한 값을 선택합니다. 제한 시간이 너무 짧으면 데이터베이스가 사용 중일 때 중간에 연결 오류가 발생할 수 있습니다. 제한 시간이 너무 길면 실패한 연결을 검색할 때까지 너무 오래 대기하여 재시도 논리가 올바르게 작동하지 못할 수 있습니다. 제한 시간 값은 종단 간 대기 시간의 구성 요소이지므로 모든 재시도에 대한 재시도 정책에 지정된 재시도 지연에 효과적으로 추가됩니다.
 * 지수 백오프 재시도 논리를 사용하는 경우에도 특정 횟수의 재시도 후에는 연결을 닫고 새 연결에서 작업을 재시도합니다. 동일한 연결에서 동일한 작업을 여러 번 재시도하면 연결 문제에 영향을 주는 요인이 될 수 있습니다. 이 기술에 대한 예제는 [클라우드 서비스의 기본 데이터 액세스 계층 – 일시적인 오류 처리](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)(영문)를 참조하세요.
 * 연결 풀링이 사용 중(기본값)인 경우 연결을 닫았다가 다시 연 후에도 풀에서 동일한 연결을 선택할 수 있습니다. 이런 경우 해결하는 방법은 **SqlConnection** 클래스의 **ClearPool** 메서드를 호출하여 연결을 재사용할 수 없음으로 표시하는 것입니다. 그러나 이 방법은 여러 번의 연결 시도가 실패한 후에만 수행하고 오류가 발생한 연결과 관련된 SQL 제한 시간(오류 코드 -2)과 같은 특정 클래스의 일시적인 오류가 발생하는 경우에만 수행해야 합니다.
@@ -429,9 +429,9 @@ ADO.NET을 사용하는 SQL 데이터베이스에 액세스하는 경우 다음 
 >
 
 ### <a name="examples"></a>예
-이 섹션에서는 일시적인 오류 처리 응용 프로그램 블록을 사용하여 **RetryManager** (이전의 [정책 구성](#policy-configuration)섹션에 표시됨)에서 구성한 재시도 정책 집합을 사용하는 Azure SQL 데이터베이스에 액세스하는 방법에 대해 설명합니다. 블록을 사용하는 가장 간단한 방법은 **ReliableSqlConnection** 클래스를 사용하거나 연결에서 **OpenWithRetry**와 같은 확장 메서드를 호출(자세한 내용은 [일시적인 오류 처리 응용 프로그램 블록](http://msdn.microsoft.com/library/hh680934.aspx) 참조)하는 것입니다.
+이 섹션에서는 일시적인 오류 처리 응용 프로그램 블록을 사용하여 **RetryManager**(이전의 [정책 구성](#policy-configuration)섹션에 표시됨)에서 구성한 재시도 정책 집합을 사용하는 Azure SQL Database에 액세스하는 방법에 대해 설명합니다. 블록을 사용하는 가장 간단한 방법은 **ReliableSqlConnection** 클래스를 사용하거나 연결에서 **OpenWithRetry**와 같은 확장 메서드를 호출(자세한 내용은 [일시적인 오류 처리 응용 프로그램 블록](http://msdn.microsoft.com/library/hh680934.aspx) 참조)하는 것입니다.
 
-그러나 현재 버전의 일시적인 오류 처리 응용 프로그램 블록에서는 이러한 방법이 SQL 데이터베이스에 대한 비동기 작업을 기본적으로 지원하지 않습니다. 비동기 기술만 사용하여 SQL 데이터베이스와 같은 Azure 서비스에 액세스하는 것이 좋으므로 SQL 데이터베이스에서 일시적인 오류 처리 응용 프로그램 블록을 사용하려면 다음과 같은 기술을 고려해야 합니다.
+그러나 현재 버전의 일시적인 오류 처리 응용 프로그램 블록에서는 이러한 방법이 SQL Database에 대한 비동기 작업을 기본적으로 지원하지 않습니다. 비동기 기술만 사용하여 SQL Database와 같은 Azure 서비스에 액세스하는 것이 좋으므로 SQL Database에서 일시적인 오류 처리 응용 프로그램 블록을 사용하려면 다음과 같은 기술을 고려해야 합니다.
 
 C# 언어의 버전 5에서 간단한 비동기 지원을 사용하여 블록에서 제공하는 메서드의 비동기 버전을 만들 수 있습니다. 예를 들어 다음 코드에서는 **ExecuteReaderWithRetry** 확장 메서드의 비동기 버전을 만드는 방법을 보여 줍니다. 원래 코드에서 변경되고 추가된 코드는 강조 표시됩니다. Topaz에 대한 소스 코드는 Codeplex의 [일시적인 오류 처리 응용 프로그램 블록("Topaz")](http://topaz.codeplex.com/SourceControl/latest)에서 사용할 수 있습니다.
 
@@ -486,23 +486,23 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync(retryPolicy))
 * [인내, 모든 승리의 비밀: 일시적인 오류 처리 응용 프로그램 블록 사용(영문)](http://msdn.microsoft.com/library/dn440719.aspx)
 * [클라우드 서비스의 기본 데이터 액세스 계층 – 일시적인 오류 처리(영문)](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
-SQL 데이터베이스 활용에 대한 일반적인 지침은 다음을 참조하세요.
+SQL Database 활용에 대한 일반적인 지침은 다음을 참조하세요.
 
-* [Azure SQL 데이터베이스 성능 및 탄력성 가이드(영문)](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
+* [Azure SQL Database 성능 및 탄력성 가이드(영문)](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 * [SQL Azure에서 연결 풀 오류 최소화(영문)](http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx)
 
-## <a name="service-bus-retry-guidelines"></a>서비스 버스 재시도 지침
-서비스 버스는 클라우드에서 호스트되는지 온-프레미스에서 호스트되는지에 관계없이 향상된 확장성 및 복원력으로 느슨하게 결합된 메시지 교환을 응용 프로그램의 구성 요소에 제공하는 클라우드 메시징 플랫폼입니다.
+## <a name="service-bus-retry-guidelines"></a>Service Bus 재시도 지침
+Service Bus는 클라우드에서 호스트되는지 온-프레미스에서 호스트되는지에 관계없이 향상된 확장성 및 복원력으로 느슨하게 결합된 메시지 교환을 응용 프로그램의 구성 요소에 제공하는 클라우드 메시징 플랫폼입니다.
 
 ### <a name="retry-mechanism"></a>재시도 메커니즘
-서비스 버스는 [RetryPolicy](http://msdn.microsoft.com/library/microsoft.servicebus.retrypolicy.aspx) 기본 클래스의 구현을 사용하여 재시도를 구현합니다. 모든 Service Bus 클라이언트는 **RetryPolicy** 기본 클래스의 구현 중 하나로 설정할 수 있는 **RetryPolicy** 속성을 표시합니다. 기본 제공 구현은 다음과 같습니다.
+Service Bus는 [RetryPolicy](http://msdn.microsoft.com/library/microsoft.servicebus.retrypolicy.aspx) 기본 클래스의 구현을 사용하여 재시도를 구현합니다. 모든 Service Bus 클라이언트는 **RetryPolicy** 기본 클래스의 구현 중 하나로 설정할 수 있는 **RetryPolicy** 속성을 표시합니다. 기본 제공 구현은 다음과 같습니다.
 
 * [RetryExponential 클래스](http://msdn.microsoft.com/library/microsoft.servicebus.retryexponential.aspx). 이 클래스는 백오프 간격, 재시도 횟수 및 작업이 완료되는 총 시간을 제한하는 데 사용되는 **TerminationTimeBuffer** 속성을 제어하는 속성을 표시합니다.
-* [NoRetry 클래스](http://msdn.microsoft.com/library/microsoft.servicebus.noretry.aspx). 이 클래스는 재시도가 일괄 처리 또는 다단계 작업의 일부로 다른 프로세스에서 관리되는 경우처럼 서비스 버스 API 수준의 재시도가 필요하지 않은 경우에 사용됩니다.
+* [NoRetry 클래스](http://msdn.microsoft.com/library/microsoft.servicebus.noretry.aspx). 이 클래스는 재시도가 일괄 처리 또는 다단계 작업의 일부로 다른 프로세스에서 관리되는 경우처럼 Service Bus API 수준의 재시도가 필요하지 않은 경우에 사용됩니다.
 
-서비스 버스 작업은 [부록: 메시징 예외](http://msdn.microsoft.com/library/hh418082.aspx)에 나열된 일련의 예외를 반환할 수 있습니다. 이 목록에서는 작업 재시도가 적절한지 여부를 나타내는 예외에 대한 정보를 제공합니다. 예를 들어 [ServerBusyException](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) 은 클라이언트가 일정 기간 동안 대기한 후 작업을 재시도해야 함을 나타냅니다. 또한 **ServerBusyException** 이 발생하면 서비스 버스가 다른 모드로 전환되어 추가 10초의 지연이 계산된 재시도 지연에 추가될 수 있습니다. 이 모드는 잠시 후 다시 설정됩니다.
+Service Bus 작업은 [부록: 메시징 예외](http://msdn.microsoft.com/library/hh418082.aspx)에 나열된 일련의 예외를 반환할 수 있습니다. 이 목록에서는 작업 재시도가 적절한지 여부를 나타내는 예외에 대한 정보를 제공합니다. 예를 들어 [ServerBusyException](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) 은 클라이언트가 일정 기간 동안 대기한 후 작업을 재시도해야 함을 나타냅니다. 또한 **ServerBusyException**이 발생하면 Service Bus가 다른 모드로 전환되어 추가 10초의 지연이 계산된 재시도 지연에 추가될 수 있습니다. 이 모드는 잠시 후 다시 설정됩니다.
 
-서비스 버스에서 반환된 예외는 클라이언트가 작업을 재시도해야 하는지 여부를 나타내는 **IsTransient** 속성을 표시합니다. 기본 제공 **RetryExponential** 정책은 모든 Service Bus 예외에 대한 기본 클래스인 **MessagingException** 클래스의 **IsTransient** 속성을 사용합니다. **RetryPolicy** 기본 클래스의 사용자 지정 구현을 만드는 경우 예외 유형과 **IsTransient** 속성의 조합을 사용하여 재시도 작업을 보다 세부적으로 제어할 수 있습니다. 예를 들어 **QuotaExceededException** 을 검색하고 조치를 취하여 메시지 보내기를 재시도하기 전에 큐를 비울 수 있습니다.
+Service Bus에서 반환된 예외는 클라이언트가 작업을 재시도해야 하는지 여부를 나타내는 **IsTransient** 속성을 표시합니다. 기본 제공 **RetryExponential** 정책은 모든 Service Bus 예외에 대한 기본 클래스인 **MessagingException** 클래스의 **IsTransient** 속성을 사용합니다. **RetryPolicy** 기본 클래스의 사용자 지정 구현을 만드는 경우 예외 유형과 **IsTransient** 속성의 조합을 사용하여 재시도 작업을 보다 세부적으로 제어할 수 있습니다. 예를 들어 **QuotaExceededException**을 검색하고 조치를 취하여 메시지 보내기를 재시도하기 전에 큐를 비울 수 있습니다.
 
 ### <a name="policy-configuration"></a>정책 구성
 재시도 정책은 프로그래밍 방식으로 설정되며 **NamespaceManager** 및 **MessagingFactory**에 대한 기본 정책으로 설정하거나 각 메시징 클라이언트에 대해 개별적으로 설정할 수 있습니다. 메시징 세션에 대해 기본 재시도 정책을 설정하려면 **NamespaceManager**의 **RetryPolicy**를 설정합니다.
@@ -536,17 +536,17 @@ client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable7.png)
 
 ### <a name="retry-usage-guidance"></a>재시도 사용 지침
-서비스 버스를 사용하는 경우 다음 지침을 고려합니다.
+Service Bus를 사용하는 경우 다음 지침을 고려합니다.
 
 * 기본 제공 **RetryExponential** 구현을 사용하는 경우 정책이 서버 사용 중 예외에 반응하고 적절한 재시도 모드로 자동으로 전환되므로 폴백 작업을 구현하지 않습니다.
-* 서비스 버스는 기본 네임스페이스의 큐가 실패할 경우 별도의 네임스페이스에 있는 백업 큐로 자동 장애 조치(failover)를 구현하는 쌍을 이루는 네임스페이스라는 기능을 지원합니다. 기본 큐가 복구되면 보조 큐의 메시지를 다시 보낼 수 있습니다. 이 기능은 일시적인 오류를 해결하는 데 도움이 됩니다. 자세한 내용은 [비동기 메시징 패턴 및 고가용성](http://msdn.microsoft.com/library/azure/dn292562.aspx)을 참조하세요.
+* Service Bus는 기본 네임스페이스의 큐가 실패할 경우 별도의 네임스페이스에 있는 백업 큐로 자동 장애 조치(failover)를 구현하는 쌍을 이루는 네임스페이스라는 기능을 지원합니다. 기본 큐가 복구되면 보조 큐의 메시지를 다시 보낼 수 있습니다. 이 기능은 일시적인 오류를 해결하는 데 도움이 됩니다. 자세한 내용은 [비동기 메시징 패턴 및 고가용성](http://msdn.microsoft.com/library/azure/dn292562.aspx)을 참조하세요.
 
 재시도 작업에 대해 다음 설정을 사용하여 시작하는 것이 좋습니다. 이러한 설정은 범용이므로 작업을 모니터링하고 고유한 시나리오에 맞게 값을 미세 조정해야 합니다.
 
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable8.png)
 
 ### <a name="telemetry"></a>원격 분석
-서비스 버스는 **EventSource**를 사용하여 재시도를 ETW 이벤트로 기록합니다. 이벤트를 캡처하여 성능 뷰어에서 보거나 적합한 대상 로그에 기록하려면 **EventListener** 를 이벤트 소스에 연결해야 합니다. 이 작업은 [의미 체계 로깅 응용 프로그램 블록](http://msdn.microsoft.com/library/dn775006.aspx) (영문)을 사용하여 수행할 수 있습니다. 재시도 이벤트는 다음과 같은 형식입니다.
+Service Bus는 **EventSource**를 사용하여 재시도를 ETW 이벤트로 기록합니다. 이벤트를 캡처하여 성능 뷰어에서 보거나 적합한 대상 로그에 기록하려면 **EventListener**를 이벤트 소스에 연결해야 합니다. 이 작업은 [의미 체계 로깅 응용 프로그램 블록](http://msdn.microsoft.com/library/dn775006.aspx)(영문)을 사용하여 수행할 수 있습니다. 재시도 이벤트는 다음과 같은 형식입니다.
 
 ```text
 Microsoft-ServiceBus-Client/RetryPolicyIteration
@@ -824,7 +824,7 @@ namespace RetryCodeSamples
 }
 ```
 
-더 많은 예제는 프로젝트 웹 사이트의 [구성](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md#configuration) (영문)을 참조하세요.
+더 많은 예제는 프로젝트 웹 사이트의 [구성](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md#configuration)(영문)을 참조하세요.
 
 ### <a name="more-information"></a>자세한 정보
 * [Redis 웹 사이트](http://redis.io/)
@@ -838,7 +838,7 @@ DocumentDB는 스키마 없는 JSON 데이터 모델에 대해 풍부한 쿼리 
 DocumentDB가 클라이언트를 제한하는 경우 HTTP 429 오류를 반환합니다. `DocumentClientException`에서 상태 코드를 확인합니다.
 
 ### <a name="policy-configuration"></a>정책 구성
-다음 테이블에서는 `RetryOptions` 클래스의 기본 설정을 보여 줍니다.
+다음 표에서는 `RetryOptions` 클래스의 기본 설정을 보여 줍니다.
 
 | 설정 | 기본값 | 설명 |
 | --- | --- | --- |
@@ -854,7 +854,7 @@ options.MaxRetryWaitTimeInSeconds = 15;
 ```
 
 ### <a name="telemetry"></a>원격 분석
-재시도 횟수는 .NET **TraceSource**를 통해 구조화되지 않은 추적 메시지로 기록됩니다. 이벤트를 캡처하여 적합한 대상 로그에 기록하려면 **TraceListener** 를 구성해야 합니다.
+재시도 횟수는 .NET **TraceSource**를 통해 구조화되지 않은 추적 메시지로 기록됩니다. 이벤트를 캡처하여 적합한 대상 로그에 기록하려면 **TraceListener**를 구성해야 합니다.
 
 예를 들어 App.config 파일에 다음을 추가하는 경우 추적은 실행 파일과 동일한 위치에 있는 텍스트 파일에 생성됩니다.
 
@@ -1034,7 +1034,7 @@ Active Directory Graph API 작업 재시도 및 반환된 오류 코드에 대�
 * [사용자 지정 재시도 전략 구현](http://msdn.microsoft.com/library/hh680943.aspx) (Topaz)(영문)
 * [토큰 발급 및 다시 시도 지침](http://msdn.microsoft.com/library/azure/dn168916.aspx)
 
-## <a name="general-rest-and-retry-guidelines"></a>일반 REST 및 재시도 지침
+## <a name="general-rest-and-retry-guidelines"></a>일반 REST 및 다시 시도 지침
 Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려합니다.
 
 * 재사용 가능한 코드로 재시도를 관리하는 체계적인 방법을 사용하여 모든 클라이언트 및 모든 솔루션에서 일관된 방법론을 적용할 수 있도록 합니다.
@@ -1088,7 +1088,7 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 | **증분** |retryCount<br />initialInterval<br />increment<br /><br />fastFirstRetry<br /> |10<br />1초<br />1초<br /><br />true |재시도 횟수입니다.<br />첫 번째 재시도에 적용되는 초기 간격입니다.<br />재시도 사이의 점진적 지연을 계산하는 데 사용되는 증분 시간 값입니다.<br />첫 번째 재시도가 즉시 수행되는지 여부입니다. |
 | **선형(고정 간격)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1초<br />true |재시도 횟수입니다.<br />재시도 사이의 지연입니다.<br />첫 번째 재시도가 즉시 수행되는지 여부입니다. |
 
-일시적인 오류 처리 응용 프로그램 블록 사용에 대한 예제는 이 지침의 앞 부분에서 ADO.NET을 사용하는 SQL 데이터베이스 및 Azure Active Directory에 대한 예제 섹션을 참조하세요.
+일시적인 오류 처리 응용 프로그램 블록 사용에 대한 예제는 이 지침의 앞 부분에서 ADO.NET을 사용하는 SQL Database 및 Azure Active Directory에 대한 예제 섹션을 참조하세요.
 
 <!-- links -->
 
@@ -1101,6 +1101,6 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

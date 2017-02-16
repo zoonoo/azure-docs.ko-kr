@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
+ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
+ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Azure Data Lake Store에 대한 질문과 대답
 이 문서에서는 Azure Data Lake Store와 관련된 FAQ에 대해 알아봅니다.
 
-## <a name="how-do-i-handle-disaster-recovery-and-data-corruption-for-my-azure-data-lake-store-account"></a>내 Azure Data Lake Store 계정에 대한 재해 복구와 데이터 손상을 어떻게 처리하나요?
+## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>어떻게 영역 전체의 재해 또는 실수로 인한 삭제로부터 내 데이터를 추가로 보호할 수 있나요?
 Azure Data Lake Store 계정의 데이터는 자동화된 복제본을 통해 지역 내에서 일시적인 하드웨어 장애에 대한 복원력이 있습니다. 이렇게 하면 Azure Data Lake Store SLA를 충족하는 내구성 및 고가용성을 사용할 수 있습니다. 드물게 발생하는 전체 지역 가동 중단 또는 삭제 실수로부터 데이터를 보호하는 방법에 대한 몇 가지 지침이 있습니다.
 
 ### <a name="disaster-recovery-guidance"></a>재해 복구 지침
@@ -52,6 +52,6 @@ Azure Data Lake Store가 자동화된 복제본을 통해 데이터 복원력을
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

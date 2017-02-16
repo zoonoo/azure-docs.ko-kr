@@ -1,22 +1,22 @@
 ---
 title: "Service Bus 조정된 메시징 REST 자습서 | Microsoft Docs"
 description: "조정된 메시징 REST 자습서"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: b2cd9e5db765aa2ffbb00063ae193e39ffe9de4e
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
 2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**, **프로젝트**를 차례로 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어**에서 확인) **콘솔 응용 프로그램** 템플릿을 선택하고 이름을 **Microsoft.ServiceBus.Samples**로 지정합니다. 기본 위치를 사용합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
 3. Program.cs에서 `using` 문이 다음과 같이 표시되는지 확인합니다.
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
 4. 필요한 경우 프로그램의 네임스페이스 이름을 Visual Studio 기본값에서 `Microsoft.ServiceBus.Samples`로 변경합니다.
 5. `Program` 클래스 내에 다음 전역 변수를 추가합니다.
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
     ```
 6. `Main()` 안에 다음 코드를 붙여넣습니다.
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
 ### <a name="create-a-getsastoken-method"></a>GetSASToken() 메서드 만들기
 `Main()` 메서드 뒤의 `Program` 클래스에 다음 코드를 붙여넣습니다.
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 이전 단계에서 추가한 `GetSASToken()` 코드 바로 뒤에 다음 코드를 붙여넣습니다.
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ private static string CreateQueue(string queueName, string token)
 
 1. 이전 단계에서 추가한 `CreateQueue()` 코드 바로 뒤에 다음 코드를 붙여넣습니다.
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ private static string CreateQueue(string queueName, string token)
     ```
 2. 표준 broker 저장 메시지 속성은 `BrokerProperties` HTTP 헤더에 배치됩니다. 브로커 속성은 JSON 형식으로 직렬화되어야 합니다. **TimeToLive** 값을 30초로 지정하고 메시지 레이블 "M1"을 메시지에 추가하려면 앞의 예제에 표시된 `webClient.UploadData()` 호출의 바로 앞에 다음 코드를 추가합니다.
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ private static string CreateQueue(string queueName, string token)
     조정된 메시지 속성이 추가됩니다. 따라서 보내기 요청에서는 요청의 일부인 조정된 메시지 속성을 모두 지원하는 API 버전을 지정해야 합니다. 지정된 API 버전이 조정된 메시지 속성을 지원하지 않으면 해당 속성이 무시됩니다.
 3. 사용자 지정 메시지 속성은 키-값 쌍의 집합으로 정의됩니다. 각 사용자 지정 속성은 자체 TPPT 헤더에 저장됩니다. 사용자 지정 속성 "우선 순위" 및 "고객"을 추가하려면 앞의 예제에 표시된 `webClient.UploadData()` 호출 바로 앞에 다음 코드를 추가합니다.
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ private static string CreateQueue(string queueName, string token)
 
 이전 단계에서 추가한 `SendMessage()` 코드 바로 뒤에 다음 코드를 붙여넣습니다.
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 ### <a name="create-a-topic"></a>토픽 만들기
 이전 단계에서 추가한 `ReceiveAndDeleteMessage()` 코드 바로 뒤에 다음 코드를 붙여넣습니다.
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>구독 만들기
 다음 코드는 이전 단계에서 만든 항목에 대한 구독을 만듭니다. 다음 코드를 `CreateTopic()` 정의 바로 뒤에 추가합니다.
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>지정된 리소스로 Atom 피드 검색
 이전 단계에서 추가한 `CreateSubscription()` 메서드 바로 뒤에 다음 코드를 추가합니다.
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>메시징 엔터티 삭제
 이전 단계에서 추가한 코드 바로 뒤에 다음 코드를 추가합니다.
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Atom 피드 포맷 
 `GetResources()` 메서드에는 검색한 Atom 피드를 다시 포맷하여 가독성을 높이는 `FormatXml()` 메서드에 대한 호출이 포함되어 있습니다. 다음은 `FormatXml()` 정의로, 이 코드를 이전 섹션에서 추가한 `DeleteResource()` 코드 바로 뒤에 추가합니다.
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ private static string FormatXml(string inputXml)
 ### <a name="example"></a>예
 다음 예제는 이 자습서의 모든 단계 완료 후 표시되는 전체 코드입니다.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;
@@ -604,6 +604,6 @@ namespace Microsoft.ServiceBus.Samples
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

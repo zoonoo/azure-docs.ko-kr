@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98333c8721274c207ed3d7f2bd05cc20bcd10562
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: be19590bca7c7fb45e32f5a5e29c88ab5dd21deb
 
 
 ---
@@ -30,6 +30,10 @@ Microsoft Azure에서 SQL 데이터베이스를 실행하는 경우 장점 중 �
 
 ## <a name="when-your-app-is-an-overnight-success"></a>앱이 단번에 성공한 경우
 SQL 데이터베이스를 사용하면 순식간에 쉽게 크기를 조정할 수 있습니다. 따라서 앱이 단번에 성공하면 한 번 클릭으로 새로운 성능 요구를 수용할 수 있습니다. 또한 가동 중지가 최소로 유지되므로 확장 또는 축소하는 경우 앱이 적중될지를 걱정할 필요가 없습니다.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
 
 [설명서 읽기](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -57,6 +61,6 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

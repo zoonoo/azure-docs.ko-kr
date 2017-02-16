@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ea6553d2024516b4c4bd307db4e92d598b78bc75
+ms.sourcegitcommit: 5718ca956680ac3c92f4eb479a5948d0296b8b21
+ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
 
 
 ---
@@ -66,7 +66,6 @@ ms.openlocfilehash: ea6553d2024516b4c4bd307db4e92d598b78bc75
 * 자동화
 * 배치
 * Bing 지도
-* BizTalk 서비스
 * CDN
 * 클라우드 서비스 - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
@@ -79,8 +78,8 @@ ms.openlocfilehash: ea6553d2024516b4c4bd307db4e92d598b78bc75
 * DevTest Lab
 * DNS
 * DocumentDB
-* 이벤트 허브(영문)
-* HDInsight 클러스터
+* Event Hubs
+* HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * IoT Hub
 * 키 자격 증명 모음 
 * 부하 분산 장치
@@ -107,12 +106,17 @@ ms.openlocfilehash: ea6553d2024516b4c4bd307db4e92d598b78bc75
 * 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * 가상 네트워크
 
+> [!NOTE] 
+> 게이트웨이가 일시적으로 제거될 때까지 VPN Gateway를 포함하는 Virtual Network를 현재 이동할 수 없습니다. 제거되면 Virtual Network를 성공적으로 이동할 수 있고 게이트웨이를 만들 수 있습니다.
+>
+ 
 ## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
 
 * AD 하이브리드 상태 관리 서비스
 * 응용 프로그램 게이트웨이
 * Application Insights
+* BizTalk 서비스
 * Express 경로
 * Dynamics LCS
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
@@ -139,8 +143,8 @@ ms.openlocfilehash: ea6553d2024516b4c4bd307db4e92d598b78bc75
 
 * **web-a**, **plan-a**, **web-b** 및 **plan-b** 이동
 * **web-a** 및 **web-b** 이동
-*  **web-a**
-*  **web-b**
+* **web-a**
+* **web-b**
 
 다른 모든 조합에는 이동할 수 없는 리소스 형식(Application Insights)을 이동하거나 앱 서비스 계획 이동 시 그대로 남겨 둘 수 없는 리소스 형식(앱 서비스 리소스 형식)을 남겨두는 것이 있습니다.
 
@@ -166,6 +170,12 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 
 예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 컴퓨터(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
 
+## <a name="hdinsight-limitations"></a>HDInsight 제한 사항
+
+새 구독 또는 리소스 그룹에 HDInsight 클러스터를 이동할 수 있습니다. 그러나 HDInsight 클러스터에 연결된 네트워킹 리소스(예: Virtual Network, NIC, 또는 부하 분산 장치)는 구독 간에 이동할 수 없습니다. 또한 클러스터에 대한 가상 컴퓨터에 연결된 NIC를 새 리소스 그룹으로 이동할 수 없습니다.
+
+HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스(예: 저장소 계정)를 이동합니다. 그런 다음 자체적으로 HDInsight 클러스터를 이동합니다.
+
 ## <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다. 
 
@@ -188,47 +198,62 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 * 대상 구독은 다른 어떠한 클래식 리소스도 포함할 수 없습니다.
 * 이동은 클래식 이동에 대한 별도의 REST API를 통해서만 요청할 수 있습니다. 클래식 리소스를 새 구독으로 이동할 경우 표준 Resource Manager 이동 명령은 작동하지 않습니다.
 
-새 구독으로 클래식 리소스를 이동하려면 클래식 리소스에 한정된 REST 작업을 사용해야 합니다. 새 구독으로 클래식 리소스를 이동하려면 다음 단계를 수행합니다.
+새 구독으로 클래식 리소스를 이동하려면 포털 또는 클래식 리소스에 한정된 REST 작업을 사용하세요. 포털을 통해 클래식 리소스를 이동하는 방법에 대한 내용은 [포털 사용](#use-portal)을 참조하세요. REST를 사용하려면 다음 단계를 수행합니다.
 
 1. 원본 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
-   
-         POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+
+  ```   
+  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+  ```
    
      요청 본문에 다음을 포함합니다.
-   
-         {
-           "role": "source"
-         }
-   
+
+  ``` 
+  {
+    "role": "source"
+  }
+  ```
+  
      유효성 검사 작업에 대한 응답은 다음 형식입니다.
-   
-         {
-           "status": "{status}",
-           "reasons": [
-             "reason1",
-             "reason2"
-           ]
-         }
+
+  ``` 
+  {
+    "status": "{status}",
+    "reasons": [
+      "reason1",
+      "reason2"
+    ]
+  }
+  ```
+
 2. 대상 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
-   
-         POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-   
+
+  ``` 
+  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+  ```
+
      요청 본문에 다음을 포함합니다.
-   
-         {
-           "role": "target"
-         }
+
+  ``` 
+  {
+    "role": "target"
+  }
+  ```
    
      응답이 원본 구독 유효성 검사와 동일한 형식입니다.
 3. 두 구독이 유효성 검사를 통과하면 다음 작업으로 한 구독에서 다른 구독으로 모든 클래식 리소스를 이동합니다.
-   
-         POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-   
+
+  ``` 
+  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+  ```
+
     요청 본문에 다음을 포함합니다.
-   
-         {
-           "target": "/subscriptions/{target-subscription-id}"
-         }
+
+  ``` 
+  {
+    "target": "/subscriptions/{target-subscription-id}"
+  }
+  ```
 
 이 작업은 몇 분 정도 실행될 수 있습니다. 
 
@@ -258,59 +283,73 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 
 첫 번째 예제는 새 리소스 그룹에 하나의 리소스를 이동하는 방법을 보여 줍니다.
 
-    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```powershell
+$resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```
 
 두 번째 예제는 새 리소스 그룹에 여러 리소스를 이동하는 방법을 보여 줍니다.
 
-    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```powershell
+$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```
 
 새 구독으로 이동하려면 **DestinationSubscriptionId** 매개 변수 값을 포함합니다.
 
 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다.
 
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+```powershell
+Confirm
+Are you sure you want to move these resources to the resource group
+'/subscriptions/{guid}/resourceGroups/newRG' the resources:
 
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+```
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 **azure resource move** 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 명령을 사용하여 리소스 ID를 가져올 수 있습니다.
 
-    azure resource list -g sourceGroup --json
+```azurecli
+azure resource list -g sourceGroup --json
+```
 
 그러면 다음 형식이 반환됩니다.
 
-    [
-      {
-        "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
-        "name": "storagedemo",
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "southcentralus",
-        "tags": {},
-        "kind": "Storage",
-        "sku": {
-          "name": "Standard_RAGRS",
-          "tier": "Standard"
-        }
-      }
-    ]
+```azurecli
+[
+  {
+    "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
+    "name": "storagedemo",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "southcentralus",
+    "tags": {},
+    "kind": "Storage",
+    "sku": {
+      "name": "Standard_RAGRS",
+      "tier": "Standard"
+    }
+  }
+]
+```
 
 다음 예제에서는 저장소 계정을 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. **-i** 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
 
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```azurecli
+azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```
 
 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다.
 
 ## <a name="use-rest-api"></a>REST API 사용
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 다음을 실행합니다.
 
-    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
 
 요청 본문에서 대상 리소스 그룹 및 이동할 리소스를 지정합니다. 이동 REST 작업에 대한 자세한 내용은 [리소스 이동](https://msdn.microsoft.com/library/azure/mt218710.aspx)을 참조하세요.
 
@@ -323,6 +362,6 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

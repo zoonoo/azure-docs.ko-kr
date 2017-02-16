@@ -12,38 +12,37 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: c3161d1b870936ff51bbe092f1ca8ff320cf956e
+ms.sourcegitcommit: 45b44b7b5cb4fd299fcc9c4f704a602048dd15c5
+ms.openlocfilehash: e875aab41e09066df2facd3669eec09eea621fd2
 
 
 ---
 # <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 간 데이터 이동
 이 문서에서는 데이터 팩터리를 사용하여 Oracle과 다른 데이터 저장소 간에 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
-## <a name="supported-versions"></a>지원되는 버전
-Oracle Data Provider .NET 12.1이 데이터 관리 게이트웨이 컴퓨터에 설치된 경우 이 Oracle 커넥터를 사용하여 하위 버전의 Oracle 인스턴스 간 데이터를 복사할 수 있습니다. 설치 방법에 대한 자세한 내용은 [설치](#installation) 섹션을 참조하세요.
+Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미스 Oracle 원본에 연결하도록 지원합니다. [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하여 데이터 관리 게이트웨이에 대해 알아보고 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하여 데이터를 이동하는 데이터 파이프라인의 게이트웨이 설정에 대 한 단계별 지침에 대해 알아보세요.
 
-* Oracle 12c
-* Oracle 11g
-* Oracle 10g 릴리스 2
+> [!NOTE]
+> 게이트웨이는 Oracle이 Azure IaaS VM에 호스트되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 IaaS VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
+>
 
-## <a name="installation"></a>설치
-Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데이터베이스에 연결할 수 있도록 하려면 다음 구성 요소를 설치해야 합니다.
+## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
+Oracle 커넥터는 다음 두 가지 버전의 드라이버를 지원합니다.
 
-* 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하게 관리되는 방식으로 연결하는 클라이언트 에이전트입니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 을 참조하세요.
-* .NET용 Oracle 데이터 공급자입니다. 이 구성 요소는 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 호스트 컴퓨터에 해당 버전(32/64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 은 Oracle Database 10g 릴리스 2 이상에 액세스할 수 있습니다.
+- **Oracle용 Microsoft 드라이버**는 버전 2.7부터 데이터 관리 게이트웨이와 번들로 묶여 제공됩니다. 이 드라이버를 사용하면 Oracle에 연결하기 위해 게이트웨이 외에 다른 어떤 것도 설치할 필요가 없습니다. Oracle Database 버전 10g 릴리스 2 이상을 사용할 수 있습니다. 환경 설치를 단순화하려면 이 드라이버 사용이 **권장**됩니다.
+
+    > [!NOTE]
+    > 현재 Oracle용 Microsoft 드라이버는 Oracle에서 데이터를 복사하는 것만 지원하고 Oracle로 쓰는 것은 지원하지 않습니다.
+    >
+
+- **.NET용 Oracle Data Provider: ** Oracle Data Provider를 사용하여 Oracle로 데이터를 복사하거나 Oracle에서 데이터를 복사하도록 선택할 수 있습니다. 이 구성 요소는 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 컴퓨터에 해당 버전(32/64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 은 Oracle Database 10g 릴리스 2 이상에 액세스할 수 있습니다.
 
     "XCopy 설치"를 선택하는 경우 readme.htm의 단계를 수행합니다. UI(XCopy UI가 아닌 UI)가 포함된 설치 관리자를 선택하는 것이 좋습니다.
 
-    공급자를 설치한 후 서비스 애플릿 또는 데이터 관리 게이트웨이 구성 관리자를 사용하여 컴퓨터에서 데이터 관리 게이트웨이 호스트 서비스를 다시 시작합니다.  
-
-> [!NOTE]
-> 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
->
->
+    공급자를 설치한 후 서비스 애플릿 또는 데이터 관리 게이트웨이 구성 관리자를 사용하여 컴퓨터에서 데이터 관리 게이트웨이 호스트 서비스를 **다시 시작**합니다.  
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
 Oracle 데이터베이스의 데이터를 지원되는 싱크 데이터 저장소 중 하나에 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
@@ -65,28 +64,33 @@ Oracle 데이터베이스의 데이터를 지원되는 싱크 데이터 저장�
 
 **Oracle 연결된 서비스:**
 
-    {
-      "name": "OnPremisesOracleLinkedService",
-      "properties": {
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-          "gatewayName": "<gateway name>"
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
-      }
     }
+}
+```
 
 **Azure Blob 저장소 연결된 서비스:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
+```json
+{
+    "name": "StorageLinkedService",
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
         }
-      }
     }
+}
+```
 
 **Oracle 입력 데이터 집합:**
 
@@ -94,148 +98,143 @@ Oracle 데이터베이스의 데이터를 지원되는 싱크 데이터 저장�
 
 "external": "true"로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
-    {
-        "name": "OracleInput",
-        "properties": {
-            "type": "OracleTable",
-            "linkedServiceName": "OnPremisesOracleLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-               "external": true,
-            "availability": {
-                "offset": "01:00:00",
-                "interval": "1",
-                "anchorDateTime": "2014-02-27T12:00:00",
-                "frequency": "Hour"
-            },
-          "policy": {     
-               "externalData": {        
-                    "retryInterval": "00:01:00",    
-                    "retryTimeout": "00:10:00",       
-                    "maximumRetry": 3       
-                }     
-              }
+```json
+{
+    "name": "OracleInput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+            "offset": "01:00:00",
+            "interval": "1",
+            "anchorDateTime": "2014-02-27T12:00:00",
+            "frequency": "Hour"
+        },
+        "policy": {     
+            "externalData": {        
+                "retryInterval": "00:01:00",    
+                "retryTimeout": "00:10:00",       
+                "maximumRetry": 3       
+            }     
         }
     }
-
+}
+```
 
 **Azure Blob 출력 데이터 집합:**
 
 데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
+```json
+{
+    "name": "AzureBlobOutput",
+    "properties": {
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
+            "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ],
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": "\t",
+                "rowDelimiter": "\n"
             }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
-          }
         },
         "availability": {
-          "frequency": "Hour",
-          "interval": 1
+            "frequency": "Hour",
+            "interval": 1
         }
-      }
     }
-
+}
+```
 
 **복사 작업을 포함하는 파이프라인:**
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **OracleSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다.  **oracleReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
         "activities":[  
-          {
-            "name": "OracletoBlob",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": " OracleInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "OracleSource",
-                "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
+            {
+                "name": "OracletoBlob",
+                "description": "copy activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": " OracleInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "OracleSource",
+                        "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
             }
-          }
-         ]
-       }
+        ]
     }
-
-
-Oracle 데이터베이스에서 날짜가 구성된 방식에 따라 쿼리 문자열을 조정해야 합니다. 다음 오류 메시지가 표시되는 경우
-
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
-
-다음 샘플에서 보듯이 (to_date 함수를 사용하여) 쿼리를 변경해야 할 수 있습니다.
-
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+}
+```
 
 ## <a name="sample-copy-data-from-azure-blob-to-oracle"></a>샘플: Azure Blob에서 Oracle로 데이터 복사
 이 샘플은 Azure Blob 저장소에서 온-프레미스 Oracle 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기** 에 설명한 원본에서 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
@@ -251,165 +250,163 @@ Oracle 데이터베이스에서 날짜가 구성된 방식에 따라 쿼리 문�
 샘플은 Blob에서 온-프레미스 Oracle 데이터베이스의 테이블로 매시간 데이터를 복사합니다. 샘플에 사용되는 다양한 속성에 대한 자세한 내용은 샘플 다음에 나오는 섹션의 문서를 참조하세요.
 
 **Oracle 연결된 서비스:**
-
-    {
-      "name": "OnPremisesOracleLinkedService",
-      "properties": {
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-          "gatewayName": "<gateway name>"
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+            User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
         }
-      }
     }
+}
+```
 
 **Azure Blob 저장소 연결된 서비스:**
-
-    {
-      "name": "StorageLinkedService",
-      "properties": {
+```json
+{
+    "name": "StorageLinkedService",
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
         }
-      }
     }
+}
+```
 
 **Azure Blob 입력 데이터 집합**
 
 데이터는 매시간 새 blob에 선택됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정은 데이터 팩터리 서비스에 이 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 작업에 의해 생성되지 않는다는 점을 알려줍니다.
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
+```json
+{
+    "name": "AzureBlobInput",
+    "properties": {
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
+            "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                }
+            ],
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n"
             }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
-          }
         },
         "external": true,
         "availability": {
-          "frequency": "Hour",
-          "interval": 1
+            "frequency": "Day",
+            "interval": 1
         },
         "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
-      }
     }
+}
+```
 
 **Oracle 출력 데이터 집합:**
 
 샘플은 Oracle에 "MyTable" 테이블을 만들었다고 가정합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Oracle에 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
-    {
-        "name": "OracleOutput",
-        "properties": {
-            "type": "OracleTable",
-            "linkedServiceName": "OnPremisesOracleLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": "1"
-            }
+```json
+{
+    "name": "OracleOutput",
+    "properties": {
+        "type": "OracleTable",
+        "linkedServiceName": "OnPremisesOracleLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "availability": {
+            "frequency": "Day",
+            "interval": "1"
         }
     }
-
+}
+```
 
 **복사 작업을 포함하는 파이프라인:**
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **OracleSink**로 설정됩니다.  
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
         "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "end":"2014-06-05T19:00:00",
         "description":"pipeline with copy activity",
         "activities":[  
-          {
-            "name": "AzureBlobtoOracle",
-            "description": "Copy Activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OracleOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "OracleSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
+            {
+                "name": "AzureBlobtoOracle",
+                "description": "Copy Activity",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OracleOutput"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "OracleSink"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "policy": {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
             }
-          }
-          ]
-       }
+        ]
     }
-
+}
+```
 
 ## <a name="oracle-linked-service-properties"></a>Oracle 연결된 서비스 속성
 다음 표에서는 Oracle 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
@@ -417,10 +414,43 @@ Oracle 데이터베이스에서 날짜가 구성된 방식에 따라 쿼리 문�
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성은 **OnPremisesOracle** |예 |
-| connectionString |connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
-| gatewayName |온-프레미스 Oracle 서버에 연결하는 데 사용할 게이트웨이 이름입니다. |예 |
+| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation) 섹션을 참조하세요. | 아니요 |
+| connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 아래 예제를 참조하세요. | 예 |
+| gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용할 게이트웨이 이름입니다. |예 |
 
 온-프레미스 Oracle 데이터 원본의 자격 증명을 설정하는 방법에 대한 자세한 내용은 [데이터 관리 게이트웨이를 사용하여 온-프레미스 원본과 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
+
+**예제: Microsoft 드라이버 사용**
+```JSON
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+**예제: ODP 드라이버 사용**
+
+허용되는 추가 형식에 대해서는 [이 사이트](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/)를 참조하세요.
+```JSON
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
 
 ## <a name="oracle-dataset-type-properties"></a>Oracle 데이터 집합 형식 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Oracle, Azure blob, Azure 테이블 등).
@@ -453,10 +483,44 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/>  예: “00:30:00”(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 100) |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
+
+## <a name="troubleshooting-tips"></a>문제 해결 팁
+### <a name="problem-1-net-framework-data-provider"></a>문제 1: .NET Framework Data Provider
+
+다음 **오류 메시지**가 표시됩니다.
+
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
+
+**가능한 원인:**
+
+1. .NET Framework Data Provider for Oracle이 설치되지 않았습니다.
+2. .NET Framework Data Provider for Oracle이 .NET Framework 2.0에 설치되었고 .NET Framework 4.0 폴더에서 찾을 수 없습니다.
+
+**해결 방법**
+
+1. .NET Provider for Oracle을 설치하지 않았으면 [해당 항목을 설치](http://www.oracle.com/technetwork/topics/dotnet/downloads/) 한 후 시나리오를 다시 시도합니다.
+2. Provider를 설치한 후에도 오류 메시지가 표시되면 다음 단계를 수행합니다.
+   1. <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 폴더에서 .NET 2.0 machine config 파일을 엽니다.
+   2. **Oracle Data Provider for .NET**을 검색하면 **system.data** -> **DbProviderFactories**에서 “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET과 같은 항목을 찾을 수 있습니다." type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”이라는 제목의 방법 가이드를 참조하세요.
+3. 이 항목을 v4.0 폴더 즉, <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config의 machine.config 파일에 복사하고 버전을 4.xxx.x.x으로 변경합니다.
+4. `gacutil /i [provider path]`를 실행하여 전역 어셈블리 캐시(GAC)에 “<ODP.NET 설치된 경로>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll”을 설치합니다.## 문제 해결 팁
+
+### <a name="problem-2-datetime-formatting"></a>문제 2: 날짜/시간 서식
+
+다음 **오류 메시지**가 표시됩니다.
+
+    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+**해결 방법**
+
+다음 샘플에서처럼 Oracle Database에 날짜가 구성되는 방법에 따라 복사 작업에서 쿼리 문자열을 조정해야 할 수 있습니다(To_date 함수 사용).
+
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -492,25 +556,11 @@ Oracle에서 데이터를 이동하는 경우 Oracle 데이터 형식에서 .NET
 | TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |문자열 |
-| XML |문자열 |
+| XML |String |
 
-## <a name="troubleshooting-tips"></a>문제 해결 팁
-**문제:** 다음 **오류 메시지**가 표시되었습니다. 복사 작업에 잘못된 매개 변수 'UnknownParameterName'이 있습니다. 자세한 메시지: 요청한 .Net Framework 데이터 공급자를 찾을 수 없습니다. 해당 항목이 설치되어 있지 않은 것 같습니다.  
-
-**가능한 원인:**
-
-1. .NET Framework Data Provider for Oracle이 설치되지 않았습니다.
-2. .NET Framework Data Provider for Oracle이 .NET Framework 2.0에 설치되었고 .NET Framework 4.0 폴더에서 찾을 수 없습니다.
-
-**해결 방법**
-
-1. .NET Provider for Oracle을 설치하지 않았으면 [해당 항목을 설치](http://www.oracle.com/technetwork/topics/dotnet/downloads/) 한 후 시나리오를 다시 시도합니다.
-2. Provider를 설치한 후에도 오류 메시지가 표시되면 다음 단계를 수행합니다.
-   1. <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 폴더에서 .NET 2.0 machine config 파일을 엽니다.
-   2. **Oracle Data Provider for .NET**을 검색하면 다음 샘플과 같은 항목을 찾을 수 있습니다.der **system.data** -> **DbProviderFactories**:
-           “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-3. 이 항목을 v4.0 폴더 즉, <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config의 machine.config 파일에 복사하고 버전을 4.xxx.x.x으로 변경합니다.
-4. `gacutil /i [provider path]`을 실행하여 전역 어셈블리 캐시(GAC)에 “<ODP.NET 설치된 경로>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll”을 설치합니다.
+> [!NOTE]
+> 데이터 형식 **INTERVAL YEAR TO MONTH** 및 **INTERVAL DAY TO SECOND**는 Microsoft 드라이버를 사용할 때 지원되지 않습니다.
+>
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
@@ -519,6 +569,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

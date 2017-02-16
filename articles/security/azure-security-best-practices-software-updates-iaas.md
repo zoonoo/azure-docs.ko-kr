@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례 | Microsoft Docs"
-description: "문서는 Microsoft Azure IaaS 환경에서 소프트웨어 업데이트에 대한 모범사례의 컬렉션을 제공합니다.  조직의 보안 및 규정 준수 담당자를 포함하여, 매일 변경 내용 제어, 소프트웨어 업데이트 및 자산 관리를 처리하는 IT 전문가 및 보안 분석가를 위한 것입니다."
+title: "Microsoft Azure IaaS에 대한 소프트웨어 업데이트 모범 사례 | Microsoft Docs"
+description: "이 문서에서는 Microsoft Azure IaaS 환경에서 소프트웨어 업데이트를 위한 최상의 모범사례 모음을 제공합니다.  조직의 보안 및 규정 준수 담당자를 포함하여, 매일 변경 내용 제어, 소프트웨어 업데이트 및 자산 관리를 처리하는 IT 전문가 및 보안 분석가를 위한 것입니다."
 services: security
 documentationcenter: na
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52a2d6be31b1a8f581313932c0af87120ccd9fe
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 43d760ffcc108a70212e47ee8eab9ec2aca02a17
 
 
 ---
@@ -25,16 +25,16 @@ Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) 환경에 대�
 
 ![클라우드 모델 및 책임](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-맨 왼쪽에 있는 열에는 조직이 고려해야 하는 7가지 책임(다음 섹션에 정의되어 있음)이 나와 있습니다. 이러한 모든 책임은 컴퓨팅 환경의 보안 및 개인 정보와 관련이 있습니다.
+맨 왼쪽에 있는 열에는 조직이 고려해야 하는&7;가지 책임(다음 섹션에 정의되어 있음)이 나와 있습니다. 이러한 모든 책임은 컴퓨팅 환경의 보안 및 개인 정보와 관련이 있습니다.
 
-데이터 분류 및 책임, 클라이언트 및 끝점 보호는 고객의 영역에서만 발생하는 책임이며, 물리적 책임, 호스트 및 네트워크 책임은 PaaS 및 SaaS 모델의 클라우드 서비스 공급자 영역에서 발생합니다. 
+데이터 분류 및 책임, 클라이언트 및 끝점 보호는 고객의 영역에서만 발생하는 책임이며, 물리적 책임, 호스트 및 네트워크 책임은 PaaS 및 SaaS 모델의 클라우드 서비스 공급자 영역에서 발생합니다.
 
 나머지 책임은 고객 및 클라우드 서비스 공급자 간에 공유됩니다. 일부 책임의 경우 CSP 및 고객이 해당 영역의 감사를 비롯한 책임 업무를 함께 관리하고 운영해야 합니다. 예를 들어 Azure Active Directory 서비스를 사용할 때 ID 및 액세스 관리를 고려해 보세요. 다단계 인증과 같은 서비스의 구성은 고객의 책임이지만 효과적인 작동을 보장하는 것은 Microsoft Azure의 책임입니다.
 
 > [!NOTE]
-> 클라우드의 공유 책임에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조하세요. 
-> 
-> 
+> 클라우드의 공유 책임에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조하세요.
+>
+>
 
 아래 다이어그램에 표시된 것처럼 온-프레미스 리소스와 통신하는 Azure IaaS VM을 사용하는 하이브리드 시나리오에서 이러한 동일한 원칙이 적용됩니다.
 
@@ -110,7 +110,6 @@ Azure IaaS 내에서 이 문서에 설명된 지침을 사용하여 가상 컴�
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

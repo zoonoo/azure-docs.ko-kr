@@ -3,8 +3,8 @@ title: "자습서: Azure Key Vault를 사용하여 Microsoft Azure Storage에서
 description: "이 자습서에서는 Azure 키 자격 증명 모음과 함께 Microsoft Azure 저장소에 대 한 클라이언트 쪽 암호화를 사용하여 Blob를 암호화 및 암호 해독하는 방법을 단계별로 안내합니다."
 services: storage
 documentationcenter: 
-author: robinsh
-manager: carmonm
+author: adhurwit
+manager: jasonsav
 editor: tysonn
 ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
 ms.service: storage
@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/18/2016
-ms.author: lakasa;robinsh
+ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: fc037886a6c78ef1052c69d71be46904401ad493
-ms.openlocfilehash: 9fd334c125c2eac9f775f9952e1438e6ba1259fc
+ms.sourcegitcommit: 2d6ebe1a0afb09f0d05e720a0e7afcf135011de7
+ms.openlocfilehash: 401f4a5c8f397b056f814aefe4212e487dfee412
 
 
 ---
@@ -63,72 +63,77 @@ Azure Active directory를 사용하여 응용 프로그램을 등록하는 경�
 Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다.
 
 패키지 관리자 콘솔에서 필요한 Nuget 패키지를 추가합니다.
+
 ```
-    Install-Package WindowsAzure.Storage
+Install-Package WindowsAzure.Storage
 
-    // This is the latest stable release for ADAL.
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+// This is the latest stable release for ADAL.
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-    Install-Package Microsoft.Azure.KeyVault
-    Install-Package Microsoft.Azure.KeyVault.Extensions
+Install-Package Microsoft.Azure.KeyVault
+Install-Package Microsoft.Azure.KeyVault.Extensions
 ```
 
 AppSettings를 App.Config에 추가합니다.
+
 ```xml
-    <appSettings>
-        <add key="accountName" value="myaccount"/>
-        <add key="accountKey" value="theaccountkey"/>
-        <add key="clientId" value="theclientid"/>
-        <add key="clientSecret" value="theclientsecret"/>
-        <add key="container" value="stuff"/>
-    </appSettings>
+<appSettings>
+    <add key="accountName" value="myaccount"/>
+    <add key="accountKey" value="theaccountkey"/>
+    <add key="clientId" value="theclientid"/>
+    <add key="clientSecret" value="theclientsecret"/>
+    <add key="container" value="stuff"/>
+</appSettings>
 ```
+
 다음 `using` 문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
 
 ```csharp
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System.Configuration;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.Azure.KeyVault;
-    using System.Threading;        
-    using System.IO;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.KeyVault;
+using System.Threading;        
+using System.IO;
 ```
+
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>콘솔 응용 프로그램에 토큰을 가져오는 메서드 추가
 다음 메서드는 사용자 키 자격 증명 모음에 대한 액세스를 인증해야 하는 키 자격 증명 모음 클래스에 의해 사용됩니다.
 
 ```csharp
-    private async static Task<string> GetToken(string authority, string resource, string scope)
-    {
-        var authContext = new AuthenticationContext(authority);
-        ClientCredential clientCred = new ClientCredential(
-            ConfigurationManager.AppSettings["clientId"],
-            ConfigurationManager.AppSettings["clientSecret"]);
-        AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
+private async static Task<string> GetToken(string authority, string resource, string scope)
+{
+    var authContext = new AuthenticationContext(authority);
+    ClientCredential clientCred = new ClientCredential(
+        ConfigurationManager.AppSettings["clientId"],
+        ConfigurationManager.AppSettings["clientSecret"]);
+    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
-        if (result == null)
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+    if (result == null)
+        throw new InvalidOperationException("Failed to obtain the JWT token");
 
-        return result.AccessToken;
-    }
+    return result.AccessToken;
+}
 ```
+
 ## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스
 Main 함수에 다음 코드를 추가합니다.
 
 ```csharp
-    // This is standard code to interact with Blob storage.
-    StorageCredentials creds = new StorageCredentials(
-        ConfigurationManager.AppSettings["accountName"],
-           ConfigurationManager.AppSettings["accountKey"]);
-    CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
-    CloudBlobClient client = account.CreateCloudBlobClient();
-    CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
-    contain.CreateIfNotExists();
+// This is standard code to interact with Blob storage.
+StorageCredentials creds = new StorageCredentials(
+    ConfigurationManager.AppSettings["accountName"],
+       ConfigurationManager.AppSettings["accountKey"]);
+CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
+CloudBlobClient client = account.CreateCloudBlobClient();
+CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
+contain.CreateIfNotExists();
 
-    // The Resolver object is used to interact with Key Vault for Azure Storage.
-    // This is where the GetToken method from above is used.
-    KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
+// The Resolver object is used to interact with Key Vault for Azure Storage.
+// This is where the GetToken method from above is used.
+KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
@@ -146,21 +151,21 @@ Main 함수에 다음 코드를 추가합니다.
 Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
 ```csharp
-    // Retrieve the key that you created previously.
-    // The IKey that is returned here is an RsaKey.
-    // Remember that we used the names contosokeyvault and testrsakey1.
-    var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+// Retrieve the key that you created previously.
+// The IKey that is returned here is an RsaKey.
+// Remember that we used the names contosokeyvault and testrsakey1.
+var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
-    // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
-    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-    // Reference a block blob.
-    CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
+// Reference a block blob.
+CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
-    // Upload using the UploadFromStream method.
-    using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
-        blob.UploadFromStream(stream, stream.Length, null, options, null);
+// Upload using the UploadFromStream method.
+using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
+    blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
 다음은 키 자격 증명에 저장된 키와 함께 클라이언트 쪽 암호화를 사용하여 암호화한 Blob에 대한 현재 [Azure 클래식 포털](https://manage.windowsazure.com)의 스크린샷입니다. **KeyId** 속성은 키 KEK 역할을 하는 키 자격 증명 모음의 키에 대한 URI입니다. **EncryptedKey** 속성은 CEK의 암호화된 버전을 포함하고 있습니다.
@@ -180,13 +185,13 @@ RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독�
 방금 업로드한 Blob을 암호 해독하려면 다음을 추가합니다.
 
 ```csharp
-    // In this case, we will not pass a key and only pass the resolver because
-    // this policy will only be used for downloading / decrypting.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
-    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// In this case, we will not pass a key and only pass the resolver because
+// this policy will only be used for downloading / decrypting.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-    using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
-        blob.DownloadToStream(np, null, options, null);
+using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
+    blob.DownloadToStream(np, null, options, null);
 ```
 
 > [!NOTE]
@@ -202,26 +207,27 @@ RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독�
 * SymmetricKey로 사용할 키 자격 증명 모음 암호는 키 자격 증명 모음에 "응용 프로그램/옥텟 스트림" 콘텐츠 형식을 가지고 있어야 합니다.
 
 다음은 SymmetricKey로 사용할 수 있는 키 자격 증명 모음의 암호를 만드는 Powershell의 예제입니다.
-참고: $key는 하드 코드된 값이며 데모 전용입니다. 사용자 고유의 코드에서 이 키를 생성할 수 있습니다.
+$key는 하드 코드된 값이며 데모 전용입니다. 사용자 고유의 코드에서 이 키를 생성할 수 있습니다.
 
 ```csharp
-    // Here we are making a 128-bit key so we have 16 characters.
-    //     The characters are in the ASCII range of UTF8 so they are
-    //    each 1 byte. 16 x 8 = 128.
-    $key = "qwertyuiopasdfgh"
-    $b = [System.Text.Encoding]::UTF8.GetBytes($key)
-    $enc = [System.Convert]::ToBase64String($b)
-    $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
+// Here we are making a 128-bit key so we have 16 characters.
+//     The characters are in the ASCII range of UTF8 so they are
+//    each 1 byte. 16 x 8 = 128.
+$key = "qwertyuiopasdfgh"
+$b = [System.Text.Encoding]::UTF8.GetBytes($key)
+$enc = [System.Convert]::ToBase64String($b)
+$secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
-    // Substitute the VaultName and Name in this command.
-    $secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+// Substitute the VaultName and Name in this command.
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
+
 사용자의 콘솔 응용 프로그램에서는 전과 동일한 호출을 사용하여 이 암호를 검색할 수 있습니다.
 
 ```csharp
-    SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-        "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
-        CancellationToken.None).GetAwaiter().GetResult();
+SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
+    "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
+    CancellationToken.None).GetAwaiter().GetResult();
 ```
 이것으로 끝입니다. 마음껏 즐기세요!
 
@@ -234,6 +240,6 @@ Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

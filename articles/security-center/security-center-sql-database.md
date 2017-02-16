@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
 
 
 ---
@@ -38,7 +38,7 @@ Security Center는 SQL Database 리소스를 보호하는 것 외에도, Azure �
 ## <a name="prerequisites"></a>필수 조건
 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 보안 센터의 무료 계층은 구독을 사용하여 사용하도록 설정됩니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
-보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반 액세스 제어(RBAC)에 대해 자세히 알아보려면 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요. 보안 센터 FAQ에서는 [보안 센터에서 권한 처리 방법](security-center-faq.md#how-are-permissions-handled-in-azure-security-center)에 대한 정보를 제공합니다.
+보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반 액세스 제어(RBAC)에 대해 자세히 알아보려면 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요. 보안 센터 FAQ에서는 [보안 센터에서 권한 처리 방법](security-center-faq.md#permissions)에 대한 정보를 제공합니다.
 
 ## <a name="access-security-center"></a>보안 센터 엑세스
 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 보안 센터에 액세스합니다. [포털에 로그인](https://portal.azure.com/)하고 **보안 센터 옵션**을 선택합니다.
@@ -118,6 +118,6 @@ Security Center는 [Azure SQL 위협 감지](../sql-database/sql-database-threat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

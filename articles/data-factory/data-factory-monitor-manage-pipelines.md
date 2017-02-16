@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory 파이프라인 모니터링 및 관리"
+title: "Azure Portal/블레이드를 사용하여 파이프라인 모니터링 및 관리 | Microsoft Docs"
 description: "Azure 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6a816e56400abe281b0422abbcd3415f3762a96e
-ms.openlocfilehash: 43b828bad5d21fe0f452aa23bbdf6fff758525f2
+ms.sourcegitcommit: eb9126d21c5eaa605a8ca292ab1f444085dd6612
+ms.openlocfilehash: 5bc3a81d82a838f04051fa1cbd6d567532e4824a
 
 
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인 모니터링 및 관리
+# <a name="monitor-and-manage-azure-data-factory-pipelines-using-azure-portalpowershell"></a>Azure Portal/블레이드를 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
 > * [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
 > * [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
@@ -88,7 +88,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 ![파이프라인 상태](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-다이어그램 뷰에서 **PartitionedProductsUsageTable** 을 두 번 클릭하면 파이프라인 내부에서 실행되는 다양한 작업에 의해 생성되는 모든 조각이 소개됩니다. **BlobPartitionHiveActivity**가 지난 8개월 동안 매달 성공적으로 실행되었고 **준비** 상태의 조각을 생성했다는 것을 확인할 수 있습니다.
+다이어그램 뷰에서 **PartitionedProductsUsageTable** 을 두 번 클릭하면 파이프라인 내부에서 실행되는 다양한 작업에 의해 생성되는 모든 조각이 소개됩니다. **BlobPartitionHiveActivity**가 지난&8;개월 동안 매달 성공적으로 실행되었고 **준비** 상태의 조각을 생성했다는 것을 확인할 수 있습니다.
 
 데이터 팩터리의 데이터 집합 조각의 상태는 다음 중 하나입니다.
 
@@ -668,6 +668,6 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

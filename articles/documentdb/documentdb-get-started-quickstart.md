@@ -1,23 +1,10 @@
 ---
-title: "NoSQL 자습서: DocumentDB .NET SDK | Microsoft Docs"
-description: "DocumentDB .NET SDK를 사용하여 온라인 데이터베이스 및 C# 콘솔 응용 프로그램을 만드는 NoSQL 자습서입니다. DocumentDB는 JSON에 대한 NoSQL 데이터베이스입니다."
-keywords: "NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 응용 프로그램"
-services: documentdb
-documentationcenter: .net
-author: AndrewHoh
-manager: jhubbard
-editor: monicar
-ms.assetid: 4c084dab-52a4-4b84-9952-6d36a3bbb731
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 09/01/2016
-ms.author: anhoh
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 55d76dd78a6bb702d3beeadd1961635e3d5bfbbc
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 23663ecbba3507bc0443a28e1a06e5c44769f085
+
 
 
 ---
@@ -593,18 +580,17 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
-* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다.  [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
+* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
 * [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
 * [DocumentDB 설명서](https://azure.microsoft.com/documentation/services/documentdb/)페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

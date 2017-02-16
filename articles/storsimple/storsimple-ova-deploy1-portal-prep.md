@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
 
 
 ---
@@ -40,7 +40,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 | --- | --- | --- | --- |
 | 1. |**Azure 클래식 포털 설정** |StorSimple 가상 장치를 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성합니다. |[포털 준비](storsimple-ova-deploy1-portal-prep.md) |
 | 2. |**가상 배열 프로비전** |Hyper-V의 경우 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 장치를 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.5 이상을 실행하는 호스트 시스템에서 StorSimple 온-프레미스 가상 장치에 프로비전하고 연결합니다.<br></br> |[Hyper-V에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md) |
-| 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br>  iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-ova-deploy3-iscsi-setup.md) |
+| 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-ova-deploy3-iscsi-setup.md) |
 
 #### <a name="deployment-videos"></a>배포 동영상
 | **이 단계를 수행하려면...** | **이 동영상을 보세요.** |
@@ -137,7 +137,7 @@ StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 �
 
 StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을 보세요.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -170,6 +170,6 @@ StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

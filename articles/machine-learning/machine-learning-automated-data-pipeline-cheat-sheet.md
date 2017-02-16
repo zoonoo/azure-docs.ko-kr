@@ -29,7 +29,7 @@ ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>기계 학습 자동화된 데이터 파이프라인 참고 자료 다운로드
 참고 자료를 다운로드하면 tabloid 크기(11x17인치)로 인쇄할 수 있습니다.
 
- **[Microsoft Azure 기계 학습 자동화 데이터 파이프라인 참고 자료](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+**[Microsoft Azure 기계 학습 자동화 데이터 파이프라인 참고 자료](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure 기계 학습 스튜디오 기능 개요][op-cheat-sheet]
 

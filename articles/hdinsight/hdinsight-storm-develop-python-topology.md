@@ -12,23 +12,29 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b667dda33c61c44090cf89ebeebece0b19c84ea
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
 
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
+
 Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. 이 문서에서는 HDInsight에서 Java 및 Clojure 기반 Storm 토폴로지에서 Python 구성 요소를 사용하는 방법을 배웁니다.
 
+> [!IMPORTANT]
+> 이 문서는 Windows 및 Linux 기반 HDInsight 클러스터 사용에 관한 단계를 제공합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 ## <a name="prerequisites"></a>필수 조건
+
 * Python 2.7 이상
 * Java JDK 1.7 이상
 * [Leiningen](http://leiningen.org/)
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
+
 Storm은 모든 프로그래밍 언어로 작성된 구성 요소와 함께 작동하도록 설계되었지만 이를 위해서는 구성 요소에서 [Storm에 대한 Thrift 정의](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift)가 작동하는 방식을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈을 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
 
 Apache Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스이므로 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. JVM에서 실행되는 Storm 비트는 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/documentation/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
@@ -139,7 +145,7 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
    
         lein uberjar
    
-     `wordcount-1.0-SNAPSHOT.jar` 디렉터리의 `target\uberjar+uberjar` 에서 사용할 수 있습니다.
+    `wordcount-1.0-SNAPSHOT.jar` 디렉터리의 `target\uberjar+uberjar` 에서 사용할 수 있습니다.
 2. 다음 방법 중 하나를 사용하여 토폴로지를 HDInsight 클러스터에 배포하고 실행합니다.
    
    * **Linux 기반 HDInsight**
@@ -181,6 +187,6 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

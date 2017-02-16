@@ -16,17 +16,17 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f322b95e3ade4318ccd64f5e2222194bd2fb9361
+ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
+ms.openlocfilehash: df8a5124b35ee00fcbe2c25a032443a1a55b7b1d
 
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 명령줄 유틸리티입니다. Azure 리소스 관리 템플릿과 함께 사용하여 HDInsight 클러스터를 연결된 저장소 계정 및 기타 서비스와 함께 만들 수 있습니다.
+Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 명령줄 유틸리티입니다. Azure Resource Manager 템플릿과 함께 사용하여 HDInsight 클러스터를 연결된 저장소 계정 및 기타 서비스와 함께 만들 수 있습니다.
 
-Azure 리소스 관리 템플릿은 **리소스 그룹**과 그 안의 모든 리소스를 설명하는 JSON 문서입니다(예: HDInsight). 이 템플릿 기반 접근 방식을 사용하면 하나의 템플릿에서 HDInsight에 필요한 모든 리소스를 정의할 수 있습니다. 또한 **배포**를 통해 전체적으로 그룹에 대한 변경 내용을 관리할 수 있으며 이렇게 하면 전체 그룹에 변경 내용을 적용합니다.
+Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 리소스를 설명하는 JSON 문서입니다(예: HDInsight). 이 템플릿 기반 접근 방식을 사용하면 하나의 템플릿에서 HDInsight에 필요한 모든 리소스를 정의할 수 있습니다. 또한 **배포**를 통해 전체적으로 그룹에 대한 변경 내용을 관리할 수 있으며 이렇게 하면 전체 그룹에 변경 내용을 적용합니다.
 
 이 문서의 단계는 Azure CLI 및 템플릿을 사용하여 새 HDInsight 클러스터를 만드는 과정을 안내합니다.
 
@@ -38,12 +38,13 @@ Azure 리소스 관리 템플릿은 **리소스 그룹**과 그 안의 모든 �
 > 
 
 ## <a name="prerequisites"></a>필수 조건
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **Azure CLI**. 이 문서의 단계는 Azure CLI 버전 0.10.1로 마지막 테스트되었습니다.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -130,6 +131,6 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

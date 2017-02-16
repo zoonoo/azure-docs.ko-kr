@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 55ed7d44006f18fa3573a5bef5e8f24107ca20fa
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 5db03c2ba594963f6c5a2f091f83b9de240fe2ba
 
 
 ---
@@ -80,7 +80,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 11. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에 등록한 사용자 환경을 실행할 수 있습니다.
     
     > [!NOTE]
-    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 정책 만들기 및 업데이트가 적용되려면 최대&1;분이 걸립니다.
     > 
     > 
 
@@ -99,7 +99,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 10. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에 로그인한 사용자 환경을 실행할 수 있습니다.
     
     > [!NOTE]
-    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 정책 만들기 및 업데이트가 적용되려면 최대&1;분이 걸립니다.
     > 
     > 
 
@@ -119,7 +119,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 11. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 구성된 등록 또는 로그인 소비자 환경을 실행할 수 있습니다.
     
     > [!NOTE]
-    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 정책 만들기 및 업데이트가 적용되려면 최대&1;분이 걸립니다.
     > 
     > 
 
@@ -139,7 +139,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 11. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에서 프로필 편집 사용자 환경을 실행할 수 있습니다.
     
     > [!NOTE]
-    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 정책 만들기 및 업데이트가 적용되려면 최대&1;분이 걸립니다.
     > 
     > 
 
@@ -158,9 +158,12 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 10. **지금 실행**을 클릭합니다. 새 브라우저 탭이 열리고 응용 프로그램에서 암호 재설정 사용자 환경을 실행할 수 있습니다.
     
     > [!NOTE]
-    > 정책 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
+    > 정책 만들기 및 업데이트가 적용되려면 최대&1;분이 걸립니다.
     > 
     > 
+
+## <a name="how-to-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>암호 재설정 정책에 등록 또는 로그인 정책을 연결하는 방법
+등록 또는 로그인 정책을 만들 때(로컬 계정 사용) 소비자의 첫 번째 페이지에 "암호 찾기" 링크가 표시됩니다. 이 링크를 클릭해도 자동으로 암호 재설정 정책이 트리거되지는 않습니다. 대신 특정 오류 코드 `AADB2C90118`이 앱으로 다시 반환됩니다. 앱은 이를 처리하고 특정 암호 재설정 정책을 호출해야 합니다. 정책을 함께 연결하는 이 방법을 보여 주는 샘플은 [여기](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)
@@ -168,6 +171,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

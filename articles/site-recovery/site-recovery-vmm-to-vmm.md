@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal을 사용하여 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제 | Microsoft Docs"
+title: "Azure Site Recovery를 사용하여 보조 사이트에 VMM의 Hyper-V VM 복제 | Microsoft Docs"
 description: "Azure Site Recovery를 배포하고 Azure 포털을 사용하여 VMM 클라우드의 Hyper-V VM을 보조 VMM 사이트에 복제, 장애 조치(Failover) 및 복구하는 작업을 어떻게 조정해야 하는지 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4e1521d1a49a83c4936bf64ba0177c5834a6c374
-ms.openlocfilehash: 0737a9015ff1584a8c82681dbb809f86ae44f48c
+ms.sourcegitcommit: 32c6e6d5f18dd0ec105b7ba66bb2ff1aed10558a
+ms.openlocfilehash: b3ac842794665030a7c99383b221a5e61282dd81
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 0737a9015ff1584a8c82681dbb809f86ae44f48c
 
 Azure Site Recovery 서비스를 시작합니다.
 
-Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 Azure 서비스로 클라우드(Azure) 또는 보조 데이터 센터에 대한 온-프레미스 물리적 서버 및 가상 컴퓨터의 복제를 조정합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.  [Azure Site Recovery란?](site-recovery-overview.md)
+Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 Azure 서비스로 클라우드(Azure) 또는 보조 데이터 센터에 대한 온-프레미스 물리적 서버 및 가상 컴퓨터의 복제를 조정합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [Azure Site Recovery란?](site-recovery-overview.md)
 
 이 문서에서는 Azure Portal에서 Site Recovery를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터를 보조 사이트에 복제하는 방법을 설명합니다.
 
@@ -99,7 +99,7 @@ Azure에는 리소스를 만들고 작업하는 Azure Resource Manager와 클래
 
 | **필수 구성 요소** | **세부 정보** |
 | --- | --- |
-| **VMM** | 기본 사이트에서 VMM 서버 1개, 보조 사이트에서 VMM 서버 1개를 배포할 것을 권장합니다.<br/><br/> [단일 VMM 서버의 클라우드 간에 복제](site-recovery-single-vmm.md)할 수 있습니다. 이렇게 하려면 VMM 서버에 둘 이상의 클라우드가 구성되어 있어야 합니다.<br/><br/> VMM 서버는 최신 업데이트를 설치한 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/> 각 VMM 서버에 하나 이상의 클라우드가 포함되어 있어야 합니다. 모든 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다. <br/><br/>클라우드에 하나 이상의 VMM 호스트 그룹이 있어야 합니다.<br/><br/> [자세히 알아보세요](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) .<br/><br/>  VMM 서버는 인터넷에 연결되어야 합니다. |
+| **VMM** | 기본 사이트에서 VMM 서버&1;개, 보조 사이트에서 VMM 서버&1;개를 배포할 것을 권장합니다.<br/><br/> [단일 VMM 서버의 클라우드 간에 복제](site-recovery-single-vmm.md)할 수 있습니다. 이렇게 하려면 VMM 서버에 둘 이상의 클라우드가 구성되어 있어야 합니다.<br/><br/> VMM 서버는 최신 업데이트를 설치한 System Center 2012 SP1 이상을 실행해야 합니다.<br/><br/> 각 VMM 서버에 하나 이상의 클라우드가 포함되어 있어야 합니다. 모든 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다. <br/><br/>클라우드에 하나 이상의 VMM 호스트 그룹이 있어야 합니다.<br/><br/> [자세히 알아보세요](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) .<br/><br/> VMM 서버는 인터넷에 연결되어야 합니다. |
 | **Hyper-V** | Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 VM이 하나 이상 있어야 합니다.<br/><br/>  Hyper-V 호스트 서버는 기본 및 보조 VMM 클라우드의 호스트 그룹에 있어야 합니다.<br/><br/> Windows Server 2012 R2의 클러스터에서 Hyper-V를 실행하는 경우 [업데이트 2961977](https://support.microsoft.com/kb/2961977)을 설치해야 합니다.<br/><br/> Windows Server 2012의 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 broker를 수동으로 구성해야 합니다. [자세히 알아보기](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **공급자** | 사이트 복구 배포 중에 VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 HTTPS 443을 통해 Site Recovery와 통신하여 복제를 오케스트레이션합니다. LAN 또는 VPN 연결을 통해 기본 및 보조 Hyper-V 서버 간에 데이터 복제가 발생합니다.<br/><br/> VMM 서버에서 실행 중인 공급자는 이러한 URL에 액세스할 수 있어야 합니다.<br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/>  ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net`` <br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> VMM 서버에서 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로의 방화벽 통신을 허용하고 HTTPS(443) 프로토콜을 허용합니다. |
 
@@ -129,7 +129,7 @@ VMM 서버가 [필수 조건](#on-premises-prerequisites)을 준수하는지와 
 단일 VMM 서버만 있으면 VMM 클라우드의 Hyper-V 호스트에 있는 VM을 [Azure](site-recovery-vmm-to-azure.md) 또는 보조 VMM 클라우드에 복제할 수 있습니다. 클라우드 간 복제는 원활하지 않으므로 첫 번째 옵션이 권장되지만 두 번째 방식을 사용해야 하는 경우에는 다음 작업을 수행해야 합니다.
 
 1. **Hyper-V VM에 VMM을 설정합니다**. 이를 수행하는 경우 VMM에 사용되는 SQL Server 인스턴스를 동일한 VM에 배치하는 것이 좋습니다. 이렇게 하면 VM을 하나만 만들면 되므로 시간이 절약됩니다. SQL Server의 원격 인스턴스를 사용하려는 경우 중단이 발생하면 VMM을 복구하기 전에 해당 인스턴스를 복구해야 합니다.
-2. **VMM 서버에 클라우드가 2개 이상 구성되도록 해야 합니다**. 하나의 클라우드는 복사할 VM을 포함하고, 다른 클라우드는 보조 위치로 사용됩니다. 보호하려는 VM이 포함된 클라우드는 [필수 구성 요소](#on-premises-prerequisites)를 충족해야 합니다.
+2. **VMM 서버에 클라우드가&2;개 이상 구성되도록 해야 합니다**. 하나의 클라우드는 복사할 VM을 포함하고, 다른 클라우드는 보조 위치로 사용됩니다. 보호하려는 VM이 포함된 클라우드는 [필수 구성 요소](#on-premises-prerequisites)를 충족해야 합니다.
 3. 이 문서에 설명된 대로 Site Recovery를 설정합니다. 자격 증명 모음에 VMM 서버를 만든 후 등록하고 복제 정책을 설정하고 복제를 사용하도록 설정합니다. 초기 복제가 네트워크를 통해 진행되도록 지정해야 합니다.
 4. 네트워크 매핑을 설정하는 경우 기본 클라우드용 VM 네트워크를 보조 클라우드용 VM 네트워크에 매핑합니다.
 5. Hyper-V 관리자 콘솔에서 VMM VM을 포함하는 Hyper-V 호스트의 Hyper-V 복제본을 사용하도록 설정하고 VM의 복제를 활성화합니다. Hyper-V 복제본 설정이 사이트 복구에 의해 무시되지 않도록, 사이트 복구에 의해 보호되는 클라우드에 VMM 가상 컴퓨터를 추가하지 말아야 합니다.
@@ -294,7 +294,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
   3. Hyper-V 호스트 서버 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
   4. **위임** 탭에서 **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 클릭합니다.
   5. **모든 인증 프로토콜 사용**을 클릭합니다.
-  6.  **추가** > **사용자 및 컴퓨터**에 문의하세요.
+  6. **추가** > **사용자 및 컴퓨터**에 문의하세요.
   7. 내보내기 경로를 호스트하는 컴퓨터 이름을 입력하고 > **확인**을 클릭합니다. 사용 가능한 서비스 목록에서 Ctrl 키를 누른 채 **cifs** > **확인**을 클릭합니다. 가져오기 경로를 호스트하는 컴퓨터 이름에 대해 반복합니다. 필요에 따라 추가 Hyper-V 호스트 서버에 대해 반복합니다.
 
 ### <a name="configure-network-mapping"></a>네트워크 매핑 구성
@@ -351,7 +351,7 @@ Capacity Planner Hyper-V 복제본을 사용하여 실시간 델타 복제 정�
 
 대역폭 가중치 설정을 사용하거나 보조당 비트 수로 트래픽을 제한할 수 있습니다. 클러스터를 사용하는 경우 모든 클러스터 노드에 대해 이 작업을 수행해야 합니다. 자세한 내용은 다음을 참조하세요.
 
-*  [Throttling Hyper-V Replica Traffic(Hyper-V 복제본 트래픽 제한)](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/)
+* [Throttling Hyper-V Replica Traffic(Hyper-V 복제본 트래픽 제한)](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/)
 * [New-NetQosPolicy cmdlet](https://technet.microsoft.com/library/hh967468.aspx)에 대한 추가 정보.
 
 ## <a name="step-6-enable-replication"></a>6단계: 복제 활성화
@@ -413,7 +413,7 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 7. VM이 성공적으로 시작되는지 확인한 후 **테스트 장애 조치(Failover)가 완료되었습니다.**를 클릭합니다. 이 단계에서는 테스트 장애 조치(Failover) 중에 자동으로 생성된 모든 요소가 삭제됩니다.  
 
    > [!NOTE]
-   > 테스트 장애 조치(Failover)가 2주 이상 지속되면 강제로 완료됩니다.
+   > 테스트 장애 조치(Failover)가&2;주 이상 지속되면 강제로 완료됩니다.
    >
    >
 
@@ -448,6 +448,6 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

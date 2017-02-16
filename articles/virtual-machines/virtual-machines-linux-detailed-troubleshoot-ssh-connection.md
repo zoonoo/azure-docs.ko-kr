@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/01/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 9333062851e070a93afc6935e58594711b741f48
+ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
+ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
 
 
 ---
@@ -36,13 +36,14 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 [Azure portal](https://portal.azure.com)에서:
 
-1. 클래식 배포 모델을 사용하여 만든 VM의 경우 **찾아보기** > **가상 컴퓨터(클래식)** > *VM 이름*을 선택합니다.
+1. Resource Manager 모델을 사용하여 만든 VM의 경우 **가상 컴퓨터** > *VM 이름*을 선택합니다.
    
     또는
    
-    Resource Manager 모델을 사용하여 만든 VM의 경우 **찾아보기** > **가상 컴퓨터** > *VM 이름*을 선택합니다.
+    클래식 배포 모델을 사용하여 만든 VM의 경우 **가상 컴퓨터(클래식)** > *VM 이름*을 선택합니다.
    
     VM에 대한 상태 창에 **실행 중**이 표시되어야 합니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
+
 2. **설정** 을 선택하여 끝점, IP 주소 및 기타 설정을 검토합니다.
    
     Resource Manager를 사용하여 만든 VM의 끝점을 식별하려면 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 이 정의되어 있는지 확인합니다. 또한 규칙이 네트워크 보안 그룹에 적용되어 있고 서브넷에서 참조되고 있는지 확인합니다.
@@ -59,7 +60,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 이 단계 후 SSH 연결을 다시 시도해 보세요.
 
 ## <a name="find-the-source-of-the-issue"></a>문제의 발생지 찾기
-컴퓨터의 SSH 클라이언트가 Azure VM의 SSH 서비스에 연결할 수 없는 이유는 다음과 같은 문제 또는 잘못된 구성 때문일 수 있습니다.
+다음 영역의 문제 또는 잘못된 구성으로 인해 컴퓨터의 SSH 클라이언트에서 Azure VM의 SSH 서비스에 연결하지 못할 수 있습니다.
 
 * [SSH 클라이언트 컴퓨터](#source-1-ssh-client-computer)
 * [조직 에지 장치](#source-2-organization-edge-device)
@@ -72,7 +73,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 ![SSH 클라이언트 컴퓨터 구성 요소를 강조하는 다이어그램](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
-연결이 실패하면 컴퓨터에서 다음을 확인합니다.
+연결이 실패하면 컴퓨터에서 다음 문제를 확인합니다.
 
 * 인바운드 또는 아웃 바운드 SSH 트래픽(TCP 22)을 차단하는 로컬 방화벽 설정
 * SSH 연결을 방지하는 로컬에 설치된 클라이언트 프록시 소프트웨어
@@ -106,8 +107,6 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>발생지 3: 클라우드 서비스 끝점 및 ACL
 > [!NOTE]
 > 이 발생지는 클래식 배포 모델을 사용하여 만든 VM에만 적용됩니다. Resource Manager를 사용하여 만든 VM의 경우 [발생지 4: 네트워크 보안 그룹](#nsg)으로 건너뜁니다.
-> 
-> 
 
 문제의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 가상 네트워크의 다른 Azure VM이 사용자의 VM에 SSH 연결을 설정할 수 있는지 확인합니다.
 
@@ -115,12 +114,12 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 동일한 가상 네트워크에 다른 VM이 없는 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 테스트를 마치면 추가한 VM을 삭제합니다.
 
-동일한 가상 네트워크의 VM에 SSH 연결을 만들 수 있는 경우 다음을 확인합니다.
+동일한 가상 네트워크에 있는 VM과 SSH의 연결을 만들 수 있는 경우 다음 영역을 확인합니다.
 
-* **대상 VM의 SSH 트래픽에 대한 끝점 구성.**  끝점의 개인 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트와 일치해야 합니다. 기본 포트는 22입니다. Resource Manager 배포 모델을 사용하여 만든 VM의 경우 **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름* > **설정** > **끝점**을 선택하여 Azure Portal에서 SSH TCP 포트 번호를 확인합니다.
-* **대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL.**  ACL을 통해 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정할 수 있습니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../virtual-network/virtual-networks-acl.md)를 참조하세요.
+* **대상 VM의 SSH 트래픽에 대한 끝점 구성.** 끝점의 개인 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트와 일치해야 합니다. 기본 포트는 22입니다. Resource Manager 배포 모델을 사용하여 만든 VM의 경우 **가상 컴퓨터** > *VM 이름* > **설정** > **끝점**을 선택하여 Azure Portal에서 SSH TCP 포트 번호를 확인합니다.
+* **대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL.** ACL을 통해 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정할 수 있습니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../virtual-network/virtual-networks-acl.md)를 참조하세요.
 
-문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 다음 SSH 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 다른 끝점을 만든 다음 SSH 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 <a id="nsg"></a>
 
@@ -138,7 +137,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 컴퓨터에서 다시 연결을 시도하세요. 문제가 계속 발생하면 다음과 같은 문제가 있는 것일 수 있습니다.
 
 * SSH 서비스가 대상 가상 컴퓨터에서 실행되고 있지 않습니다.
-* SSH 서비스가 TCP 포트 22에서 수신 대기하고 있지 않습니다. 이를 테스트하려면 로컬 컴퓨터에서 텔넷 클라이언트를 설치하고 "telnet *cloudServiceName*.cloudapp.net 22"를 실행하세요. 그렇게 하면 가상 컴퓨터가 SSH 끝점에 대한 인바운드 및 아웃바운드 통신을 허용하는지 여부가 확인됩니다.
+* SSH 서비스가 TCP 포트 22에서 수신 대기하고 있지 않습니다. 테스트하려면 로컬 컴퓨터에 텔넷 클라이언트를 설치하고 "telnet *cloudServiceName*.cloudapp.net 22"를 실행합니다. 이 단계에서는 가상 컴퓨터에서 SSH 끝점에 대한 인바운드 및 아웃바운드 통신을 허용하는지 여부를 결정합니다.
 * 대상 가상 컴퓨터의 로컬 방화벽에 인바운드 또는 아웃바운드 SSH 트래픽을 방지하는 규칙이 있습니다.
 * Azure 가상 컴퓨터에서 실행 중인 침입 검색 또는 네트워크 모니터링 소프트웨어가 SSH 연결을 방지하고 있습니다.
 
@@ -148,6 +147,6 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "가상 네트워크의 내부 부하 분산 장치(ILB)와 Application Gateway 생성 및 구성 | Microsoft Docs"
+title: "내부 부하 분산 장치에서 Azure Application Gateway 사용 | Microsoft Docs"
 description: "이 페이지에서는 내부 부하 분산된 끝점이 있는 Azure 응용 프로그램 게이트웨이를 구성하는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: bb514e1a65fc051d6a36123820c68998bed36fb9
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
 
 
 ---
@@ -176,7 +176,7 @@ Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 게이트웨이가 구성되면, `Start-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다. 
 
 > [!NOTE]
->  `Start-AzureApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다. 
+> `Start-AzureApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다. 
 > 
 > 
 
@@ -226,6 +226,6 @@ DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

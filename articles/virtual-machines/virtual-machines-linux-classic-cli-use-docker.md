@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 205812cdd4aa7cd5858075c642188a37de456ba7
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
 
 
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 모델에서 Docker VM 확장을 사용하는 방법에 대한 정보는 [여기](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델에서 Docker VM 확장을 사용하는 방법에 대한 정보는 [여기](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 이 항목에서는 모든 플랫폼의 Azure CLI에서 서비스 관리(asm) 모드로 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
@@ -162,21 +161,21 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 * Azure Docker VM 확장은 또한 개발자 모델링된 응용 프로그램을 모든 환경에 가져가고 일관된 배포를 생성하기 위해 선언적 YAML 파일을 사용하는 Docker Compose를 지원합니다. [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작]을 참조하세요.  
 
 <!--Anchors-->
-[부제목 1]: #subheading-1
-[부제목 2]: #subheading-2
-[부제목 3]: #subheading-3
-[다음 단계]: #next-steps
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
+[Next steps]: #next-steps
 
-[Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Azure용 컨테이너 및 컨테이너 관리 리소스]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
 
 
 <!--Link references-->
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 1]: virtual-machines-windows-hero-tutorial.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 2]: ../web-sites-custom-domain-name.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: ../storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 [포털에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
@@ -185,6 +184,6 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

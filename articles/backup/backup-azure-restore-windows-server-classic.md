@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8216106cf44016d355885d9117b6ac69127341c0
 
 
 ---
@@ -34,7 +34,8 @@ ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
 
 두 경우 모두 데이터는 Azure 백업 자격 증명 모음에서 검색됩니다.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="recover-data-to-the-same-machine"></a>동일한 컴퓨터로 데이터 복구
 파일을 실수로 삭제했는데 (백업이 수행된) 동일한 컴퓨터에서 복원하려는 경우 다음 단계를 사용하면 데이터를 복구할 수 있습니다.
@@ -120,6 +121,6 @@ ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

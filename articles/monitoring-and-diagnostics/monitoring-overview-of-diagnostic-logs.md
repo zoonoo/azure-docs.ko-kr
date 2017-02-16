@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 12/20/2016
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+ms.sourcegitcommit: 142aa206431d05505c7990c5e5b07b3766fb0a37
+ms.openlocfilehash: 0b5458c64226007b058bcd185b3880f72cf9613c
 
 
 ---
@@ -28,16 +28,18 @@ ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>진단 로그로 수행할 수 있는 작업
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-* 감사 또는 수동 검사를 위해 **저장소 계정** 에 저장합니다. **진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+* 감사 또는 수동 검사를 위해 [**저장소 계정**](monitoring-archive-diagnostic-logs.md)에 저장합니다. **진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hubs**로 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
-*  [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+
+설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정 또는 이벤트 허브 네임스페이스는 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
 
 ## <a name="diagnostic-settings"></a>진단 설정
 진단 설정을 사용하여 비-계산 리소스에 대한 진단 로그를 구성합니다. **진단 설정** :
 
 * 진단 로그를 보낼 위치(저장소 계정, 이벤트 허브 및/또는 OMS Log Analytics).
 * 보낼 로그 범주.
-* 저장소 계정에 각 로그 범주를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않으면 이 값은 1에서 2147483647 사이입니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+* 저장소 계정에 각 로그 범주를 보존할 기간 - 0일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않으면 이 값은 1에서 2147483647 사이입니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 이러한 설정은 Azure 포털에서 리소스에 대한 진단 블레이드를 통해, Azure PowerShell 및 CLI 명령을 통하거나 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 통해 쉽게 구성합니다.
 
@@ -91,14 +93,13 @@ Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하려�
 
 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 
-> [!NOTE]
-> WorkspaceId 매개 변수는 10월 릴리스에서 사용할 수 없습니다. 11월 릴리스에서 사용할 수 있게 됩니다.
-> 
-> 
+다음 명령을 사용하여 Log Analytics 작업 공간의 리소스 ID를 가져올 수 있습니다.
 
-Azure 포털에서 Log Analytics 작업 영역 ID를 얻을 수 있습니다.
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
@@ -119,14 +120,7 @@ Azure CLI를 통해 진단 로그를 사용하도록 설정하려면 다음 명�
 
 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> workspaceId 매개 변수는 10월 릴리스에서 사용할 수 없습니다. 11월 릴리스에서 사용할 수 있게 됩니다.
-> 
-> 
-
-Azure 포털에서 Log Analytics 작업 영역 ID를 얻을 수 있습니다.
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
@@ -160,7 +154,7 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 
 | 부여 | 스키마 및 문서 |
 | --- | --- |
-| 소프트웨어 부하 분산 장치 |[Azure 부하 분산 장치에 대한 로그 분석(미리보기)](../load-balancer/load-balancer-monitor-log.md) |
+| 부하 분산 장치 |[Azure 부하 분산 장치에 대한 로그 분석(미리보기)](../load-balancer/load-balancer-monitor-log.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
 | 응용 프로그램 게이트웨이 |[응용 프로그램 게이트웨이에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | 키 자격 증명 모음 |[Azure 키 자격 증명 모음 로깅](../key-vault/key-vault-logging.md) |
@@ -175,41 +169,42 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 | 스트림 분석 |스키마를 사용할 수 없습니다. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
-| 리소스 종류 | Category | 범주 표시 이름 |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |작업 로그 |
-| Microsoft.Automation/automationAccounts |JobStreams |작업 스트림 |
-| Microsoft.Batch/batchAccounts |ServiceLog |서비스 로그 |
-| Microsoft.DataLakeAnalytics/accounts |감사 |감사 로그 |
-| Microsoft.DataLakeAnalytics/accounts |요청 |요청 로그 |
-| Microsoft.DataLakeStore/accounts |감사 |감사 로그 |
-| Microsoft.DataLakeStore/accounts |요청 |요청 로그 |
-| Microsoft.EventHub/namespaces |ArchiveLogs |보관 로그 |
-| Microsoft.EventHub/namespaces |OperationalLogs |작업 로그 |
-| Microsoft.KeyVault/vaults |AuditEvent |감사 로그 |
-| Microsoft.Logic/workflows |WorkflowRuntime |워크플로 런타임 진단 이벤트 |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |네트워크 보안 그룹 이벤트 |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |네트워크 보안 그룹 규칙 카운터 |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |네트워크 보안 그룹 규칙 흐름 이벤트 |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |부하 분산 장치 경고 이벤트 |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |부하 분산 장치 프로브 상태 |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Application Gateway 액세스 로그 |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Application Gateway 성능 로그 |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Application Gateway 방화벽 로그 |
-| Microsoft.Search/searchServices |OperationLogs |작업 로그 |
-| Microsoft.ServerManagement/nodes |RequestLogs |요청 로그 |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |작업 로그 |
-| Microsoft.StreamAnalytics/streamingjobs |실행 |실행 |
-| Microsoft.StreamAnalytics/streamingjobs |작성 |작성 |
+|리소스 종류|Category|범주 표시 이름|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|작업 로그|
+|Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
+|Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
+|Microsoft.DataLakeAnalytics/accounts|감사|감사 로그|
+|Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
+|Microsoft.DataLakeStore/accounts|감사|감사 로그|
+|Microsoft.DataLakeStore/accounts|요청|요청 로그|
+|Microsoft.EventHub/namespaces|ArchiveLogs|보관 로그|
+|Microsoft.EventHub/namespaces|OperationalLogs|작업 로그|
+|Microsoft.KeyVault/vaults|AuditEvent|감사 로그|
+|Microsoft.Logic/workflows|WorkflowRuntime|워크플로 런타임 진단 이벤트|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
+|Microsoft.Search/searchServices|OperationLogs|작업 로그|
+|Microsoft.ServerManagement/nodes|RequestLogs|요청 로그|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|
+|Microsoft.StreamAnalytics/streamingjobs|실행|실행|
+|Microsoft.StreamAnalytics/streamingjobs|작성|작성|
 
 ## <a name="next-steps"></a>다음 단계
 * [**Event Hubs**로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage-json.md)
+* [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

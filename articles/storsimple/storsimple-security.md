@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 보안 | Microsoft Docs"
+title: "StorSimple 8000 시리즈 보안 | Microsoft Docs"
 description: "온 프레미스 및 클라우드에서 StorSimple 서비스, 장치 및 데이터를 보호하는 보안 및 개인정보 보호 기능에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 05/03/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: efdb69c03845ba321d7e0b1270268c4fb92fa1ef
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
 
 
 ---
@@ -261,6 +261,6 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

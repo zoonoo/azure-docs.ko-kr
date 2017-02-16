@@ -1,5 +1,5 @@
 ---
-title: "Maven 및 Java를 사용하여 HBase 응용 프로그램을 빌드한 다음 Linux 기반 HDInsight에 배포 | Microsoft Docs"
+title: "Azure HDInsight용 Java HBase 응용 프로그램 빌드 | Microsoft Docs"
 description: "Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Azure 클라우드에서 Linux 기반 HDInsight에 배포하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f321065b9c24075837bebb71251cbc5751a1854
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d91e05e458c6689f04dedd85a3e4adc60e6de72d
 
 
 ---
@@ -25,10 +25,8 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 [Maven](http://maven.apache.org/) 은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Linux 기반 HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
 
-> [!NOTE]
-> 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Windows 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Windows 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 * [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상
@@ -391,6 +389,6 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

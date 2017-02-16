@@ -1,6 +1,6 @@
 ---
-title: "IoT 보안 아키텍처 | Microsoft Docs"
-description: "IoT 보안 아키텍처 지침 및 고려 사항"
+title: "Azure IoT 보안 아키텍처 | Microsoft Docs"
+description: "IoT 보안 아키텍처 지침 및 위협 모델링을 포함한 고려 사항"
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0f47e9badfc2b8b95a44b8baf38a0ae6574e39c
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 9327750b35476fd2a6eca379061a06842daf8d47
 
 
 ---
@@ -35,6 +35,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

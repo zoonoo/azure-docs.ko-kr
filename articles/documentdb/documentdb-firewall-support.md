@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 방화벽 지원 | Microsoft Docs"
+title: "Azure DocumentDB 방화벽 지원 및 IP 액세스 제어 | Microsoft Docs"
 description: "Azure DocumentDB 데이터베이스 계정에서 방화벽을 지원하도록 IP 액세스 제어 정책을 사용하는 방법을 알아봅니다."
 keywords: "IP 액세스 제어, 방화벽 지원"
 services: documentdb
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/20/2016
 ms.author: ankshah; kraman
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb3c5c2adbaedc4bfb1e68f26b88079aeabe50f5
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: f96c0b7b7edcd19a041c803e268a2dc4bf25b137
 
 
 ---
@@ -48,32 +48,16 @@ Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 �
 인터넷에 있는 컴퓨터에서 DocumentDB 데이터베이스 계정에 액세스하려면 컴퓨터의 클라이언트 IP 주소 또는 IP 주소 범위를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 목록에 추가해야 합니다. 
 
 ## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
-데이터베이스 계정에서 IP 액세스 제어 정책을 사용하도록 설정하려면 Azure Portal을 사용하여 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 통해 요청을 제출해야 합니다.
+`ipRangeFilter` 속성을 업데이트하여 [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 IP 액세스 제어 정책을 프로그래밍 방식으로 설정할 수 있습니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 예: "13.91.6.132,13.91.6.1/24". 이러한 메서드를 통해 데이터베이스 계정을 업데이트할 때에는 기본 설정으로 다시 설정되지 않도록 모든 속성을 채워야 합니다.
 
-1. [도움말 + 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 블레이드에서 **새 지원 요청**을 선택합니다.
-2. **새 지원 요청 블레이드**에서 **기본**을 선택합니다.
-3. **기본** 블레이드에서 다음을 선택합니다.
-   * **문제 유형**: 할당량
-   * **구독**: IP 액세스 제어 정책을 추가할 계정에 연결된 구독입니다.
-   * **할당량 유형**: DocumentDB
-   * **지원 계획**: 할당량 지원 - 포함됨.
-4. **문제** 블레이드에서 다음을 수행합니다.
-   * **심각도**: C - 최소 영향 선택
-   * **세부 정보**: 상자에 다음 텍스트를 복사하고 계정 이름 및 IP 주소를 포함합니다. "DocumentDB 데이터베이스 계정에 대한 방화벽 지원을 사용하도록 설정하겠습니다. 데이터베이스 계정: *계정 이름 입력*. 허용 IP 주소/범위: *IP 주소/범위를 CIDR 형식으로 입력(예: 13.91.6.132, 13.91.6.1/24)*."
-   * **Next**를 클릭합니다. 
-5. **연락처 정보** 블레이드에서 연락처 세부 정보를 입력하고 **만들기**를 클릭합니다. 
-
-요청이 수신되면 24시간 내에 IP 액세스 제어가 활성화됩니다. 요청이 완료되면 알림이 제공됩니다.
-
-![도움말 + 지원 블레이드의 스크린샷](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
-
-![문제 블레이드의 스크린샷](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
+> [!NOTE]
+> DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다.
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>IP 액세스 제어 정책 문제 해결
 ### <a name="portal-operations"></a>포털 작업
 DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다. 
 
-### <a name="sdk-rest-api"></a>SDK 및 Rest API
+### <a name="sdk--rest-api"></a>SDK 및 Rest API
 보안상의 이유로 허용 목록에 없는 컴퓨터에서 SDK 또는 REST API를 통해 액세스를 시도하면 추가 정보 없이 일반적인 404 찾을 수 없음 응답이 반환됩니다. DocumentDB 데이터베이스 계정에 대해 구성된 허용 IP 목록을 확인하여 DocumentDB 데이터베이스 계정에 올바른 정책 구성이 적용되고 있는지 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
@@ -82,6 +66,6 @@ DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Gateway SDK를 사용하여 장치 시뮬레이션 | Microsoft Docs
-description: Azure IoT Hub Gateway SDK를 사용하여 시뮬레이션된 장치에서 원격 분석을 보내는 방법을 보여 주는 Linux용 Azure IoT Hub Gateway SDK 연습입니다.
+title: "IoT Gateway SDK를 사용하여 장치 시뮬레이션 | Microsoft Docs"
+description: "Azure IoT Gateway SDK를 사용하여 시뮬레이션된 장치에서 원격 분석을 보내는 방법을 보여 주는 Linux를 사용한 Azure IoT Gateway SDK 연습입니다."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 11e7bf28-ee3d-48d6-a386-eb506c7a31cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
+
 
 ---
-# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-simulated-device-using-linux"></a>IoT Gateway SDK(베타) – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기
+# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-using-linux"></a>Azure IoT Gateway SDK – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 시작하기 전에 다음을 수행해야 합니다.
 
-* Linux에서 SDK를 사용할 수 있도록 [개발 환경 설정][lnk-setupdevbox]
-* Azure 구독에서 [IoT Hub를 만듭니다][lnk-create-hub]. 이 연습을 완료하려면 허브 이름이 필요합니다. Azure 구독이 아직 없는 경우 [무료 계정][lnk-free-trial]을 얻을 수 있습니다.
+* Linux에서 SDK를 사용할 수 있도록 [개발 환경을 설정][lnk-setupdevbox]합니다.
+* Azure 구독에서 [IoT Hub를 만듭니다][lnk-create-hub]. 이 연습을 완료하려면 허브 이름이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 * IoT Hub에 장치 두 개를 추가하고 해당 ID와 장치 키를 적어 둡니다. [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 이전 단계에서 만든 IoT Hub에 장치를 추가하고 해당 키를 검색할 수 있습니다.
 
 샘플을 빌드하려면
@@ -50,68 +54,98 @@ ms.author: andbuc
 
 ```
 {
-    "modules" :
-    [ 
+    "modules": [
         {
-            "module name" : "IoTHub",
-            "module path" : "./build/modules/iothub/libiothub_hl.so",
-            "args" : 
-            {
-                "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net",
-                "Transport": "HTTP"
+            "name": "IotHub",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/iothub/libiothub.so"
             }
-        },
+            },
+            "args": {
+              "IoTHubName": "<<insert here IoTHubName>>",
+              "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
+              "Transport": "HTTP"
+            }
+          },
         {
-            "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
-            "args" : 
-            [
-                {
-                    "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "{Device ID 1}",
-                    "deviceKey"  : "{Device key 1}"
-                },
-                {
-                    "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "{Device ID 2}",
-                    "deviceKey"  : "{Device key 2}"
-                }
+            "name": "mapping",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/identitymap/libidentity_map.so"
+            }
+            },
+            "args": [
+              {
+                "macAddress": "01:01:01:01:01:01",
+                "deviceId": "<<insert here deviceId>>",
+                "deviceKey": "<<insert here deviceKey>>"
+              },
+              {
+                "macAddress": "02:02:02:02:02:02",
+                "deviceId": "<<insert here deviceId>>",
+                "deviceKey": "<<insert here deviceKey>>"
+              }
             ]
-        },
+          },
         {
-            "module name":"BLE1",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
-            "args":
-            {
-                "macAddress" : "01-01-01-01-01-01"
+            "name": "BLE1",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/simulated_device/libsimulated_device.so"
             }
-        },
+            },
+            "args": {
+              "macAddress": "01:01:01:01:01:01"
+            }
+          },
         {
-            "module name":"BLE2",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
-            "args":
-            {
-                "macAddress" : "02-02-02-02-02-02"
+            "name": "BLE2",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/simulated_device/libsimulated_device.so"
             }
-        },
+            },
+            "args": {
+              "macAddress": "02:02:02:02:02:02"
+            }
+          },
         {
-            "module name":"Logger",
-            "module path" : "./build/modules/logger/liblogger_hl.so",
-            "args":
-            {
-                "filename":"./deviceCloudUploadGatewaylog.log"
+            "name": "Logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/logger/liblogger.so"
             }
-        }
+            },
+            "args": {
+              "filename": "deviceCloudUploadGatewaylog.log"
+            }
+          }
     ],
-    "links" : [
-        { "source" : "*", "sink" : "Logger" },
-        { "source" : "BLE1", "sink" : "mapping" },
-        { "source" : "BLE2", "sink" : "mapping" },
-        { "source" : "mapping", "sink" : "IoTHub" }
+    "links": [
+        {
+            "source": "*",
+            "sink": "Logger"
+        },
+        {
+            "source": "BLE1",
+            "sink": "mapping"
+        },
+        {
+            "source": "BLE2",
+            "sink": "mapping"
+        },
+        {
+            "source": "mapping",
+            "sink": "IotHub"
+        }
     ]
 }
-
 ```
 
 구성 파일에 적용한 변경 내용을 저장합니다.
@@ -127,10 +161,10 @@ ms.author: andbuc
 3. [장치 탐색기 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 IoT Hub가 게이트웨이에서 수신하는 메시지를 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-게이트웨이 SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
+IoT Gateway SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
 
-* [Gateway SDK를 사용하여 실제 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
-* [Azure IoT 게이트웨이 SDK][lnk-gateway-sdk]
+* [IoT Gateway SDK를 사용하여 물리적 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
+* [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
@@ -150,6 +184,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-create-hub]: iot-hub-create-through-portal.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

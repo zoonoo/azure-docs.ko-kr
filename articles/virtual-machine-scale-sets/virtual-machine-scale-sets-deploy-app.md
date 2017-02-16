@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
+ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
 
 
 ---
@@ -51,13 +51,11 @@ Packer 및 Terraform도 Azure Resource Manager를 지원하므로, 이미지를 
 그러면 크기 집합 VM은 컨테이너에 대해 안정화되고, 가끔씩 보안 및 OS 관련 업데이트만 요구합니다. 앞서 설명한 것처럼 Azure Container Service는 이 접근 방법을 따르고 그에 따라 서비스를 구축하는 좋은 예에 해당합니다.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>업데이트 도메인 간에 OS 업데이트를 롤아웃하려면 어떻게 해야 할까요?
-VM 크기 집합을 계속 실행하면서 OS 이미지를 업데이트하려고 할 것입니다. 이렇게 하는 한 가지 방법은 VM 이미지를 VM 단위로 한 번에 하나씩 업데이트하는 것입니다. 이 작업은 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다. VM 크기 집합 모델(구성이 정의되는 방식)을 업데이트하고 개별 VM에 대해 “수동 업그레이드" 호출을 실행하기 위한 별도 명령이 있습니다.
-
-[여기](https://github.com/gbowerman/vmsstools)에는 한 번에 하나의 업데이트 도메인 단위로 VM 크기 집합을 업데이트하는 프로세스를 자동화하는 Python 스크립트 예제가 나와 있습니다. (경고: 프로덕션 사용 준비가 완료된 확정된 솔루션보다 더 많은 개념 증명을 포함할 수 있습니다. 일부 오류 검사를 추가할 수도 있습니다.)
+VM 크기 집합을 계속 실행하면서 OS 이미지를 업데이트하려고 할 것입니다. 이렇게 하는 한 가지 방법은 VM 이미지를 VM 단위로 한 번에 하나씩 업데이트하는 것입니다. 이 작업은 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다. VM 크기 집합 모델(구성이 정의되는 방식)을 업데이트하고 개별 VM에서 "수동 업그레이드" 호출을 실행하는 별도의 명령이 있습니다. 또한 VM 크기 집합에서 OS 업그레이드를 수행하는 데 사용할 수 있는 옵션에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 업그레이드](./virtual-machine-scale-sets-upgrade-scale-set.md) Azure 문서에서 제공합니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

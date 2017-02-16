@@ -1,5 +1,5 @@
 ---
-title: "SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스"
+title: "SSH 터널링을 사용하여 Azure HDInsight 서비스에 액세스 | Microsoft Docs"
 description: "SSH 터널을 사용하여 Linux 기반 HDInsight 노드에 호스팅되는 웹 리소스를 안전하게 검색하는 방법에 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 446212192829cc55fefe4b1a1954e64e123c2c44
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d9e6fe3bd2ddd511791b7b34ff8d7875a13417c0
 
 
 ---
@@ -145,6 +145,6 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

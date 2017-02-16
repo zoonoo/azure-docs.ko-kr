@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub와 Azure Event Hubs 비교 | Microsoft 문서"
-description: "기능 차이점 및 사용 사례를 강조 표시하는 Azure IoT Hub 및 Azure 이벤트 허브 서비스 비교입니다."
+description: "IoT Hub 및 Event Hubs Azure의 비교는 강조 표시된 기능 차이 및 사용 사례를 제공합니다. 비교는 지원되는 프로토콜, 장치 관리, 모니터링 및 파일 업로드를 포함합니다."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/31/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 2075c7a1b8f3393e100ab92ae7d497c56965f887
 
 
 ---
@@ -35,6 +35,7 @@ IoT Hub의 주요 사용 사례 중 하나는 장치에서 원격 분석을 수�
 | 확장 |수백만 대의 연결된 장치를 동시에 지원하도록 최적화됩니다. |[Azure Service Bus 할당량][Azure Service Bus quotas]에 따라 더욱 제한된 수의 동시 연결(최대 5,000개 AMQP 연결)을 지원할 수 있습니다. 반면에 이벤트 허브를 통해 사용자는 전송된 각 메시지에 파티션을 지정할 수 있습니다. |
 | 장치 SDK |직접 MQTT, AMQP 및 HTTP API 외에도 다양한 플랫폼 및 언어에 대해 [장치 SDK][Azure IoT SDKs]를 제공합니다. |AMQP 및 HTTP 전송 인터페이스 외에도 .NET, Java 및 C에서 지원됩니다. |
 | 파일 업로드 |IoT 솔루션을 사용하여 장치에서 클라우드로 파일을 업로드합니다. 워크플로 통합에 대한 파일 알림 끝점과 디버깅 지원에 대한 작업 모니터링 범주를 포함합니다. | 지원되지 않습니다. |
+| 메시지를 여러 끝점으로 라우팅 | 최대 10개의 사용자 지정 끝점이 지원됩니다. 규칙은 메시지가 사용자 지정 끝점으로 라우팅되는 방식을 결정합니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기][lnk-devguide-messaging]를 참조하세요. | 메시지 디스패치를 위해서는 추가 코드를 쓰고 호스트해야 합니다. |
 
 요약하면 유일한 사용 사례가 장치-클라우드 원격 분석 수신인 경우에도 IoT Hub는 IoT 장치 연결을 위해 설계된 서비스를 제공합니다. IoT 특정 기능을 통해 이러한 시나리오에 대한 가치 제안을 지속적으로 확장합니다. 이벤트 허브는 데이터 센터 내부 및 데이터 센터 간 시나리오 컨텍스트에서 대규모 이벤트 수신용으로 설계되었습니다.
 
@@ -45,7 +46,7 @@ IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 [크기 조�
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 * [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
@@ -55,17 +56,18 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [IoT Hub 개발자 가이드의 보안 섹션]: iot-hub-devguide-security.md
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers
 [Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

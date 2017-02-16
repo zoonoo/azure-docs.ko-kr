@@ -12,19 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: mijiang
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21c05684055a98fecd214fb8291147d3cfefe13a
-
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
 
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="contact-us"></a>문의처
 * [Microsoft Azure API Management 팀에게 어떻게 질문할 수 있습니까?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+
+
+## <a name="frequently-asked-questions"></a>질문과 대답
 * [기능이 미리 보기 상태인 경우 어떤 의미입니까?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -144,11 +146,11 @@ Git 자격 증명 관리자를 사용하는 경우 또는 Visual Studio를 사�
  예. API Management는 Azure ExpressRoute와 함께 작동합니다.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>구독 간에 API Management 서비스를 이동할 수 있습니까?
- 예. 방법을 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../resource-group-move-resources.md)을 참조하세요.
+ 예. 방법을 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

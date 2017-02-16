@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: edab3b3058a2e28ce74e62434b85b1643f267493
+ms.sourcegitcommit: 2d31365c7de59fc50da9b4d675dc5cf64302ea6a
+ms.openlocfilehash: 4041cc528f07b678bd6a6daebc44007cad095d6e
 
 
 ---
@@ -68,7 +68,7 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
     --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-이제 [Resource Manager 템플릿을 사용하여](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd)업로드된 가상 디스크에서 VM을 만들 수 있습니다. 또한 다음과 같이 디스크에 대한 URI(`--image-urn`)를 지정하여 CLI를 사용할 수도 있습니다. 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
+이제 [Resource Manager 템플릿을 사용하여](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)업로드된 가상 디스크에서 VM을 만들 수 있습니다. 또한 다음과 같이 디스크에 대한 URI(`--image-urn`)를 지정하여 CLI를 사용할 수도 있습니다. 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
 
 ```bash
 azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
@@ -243,6 +243,6 @@ azure group deployment create --resource-group myResourceGroup
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

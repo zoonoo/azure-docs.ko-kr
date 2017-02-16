@@ -17,75 +17,12 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
+ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
 # <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>데이터 보호 및 복구를 위한 백업 및 복원 시작
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
 이 시작 자습서에서는 다음을 수행하기 위해 Azure Portal을 사용하는 방법에 대해 알아봅니다.
 
 - 데이터베이스의 기존 백업 보기
@@ -95,6 +32,9 @@ Sentence #2 Explains what users will learn and the benefit.
 
 **예상 시간**: 이 자습서의 경우 완료하는 데 약 30분 소요됩니다(이미 필수 조건을 충족한다고 가정).
 
+> [!TIP]
+> [PowerShell](sql-database-get-started-backup-recovery-powershell.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행할 수 있습니다.
+>
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -105,11 +45,11 @@ Sentence #2 Explains what users will learn and the benefit.
 * [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started.md) 또는 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md)을 완료했습니다. 계속하기 전에 이 필수 자습서를 완료하거나 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md) 끝에서 PowerShell 스크립트를 실행하지 않은 경우
 
 
-> [!TIP]
-> [PowerShell](sql-database-get-started-backup-recovery-powershell.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행할 수 있습니다.
+> [!NOTE]
+> 이 자습서에서는 [SQL Database 백업](sql-database-automated-backups.md), [장기 백업 보존](sql-database-long-term-retention.md) 및 [자동화된 데이터베이스 백업을 사용한 Azure SQL Database 복구](sql-database-recovery-using-backups.md)와 같은 학습 항목의 콘텐츠를 학습할 수 있습니다.
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>기존 계정을 사용하여 로그인
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Azure 계정을 사용하여 Azure Portal에 로그인합니다.
 [기존 구독](https://account.windowsazure.com/Home/Index)을 사용하고 이러한 다음 단계를 수행하여 Azure Portal에 연결합니다.
 
 1. 선택한 브라우저를 열고 [Azure Portal](https://portal.azure.com/)에 연결합니다.
@@ -117,7 +57,6 @@ Sentence #2 Explains what users will learn and the benefit.
 3. **로그인** 페이지에서 구독에 대한 자격 증명을 제공합니다.
    
    ![로그인](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ Sentence #2 Explains what users will learn and the benefit.
 
 1. 데이터베이스에 대한 **SQL 데이터베이스** 블레이드, **sqldbtutorialdb**를 엽니다.
 
-    ![새 샘플 데이터베이스 블레이드](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![새 샘플 데이터베이스 블레이드](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. 도구 모음에서 **복원**을 클릭합니다.
 
-    ![도구 모음 복원](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![도구 모음 복원](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. 복원 블레이드에서 가장 오래된 복원 지점을 검토합니다.
 
-    ![가장 오래된 복원 지점](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![가장 오래된 복원 지점](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>이전 시점으로 데이터베이스 복원
 
@@ -143,37 +82,37 @@ Sentence #2 Explains what users will learn and the benefit.
 
 1. 데이터베이스에 대한 **복원** 블레이드에서 이전 시점으로 데이터베이스를 복원할 새 데이터베이스에 대한 기본 이름을 검토합니다(이름은 타임스탬프 뒤에 추가된 기존 데이터베이스 이름임). 이 이름은 다음 일부 단계에서 지정하는 시간을 반영하도록 변경합니다.
 
-    ![복원된 데이터베이스 이름](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![복원된 데이터베이스 이름](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. **복원 지점(UTC)** 입력 상자에서 **달력** 아이콘을 클릭합니다.
 
-    ![복원 지점](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![복원 지점](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. 달력에서 보존 기간 내 날짜를 선택합니다.
 
-    ![복원 지점 날짜](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![복원 지점 날짜](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. **복원 지점(UTC)** 입력 상자에서 자동화된 데이터베이스 백업에서 데이터베이스에 데이터를 복원하려는 선택한 날짜에 시간을 지정합니다.
 
-    ![복원 지점 시간](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![복원 지점 시간](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >데이터베이스 이름이 선택한 시간과 날짜를 반영하도록 변경되었는지 확인합니다. 특정 시점으로 복원하고 있는 서버를 변경할 수 없습니다. 다른 서버로 복원하려면 [지역 복원](sql-database-disaster-recovery.md#recover-using-geo-restore)을 사용합니다. 마지막으로 [탄력적 풀](sql-database-elastic-jobs-overview.md) 또는 다른 가격 책정 계층으로 복원할 수 있습니다. 
-    >
+   >[!NOTE]
+   >데이터베이스 이름이 선택한 시간과 날짜를 반영하도록 변경되었는지 확인합니다. 특정 시점으로 복원하고 있는 서버를 변경할 수 없습니다. 다른 서버로 복원하려면 [지역 복원](sql-database-disaster-recovery.md#recover-using-geo-restore)을 사용합니다. 마지막으로 [탄력적 풀](sql-database-elastic-jobs-overview.md) 또는 다른 가격 책정 계층으로 복원할 수 있습니다. 
+   >
 
 4. **확인**을 클릭하여 새 데이터베이스에 이전 시점으로 데이터베이스를 복원합니다.
 
 5. 도구 모음에서 알림 아이콘을 클릭하여 복원 작업의 상태를 봅니다.
 
-    ![복원 작업 진행률](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![복원 작업 진행률](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. 복원 작업이 완료되면 **SQL 데이터베이스** 블레이드를 열어 새로 복원된 데이터베이스를 봅니다.
 
-    ![복원된 데이터베이스](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![복원된 데이터베이스](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](sql-database-recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
-   >
+> [!NOTE]
+> 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](sql-database-recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음에 자동화된 백업의 장기 보존 구성 
 
@@ -182,11 +121,11 @@ Sentence #2 Explains what users will learn and the benefit.
 
 > [!TIP]
 > 백업을 삭제하려면 [장기 보존 백업 삭제](sql-database-long-term-retention-delete.md)를 참조하세요.
-
+>
 
 1. 서버에 대한 **SQL Server** 블레이드, **sqldbtutorialserver**를 엽니다.
 
-    ![SQL 서버 블레이드](./media/sql-database-get-started/sql-server-blade.png)
+   ![SQL 서버 블레이드](./media/sql-database-get-started/sql-server-blade.png)
 
 2. **장기 백업 보존**을 클릭합니다.
 
@@ -246,9 +185,9 @@ Sentence #2 Explains what users will learn and the benefit.
 
    ![복구 서비스 자격 증명 모음 보기](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > 구성되면 백업은 다음 7일 동안 자격 증명 모음에 표시됩니다. 백업이 자격 증명 모음에 표시될 때까지 이 자습서를 계속하지 마십시오.
-   >
+> [!IMPORTANT]
+> 구성되면 백업은 다음&7;일 동안 자격 증명 모음에 표시됩니다. 백업이 자격 증명 모음에 표시될 때까지 이 자습서를 계속하지 마십시오.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>장기 보존에서 백업 보기
 
@@ -260,17 +199,17 @@ Sentence #2 Explains what users will learn and the benefit.
 
 2. 데이터베이스에 대한 **SQL 데이터베이스** 블레이드, **sqldbtutorialdb**를 엽니다.
 
-    ![새 샘플 데이터베이스 블레이드](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![새 샘플 데이터베이스 블레이드](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. 도구 모음에서 **복원**을 클릭합니다.
 
-    ![도구 모음 복원](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![도구 모음 복원](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. 복원 블레이드에서 **장기**를 클릭합니다.
 
 5. Azure 자격 증명 모음 백업에서 **백업 선택**을 클릭하여 장기 백업 보존에서 사용 가능한 데이터베이스 백업을 봅니다.
 
-    ![자격 증명 모음의 백업](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![자격 증명 모음의 백업](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>장기 백업 보존의 백업에서 데이터베이스 복원
 
@@ -278,28 +217,25 @@ Sentence #2 Explains what users will learn and the benefit.
 
 1. **Azure 자격 증명 모음 백업** 블레이드에서 백업을 클릭하여 복원한 다음 **선택**을 클릭합니다.
 
-    ![자격 증명 모음에서 백업 선택](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![자격 증명 모음에서 백업 선택](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. **데이터베이스 이름** 텍스트 상자에서 복원된 데이터베이스에 대한 이름을 제공합니다.
 
-    ![새 데이터베이스 이름](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![새 데이터베이스 이름](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. **확인**을 클릭하여 자격 증명 모음의 백업에서 새 데이터베이스로 데이터베이스를 복원합니다.
 
 4. 도구 모음에서 알림 아이콘을 클릭하여 복원 작업의 상태를 봅니다.
 
-    ![자격 증명 모음에서 복원 작업 진행률](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![자격 증명 모음에서 복원 작업 진행률](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. 복원 작업이 완료되면 **SQL 데이터베이스** 블레이드를 열어 새로 복원된 데이터베이스를 봅니다.
 
-    ![자격 증명 모음에서 복원된 데이터베이스](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![자격 증명 모음에서 복원된 데이터베이스](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](sql-database-recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](sql-database-recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
+>
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -309,6 +245,6 @@ Sentence #2 Explains what users will learn and the benefit.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

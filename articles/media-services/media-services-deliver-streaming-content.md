@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
+ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
+ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
 
 
 ---
@@ -101,7 +101,7 @@ ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
 
 
 > [!NOTE]
-> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 
+> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
 > 
 > 
 
@@ -177,6 +177,6 @@ ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

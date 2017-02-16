@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
+ms.sourcegitcommit: c002c4588869536810b969aed80da09e60b62525
+ms.openlocfilehash: 9b06b4a7f4b58c586b81d0ad4a40dfdc586dfe6e
 
 
 ---
@@ -58,7 +58,7 @@ ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
     여러 개의 슬롯을 만든 후에는 프로덕션이 아닌 슬롯으로부터 구성을 복제할 수 있습니다.
    
     ![구성 원본][MultipleConfigurationSources]
-4. 앱의 리소스 블레이드에서 **배포 슬롯**을 클릭하고 배포 슬롯을 하나 클릭하여 해당 슬롯의 리소스 블레이드를 엽니다. 그러면 다른 앱과 마찬가지로 메트릭 집합 및 구성이 표시됩니다. 배포 슬롯을 보고 있다는 사실을 상기시키기 위해 블레이드 상단에 슬롯 이름이 표시됩니다.
+4. 앱의 리소스 블레이드에서 **배포 슬롯**을 클릭한 다음 배포 슬롯을 클릭하여 해당 슬롯의 리소스 블레이드를 엽니다. 그러면 다른 앱과 마찬가지로 메트릭 집합 및 구성이 표시됩니다. 배포 슬롯을 보고 있다는 사실을 상기시키기 위해 블레이드 상단에 슬롯 이름이 표시됩니다.
    
     ![배포 슬롯 제목][StagingTitle]
 5. 슬롯의 블레이드에서 앱 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 Live App이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)을 참조하세요.
@@ -268,7 +268,7 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Se
 
 - - -
 > [!NOTE]
-> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
+> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](https://azure.microsoft.com/try/app-service/) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 > 
 > 
 
@@ -295,6 +295,6 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Se
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

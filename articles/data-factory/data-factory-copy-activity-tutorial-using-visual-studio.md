@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
+ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
+ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 
 
 ---
@@ -66,7 +66,7 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
     ![솔루션 탐색기](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md##supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 계산 서비스 목록은 [연결된 계산 서비스](data-factory-compute-linked-services.md) 를 참조하세요. 이 자습서에서는 계산 서비스를 사용하지 않습니다. 
+연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 계산 서비스 목록은 [연결된 계산 서비스](data-factory-compute-linked-services.md) 를 참조하세요. 이 자습서에서는 계산 서비스를 사용하지 않습니다. 
 
 이 단계에서는 2개의 연결된 서비스인 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만듭니다. AzureStorageLinkedService1 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결합니다. 
 
@@ -104,37 +104,38 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. **새 항목 추가** 대화 상자에서 **Azure Blob**을 선택하고 **추가**를 클릭합니다.   
 3. JSON 텍스트를 다음 텍스트로 바꾸고 **AzureBlobLocation1.json** 파일을 저장합니다. 
-   
-       {
-         "name": "InputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureBlob",
-           "linkedServiceName": "AzureStorageLinkedService1",
-           "typeProperties": {
-             "folderPath": "adftutorial/",
-             "format": {
-               "type": "TextFormat",
-               "columnDelimiter": ","
-             }
-           },
-           "external": true,
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
-         }
-       }
-   
+
+  ```json   
+  {
+    "name": "InputDataset",
+    "properties": {
+      "structure": [
+        {
+          "name": "FirstName",
+          "type": "String"
+        },
+        {
+          "name": "LastName",
+          "type": "String"
+        }
+      ],
+      "type": "AzureBlob",
+      "linkedServiceName": "AzureStorageLinkedService1",
+      "typeProperties": {
+        "folderPath": "adftutorial/",
+        "format": {
+          "type": "TextFormat",
+          "columnDelimiter": ","
+        }
+      },
+      "external": true,
+      "availability": {
+        "frequency": "Hour",
+        "interval": 1
+      }
+    }
+  }
+  ``` 
     다음 사항에 유의하세요. 
    
    * 데이터 집합 **형식**을 **AzureBlob**로 설정합니다.
@@ -149,16 +150,18 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
    **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid\&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
    
    **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 **partitionedBy** 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2016-09-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2016/09/20으로 설정되고 fileName은 08.csv로 설정됩니다. 
-   
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-
+  
+    ```json   
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ```
+            
 > [!NOTE]
 > JSON 속성에 대한 자세한 내용은 [Azure Blob 간의 데이터 이동](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 을 참조하세요.
 > 
@@ -170,31 +173,33 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 1. **솔루션 탐색기**에서 다시 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. **새 항목 추가** 대화 상자에서 **Azure SQL**을 선택하고 **추가**를 클릭합니다. 
 3. JSON 텍스트를 다음 JSON으로 바꾸고 **AzureSqlTableLocation1.json** 파일을 저장합니다.
-   
-       {
-         "name": "OutputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureSqlTable",
-           "linkedServiceName": "AzureSqlLinkedService1",
-           "typeProperties": {
-             "tableName": "emp"
-           },
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
+
+    ```json
+    {
+     "name": "OutputDataset",
+     "properties": {
+       "structure": [
+         {
+           "name": "FirstName",
+           "type": "String"
+         },
+         {
+           "name": "LastName",
+           "type": "String"
          }
+       ],
+       "type": "AzureSqlTable",
+       "linkedServiceName": "AzureSqlLinkedService1",
+       "typeProperties": {
+         "tableName": "emp"
+       },
+       "availability": {
+         "frequency": "Hour",
+         "interval": 1
        }
+     }
+    }
+    ```
    
     다음 사항에 유의하세요. 
    
@@ -215,50 +220,51 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 1. **솔루션 탐색기**에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.  
 2. **새 항목 추가** 대화 상자에서 **데이터 파이프라인 복사**를 선택하고 **추가**를 클릭합니다. 
 3. JSON을 다음 JSON으로 바꾸고 **CopyActivity1.json** 파일을 저장합니다.
-   
-       {
-         "name": "ADFTutorialPipeline",
-         "properties": {
-           "description": "Copy data from a blob to Azure SQL table",
-           "activities": [
+
+    ```json   
+    {
+     "name": "ADFTutorialPipeline",
+     "properties": {
+       "description": "Copy data from a blob to Azure SQL table",
+       "activities": [
+         {
+           "name": "CopyFromBlobToSQL",
+           "type": "Copy",
+           "inputs": [
              {
-               "name": "CopyFromBlobToSQL",
-               "type": "Copy",
-               "inputs": [
-                 {
-                   "name": "InputDataset"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "OutputDataset"
-                 }
-               ],
-               "typeProperties": {
-                 "source": {
-                   "type": "BlobSource"
-                 },
-                 "sink": {
-                   "type": "SqlSink",
-                   "writeBatchSize": 10000,
-                   "writeBatchTimeout": "60:00:00"
-                 }
-               },
-               "Policy": {
-                 "concurrency": 1,
-                 "executionPriorityOrder": "NewestFirst",
-                 "style": "StartOfInterval",
-                 "retry": 0,
-                 "timeout": "01:00:00"
-               }
+               "name": "InputDataset"
              }
            ],
-           "start": "2015-07-12T00:00:00Z",
-           "end": "2015-07-13T00:00:00Z",
-           "isPaused": false
+           "outputs": [
+             {
+               "name": "OutputDataset"
+             }
+           ],
+           "typeProperties": {
+             "source": {
+               "type": "BlobSource"
+             },
+             "sink": {
+               "type": "SqlSink",
+               "writeBatchSize": 10000,
+               "writeBatchTimeout": "60:00:00"
+             }
+           },
+           "Policy": {
+             "concurrency": 1,
+             "executionPriorityOrder": "NewestFirst",
+             "style": "StartOfInterval",
+             "retry": 0,
+             "timeout": "01:00:00"
+           }
          }
-       }
-   
+       ],
+       "start": "2015-07-12T00:00:00Z",
+       "end": "2015-07-13T00:00:00Z",
+       "isPaused": false
+     }
+    }
+    ```   
    다음 사항에 유의하세요.
    
    * 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다.
@@ -307,18 +313,24 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 6. 요약을 검토한 후 **다음**을 클릭하여 배포 프로세스를 시작하고 **배포 상태**를 봅니다.
    
    ![요약 페이지 게시](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
-7. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다. 
-   ![배포 상태 페이지](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png) 다음 사항에 유의하세요. 
+7. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다.
+ 
+   ![배포 상태 페이지](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)
+
+다음 사항에 유의하세요. 
 
 * "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
   
   * Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다. 
+
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+    데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다. 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다. 
-    
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 * 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
@@ -340,8 +352,10 @@ ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
 ## <a name="use-server-explorer-to-view-data-factories"></a>서버 탐색기를 사용하여 데이터 팩터리 검토
 1. **Visual Studio**의 메뉴에서 **보기**를 클릭한 다음 **서버 탐색기**를 클릭합니다.
 2. 서버 탐색기 창에서 **Azure**를 확장한 다음 **Data Factory**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다.
+
     ![서버 탐색기](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다.
+
     ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Visual Studio용 데이터 팩터리 도구 업데이트
@@ -365,6 +379,6 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

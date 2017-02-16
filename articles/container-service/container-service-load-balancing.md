@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service 클러스터에서 컨테이너 부하 분산 | Microsoft 문서"
-description: "Azure Container Service 클러스터에 있는 여러 컨테이너에 대한 부하 분산입니다."
+title: "Azure DC/OS 클러스터의 컨테이너 부하 분산 | Microsoft Docs"
+description: "Azure Container Service DC/OS 클러스터에 있는 여러 컨테이너에 대해 부하를 분산합니다."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -11,18 +11,18 @@ keywords: "컨테이너, 마이크로 서비스, DC/OS, Azure"
 ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
 
 
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Azure Container Service 클러스터에서 컨테이너 부하 분산
+# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
 이 문서에서는 Marathon-LB를 사용하여 DC/OS 관리되는 Azure Container Service에서 내부 부하 분산 장치를 만드는 방법을 탐색합니다. 이렇게 하면 응용 프로그램을 수평으로 확장할 수 있습니다. 또한 이렇게 하면 부하 분산 장치를 공용 클러스터에 배치하고 응용 프로그램 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -39,14 +39,14 @@ Marathon Load Balancer는 배포한 컨테이너를 기준으로 동적으로 �
 
 Marathon Load Balancer를 설치하려면 DC/OS 웹 UI 또는 명령줄 중 하나를 사용할 수 있습니다.
 
-### <a name="install-marathonlb-using-dcos-web-ui"></a>DC/OS 웹 UI를 사용하여 Marathon-LB 설치
+### <a name="install-marathon-lb-using-dcos-web-ui"></a>DC/OS 웹 UI를 사용하여 Marathon-LB 설치
 1. 'Universe'을 클릭합니다.
 2. 'Marathon-LB'를 검색합니다.
 3. '설치'를 클릭합니다.
 
 ![DC/OS 웹 인터페이스를 통해 marathon-lb 설치](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathonlb-using-the-dcos-cli"></a>DC/OS CLI를 사용하여 Marathon-LB 설치
+### <a name="install-marathon-lb-using-the-dcos-cli"></a>DC/OS CLI를 사용하여 Marathon-LB 설치
 DC/OS CLI를 설치하고 클러스터에 연결할 수 있는지 확인한 후에 클라이언트 컴퓨터에서 다음 명령을 실행합니다.
 
 ```bash
@@ -115,7 +115,7 @@ dcos marathon app add hello-web.json
 ```
 
 ## <a name="azure-load-balancer"></a>Azure Load Balancer
-Azure Load Balancer는 기본적으로 포트 80, 8080 및 443을 노출합니다. 이러한 세 가지 포트 중 하나를 사용하는 경우(위의 예에서 실행하는 것처럼) 수행할 작업이 없습니다. 에이전트 부하 분산 장치의 FQDN에 도달할 수 있어야 하고 새로 고칠 때마다 라운드 로빈 방식으로 3개의 웹 서버 중 하나에 도달합니다. 하지만 다른 포트를 사용하는 경우 부하 분산 장치에서 사용한 포트에 대해 라운드 로빈 규칙 및 프로브를 추가해야 합니다. 이는 [Azure CLI](../xplat-cli-azure-resource-manager.md)에서 `azure network lb rule create` 및 `azure network lb probe create` 명령으로 수행할 수 있습니다. Azure 포털을 사용하여 수행할 수도 있습니다.
+Azure Load Balancer는 기본적으로 포트 80, 8080 및 443을 노출합니다. 이러한 세 가지 포트 중 하나를 사용하는 경우(위의 예에서 실행하는 것처럼) 수행할 작업이 없습니다. 에이전트 부하 분산 장치의 FQDN에 도달할 수 있어야 하고 새로 고칠 때마다 라운드 로빈 방식으로&3;개의 웹 서버 중 하나에 도달합니다. 하지만 다른 포트를 사용하는 경우 부하 분산 장치에서 사용한 포트에 대해 라운드 로빈 규칙 및 프로브를 추가해야 합니다. 이는 [Azure CLI](../xplat-cli-azure-resource-manager.md)에서 `azure network lb rule create` 및 `azure network lb probe create` 명령으로 수행할 수 있습니다. Azure 포털을 사용하여 수행할 수도 있습니다.
 
 ## <a name="additional-scenarios"></a>추가 시나리오
 다른 서비스를 노출하기 위해 다른 도메인을 사용하는 시나리오를 포함할 수 있습니다. 예:
@@ -136,6 +136,6 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

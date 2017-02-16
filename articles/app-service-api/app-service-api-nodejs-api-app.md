@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
         git init
    
      ![새 로컬 Git 리포지토리](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. 아래 명령을 실행하여 API 앱의 리포지토리에 대한 Git 원격을 추가합니다. 
+3. 이 자습서의 첫 번째 부분을 수행하고 `ContactList` 폴더를 복사하면 복사본에는 `node_modules` 폴더가 포함될 수 있습니다. `package.json` 파일 및 `npm install`을 통한 배포 프로세스 중 만들어진 대로 원본 제어에서 `node_modules` 폴더를 포함하지 않으려고 합니다. 그러면 프로젝트 디렉터리의 루트에서 다음 명령을 실행하여 `.gitignore` 파일을 추가합니다.
+
+         touch .gitignore
+      
+   .gitignore 파일을 열고 파일의 첫 줄에 `node_modules`을(를) 추가합니다. `git status`을(를) 실행하는 경우 원본 제어에서 `node_modules` 폴더를 무시하는지 확인할 수 있고 디렉터리가 목록에 표시되지 않습니다. 규칙을 추가하려는 경우 NodeJS 프로젝트에서 무시해야 할 권장 파일은 (GitHub 프로젝트)[https://github.com/github/gitignore/blob/master/Node.gitignore]이 있습니다.
+ 
+4. 아래 명령을 실행하여 API 앱의 리포지토리에 대한 Git 원격을 추가합니다. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **참고**: "YOUR_GIT_CLONE_URL_HERE" 문자열을 앞에서 복사한 자신의 Git 복제 URL로 바꿉니다. 
-4. 다음 명령을 실행하여 모든 코드가 포함된 커밋을 만듭니다. 
+5. 다음 명령을 실행하여 모든 코드가 포함된 커밋을 만듭니다. 
    
         git add .
         git commit -m "initial revision"
    
     ![Git 커밋 출력](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. 명령을 실행하여 코드를 Azure로 푸시합니다. 암호를 입력하라는 메시지가 표시되면 앞에서 Azure 포털에서 만든 암호를 입력합니다.
+6. 명령을 실행하여 코드를 Azure로 푸시합니다. 암호를 입력하라는 메시지가 표시되면 앞에서 Azure 포털에서 만든 암호를 입력합니다.
    
         git push azure master
    
     그러면 API 앱에 대한 배포가 트리거됩니다.  
-6. 브라우저에서 다시 API 앱의 **배포** 블레이드로 이동하면 배포가 실행 중인 것으로 표시됩니다. 
+7. 브라우저에서 다시 API 앱의 **배포** 블레이드로 이동하면 배포가 실행 중인 것으로 표시됩니다. 
    
     ![배포 진행](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

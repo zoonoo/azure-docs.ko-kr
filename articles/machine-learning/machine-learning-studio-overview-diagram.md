@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
+ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
+ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
 [Azure 기계 학습 스튜디오](https://studio.azureml.net/) 에는 데이터 입력, 출력, 준비 및 시각화를 지원하는 모듈과 함께 다수의 사용 가능한 기계 학습 알고리즘이 있습니다. 이러한 구성 요소를 사용하여 예측 분석 실험을 개발하고 반복해서 사용하여 모델을 학습할 수 있습니다.
 그런 다음에는 새 데이터의 점수를 매기는 데 사용할 수 있도록 한 번 클릭으로 Azure 클라우드에서 모델을 운영할 수 있습니다.
 
-이 다이어그램은 이러한 모든 과정을 함께 보여 줍니다.
+이 다이어그램에서는 이러한 모든 과정이 서로 간에 맞물려 작동하는 방식을 보여 줍니다.
 
 > [!NOTE]
 > 전체를 탐색해 보고 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘을 선택하는 데 대한 추가 도움이 필요하면 [Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 참고 자료](machine-learning-algorithm-cheat-sheet.md) 를 참조하세요.
@@ -54,6 +54,6 @@ ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

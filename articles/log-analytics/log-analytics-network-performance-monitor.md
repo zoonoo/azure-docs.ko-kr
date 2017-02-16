@@ -4,7 +4,7 @@ description: "네트워크 성능 모니터를 사용하면 네트워크 성능�
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 794d9b7d5031730f9ea0f8daae251c825f7b05b0
 
 
 ---
 # <a name="network-performance-monitor-preview-solution-in-oms"></a>OMS의 네트워크 성능 모니터(미리 보기)
 > [!NOTE]
-> [미리 보기 솔루션](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)입니다.
+> [미리 보기 솔루션](log-analytics-add-solutions.md#preview-management-solutions-and-features)입니다.
 >
 >
 
@@ -158,7 +158,7 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![예](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![예](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
 
-이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크 교환 TCP 패킷의 다양한 지점에 설치된 OMS 에이전트는 다른 OMS 에이전트와 함께 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론합니다. 테스트는 5초마다 반복되며 에이전트는 이 데이터를 3분 기간마다 집계하여 OMS에 업로드합니다.
+이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크 교환 TCP 패킷의 다양한 지점에 설치된 OMS 에이전트는 다른 OMS 에이전트와 함께 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론합니다. 테스트는&5;초마다 반복되며 에이전트는 이 데이터를&3;분 기간마다 집계하여 OMS에 업로드합니다.
 
 > [!NOTE]
 > 에이전트가 서로 자주 통신하긴 하지만 테스트를 수행하는 동안 많은 네트워크 트래픽을 생성하지 않습니다. 에이전트는 TCP SYN-SYNACK-ACK 핸드셰이크에만 의존하여 손실과 대기 시간을 결정하며 데이터 패킷은 교환되지 않습니다. 이 프로세스에서 에이전트는 필요할 때에만 다른 에이전트와 통신하며 네트워크 트래픽을 줄이도록 에이전트 통신 토폴로지가 최적화됩니다.
@@ -180,7 +180,7 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 
 **Top Unhealthy Network Links** 블레이드에는 비정상 네트워크 링크 목록이 표시됩니다. 비정상 네트워크 링크는 부정적 상태 이벤트가 하나 이상 있는 네트워크 링크입니다.
 
-**Top Subnetwork Links with Most Loss** 블레이드에는 패킷 손실이 가장 많은 서브네크워크 링크가 표시되며 **Subnetwork Links with Most Latency** 블레이드에는 대기 시간이 가장 긴 서브네트워크 링크가 표시됩니다. 특정 네트워크 링크는 대기 시간 또는 패킷 손실량이 높은 상태가 정상일 수 있습니다. 이러한 링크는 목록에 상위 10개 안에 포함되지만 비정상으로 표시되지 않습니다.
+**Top Subnetwork Links with Most Loss** 블레이드에는 패킷 손실이 가장 많은 서브네크워크 링크가 표시되며 **Subnetwork Links with Most Latency** 블레이드에는 대기 시간이 가장 긴 서브네트워크 링크가 표시됩니다. 특정 네트워크 링크는 대기 시간 또는 패킷 손실량이 높은 상태가 정상일 수 있습니다. 이러한 링크는 목록에 상위&10;개 안에 포함되지만 비정상으로 표시되지 않습니다.
 
 **Common Queries** 블레이드에는 원시 네트워크 모니터링 데이터를 직접 가져오는 검색 쿼리 집합이 포함되어 있습니다. 이러한 쿼리를 시작점으로 사용하여 사용자 지정 보고를 위한 쿼리를 만들 수 있습니다.
 
@@ -246,6 +246,6 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Mac 컴퓨터 및 Azure IoT Hub 준비 | Microsoft Docs"
-description: "Mac 컴퓨터에 도구를 설치하고, IoT Hub를 만들고 IoT Hub에 장치를 등록합니다."
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 2: 도구 다운로드(macOS) | Microsoft Docs"
+description: "Mac 컴퓨터에 도구를 설치하고, IoT Hub를 만들고, IoT Hub에 장치를 등록합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: f3bed8620c13372c3af50657bb54aa8dce115529
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b79b166fb16d6454fde46996e715779bf19eac7
 
 
 ---
@@ -134,6 +134,6 @@ Mac 컴퓨터에 필요한 도구 및 소프트웨어를 모두 설치했습니�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

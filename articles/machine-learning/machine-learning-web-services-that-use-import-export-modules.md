@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b6a932fef8c2bf2223ae525ff765fc7e01c3f0a
+ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
+ms.openlocfilehash: f122153a97c3bbdb4416b97146cf9611b850b51e
 
 
 ---
@@ -106,13 +106,13 @@ Azure SQL 테이블에서 데이터를 읽으려면
 8. *apiKey* 변수의 값을 이전에 저장된 API 키로 업데이트합니다.
 9. 요청 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.
    
-     var request = new BatchExecutionRequest()   {    
-   
-         GlobalParameters = new Dictionary<string, string>() {
-         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-         { "Table", "dbo.ScoredTable2" },
-         }
-     };
+        var request = new BatchExecutionRequest() 
+        {           
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable2" },
+            }
+        };
 10. 응용 프로그램을 실행합니다. 
 
 실행이 완료되면 새 테이블이 점수 매기기 결과를 포함하는 데이터베이스에 추가됩니다.
@@ -130,21 +130,21 @@ Azure SQL 테이블에서 데이터를 읽으려면
 8. *apiKey* 변수 값을 **기본 사용량 정보** 섹션에 있는 **기본 키**로 업데이트합니다.
 9. *scoreRequest* 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.
    
-     var scoreRequest = new   {
-   
-         Inputs = new Dictionary<string, StringTable>()
-         {
-         },
-         GlobalParameters = new Dictionary<string, string>() {
-              { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-             { "Table", "dbo.ScoredTable3" },
-         }
-     };
+        var scoreRequest = new
+        {       
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 10. 응용 프로그램을 실행합니다. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 및 Linux | Microsoft Docs"
+title: "Azure의 Linux VM 개요 | Microsoft Docs"
 description: "Linux 가상 컴퓨터를 사용하여 Azure 계산, 저장소 및 네트워킹 서비스를 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e9625a14486cdcfbd9a23625b6399cf391574e64
+ms.sourcegitcommit: d860d30620dac88f1db7965503b2ac2aebf4ab21
+ms.openlocfilehash: 351f03e29e91b906da084e5c30c87fc3c963b823
 
 
 ---
@@ -33,7 +33,7 @@ Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산
 ## <a name="availability"></a>Availability
 배포가 99.95 VM 서비스 수준 계약에 적합하도록 하기 위해 가용성 집합 내부에서 워크로드를 실행하는 두 개 이상의 VM을 배포해야 합니다. 이렇게 하면 VM이 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) 는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
-## <a name="azure-virtual-machines-instances"></a>Azure 가상 컴퓨터 및 인스턴스
+## <a name="azure-virtual-machines--instances"></a>Azure 가상 컴퓨터 및 인스턴스
 Microsoft Azure는 많은 파트너가 제공하고 유지 관리하는 다양하고 인기 있는 Linux 배포를 지원합니다.  Azure 마켓플레이스에서 Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD 등과 같은 배포를 찾습니다. 다양한 Linux 커뮤니티와 적극적으로 작업하여 [Azure 인증 Linux 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 목록에 다양한 옵션을 추가합니다.
 
 선택한 기본 Linux 배포가 현재 갤러리에 없는 경우 [Azure에서 Linux VHD 만들기 및 업로드](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 따라 "직접 Linux" VM을 가져올 수 있습니다.
@@ -150,6 +150,6 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

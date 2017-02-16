@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2016
+ms.date: 02/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 711d92d9c3d97aceaab24fa0cba0c42d2f639426
-ms.openlocfilehash: 313d4c37932c00b93841cad4616fb4deec1ba67b
+ms.sourcegitcommit: ec82fb896bc6c7212660746445af940f52546ad9
+ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
 
 
 ---
@@ -49,9 +49,9 @@ ms.openlocfilehash: 313d4c37932c00b93841cad4616fb4deec1ba67b
 
 다음과 같이 세 가지 가능한 구성이 있습니다.
 
-- 1개 Azure 가상 네트워크에 2개 HBase 클러스터 구성
-- 동일한 지역에 있는 별도의 2개 가상 네트워크에 2개 HBase 클러스터 구성
-- 별도의 2개 지역에 있는 2개 다른 가상 네트워크에 2개 HBase 클러스터 구성(지리적 복제)
+- 1개 Azure 가상 네트워크에&2;개 HBase 클러스터 구성
+- 동일한 지역에 있는 별도의&2;개 가상 네트워크에&2;개 HBase 클러스터 구성
+- 별도의&2;개 지역에 있는&2;개 다른 가상 네트워크에&2;개 HBase 클러스터 구성(지리적 복제)
 
 환경을 쉽게 구성할 수 있도록 몇 가지 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md)을 만들었습니다. 다른 방법을 사용하여 환경을 구성하려면 다음을 참조하세요.
 
@@ -64,7 +64,7 @@ ms.openlocfilehash: 313d4c37932c00b93841cad4616fb4deec1ba67b
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-### <a name="configure-two-virtual-networks-in-the-same-region"></a>동일한 지역에 2개 가상 네트워크 구성
+### <a name="configure-two-virtual-networks-in-the-same-region"></a>동일한 지역에&2;개 가상 네트워크 구성
 
 다음 이미지를 클릭하면 동일한 지역에 VNet 피어링과 두 개의 HBase 클러스터가 있는 두 개의 가상 네트워크를 만들 수 있습니다. 템플릿은 공용 Azure Blob 컨테이너에 저장됩니다.
 
@@ -89,7 +89,9 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 9. 6단계를 반복하여 다른 두 ZooKeeper 노드의 고정 IP 주소를 설정합니다.
 
-### <a name="configure-two-virtual-networks-in-two-different-regions"></a>별도의 2개 지역에 2개 가상 네트워크 구성
+VNet 간 시나리오의 경우 **hdi_enable_replication.sh** 스크립트 작업 호출 시 **-ip** 스위치를 사용해야 합니다.
+
+### <a name="configure-two-virtual-networks-in-two-different-regions"></a>별도의&2;개 지역에&2;개 가상 네트워크 구성
 
 다음 이미지를 클릭하면 두 개의 다른 지역에 두 개의 가상 네트워크를 만들 수 있습니다. 템플릿은 공용 Azure Blob 컨테이너에 저장됩니다.
 
@@ -97,7 +99,9 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 두 개의 가상 네트워크 간에 VPN 게이트웨이를 만듭니다. 지침은 [사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 참조하세요.
 
-HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKeeper 노드에 대해 고정 IP 주소를 구성해야 합니다. 고정 IP를 구성하려면 이 문서의 "동일한 지역에 2개 가상 네트워크 구성" 섹션을 참조하세요.
+HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKeeper 노드에 대해 고정 IP 주소를 구성해야 합니다. 고정 IP를 구성하려면 이 문서의 "동일한 지역에&2;개 가상 네트워크 구성" 섹션을 참조하세요.
+
+VNet 간 시나리오의 경우 **hdi_enable_replication.sh** 스크립트 작업 호출 시 **-ip** 스위치를 사용해야 합니다.
 
 ## <a name="load-test-data"></a>테스트 데이터 로드
 
@@ -122,7 +126,7 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
   - **헤드**: 선택합니다. 다른 노드 형식은 선택 취소합니다.
   - **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정하고 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
-            -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
+            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
 
 6. **만들기**를 클릭합니다. 특히 -copydata 인수를 사용하는 경우 스크립트 실행에서 시간이 좀 걸릴 수 있습니다.
 
@@ -176,9 +180,9 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 복제를 사용하도록 설정한 후에 데이터를 복사/마이그레이션하기 위한 두 개의 스크립트 동작 스크립트가 별도로 있습니다.
 
-- [소형 테이블용 스크립트](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) - 수 GB 크기, 전체 복사 완료에 1시간 이내 소요
+- [소형 테이블용 스크립트](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) - 수 GB 크기, 전체 복사 완료에&1;시간 이내 소요
 
-- [대형 테이블용 스크립트](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) - 복사 완료에 1시간 이상 소요
+- [대형 테이블용 스크립트](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) - 복사 완료에&1;시간 이상 소요
 
 [복제 사용](#enable-replication)과 동일한 절차에 따라 다음 매개 변수를 사용하여 스크립트 동작을 호출할 수 있습니다.
 
@@ -216,11 +220,11 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   또는
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
+        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari username> --src-ambari-password=<source cluster Ambari password>
 
 - **지정된 테이블(table1, table2 및 table3)에서 복제를 사용하지 않도록 설정**:
 
-        -m hn1 -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -249,6 +253,6 @@ HBase 복제는 ZooKeeper VM의 IP 주소를 사용합니다. 대상 HBase ZooKe
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

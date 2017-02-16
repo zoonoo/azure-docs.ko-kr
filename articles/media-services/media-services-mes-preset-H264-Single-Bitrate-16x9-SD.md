@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: d1c543c0e2ea0afa2338697b60628fa49350b1f5
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
   
  이 미리 설정은 스테레오 AAC 오디오 및 비트 전송률 2200kbps의 단일 MP4 파일을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 미리 설정에 포함된 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md) 항목을 참조하세요.  
   
- XMLl  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -119,6 +119,7 @@ ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

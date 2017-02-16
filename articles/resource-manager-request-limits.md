@@ -1,101 +1,12 @@
 ---
-title: "Azure Resource Manager 요청 한도 | Microsoft Docs"
-description: "구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다."
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
-ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/07/2016
-ms.author: tomfitz
+redirect_url: /azure/azure-resource-manager/resource-manager-request-limits
 translationtype: Human Translation
-ms.sourcegitcommit: f6e684b08ed481cdf84faf2b8426da72f98fc58c
-ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
-
+ms.sourcegitcommit: b97c464b4f3478fbb7f61fe04655c6f3677a81a4
+ms.openlocfilehash: 4d282b3c89fcbbe33d076bfc96bbf98b9a548761
 
 ---
-# <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
-각 구독 및 테넌트에 대해 Resource Manager는 읽기 요청을 시간당 15,000으로, 쓰기 요청을 시간당 1,200으로 제한합니다. 응용 프로그램 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 항목에서는 한도에 도달하기 전에 포함하는 나머지 요청을 확인하는 방법과 한도에 도달했을 때 대응하는 방법을 보여줍니다.
-
-한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
-
-요청 수는 구독 또는 테넌트 범위로 한정됩니다. 구독에서 요청을 만드는 동시 응용 프로그램이 여러 개 있는 경우 해당 응용 프로그램의 요청이 함께 추가되어 나머지 요청 수가 결정됩니다.
-
-구독에 범위가 지정된 요청은 구독에서 리소스 그룹 검색 등과 같은 구독 ID 전달을 포함하는 요청입니다. 테넌트에 범위가 지정된 요청은 올바른 Azure 위치 검색 등과 같은 구독 ID를 포함하지 않습니다.
-
-## <a name="remaining-requests"></a>나머지 요청
-응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 각 요청은 나머지 읽기 및 쓰기 요청 수에 대한 값을 포함합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
-
-| 응답 헤더 | 설명 |
-| --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |구독에 범위가 지정된 나머지 읽기 |
-| x-ms-ratelimit-remaining-subscription-writes |구독에 범위가 지정된 나머지 쓰기 |
-| x-ms-ratelimit-remaining-tenant-reads |테넌트에 범위가 지정된 나머지 읽기 |
-| x-ms-ratelimit-remaining-tenant-writes |테넌트에 범위가 지정된 나머지 쓰기 |
-| x-ms-ratelimit-remaining-subscription-resource-requests |구독에 범위가 지정된 나머지 리소스 종류 요청.<br /><br />이 헤더 값은 서비스에서 기본 제한을 재정의한 경우에만 반환됩니다. Resource Manager는 구독 읽기 또는 쓰기 대신 이 값을 추가합니다. |
-| x-ms-ratelimit-remaining-subscription-resource-entities-read |구독에 범위가 지정된 나머지 리소스 종류 컬렉션 요청.<br /><br />이 헤더 값은 서비스에서 기본 제한을 재정의한 경우에만 반환됩니다. 이 값은 나머지 컬렉션 요청 수를 제공합니다(리소스 나열). |
-| x-ms-ratelimit-remaining-tenant-resource-requests |테넌트에 범위가 지정된 나머지 리소스 종류 요청.<br /><br />이 헤더는 서비스에서 기본 제한을 재정의한 경우에만 테넌트 수준의 요청에 대해서만 추가됩니다. Resource Manager는 테넌트 읽기 또는 쓰기 대신 이 값을 추가합니다. |
-| x-ms-ratelimit-remaining-tenant-resource-entities-read |테넌트에 범위가 지정된 나머지 리소스 종류 컬렉션 요청.<br /><br />이 헤더는 서비스에서 기본 제한을 재정의한 경우에만 테넌트 수준의 요청에 대해서만 추가됩니다. |
-
-## <a name="retrieving-the-header-values"></a>헤더 값 검색
-코드 또는 스크립트에서 이러한 헤더 값을 검색하는 것은 임의의 헤더 값을 검색하는 것과 같습니다. 
-
-예를 들어 **C#**에서는 다음 코드로 **response**로 명명된 **HttpWebResponse** 개체에서 헤더 값을 검색합니다.
-
-    response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
-
-**PowerShell**에서는 Invoke-WebRequest 작업에서 헤더 값을 검색합니다.
-
-    $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
-    $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
-
-또는 디버깅을 위해 나머지 요청을 보려면 **PowerShell** cmdlet에서 **-Debug** 매개 변수를 제공할 수 있습니다.
-
-    Get-AzureRmResourceGroup -Debug
-
-그러면 응답 값을 포함한 많은 정보가 반환됩니다.
-
-    ...
-    DEBUG: ============================ HTTP RESPONSE ============================
-
-    Status Code:
-    OK
-
-    Headers:
-    Pragma                        : no-cache
-    x-ms-ratelimit-remaining-subscription-reads: 14999
-    ...
-
-**Azure CLI**에서 더 많은 자세한 정보 표시 옵션을 사용하여 헤더 값을 검색합니다.
-
-    azure group list -vv --json
-
-그러면 다음 개체를 포함한 많은 정보가 반환됩니다.
-
-    ...
-    silly: returnObject
-    {
-      "statusCode": 200,
-      "header": {
-        "cache-control": "no-cache",
-        "pragma": "no-cache",
-        "content-type": "application/json; charset=utf-8",
-        "expires": "-1",
-        "x-ms-ratelimit-remaining-subscription-reads": "14998",
-        ...
-
-## <a name="waiting-before-sending-next-request"></a>다음 요청을 보낼 때까지 대기
-요청 제한에 도달하면 Resource Manager는 헤더에서 **429** HTTP 상태 코드 및 **Retry-After** 값을 반환합니다. **Retry-After** 값은 응용 프로그램이 다음 요청을 보낼 때까지 대기(또는 절전)하는 시간(초)을 지정합니다. 재시도 값이 경과하기 전에 요청을 보내면 요청이 처리되지 않고 새 재시도 값이 반환됩니다.
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

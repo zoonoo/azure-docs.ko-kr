@@ -13,20 +13,25 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: c8cc44cf132bb82c217a81ab94f27ed391a4248d
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>ASM(Azure 서비스 관리) 모드의 Azure CLI 명령
-[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
-[모든 Resource Manager 모델 명령에 대한 읽기](virtual-machines/azure-cli-arm-commands.md)도 가능하고 CLI를 사용하여 클래식에서 Resource Manager 모델로 [리소스를 마이그레이션](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)할 수 있습니다.
 
 이 문서에서는 클래식 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure 서비스 관리) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. 
+
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../articles/azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델 CLI 명령에 대한 읽기](virtual-machines/azure-cli-arm-commands.md)도 가능하고 CLI를 사용하여 클래식에서 Resource Manager 모델로 [리소스를 마이그레이션](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)할 수 있습니다.
+>
+>Resource Manager 모델에서 작업하기 위해 차세대 멀티 플랫폼 CLI인 [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2)을 사용해 볼 수 있습니다.
+>
+
 
 시작하려면 먼저 [Azure CLI](xplat-cli-install.md)를 설치하고 [Azure 구독에 연결](xplat-cli-connect.md)합니다.
 
@@ -2354,6 +2359,6 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

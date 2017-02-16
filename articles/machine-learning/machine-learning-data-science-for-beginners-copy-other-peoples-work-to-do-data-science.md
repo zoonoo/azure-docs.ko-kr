@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: f0efc0b10d843c6105446b3960821609e10fd400
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 > 
 > 
 
@@ -97,6 +97,6 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

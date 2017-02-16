@@ -9,14 +9,14 @@ editor:
 ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 11/21/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
+ms.sourcegitcommit: 188e3638393262a8406f322a5720e7e3eadf3e49
+ms.openlocfilehash: 7b95616b4ce44865477d94452d9b3e646c9c0d1a
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 1b7a19868e75811198f54150ced78e51f42d8017
 이 항목은 Azure.NET SDK를 사용하여 Azure 이벤트 허브와 함께 프로그래밍하는 방법을 설명합니다. 이벤트 허브에 대한 예비 이해가 있다고 가정합니다. 이벤트 허브의 개요에 대한 개념은 [이벤트 허브 개요](event-hubs-overview.md)를 참조하세요.
 
 ## <a name="event-publishers"></a>이벤트 게시자
-이벤트 허브로 이벤트를 전송은 HTTP POST를 사용하거나 AMQP 1.0 연결을 통해 수행됩니다. 처리되는 특정 시나리오에 따라 어떤 것을 언제 사용할지를 선택합니다. AMQP 1.0 연결은 영구 메시징 채널을 제공하기 때문에 서비스 버스에서 조정된 연결로 계량되며 시나리오에서 자주 높은 메시지 볼륨 및 낮은 대기 시간 요구 사항에 적절합니다.
+HTTP POST를 사용하거나 AMQP 1.0 연결을 통해 Event Hub에 이벤트를 보냅니다. 처리되는 특정 시나리오에 따라 어떤 것을 언제 사용할지를 선택합니다. AMQP 1.0 연결은 영구 메시징 채널을 제공하기 때문에 서비스 버스에서 조정된 연결로 계량되며 시나리오에서 자주 높은 메시지 볼륨 및 낮은 대기 시간 요구 사항에 적절합니다.
 
 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 이벤트 허브를 만들고 관리합니다. .NET 관리 API를 사용하는 경우 Event Hubs에 데이터를 게시하기 위한 기본 구조는 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 및 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스입니다. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 는 이벤트가 이벤트 허브로 전송되는 AMQP 통신 채널을 제공합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 클래스는 이벤트를 나타내며 이벤트 허브로 메시지를 게시하는데 사용됩니다. 이 클래스는 이벤트에 대한 본문, 일부 메타데이터 및 헤더 정보를 포함합니다. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 개체가 이벤트 허브를 통과하는 경우 여기에 다른 속성을 추가합니다.
 
@@ -38,14 +38,14 @@ Install-Package WindowsAzure.ServiceBus
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 이벤트 허브 만들기에 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용할 수 있습니다. 예:
 
-```
+```csharp
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
 
 대부분의 경우에서 [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx) 메서드를 사용하여 서비스를 다시 시작하는 경우 예외를 생성하지 않도록 하는 것이 좋습니다. 예:
 
-```
+```csharp
 var description = manager.CreateEventHubIfNotExists("MyEventHub");
 ```
 
@@ -56,7 +56,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 ## <a name="create-an-event-hubs-client"></a>이벤트 허브 클라이언트 만들기
 이벤트 허브와 상호작용하기 위한 기본 클래스는 [Microsoft.ServiceBus.Messaging.EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx)입니다. 이 클래스는 발신자와 수신자 기능을 모두 제공합니다. 다음 예와 같이 [만들기](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) 메서드를 사용하여 이 클래스를 인스턴스화할 수 있습니다.
 
-```
+```csharp
 var client = EventHubClient.Create(description.Path);
 ```
 
@@ -64,19 +64,19 @@ var client = EventHubClient.Create(description.Path);
 
 다른 옵션은 연결 문자열에 클라이언트를 만드는 것입니다. 작업자에 대한 구성 속성에 문자열을 저장할 수 있으므로 이 옵션은 Azure 작업자 역할을 사용하는 경우에 잘 작동합니다. 예:
 
-```
+```csharp
 EventHubClient.CreateFromConnectionString("your_connection_string");
 ```
 
 이전 방법에 대한 App.config 파일에서 표시된 대로 연결 문자열은 동일한 형식에 있습니다.
 
-```
-Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=Manage;SharedAccessKey=[key]
+```xml
+Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
 또한 마지막으로 다음 예와 같이 [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) 인스턴스에서 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 개체를 만들 수 있습니다.
 
-```
+```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
@@ -95,7 +95,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 ## <a name="batch-event-send-operations"></a>배치 이벤트가 작업을 보냅니다
 배치에서 이벤트를 보내면 처리량을 크게 향상시킬 수 있습니다. [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) 메서드는 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 형식의 **IEnumerable** 매개 변수를 사용하고 Event Hub에 원자성 작업으로 전체 배치를 보냅니다.
 
-```
+```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
@@ -107,7 +107,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 ## <a name="create-a-partition-sender"></a>파티션 발신자 만들기
 파티션 키로 이벤트 허브에 이벤트를 보내는 것이 가장 일반적이지만 어떤 경우에는 지정된 파티션에 직접 이벤트를 보낼 수 있습니다. 예:
 
-```
+```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
 ```
 
@@ -119,14 +119,14 @@ Event Hubs에는 이벤트 사용에 대한 두 기본 모델인 직접 수신�
 ### <a name="direct-consumer"></a>직접 소비자
 소비자 그룹 내의 파티션에서 읽을 수 있는 가장 직접적인 방법은 [EventHubReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.aspx) 클래스를 사용하는 것입니다. 이 클래스의 인스턴스를 만들려면 [EventHubConsumerGroup](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.aspx) 클래스의 인스턴스를 사용해야 합니다. 다음 예제에서 소비자 그룹에 대한 수신기를 만들 때 파티션 ID를 지정해야 합니다.
 
-```
+```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
 [CreateReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubconsumergroup.createreceiver.aspx) 메서드에는 생성되는 판독기에 대한 제어를 용이하게 하는 몇가지 오버로드가 있습니다. 이러한 메서드는 오프셋을 문자열 또는 타임 스탬프로 지정하는 것을 포함하거나 반환된 스트림에서 지정된 오프셋을 포함할지 아니면 이후 시작할지를 지정하는 기능을 포함합니다. 수신기를 만든 후 반환된 개체에 대한 이벤트 수신을 시작할 수 있습니다. [수신](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubreceiver.receive.aspx) 메서드는 배치 크기 및 대기 시간와 같은 수신 작업 매개 변수를 제어하는 4개의 오버로드가 있습니다. 이러한 메서드의 비동기 버전을 사용하여 소비자의 처리량을 증가시킬 수 있습니다. 예:
 
-```
+```csharp
 bool receive = true;
 string myOffset;
 while(receive)
@@ -175,6 +175,6 @@ while(receive)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

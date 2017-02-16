@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45238ac71d722176a79adf6c9842b2bdc3b67df6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 53c84ff1e99236343585ff31ef1bcb57e0250fdc
 
 
 ---
@@ -91,7 +91,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 다음 모듈을 Azure 기계 학습 스튜디오의 작업 영역에 추가합니다.
 
 * 성인 인구 조사 소득 이진 분류 데이터 집합
-* [2클래스 로지스틱 회귀][two-class-logistic-regression]
+* [2클래스 로지스틱 회귀 분석][two-class-logistic-regression]
 * [모델 학습][train-model]
 * [모델 점수 매기기][score-model]
 * [모델 평가][evaluate-model]
@@ -122,7 +122,7 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 또한 **ROC(Receiver Operating Characteristic)** 곡선에서 참 긍정 비율과 거짓 긍정 비율을 검사하고 해당 **AUC(Area Under the Curve)** 값을 확인할 수 있습니다. 이 곡선이 왼쪽 위 모서리에 가까울수록 분류자의 성능이 좋습니다(참 긍정 비율이 최대화되고 거짓 긍정 비율이 최소화됨). 그림의 대각선에 가까운 곡선은 예측 경향이 임의 추측에 가까운 분류자의 결과입니다.
 
 ### <a name="using-cross-validation"></a>교차 유효성 검사 사용
-회귀 예제처럼 교차 유효성 검사를 수행하여 데이터의 여러 하위 집합에 대해 반복적인 학습, 점수 매기기 및 평가를 자동으로 수행할 수 있습니다. 마찬가지로 [모델 교차 유효성 검사][cross-validate-model] 모듈, 학습되지 않은 로지스틱 회귀 모델 및 데이터 집합을 사용할 수 있습니다. 레이블 열은 [모델 교차 유효성 검사][cross-validate-model] 모듈의 속성에서 *income*으로 설정되어야 합니다. 실험을 실행한 후 [모델 교차 유효성 검사][cross-validate-model] 모듈의 오른쪽 출력 포트를 클릭하면 각 접기에 대한 이진 분류 메트릭 값과 각각의 평균 및 표준 편차를 볼 수 있습니다. 
+회귀 예제처럼 교차 유효성 검사를 수행하여 데이터의 여러 하위 집합에 대해 반복적인 학습, 점수 매기기 및 평가를 자동으로 수행할 수 있습니다. 마찬가지로 [모델 교차 유효성 검사][cross-validate-model] 모듈, 학습되지 않은 로지스틱 회귀 분석 모델 및 데이터 집합을 사용할 수 있습니다. 레이블 열은 [모델 교차 유효성 검사][cross-validate-model] 모듈의 속성에서 *income*으로 설정되어야 합니다. 실험을 실행한 후 [모델 교차 유효성 검사][cross-validate-model] 모듈의 오른쪽 출력 포트를 클릭하면 각 접기에 대한 이진 분류 메트릭 값과 각각의 평균 및 표준 편차를 볼 수 있습니다. 
 
 ![이진 분류 모델 교차 유효성 검사](media/machine-learning-evaluate-model-performance/8.png)
 
@@ -189,6 +189,6 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

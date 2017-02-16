@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "자습서, API 참조 및 기타 설명서에서는 Cloud Services를 사용하여 가용성 및 확장이 뛰어난 클라우드 응용 프로그램 및 API를 호스트하고 실행하는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services 설명서
 
-Cloud Services는 PaaS(Platform-as-a-Service) 구현의 예입니다. 확장 가능하고 신뢰할 수 있으며 운영 비용이 효율적인 응용 프로그램을 지원하도록 설계되었습니다. Cloud Services를 사용하면 가상화의 이점을 얻을 수 있지만 소프트웨어를 구성, 패치 및 설치할 가상 컴퓨터를 제어할 수도 있습니다.  
+Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 응용 프로그램 및 API를 호스트하고 실행하는 방법에 대해 알아봅니다.  자습서, API 참조 및 기타 설명서에서는 가상 컴퓨터 호스트를 관리하고 소프트웨어를 구성, 패치 및 설치하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +126,6 @@ Cloud Services 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

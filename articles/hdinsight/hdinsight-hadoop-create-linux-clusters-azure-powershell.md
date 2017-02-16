@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 Hadoop, HBase, Storm 또는 Spark 클러스터 만들기 | Microsoft 문서"
+title: "PowerShell을 사용하여 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.date: 10/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71f1ca77180c7b06f8c883c8c227bda63f28ed1c
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: b3589dd3424d7723351165c103a2b1b122ff44cc
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure PowerShell은 Microsoft Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 문서에서는 Azure PowerShell을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 정보를 제공합니다. 또한 예제 스크립트도 포함됩니다.
 
@@ -58,8 +58,8 @@ Linux 클러스터를 만들기 위해 설정해야 하는 두 가지 중요한 
 * **-OSType** 매개 변수는 **Linux**로 지정해야 합니다.
 * 클러스터의 원격 세션에 SSH를 사용하기 위해 SSH 사용자 암호 또는 SSH 공개 키를 지정할 수 있습니다. SSH 사용자 암호와 SSH 공개 키를 둘 다 지정한 경우에는 키가 무시됩니다. 원격 세션에 SSH 키를 사용하려면 SSH 암호를 묻는 메시지가 나타날 때 빈 SSH 암호를 지정해야 합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
   
-  * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Linux, Unix 또는 OS X의 HDInsight에서 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Windows의 HDInsight에서 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 다음 스크립트는 새 클러스터를 만드는 방법을 보여 줍니다.
 
@@ -154,7 +154,7 @@ Linux 클러스터를 만들기 위해 설정해야 하는 두 가지 중요한 
 
 ## <a name="customize-clusters"></a>클러스터 사용자 지정
 * [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell)을 참조하세요.
-* [스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.
+* [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -186,6 +186,6 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음 리소스를
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

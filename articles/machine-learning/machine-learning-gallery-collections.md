@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 55f5eb09e13dd645369486affba338759ec6c1d5
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
  **[컬렉션](https://gallery.cortanaintelligence.com/collections)**
  페이지에는 가장 최근에 추가되고 가장 인기 있는 컬렉션 목록이 표시됩니다.
 모든 컬렉션을 보려면 **모두 표시**를 클릭합니다.
-이 페이지에서 갤러리에 있는 모든 컬렉션을 찾아보거나, 또는 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에서 검색어를 입력하여 검색할 수 있습니다.
+이 페이지에서 갤러리의 모든 컬렉션을 찾아볼 수 있습니다. 또한 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에 검색어를 입력하여 검색할 수 있습니다.
 
  아무 컬렉션이나 클릭하여 컬렉션의 세부 정보 페이지를 열고 그것에 관한 자세한 내용을 읽습니다.
 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 컬렉션의 링크를 메일로 보낼 수도 있습니다.
@@ -54,20 +54,20 @@ Microsoft에서 제공한 초기 컬렉션은 온라인 부정 행위 검색, �
 
 1. Microsoft 계정을 사용하여 갤러리에 로그인
 
-* 창 위쪽의 이미지를 클릭한 다음 이름을 클릭
+2.  창 위쪽의 이미지를 클릭한 다음 이름을 클릭
   
     ![계정 이름을 클릭](media/machine-learning-gallery-collections/click-account-name.png)
 
-1. **새 항목**을 클릭
+3. **새 항목**을 클릭
    
     !["새 항목"을 클릭](media/machine-learning-gallery-collections/click-new-item.png)
-2. **항목 유형**에 대한 **컬렉션**을 선택한 다음, 컬렉션 이름, 간략한 요약, 설명, 사용자가 컬렉션을 찾는데 도움이 되는 모든 태그 제공
+4. **항목 유형**에 대한 **컬렉션**을 선택한 다음, 컬렉션 이름, 간략한 요약, 설명, 사용자가 컬렉션을 찾는데 도움이 되는 모든 태그 제공
    
     ![새 컬렉션에 대한 정보를 입력](media/machine-learning-gallery-collections/create-collection-page-1.png)
-3. **다음**을 클릭하여, 컬렉션과 함께 표시될 이미지 파일을 업로드 또는 기존 이미지를 선택하거나, 사용자가 컬렉션의 내용 및 목적을 파악하는 데 도움이 되는 뭔가를 선택함
+5. **다음**을 클릭하여, 컬렉션과 함께 표시될 이미지 파일을 업로드 또는 기존 이미지를 선택하거나, 사용자가 컬렉션의 내용 및 목적을 파악하는 데 도움이 되는 뭔가를 선택함
    
     ![새 컬렉션에 대한 정보를 입력](media/machine-learning-gallery-collections/create-collection-page-2.png)
-4. **다음**을 클릭하여, 컬렉션이 **공개**(누구나 볼 수 있음) 또는 **비공개**(직접적인 링크가 있는 사람만 컬렉션을 볼 수 있음)인지 여부를 결정할 수 있음
+6. **다음**을 클릭하여, 컬렉션이 **공개**(누구나 볼 수 있음) 또는 **비공개**(직접적인 링크가 있는 사람만 컬렉션을 볼 수 있음)인지 여부를 결정할 수 있음
    
    > [!IMPORTANT]
    > 컬렉션을 **공개**로 설정한 후에는 **비공개**로 설정할 수 없습니다.
@@ -75,7 +75,7 @@ Microsoft에서 제공한 초기 컬렉션은 온라인 부정 행위 검색, �
    > 
    
     ![공개 또는 비공개 선택](media/machine-learning-gallery-collections/create-collection-page-3.png)
-5.  **만들기**
+7. **만들기**
 
 컬렉션이 Cortana Intelligence 갤러리의 일부가 되었습니다. **컬렉션** 탭 아래 계정 페이지에 나타납니다.
 
@@ -104,6 +104,6 @@ Microsoft에서 제공한 초기 컬렉션은 온라인 부정 행위 검색, �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

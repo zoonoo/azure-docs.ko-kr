@@ -1,6 +1,7 @@
 ---
-title: "SQL Server Management Studio를 사용하여 호환되는 SQL Server 데이터베이스를 BACPAC 파일로 내보내기 | Microsoft Docs"
-description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 내보내기, BACPAC 파일 내보내기, 데이터 계층 응용 프로그램 내보내기 마법사"
+title: "SSMS: SQL Server 데이터베이스를 BACPAC 파일로 내보내기(Azure) | Microsoft Docs"
+description: "이 문서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 SQL Server 데이터베이스를 BACPAC 파일로 내보내는 방법을 보여 줍니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 내보내기, BACPAC 파일 내보내기, 데이터 계층 응용 프로그램 내보내기 마법사"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: f6f64479f6ddfda4badb8e826e03369c476d6d1d
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f0238ac34a4a047bd0286a1a87d2427caf0e06fd
 
 
 ---
@@ -67,6 +68,6 @@ ms.openlocfilehash: f6f64479f6ddfda4badb8e826e03369c476d6d1d
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

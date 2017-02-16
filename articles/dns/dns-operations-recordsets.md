@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal을 사용하여 DNS 레코드 관리 | Microsoft Docs"
+title: "Azure PowerShell을 사용하여 Azure DNS의 DNS 레코드 관리 | Microsoft Docs"
 description: "Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 PowerShell 명령입니다."
 services: dns
 documentationcenter: na
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0244225f0194d35307ad039249ca6e29a860829f
-ms.openlocfilehash: 46549794394f54264c1fdcc4c8f54bec8ea080f8
+ms.sourcegitcommit: f8dcbdb573fb50d32dfdefbb52c7af71bdc1cb95
+ms.openlocfilehash: 2264acb9c78a162adb7b9937568838ab5ec2c720
 
 ---
 
-# <a name="manage-dns-records-and-record-sets-by-using-powershell"></a>PowerShell을 사용하여 DNS 레코드 및 레코드 집합 관리
+# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS의 DNS 레코드 관리
 
 > [!div class="op_single_selector"]
 > * [Azure 포털](dns-operations-recordsets-portal.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-이 문서는 Azure PowerShell을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여줍니다. 크로스 플랫폼인 [Azure CLI](dns-operations-recordsets-cli.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
+이 문서는 Azure PowerShell을 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 보여줍니다. 크로스 플랫폼인 [Azure CLI](dns-operations-recordsets-cli.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
 
-이 문서의 예제에서는 이미 [Azure PowerShell을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-getstarted-create-dnszone.md)고 가정합니다.
+이 문서의 예제에서는 이미 [Azure PowerShell을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones.md)고 가정합니다.
 
 ## <a name="introduction"></a>소개
 
@@ -49,7 +49,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 레코드 집합에 레코드를 추가하기 위한 매개 변수는 레코드 집합 형식에 따라 달라집니다. 예를 들어 "A" 형식의 레코드 집합을 사용하는 경우 `-IPv4Address` 매개 변수를 사용하여 IP 주소를 지정해야 합니다. 다른 레코드 형식에 다른 매개 변수를 사용합니다. 자세한 내용은 [추가 레코드 형식 예제](#additional-record-type-examples)를 참조하세요.
 
-다음 예제에서는 DNS 영역 "contoso.com"에 상대적 이름 "www"가 포함된 새 레코드 집합을 만듭니다. 레코드의 정규화된 이름은 “www.contoso.com”입니다. 레코드 형식은 "A"이고 TTL은 3600초입니다. 레코드 집합은 "1.2.3.4" IP 주소를 가진 단일 레코드를 포함합니다.
+다음 예제에서는 DNS 영역 “contoso.com”에 상대적 이름 “www”가 포함된 레코드 집합을 만듭니다. 레코드의 정규화된 이름은 “www.contoso.com”입니다. 레코드 형식은 "A"이고 TTL은 3600초입니다. 레코드 집합은 "1.2.3.4" IP 주소를 가진 단일 레코드를 포함합니다.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
@@ -61,7 +61,7 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
 ```
 
-둘 이상의 레코드를 포함하는 새 레코드 집합을 만들어야 하는 경우 먼저 로컬 배열을 만들고 레코드를 추가한 후에 다음과 같이 `New-AzureRmDnsRecordSet`에 전달합니다.
+둘 이상의 레코드를 포함하는 레코드 집합을 만들어야 하는 경우 먼저 로컬 배열을 만들고 레코드를 추가한 후에 다음과 같이 `New-AzureRmDnsRecordSet`에 전달합니다.
 
 ```powershell
 $aRecords = @()
@@ -86,7 +86,7 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 
 지금까지 'A' 레코드를 만드는 방법에 대해 자세히 살펴보았으며, 다음 예제에서는 Azure DNS에서 지원하는 다른 레코드 형식의 레코드를 만드는 방법을 보여 줍니다.
 
-각각의 경우에 단일 레코드를 포함하는 새 레코드 집합을 만드는 방법을 보여 줍니다. 'A' 레코드에 대한 이전 예제는 메타데이터와 여러 레코드를 포함하는 다른 형식의 레코드 집합을 만들거나 빈 레코드 집합을 만드는 데 적용될 수 있습니다.
+각각의 경우에 단일 레코드를 포함하는 레코드 집합을 만드는 방법을 보여줍니다. 'A' 레코드에 대한 이전 예제는 메타데이터와 여러 레코드를 포함하는 다른 형식의 레코드 집합을 만들거나 빈 레코드 집합을 만드는 데 적용될 수 있습니다.
 
 SOA가 각 DNS 영역과 함께 만들어지고 삭제되며 별도로 만들어지거나 삭제될 수 없기 때문에 SOA 레코드 집합을 만드는 예제를 제공하지 않습니다. 그러나 [뒷부분의 예제에 표시된 대로 SOA를 수정할 수 있습니다](#to-modify-an-SOA-record).
 
@@ -125,7 +125,7 @@ New-AzureRmDnsRecordSet -Name test-ns -RecordType NS -ZoneName contoso.com -Reso
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>단일 레코드가 포함된 PTR 레코드 집합 만들기
 
-이 경우에 'my-arpa-zone.com'은 IP 범위를 나타내는 ARPA 영역을 나타냅니다. 이 영역의 각 PTR 레코드 집합은 IP 범위 내의 IP 주소에 해당합니다.
+이 경우에 'my-arpa-zone.com'은 IP 범위를 나타내는 ARPA 영역을 나타냅니다. 이 영역의 각 PTR 레코드 집합은 IP 범위 내의 IP 주소에 해당합니다. 레코드 이름 '10'은 이 레코드에서 나타내는 이 IP 범위 내에서 IP 주소의 마지막 옥텟입니다.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName my-arpa-zone.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname myservice.contoso.com) 
@@ -145,7 +145,7 @@ New-AzureRmDnsRecordSet -Name _sip._tls -RecordType SRV -ZoneName contoso.com -R
 다음 예제에서는 TXT 레코드를 만드는 방법을 보여 줍니다. TXT 레코드에서 지원되는 최대 문자열 길이에 대한 자세한 내용은 [TXT 레코드](dns-zones-records.md#txt-records)를 참조하세요.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record" 
+New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
 ```
 
 
@@ -387,6 +387,6 @@ Azure DNS를 사용하는 경우 [영역 및 레코드를 보호](dns-protect-zo
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

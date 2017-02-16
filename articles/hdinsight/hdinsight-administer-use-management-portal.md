@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
 
 
 ---
@@ -102,10 +102,10 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 
      **사용 현황**
 
-     ![Azure 포털 HDInsight 클러스터 사용 현황](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+     ![Azure Portal HDInsight 클러스터 사용 현황](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 5. **설정**을 클릭합니다.
 
-    ![Azure 포털 HDInsight 클러스터 사용 현황](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![Azure Portal HDInsight 클러스터 사용 현황](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **속성**: 클러스터 속성을 표시합니다.
    * **클러스터 AAD ID**:
@@ -131,7 +131,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
    * **생성된 데이터**.
    * **운영 체제**: **Windows** 또는 **Linux**입니다.
    * **형식**: Hadoop, HBase, Storm, Spark.
-   * **버전**.  [HDInsight 버전](hdinsight-component-versioning.md)
+   * **버전**. [HDInsight 버전](hdinsight-component-versioning.md)
    * **구독**: 구독 이름입니다.
    * **구독 ID**.
    * **주 데이터 원본**. Azure Blob 저장소 계정이 기본 Hadoop 파일 시스템으로 사용됩니다.
@@ -188,10 +188,10 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>the spout "blue-spout" to use 3 executors, and
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>the bolt "yellow-bolt" to use 10 executors
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **클러스터 크기를 조정하려면**
 
@@ -327,7 +327,7 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 3. 상단 메뉴에서 **설정**을 클릭한 다음 **원격 데스크톱**을 클릭합니다.
 4. **만료 날짜**, **원격 데스크톱 사용자 이름** 및 **원격 데스크톱 암호**를 입력한 다음 **사용**을 클릭합니다.
 
-    ![HDinsight 원격 데스크톱 설정 해제 구성](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight에서 원격 데스크톱 비활성화 구성 해제](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     만료 날짜에 대한 기본 값은 1주일입니다.
 

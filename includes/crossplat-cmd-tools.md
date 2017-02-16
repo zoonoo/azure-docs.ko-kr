@@ -1,7 +1,7 @@
-# Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법
-이 가이드에서는 Mac 및 Linux에 Azure 명령줄 도구를 사용하여 Azure에 서비스를 만들고 관리하는 방법을 설명합니다. **도구 설치**, **게시 설정 가져오기**, **Azure 웹 사이트 만들기 및 관리**, **Azure 가상 컴퓨터 만들기 및 관리** 등의 시나리오를 다룹니다. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구 설명서][reference-docs](영문)를 참조하세요.
+# <a name="how-to-use-the-azure-command-line-tools-for-mac-and-linux"></a>Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법
+이 가이드에서는 Mac 및 Linux에 Azure 명령줄 도구를 사용하여 Azure에 서비스를 만들고 관리하는 방법을 설명합니다. 시나리오에서는 **도구 설치**, **게시 설정 가져오기**, **Azure Website 만들기 및 관리**, **Azure Virtual Machines 만들기 및 관리**에 대해 다룹니다. 포괄적인 참조 설명서는 [Mac 및 Linux용 Azure 명령줄 도구 설명서][reference-docs]를 참조하세요. 
 
-## 목차
+## <a name="table-of-contents"></a>목차
 * [Mac 및 Linux용 Azure 명령줄 도구 정의](#Overview)
 * [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법](#Download)
 * [Azure 계정을 만드는 방법](#CreateAccount)
@@ -35,13 +35,13 @@ Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리�
         sudo npm install azure-cli -g
 * **Windows**: Windows 설치 관리자(.msi 파일)를 실행합니다. 이 파일은 [Azure 명령줄 도구][windows-installer]에 있습니다.
 
-설치를 테스트하려면 명령 프롬프트에 `azure`을(를) 입력합니다. 설치에 성공하면 사용 가능한 모든 `azure` 명령 목록이 표시됩니다.
+설치를 테스트하려면 명령 프롬프트에 `azure` 을(를) 입력합니다. 설치에 성공하면 사용 가능한 모든 `azure` 명령 목록이 표시됩니다.
 
 <h2><a id="CreateAccount"></a>Azure 계정을 만드는 방법</h2>
 
 Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필요합니다.
 
-웹 브라우저를 열고 [http://www.windowsazure.com][windowsazuredotcom]으로 이동한 후 오른쪽 위에 있는 **무료 체험**을 클릭합니다.
+웹 브라우저를 열고 [http://www.windowsazure.com][windowsazuredotcom]으로 이동한 후 오른쪽 위에 있는 **무료 평가판**을 클릭합니다.
 
 ![Azure 웹 사이트][Azure Web Site]
 
@@ -70,7 +70,7 @@ Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필�
 게시 설정을 가져온 후 보안을 위해 `.publishsettings` 파일을 삭제해야 합니다.
 
 > [!NOTE]
-> 게시 설정을 가져오면 Azure 구독에 액세스하기 위한 자격 증명이 `user` 폴더 안에 저장됩니다. `user` 폴더는 운영 체제에 의해 보호됩니다. 그러나 추가 단계를 수행하여 `user` 폴더를 암호화하는 것이 좋습니다. 다음과 같은 방법으로 이 작업을 수행할 수 있습니다.
+> 게시 설정을 가져오는 경우 사용자 Azure 구독에 액세스하는 자격 증명은 `user` 폴더에 저장됩니다. `user` 폴더는 운영 체제에 의해 보호됩니다. 그러나 추가 단계를 수행하여 `user` 폴더를 암호화하는 것이 좋습니다. 다음과 같은 방법으로 이 작업을 수행할 수 있습니다.    
 > 
 > * Windows에서 폴더 속성을 수정하거나 BitLocker를 사용합니다.
 > * Mac에서 폴더에 대해 FileVault를 켭니다.
@@ -78,12 +78,12 @@ Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필�
 > 
 > 
 
-이제 Azure 웹 사이트와 Azure 가상 컴퓨터를 만들고 관리할 준비가 되었습니다.
+이제 Azure 웹 사이트와 Azure 가상 컴퓨터를 만들고 관리할 준비가 되었습니다.  
 
-<h2><a id="WebSites"></a>Azure 웹 사이트를 만들고 관리하는 방법</h2>
+<h2><a id="WebSites"></a>Azure Website를 만들고 관리하는 방법</h2>
 
-### 웹 사이트 만들기
-Azure 웹 사이트를 만들려면 먼저 `MySite`라는 빈 디렉터리를 만들고 해당 디렉터리로 이동합니다.
+### <a name="create-a-website"></a>웹 사이트 만들기
+Azure 웹 사이트를 만들려면 먼저 `MySite` 라는 빈 디렉터리를 만들고 해당 디렉터리로 이동합니다.
 
 다음 명령을 실행합니다.
 
@@ -96,11 +96,11 @@ Azure 웹 사이트를 만들려면 먼저 `MySite`라는 빈 디렉터리를 �
 * `--location [location name]` 이 옵션을 사용하면 웹 사이트가 만들어지는 데이터 센터의 위치를 지정할 수 있습니다(예: "미국 서부"). 이 옵션을 생략하면 위치를 선택하라는 메시지가 표시됩니다.
 * `--hostname [custom host name]` 이 옵션을 사용하면 웹 사이트에 대한 사용자 지정 호스트 이름을 지정할 수 있습니다.
 
-웹 사이트 디렉터리에 콘텐츠를 추가할 수 있습니다. 일반적인 git 흐름(`git add`, `git commit`)을 사용하여 콘텐츠를 커밋합니다. 다음 git 명령을 사용하여 웹 사이트 콘텐츠를 Azure에 밀어 넣습니다.
+웹 사이트 디렉터리에 콘텐츠를 추가할 수 있습니다. 일반적인 git 흐름(`git add`, `git commit`)을 사용하여 콘텐츠를 커밋합니다. 다음 git 명령을 사용하여 웹 사이트 콘텐츠를 Azure에 밀어 넣습니다. 
 
     git push azure master
 
-### GitHub에서 게시 설정
+### <a name="set-up-publishing-from-github"></a>GitHub에서 게시 설정
 GitHub 리포지토리에서 연속 게시를 설정하려면 사이트를 만들 때 `--GitHub` 옵션을 사용합니다.
 
     auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
@@ -111,7 +111,7 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 
     azure site repository <branch name>
 
-### 앱 설정 구성
+### <a name="configure-app-settings"></a>앱 설정 구성
 앱 설정은 런타임에 응용 프로그램에서 사용할 수 있는 키-값 쌍입니다. Azure 웹 사이트에 대해 설정된 경우 앱 설정 값은 사이트의 Web.config 파일에 정의된 것과 동일한 키로 설정을 재정의합니다. Node.js 및 PHP 응용 프로그램의 경우 앱 설정을 환경 변수로 사용할 수 있습니다. 다음 예제에서는 키-값 쌍을 설정하는 방법을 보여 줍니다.
 
     azure site config add <key>=<value> 
@@ -128,7 +128,7 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 
     azure site config clear <key> 
 
-### 사이트 나열 및 표시
+### <a name="list-and-show-sites"></a>사이트 나열 및 표시
 웹 사이트를 나열하려면 다음 명령을 사용합니다.
 
     azure site list
@@ -137,14 +137,14 @@ GitHub에서 게시를 설정할 때 사용되는 기본 분기는 마스터 분
 
     azure site show MySite
 
-### 사이트 중지, 시작 또는 다시 시작
+### <a name="stop-start-or-restart-a-site"></a>사이트 중지, 시작 또는 다시 시작
 사이트를 중지, 시작 또는 다시 시작하려면 `site stop`, `site start` 또는 `site restart` 명령을 사용합니다.
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
 
-### 사이트 삭제
+### <a name="delete-a-site"></a>사이트 삭제
 마지막으로 `site delete` 명령을 사용하여 사이트를 삭제할 수 있습니다.
 
     azure site delete MySite
@@ -161,13 +161,13 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 
     azure vm image list
 
-사용 가능한 이미지 중 하나에서 가상 컴퓨터를 프로비전 및 시작하려면 `vm create` 명령을 사용합니다. 다음 예제에서는 이미지 갤러리(CentOS 6.2)의 이미지에서 Linux 가상 컴퓨터(`myVM`)를 만드는 방법을 보여 줍니다. 가상 컴퓨터의 루트 사용자 이름과 암호는 각각 `myusername`, `Mypassw0rd`입니다. `--location` 매개 변수는 가상 컴퓨터가 만들어지는 데이터 센터를 지정합니다. `--location` 매개 변수를 생략하면 위치를 선택하라는 메시지가 표시됩니다.
+사용 가능한 이미지 중 하나에서 가상 컴퓨터를 프로비전 및 시작하려면 `vm create` 명령을 사용합니다. 다음 예제에서는 이미지 갤러리(CentOS 6.2)의 이미지에서 Linux 가상 컴퓨터( `myVM`)를 만드는 방법을 보여 줍니다. 가상 컴퓨터의 루트 사용자 이름과 암호는 각각 `myusername`, `Mypassw0rd`입니다. `--location` 매개 변수는 가상 컴퓨터가 만들어지는 데이터 센터를 지정합니다. `--location` 매개 변수를 생략하면 위치를 선택하라는 메시지가 표시됩니다.
 
     azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
 새로 만든 가상 컴퓨터에 대한 원격 연결을 사용하도록 설정하려면 `--ssh` 플래그(Linux) 또는 `--rdp` 플래그(Windows)를 `vm create`에 전달하는 것이 좋습니다.
 
-사용자 지정 이미지에서 가상 컴퓨터를 프로비전하려는 경우 `vm image create` 명령을 사용하여 .vhd 파일에서 이미지를 만든 후 `vm create` 명령을 사용하여 가상 컴퓨터를 프로비전할 수 있습니다. 다음 예제에서는 로컬 .vhd 파일에서 Linux 이미지(`myImage`)를 만드는 방법을 보여 줍니다. `--location` 매개 변수는 이미지가 저장되는 데이터를 지정합니다.
+사용자 지정 이미지에서 가상 컴퓨터를 프로비전하려는 경우 `vm image create` 명령을 사용하여 .vhd 파일에서 이미지를 만든 후 `vm create` 명령을 사용하여 가상 컴퓨터를 프로비전할 수 있습니다. 다음 예제에서는 로컬 .vhd 파일에서 Linux 이미지( `myImage`)를 만드는 방법을 보여 줍니다. `--location` 매개 변수는 이미지가 저장되는 데이터를 지정합니다.
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
@@ -212,4 +212,8 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

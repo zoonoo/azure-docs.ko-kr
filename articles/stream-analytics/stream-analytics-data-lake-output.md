@@ -1,32 +1,37 @@
 ---
-title: 스트림 분석 Data Lake 저장소 출력 | Microsoft Docs
-description: 스트림 분석 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성
-keywords: ''
+title: "Stream Analytics Data Lake Store 출력 | Microsoft Docs"
+description: "스트림 분석 작업에서 Azure Data Lake 저장소의 인증 및 권한 부여 구성"
+keywords: 
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 9c800007ccac453744937807f54aa003732aa6a9
+ms.openlocfilehash: 68b52e1e5b5b65a4690eedacd62806f4ee15d6df
+
 
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>스트림 분석 Data Lake 저장소 출력
 스트림 분석 작업은 여러 출력 메서드를 지원하며 그 중 하나는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)입니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Data Lake 저장소 계정 권한 부여
-1. Data Lake 저장소를 Azure 관리 포털에서 출력으로 선택하는 경우 기존 Data Lake 저장소의 사용 권한을 부여하거나 Azure 클래식 포털을 통해 Data Lake 저장소 미리 보기에 대한 액세스를 요청하는 메시지가 표시됩니다.
+1. Data Lake Store를 Azure 관리 포털에서 출력으로 선택하는 경우 기존 Data Lake Store의 사용 권한을 부여하거나 Azure 클래식 포털을 통해 Data Lake Store에 대한 액세스를 요청하는 메시지가 표시됩니다.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
+   
 2. Data Lake 저장소에 대한 액세스 권한이 이미 있는 경우 "지금 권한 부여"를 클릭하고 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 Data Lake 저장소 출력을 구성할 수 있도록 하는 페이지와 함께 나타납니다.
 
-Data Lake Store Preview에 등록하지 않은 경우 "지금 등록" 링크를 클릭하여 등록 페이지로 이동해 요청을 시작하거나 [시작 지침](../data-lake-store/data-lake-store-get-started-portal.md)을 따릅니다.
+Data Lake Store에 등록하지 않은 경우 "지금 등록" 링크를 클릭하여 등록 페이지로 이동해 요청을 시작하거나 [시작 지침](../data-lake-store/data-lake-store-get-started-portal.md)을 따릅니다.
 
 ## <a name="configure-the-data-lake-store-output-properties"></a>Data Lake 저장소 출력 속성 구성
 Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출력에 대한 속성을 구성할 수 있습니다. 다음 테이블은 속성 이름 및 해당 설명의 목록으로 Data Lake 저장소 출력을 구성합니다.
@@ -59,7 +64,7 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 </tr>
 <tr>
 <td>이벤트 직렬화 형식</td>
-<td>출력 데이터에 대한 직렬화 형식입니다. JSON, CSV, 및 Avro를 지원합니다.</td>
+<td>출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다.</td>
 </tr>
 <tr>
 <td>인코딩</td>
@@ -83,6 +88,9 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

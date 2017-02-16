@@ -4,7 +4,7 @@ description: "백업 자격 증명으로 Azure VM 보호. 자습서에서는 Azu
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
 ms.service: backup
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/15/2016
+ms.date: 1/10/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,7 +43,7 @@ VM을 백업하려면, 5개의 주요 단계가 있습니다.
 ![VM 백업 프로세스의 상위 수준 보기](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md)모델이 있습니다. 이 자습서는 Azure 클래식 포털에서 만들 수 있는 VM에서 사용하도록 준비되었습니다. Azure 백업 서비스는 리소스 관리자 기반 VM을 지원합니다. 복구 서비스 자격 증명 모음에 VM 백업에 대한 자세한 내용은 [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 자습서는 Azure 클래식 포털에서 만들 수 있는 VM에서 사용하도록 준비되었습니다. Azure 백업 서비스는 리소스 관리자 기반 VM을 지원합니다. 복구 서비스 자격 증명 모음에 VM 백업에 대한 자세한 내용은 [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)합니다.
 >
 >
 
@@ -211,6 +211,6 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

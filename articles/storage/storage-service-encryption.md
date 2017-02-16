@@ -4,7 +4,7 @@ description: "Azure 저장소 서비스 암호화 기능을 사용하여 데이�
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b582e7515ccc588b1381285bdf4bfae00554ac3f
 
 
 ---
@@ -65,7 +65,7 @@ SSE에는 다음 제한 사항이 있습니다.
 [Azure 포털](https://portal.azure.com)을 사용하여 암호화를 사용하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 저장소 계정에 대해 저장소 서비스 암호화를 프로그래밍 방식으로 사용 또는 사용하지 않으려면 [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx), [.NET용 Storage Resource Provider 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](storage-azure-cli.md)를 사용하면 됩니다.
+> 저장소 계정에 대해 저장소 서비스 암호화를 프로그래밍 방식으로 사용 또는 사용하지 않으려면 [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx), [.NET용 Storage Resource Provider 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure CLI](storage-azure-cli.md)를 사용하면 됩니다.
 > 
 > 
 
@@ -182,6 +182,6 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
+ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
+ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 
 
 ---
@@ -178,7 +178,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
      
      **입력** 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
      
-     **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid\&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+     **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
      
      **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 **partitionedBy** 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2016-09-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2016/09/20으로 설정되고 fileName은 08.csv로 설정됩니다. 
 
@@ -311,7 +311,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 3. 도구 모음에서 **배포**를 클릭하여 **ADFTutorialPipeline**을 만들고 배포합니다. 트리 뷰에 파이프라인이 표시되는지 확인합니다. 
 4. 이제 **X**를 클릭하여 **편집기** 블레이드를 닫습니다. **X**를 다시 클릭하여 **ADFTutorialDataFactory**에 대한 **Data Factory** 홈페이지를 봅니다.
 
-**축하합니다.**  Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.   
+**축하합니다.** Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.   
 
 ### <a name="view-the-data-factory-in-a-diagram-view"></a>다이어그램 뷰에서 데이터 팩터리 보기
 1. **Data Factory** 블레이드에서 **다이어그램**을 클릭합니다.
@@ -379,7 +379,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
     
     ![SQL 쿼리 결과](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>앱 모니터링 및 관리를 사용하여 파이프라인 모니터링
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>앱 모니터링 및 관리를 사용하여 파이프라인 모니터링
 응용 프로그램 모니터링 및 관리를 사용하여 파이프라인을 모니터링할 수도 있습니다. 이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링 및 관리를 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
 1. 데이터 팩터리의 홈페이지에서 **모니터링 및 관리** 타일을 클릭합니다.
@@ -413,6 +413,6 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

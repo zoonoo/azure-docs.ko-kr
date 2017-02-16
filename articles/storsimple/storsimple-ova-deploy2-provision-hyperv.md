@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/11/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4d8de51377c8aad73ebf71f83b44edb094635f32
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 2fddc72747ce97e8985e9f1c84ffdce52cd05e2e
 
 
 ---
@@ -138,7 +138,7 @@ ms.openlocfilehash: 4d8de51377c8aad73ebf71f83b44edb094635f32
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **Next**를 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 내용은 [모범 사례](storsimple-ova-best-practices.md#configuration-best-practices) 문서의 크기 조정 섹션을 검토하세요. **Next**를 클릭합니다.
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 내용은 [모범 사례](storsimple-ova-best-practices.md#configuration-best-practices) 문서의 크기 조정 섹션을 검토하세요. **다음**을 클릭합니다.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -216,7 +216,7 @@ ms.openlocfilehash: 4d8de51377c8aad73ebf71f83b44edb094635f32
 
 Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면 동영상을 시청하세요.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Create-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Create-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -227,6 +227,6 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

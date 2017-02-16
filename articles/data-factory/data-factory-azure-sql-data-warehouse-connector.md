@@ -1,46 +1,52 @@
 ---
-title: Azure SQL 데이터 웨어하우스 간 데이터 이동 | Microsoft Docs
-description: Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터를 이동하는 방법에 대해 알아봅니다.
+title: "Azure SQL Data Warehouse 간 데이터 이동 | Microsoft 문서"
+description: "Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 11/23/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 502991093c2f3c38f37a6cb4e3770459b7d5ee78
+ms.openlocfilehash: 9a06ba91dea57ef2298f2b0651a01e56f0b5c4ae
+
 
 ---
 # <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동
-이 문서에서는 복사 작업을 사용하여 Azure SQL Data Warehouse를 이동하는 방법에 대해 간략하게 설명합니다. 
+이 문서에서는 복사 작업을 사용하여 Azure SQL Data Warehouse를 이동하는 방법에 대해 간략하게 설명합니다.
 
-Azure SQL 데이터 웨어하우스로 데이터를 로드하는 동안 PolyBase를 사용할지 여부를 지정할 수 있습니다. Azure SQL 데이터 웨어하우스로 데이터를 로드할 때 최상의 성능을 얻으려면 PolyBase를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. 
+Azure SQL 데이터 웨어하우스로 데이터를 로드하는 동안 PolyBase를 사용할지 여부를 지정할 수 있습니다. Azure SQL 데이터 웨어하우스로 데이터를 로드할 때 최상의 성능을 얻으려면 PolyBase를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure Data Factory를 통해 Azure SQL Data Warehouse에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
-Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요. 
+Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure SQL 데이터 웨어하우스 및 Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores) 데이터를 복사할 수 있습니다.
+
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure SQL 데이터 웨어하우스 및 Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+
 
 > [!NOTE]
-> Azure 데이터 팩터리 서비스에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요. 
-> 
-> 이 문서에서는 JSON 예제를 제공하지만 데이터 팩터리를 만들기 위한 단계별 지침을 제공하지 않습니다. Azure 데이터 팩터리에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습은 [자습서: Azure Blob에서 Azure SQL 데이터베이스에 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
-> 
-> 
+> Azure 데이터 팩터리 서비스에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
+>
+> 이 문서에서는 JSON 예제를 제공하지만 데이터 팩터리를 만들기 위한 단계별 지침을 제공하지 않습니다. Azure 데이터 팩터리에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습은 [자습서: Azure Blob에서 Azure SQL 데이터베이스에 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+>
+>
 
-## <a name="sample:-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>샘플: Azure SQL 데이터 웨어하우스에서 Azure Blob에 데이터 복사
+## <a name="sample-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>샘플: Azure SQL 데이터 웨어하우스에서 Azure Blob에 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
 
-1. [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties) 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스 
-3. [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+1. [AzureSqlDW](#linked-service-properties) 형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 형식의 연결된 서비스
+3. [AzureSqlDWTable](#dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
-5. [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+5. [SqlDWSource](#copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Azure SQL Data Warehouse의 테이블에서 Blob으로 (매시간, 매일 등) 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -207,23 +213,23 @@ Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프�
 
 > [!NOTE]
 > 예에서 **sqlReaderQuery**는 SqlDWSource에 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다.
-> 
+>
 > 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
-> 
+>
 > sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL 데이터 웨어하우스에 대해 실행합니다.(mytable에서 column1, column2 선택) 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
-> 
-> 
+>
+>
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>샘플: Azure Blob에서 Azure SQL 데이터 웨어하우스에 데이터 복사
+## <a name="sample-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>샘플: Azure Blob에서 Azure SQL 데이터 웨어하우스에 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
 
-1. [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties) 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+1. [AzureSqlDW](#linked-service-properties) 형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 형식의 연결된 서비스
 3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4. [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
-5. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [SqlDWSink](#azure-sql-data-warehouse-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+4. [AzureSqlDWTable](#dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+5. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [SqlDWSink](#copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-샘플은 Azure blob에서 Azure SQL Data Warehouse의 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다. 
+샘플은 Azure blob에서 Azure SQL Data Warehouse의 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 **Azure SQL 데이터 웨어하우스 연결된 서비스:**
 
@@ -318,7 +324,7 @@ Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프�
 
 **Azure SQL 데이터 웨어하우스 출력 데이터 집합:**
 
-샘플은 Azure SQL 데이터 웨어하우스의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL Data Warehouse의 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다. 
+샘플은 Azure SQL 데이터 웨어하우스의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL Data Warehouse의 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
     {
       "name": "AzureSqlDWOutput",
@@ -386,8 +392,8 @@ Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프�
 
 자세한 설명은 Azure SQL Data Warehouse 설명서의 [Azure Data Factory를 사용하여 데이터 로드](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) 문서를 참조하세요.
 
-## <a name="azure-sql-data-warehouse-linked-service-properties"></a>Azure SQL 데이터 웨어하우스 연결된 서비스 속성
-다음 테이블은 Azure SQL 데이터 웨어하우스 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다. 
+## <a name="linked-service-properties"></a>연결된 서비스 속성
+다음 테이블은 Azure SQL 데이터 웨어하우스 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
@@ -395,26 +401,26 @@ Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프�
 | **connectionString** |connectionString 속성에 대한 Azure SQL 데이터 웨어하우스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 > [!IMPORTANT]
-> [Azure SQL Database 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)과 데이터베이스 서버를 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 해야 합니다. 또한 데이터 팩터리 게이트웨이를 사용하여 온-프레미스 데이터 원본을 포함한 Azure 외부에서 Azure SQL 데이터 웨어하우스로 데이터를 복사하는 경우 데이터를 Azure SQL Data Warehouse로 보내는 컴퓨터에 대한 적절한 IP 주소 범위를 구성합니다. 
-> 
-> 
+> [Azure SQL Database 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)과 데이터베이스 서버를 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 해야 합니다. 또한 데이터 팩터리 게이트웨이를 사용하여 온-프레미스 데이터 원본을 포함한 Azure 외부에서 Azure SQL 데이터 웨어하우스로 데이터를 복사하는 경우 데이터를 Azure SQL Data Warehouse로 보내는 컴퓨터에 대한 적절한 IP 주소 범위를 구성합니다.
+>
+>
 
-## <a name="azure-sql-data-warehouse-dataset-type-properties"></a>Azure SQL 데이터 웨어하우스 데이터 집합 형식 속성
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등). 
+## <a name="dataset-type-properties"></a>데이터 집합 형식 속성
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
 typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureSqlDWTable** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결된 서비스가 참조하는 Azure SQL 데이터 웨어하우스 데이터베이스에 있는 테이블의 이름입니다. |예 |
+| tableName |연결된 서비스에서 참조하는 Azure SQL Data Warehouse 데이터베이스에 있는 테이블 또는 보기의 이름입니다. |예 |
 
-## <a name="azure-sql-data-warehouse-copy-activity-type-properties"></a>Azure SQL 데이터 웨어하우스 복사 작업 형식 속성
+## <a name="copy-activity-type-properties"></a>복사 활동 형식 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
 > [!NOTE]
 > 복사 작업은 하나의 입력을 가지고 하나의 출력을 생성합니다.
-> 
-> 
+>
+>
 
 반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
@@ -427,9 +433,9 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
 
-**sqlReaderQuery** 가 SqlDWSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다. 
+**sqlReaderQuery** 가 SqlDWSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다.
 
-또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우). 
+또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
 
 sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL Data Warehouse에 대해 실행합니다. 예: `select column1, column2 from mytable`. 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
@@ -443,7 +449,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
         }
     }
 
-**저장 프로시저 정의:** 
+**저장 프로시저 정의:**
 
     CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
     (
@@ -484,9 +490,12 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
     }
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드
-**PolyBase** 를 사용하는 것은 처리량이 높은 많은 양의 데이터를 Azure SQL 데이터 웨어하우스에 로드하는 효율적인 방법입니다.  기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다.
+**PolyBase** 를 사용하는 것은 처리량이 높은 많은 양의 데이터를 Azure SQL 데이터 웨어하우스에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다. 자세히 비교하려면 [복사 성능 참조 번호](data-factory-copy-activity-performance.md#performance-reference)를 참조하세요.
 
-Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속성을 **true**로 설정하여 Azure SQL Data Warehouse로 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 **polyBaseSettings** 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 [SqlDWSink](#SqlDWSink) 섹션을 참조하세요.   
+* 원본 데이터 형식이 PolyBase와 호환되면 PolyBase를 사용하여 원본 데이터 저장소에서 Azure SQL Data Warehouse로 직접 복사할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-using-polybase)**를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure Data Factory를 통해 Azure SQL Data Warehouse에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+* 원본 데이터 형식이 PolyBase에서 원래 지원하지 않는 경우 **[PolyBase를 통한 준비된 복사](#staged-copy-using-polybase)**를 활용할 수 있으며, 먼저 데이터를 자동으로 PolyBase 호환 형식으로 변환하고 Azure Blob 저장소에 저장한 다음 SQL Data Warehouse에 로드하여 더 나은 처리량을 제공합니다.
+
+Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속성을 **true**로 설정하여 Azure SQL Data Warehouse로 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 **polyBaseSettings** 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 [SqlDWSink](#SqlDWSink) 섹션을 참조하세요.
 
     "sink": {
         "type": "SqlDWSink",
@@ -496,7 +505,7 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
             "rejectType": "percentage",
             "rejectValue": 10.0,
             "rejectSampleValue": 100,
-            "useTypeDefault": true 
+            "useTypeDefault": true
         }
 
     }
@@ -508,18 +517,18 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
 
 1. **원본에 연결된 서비스**는 **Azure Storage** 형식이며 SAS(공유 액세스 서명) 인증을 사용하도록 구성되지 않습니다. 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
 2. **입력 데이터 집합**은 **Azure Blob** 형식이고 형식 속성의 서식 형식은 다음 구성이 포함된 **OrcFormat** 또는 **TextFormat**입니다.
-   
-   1. **rowDelimiter**는 **\n**이어야 합니다. 
-   2. **nullValue**는 **빈 문자열**("")로 설정됩니다. 
-   3. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요. 
-   4. **escapeChar** 및 **quoteChar**는 지정되지 않습니다. 
+
+   1. **rowDelimiter**는 **\n**이어야 합니다.
+   2. **nullValue**는 **빈 문자열**("")로 설정됩니다.
+   3. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요.
+   4. **escapeChar** 및 **quoteChar**는 지정되지 않습니다.
    5. **Compression**은 **BZIP2**가 아닙니다.
-      
+
            "typeProperties": {
                "folderPath": "<blobpath>",
                "format": {
                    "type": "TextFormat",     
-                   "columnDelimiter": "<any delimiter>", 
+                   "columnDelimiter": "<any delimiter>",
                    "rowDelimiter": "\n",       
                    "nullValue": "",           
                    "encodingName": "utf-8"    
@@ -529,17 +538,17 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
                    "level": "Optimal"  
                }  
            },
-3. **skipHeaderLineCount**는 파이프라인에서 복사 작업에 대한 **BlobSource**에 설정되지 않습니다. 
+3. **skipHeaderLineCount**는 파이프라인에서 복사 작업에 대한 **BlobSource**에 설정되지 않습니다.
 4. **sliceIdentifierColumnName**은 파이프라인에서 복사 작업에 대한 **SqlDWSink**에 설정되지 않습니다. (PolyBase는 한 번의 실행으로 모든 데이터를 업데이트하거나 아무 것도 업데이트하지 않도록 보장합니다. **반복성**을 달성하려면 **sqlWriterCleanupScript**를 사용할 수 있습니다.
-5. **columnMapping**은 연결된 복사 작업에서 사용되지 않습니다. 
+5. **columnMapping**은 연결된 복사 작업에서 사용되지 않습니다.
 
 ### <a name="staged-copy-using-polybase"></a>PolyBase를 사용하여 준비한 복사본
 원본 데이터가 이전 섹션에서 도입된 조건을 충족하지 않는 경우 일시적으로 스테이징한 Azure Blob Storage를 통해 데이터를 복사하도록 설정할 수 있습니다. 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 충족시키기 위해 데이터에 변환을 수행한 다음 데이터를 SQL Data Warehouse에 로드하기 위해 PolyBase를 사용합니다. 스테이징 Azure Blob을 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
 
-> [!IMPORTANT]
-> PolyBase 및 스테이징을 사용하여 Azure SQL Data Warehouse로 온-프레미스 데이터 저장소의 데이터를 복사하는 경우 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 게이트웨이 컴퓨터에 JRE 8(Java 런타임 환경)을 설치합니다. 64비트 게이트웨이에는 64비트 JRE가 필요하고 32비트 게이트웨이에는 32비트 JRE가 필요합니다. [Java 다운로드 위치](http://go.microsoft.com/fwlink/?LinkId=808605)에서 적절한 버전을 다운로드합니다.
-> 
-> 
+> [!NOTE]
+> PolyBase와 스테이징을 사용하여 온-프레미스 데이터 저장소에서 Azure SQL Data Warehouse로 데이터를 복사할 때 데이터 관리 게이트웨이 버전이 2.4 미만이면 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 JRE(Java Runtime Environment)가 게이트웨이 컴퓨터에 필요합니다. 이러한 종속성을 방지하려면 게이트웨이를 최신으로 업그레이드하는 것이 좋습니다.
+>
+>
 
 이 기능을 사용하려면 중간 Blob Storage가 있는 Azure 저장소 계정을 나타내는 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 만든 후 다음 코드에 표시된 복사 작업에 대해 **enableStaging** 및 **stagingSettings** 속성을 지정합니다.
 
@@ -566,15 +575,21 @@ Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속�
     ]
 
 
-### <a name="best-practices-when-using-polybase"></a>PolyBase를 사용하는 경우 모범 사례
-#### <a name="row-size-limitation"></a>행 크기 제한
-Polybase는 32KB보다 큰 크기의 행을 지원하지 않습니다. 32KB보다 큰 행이 있는 테이블을 로드하려고 시도하면 다음과 같은 오류가 발생합니다. 
+## <a name="best-practices-when-using-polybase"></a>PolyBase를 사용하는 경우 모범 사례
+### <a name="required-database-permission"></a>필수 데이터베이스 권한
+PolyBase를 사용하려면 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 대상 데이터베이스에 대한 ["CONTROL" 권한](https://msdn.microsoft.com/library/ms191291.aspx)이 필요합니다. 이를 달성하기 위한 한 가지 방법으로 해당 사용자를 "db_owner" 역할의 구성원으로 추가합니다. 이를 수행하는 방법에 대해서는 [이 섹션](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)을 참조하세요.
+
+### <a name="row-size-limitation"></a>행 크기 제한
+Polybase는 32KB보다 큰 행의 크기를 지원하지 않습니다. 32KB보다 큰 행이 있는 테이블을 로드하려고 시도하면 다음과 같은 오류가 발생합니다.
 
     Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
 
 32KB보다 큰 크기의 행을 포함한 원본 데이터가 있는 경우 각 항목의 최대 행 크기가 제한을 초과하지 않는 정도의 작은 테이블로 원본 테이블을 수직으로 분할하는 것이 좋습니다. 작은 테이블은 PolyBase를 사용하여 로드될 수 있고 Azure SQL 데이터 웨어하우스에서 병합될 수 있습니다.
 
-#### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 tableName
+### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
+가능한 최상의 처리량을 달성하려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 더 큰 리소스 클래스를 할당하는 것이 좋습니다. [사용자 리소스 클래스 변경 예제](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.
+
+### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 tableName
 다음 테이블은 스키마와 테이블 이름의 다양한 조합에 대한 JSON 데이터 집합에서 **tableName** 속성을 지정하는 방법에 대한 예제를 제공합니다.
 
 | DB 스키마 | 테이블 이름 | tableName JSON 속성 |
@@ -588,7 +603,7 @@ Polybase는 32KB보다 큰 크기의 행을 지원하지 않습니다. 32KB보�
 
     Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 
-#### <a name="columns-with-default-values"></a>기본값이 있는 열
+### <a name="columns-with-default-values"></a>기본값이 있는 열
 현재 데이터 팩터리의 PolyBase 기능은 대상 테이블과 동일한 열 수를 허용합니다. 가령 네 개의 열이 있고 그 중 한 열이 기본 값으로 정의된 테이블이 있다고 합시다. 입력 데이터는 여전히 네 개의 열을 포함해야 합니다. 3열 입력 데이터 집합을 제공하면 다음 메시지와 비슷한 오류가 발생합니다.
 
     All columns of the table must be specified in the INSERT BULK statement.
@@ -651,6 +666,8 @@ Azure SQL, SQL Server 및 Sybase 간에 데이터를 이동할 때는SQL 형식�
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

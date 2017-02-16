@@ -1,5 +1,5 @@
 ---
-title: "Apache Ambari Web UI를 사용하여 HDInsight 클러스터 모니터링 및 관리| Microsoft 문서"
+title: "Ambari 웹 UI를 사용하여 Azure HDInsight 모니터링 및 관리 | Microsoft Docs"
 description: "Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari 웹 UI를 사용하는 방법을 배웁니다."
 services: hdinsight
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3c84bdd32d9daec2d50d8126c26e8d7ecc894b1
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 443e9e9d45417fb428ef4b81e9a66e04a1e4809e
 
 
 ---
@@ -31,7 +31,10 @@ Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클
 ## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>Ambari 정의
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a>에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a>를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
-Ambari 웹 UI는 Linux 기반 HDInsight 클러스터와 함께 기본적으로 제공됩니다. 
+Ambari 웹 UI는 기본적으로 Linux 운영 체제를 사용하는 HDInsight 클러스터와 함께 제공됩니다.
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. 
 
 ## <a name="connectivity"></a>연결
 Ambari 웹 UI는 HTTPS://CLUSTERNAME.azurehdidnsnsight.net의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 **CLUSTERNAME**은 클러스터 이름입니다. 
@@ -217,6 +220,6 @@ Ambari 뷰를 사용하면 개발자가 [Ambari 보기 프레임워크](https://
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

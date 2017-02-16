@@ -1,5 +1,5 @@
 ---
-title: "복구 계획에 Azure 자동화 Runbook 추가 | Microsoft Docs"
+title: "Site Recovery에서 복구 계획에 Azure 자동화 Runbook 추가 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery에서 Azure 자동화를 사용하여 복구 계획을 확장하여 Azure로 복구하는 동안 복잡한 작업을 완료할 수 있도록 하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/23/2016
+ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 9f9a71cd7c6688dfd42dcb7ce52847f2016daf58
+ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
+ms.openlocfilehash: b88974ef713211a40b52aafab1b079ed8dbfec49
 
 
 ---
@@ -146,6 +146,6 @@ NSGwithCustomScript runbook은 복구 계획 내의 모든 VM에 공용 IP 주�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

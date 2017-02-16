@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/16/2017
 ms.author: markgal; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: f6a1346b84521806e5523e331b2aeb11648bbe6d
-ms.openlocfilehash: a7d2a73760cd015a5a67551f6f6ada8568ed75b8
+ms.sourcegitcommit: 3a560e836de9cf70bf448b30b091ad92372bce06
+ms.openlocfilehash: 909b16d2e8c72fa29f45e1bdfc778612e00ebbd8
 
 
 ---
@@ -199,6 +199,11 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
+> [!NOTE]
+> Azure Government 클라우드에 있다면 Set-AzureRmKeyVaultAccessPolicy cmdlet의 ff281ffe-705c-4f53-9f37-a40e6f2c68f3 for the parameter **-ServicePrincipalName** 값을 사용하세요.
+> 
+> 
+
 ASM 기반 VM의 경우
 
 ```
@@ -230,7 +235,8 @@ WorkloadName     Operation            Status               StartTime            
 V2VM              Backup               InProgress            4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-> [AZURE.NOTE: PowerShell에서 StartTime 및 EndTime 필드의 표준 시간대는 UTC입니다. 하지만, 시간이 Azure 포털에 표시될 때는, 사용자의 현지 표준 시간대로 시간이 조정됩니다.
+> [!NOTE]
+> PowerShell에서 표시되는 StartTime 및 EndTime 필드의 시간대는 UTC입니다. 하지만, 시간이 Azure 포털에 표시될 때는, 사용자의 현지 표준 시간대로 시간이 조정됩니다.
 > 
 > 
 
@@ -323,8 +329,13 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 디스크를 복원한 후 VM을 만드는 방법에 자세한 내용을 보려면 다음 섹션으로 이동합니다.
 
-### <a name="create-a-vm-from-restored-disks"></a>복원된 디스크에서 VM 만들기
+## <a name="create-a-vm-from-restored-disks"></a>복원된 디스크에서 VM 만들기
 디스크를 복원한 후 다음 단계를 사용하여 디스크에서 가상 컴퓨터를 만들고 구성합니다.
+
+> [!NOTE]
+> 복원된 디스크를 사용하여 암호화된 VM을 만드는 경우 **Microsoft.KeyVault/vaults/deploy/action**을 수행하도록 역할이 허용되어야 합니다. 사용자의 역할에 이 사용 권한이 없는 경우 이 작업이 포함된 사용자 지정 역할을 만드세요. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요.
+> 
+> 
 
 1. 복원된 디스크 속성에서 작업 세부 정보를 쿼리합니다.
    
@@ -384,6 +395,6 @@ PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 Windows Ser
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

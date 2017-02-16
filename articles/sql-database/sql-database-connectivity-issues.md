@@ -5,7 +5,7 @@ keywords: "SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
@@ -14,11 +14,11 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1566cfc42a6897b5ac8b4ad7d4d6c7900ca91a3
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
 
 
 ---
@@ -354,7 +354,7 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 
 * 무료 [책 다운로드: Microsoft Enterprise Library에 대한 개발자 가이드, 2판](http://www.microsoft.com/download/details.aspx?id=41145)
 * 모범 사례: [재시도 일반 지침](../best-practices-retry-general.md) 에서 재시도 논리에 대해 깊이 있게 다룹니다.
-*  [Enterprise Library - 일시적 오류 처리 응용 프로그램 블록 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
+* [Enterprise Library - 일시적 오류 처리 응용 프로그램 블록 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -450,6 +450,6 @@ public bool IsTransient(Exception ex)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8768ccd5a1d04566c5f2e1f26ab328cea570cc61
+ms.sourcegitcommit: 25dc3835983f1f51047bc5680138dcc6b3879d7a
+ms.openlocfilehash: 5abb8627a2b0d06d9aa948ac35cfd1ba2b08ee31
 
 
 ---
@@ -43,7 +43,7 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 ### <a name="view-or-download-a-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 보기 또는 다운로드
 1. Microsoft 계정 또는 조직 ID를 사용하여 [계정 센터](https://account.windowsazure.com/subscriptions) 에 로그인합니다.
 2. 세부 정보 및 사용 현황을 확인할 구독을 클릭합니다.
-3.  **청구 내역**
+3. **청구 내역**
    
     ![요약 - 청구 내역 1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 4. **청구 내역** 섹션에는 지난 청구 기간과 현재 미청구 기간에 대한 명세서가 나열됩니다. 현재 기간에 대한 명세서는 예상 요금이 생성된 날짜의 예상 요금입니다. 이 정보는 매일 업데이트되며 지금까지 발생한 모든 사용 내역을 포함하지 않을 수 있습니다. 월별 청구서는 이 예상과 다를 수 있습니다.  
@@ -132,7 +132,7 @@ Azure 사용을 쉽게 관리하도록 고객을 지원하는 지속적인 노�
 * **버전 1** 은 기존 형식을 사용합니다.
 * **버전 2** 는 추가 정보를 포함하고 일일 사용량 섹션에서 열 이름을 업데이트합니다.  
 
-사용 요금은 구독에 대한 총 **월별** 요금에서 크레딧 또는 할인을 제한 금액입니다. 지난 달의 사용 요금이 후불로 청구됩니다.  파일의 위쪽 섹션에서 이전 월 청구 주기 중에 청구된 서비스의 세부 정보를 표시합니다.  이전 테이블에서 각 .csv 버전 파일에 대한 열의 이름을 나열합니다.
+사용 요금은 구독에 대한 총 **월별** 요금에서 크레딧 또는 할인을 제한 금액입니다. 지난 달의 사용 요금이 후불로 청구됩니다.  파일의 위쪽 섹션에서 이전 월 청구 주기 중에 청구된 서비스의 세부 정보를 표시합니다.  다음 표에서는 각 .csv 버전 파일의 열 이름을 나열합니다.
 
 | 버전 1 | 버전 2 | 설명 |
 |:--- |:--- | --- |
@@ -181,9 +181,9 @@ Azure 사용을 쉽게 관리하도록 고객을 지원하는 지속적인 노�
 | 사용 |소비된 수량 |해당 날짜에 사용된 리소스의 양을 포함합니다. |
 | 하위 지역 |리소스 위치 |리소스가 실행되고 있는 데이터 센터를 식별합니다. |
 | 부여 |사용되는 서비스 |이 열은 이름 열에서 특별히 식별할 수 없는 개별 Azure 플랫폼 서비스를 추적하는 데 사용됩니다. 이 서비스 열은 사용 현황이 속한 특정 서비스를 나타냅니다. |
-| 해당 없음 |리소스 그룹 |***새 열 추가***  배포된 리소스가 실행되는 리소스 그룹입니다. [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md) 참조 |
+| 해당 없음 |리소스 그룹 |***새 열 추가*** 배포된 리소스가 실행되는 리소스 그룹입니다. [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md) 참조 |
 | 구성 요소 |인스턴스 ID |실행 중인 리소스에 대한 식별자입니다. 식별자를 만들 때 리소스에 대해 지정한 이름을 포함합니다. |
-| 해당 없음 |태그 |***새 열 추가***  Azure에서 새 리소스 유형을 사용하면 리소스를 태그할 수 있습니다.  [태그를 사용하여 Azure 리소스 구성](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) |
+| 해당 없음 |태그 |***새 열 추가*** Azure에서 새 리소스 유형을 사용하면 리소스를 태그할 수 있습니다. [태그를 사용하여 Azure 리소스 구성](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) |
 | 추가 정보 |추가 정보 |서비스와 관련된 추가적 메타데이터입니다. |
 | 서비스 정보 1 |서비스 정보 1 |이 열은 구독에서 서비스가 속한 프로젝트 이름을 제공합니다. |
 | 서비스 정보 2 |서비스 정보 2 |선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. |
@@ -202,7 +202,7 @@ Azure 사용을 쉽게 관리하도록 고객을 지원하는 지속적인 노�
   
   * 가상 컴퓨터
   * 저장소 및
-  *  [Azure 리소스 관리자 API](https://msdn.microsoft.com/library/azure/dn790567.aspx)
+  * [Azure 리소스 관리자 API](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![태그](./media/billing-understand-your-bill/tags.png)
 
@@ -232,6 +232,6 @@ OLD MSDN Articles
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

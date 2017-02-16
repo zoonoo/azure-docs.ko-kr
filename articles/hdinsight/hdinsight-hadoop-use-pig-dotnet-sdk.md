@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 46acf298a489aae34866c90126f3df00fd10c6e3
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: bd1c31c669bacf9e44b13d5a676dffc8a9176046
 
 
 ---
@@ -32,6 +32,10 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 또는 Linux 기반)
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * Visual Studio 2012, 2013 또는 2015
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
@@ -136,6 +140,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

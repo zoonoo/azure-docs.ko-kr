@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager로 Azure PowerShell을 사용하여 Azure에 서버 보호 | Microsoft Docs"
-description: "PowerShell 및 Azure Resource Manager를 사용하여 Azure Site Recovery로 Azure에 대한 서버 보호를 자동화합니다."
+title: "PowerShell 및 Azure Resource Manager를 사용하여 Hyper-V VM 복제 | Microsoft Docs"
+description: "PowerShell 및 Azure Resource Manager를 사용하여 Azure Site Recovery를 통해 자동으로 Hyper-V VM을 Azure로 복제합니다."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 555f61f76a8d6f1564e7ca736bcdd0dec7d594df
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ec08ab30003994f3e60c3f37d39bb5b4ef498173
 
 
 ---
@@ -56,7 +56,7 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 * [Microsoft Azure](https://azure.microsoft.com/) 계정. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
 * Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0.](https://azure.microsoft.com/)을 참조하세요.
-* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈.  [PowerShell 갤러리](https://www.powershellgallery.com/)
+* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈. [PowerShell 갤러리](https://www.powershellgallery.com/)
 
 이 문서에서는 Azure Resource Manager로 Azure Powershell을 사용하여 서버 보호를 구성하고 관리하는 방법을 보여 줍니다. 이 문서에 사용된 예제에서는 Azure에 대한 Hyper-V 호스트에서 실행 중인 가상 컴퓨터를 보호하는 방법을 보여 줍니다. 다음에 나오는 필수 구성 요소는 이 예제에 해당됩니다. 다양한 사이트 복구 시나리오에 대한 포괄적인 요구 사항 집합은 해당 시나리오와 관련된 설명서를 참조하세요.
 
@@ -247,6 +247,6 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

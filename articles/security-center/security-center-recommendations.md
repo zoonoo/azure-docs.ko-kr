@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 12/20/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
+ms.sourcegitcommit: 51a882d82793e5e284cfaeec9271ff3719385fcc
+ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
 이 문서에서는 Azure 보안 센터의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
 
 > [!NOTE]
-> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
-> 
-> 
+> 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  이 문서는 단계별 가이드가 아닙니다.
+>
+>
 
 ## <a name="what-are-security-recommendations"></a>보안 권장 사항이란?
 보안 센터에서는 Azure 리소스의 보안 상태를 주기적으로 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 권장 사항을 만듭니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다.
@@ -67,8 +67,8 @@ ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
 
 > [!NOTE]
 > Azure 리소스의 [클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md) 을 이해하게 됩니다.
-> 
-> 
+>
+>
 
 | 권장 사항 | 설명 |
 | --- | --- |
@@ -76,7 +76,7 @@ ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
 | [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
-| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. WAF 어플라이언스(리소스 관리자 배포 모델을 사용하여 만듦)는 별도의 가상 네트워크에 배포해야 합니다. WAF 어플라이언스(클래식 배포 모델을 사용하여 만듦)는 네트워크 보안 그룹 사용으로 제한됩니다. 이러한 지원은 나중에 WAF 어플라이언스(클래식)의 완전 사용자 지정 배포로 확장됩니다. 보안 센터에서는 VM 및 ASE(App Service Environment)에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/app-service-app-service-environments-readme.md)를 참조하세요. |
+| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/app-service-app-service-environments-readme.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
 | [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
 | [차세대 방화벽 추가](security-center-add-next-generation-firewall.md) |보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하라는 권장 사항입니다. |
 | [NGFW를 통해서만 트래픽 라우팅](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |인바운드 트래픽이 NGFW를 통해 VM로 강제하도록 네트워크 보안 그룹(NSG) 규칙을 구성하는 것이 좋습니다. |
@@ -84,23 +84,24 @@ ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
 | [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md) |끝점 보호 오류를 해결하는 것이 좋습니다. |
 | [서브넷 또는 가상 컴퓨터에서 네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md) |서브넷 또는 VM에서 NSG를 활성화하는 것이 좋습니다. |
 | [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md) |NSG에 대한 인바운드 트래픽 규칙을 구성하라는 권장 사항입니다. |
-| [서버 SQL 감사 활성화](security-center-enable-auditing-on-sql-servers.md) |Azure SQL 서버(Azure SQL 서비스만 해당, 가상 컴퓨터에서 실행되는 SQL 제외됨)에 감사를 사용하는 것이 좋습니다. |
-| [데이터베이스 SQL 감사 활성화](security-center-enable-auditing-on-sql-databases.md) |Azure SQL 데이터베이스(Azure SQL 서비스만 해당, 가상 컴퓨터에서 실행되는 SQL 제외됨)에 감사를 사용하는 것이 좋습니다. |
-| [SQL 데이터베이스에서 투명한 데이터 암호화 활성화](security-center-enable-transparent-data-encryption.md) |SQL 데이터베이스(Azure SQL 서비스에만 해당)에 대해 암호화를 활성화하라는 권장 사항입니다. |
+| [서버 SQL 감사 활성화](security-center-enable-auditing-on-sql-servers.md) |Azure SQL 서버에 대한 감사를 설정하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
+| [데이터베이스 SQL 감사 활성화](security-center-enable-auditing-on-sql-databases.md) |Azure SQL Database에 대한 감사를 설정하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
+| [SQL 데이터베이스에서 투명한 데이터 암호화 활성화](security-center-enable-transparent-data-encryption.md) |SQL Database에 대해 암호화를 활성화하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다.) |
 | [VM 에이전트 사용](security-center-enable-vm-agent.md) |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
 | [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
 | [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md) |각 구독에 대한 보안 연락처 정보를 제공하는 것을 권장합니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다. 정보는 보안 팀에서 리소스가 손상된 것을 발견한 경우에 고객에게 연락하는 데 사용됩니다. |
 | [OS 버전 업데이트](security-center-update-os-version.md) |클라우드 서비스의 OS(운영 체제) 버전을 OS 제품군에 대해 사용할 수 있는 가장 최신 버전으로 업데이트하는 것이 좋습니다.  클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요. |
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
 | [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
+| [Azure Storage 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md) | 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다. SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 암호화하고 검색 전 해독하는 방식으로 작동합니다. SSE는 현재 Azure Blob service에만 사용할 수 있으며 블록 blob, 페이지 blob 및 추가 blob에 사용할 수 있습니다. 자세한 내용을 알아보려면 [미사용 데이터에 대한 Storage 서비스 암호화](../storage/storage-service-encryption.md)를 참조하세요.</br>SSE는 Resource Manager 저장소 계정에만 지원됩니다. |
 
 필터링을 수행하고 권장 사항을 해제할 수 있습니다.
 
 1. **권장 사항** 블레이드에서 **필터**를 클릭합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
-   
+
     ![필터 권장 사항][2]
 2. 권장 사항이 적용하기에 적절하지 않다고 생각되면 권장 사항을 해제하고 보기에서 필터링합니다. 권장 사항을 해제하는 두 가지 방법이 있습니다. 한 가지 방법은 항목을 마우스 오른쪽 단추로 클릭한 다음 **해제**를 선택하는 것입니다. 다른 방법은 마우스 포인터로 항목을 가리키고 오른쪽에 나타나는 점 세 개를 클릭한 다음 **해제**를 선택하는 것입니다. **필터**를 클릭하고 **해제됨**을 선택하면 해제된 권장 사항을 볼 수 있습니다.
-   
+
     ![권장 사항 해제][3]
 
 ### <a name="apply-recommendations"></a>권장 사항 적용
@@ -125,6 +126,6 @@ ms.openlocfilehash: d5ac3ffa4c3e1a916fb7d81b54ae603ea3658cc5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

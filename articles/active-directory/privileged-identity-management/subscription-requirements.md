@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Privileged Identity Management에 대한 구독 요구 사항 | Microsoft Docs"
+title: "Privileged Identity Management 구독 - Azure | Microsoft Docs"
 description: "테넌트에서 Azure AD Privileged Identity Management를 관리하고 사용하기 위한 구독 및 라이선스 요구 사항에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/25/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 063ed5757728b962691020c12a3a76a7144dd00c
-ms.openlocfilehash: 8c8892d73f24299c4b5ab60ea8b8ea3441e38109
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c6aea0b7280ad8f1365c04203c78a1499ba0aa58
 
 
 ---
@@ -64,6 +64,6 @@ Azure AD Premium P2 구독 또는 EMS E5 구독이 만료되거나 미리 보기
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

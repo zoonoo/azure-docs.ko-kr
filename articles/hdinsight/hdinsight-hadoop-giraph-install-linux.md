@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe8d1658d2c3de2505f14255f2e30f1ddc537680
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: bd7cc835b251395c71fae4130b5b7057eb80b9e0
 
 
 ---
@@ -26,10 +26,8 @@ ms.openlocfilehash: fe8d1658d2c3de2505f14255f2e30f1ddc537680
 
 이 항목에서는 스크립트 동작을 사용하여 Giraph를 설치하는 방법을 알아봅니다. Giraph를 설치한 후 대규모 그래프를 처리하기 위해 가장 일반적인 응용 프로그램에 Giraph를 사용하는 방법도 알아보겠습니다.
 
-> [!NOTE]
-> 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Giraph 설치](hdinsight-hadoop-giraph-install.md)
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="a-namewhatisawhat-is-giraph"></a><a name="whatis"></a>Giraph란?
 [Apache Giraph](http://giraph.apache.org/) 를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다. 그래프는 인터넷과 같은 대규모 네트워크의 라우터 간 연결, 소셜 네트워크(또는 소셜 그래프)상의 사람들 간 관계 등 개체 간의 관계를 모델링합니다. 그래프 처리를 통해 그래프의 개체 간 관계를 추론하여 다음을 수행할 수 있습니다.
@@ -152,6 +150,6 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

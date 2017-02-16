@@ -4,7 +4,7 @@ description: "Blob, 큐, 테이블 및 파일 서비스의 저장소 메트릭�
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 2fb5b229-f099-4334-92be-4e0e7dd257d7
 ms.service: storage
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: f9db0888b5cc754c1ccc1474658d3a50a9e813b4
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
 
 
 ---
@@ -56,7 +56,7 @@ Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -Me
 ```powershell
 Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
-Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 저장소 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 저장소 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>프로그래밍 방식으로 저장소 메트릭을 사용하도록 설정하는 방법
 다음 C# 코드 조각은 .NET용 저장소 클라이언트 라이브러리를 사용하여 Blob 서비스에 대한 로깅 및 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
@@ -192,6 +192,6 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 [저장소 분석 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/dn782840.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

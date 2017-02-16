@@ -1,6 +1,7 @@
 ---
-title: "SqlPackage.exe를 사용하여 SQL Database 호환성 확인 | Microsoft Docs"
-description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, SQL 데이터베이스 호환성, SqlPackage"
+title: "SQLPackage: Azure SQL Server Database 호환성 | Microsoft Docs"
+description: "이 문서에서는 SqlPackage를 사용하여 SQL Server 데이터베이스가 SQL Database로 마이그레이션하는 데 호환되는지 확인하는 방법을 배웁니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, SQL 데이터베이스 호환성, SqlPackage"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06563b181a8d4ff568eb7cce15189defab0225ca
-ms.openlocfilehash: 16cc9beb3c239e583f47f33fe2f8c7caf44e8eb6
+ms.sourcegitcommit: 6728693290e2c1d6c970c60c7d8ef674764e053c
+ms.openlocfilehash: 834dae604fa87f753e8d050ce7cdfa7e9613f462
 
 
 ---
@@ -48,7 +49,7 @@ ms.openlocfilehash: 16cc9beb3c239e583f47f33fe2f8c7caf44e8eb6
    | < schema_name.table_name > |데이터가 대상 파일에 대해 출력되는 테이블 |
    | < output_file > |오류가 발생할 경우 오류가 있는 출력 파일의 파일 이름 및 위치 |
    
-    /p:TableName 인수를 사용하는 이유는 모든 테이블의 데이터를 내보내지 않고 Azure SQL DB V12로 내보내기에 대한 데이터 호환성만 테스트하기 때문입니다. 아쉽게도 sqlpackage.exe에 대한 내보내기 인수는 0개의 테이블 추출을 지원하지 않습니다. 작은 테이블 1개와 같은 하나 이상의 테이블을 지정해야 합니다. < output_file >에는 오류 보고서가 포함됩니다. "> 2 > & 1" 문자열은 지정된 출력 파일에 명령을 실행한 결과로 생성되는 표준 출력 및 표준 오류를 모두 파이프합니다.
+    /p:TableData 인수를 사용하는 이유는 모든 테이블의 데이터를 내보내지 않고 Azure SQL DB V12로 내보내기에 대한 데이터 호환성만 테스트하기 때문입니다. 아쉽게도 sqlpackage.exe에 대한 내보내기 인수는&0;개의 테이블 추출을 지원하지 않습니다. 작은 테이블&1;개와 같은 하나 이상의 테이블을 지정해야 합니다. < output_file >에는 오류 보고서가 포함됩니다. "2>&1" 문자열은 지정된 출력 파일에 명령을 실행한 결과로 생성되는 표준 출력 및 표준 오류를 모두 파이프합니다.
    
     ![작업 메뉴에서 데이터 계층 응용 프로그램 내보내기](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -70,6 +71,6 @@ ms.openlocfilehash: 16cc9beb3c239e583f47f33fe2f8c7caf44e8eb6
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

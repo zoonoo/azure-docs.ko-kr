@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: aa6c87ef6e1f87cb47f68f9480ea068aa6262bf9
+ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
+ms.openlocfilehash: f1993113664c3ac108005dbf599baf7eaa7a30b3
 
 
 ---
 # <a name="add-a-vm-with-artifacts-to-a-lab-in-azure-devtest-labs"></a>아티팩트를 사용하여 Azure DevTest Labs의 랩에 VM 추가
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/How-to-create-VMs-with-Artifacts-in-a-DevTest-Lab/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-create-VMs-with-Artifacts-in-a-DevTest-Lab/player]
 > 
 > 
 
@@ -107,11 +107,11 @@ Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선�
 ## <a name="next-steps"></a>다음 단계
 * VM을 만든 후에는 해당 VM의 블레이드에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
 * [DevTest Labs VM용 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md)방법을 알아봅니다.
-*  [DevTest Labs ARM 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* [DevTest Labs ARM 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

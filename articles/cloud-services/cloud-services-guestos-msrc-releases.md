@@ -4,7 +4,7 @@ description: "게스트 OS 릴리스에 적용된 업데이트 목록"
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,18 +12,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 1/10/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
+ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
+ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
 
 
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
-다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain]에 업데이트가 항상 수행됩니다.
+다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
-## <a name="october-guest-os"></a>게스트 OS 10월
+## <a name="january-guest-os"></a>게스트 OS&1;월
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| MS17-004 | [3216771] |Local Security Authority Subsystem Service용 보안 업데이트 |2.59 |2017년 1월 10일 |
+
+## <a name="december-guest-os"></a>게스트 OS&12;월
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| MS16-144 |[3204059] |Internet Explorer용 누적 보안 업데이트 |2.58, 3.46, 4.39 |2016년 12월 13일 |
+| MS16-145 |[3204062] |Microsoft Edge용 누적 보안 업데이트 |5.4 |2016년 12월 13일 |
+| MS16-146 |[3204066]   |Microsoft 그래픽 구성 요소용 보안 업데이트|2.58, 3.46, 4.39, 5.4 |2016년 12월 13일 |
+| MS16-147 |[3204063]   |Microsoft Uniscribe용 보안 업데이트|2.58, 3.46, 4.39, 5.4 |2016년 12월 13일 |
+| MS16-149 |[3205655]   |Microsoft Windows용 보안 업데이트|2.58, 3.46, 4.39, 5.4 |2016년 12월 13일 |
+| MS16-150 |[3205642]   |보안 커널 모드용 보안 업데이트 |5.4 |2016년 12월 13일 |
+| MS16-151 |[3205651]   |커널 모드 드라이버용 보안 업데이트|2.58, 3.46, 4.39, 5.4 |2016년 12월 13일 |
+| MS16-152 |[3199709]   |Windows 커널용 보안 업데이트 |5.4 |2016년 12월 13일 |
+| MS16-153 |[3207328] |공용 로그 파일 시스템 드라이버용 보안 업데이트|2.58, 3.46, 4.39, 5.4 |2016년 12월 13일 |
+| MS16-155 |[3205640]   |.NET Framework용 보안 업데이트 |5.4 |2016년 12월 13일 |
+| 해당 없음 |[3197868] |Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2016년 11월 보안 월별 품질 롤업 |2.58 |2016년 12월 13일 |
+| 해당 없음 |[3197877] |Windows Server 2012용 2016년 11월 보안 월별 품질 롤업 |3.46 |2016년 12월 13일 |
+| 해당 없음 |[3197874] |Windows 8.1 및 Windows Server 2012 R2용 2016년 11월 보안 월별 품질 롤업 |4.39 |2016년 12월 13일 |
+
+## <a name="november-guest-os"></a>게스트 OS&11;월
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Microsoft Edge용 누적 보안 업데이트 |5.3 |2016년 11월 8일 |
+| MS16-130 |[3199172] |Microsoft Windows용 보안 업데이트 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| MS16-131 |[3199151]   |Microsoft 비디오 컨트롤용 보안 업데이트 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| MS16-132 |[3199120] |Microsoft 구성 요소용 보안 업데이트 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| MS16-134 |[3193706] |공용 로그 파일 시스템 드라이버용 보안 업데이트 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| MS16-135 |[3199135] |커널 모드 드라이버용 보안 업데이트 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| MS16-137 |[3199173]   |Windows 인증 방법에 대한 보안 업데이트 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| MS16-138 |[3199647] |Microsoft 가상 하드 드라이브용 보안 업데이트 |5.3, 4.38, 3.45 |2016년 11월 8일 |
+| MS16-139 |[3199720] |Windows 커널용 보안 업데이트 |2.57 |2016년 11월 8일 |
+| MS16-140 |[3193479] |부팅 관리자용 보안 업데이트 |5.3, 4.38, 3.45 |2016년 11월 8일 |
+| MS16-142 |[3198467] |Internet Explorer용 누적 보안 업데이트 |2.57, 4.38, 5.3 |2016년 11월 8일 |
+| 해당 없음 |[3192321] |터키는 DST 준수를 종료함 |5.3, 4.38, 3.45, 2.57 |2016년 11월 8일 |
+| 해당 없음 |[3185330] |Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2016년 10월 보안 월별 품질 롤업 |2.57 |2016년 11월 8일 |
+| 해당 없음 |[3192403] |Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2016년 10월 월별 품질 롤업 미리 보기 |2.57 |2016년 11월 8일 |
+| 해당 없음 |[3177467] |Windows 7 SP1 및 Windows Server 2008 R2 SP1용 서비스 스택 업데이트: 2016년 9월 20일 |2.57 |2016년 11월 8일 |
+| 해당 없음 |[3185332] |Windows Server 2012용 2016년 10월 보안 월별 품질 롤업 |3.45 |2016년 11월 8일 |
+| 해당 없음 |[3192406] |Windows Server 2012용 2016년 10월 월별 품질 롤업 미리 보기 |3.45 |2016년 11월 8일 |
+| 해당 없음 |[3185331] |Windows 8.1 및 Windows Server 2012 R2용 2016년 10월 보안 월별 품질 롤업 |4.38 |2016년 11월 8일 |
+| 해당 없음 |[3192404] |Windows 8.1 및 Windows Server 2012 R2용 2016년 10월 월별 품질 롤업 미리 보기 |4.38 |2016년 11월 8일 |
+| 해당 없음 |[3199986] |Windows 10 버전 1607용 서비스 스택 업데이트: 2016년 10월 27일 |5.3 |2016년 11월 8일 |
+| 해당 없음 |[3197954] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트: 2016년 10월 27일 |5.3 |2016년 11월 8일 |
+
+## <a name="october-guest-os"></a>게스트 OS&10;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Internet Explorer용 누적 보안 업데이트 |4.37, 3.44, 2.56 |2016년 10월 11일 |
@@ -38,7 +85,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3185279] |Windows 8.1 및 Windows Server 2012 R2용 2016년 9월 업데이트 롤업 |4.37 |2016년 10월 11일 |
 | 해당 없음 |[3194798] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트 |5.2 |2016년 10월 11일 |
 
-## <a name="september-guest-os"></a>게스트 OS 9월
+## <a name="september-guest-os"></a>게스트 OS&9;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Internet Explorer용 누적 보안 업데이트 |4.36, 3.43, 2.55 |2016년 9월 13일 |
@@ -55,7 +102,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3179575] |Windows Server 2012용 2016년 8월 업데이트 롤업 |3.43 |2016년 9월 13일 |
 | 해당 없음 |[3179574] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 8월 업데이트 롤업 |4.36 |2016년 9월 13일 |
 
-## <a name="august-guest-os"></a>게스트 OS 8월
+## <a name="august-guest-os"></a>게스트 OS&8;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Internet Explorer용 누적 보안 업데이트 |4.35, 3.42, 2.54 |2016년 8월 9일 |
@@ -69,7 +116,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3172615] |Windows Server 2012용 2016년 7월 업데이트 롤업 |3.42 |2016년 8월 9일 |
 | 해당 없음 |[3172614] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 7월 업데이트 롤업 |4.35 |2016년 8월 9일 |
 
-## <a name="july-guest-os"></a>게스트 OS 7월
+## <a name="july-guest-os"></a>게스트 OS&7;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Internet Explorer용 누적 보안 업데이트 |4.34, 3.41, 2.53 |2016년 7월 12일 |
@@ -85,7 +132,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3161606] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 6월 업데이트 롤업 |4.34 |2016년 7월 12일 |
 | 해당 없음 |[3139923] |Windows의 HTTP 공유에 MSI 패키지를 설치하면 Windows 설치 관리자(MSI) 복구가 작동하지 않음 |4.34 |2016년 7월 12일 |
 
-## <a name="june-guest-os"></a>게스트 OS 6월
+## <a name="june-guest-os"></a>게스트 OS&6;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |보안 기능 우회 문제를 해결하기 위한 .NET Framework용 보안 업데이트 |4.33, 3.40, 2.52 |2016년 6월 14일 |
@@ -112,7 +159,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3156418] |Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 5월 업데이트 롤업 |4.33 |2016년 6월 14일 |
 | 해당 없음 |[3153731] |Windows에서 아제르바이잔, 칠레, 아이티 및 모로코에 대한 2016년 5월 DST 업데이트 |4.33, 3.40, 2.52 |2016년 6월 14일 |
 
-## <a name="may-guest-os"></a>게스트 OS 5월
+## <a name="may-guest-os"></a>게스트 OS&5;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Internet Explorer용 누적 보안 업데이트 |4.32, 3.39, 2.51 |2016년 5월 10일 |
@@ -130,7 +177,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3123245] |업데이트는 Windows Server 2012 R2의 포트 소진 식별을 향상시킵니다.  |4.32 |2016년 5월 10일 |
 | 해당 없음 |[RC4 비활성화] | Microsoft 보안 공지: RC4 비활성화를 위한 업데이트  |4.32, 3.39, 2.51 |2016년 5월 10일 |
 
-## <a name="april-guest-os"></a>게스트 OS 4월
+## <a name="april-guest-os"></a>게스트 OS&4;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Internet Explorer용 누적 보안 업데이트 |4.31, 3.38, 2.50 |2016년 4월 12일 |
@@ -141,7 +188,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS16-047 |[3148527] |보안 계정 관리자 원격 프로토콜용 보안 업데이트 |4.31, 3.38, 2.50 |2016년 4월 12일 |
 | MS16-048 |[3148528] |CSRSS용 보안 업데이트 |4.31, 3.38 |2016년 4월 12일 |
 
-## <a name="march-guest-os"></a>게스트 OS 3월
+## <a name="march-guest-os"></a>게스트 OS&3;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Internet Explorer용 누적 보안 업데이트 |4.30, 3.37, 2.49 |2016년 3월 8일 |
@@ -154,7 +201,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS16-033 |[3143142] |권한 상승 문제를 해결하기 위한 USB 대량 저장소 클래스 드라이버 보안 업데이트 |4.30, 3.37, 2.49 |2016년 3월 8일 |
 | MS16-034 |[3143145] |권한 상승 문제를 해결하기 위한 커널 모드 드라이버용 보안 업데이트 |4.30, 3.37, 2.49 |2016년 3월 8일 |
 
-## <a name="february-guest-os"></a>게스트 OS 2월
+## <a name="february-guest-os"></a>게스트 OS&2;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Internet Explorer용 누적 보안 업데이트 |4.29, 3.36, 2.48 |2016년 2월 9일 |
@@ -169,7 +216,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 다시 릴리스 - MS15-118 |[3104507] |권한 상승 문제점을 해결하기 위한 .NET Framework용 보안 업데이트 |4.29, 3.36, 2.48 |2016년 2월 9일 |
 | 다시 릴리스 - MS15-128 |[3104503] |원격 코드 실행 문제를 해결하기 위한 Microsoft 그래픽 구성 요소용 보안 업데이트 |4.29, 3.36, 2.48 |2016년 2월 9일 |
 
-## <a name="january-guest-os"></a>게스트 OS 1월
+## <a name="january-guest-os"></a>게스트 OS&1;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Internet Explorer용 누적 보안 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
@@ -182,7 +229,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | Microsoft 보안 권고 |[3123479] |Microsoft 루트 인증서 프로그램용 SHA-1 해시 알고리즘의 사용 중단 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 | Microsoft 보안 권고 |[2736233] |ActiveX 킬 비트에 대한 업데이트 |4.28, 3.35, 2.47 |2016년 1월 12일 |
 
-## <a name="december-guest-os"></a>게스트 OS 12월
+## <a name="december-guest-os"></a>게스트 OS&12;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Internet Explorer용 누적 보안 업데이트 |4.27, 3.34, 2.46 |2015년 12월 8일 |
@@ -194,7 +241,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-134 |[3108669] |원격 코드 실행 문제를 해결하기 위한 Windows Media Center용 보안 업데이트 |4.27, 3.34, 2.46 |2015년 12월 8일 |
 | MS15-135 |[3119075] |권한 상승 문제를 해결하기 위한 Windows 커널 모드 드라이버용 보안 업데이트 |4.27, 3.34, 2.46 |2015년 12월 8일 |
 
-## <a name="november-guest-os"></a>게스트 OS 11월
+## <a name="november-guest-os"></a>게스트 OS&11;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Internet Explorer용 누적 보안 업데이트 |4.26, 3.33, 2.45 |2015년 11월 10일 |
@@ -208,7 +255,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-122 |[3105256] |보안 기능 우회 문제점을 해결하기 위한 Kerberos용 보안 업데이트 |4.26, 3.33, 2.45 |2015년 11월 10일 |
 | Microsoft 보안 권고 |[3097966] |실수로 공개된 디지털 인증서로 인한 스푸핑 |4.26, 3.33, 2.45 |2015년 11월 10일 |
 
-## <a name="october-guest-os"></a>게스트 OS 10월
+## <a name="october-guest-os"></a>게스트 OS&10;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Internet Explorer용 누적 보안 업데이트 |4.25, 3.32, 2.44 |2015년 10월 13일 |
@@ -217,7 +264,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-111 |[3096447] |권한 상승 문제점을 해결하기 위한 Windows 커널용 보안 업데이트 |4.25, 3.32, 2.44 |2015년 10월 13일 |
 | Microsoft 보안 권고 |[3092627] |3076895 보안 업데이트를 설치한 후에 Windows 또는 응용 프로그램 중지를 해결하기 위한 2015년 9월 업데이트 |4.25, 3.32, 2.44 |2015년 10월 13일 |
 
-## <a name="september-guest-os"></a>게스트 OS 9월
+## <a name="september-guest-os"></a>게스트 OS&9;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Internet Explorer용 보안 업데이트 |4.24, 3.31, 2.43 |2015년 9월 8일 |
@@ -229,7 +276,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-102 |[3089657] |Windows 작업 관리의 취약성으로 인한 권한 상승 |4.24, 3.31, 2.43 |2015년 9월 8일 |
 | MS15-105 |[3091287] |Windows Hyper-V의 취약성으로 인한 보안 기능 우회 |4.24 |2015년 9월 8일 |
 
-## <a name="august-guest-os"></a>게스트 OS 8월
+## <a name="august-guest-os"></a>게스트 OS&8;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Internet Explorer용 누적 보안 업데이트 |4.23, 3.30, 2.42 |2015년 8월 11일 |
@@ -241,7 +288,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-089 |[3060716] |Microsoft Windows의 취약성으로 인한 권한 상승 |4.23, 3.30, 2.42 |2015년 8월 11일 |
 | MS15-090 |[3076949] |WebDAV의 취약성으로 인한 정보 공개 |4.23, 3.30, 2.42 |2015년 8월 11일 |
 
-## <a name="july-guest-os"></a>게스트 OS 7월
+## <a name="july-guest-os"></a>게스트 OS&7;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Internet Explorer용 누적 보안 업데이트 |4.22, 3.29, 2.41 |2015년 7월 14일 |
@@ -258,7 +305,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-077 |[3077657] |ATM Font Driver의 취약성으로 인한 권한 상승 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 | 해당 없음 |[3057154] |DES 암호화 사용을 제한하는 업데이트 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 
-## <a name="june-guest-os"></a>게스트 OS 6월
+## <a name="june-guest-os"></a>게스트 OS&6;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Internet Explorer용 누적 보안 업데이트 |4.21, 3.28, 2.40 |2015년 6월 9일 |
@@ -268,7 +315,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-062 |[3062577] |Active Directory 페더레이션 서비스의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 | MS15-063 |[3063858] |Windows 커널의 취약성으로 인한 권한 상승 |4.21, 3.28, 2.40 |2015년 6월 9일 |
 
-## <a name="may-guest-os"></a>게스트 OS 5월
+## <a name="may-guest-os"></a>게스트 OS&5;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Internet Explorer용 누적 보안 업데이트 |4.20, 3.27, 2.39 |2015년 5월 12일 |
@@ -291,12 +338,12 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-042 |[3047234] |Windows Hyper-V에서 취약성으로 인한 서비스 거부 문제점 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 | 해당 없음 |[3045755] |PKU2U 인증을 향상시키는 업데이트 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 
-## <a name="april-guest-os"></a>게스트 OS 4월
+## <a name="april-guest-os"></a>게스트 OS&4;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |HTTP.sys의 취약성으로 인한 원격 코드 실행 |4.19, 3.26, 2.38 |2015년 4월 17일 |
 
-## <a name="march-guest-os"></a>게스트 OS 3월
+## <a name="march-guest-os"></a>게스트 OS&3;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Internet Explorer용 누적 보안 업데이트 |4.18, 3.25, 2.37 |해당 없음 |
@@ -316,7 +363,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 >
 >
 
-## <a name="february-guest-os"></a>게스트 OS 2월
+## <a name="february-guest-os"></a>게스트 OS&2;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Internet Explorer용 보안 업데이트 |4.17, 3.24, 2.36 |해당 없음 |
@@ -327,7 +374,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-016 |[3029944] |Microsoft 그래픽 구성의 취약성으로 인한 정보 공개 |4.17, 3.24, 2.36 |해당 없음 |
 | 해당 없음 |[3004375] |Windows 명령줄 감사 개선 업데이트<p/>**참고**: 설치는 되어 있지만 사용하도록 설정하는 레지스트리 키가 꺼져 있음 |4.17, 3.24, 2.36 |해당 없음 |
 
-## <a name="january-guest-os"></a>게스트 OS 1월
+## <a name="january-guest-os"></a>게스트 OS&1;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Windows AppCompatCache의 취약성으로 인한 권한 상승 |4.16, 3.23, 2.35 |2015년 1월 19일 |
@@ -342,7 +389,7 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | MS15-002 |[3020393] |Windows 텔넷 서비스의 취약성으로 인한 원격 코드 실행 |4.16, 3.23, 2.35 |2015년 1월 19일 |
 | MS15-002 |[3020393] |Windows 텔넷 서비스의 취약성으로 인한 원격 코드 실행 |4.16, 3.23, 2.35 |2015년 1월 19일 |
 
-## <a name="december-guest-os"></a>게스트 OS 12월
+## <a name="december-guest-os"></a>게스트 OS&12;월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | 해당 없음 |[3013776] |도메인 계정을 사용하여 응용 프로그램을 시작하는 경우 시스템 중지 |4.15, 3.22, 2.34 |2015년 1월 13일 |
@@ -352,10 +399,48 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 | 해당 없음 |[3004394] |2014년 2월 Windows에서 Windows 루트 인증서 프로그램에 대한 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999323] |이벤트 ID 17에 대한 텍스트가 변경됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3013488] |Windows Server 2012 R2 또는 Windows Server 2012에서 CSA 파일을 가져올 때 WSUS 서버 재설정의 긴 대기 시간 |4.15, 3.22, 2.34 |2015년 1월 13일 |
-| 해당 없음 |[3012325] |Windows 8.1 및 Windows 8에서 DIGI, Vodafone, 및 통신 모바일 운영자에 대한 Windows APN 데이터베이스 항목 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+| 해당 없음 |[3012325] |Windows 8.1 및 Windows 8에서 DIGI, Vodafone 및 통신 모바일 운영자에 대한 Windows APN 데이터베이스 항목 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+[3216771]: https://technet.microsoft.com/library/security/MS17-004
+
+[3204059]: http://support.microsoft.com/kb/3204059 
+[3204062]: http://support.microsoft.com/kb/3204062 
+[3204066]: http://support.microsoft.com/kb/3204066 
+[3204063]: http://support.microsoft.com/kb/3204063 
+[3205655]: http://support.microsoft.com/kb/3205655 
+[3205642]: http://support.microsoft.com/kb/3205642 
+[3205651]: http://support.microsoft.com/kb/3205651 
+[3199709]: http://support.microsoft.com/kb/3199709 
+[3207328]: http://support.microsoft.com/kb/3207328 
+[3205640]: http://support.microsoft.com/kb/3205640 
+[3197868]: http://support.microsoft.com/kb/3197868 
+[3197877]: http://support.microsoft.com/kb/3197877 
+[3197874]: http://support.microsoft.com/kb/3197874 
+
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
 
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
@@ -636,6 +721,6 @@ ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

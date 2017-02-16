@@ -4,7 +4,7 @@ description: "클래식 배포 모델에서 PowerShell을 사용하여 응용 �
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
+ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
+ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
 
 
 ---
@@ -27,14 +27,12 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 > * [Azure 포털](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
+
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[Resource Manager 모델을 사용하여 이러한 단계를 수행하는](application-gateway-create-probe-ps.md) 방법을 알아봅니다.
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](application-gateway-create-probe-ps.md) 방법을 알아봅니다.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -48,7 +46,7 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 
 ### <a name="create-an-application-gateway-resource"></a>응용 프로그램 게이트웨이 리소스 만들기
 
-게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
+게이트웨이를 생성하려면 `New-AzureApplicationGateway` cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
 다음 예제에서는 "testvnet1"이라는 가상 네트워크 및 "subnet-1"이라는 서브넷을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
 
@@ -56,14 +54,14 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
+생성된 게이트웨이의 유효성을 검사하려면 `Get-AzureApplicationGateway` cmdlet을 사용합니다.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> *InstanceCount* 에 대한 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+> *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 > 
 > 
 
@@ -77,7 +75,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 다음 예제에서는 XML 파일을 사용하여 모든 응용 프로그램 게이트웨이 설정을 구성하고 응용 프로그램 게이트웨이 리소스에 커밋합니다.  
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 다음 텍스트를 메모장에 복사합니다.
 
@@ -88,7 +86,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
         <Name>fip1</Name>
         <Type>Private</Type>
     </FrontendIPConfiguration>
-</FrontendIPConfigurations>    
+</FrontendIPConfigurations>
 <FrontendPorts>
     <FrontendPort>
         <Name>port1</Name>
@@ -151,8 +149,6 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 > [!IMPORTANT]
 > Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
-> 
-> 
 
 새 구성 항목 \<Probe\>를 추가하여 사용자 지정 프로브를 구성합니다.
 
@@ -165,21 +161,21 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 * **Timeout** - HTTP 응답 확인을 위한 프로브 시간 제한을 정의합니다.
 * **UnhealthyThreshold** - 백 엔드 인스턴스를 *unhealthy*로 표시하는 데 필요한 실패한 HTTP 응답 수입니다.
 
-프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 <BackendHttpSettings> 구성에서 참조합니다.
+프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 \<BackendHttpSettings\> 구성에서 참조합니다.
 
 ## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>기존 응용 프로그램 게이트웨이에 사용자 지정 프로브 구성 추가
 
 현재 응용 프로그램 게이트웨이 구성 변경에 필요한 세 단계는 현재 XML 구성 파일 가져오기, 사용자 지정 프로브 수정 및 새 XML 설정으로 응용 프로그램 게이트웨이 구성입니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
-get-AzureApplicationGatewayConfig를 사용하여 XML 파일을 가져옵니다. 이렇게 하면 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
+`Get-AzureApplicationGatewayConfig`을 사용하여 XML 파일을 가져옵니다. 이 cmdlet은 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
 
 ```powershell
 Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 텍스트 편집기에서 XML 파일을 엽니다. `<frontendport>` 뒤에 `<probe>` 섹션을 추가합니다.
 
@@ -212,9 +208,9 @@ XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로
 
 XML 파일을 저장합니다.
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
-**Set-AzureApplicationGatewayConfig**를 사용하여 새 XML 파일로 응용 프로그램 게이트웨이 구성을 업데이트합니다. 이렇게 하면 응용 프로그램 게이트웨이가 새 구성으로 업데이트됩니다.
+`Set-AzureApplicationGatewayConfig`을 사용하여 새 XML 파일로 Application Gateway 구성을 업데이트합니다. 이 cmdlet은 Application Gateway를 새 구성으로 업데이트합니다.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -229,6 +225,6 @@ SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

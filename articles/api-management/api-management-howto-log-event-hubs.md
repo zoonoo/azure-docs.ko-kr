@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 
 ---
@@ -53,7 +53,7 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 
 로거를 만들려면 다음 URL 템플릿을 사용하여 HTTP PUT 요청을 만듭니다.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * `{your service}` 를 API 관리 서비스 인스턴스의 이름으로 바꿉니다.
 * `{new logger name}` 을 새 로거에 대하여 원하는 이름으로 바꿉니다. [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) 정책을 구성할 때 이 이름을 참조하게 됩니다.
@@ -66,14 +66,16 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 
 다음 템플릿을 사용하여 요청 본문을 지정합니다.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * `type`은 `AzureEventHub`로 설정해야 합니다.
 * `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가 0인 문자열이 될 수 있습니다.
@@ -101,9 +103,11 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 ![정책 편집기][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 `logger-id` 를 이전 단계에서 구성한 API 관리 로거의 이름으로 바꿉니다.
 
@@ -143,6 +147,6 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Service Bus FAQ | Microsoft Docs
+title: Azure Service Bus FAQ | Microsoft Docs
 description: "Azure 서비스 버스에 대한 일부 자주 묻는 질문을 답변합니다."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm;juconway
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b350bac36f1d46c97da37a2807ead8c9c732d69a
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: ef8fc057ca6b15fe25bcf549ad92ceb6cf5722e4
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: b350bac36f1d46c97da37a2807ead8c9c732d69a
 
 ## <a name="service-bus-best-practices"></a>서비스 버스 모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure 서비스 버스 모범 사례는 무엇인가요?
-* [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례][Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례] - 이 문서에서는 조정된 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
+* [Service Bus 조정된 메시징을 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus brokered messaging] - 이 문서에서는 조정된 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
 
 ### <a name="what-should-i-know-before-creating-messaging-entities"></a>메시징 엔터티를 만들기 전에 무엇을 알아야 하나요?
 큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 새 대체 엔터티를 만들지 않고 엔터티를 프로비전하는 경우 다음 항목을 수정할 수 없다는 점을 고려해야 합니다.
@@ -65,16 +65,16 @@ ms.openlocfilehash: b350bac36f1d46c97da37a2807ead8c9c732d69a
 이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
 ### <a name="how-do-you-charge-for-service-bus"></a>서비스 버스 요금을 어떻게 청구하나요?
-Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][가격 책정 개요]를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
+Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>서비스 버스를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
-지정된 Azure 지역 내에서 데이터 전송은 비용 없이 제공됩니다. 지역 외부의 데이터 전송은 북아메리카 및 유럽 지역에서 GB 당 0.15달러($)이며 아시아-태평양 지역에서 GB 당 0.20달러($)의 요금제로 송신 요금이 적용됩니다. 인바운드 데이터 전송은 무료로 제공됩니다.
+지정된 Azure 지역 내에서 데이터 전송은 비용 없이 제공됩니다. 지역 외부의 데이터 전송은 북아메리카 및 유럽 지역에서 GB 당&0;.15달러($)이며 아시아-태평양 지역에서 GB 당&0;.20달러($)의 요금제로 송신 요금이 적용됩니다. 인바운드 데이터 전송은 무료로 제공됩니다.
 
 ### <a name="does-service-bus-charge-for-storage"></a>서비스 버스는 저장소에 대한 요금을 청구하나요?
 아니요, 서비스 버스는 저장소에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
 ## <a name="service-bus-quotas"></a>서비스 버스 할당량
-Service Bus 제한 및 할당량 목록은 [할당량 개요][할당량 개요]를 참조하세요.
+Service Bus 제한 및 할당량 목록은 [할당량 개요][Quotas overview]를 참조하세요.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>서비스 버스는 사용 할당량이 있나요?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이러한 제한 보다 사용자의 필요가 많을 수도 있다는 것을 이해하기 때문에 사용자의 요구를 이해하고 이러한 제한을 적절하게 조정할 수 있도록 언제든지 서비스에 문의하세요. 서비스 버스의 경우 집계 사용 할당량은 다음과 같습니다.
@@ -113,10 +113,10 @@ Service Bus 네임스페이스 이름의 길이는 6-50자여야 합니다. 각 
 
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?
-PowerShell 명령([여기][여기] 문서에 위치)을 사용하여 Azure 구독 간에 네임스페이스를 이동할 수 있습니다. 작업을 실행하기 위해 네임스페이스가 활성화되어야 합니다. 또한 명령을 실행하는 사용자는 원본 및 대상 구독에 대한 관리자여야 합니다.
+PowerShell 명령([여기][here] 문서에 위치)을 사용하여 Azure 구독 간에 네임스페이스를 이동할 수 있습니다. 작업을 실행하기 위해 네임스페이스가 활성화되어야 합니다. 또한 명령을 실행하는 사용자는 원본 및 대상 구독에 대한 관리자여야 합니다.
 
 ## <a name="service-bus-troubleshooting"></a>서비스 버스 문제 해결
-[예외 개요][예외 개요]
+[예외 개요][Exceptions overview]
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-messaging-apis-and-their-suggested-actions"></a>Azure 서비스 버스 메시징 API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
 메시징 API를 생성할 수 있는 예외는 다음과 같은 범주로 분류됩니다.
@@ -126,10 +126,10 @@ PowerShell 명령([여기][여기] 문서에 위치)을 사용하여 Azure 구�
 * 일시적 예외
 * 기타 예외
 
-[Service Bus 메시징 예외][예외 개요] 문서에서는 권장된 조치를 사용하여 몇 가지 예외를 설명합니다.
+[Service Bus 메시징 예외][Exceptions overview] 문서에서는 권장된 조치를 사용하여 몇 가지 예외를 설명합니다.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어가 서명 생성을 지원하나요?
-공유 액세스 서명은 SHA – 256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. 노드, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][공유 액세스 서명] 문서를 참조하세요.
+공유 액세스 서명은 SHA – 256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. 노드, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 서비스 버스 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
@@ -140,16 +140,16 @@ PowerShell 명령([여기][여기] 문서에 위치)을 사용하여 Azure 구�
 * [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 
-[Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례]: service-bus-performance-improvements.md
-[Service Bus 가동 중단 및 재해로부터 응용 프로그램을 보호하기 위한 모범 사례]: service-bus-outages-disasters.md
-[가격 책정 개요]: https://azure.microsoft.com/pricing/details/service-bus/
-[할당량 개요]: service-bus-quotas.md
-[여기]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[예외 개요]: service-bus-messaging-exceptions.md
-[공유 액세스 서명]: service-bus-sas-overview.md
+[Best practices for performance improvements using Service Bus brokered messaging]: service-bus-performance-improvements.md
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Quotas overview]: service-bus-quotas.md
+[here]: service-bus-powershell-how-to-provision.md
+[Exceptions overview]: service-bus-messaging-exceptions.md
+[Shared Access Signatures]: service-bus-sas-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

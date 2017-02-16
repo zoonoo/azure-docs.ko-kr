@@ -13,58 +13,63 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 9dfc7107447a11c73fb14412c2d9ffba936564d7
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: e77bd4f37fbf7d71053132e69e81cc863560ac26
 
 
 ---
 # <a name="use-python-with-hive-and-pig-in-hdinsight"></a>HDInsight에서 Hive 및 Pig와 함께 Python 사용
+
 Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive 및 Pig에서 Python UDF를 사용하는 방법을 알아봅니다.
 
 ## <a name="requirements"></a>요구 사항
-* HDInsight 클러스터(Windows 또는 Linux 기반)
-* 텍스트 편집기
-  
+
+* HDInsight 클러스터
+
   > [!IMPORTANT]
-  > Linux 기반 HDInsight 서버를 사용하지만 Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 사용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 [문제 해결](#troubleshooting) 섹션에서 HDInsight 클러스터에서 유틸리티를 사용하여 CR 문자를 제거하는 단계를 참조하세요.
-  > 
-  > 
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
+* 텍스트 편집기
 
 ## <a name="a-namepythonapython-on-hdinsight"></a><a name="python"></a>HDInsight의 Python
+
 Python2.7은 기본적으로 HDInsight 3.0 이상의 클러스터에 설치됩니다. Hive는 이 버전의 Python과 함께 사용하여 스트림을 처리할 수 있습니다(데이터는 STDOUT/STDIN을 사용하여 Hive와 Python 간에 전달됨).
 
 HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Pig는 스트리밍을 사용하지 않고도 Jython과 통신하는 방법을 인식하므로, Pig를 사용할 때 Jython이 선호됩니다. 그러나 일반적인 Python (C Python,)도 마찬가지로 Pig와 사용할 수 있습니다.
 
 ## <a name="a-namehivepythonahive-and-python"></a><a name="hivepython"></a>Hive 및 Python
+
 Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습니다. 예를 들어 다음 HiveQL은 **streaming.py** 파일에 저장된 Python 스크립트를 호출합니다.
 
 **Linux 기반 HDInsight**
 
-    add file wasbs:///streaming.py;
+```hiveql
+add file wasbs:///streaming.py;
 
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-      USING 'python streaming.py' AS
-      (clientid string, phoneLable string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
+SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'python streaming.py' AS
+    (clientid string, phoneLable string, phoneHash string)
+FROM hivesampletable
+ORDER BY clientid LIMIT 50;
+```
 
 **Windows 기반 HDInsight**
 
-    add file wasbs:///streaming.py;
+```hiveql
+add file wasbs:///streaming.py;
 
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-      USING 'D:\Python27\python.exe streaming.py' AS
-      (clientid string, phoneLable string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
+SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'D:\Python27\python.exe streaming.py' AS
+    (clientid string, phoneLable string, phoneHash string)
+FROM hivesampletable
+ORDER BY clientid LIMIT 50;
+```
 
 > [!NOTE]
 > Windows 기반 HDInsight 클러스터에서는 **USING** 절에서 python.exe의 전체 경로를 지정해야 합니다. 이는 항상 `D:\Python27\python.exe`입니다.
-> 
-> 
 
 다음은 이 예제에서 수행하는 작업입니다.
 
@@ -74,21 +79,22 @@ Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습
 
 <a name="streamingpy"></a> 다음은 HiveQL 예제에 사용된 **streaming.py** 파일입니다.
 
-    #!/usr/bin/env python
+```python
+#!/usr/bin/env python
+import sys
+import string
+import hashlib
 
-    import sys
-    import string
-    import hashlib
-
-    while True:
-      line = sys.stdin.readline()
-      if not line:
+while True:
+    line = sys.stdin.readline()
+    if not line:
         break
 
-      line = string.strip(line, "\n ")
-      clientid, devicemake, devicemodel = string.split(line, "\t")
-      phone_label = devicemake + ' ' + devicemodel
-      print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
+    line = string.strip(line, "\n ")
+    clientid, devicemake, devicemodel = string.split(line, "\t")
+    phone_label = devicemake + ' ' + devicemodel
+    print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
+```
 
 스트리밍을 사용하고 있으므로, 이 스크립트는 다음을 수행해야 합니다.
 
@@ -114,15 +120,15 @@ Pig에서 Jython 또는 C Python을 사용하여 스크립트를 실행하는지
 
 > [!IMPORTANT]
 > Jython을 사용할 경우 pig_jython 파일에 대한 경로는 로컬 경로 또는 WASB:// 경로입니다. 그러나 C Python을 사용할 경우에는 Pig 작업을 제출하는 데 사용하는 노드의 로컬 파일 시스템에 있는 파일을 참조해야 합니다.
-> 
-> 
 
 등록하기 전이라면 두 경우에 대한 이 예제의 Pig Latin은 다음과 같이 모두 동일합니다.
 
-    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-    LOG = FILTER LOGS by LINE is not null;
-    DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
-    DUMP DETAILS;
+```pig
+LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+LOG = FILTER LOGS by LINE is not null;
+DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
+DUMP DETAILS;
+```
 
 다음은 이 예제에서 수행하는 작업입니다.
 
@@ -135,20 +141,20 @@ C Python과 Jython 간에 실제 Python 스크립트 파일은 유사하며, C P
 
 <a name="streamingpy"></a>
 
-    # Uncomment the following if using C Python
-    #from pig_util import outputSchema
+```python
+# Uncomment the following if using C Python
+#from pig_util import outputSchema
 
-    @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
-    def create_structure(input):
+@outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
+def create_structure(input):
     if (input.startswith('java.lang.Exception')):
         input = input[21:len(input)] + ' - java.lang.Exception'
     date, time, classname, level, detail = input.split(' ', 4)
     return date, time, classname, level, detail
+```
 
 > [!NOTE]
 > 'pig_util'은 설치에 대해 걱정할 필요 없이 자동으로 스크립트에 사용할 수 있는 것입니다.
-> 
-> 
 
 입력에 대한 일관된 스키마가 없으므로, 앞에서 **LINE** 입력을 chararray로 정의했습니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환하는 것입니다. 다음과 같이 작업합니다.
 
@@ -161,7 +167,7 @@ C Python과 Jython 간에 실제 Python 스크립트 파일은 유사하며, C P
    * detail - 로그 항목에 대한 세부 정보
 2. 그런 다음 **def create_structure(input)**가 Pig에서 줄 항목을 전달할 함수를 정의합니다.
 3. 예제 데이터인 **sample.log**는 대개 date, time, classname, level 및 detail(반환을 원하는 필드) 스키마를 준수합니다. 그러나 '*java.lang.Exception*' 문자열로 시작하며 스키마와 일치하도록 수정해야 하는 몇 개의 줄도 포함되어 있습니다. **if** 문이 이러한 줄을 확인한 후 '*java.lang.Exception*' 문자열을 끝으로 이동하고, 원하는 출력 스키마에 따라 인라인 데이터를 가져오는 입력 데이터를 전달합니다.
-4. 그런 다음 **split** 명령을 사용하여 첫 4개 공백 문자에서 데이터를 분할합니다. 그 결과, 5개 값이 생성되어 **date**, **time**, **classname**, **level** 및 **detail**에 할당됩니다.
+4. 그런 다음 **split** 명령을 사용하여 첫&4;개 공백 문자에서 데이터를 분할합니다. 그 결과,&5;개 값이 생성되어 **date**, **time**, **classname**, **level** 및 **detail**에 할당됩니다.
 5. 마지막으로 값은 Pig로 반환됩니다.
 
 데이터가 Pig로 반환되면 **@outputSchema** 문을 통해 Hive의 UDF로 사용할 수 있습니다.
@@ -190,12 +196,14 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
 1. `hive` 명령을 사용하여 Hive 셸을 시작합니다. 셸이 로드되면 `hive>` 프롬프트가 한 번 표시됩니다.
 2. `hive>` 프롬프트에 다음을 입력합니다.
    
-        add file wasbs:///streaming.py;
-        SELECT TRANSFORM (clientid, devicemake, devicemodel)
-          USING 'python streaming.py' AS
-          (clientid string, phoneLabel string, phoneHash string)
-        FROM hivesampletable
-        ORDER BY clientid LIMIT 50;
+   ```hive
+   add file wasbs:///streaming.py;
+   SELECT TRANSFORM (clientid, devicemake, devicemodel)
+       USING 'python streaming.py' AS
+       (clientid string, phoneLabel string, phoneHash string)
+   FROM hivesampletable
+   ORDER BY clientid LIMIT 50;
+   ```
 3. 마지막 줄을 입력하면 작업이 시작됩니다. 최종적으로 다음과 유사한 출력이 반환됩니다.
    
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -205,14 +213,18 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
 #### <a name="pig"></a>Pig
+
 1. `pig` 명령을 사용하여 셸을 시작합니다. 셸이 로드되면 `grunt>` 프롬프트가 한 번 표시됩니다.
 2. Jython 인터프리터를 사용하는 Python 스크립트를 실행하도록 `grunt>` 프롬프트에서 다음 문을 입력합니다.
    
-        Register wasbs:///pig_python.py using jython as myfuncs;
-        LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-        LOG = FILTER LOGS by LINE is not null;
-        DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-        DUMP DETAILS;
+   ```pig
+   Register wasbs:///pig_python.py using jython as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
+
 3. 다음 줄을 입력하면 작업이 시작됩니다. 최종적으로 다음과 유사한 출력이 반환됩니다.
    
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
@@ -223,124 +235,130 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
 4. `quit`를 사용하여 Grunt 셸을 종료한 후 다음을 사용하여 로컬 파일 시스템에 있는 pig_python.py 파일을 편집합니다.
    
     nano pig_python.py
+
 5. 편집기에서 다음 줄의 시작 부분에 있는 `#` 문자를 제거하여 해당 줄의 주석 처리를 제거합니다.
    
         #from pig_util import outputSchema
    
     변경했으면 Ctrl+X를 사용하여 편집기를 종료합니다. Y를 선택한 다음 enter 키를 눌러 변경 내용을 저장합니다.
+
 6. `pig` 명령을 사용하여 셸을 다시 시작합니다. `grunt>` 프롬프트에서 다음 문을 사용하여 Jython 인터프리터를 사용하는 Python 스크립트를 실행합니다.
    
-        Register 'pig_python.py' using streaming_python as myfuncs;
-        LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-        LOG = FILTER LOGS by LINE is not null;
-        DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-        DUMP DETAILS;
+   ```pig
+   Register 'pig_python.py' using streaming_python as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
    
     이 작업이 완료되면 이전에 Jython을 사용하여 스크립트를 실행한 때와 같은 출력이 표시됩니다.
 
 ### <a name="powershell"></a>PowerShell
+
 이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 1. Python 예제인 [streaming.py](#streamingpy)와 [pig_python.py](#jythonpy)를 사용하여 개발 컴퓨터에 파일의 로컬 사본을 만듭니다.
-2. 다음 PowerShell 스크립트를 사용하여 **streaming.py**와 **pig\_python.py** 파일을 서버에 업로드합니다. 스크립트의 첫 3개 줄에서 Azure HDInsight 클러스터의 이름과 **streaming.py** 및 **pig\_python.py** 파일의 경로를 바꿉니다.
+2. 다음 PowerShell 스크립트를 사용하여 **streaming.py**와 **pig\_python.py** 파일을 서버에 업로드합니다. 스크립트의 첫&3;개 줄에서 Azure HDInsight 클러스터의 이름과 **streaming.py** 및 **pig\_python.py** 파일의 경로를 바꿉니다.
    
-        $clusterName = YourHDIClusterName
-        $pathToStreamingFile = "C:\path\to\streaming.py"
-        $pathToJythonFile = "C:\path\to\pig_python.py"
-   
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=(Get-AzureRmStorageAccountKey `
-            -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
-   
-        #Create a storage content and upload the file
-        $context = New-AzureStorageContext `
-            -StorageAccountName $storageAccountName `
-            -StorageAccountKey $storageAccountKey
-   
-        Set-AzureStorageBlobContent `
-            -File $pathToStreamingFile `
-            -Blob "streaming.py" `
-            -Container $container `
-            -Context $context
-   
-        Set-AzureStorageBlobContent `
-            -File $pathToJythonFile `
-            -Blob "pig_python.py" `
-            -Container $container `
-            -Context $context
-   
-    이 스크립트는 HDInsight 클러스터의 정보를 검색한 후 계정 및 기본 저장소 계정의 키를 추출하고 컨테이너의 루트에 파일을 업로드합니다.
-   
-   > [!NOTE]
-   > 그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md) 문서에서 찾아볼 수 있습니다.
-   > 
-   > 
+   ```powershell
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
 
-파일을 업로드한 후 다음 PowerShell 스크립트를 사용하여 작업을 시작합니다. 작업이 완료되면 출력이 PowerShell 콘솔에 작성됩니다.
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $pathToStreamingFile = "C:\path\to\streaming.py"
+    $pathToJythonFile = "C:\path\to\pig_python.py"
 
-#### <a name="hive"></a>Hive
-다음 스크립트는 **streaming.py** 스크립트를 실행합니다. 실행에 앞서 HDInsight 클러스터의 HTTPs/관리자 계정 정보를 입력하라는 메시지가 표시됩니다.
-
-    # Replace 'YourHDIClusterName' with the name of your cluster
-    $clusterName = YourHDIClusterName
-    $creds=Get-Credential
-    #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
     $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
+    -ResourceGroupName $resourceGroup)[0].Value
+
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
 
-    # If using a Windows-based HDInsight cluster, change the USING statement to:
-    # "USING 'D:\Python27\python.exe streaming.py' AS " +
-    $HiveQuery = "add file wasbs:///streaming.py;" +
-                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-                   "USING 'python streaming.py' AS " +
-                   "(clientid string, phoneLabel string, phoneHash string) " +
-                 "FROM hivesampletable " +
-                 "ORDER BY clientid LIMIT 50;"
+    Set-AzureStorageBlobContent `
+        -File $pathToStreamingFile `
+        -Blob "streaming.py" `
+        -Container $container `
+        -Context $context
 
-    $jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
-        -Query $HiveQuery
+    Set-AzureStorageBlobContent `
+        -File $pathToJythonFile `
+        -Blob "pig_python.py" `
+        -Container $container `
+        -Context $context
+   ```
 
-    $job = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $jobDefinition `
-        -HttpCredential $creds
-    Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -JobId $job.JobId `
-        -ClusterName $clusterName `
-        -HttpCredential $creds
-    # Uncomment the following to see stderr output
-    # Get-AzureRmHDInsightJobOutput `
-    #   -Clustername $clusterName `
-    #   -JobId $job.JobId `
-    #   -DefaultContainer $container `
-    #   -DefaultStorageAccountName $storageAccountName `
-    #   -DefaultStorageAccountKey $storageAccountKey `
-    #   -HttpCredential $creds `
-    #   -DisplayOutputType StandardError
-    Write-Host "Display the standard output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds
+    이 스크립트는 HDInsight 클러스터의 정보를 검색한 후 계정 및 기본 저장소 계정의 키를 추출하고 컨테이너의 루트에 파일을 업로드합니다.
+   
+   > [!NOTE]
+   > 그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md) 문서에서 찾아볼 수 있습니다.
+
+파일을 업로드한 후 다음 PowerShell 스크립트를 사용하여 작업을 시작합니다. 작업이 완료되면 출력이 PowerShell 콘솔에 작성됩니다.
+
+#### <a name="hive"></a>Hive
+다음 스크립트는 **streaming.py** 스크립트를 실행합니다. 실행에 앞서 HDInsight 클러스터의 HTTPs/관리자 계정 정보를 입력하라는 메시지가 표시됩니다.
+
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
+
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -Message "Enter the login for the cluster"
+
+# If using a Windows-based HDInsight cluster, change the USING statement to:
+# "USING 'D:\Python27\python.exe streaming.py' AS " +
+$HiveQuery = "add file wasbs:///streaming.py;" +
+                "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
+                "USING 'python streaming.py' AS " +
+                "(clientid string, phoneLabel string, phoneHash string) " +
+                "FROM hivesampletable " +
+                "ORDER BY clientid LIMIT 50;"
+
+$jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
+    -Query $HiveQuery
+
+$job = Start-AzureRmHDInsightJob `
+    -ClusterName $clusterName `
+    -JobDefinition $jobDefinition `
+    -HttpCredential $creds
+Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
+Wait-AzureRmHDInsightJob `
+    -JobId $job.JobId `
+    -ClusterName $clusterName `
+    -HttpCredential $creds
+# Uncomment the following to see stderr output
+# Get-AzureRmHDInsightJobOutput `
+#   -Clustername $clusterName `
+#   -JobId $job.JobId `
+#   -HttpCredential $creds `
+#   -DisplayOutputType StandardError
+Write-Host "Display the standard output ..." -ForegroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds
+```
 
 **Hive** 작업의 출력은 다음과 유사하게 표시됩니다.
 
@@ -355,62 +373,50 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
 
 > [!NOTE]
 > PowerShell을 사용하는 작업을 원격으로 제출하는 경우 C Python을 인터프리터로사용할 수 없습니다.
-> 
-> 
 
-    # Replace 'YourHDIClusterName' with the name of your cluster
-    $clusterName = YourHDIClusterName
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
 
-    $creds = Get-Credential
-    #Get the cluster info so we can get the resource group, storage, etc.
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -Message "Enter the login for the cluster"
 
-    #Create a storage content and upload the file
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
+$PigQuery = "Register wasbs:///pig_python.py using jython as myfuncs;" +
+            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
+            "LOG = FILTER LOGS by LINE is not null;" +
+            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
+            "DUMP DETAILS;"
 
-    $PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
-                "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
-                "LOG = FILTER LOGS by LINE is not null;" +
-                "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
-                "DUMP DETAILS;"
+$jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
 
-    $jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
+$job = Start-AzureRmHDInsightJob `
+    -ClusterName $clusterName `
+    -JobDefinition $jobDefinition `
+    -HttpCredential $creds
 
-    $job = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $jobDefinition `
-        -HttpCredential $creds
-
-    Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -Job $job.JobId `
-        -ClusterName $clusterName `
-        -HttpCredential $creds
-    # Uncomment the following to see stderr output
-    # Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
-    Write-Host "Display the standard output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds
+Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+Wait-AzureRmHDInsightJob `
+    -Job $job.JobId `
+    -ClusterName $clusterName `
+    -HttpCredential $creds
+# Uncomment the following to see stderr output
+# Get-AzureRmHDInsightJobOutput `
+#    -Clustername $clusterName `
+#    -JobId $job.JobId `
+#    -HttpCredential $creds `
+#    -DisplayOutputType StandardError
+Write-Host "Display the standard output ..." -ForegroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -Clustername $clusterName `
+    -JobId $job.JobId `
+    -HttpCredential $creds
+```
 
 **Pig** 작업의 출력은 다음과 유사하게 표시됩니다.
 
@@ -421,6 +427,7 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 ## <a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>문제 해결
+
 ### <a name="errors-when-running-jobs"></a>작업 실행 중 오류 발생
 하이브 작업 실행 중 다음과 유사한 오류가 발생할 수 있습니다.
 
@@ -430,21 +437,22 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
 
 LF 줄 끝을 만들 수 없는 편집기를 사용 중이거나 어떤 줄 끝을 사용하는지 확실하지 않은 경우 HDInsight에 파일을 업로드하기 전에 다음 PowerShell 문을 사용하여 CR 문자를 제거합니다.
 
-    $original_file ='c:\path\to\streaming.py'
-    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-    [IO.File]::WriteAllText($original_file, $text)
+```powershell
+$original_file ='c:\path\to\streaming.py'
+$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+[IO.File]::WriteAllText($original_file, $text)
+```
 
 ### <a name="powershell-scripts"></a>PowerShell 스크립트
 이 예제를 실행하는 데 사용된 두 가지 예제 PowerShell 스크립트는 작업의 오류 출력을 표시하는 주석 처리된 줄을 포함합니다. 작업의 필요한 출력이 표시되지 않으면 다음 줄의 주석 처리를 제거하고 오류 정보가 문제를 나타내는지 확인합니다.
 
-    # Get-AzureRmHDInsightJobOutput `
-            -Clustername $clusterName `
-            -JobId $job.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds `
-            -DisplayOutputType StandardError
+```powershell
+# Get-AzureRmHDInsightJobOutput `
+        -Clustername $clusterName `
+        -JobId $job.JobId `
+        -HttpCredential $creds `
+        -DisplayOutputType StandardError
+```
 
 오류 정보(STDERR) 및 작업의 결과(STDOUT)도 다음 위치의 클러스터용 기본 Blob 컨테이너에 로깅됩니다.
 
@@ -465,6 +473,6 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

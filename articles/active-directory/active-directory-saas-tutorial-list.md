@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2016
+ms.date: 11/30/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: efd29518fc207eb3e554f1389a6109ae4f1f3205
-ms.openlocfilehash: 85f6cd60f3a5e62bcfcc14b80a4a59331a6ff635
+ms.sourcegitcommit: b82298390bdb89d7e7dd9b522d561e149ba36f22
+ms.openlocfilehash: 5a72e36dbbbe1d56b66c7a55808a228e7fb05eda
 
 
 ---
@@ -277,6 +277,7 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_UserEcho.png)| [UserEcho](https://go.microsoft.com/fwLink/?LinkID=691861&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_UserVoice.png)| [UserVoice](https://go.microsoft.com/fwLink/?LinkID=510243&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Veracode.png)| [Veracode](https://go.microsoft.com/fwLink/?LinkID=530231&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_VeritasEnterprise.png)| [Veritas Enterprise Vault.cloud SSO](https://go.microsoft.com/fwLink/?LinkID=828389&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_VXMaintain.png)| [vxMaintain](https://go.microsoft.com/fwLink/?LinkID=822852&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Weekdone.png)| [Weekdone](https://go.microsoft.com/fwLink/?LinkID=785281&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.png)| [Wikispaces](https://go.microsoft.com/fwLink/?LinkID=403223&clcid=0x409)|
@@ -301,7 +302,6 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 
 
 
-
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
@@ -309,6 +309,6 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

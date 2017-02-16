@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 01/11/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f6e684b08ed481cdf84faf2b8426da72f98fc58c
-ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
+ms.sourcegitcommit: 4029b699b59bb12eaa9e24b487d2829b5fb26daf
+ms.openlocfilehash: 6780b422138fbe18adfe256e9f7aa279dfed1cd9
 
 
 ---
@@ -48,54 +48,70 @@ ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
 
 예를 들어 **C#**에서는 다음 코드로 **response**로 명명된 **HttpWebResponse** 개체에서 헤더 값을 검색합니다.
 
-    response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```cs
+response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```
 
 **PowerShell**에서는 Invoke-WebRequest 작업에서 헤더 값을 검색합니다.
 
-    $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
-    $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```powershell
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```
 
 또는 디버깅을 위해 나머지 요청을 보려면 **PowerShell** cmdlet에서 **-Debug** 매개 변수를 제공할 수 있습니다.
 
-    Get-AzureRmResourceGroup -Debug
+```powershell
+Get-AzureRmResourceGroup -Debug
+```
 
-그러면 응답 값을 포함한 많은 정보가 반환됩니다.
+그러면 다음 응답 값을 포함한 많은 값이 반환됩니다.
 
-    ...
-    DEBUG: ============================ HTTP RESPONSE ============================
+```powershell
+...
+DEBUG: ============================ HTTP RESPONSE ============================
 
-    Status Code:
-    OK
+Status Code:
+OK
 
-    Headers:
-    Pragma                        : no-cache
-    x-ms-ratelimit-remaining-subscription-reads: 14999
-    ...
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-reads: 14999
+...
+```
 
 **Azure CLI**에서 더 많은 자세한 정보 표시 옵션을 사용하여 헤더 값을 검색합니다.
 
-    azure group list -vv --json
+```azurecli
+azure group list -vv --json
+```
 
-그러면 다음 개체를 포함한 많은 정보가 반환됩니다.
+그러면 다음 개체를 포함한 많은 값이 반환됩니다.
 
+```azurecli
+...
+silly: returnObject
+{
+  "statusCode": 200,
+  "header": {
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "content-type": "application/json; charset=utf-8",
+    "expires": "-1",
+    "x-ms-ratelimit-remaining-subscription-reads": "14998",
     ...
-    silly: returnObject
-    {
-      "statusCode": 200,
-      "header": {
-        "cache-control": "no-cache",
-        "pragma": "no-cache",
-        "content-type": "application/json; charset=utf-8",
-        "expires": "-1",
-        "x-ms-ratelimit-remaining-subscription-reads": "14998",
-        ...
+```
 
 ## <a name="waiting-before-sending-next-request"></a>다음 요청을 보낼 때까지 대기
 요청 제한에 도달하면 Resource Manager는 헤더에서 **429** HTTP 상태 코드 및 **Retry-After** 값을 반환합니다. **Retry-After** 값은 응용 프로그램이 다음 요청을 보낼 때까지 대기(또는 절전)하는 시간(초)을 지정합니다. 재시도 값이 경과하기 전에 요청을 보내면 요청이 처리되지 않고 새 재시도 값이 반환됩니다.
 
+## <a name="next-steps"></a>다음 단계
+
+* 제한 및 할당량에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+* 비동기 REST 요청 처리에 대해 알아보려면 [Azure 비동기 작업 추적](resource-manager-async-operations.md)을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

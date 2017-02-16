@@ -1,5 +1,5 @@
 ---
-title: "Linux에서 App Service를 사용하여 웹앱을 만드는 방법 | Microsoft Docs"
+title: "Linux에서 실행되는 Azure Web App 만들기 | Microsoft Docs"
 description: "Linux의 App Service용 웹앱 만들기 워크플로"
 keywords: "azure app service, 웹앱, linux, oss"
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
+ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Linux에서 App Service를 사용하여 웹앱 만들기
+# <a name="create-an-azure-web-app-running-on-linux"></a>Linux에서 실행되는 Azure Web App 만들기
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Azure Portal을 사용하여 웹앱 만들기
 다음 그림에 나와 있는 것처럼 [Azure Portal](https://portal.azure.com)에서 Linux의 웹앱을 만들 수 있습니다.
 
@@ -59,6 +59,6 @@ ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

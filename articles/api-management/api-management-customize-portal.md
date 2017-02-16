@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 
 각 규칙은 선택한 요소의 스타일 속성을 나타냅니다. 예를 들어 위에서 선택한 머리글 텍스트의 경우 텍스트의 크기는 @font-size-h1이고, 대체 항목이 있는 글꼴의 이름은 @headings-font-family.
 
-> [부트스트랩][bootstrap]에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][LESS variables]입니다.
+> [부트스트랩][bootstrap](영문)에 익숙한 경우 이 규칙은 실제로 개발자 포털에서 사용하는 부트스트랩 테마 내의 [LESS 변수][LESS variables](영문)입니다.
 > 
 > 
 
@@ -87,12 +87,12 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 ## <a name="next-steps"> </a>다음 단계
 * [개발자 포털 템플릿](api-management-developer-portal-templates.md)을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법 알아보기.
 
-[페이지 머리글의 텍스트/로고 변경]: #change-page-headers
-[머리글의 스타일 변경]: #change-headers-styling
-[페이지의 콘텐츠 편집]: #edit-page-contents
-[다음 단계]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 
 
 [bootstrap]: http://getbootstrap.com/
-[LESS 변수]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

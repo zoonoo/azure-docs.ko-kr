@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
-ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: c2bf44dc23a3b330994e51317b6b021fab6eef1f
 
 
 ---
@@ -103,7 +103,7 @@ Azure 검색에서 인덱스에 대한 구조적 업데이트를 위해서는 �
 인덱서에 대해 자세히 알아보려면 다음 링크를 검토합니다.
 
 * [Azure SQL Database 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB 인덱싱](../documentdb/documentdb-search-indexer.md)
+* [DocumentDB 인덱싱](search-howto-index-documentdb.md)
 * [Blob Storage 인덱싱(미리 보기)](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage 인덱싱(미리 보기)](search-howto-indexing-azure-tables.md)
 
@@ -113,6 +113,6 @@ Azure 검색에서 인덱스에 대한 구조적 업데이트를 위해서는 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

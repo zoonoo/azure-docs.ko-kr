@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6a58b75b1bc198e26e7ddc776a668cb2a4bf9553
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 22a8a7541da572445ab0d6a822b56bd9a03339b7
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: 6a58b75b1bc198e26e7ddc776a668cb2a4bf9553
    > 저장소 계정이 자동화 계정과 동일한 지역에 *있어야* 합니다.
    >
    >
-3. 버전 1.0.8 이상의 Operational Insights cmdlet이 있는 Azure PowerShell 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+3. 버전 1.0.8 이상의 Operational Insights cmdlet이 있는 Azure PowerShell 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 4. Azure 진단 및 Log Analytics PowerShell.  이 릴리스에 대한 자세한 내용은 및 설치 방법은 [Azure 진단 및 Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1)를 참조하세요.  
 5. **PowerShell 갤러리** 에서 PowerShell 스크립트 [Enable-AzureDiagnostics.ps1](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript)다운로드. 이 스크립트는 다음을 구성합니다.
    * 지정한 자동화 계정에 대한 runbook 작업 상태 및 스트림 데이터를 유지하는 저장소 계정
@@ -156,6 +156,6 @@ Automation은 OMS 리포지토리에 두 가지 유형의 레코드를 만듭니
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

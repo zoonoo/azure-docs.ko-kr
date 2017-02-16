@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
-ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -30,11 +30,24 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 > 
 > 
 
-이 Node.js 자습서에서는 Azure DocumentDB를 사용하여 Azure Websites에 호스팅된 Node.js Express 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 작업을 만들고 검색하고 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램인 ToDo 응용 프로그램을 빌드합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다. 이 자습서는 앱을 만들고 배포하는 과정을 안내하고 각 코드 조각에서 발생하는 상황에 대해 설명합니다.
+이 Node.js 자습서에서는 Azure DocumentDB 서비스를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
+
+먼저 Azure DocumentDB 데이터베이스 계정을 프로비전하는 방법을 알아보는 다음 동영상을 보고 JSON 문서를 Node.js 응용 프로그램에 저장하는 것이 좋습니다. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
+> 
+> 
+
+그런 다음 이 Node.js 자습서로 돌아와서 다음 내용을 살펴보세요.
+
+* documentdb npm 모듈을 사용해서 DocumentDB를 사용하는 방법
+* Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법
+
+이 데이터베이스 자습서를 따라 작업을 만들고, 검색하고, 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램을 작성합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
 
 ![이 Node.js 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image1.png)
 
-자습서를 완료할 시간이 없고 전체 솔루션을 가져오려는 경우 [GitHub][GitHub]에서 전체 샘플 솔루션을 구할 수 있습니다. 앱을 실행하는 방법에 대한 지침은 [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) 파일을 참조하세요.
+자습서를 완료할 시간이 없고 전체 솔루션을 가져오려는 경우 [GitHub][GitHub]에서 전체 샘플 솔루션을 구할 수 있습니다.
 
 ## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>필수 조건
 > [!TIP]
@@ -44,7 +57,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)
 
    또는
 
@@ -63,23 +76,20 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 ## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램을 만드는 방법 알아보기
 이제 [Express](http://expressjs.com/) 프레임워크를 사용해서 기본적인 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.
 
-1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
-2. 새 응용 프로그램을 저장하려는 디렉터리로 이동합니다.
-3. Express 생성기를 사용해서 **todo**라는 새로운 응용 프로그램을 생성합니다.
+1. 자주 사용하는 터미널을 엽니다.
+2. Express 생성기를 사용해서 **todo**라는 새로운 응용 프로그램을 생성합니다.
    
         express todo
-4. 새 **todo** 디렉터리를 열고 종속성을 설치합니다.
+3. 새 **todo** 디렉터리를 열고 종속성을 설치합니다.
    
         cd todo
         npm install
-5. 새 응용 프로그램을 실행합니다.
+4. 새 응용 프로그램을 실행합니다.
    
         npm start
-6. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
+5. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
    
     ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image12.png)
-
-    그런 다음 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **y**를 클릭하여 배치 작업을 종료합니다.
 
 ## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>3단계: 추가 모듈 설치
 **package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 나중에 이 응용 프로그램을 Azure 웹 사이트에 배포하는 경우 이 파일을 사용하여 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정합니다. 이 자습서를 위해 패키지 두 개를 더 설치해야 합니다.
@@ -92,25 +102,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
         npm install documentdb --save
 3. 응용 프로그램의 **package.json** 파일에 대해 빠른 검사를 수행하면 추가 모듈이 표시됩니다. 이 파일은 응용 프로그램 실행 시 다운로드 및 설치할 패키지를 Azure에 알려줍니다. 아래 예제와 비슷합니다.
    
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
+    ![package.json 탭의 스크린샷](./media/documentdb-nodejs-application/image17.png)
    
     이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
@@ -118,7 +110,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 초기 설정 및 구성이 모두 완료되었으므로 이제 Azure DocumentDB를 사용하여 일부 코드를 작성하겠습니다.
 
 ### <a name="create-the-model"></a>모델 만들기
-1. 프로젝트 디렉터리에서 package.json 파일과 동일한 디렉터리에 **models**라는 새 디렉터리를 만듭니다.
+1. 프로젝트 디렉터리에서 **models**라는 새 디렉터리를 만듭니다.
 2. **models** 디렉터리에서 **taskDao.js**라는 새 파일을 만듭니다. 이 파일에는 응용 프로그램에서 만든 작업 모델이 포함됩니다.
 3. 동일한 **models** 디렉터리에서 **docdbUtils.js**라는 다른 새 파일을 만듭니다. 이 파일에는 응용 프로그램 전체에서 사용할 몇 가지 유용하고, 다시 사용할 수 있는 코드가 포함됩니다. 
 4. 다음 코드를 **docdbUtils.js**
@@ -395,7 +387,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
         config.collectionId = "Items";
    
         module.exports = config;
-3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)에 있는 DocumentDB 계정의 [키] 블레이드에 있는 값을 사용하여 HOST 및 AUTH_KEY 값을 업데이트합니다.
+3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH_KEY 값을 업데이트합니다.
 4. **config.js** 파일을 저장하고 닫습니다.
 
 ### <a name="modify-appjs"></a>app.js 수정
@@ -406,10 +398,10 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
         var config = require('./config');
         var TaskList = require('./routes/tasklist');
         var TaskDao = require('./models/taskDao');
-3. 이 코드는 사용할 구성 파일을 정의하고, 이 파일의 값을 곧 사용할 몇 가지 변수로 읽어들입니다.
+3. 이 코드는 사용할 구성 파일을 정의하고 이 파일에서 값을 나중에 곧 사용할 변수로 읽어들입니다.
 4. **app.js** 파일에서 다음 두 줄을
    
-        app.use('/', index);
+        app.use('/', routes);
         app.use('/users', users); 
    
       다음 코드 조각으로 바꿉니다.
@@ -436,59 +428,60 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
    
         doctype html
         html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+          head
+            title= title
+            link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+            link(rel='stylesheet', href='/stylesheets/style.css')
+          body
+            nav.navbar.navbar-inverse.navbar-fixed-top
+              div.navbar-header
+                a.navbar-brand(href='#') My Tasks
+            block content
+            script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+            script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
     이렇게 하면 응용 프로그램에 대한 일부 HTML을 렌더링하고 콘텐츠 페이지의 레이아웃을 제공할 수 있는 **콘텐츠**라는 **블록**을 만들도록 **Jade** 엔진에 알립니다.
     이 **layout.jade** 파일을 저장하고 닫습니다.
 
-3. 이제 응용 프로그램에 사용되는 뷰인 **index.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
+1. 이제 응용 프로그램에 사용되는 뷰인 **index.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
    
         extends layout
+   
         block content
-           h1 #{title}
-           br
-        
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
-           hr
-           form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
-             br
-             button.btn(type="submit") Add item
+          h1 #{title}
+          br
+   
+          form(action="/completetask", method="post")
+            table.table.table-striped.table-bordered
+              tr
+                td Name
+                td Category
+                td Date
+                td Complete
+              if (typeof tasks === "undefined")
+                tr
+                  td
+              else
+                each task in tasks
+                  tr
+                    td #{task.name}
+                    td #{task.category}
+                    - var date  = new Date(task.date);
+                    - var day   = date.getDate();
+                    - var month = date.getMonth() + 1;
+                    - var year  = date.getFullYear();
+                    td #{month + "/" + day + "/" + year}
+                    td
+                      input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+            button.btn(type="submit") Update tasks
+          hr
+          form.well(action="/addtask", method="post")
+            label Item Name:
+            input(name="name", type="textbox")
+            label Item Category:
+            input(name="category", type="textbox")
+            br
+            button.btn(type="submit") Add item
    
     이렇게 하면 레이아웃이 확장되고 앞에서 **layout.jade** 파일에 있던 **content** 자리 표시자의 콘텐츠가 제공됩니다.
    
@@ -497,7 +490,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
     두 번째 폼에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다.
    
     응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
-4. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
+2. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
    
         body {
           padding: 50px;
@@ -520,20 +513,14 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
     이 **style.css** 파일을 저장하고 닫습니다.
 
 ## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>6단계: 로컬에서 응용 프로그램 실행
-1. 로컬 컴퓨터에서 응용 프로그램을 테스트하려면 터미널에서 `npm start`를 실행하여 응용 프로그램을 시작한 다음 [http://localhost:3000](http://localhost:3000) 브라우저 페이지를 새로 고칩니다. 이제 페이지가 아래 이미지처럼 표시됩니다.
+1. 로컬 컴퓨터에서 응용 프로그램을 테스트하려면 터미널에서 `npm start` 를 실행하여 응용 프로그램을 시작하고, 아래 이미지와 비슷하게 보이는 페이지로 브라우저를 실행합니다.
    
     ![브라우저 창에 표시된 MyTodo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image18.png)
-
-    > [!TIP]
-    > layout.jade 파일이나 index.jade 파일에서 들여쓰기에 대한 오류가 발생하면 두 파일의 처음 두 줄을 공백 없이 왼쪽에 맞춥니다. 처음 두 줄 앞에 공백이 있으면 제거하고 두 파일을 모두 저장한 다음 브라우저 창을 새로 고칩니다. 
-
-2. [항목], [항목 이름] 및 [범주] 필드를 사용하여 새 작업을 입력한 다음 **항목 추가**를 클릭합니다. 그러면 이러한 속성을 포함한 문서를 DocumentDB에 만듭니다. 
+2. 항목, 항목 이름 및 범주에 대해 제공된 필드를 사용하여 정보를 입력하고 **항목 추가**를 클릭합니다.
 3. 페이지가 업데이트되어 새로 만든 항목을 ToDo 목록에 표시합니다.
    
     ![할 일 모음에 새 항목이 포함된 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image19.png)
-4. 작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다. 그러면 이미 만든 문서를 업데이트합니다.
-
-5. 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **Y**를 클릭하여 배치 작업을 종료합니다.
+4. 작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다.
 
 ## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
 1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. [Azure 앱 서비스에 로컬 Git 배포](../app-service-web/app-service-deploy-local-git.md) 항목에서 이 작업을 수행하는 방법에 대한 지침을 찾을 수 있습니다.
@@ -545,16 +532,12 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
         git push azure master
 4. 몇 초 후에 웹 응용 프로그램 게시가 완료되고 git가 웹 응용 프로그램 게시를 완료하고, Azure에서 실행 중인 작업을 볼 수 있는 브라우저가 실행됩니다.
 
-    축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Node.js Express 웹 응용 프로그램을 작성하고 Azure 웹 사이트에 게시했습니다.
-
-    이 자습서의 참조 응용 프로그램 전체를 다운로드하거나 참조하려면 [GitHub][GitHub]에서 다운로드할 수 있습니다.
-
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>다음 단계
+축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Node.js Express 웹 응용 프로그램을 작성하고 Azure 웹 사이트에 게시했습니다.
 
-* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다.  [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
-* [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
-* [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
-* [DocumentDB 설명서](https://docs.microsoft.com/en-us/azure/documentdb/)를 살펴봅니다.
+[GitHub][GitHub]에서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
+
+자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
@@ -563,6 +546,6 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

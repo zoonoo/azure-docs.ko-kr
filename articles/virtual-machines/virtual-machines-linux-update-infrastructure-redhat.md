@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 12/01/2016
 ms.author: borisb
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8b00d3c4461494d35665c976e0e1098a246abb68
+ms.sourcegitcommit: 7ad71094cafb3d401797e8a8b3dd48a9aeeded9e
+ms.openlocfilehash: 34c4198c0b1b975caf2c198634bb18e0c4f2ab5b
 
 
 ---
@@ -50,6 +50,10 @@ RHUI에서 관리되는 yum 리포지토리 목록은 프로비전 중 RHEL 인�
 
 # Azure US Government
 13.72.186.193
+
+# Azure Germany
+51.5.243.77
+51.4.228.145
 ```
 
 ### <a name="manual-update-procedure-to-use-the-new-azure-rhui-servers"></a>새 Azure RHUI 서버를 사용하기 위한 수동 업데이트 절차
@@ -178,7 +182,7 @@ sudo rpm -U azureclient.rpm
 [Red Hat 업데이트 인프라](https://access.redhat.com/products/red-hat-update-infrastructure) 는 Red Hat 인증 클라우드 공급자가 호스트하는 Red Hat Enterprise Linux 클라우드 인스턴스의 yum 리포지토리 콘텐츠를 관리할 수 있는 확장성이 뛰어난 솔루션을 제공합니다. 업스트림 Pulp 프로젝트를 기반으로, RHUI는 클라우드 공급자가 Red Hat 호스트되는 리포지토리 콘텐츠를 로컬로 미러링하고, 고유한 콘텐츠로 사용자 지정 리포지토리를 만들고, 부하 분산된 콘텐츠 배달 시스템을 통해 이러한 리포지토리를 대규모 최종 사용자 그룹에 제공하도록 허용합니다.
 
 ## <a name="regions-where-rhui-is-available"></a>RHUI 사용 가능한 지역
-RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제공됩니다. RHUI는 현재 [Azure 상태 대시보드](https://azure.microsoft.com/status/) 페이지 및 Azure 미국 정부 지역에 나열된 모든 공용 지역을 포함합니다. RHEL 주문형 이미지에서 프로비전된 VM에 대한 RHUI 액세스 권한은 해당 가격에 포함되어 있습니다. 추가 지역/국가 클라우드 가용성은 향후 RHEL 주문형 가용성을 확장할 때 업데이트될 예정입니다.
+RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제공됩니다. RHUI는 현재 [Azure 상태 대시보드](https://azure.microsoft.com/status/) 페이지, Azure 미국 정부 및 Azure 독일 지역에 나열된 모든 공용 지역을 포함합니다. RHEL 주문형 이미지에서 프로비전된 VM에 대한 RHUI 액세스 권한은 해당 가격에 포함되어 있습니다. 추가 지역/국가 클라우드 가용성은 향후 RHEL 주문형 가용성을 확장할 때 업데이트될 예정입니다.
 
 > [!NOTE]
 > Azure 호스티드 RHUI에 대한 액세스는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)내의 Vm에 제한됩니다.
@@ -212,6 +216,6 @@ Azure 마켓플레이스 종량제 이미지에서 Red Hat Enterprise Linux VM�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

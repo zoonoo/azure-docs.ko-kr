@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: c719a82e6c2ae46080811190f9ca7783414f38f4
+ms.sourcegitcommit: 3e9476f8edc4186af026495bc575b8203c35c619
+ms.openlocfilehash: b01de7724ec116e5e27369f7c0f852f82ab0348b
 
 
 ---
@@ -86,11 +86,11 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 
 시작하는 데는 몇 가지 방법이 있습니다. 본인에게 적합한 방법으로 시작합니다. 나중에 계정을 더 추가할 수 있습니다.
 
-* **런타임: 서버에서 웹앱을 계측합니다.**  코드에 대한 업데이트를 방지합니다. 서버에 대한 관리자 액세스 권한이 필요합니다.
+* **런타임: 서버에서 웹앱을 계측합니다.** 코드에 대한 업데이트를 방지합니다. 서버에 대한 관리자 액세스 권한이 필요합니다.
   * [**IIS 온-프레미스 또는 VM**](app-insights-monitor-performance-live-website-now.md)
   * [**Azure 웹앱 또는 VM**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
-* **개발 타임: 코드에 Application Insights를 추가합니다.**  사용자 지정 원격 분석을 작성하고 백 엔드 및 데스크톱 앱을 계측할 수 있습니다.
+* **개발 타임: 코드에 Application Insights를 추가합니다.** 사용자 지정 원격 분석을 작성하고 백 엔드 및 데스크톱 앱을 계측할 수 있습니다.
   * [Visual Studio](app-insights-asp-net.md) 2013 업데이트 2 이상
   * [Eclipse](app-insights-java-eclipse.md)의 Java 또는 [기타 도구](app-insights-java-get-started.md)
   * [Node.JS](app-insights-nodejs.md)
@@ -249,7 +249,7 @@ Visual Studio를 사용하여 앱을 개발하는 경우 기본 제공되는 몇
 ### <a name="trends"></a>추세
 추세는 시간이 지남에 따라 앱의 동작 방식을 시각화하는 Visual Studio의 도구입니다.
 
-Application Insights 도구 모음 단추 또는 Application Insights 검색 창에서 **원격 분석 추세 탐색**을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 집합을 분석할 수 있습니다.
+Application Insights 도구 모음 단추 또는 Application Insights 검색 창에서 **원격 분석 추세 탐색**을 선택합니다. 시작하려면 일반적인&5;개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 집합을 분석할 수 있습니다.
 
 데이터에서 잘못된 부분을 찾으려면 "유형 보기" 드롭다운에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
 
@@ -264,7 +264,7 @@ Application Insights 도구 모음 단추 또는 Application Insights 검색 창
 메트릭 탐색기와 달리, 라이브 메트릭 스트림은 고정된 메트릭 집합을 표시합니다. 해당 데이터는 차트에 있는 동안만 지속된 후 삭제됩니다.
 
 ### <a name="annotations"></a>주석
-[릴리스 주석](app-insights-annotations.md) 은 새 빌드를 배포한 위치를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. [Visual Studio Team Services 빌드 시스템](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs)에서 자동으로 만들 수 있고 사용자가 [PowerShell에서 직접 만들 수도](#create-annotations-from-powershell) 있습니다.
+[릴리스 주석](app-insights-annotations.md) 은 새 빌드를 배포한 위치를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. [Visual Studio Team Services 빌드 시스템](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) 또는 Visual Studio의 웹 배포에서 자동으로 만들 수 있습니다. 또한 [PowerShell에서 만들 수도 있습니다](#create-annotations-from-powershell).
 
 ![서버 응답 시간과 상관 관계가 표시된 주석 예제](./media/app-insights-overview/00.png)
 
@@ -369,6 +369,6 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

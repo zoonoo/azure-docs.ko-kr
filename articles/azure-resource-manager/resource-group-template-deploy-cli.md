@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 43442b6822ef4341791681e0f999cc92a08a5b2e
+ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
+ms.openlocfilehash: ccbb918a3377094395a27a9b7a63f213c5085027
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 43442b6822ef4341791681e0f999cc92a08a5b2e
 > [!TIP]
 > 배포 중 발생하는 오류 디버깅에 대한 도움을 받으려면 다음을 참조하세요.
 > 
-> * [Azure CLI를 사용한 배포 작업 보기](resource-manager-troubleshoot-deployments-cli.md) 에서 오류를 해결하는 데 유용한 정보를 알 수 있습니다.
+> * [배포 작업 보기](resource-manager-deployment-operations.md)에서 오류를 해결하는 데 유용한 정보를 알 수 있습니다.
 > * [Azure Resource Manager로 Azure에 리소스를 배포할 때 발생하는 일반적인 오류 해결](resource-manager-common-deployment-errors.md) 에서 일반적인 배포 오류를 해결하는 방법을 알 수 있습니다.
 > 
 > 
@@ -136,7 +136,7 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
    ```
    azure group create -n "ManageGroup" -l "westus"
    ```
-2. 저장소 계정을 만듭니다. 저장소 계정 이름은 Azure에 1개뿐이어야 하므로 해당 계정에 고유한 이름을 입력합니다.
+2. 저장소 계정을 만듭니다. 저장소 계정 이름은 Azure에&1;개뿐이어야 하므로 해당 계정에 고유한 이름을 입력합니다.
    
    ```
    azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
@@ -199,11 +199,11 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 * 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 * 보안 값을 전달하기 위한 KeyVault 참조를 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-* 배포 자동화에 대한 4가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
+* 배포 자동화에 대한&4;가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

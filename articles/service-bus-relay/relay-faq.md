@@ -1,5 +1,5 @@
 ---
-title: "릴레이 FAQ | Microsoft Docs"
+title: "Azure 릴레이 FAQ(질문과 대답) | Microsoft Docs"
 description: "Azure 릴레이에 대한 일부 자주 묻는 질문을 답변합니다."
 services: service-bus-relay
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 12702f585605a88ed6e753a0ff301095e8629e05
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 22781ec965decbfd33923478794a76692151c363
 
 
 ---
@@ -37,7 +37,7 @@ Azure [릴레이 서비스](relay-what-is-it.md)는 방화벽 연결을 열거�
 이 섹션은 릴레이 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다. 릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
-릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][가격 책정 개요]를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
+릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 정보][Pricing overview]를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>하이브리드 연결의 요금은 어떻게 청구되나요?
 세 가지 예제 시나리오는 다음과 같습니다.
@@ -59,7 +59,7 @@ Azure [릴레이 서비스](relay-what-is-it.md)는 방화벽 연결을 열거�
 
 일반적으로 조정된 엔터티(큐, 항목 및 구독)에 대해 위에서 설명한 동일한 메서드를 사용하여 릴레이에 대한 청구 가능한 메시지를 계산합니다. 하지만 몇 가지 주목할 차이점이 있습니다.
 
-Service Bus Relay로 메시지를 보내면 릴레이 수신기로 전달하는 데 이어진 Service Bus Relay에 전달하지 않고 메시지를 받는 릴레이 수신기에 "전체 스루" 보내기로 처리됩니다. 따라서 릴레이 수신기에 대한 요청-응답 형식 서비스 호출(최대 64KB)은 두 청구 가능 메시지를 발생시킵니다. 하나는 요청에 대한 청구 가능 메시지이며 다른 하나는 응답에 대한 청구 가능 메시지입니다(응답이 \<= 64KB이라고 가정). 하나는 요청을 위한 청구 가능 메시지이고 다른 하나는 응답을 위한 청구 가능 메시지입니다.(또한 응답이 <= 64KB임을 가정) 큐를 사용하여 달라져서 클라이언트와 서비스 간을 조정합니다. 후자의 경우 동일한 요청-회신 패턴은 요청을 큐로 보내야 하며 큐에서 서비스로 큐 제거/전달한 다음, 응답을 다른 큐로 보낸 다음, 큐에서 클라이언트로 큐 제거/전달합니다. 동일한(\<=64KB) 크기의 가정을 사용하여 조정된 큐 패턴은 네 개의 청구 가능한 메시지를 발생시키며 이는 릴레이를 사용하여 동일한 패턴을 구현하는 요금 청구의 두 배입니다. 물론 지속성 및 부하 평준화 등 패턴을 달성하기 위해 큐를 사용할 수 있다는 이점이 있습니다. 이러한 이점은 추가 비용을 정당화할 수 있습니다.
+Service Bus Relay로 메시지를 보내면 릴레이 수신기로 전달하는 데 이어진 Service Bus Relay에 전달하지 않고 메시지를 받는 릴레이 수신기에 "전체 스루" 보내기로 처리됩니다. 따라서 릴레이 수신기에 대한 요청-응답 형식 서비스 호출(최대 64KB)은 두 청구 가능 메시지를 발생시킵니다. 하나는 요청에 대한 청구 가능 메시지이며 다른 하나는 응답에 대한 청구 가능 메시지입니다(응답이 \<= 64KB이라고 가정). 하나는 요청을 위한 청구 가능 메시지이고 다른 하나는 응답을 위한 청구 가능 메시지입니다.(또한 응답이 <=&64;KB임을 가정) 큐를 사용하여 달라져서 클라이언트와 서비스 간을 조정합니다. 후자의 경우 동일한 요청-회신 패턴은 요청을 큐로 보내야 하며 큐에서 서비스로 큐 제거/전달한 다음, 응답을 다른 큐로 보낸 다음, 큐에서 클라이언트로 큐 제거/전달합니다. 동일한(\<=64KB) 크기의 가정을 사용하여 조정된 큐 패턴은 네 개의 청구 가능한 메시지를 발생시키며 이는 릴레이를 사용하여 동일한 패턴을 구현하는 요금 청구의 두 배입니다. 물론 지속성 및 부하 평준화 등 패턴을 달성하기 위해 큐를 사용할 수 있다는 이점이 있습니다. 이러한 이점은 추가 비용을 정당화할 수 있습니다.
 
 netTCPRelay WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지가 아니라 시스템을 통과하는 데이터의 스트림으로서 메시지를 처리합니다. 즉, 발신자와 리스너만이 이 바인딩을 사용하여 보내거나 받은 개별 메시지의 프레임에 대한 가시성이 있습니다. 따라서 netTCPRelay 바인딩을 사용하는 릴레이의 경우 청구 가능한 메시지를 계산하기 위해 모든 데이터를 스트림으로 처리합니다. 이 경우에 Service Bus는 5분 단위로 각 개별 릴레이를 통해 전송 또는 수신되는 총 데이터 양을 계산하고 해당 기간 동안 릴레이에 대한 청구 가능한 메시지 수를 결정하기 위해 해당 합계를 64KB로 나눕니다.
 
@@ -67,8 +67,8 @@ netTCPRelay WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지�
 | 할당량 이름 | 범위 | 유형 | 초과 시 동작 | 값 |
 | --- | --- | --- | --- | --- |
 | 릴레이의 동시 수신기 |엔터티 |정적 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
-| 동시 릴레이 수신기 |시스템 수준 |정적 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2, 000 |
-| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |시스템 수준 |정적 |- |5, 000 |
+| 동시 릴레이 수신기 |시스템 수준 |정적 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2,&000; |
+| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |시스템 수준 |정적 |- |5,&000; |
 | 서비스 네임스페이스당 릴레이 끝점 |시스템 수준 |정적 |- |10000 |
 | [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 릴레이의 메시지 크기 |시스템 수준 |정적 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
 | [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 및 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 릴레이의 메시지 크기 |시스템 수준 |정적 |- |무제한 |
@@ -90,14 +90,17 @@ PowerShell 명령([여기](../service-bus-messaging/service-bus-powershell-how-t
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Azure 릴레이 API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
-[릴레이 예외][릴레이 예외] 문서에서는 권장된 조치를 사용하여 몇 가지 예외를 설명합니다.
+[릴레이 예외][Relay exceptions] 문서에서는 몇 가지 예외와 권장 조치를 설명합니다.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어가 서명 생성을 지원하나요?
-공유 액세스 서명은 SHA – 256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. 노드, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][공유 액세스 서명] 문서를 참조하세요.
+공유 액세스 서명은 SHA – 256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. 노드, PHP, Java 및 C\#에서 자신의 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하세요.
 
-[가격 책정 개요]: https://azure.microsoft.com/pricing/details/service-bus/
-[릴레이 예외]: relay-exceptions.md
-[공유 액세스 서명]: ../service-bus-messaging/service-bus-sas-overview.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>릴레이 끝점을 허용 목록에 추가할 수 있나요?
+예. 릴레이 클라이언트는 FQDN(정규화된 도메인 이름)을 사용하여 릴레이 서비스에 연결합니다. 이렇게 하면 고객이 DNS 허용 목록을 지원하는 방화벽에 `*.servicebus.windows.net`에 대한 항목을 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [네임스페이스 만들기](relay-create-namespace-portal.md)
@@ -106,6 +109,6 @@ PowerShell 명령([여기](../service-bus-messaging/service-bus-powershell-how-t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

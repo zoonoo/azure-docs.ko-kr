@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
 
 
 ---
@@ -150,14 +150,14 @@ ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
 * [Git 설명서](http://git-scm.com/documentation)
 * [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
 * [Azure 앱 서비스에 연속 배포](app-service-continuous-deployment.md)
-* [Azure용 PowerShell 사용 방법](../powershell-install-configure.md)
+* [Azure용 PowerShell 사용 방법](/powershell/azureps-cmdlets-docs)
 * [Azure 명령줄 인터페이스를 사용하는 방법](../xplat-cli-install.md)
 
 [Azure 앱 서비스]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
-[Azure 개발자 센터]: http://www.windowsazure.com/en-us/develop/overview/
+[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [로컬 Git]: https://portal.azure.com
-[Git 웹 사이트]: http://git-scm.com
-[Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Git website]: http://git-scm.com
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure 명령줄 인터페이스]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
@@ -165,6 +165,6 @@ ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

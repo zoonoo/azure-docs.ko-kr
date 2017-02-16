@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/09/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e1c99bbe9d6317d83cc5e71ca4f79d862223aa0a
-ms.openlocfilehash: 080def517b9a443d33148354226a394494a66e03
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: c6171ad4077e833162bfad31b01abbc9947f8e45
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -29,8 +29,6 @@ Apache Kafka는 HDInsight에서 사용할 수 있는 게시-구독 메시징 솔
 > 이 문서의 단계를 완료하는 경우 과도한 요금이 청구되지 않도록 클러스터를 삭제해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
-* Azure 구독
 
 * [JDK Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 이상 또는 이와 동등한 프로그램(예: [OpenJDK](http://openjdk.java.net/))
   
@@ -324,6 +322,6 @@ Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

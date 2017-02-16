@@ -1,5 +1,5 @@
 ---
-title: "Maven을 사용하여 HBase 응용 프로그램을 빌드하고 Windows 기반 HDInsight에 배포 | Microsoft Docs"
+title: "Windows 기반 Azure HDInsight용 Java HBase 응용 프로그램 빌드 | Microsoft Docs"
 description: "Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로그램을 빌드한 다음 Windows 기반 Azure HDInsight 클러스터에 배포하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/05/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
 
 
 ---
@@ -26,17 +26,16 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 [Maven](http://maven.apache.org/) 은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Azure HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
 
-> [!NOTE]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터를 사용하고 있다고 가정합니다. Linux 기반 HDInsight 클러스터 사용에 대한 자세한 내용은 [Maven을 사용하여 Linux 기반 HDInsight에서 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven-linux.md)
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계에는 Windows를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 * [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상
 * [Maven](http://maven.apache.org/)
 * [Windows 기반 HDInsight 클러스터 및 HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
-    > [AZURE.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 3.2 및 3.3으로 테스트되었습니다. 예제에 제공되는 기본값은 HDInsight 3.3 클러스터에 대한 것입니다.
+    > [!NOTE] 
+    > 이 문서의 단계는 HDInsight 클러스터 버전 3.2 및 3.3으로 테스트되었습니다. 예제에 제공되는 기본값은 HDInsight 3.3 클러스터에 대한 것입니다.
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 1. 개발 환경의 명령줄에서 프로젝트를 만들 위치(예: `cd code\hdinsight`)로 디렉터리를 변경합니다.
@@ -181,8 +180,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    
    > [!NOTE]
    > 이 파일은 최소 크기의 hbase-site.xml 파일로, HDInsight 클러스터용 완전한 최소 설정을 포함합니다.
-   > 
-   > 
+
 6. **hbase-site.xml** 파일을 저장합니다.
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
@@ -366,8 +364,6 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
    
    > [!NOTE]
    > **hbaseapp-1.0-SNAPSHOT.jar** 파일은 응용 프로그램을 실행하는 데 필요한 모든 종속성을 포함하는 uber jar(fat jar라고도 함)입니다.
-   > 
-   > 
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>JAR 파일 업로드 및 작업 시작
 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 설명한 대로 HDInsight 클러스터에 파일을 업로드하는 방법은 많습니다. 다음 단계에서는 Azure PowerShell을 사용합니다.
@@ -423,10 +419,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         FindAzure
    
         # Get the login for the HDInsight cluster
-        $creds = Get-Credential
-   
-        # Get storage information
-        $storage = GetStorage -clusterName $clusterName
+        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
    
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
@@ -453,9 +446,6 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
@@ -463,9 +453,6 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
    
@@ -633,6 +620,6 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
+ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
+ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
 
 
 ---
@@ -74,8 +74,10 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Windows 또는 Linux에서 File Storage에 액세스할 때 성능이 저하됨
 * 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MB를 사용하는 것이 좋습니다.
-* 쓰기를 통해 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 없다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
-
+* 쓰기를 통해 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에&0;이 포함될 때 소프트웨어에 호환성 문제가 없다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
+* copy 메서드를 다음과 같이 올바르게 사용합니다.
+      * 두 파일 공유 간의 전송에는 AZCopy를 사용합니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy)을 참조하세요.
+      * 온-프레미스 컴퓨터와 파일 공유 간에는 Robocopy를 사용합니다. 자세한 내용은 [빠른 복사를 위한 다중 스레드 robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/)(영문)를 참조하세요.
 <a id="windowsslow"></a>
 
 ## <a name="slow-performance-when-accessing-the-file-storage-from-windows-81-or-windows-server-2012-r2"></a>Windows 8.1 또는 Windows Server 2012 R2에서 File Storage에 액세스할 때 성능이 저하됨
@@ -242,6 +244,6 @@ mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

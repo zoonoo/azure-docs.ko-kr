@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "관리되는 Docker 레지스트리 서비스를 사용하여 배포 이미지를 저장할 컨테이너 레지스트리를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Azure Container Registry 설명서
 
-Azure Container Registry(미리 보기)는 컨테이너 이미지 호스팅을 위한 비공개 레지스트리입니다. Azure Container Registry를 사용하면 모든 유형의 컨테이너 배포를 위해 Docker 형식 이미지를 저장할 수 있습니다. Azure Container Registry는 Docker Swarm, DC/OS, Kubernetes를 포함하는 Azure Container Service에서 호스팅되는 Orchestrator와 잘 통합됩니다. 
+Container Registry를 사용하여 모든 유형의 컨테이너 배포에 대한 이미지를 저장하고 관리하는 방법에 대해 알아봅니다. 자습서, REST API 참조 및 기타 설명서에서는 이 관리되는 Docker 레지스트리 서비스를 사용하여 컨테이너 레지스트리를 만들고 유지 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,6 +99,7 @@ Azure Container Registry(미리 보기)는 컨테이너 이미지 호스팅을 �
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

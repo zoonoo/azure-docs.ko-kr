@@ -13,19 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 6296917393c01d1070482f1711b8d51b4a4b58a6
-ms.openlocfilehash: 195d0db04ebde179c0def69ff52b147db2f4a88e
+ms.sourcegitcommit: ae7407e1293202f7c76da59560efe620dde2ea0a
+ms.openlocfilehash: 7ab9c75e44ff2072e2f5879952d7e2f605cccb36
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
+
+##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>HDInsight 3.5의 Spark 2.0.1 2016/11/18 릴리스 정보
+• Spark 클러스터(HDInsight 버전 3.5)에서 Spark 2.0.1을 사용할 수 있습니다.
+
 ## <a name="notes-for-11162016-release-of-r-server-90-on-hdinsight-35-spark-20"></a>HDInsight 3.5의 R Server 9.0(Spark 2.0)의 2016/11/16 릴리스 정보
 *   R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
-*   HDI 3.5의 R Server 9.0(Spark 2.0)에는 ScaleR의 분석을 위해 Hive 및 Parquet에서 Spark DataFrames로 직접 데이터를 로드하기 위한 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수가 포함되어 있습니다. 자세한 내용은 ?RxHiveData 및 ?RxParquetData 명령을 사용하여 R에서 이러한 함수에 대한 온라인 도움말을 참조하세요.
+*   • HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 ?RxHiveData 및 ?RxParquetData 명령을 사용하여 R에서 이러한 함수에 대한 온라인 도움말을 참조하세요.
 *   RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.  
 
 ## <a name="notes-for-11092016-release-of-spark-20-on-hdinsight"></a>HDInsight의 Spark 2.0 2016/11/09 릴리스 정보
@@ -1492,7 +1496,7 @@ Tez에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Tez의 Hive
 ### <a name="global-availability"></a>전 세계 이용 가능 여부
 Hadoop 2.2의 HDInsight 릴리스부터 Azure를 사용할 수 있는 모든 주요 지역에서 HDInsight를 사용할 수 있게 되었습니다. 특별히 서유럽과 동남아시아 데이터 센터를 온라인으로 전환했습니다. 따라서 고객은 준수 요구 사항이 비슷한 영역에 있는, 가까운 데이터 센터에서 클러스터를 찾을 수 있습니다.
 
-### <a name="dos-donts-between-cluster-versions"></a>클러스터 버전 간에 수행할 수 있는 작업과 수행할 수 없는 작업
+### <a name="dos--donts-between-cluster-versions"></a>클러스터 버전 간에 수행할 수 있는 작업과 수행할 수 없는 작업
 **HDInsight 3.1 클러스터에 사용되는 Oozie Metastore가 이전 버전인 HDInsight 2.1 클러스터와 호환되지 않으므로 해당 이전 버전에서는 사용할 수 없음**
 
 HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저장소 데이터베이스는 HDInsight 2.1 클러스터와 함께 다시 사용할 수 없습니다. 해당 Metastore를 원래 HDInsight 2.1 클러스터에서 만든 경우에도 마찬가지입니다. Metastore를 HDInsight 3.1 클러스터와 함께 사용하면 Metastore 스키마가 업그레이드되어 HDInsight 2.1 클러스터에 필요한 Metastore와는 더 이상 호환되지 않으므로 이 시나리오는 지원되지 않습니다. HDInsight 3.1 클러스터와 함께 사용했던 Oozie Metastore를 다시 사용하려고 하면 HDInsight 2.1 클러스터를 사용할 수 없게 됩니다.
@@ -1688,6 +1692,6 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

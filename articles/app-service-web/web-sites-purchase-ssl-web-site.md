@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ec30d3a0c00adef585e3cf22c682830a7d5cce4
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a86b3e7c653d0767e91ebfaaeaa650b0328c291c
 
 
 ---
@@ -68,7 +68,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 5. **리소스 그룹**을 선택하거나 만듭니다.
    
    리소스 그룹을 통해 관련 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대해 역할 기반 액세스 제어(RBAC) 규칙을 설정할 때 유용합니다. 자세한 내용은 Azure 리소스 관리를 참조하세요.
-6.  **인증서 SKU** 
+6. **인증서 SKU** 
    
    마지막으로, 요구 사항에 맞는 인증서 SKU를 선택하고 만들기를 클릭합니다. 지금 Azure App Service를 통해 두 개의 서로 다른 SKU를 구입할 수 있습니다.
    
@@ -172,7 +172,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 
 **IP 기반 SSL** 을 선택했으며 사용자 지정 도메인이 A 레코드를 사용하여 구성된 경우 다음과 같은 추가 단계를 수행해야 합니다.
 
-* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다.  **외부 IP 주소**
+* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**
   
     ![IP SSL 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
   
@@ -200,13 +200,13 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 * [Azure 관리 포털](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

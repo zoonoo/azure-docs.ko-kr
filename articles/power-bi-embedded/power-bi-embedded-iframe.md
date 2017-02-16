@@ -16,8 +16,8 @@ ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7aadb6ceba1a8c672ed9eeea8651c965e5b665fd
+ms.sourcegitcommit: b3037f1b96c8bfbaad5f92b726b63854469a8d06
+ms.openlocfilehash: b9a5435330e56ba8f25100437e201cccd7aeb568
 
 
 ---
@@ -91,7 +91,7 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 반환된 **workspaceId** 는 후속 API 호출에 사용됩니다. 응용 프로그램은 이 값을 유지해야 합니다.
 
 ## <a name="import-pbix-file-into-the-workspace"></a>작업 영역으로 .pbix 파일 가져오기
-각 작업 영역은 데이터 집합\(데이터 원본 설정 포함) 및 보고서가 있는 단일 Power BI Desktop 파일을 호스트할 수 있습니다. 아래 코드에 표시된 대로 .pbix 파일을 작업 영역으로 가져올 수 있습니다. 여기에서 볼 수 있듯이 http에서 MIME 다중 파트를 사용하여 .pbix 파일의 이진 내용을 업로드할 수 있습니다.
+작업 영역의 각 보고서는 데이터 집합\(데이터 원본 설정 포함)이 있는 단일 Power BI Desktop 파일과 일치합니다. 아래 코드에 표시된 대로 .pbix 파일을 작업 영역으로 가져올 수 있습니다. 여기에서 볼 수 있듯이 http에서 MIME 다중 파트를 사용하여 .pbix 파일의 이진 내용을 업로드할 수 있습니다.
 
 URI 조각 **32960a09-6366-4208-a8bb-9e0678cdbb9d**는 workspaceId이고 쿼리 매개 변수 **datasetDisplayName**은 만들 데이터 집합 이름입니다. 만든 데이터 집합에서 가져온 데이터, 데이터 원본에 대한 포인터 등의 모든 데이터 관련 아티팩트는 .pbix 파일에 포함됩니다.
 
@@ -471,6 +471,6 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

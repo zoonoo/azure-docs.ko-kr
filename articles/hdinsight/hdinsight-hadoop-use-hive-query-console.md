@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
 
 
 ---
@@ -27,9 +27,9 @@ ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
 이 문서에서는 브라우저에서 HDInsight Hadoop 클러스터의 Hive 쿼리를 실행하려면 HDInsight 쿼리 콘솔을 사용하는 방법에 대해 배웁니다.
 
 > [!IMPORTANT]
-> HDInsight 쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux 기반 HDInsight 클러스터를 사용하는 경우 [Hive 보기를 사용하여 Hive 쿼리 실행](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
-> 
-> 
+> HDInsight 쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+>
+> HDInsight 3.4 이상의 경우 웹 브라우저에서 Hive 쿼리 실행에 대한 자세한 내용은 [Ambari Hive 보기에서 Hive 쿼리 실행](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
@@ -65,7 +65,7 @@ ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
      > 
    * **ROW FORMAT**: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
    * **STORED AS TEXTFILE LOCATION**: 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
-   * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
+   * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이&3;개 있으므로 **3** 값이 반환되어야 합니다.
    * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
 3. **Submit**를 클릭합니다. 페이지 아래쪽의 **작업 세션** 에는 작업에 대한 세부 정보가 표시됩니다.
 4. **상태** 필드가 **완료**로 변경되면 작업에 대한 **세부 정보 보기**를 선택합니다. 세부 정보 페이지의 **작업 출력**에는 `[ERROR]    3`이 포함됩니다. 이 필드 아래의 **다운로드** 단추를 사용하여 작업의 출력을 포함하는 파일을 다운로드할 수 있습니다.
@@ -117,7 +117,7 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-[Powershell-install-configure]: powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
@@ -125,6 +125,6 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

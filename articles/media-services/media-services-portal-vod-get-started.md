@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 6b5ba034325ef1cbb7b085890c63302d06d0d927
 
 
 ---
@@ -25,59 +25,19 @@ ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 이 자습서에서는 Azure 포털을 사용한 Azure 미디어 서비스(AMS) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-> [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
-> 
-> 
+## <a name="prerequisites"></a>필수 조건
+자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
+
+* Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+* 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
-1. Azure 미디어 서비스 계정을 만듭니다.
-2. 스트리밍 끝점을 시작합니다.
-3. 비디오 파일을 업로드합니다.
-4. 원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-5. 자산을 게시하고, 스트리밍 기능을 사용하고, URL을 점진적으로 다운로드합니다.  
-6. 콘텐츠를 재생합니다.
-
-## <a name="create-an-azure-media-services-account"></a>Azure 미디어 서비스 계정 만들기
-이 섹션의 단계에서는 AMS 계정을 만드는 방법을 보여 줍니다.
-
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **+새로 만들기** > **웹 + 모바일** > **Media Services**를 클릭합니다.
-   
-    ![미디어 서비스 만들기](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. **미디어 서비스 계정 만들기** 에 필요한 값을 입력합니다.
-   
-    ![미디어 서비스 만들기](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
-   1. **계정 이름**에 새 AMS 계정의 이름을 입력합니다. 미디어 서비스 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
-   2. 구독에서 액세스할 수 있는 다양한 Azure 구독 중에서 선택합니다.
-   3. **리소스 그룹**에서 새 또는 기존 리소스를 선택합니다.  리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
-   4. **위치**에서 Media Services 계정에 대한 메타데이터 레코드 및 미디어를 저장하는 데 사용한 지리적 지역을 선택합니다. 이 지역은 미디어를 처리하고 스트림하는 데 사용됩니다. 사용 가능한 미디어 서비스 지역만 드롭다운 목록 상자에 표시됩니다. 
-   5. **저장소 계정**에서 미디어 서비스 계정의 미디어 콘텐츠가 포함된 Blob 저장소를 제공할 저장소 계정을 선택합니다. 미디어 서비스 계정과 동일한 지역의 기존 저장소 계정을 선택하거나 저장소 계정을 만들 수 있습니다. 동일한 지역에 새 저장소 계정이 생성됩니다. 저장소 계정 이름에 대한 규칙은 미디어 서비스 계정의 경우와 같습니다.
-      
-       저장소에 대한 자세한 내용은 [여기](../storage/storage-introduction.md)를 참조하세요.
-   6. 계정 배포 진행 상태를 보려면 **대시보드에 고정** 을 선택합니다.
-4. 양식 맨 아래에 있는 **만들기** 를 클릭합니다.
-   
-    계정이 성공적으로 만들어지면 개요 페이지가 로드됩니다. 스트리밍 끝점 테이블에서 계정은 **중지됨** 상태에서 기본 스트리밍 끝점을 가집니다. 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
-   
-    ![미디어 서비스 설정](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
-    AMS 계정을 관리(예: 비디오 업로드, 자산 인코딩, 작업 진행 상태 모니터링)하려면 **설정** 창을 사용합니다.
-
-## <a name="manage-keys"></a>키 관리
-프로그래밍 방식으로 미디어 서비스 계정에 액세스하려면 계정 이름과 기본 키 정보가 필요합니다.
-
-1. Azure 포털에서 계정을 선택합니다. 
-   
-    **설정** 창이 오른쪽에 나타납니다. 
-2. **설정** 창에서 **키**를 선택합니다. 
-   
-    **키 관리** 창에 계정 이름과 기본 및 보조 키가 표시됩니다. 
-3. 복사 단추를 클릭하여 값을 복사합니다.
-   
-    ![미디어 서비스 키](./media/media-services-portal-vod-get-started/media-services-keys.png)
+1. 스트리밍 끝점을 시작합니다.
+2. 비디오 파일을 업로드합니다.
+3. 원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
+4. 자산을 게시하고, 스트리밍 기능을 사용하고, URL을 점진적으로 다운로드합니다.  
+5. 콘텐츠를 재생합니다.
 
 ## <a name="start-streaming-endpoints"></a>스트리밍 끝점 시작 
 
@@ -88,13 +48,14 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 
 스트리밍 끝점을 시작하려면 다음을 수행합니다.
 
-1. 설정 창에서 스트리밍 끝점을 클릭합니다. 
-2. 기본 스트리밍 끝점을 클릭합니다. 
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+2. 설정 창에서 스트리밍 끝점을 클릭합니다. 
+3. 기본 스트리밍 끝점을 클릭합니다. 
 
     기본 스트리밍 끝점 세부 정보 창이 나타납니다.
 
-3. 시작 아이콘을 클릭합니다.
-4. 저장 단추를 클릭하여 변경 내용을 저장합니다.
+4. 시작 아이콘을 클릭합니다.
+5. 저장 단추를 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="upload-files"></a>파일 업로드
 Azure 미디어 서비스를 사용하여 비디오를 스트림하려면 원본 비디오를 업로드하고 다중 비트 전송률로 인코딩하고 결과를 게시해야 합니다. 첫 번째 단계는 이 섹션에서 다룹니다. 
@@ -129,7 +90,7 @@ Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, 
 1. **설정** 창에서 **자산**을 선택합니다.  
 2. **자산** 창에서 인코딩할 자산을 선택합니다.
 3. **인코딩** 단추를 누릅니다.
-4. **자산 인코딩** 창에서 "Media Encoder Standard" 프로세서 및 사전 설정을 선택합니다. 예를 들어 입력 비디오가 1920x1080픽셀 해상도를 포함하는 것을 알고 있는 경우 "H264 다중 비트 전송률 1080p" 사전 설정을 사용할 수 있습니다. 사전 설정에 대한 자세한 내용은 [이](https://msdn.microsoft.com/library/azure/mt269960.aspx) 문서를 참조하세요. 입력 비디오에 가장 적합한 사전 설정을 선택하는 것이 중요합니다. 낮은 해상도(640x360) 비디오가 있는 경우 기본 "H264 다중 비트 전송률 1080p" 사전 설정을 사용하지 말아야 합니다.
+4. **자산 인코딩** 창에서 "Media Encoder Standard" 프로세서 및 사전 설정을 선택합니다. 예를 들어 입력 비디오가 1920x1080픽셀 해상도를 포함하는 것을 알고 있는 경우 "H264 다중 비트 전송률 1080p" 사전 설정을 사용할 수 있습니다. 사전 설정에 대한 자세한 내용은 [이](media-services-mes-presets-overview.md) 문서를 참조하세요. 입력 비디오에 가장 적합한 사전 설정을 선택하는 것이 중요합니다. 낮은 해상도(640x360) 비디오가 있는 경우 기본 "H264 다중 비트 전송률 1080p" 사전 설정을 사용하지 말아야 합니다.
    
    관리를 간소화하기 위해 출력 자산의 이름과 작업 이름을 편집하는 옵션이 있습니다.
    
@@ -169,7 +130,7 @@ SAS URL의 형식은 다음과 같습니다.
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+로케이터의 만료 날짜를 업데이트하려면 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>자산을 게시하기 위해 포털을 사용하려면
 자산을 게시하기 위해 포털을 사용하려면 다음을 수행합니다.

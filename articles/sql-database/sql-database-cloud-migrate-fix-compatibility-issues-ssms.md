@@ -1,6 +1,7 @@
 ---
-title: "SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Server 데이터베이스 호환성 문제 해결 | Microsoft Docs"
-description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 호환성, SQL Azure 마이그레이션 마법사"
+title: "SSMS: Azure SQL Database 호환성 마이그레이션 문제 해결 | Microsoft Docs"
+description: "이 문서에서는 Azure SQL Database로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Server 데이터베이스 호환성 문제를 해결하는 방법을 소개합니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 호환성, SQL Azure 마이그레이션 마법사"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,18 +17,17 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 355353fb15a00860573699cc652543b61c62c2c1
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 841c4d644c6b096251e1ecefac17a8254b5ca712
 
 
 ---
 # <a name="fix-sql-server-database-compatibility-issues-using-sql-server-management-studio-before-migration-to-sql-database"></a>SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Server 데이터베이스 호환성 문제 해결
 > [!div class="op_single_selector"]
-> *  [SQL Azure 마이그레이션 마법사](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> *  [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> *  [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> 
-> 
+> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md) 사용
+> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+> * [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+>  
 
 고급 사용자는 Azure SQL 데이터베이스로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Server 데이터베이스 호환성 문제를 해결할 수 있습니다.
 
@@ -52,6 +52,6 @@ SQL Server Management Studio를 사용하여 **ALTER DATABASE**등 다양한 Tra
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

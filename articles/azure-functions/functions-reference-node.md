@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
+ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
 
 
 ---
@@ -139,7 +139,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```
 
 ## <a name="node-version--package-management"></a>노드 버전 및 패키지 관리
-노드 버전이 현재 `5.9.1`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
+노드 버전이 현재 `6.5.0`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
 
 함수 앱의 파일 시스템에 있는 함수 폴더에 *package.json* 파일을 업로드하여 함수에 패키지를 포함시킬 수 있습니다. 파일 업로드 지침은 **Azure Functions 개발자 참조 토픽** 의 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)섹션을 참조하세요. 
 
@@ -155,7 +155,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library
@@ -198,6 +198,6 @@ function GetEnvironmentVariable(name)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

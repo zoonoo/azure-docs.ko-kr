@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2016
-ms.author: yuridio
+ms.date: 01/09/2017
+ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 2337c80ff0128c7ca4bf287ceb460dfc11404668
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 3ad511b55e33653ea0cf7df2c885d27c1c07441d
 
 
 ---
@@ -84,7 +84,7 @@ Azure는 하이퍼바이저에서 구현되고 패브릭 컨트롤러 에이전�
 프로그래밍하는 규칙에는 다음과 같은 두 가지 범주가 있습니다.
 
 * **컴퓨터 구성 또는 인프라 규칙**: 기본적으로 모든 통신이 차단됩니다. 가상 컴퓨터가 DHCP 및 DNS 트래픽을 보내고 받을 수 있는 데 예외 사항이 있습니다. 또한 가상 컴퓨터는 "공용" 인터넷에 트래픽을 전송하고 클러스터 및 OS 정품 인증 서버 내에서 다른 가상 컴퓨터에도 트래픽을 전송할 수 있습니다. 가상 컴퓨터의 허용된 송신 대상 목록에는 Azure 라우터 서브넷, Azure 관리 백 엔드 및 기타 Microsoft 속성이 포함되지 않습니다.
-* **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(Access Control 목록)을 정의합니다. 예를 들어 테넌트에 있는 특정 가상 컴퓨터의 포트 80에 웹 프런트 엔드가 있을 때 [Azure 클래식 배포 모델](../resource-manager-deployment-model.md)에서 끝점을 구성하면 Azure는 모든 IP에 TCP 포트 80을 엽니다. 가상 컴퓨터에서 백 엔드 또는 작업자 역할을 실행 중이면 동일한 테넌트 내의 가상 컴퓨터에만 작업자 역할을 엽니다.
+* **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(Access Control 목록)을 정의합니다. 예를 들어 테넌트에 있는 특정 가상 컴퓨터의 포트 80에 웹 프런트 엔드가 있을 때 [Azure 클래식 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md)에서 끝점을 구성하면 Azure는 모든 IP에 TCP 포트 80을 엽니다. 가상 컴퓨터에서 백 엔드 또는 작업자 역할을 실행 중이면 동일한 테넌트 내의 가상 컴퓨터에만 작업자 역할을 엽니다.
 
 ## <a name="isolation"></a>격리
 또 다른 중요한 클라우드 보안 요구 사항은 공유 다중 테넌트 아키텍처의 배포 간에 정보의 무단 전송 또는 의도치 않은 전송을 막기 위한 분리입니다.
@@ -197,7 +197,6 @@ Azure에는 위협 해결 방법을 구현하고 고객이 해당 환경에서 �
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

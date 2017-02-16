@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ec7e5d3229d623ce08a72439317a6a515ee3e373
 
 
 ---
@@ -24,21 +24,20 @@ ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
 Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive에서 Java UDF를 사용하는 방법을 알아봅니다.
 
 ## <a name="requirements"></a>요구 사항
-* Azure 구독
+
 * HDInsight 클러스터(Windows 또는 Linux 기반)
   
-  > [!NOTE]
-  > 이 문서에서 대부분 단계는 클러스터 형식 모두;에 대해 작동합니다. 그러나 클러스터에 컴파일된 UDF를 업로드하고 실행하는 데 사용하는 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터와 함께 사용할 수 있는 정보에 대한 링크가 제공됩니다.
-  > 
-  > 
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  
+  이 문서에서 대부분 단계는 클러스터 형식 모두;에 대해 작동합니다. 그러나 클러스터에 컴파일된 UDF를 업로드하고 실행하는 데 사용하는 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터와 함께 사용할 수 있는 정보에 대한 링크가 제공됩니다.
+
 * [JDK Java](http://www.oracle.com/technetwork/java/javase/downloads/) 7 이상(또는 OpenJDK와 같은 이와 동등한 프로그램)
 * [Apache Maven](http://maven.apache.org/)
 * 텍스트 편집기 또는 Java IDE
   
   > [!IMPORTANT]
   > Linux 기반 HDInsight 서버를 사용하지만 Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 사용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 HDInsight 클러스터에서 유틸리티를 사용하여 CR 문자를 제거하는 단계는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
-  > 
-  > 
 
 ## <a name="create-an-example-udf"></a>UDF 예제 만들기
 1. 명령줄에서 새 Maven을 만들려면 다음을 참조하세요.
@@ -216,6 +215,6 @@ Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

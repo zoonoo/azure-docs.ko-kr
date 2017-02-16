@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 11/16/2016
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
-ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: 4ba7d6c43a5e0893366669e7511d8e1cfe149b81
 
 
 ---
@@ -71,7 +71,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 * 앱 서비스 프로비전 대화 상자의 "서비스" 탭에서 보조 앱 서비스에 대한 지원 
 
-## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a> Visual Studio 2015 업데이트 2용 Azure Data Lake 도구
+## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Visual Studio 2015 업데이트 2용 Azure Data Lake 도구
 이 업데이트는 다음을 포함합니다.
 
 * **Azure Data Lake 도구** 가 Azure SDK for .NET 릴리스에 병합됩니다. 이 도구는 Azure SDK를 설치할 때 자동으로 설치됩니다. 
@@ -83,7 +83,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 **HDInsight 도구** 에서 Tez 그래프 표시 및 기타 언어 수정을 포함하여 HDInsight 버전 3.3을 지원합니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
-이 릴리스는 ARM 템플릿에 대한 [KeyVault](../resource-manager-keyvault-parameter.md) 지원을 추가합니다.
+이 릴리스는 Resource Manager 템플릿에 대한 [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 지원을 추가했습니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
@@ -91,6 +91,6 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

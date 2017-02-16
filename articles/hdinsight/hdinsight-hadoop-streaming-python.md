@@ -16,18 +16,13 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 0223b2f8228560480077ae4d28819ac20bd88d79
 
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 프로그램 개발
 Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서에서는 MapReduce 작업을 수행하기 위해 Python을 사용하는 방법을 배웁니다.
-
-> [!NOTE]
-> 이 문서의 Python 코드는 Windows 기반 HDInsight 클러스터에서 사용할 수 있지만 이 문서의 단계는 Linux 기반 클러스터에 해당됩니다.
-> 
-> 
 
 이 문서는 [Python으로 Hadoop MapReduce 프로그램 작성](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)에서 Michael Noll이 게시한 정보 및 예제를 기반으로 합니다.
 
@@ -35,6 +30,10 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
+
+  > [!IMPORTANT]
+  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * 텍스트 편집기
   
   > [!IMPORTANT]
@@ -211,6 +210,6 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

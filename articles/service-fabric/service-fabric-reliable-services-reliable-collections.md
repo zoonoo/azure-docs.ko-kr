@@ -1,5 +1,5 @@
 ---
-title: "신뢰할 수 있는 컬렉션 | Microsoft Docs"
+title: "Azure 마이크로 서비스에서 응용 프로그램 상태 저장 | Microsoft Docs"
 description: "서비스 패브릭 상태 저장 서비스는가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있는 믿을 수 렉션을 제공합니다."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d8be5bed137ae00dec4f66fc821a6415f269ea1
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
 
 
 ---
@@ -81,7 +81,7 @@ ms.openlocfilehash: 9d8be5bed137ae00dec4f66fc821a6415f269ea1
 즉, 특정 트랜잭션 내 모든 쓰기가 동일한 트랜잭션에 속하는 다음 읽기에 표시됩니다.
 
 ## <a name="locking"></a>잠금
-신뢰할 수 있는 컬렉션의 모든 트랜잭션은 2단계로 이루어져 있습니다. 트랜잭션은 중단 또는 커밋으로 인해 종료되어야만 확보한 잠금을 해제합니다.
+신뢰할 수 있는 컬렉션의 모든 트랜잭션은&2;단계로 이루어져 있습니다. 트랜잭션은 중단 또는 커밋으로 인해 종료되어야만 확보한 잠금을 해제합니다.
 
 신뢰할 수 있는 사전은 모든 단일 엔터티 작업에 대해 행 수준 잠금을 사용합니다.
 신뢰할 수 있는 큐와 엄격한 트랜잭션 FIFO 속성의 동시성은 서로 균형을 유지합니다.
@@ -171,6 +171,6 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

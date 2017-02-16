@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0de569ccf12f3ef428960fe8bb745eb7512c80ce
-ms.openlocfilehash: f81088bcc28e49091f45cdcb1207b30aeb3b70f2
+ms.sourcegitcommit: 1a2ea0753d12915075c055f9983773618bf6777d
+ms.openlocfilehash: 85c6a2296a4487ae549321d3ff07129bcbab5adf
 
 
 ---
@@ -189,7 +189,7 @@ SAN(ISCSI) | 예 | 예
 **저장소(게스트 VM/물리적 서버)** | **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
 --- | --- | ---
 VMDK | 예 | 해당 없음
-VHD/VHDX | 해당 없음 | 예(최대 64개 디스크)
+VHD/VHDX | 해당 없음 | 예(최대 16개 디스크)
 2세대 VM | 해당 없음 | 예
 공유 클러스터 디스크 | 예  | 아니요
 암호화된 디스크 | 아니요 | 아니요
@@ -265,6 +265,6 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

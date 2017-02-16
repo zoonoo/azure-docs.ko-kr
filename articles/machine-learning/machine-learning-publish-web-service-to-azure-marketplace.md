@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning 웹 서비스를 Azure Marketplace에 게시 | Microsoft Docs"
-description: "Azure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법"
+title: "(사용되지 않음) Machine Learning 웹 서비스를 Azure Marketplace에 게시 | Microsoft Docs"
+description: "(사용되지 않음) Azure Marketplace에 Azure Machine Learning 웹 서비스를 게시하는 방법"
 services: machine-learning
 documentationcenter: 
 author: BharathS
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/08/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24b131d3a9a17ce9a2daf349518873871c9d1019
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 2d62966f130f6778c9561393cc7fc338f8903f1e
 
 
 ---
-# <a name="publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시
+# <a name="deprecated-publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>(사용되지 않음) Azure Marketplace에 Azure Machine Learning 웹 서비스 게시
+
+> [!NOTE]
+> DataMarket 및 Data Services는 종료되며 기존 구독은 2017년 3월 31일부터 종료 및 취소됩니다. 결과적으로,이 문서는 사용되지 않습니다. 
+> 
+> 대안으로, 데이터 과학 커뮤니티를 위하여 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)에 Machine Learning 실험을 게시할 수 있습니다. 자세한 내용은 [Cortana Intelligence 갤러리에서 리소스 공유 및 검색](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish)을 참조하십시오.
+
 Azure 마켓플레이스에서는 외부 고객이 사용하도록 유료 또는 무료 서비스로 Azure 기계 학습 웹 서비스를 게시하는 기능을 제공합니다. 이 문서에서는 시작 지침에 대한 링크와 함께 프로세스의 개요를 제공합니다. 이 프로세스를 사용하여 다른 개발자가 응용 프로그램에서 사용할 수 있도록 웹 서비스를 제공할 수 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -54,8 +61,8 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 프로덕션 환경에 서비스를 배포합니다.
 
 ### <a name="step-3-use-the-url-of-the-published-web-service-to-publish-to-azure-marketplace-datamarket"></a>3단계: 게시된 웹 서비스의 URL을 사용하여 Azure 마켓플레이스(데이터 마켓)에 게시
-1.  [Azure 마켓플레이스(데이터 마켓)](http://datamarket.azure.com/home) 
-2. 페이지 상단의 **게시** 링크를 클릭합니다.  [Microsoft Azure 게시 포털](https://publish.windowsazure.com)
+1. [Azure 마켓플레이스(데이터 마켓)](http://datamarket.azure.com/home) 
+2. 페이지 상단의 **게시** 링크를 클릭합니다. [Microsoft Azure 게시 포털](https://publish.windowsazure.com)
 3. **게시자** 섹션을 클릭하여 게시자로 등록합니다.
 4. 새 제품을 만들 때 **Data Services**를 선택하고 **새 Data Service 만들기**를 클릭합니다. 
    
@@ -89,6 +96,6 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 8da474fbc9eae750bbd2e1f6908046d2e7e7be55
-ms.openlocfilehash: 42e1d0cdde66f4bf4a6f3b23421e137716d05beb
+ms.sourcegitcommit: 6d05de6ac944b69402583e939d6b498515945461
+ms.openlocfilehash: f8b13b2b39cf0c860ad59f43eb341c5924804dd9
 
 
 ---
@@ -65,7 +65,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-위 예제에는 @input_file. **지역 변수**로 정의된 **입력 파일**(input_file.tsv 파일)이 있습니다.
+위 예제에는 @input_file **지역 변수**로 정의된 **입력 파일**(input_file.tsv 파일)이 있습니다.
 
 위 U-SQL 스크립트를 실행하면 다음 작업이 수행됩니다.
 
@@ -112,7 +112,7 @@ U-SQL 기본 스크립트의 예는 다음과 같습니다.
     DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 ```
 
-C# 식은 행 집합의 일부로 열을 조작할 때 확장된 기능을 제공할 수 있습니다. 예를 들어 datetime 열을 0시간의 날짜로 변환하려면 U-SQL 기본 스크립트의 다음 SELECT 부분을 사용할 수 있습니다.
+C# 식은 행 집합의 일부로 열을 조작할 때 확장된 기능을 제공할 수 있습니다. 예를 들어 datetime 열을&0;시간의 날짜로 변환하려면 U-SQL 기본 스크립트의 다음 SELECT 부분을 사용할 수 있습니다.
 
 ```sql
 @rs1 =
@@ -449,7 +449,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-그리고 XML 기능을 사용하려면 시스템 어셈블리 참조와 어셈블리를 등록된 어셈블리에 추가합니다.
+그리고 XML 기능을 사용하려면 시스템 어셈블리 참조와 등록된 어셈블리에 대한 참조를 추가합니다.
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -540,7 +540,7 @@ U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
 
 먼저 UDF를 만드는 간단한 예제를 살펴보겠습니다.
 
-이 사용 사례 시나리오에서는 특정 사용자에 대한 첫 번째 로그인의 회계 기간, 즉 회계 분기 및 회계 월을 결정해야 합니다. 시나리오에서 해당 연도의 첫 번째 회계 월은 6월입니다.
+이 사용 사례 시나리오에서는 특정 사용자에 대한 첫 번째 로그인의 회계 기간, 즉 회계 분기 및 회계 월을 결정해야 합니다. 시나리오에서 해당 연도의 첫 번째 회계 월은&6;월입니다.
 
 회계 기간을 계산하기 위해 다음 C# 함수를 소개합니다.
 
@@ -579,7 +579,7 @@ U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
         }
 ```
 
-단순히 회계 월과 분기를 계산하고 문자열 값을 반환합니다. 첫 번째 회계 분기의 첫 번째 회계 월인 6 월의 경우 ‘Q1:P1’, 7 월의 경우 'Q1: P2' 등등입니다.
+단순히 회계 월과 분기를 계산하고 문자열 값을 반환합니다. 첫 번째 회계 분기의 첫 번째 회계 월인&6; 월의 경우 ‘Q1:P1’,&7; 월의 경우 'Q1: P2' 등등입니다.
 
 이는 U-SQL 프로젝트를 사용할 일반 C# 함수입니다.
 
@@ -932,9 +932,9 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 `IColumnWriter` 기록기/`IColumnReader` 판독기 - 기본 열 스트림입니다.  
 `ISerializationContext` 컨텍스트 - 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다. 
  
-    * *Intermediate* - 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
+   * *Intermediate* - 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
 
-    * *Persistence* - 원본 또는 대상 컨텍스트가 지속형 저장소임을 지정합니다.
+   * *Persistence* - 원본 또는 대상 컨텍스트가 지속형 저장소임을 지정합니다.
 
 일반 C# 형식으로 U-SQL UDT 정의는 +/==/!= 등의 연산자에 대한 재정의 및 정적 메서드 등을 포함할 수 있습니다. 예를 들어 U-SQL MIN 집계 함수에 이 UDT를 매개 변수로 사용하는 경우 < 연산자 override를 정의해야 합니다.
 
@@ -1288,7 +1288,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ### <a name="udts-from-built-in-types"></a>기본 제공 형식 UDT
 서비스 예정
 
-## <a name="user-defined-aggregates-udagg"></a>사용자 정의 집계
+## <a name="user-defined-aggregates--udagg"></a>사용자 정의 집계
 UDAGG(사용자 정의 집계)는 U-SQL에서 제공되지 않는 집계 관련 함수입니다. 예제는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계일 수 있습니다.
 
 UDAGG 기본 클래스 정의:
@@ -1424,7 +1424,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 사용 사례 시나리오에서는 특정 사용자에 대한 GUID 클래스를 연결합니다.
 
-## <a name="user-defined-objects-udo"></a>사용자 정의 개체
+## <a name="user-defined-objects--udo"></a>사용자 정의 개체
 U-SQL은 UDO(사용자 정의 개체)라는 사용자 지정 프로그래밍 기능 개체를 정의하는 기능을 제공합니다.
 
 U-SQL의 UDO 목록은 다음과 같습니다.
@@ -2608,6 +2608,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

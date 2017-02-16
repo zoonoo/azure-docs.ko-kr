@@ -1,22 +1,28 @@
 ---
-title: SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션 | Microsoft Docs
-description: Microsoft Azure SQL 데이터베이스, 데이터베이스 배포, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사
+title: "SSMS: BACPAC 파일에서 Azure SQL Database로 가져오기 | Microsoft Docs"
+description: "이 문서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 BACPAC 파일에서 SQL Database로 가져오는 방법을 보여 줍니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 배포, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 24375fc6-c94c-43ef-97ec-fce77343b581
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/24/2016
+ms.date: 11/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: b5a6d90069e87d6115a3b80711f06ccf286b3e88
+
 
 ---
-# SSMS를 사용하여 BACPAC에서 SQL 데이터베이스로 가져오기
+# <a name="import-from-bacpac-to-sql-database-using-ssms"></a>SSMS를 사용하여 BACPAC에서 SQL 데이터베이스로 가져오기
 > [!div class="op_single_selector"]
 > * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -49,20 +55,25 @@ ms.author: carlrab
    > Azure Blob 저장소에서 BACPAC를 가져올 때 표준 저장소를 사용합니다. 프리미엄 저장소에서 BACPAC 가져오기는 지원되지 않습니다.
    > 
    > 
-4. Azure SQL DB에서 데이터베이스에 대해 **새 데이터베이스 이름**을 입력하고 **Microsoft Azure SQL 데이터베이스 버전**(서비스 계층), **최대 데이터베이스 크기**, **서비스 목표**(성능 수준)를 입력합니다.
+4. Azure SQL DB에서 데이터베이스에 대해 **새 데이터베이스 이름**을 입력하고 **Microsoft Azure SQL Database 버전**(서비스 계층), **최대 데이터베이스 크기**, **서비스 목표**(성능 수준)를 입력합니다.
    
    ![데이터베이스 설정](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
-5. **다음**을 클릭한 다음 **마침**을 클릭하여 BACPAC 파일을 Azure SQL 데이터베이스 서버의 새 데이터베이스로 가져옵니다.
+5. **다음**을 클릭한 다음 **마침**을 클릭하여 BACPAC 파일을 Azure SQL Database 서버의 새 데이터베이스로 가져옵니다.
 6. 개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
 7. Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
 
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
 * [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## 추가 리소스
-* [SQL 데이터베이스 V12](sql-database-v12-whats-new.md)
+## <a name="additional-resources"></a>추가 리소스
+* [SQL Database 기능](sql-database-features.md)
 * [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 * [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
+ms.sourcegitcommit: f9a216f3f76ef84e745ef29575d20da971e5eb61
+ms.openlocfilehash: 2ccd414e0eec04dbee7c412cef245e1ab0da2bff
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
 
 이미 Node.js 모듈, **package.json** 및 **npm-shrinkwrap.json** 파일을 사용하는 데 익숙한 개발자를 위해 이 문서에서 다루는 내용을 다음과 같이 빠른 개요로 제공합니다.
 
-* Azure App Service는 **package.json** 및 **npm-shrinkwrap.json** 파일을 인식하며 이 파일의 항목을 기반으로 모듈을 설치할 수 있습니다.
+* Azure 앱 서비스는 **package.json** 및 **npm-shrinkwrap.json** 파일을 인식하며 이 파일의 항목을 기반으로 모듈을 설치할 수 있습니다.
 * Azure 클라우드 서비스는 모든 모듈이 개발 환경에 설치되며 **node\_modules** 디렉터리가 배포 패키지의 일부로 포함될 것을 예상합니다. 클라우드 서비스에서 **package.json** 또는 **npm-shrinkwrap.json** 파일을 사용하여 모듈을 설치하도록 지원할 수 있습니다. 하지만 이렇게 하려면 클라우드 서비스 프로젝트에서 사용되는 기본 스크립트를 사용자 지정해야 합니다. 이를 수행하는 방법의 예를 보려면 [npm install을 실행하여 노드 모듈 배포를 방지하는 Azure 시작 작업](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)을 참조하세요.
 
 > [!NOTE]
@@ -46,6 +46,7 @@ ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
 Azure 앱 서비스는 일부 네이티브 모듈을 지원하지 않으며 매우 구체적인 필수 구성 요소를 가진 네이티브 모듈의 컴파일에 실패할 수 있습니다. MongoDB와 같은 일부 일반적인 모듈에는 선택적 네이티브 종속성이 있으며 이러한 종속성 없이도 정상적으로 작동하지만 다음 두 가지 해결 방법은 현재 사용 가능한 거의 모든 네이티브 모듈에 효과적인 것으로 입증되었습니다.
 
 * 모든 네이티브 모듈의 필수 구성 요소가 설치되어 있는 Windows 컴퓨터에서 **npm install** 을 실행합니다. 그런 다음 만든 **node\_modules** 폴더를 응용 프로그램의 일부로 Azure App Service에 배포합니다.
+  * 컴파일링하기 전에 설치된 local Node.js의 아키텍처가 일치하고 버전이 Azure에서 사용된 것과 최대한 가까운지 확인합니다(현재 값은 **process.arch** 및 **process.version** 속성의 런타임에서 확인할 수 있음).
 * 배포하는 동안 사용자 지정 bash 또는 셸 스크립트를 실행하도록 Azure 앱 서비스를 구성하여 사용자 지정 명령을 실행하고 **npm install** 실행 방식을 정확히 구성할 수 있습니다. 이 작업 방법을 보여 주는 비디오는 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]를 참조하세요.
 
 ### <a name="using-a-packagejson-file"></a>package.json 파일 사용
@@ -85,13 +86,13 @@ Azure 앱 서비스는 일부 네이티브 모듈을 지원하지 않으며 매�
 
 [Node.js 버전 지정]: nodejs-specify-node-version-azure-apps.md
 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]: xplat-cli-install.md
-[Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
-[Node.js 웹 응용 프로그램 및 MongoDB의 저장소(MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Azure Cloud Service에서 Node.js 응용 프로그램 빌드 및 배포]: cloud-services-nodejs-develop-deploy-app.md
+[build and deploy a Node.js web app]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

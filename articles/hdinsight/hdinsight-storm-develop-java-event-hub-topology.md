@@ -15,12 +15,13 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eaa86b706a538543816b59d8cd09ee54df43b26d
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: abeafaaabb7449916313ee3805b18e9ec0da765e
 
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
+
 Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대량의 데이터를 처리할 수 있습니다. 이벤트 허브 Spout를 사용하면 HDInsight에서 Apache Storm을 사용하여 이 데이터를 실시간으로 분석하기가 쉽습니다. 또한 이벤트 허브 Bolt를 사용하여 Storm에서 이벤트 허브에 데이터를 기록할 수도 있습니다.
 
 이 자습서에서는 이벤트 허브 Spout 및 Bolt를 사용하여 Java 기반 Storm 토폴로지에 데이터를 읽고 쓰는 방법을 알아봅니다.
@@ -28,15 +29,11 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 ## <a name="prerequisites"></a>필수 조건
 * HDInsight의 Apache Storm 클러스터입니다. 다음 시작 문서 중 하나를 사용하여 클러스터를 만듭니다.
   
-  * [HDInsight 클러스터의 Linux 기반 Storm](hdinsight-apache-storm-tutorial-get-started-linux.md): SSH를 사용하여 Linux, Unix, OS X 또는 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
-  * [HDInsight 클러스터의 Windows 기반 Storm](hdinsight-apache-storm-tutorial-get-started.md): PowerShell을 사용하여 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
+  * HDInsight 클러스터. 새 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight 클러스터에서 Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
     
-    > [!NOTE]
-    > 이 문서의 단계는 HDInsight 클러스터 3.3 또는 3.4에서 Storm을 사용하는 경우를 기준으로 합니다. 이러한 클러스터는 Storm 0.10.0 및 Hadoop 2.7을 제공하므로 이 예제를 작동하는 데 필요한 단계 수를 줄일 수 있습니다.
-    > 
-    > HDInsight 3.2에서 Storm 0.9.3을 사용하는 이 예제 버전의 경우 예제 리포지토리의 [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) 분기를 참조하세요.
-    > 
-    > 
+    > [!IMPORTANT]
+    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * [Azure 이벤트 허브](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [OpenJDK](http://openjdk.java.net/)와 같은 [Oracle Java 개발자 키트(JDK) 버전 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 또는 그와 동등
 * [Maven](https://maven.apache.org/download.cgi): Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
@@ -44,8 +41,6 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
   
   > [!NOTE]
   > 편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
-  > 
-  > 
   
   * SSH 클라이언트. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
     
@@ -185,7 +180,7 @@ HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 
 
 프로젝트 코드 및 필요한 종속성을 포함하는 uber jar에 솔루션을 패키지하는 데 사용됩니다. 다음에 사용됩니다.
 
-* 종속성에 대한 라이선스 파일 이름 바꾸기: 이 동작을 수행하지 않으면 Windows 기반 HDInsight 클러스터에서 런타임에 오류가 발생할 수 있습니다.
+* 종속성에 대한 라이선스 파일 이름 바꾸기: 이 동작을 수행하지 않으면 런타임에 오류가 발생할 수 있습니다.
 * 보안/서명 제외: 이 동작을 수행하지 않으면 HDInsight 클러스터에서 런타임에 오류가 발생할 수 있습니다.
 * 동일한 인터페이스의 여러 구현이 하나의 항목으로 병합됩니다. 이 작업이 수행되지 않으면 Storm-HDFS bolt가 WASB 파일 시스템과 통신하는 방법을 파악할 수 없다는 오류가 표시됩니다.
 
@@ -325,7 +320,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
    
     토폴로지를 시작하고 "판독기" 및 "작성자"에 친숙한 이름을 지정합니다.
-4. 토폴로지가 이벤트 허브에서 이벤트를 쓰고 읽도록 하려면 1~2분 정도 기다렸다가 다음 명령을 사용하여 EventHubReader가 사용자의 HDInsight 저장소에 데이터를 저장하고 있는지 확인합니다.
+4. 토폴로지가 이벤트 허브에서 이벤트를 쓰고 읽도록 하려면&1;~2분 정도 기다렸다가 다음 명령을 사용하여 EventHubReader가 사용자의 HDInsight 저장소에 데이터를 저장하고 있는지 확인합니다.
    
         hadoop fs -ls /devicedata
    
@@ -362,7 +357,11 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
         storm kill reader
         storm kill writer
 
-### <a name="if-using-a-windows-based-cluster"></a>Windows 기반 클러스터를 사용하는 경우
+### <a name="if-using-a-windows-based-hdinsight-cluster"></a>Windows 기반 HDInsight 클러스터를 사용하는 경우
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net을 엽니다. 메시지가 표시되면 HDInsight 클러스터에 관리자 자격 증명을 입력합니다. Storm 대시보드에 도달하게 됩니다.
 2. **Jar 파일** 드롭다운을 사용하여 빌드 환경에서 EventHubExample-1.0-SNAPSHOT.jar 파일을 찾고 선택합니다.
 3. **클래스 이름**에 `com.mirosoft.example.EventHubWriter`를 입력합니다.
@@ -436,6 +435,6 @@ Storm UI 사용에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

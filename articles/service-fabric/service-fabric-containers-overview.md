@@ -12,19 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 1/4/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c03033fcadf0f92b77820fba1dd588f460287b86
+ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
+ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>미리 보기: Service Fabric 및 컨테이너
 > [!NOTE]
-> 이 기능은 Linux용 미리 보기 상태이며 Windows Server 2016에서는 현재 사용할 수 없습니다. Windows Server 2016 GA 후 Azure Service Fabric의 다음 릴리스에서 Windows Server용 미리 보기로 제공된 후에 후속 릴리스에서 지원될 예정입니다.
-> 
-> 
+> 이 기능은 Linux 및 Windows Server 2016용 미리 보기 상태입니다. 
+>   
 
 ## <a name="introduction"></a>소개
 Azure Service Fabric은 컴퓨터 클러스터에 걸쳐있는 서비스 [오케스트레이터](service-fabric-cluster-resource-manager-introduction.md)입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-deploy-existing-app.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. 시나리오에 따라 두 가지 환경의 장점을 활용할 수 있습니다.
@@ -93,6 +92,6 @@ Service Fabric에는 컨테이너화된 마이크로 서비스로 구성된 응�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

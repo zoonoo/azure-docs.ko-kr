@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5031cefe906f01e14e0155a975dd7996ba70522d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 5031cefe906f01e14e0155a975dd7996ba70522d
 * 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다. 
 * CPU/기간/실행 횟수별 최상위 쿼리는 향상된 성능을 위해 잠재적으로 조정될 수 있습니다.
 * 쿼리에 대한 세부 정보로 드릴다운하는 기능으로, 리소스 사용률에 대한 텍스트 및 기록을 표시합니다. 
-*  [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)  
+* [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)  
 
 
 
@@ -66,7 +66,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
     ![Query Performance Insight][1]
    
     최상위 쿼리 뷰가 열리고 최상위 CPU 사용 쿼리가 나열됩니다.
-2. 자세한 내용은 차트 주위를 클릭합니다.<br>위쪽 줄에는 데이터베이스에 대한 전체 DTU%가 표시되고 막대에는 선택한 기간 중에 선택한 쿼리에서 사용된 CPU%가 표시됩니다. 예를 들어 **지난주**를 선택하면 각 막대는 1일을 나타냅니다.
+2. 자세한 내용은 차트 주위를 클릭합니다.<br>위쪽 줄에는 데이터베이스에 대한 전체 DTU%가 표시되고 막대에는 선택한 기간 중에 선택한 쿼리에서 사용된 CPU%가 표시됩니다. 예를 들어 **지난주**를 선택하면 각 막대는&1;일을 나타냅니다.
    
     ![최상위 쿼리][2]
    
@@ -229,6 +229,6 @@ SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 [Query
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

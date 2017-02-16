@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2016
+ms.date: 01/05/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 2864fbf1fc4f070cb4d88d1bb3efbaaf408c68ce
+ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
+ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
 
 
 ---
@@ -32,93 +32,104 @@ ms.openlocfilehash: 2864fbf1fc4f070cb4d88d1bb3efbaaf408c68ce
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 구독을 사용하도록 설정합니다** . [지침](data-lake-store-get-started-portal.md)을 참조하세요.
-* **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 스트림 분석 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **datalakestoreasa**라는 저장소 계정 및 **datalakestoreasacontainer**라는 계정 내의 컨테이너를 만든다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 샘플 데이터 파일을 가져올 수 있습니다. [Azure 저장소 탐색기](http://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
 
-  > [!NOTE]
-  > Azure 포털에서 계정을 만들면 **클래식** 배포 모델로 만들어야 합니다. 이렇게 하면 스트림 분석 작업을 만드는 데 사용하는 것이기 때문에 Azure 클래식 포털에서 저장소 계정에 액세스할 수 있습니다. 클래식 배포를 사용하여 Azure Portal에서 저장소 계정을 만드는 방법에 대한 지침은 [Azure Storage 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
-  >
-  > 또는 Azure 클래식 포털에서 저장소 계정을 만들 수 있습니다.
-  >
-  >
-* **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.  
+* **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 스트림 분석 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 저장소 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
+  
+* **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. **asadatalakestore**라는 Data Lake Store 계정이 있다고 가정합니다. 
 
 ## <a name="create-a-stream-analytics-job"></a>스트림 분석 작업 만들기
 입력 원본 및 출력 대상을 포함하는 스트림 분석 작업을 만들어 시작합니다. 이 자습서의 경우 원본은 Azure blob 컨테이너이고 대상은 Data Lake 저장소입니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 화면의 왼쪽 아래에서 **새로 만들기**, **Data Services**, **Stream Analytics**, **빨리 만들기**를 차례로 클릭합니다. 다음과 같이 값을 지정하고 **스트림 분석 작업 만들기**를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-    ![스트림 분석 작업 만들기](./media/data-lake-store-stream-analytics/create.job.png "Create a Stream Analytics job")
+2. 왼쪽 창에서 **Stream Analytics 작업**을 클릭한 후 **추가**를 클릭합니다.
+
+    ![Stream Analytics 작업 만들기](./media/data-lake-store-stream-analytics/create.job.png "Stream Analytics 작업 만들기")
+
+    > [!NOTE]
+    > 저장소 계정과 동일한 지역에 작업을 만들지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
+    >
 
 ## <a name="create-a-blob-input-for-the-job"></a>작업에 대한 Blob 입력 만들기
-1. Stream Analytics 작업 페이지를 열고 **입력** 탭을 클릭한 다음 **입력 추가**를 클릭하여 마법사를 시작합니다.
-2. **작업에 대한 입력 추가** 페이지에서 **데이터 스트림**을 선택한 다음 앞으로 화살표를 클릭합니다.
 
-    ![작업에 입력 추가](./media/data-lake-store-stream-analytics/create.input.1.png "Add an input to your job")
-3. **작업에 대한 데이터 스트림 추가** 페이지에서 **Blob 저장소**를 선택한 다음 앞으로 화살표를 클릭합니다.
+1. Stream Analytics 작업 페이지를 열고 왼쪽 창에서 **입력** 탭을 클릭한 다음 **추가**를 클릭합니다.
 
-    ![작업에 데이터 스트림 추가](./media/data-lake-store-stream-analytics/create.input.2.png "Add a data stream to the job")
-4. **Blob 저장소 설정** 페이지에서 입력 데이터 원본으로 사용하는 Blob 저장소에 대한 세부 정보를 제공합니다.
+    ![작업에 입력 추가](./media/data-lake-store-stream-analytics/create.input.1.png "작업에 입력 추가")
 
-    ![Blob 저장소 설정 제공](./media/data-lake-store-stream-analytics/create.input.3.png "Provide the blob storage settings")
+2. **새 입력** 블레이드에서 다음 값을 제공합니다.
 
-   * **입력 별칭을 입력합니다**. 작업 입력에 제공하는 고유한 이름입니다.
-   * **저장소 계정을 선택합니다**. 저장소 계정을 스트림 분석 작업과 동일한 지역에 배치하지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
-   * **저장소 컨테이너를 제공합니다**. 새 컨테이너를 만들거나 기존 컨테이너를 선택하도록 선택할 수 있습니다.
+    ![작업에 입력 추가](./media/data-lake-store-stream-analytics/create.input.2.png "작업에 입력 추가")
 
-     앞으로 화살표를 클릭합니다.
-5. **직렬화 설정** 페이지에서 직렬화 형식을 **CSV**로, 구분 기호를 **탭**으로, 인코딩을 **UTF8**로 설정한 다음 확인 표시를 클릭합니다.
+    * **입력 별칭**에 작업 입력에 대한 고유한 이름을 입력합니다.
+    * **원본 형식**으로 **데이터 스트림**을 선택합니다.
+    * **원본**으로 **Blob Storage**를 선택합니다.
+    * **구독**에 대해 **현재 구독의 Blob Storage 사용**을 선택합니다.
+    * **저장소 계정**에서 필수 조건의 일부로 만든 저장소 계정을 선택합니다. 
+    * **컨테이너**에 대해 선택한 저장소 계정에서 만든 컨테이너를 선택합니다.
+    * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
+    * **구분 기호**로 **탭**을 선택합니다.
+    * **인코딩**으로 **UTF-8**을 선택합니다.
 
-    ![직렬화 설정 제공](./media/data-lake-store-stream-analytics/create.input.4.png "Provide the serialization settings")
-6. 마법사를 실행하면 Blob 입력은 **입력** 탭에 추가되고 **진단** 열은 **확인**을 표시해야 합니다. 아래쪽의 **연결 테스트** 단추를 사용하여 입력에 대한 연결을 명시적으로 테스트할 수 있습니다.
+    **만들기**를 클릭합니다. 이제 포털에 입력이 추가되고 연결을 테스트합니다.
+
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>작업에 대한 Data Lake 저장소 출력 만들기
-1. Stream Analytics 작업에 대한 페이지를 열고 **출력** 탭을 클릭한 다음 **출력 추가**를 클릭하여 마법사를 시작합니다.
-2. **작업에 대한 출력 추가** 페이지에서 **Data Lake Store**를 선택한 다음 앞으로 화살표를 클릭합니다.
 
-    ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.1.png "Add an output to your job")
-3. **연결 권한 부여** 페이지에서 Data Lake Store 계정을 이미 만든 경우 **지금 권한 부여**를 클릭합니다. 그렇지 않으면 **지금 등록** 을 클릭하여 새 계정을 만듭니다. 이 자습서에서는 생성된 Data Lake 저장소 계정이 이미 있다고 가정합니다(필수 구성 요소에서 설명한 대로). Azure 클래식 포털에 로그인하는 자격 증명을 사용하여 자동으로 권한이 부여됩니다.
+1. Stream Analytics 작업에 대한 페이지를 열고 **출력** 탭을 클릭한 다음 **추가**를 클릭합니다.
 
-    ![Data Lake 저장소 권한 부여](./media/data-lake-store-stream-analytics/create.output.2.png "Authorize Data Lake Store")
-4. **Data Lake 저장소 설정** 페이지에서 아래 화면 캡처에 표시된 대로 정보를 입력합니다.
+    ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.1.png "작업에 출력 추가")
 
-    ![Data Lake 저장소 설정 지정](./media/data-lake-store-stream-analytics/create.output.3.png "Specify Data Lake Store settings")
+2. **새 출력** 블레이드에서 다음 값을 제공합니다.
 
-   * **출력 별칭을 입력합니다**. 작업 출력에 제공하는 고유한 이름입니다.
-   * **Data Lake 저장소 계정을 지정합니다**. 이 필수 구성 요소에서 설명한 대로 만들어야 합니다.
-   * **경로 접두사 패턴을 지정합니다**. 스트림 분석 작업에 의해 Data Lake 저장소에 기록되는 출력 파일을 식별해야 합니다. 작업에 의해 작성된 출력의 제목이 GUID 서식이기 때문에 접두사를 포함하면 작성된 출력을 식별하는 데 도움이 됩니다. 날짜 및 시간 스탬프를 접두사의 일부로 포함하려면 접두사 패턴에 `{date}/{time}` 를 포함하도록 합니다. 이를 포함하는 경우 **날짜 형식** 및 **시간 형식** 필드를 사용할 수 있으며 원하는 형식을 선택할 수 있습니다.
+    ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.2.png "작업에 출력 추가")
 
-     앞으로 화살표를 클릭합니다.
-5. **직렬화 설정** 페이지에서 직렬화 형식을 **CSV**로, 구분 기호를 **탭**으로, 인코딩을 **UTF8**로 설정한 다음 확인 표시를 클릭합니다.
+    * **입력 별칭**에 작업 출력에 대한 고유한 이름을 입력합니다. 쿼리 출력을 이 Data Lake 저장소로 직접 보내기 위해 쿼리에서 사용되는 식별 이름입니다.
+    * **싱크**로 **Data Lake Store**를 선택합니다.
+    * Data Lake Store 계정에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. **권한 부여**를 클릭합니다.
 
-    ![출력 서식 지정](./media/data-lake-store-stream-analytics/create.output.4.png "Specify the output format")
-6. 마법사를 실행하면 Data Lake Store 출력은 **출력** 탭에 추가되고 **진단** 열은 **확인**을 표시해야 합니다. 아래쪽의 **연결 테스트** 단추를 사용하여 출력에 대한 연결을 명시적으로 테스트할 수 있습니다.
+3. **새 출력** 블레이드에서 계속 다음 값을 제공합니다.
 
+    ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.3.png "작업에 출력 추가")
+
+    * **계정 이름**에는 작업 출력을 전송하려는 위치에 미리 만든 Data Lake Store 계정을 선택합니다.
+    * **경로 접두사 패턴**에는 지정된 Data Lake Store 계정 내에서 파일을 작성하는 데 사용되는 파일 경로를 입력합니다.
+    * **날짜 형식**의 경우, 접두사 경로에 날짜 토큰을 사용한 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다.
+    * **시간 형식**의 경우, 접두사 경로에 시간 토큰을 사용한 경우 파일을 구성하는 시간 형식을 지정합니다.
+    * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
+    * **구분 기호**로 **탭**을 선택합니다.
+    * **인코딩**으로 **UTF-8**을 선택합니다.
+    
+    **만들기**를 클릭합니다. 이제 포털에 출력이 추가되고 연결을 테스트합니다.
+    
 ## <a name="run-the-stream-analytics-job"></a>스트림 분석 작업 실행
-스트림 분석 작업을 실행하려면 쿼리 탭에서 쿼리를 실행해야 합니다. 이 자습서에서는 아래의 화면 캡처와 같이 작업 입력 및 출력 별칭으로 자리 표시자를 대체하여 샘플 쿼리를 실행할 수 있습니다.
 
-![쿼리 실행](./media/data-lake-store-stream-analytics/run.query.png "Run query")
+1. Stream Analytics 작업을 실행하려면 **쿼리** 탭에서 쿼리를 실행해야 합니다. 이 자습서에서는 아래의 화면 캡처와 같이 작업 입력 및 출력 별칭으로 자리 표시자를 대체하여 샘플 쿼리를 실행할 수 있습니다.
 
-화면 아래쪽에서 **저장**을 클릭한 다음 **시작**을 클릭합니다. 대화 상자에서 **사용자 지정 시간**을 선택한 다음 **1/1/2016**과 같은 과거의 날짜를 선택합니다. 확인 표시를 클릭하여 작업을 시작합니다. 작업을 시작하는 데 최대 몇 분이 걸릴 수 있습니다.
+    ![쿼리 실행](./media/data-lake-store-stream-analytics/run.query.png "쿼리 실행")
 
-![작업 시간 설정](./media/data-lake-store-stream-analytics/run.query.2.png "Set job time")
+2. 화면 맨 위에서 **저장**을 클릭한 다음 **개요** 탭에서 **시작**을 클릭합니다. 대화 상자에서 **사용자 지정 시간**을 선택한 다음 현재 날짜 및 시간을 설정합니다.
 
-작업이 시작된 후에 **모니터링** 탭을 클릭하여 데이터를 처리하는 방법을 확인합니다.
+    ![작업 시간 설정](./media/data-lake-store-stream-analytics/run.query.2.png "작업 시간 설정")
 
-![작업 모니터링](./media/data-lake-store-stream-analytics/run.query.3.png "Monitor job")
+    **시작**을 클릭하여 작업을 시작합니다. 작업을 시작하는 데 최대 몇 분이 걸릴 수 있습니다.
 
-마지막으로 [Azure 포털](https://portal.azure.com) 을 사용하여 Data Lake Store 계정을 열고 계정에 데이터가 성공적으로 기록되었는지 여부를 확인할 수 있습니다.
+3. Blob에서 데이터를 선택하는 작업을 트리거하려면 샘플 데이터 파일을 Blob 컨테이너에 복사합니다. [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 샘플 데이터 파일을 가져올 수 있습니다. 이 자습서에서는 **vehicle1_09142014.csv** 파일을 복사하겠습니다. [Azure 저장소 탐색기](http://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
 
-![출력 확인](./media/data-lake-store-stream-analytics/run.query.4.png "Verify output")
+4. **개요** 탭의 **모니터링** 아래에서 데이터가 처리된 방식을 확인합니다.
 
-데이터 탐색기 창에서 Data Lake Store 출력 설정에 지정된 대로 출력(`streamanalytics/job/output/{date}/{time}`)이 폴더에 기록됩니다.  
+    ![작업 모니터링](./media/data-lake-store-stream-analytics/run.query.3.png "작업 모니터링")
+
+5. 마지막으로 Data Lake Store 계정에서 작업 출력 데이터가 제공되는 것을 확인할 수 있습니다. 
+
+    ![출력 확인](./media/data-lake-store-stream-analytics/run.query.4.png "출력 확인")
+
+    데이터 탐색기 창에서 Data Lake Store 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
 
 ## <a name="see-also"></a>참고 항목
 * [HDInsight 클러스터를 만들어 Data Lake 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

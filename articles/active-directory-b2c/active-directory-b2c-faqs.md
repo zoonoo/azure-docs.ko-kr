@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 
 
 ---
@@ -79,6 +79,9 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Azure AD Connect를 사용하여 온-프레미스 Active Directory에 저장된 소비자 ID를 Azure AD B2C에 마이그레이션할 수 있나요?
 아니요, Azure AD Connect는 Azure AD B2C와 함께 작동하지 않습니다. 나중에 다양한 마이그레이션 옵션 및 창의적인 도구를 제공합니다.
 
+### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>앱의 Azure AD B2C 페이지가 iFrame 내에서 열릴 수 있나요?
+아니요. 보안상의 이유로, `login.microsftonline.com` 도메인에서 제공되는 Azure AD B2C 페이지는 iFrame 내에서 열릴 수 없습니다. 모든 소비자 환경의 경우 항상 Azure AD B2C로 리디렉션되어야 합니다.
+
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C는 Microsoft Dynamics와 같은 CRM 시스템과 함께 작동합니까?
 현재는 아닙니다. 이러한 시스템을 통합하는 것이 로드맵입니다.
 
@@ -124,6 +127,6 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

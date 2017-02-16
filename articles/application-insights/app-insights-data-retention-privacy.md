@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: be100e88e5d10c317be10aa829124a9be30e28b4
+ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
+ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
 
 
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
 
-앱에 [Azure Application Insights][시작] SDK를 설치하는 경우 앱에 대한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
+앱에 [Azure Application Insights][start] SDK를 설치하는 경우 앱에 대한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
 
 우선 짧은 응답은 다음과 같습니다.
 
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
-* 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. (이 확장성은 Application Insights의 매우 유용한 기능입니다.) 실수로 개인 및 기타 중요한 데이터가 포함되도록 이 코드를 작성할 수 있습니다. 응용 프로그램이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 강력한 검토 프로세스를 적용해야 합니다.
+* 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. (이 확장성은 Application Insights의 매우 유용한 기능입니다.) 실수로 개인 및 기타 중요한 데이터가 포함되도록 이 코드를 작성할 수 있습니다. 응용 프로그램이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 철저한 검토 프로세스를 적용해야 합니다.
 * 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
 * 데이터는 미국 또는 유럽의 [Microsoft Azure](http://azure.com) 서버에 저장됩니다. 그러나 앱은 어디서나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 서버에 없더라도 전송 중에 암호화됩니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
 ## <a name="what-is-application-insights"></a>Application Insights란?
-[Azure Application Insights][시작]는 라이브 응용 프로그램의 성능 및 가용성을 향상시키는 Microsoft에서 제공하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 응용 프로그램을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
+[Azure Application Insights][start]는 라이브 응용 프로그램의 성능 및 가용성을 향상시키는 Microsoft에서 제공하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 응용 프로그램을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
 
 이 기능을 가져오기 위해 응용 프로그램에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](http://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스팅되는 서비스가 아닌 모든 응용 프로그램에 대해 작동합니다.)
 
@@ -88,7 +88,7 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 ## <a name="how-long-is-the-data-kept"></a>데이터가 얼마 동안 보존되나요?
 원시 데이터 요소(즉, Analytics에서 쿼리하고 Search에서 검사할 수 있는 항목)는 최대 90일 동안 보관됩니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](app-insights-export-telemetry.md) 를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
 
-집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 30일 동안 1분 단위로 보존되고, 적어도 90일 동안 형식에 따라 1시간 또는 1일 단위로 보존됩니다.
+집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 90일 동안 1분 단위로 보존됩니다.
 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 데이터는 사용자 및 조직 계정이 있는 경우 팀 멤버에게 표시됩니다. 
@@ -153,7 +153,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 Application Insights는 데이터를 필터링하거나 삭제하지 않습니다. 데이터를 적절하게 관리하여 이러한 데이터가 Application Insights로 전송되지 않도록 해야 합니다.
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights에서 보내는 데이터
-SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights - 개요][시작]를 참조하세요. 각 구성 요소마다 다른 데이터를 보냅니다.
+SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights - 개요][start]를 참조하세요. 각 구성 요소마다 다른 데이터를 보냅니다.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>다양한 시나리오에서 전송되는 데이터 클래스
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
@@ -161,14 +161,14 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>users |
 | [IIS에서 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
 | [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>users |
-| [웹 페이지에 JavaScript SDK 추가][클라이언트] |ClientContext  <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
+| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext  <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성**  |
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
 | SDK는 데이터를 수집할 수 없습니다. 예: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
-[다른 플랫폼에 대한 SDK][플랫폼]의 경우 해당 문서를 참조하세요.
+[다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
 
 #### <a name="the-classes-of-collected-data"></a>수집되는 데이터 클래스
 | 수집되는 데이터 클래스 | 포함(전체 목록 아님) |
@@ -213,18 +213,18 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[클라이언트]: app-insights-javascript.md
+[client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
-[플랫폼]: app-insights-platforms.md
+[platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[시작]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

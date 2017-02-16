@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 11/18/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b39a1959496a6705e3ca8c7a86b9ce8072eb768e
+ms.sourcegitcommit: eaacffd5c8a0364631fd49b3fed33036a493eea4
+ms.openlocfilehash: da7443f3bd38ec41ad2d6b0ce6f573525678e6bd
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: b39a1959496a6705e3ca8c7a86b9ce8072eb768e
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="operating-system-disk"></a>운영 체제 디스크
-모든 가상 컴퓨터는 하나의 연결된 운영 체제 디스크를 갖습니다. 이 디스크는 SATA 드라이브로 등록되며 기본적으로 C 드라이브로 레이블이 지정됩니다. 이 디스크의 최대 용량은 1023기가바이트(GB)입니다. 
+모든 가상 컴퓨터는 하나의 연결된 운영 체제 디스크를 갖습니다. 이 디스크는 SATA 드라이브로 등록되며 기본적으로 /dev/sda라는 레이블이 붙습니다. 이 디스크의 최대 용량은 1023기가바이트(GB)입니다. 
 
 ## <a name="temporary-disk"></a>임시 디스크
 임시 디스크는 자동으로 만들어집니다. Linux 가상 컴퓨터에서 디스크는 일반적으로 /dev/sdb 이며, Azure Linux 에이전트에 의해 /mnt/resource로 포맷되고 마운트됩니다.
@@ -80,6 +80,6 @@ Azure는 고정 디스크 VHD 형식을 지원합니다. 고정 형식은 디스
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

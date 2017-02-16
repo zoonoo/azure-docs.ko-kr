@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 5738c78d65ed0394028b90d634e5ebd4b1d5c5bc
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 497f963870d24a335379a7f015a515c425737a73
 
 
 ---
@@ -28,7 +28,7 @@ Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 �
 * 검색에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 * 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Google 드라이브에는 다음 작업이 포함됩니다. 트리거는 없습니다. 
@@ -321,7 +321,7 @@ Google 시트의 행을 업데이트합니다.
 | value |array |no |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
@@ -337,6 +337,6 @@ Google 시트의 행을 업데이트합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,21 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/20/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6feeeaef2bd5e5ff665ca870b61036365d75f53d
+ms.sourcegitcommit: ec9e12667bc82043fbdc0b3f113533cf518f39be
+ms.openlocfilehash: 66907ccb97dedc176c5fe76826abd3b31f4ccdb9
 
 
 ---
 # <a name="how-to-use-azure-managed-cache-service"></a>Azure 관리된 캐시 서비스 사용 방법
-이 가이드에서는 **Azure 관리된 캐시 서비스**를 사용하는 방법을 설명합니다. 샘플은 C\# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 만들기와 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. Azure Cache 사용에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
-
 > [!IMPORTANT]
-> 작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure 관리된 캐시 서비스 및 Azure In-Role Cache 서비스가 2016년 11월 30일에 종료됩니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
+> 작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure Managed Cache Service 및 Azure In-Role Cache 서비스가 **2016년 11월 30일에 종료되었습니다**. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
 > 
 > 
+
+이 가이드에서는 **Azure 관리된 캐시 서비스**를 사용하는 방법을 설명합니다. 샘플은 C\# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 만들기와 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. Azure Cache 사용에 대한 자세한 내용은 [다음 단계][Next Steps] 섹션을 참조하세요.
+
+
 
 <a name="what-is"></a>
 
@@ -47,45 +49,45 @@ Azure 관리된 캐시 서비스의 특성은 다음과 같습니다.
 * 표준 - 캐시 크기 1GB ~ 10GB
 * 프리미엄 - 캐시 크기 5GB ~ 150GB
 
-각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격에 대한 자세한 내용은 [캐시 가격 정보][캐시 가격 책정 정보]를 참조하세요.
+각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격 책정에 대한 자세한 내용은 [캐시 가격 책정 정보][Cache Pricing Details]를 참조하세요.
 
-이 가이드에서는 관리된 캐시 서비스를 시작하기 위한 개요를 제공합니다. 이 시작하기 가이드의 범위를 벗어나는 기능에 대해 자세히 알아보려면 [Azure 관리된 캐시 서비스 개요][Azure 관리된 캐시 서비스 개요]를 참조하세요.
+이 가이드에서는 관리된 캐시 서비스를 시작하기 위한 개요를 제공합니다. 이 시작 가이드의 범위를 벗어나는 이러한 기능에 대해 자세히 알아보려면 [Azure Managed Cache Service 개요][Overview of Azure Managed Cache Service]를 참조하세요.
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="getting-started-with-cache-service"></a>캐시 서비스 시작
 관리된 캐시 서비스 시작하기는 간단합니다. 먼저 캐시를 프로비전하고 구성합니다. 그런 다음 캐시에 액세스할 수 있도록 캐시 클라이언트를 구성합니다. 캐시 클라이언트를 구성하면 작업을 시작할 수 있습니다.
 
-* [캐시 만들기][캐시 만들기]
-* [캐시 구성][캐시 구성]
-* [캐시 클라이언트 구성][캐시 클라이언트 구성]
+* [캐시 만들기][Create the cache]
+* [캐시 구성][Configure the cache]
+* [캐시 클라이언트 구성][Configure the cache clients]
 
 <a name="create-cache"></a>
 
 ## <a name="create-a-cache"></a>캐시 만들기
 관리된 캐시 서비스의 캐시 인스턴스는 PowerShell cmdlet을 사용하여 만듭니다. 
 
-> PowerShell cmdlet을 사용하여 만든 관리 캐시 서비스 인스턴스는 [Azure 클래식 포털][Azure 클래식 포털]에서 보고 구성할 수 있습니다.
+> PowerShell cmdlet을 사용하여 만든 Managed Cache Service 인스턴스는 [Azure 클래식 포털][Azure Classic Portal]에서 보고 구성할 수 있습니다.
 > 
 > 
 
 관리 캐시 서비스 인스턴스를 만들려면 Azure PowerShell 명령 창을 엽니다.
 
-> Azure PowerShell 설치 및 사용에 대한 지침은 [Azure PowerShell을 설치하고 구성하는 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
+> Azure PowerShell 설치 및 사용에 대한 지침은 [Azure PowerShell을 설치하고 구성하는 방법][How to install and configure Azure PowerShell]을 참조하세요.
 > 
 > 
 
 [Add-AzureAccount][Add-AzureAccount] cmdlet을 호출하고 계정과 연결된 전자 메일 주소 및 암호를 입력합니다. [Add-AzureAccount][Add-AzureAccount] cmdlet을 호출하면 구독이 기본적으로 선택되고 표시됩니다. 구독을 변경하려면 [Select-AzureSubscription][Select-AzureSubscription] cmdlet을 호출합니다.
 
-> 계정의 인증서를 사용하여 Azure PowerShell을 구성한 경우에는 이 단계를 건너뛸 수 있습니다. Azure PowerShell을 Azure 계정과 연결하는 방법에 대한 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
+> 계정의 인증서를 사용하여 Azure PowerShell을 구성한 경우에는 이 단계를 건너뛸 수 있습니다. Azure PowerShell을 Azure 계정과 연결하는 것에 대한 자세한 내용은 [Azure PowerShell을 설치하고 구성하는 방법][How to install and configure Azure PowerShell]을 참조하세요.
 > 
 > 
 
 구독은 기본적으로 선택되고 표시됩니다. 구독을 변경하려면 [Select-AzureSubscription][Select-AzureSubscription] cmdlet을 호출합니다.
 
-[New-AzureManagedCache][New-AzureManagedCache] cmdlet을 호출하고 캐시의 이름, 지역, 캐시 기능 및 크기를 지정합니다.
+[New-AzureManagedCache][New-AzureManagedCache] cmdlet을 호출하고 캐시의 이름, 하위 지역, 캐시 제품 및 크기를 지정합니다.
 
-**이름**에 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
+**이름**에 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은&6;~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
 
 **위치**에서 캐시 지역을 지정합니다. 성능을 최적화하려면 캐시 클라이언트 응용 프로그램과 동일한 지역에 캐시를 만드십시오.
 
@@ -95,7 +97,7 @@ Azure 관리된 캐시 서비스의 특성은 다음과 같습니다.
 * 표준 - 캐시 크기는 1GB ~ 10GB이고 1GB 단위로 증가하며, 알림이 지원되고 명명된 캐시는 최대 10개입니다.
 * 프리미엄 - 캐시 크기는 5GB ~ 150GB이고 5GB 단위로 증가하며, 알림과 고가용성이 지원되고 명명된 캐시는 최대 10개입니다.
 
-응용 프로그램 요구에 맞는 **Sku** 및 **메모리**를 선택합니다. 알림과 고가용성 등 일부 캐시 기능은 특정 캐시 옵션에서만 사용할 수 있습니다. 응용 프로그램에 가장 적합한 캐시 옵션과 크기를 선택하는 방법에 대한 자세한 내용은 [캐시 기능][캐시 기능]을 참조하세요.
+응용 프로그램 요구에 맞는 **Sku** 및 **메모리**를 선택합니다. 알림과 고가용성 등 일부 캐시 기능은 특정 캐시 옵션에서만 사용할 수 있습니다. 응용 프로그램에 가장 적합한 캐시 제품 및 크기를 선택하는 방법에 대한 자세한 내용은 [캐시 제품][Cache offerings]을 참조하세요.
 
  다음 예제에서는 미국 남중부 지역에 contosocache라는 기본 128MB 캐시를 만듭니다.
 
@@ -105,9 +107,9 @@ Azure 관리된 캐시 서비스의 특성은 다음과 같습니다.
 > 
 > 
 
-PowerShell cmdlet을 호출한 후 캐시가 만들어지는 데 몇 분 정도 걸릴 수 있습니다. 캐시가 만들어진 후에는 새 캐시가 `Running` 상태가 되고 기본 설정과 함께 사용할 준비가 완료되며, [Azure 클래식 포털][Azure 클래식 포털]에서 보고 구성할 수 있습니다. 캐시의 구성을 사용자 지정하려면 다음의 [캐시 구성][캐시 구성] 섹션을 참조하세요.
+PowerShell cmdlet을 호출한 후 캐시가 만들어지는 데 몇 분 정도 걸릴 수 있습니다. 캐시가 만들어진 후에는 새 캐시가 `Running` 상태가 되고 기본 설정과 함께 사용할 준비가 완료되며, [Azure 클래식 포털][Azure Classic Portal]에서 보고 구성할 수 있습니다. 캐시의 구성을 사용자 지정하려면 다음에 나오는 [캐시 구성][Configure the cache] 섹션을 참조하세요.
 
-Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니다. 캐시의 사용 준비가 완료되면 [New-AzureManagedCache][New-AzureManagedCache] cmdlet에서 다음 예에 표시된 대로 캐시 정보를 표시합니다.
+Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니다. 캐시를 사용할 준비가 완료되면 [New-AzureManagedCache][New-AzureManagedCache] cmdlet에서 다음 예에 표시된 대로 캐시 정보를 표시합니다.
 
     PS C:\> Add-AzureAccount
     VERBOSE: Account "user@domain.com" has been added.
@@ -138,7 +140,7 @@ Azure PowerShell 창에서 만들기 진행률을 모니터링할 수 있습니�
 <a name="enable-caching"></a>
 
 ## <a name="configure-the-cache"></a>캐시 구성
-Azure 클래식 포털에서 캐시에 대한 **구성** 탭은 캐시의 옵션을 구성할 수 있는 곳입니다. 각 캐시에는 **기본** 명명된 캐시가 있습니다. 표준과 프리미엄에서는 최대 9개의 명명된 캐시가 추가로 지원되어 총 10개의 캐시가 제공됩니다. 명명된 각 캐시에는 자체 옵션 세트가 있으며, 이를 통해 매우 유연하게 캐시를 구성할 수 있습니다.
+Azure 클래식 포털에서 캐시에 대한 **구성** 탭은 캐시의 옵션을 구성할 수 있는 곳입니다. 각 캐시에는 **기본** 명명된 캐시가 있습니다. 표준과 프리미엄에서는 최대&9;개의 명명된 캐시가 추가로 지원되어 총&10;개의 캐시가 제공됩니다. 명명된 각 캐시에는 자체 옵션 세트가 있으며, 이를 통해 매우 유연하게 캐시를 구성할 수 있습니다.
 
 ![NamedCaches][NamedCaches]
 
@@ -147,29 +149,29 @@ Azure 클래식 포털에서 캐시에 대한 **구성** 탭은 캐시의 옵션
 ## <a name="expiry-policy-and-time-min"></a>만료 정책 및 시간(분)
 **만료 정책**은 **시간(분)** 설정과 결합되어 캐시된 항목의 만료 시기를 결정합니다. 만료 정책에는 **절대**, **슬라이딩**, **없음**의 세 가지 유형이 있습니다. 
 
-**절대**를 선택한 경우에는 캐시에 항목이 추가되면 **시간(분)**으로 지정된 만료 간격이 시작됩니다. **시간(분)** 으로 지정한 간격이 경과하면 항목이 만료됩니다. 
+**절대**를 선택한 경우에는 캐시에 항목이 추가되면 **시간(분)**으로 지정된 만료 간격이 시작됩니다. **시간(분)**으로 지정한 간격이 경과하면 항목이 만료됩니다. 
 
-**슬라이딩**을 선택한 경우에는 캐시에서 항목이 액세스될 때마다 **시간(분)**으로 지정된 만료 간격이 다시 설정됩니다. 항목에 대한 마지막 액세스 이후 **시간(분)** 으로 지정한 간격이 경과할 때까지는 항목이 만료되지 않습니다.
+**슬라이딩**을 선택한 경우에는 캐시에서 항목이 액세스될 때마다 **시간(분)**으로 지정된 만료 간격이 다시 설정됩니다. 항목에 대한 마지막 액세스 이후 **시간(분)**으로 지정한 간격이 경과할 때까지는 항목이 만료되지 않습니다.
 
 **없음**을 선택한 경우에는 **시간(분)**을 **0**으로 설정해야 하며, 항목이 만료되지 않습니다.
 
 기본 만료 정책은 **절대**이며 **시간(분)**의 기본 설정은 10분입니다. 명명된 캐시의 각 항목에는 고정된 만료 정책이 사용되지만, 시간 제한 매개 변수가 있는 **Add** 및 **Put** 오버로드를 사용하여 각 항목에 대해 **시간(분)**을 사용자 지정할 수 있습니다.
 
-제거 및 만료 정책에 대한 자세한 내용은 [만료 및 제거][만료 및 제거]를 참조하세요.
+제거 및 만료 정책에 대한 자세한 내용은 [만료 및 제거][Expiration and Eviction]를 참조하세요.
 
 ## <a name="notifications"></a>알림
-캐시 알림은 캐시 클러스터에서 다양한 캐시 작업이 발생할 때 응용 프로그램에서 비동기 알림을 받을 수 있도록 하는 기능입니다. 캐시 알림은 로컬로 캐시된 개체의 자동 무효화도 제공합니다. 자세한 내용은 [알림][알림]을 참조하세요.
+캐시 알림은 캐시 클러스터에서 다양한 캐시 작업이 발생할 때 응용 프로그램에서 비동기 알림을 받을 수 있도록 하는 기능입니다. 캐시 알림은 로컬로 캐시된 개체의 자동 무효화도 제공합니다. 자세한 내용은 [알림][Notifications]을 참조하세요.
 
-> 알림은 표준과 프리미엄에서만 사용할 수 있고, 기본에서는 사용할 수 없습니다. 자세한 내용은 [캐시 기능][캐시 기능]을 참조하세요.
+> 알림은 표준과 프리미엄에서만 사용할 수 있고, 기본에서는 사용할 수 없습니다. 자세한 내용은 [캐시 제품][Cache offerings]을 참조하세요.
 > 
 > 
 
 ## <a name="high-availability"></a>고가용성
 고가용성이 사용되는 경우에는 캐시에 추가되는 각 항목에 대해 백업 복사본이 만들어집니다. 항목의 기본 복사본에 예기치 않은 오류가 발생하면 백업 복사본을 사용할 수 있습니다.
 
-정의에서 알 수 있듯이, 고가용성을 사용하면 캐시된 각 항목에 필요한 메모리 양의 두 배가 필요합니다. 용량 계획을 세우는 동안 이러한 메모리 문제를 고려하십시오. 자세한 내용은 [고가용성][고가용성]을 참조하세요.
+정의에서 알 수 있듯이, 고가용성을 사용하면 캐시된 각 항목에 필요한 메모리 양의 두 배가 필요합니다. 용량 계획을 세우는 동안 이러한 메모리 문제를 고려하십시오. 자세한 내용은 [고가용성][High Availability]을 참조하세요.
 
-> 고가용성은 프리미엄에서만 사용할 수 있고, 기본 또는 표준에서는 사용할 수 없습니다. 자세한 내용은 [캐시 기능][캐시 기능]을 참조하세요.
+> 고가용성은 프리미엄에서만 사용할 수 있고, 기본 또는 표준에서는 사용할 수 없습니다. 자세한 내용은 [캐시 제품][Cache offerings]을 참조하세요.
 > 
 > 
 
@@ -177,7 +179,7 @@ Azure 클래식 포털에서 캐시에 대한 **구성** 탭은 캐시의 옵션
 캐시 내에서 사용 가능한 메모리의 용량을 유지하기 위해 LRU(오래 전에 사용한 항목) 제거가 지원됩니다. 메모리 소비가 임계값을 초과하면, 메모리 압력이 해소될 때까지 만료 여부와 상관없이 메모리에서 개체가 제거됩니다.
 제거는 기본적으로 사용됩니다. 제거가 사용되지 않으면 용량이 한계에 도달해도 캐시에서 항목이 삭제되지 않습니다. 대신 Put 및 Add 작업이 실패하게 됩니다.
 
-제거 및 만료 정책에 대한 자세한 내용은 [만료 및 제거][만료 및 제거]를 참조하세요.
+제거 및 만료 정책에 대한 자세한 내용은 [만료 및 제거][Expiration and Eviction]를 참조하세요.
 
 캐시 구성을 마쳤으면 캐시에 액세스하도록 캐시 클라이언트를 구성할 수 있습니다.
 
@@ -197,7 +199,7 @@ Cache NuGet 패키지를 사용하여 클라이언트 응용 프로그램을 구
 
 NuGet 패키지는 응용 프로그램의 구성 파일에 필요한 구성을 추가하고, 필요한 어셈블리 참조를 추가하는 등 여러 가지 작업을 수행합니다. 클라우드 서비스 프로젝트의 경우 클라우드 서비스의 ServiceConfiguration.cscfg 파일에 캐시 클라이언트 진단 수준 설정도 추가합니다.
 
-> ASP.NET 웹 프로젝트의 경우 Cache NuGet 패키지는 web.config에 주석으로 처리된 두 개의 섹션도 추가합니다. 첫 번째 섹션은 세션 상태가 캐시에 저장되도록 하고, 두 번째 섹션은 ASP.NE페이지 출력 캐싱을 활성화합니다. 자세한 내용은 [방법: 캐시에 ASP.NET 세션 상태 저장] 및 [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장]을 참조하세요.
+> ASP.NET 웹 프로젝트의 경우 Cache NuGet 패키지는 web.config에 주석으로 처리된 두 개의 섹션도 추가합니다. 첫 번째 섹션은 세션 상태가 캐시에 저장되도록 하고, 두 번째 섹션은 ASP.NE페이지 출력 캐싱을 활성화합니다. 자세한 내용은 [방법: 캐시에 ASP.NET 세션 상태 저장] 및 [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][How To: Store ASP.NET Page Output Caching in the Cache]을 참조하세요.
 > 
 > 
 
@@ -262,7 +264,7 @@ NuGet 패키지는 응용 프로그램의 web.config 또는 app.config에 다음
       </ConfigurationSettings>
     </Role>
 
-> 클라이언트 진단 수준은 캐시 클라이언트를 위해 수집된 캐싱 진단 정보의 수준을 구성합니다. 자세한 내용은 [문제 해결 및 진단][문제 해결 및 진단]을 참조하세요.
+> 클라이언트 진단 수준은 캐시 클라이언트를 위해 수집된 캐싱 진단 정보의 수준을 구성합니다. 자세한 내용은 [문제 해결 및 진단][Troubleshooting and Diagnostics]을 참조하세요.
 > 
 > 
 
@@ -286,11 +288,11 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 ## <a name="working-with-caches"></a>캐시 작업
 이 섹션의 각 단계에서는 일반적인 캐시 작업 수행 방법에 대해 설명합니다.
 
-* [방법: DataCache 개체 만들기][방법: DataCache 개체 만들기]
-* [방법: 캐시에서 개체 추가 및 검색][방법: 캐시에서 개체 추가 및 검색]
-* [방법: 캐시에서 개체의 만료 지정][방법: 캐시에서 개체의 만료 지정]
+* [방법: DataCache 개체 만들기][How To: Create a DataCache Object]
+* [방법: 캐시에서 개체 추가 및 검색][How To: Add and Retrieve an Object from the Cache]
+* [방법: 캐시에서 개체의 만료 지정][How To: Specify the Expiration of an Object in the Cache]
 * [방법: 캐시에 ASP.NET 세션 상태 저장][방법: 캐시에 ASP.NET 세션 상태 저장]
-* [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장]
+* [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][How To: Store ASP.NET Page Output Caching in the Cache]
 
 <a name="create-cache-object"></a>
 
@@ -299,7 +301,7 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 
     using Microsoft.ApplicationServer.Caching;
 
-> 필요한 참조를 추가하는 Cache NuGet 패키지를 설치한 후에도 Visual Studio에서 using 문의 유형을 인식하지 못하면 프로젝트의 대상 프로필이 .NET Framework 4 이상인지, **Client Profile**을 지정하지 않는 프로필 중 하나를 선택했는지를 확인하세요. 캐시 클라이언트 구성에 대한 자세한 내용은 [캐시 클라이언트 구성][캐시 클라이언트 구성]을 참조하세요.
+> 필요한 참조를 추가하는 Cache NuGet 패키지를 설치한 후에도 Visual Studio에서 using 문의 유형을 인식하지 못하면 프로젝트의 대상 프로필이 .NET Framework 4 이상인지, **Client Profile**을 지정하지 않는 프로필 중 하나를 선택했는지를 확인하세요. 캐시 클라이언트 구성에 대한 자세한 내용은 [캐시 클라이언트 구성][Configure the cache clients]을 참조하세요.
 > 
 > 
 
@@ -325,7 +327,7 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value");
 
-동일한 키의 개체가 이미 캐시에 있으면 다음 메시지와 함께 **DataCacheException** 이 발생합니다.
+동일한 키의 개체가 이미 캐시에 있으면 다음 메시지와 함께 **DataCacheException**이 발생합니다.
 
 > ErrorCode:SubStatus: 캐시에 이미 있는 키를 사용하여 개체를 만들려고 하고 있습니다. 캐시는 개체에 대해 고유한 키 값만 허용합니다.
 > 
@@ -378,7 +380,7 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 <a name="store-session"></a>
 
 ## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>방법: 캐시에 ASP.NET 세션 상태 저장
-Azure 캐시의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out of Process 저장소 메커니즘입니다. 이 공급자를 사용하면 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure 캐시에 세션 상태를 저장할 수 있습니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 [관리된 캐시 서비스 시작][관리된 캐시 서비스 시작]에서 설명한 대로 Cache NuGet 패키지를 사용하여 캐시용 ASP.NET 응용 프로그램을 구성하세요. Cache NuGet 패키지를 설치하면 주석으로 처리된 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 Azure 캐시에 세션 상태 공급자를 사용하는 데 필요한 구성이 포함되어 있습니다.
+Azure 캐시의 세션 상태 제공자는 ASP.NET 응용 프로그램의 Out of Process 저장소 메커니즘입니다. 이 공급자를 사용하면 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure 캐시에 세션 상태를 저장할 수 있습니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 [Managed Cache Service 시작][Getting Started with Managed Cache Service]에서 설명한 대로 Cache NuGet 패키지를 사용하여 캐시용 ASP.NET 응용 프로그램을 구성합니다. Cache NuGet 패키지를 설치하면 주석으로 처리된 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 Azure 캐시에 세션 상태 제공자를 사용하는 데 필요한 구성이 포함되어 있습니다.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -393,18 +395,18 @@ Azure 캐시의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out of
       </sessionState>
     </system.web>-->
 
-> Caching NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet 패키지 관리자 설치]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
+> Cache NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet Package Manager Installation]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
 > 
 > 
 
-Azure 캐시에 세션 상태 공급자를 사용하려면 지정된 섹션의 주석 처리를 제거합니다. 제공된 코드 조각에 기본 캐시가 지정되어 있습니다. 다른 캐시를 사용하려면 **cacheName** 특성에서 원하는 캐시를 지정하세요.
+Azure 캐시에 세션 상태 제공자를 사용하려면 지정된 섹션의 주석 처리를 제거합니다. 제공된 코드 조각에 기본 캐시가 지정되어 있습니다. 다른 캐시를 사용하려면 **cacheName** 특성에서 원하는 캐시를 지정하세요.
 
-관리된 캐시 서비스 세션 상태 공급자 사용에 대한 자세한 내용은 [Azure 캐시용 세션 상태 공급자][Azure 캐시용 세션 상태 공급자]를 참조하세요.
+Managed Cache Service 세션 상태 제공자 사용에 대한 자세한 내용은 [Azure 캐시용 세션 상태 제공자][Session State Provider for Azure Cache]를 참조하세요.
 
 <a name="store-page"></a>
 
 ## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장
-Azure 캐시의 출력 캐시 공급자는 출력 캐시 데이터의 Out of Process 저장소 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. 출력 캐시 공급자를 사용하려면 먼저 캐시를 구성하고 [관리된 캐시 서비스 시작][관리된 캐시 서비스 시작]에서 설명한 대로 Cache NuGet 패키지를 사용하여 캐싱용 ASP.NET 응용 프로그램을 구성하세요. Caching NuGet 패키지를 설치하면 주석으로 처리된 다음 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 Azure 캐싱에 출력 캐시 공급자를 사용하는 데 필요한 구성이 포함되어 있습니다.
+Azure 캐시의 출력 캐시 공급자는 출력 캐시 데이터의 Out of Process 저장소 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. 출력 캐시 공급자를 사용하려면 먼저 캐시 클러스터를 구성하고 [Managed Cache Service 시작][Getting Started with Managed Cache Service]에서 설명한 대로 Cache NuGet 패키지를 사용하여 캐싱용 ASP.NET 응용 프로그램을 구성합니다. Caching NuGet 패키지를 설치하면 주석으로 처리된 다음 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 Azure 캐싱에 출력 캐시 공급자를 사용하는 데 필요한 구성이 포함되어 있습니다.
 
     <!--Uncomment this section to use Azure Caching for output caching
     <caching>
@@ -419,7 +421,7 @@ Azure 캐시의 출력 캐시 공급자는 출력 캐시 데이터의 Out of Pro
       </outputCache>
     </caching>-->
 
-> Caching NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet 패키지 관리자 설치]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
+> Cache NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet Package Manager Installation]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
 > 
 > 
 
@@ -429,37 +431,37 @@ Azure 캐시에 출력 캐시 공급자를 사용하려면 지정된 섹션의 �
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-이 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 사용 가능한 옵션에 대한 자세한 내용은 [OutputCache 지시문][OutputCache 지시문]을 참조하세요.
+이 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 사용 가능한 옵션에 대한 자세한 내용은 [OutputCache 지시문][OutputCache Directive]을 참조하세요.
 
-Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세한 내용은 [Azure 캐시용 출력 캐시 공급자][Azure 캐시용 출력 캐시 공급자]를 참조하세요.
+Azure Cache용 출력 캐시 공급자를 사용하는 방법에 대한 자세한 내용은 [Azure Cache용 출력 캐시 공급자][Output Cache Provider for Azure Cache]를 참조하세요.
 
 <a name="next-steps"></a>
 
 ## <a name="next-steps"></a>다음 단계
 이제 관리된 캐시 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 캐싱 작업을 수행하는 방법을 알아보세요.
 
-* MSDN 참조: [관리된 캐시 서비스][관리된 캐시 서비스]
-* 관리된 캐시 서비스로 마이그레이션하는 방법: [관리된 캐시 서비스 마이그레이션][관리된 캐시 서비스 마이그레이션]
-* 샘플 확인: [관리된 캐시 서비스 샘플][관리된 캐시 서비스 샘플]
+* 다음 MSDN 참조를 확인하세요. [Managed Cache Service][Managed Cache Service]
+* Managed Cache Service로 마이그레이션하는 방법: [Managed Cache Service로 마이그레이션][Migrate to Managed Cache Service]
+* 샘플 확인: [Managed Cache Service 샘플][Managed Cache Service Samples]
 
 <!-- INTRA-TOPIC LINKS -->
-[다음 단계]: #next-steps
-[Azure 관리된 캐시 서비스 정의]: #what-is
-[Azure 캐시 만들기]: #create-cache
-[어떤 유형의 캐싱이 내게 적절한가요?]: #choosing-cache
-[Azure 캐싱을 사용하도록 Visual Studio 프로젝트 준비]: #prepare-vs
-[캐싱을 사용하도록 응용 프로그램 구성]: #configure-app
-[관리된 캐시 서비스 시작]: #getting-started-cache-service
-[캐시 만들기]: #create-cache
-[캐시 구성]: #enable-caching
-[캐시 클라이언트 구성]: #NuGet
-[캐시 작업]: #working-with-caches
-[방법: DataCache 개체 만들기]: #create-cache-object
-[방법: 캐시에서 개체 추가 및 검색]: #add-object
-[방법: 캐시에서 개체의 만료 지정]: #specify-expiration
+[Next Steps]: #next-steps
+[What is Azure Managed Cache Service?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Getting Started with Managed Cache Service]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[How To: Create a DataCache Object]: #create-cache-object
+[How To: Add and Retrieve an Object from the Cache]: #add-object
+[How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
 [방법: 캐시에 ASP.NET 세션 상태 저장]: #store-session
-[방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장]: #store-page
-[지원되는 .NET Framework 프로필을 대상으로 지정]: #prepare-vs-target-net
+[How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
+[Target a Supported .NET Framework Profile]: #prepare-vs-target-net
 
 <!-- IMAGES -->
 [NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
@@ -478,43 +480,43 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 
 
 <!-- LINKS -->
-[Azure 클래식 포털]: https://manage.windowsazure.com/
-[프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Azure 캐시용 세션 상태 공급자]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric 캐시: 캐싱 세션 상태]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure 캐시용 출력 캐시 공급자]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Azure Classic Portal]: https://manage.windowsazure.com/
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[팀 블로그]: http://blogs.msdn.com/b/windowsazure/
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[가상 컴퓨터 크기 구성 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Azure 캐싱 용량 계획 고려 사항]: http://go.microsoft.com/fwlink/?LinkId=320167
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[방법: ASP.NET 페이지의 캐시 가능성을 선언적으로 설정]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[방법: 페이지의 캐시 가능성을 프로그래밍 방식으로 설정]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Azure 관리된 캐시 서비스 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
-[관리된 캐시 서비스]: http://go.microsoft.com/fwlink/?LinkId=320830
-[OutputCache 지시문]: http://go.microsoft.com/fwlink/?LinkId=251979
-[문제 해결 및 진단]: http://go.microsoft.com/fwlink/?LinkId=320839
-[NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
-[캐시 가격 책정 정보]: http://www.windowsazure.com/pricing/details/cache/
-[캐시 기능]: http://go.microsoft.com/fwlink/?LinkId=317277
-[용량 계획]: http://go.microsoft.com/fwlink/?LinkId=320167
-[만료 및 제거]: http://go.microsoft.com/fwlink/?LinkId=317278
-[고가용성]: http://go.microsoft.com/fwlink/?LinkId=317329
-[알림]: http://go.microsoft.com/fwlink/?LinkId=317276
-[관리된 캐시 서비스 마이그레이션]: http://go.microsoft.com/fwlink/?LinkId=317347
-[관리된 캐시 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=320840
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Overview of Azure Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
+[OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
+[Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
+[Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Expiration and Eviction]: http://go.microsoft.com/fwlink/?LinkId=317278
+[High Availability]: http://go.microsoft.com/fwlink/?LinkId=317329
+[Notifications]: http://go.microsoft.com/fwlink/?LinkId=317276
+[Migrate to Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Managed Cache Service Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
-[Azure 관리 캐시 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=398555
-[Azure PowerShell 설치 및 구성 방법]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
+[How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[내게 적합한 Azure 캐시 기능]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

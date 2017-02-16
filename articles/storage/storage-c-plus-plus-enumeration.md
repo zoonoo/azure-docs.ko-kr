@@ -1,5 +1,5 @@
 ---
-title: "C++용 Microsoft Azure Storage Client Library로 Azure Storage 리소스 나열 | Microsoft Docs"
+title: "Storage Client Library for C++을 사용하여 Azure Storage 리소스 나열 | Microsoft Docs"
 description: "Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다."
 documentationcenter: .net
 services: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 085796493df86a2e86a88266d9b3aacf12cb6541
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
 
 
 ---
@@ -101,7 +101,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
 
 *max_results* 매개 변수를 지정하지 않는 경우 한 페이지에 최대 5000개의 기본 최대 결과 값이 반환됩니다.
 
-또한 Azure Table Storage에 대한 쿼리는 연속 토큰이 비어 있지 않은 경우에도 사용자가 지정한 *max_results* 매개 변수 값보다 더 적은 레코드를 반환하거나 레코드를 반환하지 않을 수 있습니다. 한 가지 이유는 쿼리가 5초 이내에 완료할 수 없기 때문일 수 있습니다. 연속 토큰이 비어 있지 않으면 해당 쿼리가 계속되며 코드가 세그먼트 결과의 크기를 가정하지 않습니다.
+또한 Azure Table Storage에 대한 쿼리는 연속 토큰이 비어 있지 않은 경우에도 사용자가 지정한 *max_results* 매개 변수 값보다 더 적은 레코드를 반환하거나 레코드를 반환하지 않을 수 있습니다. 한 가지 이유는 쿼리가&5;초 이내에 완료할 수 없기 때문일 수 있습니다. 연속 토큰이 비어 있지 않으면 해당 쿼리가 계속되며 코드가 세그먼트 결과의 크기를 가정하지 않습니다.
 
 거의 모든 시나리오에 대한 권장 코딩 패턴은 목록 또는 쿼리의 명시적 진행을 제공하는 목록 및 서비스가 각 요청에 응답하는 방식을 분할하는 것입니다. 특히 C++ 응용 프로그램 또는 서비스의 경우, 하위 수준의 목록 진행 제어가 메모리 및 성능 제어에 도움이 될 수 있습니다.
 
@@ -206,6 +206,6 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

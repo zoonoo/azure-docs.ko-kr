@@ -11,17 +11,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 
 
 ---
 # <a name="reference-for-analytics"></a>분석에 대한 참조
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
+추가 정보 출처:
+
+* 입력 시 분석 기능에서 많은 참조 자료를 사용할 수 있습니다. 쿼리를 입력하기 시작하면 가능한 완성 단어가 표시됩니다.
+* [자습서 페이지](app-insights-analytics-tour.md)에는 언어 기능에 대한 단계별 소개가 표시됩니다.
 * [SQL 사용자 치트 시트](https://aka.ms/sql-analytics)에서는 가장 일반적인 코드를 변환합니다.
 * 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, [시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)합니다.
  
@@ -29,7 +33,7 @@ ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
 ## <a name="index"></a>인덱스
 **사용** [사용](#let-clause)
 
-**쿼리 및 연산자** [count](#count-operator) | [평가](#evaluate-operator) | [확장](#extend-operator) | [조인](#join-operator) | [제한](#limit-operator) | [mvexpand](#mvexpand-operator) | [구문 분석](#parse-operator) | [프로젝트](#project-operator) | [프로젝트 먼](#project-away-operator) | [범위](#range-operator) | [줄이기](#reduce-operator) | [지시문 렌더링](#render-directive) | [restrict 절](#restrict-clause) | [정렬](#sort-operator) | [요약](#summarize-operator) | [가져가기](#take-operator) | [위쪽](#top-operator) | [위쪽 중첩](#top-nested-operator) | [union](#union-operator) | [위치](#where-operator) | [위치에](#where-in-operator)
+**쿼리 및 연산자** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **집계** [모든](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [최대](#max) | [min](#min) | [백분위 수](#percentile) | [백분위 수](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [차이](#variance)
 
@@ -364,6 +368,70 @@ traces
     Age = now() - timestamp
 ```
 
+### <a name="find-operator"></a>find 연산자
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+테이블 집합 사이에서 조건자와 일치하는 행을 찾습니다.
+
+**구문**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**인수**
+
+* *Table1* 테이블 이름 또는 쿼리. let 정의 테이블일 수 있으나 함수는 아닙니다. 테이블 이름이 쿼리보다 더 효율적입니다.
+* *조건자* 지정된 테이블의 모든 행에 대해 계산되는 부울 식입니다.
+* *Column1* `project` 옵션을 사용하여 출력에 항상 표시되어야 하는 열을 지정할 수 있습니다. 
+
+**결과**
+
+기본적으로 출력 테이블에는 다음이 포함됩니다.
+
+* `source_` - 각 행의 원본 테이블을 나타내는 표시입니다.
+* 조건자에서 명시적으로 언급된 열
+* 모든 입력 테이블에 공통되는 비어 있지 않은 열
+* `pack_` - 다른 열에서 데이터를 포함하는 속성 모음입니다.
+
+이 형식은 입력 데이터 또는 조건자가 변경되면 달라질 수 있습니다. 고정된 열 집합을 지정하려면 `project`를 사용합니다.
+
+**예제**
+
+가용성 테스트 및 로봇의 경우를 제외한 모든 요청 및 예외를 가져옵니다.
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+가용성 테스트 및 로봇의 경우를 제외한 UK의 모든 요청 및 예외를 찾습니다.
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+모든 필드에 용어 'test'가 포함된 가장 최근 원격 분석을 찾습니다.
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**성능 팁**
+
+* 시간 기반 조건을 `where` 조건자에 추가합니다.
+* 인라인으로 쿼리를 작성하지 않고 `let` 절을 사용합니다.
+
+
 
 ### <a name="join-operator"></a>join 연산자
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +455,10 @@ traces
 
 * 일치하는 키를 포함하여 두 테이블 각각의 모든 열에 대한 열. 이름 충돌이 있는 경우 우변의 열 이름이 자동으로 바뀝니다.
 * 입력된 테이블 간의 모든 일치 항목에 대한 행. 일치 항목은 한 테이블에서 선택된 행이며 모든 `on` 필드에 대해 다른 테이블의 행과 같은 값을 가지고 있습니다. 
-* `Kind` 지정 안 함
+* `Kind` 지정 안 함 또는 `= innerunique`
   
     `on` 키의 각 값에 대해 좌변의 한 개의 행만 일치합니다. 출력은 오른쪽부터 이 행과 행 일치 각각에 대해 한 개의 행을 포함하고 있습니다.
-* `Kind=inner`
+* `kind=inner`
   
      왼쪽 및 오른쪽에서 일치하는 행의 모든 조합에 대해 한 개의 출력 행이 있습니다.
 * `kind=leftouter`(또는 `kind=rightouter` 또는 `kind=fullouter`)
@@ -399,8 +467,10 @@ traces
 * `kind=leftanti`
   
      오른쪽에서 일치 항목이 없는 좌변의 모든 레코드를 반환합니다. 결과 테이블에는 좌변의 열만 있습니다. 
+* `kind=leftsemi`(또는 `leftantisemi`)
 
-이러한 필드에 대해 같은 값을 가진 여러 행이 있는 경우 모든 조합에 대한 행을 얻습니다.
+    오른쪽 테이블에 일치 항목이 있는(없는) 경우 왼쪽 테이블의 행을 반환합니다. 결과에 오른쪽의 데이터는 포함되지 않습니다.
+
 
 **팁**
 
@@ -655,7 +725,7 @@ range x from 1 to 1 step 1
 
 **예제**
 
-다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력 테이블 `T`에는 `int` 형식의 열로 `A`, `B`, `C`의 3개가 있습니다. 
+다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력 테이블 `T`에는 `int` 형식의 열로 `A`, `B`, `C`의&3;개가 있습니다. 
 
 ```AIQL
 T
@@ -713,7 +783,7 @@ range Steps from 1 to 8 step 3
 
     range LastWeek from bin(ago(7d),1d) to now() step 1d
 
-지난 7일 자정에 대한 테이블입니다. bin(floor) 함수는 각 시간을 날짜의 시작으로 줄입니다.
+지난&7;일 자정에 대한 테이블입니다. bin(floor) 함수는 각 시간을 날짜의 시작으로 줄입니다.
 
 **예제**  
 
@@ -728,7 +798,7 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-`range` 연산자를 사용하여 작은 임시 차원 테이블을 생성할 수 있는 방법을 보여 주며 이 테이블은 원본 데이터에 값이 없는 경우 0을 도입하기 위해 사용됩니다.
+`range` 연산자를 사용하여 작은 임시 차원 테이블을 생성할 수 있는 방법을 보여 주며 이 테이블은 원본 데이터에 값이 없는 경우&0;을 도입하기 위해 사용됩니다.
 
 ### <a name="reduce-operator"></a>reduce 연산자
     exceptions | reduce by outerMessage
@@ -836,12 +906,11 @@ Traces
 
 결과는 `by` 값의 고유 조합의 수만큼 행이 있습니다. 숫자 값의 범위에 대해 요약하려면 `bin()`을(를) 사용하여 불연속 값으로 범위를 줄입니다.
 
-**참고**
-
-집계와 그룹화 식에 대해 모두 임의 식을 제공할 수 있지만 단순 열 이름을 사용하거나 `bin()`을(를) 숫자 열에 적용하는 것이 더 효율적입니다.
+> [!NOTE]
+> 집계와 그룹화 식에 대해 모두 임의 식을 제공할 수 있지만 단순 열 이름을 사용하거나 `bin()`을(를) 숫자 열에 적용하는 것이 더 효율적입니다.
 
 ### <a name="take-operator"></a>take 연산자
- [limit](#limit-operator)의 별칭
+[limit](#limit-operator)의 별칭
 
 ### <a name="top-operator"></a>top 연산자
     T | top 5 by Name desc nulls first
@@ -897,7 +966,7 @@ Traces
 
 * *Table1*, *Table2* ...
   * `requests`와(과) 같은 테이블의 이름 또는 [let 절](#let-clause)에 정의된 테이블 또는
-  *  `(requests | where success=="True")`
+  * `(requests | where success=="True")`
   * 와일드 카드를 사용하여 지정한 테이블 집합입니다. 예를 들어 `e*`은(는) 'exceptions' 테이블과 함께 이름이 'e'로 시작하는 이전 let 절에 정의된 모든 테이블의 합집합을 형성합니다.
 * `kind`: 
   * `inner` - 결과에는 모든 입력 테이블에 공통인 열의 하위 집합이 있습니다.
@@ -937,13 +1006,13 @@ Traces
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### <a name="forcing-an-order-of-results"></a>강제로 결과 순서 지정
+#### <a name="forcing-an-order-of-results"></a>강제로 결과 순서 지정
 
 합집합의 경우도 결과 행이 특정 순서로 표시된다고 보장할 수 없습니다.
 쿼리를 실행할 때마다 동일한 순서를 가져오려면 각 입력 테이블에 태그 열을 추가합니다.
@@ -953,6 +1022,9 @@ Traces
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### <a name="see-also"></a>참고 항목
+
+[join 연산자](#join-operator)를 대신 사용할 수도 있습니다.
 
 ### <a name="where-operator"></a>where 연산자
      requests | where resultCode==200
@@ -964,11 +1036,13 @@ Traces
 **구문**
 
     T | where Predicate
+    T | where * has Term
 
 **인수**
 
 * *T:* 레코드를 필터링할 테이블 형식 입력입니다.
 * *Predicate:* *T*의 열에 대한 `boolean` [식](#boolean)으로, *T*의 각 행에 대해 계산됩니다.
+* *Term* - 열의 단어 전체와 일치해야 하는 문자열입니다.
 
 **반환**
 
@@ -1621,7 +1695,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 *값*보다 작은 *roundTo*의 가장 가까운 배수입니다.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **예**
 
@@ -1700,19 +1774,19 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **반환**
 
-*  `sqrt(x) * sqrt(x) == x`
+* `sqrt(x) * sqrt(x) == x`
 * 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null`입니다. 
 
 ### <a name="toint"></a>toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
 ### <a name="tolong"></a>tolong
-    tolong(20.7) == 21 // conversion from double
+    tolong(20.7) == 20 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic
@@ -2207,7 +2281,7 @@ range x from 1 to 5 step 1
 
 * *source*: 지정된 구분 기호에 따라 분할될 소스 문자열입니다.
 * *delimiter*: 소스 문자열을 분할하기 위해 사용될 구분 기호입니다.
-* *requestedIndex*: 선택적 0부터 시작하는 인덱스 `int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
+* *requestedIndex*: 선택적&0;부터 시작하는 인덱스 `int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
 
 **반환**
 
@@ -2248,7 +2322,7 @@ split("aabbcc", "bb")         // ["aa","cc"]
 **인수**
 
 * *source:* 소스 문자열을 가져올 소스 문자열입니다.
-* *startingIndex:* 요청된 부분 문자열의 0부터 시작하는 시작 문자 위치입니다.
+* *startingIndex:* 요청된 부분 문자열의&0;부터 시작하는 시작 문자 위치입니다.
 * *length:* 부분 문자열에서 요청된 문자 수를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다. 
 
 **반환**
@@ -2461,7 +2535,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **성능 팁**
 
-*  `extractjson()`
+* `extractjson()`
 * 정규식 일치 사용은 [extract](#extract) 를 대신 사용하는 것으로 간주합니다. 이렇게 하면 훨씬 더 빠르게 실행될 수 있으며 JSON이 템플릿에서 생성된 경우 효과적입니다.
 * JSON에서 값을 둘 이상 추출해야 하는 경우 `parsejson()` 을 사용합니다.
 * 열 형식을 동적으로 선언하여 수집 시 JSON이 구문 분석되게 하는 것으로 간주합니다.
@@ -2607,6 +2681,6 @@ path 식의 배열입니다.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

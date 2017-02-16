@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80c7a8584dac9537ddaf1d97a561388c3c22ec1b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
 
 
 ---
@@ -88,7 +88,7 @@ Azure 앱 서비스 지원 포털은 일반적인 문제 해결 시나리오의 
 
 데이터를 다운로드할 경우 기본적으로 D:\home\data\DaaS folder에 저장됩니다.
 
-Azure 앱 서비스 지원 포털에 대한 자세한 내용은 [Azure 웹 사이트의 지원 사이트 확장에 대한 새 업데이트](/blog/new-updates-to-support-site-extension-for-azure-websites)를 참조하세요.
+Azure 앱 서비스 지원 포털에 대한 자세한 내용은 [Azure 웹 사이트의 지원 사이트 확장에 대한 새 업데이트](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)를 참조하세요.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu 디버그 콘솔 사용
 웹앱은 사용자 환경에 대한 정보를 얻을 수 있는 JSON 끝점과 비슷한 디버깅, 탐색, 파일 업로드할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 웹앱에서는 *SCM 대시보드*라고 합니다.
@@ -104,7 +104,7 @@ Kudu가 제공하는 것은 다음과 같습니다.
 
 Kudu의 또 다른 유용한 기능은 응용 프로그램에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅숏이며 웹앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
-Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure 웹 사이트 온라인 도구](/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
+Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure 웹 사이트 온라인 도구](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
 
 <a name="mitigate" />
 
@@ -121,7 +121,7 @@ Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실
 #### <a name="use-autoheal"></a>AutoHeal를 사용
 AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure 포털 내에서 직접 웹앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 몇 개의 트리거를 웹앱의 root web.config에 추가하기만 하면 됩니다. 이 설정은 사용자의 응용 프로그램이 .Net이 아니라도 같은 방식으로 작동됩니다.
 
-자세한 내용은 [Auto-Healing Azure 웹 사이트](/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
+자세한 내용은 [Auto-Healing Azure 웹 사이트](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 
 #### <a name="restart-the-web-app"></a>웹앱 재시작
 이 방법은 일회성 문제를 해결하는 가장 간단한 방법입니다. [Azure 포털](https://portal.azure.com/)또는 웹앱의 블레이드에서 앱을 멈추거나 재시작 하는 옵션을 사용할 수 있습니다.
@@ -133,6 +133,6 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

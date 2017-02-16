@@ -16,26 +16,29 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a9d45c12da106f8175a37e6e963b78d50f93f0ad
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 14dcb8fe12bb516bc27b27f94992801d935811c8
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Windows 기반 Hadoop 클러스터 만들기
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용되는 여러 가상 컴퓨터(노드)로 구성됩니다. Azure는 개별 노드의 설치 및 구현에 대한 세부 구현을 추상화하므로 일반적인 구성 정보를 제공해야 합니다. 이 문서에서는 이러한 구성 설정에 대해 알아봅니다.
 
-> [!NOTE]
-> 이 문서에 있는 정보는 Windows 기반 Azure HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
-> 
-> 
+이 문서에 있는 정보는 Windows 기반 Azure HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
+
 
 ## <a name="access-control-requirements"></a>액세스 제어 요구 사항
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="cluster-types"></a>클러스터 유형
-현재 HDInsight는 각각이 특정 기능을 제공하는 구성 요소 모음을 포함하는 4가지 유형의 클러스터를 제공합니다.
+현재 HDInsight는 각각이 특정 기능을 제공하는 구성 요소 모음을 포함하는&4;가지 유형의 클러스터를 제공합니다.
 
 | 클러스터 유형 | 기능 |
 | --- | --- |
@@ -143,7 +146,7 @@ HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 위치�
 ### <a name="node-pricing-tiers"></a>노드 가격 책정 계층
 고객은 클러스터의 수명 기간 동안 해당 노드의 사용량에 대한 대금이 청구됩니다. 클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 클러스터의 경우 할당을 취소하거나 보류할 수 없습니다.
 
-클러스터 유형마다 서로 다른 노드 유형, 노드 수 및 노드 크기를 포함합니다. 예를 들어, Hadoop 클러스터 유형은 *헤드 노드* 2개, 기본 *데이터 노드* 4개를 포함하는 반면, Storm 클러스터 유형은 *nimbus 노드* 2개, *ZooKeeper 노드* 3개 및 기본 *감독자 노드* 4개를 포함합니다. HDInsight 클러스터의 비용은 노드 수와 노드에 대한 가상 컴퓨터 크기에 따라 결정됩니다. 예를 들어 많은 메모리가 필요한 작업을 수행할 것으로 예상되는 경우 더 많은 메모리를 포함하는 계산 리소스를 선택할 수 있습니다. 학습 목적인 경우 하나의 데이터 노드로 작업하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
+클러스터 유형마다 서로 다른 노드 유형, 노드 수 및 노드 크기를 포함합니다. 예를 들어, Hadoop 클러스터 유형은 *헤드 노드*&2;개, 기본 *데이터 노드*&4;개를 포함하는 반면, Storm 클러스터 유형은 *nimbus 노드*&2;개, *ZooKeeper 노드*&3;개 및 기본 *감독자 노드*&4;개를 포함합니다. HDInsight 클러스터의 비용은 노드 수와 노드에 대한 가상 컴퓨터 크기에 따라 결정됩니다. 예를 들어 많은 메모리가 필요한 작업을 수행할 것으로 예상되는 경우 더 많은 메모리를 포함하는 계산 리소스를 선택할 수 있습니다. 학습 목적인 경우 하나의 데이터 노드로 작업하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
 
 > [!NOTE]
 > 클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의하세요.
@@ -164,7 +167,7 @@ Azure 포털을 사용하여 클러스터를 구성하는 경우 노드 크기�
 * Standard_A3은 Large
 * Standard_A4는 ExtraLarge
 
-| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각 1023GB) | 최대 IOPS(디스크당 500) |
+| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각&1023;GB) | 최대 IOPS(디스크당&500;) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A3\Large |4 |7 GB |2 |임시 = 285GB |8 |8x500 |
 | Standard_A4\ExtraLarge |8 |14 GB |4 |임시 = 605GB |16 |16x500 |
@@ -172,22 +175,22 @@ Azure 포털을 사용하여 클러스터를 구성하는 경우 노드 크기�
 | Standard_A7 |8 |56GB |4 |임시 = 605GB |16 |16x500 |
 
 ### <a name="standard-tier-d-series"></a>표준 계층: D 시리즈
-| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각 1023GB) | 최대 IOPS(디스크당 500) |
+| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각&1023;GB) | 최대 IOPS(디스크당&500;) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3 |4 |14 GB |4 |임시(SSD) = 200GB |8 |8x500 |
-| Standard_D4 |8 |28GB |8 |임시(SSD) = 400GB |16 |16x500 |
-| Standard_D12 |4 |28GB |4 |임시(SSD) = 200GB |8 |8x500 |
-| Standard_D13 |8 |56GB |8 |임시(SSD) = 400GB |16 |16x500 |
-| Standard_D14 |16 |112GB |8 |임시(SSD) = 800GB |32 |32x500 |
+| Standard_D3 |4 |14 GB |4 |임시(SSD) =&200;GB |8 |8x500 |
+| Standard_D4 |8 |28GB |8 |임시(SSD) =&400;GB |16 |16x500 |
+| Standard_D12 |4 |28GB |4 |임시(SSD) =&200;GB |8 |8x500 |
+| Standard_D13 |8 |56GB |8 |임시(SSD) =&400;GB |16 |16x500 |
+| Standard_D14 |16 |112GB |8 |임시(SSD) =&800;GB |32 |32x500 |
 
 ### <a name="standard-tier-dv2-series"></a>표준 계층: Dv2 시리즈
-| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각 1023GB) | 최대 IOPS(디스크당 500) |
+| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각&1023;GB) | 최대 IOPS(디스크당&500;) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 GB |4 |임시(SSD) = 200GB |8 |8x500 |
-| Standard_D4_v2 |8 |28GB |8 |임시(SSD) = 400GB |16 |16x500 |
-| Standard_D12_v2 |4 |28GB |4 |임시(SSD) = 200GB |8 |8x500 |
-| Standard_D13_v2 |8 |56GB |8 |임시(SSD) = 400GB |16 |16x500 |
-| Standard_D14_v2 |16 |112GB |8 |임시(SSD) = 800GB |32 |32x500 |
+| Standard_D3_v2 |4 |14 GB |4 |임시(SSD) =&200;GB |8 |8x500 |
+| Standard_D4_v2 |8 |28GB |8 |임시(SSD) =&400;GB |16 |16x500 |
+| Standard_D12_v2 |4 |28GB |4 |임시(SSD) =&200;GB |8 |8x500 |
+| Standard_D13_v2 |8 |56GB |8 |임시(SSD) =&400;GB |16 |16x500 |
+| Standard_D14_v2 |16 |112GB |8 |임시(SSD) =&800;GB |32 |32x500 |
 
 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.   
 
@@ -198,13 +201,13 @@ Azure 포털을 사용하여 클러스터를 구성하는 경우 노드 크기�
 
 클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 가격 책정에 대한 자세한 내용은 [HDInsight 가격 정보](https://azure.microsoft.com/pricing/details/hdinsight/)를 참조하세요.
 
-| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각 1023GB) | 최대 IOPS(디스크당 500) |
+| 크기 | CPU 코어 | 메모리 | NIC(최대) | 최대 디스크 크기 | 최대 데이터 디스크(각&1023;GB) | 최대 IOPS(디스크당&500;) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 GB |4 |임시(SSD) = 200GB |8 |8x500 |
-| Standard_D4_v2 |8 |28GB |8 |임시(SSD) = 400GB |16 |16x500 |
-| Standard_D12_v2 |4 |28GB |4 |임시(SSD) = 200GB |8 |8x500 |
-| Standard_D13_v2 |8 |56GB |8 |임시(SSD) = 400GB |16 |16x500 |
-| Standard_D14_v2 |16 |112GB |8 |임시(SSD) = 800GB |32 |32x500 |
+| Standard_D3_v2 |4 |14 GB |4 |임시(SSD) =&200;GB |8 |8x500 |
+| Standard_D4_v2 |8 |28GB |8 |임시(SSD) =&400;GB |16 |16x500 |
+| Standard_D12_v2 |4 |28GB |4 |임시(SSD) =&200;GB |8 |8x500 |
+| Standard_D13_v2 |8 |56GB |8 |임시(SSD) =&400;GB |16 |16x500 |
+| Standard_D14_v2 |16 |112GB |8 |임시(SSD) =&800;GB |32 |32x500 |
 
 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.  
 
@@ -297,6 +300,6 @@ HDInsight에서 가상 네트워크에 대한 특정 구성 요구 사항을 비
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "VM에 대한 SSH 연결 문제 해결 | Microsoft Docs"
+title: "Azure VM에 대한 SSH 연결 문제 해결 | Microsoft Docs"
 description: "Linux를 실행하는 Azure VM에 대해 &quot;SSH 연결 실패&quot; 또는 &quot;SSH 연결 거부&quot;와 같은 문제를 해결하는 방법입니다."
 keywords: "ssh 연결 거부, ssh 오류, azure ssh, SSH 연결 실패"
 services: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a585aaf2d40f077a81de299c0aef41844bde7cd1
+ms.sourcegitcommit: 10419c0e76ea647c0ef9e15f4cd0e514795a858e
+ms.openlocfilehash: 0191d6d84476b367e6cad6775738305e534c96a8
 
 
 ---
@@ -48,13 +48,13 @@ Linux VM(가상 컴퓨터)에 연결하려고 할 때 다양한 이유로 인해
 ## <a name="available-methods-to-troubleshoot-ssh-connection-issues"></a>SSH 연결 문제 해결에 사용할 수 있는 방법
 다음 방법 중 하나를 사용하여 자격 증명 또는 SSH 구성을 다시 설정할 수 있습니다.
 
-* [Azure Portal](#using-the-azure-portal) - SSH 구성 또는 SSH 키를 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
-* [Azure CLI 명령](#using-the-azure-cli) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다.
-* [Azure VMAccessForLinux 확장](#using-the-vmaccess-extension) - json 정의 파일을 만들고 다시 사용하여 SSH 구성 또는 사용자 자격 증명을 다시 설정합니다.
+* [Azure Portal](#use-the-azure-portal) - SSH 구성 또는 SSH 키를 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
+* [Azure CLI 1.0](#use-the-azure-cli-10) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다. [Azure CLI 2.0(Preview)](#use-the-azure-cli-20-preview)을 사용할 수도 있습니다.
+* [Azure VMAccessForLinux 확장](#use-the-vmaccess-extension) - json 정의 파일을 만들고 다시 사용하여 SSH 구성 또는 사용자 자격 증명을 다시 설정합니다.
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다. 그래도 연결할 수 없으면 다음 단계를 시도합니다.
 
-## <a name="using-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
 Azure Portal은 로컬 컴퓨터에 도구를 설치하지 않고 SSH 구성 또는 사용자 자격 증명을 다시 설정하는 빠른 방법을 제공합니다.
 
 Azure Portal에서 VM을 선택합니다. **지원 + 문제 해결** 섹션까지 아래로 스크롤하고 다음 예제와 같이 **암호 재설정**을 선택합니다.
@@ -69,8 +69,8 @@ Azure Portal에서 VM을 선택합니다. **지원 + 문제 해결** 섹션까�
 
 이 메뉴에서 VM에 대해 sudo 권한이 있는 사용자를 만들 수도 있습니다. 새 사용자 이름 및 연결된 암호 또는 SSH 키를 입력한 다음 **다시 설정** 단추를 클릭합니다.
 
-## <a name="using-the-azure-cli"></a>Azure CLI 사용
-아직 수행하지 않은 경우 [Azure CLI를 설치하고 Azure 구독에 연결](../xplat-cli-install.md)합니다. 다음과 같이 Resource Manager 모드를 사용하는지 확인합니다.
+## <a name="use-the-azure-cli-10"></a>Azure CLI 1.0 사용
+아직 수행하지 않은 경우 [Azure CLI 1.0을 설치하고 Azure 구독에 연결](../xplat-cli-install.md)합니다. 다음과 같이 Resource Manager 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm
@@ -93,18 +93,38 @@ SSHD가 정상적으로 작동하는 것으로 나타나면 지정된 사용자�
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-     --username myUsername --password myPassword
+     --user-name myUsername --password myPassword
 ```
 
-SSH 키 인증을 사용하는 경우 지정된 사용자의 SSH 키를 다시 설정할 수 있습니다. 다음 예제에서는 `myResourceGroup`의 `myVM`이라는 VM에서 `myUsername` 사용자를 위해 `~/.ssh/azure_id_rsa.pub`에 저장된 SSH 키를 업데이트합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+SSH 키 인증을 사용하는 경우 지정된 사용자의 SSH 키를 다시 설정할 수 있습니다. 다음 예제에서는 `myResourceGroup`의 `myVM`이라는 VM에서 `myUsername` 사용자를 위해 `~/.ssh/id_rsa.pub`에 저장된 SSH 키를 업데이트합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --username myUsername --ssh-key-file ~/.ssh/azure_id_rsa.pub
+    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+```
+
+## <a name="use-the-azure-cli-20-preview"></a>Azure CLI 2.0(Preview) 사용
+아직 설치하지 않은 경우 최신 [Azure CLI 2.0(Preview)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+
+사용자 지정 Linux 디스크 이미지를 만들고 업로드한 경우 [Microsoft Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 버전 2.0.5 이상을 설치해야 합니다. 갤러리 이미지를 사용하여 만든 VM의 경우 이 액세스 확장이 이미 설치되어 자동으로 구성됩니다.
+
+### <a name="reset-ssh-credentials-for-a-user"></a>사용자에 대한 SSH 자격 증명 다시 설정
+다음 예제에서는 [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user)를 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 `myUsername`의 자격 증명을 `myPassword`에 지정된 값으로 다시 설정합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+     --username myUsername --password myPassword
+```
+
+SSH 키 인증을 사용하는 경우 지정된 사용자의 SSH 키를 다시 설정할 수 있습니다. 다음 예제에서는 **az vm access set-linux-user**를 사용하여 `myResourceGroup`의 `myVM`이라는 VM에서 `~/.ssh/id_rsa.pub`이라는 사용자의 `myUsername`에 저장된 SSH 키를 업데이트합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+    --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
-## <a name="using-the-vmaccess-extension"></a>VMAccess 확장 사용
+## <a name="use-the-vmaccess-extension"></a>VMAccess 확장 사용
 Linux용 VM 액세스 확장은 수행하는 작업을 정의하는 json 파일에서 읽습니다. 이러한 작업에는 SSHD 다시 설정, SSH 키를 다시 설정 또는 사용자 추가가 포함됩니다. Azure CLI를 사용하여 VMAccess 확장을 호출할 수 있지만 원하는 경우 여러 VM에 걸쳐 json 파일을 재사용할 수 있습니다. 이 방법을 통해 주어진 시나리오에 대해 호출될 수 있는 json 파일의 레포지토리를 만들 수 있습니다.
 
 ### <a name="reset-sshd"></a>SSHD 재설정
@@ -154,15 +174,22 @@ azure vm extension set myResourceGroup myVM \
 SSH 구성 및 사용자 자격 증명을 다시 설정했거나 그 과정에서 오류가 발생한 경우 VM을 다시 시작하여 기본 계산 문제를 해결할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure 포털
-Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택하고 ***다시 시작** 단추를 클릭합니다.
+Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택하고 **다시 시작** 단추를 클릭합니다.
 
 ![Azure Portal에서 VM 다시 시작](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
+다음 예제에서는 [az vm restart](/cli/azure/vm#restart)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+
+```azurecli
+az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 
@@ -179,11 +206,18 @@ Azure Portal을 사용하여 VM을 다시 배포하려면 VM을 선택하고 **�
 
 ![Azure Portal에서 VM 다시 배포](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
+다음 예제에서는 [az vm redeploy](/cli/azure/vm#redeploy)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 VM
@@ -214,6 +248,6 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

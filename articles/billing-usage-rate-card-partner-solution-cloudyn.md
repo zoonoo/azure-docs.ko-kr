@@ -16,8 +16,8 @@ ms.workload: billing
 ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 720fe67c3be86f27c2cf9c490b389408c96439e0
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: b1ba5617296019106aa1b236483ae26b8063b1d8
 
 
 ---
@@ -67,7 +67,7 @@ Azure 성능 API 외에도 Cloudyn은 사용 및 RateCard API를 모두 사용�
 ## <a name="video"></a>비디오
 여기서는 짧은 비디오를 통해 Azure 고객에게 Azure 및 Azure 청구 Api용 Cloudyn 사용 방법을 보여주어 Azure 소비 데이터에서 통찰력을 얻을 수 있습니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
 > 
 > 
 
@@ -93,6 +93,6 @@ Azure 성능 API 외에도 Cloudyn은 사용 및 RateCard API를 모두 사용�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

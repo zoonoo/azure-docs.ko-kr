@@ -1,10 +1,10 @@
 ---
-title: "Azure Storage의 데이터 이동 | Microsoft Docs"
-description: "이 문서에서는 Azure 저장소의 데이터를 이동하는 여러 방법을 개략적으로 설명합니다."
+title: "Azure에서 클라우드 저장소 내부/외부로 대량의 데이터 이동 | Microsoft Docs"
+description: "Azure Storage 내부/외부로 데이터를 이동하는 다양한 방법에 대한 개요입니다."
 services: storage
 documentationcenter: 
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 8b21bcbea774f7a5107da54081f75db331459b5f
 
 
 ---
@@ -78,6 +78,6 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

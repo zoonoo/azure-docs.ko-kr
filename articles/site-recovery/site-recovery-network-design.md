@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: a425de26cacc9525d0dc9a6842b5060f8c37a462
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
 
 
 ---
-# <a name="designing-your-network-infrastructure-for-disaster-recovery"></a>재해 복구를 위한 네트워크 인프라 디자인
+# <a name="designing-your-network-for-disaster-recovery"></a>재해 복구를 위한 네트워크 디자인
 이 문서는 BCDR(비즈니스 연속성 및 재해 복구) 인프라를 설계, 구현 및 지원할 책임이 있고 Microsoft ASR(Azure Site Recovery)를 활용하여 BCDR 서비스를 지원하고 개선하려는 IT 전문가에게 리디렉션됩니다. 이 문서는 System Center Virtual Machine Manager 서버 배포에 대한 실제적인 고려 사항, 확대 서브넷과 서브넷 장애 조치의 장단점 및 Microsoft Azure의 가상 사이트에 대한 재해 복구를 구조화하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요
@@ -83,9 +83,8 @@ Contoso라는 가상의 기업이 전체 서브넷을 장애 조치(failover)하
 
 ![IP 주소 유지](./media/site-recovery-network-design/network-design4.png)
 
-그림 5
 
-그림 5는 Hyper-V 콘솔에서 복제 가상 컴퓨터에 대한 장애 조치(failover) TCP/IP 설정을 보여줍니다. 이러한 설정은 가상 컴퓨터가 시작되기 전 장애 조치 후에 채워질 수 있습니다.
+위 그림은 Hyper-V 콘솔에서 복제 가상 컴퓨터에 대한 장애 조치(failover) TCP/IP 설정을 보여 줍니다. 이러한 설정은 가상 컴퓨터가 시작되기 전 장애 조치 후에 채워질 수 있습니다.
 
 동일한 IP를 사용할 수 없는 경우 ASR는 정의된 IP 주소 풀에서 사용 가능한 다른 IP 주소를 할당합니다.
 
@@ -137,15 +136,13 @@ Woodgrove가 해당 비즈니스 요구 사항을 충족하는 데 도움이 되
 
 ![다른 IP - 장애 조치 전](./media/site-recovery-network-design/network-design10.png)
 
-그림 11
 
-그림 11에서 기본 사이트의 192.168.1.0/24 서브넷에 호스트되는 일부 응용 프로그램이 있으며 이는 장애 조치(failover) 후에 서브넷 172.16.1.0/24의 복구 사이트에서 실행되도록 구성되었습니다. 세 사이트 모두 서로 액세스할 수 있도록 VPN 연결/네트워크 라우팅이 적절하게 구성되었습니다.
+위 그림에서 기본 사이트의 172.16.1.0/24 서브넷에 호스트되는 일부 응용 프로그램이 있으며 이는 장애 조치(failover) 후에 서브넷 192.168.1.0/24의 복구 사이트에서 실행되도록 구성되었습니다. 세 사이트 모두 서로 액세스할 수 있도록 VPN 연결/네트워크 라우팅이 적절하게 구성되었습니다.
 
-그림 12가 보여주듯이 하나 이상의 응용 프로그램을 장애 조치(failover)한 후 해당 응용 프로그램이 복구 서브넷에서 복원됩니다. 여기서 전체 서브넷을 동시에 장애 조치하도록 제한되지 않습니다. 변경하지 않고 VPN 또는 네트워크 경로를 다시 구성해야 합니다. 장애 조치(failover) 및 일부 DNS 업데이트는 응용 프로그램이 액세스할 수 있도록 유지합니다. DNS가 동적 업데이트를 허용하도록 구성된 경우 장애 조치(failover) 후 가상 컴퓨터가 시작되면 새 IP를 사용하여 자체적으로 등록합니다.
+아래 그림에서 보여주듯이 하나 이상의 응용 프로그램을 장애 조치(failover)한 후 해당 응용 프로그램이 복구 서브넷에서 복원됩니다. 여기서 전체 서브넷을 동시에 장애 조치하도록 제한되지 않습니다. 변경하지 않고 VPN 또는 네트워크 경로를 다시 구성해야 합니다. 장애 조치(failover) 및 일부 DNS 업데이트는 응용 프로그램이 액세스할 수 있도록 유지합니다. DNS가 동적 업데이트를 허용하도록 구성된 경우 장애 조치(failover) 후 가상 컴퓨터가 시작되면 새 IP를 사용하여 자체적으로 등록합니다.
 
 ![다른 IP - 장애 조치 후](./media/site-recovery-network-design/network-design11.png)
 
-그림 12
 
 장애 조치(failover) 후에 복제 가상 컴퓨터는 기본 가상 컴퓨터의 IP 주소와 동일하지 않은 IP 주소를 가질 수 있습니다. 가상 컴퓨터가 시작되면 사용 중인 DNS 서버가 업데이트됩니다. DNS 항목은 일반적으로 네트워크 전체에서 변경되거나 플러시되어야 하고, 네트워크 테이블의 캐시된 항목도 업데이트되고 플러시되어야 하므로 이러한 상태가 변경되는 동안 가동 중지 시간이 발생하는 것은 흔한 일입니다. 이 문제는 다음으로 완화할 수 있습니다.
 
@@ -162,7 +159,7 @@ Woodgrove가 해당 비즈니스 요구 사항을 충족하는 데 도움이 되
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### <a name="changing-the-ip-addresses-dr-to-azure"></a>IP 주소 변경 - Azure에 대한 DR
+### <a name="changing-the-ip-addresses--dr-to-azure"></a>IP 주소 변경 - Azure에 대한 DR
 [재해 복구 사이트로 Microsoft Azure용 네트워킹 인프라 설정](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) 블로그 게시물에서 IP 주소 유지가 요구 사항이 아닐 때 필요한 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 응용 프로그램을 설명하기 시작하고 온-프레미스 및 Azure에서 네트워킹을 설정하는 방법을 알아본 다음 마지막 테스트 장애 조치 및 계획된 장애 조치를 수행하는 방법으로 마무리합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -170,6 +167,6 @@ Woodgrove가 해당 비즈니스 요구 사항을 충족하는 데 도움이 되
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

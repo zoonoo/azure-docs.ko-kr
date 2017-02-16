@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ac264d48db224fb1a14c2ea4a23ddb11f767efda
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 66b61e4619518619aac644f6833c597cb9a7408e
 
 
 ---
@@ -38,13 +38,13 @@ ms.openlocfilehash: ac264d48db224fb1a14c2ea4a23ddb11f767efda
  **[실험](https://gallery.cortanaintelligence.com/experiments)**
  페이지에는 가장 최근에 추가되고 가장 인기 있는 실험 목록이 표시됩니다.
 모든 실험을 보려면 **모두 표시**를 클릭합니다.
-이 페이지에서 갤러리의 모든 실험을 찾아보거나 페이지 왼쪽에서 필터 기준을 선택하고 위쪽에 검색어를 입력하여 검색할 수 있습니다.
+이 페이지에서 갤러리의 모든 실험을 찾아볼 수 있습니다. 또한 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에 검색어를 입력하여 검색할 수 있습니다.
 
  실험을 클릭하고 실험의 세부 정보 페이지를 열어서 실험이 수행하는 내용을 볼 수 있습니다. 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 컬렉션의 링크를 메일로 보낼 수도 있습니다.
 
-![이 항목을 친구 들과 공유](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![사용자 고유의 설명 추가](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![사용자 고유의 설명 추가](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>다운로드
 실험 복사본을 갤러리에서 Studio 작업 영역으로 다운로드한 후 사본을 수정하여 자신만의 솔루션을 만들 수 있습니다.
@@ -59,7 +59,7 @@ ms.openlocfilehash: ac264d48db224fb1a14c2ea4a23ddb11f767efda
 1. 갤러리에서 실험의 세부 정보 페이지를 엽니다.
 2. **Studio에서 열기**를 클릭합니다.
    
-    ![갤러리에서 실험 열기](media\\machine-learning-gallery-experiments\\open-experiment-from-gallery.png)
+    ![갤러리에서 실험 열기](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
 **Studio에서 열기**를 클릭하면, 실험이 Machine Learning Studio 작업 영역으로 로드되어 열립니다.(Studio에 로그인되어 있지 않다면 작업 영역으로 실험이 복사되기 전에 Microsoft 계정을 사용하여 로그인하라는 메시지가 표시됩니다.)
 
@@ -70,11 +70,11 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
 2. **실험** 선택 - Microsoft에서 제공한 갤러리 실험 목록에서 선택하거나 검색 상자를 사용하여 특정 실험을 찾을 수 있습니다.
 3. 마우스로 실험을 가리키고 **Studio에서 열기** 선택합니다. 실험이 작업 영역으로 복사되어 열립니다.(실험에 대한 내용을 보려면 **View in Gallery**(갤러리에서 보기)를 선택합니다. 그러면 갤러리에서 실험에 대한 세부 정보 페이지가 열립니다.)
    
-    ![Machine Learning Studio 내에서 갤러리 실험 열기](media\\machine-learning-gallery-experiments\\open-experiment-from-studio.png)
+    ![Machine Learning Studio 내에서 갤러리 실험 열기](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
 이제 이 실험을 Machine Learning Studio에서 만든 다른 실험처럼 사용자 지정하고, 반복하고, 배포할 수 있습니다.
 
-![Studio에 열려있는 실험](media\\machine-learning-gallery-experiments\\experiment-open-in-studio.png)
+![Studio에 열려있는 실험](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## <a name="contribute"></a>기고
 갤러리에 로그인하면 갤러리 커뮤니티의 구성원이 됩니다. 구성원이 되면 자신이 발견한 솔루션을 다른 사용자가 활용할 수 있도록 자신의 실험을 제공할 수 있습니다.
@@ -86,10 +86,10 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
 2. 실험을 만들고 실행합니다.
 3. 갤러리에 실험을 게시할 준비가 되면 실험 캔버스 아래에서 **Publish to Gallery**(갤러리에 게시)를 클릭합니다.
    
-    !["Publish to Gallery"(갤러리에 게시) 클릭](media\\machine-learning-gallery-experiments\\publish-experiment-to-gallery.png)
+    !["Publish to Gallery"(갤러리에 게시) 클릭](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
 4. 제목 및 태그 필드를 작성합니다. 예를 들어, "이진 분류: Twitter 감성 분석"과 같이 제목 및 태그가 사용된 기술이나 해결된 실제 문제를 강조하는 설명적인 표현이 되도록 합니다.
    
-    ![게시할 때 제목과 태그 필드 작성하기](media\\machine-learning-gallery-experiments\\experiment-description.png)
+    ![게시할 때 제목과 태그 필드 작성하기](media/machine-learning-gallery-experiments/experiment-description.png)
 5. 콘텐츠가 다루는 내용을 요약하여 작성합니다. 해결된 문제와 해결 방법을 간략하게 설명합니다.
 6. 자세한 설명 상자를 사용하여 실험의 다른 부분을 단계적으로 작성해 나갑니다. 여기에 포함할 몇 가지 유용한 주제는 다음과 같습니다.
    
@@ -103,7 +103,7 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
      </br>
      필요에 따라 서식에 Markdown을 사용할 수 있습니다. 게시했을 때 어떻게 보이는지 확인하려면 **미리 보기** 아이콘을 클릭합니다.
      </br>
-     ![텍스트가 어떻게 표시되는지 보기 위해 “미리 보기” 클릭](media\\machine-learning-gallery-experiments\\preview-markdown-text.png)
+     ![텍스트가 어떻게 표시되는지 보기 위해 “미리 보기” 클릭](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
      <!-- -->
      > [!TIP]
@@ -112,10 +112,10 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
      > 
 7. 갤러리 항목에 대한 미리보기 이미지를 업로드합니다. 이 이미지는 항목 페이지 위쪽에 표시되면 갤러리를 탐색할 경우 항목 타일에 표시됩니다. 컴퓨터에서 이미지를 선택하거나 기존 이미지에서 선택할 수 있습니다.
     </br>
-    ![갤러리용 이미지 업로드 또는 선택](media\\machine-learning-gallery-experiments\\select-gallery-image.png)
+    ![갤러리용 이미지 업로드 또는 선택](media/machine-learning-gallery-experiments/select-gallery-image.png)
 8. 콘텐츠를 공개적으로 게시할지 또는 링크를 가진 사람에게만 액세스를 허용할지 선택합니다.
    
-    ![공개적으로 게시할 지 또는 목록에서 포함하지 말지 선택](media\\machine-learning-gallery-experiments\\choose-public-or-unlisted.png)
+    ![공개적으로 게시할 지 또는 목록에서 포함하지 말지 선택](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
    
     <!-- -->
    
@@ -125,7 +125,7 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
    > 
 9. 실험을 갤러리에 게시하려면 **확인** 표시를 클릭합니다.
    
-    ![실험을 게시하려면 확인 표시를 클릭합니다.](media\\machine-learning-gallery-experiments\\ok-checkmark.png)
+    ![실험을 게시하려면 확인 표시를 클릭합니다.](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
 양질의 갤러리 실험을 게시하는 방법에 대한 팁은 아래에 있는 **품질 설명서 및 게시에 대한 제안** 섹션을 참조하세요.
 
@@ -135,7 +135,7 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
 
 제공한 목록을 보려면 갤러리 페이지의 오른쪽 위에 있는 이미지를 클릭한 후 이름을 클릭하여 자신의 계정 페이지를 엽니다.
 
-![계정 이름을 클릭](media\\machine-learning-gallery-experiments\\click-account-name.png)
+![계정 이름을 클릭](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### <a name="update-your-experiment"></a>실험 업데이트
 갤러리에 게시해둔 실험의 워크플로(모듈, 매개 변수 등)를 변경하려면 Machine Learning Studio에서 실험으로 돌아가서 변경하고 다시 게시합니다. 게시되어 있는 기존 실험이 변경한 실험으로 업데이트됩니다.
@@ -154,22 +154,22 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
 #### <a name="from-your-experiments-details-page"></a>실험의 세부 정보 페이지에서
 실험의 세부 정보 페이지에서 "편집"을 클릭하여 실험에 대한 세부 정보를 변경합니다.
 
-!["편집"을 클릭하여 실험 편집](media\\machine-learning-gallery-experiments\\edit-button.png)
+!["편집"을 클릭하여 실험 편집](media/machine-learning-gallery-experiments/edit-button.png)
 
 세부 정보 페이지가 편집 모드에 들어가면 실험 이름, 요약, 태그 등의 옆에 있는 "편집"을 클릭하여 내용을 변경할 수 있습니다. 변경을 마쳤으면 "완료"를 클릭합니다.
 
-!["편집"을 클릭하여 세부 정보를 편집하고, 마쳤으면 "완료"를 클릭합니다.](media\\machine-learning-gallery-experiments\\edit-details-page.png)
+!["편집"을 클릭하여 세부 정보를 편집하고, 마쳤으면 "완료"를 클릭합니다.](media/machine-learning-gallery-experiments/edit-details-page.png)
 
 설정 아이콘을 선택하여 실험의 표시 여부(공개 또는 비공개)를 변경하거나 갤러리에서 실험을 삭제할 수 있습니다.
 
-![설정을 클릭하여 표시여부를 변경하거나 실험을 삭제합니다.](media\\machine-learning-gallery-experiments\\settings-button.png)
+![설정을 클릭하여 표시여부를 변경하거나 실험을 삭제합니다.](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### <a name="from-your-profile-page"></a>프로필 페이지에서
 프로필 페이지에서 실험에 있는 아래쪽 화살표를 클릭하고 "편집"을 선택합니다. 그러면 실험에 대한 세부 정보 페이지가 편집 모드에서 열립니다. 변경을 마쳤으면 "완료"를 클릭합니다.
 
 실험을 갤러리에서 삭제하려면 "삭제"를 클릭합니다.
 
-!["편집" 또는 "삭제" 클릭](media\\machine-learning-gallery-experiments\\edit-delete-buttons.png)
+!["편집" 또는 "삭제" 클릭](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
 ### <a name="suggestions-for-publishing-and-for-quality-documentation"></a>품질 설명서 및 게시에 대한 제안
 * 독자가 이미 데이터 과학 경험이 있다고 가정한다 하더라도 평이한 언어를 사용하고 가능하면 상세히 설명하는 것이 여전히 유용합니다.
@@ -202,6 +202,6 @@ Machine Learning Studio에서 작업하는 동안 동일한 샘플 실험을 열
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

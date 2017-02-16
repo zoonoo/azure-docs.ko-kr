@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 StorSimple의 파일 공유에 대한 DR 자동화 | Microsoft Docs"
-description: "StorSimple 저장소에서 호스트되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계 및 모범 사례를 설명합니다."
+title: "Azure Site Recovery로 StorSimple 파일 공유 DR 자동화 | Microsoft Docs"
+description: "Microsoft Azure StorSimple 저장소에서 호스팅되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계와 모범 사례에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: d454c138b75bbf3227dd1d5f52594e3c78e15766
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
 
 
 ---
@@ -304,6 +304,6 @@ Azure Site Recovery를 사용하여 StorSimple 저장소에 호스트된 파일 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

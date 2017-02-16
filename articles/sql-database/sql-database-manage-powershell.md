@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
+ms.custom: how to
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a91b60f20394c236d64bfae242f820e56dd3ed79
-ms.openlocfilehash: 83ff32bb99ba0cf08f61ba4f2a97dee74bd6e1c5
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: 54000d76fac3f5759f72fe623326324e6c978505
 
 
 ---
@@ -62,7 +63,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-자세한 내용은 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
+서버에 대한 자세한 내용은 [SQL Database 기능](sql-database-features.md)을 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
 
 ## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>SQL 데이터베이스 서버 방화벽 규칙을 어떻게 만드나요?
 서버에 액세스하기 위한 방화벽 규칙을 만들려면 [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) cmdlet을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다. 리소스 그룹 및 서버가 구독에 이미 있어야 합니다.
@@ -174,6 +175,6 @@ PowerShell을 사용하여 탄력적 데이터베이스 풀 관리에 대한 자
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

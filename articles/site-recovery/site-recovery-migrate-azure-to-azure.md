@@ -1,5 +1,5 @@
 ---
-title: "Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS 가상 컴퓨터 마이그레이션 | Microsoft Docs"
+title: "Azure 지역 간에 Azure IaaS VM 마이그레이션 | Microsoft Docs"
 description: "Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS 가상 컴퓨터를 마이그레이션합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 921da3b0fe82248ab32d0b8e23f234f942f5eb05
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 3db1ec50b357c5bf6da51aaaf0f04ccb65d1bb05
 
 
 ---
@@ -49,10 +49,10 @@ Azure Site Recovery에 오신 것을 환영합니다! Azure 지역 간에 Azure 
 7. [ 계획되지 않은 장애 조치를 실행합니다](site-recovery-failover.md#run-an-unplanned-failover). 초기 복제가 완료된 후에 Azure 지역 간에 계획되지 않은 장애 조치를 실행할 수 있습니다. 선택적으로 복구 계획을 만들고 장애 조치를 실행하여 Azure 지역 간에 여러 가상 컴퓨터를 마이그레이션할 수 있습니다. [자세히 알아봅니다](site-recovery-create-recovery-plans.md) .
 
 ## <a name="next-steps"></a>다음 단계
- [Azure Site Recovery란?](site-recovery-overview.md)
+[Azure Site Recovery란?](site-recovery-overview.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

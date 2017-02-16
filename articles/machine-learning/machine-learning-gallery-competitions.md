@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
  **[대회](https://gallery.cortanaintelligence.com/competitions)**
  페이지에는 가장 인기 있는 대회 목록이 표시됩니다.
 모든 대회를 보려면 **모두 표시**를 클릭합니다.
-이 페이지에서 갤러리에 있는 모든 대회를 찾아보거나, 또는 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에서 검색어를 입력하여 검색할 수 있습니다.
+이 페이지에서 갤러리의 모든 대회를 찾아볼 수 있습니다. 또한 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에 검색어를 입력하여 검색할 수 있습니다.
 
  아무 대회나 클릭하여 대회의 세부 정보 페이지를 열고 그것에 관한 자세한 내용을 읽습니다. 이 페이지에서 주석 섹션을 통해 주석을 달거나 피드백을 제공하거나 질문을 할 수 있습니다. LinkedIn 또는 Twitter의 공유 기능을 사용하여 친구나 동료와 그것을 공유할 수 있습니다. 페이지를 보도록 다른 사용자를 초대하기 위해 대회의 링크를 메일로 보낼 수도 있습니다.
 
@@ -58,6 +58,6 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

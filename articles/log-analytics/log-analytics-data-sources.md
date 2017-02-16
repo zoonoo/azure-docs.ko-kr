@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 412483cfbce7621612a7283b8a72c24d23b851b5
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: ad9cc8765f1a8b83c9dbf5caca573811c6e7f10e
 
 
 ---
@@ -52,7 +52,7 @@ Log Analytics **설정**의 **데이터** 메뉴에서 데이터 원본을 구�
 ## <a name="data-collection"></a>데이터 수집
 데이터 원본 구성은 몇 분 이내에 OMS에 직접 연결된 에이전트로 전달됩니다.  지정된 데이터는 에이전트에서 수집되어 각 데이터 원본에 특정한 간격으로 Log Analytics에 직접 전달됩니다.  이러한 세부 사항은 각 데이터 원본에 대한 설명서를 참조하세요.
 
-연결된 관리 그룹 내 SCOM(System Center Operations Manager) 에이전트의 경우 데이터 원본 구성은 관리 팩으로 변환되어 기본적으로 5분마다 관리 그룹에 전달됩니다.  에이전트는 일반적인 방식으로 관리 팩을 다운로드하고 지정된 데이터를 수집합니다. 데이터 원본에 따라, 데이터가 관리 서버로 전송된 다음 관리 서버가 Log Analytics로 데이터를 전달하거나 에이전트가 관리 서버를 통하지 않고 Log Analytics로 데이터를 전송합니다. 자세한 내용은 [OMS 기능 및 솔루션에 대한 데이터 수집 정보](log-analytics-add-solutions.md#data-collection-details-for-oms-features-and-solutions)를 참조하십시오.  SCOM과 OMS의 연결 및 구성 전달 주기 수정에 대한 자세한 내용은 [System Center Operations Manager와의 통합 구성](log-analytics-om-agents.md)에서 확인할 수 있습니다.
+연결된 관리 그룹 내 SCOM(System Center Operations Manager) 에이전트의 경우 데이터 원본 구성은 관리 팩으로 변환되어 기본적으로 5분마다 관리 그룹에 전달됩니다.  에이전트는 일반적인 방식으로 관리 팩을 다운로드하고 지정된 데이터를 수집합니다. 데이터 원본에 따라, 데이터가 관리 서버로 전송된 다음 관리 서버가 Log Analytics로 데이터를 전달하거나 에이전트가 관리 서버를 통하지 않고 Log Analytics로 데이터를 전송합니다. 자세한 내용은 [OMS 기능 및 솔루션에 대한 데이터 수집 정보](log-analytics-add-solutions.md#data-collection-details)를 참조하십시오.  SCOM과 OMS의 연결 및 구성 전달 주기 수정에 대한 자세한 내용은 [System Center Operations Manager와의 통합 구성](log-analytics-om-agents.md)에서 확인할 수 있습니다.
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
 Log Analytics에서 수집된 모든 데이터는 OMS 리포지토리에 레코드로 저장됩니다.  여러 데이터 원본에서 수집된 레코드는 고유한 속성 집합이 있으며 해당 **Type** 속성으로 식별됩니다.  각 레코드 유형에 대한 자세한 내용은 각 데이터 원본 및 솔루션에 대한 설명서를 참조하세요.
@@ -64,7 +64,6 @@ Log Analytics에서 수집된 모든 데이터는 OMS 리포지토리에 레코�
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

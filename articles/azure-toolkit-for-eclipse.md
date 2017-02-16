@@ -4,7 +4,7 @@ description: "Eclipse용 Azure 도구 키트에 대해 알아봅니다."
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
 ms.service: multiple
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
+ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
+ms.openlocfilehash: 1c60d3730aa2bbca63abf259727ec41ffc164b47
 
 
 ---
@@ -57,7 +57,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 * [대규모 배포]
 * [Eclipse의 Azure에서 Java 웹앱 디버깅]
 * [Eclipse에서 Azure 응용 프로그램 디버깅]
-* [Eclipse용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기][Eclipse용 HDInsight 도구 플러그 인]
+* [Eclipse용 HDInsight 도구 플러그 인을 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기][HDInsight Tools Plugin for Eclipse]
 
 ## <a name="see-also"></a>참고 항목
 Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
@@ -71,11 +71,11 @@ Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 �
   * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
   * [IntelliJ용 Azure 도구 키트의 새로운 기능]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터] 및 [Visual Studio Team Services용 Java 도구]를 참조하세요.
 
 <!-- URL List -->
 
-[Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
@@ -85,6 +85,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [IntelliJ용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
+[Visual Studio Team Services용 Java 도구]: https://java.visualstudio.com/
 
 [Azure 프로젝트 속성]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Azure 역할 속성]: ./azure-toolkit-for-eclipse-azure-role-properties.md
@@ -97,8 +98,8 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [세션 선호도 사용]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
-[Eclipse용 HDInsight 도구 플러그 인]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
-[Eclipse를 사용하여 Azure 액세스 제어 서비스로 웹 사용자를 인증하는 방법]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -110,6 +111,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

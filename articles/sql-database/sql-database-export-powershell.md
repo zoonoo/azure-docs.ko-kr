@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: c886e8e61b00de2f07d7f5a98c2d2f4d5b29b7cf
-ms.openlocfilehash: dd264dfc73962a575f0d4b1a32a9ec02752c33ba
+ms.sourcegitcommit: ebbb31eb9387d68afab7559a3827682ed2551d5a
+ms.openlocfilehash: de0b000b56ea90caeb1e2aa9a0b8c87e25c7c237
 
 
 ---
@@ -64,13 +64,13 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 > 
 > 
 
-     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+     $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>내보내기 작업의 진행률 모니터링
-[New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx)를 실행한 후 [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)를 실행하여 요청 상태를 확인할 수 있습니다. 이 요청 직후에 이 명령을 실행하면 **Status : InProgress**가 반환됩니다. **Status : Succeeded** 가 표시되면 내보내기가 완료된 것입니다.
+[New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx)를 실행한 후 [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)를 실행하여 요청 상태를 확인할 수 있습니다. 이 요청 직후에 이 명령을 실행하면 **Status : InProgress**가 반환됩니다. **Status : Succeeded**가 표시되면 내보내기가 완료된 것입니다.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -94,8 +94,8 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
     $ServerName = "SERVER-NAME"
     $serverAdmin = "ADMIN-NAME"
     $serverPassword = "ADMIN-PASSWORD" 
-    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    $securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+    $creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
     # Generate a unique filename for the BACPAC
     $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
@@ -106,9 +106,9 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
     $StorageKeytype = "StorageAccessKey"
     $StorageKey = "YOUR STORAGE KEY"
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
     $exportRequest
 
     # Check status of the export
@@ -116,7 +116,8 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 
 ## <a name="automate-export-using-azure-automation"></a>Azure Automation을 사용하여 내보내기 자동화
 
-선택한 일정에 따라 SQL 데이터베이스를 주기적으로 보관하도록 Azure 자동화를 사용할 수 있습니다. [Github에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. Azure Automation에 대한 자세한 내용은 [Azure Automation 개요](../automation/automation-intro.md)를 참조하세요.
+Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2017년 3월 1일에 사용이 중지됩니다. 2016년 12월 1일을 시작으로 모든 SQL Database에서 자동화된 내보내기를 더는 구성할 수 없습니다. 기존의 모든 자동화된 내보내기 작업은 2017년 3월 1일까지 계속 수행됩니다. 2016년 12월 1일 후에는 [장기 백업 보존](sql-database-long-term-retention.md) 또는 [Azure Automation](../automation/automation-intro.md)을 사용하여 선택한 일정에 따라 주기적으로 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플 스크립트의 경우, [Github에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 * Powershell을 사용하여 Azure SQL 데이터베이스를 가져오는 방법을 알아보려면 [PowerShell을 사용하여 BACPAC 가져오기](sql-database-import-powershell.md)를 참조하세요.
@@ -128,6 +129,6 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

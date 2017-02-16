@@ -1,5 +1,5 @@
 ---
-title: "MySQL에서 데이터 이동 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 MySQL에서 데이터 이동 | Microsoft Docs"
 description: "Azure 데이터 팩터리를 사용하여 MySQL 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 76b7469260a88d67c8a14e4286b62d0019f99f18
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: e44228a28a248f64da55590f8d3c0f292a9a0291
 
 
 ---
@@ -274,7 +274,7 @@ MySQL 데이터베이스의 데이터를 지원되는 싱크 데이터 저장소
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### <a name="type-mapping-for-mysql"></a>MySQL에 대한 형식 매핑
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음&2;단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -332,6 +332,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

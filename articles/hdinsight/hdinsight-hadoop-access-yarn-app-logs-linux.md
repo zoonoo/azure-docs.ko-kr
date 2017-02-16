@@ -16,18 +16,16 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f03c595977f098f19d396cc460c73e27163f070c
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 1a4bf7e2a77e1b49e0bb68ec8897ec78d39c3b9f
 
 
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스
 이 문서에서는 Azure HDInsight의 Hadoop 클러스터에서 완료된 YARN(Yet Another Resource Negotiator) 응용 프로그램에 대한 로그에 액세스하는 방법에 대해 설명합니다.
 
-> [!NOTE]
-> 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 자세한 내용은 [Windows 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs.md)
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * Linux 기반 HDInsight 클러스터입니다.
@@ -95,6 +93,6 @@ SSH 터널을 만든 후 다음 단계를 사용하여 YARN 로그를 봅니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

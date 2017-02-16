@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: kipandya
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a0b1418168d493ce0e669a9eb0594d37e741df7d
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
 
 
 ---
@@ -34,7 +34,7 @@ SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
 모든 읽기는 PreferredLocations 목록에서 첫 번째 사용 가능한 지역으로 전송됩니다. 요청이 실패하면 클라이언트는 목록의 다음 지역으로 옮겨갑니다.
 
-클라이언트 SDK는 PreferredLocations에 지정된 지역에서 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 3개 지역에서 사용할 수 있지만 클라이언트는 PreferredLocations에 쓰기에 해당하지 않는 지역 중 두 가지만 지정했다면, 장애 조치 시에도 쓰기 지역에서 읽기를 제공하지 않습니다.
+클라이언트 SDK는 PreferredLocations에 지정된 지역에서 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이&3;개 지역에서 사용할 수 있지만 클라이언트는 PreferredLocations에 쓰기에 해당하지 않는 지역 중 두 가지만 지정했다면, 장애 조치 시에도 쓰기 지역에서 읽기를 제공하지 않습니다.
 
 응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 끝점과 읽기 끝점을 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
 
@@ -152,13 +152,12 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 
 * [DocumentDB로 데이터를 글로벌 배포](documentdb-distribute-data-globally.md)
 * [일관성 수준](documentdb-consistency-levels.md)
-* [여러 지역에 처리량을 적용하는 방법](documentdb-manage.md)
 * [Azure 포털을 사용하여 지역 추가](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

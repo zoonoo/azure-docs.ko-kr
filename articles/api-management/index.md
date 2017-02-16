@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "API Management를 사용하여 대규모로 안전하게 API를 게시하는 방법에 대해 알아봅니다. 설명서에서는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만드는 방법을 보여 줍니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 79b75ae11af07735449714d3a3034c867224ebf4
+ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
+ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
 
 ---
 # <a name="api-management-documentation"></a>API Management 설명서
 
-API Management를 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다.  API Management는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다.
+API Management를 사용하여 API를 대규모로 안전하게 외부, 파트너 및 직원 개발자에게 게시하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 어디서든지 호스팅되는 기존 백 엔드 서비스에 대한 최신 API 게이트웨이를 만들고 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ API Management 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

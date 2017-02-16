@@ -4,7 +4,7 @@ description: "이 문서에서는 기존 또는 새 Application Gateway에 웹 �
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 486ed096bba7accfb3ca54aa97fb0b57b756d291
-ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
 > [!div class="op_single_selector"]
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
 
@@ -108,7 +106,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 Azure에 로그인
 
@@ -118,7 +116,7 @@ Login-AzureRmAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 계정에 대한 구독을 확인합니다.
 
@@ -126,7 +124,7 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 사용할 Azure 구독을 선택합니다.
 
@@ -134,7 +132,7 @@ Get-AzureRmSubscription
 Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
 ```
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
@@ -148,8 +146,6 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 > [!NOTE]
 > 응용 프로그램 게이트웨이에 사용자 지정 프로브를 구성해야 하는 경우 [PowerShell을 사용하여 사용자 지정 프로브로 응용 프로그램 게이트웨이 만들기](application-gateway-create-probe-ps.md)를 참조하세요. 자세한 내용은 [사용자 지정 프로브 및 상태 모니터링](application-gateway-probe-overview.md)을 확인합니다.
-> 
-> 
 
 ### <a name="step-5"></a>5단계
 
@@ -161,8 +157,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 
 > [!NOTE]
 > 응용 프로그램에 대한 서브넷의 마스크 비트가 적어도 28 이상이어야 합니다. 이 값은 Application Gateway 인스턴스의 서브넷에 10개 주소를 남겨 둡니다. 서브넷 마스크가 그보다 작으면 나중에 Application Gateway의 인스턴스를 추가할 수 없습니다.
-> 
-> 
+
 
 ### <a name="step-6"></a>6단계
 
@@ -174,7 +169,7 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 
 ### <a name="step-7"></a>7단계
 
- [리소스 그룹 만들기](#create-the-resource-group)
+[리소스 그룹 만들기](#create-the-resource-group)
 
 ```powershell
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
@@ -200,8 +195,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwp
 
 > [!IMPORTANT]
 > Application Gateway는 정의된 도메인 레이블로 만든 공용 IP 주소의 사용을 지원하지 않습니다. 도메인 레이블이 동적으로 생성된 공용 IP 주소만 지원됩니다. Application Gateway에 친숙한 dns 이름이 필요한 경우 cname 레코드를 별칭으로 사용하는 것이 좋습니다.
-> 
-> 
+
 
 ### <a name="step-10"></a>10단계
 
@@ -287,15 +281,13 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
 > [!NOTE]
 > **WAF\_Medium**과 **WAF\_Large** 중에 선택할 수 있으며, WAF를 사용할 때의 계층은 언제나 **WAF**입니다. 용량은 1부터 10 사이의 숫자입니다.
-> 
-> 
 
 ### <a name="step-20"></a>20단계
 
 WAF의 모드를 구성합니다. 허용되는 값은 **방지** 및 **검색**입니다.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### <a name="step-21"></a>21단계
@@ -338,12 +330,12 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
- [Application Gateway 진단](application-gateway-diagnostics.md)
+[Application Gateway 진단](application-gateway-diagnostics.md)
 
-[시나리오]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

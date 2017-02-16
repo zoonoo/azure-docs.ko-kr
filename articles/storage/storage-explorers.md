@@ -1,9 +1,9 @@
 ---
-title: "Azure Storage 클라이언트 도구 | Microsoft Docs"
+title: "Azure Storage 작업을 위한 도구 | Microsoft Docs"
 description: "Azure 저장소 데이터를 보고 상호 작용할 수 있는 도구 목록입니다."
 services: storage
 documentationcenter: 
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
 
 
 ---
@@ -43,10 +43,10 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
     <td>웹</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure 포털</a></td>
+    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Portal</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -60,7 +60,7 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://storageexplorer.com/">Microsoft Azure 저장소 탐색기</a></td>
+    <td><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -109,7 +109,7 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
     <td>웹</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -255,6 +255,6 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

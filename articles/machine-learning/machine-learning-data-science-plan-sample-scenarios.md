@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning의 고급 분석 프로세스 및 기술 시나리오 | Microsoft Docs"
+title: "Azure Machine Learning을 위한 고급 분석 시나리오 확인 | Microsoft Docs"
 description: "팀 데이터 과학 프로세스에서 고급 예측 분석을 수행하기 위한 적절한 시나리오를 선택합니다."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 
 
 ---
@@ -80,7 +80,7 @@ ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
 ## <a name="a-namesmalllocaltodbascenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 ![Azure에서 SQL DB보다 중간인 로컬 파일보다 작음][4]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 1. SQL Server + IPython Notebook을 실행하는 Azure 가상 컴퓨터를 만듭니다.
 2. Azure 저장소 컨테이너에 데이터를 업로드 합니다.
 3. IPython Notebook을 사용하여 Azure 저장소 컨테이너에서 데이터를 사전 처리하고 정리합니다.
@@ -110,7 +110,7 @@ ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
 ## <a name="a-namelargelocaltodbascenario-5-large-dataset-in-a-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 로컬 파일][5]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 1. SQL Server 및 IPython Notebook 서버를 실행하는 Azure 가상 컴퓨터를 만듭니다.
 2. Azure 저장소 컨테이너에 데이터를 업로드 합니다.
 3. (선택 사항) 데이터를 사전 처리하고 정리합니다.
@@ -151,7 +151,7 @@ ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
 ## <a name="a-namelargedbtodbascenario-6-large-dataset-in-a-sql-server-database-on-prem-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 SQL DB 온-프레미스][6]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 1. SQL Server 및 IPython Notebook 서버를 실행하는 Azure 가상 컴퓨터를 만듭니다.
 2. 데이터 내보내기 메서드 중 하나를 사용하여 SQL Server에서 덤프 파일로 데이터를 내보냅니다.
    
@@ -184,10 +184,10 @@ ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
 8. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 9. 업로드 데이터 집합으로 단순 Azure 기계 학습 실험 흐름 시작
 
-### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises-sql-server-to-azure-sql-database"></a>온-프레미스에서 Azure SQL Database로 전체 데이터베이스를 복사하는 대체 메서드
+### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>온-프레미스에서 Azure SQL Database로 전체 데이터베이스를 복사하는 대체 메서드
 ![로컬 DB를 분리하고 Azure의 SQL DB에 첨부][7]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
 SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한 위치/서버에서 다른 위치/서버로 데이터베이스를 복사해야 하며, 데이터베이스가 일시적으로 오프라인 상태가 될 수 있다고 가정합니다. SQL Server Management Studio 개체 탐색기 또는 해당하는 TRANSACT-SQL 명령을 사용하여 이 작업을 수행합니다.
 
 1. 원본 위치에서 데이터베이스를 분리합니다. 자세한 내용은 [데이터베이스 분리](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx)를 참조하세요.
@@ -268,6 +268,6 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2016
+ms.date: 01/04/2017
 ms.author: alanwar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7064de917505223eadc07cde67c373de1cac36ef
+ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
+ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
 
 
 ---
@@ -44,11 +44,13 @@ StatefulRunAsyncSlowCancellation 및 StatefulRunAsyncFailure 이벤트는 서비
 
 서비스 RunAsync() 작업이 예외를 throw할 때마다 StatefulRunAsyncFailure가 내보내집니다. 일반적으로 throw된 예외는 서비스의 오류 또는 버그를 나타냅니다. 또한 예외로 인해 서비스가 실패하므로 다른 노드로 이동시켜야 합니다. 이 작업은 부담이 큰 작업이며 서비스가 이동하는 동안 들어오는 요청을 지연시킬 수 있습니다. 서비스 작성자는 예외의 원인을 확인하고 가능한 경우 이를 완화해야 합니다.
 
-RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 StatefulRunAsyncSlowCancellation이 내보내집니다. 서비스 취소 완료 시간이 너무 오래 걸리는 경우 서비스가 다른 노드에서 신속하게 다시 시작하는 기능에 영향을 줄 수 있습니다. 이 작업은 서비스의 전반적인 가용성에 영향을 줄 수 있습니다.
+RunAsync 작업에 대한 취소 요청이&4;초보다 오래 걸릴 경우 StatefulRunAsyncSlowCancellation이 내보내집니다. 서비스 취소 완료 시간이 너무 오래 걸리는 경우 서비스가 다른 노드에서 신속하게 다시 시작하는 기능에 영향을 줄 수 있습니다. 이 작업은 서비스의 전반적인 가용성에 영향을 줄 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+* [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

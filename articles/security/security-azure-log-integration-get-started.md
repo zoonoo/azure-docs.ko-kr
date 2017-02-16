@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/24/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: d02a99406fd22f7578cb4825447f7710df374210
-ms.openlocfilehash: 1ccd7d97596b3a74efcb9a066f42b04b62600fe3
+ms.sourcegitcommit: aaa69e2e4fed314e8bc363f60e7538b12bb3a56d
+ms.openlocfilehash: ca7f05534113752f3607268c15a9fe3e0e2982e0
 
 
 ---
 # <a name="get-started-with-azure-log-integration-preview"></a>Azure 로그 통합(미리 보기) 시작
 Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해줍니다. 이 통합은 응용 프로그램과 관련된 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공합니다.
 
-이 자습서에서는 Azure 로그 통합을 설치하고 Azure 저장소, Azure 감사 로그 및 Azure 보안 센터 경고의 로그를 통합하는 방법을 안내합니다. 이 자습서를 완료하기 위한 예상 시간은 1시간입니다.
-E o## 필수 조건 이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서에서는 Azure 로그 통합을 설치하고 Azure 저장소, Azure 감사 로그 및 Azure 보안 센터 경고의 로그를 통합하는 방법을 안내합니다. 이 자습서를 완료하기 위한 예상 시간은&1;시간입니다.
+
+## <a name="prerequisites"></a>필수 조건
+이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 로그 통합 서비스를 설치할 온-프레미스 또는 클라우드의 컴퓨터. 이 컴퓨터는 .Net 4.5.1이 설치된 64비트 Windows 운영 체제를 실행 중이어야 합니다. 이 컴퓨터를 **Azlog 통합자**라고 부릅니다.
-y* Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
+* 동작합니다. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
 * Azure 가상 컴퓨터(VM)에 사용하도록 설정된 Azure 진단. 클라우드 서비스에 진단을 사용하려면 [Azure 클라우드 서비스에서 Azure 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요. Windows를 실행하는 Azure VM에 진단을 사용하려면 [PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 * Azlog 통합자를 Azure 저장소에 연결하고 Azure 구독에 인증하고 권한 부여.
 * Azure VM 로그의 경우 Azlog 통합자에 SIEM 에이전트(예: Splunk Universal Forwarder, HP ArcSight Windows Event Collector 에이전트, IBM QRadar WinCollect)가 설치되어 있어야 합니다.
@@ -50,35 +52,35 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
 > [!NOTE]
 > 이 옵션을 선택 취소하여 원격 분석 데이터의 컬렉션을 해제할 수 있습니다.
-> 
-> 
+>
+>
 
 
 ## <a name="set-your-azure-environment"></a>Azure 환경 설정
-1. 명령 프롬프트를 열고 **c:\Program Files\Microsoft Azure Log Integration**으로 **cd**합니다.
+1. 관리자 권한으로 PowerShell 콘솔을 열고 **c:\Program Files\Microsoft Azure Log Integration**으로 **cd**합니다.
 2. Set-AzLogAzureEnvironment -Name 명령을 실행합니다. <Cloud>
-       
+
        Replace the Cloud with any of the following
-       AzureCloud 
-       AzureChinaCloud 
-       AzureUSGovernment 
+       AzureCloud
+       AzureChinaCloud
+       AzureUSGovernment
        AzureGermanCloud
-       
-       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate
-       
+
+       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate.
+
 ## <a name="integrate-azure-vm-logs-from-your-azure-diagnostics-storage-accounts"></a>Azure 진단 저장소 계정의 Azure VM 로그 통합
 1. Azure 로그 통합을 계속하기 전에 WAD 저장소 계정에서 로그를 수집하도록 위에 설명된 필수 조건을 확인하세요. WAD 저장소 계정에서 로그를 수집하지 않는 경우에는 다음 단계를 수행하지 마세요.
 2. 명령 프롬프트를 열고 **c:\Program Files\Microsoft Azure Log Integration**으로 **cd**합니다.
 3. 명령 실행
-   
+
         azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>
-   
+
       StorageAccountName을 VM에서 진단 이벤트를 수신하도록 구성된 Azure 저장소 계정의 이름으로 바꿉니다.
-   
+
         azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==
-   
+
       이벤트 XML에 구독 id를 표시하려면 이름에 구독 ID를 추가합니다.
-   
+
         azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>
 4. 30-60분 정도 기다렸다가(1시간 정도 소요될 수 있음) 저장소 계정에서 가져온 이벤트를 확인합니다. 이벤트를 보려면 Azlog 통합자에서 **이벤트 뷰어 > Windows 로그 > 전달된 이벤트**를 엽니다.
 5. 컴퓨터에 설치된 표준 SIEM 커넥터가 **전달된 이벤트** 폴더에서 이벤트를 수집하여 SIEM 인스턴스로 전달하도록 구성되었는지 확인합니다. SIEM 구성을 검토하여 로그 통합을 구성 및 확인합니다.
@@ -100,28 +102,28 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 ## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Azure 감사 로그 및 보안 센터 경고 통합
 1. 명령 프롬프트를 열고 **c:\Program Files\Microsoft Azure Log Integration**으로 **cd**합니다.
 2. 명령 실행
-   
+
         azlog createazureid
-   
+
       이 명령은 사용자에게 Azure 로그인을 요구합니다. 그런 다음 로그인한 사용자가 관리자, 공동 관리자 또는 소유자인 Azure 구독을 호스트하는 Azure AD 테넌트에 [Azure Active Directory 서비스 주체](../active-directory/active-directory-application-objects.md) 를 만듭니다. 로그인한 사용자가 Azure AD 테넌트의 게스트 사용자이면 명령이 실패합니다. Azure에 대한 인증은 Azure Active Directory(AD)를 통해 수행됩니다.  Azlog 통합에 대한 서비스 주체를 만들면 Azure 구독을 읽을 수 있는 Azure AD ID가 생성됩니다.
 3. 명령 실행
-   
+
         azlog authorize <SubscriptionID>
-   
+
       이 명령은 구독에 대한 읽기 권한자 액세스 권한을 2단계에서 만든 서비스 주체에 할당합니다. SubscriptionID를 지정하지 않으면 사용자가 액세스 권한을 갖고 있는 모든 구독에 서비스 주체 읽기 관리자 역할을 할당하려고 시도합니다.
-   
+
         azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
-   
+
    > [!NOTE]
    > **createazureid** 명령을 실행한 직후 **authorize** 명령을 실행하면 경고가 표시될 수 있습니다. Azure AD 계정이 생성되는 시점과 계정이 사용 가능하게 되는 시점 사이에 약간의 대기 시간에 있습니다. **createazureid** 명령을 실행하고 약 10초 대기한 후 **authorize** 명령을 실행하면 이러한 경고가 표시되지 않습니다.
-   > 
-   > 
+   >
+   >
 4. 다음 폴더에서 감사 로그 JSON 파일이 있는지 확인하세요.
-   
+
    * **c:\Users\azlog\AzureResourceManagerJson**
    * **c:\Users\azlog\AzureResourceManagerJsonLD**
 5. 다음 폴더에서 보안 센터 경고가 있는지 확인하세요.
-   
+
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
 6. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. 사용 중인 SIEM 제품에 따라 일부 필드 매핑이 필요할 수 있습니다.
@@ -140,7 +142,6 @@ Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mai
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

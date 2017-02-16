@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/14/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0ca7a73d0d7db3651bec26deb4557fae5fc3451f
+ms.sourcegitcommit: ec9e3c6c6919bb5ce50553a29536f821fe79f577
+ms.openlocfilehash: 3d8ee1d23fab0b410bce711afc27f8bbbad4c7e4
 
 
 ---
@@ -30,7 +30,7 @@ Apache HBase는 Hadoop을 기반으로 하고 Google BigTable 이후에 모델�
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight에서 HBase를 구현하는 방법
 HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능 및 비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop은 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
 
-HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기를 위한 메모리 내 캐싱과 쓰기를 위한 높은 처리량 스트리밍을 통해 성능이 향상됩니다. HDInsight HBase에 가상 네트워크 프로비전을 사용할 수도 있습니다. 자세한 내용은 [Azure Virtual Network에 HDInsight 클러스터 프로비전][hbase-provision-vnet]을 참조하세요.
+HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기를 위한 메모리 내 캐싱과 쓰기를 위한 높은 처리량 스트리밍을 통해 성능이 향상됩니다. HBase 클러스터는 가상 네트워크 내에 만들 수 있습니다. 자세한 내용은 [Azure Virtual Network에 HDInsight 클러스터 만들기][hbase-provision-vnet]를 참조하세요.
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>HDInsight HBase에서 데이터를 관리하는 방법
 HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get`을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 Hive를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작][hbase-get-started]을 참조하세요. 데이터베이스를 호스트하는 노드에서 데이터를 처리할 수 있도록 하는 보조 프로세서를 사용할 수도 있습니다.
@@ -53,8 +53,8 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
 ## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>다음 단계
 * [HDInsight의 Hadoop에서 HBase 사용 시작][hbase-get-started]
-* [Azure Virtual Network에 HDInsight 클러스터 프로비전][hbase-provision-vnet]
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md)
+* [Azure Virtual Network에 HDInsight 클러스터 만들기][hbase-provision-vnet]
+* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md)
 * [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
 * [Maven을 사용하여 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드][hbase-build-java-maven]
 
@@ -84,6 +84,6 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

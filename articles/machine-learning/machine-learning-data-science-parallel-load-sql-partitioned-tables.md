@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
+ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 * [새 데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx) (존재하지 않는 경우)
 * 분할된 실제 파일을 보유할 데이터베이스에 데이터베이스 파일 그룹 추가
   
-  참고: 새 데이터베이스를 만드는 경우 [데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx)를 사용하여, 기존 데이터베이스가 있는 경우 [데이터베이스 변경](https://msdn.microsoft.com/library/bb522682.aspx)을 사용하여 이 작업을 수행할 수 있음
+  새 데이터베이스를 만드는 경우 [데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx)를 사용하여, 기존 데이터베이스가 있는 경우 [데이터베이스 변경](https://msdn.microsoft.com/library/bb522682.aspx)을 사용하여 이 작업을 수행할 수 있음
 * 각 데이터베이스 파일 그룹에 파일을 하나 이상(필요한 만큼) 추가
   
   > [!NOTE]
@@ -76,7 +76,7 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  팁: 함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
+  함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +185,6 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

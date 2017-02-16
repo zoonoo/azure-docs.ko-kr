@@ -1,4 +1,4 @@
-## Azure CLI를 사용하여 배포하는 방법
+## <a name="how-to-deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포하는 방법
 1. Azure 계정에 로그인합니다.
    
         azure login
@@ -62,4 +62,8 @@
    
          azure group log show -l -v ExampleResourceGroup
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

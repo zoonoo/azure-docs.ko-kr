@@ -1,6 +1,6 @@
 ---
-title: "미디어 인코더 표준을 사용한 고급 인코딩"
-description: "이 항목에서는 미디어 인코더 표준 태스크 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 설명합니다. 그리고 Media Services .NET SDK를 사용하여 인코딩 태스크와 작업을 만드는 방법을 설명합니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다."
+title: "MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 | Microsoft Docs"
+description: "이 항목에서는 미디어 인코더 표준 태스크 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 설명합니다."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,234 +12,37 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 98060e27d72605934d773b3cb6291c7c5d0df6f8
 
 
 ---
-# <a name="advanced-encoding-with-media-encoder-standard"></a>미디어 인코더 표준을 사용한 고급 인코딩
+
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
+
 ## <a name="overview"></a>개요
-이 항목에서는 미디어 인코더 표준을 사용하여 고급 인코딩 작업을 수행하는 방법을 설명합니다. 구체적으로는 [.NET을 사용하여 인코딩 태스크 및 이 태스크를 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 설명합니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
-다음 인코딩 작업을 수행하는 사용자 지정 사전 설정을 보여줍니다.
+이 항목에서는 MES(Media Encoder Standard) 사전 설정을 사용자 지정하는 방법을 보여 줍니다. [사전 설정을 사용자 지정하는 MES를 사용한 인코딩](media-services-custom-mes-presets-with-dotnet.md) 항목에서는 .NET을 사용하여 인코딩 태스크와 이 태스크를 실행하는 작업을 만드는 방법을 보여 줍니다. 사전 설정을 사용자 지정한 후에는 이 사용자 지정 사전 설정을 인코딩 작업에 제공해야 합니다. 
 
-* [미리 보기 생성](media-services-custom-mes-presets-with-dotnet.md#thumbnails)
-* [비디오 자르기(클리핑)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
-* [오버레이 만들기](media-services-custom-mes-presets-with-dotnet.md#overlay)
-* [입력에 오디오가 없을 때 조용한 오디오 트랙 삽입](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-* [자동 디인터레이스 사용 안 함](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
-* [오디오 전용 사전 설정](media-services-custom-mes-presets-with-dotnet.md#audio_only)
-* [둘 이상의 비디오 파일 연결](#concatenate)
-* [미디어 인코더 표준으로 비디오 자르기](#crop)
-* [입력에 비디오가 없을 때 비디오 트랙 삽입](#no_video)
-* [비디오 회전](#rotate_video)
+이 항목에서는 다음 인코딩 태스크를 수행하는 사용자 지정 사전 설정을 보여 줍니다.
 
-## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
-다음 코드 예제에서는 미디어 서비스 .NET SDK를 사용하여 다음 작업을 수행합니다.
-
-* 인코딩 작업을 만듭니다.
-* 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
-* 사용자 지정 XML 또는 JSON 사전 설정 로드 XML 또는 JSON(예: [XML](media-services-custom-mes-presets-with-dotnet.md#xml) 또는 [JSON](media-services-custom-mes-presets-with-dotnet.md#json))을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
-
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
-* 작업에 인코딩 작업을 추가합니다.
-* 인코딩할 입력 자산을 지정합니다.
-* 인코딩된 자산을 포함하는 출력 자산을 만듭니다.
-* 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
-* 작업을 제출합니다.
-
-        using System;
-        using System.Collections.Generic;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using System.Net;
-        using System.Security.Cryptography;
-        using System.Text;
-        using System.Threading.Tasks;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using Newtonsoft.Json.Linq;
-        using System.Threading;
-        using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-        using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-        using System.Web;
-        using System.Globalization;
-
-        namespace CustomizeMESPresests
-        {
-            class Program
-            {
-                // Read values from the App.config file.
-                private static readonly string _mediaServicesAccountName =
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string _mediaServicesAccountKey =
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-
-                // Field for service context.
-                private static CloudMediaContext _context = null;
-                private static MediaServicesCredentials _cachedCredentials = null;
-
-                private static readonly string _mediaFiles =
-                    Path.GetFullPath(@"../..\Media");
-
-                private static readonly string _singleMP4File =
-                    Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-
-                static void Main(string[] args)
-                {
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    _mediaServicesAccountName,
-                                    _mediaServicesAccountKey);
-                    // Used the chached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_cachedCredentials);
-
-                    // Get an uploaded asset.
-                    var asset = _context.Assets.FirstOrDefault();
-
-                    // Encode and generate the output using custom presets.
-                    EncodeToAdaptiveBitrateMP4Set(asset);
-
-                    Console.ReadLine();
-                }
-
-                static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                    // Load the XML (or JSON) from the local file.
-                    string configuration = File.ReadAllText("CustomPreset_JSON.json");
-
-                    // Create a task
-                    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                        processor,
-                        configuration,
-                        TaskOptions.None);
-
-                    // Specify the input asset to be encoded.
-                    task.InputAssets.Add(asset);
-                    // Add an output asset to contain the results of the job.
-                    // This output is specified as AssetCreationOptions.None, which
-                    // means the output asset is not encrypted.
-                    task.OutputAssets.AddNew("Output asset",
-                        AssetCreationOptions.None);
-
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                    job.Submit();
-                    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                    return job.OutputMediaAssets[0];
-                }
-
-                static public IAsset UploadMediaFilesFromFolder(string folderPath)
-                {
-                    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-
-                    foreach (var af in asset.AssetFiles)
-                    {
-                        // The following code assumes
-                        // you have an input folder with one MP4 and one overlay image file.
-                        if (af.Name.Contains(".mp4"))
-                            af.IsPrimary = true;
-                        else
-                            af.IsPrimary = false;
-
-                        af.Update();
-                    }
-
-                    return asset;
-                }
-
-
-                static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                    // Load the XML (or JSON) from the local file.
-                    string configuration = File.ReadAllText(customPresetFileName);
-
-                    // Create a task
-                    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                        processor,
-                        configuration,
-                        TaskOptions.None);
-
-                    // Specify the input assets to be encoded.
-                    // This asset contains a source file and an overlay file.
-                    task.InputAssets.Add(assetSource);
-
-                    // Add an output asset to contain the results of the job.
-                    task.OutputAssets.AddNew("Output asset",
-                        AssetCreationOptions.None);
-
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                    job.Submit();
-                    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                    return job.OutputMediaAssets[0];
-                }
-
-
-                private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-                {
-                    Console.WriteLine("Job state changed event:");
-                    Console.WriteLine("  Previous state: " + e.PreviousState);
-                    Console.WriteLine("  Current state: " + e.CurrentState);
-                    switch (e.CurrentState)
-                    {
-                        case JobState.Finished:
-                            Console.WriteLine();
-                            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                            break;
-                        case JobState.Canceling:
-                        case JobState.Queued:
-                        case JobState.Scheduled:
-                        case JobState.Processing:
-                            Console.WriteLine("Please wait...\n");
-                            break;
-                        case JobState.Canceled:
-                        case JobState.Error:
-
-                            // Cast sender as a job.
-                            IJob job = (IJob)sender;
-
-                            // Display or log error details as needed.
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-
-                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-                {
-                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                    if (processor == null)
-                        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                    return processor;
-                }
-
-            }
-        }
-
+- [미리 보기 생성](#thumbnails)
+- [비디오 자르기(클리핑)](#trim_video)
+- [오버레이 만들기](#overlay)
+- [입력에 오디오가 없을 때 조용한 오디오 트랙 삽입](#silent_audio)
+- [자동 디인터레이스 사용 안 함](#deinterlacing)
+- [오디오 전용 사전 설정](#audio_only)
+- [둘 이상의 비디오 파일 연결](#concatenate)
+- [미디어 인코더 표준으로 비디오 자르기](#crop)
+- [입력에 비디오가 없을 때 비디오 트랙 삽입](#no_video)
+- [비디오 회전](#rotate_video)
 
 ## <a name="support-for-relative-sizes"></a>상대적 크기에 대한 지원
-미리 보기를 생성하는 경우 출력 너비 및 높이(픽셀)를 항상 지정할 필요는 없습니다. [1%, …, 100%] 범위에서 백분율로 지정할 수 있습니다.
+
+미리 보기를 생성하는 경우 출력 너비와 높이를 픽셀 단위로 반드시 지정할 필요는 없습니다. [1%, …, 100%] 범위에서 백분율로 지정할 수 있습니다.
 
 ### <a name="json-preset"></a>JSON 사전 설정
     "Width": "100%",
@@ -250,16 +53,17 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     <Height>100%</Height>
 
 ## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>미리 보기 생성
-이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [여기](https://msdn.microsoft.com/library/mt269960.aspx) 에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져와서 미리 보기를 생성하는 코드를 추가할 수 있습니다.  
+
+이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져와서 미리 보기를 생성하는 코드를 추가할 수 있습니다.  
 
 > [!NOTE]
 > 다음 기본 설정에서 **SceneChangeDetection** 설정은 단일 비트 전송률 비디오로 Encoding하는 경우에만 true로 설정할 수 있습니다. 다중 비트 전송률 비디오로 인코딩하고 **SceneChangeDetection** 을 true로 설정하면 인코더에서 오류를 반환합니다.  
 >
 >
 
-스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 을 참조하세요.
+스키마에 대한 자세한 내용은 [이 항목](media-services-mes-schema.md) 을 참조하세요.
 
-[고려 사항](media-services-custom-mes-presets-with-dotnet.md#considerations) 섹션을 검토해야 합니다.
+[고려 사항](#considerations) 섹션을 검토해야 합니다.
 
 ### <a name="a-idjsonajson-preset"></a><a id="json"></a>JSON 사전 설정
     {
@@ -435,6 +239,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     </Preset>
 
 ### <a name="considerations"></a>고려 사항
+
 고려 사항은 다음과 같습니다.
 
 * 시작/단계/범위에 대한 명시적 타임스탬프 사용 시 입력 소스의 길이가 1분 이상이라고 가정합니다.
@@ -451,9 +256,9 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 * 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 출력 형식이 있는 경우 MES는 JpgVideo를 JpgFormat에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
 
 ## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>비디오 자르기(클리핑)
-이 섹션에서는 입력이 소위 중 2층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
+이 섹션에서는 입력이 소위 중&2;층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
 
-비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx) 에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. **Sources** 는 사전 설정의 맨 앞에 있어야 합니다.
+비디오를 자르려면 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 수행하고 **Sources** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가&0;인 것으로 가정합니다. **Sources** 는 사전 설정의 맨 앞에 있어야 합니다.
 
 ### <a name="a-idjsonajson-preset"></a><a id="json"></a>JSON 사전 설정
     {
@@ -575,7 +380,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     }
 
 ### <a name="xml-preset"></a>XML 사전 설정
-비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx) 에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다.
+비디오를 자르려면 [여기](media-services-mes-presets-overview.md) 에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다.
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -693,11 +498,65 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     </Preset>
 
 ## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>오버레이 만들기
+
 미디어 인코더 표준을 사용하면 이미지를 기존 비디오에 오버레이할 수 있습니다. 현재 png, jpg, gif 및 bmp 형식이 지원됩니다. 아래에 정의된 사전 설정은 비디오 오버레이의 기본적인 예입니다.
 
 또한 사전 설정 파일을 정의하는 것 외에도 미디어 서비스를 통해 오버레이 이미지에 해당하는 자산의 파일 및 이미지를 오버레이하려는 원본 비디오에 해당하는 파일을 알 수 있습니다. 비디오 파일은 **기본** 파일이어야 합니다.
 
-위의 .NET 예제에서는 두 함수 **UploadMediaFilesFromFolder** 및 **EncodeWithOverlay**를 정의합니다. UploadMediaFilesFromFolder 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자신의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
+.NET을 사용하는 경우 [이 항목](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)에 정의된 .NET 예제에 다음 두 함수를 추가합니다. **UploadMediaFilesFromFolder** 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자산의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 태스크를 만듭니다.
+
+
+    static public IAsset UploadMediaFilesFromFolder(string folderPath)
+    {
+        IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+    
+        foreach (var af in asset.AssetFiles)
+        {
+            // The following code assumes 
+            // you have an input folder with one MP4 and one overlay image file.
+            if (af.Name.Contains(".mp4"))
+                af.IsPrimary = true;
+            else
+                af.IsPrimary = false;
+    
+            af.Update();
+        }
+    
+        return asset;
+    }
+
+    static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
+    {
+        // Declare a new job.
+        IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+        // Get a media processor reference, and pass to it the name of the 
+        // processor to use for the specific task.
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+        // Load the XML (or JSON) from the local file.
+        string configuration = File.ReadAllText(customPresetFileName);
+
+        // Create a task
+        ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+            processor,
+            configuration,
+            TaskOptions.None);
+
+        // Specify the input assets to be encoded.
+        // This asset contains a source file and an overlay file.
+        task.InputAssets.Add(assetSource);
+
+        // Add an output asset to contain the results of the job. 
+        task.OutputAssets.AddNew("Output asset",
+            AssetCreationOptions.None);
+
+        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+        job.Submit();
+        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+        return job.OutputMediaAssets[0];
+    }
+
 
 > [!NOTE]
 > 현재 제한 사항:
@@ -853,7 +712,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 
 입력에 오디오가 없을 때 조용한 오디오 트랙을 포함하는 자산을 생성하도록 인코더를 적용하려면 "InsertSilenceIfNoAudio" 값을 지정합니다.
 
-[여기](https://msdn.microsoft.com/library/mt269960.aspx)에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져온 후에 다음과 같이 수정할 수 있습니다.
+[이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져온 후에 다음과 같이 수정할 수 있습니다.
 
 ### <a name="json-preset"></a>JSON 사전 설정
     {
@@ -947,22 +806,28 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     }
 
 ## <a name="a-idconcatenateaconcatenate-two-or-more-video-files"></a><a id="concatenate"></a>둘 이상의 비디오 파일 연결
+
 다음 예제에서는 사전 설정을 생성하여 둘 이상의 비디오 파일을 연결하는 방법을 보여줍니다. 가장 일반적인 시나리오는 기본 비디오에 헤더나 트레일러를 추가하려는 경우입니다. 편집 중인 비디오 파일이 속성(비디오 해상도, 프레임 속도, 오디오 트랙 수 등)을 공유하는 경우에 적합합니다. 프레임 속도나 오디오 트랙 수가 서로 다른 비디오를 섞지 않게 주의가 필요합니다.
 
+>[!NOTE]
+>연결 기능의 현재 설계에서는 입력된 비디오 클립이 해상도, 프레임 속도 측면에서 일관적이라고 예상합니다. 
+
 ### <a name="requirements-and-considerations"></a>요구 사항 및 고려 사항
+
 * 입력 비디오에는 오디오 트랙이 하나만 있어야 합니다.
 * 입력 비디오는 모두 프레임 속도가 같아야 합니다.
 * 비디오는 별도의 자산에 업로드하고 비디오를 각 자산의 기본 파일로 설정해야 합니다.
 * 비디오의 기간을 알아야 합니다.
-* 아래의 사전 설정 예제에서는 모든 입력 비디오가 타임스탬프 0에서 시작한다고 가정합니다. 시작 타임스탬프가 다르면 StartTime 값을 수정해야 합니다. 라이브 보관에서는 이런 경우가 일반적입니다.
+* 아래의 사전 설정 예제에서는 모든 입력 비디오가 타임스탬프&0;에서 시작한다고 가정합니다. 시작 타임스탬프가 다르면 StartTime 값을 수정해야 합니다. 라이브 보관에서는 이런 경우가 일반적입니다.
 * JSON 사전 설정은 입력 자산의 AssetID 값에 대한 명시적 참조를 만듭니다.
 * 샘플 코드에서는 JSON 사전 설정이 로컬 파일(예: "C:\supportFiles\preset.json")에 저장되었다고 가정합니다. 또한 두 비디오 파일을 업로드하여 두 자산을 만들었으며 사용자가 그에 따른 AssetID 값을 알고 있다고 가정합니다.
-* 코드 조각 및 JSON 사전 설정은 두 비디오 파일을 연결하는 예제를 보여줍니다. 이 예를 다음을 통해 3개 이상의 비디오로 확장할 수 있습니다.
+* 코드 조각 및 JSON 사전 설정은 두 비디오 파일을 연결하는 예제를 보여줍니다. 이 예를 다음을 통해&3;개 이상의 비디오로 확장할 수 있습니다.
 
   1. task.InputAssets.Add()를 반복 호출하여 순서대로 더 많은 비디오 추가
   2. 같은 순서로 다른 항목을 추가하여 JSON에서 "Sources" 요소를 그에 맞게 편집
 
 ### <a name="net-code"></a>.NET 코드
+
     IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
     IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
 
@@ -995,6 +860,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
 ### <a name="json-preset"></a>JSON 사전 설정
+
 연결하려는 자산의 ID와 각 비디오에 적합한 시간 세그먼트로 사용자 지정 사전 설정을 업데이트합니다.
 
     {
@@ -1063,7 +929,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>최저 비트 전송률에서만 비디오 삽입
 ["H264 다중 비트 전송률 720p"](https://msdn.microsoft.com/library/mt269960.aspx) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 모든 출력 비트 속도에서 비디오를 삽입하는 대신 인코더가 최저 비트 속도에서만 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 "InsertBlackIfNoVideoBottomLayerOnly" 플래그를 지정해야 합니다.
 
-[여기](https://msdn.microsoft.com/library/mt269960.aspx)에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져온 후에 다음과 같이 수정할 수 있습니다.
+[이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져온 후에 다음과 같이 수정할 수 있습니다.
 
 #### <a name="json-preset"></a>JSON 사전 설정
     {
@@ -1081,9 +947,9 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>모든 출력 비트 전송률에서 비디오 삽입
-["H264 다중 비트 전송률 720p"](https://msdn.microsoft.com/library/mt269960.aspx) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
+["H264 다중 비트 전송률 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
 
-[여기](https://msdn.microsoft.com/library/mt269960.aspx)에 문서로 작성되어 있는 MES 사전 설정 중 원하는 항목을 가져온 후에 다음과 같이 수정할 수 있습니다.
+[이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져온 후에 다음과 같이 수정할 수 있습니다.
 
 #### <a name="json-preset"></a>JSON 사전 설정
     {
@@ -1101,7 +967,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
     <Condition>InsertBlackIfNoVideo</Condition>
 
 ## <a name="a-idrotatevideoarotate-a-video"></a><a id="rotate_video"></a>비디오 회전
-[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)는 0/90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 비디오 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **소스** 요소를 [여기](http://msdn.microsoft.com/library/azure/mt269960.aspx)에 정의된 사전 설정 중 하나에 포함합니다.
+[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)는 0/90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 비디오 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **Sources** 요소를 [이 섹션](media-services-mes-presets-overview.md)에 정의된 사전 설정 중 하나에 포함합니다.
 
 ### <a name="json-preset"></a>JSON 사전 설정
     "Sources": [
@@ -1125,7 +991,7 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
         </Source>
     </Sources>
 
-또한 회전 보정이 트리거된 경우 인코더가 사전 설정에서 너비 및 높이를 해석하는 방법에 대한 자세한 내용은 [이](https://msdn.microsoft.com/library/azure/mt269962.aspx#PreserveResolutionAfterRotation) 항목을 참조하세요.
+또한 회전 보정이 트리거된 경우 인코더가 사전 설정에서 너비 및 높이를 해석하는 방법에 대한 자세한 내용은 [이](media-services-mes-schema.md#PreserveResolutionAfterRotation) 항목을 참조하세요.
 
 "0" 값을 사용하여 인코더가 입력 비디오에서 회전 메타데이터를 무시한다는 것을 나타낼 수 있습니다(있는 경우).
 
@@ -1140,6 +1006,6 @@ ms.openlocfilehash: 0d60d491c459c96cb0f507e52159d0b60e38ac33
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

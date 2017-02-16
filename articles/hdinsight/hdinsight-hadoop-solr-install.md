@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: c0fcfc1087e8635f6ec2a0cdc246f1155c90ea53
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
 
 * [HDInsight Hadoop 클러스터에서 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-* [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 것에 대한 일반 정보입니다.
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-solr"></a>Solr이란?
@@ -44,7 +44,7 @@ ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
 1. **HDInsight에서 Hadoop 클러스터 만들기**에서 설명한 대로 [사용자 지정 만들기](hdinsight-provision-clusters.md) 옵션을 사용하여 클러스터를 만들기 시작합니다.
 2. 아래와 같이 마법사의 **스크립트 동작** 페이지에서 **스크립트 동작 추가**를 클릭하여 스크립트 동작에 대한 세부 정보를 제공합니다.
 
-    ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
+    ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 
     <table border='1'>
         <tr><th>속성</th><th>값</th></tr>
@@ -82,7 +82,7 @@ ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
    * **q** 텍스트 상자에서 **\*:**\*을 입력합니다. 이렇게 하면 Solr에서 인덱싱되는 문서는 모두 반환됩니다. 문서 내에서 특정 문자열을 검색하려는 경우 여기에 해당 문자열을 입력할 수 있습니다.
    * **wt** 텍스트 상자에서 출력 형식을 선택합니다. 기본값은 **json**입니다. **Execute Query**를 클릭합니다.
 
-     ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Run a query on Solr dashboard")
+     ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr 대시보드에서 쿼리 실행")
 
      출력에는 Solr 인덱싱에 사용되는 두 문서가 반환됩니다. 출력은 다음과 유사합니다.
 
@@ -169,13 +169,13 @@ ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
 ## <a name="see-also"></a>참고 항목
 * [HDInsight Hadoop 클러스터에서 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-* [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 것에 대한 일반 정보입니다.
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
-* [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 동작 샘플입니다.
-* [HDInsight 클러스터에서 R 설치][hdinsight-install-r]: R 설치에 대한 스크립트 동작 샘플입니다.
+* [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
+* [HDInsight 클러스터에서 R 설치][hdinsight-install-r]: R 설치에 대한 스크립트 작업 샘플입니다.
 * [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Giraph 설치에 대한 스크립트 작업 샘플입니다.
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -183,6 +183,6 @@ ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

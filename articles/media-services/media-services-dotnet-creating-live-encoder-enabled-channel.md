@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.

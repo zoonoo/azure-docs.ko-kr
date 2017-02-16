@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
+ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
 
 
 ---
@@ -36,10 +36,11 @@ Windows 10에서는 [Azure Active Directory(Azure AD)](active-directory-whatis.m
 | [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md) |이 토픽에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다. |
 | [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10은 설정 동기화를 제한하는 그룹 정책 및 MDM(모바일 장치 관리) 정책 설정을 제공합니다. |
 | [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |다음은 Windows 10에서 로밍 및/또는 백업되는 모든 설정의 전체 목록입니다. |
+| [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |이 토픽은 문제 해결을 위한 몇 가지 기본 단계를 살펴 보며 알려진 문제 목록이 포함되어 있습니다. |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

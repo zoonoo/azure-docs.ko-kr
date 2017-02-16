@@ -1,6 +1,6 @@
 ---
 title: "PowerShell을 사용하여 Azure SQL Database에 대한 활성 지역 복제 구성 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure SQL 데이터베이스에 대한 활성 지역 복제 구성"
+description: "PowerShell을 사용하여 Azure SQL Database에 대한 활성 지역 복제 구성"
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: bc5e50e4-bbb2-4ce1-9ee5-9a632de6fa06
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,26 +16,26 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 605f7d33c197af60579e30f0b2823968865c7229
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 1849e257240a45a6161db524ce53a83cbf29068d
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-powershell"></a>PowerShell로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-powershell"></a>PowerShell을 사용하여 Azure SQL Database에 대한 활성 지역 복제 구성
 > [!div class="op_single_selector"]
 > * [개요](sql-database-geo-replication-overview.md)
-> * [Azure 포털](sql-database-geo-replication-portal.md)
+> * [쉬운 테이블](sql-database-geo-replication-portal.md)
 > * [PowerShell](sql-database-geo-replication-powershell.md)
 > * [T-SQL](sql-database-geo-replication-transact-sql.md)
 > 
 > 
 
-이 문서에서는 PowerShell을 사용하여 SQL 데이터베이스에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
+이 문서에서는 PowerShell을 사용하여 SQL Database에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
 
 PowerShell을 사용하여 장애 조치(Failover)를 시작하려면 [PowerShell로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치(Failover) 시작](sql-database-geo-replication-failover-powershell.md)을 참조하세요.
 
 > [!NOTE]
-> 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월, 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조로 자동으로 업그레이드됩니다.
+> 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다.
 > 
 > 
 
@@ -57,7 +57,7 @@ PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필
 
     Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-성공적으로 **Select-AzureRmSubscription** 을 실행한 후 PowerShell 프롬프트로 돌아갑니다.
+성공적으로 **Select-AzureRmSubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다.
 
 ## <a name="add-secondary-database"></a>보조 데이터베이스 추가
 다음 단계에서는 지역에서 복제 파트너 관계에 새 보조 데이터베이스를 만듭니다.  
@@ -66,42 +66,42 @@ PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필
 
 **New-AzureRmSqlDatabaseSecondary** cmdlet를 사용하여 파트너 서버의 보조 데이터베이스를 연결된 서버(주 데이터베이스)의 로컬 데이터베이스에 추가할 수 있습니다. 
 
-이 cmdlet는 **Start-AzureSqlDatabaseCopy**를 **–IsContinuous** 매개 변수로 바꿉니다.  다른 cmdlet에서 사용할 수 있는 **AzureRmSqlDatabaseSecondary** 개체를 출력하여 특정 복제 링크를 명확하게 식별합니다. 이 cmdlet은 보조 데이터베이스가 작성되고 완전히 시드되는 경우 반환합니다. 데이터베이스 크기에 따라 몇 분에서 몇 시간이 걸릴 수 있습니다.
+이 cmdlet은 **Start-AzureSqlDatabaseCopy**를 **–IsContinuous** 매개 변수로 바꿉니다.  다른 cmdlet에서 사용할 수 있는 **AzureRmSqlDatabaseSecondary** 개체를 출력하여 특정 복제 링크를 명확하게 식별합니다. 이 cmdlet은 보조 데이터베이스가 작성되고 완전히 시드되는 경우 반환합니다. 데이터베이스 크기에 따라 몇 분에서 몇 시간이 걸릴 수 있습니다.
 
-보조 서버에서 복제된 데이터베이스는 주 서버의 데이터베이스와 동일한 이름을 포함하며 기본적으로 동일한 수준의 서비스입니다. 보조 데이터베이스는 읽을 수 있거나 읽을 수 없을 수 있으며 단일 데이터베이스 또는 탄력적 데이터베이스가 될 수 있습니다. 자세한 내용은 [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
-보조가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 새로운 보조 데이터베이스로 복제되기 시작합니다. 아래 단계에서는 PowerShell을 사용하여 단일 데이터베이스 또는 탄력적 데이터베이스와 함께 읽을 수 있거나 읽을 수 없는 보조를 만들어 이 작업을 수행하는 방법을 설명합니다.
+보조 서버에서 복제된 데이터베이스는 주 서버의 데이터베이스와 동일한 이름을 포함하며 기본적으로 동일한 수준의 서비스입니다. 보조 데이터베이스는 읽을 수 있거나 읽을 수 없을 수 있으며 독립 실행형 데이터베이스 또는 탄력적 풀에 있을 수 있습니다. 자세한 내용은 [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) 및 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+보조가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 새로운 보조 데이터베이스로 복제되기 시작합니다. 아래 단계에서는 PowerShell을 사용하여 독립 실행형 데이터베이스 또는 탄력적 풀로 읽을 수 있거나 읽을 수 없는 보조를 만들어 이 작업을 수행하는 방법을 설명합니다.
 
 파트너 데이터베이스가 이미 있는 경우(예: 이전 지역에서 복제 관계를 종료한 결과) 명령이 실패합니다.
 
-### <a name="add-a-non-readable-secondary-single-database"></a>읽을 수 없는 보조(단일 데이터베이스) 추가
+### <a name="add-a-non-readable-secondary-standalone-database"></a>읽을 수 없는 보조(독립 실행형 데이터베이스) 추가
 다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 데이터베이스 "mydb"에 대한 읽을 수 없는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -AllowConnections "No"
 
 
 
-### <a name="add-readable-secondary-single-database"></a>읽을 수 있는 보조(단일 데이터베이스) 추가
+### <a name="add-readable-secondary-standalone-database"></a>읽을 수 있는 보조(독립 실행형 데이터베이스) 추가
 다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 데이터베이스 "mydb"에 대한 읽을 수 있는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -AllowConnections "All"
 
 
 
 
-### <a name="add-a-non-readable-secondary-elastic-database"></a>읽을 수 없는 보조(탄력적 데이터베이스) 추가
-다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 탄력적 데이터베이스 풀 "ElasticPool1"에 있는 데이터베이스 "mydb"에 대한 읽을 수 없는 보조를 만듭니다.
+### <a name="add-a-non-readable-secondary-elastic-pool"></a>읽을 수 없는 보조(탄력적 풀) 추가
+다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 탄력적 풀 "ElasticPool1"에 있는 데이터베이스 "mydb"에 대한 읽을 수 없는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
-### <a name="add-a-readable-secondary-elastic-database"></a>읽을 수 있는 보조(탄력적 데이터베이스) 추가
-다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 탄력적 데이터베이스 풀 "ElasticPool1"에 있는 데이터베이스 "mydb"에 대한 읽을 수 있는 보조를 만듭니다.
+### <a name="add-a-readable-secondary-elastic-pool"></a>읽을 수 있는 보조(탄력적 풀) 추가
+다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 탄력적 풀 "ElasticPool1"에 있는 데이터베이스 "mydb"에 대한 읽을 수 있는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
 
@@ -118,8 +118,8 @@ PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필
 
 다음은 리소스 그룹 "rg2"의 서버 "srv2"에 대한 데이터베이스 "mydb"의 복제 링크를 제거합니다. 
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -SecondaryResourceGroup "rg2" -PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
 
@@ -130,17 +130,17 @@ PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필
 
 다음 명령은 주 데이터베이스 "mydb" 및 리소스 그룹 "rg2"의 서버 "srv2"에 있는 보조 데이터베이스 간 복제 링크의 상태를 검색합니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroup "rg2” -PartnerServerName "srv2”
 
 
 ## <a name="next-steps"></a>다음 단계
-* 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)
+* 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Microsoft 지원 문의 | Microsoft Docs"
+title: "StorSimple 8000 시리즈에 대한 지원 티켓 로그 | Microsoft Docs"
 description: "StorSimple 장치에서 지원 요청을 만들고 지원 세션을 시작하는 방법을 알아봅니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli;anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01eafb492c5af9ce9d21418b838556c8c05095b1
+ms.sourcegitcommit: ce19be3454c08bbc041b5f6929c4ad56ffe9b7ea
+ms.openlocfilehash: 5f8124371391f7e2e59bbea474bef1da77686e0c
 
 
 ---
@@ -48,7 +48,7 @@ Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지
    2. 드롭다운 목록에서 **구독** 을 선택합니다.
    3. **서비스** 드롭다운 목록에서 **StorSimple**을 선택합니다. 
    4. 드롭다운 목록에서 **지원 계획** 을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
-4. **Next**를 클릭합니다. **문제** 대화 상자가 나타납니다.
+4. **다음**을 클릭합니다. **문제** 대화 상자가 나타납니다.
    
     ![새 지원 요청 창](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
 5. **문제** 대화 상자에서 다음을 완료합니다.
@@ -60,7 +60,7 @@ Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지
    5. **시간 프레임** 상자에서 가장 최근에 문제가 발생한 날짜, 시간 및 표준 시간대를 지정합니다.
    6. **파일 업로드**에서 폴더 아이콘을 클릭하여 지원 패키지를 찾아봅니다.
    7. **진단 정보 공유** 확인란을 선택합니다.
-6. **Next**를 클릭합니다. **연락처 정보** 대화 상자가 나타납니다.
+6. **다음**을 클릭합니다. **연락처 정보** 대화 상자가 나타납니다.
    
     ![새 지원 요청 창](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. 연락처 정보를 입력하고 연락 방법(전화 또는 전자 메일)을 선택합니다. 
@@ -95,6 +95,6 @@ StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

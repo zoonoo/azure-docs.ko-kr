@@ -1,6 +1,7 @@
 ---
-title: "Azure SQL Database로 마이그레이션하기 전에 SQL Server Management Studio를 사용하여 SQL Database 호환성 확인 | Microsoft Azure"
-description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, SQL 데이터베이스 호환성, 데이터 계층 응용 프로그램 내보내기 마법사"
+title: "SSMS: Azure SQL Server Database 호환성 | Microsoft Docs"
+description: "이 문서에서는 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사를 사용하여 SQL Server 데이터베이스가 SQL 데이터베이스로 마이그레이션하는 데 호환되는지 확인하는 방법을 배웁니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, SQL 데이터베이스 호환성, 데이터 계층 응용 프로그램 내보내기 마법사"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/29/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 15d0bf86d6094b6a8c0d6aaf1e1bb59382a81ffb
+ms.sourcegitcommit: 82b76602133fa42db14e2095f29535b6002e9b2f
+ms.openlocfilehash: efcf1179f744e1b3d1645321af62d2533677afd2
 
 
 ---
@@ -70,6 +71,6 @@ ms.openlocfilehash: 15d0bf86d6094b6a8c0d6aaf1e1bb59382a81ffb
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

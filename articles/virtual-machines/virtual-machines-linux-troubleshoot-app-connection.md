@@ -1,5 +1,5 @@
 ---
-title: "Linux VM 응용 프로그램 액세스 문제 해결 | Microsoft Docs"
+title: "Azure에서 Linux VM 응용 프로그램 액세스 문제 해결 | Microsoft Docs"
 description: "다음과 같은 자세한 문제 해결 단계를 사용하여 Azure의 Linux 가상 컴퓨터에서 실행되는 응용 프로그램 연결 관련 문제를 격리하세요."
 services: virtual-machines-linux
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f14da3010c1f5b76b4015f785911ff996ece9376
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 4c1c71f2ba30a8e61cd5a2aff8e7ffea49357785
 
 
 ---
@@ -28,6 +28,6 @@ ms.openlocfilehash: f14da3010c1f5b76b4015f785911ff996ece9376
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

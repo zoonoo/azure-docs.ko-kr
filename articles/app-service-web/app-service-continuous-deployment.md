@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 033fd0cb3512a22bb05488fe83aa2ffa9d81def3
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 3c2f1b23f952d6102d8bfa52b536621ef6282ab6
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure 앱 서비스에 연속 배포
 이 자습서에서는 [Azure 앱 서비스] 앱에 대한 연속 배포 워크플로를 구성하는 방법을 보여 줍니다. BitBucket, GitHub 및 VSTS(Visual Studio 팀 서비스)와 앱 서비스 통합을 통해 Azure가 이러한 서비스 중 하나에 게시한 프로젝트에서 최신 업데이트를 가져오는 연속 배포 워크플로를 활성화합니다. 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다.
+
+Azure Portal에 의해 나열되지 않은 클라우드 저장소에서 수동으로 연속 배포를 구성하는 방법을 확인하려면(예: [GitLab](https://gitlab.com/)), [수동 단계를 사용하여 연속 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)을 참조하세요.
 
 ## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>연속 배포 활성화
 연속 배포를 활성화하려면
@@ -97,6 +99,6 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -8,16 +8,16 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: c681e7a7-eeda-48aa-bc35-6277f4828244
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
+ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
+ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 
 
 ---
@@ -67,11 +67,12 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>SQL Server 가상 컴퓨터 갤러리 이미지에 설치된 BI 기능
 다음 표는 SQL Server에 대한 일반적인 Microsoft Azure 가상 컴퓨터 갤러리 이미지에 설치된 비즈니스 인텔리전스 기능을 요약합니다."
 
-* SQL Server 2016 RC3
-* SQL Server 2014 SP1 Enterprise
-* SQL Server 2014 SP1 Standard
-* SQL Server 2012 SP2 Enterprise
-* SQL Server 2012 SP2 Standard
+* SQL Server 2016 SP1 Enterprise
+* SQL Server 2016 SP1 Standard
+* SQL Server 2014 SP2 Enterprise
+* SQL Server 2014 SP2 Standard
+* SQL Server 2012 SP3 Enterprise
+* SQL Server 2012 SP3 Standard
 
 | SQL Server BI 기능 | 갤러리 이미지에 설치 | 참고 사항 |
 | --- | --- | --- |
@@ -103,8 +104,6 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
   
   > [!NOTE]
   > 지원되는 BI 시나리오에서는 SQL Server 데이터베이스 엔진이 필요합니다. 단일 서버 VM 토폴로지에서는 데이터베이스 엔진이 동일한 VM에서 실행되어야 합니다.
-  > 
-  > 
   
     자세한 내용은 [Reporting Services 제거](https://msdn.microsoft.com/library/hh479745.aspx) 및 [Analysis Services의 인스턴스 제거](https://msdn.microsoft.com/library/ms143687.aspx)를 참조하세요.
 * **Windows 업데이트**에서 새 '중요 업데이트'를 확인합니다. Microsoft Azure Virtual Machines 이미지는 자주 새로 고쳐집니다. 그러나 중요 업데이트는 VM 이미지가 마지막으로 새로 고쳐진 후 **Windows 업데이트**에서 사용 가능해질 수 있습니다.
@@ -140,8 +139,6 @@ SQL Server에 대한 가상 컴퓨터 갤러리 이미지에는 Reporting Servic
 
 > [!NOTE]
 > Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하는 방법과 유사한 내용은 [PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)를 참조하세요.
-> 
-> 
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>가상 컴퓨터에 연결 및 Reporting Services 구성 관리자 시작
 Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적인 워크플로를 사용할 수 있습니다.
@@ -160,7 +157,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 **Reporting Services 구성 관리자를 시작합니다.**
 
-1. **Windows Server 2012**에서:
+1. **Windows Server 2012/2016**에서:
 2. **시작** 화면에서 **Reporting Services**를 입력하여 앱 목록을 봅니다.
 3. **Reporting Services 구성 관리자**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
 4. **Windows Server 2008 R2**에서:
@@ -346,8 +343,6 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 > [!NOTE]
 > [Microsoft SQL Server Connect를 통해 피드백 및 연락처 정보 제출](https://connect.microsoft.com/SQLServer/Feedback)
-> 
-> 
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
 * [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
@@ -355,6 +350,6 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

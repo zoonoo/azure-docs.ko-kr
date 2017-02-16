@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Service Bus 관리 | Microsoft Docs"
+title: "PowerShell을 사용하여 Azure Service Bus 관리 | Microsoft Docs"
 description: "PowerShell 스크립트를 사용하여 서비스 버스 관리"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 5b6c396d89816bb2804cc63beb860f4628333cb7
+ms.sourcegitcommit: 61f31c8ad0463776937f366d145595f04cc42d2e
+ms.openlocfilehash: 24dd8757942488aa8364cc6cf968cfc17299699f
 
 
 ---
@@ -43,17 +43,17 @@ Microsoft Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 �
 
 PowerShell 스크립트에서 이러한 단계는 다음과 같이 구현됩니다.
 
-```
+```powershell
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
-    Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
+    Write-Host "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
     $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.ServiceBus.dll" -Recurse
     Add-Type -Path $assembly.FullName
 
-    Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
+    Write-Host "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
 }
 
 catch [System.Exception]
@@ -79,7 +79,7 @@ catch [System.Exception]
 2. 네임스페이스가 있으면 발견된 항목을 보고합니다.
 3. 네임스페이스가 없으면 만든 다음 새로 만든 네임스페이스를 검색합니다.
    
-    ```
+    ```powershell
     $Namespace = "MyServiceBusNS"
     $Location = "West US"
    
@@ -89,12 +89,12 @@ catch [System.Exception]
     # Check if the namespace already exists or needs to be created
     if ($CurrentNamespace)
     {
-        Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
+        Write-Host "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
     }
     else
     {
         Write-Host "The [$Namespace] namespace does not exist."
-        Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
+        Write-Host "Creating the [$Namespace] namespace in the [$Location] region..."
         New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace $false -NamespaceType Messaging
         $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
         Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
@@ -104,24 +104,24 @@ catch [System.Exception]
 다른 Service Bus 엔터티를 프로비전하려면 SDK에서 [NamespaceManager][NamespaceManager] 클래스의 인스턴스를 만듭니다.
 [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. 여기서는 `NamespaceManager` 인스턴스에 대한 참조를 `$NamespaceManager` 변수에 저장합니다. 나중에 스크립트에 `$NamespaceManager` 를 사용하여 다른 엔터티를 프로비전합니다.
 
-``` powershell
+```powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
 # Create the NamespaceManager object to create the event hub
-Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+Write-Host "Creating a NamespaceManager object for the [$Namespace] namespace..."
 $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+Write-Host "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>다른 서비스 버스 엔터티 프로비전
-큐, 토픽, 이벤트 허브와 같은 다른 엔터티를 프로비전하려는 경우 [Service Bus용 .NET API][.NET API for Service Bus]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
+큐, 토픽, Event Hubs와 같은 다른 엔터티를 프로비전하려는 경우 [Service Bus용 .NET API][Service Bus용 .NET API]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
 
-이 스크립트 부분에서는 로컬 변수를 4개 더 만듭니다. 이러한 변수는 `EventHubDescription` 개체를 인스턴스화하는 데 사용됩니다. 스크립트는 다음 작업을 수행합니다.
+이 스크립트 부분에서는 로컬 변수를&4;개 더 만듭니다. 이러한 변수는 `EventHubDescription` 개체를 인스턴스화하는 데 사용됩니다. 스크립트는 다음 작업을 수행합니다.
 
 1. `NamespaceManager` 개체를 사용하여 `$Path`(으)로 식별되는 이벤트 허브가 있는지 확인합니다.
 2. 해당 이벤트 허브가 없으면 `EventHubDescription`을(를) 만든 다음 `NamespaceManager` 클래스의 `CreateEventHubIfNotExists` 메서드에 전달합니다.
 3. 이벤트 허브를 사용할 수 있음을 확인한 후 `ConsumerGroupDescription` 및 `NamespaceManager`을(를) 사용하여 소비자 그룹을 만듭니다.
    
-    ```
+    ```powershell
     $Path  = "MyEventHub"
     $PartitionCount = 12
     $MessageRetentionInDays = 7
@@ -131,32 +131,32 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
     # Check to see if the Event Hub already exists
     if ($NamespaceManager.EventHubExists($Path))
     {
-        Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
+        Write-Host "The [$Path] event hub already exists in the [$Namespace] namespace."  
     }
     else
     {
-        Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
+        Write-Host "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
         $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
         $EventHubDescription.PartitionCount = $PartitionCount
         $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
         $EventHubDescription.UserMetadata = $UserMetadata
         $EventHubDescription.Path = $Path
-        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
-        Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
+        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription)
+        Write-Host "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
     }
    
     # Create the consumer group if it doesn't exist
-    Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
+    Write-Host "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
     $ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
     $ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
-    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
-    Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
+    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription)
+    Write-Host "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
     ```
 
 ## <a name="migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스 마이그레이션
 다음 명령 시퀀스는 네임스페이스를 Azure 구독 간에 이동합니다. 이 작업을 실행하려면 네임스페이스 이미 활성 상태여야 하며 PowerShell 명령을 실행하는 사용자는 원본 및 대상 구독의 관리자여야 합니다.
 
-```
+```powershell
 # Create a new resource group in target subscription
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -185,14 +185,13 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
-[Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
-[New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
-[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/Get-AzureSBNamespace
+[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/get-azuresbauthorizationrule
+[NamespaceManager]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

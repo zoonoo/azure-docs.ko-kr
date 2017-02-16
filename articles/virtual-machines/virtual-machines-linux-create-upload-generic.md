@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 76d82d5bfc9c57583ea722e76f13bdd4b17ec444
+ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
+ms.openlocfilehash: ad632fd894a56a490b48c81ae63d641412368f35
 
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>보증되지 않는 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**중요**: [보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
+[보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
 
 * [Azure의 Linux - 보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Microsoft Azure의 Linux 이미지 지원](https://support.microsoft.com/kb/2941892)
@@ -80,6 +80,7 @@ Azure의 VHD 이미지는 가상 크기가 1MB 단위로 조정되어야 합니�
 1. `qemu-img` 또는 `vbox-manage`와 같은 도구를 사용하여 직접 VHD 크기를 조정하면 VHD가 부팅되지 않을 수도 있습니다.  따라서 먼저 VHD를 원시 디스크 이미지로 변환하는 것이 좋습니다.  VM 이미지가 이미 원시 디스크 이미지로 만들어진 경우(KVM과 같은 일부 하이퍼바이저의 경우 기본값)에는 다음 단계를 건너뛸 수 있습니다.
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+
 2. 가상 크기가 1MB 단위로 조정되도록 디스크 이미지의 필요한 크기를 계산합니다.  다음 bash 셸 스크립트를 사용하여 이 작업을 간편하게 수행할 수 있습니다.  이 스크립트에서는 "`qemu-img info`"를 사용하여 디스크 이미지의 가상 크기를 확인한 후 다음 1MB로 크기를 계산합니다.
    
        rawdisk="MyLinuxVM.raw"
@@ -91,12 +92,18 @@ Azure의 VHD 이미지는 가상 크기가 1MB 단위로 조정되어야 합니�
    
        rounded_size=$((($size/$MB + 1)*$MB))
        echo "Rounded Size = $rounded_size"
+
 3. 위 스크립트에 설정된 대로 $rounded_size를 사용하여 원시 디스크의 크기를 조정합니다.
    
        # qemu-img resize MyLinuxVM.raw $rounded_size
+
 4. 이제 원시 디스크를 고정 크기 VHD로 다시 변환합니다.
    
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+
+   또는, qemu 버전 **2.6 +**는 `force_size` 옵션을 포함합니다.
+
+       # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Linux 커널 요구 사항
 Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다.  이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 실행하는 것이 좋습니다.
@@ -136,6 +143,7 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 * Azure Linux 에이전트가 NetworkManager와 호환되지 않는 경우도 있습니다. 배포를 통해 제공되는 RPM/Deb 패키지는 대부분 NetworkManager를 waagent 패키지에 대한 충돌 항목으로 구성하므로 Linux 에이전트 패키지 설치 시 NetworkManager가 제거됩니다.
 
 ## <a name="general-linux-system-requirements"></a>일반 Linux 시스템 요구 사항
+
 * 다음 매개 변수를 포함하려면 GRUB 또는 GRUB2의 커널 부팅 줄을 수정합니다. 이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다.
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
@@ -146,13 +154,14 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
   
         rhgb quiet crashkernel=auto
   
-    모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다.
-  
-    원하는 경우에는 `crashkernel` 옵션을 구성한 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
+    모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다. 원하는 경우에는 `crashkernel` 옵션을 구성한 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
+
 * Azure Linux 에이전트 설치
   
     Azure에서 Linux 이미지를 프로비전하려면 Azure Linux 에이전트가 필요합니다.  대부분의 배포에서는 에이전트를 RPM 또는 Deb 패키지로 제공합니다. 패키지의 이름은 보통 'WALinuxAgent' 또는 'walinuxagent'입니다.  [Linux 에이전트 가이드](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 단계를 수행하여 에이전트를 수동으로 설치할 수도 있습니다.
+
 * SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
+
 * OS 디스크에 스왑 공간을 만들지 마십시오.
   
     Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
@@ -162,6 +171,7 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 * 마지막 단계로 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제합니다.
   
         # sudo waagent -force -deprovision
@@ -172,11 +182,12 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
   > Virtualbox에서 'waagent-force-deprovision'을 실행한 후 다음 오류가 표시될 수 있습니다. `[Errno 5] Input/output error` 이 오류 메시지는 중요하지 않으므로 무시할 수 있습니다.
   > 
   > 
+
 * 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: "Service Bus 조정된 메시징 .NET 자습서 | Microsoft Docs"
 description: "조정된 메시징 .NET 자습서"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: d888a16d538491535aad8effed53a5e98aa01359
 
 
 ---
@@ -43,19 +43,19 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 1. 시작 메뉴에서 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭하여 Visual Studio를 관리자 권한으로 엽니다.
 2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**를 선택한 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어**에서 확인) **콘솔 응용 프로그램** 템플릿을 클릭하고 이름을 **QueueSample**로 지정합니다. 기본 **위치**를 사용합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
 3. NuGet 패키지 관리자를 사용하여 서비스 버스 라이브러리를 프로젝트에 추가하려면:
-   
+
    1. 솔루션 탐색기에서 **QueueSample** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
    2. **Nuget 패키지 관리** 대화 상자에서 **찾아보기** 탭을 클릭하고 **Azure Service Bus**를 검색한 후 **설치**를 클릭합니다.
       <br />
 4. 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. 네임스페이스 이름을 기본 이름인 `QueueSample`에서 `Microsoft.ServiceBus.Samples`로 변경합니다.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. 다음 코드와 같이 `using` 문을 수정합니다.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Data.csv라는 텍스트 파일을 만들고 다음 쉼표 구분 텍스트에 복사합니다.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Data.csv 파일을 저장하고 닫은 뒤 저장 위치를 기억해 둡니다.
 7. 솔루션 탐색기에서 프로젝트 이름(이 예제에서는 **QueueSample**)을 마우스 오른쪽 단추로 클릭하고 **추가**, **기존 항목**을 클릭합니다.
 8. 6단계에서 만든 Data.csv 파일을 찾습니다. 파일을 클릭한 다음 **추가**를 클릭합니다. 파일 형식 목록에서 **모든 파일(*.*)**을 선택했는지 확인합니다.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>메시지 목록을 구문 분석하는 메서드 만들기
 1. `Main()` 메서드 앞의 `Program` 클래스에서 두 변수를 선언합니다. 하나는 **DataTable** 형식으로, Data.csv의 메시지 목록을 포함하게 됩니다. 또 다른 변수는 List 형식 개체로, 강력한 형식의 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)입니다. 후자는 이 자습서에서 나중에 사용하게 되는 조정된 메시지 목록입니다.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. `Main()`의 외부에서 다음과 같이 Data.csv의 메시지 목록을 구문 분석하고 [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) 테이블에 메시지를 로드하는 `ParseCSV()` 메서드를 정의합니다. 이 메서드는 **DataTable** 개체를 반환합니다.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. `Main()` 메서드에서 `ParseCSVFile()` 메서드를 호출하는 문을 추가합니다.
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>메시지 목록을 로드하는 메서드 만들기
-1. `Main()`의 외부에서 `ParseCSVFile()`이 반환한 **DataTable** 개체를 취하여 강력한 형식의 broker 저장 메시지 목록에 테이블을 로드하는 `GenerateMessages()` 메서드를 정의합니다. 그러면 이 메서드는 다음 예제처럼 **List** 개체를 반환합니다. 
-   
+1. `Main()`의 외부에서 `ParseCSVFile()`이 반환한 **DataTable** 개체를 취하여 강력한 형식의 broker 저장 메시지 목록에 테이블을 로드하는 `GenerateMessages()` 메서드를 정의합니다. 그러면 이 메서드는 다음 예제처럼 **List** 개체를 반환합니다.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
     }
     ```
 2. `Main()`에서 `ParseCSVFile()`에 대한 호출 바로 뒤에 인수 형태로 `ParseCSVFile()`에서의 반환 값을 통해 `GenerateMessages()` 메서드를 호출하는 문을 추가합니다.
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 
 ### <a name="obtain-user-credentials"></a>사용자 자격 증명 얻기
 1. 먼저 이러한 값을 저장할 전역 문자열 변수를 세 개를 만듭니다. 이 변수는 이전 변수 선언 바로 뒤에 선언합니다. 예를 들면 다음과 같습니다.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. 다음으로 서비스 네임스페이스와 SAS 키를 받아 저장하는 함수를 만듭니다. 이 메서드를 `Main()` 외부에 추가합니다. 예: 
-   
+2. 다음으로 서비스 네임스페이스와 SAS 키를 받아 저장하는 함수를 만듭니다. 이 메서드를 `Main()` 외부에 추가합니다. 예:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. `Main()`에서 `GenerateMessages()`에 대한 호출 바로 뒤에 `CollectUserInput()` 메서드를 호출하는 문을 추가합니다.
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 이 단계에서는 응용 프로그램의 권한을 부여 받은 공유 액세스 서명 (SAS) 자격 증명을 만들기 위해 사용할 관리 작업을 정의합니다.
 
 1. 명확성을 위해 이 자습서에서는 모든 큐 작업을 별도의 메서드에 배치합니다. `Program` 클래스에서 `Main()` 메서드 뒤에, 비동기 `Queue()` 메서드를 만듭니다. 예:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
     }
     ```
 2. 다음 단계는 [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 개체를 사용하여 SAS 자격 증명을 만드는 것입니다. 만들기 메서드는 `CollectUserInput()` 메서드에서 얻은 SAS 키 이름과 값을 취합니다. `Queue()` 메서드에 다음 코드를 추가합니다.
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
     }
     ```
 3. 이전 단계에서 확보한 네임스페이스 이름과 관리 자격 증명을 인수 형태로 포함하는 URI로 새로운 네임스페이스 관리 개체를 만듭니다. 이전 단계에서 추가한 코드 바로 뒤에 이 코드를 추가합니다. `<yourNamespace>`를 서비스 네임스페이스의 이름으로 바꿔야 합니다.
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ namespace Microsoft.ServiceBus.Samples
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>큐 만들기 및 큐에 메시지 보내기
 1. 먼저 큐를 만듭니다. 예를 들어 이 큐를 `myQueue`라고 명명하고 마지막 단계에서 `Queue()` 메서드에 추가한 관리 작업 직후에 선언합니다.
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. `Queue()` 메서드에서 새로 만든 서비스 버스 URI를 통해 인수 형태로 메시징 팩터리 개체를 만듭니다. 앞 단계에서 추가한 관리 작업 바로 뒤에 다음 코드를 추가합니다. `<yourNamespace>`를 서비스 네임스페이스의 이름으로 바꿔야 합니다.
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. 다음으로 [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) 클래스를 사용하여 큐 개체를 만듭니다. 마지막 단계에서 추가한 코드 바로 뒤에 다음 코드를 추가합니다.
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. 다음으로, 앞에서 만든 조정된 메시지 목록을 통해 루프를 실행하여 각각을 큐에 보내는 코드를 추가합니다. 이전 단계에서 `CreateQueueClient()` 문 바로 뒤에 다음 코드를 추가합니다.
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,7 +615,7 @@ namespace Microsoft.ServiceBus.Samples
 Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 **Ctrl+Shift+B** 키를 누릅니다. 오류를 발생할 경우 앞 단계의 마지막에 있는 전체 예제를 기준으로 코드가 정확한지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 서비스 버스 "조정된" 메시징 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging)를 사용하는 유사한 자습서는 [Service Bus 릴레이된 메시징 자습서](../service-bus-relay/service-bus-relay-tutorial.md)를 참조하세요.
+이 자습서에서는 서비스 버스 "조정된" 메시징 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. Service Bus [WCF Relay](service-bus-messaging-overview.md#service-bus-relay)를 사용하는 유사한 자습서는 [Service Bus 릴레이된 메시징 자습서](../service-bus-relay/service-bus-relay-tutorial.md)를 참조하세요.
 
 [서비스 버스](https://azure.microsoft.com/services/service-bus/)에 대한 자세한 내용은 다음 항목을 참조하세요.
 
@@ -625,7 +625,6 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

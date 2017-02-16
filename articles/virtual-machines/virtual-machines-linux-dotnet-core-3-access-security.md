@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager 템플릿의 액세스 및 보안 | Microsoft Docs"
+title: "Linux VM용 Azure 템플릿의 액세스 및 보안 | Microsoft Docs"
 description: "Azure 가상 컴퓨터 DotNet Core 자습서"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 25af19c208fb69d06ca74dec41f42a075eb22304
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 59e3402fbeb6356c164a9a7a80728ec06ca7e141
 
 
 ---
@@ -141,6 +141,6 @@ Azure Portal의 네트워크 보안 그룹은 다음과 같습니다. NSG는 서
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

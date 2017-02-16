@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD Connect는 가져오기, 동기화, 내보내기 등, 동기 상태를 
 다음 섹션에서는 Azure AD 커넥터를 사용하여 Azure AD로의 내보내기 작업 중 발생할 수 있는 여러 동기화 오류 유형을 설명합니다. 이 커넥터는 "contoso.*onmicrosoft.com*" 이름 형식으로 식별할 수 있습니다.
 Azure AD로 내보내는 중 오류는 Azure Active Directory에서 Azure AD Connect \(동기화 엔진\)이 시도한 \(추가, 업데이트, 삭제 등\)의 작업이 실패했음을 나타냅니다.
 
-![내보내기 오류 개요](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![내보내기 오류 개요](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>데이터 불일치 오류
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -114,7 +114,7 @@ Azure AD가 두 개체의 소프트 일치를 시도할 때 "개체 유형"(예:
 * Office 365에서 메일을 지원하는 보안 그룹이 만들어집니다. 관리자가 온-프레미스 AD(아직 Azure AD와 동기화되지 않음)에 Office 365 그룹과 ProxyAddresses 특성 값이 같은 새 사용자나 연락처를 추가합니다.
 
 #### <a name="example-case"></a>예제 사례
-1. 관리자가 Office 365에서 Tax 부서에 대해 새 메일 지원 보안 그룹을 만들고 이메일 주소를 tax@contoso.com.으로 제공합니다. 그러면 이 그룹의 ProxyAddresses 특성에 **smtp:tax@contoso.com**이 할당됩니다.
+1. 관리자가 Office 365에서 Tax 부서에 대해 새 메일 지원 보안 그룹을 만들고 이메일 주소를 tax@contoso.com으로 제공합니다. **smtp:tax@contoso.com**의 값으로 이 그룹에 대한 ProxyAddresses 특성을 할당합니다.
 2. 새 사용자가 Contoso.com에 가입하고 이 사용자에 대해 온-프레미스에서 proxyAddress가 **smtp:tax@contoso.com**인 계정이 만들어집니다. 
 3. Azure AD Connect가 새 사용자 계정을 동기화하면 "ObjectTypeMismatch" 오류가 발생합니다.
 
@@ -195,7 +195,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 #### <a name="how-to-fix"></a>해결 방법
 사용자의 UserPrincipalName 접미사가 bob@**contoso.com**에서 bob@**fabrikam.com**으로 업데이트되었고 **contoso.com**과 **fabrikam.com**이 모두 **페더레이션된 도메인이면** 아래 절차에 따라 동기화 오류를 수정합니다.
 
-1. Azure AD의 사용자 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com.으로 업데이트합니다. Azure AD PowerShell 모듈에서 PowerShell 명령 `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`을 사용할 수 있습니다.
+1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
 
 ## <a name="largeobject"></a>LargeObject
@@ -209,7 +209,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 ### <a name="possible-scenarios"></a>가능한 시나리오
 1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다.
 2. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
-3. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에 500개가 넘는 ProxyAddresses가 할당되었습니다.
+3. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에&500;개가 넘는 ProxyAddresses가 할당되었습니다.
 
 ### <a name="how-to-fix"></a>해결 방법
 1. 오류를 초래하는 특성이 허용 범위 안에 있는지 확인합니다.
@@ -221,6 +221,6 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

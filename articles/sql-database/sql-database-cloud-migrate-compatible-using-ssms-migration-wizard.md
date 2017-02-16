@@ -1,6 +1,7 @@
 ---
-title: "Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션 | Microsoft Docs"
-description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, Microsoft Azure 데이터베이스 마법사"
+title: "SSMS: SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션 | Microsoft Docs"
+description: "이 문서에서는 SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 호환되는 SQL Server 데이터베이스를 Azure SQL Database 서버로 마이그레이션하는 방법을 보여 줍니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, Microsoft Azure 데이터베이스 마법사"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 08/24/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 6f0dc3b3df76dcb7a43fcdfad49ddfdb747e0747
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f4cbfc1a277cbe80edbfbb4dc651adb1972f41b4
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 6f0dc3b3df76dcb7a43fcdfad49ddfdb747e0747
 > 
 > 
 
-SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사는 [호환되는 SQL Server 데이터베이스](sql-database-cloud-migrate.md) 를 Azure SQL 데이터베이스 서버로 마이그레이션합니다.
+이 문서에서는 SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사를 사용하여 [호환되는 SQL Server 데이터베이스](sql-database-cloud-migrate.md) 를 Azure SQL Database 서버로 마이그레이션하는 방법을 보여 줍니다.
 
 ## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Microsoft Azure 데이터베이스에 데이터베이스 배포 마법사 사용
 > [!NOTE]
@@ -51,7 +52,7 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터�
 4. 배포 마법사에서 **다음**을 클릭한 후 **연결**을 클릭하여 SQL Database 서버에 대한 연결을 구성합니다.
    
    ![작업 메뉴에서 Azure에 배포 합니다.](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. 서버에 연결 대화 상자에서 SQL 데이터베이스 서버에 연결하기 위한 연결 정보를 입력합니다.
+5. 서버에 연결 대화 상자에서 SQL 데이터베이스 서버에 연결하기 위한 연결 정보를 입력합니다. 기존 서버의 서버 이름을 가져오려면 [SQL Server 데이터베이스 서버와 해당 설정 확인 및 업데이트](sql-database-view-update-server-settings.md)로 이동합니다.
    
     ![작업 메뉴에서 Azure에 배포 합니다.](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. 마이그레이션 프로세스 중에 이 마법사에서 만드는 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에 대해 다음 정보를 제공합니다.
@@ -79,6 +80,6 @@ SQL Server Management Studio의 Microsoft Azure 데이터베이스에 데이터�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

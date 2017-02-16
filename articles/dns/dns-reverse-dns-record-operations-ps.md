@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드 관리 | Microsoft Docs"
-description: "Resource Manager에서 PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드 또는 PTR 레코드를 관리하는 방법"
+title: "PowerShell을 사용하여 Azure DNS의 역방향 DNS 레코드 관리 | Microsoft Docs"
+description: "Azure DNS를 통해 Resource Manager에서 PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드 또는 PTR 레코드를 관리"
 services: DNS
 documentationcenter: na
 author: s-malone
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 6e6b3e9c727915cb52a112d38f60bf136d48be2e
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: 730321ccacb211ec82e69f8ebc69ee84cbf46a01
 
 
 ---
-# <a name="how-to-manage-reverse-dns-records-for-your-azure-services-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드를 관리하는 방법
+# <a name="manage-reverse-dns-records-for-your-azure-services-using-powershell"></a>PowerShell을 사용하여 Azure 서비스에 대한 역방향 DNS 레코드를 관리
 
 [!INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 
@@ -31,7 +31,7 @@ ms.openlocfilehash: 6e6b3e9c727915cb52a112d38f60bf136d48be2e
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-클래식 배포 모델에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure 서비스(클래식)에 대한 역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-classic-ps.md)을 참조하세요.
+클래식 배포 모델에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure 서비스(클래식)에 대한 역방향 DNS 레코드 관리 방법](dns-reverse-dns-record-operations-classic-ps.md)을 참조하세요.
 
 ## <a name="validation-of-reverse-dns-records"></a>역방향 DNS 레코드의 유효성 검사
 타사에서 DNS 도메인에 매핑하는 역방향 DNS 레코드를 만들 수 없도록 하기 위해 Azure에서는 다음 중 하나에 해당하는 역방향 DNS 레코드만 만들도록 허용합니다.
@@ -81,6 +81,6 @@ DNS 이름이 없는 기존 공용 IP 주소에 역방향 DNS를 추가하려면
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

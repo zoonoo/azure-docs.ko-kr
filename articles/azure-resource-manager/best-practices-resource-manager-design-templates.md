@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager 템플릿의 패턴 | Microsoft Docs"
-description: "Azure 리소스 관리자 템플릿에 대한 설계 패턴 표시"
+title: "복잡한 솔루션에 대한 Azure 템플릿 디자인 | Microsoft Docs"
+description: "복잡한 시나리오에 대한 Azure Resource Manager 템플릿 디자인에 대한 모범 사례 표시"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c38d7120de7d31f1079dd84bcc073eb2f9618775
-ms.openlocfilehash: c66032ef65a523528e2610f7a2e13595a47d9587
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
 
 
 ---
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 설계의 패턴
+# <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>복잡한 솔루션을 배포할 때 Azure Resource Manager 템플릿에 대한 디자인 패턴
 Azure Resource Manager 템플릿을 기반으로 유연한 접근 방식을 사용하면 복잡한 토폴로지를 신속하고 일관되게 배포할 수 있습니다. 코어 제품이 진화함에 따라 또는 이상값 시나리오나 고객에 대한 변화를 수용할 수 있도록 이러한 배포를 쉽게 조정할 수 있습니다.
 
 이 항목은 더 큰 백서의 일부입니다. 전체 문서를 읽으려면 [세계적인 Resource Manager 템플릿 고려 사항 및 입증 사례](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)를 다운로드합니다.
@@ -351,6 +351,6 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

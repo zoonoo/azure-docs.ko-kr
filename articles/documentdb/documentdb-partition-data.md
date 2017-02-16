@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: e285ffa003cd2d946403cc3d657a851762b41adc
-ms.openlocfilehash: cadc0dcc313513bb3731018166d583c361a711bb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1d65fbb7278adc014ba6a655385396ace87f568e
 
 
 ---
@@ -95,7 +95,7 @@ DocumentDB에서는 단일 파티션과 분할된 컬렉션을 모두 만들 수
 
 ![DocumentDB의 분할된 컬렉션][2] 
 
-많은 양의 저장소 또는 처리량이 필요하지 않은 시나리오에는 단일 파티션 컬렉션이 적합합니다. 단일 파티션 컬렉션에는 단일 파티션의 확장성 및 저장소 제한이 있습니다.  즉 최대 10GB의 저장소 및 초당 최대 10,000개의 요청 단위가 지원됩니다. 
+많은 양의 저장소 또는 처리량이 필요하지 않은 시나리오에는 단일 파티션 컬렉션이 적합합니다. 단일 파티션 컬렉션에는 단일 파티션의 확장성 및 저장소 제한이 있습니다. 최대 10GB의 저장소 및 초당 요청 단위 10,000개까지입니다. 
 
 분할된 컬렉션은 매우 많은 양의 저장소와 처리량을 지원할 수 있습니다. 그러나 기본적으로 최대 250GB를 저장하고 초당 최대 250,000개의 요청 단위로 확장할 수 있습니다. 컬렉션당 더 높은 저장소 또는 처리량이 필요한 경우 [Azure 지원](documentdb-increase-limits.md) 에 사용자 계정에 대한 용량 증가를 요청해야 합니다.
 
@@ -341,7 +341,7 @@ DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 
 
 * DocumentDB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md) 를 참조하세요.
 * [SDKs](documentdb-sdk-dotnet.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 코딩 시작
-*  [DocumentDB의 프로비전된 처리량](documentdb-performance-levels.md)
+* [DocumentDB의 프로비전된 처리량](documentdb-performance-levels.md)
 * 응용 프로그램에서 분할을 수행하는 방법을 사용자 지정하려는 경우 고유한 클라이언트 쪽 분할 구현에 연결할 수 있습니다. [클라이언트 쪽 분할 지원](documentdb-sharding.md)을 참조하세요.
 
 [1]: ./media/documentdb-partition-data/partitioning.png
@@ -352,6 +352,6 @@ DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

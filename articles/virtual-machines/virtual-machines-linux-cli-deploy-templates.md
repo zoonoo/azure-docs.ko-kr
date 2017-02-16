@@ -1,5 +1,5 @@
 ---
-title: "템플릿을 사용하여 VM 배포 및 관리 | Microsoft Docs"
+title: "Azure 템플릿으로 Linux VM 배포 | Microsoft Docs"
 description: "리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터에 대한 가장 일반적인 구성을 배포 및 관리합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2770aeaca83364d8d252d04a21c31dda1ce7d59f
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 382ab1e465efd94d7bf9bbf21228a19e126a1f4d
 
 
 ---
@@ -29,6 +29,6 @@ ms.openlocfilehash: 2770aeaca83364d8d252d04a21c31dda1ce7d59f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

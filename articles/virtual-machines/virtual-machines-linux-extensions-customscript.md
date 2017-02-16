@@ -1,5 +1,5 @@
 ---
-title: "Linux VM의 사용자 지정 스크립트 | Microsoft Docs"
+title: "Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft Docs"
 description: "사용자 지정 스크립트 확장을 사용하여 Linux VM 구성 작업 자동화"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bf6c1423ca2f88d7a881c87cf1e7d42302c33a9c
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c1ace33461eff30fbd4b277e1397934fe5a98a
 
 
 ---
@@ -234,6 +234,6 @@ info:    vm extension get command OK
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

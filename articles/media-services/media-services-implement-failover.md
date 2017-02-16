@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
 
 
 ---
 # <a name="implementing-failover-streaming-scenario"></a>장애 조치 스트리밍 시나리오 구현
+
 이 연습에서는 주문형 스트리밍에 대한 중복성을 처리 하기 위해 한 자산에서 다른 자산으로 콘텐츠(blob)를 복사하는 방법을 보여줍니다. 이 시나리오는 데이터 센터 중 하나에서 중단된 경우 두 데이터 센터 간에 장애 조치가 가능하도록 CDN을 설정하려는 고객에게 유용합니다.
 이 연습에서는 Microsoft Azure Media Services SDK, Microsoft Azure 미디어 서비스 REST API 및 Azure 저장소 SDK를 사용하여 다음 작업을 설명합니다.
 
@@ -36,7 +37,7 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
 1. "데이터 센터 B"에서 미디어 서비스 계정을 설치합니다.
 2. 대상 미디어 서비스 계정에서 빈 대상 자산을 만듭니다.
 3. 빈 대상 자산에 쓰기 SAS 로케이터를 만들어 대상 자산과 연관된 대상 저장소 계정에서 컨테이너에 대한 쓰기 액세스 권한을 갖습니다.
-4. Azure 저장소 SDK를 사용하여 "데이터 센터 A"의 원본 저장소 계정과 "데이터 센터 B"의 대상 저장소 계정 간에 blob(자산 파일)를 복사합니다.(이러한 저장소 계정은 관련 자산과 연관됨)
+4. Azure Storage SDK를 사용하여 "데이터 센터 A"의 원본 저장소 계정과 "데이터 센터 B"의 대상 저장소 계정 간에 BLOB(자산 파일)을 복사합니다(이러한 저장소 계정은 관련 자산과 연관됨).
 5. 대상 자산을 사용하여 대상 blob 컨테이너에 복사된 blob(자산 파일)를 연결합니다. 
 6. "데이터 센터 B"의 자산에 원본 로케이터를 만들고 "데이터 센터 A"의 자산에 생성된 로케이터 ID를 지정합니다. 
 7. 이렇게 하면 URL의 상대 경로가 동일한 스트리밍 URL 위치를 제공합니다.(기본 URL만 다름) 
@@ -48,7 +49,7 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
 * 미디어 서비스 SDK의 현재 버전은 지정된 로케이터 ID를 사용하여 로케이터를 만들도록 지원하지 않습니다. 이 작업을 수행하려면 미디어 서비스 REST API를 사용합니다.
 * 미디어 서비스 SDK의 현재 버전은 자산 파일과 자산을 연결하는 IAssetFile 정보를 프로그래밍 방식으로 생성하도록 지원하지 않습니다. 이 작업을 수행하려면 CreateFileInfos 미디어 서비스 REST API를 사용합니다. 
 * 자산을 암호화한 저장소(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다.(암호화 키가 미디어 서비스 계정 모두에서 다르기 때문에) 
-* 동적 패키징의 장점을 활용하려면 먼저 하나 이상의 주문형 스트리밍 예약 단위를 가져와야 합니다. 자세한 내용은 [동적으로 자산 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
+* 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태인지 확인합니다.
 
 > [!NOTE]
 > 수동으로 장애 조치 스트리밍 시나리오를 구현하는 대안으로 미디어 서비스 [복제기 도구](http://replicator.codeplex.com/) 를 사용하는 것이 좋습니다. 이 도구를 사용하면 두 미디어 서비스 계정 간에 자산을 복제할 수 있습니다.
@@ -56,7 +57,7 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-* 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
+* 신규 또는 기존 Azure 구독의 Media Services 계정&2;개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5 또는 .NET Framework 4
 * Visual Studio 2010 SP1 또는 later version (Professional, Premium, Ultimate, 또는 Express).
@@ -100,131 +101,118 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>주문형 스트리밍에 대한 중복성을 처리하는 코드를 추가합니다.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>주문형 스트리밍에 대한 중복성을 처리하는 코드 추가
 1. Program 클래스에 다음 클래스 수준 필드를 추가합니다.
-   
+       
         // Read values from the App.config file.
         private static readonly string MediaServicesAccountNameSource = ConfigurationManager.AppSettings["MediaServicesAccountNameSource"];
         private static readonly string MediaServicesAccountKeySource = ConfigurationManager.AppSettings["MediaServicesAccountKeySource"];
         private static readonly string StorageNameSource = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameSource"];
         private static readonly string StorageKeySource = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeySource"];
-   
+        
         private static readonly string MediaServicesAccountNameTarget = ConfigurationManager.AppSettings["MediaServicesAccountNameTarget"];
         private static readonly string MediaServicesAccountKeyTarget = ConfigurationManager.AppSettings["MediaServicesAccountKeyTarget"];
         private static readonly string StorageNameTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameTarget"];
         private static readonly string StorageKeyTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeyTarget"];
-   
+        
         // Base support files path.  Update this field to point to the base path  
         // for the local support files folder that you create. 
         private static readonly string SupportFiles = Path.GetFullPath(@"../..\SupportFiles");
-   
+        
         // Paths to support files (within the above base path). 
         private static readonly string SingleInputMp4Path = Path.GetFullPath(SupportFiles + @"\MP4Files\BigBuckBunny.mp4");
         private static readonly string OutputFilesFolder = Path.GetFullPath(SupportFiles + @"\OutputFiles");
-   
+        
         // Class-level field used to keep a reference to the service context.
         static private CloudMediaContext _contextSource = null;
         static private CloudMediaContext _contextTarget = null;
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
-2. 기본 Main 메서드 정의를 다음 정의로 바꿉니다.
-   
+
+2. 기본 Main 메서드 정의를 다음 정의로 바꿉니다. Main에서 호출된 메서드 정의는 아래에 정의되어있습니다.
+        
         static void Main(string[] args)
         {
             _cachedCredentialsSource = new MediaServicesCredentials(
                             MediaServicesAccountNameSource,
                             MediaServicesAccountKeySource);
-   
+        
             _cachedCredentialsTarget = new MediaServicesCredentials(
                             MediaServicesAccountNameTarget,
                             MediaServicesAccountKeyTarget);
-   
+        
             // Get server context.    
             _contextSource = new CloudMediaContext(_cachedCredentialsSource);
             _contextTarget = new CloudMediaContext(_cachedCredentialsTarget);
-
+        
             IAsset assetSingleFile = CreateAssetAndUploadSingleFile(_contextSource,
                                         AssetCreationOptions.None,
                                         SingleInputMp4Path);
-
+        
             IJob job = CreateEncodingJob(_contextSource, assetSingleFile);
-
+        
             if (job.State != JobState.Error)
             {
                 IAsset sourceOutputAsset = job.OutputMediaAssets[0];
                 // Get the locator for Smooth Streaming
                 var sourceOriginLocator = GetStreamingOriginLocator(_contextSource, sourceOutputAsset);
-
+        
                 Console.WriteLine("Locator Id: {0}", sourceOriginLocator.Id);
-
-
+                
                 // 1.Create a read-only SAS locator for the source asset to have read access to the container in the source Storage account (associated with the source Media Services account)
                 var readSasLocator = GetSasReadLocator(_contextSource, sourceOutputAsset);
-
-
+        
                 // 2.Get the container name of the source asset from the read-only SAS locator created in the previous step
                 string containerName = (new Uri(readSasLocator.Path)).Segments[1];
-
-
+        
                 // 3.Create a target empty asset in the target Media Services account
                 var targetAsset = CreateTargetEmptyAsset(_contextTarget, containerName);
-
+        
                 // 4.Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account (associated with the target Media Services account)
                 ILocator writeSasLocator = CreateSasWriteLocator(_contextTarget, targetAsset);
-
+        
                 // Get asset container name.
                 string targetContainerName = (new Uri(writeSasLocator.Path)).Segments[1];
-
-
+        
                 // 5.Copy the blobs in the source container (source asset) to the target container (target empty asset)
                 CopyBlobsFromDifferentStorage(containerName, targetContainerName, StorageNameSource, StorageKeySource, StorageNameTarget, StorageKeyTarget);
-
-
+        
                 // 6.Use the CreateFileInfos Media Services REST API to automatically generate all the IAssetFile’s for the target asset. 
                 //      This API call is not supported in the current Media Services SDK for .NET. 
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
-
+        
                 // Check if the AssetFiles are now  associated with the asset.
                 Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);
                 }
-
+        
                 // 7.Copy the Origin locator of the source asset to the target asset by using the same Id
                 var replicatedLocatorPath = CreateOriginLocatorWithRest(_contextTarget,
                             MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget,
                             sourceOriginLocator.Id, targetAsset.Id);
-
+        
                 // Create a full URL to the manifest file. Use this for playback
                 // in streaming media clients. 
                 string originalUrlForClientStreaming = sourceOriginLocator.Path + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
-
+        
                 Console.WriteLine("Original Locator Path: {0}\n", originalUrlForClientStreaming);
-
+        
                 string replicatedUrlForClientStreaming = replicatedLocatorPath + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
-
+        
                 Console.WriteLine("Replicated Locator Path: {0}", replicatedUrlForClientStreaming);
-
+        
                 readSasLocator.Delete();
                 writeSasLocator.Delete();
         }
 
-1. Main에서 호출된 메서드 정의는 아래에 정의되어있습니다.
+3. Main에서 호출된 메서드 정의입니다.
    
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
                                                         string singleFilePath)
         {
-            // For the AssetCreationOptions you can specify 
-            // encryption options.
-            //      None:  no encryption. By default, storage encryption is used. If you want to 
-            //        create an unencrypted asset, you must set this option.
-            //      StorageEncrypted:  storage encryption. Encrypts a clear input file 
-            //        before it is uploaded to Azure storage. This is the default if not specified
-            //      CommonEncryptionProtected:  for Common Encryption Protected (CENC) files. An 
-            //        example is a set of files that are already PlayReady encrypted. 
-   
             var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
    
             var asset = context.Assets.Create(assetName, assetCreationOptions);
@@ -299,8 +287,6 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
             return job;
         }
    
-        // Create a locator URL to a streaming media asset 
-        // on an origin server.
         public static ILocator GetStreamingOriginLocator(CloudMediaContext context, IAsset assetToStream)
         {
             // Get a reference to the streaming manifest file from the  
@@ -420,7 +406,6 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
             return locatorNewPath;
         }
 
-
         public static void SetPrimaryFile(IAsset asset)
         {
 
@@ -454,7 +439,6 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
             return asset;
         }
 
-
         public static void CopyBlobsFromDifferentStorage(string sourceContainerName, string targetContainerName,
                                             string srcAccountName, string srcAccountKey,
                                             string destAccountName, string destAccountKey)
@@ -487,6 +471,8 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
+                    // In AMS, the files are stored as block blobs. 
+                    // Page blobs are not supported by AMS.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 
@@ -510,6 +496,7 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
 
             Console.WriteLine("Done copying.");
         }
+
         private static IMediaProcessor GetLatestMediaProcessorByName(CloudMediaContext context, string mediaProcessorName)
         {
 
@@ -906,7 +893,6 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
             }
         }
 
-
         private static HttpWebRequest GenerateRequest(string verb,
                                                         string mediaServicesApiServerUri,
                                                         string resourcePath, string query,
@@ -964,6 +950,6 @@ ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

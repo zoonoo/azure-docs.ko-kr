@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dac614de38447bfeaf92f15f156217c9bd44b4ff
-ms.openlocfilehash: 580b4b67cf2180e32b2c7d9eb1359d0a9036e3d0
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: c488fcc8de41fe4d58d78517deea98c4617b5f49
 
 
 ---
@@ -93,8 +93,8 @@ Azure Redis Cache는 인기 있는 오픈 소스 [Redis Cache](http://redis.io)�
 
 Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
-* [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
-* [Visual Studio 구독자 혜택 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+* [Azure 계정을 무료로 개설할 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
+* [Visual Studio 구독자 혜택 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="cache-size"></a>
 
@@ -113,7 +113,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 * **Redis 구성**: 표준과 프리미엄 계층에서 Redis Keyspace 알림을 구성할 수 있습니다.
 * **최대 클라이언트 연결 수**: 프리미엄 계층은 더 큰 캐시에 대해 더 많은 수의 연결과, Redis에 연결 가능한 최대 클라이언트 수를 제공합니다. [자세한 내용은 가격 책정 페이지를 참조하세요.](https://azure.microsoft.com/pricing/details/cache/)
 * **Redis 서버에 대한 전용 코어**: 프리미엄 계층에서는 모든 캐시 크기에 Redis 전용 코어가 있습니다. 기본/표준 계층에서는 C1 크기 이상에 Redis 서버 전용 코어가 있습니다.
-* **Redis는 단일 스레드** 이므로 3개 이상의 코어를 사용해도 2개 코어만 사용하는 경우에 비해 추가적인 이점이 없지만 VM 크기가 더 크면 일반적으로 작은 크기보다 대역폭이 더 큽니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 쪽에 시간 초과가 수신됩니다.
+* **Redis는 단일 스레드** 이므로&3;개 이상의 코어를 사용해도&2;개 코어만 사용하는 경우에 비해 추가적인 이점이 없지만 VM 크기가 더 크면 일반적으로 작은 크기보다 대역폭이 더 큽니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 쪽에 시간 초과가 수신됩니다.
 * **성능 향상**: 프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다.
 
 <a name="cache-performance"></a>
@@ -184,8 +184,8 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
   * 진단 목적으로 `ConnectionMultiplexer.ClientName` 속성을 앱 인스턴스 고유 이름으로 설정합니다.
   * 사용자 지정 작업에 여러 개의 `ConnectionMultiplexer` 인스턴스를 사용합니다.
   * 응용 프로그램에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 예:
-  * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
-  * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
+  * 큰 키를 처리하기 위한 멀티플렉서&1;개가 있습니다.
+  * 작은 키를 처리하기 위한 멀티플렉서&1;개가 있습니다.
   * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 재시도 논리에 대해 다른 값을 설정할 수 있습니다.
   * 진단에 도움이 되도록 각 멀티플렉서의 `ClientName` 속성을 설정합니다.
   * 그러면 `ConnectionMultiplexer`당 대기 시간이 보다 간소화됩니다.
@@ -297,7 +297,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 * 완료하는 데 시간이 오래 걸리는 특정 Redis 명령은 명령의 영향을 알고 있는 경우에만 실행해야 합니다.
   * 예를 들어 [KEYS](http://redis.io/commands/keys) 명령은 키 수에 따라 반환되는 데 시간이 오래 걸릴 수 있으므로 프로덕션에서 실행하지 마세요. Redis는 단일 스레드 서버이며 한 번에 하나씩 명령을 처리합니다. KEYS 후에 실행된 다른 명령이 있는 경우 Redis가 KEYS 명령을 처리할 때까지 처리되지 않습니다. [redis.io 사이트](http://redis.io/commands/) 에는 지원되는 각 작업에 대한 시간 복잡도와 관련된 세부 정보가 제공됩니다. 각 작업에 대한 복잡성을 확인하려면 각 명령을 클릭합니다.
 * 키 크기 - 작은 키/값을 사용해야 하나요, 아니면 큰 키/값을 사용해야 하나요? 일반적으로 시나리오에 따라 다릅니다. 시나리오에서 큰 키가 필요한 경우 ConnectionTimeout 및 재시도 값과 재시도 논리를 조정할 수 있습니다. Redis 서버 관점에서는 값이 작을수록 더 나은 성능이 관찰됩니다.
-* Redis에서 큰 값을 저장할 수 없다는 의미는 아닙니다. 다음과 같은 고려 사항에 주의해야 합니다. 대기 시간이 더 길어집니다. 큰 데이터 집합 1개와 작은 데이터 집합 1개가 있는 경우, 이전의 [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#cache-configuration) 섹션에 설명된 대로 각각 다른 시간 제한 및 재시도 값으로 구성된 여러 개의 ConnectionMultiplexer 인스턴스를 사용할 수 있습니다.
+* Redis에서 큰 값을 저장할 수 없다는 의미는 아닙니다. 다음과 같은 고려 사항에 주의해야 합니다. 대기 시간이 더 길어집니다. 큰 데이터 집합&1;개와 작은 데이터 집합&1;개가 있는 경우, 이전의 [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#cache-configuration) 섹션에 설명된 대로 각각 다른 시간 제한 및 재시도 값으로 구성된 여러 개의 ConnectionMultiplexer 인스턴스를 사용할 수 있습니다.
 
 <a name="cache-benchmarking"></a>
 
@@ -352,11 +352,11 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 이 설정을 구성하는 방법
 
-* ASP.NET에서 web.config의 `<processModel>` 구성 요소에 있는 ["minIoThreads" configuration setting]["minIoThreads" 구성 설정]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
+* ASP.NET에서 web.config의 `<processModel>` 구성 요소에 있는 ["minIoThreads" 구성 설정]["minIoThreads" configuration setting]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
 
-> **중요:** 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`를 사용합니다.
->
->
+  > [!NOTE] 
+  > 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`를 사용합니다.
+  >
 
 * ASP.NET 외부에서 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API를 사용합니다.
 
@@ -384,7 +384,7 @@ Redis Cache **설정** 블레이드의 **지원 + 문제 해결** 섹션에는 �
 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 자세한 내용은 [Azure Redis Cache를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
 
 ### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?
-동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다. 캐시에 대한 진단 설정이 변경된 경우 동일한 구독 및 지역의 다른 캐시에 대한 진단 설정이 변경되었는지 아닌지를 확인합니다. 확인하는 한 가지 방법은 `Write DiagnosticSettings` 이벤트에 대한 캐시의 감사 로그를 확인하는 것입니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유하며 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다. 캐시에 대한 진단 설정이 변경된 경우 동일한 구독 및 지역의 다른 캐시에 대한 진단 설정이 변경되었는지 아닌지를 확인합니다. 확인하는 한 가지 방법은 `Write DiagnosticSettings` 이벤트에 대한 캐시의 감사 로그를 확인하는 것입니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../azure-resource-manager/resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
 ### <a name="why-is-diagnostics-enabled-for-some-new-caches-but-not-others"></a>다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?
 동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유합니다. 진단이 사용되도록 설정된 다른 캐시가 있는 동일한 지역 및 구독에 새 캐시를 만드는 경우 동일한 설정을 사용하여 새 캐시에 대해 진단이 사용되도록 설정됩니다.
@@ -435,10 +435,10 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 ### <a name="in-role-cache"></a>In-Role Cache
 [In-Role Cache는 2016년 11월 30일에 사용 중지되도록 설정됩니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

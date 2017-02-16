@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 장치의 섀시 교체 | Microsoft Docs"
+title: "StorSimple 8000 시리즈 장치의 섀시 교체 | Microsoft Docs"
 description: "StorSimple 기본 엔클로저 또는 EBOD 엔클로저에 섀시를 꺼내고 교체하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f2568dac43a0fa870c7b3db7bde3458e7cfafd8
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
 
 
 ---
@@ -63,6 +63,6 @@ StorSimple 장치에 섀시를 설치하려면 다음 단계를 따르세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

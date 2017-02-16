@@ -1,5 +1,5 @@
 ---
-title: "HBase 자습서: Hadoop 및 HBase로 시작 | Microsoft Docs"
+title: "HBase 자습서: Hadoop에서 Windows 기반 HBase 클러스터 시작 | Microsoft Docs"
 description: "HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
 keywords: "apache hbase, hbase, hbase 셸, hbase 자습서"
 services: hdinsight
@@ -16,22 +16,19 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 501c44ff8db2b825b58d98b9b89219ec9fff8b7c
-ms.openlocfilehash: 6384d7b0f4851ce4d1612857203e7c3c1381d6fc
+ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
+ms.openlocfilehash: 5c88d709756c50b99bfd7e09c03e5653d41f4879
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-windows-based-hadoop-in-hdinsight"></a>HBase 자습서: HDInsight에서 Windows 기반 Hadoop을 통해 Apache HBase 사용 시작
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Apache Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
-이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 내용을 보려면, 페이지 상단의 탭 선택기를 사용하여 전환합니다.
+이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [HBase 자습서: HDInsight에서 Apache HBase 사용 시작](hdinsight-hbase-tutorial-get-started-linux.md)을 참조하세요.
 
-> [!NOTE]
-> Windows 기반 HDInsight의 HBase(버전 0.98.0)는 HDInsight 3.1 클러스터에서만 사용할 수 있습니다.(Apache Hadoop 및 YARN 2.4.0 기준) 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
-> 
-> 
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -126,7 +123,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다. 자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
-샘플 데이터 파일은 공용 Blob 컨테이너, wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt. 데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너, wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
 
     8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
@@ -329,6 +326,6 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "엔터프라이즈 통합 팩 EDIFACT 메시지 인코딩 커넥터에 대해 알아보기 | Microsoft Docs"
-description: "엔터프라이즈 통합 팩 및 논리 앱에서 파트너를 사용하는 방법 알아보기"
+title: "Azure Logic Apps에서 EDIFACT 메시지 인코딩 | Microsoft Docs"
+description: "엔터프라이즈 통합 팩 및 Logic Apps에 포함된 EDIFACT 인코더를 사용하는 방법"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,31 +12,30 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 7f9feb7b9ae01c18712f14035ac8c56256cf4d26
+ms.sourcegitcommit: 5bc7011d7b0d22a7f8c11a2fee8d002c24d3467c
+ms.openlocfilehash: 94d120cd8a5e33733ecc39af96d2719ad59ab090
 
 
 ---
 # <a name="get-started-with-encode-edifact-message"></a>EDIFACT 메시지 인코딩 시작
 EDI 및 파트너 관련 속성의 유효성을 검사합니다. 
 
-## <a name="create-the-connection"></a>연결 만들기
-### <a name="prerequisites"></a>필수 조건
+## <a name="prereqs"></a>선행 조건
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
 * 통합 계정은 EDIFACT 메시지 인코딩 커넥터를 사용해야 합니다. [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [파트너](logic-apps-enterprise-integration-partners.md) 및 [EDIFACT 규약](../logic-apps/logic-apps-enterprise-integration-edifact.md)을 만드는 방법에 대한 세부 사항을 확인합니다.
 
-### <a name="connect-to-decode-edifact-message-using-the-following-steps"></a>다음 단계를 사용하여 EDIFACT 메시지 디코딩에 연결합니다.
-1. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)에서 예제를 제공하고 있습니다.
-2. 이 연결에는 트리거가 필요하지 않습니다. 다른 트리거를 사용하여 요청 트리거와 같은 논리 앱을 시작합니다.  논리 앱 디자이너에서 트리거를 추가하고 작업을 추가합니다.  드롭다운 목록에서 Microsoft 관리되는 API 표시를 선택한 다음 검색 상자에 "EDIFACT"를 입력합니다.  규약 이름으로 EDIFACT 메시지 인코딩 또는 ID로 EDIFACT 메시지 인코딩 중 하나를 선택합니다.
+## <a name="encode-edifact-messages"></a>EDIFACT 메시지 인코딩
+1. [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md).
+2. 이 연결에는 트리거가 필요하지 않습니다. 다른 트리거를 사용하여 요청 트리거와 같은 논리 앱을 시작합니다.  논리 앱 디자이너에서 트리거를 추가하고 작업을 추가합니다.  드롭다운 목록에서 Microsoft 관리되는 API 표시를 선택한 다음 검색 상자에 "EDIFACT"를 입력합니다.  [규약 이름으로 EDIFACT 메시지 인코딩] 또는 [ID로 EDIFACT 메시지 인코딩] 중 하나를 선택합니다.
    
     ![EDIFACT 검색](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
-3. 이전에 통합 계정에 대한 연결을 만들지 않은 경우 연결 세부 정보를 지정하라는 메시지가 표시됩니다.
+3. 이전에 통합 계정에 대한 연결을 만들지 않은 경우 다음과 같이 연결 세부 정보를 요구하는 메시지가 표시됩니다.
    
     ![통합 계정 연결 만들기](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
-4. 통합 계정 세부 정보를 입력합니다.  별표가 있는 속성은 필수 사항입니다.
+4. 통합 계정 세부 정보를 입력합니다.  다음과 같이 별표가 있는 속성은 필수 항목입니다.
    
    | 속성 | 세부 정보 |
    | --- | --- |
@@ -46,22 +45,23 @@ EDI 및 파트너 관련 속성의 유효성을 검사합니다.
     완료되면 연결 정보가 다음과 비슷하게 표시됩니다.
    
     ![통합 계정 연결](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
-5. **만들기**
+5. **만들기**를 선택합니다.
 6. 연결이 만들어졌는지 확인합니다.
    
     ![통합 계정 연결 세부 사항](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>규약 이름으로 EDIFACT 메시지 인코딩
-1. 인코딩할 EDIFACT 규약 이름 및 xml 메시지를 제공합니다.
+인코딩할 EDIFACT 규약 이름 및 XML 메시지를 입력합니다.
    
    ![필수 필드 제공](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
 #### <a name="encode-edifact-message-by-identities"></a>ID로 EDIFACT 메시지 인코딩
-1. 보낸 사람 식별자, 보낸 사람 한정자, 받는 사람 식별자 및 받는 사람 한정자를 EDIFACT 규약에 구성된 대로 제공합니다.  인코딩할 xml 메시지 선택
-   
+EDIFACT 규약에서 구성한 대로 보낸 사람 식별자, 보낸 사람 한정자, 받는 사람 식별자 및 받는 사람 한정자를 입력합니다. 인코딩할 XML 메시지를 선택합니다.  
     ![필수 필드 제공](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
-## <a name="edifact-encode-does-following"></a>EDIFACT 인코딩은 다음을 수행합니다.
+## <a name="edifact-encode-details"></a>EDIFACT 인코딩 세부 정보
+EDIFACT 인코딩 커넥터는 다음을 수행합니다. 
+
 * 보낸 사람 한정자와 식별자 및 받는 사람 한정자와 식별자를 일치시켜 규약을 확인합니다.
 * EDI 교환을 직렬화하며 XML로 인코딩된 메시지를 교환에서 EDI 트랜잭션 집합으로 변환합니다.
 * 트랜잭션 집합 헤더 및 트레일러 세그먼트를 적용합니다.
@@ -82,6 +82,6 @@ EDI 및 파트너 관련 속성의 유효성을 검사합니다.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

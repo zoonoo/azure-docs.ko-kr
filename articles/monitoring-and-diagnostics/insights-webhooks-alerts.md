@@ -2,7 +2,7 @@
 title: "Azure 메트릭 경고에 대한 webhook 구성 | Microsoft 문서"
 description: "Azure 경고를 다른 비Azure 시스템으로 경로를 전환합니다."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/07/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
+ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
 
 
 ---
@@ -36,7 +36,7 @@ Azure에서는 앞으로 정의될 JSON 형식과 스키마에 포함되는 경�
 웹후크는 다음 방법 중 하나를 사용하여 인증할 수 있습니다.
 
 1. **토큰 기반 인증** - 토큰 ID를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **기본 인증** - 사용자 이름과 암호를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+2. **암호 기반 인증** - 사용자 이름과 암호를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>페이로드 스키마
 POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
@@ -103,11 +103,11 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 
 > [!NOTE]
 > properties 필드만 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 설정할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure 경고와 PagerDuty의 통합](http://go.microsoft.com/fwlink/?LinkId=627080)
+* [Azure 경고와 PagerDuty의 통합](http://go.microsoft.com/fwlink/?LinkId=627080)
 * [Azure 경고에 대한 Azure Automation 스크립트 실행 (Runbooks)](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [논리 앱을 사용하여 Azure 경고에서 Twilio 통해 SMS 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
@@ -115,7 +115,6 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

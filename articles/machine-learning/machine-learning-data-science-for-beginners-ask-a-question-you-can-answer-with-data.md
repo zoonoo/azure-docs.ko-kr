@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f6cb2a15ab8ef87672c0abbc93ee68478d0efb48
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4e6a7a47f83b0db4380fe3bbf26efd292e4c8054
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: f6cb2a15ab8ef87672c0abbc93ee68478d0efb48
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 > 
 > 
 
@@ -41,7 +41,7 @@ ms.openlocfilehash: f6cb2a15ab8ef87672c0abbc93ee68478d0efb48
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>비디오 내용: 데이터로 대답할 수 있는 질문하기
-"초급자를 위한 데이터 과학" 시리즈 중 3번째 비디오를 시작합니다.  
+"초급자를 위한 데이터 과학" 시리즈 중&3;번째 비디오를 시작합니다.  
 
 여기에서는 데이터로 답할 수 있는 질문을 작성하는 방법과 관련된 몇 가지 팁을 얻을 수 있습니다.
 
@@ -101,6 +101,6 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

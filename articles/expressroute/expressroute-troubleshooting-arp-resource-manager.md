@@ -1,5 +1,5 @@
 ---
-title: "ExpressRoute 문제 해결 가이드 - ARP 테이블 가져오기 | Microsoft 문서"
+title: "ARP 테이블 가져오기: Resource Manager: Azure ExpressRoute 문제 해결 | Microsoft Docs"
 description: "이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다."
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
 
 ---
-# <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>ExpressRoute 문제 해결 가이드 - 리소스 관리자 배포 모델에서 ARP 테이블 가져오기
+# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - 클래식](expressroute-troubleshooting-arp-classic.md)
@@ -145,7 +145,7 @@ ARP 테이블의 예:
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
 * ARP 테이블에 항목이 하나만 표시됩니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -171,6 +171,6 @@ ARP 테이블의 예:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

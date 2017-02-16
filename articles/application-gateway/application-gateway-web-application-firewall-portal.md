@@ -4,7 +4,7 @@ description: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
+ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기
 
 > [!div class="op_single_selector"]
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. 웹 응용 프로그램은 다양한 OWASP 상위 10 일반적인 웹 취약점으로부터 보호합니다.
 
@@ -47,8 +46,6 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 > [!NOTE]
 > 초기 배포 중이 아닌 경우 응용 프로그램 게이트웨이를 구성하면 사용자 지정 상태 프로브, 백 엔드 풀 주소, 추가 규칙 등 응용 프로그램 게이트웨이에 대한 추가 구성이 구성됩니다.
-> 
-> 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -79,8 +76,6 @@ Azure Portal로 이동하여 기존 Application Gateway를 선택합니다.
 
 > [!NOTE]
 > 웹 응용 프로그램 방화벽 로그를 보려면 진단을 활성화하고 ApplicationGatewayFirewallLog를 선택해야 합니다. 테스트 목적으로 인스턴스 수 1을 선택할 수 있습니다. 그러나 두 개 미만의 인스턴스 수는 SLA에서 다루지 않으므로 권장되지 않는다는 점을 알아야 합니다. 웹 응용 프로그램 방화벽을 사용하는 경우 소형 게이트웨이를 사용할 수 없습니다.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>웹 응용 프로그램 방화벽을 사용하여 Application Gateway를 만드는 방법
 
@@ -114,8 +109,6 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 > [!NOTE]
 > 테스트 목적으로 인스턴스 수 1을 선택할 수 있습니다. 그러나 두 개 미만의 인스턴스 수는 SLA에서 다루지 않으므로 권장되지 않는다는 점을 알아야 합니다. 웹 응용 프로그램 방화벽 시나리오에는 소형 게이트웨이가 지원되지 않습니다.
-> 
-> 
 
 ### <a name="step-3"></a>3단계
 
@@ -212,6 +205,6 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

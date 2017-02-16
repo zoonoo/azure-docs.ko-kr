@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 07e124f41662759cc93efa2ee0c24f6a367573ac
+ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
+ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
 
 
 ---
@@ -43,7 +43,7 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
 > 
 > 
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 예를 들어 Azure Blob Storage로 정보를 전송하는 [데이터 내보내기][writer] 모듈이 포함된 실험이 있다고 가정합니다. 웹 서비스 사용자가 서비스에 액세스할 때 Blob 저장소 경로를 변경할 수 있게 해주는 "Blob 경로"라는 웹 서비스 매개 변수를 정의합니다.
 
 1. Machine Learning 스튜디오에서 [데이터 내보내기][writer] 모듈을 클릭하여 선택합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
@@ -88,6 +88,6 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

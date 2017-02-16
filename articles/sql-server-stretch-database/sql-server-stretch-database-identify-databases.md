@@ -1,5 +1,5 @@
 ---
-title: "Stretch Database 관리자를 실행하여 Stretch Database에 대한 데이터베이스 및 테이블 식별 | Microsoft Docs"
+title: "Stretch Database에 대한 데이터베이스 및 테이블 식별 - Azure | Microsoft Docs"
 description: "Stretch Database의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 47b666a7f2178daebc1b2b442fd1bb8cf31e40bb
-ms.openlocfilehash: 3aef66c7b80ee356faedcaaadacd15aea3438714
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: 0f1a7feea79c73d7b80343fcc9898509268d111c
 
 
 ---
@@ -36,10 +36,10 @@ Stretch Database의 후보인 데이터베이스 및 테이블을 식별하려�
 
 ## <a name="review-the-results"></a>결과 검토
 1. 분석이 완료되면 **분석 데이터베이스** 블레이드에서 분석한 데이터베이스 중 하나를 선택하여 **분석 결과** 블레이드를 표시합니다.
-   
+
    **분석 결과** 블레이드에서 기본 권장 조건과 일치하는 선택된 데이터베이스의 권장 테이블이 나열됩니다.
 2. **분석 결과** 블레이드의 테이블 목록에서 권장 테이블 중 하나를 선택하여 **테이블 결과** 블레이드를 표시합니다.
-   
+
    차단 문제가 발생하는 경우 **테이블 결과** 블레이드에 선택한 테이블에 대한 차단 문제가 나열됩니다. Stretch Database 관리자에서 검색한 차단 문제에 대한 자세한 정보는 [Stretch Database에 대한 제한](sql-server-stretch-database-limitations.md)을 참조하세요.
 3. **테이블 결과** 블레이드의 차단 문제 목록에서 문제 중 하나를 선택하여 선택한 문제에 대한 자세한 정보를 표시하고 완화 단계를 제안합니다. Stretch Database에 대한 선택한 테이블을 구성하려는 경우 제시한 완화 단계를 구현합니다.
 
@@ -58,7 +58,6 @@ Stretch Database를 사용하도록 설정합니다.
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

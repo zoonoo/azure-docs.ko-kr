@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 12/20/2016
 ms.author: trinadhk; jimpark; markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: b5b18d063a5926ad4acb7d0aa3935978d0fedb8c
-ms.openlocfilehash: dc7e2d041ee4e0aeb222578c2fec9525e24bb0d1
+ms.sourcegitcommit: cbd7e36c5ef5c78b38a2cc7791b442cac1711b95
+ms.openlocfilehash: 92e8e25abc047811fc0ff45f424bd1b97a045e1f
 
 
 ---
@@ -36,6 +36,11 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 
 사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 문서 백업](backup-azure-vms.md)을 진행합니다. 그렇지 않으면 이 문서에 따라 Azure VM을 백업하도록 환경을 준비하는 단계를 수행합니다.
 
+##<a name="supported-operating-system-for-backup"></a>지원되는 백업용 운영 체제
+ * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. _가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다. 그러나 이러한 배포판을 백업에 대해서는 보증하지 않습니다._
+ * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
+
+
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 다음 목록에서는 클래식 모델에서 배포할 때의 제한 사항을 제공합니다.
@@ -49,8 +54,6 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 * 지역 간 백업 및 복원은 지원되지 않습니다.
 * Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 Azure의 모든 공용 지역에서 지원됩니다(지원되는 지역은 [검사 목록](https://azure.microsoft.com/regions/#services) 참조). 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
-  * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
-  * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations)을 참조하세요.
   * 부하 분산 장치 구성에서의 가상 컴퓨터(내부 및 외부)
@@ -126,7 +129,7 @@ VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저�
 ###### <a name="for-windows-machines"></a>Windows 컴퓨터의 경우
 로컬 시스템 계정에 대한 프록시 서버 구성을 설정합니다.
 
-1.  [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+1. [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. 관리자 권한 프롬프트에서 다음 명령을 실행합니다.
 
      ```
@@ -151,7 +154,7 @@ VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저�
 ```
 
 > [!NOTE]
-> 프록시 서버 로그에 "(407)프록시 인증 필요"가 있으면, 인증이 제대로 설정되었는지 확인합니다.
+> 프록시 서버 로그에 "(407)프록시 인증 필요"가 발견되면, 인증이 제대로 설정되었는지 확인합니다.
 >
 >
 
@@ -231,6 +234,6 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

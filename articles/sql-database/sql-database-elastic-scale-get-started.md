@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e54d6ac95446f10270d786af87342bbd1ac46504
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 86391212e70a0f0a8ec0e53dce26b11218a5780c
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: e54d6ac95446f10270d786af87342bbd1ac46504
    
     ![진행률][4]
 
-축하합니다. 이제 Azure SQL 데이터베이스에서 탄력적 데이터베이스 도구를 사용하는 첫 번째 분할 응용 프로그램을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 Azure DB Server에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
+축하합니다. 이제 Azure SQL Database에서 Elastic Database 도구를 사용하는 첫 번째 분할 응용 프로그램을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 Azure DB Server에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
 > [!IMPORTANT]
 > Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -103,6 +103,6 @@ ms.openlocfilehash: e54d6ac95446f10270d786af87342bbd1ac46504
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

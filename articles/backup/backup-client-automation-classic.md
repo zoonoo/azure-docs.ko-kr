@@ -1,6 +1,7 @@
 ---
-title: "PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Docs"
-description: "PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
+
+title: "PowerShell을 사용하여 Azure에서 Windows Server 백업 관리| Microsoft Docs"
+description: "PowerShell을 사용하여 Windows Server 백업을 배포하고 관리합니다."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
+ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [클래식](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
@@ -43,8 +44,8 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 ## <a name="create-a-backup-vault"></a>백업 자격 증명 모음 만들기
 > [!WARNING]
 > 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 **New-AzureRmBackupVault** cmdlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -123,8 +124,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>네트워킹 서비스
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
@@ -151,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>파일 및 폴더 백업
 Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
@@ -607,7 +608,6 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

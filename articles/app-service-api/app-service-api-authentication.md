@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c644f67c985ef1de13286bc1ef8c2bb84a2939e3
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: df2b27fd7016294f14d2ad87325a2acf24c15d85
 
 
 ---
@@ -91,7 +91,7 @@ Azure App Service는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현�
 ## <a name="more-information"></a>자세한 정보
 Azure 앱 서비스에서 인증 및 권한 부여에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [앱 서비스 인증/권한 부여 확장](/blog/announcing-app-service-authentication-authorization/)
+* [앱 서비스 인증/권한 부여 확장](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 * [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
 
 OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은 다음 리소스를 참조하세요.
@@ -112,6 +112,6 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

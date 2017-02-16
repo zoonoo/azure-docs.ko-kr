@@ -1,10 +1,10 @@
 ---
-title: "단일 Azure AD 테넌트를 Office 365 및 Azure 구독 전체에서 공유 | Microsoft Docs"
+title: "Office 365 계정을 사용하여 Azure에 등록 | Microsoft Docs"
 description: "Office 365 Azure AD 테넌트 및 그 사용자를 Azure 구독과 공유하는 방법 및 그 반대로 공유하는 방법에 대해 알아봅니다."
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: bf9cf92a53bd2db9970c03463cb417310e78224e
-ms.openlocfilehash: edf236a3c9a28552b8c6831a8c7f57bab73c41ed
+ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
+ms.openlocfilehash: 85db551a80ce6995965aec642f08b3b87248d21b
 
 
 ---
@@ -50,16 +50,13 @@ ms.openlocfilehash: edf236a3c9a28552b8c6831a8c7f57bab73c41ed
 
 Azure에 등록하려면, 다음 단계를 수행하세요.
 
-1. [Azure.com](https://azure.microsoft.com/)에서 Azure에 등록합니다. **무료 평가판**을 클릭합니다. 다음 페이지에서 **지금 시작**을 클릭합니다.
+1. [Azure.com](https://azure.microsoft.com/)에서 Azure에 등록합니다. **무료 계정**을 클릭합니다. 다음 페이지에서 **무료 시작**을 클릭합니다.
 
     ![Azure를 무료로 사용해 봅니다.](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
-2. **조직 계정을 사용하여 로그인**을 클릭합니다.
-
-    ![Azure에 로그인합니다.](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
-3. Office 365 계정으로 로그인합니다. 이 경우에는 Kelley의 Office 365 계정입니다.
+2. Office 365 계정으로 로그인합니다. 이 경우에는 Kelley의 Office 365 계정입니다.
 
     ![Office 365 계정으로 로그인합니다.](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
-4. 정보를 입력하고 등록 절차를 완료합니다.
+3. 정보를 입력하고 등록 절차를 완료합니다.
 
     ![정보를 입력하고 등록을 완료합니다.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
 
@@ -81,7 +78,7 @@ Azure에 등록하려면, 다음 단계를 수행하세요.
 <a id="s2"></a>
 
 ### <a name="scenario-2-azure-users-who-plan-to-buy-office-365"></a>시나리오 2: Office 365를 구입하려는 Azure 사용자
-이 시나리오에서 Kelley Wall은 admin@contoso.onmicrosoft.com. Kelley는 Office 365를 구독하려고 하며, Azure에 이미 가지고 있는 디렉터리를 사용하고자 합니다.
+이 시나리오에서 Kelley Wall은 admin@contoso.onmicrosoft.com 계정으로 Azure 구독을 소유하는 사용자입니다. Kelley는 Office 365를 구독하려고 하며, Azure에 이미 가지고 있는 디렉터리를 사용하고자 합니다.
 
 > [!NOTE]
 > Office 365 구독을 확보하려면, 로그인에 사용한 계정이 Azure Active Directory 테넌트 내 전역 관리자 또는 대금 청구 관리자 디렉터리 역할의 구성원이어야 합니다. [Azure Active Directory의 역할을 파악하는 방법을 알아봅니다](#how-to-know-your-role-in-your-azure-active-directory).
@@ -158,6 +155,6 @@ Office 365 및 Azure는 Azure Active Directory 서비스를 사용하여 사용�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

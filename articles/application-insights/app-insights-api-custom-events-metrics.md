@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 460b9e3cf2b4c7a85895c2db872344a1a5bc0ff9
+ms.sourcegitcommit: d809bf7b5e271b8850dc0f2bc6dfd72e3ef8ad0a
+ms.openlocfilehash: 4f9b328968aca2c752b624941ec341a3a936aec3
 
 
 ---
@@ -46,7 +46,7 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
   * [ASP.NET 프로젝트][greenbrown]
   * [Java 프로젝트][java]
-  * [각 웹 페이지의 JavaScript][클라이언트]   
+  * [각 웹 페이지의 JavaScript][client]   
 * 장치 또는 웹 서버 코드에 다음을 포함합니다.
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -107,7 +107,7 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
 ![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
-그리드에서 이벤트 이름을 클릭하여.해당 이벤트의 개별 항목을 살펴봅니다.
+그리드에서 이벤트 이름을 클릭하여 해당 이벤트의 개별 항목을 살펴봅니다.
 
 ![이벤트를 드릴스루합니다.](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
@@ -157,7 +157,6 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
 
 ![새 차트를 추가하거나 차트를 선택하고, 사용자 지정 아래에서 메트릭을 선택합니다.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-[메트릭 수에 제한을 적용](#limits) 할 수 있습니다.
 
 ## <a name="page-views"></a>페이지 보기
 장치 또는 웹 페이지 앱에서 각 화면 또는 페이지가 로드되면 기본적으로 페이지 보기 원격 분석이 전송됩니다. 하지만 추가 시간에 또는 다른 시간에 페이지 보기를 추적하도록 변경할 수 있습니다. 예를 들어 탭 또는 블레이드를 표시하는 앱에서 사용자가 새 블레이드를 열 때마다 "페이지"를 추적할 수 있습니다.
@@ -301,7 +300,7 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 ## <a name="track-trace"></a>흔적 추적
 이 코드를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색][diagnostic]에서 검사합니다.
 
-[로그 어댑터][trace]이 API를 사용하여 포털에 타사 로그를 보냅니다.
+[로그 어댑터][trace]는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
 
 *C#*
 
@@ -341,7 +340,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
             }
 ```
 
-서버 SDK는 특정 종속성 호출(데이터베이스 및 REST API 등)을 검색하고 자동으로 추적하는 [종속성 모듈](app-insights-asp-net-dependencies.md) 을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 자동화된 추적에서 포착되지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
+서버 SDK는 특정 종속성 호출(데이터베이스 및 REST API 등)을 검색하고 자동으로 추적하는 [종속성 모듈](app-insights-asp-net-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 자동화된 추적에서 포착되지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
 
 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)를 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다.
 
@@ -493,7 +492,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 ![검색에 용어를 입력합니다.](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
-[검색 식에 대한 자세한 정보][diagnostic].
+[검색 식에 대해 자세히 알아보세요][diagnostic].
 
 #### <a name="alternative-way-to-set-properties-and-metrics"></a>속성 및 메트릭을 설정하는 또 다른 방법
 이벤트 매개 변수를 별도의 개체에 수집하는 방법이 더 편하다면 이 방법을 사용해도 됩니다.
@@ -621,7 +620,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 
 ## <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
-개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][만들기] 환경에 따라 키를 변경하세요.
+개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
 
 구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
@@ -684,7 +683,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 *데이터는 얼마 동안 보존되나요?*
 
-* [데이터 보존 및 개인 정보][데이터]를 참조하세요.
+* [데이터 보존 및 개인 정보][data]를 참조하세요.
 
 ## <a name="reference-docs"></a>참조 문서
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -718,10 +717,10 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 <!--Link references-->
 
-[클라이언트]: app-insights-javascript.md
+[client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[만들기]: app-insights-create-new-resource.md
-[데이터]: app-insights-data-retention-privacy.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
@@ -732,6 +731,6 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -11,14 +11,14 @@ keywords: "컨테이너, DC/OS, Azure"
 ms.assetid: 91d9a28a-3a52-4194-879e-30f2fa3d946b
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6df2b6ee0064a2baa79a154641f097b11cb55059
+ms.sourcegitcommit: 5da28eecf2df764f71906897450ebe67b3048b3f
+ms.openlocfilehash: d57212a8c858c4fb53cc619a578b59da92176bb2
 
 
 ---
@@ -54,9 +54,10 @@ Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모�
 
 일단 패키지를 설치하면 Sysdig UI로 이동하고 클러스터 내에서 컨테이너에 대한 여러 가지 사용 메트릭에 대해 알아볼 수 있습니다. 
 
+[새 대시보드 마법사](https://app.sysdigcloud.com/#/dashboards/new)를 통해 Mesos 및 Marathon 지정 대시보드를 설치할 수도 있습니다.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

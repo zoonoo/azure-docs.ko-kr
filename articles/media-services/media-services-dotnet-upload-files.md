@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
+ms.sourcegitcommit: 9dedba5f1126d7d23fab3ebeb98559316a6a5a10
+ms.openlocfilehash: be2e295dfeb979737013ebe23d48b4476ef3d6e2
 
 
 ---
@@ -33,11 +33,12 @@ ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
 자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
 > [!NOTE]
-> 자산 파일 이름을 선택할 경우 다음과 같은 고려 사항이 적용됩니다.
+> 고려 사항은 다음과 같습니다.
 > 
-> * Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 [퍼센트 인코딩 예약(percent-encoding-reserved) 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), 즉 !*'();:@&=+$,/?%#[]".를 사용할 수 없습니다.
+> * Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 > * 이름 길이는 260자보다 클 수 없습니다.
-> 
+> * Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 항목을 참조하세요.
+>
 > 
 
 자산을 만들 때 다음 암호화 옵션을 지정할 수 있습니다. 
@@ -312,6 +313,6 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

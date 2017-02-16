@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a5154bace333ee89fa40b7a02e2d0020a55dfa6
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: e65a655bc9e85b4797d795c9be6ded9ef253ed86
 
 
 ---
@@ -50,7 +50,7 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 이 문서에서는 웹 기반 응용 프로그램의 보안 고려 사항을 모두 다루지는 않습니다. 응용 프로그램 보안 유지를 위한 기본적인 추가 지침을 보려면 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)(영문)에서 OWASP 구성원이 결정하는 최신 상위 10가지 중대 웹 응용 프로그램 보안 결함을 나열하는 [상위 10대 프로젝트](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)를 참조하세요.
 
 ## <a name="perform-penetration-testing-on-your-app"></a>앱에 대한 침투 테스트 수행
-앱 서비스 앱에서 취약점 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) 을 사용하여 앱에서 한 번의 클릭으로 취약점 검사를 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
+앱 서비스 앱에서 취약점 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) 을 사용하여 앱에서 한 번의 클릭으로 취약점 검사를 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
 
 사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://security-forms.azure.com/penetration-testing/terms) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
 
@@ -120,6 +120,6 @@ Azure 플랫폼 보안에 대한 자세한 내용, **보안 인시던트 또는 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

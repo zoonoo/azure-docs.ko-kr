@@ -1,5 +1,5 @@
 ---
-title: "네트워킹 인프라 지침 | Microsoft Docs"
+title: "Azure 네트워킹 인프라 지침 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 가상 네트워킹을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 5db3100d94af1461d538eb1bb9b16b7bf387517a
 
 
 ---
-# <a name="networking-infrastructure-guidelines"></a>네트워킹 인프라 지침
+# <a name="azure-networking-infrastructure-guidelines"></a>Azure 네트워킹 인프라 지침
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 Azure 내의 가상 네트워킹 및 기존 온-프레미스 환경 간 연결에 필요한 계획 단계를 집중적으로 살펴봅니다.
@@ -106,6 +106,6 @@ ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39ac484419371344452dbe9042791b85d36618e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
 
 
 ---
@@ -214,7 +214,7 @@ RightScale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-rightscale-test-user"></a>RightScale 테스트 사용자 만들기
 이 섹션에서는 RightScale에서 Britta Simon이라는 사용자를 만듭니다. support@rightscale.com 을 통해 RightScale 지원 팀과 함께 작업하여 RightScale 플랫폼에서 사용자를 추가하세요.
@@ -268,6 +268,6 @@ RightScale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

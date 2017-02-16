@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e11be2489d8c0585e386669f34012964e57978d7
 
 
 ---
@@ -871,15 +871,15 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
-* [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
+* [**문제 해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Nov16_HO3-->
 
 

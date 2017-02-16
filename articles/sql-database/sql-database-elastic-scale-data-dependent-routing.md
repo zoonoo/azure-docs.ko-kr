@@ -1,6 +1,6 @@
 ---
-title: "데이터 종속 라우팅 | Microsoft Docs"
-description: "Azure SQL 데이터베이스의 탄력적 데이터베이스 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용하는 방법"
+title: "Azure SQL Database를 사용한 데이터 종속 라우팅 | Microsoft Docs"
+description: "Azure SQL Database의 분할된 데이터베이스 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용하는 방법"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
+ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
+ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
 
 
 ---
@@ -90,7 +90,7 @@ ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
 
 일시적인 오류 처리는 데이터 종속 라우팅 패턴과 함께 자연스럽게 사용할 수 있습니다. 주요 요구 사항은 데이터 종속 라우팅 연결을 가져온 **using** 블록을 포함하여 전체 데이터 액세스 요청을 다시 시도하는 것입니다. 위의 예제를 다음과 같이 다시 작성할 수 있습니다(강조 표시된 변경 참조). 
 
-### <a name="example-data-dependent-routing-with-transient-fault-handling"></a>예제 - 일시적인 오류 처리를 사용하는 데이터 종속 라우팅
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>예제 - 일시적인 오류 처리를 사용하는 데이터 종속 라우팅
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
@@ -130,6 +130,6 @@ int newPersonId = 4321;
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

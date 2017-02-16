@@ -1,6 +1,6 @@
 ---
-title: "Azure Content Delivery Network 규칙 엔진 참조 | Microsoft Docs"
-description: "이 항목에서는 규칙 엔진 일치 조건 및 기능에 대해 설명합니다."
+title: "Azure CDN 규칙 엔진 참조 | Microsoft Docs"
+description: "Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서"
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 61a544f177ab820f1b13ca2bcd4afe623af597af
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
 
 
 ---
-# <a name="azure-content-delivery-network-rules-engine"></a>Azure Content Delivery Network 규칙 엔진
+# <a name="azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진
 이 항목에서는 Azure CDN(콘텐츠 배달 네트워크) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건 및 기능에 대해 자세히 설명합니다.
 
 HTTP 규칙 엔진은 특정 유형의 요청이 CDN에서 처리되는 방식을 최종적으로 결정하는 역할을 합니다.
@@ -69,7 +69,7 @@ HTTP 규칙 엔진은 특정 유형의 요청이 CDN에서 처리되는 방식�
 ------------------|------------
 \ | 백슬래시는 다음에 나오는 문자를 이스케이프합니다. 그러면 해당 문자가 정규식 의미를 갖지 않고 리터럴 값으로 처리됩니다. 예를 들어 다음 구문은 별표를 이스케이프합니다.`\*`
 % | 백분율 기호의 의미는 사용법에 따라 달라집니다.<br/><br/> `%{HTTPVariable}`: 이 구문은 HTTP 변수를 식별합니다.<br/>`%{HTTPVariable%Pattern}`: 이 구문은 백분율 기호를 사용하여 HTTP 변수를 식별하고 구분 기호로 지정합니다.<br />`\%`: 백분율 기호를 이스케이프하면 리터럴 값으로 사용되거나 URL 인코딩을 나타낼 수 있습니다(예: `\%20`).
-* | 별표를 사용하면 앞에 오는 문자의 일치 여부가 0번 이상 확인될 수 있습니다. 
+* | 별표를 사용하면 앞에 오는 문자의 일치 여부가&0;번 이상 확인될 수 있습니다. 
 공백 | 공백 문자는 일반적으로 리터럴 문자로 취급됩니다. 
 'value' | 작은따옴표는 리터럴 문자로 처리됩니다. 작은따옴표 쌍은 특별한 의미가 없습니다.
 
@@ -83,6 +83,6 @@ HTTP 규칙 엔진은 특정 유형의 요청이 CDN에서 처리되는 방식�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

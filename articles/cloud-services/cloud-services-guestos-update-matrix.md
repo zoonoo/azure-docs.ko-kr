@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/01/2016
+ms.date: 1/17/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46a27d34778b20ba23f406e58189f623e70a5941
+ms.sourcegitcommit: 6eb3e6a270b0072f86e42139b36bffed52520f6c
+ms.openlocfilehash: 7628eb73068cb52d768901a5fab40ef221d64fc1
 
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
-클라우드 서비스용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [자동][자동]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
+클라우드 서비스용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
 
 > [!IMPORTANT]
 > 이 페이지는 게스트 OS를 기반으로 실행하는 클라우드 서비스 웹 및 작업자 역할에 적용됩니다. IaaS 가상 컴퓨터에 **적용되지 않습니다** . 
@@ -38,6 +38,15 @@ ms.openlocfilehash: 46a27d34778b20ba23f406e58189f623e70a5941
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+###### <a name="january-10-2017"></a>**2017년 1월 10일**
+1월 게스트 OS에는 OS 제품군 2(Windows 2008 Server R2)에만 영향을 미치는 패치가 포함되어 있습니다. 따라서 이번 달에는 OS 제품군 2 이미지(WA-GUEST-OS-2.59_201701-01)만 릴리스했습니다. 모든 다른 OS 제품군의 경우&12;월 OS(201612-01)는 최신 상태를 유지합니다.
+
+###### <a name="december-14-2016"></a>**2016년 12월 14일**
+게스트 OS 12월 롤아웃은 2016년 12월 14일에 시작되며 2017년 1월 13일에 출시될 예정입니다.
+
+###### <a name="november-20-2016"></a>**2016년 11월 20일**
+게스트 OS 11월 롤아웃은 2016년 11월 8일에 시작되며 2016년 12월 8일에 출시될 예정입니다.
+
 ###### <a name="october-23-2016"></a>**2016년 10월 23일**
 Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 4.6을 지원합니다.
 
@@ -78,13 +87,16 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2 지원
 
 > [!NOTE]
-> *가 표시된 날짜는 변경될 수 있음
+> 별표(*)가 표시된 날짜는 변경될 수 있음 
 > 
-> 
+> OS 제품군 5의 RDP 암호는 10자 이상이어야 합니다.
+>
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.2_201610-02 |2016년 11월 1일 |2017년 1월 30일 |TBD |
+| WA-GUEST-OS-5.4_201612-01 |2017년 1월 10일 |Post 5.6 |TBD | 
+| WA-GUEST-OS-5.3_201611-01 |2016년 12월 14일 |Post 5.5 |TBD |
+| WA-GUEST-OS-5.2_201610-02 |2016년 11월 1일 |Post 5.4 |TBD |
 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
@@ -98,9 +110,12 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.36_201609-01 |2016년 10월 13일 |Post 4.38 |TBD |
-| WA-GUEST-OS-4.35_201608-01 |2016년 9월 13일 |Post 4.37 |TBD |
-| WA-GUEST-OS-4.34_201607-01 |2016년 8월 8일 |4.36 후 |TBD |
+| WA-GUEST-OS-4.39_201612-01 |2017년 1월 10일 |Post 4.41 |TBD |
+| WA-GUEST-OS-4.38_201611-01 |2016년 12월 14일 |Post 4.40 |TBD |
+| WA-GUEST-OS-4.37_201610-02 |2016년 11월 16일 |Post 4.39 |TBD |
+| WA-GUEST-OS-4.36_201609-01 |2016년 10월 13일 |2017년 1월 14일 |TBD |
+| WA-GUEST-OS-4.35_201608-01 |2016년 9월 13일 |2016년 12월 16일 |TBD |
+| WA-GUEST-OS-4.34_201607-01 |2016년 8월 8일 |2016년 11월 13일 |TBD |
 | WA-GUEST-OS-4.33_201606-01 |2016년 7월 13일 |2016년 10월 13일 |TBD |
 | WA-GUEST-OS-4.32_201605-01 |2016년 6월 10일 |2016년 9월 8일 |TBD |
 | WA-GUEST-OS-4.31_201604-01 |2016년 5월 2일 |2016년 8월 13일 |TBD |
@@ -130,9 +145,12 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.43_201609-01 |2016년 10월 13일 |Post 3.45 |TBD |
-| WA-GUEST-OS-3.42_201608-01 |2016년 9월 13일 |Post 3.44 |TBD |
-| WA-GUEST-OS-3.41_201607-01 |2016년 8월 8일 |3.43 후 |TBD |
+| WA-GUEST-OS-3.46_201612-01 |2017년 1월 10일 |Post 3.48 |TBD |
+| WA-GUEST-OS-3.45_201611-01 |2016년 12월 14일 |Post 3.47 |TBD |
+| WA-GUEST-OS-3.44_201610-01 |2016년 11월 16일 |Post 3.46 |TBD |
+| WA-GUEST-OS-3.43_201609-01 |2016년 10월 13일 |2017년 1월 14일 |TBD |
+| WA-GUEST-OS-3.42_201608-01 |2016년 9월 13일 |2016년 12월 16일 |TBD |
+| WA-GUEST-OS-3.41_201607-01 |2016년 8월 8일 |2016년 11월 13일 |TBD |
 | WA-GUEST-OS-3.40_201606-01 |2016년 7월 13일 |2016년 10월 13일 |TBD |
 | WA-GUEST-OS-3.39_201605-01 |2016년 6월 10일 |2016년 9월 8일 |TBD |
 | WA-GUEST-OS-3.38_201604-01 |2016년 5월 2일 |2016년 8월 13일 |TBD |
@@ -162,9 +180,13 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.55_201609-01 |2016년 10월 13일 |Post 2.57 |TBD |
-| WA-GUEST-OS-2.54_201608-01 |2016년 9월 13일 |Post 2.56 |TBD |
-| WA-GUEST-OS-2.53_201607-01 |2016년 8월 8일 |2.55 후 |TBD |
+| WA-GUEST-OS-2.59_201701-01 |2017년 1월 10일 |Post 2.61 |TBD |
+| WA-GUEST-OS-2.58_201612-01 |2017년 1월 10일 |Post 2.60 |TBD |
+| WA-GUEST-OS-2.57_201611-01 |2016년 12월 14일 |Post 2.59 |TBD |
+| WA-GUEST-OS-2.56_201610-01 |2016년 11월 16일 |2017년 2월 10일 |TBD |
+| WA-GUEST-OS-2.55_201609-01 |2016년 10월 13일 |2017년 1월 14일 |TBD |
+| WA-GUEST-OS-2.54_201608-01 |2016년 9월 13일 |2016년 12월 16일 |TBD |
+| WA-GUEST-OS-2.53_201607-01 |2016년 8월 8일 |2016년 11월 13일 |TBD |
 | WA-GUEST-OS-2.52_201606-01 |2016년 7월 13일 |2016년 10월 13일 |TBD |
 | WA-GUEST-OS-2.51_201605-01 |2016년 6월 10일 |2016년 9월 8일 |TBD |
 | WA-GUEST-OS-2.50_201604-01 |2016년 5월 2일 |2016년 8월 13일 |TBD |
@@ -211,9 +233,9 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 * **게스트 OS 버전**  
   새 게스트 OS 버전이 생성되는 날짜에 사용 가능한 게스트 OS 제품군 이미지 및 관련 MSRC([Microsoft 보안 대응 센터)][msrc] 패치로 한정됩니다. 일부 패치는 포함될 수 있습니다. 
   
-    0에서 시작하고 새 업데이트 집합이 추가 될 때마다 1씩 증가하는 숫자입니다. 중요한 경우.후행 0만 표시됩니다. 즉, 버전 2.10은 다르며, 버전 2.1 버전보다 더 한참 후의 버전입니다.
+    0에서 시작하고 새 업데이트 집합이 추가 될 때마다 1씩 증가하는 숫자입니다. 중요한 경우.후행&0;만 표시됩니다. 즉, 버전 2.10은 다르며, 버전 2.1 버전보다 더 한참 후의 버전입니다.
 * **게스트 OS 릴리스**  
-   게스트 OS 버전의 릴리스입니다. 필요한 변경 내용을 테스트하는 동안 Microsoft가 문제를 발견하는 경우에 릴리스가 발생합니다. 최신 릴리스는 항상 이전의 모든 릴리스를 공개이든 또는 비공개이든 대체합니다. Azure 클래식 포털에서 사용자는 지정된 버전에 대한 최신 릴리스를 선택할 수만 있습니다. 이전 릴리스에서 실행 중인 배포는 일반적으로 버그의 심각도 따라 강제 업그레이드되지 않습니다. 
+  게스트 OS 버전의 릴리스입니다. 필요한 변경 내용을 테스트하는 동안 Microsoft가 문제를 발견하는 경우에 릴리스가 발생합니다. 최신 릴리스는 항상 이전의 모든 릴리스를 공개이든 또는 비공개이든 대체합니다. Azure 클래식 포털에서 사용자는 지정된 버전에 대한 최신 릴리스를 선택할 수만 있습니다. 이전 릴리스에서 실행 중인 배포는 일반적으로 버그의 심각도 따라 강제 업그레이드되지 않습니다. 
 
 아래 예제에서 2는 제품군이며, 12는 버전이고 "rel2"는 릴리스입니다.
 
@@ -232,16 +254,16 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 
 게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대한 포인터 및 시작에 관한 중요 정보 처리는 [OS 업그레이드로 인한 역할 인스턴스 다시 시작][restarts]이라는 MSDN 블로그 게시물을 참조하세요.
 
-게스트 OS를 수동으로 업데이트하는 경우 [게스트 OS 사용 중지 정책][retirepolicy]을.읽으세요.
+게스트 OS를 수동으로 업데이트하는 경우 [게스트 OS 사용 중지 정책][retirepolicy]을 읽으세요.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[클라우드 서비스 역할에 .NET 설치]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[자동]: cloud-services-how-to-configure.md
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[Microsoft 보안 권고 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
 [MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
 [MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
@@ -260,6 +282,6 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
+ms.sourcegitcommit: 244cc5e4f053901a8de94adb8fc983edf30ca516
+ms.openlocfilehash: 46b3ade8bb58ccd0637ce4f2cf5c484f599e6173
 
 
 ---
@@ -75,7 +75,7 @@ OpsGenie는 Azure가 생성한 경고의 디스패처 역할을 합니다. OpsGe
 [설명서로 이동합니다.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-선두적인 사건 관리 솔루션인 PagerDuty는 Azure Alerts의 메트릭에 대해 최고 수준의 지원을 제공합니다. 현재 PagerDuty는 Azure Applications Azure Monitor 경고, 자동 크기 조정 알림 및 감사 로그 이벤트에 대한 알림과, Azure 서비스에 대한 플랫폼 수준 메트릭에 대한 알림을 지원합니다. 이렇게 향상된 기능을 통해 사용자는 더 많은 핵심 Azure 플랫폼 정보를 파악하는 동시에 PagerDuty의 사건 관리 기능을 완벽하게 활용하여 실시간으로 대처할 수 있습니다. 확장된 Azure 통합은 Webhook를 통해 구현되어 더 빠르고 간편한 설정과 사용자 지정이 가능합니다.
+선두적인 사건 관리 솔루션인 PagerDuty는 Azure Alerts의 메트릭에 대해 최고 수준의 지원을 제공합니다. 현재 PagerDuty는 Azure Monitor 경고, 자동 규모 조정 알림 및 감사 로그 이벤트에 대한 알림과, Azure 서비스에 대한 플랫폼 수준 메트릭에 대한 알림을 지원합니다. 이렇게 향상된 기능을 통해 사용자는 더 많은 핵심 Azure 플랫폼 정보를 파악하는 동시에 PagerDuty의 사건 관리 기능을 완벽하게 활용하여 실시간으로 대처할 수 있습니다. 확장된 Azure 통합은 Webhook를 통해 구현되어 더 빠르고 간편한 설정과 사용자 지정이 가능합니다.
 
 [설명서로 이동합니다.][pagerduty-doc]
 
@@ -90,7 +90,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [자세히 알아봅니다][sumologic-doc].
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../resource-group-audit.md)
+* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../azure-resource-manager/resource-group-audit.md)
 * [Azure 활동 로그를 이벤트 허브로 스트림](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
@@ -137,6 +137,6 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

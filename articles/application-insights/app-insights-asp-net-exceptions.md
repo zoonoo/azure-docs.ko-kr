@@ -1,5 +1,5 @@
 ---
-title: "Application Insights를 사용하여 ASP.NET 앱의 실패 및 예외 진단 | Microsoft Docs"
+title: "Application Insights를 사용하여 웹앱의 실패 및 예외 진단 | Microsoft Docs"
 description: "요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 2dbbe59f71500c31de8568de4e92cc41131d0970
 
 
 ---
@@ -445,6 +445,6 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

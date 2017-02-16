@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
+ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
+ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
 
 
 ---
@@ -87,99 +87,106 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 2. 클래스 이름으로 `Team` 을 입력하고 **추가**를 클릭합니다.
    
     ![모델 클래스 추가][cache-model-add-class-dialog]
-3. `Team.cs` 파일의 맨 위에 있는 `using` 문을 다음과 같은 using 문으로 바꿉니다.
+3. `Team.cs` 파일의 위쪽에 있는 `using` 문을 다음 `using` 문으로 바꿉니다.
 
-        using System;
-        using System.Collections.Generic;
-        using System.Data.Entity;
-        using System.Data.Entity.SqlServer;
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.SqlServer;
+    ```
 
 
 1. `Team` 클래스의 정의를 업데이트된 `Team` 클래스 정의뿐만 아니라 몇몇 다른 Entity Framework 도우미 클래스도 포함하고 있는 다음 코드 조각으로 바꿉니다. 이 자습서에 사용되는 Entity Framework에 대한 Code First 접근방식에 대한 자세한 내용은 [새 데이터베이스에 대한 Code First](https://msdn.microsoft.com/data/jj193542)를 참조하세요.
 
-        public class Team
+    ```c#
+    public class Team
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Wins { get; set; }
+        public int Losses { get; set; }
+        public int Ties { get; set; }
+    
+        static public void PlayGames(IEnumerable<Team> teams)
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public int Wins { get; set; }
-            public int Losses { get; set; }
-            public int Ties { get; set; }
-
-            static public void PlayGames(IEnumerable<Team> teams)
+            // Simple random generation of statistics.
+            Random r = new Random();
+    
+            foreach (var t in teams)
             {
-                // Simple random generation of statistics.
-                Random r = new Random();
-
-                foreach (var t in teams)
-                {
-                    t.Wins = r.Next(33);
-                    t.Losses = r.Next(33);
-                    t.Ties = r.Next(0, 5);
-                }
+                t.Wins = r.Next(33);
+                t.Losses = r.Next(33);
+                t.Ties = r.Next(0, 5);
             }
         }
-
-        public class TeamContext : DbContext
+    }
+    
+    public class TeamContext : DbContext
+    {
+        public TeamContext()
+            : base("TeamContext")
         {
-            public TeamContext()
-                : base("TeamContext")
-            {
-            }
-
-            public DbSet<Team> Teams { get; set; }
         }
-
-        public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    
+        public DbSet<Team> Teams { get; set; }
+    }
+    
+    public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    {
+        protected override void Seed(TeamContext context)
         {
-            protected override void Seed(TeamContext context)
+            var teams = new List<Team>
             {
-                var teams = new List<Team>
-                {
-                    new Team{Name="Adventure Works Cycles"},
-                    new Team{Name="Alpine Ski House"},
-                    new Team{Name="Blue Yonder Airlines"},
-                    new Team{Name="Coho Vineyard"},
-                    new Team{Name="Contoso, Ltd."},
-                    new Team{Name="Fabrikam, Inc."},
-                    new Team{Name="Lucerne Publishing"},
-                    new Team{Name="Northwind Traders"},
-                    new Team{Name="Consolidated Messenger"},
-                    new Team{Name="Fourth Coffee"},
-                    new Team{Name="Graphic Design Institute"},
-                    new Team{Name="Nod Publishers"}
-                };
-
-                Team.PlayGames(teams);
-
-                teams.ForEach(t => context.Teams.Add(t));
-                context.SaveChanges();
-            }
+                new Team{Name="Adventure Works Cycles"},
+                new Team{Name="Alpine Ski House"},
+                new Team{Name="Blue Yonder Airlines"},
+                new Team{Name="Coho Vineyard"},
+                new Team{Name="Contoso, Ltd."},
+                new Team{Name="Fabrikam, Inc."},
+                new Team{Name="Lucerne Publishing"},
+                new Team{Name="Northwind Traders"},
+                new Team{Name="Consolidated Messenger"},
+                new Team{Name="Fourth Coffee"},
+                new Team{Name="Graphic Design Institute"},
+                new Team{Name="Nod Publishers"}
+            };
+    
+            Team.PlayGames(teams);
+    
+            teams.ForEach(t => context.Teams.Add(t));
+            context.SaveChanges();
         }
-
-        public class TeamConfiguration : DbConfiguration
+    }
+    
+    public class TeamConfiguration : DbConfiguration
+    {
+        public TeamConfiguration()
         {
-            public TeamConfiguration()
-            {
-                SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
-            }
+            SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
         }
+    }
+    ```
 
 
 1. **솔루션 탐색기**에서 **web.config**를 두 번 클릭하여 엽니다.
    
     ![Web.config][cache-web-config]
 2. 다음 연결 문자열을 `connectionStrings` 섹션에 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
-   
-       <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+
+    ```xml   
+    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+    ```
 
     이 문자열을 추가한 후 `connectionStrings` 섹션은 다음 예제와 같아야 합니다.
 
-
-        <connectionStrings>
-            <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-                providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
-        </connectionStrings>
+    ```xml
+    <connectionStrings>
+        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    ```
 
 ### <a name="add-the-controller"></a>컨트롤러 추가
 1. **F6** 을 눌러 프로젝트를 빌드합니다. 
@@ -195,15 +202,19 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 5. **솔루션 탐색기**에서 **Global.asax**를 확장하고 **Global.asax.cs**를 두 번 클릭하여 엽니다.
    
     ![Global.asax.cs][cache-global-asax]
-6. 파일의 맨 위에 있는 다음 Using 문 두 개를 다른 Using 문 아래에 추가합니다.
+6. 파일의 위쪽에 있는 다음 두 `using` 문을 다른 `using` 문 아래에 추가합니다.
 
-        using System.Data.Entity;
-        using ContosoTeamStats.Models;
+    ```c#
+    using System.Data.Entity;
+    using ContosoTeamStats.Models;
+    ```
 
 
 1. 다음 코드 줄을 `Application_Start` 메서드의 끝에 추가합니다.
 
-        Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```c#
+    Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```
 
 
 1. **솔루션 탐색기**에서 `App_Start`를 확장하고 `RouteConfig.cs`를 두 번 클릭합니다.
@@ -211,11 +222,13 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. 다음 예제와 같이 `RegisterRoutes` 메서드의 다음 코드에 있는 `controller = "Home"`을 `controller = "Teams"`로 바꿉니다.
 
-        routes.MapRoute(
-            name: "Default",
-            url: "{controller}/{action}/{id}",
-            defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
-        );
+    ```c#
+    routes.MapRoute(
+        name: "Default",
+        url: "{controller}/{action}/{id}",
+        defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
+    );
+```
 
 
 ### <a name="configure-the-views"></a>보기 구성
@@ -224,7 +237,9 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![_Layout.cshtml][cache-layout-cshtml]
 2. 다음 예제와 같이 `title` 요소의 내용을 변경하고 `My ASP.NET Application`을 `Contoso Team Stats`로 바꿉니다.
 
-        <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```html
+    <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```
 
 
 1. `body` 섹션에서 첫 번째 `Html.ActionLink` 문을 업데이트하고 `Application name`을 `Contoso Team Stats`로 바꾸고 `Home`을 `Teams`로 바꿉니다.
@@ -257,33 +272,41 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 3. **솔루션 탐색기**에서 **컨트롤러** 폴더를 확장하고 **TeamsController.cs**를 두 번 클릭하여 엽니다.
    
     ![팀 컨트롤러][cache-teamscontroller]
-4. **TeamsController.cs**에 다음 두 Using 문을 추가합니다.
-   
-        using System.Configuration;
-        using StackExchange.Redis;
+4. **TeamsController.cs**에 다음 두 `using` 문을 추가합니다.
+
+    ```c#   
+    using System.Configuration;
+    using StackExchange.Redis;
+    ```
+
 5. `TeamsController` 클래스에 다음 두 속성을 추가합니다.
-   
-        // Redis Connection string info
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+
+    ```c#   
+    // Redis Connection string info
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
-   
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
+    }
+    ```
+
 6. 컴퓨터에 `WebAppPlusCacheAppSecrets.config` 라는 파일을 만들고 이 파일을 다른 위치에서 체크인하기로 결정한 경우 샘플 응용 프로그램의 소스 코드에서 체크인하지 않을 위치에 배치합니다. 이 예제에서 `AppSettingsSecrets.config` 파일은 `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`에 위치합니다.
    
     `WebAppPlusCacheAppSecrets.config` 파일을 편집하여 다음 내용을 추가합니다. 응용 프로그램을 로컬로 실행하는 경우 이 정보는 Azure Redis Cache 인스턴스를 연결하는 데 사용됩니다. 이 자습서의 뒷부분에서는 Azure Redis Cache 인스턴스를 프로비전하고 캐시 이름 및 암호를 업데이트합니다. 샘플 응용 프로그램을 로컬로 실행할 계획이 아닌 경우, Azure에 배포할 때 응용 프로그램이 이 파일이 아닌 웹앱에 대한 앱 설정에서 캐시 연결 정보를 검색하므로 이 파일 만들기 및 해당 파일을 참조하는 이후 단계를 건너뛸 수 있습니다. `WebAppPlusCacheAppSecrets.config` 는 응용 프로그램과 함께Azure에 배포되지 않으므로 응용 프로그램을 로컬로 실행하려는 경우가 아니면 필요하지 않습니다.
 
-        <appSettings>
-          <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
-        </appSettings>
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+    </appSettings>
+    ```
 
 
 1. **솔루션 탐색기**에서 **web.config**를 두 번 클릭하여 엽니다.
@@ -294,7 +317,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
    * 이전: `<appSettings>`
    * 이후: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
      
-     ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 `WebAppPlusCacheAppSecrests.config` 파일은 배포되지 않습니다(즉, 원하는 상태임). Azure에서 이러한 암호를 지정하는 여러 가지 방법이 있으며 이 자습서에서는 이후 단계에서 [Azure 리소스를 프로비전](#provision-the-azure-resources) 할 때 암호가 자동으로 구성됩니다. Azure에서 암호로 작업에 대한 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
+   ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 `WebAppPlusCacheAppSecrests.config` 파일은 배포되지 않습니다(즉, 원하는 상태임). Azure에서 이러한 암호를 지정하는 여러 가지 방법이 있으며 이 자습서에서는 이후 단계에서 [Azure 리소스를 프로비전](#provision-the-azure-resources) 할 때 암호가 자동으로 구성됩니다. Azure에서 암호로 작업에 대한 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>캐시 또는 데이터베이스에서 결과를 반환하도록 TeamsController 클래스 업데이트
 이 샘플에서는 데이터베이스 또는 캐시에서 팀 통계를 검색할 수 있습니다. 팀 통계는 직렬화된 `List<Team>`으로 캐시에 저장되며 Redis 데이터 유형을 사용하여 정렬된 집합으로도 저장됩니다. 정렬된 집합에서 항목을 검색하는 경우 일부 또는 모두 검색하거나 특정 항목을 쿼리할 수 있습니다. 이 샘플에서는 정렬된 집합에서 승리 횟수 순으로 상위 5개 팀을 쿼리합니다.
@@ -304,282 +327,299 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 > 
 > 
 
-1. 다음 Using 문을 다른 Using 문과 함께 맨 위의 `TeamsController.cs` 파일에 추가합니다.
-   
-        using System.Diagnostics;
-        using Newtonsoft.Json;
-2. 현재 `public ActionResult Index()` 메서드를 다음 구현으로 바꿉니다.
+1. 다음 `using` 문을 다른 `using` 문과 함께 위쪽의 `TeamsController.cs` 파일에 추가합니다.
 
-        // GET: Teams
-        public ActionResult Index(string actionType, string resultType)
+    ```c#   
+    using System.Diagnostics;
+    using Newtonsoft.Json;
+    ```
+
+2. 현재 `public ActionResult Index()` 메서드 구현을 다음 구현으로 바꿉니다.
+
+    ```c#
+    // GET: Teams
+    public ActionResult Index(string actionType, string resultType)
+    {
+        List<Team> teams = null;
+
+        switch(actionType)
         {
-            List<Team> teams = null;
+            case "playGames": // Play a new season of games.
+                PlayGames();
+                break;
 
-            switch(actionType)
-            {
-                case "playGames": // Play a new season of games.
-                    PlayGames();
-                    break;
+            case "clearCache": // Clear the results from the cache.
+                ClearCachedTeams();
+                break;
 
-                case "clearCache": // Clear the results from the cache.
-                    ClearCachedTeams();
-                    break;
-
-                case "rebuildDB": // Rebuild the database with sample data.
-                    RebuildDB();
-                    break;
-            }
-
-            // Measure the time it takes to retrieve the results.
-            Stopwatch sw = Stopwatch.StartNew();
-
-            switch(resultType)
-            {
-                case "teamsSortedSet": // Retrieve teams from sorted set.
-                    teams = GetFromSortedSet();
-                    break;
-
-                case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
-                    teams = GetFromSortedSetTop5();
-                    break;
-
-                case "teamsList": // Retrieve teams from the cached List<Team>.
-                    teams = GetFromList();
-                    break;
-
-                case "fromDB": // Retrieve results from the database.
-                default:
-                    teams = GetFromDB();
-                    break;
-            }
-
-            sw.Stop();
-            double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
-
-            // Add the elapsed time of the operation to the ViewBag.msg.
-            ViewBag.msg += " MS: " + ms.ToString();
-
-            return View(teams);
+            case "rebuildDB": // Rebuild the database with sample data.
+                RebuildDB();
+                break;
         }
+
+        // Measure the time it takes to retrieve the results.
+        Stopwatch sw = Stopwatch.StartNew();
+
+        switch(resultType)
+        {
+            case "teamsSortedSet": // Retrieve teams from sorted set.
+                teams = GetFromSortedSet();
+                break;
+
+            case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
+                teams = GetFromSortedSetTop5();
+                break;
+
+            case "teamsList": // Retrieve teams from the cached List<Team>.
+                teams = GetFromList();
+                break;
+
+            case "fromDB": // Retrieve results from the database.
+            default:
+                teams = GetFromDB();
+                break;
+        }
+
+        sw.Stop();
+        double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
+
+        // Add the elapsed time of the operation to the ViewBag.msg.
+        ViewBag.msg += " MS: " + ms.ToString();
+
+        return View(teams);
+    }
+    ```
 
 
 1. 이전 코드 조각에 추가된 switch 문에서 `playGames`, `clearCache` 및 `rebuildDB` 작업을 구현하기 위해 다음 세 가지 메서드를 `TeamsController` 클래스에 추가합니다.
    
     `PlayGames` 메서드는 게임 시즌을 시뮬레이션하여 팀 통계를 업데이트하고 결과를 데이터베이스에 저장하고 이제 만료된 데이터를 캐시에서 지웁니다.
 
-        void PlayGames()
-        {
-            ViewBag.msg += "Updating team statistics. ";
-            // Play a "season" of games.
-            var teams = from t in db.Teams
-                        select t;
+    ```c#
+    void PlayGames()
+    {
+        ViewBag.msg += "Updating team statistics. ";
+        // Play a "season" of games.
+        var teams = from t in db.Teams
+                    select t;
 
-            Team.PlayGames(teams);
+        Team.PlayGames(teams);
 
-            db.SaveChanges();
+        db.SaveChanges();
 
-            // Clear any cached results
-            ClearCachedTeams();
-        }
-
+        // Clear any cached results
+        ClearCachedTeams();
+    }
+    ```
 
     `RebuildDB` 메서드는 데이터베이스를 기본 팀 집합으로 다시 초기화하고 그에 대한 통계를 생성하고 이제 만료된 데이터를 캐시에서 지웁니다.
 
-        void RebuildDB()
-        {
-            ViewBag.msg += "Rebuilding DB. ";
-            // Delete and re-initialize the database with sample data.
-            db.Database.Delete();
-            db.Database.Initialize(true);
+    ```c#
+    void RebuildDB()
+    {
+        ViewBag.msg += "Rebuilding DB. ";
+        // Delete and re-initialize the database with sample data.
+        db.Database.Delete();
+        db.Database.Initialize(true);
 
-            // Clear any cached results
-            ClearCachedTeams();
-        }
-
+        // Clear any cached results
+        ClearCachedTeams();
+    }
+    ```
 
     `ClearCachedTeams` 메서드는 캐시된 모든 팀 통계를 캐시에서 제거합니다.
 
-
-        void ClearCachedTeams()
-        {
-            IDatabase cache = Connection.GetDatabase();
-            cache.KeyDelete("teamsList");
-            cache.KeyDelete("teamsSortedSet");
-            ViewBag.msg += "Team data removed from cache. ";
-        } 
+    ```c#
+    void ClearCachedTeams()
+    {
+        IDatabase cache = Connection.GetDatabase();
+        cache.KeyDelete("teamsList");
+        cache.KeyDelete("teamsSortedSet");
+        ViewBag.msg += "Team data removed from cache. ";
+    } 
+    ```
 
 
 1. 캐시 및 데이터베이스에서 팀 통계를 검색하는 여러 가지 방법을 구현하기 위해 다음 네 가지 메서드를 `TeamsController` 클래스에 추가합니다. 이러한 각 메서드는 `List<Team>` 를 반환하며 이는 보기에 의해 표시됩니다.
    
     `GetFromDB` 메서드는 팀 통계를 데이터베이스에서 읽습니다.
    
-        List<Team> GetFromDB()
-        {
-            ViewBag.msg += "Results read from DB. ";
-            var results = from t in db.Teams
-                orderby t.Wins descending
-                select t; 
-   
-            return results.ToList<Team>();
-        }
+    ```c#
+    List<Team> GetFromDB()
+    {
+        ViewBag.msg += "Results read from DB. ";
+        var results = from t in db.Teams
+            orderby t.Wins descending
+            select t; 
+
+        return results.ToList<Team>();
+    }
+    ```
 
     `GetFromList` 메서드는 팀 통계를 직렬화된 `List<Team>`으로 캐시에서 읽습니다. 캐시 누락이 있는 경우 팀 통계를 데이터베이스에서 읽은 후 다음에 캐시에 저장합니다. 이 샘플에서는 JSON.NET 직렬화를 사용하여 .NET 개체를 캐시에 대해 직렬화합니다. 자세한 내용은 [Azure Redis Cache에서 .NET 개체로 작업하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.
 
-        List<Team> GetFromList()
+    ```c#
+    List<Team> GetFromList()
+    {
+        List<Team> teams = null;
+
+        IDatabase cache = Connection.GetDatabase();
+        string serializedTeams = cache.StringGet("teamsList");
+        if (!String.IsNullOrEmpty(serializedTeams))
         {
-            List<Team> teams = null;
+            teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
 
-            IDatabase cache = Connection.GetDatabase();
-            string serializedTeams = cache.StringGet("teamsList");
-            if (!String.IsNullOrEmpty(serializedTeams))
-            {
-                teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
-
-                ViewBag.msg += "List read from cache. ";
-            }
-            else
-            {
-                ViewBag.msg += "Teams list cache miss. ";
-                // Get from database and store in cache
-                teams = GetFromDB();
-
-                ViewBag.msg += "Storing results to cache. ";
-                cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
-            }
-            return teams;
+            ViewBag.msg += "List read from cache. ";
         }
+        else
+        {
+            ViewBag.msg += "Teams list cache miss. ";
+            // Get from database and store in cache
+            teams = GetFromDB();
 
+            ViewBag.msg += "Storing results to cache. ";
+            cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
+        }
+        return teams;
+    }
+    ```
 
     `GetFromSortedSet` 메서드는 캐시된 정렬된 집합에서 팀 통계를 읽습니다. 캐시 누락이 있는 경우 팀 통계를 데이터베이스에서 읽은 후 정렬된 집합으로 캐시에 저장합니다.
 
-
-        List<Team> GetFromSortedSet()
+    ```c#
+    List<Team> GetFromSortedSet()
+    {
+        List<Team> teams = null;
+        IDatabase cache = Connection.GetDatabase();
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+        var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
+        if (teamsSortedSet.Count() > 0)
         {
-            List<Team> teams = null;
-            IDatabase cache = Connection.GetDatabase();
-            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
-            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
-            if (teamsSortedSet.Count() > 0)
+            ViewBag.msg += "Reading sorted set from cache. ";
+            teams = new List<Team>();
+            foreach (var t in teamsSortedSet)
             {
-                ViewBag.msg += "Reading sorted set from cache. ";
-                teams = new List<Team>();
-                foreach (var t in teamsSortedSet)
-                {
-                    Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
-                    teams.Add(tt);
-                }
+                Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
+                teams.Add(tt);
             }
-            else
-            {
-                ViewBag.msg += "Teams sorted set cache miss. ";
-
-                // Read from DB
-                teams = GetFromDB();
-
-                ViewBag.msg += "Storing results to cache. ";
-                foreach (var t in teams)
-                {
-                    Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
-                    cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
-                }
-            }
-            return teams;
         }
+        else
+        {
+            ViewBag.msg += "Teams sorted set cache miss. ";
 
+            // Read from DB
+            teams = GetFromDB();
+
+            ViewBag.msg += "Storing results to cache. ";
+            foreach (var t in teams)
+            {
+                Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
+                cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
+            }
+        }
+        return teams;
+    }
+    ```
 
     `GetFromSortedSetTop5` 메서드는 캐시된 정렬된 집합에서 상위 5개 팀을 읽습니다. 먼저 캐시에서 `teamsSortedSet` 키의 유무를 확인합니다. 이 키가 없는 경우 `GetFromSortedSet` 메서드를 호출하여 팀 통계를 읽고 캐시에 저장합니다. 그런 다음 캐시된 정렬된 집합에 대해 반환된 상위 5개 팀을 쿼리합니다.
 
+    ```c#
+    List<Team> GetFromSortedSetTop5()
+    {
+        List<Team> teams = null;
+        IDatabase cache = Connection.GetDatabase();
 
-        List<Team> GetFromSortedSetTop5()
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+        var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
+        if(teamsSortedSet.Count() == 0)
         {
-            List<Team> teams = null;
-            IDatabase cache = Connection.GetDatabase();
+            // Load the entire sorted set into the cache.
+            GetFromSortedSet();
 
-            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
-            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            if(teamsSortedSet.Count() == 0)
-            {
-                // Load the entire sorted set into the cache.
-                GetFromSortedSet();
-
-                // Retrieve the top 5 teams.
-                teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            }
-
-            ViewBag.msg += "Retrieving top 5 teams from cache. ";
-            // Get the top 5 teams from the sorted set
-            teams = new List<Team>();
-            foreach (var team in teamsSortedSet)
-            {
-                teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
-            }
-            return teams;
+            // Retrieve the top 5 teams.
+            teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
         }
 
+        ViewBag.msg += "Retrieving top 5 teams from cache. ";
+        // Get the top 5 teams from the sorted set
+        teams = new List<Team>();
+        foreach (var team in teamsSortedSet)
+        {
+            teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
+        }
+        return teams;
+    }
+    ```
 
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>캐시로 작업하도록 Create, Edit 및 Delete 메서드 업데이트
 이 샘플의 일부로 생성된 스캐폴딩 코드는 팀을 추가, 편집 및 삭제하는 메서드를 포함하고 있습니다. 팀이 추가, 편집 또는 제거될 때마다 캐시의 데이터가 만료됩니다. 이 섹션에서는 캐시와 데이터베이스의 동기화가 해제되지 않도록 캐시된 팀을 지우도록 이러한 세 가지 메서드를 수정합니다.
 
 1. `TeamsController` 클래스의 `Create(Team team)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
 
-        // POST: Teams/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    ```c#
+    // POST: Teams/Create
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    {
+        if (ModelState.IsValid)
         {
-            if (ModelState.IsValid)
-            {
-                db.Teams.Add(team);
-                db.SaveChanges();
-                // When a team is added, the cache is out of date.
-                // Clear the cached teams.
-                ClearCachedTeams();
-                return RedirectToAction("Index");
-            }
-
-            return View(team);
-        }
-
-
-1. `TeamsController` 클래스의 `Edit(Team team)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
-
-        // POST: Teams/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(team).State = EntityState.Modified;
-                db.SaveChanges();
-                // When a team is edited, the cache is out of date.
-                // Clear the cached teams.
-                ClearCachedTeams();
-                return RedirectToAction("Index");
-            }
-            return View(team);
-        }
-
-
-1. `TeamsController` 클래스의 `DeleteConfirmed(int id)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
-
-        // POST: Teams/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Team team = db.Teams.Find(id);
-            db.Teams.Remove(team);
+            db.Teams.Add(team);
             db.SaveChanges();
-            // When a team is deleted, the cache is out of date.
+            // When a team is added, the cache is out of date.
             // Clear the cached teams.
             ClearCachedTeams();
             return RedirectToAction("Index");
         }
+
+        return View(team);
+    }
+    ```
+
+
+1. `TeamsController` 클래스의 `Edit(Team team)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
+
+    ```c#
+    // POST: Teams/Edit/5
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    {
+        if (ModelState.IsValid)
+        {
+            db.Entry(team).State = EntityState.Modified;
+            db.SaveChanges();
+            // When a team is edited, the cache is out of date.
+            // Clear the cached teams.
+            ClearCachedTeams();
+            return RedirectToAction("Index");
+        }
+        return View(team);
+    }
+    ```
+
+
+1. `TeamsController` 클래스의 `DeleteConfirmed(int id)` 메서드를 찾아갑니다. 다음 예제와 같이 `ClearCachedTeams` 메서드 호출을 추가합니다.
+
+    ```c#
+    // POST: Teams/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Team team = db.Teams.Find(id);
+        db.Teams.Remove(team);
+        db.SaveChanges();
+        // When a team is deleted, the cache is out of date.
+        // Clear the cached teams.
+        ClearCachedTeams();
+        return RedirectToAction("Index");
+    }
+    ```
 
 
 ### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>캐시로 작업하도록 팀 인덱스 보기 업데이트
@@ -592,39 +632,43 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
    
     새 팀을 만들 수 있는 링크입니다. 단락 요소를 다음 테이블로 바꿉니다. 이 테이블에는 새 게임 시즌 실행, 캐시 지우기, 여러 형식의 캐시에서 팀 검색, 데이터베이스에서 팀 검색 및 새 샘플 데이터를 사용하여 데이터베이스 다시 빌드를 수행할 수 있는 작업 링크가 있습니다.
 
-        <table class="table">
-            <tr>
-                <td>
-                    @Html.ActionLink("Create New", "Create")
-                </td>
-                <td>
-                    @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
-                </td>
-                <td>
-                    @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
-                </td>
-                <td>
-                    @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
-                </td>
-                <td>
-                    @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
-                </td>
-                <td>
-                    @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
-                </td>
-                <td>
-                    @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
-                </td>
-                <td>
-                    @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
-                </td>
-            </tr>    
-        </table>
+    ```html
+    <table class="table">
+        <tr>
+            <td>
+                @Html.ActionLink("Create New", "Create")
+            </td>
+            <td>
+                @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
+            </td>
+            <td>
+                @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
+            </td>
+            <td>
+                @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
+            </td>
+            <td>
+                @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
+            </td>
+            <td>
+                @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
+            </td>
+            <td>
+                @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
+            </td>
+            <td>
+                @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
+            </td>
+        </tr>    
+    </table>
+    ```
 
 
 1. **Index.cshtml** 파일의 아래쪽으로 스크롤하고 다음 `tr` 요소를 파일의 마지막 테이블에서 마지막 행이 되도록 추가합니다.
    
-        <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    ```html
+    <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    ```
    
     이 행은 이전 단계에서 작업 링크 중 하나를 클릭할 때 설정된 현재 작업에 관한 상태 보고서가 포함된 `ViewBag.Msg` 의 값을 표시합니다.   
    
@@ -651,17 +695,15 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 **Azure에 배포** 단추를 클릭하면 Azure 포털로 이동하며 템플릿에서 설명한 리소스 만들기 과정을 시작합니다.
 
-![Azure에 배포][cache-deploy-to-azure-step-1]
+![Deploy to Azure][cache-deploy-to-azure-step-1]
 
-1. **사용자 지정 배포** 블레이드에서 사용할 Azure 구독을 선택하고 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 리소스 그룹 위치를 지정합니다.
-2. **매개 변수** 블레이드에서 관리자 계정 이름(**ADMINISTRATORLOGIN** - **관리자**를 사용하지 마세요), 관리자 로그인 암호(**ADMINISTRATORLOGINPASSWORD**) 및 데이터베이스 이름(**DATABASENAME**)을 지정합니다. 다른 매개 변수는 무료 앱 서비스 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL 데이터베이스 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
-3. 원하는 경우 다른 설정을 변경하거나 기본값을 유지하고 **확인**을 클릭합니다.
+1. **기본 사항** 섹션에서 사용할 Azure 구독을 선택하고 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 리소스 그룹 위치를 지정합니다.
+2. **설정** 섹션에서 관리자 계정 이름(**ADMINISTRATORLOGIN** - **admin**은 사용 안 함), 관리자 로그인 암호(**ADMINISTRATORLOGINPASSWORD**) 및 데이터베이스 이름(**DATABASENAME**)을 지정합니다. 다른 매개 변수는 무료 앱 서비스 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL 데이터베이스 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
 
-![Azure에 배포][cache-deploy-to-azure-step-2]
+    ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
-1. **약관 검토**를 클릭합니다.
-2. **구매** 블레이드에서 약관을 읽고 **구매**를 클릭합니다.
-3. 리소스를 프로비전하기 시작하려면 **사용자 지정 배포** 블레이드에서 **만들기**를 클릭합니다.
+3. 원하는 설정을 구성한 후 페이지 끝으로 스크롤하여 사용 약관을 읽고 **위에 명시된 사용 약관에 동의함** 확인란을 선택합니다.
+4. 리소스 프로비전을 시작하려면 **구매**를 클릭합니다.
 
 배포의 진행률을 보려면 알림 아이콘을 클릭하고 **배포가 시작됨**을 클릭합니다.
 
@@ -746,9 +788,11 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 1. 선택한 편집기를 사용하여 [Redis Cache를 사용하도록 응용 프로그램 구성](#configure-the-application-to-use-redis-cache) 단계 중에 만든 `WebAppPlusCacheAppSecrets.config` 파일을 엽니다.
 2. `value` 특성을 편집하고 `MyCache.redis.cache.windows.net`을 캐시의 [호스트 이름](cache-configure.md#properties)으로 바꾸고 캐시의 [기본 또는 보조 키](cache-configure.md#access-keys)를 암호로 지정합니다.
 
-        <appSettings>
-          <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
-        </appSettings>
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+    </appSettings>
+    ```
 
 
 1. **Ctrl+F5** 를 눌러 응용 프로그램을 실행합니다.
@@ -808,6 +852,6 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

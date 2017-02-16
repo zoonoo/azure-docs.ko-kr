@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ba4c04880913996b9744cdf2a3d19e9bedf36c16
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
 
 
 ---
@@ -96,7 +96,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다.
    
    ![index.jade 파일의 내용](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com]을 참조하세요.
+   Jade는 Express 응용 프로그램에서 사용하는 기본 뷰 엔진입니다. Jade 뷰 엔진에 대한 자세한 내용은 [http://jade-lang.com][http://jade-lang.com](영문)을 참조하세요.
 2. **in Azure**를 추가하여 텍스트의 마지막 줄을 수정합니다.
    
    ![index.jade 파일, 마지막 줄: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -119,7 +119,7 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-[Node.js 웹 응용 프로그램]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
@@ -127,6 +127,6 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

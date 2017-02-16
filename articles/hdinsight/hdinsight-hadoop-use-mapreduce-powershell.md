@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 9b852d1ca82c85e40c4f33da8c6380ffd48dd222
+ms.sourcegitcommit: f3be777497d842f019c1904ec1990bd1f1213ba2
+ms.openlocfilehash: c2bed4f1fddf99183faa0730f052ee79cf77f9f8
 
 
 ---
@@ -31,10 +31,12 @@ ms.openlocfilehash: 9b852d1ca82c85e40c4f33da8c6380ffd48dd222
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-* **Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 기반 또는 Linux 기반)**
+* **Azure HDInsight(HDInsight의 Hadoop) 클러스터**
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * **Azure PowerShell이 포함된 워크스테이션**.
-  
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="a-idpowershellarun-a-mapreduce-job-using-azure-powershell"></a><a id="powershell"></a>Azure PowerShell을 사용하여 MapReduce 작업 실행
 
@@ -54,22 +56,21 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
-1. 편집기를 사용하여 다음 코드를 **mapreducejob.ps1**로 저장합니다. **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
+1. 편집기를 사용하여 다음 코드를 **mapreducejob.ps1**으로 저장합니다.
     
     ```powershell
-    #Specify the values
-    $clusterName = "CLUSTERNAME"
-
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Login-AzureRmAccount
+        Add-AzureRmAccount
     }
 
-    #Get HTTPS/Admin credentials for submitting the job later
-    $creds = Get-Credential
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
+
     #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroup = $clusterInfo.ResourceGroup
@@ -90,11 +91,11 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
     # -ClassName = the class of the application
     # -Arguments = The input file, and the output directory
     $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-        -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+        -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
         -ClassName "wordcount" `
         -Arguments `
-            "wasbs:///example/data/gutenberg/davinci.txt", `
-            "wasbs:///example/data/WordCountOutput"
+            "wasb:///example/data/gutenberg/davinci.txt", `
+            "wasb:///example/data/WordCountOutput"
 
     #Submit the job to the cluster
     Write-Host "Start the MapReduce job..." -ForegroundColor Green
@@ -115,13 +116,10 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
         -Container $container `
         -Destination output.txt `
         -Context $context
-    # Print the output
+    # Print the output of the job.
     Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds
     ```
 
@@ -129,7 +127,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
    
         .\mapreducejob.ps1
    
-    스크립트를 실행하면 Azure 구독에 대해 인증하라는 메시지가 표시됩니다. 또한 HDInsight 클러스터에 대해 HTTPS/관리자 계정 이름 및 암호를 입력하라는 메시지가 표시됩니다.
+    스크립트를 실행하는 경우 HDInsight 클러스터의 이름 및 클러스터의 HTTPS/관리자 계정 이름 및 암호를 묻는 메시지가 나타납니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음과 유사한 출력이 나타납니다.
     
@@ -167,9 +165,6 @@ Write-Host "Display the standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 ```
@@ -194,6 +189,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

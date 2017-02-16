@@ -1,5 +1,5 @@
 ---
-title: "샘플 응용 프로그램을 실행하여 Azure IoT Hub에서 클라우드-장치 메시지 받기 | Microsoft Docs"
+title: "Azure IoT에 Arduino(C) 연결 - 단원 4: 클라우드-장치 | Microsoft Docs"
 description: "샘플 응용 프로그램은 Adafruit Feather M0 WiFi에서 실행되며 IoT Hub에서 들어오는 메시지를 모니터링합니다. 새로운 gulp 작업은 IoT Hub에서 Adafruit Feather M0 WiFi로 메시지를 보내여 LED를 깜빡입니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 55eda75c1e3290cedda1c4433db67c3cf320df20
+ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
+ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
 
 
 ---
@@ -139,6 +139,6 @@ IoT Hub에서 Arduino 보드로 메시지를 보내어 LED를 깜빡이는 데 �
 [change-the-on-and-off-led-behavior]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

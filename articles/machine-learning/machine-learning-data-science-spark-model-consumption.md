@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2387baad5737998d2ba7f289e0a4fcdd6dd04245
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
 
 
 ---
@@ -575,7 +575,7 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 * **Logic Apps Designer**를 표시하려면 논리 앱 및 App Service 계획의 이름을 입력합니다.
 * HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![논리 앱 디자이너](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>다음 작업
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) 을 참조하세요.
@@ -583,6 +583,6 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

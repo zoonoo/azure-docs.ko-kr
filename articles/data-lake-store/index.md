@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 대규모의 Hadoop 호환 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d26d0f965ad1195ab41e04e870ead1b335ff513e
+ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
+ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
 
 ---
 # <a name="data-lake-store-documentation"></a>Data Lake Store 설명서
 
-Azure Data Lake Store는 빅 데이터 분석 작업을 위한 하이퍼 스케일 리포지토리입니다. Azure 데이터 레이크를 사용하면 작동 및 예비 분석에 대해 한 곳에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처할 수 있습니다.  Azure Data Lake Store는 WebHDFS 호환 시나리오를 사용하여 Hadoop(HDInsight 클러스터에서 사용 가능)에서 액세스할 수 있습니다. 보안, 관리 효율성, 확장성, 안정성 및 가용성에 대한 모든 엔터프라이즈급 기능을 포함합니다.
+모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 Data Lake Store를 사용하여 대규모의 Hadoop 호환 리포지토리를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 운영 및 예비 분석을 위해 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -211,6 +212,6 @@ Azure Data Lake Store 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

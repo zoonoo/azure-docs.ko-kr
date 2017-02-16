@@ -13,11 +13,11 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: afa8d2b76ab0f85b5eaf615b264af2f29936016c
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>감사 로그 수집
-문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 감사 로그를 수집합니다. 다음 링크에는 프로세스에 대한 자세한 내용이 포함되어 있습니다.
+## <a name="collect-activity-logs"></a>활동 로그 선택
+문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
-[Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
+[배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[리소스 관리자로 작업 감사](../resource-group-audit.md)
+[활동 로그를 보고 Azure 리소스 관리](../azure-resource-manager/resource-group-audit.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>문제: 중지된 VM 시작 시 오류
 중지된 VM을 시작하려는데 할당 오류가 발생했습니다.
@@ -68,6 +68,6 @@ Azure에서 새 Windows VM을 만들 때 문제가 발생하면 [Azure에서 새
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

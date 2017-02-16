@@ -1,6 +1,6 @@
 ---
-title: "HDInsight에서 Apache Spark를 사용하여 기계 학습 응용 프로그램 빌드 | Microsoft 문서"
-description: "기계 학습 응용 프로그램을 빌드하기 위해 Apache Spark와 함께 노트북을 사용하는 방법에 대한 단계별 지침"
+title: "Azure HDInsight에서 MLlib 라이브러리를 사용하여 Machine Learning 응용 프로그램 빌드 | Microsoft Docs"
+description: "Machine Learning 응용 프로그램을 빌드하기 위해 Apache Spark에서 MLlib 라이브러리를 사용하는 방법에 대한 단계별 지침"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 4c07f5857a2dff149faaa0086eb8c54ee291d7bc
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 91897cb8ee5bc69bacc354a62bebafd8beb47c0c
 
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight-linux"></a>기계 학습: HDInsight Linux의 Apache Spark 클러스터에서 MLlib를 사용하여 음식 검사 데이터에 대한 예측 분석
+# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Machine Learning: HDInsight의 Apache Spark 클러스터에서 MLlib를 사용하여 음식 검사 데이터에 대한 예측 분석 
+
 > [!TIP]
 > 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 안에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 **Spark 기계 학습 - MLLib.ipynb를 사용하여 음식 검사 데이터 예측 분석** Notebook을 실행합니다.
 >
@@ -62,10 +63,10 @@ ms.openlocfilehash: 4c07f5857a2dff149faaa0086eb8c54ee291d7bc
    >
 1. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
-    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
 
-    ![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![노트북 이름 제공](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
 1. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 기계 학습 응용 프로그램 빌드를 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
 
         from pyspark.ml import Pipeline
@@ -178,7 +179,7 @@ ms.openlocfilehash: 4c07f5857a2dff149faaa0086eb8c54ee291d7bc
 
     다음과 유사한 출력이 표시됩니다.
 
-    ![SQL 쿼리 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
+    ![SQL 쿼리 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL 쿼리 출력")
 
     `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels)을 참조하세요.
 1. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
@@ -361,6 +362,6 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

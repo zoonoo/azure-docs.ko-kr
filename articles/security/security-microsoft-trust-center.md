@@ -1,5 +1,5 @@
 ---
-title: "Microsoft 보안 센터 | Microsoft Docs"
+title: "Microsoft 보안 센터 및 Azure 보안 정보 | Microsoft Docs"
 description: "Microsoft 보안 센터는 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 제공합니다."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
 
 
 ---
@@ -42,6 +42,6 @@ Microsoft 보안 센터에서 확인할 수 있는 내용은 다음과 같습니
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

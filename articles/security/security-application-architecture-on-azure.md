@@ -1,6 +1,6 @@
 ---
-title: "Azure의 응용 프로그램 아키텍처 | Microsoft Docs"
-description: " 이 문서는 Azure에서 응용 프로그램 및 서비스 아키텍처를 이해하고 디자인 및 구현으로 보안을 손쉽게 통합하는 데 도움이 됩니다. "
+title: "Azure 아키텍처 디자인으로 보안 통합 | Microsoft Docs"
+description: " 이 문서는 Azure의 응용 프로그램 및 서비스 아키텍처를 이해하고 디자인 및 구현으로 보안을 손쉽게 통합하는 데 도움이 됩니다.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5006e7dc237c53cd4b74ca08ea54ca6c999ebefe
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: e7ccc71f222d4af9a52cbf55bb6bb446f211e819
 
 
 ---
@@ -53,11 +53,11 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 이 템플릿을 과정 외부에서도 사용할 있습니다.
 
 * [교육 비디오를 시청](http://aka.ms/3dBlueprintTemplateVideo) 하여 이 템플릿으로 무엇을 할 수 있는지 알아보십시오.
-*  [Microsoft 3D 청사진 Visio 템플릿](http://aka.ms/3DBlueprintTemplate)
+* [Microsoft 3D 청사진 Visio 템플릿](http://aka.ms/3DBlueprintTemplate)
 * [클라우드 및 엔터프라이즈 기호](../architecture-overview.md#drawing-symbol-and-icon-sets) 를 다운로드하여 3D 템플릿과 함께 사용
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

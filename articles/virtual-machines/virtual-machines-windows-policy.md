@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 6f2e187a4767ac75350a629ace6e15e3ba3eee33
-ms.openlocfilehash: ca4f7c854008131d56747e316a1a0a7d5f8aac61
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: ca4f7c854008131d56747e316a1a0a7d5f8aac61
 ## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager 정책 101
 Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 문서에 있는 단계를 계속하는 것이 좋습니다. 아래 문서에서 정책의 기본 정의 및 구조, 정책 평가 방법을 설명하고 정책 정의의 다양한 예제를 제공합니다.
 
-* [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../resource-manager-policy.md)
+* [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../azure-resource-manager/resource-manager-policy.md)
 
 ## <a name="define-a-policy-for-your-virtual-machine"></a>가상 컴퓨터에 대한 정책 정의
 엔터프라이즈에 대한 일반적인 시나리오 중 하나는 LOB 응용 프로그램과 호환되도록 테스트된 특정 운영 체제에서 사용자에게만 가상 컴퓨터를 만들 수 있도록 하는 것일 수 있습니다. Azure Resource Manager 정책을 사용하여 몇 단계만으로 이 작업을 수행할 수 있습니다.
@@ -84,7 +84,7 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 #### <a name="virtual-machine-property-fields"></a>가상 컴퓨터 속성 필드
 아래 표에서 정책 정의의 필드로 사용할 수 있는 가상 컴퓨터 속성에 대해 설명합니다. 정책 필드에 대한 자세한 내용은 아래 문서를 참조하세요.
 
-* [필드 및 소스](../resource-manager-policy.md#conditions)
+* [필드 및 소스](../azure-resource-manager/resource-manager-policy.md#conditions)
 
 | 필드 이름 | 설명 |
 | --- | --- |
@@ -96,15 +96,15 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 ## <a name="create-the-policy"></a>정책 만들기
 정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. 정책 만들기에 대한 자세한 내용은 아래 문서를 참조하세요.
 
-* [정책 만들기](../resource-manager-policy.md#create-and-assign-a-policy)
+* [정책 만들기](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
 
 ## <a name="apply-the-policy"></a>정책 적용
 정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. 정책 적용에 대한 자세한 내용은 아래 문서를 참조하세요.
 
-* [정책 만들기](../resource-manager-policy.md#create-and-assign-a-policy)
+* [정책 만들기](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

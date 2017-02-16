@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d803210e6599d9725a34cda5a3bd873cda14a490
+ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
+ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
 
 
 ---
@@ -280,7 +280,7 @@ spambase 데이터 집합의 일부를 읽고 scikit-learn에서 벡터 컴퓨�
 
     clf.predict(X.ix[0:20, :])
 
-AzureML 끝점을 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼 3개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
+AzureML 끝점을 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼&3;개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
@@ -373,7 +373,7 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 
 Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 집합을 변환할 수 있습니다. 예를 들어 기능 크기 재조정, 누락 값 귀속, 이상값 처리 및 데이터가 누락된 관찰이나 변수를 제거할 수 있습니다. Rattle은 관찰 및/또는 변수 간의 연결 규칙을 식별할 수도 있습니다. 이러한 탭은 이 소개용 연습에 대한 범위를 벗어납니다.
 
-Rattle은 클러스터 분석을 수행할 수도 있습니다. 출력을 더 쉽게 읽을 수 있도록 일부 기능을 제외하겠습니다. **데이터** 탭에서 다음 10개의 항목을 제외하고 각 변수 옆에 있는 **무시**를 선택합니다.
+Rattle은 클러스터 분석을 수행할 수도 있습니다. 출력을 더 쉽게 읽을 수 있도록 일부 기능을 제외하겠습니다. **데이터** 탭에서 다음&10;개의 항목을 제외하고 각 변수 옆에 있는 **무시**를 선택합니다.
 
 * word_freq_hp
 * word_freq_technology
@@ -472,7 +472,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 로컬 서버에 연결을 설정하려면
 
 * **Windows**를 선택한 다음 **별칭 보기**를 선택합니다.
-*  **+** 단추를 선택하여 새 별칭을 만듭니다.
+* **+** 단추를 선택하여 새 별칭을 만듭니다.
 * 이름을 *스팸 데이터베이스*라고 지정하고 **드라이버** 드롭다운 목록에서 **PostgreSQL**을 선택합니다.
 * URL을 *jdbc:postgresql://localhost/spam*으로 설정합니다.
 * *사용자 이름* 및 *암호*를 입력합니다.
@@ -533,6 +533,6 @@ Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

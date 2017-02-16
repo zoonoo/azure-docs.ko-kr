@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 이러한 저장 프로시저에 대한 자세한 내용은 [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) 및 [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx)을 참조하세요.
 
+> [!NOTE]
+> 데이터베이스 수준 방화벽을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: SQL Server 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
+>
+
+
 ## <a name="next-steps"></a>다음 단계
 다른 방법을 사용한 서버 수준 방화벽 규칙 만들기에 대한 방법 문서를 보려면 다음을 참조하세요. 
 
@@ -94,6 +99,6 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 가상 배열 배포 3 – 가상 장치를 파일 서버로 설정"
+title: "StorSimple Virtual Array를 파일 서버로 설정 | Microsoft Docs"
 description: "StorSimple 가상 배열 배포의 세 번째 자습서는 가상 장치를 파일 서버로 설정하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f99e3dc59c0637053cad6c2b3b6baedac803f42
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
 
 
 ---
@@ -61,7 +61,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 5. 장치가 클라우드 저장소 서비스 공급자와 통신하려고 시도하거나 파일 서버로 구성된 경우 이름으로 장치를 확인하려고 시도하는 경우에 DNS 서버가 사용되기 때문에 DNS 서버가 필요합니다. **네트워크 설정** 페이지의 **DNS 서버** 아래에:
    
    1. 기본 및 보조 DNS 서버는 자동으로 구성됩니다. 고정 IP 주소를 구성하도록 선택하면 DNS 서버를 지정할 수 있습니다. 고가용성을 위해 기본 및 보조 DNS 서버를 구성하는 것이 좋습니다.
-   2. **Apply**를 클릭합니다. 네트워크 설정이 적용되고 유효성 검사가 수행됩니다.
+   2. **적용**을 클릭합니다. 네트워크 설정이 적용되고 유효성 검사가 수행됩니다.
 6. **장치 설정** 페이지에서:
    
    1. 장치에 고유한 **이름** 을 할당합니다. 이름에는 1-15자를 사용할 수 있으며 문자, 숫자 및 하이픈을 포함할 수 있습니다.
@@ -89,7 +89,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우 **사용자 이름** 및 **암호**를 입력해야 합니다.
    4. **Apply**를 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
-10. 선택적으로 장치에 대한 시간 설정(예: 표준 시간대 및 기본 및 보조 NTP 서버)을 구성합니다. 클라우드 서비스 공급자와 인증할 수 있도록 장치 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
+10. (선택 사항) 장치에 대한 시간 설정(예: 표준 시간대 및 기본 및 보조 NTP 서버)을 구성합니다. 클라우드 서비스 공급자와 인증할 수 있도록 장치 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
     
     ![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
     
@@ -97,8 +97,8 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
     
     1. 드롭다운 목록에서 장치가 배포되는 지리적 위치를 기반으로 **표준 시간대** 를 설정합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
     2. 장치에 **기본 NTP 서버** 를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
-    3. 선택적으로 장치에 대한 **보조 NTP 서버** 를 지정합니다.
-    4. **Apply**를 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
+    3. 선택적으로 장치에 대한 **보조 NTP 서버**를 지정합니다.
+    4. **적용**을 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 11. 장치에 대한 클라우드 설정을 구성합니다. 이 단계에서는 로컬 장치 구성을 완료한 후 StorSimple Manager 서비스에 장치를 등록합니다.
     
     1. StorSimple 가상 배열의 **2단계: 서비스 등록 키 받기** 에서 확보한 [서비스 등록 키](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 를 입력합니다.
@@ -177,7 +177,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
 
 StorSimple 가상 배열을 파일 서버로 구성하고 등록하는 방법을 보려면 동영상을 시청하세요.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -187,6 +187,6 @@ StorSimple 가상 배열을 파일 서버로 구성하고 등록하는 방법을
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

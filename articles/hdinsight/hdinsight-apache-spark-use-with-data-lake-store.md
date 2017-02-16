@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 85752f9286fc7fe8d9cc3acf6be66cca623934f5
-ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
+ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
+ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
-Data Lake Store를 기본 저장소로 사용하여 HDInsight 클러스터를 만든 경우 클러스터 만들기 프로세스에서 클러스터를 만들면서 지정한 Data Lake Store 계정에 몇 가지 샘플 데이터를 추가하기 때문에 이 단계를 수행해야 합니다.
+Data Lake Store를 기본 저장소로 사용하여 HDInsight 클러스터를 만든 경우 클러스터 만들기 프로세스에서 클러스터를 만들면서 지정한 Data Lake Store 계정에 몇 가지 샘플 데이터를 추가하기 때문에 이 단계를 수행하지 않아도 됩니다.
 
 Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소로 사용하여 HDInsight 클러스터를 만든 경우 먼저 몇 가지 샘플 데이터를 Data Lake Store 계정으로 복사해야 합니다. HDInsight 클러스터와 연결된 Azure Storage Blob의 샘플 데이터를 사용할 수 있습니다. 이 작업에는 [ADLCopy 도구](http://aka.ms/downloadadlcopy) 를 사용할 수 있습니다. 링크에서 도구를 다운로드하여 설치합니다.
 
@@ -137,6 +137,7 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
 * [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Nov16_HO5-->
 
 

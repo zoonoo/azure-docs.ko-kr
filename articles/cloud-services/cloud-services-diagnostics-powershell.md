@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 032ac0cf678dad3ab544d6e9257b65cf01f36385
-ms.openlocfilehash: 3c4d41689fc3c127c60e6e0988d1efe60d4d71b8
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 291f7d7f8f9addadde95bc30924b040d09c90fc7
 
 
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure 클라우드 서비스에 진단 사용
-Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프로그램 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다.  이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md) 을 참조하세요.
+Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프로그램 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다.  이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
 이 접근 방식은 진단 확장이 클라우드 서비스의 배포 중 일부로 사용될 수 있는 연속 통합 형식의 시나리오에 유용합니다. 새 클라우드 서비스 배포를 만들 경우 *ExtensionConfiguration* 매개 변수에서 [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) cmdlet으로 전달하여 진단 확장을 사용할 수 있습니다. *ExtensionConfiguration* 매개 변수는 [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) cmdlet을 사용하여 만들 수 있는 진단 구성 배열을 사용합니다.
@@ -98,6 +98,8 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>기존 클라우드 서비스에 진단 확장을 사용하도록 설정
 [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx) cmdlet을 사용하여 이미 실행 중인 클라우드 서비스에 진단 구성을 사용하거나 업데이트할 수 있습니다.
 
+[!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
+
 ```powershell
 $service_name = "MyService"
 $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
@@ -138,6 +140,6 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fb8a8563d41827ce22604e2fb485c84a1441efa2
-ms.openlocfilehash: 2aea15d4560d225bed18438b93d88bb8f64b71b9
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 8b74f2e4169ac97e09da12d5ed85e0e24b50e150
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 2aea15d4560d225bed18438b93d88bb8f64b71b9
 
 * [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-* [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-r"></a>R이란?
@@ -49,7 +49,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 1. Azure Portal에서 HDInsight 클러스터를 만드는 경우 **선택적 구성**, **스크립트 동작**을 차례로 클릭합니다.
 2. **스크립트 동작** 페이지에서 다음 값을 입력합니다.
 
-    ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
+    ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 
     <table border='1'>
         <tr><th>속성</th><th>값</th></tr>
@@ -101,19 +101,19 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 ## <a name="see-also"></a>참고 항목
 * [HDInsight Hadoop 클러스터에 R 설치 및 사용(Linux)](hdinsight-hadoop-r-scripts-linux.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-* [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 * [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
-* [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 동작 샘플입니다.
+* [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]: Spark 설치에 대한 스크립트 작업 샘플입니다.
 * [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Giraph 설치에 대한 스크립트 작업 샘플입니다.
 * [HDInsight 클러스터에서 Solr 설치](hdinsight-hadoop-solr-install-linux.md): Solr 설치에 대한 스크립트 작업 샘플입니다.
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "DC/OS, Docker Swarm 또는 Kubernetes를 사용하여 응용 프로그램 컨테이너를 배포하고 관리하는 데 Container Service를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
-ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Azure Container Service 설명서
 
-Azure Container Service를 사용하면 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 컴퓨터의 클러스터를 보다 간편하게 만들고 구성하고 관리할 수 있습니다. Container Service는 일반적인 오픈 소스 예약 및 오케스트레이션 도구의 최적화된 구성을 사용합니다. 이를 통해 기존 기술을 사용하거나 크고 확장된 커뮤니티 전문 지식의 본문을 이용하여 Microsoft Azure의 컨테이너 기반 응용 프로그램을 배포하고 관리할 수 있습니다.
+Container Service를 사용하여 완전히 이식 가능한 응용 프로그램 컨테이너를 배포하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 DC/OS, Docker Swarm 또는 Kubernetes를 사용하여 컨테이너의 크기를 조정하고 오케스트레이션하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,6 +101,7 @@ Azure Container Service 설명서 다운로드 </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

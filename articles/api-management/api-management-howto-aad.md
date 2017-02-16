@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 44d51c80dd7db16d16fa3aa44d6179bc539bb50a
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
 
 ![게시자 포털][api-management-management-console]
 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 > 
 > 
 
@@ -79,7 +79,7 @@ ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
 
 ![위임된 권한][api-management-aad-delegated-permissions]
 
-> 응용 프로그램 및 위임된 권한에 대한 자세한 내용은 [Graph API 액세스][그래프 API 액세스]를 참조하세요.
+> 응용 프로그램 및 위임된 권한에 대한 자세한 내용은 [Graph API 액세스][Accessing the Graph API]를 참조하세요.
 > 
 > 
 
@@ -123,7 +123,7 @@ Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **�
 
 ![저장][api-management-client-allowed-tenants-save]
 
-변경 내용이 저장되면 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인][Azure Active Directory 계정을 사용하여 개발자 포털에 로그인]의 단계를 수행하여 지정된 Azure Active Directory의 사용자가 개발자 포털에 로그인할 수 있습니다.
+변경 내용이 저장되면 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인][Log in to the Developer portal using an Azure Active Directory account]의 단계를 수행하여 지정된 Azure Active Directory의 사용자가 개발자 포털에 로그인할 수 있습니다.
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>외부 Azure Active Directory 그룹을 추가하는 방법
 Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Active Directory 그룹을 API 관리에 추가하여 원하는 제품이 있는 그룹에서 개발자와의 연계를 보다 쉽게 관리할 수 있습니다.
@@ -214,31 +214,31 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 추가하고 게시하는 방법]: api-management-howto-add-products.md
-[모니터링 및 분석]: api-management-monitoring.md
-[제품에 API 추가]: api-management-howto-add-products.md#add-apis
-[제품 게시]: api-management-howto-add-products.md#publish-product
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API Management 정책 참조]: api-management-policy-reference.md
-[캐싱 정책]: api-management-policy-reference.md#caching-policies
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[그래프 API 액세스]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
-[필수 구성 요소]: #prerequisites
-[API 관리에서 OAuth 2.0 권한 부여 서버 구성]: #step1
-[OAuth 2.0 사용자 권한 부여를 사용하도록 API 구성]: #step2
-[개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트]: #step3
-[다음 단계]: #next-steps
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
-[Azure Active Directory 계정을 사용하여 개발자 포털에 로그인]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
-
+[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 68647c83f30fddd69aa920cae6f407f2728e14c8
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
 다음 항목도 필요합니다.
 
 * Pi를 연결할 유선 또는 무선 연결.
-* OS 이미지를 microSD 카드에 굽기 위한 USB-SD 어댑터 또는 miniSD 카드.
+* 운영 체제 이미지를 microSD 카드에 굽기 위한 USB-SD 어댑터 또는 miniSD 카드.
 * Windows, Mac 또는 Linux를 실행하는 컴퓨터  컴퓨터는 microSD 카드에 Raspbian을 설치하는 데 사용됩니다.
 * 필요한 도구 및 소프트웨어를 다운로드하기 위한 인터넷 연결.
 
@@ -117,6 +117,6 @@ LED 극성이 중요합니다. 이 극성 설정은 일반적으로 활성(낮�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

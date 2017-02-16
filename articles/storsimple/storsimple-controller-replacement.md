@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 
 ---
@@ -38,11 +38,11 @@ ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
 
 | 사례 | 교체 시나리오 | 해당 절차 |
 |:--- |:--- |:--- |
-| 1 |한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다. |[단일 컨트롤러 교체를 지원하는 논리](#single-controller-replacement-logic) 및 [교체 단계](#single-controller-replacement-steps)를 설명하는 [단일 컨트롤러 교체](#replace-a-single-controller). |
-| 2 |두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다. |[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers). |
+| 1 |한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다. |[단일 컨트롤러 교체를 지원하는 논리](#single-controller-replacement-logic) 및 [교체 단계](#single-controller-replacement-steps)를 설명하는 [단일 컨트롤러 교체](#replace-a-single-controller)입니다. |
+| 2 |두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다. |[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers)입니다. |
 | 3 |동일한 장치 또는 서로 다른 장치의 컨트롤러를 교환합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다. |슬롯 불일치 경고 메시지가 표시됩니다. |
-| 4 |한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다. |[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers). |
-| 5 |하나 또는 두 개의 컨트롤러에서 모두 오류가 발생했습니다. 직렬 콘솔 또는 Windows PowerShell 원격을 통해 장치에 액세스할 수 없습니다. |[Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하세요. |
+| 4 |한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다. |[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers)입니다. |
+| 5 |하나 또는 두 개의 컨트롤러에서 모두 오류가 발생했습니다. 직렬 콘솔 또는 Windows PowerShell 원격을 통해 장치에 액세스할 수 없습니다. |수동 컨트롤러 교체 절차는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. |
 | 6 |컨트롤러의 빌드 버전이 서로 다르며, 다음과 같은 이유 때문일 수 있습니다.<ul><li>컨트롤러에는 다양한 소프트웨어 버전이 있습니다.</li><li>컨트롤러에는 다양한 펌웨어 버전이 있습니다.</li></ul> |컨트롤러 소프트웨어 버전이 서로 다른 경우 교체 논리에서 이를 감지하고 교체 컨트롤러의 소프트웨어 버전을 업데이트합니다.<br><br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 **없는** 경우 Azure 클래식 포털에 경고 메시지가 표시됩니다. 업데이트를 검색하고 펌웨어 업데이트를 설치해야 합니다.</br></br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 있는 경우 컨트롤러 교체 논리에서 이를 감지하고 컨트롤러가 시작된 후 펌웨어가 자동으로 업데이트됩니다. |
 
 오류가 발생한 경우 컨트롤러 모듈을 꺼내야 합니다. 하나 또는 두 개의 컨트롤러 모듈에서 모두 오류가 발생할 수 있으며, 단일 컨트롤러 교체 또는 이중 컨트롤러 교체가 요구될 수 있습니다. 교체 절차 및 지원 논리는 다음을 참조하세요.
@@ -62,7 +62,7 @@ ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
 Microsoft Azure StorSimple 장치의 두 컨트롤러 중 하나에서 오류가 발생했거나 오작동하거나 없는 경우 단일 컨트롤러를 교체해야 합니다. 
 
 ### <a name="single-controller-replacement-logic"></a>단일 컨트롤러 교체 논리
-단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. 장치의 나머지 컨트롤러가 활성 컨트롤러가 됩니다. 교체 컨트롤러를 삽입하면 다음 동작이 발생합니다.
+단일 컨트롤러 교체에서는 오류가 발생한 컨트롤러를 먼저 제거해야 합니다. (장치의 나머지 컨트롤러가 활성 컨트롤러가 됩니다.) 교체 컨트롤러를 삽입하면 다음 동작이 발생합니다.
 
 1. 교체 컨트롤러가 즉시 StorSimple 장치와 통신을 시작합니다.
 2. 활성 컨트롤러에 대한 VHD(가상 하드 디스크)의 스냅숏이 교체 컨트롤러에 복사됩니다.
@@ -71,7 +71,7 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러 중 하나에서 오류가
 5. 두 컨트롤러가 모두 실행되고 있으면 클러스터가 온라인 상태가 됩니다.
 
 ### <a name="single-controller-replacement-steps"></a>단일 컨트롤러 교체 단계
-Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발생하는 경우 다음 단계를 따르세요. 다른 컨트롤러는 활성화되고 실행 중이어야 합니다. 두 컨트롤러에서 모두 오류가 발생하거나 오작동하는 경우 [이중 컨트롤러 교체 단계](#dual-controller-replacement-steps)로 이동합니다.
+Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발생하는 경우 다음 단계를 따르세요. (다른 컨트롤러는 활성화되고 실행 중이어야 합니다. 두 컨트롤러에서 모두 오류가 발생하거나 오작동하는 경우 [이중 컨트롤러 교체 단계](#dual-controller-replacement-steps)로 이동합니다.)
 
 > [!NOTE]
 > 컨트롤러가 다시 시작되고 단일 컨트롤러 교체 절차에서 완전히 복구되는 데 30-45분이 걸릴 수 있습니다. 케이블 연결을 포함하여 전체 절차의 총 시간은 약 2시간입니다.
@@ -98,9 +98,9 @@ Microsoft Azure StorSimple 장치의 컨트롤러 중 하나에서 오류가 발
    | 2 |PCM 1 |
    | 3 |컨트롤러 0 |
    | 4 |컨트롤러 1 |
-4. 오류가 발생한 컨트롤러의 데이터 포트에서 연결된 네트워크 케이블을 모든 뺍니다. 8600 모델을 사용하는 경우 컨트롤러를 EBOD 컨트롤러에 연결하는 SAS 케이블도 뺍니다.
-5. [컨트롤러 제거](#remove-a-controller) 의 단계에 따라 오류가 발생한 컨트롤러를 제거합니다. 
-6. 오류가 발생한 컨트롤러를 꺼낸 슬롯과 동일한 슬롯에 팩터리 교체를 설치합니다. 이렇게 하면 단일 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [단일 컨트롤러 교체 논리](#single-controller-replacement-logic)를 참조하세요.
+4. 오류가 발생한 컨트롤러의 데이터 포트에서 연결된 네트워크 케이블을 모두 제거합니다. 8600 모델을 사용하는 경우 컨트롤러를 EBOD 컨트롤러에 연결하는 SAS 케이블를 제거합니다.
+5. [컨트롤러 제거](#remove-a-controller)의 단계에 따라 오류가 발생한 컨트롤러를 제거합니다. 
+6. 오류가 발생한 컨트롤러를 제거한 슬롯과 동일한 슬롯에 팩터리 교체를 설치합니다. 이렇게 하면 단일 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [단일 컨트롤러 교체 논리](#single-controller-replacement-logic)를 참조하세요.
 7. 단일 컨트롤러 교체 논리가 백그라운드에서 진행되는 동안 케이블을 다시 연결합니다. 교체 전에 연결된 것과 동일한 방식으로 모든 케이블을 연결해야 합니다.
 8. 컨트롤러가 다시 시작된 후 Azure 클래식 포털에서 **컨트롤러 상태** 및 **클러스터 상태**를 검사하여 컨트롤러가 다시 정상 상태로 돌아갔으며 대기 모드에 있는지 확인합니다.
 
@@ -121,14 +121,14 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발
    2. 클러스터의 일부인가요?
    3. 피어 컨트롤러가 실행 중이며 클러스터되었나요?
       
-      이러한 조건이 모두 true가 아니면 컨트롤러가 최근 매일 백업을 찾습니다(S 드라이브의 **nonDOMstorage** 에 있음). 컨트롤러가 백업에서 VHD의 최신 스냅숏을 복사합니다.
+      이러한 조건이 모두 true가 아니면 컨트롤러가 최근 매일 백업을 찾습니다(S 드라이브의 **nonDOMstorage**에 있음). 컨트롤러가 백업에서 VHD의 최신 스냅숏을 복사합니다.
 2. 슬롯 0의 컨트롤러가 스냅숏을 사용하여 자체 이미지를 작성합니다.
 3. 한편, 슬롯 1의 컨트롤러는 컨트롤러 0이 이미징을 완료하고 시작될 때까지 기다립니다.
 4. 컨트롤러 0이 시작된 후 컨트롤러 1이 컨트롤러 0에서 만든 클러스터를 검색하며, 이로 인해 단일 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [단일 컨트롤러 교체 논리](#single-controller-replacement-logic)를 참조하세요.
 5. 그 후에는 두 컨트롤러가 모두 실행되고 클러스터가 온라인 상태가 됩니다.
 
 > [!IMPORTANT]
-> 이중 컨트롤러 교체 다음에는 StorSimple 장치가 구성된 후 반드시 장치를 수동으로 백업해야 합니다. 24시간이 경과할 때까지 일별 장치 구성 백업이 트리거되지 않습니다. [Microsoft 지원](storsimple-contact-microsoft-support.md) 의 도움을 받아 장치를 수동으로 백업하세요.
+> 이중 컨트롤러 교체 다음에는 StorSimple 장치가 구성된 후 반드시 장치를 수동으로 백업해야 합니다. 24시간이 경과할 때까지 일별 장치 구성 백업이 트리거되지 않습니다. [Microsoft 지원](storsimple-contact-microsoft-support.md)의 도움을 받아 장치를 수동으로 백업하세요.
 > 
 > 
 
@@ -145,8 +145,8 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발
    
    1. 8600 모델을 사용하는 경우 기본 엔클로저를 먼저 끈 다음 EBOD 엔클로저를 끕니다.
    2. 장치가 완전히 종료될 때까지 기다립니다. 장치 뒷면의 모든 LED가 꺼집니다.
-2. 데이터 포트에 연결된 모든 네트워크 케이블을 뺍니다. 8600 모델을 사용하는 경우 기본 엔클로저를 EBOD 엔클로저에 연결하는 SAS 케이블도 제거합니다.
-3. StorSimple 장치에서 두 컨트롤러를 모두 꺼냅니다. 자세한 내용은 [컨트롤러 제거](#remove-a-controller)를 참조하세요.
+2. 데이터 포트에 연결된 모든 네트워크 케이블을 제거합니다. 8600 모델을 사용하는 경우 기본 엔클로저를 EBOD 엔클로저에 연결하는 SAS 케이블도 제거합니다.
+3. StorSimple 장치에서 두 컨트롤러를 모두 제거합니다. 자세한 내용은 [컨트롤러 제거](#remove-a-controller)를 참조하세요.
 4. 컨트롤러 0에 대한 팩터리 교체를 먼저 삽입하고 컨트롤러 1을 삽입합니다. 자세한 내용은 [컨트롤러 삽입](#insert-a-controller)을 참조하세요. 이렇게 하면 이중 컨트롤러 교체 논리가 트리거됩니다. 자세한 내용은 [이중 컨트롤러 교체 논리](#dual-controller-replacement-logic)를 참조하세요.
 5. 컨트롤러 교체 논리가 백그라운드에서 진행되는 동안 케이블을 다시 연결합니다. 교체 전에 연결된 것과 동일한 방식으로 모든 케이블을 연결해야 합니다. [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md) 또는 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)의 장치를 케이블로 연결 섹션에서 모델에 대한 자세한 지침을 참조하세요.
 6. StorSimple 장치를 켭니다. 8600 모델을 사용하는 경우:
@@ -173,7 +173,7 @@ StorSimple 장치에서 결함이 있는 컨트롤러 모듈을 꺼내려면 다
 1. 엄지와 집게 손가락으로 모듈 래치를 잡습니다.
 2. 엄지와 집게 손가락을 부드럽게 눌러 컨트롤러 래치를 해제합니다.
    
-    ![ 컨트롤러 래치 해제](./media/storsimple-controller-replacement/IC741047.png)
+    ![컨트롤러 래치 해제](./media/storsimple-controller-replacement/IC741047.png)
    
     **그림 2** 컨트롤러 래치 해제
 3. 래치를 핸들로 사용하여 컨트롤러를 섀시 밖으로 밉니다.
@@ -219,7 +219,7 @@ Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 
 
 ![Azure 클래식 포털에서 활성 컨트롤러 식별](./media/storsimple-controller-replacement/IC752072.png)
 
-**그림 6** Azure 클래식 포털을 사용하여 활성 컨트롤러 식별
+**그림 6** 활성 컨트롤러를 보여 주는 Azure 클래식 포털
 
 ### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>StorSimple용 Windows PowerShell을 사용하여 활성 컨트롤러 식별
 직렬 콘솔을 통해 장치에 액세스하는 경우 배너 메시지가 표시됩니다. 배너 메시지에는 모델, 이름, 설치된 소프트웨어 버전 및 액세스 중인 컨트롤러의 상태와 같은 기본 장치 정보가 포함되어 있습니다. 다음 그림은 배너 메시지의 예를 보여 줍니다.
@@ -250,6 +250,6 @@ Azure 클래식 포털에서 **장치** > **유지 관리**로 이동한 다음 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

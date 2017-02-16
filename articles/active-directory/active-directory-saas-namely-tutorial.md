@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c2f2665b217b2de1656e77dae0d9b6c2b439ff5
+ms.sourcegitcommit: 66b1c7769f1141aa2853f77fdb82ad16f5b4e6d3
+ms.openlocfilehash: ec2f9618c4cd4a2944eec8efec83d325da058bb1
 
 
 ---
@@ -45,7 +45,7 @@ Namely와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다. 
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 
@@ -136,7 +136,7 @@ Namely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     a. **SAML 사용**을 클릭합니다. 
    
-    b. Azure 클래식 포털의 **Namely에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 DDO URL** 텍스트 상자에 붙여넣습니다. 
+    b. Azure 클래식 포털의 **Namely에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **ID 공급자 SSO URL** 텍스트 상자에 붙여넣습니다. 
    
     c. 다운로드된 인증서를 메모장에서 열고 내용을 복사한 다음 전체 인증서를 **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.    
    
@@ -195,7 +195,7 @@ Namely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-namely-test-user"></a>Namely 테스트 사용자 만들기
 이 섹션은 Namely에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
@@ -276,6 +276,6 @@ Namely에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

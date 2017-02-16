@@ -3,20 +3,22 @@ title: "인덱서를 사용해서 DocumentDB를 Azure Search에 연결 | Microso
 description: "이 문서에서는 DocumentDB에서 Azure 검색 인덱서를 데이터 소스로 사용하는 방법을 보여 줍니다."
 services: documentdb
 documentationcenter: 
-author: dennyglee
+author: mimig1
 manager: jhubbard
-editor: mimig
+editor: 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
 ms.service: documentdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/08/2016
-ms.author: denlee
+ms.date: 01/10/2017
+ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81dce18eb33dcb31808e41848e543d1488e8cfb7
+ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
+ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
 
 
 ---
@@ -75,7 +77,6 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-
 ### <a name="a-iddatadeletiondetectionpolicyacapturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>삭제된 문서 캡처
 소스 테이블에서 행을 삭제할 때는 검색 인덱스에서도 해당 행을 삭제해야 합니다. 데이터 삭제 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 다음과 같이 지정되는 `Soft Delete` 정책입니다(삭제 시 일부 유형의 플래그로 표시됨).
 
@@ -89,6 +90,42 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 > 사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 softDeleteColumnName 속성을 포함해야 합니다.
 > 
 > 
+
+### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>쿼리 활용
+변경 및 삭제된 문서를 캡처하는 것뿐만 아니라 DocumentDB 쿼리를 사용하여 중첩된 속성을 평면화하고, 배열을 해제하고, json 속성을 프로젝션하고, 인덱싱할 데이터를 필터링할 수 있습니다. 인덱싱할 데이터를 조작하면 Azure Search 인덱서의 성능을 높일 수 있습니다.
+
+예제 문서:
+
+    {
+        "userId": 10001,
+        "contact": {
+            "firstName": "andy",
+            "lastName": "hoh"
+        },
+        "company": "microsoft",
+        "tags": ["azure", "documentdb", "search"]
+    }
+
+
+쿼리 결합:
+
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    
+    
+프로젝션 쿼리:
+
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+
+
+배열 해제 쿼리:
+
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    
+    
+필터 쿼리:
+
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+
 
 ### <a name="a-idcreatedatasourceexamplearequest-body-example"></a><a id="CreateDataSourceExample"></a>요청 본문 예
 다음 예제에서는 사용자 지정 쿼리 및 정책 힌트를 사용해서 데이터 소스를 만듭니다.
@@ -257,6 +294,6 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

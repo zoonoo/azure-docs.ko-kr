@@ -1,5 +1,5 @@
 ---
-title: "Sybase에서 데이터 이동 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 Sybase에서 데이터 이동 | Microsoft Docs"
 description: "Azure 데이터 팩터리를 사용하여 Sybase 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 399553ced40b0d8095d7c51649177510592f6a43
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: b4b60c9134fd491184b02593c32659d2dcdfed8a
 
 
 ---
@@ -286,6 +286,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 포털을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관"
-description: "Azure Portal을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관"
+title: "Azure Portal: Azure SQL Database를 BACPAC 파일로 내보내기 | Microsoft Docs"
+description: "Azure Portal을 사용하여 Azure SQL Database를 BACPAC 파일로 내보내기"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,20 +16,20 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: df14225e6c2a1b9bf83623df172b9be9b5777add
-ms.openlocfilehash: 33699b00d50c623661292e5a9b21a97726c47611
+ms.sourcegitcommit: c9aea5089d535b63983b93076edd74f15055fa5d
+ms.openlocfilehash: 4eb89c2e6db82ba887a094abf53da835060368b9
 
 
 ---
-# <a name="archive-an-azure-sql-database-to-a-bacpac-file-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database를 BACPAC 파일에 보관
+# <a name="export-an-azure-sql-database-to-a-bacpac-file-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database를 BACPAC 파일로 내보내기
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-export.md)
+> * [Azure Portal](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 > * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 > * [PowerShell](sql-database-export-powershell.md)
 > 
 
-이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 Azure Blob 저장소에 저장된 BACPAC 파일로 Azure SQL 데이터베이스를 보관하기 위한 지침을 제공합니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database를 Azure Blob Storage에 저장된 BACPAC 파일로 내보내기 위한 지침을 제공합니다.
 
 Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데이터베이스 스키마 및 데이터를 BACPAC 파일로 내보낼 수 있습니다. BACPAC 파일은 BACPAC의 확장명을 가진 단순한 ZIP 파일입니다. BACPAC 파일은 나중에 Azure Blob 저장소 또는 온-프레미스 저장소의 로컬 저장소에 저장할 수 있으며 나중에 Azure SQL 데이터베이스 또는 SQL Server 온-프레미스 설치로 다시 가져올 수 있습니다. 
 
@@ -109,6 +109,6 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

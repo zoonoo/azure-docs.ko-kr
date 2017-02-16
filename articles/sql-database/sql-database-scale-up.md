@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL 데이터베이스의 서비스 계층 및 성능 수준 변경 | Microsoft Docs"
-description: "Azure SQL 데이터베이스의 서비스 계층 및 성능 수준 변경에서는 SQL 데이터베이스 규모 확장 또는 축소 방법을 보여 줍니다. Azure SQL 데이터베이스의 가격 책정 계층 변경"
+title: "Azure Portal: Azure SQL Database 가격 책정 계층 변경 | Microsoft Docs"
+description: "Azure Portal을 사용하여 Azure SQL Database의 서비스 계층 및 성능 수준을 변경하고 SQL Database의 리소스 및 가격 책정의 규모를 확장하거나 축소하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: a4d68b4365c6c5865b19a0b2e9b78afdb7a04014
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 88104e0684281f77da497ef4dd608c6a0c64b274
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL 데이터베이스의 서비스 계층 및 성능 수준(가격 책정 계층) 변경
 > [!div class="op_single_selector"]
 > * [**Azure Portal**](sql-database-scale-up.md)
-> * [PowerShell](sql-database-scale-up-powershell.md)
-> 
+> * [PowerShell](sql-database-scale-up-powershell.md)> 
 > 
 
 서비스 계층 및 성능 수준은 SQL 데이터베이스에 사용할 수 있는 기능 및 리소스를 설명하고 응용 프로그램이 변경될 필요에 따라 업데이트될 수 있습니다. 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
@@ -89,6 +88,6 @@ ms.openlocfilehash: a4d68b4365c6c5865b19a0b2e9b78afdb7a04014
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

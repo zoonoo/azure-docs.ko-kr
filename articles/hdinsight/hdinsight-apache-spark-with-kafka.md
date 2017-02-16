@@ -1,5 +1,5 @@
 ---
-title: "HDInsight의 Kafka에서 Apache Spark 사용 | Microsoft 문서"
+title: "Azure HDInsight의 Kafka에서 Apache Spark 사용 | Microsoft Docs"
 description: "HDInsight에서 Spark를 사용하여 HDInsight 클러스터의 Kafka에 데이터를 읽고 쓰는 방법에 대해 알아봅니다. 이 예제에서는 Jupyter Notebook의 Scala를 사용하여 HDInsight의 Kafka에 임의의 데이터를 쓴 다음 Spark 스트리밍을 사용하여 해당 데이터를 다시 읽습니다."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/14/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 535e8fc7503e21eea470a1fdb0a10fbc8a18349c
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 52692a21671b48581bba348455f6902935a08fa8
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>HDInsight의 Kafka(미리 보기)에서 Apache Spark 사용
@@ -187,6 +187,6 @@ Jupyter Notebook 예제를 사용하려면 Spark 클러스터의 Jupyter Noteboo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

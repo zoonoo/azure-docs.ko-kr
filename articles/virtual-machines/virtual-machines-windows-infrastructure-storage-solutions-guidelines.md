@@ -1,5 +1,5 @@
 ---
-title: "저장소 솔루션 지침 | Microsoft Docs"
+title: "Azure Storage 솔루션 지침 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 저장소 솔루션을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 589c79b9caba359ce8063c051ebe80dcbc68456c
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 38f17470f7d4067ba5a9d3d974cfa5dd051320a5
 
 
 ---
-# <a name="storage-infrastructure-guidelines"></a>저장소 인프라 지침
+# <a name="azure-storage-infrastructure-guidelines"></a>Azure Storage 인프라 지침
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 최적의 VM(가상 컴퓨터) 성능을 위한 저장소 요구 사항 및 디자인 고려 사항을 이해하는 데 주안점을 둡니다.
@@ -61,7 +61,7 @@ Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택�
 
 Azure Storage 배포를 디자인할 때는 확장성이 어느 정도 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure Storage 확장성 및 성능 목표](../storage/storage-scalability-targets.md)도 참조하세요.
 
-응용 프로그램 저장소의 경우 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 Blob Storage를 사용하여  저장할 수 있습니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob Storage는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
+응용 프로그램 저장소의 경우 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 저장할 수 있습니다. Blob Storage를 사용합니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob Storage는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
 
 ## <a name="striped-disks"></a>스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB보다 큰 디스크를 만들 수 있을 뿐만 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
@@ -78,7 +78,7 @@ Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 �
 자세한 내용은 [저장소 공간 - 성능을 높이기 위한 설계](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx)를 참조하세요.
 
 ## <a name="multiple-storage-accounts"></a>여러 저장소 계정
-Azure Storage 환경을 디자인할 때 배포하는 VM 수가 증가할 경우 여러 저장소 계정을 사용할 수 있습니다. 이렇게 하면 기본 Azure Storage 인프라 전반에 I/O가 분산되므로 VM 및 응용 프로그램에 대해 최적의 성능을 유지할 수 있습니다. 배포하는 응용 프로그램을 디자인할 때는 각 VM의 I/O 요구 사항을 고려하고 Azure Storage 계정에 이러한 I/O를 분산해야 합니다. I/O 요구가 높은 모든 VM을 하나 또는 두 개의 저장소 계정으로만 그룹화하지 않도록 합니다.
+Azure Storage 환경을 디자인할 때 배포하는 VM 수가 증가할 경우 여러 저장소 계정을 사용할 수 있습니다. 이 방법을 사용하면 기본 Azure Storage 인프라 전반에 I/O가 분산되므로 VM 및 응용 프로그램에 대해 최적의 성능을 유지할 수 있습니다. 배포하는 응용 프로그램을 디자인할 때는 각 VM의 I/O 요구 사항을 고려하고 Azure Storage 계정에 이러한 I/O를 분산해야 합니다. I/O 요구가 높은 모든 VM을 하나 또는 두 개의 저장소 계정으로만 그룹화하지 않도록 합니다.
 
 다른 Azure Storage 옵션의 I/O 기능 및 일부 권장 최대값에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../storage/storage-scalability-targets.md)를 참조하세요.
 
@@ -88,6 +88,6 @@ Azure Storage 환경을 디자인할 때 배포하는 VM 수가 증가할 경우
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

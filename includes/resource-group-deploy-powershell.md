@@ -1,4 +1,4 @@
-## PowerShell을 사용하여 배포하는 방법
+## <a name="how-to-deploy-with-powershell"></a>PowerShell을 사용하여 배포하는 방법
 1. Azure 계정에 로그인합니다.
    
           Add-AzureAccount
@@ -31,7 +31,7 @@
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 5. 리소스 그룹에 대한 새 배포를 만들려면 **New-azureresourcegroupdeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다. 
    
-   다음과 같은 방법으로 매개 변수 값을 제공할 수 있습니다.
+   다음과 같은 방법으로 매개 변수 값을 제공할 수 있습니다. 
    
    * 인라인 매개 변수를 사용합니다.
      
@@ -59,4 +59,8 @@
    
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

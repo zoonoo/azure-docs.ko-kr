@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/09/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: c5448ef5ad9def86b2deb1736160aa5b7ee6fd15
-ms.openlocfilehash: 4a2f50caa06d383bd41a6e94a2f73f130d7a13e3
+ms.sourcegitcommit: 58a583a761a400d8fa0488fbc4fbfec35ec62c41
+ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 4a2f50caa06d383bd41a6e94a2f73f130d7a13e3
 아래 지침 관련 문제를 해결할 수 없는 경우 지원 엔지니어에 문의할 수 있습니다. 이렇게 문의할 때 다음 정보를 포함 하는 것이 좋습니다.
 
 - **오류에 대한 일반적인 설명** – 사용자가 본 오류 메시지가 있습니까? 오류 메시지가 있는 경우 알아낸 예기치 않은 동작을 자세히 설명합니다. 동기화를 위해 어떤 기능을 사용할 수 있고 사용자가 동기화해야 하는 이유는 무엇입니까? 다수의 기능이 동기화되지 않거나 동기화되지 않는 기능은 분리됩니까?
--**영향을 받는 사용자** – 동기화가 한 사용자 또는 여러 사용자에 대 해 성공/실패합니까? 사용자당 몇 개의 장치가 관련됩니까? 모두 동기화되지 않거나 일부만 동기화되고 일부는 동기화되지 않습니까?
+- **영향을 받는 사용자** – 동기화가 한 사용자 또는 여러 사용자에 대 해 성공/실패합니까? 사용자당 몇 개의 장치가 관련됩니까? 모두 동기화되지 않거나 일부만 동기화되고 일부는 동기화되지 않습니까?
 - **사용자에 대한 정보** – 장치에 로그인을 사용하는 데 사용자가 사용하는 ID는 무엇입니까? 사용자는 장치에 어떻게 로그인합니까? 동기화가 허용된 보안 그룹의 일원입니까? 
 - **장치에 대한 정보** – 이 장치가 Azure AD에 조인되었거나 도메인에 가입되었습니까? 장치의 빌드는 무엇입니까? 최신 업데이트는 무엇입니까?
 - **날짜/시간/표준 시간대** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간은 무엇입니까?
@@ -52,9 +52,7 @@ ms.openlocfilehash: 4a2f50caa06d383bd41a6e94a2f73f130d7a13e3
 1. 엔터프라이즈 상태 로밍을 허용하도록 구성되어 있는 도메인에 Windows 10 PC를 연결한 후, 작업 계정으로 로그온합니다. **설정** > **계정** > **설정 동기화**로 이동하여 동기화 및 개별 설정이 켜져 있는지 그리고 설정 페이지의 맨 위에서 사용자가 자신의 작업 계정과 동기화 중임을 나타내는지 확인합니다. **설정** > **계정** > **사용자 정보**에서 동일한 계정이 로그인 계정으로 사용되고 있는지 확인합니다. 
 2. 작업 표시줄을 화면 오른쪽이나 위쪽으로 이동하는 등 원본 컴퓨터에서 일부 내용을 변경하여 여러 대의 컴퓨터에서 동기화가 작동하는지 확인합니다. 변경 사항이 5분 이내에 두 번째 컴퓨터에 적용되는지 확인합니다. 
  - 화면을 잠갔다가 해제하면(Win + L) 동기화 트리거에 도움이 될 수 있습니다.
- - 엔터프라이즈 상태로 동기화가 되도록 하려면 두 PC에 동일한 로그온 계정을 사용해야 합니다.
-
-## <a name="roaming-is-tied-to-the-user-account-and-not-the-machine-account"></a>로밍은 컴퓨터 계정이 아닌 사용자 계정에 연결됩니다.
+ - Enterprise State Roaming이 시스템 계정이 아닌 사용자 계정에 연결되어 있으므로 동기화가 작동하려면 두 PC에서 동일한 로그온 계정을 사용해야 합니다.
 
 **잠재적인 문제**: 설정 페이지에는 토글이 회색으로 나타나고, 계정 대신 "일부 Windows 기능은 Microsoft 계정 또는 회사 계정을 사용하는 경우에만 사용할 수 있습니다."라는 텍스트가 표시됩니다. 이러한 문제는 장치가 도메인에 가입되어 Azure AD에 등록되도록 설정되었지만 장치가 Azure AD에 성공적으로 인증되지 않은 경우 발생합니다. 이는 장치 정책을 적용해야 하지만 이 응용 프로그램이 비동기적으로 작동하여 몇 시간 지연되는 것이 원인일 수 있습니다. 이 문제를 확인하려면 장치 등록 상태 확인의 단계를 따라 이 경우에 해당하는지 확인합니다.
 
@@ -63,7 +61,7 @@ ms.openlocfilehash: 4a2f50caa06d383bd41a6e94a2f73f130d7a13e3
 
 1.  비관리자 권한 명령 프롬프트를 엽니다. Windows에서 이 작업을 수행하려면 실행 시작 관리자(Win + R)를 열고 "cmd"를 입력하여 엽니다.
 2.  명령 프롬프트가 열리면 "*dsregcmd.exe /status*"을 입력합니다.
-3.  예상된 출력에서 AzureAdJoined 필드 값은 "YES", WamDefaultSet 필드 값도 "YES"여야 하고 **WamDefaultGUID** 필드 값은 끝에 "(AzureAd)"가 있는 GUID여야 합니다.
+3.  예상된 출력에서 **AzureAdJoined** 필드 값은 "YES", **WamDefaultSet** 필드 값도 "YES"여야 하고 **WamDefaultGUID** 필드 값은 끝에 "(AzureAd)"가 있는 GUID여야 합니다.
 
 **잠재적인 문제**: **WamDefaultSet** 및 **AzureAdJoined** 필드 값이 모두 "NO"이고 장치가 도메인에 가입되고 Azure AD에 등록되었으며 장치가 동기화되지 않습니다. 이것이 표시되는 경우 장치를 Azure AD에 연결할 때 장치는 정책을 적용하거나 장치에 대한 인증이 실패할 때까지 대기해야 합니다. 사용자는 정책이 적용될 때까지 몇 시간을 대기해야 할 수 있습니다. 기타 문제 해결 단계에는 로그아웃하고 다시 로그인함으로써 자동 등록 다시 시도 또는 작업 스케줄러에서 작업 시작이 포함될 수 있습니다. 경우에 따라 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
@@ -71,7 +69,7 @@ ms.openlocfilehash: 4a2f50caa06d383bd41a6e94a2f73f130d7a13e3
 **잠재적인 문제**: **AzureAdSettingsUrl** 필드가 비어있고 장치가 동기화되지 않습니다. 사용자가 Azure Active Directory 포털에서 엔터프라이즈 상태 로밍을 사용하기 전에 장치에 마지막으로 로그인했을 수 있습니다. 포털에서 IT 관리자에게 설정 및 엔터프라이즈 앱 데이터 동기화가 허용되는 사용자를 비활성화했다가 다시 활성화하도록 합니다. 다시 활성화되면 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>엔터프라이즈 상태 로밍 및 Multi-Factor Authentication 
-특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다. 이러한 현상에 대한 자세한 내용은 KB3193683 지원 문서를 참조하세요. 
+특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다. 이러한 현상에 대한 자세한 내용은 [KB3193683](https://support.microsoft.com/kb/3193683) 지원 문서를 참조하세요. 
 
 **잠재적인 문제**: Azure Active Directory 포털에서 Multi-Factor Authentication을 필요로 하도록 장치가 구성된 경우 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 장치에 로그인함으로써 동기화할 수 있습니다.
 
@@ -104,6 +102,8 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>Windows 정보 보호로 보호된 데이터뿐만 아니라 테마가 동기화되지 않음 
 
 데이터 누출을 방지하기 위해 [Windows 정보 보호](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)로 보호되는 데이터는 Windows 10 기념일 업데이트를 사용하는 장치에 대한 엔터프라이즈 상태 로밍을 통해 동기화되지 않습니다.
+
+
 
 **권장 작업**  
 없음. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
@@ -160,13 +160,21 @@ AAD/Operational 로그에 있는 이벤트 뷰어에서 이벤트 1104: AAD 클�
 
 
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - 피드백을 제공하고 엔터프라이즈 상태 로밍을 개선하는 방법에 대해 제안하려면 [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) 포럼을 사용합니다.
 
 - 자세한 내용은 [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)를 참조하세요. 
 
+## <a name="related-topics"></a>관련된 항목
+* [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
+* [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
+* [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!--HONumber=Dec16_HO1-->
+
+
+<!--HONumber=Jan17_HO2-->
 
 

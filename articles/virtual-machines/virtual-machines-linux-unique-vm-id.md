@@ -1,6 +1,6 @@
 ---
-title: "VM ID에 액세스"
-description: "Azure VM 고유 ID 액세스 및 사용에 대해 설명합니다."
+title: "Azure Linux VM ID 가져오기 | Microsoft Docs"
+description: "Azure Linux VM 고유 ID를 가져와 사용하는 방법을 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: kmouss
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/08/2016
+ms.date: 01/23/2017
 ms.author: kmouss
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8bbde19aeccec285f9c5727540f49b7c9207b3b3
+ms.sourcegitcommit: 167863b0de66d89f1cec80b1c6b2aec64f48b790
+ms.openlocfilehash: 70d1d3ee35c32bb95306c7ce6089574d035de6a6
 
 
 ---
@@ -62,6 +62,6 @@ Azure VM 고유 ID는 VM이 Azure 또는 온-프레미스에서 실행되는 다
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

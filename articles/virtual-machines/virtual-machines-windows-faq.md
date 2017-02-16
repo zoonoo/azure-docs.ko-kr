@@ -1,5 +1,5 @@
 ---
-title: "Windows VM에 대한 FAQ | Microsoft Docs"
+title: "Azure의 Windows VM에 대한 FAQ | Microsoft Docs"
 description: "리소스 관리자 모델을 사용하여 만든 Windows 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
+ms.sourcegitcommit: fc445f1879ba1f8862c048bbb0753c824758630c
+ms.openlocfilehash: 18c4f70a3872e7e4c509f55db6276653ba48722d
 
 
 ---
@@ -35,7 +35,7 @@ Windows 7 및 Windows 8.1의 특정 버전은 MSDN Azure 혜택 구독자와 MSD
 Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
-RDP(원격 데스크톱 연결)를 사용하여 Windows VM에 대한 원격 연결을 설정합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
+RDP(원격 데스크톱 연결)를 사용하여 Windows VM에 대한 원격 연결을 설정합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대&2;개의 동시 연결이 지원됩니다.  
 
 원격 데스크톱에 문제가 있는 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 
 
@@ -126,6 +126,6 @@ D: 드라이브 문자를 사용해야 하는 응용 프로그램이 있는 경�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "CLI(플랫폼 간 명령줄 인터페이스)를 사용하여 Azure 서비스에 대한 경고 만들기 | Microsoft 문서"
-description: "명령줄 인터페이스를 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 Azure 경고를 만듭니다."
+title: "Azure 서비스에 대한 경고 만들기 - 플랫폼 간 CLI | Microsoft Docs"
+description: "지정한 조건이 충족될 경우 전자 메일, 알림, 웹 사이트 URL 호출(웹후크) 또는 자동화를 트리거합니다."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1bb722726fd44972887fdcff2b33a15725914d2
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
 
 
 ---
-# <a name="use-the-cross-platform-command-line-interface-cli-to-create-alerts-for-azure-services"></a>플랫폼 간 명령줄 인터페이스(CLI)를 사용하여 Azure 서비스에 대한 경고 만들기
+# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - 플랫폼 간 CLI
 > [!div class="op_single_selector"]
 > * [포털](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>개요
-이 문서에서는 명령줄 인터페이스(CLI)를 사용하여 Azure 경고를 설정하는 방법을 보여 줍니다.
+이 문서에서는 플랫폼 간 CLI(명령줄 인터페이스)를 사용하여 Azure 경고를 설정하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > Azure Monitor는 2016년 9월 25일까지는 "Azure Insights"로 지칭했던 제품의 새로운 이름입니다. 하지만 네임스페이스와 아래 명령에서는 "insights"를 계속 포함합니다.
-> 
-> 
+>
+>
 
 Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
@@ -73,74 +73,74 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
     ```
 
 1. 리소스 그룹에 대해 기존 규칙을 나열하려면 **azure insights alerts rule list** *[options] &lt;resourceGroup&gt;* 형식을 사용합니다.
-   
+
    ```console
    azure insights alerts rule list myresourcegroupname
-   
+
    ```
 2. 규칙을 만들려면 먼저 몇 가지 중요한 정보가 필요합니다.
-   
+
    * 경고를 설정할 리소스의 **리소스 ID**
    * 리소스에 대해 사용 가능한 **메트릭 정의**
-     
+
      리소스 ID를 가져오는 한 가지 방법은 Azure 포털을 사용하는 것입니다. 리소스를 이미 만들었다고 가정하고 포털에서 선택합니다. 이 후 다음 블레이드에서 *설정* 섹션의 *속성*을 선택합니다. *리소스 ID* 는 다음 블레이드의 필드입니다. 또 다른 방법은 [Azure Resource Explorer](https://resources.azure.com/)를 사용하는 것입니다.
-     
+
      웹앱에 대한 예제 리소스 ID
-     
+
      ```console
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
      ```
-     
+
      이전 리소스 예제에 대한 메트릭의 사용 가능한 메트릭 및 단위 목록을 가져오려면 다음 CLI 명령을 사용합니다.  
-     
+
      ```console
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
-     
+
      *PT1M* 은 사용 가능한 측정의 세분성입니다(1분 간격). 다른 세분성을 사용할 때는 다른 메트릭 옵션이 있습니다.
 3. 메트릭 기반 경고 규칙을 만들려면 다음 형태의 명령을 사용합니다.
-   
+
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
-   
+
     다음 예제에서는 웹 사이트 리소스에 대한 경고를 설정합니다. 이 경고는 어느 트래픽이나 5분 동안 계속 수신되면 항상 트리거되며, 트래픽이 5분 동안 수신되지 않으면 다시 트리거됩니다.
-   
+
     ```console
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
-   
+
     ```
 4. 경고가 발생할 때 Webhook를 만들거나 이메일을 보내려면 먼저 이메일 및/또는 Webhook를 만듭니다. 그런 다음 바로 규칙을 만듭니다. Webhook나 이메일을 CLI를 통해 이미 생성된 규칙과 연결할 수 없습니다.
-   
+
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
-   
+
     azure insights alerts actions webhook create https://www.contoso.com
-   
+
     azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
 5. 활동 로그의 특정 조건에 대해 발생하는 경고를 만들려면 다음 형태를 사용합니다.
-   
+
     **insights alerts rule log set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;operationName&gt;*
-   
+
     예를 들면 다음과 같습니다.
-   
+
     ```console
     azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
     ```
-   
+
     operationName은 활동 로그 항목의 이벤트 형식에 해당합니다. 예에는 *Microsoft.Compute/virtualMachines/delete*와 *microsoft.insights/diagnosticSettings/write*가 포함됩니다.
-   
+
     PowerShell 명령 [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) 을 사용하여 가능한 operationName 목록을 가져올 수 있습니다. 또는 Azure 포털을 사용하여 활동 로그를 쿼리하고 경고를 만들 특정 과거 작업을 찾을 수도 있습니다. 그래픽 로그 보기에 친밀한 이름으로 표시된 작업입니다. JSON에서 항목을 찾고 OperationName 값을 추출합니다.   
 6. 개별 규칙을 살펴서 경고가 제대로 만들어졌는지 확인할 수 있습니다.
-   
+
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
     ```
 7. 규칙을 삭제하려면 다음 형태의 명령을 사용합니다.
-   
+
     **insights alerts rule delete** [options] &lt;resourceGroup&gt; &lt;ruleName&gt;
-   
+
     이 명령은 이 문서에서 앞서 만든 규칙을 삭제합니다.
-   
+
     ```console
     azure insights alerts rule delete myresourcegroup myrule
     azure insights alerts rule delete myresourcegroup myrulewithwebhookandemail
@@ -156,7 +156,6 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

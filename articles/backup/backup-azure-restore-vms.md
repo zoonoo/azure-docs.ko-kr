@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 9c8410a847d943c5baee3e08397ebf24072b3f78
+ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
+ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
 
 
 ---
@@ -145,10 +145,10 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 1. [Azure 백업 PowerShell](backup-azure-vms-classic-automation.md#restore-an-azure-vm)을 사용하여 백업 자격 증명 모음에서 디스크 복원
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중의 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는데 사용합니다.
    
-   *  [내부 부하 분산 장치 ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-   * [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
-   *  [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
-   *  [다중의 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
+   * [내부 부하 분산 장치 ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
+   * [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)에 연결하기 위한 VM을 만듭니다.
+   * [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
+   * [다중의 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
 ## <a name="next-steps"></a>다음 단계
 * [문제 해결](backup-azure-vms-troubleshoot.md#restore)
@@ -157,6 +157,6 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

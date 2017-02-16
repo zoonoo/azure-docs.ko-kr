@@ -1,5 +1,5 @@
 ---
-title: "Docker Machine으로 Azure에서 Docker 호스트 만들기 | Microsoft Docs"
+title: "Docker Machine을 사용하여 Azure에서 Linux 호스트 만들기"
 description: "Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: 1a1d5a3e7f39477e06540a980ccbbdc789cefaf1
+ms.openlocfilehash: dd66b244b3fcb7fe22937dbbc6e284bdd93625f2
 
 
 ---
@@ -38,7 +38,7 @@ docker-machine create -d azure \
   machine
 ```
 
-출력은 계정에 2단계 인증이 구성되어 있는지 여부에 따라 다음과 유사하게 표시됩니다.
+출력은 계정에&2;단계 인증이 구성되어 있는지 여부에 따라 다음과 유사하게 표시됩니다.
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
@@ -132,6 +132,6 @@ Docker를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Micr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "미디어 자산 다운로드"
+title: "컴퓨터에 Media Services 자산 다운로드 - Azure | Microsoft Docs"
 description: "컴퓨터로 자산을 다운로드하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
 
 
 ---
@@ -88,6 +88,6 @@ ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

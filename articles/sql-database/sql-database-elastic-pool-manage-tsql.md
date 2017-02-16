@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,14 +16,14 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 17ec1ad8218824048179e32ae5059b6a6d77a367
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: 9688c3b402b7961675e06e804a68ff454126d5f3
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-transact-sql"></a>Transact-SQL로 탄력적 데이터베이스 풀 모니터링 및 관리
+# <a name="monitor-and-manage-an-elastic-pool-with-transact-sql"></a>Transact-SQL로 탄력적 풀 모니터링 및 관리
 > [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-elastic-pool-manage-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 > * [C#](sql-database-elastic-pool-manage-csharp.md)
 > * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
@@ -74,16 +74,16 @@ SERVICE_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용
     ORDER BY end_time DESC;
 
 ## <a name="get-resource-usage-for-an-elastic-database"></a>탄력적 데이터베이스에 대한 리소스 사용량 가져오기
-[sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) 또는 [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx)를 사용하여 탄력적 풀에서 데이터베이스의 리소스 사용 통계를 검사합니다. 이 프로세스는 모든 단일 데이터베이스에 대한 리소스 사용량을 쿼리하는 경우와 비슷합니다.
+[sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) 또는 [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx)를 사용하여 탄력적 풀에서 데이터베이스의 리소스 사용 통계를 검사합니다. 이 프로세스는 단일 데이터베이스에 대한 리소스 사용량을 쿼리하는 경우와 비슷합니다.
 
 ## <a name="next-steps"></a>다음 단계
-탄력적 데이터베이스 풀을 만든 후에 탄력적 작업을 만들어 풀에 있는 탄력적 데이터베이스를 관리할 수 있습니다. 탄력적 작업을 통해 개수에 관계없이 풀에 있는 데이터베이스에 대해 T-SQL 스크립트를 실행할 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
+탄력적 풀을 만든 후에 탄력적 작업을 만들어 풀에 있는 탄력적 데이터베이스를 관리할 수 있습니다. 탄력적 작업을 통해 개수에 관계없이 풀에 있는 데이터베이스에 대해 T-SQL 스크립트를 실행할 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
 [Azure SQL 데이터베이스 규모 확장](sql-database-elastic-scale-introduction.md)참조: 탄력적 데이터베이스 도구를 사용하여 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

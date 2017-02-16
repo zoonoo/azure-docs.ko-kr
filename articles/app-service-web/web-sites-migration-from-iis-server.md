@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7f3cb7823eb7969faf76ca196a2ae95b214723f2
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
 
 
 ---
@@ -45,7 +45,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * ISAPI 필터 – 웹 앱에서는 ISAPI 필터를 사용할 수 있습니다. 다음을 수행해야 합니다.
   
   * 웹 앱에 DLL 배포 
-  *  [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
+  * [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
   * 아래 내용이 포함된 applicationHost.xdt 파일을 사이트 루트에 저장
     
       <?xml version="1.0"?>
@@ -131,7 +131,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
     ![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -141,6 +141,6 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

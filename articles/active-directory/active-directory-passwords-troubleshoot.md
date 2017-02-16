@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ad322aed5e2e6a42a2600a3995be28a99ee14f3a
 
 
 ---
@@ -540,7 +540,7 @@ TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
               <p>시간이 지난 후에 페더레이션되거나 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다.</p>
             </td>
             <td>
-              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">비밀번호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 비밀번호 쓰기 저장 사용 &amp; 방화벽 규칙을 구성"을 참조하세요.</p>
+              <p>일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 암호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 암호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하십시오. 이렇게 하려면 Azure AD Connect 마법사 또는 Powershell를 사용해야 합니다.(위의 HowTos 섹션 참조) 기능을 사용 가능하도록 표시되면 UI 또는 PowerShell을 통해 이 기능을 활성화 또는 비활성화하도록 시도합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 &amp; 방화벽 규칙을 구성"을 참조하세요.</p>
               <p>
 
               </p>
@@ -584,7 +584,7 @@ TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
                 <li>
 이제 암호 쓰기 저장 활성화/비활성화를 시도할 수 있습니다. 마법사는 자격 증명을 사용하여 "abc.onmicrosoft.com – AAD"으로 커넥터의 이름을 생성하고 암호 쓰기 저장 cmdlet에 전달합니다. 이 이름을 사용하여 만든 커넥터가 없기 때문에 실패합니다.<br\><br\></li>
               </ol>
-              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">비밀번호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 비밀번호 쓰기 저장 사용 &amp; 방화벽 규칙을 구성"을 참조하세요.</p>
+              <p>이것은 최신 빌드에서 수정되었습니다. 이전 빌드를 설정한 경우 해결 방법은 기능을 활성화/비활성화하는 Powershell cmdlet을 사용하는 것입니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">암호 쓰기 저장을 활성화/비활성화하는 방법</a>에서 "2단계: 디렉터리 동기화 컴퓨터에서 암호 쓰기 저장 활성화 &amp; 방화벽 규칙을 구성"을 참조하세요.</p>
             </td>
           </tr>
           <tr>
@@ -659,7 +659,7 @@ TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
               <p>Azure 관리 포털에서 사용자를 대신하여 암호를 재설정하려고 할 때 다음과 같은 내용의 메시지가 표시됩니다. “온-프레미스 환경에서 실행되는 암호 재설정 서비스는 관리자가 사용자 암호 재설정하도록 지원하지 않습니다. 이 문제를 해결하려면 Azure AD Connect최신 버전으로 업그레이드하십시오.”</p>
             </td>
             <td>
-              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&nbsp; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하는 것이 좋습니다. 조직에서 이 문제를 해결하고 암호 쓰기 저장을 최대한 활용하려면 [온-프레미스 ID 통합](connect/active-directory-aadconnect.md)을 참조하세요.</p>
+              <p>이는 동기화 엔진 버전이 사용된 특정 암호 쓰기 저장 작업을 지원하지 않는 경우 발생합니다. Azure AD Connect 1.0.0419.0911 이후 버전은 Azure 관리 포털에서 암호를 재설정 쓰기 저장, 암호 변경 쓰기 저장 및 관리자가 시작한 암호 재설정 쓰기 저장을 포함하는 모든 암호 관리 작업을 지원합니다.&nbsp; DirSync 1.0.6862 이후 버전이 암호 재설정 쓰기 저장을 지원합니다. 이 문제를 해결하려면 Azure AD Connect 또는 Azure Active Directory Connect의 최신 버전을 설치하는 것이 좋습니다. 조직에서 이 문제를 해결하고 암호 쓰기 저장을 최대한 활용하려면 [온-프레미스 ID 통합](active-directory-aadconnect.md)을 참조하세요.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1486,7 +1486,7 @@ Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는
 Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또는 로컬 AD 환경에서 암호를 관리하는 능력에 영향을 미칠 수 있는 모든 구성 문제를 해결할 것입니다.
 위에서 설명한 처음 두 단계를 시도한 후에 이 단계를 수행하는 것이 좋습니다.
 
-1. 최신 버전의 Azure AD Connect을 [여기서](connect/active-directory-aadconnect.md#install-azure-ad-connect)다운로드
+1. 최신 버전의 Azure AD Connect을 [여기서](active-directory-aadconnect.md#install-azure-ad-connect)다운로드
 2. Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
 3. 다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오.  상자 동기화 규칙 중 사용자 지정을 하지 않으면 추가 수동 단계가 필요하지 않으며 이 경우 **업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포**해야 합니다.
 
@@ -1508,7 +1508,7 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
-* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
+* [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다.
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
@@ -1519,6 +1519,6 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

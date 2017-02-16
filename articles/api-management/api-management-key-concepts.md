@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
+ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
 
 
 ---
@@ -50,7 +50,7 @@ API 관리를 사용하려면 관리자가 API를 만듭니다. 각 API는 하�
 ## <a name="apis"> </a>API 및 작업
 API는 API 관리 서비스 인스턴스의 기반입니다. 각 API는 개발자가 사용할 수 있는 작업 집합을 나타냅니다. 각 API에는 API를 구현하는 백 엔드 서비스에 대한 참조가 포함되어 있으며, 해당 작업은 백 엔드 서비스에 의해 구현되는 작업에 매핑됩니다. API 관리의 작업은 매우 다양하게 구성할 수 있으며 URL 매핑, 쿼리 및 경로 매개 변수, 요청 및 응답 콘텐츠, 작업 응답 캐싱 등을 더 효율적으로 제어할 수 있습니다. 속도 제한, 할당량 및 IP 제한 정책 또한 API 또는 개별 작업 수준에서 구현할 수 있습니다.
 
-자세한 내용은 [API를 관리하는 방법][How to create APIs] 및 [API에 작업을 추가하는 방법][How to add operations to an API]을 참조하세요.
+자세한 내용은 [API를 만드는 방법][How to create APIs] 및 [API에 작업을 추가하는 방법][How to add operations to an API]을 참조하세요.
 
 ## <a name="products"> </a> 제품
 제품은 API가 개발자에게 표시되는 방식입니다. API 관리에서 제품은 하나 이상의 API를 가지며 제목, 설명, 사용 약관 등으로 구성됩니다. 제품은 **개방형** 또는 **보호된** 제품일 수 있습니다. 보호된 제품은 사용하기 전에 구독해야 하는 반면, 개방형 제품은 구독하지 않고 사용할 수 있습니다. 제품을 개발자가 사용할 수 있게 되면 제품을 게시할 수 있습니다. 게시되고 나면 개발자가 볼 수 있습니다(보호된 제품의 경우 구독할 수 있음). 구독 승인은 제품 수준에서 구성되며 관리자 승인을 요구하거나 자동 승인될 수 있습니다.
@@ -70,16 +70,16 @@ API는 API 관리 서비스 인스턴스의 기반입니다. 각 API는 개발�
 * **개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 응용 프로그램을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 응용 프로그램을 빌드합니다.
 * **게스트** - API 관리 인스턴스의 개발자 포털을 방문하는 인증되지 않은 개발자 포털 사용자(예: 잠재 고객)가 이 그룹에 속합니다. 예를 들어 API를 볼 수 있지만 호출할 수는 없는 기능과 같이 특정 읽기 전용 액세스 권한을 받을 수 있습니다.
 
-이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 둘 이상의 그룹의 구성원일 수 있습니다.
+이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 두 그룹 이상의 구성원이 될 수 있습니다.
 
 자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups]을 참조하세요.
 
 ## <a name="developers"> </a> 개발자
-개발자는 API 관리 서비스 인스턴스의 사용자 계정을 나타냅니다. 관리자는 참여하도록 개발자를 만들거나 초대할 수 있으며 [개발자 포털][Developer portal]에서 등록할 수도 있습니다. 각 개발자는 하나 이상의 그룹의 구성원이며 해당 그룹에 대한 가시성을 부여하는 제품을 구독할 수 있습니다.
+개발자는 API 관리 서비스 인스턴스의 사용자 계정을 나타냅니다. 개발자는 관리자가 만들거나 참여하도록 초대할 수 있으며 [개발자 포털][Developer portal]에서 등록할 수도 있습니다. 각 개발자는 하나 이상의 그룹의 구성원이며 해당 그룹에 대한 가시성을 부여하는 제품을 구독할 수 있습니다.
 
 개발자가 제품을 구독하면 제품의 기본 키 및 보조 키를 부여받습니다. 이 키는 제품의 API를 호출할 때 사용됩니다.
 
-자세한 내용은 [개발자를 만들거나 초대하는 방법][How to create or invite developers] 및 [개발자와 그룹을 연결하는 방법][How to associate groups with developers]을 참조하세요.
+자세한 내용은 [개발자를 만들거나 초대하는 방법][How to create or invite developers] 및 [그룹을 개발자와 연결하는 방법][How to associate groups with developers]을 참조하세요.
 
 ## <a name="policies"> </a> 정책
 정책은 게시자가 구성을 통해 API의 동작을 변경할 수 있게 하는 API 관리의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 많이 사용되는 명령문에는 XML에서 JSON으로 형식 변환, 개발자로부터 들어오는 호출의 양을 제한하는 호출 속도 한도 등이 포함되며 다양한 다른 정책도 사용할 수 있습니다.
@@ -108,30 +108,30 @@ API 관리에 대해 자세히 알아보려면 Microsoft Ignite 2015 conference�
 > 
 > 
 
-[API 및 작업]: #apis
-[제품]: #products
-[그룹]: #groups
-[개발자]: #developers
-[정책]: #policies
-[개발자 포털]: #developer-portal
+[APIs and operations]: #apis
+[Products]: #products
+[Groups]: #groups
+[Developers]: #developers
+[Policies]: #policies
+[Developer portal]: #developer-portal
 
-[API를 만드는 방법]: api-management-howto-create-apis.md
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
-[그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
-[그룹을 개발자와 연결하는 방법]: api-management-howto-create-groups.md#associate-group-developer
-[고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
-[개발자를 만들거나 초대하는 방법]: api-management-howto-create-or-invite-developers.md
-[정책 참조]: api-management-policy-reference.md
-[API 관리 정책]: api-management-howto-policies.md
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-
-
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

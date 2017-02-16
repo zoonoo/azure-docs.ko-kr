@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/25/2016
+ms.date: 01/18/2017
 ms.author: markgal; jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
+ms.sourcegitcommit: 152285bee4631acca7610eb5bd9167ec37296a26
+ms.openlocfilehash: d1ec8112b9fc347d9de5901c4b39a3291701da45
 
 
 ---
@@ -26,7 +26,8 @@ ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 > [!NOTE]
 > 1. 암호화된 VM의 백업 및 복원은 Resource Manager에서 배포한 가상 컴퓨터에 대해서만 지원됩니다. 클래식 가상 컴퓨터에서는 지원되지 않습니다. <br>
-> 2. BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화된 가상 컴퓨터에서만 지원됩니다. BitLocker 암호화 키만 사용하여 암호화된 가상 컴퓨터에서는 지원되지 않습니다. <br>
+> 2. Azure Disk Encryption을 사용하는 Windows 및 Linux Virtual Machines 둘 다에 대해 지원됩니다. 이 암호화 방식은 Windows의 업계 표준 BitLocker 기능과 Linux의 DM 암호화 기능을 활용하여 디스크 암호화 기능을 제공합니다. <br>
+> 3. BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화된 가상 컴퓨터에서만 지원됩니다. BitLocker 암호화 키만 사용하여 암호화된 가상 컴퓨터에서는 지원되지 않습니다. <br>
 > 
 > 
 
@@ -80,7 +81,7 @@ ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
 백업 작업을 트리거하려면 [복구 서비스 자격 증명 모음에 Azure VM 백업](backup-azure-arm-vms.md) 문서에서 언급한 단계를 사용합니다.
 
 ## <a name="restore-encrypted-vm"></a>암호화된 VM 복원
-암호화된 가상 컴퓨터와 암호화되지 않은 가상 컴퓨터의 복원 환경은 동일합니다. 암호화된 VM을 복원하려면 [Azure Portal에서 가상 컴퓨터 복원](backup-azure-arm-restore-vms.md) 문서에서 언급한 단계를 사용합니다. 키와 비밀을 복원해야 하는 경우 이를 복원할 키 자격 증명 모음이 이미 있어야 합니다.
+암호화된 VM을 복원하려면 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그 후에는 [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)에 설명된 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다.
 
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
 | 작업 | 오류 세부 정보 | 해결 방법 |
@@ -88,10 +89,11 @@ ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
 | 백업 |가상 컴퓨터가 BEK만으로 암호화되었기 때문에 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 가상 컴퓨터에서만 백업을 사용할 수 있습니다. |가상 컴퓨터는 BEK와 KEK를 사용하여 암호화해야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다. |
 | 복원 |이 VM과 연결된 키 자격 증명 모음이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키 자격 증명 모음을 만들려면 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 사용합니다. 키와 비밀이 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)(영문) 문서를 사용합니다. |
 | 복원 |이 VM과 연결된 키와 비밀이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키와 비밀이 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)(영문) 문서를 사용합니다. |
+| 복원 |백업 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |위에서 설명된 것처럼 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그런 후에 PowerShell을 사용하여 [복원된 디스크에서 VM을 만듭니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

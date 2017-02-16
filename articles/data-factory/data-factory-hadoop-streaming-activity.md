@@ -1,6 +1,6 @@
 ---
-title: "Hadoop 스트리밍 작업"
-description: "Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행하는 방법에 대해 알아봅니다."
+title: "Hadoop 스트리밍 작업을 사용하여 데이터 변환 - Azure | Microsoft Docs"
+description: "Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 58c0e0cfd862bc421c3b4a9ad042283a22656460
+ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
+ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
 
 
 ---
-# <a name="hadoop-streaming-activity"></a>Hadoop 스트리밍 작업
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -224,6 +224,6 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

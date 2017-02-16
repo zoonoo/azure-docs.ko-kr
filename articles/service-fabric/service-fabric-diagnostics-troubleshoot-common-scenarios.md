@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 03/31/2016
 ms.author: mattrow
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: c920a206d6f3288f6cba0d2658d556749fc4d574
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 개발자 컴퓨터에서 서비스를 실행하는 경우에는 [Visual Studio의 디버깅 도구](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 쉽게 사용할 수 있습니다. 원격 클러스터의 경우 [상태 보고서](service-fabric-view-entities-aggregated-health.md) 에서 시작하는 것이 좋습니다. 이러한 보고서에 액세스하는 가장 쉬운 방법은 PowerShell 또는 [SFX](service-fabric-visualizing-your-cluster.md)를 사용하는 것입니다. 이 문서는 사용자가 원격 클러스터를 디버그 중이며 이 도구 중 한 가지를 사용하는 방법에 대해 기본적인 이해력이 있다고 가정합니다.
 
 ## <a name="application-crash"></a>응용 프로그램 작동 중단
-"Partition is below target replica or instance count"(파티션이 대상 복제본 또는 인스턴스 수 이하입니다) 보고서는 서비스 작동이 중단된다는 것을 알리는 표시입니다. 서비스의 어느 부분에서 작동이 중단되는지를 알아내려면 조사가 더 필요합니다. 서비스가 큰 규모로 실행되는 경우 최고의 자료는 면밀한 추적 데이터입니다.  [Azure 진단](service-fabric-diagnostics-how-to-setup-wad.md)를 사용하여 추적을 수집하고 [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 솔루션을 사용하여 추적을 보고 검색하는 것이 좋습니다.
+"Partition is below target replica or instance count"(파티션이 대상 복제본 또는 인스턴스 수 이하입니다) 보고서는 서비스 작동이 중단된다는 것을 알리는 표시입니다. 서비스의 어느 부분에서 작동이 중단되는지를 알아내려면 조사가 더 필요합니다. 서비스가 큰 규모로 실행되는 경우 최고의 자료는 면밀한 추적 데이터입니다.  [Azure 진단](service-fabric-diagnostics-how-to-setup-wad.md)를 사용하여 추적을 수집하고 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)와 같은 솔루션을 사용하여 추적을 보고 검색하는 것이 좋습니다.
 
 ![SFX 파티션 상태](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
@@ -55,6 +55,6 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

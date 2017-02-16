@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 81706c6c95199b25a07589780d2a27fc0f8dffa7
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Azure Resource Manager 및 C를 사용하여 Azure 가상 컴퓨터 관리
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Azure Resource Manager 및 C를 사용하여 Azure 가상 컴퓨터 관리# #
 이 문서의 작업은 가상 컴퓨터의 시작, 중지 및 업데이트와 같은 가상 컴퓨터 관리 방법을 보여 줍니다. 이 문서에서 태스크를 완료하려면 가상 컴퓨터는 리소스 그룹에 존재해야 합니다.
 
 이 문서에서 작업을 완료하려면 다음이 필요합니다.
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-* [인증 토큰](../resource-group-authenticate-service-principal.md)
+* [인증 토큰](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="create-a-visual-studio-project-and-install-packages"></a>Visual Studio 프로젝트를 만들고 패키지를 설치합니다.
 NuGet 패키지는 이 문서를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. 이 문서에서 설치한 라이브러리는 Azure Active Directory 인증 라이브러리 및 컴퓨터 리소스 공급자 라이브러리입니다. Visual Studio에서 라이브러리를 가져오려면 다음 단계를 완료합니다.
@@ -435,11 +435,11 @@ NuGet 패키지는 이 문서를 완료하는데 필요한 라이브러리를 �
 5. Visual Studio에서 **시작** 을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-배포에 문제가 있는 경우 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
+배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 살펴봅니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b7609a6353b32b9e4fbf05429d5d2ac22fd03f2c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9ba47b6b4783dee84daa8dae6d4838a3d84022e0
 
 
 ---
@@ -181,7 +181,7 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-weekdone-test-user"></a>Weekdone 테스트 사용자 만들기
 이 섹션은 Weekdone에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Weekdone은 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정됩니다.
@@ -243,6 +243,6 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

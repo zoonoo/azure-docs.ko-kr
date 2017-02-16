@@ -1,6 +1,7 @@
 ---
-title: "SQL Database로 마이그레이션하기 전에 SQL Server 데이터베이스 호환성 문제 해결 | Microsoft Docs"
-description: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 호환성, SQL Azure 마이그레이션 마법사, SSDT"
+title: "SSDT: Azure SQL Database 호환성 마이그레이션 문제 해결 | Microsoft Docs"
+description: "이 문서에서는 Azure SQL 데이터베이스로 마이그레이션하기 전에 Visual Studio용 SQL Server 데이터 도구를 사용하여 SQL Server 데이터베이스 호환성 문제를 감지하고 해결하는 방법을 알아봅니다."
+keywords: "Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 호환성, SQL Azure 마이그레이션 마법사, SSDT"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: e09c60111286681928ee1dd0b08fade7a102d6f2
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: ea4248a5ff16e6dd8e754aa0f1be480d08aa47f3
 
 
 ---
@@ -83,7 +84,7 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
 5. 검색된 차이점을 검토한 다음 **업데이트 대상** 을 클릭하여 원본 데이터베이스에서 Azure SQL V12 데이터베이스로 데이터를 마이그레이션합니다.     
    
    ![대체 텍스트](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)    
-6. 배포 방법을 선택합니다.  [호환되는 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)  
+6. 배포 방법을 선택합니다. [호환되는 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)  
 
 ## <a name="next-steps"></a>다음 단계
 * [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
@@ -97,6 +98,6 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

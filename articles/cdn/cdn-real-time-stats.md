@@ -3,7 +3,7 @@ title: "Azure CDN의 실시간 통계 | Microsoft Docs"
 description: "실시간 통계는 클라이언트에 콘텐츠를 제공하는 경우 Azure CDN의 성능에 대한 실시간 데이터를 제공합니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 848010306b0946890734a1a7c3c16a91847c1145
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
 
 
 ---
@@ -89,13 +89,13 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 이 그래프는 에지 서버에 설정된 연결 수를 나타냅니다. CDN을 통과하는 자산에 대한 각 요청은 연결을 발생시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
-*  [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-*  [사용 패턴](cdn-analyze-usage-patterns.md)
+* [Azure CDN에서 실시간 경고](cdn-real-time-alerts.md)
+* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
+* [사용 패턴](cdn-analyze-usage-patterns.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

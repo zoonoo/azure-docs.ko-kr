@@ -4,10 +4,10 @@
 
 | **리소스** | **기본 제한** | **참고**
 | --- | --- | --- |
-| 일당 총 데이터 | 100GB | 한도를 설정하여 줄일 수 있습니다. 추가할 필요가 있으면 AIDataCap@microsoft.com으로 메일을 보내세요. 
+| 일당 총 데이터 | 100GB | 한도를 설정하여 줄일 수 있습니다.
 | 월당 무료 데이터<br/> (기본 가격 요금제) | 1 GB | GB당 요금이 청구되는 추가 데이터
 | 데이터 보존 | 90일 | [검색](../articles/application-insights/app-insights-diagnostic-search.md), [분석](../articles/application-insights/app-insights-analytics.md) 및 [메트릭 탐색기](../articles/application-insights/app-insights-metrics-explorer.md)의 경우
-| [가용성 다단계 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) 자세한 결과 보존 | 90일 | 각 단계의 자세한 결과
+| [가용성 다단계 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) 자세한 결과 보존 | 30일 | 각 단계의 자세한 결과
 | [속성](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) 및 [메트릭](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> 이름 수 | 200 | 
 | 속성 및 메트릭 이름 길이 | 150 |
 | 속성 값 문자열 길이 | 8192 |
@@ -23,6 +23,6 @@
 
 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

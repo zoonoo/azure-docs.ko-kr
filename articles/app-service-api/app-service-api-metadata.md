@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f5c17d51622dbc27a27c750999a925c3f80bff
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
 
 
 ---
@@ -34,7 +34,7 @@ API 앱의 속성에서 API 앱에 Swagger 2.0 JSON 메타데이터를 제공하
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Azure 리소스 관리자 속성
-또한 [Azure PowerShell](../powershell-install-configure.md)과 [Azure CLI](../xplat-cli-install.md) 등 명령줄 도구의 [리소스 탐색기](https://resources.azure.com/) 또는 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다. 
+또한 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../xplat-cli-install.md) 등 명령줄 도구의 [리소스 탐색기](https://resources.azure.com/) 또는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다. 
 
 **리소스 탐색기**에서 **구독 > {your subscription} > resourceGroups > {your resource group} > 공급자 > Microsoft.Web > 사이트 > {your site} > 구성 > 웹**으로 이동하면 `apiDefinition` 속성이 표시됩니다.
 
@@ -60,6 +60,6 @@ API 앱과 함께 Azure API 관리를 사용하는 경우 Swagger 메타데이�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

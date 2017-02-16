@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
 
 
 ---
@@ -37,10 +37,10 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 기타 고려 사항:
 
-Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 **IAssetFile.Name** 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]". 같은 [퍼센트 Encoding 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 **IAssetFile.Name** 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
 ## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Azure 서비스 관리 REST API를 사용하여 저장소 계정을 연결하려면
-현재 여러 저장소 계정을 연결하는 유일한 방법은 [Azure 서비스 관리 REST API](http://msdn.microsoft.com/library/azure/dn167014.aspx)를 사용하는 것입니다. [방법: Media Services Management REST API 사용](https://msdn.microsoft.com/library/azure/dn167656.aspx) 토픽의 코드 샘플은 저장소 계정을 지정된 Media Services 계정에 연결하는 **AttachStorageAccountToMediaServiceAccount** 메서드를 정의합니다. 같은 토픽에 있는 코드는 지정된 Media Services 계정에 연결된 모든 저장소 계정을 나열하는 **ListStorageAccountDetails** 메서드를 정의합니다.
+현재 여러 저장소 계정을 연결하는 유일한 방법은 [Azure 서비스 관리 REST API](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)를 사용하는 것입니다. [방법: Media Services Management REST API 사용](https://msdn.microsoft.com/library/azure/dn167656.aspx) 토픽의 코드 샘플은 저장소 계정을 지정된 Media Services 계정에 연결하는 **AttachStorageAccountToMediaServiceAccount** 메서드를 정의합니다. 같은 토픽에 있는 코드는 지정된 Media Services 계정에 연결된 모든 저장소 계정을 나열하는 **ListStorageAccountDetails** 메서드를 정의합니다.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>여러 저장소 계정에서 미디어 서비스 자산을 관리하려면
 다음 코드에서는 최신 미디어 서비스 SDK를 사용하여 다음 작업을 수행합니다.
@@ -257,6 +257,6 @@ Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.medias
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

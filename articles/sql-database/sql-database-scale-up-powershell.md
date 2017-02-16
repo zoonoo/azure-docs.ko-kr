@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 Azure SQL 데이터베이스의 서비스 계층 및 성능 수준 변경 | Microsoft Docs"
-description: "Azure SQL 데이터베이스의 서비스 계층 및 성능 수준 변경에서는 PowerShell을 사용하여 SQL 데이터베이스 규모 확장 또는 축소 방법을 보여 줍니다. PowerShell을 사용하여 Azure SQL 데이터베이스의 가격 책정 계층 변경."
+title: "PowerShell: Azure SQL Database 가격 책정 계층 변경 | Microsoft Docs"
+description: "PowerShell을 사용하여 Azure SQL Database의 서비스 계층 및 성능 수준을 변경하고 SQL Database의 리소스 및 가격 책정의 규모를 확장하거나 축소하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aea3bcbd6ac73a05b00b7b79b2dc47bf06d67f6f
+ms.sourcegitcommit: 5b1a96149924c6170ea4561b9639f6b85b15ddd3
+ms.openlocfilehash: c45d9200dd25d18d45602c377c682875d04c64cb
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-with-powershell"></a>PowerShell을 사용하여 SQL 데이터베이스의 서비스 계층 및 성능 수준(가격 책정 계층) 변경
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](sql-database-scale-up.md)
-> * [**PowerShell**](sql-database-scale-up-powershell.md)
-> 
+> * [Azure Portal](sql-database-scale-up.md)
+> * [**PowerShell**](sql-database-scale-up-powershell.md)> 
 > 
 
 서비스 계층 및 성능 수준은 SQL 데이터베이스에 사용할 수 있는 기능 및 리소스를 설명하고 응용 프로그램이 변경될 필요에 따라 업데이트될 수 있습니다. 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
@@ -104,6 +103,6 @@ Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -Reso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

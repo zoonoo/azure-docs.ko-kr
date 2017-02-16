@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB Node.js API 및 SDK | Microsoft Docs"
+title: "Node.js API 및 SDK 리소스 - Azure DocumentDB | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB Node.js SDK의 각 버전 간의 변경 내용을 포함한 Node.js API 및 SDK에 대해 모두 알아봅니다."
 services: documentdb
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
 
 
 ---
@@ -54,6 +54,11 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11011101a"></a><a name="1.10.1"/>1.10.1</a>
+* SDK를 사용하여 에뮬레이터를 대상으로 지정할 때(hostname=localhost) SSL 유효성 검사를 사용하지 않도록 설정됩니다.
+* 저장된 프로시저가 실행되는 동안 스크립트 로깅을 사용할 수 있도록 지원이 추가되었습니다.
+
 ### <a name="a-name11001100a"></a><a name="1.10.0"/>1.10.0</a>
 * 파티션 간 병렬 쿼리에 대한 지원이 추가되었습니다.
 * 분할된 컬렉션의 TOP/ORDER BY 쿼리에 대한 지원이 추가되었습니다.
@@ -129,22 +134,18 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 ### <a name="a-name100100a"></a><a name="1.0.0"/>1.0.0</a>
 * GA SDK.
 
-## <a name="release-retirement-dates"></a>릴리스 및 사용 중지 날짜
+## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 사용 중지된 SDK를 사용한 DocumentDB에 대한 요청은 서비스로부터 거부됩니다.
 
-> [!WARNING]
-> **1.0.0** 이전 버전의 Node.js용 Azure DocumentDB SDK 모든 버전은 **2016년 2월 29일**에 사용 중지됩니다.
-> 
-> 
-
 <br/>
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.10.1](#1.10.1) |2016년 12월 22일 |--- |
 | [1.10.0](#1.10.0) |2016년 10월 3일 |--- |
 | [1.9.0](#1.9.0) |2016년 7월 7일 |--- |
 | [1.8.0](#1.8.0) |2016년 6월 14일 |--- |
@@ -167,11 +168,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | [1.0.2](#1.0.2) |2015년 5월 23일 |--- |
 | [1.0.1](#1.0.1) |2015년 5월 15일 |--- |
 | [1.0.0](#1.0.0) |2015년 4월 8일 |--- |
-| 0.9.4-시험판 |2015년 4월 6일 |2016년 2월 29일 |
-| 0.9.3-시험판 |2015년 1월 14일 |2016년 2월 29일 |
-| 0.9.2-시험판 |2014년 12월 18일 |2016년 2월 29일 |
-| 0.9.1-시험판 |2014년 8월 22일 |2016년 2월 29일 |
-| 0.9.0-시험판 |2014년 8월 21일 |2016년 2월 29일 |
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -182,6 +178,6 @@ DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

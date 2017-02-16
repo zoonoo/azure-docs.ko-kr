@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
 이 자습서에서는 Azure Storage에서 Blob에 TTL을 설정할 수 있는 여러 가지 방법을 보여 줍니다.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) 은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다.  `Get-AzureStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) 은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다.  `Get-AzureStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
 
 ```powershell
 # Create a storage context
@@ -122,6 +122,6 @@ Blob의 TTL을 쉽게 확인할 수 있습니다.  브라우저 [개발자 도�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

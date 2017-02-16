@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub를 사용하여 펌웨어 업데이트를 수행하는 방법 | Microsoft 문서"
-description: "이 자습서는 펌웨어 업데이트를 수행하는 방법을 보여줍니다."
+title: "Azure IoT Hub를 사용하여 장치 펌웨어 업데이트(.NET/Node) | Microsoft Docs"
+description: "장치 펌웨어 업데이트를 시작하려면 Azure IoT Hub에서 장치 관리를 사용하는 방법입니다. Node.js용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 펌웨어 업데이트를 트리거하는 서비스 앱을 구현합니다."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 7cbb823f2d8b9a337bd987ae3fc41a85ddb6ae80
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 5b8aaa7e7b04224fd51c264822d619866e0161af
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>자습서: 펌웨어 업데이트를 수행하는 방법
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(.NET/Node)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>소개
@@ -28,7 +28,7 @@ ms.openlocfilehash: 7cbb823f2d8b9a337bd987ae3fc41a85ddb6ae80
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* IoT Hub를 통해 시뮬레이션된 장치 앱에서 firmwareUpdate 직접 메서드를 호출하는 콘솔 앱을 만듭니다.
+* IoT Hub를 통해 시뮬레이션된 장치 앱에서 firmwareUpdate 직접 메서드를 호출하는 .NET 콘솔 앱을 만듭니다.
 * 펌웨어 이미지 다운로드를 기다리고, 펌웨어 이미지를 다운로드하고, 마지막으로 펌웨어 이미지를 적용하는 다단계 프로세스를 거치는 firmwareUpdate 직접 메소드를 구현하는 시뮬레이션된 장치 앱을 만듭니다.  각 단계를 실행하는 동안 장치에서는 reported 속성을 사용하여 진행 상황을 업데이트합니다.
 
 이 자습서의 끝 부분에는 다음과 같은 Node.js 콘솔 장치 앱과 .NET(C#) 콘솔 백 엔드 앱이 있습니다.
@@ -43,7 +43,7 @@ ms.openlocfilehash: 7cbb823f2d8b9a337bd987ae3fc41a85ddb6ae80
 * Node.js 버전 0.12.x 이상, <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-IoT hub 허브를 만들고 연결 문자열을 확보하려면 [장치 관리 시작](iot-hub-csharp-node-device-management-get-started.md) 문서의 내용을 수행하세요.
+IoT hub 허브를 만들고 IoT Hub 연결 문자열을 확보하려면 [장치 관리 시작](iot-hub-csharp-node-device-management-get-started.md) 문서의 내용을 수행하세요.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -56,15 +56,15 @@ IoT hub 허브를 만들고 연결 문자열을 확보하려면 [장치 관리 �
 
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][img-createapp]
 
-2. [솔루션 탐색기]에서 **TriggerFWUpdate** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
-3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] NuGet 패키지 및 해당 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
+2. [솔루션 Explorer]에서 **TriggerFWUpdate** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
+3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
 
     ![NuGet 패키지 관리자 창][img-servicenuget]
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
         
-5. **Program** 클래스에 다음 필드를 추가합니다. 여러 자리 표시자 값을 이전 섹션에서 만든 IoT Hub의 연결 문자열로 바꿉니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 여러 자리 표시자 값을 이전 섹션에서 만든 허브에 대한 IoT Hub 연결 문자열로 바꿉니다.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -133,7 +133,7 @@ IoT hub 허브를 만들고 연결 문자열을 확보하려면 [장치 관리 �
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 장치 클라이언트를 만듭니다.  
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -346,13 +346,13 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
+[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

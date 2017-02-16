@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "시간을 절약하고 일반적인 관리 작업의 신뢰성을 향상시키기 위해 Automation을 사용하여 프로세스 및 구성 관리를 자동화하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Automation 설명서
 
-Azure Automation을 통해 사용자는 일반적으로 클라우드 환경에서 장시간 동안 수동으로 실행되며 오류가 발생하기 쉬운 자주 반복되는 작업을 자동화할 수 있습니다. 시간을 절약하며 일반 관리 작업의 안정성을 향상시키고 정기적으로 자동으로 수행되도록 예약합니다.
+Automation을 사용하여 시간을 절약하고 클라우드 환경에서 수행되는 일반적인 관리 태스크의 안정성을 증가시키는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,6 +176,6 @@ Automation 설명서 다운로드 </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

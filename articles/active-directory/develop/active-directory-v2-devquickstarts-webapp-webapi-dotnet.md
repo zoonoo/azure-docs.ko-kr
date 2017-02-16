@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v2.0 .NET 웹앱 | Microsoft Docs"
+title: "Azure AD v2.0을 사용하여 웹 API를 호출하는 .NET MVC 웹앱 보호 | Microsoft Docs"
 description: "개인 Microsoft 계정과 회사 또는 학교 계정을 로그인에 사용하여 웹 서비스를 호출하는 .NET MVC 웹앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587a5136004525f5badc5e72d006fc6dd07d42d8
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 8c35bfbc75f99fc8558f83667b12a6df1cd3eefd
 
 
 ---
@@ -202,6 +202,6 @@ catch (MsalException ee)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -7,6 +7,6 @@ Azure 파일 저장소는 표준 [SMB(서버 메시지 블록) 프로토콜](htt
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

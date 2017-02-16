@@ -15,13 +15,13 @@ ms.workload: tbd
 ms.date: 11/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1022f5a2bbb9b61ce7d941de9e2a5582db22b91b
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 클라우드 서비스용 Application Insights
-[Azure Application Insights][시작]를 사용하여 [Microsoft Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Application Insights][start]를 사용하여 [Microsoft Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![예제](./media/app-insights-cloudservices/sample.png)
 
@@ -56,7 +56,7 @@ Application Insights가 Azure에서 두 작업자 역할이 호스팅되는 클�
 ## <a name="plan-resources-and-resource-groups"></a>리소스 및 리소스 그룹 계획
 앱의 원격 분석는 Application Insights 형식의 Azure 리소스에 저장, 분석 및 표시됩니다. 
 
-각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 한 번의 작업으로 Azure 클라우드 서비스와 해당 Application Insights 모니터링 리소스에 [배포할 스크립트를 작성](../resource-group-template-deploy.md)할 수 있습니다.
+각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 한 번의 작업으로 Azure 클라우드 서비스와 해당 Application Insights 모니터링 리소스에 [배포할 스크립트를 작성](../azure-resource-manager/resource-group-template-deploy.md)할 수 있습니다.
 
 ### <a name="resources-for-components"></a>구성 요소에 대한 리소스
 응용 프로그램의 각 구성 요소, 즉 각 웹 역할 및 작업자 역할에 대한 별도의 리소스를 만드는 것이 좋습니다. 각 구성 요소를 개별적으로 분석할 수 있지만 모든 구성 요소의 주요 차트를 함께 표시하는 [대시보드](app-insights-dashboards.md)를 만들어 이러한 차트를 비교하고 함께 모니터링할 수 있습니다. 
@@ -138,7 +138,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 * [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
 * 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 * 몇 초 정도 기다렸다가 새로고침을 클릭합니다.
-* [문제 해결][qna]를 참조하세요.
+* [문제 해결][qna]을 참조하세요.
 
 ## <a name="view-azure-diagnostic-events"></a>Azure 진단 이벤트 보기
 진단 유틸리티를 찾을 수 있는 위치:
@@ -194,7 +194,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
     * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
     * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
- [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)
+[여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)
 
   ![성능 카운터](./media/app-insights-cloudservices/OLfMo2f.png)
 
@@ -205,14 +205,14 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 * [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36)에 표시된 것처럼 상관관계 ID를 CallContext로 설정합니다. 이 경우에 요청 ID를 상관관계 ID로 사용합니다.
 * Operation.Id를 위에서 설정된 correlationId를 설정하는 사용자 지정 TelemetryInitializer 구현을 추가합니다. 다음이 표시됩니다. [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* 사용자 지정 원격 분석 이니셜라이저를 추가합니다.  [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
+* 사용자 지정 원격 분석 이니셜라이저를 추가합니다. [여기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
 
 이것으로 끝입니다. 포털 경험이 이미 확보되었으므로 연관된 모든 원격 분석을 한 눈에 볼 수 있습니다.
 
 ![상관 관계가 지정된 원격 분석](./media/app-insights-cloudservices/bHxuUhd.png)
 
 ## <a name="client-telemetry"></a>클라이언트 원격 분석
-[JavaScript SDK를 웹 페이지에 추가][클라이언트]하여 페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성합니다.
+[JavaScript SDK를 웹 페이지에 추가][client]하여 페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성합니다.
 
 ## <a name="availability-tests"></a>가용성 테스트
 [웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
@@ -238,16 +238,16 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: app-insights-azure.md
-[클라이언트]: app-insights-javascript.md
+[client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[시작]: app-insights-overview.md 
+[start]: app-insights-overview.md 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

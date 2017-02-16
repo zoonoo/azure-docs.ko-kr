@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
+ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 
 
 ---
@@ -93,7 +93,15 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 * **username** (선택 사항) – RLS에 사용되며 RLS 규칙을 적용할 때 사용자를 식별하는 데 사용할 수 있는 문자열입니다. Power BI Embedded를 사용하는 행 수준 보안 사용을 참조하세요.
 * **역할** – 행 수준 보안 규칙을 적용할 때 선택할 역할이 들어 있는 문자열입니다. 둘 이상의 역할을 전달하는 경우 문자열 배열로 전달해야 합니다.
 
-사용자 이름 속성이 있으면 역할에 하나 이상의 값을 전달해야 합니다.
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 메서드를 사용하여 토큰을 만듭니다. 사용자 이름 속성이 있으면 역할에 하나 이상의 값을 전달해야 합니다.
+
+예를 들어 EmbedSample을 변경할 수 있습니다. DashboardController 줄 55는 다음과 같이 업데이트할 수 있습니다.
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+to
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
 전체 앱 토큰은 다음과 같이 표시됩니다.
 
@@ -109,6 +117,6 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 가상 컴퓨터의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs"
+title: "Azure VM의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs"
 description: "증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다."
 services: storage
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 848c3fb655688dd55176cff00c728a151fd8f548
 
 
 ---
@@ -60,7 +60,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 
 다음과 같은 조건이 충족된 경우
 
-* 2016년 1월 1일 또는 그 이후에 Blob을 만든 경우
+* 2016년&1;월&1;일 또는 그 이후에 Blob을 만든 경우
 * [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) 또는 [Blob 복사](https://msdn.microsoft.com/library/azure/dd894037.aspx)를 사용하여 두 스냅숏 간에 Blob을 덮어쓰지 않은 경우
 
 **참고**: 이 기능은 프리미엄 및 표준 Azure 페이지 Blob에 대해 사용할 수 있습니다.
@@ -123,6 +123,6 @@ Blob의 스냅숏을 만들고 아래와 같은 링크를 사용하여 VM 백업
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

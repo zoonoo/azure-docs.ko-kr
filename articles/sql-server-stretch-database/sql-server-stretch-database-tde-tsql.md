@@ -1,5 +1,5 @@
 ---
-title: "Azure TSQL에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 | Microsoft Docs"
+title: "Stretch Database TSQL에 대해 투명한 데이터 암호화를 사용하도록 설정 - Azure | Microsoft Docs"
 description: "Azure TSQL에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정"
 services: sql-server-stretch-database
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
-ms.author: douglasl
+ms.date: 01/23/2017
+ms.author: anvang
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fa035f87c257458c3784c7746fd0df8600b5ca0
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: fe6a6bfb02dc5d83bd67fdfe59ed87660c364835
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 7fa035f87c257458c3784c7746fd0df8600b5ca0
 > [!div class="op_single_selector"]
 > * [Azure 포털](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
-> 
-> 
+>
+>
 
 TDE(투명한 데이터 암호화)는 응용 프로그램에 대한 변경 요구 없이 데이터베이스, 연결된 백업 및 저장된 트랜잭션 로그 파일에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호합니다.
 
@@ -77,6 +77,6 @@ FROM
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

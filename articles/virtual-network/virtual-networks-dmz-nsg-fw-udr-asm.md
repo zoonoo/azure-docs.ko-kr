@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 649984be9aee5253dcd1f3ed3be31795212aa3ae
 
 
 ---
@@ -964,8 +964,8 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "NVA, NSG, UDR을 사용하는 양방향 DMZ"
 [2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "방화벽 규칙에 대한 논리적 보기"
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "프런트 엔드 네트워크 개체 만들기"
-[4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "DNS 서버 개체 만들기"
-[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "기본 RDP 규칙의 복사본"
+[4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "DNS Server 개체 만들기"
+[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "기본 RDP 규칙 복사본"
 [6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "AppVM01 규칙"
 [7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "응용 프로그램 리디렉션 아이콘"
 [8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "대상 NAT 아이콘"
@@ -976,7 +976,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "방화벽 AppVM01 규칙"
 [14]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleoutbound.png "방화벽 아웃바운드 규칙"
 [15]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledns.png "방화벽 DNS 규칙"
-[16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "VNet 내 방화벽 규칙"
+[16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "방화벽 인트라-VNet 규칙"
 [17]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledeny.png "방화벽 거부 규칙"
 [18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "방화벽 규칙 활성화"
 
@@ -986,6 +986,6 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

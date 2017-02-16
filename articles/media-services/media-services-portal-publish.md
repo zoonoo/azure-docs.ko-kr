@@ -1,5 +1,5 @@
 ---
-title: "  Azure Portal을 통해 콘텐츠 게시 | Microsoft 문서"
+title: "  Azure Portal을 통해 콘텐츠 게시 | Microsoft Doccs"
 description: "이 자습서에서는 Azure 포털을 통해 콘텐츠를 게시하는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96a8342dc782a9270a6de5b67387c35ea45b860e
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
 
 
 ---
@@ -62,7 +62,7 @@ SAS URL의 형식은 다음과 같습니다.
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+로케이터의 만료 날짜를 업데이트하려면 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>자산을 게시하기 위해 포털을 사용하려면
 자산을 게시하기 위해 포털을 사용하려면 다음을 수행합니다.
@@ -90,7 +90,6 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 * 비디오가 게시된 것을 확인합니다.
 * 이 **미디어 플레이어** 가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 URL 복사를 클릭하고 다른 플레이어를 사용합니다. 예를 들어 [Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
 * 스트리밍을 하고 있는 스트리밍 끝점이 실행 중이어야 합니다.  
-* 스트리밍 끝점에서 스트리밍하려면 스트리밍 단위를 하나 이상 추가해야 합니다. 자세한 내용은 [이 항목](media-services-portal-scale-streaming-endpoints.md) 을 참조하세요.   
 
 ## <a name="next-steps"></a>다음 단계
 미디어 서비스 학습 경로를 검토합니다.
@@ -103,6 +102,6 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

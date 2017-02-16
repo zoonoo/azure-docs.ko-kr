@@ -8,7 +8,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
 ms.service: sql-database
-ms.custom: jobs
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6589e094683faa74aef11d4ea01c181e24142b79
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 0d95f9f0e0c5b69aed6ba74a2488e46540589c00
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 6589e094683faa74aef11d4ea01c181e24142b79
 규모가 확장된 분할된 데이터베이스를 관리하기 위해 **탄력적 데이터베이스 작업** 기능(미리 보기)을 사용하면 다음을 포함한 데이터베이스 그룹에 대해 Transact-SQL(T-SQL) 스크립트를 안정적으로 실행할 수 있습니다.
 
 * 데이터베이스의 사용자 정의 컬렉션(아래 설명)
-*  [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)
+* [탄력적 풀](sql-database-elastic-pool.md)의 모든 데이터베이스
 * 분할된 데이터베이스 집합( [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 생성) 
 
 ## <a name="documentation"></a>설명서
@@ -73,8 +73,8 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
 ## <a name="elastic-database-jobs-end-to-end"></a>탄력적 데이터베이스 작업: 종단 간
 1. **탄력적 데이터베이스 작업** 구성 요소를 설치합니다. 자세한 내용은 [탄력적 데이터베이스 작업 설치](sql-database-elastic-jobs-service-installation.md)를 참조하세요. 설치에 실패하는 경우 [제거 방법](sql-database-elastic-jobs-uninstall.md)을 참조하세요.
-2. PowerShell API를 사용하여 사용자 지정 데이터베이스 컬렉션 만들기, 일정 추가 및/또는 결과 집합 수집 등 더 많은 기능에 액세스할 수 있습니다. **탄력적 데이터베이스 풀**에 대한 실행으로 제한되는 작업의 생성/모니터링 및 간단한 설치에는 포털을 사용합니다. 
-3. 작업 실행을 위한 암호화된 자격 증명을 만들고 [그룹의 각 데이터베이스에 사용자(또는 역할)를 추가](sql-database-security.md)합니다.
+2. PowerShell API를 사용하여 사용자 지정 데이터베이스 컬렉션 만들기, 일정 추가 및/또는 결과 집합 수집 등 더 많은 기능에 액세스할 수 있습니다. **탄력적 풀**에 대한 실행으로 제한되는 작업의 생성/모니터링 및 간단한 설치에는 포털을 사용합니다. 
+3. 작업 실행을 위한 암호화된 자격 증명을 만들고 [그룹의 각 데이터베이스에 사용자(또는 역할)를 추가](sql-database-security-overview.md)합니다.
 4. 그룹의 모든 데이터베이스에 대해 실행할 수 있는 idempotent T-SQL 스크립트를 만듭니다. 
 5. Azure 포털을 사용하여 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)단계에 따라 작업을 만듭니다. 
 6. 또는 PowerShell 스크립트를 사용하여 [PowerShell로 SQL 데이터베이스 탄력적 데이터베이스 작업을 만들고 관리(미리 보기)](sql-database-elastic-jobs-powershell.md)합니다.
@@ -106,7 +106,7 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 ## <a name="components-and-pricing"></a>구성 요소 및 가격
 다음 구성 요소는 함께 작동하여 관리 작업의 임시 실행을 지원하는 Azure 클라우드 서비스를 구성합니다. 구성 요소는 구독에 포함되어 설치 도중 자동으로 설치 및 구성됩니다. 서비스는 모두 동일하게 자동으로 생성된 이름을 가지므로 식별할 수 있습니다. 각 이름은 고유하며, 접두사 "edj"에 이어 임의로 생성된 문자 21개로 구성됩니다.
 
-* **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소 2개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요. 
+* **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소&2;개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요. 
 * **Azure SQL Database**: 이 서비스는 **제어 데이터베이스**로 알려진 Azure SQL Database를 사용하여 모든 작업 메타데이터를 저장합니다. 기본 서비스 계층은 S0입니다. 가격에 대한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 * **Azure 서비스 버스**: Azure 서비스 버스는 Azure 클라우드 서비스 내의 작업 조정에 사용됩니다. [서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 * **Azure 저장소**: Azure 저장소 계정은 추가로 디버그해야 하는 문제가 있을 경우 이벤트에 진단 출력 로그를 저장하는 데 사용됩니다( [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)참조). 가격에 대한 내용은 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
@@ -135,7 +135,7 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
    작업 실행 중 언제든지 PowerShell API를 사용하여 작업 실행의 현재 상태를 볼 수 있습니다. PowerShell API에서 반환되는 모든 시간은 UTC로 표시됩니다. 원하는 경우 취소 요청을 시작하여 작업을 중지할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[구성 요소를 설치](sql-database-elastic-jobs-service-installation.md)하고 [데이터베이스 그룹의 각 데이터베이스를 만들고 로그인을 추가](sql-database-security.md)합니다. 작업 만들기 및 관리를 더 잘 이해하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요. [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)도 참조하세요.
+[구성 요소를 설치](sql-database-elastic-jobs-service-installation.md)하고 [데이터베이스 그룹의 각 데이터베이스를 만들고 로그인을 추가](sql-database-manage-logins.md)합니다. 작업 만들기 및 관리를 더 잘 이해하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요. [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)도 참조하세요.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -147,6 +147,6 @@ Azure SQL 데이터베이스의 사용자 지정 그룹을 정의하고 작업 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

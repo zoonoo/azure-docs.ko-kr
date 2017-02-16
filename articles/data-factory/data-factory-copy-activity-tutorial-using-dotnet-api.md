@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
-ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
+ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
+ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
 
 
 ---
@@ -50,41 +50,58 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 1. **PowerShell**을 시작합니다.
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
 
-        Login-AzureRmAccount
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
 3. 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 
-        Get-AzureRmSubscription
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
 4. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **&lt;NameOfAzureSubscription**&gt;을 Azure 구독의 이름으로 바꿉니다.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
 
    > [!IMPORTANT]
    > 이 명령의 출력에서 **SubscriptionId** 및 **TenantId**를 적어둡니다.
 
 5. PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     리소스 그룹이 이미 있다면 업데이트(Y)할지 또는 유지(N)할지를 지정합니다.
 
     다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹의 이름을 사용해야 합니다.
 6. Azure Active Directory 응용 프로그램을 만듭니다.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```
 
     다음과 같은 오류가 발생하면 다른 URL을 지정하고 명령을 다시 실행합니다.
-
-        Another object with the same value for property identifierUris already exists.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
 7. AD 서비스 주체를 만듭니다.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
 8. **데이터 팩터리 참가자** 역할에 서비스 주체를 추가합니다.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
 9. 응용 프로그램 ID를 가져옵니다.
 
-        $azureAdApplication
-
+    ```PowerShell
+    $azureAdApplication 
+    ```
     응용 프로그램 ID(출력에서**applicationID** )를 적어둡니다.
 
 이 단계에서 다음과 같은 4가지 값이 있어야 합니다.
@@ -474,7 +491,10 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 16. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 17. Azure Blob 저장소의 **adftutorial** 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 **Emp.txt** 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
-       John, Doe    Jane, Doe
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 18. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 19. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
    * 연결된 서비스: **LinkedService_AzureStorage**
@@ -489,6 +509,6 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

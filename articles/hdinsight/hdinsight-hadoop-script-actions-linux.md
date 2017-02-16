@@ -12,11 +12,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4753f54d319475e8d1a87e5497ab9e03765f8546
-ms.openlocfilehash: b0e28cdc4ac8abd8dae7d9c08731664a03a44b2e
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 6eb692f7c3374f9073944b8c4c0f34af2ed35b3c
 
 
 ---
@@ -24,10 +24,8 @@ ms.openlocfilehash: b0e28cdc4ac8abd8dae7d9c08731664a03a44b2e
 
 스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. 클러스터를 생성하는 동안 또는 실행 중인 클러스터에 대해 스크립트 작업을 사용할 수 있습니다.
 
-> [!NOTE]
-> 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터로 스크립트 작업 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions.md)을 참조하세요.
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="what-are-script-actions"></a>스크립트 작업 정의
 
@@ -75,32 +73,34 @@ HDInsight 3.4와 3.5 간의 또 다른 중요한 차이는 현재 `JAVA_HOME`이
 
 `lsb_release`를 사용하여 OS 버전을 확인할 수 있습니다. Hue 설치 스크립트의 다음 코드 조각은 Ubuntu 14 또는 16에서 스크립트가 실행되고 있는지 확인하는 방법을 보여 줍니다.
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
-    ...
-    if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"
-        systemctl daemon-reload
-        systemctl stop webwasb.service    
-        systemctl start webwasb.service
-    else
-        echo "Using upstart configuration"
-        initctl reload-configuration
-        stop webwasb
-        start webwasb
-    fi
-    ...
-    if [[ $OS_VERSION == 14* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-    elif [[ $OS_VERSION == 16* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+...
+if [[ $OS_VERSION == 16* ]]; then
+    echo "Using systemd configuration"
+    systemctl daemon-reload
+    systemctl stop webwasb.service    
+    systemctl start webwasb.service
+else
+    echo "Using upstart configuration"
+    initctl reload-configuration
+    stop webwasb
+    start webwasb
+fi
+...
+if [[ $OS_VERSION == 14* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+elif [[ $OS_VERSION == 16* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+fi
+```
 
 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에서 이러한 코드 조각을 포함하는 전체 스크립트를 찾을 수 있습니다.
 
@@ -142,7 +142,9 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 예를 들어 다음은 giraph examples.jar 파일을 로컬 파일 시스템에서 WASB로 복사합니다.
 
-    hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```bash
+hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```
 
 ### <a name="a-namebps7awrite-information-to-stdout-and-stderr"></a><a name="bPS7"></a>STDOUT 및 STDERR에 정보 쓰기
 
@@ -153,11 +155,15 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓸 수 있지만 추가 로깅을 추가하려 할 수도 있습니다. 사용할 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예:
 
-    echo "Getting ready to install Foo"
+```bash
+echo "Getting ready to install Foo"
+```
 
 기본적으로 `echo` 은 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예:
 
-    >&2 echo "An error occurred installing Foo"
+```bash
+>&2 echo "An error occurred installing Foo"
+```
 
 STDERR(2), STDOUT(1, 여기에 나와있지 않은 기본 형식임)로 전송된 정보를 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)를 참조하세요.
 
@@ -167,49 +173,57 @@ STDERR(2), STDOUT(1, 여기에 나와있지 않은 기본 형식임)로 전송�
 
 Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 저장되어야 합니다. 파일이 파일의 시작 부분에 바이트 순서 표시를 포함할 수 있는 UTF-8로 저장된 경우 또는 줄 끝이 Windows 편집기에 공통되는 CRLF인 경우 스크립트는 다음과 유사한 오류로 실패합니다.
 
-    $'\r': command not found
-    line 1: #!/usr/bin/env: No such file or directory
+```
+$'\r': command not found
+line 1: #!/usr/bin/env: No such file or directory
+```
 
 ### <a name="a-namebps9a-use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> 다시 시도 논리를 사용하여 일시적 오류에서 복구
 
 파일을 다운로드할 때 apt-get 또는 인터넷을 통해 데이터를 전송하는 기타 작업을 사용하여 패키지를 설치하면 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어 통신하는 원격 리소스가 백업 노드로의 장애 조치(failover) 중일 수 있습니다.
 
-스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음은 전달된 모든 명령을 실행하고(명령이 실패할 경우) 최대 3번 다시 시도하는 함수 예제입니다. 각 다시 시도 사이에는 2초 동안 대기됩니다.
+스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음은 전달된 모든 명령을 실행하고(명령이 실패할 경우) 최대&3;번 다시 시도하는 함수 예제입니다. 각 다시 시도 사이에는&2;초 동안 대기됩니다.
 
-    #retry
-    MAXATTEMPTS=3
+```bash
+#retry
+MAXATTEMPTS=3
 
-    retry() {
-        local -r CMD="$@"
-        local -i ATTMEPTNUM=1
-        local -i RETRYINTERVAL=2
+retry() {
+    local -r CMD="$@"
+    local -i ATTMEPTNUM=1
+    local -i RETRYINTERVAL=2
 
-        until $CMD
-        do
-            if (( ATTMEPTNUM == MAXATTEMPTS ))
-            then
-                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
-                    return 1
-            else
-                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
-                    sleep $(( RETRYINTERVAL ))
-                    ATTMEPTNUM=$ATTMEPTNUM+1
-            fi
-        done
-    }
+    until $CMD
+    do
+        if (( ATTMEPTNUM == MAXATTEMPTS ))
+        then
+                echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                return 1
+        else
+                echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                sleep $(( RETRYINTERVAL ))
+                ATTMEPTNUM=$ATTMEPTNUM+1
+        fi
+    done
+}
+```
 
 다음은 이 함수 사용 예제입니다.
 
-    retry ls -ltr foo
+```bash
+retry ls -ltr foo
 
-    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+```
 
 ## <a name="a-namehelpermethodsahelper-methods-for-custom-scripts"></a><a name="helpermethods"></a>사용자 지정 스크립트에 대한 도우미 메서드
 
 스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이 메서드는 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh)에 정의되어 있으며 다음을 사용하여 스크립트에 포함할 수 있습니다.
 
-    # Import the helper method module.
-    wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```bash
+# Import the helper method module.
+wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```
 
 이렇게 하면 스크립트에서 사용하기 위해 도우미를 사용할 수 있게 됩니다.
 
@@ -252,7 +266,9 @@ Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 �
 
 스크립트 내에서 설정된 환경 변수는 스크립트의 범위 내에만 존재합니다. 경우에 따라 스크립트가 완료된 후에 유지되는 시스템 전체 범위의 환경 변수를 추가해야 할 수 있습니다. 그래서 일반적으로 SSH 통해 클러스터에 연결된 사용자는 스크립트에서 설치한 구성 요소를 사용할 수 있습니다. 환경 변수를 `/etc/environment`에 추가하여 이를 수행할 수 있습니다. 예를 들어 다음은 **HADOOP\_CONF\_DIR**을 추가합니다.
 
-    echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```bash
+echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>사용자 지정 스크립트가 저장된 위치 액세스
 
@@ -282,14 +298,16 @@ HDInsight의 다른 버전들은 Ubuntu의 특정 버전에 의존합니다. 스
 
 OS 버전을 확인하려면 `lsb_release`을 사용합니다. 예를 들어, 다음에서 OS 버전에 따라 다른 tar 파일을 참조하는 방법을 보여 줍니다.
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
 
 ## <a name="a-namedeployscriptachecklist-for-deploying-a-script-action"></a><a name="deployScript"></a>스크립트 작업 배포를 위한 검사 목록
 
@@ -350,13 +368,13 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 ## <a name="a-nameseealsoanext-steps"></a><a name="seeAlso"></a>다음 단계
 
-*  [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 * [HDInsight.NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx) 를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "DNS 영역 및 레코드 | Microsoft Docs"
+title: "DNS 영역 및 레코드 개요-Azure DNS | Microsoft Docs"
 description: "Microsoft Azure DNS에서 DNS 영역 및 레코드 호스팅에 대한 지원 개요."
 services: dns
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
-ms.openlocfilehash: 38ff556271a84fbf385dab03a7551b3eb7413c81
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: 4950edd41f58175c675afb7a7ea9f14fe4a59b26
 
 ---
 
@@ -76,7 +76,7 @@ SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버
 
 ### <a name="spf-records"></a>SPF 레코드
 
-SPF(Sender Policy Framework ) 레코드는 지정된 도메인 이름 대신 전자 메일을 전송하도록 허용된 전자 메일 서버를 지정하는 데 사용합니다.  SPF 레코드를 올바르게 구성하는 것은 수신자가 전자 메일을 '정크'로 지정하지 않도록 하는 데 중요합니다.
+SPF(Sender Policy Framework) 레코드는 지정된 도메인 이름 대신 전자 메일을 전송하도록 허용된 전자 메일 서버를 지정하는 데 사용합니다.  SPF 레코드를 올바르게 구성하는 것은 수신자가 전자 메일을 '정크'로 지정하지 않도록 하는 데 중요합니다.
 
 DNS RFC는 원래 이 시나리오를 지원하기 위한 새로운 'SPF' 레코드 유형으로 소개되었습니다. 기존 이름 서버를 지원하기 위해 TXT 레코드 유형을 사용하여 SPF 레코드를 지정할 수도 있습니다.  이러한 모호성으로 인한 혼란은 [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1)로 해결되었습니다.  즉, SPF 레코드는 TXT 레코드 종류만 사용하여 만들어야 하며 SPF 레코드 종류는 사용되지 않습니다.
 
@@ -143,6 +143,6 @@ Azure DNS를 사용할 경우 다음과 같은 기본 제한이 적용됩니다.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

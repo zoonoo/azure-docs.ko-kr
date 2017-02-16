@@ -4,7 +4,7 @@ description: "이 페이지에서는 포털을 사용하여 SSL 오프로드와 
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0105c00b40143981c4f5dba621f91425b80f31cf
-ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
+ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
+ms.openlocfilehash: d5c3d2ef6fe8fe22552fe1b23f3a4690b166be8b
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
 > * [쉬운 테이블](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 발생하는 비용이 많이 드는 SSL(Secure Sockets Layer) 암호 해독 작업을 방지하기 위한 게이트웨이에서 SSL 세션을 종료합니다. SSL 오프로드는 또한 프런트 엔드 서버 설치 및 웹 응용 프로그램의 관리를 간소화합니다.
 
@@ -98,6 +96,6 @@ Azure 응용 프로그램 게이트웨이를 사용하여 사용자 지정 상�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

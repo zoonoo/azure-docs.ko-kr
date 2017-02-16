@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a9a1bcd75dbea49a4eff8e7eb9113cc47f7ab86f
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 13ecb8936484b1c86938a16c7dd6da8000d4ffec
 
 
 ---
@@ -28,7 +28,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 * 타임라인, 친구 및 팔로워 액세스
 * 아래 설명된 기타 작업 및 트리거 수행  
 
-[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../app-service-logic/app-service-logic-create-a-logic-app.md) 시작할 수 있습니다.  
+[커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/logic-apps-create-a-logic-app.md) 시작할 수 있습니다.  
 
 ## <a name="connect-to-twitter"></a>Twitter에 연결
 논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. [연결](connectors-overview.md)은 논리 앱과 다른 서비스 간의 연결을 제공합니다.  
@@ -39,7 +39,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Twitter 트리거 사용
-트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)
+트리거는 논리 앱에 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)
 
 이 예에서는 #Seattle을 검색하는 데 **새 트윗이 게시될 때** 트리거를 사용하고 #Seattle이 있는 경우 트윗의 텍스트로 Dropbox의 파일을 업데이트하는 방법을 보여 줍니다. 엔터프라이즈 예에서는 회사 이름을 검색하고 SQL 데이터베이스를 트윗의 텍스트로 업데이트할 수 있습니다.
 
@@ -80,7 +80,7 @@ Twitter 커넥터를 사용하여 다음을 수행할 수 있습니다.
    ![Twitter 조건 이미지 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Twitter 작업 사용
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts)  
+작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)  
 
 이제 트리거를 추가했으므로 다음 단계에 따라 트리거가 찾은 트윗의 내용으로 새 트윗을 게시할 작업을 추가합니다. 이 연습의 목적은 50명 이상의 팔로워가 있는 사용자의 트윗만 게시하는 것입니다.  
 
@@ -379,16 +379,16 @@ TriggerBatchResponse[TweetModel]
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생. |
 | 기본값 |작업이 실패했습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

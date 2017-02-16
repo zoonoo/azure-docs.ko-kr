@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: b2e45a77b900092390a2ca66a8d1286193023f29
 
 
 ---
@@ -150,7 +150,7 @@ ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
 * **세부 정보**: 더 자세한 진행률 보고서를 제공하는 XML 값입니다. 진행률 보고서는 행 집합이 원본에서 대상으로 복사될 때 정기적으로 업데이트됩니다. 오류 또는 예외 발생 시 이 열에는 오류에 대한 자세한 내용이 포함됩니다.
 
 ### <a name="azure-diagnostics"></a>Azure 진단
-분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 두 진단 구성이 포함된 패키지를 다운로드합니다- 웹 역할, 작업자 역할 서비스에 대한 해당 진단 구성은 [Microsoft Azure에서 클라우드 서비스 기본 사항](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649)의 지침을 따릅니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다. 
+분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 서비스에 대한 해당 진단 구성은 [Microsoft Azure에서 클라우드 서비스 기본 사항](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649)의 지침을 따릅니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다. 
 
 ## <a name="deploy-diagnostics"></a>진단 배포 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다. 
@@ -219,6 +219,6 @@ ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

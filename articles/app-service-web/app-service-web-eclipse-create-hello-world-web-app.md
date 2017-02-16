@@ -1,5 +1,5 @@
 ---
-title: "Eclipse에서 Azure용 Hello World 웹앱 만들기 | Microsoft Docs"
+title: "Eclipse를 사용하여 기본 Azure Web App 만들기 | Microsoft Docs"
 description: "이 자습서에서는Eclipse용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만드는 방법을 보여 줍니다."
 services: app-service\web
 documentationcenter: java
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: robmcm
+ms.date: 12/22/2016
+ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+ms.sourcegitcommit: 9bb0b5fa32cd6dabd6c41106db38a587b0a55eed
+ms.openlocfilehash: 18299966173f030f615049eaf11a55a1f71305a0
 
 
 ---
-# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Eclipse에서 Azure용 Hello World 웹앱 만들기
-이 자습서에서는 [Eclipse용 Azure 도구 키트]를 사용하여 기본 Hello World 응용 프로그램을 만들고 Azure에 웹앱으로 배포하는 방법을 보여 줍니다. 기본 JSP 예제는 편의를 위해 표시되지만 Azure 배포가 관련되는 한 아주 유사한 단계는 Java 서블릿에 적합합니다.
+# <a name="create-a-basic-azure-web-app-using-eclipse"></a>Eclipse를 사용하여 기본 Azure Web App 만들기
+이 자습서에서는 [Eclipse용 Azure 도구 키트]를 사용하여 기본 Hello World 응용 프로그램을 만들고 Azure에 웹앱으로 배포하는 방법을 보여 줍니다. 기본 JSP 예제는 편의를 위해 표시되지만 Azure 배포가 관련되는 한, 유사한 단계는 Java 서블릿에 적합합니다.
 
 이 자습서를 완료한 경우 웹 브라우저에서 응용 프로그램을 보면 다음 그림과 같이 표시됩니다.
 
@@ -30,9 +30,9 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 ## <a name="prerequisites"></a>필수 조건
 * JDK(Java 개발자 키트), v 1.8 이상.
 * Eclipse IDE for Java EE Developers, Luna 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
-* Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
+* Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: [Apache Tomcat] 또는 [Jetty])
 * Azure 구독은 <https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있습니다.
-* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
+* [Eclipse용 Azure 도구 키트]. Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 
 ## <a name="to-create-a-hello-world-application"></a>Hello World 응용 프로그램을 만들려면
 먼저 java 프로젝트를 만듭니다.
@@ -50,7 +50,7 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
     `<body><b><% out.println("Hello World!"); %></b></body>` 
 8. index.jsp를 저장합니다.
 
-## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>Azure 웹앱 컨테이너에 응용 프로그램을 배포하려면
+## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>Azure Web App 컨테이너에 응용 프로그램을 배포하려면
 몇 가지 방법으로 Azure에 Java 웹 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 가장 간단한 방법 중 하나를 설명합니다. 즉, 특별한 프로젝트 형식이나 추가 도구 없이 Azure 웹앱 컨테이너에 응용 프로그램을 배포하는 방법을 설명합니다. JDK 및 웹 컨테이너 소프트웨어는 Azure에서 제공되므로 별도로 업로드할 필요가 없습니다. Java 웹앱만 있으면 됩니다. 따라서 응용 프로그램 게시 프로세스에 걸리는 시간이 몇 분이 아니라 몇 초입니다.
 
 1. Eclipse의 프로젝트 탐색기에서 **MyWebApp**을 마우스 오른쪽 단추로 클릭합니다.
@@ -74,7 +74,7 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
     ![Azure 웹앱 컨테이너에 배포 대화 상자][06]
 6. 이전에 Azure 웹앱 컨테이너를 만들지 않은 경우 또는 응용 프로그램을 새 컨테이너에 게시하려는 경우 다음 단계를 사용합니다. 그렇지 않으면 기존 웹앱 컨테이너를 선택하고 아래의 7단계로 건너뜁니다.
    
-   1.  **새로 만들기...**
+   1. **새로 만들기...**
       
        ![Azure 웹앱 컨테이너에 배포 대화 상자][15]
    2. **새 웹앱 컨테이너** 대화 상자가 표시됩니다.
@@ -89,7 +89,7 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
       
        기존 리소스 그룹(있는 경우)을 선택하고 아래 g 단계로 건너뛰거나 이들 단계를 통해 새 리소스 그룹을 만들 수 있습니다.
       
-      *  **새로 만들기...**
+      * **새로 만들기...**
       * **새 리소스 그룹** 대화 상자가 표시됩니다.
         
           ![새 리소스 그룹 대화 상자][08]
@@ -107,7 +107,7 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
       
        기존 앱 서비스 계획(있는 경우)을 선택하고 아래 h 단계로 건너뛰거나 이들 단계를 통해 새 앱 서비스 계획을 만들 수 있습니다.
       
-      *  **새로 만들기...**
+      * **새로 만들기...**
       * **새 앱 서비스 계획** 대화 상자가 표시됩니다.
         
           ![새 App Service 계획 대화 상자][09]
@@ -148,17 +148,17 @@ ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
 
 몇 초 후 **Azure 동작 로그** 보기에 업데이트된 배포가 **게시됨**으로 표시되고, 웹 브라우저에서 업데이트된 응용 프로그램을 확인할 수 있습니다.
 
-## <a name="stopping-an-existing-web-app"></a>기존 웹앱 중지
-기존 Azure 웹앱 컨테이너(여기에 배포된 모든 Java 응용 프로그램 포함)를 중지하려면 **Azure 탐색기** 보기를 사용하면 됩니다.
+## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>기존 웹앱 시작, 중지 또는 다시 시작
+기존 Azure 웹앱 컨테이너(여기에 배포된 모든 Java 응용 프로그램 포함)를 시작 또는 중지하려면 **Azure 탐색기** 보기를 사용하면 됩니다.
 
 **Azure 탐색기** 보기가 열려 있지 않은 경우 Eclipse에서 **Window** 메뉴를 클릭한 다음 **보기 표시**, **기타...**, **Azure**, **Azure 탐색기**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
 
-**Azure 탐색기** 보기가 표시되면 다음 단계에 따라 웹앱을 중지합니다. 
+**Azure 탐색기** 보기가 표시되면 다음 단계에 따라 웹앱을 시작하거나 중지합니다. 
 
 1. **Azure** 노드를 확장합니다.
 2. **웹앱** 노드를 확장합니다. 
 3. 원하는 웹앱을 마우스 오른쪽 단추로 클릭합니다.
-4. 상황에 맞는 메뉴가 나타나면 **중지**를 클릭합니다.
+4. 상황에 맞는 메뉴가 나타나면 **시작**, **중지** 또는 **다시 시작**을 클릭합니다. 메뉴 선택 항목은 상황별로 변경되므로 실행 중인 웹앱만 중지하고, 현재 실행되고 있지 않은 웹앱만 시작할 수 있습니다.
    
     ![기존 웹앱 중지][13]
 
@@ -184,7 +184,7 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 [Eclipse용 Azure 도구 키트]: ../azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ../azure-toolkit-for-intellij.md
-[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ../azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ../azure-toolkit-for-intellij-installation.md
@@ -193,6 +193,8 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
 [웹앱 개요]: ./app-service-web-overview.md
+[Apache Tomcat]: http://tomcat.apache.org/
+[Jetty]: http://www.eclipse.org/jetty/
 
 <!-- IMG List -->
 
@@ -215,6 +217,6 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

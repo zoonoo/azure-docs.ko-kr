@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 53b827f15fcba26630dd470c2c9e5bbc87919c84
-ms.openlocfilehash: 79270aa5650f4ac149b582204b3c0e41d099765b
+ms.sourcegitcommit: 4faf01ca10f263a5ecc18f51659b5004bf4f7c36
+ms.openlocfilehash: 3ca870da1a01bc216604cdd1142ba68dfd5e96e2
 
 
 ---
@@ -38,7 +38,7 @@ BizTalk Server 또는 Microsoft Azure BizTalk 서비스를 잘 알고 있다면 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>엔터프라이즈 통합을 시작하는 방법
 **Azure 포털**의 논리 앱 설계자를 통해 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다.  
 
- [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "논리 앱 PowerShell 항목") 을 사용하여 논리 앱을 관리할 수도 있습니다. 
+[PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "논리 앱 PowerShell 항목") 을 사용하여 논리 앱을 관리할 수도 있습니다. 
 
 Azure Portal에서 앱을 만들기 전에 수행해야 하는 단계의 개요는 다음과 같습니다. ![개요 이미지](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
@@ -68,12 +68,13 @@ Azure Portal에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 * [XML 메시지 유효성 검사](app-service-logic-enterprise-integration-xml.md "논리 앱을 사용하여 XML 메시지의 유효성을 검사하는 방법 알아보기")
 * [XML 변환](app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
 * [엔터프라이즈 통합 커넥터](../connectors/apis-list.md "엔터프라이즈 통합 팩 커넥터에 대해 알아보기")
+* [통합 계정 메타데이터](app-service-logic-enterprise-integration-metadata.md "통합 계정 메타데이터에 대해 알아보기")
 * [B2B 메시지 모니터링](app-service-logic-monitor-b2b-message.md "B2B 메시지를 모니터링하는 방법에 대해 알아보기")
 * [OMS 포털에서 B2B 메시지 추적](app-service-logic-track-b2b-messages-omsportal.md "OMS 포털에서 B2B 메시지를 추적하는 방법에 대해 알아보기")
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

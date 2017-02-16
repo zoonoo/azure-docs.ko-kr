@@ -1,24 +1,9 @@
 ---
-title: "Azure의 NoSQL 기술 이해 | Microsoft Docs"
-description: "Azure NoSQL은 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다. DocumentDB와 테이블 저장소와 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스"
-editor: cgronlun
-manager: jhubbard
-services: documentdb, storage, hdinsight
-documentationcenter: 
-author: mimig1
-ms.assetid: eb9c081f-7d67-4d60-be77-1181108da30d
-ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/26/2016
-ms.author: mimig
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1445c35231274b816df632f2c81f5d102d8a885f
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
 
 
 
@@ -40,6 +25,6 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

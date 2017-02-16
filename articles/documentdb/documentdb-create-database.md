@@ -1,25 +1,9 @@
 ---
-title: "DocumentDB에서 데이터베이스를 만드는 방법 | Microsoft Docs"
-description: "획기적인 속도, 세계적인 규모의 NoSQL 데이터베이스인, Azure DocumentDB용 온라인 서비스 포털을 사용하여 데이터베이스를 만드는 방법을 알아봅니다."
-keywords: "데이터베이스를 만드는 방법"
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
-ms.assetid: 2503db56-744f-44b5-bf6a-0be821d023ea
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/17/2016
-ms.author: mimig
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5d93b218a61b325b6c7bd02a160bd2cae844341
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: c5f3881cb477c3cb90adfc53a57ff82a8d312d0f
 
 
 
@@ -40,6 +24,6 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

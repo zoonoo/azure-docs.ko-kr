@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 3379551c722efbe0d1591e409c6e039cd772d99b
+ms.sourcegitcommit: 61df14be1d231c4c236774cbcfe1ddff0bce1652
+ms.openlocfilehash: 1412bf2059688177e0b731a6124b4bc66e33b27f
 
 
 ---
@@ -72,7 +72,8 @@ ms.openlocfilehash: 3379551c722efbe0d1591e409c6e039cd772d99b
 | **보존 기간** |1-30일(30일) |백업 보존 기간(일 수)입니다. |
 | **저장소 계정** |Azure 저장소 계정(지정된 VM에 대해 만든 저장소 계정) |Blob 저장소에 자동화된 백업 파일을 저장하기 위해 사용하여 Azure 저장소 계정입니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
 | **암호화** |사용/사용 안 함(사용 안 함) |암호화 사용 여부를 설정합니다. 암호화 기능을 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 자동 백업 컨테이너에 지정한 저장소 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
-| **암호** |암호 텍스트(없음) |암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
+| **암호** |암호 텍스트(없음) |암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. | **시스템 데이터베이스 백업** | 사용/사용 안 함(사용 안 함) | Master, Model 및 MSDB의 전체 백업 |
+| **백업 일정 구성** | 수동/자동(자동) | 로그 증가에 따라 전체 및 로그 백업을 자동으로 수행하려면 **자동**을 선택합니다. 전체 및 로그 백업 일정을 지정하려면 **수동**을 선택합니다. |
 
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
 다음 PowerShell 예제에서는 기존 SQL Server 2014 VM에 대해 자동화된 백업이 구성됩니다. **New-AzureVMSqlServerAutoBackupConfig** 명령은 $storageaccount 변수로 지정한 Azure 저장소 계정에 백업을 저장하는 자동화된 백업 설정을 구성합니다. 이러한 백업은 10일 동안 보존됩니다. **Set-AzureVMSqlServerExtension** 명령은 지정된 Azure VM을 이러한 설정으로 업데이트합니다.
@@ -116,6 +117,6 @@ Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

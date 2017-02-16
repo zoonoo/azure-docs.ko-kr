@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 성능 팁 | Microsoft Docs"
+title: "성능 팁 - Azure DocumentDB NoSQL | Microsoft Docs"
 description: "Azure DocumentDB 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대해 알아보기"
 keywords: "데이터베이스 성능 개선 방법"
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 5b4efb2d6dedb43436745f5e8055cae44e4a58ac
+ms.sourcegitcommit: 25c48bbd0edafa4c6e4e478c471e11b6d69e00c7
+ms.openlocfilehash: e34571efac5d1a5e75d5e5d2cab75c91dbce71c8
 
 
 ---
@@ -37,6 +37,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
    2. 직접 모드
 
       게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다.  엄격한 방화벽으로 제한된 회사 네트워크 내에서 응용 프로그램을 실행하는 경우, 표준 HTTPS 포트 및 단일 끝점을 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우, 성능 유지를 위해 DocumentDB에서 데이터를 읽거나 기록할 때마다 네트워크 홉을 추가합니다.   이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
+<a id="use-tcp"></a>
 2. **연결 정책: TCP 프로토콜 사용**
 
     직접 모드를 활용하는 경우 다음과 같이 두 가지 프로토콜 옵션을 사용할 수 있습니다.
@@ -172,7 +173,8 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
                   Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
              }
 
-    이 헤더에서 반환된 요청 비용은 프로비전된 처리량(즉, 2000RU/초)의 일부입니다. 예를 들어, 위의 쿼리가 1000개의 1KB 문서를 반환하는 경우 작업 비용은 1000이 됩니다. 따라서 1초 이내에 서버는 후속 요청을 제한하기 전에 두 개의 요청에만 응합니다. 자세한 내용은 [요청 단위](documentdb-request-units.md)와 [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
+    이 헤더에서 반환된 요청 비용은 프로비전된 처리량(즉, 2000RU/초)의 일부입니다. 예를 들어, 위의 쿼리가 1000개의 1KB 문서를 반환하는 경우 작업 비용은 1000이 됩니다. 따라서&1;초 이내에 서버는 후속 요청을 제한하기 전에 두 개의 요청에만 응합니다. 자세한 내용은 [요청 단위](documentdb-request-units.md)와 [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
+<a id="429"></a>
 2. **너무 큰 속도 제한/요청 속도 처리**
 
     클라이언트가 계정에 대해 예약된 처리량을 초과하려 할 때도 서버의 성능이 저하되거나 예약된 수준 이상의 처리량이 사용되지 않습니다. 서버에서 RequestRateTooLarge(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
@@ -197,6 +199,6 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
