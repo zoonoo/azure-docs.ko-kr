@@ -8,16 +8,16 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 54000d76fac3f5759f72fe623326324e6c978505
+ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
+ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
 
 
 ---
@@ -31,6 +31,10 @@ ms.openlocfilehash: 54000d76fac3f5759f72fe623326324e6c978505
 
 이 항목에서는 많은 Azure SQL 데이터베이스 작업을 수행하는 데 사용되는 PowerShell cmdlet을 보여줍니다. 전체 목록은 [Azure SQL Database cmdlet](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx)을 참조하세요.
 
+> [!TIP]
+> 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, master 데이터베이스 연결 및 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started-powershell.md)를 참조하세요.
+>
+
 ## <a name="how-do-i-create-a-resource-group"></a>리소스 그룹을 어떻게 만드나요?
 SQL 데이터베이스 및 관련 Azure 리소스에 대한 리소스 그룹을 만들려면 [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837\(v=azure.300\).aspx) cmdlet을 사용합니다.
 
@@ -41,7 +45,7 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 ```
 
 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
+전체 자습서에 대해서는 [Azure PowerShell를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started-powershell.md)을 참조하세요.
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>SQL 데이터베이스 서버를 어떻게 만드나요?
 SQL 데이터베이스 서버를 만들려면 [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx) cmdlet을 사용합니다. *server1* 을 서버의 이름으로 바꿉니다. 서버 이름은 모든 Azure SQL 데이터베이스 서버 간에 고유해야 합니다. 이미 사용한 서버 이름인 경우 오류가 발생합니다. 이 명령을 완료하는 데는 몇 분 정도 걸릴 수 있습니다. 리소스 그룹이 구독에 이미 있어야 합니다.
@@ -54,8 +58,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -63,7 +67,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-서버에 대한 자세한 내용은 [SQL Database 기능](sql-database-features.md)을 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
+서버에 대한 자세한 내용은 [SQL Database 기능](sql-database-features.md)을 참조하세요. 전체 자습서에 대해서는 [Azure PowerShell를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started-powershell.md)을 참조하세요.
 
 ## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>SQL 데이터베이스 서버 방화벽 규칙을 어떻게 만드나요?
 서버에 액세스하기 위한 방화벽 규칙을 만들려면 [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) cmdlet을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다. 리소스 그룹 및 서버가 구독에 이미 있어야 합니다.
@@ -83,7 +87,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
 
 다른 Azure 서비스의 서버 액세스를 허용하려면 방화벽 규칙을 만들고 `-StartIpAddress` 및 `-EndIpAddress`를 모두 **0.0.0.0**으로 설정합니다. 이렇게 하면 특별한 방화벽 규칙을 통해 서버에 대한 모든 Azure 트래픽 액세스가 허용됩니다.
 
-자세한 내용은 [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
+자세한 내용은 [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 참조하세요. 전체 자습서에 대해서는 [Azure PowerShell를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started-powershell.md)을 참조하세요.
 
 ## <a name="how-do-i-create-a-sql-database"></a>SQL 데이터베이스를 어떻게 만드나요?
 SQL 데이터베이스를 만들려면 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet을 사용합니다. 리소스 그룹 및 서버가 구독에 이미 있어야 합니다. 
@@ -101,7 +105,7 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-자세한 내용은 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 샘플 스크립트는 [SQL 데이터베이스 PowerShell 스크립트 만들기](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)를 참조하세요.
+자세한 내용은 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 전체 자습서에 대해서는 [Azure PowerShell를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started-powershell.md)을 참조하세요.
 
 ## <a name="how-do-i-change-the-performance-level-of-a-sql-database"></a>SQL 데이터베이스의 성능 수준을 어떻게 변경하나요?
 성능 수준을 변경하려면 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx) cmdlet을 사용하여 데이터베이스 규모를 확장하거나 축소합니다. 리소스 그룹, 서버 및 데이터베이스가 구독에 이미 있어야 합니다. 기본 계층의 경우 `-RequestedServiceObjectiveName` 을 단일 공백(예: 다음 코드 조각)으로 설정합니다. 이전의 다른 계층에 대한 예처럼 *S0*, *S1*, *P1*, *P6* 등으로 설정합니다.
@@ -163,10 +167,10 @@ $sqlServerName = "server1"
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="how-do-i-create-and-manage-elastic-database-pools-using-powershell"></a>PowerShell을 사용하여 탄력적 데이터베이스 풀을 어떻게 만들고 관리하나요?
-PowerShell을 사용하여 탄력적 데이터베이스 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-powershell.md)를 참조하세요.
+## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>PowerShell을 사용하여 탄력적 풀을 어떻게 만들고 관리하나요?
+PowerShell을 사용하여 탄력적 풀 만들기에 대한 자세한 내용은 [PowerShell을 사용하여 새 탄력적 풀 만들기](sql-database-elastic-pool-create-powershell.md)를 참조하세요.
 
-PowerShell을 사용하여 탄력적 데이터베이스 풀 관리에 대한 자세한 내용은 [PowerShell을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-powershell.md)를 참조하세요.
+PowerShell을 사용하여 탄력적 풀 관리에 대한 자세한 내용은 [PowerShell을 사용하여 탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-powershell.md)를 참조하세요.
 
 ## <a name="related-information"></a>관련 정보
 * [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
@@ -175,6 +179,6 @@ PowerShell을 사용하여 탄력적 데이터베이스 풀 관리에 대한 자
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

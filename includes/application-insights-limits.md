@@ -4,14 +4,15 @@
 
 | **리소스** | **기본 제한** | **참고**
 | --- | --- | --- |
-| 일당 총 데이터 | 100GB | 한도를 설정하여 줄일 수 있습니다.
+| 일당 총 데이터 | 500GB | 한도를 설정하여 줄일 수 있습니다. 추가할 필요가 있으면 AIDataCap@microsoft.com으로 메일을 보내세요. 
 | 월당 무료 데이터<br/> (기본 가격 요금제) | 1 GB | GB당 요금이 청구되는 추가 데이터
+| 제한 | 16k 이벤트/초 | 분을 기준으로 측정됩니다. 
 | 데이터 보존 | 90일 | [검색](../articles/application-insights/app-insights-diagnostic-search.md), [분석](../articles/application-insights/app-insights-analytics.md) 및 [메트릭 탐색기](../articles/application-insights/app-insights-metrics-explorer.md)의 경우
-| [가용성 다단계 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) 자세한 결과 보존 | 30일 | 각 단계의 자세한 결과
+| [가용성 다단계 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) 자세한 결과 보존 | 90일 | 각 단계의 자세한 결과
 | [속성](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) 및 [메트릭](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> 이름 수 | 200 | 
 | 속성 및 메트릭 이름 길이 | 150 |
 | 속성 값 문자열 길이 | 8192 |
-| 속성에 대한 고유 값<sup>3, 4</sup> | 100 | >100 => 메트릭 탐색기에서 필터로 속성을 사용할 수 없습니다
+| 속성에 대한 고유 값<sup>3,&4;</sup> | 100 | >100 => 메트릭 탐색기에서 필터로 속성을 사용할 수 없습니다
 | 추적 및 예외 메시지 길이 | 10000 |
 | 앱당 [가용성 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md) 수  | 10 |
 
@@ -23,6 +24,6 @@
 
 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Marathon UI를 사용하여 Azure Container Service 클러스터 관리 | Microsoft Docs"
+title: "Marathon UI를 사용하여 Azure DC/OS 클러스터 관리 | Microsoft Docs"
 description: "Marathon 웹 UI를 사용하여 컨테이너를 Azure 컨테이너 서비스 클러스터 서비스에 배포합니다."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: c472963048e842e795e17df39567a8380d8543a9
-ms.openlocfilehash: b076fabd964cfb583bb4049d1373268d0d2762fb
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
 
 
 ---
@@ -113,6 +113,6 @@ DC/OS 웹 UI(http://localhost/)로 다시 전환하면 이 경우 Docker로 포�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
