@@ -393,6 +393,6 @@ Azure AD Connect의 경우 도구 버전 1.0.8667.0 이상:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

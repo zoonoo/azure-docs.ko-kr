@@ -238,6 +238,6 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

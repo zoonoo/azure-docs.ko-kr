@@ -19,6 +19,6 @@
 ##[데이터 공급자](analysis-services-data-providers.md) 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

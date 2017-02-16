@@ -49,6 +49,6 @@ Azure IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

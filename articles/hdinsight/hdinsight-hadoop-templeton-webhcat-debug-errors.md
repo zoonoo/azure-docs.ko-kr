@@ -88,6 +88,6 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
