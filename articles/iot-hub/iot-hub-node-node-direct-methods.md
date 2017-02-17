@@ -1,6 +1,6 @@
 ---
-title: "직접 메서드 사용 | Microsoft Docs"
-description: "이 자습서는 직접 메서드를 사용하는 방법을 보여줍니다."
+title: "Azure IoT Hub 직접 메서드(노드) | Microsoft Docs"
+description: "Azure IoT Hub 직접 메서드를 사용하는 방법입니다. Node.js용 Azure IoT 장치 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 장치 앱 및 직접 메서드를 호출하는 서비스 앱을 구현합니다."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 52eb502054120af4c03c649dee810366f99d326b
 
 
 ---
-# <a name="tutorial-use-direct-methods"></a>자습서: 직접 메서드 사용
+# <a name="use-direct-methods-node"></a>직접 메서드 사용(노드)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-이 자습서를 마치면 두 가지 Node.js 콘솔 응용 프로그램이 만들어집니다.
+이 자습서를 마치면 두 가지 Node.js 콘솔 앱이 만들어집니다.
 
 * **CallMethodOnDevice.js**: 시뮬레이션된 장치 앱에서 메서드를 호출하고 응답을 표시합니다.
 * **SimulatedDevice.js**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 클라우드에서 호출한 메서드에 응답합니다.
@@ -64,7 +64,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 장치 클라이언트를 만듭니다. **{장치 연결 문자열}**을 *장치 ID 만들기* 섹션에서 생성한 연결 문자열로 변경합니다.
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **DeviceClient** 인스턴스를 만듭니다. **{장치 연결 문자열}**을 *장치 ID 만들기* 섹션에서 생성한 장치 연결 문자열로 변경합니다.
    
     ```
     var connectionString = '{device connection string}';
@@ -125,7 +125,7 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
    
     var Client = require('azure-iothub').Client;
     ```
-5. 다음 변수 선언을 추가하고 자리 표시자 값을 IoT Hub에 대한 연결 문자열로 바꿉니다.
+5. 다음 변수 선언을 추가하고 자리 표시자 값을 허브의 IoT Hub 연결 문자열로 바꿉니다.
    
     ```
     var connectionString = '{iothub connection string}';
@@ -184,9 +184,9 @@ ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 시작]
-* [여러 장치에서 작업 예약][lnk-devguide-jobs]
+* [여러 장치에서 jobs 예약][lnk-devguide-jobs]
 
-IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [작업 예약 및 브로드캐스트][lnk-tutorial-jobs] 자습서를 참조하세요.
+IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트][lnk-tutorial-jobs] 자습서를 참조하세요.
 
 <!-- Images. -->
 [7]: ./media/iot-hub-node-node-direct-methods/run-simulated-device.png
@@ -196,7 +196,7 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -213,6 +213,6 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.  
 
 ### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. 최신 버전의 Azure PowerShell 모듈 설치
-Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 의 지침을 따르세요.
+Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 의 지침을 따르세요.
 
 ### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Azure 계정에 로그인 및 구독 선택
 1. Windows PowerShell 프롬프트에서 다음 cmdlet 명령을 실행합니다.
@@ -332,6 +332,6 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

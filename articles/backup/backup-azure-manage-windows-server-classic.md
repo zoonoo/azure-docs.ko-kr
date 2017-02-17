@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
 
 이 문서에서는 Azure 클래식 포털 및 Microsoft Azure 백업 에이전트를 통해 사용할 수 있는 백업 관리 작업의 개요를 찾을 수 있습니다.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="management-portal-tasks"></a>관리 포털 작업
 1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
@@ -195,6 +196,6 @@ Azure 백업 에이전트는 데이터 전송 중에 네트워크 대역폭이 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
