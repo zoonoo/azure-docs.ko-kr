@@ -1,4 +1,4 @@
-1. [Azure 포털][Azure 포털]에 로그인합니다.
+1. [Azure Portal][Azure portal]에 로그인합니다.
 2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **엔터프라이즈 통합** 및 **릴레이**를 차례로 클릭합니다.
 3. **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
 4. **구독** 필드에서 네임스페이스를 만들 Azure 구독을 선택합니다.
@@ -18,6 +18,8 @@
    
     ![connection-string][connection-string]
 
+5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 임시 위치에 복사 및 붙여넣기합니다.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
@@ -25,9 +27,9 @@
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure 포털]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

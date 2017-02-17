@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/02/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
+ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
+ms.openlocfilehash: eacba057de5065acc3baa610a76a9ae135d6060a
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
 ## <a name="overview"></a>개요
 Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스템에서 발생하는 이벤트에 의해 트리거되는 코드를 구현하는 기능으로 기존 Azure 응용 프로그램 플랫폼을 확장하는 이벤트 기반의 주문형 계산 환경입니다. Azure Functions를 통해 응용 프로그램은 요구에 따라 확장하고 사용하는 리소스에 대해서만 비용을 지불합니다. Azure Functions를 사용하여 다양한 프로그래밍 언어로 구현되는 예약되거나 트리거된 코드 단위를 만들 수 있습니다. Azure Functions에 대해 자세히 알아보려면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 
-이 항목에서는 포털에서 Azure Functions 빠른 시작을 사용하여 HTTP 트리거에서 호출하는 간단한 "hello world" Node.js 함수를 만드는 방법을 보여 줍니다. 포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
+이 항목에서는 포털에서 Azure Functions 빠른 시작을 사용하여 HTTP 트리거에서 호출하는 간단한 "hello world" JavaScript 함수를 만드는 방법을 보여 줍니다. 포털에서 이러한 단계는 수행하는 방법을 보여 주는 짧은 비디오를 시청할 수도 있습니다.
 
 ## <a name="watch-the-video"></a>비디오 보기
 다음 비디오는 이 자습서의 기본 단계를 수행하는 방법을 보여 줍니다. 
@@ -40,43 +40,23 @@ Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스�
 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 
 1. [Azure Functions 포털](https://functions.azure.com/signin) 로 이동하여 Azure 계정으로 로그인합니다.
-2. 새 함수 앱에 대해 고유한 **이름**을 입력하거나 생성된 이름을 수락하거나 선호하는 **지역**을 선택한 후 **만들기 + 시작**을 클릭합니다. 
-3. **빠른 시작** 탭에서 **웹후크 + API** 및 **JavaScript**를 클릭한 다음 **함수 만들기**를 클릭합니다. 새로운 미리 정의된 Node.js 함수가 만들어집니다. 
+2. 새 함수 앱에 대해 고유한 **이름**을 입력하거나 생성된 이름을 수락하거나 선호하는 **지역**을 선택한 후 **만들기 + 시작**을 클릭합니다. 문자, 숫자 및 하이픈만 포함할 수 있는 유효한 이름을 입력해야 합니다. 밑줄(**_**)은 허용되는 문자가 아닙니다.
+3. **빠른 시작** 탭에서 **웹후크 + API** 및 **JavaScript**를 클릭한 다음 **함수 만들기**를 클릭합니다. 새로운 미리 정의된 JavaScript 함수가 만들어집니다. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 4. (선택 사항) 빠른 시작의 이 시점에서 포털의 Azure Functions 기능을 둘러보도록 선택할 수 있습니다. 둘러보기를 완료했거나 건너뛴 경우 HTTP 트리거를 사용하여 새 함수를 테스트할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
-Azure Functions 빠른 시작에는 함수 코드가 포함되어 있어 새 함수를 즉시 테스트할 수 있습니다.
-
-1. **개발** 탭에서 **코드** 창을 검토하고 이 Node.js 코드에는 메시지 본문 또는 쿼리 문자열에 전달된 *이름* 값과 함께 HTTP 요청이 필요함을 확인합니다. 함수가 실행되면 이 값은 응답 메시지에 반환됩니다.
-   
-2. **테스트**를 클릭하여 함수에 대해 기본 제공되는 HTTP 테스트 요청 창을 표시합니다.
- 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
-
-2. **요청 본문** 텍스트 상자에서 *이름* 속성의 값을 자신의 이름으로 변경하고 **실행**을 클릭합니다. 실행이 테스트 HTTP 요청에 의해 트리거되고 정보가 스트리밍 로그에 기록되며 "hello" 응답이 **출력**에 표시되는지 확인합니다.
- 
-3. 다른 브라우저 창이나 탭에서 동일한 함수의 실행을 트리거하려면 **개발** 탭에서 **함수 URL** 값을 복사하여 브라우저 주소 표시줄에 붙여 넣습니다. URL에 쿼리 문자열 값 `&name=yourname`을 추가하고 Enter 키를 누릅니다. 같은 정보가 로그에 기록되고 이전처럼 브라우저에 "hello" 응답이 표시됩니다.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작은 기본 HTTP 트리거 함수의 간단한 실행을 보여 줍니다. 앱에서 Azure Functions를 사용하는 방법에 대해 자세히 알아보려면 다음 항목을 참조하세요.
-
-* [Azure Functions에 대한 모범 사례](functions-best-practices.md)
-* [Azure Functions 개발자 참조](functions-reference.md)  
-   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
-* [Azure Functions 테스트](functions-test-a-function.md)  
-   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-* [Azure Functions 크기 조정 방법](functions-scale.md)  
-  소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
-* [Azure 앱 서비스 정의](../app-service/app-service-value-prop-what-is.md)  
-   Azure Functions는 배포, 환경 변수 및 진단과 같은 코어 기능을 위해 Azure App Service 플랫폼을 사용합니다. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

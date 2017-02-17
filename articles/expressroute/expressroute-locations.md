@@ -1,10 +1,10 @@
 ---
-title: "ExpressRoute 위치 | Microsoft Docs"
-description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다."
+title: "연결 공급자 및 위치: Azure ExpressRoute | Microsoft Docs"
+description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 연결 공급자에 따라 정렬됩니다."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 19cc96a4dc596039dd86b705d08100cf3fb1dfee
-ms.openlocfilehash: 8224cd54149c2be20a9b65c1436df1e6a419ec1f
+ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
+ms.openlocfilehash: 16680e3eaa99524a1aa71501b2d3468004b63625
 
 
 ---
@@ -204,6 +204,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

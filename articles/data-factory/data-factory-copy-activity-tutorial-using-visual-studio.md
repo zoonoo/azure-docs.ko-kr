@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
-ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
 
 
 ---
@@ -35,12 +35,17 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 
 이 자습서에서는 Visual Studio를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
+> [!NOTE]
+> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
+> 
+> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요.
+
 이 자습서의 일부로 수행하는 단계는 다음과 같습니다.
 
 1. 2개의 연결된 서비스인 **AzureStorageLinkedService1** 및 **AzureSqlinkedService1**을 만듭니다. 
    
     AzureStorageLinkedService1은 Azure 저장소를 연결하고 AzureSqlLinkedService1은 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryVS**에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다.
-2. 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 집합인 **InputDataset** 및 **OutputDataset**을 만듭니다. 
+2. 데이터 저장소에 저장된 입출력 데이터를 나타내는&2;개의 데이터 집합인 **InputDataset** 및 **OutputDataset**을 만듭니다. 
    
     InputDataset의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. OutputDataset의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다.
 3. ADFTutorialDataFactoryVS에 **ADFTutorialPipeline** 이라는 파이프라인을 만듭니다. 
@@ -68,7 +73,7 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 복사 작업에서 지원하는 모든 원본 및 싱크는 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 데이터 팩터리에서 지원하는 계산 서비스 목록은 [연결된 계산 서비스](data-factory-compute-linked-services.md) 를 참조하세요. 이 자습서에서는 계산 서비스를 사용하지 않습니다. 
 
-이 단계에서는 2개의 연결된 서비스인 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만듭니다. AzureStorageLinkedService1 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결합니다. 
+이 단계에서는&2;개의 연결된 서비스인 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만듭니다. AzureStorageLinkedService1 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결합니다. 
 
 ### <a name="create-the-azure-storage-linked-service"></a>Azure 저장소 연결된 서비스 만들기
 1. 솔루션 탐색기에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.      
@@ -96,7 +101,7 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 > 
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
-이전 단계에서는 연결된 서비스인 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만들어 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService1 및 AzureSqlLinkedService1로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **InputDataset** 및 **OutputDataset**라는 2개의 데이터 집합을 정의합니다. InputDataset의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. OutputDataset의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다.
+이전 단계에서는 연결된 서비스인 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만들어 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService1 및 AzureSqlLinkedService1로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **InputDataset** 및 **OutputDataset**라는&2;개의 데이터 집합을 정의합니다. InputDataset의 경우 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정합니다. OutputDataset의 경우 출력 데이터를 저장하는 SQL 테이블을 지정합니다.
 
 ### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
 이 단계에서는 **AzureStorageLinkedService1** 연결된 서비스가 나타내는 Azure Storage의 Blob 컨테이너를 가리키는 **InputDataset**이라는 데이터 집합을 만듭니다. 테이블은 사각형 데이터 집합이며 현재 지원되는 유일한 데이터 집합 유형입니다. 
@@ -207,7 +212,7 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
    * **linkedServiceName**을 **AzureSqlLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
    * **tablename**을 **emp**로 설정합니다.
    * 데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
-   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을&1;시간마다 생성합니다.
 
 > [!NOTE]
 > JSON 속성에 대한 자세한 내용은 [Azure SQL Database 간의 데이터 이동](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 을 참조하세요.
@@ -370,15 +375,14 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 ## <a name="see-also"></a>참고 항목
 | 항목 | 설명 |
 |:--- |:--- |
-| [데이터 이동 활동](data-factory-data-movement-activities.md) |이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
-| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory에서 파이프라인 및 작업을 이해하는 데 도움이 됩니다. |
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "ExpressRoute 위치 | Microsoft Docs"
-description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다."
+title: "위치 및 연결 공급자: Azure ExpressRoute | Microsoft Docs"
+description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 위치에 따라 정렬됩니다."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f8392c4a930be10b159bcd950cdd893e55ea7af2
-ms.openlocfilehash: 740799ce9acd4cc0aa9d440033a41a22f2658609
+ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
+ms.openlocfilehash: 42180ab35f049aa4cc0c5db79528b172e316036b
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
@@ -72,7 +72,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **애틀랜타** |Equinix |
 | **부산** |Sejong Telecom+ |
 | **첸나이** |SIFY, Tata Communications |
-| **시카코** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
+| **시카고** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **댈러스** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **더블린** |Colt, Telecity Group |
 | **홍콩** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
@@ -103,7 +103,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
 | **위치**: | **서비스 공급자** |
 | --- | --- |
-| **시카코** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
+| **시카고** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** |Equinix, Megaport, Verizon |
 | **뉴욕** |Equinix, Level 3 Communications+, Verizon |
 | **실리콘밸리** | Equinix+ |
@@ -158,7 +158,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | --- | --- |
 | **아시아** |Avanade Inc., OneAs1a |
 | **오스트레일리아** | IT Consultancy |
-| **유럽** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
+| **유럽** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
 | **북아메리카** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **남미** |Avanade Inc. |
 ## <a name="next-steps"></a>다음 단계
@@ -170,6 +170,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

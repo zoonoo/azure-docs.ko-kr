@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/2/2017
+ms.author: markgal;jimpark;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 084bf86a2f36d8b48344f5a42e18738c5a4ed6d9
 
 
 ---
@@ -45,7 +45,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 **응용 프로그램 일치 백업** - 파일 서버, 가상 컴퓨터 또는 SQL 데이터베이스의 백업 여부에 상관 없이 백업 복사본을 복원하는 데 필요한 모든 데이터는 복구 지점에 있습니다. 검증된 픽스가 데이터를 복원하는 데 추가로 필요하지 않는 응용 프로그램 일치 백업을 제공합니다. 응용 프로그램 일치 데이터를 복원하면 실행 상태로 신속히 복귀할 수 있어 복원 시간을 줄여줍니다.
 
-**장기 보존** - Azure에 99년 동안 데이터를 백업합니다. 디스크에서 테이프로 백업 복사본을 전환하는 대신 장기 보관을 위해 오프사이트 위치로 테이프를 옮기는 경우 단기 및 장기 보존을 위해 Azure를 사용할 수 있습니다.
+**장기 보존** - 디스크에서 테이프로 백업 복사본을 전환하는 대신 장기 보관을 위해 오프사이트 위치로 테이프를 옮기는 경우 단기 및 장기 보존을 위해 Azure를 사용할 수 있습니다. Azure는 Backup 또는 Recovery Services 자격 증명 모음에 데이터를 유지하는 시간의 길이를 제한하지 않습니다. 원하는 만큼 자격 증명 모음에 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 필요성에 어떻게 영향을 줄 수 있는지에 대한 설명은 이 문서의 [백업 및 보존](backup-introduction-to-azure-backup.md#backup-and-retention) 섹션을 참조하세요.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>어떤 Azure Backup 구성 요소를 사용해야 합니까?
 요구 사항에 맞게 작동하는 Azure Backup 구성 요소를 확신하지 못하는 경우 각 구성 요소에서 보호할 수 있는 항목을 알아 보기 위해 다음 표를 참조하세요. Azure Portal에서 기본적으로 제공되는 마법사에서 다운로드하고 배포할 구성 요소를 선택하도록 단계별로 안내합니다. Recovery Services 자격 증명 모음 만들기의 일부인 마법사는 백업 목표를 선택하고 보호할 데이터 또는 응용 프로그램을 선택하는 단계들로 안내합니다.
@@ -175,18 +175,18 @@ System Center DPM 또는 Azure Backup Server에 데이터를 백업하는 경우
 #### <a name="network-throttling"></a>네트워크 제한
 Azure Backup 에이전트는 데이터 전송 중에 네트워크 대역폭이 사용되는 방식을 제어할 수 있는 네트워크 제한을 제공합니다. 제한은 근무 시간에 데이터를 백업해야 하는데 백업 프로세스가 다른 인터넷 트래픽을 방해하지 말아야 할 때 유용한 기능입니다. 데이터 전송 제한은 백업 및 복원 작업에 적용됩니다.
 
-### <a name="backup-and-retention"></a>백업 및 보존
+## <a name="backup-and-retention"></a>백업 및 보존
 
 Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백업 복사본 또는 스냅숏이라고도 함)이 있습니다. 보호된 인스턴스는 Azure에 데이터를 백업하도록 구성된 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 자세한 내용은 [보호된 인스턴스란 무엇인가요?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) 섹션을 참조하세요. 데이터의 백업 복사본이 저장되면 인스턴스가 보호됩니다. 데이터의 백업 복사본이 보호 기능입니다. 원본 데이터가 손실되었거나 손상된 경우 백업 복사본이 원본 데이터를 복원할 수 있습니다. 다음 표는 각 구성 요소의 최대 백업 빈도를 보여줍니다. 백업 정책 구성은 복구 지점을 사용하는 속도를 결정합니다. 예를 들어 매일 복구 지점을 만들면 복구 지점을 27년 동안 보존한 후 실행합니다. 월별 복구 지점을 사용하는 경우 833년 동안 복구 지점을 보존할 수 있습니다. Backup 서비스는 복구 지점에 만료 시간 제한을 설정하지 않습니다.
 
 |  | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
 | --- | --- | --- | --- | --- |
-| 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일 3회 백업 |매일 2회 백업 |매일 2회 백업 |매일 1회 백업 |
-| 백업 주기<br/> (디스크에 대한) |해당 없음 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해 1시간마다 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해 1시간마다</p> |해당 없음 |
+| 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일&3;회 백업 |매일&2;회 백업 |매일&2;회 백업 |매일&1;회 백업 |
+| 백업 주기<br/> (디스크에 대한) |해당 없음 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해&1;시간마다 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해&1;시간마다</p> |해당 없음 |
 | 보존 옵션 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |
 | 보호된 인스턴스당 최대 복구 지점 |9999|9999|9999|9999|
 | 최대 보존 기간 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |
-| 로컬 디스크의 복구 지점 |해당 없음 |<li>파일 서버의 경우 64<li>응용 프로그램 서버의 경우 448 |<li>파일 서버의 경우 64<li>응용 프로그램 서버의 경우 448 |해당 없음 |
+| 로컬 디스크의 복구 지점 |해당 없음 |<li>파일 서버의 경우&64;<li>응용 프로그램 서버의 경우&448; |<li>파일 서버의 경우&64;<li>응용 프로그램 서버의 경우&448; |해당 없음 |
 | 테이프의 복구 지점 |해당 없음 |Unlimited |해당 없음 |해당 없음 |
 
 ## <a name="what-is-a-protected-instance"></a>보호된 인스턴스란 무엇인가요?
@@ -234,6 +234,6 @@ Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 컴퓨�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

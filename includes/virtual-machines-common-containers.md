@@ -1,9 +1,6 @@
+Azure 클라우드 솔루션은 가상 컴퓨터(물리적 컴퓨터 하드웨어의 에뮬레이션)에 구축되어 물리적 하드웨어보다 소프트웨어 배포를 빠르게 패키징하고 리소스 통합을 훨씬 원활하게 수행할 수 있습니다. [Docker](https://www.docker.com) 컨테이너 및 docker 에코시스템은 분산된 소프트웨어를 개발, 제공 및 관리할 수 있는 방법을 크게 확장시켰습니다. 컨테이너의 응용 프로그램 코드는 호스트 VM 및 동일한 VM의 기타 컨테이너에서 격리됩니다. 이 격리로 인해 개발 및 배포 유연성이 증가합니다.
 
-
-
-Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 &mdash;물리적 컴퓨터 하드웨어의 에뮬레이션에 기반한&mdash; 가상 컴퓨터에 구축되어 물리적 하드웨어보다 소프트웨어가 빠르게 구축되고 리소스 통합이 훨씬 원활하게 수행됩니다. 지난 수년 동안 Linux 컨테이너 기술은 컨테이너 및 Docker 생태계에 대한 [Docker](https://www.docker.com) 접근 방식에 힘입어 분산 소프트웨어의 개발 및 관리 방식을 크게 확장시켰습니다. 컨테이너의 응용 프로그램 코드가 호스트 Azure VM 및 동일 VM 내 다른 컨테이너와 분리되어 있기 때문에 Azure VM이 이미 제공한 민첩성에 더하여&mdash;더욱 민첩하게 응용 프로그램을 개발 및 배포할 수 있는 것입니다.
-
-**이러한 알려진 기능 외에** Azure에서는 *새로운* 새로운s is that Azure offers you even more Docker goodness:
+Azure에서는 다음 Docker 값을 제공합니다.
 
 * [수많은](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [다양한](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 방법들로 컨테이너용 Docker 호스트를 상황에 맞게 생성
 * [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)는 **marathon** 및 **swarm** 같은 orchestrator를 사용하여 컨테이너 호스트의 클러스터를 만듭니다.
@@ -15,9 +12,9 @@ Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 
 이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [컨테이너 작업 도구](#tools-for-working-with-azure-vms-and-containers)에서 확인할 수 있습니다.
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>가상 컴퓨터와 컨테이너의 차이
-가상 컴퓨터는 [하이퍼바이저](http://en.wikipedia.org/wiki/Hypervisor)가 제공하는 독립된 하드웨어 가상화 환경 내에서 실행됩니다. Azure에서 모든 작업은 [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) 서비스에서 자동 처리합니다. 운영체제를 선택하고 원하는 방식대로&mdash; 실행되도록 구성하거나 사용자 지정 VM 이미지를 업로드하기만 하면 Virtual Machines를 생성할 수 있습니다. 가상 컴퓨터는 오랫동안 테스트되고 “많은 시행착오를 겪은” 기술이기에 운영체제를 관리하고 사용자가 설치 및 실행하는 응용 프로그램을 구성하기 위한 도구가 많이 있습니다. 가상 컴퓨터에서 실행되는 모든 작업은 호스트 운영체제에서 숨김 상태로 수행되고 가상 컴퓨터 내에서 실행되는 응용 프로그램 또는 사용자 관점에서도 보이지 않기 때문에 가상 컴퓨터가 마치 자동으로 실행되는 물리적 컴퓨터처럼 보입니다.
+가상 컴퓨터는 [하이퍼바이저](http://en.wikipedia.org/wiki/Hypervisor)가 제공하는 독립된 하드웨어 가상화 환경 내에서 실행됩니다. Azure에서는 [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) 서비스가 모든 작업을 처리합니다. 운영 체제를 선택하고 원하는&mdash;방식대로 실행되도록 구성하거나 사용자 지정 VM 이미지를 업로드하기만 하면 Virtual Machines를 생성할 수 있습니다. 가상 컴퓨터는 오랫동안 테스트되고 “많은 시행착오를 겪은” 기술이기에 운영체제를 관리하고 사용자가 설치 및 실행하는 응용 프로그램을 구성하기 위한 도구가 많이 있습니다. 가상 컴퓨터에서 실행되는 모든 작업은 호스트 운영체제에서 숨김 상태로 수행되고 가상 컴퓨터 내에서 실행되는 응용 프로그램 또는 사용자 관점에서도 보이지 않기 때문에 가상 컴퓨터가 마치 자동으로 실행되는 물리적 컴퓨터처럼 보입니다.
 
-[Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)는 &mdash;Docker 도구 및 기타 접근 방법을 사용하여 생성 및 호스트&mdash;하기 때문에 격리를 위해 하이퍼바이저가 필요하지 않습니다. 대신, 컨테이너 호스트가 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 사용하여 컨테이너 및 해당 응용 프로그램에 특정 커널 기능과 자체 격리 파일 시스템만을 최소한으로 노출시킵니다. 컨테이너에서 실행되는 응용 프로그램의 관점에서 보면 해당 컨테이너는 독자적인 운영체제 인스턴스로 보입니다. 컨테이너 내 응용 프로그램에서는 해당 컨테이너 외부에 있는 프로세스나 기타 리소스가 전혀 보이지 않기 때문입니다.
+[Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)는&mdash;Docker 도구 및 기타 접근 방법을 사용하여 생성 및 호스트하기 때문에 격리를 위해 하이퍼바이저가&mdash;필요하지 않습니다. 대신, 컨테이너 호스트가 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 사용하여 컨테이너 및 해당 응용 프로그램에 특정 커널 기능과 자체 격리 파일 시스템만을 최소한으로 노출시킵니다. 컨테이너에서 실행되는 응용 프로그램의 관점에서 보면 해당 컨테이너는 독자적인 운영체제 인스턴스로 보입니다. 컨테이너 내 응용 프로그램에서는 해당 컨테이너 외부에 있는 프로세스나 기타 리소스가 전혀 보이지 않기 때문입니다.
 
 이러한 격리 및 실행 모델은 Docker 호스트 컴퓨터의 커널을 공유하고 컨테이너 디스크에 전체 운영체제를 포함하지 않아도 되기 때문에 컨테이너 시작 시간과 필요한 디스크 저장소 오버헤드 모두가 크게 줄어 듭니다.
 
@@ -28,16 +25,16 @@ Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 
 이것도 아주 멋진 일입니다.
 
 ### <a name="is-this-too-good-to-be-true"></a>그런데 과연 좋은 점만 있을까요?
-그렇기&mdash;도 하고 그렇지 않기도 합니다. 컨테이너 역시 다른 기술과 마찬가지로 분산 응용 프로그램에 필요한 모든 어려운 작업을 마법처럼 처리하지 못합니다. 그렇지만 컨테이너 덕분에 완전히 개선된 점들도 분명히 있습니다.
+네&mdash;그리고 아니요. 컨테이너 역시 다른 기술과 마찬가지로 분산 응용 프로그램에 필요한 모든 어려운 작업을 마법처럼 처리하지 못합니다. 그렇지만 컨테이너 덕분에 완전히 개선된 점들도 분명히 있습니다.
 
 * 응용 프로그램 코드 개발과 광범위한 공유 속도
 * 테스트 속도 및 신뢰도
 * 배포 속도 및 신뢰도
 
-단, 컨테이너는 컨테이너 호스트&mdash;즉 운영체제(Azure의 경우 Azure 가상 컴퓨터)에서 실행된다는 점에 유념하십시오. 컨테이너가 아무리 우수해도 호스팅하려면 VM 인프라가 여전히 필요합니다. 그래도 좋은 점은 컨테이너가 어떤 VM에서나 실행된다는 것입니다. 물론 컨테이너가 Linux나 Windows 중 어떤 실행 환경을 선호하는지는 중요합니다.
+단, 컨테이너는 컨테이너 호스트,&mdash;운영 체제(즉, Azure의 경우 Azure Virtual Machine)에서 실행된다는 점에 유념하십시오. 컨테이너가 아무리 우수해도 호스팅하려면 VM 인프라가 여전히 필요합니다. 그래도 좋은 점은 컨테이너가 어떤 VM에서나 실행된다는 것입니다. 물론 컨테이너가 Linux나 Windows 중 어떤 실행 환경을 선호하는지는 중요합니다.
 
 ## <a name="what-are-containers-good-for"></a>컨테이너의 이점
-컨테이너는 다양한 작업에서 유용하지만 [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/)나 [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash;과 마찬가지로 단일 서비스 및 마이크로 서비스 지향의 분산형 응용 프로그램을 개발할 때 &mdash;하는 것이 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
+컨테이너는 다양한 작업에서 유용하지만&mdash;[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/)나 [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)과&mdash;마찬가지로 단일 서비스 및 마이크로 서비스 지향의 분산형 응용 프로그램을 개발할 때 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
 
 특히 Azure와 같은 공용 클라우드 환경에서는 VM이 필요할 때 언제 어디서나 가져다 쓸 수 있기 때문에 더욱 그 진가를 발합니다. 격리, 신속한 배포, 오케스트레이션 도구를 쉽게 가져와 사용할 수 있을 뿐만 아니라 더욱 효율적으로 응용 프로그램 인프라를 결정할 수 있습니다.
 
@@ -64,7 +61,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 * 컨테이너 내 코드는 동일하게 인증됩니다
 * 컨테이너 내 서비스는 개발, 테스트, 프로덕션 환경을 가리지 않고 신속하게 시작, 중지, 이동할 수 있습니다
 
-이 외에도 대기업에 큰 도움이 되는 &mdash;많은&mdash; 기능들이 있습니다. 대기업은 시장 경쟁력을 유지하고 고객 만족도 및 도달 범위를 증가시키기 위해 전문 정보 기술 조직이 &mdash;처리 성능&mdash; 및 리소스 최적화 작업을 수행합니다. 소기업, ISV, 신생 기업도 상황이 조금 다르기는 하겠지만 그와 같은 작업이 필요한 것은 마찬가지입니다.
+이 외에도&mdash;대기업에 큰&mdash;도움이 되는 많은 기능들이 있습니다. 대기업은 시장 경쟁력을 유지하고 고객 만족도 및 도달 범위를 증가시키기 위해 전문 정보 기술 조직이&mdash;처리 성능&mdash;및 리소스 최적화 작업을 수행합니다. 소기업, ISV, 신생 기업도 상황이 조금 다르기는 하겠지만 그와 같은 작업이 필요한 것은 마찬가지입니다.
 
 ## <a name="what-are-virtual-machines-good-for"></a>가상 컴퓨터의 이점
 가상 컴퓨터가 클라우드 컴퓨팅의 토대라는 사실은 변함이 없습니다. 가상 컴퓨터가 점점 느리게 시동되고 디스크 공간에서 차지하는 공간이 늘어나며 마이크로 서비스 아키텍처로 직접 매핑할 수 없어도 여전히 다음과 같은 이점을 제공한다는 점에서 매우 중요합니다.
@@ -77,7 +74,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 특히 마지막 항목이 중요합니다. 컨테이너 내 응용 프로그램이 어떤 호출을 보내는가에 따라 특정 운영체제와 CPU 유형이 필요하기 때문입니다. 컨테이너는 VM에 설치된다는 점을 잊지 마십시오. 배포하려는 응용 프로그램은 컨테이너에 들어가지만 컨테이너가 VM이나 운영체제를 대체할 수 있는 것은 아닙니다.
 
 ## <a name="high-level-feature-comparison-of-vms-and-containers"></a>VM과 컨테이너의 고급 기능 비교
-다음 표에서는 VM과 Linux 컨테이너 간 고급 기능의 차이에 대해 &mdash;매우 간략하게&mdash; 설명합니다. 응용 프로그램 요구 사항에 따라 보다 적합한 기능도 있고 그렇지 않은 기능도 있습니다. 또한 모든 소프트웨어와 마찬가지로 약간 작업을 하면 지원되는 기능을 향상시킬 수 있으며 특히 보안 분야의 기능 지원에서 효과를 볼 수 있습니다.
+다음 표에서는 VM과 Linux 컨테이너 간&mdash;고급 기능의&mdash;차이에 대해 매우 간략하게 설명합니다. 응용 프로그램 요구 사항에 따라 보다 적합한 기능도 있고 그렇지 않은 기능도 있습니다. 또한 모든 소프트웨어와 마찬가지로 약간 작업을 하면 지원되는 기능을 향상시킬 수 있으며 특히 보안 분야의 기능 지원에서 효과를 볼 수 있습니다.
 
 | 기능 | VM | 컨테이너 |
 |:--- | --- | --- |
@@ -90,14 +87,14 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 ## <a name="creating-and-managing-groups-of-vms-and-containers"></a>VM 및 컨테이너 그룹 생성 및 관리
 이 시점에서 설계자, 개발자, 또는 IT 운영 전문가라면 "이걸 다 자동화할 수 있다니 진정한 DCaaS(Data-Center-As-A-Service)야!"라고 할지도 모르겠습니다.
 
-맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. &mdash;이미 사용하고 있겠지만&mdash; PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
+맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미&mdash;사용하고 있겠지만&mdash;PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
 
 이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. ( [Azure에서 이러한 도구를 사용하는 방법](#tools-for-working-with-containers)에 대한 몇 가지 링크는 여기에서 확인하실 수 있습니다.)
 
 ### <a name="azure-resource-group-templates"></a>Azure 리소스 그룹 템플릿
 최근 Azure는 [Azure 리소스 관리](../articles/resource-manager-deployment-model.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../articles/resource-group-authoring-templates.md) 으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
 
-* [Azure 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)&mdash;힌트: "DeployToAzure" 버튼을 사용하세요.
+* [Azure Portal의 템플릿](https://github.com/Azure/azure-quickstart-templates)&mdash;(힌트: "DeployToAzure" 버튼을 사용하세요.)
 * [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure PowerShell 모듈](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -196,11 +193,11 @@ Linux 배포 도구 및 Azure 예시:
 [Docker](https://www.docker.com) 및 [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 확인하세요.
 
 <!--Anchors-->
-[마이크로 서비스]: http://martinfowler.com/articles/microservices.html
-[마이크로 서비스]: http://martinfowler.com/articles/microservices.html
+[microservices]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

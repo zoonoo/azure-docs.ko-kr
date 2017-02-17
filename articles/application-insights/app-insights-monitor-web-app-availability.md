@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
+ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 웹 테스트에는 두 가지 유형이 있습니다:
 
 * [URL ping 테스트](#create): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
-* [다단계 웹 테스트](#multi-step-web-tests): Visual Studio Ultimate 또는 Visual Studio Enterprise에서 만들고 포털에 업로드합니다.
+* [다단계 웹 테스트](#multi-step-web-tests): Visual Studio Enterprise에서 만들고 포털에 업로드합니다.
 
 응용 프로그램 리소스당 최대 10개의 웹 테스트를 만들 수 있습니다.
 
@@ -122,7 +122,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 코딩된 함수는 테스트에 사용할 수 없습니다. 시나리오 단계를 .webtest 파일에 스크립트로 포함해야 합니다.
 
 #### <a name="1-record-a-scenario"></a>1. 시나리오 기록
-Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합니다.
+Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 1. 웹 성능 테스트 프로젝트를 만듭니다.
 
@@ -239,7 +239,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 테스트가 완료되면 응답 시간 및 성공률이 표시됩니다.
 
 ## <a name="automation"></a>자동화
-* [PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) 합니다.
+* [PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](app-insights-powershell.md#add-an-availability-test) 합니다.
 * 경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다.
 
 ## <a name="questions-problems"></a>질문? 문제가 있습니까?
@@ -294,6 +294,6 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

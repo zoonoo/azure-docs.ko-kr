@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: 52982a24b7e252c7c14256128e372675d5aa0ba7
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 저장소 소개
+
 ## <a name="overview"></a>개요
 Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다. 이 문서를 통해 개발자, IT 전문가 및 비즈니스 의사 결정자는 다음에 대한 내용을 배울 수 있습니다.
 
@@ -49,7 +50,7 @@ Azure 저장소는 편리한 개발을 위해 다양한 운영 체제 집합(Win
 
 Azure 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업을 지원하는 짧은 대기 시간의 고성능 디스크를 제공합니다. Azure 프리미엄 저장소를 사용하면 여러 영구 데이터 디스크를 가상 컴퓨터에 연결하여 성능 요구 사항을 충족하도록 구성할 수 있습니다. 각 데이터 디스크는 Azure 프리미엄 저장소에서 SSD 디스크의 지원을 받으며 최대 I/O 성능을 제공합니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md) 를 참조하세요.
 
-## <a name="introducing-the-azure-storage-services"></a>Azure 저장소 서비스 소개
+## <a name="introducing-the-azure-storage-services"></a>Azure Storage 서비스 소개
 Azure 저장소 서비스는 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등의&4;가지 서비스를 제공합니다.
 
 * Blob 저장소는 구조화되지 않은 개체 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
@@ -101,7 +102,7 @@ Blob 및 큐와 같이, 개발자는 표준 REST 프로토콜을 사용하여 �
 
 저장소 계정에 포함할 수 있는 큐의 수에는 제한이 없습니다. 큐에 포함할 수 있는 메시지 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 개별 메시지는 크기가 최대 64KB일 수 있습니다.
 
-## <a name="file-storage"></a>파일 저장소
+## <a name="file-storage"></a>File Storage
 Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므로 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 신속하게 Azure로 마이그레이션할 수 있습니다. Azure 파일 저장소와 함께, Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프로그램은 데스크톱 응용 프로그램이 일반적인 SMB 공유를 탑재하는 것처럼 클라우드에 파일 공유를 탑재할 수 있습니다. 파일 저장소 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
 
 파일 저장소 공유는 표준 SMB 파일 공유이므로 Azure에서 실행되는 응용 프로그램은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 응용 프로그램을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 응용 프로그램 관리의 일부로 파일 저장소 공유를 만들고 탑재하고 관리할 수 있습니다.
@@ -110,7 +111,7 @@ Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므�
 
 분산 응용 프로그램은 파일 저장소를 사용하여 유용한 응용 프로그램 데이터와 개발 및 테스트 도구를 저장하고 공유할 수 있습니다. 예를 들어 응용 프로그램은 로그, 메트릭 및 크래시 덤프와 같은 구성 파일 및 진단 데이터를 파일 저장소 공유에 저장할 수 있으므로 이러한 데이터를 여러 가상 컴퓨터나 역할에서 사용할 수 있습니다. 개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 컴퓨터나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 파일 저장소 공유에 저장할 수 있습니다.
 
-## <a name="access-to-blob-table-queue-and-file-resources"></a>Blob, 테이블, 큐 및 파일 리소스 액세스
+## <a name="access-to-blob-table-queue-and-file-resources"></a>Blob, 테이블, 큐 및 파일 리소스에 액세스
 기본적으로 저장소 계정 소유자만 저장소 계정의 리소스에 액세스할 수 있습니다. 데이터 보안을 위해 계정의 리소스에 대해 이루어지는 모든 요청은 인증을 받아야 합니다. 인증에는 공유 키 모델이 사용됩니다. 익명 인증을 지원하도록 Blob을 구성할 수도 있습니다.
 
 생성 시 저장소 계정에 인증을 위해 사용되는&2;개의 개인 선택키가 할당됩니다. 2개의 키는 일반 보안 키 관리 방법의 일환으로 키를 정기적으로 다시 생성할 때 응용 프로그램을 계속 사용할 수 있도록 합니다.
@@ -126,7 +127,7 @@ Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므�
 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 을 참조하세요. 안전한 저장소 계정 액세스에 대한 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 액세스 관리](storage-manage-access-to-resources.md) 및 [Azure Storage 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)을 참조하세요.
 
 ## <a name="replication-for-durability-and-high-availability"></a>내구성 및 고가용성을 위한 복제
-Microsoft Azure 저장소 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제는 선택한 복제 옵션에 따라 동일한 데이터 센터 내 또는 보조 데이터 센터에 데이터를 복사합니다. 일시적인 하드웨어 오류가 발생할 경우에 대비하여 복제를 통해 데이터를 보호하고 응용 프로그램 가동 시간을 유지합니다. 보조 데이터 센터에 데이터를 복제하면 기본 위치에서 발생하는 치명적인 오류로부터 데이터를 보호할 수도 있습니다.
+Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제는 선택한 복제 옵션에 따라 동일한 데이터 센터 내 또는 보조 데이터 센터에 데이터를 복사합니다. 일시적인 하드웨어 오류가 발생할 경우에 대비하여 복제를 통해 데이터를 보호하고 응용 프로그램 가동 시간을 유지합니다. 보조 데이터 센터에 데이터를 복제하면 기본 위치에서 발생하는 치명적인 오류로부터 데이터를 보호할 수도 있습니다.
 
 복제를 사용하면 저장소 계정은 오류 상황에서도 [저장소용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
 
@@ -161,7 +162,7 @@ Microsoft Azure 저장소 계정 데이터는 항상 내구성 및 고가용성�
 
 Azure 저장소를 통한 지속성에 대한 구조적인 세부 사항은 [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
 
-## <a name="transferring-data-to-and-from-azure-storage"></a>Azure 저장소에서의 데이터 전송
+## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Storage 간에 데이터 전송
 AzCopy 명령줄 유틸리티를 사용하여 저장소 계정 내에서 또는 저장소 계정 간에 Blob, 파일 및 테이블 데이터를 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
 
 AzCopy는 [Azure 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)를 기반으로 구축되며 현재 미리 보기에서 사용할 수 있습니다.
@@ -174,7 +175,7 @@ Azure 가져오기/내보내기 서비스는 Azure 데이터 센터에 우편으
 ## <a name="storage-apis-libraries-and-tools"></a>저장소 API, 라이브러리 및 도구
 Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure 저장소는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure 저장소 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
 
-### <a name="azure-storage-data-services"></a>Azure 저장소 데이터 서비스
+### <a name="azure-storage-data-services"></a>Azure Storage 데이터 서비스
 * [저장소 서비스 REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [.NET, Windows Phone 및 Windows 런타임용 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
@@ -185,18 +186,18 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 * [Python용 저장소 클라이언트 라이브러리](/develop/python/)
 * [PowerShell 1.0용 저장소 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
-### <a name="azure-storage-management-services"></a>Azure 저장소 관리 서비스
+### <a name="azure-storage-management-services"></a>Azure Storage 관리 서비스
 * [저장소 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 * [.NET용 저장소 리소스 공급자 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt131037.aspx)
 * [PowerShell 1.0용 저장소 리소스 공급자 Cmdlet](https://msdn.microsoft.com/library/azure/mt607151.aspx)
 * [저장소 서비스 관리 REST API(클래식](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
-### <a name="azure-storage-data-movement-services"></a>Azure 저장소 데이터 이동 서비스
+### <a name="azure-storage-data-movement-services"></a>Azure Storage 데이터 이동 서비스
 * [저장소 가져오기/내보내기 서비스 REST API](https://msdn.microsoft.com/library/azure/dn529096.aspx)
 * [.NET용 저장소 데이터 이동 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
-* [Azure Storage-Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure 저장소 탐색기](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 저장소 클라이언트 도구](storage-explorers.md)
 * [Azure SDK 및 도구](https://azure.microsoft.com/tools/)
 * [Azure 저장소 에뮬레이터](http://www.microsoft.com/download/details.aspx?id=43709)
@@ -208,50 +209,48 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 
 ### <a name="documentation"></a>문서화
 * [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [저장소 계정을 만드는](storage-create-storage-account.md)
+* [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>관리자용
-* [Azure Storage와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
+* [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
 * [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md)
 
-### <a name="for-net-developers"></a>.NET 개발자
+### <a name="for-net-developers"></a>.NET 개발자용
 * [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
 * [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
 * [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
 * [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 
-### <a name="for-javaandroid-developers"></a>Java/Android 개발자
+### <a name="for-javaandroid-developers"></a>Java/Android 개발자용
 * [Java에서 Blob 저장소를 사용하는 방법](storage-java-how-to-use-blob-storage.md)
 * [Java에서 테이블 저장소를 사용하는 방법](storage-java-how-to-use-table-storage.md)
 * [Java에서 큐 저장소를 사용하는 방법](storage-java-how-to-use-queue-storage.md)
 * [Java에서 파일 저장소를 사용하는 방법](storage-java-how-to-use-file-storage.md)
 
-### <a name="for-nodejs-developers"></a>Node.js 개발자
+### <a name="for-nodejs-developers"></a>Node.js 개발자용
 * [Node.js에서 Blob 저장소를 사용하는 방법](storage-nodejs-how-to-use-blob-storage.md)
 * [Node.js에서 테이블 저장소를 사용하는 방법](storage-nodejs-how-to-use-table-storage.md)
 * [Node.js에서 큐 저장소를 사용하는 방법](storage-nodejs-how-to-use-queues.md)
 
-### <a name="for-php-developers"></a>PHP 개발자
+### <a name="for-php-developers"></a>PHP 개발자용
 * [PHP에서 Blob 저장소를 사용하는 방법](storage-php-how-to-use-blobs.md)
 * [PHP에서 테이블 저장소를 사용하는 방법](storage-php-how-to-use-table-storage.md)
 * [PHP에서 큐 저장소를 사용하는 방법](storage-php-how-to-use-queues.md)
 
-### <a name="for-ruby-developers"></a>Ruby 개발자
+### <a name="for-ruby-developers"></a>Ruby 개발자용
 * [Ruby에서 Blob 저장소를 사용하는 방법](storage-ruby-how-to-use-blob-storage.md)
 * [Ruby에서 테이블 저장소를 사용하는 방법](storage-ruby-how-to-use-table-storage.md)
 * [Ruby에서 큐 저장소를 사용하는 방법](storage-ruby-how-to-use-queue-storage.md)
 
-### <a name="for-python-developers"></a>Python 개발자
+### <a name="for-python-developers"></a>Python 개발자용
 * [Python에서 Blob 저장소를 사용하는 방법](storage-python-how-to-use-blob-storage.md)
 * [Python에서 테이블 저장소를 사용하는 방법](storage-python-how-to-use-table-storage.md)
 * [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 * [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>다음 단계
-
-* [저장소 계정을 만드는](storage-create-storage-account.md)
-* [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

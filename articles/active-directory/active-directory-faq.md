@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 45f44f6f3724e60a49efe82e266223224e544be8
-ms.openlocfilehash: 0f261624f6039bb080c4d6e5491f3ef8bf5a1d5e
+ms.sourcegitcommit: 352e1a51787cc369b605fb16b1dfccbb8ff7e12e
+ms.openlocfilehash: 3342516b4f2cf7342761573553901d03e66efc2a
 
 
 ---
@@ -44,17 +44,12 @@ Azure Active Directory는 ID, 액세스 관리 및 보안의 모든 측면에 �
 
 또한 Azure AD 유료 서비스(예: Azure AD Basic, Premium, EMS 등)는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션으로 Office 365 및 Microsoft Azure와 같은 다른 온라인 서비스를 보완합니다.
 
-**Q: Azure Portal에는 로그인할 수 있는데 클래식 포털에는 로그인할 수 없는 이유는 무엇인가요?**
-**A:** 클래식 포털에서는 유효한 구독이 필요한 반면 새로운 Azure Portal에는 유효한 구독이 필요하지 않습니다.  구독이 없는 경우 클래식 포털에 로그인할 수 없습니다.
+- - -
 
-**Q:** 구독 관리자와 디렉터리 관리자의 차이점은 무엇인가요?**
+- - -
+**Q: 보고서에서 내 Azure AD 사용자 라이선스가 만료되는 시기를 표시하나요?**
 
-**A:** 기본적으로 Azure에 로그인할 때 구독 관리자 역할이 할당됩니다. 구독 관리자는 Azure 구독이 연결된 디렉터리에서 Microsoft 계정이나 회사 또는 학교 계정을 사용할 수 있습니다.  이 역할은 Azure Portal에서 서비스를 관리할 권한이 있습니다.
-다른 사용자가 동일한 구독을 사용하여 로그인하고 서비스에 액세스해야 하는 경우 공동 관리자로 추가할 수 있습니다. 서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다.  구독 관리자에 대한 자세한 내용은 [여기](../billing-add-change-azure-subscription-administrator.md)  및 [여기](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
-
-Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역할 집합을 가지고 있습니다.  이러한 관리자는 역할에 따라 Azure 포털 또는 Azure 클래식 포털의 다양한 기능에 액세스할 수 있게 되며 사용자 만들기나 편집, 다른 사람에게 관리 역할 할당, 사용자 암호 다시 설정, 사용자 라이선스 관리, 도메인 관리 등을 수행할 수 있습니다.  Azure AD 디렉터리 관리자와 해당 역할에 대한 자세한 내용은 [여기](active-directory-assign-admin-roles.md)를 참조하세요.
-
-
+**A:** 아니요.  이 기능은 현재 사용할 수 없습니다.
 
 - - -
 ## <a name="getting-started-with-hybrid-azure-ad"></a>하이브리드 Azure AD 시작
@@ -106,18 +101,6 @@ Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역�
 **A:** 예, 비밀번호 쓰기 저장을 사용하도록 설정하는 경우 관리자가 수행하는 암호 작업이 온-프레미스 환경에 다시 기록됩니다.  
 
 암호와 관련된 질문에 대한 자세한 답변은 [암호 관리 질문과 대답](active-directory-passwords-faq.md)을 참조하세요.
-
-**Q: 암호를 변경하는 동안 기존 Office 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
-
-**A:** 이러한 종류의 상황에는 두 가지 옵션이 있습니다.  조직이 셀프 서비스 암호 재설정을 사용하도록 설정한 경우 다음을 시도할 수 있습니다.  셀프 서비스 암호 재설정이 구성된 방법에 따라 작동할 수도 있고 작동하지 않을 수도 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work)를 참조하세요.
-
-Office 365 사용자의 경우 관리자는 [여기](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에서 설명한 단계를 사용하여 암호를 재설정할 수 있습니다.
-
-Azure AD 계정의 경우 관리자는 다음 중 하나를 사용하여 암호를 재설정할 수 있습니다.
-
-- [Azure Portal에서 계정 재설정](active-directory-users-reset-password-azure-portal.md)
-- [클래식 Portal에서 계정 재설정](active-directory-create-users-reset-password.md) 
-- [PowerShell 사용](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
 
 - - -
 ## <a name="application-access"></a>응용 프로그램 액세스
@@ -181,13 +164,10 @@ Azure AD 계정의 경우 관리자는 다음 중 하나를 사용하여 암호�
 
 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md)
 
-**Q: Azure Active Directory에서 보안 LDAP 연결을 설정할 수 있나요? **
-**A:** 아니오.  Azure AD에서는 LDAP 프로토콜을 사용하도록 지원하지 않습니다.
-
 - - -
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

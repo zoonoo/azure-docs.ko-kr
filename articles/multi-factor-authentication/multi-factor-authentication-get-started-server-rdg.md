@@ -1,22 +1,22 @@
 ---
-title: "RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버"
+title: "RADIUS를 사용하는 RDG 및 Azure MFA 서버 | Microsoft Docs"
 description: "RADIUS를 사용하여 RD(Remote Desktop) 게이트웨이 및 Azure Multi-Factor Authentication을 배포하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
 
 
 ---
@@ -37,7 +37,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 4. 새로 만들도록 이 정책을 복사합니다. 새 정책에서 Azure Multi-Factor Authentication 서버 RADIUS 클라이언트에 대한 위의 2단계에서 친숙한 이름과 클라이언트 이름이 일치하는 조건을 추가합니다. 로컬 컴퓨터에 인증 공급자를 변경합니다. 이 정책은 Azure Multi-Factor Authentication 서버에서 RADIUS 요청을 수신할 때 루프 조건이 될 수 있는 Azure Multi-Factor Authentication 서버에 RADIUS 요청을 전송하는 대신 로컬로 인증이 발생하도록 합니다. 루프 상황을 방지하기 위해, 이 새 정책은 Multi-Factor Authentication 서버에 전달하는 원래 정책 위에 정렬되어야 합니다.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구성
-- - -
+
 Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의 RADIUS 프록시로 구성됩니다.  RD 게이트웨이 서버와 별개의 도메인에 가입된 서버에 설치해야 합니다. 다음 절차에 따라 Azure Multi-Factor Authentication 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버를 열고 RADIUS 인증 아이콘을 클릭합니다. RADIUS 인증 사용 확인란을 선택합니다.
@@ -47,9 +47,14 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 
 ![RADIUS 인증](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
+## <a name="next-steps"></a>다음 단계
+
+- Azure MFA 및 [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md) 통합
+
+- [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)에서 답변 얻기
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

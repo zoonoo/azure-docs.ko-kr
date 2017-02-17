@@ -15,11 +15,13 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 49e624dd9bfc534fdbae25fd0c8646be36851635
-ms.openlocfilehash: 4ab71b6ee09883abd4d095f2b1788cf69d44a219
+ms.sourcegitcommit: f3be7887a33578da1b2df1f5aa02e09c50f22390
+ms.openlocfilehash: 5aa5e5006bf1d0d13f96494cc13df2c970f0d765
 
 
 ---
+참고: Microsoft Azure Government 클라우드에 있는 경우 https://review.docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics를 대신 사용하세요.
+
 # <a name="get-started-with-log-analytics"></a>Log Analytics 시작
 Microsoft OMS(Operations Management Suite)에서 몇 분 이내에 Log Analytics를 가동하고 실행할 수 있습니다. OMS 작업 영역을 만드는 방법을 선택할 때 두 가지 옵션이 있으며, 이는 계정과 유사합니다.
 
@@ -146,6 +148,6 @@ Operations Management Suite에 Operations Manager를 연결하는 방법에 대�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

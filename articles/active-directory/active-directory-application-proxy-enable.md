@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
+ms.sourcegitcommit: 67e50a09d9863fe081115c0f303ac63b2b6113f2
+ms.openlocfilehash: 32a9069f8572ca5c01af9e80dbe92e88727375aa
 
 
 ---
@@ -77,6 +77,8 @@ ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
      ![앱 프록시 커넥터 서비스 - 스크린샷](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. 설치 창에서 **마침** 을 클릭합니다.
 
+커넥터에 대 한 정보는 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)를 참조하세요. 
+
 고가용성을 위해 커넥터를 두 개 이상 배포해야 합니다. 추가 커넥터를 배포하려면 위의 2와 3단계를 반복합니다. 각 커넥터는 별도로 등록되어야 합니다.
 
 커넥터를 제거하려면 커넥터 서비스와 업데이트 프로그램 서비스를 모두 제거합니다. 서비스를 완전히 제거하려면 컴퓨터를 다시 시작합니다.
@@ -89,6 +91,6 @@ ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

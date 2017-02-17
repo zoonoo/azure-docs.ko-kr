@@ -15,8 +15,8 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: aba595f3eab2835cffb7b2678a72515b983f4cec
-ms.openlocfilehash: 7637a700ef718162f3042c53e469424cdcd218de
+ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
+ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
 
 
 ---
@@ -38,7 +38,7 @@ Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 A
 ## <a name="video-using-azure-file-storage-with-windows"></a>비디오: Windows에서 Azure 파일 저장소 사용
 Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는 비디오는 다음과 같습니다.
 
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -605,7 +605,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     SAS는 REST API 또는 클라이언트 라이브러리를 통해서만 지원됩니다. SMB 프로토콜을 통해 파일 공유를 마운트할 때 SAS를 사용하여 해당 콘텐츠에 대한 액세스를 위임할 수 없습니다.
 2. **Azure 파일 공유는 인터넷을 통해 공개적으로 볼 수 있습니까 아니면 Azure에서만 연결할 수 있습니까?**
    
-    포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하면(*예:*Windows 8 또는 Windows Server 2012) 인터넷을 통해 파일 공유를 사용할 수 있습니다.  
+    포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하면(*예:*Windows 8 또는 Windows Server 2012) 인터넷을 통해 파일 공유를 사용할 수 있습니다. 로컬 ISP 공급자를 사용하여 포트의 차단을 해제합니다. 일시적으로 저장소 탐색기 또는 Cloudberry와 같은 타사 프로그램을 사용하여 파일을 볼 수 있습니다.
 3. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용이 청구되는 외부 대역폭으로 계산합니까?**
    
     파일 공유와 가상 컴퓨터가 서로 다른 지역에 있는 경우 이들 사이의 트래픽은 외부 대역폭으로 비용 청구됩니다.
@@ -645,9 +645,12 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 15. **Azure File Storage 오류를 어떻게 해결합니까?**
     
     종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
-16. ** FileSystemWatcher를 사용하여 Azure File Service 공유에서 파일 및 디렉터리의 만들기/수정/삭제와 같은 이벤트를 수신 대기할 수 있나요?
 
-아니요. Azure 웹 작업 SDK를 사용할 수 있습니다. 트리거되거나 트리거되지 않은 고유한 바인딩을 작성하고 파일 저장소에서 이벤트를 수신 대기할 수 있습니다. [새 트리거 및 바인더를 작성하기 위한 지침](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)에서 시작하기 위한 세부 정보를 찾을 수 있습니다.
+16. **Azure Files에서 서버 쪽 암호화를 사용하하려면 어떻게 해야 하나요?**
+
+    [서버 쪽 암호화](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)는 현재 미리 보기 상태입니다. 이 기능은 미리 보기 기간 동안 새로 만든 ARM(Azure Resource Manager) 저장소 계정에 대해서만 사용할 수 있습니다.
+    Azure Portal을 사용하여 Azure Resource Manager 저장소 계정에서 이 기능을 사용할 수 있습니다. 2월 말에는 [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) 또는 [Microsoft Azure Storage 리소스 공급자 API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)에서 File Storage에 대한 암호화를 지원할 예정입니다. 이 기능을 사용하는 추가 비용은 없습니다. Azure File Storage에 저장소 서비스 암호화를 사용하도록 설정하면 데이터가 자동으로 암호화됩니다. 
+    저장소 서비스를 암호화에 대해 자세히 알아봅니다. 미리 보기에 대한 추가 질문은 ssediscussions@microsoft.com에서 찾아 볼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
@@ -660,6 +663,7 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
 * [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
 * [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md#create-and-manage-file-shares)
+* [Azure File Storage 문제 해결](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -673,6 +677,6 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
