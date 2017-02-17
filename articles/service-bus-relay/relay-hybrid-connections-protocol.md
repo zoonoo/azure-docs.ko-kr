@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
-ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -31,7 +31,7 @@ Azure 릴레이는 Azure Service Bus 플랫폼의 주요 기능 요소 중 하�
 먼저 준비 상태를 표시하여 들어오는 연결을 처리하고 이후 도착하는 대로 연결을 수락하는 수신기가 있습니다. 다른 쪽에는 양방향 통신 경로를 설정하기 위해 해당 연결을 수락하는 수신기에 연결할 연결 클라이언트가 있습니다.
 "연결", "수신", "수락"은 대부분 소켓 API에서 나타나는 동일한 용어입니다.
 
-릴레이 통신 모델에는 서비스 끝점에 대한 아웃바운드 연결, Azure 릴레이 하이브리드 연결 프로토콜 가이드를 지정하는 한쪽 당사자가 있습니다. 이렇게 하면 "수신기"도 통상적으로 "클라이언트"가 되기 때문에 많은 용어를 혼용하게 됩니다. 따라서 하이브리드 연결에 사용되는 정확한 용어는 다음과 같습니다.
+릴레이 통신 모델에는 서비스 끝점에 대한 아웃바운드 연결을 지정하는 한쪽 당사자가 있습니다. 이렇게 하면 "수신기"도 통상적으로 "클라이언트"가 되기 때문에 많은 용어를 혼용하게 됩니다. 따라서 하이브리드 연결에 사용되는 정확한 용어는 다음과 같습니다.
 
 연결 양쪽의 프로그램은 서비스에 대한 클라이언트이기 때문에 "클라이언트"이라고 합니다. 연결을 기다렸다가 수락하는 클라이언트는 "수신기"이며 또는 "수신기 역할"에 있다고 합니다. 서비스를 통해 수신기에 대한 새로운 연결을 시작하는 클라이언트는 "발신자" 또는 "발신자 역할"에 있다고 합니다.
 
@@ -118,7 +118,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 * **connectHeaders** – 발신자가 릴레이 끝점으로 보낸 모든 HTTP 헤더로, Sec-WebSocket-Protocol 및 Sec-WebSocket-Extensions 헤더를 포함합니다.
 
 #### <a name="accept-message"></a>수락 메시지
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 * **token** – 네임스페이스 또는 **수신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰입니다.
 
 #### <a name="renewtoken-message"></a>renewToken 메시지
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -271,6 +271,6 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

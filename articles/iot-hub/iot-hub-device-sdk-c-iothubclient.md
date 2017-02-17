@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: dd398e258cd1634e187a5c258158d5bc01e5a943
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: dd398e258cd1634e187a5c258158d5bc01e5a943
 
 이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
-GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://azure.github.io/azure-iot-sdk-c/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-lower-level-apis"></a>하위 수준 API
 이전 문서에서는 **iothub\_client\_sample\_amqp** 응용 프로그램 컨텍스트 내에 있는 **IotHubClient**의 기본적인 동작을 설명했습니다. 예를 들어 다음 코드를 사용하여 라이브러리를 초기화하는 방법을 설명했습니다.
@@ -279,6 +279,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

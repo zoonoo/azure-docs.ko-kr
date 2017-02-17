@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21e36b4bb812eb614332a060ffbfd5b7cc76749a
+ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
+ms.openlocfilehash: ab74ff51f6dd1af91c4ec4d5de570ca30fb963bd
 
 
 ---
@@ -25,32 +25,32 @@ ms.openlocfilehash: 21e36b4bb812eb614332a060ffbfd5b7cc76749a
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
-이 문서는 Azure Active Directory(Azure AD) 미리 보기에서 새 그룹을 만들고 채우는 방법을 설명합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)  그룹을 사용하여 한 번에 많은 사용자 또는 장치에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다.
+이 문서는 Azure Active Directory(Azure AD) 미리 보기에서 새 그룹을 만들고 채우는 방법을 설명합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 그룹을 사용하여 한 번에 많은 사용자 또는 장치에 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다.
 
 ## <a name="how-do-i-create-a-group"></a>그룹을 만드는 방법
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
-   
+
    ![사용자 관리 열기](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **모든 그룹**을 선택합니다.
-   
+
    ![그룹 블레이드 열기](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
 4. **사용자 및 그룹 - 모든 그룹** 블레이드에서 **추가** 명령을 선택합니다.
-   
+
    ![추가 명령 선택](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. **그룹** 블레이드에서 그룹에 대한 이름 및 설명을 추가합니다.
 6. 그룹에 추가할 멤버를 선택하려면 **멤버 자격 유형** 상자에서 **할당**을 선택한 다음 **멤버**를 선택합니다. 그룹의 구성원을 동적으로 관리하는 방법에 대한 자세한 내용은 [특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기](active-directory-groups-dynamic-membership-azure-portal.md)를 참조하세요.
-   
+
    ![추가할 멤버 선택](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. **멤버** 블레이드에서 그룹에 추가할 하나 이상의 사용자 또는 장치를 선택하고 블레이드 아래쪽의 **선택** 단추를 선택하여 그룹에 추가합니다. **사용자** 상자는 사용자 또는 장치 이름 부분에 대한 항목 일치를 기반으로 한 표시를 필터링합니다. 와일드카드 문자는 해당 상자에서 허용되지 않습니다.
 8. 그룹에 멤버 추가를 마치면 **그룹** 블레이드에서 **만들기**를 선택합니다.    
-   
+
    ![그룹 확인 만들기](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
-## <a name="additional-information"></a>추가 정보
+## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [기존 그룹 보기](active-directory-groups-view-azure-portal.md)
@@ -61,7 +61,6 @@ ms.openlocfilehash: 21e36b4bb812eb614332a060ffbfd5b7cc76749a
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

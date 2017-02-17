@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 9dedba5f1126d7d23fab3ebeb98559316a6a5a10
-ms.openlocfilehash: be2e295dfeb979737013ebe23d48b4476ef3d6e2
+ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
+ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 
 
 ---
@@ -298,6 +298,11 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
+## <a name="next-steps"></a>다음 단계
+
+이제 업로드된 자산을 인코딩할 수 있습니다. 자세한 내용은 [자산 인코딩](media-services-portal-encode.md)을 참조하세요.
+
+또한 Azure Functions를 사용하여 구성된 컨테이너에 도착하는 파일에 따라 인코딩 작업을 트리거할 수도 있습니다. 자세한 내용은 [이 샘플](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )을 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -313,6 +318,6 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

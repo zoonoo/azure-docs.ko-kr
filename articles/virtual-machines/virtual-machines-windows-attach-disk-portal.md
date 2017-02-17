@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: bc4a892ce1745d54ee4424e04a79a52942650b49
-ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
 * 새 디스크의 경우 Azure가 디스크를 연결할 때 생성하므로 먼저 생성하지 않아도 됩니다.
 * 기존 디스크의 경우 Azure 저장소 계정에서 .vhd 파일을 사용할 수 있어야 합니다. 다른 가상 컴퓨터에 연결되지 않은 경우 이미 있는 .vhd 파일을 사용하거나 고유의 .vhd 파일을 저장소 계정에 업로드할 수 있습니다.
 
-또한 [Powershell을 사용하여 데이터 디스크를 연결](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine)할 수 있습니다.
+또한 [Powershell을 사용하여 데이터 디스크를 연결](virtual-machines-windows-attach-disk-ps.md)할 수 있습니다.
 
 
 ## <a name="find-the-virtual-machine"></a>가상 컴퓨터 찾기
@@ -98,6 +98,6 @@ fsutil behavior set DisableDeleteNotify 0
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

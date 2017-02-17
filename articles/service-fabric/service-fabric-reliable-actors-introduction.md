@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: edb48bda7fd5d68544794ba72d17a4d70c2513af
+ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
+ms.openlocfilehash: bf69d2fdfb80395f9af58d113e4f8838c6bb93be
 
 
 ---
@@ -31,7 +31,7 @@ Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projec
 
 행위자 디자인 패턴이 많은 분산된 시스템 문제 및 시나리오에 잘 맞겠지만 구현하는 패턴 및 프레임워크의 제약 조건을 신중하게 고려해야 합니다. 일반적인 지침으로 문제 또는 시나리오를 모델링하기 위해 행위자 패턴을 고려합니다.
 
-* 문제 영역은 1,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
+* 문제 영역은&1;,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
 * 일련의 행위자에 걸친 상태를 쿼리하는 등 외부 구성 요소에서 중요한 상호 작용을 필요로 하지 않는 단일 스레드 개체로 작업하려고 합니다.
 * 행위자 인스턴스는 I/O 작업을 실행하여 예측할 수 없는 지연으로 호출자를 차단하지 않습니다.
 
@@ -54,7 +54,7 @@ Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projec
 
 행위자는 행위자 서비스의 파티션에 분산되고 이러한 파티션은 서비스 패브릭 클러스터의 노드에 분산됩니다. 각 서비스 파티션은 일련의 행위자를 포함합니다. 서비스 패브릭은 서비스 파티션의 배포 및 장애 조치를 관리합니다.
 
-예를 들어 기본 행위자 파티션 배치를 사용하여 세 개의 노드에 배포된 9개의 파티션이 포함된 행위자 서비스는 다음과 같이 분산됩니다.
+예를 들어 기본 행위자 파티션 배치를 사용하여 세 개의 노드에 배포된&9;개의 파티션이 포함된 행위자 서비스는 다음과 같이 분산됩니다.
 
 ![Reliable Actors 분배][2]
 
@@ -148,6 +148,6 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

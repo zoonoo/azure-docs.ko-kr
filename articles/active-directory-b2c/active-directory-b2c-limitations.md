@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
-ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
 [Azure AD B2C 테넌트를 만드는](active-directory-b2c-get-started.md) 동안 문제가 발생하는 경우 참고 자료로 [Azure AD 테넌트 또는 Azure AD B2C 테넌트 만들기--문제점 및 해결 방법](active-directory-b2c-support-create-directory.md)을 참조하세요.
 
 기존 B2C 테넌트를 삭제하고 동일한 도메인 이름으로 다시 만들어야 하는 경우 알려진 문제가 발생합니다. 다른 도메인 이름으로 B2C 테넌트를 만들어야 합니다.
-
-## <a name="note-about-b2c-tenant-quotas"></a>B2C 테넌트 할당량에 대한 정보
-기본적으로 B2C 테넌트의 사용자 수는 50, 000명으로 제한됩니다. B2C 테넌트의 할당량을 높여야 할 경우 지원에 문의해야 합니다.
 
 ## <a name="branding-issues-on-verification-email"></a>확인 메일에 대한 브랜딩 문제
 기본 확인 메일에 Microsoft 브랜딩이 포함되어 있습니다. 이는 나중에 제거될 예정입니다. 이제 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 제거할 수 있습니다.
@@ -51,6 +48,39 @@ Azure AD B2C에서는 [OAuth 2.0 토큰을 사용하여 보안된 Web API를 빌
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
 
+## <a name="restrictions-on-reply-urls"></a>회신 URL에 대한 제한 사항
+현재, Azure AD B2C에 등록된 앱은 제한된 회신 URL 값 집합으로 제한됩니다. 웹앱 및 서비스에 대한 회산 URL은 스키마 `https`로 시작해야 하고 모든 회신 URL 값은 단일 DNS 도메인을 공유해야 합니다. 예를 들어 다음 리디렉션 URL 중 하나가 있는 웹앱은 등록할 수 없습니다.
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+등록 시스템은 기존 회신 URL의 전체 DNS 이름을 편집하려는 회신 URL의 DNS 이름과 비교합니다. 다음 조건 중 하나라도 충족되는 경우 DNS 이름을 추가하는 요청이 실패하게 됩니다.
+
+* 새 회신 URL의 전체 DNS 이름이 기존 회신 URL의 DNS 이름과 일치하지 않는 경우
+* 새 회신 URL의 전체 DNS 이름이 기존 회신 URL의 하위 도메인이 아닌 경우
+
+예를 들어 앱에 다음 회신 URL이 있는 경우
+
+`https://login.contoso.com`
+
+다음과 같이 추가할 수 있습니다.
+
+`https://login.contoso.com/new`
+
+이 경우 DNS 이름이 정확히 일치합니다. 또는 다음을 수행할 수 있습니다.
+
+`https://new.login.contoso.com`
+
+이 경우 login.contoso.com의 DNS 하위 도메인을 참조합니다. 회신 URL로 login-east.contoso.com 및 login-west.contoso.com을 사용하는 앱을 원하는 경우 다음 회신 URL을 순서대로 추가해야 합니다.
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+뒤의 두 개는 첫 번째 회신 URL의 하위 도메인이므로 추가할 수 있습니다. 이 제한은 향후 릴리스에서 제거될 예정입니다.
+
+Azure AD B2C에 앱을 등록하는 방법을 알아보려면 [Azure Active Directory B2C에 응용 프로그램을 등록하는 방법](active-directory-b2c-app-registration.md)을 참조하세요.
+
 ## <a name="restriction-on-libraries-and-sdks"></a>라이브러리 및 SDK에 대한 제한 사항
 Azure AD B2C를 작동하는 Microsoft 지원 라이브러리 집합은 현재 매우 제한적입니다. .NET 기반 웹앱 및 서비스뿐만 아니라 NodeJS 웹앱 및 서비스에 대한 지원을 합니다.  또한 Windows 및 다른.NET 앱에서 Azure AD B2C와 함께 사용할 수 있는 MSAL로 알려진 미리보기 .NET 클라이언트 라이브러리도 있습니다.
 
@@ -62,7 +92,7 @@ iOS 및 Android 빠른 시작 자습서는 Azure AD B2C와의 호환성에 대�
 Azure AD B2C는 OpenID Connect 및 OAuth 2.0을 지원합니다. 그러나 각 프로토콜의 일부 특징과 기능은 구현되지 않습니다. Azure AD B2C에서 지원되는 프로토콜 기능의 범위를 더 잘 이해하려면 [OpenID Connect 및 OAuth 2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 자세히 읽어보세요. SAML 및 WS-Fed 프로토콜은 지원되지 않습니다.
 
 ## <a name="restriction-on-tokens"></a>토큰에 대한 제한 사항
-Azure AD B2C에서 발급된 토큰은 대부분 JSON Web Token, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. 일부 예제는 "sub" 및 "preferred_username" 클레임을 포함합니다.  클레임의 값, 형식 또는 의미가 시간에 따라 달려져도 기존 정책에 대한 토큰은 영향을 받지않고 그대로 유지됩니다 - 프로덕션 앱의 값에 의존할 수 있습니다.  값이 변함에 따라 각 정책에 대해 그러한 변경을 구성할 기회를 줄 것입니다.  Azure AD B2C 서비스에서 현재 내보내는 토큰을 더 잘 이해하려면 [토큰 참조](active-directory-b2c-reference-tokens.md)를 자세히 읽어보세요.
+Azure AD B2C에서 발급된 토큰은 대부분 JSON Web Token, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. "preferred_username" 클레임을 예로 들 수 있습니다.  클레임의 값, 형식 또는 의미가 시간에 따라 달려져도 기존 정책에 대한 토큰은 영향을 받지않고 그대로 유지됩니다 - 프로덕션 앱의 값에 의존할 수 있습니다.  값이 변함에 따라 각 정책에 대해 그러한 변경을 구성할 기회를 줄 것입니다.  Azure AD B2C 서비스에서 현재 내보내는 토큰을 더 잘 이해하려면 [토큰 참조](active-directory-b2c-reference-tokens.md)를 자세히 읽어보세요.
 
 ## <a name="restriction-on-nested-groups"></a>중첩된 그룹에 대한 제한
 중첩된 그룹 멤버 자격은 Azure AD B2C 테넌트에서 지원되지 않습니다. 이 기능을 추가할 계획이 없습니다.
@@ -93,9 +123,13 @@ HTTP 400(잘못된 요청) 오류가 있는 Safari 브라우저에서 (MFA를 �
 * "로그인 정책" 대신 "등록 또는 로그인 정책"을 사용합니다.
 * 정책에서 요청되는 **응용 프로그램 클레임** 수를 줄입니다.
 
+## <a name="issues-with-windows-desktop-wpf-apps-using-azure-ad-b2c"></a>Azure AD B2C를 사용할 때의 Windows 데스크톱 WPF 앱 문제
+Windows 데스크톱 WPF 앱에서 Azure AD B2C로의 요청이 때때로 다음 오류를 발생하며 실패합니다. "브라우저 기반 인증 대화 상자를 완료하지 못했습니다. 원인: 프로토콜을 알 수 없으며 일치하는 플러그 가능한 프로토콜이 입력되지 않았습니다.”
+
+이 문제는 Azure AD B2C에서 제공하는 인증 코드의 크기 때문에 발생합니다. 이 크기는 토큰에 요청된 클레임 수와 상호 연관됩니다. 이 문제의 해결 방법은 토큰에 요청된 클레임 수를 줄이고 Graph API에서 다른 클레임을 별도로 쿼리하는 것입니다.
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

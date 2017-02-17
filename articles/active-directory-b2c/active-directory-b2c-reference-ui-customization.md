@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 8294842893742dcbc7a987421b454ceb7691450c
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -340,7 +340,7 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
 
 * Azure AD B2C의 기본 콘텐츠를 복사하거나 수정하려고 하지 마세요. 처음부터 HTML5 콘텐츠를 작성하고 기본 콘텐츠를 참조로 사용하는 것이 가장 좋습니다.
 * 로그인, 등록 및 프로필 편집 정책에 의해 처리되는 모든 페이지(오류 페이지 제외)에서 사용자가 제공하는 스타일 시트는 <head> 조각에서 이들 페이지에 추가한 기본 스타일 시트를 재정의해야합니다. 등록 또는 로그인 및 암호 재설정 정책, 모든 정책의 오류 페이지에 의해 처리되는 모든 페이지에서 사용자는 모든 스타일을 직접 제공해야 합니다.
-* 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 대부분의 필요한 것을 즉시 사용할 수 있어야 합니다. 그렇지 않으면 [사용자 의견](http://feedback.azure.com/forums/169401-azure-active-directory) 을 통해 새로운 기능을 요청합니다.
+* 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 대부분의 필요한 것을 즉시 사용할 수 있어야 합니다. 그렇지 않으면 [사용자 의견](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) 을 통해 새로운 기능을 요청합니다.
 * 지원되는 브라우저 버전:
   * Internet Explorer 11, 10, Edge
   * Internet Explorer 9, 8에 대한 지원 제한
@@ -349,6 +349,6 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

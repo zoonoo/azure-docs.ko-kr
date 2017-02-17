@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 02907ef15742cda456fd0c5f10b777b11aa7c35e
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 0033f1cc036e1eef63f0728be8d5d73c8dbbccf6
 
 
 ---
@@ -30,7 +30,7 @@ C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 
 이 문서에서는 C용 Azure IoT 장치 SDK의 아키텍처를 소개합니다. 장치 라이브러리를 초기화하고 IoT Hub로 이벤트를 전송하며 메시지를 수신하는 방법을 보여줍니다. 이 문서의 정보로 SDK 사용을 시작하기에 충분하지만 라이브러리에 대한 추가 정보에 대한 포인터도 제공합니다.
 
 ## <a name="sdk-architecture"></a>SDK 아키텍처
-GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://azure.github.io/azure-iot-sdk-c/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 최신 버전의 라이브러리를 이 리포지토리의 **마스터** 분기에서 찾을 수 있습니다.
 
@@ -466,6 +466,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
