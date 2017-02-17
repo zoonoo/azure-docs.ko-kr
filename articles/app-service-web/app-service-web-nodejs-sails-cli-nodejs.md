@@ -63,7 +63,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
         cd <appname>
         sails lift
 
-    기본 홈 페이지(http://localhost:1377)로 이동할 수 있는지 확인합니다.
+    기본 홈 페이지( http://localhost:1377 )로 이동할 수 있는지 확인합니다.
 
 ## <a name="step-2-create-the-azure-app-resource"></a>2단계: Azure 앱 리소스 만들기
 다음으로 Azure에서 App Service 리소스를 만듭니다. 나중에 Sails.js 앱을 이 리소스에 배포합니다.
