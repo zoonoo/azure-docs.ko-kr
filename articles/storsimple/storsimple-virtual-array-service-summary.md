@@ -1,5 +1,5 @@
 ---
-title: "StorSimple Device Manager에 대한 서비스 요약 블레이드 - Microsoft Azure StorSimple 가상 배열 | Microsoft Docs"
+title: "StorSimple Virtual Array 서비스 요약 블레이드 | Microsoft Docs"
 description: "StorSimple Device Manager에 대한 서비스 요약 블레이드 및 이 기능을 사용하여 StorSimple 가상 배열의 상태를 모니터링하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 813b4d430665e8df6f664c9c6a8db370f6ad7ac9
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
 
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>StorSimple 가상 배열에 연결된 StorSimple Device Manager에 대한 서비스 요약 블레이드 사용
@@ -49,6 +49,6 @@ StorSimple Device Manager 내에서 수행된 다양한 작업을 보려면 Stor
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

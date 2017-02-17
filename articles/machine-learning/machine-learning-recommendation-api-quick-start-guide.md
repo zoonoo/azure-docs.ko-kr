@@ -1,5 +1,5 @@
 ---
-title: "빠른 시작 가이드: Machine Learning 권장 사항 API | Microsoft Docs"
+title: "빠른 시작: Azure 기계 학습 권장 사항 API(버전&1;) | Microsoft Docs"
 description: "Azure 기계 학습 권장 사항 - 빠른 시작 가이드"
 services: machine-learning
 documentationcenter: 
@@ -12,22 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/07/2017
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 099090d06163f15a08592e25f6171cfacf24b0f1
-ms.openlocfilehash: bf47dd8f88405f2bed31c621e37531e3641ddc6c
+ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
+ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
 
 
 ---
-# <a name="quick-start-guide-for-the-machine-learning-recommendations-api"></a>기계 학습 권장 사항 API에 대한 빠른 시작 가이드
+# <a name="quick-start-guide-for-the-machine-learning-recommendations-api-version-1"></a>기계 학습 권장 사항 API(버전 1)에 대한 빠른 시작 가이드
+
 > [!NOTE]
-> 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다.
->  [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)
+> 이 버전 대신 [Recommendations API Cognitive 서비스](https://www.microsoft.com/cognitive-services/recommendations-api)를 사용해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다.
+>
+> [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)에 대해 자세히 알아보세요.
 > 
 > 
 
-이 문서에서는 Microsoft Azure 기계 학습 권장 사항을 사용하도록 서비스나 응용 프로그램을 등록하는 방법에 대해 설명합니다. 권장 사항 API에 대한 자세한 내용은 [갤러리](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)에서 확인할 수 있습니다.
+이 문서에서는 Microsoft Azure 기계 학습 권장 사항을 사용하도록 서비스나 응용 프로그램을 등록하는 방법에 대해 설명합니다. 권장 사항 API에 대한 자세한 내용은 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2)에서 확인할 수 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,9 +50,9 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 ## <a name="limitations"></a>제한 사항
 * 구독당 최대 모델 수는 10개입니다.
 * 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
-* 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
+* 유지되는 사용 포인트의 최대 수는&5;,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
 * POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
-* 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
+* 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대&2;TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
 ## <a name="integration"></a>통합
 ### <a name="authentication"></a>인증
@@ -148,7 +150,7 @@ OData XML
 | 매개 변수 이름 | 유효한 값 |
 |:--- |:--- |
 | modelId |모델의 고유 식별자(대/소문자 구분) |
-| filename |카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br> 최대 길이: 50 |
+| filename |카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 | apiVersion |1.0 |
 |  | |
 | 요청 본문 |카탈로그 데이터. 형식:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>항목 ID</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Item Name</td><td>예</td><td>영숫자, 최대 길이 255</td><td>항목 이름</td></tr><tr><td>Item Category</td><td>예</td><td>영숫자, 최대 길이 255</td><td>이 항목이 속하는 범주(예: 요리책, 드라마...)</td></tr><tr><td>설명</td><td>아니요</td><td>영숫자, 최대 길이 4000</td><td>이 항목에 대한 설명</td></tr></table><br>최대 파일 크기는 200MB입니다.<br><br>예제:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
@@ -195,7 +197,7 @@ OData XML
 | 매개 변수 이름 | 유효한 값 |
 |:--- |:--- |
 | modelId |모델의 고유 식별자(대/소문자 구분) |
-| filename |카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br> 최대 길이: 50 |
+| filename |카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 | apiVersion |1.0 |
 |  | |
 | 요청 본문 |사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>영숫자</td><td>사용자의 고유 식별자</td></tr><tr><td>항목 ID</td><td>예</td><td>영숫자, 최대 길이 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>날짜(형식): YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>이벤트</td><td>아니요. 지정하는 경우 날짜도 입력해야 함</td><td>다음 중 하나입니다.<br>• Click<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기는 200MB입니다.<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
@@ -341,7 +343,7 @@ OData XML
 | 매개 변수 이름 | 유효한 값 |
 |:--- |:--- |
 | modelId |모델의 고유 식별자(대/소문자 구분) |
-| userDescription |카탈로그의 텍스트 식별자. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br> 최대 길이: 50 |
+| userDescription |카탈로그의 텍스트 식별자. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion |1.0 |
 |  | |
 | 요청 본문 |없음 |
@@ -703,6 +705,6 @@ OData XML
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

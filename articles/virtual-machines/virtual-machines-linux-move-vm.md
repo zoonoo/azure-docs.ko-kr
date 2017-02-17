@@ -1,5 +1,5 @@
 ---
-title: "Linux VM 이동 | Microsoft Docs"
+title: "Azure의 Linux VM 이동 | Microsoft Docs"
 description: "Resource Manager 배포 모델에서 다른 Azure 구독 또는 리소스 그룹으로 Linux VM을 이동합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 2978fee770b70378dfbffcbd97e57a6b82d2e2fa
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0a4ac164a3896d47613e4491a5e4c81c1b660dea
 
 
 ---
@@ -60,6 +60,6 @@ Windows 컴퓨터의 명령 프롬프트에서 작업하는 경우 선언할 때
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

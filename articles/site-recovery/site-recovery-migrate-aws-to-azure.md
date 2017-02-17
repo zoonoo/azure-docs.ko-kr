@@ -1,5 +1,5 @@
 ---
-title: "Site Recovery를 사용하여 Amazon Web Services의 가상 컴퓨터를 Azure로 마이그레이션 | Microsoft Docs"
+title: "VM을 AWS에서 Azure로 마이그레이션| Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery를 사용하여 AWS(Amazon Web Services)를 실행하는 가상 컴퓨터를 Azure로 마이그레이션하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: c7238d677b315390bc5f53e54ab7dbded2871c5a
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 5cf068dd64084d39e353dab6629e832112e15843
 
 
 ---
@@ -62,10 +62,10 @@ Site Recovery는 다음 운영 체제 중 하나를 실행하는 EC2 인스턴�
 7. [ 계획되지 않은 장애 조치를 실행합니다](site-recovery-failover.md#run-an-unplanned-failover). 초기 복제가 완료된 후 각 VM에 대해 AWS에서 Azure로 계획되지 않은 장애 조치를 실행할 수 있습니다. 선택적으로 복구 계획을 만들고 장애 조치를 실행하여 AWS에서 Azure에 여러 가상 컴퓨터를 마이그레이션할 수 있습니다. [자세히 알아봅니다](site-recovery-create-recovery-plans.md) .
 
 ## <a name="next-steps"></a>다음 단계
- [Azure Site Recovery란?](site-recovery-overview.md)
+[Azure Site Recovery란?](site-recovery-overview.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

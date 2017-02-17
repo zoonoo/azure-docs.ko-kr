@@ -16,25 +16,16 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa3f1215c809fe2b45293c56cdca4496fa352afb
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
 
 
 ---
-# <a name="ports-beyond-1433-for-adonet-45-and-sql-database-v12"></a>ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트
-이 항목은 Azure SQL 데이터베이스 V12가 ADO.NET 4.5 이상을 사용하는 클라이언트의 연결 동작에 가져오는 변경 내용에 대해 설명합니다.
+# <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
+이 문서에서는 ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대해 설명합니다.
 
-## <a name="v11-of-sql-database-port-1433"></a>SQL 데이터베이스의 V11: 포트 1433
-클라이언트 프로그램이 ADO.NET 4.5를 사용해 SQL 데이터베이스 V11에 연결하고 쿼리를 보낼 경우 내부 순서는 다음과 같습니다.
-
-1. ADO.NET이 SQL 데이터베이스로 연결을 시도합니다.
-2. ADO.NET이 포트 1433을 사용하여 미들웨어 모듈을 호출하고 해당 미들웨어가 SQL 데이터베이스에 연결합니다.
-3. SQL 데이터베이스가 미들웨어로 응답을 다시 보내고 미들웨어는 ADO.NET에 대한 응답을 포트 1433으로 전달합니다.
-
-**용어:** 이전 순서는 ADO.NET이 *프록시 경로*를 사용하여 SQL 데이터베이스와 상호 작용한다는 것으로 설명됩니다. 미들웨어가 관련되지 않은 경우 *직접 경로* 가 사용되었다고 합니다.
-
-## <a name="v12-of-sql-database-outside-vs-inside"></a>SQL 데이터베이스의 V12: 내부 vs 외부
-V12에 대한 연결의 경우 클라이언트 프로그램이 Azure 클라우드 경계의 *외부* 또는*내부*에서 실행되는지를 확인해야 합니다. 하위 섹션에서는 일반적으로 두 가지 시나리오를 설명합니다.
+## <a name="outside-vs-inside"></a>내부 및 외부
+Azure SQL Database에 연결하려면 먼저 Azure 클라우드 경계의 *외부* 또는*내부*에서 실행되는지 확인해야 합니다. 하위 섹션에서는 일반적으로 두 가지 시나리오를 설명합니다.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*외부:* 클라이언트가 데스크톱 컴퓨터에서 실행됩니다.
 포트 1433은 SQL 데이터베이스 클라이언트 응용 프로그램을 호스팅하는 데스크톱 컴퓨터에서 열어야 하는 유일한 포트입니다.
@@ -64,11 +55,6 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 * ADO.NET 4.0은 TDS 7.3 프로토콜을 지원하지만 7.4는 지원하지 않습니다.
 * ADO.NET 4.5 이상은 TDS 7.4 프로토콜을 지원합니다.
 
-#### <a name="sql-database-v11-and-v12"></a>SQL 데이터베이스 V11 및 V12
-이 항목에는 SQL 데이터베이스 V11 및 V12의 클라이언트 연결 차이점이 강조되어 있습니다.
-
-*참고:* TRANSACT-SQL 문은 `SELECT @@version;` ‘11’ 또는 ‘12’와 같은 숫자로 시작하는 값으로 반환되고 해당 SQL 데이터베이스 V11 및 V12의 버전 이름과 일치합니다.
-
 ## <a name="related-links"></a>관련 링크
 * ADO.NET 4.6은 2015년 7월 20일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)서 확인할 수 있습니다.
 * ADO.NET 4.5는 2012년 8월 15일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)서 확인할 수 있습니다.
@@ -82,6 +68,6 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

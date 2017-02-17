@@ -1,5 +1,5 @@
 ---
-title: "Azure 구독 및 계정 지침 | Microsoft Docs"
+title: "Windows VM에 대한 Azure 구독 및 계정 | Microsoft Docs"
 description: "Azure의 구독 및 계정에 대한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
-ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c87e78aaccae4f70b2ff61cfc2a0a174dbdfaf
 
 
 ---
@@ -69,6 +69,6 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

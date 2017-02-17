@@ -1,6 +1,6 @@
 ---
-title: "H264 다중 비트 전송률 720p | Microsoft Docs"
-description: "이 항목은 **H264 다중 비트 전송률 720p** 태스크 미리 설정에 대한 개요를 제공합니다."
+title: "H264 다중 비트 전송률 720p Media Encoder Standard 사전 설정-Azure | Microsoft Docs"
+description: "이 문서에서는 **H264 다중 비트 전송률 720p** 태스크 사전 설정에 대한 개요를 제공합니다."
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 9396b00371459d768c05385ceccd34668f15cfb8
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: ac5794c190097f05a94d9ab39a8191a508b28703
 
 
 ---
@@ -264,6 +264,6 @@ ms.openlocfilehash: 9396b00371459d768c05385ceccd34668f15cfb8
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

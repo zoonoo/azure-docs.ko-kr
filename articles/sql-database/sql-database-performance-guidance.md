@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Database 및 단일 데이터베이스의 성능| Microsoft Docs"
+title: "단일 데이터베이스에 대한 Azure SQL Database 성능| Microsoft Docs"
 description: "이 문서는 응용 프로그램에 대해 선택할 서비스 계층을 결정하는 데 도움이 될 수 있습니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝하는 방법도 권고합니다."
 services: sql-database
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
-ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 2e930dbb8dd2c15162d2ec81a123f57209134554
 
 
 ---
@@ -109,7 +109,10 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 SQL Database 분석을 위해 세션에 대한 기록 통계를 가져올 수 있습니다. **sys.resource_stats**를 쿼리하고 **active_session_count** 열을 사용합니다. 이 뷰의 사용에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 ## <a name="monitor-resource-use"></a>리소스 사용 모니터링
-두 뷰를 통해 해당 서비스 계층과 관련된 SQL Database의 리소스 사용을 모니터링할 수 있습니다.
+
+[SQL Database Query Performance Insight](sql-database-query-performance.md) 및 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)를 사용하여 리소스 사용량을 모니터링할 수 있습니다.
+
+또한 다음 두 가지 뷰를 사용하여 사용을 모니터링할 수도 있습니다.
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -438,6 +441,6 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 응�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

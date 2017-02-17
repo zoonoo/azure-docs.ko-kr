@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 3a5e22315e338fe089cf557688f741ee16416da2
-ms.openlocfilehash: 5214f55b8e65ec758ba93fb86d548b45a1b4f21e
+ms.sourcegitcommit: 83ab4f79031eb34e3be6bfb65c9d0ebfa00bc6db
+ms.openlocfilehash: 609e7ec6949b341c42b2e3b793a46dc1264cfd06
 
 
 ---
@@ -415,7 +415,7 @@ Azure 마켓플레이스에서 이미지를 사용하여 새 가상 컴퓨터를
   * **Sap System Size**: SAP 시스템 크기
     * 새 시스템에서 제공하는 SAP의 양입니다. 시스템에 필요한 SAP의 양을 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
   * **System Availability**: (3계층 템플릿만 해당) 시스템 가용성
-    * HA 설치에 적합한 구성에 대한 HA를 선택합니다. ASCS용 2개의 데이터베이스 서버 및 2개의 서버가 생성됩니다.
+    * HA 설치에 적합한 구성에 대한 HA를 선택합니다. ASCS용&2;개의 데이터베이스 서버 및&2;개의 서버가 생성됩니다.
   * **Storage Type**: (2계층 템플릿만 해당) 사용해야 하는 저장소 유형
     * 더 큰 시스템의 경우 프리미엄 저장소를 사용하는 것이 좋습니다. 기타 저장소 유형에 대한 자세한 내용은 다음을 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
@@ -477,7 +477,7 @@ Azure Portal을 통해 개인 OS 이미지를 사용하여 배포를 만들려�
   * **Sap System Size**: SAP 시스템 크기
     * 새 시스템에서 제공하는 SAP의 양입니다. 시스템에 필요한 SAP의 양을 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
   * **System Availability**: (3계층 템플릿만 해당) 시스템 가용성 
-    * HA 설치에 적합한 구성에 대한 HA를 선택합니다. ASCS용 2개의 데이터베이스 서버 및 2개의 서버가 생성됩니다.
+    * HA 설치에 적합한 구성에 대한 HA를 선택합니다. ASCS용&2;개의 데이터베이스 서버 및&2;개의 서버가 생성됩니다.
   * **Storage Type**: (2계층 템플릿만 해당) 사용해야 하는 저장소 유형 
     * 더 큰 시스템의 경우 프리미엄 저장소를 사용하는 것이 좋습니다. 기타 저장소 유형에 대한 자세한 내용은 다음을 참조하세요. 
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
@@ -706,6 +706,8 @@ Azure Linux 에이전트가 이미 설치되어 있는 경우 [이 문서][virtu
 4. 연결 탭을 열고 LAN 설정을 클릭합니다.
 5. "자동으로 설정 검색"을 사용하지 않도록 설정합니다.
 6. [LAN에 프록시 서버 사용]을 사용하도록 설정하고 프록시 주소 및 포트를 입력합니다.
+7. [고급]을 클릭합니다.
+8. 168.63.129.16 IP 주소를 예외 목록에 추가합니다.
 
 #### <a name="linux"></a>Linux
 /etc/waagent.conf에 있는 Microsoft Azure 게스트 에이전트의 구성 파일에서 올바른 프록시를 구성합니다. 다음 매개 변수를 설정해야 합니다.
@@ -937,7 +939,7 @@ Windows 서비스 'AzureEnhancedMonitoring'이 있고 활성화되었지만 시�
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] 일부 Azure 성능 카운터가 없습니다.
 Azure에서 성능 메트릭 컬렉션이 여러 원본에서 데이터를 가져오는 Windows 서비스 'AzureEnhancedMonitoring'에 의해 수행됩니다. 일부 구성 데이터가 로컬로 수집되고 Azure 진단에서 성능 메트릭을 읽고 저장소 카운터가 저장소 구독 수준에 대한 로그온에서 사용됩니다.
 
-SAP Note [1999351] 을 사용한 문제 해결이 도움이 되지 않는 경우 구성 스크립트 Set-AzureRmVMAEMExtension을 다시 실행합니다. 사용하도록 설정한 후 바로 저장소 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 여전히 문제가 발생하는 경우 Windows용 BC-OP-NT-AZR 또는 Linux 가상 컴퓨터용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
+SAP Note [1999351] 을 사용한 문제 해결이 도움이 되지 않는 경우 구성 스크립트 Set-AzureRmVMAEMExtension을 다시 실행합니다. 사용하도록 설정한 후 바로 저장소 분석 또는 진단 카운터가 생성되지 않을 수 있으므로&1;시간 동안 기다려야 할 수 있습니다. 여전히 문제가 발생하는 경우 Windows용 BC-OP-NT-AZR 또는 Linux 가상 컴퓨터용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure 성능 카운터가 전혀 표시되지 않습니다.
 Azure에서 성능 메트릭 컬렉션이 데몬에 의해 수행됩니다. 데몬이 실행되지 않는 경우 성능 메트릭은 전혀 수집할 수 없습니다.
@@ -954,11 +956,11 @@ Azure에서 성능 메트릭 컬렉션이 여러 원본에서 데이터를 가�
 
 알려진 문제의 전체 최신 목록은 SAP용 고급 Azure 모니터링에 대한 추가 문제 해결 정보를 포함하는 SAP Note [1999351] 을 참조하세요.
 
-SAP Note [1999351]을 사용한 문제 해결이 도움이 되지 않는 경우 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터에 설명된 대로 구성 스크립트 Set-AzureRmVMAEMExtension을 다시 실행하세요. 사용하도록 설정한 후 바로 저장소 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 여전히 문제가 발생할 경우 Windows용 BC-OP-NT-AZR 또는 Linux 가상 컴퓨터용 BC-OP-LNX-AZR 구성 요소의 SAP 고객 지원 메시지를 엽니다.
+SAP Note [1999351]을 사용한 문제 해결이 도움이 되지 않는 경우 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5] 챕터에 설명된 대로 구성 스크립트 Set-AzureRmVMAEMExtension을 다시 실행하세요. 사용하도록 설정한 후 바로 저장소 분석 또는 진단 카운터가 생성되지 않을 수 있으므로&1;시간 동안 기다려야 할 수 있습니다. 여전히 문제가 발생할 경우 Windows용 BC-OP-NT-AZR 또는 Linux 가상 컴퓨터용 BC-OP-LNX-AZR 구성 요소의 SAP 고객 지원 메시지를 엽니다.
 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

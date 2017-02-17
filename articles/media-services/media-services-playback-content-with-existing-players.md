@@ -1,5 +1,5 @@
 ---
-title: "콘텐츠 재생 | Microsoft 문서"
+title: "기존 플레이어를 사용하여 콘텐츠 재생 - Azure | Microsoft Docs"
 description: "이 항목에서는 콘텐츠를 재생하는 데 사용할 수 있는 기존 플레이어를 나열합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 
 
 ---
@@ -77,6 +77,6 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
