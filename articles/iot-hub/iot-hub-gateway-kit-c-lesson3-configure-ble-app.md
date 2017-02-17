@@ -1,5 +1,5 @@
 ---
-title: "샘플 앱을 실행하여 SensorTag 데이터를 수신하고 Azure IoT Hub로 전송 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 단원 3: 샘플 앱 실행 | Microsoft Docs"
 description: "BLE 샘플 응용 프로그램을 실행하여 BLE SensorTag 및 IoT Hub에서 데이터를 수신합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: fab1eb0dc765ced95e3bec7c12c7dfa0ca91bb19
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
 
 
 ---
@@ -161,6 +161,6 @@ SensorTag와 Intel NUC 간의 연결을 성공적으로 설정하고 SensorTag�
 [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 97b81c9b5904dea8d43042fd5b6529580eb35e74
-ms.openlocfilehash: e83518c0cd41c101170de6598c3321543b2ccf53
+ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
+ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
 
 
 ---
@@ -68,7 +68,7 @@ Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하�
    
     ApiKey 변수 정의에 API 키를 붙여넣습니다.
    
-    ![Team Services 창에서 구성 탭을 선택하고 변수 추가를 클릭합니다. ApiKey에 대한 이름을 설정하고 값에 방금 생성한 키를 붙여넣습니다.](./media/app-insights-annotations/50.png)
+    ![Team Services 창에서 구성 탭을 선택하고 변수 추가를 클릭합니다. ApiKey에 대한 이름을 설정하고 값에 방금 생성한 키를 붙여넣은 후 잠금 아이콘을 클릭합니다.](./media/app-insights-annotations/50.png)
 7. 마지막으로 릴리스 정의를 **저장** 합니다.
 
 
@@ -109,6 +109,6 @@ VS Team 시스템을 사용하지 않고 원하는 모든 프로세스에서 주
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

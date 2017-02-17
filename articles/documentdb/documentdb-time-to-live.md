@@ -73,7 +73,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
     collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive = 90 * 60 * 24; // expire all documents after 90 days
+    collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
     
     DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
         "/dbs/salesdb",

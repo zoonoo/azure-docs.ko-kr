@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿 작성 | Microsoft 문서"
-description: "응용 프로그램을 Azure에 배포하는 선언적 JSON 구문을 사용하여 Azure 리소스 관리자 템플릿을 만듭니다."
+title: "Azure 배포용 템플릿 만들기 | Microsoft Docs"
+description: "선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 구조 및 속성을 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a3a1fc856dc4fb39e3d3b765e943662799c75398
-ms.openlocfilehash: 62b51e2c6235011019d0ad837fe58388cf85e8d0
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
 
 
 ---
@@ -55,7 +55,7 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 템플릿의 섹션에 대해서는 이 항목의 뒷부분에서 더 자세히 설명합니다.
 
 ## <a name="expressions-and-functions"></a>식 및 함수
-템플릿의 기본 구문은 JSON이지만, 식 및 함수를 사용하면 템플릿에서 사용할 수 있는 JSON을 확장할 수 있습니다. 식에는 엄격한 리터럴 값이 아닌 값을 만들 수 있습니다. 식은 대괄호([ 및 ]) 안에 들어 있고 템플릿을 배포할 때 평가됩니다. 식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 항상 다른 JSON 값을 반환합니다. 대괄호([)로 시작하는 리터럴 문자열을 사용해야 하는 경우 대괄호를 두 개([[) 사용해야 합니다.
+템플릿의 기본 구문은 JSON이지만, 식 및 함수를 사용하면 템플릿에서 사용할 수 있는 JSON을 확장할 수 있습니다. 식에는 엄격한 리터럴 값이 아닌 값을 만들 수 있습니다. 식은 대괄호(`[` 및 `]`) 안에 들어 있고 템플릿을 배포할 때 평가됩니다. 식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 항상 다른 JSON 값을 반환합니다. 대괄호(`[`)로 시작하는 리터럴 문자열을 사용해야 하는 경우 대괄호를 두 개(`[[`) 사용해야 합니다.
 
 일반적으로 배포를 구성하기 위한 작업을 수행하는 함수를 식과 함께 사용합니다. JavaScript에서와 마찬가지로 함수 호출은 **functionName(arg1,arg2,arg3)**으로 형식이 지정됩니다. 점과 [인덱스] 연산자를 사용하여 속성을 참조할 수 있습니다.
 
@@ -64,7 +64,7 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
@@ -98,7 +98,7 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | parameterName |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| type |예 |매개 변수 값의 유형입니다. 아래의 허용되는 유형 목록을 참조하세요. |
+| type |예 |매개 변수 값의 유형입니다. 이 테이블 다음에 나오는 허용된 유형 목록을 참조하세요. |
 | defaultValue |아니요 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
 | allowedValues |아니요 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
 | minValue |아니요 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
@@ -119,7 +119,7 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 
 매개 변수를 선택적으로 지정하려면 defaultValue를 제공합니다(빈 문자열 가능). 
 
-템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 매개 변수 이름을 지정하는 경우 해당 매개 변수의 값으로 **FromTemplate** 접미사를 제공하라는 메시지가 표시됩니다. 예를 들어 [New-AzureRmResourceGroupDeployment][deployment2cmdlet] cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**으로 명명된 매개 변수가 템플릿에 포함되는 경우 값으로 **ResourceGroupNameFromTemplate**을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+템플릿에 템플릿을 배포하는 명령의 매개 변수와 일치하는 매개 변수 이름을 지정하면 제공하는 값에 대한 모호성이 있을 수 있습니다. Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 후위를 추가하여 이러한 혼동을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면, [New-AzureRmResourceGroupDeployment][deployment2cmdlet] cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 > [!NOTE]
 > 모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. JSON 개체에 중요한 데이터를 전달하는 경우 **secureObject** 유형을 사용합니다. 리소스 배포 후에는 secureString 또는 secureObject 형식의 템플릿 매개 변수를 읽을 수 없습니다. 
@@ -241,7 +241,7 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
      "copy": {
        "name": "<name-of-copy-loop>",
        "count": "<number-of-iterations>"
-     }
+     },
      "resources": [
        "<array-of-child-resources>"
      ]
@@ -257,10 +257,10 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 | location |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. |
 | tags |아니요 |리소스와 연결된 태그입니다. |
 | 설명 |아니요 |템플릿에서 리소스를 문서화하는 내용에 대한 참고 |
-| dependsOn |아니요 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 자세한 정보는 [Azure 리소스 관리자 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요. |
-| properties |아니요 |리소스별 구성 설정입니다. 속성의 값은 리소스를 만들기 위해 REST API 작업(PUT 메서드)에 대한 요청 본문에 제공하는 값과 동일합니다. 리소스 스키마 설명서 또는 REST API에 대한 링크를 참조하려면 [리소스 관리자 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요. |
+| dependsOn |아니요 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 종속성 설정에 대한 지침은 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요. |
+| properties |아니요 |리소스별 구성 설정입니다. 속성의 값은 리소스를 만들기 위해 REST API 작업(PUT 메서드)에 대한 요청 본문에 제공하는 값과 동일합니다. 리소스 스키마 설명서 또는 REST API에 대한 링크는 [Resource Manager 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요. |
 | 복사 |아니요 |인스턴스가 둘 이상 필요한 경우 만드는 리소스의 수입니다. 자세한 내용은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요. |
-| 리소스 |아니요 |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 종류만 제공할 수 있습니다. 자식 리소스 형식의 정규화된 이름에는 부모 리소스 형식이 포함됩니다(예: **Microsoft.Web/sites/extensions**). 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. |
+| 리소스 |아니요 |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 유형만 제공합니다. 자식 리소스의 정규화된 유형에는 부모 리소스 유형이 포함됩니다(예: **Microsoft.Web/sites/extensions**). 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. |
 
 **apiVersion**, **type** 및 **location**에 지정하는 값은 명확히 바로 알 수 있는 값이 아닙니다. 다행스럽게도 Azure PowerShell 또는 Azure CLI를 통해 이러한 값을 확인할 수 있습니다.
 
@@ -290,17 +290,23 @@ Get-AzureRmResourceProvider -ListAvailable
 
 **Azure CLI**에서 모든 리소스 공급자를 가져오려면 다음과 같이 사용합니다.
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 반환된 목록에서 관심 있는 리소스 공급자를 찾습니다. 리소스 공급자의 리소스 형식(예: Storage)을 가져오려면 다음과 같이 사용합니다.
 
-    azure provider show Microsoft.Storage
+```azurecli
+azure provider show Microsoft.Storage
+```
 
 지원되는 위치와 API 버전을 가져오려면 다음과 같이 사용합니다.
 
-    azure provider show Microsoft.Storage --details --json
+```azurecli
+azure provider show Microsoft.Storage --details --json
+```
 
-리소스 공급자에 대해 알아보려면 [Resource Manager 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
+리소스 공급자에 대해 자세히 알아보려면 [Resource Manager 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
 
 리소스 섹션에는 배포할 리소스의 배열이 포함되어 있습니다. 각 리소스 내에서 자식 리소스의 배열도 정의할 수 있습니다. 따라서 리소스 섹션에는 다음과 같은 구조가 있을 수 있습니다.
 
@@ -428,6 +434,6 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

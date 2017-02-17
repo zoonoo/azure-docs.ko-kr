@@ -1,5 +1,5 @@
 ---
-title: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기 | Microsoft Docs"
+title: "웹 응용 프로그램 방화벽이 있는 Azure Application Gateway 만들기 | Microsoft Docs"
 description: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway를 만드는 방법에 대해 알아보기"
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
-ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. 웹 응용 프로그램은 다양한 OWASP 상위 10 일반적인 웹 취약점으로부터 보호합니다.
 
-Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다.
+Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다.
 응용 프로그램은 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다.
 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
 
@@ -120,7 +120,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 ### <a name="step-4"></a>4단계
 
- **가상 네트워크 선택** 블레이드에서 **새로 만들기**
+**가상 네트워크 선택** 블레이드에서 **새로 만들기**
 
 이 시나리오에는 설명되어 있지 않지만 여기서 기존 Virtual Network를 선택할 수도 있습니다.  기존 가상 네트워크를 사용하는 경우 해당 가상 네트워크에 사용할 빈 서브넷 또는 Application Gateway 리소스의 서브넷이 필요합니다.
 
@@ -136,7 +136,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 가상 네트워크를 만든 후에는 응용 프로그램 게이트웨이에 대한 프런트 엔드 IP를 정의합니다. 이 시점에서는 프런트 엔드에 대해 공용 또는 개인 IP 주소를 선택합니다. 응용 프로그램이 인터넷 연결용인지 내부용인지에 따라 선택이 달라집니다. 이 시나리오에서는 공용 IP 주소를 사용하는 것으로 가정합니다. 개인 IP 주소를 선택하려면 **개인** 단추를 클릭하면 됩니다. 자동으로 할당된 IP 주소가 선택되거나, **특정 개인 IP 주소 선택** 확인란을 클릭하여 수동으로 입력할 수 있습니다.
 
-**공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다.  **Create new**
+**공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다. **Create new**
 
 ![공용 IP 주소 선택 블레이드][6]
 
@@ -182,11 +182,11 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 ## <a name="next-steps"></a>다음 단계
 
- [Application Gateway 진단](application-gateway-diagnostics.md)
+[Application Gateway 진단](application-gateway-diagnostics.md)
 
- [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
+[사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
 
- [SSL 오프로드 구성](application-gateway-ssl-portal.md)
+[SSL 오프로드 구성](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
@@ -205,6 +205,6 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 152b08cf72c48109f17b5c4715e4ca5fafbb1b7b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
 
 
 ---
@@ -56,7 +56,7 @@ Flighting 배포는 라이브 트래픽의 라우팅에 국한되지 않습니�
 > * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
 > * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 >
 >
 
@@ -298,7 +298,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 이제 베타 슬롯에서 실행한 변경 사양이 있으므로 Flighting 배포를 수행할 준비가 되었습니다.
 
 ## <a name="validate-route-traffic-to-the-beta-app"></a>유효성 검사: 베타 앱에 트래픽 라우팅
-이 섹션에서는 베타 앱에 트래픽을 라우팅합니다. 데모의 명확성을 위해 베타 앱에 사용자 트래픽의 상당 부분을 라우팅합니다. 실제로 라우팅하려는 트래픽 양은 특정 상황에 따라 달라집니다. 예를 들어 사이트가 microsoft.com의 규모인 경우 유용한 데이터를 얻으려면 총 트래픽이 1% 미만이어야 합니다.
+이 섹션에서는 베타 앱에 트래픽을 라우팅합니다. 데모의 명확성을 위해 베타 앱에 사용자 트래픽의 상당 부분을 라우팅합니다. 실제로 라우팅하려는 트래픽 양은 특정 상황에 따라 달라집니다. 예를 들어 사이트가 microsoft.com의 규모인 경우 유용한 데이터를 얻으려면 총 트래픽이&1;% 미만이어야 합니다.
 
 1. Git 셸 세션에서 다음 명령을 실행하여 베타 슬롯에 프로덕션 트래픽의 절반을 라우팅합니다.
 
@@ -310,7 +310,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
         Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
    `ReroutePercentage=50` 속성은 프로덕션 트래픽의 50%가 베타 앱의 URL로 라우팅되도록 지정합니다.(`ActionHostName` 속성에서 지정)
-2. 이제 http://ToDoApp*&lt;your_suffix>*.azurewebsites.net으로 이동합니다. 이제는 트래픽의 50%는 베타 슬롯으로 리디렉션되어야 합니다.
+2. 이제 http://ToDoApp*&lt;your_suffix>*.azurewebsites.net으로 이동합니다. 이제는 트래픽의&50;%는 베타 슬롯으로 리디렉션되어야 합니다.
 3. Application Insights 리소스에서 환경="베타"를 사용하여 메트릭을 필터링합니다.
 
    > [!NOTE]
@@ -359,6 +359,6 @@ Azure 앱 서비스는 일반적으로 큰 기업에서 수행한 바와 같이 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

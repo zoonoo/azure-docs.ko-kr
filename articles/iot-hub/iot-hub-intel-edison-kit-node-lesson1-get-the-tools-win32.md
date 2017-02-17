@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Windows 7 이상)에 대한 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 1: 도구 다운로드(Windows) | Microsoft Docs"
 description: "Windows 7 이상 버전에 Edison의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: bbefda96f95b319af11b7759c702ae39b8fe0cff
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 67e140e086d1deb17b7075133d969a93b859951c
 
 
 ---
@@ -87,6 +87,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/wi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

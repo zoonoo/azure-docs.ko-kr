@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2d31f2643ac39fb6227b57d2b064058af1dbe20d
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 20f3a8b006e45e3a94e95b516bca292a82c5fd03
 
 
 ---
@@ -139,46 +139,47 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_12.png)
 6. 아래 단계에 따라 응용 프로그램에서 SSO를 구성합니다.
    
-   a. 관리자 자격 증명을 사용하여 Marketo 앱에 로그인합니다.
+    a. 관리자 자격 증명을 사용하여 Marketo 앱에 로그인합니다.
    
-   b. 위쪽 탐색 창에서 관리자 단추를 클릭합니다.
+    b. 위쪽 탐색 창에서 관리자 단추를 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-   c. 통합 메뉴로 이동하고 Single Sign On을 클릭합니다.
+    c. 통합 메뉴로 이동하고 Single Sign On을 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-   d. SAML 설정을 사용하려면 편집 단추를 클릭합니다.
+    d. SAML 설정을 사용하려면 편집 단추를 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
-   e. **사용** 
+    e. **사용** 
    
-   f. Azure AD 구성 마법사에서 복사한 발급자 ID를 입력합니다.
+    f. Azure AD 구성 마법사에서 복사한 발급자 ID를 입력합니다.
    
-   g. 엔터티 ID 텍스트 상자에 URL을 **http://saml.marketo.com/sp**로 입력합니다.
+    g. 엔터티 ID 텍스트 상자에 URL을 **http://saml.marketo.com/sp**로 입력합니다.
    
-   h. 사용자 ID 위치를 **이름 식별자 요소**
+    h. 사용자 ID 위치를 **이름 식별자 요소**
    
-   ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
-   > [!NOTE]
-   > 사용자 ID가 UPN 값이 아닌 경우 특성 탭에서 값을 바꿉니다.
-   > 
-   > 
+    > [!NOTE]
+    > 사용자 ID가 UPN 값이 아닌 경우 특성 탭에서 값을 바꿉니다.
+    > 
+    > 
    
-   i Azure AD 구성 마법사에서 다운로드한 인증서를 업로드합니다. 설정을 저장합니다.
+    i Azure AD 구성 마법사에서 다운로드한 인증서를 업로드합니다. 설정을 저장합니다.
    
-   j. 리디렉션 페이지 설정을 편집합니다.
+    j. 리디렉션 페이지 설정을 편집합니다.
    
-   k. Azure AD 구성 마법사에서 로그인 URL을 복사하여 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    k. Azure AD 구성 마법사에서 로그인 URL을 복사하여 **로그인 URL** 텍스트 상자에 붙여넣습니다.
    
-   l. Azure AD 구성 마법사에서 로그아웃 URL을 복사하여 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    l. Azure AD 구성 마법사에서 로그아웃 URL을 복사하여 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
    
-   m. 오류 URL에서 Marketo 인스턴스 URL을 복사하고 설정을 저장하려면 저장 단추를 클릭합니다.
+    m. 오류 URL에서 Marketo 인스턴스 URL을 복사하고 설정을 저장하려면 저장 단추를 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+
 7. 사용자에 대한 SSO를 사용하려면 다음 작업을 완료합니다.
    
     a. 관리자 자격 증명을 사용하여 Marketo 앱에 로그인합니다.
@@ -225,17 +226,18 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
     c. **다음**을 클릭합니다.
-6. **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
+6. **사용자 프로필** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-marketo-tutorial/create_aaduser_07.png) 
@@ -329,6 +331,6 @@ Marketo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

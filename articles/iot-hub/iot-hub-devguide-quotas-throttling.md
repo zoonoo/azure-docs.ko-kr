@@ -90,6 +90,6 @@ IoT Hub는 다양한 기능에 대해 다른 한도를 적용합니다.
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

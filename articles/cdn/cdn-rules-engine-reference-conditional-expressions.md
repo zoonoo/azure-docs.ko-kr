@@ -1,6 +1,6 @@
 ---
-title: "Azure Content Delivery Network 규칙 엔진 조건식 | Microsoft Docs"
-description: "이 항목에서는 규칙 엔진 일치 조건 및 기능에 대해 설명합니다."
+title: "Azure CDN 규칙 엔진 조건식 | Microsoft Docs"
+description: "Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서"
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 92cb8832de934c19164bc26e688142538a8ba96c
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
 
 
 ---
 
-# <a name="conditional-expressions-for-azure-content-delivery-network-cdn-rules-engine"></a>Azure CDN(Content Delivery Network) 규칙 엔진에 대한 조건식
+# <a name="azure-cdn-rules-engine-conditional-expressions"></a>Azure CDN 규칙 엔진 조건식
 이 항목에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대한 조건식에 대해 자세히 설명합니다.
 
 규칙의 첫 번째 부분은 조건식입니다.
@@ -46,6 +46,6 @@ ELSE IF| ELSE IF 식은 이 ELSE IF 문과 관련된 기능 집합이 수행되�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

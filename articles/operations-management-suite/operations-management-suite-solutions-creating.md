@@ -4,7 +4,7 @@ description: "관리 솔루션은 고객이 OMS 작업 영역에 추가할 수 �
 services: operations-management-suite
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
+ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
+ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
 
 
 ---
@@ -261,13 +261,14 @@ OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 
 관리 솔루션을 배포하기 전에 [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy)를 사용하여 테스트하는 것이 좋습니다.  솔루션을 배포하기 전에 솔루션 파일의 유효성을 검사하고 문제를 식별할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+* 관리 솔루션에 [저장된 검색 및 경고를 추가](operations-management-suite-solutions-resources-searches-alerts.md)합니다.
+* 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
+* 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
 * [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.
-* [관리 솔루션에 보기를 추가](operations-management-suite-solutions-resources-views.md)하는 방법을 자세히 살펴봅니다.
-* [관리 솔루션에 Automation 리소스를 추가](operations-management-suite-solutions-resources-automation.md)하는 방법을 자세히 살펴봅니다.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "호스트 컴퓨터 및 Azure IoT Hub 준비 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 2: 도구 다운로드(Ubuntu) | Microsoft Docs"
 description: "Ubuntu를 실행하는 호스트 컴퓨터에 도구 및 소프트웨어를 설치하고, IoT Hub를 만들어 장치를 IoT Hub에 등록합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 6feb4f6fa72aeb3d43211ad8c3973ad2b96671ec
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: f09ad1624f8a7ce4e1b13217d085cfc172d870ca
 
 
 ---
@@ -81,7 +81,7 @@ sudo npm install -g gulp
 설치에 문제가 발생하면 [문제 해결 안내서](iot-hub-gateway-kit-c-sim-troubleshooting.md)에서 일반적인 문제에 대한 솔루션을 참조하세요.
 
 > [!Note]
-> Node.js에서 개발된 자동화 스크립트를 실행하려면 Node, NPM 및 Gulp가 필요합니다.
+> Node.js에서 개발된 Automation 스크립트를 실행하려면 Node, NPM 및 Gulp가 필요합니다.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
 
@@ -99,7 +99,7 @@ Azure CLI를 설치하려면 다음 단계를 따르세요.
    sudo pip install --upgrade azure-cli-iot
    ```
 
-   설치는 5분 정도 걸릴 수 있습니다.
+   설치에는 5분 정도 걸릴 수 있습니다.
 
 2. 다음 명령을 실행하여 설치를 확인합니다.
 
@@ -111,7 +111,7 @@ Azure CLI를 설치하려면 다음 단계를 따르세요.
 
 ### <a name="install-visual-studio-code"></a>Visual Studio Code 설치
 
-이 자습서의 뒷부분에 나오는 Visual Studio Code를 사용하여 구성 파일을 편집합니다.
+이 자습서의 뒷부분에 나오는 Visual Studio 코드를 사용하여 구성 파일을 편집합니다.
 
 Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/linux)하여 설치합니다.
 
@@ -124,6 +124,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/li
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "장치-클라우드 메시지를 Azure IoT Hub로 보내기 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 3: 샘플 실행 | Microsoft Docs"
 description: "IoT Hub에 메시지를 보내고 LED를 깜빡이는 샘플 응용 프로그램을 Raspberry Pi 3에 배포하고 실행합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
-ms.openlocfilehash: ac844b94151c4f9f5105ece63075529779f0efb6
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: d33229fea3ed8af636f744992cb8ed321418da85
 
 
 ---
@@ -92,7 +92,7 @@ gulp deploy && gulp run
 ```
 
 ## <a name="verify-that-the-sample-application-works"></a>샘플 응용 프로그램 작동 확인
-Pi에 연결된 LED가 2초마다 깜빡이는 것을 볼 수 있습니다. LED가 깜빡일 때마다 샘플 응용 프로그램은 IoT Hub에 메시지를 전송하고 해당 메시지가 IoT Hub에 성공적으로 전송되었는지 확인합니다. 또한 IoT Hub가 수신한 각 메시지가 콘솔 창에 출력됩니다. 샘플 응용 프로그램은 메시지를 20개 보낸 후에 자동으로 종료됩니다.
+Pi에 연결된 LED가&2;초마다 깜빡이는 것을 볼 수 있습니다. LED가 깜빡일 때마다 샘플 응용 프로그램은 IoT Hub에 메시지를 전송하고 해당 메시지가 IoT Hub에 성공적으로 전송되었는지 확인합니다. 또한 IoT Hub가 수신한 각 메시지가 콘솔 창에 출력됩니다. 샘플 응용 프로그램은 메시지를 20개 보낸 후에 자동으로 종료됩니다.
 
 ![보낸 메시지와 수신한 메시지가 있는 샘플 응용 프로그램](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run.png)
 
@@ -105,6 +105,6 @@ Pi에 연결된 LED가 2초마다 깜빡이는 것을 볼 수 있습니다. LED�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

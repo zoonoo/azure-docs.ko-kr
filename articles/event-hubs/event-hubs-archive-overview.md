@@ -1,5 +1,5 @@
 ---
-title: "Azure Event Hubs 보관 | Microsoft Docs"
+title: "Azure Event Hubs 보관을 사용하여 원격 분석 데이터 보관 | Microsoft 문서"
 description: "Azure Event Hubs 보관 기능의 개요입니다."
 services: event-hubs
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 539c04ef95804cc0af9924db8b1d2d1f2ea6eef3
-ms.openlocfilehash: 37d8ff4c2e95fddc1daefa650f2407236bc9cda5
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 7f5652aa39d6681b4a96cac00daac904dce2e537
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Azure Event Hubs 보관
-Azure Event Hubs 보관을 사용하면 시간 또는 크기 간격을 선택 지정하여 더 유연하게 Event Hubs의 스트리밍 데이터를 선택한 Blob Storage 계정에 자동으로 전달할 수 있습니다. 보관은 빨리 설정할 수 있고 실행하는 데 관리 비용이 없으며 Event Hubs [처리량 단위](event-hubs-overview.md#capacity-and-security)의 크기를 자동으로 조정합니다. Event Hubs 보관은 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다는 데이터 처리에 집중할 수 있습니다.
+Azure Event Hubs 보관을 사용하면 시간 또는 크기 간격을 선택 지정하여 더 유연하게 Event Hubs의 스트리밍 데이터를 선택한 Blob Storage 계정에 자동으로 전달할 수 있습니다. 보관은 빨리 설정할 수 있고 실행하는 데 관리 비용이 없으며 Event Hubs [처리량 단위](event-hubs-what-is-event-hubs.md#capacity)의 크기를 자동으로 조정합니다. Event Hubs 보관은 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다는 데이터 처리에 집중할 수 있습니다.
 
 Azure Event Hubs 보관을 사용하면 동일한 스트림에서 실시간 및 일괄 처리 기반 파이프라인을 처리할 수 있습니다. 이렇게 하면 시간이 지나면서 요구 사항이 늘어날 수 있는 솔루션을 빌드할 수 있습니다. 향후 실시간 처리를 염두에 두고 현재 일괄 처리 기반 시스템을 구축하거나 기존 실시간 솔루션에 효율적인 콜드 경로를 추가하면 Event Hubs 보관을 통해 스트리밍 데이터 작업이 더 쉬워집니다.
 
 ## <a name="how-event-hubs-archive-works"></a>Event Hubs 보관의 작동 방식
-Event Hubs는 원격 분석 수신에 대한 시간 보존 지속형 버퍼이며 분산된 로그와 비슷합니다. Event Hubs의 크기를 조정하는 키는 [분할된 소비자 모델](event-hubs-overview.md#partition-key)입니다. 각 파티션은 데이터의 독립적인 세그먼트이며 독립적으로 사용됩니다. 시간이 지나면서 이 데이터는 구성 가능한 보존 기간에 따라 에이징됩니다. 결과적으로 지정된 이벤트 허브는 "꽉 참" 상태가 되지 않습니다.
+Event Hubs는 원격 분석 수신에 대한 시간 보존 지속형 버퍼이며 분산된 로그와 비슷합니다. Event Hubs의 크기를 조정하는 키는 [분할된 소비자 모델](event-hubs-what-is-event-hubs.md#partitions)입니다. 각 파티션은 데이터의 독립적인 세그먼트이며 독립적으로 사용됩니다. 시간이 지나면서 이 데이터는 구성 가능한 보존 기간에 따라 에이징됩니다. 결과적으로 지정된 이벤트 허브는 "꽉 참" 상태가 되지 않습니다.
 
 Event Hubs 보관을 사용하면 보관된 데이터를 저장하는 데 사용될 고유한 Azure Blob Storage 계정 및 Container를 지정할 수 있습니다. 이 계정은 이벤트 허브와 동일한 영역 또는 다른 영역에 있을 수 있으므로 Event Hubs 보관 기능이 보다 유연해집니다.
 
@@ -40,7 +40,7 @@ Event Hubs 보관을 통해 보관을 제어하는 기간을 설정할 수 있�
 ```
 
 ### <a name="scaling-to-throughput-units"></a>처리량 단위로 크기 조정
-Event Hubs 트래픽은 [처리량 단위](event-hubs-overview.md#capacity-and-security)로 제어됩니다. 단일 처리량 단위는 초당 1MB 또는 초당 1000개의 이벤트 수신을 허용하고 송신량은 그 두 배입니다. Standard Event Hubs는 1-20개의 처리량 단위로 구성할 수 있으며 할당량 증가 [지원 요청][support request]을 통해 더 구입할 수 있습니다. 구입한 처리량 단위 범위를 벗어나는 사용량은 제한됩니다. Event Hubs 보관은 처리량 단위 송신 할당량을 무시하고 Stream Analytics 또는 Spark와 같은 다른 처리 판독기에 대한 프로그램 송신을 저장하는 내부 Event Hubs 저장소에서 데이터를 직접 복사합니다.
+Event Hubs 트래픽은 [처리량 단위](event-hubs-what-is-event-hubs.md#capacity)로 제어됩니다. 단일 처리량 단위는 초당 1MB 또는 초당 1000개의 이벤트 수신을 허용하고 송신량은 그 두 배입니다. Standard Event Hubs는 1-20개의 처리량 단위로 구성할 수 있으며 할당량 증가 [지원 요청][support request]을 통해 더 구입할 수 있습니다. 구입한 처리량 단위 범위를 벗어나는 사용량은 제한됩니다. Event Hubs 보관은 처리량 단위 송신 할당량을 무시하고 Stream Analytics 또는 Spark와 같은 다른 처리 판독기에 대한 프로그램 송신을 저장하는 내부 Event Hubs 저장소에서 데이터를 직접 복사합니다.
 
 Event Hubs 보관이 구성되면 첫 번째 이벤트를 전송하는 즉시 자동으로 실행됩니다. 계속해서 항상 실행됩니다. 다운스트림 프로세스가 제대로 작동하는지 쉽게 알 수 있도록 Event Hubs는 데이터가 없을 때 빈 파일을 작성합니다. Event Hubs는 일괄 처리 프로세서를 제공할 수 있는 표식 및 예측 가능한 주기를 제공합니다.
 
@@ -117,12 +117,12 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.1/java/avro-tools-1.8.1.jar
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

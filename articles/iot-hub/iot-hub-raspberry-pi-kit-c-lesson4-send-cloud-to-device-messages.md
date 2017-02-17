@@ -90,6 +90,6 @@ IoT Hub에서 Pi에 메시지를 보내서 LED를 깜빡이는 데 성공했습�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

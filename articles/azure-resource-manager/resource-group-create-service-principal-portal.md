@@ -1,5 +1,5 @@
 ---
-title: "포털에서 서비스 보안 주체 만들기 | Microsoft Docs"
+title: "포털에서 Azure 앱에 대한 ID 만들기 | Microsoft Docs"
 description: "Azure 리소스 관리자에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Active Directory 응용 프로그램 및 서비스 주체를 만드는 방법을 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4312002b311ec17f175f6eb6bc45fbe1ce7c7a01
-ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 
 
 ---
@@ -28,7 +28,13 @@ ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
 >
 >
 
-리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 AD(Active Directory) 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 토픽에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
+리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 AD(Active Directory) 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 방법은 다음의 이유로 사용자 고유의 자격 증명을 사용하여 앱을 실행하는 데 좋습니다.
+
+* 자체 사용 권한과 다른 앱 ID에 대한 사용 권한을 할당할 수 있습니다. 일반적으로 이러한 권한은 정확히 앱 실행에 필요한 것으로 제한됩니다.
+* 책임이 변경되면 앱의 자격 증명을 변경할 필요가 없습니다. 
+* 무인 스크립트를 실행할 때 인증서를 사용하여 인증을 자동화할 수 있습니다.
+
+이 토픽에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
  
 ## <a name="required-permissions"></a>필요한 사용 권한
 이 토픽을 완료하려면 Active Directory에 응용 프로그램을 등록하고 Azure 구독의 역할에 응용 프로그램을 할당하기 위한 충분한 권한이 있어야 합니다. 이러한 단계를 수행하기 위한 올바른 권한이 있는지 확인해보겠습니다.
@@ -74,7 +80,7 @@ Azure 구독 권한을 확인하려면
 3. **Azure 리소스**를 선택합니다.
 
      ![리소스 선택](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
-3. 할당된 사용자 역할을 확인하고 AD 앱을 역할에 할당하기 위한 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 그림에서 사용자에게는 2개의 구독에 대한 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다. 
+3. 할당된 사용자 역할을 확인하고 AD 앱을 역할에 할당하기 위한 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 그림에서 사용자에게는&2;개의 구독에 대한 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다. 
 
      ![권한 표시](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
@@ -157,9 +163,19 @@ Azure 구독 권한을 확인하려면
      ![앱 검색](./media/resource-group-create-service-principal-portal/search-app.png)
 9. **확인**을 선택하여 역할 할당을 완료합니다. 목록에서 해당 범위에 대한 역할에 할당된 사용자 목록에 응용 프로그램이 표시될 것입니다.
 
-응용 프로그램은 이제 Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 샘플 응용 프로그램을 통해 응용 프로그램 코드에서 작업을 수행하는 방법에 대한 자세한 내용을 볼 수 있습니다.
+## <a name="log-in-as-the-application"></a>응용 프로그램으로 로그인
 
-## <a name="sample-applications"></a>샘플 응용 프로그램
+응용 프로그램은 이제 Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 
+
+PowerShell을 통해 로그인하려면 [PowerShell을 통해 자격 증명 제공](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)을 참조하세요.
+
+Azure CLI를 통해 로그인하려면 [Azure CLI를 통해 자격 증명 제공](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)을 참조하세요.
+
+REST 작업에 대한 액세스 토큰을 얻으려면 [요청 만들기](/rest/api/#create-the-request)를 참조하세요.
+
+응용 프로그램 코드를 통한 로그인에 대해 알아보려면 다음 샘플 응용 프로그램을 살펴보세요.
+
+### <a name="sample-applications"></a>샘플 응용 프로그램
 다음 예제 응용 프로그램에서는 AD 응용 프로그램으로 로그인하는 방법을 보여 줍니다.
 
 **.NET**
@@ -194,6 +210,6 @@ Azure 구독 권한을 확인하려면
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

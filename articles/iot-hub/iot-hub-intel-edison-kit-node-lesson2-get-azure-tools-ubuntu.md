@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Ubuntu 16.04)에 대한 Azure 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 2: Azure 도구(Ubuntu) | Microsoft Docs"
 description: "Ubuntu에 Python 및 Azure CLI(Azure 명령줄 인터페이스)를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 12158a53a2c570fe5d10e7e01a03e54b04117215
-ms.openlocfilehash: eee0370eeb89971c37ff49ac87af96f95d5aef6d
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 1b3ee6667c8ba376bbbd7a2bb61e85ec17b61b4d
 
 
 ---
@@ -82,6 +82,6 @@ Azure CLI를 설치했습니다. 다음 작업은 Azure CLI를 사용하여 Azur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

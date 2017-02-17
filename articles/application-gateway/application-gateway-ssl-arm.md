@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager를 사용하여 SSL 오프로드에 대한 Application Gateway 구성 | Microsoft Docs"
+title: "SSL 오프로드 구성 - Azure Application Gateway - PowerShell | Microsoft Docs"
 description: "이 페이지에서는 Azure Resource Manager를 사용하여 SSL 오프로드와 함께 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: a6100af0ba746ea244a2ccc6e1ddf843a8be416e
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 2982cf9154780166f1363ae6380702299c717236
 
 
 ---
@@ -90,7 +90,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
@@ -266,6 +266,6 @@ ILB(내부 부하 분산 장치)에서 사용되도록 응용 프로그램 게�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

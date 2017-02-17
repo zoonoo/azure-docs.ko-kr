@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 95dae0597cf9fc812bb04f070de2175a1ff4f45d
+ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
+ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
 
 
 ---
@@ -121,7 +121,7 @@ Contoso IT 서비스 관리를 위해서는 위협을 신속하게 파악하고 
 공급망 사업부의 비즈니스 리더십은 로열티 카드를 사용하여 Contoso 고객 참여를 확대하는 다양한 기회를 파악했습니다. Alice 팀은 이 응용 프로그램을 만들고 Azure가 비즈니스 요구를 충족하는 기능을 향상시키는지 확인해야 합니다. ETS의 Dave와 협력하여 이 응용 프로그램의 개발 및 작동을 위한 두 가지 구독을 구성합니다.
 
 ### <a name="azure-subscriptions"></a>Azure 구독
-Dave는 Azure Enterprise Portal에 로그인하여 공급망 부서가 이미 있는지 확인합니다.  하지만 이 프로젝트는 Azure에서 공급망 팀을 위한 첫 번째 개발 프로젝트이므로 Dave는 Alice 개발 팀을 위해 새 계정이 필요하다는 것을 알게 됩니다.  Alice 팀을 위한 "R&D" 계정을 만들고 Alice에게 액세스 권한을 할당해 줍니다. Alice는 계정 포털을 통해 로그인하고 두 개의 구독을 만듭니다. 하나는 개발 서버를 보유하고 하나는 프로덕션 서버를 보유합니다.  다음 구독을 만들 때 이전에 설정한 이름 지정 표준을 따릅니다.
+Dave는 Azure Enterprise Portal에 로그인하여 공급망 부서가 이미 있는지 확인합니다.  하지만 이 프로젝트는 Azure에서 공급망 팀을 위한 첫 번째 개발 프로젝트이므로 Dave는 Alice 개발 팀을 위해 새 계정이 필요하다는 것을 알게 됩니다.  Alice 팀을 위한 "R&D" 계정을 만들고 Alice에게 액세스 권한을 할당해 줍니다. Alice는 Azure Portal을 통해 로그인하고 두 개의 구독을 만듭니다. 하나는 개발 서버를 보유하고 하나는 프로덕션 서버를 보유합니다.  다음 구독을 만들 때 이전에 설정한 이름 지정 표준을 따릅니다.
 
 | 구독 용도 | 이름 |
 | --- | --- |
@@ -200,6 +200,6 @@ Contoso IT 서비스 관리를 위해서는 위협을 신속하게 파악하고 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

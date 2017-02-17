@@ -1,5 +1,5 @@
 ---
-title: "Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드 | Microsoft Docs"
+title: "Azure VM의 SAP NetWeaver - 계획 및 구현 | Microsoft Docs"
 description: "Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드"
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 08f82498d46b2e67d55ad7dfb05efdb266e7fc61
-ms.openlocfilehash: 56da763a21da7c55aa0cd295a04fa22b2815d2ac
+ms.sourcegitcommit: 06b8f8cc99809338fcf512fb8e4bbf72721cb243
+ms.openlocfilehash: 433b2bc5d602c1117c2ef2e16399eb6d29b425d7
 
 
 ---
@@ -445,7 +445,7 @@ Azure 가상 컴퓨터 서비스를 사용하여 사용자 지정 서버 이미�
 >
 
 ### <a name="a-namebe80d1b9-a463-4845-bd35-f4cebdb5424aaazure-regions"></a><a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure 지역
-Microsoft는 소위 말하는 'Azure 영역'에 가상 컴퓨터를 배포할 수 있도록 합니다. Azure 지역은 지리적으로 근접한 하나 또는 여러 개의 데이터 센터일 수 있습니다. 전 세계의 지정학적 지역 대부분에 대해 Microsoft는 2개 이상의 Azure 지역을 유지합니다. 예: 유럽의 경우 '북유럽' 및 '유럽 서부'라는 Azure 지역이 있습니다. 이러한 지정학적 지역 한 곳 내의 두 Azure 지역은 충분히 먼 거리로 구분되어 있으므로 자연 또는 기술적 재해가 같은 지정학적 지역의 두 Azure 지역에 영향을 주지 않습니다. Microsoft는 꾸준히 전 세계의 여러 다른 지정학적 지역에 새로운 Azure 지역을 구축하고 있으므로 이러한 지역의 수가 꾸준히 늘어나고 있으며 2015년 12월을 기준으로 이미 발표된 추가 지역을 포함하여 20개의 Azure 지역이 구축되었습니다. 고객은 중국의 두 Azure 지역을 포함하는 이러한 모든 지역에 SAP 시스템을 배포할 수 있습니다. Azure 지역에 대한 최신 정보를 보려면 이 웹 사이트를 참조하세요. <https://azure.microsoft.com/regions/>
+Microsoft는 소위 말하는 'Azure 영역'에 가상 컴퓨터를 배포할 수 있도록 합니다. Azure 지역은 지리적으로 근접한 하나 또는 여러 개의 데이터 센터일 수 있습니다. 전 세계의 지정학적 지역 대부분에 대해 Microsoft는&2;개 이상의 Azure 지역을 유지합니다. 예: 유럽의 경우 '북유럽' 및 '유럽 서부'라는 Azure 지역이 있습니다. 이러한 지정학적 지역 한 곳 내의 두 Azure 지역은 충분히 먼 거리로 구분되어 있으므로 자연 또는 기술적 재해가 같은 지정학적 지역의 두 Azure 지역에 영향을 주지 않습니다. Microsoft는 꾸준히 전 세계의 여러 다른 지정학적 지역에 새로운 Azure 지역을 구축하고 있으므로 이러한 지역의 수가 꾸준히 늘어나고 있으며 2015년 12월을 기준으로 이미 발표된 추가 지역을 포함하여 20개의 Azure 지역이 구축되었습니다. 고객은 중국의 두 Azure 지역을 포함하는 이러한 모든 지역에 SAP 시스템을 배포할 수 있습니다. Azure 지역에 대한 최신 정보를 보려면 이 웹 사이트를 참조하세요. <https://azure.microsoft.com/regions/>
 
 ### <a name="a-name8d8ad4b8-6093-4b91-ac36-ea56d80dbf77athe-microsoft-azure-virtual-machine-concept"></a><a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Microsoft Azure Virtual Machine 개념
 Microsoft Azure는 온-프레미스 가상화 솔루션과 비슷한 기능을 갖는 가상 컴퓨터를 호스트하기 위해 IaaS(Infrastructure as a Service) 솔루션을 제공합니다. Azure 포털, PowerShell 또는 CLI 내에서도 배포 및 관리 기능을 제공하는 가상 컴퓨터를 만들 수 있습니다.
@@ -503,11 +503,11 @@ Microsoft Azure 가상 컴퓨터는 다양한 저장소 유형을 활용합니�
 실제 드라이브는 호스트 서버 자체에 저장되므로 휘발성입니다. 재배포 시 VM이 이동되면(예: 호스트에 대한 유지 관리 또는 종료 및 다시 시작으로 인해) 드라이브의 내용이 유실됩니다. 따라서 이 드라이브에 중요한 데이터를 저장하는 것은 바람직하지 않습니다. 이러한 유형의 저장소에 사용되는 미디어 유형은 2015년 6월을 기준으로 다음과 같이 매우 다른 성능 특성을 나타내며 VM 시리즈 간에 차이를 보입니다.
 
 * A5-A7: 매우 제한된 성능. 페이지 파일 이외의 다른 항목에는 권장되지 않습니다.
-* A8-A11: 매우 양호한 성능(수 만 IOPS 및 1GB/초 이상의 처리량)
-* D 시리즈: 매우 양호한 성능(수 만 IOPS 및 1GB/초 이상의 처리량)
-* DS 시리즈: 매우 양호한 성능(수 만 IOPS 및 1GB/초 이상의 처리량)
-* G 시리즈: 매우 양호한 성능(수 만 IOPS 및 1GB/초 이상의 처리량)
-* GS 시리즈: 매우 양호한 성능(수 만 IOPS 및 1GB/초 이상의 처리량)
+* A8-A11: 매우 양호한 성능(수 만 IOPS 및&1;GB/초 이상의 처리량)
+* D 시리즈: 매우 양호한 성능(수 만 IOPS 및&1;GB/초 이상의 처리량)
+* DS 시리즈: 매우 양호한 성능(수 만 IOPS 및&1;GB/초 이상의 처리량)
+* G 시리즈: 매우 양호한 성능(수 만 IOPS 및&1;GB/초 이상의 처리량)
+* GS 시리즈: 매우 양호한 성능(수 만 IOPS 및&1;GB/초 이상의 처리량)
 
 위의 문은 SAP에서 인증된 VM 형식에 적용됩니다. 일부 DBMS 기능에서 사용하는 데 필요한 뛰어난 IOPS 및 처리량을 제공하는 VM 시리즈입니다. 자세한 내용은 [DBMS 배포 가이드][dbms-guide]를 참조하세요.
 
@@ -521,8 +521,8 @@ VHD를 만들거나 Azure 저장소에 업로드한 후 기존 가상 컴퓨터�
 
 Azure 저장소의 네트워크 내에서 다음과 같은 여러 다른 중복 수준을 구성할 수 있습니다.
 
-* 선택할 수 있는 최소 수준은 '로컬 중복성'으로, Azure 지역의 동일한 데이터 센터 내에 데이터의 3개 복제본이 있는 것과 같습니다([Azure 지역][planning-guide-3.1] 장 참조).
-* 동일한 Azure 지역 내의 여러 다른 데이터 센터로 3개의 이미지를 분산하는 영역 중복 저장소.
+* 선택할 수 있는 최소 수준은 '로컬 중복성'으로, Azure 지역의 동일한 데이터 센터 내에 데이터의&3;개 복제본이 있는 것과 같습니다([Azure 지역][planning-guide-3.1] 장 참조).
+* 동일한 Azure 지역 내의 여러 다른 데이터 센터로&3;개의 이미지를 분산하는 영역 중복 저장소.
 * 기본 중복성 수준은 콘텐츠를 데이터의 다른 3개 이미지 형태로, 동일한 지정학적 지역에 호스트된 다른 Azure 지역에 비동기식으로 복제하는 지리적 중복성입니다.
 
 또한 다른 중복성 옵션에 대해서는 이 문서의 맨 위에 있는 표를 참조하세요. <https://azure.microsoft.com/pricing/details/storage/>
@@ -598,7 +598,7 @@ Azure에서 다양한 방식으로 이름 및 IP 확인을 구성할 수 있습�
 ##### <a name="azure-virtual-networks"></a>Azure 가상 네트워크
 Azure 가상 네트워크를 구축하여 Azure DHCP 기능에 의해 할당된 개인 IP 주소의 주소 범위를 정의할 수 있습니다. 프레미스 간 시나리오에서 정의된 IP 주소 범위는 여전히 DHCP를 사용하여 Azure에서 할당됩니다. 그러나 도메인 이름 확인은 온-프레미스에서 수행되므로(VM을 온-프레미스 도메인의 일부로 가정) 다른 Azure 클라우드 서비스 이외의 주소를 확인할 수 있습니다.
 
-[comment]: <> (MSSedusch - 여전히 필요합니까? TODO Originally an Azure Virtual Network was bound to an Affinity Group. With that a Virtual Network in Azure got restricted to the Azure Scale Unit that the Affinity Group got assigned to. In the end, this meant the Virtual Network was restricted to the resources available in the Azure Scale Unit. This has since changed and now Azure Virtual Networks can stretch across more than one Azure Scale Unit. 그렇지만 Azure 가상 네트워크는 생성 시에 더 이상 선호도 그룹과 연결되지 **않아야** 합니다. 1년 전에는 권장 사항과 반대되는 지침을 제공했으나 **더 이상 Azure 선호도 그룹을 사용하지 않아야 합니다**. 자세한 내용은 <https://azure.microsoft.com/blog/regional-virtual-networks/>)를 참조하세요.
+[comment]: <> (MSSedusch - 여전히 필요합니까? TODO Originally an Azure Virtual Network was bound to an Affinity Group. With that a Virtual Network in Azure got restricted to the Azure Scale Unit that the Affinity Group got assigned to. In the end, this meant the Virtual Network was restricted to the resources available in the Azure Scale Unit. This has since changed and now Azure Virtual Networks can stretch across more than one Azure Scale Unit. 그렇지만 Azure 가상 네트워크는 생성 시에 더 이상 선호도 그룹과 연결되지 **않아야** 합니다.&1;년 전에는 권장 사항과 반대되는 지침을 제공했으나 **더 이상 Azure 선호도 그룹을 사용하지 않아야 합니다**. 자세한 내용은 <https://azure.microsoft.com/blog/regional-virtual-networks/>)를 참조하세요.
 
 Azure의 모든 가상 컴퓨터를 가상 네트워크에 연결해야 합니다.
 
@@ -649,7 +649,7 @@ Azure 가상 컴퓨터에 대해 여러 개의 vNIC(가상 네트워크 인터�
 [comment]: <> (MSSedusch - <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### <a name="multi-site-vpn"></a>다중 사이트 VPN
-현재 Azure는 단일 Azure 구독에 대해 다중 사이트 VPN 연결을 만들 수 있도록 합니다. 이전에는 구독이 1개 있으면 사이트 간 VPN 연결 1개로 제한되었습니다. 이 제한은 단일 구독에 대한 다중 사이트 VPN 연결을 통해 해결되었습니다. 따라서 프레미스 간 구성을 통해 특정 구독에 대해 둘 이상의 Azure 지역을 사용할 수 있습니다.
+현재 Azure는 단일 Azure 구독에 대해 다중 사이트 VPN 연결을 만들 수 있도록 합니다. 이전에는 구독이&1;개 있으면 사이트 간 VPN 연결&1;개로 제한되었습니다. 이 제한은 단일 구독에 대한 다중 사이트 VPN 연결을 통해 해결되었습니다. 따라서 프레미스 간 구성을 통해 특정 구독에 대해 둘 이상의 Azure 지역을 사용할 수 있습니다.
 
 자세한 내용은 [이 문서][vpn-gateway-create-site-to-site-rm-powershell]를 참조하세요.
 
@@ -981,7 +981,7 @@ SAP 시스템 또는 SAP 응용 프로그램 계층을 지원하는 전용 DBMS 
 
 **결론: SAP 시스템 구성의 일부로 VHD를 복사하거나 저장하려면 SAP 시스템을 중지하고 배포된 VM도 종료해야 합니다. 그런 후에만 VHD 집합을 복사 또는 다운로드하여 Azure 또는 온-프레미스에서 SAP 시스템의 복사본을 만들 수 있습니다.**
 
-데이터 디스크는 Azure 저장소 계정에 VHD 파일로 저장되며 가상 컴퓨터에 직접 연결되거나 이미지로 사용될 수 있습니다. 이 경우 VHD는 다른 위치로 복사된 후에 가상 컴퓨터에 연결됩니다. Azure에서 VHD 파일의 전체 이름은 Azure 내에서 고유해야 합니다. 이미 앞서 언급한 것처럼 이 이름은 다음과 같은 3부분으로 구성됩니다.
+데이터 디스크는 Azure 저장소 계정에 VHD 파일로 저장되며 가상 컴퓨터에 직접 연결되거나 이미지로 사용될 수 있습니다. 이 경우 VHD는 다른 위치로 복사된 후에 가상 컴퓨터에 연결됩니다. Azure에서 VHD 파일의 전체 이름은 Azure 내에서 고유해야 합니다. 이미 앞서 언급한 것처럼 이 이름은 다음과 같은&3;부분으로 구성됩니다.
 
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
@@ -1579,7 +1579,7 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 
 사이트 간에 연결된 프레미스 간 시나리오에서 온-프레미스와 Azure 간의 대기 시간이 여전히 길 수 있습니다. 개발 및 테스트 시스템에서 프로덕션으로 개체를 전송하는 순서를 따르거나 전송 또는 지원 패키지를 다른 시스템에 적용하려는 경우 중앙 전송 디렉터리의 위치에 따라, 일부 시스템에서 중앙 전송 디렉터리에서 데이터를 읽거나 쓸 때 긴 대기 시간이 발생합니다. 이러한 상황은 데이터 센터 간에 멀리 떨어져 있는 서로 다른 데이터 센터에 여러 다른 시스템이 분산되어 있는 SAP 지형 구성과 유사합니다.
 
-이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 기반이 되는 원리를 설명하는 설명서 <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>을 참조하세요.
+이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용&1;개와 Azure의 시스템을 포함하는&1;개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 기반이 되는 원리를 설명하는 설명서 <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>을 참조하세요.
 
 방법:
 
@@ -1777,7 +1777,7 @@ Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과
 * 전체 시스템이 Azure에 배포됩니다(필수 - DBMS 계층, (A)SCS 인스턴스 및 전체 응용 프로그램 계층이 같은 위치에서 실행되어야 함).
 * 전체 시스템이 단일 Azure 구독 내에서 실행됩니다(필수).
 * 전체 시스템이 단일 Azure 가상 네트워크 내에서 실행됩니다(필수).
-* 모든 VM이 동일한 가상 네트워크에 있는 경우에도 단일 SAP 시스템의 VM을 3개의 가용성 집합으로 구분할 수 있습니다.
+* 모든 VM이 동일한 가상 네트워크에 있는 경우에도 단일 SAP 시스템의 VM을&3;개의 가용성 집합으로 구분할 수 있습니다.
 * 단일 SAP 시스템의 DBMS 인스턴스를 실행하는 모든 VM이 하나의 가용성 집합에 있습니다. SQL Server AlwaysOn 또는 Oracle Data Guard와 같은 네이티브 DBMS 고가용성 기능이 사용되므로 시스템당 둘 이상의 VM에서 DBMS 인스턴스가 실행된다고 가정할 수 있습니다.
 * DBMS 인스턴스를 실행하는 모든 VM은 자체 저장소 계정을 사용합니다. DBMS 데이터 및 로그 파일은 데이터를 동기화하는 DBMS 고가용성 기능을 사용하여 한 저장소 계정에서 다른 저장소 계정으로 복제됩니다. 하나의 저장소 계정을 사용할 수 없는 경우 전체 SQL Server 서비스가 아니라 SQL Windows 클러스터 노드 하나만 사용할 수 없게 됩니다.
 * 단일 SAP 시스템의 (A)SCS 인스턴스를 실행하는 모든 VM이 하나의 가용성 집합에 있습니다. 해당 VM의 내부에서 WSFC(Windows Sever 장애 조치 클러스터)가 (A)SCS 인스턴스를 보호하도록 구성됩니다.
@@ -1874,6 +1874,6 @@ Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/18/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
-ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
+ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
+ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
 
 
 ---
@@ -37,19 +37,17 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 유효성 검사 오류는 문제를 일으킬 것으로 미리 결정될 수 있는 시나리오에서 발생합니다. 유효성 검사 오류에는 템플릿의 구문 오류가 포함되며, 그렇지 않은 경우 구독 할당량을 초과하는 리소스가 배포됩니다. 배포 오류는 배포 프로세스 중 발생하는 조건에서 발생합니다. 예를 들어 배포 오류에서 동시에 배포되는 리소스에 액세스하려고 할 때 발생할 수 있습니다.
 
-두 가지 오류 유형에서 배포 문제를 해결하는 데 사용하는 오류 코드를 반환합니다. 두 가지 오류 유형 모두 활동 로그에 나타납니다. 하지만 배포가 시작된 것은 아니므로 유효성 검사 오류는 배포 기록에 나타나지 않습니다.
+두 가지 오류 유형에서 배포 문제를 해결하는 데 사용하는 오류 코드를 반환합니다. 두 가지 오류 유형 모두 [활동 로그](resource-group-audit.md)에 나타납니다. 하지만 배포가 시작된 것은 아니므로 유효성 검사 오류는 배포 기록에 나타나지 않습니다.
 
 
 ## <a name="error-codes"></a>오류 코드
-배포 오류에서 **DeploymentFailed** 코드를 반환합니다. 하지만 이 오류 코드는 일반적인 배포 오류입니다. 사용자가 오류를 해결할 때 실제로 도움이 되는 오류 코드는 보통 해당 오류 한 수준 아래에 있습니다. 다음 이미지는 배포 오류에 속하는 **RequestDisallowedByPolicy** 오류 코드를 보여줍니다.
-
-![오류 코드 표시](./media/resource-manager-common-deployment-errors/error-code.png)
 
 다음 오류 코드는 이 항목에 설명되어 있습니다.
 
 * [AccountNameInvalid](#accountnameinvalid)
 * [권한 부여 실패](#authorization-failed)
 * [BadRequest](#badrequest)
+* [DeploymentFailed](#deploymentfailed)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -64,6 +62,67 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 * [StorageAccountAlreadyExists](#storagenamenotunique)
 * [StorageAccountAlreadyTaken](#storagenamenotunique)
 
+### <a name="deploymentfailed"></a>DeploymentFailed
+
+이 오류 코드는 일반 배포 오류를 나타내지만 문제 해결을 시작해야 하는 오류 코드는 아닙니다. 문제 해결에 실제로 도움이 되는 오류 코드는 보통 해당 오류 한 수준 아래에 있습니다. 예를 들어 다음 이미지는 배포 오류에 속하는 **RequestDisallowedByPolicy** 오류 코드를 보여줍니다.
+
+![오류 코드 표시](./media/resource-manager-common-deployment-errors/error-code.png)
+
+### <a name="skunotavailable"></a>SkuNotAvailable
+
+리소스를 배포할 때(일반적으로 가상 컴퓨터) 다음 오류 코드 및 오류 메시지가 나타날 수 있습니다.
+
+```
+Code: SkuNotAvailable
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>' 
+for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+```
+
+선택한 리소스 SKU(예: VM 크기)를 선택한 위치에 사용할 수 없는 경우 이 오류가 나타납니다. 이 문제를 해결하려면 지역에서 사용할 수 있는 SKU가 무엇인지 알아내야 합니다. 포털 또는 REST 작업을 사용하여 사용 가능한 SKU를 찾을 수 있습니다.
+
+- [포털](https://portal.azure.com)을 사용하려면 포털에 로그인하고 인터페이스를 통해 리소스를 추가합니다. 값을 설정하면 해당 리소스에 사용 가능한 SKU가 표시됩니다. 배포를 완료할 필요는 없습니다.
+
+    ![사용 가능한 SKU](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+- 가상 컴퓨터에 대해 REST API를 사용하려면 다음 요청을 보냅니다.
+
+  ```HTTP 
+  GET
+  https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
+  ```
+
+  다음과 같은 형식으로 사용 가능한 SKU 및 지역을 반환합니다.
+
+  ```json
+  {
+    "value": [
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A0",
+        "tier": "Standard",
+        "size": "A0",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A1",
+        "tier": "Standard",
+        "size": "A1",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      ...
+    ]
+  }    
+  ```
+
+해당 위치 또는 대체 위치에서 비즈니스 요구를 충족하는 적합한 SKU를 찾을 수 없는 경우 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
+
 ### <a name="invalidtemplate"></a>InvalidTemplate
 이 오류로 인해 별도의 몇 가지 유형의 오류가 발생할 수 있습니다.
 
@@ -71,12 +130,16 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
    템플릿 유효성 검사 실패를 나타내는 오류 메시지가 표시되면 템플릿 구문에 문제가 있습니다.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed
+  ```
 
    이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합&1;개, 함수&3;개, 괄호 집합&3;개, 작은 따옴표 집합&1;개, 속성&1;개가 포함됩니다.
 
-       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```json
+  "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```
 
    일치하는 구문을 제공하지 않으면 템플릿에서 의도와는 다른 값을 생성합니다.
 
@@ -86,50 +149,60 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
    리소스 이름이 올바른 형식이 아닐 경우 다른 잘못된 템플릿 오류가 발생합니다.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed: 'The template resource {resource-name}'
-       for type {resource-type} has incorrect segment lengths.
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed: 'The template resource {resource-name}'
+  for type {resource-type} has incorrect segment lengths.
+  ```
 
    루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가&1;개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는&2;개 세그먼트가 형식에 있고&1;개 세그먼트가 이름에 있으므로 **유효한 이름**입니다.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "myHostingPlanName",
-         ...
-       }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "myHostingPlanName",
+    ...
+  }
+  ```
 
    하지만 그 다음 예제의 경우 형식과 이름의 세그먼트 수가 같으므로 **유효한 이름이 아닙니다** .
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "appPlan/myHostingPlanName",
-         ...
-       }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "appPlan/myHostingPlanName",
+    ...
+  }
+  ```
 
    자식 리소스의 경우 형식과 이름의 세그먼트 수는 같아야 합니다. 자식 리소스의 이름과 형식 전체에 부모 리소의 이름과 형식이 포함되기 때문에 이 세그먼트 수는 적합합니다. 이에 따라 전체 이름에는 여전히 전체 형식보다 하나가 적은 세그먼트가 있습니다.
 
-       "resources": [
-           {
-               "type": "Microsoft.KeyVault/vaults",
-               "name": "contosokeyvault",
-               ...
-               "resources": [
-                   {
-                       "type": "secrets",
-                       "name": "appPassword",
-                       ...
-                   }
-               ]
-           }
-       ]
+  ```json
+  "resources": [
+      {
+          "type": "Microsoft.KeyVault/vaults",
+          "name": "contosokeyvault",
+          ...
+          "resources": [
+              {
+                  "type": "secrets",
+                  "name": "appPassword",
+                  ...
+              }
+          ]
+      }
+  ]
+  ```
 
    리소스 공급자 간에 적용되는 Resource Manager 형식에서 세그먼트를 제대로 갖추는 것이 까다로울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면&4;개 세그먼트가 있는 형식이 필요합니다. 따라서 이름에는 다음과 같이&3;개 세그먼트가 있습니다.
 
-       {
-           "type": "Microsoft.Web/sites/providers/locks",
-           "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-           ...
-       }
+  ```json
+  {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+      ...
+  }
+  ```
 
 - 인덱스 복사는 사용할 수 없음
 
@@ -139,44 +212,59 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
    템플릿에서 매개 변수에 허용되는 값을 지정했지만 이러한 값 중 하나가 아닌 값을 제공하는 경우 다음과 비슷한 오류 메시지가 표시됩니다.
 
-       Code=InvalidTemplate;
-       Message=Deployment template validation failed: 'The provided value {parameter value}
-       for the template parameter {parameter name} is not valid. The parameter value is not
-       part of the allowed values
+  ```
+  Code=InvalidTemplate;
+  Message=Deployment template validation failed: 'The provided value {parameter value}
+  for the template parameter {parameter name} is not valid. The parameter value is not
+  part of the allowed values
+  ``` 
 
    템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다.
+
+- 순환 종속성이 감지됨
+
+   이 오류 메시지는 배포가 시작될 수 없도록 리소스가 서로 종속되어 있는 경우에 표시됩니다. 상호 종속성의 조합은 둘 이상의 리소스가 이미 대기 중인 다른 리소스를 기다리게 만듭니다. 예를 들어 리소스1은 리소스3에 종속되고, 리소스2는 리소스1에 종속되고, 리소스3은 리소스2에 종속됩니다. 일반적으로 이런 문제는 불필요한 종속성을 제거하여 해결할 수 있습니다. 종속성 오류 문제 해결을 위한 제안 사항은 [배포 시퀀스 확인](#check-deployment-sequence)을 참조하세요.
 
 <a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound 및 ResourceNotFound
 해석할 수 없는 리소스 이름이 포함된 템플릿인 경우 다음과 비슷한 오류 메시지가 표시됩니다.
 
-    Code=NotFound;
-    Message=Cannot find ServerFarm with name exampleplan.
+```
+Code=NotFound;
+Message=Cannot find ServerFarm with name exampleplan.
+```
 
 템플릿에서 누락된 리소스를 배포하려는 경우 종속성을 추가해야 하는지 여부를 확인합니다. 리소스 관리자는 가능한 경우 리소스를 병렬로 만들어 배포를 최적화합니다. 한 리소스가 다른 리소스 뒤에 배포되어야 하는 경우 템플릿에서 **dependsOn** 요소를 사용하여 다른 리소스에 대한 종속성을 만들어야 합니다. 예를 들어 웹앱을 배포할 때는 앱 서비스 계획이 반드시 존재해야 합니다. 웹앱이 App Service 계획에 종속된다고 지정하지 않으면 Resource Manager에서 두 리소스를 모두 만듭니다. 웹앱에 속성을 설정하려고 할 때 App Service 계획 리소스가 아직 없기 때문에 이 리소스를 찾을 수 없다는 오류 메시지가 표시됩니다. 웹앱에서 종속성을 설정하면 이러한 오류를 방지할 수 있습니다.
 
-    {
-      "apiVersion": "2015-08-01",
-      "type": "Microsoft.Web/sites",
-      ...
-      "dependsOn": [
-        "[variables('hostingPlanName')]"
-      ],
-      ...
-    }
+```json
+{
+  "apiVersion": "2015-08-01",
+  "type": "Microsoft.Web/sites",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  ...
+}
+```
+
+종속성 오류 문제 해결을 위한 제안 사항은 [배포 시퀀스 확인](#check-deployment-sequence)을 참조하세요.
 
 또한 배포되는 그룹이 아닌 다른 리소스 그룹에 리소스가 있는 경우에도 이러한 오류 메시지가 표시됩니다. 이 경우 리소스의 정규화 된 이름을 가져오는 [resourceId 함수](resource-group-template-functions.md#resourceid)를 사용합니다.
 
-    "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    }
+```json
+"properties": {
+    "name": "[parameters('siteName')]",
+    "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+}
+```
 
 해석할 수 없는 리소스에 [reference](resource-group-template-functions.md#reference) 또는 [listKeys](resource-group-template-functions.md#listkeys) 함수를 사용하려는 경우에는 다음과 같은 오류 메시지가 표시됩니다.
 
-    Code=ResourceNotFound;
-    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
-    group {resource group name} was not found.
+```
+Code=ResourceNotFound;
+Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
+group {resource group name} was not found.
+```
 
 **reference** 함수를 포함하는 식을 찾습니다. 매개 변수 값이 올바른지 다시 한 번 확인합니다.
 
@@ -184,55 +272,69 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 한 리소스가 다른 리소스의 부모이면 부모 리소스는 자식 리소스를 만들기 전에 존재해야 합니다. 아직 존재하지 않을 경우 다음과 같은 오류가 나타납니다.
 
-     Code=ParentResourceNotFound;
-     Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
+Code=ParentResourceNotFound;
+Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
 
 자식 리소스의 이름에 부모 이름이 포함됩니다. 예를 들어 SQL Database는 다음과 같이 정의될 수 있습니다.
 
-    {
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
-      ...
+```json
+{
+  "type": "Microsoft.Sql/servers/databases",
+  "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
+  ...
+```
 
 그러나 부모 리소스에 대한 종속성을 지정하지 않으면 자식 리소스는 부모보다 먼저 배포될 수 있습니다. 이 오류를 해결하려면 종속성을 포함하세요.
 
-    "dependsOn": [
-        "[variables('databaseServerName')]"
-    ]
+```json
+"dependsOn": [
+    "[variables('databaseServerName')]"
+]
+```
 
 <a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>torageAccountAlreadyExists 및 StorageAccountAlreadyTaken
 저장소 계정에 대해서는 Azure에서 고유한 리소스 이름을 제공해야 합니다. 고유한 이름을 제공하지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 
-    Code=StorageAccountAlreadyTaken
-    Message=The storage account named mystorage is already taken.
+```
+Code=StorageAccountAlreadyTaken
+Message=The storage account named mystorage is already taken.
+```
 
 명명 규칙과 [uniqueString](resource-group-template-functions.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
-    "type": "Microsoft.Storage/storageAccounts",
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]",
+"type": "Microsoft.Storage/storageAccounts",
+```
 
 구독에서 기존 저장소 계정과 동일한 이름의 저장소 계정을 배포하지만 다른 위치를 제공하는 경우 해당 저장소 계정이 이미 다른 위치에 이미 있다고 나타내는 오류 메시지가 표시됩니다. 이 경우 기존 저장소 계정을 삭제하거나 기존 저장소 계정과 동일한 위치를 제공합니다.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-저장소 계정에 사용이 금지된 문자를 포함하는 이름을 제공하려는 경우 **AccountNameInvalid** 오류 메시지가 표시됩니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
+저장소 계정에 사용이 금지된 문자를 포함하는 이름을 제공하려는 경우 **AccountNameInvalid** 오류 메시지가 표시됩니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. [uniqueString](resource-group-template-functions.md#uniquestring) 함수는 13자를 반환합니다. **uniqueString** 결과에 접두어를 연결하는 경우 11자 미만의 접두어를 제공합니다.
 
 ### <a name="badrequest"></a>BadRequest
 
-속성에 대해 잘못된 값을 제공하면 BadRequest 상태가 발생할 수 있습니다. 예를 들어 저장소 계정에 대해 잘못된 SKU 값을 제공하는 경우 배포가 실패합니다. 
+속성에 대해 잘못된 값을 제공하면 BadRequest 상태가 발생할 수 있습니다. 예를 들어 저장소 계정에 대해 잘못된 SKU 값을 제공하는 경우 배포가 실패합니다. 속성에 대해 유효한 값을 확인하려면 [REST API](/rest/api)에서 배포 중인 리소스 유형을 살펴봅니다.
 
 <a id="noregisteredproviderfound" />
 ### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound 및 MissingSubscriptionRegistration
 리소스를 배포할 때 다음 오류 코드 및 메시지가 나타날 수 있습니다.
 
-    Code: NoRegisteredProviderFound
-    Message: No registered resource provider found for location {ocation}
-    and API version {api-version} for type {resource-type}.
+```
+Code: NoRegisteredProviderFound
+Message: No registered resource provider found for location {location}
+and API version {api-version} for type {resource-type}.
+```
 
 또는 다음과 유사한 메시지가 나타날 수 있습니다.
 
-    Code: MissingSubscriptionRegistration
-    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
+Code: MissingSubscriptionRegistration
+Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
 
 세 가지 이유 중 하나로 이러한 오류가 나타납니다.
 
@@ -258,33 +360,47 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 등록 상태를 보려면 **Get-AzureRmResourceProvider**를 사용합니다.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 공급자를 등록하려면 **Register-AzureRmResourceProvider** 를 사용하여 등록할 리소스 공급자의 이름을 제공합니다.
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```
 
 특정 종류의 리소스에 대해 지원되는 위치를 확인하려면 다음을 사용합니다.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 특정 종류의 리소스에 대해 지원되는 API 버전을 확인하려면 다음을 사용합니다.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 **Azure CLI**
 
 공급자가 등록되어 있는지 확인하려면 `azure provider list` 명령을 사용합니다.
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 리소스 공급자를 등록하려면 `azure provider register` 명령을 사용하고 등록할 *네임스페이스* 를 지정합니다.
 
-    azure provider register Microsoft.Cdn
+```azurecli
+azure provider register Microsoft.Cdn
+```
 
 리소스 공급자에 대해 지원되는 위치 및 API 버전을 보려면 다음을 사용합니다.
 
-    azure provider show -n Microsoft.Compute --json > compute.json
+```azurecli
+azure provider show -n Microsoft.Compute --json > compute.json
+```
 
 <a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded 및 OperationNotAllowed
@@ -293,38 +409,48 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 코어에 대한 구독 할당량을 검사하려면 Azure CLI의 `azure vm list-usage` 명령을 사용할 수 있습니다. 다음 예제에서는 무료 평가판 계정에 대한 코어 할당량이 4개임을 보여 줍니다.
 
-    azure vm list-usage
+```azurecli
+azure vm list-usage
+```
 
 반환하는 내용은 다음과 같습니다.
 
-    info:    Executing command vm list-usage
-    Location: westus
-    data:    Name   Unit   CurrentValue  Limit
-    data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4
-    info:    vm list-usage command OK
+```azurecli
+info:    Executing command vm list-usage
+Location: westus
+data:    Name   Unit   CurrentValue  Limit
+data:    -----  -----  ------------  -----
+data:    Cores  Count  0             4
+info:    vm list-usage command OK
+```
 
 미국 서부 지역의 코어를&5;개 이상 만드는 템플릿을 배포하는 경우에 다음과 같은 배포 오류 메시지가 표시됩니다.
 
-    Code=OperationNotAllowed
-    Message=Operation results in exceeding quota limits of Core.
-    Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
+Code=OperationNotAllowed
+Message=Operation results in exceeding quota limits of Core.
+Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
 
 또는 PowerShell에서 **Get-AzureRmVMUsage** Cmdlet을 사용할 수 있습니다.
 
-    Get-AzureRmVMUsage
+```powershell
+Get-AzureRmVMUsage
+```
 
 반환하는 내용은 다음과 같습니다.
 
-    ...
-    CurrentValue : 0
-    Limit        : 4
-    Name         : {
-                     "value": "cores",
-                     "localizedValue": "Total Regional Cores"
-                   }
-    Unit         : null
-    ...
+```powershell
+...
+CurrentValue : 0
+Limit        : 4
+Name         : {
+                 "value": "cores",
+                 "localizedValue": "Total Regional Cores"
+               }
+Unit         : null
+...
+```
 
 이러한 경우 포털로 이동하여 사용자가 배포하고 싶은 지역의 할당량을 올려서 지원 문제를 해결합니다.
 
@@ -336,23 +462,31 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 ### <a name="invalidcontentlink"></a>InvalidContentLink
 다음과 같은 오류 메시지가 표시되는 경우가 있습니다.
 
-    Code=InvalidContentLink
-    Message=Unable to download deployment content from ...
+```
+Code=InvalidContentLink
+Message=Unable to download deployment content from ...
+```
 
 아마 사용할 수 없는 중첩된 템플릿에 연결하려고 했을 것입니다.. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 저장소 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달해야 합니다. 자세한 내용은 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 
 ### <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
 구독에 배포 중에 수행을 시도하는 작업을 방해하는 리소스 정책이 포함된 경우 이 오류가 발생합니다. 오류 메시지에서 정책 식별자를 찾습니다.
 
-    Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
+Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
 
 **PowerShell**에서 해당 정책 식별자를 **Id** 매개 변수로 제공하여 배포를 차단한 정책에 대한 정보를 검색합니다.
 
-    (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```powershell
+(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```
 
 **Azure CLI**에서 정책 정의 이름을 제공합니다.
 
-    azure policy definition show regionPolicyDefinition --json
+```azurecli
+azure policy definition show regionPolicyDefinition --json
+```
 
 정책에 대한 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
@@ -360,23 +494,6 @@ ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 리소스를 배포하려고 하는 계정 또는 서비스 주체에게 작업 수행을 위한 액세스 권한이 없으므로 배포 중에 오류가 발생할 수 있습니다. 개발자 또는 관리자는 Azure Active Directory를 사용하여 ID와 해당 ID가 액세스할 수 있는 리소스를 자세히 제어할 수 있습니다. 예를 들어 계정이 읽기 역할에 할당되면 새 리소스를 만들 수 없습니다. 이 경우 권한 부여에 실패했다는 오류 메시지가 표시됩니다.
 
 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
-
-### <a name="skunotavailable"></a>SkuNotAvailable
-
-리소스를 배포할 때(일반적으로 가상 컴퓨터) 다음 오류 코드 및 오류 메시지가 나타날 수 있습니다.
-
-```
-Code: SkuNotAvailable
-Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
-```
-
-선택한 리소스 SKU(예: VM 크기)를 선택한 위치에 사용할 수 없는 경우 이 오류가 나타납니다. 이 문제를 해결하기 위한 두 가지 옵션이 있습니다.
-
-- 포털에 로그인하고 UI를 통해 새 리소스를 추가합니다. 값을 설정하면 해당 리소스에 사용 가능한 SKU가 표시됩니다. 배포를 완료할 필요는 없습니다.
-
-    ![사용 가능한 sku](./media/resource-manager-common-deployment-errors/view-sku.png)
-
-- 해당 위치 또는 대체 위치에서 비즈니스 요구를 충족하는 적합한 SKU를 찾을 수 없는 경우 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
 
 ## <a name="troubleshooting-tricks-and-tips"></a>문제 해결 팁과 요령
 
@@ -387,15 +504,21 @@ Message: The requested tier for resource '<resource>' is currently not available
 
    PowerShell에서 **DeploymentDebugLogLevel** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
 
-       New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
 
    요청 내용을 다음 cmdlet으로 검토합니다.
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
 
    또는 응답 내용을 다음으로 검토합니다.
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
 
    이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
 
@@ -403,11 +526,15 @@ Message: The requested tier for resource '<resource>' is currently not available
 
    Azure CLI에서 **--debug-setting** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
 
-       azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```azurecli
+  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```
 
-   기록된 요청 및 응답 내용을 다음으로 검토합니다.
+   다음 명령을 사용하여 기록된 요청 및 응답 내용을 검토합니다.
 
-       azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```azurecli
+  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```
 
    이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
 
@@ -415,52 +542,60 @@ Message: The requested tier for resource '<resource>' is currently not available
 
    중첩된 템플릿에 대한 디버그 정보를 기록하려면 **debugSetting** 요소를 사용합니다.
 
-       {
-           "apiVersion": "2016-09-01",
-           "name": "nestedTemplate",
-           "type": "Microsoft.Resources/deployments",
-           "properties": {
-               "mode": "Incremental",
-               "templateLink": {
-                   "uri": "{template-uri}",
-                   "contentVersion": "1.0.0.0"
-               },
-               "debugSetting": {
-                  "detailLevel": "requestContent, responseContent"
-               }
-           }
-       }
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
 
 
 ### <a name="create-a-troubleshooting-template"></a>문제 해결 템플릿 만들기
 경우에 따라 템플릿 문제를 해결하는 가장 쉬운 방법은 일부를 테스트해보는 것입니다. 간소화된 템플릿을 만들어 오류를 일으키는 것으로 생각되는 부분에 집중할 수 있습니다. 예를 들어, 리소스를 참조할 때 오류가 발생한다고 가정합니다. 전체 템플릿을 처리하는 대신, 문제를 일으킬 수 있는 부분만 반환하는 템플릿을 만듭니다. 이렇게 하면 템플릿 함수를 바르게 사용하여, 올바른 매개 변수를 전달하고 원하는 리소스를 가져오고 있는지 확인하는 데 도움이 됩니다.
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageName": {
-            "type": "string"
-        },
-        "storageResourceGroup": {
-            "type": "string"
-        }
-      },
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "exampleOutput": {
-            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-            "type" : "object"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
 
 또는 종속성을 잘못 설정하는 것과 관련되었다고 생각되는 배포 오류가 발생한다고 가정해보세요. 간소화된 템플릿을 분리하여 템플릿을 테스트합니다. 먼저 단일 리소스(예: SQL Server)를 배포하는 템플릿을 만듭니다. 리소스가 올바르게 정의된 것이 확실하면 종속되는 리소스(예: SQL Database)를 추가합니다. 이러한 두 리소스가 올바르게 정의되어 있으면 다른 종속 리소스(예: 감사 정책)를 추가합니다. 각 테스트 배포 사이에 리소스 그룹을 삭제하여 종속성을 적절히 테스트합니다. 
 
 ### <a name="check-deployment-sequence"></a>배포 시퀀스 확인
 
-대부분의 배포 오류는 예상치 않은 시퀀스로 리소스가 배포될 때 발생합니다. 이러한 오류는 종속성이 올바르게 설정되지 않은 경우 발생합니다. 한 리소스가 다른 리소스에 대한 값을 사용하려고 하는데 다른 리소스가 아직 존재하지 않습니다. 배포 작업의 순서를 보려면 다음을 수행합니다.
+대부분의 배포 오류는 예상치 않은 시퀀스로 리소스가 배포될 때 발생합니다. 이러한 오류는 종속성이 올바르게 설정되지 않은 경우 발생합니다. 필요한 종속성이 없는 경우에는 한 리소스가 다른 리소스에 대한 값을 사용하려고 하는데 다른 리소스가 아직 존재하지 않습니다. 리소스를 찾을 수 없다는 오류가 표시됩니다. 각 리소스에 대한 배포 시간이 다를 수 있기 때문에 이러한 유형의 오류가 일시적으로 발생할 수 있습니다. 예를 들어 리소스를 배포하려는 첫 번째 시도는 필요한 리소스가 시간 내에 임의로 완료되면 성공할 수 있습니다. 그러나 두 번째 시도는 필요한 리소스가 시간 내에 완료되지 않으면 실패하게 됩니다. 
+
+하지만 필요하지 않은 종속성은 설정하지 않는 것이 좋습니다. 불필요한 종속성이 있으면 서로 종속되지 않은 리소스가 동시에 배포되는 것을 막기 때문에 배포 시간이 길어집니다. 또한 배포를 방해하는 순환 종속성을 만들 수 있습니다. [reference](resource-group-template-functions.md#reference) 함수는 리소스가 동일한 템플릿에 배포되는 경우 함수에 매개 변수로 지정하는 리소스에 암시적 종속성을 만듭니다. 따라서 **dependsOn** 속성에 지정된 종속성보다 많은 종속성을 가질 수 있습니다. [resourceId](resource-group-template-functions.md#resourceid) 함수는 암시적 종속성을 만들지 않거나 리소스가 존재하는지를 확인합니다.
+
+종속성 문제가 발생하는 경우 리소스 배포 순서를 간파할 필요가 있습니다. 배포 작업의 순서를 보려면 다음을 수행합니다.
 
 1. 리소스 그룹에 대한 배포 기록을 선택합니다.
 
@@ -474,14 +609,38 @@ Message: The requested tier for resource '<resource>' is currently not available
 
    ![병렬 배포](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
 
-   다음 이미지는 동시에 배포되지 않은&3;개의 저장소 계정을 보여 줍니다. 두 번째 저장소 계정은 첫 번째 저장소 계정에 종속된 것으로 표시되고 세 번째 저장소 계정은 두 번째 저장소 계정에 종속됩니다. 따라서 다음 저장소 계정이 시작되기 전에 첫 번째 저장소 계정이 시작, 승인, 완료됩니다.
+   다음 이미지는 동시에 배포되지 않은&3;개의 저장소 계정을 보여 줍니다. 두 번째 저장소 계정은 첫 번째 저장소 계정에 종속되고 세 번째 저장소 계정은 두 번째 저장소 계정에 종속됩니다. 따라서 다음 저장소 계정이 시작되기 전에 첫 번째 저장소 계정이 시작, 승인, 완료됩니다.
 
    ![순차 배포](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
 
-배포 이벤트에서 한 리소스가 예상보다 빨리 시작했는지 확인합니다. 그런 경우 이 리소스에 대한 종속성을 확인합니다.
+실제 시나리오는 훨씬 더 복잡할 수 있지만 동일한 기법을 사용하여 각 리소스에 대해 배포가 시작되고 완료되는 시기를 검색할 수 있습니다. 시퀀스가 예상한 것과 다른지 배포 이벤트를 살펴봅니다. 그런 경우 이 리소스에 대한 종속성을 다시 평가합니다.
+
+Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종속성을 식별합니다. 순환 종속성이 존재한다고 구체적으로 언급하는 오류 메시지가 반환됩니다. 순환 종속성을 해결하려면:
+
+1. 템플릿에서 순환 종속성 내에 식별된 리소스를 찾습니다. 
+2. 해당 리소스에 대해 **dependsOn** 속성 및 **reference** 함수가 사용되었는지 검토하여 어떤 리소스에 종속되는지 확인합니다. 
+3. 해당 리소스를 검토하여 어떤 리소스에 종속되는지 확인합니다. 원래 리소스에 종속되는 리소스를 확인할 때까지 종속성을 추적합니다.
+5. 순환 종속성에 관련된 리소스의 경우 **dependsOn** 속성이 사용된 부분을 신중하게 모두 검토하여 필요하지 않은 종속성이 있는지 식별합니다. 그러한 종속성을 제거합니다. 종속성이 필요한지 확신이 안되면 해당 종속성을 제거해 봅니다. 
+6. 템플릿을 다시 배포합니다.
+
+**dependsOn** 속성에서 값을 제거하면 템플릿을 배포할 때 오류가 발생할 수 있습니다. 오류가 발생하면 해당 종속성을 템플릿에 다시 추가합니다. 
+
+이러한 방법으로 순환 종속성 문제가 해결되지 않으면 일부 배포 논리를 자식 리소스(예: 확장 또는 구성 설정)로 이동하는 것이 좋습니다. 순환 종속성에 관련된 리소스를 배포한 후에 자식 리소스를 배포하도록 구성합니다. 예를 들어 두 개의 가상 컴퓨터를 배포하지만 각 컴퓨터에 서로를 참조하는 속성을 설정해야 한다고 가정합니다. 이런 경우 다음과 같은 순서로 배포할 수 있습니다.
+
+1. vm1
+2. vm2
+3. vm1의 확장은 vm1 및 vm2에 종속됩니다. 이 확장은 vm2에서 얻은 값을 vm1에 설정합니다.
+4. vm2의 확장은 vm1 및 vm2에 종속됩니다. 이 확장은 vm1에서 얻은 값을 vm2에 설정합니다.
+
+동일한 방식이 App Service 앱에 적합합니다. 구성 값을 앱 리소스의 자식 리소스로 이동하는 것이 좋습니다. 두 개의 웹앱을 다음과 같은 순서로 배포할 수 있습니다.
+
+1. webapp1
+2. webapp2
+3. webapp1에 대한 구성이 webapp1 및 webapp2에 종속됩니다. webapp2의 값을 사용하는 앱 설정이 포함됩니다.
+4. webapp2에 대한 구성이 webapp1 및 webapp2에 종속됩니다. webapp1의 값을 사용하는 앱 설정이 포함됩니다.
 
 ## <a name="troubleshooting-other-services"></a>기타 서비스 문제 해결
-이전 배포 오류 코드로 문제를 해결하는 데 도움이 되지 않는 경우 오류가 발생 한 특정 Azure 서비스에 대한 좀 더 자세한 문제 해결 지침을 검색할 수 있습니다.
+앞의 배포 오류 코드가 문제를 해결하는 데 도움이 되지 못하는 경우에는 각 Azure 서비스에 대한 자세한 문제 해결 지침을 찾을 수 있습니다.
 
 다음 표에는 가상 컴퓨터에 대한 문제 해결 항목이 나와 있습니다.
 
@@ -512,10 +671,10 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 ## <a name="next-steps"></a>다음 단계
 * 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
-* 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](resource-manager-troubleshoot-deployments-portal.md)를 참조하세요.
+* 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

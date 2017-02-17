@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
+ms.sourcegitcommit: 1f7ec5d53512dcfbff17269802c8889eae0ad744
+ms.openlocfilehash: 5dd69a0b9357a601070765817a814dae3e7e5c05
 
 
 ---
@@ -34,6 +34,11 @@ Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니�
 | [스윙 마이그레이션](#swing-migration) |두 개의 서버가 있는 경우 서버 중 하나를 새 릴리스 또는 구성으로 준비하고, 준비가 완료되면 활성 서버를 변경할 수 있습니다. |
 
 필요한 사용 권한은 [업그레이드에 필요한 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
+
+> [!NOTE]
+> 새 Azure AD Connect 서버를 사용하여 변경 내용을 Azure AD에 동기화하기 시작하면 DirSync 또는 Azure AD Sync를 사용하도록 롤백하지 않아야 합니다. Azure AD Connect에서 DirSync 및 Azure AD Sync를 포함하여 레거시 클라이언트로 다운그레이드하는 기능은 지원되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다. 
+> 
+> 
 
 ## <a name="in-place-upgrade"></a>전체 업그레이드
 전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 이동하는 경우에 작동합니다. FIM과 Azure AD Connector를 사용하는 솔루션 또는 DirSync에는 작동하지 않습니다.
@@ -76,7 +81,7 @@ Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니�
 * 동일한 선택적 기능(예: 암호 동기화 및 비밀번호 쓰기 저장)
 
 **동기화 규칙 이동**  
- 사용자 지정 동기화 규칙을 이동하려면 다음을 수행합니다.
+사용자 지정 동기화 규칙을 이동하려면 다음을 수행합니다.
 
 1. 활성 서버에서 **동기화 규칙 편집기** 를 엽니다.
 2. 사용자 지정 규칙을 선택합니다. **내보내기**를 클릭합니다. 그러면 메모장 창이 열립니다. PS1 확장명으로 임시 파일을 저장합니다. 이렇게하면 PowerShell 스크립트가 됩니다. ps1 파일을 준비 서버에 복사합니다.  
@@ -91,6 +96,6 @@ Azure AD Connect를 업그레이드하기 위한 몇 가지 전략이 있습니�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

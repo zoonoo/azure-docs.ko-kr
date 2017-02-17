@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage에 유지되는 메시지 읽기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 3: 메시지 모니터링 | Microsoft Docs"
 description: "장치-클라우드 메시지가 Azure Table Storage에 기록될 때 해당 메시지를 모니터링합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: fc9090bd9d2dd621767c23f3cfb76dcc88b66a71
-ms.openlocfilehash: d33fa57da8a914cdcad0ee269b8dc105d1a5e7f2
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 5100e6dbd74095f419c1017a3784fac547bf200b
 
 
 ---
@@ -78,6 +78,6 @@ Edison을 클라우드의 IoT Hub에 성공적으로 연결했고 깜빡이는 �
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub 직접 메서드(C#) 사용 | Microsoft 문서"
-description: "이 자습서는 직접 메서드를 사용하는 방법을 보여줍니다."
+title: "Azure IoT Hub 직접 메서드(.NET/Node) 사용 | Microsoft Docs"
+description: "Azure IoT Hub 직접 메서드를 사용하는 방법입니다. Node.js용 Azure IoT 장치 SDK를 사용하여 직접 메소드를 포함한 시뮬레이션된 장치 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메소드를 호출하는 서비스 앱을 구현합니다."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 
 
 ---
-# <a name="tutorial-use-direct-methods-c"></a>자습서: 직접 메서드(C#) 사용
+# <a name="use-direct-methods-netnode"></a>직접 메서드 사용(.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-이 자습서의 끝 부분에 .NET 및 Node.js 콘솔 응용 프로그램이 제공됩니다.
+이 자습서의 끝 부분에 .NET 및 Node.js 콘솔 앱이 제공됩니다.
 
-* **CallMethodOnDevice.sln** - 백 엔드에서 실행되는 .NET 앱으로 시뮬레이션된 장치 앱에서 메서드를 호출하고 응답을 표시합니다.
+* **CallMethodOnDevice.js**: .NET 백엔드 앱으로 시뮬레이션된 장치 앱에서 메서드를 호출하고 응답을 표시합니다.
 * **SimulatedDevice.js** - 앞에서 만든 장치 ID로 IoT Hub에 연결하고 클라우드에서 호출하는 메서드에 응답하는 장치를 시뮬레이션하는 Node.js 앱입니다.
 
 > [!NOTE]
@@ -44,7 +44,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
-이 섹션에서는 백 엔드에서 호출한 메서드에 응답하는 Node.js 콘솔 앱을 만듭니다.
+이 섹션에서는 솔루션 백 엔드에서 호출한 메서드에 응답하는 Node.js 콘솔 앱을 만듭니다.
 
 1. **simulateddevice**라는 빈 폴더를 새로 만듭니다. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
@@ -65,7 +65,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 장치 클라이언트를 만듭니다. **{장치 연결 문자열}**을 *장치 ID 만들기* 섹션에서 생성한 연결 문자열로 변경합니다.
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **DeviceClient** 인스턴스를 만듭니다. **{장치 연결 문자열}**을 *장치 ID 만들기* 섹션에서 생성한 장치 연결 문자열로 변경합니다.
    
     ```
     var connectionString = '{device connection string}';
@@ -111,8 +111,8 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **CallMethodOnDevice**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10]
-2. [솔루션 탐색기]에서 **CallMethodOnDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
-3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] NuGet 패키지 및 해당 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
+2. [솔루션 Explorer]에서 **CallMethodOnDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
+3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
    
     ![NuGet 패키지 관리자 창][11]
 
@@ -120,7 +120,7 @@ ms.openlocfilehash: f2af421140f4f6640578a372993c2553f8c590a4
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 IoT Hub의 연결 문자열로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -183,7 +183,7 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -201,6 +201,6 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

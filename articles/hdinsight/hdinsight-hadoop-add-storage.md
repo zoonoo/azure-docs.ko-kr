@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 697580da9d7c836655ec64745cfb211beabb84f2
-ms.openlocfilehash: 941d5a8dba421dd5f59bb61af35ac654e42d5910
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
 
 
 ---
 
 # <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>HDInsight에 추가 Azure 저장소 계정 추가
 
-스크립트 동작을 사용하여 추가 Azure 저장소 계정을 기존 HDInsight 클러스터에 추가하는 방법에 대해 알아봅니다.
+스크립트 동작을 사용하여 추가 Azure Storage 계정을 운영 체제로 Linux를 사용하는 기존 HDInsight 클러스터에 추가하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
 > 이 문서의 내용은 클러스터를 만든 후 클러스터에 추가 저장소를 추가하는 방법에 대한 것입니다. 클러스터를 만드는 동안 추가 저장소 계정을 추가하는 방법에 대한 내용은 [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage) 문서의 __추가 저장소 사용__ 섹션을 참조하세요.
@@ -134,6 +134,6 @@ Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __저장�
 이 문서에서는 기존 HDInsight 클러스터에 추가 저장소 계정을 추가하는 방법을 살펴보았습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)를 참조하세요.
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

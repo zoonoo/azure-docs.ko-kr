@@ -1,5 +1,5 @@
 ---
-title: "웹 및 작업자 역할을 Service Fabric 상태 비저장 서비스로 변환하기 위한 가이드 | Microsoft Docs"
+title: "Azure Cloud Services 앱을 마이크로 서비스로 변환 | Microsoft Docs"
 description: "이 가이드에서는 클라우드 서비스에서 서비스 패브릭으로 마이그레이션할 수 있도록 클라우드 서비스 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
 ## <a name="web-role-to-stateless-service"></a>웹 역할에서 상태 비저장 서비스
 작업자 역할과 마찬가지로 웹 역할도 상태 비저장 작업을 나타내므로 개념적으로 서비스 패브릭 상태 비저장 서비스에 매핑할 수 있습니다. 그러나 웹 역할과 달리 서비스 패브릭은 IIS를 지원하지 않습니다. 웹 역할의 웹 응용 프로그램을 상태 비저장 서비스에 마이그레이션하려면 자체 호스팅될 수 있고 ASP.NET Core 1과 같은 IIS 또는 System.Web에 의존하지 않는 웹 프레임워크로 이동이 필요합니다.
 
-| **응용 프로그램 ** | **지원됨** | **마이그레이션 경로** |
+| **응용 프로그램** | **지원됨** | **마이그레이션 경로** |
 | --- | --- | --- |
 | ASP.NET 웹 양식 |아니요 |ASP.NET Core 1 MVC로 변환 |
 | ASP.NET MVC |마이그레이션 사용 |ASP.NET Core 1 MVC로 업그레이드 |
@@ -263,6 +263,6 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "장치 구성 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 1: 장치 구성 | Microsoft Docs"
 description: "최초 사용을 위해 Raspberry Pi 3을 구성하고 Raspberry Pi 하드웨어에 최적화된 무료 운영 체제인 Raspbian OS를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: abe7c8b00648a101ea8255a3a6a1091a6fcccc46
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 4fdd8de3a24bf521b8ea13416900e69d24e1b62d
 
 
 ---
@@ -117,6 +117,6 @@ LED 극성이 중요합니다. 이 극성 설정은 일반적으로 활성(낮�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

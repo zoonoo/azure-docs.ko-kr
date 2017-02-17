@@ -4,7 +4,7 @@ description: "Azure 백업 성능 문제의 원인을 진단하는 데 도움이
 services: backup
 documentationcenter: 
 author: genlin
-manager: jimpark
+manager: cshepard
 editor: 
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup

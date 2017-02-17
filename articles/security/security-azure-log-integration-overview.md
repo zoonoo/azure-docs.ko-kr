@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure 로그 통합 소개 | Microsoft Docs"
+title: "Azure 리소스에서 SIEM 시스템으로 로그 통합 | Microsoft Docs"
 description: "Azure 로그 통합, 주요 기능 및 작동 원리에 대해 알아봅니다."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 68c0e3c73b3192aedc18ec3588f1201b3aa36f35
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 62b5469d06974dfbe1b243091d34e1141416c971
 
 
 ---
@@ -55,6 +55,6 @@ Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mai
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: 98688632c6aaba14b71923dc217f6b0368ae76d8
+ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
+ms.openlocfilehash: 4fa808b50b56122976cc176c55937f9443f31097
 
 
 ---
-# <a name="install-and-use-spark-on-hdinsight-hadoop-clusters-using-script-action"></a>스크립트 작업을 사용하여 HDInsight Hadoop 클러스터에 Spark 설치 및 사용
+# <a name="install-and-use-spark-on-windows-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터에 Spark 설치 및 사용
+
 > [!IMPORTANT]
-> 이 문서는 이제 사용되지 않습니다. 이제 HDInsight는 Windows 기반 클러스터를 위한 최고급 클러스터 형식으로 Spark를 제공하므로 스크립트 작업을 사용하여 Hadoop 클러스터를 수정하지 않고 Spark 클러스터를 직접 만들 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다.  다른 버전의 Spark를 설치하려면 스크립트 작업을 사용할 수 있습니다. HDInsight는 샘플 스크립트 작업 스크립트를 제공합니다.
+> 이 문서는 이제 사용되지 않습니다. 이제 HDInsight는 Linux 기반 클러스터를 위한 최고급 클러스터 형식으로 Spark를 제공하므로 스크립트 작업을 사용하여 Hadoop 클러스터를 수정하지 않고 Spark 클러스터를 직접 만들 수 있습니다. 또한 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 스크립트 작업을 사용하여 Windows 기반 HDInsight에서 Spark를 설치하는 방법 및 HDInsight 클러스터에서 Spark 쿼리를 실행하는 방법을 알아봅니다.
 
@@ -297,6 +298,6 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

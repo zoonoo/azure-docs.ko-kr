@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs"
-description: "이 자습서에서는 Azure 키 자격 증명 모음과 함께 Microsoft Azure 저장소에 대 한 클라이언트 쪽 암호화를 사용하여 Blob를 암호화 및 암호 해독하는 방법을 단계별로 안내합니다."
+title: "자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs"
+description: "Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다."
 services: storage
 documentationcenter: 
 author: adhurwit
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6ebe1a0afb09f0d05e720a0e7afcf135011de7
-ms.openlocfilehash: 401f4a5c8f397b056f814aefe4212e487dfee412
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 0c33742a0212e670072a947a2d2ab8304c77b973
 
 
 ---
@@ -42,7 +42,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.
 
-1. Azure 저장소 클라이언트 SDK는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
+1. Azure 저장소 클라이언트 SDK는&1;회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
 2. 고객 데이터는 이 CEK를 사용하여 암호화됩니다.
 3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure 키 자격 증명 모음에 저장됩니다. 저장소 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
 4. 그런 다음 암호화된 데이터를 Azure 저장소 서비스에 업로드합니다.
@@ -240,6 +240,6 @@ Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure St
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

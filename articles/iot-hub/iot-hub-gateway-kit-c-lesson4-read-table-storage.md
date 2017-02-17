@@ -1,5 +1,5 @@
 ---
-title: "Azure Table Storage에 유지되는 메시지 읽기 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 단원 4: 테이블 저장소 | Microsoft Docs"
 description: "Intel NUC의 메시지를 IoT Hub에 저장하고 Azure Table Storage에 기록한 다음 클라우드에서 읽습니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: a1007ac2db53c2c378cf4312b73765ef490e0ad6
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
 
 
 ---
@@ -76,9 +76,9 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
    ![구성](media/iot-hub-gateway-kit-lessons/lesson4/config_azure.png)
 
-2. 가져온 Azure 저장소 연결 문자열로 `[Azure storage connection string]`을(를) 대체합니다.
+2. `[Azure storage connection string]`을 가져온 Azure Storage 연결 문자열로 바꿉니다.
 
-   `[IoT hub connection string]`은(는) 3단원의 [Azure IoT Hub에서 메시기 읽기](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) 섹션에서 이미 대체되었어야 합니다.
+   `[IoT hub connection string]`은&3;단원의 [Azure IoT Hub에서 메시기 읽기](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) 섹션에서 이미 바꿨어야 합니다.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Azure Table Storage에서 메시지 읽기
 
@@ -93,7 +93,7 @@ gulp run --table-storage
 
 보내고 받는 메시지는 모두 호스트 시스템의 동일한 콘솔 창에 즉시 표시됩니다. 샘플 응용 프로그램 인스턴스는 40초 후 자동으로 종료됩니다.
 
-   ![Gulp 읽기](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
+   ![gulp 읽기](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
 
 
 ## <a name="summary"></a>요약
@@ -101,6 +101,6 @@ gulp run --table-storage
 샘플 코드를 실행하여 Azure 함수 응용 프로그램에서 저장한 Azure Table Storage의 메시지를 읽었습니다.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

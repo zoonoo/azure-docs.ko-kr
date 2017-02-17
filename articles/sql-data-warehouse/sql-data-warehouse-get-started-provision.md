@@ -102,6 +102,6 @@ Transact-SQL을 사용하여 방화벽 규칙을 구성할 수도 있습니다. 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

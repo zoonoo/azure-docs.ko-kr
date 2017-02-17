@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/07/2016
+ms.date: 12/1/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14f96cddea77bb0e91e1f79c66e3681d7a1dc3e0
+ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
+ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
 
 
 ---
@@ -109,11 +109,11 @@ ms.openlocfilehash: 14f96cddea77bb0e91e1f79c66e3681d7a1dc3e0
     다시 시작을 진행하는 동안 UI에 대한 연결이 끊어집니다. 주기적으로 UI를 새로 고쳐서 다시 시작을 모니터링할 수 있습니다. 또는 Hyper-V 관리자를 통해 장치 다시 시작 상태를 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
+[StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-virtual-array-manager-service-administration.md)하는 방법을 알아봅니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

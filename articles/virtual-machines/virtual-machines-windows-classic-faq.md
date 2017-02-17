@@ -1,5 +1,5 @@
 ---
-title: "클래식 VM에 대한 질문과 대답 | Microsoft Docs"
+title: "클래식 Windows VM에 대한 질문과 대답 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: eae3601dd9eaea34859d507b873291df5d0c6fb1
+ms.sourcegitcommit: 872965ae70a0f0938f190a99832104cdfed25ef9
+ms.openlocfilehash: d05b0ff22fc20a6a049cc85cd0e401c680364820
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: eae3601dd9eaea34859d507b873291df5d0c6fb1
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

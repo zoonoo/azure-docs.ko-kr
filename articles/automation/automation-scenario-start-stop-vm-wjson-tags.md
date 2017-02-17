@@ -1,5 +1,5 @@
 ---
-title: "JSON 형식 태그를 사용하여 Azure VM 시작 및 종료 일정 만들기 | Microsoft Docs"
+title: "JSON 형식 태그를 사용하여 Azure VM 상태 예약 | Microsoft Docs"
 description: "이 문서에서는 태그에 JSON 문자열을 사용하여 VM 시작 및 종료 예약을 자동화하는 방법을 보여 줍니다."
 services: automation
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2016
+ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
+ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
+ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
 이러한 Runbook은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 사용하여 인증합니다.
 
 ## <a name="download-the-runbooks-for-the-scenario"></a>시나리오에 대한 Runbook 다운로드
-이 시나리오는 이 프로젝트에 대한 [TechNet 갤러리](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) 또는 [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) 저장소에서 다운로드할 수 있는 4개의 PowerShell 워크플로 Runbook으로 구성되어 있습니다.
+이 시나리오는 이 프로젝트에 대한 [TechNet 갤러리](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) 또는 [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) 저장소에서 다운로드할 수 있는&4;개의 PowerShell 워크플로 Runbook으로 구성되어 있습니다.
 
 | Runbook | 설명 |
 | --- | --- |
@@ -103,11 +103,11 @@ Runbook은 일정이 연결된 가상 컴퓨터를 반복하고 어떤 조치를
 
    ![PowerShell의 GetSystemTimeZones](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * 요일은 0에서 6의 숫자 값으로 표시됩니다. 값 0은 일요일입니다.
+   * 요일은&0;에서&6;의 숫자 값으로 표시됩니다. 값&0;은 일요일입니다.
    * 시작 시간은 **S** 특성으로 표시되고 해당 값은 24시간 형식입니다.
    * 끝 또는 종료 시간은 **E** 특성으로 표시되고 해당 값은 24시간 형식입니다.
 
-     **S** 및 **E** 특성 값이 각각 0인 경우 가상 컴퓨터는 평가 시의 현재 상태를 유지합니다.
+     **S** 및 **E** 특성 값이 각각&0;인 경우 가상 컴퓨터는 평가 시의 현재 상태를 유지합니다.
 3. 특정 요일에 대한 평가를 생략하려면 해당 요일의 섹션을 추가하지 마세요. 다음 예제에서는 월요일만 평가되고 다른 요일은 무시됩니다.
 
     ```json
@@ -244,6 +244,6 @@ Azure 포털에서 Test-ResourceSchedule Runbook 작업의 세부 정보를 보�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

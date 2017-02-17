@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치 풀의 Linux 노드 | Microsoft Docs"
+title: "풀의 Linux 계산 노드 프로비전 - Azure Batch | Microsoft Docs"
 description: "Azure 배치의 Linux 가상 컴퓨터 풀에서 병렬 계산 워크로드를 처리하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: eb041d3ee7e097a05bcaeb57f170e26652fa5551
-ms.openlocfilehash: 251c454b0502746817ad5c97f1b3367eba98ac92
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 85aa18c7eab56c390dc9a9f7865a3468a43739f2
 
 
 ---
@@ -296,7 +296,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-다음은 4개의 Linux 노드를 포함하는 풀에 대한 이전 코드의 샘플 출력입니다.
+다음은&4;개의 Linux 노드를 포함하는 풀에 대한 이전 코드의 샘플 출력입니다.
 
 ```
 Password:
@@ -351,6 +351,6 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

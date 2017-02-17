@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 727891d92c047abe405415ea544db6f77a0db9f9
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c214e37fb4211e8a2686a2beb18cf84ee77d5783
 
 
 ---
@@ -44,7 +44,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 단어에 그림을 넣으려면:
 
-* 배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](../azure-resource-manager/resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [크기 조정](web-sites-scale.md) 설정, SQL Database가 있습니다. 
+* 배포 아키텍처는&3;가지 환경(또는 Azure의 [리소스 그룹](../azure-resource-manager/resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [크기 조정](web-sites-scale.md) 설정, SQL Database가 있습니다. 
 * 각 환경을 별도로 관리할 수 있습니다. 서로 다른 구독에도 존재할 수 있습니다.
 * 스테이징과 프로덕션은 같은 앱 서비스 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
 * 마스터 분기점으로의 커밋이 (프로덕션 데이터를 사용하여) 스테이징 슬롯에서 확인될 때 확인된 스테이징 앱은 [가동 중지 시간 없이](web-sites-staged-publishing.md)프로덕션 슬롯으로 교체됩니다.
@@ -73,7 +73,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 > * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
 > * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 > 
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -161,7 +161,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 ![](./media/app-service-agile-software-development/test-1-github-view.png)
 
-3 개의 별도 리소스 그룹에서 6개의 웹앱(한 그룹에 2개의 응용 프로그램)이 있어야 합니다.
+3 개의 별도 리소스 그룹에서&6;개의 웹앱(한 그룹에&2;개의 응용 프로그램)이 있어야 합니다.
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
 
@@ -276,6 +276,6 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

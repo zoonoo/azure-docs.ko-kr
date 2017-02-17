@@ -1,5 +1,5 @@
 ---
-title: "Windows VM 이동 | Microsoft Docs"
+title: "Azure에서 Windows VM 리소스 이동 | Microsoft Docs"
 description: "Resource Manager 배포 모델에서 다른 Azure 구독 또는 리소스 그룹으로 Windows VM을 이동합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: cccbddd6993e3011e3e76bc84ffc212f3f8b1d55
 
 
 ---
@@ -66,6 +66,6 @@ VM을 이동하려면 여러 리소스를 이동해야 합니다. 지금 막 각
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

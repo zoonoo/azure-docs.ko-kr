@@ -1,10 +1,10 @@
 ---
 title: "논리 앱에서 SharePoint Online 커넥터 사용| Microsoft Docs"
-description: "논리 앱에서 Azure 앱 서비스 SharePoint Online 커넥터 사용을 시작합니다."
+description: "Logic Apps에서 SharePoint Online 커넥터 사용 시작"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76b6f627efdf189b873d9a6bdd722e73e837077d
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: c462c98e2ecef1afe62ef921265b8842b6ae717d
 
 
 ---
@@ -29,7 +29,7 @@ SharePoint 커넥터는 SharePoint에서 목록으로 작업하기 위한 방법
 > 
 > 
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>트리거 및 작업에 대한 정보
 SharePoint 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다. 
@@ -78,7 +78,7 @@ SharePoint 커넥터를 사용하려면 먼저 **연결** 을 만든 다음 이�
 
 1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다.   
    ![SharePoint 구성][1]  
-2.  **SharePoint Online - 파일을 만들 때**   
+2. **SharePoint Online - 파일을 만들 때**   
 3. **SharePoint Online에 로그인**을 선택합니다.   
    ![SharePoint 구성][2]    
 4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다.   
@@ -532,7 +532,7 @@ TablesList에 대한 필수 속성:
 | value |array |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
@@ -542,6 +542,6 @@ TablesList에 대한 필수 속성:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

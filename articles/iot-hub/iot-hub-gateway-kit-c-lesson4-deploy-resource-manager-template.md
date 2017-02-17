@@ -1,5 +1,5 @@
 ---
-title: "Azure 클라우드에 메시지 저장 및 클라우드에서 메시지 읽기 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 단원 4: 함수 앱 만들기 | Microsoft Docs"
 description: "Intel NUC의 메시지를 IoT Hub에 저장하고 Azure Table Storage에 기록한 다음 클라우드에서 읽습니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 73c5268ece75776a3c5007b612f84bd29cc7784d
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 3672804218dbbe3a545536b8c4baccb2b9171cdc
 
 
 ---
@@ -37,13 +37,13 @@ Azure Functions는 클라우드에서 _함수_(작은 코드)를 손쉽게 실�
 이 단원에서는 다음 내용을 배웁니다.
 
 - Azure Resource Manager를 사용하여 Azure 리소스를 배포하는 방법
-- Azure 함수 앱을 사용하여 IoT hub 메시지를 처리하고 이를 Azure Table Storage의 테이블에 쓰는 방법
+- Azure 함수 앱을 사용하여 IoT Hub 메시지를 처리하고 이를 Azure Table Storage의 테이블에 쓰는 방법
 
 ## <a name="what-you-need"></a>필요한 항목
 
 다음과 같은 이전 단원을 완료했어야 합니다.
 
-- [1단원: Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+- [1단원: Intel NUC를 IoT Gateway로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 - [2단원: 호스트 컴퓨터 및 Azure IoT Hub 준비](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
 - [3단원: SensorTag에서 메시지 수신 및 IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 
@@ -89,6 +89,6 @@ IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

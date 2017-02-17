@@ -1,6 +1,6 @@
 ---
-title: "학습 PowerShell 워크플로"
-description: "이 문서는 PowerShell과 PowerShell 워크플로 간의 중대한 차이를 이해하는 PowerShell에 익숙한 작성자의 간단한 설명으로 제공됩니다."
+title: "Azure Automation에 대한 PowerShell 워크플로 학습 | Microsoft Docs"
+description: "이 문서는 PowerShell에 익숙한 작성자가 PowerShell과 PowerShell 워크플로 간의 중대한 차이와 Automation Runbook에 적용되는 개념을 빠르게 이해하도록 하기 위해 제공됩니다."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,27 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: bwren
+ms.date: 01/23/2017
+ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
-ms.openlocfilehash: 3893d8508535ee605c3555d2ddf40d6f286d85fa
+ms.sourcegitcommit: 480a40bd5ecd58f11b10c27e7e0d2828bcae1f17
+ms.openlocfilehash: 50966ed518b79f2033680790432e29b0c9e7b289
 
 
 ---
-# <a name="learning-windows-powershell-workflow"></a>Windows PowerShell 워크플로 학습
-Azure 자동화의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 이미 PowerShell에 익숙한 사용자를 대상으로 작성되었고, runbook에서 사용하기 위해 PowerShell 스크립트를 PowerShell워크플로로 변환하는 경우 필요한 개념에 대해 간략히 설명합니다.  
+# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습 
+Azure 자동화의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 많은 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.  
 
 워크플로는 장기 실행 작업을 수행하거나 여러 장치 또는 관리 노드에서 여러 단계를 조정해야 하는 프로그래밍 방식으로 연결된 일련의 단계입니다. 워크플로는 일반적인 스크립트에 비해 여러 장치에서 작업을 동시에 수행하고 오류로부터 자동으로 복구할 수 있다는 장점이 있습니다. Windows PowerShell 워크플로는 Windows Workflow Foundation을 활용하는 Windows PowerShell 스크립트입니다. 워크플로는 Windows PowerShell 구문으로 작성되고 Windows PowerShell에서 시작되지만 Windows Workflow Foundation에서 처리됩니다.
 
 이 기사의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx)을 참조하세요.
-
-## <a name="types-of-runbook"></a>Runbook의 유형
-Azure 자동화의 runbook에는 *PowerShell 워크플로*, *PowerShell* 및 *그래픽*의 세 유형이 있습니다.  runbook을 만들 때, runbook의 유형을 정할 수 있고, 한번 만들어진 runbook은 유형을 변경할 수 없습니다.
-
-PowerShell 워크플로 runbook 및 PowerShell runbook은 Azure 자동화의 텍스트 편집기 또는 PowerShell ISE같은 오프라인 편집기를 사용하여 PowerShell 코드를 직접 작업하려는 사용자에게 적합합니다. PowerShell 워크플로 runbook을 만드는 경우 이 문서의 정보를 이해해야 합니다.
-
-그래픽 runbook은 동일한 활동 및 cmdlets를 사용하지만 근본적인 PowerShell 워크플로의 복잡성을 숨겨주는 그래픽 인터페이스를 사용합니다.  이 문서의 개념(예: 검사점과 병렬 실행)은 그래픽 runbook에도 적용되지만, 사용자는 자세한 구문을 걱정할 필요는 없습니다.
 
 ## <a name="basic-structure-of-a-workflow"></a>워크플로의 기본 구조
 PowerShell 스크립트를 PowerShell 워크플로로 변환하는 첫 단계는 **워크플로** 키워드로 둘러싸는 것입니다.  워크플로는 **Workflow** 키워드와 그 뒤에 중괄호로 묶인 스크립트의 본문으로 시작됩니다. 워크플로 이름은 다음 구문과 같이 **Workflow** 키워드를 따릅니다.
@@ -204,7 +197,6 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 > [!NOTE]
 > 자식 runbook을 병렬로 실행하는 것은 추천하지 않는 이유는 결과물이 신뢰할 수 없기 때문입니다.  자식 runbook에서의 출력은 때때로 나타나지 않을 수도 있고, 한 자식 runbook의 설정이 다른 병렬 자식 runbook에 영향을 미칠 수 있습니다.
 >
->
 
 ## <a name="checkpoints"></a>검사점
 *검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로 처음부터 시작하는 게 아니라 해당 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다.
@@ -271,6 +263,6 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Content Delivery Network 규칙 엔진 기능 | Microsoft Docs"
-description: "이 항목에서는 규칙 엔진 일치 조건 및 기능에 대해 설명합니다."
+title: "Azure CDN 규칙 엔진 기능 | Microsoft Docs"
+description: "Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서"
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: a3d8199a9d5d067a4da1e1d40ff99bebc40a5097
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
 
 
 ---
 
-# <a name="features-for-azure-content-delivery-network--cdn-rules-engine"></a>Azure CDN(Content Delivery Network) 규칙 엔진 기능
+# <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure Content Delivery Network(CDN) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
 
 규칙의 세 번째 부분은 기능을 다루고 있습니다. 기능은 일치 조건 집합으로 식별되는 요청 유형에 적용할 작업 유형을 정의합니다.
@@ -207,9 +207,11 @@ Prebuf 초|이 옵션을 에지 서버에서 대역폭을 제한할 때까지 �
 **기본 동작:**
 
 - **HTTP Large:** 사용 안 함
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###<a name="cache-control-header-treatment"></a>Cache-Control 헤더 처리
 **목적:** 외부 Max-Age 기능이 활성 상태일 때 에지 서버의 Cache-Control 헤더 생성을 제어합니다.
 
@@ -545,7 +547,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 Cache-Control:no-ca
 --|--
 사용|에지 서버에서 원본 서버로부터 자산을 다시 가져옵니다.
 사용 안 함|기본 동작을 복원합니다. 기본 동작은 요청 시 유효한 캐시 자산을 제공하는 것입니다.
-이 기능은 올바른 캐싱 및 콘텐츠 배달에는 필요하지 않지만 해결 방법으로는 유용할 수 있습니다. 예를 들어 원본 서버의 동적 콘텐츠 생성기로 인해 실수로 0바이트 응답을 에지 서버로 보낼 수 있습니다. 이러한 유형의 응답은 일반적으로 에지 서버에서 캐시합니다. 0바이트 응답이 이러한 콘텐츠에 대해 유효한 응답이 아님을 알고 있는 경우  
+이 기능은 올바른 캐싱 및 콘텐츠 배달에는 필요하지 않지만 해결 방법으로는 유용할 수 있습니다. 예를 들어 원본 서버의 동적 콘텐츠 생성기로 인해 실수로 0바이트 응답을 에지 서버로 보낼 수 있습니다. 이러한 유형의 응답은 일반적으로 에지 서버에서 캐시합니다. 0바이트 응답이 이러한 콘텐츠에 대해 유효한 응답이 아님을 알고 있는 경우 
 
 이 기능을 통해 이러한 유형의 자산을 클라이언트에 제공하지 못하도록 방지할 수 있습니다.
 
@@ -560,7 +562,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 Cache-Control:no-ca
 
 주요 정보:
 
-- 원본 No-Cache 무시 기능도 활성화합니다. 해당 기능을 사용할 수 없으면 비 200 확인 응답이 캐시되지 않을 수 있습니다.
+- 원본 No-Cache 무시 기능도 활성화합니다. 해당 기능을 사용할 수 없으면 비&200; 확인 응답이 캐시되지 않을 수 있습니다.
 - 이 기능에 대한 유효한 상태 코드 집합은 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 및 505입니다.
 - 이 기능은 200 확인 상태 코드를 생성하는 응답의 캐싱을 비활성화하는 데 사용할 수 없습니다.
 
@@ -841,7 +843,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 주요 정보:
 
-- 이 값은 0을 포함한 양의 정수로 지정합니다.
+- 이 값은&0;을 포함한 양의 정수로 지정합니다.
 - 지정된 값에 쉼표 또는 마침표를 포함하면 안됩니다.
 
 **기본값:** 10,000개 요청
@@ -966,7 +968,28 @@ URL 다시 쓰기  | 요청 URL을 다시 씁니다.
  대상  |위의 요청을 다시 쓸 상대 URL을 다음과 같이 정의합니다. <br/>    1. 원본 서버를 식별하는 콘텐츠 액세스 지점 선택 <br/>    2. 다음을 사용하여 상대 경로 정의 <br/>        - 정규식 패턴 <br/>        - HTTP 변수 <br/> <br/> $_n_을 사용하여 원본 패턴에서 캡처한 값을 대상 패턴으로 대체합니다. 여기서 _n_은 캡처한 순서에 따라 값을 식별합니다. 예를 들어 $1은 원본 패턴에서 캡처한 첫 번째 값을 나타내고, $2는 두 번째 값을 나타냅니다. 
  이 기능을 사용하면 에지 서버에서 기존의 리디렉션을 수행하지 않고도 URL을 다시 쓸 수 있습니다. 즉 요청자가 다시 쓴 URL을 요청한 것과 동일한 응답 코드를 받게 됩니다.
 
-**샘플 시나리오**
+**샘플 시나리오 1**
+
+이 예제에서는 기본 CDN URL(http://marketing.azureedge.net/brochures)로 확인되는 에지 CNAME URL을 리디렉션하는 방법을 보여 줍니다.
+
+요청이 유효하면 기본 에지 CNAME URL(http://MyOrigin.azureedge.net/resources/)으로 리디렉션됩니다.
+
+이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**샘플 시나리오 2**
+
+이 예제에서는 정규식을 사용하여 에지 CNAME URL을 대문자에서 소문자로 리디렉션하는 방법을 보여 줍니다.
+
+이 URL 리디렉션은 다음 구성을 통해 수행할 수 있습니다. ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**주요 정보:**
+
+- URL 다시 쓰기 기능은 다시 쓸 요청 URL을 정의합니다. 따라서 추가적인 일치 조건이 필요하지 않습니다. 일치 조건을 "Always"로 정의했지만 "marketing" 고객 원본의 "brochures" 폴더를 가리키는 요청만 다시 씁니다.
+
+- 요청에서 캡처한 URL 세그먼트는 "$1"을 통해 새 URL에 추가됩니다.
+
+
 
 ###<a name="compatibility"></a>호환성
 
@@ -998,6 +1021,6 @@ URL 다시 쓰기  | 요청 URL을 다시 씁니다.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

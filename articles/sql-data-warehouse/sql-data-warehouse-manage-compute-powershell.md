@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
 
 
 ---
@@ -29,16 +29,6 @@ ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-워크로드의 변화하는 요구를 충족시키도록 계산 리소스와 메모리를 확장하여 크기 조정을 실시합니다. 사용량이 많지 않은 시간 동안 리소스를 다시 조정하거나 계산 전체를 일시 중지하여 비용을 절감합니다.
-
-이 작업 컬렉션은 Azure 포털을 사용하여 다음을 수행합니다.
-
-* 계산 조정
-* 계산 일시 중지
-* 계산 다시 시작
-
-이에 대해 알아보려면 [계산 관리 개요][Manage compute overview]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Azure PowerShell 최신 버전 설치
@@ -141,6 +131,6 @@ $resultDatabase
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

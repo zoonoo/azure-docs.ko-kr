@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN에서 Azure Storage Blob 콘텐츠의 만료 관리 | Microsoft Docs"
+title: "Azure CDN에서 Azure Storage Blob의 만료 관리 | Microsoft Docs"
 description: "Azure CDN 캐싱의 Blob에 대한 TTL(Time-To-Live)을 제어하기 위한 옵션에 대해 알아봅니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
 
 
 ---
-# <a name="manage-expiration-of-azure-storage-blob-content-in-azure-cdn"></a>Azure CDN에서 Azure Storage Blob 콘텐츠의 만료 관리
+# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Azure CDN에서 Azure Storage Blob의 만료 관리
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET 또는 IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Storage Blob service](cdn-manage-expiration-of-blob-content.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
 [Azure Storage](../storage/storage-introduction.md#blob-storage)에서 [Blob 서비스](../storage/storage-introduction.md)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다.  TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다.  TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 에 의해 결정됩니다.
 
 > [!TIP]
-> Blob에 TTL을 설정하지 않을 수 있습니다.  이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
+> Blob에 TTL을 설정하지 않을 수 있습니다.  이 경우에 Azure CDN은 기본 TTL인&7;일을 자동으로 적용합니다.
 > 
 > Blob 및 다른 파일에 대한 액세스 속도를 가속하기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
 > 
@@ -100,7 +100,7 @@ class Program
 ## <a name="other-methods"></a>다른 방법
 * [Azure 명령줄 인터페이스](../xplat-cli-install.md)
   
-    Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다.  이 예제에서는 TTL을 1시간(3600초)으로 설정합니다.
+    Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다.  이 예제에서는 TTL을&1;시간(3600초)으로 설정합니다.
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -122,6 +122,6 @@ Blob의 TTL을 쉽게 확인할 수 있습니다.  브라우저 [개발자 도�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

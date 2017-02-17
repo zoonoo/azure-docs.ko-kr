@@ -1,6 +1,6 @@
 ---
-title: "cURL 및 Azure REST API를 사용하여 HDInsight에서 Linux 기반 Hadoop, HBase 또는 Storm 클러스터 만들기 | Microsoft 문서"
-description: "cURL, Azure 리소스 관리자 템플릿 및 Azure REST API를 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법을 알아봅니다. 클러스터 유형(Hadoop, HBase 또는 Storm)을 지정하거나 스크립트를 사용하여 사용자 지정 구성 요소를 설치할 수 있습니다."
+title: "cURL 및 REST를 사용하여 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+description: "cURL, Azure Resource Manager 템플릿 및 Azure REST API를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 클러스터 유형(Hadoop, HBase 또는 Storm)을 지정하거나 스크립트를 사용하여 사용자 지정 구성 요소를 설치할 수 있습니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,22 +16,19 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 491f8540e8e53f366327ed80caff2e1e360132fc
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a4dc3d4599cfe2c6dd7580c423987f6173a9c5ba
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-curl-and-the-azure-rest-api"></a>cURL 및 Azure REST API를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
+# <a name="create-hdinsight-clusters-using-curl-and-the-azure-rest-api"></a>cURL 및 Azure REST API를 사용하여 HDInsight 클러스터 만들기
 
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure REST API를 사용하면 Linux 기반 HDInsight 클러스터 등과 같은 새 리소스 생성을 포함하여 Azure 플랫폼에서 호스팅되는 관리 작업을 수행할 수 있습니다. 이 문서에서는 HDInsight 클러스터 및 관련 저장소를 구성하는 Azure 리소스 관리자 템플릿을 만들고 cURL을 사용하여 템플릿을 Azure REST API에 배치하여 새 HDInsight 클러스터를 만듭니다.
+Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소스 생성을 포함하여 Azure 플랫폼에서 호스트되는 관리 작업을 수행할 수 있습니다. 이 문서에서는 HDInsight 클러스터 및 관련 저장소를 구성하는 Azure 리소스 관리자 템플릿을 만들고 cURL을 사용하여 템플릿을 Azure REST API에 배치하여 새 HDInsight 클러스터를 만듭니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
->
-> 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
-
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -267,6 +264,11 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 이 예는 이 문서의 단계에서 사용됩니다. 문서 마지막의 *매개 변수* 섹션에서 자리표시자 **values** 의 값을, 클러스터에 사용할 값으로 교체해야 합니다.
 
+> [!IMPORTANT]
+> 이 템플릿에서는 HDInsight 클러스터에 대해 작업자 노드의 기본 개수(4)를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
+>
+> 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
+
 ## <a name="login-to-your-azure-subscription"></a>Azure 구독에 로그인
 
 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
@@ -412,6 +414,6 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

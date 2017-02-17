@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Ubuntu 16.04)에 대한 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 1: 도구 다운로드(Ubuntu) | Microsoft Docs"
 description: "Ubuntu에 Edison의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d230a064c61623564e575d987cf957de0b81ad23
-ms.openlocfilehash: 3bdfced6709d1460ce42ec97203bf2ead9deb82c
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: c56699b81d83119ca1822c2efa6b2380b3619290
 
 
 ---
@@ -85,6 +85,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/li
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

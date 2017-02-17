@@ -1,5 +1,5 @@
 ---
-title: "개발, 테스트 및 프로덕션용 Application Insights 리소스 구분"
+title: "Azure Application Insights에서 개발, 테스트 및 프로덕션 모니터링 | Microsoft Docs"
 description: "개발의 여러 단계에서 응용 프로그램의 성능 및 사용 모니터링"
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: bd4ba58715b216473caa4193567f6d3b95d9d347
+ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
+ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
 
 
 ---
@@ -119,6 +119,6 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark Scala 응용 프로그램 만들기 | Microsoft 문서"
+title: "IntelliJ용 Azure 도구 키트를 사용하여 Spark용 Scala 응용 프로그램 만들기 | Microsoft Docs"
 description: "독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 70fbc8f973a341f818cb5958931a199021b7dc46
-ms.openlocfilehash: 4e63cb94d9bd39f0621eb0dc07c60335a91324d8
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
 
 
 ---
@@ -267,6 +267,6 @@ Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

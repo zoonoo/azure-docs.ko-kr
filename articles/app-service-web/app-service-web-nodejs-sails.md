@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 395a13718d221ecbebcf967c7eac6f4e3c429ea7
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 2bc84ce01918878abbef1faf539561a4fec4c2e9
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 395a13718d221ecbebcf967c7eac6f4e3c429ea7
 * 배포 문제를 해결하기 위해 stderr 및 stdout 로그를 읽습니다.
 * 소스 제어 외부의 환경 변수를 저장합니다.
 * 앱에서 Azure 환경 변수에 액세스합니다.
-* 데이터베이스에 연결(MongoDB)
+* 데이터베이스에 연결합니다(MongoDB).
 
 Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반적으로 Sail.js의 실행과 관련된 문제를 해결하는 데 적합하지 않습니다.
 
@@ -49,7 +49,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정 없이 [App Service를 체험](http://go.microsoft.com/fwlink/?LinkId=523751)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정 없이 [App Service를 체험](https://azure.microsoft.com/try/app-service/)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -184,7 +184,7 @@ Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하�
 ## <a name="connect-to-a-database-in-azure"></a>Azure의 데이터베이스에 연결
 Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility) 를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계에서는 MongoDB 클라이언트 연결을 지원할 수 있는 [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md) 데이터베이스를 사용하여 MongoDB에 연결하는 방법을 보여 줍니다.
 
-1. [MongoDB한 프로토콜 지원을 사용하는 DocumentDB 계정을 만듭니다](../documentdb/documentdb-create-mongodb-account.md).
+1. [MongoDB 프로토콜 지원을 사용하는 DocumentDB 계정을 만듭니다](../documentdb/documentdb-create-mongodb-account.md).
 2. [DocumentDB 컬렉션 및 데이터베이스를 만듭니다](../documentdb/documentdb-create-collection.md). 컬렉션의 이름은 중요하지 않지만 Sails.js에서 연결할 때 데이터베이스의 이름이 필요합니다.
 3. [DocumentDB 데이터베이스에 대한 연결 정보를 찾습니다](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. 명령줄 터미널에서 MongoDB 어댑터를 설치합니다.
@@ -277,6 +277,6 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

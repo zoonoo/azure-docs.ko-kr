@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(macOS 10.10)에 대한 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Arduino 연결 - 단원 1: 도구 가져오기(macOS) | Microsoft Docs"
 description: "macOS에 Adafruit Feather M0 WiFi의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: c6737b963215cf6b053c8a06081bf682cf4cfd11
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 41b2277a26f0e99052a699cfab8a8129a6c7ddb1
 
 
 ---
@@ -96,6 +96,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/os
 [create-and-deploy-the-blink-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

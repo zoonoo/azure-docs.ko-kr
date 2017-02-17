@@ -1,6 +1,6 @@
 ---
-title: "PowerShell에서 Azure Application Insights 리소스, 경고 및 가용성 테스트 만들기 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 Application Insights 리소스의 관리를 자동화합니다."
+title: "PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성을 자동화합니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 86118ebfcb0c7c55ff414d381645025f41c74eb7
-ms.openlocfilehash: ba52b3dc55d80cc5944f16c238a2ea0d66c94990
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
 
 
 ---
@@ -111,7 +111,7 @@ ms.openlocfilehash: ba52b3dc55d80cc5944f16c238a2ea0d66c94990
                 "ApplicationId": "[parameters('appName')]",
                 "Name": "[parameters('appName')]",
                 "Flow_Type": "Redfield",
-                "Request_Source": "IbizaAIExtension"
+                "Request_Source": "ARMAIExtension"
               }
             },
             {
@@ -438,6 +438,6 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

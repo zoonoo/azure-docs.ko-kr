@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN(Content Delivery Network) 규칙 엔진을 사용한 기본 HTTP 동작 재정의 | Microsoft Docs"
+title: "Azure CDN 규칙 엔진을 사용하여 HTTP 동작 재정의 | Microsoft Docs"
 description: "규칙 엔진을 사용하면 특정 유형의 콘텐츠 전달 차단과 같이 Azure CDN에서 HTTP 요청을 처리하는 방식을 사용자 지정하여 캐싱 정책을 정의하고 HTTP 헤더를 수정할 수 있습니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 41e17c4aeda48c1ff7db1206bf52bb709b109bea
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
 
 
 ---
-# <a name="override-default-http-behavior-using-the-azure-content-delivery-network-cdn-rules-engine"></a>Azure CDN(Content Delivery Network) 규칙 엔진을 사용한 기본 HTTP 동작 재정의
+# <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진을 사용하여 HTTP 동작 재정의
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>개요
@@ -87,6 +87,6 @@ ms.openlocfilehash: 41e17c4aeda48c1ff7db1206bf52bb709b109bea
 * [Azure Fridays: Azure CDN의 강력하고 새로운 프리미엄 기능](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (동영상)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
