@@ -185,7 +185,7 @@ Azure 사용자 지정 스크립트 확장은 Resource Manager 템플릿을 사�
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
       ]              
     },
     "protectedSettings": {

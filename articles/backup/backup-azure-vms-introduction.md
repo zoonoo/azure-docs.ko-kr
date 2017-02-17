@@ -4,7 +4,7 @@ description: "Azure에서 가상 컴퓨터를 백업하려고 할 때 중요한 
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "vm 백업, virtual machines 백업"
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
 ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
@@ -95,7 +95,7 @@ Windows VM에서 Azure 백업은 VSS 전체 백업을 사용합니다( [VSS 전�
 ## <a name="total-restore-time"></a>총 복원 시간
 복원 작업은 두 가지 기본 하위 작업으로 구성됩니다(볼트에서 선택한 고객 저장소 계정으로 데이터를 다시 복사 및 가상 시스템 만들기). 볼트에서 데이터를 다시 복사하는 것은 백업이 Azure에 내부적으로 저장되는 위치와 고객 저장소 계정이 저장되는 위치에 따라 다릅니다. 데이터를 복사하는 데 걸리는 시간은 다음에 따라 다릅니다.
 * 큐 대기 시간 - 서비스가 동시에 여러 고객의 복원을 처리하므로 복원 요청이 큐에 배치됩니다.
-* 데이터 복사 시간 - 볼트에서 고객 저장소 계정으로의 첫 번째 백업 프로세스와 비슷한 방식으로 데이터가 복사됩니다. 백업 서비스가 볼트의 데이터를 쓰는 데 필요한 고객 저장소 계정이 로드되면 복사 시간이 늘어날 수 있습니다. 따라서 복원 중에는 다른 응용 프로그램 쓰기 및 읽기와 함께 로드되지 않은 저장소 계정을 선택하여 복사 시간을 최적화해야 합니다. 
+* 데이터 복사 시간 - 볼트에서 고객 저장소 계정으로의 첫 번째 백업 프로세스와 비슷한 방식으로 데이터가 복사됩니다. 백업 서비스가 볼트의 데이터를 쓰는 데 필요한 고객 저장소 계정이 로드되면 복사 시간이 늘어날 수 있습니다. 따라서 복원 중에는 다른 응용 프로그램 쓰기 및 읽기와 함께 로드되지 않은 저장소 계정을 선택하여 복사 시간을 최적화해야 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 가상 컴퓨터에 대한 백업을 구성하는 동안 다음 사례를 따르는 것이 좋습니다.
