@@ -1,23 +1,9 @@
 ---
-title: "논리 앱을 사용하는 DocumentDB 변경 알림 | Microsoft Docs"
-description: "에서도 확인할 수 있습니다."
-keywords: "변경 알림"
-services: documentdb
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: 
-ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
-ms.date: 09/23/2016
-ms.author: b-hoedid
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: 5f3e1f264d126ab5b1fdda312f8e4f47d0b114e7
+ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
+ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
 
 
 ---
@@ -1101,8 +1087,7 @@ PowerShell에서 다음과 같이 호출합니다.
 | sendgridUsername |검색 시작 날짜에 대한 시간을 설정하는 데 사용 |
 | sendgridPassword |SendGrid 전자 메일에 대한 사용자 이름 |
 | EmailTo |전자 메일 알림을 받을 전자 메일 주소 |
-| 제목
- |전자 메일 제목 |
+| 제목 |전자 메일 제목 |
 
 ## <a name="viewing-the-patient-data-in-the-azure-blob-service"></a>Azure Blob 서비스에서 환자 데이터 보기
 Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처럼 서비스 아래에서 Blob를 선택합니다.
@@ -1133,6 +1118,6 @@ DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.mic
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
