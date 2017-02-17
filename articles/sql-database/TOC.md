@@ -6,12 +6,6 @@
 ### [리소스 한도](sql-database-resource-limits.md)
 ### [기능](sql-database-features.md)
 ### [SQL Database FAQ](sql-database-faq.md)
-## 이점
-### [학습 및 적응](sql-database-learn-and-adapt.md)
-### [즉석에서 확장](sql-database-scale-on-the-fly.md)
-### [다중 테넌트 앱 빌드](sql-database-build-multi-tenant-apps.md)
-### [보안 및 보호](sql-database-helps-secures-and-protects.md)
-### [사용자 환경에서 작동](sql-database-works-in-your-environment.md)
 ## 비교
 ### [VM의 SQL Database 및 SQL](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL 차이점](sql-database-transact-sql-information.md)
@@ -20,6 +14,7 @@
 ## [SQL Database 자습서](sql-database-explore-tutorials.md)
 ## [솔루션 빠른 시작](sql-database-solution-quick-starts.md)
 ## 보안
+### [보안 개요](sql-database-security-overview.md)
 ### [Azure SQL Database에 대한 Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
 # 시작
@@ -69,12 +64,12 @@
 #### [SQL 데이터베이스 복사](sql-database-copy.md)
 ## 방화벽 규칙, 인증 및 권한 부여
 ### 유용한 정보
-#### [개요](sql-database-security.md)
-#### [보안 지침](sql-database-security-guidelines.md)
+#### [액세스 제어](sql-database-control-access.md)
 #### [방화벽](sql-database-firewall-configure.md)
 #### [로그인 관리](sql-database-manage-logins.md)
 ### 실행 사항
-#### [SQL 인증 및 권한 부여](sql-database-get-started-security.md)
+#### [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)
+#### [Azure AD 인증 및 권한 부여](sql-database-control-access-aad-authentication-get-started.md)
 ## 데이터 보안 및 보호
 ### 유용한 정보
 #### 감사
@@ -106,7 +101,8 @@
 #### [재해 복구 훈련 수행](sql-database-disaster-recovery-drills.md)
 #### [활성 지역 복제 개요](sql-database-geo-replication-overview.md)
 ### 실행 사항
-#### [SQL Database 백업 및 복원 시작](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: 백업 및 복원](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: 백업 및 복원](sql-database-get-started-backup-recovery-powershell.md)
 ## 앱 개발
 ### 유용한 정보
 #### [데이터베이스 및 응용 프로그램 개발 개요](sql-database-develop-overview.md)
@@ -150,7 +146,7 @@
 #### [단일 데이터베이스](sql-database-single-database-monitor.md)
 #### [SQL Database 관리자 개요](sql-database-advisor.md)
 #### [단일 데이터베이스 지침](sql-database-performance-guidance.md)
-#### [Azure Portal의 워크로드 정보](sql-database-performance.md)
+#### [성능 정보: Azure Portal](sql-database-performance.md)
 #### [일괄 처리 사용](sql-database-use-batching-to-improve-performance.md)
 #### [확장 이벤트](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
@@ -253,15 +249,14 @@
 #### [장기 백업 보존 구성](sql-database-configure-long-term-retention.md)
 #### [Recovery Services 자격 증명 모음에서 백업 확인](sql-database-view-backups-in-vault.md)
 #### [장기 백업 보존에서 복원](sql-database-restore-from-long-term-retention.md)
+#### [장기 백업 보존 삭제](sql-database-long-term-retention-delete.md)
 ### 삭제된 데이터베이스 복원
 #### [Azure Portal을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-portal.md)
 #### [PowerShell을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-powershell.md)
 ### 특정 시점 복원
 #### [지정 시간으로 복원](sql-database-point-in-time-restore.md)
 #### [가장 오래된 복원 지점 확인](sql-database-view-oldest-restore-point.md)
-### 지역 복원
-#### [Azure Portal을 사용한 지역 복원](sql-database-geo-restore-portal.md)
-#### [PowerShell을 사용한 지역 복원](sql-database-geo-restore-powershell.md)
+### [지역 중복 백업에서 복원](sql-database-geo-restore.md)
 ## 활성 지역 복제
 ### [Azure Portal을 사용한 구성](sql-database-geo-replication-portal.md)
 ### [PowerShell을 사용한 구성](sql-database-geo-replication-powershell.md)
@@ -309,6 +304,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

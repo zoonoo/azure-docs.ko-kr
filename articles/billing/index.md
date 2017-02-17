@@ -1,17 +1,29 @@
 ---
+title: "Azure Billing 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "Azure 결제를 이해할 뿐만 아니라 사용 및 비용을 관리하고 모니터링하는 방법에 대해 알아봅니다. 자습서, FAQ, API, 참조 및 기타 설명서입니다."
+services: billing
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: billing
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
+ms.sourcegitcommit: 4a6b1a9e581904f7f7de2a6592dfb163ab2ec45e
+ms.openlocfilehash: 2284db5eaeba0bad709f7e2181ec357f58201d1e
 
 ---
 # <a name="azure-billing-documentation"></a>Azure Billing 설명서
 
-고객 및 파트너는 Azure 비용을 정확하게 예측하고 관리하는 기능이 필요합니다. Capex에서 Opex 모델로 이동하는 동안 쇼백 및 요금 환불을 수행하는 기능이 필요할 뿐만 아니라 특히 큰 클라우드 배포를 위한 모드 정확도 및 청구를 제공합니다.
+Azure 결제를 이해하고 사용 및 비용을 모니터링하는 방법에 대해 알아봅니다. 자습서, FAQ, API 참조 및 기타 설명서에서는 계정을 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,7 +99,7 @@ ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>다른</h3>
+                        <h3>기타</h3>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">API 개요</a></p>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">파트너 솔루션: Cloud Cruiser</a></p>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">파트너 솔루션: Cloudyn</a></p>
@@ -98,17 +110,10 @@ ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
-        <div class="img"></div>
-        <div class="text">
-Billing 설명서 다운로드 </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

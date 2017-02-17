@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Automation 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "시간을 절약하고 일반적인 관리 작업의 신뢰성을 향상시키기 위해 Automation을 사용하여 프로세스 및 구성 관리를 자동화하는 방법에 대해 알아봅니다."
+services: automation
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
-ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
+ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
+ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
 
 ---
 # <a name="automation-documentation"></a>Automation 설명서
@@ -166,16 +177,10 @@ Automation을 사용하여 시간을 절약하고 클라우드 환경에서 수�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-Automation 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -4,11 +4,13 @@
 ## [데이터 보안](security-center-data-security.md)
 ## 시나리오
 ### [사고 대응](security-center-incident-response.md)
+### [권장 사항을 사용하여 보안 강화](security-center-using-recommendations.md)
 
 # 시작
 ## [빠른 시작](security-center-get-started.md)
 ## [계획 및 작업](security-center-planning-and-operations-guide.md)
 ## [권한](security-center-permissions.md)
+## [파트너 통합](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # 방법
@@ -19,11 +21,13 @@
 
 ### [응용 프로그램 권장 사항](security-center-application-recommendations.md)
 #### [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)
+#### [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [네트워크 권장 사항](security-center-network-recommendations.md)
 #### [차세대 방화벽 추가](security-center-add-next-generation-firewall.md)
 #### [네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md)
 #### [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [NGFW를 통해서만 트래픽 라우팅](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [SQL 서비스 권장 사항](security-center-sql-service-recommendations.md)
 #### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
@@ -34,9 +38,11 @@
 #### [디스크 암호화 적용](security-center-apply-disk-encryption.md)
 #### [시스템 업데이트 적용](security-center-apply-system-updates.md)
 #### [데이터 수집 활성화](security-center-enable-data-collection.md)
+#### [저장소 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md)
 #### [VM 에이전트 사용](security-center-enable-vm-agent.md)
 #### [Endpoint Protection 설치](security-center-install-endpoint-protection.md)
 #### [보안 연락처 세부 정보 제공](security-center-provide-security-contact-details.md)
+#### [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md)
 #### [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [OS 버전 업데이트](security-center-update-os-version.md)
@@ -70,6 +76,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

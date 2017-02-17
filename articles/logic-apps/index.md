@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure Logic Apps 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 및 클라우드에 비즈니스 워크플로를 자동화하고 간소화하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조입니다."
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Logic Apps 설명서
 
 클라우드에서 확장 가능한 워크플로를 단순화하고 통합하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조를 통해 온-프레미스 및 클라우드에 자동화된 비즈니스 워크플로를 디자인하고 배포할 수 있습니다.
@@ -150,6 +162,6 @@ ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

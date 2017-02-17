@@ -8,6 +8,7 @@
 ## [프록시 및 방화벽](log-analytics-proxy-firewall.md)
 ## [사용 데이터](log-analytics-usage.md)
 ## [Log Analytics FAQ](log-analytics-faq.md)
+## [서비스 공급자](log-analytics-service-providers.md)
 
 # 방법
 ## 데이터 수집
@@ -15,7 +16,7 @@
 #### [Windows 에이전트](log-analytics-windows-agents.md)
 #### [Linux 에이전트](log-analytics-linux-agents.md)
 #### [Azure 가상 컴퓨터](log-analytics-azure-vm-extension.md)
-#### [Azure 저장소](log-analytics-azure-storage.md)
+#### [Azure 리소스](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [구성 관리자](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -45,6 +46,9 @@
 #### [변경 내용 추적](log-analytics-change-tracking.md)
 #### [컨테이너](log-analytics-containers.md)
 #### [키 자격 증명 모음](log-analytics-azure-key-vault.md)
+#### Logic Apps B2B 메시지
+##### [Logic Apps B2B 메시지 솔루션](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [맬웨어 평가](log-analytics-malware.md)
 #### [네트워킹 분석](log-analytics-azure-networking-analytics.md)
 #### [네트워크 성능 모니터](log-analytics-network-performance-monitor.md)
@@ -59,6 +63,7 @@
 ## 개발
 ### [데이터 수집기 API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlet](log-analytics-powershell-workspace-configuration.md)
+### [Resource Manager 템플릿](log-analytics-template-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [알림 API](log-analytics-api-alerts.md)
 
@@ -71,6 +76,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

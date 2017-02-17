@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Traffic Manager 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "응용 프로그램 성능을 최적화하기 위해 들어오는 트래픽을 관리하는 방법에 대해 알아봅니다. 설명서에서는 Azure 또는 외부 서비스 끝점에 트래픽을 분산하는 방법을 보여 줍니다."
+services: traffic-manager
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: traffic-manager
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
+ms.sourcegitcommit: c2835e48c1995264af6614fe74fe1594bae86245
+ms.openlocfilehash: 1dab11c9d6874bba16cc047cfc8b03c82e236a35
 
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager 설명서
@@ -124,6 +135,6 @@ ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

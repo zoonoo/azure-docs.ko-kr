@@ -23,8 +23,11 @@
 ## [ID 관리](security-identity-management-overview.md)
 ### [ID 관리 보안 모범 사례](azure-security-identity-management-best-practices.md)
 ## PaaS 서비스
-### [IoT 보안 모범 사례](azure-security-iot-best-practices.md)
+### [PaaS 배포 보안](security-paas-deployments.md)
+#### [SQL을 사용하여 PaaS 응용 프로그램 보안 설정](security-paas-applications-using-sql.md)
+#### [App Services를 사용하여 PaaS 응용 프로그램 보안 설정](security-paas-applications-using-app-services.md)
 ### [IoT 보안 개요](security-internet-of-things-overview.md)
+### [IoT 보안 모범 사례](azure-security-iot-best-practices.md)
 ## 전문 업계
 ### [보안 상태 솔루션 설계](security-health-care-solution.md)
 ## [보안 아키텍처](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Channel 9의 보안 동영상](security-channel-nine.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

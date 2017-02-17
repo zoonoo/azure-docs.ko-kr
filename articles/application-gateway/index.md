@@ -1,13 +1,25 @@
 ---
+title: "Azure Application Gateway 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "클라우드 응용 프로그램 배달 컨트롤러를 배포하는 방법에 대해 알아봅니다. 설명서에서는 웹 프런트 엔드에 대한 응용 프로그램 수준 라우팅 및 부하 분산을 설정하는 방법을 보여 줍니다."
+services: application-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e81571dc2d0d52f8b04c7ff99a76d92c784c259e
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Application Gateway 설명서
 
-Azure Application Gateway는 ADC(Application Deliver Controller)를 서비스로 제공합니다.  따라서 고객은 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다.  확장성 및 고가용성은 물론 관리 효율성을 위한 다양한 진단 및 로깅 기능을 포함하는 응용 프로그램 전용 가상 어플라이언스입니다.
+ADC(Application Deliver Controller)인 Application Gateway를 서비스로 배포하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 확장성 및 가용성이 뛰어난 웹 프런트 엔드를 빌드할 수 있는 응용 프로그램 수준 라우팅 및 부하 분산 서비스를 설정하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +139,7 @@ Azure Application Gateway는 ADC(Application Deliver Controller)를 서비스로
                         <h3>언어</h3>
                         <p><a href="/dotnet/api">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.JS</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>
                     </div>
@@ -148,18 +160,12 @@ Azure Application Gateway는 ADC(Application Deliver Controller)를 서비스로
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Application Gateway 설명서 다운로드 </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

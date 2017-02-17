@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure Load Balancer 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "앱의 네트워크 성능에 부하 분산 장치를 사용하는 방법에 대해 알아봅니다. 크로스-프레미스 가상 네트워크에서 가상 컴퓨터 및 클라우드 리소스의 트래픽을 관리합니다."
+services: load-balancer
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: load-balancer
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
+ms.sourcegitcommit: 7064f4749f4be100b6155ea219284c1ed8fe7eee
+ms.openlocfilehash: 8a225858cc738a8bc04404b0cbf788e77975aa51
 
 ---
+
 #<a name="load-balancer-documentation"></a>부하 분산 장치 설명서
 
 부하 분산 장치를 사용하여 응용 프로그램에 고가용성 및 네트워크 성능을 제공하는 방법에 대해 알아봅니다. 설명서에서는 가상 컴퓨터 및 클라우드 리소스 간 및 크로스-프레미스 가상 네트워크에서 트래픽의 부하를 분산하는 방법을 보여 줍니다.
@@ -136,6 +148,6 @@ ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -161,6 +161,7 @@
 ### [상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
 
 ## 모니터링 및 진단
+### [응용 프로그램 모니터링 및 진단](service-fabric-diagnostics-overview.md)
 ### 로컬로 서비스 모니터링 및 진단
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -208,6 +209,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

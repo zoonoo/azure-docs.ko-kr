@@ -12,13 +12,15 @@
 # 방법
 ## 고가용성 구성
 ### [고가용성 옵션](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Always On 가용성 그룹](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [자동 - 템플릿 사용](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [수동 - 필수 조건](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [수동 - 자습서](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [부하 분산 장치 - 포털](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [부하 분산 장치 - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [여러 영역](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### 장애 조치 클러스터 인스턴스
+#### [구성](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## 관리
 ### [SQL Server IaaS 에이전트 확장 사용](virtual-machines-windows-sql-server-agent-extension.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

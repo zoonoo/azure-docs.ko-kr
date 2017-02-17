@@ -1,13 +1,25 @@
 ---
+title: "Azure Data Factory 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "분석을 위해 데이터를 이동하고 처리하기 위해 Data Factory를 사용하여 온-프레미스 및 클라우드 원본 간에 자동화된 데이터 파이프라인을 설정하는 방법에 대해 알아봅니다."
+services: data-factory
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-factory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 5742326de5bbe91340df69402bc551f87dafca78
+ms.sourcegitcommit: 7e5e1b41828d0c3d81f5594609910ecdba02a249
+ms.openlocfilehash: 9e9a23f8ddcff428b45f08ab001489d00b3ed7a9
 
 ---
 # <a name="azure-data-factory-documentation"></a>Azure Data Factory 설명서
 
-AzureData Factory는 데이터의 이동과 변환을 자동화하는 클라우드 기반 데이터 통합 서비스입니다. Data Factory 서비스는 다양한 저장소에서 데이터를 수집하고 변환/처리하여 결과 데이터를 데이터 저장소에 다시 게시할 수 있는 데이터 통합 솔루션을 만듭니다.
+클라우드 데이터 통합 서비스인 Data Factory를 사용하여 자동화된 데이터 파이프라인에 데이터 저장소, 이동 및 처리 서비스를 구성하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 데이터 파이프라인을 설정하고 관리할 뿐만 아니라 분석을 위해 데이터를 이동하고 변환하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -107,7 +119,6 @@ AzureData Factory는 데이터의 이동과 변환을 자동화하는 클라우�
                     <div class="cardText">
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Azure 데이터 팩터리 개발자 참조</a></p>
                    </div>
                 </div>
             </div>
@@ -127,18 +138,9 @@ AzureData Factory는 데이터의 이동과 변환을 자동화하는 클라우�
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Data Factory 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

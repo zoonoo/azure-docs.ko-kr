@@ -1,24 +1,20 @@
 ---
-title: Azure Guidance | Microsoft Docs
+title: "Azure 지침 설명서 - 자습서 | Microsoft Docs"
 description: "Azure에 대한 모범 사례 및 지침"
-services: 
-documentationcenter: na
-author: bennage
-manager: marksou
-editor: 
-tags: 
-ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
+services: guidance
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: guidance
-ms.devlang: na
-ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/17/2016
-ms.author: christb
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5f3ced657cf3d6587a63789b3dd3ca41cd2856f0
-ms.openlocfilehash: 0061e1ff2ae2d6b8ed7b7c3bb60405e76d4cc91b
-
+ms.sourcegitcommit: f5ced8f436f4d1426e4d2b307fcfb6b644e94aaf
+ms.openlocfilehash: c05d311633b9c9aa5490e55baafe83376d0c8fbc
 
 ---
 # <a name="azure-guidance"></a>Azure의 참고 자료
@@ -93,7 +89,7 @@ Microsoft 패턴 및 작업 방식 팀은 Azure 고객 자문 팀에 속해 있�
     클라우드 디자인 패턴은 디자인 패턴과 관련 지침 항목의 라이브러리입니다. 각 부분이 클라우드 응용 프로그램 아키텍처에 얼마나 적합한지를 보여 주어 패턴을 적용할 때의 이점을 설명합니다.
 * [클라우드 응용 프로그램 성능 최적화](https://github.com/mspnp/performance-optimization)
   
-    이 설명서는 부하 상태에서 앱이 크기 조정되지 않도록 하는 일반적인 안티패턴에 대해 살펴봅니다. 여기서는 8가지 안티패턴 및 [성능 분석 입문](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md)을 보여주는 샘플과 [주요 메트릭에 대해 성능을 평가](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md)하는 지침을 제공합니다.
+    이 설명서는 부하 상태에서 앱이 크기 조정되지 않도록 하는 일반적인 안티패턴에 대해 살펴봅니다. 여기서는&8;가지 안티패턴 및 [성능 분석 입문](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md)을 보여주는 샘플과 [주요 메트릭에 대해 성능을 평가](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md)하는 지침을 제공합니다.
 
 ## <a name="reference-architectures"></a>참조 아키텍처
 참조 아키텍처는 시나리오별로 정렬되어 있습니다.
@@ -157,6 +153,6 @@ Microsoft 패턴 및 작업 방식 팀은 Azure 고객 자문 팀에 속해 있�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

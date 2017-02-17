@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Stream Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "완전히 관리되는 이벤트 처리를 사용하여 클라우드에서 IoT 분석을 실행하는 방법에 대해 알아봅니다. 응용 프로그램, 센서, 장치 등에서 실시간으로 데이터를 분석합니다."
+services: stream-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: stream-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
+ms.sourcegitcommit: d1f5daf99fca271b77cf15fb9f93f62fc443423c
+ms.openlocfilehash: d6146416962ba655d58255254351fecca0a9643e
 
 ---
 
@@ -166,6 +177,6 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

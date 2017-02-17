@@ -1,13 +1,25 @@
 ---
+title: "Azure Backup 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "Backup 설명서를 사용하여 클라우드에 백업하는 방법을 알아보세요. 응용 프로그램, Windows Server 및 Azure 가상 컴퓨터 백업을 위한 자습서 및 동영상을 참조하세요."
+services: backup
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Backup 설명서
 
-Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 클라우드 서비스이며,  기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다.  
+장기간 보존 및 복구를 위해 클라우드에서 Azure 백업을 사용하여 데이터를 보호하는 방법에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 데이터, 응용 프로그램, Windows Servers 및 Azure 가상 컴퓨터를 백업하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -132,16 +144,10 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Backup 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

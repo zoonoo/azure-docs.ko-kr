@@ -97,6 +97,28 @@
 #### [선택 사항: LED 동작 변경](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [문제 해결](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Arduino(노드) 시작
+### [Arduino 보드 시작: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### 단원 1: 장치 구성
+#### [장치 구성](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [도구 얻기(Windows 7 이상)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [도구 얻기(Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [도구 얻기(macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [깜박임 응용 프로그램 만들기 및 배포](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### 단원 2: IoT hub 만들기
+#### [Azure 도구 얻기(Windows 7 이상)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure 도구 얻기(macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### 단원 3: 장치-클라우드 메시지 보내기
+#### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [저장소에 유지되는 메시지 읽기](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### 단원 4: 클라우드-장치 메시지 보내기
+#### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [선택 사항: LED 동작 변경](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [문제 해결](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Gateway SDK 시작(Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Gateway SDK 시작(Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,11 @@
 ## [Java(장치)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST(장치 ID)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST(장치 메시징) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST(장치 ID)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST(장치 쌍)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
+## [REST(장치 메시징)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST(작업)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # 관련 항목
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +264,6 @@
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
