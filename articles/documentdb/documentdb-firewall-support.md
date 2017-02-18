@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: ankshah; kraman
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: f96c0b7b7edcd19a041c803e268a2dc4bf25b137
+ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
+ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
 
 
 ---
@@ -31,14 +31,14 @@ Azure DocumentDB 데이터베이스 계정에 저장된 데이터를 보호하�
 ![IP 기반 액세스 제어의 연결 프로세스를 보여주는 다이어그램](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
 ## <a name="connections-from-cloud-services"></a>클라우드 서비스에서 연결
-Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 서비스 논리를 호스팅하는 매우 일반적인 방법입니다. 클라우드 서비스에서 DocumentDB 데이터베이스 계정에 액세스할 수 있게 하려면 [Azure 지원에 문의](#configure-ip-policy)하여 클라우드 서비스의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 연결된 허용된 IP 주소 목록에 추가해야 합니다.  이렇게 하면 클라우드 서비스의 모든 역할 인스턴스가 DocumentDB 데이터베이스 계정에 액세스할 수 있습니다. 다음 스크린샷처럼 Azure Portal에서 클라우드 서비스의 IP 주소를 검색할 수 있습니다. 
+Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 서비스 논리를 호스팅하는 매우 일반적인 방법입니다. 클라우드 서비스에서 DocumentDB 데이터베이스 계정에 액세스할 수 있게 하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 클라우드 서비스의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 연결된 허용된 IP 주소 목록에 추가해야 합니다.  이렇게 하면 클라우드 서비스의 모든 역할 인스턴스가 DocumentDB 데이터베이스 계정에 액세스할 수 있습니다. 다음 스크린샷처럼 Azure Portal에서 클라우드 서비스의 IP 주소를 검색할 수 있습니다.
 
 ![Azure Portal에 표시된 클라우드 서비스의 공용 IP 주소를 보여주는 스크린샷](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
 추가 역할 인스턴스를 추가하여 클라우드 서비스를 규모 확장할 때 이러한 새 인스턴스는 자동으로 DocumentDB 데이터베이스 계정에 대한 액세스 권한을 갖습니다. 동일한 클라우드 서비스에 포함되기 때문입니다.
 
 ## <a name="connections-from-virtual-machines"></a>가상 컴퓨터에서 연결
-[가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 컴퓨터 크기 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 역시 DocumentDB를 사용하여 중간 계층 서비스를 호스트하는 데 사용할 수 있습니다.  가상 컴퓨터에서 액세스할 수 있도록 DocumentDB 데이터베이스 계정을 구성하려면 [Azure 지원에 문의](#configure-ip-policy)하여 가상 컴퓨터 및/또는 가상 컴퓨터 크기 집합의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다. 다음 스크린샷처럼 Azure Portal에서 가상 컴퓨터의 IP 주소를 검색할 수 있습니다.
+[가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 컴퓨터 크기 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 역시 DocumentDB를 사용하여 중간 계층 서비스를 호스트하는 데 사용할 수 있습니다.  가상 컴퓨터에서 액세스할 수 있도록 DocumentDB 데이터베이스 계정을 구성하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 가상 컴퓨터 및/또는 가상 컴퓨터 크기 집합의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다. 다음 스크린샷처럼 Azure Portal에서 가상 컴퓨터의 IP 주소를 검색할 수 있습니다.
 
 ![Azure Portal에 표시된 가상 컴퓨터의 공용 IP 주소를 보여주는 스크린샷](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
 
@@ -66,6 +66,6 @@ DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

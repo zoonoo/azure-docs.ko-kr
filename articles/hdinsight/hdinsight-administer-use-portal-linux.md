@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터 관리 | Microsoft 문서"
-description: "Azure 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만들고 관리하는 방법에 대해 알아봅니다."
+title: "Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Docs"
+description: "Azure Portal을 사용하여 HDInsight 클러스터를 만들고 관리하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,18 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 7bfa0d73f870202e4caeb893830952ca39a35c26
-ms.openlocfilehash: 27ee26b38b9881ed7f0cd7b0253be123af27955f
+ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
+ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Linux 기반 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 정보를 보려면 탭 선택기를 사용합니다. 
+[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 정보를 보려면 탭 선택기를 사용합니다. 
 
 **필수 구성 요소**
 
@@ -43,6 +43,8 @@ ms.openlocfilehash: 27ee26b38b9881ed7f0cd7b0253be123af27955f
      
        ![Azure 포털 HDInsight 클러스터 단추](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       HDInsight 클러스터가 표시되지 않으면 목록 아래쪽에서 **더 많은 서비스**를 클릭한 다음 **인텔리전스 + 분석** 섹션에서 **HDInsight 클러스터**를 클릭합니다.
+
 ## <a name="create-clusters"></a>클러스터 만들기
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -56,14 +58,14 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
    
     ![Azure Portal HDInsight 클러스터 요점](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **개요 메뉴**:
+    **개요 메뉴:**:
 
-   * **대시보드**, **클러스터 대시보드** 및 **URL: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다.
+   * **대시보드**: Linux 기반 클러스터용 Ambari Web인 클러스터 대시보드를 엽니다.
    * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
    * **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
    * **삭제**: 클러스터를 삭제합니다.
 
-    **왼쪽 메뉴**
+    **왼쪽 메뉴:**
    
    * **활동 로그**: 활동 로그를 표시하고 쿼리합니다.
    * **Access Control(IAM)**: 역할 할당을 사용합니다.  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
@@ -315,6 +317,6 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

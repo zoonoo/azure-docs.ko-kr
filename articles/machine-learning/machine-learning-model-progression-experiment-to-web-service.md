@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정 | Microsoft Docs"
+title: "Azure Machine Learning 모델이 웹 서비스가 되는 과정 | Microsoft Docs"
 description: "Azure Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: b47aa6730aff534b796cfc5427e613defdf69926
-ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
 
 
 ---
@@ -122,6 +122,6 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

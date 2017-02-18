@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b18b1d4c2a3b9e1bba36bce2f38917501e641c4f
-ms.openlocfilehash: 29dab5bc8eb76200f03a32b9299b4d89b247ab36
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: cd09b7c5d45d07a3fbcc5d6f0c02400dcd36d61b
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 29dab5bc8eb76200f03a32b9299b4d89b247ab36
 * 빠른 응답(앱이 빠르게 응답한 요청)
 * 특정 이벤트 이름
 
-> [!NOTE] 
+> [!NOTE]
 > 필터는 앱 메트릭의 타이밍 스큐를 발생합니다. 예를 들어 느린 응답을 진단하기 위해서는 빠른 응답 시간을 삭제하는 필터를 설정하도록 결정할 수 있습니다. 하지만 Application Insights에서 보고하는 평균 응답 시간이 실제 속도보다 느리고 요청 수가 실제 수보다 작을 것이라는 점을 알아야 합니다.
 > 이것이 문제가 될 경우 대신 [샘플링](app-insights-sampling.md)을 사용합니다.
 
@@ -66,7 +66,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 
            <!-- Exclude telemetry from availability tests and bots -->
            <Processor type="SyntheticSourceFilter">
-                <!-- Optional: specify which synthetic sources, 
+                <!-- Optional: specify which synthetic sources,
                      comma-separated
                      - default is all synthetics -->
                 <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
@@ -115,7 +115,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
            </Processor>
 ```
 
-* `DurationThresholdInMS` - 기간은 페이지를 로드하는 데 걸린 시간을 나타냅니다. 이 값으로 설정하는 경우 이 시간보다 더 빠르게 로드된 페이지는 보고되지 않습니다. 
+* `DurationThresholdInMS` - 기간은 페이지를 로드하는 데 걸린 시간을 나타냅니다. 이 값으로 설정하는 경우 이 시간보다 더 빠르게 로드된 페이지는 보고되지 않습니다.
 * `NotNeededNames` - 쉼표로 구분된 페이지 이름 목록입니다.
 * `NotNeededUrls` - 쉼표로 구분된 URL 조각 목록입니다. 예를 들어 `"home"`은 URL에 "home"이 포함된 모든 페이지를 필터링합니다.
 
@@ -160,7 +160,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 ### <a name="telemetry-event-filter"></a>원격 분석 이벤트 필터
 
-사용자 지정 이벤트를 필터링합니다([TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)를 사용하여 로깅됨).
+사용자 지정 이벤트를 필터링합니다([TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)를 사용하여 로깅됨).
 
 
 ```XML
@@ -176,7 +176,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 ### <a name="trace-telemetry-filter"></a>추적 원격 분석 필터
 
-로그 추적을 필터링합니다([TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) 또는 [로깅 프레임워크 수집기](app-insights-java-trace-logs.md)를 사용하여 로깅됨).
+로그 추적을 필터링합니다([TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) 또는 [로깅 프레임워크 수집기](app-insights-java-trace-logs.md)를 사용하여 로깅됨).
 
 ```XML
 
@@ -212,7 +212,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
        private final String successful;
 
        /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful) 
+       public void setNotNeeded(String successful)
        {
           this.successful = successful;
        }
@@ -266,7 +266,6 @@ ApplicationInsights.xml:
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
-ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
+ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
+ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
 
 
 ---
@@ -246,15 +246,31 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 경로 조건은 다음 JSON 표현을 가정하는 메시지 속성에서 평가됩니다.
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
+사용자 속성은 항상 이름을 사용하여 액세스됩니다. 사용자 속성 이름이 시스템 속성과 일치하는 것으로 나타나면(예: `$to`) 사용자 속성을 `$to` 식을 사용하여 검색합니다.
+항상 괄호 `{}`를 사용하여 시스템 속성에 액세스할 수 있습니다. 예를 들어 식 `{$to}`를 사용하여 시스템 속성 `to`에 액세스할 수 있습니다. 속성 이름을 대괄호로 묶으면 항상 해당 시스템 속성이 검색됩니다.
 
 속성 이름은 대/소문자를 구분하지 않습니다.
 
 > [!NOTE]
 > 모든 메시지 속성은 문자열입니다. [개발자 가이드][lnk-devguide-messaging-format]에서 설명한 대로 시스템 속성은 현재 쿼리에서 사용할 수 없습니다.
->
 >
 
 예를 들어 `messageType` 속성을 사용하는 경우 모든 원격 분석을 하나의 끝점으로 라우팅하고, 모든 경고를 다른 끝점으로 라우팅할 수 있습니다. 다음 식을 작성하면 원격 분석을 라우팅할 수 있습니다.
@@ -458,6 +474,6 @@ GROUP BY에 대한 형식 구문:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

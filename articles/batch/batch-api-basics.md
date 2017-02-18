@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 582339ae078b9b7fbded2913e56afc36ce2120d5
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -65,7 +65,7 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
   * [작업 종속성](#task-dependencies)
 * [응용 프로그램 패키지](#application-packages)
 
-## <a name="account"></a>계좌
+## <a name="account"></a>계정
 배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 하나의 계정 키가 모두 필요합니다. [Azure 포털을 사용하여 Azure 배치 계정을 만들](batch-account-create-portal.md)수 있습니다.
 
 ## <a name="compute-node"></a>계산 노드
@@ -95,7 +95,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
     **가상 컴퓨터 구성**은 [Azure 가상 컴퓨터 마켓플레이스][vm_marketplace]에서 계산 노드에 대한 Linux와 Windows 이미지를 제공합니다.
     가상 컴퓨터 구성 노드를 포함하는 풀을 만들 때 노드 크기뿐만 아니라 **가상 컴퓨터 이미지 참조** 및 노드에 설치할 배치 **노드 에이전트 SKU**도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
-    **클라우드 서비스 구성**은 Windows 계산 노드*만* 제공합니다. 클라우드 서비스 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. 클라우드 서비스 노드를 포함하는 풀을 만드는 경우 노드 크기 및 해당 *OS 제품군*만을 지정해야 합니다. Windows 계산 노드 풀을 만들 때 클라우드 서비스가 가장 일반적으로 사용됩니다.
+    **클라우드 서비스 구성** 은 Windows 계산 노드 *만*제공합니다. 클라우드 서비스 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. 클라우드 서비스 노드를 포함하는 풀을 만드는 경우 노드 크기 및 해당 *OS 제품군*만을 지정해야 합니다. Windows 계산 노드 풀을 만들 때 클라우드 서비스가 가장 일반적으로 사용됩니다.
 
   * *OS 제품군* 은 OS와 함께 설치되는 .NET 버전도 결정합니다.
   * Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전*을 지정할 수 있습니다(작업자 역할에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)의 [클라우드 서비스 정보](../cloud-services/cloud-services-choose-me.md) 섹션 참조).
@@ -111,7 +111,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
     풀에 포함된 모든 노드의 크기가 같습니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 응용 프로그램을 실행하려면 별도의 풀을 사용하는 것이 좋습니다.
 * **노드의 대상 수**
 
-    풀에서 배포하려는 계산 노드 수입니다. 상황에 따라 풀이 원하는 노드 수에 도달하지 않을 수 있기 때문에 *대상* 이라고 합니다. 배치 계정의 [코어 할당량](batch-quota-limit.md#batch-account-quotas) 에 도달하였거나 또는 최대 노드 수를 제한하는 풀에 적용한 자동 크기 조정 수식이 있는 경우 풀이 원하는 노드 수에 도달하지 않을 수 있습니다(다음 "정책 크기 조정" 섹션 참조).
+    풀에서 배포하려는 계산 노드 수입니다. 상황에 따라 풀이 원하는 노드 수에 도달하지 않을 수 있기 때문에 *대상* 이라고 합니다. 배치 계정의 [코어 할당량](batch-quota-limit.md) 에 도달하였거나 또는 최대 노드 수를 제한하는 풀에 적용한 자동 크기 조정 수식이 있는 경우 풀이 원하는 노드 수에 도달하지 않을 수 있습니다(다음 "정책 크기 조정" 섹션 참조).
 * **크기 조정 정책**
 
     동적 워크로드의 경우 풀에 [자동 크기 조정 수식](#scaling-compute-resources)을 작성하고 적용할 수 있습니다. 배치 서비스는 수식을 주기적으로 평가하여 사용자가 지정할 수 있는 여러 풀, 작업 및 태스크에 따라 풀 내의 노드 수를 조정합니다.
@@ -144,7 +144,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 >
 >
 
-## <a name="job"></a>욥
+## <a name="job"></a>작업
 작업은 태스크의 컬렉션입니다. 풀의 계산 노드에서 해당 태스크에 의해 수행된 계산 방식을 관리합니다.
 
 * 작업은 작업이 실행되는 **풀**을 지정합니다. 각 작업에 새 풀을 만들거나 많은 작업에 하나의 풀을 사용할 수 있습니다. 작업 일정과 연결된 각 작업 또는 작업 일정과 연결된 모든 작업에 풀을 만들 수 있습니다.
@@ -320,10 +320,10 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
    * Azure Batch 계정과 동일한 **구독**이어야 합니다.
    * **클래식** VNet이어야 합니다. Azure Resource Manager 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
 
-* VNet에는 풀의 `targetDedicated` 속성에 맞도록 충분히 사용 가능한 **IP 주소**가 있어야 합니다. 서브넷에 충분히 사용 가능한 IP 주소가 없으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
-* *MicrosoftAzureBatch* 서비스 주체에는 지정된 VNet에 대한 [클래식 가상 컴퓨터 참여자](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) RBAC(역할 기반 액세스 제어) 역할이 있어야 합니다. Azure Portal에서 다음을 수행합니다.
+* VNet에는 풀의 `targetDedicated` 속성에 맞도록 사용 가능한 **IP 주소**가 충분히 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
+* *MicrosoftAzureBatch* 서비스 주체에는 지정된 VNet에 대한 [클래식 가상 컴퓨터 참가자](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) RBAC(역할 기반 액세스 제어) 역할이 있어야 합니다. Azure Portal에서 다음을 수행합니다.
 
-  * **VNet**, **액세스 제어(IAM)** > **역할** > **클래식 가상 컴퓨터 참여자** > **추가**를 차례로 선택합니다.
+  * **VNet**, **액세스 제어(IAM)** > **역할** > **클래식 가상 컴퓨터 참가자** > **추가**를 차례로 선택합니다.
   * **검색** 상자에 "MicrosoftAzureBatch"를 입력합니다.
   * **MicrosoftAzureBatch** 확인란을 확인합니다.
   * **선택** 단추를 선택합니다.
@@ -382,7 +382,7 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
     최대 기간을 초과하면 태스크가 *완료됨*으로 표시되지만 종료 코드가 `0xC000013A`로 설정되고 *schedulingError* 필드가 `{ category:"ServerError", code="TaskEnded"}`로 표시됩니다.
 
 ### <a name="debugging-application-failures"></a>응용 프로그램 오류 디버그
-* `stderr` 와 `stdout`
+* `stderr` 및 `stdout`
 
     실행하는 동안 응용 프로그램에서 문제를 해결하는 데 사용할 수 있는 진단 출력을 생성할 수 있습니다. 앞서 [파일 및 디렉터리](#files-and-directories) 섹션에서 설명했듯이, 배치 서비스는 계산 노드의 태스크 디렉터리에 있는 `stdout.txt` 및 `stderr.txt` 파일에 표준 출력 및 표준 오류 출력을 작성합니다. Azure 포털 또는 배치 SDK 중 하나를 사용하여 이러한 파일을 다운로드할 수 있습니다. 예를 들어, 배치 .NET API에서 [ComputeNode.GetNodeFile][net_getfile_node] 및 [CloudTask.GetNodeFile][net_getfile_task]을 사용하여 문제 해결을 위해 이러한 파일 및 다른 파일을 검색할 수 있습니다.
 * **태스크 종료 코드**
@@ -489,6 +489,6 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

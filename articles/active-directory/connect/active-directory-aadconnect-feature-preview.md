@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6892ec9d27dd2e7add68a2739c1f29b6d8f008a4
+ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
+ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
 
 
 ---
@@ -28,25 +28,25 @@ ms.openlocfilehash: 6892ec9d27dd2e7add68a2739c1f29b6d8f008a4
 
 Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http://aka.ms/O365g)를 참조하세요.
 
-이 그룹은 온-프레미스 AD DS에서 배포 그룹으로 표현됩니다. 이 새 그룹 유형을 인식하려면 온-프레미스 Exchange 서버는 Exchange 2013 누적 업데이트 8(2015년 3월에 릴리스됨) 또는 Exchange 2016이어야 합니다.
+Office 365 그룹은 온-프레미스 AD DS에서 배포 그룹으로 표현됩니다. 이 새 그룹 유형을 인식하려면 온-프레미스 Exchange 서버는 Exchange 2013 누적 업데이트 8(2015년 3월에 릴리스됨) 또는 Exchange 2016이어야 합니다.
 
 **미리 보기 중 참고**
 
 * 미리 보기에서 현재 주소록 특성이 채워지지 않습니다. 이 특성이 없으면 그룹이 GAL에 표시되지 않습니다. 이 특성을 채우는 가장 쉬운 방법은 Exchange PowerShell cmdlet `update-recipient`를 사용하는 것입니다.
 * Exchange 스키마가 있는 포리스트만 그룹에 대한 유효한 대상이 됩니다. 검색된 Exchange가 없는 경우, 그룹 쓰기 저장을 사용하도록 설정할 수 없습니다.
 * 현재 단일 포리스트 Exchange 조직 배포만 지원합니다. 둘 이상의 Exchange 조직 온-프레미스가 있는 경우 이러한 그룹을 다른 포리스트에 표시하려면 온-프레미스 GALSync 솔루션이 필요합니다.
-* 그룹 쓰기 저장 기능은 현재 보안 그룹 또는 배포 그룹을 처리하지 않습니다.
+* 그룹 쓰기 저장 기능은 보안 그룹 또는 배포 그룹을 처리하지 않습니다.
 
 > [!NOTE]
 > Azure AD Premium에 대한 구독은 그룹 쓰기 저장에 필요합니다.
 > 
-> 
+>
 
 ## <a name="user-writeback"></a>사용자 쓰기 저장
 > [!IMPORTANT]
 > 사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 계속 진행합니다.
@@ -55,7 +55,6 @@ Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http:
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

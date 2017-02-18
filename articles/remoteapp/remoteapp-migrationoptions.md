@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
+ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
+ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
 
 자체 관리형 IaaS는 VM(가상 컴퓨터) 또는 실제 시스템에 직접 배포되어 사용자가 관리, 운영 및 소유하는 자체(DIY) 배포입니다. 다른 한편으로 완전 관리형 PaaS/SaaS 제품은 Azure RemoteApp과 매우 비슷합니다. 즉 파트너는 운영 및 서비스를 처리하는 원격 솔루션 위에 서비스 계층을 제공하는 반면 고객은 이미지 및 앱 관리를 일부 수행합니다.
 
-다른 호스팅 옵션의 예를 포함하여 자세한 정보를 참조하세요.    
+[마이그레이션 옵션에 대한 Azure RemoteApp 웨비나를 보거나](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp) 자세한 내용을 읽어보세요(다른 호스트 옵션 예제 포함).
 
 ## <a name="self-managed-iaas-solutions"></a>자체 관리형 솔루션(IaaS)
 ### <a name="rds-on-iaas"></a>**IaaS의 RDS**
@@ -212,6 +212,6 @@ Microsoft 클라우드 서비스 공급자: 예
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

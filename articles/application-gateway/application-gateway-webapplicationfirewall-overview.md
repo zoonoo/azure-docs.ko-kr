@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
-ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 2d8e851810b4ec5b7ae3f3b17c4aee11d7e51de4
 
 
 ---
+
 # <a name="application-gateway-web-application-firewall-preview"></a>Application Gateway 웹 응용 프로그램 방화벽(미리 보기)
 
 웹 응용 프로그램 방화벽(WAF)은 표준 응용 프로그램 배달 제어(ADC) 함수에 응용 프로그램 게이트웨이를 활용하는 웹 응용 프로그램 보호를 제공하는 Azure 응용 프로그램 게이트웨이의 기능입니다. 웹 응용 프로그램 방화벽은 대부분의 OWASP Top 10 일반 웹 취약점으로부터 보호함으로써 이 기능을 수행합니다. 웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 웹 공격으로부터 보호하는 중앙 집중식 웹 응용 프로그램 방화벽은 보안 관리가 훨씬 간단하고 침입 위협으로부터 응용 프로그램을 더욱 효과적으로 보호합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 응용 프로그램 게이트웨이는 웹 응용 프로그램 방화벽을 통해 응용 프로그램 게이트웨이로 쉽게 변환될 수 있습니다.
@@ -51,7 +52,7 @@ Application Gateway WAF는 새 SKU(WAF SKU)에 제공되며 가장 많이 발생
 
 Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성할 수 있습니다.
 
-* **검색 모드** – 검색 모드에서 실행되도록 구성할 경우 Application Gateway WAF는 모든 위협 경고를 로그 파일을 모니터링하고 로그 파일에 기록합니다. 진단 섹션을 사용하여 Application Gateway에 대한 진단 로깅을 켜야 합니다. 또한 WAF 로그를 선택하고 켜야 합니다.
+* **검색 모드** – 검색 모드에서 실행되도록 구성할 경우 Application Gateway WAF는 모든 위협 경고를 모니터링하고 로그 파일에 기록합니다. 진단 섹션을 사용하여 Application Gateway에 대한 진단 로깅을 켜야 합니다. 또한 WAF 로그가 선택되어 있고 켜져 있는지 확인해야 합니다.
 * **방지 모드** – 방지 모드에서 실행되도록 구성할 경우 Application Gateway는 규칙에 의해 감지된 침입 및 공격을 능동적으로 차단합니다. 공격자는 403 무단 액세스 예외를 수신하고 연결이 종료됩니다. 방지 모드는 이러한 공격을 WAF 로그에 계속 기록합니다.
 
 ## <a name="application-gateway-waf-reports"></a>Application Gateway WAF 보고서
@@ -82,15 +83,15 @@ Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제�
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Application Gateway WAF SKU 가격 책정
 
-미리 보기 기간에는 Application Gateway WAF 사용에 대한 추가 비용이 없습니다. 기존의 기본 SKU 요금은 계속 청구됩니다. GA 시 WAF SKU 요금이 청구될 것입니다. WAF SKU에 Application Gateway를 배포하기로 선택한 고객은 GA 발표 이후부터 WAF SKU 요금이 누적되기 시작합니다.
+미리 보기 기간에는 Application Gateway WAF 사용에 대한 추가 비용이 없습니다. 기존의 기본 SKU 요금은 계속 청구됩니다. 조지아 시간 기준의 WAF SKU 요금 청구가 전달됩니다. WAF SKU에 Application Gateway를 배포하기로 선택한 고객은 GA 발표 이후부터 WAF SKU 요금이 누적되기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF의 기능을 살펴본 후에는 [Application Gateway에서 웹 응용 프로그램 방화벽을 구성 하는 방법](application-gateway-web-application-firewall-portal.md)을 살펴보세요.
+WAF 기능을 살펴본 후에는 [Application Gateway에서 웹 응용 프로그램 방화벽을 구성하는 방법](application-gateway-web-application-firewall-portal.md)을 참조보세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

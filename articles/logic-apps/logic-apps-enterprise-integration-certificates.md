@@ -1,10 +1,10 @@
 
 ---
 title: "엔터프라이즈 통합 팩에서 인증서 사용 | Microsoft Docs"
-description: "엔터프라이즈 통합 팩 및 Logic Apps에서 인증서를 사용하는 방법 알아보기"
+description: "엔터프라이즈 통합 팩에서 인증서를 사용하는 방법 알아보기 | Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: padmavc
 manager: anneta
 editor: cgronlun
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-ms.author: deonhe
+ms.date: 02/03/2016
+ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: a1baafa9a2b4552ad711615e5e0abb0180a0d562
-ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
+ms.sourcegitcommit: c8cfe5fb933cf9056b971d3e524f3c9ebc910215
+ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
 
 
 ---
@@ -37,9 +37,9 @@ ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
 * 메시지의 콘텐츠를 암호화하여
 * 메시지에 디지털로 서명하여  
 
-## <a name="how-do-you-upload-certificates"></a>인증서 업로드 방법
-### <a name="public-certificates"></a>공용 인증서
-B2B 기능이 포함된 논리 앱에서 *공용 인증서* 를 사용하려면 먼저 통합 계정에 인증서를 업로드해야 합니다. B2B 기능이 포함된 논리 앱에서 *자체 서명된 인증서*를 사용하려면 먼저 인증서를 [Azure Key Vault](../key-vault/key-vault-get-started.md "주요 자격 증명 모음에 대해 알아보기")에 업로드해야 합니다.
+## <a name="upload-a-public-certificate"></a>공용 인증서 업로드
+
+B2B 기능이 포함된 논리 앱에서 *공용 인증서* 를 사용하려면 먼저 통합 계정에 인증서를 업로드해야 합니다.  
 
 인증서를 업로드한 후에는 사용자가 만드는 [규약](logic-apps-enterprise-integration-agreements.md) 에서 해당 속성을 정의할 때 인증서를 사용하여 B2B 메시지를 안전하게 보호할 수 있습니다.  
 
@@ -61,8 +61,9 @@ Azure Portal에 로그인한 후 통합 계정에 공용 인증서를 업로드�
 9. **인증서** 타일을 선택합니다. 새로 추가된 인증서가 보일 것입니다.  
 ![새 인증서가 보임](media/logic-apps-enterprise-integration-certificates/certificate-4.png)  
 
-### <a name="private-certificates"></a>개인 인증서
-다음 단계를 수행하여 통합 계정에 개인 인증서를 업로드할 수 있습니다.  
+## <a name="upload-a-private-certificate"></a>개인 인증서 업로드
+
+B2B 기능과 함께 Logic Apps에서 *개인 인증서*를 사용하려면 다음 단계를 수행하여 통합 계정으로 개인 인증ㅇ서를 업로드할 수 있습니다.
 
 1. [개인 키를 Key Vault에 업로드](../key-vault/key-vault-get-started.md "Key Vault에 대해 알아보기") 및 **키 이름** 입력 
    
@@ -100,6 +101,6 @@ Azure Portal에 로그인한 후 통합 계정에 개인 인증서를 업로드�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

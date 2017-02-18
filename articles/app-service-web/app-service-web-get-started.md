@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4e86c1c1460f7b6eb312f10a0666f92b33697763
-ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
+ms.sourcegitcommit: 9ea90a7e2f69344fa86e20bc869f5b8af629a226
+ms.openlocfilehash: 77de5a58dc792ff2d65855e726dd35d9824276cb
 
 
 ---
@@ -33,7 +33,7 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 
 [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하는 CLI 버전
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
@@ -46,14 +46,14 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정 없이 [App Service를 체험](http://go.microsoft.com/fwlink/?LinkId=523751)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정 없이 [App Service를 체험](https://azure.microsoft.com/try/app-service/)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 ## <a name="deploy-a-web-app"></a>웹 앱 배포
 Azure 앱 서비스에 웹 앱을 배포하겠습니다.
 
-1. 새 Windows 명령 프롬프트, PowerShell 창, Linux 셸 또는 OS X 터미널을 엽니다. `git --version` 및 `azure --version`를 실행하여 Git 및 Azure CLI가 컴퓨터에 설치되어 있는지 확인합니다.
+1. 새 Windows 명령 프롬프트, PowerShell 창, Linux 셸 또는 OS X 터미널을 엽니다. `git --version` 및 `az --version`를 실행하여 Git 및 Azure CLI가 컴퓨터에 설치되어 있는지 확인합니다.
    
     ![Azure에서 첫 번째 웹앱에 CLI 도구가 설치되는지를 테스트합니다.](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
@@ -115,7 +115,7 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
         "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
         }
 
-6. JSON에서 URL을 로컬 리포지토리의 Git 원격으로 추가합니다(단순성을 위해 `azure`라고 함).
+6. JSON의 URL을 로컬 리포지토리의 Git 원격으로 추가합니다(간단히 `azure`라고 함).
 
         git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
    
@@ -161,6 +161,6 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

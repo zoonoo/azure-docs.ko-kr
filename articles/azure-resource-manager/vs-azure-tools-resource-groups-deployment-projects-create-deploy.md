@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -136,7 +136,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
    
     **administratorLogin** 은 SQL Server 관리자의 사용자 이름을 지정합니다. **sa** 또는 **admin**과 같은 일반 관리자 이름을 사용하지 않습니다. 
    
-    **administratorLoginPassword** 는 SQL Server 관리자의 암호를 지정합니다. **암호를 매개 변수 파일에 일반 텍스트로 저장** 옵션은 안전하지 않으므로 이 옵션을 선택하지 않습니다. 암호가 일반 텍스트로 저장되지 않기 때문에 배포하는 동안 다시 이 암호를 제공해야 합니다. 
+    **administratorLoginPassword** 는 SQL Server 관리자의 암호를 지정합니다. **암호를 매개 변수 파일에 일반 텍스트로 저장** 옵션은 안전하지 않으므로 이 옵션을 선택하지 않습니다. 암호는 일반 텍스트로 저장되지 않으므로 배포 중에 이 암호를 다시 제공해야 합니다. 
    
     **databaseName** 은 만들 데이터베이스의 이름을 지정합니다. 
    
@@ -189,7 +189,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
    
     속성은 다음과 같습니다.
    
-   * **추가 속성** 은 Azure Storage에 푸시되는 웹 배포 패키지 준비 위치를 포함합니다. 폴더(ExampleApp) 및 파일(package.zip)을 적어둡니다. 앱을 배포할 때 이러한 값을 매개 변수로 제공합니다. 
+   * **추가 속성** 은 Azure Storage에 푸시되는 웹 배포 패키지 준비 위치를 포함합니다. 폴더(ExampleApp) 및 파일(package.zip)을 적어둡니다. 이러한 값은 앱을 배포할 때 매개 변수로 제공하므로 알고 있어야 합니다. 
    * **파일 경로 포함** 은 패키지를 만들 경로를 포함합니다. **대상 포함** 은 배포가 실행할 명령을 포함합니다. 
    * **빌드;패키지** 의 기본값을 통해 배포는 웹 배포 패키지(package.zip)를 빌드하고 만들 수 있습니다.  
      
@@ -219,6 +219,6 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

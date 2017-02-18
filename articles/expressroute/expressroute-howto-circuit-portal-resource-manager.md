@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager 및 Azure Portal을 사용하여 ExpressRoute 회로 만들기 및 수정 | Microsoft 문서"
+title: "ExpressRoute 회로 만들기 및 수정: Azure Portal | Microsoft Docs"
 description: "이 문서에서는 Express 경로 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6ee9ef23e8594391a4fce313f945b31e6870a7
-ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
+ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
+ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
 
 
 ---
@@ -149,6 +149,6 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

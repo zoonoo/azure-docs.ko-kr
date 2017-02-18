@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
+ms.sourcegitcommit: 84d42efc54f7dcbde8330360941969a5b0884a1a
+ms.openlocfilehash: ed249f63098a82b935016ccac3e0416951cb1b0a
 
 
 ---
@@ -46,7 +46,6 @@ ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
 
 고려 사항은 다음과 같습니다.
 
-* 미디어 서비스 SDK의 현재 버전은 지정된 로케이터 ID를 사용하여 로케이터를 만들도록 지원하지 않습니다. 이 작업을 수행하려면 미디어 서비스 REST API를 사용합니다.
 * 미디어 서비스 SDK의 현재 버전은 자산 파일과 자산을 연결하는 IAssetFile 정보를 프로그래밍 방식으로 생성하도록 지원하지 않습니다. 이 작업을 수행하려면 CreateFileInfos 미디어 서비스 REST API를 사용합니다. 
 * 자산을 암호화한 저장소(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다.(암호화 키가 미디어 서비스 계정 모두에서 다르기 때문에) 
 * 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태인지 확인합니다.
@@ -950,6 +949,6 @@ ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

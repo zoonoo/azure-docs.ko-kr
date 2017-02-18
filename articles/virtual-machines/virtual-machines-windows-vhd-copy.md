@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
+ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
+ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
 
 
 ---
@@ -93,7 +93,7 @@ Elapsed time:            00.00:13:07
 ```
 
 ## <a name="troubleshooting"></a>문제 해결
-* AZCopy를 사용하는 경우 "서버가 요청을 인증하지 못했습니다. 서명을 비롯한 권한 부여 헤더 값이 올바르게 구성되어 있는지 확인하세요." 오류를 Throw하는 문제를 해결합니다. 라는 오류가 표시되고 키 2 또는 보조 저장소 키를 사용 중인 경우 주 또는 첫 번째 저장소 키를 사용해 보세요.
+* AZCopy를 사용하는 경우 서버가 요청을 인증하지 못했습니다.라는 오류 메시지가 표시되면 권한 부여 헤더의 값이 서명을 포함하여 올바른 형식으로 지정되었는지 확인하고, 키 2 또는 보조 저장소 키를 사용 중인 경우 주 또는 첫 번째 저장소 키를 사용해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [VHD의 복사본을 OS 디스크로 VM에 연결](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 새 VM을 만들 수 있습니다.
@@ -101,6 +101,6 @@ Elapsed time:            00.00:13:07
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

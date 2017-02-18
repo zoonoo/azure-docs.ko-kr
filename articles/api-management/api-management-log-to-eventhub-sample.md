@@ -1,5 +1,5 @@
 ---
-title: "Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링"
+title: "Azure API Management, Event Hubs 및 Runscope를 사용하여 API 모니터링 | Microsoft Docs"
 description: "Azure API 관리, Azure 이벤트 허브 및 HTTP 로깅 및 모니터링에 대한 Runscope에 연결하여  log-to-eventhub 정책을 보여주는 샘플 응용 프로그램"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
-ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링
@@ -275,8 +274,8 @@ Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 이벤트 허브에 대해 자세히 알아보기
-  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
   * [Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)
@@ -285,7 +284,6 @@ Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

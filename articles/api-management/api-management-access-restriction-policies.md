@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
+ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
+ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
@@ -50,7 +50,7 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
 </check-header>  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
   
 ```xml  
 <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">  
@@ -206,7 +206,7 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
 </ip-filter>  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
   
 ```xml  
 <ip-filter action="allow | forbid">  
@@ -368,7 +368,8 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -491,7 +492,8 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
 |id|`key` 요소에 있는 `id` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.|아니요|해당 없음|  
 |match|`claim` 요소에 있는 `match` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> -                          `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> -                          `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.|아니요|모두|  
 |query-paremeter-name|토큰을 보유하는 쿼리 매개 변수의 이름입니다.|`header-name` 또는 `query-paremeter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
-|require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니요|true|  
+|require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니요|true|
+|require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니요|해당 없음|
 |require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니요|true|  
 |url|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 끝점 URL입니다. Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|예|해당 없음|  
   
@@ -506,6 +508,7 @@ ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

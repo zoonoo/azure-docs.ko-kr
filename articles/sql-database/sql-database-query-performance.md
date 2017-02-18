@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL 데이터베이스 Query Performance Insight"
+title: "Azure SQL Database에 대한 쿼리 성능 Insight | Microsoft Docs"
 description: "쿼리 성능 모니터링은 Azure SQL 데이터베이스에 대한 대부분의 CPU 사용 쿼리를 식별합니다."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
 
 
 ## <a name="prerequisites"></a>필수 조건
-* Query Performance Insight는 Azure SQL 데이터베이스 V12에서만 제공됩니다.
 * Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx) 가 활성 상태여야 합니다. 쿼리 저장소가 실행되지 않는 경우 저장소를 켜라는 포털 메시지가 표시됩니다.
 
 ## <a name="permissions"></a>권한
@@ -229,6 +228,6 @@ SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 [Query
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

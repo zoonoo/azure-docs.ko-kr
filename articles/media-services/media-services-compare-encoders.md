@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
+ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
+ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 
 ---
@@ -118,6 +118,8 @@ ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
 | MP3(MPEG-1 Audio Layer 3) |아니요 |예 |
 | Windows Media 오디오 |아니요 |예 |
 
+>[!NOTE]
+>Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -134,6 +136,6 @@ ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

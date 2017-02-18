@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/02/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 22781ec965decbfd33923478794a76692151c363
+ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
+ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 
 ---
 # <a name="relay-faq"></a>릴레이 FAQ
-이 문서는 Microsoft Azure 릴레이에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다.
+
+이 문서는 [Microsoft Azure 릴레이](https://azure.microsoft.com/services/service-bus/)에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다.
 
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-relay"></a>Azure 릴레이란?
-Azure [릴레이 서비스](relay-what-is-it.md)는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다.
+[Azure 릴레이 서비스](relay-what-is-it.md)는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크 내에 있는 서비스를 공용 클라우드에 안전하게 노출할 수 있게 함으로써 이 작업을 도와줍니다.
 
 ### <a name="what-is-a-relay-namespace"></a>릴레이 네임스페이스란?
 [네임스페이스](relay-create-namespace-portal.md)는 응용 프로그램 내에서 릴레이 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 릴레이를 사용하는 데 필요하고 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-happened-to-the-previously-named-relay-service"></a>이전에 명명된 릴레이 서비스는 어떻게 되었나요?
-이전에 명명된 **릴레이** 서비스는 이제 *WCF 릴레이*라고 합니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결은 BizTalk에서 옮겨진 서비스의 업데이트된 버전입니다. WCF 릴레이 및 하이브리드 연결은 앞으로도 모두 계속 지원될 예정입니다.
+이전의 Service Bus **Relay** 서비스를 이제 *WCF 릴레이*라고 지칭합니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결은 BizTalk에서 옮겨진 서비스의 업데이트된 버전입니다. WCF 릴레이 및 하이브리드 연결은 앞으로도 모두 계속 지원될 예정입니다.
 
 ## <a name="pricing"></a>가격
 이 섹션은 릴레이 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다. 릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
@@ -86,7 +87,7 @@ netTCPRelay WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지�
 
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?
-PowerShell 명령([여기](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription) 문서에 위치)을 사용하여 Azure 구독 간에 네임스페이스를 이동할 수 있습니다. 작업을 실행하기 위해 네임스페이스가 활성화되어야 합니다. 또한 명령을 실행하는 사용자는 원본 및 대상 구독에 대한 관리자여야 합니다.
+PowerShell 명령([여기](../service-bus-messaging/service-bus-powershell-how-to-provision.md) 문서에 위치)을 사용하여 Azure 구독 간에 네임스페이스를 이동할 수 있습니다. 작업을 실행하기 위해 네임스페이스가 활성화되어야 합니다. 또한 명령을 실행하는 사용자는 원본 및 대상 구독에 대한 관리자여야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Azure 릴레이 API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
@@ -109,6 +110,6 @@ PowerShell 명령([여기](../service-bus-messaging/service-bus-powershell-how-t
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

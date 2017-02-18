@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ WebHDFS REST API 및 Data Lake Analytics REST API를 사용하여 Data Lake Anal
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 Azure Active Directory로 인증하는 방법에는 두 가지가 있습니다.
 
-### <a name="enduser-authentication-interactive"></a>최종 사용자 인증(대화형)
+### <a name="end-user-authentication-interactive"></a>최종 사용자 인증(대화형)
 이 방법을 사용하여 응용 프로그램은 로그인하라는 메시지를 표시하고 모든 작업은 사용자의 컨텍스트에서 수행됩니다. 
 
 대화형 인증을 위해 다음 단계를 수행합니다.
@@ -76,7 +76,7 @@ Azure Active Directory로 인증하는 방법에는 두 가지가 있습니다.
 
 대화형 사용자 인증에 대한 자세한 내용은 [인증 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)을 참조하세요.
 
-### <a name="servicetoservice-authentication-noninteractive"></a>서비스 간 인증(비대화형)
+### <a name="service-to-service-authentication-non-interactive"></a>서비스 간 인증(비대화형)
 이 방법을 사용하여 응용 프로그램은 고유한 자격 증명을 제공하여 작업을 수행합니다. 이를 위해 다음과 같은 POST 요청을 실행해야 합니다. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ Data Lake Analytics 계정을 만들기 전에 Azure 리소스 그룹과 Data La
         ]
     }
 
-## <a name="submit-usql-jobs"></a>U-SQL 작업 제출
+## <a name="submit-u-sql-jobs"></a>U-SQL 작업 제출
 다음 Curl 명령에서는 U-SQL 작업을 제출하는 방법을 보여 줍니다.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ Data Lake Analytics 계정을 만들기 전에 Azure 리소스 그룹과 Data La
     }
 
 
-## <a name="list-usql-jobs"></a>U-SQL 작업 나열
+## <a name="list-u-sql-jobs"></a>U-SQL 작업 나열
 다음 Curl 명령에서는 U-SQL 작업을 나열하는 방법을 보여 줍니다.
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ Data Lake Analytics 계정을 만들기 전에 Azure 리소스 그룹과 Data La
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

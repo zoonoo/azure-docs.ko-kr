@@ -1,5 +1,5 @@
 ---
-title: "Backup Exec에서 백업 대상으로 StorSimple 구성 | Microsoft Docs"
+title: "Backup Exec에서 백업 대상으로 StorSimple 8000 시리즈 구성 | Microsoft Docs"
 description: "Veritas Backup Exec을 사용한 StorSimple 백업 대상 구성에 대해 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 58254054b5978eeef3802f5c4014552f1c871469
-ms.openlocfilehash: d2182d32d0b7ef1b58d1dbfd609f0737f366b081
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: db05fb35fdcbcf6691cc3ffc99d201383706592f
 
 ---
 
@@ -526,6 +526,6 @@ StorSimple 장치에서 복원하면 모든 블록 저장소 장치에서 복원
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

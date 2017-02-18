@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 02/03/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3c97604b17636f011ddb2acda40fbc77afeab590
-ms.openlocfilehash: 9f7e9008f29b2b1a3a0422133e15871c4ce7cca8
-
+ms.sourcegitcommit: 110bf7df8753ec83a5a8b4219891700b462d4eb1
+ms.openlocfilehash: 339301772b1ee3bf22e543d4d4183adda5b54c2e
 
 ---
+
 # <a name="social-media-analysis-real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>소셜 미디어 분석: Azure Stream Analytics에서 실시간 Twitter 정서 분석
 실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 분석을 위한 감정 분석 솔루션을 구축하는 방법을 알아봅니다. 데이터를 분석하는 Azure Stream Analytics 쿼리를 작성합니다. 다음 자세히 확인하기 위해 결과를 저장하거나 대시보드 및 [Power BI](https://powerbi.com/)를 사용하여 실시간으로 통찰력을 제공할 수 있습니다.
 
@@ -45,6 +45,7 @@ ms.openlocfilehash: 9f7e9008f29b2b1a3a0422133e15871c4ce7cca8
 4. **공유 액세스 정책**에서 **관리** 권한을 사용하여 새 정책을 만듭니다.
 
    ![관리 권한을 사용하여 정책을 만들 수 있는 공유 액세스 정책입니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+
 5. 페이지 아래쪽에서 **저장** 을 클릭합니다.
 6. **대시보드**로 이동하여 페이지 아래쪽에서 **연결 정보**를 클릭한 다음 연결 정보를 복사 및 저장합니다. 검색 아이콘 아래에 표시된 복사 아이콘을 사용하세요.
 
@@ -65,18 +66,23 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
    [OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
    토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.  
-3. TwitterClient.exe.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브의 연결 문자열 및 이름으로 바꿉니다. 앞에서 복사한 연결 문자열을 사용하면 이벤트 허브의 연결 문자열과 이름이 모두 제공되어 이를 구분하고 올바른 필드에 각각 추가할 수 있습니다. 예를 들어 다음 연결 문자열을 고려해 보겠습니다.
 
-     Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
-
+3. TwitterClient.exe.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브의 연결 문자열 및 이름으로 바꿉니다. 앞에서 복사한 연결 문자열을 사용하면 이벤트 허브의 연결 문자열과 이름이 모두 제공되어 이를 구분하고 올바른 필드에 각각 추가할 수 있습니다. 예를 들어 다음 연결 문자열을 고려해 보겠습니다.  
+   
+   `Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+   
    TwitterClient.exe.config 파일에는 다음 예제와 같은 설정이 포함되어야 합니다.
-
-     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"   add key="EventHubName" value="yourhub"
-
+   
+   ```
+     add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+     add key="EventHubName" value="yourhub"
+   ```
+   
    EventHubName 값에는 텍스트 "EntityPath="가 나타나지 **않습니다**.
+   
 4. *선택 사항:* 검색할 키워드를 조정합니다.  기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다.  필요한 경우 TwitterClient.exe.config에서 **twitter_keywords** 값을 조정할 수 있습니다.
 5. TwitterClient.exe를 실행하여 응용 프로그램을 시작합니다. **CreatedAt**, **Topic** 및 **SentimentScore** 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
-
+   
    ![정서 분석: 이벤트 허브로 전송되는 SentimentScore 값](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
@@ -88,30 +94,35 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
    * **작업 이름**: 작업 이름을 입력합니다.
    * **지역**: 작업을 실행할 지역을 선택합니다. 더 나은 성능을 보장하고 비용 부담 없이 지역 간에 데이터를 전송하려면 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋습니다.
-   * **Storage 계정**: 이 하위 지역 내에서 실행되는 모든 Stream Analytics 작업에 대한 모니터링 데이터를 저장하는 데 사용하려는 Azure Storage 계정을 선택합니다. 기존 저장소 계정을 선택하거나 새 계정을 만들 수 있습니다.
-3. 왼쪽 창에서 **Stream Analytics** 을 클릭하여 Stream Analytics 작업을 표시합니다.  
-   ![Stream Analytics 서비스 아이콘](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+   * **Storage 계정**: 이 하위 지역 내에서 실행되는 모든 Stream Analytics 작업에 대한 모니터링 데이터를 저장하는 데 사용하려는 Azure Storage 계정을 선택합니다. 기존 저장소 계정을 선택하거나 새 계정을 만들 수 있습니다.   
 
+3. 왼쪽 창에서 **Stream Analytics** 을 클릭하여 Stream Analytics 작업을 표시합니다.  
+   
+   ![Stream Analytics 서비스 아이콘](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+   
    새 작업이 **생성됨**상태로 표시됩니다. 페이지 아래쪽에 있는 **시작** 단추는 사용할 수 없게 설정됩니다. 작업을 시작하려면 먼저 작업 입력, 출력 및 쿼리를 구성해야 합니다.
 
+
 ### <a name="specify-job-input"></a>작업 입력 지정
+
 1. Stream Analytics 작업의 페이지 위쪽에서 **입력**을 클릭하고 **입력 추가**를 클릭합니다. 열리는 대화 상자에서 다양한 단계를 진행하면서 입력을 설정하게 됩니다.
 2. **데이터 스트림**을 클릭한 후 오른쪽 단추를 클릭합니다.
 3. **이벤트 허브**를 클릭한 후 오른쪽 단추를 클릭합니다.
-4. 세 번째 페이지에서 다음 값을 입력하거나 선택합니다.
-
+4. 세 번째 페이지에서 다음 값을 입력하거나 선택합니다.  
+   
    * **입력 별칭**: 이 작업 입력의 이름(예: *TwitterStream*)을 입력합니다. 이 이름은 나중에 쿼리에서 사용하게 됩니다.
-     **이벤트 허브**: 만든 이벤트 허브가 Stream Analytics 작업과 동일한 구독에 포함된 경우 이벤트 허브가 있는 네임스페이스를 선택합니다.
-
-     이벤트 허브가 다른 구독에 있으면 **다른 구독의 이벤트 허브 사용**을 클릭하고 **네임스페이스**, **이벤트 허브 이름**, **이벤트 허브 정책 이름**, **이벤트 허브 정책 키** 및 **이벤트 허브 파티션 수**에 대한 정보를 수동으로 입력합니다.
+   * **이벤트 허브**: 만든 이벤트 허브가 Stream Analytics 작업과 동일한 구독에 포함된 경우 이벤트 허브가 있는 네임스페이스를 선택합니다.
+      * 이벤트 허브가 다른 구독에 있으면 **다른 구독의 이벤트 허브 사용**을 클릭하고 **네임스페이스**, **이벤트 허브 이름**, **이벤트 허브 정책 이름**, **이벤트 허브 정책 키** 및 **이벤트 허브 파티션 수**에 대한 정보를 수동으로 입력합니다.
    * **이벤트 허브 이름**: 이벤트 허브의 이름을 선택합니다.
    * **이벤트 허브 정책 이름**: 이 자습서의 앞부분에서 만든 이벤트 허브 정책을 선택합니다.
    * **이벤트 허브 소비자 그룹**: 이 자습서의 앞부분에서 만든 소비자 그룹의 이름을 입력합니다.
+   
 5. 오른쪽 단추를 클릭합니다.
-6. 다음 값을 지정합니다.
-
+6. 다음 값을 지정합니다.  
+   
    * **이벤트 직렬 변환기 형식**: JSON
    * **인코딩**: UTF8
+  
 7. **확인** 단추를 클릭하여 이 소스를 추가하고 Stream Analytics가 이벤트 허브에 성공적으로 연결될 수 있는지 확인합니다.
 
 ### <a name="specify-job-query"></a>작업 쿼리 지정
@@ -128,43 +139,63 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 먼저 이벤트의 모든 필드를 프로젝션하는 간단한 통과 쿼리를 수행해 보겠습니다.
 
 1. Stream Analytics 작업 페이지의 위쪽에서 **쿼리**를 클릭합니다.
-2. 코드 편집기에서 초기 쿼리 템플릿을 다음으로 바꿉니다.
-
-     SELECT * FROM TwitterStream
-
+2. 코드 편집기에서 초기 쿼리 템플릿을 다음으로 바꿉니다.  
+   
+   `SELECT * FROM TwitterStream`
+   
    입력 원본의 이름이 앞에서 지정한 입력의 이름과 일치하는지 확인합니다.
+   
 3. 쿼리 편집기에서 **테스트** 를 클릭합니다.
 4. 샘플 .json 파일로 이동합니다.
 5. **확인** 단추를 클릭하고 쿼리 정의 아래의 결과를 확인합니다.
-
+   
    ![쿼리 정의 아래에 표시된 결과](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
-
+   
 #### <a name="count-of-tweets-by-topic-tumbling-window-with-aggregation"></a>항목별 트윗 수: 집계가 포함된 연속 창
-항목 간의 멘션 수를 비교하기 위해 [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx)를 활용하여 5초마다 항목별 멘션 수를 수집합니다.
+항목 간의 멘션 수를 비교하기 위해 [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx)를 활용하여&5;초마다 항목별 멘션 수를 수집합니다.
 
-1. 코드 편집기에서 쿼리를 다음으로 변경합니다.
-
-     SELECT System.Timestamp as Time, Topic, COUNT(*)   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY TUMBLINGWINDOW(s, 5), Topic
-
+1. 코드 편집기에서 쿼리를 다음으로 변경합니다.  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*)
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY TUMBLINGWINDOW(s, 5), Topic
+   ```
+   
    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다.  자세한 내용은 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 응용 프로그램 시간” 섹션을 참조하세요.
-
+   
    또한 이 쿼리는 **System.Timestamp** 속성을 사용하여 각 창 끝부분의 타임스탬프에도 액세스합니다.
+   
 2. 쿼리 편집기에서 **다시 실행** 을 클릭하여 쿼리 결과를 확인합니다.
 
 #### <a name="identify-trending-topics-sliding-window"></a>인기 항목 식별: 슬라이딩 윈도우
 인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다. 이 자습서에서는 [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx)를 사용하여 마지막 5초 이내에 20번 넘게 멘션된 항목을 확인합니다.
 
-1. 코드 편집기의 쿼리를 다음과 같이 변경합니다. SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY SLIDINGWINDOW(s, 5), topic   HAVING COUNT(*) > 20
-2. 쿼리 편집기에서 **다시 실행** 을 클릭하여 쿼리 결과를 확인합니다.
-
+1. 코드 편집기에서 쿼리를 다음으로 변경합니다.  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY SLIDINGWINDOW(s, 5), topic
+     HAVING COUNT(*) > 20
+   ```
+   
+2. 쿼리 편집기에서 **다시 실행** 을 클릭하여 쿼리 결과를 확인합니다.  
+   
    ![슬라이딩 윈도우 쿼리 출력](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
-
+   
 #### <a name="count-of-mentions-and-sentiment-tumbling-window-with-aggregation"></a>멘션 및 데이터 수: 집계가 포함된 연속 창
-테스트할 마지막 쿼리에서는 **TumblingWindow**를 사용하여 멘션 수와 각 항목에 대한 5초 간격 데이터 점수의 평균, 최소값, 최대값 및 표준 편차를 가져옵니다.
+테스트할 마지막 쿼리에서는 **TumblingWindow**를 사용하여 멘션 수와 각 항목에 대한&5;초 간격 데이터 점수의 평균, 최소값, 최대값 및 표준 편차를 가져옵니다.
 
-1. 코드 편집기에서 쿼리를 다음으로 변경합니다.
+1. 코드 편집기에서 쿼리를 다음으로 변경합니다.  
+   
+   ```
+     SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
+     Max(SentimentScore), STDEV(SentimentScore)
+     FROM TwitterStream TIMESTAMP BY CreatedAt
+     GROUP BY TUMBLINGWINDOW(s, 5), Topic
+   ```     
 
-     SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),   Max(SentimentScore), STDEV(SentimentScore)   FROM TwitterStream TIMESTAMP BY CreatedAt   GROUP BY TUMBLINGWINDOW(s, 5), Topic
 2. 쿼리 편집기에서 **다시 실행** 을 클릭하여 쿼리 결과를 확인합니다.
 3. 이 쿼리를 대시보드에 사용합니다.  페이지 아래쪽에서 **저장** 을 클릭합니다.
 
@@ -180,15 +211,16 @@ Blob Storage의 컨테이너가 없는 경우 아래 단계에 따라 만듭니�
 ## <a name="specify-job-output"></a>작업 출력 지정
 1. Stream Analytics 작업의 페이지 위쪽에서 **출력**을 클릭하고 **출력 추가**를 클릭합니다. 열리는 대화 상자에서 일부 단계를 진행하면서 출력을 설정하게 됩니다.
 2. **Blob Storage**를 클릭하고 오른쪽 단추를 클릭합니다.
-3. 세 번째 페이지에서 다음 값을 입력하거나 선택합니다.
-
+3. 세 번째 페이지에서 다음 값을 입력하거나 선택합니다.   
+   
    * **출력 별칭**: 이 작업 출력의 이름을 입력합니다.
    * **구독**: 만든 Blob Storage가 Stream Analytics 작업과 동일한 구독에 있으면 **현재 구독에서 Storage 계정 사용**을 선택합니다. Storage가 다른 구독에 있으면 **다른 구독에서 Storage 계정 사용**을 클릭하고 ** 계정**, **Storage 계정 키** 및 **컨테이너**에 대한 정보를 직접 입력합니다.
    * **저장소 계정**: 저장소 계정의 이름을 선택합니다.
    * **컨테이너**: 컨테이너의 이름을 선택합니다.
    * **파일 이름 접두사**: Blob 출력을 작성할 때 사용할 파일 접두사를 입력합니다.
+  
 4. 오른쪽 단추를 클릭합니다.
-5. 다음 값을 지정합니다.
+5. 다음 값을 지정합니다.  
    * **이벤트 직렬 변환기 형식**: JSON
    * **인코딩**: UTF8
 6. **확인** 단추를 클릭하여 이 소스를 추가하고 Stream Analytics가 Storage 계정에 성공적으로 연결될 수 있는지 확인합니다.
@@ -210,13 +242,13 @@ Blob Storage의 컨테이너가 없는 경우 아래 단계에 따라 만듭니�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

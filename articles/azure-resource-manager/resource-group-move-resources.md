@@ -1,5 +1,5 @@
 ---
-title: "새 리소스 그룹으로 리소스 이동 | Microsoft Docs"
+title: "새 구독 또는 리소스 그룹으로 Azure 리소스 이동 | Microsoft Docs"
 description: "Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다."
 services: azure-resource-manager
 documentationcenter: 
@@ -12,40 +12,51 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5718ca956680ac3c92f4eb479a5948d0296b8b21
-ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
 
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 이 항목에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 포털, PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다. 이 항목의 이동 작업은 Azure 지원의 도움 없이도 사용 가능합니다.
 
-일반적으로 다음과 같은 결정을 내린 경우 리소스를 이동합니다.
-
-* 대금 청구를 위해서는 리소스가 다른 구독 상태여야 합니다.
-* 리소스가 이전에 그룹화되었던 리소스와 동일한 수명 주기를 더 이상 공유하지 않습니다. 해당 리소스를 다른 리소스와는 별도로 관리할 수 있도록 새 리소스 그룹으로 이동하려고 합니다.
-
 리소스를 이동할 때 원본 그룹과 대상 그룹은 모두 작업 중에 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 응용 프로그램에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다. 
 
 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
 > [!NOTE]
-> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제품으로 전환](../billing-how-to-switch-azure-offer.md)을 참조하세요. 
+> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제품으로 전환](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요. 
 > 
 > 
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
 
-1. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이 항목에서는 리소스 이동이 가능한 서비스와 그렇지 않은 서비스 목록을 보여 줍니다.
-2. 원본 및 대상 구독은 동일한 [Active Directory 테넌트](../active-directory/active-directory-howto-tenant.md) 내에 있어야 합니다. 새 테넌트로 이동하려면 지원 센터에 문의하세요.
+1. 원본 및 대상 구독은 동일한 [Active Directory 테넌트](../active-directory/active-directory-howto-tenant.md) 내에 있어야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 Azure PowerShell 또는 Azure CLI를 사용합니다.
+
+  Azure PowerShell의 경우 다음을 사용합니다.
+
+  ```powershell
+  (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
+  ```
+
+  Azure CLI 2.0(미리 보기)의 경우 다음을 사용합니다.
+
+  ```azurecli
+  az account show --subscription "Example Subscription" --query tenantId
+  ```
+
+  원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 구독에 대한 디렉터리를 변경할 수 있습니다. 그러나 이 옵션은 Microsoft 계정(조직 계정 아님)으로 로그인한 서비스 관리자만 사용할 수 있습니다. 디렉터리를 변경하려면 [클래식 포털](https://manage.windowsazure.com/)에 로그인한 후 **설정**을 선택하고 구독을 선택합니다. **디렉터리 편집** 아이콘을 사용할 수 있는 경우 이 아이콘을 선택하여 연결된 Active Directory를 변경합니다. 
+
+  ![디렉터리 편집](./media/resource-group-move-resources/edit-directory.png) 
+
+  이 아이콘을 사용할 수 없는 경우 지원 서비스에 문의하여 리소스를 새 테넌트로 이동해야 합니다.
+
+2. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이 항목에서는 리소스 이동이 가능한 서비스와 그렇지 않은 서비스 목록을 보여 줍니다.
 3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 등록 상태 및 등록 리소스 공급자를 확인하는 방법은 [리소스 공급자 및 형식](resource-manager-supported-services.md#resource-providers-and-types)을 참조하세요.
-4. 앱 서비스 앱을 이동하는 경우 [앱 서비스 제한](#app-service-limitations)을 먼저 검토해야 합니다.
-5. Recovery Services와 연결된 리소스를 이동하는 경우 [Recovery Services 제한 사항](#recovery-services-limitations)을 먼저 검토해야 합니다.
-6. 클래식 모델을 통해 배포된 리소스를 이동하는 경우 [클래식 배포 제한 사항](#classic-deployment-limitations)을 먼저 검토해야 합니다.
 
 ## <a name="when-to-call-support"></a>지원을 호출해야 하는 경우
 대부분의 리소스는 이 항목에 나와 있는 셀프 서비스 작업을 통해 이동할 수 있습니다. 다음에 대해 셀프 서비스 작업을 사용합니다.
@@ -75,7 +86,6 @@ ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
 * 데이터 팩터리
 * 데이터 레이크 분석
 * 데이터 레이크 저장소
-* DevTest Lab
 * DNS
 * DocumentDB
 * Event Hubs
@@ -118,6 +128,7 @@ ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
 * Application Insights
 * BizTalk 서비스
 * Express 경로
+* DevTest Labs - 같은 구독의 새 리소스 그룹으로의 이동이 사용되도록 설정되지만 구독 간 이동은 사용되도록 설정되지 않습니다.
 * Dynamics LCS
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 보안
@@ -202,13 +213,13 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 1. 원본 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 
-  ```   
+  ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
    
      요청 본문에 다음을 포함합니다.
 
-  ``` 
+  ```json 
   {
     "role": "source"
   }
@@ -216,7 +227,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
   
      유효성 검사 작업에 대한 응답은 다음 형식입니다.
 
-  ``` 
+  ```json 
   {
     "status": "{status}",
     "reasons": [
@@ -228,13 +239,13 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 2. 대상 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 
-  ``` 
+  ```HTTP 
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
      요청 본문에 다음을 포함합니다.
 
-  ``` 
+  ```json 
   {
     "role": "target"
   }
@@ -243,13 +254,13 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
      응답이 원본 구독 유효성 검사와 동일한 형식입니다.
 3. 두 구독이 유효성 검사를 통과하면 다음 작업으로 한 구독에서 다른 구독으로 모든 클래식 리소스를 이동합니다.
 
-  ``` 
+  ```HTTP 
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
     요청 본문에 다음을 포함합니다.
 
-  ``` 
+  ```json 
   {
     "target": "/subscriptions/{target-subscription-id}"
   }
@@ -258,13 +269,11 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 이 작업은 몇 분 정도 실행될 수 있습니다. 
 
 ## <a name="use-portal"></a>포털 사용
-리소스를 **동일한 구독**의 새 리소스 그룹으로 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택한 후 **이동** 단추를 선택합니다.
+리소스를 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택한 후 **이동** 단추를 선택합니다.
 
-![리소스 이동](./media/resource-group-move-resources/edit-rg-icon.png)
+![리소스 이동](./media/resource-group-move-resources/select-move.png)
 
-또는 리소스를 **새 구독**으로 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택한 후 구독 편집 아이콘을 선택합니다.
-
-![리소스 이동](./media/resource-group-move-resources/change-subscription.png)
+리소스를 새 리소스 그룹으로 이동할지 또는 새 구독으로 이동할지를 선택합니다.
 
 이동할 리소스와 대상 리소스 그룹을 선택합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인**을 선택합니다. 이전 단계에서 구독 편집 아이콘을 선택한 경우 대상 구독도 선택해야 합니다.
 
@@ -279,7 +288,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 ![이동 결과 표시](./media/resource-group-move-resources/show-result.png)
 
 ## <a name="use-powershell"></a>PowerShell 사용
-다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 **Move-AzureRmResource** 명령을 사용합니다.
+다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 `Move-AzureRmResource` 명령을 사용합니다.
 
 첫 번째 예제는 새 리소스 그룹에 하나의 리소스를 이동하는 방법을 보여 줍니다.
 
@@ -296,7 +305,7 @@ $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-새 구독으로 이동하려면 **DestinationSubscriptionId** 매개 변수 값을 포함합니다.
+새 구독으로 이동하려면 `DestinationSubscriptionId` 매개 변수 값을 포함합니다.
 
 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다.
 
@@ -310,8 +319,23 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli"></a>Azure CLI 사용
-다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 **azure resource move** 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 명령을 사용하여 리소스 ID를 가져올 수 있습니다.
+## <a name="use-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기) 사용
+다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 `az resource move` 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 명령을 사용하여 리소스 ID를 가져올 수 있습니다.
+
+```azurecli
+az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
+```
+
+다음 예제에서는 저장소 계정을 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. `--ids` 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
+
+```azurecli
+az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
+```
+
+새 구독으로 이동하려면 `--destination-subscription-id` 매개 변수를 제공합니다.
+
+## <a name="use-azure-cli-10"></a>Azure CLI 1.0 사용
+다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 `azure resource move` 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 명령을 사용하여 리소스 ID를 가져올 수 있습니다.
 
 ```azurecli
 azure resource list -g sourceGroup --json
@@ -336,7 +360,7 @@ azure resource list -g sourceGroup --json
 ]
 ```
 
-다음 예제에서는 저장소 계정을 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. **-i** 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
+다음 예제에서는 저장소 계정을 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. `-i` 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
 
 ```azurecli
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
@@ -347,7 +371,7 @@ azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/provide
 ## <a name="use-rest-api"></a>REST API 사용
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 다음을 실행합니다.
 
-```
+```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 ```
 
@@ -362,6 +386,6 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

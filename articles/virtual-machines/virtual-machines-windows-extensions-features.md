@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 259ad6e8481545c48865fbb108956b70251ade7c
-ms.openlocfilehash: 16d5b3347e01718a9976b6fa5e6d0b92c073da21
+ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
+ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
 
 
 ---
@@ -47,7 +47,7 @@ VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살
 ### <a name="azure-vm-agent"></a>Azure VM 에이전트
 Azure VM 에이전트는 Azure Virtual Machine과 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. VM 에이전트는 VM 확장 실행을 포함하여 Azure Virtual Machine 배포 및 관리의 다양한 기능적 측면을 담당합니다. Azure VM 에이전트는 Azure Marketplace 이미지에 미리 설치되며 지원되는 운영 체제에 설치될 수 있습니다.
 
-지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+지원되는 운영 체제 및 설치 지침에 대한 자세한 내용은 [Azure Virtual Machines 에이전트](virtual-machines-windows-agent-user-guide.md)를 참조하세요.
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 Azure Virtual Machine와 함께 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 Azure Resource Manager PowerShell 모듈을 사용하여 다음 명령을 실행합니다. 이 명령을 실행하는 경우 원하는 위치를 지정해야 합니다.
@@ -288,6 +288,6 @@ Azure Portal을 사용하여 확장을 제거할 수도 있습니다. 이렇게 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

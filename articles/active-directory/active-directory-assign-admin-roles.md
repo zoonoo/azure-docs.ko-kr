@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c36ad871c5b1cd14268cf8dc5a156884a5f67a77
-ms.openlocfilehash: 4403523bb3bd33b967ca3c212386db8ac5d75a68
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
 
 
 ---
@@ -115,7 +115,7 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 7. 완료 되면 **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)
+* Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](active-directory-understanding-resource-access.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
 * [사용자 관리](active-directory-create-users.md)
@@ -124,6 +124,6 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

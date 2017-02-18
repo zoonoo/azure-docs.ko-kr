@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -58,7 +58,7 @@ Visual Studio 솔루션에는 다음과 같은 세 가지 프로젝트가 포함
 * ASP.NET Web API - 이 자습서 지침에서는 Visual Studio에서 ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) 와 함께 작업하는 방법에 대한 기본적인 지식이 있다고 가정합니다.
 * Azure 계정 - [무료로 Azure 계정을 열거나](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
   
-    Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 **신용 카드와 약정 없이**App Service에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
+    Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/)로 이동하세요. 여기서 **신용 카드와 약정 없이**App Service에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 * [Azure SDK for.NET](https://azure.microsoft.com/downloads/archive-net-downloads/) 를 포함한 Visual Studio 2015 - SDK는 Visual Studio 2015가 아직 없는 경우 자동으로 설치합니다.
   
   * Visual Studio에서 도움말 -> Microsoft Visual Studio를 클릭하고 "Azure App Service 도구 v2.9.1" 이상을 설치해야 합니다.
@@ -66,7 +66,7 @@ Visual Studio 솔루션에는 다음과 같은 세 가지 프로젝트가 포함
     ![Azure 앱 도구 버전](./media/app-service-api-dotnet-get-started/apiversion.png)
     
     > [!NOTE]
-    > 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
+    > 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서&30;분 또는 그 이상이 될 수 있습니다.
     > 
     > 
 
@@ -442,6 +442,6 @@ API 앱에 기존 웹 API 프로젝트를 배포하고 API 앱에 클라이언�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

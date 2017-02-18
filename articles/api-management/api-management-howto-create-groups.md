@@ -1,5 +1,5 @@
 ---
-title: "Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법"
+title: "Azure API Management에서 그룹을 사용하여 개발자 계정 관리 | Microsoft Docs"
 description: "Azure API 관리에서 그룹을 사용하여 개발자 계정을 관리하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 2187c94f5deab28159594216545d7b57ef02cb70
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
 
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
@@ -118,6 +117,6 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

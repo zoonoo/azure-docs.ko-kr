@@ -1,6 +1,6 @@
 ---
-title: "API 관리 주요 개념"
-description: "API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다."
+title: "Azure API Management에 API 가져오기 | Microsoft Docs"
+description: "Azure API Management에 API 및 해당 작업을 가져오는 방법에 알아봅니다."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: b69c8e918bb0380a10b1505fbf9792e284149de0
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
 
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
@@ -39,7 +38,7 @@ API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
 
 ![API 가져오기][api-management-import-apis]
 
-**API 가져오기** 창에는 3개의 탭이 있으며 각기 API 사양을 제공하는 3가지 방법에 해당합니다.
+**API 가져오기** 창에는&3;개의 탭이 있으며 각기 API 사양을 제공하는&3;가지 방법에 해당합니다.
 
 * **클립보드에서** 지정된 입력란에 API 사양을 붙여넣을 수 있습니다.
 * **파일에서** API 사양을 포함하는 파일로 이동하여 선택할 수 있습니다.
@@ -97,6 +96,6 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

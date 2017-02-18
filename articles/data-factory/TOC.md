@@ -25,7 +25,7 @@
 
 # 방법
 ## 데이터 이동
-### [데이터 팩터리 복사 마법사](data-factory-copy-wizard.md)
+### [데이터 팩터리 복사 마법사](data-factory-azure-copy-wizard.md)
 #### [15분 내에 1TB 로드](data-factory-load-sql-data-warehouse.md)
 ### [복사 작업](data-factory-data-movement-activities.md)
 #### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure 데이터 팩터리 개발자 참조](data-factory-sdks.md)
 ## [REST (영문)](/rest/api/datafactory/)
 
 # 리소스
@@ -102,6 +101,6 @@
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: azure-government
 ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a7e53dcdbf3cecd8a00ad3424ffa0d62cc8fde43
-ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
 | [핫/쿨 Blob Storage] (../storage/storage-blob-storage-tiers.md) |해당 없음 |해당 없음 |
 | [저장소 서비스 암호화] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |해당 없음 | DS 시리즈 가상 컴퓨터가 포함됩니다. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | 현재 클래식 저장소 계정만 지원됩니다. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>변형
@@ -85,6 +85,6 @@ API에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/libr
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

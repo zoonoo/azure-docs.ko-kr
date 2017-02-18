@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: da1a8c45a1753d617e0cb62f99bc47d22838a8e8
-ms.openlocfilehash: ac58f3f5498edbd6f7b19db647a9513a485d6dbf
+ms.sourcegitcommit: 617599c7df6284e6319a1b3331d1e894e5d4b2d1
+ms.openlocfilehash: 2ced7d0d4e2e653013c605932066c412c4202082
 
 
 ---
@@ -353,11 +353,15 @@ System Center Configuration Manager와 같은 소프트웨어 배포 시스템�
 설치 관리자에서는 사용자 컨텍스트에서 실행되도록 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 IWA를 통해 인증한 후 사용자 자격 증명으로 Azure AD에 장치를 자동으로 등록합니다. 예약된 작업을 보려면 **Microsoft** > **작업 공간 연결**, [작업 스케줄러] 라이브러리로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)
+
+- 자동 장치 등록 중에 오류가 발생하면 다음 문제 해결 항목을 참조하세요.
+    - [Windows 10 및 Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+    - [Windows 하위 수준 클라이언트](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+- 일반적인 질문에 대한 답변을 보려면 [자동 장치 등록 FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

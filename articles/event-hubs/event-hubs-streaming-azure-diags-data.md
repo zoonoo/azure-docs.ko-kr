@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 07/14/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1827b093b0c61dfbf6a6c87fe826299262491d40
+ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
+ms.openlocfilehash: 6623bb9a4f3845676574f6335dd662dd5bcf7be9
 
 
 ---
@@ -51,7 +51,7 @@ Azure 진단에서 싱크하는 이벤트 허브는 Azure SDK 2.9 및 해당 Vis
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>이벤트 허브 싱크에 Azure 진단 연결
 Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메트릭을 싱크합니다. 응용 프로그램은 *.wadcfgx* 파일의 **PublicConfig** 섹션에 있는 **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 추가로 싱크할 수 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)** > **diagnostics.wadcfgx** 파일이라는 경로에 저장됩니다.
 
-```
+```xml
 <SinksConfig>
   <Sink name="HotPath">
     <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
@@ -93,7 +93,7 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 
 다음은 몇 가지 구성 예입니다.
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -108,7 +108,7 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 
 다음 예제에서는 싱크가 계층 구조에서 **PerformanceCounters** 부모 모드에 적용됩니다. 즉 모든 **PerformanceCounters** 자식이 Event Hubs로 전송됩니다.  
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -156,7 +156,7 @@ Visual Studio에서는 응용 프로그램 및 이벤트 허브 싱크 구성을
 
 **기본** 함수에서 꺾쇠 괄호로 묶인 값을 리소스에 사용할 값으로 바꾸십시오.   
 
-```
+```csharp
 //Console application code for EventHub test client
 using System;
 using System.Collections.Generic;
@@ -252,7 +252,7 @@ namespace EventHubListener
 • [Event Hubs에 대해 자세히 알아보기](https://azure.microsoft.com/services/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>부록: Azure 진단 구성 파일(.wadcfgx) 예제 완료
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -307,7 +307,7 @@ namespace EventHubListener
 
 이 예제에 대한 보조 *ServiceConfiguration.Cloud.cscfg* 는 다음과 같습니다.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
   <Role name="MyFixIt.WorkerRole">
@@ -318,12 +318,18 @@ namespace EventHubListener
   </Role>
 </ServiceConfiguration>
 ```
+## <a name="next-steps"></a>다음 단계
+Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+* [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
+* [이벤트 허브 만들기](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

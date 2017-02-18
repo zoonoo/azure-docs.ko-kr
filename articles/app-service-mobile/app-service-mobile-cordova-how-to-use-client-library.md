@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 314170f8d1ef228817543a80b99f4c2ff282866f
-ms.openlocfilehash: 8c783fc8e789ec31f0b8f4db90b5fa67334d95ab
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
 
 
 ---
@@ -41,6 +41,32 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
 [첫 번째 Apache Cordova 앱]을 만드는 방법에 대한 자세한 내용은 해당 설명서를 참조하세요.
+
+## <a name="a-nameionicasetting-up-an-ionic-v2-app"></a><a name="ionic"></a>Ionic v2 앱 설정
+
+Ionic v2 프로젝트를 올바르게 구성하려면 먼저 기본 앱을 만들고 Cordova 플러그 인을 추가합니다.
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+`app.component.ts`에 다음 줄을 추가하여 클라이언트 개체를 만듭니다.
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+이제 프로젝트를 빌드한 후 브라우저에서 실행할 수 있습니다.
+
+```
+ionic platform add browser
+ionic run browser
+```
+
+Azure Mobile Apps Cordova 플러그 인은 Ionic v1 및 v2 앱을 모두 지원합니다.  Ionic v2 앱에만 `WindowsAzure` 개체에 대한 추가 선언이 필요합니다.
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
@@ -158,6 +184,6 @@ pushHandler.on('error', function (error) {
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

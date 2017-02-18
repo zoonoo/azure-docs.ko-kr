@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Event Hub 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기 | Microsoft 문서"
-description: "Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기"
+title: "템플릿을 사용하여 Azure Event Hubs 네임스페이스 및 소비자 그룹 만들기 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기"
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: a9e31954983fa673258917785a5bd828f1970fa1
-ms.openlocfilehash: 92ec109c6cf9e3a2792ed68dfd96f86f5f9ae339
+ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
+ms.openlocfilehash: 0085e71eb44b95f6eb5308f1974379ad3a74984b
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기
 이 문서에서는 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 설명합니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
-템플릿을 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Azure Resource Manager 템플릿 작성]을 참조하세요.
+템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
 
-전체 템플릿에 대해서는 GitHub에서 [이벤트 허브 및 소비자 그룹 템플릿][이벤트 허브 및 소비자 그룹 템플릿]을 참조하세요.
+전체 템플릿은 GitHub에서 [이벤트 허브 및 소비자 그룹 템플릿][Event Hub and consumer group template]을 참조하세요.
 
 > [!NOTE]
-> 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][Azure 빠른 시작 템플릿] 갤러리를 방문하여 Event Hubs를 검색하세요.
+> 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 이벤트 허브를 검색하세요.
 > 
 > 
 
@@ -141,14 +141,21 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-[Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
-[Azure 빠른 시작 템플릿]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Azure Resource Manager로 Azure PowerShell 사용]: ../powershell-azure-resource-manager.md
-[Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용]: ../xplat-cli-azure-resource-manager.md
-[이벤트 허브 및 소비자 그룹 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+## <a name="next-steps"></a>다음 단계
+Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+* [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
+* [이벤트 허브 만들기](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
+
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

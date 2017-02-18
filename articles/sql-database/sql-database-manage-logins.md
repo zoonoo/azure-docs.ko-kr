@@ -12,14 +12,14 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f59bae58b946647fd74354dc465b399651f8ec12
-ms.openlocfilehash: 3e2874716d673af0d2627501b46d0e4a29e6ebf1
+ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
+ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 
 
 ---
@@ -29,6 +29,12 @@ ms.openlocfilehash: 3e2874716d673af0d2627501b46d0e4a29e6ebf1
 
 >  [!NOTE]  
 >  이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다. 
+>
+
+> [!TIP]
+> SQL Server 인증 사용에 대한 자습서는 [자습서: SQL Server 인증](sql-database-control-access-sql-authentication-get-started.md)을 참조합니다. Azure Active Directory 인증 사용에 대한 자습서는 [자습서: AAD 인증](sql-database-control-access-aad-authentication-get-started.md)을 참조합니다.
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>무제한 관리 계정
 관리자로 작동하는 두 가지 관리 계정(**서버 관리자** 및 **Active Directory 관리자**)이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 SQL 서버의 속성으로 이동합니다.
@@ -188,11 +194,11 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 - 자습서는 [SQL 보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
 - 보기 및 저장 프로시저에 대한 자세한 내용은 [보기 및 저장 프로시저 만들기](https://msdn.microsoft.com/library/ms365311.aspx)를 참조하세요.
 - 데이터베이스 개체에 대한 액세스 권한 부여에 대한 자세한 내용은 [데이터베이스 개체에 대한 액세스 권한 부여](https://msdn.microsoft.com/library/ms365327.aspx)를 참조하세요.
-- SQL Server를 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: SQL Server 인증, 로그인 및 사용자 계정, 데이터베이스 역할, 사용 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
-- Azure Active Directory 인증을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: AAD 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-aad-authentication-get-started.md)을 참조하세요.
+- SQL Server 인증 사용에 대한 자습서는 [자습서: SQL Server 인증](sql-database-control-access-sql-authentication-get-started.md)을 참조합니다.
+- Azure Active Directory 인증 사용에 대한 자습서는 [자습서: AAD 인증](sql-database-control-access-aad-authentication-get-started.md)을 참조합니다.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

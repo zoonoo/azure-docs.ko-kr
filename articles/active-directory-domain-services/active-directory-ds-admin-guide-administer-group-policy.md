@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2f3ea8b6be032b732b5ab1c587843f10387a4efb
-ms.openlocfilehash: 56397e33fb86cd839899a4009f2be95402a09b14
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
 
 
 ---
@@ -83,15 +83,40 @@ Windows Server 가상 컴퓨터를 프로비전하기 위한 첫 번째 작업�
 2. **그룹 정책 관리**를 클릭하여 그룹 정책 관리 콘솔을 시작합니다.
 
     ![그룹 정책 콘솔](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. **포리스트: contoso100.com** 및 **도메인** 노드를 확장하도록 클릭하여 관리되는 도메인에 대한 그룹 정책을 확인합니다. 관리되는 도메인에서 'AADDC 컴퓨터' 및 'AADDC 사용자' 컨테이너 각각에 대한 두 개의 기본 제공 GPO(그룹 정책 개체)가 있습니다.
+
+## <a name="task-4---customize-built-in-group-policy-objects"></a>작업 4 - 기본 제공 그룹 정책 개체 사용자 지정
+관리되는 도메인에서 'AADDC 컴퓨터' 및 'AADDC 사용자' 컨테이너 각각에 대한 두 개의 기본 제공 GPO(그룹 정책 개체)가 있습니다. 이러한 GPO를 사용자 지정하여 관리되는 도메인에서 그룹 정책을 구성할 수 있습니다.
+
+1. **그룹 정책 관리** 콘솔에서 **포리스트: contoso100.com** 및 **도메인** 노드를 클릭하여 확장하고 관리되는 도메인에 대한 그룹 정책을 확인합니다.
 
     ![기본 제공 GPO](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. 이러한 기본 제공 GPO를 사용자 지정하여 관리되는 도메인에서 그룹 정책을 구성할 수 있습니다. GPO를 마우스 오른쪽 단추로 클릭하고 **편집...**을 클릭하여 기본 제공 GPO를 사용자 지정합니다. 그룹 정책 구성 편집기 도구를 사용하여 GPO를 사용자 지정할 수 있습니다.
+2. 이러한 기본 제공 GPO를 사용자 지정하여 관리되는 도메인에서 그룹 정책을 구성할 수 있습니다. GPO를 마우스 오른쪽 단추로 클릭하고 **편집...**을 클릭하여 기본 제공 GPO를 사용자 지정합니다. 그룹 정책 구성 편집기 도구를 사용하여 GPO를 사용자 지정할 수 있습니다.
 
     ![기본 제공 GPO 편집](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. 이제 **그룹 정책 관리 편집기** 콘솔을 사용하여 기본 제공 GPO를 편집할 수 있습니다. 예를 들어 다음 스크린샷은 기본 제공 'AADDC 컴퓨터' GPO를 사용자 지정하는 방법을 보여 줍니다.
+3. 이제 **그룹 정책 관리 편집기** 콘솔을 사용하여 기본 제공 GPO를 편집할 수 있습니다. 예를 들어 다음 스크린샷은 기본 제공 'AADDC 컴퓨터' GPO를 사용자 지정하는 방법을 보여 줍니다.
 
     ![GPO 사용자 지정](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>작업 5 - 사용자 지정 GPO(그룹 정책 개체) 만들기
+사용자 지정 그룹 정책 개체를 만들거나 가져올 수 있습니다. 사용자 지정 GPO를 관리되는 도메인에서 만든 사용자 지정 OU에 연결할 수도 있습니다. 사용자 지정 조직 구성 단위를 만드는 방법에 대한 자세한 내용은 [관리되는 도메인에서 사용자 지정 OU 만들기](active-directory-ds-admin-guide-create-ou.md)를 참조하세요.
+
+> [!NOTE]
+> 관리되는 도메인의 그룹 정책을 관리하려면 'AAD DC 관리자' 그룹의 구성원이어야 합니다.
+>
+>
+
+1. **그룹 정책 관리** 콘솔에서 사용자 지정 조직 구성 단위(OU)를 클릭하여 선택합니다. OU를 마우스 오른쪽 단추로 클릭하고 **이 도메인에서 GPO를 만들어 여기에 연결...**을 클릭합니다.
+
+    ![사용자 지정 GPO 만들기](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. 새 GPO의 이름을 지정하고 **확인**을 클릭합니다.
+
+    ![GPO의 이름 지정](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+3. 새 GPO가 만들어지고 사용자 지정 OU로 연결됩니다. GPO를 마우스 오른쪽 단추로 클릭하고 메뉴에서 **편집...**을 클릭합니다.
+
+    ![새로 만든 GPO](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. 새로 만든 GPO는 **그룹 정책 관리 편집기**를 사용하여 사용자 지정할 수 있습니다.
+
+    ![새 GPO 사용자 지정](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
 [그룹 정책 관리 콘솔](https://technet.microsoft.com/library/cc753298.aspx) 사용에 대한 자세한 내용은 Technet에서 확인할 수 있습니다.
@@ -104,6 +129,6 @@ Windows Server 가상 컴퓨터를 프로비전하기 위한 첫 번째 작업�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
 
 
 ---
-# <a name="how-do-i-in-application-insights"></a>Application Insights에서 다음을 수행하는 방법
+# <a name="how-do-i--in-application-insights"></a>Application Insights에서 다음을 수행하는 방법
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
 ### <a name="email-if-my-site-goes-down"></a>내 사이트가 다운되면 전자 메일로 알림
 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)를 설정합니다.
@@ -40,7 +40,7 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 ### <a name="email-on-an-event-in-my-app"></a>내 응용 프로그램에서 이벤트 발생 시 전자 메일로 알림
 특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](app-insights-alerts.md)경고를 보낼 수 있습니다.
 
-경고는 사용자 지정 이벤트는 아니지만 [사용자 지정 메트릭](app-insights-api-custom-events-metrics.md#track-metric)에서 설정할 수 있습니다. 이벤트 발생 시 메트릭 향상을 위한 몇 가지 코드를 작성합니다.
+경고는 사용자 지정 이벤트는 아니지만 [사용자 지정 메트릭](app-insights-api-custom-events-metrics.md#trackmetric)에서 설정할 수 있습니다. 이벤트 발생 시 메트릭 향상을 위한 몇 가지 코드를 작성합니다.
 
     telemetry.TrackMetric("Alarm", 10);
 
@@ -71,7 +71,7 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 * 경고는 "경고" 및 "정상"의 두 상태가 있습니다. 상태는 메트릭 수신 시에만 평가됩니다.
 * 상태가 변경될 때만 전자 메일을 보냅니다. 이 때문에 높은 값과 낮은 값의 메트릭을 모두 보내야 합니다.
 * 경고를 평가하기 위해 이전 기간 동안 수신한 값에서 평균을 취합니다. 이 작업은 메트릭이 수신될 때마다 발생하므로 설정한 기간보다 더 자주 전자 메일이 전달될 수 있습니다.
-* "경고" 및 "정상"에서 모두 전자 메일을 보내므로 원샷 이벤트를 2상태 조건으로 간주할 수 있습니다. 예를 들어, "작업 완료" 이벤트 대신, 작업 시작과 종료 시 전자 메일을 받는 "작업 진행 중"  조건을 적용합니다.
+* "경고" 및 "정상"에서 모두 전자 메일을 보내므로 원샷 이벤트를&2;상태 조건으로 간주할 수 있습니다. 예를 들어, "작업 완료" 이벤트 대신, 작업 시작과 종료 시 전자 메일을 받는 "작업 진행 중"  조건을 적용합니다.
 
 ### <a name="set-up-alerts-automatically"></a>자동 경고 설정
 [PowerShell을 사용하여 새 경고 만들기](app-insights-alerts.md#automation)
@@ -174,7 +174,7 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 * [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
 * SDK에서 [샘플링 및 필터링](app-insights-api-filtering-sampling.md)을 사용합니다.
 * 웹 페이지에서 모든 페이지 뷰에 대해 보고되는 Ajax 호출 수를 제한합니다. 스크립트 조각에서 `instrumentationKey:...` 뒤에 `,maxAjaxCallsPerView:3`(또는 적절한 숫자)을 삽입합니다.
-* [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
+* [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
 [가격 책정 및 할당량](app-insights-pricing.md)에 대해 자세히 확인합니다.
 
@@ -209,6 +209,6 @@ ms.openlocfilehash: fdd41039fdb59597e3a0a2903fadbbc73eb85654
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

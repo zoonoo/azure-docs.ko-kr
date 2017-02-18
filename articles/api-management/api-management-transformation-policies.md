@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
+ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
+ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
 
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
@@ -96,7 +96,7 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
 <xml-to-json kind="javascript-friendly | direct" apply="always | content-type-xml" consider-accept-header="true | false"/>  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
   
 ```xml  
 <policies>  
@@ -140,7 +140,7 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
 <find-and-replace from="what to replace" to="replacement" />  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
   
 ```xml  
 <find-and-replace from="notebook" to="laptop" />  
@@ -359,7 +359,7 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
   
 ### <a name="examples"></a>예  
   
-#### <a name="example"></a>예제  
+#### <a name="example"></a>예  
   
 ```xml  
 <set-header name="some header name" exists-action="override">  
@@ -472,14 +472,14 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
   
 > [!NOTE]
 >  정책을 사용하여 쿼리 문자열 매개 변수만 추가할 수 있습니다. 다시 쓰기 URL에 추가 템플릿 경로 매개 변수를 추가할 수 없습니다.  
-  
+
 ### <a name="policy-statement"></a>정책 문  
   
 ```xml  
-<rewrite-uri template="uri template" />  
+<rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
-### <a name="example"></a>예제  
+### <a name="example"></a>예  
   
 ```xml  
 <policies>  
@@ -492,7 +492,33 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
     </outbound>  
 </policies>  
 ```  
-  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put?c=d -->
+```  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" copy-unmatched-params="false" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put -->
+```
+
 ### <a name="elements"></a>요소  
   
 |이름|설명|필수|  
@@ -503,7 +529,8 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
   
 |특성|설명|필수|기본값|  
 |---------------|-----------------|--------------|-------------|  
-|template|모든 쿼리 문자열 매개 변수가 포함된 실제 웹 서비스 URL입니다.|예|해당 없음|  
+|template|모든 쿼리 문자열 매개 변수가 포함된 실제 웹 서비스 URL입니다. 식을 사용하는 경우 전체 값이 식이어야 합니다.|예|해당 없음|  
+|copy-unmatched-params|원본 URL 템플릿에 없는 들어오는 요청의 쿼리 매개 변수가 re-write 템플릿에 의해 정의된 URL에 추가되는지 여부를 지정합니다.|아니요|true|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -547,7 +574,7 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
   <outbound>  
       <base />  
       <xsl-transform>  
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -555,7 +582,7 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-        </xsl:stylesheet>  
+          </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -577,9 +604,10 @@ ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
 -   **정책 범위:** global, product, API, operation  
   
 ## <a name="next-steps"></a>다음 단계
-정책으로 작업하는 방법에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.  
+정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

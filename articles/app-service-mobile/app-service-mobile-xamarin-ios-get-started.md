@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
 * Xcode v7.0 이상 및 Xamarin Studio Community가 설치된 Mac입니다. [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx) 및 [Mac 사용자를 위한 설정, 설치 및 유효성 검사](https://msdn.microsoft.com/library/mt488770.aspx)(MSDN)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](https://tryappservice.azure.com/?appServiceName=mobile)로 이동하세요. 여기서 신용 카드와 약정 없이 App Service에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/mobile/)로 이동하세요. 여기서 신용 카드와 약정 없이 App Service에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 > 
 > 
 
@@ -96,6 +96,6 @@ ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

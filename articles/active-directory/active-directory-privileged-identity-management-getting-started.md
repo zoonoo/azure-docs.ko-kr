@@ -3,7 +3,7 @@ title: "Azure AD Privileged Identity Management 시작 | Microsoft Docs"
 description: "Azure 포털에서 Azure Active Directory Privileged Identity Management 응용 프로그램을 사용하여 권한 있는 ID를 관리하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
 
 
 ---
@@ -44,7 +44,6 @@ Azure AD Privileged Identity Management를 설정하면 응용 프로그램을 �
 * **권한 있는 역할 관리** 는 권한 있는 역할 관리자가 역할 할당을 관리하고 역할 활성화 설정을 변경하며 액세스 검토를 시작하는 대시보드입니다. 이 대시보드에서의 옵션은 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다.
 * **권한 있는 액세스 검토** 를 통해 자신 또는 다른 사용자에 대한 액세스 권한을 검토하는지 여부와 상관없이 완료하는 데 필요한 보류 중인 액세스 권한 검토를 수행합니다. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Privileged Identity Management 개요](active-directory-privileged-identity-management-configure.md) 에는 조직의 관리 액세스 권한을 관리할 수 있는 방법에 대한 자세한 정보가 포함되어 있습니다.
 
@@ -56,6 +55,6 @@ Azure AD Privileged Identity Management를 설정하면 응용 프로그램을 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

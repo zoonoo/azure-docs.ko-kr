@@ -1,5 +1,5 @@
 ---
-title: "인코딩 오류 코드 | Microsoft Docs"
+title: "Azure Media Services 인코딩 오류 코드 | Microsoft Docs"
 description: "이 항목에는 인코딩 작업을 실행하는 동안 오류가 발생하는 경우 반환될 수 있는 오류 코드가 나열되어 있습니다."
 services: media-services
 documentationcenter: 
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: 7c5281bd3e846a78ef7e602219df6566fb032f72
+ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
+ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
 
 
 ---
 
-## <a name="encoding-error-codes"></a>인코딩 오류 코드
+# <a name="encoding-error-codes"></a>인코딩 오류 코드
 
 다음 표에서는 인코딩 작업을 실행하는 동안 오류가 발생한 경우 반환될 수 있는 오류 코드를 나열합니다.  .NET 코드에서 오류 세부 정보를 가져오려면 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 클래스를 사용합니다. REST 코드에서 오류 세부 정보를 가져오려면 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API를 사용합니다.
 
 | ErrorDetail.Code | 가능한 오류 원인 |
 | --- | --- |
 | 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
-| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
+| ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가&0;인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 저장소 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
 | ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 <see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |
 | ErrorExecutingTaskMalformedContent |입력 미디어 파일 내의 문제로 인해 실패가 발생한 작업을 실행하는 동안 발생하는 오류 범주입니다. |
@@ -55,6 +55,6 @@ ms.openlocfilehash: 7c5281bd3e846a78ef7e602219df6566fb032f72
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

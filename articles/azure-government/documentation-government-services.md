@@ -1,23 +1,22 @@
 ---
 title: "Azure Government 서비스 | Microsoft 문서"
 description: "Azure Government에 제공되는 서비스의 개요 설명"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
-ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,12 +36,13 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 * 클라우드 서비스
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[네트워킹](documentation-government-networking.md)
-* 가상 네트워크
-* 부하 분산 장치
-* Application Gateway
-* VPN 게이트웨이
-* 트래픽 관리자
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [BGP 커뮤니티 지원](documentation-government-networking.md#support-for-bgp-communities)
+* 가상 네트워크
+* [부하 분산 장치](documentation-government-networking.md#support-for-load-balancer)
+* Application Gateway
+* [트래픽 관리자](documentation-government-networking.md#support-for-traffic-manger)
+* [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[저장소](documentation-government-services-storage.md)
 * [Azure 저장소](documentation-government-services-storage.md#azure-storage)
@@ -88,7 +88,7 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [사이트 복구](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * 스케줄러
-* 트래픽 관리자
+* [트래픽 관리자](documentation-government-networking.md#support-for-traffic-manger)
 * 모니터링 및 진단
 
 ## <a name="next-steps"></a>다음 단계
@@ -97,6 +97,6 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

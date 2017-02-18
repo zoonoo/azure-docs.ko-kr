@@ -1,6 +1,6 @@
 ---
 title: "경로를 사용하여 Azure IoT Hub 장치-클라우드 메시지 처리(.Net) | Microsoft Docs"
-description: "경로를 통해 IoT Hub 장치-클라우드 메시지를 처리하여 다른 백 엔드 서비스로 메시지를 보내는 방법에 대해 설명합니다."
+description: "다른 백 엔드 서비스에 메시지를 발송하기 위해 경로 규칙 및 사용자 지정 끝점을 사용하여 IoT Hub 장치-클라우드 메시지를 처리하는 방법을 설명합니다."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d2da282a849496772fe57b9429fe2a180f37328d
-ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
 ## <a name="introduction"></a>소개
 Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 서비스입니다. 다른 자습서([IoT Hub 시작] 및 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][lnk-c2d])에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 사용하는 방법을 보여 줍니다.
 
-이 자습서에서는 [IoT Hub 시작] 자습서에 나와 있는 코드를 기반으로 하며, 메시지 라우팅을 사용하여 손쉬운 구성 기반 방식으로 장치-클라우드 메시지를 전달하는 방법을 보여 줍니다. 추가 처리를 위해 솔루션 백 엔드의 즉각적인 작업을 요구하는 메시지를 격리하는 방법을 보여 줍니다. 예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다. 이와 반대로 데이터 요소 메시지는 단순히 분석 엔진으로 전달됩니다. 예를 들어 나중에 분석을 위해 저장해야 하는 장치의 온도 원격 분석이 데이터 요소 메시지에 해당합니다.
+이 자습서는 [IoT Hub 시작] 자습서를 기반으로 하며, 라우팅 규칙을 사용하여 손쉬운 구성 기반 방식으로 장치-클라우드 메시지를 발송하는 방법을 보여 줍니다. 추가 처리를 위해 솔루션 백 엔드의 즉각적인 작업을 요구하는 메시지를 격리하는 방법을 보여 줍니다. 예를 들어 장치는 CRM 시스템으로의 티켓 삽입을 트리거하는 경보 메시지를 보낼 수 있습니다. 이와 반대로 데이터 요소 메시지는 단순히 분석 엔진으로 전달됩니다. 예를 들어 나중에 분석을 위해 저장해야 하는 장치의 온도 원격 분석이 데이터 요소 메시지에 해당합니다.
 
 이 자습서의 끝 부분에서 다음의 세 가지 .NET 콘솔 앱을 실행합니다.
 
@@ -50,61 +50,63 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 ## <a name="send-interactive-messages-from-a-simulated-device-app"></a>시뮬레이션된 장치 앱에서 대화형 메시지 보내기
 이 섹션에서는 [IoT Hub 시작] 자습서에서 만든 시뮬레이션된 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
 
-- Visual Studio의 **SimulatedDevice** 프로젝트에서 `SendDeviceToCloudMessagesAsync` 메서드를 다음 코드로 바꿉니다.
-   
-    ```
-    private static async void SendDeviceToCloudMessagesAsync()
+Visual Studio의 **SimulatedDevice** 프로젝트에서 `SendDeviceToCloudMessagesAsync` 메서드를 다음 코드로 바꿉니다.
+
+```
+private static async void SendDeviceToCloudMessagesAsync()
+    {
+        double avgWindSpeed = 10; // m/s
+        Random rand = new Random();
+
+        while (true)
         {
-            double avgWindSpeed = 10; // m/s
-            Random rand = new Random();
+            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
 
-            while (true)
+            var telemetryDataPoint = new
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                deviceId = "myFirstDevice",
+                windSpeed = currentWindSpeed
+            };
+            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+            string levelValue;
 
-                var telemetryDataPoint = new
-                {
-                    deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
-                };
-                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-                string levelValue;
-
-                if (rand.NextDouble() > 0.7)
-                {
-                    messageString = "This is a critical message";
-                    levelValue = "critical";
-                }
-                else
-                {
-                    levelValue = "normal";
-                }
-                
-                var message = new Message(Encoding.ASCII.GetBytes(messageString));
-                message.Properties.Add("level", levelValue);
-                
-                await deviceClient.SendEventAsync(message);
-                Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-                await Task.Delay(1000);
+            if (rand.NextDouble() > 0.7)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
             }
-        }
-    ```
-   
-     이는 장치에서 보낸 메시지에 `"level": "critical"` 속성을 임의로 추가합니다. 그러면 솔루션 백 엔드에 의한 즉각적인 작업을 요구하는 메시지를 시뮬레이션합니다. 장치 앱에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
+            else
+            {
+                levelValue = "normal";
+            }
+            
+            var message = new Message(Encoding.ASCII.GetBytes(messageString));
+            message.Properties.Add("level", levelValue);
+            
+            await deviceClient.SendEventAsync(message);
+            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
 
-   > [!NOTE]
-   > 메시지 속성을 사용하면 여기서 보여 주는 실행 부하 과다 경로(hot path) 예제 외에도 실행 부하 과소 경로(cold path) 처리를 포함하여 다양한 시나리오의 메시지를 라우팅할 수 있습니다.
-   > 
-   > 
-   
-   > [!NOTE]
-   > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
-   > 
-   > 
+            await Task.Delay(1000);
+        }
+    }
+```
+
+이 메서드는 장치에서 보낸 메시지에 `"level": "critical"` 속성을 임의로 추가합니다. 그러면 솔루션 백 엔드에 의한 즉각적인 작업을 요구하는 메시지를 시뮬레이션합니다. 장치 앱에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
+
+> [!NOTE]
+> 메시지 속성을 사용하면 여기서 보여 주는 실행 부하 과다 경로(hot path) 예제 외에도 실행 부하 과소 경로(cold path) 처리를 포함하여 다양한 시나리오의 메시지를 라우팅할 수 있습니다.
+
+> [!NOTE]
+> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 ## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>IoT Hub에 큐 추가 및 메시지 라우팅
-이 섹션에서는 Service Bus 큐를 만들고, IoT Hub에 연결하고, 메시지에 속성이 존재하는지 여부에 따라 큐에 메시지를 보내도록 IoT Hub를 구성합니다. Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내용은 [큐 시작][Service Bus queue]을 참조하세요.
+이 섹션에서는 다음을 수행합니다.
+
+* Service Bus 큐를 만듭니다.
+* IoT Hub에 연결합니다.
+* 메시지의 속성 존재 여부를 기반으로 큐에 메시지를 보내도록 IoT Hub를 구성합니다.
+
+Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내용은 [큐 시작][Service Bus queue]을 참조하세요.
 
 1. [큐 시작][Service Bus queue]에서 설명한 대로 Service Bus 큐를 만듭니다. 큐는 IoT Hub와 동일한 구독 및 지역에 있어야 합니다. 네임스페이스 및 큐 이름을 적어둡니다.
 
@@ -112,15 +114,15 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
     
     ![IoT Hub의 끝점][30]
 
-3. 끝점 블레이드 위쪽에서 **추가**를 클릭하여 IoT Hub에 큐를 추가합니다. 끝점 이름을 "CriticalQueue"로 지정하고 드롭다운을 사용하여 **Service Bus 큐**, 큐가 있는 Service Bus 네임스페이스 및 큐 이름을 선택합니다. 완료되면 아래쪽의 **저장** 을 클릭합니다.
+3. **끝점** 블레이드 위쪽에서 **추가**를 클릭하여 IoT Hub에 큐를 추가합니다. 끝점 이름을 **CriticalQueue**로 지정하고 드롭다운을 사용하여 **Service Bus 큐**, 큐가 있는 Service Bus 네임스페이스 및 큐 이름을 선택합니다. 완료되면 아래쪽의 **저장** 을 클릭합니다.
     
     ![끝점 추가][31]
     
-4. 이제 IoT Hub에서 **경로**를 클릭합니다. 블레이드 위쪽에서 **추가**를 클릭하여 방금 추가한 큐로 메시지를 라우팅하는 규칙을 만듭니다. 데이터 원본으로 **DeviceTelemetry**를 선택합니다. 조건으로 `level="critical"`을 입력하고 방금 끝점으로 추가한 큐를 경로 끝점으로 선택합니다. 완료되면 아래쪽의 **저장** 을 클릭합니다.
+4. 이제 IoT Hub에서 **경로**를 클릭합니다. 블레이드 위쪽에서 **추가**를 클릭하여 방금 추가한 큐로 메시지를 라우팅하는 라우팅 규칙을 만듭니다. 데이터 원본으로 **DeviceTelemetry**를 선택합니다. 조건으로 `level="critical"`을 입력하고 방금 사용자 지정 끝점으로 추가한 큐를 경로 규칙 끝점으로 선택합니다. 완료되면 아래쪽의 **저장** 을 클릭합니다.
     
     ![경로 추가][32]
     
-    대체(fallback) 경로가 ON으로 설정되어 있는지 확인합니다. 이 값은 IoT Hub의 기본 구성입니다.
+    대체(fallback) 경로가 **ON**으로 설정되어 있는지 확인합니다. 이 값은 IoT Hub에 대한 기본 구성입니다.
     
     ![대체(fallback) 경로][33]
 
@@ -226,6 +228,6 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

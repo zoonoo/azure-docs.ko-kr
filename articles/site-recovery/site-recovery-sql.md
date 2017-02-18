@@ -1,5 +1,5 @@
 ---
-title: "SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호 | Microsoft Docs"
+title: "SQL Server 및 Azure Site Recovery를 사용한 앱 복제 | Microsoft Docs"
 description: "이 문서에서는 SQL Server 재해 기능의 Azure Site Recovery를 사용하여 SQL Server를 복제하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea2078722beb7c76c59f1f6cfe3bf82aac5e4a77
-ms.openlocfilehash: 20e64a0f9319596167c1f8d1a0b22c0fa8c514c7
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 2d55db297bcef2c5789cb33a8791cf2c787a0789
 
 
 ---
@@ -93,7 +93,7 @@ Site Recovery는 재해 복구 솔루션을 제공하기 위해 아래 표에 �
 Site Recovery는 기본적으로 SQL AlwaysOn을 지원합니다. Azure 가상 컴퓨터를 '보조'로 설정한 상태에서 SQL 가용성 그룹을 만든 경우 Site Recovery를 사용하여 가용성 그룹의 장애 조치(failover)를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 현재 미리 보기이며 기본 데이터 센터의 Hyper-V 호스트 서버가 VMM 클라우드에서 관리되는 경우 및 VMware 설정이 [구성 서버](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites)에 의해 관리되는 경우 사용할 수 있습니다. 지금은 새 Azure 포털에서 이 기능을 사용할 수 없습니다. 새 Azure Portal을 사용하는 경우 [이 섹션](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal)의 단계를 수행하세요. 
+> 이 기능은 현재 미리 보기이며 기본 데이터 센터의 Hyper-V 호스트 서버가 VMM 클라우드에서 관리되는 경우 및 VMware 설정이 [구성 서버](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites)에 의해 관리되는 경우 사용할 수 있습니다. 지금은 새 Azure 포털에서 이 기능을 사용할 수 없습니다. 새 Azure Portal을 사용하는 경우 [이 섹션](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal)의 단계를 수행하세요.
 >
 >
 
@@ -205,15 +205,15 @@ VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure
 
 
 1. **테스트 장애 조치**: SQL AlwaysOn는 테스트 장애 조치를 고유하게 지원하지 않습니다. 따라서 다음과 같은 작업 수행을 권장합니다.
-    1. Azure에서 가용성 그룹 복제본을 호스팅하는 가상 컴퓨터에서 [Azure 백업](../backup/backup-azure-vms.md)을 설정합니다. 
+    1. Azure에서 가용성 그룹 복제본을 호스팅하는 가상 컴퓨터에서 [Azure 백업](../backup/backup-azure-vms.md)을 설정합니다.
     1. 복구 계획의 테스트 장애 조치를 트리거하기 전에&1;단계에서 수행된 백업에서 가상 머신을 복구합니다.
     1. 복구 계획에 대해 테스트 장애 조치(failover)를 수행합니다.
 
 
 > [!NOTE]
 > 아래의 스크립트는 SQL 가용성 그룹이 클래식 Azure 가상 컴퓨터에서 호스팅되고&2;단계에서 복구된 가상 컴퓨터의 이름은 SQLAzureVM-Test라고 가정합니다. 복구된 가상 컴퓨터에 사용할 이름을 기반으로 하는 스크립트를 수정합니다.
-> 
-> 
+>
+>
 
 
      workflow SQLAvailabilityGroupFailover
@@ -241,7 +241,7 @@ VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
                     Write-output "tfo"
-                    
+
                     Write-Output "Creating ILB"
                     Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
                     Write-Output "ILB Created"
@@ -251,14 +251,14 @@ VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure
                     Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
 
                     Write-Output "Added Endpoint"
-        
-                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
-                       
+
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test"
+
                     Write-Output "UnInstalling custom script extension"
-                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM
                     Write-Output "Installing custom script extension"
                     Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
-                    
+
                     Write-output "Starting AG Failover"
                     Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
                     Write-output "Completed AG Failover"
@@ -342,6 +342,6 @@ SQL 표준 클러스터의 경우 계획되지 않은 장애 조치(failover) �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

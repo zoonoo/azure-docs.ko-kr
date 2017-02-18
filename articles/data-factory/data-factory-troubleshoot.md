@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
+ms.sourcegitcommit: f78081d173bfe255a3ed8016d10a2deec87ac758
+ms.openlocfilehash: 684515213fc2533e56600cacf3bc0a3a33f337c2
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
     Login-AzureRmAccount
     ```
 3. 다음 명령을 실행하여 Azure Data Factory 공급자를 등록합니다.
-    
+
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
@@ -109,7 +109,7 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 또한 주문형 HDInsight에서 추가 저장소 계정을 지정할 수 있는 두 번째 JSON 속성 additionalLinkedServiceNames가 있습니다. 이러한 추가 연결된 저장소 계정은 HDInsight 클러스터와 동일한 위치에 있어야 합니다. 그렇지 않으면 동일한 오류가 발생하여 프로비저닝이 실패합니다.
 
 ### <a name="problem-custom-net-activity-fails"></a>문제: 사용자 지정 .NET 작업 실패
-자세한 단계는 [사용자 지정 작업을 사용하여 파이프라인 디버그](data-factory-use-custom-activities.md#debug-the-pipeline) 를 참조하세요.
+자세한 단계는 [사용자 지정 작업을 사용하여 파이프라인 디버그](data-factory-use-custom-activities.md#troubleshoot-failures) 를 참조하세요.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Azure 포털을 사용하여 문제 해결
 ### <a name="using-portal-blades"></a>포털 블레이드 사용
@@ -153,6 +153,6 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

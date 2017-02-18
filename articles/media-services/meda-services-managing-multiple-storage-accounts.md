@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
+ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
+ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
 
 
 ---
@@ -26,7 +26,7 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 * 자산을 여러 저장소 계정에서 부하 분산합니다.
 * 대량의 콘텐츠 처리를 위한 미디어 서비스 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
 
-이 토픽에서는 Azure Service Management REST API를 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
+이 항목에서는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
 
 ## <a name="considerations"></a>고려 사항
 여러 저장소 계정을 미디어 서비스 계정에 연결할 때는 다음과 같은 고려 사항이 있습니다.
@@ -34,13 +34,33 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 * 미디어 서비스 계정에 연결된 모든 저장소 계정이 미디어 서비스 계정과 동일한 데이터 센터에 있어야 합니다.
 * 현재는 저장소 계정이 지정된 미디어 서비스 계정에 연결되고 나면 분리할 수 없습니다.
 * 기본 저장소 계정은 미디어 서비스 계정을 만드는 중에 지정된 계정입니다. 현재는 기본 저장소 계정을 변경할 수 없습니다. 
+* 현재 쿨 저장소 계정을 AMS 계정에 추가하려면 저장소 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
 
 기타 고려 사항:
 
 Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 **IAssetFile.Name** 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
-## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Azure 서비스 관리 REST API를 사용하여 저장소 계정을 연결하려면
-현재 여러 저장소 계정을 연결하는 유일한 방법은 [Azure 서비스 관리 REST API](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)를 사용하는 것입니다. [방법: Media Services Management REST API 사용](https://msdn.microsoft.com/library/azure/dn167656.aspx) 토픽의 코드 샘플은 저장소 계정을 지정된 Media Services 계정에 연결하는 **AttachStorageAccountToMediaServiceAccount** 메서드를 정의합니다. 같은 토픽에 있는 코드는 지정된 Media Services 계정에 연결된 모든 저장소 계정을 나열하는 **ListStorageAccountDetails** 메서드를 정의합니다.
+## <a name="to-attach-storage-accounts"></a>저장소 계정을 연결하려면  
+
+저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)을 사용합니다.
+
+    $regionName = "West US"
+    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccount1Name = "skystorage1"
+    $storageAccount2Name = "skystorage2"
+    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccounts = @($storageAccount1, $storageAccount2)
+    
+    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+
+### <a name="support-for-cool-storage"></a>쿨 저장소 지원
+
+현재 쿨 저장소 계정을 AMS 계정에 추가하려면 저장소 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>여러 저장소 계정에서 미디어 서비스 자산을 관리하려면
 다음 코드에서는 최신 미디어 서비스 SDK를 사용하여 다음 작업을 수행합니다.
@@ -257,6 +277,6 @@ Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.medias
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

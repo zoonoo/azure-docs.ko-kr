@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning 학습 실험에서 예측 실험으로 변환 | Microsoft Docs"
+title: "Azure Machine Learning에서 예측 실험으로 변환 | Microsoft Docs"
 description: "예측 분석 모델을 학습하는 데 사용되는 기계 학습 학습 실험을 웹 서비스로 배포할 수 있는 예측 실험으로 변환하는 방법입니다."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 7fbdaa7238d1c3c5d858e76c38f4691cfa0769a5
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 1ed2ee17e6b4d0256707bc63ac450b33ad9ef162
 
 
 ---
@@ -131,6 +131,6 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

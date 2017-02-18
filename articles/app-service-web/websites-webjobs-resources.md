@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 358895cac7f261eb6bc50519e0bf3e11e4b0aa97
+ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
+ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
 
 
 ---
@@ -32,17 +32,16 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 
 ## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>WebJobs 및 WebJobs SDK 시작
 * [Azure WebJobs 소개](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [놀라운 기능의 Azure WebJobs를 지금 바로 사용해 보세요!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html)  Troy Hunt의 블로그 게시물입니다.
-* [Azure WebJobs 기능](/blog/2014/10/22/webjobs-goes-into-full-production/)
+* [놀라운 기능의 Azure WebJobs를 지금 바로 사용해 보세요!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) Troy Hunt의 블로그 게시물입니다.
+* [Azure WebJobs 기능](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)
 * [Microsoft Patterns and Practices에 따른 백그라운드 작업 지침](/documentation/articles/best-practices-background-jobs/)
-* [Microsoft Azure WebJobs SDK의 1.1.0 RTM 발표](/blog/azure-webjobs-sdk-1-1-0-rtm/)
+* [Microsoft Azure WebJobs SDK의 1.1.0 RTM 발표](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)
 * [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
-* [WebJobs SDK에서 Webhook을 사용하는 방법(GitHub, IFTTT 및 HTTP에 대한 예제 포함)](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
+* [WebJob SDK를 사용하여 Azure Service Bus로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Azure WebJobs SDK 빠른 참조(PDF 다운로드)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [GitHub의 WebJobs 설정 설명서](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * 비디오
@@ -137,6 +136,6 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
+ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
+ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
 
 
 ---
@@ -56,8 +56,8 @@ Azure Active Directory 스키마에서는 다음 특성의 값이 둘 이상의 
 > [!NOTE]
 > [Azure AD Attribute Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) 기능도 Azure Active Directory의 기본 동작으로 롤아웃될 수 있습니다.  이렇게 하면 Azure AD가 온-프레미스 AD 환경에 있는 중복된 ProxyAddresses 및 UserPrincipalName 특성을 처리하는 방식에서 복원력이 향상되어 Azure AD Connect(및 다른 동기화 클라이언트)에서 발생하는 동기화 오류의 수가 줄어듭니다. 이 기능은 중복 오류를 수정하지 않습니다. 따라서 여전히 데이터 수정이 필요합니다. 하지만 Azure AD의 중복 값으로 인해 다른 방식으로는 프로비전될 수 없는 새로운 개체의 프로비전이 가능해집니다. 또한 동기화 클라이언트로 반환되는 동기화 오류 수가 줄어듭니다.
 > 테넌트에 이 기능을 사용하는 경우 새 개체의 프로비전 과정에서 InvalidSoftMatch 동기화 오류가 표시되지 않습니다.
-> 
-> 
+>
+>
 
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>InvalidSoftMatch의 예제 시나리오
 1. 온-프레미스 Active Directory에 동일한 ProxyAddresses 특성 값을 갖는 개체가 둘 이상 존재합니다. Azure AD에서는 하나만 프로비전되고 있습니다.
@@ -100,8 +100,8 @@ InvalidSoftMatch 오류가 발생하는 가장 일반적인 원인은 SourceAnch
 
 > [!NOTE]
 > ImmutableId는 기본적으로 개체의 수명 주기 동안 변경되지 않아야 합니다. Azure AD Connect가 위 목록의 시나리오와 상당 부분 다르게 구성된 경우, 결국 계속 사용하려는 기존 Azure AD 개체가 있는 동일한 엔터티(동일한 사용자/그룹/연락처 등)를 나타내는 AD 개체에 대해 Azure AD Connect가 다른 SourceAnchor 값을 계산하는 상황일 수 있습니다. 
-> 
-> 
+>
+>
 
 #### <a name="related-articles"></a>관련 문서
 * [Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/en-us/kb/2647098)
@@ -181,7 +181,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 ### <a name="datavalidationfailed"></a>DataValidationFailed
 #### <a name="description"></a>설명
-사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **"DataValidationFailed"** 동기화 오류를 초래하는 매우 특정한 경우입니다.
+사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **"DataValidationFailed"** 동기화 오류를 초래하는 특정한 경우입니다.
 
 #### <a name="scenarios"></a>시나리오
 동기화된 사용자의 경우 UserPrincipalName 접미사가 하나의 페더레이션된 도메인에서 온-프레미스의 다른 페더레이션된 도메인으로 변경되었습니다. 예를 들어, *UserPrincipalName = bob@contoso.com*가 *UserPrincipalName = bob@fabrikam.com*으로 변경되었습니다.
@@ -193,10 +193,13 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 4. Bob의 userPrincipalName이 업데이트되지 않아 "DataValidationFailed" 동기화 오류가 발생합니다.
 
 #### <a name="how-to-fix"></a>해결 방법
-사용자의 UserPrincipalName 접미사가 bob@**contoso.com**에서 bob@**fabrikam.com**으로 업데이트되었고 **contoso.com**과 **fabrikam.com**이 모두 **페더레이션된 도메인이면** 아래 절차에 따라 동기화 오류를 수정합니다.
+사용자의 UserPrincipalName 접미사가 bob@**contoso.com**에서 bob@**fabrikam.com**으로 업데이트되었고 **contoso.com**과 **fabrikam.com**이 모두 **페더레이션된 도메인이면** 이러한 절차에 따라 동기화 오류를 수정합니다.
 
 1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
+
+#### <a name="related-articles"></a>관련 문서
+* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>설명
@@ -207,7 +210,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>가능한 시나리오
-1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다.
+1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 50개의 인증서이지만 25개 미만의 인증서가 권장됩니다.
 2. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
 3. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에&500;개가 넘는 ProxyAddresses가 할당되었습니다.
 
@@ -220,7 +223,6 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
-ms.openlocfilehash: 5c88d709756c50b99bfd7e09c03e5653d41f4879
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
 
 
 ---
@@ -25,10 +25,8 @@ ms.openlocfilehash: 5c88d709756c50b99bfd7e09c03e5653d41f4879
 
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Apache Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
-이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [HBase 자습서: HDInsight에서 Apache HBase 사용 시작](hdinsight-hbase-tutorial-get-started-linux.md)을 참조하세요.
-
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [HBase 자습서: HDInsight에서 Apache HBase 사용 시작](hdinsight-hbase-tutorial-get-started-linux.md)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -79,11 +77,11 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Ap
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
-![hdinsight hbase 테이블 형식 데이터][img-hbase-sample-data-tabular]
+![HDinsight hbase 테이블 형식 데이터][img-hbase-sample-data-tabular]
 
 BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시됩니다.
 
-![hdinsight hbase 빅 테이블 데이터][img-hbase-sample-data-bigtable]
+![HDinsight hbase 빅 테이블 데이터][img-hbase-sample-data-bigtable]
 
 다음 절차를 완료한 후가 더 적절합니다.  
 
@@ -107,7 +105,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase 셸][img-hbase-shell]
+    ![HDinsight hadoop hbase 셸][img-hbase-shell]
 6. 단일 행 가져오기
    
         get 'Contacts', '1000'
@@ -326,6 +324,6 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

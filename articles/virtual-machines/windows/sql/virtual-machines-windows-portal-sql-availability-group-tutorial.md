@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/10/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 54dcec29b9ec6a6e518658e9be15c4ed63917bd4
-ms.openlocfilehash: c59bf8bfdee095ebc0a9afe07f2c43beb77e772d
+ms.sourcegitcommit: 5e41a20f563eab6b236eaa6eaf0ce1d20ebfa493
+ms.openlocfilehash: d8982dda38df92c94e7dac4b5a1cf451bab3a5ce
 
 
 ---
@@ -55,7 +55,8 @@ ms.openlocfilehash: c59bf8bfdee095ebc0a9afe07f2c43beb77e772d
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
-## <a name="a-namecreateclusteracreate-the-cluster"></a><a name="CreateCluster"></a>클러스터 만들기
+<a name="CreateCluster"></a>
+## 클러스터 만들기
 
 필수 구성 요소를 완료한 후 첫 번째 단계는 두 개의 SQL Sever와 미러링 모니터 서버를 포함하는 Windows Server 장애 조치(Failover) 클러스터를 만드는 것입니다.  
 
@@ -504,6 +505,6 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

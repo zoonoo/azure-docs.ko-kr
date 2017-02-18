@@ -1,5 +1,5 @@
 ---
-title: "템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법 | Microsoft Docs"
+title: "템플릿을 사용하여 Azure API Management 개발자 포털 사용자 지정 | Microsoft Docs"
 description: "템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법을 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: apipm
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 9ddd871a845af1169337480804b216a9a4fc9a06
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
 
 
 ---
@@ -210,6 +210,6 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

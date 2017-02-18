@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: d6e68497cf0a4c48e6f611834089224b50b9bd5e
-ms.openlocfilehash: 79743cab91f8c22d06796803eb7e31681a581233
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
 
 
 ---
@@ -68,7 +68,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 * 로컬로 서비스 실행
 * Ionic Framework와 라이브 다시 로드 사용
-* 인증을 위해 App Service로 리디렉션 
+* 인증을 위해 App Service로 리디렉션
 
 로컬로 실행하면 기본적으로 App Service 인증이 모바일 앱 백 엔드에서 액세스만 허용하도록 구성되므로 문제가 발생할 수 있습니다. 다음 단계에 따라 App Service 설정을 변경하여 서버를 로컬로 실행할 때 인증을 사용하도록 설정합니다.
 
@@ -79,12 +79,12 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 5. 앱에 대한 **config** > **authsettings** 노드를 확장합니다.
 6. **편집** 단추를 클릭하여 리소스의 편집을 활성화합니다.
 7. null이어야 하는 **allowedExternalRedirectUrls** 요소를 찾습니다. 배열에 URL을 추가합니다.
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     배열의 URL을 서비스 URL로 바꿉니다. 이 예에서 로컬 Node.js 샘플 서비스의 경우 `http://localhost:3000`입니다. 또한 앱이 구성된 방식에 따라 Ripple 서비스 또는 기타 URL에 대해 `http://localhost:4400`을 사용할 수도 있습니다.
 8. 페이지 맨 위에서 **읽기/쓰기**를 클릭한 후 **PUT**을 클릭하여 업데이트를 저장합니다.
 
@@ -110,6 +110,6 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

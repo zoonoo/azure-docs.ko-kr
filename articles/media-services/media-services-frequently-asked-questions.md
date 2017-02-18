@@ -1,5 +1,5 @@
 ---
-title: "질문과 대답 | Microsoft 문서"
+title: "Azure Media Services 질문과 대답 | Microsoft Docs"
 description: "FAQ(질문과 대답)"
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: c3f383a792994aaf1ff266338ca5b64c7e4362ec
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 9a6d772bddc4417004c99f319ec7592d026efdb1
 
 
 ---
@@ -85,6 +85,6 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

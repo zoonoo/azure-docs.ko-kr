@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
 
 
 ---
@@ -74,12 +74,12 @@ Azure 모바일 앱에 대한 자세한 내용은 [학습 맵]을 검토하세�
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스]를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/mobile/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 <!-- URLs. -->
-[Mobile Service를 App Service로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
 [시작]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]: ../storage/storage-getting-started-guide.md
@@ -93,8 +93,8 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [iOS 및 Android용 Xamarin]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[auto scaling]: ../app-service-web/web-sites-scale.md
-[staging environments]: ../app-service-web/web-sites-staged-publishing.md
+[자동 크기 조정]: ../app-service-web/web-sites-scale.md
+[스테이징 환경]: ../app-service-web/web-sites-staged-publishing.md
 [배포 옵션]: ../app-service-web/web-sites-deploy.md
 [하이브리드 연결]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [가상 네트워크]: ../app-service-web/web-sites-integrate-with-vnet.md
@@ -104,6 +104,6 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

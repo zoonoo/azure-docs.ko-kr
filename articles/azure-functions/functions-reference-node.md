@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions NodeJS 개발자 참조 | Microsoft Docs"
-description: "NodeJS를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+title: "Azure Functions에 대한 JavaScript 개발자 참조 | Microsoft Docs"
+description: "JavaScript를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
-ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
+ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
+ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Azure Functions NodeJS 개발자 참조
+# <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 > [!div class="op_single_selector"]
 > * [C# 스크립트](functions-reference-csharp.md)
 > * [F# 스크립트](functions-reference-fsharp.md)
-> * [Node.JS](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-Azure Functions에 대한 노드/JavaScript 환경은 런타임과 통신하고 바인딩을 통해 데이터를 수신 및 전송하는 `context` 개체가 전달되는 함수를 쉽게 내보낼 수 있도록 합니다.
+Azure Functions에 대한 JavaScript 환경은 런타임과 통신하고 바인딩을 통해 데이터를 수신 및 전송하는 `context` 개체가 전달되는 함수를 쉽게 내보낼 수 있도록 합니다.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
@@ -198,6 +198,6 @@ function GetEnvironmentVariable(name)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열의 소프트웨어 및 네트워킹 요�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6a01ed44d08c06e35c66a842a27b46775ec97a3a
-ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
@@ -46,7 +46,7 @@ ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
 | **구성 요소** | **요구 사항** |
 | --- | --- |
 | 최소 가상 프로세서(코어) 수 |4 |
-| 최소 메모리(RAM) |8GB |
+| 최소 메모리(RAM) |8GB <br> 파일 서버의 경우 2백만 개 미만의 파일에 대해 8GB, 2-4백만 개 파일에 대해 16GB|
 | 디스크 공간<sup>1</sup> |OS 디스크 - 80GB  <br></br>데이터 디스크 - 500GB~8TB |
 | 최소 네트워크 인터페이스 수 |1 |
 | 최소 인터넷 대역폭<sup>2</sup> |5Mbps |
@@ -131,6 +131,6 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,26 +1,26 @@
 ---
-title: 'Azure AD Connect: FAQ | Microsoft Docs'
+title: 'Azure Active Directory Connect: FAQ - | Microsoft Docs'
 description: "이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다."
 services: active-directory
 documentationcenter: 
 author: billmath
 manager: femila
-editor: curtand
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a2b4c14fa7f167e9a7e0cddeedbf18579117c478
-ms.openlocfilehash: 7d8ce3c869c7e3734fa1d4bc27e52325dafc651a
+ms.sourcegitcommit: 85458f4477dadb83a6a2627ef490471ca38ac634
+ms.openlocfilehash: c2b78731feb1993e5c7123ff676f38704120ccff
 
 
 ---
-# <a name="azure-ad-connect-faq"></a>Azure AD Connect FAQ
+# <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect에 대한 질문과 대답
+
 ## <a name="general-installation"></a>일반 설치
 **Q: Azure AD 전역 관리자가 2FA를 사용하도록 설정한 경우 설치가 작동하나요?**  
 2016년 2월 빌드에서 지원됩니다.
@@ -97,6 +97,6 @@ ms.openlocfilehash: 7d8ce3c869c7e3734fa1d4bc27e52325dafc651a
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

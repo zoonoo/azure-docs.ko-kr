@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager 및 PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정 | Microsoft 문서"
+title: "ExpressRoute 회로 만들기 및 수정: PowerShell: Azure Resource Manager | Microsoft Docs"
 description: "이 문서에서는 Express 경로 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: ganesr
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
+ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
 > [!div class="op_single_selector"]
-> * [Azure 포털 - 리소스 관리자](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - 클래식](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [클래식 - PowerShell](expressroute-howto-circuit-classic.md)
+> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 이 문서에서는 Windows PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 이 문서는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 보여 줍니다.
 
@@ -36,8 +37,9 @@ ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* Azure PowerShell 모듈의 최신 버전(버전 1.0 이상)을 확보합니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)의 지침을 따르세요.
+* Azure PowerShell 모듈의 최신 버전(버전 1.0 이상)을 확보합니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)의 지침을 따르세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
+
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 프로비전
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
@@ -81,7 +83,7 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
 
 * SKU 계층은 Express 경로 표준 또는 Express 경로 Premium 추가 기능이 사용되는지 여부를 결정합니다. *표준*을 지정하여 표준 SKU를 가져오거나 프리미엄 추가 기능을 위해 *프리미엄*을 지정할 수 있습니다.
-* SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *Metereddata*를 선택하고 무제한 데이터 요금제의 경우 *Unlimiteddata*를 선택할 수 있습니다. 참고: 청구 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다.
+* SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *Metereddata*를 선택하고 무제한 데이터 요금제의 경우 *Unlimiteddata*를 선택할 수 있습니다. 참고: 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다.
 
 > [!IMPORTANT]
 > Express 경로 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 된 후에 이 작업을 수행하도록 하십시오.
@@ -376,6 +378,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
+
 회로를 만든 후 다음을 수행합니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
@@ -384,6 +387,6 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
+ms.sourcegitcommit: f336058fd743b4dfec17eb301a3b28d035ca8d0f
+ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 ## <a name="index"></a>인덱스
 **사용** [사용](#let-clause)
 
-**쿼리 및 연산자** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**쿼리 및 연산자** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **집계** [모든](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [최대](#max) | [min](#min) | [백분위 수](#percentile) | [백분위 수](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [차이](#variance)
 
@@ -94,6 +94,18 @@ Let 절은 테이블 형식 결과, 스칼라 값 또는 함수에 [name](#names
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+테이블 결과를 스칼라로 변환하고 쿼리에 사용합니다.
+
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
 Self-join:
 
@@ -157,6 +169,63 @@ requests // The request table starts this pipeline.
 ```AIQL
 requests | count
 ```
+
+### <a name="datatable-operator"></a>datatable 연산자
+
+인라인 테이블을 지정합니다. 스키마 및 값은 쿼리 자체에 정의됩니다.
+
+이 연산자에는 파이프라인 입력이 없습니다.
+
+**구문**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* 열의 이름입니다.
+* *ColumnType* [데이터 형식](#scalars)입니다. 
+* *ScalarValue* 적절한 형식의 값입니다. 값 개수는 열 개수의 배수여야 합니다. 
+
+**반환**
+
+지정된 값을 포함하는 테이블입니다.
+
+**예제**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### <a name="distinct-operator"></a>distinct 연산자
+
+값의 고유한 조합을 갖는 행 집합이 포함된 테이블을 반환합니다. 경우에 따라 해당 연산 이전의 열 하위 집합으로 프로젝션됩니다.
+
+**구문**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**예제**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Fruit|가격|
+|---|---|
+|Grapes|22|
+|Apples|14|
+|Apples|15|
+
 
 ### <a name="evaluate-operator"></a>evaluate 연산자
 `evaluate`은(는) 특수화된 알고리즘이 쿼리에 추가될 수 있도록 하는 확장 메커니즘입니다.
@@ -571,32 +640,32 @@ traces
 속성 모음 확장의 두 가지 모드가 지원됩니다.
 
 * `bagexpansion=bag`: 속성 모음이 단일 항목 속성 모음으로 확장됩니다. 이는 기본 확장입니다.
-* `bagexpansion=array`: 속성 모음이 두 요소로 이루어진 `[`*key*`,`*value*`]` 배열 구조로 확장되며 키 및 값에 대한 균일한 액세스가 가능합니다(또한 예를 들어 속성 이름에 대해 고유 카운트 집계 실행). 
+* `bagexpansion=array`: 속성 모음이 두 요소로 이루어진 `[`*key*`,`*value*`]` 배열 구조로 확장되며 키 및 값에 대한 균일한 액세스가 가능합니다(또한 예를 들어 속성 이름에 대해 고유 카운트 집계 실행).
 
 **예**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 예외 레코드를 세부 정보 필드의 각 항목에 대한 행으로 분할합니다.
 
 ### <a name="parse-operator"></a>parse 연산자
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 문자열에서 값을 추출합니다. simple 또는 보통의 식 일치를 사용할 수 있습니다.
 
 **구문**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **인수**
@@ -844,6 +913,50 @@ Render는 프레젠테이션 계층에 테이블 표시 방법을 지시합니�
     restrict access to (e1, e2);
     union * |  take 10 
 
+### <a name="sample-operator"></a>sample 연산자
+
+입력 테이블에서 균일하게 분산된 임의 행을 반환합니다.
+
+
+**구문**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* 샘플에 반환할 행 수입니다.
+
+**팁**
+
+균일하게 분산된 샘플이 필요하지 않으면 `Take`를 사용합니다.
+
+
+### <a name="sample-distinct-operator"></a>sample-distinct 연산자
+
+요청된 열의 고유 값을 지정된 수만큼 포함하는 단일 열을 반환합니다. 현재, 균일하게 분산된 샘플을 반환하지 않습니다.
+
+**구문**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* 원하는 테이블의 길이입니다.
+* *ColumnName* 원하는 열입니다.
+
+**팁**
+
+let 문에 sample-distinct를 추가하여 모집단을 샘플링하고 나중에 in 연산자를 사용하여 필터링할 수 있습니다(예제 참조).
+ 
+단지 샘플이 아닌 상위 값을 원할 경우 top-hitters 연산자를 사용할 수 있습니다.
+
+특정 열 값이 아닌 데이터 행을 샘플링하려면 [sample 연산자](#sample-operator)를 참조하세요.
+
+**예제**
+
+모집단을 샘플링하고 추가 계산을 수행하여 합계가 쿼리 한도를 초과하지 않을지 알아냅니다.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+
 ### <a name="sort-operator"></a>sort 연산자
     T | sort by country asc, price desc
 
@@ -853,7 +966,7 @@ Render는 프레젠테이션 계층에 테이블 표시 방법을 지시합니�
 
 **구문**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **인수**
 
@@ -886,9 +999,9 @@ Traces
 **구문**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **인수**
 
@@ -919,7 +1032,7 @@ Traces
 
 **구문**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **인수**
 
@@ -933,11 +1046,11 @@ Traces
 `top 5 by name`은(는) 외관상으로는 `sort by name | take 5`와(과) 동일하지만 그러나 이는 더 빠르게 실행되며 언제나 정렬된 결과를 반환하는 반면에, `take` 은 그러한 실행과 결과가 보장되지 않습니다.
 
 ### <a name="top-nested-operator"></a>top-nested 연산자
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 각 수준이 이전 수준에서의 드릴다운에 해당하는 계층적 결과를 생성합니다. 이 연산자는 "상위 5개의 요청은 무엇이며, 각각에 대해 상위 3개의 성능 버킷은 무엇이며, 각각에 대해 요청이 시작된 상위 3개 국가는 어느 것입니까?"와 같은 질문에 답변하는 데 유용합니다.
 
@@ -1077,17 +1190,54 @@ traces
 
 **구문**
 
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
+    T | where col in (listExpression)
+    T | where col !in (listExpression)
 
 **인수**
 
 * `col`: 테이블의 열입니다.
-* `expr1`...: 스칼라 식의 목록입니다.
+* `listExpression`...: 스칼라 식의 목록 또는 목록으로 평가되는 식입니다. 
+
+중첩된 배열은 단일 목록으로 결합됩니다. 예를 들어 `where x in (dynamic([1,[2,3]]))`은 `where x in (1,2,3)`이 됩니다.
 
 `col`이(가) 식 `expr1...` 중 하나와 동일한 행만을 포함하도록 `in`을(를) 사용합니다.
 
 `col`이(가) 식 `expr1...` 중 어느 것과도 동일하지 않은 행만을 포함하도록 `!in`을(를) 사용합니다.  
+
+**예**
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+계산된 목록:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+함수 호출을 목록 식으로 사용:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ## <a name="aggregations"></a>집계
 집계는 [작업 요약](#summarize-operator)에서 만든 그룹의 값을 결합하는 데 사용되는 함수입니다. 예를 들어 이 쿼리에서 dcount()는 집계 함수입니다.
@@ -1160,10 +1310,10 @@ traces
 
 결과:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1195,11 +1345,11 @@ traces
 
 결과 스키마는 다음과 같습니다.
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 스키마는 다음 정보를 알려줍니다.
@@ -1216,19 +1366,19 @@ traces
 반환되는 스키마의 구문은 다음과 같습니다.
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 이는 동적 값으로 인코드된 TypeScript 형식 주석의 하위 집합과 동일합니다. Typescript에서 예제 스키마는 다음과 같습니다.
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1634,6 +1784,12 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     and 
     or 
 
+### <a name="convert-to-boolean"></a>부울로 변환
+
+값 "true" 또는 "false"를 포함하는 문자열 `aStringBoolean`이 있는 경우 다음과 같이 부울로 변환할 수 있습니다.
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## <a name="numbers"></a>숫자
@@ -1785,13 +1941,6 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
-### <a name="tolong"></a>tolong
-    tolong(20.7) == 20 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
-
 
 ### <a name="todouble"></a>todouble
     todouble(20) == 20.0 // conversion from long or int
@@ -1799,6 +1948,13 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### <a name="tolong"></a>tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## <a name="date-and-time"></a>날짜 및 시간
@@ -2066,7 +2222,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |같음 |예 |`"aBc" == "aBc"` |
 | `<>` `!=` |같지 않음 |예 |`"abc" <> "ABC"` |
-| `=~` |같음 |아니요 |`"abc" =~ "ABC"` |
+| `=~` |같음 |아니요 |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |같지 않음 |아니요 |`"aBc" !~ "xyz"` |
 | `has` |오른쪽(RHS)이 왼쪽(LHS)의 전체 항임 |아니요 |`"North America" has "america"` |
 | `!has` |RHS가 LHS의 전체 항이 아님 |아니요 |`"North America" !has "amer"` |
@@ -2375,8 +2531,8 @@ substring("ABCD", 0, 2)       // AB
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals:** 명시적 배열 또는 속성 모음 개체를 만들려면 JSON 문자열로 쓰고 캐스트합니다.
@@ -2386,7 +2542,7 @@ substring("ABCD", 0, 2)       // AB
 
 **mvexpand:** 개체의 속성을 별도의 행으로 끌어오려면 mvexpand를 사용합니다.
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2394,8 +2550,8 @@ substring("ABCD", 0, 2)       // AB
 
 **treepath:** 복합 개체에서 모든 경로를 찾으려면 다음을 수행합니다.
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2407,10 +2563,10 @@ substring("ABCD", 0, 2)       // AB
 
 결과:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2436,7 +2592,7 @@ substring("ABCD", 0, 2)       // AB
 동적 리터럴을 만들려면 JSON 문자열 인수와 함께 `parsejson`(별칭 `todynamic`)을 사용합니다.
 
 * `parsejson('[43, 21, 65]')` - 숫자의 배열
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` - 숫자를 포함하는 동적 형식의 단일 값
 * `parsejson('"21"')` - 문자열을 포함하는 동적 형식의 단일 값
 
@@ -2681,6 +2837,6 @@ path 식의 배열입니다.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

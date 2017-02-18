@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
-ms.openlocfilehash: 489067e44525532f2913f44156a5eeb19214d250
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
 
 
 ---
@@ -27,10 +27,8 @@ ms.openlocfilehash: 489067e44525532f2913f44156a5eeb19214d250
 
 Azure CLI을 사용하여 HDInsight에 Windows 기반 Hadoop 클러스터를 만드는 방법을 알아봅니다. 
 
-이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 생성에 대한 자세한 내용은 [Azure CLI를 사용하여 HDInsight에 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)를 참조하세요.
-
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 생성에 대한 자세한 내용은 [Azure CLI를 사용하여 HDInsight에 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -134,7 +132,7 @@ HDInsight 클러스터를 만들려면 리소스 관리 그룹 및 Azure Blob St
 일반 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정(Linux)](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
 
 ## <a name="create-clusters-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 클러스터 만들기
-ARM 템플릿을 호출하여 클러스터를 만기 위해 CLI를 사용할 수 있습니다. [Azure CLI를 사용하여 배포](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli)를 참조하세요.
+CLI에서 Azure Resource Manager 템플릿을 호출하여 클러스터를 만들 수 있습니다. [Azure CLI를 사용하여 배포](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
@@ -145,6 +143,6 @@ ARM 템플릿을 호출하여 클러스터를 만기 위해 CLI를 사용할 수
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

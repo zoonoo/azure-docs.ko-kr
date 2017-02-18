@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
-ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 * 웹 페이지
   * AJAX 호출
 
-[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 클라이언트 및 서버 코드 모두에서 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수도 있습니다.
+[TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency)를 사용하여 클라이언트 및 서버 코드 모두에서 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수도 있습니다.
 
 ## <a name="set-up-dependency-monitoring"></a>종속성 모니터링 설정
 부분 종속성 정보는 [Application Insights SDK](app-insights-asp-net.md)에서 자동으로 수집됩니다. 전체 데이터를 가져오려면 호스트 서버에 대한 적절한 에이전트를 설치합니다.
@@ -172,7 +172,7 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 ## <a name="custom-dependency-tracking"></a>사용자 지정 종속성 추적
 표준 종속성 추적 모듈은 데이터베이스 및 REST API와 같은 외부 종속성을 자동으로 검색합니다. 하지만 일부 추가 구성 요소를 동일한 방식으로 취급할 수도 있습니다.
 
-표준 모듈에 의해 사용되는 동일한 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
+표준 모듈에 의해 사용되는 동일한 [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) 를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
 
 예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
 
@@ -209,6 +209,6 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

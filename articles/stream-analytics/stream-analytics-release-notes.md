@@ -12,15 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
+ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics 릴리스 정보
+## <a name="notes-for-02012017-release-of-stream-analytics"></a>Stream Analytics 2017/02/01 릴리스 정보
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+| 제목 | 설명 |
+| --- | --- |
+| JavaScript UDF(사용자 정의 함수) 소개 |[Java 사용자 정의 함수](stream-analytics-javascript-user-defined-functions.md)에서 쿼리를 만들기 위한 추가적인 유연성을 제공합니다. |
+| Visual Studio 및 Stream Analytics 도구 소개 |[Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md)에서 디버깅과 더 큰 유틸리티를 제공합니다. |
+| 진단 로깅 소개 |[진단 로깅](stream-analytics-job-diagnostic-logs.md)에서 추가 문제 해결 옵션을 제공합니다. |
+| 지리 공간적 함수 소개 |[지리 공간적 함수](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx)가 일반적으로 사용될 수 있습니다. |
+
 ## <a name="notes-for-04152016-release-of-stream-analytics"></a>Stream Analytics의 2016/04/15 릴리스에 대한 정보
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
@@ -125,17 +135,17 @@ ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
 | PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다. |PowerBI는 지정된 데이터 집합에서 둘 이상의 테이블을 지원하지 않습니다. |
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

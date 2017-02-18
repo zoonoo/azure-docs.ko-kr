@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 7b7bcc8d73796908f02c77f2df2f2a7c96e1ba47
-ms.openlocfilehash: 38388ead8e80217b44ec5d103c35d6eb5c13d0d3
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
 
 
 ---
+
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>응용 프로그램 게이트웨이의 잘못된 게이트웨이 오류 문제 해결
 
 ## <a name="overview"></a>개요
 
-Azure 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버는 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다."입니다. 이 문제는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
+Azure 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버는 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다."입니다. 이 오류는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
 
 * Azure Application Gateway의 백 엔드 풀은 구성되지 않았거나 비어 있습니다.
 * VM 또는 VM 크기 조정 설정의 인스턴스는 모두 정상이 아닙니다.
@@ -142,7 +143,9 @@ BackendAddressPool의 모든 인스턴스가 정상이 아닌 경우 Application
 
 Application Gateway를 사용하면 사용자가 다른 풀에 적용할 수 있는 BackendHttpSetting을 통해 이 설정을 구성할 수 있습니다. 다른 백 엔드 풀에서는 다른 BackendHttpSetting 및 다른 요청 시간 초과를 구성할 수 있습니다.
 
+```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -151,6 +154,6 @@ Application Gateway를 사용하면 사용자가 다른 풀에 적용할 수 있
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

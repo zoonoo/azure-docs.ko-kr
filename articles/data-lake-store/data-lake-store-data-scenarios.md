@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a7d0b98e1c582230c756d1c893d9cc549a5a2893
-ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
 
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) - Azure Data Lake Store 출력을 사용하면 Event Hubs에 수집된 이벤트를 Azure Data Lake에 쓸 수 있습니다.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - Storm 클러스터에서 Data Lake Store에 직접 데이터를 쓸 수 있습니다.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – Event Hubs에서 이벤트를 받은 다음 [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake Store에 데이터를 쓸 수 있습니다.
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – Event Hubs에서 이벤트를 받은 다음 [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake Store에 데이터를 쓸 수 있습니다.
 
 ### <a name="relational-data"></a>관계형 데이터
 관계형 데이터베이스의 데이터를 원본으로 사용할 수도 있습니다. 관계형 데이터베이스는 일정 기간 동안 엄청난 양의 데이터를 수집합니다. 이 데이터를 빅 데이터 파이프라인을 통해 처리하면 중요한 정보를 얻을 수 있습니다. 다음 도구를 사용하여 이러한 데이터를 Data Lake 저장소로 이동할 수 있습니다.
@@ -135,6 +135,6 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
-ms.openlocfilehash: 3c2f1b23f952d6102d8bfa52b536621ef6282ab6
+ms.sourcegitcommit: 071e8056382128f7c5070b46591b2a66ba5b7e41
+ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
 
 
 ---
@@ -80,7 +80,7 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 여기서 App Service의 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. 여기서 App Service의 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -94,11 +94,11 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 
 [리포지토리 만들기(GitHub)]: https://help.github.com/articles/create-a-repo
 [리포지토리 만들기(BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[VSTS 시작]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
+[VSTS 시작]: https://www.visualstudio.com/docs/vsts-tfs-overview
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

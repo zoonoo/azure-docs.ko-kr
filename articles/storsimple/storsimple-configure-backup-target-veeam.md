@@ -1,5 +1,5 @@
 ---
-title: "Veeam에서 백업 대상으로 StorSimple 구성 | Microsoft Docs"
+title: "Veeam에서 백업 대상으로 StorSimple 8000 시리즈 구성 | Microsoft Docs"
 description: "Veeam을 사용한 StorSimple 백업 대상 구성에 대해 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 154c952058a74ebac372eea2f388565af008a4a8
-ms.openlocfilehash: 652345df4a2940b0b683aa78896745be3f735c92
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
 
 ---
 
@@ -555,6 +555,6 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

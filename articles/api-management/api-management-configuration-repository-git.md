@@ -1,28 +1,25 @@
 ---
-title: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법"
+title: "Git를 사용하여 API Management 서비스 구성 - Azure | Microsoft Docs"
 description: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
-> [!IMPORTANT]
-> API 관리에 대한 Git 구성은 현재 미리 보기로 제공됩니다. 기능적으로는 완전하지만 이 기능에 대한 의견을 적극적으로 기다리고 있으므로 미리 보기로 제공됩니다. 고객 피드백에 대한 응답으로 새로운 변경 사항을 만들었을 수 있으므로 프로덕션 환경에서 사용할 기능에 따르지 않는 것이 좋습니다. 의견이나 질문이 있으면 `apimgmt@microsoft.com`에서 알려 주시기 바랍니다.
 > 
 > 
 
@@ -40,7 +37,7 @@ ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 다음 단계는 Git를 이용한 API 관리 서비스 인스턴스 관리를 간략하게 보여 줍니다.
 
-1. 서비스에 Git 액세스 사용
+1. 서비스의 Git 구성에 액세스
 2. Git 리포지토리에 서비스 구성 데이터베이스 저장
 3. 로컬 컴퓨터에 Git 리포지토리 복제
 4. 리포지토리를 로컬 컴퓨터에 풀하고 커밋한 다음 변경 내용을 리포지토리에 다시 푸시
@@ -48,20 +45,14 @@ ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 이 문서에서는 Git를 사용하도록 설정하고 이를 사용하여 서비스 구성을 관리하는 방법을 설명하며 Git 리포지토리의 파일 및 폴더에 대한 참조를 제공합니다.
 
-## <a name="to-enable-git-access"></a>Git 액세스를 사용하도록 설정하려면
-게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 Git 액세스는 아직 활성화되지 않았습니다.
+## <a name="access-git-configuration-in-your-service"></a>서비스의 Git 구성에 액세스
+게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 상태 메시지는 리포지토리에 대해 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API 관리 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
 
 ![Git 상태][api-management-git-icon-enable]
 
 Git 구성 설정을 확인 및 구성하려면 Git 아이콘을 클릭하거나 **보안** 메뉴를 클릭하고 **구성 리포지토리** 탭으로 이동합니다.
 
 ![GIT 사용][api-management-enable-git]
-
-Git 액세스를 사용하도록 설정하려면 **Git 액세스 사용** 확인란을 선택합니다.
-
-잠시 후 변경 내용이 저장되고 확인 메시지가 표시됩니다. Git 아이콘은 Git 액세스가 활성화되었음을 나타내도록 색으로 변경되었으며 이제 상태 메시지는 리포지토리에 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API 관리 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
-
-![Git 활성화됨][api-management-git-enabled]
 
 > [!IMPORTANT]
 > 속성으로 정의되지 않은 비밀은 리포지토리에 저장되며 Git 액세스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 때까지 기록에 남아 있습니다. 속성은 모든 API 구성 및 정책에 대해 비밀을 포함한 상수 문자열 값을 관리하는 안전한 장소를 제공하므로 정책을 정책 설명에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API 관리 정책에 속성을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
@@ -321,6 +312,6 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

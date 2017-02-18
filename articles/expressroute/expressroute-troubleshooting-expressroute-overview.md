@@ -1,5 +1,5 @@
 ---
-title: "Azure ExpressRoute 문제 해결 가이드-연결 확인 | Microsoft Docs"
+title: "연결 확인: Azure ExpressRoute 문제 해결 가이드 | Microsoft Docs"
 description: "ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사 및 문제 해결에 대한 지침을 제공합니다."
 documentationcenter: na
 services: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 1/5/2017
 ms.author: rambala
 translationtype: Human Translation
-ms.sourcegitcommit: 3c25cd8dae3a1c830cefbced5d2cd9ec04f4dda8
-ms.openlocfilehash: 9d97dcc9b59a40a714b8f1d71137baf51136d134
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
 
 
 ---
@@ -417,6 +417,6 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

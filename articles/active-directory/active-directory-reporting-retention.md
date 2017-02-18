@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
-ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
+ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
+ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
 
 
 ---
@@ -30,8 +30,8 @@ ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
 
 | Azure AD 버전 | 수집 시작 |
 | :--              | :--   |
-|Premium 및 Premium 2 | 라이선스를 등록할 때 |
-| 무료 | 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](https://aka.ms/aadreports)를 사용할 때  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | 구독 등록 시 |
+| Azure AD Free | 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](https://aka.ms/aadreports)를 사용할 때  |
 
 
 Azure Portal에서 작업 데이터를 사용할 수 있는 시기는 언제입니까?
@@ -46,14 +46,14 @@ Azure Portal에서 작업 데이터를 사용할 수 있는 시기는 언제입�
 
 **작업 보고서**    
 
-| 보고서 | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| 보고서 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | 디렉터리 감사 | 7 일 | 30일 | 30일 |
 | 로그인 작업 |    7 일 | 30일 | 30일 |
 
 **보안 신호**
 
-| 보고서 | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| 보고서 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | 위험한 로그인 | 7 일 | 30일 | 90일 |
 
@@ -61,6 +61,6 @@ Azure Portal에서 작업 데이터를 사용할 수 있는 시기는 언제입�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

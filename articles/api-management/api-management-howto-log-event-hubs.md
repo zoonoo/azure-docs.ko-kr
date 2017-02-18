@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
 
 
 ---
@@ -78,15 +78,15 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 ```
 
 * `type`은 `AzureEventHub`로 설정해야 합니다.
-* `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가 0인 문자열이 될 수 있습니다.
+* `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가&0;인 문자열이 될 수 있습니다.
 * `credentials`는 Azure 이벤트 허브의 `name` 및 `connectionString`을 포함합니다.
 
-요청을 만들 때 로거가 생성되면 `201 Created` 의 상태 코드가 반환됩니다. 
+요청을 만들 때 로거가 생성되면 `201 Created` 의 상태 코드가 반환됩니다.
 
 > [!NOTE]
 > 다른 가능한 반환 코드 및 해당 이유의 경우 [로거 만들기](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)를 참조하세요. 목록, 업데이트, 삭제 등의 다른 작업을 수행하는 방법을 보려면 [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx) 엔터티 설명서를 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>log-to-eventhubs 정책 구성
 API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-eventhubs 정책을 구성할 수 있습니다. log-to-eventhubs 정책은 인바운드 정책 섹션 또는 아웃바운드 정책 섹션에서 사용할 수 있습니다.
@@ -117,8 +117,8 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 이벤트 허브에 대해 자세히 알아보기
-  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
   * [로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -127,8 +127,8 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 ## <a name="watch-a-video-walkthrough"></a>연습 동영상 시청
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -141,12 +141,6 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 
 
-
-
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
