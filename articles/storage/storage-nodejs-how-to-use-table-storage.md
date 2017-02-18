@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 4935223f572e0ed3188195c23f7e9f692fb170af
+ms.sourcegitcommit: b9041713f3d084fde77a34ef7956a2c59312245e
+ms.openlocfilehash: d9008f6232ca2442edce2a3cae88f0b3d2be2f14
 
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>개요
 이 항목에서는 Node.js 응용 프로그램의 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다.
@@ -195,9 +195,8 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`의 일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
 >
-> `entity2['.metadata'].etag = currentEtag;`
->
-> 1. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error` 가 반환됩니다.
+>       entity2['.metadata'].etag = currentEtag;
+> 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error` 가 반환됩니다.
 >
 >
 
@@ -469,6 +468,6 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

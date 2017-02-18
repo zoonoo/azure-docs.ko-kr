@@ -1,5 +1,5 @@
 ---
-title: "Service Fabric의 개요 | Microsoft Docs"
+title: "Azure의 Service Fabric 개요 | Microsoft Docs"
 description: "응용 프로그램이 여러 마이크로 서비스로 구성되어 확장성과 복원력을 제공하는 서비스 패브릭의 개요입니다. Service Fabric은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 6b3c49f6721ffc149bbb7f0433ff67f529abf938
-ms.openlocfilehash: c61541d65fe2f84bdd629d8b8d8c7ce00a049133
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 0e899225063e77ccef254e8aaacbf0390faa25e3
 
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 엔터프라이즈급 계층&1; 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
 
 이 짧은 Channel9 비디오에서는 Service Fabric 및 마이크로 서비스를 소개합니다.<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
 <img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
@@ -79,7 +79,7 @@ Service Fabric은 클라우드 응용 프로그램의 전체 응용 프로그램
 
 Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 응용 프로그램 관리자와 IT 운영자가 간단하고 개입할 필요성이 적은 워크플로를 사용하여 응용 프로그램을 프로비전, 배포, 패치 및 모니터링할 수 있습니다. 이러한 기본 제공 워크플로는 응용 프로그램을 지속적으로 사용 가능하게 유지해야 하는 IT 운영자의 부담을 크게 줄여줍니다.
 
-대부분의 응용 프로그램은 상태 비저장 및 상태 저장 마이크로 서비스, 그리고 함께 배포되는 다른 실행 파일/런타임의 조합으로 구성됩니다. 응용 프로그램 및 패키지된 마이크로 서비스에 대한 강력한 형식을 가지고 있으므로, 서비스 패브릭을 사용하면 여러 응용 프로그램 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 중요한 점은 Service Fabric을 사용하면 *모든* 실행 파일 또는 런타임을 배포하고 안정적으로 만들 수 있다는 것입니다. 예를 들어, Service Fabric은 ASP.NET Core 1, Node.js, Java 가상 컴퓨터, 스크립트 또는 응용 프로그램을 구성하는 모든 다른 항목을 배포합니다.
+대부분의 응용 프로그램은 상태 비저장 및 상태 저장 마이크로 서비스, 그리고 함께 배포되는 다른 실행 파일/런타임의 조합으로 구성됩니다. 응용 프로그램 및 패키지된 마이크로 서비스에 대한 강력한 형식을 가지고 있으므로, 서비스 패브릭을 사용하면 여러 응용 프로그램 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 중요한 점은 Service Fabric을 사용하면 *모든* 실행 파일 또는 런타임을 배포하고 안정적으로 만들 수 있다는 것입니다. 예를 들어, Service Fabric은 .NET, ASP.NET Core, Node.js, Java 가상 컴퓨터, 스크립트 또는 응용 프로그램을 구성하는 모든 다른 항목을 배포합니다.
 
 응용 프로그램 수명 주기 관리에 대한 자세한 내용은 [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요. 모든 코드를 배포하는 방법에 대한 자세한 내용은 [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
 
@@ -91,7 +91,7 @@ Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 �
 서비스 패브릭을 사용하면 다음을 수행할 수 있습니다.
 
 * 자동 복구되며 대규모 확장 가능한 응용 프로그램 개발.
-* Service Fabric 프로그래밍 모델을 사용하여 마이크로 서비스로 구성된 응용 프로그램을 개발합니다. 또는 ASP.NET Core 1, Node.js 등과 같이 사용자가 선택한 기타 응용 프로그램 프레임워크 및 게스트 실행 파일을 간단히 호스트할 수 있습니다.
+* Service Fabric 프로그래밍 모델을 사용하여 마이크로 서비스로 구성된 응용 프로그램을 개발합니다. 또는 ASP.NET Core, Node.js 등과 같이 사용자가 선택한 기타 응용 프로그램 프레임워크 및 게스트 실행 파일을 간단히 호스트할 수 있습니다.
 * 매우 안정적인 상태 비저장 및 상태 저장 마이크로 서비스를 개발합니다.
 * 배포 및 오케스트레이션 컨테이너에는 클러스터 전반의 Windows 컨테이너 및 Docker 컨테이너가 포함됩니다. 이러한 컨테이너는 게스트 실행 파일 또는 신뢰할 수 있는 상태 비저장 및 상태 저장 마이크로 서비스를 포함할 수 있습니다. 두 경우 모두 컨테이너 포트를 호스트 포트에 매핑, 컨테이너 검색 기능 및 자동화된 장애 조치를 가져옵니다.
 * 캐시와 큐 대신 상태 저장(마이크로) 서비스를 사용하여 응용 프로그램 디자인 간소화.
@@ -106,6 +106,7 @@ Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 �
 * 응용 프로그램의 상태를 모니터링 및 진단하고 자동 복구를 수행하는 정책 설정.
 * 클러스터의 노드 수를 증가시키거나 감소시키고 각 노드의 크기를 늘리거나 줄임. 노드 크기를 조정하면 사용 가능한 리소스에 따라 응용 프로그램이 자동으로 크기를 조정하고 배포됩니다.
 * 자동 복구되는 리소스 분산 장치를 감시하여 클러스터 간 응용 프로그램의 재배포를 조율합니다. 서비스 패브릭은 오류에서 복구하고 사용 가능한 리소스에 따라 부하의 분산을 최적화합니다.
+* 프로덕션 환경에서 실행하기 전에 오류 분석 서비스를 사용하여 서비스에서 카오스 테스트를 수행하여 문제와 오류를 확인합니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
@@ -114,11 +115,12 @@ Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 �
   * [용어 개요](service-fabric-technical-overview.md)
 * 서비스 패브릭 [개발 환경](service-fabric-get-started.md)  
 * [프로그래밍 모델 프레임워크 선택](service-fabric-choose-framework.md) 을 읽어보세요.
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

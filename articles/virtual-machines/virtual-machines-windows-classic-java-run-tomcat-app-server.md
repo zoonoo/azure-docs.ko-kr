@@ -1,5 +1,5 @@
 ---
-title: "가상 컴퓨터의 Tomcat | Microsoft Docs"
+title: "클래식 Azure VM에서 Java 응용 프로그램 서버 실행 | Microsoft Docs"
 description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Windows 가상 컴퓨터를 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법을 보여 줍니다."
 services: virtual-machines-windows
 documentationcenter: java
@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/23/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
+ms.sourcegitcommit: 7b621733e09a1ba4e21152d7670a8936e3944521
+ms.openlocfilehash: 4503610eb8ef2e690e028667ebbf64e865af7134
 
 
 ---
@@ -155,6 +155,6 @@ Java 응용 프로그램에 포함할 수 있는 다른 서비스(예: Azure 저
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

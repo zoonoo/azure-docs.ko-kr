@@ -1,5 +1,5 @@
 ---
-title: "Pig 작업"
+title: "Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환 | Microsoft Docs"
 description: "Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ab5923ffeac5e86eaf643ba79c56fb57a34f9f87
-ms.openlocfilehash: 3ee61c0a1bb3ff72017768337773373df50ef927
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 1f9900218dc64b9a11e30335db234108859a2d2d
 
 
 ---
-# <a name="pig-activity"></a>Pig 작업
+# <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -218,6 +218,6 @@ Data Factory 파이프라인에서 이 Pig 스크립트를 실행하려면 다�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

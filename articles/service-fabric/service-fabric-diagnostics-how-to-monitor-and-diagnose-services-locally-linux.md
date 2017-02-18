@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric으로 작성된 서비스를 로컬에서 모니터링 및 진단 | Microsoft Docs"
+title: "Linux에서 Azure 마이크로 서비스 디버그 | Microsoft Docs"
 description: "로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
-ms.openlocfilehash: 1d02402f8d3d3f501a100c1618bcba595f1fedc0
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
 
 
 ---
@@ -143,6 +143,6 @@ public static TextWriter Out = Console.Out;
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

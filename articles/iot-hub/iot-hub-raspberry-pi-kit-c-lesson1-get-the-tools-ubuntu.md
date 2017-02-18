@@ -1,5 +1,5 @@
 ---
-title: "도구 얻기(Ubuntu 16.04) | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 1: 도구 다운로드(Ubuntu) | Microsoft Docs"
 description: "Ubuntu에 Pi의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 011f44585676684ca173a6f83b79f3973f877743
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: aadeff581e6134144ddc43416d4d5f9daea1b9f4
 
 
 ---
@@ -83,6 +83,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/li
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

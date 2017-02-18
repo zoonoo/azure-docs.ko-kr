@@ -1,5 +1,5 @@
 ---
-title: "Azure 클라우드에 메시지 저장 및 클라우드에서 메시지 읽기 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 4: 메시지 저장 | Microsoft Docs"
 description: "Intel NUC의 메시지를 IoT Hub에 저장하고 Azure Table Storage에 기록한 다음 클라우드에서 읽습니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: ac4204d6d253e59a367f110aaa3bd28fd94792ea
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 2116e2c2ef5808145b56e63c1e2b91f20e639a3d
 
 
 ---
@@ -85,10 +85,10 @@ az group deployment create --template-file arm-template.json --parameters @arm-t
 IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저장하는 Azure Storage 계정을 만들었습니다. 이제 게이트웨이에서 IoT Hub로 보낸 메시지를 읽을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Storage에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
+[Azure Storage에 유지되는 메시지를 읽습니다](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "collectd: Azure Application Insights에서 Linux의 Java에 대한 성능 통계 | Microsoft Docs"
+title: "Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs"
 description: "Application Insights용 CollectD 플러그 인을 사용한 Java 웹 사이트의 포괄적인 응용 프로그램 성능 모니터링"
 services: application-insights
 documentationcenter: java
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 
 
 ---
@@ -47,7 +47,7 @@ Linux 서버 컴퓨터에서:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * 리소스에서 계측 키를 사용하여 이 코드 조각을 추가합니다.
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -56,6 +56,8 @@ Linux 서버 컴퓨터에서:
 ```
 
 다음은 샘플 구성 파일의 일부입니다.
+
+```XML
 
     ...
     # collectd plugins
@@ -83,14 +85,15 @@ Linux 서버 컴퓨터에서:
       # Other plugin configurations ...
       ...
     </Plugin>
-한 경우 일반적으로 collectd를 사용합니다.   ...
+    ...
+```
 
 다른 [collectd 플러그인](https://collectd.org/wiki/index.php/Table_of_Plugins)을 구성하여 다른 원본에서 다양한 데이터를 수집할 수 있습니다.
 
 Collectd를 해당 [설명서](https://collectd.org/wiki/index.php/First_steps)에 따라서 다시 시작합니다.
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights에서 데이터 보기
-Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기][메트릭]를 열고, 사용자 지정 범주에서 보려는 메트릭을 선택합니다.
+Application Insights 리소스에서 [메트릭 탐색기 및 차트 추가하기][metrics]를 열고, 사용자 지정 범주에서 보려는 메트릭을 선택합니다.
 
 ![](./media/app-insights-java-collectd/result.png)
 
@@ -114,8 +117,8 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 ## <a name="problems"></a>문제가 있습니까?
 *포털에 데이터가 표시되지 않습니다.*
 
-* [검색][진단]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
-*  [나가는 데이터에 대한 방화벽 예외를 설정](app-insights-ip-addresses.md)
+* [검색][diagnostic]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
+* [나가는 데이터에 대한 방화벽 예외를 설정](app-insights-ip-addresses.md)
 * Application insights 플러그인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
   * `SDKLogger true`
 * 터미널을 열고 세부정보 표시 모드를 시작하여 어떤 문제가 보고되었는지 확인합니다.
@@ -125,18 +128,18 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[가용성]: app-insights-monitor-web-app-availability.md
-[진단]: app-insights-diagnostic-search.md
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[메트릭]: app-insights-metrics-explorer.md
-[사용을 추가]: app-insights-web-track-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[usage]: app-insights-web-track-usage.md
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

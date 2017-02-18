@@ -1,5 +1,5 @@
 ---
-title: "배치에서 작업 준비 및 정리 | Microsoft Docs"
+title: "작업 준비 및 태스크 해제 - Azure Batch | Microsoft Docs"
 description: "작업 수준 준비 태스크를 사용하여 Azure Batch 계산 노드로의 데이터 전송을 최소화하고 작업 완료 시 태스크를 해제하여 노드를 정리합니다."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/04/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 9b71f09611832c2a8133cc21347d612d495b70aa
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 3b34a9665bfab85abbd633d01139ba2da2249bbf
 
 
 ---
@@ -225,6 +225,6 @@ Azure Batch 팀 멤버 중 하나에서 작성하고 응용 프로그램과 데�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

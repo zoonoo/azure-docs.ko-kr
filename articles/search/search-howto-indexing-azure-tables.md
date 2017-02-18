@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
-ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
+ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
+ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
 
 ---
 
@@ -34,7 +34,7 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
 
 1. 데이터 소스 만들기
    * `type` 매개 변수를 `azuretable`로 설정합니다.
-   * 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다. 저장소 계정 블레이드 > **설정** > **키** (클래식 저장소 계정) 또는 **설정** > **액세스 키** (ARM 저장소 계정)로 이동하여 Azure Portal에서 연결 문자열을 가져올 수 있습니다. 현재 Azure Search에서는 공유 액세스 서명 자격 증명을 지원하지 않습니다. SAS를 사용하려는 경우 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc)에 투표하십시오.
+   * 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다. 자세한 내용은 아래에서 [자격 증명을 지정하는 방법](#Credentials)을 참조하세요.
    * `container.name` 매개 변수를 사용하여 테이블 이름을 지정합니다.
    * 필요에 따라 `container.query` 매개 변수를 사용하여 쿼리를 지정합니다. 가능한 경우 최상의 성능을 위해 PartitionKey에서 필터를 사용합니다. 다른 쿼리를 사용하면 전체 테이블이 검색되므로 테이블이 큰 경우 성능이 저하될 수 있습니다.
 2. 인덱싱하려는 테이블의 열에 해당하는 스키마로 검색 인덱스를 만듭니다.
@@ -53,6 +53,20 @@ Azure 테이블 인덱서를 설정 및 구성하려면 [인덱서 작업](https
     }   
 
 데이터 원본 만들기 API에 대한 자세한 내용은 [데이터 원본 만들기](https://msdn.microsoft.com/library/azure/dn946876.aspx)를 참조하세요.
+
+<a name="Credentials"></a>
+#### <a name="how-to-specify-credentials"></a>자격 증명을 지정하는 방법 ####
+
+테이블에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다. 
+
+- **전체 액세스 저장소 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Azure Portal에서 저장소 계정 블레이드 > 설정 > 키(클래식 저장소 계정) 또는 설정 > 액세스 키(Azure Resource Manager 저장소 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
+- **저장소 계정 공유 액세스 서명**(SAS) 연결 문자열: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. SAS에 컨테이너(이 경우 테이블) 및 개체(테이블 행)에 대한 읽기 권한 및 목록이 있어야 합니다.
+-  **테이블 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. SAS에 테이블에 대한 읽기 권한 및 목록이 있어야 합니다.
+
+저장소 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+
+> [!NOTE]
+> SAS 자격 증명을 사용하는 경우 자격 증명이 만료되는 것을 방지하기 위해 갱신된 서명을 사용하여 데이터 원본 자격 증명을 주기적으로 업데이트해야 합니다. SAS 자격 증명이 만료되면 `Credentials provided in the connection string are invalid or have expired.`와 유사한 오류 메시지가 표시되면서 인덱서가 실행되지 못합니다.  
 
 ### <a name="create-index"></a>인덱스 만들기
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
@@ -123,6 +137,6 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 
 ---
-title: "Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름 | Microsoft Docs"
+title: "Azure AD v&2;.0을 사용하여 사용자 상호 작용 없이 보안 리소스에 액세스 | Microsoft Docs"
 description: "OAuth 2.0 인증 프로토콜의 Azure AD 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
 services: active-directory
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d619f6e98563448859e54ecbb0605df1365246ce
+ms.sourcegitcommit: 08e2e561b6b939de4d829c816c1948361e16f6c4
+ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
 
 
 ---
@@ -69,7 +69,7 @@ ACL을 사용하는 대신 API를 사용하여 응용 프로그램 사용 권한
 사용자가 앱에 로그인하면 사용자에게 응용 프로그램 사용 권한을 승인하도록 요청하기 전에 사용자가 속해 있는 조직을 식별할 수 있습니다. 반드시 필요하지는 않지만 사용자를 위한 보다 직관적인 환경을 만드는 것이 유용할 수 있습니다. 사용자가 로그인하려면 [v2.0 프로토콜 자습서](active-directory-v2-protocols.md)를 수행합니다.
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>디렉터리 관리에서 사용 권한 요청
-조직의 관리자에게 사용 권한을 요청할 준비가 되면 v 2.0 *관리 동의 끝점*에 사용자를 리디렉션할 수 있습니다.
+조직의 관리자에게 사용 권한을 요청할 준비가 되면 v&2;.0 *관리 동의 끝점*에 사용자를 리디렉션할 수 있습니다.
 
 ```
 // Line breaks are for legibility only.
@@ -211,6 +211,6 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

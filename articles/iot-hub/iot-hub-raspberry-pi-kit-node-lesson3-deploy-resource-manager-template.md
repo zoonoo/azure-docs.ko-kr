@@ -1,5 +1,5 @@
 ---
-title: "Azure 함수 앱 및 Azure Storage 계정 만들기 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 3: 템플릿 배포 | Microsoft Docs"
 description: "Azure 함수 앱은 Azure IoT Hub 이벤트를 수신 대기하고, 들어오는 메시지를 처리하고, 이를 Azure Table Storage에 씁니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: df446b1a6b244761f39bfdcebb7e404435c2c35d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a3a7ec4c81556e4cb530f32c9997d8701db68b2c
 
 
 ---
@@ -67,7 +67,7 @@ Visual Studio Code에서 `arm-template-param.json` 파일을 업데이트합니�
 az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
-이러한 리소스를 만드는 데 약 5분이 걸립니다. 리소스 만들기가 진행되는 동안, 다음 문서로 이동할 수 있습니다.
+이러한 리소스를 만드는 데 약&5;분이 걸립니다. 리소스 만들기가 진행되는 동안, 다음 문서로 이동할 수 있습니다.
 
 ## <a name="summary"></a>요약
 IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저장하는 Azure Storage 계정을 만들었습니다. 이제 샘플을 배포 및 실행하고 장치-클라우드 메시지를 Pi에 보낼 수 있습니다.
@@ -78,6 +78,6 @@ IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

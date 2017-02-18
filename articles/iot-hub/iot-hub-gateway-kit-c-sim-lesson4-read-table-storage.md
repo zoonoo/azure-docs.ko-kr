@@ -1,5 +1,5 @@
 ---
-title: "Azure Table Storage에 유지되는 메시지 읽기 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 4: 테이블 저장소 | Microsoft Docs"
 description: "Intel NUC의 메시지를 IoT Hub에 저장하고 Azure Table Storage에 기록한 다음 클라우드에서 읽습니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: e229c919db797133d3dc30fc65b482e5135f7cc5
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b12e16a5a532448cf2e939cfcad322225b9ee811
 
 
 ---
@@ -78,7 +78,7 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
 2. `[Azure storage connection string]`을 가져온 Azure Storage 연결 문자열로 바꿉니다.
 
-   `[IoT hub connection string]`은 3단원의 [Azure IoT Hub에서 메시기 읽기](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) 섹션에서 이미 바꿨어야 합니다.
+   `[IoT hub connection string]`은&3;단원의 [Azure IoT Hub에서 메시기 읽기](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) 섹션에서 이미 바꿨어야 합니다.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Azure Table Storage에서 메시지 읽기
 
@@ -89,7 +89,7 @@ gulp run --table-storage
 ```
 
 새 메시지가 도착하면 IoT Hub가 Azure 함수 응용 프로그램을 트리거하여 Azure Table Storage에 메시지를 저장합니다.
-`gulp run` 명령은 IoT Hub에 메시지를 보내는 게이트웨이 샘플 응용 프로그램을 실행합니다. `table-storage` 매개 변수를 사용하면 Azure Table Storage에 저장된 메시지를 수신할 자식 프로세스도 생성됩니다.
+`gulp run` 명령은 IoT Hub에 메시지를 보내는 게이트웨이 샘플 응용 프로그램을 실행합니다. `table-storage` 매개 변수를 사용하면 Azure Table Storage에 저장된 메시지를 수신할 하위 프로세스도 생성됩니다.
 
 보내고 받는 메시지는 모두 호스트 시스템의 동일한 콘솔 창에 즉시 표시됩니다. 샘플 응용 프로그램 인스턴스는 40초 후 자동으로 종료됩니다.
 
@@ -102,6 +102,6 @@ gulp run --table-storage
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

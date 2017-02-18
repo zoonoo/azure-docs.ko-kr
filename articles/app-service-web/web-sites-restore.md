@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: af79132b5830b1782850c8738f1d8bd5ca0b38d9
-ms.openlocfilehash: b60009a93bd2c857acfc4d1856d8f1afb7fff595
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 71d07e64480d4b4eaff7fdef53c8f5ff7a97a944
 
 
 ---
@@ -81,7 +81,7 @@ ms.openlocfilehash: b60009a93bd2c857acfc4d1856d8f1afb7fff595
 또한 REST API를 사용하여 앱 서비스 앱을 백업 및 복원할 수 있습니다( [REST를 사용하여 앱 서비스 앱 백업 및 복원](websites-csm-backup.md)참조).
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -103,6 +103,6 @@ ms.openlocfilehash: b60009a93bd2c857acfc4d1856d8f1afb7fff595
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

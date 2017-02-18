@@ -1,5 +1,5 @@
 ---
-title: "클래식 배포 모델에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기 | Microsoft Docs"
+title: "사용자 지정 프로브 만들기 - Azure Application Gateway - PowerShell 클래식 | Microsoft Docs"
 description: "클래식 배포 모델에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
-ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
 
 
 ---
@@ -225,6 +225,6 @@ SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

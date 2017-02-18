@@ -1,28 +1,33 @@
 ---
-title: "Machine Learning 앱: 이상 감지 서비스 | Microsoft Docs"
-description: "이상 감지 API는 Microsoft Azure 기계 학습을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다."
+title: "(사용되지 않음) Azure Machine Learning 이상 감지 서비스 | Microsoft Docs"
+description: "(사용되지 않음) 이상 감지 서비스는 Microsoft Azure Machine Learning을 사용하여 빌드한 예로써, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다."
 services: machine-learning
 documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/11/2016
+ms.date: 01/18/2017
 ms.author: alok
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cbcd469f39b42d741d73f9d96daf17d011b7ebc7
+ms.sourcegitcommit: eff129aceac18342a79f06376023301afc676763
+ms.openlocfilehash: 847c24f8baf5f5db93474b469eb402d3ab7d4880
 
 
 ---
-# <a name="machine-learning-anomaly-detection-service"></a>기계 학습 이상 감지 서비스
+# <a name="machine-learning-anomaly-detection-service-deprecated"></a>Machine Learning 이상 감지 서비스(사용되지 않음)
+> [!NOTE]
+> 이제 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)의 새로운 **등록** 옵션을 사용하여 이 API를 Azure 구독에 배포할 수 있습니다. 자세한 내용은 [Machine Learning 이상 감지 API](machine-learning-apps-anomaly-detection-api.md)를 참조하세요.
+> 
+> 이 문서에서 설명한 Azure Datamarket을 통해 API에 액세스하는 방법은 더 이상 사용되지 않습니다.
+
 ## <a name="overview"></a>개요
-[이상 감지 API](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)는 Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다. 
+[이상 감지 API(사용되지 않음)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)는 Azure Machine Learning을 사용하여 빌드한 예로써, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다. 
 
 이 API는 시계열 데이터에서 다음과 같은 유형의 이상 패턴을 감지할 수 있습니다.
 
@@ -191,11 +196,11 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | ZSpike |ZSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | Pscore |상향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| Palert |입력 민감도를 기반으로 상향 수준 변화 이상이 있는지를 나타내는 1/0 값 |
+| Palert |입력 민감도를 기반으로 상향 수준 변화 이상이 있는지를 나타내는&1;/0 값 |
 | RPScore |양방향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| RPAlert |입력 민감도를 기반으로 양방향 수준 변화 이상이 있는지를 나타내는 1/0 값 |
+| RPAlert |입력 민감도를 기반으로 양방향 수준 변화 이상이 있는지를 나타내는&1;/0 값 |
 | TScore |긍정적인 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| TAlert |입력 민감도를 기반으로 긍정적인 추세 이상이 있는지를 나타내는 1/0 값 |
+| TAlert |입력 민감도를 기반으로 긍정적인 추세 이상이 있는지를 나타내는&1;/0 값 |
 
 이 출력은 [간단한 구문 분석기](https://adresultparser.codeplex.com/)를 사용하여 구문을 분석할 수 있습니다. 여기에는 API에 연결하고 출력의 구문을 분석하는 방법을 보여 주는 샘플 코드가 있습니다. 감지된 이상은 대시보드에 시각화되거나 올바른 조치를 위해 전문가에게 전달되거나 티켓팅 시스템으로 통합될 수 있습니다.
 
@@ -208,6 +213,6 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

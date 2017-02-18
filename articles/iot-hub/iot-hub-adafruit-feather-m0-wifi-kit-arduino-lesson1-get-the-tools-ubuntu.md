@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Ubuntu 16.04)에 대한 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Arduino 연결 - 단원 1: 도구 가져오기(Ubuntu) | Microsoft Docs"
 description: "Ubuntu에 Adafruit Feather M0 WiFi의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 6eaf3c0a0509f78276a9303102837e37b06a80e0
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: d33fc9b04f69b161e92a266cd3604488e35e74af
 
 
 ---
@@ -91,6 +91,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/li
 [create-and-deploy-the-blink-sample-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

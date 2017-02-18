@@ -1,5 +1,5 @@
 ---
-title: "MySQL을 실행하는 VM 만들기 | Microsoft Docs"
+title: "MySQL을 실행하는 클래식 Azure VM 만들기 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 Windows Server 2012 R2와 MySQL 데이터베이스를 실행하는 Azure 가상 컴퓨터를 만듭니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 5d08c629fc6e94b43b73c74d8485f6aee695cf4a
+ms.sourcegitcommit: 0937d80011d0ae7015c08d99b06934fda85930b0
+ms.openlocfilehash: d17c92bd239360e0bfddd61a57a9f481f64ff05d
 
 
 ---
@@ -120,6 +120,6 @@ MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.co
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

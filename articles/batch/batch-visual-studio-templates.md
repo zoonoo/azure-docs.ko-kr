@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치용 Visual Studio 템플릿 | Microsoft Docs"
+title: "Visual Studio 템플릿을 사용하여 배치 프로젝트 빠른 시작 - Azure | Microsoft Docs"
 description: "이러한 Visual Studio 프로젝트 템플릿을 통해 Azure 배치에서 계산 집약적인 워크로드를 어떻게 구현 및 실행할 수 있는지 알아봅니다."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
 
 
 ---
@@ -359,7 +359,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 **태스크 실패**
 
-오류가 발생한 경우 예외를 throw하여 Run() 메서드를 종료할 수 있지만 이렇게 하면 최상위 예외 처리기가 태스크 종료 코드 제어 하에 있게 됩니다. 예를 들어 진단 목적을 위해 다양한 오류 유형을 구분할 수 있도록 종료 코드를 제어해야 하는 경우 또는 일부 오류 모드에서 특정 작업만 종료해야 하므로 0이 아닌 종료 코드를 반환하여 Run() 메서드를 종료해야 합니다. 이것이 태스크 종료 코드가 됩니다.
+오류가 발생한 경우 예외를 throw하여 Run() 메서드를 종료할 수 있지만 이렇게 하면 최상위 예외 처리기가 태스크 종료 코드 제어 하에 있게 됩니다. 예를 들어 진단 목적을 위해 다양한 오류 유형을 구분할 수 있도록 종료 코드를 제어해야 하는 경우 또는 일부 오류 모드에서 특정 작업만 종료해야 하므로&0;이 아닌 종료 코드를 반환하여 Run() 메서드를 종료해야 합니다. 이것이 태스크 종료 코드가 됩니다.
 
 ### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>태스크 프로세서 템플릿에서 종료 코드 및 예외
 종료 코드 및 예외는 프로그램 실행 결과를 확인하는 메커니즘을 제공하며 프로그램의 실행 시 발생하는 문제를 식별하는 데 도움이 될 수 있습니다. 태스크 프로세서 템플릿은 이 섹션에 설명된 종료 코드 및 예외를 구현합니다.
@@ -454,6 +454,6 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

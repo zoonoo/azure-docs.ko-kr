@@ -1,5 +1,5 @@
 ---
-title: "Resource Manager에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브 만들기 | Microsoft Docs"
+title: "사용자 지정 프로브 만들기 - Azure Application Gateway - PowerShell | Microsoft Docs"
 description: "리소스 관리자에서 PowerShell을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다."
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: d6856256a9ab272e0620e82d140c5ec735e5eabc
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 
 
 ---
@@ -312,6 +312,6 @@ DnsSettings              : {
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 인프라 명명 지침 | Microsoft Docs"
+title: "Azure 인프라 명명 지침 - Linux | Microsoft Docs"
 description: "Azure 인프라 서비스에서 이름을 지정하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 16447489a2923851a0f404c247d7b8132d68fe4c
+ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
+ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
 
 
 ---
@@ -107,6 +107,6 @@ Azure VM 이름은 기본 운영 체제 컴퓨터 이름과 동일하게 지정�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 게이트웨이로 Intel NUC 설정 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 단원 1: NUC 설정 | Microsoft Docs"
 description: "Intel NUC를 센서와 Azure IoT Hub 사이의 IoT 게이트웨이로 작동하도록 설정하여 센서 정보를 수집하고 IoT Hub에 보냅니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: ef479f503ac4e911f3a9d311d0f436d95396eedd
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 53e709c5134eec29d71be1d75353d606aa651273
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: ef479f503ac4e911f3a9d311d0f436d95396eedd
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 사전 설치된 Intel IoT 게이트웨이 소프트웨어 제품군을 포함하는 Intel NUC 키트 DE3815TYKE(Wind River Linux * 7.0.0.13)
+- 사전 설치된 Intel IoT 게이트웨이 소프트웨어 제품군을 포함하는 Intel NUC 키트 DE3815TYKE(Wind River Linux *&7;.0.0.13)
 - 이더넷 케이블
 - 키보드
 - HDMI 또는 VGA 케이블
@@ -52,10 +52,10 @@ ms.openlocfilehash: ef479f503ac4e911f3a9d311d0f436d95396eedd
 
 아래 이미지는 다양한 주변 장치가 연결된 Intel NUC의 예제입니다.
 
-1. 키보드에 연결됨.
-2. VGA 또는 HDMI 케이블 모니터에 연결됨.
-3. 이더넷 케이블을 통해 유선된 네트워크에 연결됨.
-4. 전원 케이블로 전원 공급 장치에 연결됨.
+1. 키보드에 연결됨
+2. VGA 또는 HDMI 케이블 모니터에 연결됨
+3. 이더넷 케이블을 통해 유선된 네트워크에 연결됨
+4. 전원 케이블로 전원 공급 장치에 연결됨
 
 ![주변 장치에 연결된 Intel NUC](media/iot-hub-gateway-kit-lessons/lesson1/nuc.png)
 
@@ -77,13 +77,13 @@ NUC 장치의 IP 주소를 얻기 위해 키보드 및 모니터가 필요합니
 
 3. 호스트 컴퓨터에서 다음 중 하나의 SSH 클라이언트를 사용하여 Intel NUC에 연결합니다.
 
-   - Windows 용 [PuTTY](http://www.putty.org/)입니다.
+   - Windows용 [PuTTY](http://www.putty.org/)입니다.
    - Ubuntu 또는 macOS에 있는 기본 제공 SSH 클라이언트입니다.
 
    호스트 컴퓨터의 Intel NUC에서 작동하기에 보다 효율적이고 생산적입니다. IP 주소, 사용자 이름 및 SSH 클라이언트를 통해 NUC 연결할 때 사용할 암호가 필요합니다. MacOS에서 SSH 클라이언트를 사용하는 예제입니다.
    ![MacOS에서 실행되는 SSH 클라이언트](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Azure IoT 게이트웨이 SDK 패키지를 설치합니다.
+## <a name="install-the-azure-iot-gateway-sdk-package"></a>Azure IoT 게이트웨이 SDK 패키지 설치
 
 Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 컴파일된 이진 파일을 포함합니다. 이러한 이진 파일은 Azure IoT 게이트웨이 SDK, Azure IoT SDK 및 해당하는 도구입니다. 패키지에는 또한 게이트웨이 기능을 확인하는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. SDK는 게이트웨이의 핵심 부분입니다. 패키지를 설치하려면 다음 단계를 따르세요.
 
@@ -110,7 +110,7 @@ Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 �
 
    `packagegroup-cloud-azure`는 패키지의 이름입니다. `smart install` 명령은 패키지 설치를 설치하는 데 사용됩니다.
 
-   패키지를 설치한 후 Intel NUC는 게이트웨이로 작동 해야합니다.
+   패키지를 설치한 후 Intel NUC는 게이트웨이로 작동해야 합니다.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Azure IoT 게이트웨이 SDK "hello_world" 샘플 응용 프로그램을 실행합니다.
 
@@ -138,6 +138,6 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

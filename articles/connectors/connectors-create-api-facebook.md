@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 7ac9d7eb9e322d8c44434add381030b51c9e9a4b
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: b8a66308c4f4f1df610cdacd092ef133bd605665
 
 
 ---
@@ -35,7 +35,7 @@ Facebook을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 * 새 게시를 수신할 때 트리거를 사용합니다.
 * 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 타임라인에 새 게시물이 있는 경우 해당 게시물을 가져와서 Twitter 피드에 푸시할 수 있습니다. 
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Facebook 커넥터에는 다음 트리거 및 작업이 포함됩니다. 
@@ -415,11 +415,11 @@ Facebook 커넥터에는 다음 트리거 및 작업이 포함됩니다.
 | rsvp_status |string |예 |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

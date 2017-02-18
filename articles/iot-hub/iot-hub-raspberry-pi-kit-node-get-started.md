@@ -1,5 +1,5 @@
 ---
-title: "Raspberry Pi 3을 Azure IoT Hub에 연결 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 시작 | Microsoft Docs"
 description: "Raspberry Pi 3 장치로 시작하고, Azure IoT hub를 만들고 Pi를 IoT hub에 연결합니다."
 services: iot-hub
 documentationcenter: 
@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d04f9d219451d683b572df43f73944011d686797
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 358a2a4fd448660c3a8ef0d11d7d373dd7d9a569
 
 
 ---
@@ -52,7 +52,7 @@ Raspberry Pi 3의 첫 번째 응용 프로그램을 빌드 및 배포하기 위�
 [도구 얻기](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)로 이동.
 
 ### <a name="create-and-deploy-the-blink-application"></a>깜박임 응용 프로그램 만들기 및 배포
-Github에서 샘플 Node.js 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Raspberry Pi 3 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다.
+Github에서 샘플 Node.js 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Raspberry Pi 3 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다.
 
 *예상 완료 시간: 5분*  
 
@@ -134,6 +134,6 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

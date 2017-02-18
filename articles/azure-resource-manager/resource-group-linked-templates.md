@@ -1,5 +1,5 @@
 ---
-title: "Resource Manager와 연결된 템플릿 | Microsoft Docs"
+title: "Azure 배포용 관련 템플릿 연결 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
-ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
 
 
 ---
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Azure Resource Manager에서 연결된 템플릿 사용
+# <a name="using-linked-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결된 템플릿 사용
 하나의 Azure Resource Manager 템플릿 내에서 다른 템플릿에 연결하여 배포를 특정 용도의 템플릿 집합으로 분해할 수 있습니다. 응용 프로그램을 여러 코드 클래스로 분해하는 경우처럼 이러한 분해는 테스트, 다시 사용 및 가독성 측면에서 이점을 제공합니다.  
 
 주 템플릿의 매개 변수를 연결된 템플릿에 전달할 수 있으며 이러한 매개 변수는 호출하는 템플릿이 노출하는 매개 변수 또는 변수에 직접 매핑될 수 있습니다. 또한 연결된 템플릿은 원본 템플릿에 출력 변수를 다시 전달할 수 있으므로 템플릿 간에 양방향 데이터 교환이 가능해집니다.
@@ -328,6 +328,6 @@ SAS 토큰을 매개 변수로 제공하라는 메시지가 나타납니다. **?
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 199f07ce705036c3d8f9d56115b5df9c8c52dc45
 
 
 ---
@@ -208,7 +208,7 @@ BLE 모듈은 BlueZ 스택을 통해 Bluetooth 하드웨어와 통신합니다. 
 이제 Raspberry Pi 3에서 BLE 게이트웨이 샘플을 실행할 준비가 되었습니다.
 
 ## <a name="run-the-ble-gateway-sample"></a>BLE 게이트웨이 샘플 실행
-BLE 샘플을 실행하려면 다음 3가지 작업을 완료해야 합니다.
+BLE 샘플을 실행하려면 다음&3;가지 작업을 완료해야 합니다.
 
 * IoT Hub에서 두 개의 샘플 장치를 구성합니다.
 * Raspberry Pi 3 장치에서 IoT Gateway SDK를 빌드합니다.
@@ -239,11 +239,11 @@ git submodule update --init --recursive
 Raspberry Pi 3에 IoT Gateway SDK 저장소의 전체 복사본이 있는 경우 다음 명령을 사용하여 SDK가 포함된 폴더에서 빌드할 수 있습니다.
 
 ```
-./tools/build.sh --skip-unittests
+./tools/build.sh
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Raspberry Pi 3에서 BLE 샘플 구성 및 실행
-샘플을 부트스트랩하고 실행하려면 게이트웨이에서 참여하는 각 모듈을 구성해야 합니다. 이 구성은 JSON 파일에 제공되며 참여하는 5가지 모듈을 모두 구성해야 합니다. 리포지토리에는 구성 파일을 직접 작성하기 위한 시작 지점으로 사용할 수 있는 **gateway_sample.json**이라는 샘플 JSON 파일이 제공되어 있습니다. 이 파일은 IoT Gateway SDK 리포지토리의 로컬 복사본에 있는 **samples/ble_gateway/src** 폴더에 있습니다.
+샘플을 부트스트랩하고 실행하려면 게이트웨이에서 참여하는 각 모듈을 구성해야 합니다. 이 구성은 JSON 파일에 제공되며 참여하는&5;가지 모듈을 모두 구성해야 합니다. 리포지토리에는 구성 파일을 직접 작성하기 위한 시작 지점으로 사용할 수 있는 **gateway_sample.json**이라는 샘플 JSON 파일이 제공되어 있습니다. 이 파일은 IoT Gateway SDK 리포지토리의 로컬 복사본에 있는 **samples/ble_gateway/src** 폴더에 있습니다.
 
 다음 섹션에서는 BLE 샘플에 대해 이 구성 파일을 편집하는 방법을 설명하고 IoT Gateway SDK 리포지토리가 Raspberry Pi 3의 **/home/pi/azure-iot-gateway-sdk/** 폴더에 있다고 가정합니다. 리포지토리가 다른 위치에 있으면 그에 맞게 경로를 조정해야 합니다.
 
@@ -429,11 +429,11 @@ SensorTag 장치의 MAC 주소와 IoT Hub에 추가된 **SensorTag_01** 장치�
 샘플을 실행할 경우 [장치 Explorer 또는 iothub-explorer][lnk-explorer-tools] 도구를 사용하여 SensorTag 장치에서 게이트웨이가 전달하는 메시지를 모니터링할 수 있습니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
-또한 BLE 모듈은 Azure IoT Hub에서 장치로 지침을 보내도록 지원합니다. [장치 Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) 또는 [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) 도구를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다.
+또한 BLE 모듈은 Azure IoT Hub에서 장치로 지침을 보내도록 지원합니다. [장치 Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 또는 [iothub-explorer](https://github.com/Azure/iothub-explorer) 도구를 사용하여 BLE 게이트웨이 모듈이 BLE 장치에 전달하는 JSON 메시지를 보낼 수 있습니다.
 Texas Instruments SensorTag 장치를 사용하는 경우 IoT Hub에서 명령을 보내서 빨간색 LED, 녹색 LED 또는 버저를 켤 수 있습니다. 이렇게 하면 먼저 다음 두 가지 JSON 메시지를 순서대로 보냅니다. 그런 다음 원하는 명령을 보내서 표시등 또는 버저를 켭니다.
 
-1 모든 LED 및 버저 다시 설정(끄기)
-  
+1. 모든 LED 및 버저 다시 설정(끄기):
+
     ```json
     {
       "type": "write_once",
@@ -441,7 +441,8 @@ Texas Instruments SensorTag 장치를 사용하는 경우 IoT Hub에서 명령�
       "data": "AA=="
     }
     ```
-2 I/O를 '원격'으로 구성
+    
+2. I/O를 '원격'으로 구성:
   
     ```json
     {
@@ -450,7 +451,10 @@ Texas Instruments SensorTag 장치를 사용하는 경우 IoT Hub에서 명령�
       "data": "AQ=="
     }
     ```
-* 빨간색 표시등 켜기
+    
+그런 후 다음 명령을 보내서 표시등 또는 버저를 켤 수 있습니다.
+
+* 빨간색 LED 켜기:
   
     ```json
     {
@@ -459,7 +463,8 @@ Texas Instruments SensorTag 장치를 사용하는 경우 IoT Hub에서 명령�
       "data": "AQ=="
     }
     ```
-* 녹색 표시등 켜기
+
+* 녹색 LED 켜기:
   
     ```json
     {
@@ -468,7 +473,8 @@ Texas Instruments SensorTag 장치를 사용하는 경우 IoT Hub에서 명령�
       "data": "Ag=="
     }
     ```
-* 버저 켜기
+
+* 버저 켜기:
   
     ```json
     {
@@ -501,6 +507,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

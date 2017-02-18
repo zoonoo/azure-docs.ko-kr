@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Ubuntu 16.04)에 대한 Azure 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 2: Azure 도구(Ubuntu) | Microsoft Docs"
 description: "Ubuntu에 Python 및 Azure CLI(Azure 명령줄 인터페이스)를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 1ad2afc531bfa4ce4afe599d30f9f9a699339976
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: e29f43af1ab46ad9f80137924632b6a975375c1a
 
 
 ---
@@ -81,6 +81,6 @@ Azure CLI를 설치했습니다. 다음 작업은 Azure CLI를 사용하여 Azur
 [create-your-iot-hub-and-register-your-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

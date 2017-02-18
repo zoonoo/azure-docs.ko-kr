@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: 92e4094c5125d922a106c65d2cb3cd5b654856a5
+ms.sourcegitcommit: b19e8b8e6f90ad502799fafd70ad6838d6e6ba4d
+ms.openlocfilehash: 215698f2089934eac549e36644f0bfd4247fe2b9
 
 
 ---
@@ -27,8 +27,8 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 > [!NOTE]
 > 이 문서의 정보 및 제공된 예제는 Linux 기반 HDInsight 3.3 및 3.4 클러스터 버전을 사용하여 테스트되었습니다.
-> 
-> 
+>
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -224,8 +224,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
    
    > [!NOTE]
    > 이 예제에서는 Event Hub의 이름으로 **sensordata**를 사용하며 **송신** 클레임이 있는 정책 이름으로 **devices**를 사용한다고 가정합니다.
-   > 
-   > 
+
 3. 다음 명령을 사용하여 이벤트 허브에 새 항목을 삽입합니다.
    
         node app.js
@@ -272,7 +271,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 3. 제대로 작동하는지 확인하고 Ctrl+C를 사용하여 토폴로지를 중지합니다. Ctrl+C를 사용하여 로컬 웹 서버를 중지할 수도 있습니다.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Storm 및 HBase 클러스터 만들기
-Hdinsight에서 토폴로지를 실행하고 HBase bolt를 사용하도록 설정하려면 새 Storm 클러스터 및 HBase 클러스터를 만들어야 합니다. 이 섹션의 단계에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md) 을 사용하여 새 Azure 가상 네트워크를 만들고 해당 가상 네트워크에서 Storm 및 HBase 클러스터를 만듭니다. 또한 이 템플릿은 Azure 웹앱을 만들고 대시보드의 복사본을 배포합니다.
+Hdinsight에서 토폴로지를 실행하고 HBase bolt를 사용하도록 설정하려면 새 Storm 클러스터 및 HBase 클러스터를 만들어야 합니다. 이 섹션의 단계에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md) 을 사용하여 새 Azure 가상 네트워크를 만들고 해당 가상 네트워크에서 Storm 및 HBase 클러스터를 만듭니다. 또한 이 템플릿은 Azure 웹앱을 만들고 대시보드의 복사본을 배포합니다.
 
 > [!NOTE]
 > 가상 네트워크는 Storm 클러스터에서 실행되는 토폴로지가 HBase Java API를 사용하여 HBase 클러스터와 직접 통신할 수 있도록 하는 데 사용됩니다.
@@ -345,12 +344,11 @@ HBase에 데이터를 저장하려면 먼저 테이블을 만들어야 합니다
         exit
 
 ## <a name="configure-the-hbase-bolt"></a>HBase bolt 구성
-Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 정보를 HBase bolt에 제공해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 클러스터에서 **hbase-site.xml** 을 다운로드하고 프로젝트에 포함하는 것입니다. **pom.xml** 파일에서 여러 종속성의 주석 처리를 해제하여 storm-hbase 구성 요소 및 필수 종속성을 로드합니다.
+
+Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 정보를 HBase bolt에 제공해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 클러스터에서 **hbase-site.xml** 을 다운로드하고 프로젝트에 포함하는 것입니다. 
 
 > [!IMPORTANT]
 > 또한 HDInsight 클러스터 3.3 또는 3.4 클러스터의 Storm에 제공된 storm-hbase.jar 파일도 다운로드해야 합니다. 이 버전은 HDInsight 3.3 및 3.4 클러스터의 HBase에 사용되는 HBase 1.1.x와 작동하도록 컴파일되었습니다. 다른 위치에서 storm-hbase 구성 요소를 사용하는 경우 이전 버전의 HBase에 대해 컴파일할 수 있습니다.
-> 
-> 
 
 ### <a name="download-the-hbase-sitexml"></a>hbase-site.xml 다운로드
 명령 프롬프트에서 SCP를 사용하여 클러스터에서 **hbase-site.xml** 파일을 다운로드합니다. 다음 예제에서는 **USERNAME**을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 **BASENAME**을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다. `/path/to/TemperatureMonitor/resources/hbase-site.xml` 을 TemperatureMonitor 프로젝트의 이 파일 경로로 바꿉니다.
@@ -365,7 +363,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
         scp USERNAME@storm-BASENAME-ssh.azurehdinsight.net:/usr/hdp/current/storm-client/contrib/storm-hbase/storm-hbase*.jar .
    
     이렇게 하면 `storm-hbase-####.jar` 파일이 다운로드됩니다. 여기서 ###은 이 클러스터에 대한 Storm의 버전 번호입니다. 이 번호는 나중에 사용하게 되므로 적어둡니다.
-2. 개발 환경의 로컬 Maven 저장소에 이 구성 요소를 설치하려면 다음 명령을 사용합니다. 이렇게 하면 Maven에서 프로젝트를 컴파일할 때 패키지를 찾을 수 있습니다.  **####** 을 파일 이름에 포함된 버전 번호로 바꿉니다.
+2. 개발 환경의 로컬 Maven 저장소에 이 구성 요소를 설치하려면 다음 명령을 사용합니다. 이렇게 하면 Maven에서 프로젝트를 컴파일할 때 패키지를 찾을 수 있습니다. **####** 을 파일 이름에 포함된 버전 번호로 바꿉니다.
    
         mvn install:install-file -Dfile=storm-hbase-####.jar -DgroupId=org.apache.storm -DartifactId=storm-hbase -Dversion=#### -Dpackaging=jar
    
@@ -373,33 +371,18 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
    
         mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
-### <a name="enable-the-storm-hbase-component-in-the-project"></a>프로젝트에서 storm-hbase 구성 요소를 사용하도록 설정
-1. **TemperatureMonitor/pom.xml** 파일을 열고 다음 줄을 삭제합니다.
-   
-        <!-- uncomment this section to enable the hbase-bolt
-        end comment for hbase-bolt section -->
-   
-   > [!IMPORTANT]
-   > 두 줄만 삭제하고 사이에 있는 줄은 삭제하지 마세요.
-   > 
-   > 
-   
-    그러면 HBase bolt를 사용하여 HBase와 통신할 때 필요한 몇 가지 구성 요소가 사용되도록 설정됩니다.
-2. 다음 줄을 찾은 후 **####** 을 이전에 다운로드한 storm-hbase 파일의 버전 번호로 바꿉니다.
-   
+3. __pom.xml__ 파일에서 __storm-hbase-hbase__에 대한 종속성 섹션을 찾습니다. 종속성 주변의 `<!--` 및 `-->`을 제거하여 종속성의 주석 처리를 제거합니다. 또한 이전 단계에서 사용한 ####에 맞도록 `<version></version>` 항목을 변경합니다. 항목은 코드는 다음 예제와 유사합니다.
+
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-hbase</artifactId>
-            <version>####</version>
+            <version>0.10.0.2.4.2.4-5</version>
         </dependency>
-   
-   > [!IMPORTANT]
-   > 버전 번호는 로컬 Maven 리포지토리에 구성 요소를 설치할 때 사용한 버전과 일치해야 합니다. Maven이 프로젝트를 빌드할 때 이 정보를 사용하여 구성 요소를 로드하기 때문입니다.
-   > 
-   > 
-3. **pom.xml** 파일을 저장합니다.
+
+   변경한 후에 파일을 저장합니다.
 
 ## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>솔루션을 빌드, 패키지하여 HDInsight에 배포
+
 개발 환경에서 다음 단계를 수행하여 Storm 토폴로지를 Storm 클러스터에 배포합니다.
 
 1. **TemperatureMonitor** 디렉터리에서 다음 명령을 사용하여 새 빌드를 수행하고 프로젝트에서 JAR 패키지를 만듭니다.
@@ -409,7 +392,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
     그러면 프로젝트의 **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **TemperatureMonitor-1.0-SNAPSHOT.jar** 파일이 만들어집니다.
 2. scp를 사용하여 **TemperatureMonitor-1.0-SNAPSHOT.jar** 파일을 Storm 클러스터에 업로드합니다. 다음 예제에서는 **USERNAME**을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 **BASENAME**을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
    
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
+        scp target/TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
    
    > [!NOTE]
    > 파일 크기가 몇 메가바이트에 달하므로 로드하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -499,6 +482,6 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

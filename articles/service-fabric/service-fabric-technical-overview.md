@@ -1,5 +1,5 @@
 ---
-title: "Service Fabric 용어 개요 | Microsoft Docs"
+title: "Azure Service Fabric 용어 개요 | Microsoft Docs"
 description: "서비스 패브릭의 용어에 대해 간략하게 소개하고 설명서의 나머지 부분에서 사용되는 용어와 주요 용어 개념에 대해 설명합니다."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e0efcabbb876e77e5b23537ce023c30f9fd153cd
-ms.openlocfilehash: 884e43e36517c0c894b72ab6f4e8f6aadb1d9bcf
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
 
 
 ---
@@ -98,6 +98,6 @@ ms.openlocfilehash: 884e43e36517c0c894b72ab6f4e8f6aadb1d9bcf
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

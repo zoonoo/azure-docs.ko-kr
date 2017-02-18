@@ -1,6 +1,6 @@
 ---
-title: "예측: ARIMA(자동 회귀 통합 이동 평균) | Microsoft Docs"
-description: "예측 - ARIMA(자동 회귀 통합 이동 평균)"
+title: "(사용되지 않음)예측 - ARIMA(자동 회귀 통합 이동 평균) - Azure | Microsoft Docs"
+description: "(사용되지 않음)예측 - ARIMA(자동 회귀 통합 이동 평균)"
 services: machine-learning
 documentationcenter: 
 author: yijichen
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c8d02cdd50c7f44991aeabee1999a81ec18bf59c
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 169331fc08c8d378fbb0c9869e69a9eb132224ba
 
 
 ---
-# <a name="forecasting---autoregressive-integrated-moving-average-arima"></a>예측 - ARIMA(자동 회귀 통합 이동 평균)
+# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>(사용되지 않음)예측 - ARIMA(자동 회귀 통합 이동 평균)
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
+
 이 [서비스](https://datamarket.azure.com/dataset/aml_labs/arima) 는 사용자가 제공한 기록 데이터를 기반으로 예측을 생성하는 ARIMA(자동 회귀 통합 이동 평균)를 구현합니다. 올해 특정 제품에 대한 수요가 늘어납니까? 재고를 효과적으로 계획할 수 있도록 크리스마스 시즌의 제품 판매를 예측할 수 있습니까? 예측 모델로 이러한 질문을 해결할 수 있습니다. 과거 데이터가 제공되면 이러한 모델은 숨겨진 추세와 계절성을 조사하여 미래 추세를 예측합니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -142,6 +150,6 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

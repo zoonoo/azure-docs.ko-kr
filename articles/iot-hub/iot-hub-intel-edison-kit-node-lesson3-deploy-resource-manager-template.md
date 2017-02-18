@@ -1,5 +1,5 @@
 ---
-title: "Azure 함수 앱 및 저장소 계정 만들기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 3: 함수 앱 만들기 | Microsoft Docs"
 description: "Azure 함수 앱은 Azure IoT Hub 이벤트를 수신 대기하고, 들어오는 메시지를 처리하고, 이를 Azure Table Storage에 씁니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 2a0471afe0be575405bcc8d542c2f1dec6e309a2
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 72d1496fcf353662fa2f7b003ee3757c45b8181e
 
 
 ---
@@ -84,6 +84,6 @@ IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저
 [send-device-to-cloud-messages]: iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

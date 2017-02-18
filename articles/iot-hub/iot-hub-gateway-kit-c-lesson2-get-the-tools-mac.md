@@ -1,5 +1,5 @@
 ---
-title: "Mac 컴퓨터 및 Azure IoT Hub 준비 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 단원 2: 도구 다운로드(macOS) | Microsoft Docs"
 description: "Mac 컴퓨터에 도구를 설치하고, IoT Hub를 만들고, IoT Hub에 장치를 등록합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 90b211e1d0b85e2c99ab31a633ddcee9218d4874
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b105cebd5b3e6c5cae726abbf5f2c48c0cd7587
 
 
 ---
@@ -61,7 +61,7 @@ ms.openlocfilehash: 90b211e1d0b85e2c99ab31a633ddcee9218d4874
 
 Git 및 Node.js를 설치하려면 다음 단계를 따라 Homebrew 패키지 관리 유틸리티를 사용하세요.
 
-1. Homebrew [다운로드](http://brew.sh/) 및 설치 Homebrew를 이미 설치한 경우 2단계로 이동하세요.
+1. Homebrew를 [다운로드](http://brew.sh/) 및 설치합니다. Homebrew를 이미 설치한 경우 2단계로 이동하세요.
    1. `Cmd + Space`를 누르고 `Terminal`을 입력하여 터미널을 엽니다.
    2. 다음 명령을 실행합니다.
 
@@ -88,7 +88,7 @@ npm install -g gulp
 설치에 문제가 발생하면 [문제 해결 안내서](iot-hub-gateway-kit-c-troubleshooting.md)에서 일반적인 문제에 대한 솔루션을 참조하세요.
 
 > [!Note]
-> Node.js에서 개발된 자동화 스크립트를 실행하려면 Node, NPM 및 Gulp가 필요합니다.
+> Node.js에서 개발된 Automation 스크립트를 실행하려면 Node, NPM 및 Gulp가 필요합니다.
 
 ## <a name="install-python"></a>Python 설치
 
@@ -109,7 +109,7 @@ Azure CLI를 설치하려면 다음 단계를 따르세요.
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
-   설치는 5분 정도 걸릴 수 있습니다.
+   설치에는 5분 정도 걸릴 수 있습니다.
 
 2. 다음 명령을 실행하여 설치를 확인합니다.
    ```bash
@@ -121,7 +121,7 @@ Azure CLI를 설치하려면 다음 단계를 따르세요.
 
 ## <a name="install-visual-studio-code"></a>Visual Studio Code 설치
 
-이 자습서의 뒷부분에 나오는 Visual Studio Code를 사용하여 구성 파일을 편집합니다.
+이 자습서의 뒷부분에 나오는 Visual Studio 코드를 사용하여 구성 파일을 편집합니다.
 
 Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/osx)하여 설치합니다.
 
@@ -134,6 +134,6 @@ Mac 컴퓨터에 필요한 도구 및 소프트웨어를 모두 설치했습니�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

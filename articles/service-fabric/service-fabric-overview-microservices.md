@@ -1,5 +1,5 @@
 ---
-title: "마이크로 서비스 이해 | Microsoft Docs"
+title: "Azure 마이크로 서비스 소개 | Microsoft Docs"
 description: "마이크로 서비스 접근 방식을 통해 클라우드 응용 프로그램을 빌드하는 것이 왜 현대 응용 프로그램 개발에서 중요하며 Azure Service Fabric이 어떻게 이를 위한 플랫폼을 제공하는지에 대한 개요"
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/05/2017
-ms.author: mfussell
+ms.date: 02/06/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b6853d83a77658d4d59ff340cfc413be588fe469
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: a2a72da08ccff17407fcdd98783137b091651b47
 
 
 ---
@@ -156,6 +156,6 @@ Service Fabric은 마이크로 서비스 접근 방식을 사용하는 응용 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

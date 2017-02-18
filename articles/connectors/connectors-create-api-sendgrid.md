@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ad35f6590a39972ec9be7168059738b6daae0574
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: e30231bd576436ae69f4fa42d0e2ab312c3938d6
 
 
 ---
@@ -29,7 +29,7 @@ SendGrid 연결 공급자를 통해 전자 메일을 보내고 받는 사람 목
 > 
 > 
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 SendGrid 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다. 
@@ -79,7 +79,7 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 429 |너무 많은 요청 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
@@ -101,7 +101,7 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -157,11 +157,11 @@ SendGrid로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음
 | id |string |아니요 |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

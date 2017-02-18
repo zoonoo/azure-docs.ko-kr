@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 01867f283678171eda8fb9798ea996cae605665a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 01867f283678171eda8fb9798ea996cae605665a
 ![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -462,7 +462,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 1. 다음 명령을 입력합니다.
    
-        azure account download
+        azure login
    
     이 명령은 브라우저를 시작하고 다운로드 페이지로 이동합니다. 메시지가 나타나면 Azure 구독과 관련된 계정으로 로그인합니다.
    
@@ -594,6 +594,6 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

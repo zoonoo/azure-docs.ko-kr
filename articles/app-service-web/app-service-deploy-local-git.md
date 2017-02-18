@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.  
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. App Service에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.  
 > 
 > 
 
@@ -165,6 +165,6 @@ ms.openlocfilehash: 5c101a3eb29e36813f27d6b677f2fd4033eb119a
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

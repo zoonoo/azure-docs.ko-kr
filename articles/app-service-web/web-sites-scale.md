@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b7ef8386e974486c2d327d0b042eeabdb9701b7e
 
 
 ---
@@ -80,8 +80,8 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 * **무료** 및 **공유** 계획 계층은 32비트 응용 프로그램만 지원합니다.
 
 ### <a name="debugger-support"></a>디버거 지원
-* 디버거 지원은 App Service 계획당 1건의 연결에서 **무료**, **공유** 및 **기본** 모드에 대해 사용할 수 있습니다.
-* 디버거 지원은 App Service 계획당 5건의 동시 연결에서 **표준** 및 **프리미엄** 모드에 대해 사용할 수 있습니다.
+* 디버거 지원은 App Service 계획당&1;건의 연결에서 **무료**, **공유** 및 **기본** 모드에 대해 사용할 수 있습니다.
+* 디버거 지원은 App Service 계획당&5;건의 동시 연결에서 **표준** 및 **프리미엄** 모드에 대해 사용할 수 있습니다.
 
 <a name="OtherFeatures"></a>
 
@@ -89,7 +89,7 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 * 개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 앱 서비스 계획의 나머지 모든 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](https://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
 > 
 > 
 
@@ -143,6 +143,6 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

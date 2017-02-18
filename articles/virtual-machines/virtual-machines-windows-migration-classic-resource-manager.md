@@ -1,5 +1,5 @@
 ---
-title: "클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 | Microsoft Docs"
+title: "클래식 리소스를 Azure Resource Manager로 마이그레이션 - 개요 | Microsoft Docs"
 description: "이 문서에서는 플랫폼 지원 방식으로 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
+ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
+ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
 
 
 ---
@@ -138,6 +138,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 * 리소스를 마이그레이션할 수 없을 경우 Azure 플랫폼에 마이그레이션이 지원되지 않는 모든 이유가 나열됩니다.
 
+저장소 서비스의 유효성을 검사할 때 저장소 계정과 동일한 이름에 "-Migrated"가 추가된 리소스 그룹에서 마이그레이션된 계정을 찾습니다.  예를 들어 저장소 계정 이름이 "mystorage"인 경우 "mystorage-Migrated"라는 리소스 그룹에서 ARM 사용 가능 리소스를 찾습니다. 여기에 "mystorage"라는 저장소 계정이 포함됩니다.
+
 ### <a name="prepare"></a>준비
 준비 작업은 마이그레이션 프로세스의 두 번째 단계입니다. 이 단계의 목표는 클래식에서 Resource Manager 리소스로의 IaaS 리소스 전환을 시뮬레이션하고 사용자가 볼 수 있도록 나란히 표시하는 것입니다.
 
@@ -197,7 +199,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **관리 평면 가동 중지 시간은 얼마나 되나요?**
 
-마이그레이션하는 리소스의 수에 따라 달라집니다. 소규모 배포(몇 십 대의 VM)의 경우 전체 마이그레이션은 1시간 미만이 소요됩니다. 대규모 배포(수백 대의 VM)의 경우 마이그레이션에 몇 시간이 걸릴 수 있습니다.
+마이그레이션하는 리소스의 수에 따라 달라집니다. 소규모 배포(몇 십 대의 VM)의 경우 전체 마이그레이션은&1;시간 미만이 소요됩니다. 대규모 배포(수백 대의 VM)의 경우 마이그레이션에 몇 시간이 걸릴 수 있습니다.
 
 **Resource Manager에서 마이그레이션 리소스를 커밋한 다음 롤백할 수 있나요?**
 
@@ -237,7 +239,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **메시지를 받았습니다.*"VM은 전반적인 에이전트 상태를 준비되지 않음으로 보고합니다. 따라서 VM은 마이그레이션할 수 없습니다. VM 에이전트가 전반적인 에이전트 상태를 준비된 상태"*로 보고하고 있는지 또는 *"VM에서 보고되지 않은 상태의 확장이 VM에 포함되어 있는지 확인합니다. 따라서 이 VM은 마이그레이션할 수 없습니다."***
 
-VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure 저장소 계정에 연결해 5분 마다 에이전트 상태를 업데이트합니다.
+VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure 저장소 계정에 연결해&5;분 마다 에이전트 상태를 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 클래식 IaaS 리소스를 Resource Manager로 마이그레이션하는 작업을 이해했으므로 리소스 마이그레이션을 시작할 수 있습니다.
@@ -250,6 +252,6 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Hub HA 및 DR | Microsoft Docs"
+title: "Azure IoT Hub 고가용성 및 재해 복구 | Microsoft Docs"
 description: "재해 복구 기능을 사용하여 고가용성 Azure IoT 솔루션을 빌드할 수 있도록 지원하는 Azure and IoT Hub 기능을 설명합니다."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f133300d88b0ffc10b287879ec78f4c63e9ba62d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
 
 
 ---
@@ -62,6 +62,6 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

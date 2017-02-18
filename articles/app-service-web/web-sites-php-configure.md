@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 402670a16b5dabc653c943737abdf2621db6a50b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
 
 
 ---
@@ -182,7 +182,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -207,6 +207,6 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

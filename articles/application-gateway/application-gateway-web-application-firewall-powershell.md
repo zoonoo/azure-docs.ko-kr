@@ -1,5 +1,5 @@
 ---
-title: "새 또는 기존 Application Gateway에 웹 응용 프로그램 방화벽 구성 | Microsoft Docs"
+title: "웹 응용 프로그램 방화벽 구성 - Azure Application Gateway | Microsoft Docs"
 description: "이 문서에서는 기존 또는 새 Application Gateway에 웹 응용 프로그램 방화벽을 사용하는 방법을 안내합니다."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
 
-Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램은 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 Application Gateway 개요를 방문하세요.
+Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램은 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 Application Gateway 개요를 방문하세요.
 
 다음 문서에서는 [기존 Application Gateway에 웹 응용 프로그램 방화벽 추가](#add-web-application-firewall-to-an-existing-application-gateway) 및 [웹 응용 프로그램 방화벽을 사용하는 Application Gateway 만들기](#create-an-application-gateway-with-web-application-firewall)에 대해 보여줍니다.
 
@@ -336,6 +336,6 @@ DnsSettings              : {
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

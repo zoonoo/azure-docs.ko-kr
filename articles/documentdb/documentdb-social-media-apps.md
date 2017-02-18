@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
-ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 19e8c9de137e10abb563fcd60cf89502dbf94cfd
 
 
 ---
@@ -64,7 +64,7 @@ ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
 
 또한 조인 없이 단일 쿼리로 이를 실현할 수 있습니다. 이는 훨씬 간단하고 저렴하며, 보다 적은 리소스로 더 나은 결과를 얻을 수 있는 방법입니다.
 
-Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexing.md)을 통해 인덱싱되도록 하며, 이를 [사용자 지정](documentdb-indexing-policies.md)할 수도 있습니다. 스키마 없는 접근 방식을 통해 다양한 동적 구조로 문서를 저장할 수 있으며, 향후에는 게시물과 관련된 해시 태그 또는 범주 목록을 함께 유지할 수 있을 것입니다. DocumentDB는 추가 작업 없이 새 문서를 추가된 특성과 함께 처리합니다.
+Azure DocumentDB는 모든 속성이 자체 자동 인덱싱을 통해 인덱싱되도록 하며, 이를 [사용자 지정](documentdb-indexing-policies.md)할 수도 있습니다. 스키마 없는 접근 방식을 통해 다양한 동적 구조로 문서를 저장할 수 있으며, 향후에는 게시물과 관련된 해시 태그 또는 범주 목록을 함께 유지할 수 있을 것입니다. DocumentDB는 추가 작업 없이 새 문서를 추가된 특성과 함께 처리합니다.
 
 부모 속성을 사용하여 게시물에 대한 의견을 다른 게시물로 처리할 수 있습니다. 이는 개체 매핑을 간소화합니다. 
 
@@ -168,7 +168,7 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
 
 가장 큰 단계는 Extended User입니다. 여기에는 중요한 모든 사용자 정보와 실제로 빠르게 읽을 필요가 없으며 마지막에 사용되는(예: 로그인 프로세스) 기타 데이터가 포함됩니다. 이 데이터를 DocumentDB 외부, Azure SQL 데이터베이스 또는 Azure 저장소 테이블에 저장할 수 있습니다.
 
-사용자를 분할하고 심지어 이 정보를 여러 곳에 저장하는 이유는 무엇일까요? DocumentDB의 저장소 공간은 [무한하지 않으며](documentdb-limits.md) 성능 면에서 문서가 클수록 쿼리 비용이 많이 들기 때문입니다. 소셜 네트워크에 대한 모든 성능 종속 쿼리를 수행하는 데 적합한 정보로 문서를 간소하게 유지하고 전체 프로필 편집, 로그인, 사용량 분석 및 빅 데이터 이니셔티브를 위한 데이터 마이닝 등 최종적인 시나리오에 대한 기타 추가 정보를 저장하세요. 사용자 환경이 빠르고 간소하게 유지된다면 데이터 마이닝을 위한 데이터 수집이 Azure SQL 데이터베이스에서 실행되기 때문에 느려지는 것은 중요하지 않습니다. 사용자는 DocumentDB에 다음과 같이 저장됩니다.
+사용자를 분할하고 심지어 이 정보를 여러 곳에 저장하는 이유는 무엇일까요? DocumentDB의 저장소 공간은 무한하지 않으며 성능 면에서 문서가 클수록 쿼리 비용이 많이 들기 때문입니다. 소셜 네트워크에 대한 모든 성능 종속 쿼리를 수행하는 데 적합한 정보로 문서를 간소하게 유지하고 전체 프로필 편집, 로그인, 사용량 분석 및 빅 데이터 이니셔티브를 위한 데이터 마이닝 등 최종적인 시나리오에 대한 기타 추가 정보를 저장하세요. 사용자 환경이 빠르고 간소하게 유지된다면 데이터 마이닝을 위한 데이터 수집이 Azure SQL 데이터베이스에서 실행되기 때문에 느려지는 것은 중요하지 않습니다. 사용자는 DocumentDB에 다음과 같이 저장됩니다.
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -200,7 +200,7 @@ Azure DocumentDB는 모든 속성이 자체 [자동 인덱싱](documentdb-indexi
 
 이 작업이 이렇게 쉬운 이유는 무엇일까요?
 
-Azure Search는 데이터 리포지토리에 후크되는 백그라운드 프로세스인 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 호출하여 인덱스에서 개체를 자동으로 추가, 업데이트 또는 제거하는 기능을 구현하기 때문입니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행이도 [Azure DocumentDB 인덱서](documentdb-search-indexer.md)를 지원합니다. DocumentDB에서 Azure Search로 정보를 전환하는 것은 간단합니다. 둘 다 정보를 JSON 형식으로 저장하기 때문에 [인덱스를 만들고](../search/search-create-index-portal.md) 문서에서 인덱싱할 특성을 매핑하기만 하면 됩니다. 그러면 몇 분(데이터 크기에 따라 다름) 이내에 클라우드 인프라에서 제공되는 최고의 SaaS(Search-as-a-Service) 솔루션을 통해 모든 콘텐츠를 검색할 수 있게 됩니다. 
+Azure Search는 데이터 리포지토리에 후크되는 백그라운드 프로세스인 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 호출하여 인덱스에서 개체를 자동으로 추가, 업데이트 또는 제거하는 기능을 구현하기 때문입니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행이도 [Azure DocumentDB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. DocumentDB에서 Azure Search로 정보를 전환하는 것은 간단합니다. 둘 다 정보를 JSON 형식으로 저장하기 때문에 [인덱스를 만들고](../search/search-create-index-portal.md) 문서에서 인덱싱할 특성을 매핑하기만 하면 됩니다. 그러면 몇 분(데이터 크기에 따라 다름) 이내에 클라우드 인프라에서 제공되는 최고의 SaaS(Search-as-a-Service) 솔루션을 통해 모든 콘텐츠를 검색할 수 있게 됩니다. 
 
 Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)를 참조하세요.
 
@@ -234,6 +234,6 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

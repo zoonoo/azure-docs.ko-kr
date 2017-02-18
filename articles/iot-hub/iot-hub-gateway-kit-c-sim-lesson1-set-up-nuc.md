@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 게이트웨이로 Intel NUC 설정 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 1: NUC 설정 | Microsoft Docs"
 description: "Intel NUC를 센서와 Azure IoT Hub 사이의 IoT 게이트웨이로 작동하도록 설정하여 센서 정보를 수집하고 IoT Hub에 보냅니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 사전 설치된 Intel IoT 게이트웨이 소프트웨어 제품군을 포함하는 Intel NUC 키트 DE3815TYKE(Wind River Linux * 7.0.0.13)
+- 사전 설치된 Intel IoT 게이트웨이 소프트웨어 제품군을 포함하는 Intel NUC 키트 DE3815TYKE(Wind River Linux *&7;.0.0.13)
 - 이더넷 케이블
 - 키보드
 - HDMI 또는 VGA 케이블
@@ -85,7 +85,7 @@ NUC 장치의 IP 주소를 얻기 위해 키보드 및 모니터가 필요합니
 
 ## <a name="install-the-azure-iot-gateway-sdk-package"></a>Azure IoT 게이트웨이 SDK 패키지 설치
 
-Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 컴파일된 이진 파일을 포함합니다. 이러한 이진 파일은 Azure IoT 게이트웨이 SDK, Azure IoT SDK 및 해당하는 도구입니다. 패키지에는 또한 게이트웨이 기능을 확인하는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. SDK는 게이트웨이의 핵심 부분입니다. 패키지를 설치하려면 다음 단계를 따르세요.
+Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 컴파일된 이진 파일을 포함합니다. 이러한 이진 파일은 Azure IoT 게이트웨이 SDK, Azure IoT SDK 및 해당하는 도구입니다. 또한 이 패키지에는 게이트웨이 기능을 확인하는 데 사용되는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. SDK는 게이트웨이의 핵심 부분입니다. 패키지를 설치하려면 다음 단계를 따르세요.
 
 1. 터미널 창에서 다음 명령을 실행하여 IoT 클라우드 저장소를 추가합니다.
 
@@ -138,6 +138,6 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

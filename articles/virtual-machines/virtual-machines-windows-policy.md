@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager 가상 컴퓨터에 정책 적용 | Microsoft Docs"
+title: "Azure에서 Windows VM에 정책을 사용하여 보안 적용 | Microsoft Docs"
 description: "Azure Resource Manager Windows 가상 컴퓨터에 정책을 적용하는 방법"
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Azure Resource Manager 가상 컴퓨터에 정책 적용
+# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 보안 및 정책 적용
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 가상 컴퓨터에 대해 원하는 동작을 정의하는 방법을 설명합니다.
 
 이 작업을 수행하는 개략적인 단계는 다음과 같습니다.
@@ -105,6 +105,6 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

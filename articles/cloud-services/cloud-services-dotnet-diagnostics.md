@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c8e448aaffbecb4d3ac83729710f352675913bb
+ms.sourcegitcommit: c3540d86a12935cea100248f7f6669df34ae2209
+ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
 
 
 ---
@@ -26,7 +26,7 @@ Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md)를 참�
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>작업자 역할에서 진단을 사용하는 방법
 이 연습에서는 .NET EventSource 클래스를 사용하여 원격 분석 데이터를 내보내는 Azure 작업자 역할을 구현하는 방법에 대해 설명합니다. Azure 진단은 원격 분석 데이터를 수집하고 이를 Azure Storage 계정에 저장하는 데 사용됩니다. Visual Studio 작업자 역할을 만드는 경우 Azure .NET SDK 2.4 이상 버전에서 진단 1.0을 솔루션의 일부로 자동으로 사용하도록 설정합니다. 다음 지침에서는 작업자 역할을 만들고, 솔루션에서 진단 1.0을 사용하지 않도록 설정하고, 진단 1.2 또는 1.3을 작업자 역할에 배포하기 위한 프로세스에 대해 설명합니다.
 
-### <a name="pre-requisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 이 문서에서는 Azure 구독이 있으며 Visual Studio 2013과 Azure SDK를 함께 사용 중인 것으로 가정합니다. Azure 구독이 없는 경우 [무료 평가판][Free Trial]에 등록할 수 있습니다. [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성][Install and configure Azure PowerShell version 0.8.7 or later]해야 합니다.
 
 ### <a name="step-1-create-a-worker-role"></a>1단계: 작업자 역할 만들기
@@ -38,7 +38,7 @@ Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md)를 참�
 6. 솔루션을 빌드하여 오류가 없는지 확인합니다.
 
 ### <a name="step-2-instrument-your-code"></a>2단계: 코드 계측
-WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]로부터 상속되는 SampleEventSourceWriter 클래스는 다음 4개의 로깅 메서드를 구현합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**. **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
+WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]로부터 상속되는 SampleEventSourceWriter 클래스는 다음&4;개의 로깅 메서드를 구현합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**. **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -122,6 +122,9 @@ namespace WorkerRole1
 
 
 ### <a name="step-3-deploy-your-worker-role"></a>3단계: 작업자 역할 배포
+
+[!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
+
 1. 솔루션 Explorer에서 **WadExample** 프로젝트를 선택한 후 **빌드** 메뉴에서 **게시**를 선택하여 Visual Studio 내에서 Azure에 작업자 역할을 배포합니다.
 2. 구독을 선택합니다.
 3. **Microsoft Azure 게시 설정** 대화 상자에서 **새로 만들기...**를 선택합니다.
@@ -132,12 +135,15 @@ namespace WorkerRole1
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>4단계: 진단 구성 파일 만들기 및 확장 설치
 1. 다음 PowerShell 명령을 실행하여 공용 구성 파일 스키마 정의를 다운로드합니다.
-   2.
-     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+
+    ```powershell
+    (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+    ```
 2. **WorkerRole1** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 항목…** -> **Visual C# 항목** -> **데이터** -> **XML 파일**을 선택하여 **WorkerRole1** 프로젝트에 XML 파일을 추가합니다. 파일 이름을 “WadExample.xml”로 지정합니다.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. WadConfig.xsd를 구성 파일과 연결합니다. WadExample.xml 편집기 창이 활성 창인지 확인합니다. **F4**를 눌러 **속성** 창을 엽니다. **속성** 창에서 **Schemas** 속성을 클릭합니다. **Schemas** 속성에서 **...**를 클릭합니다. **추가...**를 클릭합니다. 단추를 클릭하고 XSD 파일을 저장한 위치로 이동한 후 WadConfig.xsd 파일을 선택하고 **확인**을 클릭합니다.
+
 4. WadExample.xml 구성 파일의 내용을 다음 XML로 바꾸고 파일을 저장합니다. 이 구성 파일은 각각 CPU 사용률 및 메모리 사용률을 수집할 두 가지 성능 카운터를 정의합니다. 그런 다음 이 구성에서는 SampleEventSourceWriter 클래스의 메서드에 해당하는 네 개의 이벤트를 정의합니다.
 
 ```xml
@@ -180,7 +186,8 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>6단계: 원격 분석 데이터 확인
 Visual Studio **서버 Explorer**에서 wadexample 저장소 계정으로 이동합니다. 클라우드 서비스가 5분 정도 실행된 후에는 **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** 및 **WADSetOtherTable** 테이블이 표시됩니다. 수집된 원격 분석을 보려는 테이블 중 하나를 더블 클릭합니다.
-    ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+
+![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>구성 파일 스키마
 진단 구성 파일에서는 진단 에이전트가 시작될 때 진단 구성 설정을 초기화하는 데 사용되는 값을 정의합니다. 유효한 값 및 예제는 [최신 스키마 참조](https://msdn.microsoft.com/library/azure/mt634524.aspx)를 참조하세요.
@@ -200,6 +207,6 @@ Visual Studio **서버 Explorer**에서 wadexample 저장소 계정으로 이동
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
 * 평일까지 기다렸다가 전자 메일로 상태 업데이트 전송
 * 다시 시작하고 결과를 검색하기 전에 HTTP 호출이 완료될 때까지 워크플로 지연
 
-논리 앱에서 지연 동작 사용을 시작하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에서 지연 동작 사용을 시작하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="use-the-delay-actions"></a>지연 작업 사용
 동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다](connectors-overview.md).
@@ -72,11 +72,11 @@ ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
 <br>
 
 ## <a name="next-steps"></a>다음 단계
-이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
+이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

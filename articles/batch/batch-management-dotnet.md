@@ -1,5 +1,5 @@
 ---
-title: "배치 관리 .NET으로 계정 리소스 관리 | Microsoft Docs"
+title: ".NET용 클라이언트 라이브러리를 사용하여 일괄 처리 계정 리소스 관리 - Azure | Microsoft Docs"
 description: "배치 관리 .NET 라이브러리로 Azure 배치 계정 리소스를 만들고, 삭제하며, 수정합니다."
 services: batch
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/19/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 0eff62c62bb256fead360423c20b98fd7f720a51
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 94d2de0d18863872510ed03a5701f4fc6d133659
 
 
 ---
@@ -158,7 +158,7 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 ## <a name="sample-project-on-github"></a>GitHub에서 샘플 프로젝트
 실제로 사용 중인 배치 관리 .NET을 확인하려면 GitHub의 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. 이 콘솔 응용 프로그램은 [BatchManagementClient][net_mgmt_client] 및 [ResourceManagementClient][resman_client]의 만들기 및 사용을 보여 줍니다. 또한 두 클라이언트 모두에서 필요한 Azure ADAL([Active Directory Authentication Library][aad_adal])의 사용을 보여 줍니다.
 
-응용 프로그램 예제를 성공적으로 실행하려면 먼저 Azure 포털을 사용하여 Azure AD에 등록해야 합니다. [Azure Active Directory와 응용 프로그램 통합][aad_integrate]의 [응용 프로그램 추가](../active-directory/active-directory-integrating-applications.md#adding-an-application) 단계에 따라 사용자 고유 계정의 기본 디렉터리 내에 샘플 응용 프로그램을 등록합니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택해야 하며, **리디렉션 URI**에 유효한 URI(예: `http://myaccountmanagementsample`)를 지정할 수 있지만 실제 끝점일 필요는 없습니다.
+응용 프로그램 예제를 성공적으로 실행하려면 먼저 Azure 포털을 사용하여 Azure AD에 등록해야 합니다. [Azure Active Directory와 응용 프로그램 통합][aad_integrate]의 [응용 프로그램 추가](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) 단계에 따라 사용자 고유 계정의 기본 디렉터리 내에 샘플 응용 프로그램을 등록합니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택해야 하며, **리디렉션 URI**에 유효한 URI(예: `http://myaccountmanagementsample`)를 지정할 수 있지만 실제 끝점일 필요는 없습니다.
 
 응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 **Windows Azure Service Management API** 응용 프로그램에 *조직으로 Azure 서비스 관리에 액세스* 권한을 위임합니다.
 
@@ -228,6 +228,6 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

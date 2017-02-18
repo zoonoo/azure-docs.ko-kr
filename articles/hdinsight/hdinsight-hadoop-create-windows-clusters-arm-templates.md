@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기 | Microsoft 문서"
-description: "Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에 클러스터를 만드는 방법을 알아봅니다."
+title: "템플릿을 사용하여 Windows 기반 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에 Windows 기반 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 9fb4862f3ba38058bd07d5a2e0bebcf78477e2d1
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ad511174f8df2fca752447ed942880d02c141308
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Azure Resource Manager 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Windows 기반 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요. 
+
+이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 생성에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 
 ## <a name="prerequisites"></a>필수 조건:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -140,7 +147,7 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 * Azure Resource Manager 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)를 참조하세요.
 
 ## <a name="appx-a-resource-manager-template"></a>부록 A: Resource Manager 템플릿
-다음 Azure 리소스 관리자 템플릿은 종속 Azure 저장소 계정을 사용하여 Windows 기반 Hadoop 클러스터를 만듭니다.
+다음 Azure Resource Manager 템플릿은 종속 Azure Storage 계정을 사용하여 Windows 기반 Hadoop 클러스터를 만듭니다.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -290,6 +297,6 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 
