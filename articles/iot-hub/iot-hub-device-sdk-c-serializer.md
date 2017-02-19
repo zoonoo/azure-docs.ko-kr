@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
 
 이 문서에 설명된 모든 내용은 **serializer** SDK 샘플을 기반으로 합니다. 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 응용 프로그램을 참조하세요.
 
-GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://azure.github.io/azure-iot-sdk-c/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-modeling-language"></a>모델링 언어
 이 시리즈의 [소개 자료](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 응용 프로그램에 제공된 예제를 통해 **C용 Azure IoT 장치 SDK** 모델링 언어를 소개했습니다.
@@ -526,6 +526,13 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 동작 이름은 모델에 정의된 동작과 정확히 일치해야 합니다. 매개 변수 이름도 일치해야 합니다. 또한 대/소문자 구분 여부도 확인합니다. **Name** 및 **Parameters**는 항상 대문자입니다. 모델에서 동작 이름 및 매개 변수의 대/소문자와 일치해야 합니다. 이 예에서 동작 이름은 "setairresistance"가 아닌, "SetAirResistance"입니다.
 
+두 가지 작업 **TurnFanOn** 및 **TurnFanOff**는 장치에 다음 메시지를 전송하여 호출할 수 있습니다.
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 이 섹션에서는 **serializer** 라이브러리로 이벤트를 전송하고 메시지를 수신할 때 알아야 할 모든 내용에 대해 설명합니다. 설명을 진행하기 전에, 모델의 크기를 제어하기 위해 구성할 수 있는 몇 가지 매개 변수에 대해 살펴봅니다.
 
 ## <a name="macro-configuration"></a>매크로 구성
@@ -672,6 +679,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

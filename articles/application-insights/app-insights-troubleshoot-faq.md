@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 *다음을 설정하는 데 문제가 있습니다.*
 
 * [.NET 앱](app-insights-asp-net-troubleshoot-no-data.md)
-* [이미 실행 중인 앱 모니터링](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [이미 실행 중인 앱 모니터링](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure 진단](app-insights-azure-diagnostics.md)
 * [Java 웹앱](app-insights-java-troubleshoot.md)
 * [기타 플랫폼](app-insights-platforms.md)
@@ -51,20 +51,20 @@ Enterprise 계획을 사용해야 연속 내보내기 등 특정 기능을 얻�
 세부 정보는 프로젝트의 유형에 따라 달라집니다. 웹 응용 프로그램의 경우:
 
 * 프로젝트에 다음 파일이 추가됩니다.
-  
+
   * ApplicationInsights.config
   * ai.js
 * 다음 NuGet 패키지가 설치됩니다.
-  
+
   * *Application Insights API* - 핵심 API
   * *웹 응용 프로그램용 Application Insights API* - 서버에서 원격 분석을 보내는 데 사용
   * *JavaScript 응용 프로그램용 Application Insights API* - 클라이언트에서 원격 분석을 보내는 데 사용
-    
+
     패키지에는 다음 어셈블리가 포함됩니다.
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * 항목 삽입 위치:
-  
+
   * Web.config
   * packages.config
 * (새 프로젝트에만 해당 - [기존 프로젝트에 Application Insights를 추가한 경우][start] 이를 수동으로 수행해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
@@ -90,7 +90,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 | 표시 내용 | 시작 방법 | 원하는 이유 |
 | --- | --- | --- |
 | 가용성 차트 |[웹 테스트](app-insights-monitor-web-app-availability.md) |웹 앱이 작동 중인지 확인 |
-| 서버 앱 성능: 응답시간. ... |[프로젝트에 Application Insights 추가](app-insights-asp-net.md) 또는 [서버에 AI 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md)(또는 [종속성 추적](app-insights-api-custom-events-metrics.md#track-dependency)을 위한 자체 코드 작성) |성능 문제 검색 |
+| 서버 앱 성능: 응답시간. ... |[프로젝트에 Application Insights 추가](app-insights-asp-net.md) 또는 [서버에 AI 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md)(또는 [종속성 추적](app-insights-api-custom-events-metrics.md#trackdependency)을 위한 자체 코드 작성) |성능 문제 검색 |
 | 종속성 원격 분석 |[서버에 AI 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md) |데이터베이스 또는 다른 외부 구성 요소의 문제 진단 |
 | 예외에서 스택 추적 가져오기 |[TrackException 호출을 코드에 삽입](app-insights-search-diagnostic-logs.md#exceptions)(하지만 일부는 자동으로 보고됨) |예외 감지 및 진단 |
 | 로그 추적 검색 |[로깅 어댑터 추가](app-insights-search-diagnostic-logs.md) |예외, 성능 문제 진단 |
@@ -113,6 +113,6 @@ Application Insights 리소스를 만들고 업데이트하는 [PowerShell 스�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

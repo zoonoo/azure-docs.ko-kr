@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: 83d39eb288a3dcda45ab178f5f65de441c2fd5a3
+ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
+ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
 
 
 ---
@@ -91,7 +91,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 ```AIQL
 
     requests
-    | where resultCode  == "404" 
+    | where resultCode  == "404"
     | take 10
 ```
 
@@ -114,7 +114,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` 은(는) 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-reference.md#casts) 해야 합니다.
+`resultCode` 은(는) 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-reference.md#casts) 해야 합니다.
 
 ## <a name="time-range"></a>시간 범위
 
@@ -128,26 +128,26 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
     // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range 
+    | where timestamp > ago(3d)  // Override the time range
     | top 5 by duration
 ```
 
-시간 범위 기능은 원본 테이블 중 하나를 언급할 때마다 그 다음에 나오는 'where' 절에 해당합니다. 
+시간 범위 기능은 원본 테이블 중 하나를 언급할 때마다 그 다음에 나오는 'where' 절에 해당합니다.
 
-`ago(3d)`는 '3일 전'을 의미합니다. 기타 시간 단위에는 시간(`2h`, `2.5h`), 분(`25m`) 및 초(`10s`)가 포함됩니다. 
+`ago(3d)`는 '3일 전'을 의미합니다. 기타 시간 단위에는 시간(`2h`, `2.5h`), 분(`25m`) 및 초(`10s`)가 포함됩니다.
 
 기타 예제:
 
 ```AIQL
 
     // Last calendar week:
-    requests 
-    | where timestamp > startofweek(now()-7d) 
-        and timestamp < startofweek(now()) 
+    requests
+    | where timestamp > startofweek(now()-7d)
+        and timestamp < startofweek(now())
     | top 5 by duration
 
     // First hour of every day in past seven days:
-    requests 
+    requests
     | where timestamp > ago(7d) and timestamp % 1d < 1h
     | top 5 by duration
 
@@ -212,7 +212,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend localTime = timestamp - 8h
 ```
@@ -235,7 +235,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-`bin` 함수(즉, `floor`)를 사용하는 방법을 알아보겠습니다. `by timestamp`을(를) 사용하면 모든 입력 행이 고유한 작은 그룹이 됩니다. 시간 또는 숫자와 같은 모든 연속적인 스칼라의 경우 연속되는 범위를 관리 가능한 개수의 불연속 값으로 나누어야 하며, 그러려면 `floor`, 즉 실제로 친숙한 내림 함수인 `bin` 함수를 사용하는 것이 가장 간편합니다.
+`bin` 함수(즉, `floor`)를 사용하는 방법을 알아보겠습니다. `by timestamp`을(를) 사용하면 모든 입력 행이 고유한 작은 그룹이 됩니다. 시간 또는 숫자와 같은 임의 연속 스칼라의 경우 연속되는 범위를 관리할 수 있는 불연속 값의 수로 나누어야 합니다. 익숙한 자리 내림 `floor` 함수인 `bin`은 이 작업을 수행하는 가장 쉬운 방법입니다.
 
 동일한 기술을 사용하여 문자열의 범위를 줄일 수 있습니다.
 
@@ -292,7 +292,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ![시간 차트](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>여러 계열
-`summarize`의 여러 식은 여러 열을 만듭니다.
+`summarize` 절의 여러 식은 여러 열을 만듭니다.
 
 `by` 절의 여러 식은 값의 각 조합에 대해 하나씩 여러 행을 만듭니다.
 
@@ -318,14 +318,14 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ```AIQL
 
     // Bounce rate: sessions with only one page view
-    requests 
-    | where notempty(session_Id) 
+    requests
+    | where notempty(session_Id)
     | where tostring(operation_SyntheticSource) == "" // real users
-    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
-               by session_Id 
-    | extend isbounce= pagesInSession == 1 
-    | summarize count() 
-               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp)
+               by session_Id
+    | extend isbounce= pagesInSession == 1
+    | summarize count()
+               by tostring(isbounce), bin (sessionEnd, 1h)
     | render timechart
 ```
 
@@ -334,7 +334,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ![분석 차트 분할](./media/app-insights-analytics-tour/110.png)
 
-여러 숫자 열을 선택하기 전에 분할하지 마십시오를 선택해야 합니다. 둘 이상의 숫자 열을 표시하는 동시에 문자열 열로 분할할 수 없습니다.
+**분할하지 않음**을 선택해야 여러 숫자 열을 선택할 수 있습니다. 둘 이상의 숫자 열을 표시하면서 동시에 문자열 열로 분할할 수 없습니다.
 
 ## <a name="daily-average-cycle"></a>일일 평균 주기
 사용량은 평균 일에 대해 얼마나 변화합니까?
@@ -343,7 +343,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ```AIQL
 
-    requests 
+    requests
     | where timestamp > ago(30d)  // Override "Last 24h"
     | where tostring(operation_SyntheticSource) == "" // real users
     | extend hour = bin(timestamp % 1d , 1h)
@@ -421,7 +421,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 확인할 수 있는 사항:
 
 * 세션의 5%가 3분 34초 미만의 기간을 가지고 있음;
-* 세션의 50%가 36분 미만 동안 지속;
+* 세션의 50%가 36분 미만 동안 지속
 * 세션의 5%가 7일보다 오래 지속
 
 각 국가에 대해 별도의 분석을 가져오기 위해 summarize 연산자 둘 다를 통해 client_CountryOrRegion 열을 따로 가져와야 합니다.
@@ -449,7 +449,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -459,7 +459,8 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): 변수에 결과 할당
-*let* 을 사용하여 이전 식의 일부를 분리할 수 있습니다. 결과는 변하지 않음:
+
+`let`을 사용하여 이전 식의 일부를 분리할 수 있습니다. 결과는 변하지 않음:
 
 ```AIQL
 
@@ -471,27 +472,41 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
     | take 30
 ```
 
-> 팁: Analytics 클라이언트에서 이러한 부분 사이에 공백 줄을 넣지 마세요. 이 부분을 모두 실행해야 합니다.
->
+> [!Tip] 
+> Analytics 클라이언트에서 쿼리 부분 사이에 공백 줄을 넣지 마세요. 이 부분을 모두 실행해야 합니다.
 >
 
-### <a name="functions"></a>함수 
+`toscalar`를 사용하여 단일 표 셀을 값으로 변환합니다.
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
+
+### <a name="functions"></a>함수
 
 *Let*을 사용하여 함수를 정의합니다.
 
 ```AIQL
 
-    let usdate = (t:datetime) 
+    let usdate = (t:datetime)
     {
-      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
       bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
     };
     requests  
-    | extend PST = usdate(timestamp-8h) 
+    | extend PST = usdate(timestamp-8h)
 ```
 
 ## <a name="accessing-nested-objects"></a>중첩된 개체에 액세스
-중첩된 개체에 쉽게 액세스할 수 있습니다. 예를 들어 예외 스트림에서 다음과 같이 구조화된 객체가 표시됩니다.
+중첩된 개체에 쉽게 액세스할 수 있습니다. 예를 들어 예외 스트림에서 다음과 같이 구조화된 개체가 표시될 수 있습니다.
 
 ![result](./media/app-insights-analytics-tour/520.png)
 
@@ -543,26 +558,28 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 가장 중요한 모든 차트와 테이블을 결합하기 위해 결과를 대시보드에 고정할 수 있습니다.
 
 * [Azure 공유 대시보드](app-insights-dashboards.md#share-dashboards): 고정 아이콘을 클릭합니다. 이렇게 하려면 공유 대시보드가 있어야 합니다. Azure Portal에서 대시보드를 열거나 만들고 공유를 클릭합니다.
-* [Power BI 대시보드](app-insights-export-power-bi.md): 내보내기, Power BI 쿼리를 클릭합니다. 이 대체의 장점은 매우 광범위한 원본의 다른 결과와 함께 쿼리를 표시할 수 있다는 것입니다.
+* [Power BI 대시보드](app-insights-export-power-bi.md): 내보내기, Power BI 쿼리를 클릭합니다. 이 대체의 장점은 광범위한 원본의 다른 결과와 함께 쿼리를 표시할 수 있다는 것입니다.
 
 ## <a name="combine-with-imported-data"></a>가져온 데이터와 결합
 
-분석 보고서는 대시보드에서 보기 좋게 표시되지만 좀 더 이해하기 쉬운 형태로 데이터를 변환하고 싶을 수 있습니다. 예를 들어 인증된 사용자는 원격 분석에서 별칭으로 식별됩니다. 결과에 실제 이름을 표시하고 싶을 수 있습니다. 이렇게 하려면 별칭을 실제 이름에 매핑하는 CSV 파일만 있으면 됩니다. 
+분석 보고서는 대시보드에서 보기 좋게 표시되지만 좀 더 이해하기 쉬운 형태로 데이터를 변환하고 싶을 수 있습니다. 예를 들어 인증된 사용자는 원격 분석에서 별칭으로 식별됩니다. 결과에 실제 이름을 표시하고 싶을 수 있습니다. 이렇게 하려면 별칭을 실제 이름에 매핑하는 CSV 파일이 필요합니다.
 
 데이터 파일을 가져오고 표준 테이블(요청, 예외 등)처럼 사용할 수 있습니다. 자체적으로 쿼리하거나 다른 테이블과 조인합니다. 예를 들어 usermap이라는 테이블이 있고 `realName` 및 `userId` 열이 있으면 요청 원격 분석에서 `user_AuthenticatedId` 필드를 변환하는 데 사용할 수 있습니다.
 
 ```AIQL
 
     requests
-    | where notempty(user_AuthenticatedId) 
+    | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
       // get the realName field from the usermap table:
-    | join kind=leftouter ( usermap ) on userId 
+    | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-테이블을 가져오려면 **설정**, **데이터 원본**을 열고 지침에 따라 원본을 추가합니다. 이 정의를 사용하여 테이블을 업로드합니다.
+테이블을 가져오려면 스키마 블레이드의 **기타 데이터 원본** 아래에서 지침에 따라 데이터 샘플을 업로드하여 새 데이터 원본을 추가합니다. 그런 다음 이 정의를 사용하여 테이블을 업로드할 수 있습니다.
+
+가져오기 기능은 현재 미리 보기 상태이므로 처음에 "기타 데이터 원본" 아래 "문의처" 링크가 표시됩니다. 이 링크를 사용하여 미리 보기 프로그램에 등록하고 나면 링크가 "새 데이터 원본 추가" 단추로 바뀝니다.
 
 
 ## <a name="tables"></a>테이블
@@ -578,7 +595,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ![이름별로 분할된 요청 수 계산](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>사용자 지정 이벤트 테이블
-사용자 고유의 이벤트를 보내기 위해 [Trackevent()](app-insights-api-custom-events-metrics.md#track-event)를 사용하면 이 테이블에서 이벤트를 읽을 수 있습니다.
+사용자 고유의 이벤트를 보내기 위해 [Trackevent()](app-insights-api-custom-events-metrics.md#trackevent)를 사용하면 이 테이블에서 이벤트를 읽을 수 있습니다.
 
 응용 프로그램 코드에 이러한 줄을 포함하는 사례:
 
@@ -600,7 +617,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ![사용자 지정 이벤트의 표시 속도](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>사용자 지정 메트릭 테이블
-사용자 지정 메트릭 값을 보내기 위해 [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric)을 사용하면 **customMetrics** 스트림에 결과가 나타납니다. 예:  
+사용자 지정 메트릭 값을 보내기 위해 [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric)을 사용하면 **customMetrics** 스트림에 결과가 나타납니다. 예:  
 
 ![Application Insights 분석의 사용자 지정 메트릭](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -653,16 +670,16 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 브라우저의 AJAX 호출:
 
 ```AIQL
-    
-    dependencies | where client_Type == "Browser" 
+
+    dependencies | where client_Type == "Browser"
     | take 10
 ```
 
 서버의 종속성 호출:
 
 ```AIQL
-    
-    dependencies | where client_Type == "PC" 
+
+    dependencies | where client_Type == "PC"
     | take 10
 ```
 
@@ -681,6 +698,6 @@ Tracktrace()를 사용하여 앱에서 보낸 원격 분석 데이터나 [다른
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
