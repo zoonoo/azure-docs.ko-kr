@@ -41,7 +41,7 @@ Mac 및 Linux용 Azure 명령줄 도구는 Azure 서비스를 배포 및 관리�
 
 Mac 및 Linux용 Azure 명령줄 도구를 사용하려면 Azure 계정이 필요합니다.
 
-웹 브라우저를 열고 [http://www.windowsazure.com][windowsazuredotcom]으로 이동한 후 오른쪽 위에 있는 **무료 평가판**을 클릭합니다.
+웹 브라우저를 열고 [http://www.windowsazure.com][windowsazuredotcom]으로 이동한 후 오른쪽 위에 있는 **무료 계정**을 클릭합니다.
 
 ![Azure 웹 사이트][Azure Web Site]
 
@@ -214,6 +214,6 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

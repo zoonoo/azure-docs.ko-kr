@@ -1,5 +1,5 @@
 ---
-title: "Azure Security Center에서 보안 상태 모니터링 | Microsoft Docs"
+title: "Azure Security Center에서 보안 모니터링 | Microsoft Docs"
 description: "이 문서는 Azure Security Center의 모니터링 기능을 시작하는 데 도움이 됩니다."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 상황에 대응할 수 있도록 이벤트가 발생할 때까지 이벤트를 감시하면서 기다리는 것을 모니터링이라고 생각하는 경우가 많습니다. 보안 모니터링은 리소스를 감사하여 조직의 표준 또는 모범 사례를 충족하지 않는 시스템을 식별하는 사전 예방 전략을 의미합니다.
 
 ## <a name="monitoring-security-health"></a>보안 상태 모니터링
-구독의 리소스에 대해 [보안 정책](security-center-policies.md)을 사용하도록 설정하면 보안 센터에서 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다. 네트워크 구성 정보는 즉시 이용할 수 있지만, 보안 업데이트 상태, OS 구성 등 VM(가상 컴퓨터) 구성 정보를 이용하는 데에는 1시간 이상이 걸립니다. **리소스 보안 상태** 블레이드에서 리소스 보안 상 및 모든 문제를 볼 수 있습니다. **권장 사항** 블레이드에서도 이러한 문제 목록을 볼 수 있습니다.
+구독의 리소스에 대해 [보안 정책](security-center-policies.md)을 사용하도록 설정하면 보안 센터에서 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다. 네트워크 구성 정보는 즉시 이용할 수 있지만, 보안 업데이트 상태, OS 구성 등 VM(가상 컴퓨터) 구성 정보를 이용하는 데에는&1;시간 이상이 걸립니다. **리소스 보안 상태** 블레이드에서 리소스 보안 상 및 모든 문제를 볼 수 있습니다. **권장 사항** 블레이드에서도 이러한 문제 목록을 볼 수 있습니다.
 
 권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.
 
@@ -60,8 +60,8 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 > [!NOTE]
 > 공용 끝점이 하나 이상 있는 VM은 **네트워크 토폴로지** 목록의 **네트워킹 상태** 블레이드에 표시됩니다.
-> 
-> 
+>
+>
 
 각 권장 사항에는 클릭하면 수행되는 작업 집합이 있습니다. 예를 들어 **누락된 시스템 업데이트**를 클릭하면 **누락된 시스템 업데이트** 블레이드가 열립니다. 아래와 같이 패치를 누락한 VM 및 누락된 업데이트의 심각도를 나열합니다.
 
@@ -87,8 +87,8 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 > [!NOTE]
 > 여기와 **권장 사항** 블레이드에서 보여 주는 보안 권장 사항은 서로 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이 내용은 VM뿐 아니라 **리소스 상태** 타일에서 제공되는 모든 리소스에도 적용할 수 있습니다.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>가상 컴퓨터 섹션
 이 섹션에서는 모든 VM과 권장 사항에 대한 개요를 제공합니다. 각 열에는 아래와 같이 일단의 권장 사항이 표시됩니다.
@@ -217,7 +217,6 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

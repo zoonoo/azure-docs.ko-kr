@@ -1,4 +1,4 @@
-Azure Portal에서 연결로 이동하여 클래식 VNet 게이트웨이의 연결 상태를 볼 수 있습니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 다음 단계에서는 연결로 이동하고 확인하는 한 가지 방법을 보여 줍니다.
+Azure Portal에서 연결로 이동하여 클래식 VNet VPN Gateway의 연결 상태를 볼 수 있습니다. 다음 단계에서는 연결로 이동하고 확인하는 한 가지 방법을 보여 줍니다.
 
 1. [Azure Portal](http://portal.azure.com)에서 **모든 리소스**를 클릭하고 클래식 가상 네트워크로 이동합니다.
 2. 가상 네트워크 블레이드에서 **개요**를 클릭하여 블레이드의 **VPN 연결** 섹션에 액세스합니다.
@@ -12,6 +12,6 @@ Azure Portal에서 연결로 이동하여 클래식 VNet 게이트웨이의 연�
 
     ![연결 상태 추가 정보](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "연결 상태 추가 정보")
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

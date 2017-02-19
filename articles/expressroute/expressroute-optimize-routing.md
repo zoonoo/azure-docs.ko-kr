@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/27/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+ms.sourcegitcommit: 1b26e82f862a3b2149024d863b907899e14e7d86
+ms.openlocfilehash: 404929cf0def75d92d8bb6de8b41be3aecced458
 
 
 ---
 # <a name="optimize-expressroute-routing"></a>Express 경로 라우팅 최적화
 여러 개의 Express 경로 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 응용 프로그램 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
 
-## <a name="suboptimal-routing-case-1"></a>최적이 아닌 라우팅 사례 1
+## <a name="suboptimal-routing-from-customer-to-microsoft"></a>고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅
 예제를 통해 라우팅 문제를 자세히 살펴보겠습니다. 미국에 사무실이 두 곳 있는데, 한 곳은 로스앤젤레스에, 한 곳은 뉴욕에 있다고 가정해 보겠습니다. 사무실은 고유한 백본 네트워크 또는 서비스 공급자의 IP VPN에 연결할 수 있는 WAN(광역 네트워크)에 연결됩니다. 두 개의 Express 경로가 하나는 미국 서부에, 하나는 미국 동부에 있으며 WAN에도 연결됩니다. 물론 Microsoft 네트워크에 연결되는 두 경로가 있습니다. 이제 미국 서부와 동부 모두에서 Azure 배포(예: Azure 앱 서비스)가 있다고 가정해 보겠습니다. 서비스 관리자는 최적의 환경을 위해 각 사무실의 사용자가 가까운 Azure 서비스에 액세스하도록 하므로 로스앤젤레스에 있는 사용자를 Azure 미국 서부에, 뉴욕에 있는 사용자를 Azure 미국 동부에 연결하고 싶습니다. 아쉽게도 이 계획은 동부 연안 사용자에게는 잘 작동하지만 서부 연안 사용자에게는 그렇지 않습니다. 이 문제의 원인은 다음과 같습니다. 각 Express 경로 회로에서 Azure 미국 동부 접두사(23.100.0.0/16) 및 Azure 미국 서부 접두사(13.100.0.0/16)를 모두 보급합니다. 어느 지역의 접두사인지 모르면 다르게 처리할 수 없습니다. WAN 네트워크는 접두사가 미국 서부보다 미국 동부에 더 가깝다고 생각할 수 있으므로 두 사무실 사용자를 미국 동부의 Express 경로 회로에 라우팅할 수 있습니다. 결과적으로는 로스앤젤레스 사무실의 많은 사용자들이 불편해집니다.
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
@@ -33,7 +33,7 @@ ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
-## <a name="suboptimal-routing-case-2"></a>최적이 아닌 라우팅 2
+## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Microsoft에서 고객에 이르는 최적이 아닌 라우팅
 다음은 Microsoft의 연결에서 더 긴 경로로 네트워크에 연결하는 다른 예입니다. 이 경우 [하이브리드 환경](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx)에서 온-프레미스 Exchange Server와 Exchange Online을 사용합니다. 사무실이 WAN에 연결됩니다. 두 Express 경로 회로를 통해 두 사무실의 온-프레미스 서버 접두사를 Microsoft에 알립니다. Exchange Online은 사서함 마이그레이션과 같은 경우에 온-프레미스 서버로의 연결을 시작합니다. 아쉽게도 로스앤젤레스 사무실에 대한 연결은 다시 전체 대륙을 서부 연안으로 탐색하기 전에 미국 동부 Express 경로 회로로 라우팅됩니다. 문제의 원인은 첫 번째 예와 비슷합니다. 어떠한 힌트도 없이 Microsoft 네트워크는 어떤 고객 접두사가 미국 동부에 근접하고 어떤 고객 접두사가 미국 서부에 근접한지를 알려줄 수 없습니다. 로스앤젤레스의 사무실에 대한 잘못된 경로를 선택하는 일이 발생합니다.
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
@@ -58,6 +58,6 @@ ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

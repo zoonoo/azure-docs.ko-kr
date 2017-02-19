@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합 | Microsoft Docs"
+title: "Active Directory와 Azure Active Directory 연결 | Microsoft Docs"
 description: "Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램에 대한 공통 ID를 제공할 수 있습니다."
 keywords: "Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, active directory 설치"
 services: active-directory
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/13/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 1d79c703133ce568c3d87821364af2fac7686bff
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: fe52867519aa65cabb62a876d5bfe57310b90fd6
 
 
 ---
-# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Azure Active Directory와 온-프레미스 ID 통합
+# <a name="connect-active-directory-with-azure-active-directory"></a>Active Directory와 Azure Active Directory 연결
 Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 응용 프로그램 사용자를 위한 공통 ID를 제공할 수 있습니다. 이 항목은 계획, 배포 및 운영 단계를 안내합니다. 이 영역과 관련된 항목으로 연결되는 링크 컬렉션입니다.
 
 > [!IMPORTANT]
@@ -159,6 +159,6 @@ ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

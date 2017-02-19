@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -59,13 +59,13 @@ ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
 Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?LinkID=324322)할 수 있습니다. 일부 화면이 이 자습서에 표시된 그림과 다르게 보일 수 있습니다.
 
 > [!NOTE]
-> 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
+> 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서&30;분 또는 그 이상이 될 수 있습니다.
 > 
 > 
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 클릭합니다.
-2. **템플릿** 목록에서 **Visual C#** 노드를 확장하고 **클라우드**를 선택한 다음 **ASP.NET 웹 응용 프로그램**을 클릭합니다. **.NET Framework 4.5.2** 가 선택되었는지 확인합니다.  **이름** 텍스트 상자에 **ContosoTeamStats**를 입력하고 **확인**을 클릭합니다.
+2. **템플릿** 목록에서 **Visual C#** 노드를 확장하고 **클라우드**를 선택한 다음 **ASP.NET 웹 응용 프로그램**을 클릭합니다. **.NET Framework 4.5.2** 이상이 선택되었는지 확인합니다.  **이름** 텍스트 상자에 **ContosoTeamStats**를 입력하고 **확인**을 클릭합니다.
    
     ![프로젝트 만들기][cache-create-project]
 3. 프로젝트 유형으로 **MVC** 를 선택합니다. **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service-web/web-sites-dotnet-get-started.md)를 참조하세요.
@@ -852,6 +852,6 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

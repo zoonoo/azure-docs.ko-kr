@@ -1,5 +1,5 @@
 ---
-title: " Azure Portal을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Docss"
+title: "Azure Portal을 사용한 VoD 제공 시작 | Microsoft Docs"
 description: "이 자습서에서는 Azure 포털을 사용한 Azure 미디어 서비스(AMS) 응용 프로그램으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 6b5ba034325ef1cbb7b085890c63302d06d0d927
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
 
 
 ---
@@ -168,6 +168,6 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "API 관리 주요 개념"
+title: "Azure API Management 개요 및 키 개념 | Microsoft Docs"
 description: "API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
-ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
 
 ---
 # <a name="what-is-api-management"></a>API 관리란?
@@ -25,7 +24,7 @@ API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자�
 
 Azure API 관리 개요에 관한 다음 비디오를 시청하고 최소한의 작업으로 액세스 제어, 속도 제한, 모니터링, 이벤트 로깅, 응답 캐싱 등 다양한 기능을 API에 추가하기 위해 API 관리를 사용하는 방법을 알아봅니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -132,6 +131,6 @@ API 관리에 대해 자세히 알아보려면 Microsoft Ignite 2015 conference�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
-ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
+ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
+ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
 
 
 ---
@@ -67,7 +67,7 @@ Application Gateway는 현재 **소형**, **중형** 및 **대형**의&3;가지 
 
 구독당 최대 50개의 응용 프로그램 게이트웨이를 만들 수 있으며 각 응용 프로그램 게이트웨이에는 최대 10개의 인스턴스가 있을 수 있습니다. 각 Application Gateway는 http 수신기 20개로 구성할 수 있습니다. Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
 
-다음 표에서는 각 응용 프로그램 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
+다음 표에서는 활성화된 SSL 오프로드로 각 응용 프로그램 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
 
 | 백 엔드 페이지 응답 | 작음 | 중간 | 큼 |
 | --- | --- | --- | --- |
@@ -95,6 +95,6 @@ URL 기반 콘텐츠 라우팅을 사용하여 응용 프로그램 게이트웨�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
