@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
 
 
 ---
@@ -28,6 +28,9 @@ ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 * 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 이렇게 하면 품질 및 네트워크 상태가 관리됩니다.
 * Microsoft Azure 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 장치의 스트리밍이 관리됩니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
+
 이 문서에서는 중요한 콘텐츠 배달 개념에 대해 간략하게 설명합니다.
 
 알려진 문제를 확인하려면 [알려진 문제](media-services-deliver-content-overview.md#known-issues)를 참조하세요.
@@ -35,14 +38,11 @@ ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 ## <a name="dynamic-packaging"></a>동적 패키징
 미디어 서비스가 제공하는 동적 패키징을 사용하여 적응 비트 전송률 MP4 또는 부드러운 스트리밍 인코딩 콘텐츠를 미디어 서비스에서 지원되는 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 다시 패키지하지 않고도 배달할 수 있습니다. 동적 패키징을 사용하여 콘텐츠를 전달하는 것이 좋습니다.
 
-동적 패키징을 이용하려면 다음을 수행해야 합니다.
-
-* 중&2;층(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다.
-* 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 주문형 스트리밍 단위를 구성합니다. 자세한 내용은 [주문형 스트리밍 예약 단위를 확장하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+동적 패키징을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩해야 합니다.
 
 동적 패키징을 사용하여 단일 저장소 형식으로 파일을 저장하고 요금을 지불할 수 있습니다. 미디어 서비스는 사용자의 요청에 따라 적절한 응답을 빌드하고 제공합니다.
 
-동적 패키징 기능에 액세스할 수 있을 뿐만 아니라, 주문형 스트리밍 예약 단위는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. 기본적으로 주문형 스트리밍은 다른 모든 사용자와 서버 리소스(예: 계산 또는 송신 기능)가 공유되는 공유 인스턴스 모델로 구성되어 있습니다. 주문형 스트리밍 예약 단위를 구입하여 주문형 스트리밍 처리량을 개선할 수 있습니다.
+동적 패키징은 표준 및 프리미엄 스트리밍 끝점에 사용할 수 있습니다. 
 
 자세한 내용은 [동적 패키징](media-services-dynamic-packaging-overview.md)을 참조하세요.
 
@@ -66,7 +66,7 @@ ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+로케이터의 만료 날짜를 업데이트하려면 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
 
 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. DRM(Digital Rights Management) 솔루션을 사용하여 개별 사용자에게 서로 다른 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [미디어 보안 설정](http://msdn.microsoft.com/library/azure/dn282272.aspx)을 참조하세요.
 
@@ -78,9 +78,9 @@ ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 사용자에게 스트리밍 URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 스트리밍할 콘텐츠를 포함하는 자산에 대한 기본 경로가 제공됩니다. 그러나 이 콘텐츠를 스트리밍하려면 나중에 이 경로를 수정해야 합니다. 스트리밍 매니페스트 파일에 대한 전체 URL을 생성하려면 로케이터의 경로 값과 매니페스트(filename.ism) 파일 이름을 연결해야 합니다. 그런 다음 로케이터 경로에 **/Manifest** 및 적절한 형식(필요한 경우)을 추가합니다.
 
 > [!NOTE]
-> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다.
+> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
 > 
-> 
+
 
 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍할 수 있도록 하려면 새 스트리밍 끝점을 만듭니다. 새 스트리밍 끝점을 기준으로 하는 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
 
@@ -143,7 +143,11 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 * 12시간 안에 완료되지 않은 다운로드는 실패합니다.
 
 ## <a name="streaming-endpoints"></a>스트리밍 끝점
-스트리밍 끝점은 추가 배포를 위해 CDN(콘텐츠 배달 네트워크) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 스트리밍 끝점 서비스의 아웃 바운드 스트림은 라이브 스트림 또는 미디어 서비스 계정에 주문형 비디오 자산이 될 수 있습니다. 또한 스트리밍 예약 단위를 조정하여 증가하는 대역폭 요구를 처리하기 위해 스트리밍 끝점 서비스의 용량을 제어할 수 있습니다. 제작 환경에서 응용 프로그램에 최소 한 개의 예약 단위를 할당해야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+
+스트리밍 끝점은 추가 배포를 위해 CDN(콘텐츠 배달 네트워크) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. 스트리밍 끝점 서비스의 아웃 바운드 스트림은 라이브 스트림 또는 미디어 서비스 계정에 주문형 비디오 자산이 될 수 있습니다. 스트리밍 끝점 유형으로는 **표준** 및 **프리미엄** 두 가지가 있습니다. 자세한 내용은 [스트리밍 끝점 개요](media-services-streaming-endpoints-overview.md)를 참조하세요.
+
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
 
 ## <a name="known-issues"></a>알려진 문제
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>부드러운 스트리밍 매니페스트 버전에 대한 변경 내용
@@ -184,6 +188,6 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

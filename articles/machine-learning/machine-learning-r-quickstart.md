@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a5bd3866f3150b1c787e5f3700bdbd0b74fbaf42
-ms.openlocfilehash: 666a8031a262aef72fc8c3e73647f81d79b1c916
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 6a02bb20ff2ed10ed528bfe2a3aae51ab20e4a60
 
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
-Stephen F Elston, Ph.D.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>소개
 이 빠른 시작 자습서는 R 프로그래밍 언어를 사용하여 Azure 기계 학습을 빠르게 확장하는 데 도움이 됩니다. 이 R 프로그래밍 자습서를 따라 Azure 기계 학습 내에서 R 코드를 만들고 테스트하고 실행합니다. 자습서를 진행하면서 Azure 기계 학습에서 R 언어를 사용하여 완벽한 예측 솔루션이 만들어집니다.  
@@ -1284,6 +1285,6 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

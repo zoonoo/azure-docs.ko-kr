@@ -1,23 +1,22 @@
 ---
 title: "Azure Government 모니터링 및 관리 | Microsoft 문서"
 description: "이 설명서에서는 Azure Government의 응용 프로그램 개발에 대한 기능 및 지침을 비교합니다."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
-ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
+ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
+ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
 
 
 ---
@@ -30,7 +29,7 @@ Automation은 일반적으로 Azure Government에서 사용할 수 있습니다.
 ### <a name="variations"></a>변형
 다음 Automation 기능은 현재 Azure Government에서 사용할 수 없습니다.
 
-* 인증에 사용할 서비스 사용자 자격 증명 만들기
+* 인증에 사용할 서비스 주체 자격 증명 만들기
 
 자세한 내용은 [Automation 공개 문서](../automation/automation-intro.md)를 참조하세요.
 
@@ -38,14 +37,6 @@ Automation은 일반적으로 Azure Government에서 사용할 수 있습니다.
 Backup은 일반적으로 Azure Government에서 사용할 수 있습니다.
 
 자세한 내용은 [Azure Government Backup](documentation-government-services-backup.md)을 참조하세요.
-
-### <a name="variations"></a>변형
-현재 Azure Government에서 사용할 수 없는 Backup 기능은 다음과 같습니다.
-
-* Azure Resource Manager 자격 증명 모음
-* Azure Portal을 사용하여 관리(Azure 클래식 포털에서는 지원)
-
-Azure Government에서 백업의 URL은 서로 다릅니다.
 
 ## <a name="site-recovery"></a>사이트 복구
 Site Recovery(ASR)는 일반적으로 Azure Government에서 사용할 수 있습니다.
@@ -56,14 +47,16 @@ Site Recovery(ASR)는 일반적으로 Azure Government에서 사용할 수 있�
 현재 Azure Government에서 사용할 수 없는 Site Recovery 기능은 다음과 같습니다.
 
 * Azure Resource Manager 사이트 복구 자격 증명 모음
+* 메일 알림
 
-| 사이트 복구 | 클래식 | 리소스 관리자 | 
+| 사이트 복구 | 클래식 | 리소스 관리자 |
 | --- | --- | --- |
-| VMware/물리적  | GA | 계획 |
-| Hyper-V | GA | 계획 |
-| 사이트-사이트 | GA | 계획 |
+| VMware/물리적  | GA | GA |
+| Hyper-V | GA | GA |
+| 사이트-사이트 | GA | GA |
 
-참고: 테이블은 버지니아 및 아이오와에 적용됩니다. 
+>[!NOTE]
+>표는 미국 버지니아 주 정부 및 미국 아이오와 주 정부에 적용됩니다.
 
 Azure Government에서 ASR에 대한 다음 URL은 서로 다릅니다.
 
@@ -74,8 +67,6 @@ Azure Government에서 ASR에 대한 다음 URL은 서로 다릅니다.
 | *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | VM 스냅숏 저장 |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | MySQL 다운로드 |
 
-
-
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics는 일반적으로 Azure Government에서 사용할 수 있습니다.
 
@@ -84,7 +75,7 @@ Log Analytics는 일반적으로 Azure Government에서 사용할 수 있습니�
 
 * 다음은 Mcrosoft Azure에서 미리 보기로 제공되는 솔루션입니다.
   * 네트워크 모니터링 솔루션
-  * 응용 프로그램 종속성 모니터링 솔루션
+  * 서비스 맵
   * Office 365 솔루션
   * Windows 10 Analytics 업그레이드 솔루션
   * Application Insights 솔루션
@@ -127,21 +118,11 @@ Azure Government에서 Log Analytics의 URL은 서로 다릅니다.
 
 자세한 내용은 [Log Analytics 공개 문서](../log-analytics/log-analytics-overview.md)를 참조하세요.
 
-## <a name="site-recovery"></a>사이트 복구
-Site Recovery는 일반적으로 Azure Government에서 사용할 수 있습니다.
-
-자세한 내용은 [Site Recovery 공개 문서](../site-recovery/site-recovery-overview.md)를 참조하세요.
-
-### <a name="variations"></a>변형
-현재 Azure Government에서 사용할 수 없는 Site Recovery 기능은 다음과 같습니다.
-
-* Azure Resource Manager 사이트 복구 자격 증명 모음
-
 ## <a name="next-steps"></a>다음 단계
 추가 정보 및 업데이트는 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

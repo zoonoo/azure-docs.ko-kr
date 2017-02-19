@@ -3,7 +3,7 @@ title: "Azure SQL 데이터베이스 벤치마크 개요"
 description: "이 항목은 Azure SQL 데이터베이스의 성능 측정에 사용된 Azure SQL 데이터베이스 벤치마크에 대해 설명합니다."
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: jan-eng
 manager: jhubbard
 editor: monicar
 ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
-ms.author: carlrab
+ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: cbe53ce7f259432085a828ef8c1fe3ae2da42074
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
 
 
 ---
@@ -42,7 +42,7 @@ ASDB는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하�
 ## <a name="schema"></a>스키마
 스키마는 다양한 작업을 지원하도록 다양하고 복잡하게 설계되었습니다. 벤치마크는&6;개의 테이블로 구성된 데이터베이스에 실행합니다. 테이블은 고정 크기, 확장, 증가의 세 범주로 구분됩니다. 2개의 고정 크기 테이블,&3;개의 확장 테이블,&1;개의 증가 테이블이 있습니다. 고정 크기 테이블에는 고정된 수의 행이 있습니다. 확장 테이블에는 데이터베이스 성능에 비례하는 카디널리티가 있지만 벤치마크 중에는 변경되지 않습니다. 증가 테이블은 초기 로드 시 확장 테이블과 같은 크기이지만, 행을 삽입 및 증가하면서 벤치마크를 실행하는 동안 카디널리티가 변경됩니다.
 
-스키마에는 정수, 숫자, 문자, 날짜/시간 등 혼합된 데이터 유형이 포함되어 있습니다. 스키마에는 기본 및 보조 키가 포함되어 있지만 외부 키가 없습니다. 즉, 테이블 간   참조 무결성 제약 조건이 없습니다.
+스키마에는 정수, 숫자, 문자, 날짜/시간 등 혼합된 데이터 유형이 포함되어 있습니다. 스키마에는 기본 및 보조 키가 포함되어 있지만 외부 키가 없습니다. 즉, 테이블 간 참조 무결성 제약 조건이 없습니다.
 
 데이터 생성 프로그램은 초기 데이터베이스의 데이터를 생성합니다. 정수 및 숫자 데이터는 다양한 전략으로 생성됩니다. 값이 범위에 무작위로 분포되는 경우도 있습니다. 또한 특정 분포를 유지하기 위해 값 집합을 무작위로 변경하는 경우도 있습니다. 가중치를 적용한 단어 목록에서 텍스트 필드를 생성하여 현실적 데이터를 만듭니다.
 
@@ -131,10 +131,10 @@ Azure SQL 데이터베이스 벤치마크는 사용 가능한 다양한 서비�
 
 [서비스 계층 및 성능 수준](sql-database-service-tiers.md)
 
-[독립 실행형 데이터베이스의 성능 지침](sql-database-performance-guidance.md)
+[단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

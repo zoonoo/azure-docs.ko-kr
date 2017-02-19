@@ -1,8 +1,8 @@
 ---
 title: "내보내기 작업에 대한 드라이브 사용량 미리 보기 | Microsoft Docs"
 description: "Azure Import-Export 서비스에서 내보내기 작업을 위해 선택한 Blob의 목록을 미리 보는 방법을 알아봅니다."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
+ms.sourcegitcommit: 358e3f2574cab0150c59f96b9bc4d32d959e94a8
+ms.openlocfilehash: 9ba9a3970925466285ae1df4676501fbdd24bd66
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
 |**/sn:**<StorageAccountName\>|필수입니다. 내보내기 작업에 대한 저장소 계정의 이름입니다.|  
 |**/sk:**<StorageAccountKey\>|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 저장소 계정의 계정 키입니다.|  
 |**/csas:**<ContainerSas\>|저장소 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|필수입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록이 포함된 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageservices/importexport/Put-Job) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|필수입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록이 포함된 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
 |**/DriveSize:**<DriveSize\>|필수입니다. 내보내기 작업에 사용할 드라이브의 크기는 *예를 들어* 500GB, 1.5TB입니다.|  
   
 다음 예제에서는 `PreviewExport` 명령을 보여 줍니다.  
@@ -74,6 +74,7 @@ Number of drives needed:        3
 [Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 
