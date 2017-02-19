@@ -50,10 +50,10 @@
 
 # 리소스
 ## [PowerShell 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI 2.0(미리보기) 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Azure CLI 1.0 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

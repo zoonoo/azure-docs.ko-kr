@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Container Service 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "DC/OS, Docker Swarm 또는 Kubernetes를 사용하여 응용 프로그램 컨테이너를 배포하고 관리하는 데 Container Service를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+services: container-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: container-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2cad92fb6f250b4c28a85bee55c3694966082f44
-ms.openlocfilehash: 134b8d76e92fdb40cb8c4bf39dd2922d47e2bbe9
+ms.sourcegitcommit: 8dd0b2fe35c7f6280e6c1032d788955c891668d2
+ms.openlocfilehash: b5e7c83af078678454e6fc036bff657de402cf73
 
 ---
 
@@ -83,6 +94,6 @@ Container Service를 사용하여 완전히 이식 가능한 응용 프로그램
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

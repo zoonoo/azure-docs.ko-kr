@@ -44,6 +44,7 @@
 ### [통합 모듈](automation-integration-modules.md)
 ### [일정](automation-schedules.md)
 ### [변수](automation-variables.md)
+### [Azure PowerShell 모듈 업데이트](automation-update-azure-modules.md)
 ## 자동화 시나리오
 ### [Runbook 갤러리](automation-runbook-gallery.md)
 ### [가상 컴퓨터 시작/중지](automation-solution-startstopvm-graphical.md)
@@ -81,6 +82,6 @@
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

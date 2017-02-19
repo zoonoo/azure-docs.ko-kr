@@ -1,12 +1,22 @@
 ---
-layout: LandingPage
+title: "Azure 모니터링 및 진단 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. API 참조, 모범 사례 등입니다."
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1db31bcf230b588954e9df00dd55a1b23c8d95cf
-ms.openlocfilehash: 89826ce2901b9b08ef9c9658abb8acd36e3d71fd
+ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
+ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>모니터링 및 진단 설명서
 
 Azure 모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. 자습서, API 참조, 모범 사례 및 기타 설명서를 통해 모니터링 및 진단의 사용법과 확장성 및 안정성이 뛰어난 솔루션을 계획하고 배포하는 방법을 이해할 수 있습니다.
@@ -164,6 +174,6 @@ Azure 모니터링 및 진단 서비스를 사용하여 성능을 추적하고 �
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

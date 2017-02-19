@@ -1,5 +1,6 @@
 # 개요
 ## [Azure Container Service란?](container-service-intro.md)
+## [FAQ](container-service-faq.md)
 # 시작
 ## [ACS 클러스터 배포](container-service-deployment.md)
 ## [Azure CLI 2.0(미리 보기)을 사용하여 ACS에 배포](container-service-create-acs-cluster-cli.md)
@@ -43,6 +44,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

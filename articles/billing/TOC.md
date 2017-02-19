@@ -1,9 +1,10 @@
-# [시작](billing-getting-started.md)
+# 시작
+## [예기치 않은 비용 방지](billing-getting-started.md)
 ## [Office 365 계정을 사용하여 등록](billing-use-existing-office-365-account-azure-subscription.md)
-## [한도 및 할당량](../azure-subscription-service-limits.md)
+## [한도 및 할당량](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # 방법
 ## 사용량 및 비용 모니터링
-### [청구서 및 사용량 다운로드](billing-download-azure-invoice-daily-usage-date.md)
+### [청구서 및 사용량 가져오기](billing-download-azure-invoice-daily-usage-date.md)
 ### [요금 청구 방식](billing-understand-your-bill.md)
 ### [외부 서비스 요금 이해](billing-understand-your-azure-marketplace-charges.md)
 ### [청구 경고 설정](billing-set-up-alerts.md)
@@ -32,6 +33,7 @@
 
 # 리소스
 ## [지원에 문의](../azure-supportability/how-to-create-azure-support-request.md)
+
 
 <!--HONumber=Feb17_HO2-->
 

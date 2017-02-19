@@ -90,7 +90,7 @@
 ### [Azure Search와의 통합](../search/search-howto-index-documentdb.md)
 ### [Azure Data Factory를 사용하여 데이터 이동](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Azure Stream Analytics로 실시간 데이터 분석](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Logic Apps로 알림 받기](documentdb-change-notification.md)
+### [Logic Apps를 사용하여 변경된 HL7 FHIR 레코드 가져오기](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [실시간 프로세스 센서 데이터](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI를 사용하여 데이터 시각화](documentdb-powerbi-visualize.md)
 ### [데이터 시각화에 ODBC 드라이버 활용](documentdb-nosql-odbc-driver.md)

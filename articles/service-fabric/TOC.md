@@ -21,11 +21,14 @@
 ## 응용 프로그램 빌드
 ### [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)
 ### 기본 사항
-#### [프로그래밍 모델](service-fabric-choose-framework.md)
 #### [응용 프로그램 모델](service-fabric-application-model.md)
+#### [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
+#### [서비스 상태](service-fabric-concepts-state.md)
 #### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
+#### [웹 프런트 엔드 추가](service-fabric-add-a-web-frontend.md)
 #### [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)
-#### [도구](service-fabric-manage-application-in-visual-studio.md)
+#### [Visual Studio에서 앱 관리](service-fabric-manage-application-in-visual-studio.md)
+#### [Visual Studio에서 보안 연결 구성](service-fabric-visualstudio-configure-secure-connections.md)
 #### 디버그
 ##### [VS에서 C# 서비스 디버그](service-fabric-debugging-your-application.md)
 ##### [Eclipse에서 Java 서비스 디버그](service-fabric-debugging-your-application-java.md)
@@ -36,6 +39,15 @@
 #### [응용 프로그램에 대한 보안 정책 구성](service-fabric-application-runas-security.md)  
 #### [여러 환경에 대한 응용 프로그램 구성](service-fabric-manage-multiple-environment-app-configuration.md)  
 #### [일반적인 오류 및 예외](service-fabric-errors-and-exceptions.md) 
+
+### 게스트 실행 가능 응용 프로그램
+#### [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
+#### [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
+
+### 컨테이너 응용 프로그램
+#### [개요](service-fabric-containers-overview.md)
+#### [Windows 컨테이너 배포](service-fabric-deploy-container.md)
+#### [Docker 컨테이너 배포](service-fabric-deploy-container-linux.md)
 
 ### 신뢰할 수 있는 서비스 응용 프로그램
 #### [개요](service-fabric-reliable-services-introduction.md)
@@ -73,15 +85,6 @@
 #### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [통신 설정 구성](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
-### 게스트 실행 가능 응용 프로그램
-#### [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)
-#### [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
-
-### 컨테이너 응용 프로그램
-#### [개요](service-fabric-containers-overview.md)
-#### [Windows 컨테이너 배포](service-fabric-deploy-container.md)
-#### [Docker 컨테이너 배포](service-fabric-deploy-container-linux.md)
-
 ## Cloud Services에서 마이그레이션
 ### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
 ### [Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -95,7 +98,7 @@
 #### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 #### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 #### [Azure CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md) 
-#### [보안](service-fabric-cluster-security.md)
+#### [클러스터에 보안 적용](service-fabric-cluster-security.md)
 #### [재해 복구](service-fabric-disaster-recovery.md)
 
 ### Azure의 클러스터
@@ -108,6 +111,7 @@
 #### [클러스터 삭제](service-fabric-cluster-delete.md)
 #### [액세스 제어](service-fabric-cluster-security-roles.md)
 #### [클러스터 구성](service-fabric-cluster-fabric-settings.md)
+#### [인증서를 사용하여 클러스터 보안](service-fabric-windows-cluster-x509-security.md)
 #### [클러스터 인증서 추가 또는 롤오버](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Party 클러스터 무료 체험](http://aka.ms/tryservicefabric)
 
@@ -116,30 +120,15 @@
 #### [Azure Virtual Machines에서 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [클러스터의 크기 조정](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [클러스터 업그레이드](service-fabric-cluster-upgrade-windows-server.md)
-#### [클러스터에 보안 적용](service-fabric-windows-cluster-x509-security.md)
 #### [액세스 제어](service-fabric-cluster-security-roles.md)
 #### [클러스터 구성](service-fabric-cluster-manifest.md)
 #### [인증서를 사용하여 클러스터 보안](service-fabric-windows-cluster-x509-security.md)  
 #### [Windows 보안을 사용하여 클러스터 보안](service-fabric-windows-cluster-windows-security.md) 
 
-## 클러스터 리소스 관리 및 오케스트레이션
-### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
-### [클러스터 Resource Manager 아키텍처](service-fabric-cluster-resource-manager-architecture.md)
-### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
-### [응용 프로그램 그룹 개요](service-fabric-cluster-resource-manager-application-groups.md)
-### [클러스터 Resource Manager 설정 구성](service-fabric-cluster-resource-manager-configure-services.md)
-### [리소스 사용 메트릭](service-fabric-cluster-resource-manager-metrics.md)
-### [서비스 선호도 사용](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [서비스 배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [클러스터 관리](service-fabric-cluster-resource-manager-management-integration.md)
-### [클러스터 조각 모음](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [클러스터 균형 조정](service-fabric-cluster-resource-manager-balancing.md)
-### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## 응용 프로그램 수명 주기 관리
 ### [개요](service-fabric-application-lifecycle.md)
 ### [연속 통합 설정](service-fabric-set-up-continuous-integration.md)
+### [ImageStoreConnectionString 설정 이해](service-fabric-image-store-connection-string.md)
 ### 응용 프로그램 배포 또는 제거
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -169,8 +158,8 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [서비스 프로세스에서 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
 ### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
+### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
 ### [일반적인 문제 해결](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
@@ -192,6 +181,21 @@
 #### [노드 전환 API 소개](service-fabric-node-transition-apis.md)
 ### [응용 프로그램 부하 테스트](service-fabric-vso-load-test.md)
 
+## 클러스터 리소스 관리 및 오케스트레이션
+### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
+### [클러스터 Resource Manager 아키텍처](service-fabric-cluster-resource-manager-architecture.md)
+### [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)
+### [응용 프로그램 그룹 개요](service-fabric-cluster-resource-manager-application-groups.md)
+### [클러스터 Resource Manager 설정 구성](service-fabric-cluster-resource-manager-configure-services.md)
+### [리소스 사용 메트릭](service-fabric-cluster-resource-manager-metrics.md)
+### [서비스 선호도 사용](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [서비스 배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [클러스터 관리](service-fabric-cluster-resource-manager-management-integration.md)
+### [클러스터 조각 모음](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [클러스터 균형 조정](service-fabric-cluster-resource-manager-balancing.md)
+### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
+
 # 참조
 ## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
 ## [Java API](/java/api/microsoft.servicefabric.services)
@@ -209,6 +213,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
