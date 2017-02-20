@@ -26,7 +26,7 @@ ms.openlocfilehash: 968df0fde8b042cdea369e566ecdb62937a3b8ee
 
 Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요 
 
-이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 저장소 계정 또는 [여러 저장소 계정을](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs) 가리키는[ 연결 문자열을 사용하여 Visual Studio에서 WebJob](websites-dotnet-webjobs-sdk-get-started.md) 프로젝트를 만드는 방법을 알고 있는 것으로 가정합니다.
 
 ## <a name="a-idtriggera-how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a><a id="trigger"></a> Blob가 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 이 섹션에서는 `BlobTrigger` 특성을 사용하는 방법을 보여 줍니다. 
@@ -94,7 +94,7 @@ Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사�
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-*  [ICloudBlobStreamBinder](#icbsb) 
+* [ICloudBlobStreamBinder](#icbsb) 
 
 Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `CloudStorageAccount` 매개 변수를 추가할 수도 있습니다.
 
