@@ -1,0 +1,164 @@
+---
+title: "Azure AD 응용 프로그램 프록시 커넥터 이해 | Microsoft Docs"
+description: "Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다."
+services: active-directory
+documentationcenter: 
+author: kgremban
+manager: femila
+ms.assetid: 
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/12/2017
+ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 36e737ebc3451a190e99dc2bc91ef4242d2f573e
+ms.openlocfilehash: e9dfe8ad62dfa0eec810ecdeeddadbecc25b9163
+
+
+---
+
+# <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
+
+이 문서에서는 Azure AD 응용 프로그램 프록시의 비밀 기술인 커넥터에 대해 설명합니다. 커넥터는 간단하고 배포 및 유지 관리가 쉬우며 기능이 매우 강력합니다.
+
+> [!NOTE]
+> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> 
+> 
+
+## <a name="what-are-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터란?
+응용 프로그램 프록시는 네트워크에서 커넥터라는 Windows Server 서비스를 설치해야 작동합니다. 고가용성 및 확장성 요구에 따라 커넥터를 설치할 수 있습니다. 한 개의 커넥터로 시작하고 필요에 따라 더 추가합니다. 커넥터가 설치될 때마다 테넌트를 제공하는 커넥터 풀에 추가됩니다.
+
+응용 프로그램 서버 자체에 커넥터를 설치하는 것이 가능하더라도 설치하지 않는 것이 좋습니다(특히 소규모 배포인 경우).
+
+더 이상 사용하지 않는 커넥터를 삭제하지 않아도 됩니다. 커넥터가 실행 중인 경우 서비스에 연결됨에 따라 활성 상태가 유지됩니다. 사용되지 않는 커넥터는 _비활성_으로 태그 지정되고 비활성 상태가 된 10일 후 제거됩니다. 
+
+Azure AD 연결 문제를 해결하는 방법은 [Azure AD 응용 프로그램 프록시 연결 문제 해결 방법](https://blogs.technet.microsoft.com/applicationproxyblog/2015/03/24/how-to-troubleshoot-azure-ad-application-proxy-connectivity-problems)을 참조하세요. 
+
+## <a name="what-are-the-cloud-rules-for-connectors"></a>커넥터에 대한 클라우드 규칙이란?
+커넥터와 서비스는 모든 고가용성 작업을 처리합니다. 동적으로 추가하거나 제거할 수 있습니다. 새 요청이 수신될 때마다 현재 사용할 수 있는 커넥터 중 하나로 라우팅됩니다. 일시적으로 커넥터를 사용할 수 없는 경우 이 트래픽에 응답하지 않습니다.
+
+커넥터는 상태 비저장이며, 서비스 설정으로 연결 및 이 커넥터를 인증하는 인증서 이외의 구성 데이터를 컴퓨터에 포함하지 않습니다. 서비스에 연결할 때 필요한 모든 구성 데이터를 끌어오고 몇 분마다 새로 고쳐집니다.
+또한 서버를 풀링하여 최신 버전의 커넥터가 있는지 확인합니다. 최신 버전이 있으면 커넥터가 자체적으로 업데이트합니다.
+
+이벤트 로그 및 성능 카운터를 사용하거나 아래와 같이 커넥터 상태 페이지를 사용하여 클라우드로, 실행 중인 컴퓨터에서 커넥터를 모니터링할 수 있습니다.
+
+ ![AzureAD 응용 프로그램 프록시 커넥터](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
+
+## <a name="all-networking-is-outbound"></a>모든 네트워킹이 아웃바운드됨
+커넥터는 아웃바운드 요청만 보내므로 항상 커넥터에서 연결이 시작됩니다. 세션이 설정된 후에는 트래픽이 양방향으로 흐르므로 인바운드 포트를 열지 않아도 됩니다.
+
+아웃바운드 트래픽은 응용 프로그램 프록시 서비스와 게시된 응용 프로그램으로 전송됩니다. 서비스에 대한 트래픽은 Azure 데이터 센터에 여러 개의 서로 다른 포트 번호로 전송됩니다. 자세한 내용은 [Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)을 참조하세요.
+
+아웃바운드 트래픽만 포함하므로 커넥터 간의 부하 분산을 설정하거나 방화벽을 통과하는 인바운드 액세스를 구성할 필요가 없습니다.
+
+아웃바운드 방화벽 규칙 구성에 대한 자세한 내용은 [기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)을 참조하세요.
+
+## <a name="network-security"></a>네트워크 보안
+
+커넥터는 네트워크 어느 곳에나 설치할 수 있으므로 서비스와 백 엔드 응용 프로그램 모두에 요청을 전송할 수 있습니다. DMZ(완충 영역) 내에서 회사 네트워크 내부에 설치하거나 앱에 액세스하는 클라우드에서 실행 중인 가상 컴퓨터에서도 원활하게 작동합니다.
+
+일반적으로 DMZ 배포는 더 복잡합니다. 하지만 DMZ에서 커넥터를 배포하는 이유 중 하나는 실행 중인 구성 요소(예: 백 엔드 응용 프로그램 부하 분산 장치 및/또는 침입 감지 시스템과 같은 보안 제어)에 다른 인프라를 사용하는 것입니다.
+
+## <a name="domain-joining"></a>도메인 가입
+
+도메인 가입되지 않은 컴퓨터에서 커넥터를 실행할 수 있습니다. 하지만 Windows 통합 인증(IWA)을 사용하는 응용 프로그램에 SSO(Single Sign-On)을 사용하도록 선택한 경우에는 도메인 가입된 컴퓨터가 필요합니다. 
+
+이 경우 커넥터 컴퓨터는 게시된 응용 프로그램에 대한 관련 사용자 대신, [Kerberos](https://web.mit.edu/kerberos) 제한 위임을 수행할 수 있는 도메인에 가입되어야 합니다.
+
+커넥터는 도메인이나 부분 신뢰하는 포리스트 또는 RODC(읽기 전용 도메인 컨트롤러)에 가입할 수도 있습니다.
+
+## <a name="connectors-on-hardened-environments"></a>강화된 환경에서 커넥터
+
+대부분의 경우 커넥터 배포는 매우 간단하며 특별한 구성이 필요하지 않습니다. 하지만 몇 가지 고유한 조건을 고려해야 합니다.
+
+* 아웃바운드 트래픽을 제한하는 조직은 여기의 지침에 따라 필요한 포트를 열어야 합니다.
+* 커넥터 서비스, 커넥터 업데이터 서비스 및 해당 설치 관리자가 컴퓨터에 인증서를 생성 및 저장하도록 허용하기 위해 구성을 변경하는 데 FIPS 규격 컴퓨터가 필요할 수 있습니다.
+* 네트워킹 요청을 발행하는 프로세스에 따라 환경을 잠그는 조직은 두 커넥터 서비스가 필요한 모든 포트 및 IP에 액세스할 수 있는지 확인해야 합니다.
+* 경우에 따라 아웃바운드 전달 프록시가 양방향 인증서 인증을 중단하여 통신에 실패할 수 있습니다.
+
+## <a name="all-connectors-are-created-almost-equal"></a>모든 커넥터가 거의 같게 생성됨
+
+모든 커넥터는 서로 동일하다고 간주되며 들어오는 모든 요청은 커넥터 중 하나에 수신될 수 있습니다. 따라서 모두 동일한 네트워크 연결 및 [Kerberos](https://web.mit.edu/kerberos) 설정을 포함해야 합니다.
+
+모든 커넥터-서비스 통신은 커넥터 컴퓨터에서 발급 후 설치된 클라이언트 인증서로 보호됩니다. 커넥터 인증서 갱신에 대한 자세한 내용은 [Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)을 참조하세요.
+
+## <a name="connector-authentication"></a>커넥터 인증
+
+안전한 서비스를 제공하기 위해 커넥터는 서비스에 대해 인증되어야 하고 서비스는 커넥터에 대해 인증되어야 합니다. 커넥터에서 연결을 시작할 때 클라이언트 및 서버 인증서를 사용하여 이 작업을 수행합니다. 이 경우 관리자의 사용자 이름 및 암호는 커넥터 컴퓨터에 저장되지 않습니다.
+
+사용된 인증서는 응용 프로그램 프록시 서비스로 국한됩니다. 인증서는 초기 등록 중에 생성되며 몇 개월마다 커넥터에 의해 자동으로 갱신됩니다. 
+
+몇 달 동안 커넥터가 서비스에 연결되지 않는 경우 인증서가 만료될 수 있습니다. 이 경우 등록이 필요하므로 커넥터를 제거 후 다시 설치하여 등록을 트리거해야 합니다. 다음 PowerShell 명령을 실행하면 됩니다.
+
+```
+* Import-module AppProxyPSModule
+* Register-AppProxyConnector
+```
+
+## <a name="performance-and-scalability"></a>성능 및 확장성
+
+온라인 서비스의 규모가 투명하더라도 규모는 커넥터와 관련된 요소입니다. 최고 트래픽을 처리할 만큼 충분한 커넥터를 마련해야 합니다. 커넥터는 상태 비저장이므로 사용자 또는 세션 수에 종속되지 않습니다. 대신, 요청 수와 페이로드 크기에 종속됩니다. 표준 웹 트래픽의 경우 평균적인 컴퓨터에서 초당 몇 천 요청을 처리하는 것으로 보입니다. 이것은 정확한 컴퓨터 특성에 따라 다릅니다.
+
+커넥터 성능은 CPU 및 네트워킹에 의해 한정됩니다. SSL 암호화 및 암호 해독에는 CPU 성능이 필요한 반면, 응용 프로그램 및 Azure의 온라인 서비스에 신속히 연결하기 위해서는 네트워킹이 중요합니다. 반면, 커넥터에서는 메모리가 중요하지 않습니다.
+
+커넥터 서비스의 경우 가능한 최대한 커넥터를 오프로드하도록 합니다. 온라인 서비스는 인증되지 않은 모든 트래픽에서 대부분의 과정을 처리합니다. 클라우드에서 수행할 수 있는 모든 작업은 클라우드에서 수행됩니다.
+
+성능에 관한 다른 요소는 커넥터 간 네트워킹의 품질이며 다음과 같습니다.
+
+* _온라인 서비스:_ 연결이 느리거나 대기 시간이 긴 경우. 서비스 수준에 영향을 줍니다. 조직이 Express 경로를 통해 Azure에 연결되는 경우 성능이 가장 좋습니다. 그렇지 않은 경우 네트워킹 팀에서 Azure에 대한 연결이 효율적인 방식으로 처리되도록 하는지 확인합니다.
+
+* _백 엔드 응용 프로그램:_ 일부 경우 커넥터와 백 엔드 응용 프로그램 간에 추가 프록시가 있습니다. 커넥터 컴퓨터에서 브라우저를 열고 이러한 응용 프로그램에 액세스하여 문제를 해결하는 것이 쉽습니다. Azure에서 커넥터를 실행하고 응용 프로그램이 온-프레미스 상태이면 사용자가 기대한 환경이 아닐 수 있습니다.
+* _도메인 컨트롤러:_ 커넥터가 Kerberos 제한 위임(KCD)을 사용하여 SSO를 수행 중이면 백 엔드에 요청을 보내기 전에 도메인 컨트롤러에 연결합니다. 커넥터에는 Kerberos 티켓 캐시가 있지만 사용량이 많은 환경에서는 도메인 컨트롤러의 응답성으로 환경이 느려질 수 있습니다. Azure에서 실행되는 커넥터에 더 일반적이지만 도메인 컨트롤러는 온-프레미스 상태입니다.
+
+##<a name="automatic-updates-to-the-connector"></a>커넥터 자동 업데이트
+
+커넥터 업데이터 서비스를 통해 자동으로 최신 상태가 유지됩니다. 따라서 모든 새로운 기능, 보안 및 성능 개선을 지속적으로 활용할 수 있습니다.
+
+Azure AD에서는 사용자가 배포하는 모든 커넥터에 대해 자동 업데이트를 지원합니다. 응용 프로그램 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 가동 중지 시간 없이 커넥터가 자동으로 업데이트되며 수동 단계가 필요하지 않습니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 커넥터를 다시 설치해야 합니다. 커넥터 설치에 대해 알아보려면 [설치 설명서](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-enable.md)를 참조하세요.
+
+### <a name="updater-impact"></a>업데이터 영향
+
+_커넥터가 하나 있는 테넌트:_ 커넥터가 하나만 있는 경우 커넥터는 최신 그룹의 일부로 업데이트됩니다. 트래픽을 다시 라우팅할 다른 커넥터가 없으므로 업데이트 중에는 서비스를 사용할 수 없습니다. 가동 중지를 피하고 고가용성을 보다 쉽게 조정하려면 두 번째 커넥터를 설치하고 커넥터 그룹을 만드는 것이 좋습니다. 이 작업을 수행하는 방법은 [커넥터 그룹에 대한 설명서](https://azure.microsoft.com/en-us/documentation/articlesactive-directory-application-proxy-connectors.md)를 참조하세요.
+
+_다른 테넌트:_ 커넥터 업데이트 중에는 최소한의 중단을 위해 트래픽이 다른 커넥터로 다시 라우팅됩니다. 하지만 업데이트가 시작될 때 진행 중인 트랜잭션은 삭제될 수 있습니다. 브라우저에서 작업을 자동으로 다시 시도하여 이러한 잠재적인 삭제가 사용자에게 투명하게 보입니다. 그렇지 않은 경우 이 문제를 해결하려면 페이지를 새로 고쳐야 할 수 있습니다.
+
+가동 중지 시간이 불과&1;분이라도 상당한 불편을 초래할 수 있지만 이러한 업데이트를 통해 유용하다고 판단되는 다양한 개선 기능을 통해 더 나은 커넥터를 이용할 수 있습니다.
+
+최근 커넥터 업데이트의 변경 내용에 대한 자세한 내용은 [최신 업데이트](https://azure.microsoft.com/en-us/updates/app-proxy-connector-12sept2016)를 참조하세요. 각 업데이트로 페이지를 수정합니다.
+
+## <a name="under-the-hood"></a>내부 살펴보기
+
+Azure에서는 유용한 많은 도구를 제공합니다. 특히 커넥터의 경우 많은 유용한 기능이 제공됩니다. 커넥터는 Windows Server 웹 응용 프로그램 프록시를 기반으로 하므로, 아래 이벤트 뷰어에 표시된 것처럼 풍부한 Windows 이벤트 로그 및 Windows 성능 카운터 집합을 포함한 동일한 관리 도구를 대부분 포함합니다.
+
+ ![AzureAD 이벤트 뷰어](./media/application-proxy-understand-connectors/event-view-window.png)
+
+성능 모니터:
+
+ ![AzureAD 성능 모니터](./media/application-proxy-understand-connectors/performance-monitor.png)
+
+커넥터에는 관리 및 세션 로그가 모두 포함됩니다. 관리 로그에는 주요 이벤트와 해당 오류가 포함됩니다. 세션 로그에는 모든 트랜잭션 및 처리 세부 정보가 포함됩니다. 
+
+이 내용을 보려면 이벤트 뷰어 "보기" 메뉴에서 "분석 및 디버그 로그 표시"를 사용하도록 설정해야 합니다. 그런 다음 활성화하여 이벤트 수집을 시작합니다. 커넥터는 보다 최신 버전을 기반으로 하므로 Windows Server 2012 R2에서는 이러한 로그가 웹 응용 프로그램 프록시에 나타나지 않습니다.
+
+ ![AzureAD 이벤트 뷰어 세션](./media/application-proxy-understand-connectors/event-view-window-session.png)
+
+서비스 창에서 서비스 상태를 검사할 수 있습니다. 커넥터는 Windows 서비스&2;개로 구성되는데, 하나는 실제 커넥터이고 다른 하나는 업데이트 처리용입니다. 둘 다 항상 실행되어야 합니다.
+
+ ![AzureAD 서비스 로컬](./media/application-proxy-understand-connectors/aad-connector-services.png)
+
+응용 프로그램 프록시 커넥터 오류 해결에 대한 자세한 내용은 [응용 프로그램 프록시 문제 해결](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot)을 참조하세요.
+
+##<a name="next-steps"></a>다음 단계
+[기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)<br>
+[Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법](active-directory-application-proxy-silent-installation.md)
+
+
+
+
+<!--HONumber=Feb17_HO1-->
+
+

@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 6d05de6ac944b69402583e939d6b498515945461
-ms.openlocfilehash: f8b13b2b39cf0c860ad59f43eb341c5924804dd9
+ms.sourcegitcommit: 847081123123c849033c9de2b3c4359042d41359
+ms.openlocfilehash: da29f6015502e4ce5a63ca1c47106dc346026803
 
 
 ---
@@ -289,7 +289,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### <a name="using-code-behind"></a>코드 숨김 사용
 U-SQL 프로그램의 코드 숨김 섹션에서 동일한 기능을 사용하려면 ToDateTime C# 함수를 정의합니다.
 
-변경할 필요가 있는 위 기본 U-SQL 스크립트의 섹션은 다음과 같습니다.
+다음은 필요한 사항을 변경한 기본 U-SQL 스크립트 섹션입니다.
 
 ```sql
      @rs1 =
@@ -392,6 +392,7 @@ U-SQL 확장성 모델은 사용자 지정 코드를 추가하는 기능에 따�
 스크립트를 열 때 다음과 같이 생성된 프롤로그와 에필로그를 확인할 수 있습니다.
 
 ![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
 **그림 2**: 코드 숨김에 대해 자동 생성된 프롤로그 및 에필로그
 <br />
 
@@ -422,7 +423,7 @@ U-SQL 확장성 모델은 사용자 지정 코드를 추가하는 기능에 따�
 
 아래 예제에서는 이러한 두 옵션을 모두 사용합니다. [이미지 처리 최근 블로그 게시물](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/)은 이러한 등록 옵션을 사용할 수 있는 미리 정의된 어셈블리의 사용을 보여 주는 또 다른 예입니다.
 
-이제 등록된 어셈블리의 데이터베이스에 대한 권한이 있는 모든 U-SQL 스크립트에서 등록된 어셈블리를 참조할 수 있습니다(그림 4의 U-SQL 스크립트에 있는 코드 참조). 별도로 등록된 모든 어셈블리에 대한 참조를 추가해야 합니다. 추가 리소스 파일은 자동으로 배포됩니다. 해당 스크립트에는 참조된 어셈블리의 코드에 대한 코드 숨김 파일이 더 이상 없지만, 다른 코드는 계속 제공할 수 있습니다.
+이제 등록된 어셈블리의 데이터베이스에 대한 권한이 있는 모든 U-SQL 스크립트에서 등록된 어셈블리를 참조할 수 있습니다(그림 4의 U-SQL 스크립트에 있는 코드 참조). 별도로 등록된 모든 어셈블리에 대한 참조를 추가해야 합니다. 추가 리소스 파일은 자동으로 배포됩니다. 해당 스크립트에는 참조된 어셈블리의 코드에 대한 코드 숨김 파일이 더 이상 없지만, 코드 숨김 파일은 다른 코드를 계속 제공할 수 있습니다.
 
 ### <a name="registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts"></a>Visual Studio 및 U-SQL 스크립트에서 ADL 도구를 통해 어셈블리 등록
 Visual Studio의 ADL 도구를 사용하면 어셈블리를 쉽게 등록할 수 있지만, 예를 들어 다른 플랫폼에서 개발 중이거나 이미 업로드하고 등록하려는 어셈블리를 컴파일한 경우 도구에서 사용자를 위해 수행하는 것과 같은 방식으로 스크립트를 사용하여 등록할 수도 있습니다. 기본적으로 다음 단계를 수행합니다.
@@ -439,6 +440,7 @@ Visual Studio의 ADL 도구를 사용하면 어셈블리를 쉽게 등록할 수
 먼저 [Visual Studio 프로젝트](https://github.com/Azure/usql/tree/master/Examples/DataFormats)를 로컬 개발 환경에 다운로드합니다(예: Windows용 GitHub 도구를 사용하여 로컬 복사본 만들기). 그런 다음 Visual Studio에서 솔루션을 열고 위에서 설명한대로 프로젝트를 마우스 오른쪽 단추로 클릭하여 어셈블리를 등록합니다. 이 어셈블리에는 두 가지 종속성이 있지만 이미 Azure Data Lake에서 System.Xml을 사용할 수 있으므로 Newtonsoft 종속성만 포함하면 됩니다(명시적으로 참조해야 함). 그림 6에서는 어셈블리 이름을 지정하고(점을 포함하지 않는 다른 이름도 선택할 수 있음)과 Newtonsoft dll도 추가하는 방법을 보여 줍니다. 두 어셈블리 각각은 이제 지정된 데이터베이스(예: JSONBlog)에 개별적으로 등록됩니다.
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+
 **그림 6**: Visual Studio에서 Microsoft.Analytics.Samples.Formats 어셈블리를 등록하는 방법
 <br />
 

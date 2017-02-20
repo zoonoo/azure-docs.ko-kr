@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 
 ---
@@ -35,6 +35,10 @@ ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
 
 ## <a name="task-configuration"></a>작업 구성
 작업 구성(사전 설정) **Azure 미디어 OCR**로 작업을 만들 때에는 JSON 또는 XML을 사용하여 구성 사전 설정을 지정해야 합니다. 
+
+>[!NOTE]
+>OCR 엔진은 높이/너비의 유효한 입력으로 최소 40픽셀에서 최대 32000픽셀의 이미지 영역만 차지합니다.
+>
 
 ### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
@@ -342,6 +346,6 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 02/08/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 14b6b817c071ba833d2f49ca289151520e1e32f0
+ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
+ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
 
 
 ---
@@ -44,8 +44,6 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 
 > [!WARNING]
 > 기본 동기화 규칙에는 지문이 포함되어 있습니다. 이들 규칙을 변경하면 지문이 더 이상 일치하지 않습니다. 나중에 Azure AD Connect의 새 릴리스를 적용할 때 문제가 될 수 있습니다. 이 문서에 유일하게 변경하는 방법이 설명되어 있습니다.
-> 
-> 
 
 ### <a name="disable-an-unwanted-sync-rule"></a>원치 않는 동기화 규칙을 사용하지 않습니다
 기본 동기화 규칙을 삭제하지 마십시오. 다음 업그레이드 도중에 다시 만들어집니다.
@@ -57,6 +55,8 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 위의 그림에서 설치 마법사가 계정 포리스트의 이전 버전 Exchange 2003 스키마를 발견했습니다. 이 스키마 확장은 리소스 포리스트가 Fabrikam의 환경에 도입되기 전에 추가되었습니다. 동기화된 이전 버전의 Exchange 구현에 대한 특성이 없는지 확인하려면 동기화 규칙을 보여지는 것처럼 사용하지 않도록 설정해야 합니다.
 
 ### <a name="change-an-out-of-box-rule"></a>기본 규칙을 변경하려면
+조인 규칙을 변경해야 할 때만 기본 규칙을 변경할 수 있습니다. 특성 흐름을 변경해야 할 경우 기본 규칙보다 우선 순위가 높은 동기화 규칙을 만들어야 합니다. 실질적으로 복제해야 하는 유일한 규칙은 **In from AD - User Join** 규칙입니다. 다른 모든 규칙을 더 높은 우선 순위 규칙으로 덮어쓸 수 있습니다.
+
 기본 규칙을 변경해야 할 경우 기본 규칙의 복사본을 만든 다음 원래 규칙을 사용하지 않도록 설정해야 합니다. 그런 다음 복제된 규칙을 변경합니다. 동기화 규칙 편집기가 이들 단계를 수행하도록 도와줍니다. 기본 규칙을 열면 이 대화 상자가 나타납니다.  
 ![경고 받은 기본 규칙](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -73,7 +73,6 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

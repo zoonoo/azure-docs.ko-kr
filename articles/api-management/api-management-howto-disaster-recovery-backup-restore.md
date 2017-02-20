@@ -1,5 +1,5 @@
 ---
-title: "Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법 | Microsoft Docs"
+title: "Azure API Management에서 백업 및 복원을 사용하여 재해 복구 구현 | Microsoft Docs"
 description: "Azure API 관리에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
-
+ms.sourcegitcommit: 809fc7a5454c814d1d3edb8ebcdd40978952bc2c
+ms.openlocfilehash: d05404ed6893978a857a3ad66d5129998272ebbd
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -30,7 +29,7 @@ API 관리 서비스를 호스트하는 지역에 영향을 주는 가용성 문
 > [!NOTE]
 > 재해 복구를 위한 API 관리 서비스 인스턴스를 백업 및 복원하는 프로세스는 스테이징과 같은 시나리오에 대한 API 관리 서비스 인스턴스를 복제하는 데 사용할 수도 있습니다.
 >
-> 각 백업은 7일 후 만료되니 유의하세요. 7일의 만료 기간이 만료된 후 백업을 복원하려고 하면 `Cannot restore: backup expired` 메시지와 함께 복원이 실패합니다.
+> 각 백업은 30일 후 만료되니 유의하세요. 30일의 만료 기간이 만료된 후 백업을 복원하려고 하면 `Cannot restore: backup expired` 메시지와 함께 복원이 실패합니다.
 >
 >
 
@@ -214,6 +213,6 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

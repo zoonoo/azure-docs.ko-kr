@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: b1691d78e4914bd5cf9c75e32f36afceb997a622
+ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
+ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
 
 
 ---
@@ -40,7 +40,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 * 기본 계획에서는 데이터 볼륨(Application Insights에서 받은 원격 분석의 바이트 수)에 따라 요금이 청구됩니다. 데이터 볼륨은 응용 프로그램의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다.
 * 각 앱마다 최초의 1GB는 무료이므로 실험 중이거나 개발 중이라면 비용을 지불하지 않아도 됩니다.
-* 기본 계획에서 [연속 내보내기](app-insights-export-telemetry.md) 및 [Log Analytics 커넥터](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409)는 GB당 추가 요금으로 사용할 수 있습니다(단 2017년 3월 초까지는 무료).
+* 기본 계획에서 [연속 내보내기](app-insights-export-telemetry.md)는 GB당 추가 요금으로 사용할 수 있습니다(단 2017년 3월 초까지는 무료).
 
 ### <a name="enterprise-plan"></a>엔터프라이즈 계획
 
@@ -174,6 +174,6 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8fdd2993e6b3f0345948f35753ebb7a20ed174e3
-ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
+ms.sourcegitcommit: 9543ac09eacceaf1d740b2e2be25c85924d1fad4
+ms.openlocfilehash: ea2d41002cf20fd3ee93f05650cc2e47e1dfb20e
 
 
 ---
@@ -26,6 +26,8 @@ ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B 공동 작업 초대 전자 메일의 요소
 
 초대 전자 메일은 온보드의 파트너를 Azure AD에서 B2B 공동 작업 사용자로 불러오기 위한 중요한 구성 요소입니다. 이 요소의 주요 목표는 받는 사람의 신뢰를 높이고 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있게 됩니다. 이것은 공유에 따른 마찰을 줄이는 핵심 구성 요소입니다. 또한 전자 메일이 보기 좋다면 금상첨화일 것입니다.
+
+![Azure AD B2b 초대 전자 메일](media/active-directory-b2b-invitation-email/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>전자 메일 설명
 전자 메일의 몇 가지 요소를 확인하여 이러한 기능을 최대한 활용하는 방법에 대해 살펴보겠습니다.
@@ -40,7 +42,7 @@ ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
 회신 전자 메일은 사용 가능할 때 초대자의 전자 메일로 설정되므로 전자 메일에 회신하면 초대자에게 전자 메일이 다시 전송됩니다.
 
 ### <a name="branding"></a>브랜딩
-테넌트에서 보낸 초대 전자 메일은 테넌트에 대해 설정했을 수 있는 회사 브랜딩을 사용합니다. 이를 활용하려는 경우 자세한 구성 방법은 다음과 같습니다. 배너 로고가 전자 메일에 표시됩니다. 최상의 결과를 얻으려면 여기에 제공되는 이미지 크기 및 품질 지침을 따르세요. 또한 회사 이름이 활용 방안에도 표시됩니다.
+테넌트에서 보낸 초대 전자 메일은 테넌트에 대해 설정했을 수 있는 회사 브랜딩을 사용합니다. 이를 활용하려는 경우 자세한 구성 방법은 [다음](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal)과 같습니다. 배너 로고가 전자 메일에 표시됩니다. 최상의 결과를 얻으려면 [여기](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal)에 제공되는 이미지 크기 및 품질 지침을 따르세요. 또한 회사 이름이 활용 방안에도 표시됩니다.
 
 ### <a name="call-to-action"></a>활용 방안
 활용 방안은 받는 사람이 메일을 받은 이유에 대한 설명과 받는 사람이 요청 받은 작업의 두 부분으로 구성됩니다.
@@ -50,15 +52,15 @@ ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
 
 ### <a name="inviters-information"></a>초대자에 대한 정보
 초대자의 표시 이름이 전자 메일에 포함됩니다. 또한 Azure AD 계정에 대해 프로필 사진을 설정한 경우 초대 전자 메일에 해당 사진도 포함됩니다. 이러한 두 가지 항목 모두 전자 메일에 대한 받는 사람의 신뢰도를 높이기 위한 것입니다.
+
 초대자가 자신의 프로필 사진을 아직 설정하지 않은 경우 Azure AD는 다음과 같이 그림 대신 초대자의 이니셜이 있는 아이콘을 만듭니다.
 
   ![초대자의 이니셜 표시](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
 ### <a name="body"></a>body
-여기에는 초대자가 UX에 입력했거나 초대 API를 통해 전달된 메시지가 포함됩니다. 이것은 단순 텍스트 상자에 불과하며, 보안상의 이유로 html 태그를 처리하지 않습니다.
+여기에는 초대자가 작성했거나 초대 API를 통해 전달된 메시지가 포함됩니다. 이것은 텍스트 영역에 불과하며, 보안상의 이유로 HTML 태그를 처리하지 않습니다.
 
 ### <a name="footer-section"></a>바닥글 섹션
-
 바닥글에는 Microsoft 회사 브랜드가 포함되며, 받는 사람은 이를 통해 전자 메일이 모니터링되지 않은 별칭에서 전송되었는지 여부를 알 수 있습니다. 특수 사례:
 
 - 초대자에게 초대 테넌시의 전자 메일 주소가 없습니다.
@@ -76,7 +78,14 @@ ms.openlocfilehash: 5a31469014b7b0c7ea8a6d6a207646694c6c0b50
 Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 
 * [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](active-directory-b2b-admin-add-users.md)
+* [정보 작업자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](active-directory-b2b-how-it-works.md)
+* [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B 공동 작업 라이선스](active-directory-b2b-licensing.md)
+* [Azure Active Directory B2B 공동 작업 문제 해결](active-directory-b2b-troubleshooting.md)
+* [Azure Active Directory B2B 공동 작업 자주 묻는 질문 (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
+* [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
 

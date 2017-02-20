@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열 배포에 대한 두 번째 자습서에�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: d623c4172a654b90d68c6e6e488a2c791abe8647
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
@@ -48,7 +48,7 @@ ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 * 가상 배열을 프로비전하려면 호스트 시스템에서 다음 리소스를 전용으로 사용할 수 있습니다.
 
   * 코어 4개 이상
-  * RAM 8GB 이상
+  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개 미만의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
   * 네트워크 인터페이스 하나
   * 데이터용 가상 디스크 500GB
 
@@ -73,7 +73,7 @@ ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 가상 배열을 만드는 기본 하드웨어(호스트 시스템)에서 가상 배열에 대해 다음 리소스를 전용으로 사용할 수 있도록 해야 합니다.
 
 * 코어 4개 이상
-* RAM 8GB 이상
+* RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개 미만의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
 * 네트워크 인터페이스 하나
 * 시스템 데이터용 가상 디스크 500GB
 
@@ -217,6 +217,6 @@ ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

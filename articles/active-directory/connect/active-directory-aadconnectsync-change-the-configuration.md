@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect 동기화: 기본 구성을 변경하는 방법 | Microsoft Docs"
+title: "Azure AD Connect 동기화: Azure AD Connect 동기화의 구성 변경 | Microsoft Docs"
 description: "Azure AD Connect 동기화의 구성을 변경하는 방법을 안내합니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 1e5356dca98e8da035c1ffb1eca16e8b16dbfe77
+ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
+ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
 
 
 ---
@@ -61,11 +61,11 @@ ms.openlocfilehash: 1e5356dca98e8da035c1ffb1eca16e8b16dbfe77
    * 태그: 비워 둡니다. Microsoft의 기본 규칙으로만 이 상자에 값을 채워야 합니다.
 3. **범위 지정 필터** 페이지에서 **givenName ISNOTNULL**을 입력합니다.  
    ![인바운드 규칙 범위 지정 필터](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
-    이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 이를 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
+   이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 이를 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
 4. **조인 규칙**에서는 이를 비워 둡니다.
 5. **변환** 페이지에서 FlowType을 **식**으로 변경합니다. 대상 특성 **givenName**을 선택하고, 소스에 `PCase([givenName])`을(를) 입력합니다.
    ![인바운드 규칙 변환](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
-    동기화 엔진은 함수 이름과 특성의 이름에서 대/소문자를 구분합니다. 잘못 입력한 경우 규칙을 추가할 때 경고가 표시됩니다. 규칙을 다시 열고 수정할 수 있도록 편집기를 사용하여 저장하고 계속합니다.
+   동기화 엔진은 함수 이름과 특성의 이름에서 대/소문자를 구분합니다. 잘못 입력한 경우 규칙을 추가할 때 경고가 표시됩니다. 규칙을 다시 열고 수정할 수 있도록 편집기를 사용하여 저장하고 계속합니다.
 6. **추가** 를 클릭하여 규칙을 저장합니다.
 
 새 사용자 지정 규칙은 시스템의 다른 동기화 규칙과 함께 표시되어야 합니다.
@@ -83,12 +83,12 @@ ms.openlocfilehash: 1e5356dca98e8da035c1ffb1eca16e8b16dbfe77
    ![전체 동기화](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    개체는 이제 메타버스에 업데이트됩니다. 이제 메타 버스의 개체를 보려 합니다.
 2. **단일 개체에서 미리 보기 및 전체 동기화**  
-   위쪽에 있는 **커넥터**를 선택합니다. 이전 섹션에서 변경 사항을 적용할 커넥터를 식별합니다. 이 경우 Active Directory 도메인 서비스를 선택합니다. **커넥터 공간 검색**을 선택합니다. 범위를 사용하여 변경 사항을 테스트하려는 개체를 찾습니다. 개체를 선택하고 **미리 보기**를 클릭합니다. 새 화면에서 **커밋 미리 보기**를 선택합니다.
+   위쪽에 있는 **커넥터**를 선택합니다. 이전 섹션에서 변경 사항을 적용할 커넥터를 식별합니다. 이 경우 Active Directory 도메인 서비스를 선택합니다. **커넥터 공간 검색**을 선택합니다. 범위를 사용하여 변경 사항을 테스트하려는 개체를 찾습니다. 개체를 선택하고 **미리 보기**를 클릭합니다. 새 화면에서 **커밋 미리 보기**를 선택합니다.  
    ![커밋 미리 보기](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
    이제 변경 사항이 메타버스에 커밋됩니다.
 
 **메타 버스의 개체 보기**  
- 이제 값을 예상하고 규칙을 적용하기 위해 몇 가지 샘플 개체를 선택해야 합니다. 위쪽에서 **메타 버스 검색** 을 선택합니다. 관련 개체를 찾기 위해 필요한 모든 필터를 추가합니다. 검색 결과에서 개체를 엽니다. 특성 값을 살펴보고 **동기화 규칙** 열에서 규칙이 예상대로 적용되었는지 확인합니다.  
+이제 값을 예상하고 규칙을 적용하기 위해 몇 가지 샘플 개체를 선택해야 합니다. 위쪽에서 **메타 버스 검색** 을 선택합니다. 관련 개체를 찾기 위해 필요한 모든 필터를 추가합니다. 검색 결과에서 개체를 엽니다. 특성 값을 살펴보고 **동기화 규칙** 열에서 규칙이 예상대로 적용되었는지 확인합니다.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>스케줄러 사용
@@ -107,7 +107,7 @@ Fabrikam에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 �
 
 * 시작 메뉴에서 **동기화 규칙 편집기** 를 시작합니다.
 * 왼쪽에서 **인바운드**를 선택한 상태에서 **새 규칙 추가** 단추를 클릭합니다.
-* 규칙에 이름 및 설명을 지정합니다. 온-프레미스 Active Directory 및 관련 개체 형식을 선택합니다.  **링크 형식**에서 **조인**을 선택합니다. 우선 순위로 다른 규칙에서 사용하지 않은 숫자를 선택합니다. 기본 규칙이 100에서 시작하므로 값 50을 다음 예제에서 사용할 수 있습니다.
+* 규칙에 이름 및 설명을 지정합니다. 온-프레미스 Active Directory 및 관련 개체 형식을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. 우선 순위로 다른 규칙에서 사용하지 않은 숫자를 선택합니다. 기본 규칙이 100에서 시작하므로 값 50을 다음 예제에서 사용할 수 있습니다.
   ![특성 흐름 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
 * 범위를 비워 둡니다(즉, 포리스트의 모든 사용자 개체에 적용해야 합니다).
 * 조인 규칙을 비워 둡니다(즉, 기본 규칙이 모든 연결을 처리할 수 있도록 합니다).
@@ -124,7 +124,7 @@ Fabrikam에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 �
 `attributeName` <- `Left([attributeName],448)`
 
 ### <a name="changing-the-userprincipalsuffix"></a>userPrincipalSuffix 변경
-Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect Sync 설치 마법사를 통해 여러 특성을 선택할 수 있습니다(예: 메일). 하지만 일부 경우에는 특성을 계산해야 합니다. 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
+Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect Sync 설치 마법사를 통해 여러 특성을 선택할 수 있습니다(예: 메일). 하지만 일부 경우에는 특성을 계산해야 합니다. 예를 들어 회사 Contoso에는&2;개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 이 식에서는 첫 번째 @-sign(Word) 왼쪽에 있는 모든 것을 고정된 문자열과 연결합니다.
@@ -152,6 +152,25 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 * 의도한 변경 내용을 커넥터 공간을 검색하여 내보낼 수 있는지 확인합니다.
   ![단계적 삭제](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
+## <a name="create-rules-with-powershell"></a>PowerShell로 규칙 만들기
+동기화 규칙 편집기를 사용하면 몇 가지만 변경하는 경우에만 제대로 작동합니다. 많은 사항을 변경해야 할 경우 PowerShell 방법이 더 나을 수 있습니다. 일부 고급 기능은 PowerShell에서만 사용할 수 있습니다.
+
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>기본 규칙에 대한 PowerShell 스크립트 가져오기
+기본 규칙을 만든 PowerShell 스크립트를 보려면 동기화 규칙 편집기에 규칙을 선택하고 **내보내기**를 클릭합니다. 이 작업으로 규칙을 만든 PowerShell 스크립트을 제공 받을 수 있습니다.
+
+### <a name="advanced-precedence"></a>고급 우선 순위
+기본 동기화 규칙의 우선 순위 값은 100에서 시작합니다. 포리스트가 많고 많은 사용자 지정 사항을 변경해야 할 경우 99가지 동기화 규칙이 충분하지 않을 수 있습니다.
+
+기본 규칙 앞에 추가 규칙을 삽입하겠다고 동기화 엔진에 지시할 수 있습니다. 이 동작을 가져오려면 다음 단계를 따르십시오.
+
+1. 동기화 규칙 편집기에서 첫 번째 기본 동기화 규칙(**In from AD-User Join**)을 표시하고 **내보내기**를 선택합니다. SR 식별자 값을 복사합니다.  
+![변경 전 PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
+2. 새 동기화 규칙을 만듭니다. 동기화 규칙 편집기를 사용하여 규칙을 만들 수 있습니다. 규칙을 PowerShell 스크립트로 내보냅니다.
+3. **PrecedenceBefore** 속성에서 기본 규칙의 식별자 값을 삽입합니다. **우선 순위**를 **0**으로 설정합니다. 식별자 특성은 고유한지 그리고 다른 규칙의 GUID를 다시 사용하고 있지 않은지 확인합니다. 또한 **ImmutableTag** 속성이 설정되지 않았는지 확인합니다. 이 속성은 기본 규칙에 대해서만 설정해야 합니다. PowerShell 스크립트를 저장하고 실행합니다. 그렇게 하면 사용자 지정 규칙이 우선 순위 값 100에 할당되고 다른 모든 기본 규칙이 증가합니다.  
+![변경 후 PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
+
+동일한 **PrecedenceBefore** 값을 사용하는 사용자 지정 동기화 규칙이 많이 있을 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 * [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 구성 모델에 대해 자세히 알아봅니다.
 * [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)에서 식 언어에 대해 자세히 알아봅니다.
@@ -163,7 +182,6 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

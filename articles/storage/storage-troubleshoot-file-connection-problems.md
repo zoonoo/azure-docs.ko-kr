@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
-ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
+ms.sourcegitcommit: 09f0aa4ea770d23d1b581c54b636c10e59ce1d3c
+ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
 
 
 ---
@@ -44,6 +44,10 @@ ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
 * [기존 파일 공유에서 "호스트가 중단됨" 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨](#errorhold)
 * [Linux VM에 Azure Files를 탑재할 때 탑재 오류 115 발생](#error15)
 * [Linux VM에서 "ls" 등 명령의 임의 지연 발생](#delayproblem)
+* [오류 112 - 시간 초과 오류](#error112)
+
+**다른 응용 프로그램에서 액세스**
+* [Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -236,14 +240,32 @@ mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발
 
 //azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
-**serverino** 옵션이 없으면 **serverino** 옵션이 선택된 상태에서 Azure Files를 탑재 해제하고 다시 탑재합니다.
+**serverino** 옵션이 없으면 **serverino** 옵션이 선택된 상태에서 Azure Files를 탑재 해제하고 다시 탑재합니다.+
 
+<a id="error112"></a>
+## <a name="error-112---timeout-error"></a>오류 112 - 시간 초과 오류
+
+이 오류는 기본값인 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정되지 않는 통신 오류를 나타냅니다.
+
+### <a name="cause"></a>원인
+
+이 오류는 Linux 다시 연결 문제 또는 네트워크 오류 등 다시 연결을 방해하는 기타 문제에 의해 발생할 수 있습니다. 하드 탑재를 지정하면 클라이언트는 연결될 때까지 또는 명시적으로 중단될 때까지 대기하게 되어 네트워크 시간 제한으로 인해 오류가 발생하지 않도록 할 수 있습니다. 하지만 사용자는 무한 대기할 수 있고 필요에 따라 연결을 중단해야 함을 알아야 합니다.
+
+### <a name="workaround"></a>해결 방법
+
+Linux 문제가 수정되었지만 Linux 배포판으로는 아직 포팅되지 않았습니다. 이 문제가 Linux에서 다시 연결 문제로 인해 발생하는 경우 유휴 상태가 되지 않게 함으로써 이를 해결할 수 있습니다. 이를 위해 30초마다 작성하는 Azure 파일 공유에 파일을 보관합니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 연결을 트리거하지 않을 수 있습니다.
+
+<a id="webjobs"></a>
+
+## <a name="accessing-from-other-applications"></a>다른 응용 프로그램에서 액세스
+### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?
+앱 서비스 샌드박스에서 SMB 공유를 탑재할 수 없습니다. 해결 방법으로 매핑된 드라이브로 Azure 파일 공유를 매핑할 수 있으며 응용 프로그램이 Azure 파일 공유를 드라이브 문자로서 액세스할 수 있도록 할 수 있습니다.
 ## <a name="learn-more"></a>자세한 정보
 * [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md)
 * [Linux에서 Azure File Storage 시작](storage-how-to-use-files-linux.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

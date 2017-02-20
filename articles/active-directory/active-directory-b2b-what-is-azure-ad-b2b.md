@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8fdd2993e6b3f0345948f35753ebb7a20ed174e3
-ms.openlocfilehash: d5764ee2a8447de70798c24a3152a854327ae89d
+ms.sourcegitcommit: 1c1da3c7b1d5e096e03ac3814275f29afeffcaeb
+ms.openlocfilehash: ad03b71052be46bdb64432b007aa471d120db0fa
 
 
 ---
@@ -30,7 +30,7 @@ Azure AD B2B 공동 작업 기능을 사용하여 해당 규정 준수 및 거�
 
 ## <a name="how-does-it-work"></a>작동 원리
 
-현재 릴리스에서([Azure 클래식 포털](https://manage.windowsazure.com)) 조직과 관계를 설정하기 위해 IT 전문가 및 정보 근로자는 포털 또는 초대 관리자 API를 통해 다른 조직의 사용자를 한 번에 한 명씩 추가할 수 있습니다. 이제 관리자는 Azure(https://portal.azure.com) 및 PowerShell에서 새로운 포털 환경을 사용할 수 있습니다. 또한 정보 근로자는 http://myapps.microsoft.com에서 액세스 패널 환경을 사용할 수 있습니다. 개발자는 Azure AD B2B 초대 관리자 API를 통해 응용 프로그램을 만들어 B2B 공동 작업 사용자를 추가하고 초대 및 온보딩 워크플로를 사용자 지정할 수 있습니다.
+현재 미리 보기 릴리스에서 조직과 관계를 설정하기 위해 IT 전문가 및 정보 근로자는 포털 또는 초대 관리자 API를 통해 다른 조직의 사용자를 한 번에 한 명씩 추가할 수 있습니다. 관리자는 Azure Portal(https://portal.azure.com) 및 PowerShell에서 새로운 포털 환경을 사용할 수 있습니다. 또한 정보 근로자는 http://myapps.microsoft.com에서 액세스 패널 환경을 사용할 수 있습니다. 개발자는 Azure AD B2B 초대 관리자 API를 통해 응용 프로그램을 만들어 B2B 공동 작업 사용자를 추가하고 초대 및 온보딩 워크플로를 사용자 지정할 수 있습니다.
 
 B2B 공동 작업 사용자는 일반적으로 초대 + 충전 프로세스를 통해 온보드에 추가됩니다. 방법은 다음과 같습니다.
 
@@ -83,8 +83,16 @@ B2B 공동 작업 사용자는 일반적으로 초대 + 충전 프로세스를 �
 
 Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 
+* [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](active-directory-b2b-admin-add-users.md)
+* [정보 작업자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](active-directory-b2b-how-it-works.md)
 * [B2B 공동 작업 초대 전자 메일의 요소](active-directory-b2b-invitation-email.md)
+* [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B 공동 작업 라이선스](active-directory-b2b-licensing.md)
+* [Azure Active Directory B2B 공동 작업 문제 해결](active-directory-b2b-troubleshooting.md)
+* [Azure Active Directory B2B 공동 작업 자주 묻는 질문 (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
+* [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 822f0870396e1fa5fe2dfee3bae410aad3da1122
-ms.openlocfilehash: 959fd48cb7d7f21385f6eea21f79ad26e8164bc0
+ms.sourcegitcommit: 83b267a610a1d910fab09f8e42f079d269e3f0bb
+ms.openlocfilehash: e11e6070002275544fa5a82923cdcad4412e40b7
 
 ---
 
@@ -79,7 +79,7 @@ JavaScript UDF가 도움이 되는 몇 가지 예제 시나리오는 다음과 �
         InputStream
     ```
 
-3.  작업 입력을 마우스 오른쪽 단추로 클릭하여 샘플 데이터 파일 업로드 
+3.  작업 입력을 마우스 오른쪽 단추로 클릭하여 샘플 데이터 파일 업로드
  
 4.  **테스트**를 클릭하여 쿼리를 테스트합니다.
 
@@ -156,6 +156,7 @@ FROM
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 
 
 <!--HONumber=Feb17_HO1-->

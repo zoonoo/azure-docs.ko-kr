@@ -17,9 +17,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: 6fc5dfd3fbdd2e0690b60f4b232e624c34bf53b6
-ms.openlocfilehash: c1022a127266d28d3b59bfebd0543a840fe11e3a
-
+ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
+ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
 
 ---
 
@@ -31,33 +30,27 @@ Azure DocumentDB는 [전역으로 분산된](documentdb-distribute-data-globally
 
 ## <a name="why-we-use-request-units-rus"></a>RU(요청 단위)를 사용하는 이유
 
-DocumentDB 성능은 파티션에 대해 프로비전된 RU([요청 단위](documentdb-programming.md)) 크기를 기준으로 합니다. 프로비저닝은 초 단위이며 초당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/documentdb/)). RU를 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 고려해야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
+DocumentDB 성능은 파티션에 대해 프로비전된 RU([요청 단위](documentdb-programming.md)) 크기를 기준으로 합니다. 프로비저닝은 초 단위이며 초당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/documentdb/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
 
 전역적으로 분산된 데이터베이스 시스템인 DocumentDB는 고가용성 외에 대기 시간, 처리량 및 일관성에 대한 SLA를 제공하는 유일한 Azure 서비스입니다. 프로비전하는 처리량은 DocumentDB 데이터베이스 계정에 연결된 각 지역에 적용됩니다. 읽기의 경우 DocumentDB는 선택 가능한 여러 개의 잘 정의된 [일관성 수준](documentdb-consistency-levels.md)을 제공합니다. 
 
-다음 표에서는 일부 문서 크기에 따라 읽기 및 쓰기 트랜잭션을 수행하는 데 필요한 RU 수가 나와 있습니다. 
+다음 표에는 1KB 및 100KB 문서 크기에 따라 읽기 및 쓰기 트랜잭션을 수행하는 데 필요한 RU 수가 나와 있습니다.
 
 |문서 크기|1 읽기|1 쓰기|
 |-------------|------|-------|
 |1KB|1RU|5RU|
-|5KB|5RU|25RU|
-|10KB|10RU|50RU|
-|50KB|50RU|250RU|
-|100KB|100RU|500RU|
+|100KB|10RU|50RU|
 
-## <a name="cost-of-running-documentdb-in-readwrite-mode-without-indexing"></a>인덱싱 없는 읽기/쓰기 모드에서 DocumentDB를 실행하는 비용
+## <a name="cost-of-reads-and-writes"></a>읽기 및 쓰기의 비용
 
 초당 1,000RU를 프로비전하는 시간당 3.6m RU에 해당하며 시간당 $0.08가 됩니다(미국 및 유럽). 1KB 크기 문서에서는 프로비전된 처리량을 사용해서 3.6m 읽기 또는 0.72m 쓰기(초당 3.6m RU/5)를 사용할 수 있음을 의미합니다. 1백만 읽기 및 쓰기로 정규화할 경우 비용은 m 읽기당 $0.022($0.08/3.6) 및 m 쓰기당 $0.111($0.08/0.72)에 해당합니다. 백만당 비용은 아래 표에 나와 있는 것처럼 최소화됩니다.
 
 |문서 크기|1m 읽기|1m 쓰기|
 |-------------|-------|--------|
 |1KB|$0.022|$0.111|
-|5KB|$0.111|$0.556|
-|10KB|$0.222|$1.111|
-|50KB|$1.111|$5.556|
-|100KB|$2.222|$11.111|
+|100KB|$0.222|$1.111|
 
-AWS S3 또는 Azure Blob Storage 서비스와 같은 기본 Blob 또는 개체 저장소 대부분은 백만 읽기 트랜잭션당 $0.40, 백만 쓰기 트랜잭션당 $5가 부과됩니다. 최적으로 사용하는 경우 DocumentDB는 이러한 다른 솔루션보다 최대 98% 더 저렴할 수 있습니다(1KB 트랜잭션에 대해).
+대부분의 기본 Blob 또는 개체 저장소 서비스는 백만 읽기 트랜잭션당 $0.40, 백만 쓰기 트랜잭션당 $5가 부과됩니다. 최적으로 사용하는 경우 DocumentDB는 이러한 다른 솔루션보다 최대 98% 더 저렴할 수 있습니다(1KB 트랜잭션에 대해).
 
 ## <a name="next-steps"></a>다음 단계
 
