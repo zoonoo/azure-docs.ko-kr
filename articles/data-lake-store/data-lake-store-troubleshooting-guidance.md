@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
-ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
+ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
+ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
 
 
 ---
@@ -35,13 +35,13 @@ Azure Data Lake Store 계정의 데이터는 자동화된 복제본을 통해 �
 #### <a name="best-practices"></a>모범 사례
 재해 복구 계획의 요구에 맞게 정렬된 주파수를 사용하여 다른 지역의 다른 Data Lake Store 계정에 중요한 데이터를 복사하는 것이 좋습니다. [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)를 포함하여 데이터를 복사하는 다양한 메서드가 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.
 
-지역 가동 중단이 발생하는 경우 데이터가 복사된 지역에 있는 데이터에 액세스할 수 있습니다.[Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)를 모니터링하여 전세계의 Azure 서비스 상태를 확인할 수 있습니다.
+지역 가동 중단이 발생하는 경우 데이터가 복사된 지역에 있는 데이터에 액세스할 수 있습니다. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)를 모니터링하여 전세계의 Azure 서비스 상태를 확인할 수 있습니다.
 
 ### <a name="data-corruption-or-accidental-deletion-recovery-guidance"></a>데이터 손상 또는 삭제 실수 복구 지침
 Azure Data Lake Store가 자동화된 복제본을 통해 데이터 복원력을 제공하는 반면 이렇게 하더라도 응용 프로그램(또는 개발자/사용자)의 데이터를 손상시키거나 실수로 삭제하지 않도록 방지하지 않습니다.
 
 #### <a name="best-practices"></a>모범 사례
-삭제 실수를 방지하려면 [Data Lake Store 보안 기능](data-lake-store-security-overview.md)을 사용하여 Data Lake Store 계정에 대한 올바른 액세스 정책을 먼저 설정하는 것이 좋습니다. 다른 Data Lake Store 계정, 폴더 또는 Azure 구독에서 [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)를 사용하여 중요한 데이터의 복사본을 정기적으로 만드는 것이 좋습니다.  데이터 손상 또는 삭제 인시던트로부터 복구하는 데 사용할 수 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.
+삭제 실수를 방지하려면 Data Lake Store 계정에 대한 올바른 액세스 정책을 먼저 설정하는 것이 좋습니다.  여기에는 [Azure 리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 적용하여 중요한 리소스를 잠그는 것은 물론 사용 가능한 [Data Lake Store 보안 기능](data-lake-store-security-overview.md)을 사용하여 계정 및 파일 수준 액세스 제어를 적용하는 것이 포함됩니다. 다른 Data Lake Store 계정, 폴더 또는 Azure 구독에서 [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)를 사용하여 중요한 데이터의 복사본을 정기적으로 만드는 것이 좋습니다.  데이터 손상 또는 삭제 인시던트로부터 복구하는 데 사용할 수 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.
 
 조직에서는 해당 Azure Data Lake Store 계정에 대한 [진단 로깅](data-lake-store-diagnostic-logs.md)을 활성화하여 파일을 삭제하거나 업데이트할 수 있는 사용자에 대한 정보를 제공하는 데이터 액세스 감사 추적을 수집할 수 있습니다.
 
@@ -52,6 +52,6 @@ Azure Data Lake Store가 자동화된 복제본을 통해 데이터 복원력을
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

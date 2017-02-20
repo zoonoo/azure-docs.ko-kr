@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
-ms.openlocfilehash: 16680e3eaa99524a1aa71501b2d3468004b63625
+ms.sourcegitcommit: 0afada6b5ade6c1f246b99e924a972cd7d34fdfa
+ms.openlocfilehash: b17defc732be9f1fbdb816727d5602eb037b7e06
 
 
 ---
@@ -41,21 +41,21 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- |
-| **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티+, 토론토 |
+| **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티, 토론토 |
 | **남미** |브라질 남부 |상파울루 |
 | **유럽** |북유럽, 서유럽, 영국 서부, 영국 남부 |암스테르담, 더블린, 런던, 뉴포트(웨일스), 파리 |
 | **아시아** |동아시아, 동남 아시아 |홍콩 특별행정구, 싱가포르 |
 | **일본** |일본 서부, 일본 동부 |오사카, 도쿄 |
 | **오스트레일리아** |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 |
 | **인도** |인도 서부, 인도 중부, 인도 남부 |첸나이, 뭄바이 |
-| **대한민국** |한국 중부, 한국 남부 |부산+, 서울+ |
+| **대한민국** |한국 중부, 한국 남부 |부산, 서울 |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>국내 클라우드에 대한 지역 및 지리적 경계
 아래 표에서는 국가별 클라우드의 지역 및 지정학적 경계에 대한 정보를 제공합니다.
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- | --- |
-| **미국 정부 클라우드** |미국 아이오와 주 정부, 미국 버지니아 주 정부, US DoD 중부+, US DoD 동부+  |시카고, 댈러스, 뉴욕, 실리콘밸리+, 워싱턴 DC |
+| **미국 정부 클라우드** |미국 아이오와 주 정부, 미국 버지니아 주 정부, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 실리콘밸리, 워싱턴 DC |
 | **중국** |중국 북부, 중국 동부 |베이징, 상하이 |
 | **독일** |독일 중부, 독일 동부 |베를린, 프랑크푸르트 |
 
@@ -74,7 +74,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 실리콘밸리, 싱가포르, 시드니, 워싱턴 DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |지원됨 |지원됨 |토론토 |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |지원됨 |지원됨 |암스테르담, 홍콩 특별행정구, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
-| **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |곧 출시됩니다 |곧 출시됩니다 |실리콘밸리 |
+| **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |곧 출시됩니다 |서비스 예정 |실리콘밸리 |
 | **China Telecom Global** |지원됨 |지원되지 않음 |홍콩 |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |지원됨 |지원됨 |댈러스, 몬트리올, 토론토 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 더블린, 런던, 도쿄 |
@@ -90,17 +90,18 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **Internet Solutions - 클라우드 연결** |지원됨 |지원됨 |암스테르담, 런던 |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |지원됨 |지원됨 |암스테르담, 런던, 파리 |
 | **Jisc** |지원됨 |지원됨 |런던 |
-| **KINX** |곧 공개됩니다 |곧 공개됩니다 |서울+ |
+| **KINX** |지원됨 |지원됨 |서울 |
 | **[KPN](http://www.kpn.com/cloudconnect)** | 지원됨 | 지원됨 | 암스테르담 | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 라스베이거스+, 런던, 시애틀, 실리콘밸리, 싱가포르, 워싱턴 DC |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |댈러스, 홍콩 특별행정구, 라스베이거스, 로스앤젤레스, 멜버른, 뉴욕, 시애틀, 싱가포르, 시드니, 토론토, 워싱턴 DC |
+| **LG CNS** |서비스 예정 |서비스 예정 |부산+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |댈러스, 홍콩 특별행정구, 라스베이거스, 로스앤젤레스, 멜버른, 뉴욕, 퀘벡 시티, 시애틀, 싱가포르, 시드니, 토론토, 워싱턴 DC |
 | **MTN** |지원됨 |지원됨 |런던 |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |지원됨 |지원됨 |뉴포트(웨일스) |
 | **NEXTDC** |지원됨 |지원됨 |멜버른, 시드니 |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |지원됨 |지원됨 |런던, 로스앤젤레스, 오사카, 싱가포르, 도쿄, 워싱턴 DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |지원됨 |지원됨 |암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 시드니, 워싱턴 DC |
 | **PCCW Global Limited** |지원됨 |지원됨 |홍콩 |
-| **Sejong Telecom** |곧 공개됩니다 |곧 공개됩니다 |부산+, 서울+ |
+| **Sejong Telecom** |지원됨 |지원됨 |부산, 서울 |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |지원됨 |지원됨 |첸나이 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |지원됨 |지원됨 |싱가포르 |
 | **Softbank** |지원됨 |지원됨 |오사카, 도쿄 |
@@ -121,7 +122,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |시카고, 워싱턴 DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원됨 |시카고, 댈러스, 뉴욕, 실리콘밸리+, 워싱턴 DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원됨 |시카고, 댈러스, 뉴욕, 실리콘밸리, 워싱턴 DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |시카고, 뉴욕+, 워싱턴 DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 | 지원됨 | 댈러스 |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |지원됨 |지원됨 |시카고, 댈러스, 뉴욕, 워싱턴 DC |
@@ -140,7 +141,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **e-shelter** |지원됨 |지원되지 않음 |베를린 |
 | **Interxion** |지원됨 |지원되지 않음 |프랑크푸르트 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨  | 지원되지 않음 | 베를린+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨  | 지원되지 않음 | 베를린 |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
 연결 공급자가 이전 섹션에 없는 경우에도 연결을 설정할 수 있습니다.
@@ -204,6 +205,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

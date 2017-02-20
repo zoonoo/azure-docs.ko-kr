@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/02/2016
+ms.date: 02/09/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
-ms.openlocfilehash: eacba057de5065acc3baa610a76a9ae135d6060a
+ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
+ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
 
 
 ---
@@ -40,7 +40,7 @@ Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스�
 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 
 1. [Azure Functions 포털](https://functions.azure.com/signin) 로 이동하여 Azure 계정으로 로그인합니다.
-2. 새 함수 앱에 대해 고유한 **이름**을 입력하거나 생성된 이름을 수락하거나 선호하는 **지역**을 선택한 후 **만들기 + 시작**을 클릭합니다. 문자, 숫자 및 하이픈만 포함할 수 있는 유효한 이름을 입력해야 합니다. 밑줄(**_**)은 허용되는 문자가 아닙니다.
+2. 새 함수 앱에 대해 고유한 **이름**을 입력하거나 자동 생성된 이름을 수락하거나 선호하는 **지역**을 선택한 후 **만들기 + 시작**을 클릭합니다. 문자, 숫자 및 하이픈만 포함할 수 있는 유효한 이름을 입력해야 합니다. 밑줄(**_**)은 허용되는 문자가 아닙니다.
 3. **빠른 시작** 탭에서 **웹후크 + API** 및 **JavaScript**를 클릭한 다음 **함수 만들기**를 클릭합니다. 새로운 미리 정의된 JavaScript 함수가 만들어집니다. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
@@ -57,6 +57,6 @@ Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -35,20 +35,20 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 | SKU 제품군 | ACU/코어 |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
+| [A0](#a-series) |50 |
+| [A1-A4](#a-series) |100 |
+| [A5-A7](#a-series) |100 |
+| [A1_v2-A8_v2](#av2-series) |100 |
+| [A2m_v2-A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [DS1-14](#ds-series) |160 |
-| [DS1-15v2](#dsv2-series) |210-250* |
+| [D1-D14](#d-series) |160 |
+| [D1_v2-D15_v2](#dv2-series) |210 - 250* |
+| [DS1-DS14](#ds-series) |160 |
+| [DS1_v2-DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s-F16s](#fs-series) |210-250* |
-| [G1-5](#g-series) |180 - 240* |
-| [GS1-5](#gs-series) |180 - 240* |
+| [G1-G5](#g-series) |180 - 240* |
+| [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다.  상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -69,7 +69,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |1/보통 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2/높음 |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4/높음 |
-| Standard_A5 |2 |14 |135 |4 |4x500 |1/보통 |
+| Standard_A5 |2 |14 |135 |4 |4X500 |1/보통 |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2/높음 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4/높음 |
 
@@ -132,7 +132,8 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 *일부 지역에서는 Standard_D15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md)을 참조하세요.
 
-**인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다. **인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+**인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+
 <br>
 
 ## <a name="ds-series"></a>DS 시리즈*
@@ -305,6 +306,6 @@ NC 인스턴스는 NVIDIA Tesla K80 카드를 통해 구동됩니다. 이제 에
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

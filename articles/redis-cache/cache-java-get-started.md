@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c42aebb3aaf5c32ebdc4f79e2ace2f127e4fb20d
-ms.openlocfilehash: fe875fba2651b770d910d257282f5e9f41f8a043
+ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
+ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
 
 
 ---
@@ -53,6 +53,10 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
     JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
+> [!NOTE]
+> 비 SSL 포트는 새 Azure Redis Cache 인스턴스에 대해 사용하지 않도록 설정되어 있습니다. SSL을 지원하지 않는 다른 클라이언트를 사용하는 경우 [비 SSL 포트를 사용하도록 설정하는 방법](cache-configure.md#access-ports)을 참조하세요.
+> 
+> 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>캐시에 항목 추가 및 검색
     package com.mycompany.app;
@@ -80,6 +84,6 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

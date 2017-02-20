@@ -12,26 +12,23 @@ Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 
 이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [컨테이너 작업 도구](#tools-for-working-with-azure-vms-and-containers)에서 확인할 수 있습니다.
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>가상 컴퓨터와 컨테이너의 차이
-가상 컴퓨터는 [하이퍼바이저](http://en.wikipedia.org/wiki/Hypervisor)가 제공하는 독립된 하드웨어 가상화 환경 내에서 실행됩니다. Azure에서는 [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) 서비스가 모든 작업을 처리합니다. 운영 체제를 선택하고 원하는&mdash;방식대로 실행되도록 구성하거나 사용자 지정 VM 이미지를 업로드하기만 하면 Virtual Machines를 생성할 수 있습니다. 가상 컴퓨터는 오랫동안 테스트되고 “많은 시행착오를 겪은” 기술이기에 운영체제를 관리하고 사용자가 설치 및 실행하는 응용 프로그램을 구성하기 위한 도구가 많이 있습니다. 가상 컴퓨터에서 실행되는 모든 작업은 호스트 운영체제에서 숨김 상태로 수행되고 가상 컴퓨터 내에서 실행되는 응용 프로그램 또는 사용자 관점에서도 보이지 않기 때문에 가상 컴퓨터가 마치 자동으로 실행되는 물리적 컴퓨터처럼 보입니다.
+가상 컴퓨터는 [하이퍼바이저](http://en.wikipedia.org/wiki/Hypervisor)가 제공하는 독립된 하드웨어 가상화 환경 내에서 실행됩니다. Azure에서는 [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) 서비스가 모든 작업을 처리합니다. 운영 체제를 선택하여 &mdash;를 구성하거나 사용자 지정 VM 이미지를 업로드하여 Virtual Machines를 생성합니다. Virtual Machines는 오랫동안 테스트되고 "많은 시행착오를 겪은" 기술이기에 OS와 포함된 앱을 관리하고 사용할 수 있는 도구가 많이 있습니다.  VM의 앱은 호스트 OS에 숨겨져 있습니다. VM의 응용 프로그램 또는 사용자의 관점에서 보면 VM은 자치 물리적 컴퓨터로 보입니다.
 
-[Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)는&mdash;Docker 도구 및 기타 접근 방법을 사용하여 생성 및 호스트하기 때문에 격리를 위해 하이퍼바이저가&mdash;필요하지 않습니다. 대신, 컨테이너 호스트가 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 사용하여 컨테이너 및 해당 응용 프로그램에 특정 커널 기능과 자체 격리 파일 시스템만을 최소한으로 노출시킵니다. 컨테이너에서 실행되는 응용 프로그램의 관점에서 보면 해당 컨테이너는 독자적인 운영체제 인스턴스로 보입니다. 컨테이너 내 응용 프로그램에서는 해당 컨테이너 외부에 있는 프로세스나 기타 리소스가 전혀 보이지 않기 때문입니다.
+[Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)와 Docker 도구를 사용하여 생성되고 호스트된 컨테이너는 하이퍼바이저를 사용하여 격리하지 않습니다. 컨테이너를 사용하면, 컨테이너 호스트가 Linux 커널의 프로세스 및 파일 시스템 격리 기능을 사용하여 컨테이너, 해당 앱, 특정 커널 기능 및 자체 격리 파일 시스템에 노출시킵니다. 컨테이너 내부에서 실행되는 앱의 관점에서 보면 해당 컨테이너는 독자적인 OS 인스턴스로 보입니다. 컨테이너 내 앱에서는 해당 컨테이너 외부에 있는 프로세스나 기타 리소스를 볼 수 없습니다.
 
-이러한 격리 및 실행 모델은 Docker 호스트 컴퓨터의 커널을 공유하고 컨테이너 디스크에 전체 운영체제를 포함하지 않아도 되기 때문에 컨테이너 시작 시간과 필요한 디스크 저장소 오버헤드 모두가 크게 줄어 듭니다.
+Docker 컨테이너에 사용되는 리소스는 VM에서 사용하는 것보다 훨씬 적습니다. Docker 컨테이너는 Docker 호스트의 커널을 공유하지 않는 응용 프로그램 격리 및 실행 모델을 사용합니다. 컨테이너는 전체 OS에 포함되지 않기 때문에 디스크 공간이 훨씬 적습니다. 시작 시간과 필수 디스크 공간은 VM에 비해 훨씬 낮습니다.
+Windows 컨테이너는 Windows에서 실행되는 앱의 Linux 컨테이너와 같은 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 매우 최적화된 VM에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows Containers를 시작하려면 [Azure Container Service 클러스터를 배포](/articles/container-service/container-service-deployment.md)하는 방법을 알아봅니다.
 
-정말 멋진 기능이라 할 수 있습니다.
+## <a name="what-are-containers-good-for"></a>컨테이너의 이점
 
-Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 컨테이너와 같은 동일한 이점을 제공합니다. Windows 컨테이너는 Docker 이미지 형식과 Docker API를 지원하지만 PowerShell을 사용하여 관리할 수도 있습니다. 두 개의 컨테이너 런타임을 Windows 컨테이너, Windows Server 컨테이너 및 Hyper-V 컨테이너에서 사용할 수 있습니다. Hyper-V 컨테이너는 최적화된 가상 컴퓨터에서 각 컨테이너를 호스트하여 추가 격리 계층을 제공합니다. Windows 컨테이너에 대한 자세한 내용은 [Windows 컨테이너 정보](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 참조하세요. Azure에서 Windows Containers를 시작하려면 [Azure Container Service 클러스터를 배포](/articles/container-service/container-service-deployment.md)하는 방법을 알아봅니다.
+컨테이너는 다음을 향상시킬 수 있습니다.
 
-이것도 아주 멋진 일입니다.
+* 응용 프로그램 코드의 개발과 광범위한 공유 속도
+* 앱을 테스트할 수 있는 속도 및 신뢰도
+* 앱을 배포할 수 있는 속도 및 신뢰도
 
-### <a name="is-this-too-good-to-be-true"></a>그런데 과연 좋은 점만 있을까요?
-네&mdash;그리고 아니요. 컨테이너 역시 다른 기술과 마찬가지로 분산 응용 프로그램에 필요한 모든 어려운 작업을 마법처럼 처리하지 못합니다. 그렇지만 컨테이너 덕분에 완전히 개선된 점들도 분명히 있습니다.
+컨테이너는 컨테이너 호스트&mdash;운영 체제, 그리고 Azure(Azure Virtual Machine)에서 실행됩니다. 컨테이너가 아무리 우수해도 호스팅하려면 VM 인프라가 여전히 필요합니다. 그래도 좋은 점은 컨테이너가 어떤 VM에서나 실행된다는 것입니다. 물론 컨테이너가 Linux나 Windows 중 어떤 실행 환경을 선호하는지는 중요합니다.
 
-* 응용 프로그램 코드 개발과 광범위한 공유 속도
-* 테스트 속도 및 신뢰도
-* 배포 속도 및 신뢰도
-
-단, 컨테이너는 컨테이너 호스트,&mdash;운영 체제(즉, Azure의 경우 Azure Virtual Machine)에서 실행된다는 점에 유념하십시오. 컨테이너가 아무리 우수해도 호스팅하려면 VM 인프라가 여전히 필요합니다. 그래도 좋은 점은 컨테이너가 어떤 VM에서나 실행된다는 것입니다. 물론 컨테이너가 Linux나 Windows 중 어떤 실행 환경을 선호하는지는 중요합니다.
 
 ## <a name="what-are-containers-good-for"></a>컨테이너의 이점
 컨테이너는 다양한 작업에서 유용하지만&mdash;[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/)나 [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)과&mdash;마찬가지로 단일 서비스 및 마이크로 서비스 지향의 분산형 응용 프로그램을 개발할 때 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
@@ -198,6 +195,6 @@ Linux 배포 도구 및 Azure 예시:
 <!--Image references-->
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

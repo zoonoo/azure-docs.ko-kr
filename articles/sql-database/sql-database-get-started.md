@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 535b16490bb601070c7d2a7135f3d69aa898be1f
-ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
 * [데이터베이스 삭제](sql-database-get-started.md#delete-a-single-database) 
 
 
-이 빠른 시작 자습서를 완료하면 샘플 데이터베이스와 빈 데이터베이스가 Azure 리소스 그룹에서 실행되며 논리 서버에 연결됩니다. 또한 twp 서버 수준 보안 주체가 지정된 두 개의 IP 주소에서 서버에 로그인할 수 있도록 구성된 서버 수준 방화벽 규칙을 갖게 됩니다. 
+이 빠른 시작 자습서에서는 Azure 리소스 그룹에서 실행되고 논리 서버에 연결된 샘플 데이터베이스와 빈 데이터베이스를 만듭니다. 또한 지정된 두 개의 IP 주소에서 서버 수준 보안 주체가 서버에 로그인할 수 있도록 구성된 두 개의 서버 수준 보안 규칙도 만듭니다. 마지막으로, Azure Portal에서 데이터베이스를 쿼리하는 방법과 SQL Server Management Studio를 사용하여 연결하고 쿼리하는 방법을 배웁니다. 
 
 **예상 시간**: 이 자습서의 경우 약 30분 소요됩니다(이미 필수 조건을 충족한다고 가정).
 
@@ -88,7 +88,7 @@ ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
     ![새 서버 이름](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > 새 서버의 정규화된 이름은 <your_server_name>.database.windows.net입니다.
+    > 새 서버의 정규화된 이름의 형식은 <your_server_name>.database.windows.net입니다.
     >
     
 4. [서버 관리자 로그인] 텍스트 상자에서 이 서버의 SQL 인증 로그인을 위한 사용자 이름을 제공합니다. 이 로그인은 서버 보안 주체 로그인으로 알려져 있습니다. 녹색 확인 표시가 유효한 이름을 제공한 것을 나타냅니다.
@@ -275,7 +275,8 @@ ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
 
    ```select * from sys.objects```
 
-    ![쿼리 편집기 쿼리](./media/sql-database-get-started/query-editor-query.png) 10 **실행**을 클릭합니다.
+    ![쿼리 편집기 쿼리](./media/sql-database-get-started/query-editor-query.png)
+10.  **실행**을 클릭합니다.
 11. **결과** 창에서 쿼리 결과를 검토합니다.
 
     ![쿼리 편집기 결과](./media/sql-database-get-started/query-editor-results.png)
@@ -372,6 +373,6 @@ ms.openlocfilehash: 10a128ea56ea014cf72036f71ec97202691bec94
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

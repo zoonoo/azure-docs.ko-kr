@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/2/2017
-ms.author: markgal;jimpark;trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
-ms.openlocfilehash: 084bf86a2f36d8b48344f5a42e18738c5a4ed6d9
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -108,6 +108,15 @@ Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 
 ### <a name="restore-premium-storage-vms"></a>프리미엄 저장소 VM 복원
 Premium Storage VM은 Premium Storage 또는 일반 저장소 중 하나로 복원할 수 있습니다. 프리미엄 저장소 VM 복구 지점을 프리미엄 저장소로 복원하는 것은 복원의 일반적인 프로세스입니다. 하지만, 프리미엄 저장소 VM 복구 지점을 표준 저장소로 복원하는 것이 비용 효과적일 수 있습니다. 이런 유형의 복원은 VM에서 파일의 하위 집합이 필요한 경우 사용할 수 있습니다.
 
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Azure Backup으로 Managed Disks VM 사용
+Azure Backup은 Managed Disks VM을 보호합니다. Managed Disks를 사용하면 가상 컴퓨터의 저장소 계정을 관리하지 않아도 되며 VM 프로비전이 매우 간소화됩니다.
+
+### <a name="back-up-managed-disk-vms"></a>Managed Disks VM 백업
+Managed Disks의 VM 백업은 Resource Manager VM의 백업과 다르지 않습니다. VM 보기 또는 Recovery Services 자격 증명 모음 보기에서 바로 백업할 수 있습니다. Managed Disks의 VM 백업은 Managed Disks를 기반으로 구축된 RestorePoint 컬렉션을 통해 지원됩니다. Azure Backup은 현재 Azure Disk Encryption(ADE)을 사용하여 암호화된 Managed Disks VM의 백업을 지원하지 않습니다.
+
+### <a name="restore-managed-disk-vms"></a>Managed Disks VM 복원
+Azure Backup을 사용하면 Managed Disks를 사용하여 전체 VM을 복원하거나 Resource Manager 저장소 계정에 Managed Disks를 복원할 수 있습니다. 복원 프로세스 중에 생성된 디스크는 Azure에서 관리되지만 복원 프로세스의 일환으로 생성된 저장소 계정은 다른 모든 Resource Manager 저장소 계정과 유사하며 고객이 관리해야 합니다.
+
 ## <a name="what-are-the-features-of-each-backup-component"></a>각 백업 구성 요소의 기능은 무엇입니까?
 다음 표에서는 각 Azure Backup 구성 요소의 다양한 기능에 대한 가용성 또는 지원을 요약하고 있습니다. 추가 지원 및 자세한 내용에 대해서는 각 표에 포함된 정보를 참조하세요.
 
@@ -181,7 +190,7 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 |  | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
 | --- | --- | --- | --- | --- |
-| 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일&3;회 백업 |매일&2;회 백업 |매일&2;회 백업 |매일&1;회 백업 |
+| 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일&3;회 백업 |하루에 두 번 백업 |하루에 두 번 백업 |매일&1;회 백업 |
 | 백업 주기<br/> (디스크에 대한) |해당 없음 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해&1;시간마다 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해&1;시간마다</p> |해당 없음 |
 | 보존 옵션 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |
 | 보호된 인스턴스당 최대 복구 지점 |9999|9999|9999|9999|
@@ -234,6 +243,6 @@ Windows Server에서 데이터를 보호하거나 Azure에서 VM(가상 컴퓨�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

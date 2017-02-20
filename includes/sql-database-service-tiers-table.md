@@ -40,6 +40,6 @@ sql-database-service-tiers.md
 
 \* 최대 데이터베이스 크기는 데이터 파일의 최대 크기를 의미하고 로그 파일에서 사용하는 공간을 포함하지 않습니다.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

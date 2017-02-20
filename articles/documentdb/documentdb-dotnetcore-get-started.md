@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
-ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
+ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
+ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 
 ---
@@ -78,7 +78,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
    ![프로젝트의 마우스 오른쪽 단추 클릭 메뉴의 스크린샷](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)을 클릭합니다.
 6. **Nuget** 탭에서 **찾아보기**를 클릭하고 검색 상자에 **azure documentdb**를 입력합니다.
 7. 결과 내에서 **Microsoft.Azure.DocumentDB.Core**를 찾아 **설치**를 클릭합니다.
-   DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)입니다.
+   .NET Core용 DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)입니다. 이 .NET Core Nuget 패키지에서 지원되지 않는 .NET Framework 버전(예: net461)을 대상으로 하는 경우 .NET Framework 4.5 이후의 모든 .NET Framework 버전을 지원하는 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)를 사용합니다.
 
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)에서 이 자습서의 완성된 코드 프로젝트를 찾을 수 있습니다.
 
@@ -113,7 +113,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합니다.
 
-포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URI>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your key>`에 붙여 넣습니다. Azure DocumentDB 에뮬레이터를 사용하는 경우 끝점으로 `https://localhost:443`과, [DocumentDB 에뮬레이터를 사용한 개발 방법](documentdb-nosql-local-emulator.md)에서 잘 정의된 권한 부여 키를 사용합니다.
+포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URI>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your key>`에 붙여 넣습니다. Azure DocumentDB 에뮬레이터를 사용하는 경우 끝점으로 `https://localhost:8081`과, [DocumentDB 에뮬레이터를 사용한 개발 방법](documentdb-nosql-local-emulator.md)에서 잘 정의된 권한 부여 키를 사용합니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure 포털의 스크린샷 DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 줌][keys]
 
@@ -539,7 +539,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-축하합니다. 이 NoSQL 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 생겼습니다.
+축하합니다. 이 NoSQL 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 셩겼습니다.
 
 ## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> 전체 NoSQL 자습서 솔루션 다운로드
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
@@ -562,6 +562,6 @@ Visual Studio에서 DocumentDB .NET Core SDK에 대한 참조를 복원하려면
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

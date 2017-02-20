@@ -7,12 +7,13 @@ Azure Functions 빠른 시작에는 함수 코드가 포함되어 있어 새 함
  
     ![](./media/functions-quickstart-test/function-app-develop-tab-testing.png)
 
-3. **요청 본문** 텍스트 상자에서 *이름* 속성의 값을 자신의 이름으로 변경하고 **실행**을 클릭합니다. 실행이 테스트 HTTP 요청에 의해 트리거되고 정보가 로그에 기록되며 "hello" 응답이 **출력**에 표시되는지 확인합니다. 
+3. **요청 본문** 텍스트 상자에서 *이름* 속성의 값을 자신의 이름으로 변경하고 **실행**을 클릭합니다. 실행이 테스트 HTTP 요청에 의해 트리거되고 정보가 로그에 기록되며 "hello..." 응답이 **출력**에 표시되는지 확인합니다. 
 
 4. HTTP 테스트 도구 또는 다른 브라우저 창에서 동일한 함수의 실행을 트리거하려면 **개발** 탭에서 **함수 URL** 값을 복사하고 도구 또는 브라우저 주소 표시줄에 붙여 넣습니다. URL에 쿼리 문자열 값 `&name=yourname`을 추가하고 요청을 실행합니다. 동일한 정보가 로그에 기록되고 동일한 문자열이 응답 메시지의 본문에 포함됩니다.
 
     ![](./media/functions-quickstart-test/function-app-browser-testing.png)
 
-<!--HONumber=Feb17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

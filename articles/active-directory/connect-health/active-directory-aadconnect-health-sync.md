@@ -1,4 +1,3 @@
-
 ---
 title: "동기화된 Azure AD Connect Health 사용 | Microsoft Docs"
 description: "Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다."
@@ -13,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
-ms.openlocfilehash: 6546725b887dd9980913a651219dd2a2c4b8a783
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
 
 
 ---
@@ -106,7 +105,7 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ![동기화 오류 보고서 세부 정보](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### <a name="download-the-error-report-as-csv"></a>CVS로 오류 보고서를 다운로드
-이 기능은 곧 제공됩니다. 추가 업데이트로 최신 상태를 유지하세요.
+“내보내기” 단추를 선택하면 모든 오류에 대한 세부 정보를 모두 포함하는 CSV 파일을 다운로드할 수 있습니다.
 
 ## <a name="related-links"></a>관련 링크
 * [동기화 중 오류 문제 해결](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
@@ -120,7 +119,6 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

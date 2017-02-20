@@ -1,122 +1,124 @@
 ---
-title: "AD FS와 함께 Azure AD Connect Health 사용 | Microsoft Docs"
-description: "온-프레미스 AD FS 인프라를 모니터링하는 방법에 대한 Azure AD Connect Health 페이지입니다."
+title: "동기화된 Azure AD Connect Health 사용 | Microsoft Docs"
+description: "Azure AD Connect 동기화를 모니터링하는 방법을 설명하는 Azure AD Connect Health 페이지입니다."
 services: active-directory
 documentationcenter: 
 author: karavar
 manager: samueld
 editor: curtand
-ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
+ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/12/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 00ce8ecfed0516dd9423e6be15f6defbe886c598
+ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
+ms.openlocfilehash: fcea61a09654f41af57969a79fab3aabdba4e19c
 
 
 ---
-# <a name="using-azure-ad-connect-health-with-ad-fs"></a>AD FS와 함께 Azure AD Connect Health 사용
-다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
+# <a name="using-azure-ad-connect-health-for-sync"></a>동기화에 대한 Azure AD Connect Health 사용
+다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory 도메인 서비스를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
 
-## <a name="alerts-for-ad-fs"></a>AD FS의 경고
-Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다.
+![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/sync-blade.png)
 
-활성 또는 해결된 경고를 두 번 클릭하면 추가 정보, 경고를 해결하기 위해 취할 수 있는 단계와 적절한 설명서 링크가 포함된 새 블레이드가 표시됩니다. 과거에 해결된 경고에 대한 기록 데이터도 볼 수 있습니다.
+## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>동기화에 대한 Azure AD Connect Health에 대한 경고
+동기화에 대한 Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다. 활성 또는 해결된 경고를 선택하면 추가 정보는 물론, 경고를 해결하기 위해 수행할 수 있는 단계와 추가 설명서 링크가 포함된 새 블레이드가 표시됩니다. 과거에 해결된 경고에 대한 기록 데이터도 볼 수 있습니다.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/alert2.png)
+경고를 선택하면 추가 정보는 물론 경고를 해결하기 위해 수행할 수 있는 단계와 추가 설명서 링크가 제공됩니다.
 
-## <a name="usage-analytics-for-ad-fs"></a>AD FS의 사용량 분석
-Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용 현황 분석 상자를 두 번 클릭하면, 몇 가지 메트릭 및 그룹화를 보여주는 사용 현황 분석 블레이드가 열립니다.
+![Azure AD Connect 동기화 오류](./media/active-directory-aadconnect-health-sync/alert.png)
 
-> [!NOTE]
-> AD FS와 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오.
-> 
-> 
+### <a name="limited-evaluation-of-alerts"></a>제한된 경고 평가
+Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터링이 기본 구성에서 사용자 지정 구성으로 변경된 경우) Azure AD Connect Health 에이전트가 Azure AD Connect와 관련된 오류 이벤트를 업로드하지 않습니다.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/report1.png)
+이로 인해 서비스의 경고 평가가 제한됩니다. Azure Portal에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시됩니다.
 
-추가 메트릭을 선택하거나, 시간 범위를 지정하거나, 그룹화를 변경하려면 사용 현황 분석 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 시간 범위를 지정하고 다른 메트릭을 선택하고 그룹화를 변경할 수 있습니다. 다음 테이블에 설명된 다양한 “메트릭”을 기반으로 인증 트래픽 배포를 볼 수 있고 적절한 “그룹화 기준” 매개 변수를 사용하여 각 메트릭을 그룹화할 수 있습니다.
+![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner.png)
 
-| 메트릭 | 그룹화 기준 | 그룹화의 의미 및 그룹화가 유용한 이유 |
-| --- | --- | --- |
-| 전체 요청: 페더레이션 서비스에서 처리하는 전체 요청 수 |모두 |그룹화하지 않은 전체 요청 수를 표시합니다. |
-| 적용 |대상 신뢰 당사자를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽 중 응용 프로그램이 수신하는 트래픽의 비율을 이해하는 데 유용합니다. | |
-| 서버 |요청을 처리한 서버를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 전체 트래픽의 부하 분포를 이해하는 데 유용합니다. | |
-| 작업 공간 연결 |작업 공간이 연결된(알려진) 장치의 요청인지 여부를 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 ID 인프라에 알려지지 않은 장치를 사용하여 리소스에 액세스하는 경우를 이해하는 데 유용합니다. | |
-| 인증 방법 |인증에 사용된 인증 방법을 기반으로 전체 요청을 그룹화합니다. 이 그룹화는 인증에 사용되는 일반적인 인증 방법을 이해하는 데 유용합니다. 다음은 가능한 인증 방법입니다. <ol> <li>Windows 통합 인증(Windows)</li> <li>폼 기반 인증(양식)</li> <li>SSO(Single Sign On)</li> <li>X509 인증서 인증(인증서)</li> <br>페더레이션 서버가 SSO 쿠키를 사용하 여 요청을 수신하는 경우 해당 요청은 SSO(Single Sign On)로 계산됩니다. 이 경우 쿠키가 유효하면 사용자는 자격 증명을 입력할 필요 없이 효율적으로 응용 프로그램에 액세스할 수 있습니다. 페더레이션 서버에서 여러 신뢰 당사자를 보호하는 경우 일반적으로 사용되는 동작입니다. | |
-| 네트워크 위치 |사용자의 네트워크 위치를 기반으로 전체 요청을 그룹화합니다. 네트워크 위치는 인트라넷 또는 엑스트라넷이 될 수 있습니다. 이 그룹화는 인트라넷 트래픽과 엑스트라넷 트래픽의 비율을 파악하는 데 유용합니다. | |
-| 전체 실패한 요청: 페더레이션 서비스에서 처리하는 전체 실패한 요청 수 <br> (이 메트릭은 Windows Server 2012 R2용 AD FS에서만 사용할 수 있습니다.) |오류 유형 |미리 정의된 오류 유형을 기반으로 오류의 수를 표시합니다. 이 그룹화는 오류의 일반적인 유형을 이해하는 데 유용합니다. <ul><li>잘못된 사용자 이름 또는 암호: 잘못된 사용자 이름 또는 암호로 인해 발생하는 오류입니다.</li> <li>"엑스트라넷 잠금": 엑스트라넷에서 잠근 사용자로부터 받은 요청으로 인해 발생하는 오류입니다. </li><li> "암호 만료": 만료된 암호를 사용하여 로그인하는 사용자로 인해 발생하는 오류입니다.</li><li>"계정 사용 안 함": 비활성화된 계정으로 로그인하는 사용자로 인해 발생하는 오류입니다.</li><li>"장치 인증": 장치 인증을 사용하여 인증에 실패하는 사용자로 인해 발생하는 오류입니다.</li><li>"사용자 인증서 인증": 잘못된 인증서로 인해 인증에 실패할 사용자로 인해 발생하는 오류입니다.</li><li>"MFA": Multi-Factor Authentication을 사용하여 인증에 실패하는 사용자로 인해 발생하는 오류입니다.</li><li>"다른 자격 증명": "발급 권한 부여": 인증 실패로 인해 발생하는 오류입니다.</li><li>"발급 위임": 발급 위임 오류로 인해 발생하는 오류입니다.</li><li>"승인 토큰": 타사 ID 공급자로부터 토큰을 거부하는 ADFS로 인해 발생하는 오류입니다.</li><li>"Protocol": 프로토콜 오류로 인해 발생하는 오류입니다.</li><li>"알 수 없음": 모두 Catch합니다. 정의된 카테고리에 맞지 않는 다른 모든 오류입니다.</li> |
-| 서버 |서버를 기반으로 오류를 그룹화합니다. 이 그룹화는 서버 전반의 오류 분포를 파악하는 데 유용합니다. 분포가 균일하지 않으면 특정 서버에 문제가 있음을 나타낼 수 있습니다. | |
-| 네트워크 위치 |요청의 네트워크 위치(인트라넷 및 엑스트라넷)를 기반으로 오류를 그룹화합니다. 이 그룹화는 실패하는 요청의 유형을 파악하는 데 유용합니다. | |
-| 적용 |대상 응용 프로그램(신뢰 당사자)을 기반으로 오류를 그룹화합니다. 이 그룹화는 가장 많은 수의 오류가 발생하는 대상 응용 프로그램을 파악하는 데 유용합니다. | |
-| 사용자 수: 시스템에서 활성 상태인 고유 사용자 수 평균 |모두 |이 메트릭은 선택한 시간 조각에서 페더레이션 서비스를 사용하는 평균 사용자 수를 제공합니다. 사용자가 그룹화되지 않습니다. <br>평균은 선택한 시간 조각에 따라 달라집니다. |
-| 적용 |대상 응용 프로그램(신뢰 당사자)을 기반으로 평균 사용자 수를 그룹화합니다. 이 그룹화는 특정 응용 프로그램을 사용하는 사용자의 수를 파악하는 데 유용합니다. | |
+"설정"을 클릭하고 Azure AD Connect Health 에이전트가 모든 오류 로그를 업로드할 수 있도록 허용하여 구성을 변경할 수 있습니다.
 
-## <a name="performance-monitoring-for-ad-fs"></a>AD FS의 모니터링 성능
-Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 정보를 제공합니다. 모니터링 상자를 선택하면 메트릭에 대한 자세한 정보가 포함된 새 블레이드가 열립니다.
+![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner2.png)
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/perf1.png)
+## <a name="sync-insight"></a>동기화 정보
+관리자는 Azure AD에 대한 동기화 변경에 걸리는 시간과 변화의 양에 대해 자주 알아보려고 합니다. 이 기능은 아래 그래프를 사용하여 시각화하는 간편한 방법을 제공합니다.   
 
-블레이드 맨 위의 옵션을 선택하여 서버별로 필터링하면 개별 서버의 메트릭을 확인할 수 있습니다. 메트릭을 변경하려면 모니터링 블레이드 아래 모니터링 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 열리는 새 블레이드의 드롭다운에서 추가 메트릭을 선택하여 성능 데이터를 볼 시간 범위를 지정할 수 있습니다.
+* 동기화 작업의 대기 시간
+* 개체 변경 추세
 
-## <a name="reports-for-ad-fs"></a>AD FS에 대한 보고서
-Azure AD Connect Health는 AD FS의 활동 및 성능에 대한 보고서를 제공합니다. 이러한 보고서는 관리자가 AD FS 서버의 활동을 파악하는 데 도움이 됩니다.
+### <a name="sync-latency"></a>동기화 대기 시간
+이 기능은 커넥터에 대한 동기화 작업(가져오기, 내보내기, 등)의 대기 시간을 그래픽 추세로 표시니다.  작업의 대기 시간(변경 사항이 대규모인 경우 적합)뿐만 아니라 대기 시간에 좀 더 조사가 필요한 이상을 감지하는 방법을 빠르고 쉽게 이해하는 방법을 제공합니다.
 
-### <a name="top-50-users-with-failed-usernamepassword-logins"></a>사용자 이름/암호 로그인이 실패한 상위 사용자 50명
-AD FS 서버에서 인증 요청이 실패하는 일반적인 이유 중 하나는 잘못된 자격 증명, 다시 말해서 사용자 이름 또는 암호가 올바르지 않은 것입니다. 일반적으로 복잡한 암호, 잊어버린 암호 또는 오타로 인해 사용자에게 발생합니다.
+![동기화 대기 시간](./media/active-directory-aadconnect-health-sync/synclatency02.png)
 
-하지만, 응용 프로그램이 사용자 자격 증명을 캐시했는데 자격 증명이 만료되었거나 일련의 잘 알려진 암호를 사용하여 계정에 로그인을 시도하는 악의적인 사용자와 같은 다른 이유로 인해 AD FS 서버에서 처리되는 예상치 못한 요청 수가 발생할 수 있습니다. 이러한 두 가지 예는 요청의 급증을 유발할 수 있는 유효한 원인입니다.
+기본적으로 Azure AD 커넥터에 대한 '내보내기' 작업의 대기 시간만 표시됩니다.  커넥터에 대한 더 많은 작업 또는 다른 커넥터에서 작업을 보려면 차트를 마우스 오른쪽 단추로 클릭하고, 차트 편집을 선택하거나 "대기 시간 차트 편집" 버튼을 클릭하고 특정 작업 및 커넥터를 선택합니다.
 
-Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되어 로그인 시도가 실패한 상위 사용자 50명에 대한 보고서를 제공합니다. 이 보고서는 팜의 모든 AD FS 서버에서 생성한 감사 이벤트를 처리하여 작성됩니다.
+### <a name="sync-object-changes"></a>동기화 개체 변경 사항
+이 기능은 평가되어 Azure AD로 내보내진 변경 횟수를 그래픽 추세로 표시합니다.  오늘날, 동기화 로그에서 이러한 정보를 수집하는 것은 어려운 일입니다.  차트를 통해 사용자의 환경에서 발생하는 변경 횟수를 보다 간단하게 모니터링하는 방법뿐만 아니라 발생하는 오류를 시각적으로 볼 수 있습니다.
 
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report1a.png)
+![동기화 대기 시간](./media/active-directory-aadconnect-health-sync/syncobjectchanges02.png)
 
-이 보고서 내에서 다음 정보에 간편하게 액세스할 수 있습니다.
+## <a name="object-level-synchronization-error-report-preview"></a>개체 수준 동기화 오류 보고서(미리 보기)
+이 기능은 Azure AD Connect를 사용하여 Windows Server AD와 Azure AD 간의 ID 데이터를 동기화할 때 발생할 수 있는 동기화 오류에 대한 보고서를 제공합니다.
 
-* 지난 30일 동안 잘못된 사용자 이름/암호를 사용하여 실패한 요청 수
-* 잘못된 사용자 이름/암호로 로그인하여 실패한 일별 평균 사용자 수
+* 보고서에서는 동기화 클라이언트를 통해 기록된 오류를 포함합니다(Azure AD Connect 1.1.281.0 버전 이상)
+* 동기화 엔진의 마지막 동기화 작업에서 발생한 오류를 포함합니다 (Azure AD 커넥터에 “내보내기”).
+* 동기화에 대한 Azure AD Connect Health agent에는 최신 데이터를 포함하는 보고서에 필요한 끝점의 아웃바운드 연결이 있어야 합니다.
+* 보고서는 동기화를 위한 Azure AD Connect Health 에이전트에서 업로드한 데이터를 사용하여 **30분 마다 업데이트**됩니다.
+  다음과 같은 주요 기능을 제공합니다.
 
-이 부분을 클릭하면 추가 세부 정보를 제공하는 주 보고서 블레이드로 이동합니다. 이 블레이드는 잘못된 사용자 이름이나 암호를 사용하는 요청에 대한 기준을 설정하는 데 도움이 되는 추세 정보가 있는 그래프를 포함합니다. 또한, 실패한 시도 횟수와 상위 50명의 사용자 목록을 제공합니다.
+  * 오류 분류
+  * 범주별 오류에 따른 개체의 목록
+  * 한 곳에서 발생한 오류에 대한 모든 데이터
+  * 충돌로 인해 오류와 함께 개체의 특징을 비교 정렬
+  * CVS로 오류 보고서를 다운로드(출시 예정)
 
-이 그래프는 다음 정보를 제공합니다.
+### <a name="categorization-of-errors"></a>오류 분류
+보고서에서는 기존 동기화 오류를 다음과 같은 범주로 분류합니다.
 
-* 잘못된 사용자 이름/암호로 인해 실패한 일별 총 로그인 수
-* 로그인에 실패한 일별 총 고유 사용자 수
-* 마지막 요청에 대한 클라이언트 IP 주소
-
-![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report3a.png)
-
-이 보고서는 다음 정보를 제공합니다.
-
-| 보고서 항목 | 설명 |
+| Category | 설명 |
 | --- | --- |
-| 사용자 ID |사용된 사용자 ID를 표시합니다. 이것은 사용자가 입력한 값이며, 잘못된 사용자 ID가 사용되는 경우도 있습니다. |
-| 실패한 시도 |특정 사용자 ID에 대한 총 실패 횟수를 보여 줍니다. 테이블은 가장 높은 실패 횟수부터 내림차순으로 정렬됩니다. |
-| 마지막 실패 |마지막 실패가 발생한 타임 스탬프를 보여 줍니다. |
-| 마지막 실패 IP |최신 잘못된 요청에서 클라이언트 IP 주소를 표시합니다. |
+| 중복 특성 |proxyAddresses, UserPrincipalName 같은 테넌트 내에서 고유해야 하는 Azure AD에서 하나 이상의 특성의 값이 중복된 개체를 만들거나 업데이트하려고 시도할 때의 오류 |
+| 데이터 불일치 |소프트 일치가 동기화 오류가 발생하는 개체와 일치하도록 하는 데 실패할 경우발생하는 오류 |
+| 데이터 유효성 검사 실패 |UserPrincipalName와 같은 중요한 특성에서 지원되지 않는 문자 등 잘못된 데이터로 인한 오류, Azure AD에 기록되기 전에 유효성 검사에 실패하는 서식 오류. |
+| 큰 특성 |하나 이상의 특성의 허용 되는 크기, 길이 또는 개수보다 클 때 발생하는 오류 |
+| 기타 |위 범주에 맞지 않는 다른 모든 오류 의견에 따라 이 범주는 하위 범주로 분할됩니다. |
 
-> [!NOTE]
-> 이 보고서는 해당 시간 내에 수집된 새 정보를 사용하여&2;시간 후마다 자동으로 업데이트됩니다. 따라서 마지막&2;시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
-> 
-> 
+![동기화 오류 보고서 요약](./media/active-directory-aadconnect-health-sync/errorreport01.png)
+![동기화 오류 보고서 범주](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+
+### <a name="list-of-objects-with-error-per-category"></a>범주별 오류에 따른 개체의 목록
+각 범주에 대해 자세히 알아보면 해당 범주의 오류가 포함된 개체의 목록을 제공합니다.
+![동기화 오류 보고서 목록](./media/active-directory-aadconnect-health-sync/errorreport03.png)
+
+### <a name="error-details"></a>오류 세부 정보
+다음 데이터를 각 오류에 대한 자세한 보기에 사용할 수 있음
+
+* 관련된 *AD 개체*에 대한 식별자
+* 관련된 *Azure AD 개체*에 대한 식별자
+* 오류 설명 및 해결 방법
+* 관련 문서
+
+![동기화 오류 보고서 세부 정보](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+
+### <a name="download-the-error-report-as-csv"></a>CVS로 오류 보고서를 다운로드
+“내보내기” 단추를 선택하면 모든 오류에 대한 세부 정보를 모두 포함하는 CSV 파일을 다운로드할 수 있습니다.
 
 ## <a name="related-links"></a>관련 링크
+* [동기화 중 오류 문제 해결](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
+* [중복 특성 복원력](../connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent 설치](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
-* [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
+* [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

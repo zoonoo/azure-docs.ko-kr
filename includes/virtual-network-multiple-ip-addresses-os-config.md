@@ -6,7 +6,7 @@
 
 1. 명령 프롬프트에서 *ipconfig /all*을 입력합니다.  *기본* 개인 IP 주소(DHCP를 통한)만 표시됩니다.
 2. 명령 프롬프트 창에 *ncpa.cpl*을 입력하여 **네트워크 연결** 창을 엽니다.
-3. **로컬 영역 연결**에 대한 속성을 엽니다.
+3. 적절한 어댑터 **로컬 영역 연결**에 대한 속성을 엽니다.
 4. IPv4(인터넷 프로토콜 버전 4)를 두 번 클릭합니다.
 5. **다음 IP 주소 사용**을 선택하고 다음 값을 입력합니다.
 
@@ -16,9 +16,24 @@
     * **다음 DNS 서버 주소 사용** 을 클릭하고 다음 값을 입력합니다.
         * **기본 설정 DNS 서버**: 자체 DNS 서버를 사용하지 않는 경우 168.63.129.16을 입력합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.
     * **고급** 단추를 클릭하고 추가 IP 주소를 추가합니다. 8단계에 나열된 각 보조 개인 IP 주소를 기본 IP 주소에 대해 지정된 것과 동일한 서브넷을 갖는 NIC에 추가합니다.
+        >[!WARNING] 
+        >위의 단계를 제대로 따르지 않으면 VM에 대한 연결이 손실될 수 있습니다. 계속하기 전에 5단계에서 입력한 정보가 정확한지 확인합니다.
+
     * **확인**을 클릭하여 TCP/IP 설정을 닫은 다음 **확인**을 다시 클릭하여 어댑터 설정을 닫습니다. RDP 연결이 다시 설정됩니다.
+
 6. 명령 프롬프트에서 *ipconfig /all*을 입력합니다. 추가한 모든 IP 주소가 표시되고 DHCP는 해제됩니다.
-    
+
+
+### <a name="validation-windows"></a>유효성 검사(Windows)
+
+보조 IP 구성과 연결된 공용 IP를 통해 인터넷에 연결할 수 있는지 확인하기 위해서 위의 단계를 사용하여 IP를 제대로 추가하고 나면 다음 명령을 사용합니다.
+
+```bash
+ping -S 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>위에서 사용하는 개인 IP 주소에 연결된 공용 IP 주소가 있으면 인터넷에 ping할 수 있습니다.
+
 ### <a name="linux-ubuntu"></a>Linux(Ubuntu)
 
 1. 터미널 창을 엽니다.
@@ -39,13 +54,7 @@
         ```
 
     .cfg 파일이 표시됩니다.
-4. 다음 파일을 엽니다.
-
-        ```bash
-        vi eth0.cfg
-        ```
-
-    파일 끝에 다음 줄이 있어야 합니다.
+4. 파일을 엽니다. 파일 끝에 다음 줄이 있어야 합니다.
 
     ```bash
     auto eth0
@@ -57,6 +66,7 @@
     ```bash
     iface eth0 inet static
     address <your private IP address here>
+    netmask <your subnet mask>
     ```
 
 6. 다음 명령을 실행하여 파일을 저장합니다.
@@ -78,11 +88,11 @@
 8. 다음 명령을 사용하여 네트워크 인터페이스에 IP 주소가 추가되는지 확인합니다.
 
     ```bash
-    Ip addr list eth0
+    ip addr list eth0
     ```
 
     목록의 일부로 추가한 IP 주소가 표시되어야 합니다.
-    
+
 ### <a name="linux-redhat-centos-and-others"></a>Linux(Redhat, CentOS 및 기타)
 
 1. 터미널 창을 엽니다.
@@ -122,11 +132,10 @@
 
     ```bash
     DEVICE=eth0:0
-        BOOTPROTO=static
-        ONBOOT=yes
-        IPADDR=192.168.101.101
-        NETMASK=255.255.255.0
-
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=192.168.101.101
+    NETMASK=255.255.255.0
     ```
 
 8. 다음 명령을 실행하여 파일을 저장합니다.
@@ -144,7 +153,31 @@
 
     반환된 목록에서 추가한 IP 주소 *eth0:0*이 표시되어야 합니다.
 
+### <a name="validation-linux"></a>유효성 검사(Linux)
 
-<!--HONumber=Feb17_HO1-->
+보조 IP 구성과 연결된 공용 IP를 통해 인터넷에 연결할 수 있는지 확인하기 위해서 다음 명령을 사용합니다.
+
+```bash
+ping -I 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>위에서 사용하는 개인 IP 주소에 연결된 공용 IP 주소가 있으면 인터넷에 ping할 수 있습니다.
+
+Linux VM의 경우 보조 NIC의 아웃바운드 연결에 대한 유효성 검사를 시도하는 경우 적절한 경로를 추가해야 할 수 있습니다. 이 작업을 수행하는 방법은 많이 있습니다. Linux 배포에 대한 적절한 설명서를 참조하세요. 다음은 이 작업을 수행하는 한 가지 방법입니다.
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- 반드시 대체할 항목:
+    - **10.0.0.5**를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+    - **10.0.0.1**을 기본 게이트웨이로 대체해야 합니다.
+    - **eth2**를 보조 NIC의 이름으로 대체해야 합니다.
+
+
+<!--HONumber=Feb17_HO2-->
 
 

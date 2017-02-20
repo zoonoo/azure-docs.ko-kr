@@ -14,11 +14,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/1/2017
-ms.author: trinadhk;giridham;arunak;markgal;jimpark;
+ms.date: 2/8/2017
+ms.author: markgal;giridham;arunak;markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
-ms.openlocfilehash: 7033b660608897819b629d398450cd32ea7b48fa
+ms.sourcegitcommit: d842d0a7e6a99a0a0a67b7cf6c695aba16f83d8f
+ms.openlocfilehash: 72cd97798df4e63da1e3d1dc167714f6033d2c86
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 7033b660608897819b629d398450cd32ea7b48fa
 이 문서는 Azure 백업 서비스에 대해 자주 묻는 질문(및 해당 답변) 목록입니다. 커뮤니티에서 신속하게 응답하고 자주 묻는 질문인 경우 이 문서에 추가합니다. 질문에 대한 대답은 일반적으로 참조 또는 지원 정보를 제공합니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure 백업 서비스에 대한 질문도 게시할 수 있습니다.
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>어떤 운영 체제에서 Azure 백업을 사용하여 Azure에 백업할 수 있나요? <br/>
-Azure Backup은 Azure Backup Server 및 SCDPM을 사용하여 보호되는 파일과 폴더 및 워크로드 응용 프로그램의 백업을 위한 다음과 같은 목록의 운영 체제를 지원합니다.
+Azure Backup은 Azure Backup Server 및 SCDPM을 사용하여 보호되는 파일과 폴더 및 워크로드 응용 프로그램의 백업을 위한 다음 목록의 운영 체제를 지원합니다.
 
 | 운영 체제 | 플랫폼 | SKU |
 |:--- | --- |:--- |
@@ -58,27 +58,27 @@ SCDPM의 최신 업데이트 롤업(2016년 8월을 기준으로 UR11)에 [최�
 예, 저장소 자격 증명은 48시간이 지나면 만료됩니다. 파일이 만료되면 Azure 포털에 로그인하고 해당 자격 증명 모음에서 저장소 자격 증명 파일을 다운로드하세요.
 
 ## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>각 Azure 구독에 만들 수 있는 자격 증명 모음의 개수에 제한이 있나요? <br/>
-예. 2016년 9월을 기준으로 구독 당 25개 백업 자격 증명 모음을 만들 수 있습니다. 구독당 Azure Backup 지원되는 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 새 구독을 만드세요.
+예. 2016년 9월을 기준으로 구독 당 25개 백업 자격 증명 모음을 만들 수 있습니다. 구독당 Azure Backup 지원되는 지역당 최대 25개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요? <br/>
-예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. Azure IaaS 가상 컴퓨터의 경우 자격 증명 모음당 200개 VM으로 제한됩니다. 더 많은 컴퓨터를 등록해야 할 경우 다른 자격 증명 모음을 만드세요.
+예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. Azure IaaS 가상 컴퓨터의 경우 자격 증명 모음당 200대 VM으로 제한됩니다. 더 많은 컴퓨터를 등록해야 할 경우 다른 자격 증명 모음을 만드세요.
 
 ## <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>다른 데이터 센터에 내 서버를 등록하려면 어떻게 해야 하나요?<br/>
 백업 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송됩니다. 데이터 센터를 변경하는 가장 쉬운 방법은 에이전트를 제거하고 다시 설치한 후 원하는 데이터 센터에 속한 새 자격 증명 모음에 등록하는 것입니다.
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure에 데이터를 백업하는 Windows 서버 이름을 바꾸면 어떻게 되나요?<br/>
 서버 이름을 바꾸면 현재 구성된 모든 백업이 중지됩니다.
-백업 자격 증명 모음과 함께 서버의 새 이름을 등록합니다. 새 이름으로 자격 증명 모음을 등록하면 첫 번째 백업 작업은 *전체* 백업입니다. 이전 서버 이름과 함께 이전에 자격 증명 모음으로 백업한 데이터를 복구해야 하는 경우 **데이터 복구** 마법사에 있는 [**다른 서버**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 옵션을 사용하여 데이터를 복구할 수 있습니다.
+백백업 자격 증명 모음에 서버의 새 이름을 등록합니다. 자격 증명 모음에 새 이름을 등록하면 첫 번째 백업 작업은 *전체* 백업입니다. 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우에는 **데이터 복구** 마법사의 [**다른 서버**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 옵션을 사용합니다.
 
-## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>어떤 종류의 드라이브에서 파일 및 폴더를 백업할 수 있나요? <br/>
-다음과 같은 드라이브/볼륨을 백업할 수 없습니다.
+## <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>어떤 드라이브 유형의 파일 및 폴더를 백업할 수 있나요? <br/>
+다음과 같은 드라이브/볼륨은 백업할 수 없습니다.
 
-* 이동식 미디어: 드라이브가 백업 항목 원본으로 사용하도록 고정된 것으로 보고해야 합니다.
+* 이동식 미디어: 모든 백업 항목 원본은 고정된 것으로 보고되어야 합니다.
 * 읽기 전용 볼륨: VSS(볼륨 섀도 복사본 서비스)가 작동하려면 볼륨에 데이터 쓰기가 가능해야 합니다.
 * 오프라인 볼륨: VSS가 작동하려면 볼륨이 온라인 상태여야 합니다.
 * 네트워크 공유: 온라인 백업을 사용하여 백업할 서버의 로컬 볼륨이어야 합니다.
-* Bitlocker 보호 된 볼륨: 볼륨의 잠금을 해제 해야 백업이 실행됩니다.
-* 파일 시스템 식별: NTFS 파일 시스템만 이 버전의 온라인 백업 서비스에 대해 지원됩니다.
+* Bitlocker로 보호된 볼륨: 볼륨의 잠금을 해제해야 백업이 실행될 수 있습니다.
+* 파일 시스템 식별: NTFS가 유일하게 지원되는 파일 시스템입니다.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>내 서버에서 어떤 파일 및 폴더 형식을 백업할 수 있나요?<br/>
 다음과 같은 형식이 지원됩니다.
@@ -97,7 +97,7 @@ SCDPM의 최신 업데이트 롤업(2016년 8월을 기준으로 UR11)에 [최�
 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다. 캐시 폴더는 데이터 저장에 필요한 공간의 5%여야 합니다.
 
 ## <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 서버 간에 데이터를 어떻게 격리할 수 있나요?<br/>
-동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
+동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가  세 번째 암호화 암호를 사용할 수 있습니다.
 
 ## <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>구독 간에 내 백업 데이터 또는 자격 증명 모음을 “마이그레이션”할 수 있나요? <br/>
 아니요. 자격 증명 모음은 구독 수준에서 만들어지며 생성된 후에는 다른 구독에 다시 할당할 수 없습니다.
@@ -106,7 +106,7 @@ SCDPM의 최신 업데이트 롤업(2016년 8월을 기준으로 UR11)에 [최�
 예. 에이전트 서비스는 백업 작업을 준비할 때 중복 제거 된 데이터를 일반 데이터로 변환 합니다. 그 다음 백업에 대한 데이터를 최적화하고 데이터를 암호화한 다음 온라인 백업 서비스에 암호화된 데이터를 보냅니다.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요? <br/>
-아니요. 취소의 시점에 앞서 자격 증명 모음으로 전송되는 모든 데이터는 자격 증명 모음에 유지됩니다. Azure 백업은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업만 새로 만들거나 변경된 데이터를 전송하므로 대역폭의 사용률을 개선합니다.
+아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다. Azure 백업은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
 
 Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 무시됩니다. 다음 백업 작업은 마지막으로 성공한 백업 작업에서 증분 데이터를 전송합니다.
 
@@ -123,16 +123,16 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 * \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>VM 확장을 사용하여 Azure 백업 서비스에서 이미 지원하는 Azure VM에 Azure 백업 에이전트를 설치할 수 있나요? <br/>
-그렇습니다. Azure 백업은 VM 확장을 사용하여 Azure VM에 대한 VM 수준 백업을 제공합니다. 게스트 Windows OS에 Azure Backup 에이전트를 설치하여 게스트 OS에서 파일 및 폴더를 보호합니다.
+그렇습니다. Azure 백업은 VM 확장을 사용하여 Azure VM에 대한 VM 수준 백업을 제공합니다. 게스트 Windows OS의 파일 및 폴더를 보호하려면 게스트 Windows OS에 Azure Backup 에이전트를 설치합니다.
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Azure VM에 Azure 백업 에이전트를 설치하여 Azure VM에서 제공하는 임시 저장소에 존재하는 파일 및 폴더를 백업할 수 있나요? <br/>
-예. 게스트 Windows OS에 Azure Backup 에이전트를 설치하고 임시 저장소에 파일 및 폴더를 백업합니다. 그러나 임시 저장소 데이터가 초기화된 후에는 백업이 실패합니다. 또한 임시 저장소 데이터가 삭제된 경우 비휘발성 저장소에만 복원할 수 있습니다.
+예. 게스트 Windows OS에 Azure Backup 에이전트를 설치하고 임시 저장소에 파일 및 폴더를 백업합니다. 임시 저장소 데이터가 초기화된 후에는 백업이 실패합니다. 또한 임시 저장소 데이터가 삭제된 경우 비휘발성 저장소에만 복원할 수 있습니다.
 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>내 파일 및 폴더를 보호하기 위해 Azure 백업 에이전트를 설치했습니다. 이제 SCDPM을 설치하여 Azure에 온-프레미스 응용 프로그램/VM 워크로드를 보호하기 위해 Azure 백업 에이전트를 사용할 수 있나요? <br/>
 System Center DPM(Data Protection Manager)과 함께 Azure Backup을 사용하려면 먼저 DPM을 설치하고 Azure Backup 에이전트를 설치합니다. Azure Backup 구성 요소를 이 순서대로 설치하면 Azure Backup 에이전트는 DPM과 함께 작동합니다. DPM을 설치하기 전에 Azure Backup 에이전트를 설치하는 것이 권장되거나 지원되지 않습니다.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure 백업 에이전트를 사용하여 Azure 백업 정책의 일부로 지정할 수 있는 파일 경로의 길이 무엇인가요? <br/>
-Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사양은 Windows API에 의해 제한됩니다](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). 파일 경로 길이가 Windows API에서 허용한 것보다 긴 파일을 백업하는 경우 백업 파일의 상위 폴더 또는 디스크 드라이브를 백업하도록 선택할 수 있습니다.  
+Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사양은 Windows API에 의해 제한됩니다](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). 보호하려는 파일의 경로가 Windows API에 허용되는 길이보다 긴 경우 상위 폴더 또는 디스크 드라이브를 백업합니다.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure 백업 에이전트를 사용하는 Azure 백업 정책의 파일 경로에 어떤 문자가 허용되나요? <br>
  Azure 백업 에이전트는 NTFS에 의존합니다. 파일 사양의 일부분으로 [NTFS 지원 문자](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) 를 사용할 수 있습니다.  
@@ -144,7 +144,7 @@ Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
 예, 백업 서비스에는 PowerShell 스크립트와 함께 사용할 수 있는 몇 가지 이벤트 기반 알림이 있습니다. 전체 설명은 [구성 알림](backup-azure-monitor-vms.md#configure-notifications)을 참조하세요.
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>백업하는 각 데이터 원본의 크기에 제한이 있나요? <br/>
-자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없습니다. Azure Backup은 데이터 원본에 대한 최대 크기를 제한하지만 이러한 제한 사항은 매우 큽니다. 2015년 8월 기준으로, 지원되는 운영 체제의 최대 크기 데이터 원본은 다음과 같습니다.
+자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없습니다. Azure Backup은 데이터 원본에 대한 최대 크기를 제한하지만 이러한 한도는 큽니다. 2015년 8월 기준으로, 지원되는 운영 체제의 최대 크기 데이터 원본은 다음과 같습니다.
 
 | S.No | 운영 체제 | 데이터 원본의 최대 크기 |
 |:---:|:--- |:--- |
@@ -192,7 +192,7 @@ Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
 일반적인 장기 보존 지점 제품은 백업 데이터를 전체 지점으로 저장합니다. 전체 지점은 저장소를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다. 증분 복사본은 저장소를 *효율적* 으로 사용하지만 데이터 체인을 복원해야 하며 이는 복구 시간에 영향을 줍니다. Azure 백업 저장소 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 저장소 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 데이터 저장소 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 저장소와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) 저장이 효율적인 방법에 대한 자세한 알아봅니다.
 
 ## <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-createdbr"></a>만들 수 있는 복구 지점의 수에 제한이 있나요?<br/>
-아니요. 복구 지점에 대한 제한은 제거되었습니다. 필요한 개수만큼 복구 지점을 만들 수 있습니다.
+보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure에 데이터를 백업하도록 구성된 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 백업 자격 증명 모음당 보호되는 인스턴스의 수에는 한도가 없습니다. 자세한 내용은 [백업 및 보존](./backup-introduction-to-azure-backup.md#backup-and-retention)과 [보호된 인스턴스란 무엇인가요](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?의 설명을 참조하세요.
 
 ## <a name="why-is-the-amount-of-data-transferred-in-backup-not-equal-to-the-amount-of-data-i-backed-upbr"></a>백업에 전송된 데이터의 양이 제가 백업한 데이터의 양과 같지 않은 이유는 무엇인가요?<br/>
  Azure 백업 에이전트 또는 SCDPM 또는 Azure 백업 서버에서 백업된 모든 데이터를 전송하기 전에 압축하고 암호화합니다. 압축 및 암호화를 적용하면 백업 자격 증명 모음에 있는 데이터 크기가 30-40% 줄어듭니다.
@@ -201,7 +201,7 @@ Azure 백업 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
  예, 백업 에이전트에서 **속성 변경** 옵션을 사용하여 대역폭을 조정합니다. 대역폭을 사용하는 경우 시간과 대역폭의 양을 조정할 수 있습니다. 단계별 지침은 [Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업] 문서의 **[네트워크 제한 사용(선택 사항)](backup-configure-vault.md#enable-network-throttling)**을 참조하세요.
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure-br"></a>내 인터넷 대역폭은 백업해야 하는 데이터의 양에 대해 제한됩니다. 대량 네트워크 파이프가 있는 특정 위치에 데이터를 옮기고 해당 데이터를 Azure에 푸시할 수 있는 방법이 있나요? <br/>
-표준 온라인 백업 프로세스를 통해 Azure에 데이터를 백업할 수 있거나 Azure 가져오기/내보내기 서비스를 사용하여 Azure의 Blob 저장소에 데이터를 전송할 수 있습니다. Azure 저장소에 백업 날짜를 가져올 수 있는 다른 방법이 없습니다. Azure 백업으로 Azure 가져오기/내보내기 서비스를 사용하는 방법에 대한 정보는 [오프라인 백업 워크플로](backup-azure-backup-import-export.md) 문서를 참조하세요.
+표준 온라인 백업 프로세스를 통해 Azure에 데이터를 백업할 수 있거나 Azure 가져오기/내보내기 서비스를 사용하여 Azure의 Blob 저장소에 데이터를 전송할 수 있습니다. Azure 저장소에 백업 날짜를 가져올 수 있는 다른 방법이 없습니다. Azure Backup으로 Azure Import/Export 서비스를 사용하는 방법에 대한 내용은 [오프라인 백업 워크플로](backup-azure-backup-import-export.md) 문서를 참조하세요.
 
 ## <a name="how-many-recoveries-can-i-perform-on-the-data-that-is-backed-up-to-azurebr"></a>Azure에 백업된 데이터는 몇 번 복구할 수 있나요?<br/>
 Azure 백업에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
@@ -256,16 +256,16 @@ Azure 백업에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 * 스파스
 * 재분석 지점
 
-캐시 폴더와 VHD 메타데이터에는 Azure Backup 에이전트에 필요한 특성이 없습니다.
+캐시 폴더와 메타데이터 VHD에는 모두 Azure Backup 에이전트에 필요한 특성이 없습니다.
 
 ## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Recovery Services 자격 증명 모음은 Resource Manager에 기반합니다. Backup 자격 증명 모음(기본 모드)은 계속 지원되나요? <br/>
-예, 백업 자격 증명 모음도 계속 지원됩니다. [클래식 포털](https://manage.windowsazure.com)에서 백업 자격 증명 모음을 만듭니다. [Azure 포털](https://portal.azure.com)에서 복구 서비스 자격 증명 모음을 만듭니다. 그러나 이후의 모든 향상된 기능은 복구 서비스 자격 증명 모음에서만 사용할 수 있으므로 복구 서비스 자격 증명 모음을 만드는 것이 가장 좋습니다.
+예, 백업 자격 증명 모음도 계속 지원됩니다. [클래식 포털](https://manage.windowsazure.com)에서 백업 자격 증명 모음을 만듭니다. [Azure 포털](https://portal.azure.com)에서 복구 서비스 자격 증명 모음을 만듭니다. 이후에 향상되는 기능은 Recovery Services 자격 증명 모음에만 해당되므로 Recovery Services 자격 증명 모음을 만드는 것이 가장 좋습니다.
 
 ## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>복구 서비스 자격 증명 모음에 백업 자격 증명 모음을 마이그레이션할 수 있나요? <br/>
-아니요, 안타깝지만 지금은 백업 저장소의 컨텐츠를 복구 서비스 자격 증명 모음에 마이그레이션할 수 없습니다. 이 기능을 추가하려고 노력하고 있지만 현재는 사용할 수 없습니다.
+아니요, 안타깝지만 Backup 자격 증명 모음의 내용을 Recovery Services 자격 증명 모음에 마이그레이션할 수 없습니다. 이 기능을 추가하려고 노력하고 있지만 현재는 사용할 수 없습니다.
 
 ## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>복구 서비스 자격 증명 모음은 클래식 VM 또는 Resource Manager 기반 VM을 지원하나요? <br/>
-복구 서비스 자격 증명 모음은 두 모델을 모두 지원합니다.  Recovery Services 자격 증명 모음에 클래식 포털에서 만들어진 클래식 VM 또는 Azure Portal에서 만들어진 VM을 백업할 수 있습니다.
+복구 서비스 자격 증명 모음은 두 모델을 모두 지원합니다.  Recovery Services 자격 증명 모음에 클래식 포털에서 만들어진 클래식 VM 또는 Azure Portal에서 만들어진 Resource Manager VM을 백업할 수 있습니다.
 
 ## <a name="i-have-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>백업 자격 증명 모음에 내 클래식 VM을 백업했습니다. 클래식 모드에서 Resource Manager 모드로 내 VM을 마이그레이션하고 Recovery Services 자격 증명 모음에서 보호할 수 있나요?
 클래식 모드에서 Resource Manager 모드로 VM을 바꾸는 경우 백업 자격 증명 모음에 있는 클래식 VM 복구 시점은 Recovery Services 자격 증명 모음에 자동으로 마이그레이션되지 않습니다. VM 백업을 전송하려면 다음 단계를 수행합니다.
@@ -276,6 +276,6 @@ Azure 백업에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

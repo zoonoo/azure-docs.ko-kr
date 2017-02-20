@@ -1,5 +1,5 @@
 
-1. [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)에 나열된 단계를 사용하여 Azure 구독에 로그인합니다.
+1. [Azure CLI 1.0에서 Azure에 연결](../articles/xplat-cli-connect.md)에 나열된 단계를 사용하여 Azure 구독에 로그인합니다.
 
 2. 다음과 같이 클래식 배포 모드에 있는지 확인합니다.
 
@@ -52,10 +52,10 @@
     ```
 
 ## <a name="next-steps"></a>다음 단계
-모든 Azure CLI 가상 컴퓨터 명령에 대한 자세한 설명은 [클래식 배포 API에서 Azure CLI 사용](../articles/virtual-machines-command-line-tools.md)을 참조하세요.
+모든 Azure CLI 1.0 가상 컴퓨터 명령에 대한 자세한 설명은 [클래식 배포 API에서 Azure CLI 1.0 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

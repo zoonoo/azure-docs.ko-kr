@@ -1,9 +1,9 @@
-프리미엄 캐시를 만들려면 [Azure 포털](https://portal.azure.com)에 로그인하고 **새로 만들기** > **데이터 + 저장소** > **Redis Cache**를 클릭합니다.
+프리미엄 캐시를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **새로 만들기** > **데이터베이스** > **Redis Cache**를 클릭합니다.
 
 ![캐시 만들기](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> Azure 포털에서 캐시를 만드는 것 외에도 Resource Manager 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다. 자세한 내용은 [캐시 만들기](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
+> Azure 포털에서 캐시를 만드는 것 외에도 Resource Manager 템플릿, PowerShell 또는 Azure CLI를 사용해서도 만들 수 있습니다. Azure Redis Cache 생성에 대한 자세한 내용은 [캐시 생성하기](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)을 참조하세요.
 > 
 > 
 
@@ -13,6 +13,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

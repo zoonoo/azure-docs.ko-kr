@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
-ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -89,13 +89,16 @@ Azure AD Connect Health를 시작하기가 매우 쉽습니다. 다음 단계를
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Azure AD Connect Health 에이전트 다운로드 및 설치
-* Azure AD Connect Health에 대한 요구 사항을 충족해야 합니다.
-* AD FS용 Azure AD Connect Health를 사용하기 시작하려면 [AD FS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)에서 에이전트의 최신 버전을 다운로드할 수 있습니다.
-* 동기화를 위한 Azure AD Connect Health를 사용하기 시작하려면 [Azure AD Connect 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다.  상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상).  Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
-* AD DS용 Azure AD Connect Health를 사용하기 시작하려면 [AD DS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)에서 에이전트의 최신 버전을 다운로드할 수 있습니다.
-
+* Azure AD Connect Health에 대한 [요구 사항을 충족](active-directory-aadconnect-health-agent-install.md#requirements)해야 함
+* AD FS용 Azure AD Connect Health 사용 시작
+    * [AD FS용 Azure AD Connect Health Agent 다운로드.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [설치 지침 참조](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* 동기화용 Azure AD Connect Health 사용 시작
+    * [최신 버전의 Azure AD Connect 다운로드 및 설치](http://go.microsoft.com/fwlink/?linkid=615771). 동기화용 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상).
+* AD DS용 Azure AD Connect Health 사용 시작
+    * [AD DS용 Azure AD Connect Health Agent 다운로드.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [설치 지침 참조](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health 포털
 Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 사용 현황 분석을 볼 수 있습니다. https://aka.ms/aadconnecthealth에서 Azure AD Connect Health의 주 블레이드로 이동합니다.  블레이드를 창으로 생각할 수 있습니다. 기본 블레이드에서 빠른 시작, Azure AD Connect Health 내 서비스 및 추가 구성 옵션이 표시됩니다. 스크린샷 아래에는 이들 각각에 대해 간략한 설명이 있습니다.  에이전트를 배포한 후에 상태 서비스는 Azure AD Connect Health가 모니터링하는 서비스에 대해 자동으로 식별됩니다.
 
@@ -120,7 +123,6 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
