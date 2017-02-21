@@ -534,7 +534,7 @@ Machine Learning 서비스는 다중 테넌트 서비스입니다. 백 엔드에
 ### <a name="guest-access"></a>게스트 액세스
 **Azure 기계 학습 스튜디오의 게스트 액세스란?**
 
-게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고,&8;시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 **https://studio.azureml.net**에서 [시작하기](https://studio.azureml.net)를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
+게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고,&8;시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net) 에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
