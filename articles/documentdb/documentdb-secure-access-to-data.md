@@ -2,7 +2,7 @@
 title: "DocumentDB에서 데이터에 대한 액세스를 보호하는 방법 | Microsoft Docs"
 description: "마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 DocumentDB의 액세스 제어 개념에 대해 알아봅니다."
 services: documentdb
-author: kiratp
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2016
-ms.author: kipandya
+ms.date: 02/21/2017
+ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
 ms.openlocfilehash: 4d84c11a4b91727f60c4c266a23cc5f3946898f5
