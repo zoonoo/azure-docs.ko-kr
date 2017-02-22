@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 12/22/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 6941a0a5e108617ebb16354edc9917392b7cb786
+ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
+ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
 
 
 ---
@@ -119,7 +119,7 @@ DocumentDB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리 내 
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | 컬렉션의 기본 경로입니다. 재귀적이며 전체 문서 트리에 적용됩니다.                                                                                                                                                                                                                                   |
 | /prop/?             | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시, 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/              | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /prop/*             | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | ["a", "b", "c"]와 같은 스칼라의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[]/subprop/? | [{subprop: "a"}, {subprop: "b"}]와 같은 개체의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
 | /prop/subprop/?     | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시 또는 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
@@ -307,7 +307,7 @@ DocumentDB를 사용하면 즉석에서 컬렉션의 인덱싱 정책을 변경�
 > [!NOTE]
 > ReplaceDocumentCollectionAsync를 사용하여 인덱싱 정책을 수정하려면 NET SDK의 1.3.0 이상의 버전이 필요합니다.
 > 
-> 인덱스 변환을 성공적으로 완료하려면 컬렉션에 사용할 수 있는 충분한 저장 공간이 있는지 확인해야 합니다. 컬렉션이 해당 저장소 할당량에 도달하면 인덱스 변환은 중단됩니다. 저장소 공간을 사용할 수 있게 되면 예를 들어 일부 문서를 삭제하는 경우 인덱스 변환은 자동으로 다시 시작됩니다
+> 인덱스 변환을 성공적으로 완료하려면 컬렉션에 사용할 수 있는 충분한 저장 공간이 있는지 확인해야 합니다. 컬렉션이 해당 저장소 할당량에 도달하면 인덱스 변환은 중단됩니다. 저장소 공간을 사용할 수 있게 되면 예를 들어 일부 문서를 삭제하는 경우 인덱스 변환은 자동으로 다시 시작됩니다 
 > 
 > 
 
@@ -413,6 +413,6 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

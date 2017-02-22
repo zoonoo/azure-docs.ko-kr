@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 8de57909d4abf753a58e389f401018601c3eef24
+ms.sourcegitcommit: 70b0aef629ceb0fe0021f633183d2a6f09145d85
+ms.openlocfilehash: b164865aaef16799ccdec24d163d4723acb88530
 
 
 ---
@@ -91,7 +91,7 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 ## <a name="next-steps"></a>다음 단계
 지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포](app-service-web/web-sites-nodejs-develop-deploy-mac.md) 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 알아보겠습니다.
 
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
 
 [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: xplat-cli-install.md
 [Azure 명령줄 도구]: xplat-cli-install.md
@@ -100,6 +100,6 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

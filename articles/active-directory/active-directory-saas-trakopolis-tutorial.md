@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36efc9c5ae94ddfd61d1046e153b4b9834632494
+ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
+ms.openlocfilehash: 6d324312f0e2d70a60b7028e77844d50a177191c
 
 
 ---
@@ -44,7 +44,7 @@ Trakopolis와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -117,7 +117,7 @@ Trakopolis에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. 로그온 URL 텍스트 상자에 **“https://\<company name\>.trakopolis.com”** 패턴을 사용하여 사용자가 Trakopolis 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 1. **Trakopolis의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
@@ -192,7 +192,7 @@ Trakopolis에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-trakopolis-test-user"></a>Trakopolis 테스트 사용자 만들기
 이 섹션은 Trakopolis에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.  
@@ -251,6 +251,6 @@ Trakopolis에 사용자를 추가하려면 Trakopolis 지원 팀에 문의하세
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

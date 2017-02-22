@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 664abe5887b3d96eb48e3b47df9a32648ee623dd
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
 
 
 ---
@@ -30,16 +30,15 @@ Azure Active Directory(Azure AD) 관리 환경은 Azure 포털에서 미리 보�
 미리 보기 환경은 클래식 포털과 동일한 Azure Active Directory 테넌트 및 Office 365 관리 센터에 대해 읽고 씁니다. 이러한 포털 중 하나에서 변경한 내용은 다른 모든 포털에 반영됩니다.
 
 ## <a name="use-the-same-authorization-logic"></a>동일한 권한 부여 논리 사용
-미리 보기 환경은 기존 Active Directory 클라이언트와 동일한 권한 부여 논리를 사용합니다. 사용자는 전역 관리자, 사용자 관리자, 암호 관리자와 같은 해당 디렉터리 역할에 따라 디렉터리 리소스를 변경할 수 있는 권한이 있습니다. Azure 리소스 또는 Azure 구독에 대한 역할을 가지는 것은 사용자에게 디렉터리 리소스를 관리할 수 있는 권한을 부여하지 않습니다. Azure AD 관리 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요. 
+미리 보기 환경은 기존 Active Directory 클라이언트와 동일한 권한 부여 논리를 사용합니다. 사용자는 전역 관리자, 사용자 관리자, 암호 관리자와 같은 해당 디렉터리 역할에 따라 디렉터리 리소스를 변경할 수 있는 권한이 있습니다. Azure 리소스 또는 Azure 구독에 대한 역할을 가지는 것은 사용자에게 디렉터리 리소스를 관리할 수 있는 권한을 부여하지 않습니다. Azure AD 관리 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
 
 미리 보기 환경은 전역 관리자에 대해 최적화됩니다. 전역 관리자가 아닌 사용자로 로그인한 동안 미리 보기 환경을 사용하는 경우 성능 저하를 경험할 수 있습니다. 예를 들어 디렉터리에서 완료할 수 없는 작업을 시작하도록 하는 단추를 선택할 수 있습니다. 이 환경을 곧 개선할 예정입니다.
 
-## <a name="tell-us-what-you-think"></a>의견을 알려 주세요.
+## <a name="next-steps"></a>다음 단계
 [Azure AD 피드백 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc)의 관리 포털 섹션에서 미리 보기 환경에 대한 피드백을 제공할 수 있습니다.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

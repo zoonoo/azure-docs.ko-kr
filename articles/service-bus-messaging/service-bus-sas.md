@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/14/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: d634db213f73341ed09be58c720d4e058986a38e
-ms.openlocfilehash: ef5f574712cf6fc6f10261d14e280a697163ec4c
+ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
+ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
 
 
 ---
@@ -39,8 +39,8 @@ Service Bus [릴레이](service-bus-fundamentals-hybrid-solutions.md#relays), [�
 
 SAS 인증은 다음과 같은 요소를 사용합니다.
 
-* [공유 액세스 권한 부여 규칙](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule): Base64 표현에서 256비트 기본 암호화 키, 선택적 보조키 및 키 이름과 관련된 권한입니다(*수신*, *보내기* 또는 *관리* 권한의 컬렉션).
-* [공유 액세스 서명](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 토큰: 리소스 문자열의 HMAC-SHA256을 사용하여 생성되고 액세스된 리소스의 URI 및 암호화 키를 가진 만료 매개 변수로 구성됩니다. 다음 섹션에 설명된 서명 및 다른 요소는 문자열로 서식이 지정되어 SAS 토큰을 형성합니다.
+* [공유 액세스 권한 부여 규칙](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule): Base64 표현에서 256비트 기본 암호화 키, 선택적 보조키 및 키 이름과 관련된 권한입니다(*수신*, *보내기* 또는 *관리* 권한의 컬렉션).
+* [공유 액세스 서명](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 토큰: 리소스 문자열의 HMAC-SHA256을 사용하여 생성되고 액세스된 리소스의 URI 및 암호화 키를 가진 만료 매개 변수로 구성됩니다. 다음 섹션에 설명된 서명 및 다른 요소는 문자열로 서식이 지정되어 SAS 토큰을 형성합니다.
 
 ## <a name="shared-access-policy"></a>공유 액세스 정책
 
@@ -55,6 +55,26 @@ SAS에 대해 잘 이해하기 위해서는 정책부터 시작하는 것이 중
 정책을 만든 후 *기본 키*와 *보조 키*가 할당됩니다. 이들은 강력한 암호화 키입니다. 잃어 버리거나 누출되지 않도록 하세요. 항상 [Azure Portal][Azure portal]에서 사용할 수 있습니다. 생성된 키 중 하나를 사용할 수 있으며 언제든지 다시 생성할 수 있습니다. 그러나 정책에서 기본 키를 다시 생성하거나 변경할 경우, 만든 공유 액세스 서명은 무효화됩니다.
 
 서비스 버스 네임스페이스를 만들 때 **RootManageSharedAccessKey**라는 전체 네임스페이스에 대해 정책이 자동으로 만들어지며 이 정책은 모든 사용 권한을 갖습니다. **root**로 로그온하지 않아야 합니다. 포털의 해당 네임스페이스에 대한 **구성** 탭에서 추가 정책을 만들 수 있습니다. Service Bus의 단일 트리 수준(네임스페이스, 큐 등)에는 최대 12개의 정책까지만 연결할 수 있습니다.
+
+## <a name="configuration-for-shared-access-signature-authentication"></a>공유 액세스 서명 인증을 위한 구성
+서비스 버스 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙을 구성할 수 있습니다. 서비스 버스 구독에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 구성은 현재 지원되지 않지만 네임스페이스 또는 항목에 구성된 규칙을 사용하여 구독에 액세스할 수 있습니다. 이 절차를 설명하는 작업 샘플은 [서비스 버스 구독으로 공유 액세스 서명(SAS) 인증 사용](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 샘플을 참조하세요.
+
+이러한 규칙을 서비스 버스 네임 스페이스, 큐 또는 항목에서 최대 12개까지 구성할 수 있습니다. 서비스 버스 네임 스페이스에 구성된 규칙이 해당 네임스페이스에 있는 모든 엔터티에 적용됩니다.
+
+![SAS](./media/service-bus-sas/service-bus-namespace.png)
+
+이 그림에서는 *manageRuleNS*, *sendRuleNS* 및 *listenRuleNS* 권한 부여 규칙이 큐 Q1 및 토픽 topic T1에 적용되는 반면, *listenRuleQ* 및 *sendRuleQ*는 큐 Q1에만 적용되고 *sendRuleT*는 토픽 T1에만 적용됩니다.
+
+[SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 의 키 매개 변수는 다음과 같습니다.
+
+| 매개 변수 | 설명 |
+| --- | --- |
+| *KeyName* |권한 부여 규칙을 설명하는 문자열입니다. |
+| *PrimaryKey* |서명하고 SAS 토큰의 유효성을 검사하기 위한 base64로 인코딩된 256비트 기본 키입니다. |
+| *SecondaryKey* |서명하고 SAS 토큰의 유효성을 검사하기 위한 base64로 인코딩된 256비트 보조 키입니다. |
+| *AccessRights* |권한 부여 규칙에서 부여된 액세스 권한의 목록입니다. 이러한 권한은 수신, 보내기 및 관리 권한의 컬렉션일 수 있습니다. |
+
+Service Bus 네임스페이스를 프로비전하면 기본적으로 [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName)이 **RootManageSharedAccessKey**로 설정된 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)이 생성됩니다.
 
 ## <a name="generate-a-shared-access-signature-token"></a>공유 액세스 서명(토큰) 생성
 
@@ -85,13 +105,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`의 모든 리소스에 유효합니다.
 
-SAS 토큰의 [KeyName](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) 은 토큰을 생성하는 데 사용된 공유 액세스 권한 부여 규칙의 **keyName** 을 가리킵니다.
+SAS 토큰의 [KeyName](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_KeyName) 은 토큰을 생성하는 데 사용된 공유 액세스 권한 부여 규칙의 **keyName** 을 가리킵니다.
 
 *URL로 인코딩된 resourceURI* 은 서명을 계산하는 동안 서명할 문자열에서 사용된 URI와 동일해야 합니다. [%로 인코딩](https://msdn.microsoft.com/library/4fkewx0t.aspx)되어야 합니다.
 
-[SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 응용 프로그램은 일반적으로 [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 를 사용하여 SAS 토큰을 생성해야 합니다. 키를 다시 생성하는 경우 [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) 를 이전 기본 키로 교체하고 새 키를 새 기본 키로 생성합니다. 이 옵션을 사용하면 이전 기본 키로 발급되고 아직 만료되지 않은 권한 부여에 대한 토큰을 사용하여 계속할 수 있습니다.
+[SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 응용 프로그램은 일반적으로 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 를 사용하여 SAS 토큰을 생성해야 합니다. 키를 다시 생성하는 경우 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) 를 이전 기본 키로 교체하고 새 키를 새 기본 키로 생성합니다. 이 옵션을 사용하면 이전 기본 키로 발급되고 아직 만료되지 않은 권한 부여에 대한 토큰을 사용하여 계속할 수 있습니다.
 
-키가 손상되고 키를 해제하면 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 및 [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
+키가 손상되고 키를 해제하면 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
 
 ## <a name="how-to-use-shared-access-signature-authentication-with-service-bus"></a>서비스 버스를 사용한 공유 액세스 서명을 인증하는 방법
 
@@ -109,7 +129,7 @@ SAS 토큰의 [KeyName](https://docs.microsoft.com/dotnet/api/microsoft.serviceb
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-서비스 버스 네임 스페이스에서 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 만들려면 이 끝점에서 JSON 또는 XML로 직렬화된 규칙 정보를 사용하여 게시 작업을 실행합니다. 예:
+서비스 버스 네임 스페이스에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 만들려면 이 끝점에서 JSON 또는 XML로 직렬화된 규칙 정보를 사용하여 게시 작업을 실행합니다. 예:
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -144,13 +164,13 @@ var postResult = httpClient.PostAsJsonAsync("", sendRule).Result;
 
 특정 권한 부여 규칙을 업데이트하거나 삭제하려면 다음 끝점을 사용합니다.
 
-```
+```http
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
 ```
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 
-해당하는 [QueueDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
+해당하는 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)에서 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 컬렉션을 통해 Service Bus 큐나 토픽에 구성된 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에 액세스할 수 있습니다.
 
 다음 코드는 큐에 대한 권한 부여 규칙을 추가하는 방법을 보여줍니다.
 
@@ -185,7 +205,7 @@ nsm.CreateQueue(qd);
 
 ## <a name="use-shared-access-signature-authorization"></a>공유 액세스 서명 권한 부여 사용
 
-서비스 버스.NET 라이브러리로 Azure.NET SDK를 사용하는 응용 프로그램은 [SharedAccessSignatureTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 클래스를 통해 SAS 권한 부여를 사용할 수 있습니다. 다음 코드에서는 토큰 공급자를 사용하여 서비스 버스 큐에 메시지를 보냅니다.
+서비스 버스.NET 라이브러리로 Azure.NET SDK를 사용하는 응용 프로그램은 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 클래스를 통해 SAS 권한 부여를 사용할 수 있습니다. 다음 코드에서는 토큰 공급자를 사용하여 서비스 버스 큐에 메시지를 보냅니다.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -202,7 +222,7 @@ sendClient.Send(helloMessage);
 
 또한 응용 프로그램은 연결 문자열을 수락하는 메서드에 SAS 연결 문자열을 사용하여 인증에 SAS을 사용합니다.
 
-서비스 버스 릴레이로 SAS 권한 부여를 사용하면 서비스 버스 네임 스페이스에 구성된 SAS 키를 사용할 수 있습니다. 네임스페이스([NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager)와 [RelayDescription](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.relaydescription)) 개체에 명시적으로 릴레이를 만들면 해당 릴레이 대한 SAS 규칙을 설정할 수 있습니다. 서비스 버스 구독으로 SAS 권한 부여를 사용하려면 서비스 버스 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
+서비스 버스 릴레이로 SAS 권한 부여를 사용하면 서비스 버스 네임 스페이스에 구성된 SAS 키를 사용할 수 있습니다. 네임스페이스([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)와 [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) 개체에 명시적으로 릴레이를 만들면 해당 릴레이 대한 SAS 규칙을 설정할 수 있습니다. 서비스 버스 구독으로 SAS 권한 부여를 사용하려면 서비스 버스 네임 스페이스 또는 항목에 구성된 SAS 키를 사용할 수 있습니다.
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>공유 액세스 서명 사용(HTTP 수준에서)
 
@@ -350,6 +370,6 @@ Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참�
 [Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

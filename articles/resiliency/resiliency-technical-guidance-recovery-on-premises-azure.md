@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c3a6df9f91af5227526e06fe7e9ebb3006bd6948
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 9af589d4a899702c7c2dd2e2bcf13d783d715380
 
 
 ---
@@ -32,7 +32,7 @@ Azure는 고가용성 및 재해 복구를 위해서 Azure에 대한 온-프레�
 Azure 가상 네트워크를 사용하면 Azure에 논리적으로 분리된 섹션을 만들 수 있으며 IPsec 연결을 사용하여 온-프레미스 데이터 센터 또는 단일 클라이언트 컴퓨터에 안전하게 연결할 수 있습니다. 가상 네트워크를 사용하면 Windows Server, 메인프레임 및 UNIX에서 실행되는 시스템을 비롯한 데이터 및 응용 프로그램 온-프레미스에 연결을 제공하는 동시에 Azure에서 확장성 있는 주문형 인프라를 쉽게 이용할 수 있습니다. 자세한 내용은 [Azure 네트워킹 설명서](../virtual-network/virtual-networks-overview.md) 를 참조하세요.
 
 ## <a name="compute"></a>계산
-Hyper-V를 사용하는 경우 온-프레미스는 VM을 변경하거나 VM 형식을 변환하지 않고 기존 가상 컴퓨터를 Windows Server 2012(또는 이상)를 실행하는 Azure 및 서비스 공급자에 “전환”할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터용 디스크 및 VHD 정보](../virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+Hyper-V를 사용하는 경우 온-프레미스는 VM을 변경하거나 VM 형식을 변환하지 않고 기존 가상 컴퓨터를 Windows Server 2012(또는 이상)를 실행하는 Azure 및 서비스 공급자에 “전환”할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터용 디스크 및 VHD 정보](../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 DRaaS(disaster recovery as a service)를 선호하는 경우 Azure는 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 제공합니다. Azure Site Recovery는 VMware, Hyper-V 및 물리적 서버에 대한 포괄적인 보호 기능을 제공합니다. Azure Site Recovery를 사용하면 다른 온-프레미스 서버 또는 Azure를 복구 사이트로 사용할 수 있습니다. Azure Site Recovery에 대한 자세한 내용은 [Azure Site Recovery 설명서](https://azure.microsoft.com/documentation/services/site-recovery/)를 참조하세요.
@@ -99,6 +99,6 @@ AlwaysOn 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure Bl
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -18,17 +18,12 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 54d3dc952e992acdd7c3edab0db736463dcc1e13
-ms.openlocfilehash: 41070533930780cd2c659b21fe03006c5d6c2c74
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
 
 
 ---
 # <a name="connect-to-sql-database-with-sql-server-management-studio-and-execute-a-sample-t-sql-query"></a>SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 실행합니다.
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
 
 이 문서에서는 SQL Server Management Studio(SSMS)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 성공적으로 연결되면 데이터베이스와의 통신을 확인하는 간단한 T-SQL(Transact-SQL) 쿼리를 실행합니다.
 
@@ -74,6 +69,6 @@ ms.openlocfilehash: 41070533930780cd2c659b21fe03006c5d6c2c74
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

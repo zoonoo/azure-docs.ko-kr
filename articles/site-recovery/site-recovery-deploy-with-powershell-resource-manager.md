@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ec08ab30003994f3e60c3f37d39bb5b4ef498173
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
 
 
 ---
@@ -62,7 +62,7 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 * 하나 이상의 가상 컴퓨터가 포함된 Windows Server 2012 R2 또는 Microsoft Hyper-V Server 2012 R2를 실행하는 Hyper-V 호스트.
 * 직접 또는 프록시를 통해 인터넷에 연결된 Hyper-V 서버.
-* 보호할 가상 컴퓨터는 [가상 컴퓨터 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)에 맞아야 합니다.
+* 보호할 가상 컴퓨터는 [가상 컴퓨터 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 맞아야 합니다.
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1단계: Azure 계정에 로그인
 1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명에 대한 프롬프트를 표시하는 웹 페이지를 엽니다.
@@ -247,6 +247,6 @@ Azure Resource Manager에 대한 Azure PowerShell과 함께 사용할 수 있는
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

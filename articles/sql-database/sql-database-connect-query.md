@@ -17,18 +17,12 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 0f5600ba211d70677e97f7a8daf780794c043d73
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
 
 
 ---
 # <a name="connect-to-a-sql-database-with-visual-studio"></a>Visual Studio를 사용하여 SQL 데이터베이스에 연결
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
 
 Visual Studio에서 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다. 
 
@@ -87,6 +81,6 @@ Visual Studio를 사용하여 SQL 데이터베이스에 연결하려면 다음�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

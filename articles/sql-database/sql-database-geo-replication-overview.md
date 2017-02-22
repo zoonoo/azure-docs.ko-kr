@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
 
 
 ---
@@ -26,28 +26,13 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 
 > [!NOTE]
 > 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다.
-> 
-> 
+>  
 
  [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) 또는 [REST API - 데이터베이스 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용하여 활성 지역 복제를 구성할 수 있습니다.
-
-> [!div class="op_single_selector"]
-> * [구성: Azure 포털](sql-database-geo-replication-portal.md)
-> * [구성: PowerShell](sql-database-geo-replication-powershell.md)
-> * [구성: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 어떠한 이유로 주 데이터베이스가 실패하거나 단순히 오프라인으로 전환해야 하는 경우 보조 데이터베이스로 *장애 조치* 할 수 있습니다. 장애 조치가 보조 데이터베이스 중 하나로 활성화된 경우 모든 다른 보조가 새 보조로 자동으로 연결됩니다.
 
 [Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
-
-> [!div class="op_single_selector"]
-> * [장애 조치: Azure 포털](sql-database-geo-replication-failover-portal.md)
-> * [장애 조치: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [장애 조치: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
@@ -149,6 +134,6 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

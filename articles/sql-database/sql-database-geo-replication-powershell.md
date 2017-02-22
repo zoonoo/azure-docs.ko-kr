@@ -16,19 +16,12 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 1849e257240a45a6161db524ce53a83cbf29068d
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 85efdb2a5b9571d76338aeb0871b729693b63dcb
 
 
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-powershell"></a>PowerShell을 사용하여 Azure SQL Database에 대한 활성 지역 복제 구성
-> [!div class="op_single_selector"]
-> * [개요](sql-database-geo-replication-overview.md)
-> * [쉬운 테이블](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 이 문서에서는 PowerShell을 사용하여 SQL Database에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
 
@@ -141,6 +134,6 @@ PowerShell을 사용하여 활성 지역 복제를 구성하려면 다음이 필
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

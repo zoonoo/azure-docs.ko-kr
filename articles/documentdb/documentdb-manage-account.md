@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: ee1668dce71a1f5d7b91e839670b69c9527c4892
 
 
 ---
@@ -34,7 +34,7 @@ Azure 포털에서 전역 일관성을 설정하고, 키로 작업하고, Docume
     ![기본 일관성 세션][5]
 
 ## <a name="a-idkeysaview-copy-and-regenerate-access-keys"></a><a id="keys"></a>선택키 보기, 복사 및 다시 생성
-DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는 2개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 
+DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는&2;개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는&2;개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 
 
 [Azure Portal](https://portal.azure.com/)에서 **DocumentDB 계정** 블레이드의 리소스 메뉴에 있는 **키** 블레이드에 액세스하여 DocumentDB 계정에 액세스하는 데 사용되는 선택키를 표시, 복사 및 다시 생성합니다.
 
@@ -77,7 +77,7 @@ DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서
 > 
 > 
 
-## <a name="get-the-connection-string"></a>연결 문자열 가져오기
+## <a name="get-the--connection-string"></a>연결 문자열 가져오기
 연결 문자열을 검색하려면 다음을 수행합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 DocumentDB 계정에 액세스합니다.
@@ -87,12 +87,12 @@ DocumentDB 계정을 사용하는 웹 응용 프로그램이나 클라우드 서
 [DocumentDB 데이터베이스 마이그레이션 도구](documentdb-import-data.md)에서 연결 문자열을 사용하는 경우 연결 문자열 끝에 데이터베이스 이름을 추가합니다. `AccountEndpoint=< >;AccountKey=< >;Database=< >`에 설정해야 합니다에 설정해야 합니다.
 
 ## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> DocumentDB 계정 삭제
-Azure Portal에서 더 이상 사용하지 않는 DocumentDB 계정을 제거하려면 **DocumentDB 계정** 블레이드에서 **계정 삭제** 명령을 사용합니다.
+Azure Portal에서 더 이상 사용하지 않는 DocumentDB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다.
 
 ![Azure 포털에서 DocumentDB 계정을 삭제하는 방법](./media/documentdb-manage-account/deleteaccount.png)
 
 1. [Azure 포털](https://portal.azure.com/)에서 삭제할 DocumentDB 계정에 액세스합니다.
-2. **DocumentDB 계정** 블레이드에서 **더 보기**, **계정 삭제**를 차례로 클릭합니다. 또는 데이터베이스의 이름을 마우스 오른쪽 단추로 클릭한 다음 **계정 삭제**를 클릭합니다.
+2. **DocumentDB 계정** 블레이드에서 계정을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다. 
 3. 그러면 표시되는 확인 블레이드에서 DocumentDB 계정 이름을 입력하여 계정을 삭제할 것임을 확인합니다.
 4. **삭제** 단추를 클릭합니다.
 
@@ -100,8 +100,6 @@ Azure Portal에서 더 이상 사용하지 않는 DocumentDB 계정을 제거하
 
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
 [DocumentDB 계정을 사용하기 시작](http://go.microsoft.com/fwlink/p/?LinkId=402364)하는 방법을 알아봅니다.
-
-DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)에서 Azure DocumentDB 설명서를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
@@ -119,6 +117,6 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

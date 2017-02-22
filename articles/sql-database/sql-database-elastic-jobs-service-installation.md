@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 
 
 ---
@@ -147,7 +147,7 @@ ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>포털을 사용하여 탄력적 데이터베이스 작업 구성 요소 설치
-[탄력적 풀을 만든](sql-database-elastic-pool-create-portal.md)후에 **Elastic Database 작업** 구성 요소를 설치하여 탄력적 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **탄력적 데이터베이스 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
+[탄력적 풀을 만든](sql-database-elastic-pool-manage-portal.md)후에 **Elastic Database 작업** 구성 요소를 설치하여 탄력적 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **탄력적 데이터베이스 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
 
 **예상 완료 시간:** 10분
 
@@ -181,6 +181,6 @@ ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 
