@@ -1,5 +1,5 @@
 
-## <a id="add-push"></a>앱에 푸시 알림 추가
+## <a name="a-idadd-pushaadd-push-notifications-to-app"></a><a id="add-push"></a>앱에 푸시 알림 추가
 * QSAppDelegate.m에서 iOS SDK 및 QSTodoService.h를 가져옵니다.
 
 ```
@@ -56,4 +56,7 @@
         }
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

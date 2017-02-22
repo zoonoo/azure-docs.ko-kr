@@ -1,6 +1,6 @@
 ---
-title: "종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다."
-description: "Application Insights를 사용하여 Java 웹 사이트에 대한 모니터링을 확장합니다."
+title: "Azure Application Insights에서 Java 웹앱에 대한 성능 모니터링 | Microsoft Docs"
+description: "Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링"
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 
 
 ---
@@ -91,9 +91,9 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
 기본적으로 `reportExecutionTime`은 true이고 `reportCaughtExceptions`는 false입니다.
 
 ## <a name="view-the-data"></a>데이터 보기
-Application Insights 리소스에서 원격 종속성과 메서드 실행 시간의 합계는 [성능 타일 아래][메트릭]에 나타납니다.
+Application Insights 리소스에서 원격 종속성과 메서드 실행 시간의 합계는 [성능 타일 아래][metrics]에 나타납니다.
 
-종속성의 개별 인스턴스, 예외 및 메서드 보고서를 찾으려면 [검색][진단]을 엽니다.
+종속성의 개별 인스턴스, 예외 및 메서드 보고서를 찾으려면 [검색][diagnostic]을 엽니다.
 
 [종속성 문제 진단 - 자세한 내용](app-insights-asp-net-dependencies.md#diagnosis).
 
@@ -105,16 +105,16 @@ Application Insights 리소스에서 원격 종속성과 메서드 실행 시간
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[가용성]: app-insights-monitor-web-app-availability.md
-[진단]: app-insights-diagnostic-search.md
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[메트릭]: app-insights-metrics-explorer.md
-[사용을 추가]: app-insights-web-track-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

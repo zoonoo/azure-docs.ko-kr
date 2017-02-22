@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f7735767b6655046b354d2a782b2730f117976
+ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
+ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
 
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
-서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 항상 실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지합니다. 보안이 되지 않은 클러스터를 만들 수 있지만, 이렇게 하면 공용 인터넷에 관리 끝점이 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 
+서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지해야 합니다. 보안이 되지 않은 클러스터를 만들 수 있지만, 이렇게 하면 공용 인터넷에 관리 끝점이 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 
 
 이 문서에서는 Azure 또는 독립 실행형에서 실행되는 클러스터에 대한 보안 시나리오의 개요와 이러한 시나리오를 구현하는 데 사용되는 다양한 기술에 대해 설명합니다. 클러스터 보안 시나리오:
 
@@ -109,14 +109,18 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 클러스터 보안에 대한 개념 정보를 제공합니다. 다음으로, [Resource Manager 템플릿을 사용하여 Azure에서 클러스터를 만들거나](service-fabric-cluster-creation-via-arm.md) [Azure Portal](service-fabric-cluster-creation-via-portal.md)을 통해 클러스터를 만듭니다.
+이 문서에서는 클러스터 보안에 대한 개념 정보를 제공합니다. 다음으로,
+
+
+1.  [Resource Manager 템플릿을 사용하여 Azure에 클러스터 만들기](service-fabric-cluster-creation-via-arm.md) 
+2.  [Azure Portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
-[노드-노드]: ./media/service-fabric-cluster-security/node-to-node.png
-[클라이언트-노드]: ./media/service-fabric-cluster-security/client-to-node.png
+[Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
+[Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

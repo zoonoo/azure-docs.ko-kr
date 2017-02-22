@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
 
 > [!NOTE]
 > Azure 클래식 포털에 로그인하려면 msmith@hotmail.com에 Azure 구독이 있어야 합니다. 구독의 공동 관리자 또는 서비스 관리자 계정이어야 합니다.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 
 > [!NOTE]
 > 이 단계는 사용자가 Microsoft 계정으로 로그인한 경우에만 완료할 수 있습니다. 사용자가 회사 또는 학교 계정으로 로그인했으면 홈 디렉터리(즉, 회사 또는 학교 계정이 저장된 디렉터리 및 회사 또는 학교가 소유한 디렉터리)만 회사 또는 학교 계정을 인증할 수 있으므로 **기존 디렉터리 사용** 옵션을 사용할 수 없습니다.
-> 
-> 
+>
+>
 
 1. Microsoft 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
 2. **새로 만들기** > **App services** > **Active Directory** > **디렉터리** > **사용자 지정 만들기**를 클릭합니다.
@@ -116,7 +116,7 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 7. Microsoft 계정을 사용하여 Azure 클래식 포털에 다시 로그인합니다. Active Directory 확장에 두 디렉터리가 모두 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 구독에 대한 관리자를 변경하는 방법을 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)
+* Azure 구독에 대한 관리자를 변경하는 방법을 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](active-directory-understanding-resource-access.md)
 * Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)
 * [조직으로 Azure에 등록](sign-up-organization.md)
@@ -128,6 +128,6 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

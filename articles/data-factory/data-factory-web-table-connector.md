@@ -1,6 +1,6 @@
 ---
-title: "웹 테이블에서 데이터 이동 | Microsoft Docs"
-description: "Azure Data Factory를 사용하여 온-프레미스 웹 페이지의 테이블로 데이터를 이동하는 방법에 대해 알아봅니다."
+title: "Azure Data Factory를 사용하여 웹 테이블에서 데이터 이동 | Microsoft Docs"
+description: "Azure Data Factory를 사용하여 웹 페이지의 테이블로 데이터를 이동하는 방법을 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
-ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 5. [WebSource](#websource-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-샘플은 1시간마다 웹 테이블의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+샘플은&1;시간마다 웹 테이블의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 다음 샘플에서는 웹 테이블의 데이터를 Azure Blob으로 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에 설명한 싱크로 직접 데이터를 복사할 수 있습니다.
 
@@ -233,7 +233,7 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |데이터 집합의 형식입니다.  **데이터 집합** |예 |
+| type |데이터 집합의 형식입니다. **데이터 집합** |예 |
 | path |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
@@ -270,7 +270,7 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 2. 도구 모음에서 **새 쿼리**를 클릭하고 **기타 원본에서**를 가리킨 다음 **웹에서**를 클릭합니다.
 
     ![파워 쿼리 메뉴](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/)과 데이터 집합에 대해 지정할 경로(예: AFI %27s_100_Years... 100_Movies)를 입력하고 **확인**을 클릭합니다.
+3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/)과 데이터 집합에 대해 지정할 경로(예: AFI %27s_100_Years...&100;_Movies)를 입력하고 **확인**을 클릭합니다.
 
     ![웹 대화 상자](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
@@ -299,6 +299,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

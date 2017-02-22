@@ -12,11 +12,11 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/09/2017
+ms.date: 02/02/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 888a818bc0ea1804366dcb3932ac0e3f7b5802c6
-ms.openlocfilehash: 51341d933525ef77d1f9ab604b212854b447ebc5
+ms.sourcegitcommit: 8c0b167423fd18e069ea5112ac39b18d3ca71805
+ms.openlocfilehash: 63197d66ec7f6e68e7be9ed44694cddec15aaa11
 
 
 ---
@@ -57,14 +57,14 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
 
    * **클러스터 유형**: R Server
    * **버전**: 클러스터에 설치할 R Server의 버전을 선택합니다. 최신 기능의 최신 버전을 선택합니다. 호환성을 위해 필요한 경우 다른 버전을 사용할 수 있습니다. 사용 가능한 각 버전의 릴리스 정보는 [여기](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes)서 제공됩니다.
-   * **R Server용 R Studio Community Edition**: 이 브라우저 기반 IDE는 기본적으로 에지 노드에 설치됩니다.  설치하지 않으려면 확인란의 선택을 취소합니다. 설치하기로 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 찾습니다.
+   * **R Server용 R Studio Community Edition**: 이 브라우저 기반 IDE는 기본적으로 에지 노드에 설치됩니다.  설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 찾습니다..
      다른 옵션은 기본값으로 남겨 두고 **선택** 단추를 사용하여 클러스터 유형을 저장합니다.
 
      ![클러스터 유형 블레이드 스크린샷](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
 
    
 
-5. **자격 증명**을 선택한 다음 **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**를 입력합니다.
+5. **자격 증명**을 선택하고 **클러스터 로그인 사용자 이름과** 및 **클러스터 로그인 암호**를 입력합니다.
 
     **SSH 사용자 이름**을 입력합니다.  SSH는 **SSH(보안 셸)** 클라이언트를 사용하여 클러스터에 원격으로 연결하는 데 사용됩니다. 클러스터(클러스터에 대한 구성 탭)를 만든 후에 이 대화 상자에서 SSH 사용자를 지정할 수 있습니다. R Server는 "remoteuser"라는 **SSH 사용자 이름** 를 사용하도록 구성됩니다.  다른 사용자 이름을 사용하면 클러스터를 만든 후에 추가 단계를 수행해야 합니다.
 
@@ -94,23 +94,24 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
 
 6. **데이터 원본**을 선택하여 클러스터에서 사용하는 HDFS 파일 시스템의 기본 위치가 될 데이터 원본을 선택합니다. 새 또는 기존 Azure Storage 계정이나 기존 Data Lake Storage 계정을 선택합니다.
 
-   1. Azure Storage 계정을 선택한 경우 **저장소 계정 선택**을 선택한 다음 계정을 선택하여 기존 저장소 계정을 선택하거나 **저장소 계정 선택** 섹션에서 **새로 만들기** 링크를 사용하여 새 계정을 만듭니다.
+   1. Azure Storage 계정을 선택하면 **저장소 계정 선택**을 선택한 다음 계정을 선택하여 기존 저장소 계정을 선택할 수 있습니다. 또는 **저장소 계정 선택** 섹션에서 **새로 만들기** 링크를 사용하여 새 계정을 만듭니다.
 
       > [!NOTE]
       > **새로 만들기**를 선택한 경우 새 저장소 계정의 이름을 입력해야 합니다. 이름이 허용되는 경우 녹색 확인 표시가 나타납니다.
 
       **기본 컨테이너**는 기본적으로 클러스터 이름으로 설정됩니다. 이 값을 그대로 둡니다.
 
-      새 저장소 계정 옵션을 선택한 경우 **위치**를 선택하여 저장소 계정을 만들 하위 지역을 선택합니다.
-
+      새 저장소 계정 옵션을 선택한 경우 **위치**를 선택하라는 메시지가 표시되며, 여기서 저장소 계정을 만들 지역을 선택합니다.  
+   
+         ![데이터 원본 블레이드](./media/hdinsight-getting-started-with-r/datastore.png)  
+   
       > [!IMPORTANT]
       > 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 하위 지역에 있어야 합니다.
 
-   2. 기존 Data Lake Store를 사용하도록 선택하는 경우 사용할 ADLS 저장소 계정을 선택하고 클러스터에 클러스터 ADD ID를 추가하여 저장소에 액세스할 수 있도록 합니다.  이 프로세스에 대한 자세한 내용은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)를 참조하세요.
+   2. 기존 Data Lake Store를 사용하도록 선택하는 경우 사용할 ADLS 저장소 계정을 선택하고 클러스터에 클러스터 ADD ID를 추가하여 저장소에 액세스할 수 있도록 합니다. 이 프로세스에 대한 자세한 내용은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)를 참조하세요.
 
       **선택** 단추를 사용하여 데이터 원본 구성을 저장합니다.
 
-       ![데이터 원본 블레이드](./media/hdinsight-getting-started-with-r/datastore.png)
 
 7. **노드 가격 책정 계층** 을 선택하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 더 큰 클러스터가 필요한 경우가 아니면 작업자 노드 수를 기본값( `4`)으로 그대로 둡니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
 
@@ -140,7 +141,7 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
 
 9. 선택 항목을 검토한 후 클러스터를 만듭니다. 이렇게 하려면 **시작 보드에 고정**을 선택하고 **만들기**를 선택합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다.
 
-   **Automation 옵션**에 대한 링크도 있습니다. 이 링크를 클릭하면 선택한 구성으로 클러스터의 생성을 자동화하는 데 사용할 수 있는 스크립트가 표시됩니다. 이러한 스크립트는 만들어진 후 클러스터에 대한 Azure Portal 항목에서도 사용할 수 있습니다.
+   **Automation 옵션**에 대한 링크도 있습니다. 이 링크를 클릭하면 선택한 구성으로 클러스터의 생성을 자동화하는 데 사용할 수 있는 스크립트가 표시됩니다. 이러한 스크립트는 만들어진 클러스터의 Azure Portal 항목에서도 사용할 수 있습니다.
 
    | 만드는 동안                           | 만들기 완료                        |
    | ---------------------------------------- | ---------------------------------------- |
@@ -172,7 +173,7 @@ SSH를 사용하여 HDInsight 클러스터의 R 서버 가장자리 노드에 �
     ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 > [!NOTE]
-> 클러스터를 선택한 다음 **모든 설정**, **앱** 및 **R Server**를 차례로 선택하여 Azure Portal에서 `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` 주소를 찾을 수도 있습니다. 그러면 가장자리 노드에 대한 SSH 끝점 정보가 표시됩니다.
+> 클러스터를 선택한 다음 **모든 설정**, **앱** 및 **RServer**를 차례로 선택하여 Azure Portal에서 `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` 주소를 찾을 수도 있습니다. 그러면 가장자리 노드에 대한 SSH 끝점 정보가 표시됩니다.
 >
 > ![가장자리 노드에 대한 SSH 끝점의 이미지](./media/hdinsight-getting-started-with-r/sshendpoint.png)
 >
@@ -476,7 +477,7 @@ SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키
 
      > [!NOTE]
      > 1. 기본적으로 모든 R 패키지는 설치된 R Server의 버전과 일치하는 Microsoft MRAN 리포지토리의 스냅숏에서 설치됩니다.  그러나 최신 버전의 패키지를 설치하면 호환되지 않을 위험이 있는 경우 `useCRAN`을 패키지 목록의 첫 번째 요소(예: `useCRAN bitops, stringr, arules`)로 지정하여 수행할 수 있습니다.  
-     > 2. 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 가장 인기 있는 상위 100개 R 패키지에서 필요한 종속성을 미리 설치했습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에서 사용된 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치할 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure 저장소의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
+     > 2. 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 가장 인기 있는 상위 100개 R 패키지에서 필요한 종속성을 미리 설치했습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에 사용되는 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치하는 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure 저장소의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
      >    스크립트 작업 개발에 대한 자세한 내용은 [스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.  
      >
      >
@@ -484,6 +485,118 @@ SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키
      ![스크립트 작업 추가](./media/hdinsight-getting-started-with-r/scriptaction.png)
      
 4. **만들기** 를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
+
+## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server 조작화 사용
+데이터 모델링이 완료되면 모델 조작화를 수행하여 예측할 수 있습니다. Microsoft R Server 조작화를 구성하려면 다음 단계를 수행합니다.
+
+먼저 ssh를 에지 노드로 실행합니다. 예: ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```
+
+ssh를 사용한 후 디렉터리를 다음 디렉터리로 변경하고 아래와 같이 sudo를 통해 dotnet dll을 실행합니다.
+
+```
+    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
+    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+```
+
+One-box 구성으로 Microsoft R Server 조작화를 구성하려면 다음을 수행합니다.
+
+* "1.  Configure R Server for Operationalization"(R Server 조작화 구성)을 선택합니다.
+* "A.  One-box (web + compute nodes)"(One-box(웹 + 계산 노드))를 선택합니다.
+* **admin**(관리자) 사용자의 암호를 입력합니다.
+
+![one-box 조작화](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
+
+선택적 단계로 아래와 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
+
+* "6.  Run diagnostic tests"(진단 테스트 실행)를 선택합니다.
+* "A.  Test configuration"(구성 테스트)을 선택합니다.
+* 위의 구성 단계에서 사용자 이름("admin")과 암호를 입력합니다.
+* Confirm Overall Health(전체 상태 확인)이 pass(합격)인지 확인합니다.
+* 관리 유틸리티를 종료합니다.
+* ssh를 종료합니다.
+
+![조작화에 대한 진단](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+이 단계에서 조작화 구성이 완료되었습니다. 이제 RClient의 'mrsdeploy' 패키지를 사용하여 에지 노드의 조작화에 연결하고 [원격 실행](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) 및 [웹 서비스](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette)와 같은 기능을 사용할 수 있습니다. 클러스터가 가상 네트워크에 설정되어 있는지 여부에 따라 아래에서 설명한 대로 SSH 로그인을 통해 포트 전달 터널링을 설정할 필요가 있습니다.
+
+### <a name="rserver-cluster-on-virtual-network"></a>가상 네트워크의 RServer 클러스터
+
+12800 포트를 통해 에지 노드로 트래픽을 허용하도록 해야 합니다. 이렇게 하면 에지 노드를 사용하여 조작화 기능에 연결할 수 있습니다.
+
+```
+library(mrsdeploy)
+
+remoteLogin(
+    deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
+
+remoteLogin()이 에지 노드에 연결할 수 없지만 에지 노드로 ssh를 실행할 수 있는 경우 12800 포트에서 트래픽을 허용하는 규칙이 올바르게 설정되었는지 확인해야 합니다. 문제가 계속되면 ssh를 통해 포트 전달 터널링을 설정하여 문제를 해결할 수 있습니다.
+
+### <a name="rserver-cluster-not-set-up-on-virtual-network"></a>가상 네트워크에 설정되지 않은 RServer 클러스터
+
+클러스터가 VNet에 설정되지 않았거나 VNet을 통한 연결에 문제가 있는 경우 아래와 같이 SSH 포트 전달 터널링을 사용할 수 있습니다.
+
+```
+ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```
+
+Putty에서도 이 터널링을 설정할 수 있습니다.
+
+![Putty ssh 연결](./media/hdinsight-hadoop-r-server-get-started/putty.png)
+
+SSH 세션이 활성화되면 컴퓨터의 12800 포트에서 발생한 트래픽은 SSH 세션을 통해 에지 노드의 12800 포트로 전달됩니다. remoteLogin() 메서드에서 `127.0.0.1:12800`을 사용해야 합니다. 이렇게 하면 포트 전달을 통해 에지 노드의 조작화에 로그인됩니다.
+
+```
+library(mrsdeploy)
+
+remoteLogin(
+    deployr_endpoint = "http://127.0.0.1:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
+
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>HDInsight 작업자 노드에서 Microsoft R Server 조작화 계산 노드를 확장하는 방법
+ 
+ 
+### <a name="decommission-the-worker-nodes"></a>작업자 노드 서비스 해제
+Microsoft R Server는 현재 Yarn을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 Yarn 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 문제를 방지하려면 계산 노드의 크기를 조정할 위치에 있는 작업자 노드의 서비스를 해제하는 것이 좋습니다.
+ 
+작업자 노드 서비스를 해제하는 단계는 다음과 같습니다.
+ 
+* HDI 클러스터의 Ambari 콘솔에 로그인하고 "Hosts" 탭을 클릭합니다.
+* 서비스를 해제할 작업자 노드를 선택하고 "동작"> "선택한 호스트"> "Hosts"를 차례로 클릭한 다음 "유지 관리 모드 켜기"를 클릭합니다. 예를 들어 아래 스크린샷에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
+   
+   ![작업자 노드 서비스 해제](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
+
+* "작업" > "선택한 호스트" > "DataNodes"를 차례로 선택한 다음 "서비스 해제"를 클릭합니다.
+* "작업" > "선택한 호스트" > "NodeManagers"를 차례로 선택한 다음 "서비스 해제"를 클릭합니다.
+* "작업" > "선택한 호스트" > "DataNodes"를 차례로 선택한 다음 "중지"를 클릭합니다.
+* "작업" > "선택한 호스트" > "NodeManagers"를 차례로 선택한 다음 "중지"를 클릭합니다.
+* "작업" > "선택한 호스트" > "Hosts"를 차례로 선택한 다음 "모든 구성 요소 중지"를 클릭합니다.
+* 작업자 노드를 선택 취소하고 헤드 노드를 선택합니다.
+* "작업" > "선택한 호스트" > "Hosts" > "모든 구성 요소 다시 시작"을 차례로 선택합니다.
+ 
+ 
+### <a name="configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>서비스 해제된 작업자 노드 각각에 계산 노드 구성
+ 
+* ssh를 서비스 해제된 각 작업자 노드로 실행합니다.
+* `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`을 사용하여 관리 유틸리티를 실행합니다.
+* "1"을 입력하여 "1.  Configure R Server for Operationalization" 옵션을 선택합니다.
+* "c"를 입력하여 "C.  Compute node"(계산 노드) 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
+* 관리 유틸리티를 종료합니다.
+ 
+### <a name="add-compute-nodes-details-on-web-node"></a>웹 노드에 계산 노드 세부 정보 추가
+서비스 해제된 모든 작업자 노드에서 계산 노드를 실행하도록 구성한 후에는 에지 노드로 돌아가서 Microsoft R Server 웹 노드 구성에 서비스 해제된 작업자 노드의 IP 주소를 추가합니다.
+ 
+* ssh를 에지 노드로 실행합니다.
+* `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`을 실행합니다.
+* "URI" 섹션을 살펴보고 작업자 노드의 IP 및 포트 세부 정보를 추가합니다.
+
+![작업자 노드 서비스 해제 명령줄](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>다음 단계
 이제 R 서버를 포함하는 새 HDInsight 클러스터를 만드는 방법 및 SSH 세션에서 R 콘솔 사용 기본 사항을 이해했으므로 다음을 사용하여 HDInsight에서 R 서버로 작업하는 다른 방법을 확인할 수 있습니다.
@@ -495,6 +608,6 @@ SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

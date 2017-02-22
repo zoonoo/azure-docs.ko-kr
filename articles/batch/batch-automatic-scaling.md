@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 89ff5d5deeda72361cb619516681aca386c5a422
 
 
 ---
@@ -272,7 +272,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td><b>작업</b></td>
+    <td><b>Task</b></td>
     <td><p><b>태스크 메트릭</b>은 활성, 보류 중 및 완료됨과 같은 태스크 상태를 기반으로 합니다. 다음 서비스 정의 변수는 노드 작업 메트릭에 기반하여 풀 크기를 조정하는 데 유용합니다.</p>
     <p><ul>
       <li>$ActiveTasks</li>
@@ -646,6 +646,6 @@ string formula = string.Format(@"
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

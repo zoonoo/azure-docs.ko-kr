@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 01/23/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
 
 
 ---
@@ -65,7 +65,7 @@ Azure 또는 하이브리드(크로스-프레미스) 환경에대해 온-프레�
 * **클러스터 관리자** - 계산 리소스 (또는 계산 노드)를 프로비전하고 릴리스하고 관리합니다. 클러스터 관리자는 계산 노드의 운영 체제 이미지 및 응용 프로그램의 설치를 자동화하고, 요구 사항에 따라 계산 리소스의 크기를 조정하고 노드의 성능을 모니터링 할 수 있습니다.
 * **작업 스케줄러** - 응용 프로그램이 요구하는 리소스(예: 프로세서 또는 메모리)와 실행될 조건을 지정합니다. 작업 스케줄러는 작업의 큐를 유지하고 할당된 우선순위나 기타 특성을 기준으로 리소스를 할당합니다.
 
-Windows 기반 및 Linux 기반 클러스터용 클러스터링 및 작업 예약 도구는 Azure에 잘 마이그레이션할 수 있습니다. 예를 들어 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029)인 Windows 및 Linux HPC 워크로드용 Microsoft의 무료 계산 클러스터 솔루션은 Azure에서 실행하기 위한 여러 옵션을 제공합니다. Linux 클러스터를 빌드하여 Torque 및 SLURM과 같은 오픈 소스 도구를 실행할 수도 있습니다. 또한 [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) 및 [Univa Grid Engine](http://www.univa.com/products/grid-engine)과 같은 상업적 그리드 솔루션을 Azure에 가져올 수도 있습니다.
+Windows 기반 및 Linux 기반 클러스터용 클러스터링 및 작업 예약 도구는 Azure에 잘 마이그레이션할 수 있습니다. 예를 들어 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029)인 Windows 및 Linux HPC 워크로드용 Microsoft의 무료 계산 클러스터 솔루션은 Azure에서 실행하기 위한 여러 옵션을 제공합니다. Linux 클러스터를 빌드하여 Torque 및 SLURM과 같은 오픈 소스 도구를 실행할 수도 있습니다. 또한 [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) 및 [Univa Grid Engine](http://www.univa.com/products/grid-engine)과 같은 상업적 그리드 솔루션을 Azure에 가져올 수도 있습니다.
 
 다음 섹션에 나와 있는 것처럼 Azure 서비스를 활용하여 기존 클러스터 관리 도구 없이(또는 외에도) 계산 리소스 및 예약 작업을 관리할 수 있습니다.
 
@@ -87,10 +87,10 @@ Big Compute 솔루션 및 워크플로에 결합할 수 있는 계산, 데이터
 > 
 
 ### <a name="compute-services"></a>계산 서비스
-Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 표준 및 사용자 지정 Linux 및 Windows 운영 체제와 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴스 크기](../virtual-machines/virtual-machines-windows-sizes.md) 를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
+Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 표준 및 사용자 지정 Linux 및 Windows 운영 체제와 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴스 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
 
 > [!NOTE]
-> 짧은 대기 시간 및 처리량이 높은 응용 프로그램 네트워크를 요구하는 병렬 MPI 응용 프로그램을 포함하여 HPC 워크로드의 성능 및 확장성을 향상시키기 위해 Azure 계산 집약적 인스턴스를 활용합니다. [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.  
+> Azure [H 시리즈와 같은 계산 집약적인 인스턴스](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 활용하여 HPC 워크로드의 성능 및 확장성을 개선합니다. 또한 이러한 인스턴스는 대기 시간이 짧고 처리량이 많은 응용 프로그램 네트워크를 필요로 하는 병렬 MPI 응용 프로그램을 지원합니다. 또한 NVIDIA GPU를 포함한 [N 시리즈](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VM을 사용하여 Azure에서 컴퓨팅 및 시각화 시나리오의 범위를 확장할 수 있습니다.  
 > 
 > 
 
@@ -124,7 +124,7 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 
 ## <a name="next-steps"></a>다음 단계
 * 솔루션을 구축에 대한 기술 지침을 찾으려면 [배치 및 HPC에 대한 기술 리소스](big-compute-resources.md) 를 참조하세요.
-* Cycle Computing 및 UberCloud를 포함하여 파트너와 Azure 옵션을 살펴봅니다.
+* Cycle Computing, Rescale 및 UberCloud를 포함하여 파트너와 Azure 옵션을 살펴봅니다.
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) 및 [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)에서 제공하는 Azure 빅 컴퓨팅 솔루션에 대해 읽습니다.
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 
@@ -137,6 +137,6 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

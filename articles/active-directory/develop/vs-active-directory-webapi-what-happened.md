@@ -1,6 +1,6 @@
 ---
-title: "내 WebApi 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용 | Microsoft Docs"
-description: "Visual Studio를 사용하여 Azure AD에 연결하는 MVC 프로젝트 WebApi의 변경 내용을 설명합니다."
+title: "Azure AD에 연결할 때의 WebApi 프로젝트 변경 내용 | Microsoft Docs"
+description: "Visual Studio를 사용하여 Azure AD에 연결할 때 프로젝트 WebApi에서 변경되는 사항에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
 author: TomArcher
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a60bdc8d6977943e156fdcf0f29228af3c394a99
-ms.openlocfilehash: e35b18344acf7afedc422760c8a59e6fba17728f
+ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
+ms.openlocfilehash: aa055ead3dc039745f48f268fe456ae5dab5bf36
 
 
 ---
@@ -112,6 +112,6 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

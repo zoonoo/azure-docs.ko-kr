@@ -1,5 +1,5 @@
 ---
-title: "Azure에 PHP 웹앱 만들기, 구성 및 배포"
+title: "Azure에 PHP 웹앱 만들기, 구성 및 배포 | Microsoft Docs"
 description: "Azure 앱 서비스에서 PHP(Laravel) 웹앱을 실행하는 방법을 보여 주는 자습서입니다. Azure 앱 서비스를 구성하여 선택한 PHP 프레임워크의 요구 사항을 충족하는 방법을 알아봅니다."
 services: app-service\web
 documentationcenter: php
@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 06/03/2016
+ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aafd6378709ec584bc1bfa0aeb8a1593c103dacb
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
 
 
 ---
@@ -36,19 +36,24 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
 
 다음에 배운 점을 Azure에 배포하는 다른 PHP 웹앱에 적용할 수 있습니다.
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
+
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+- [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
+- [Azure CLI 2.0(미리 보기)](app-service-web-php-get-started.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 ## <a name="prerequisites"></a>필수 조건
-* [PHP 5.6.x](http://php.net/downloads.php) 설치(PHP 7 지원은 베타입니다)
-*  [작성기](https://getcomposer.org/download/)
-*  [Azure CLI](../xplat-cli-install.md)
-* [Git 설치](http://www.git-scm.com/downloads)
-* Microsoft Azure 계정을 가져옵니다. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+* [PHP 7.0](http://php.net/downloads.php)
+* [Composer](https://getcomposer.org/download/)
+* [Azure CLI 2.0 미리 보기](/cli/azure/install-az-cli2)
+* [Git](http://www.git-scm.com/downloads)
+* Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
-> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
+> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](https://azure.microsoft.com/try/app-service/) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 > 
 > 
 
@@ -57,15 +62,15 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
    
         php --version
         composer --version
-        azure --version
+        az --version
         git --version
    
-    ![Azure에 PHP(Laravel) 앱을 만들기 전에 테스트 도구 설치](./media/app-service-web-php-get-started/test-tools.png)
-   
     도구를 설치하지 않은 경우 다운로드 링크는 [필수 구성 요소](#Prerequisites) 를 참조하세요.
+
 2. 다음과 같이 Laravel을 설치합니다.
    
-        composer global require "laravel/installer
+        composer global require "laravel/installer"
+
 3. 작업 디렉터리에 `CD`하고 새 Laravel 응용 프로그램을 다음과 같이 만듭니다.
    
         cd <working_directory>
@@ -79,7 +84,13 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
    
     ![Azure에 배포하기 전에 로컬로 PHP(Laravel) 앱 테스트](./media/app-service-web-php-get-started/laravel-splash-screen.png)
 
-지금까지 일반 Laravel 워크플로와 동일하며 <a href="https://laravel.com/docs/5.2" rel="nofollow">Laravel을 알아보려</a>는 과정이 아닙니다. 이동하겠습니다.
+1. Git 리포지토리를 초기화하고 모든 코드를 커밋합니다.
+
+        git init
+        git add .
+        git commit -m "Hurray! My first commit for my Azure web app!"
+
+지금까지 일반 Laravel 및 Git 워크플로와 동일하며 <a href="https://laravel.com/docs/5.3" rel="nofollow">Laravel을 알아보려</a>는 과정이 아닙니다. 이동하겠습니다.
 
 ## <a name="create-an-azure-web-app-and-set-up-git-deployment"></a>Azure 웹앱 만들기 및 Git 배포 설정
 > [!NOTE]
@@ -89,35 +100,52 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
 
 Azure CLI를 사용하여 Azure 앱 서비스에서 웹앱을 만들고 명령의 한 줄을 사용하여 Git 배포에 대해 등록할 수 있습니다. 수행해보겠습니다.
 
-1. ASM 모드로 변경하고 Azure에 로그인합니다.
+1. 다음과 같이 Azure에 로그인합니다.
    
-        azure config mode asm
-        azure login
+        az login
    
     로그인 프로세스를 계속하려면 도움말 메시지를 따릅니다.
    
-    ![Azure에 로그인하여 Azure에 PHP(Laravel) 앱 배포](./media/app-service-web-php-get-started/log-in-to-azure-cli.png)
-2. Git 배포를 사용하여 Azure 웹앱을 만들려면 명령을 실행합니다. 대화 상자가 나타나면 원하는 지역의 수를 지정합니다.
+3. App Service의 배포 사용자를 설정합니다. 나중에 이러한 자격 증명을 사용하여 코드를 배포합니다.
    
-        azure site create --git <app_name>
-   
-    ![Azure에서 PHP (Laravel) 앱에 Azure 리소스 만들기](./media/app-service-web-php-get-started/create-site-cli.png)
-   
-   > [!NOTE]
-   > Azure 구독에 대한 배포 자격 증명을 전혀 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 나타납니다. 이러한 자격 증명(Azure 계정 자격 증명 아님)은 앱 서비스에서 Git 배포 및 FTP 로그인에만 사용합니다. 
-   > 
-   > 
-   
-    이 명령은 (`git init`을 사용하여) 현재 디렉터리에 새 Git 리포지토리를 만들고 (`git remote add`를 사용하여) Git 원격인 Azure의 리포지토리에 연결합니다.
+        az appservice web deployment user set --user-name <username> --password <password>
 
+3. 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 이 PHP 자습서에서는 실제로 무엇인지 알 필요가 없습니다.
+
+        az group create --location "<location>" --name my-php-app-group
+
+    `<location>`에 사용할 수 있는 값을 확인하려면 `az appservice list-locations` CLI 명령을 사용합니다.
+
+3. 새로운 "무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만듭니다. 이 PHP 자습서에서는 이 계획에서 웹앱에 대한 요금이 부과되지 않습니다.
+
+        az appservice plan create --name my-php-appservice-plan --resource-group my-php-app-group --sku FREE
+
+4. `<app_name>`에 고유한 이름이 있는 새 웹앱을 만듭니다.
+
+        az appservice web create --name <app_name> --resource-group my-php-app-group --plan my-php-appservice-plan
+
+5. 다음 명령을 사용하여 새 웹앱에 대한 로컬 Git 배포를 구성합니다.
+
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-php-app-group
+
+    다음과 같은 JSON 출력을 받으며, 이는 원격 Git 리포지토리가 구성되었음을 의미합니다.
+
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
+        }
+
+6. JSON의 URL을 로컬 리포지토리의 Git 원격으로 추가합니다(간단히 `azure`라고 함).
+
+        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
+   
 <a name="configure"/>
 
 ## <a name="configure-the-azure-web-app"></a>Azure 웹앱 구성
 Azure에서 작업할 Laravel 앱의 경우 몇 가지 사항에 주의해야 합니다. 선택한 PHP 프레임워크와 비슷한 이 연습을 수행합니다.
 
-* PHP 5.5.9 이상을 구성합니다. 서버 요구 사항의 전체 목록은 [최신 Laravel 5.2 서버 요구 사항](https://laravel.com/docs/5.2#server-requirements) 을 참조하세요. 목록의 나머지는 Azure에서 PHP를 설치할 경우 이미 사용하는 확장입니다. 
-* 앱에 필요한 환경 변수를 설정합니다. Laravel는 환경 변수를 쉽게 설정하기 위해 `.env` 파일을 사용합니다. 그러나 원본 제어로 커밋할 수 없기 때문에( [Laravel 환경 구성](https://laravel.com/docs/5.2/configuration#environment-configuration)참조) 대신 Azure 웹앱의 앱 설정을 설정합니다.
-* Laravel 앱의 항목 지점인 `public/index.php`이 먼저 로드되는지 확인합니다. [Laravel 수명 주기 개요](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview)를 참조하세요. 즉, 웹앱의 루트 URL을 설정하여 `public` 디렉터리를 가리켜야 합니다.
+* PHP 5.6.4 이상을 구성합니다. 서버 요구 사항의 전체 목록은 [최신 Laravel 5.3 서버 요구 사항](https://laravel.com/docs/5.3#server-requirements) 을 참조하세요. 목록의 나머지는 Azure에서 PHP를 설치할 경우 이미 사용하는 확장입니다. 
+* 앱에 필요한 환경 변수를 설정합니다. Laravel는 환경 변수를 쉽게 설정하기 위해 `.env` 파일을 사용합니다. 그러나 원본 제어로 커밋할 수 없기 때문에( [Laravel 환경 구성](https://laravel.com/docs/5.3/configuration#environment-configuration)참조) 대신 Azure 웹앱의 앱 설정을 설정합니다.
+* Laravel 앱의 항목 지점인 `public/index.php`이 먼저 로드되는지 확인합니다. [Laravel 수명 주기 개요](https://laravel.com/docs/5.3/lifecycle#lifecycle-overview)를 참조하세요. 즉, 웹앱의 루트 URL을 설정하여 `public` 디렉터리를 가리켜야 합니다.
 * composer.json이 있으므로 Azure에서 작성기 확장을 사용합니다. 이런 방식으로는 `git push`을 배포하는 경우에 필요한 패키지를 가져오는 방법에 대해 작성자가 우려할 수 있습니다. 편의와 관련됩니다. 
   작성기 자동화를 사용하지 않는 경우 Git가 코드를 커밋 및 배포할 때 `vendor` 디렉터리에 모든 항목을 포함하도록("무시하지 않도록") `.gitignore` 파일에서 `/vendor`를 제거해야 합니다.
 
@@ -125,21 +153,23 @@ Azure에서 작업할 Laravel 앱의 경우 몇 가지 사항에 주의해야 �
 
 1. Laravel 앱에 필요한 PHP 버전을 설정합니다.
    
-        azure site set --php-version 5.6
+        az appservice web config update --php-version 7.0 --name <app_name> --resource-group my-php-app-group
    
     PHP 버전 설정을 완료했습니다! 
+
 2. Azure 웹앱에 새 `APP_KEY` 을 생성하고 Azure 웹앱에 대한 앱 설정으로 설정합니다.
    
         php artisan key:generate --show
-        azure site appsetting add APP_KEY="<output_of_php_artisan_key:generate_--show>"
+        az appservice web config appsettings update --settings APP_KEY="<output_of_php_artisan_key:generate_--show>" --name <app_name> --resource-group my-php-app-group
+
 3. 또한 알 수 없는 `Whoops, looks like something went wrong.` 페이지를 사전에 방지하기 위해 Laravel 디버깅을 사용합니다.
    
-        azure site appsetting add APP_DEBUG=true
+        az appservice web config appsettings update --settings APP_DEBUG=true --name <app_name> --resource-group my-php-app-group
    
     환경 변수 설정을 완료했습니다!
    
    > [!NOTE]
-   > 다음에서는 약간 천천히 Laravel 수행 작업 및 Azure 용도에 대해 설명하겠습니다. Laravel은 루트 디렉터리에서 `.env` 파일을 사용하여 앱에 대한 환경 변수를 제공합니다. 여기에 `APP_DEBUG=true`(및 `APP_KEY=...`) 줄이 있습니다. 이 변수는 `config/app.php`코드로`'debug' => env('APP_DEBUG', false),` 액세스 할 수 있습니다. [env()](https://laravel.com/docs/5.2/helpers#method-env)는 PHP [getenv()](http://php.net/manual/en/function.getenv.php)를 사용하는 Laravel 도우미 메서드입니다.
+   > 다음에서는 약간 천천히 Laravel 수행 작업 및 Azure 용도에 대해 설명하겠습니다. Laravel은 루트 디렉터리에서 `.env` 파일을 사용하여 앱에 대한 환경 변수를 제공합니다. 여기에 `APP_DEBUG=true`(및 `APP_KEY=...`) 줄이 있습니다. 이 변수는 `config/app.php`코드로`'debug' => env('APP_DEBUG', false),` 액세스 할 수 있습니다. [env()](https://laravel.com/docs/5.3/helpers#method-env)는 PHP [getenv()](http://php.net/manual/en/function.getenv.php)를 사용하는 Laravel 도우미 메서드입니다.
    > 
    > 그러나 `.env`은 루트 디렉터리에서 `.gitignore` 파일에 의해 호출되기 때문에 Git에서는 무시됩니다. 간단히 말해 로컬 Git 리포지토리의 `.env` 은 파일의 나머지 부분을 사용하여 Azure에 푸시되지 않습니다. 물론, `.gitignore`에서 해당 줄을 제거할 수 있지만 원본 제어에 이 파일을 커밋하는 것을 권장하지 않도록 이미 설정했습니다. 그럼에도 불구하고 Azure에서 이러한 환경 변수를 지정하는 방법이 여전히 필요합니다. 
    > 
@@ -147,55 +177,50 @@ Azure에서 작업할 Laravel 앱의 경우 몇 가지 사항에 주의해야 �
    > 
    > 
 4. 마지막 두 작업(가상 디렉터리를 설정하고 작성기를 사용함)에는 [Azure 포털](https://portal.azure.com)이 필요하므로, Azure 계정이 있는 [포털](https://portal.azure.com)에 로그인합니다.
-5. 왼쪽 메뉴에서 시작하여 **앱 서비스** > **&lt;app_name>** > **도구**를 클릭합니다.
+5. 왼쪽 메뉴에서 시작하여 **App Services** > **&lt;app_name>** > **확장**을 클릭합니다.
    
     ![Azure의 PHP(Laravel) 앱에 작성기 사용](./media/app-service-web-php-get-started/configure-composer-tools.png)
    
-   > [!TIP]
-   > **도구** 대신 **설정**을 클릭하면, **응용 프로그램 설정** 블레이드에 액세스할 수 있으며 이를 통해 수행한 것처럼 PHP 버전, 앱 설정 및 가상 디렉터리를 설정할 수 있습니다. 
-   > 
-   > 
-6.  **작성기** > **추가** 를 클릭하여 확장을 추가합니다.
-7. **확장 선택** [블레이드](../azure-portal-overview.md)에서 **작성기**를 선택합니다(*블레이드*: 가로로 열리는 포털 페이지).
-8. **약관에 동의** 블레이드에서 **확인**을 클릭합니다. 
-9. **확장 추가** 블레이드에서 **확인**을 클릭합니다.
+6. **추가**를 클릭하여 확장을 추가합니다.
+7. **확장 선택** [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 **작성기**를 선택합니다(*블레이드*: 가로로 열리는 포털 페이지).
+8. **약관에 동의** [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 **확인**을 클릭합니다. 
+9. **확장 추가** [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 **확인**을 클릭합니다.
    
-    Azure가 확장을 추가하는 작업을 완료하면 **확장** 블레이드에 나열된  **작성기** 뿐만 아니라 모퉁이에 친숙한 팝업 메시지가 표시되어야 합니다.
+    Azure가 확장을 추가하는 작업을 완료하면 **확장** [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에 나열된  **작성기** 뿐만 아니라 모퉁이에 친숙한 팝업 메시지가 표시되어야 합니다.
    
     ![Azure의 PHP(Laravel) 앱에 작성기를 사용한 다음 확장 블레이드](./media/app-service-web-php-get-started/configure-composer-end.png)
    
     작성기 활성화가 완료되었습니다!
-10. 웹앱의 블레이드로 돌아가서 **설정** > **응용 프로그램 설정**을 클릭합니다.
+10. 웹앱의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)로 돌아가서 **응용 프로그램 설정**을 클릭합니다.
     
      ![설정 블레이드에 액세스하여 Azure의 PHP(Laravel) 앱에 가상 디렉터리 설정](./media/app-service-web-php-get-started/configure-virtual-dir-settings.png)
     
-     **응용 프로그램 설정** 블레이드에서 앞에서 설정한 PHP 버전은 다음과 같습니다.
+     **응용 프로그램 설정** [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 앞에서 설정한 PHP 버전은 다음과 같습니다.
     
-     ![Azure의 PHP(Laravel) 앱에 대한 설정 블레이드의 PHP 버전](./media/app-service-web-php-get-started/configure-virtual-dir-settings-a.png)
+     ![Azure의 PHP(Laravel) 앱에 대한 설정 블레이드의 PHP 버전](./media/app-service-web-php-get-started/configure-virtual-dir-settings-a-cli2.png)
     
      또한 추가한 앱 설정은 다음과 같습니다.
     
      ![Azure의 PHP(Laravel) 앱에 대한 설정 블레이드의 앱 설정](./media/app-service-web-php-get-started/configure-virtual-dir-settings-b.png)
-11. 블레이드 맨 아래로 스크롤하고 루트 가상 디렉터리를 변경하여 **site\wwwroot** 대신 **site\wwwroot\public**을 가리킵니다.
+11. [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources) 맨 아래로 스크롤하고 루트 가상 디렉터리를 변경하여 **site\wwwroot** 대신 **site\wwwroot\public**을 가리킵니다.
     
      ![Azure의 PHP(Laravel) 앱에 대한 가상 디렉터리 설정](./media/app-service-web-php-get-started/configure-virtual-dir-public.png)
-12. 블레이드 위쪽에서 **저장** 을 클릭합니다.
+12. [블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources) 위쪽에서 **저장**을 클릭합니다.
     
      가상 디렉터리 설정이 완료되었습니다! 
 
 ## <a name="deploy-your-web-app-with-git-and-setting-environment-variables"></a>Git(및 환경 변수 설정)를 사용하여 웹앱 배포
 코드를 지금 배포할 준비가 되었습니다. 명령 프롬프트 또는 터미널에서 다시 수행합니다.
 
-1. 모든 변경 내용을 커밋하고 Git 리포지토리에서처럼 Azure 웹앱에 코드를 배포합니다.
+1. 모든 Git 리포지토리와 마찬가지로 Azure 웹앱에 코드를 푸시하십시오.
    
-        git add .
-        git commit -m "Hurray! My first commit for my Azure app!"
         git push azure master 
    
-    `git push`을 실행하는 경우 Git 배포 암호를 제공하라는 메시지가 표시됩니다. `azure site create` 이전에 배포 자격 증명을 만들라는 메시지가 나타나면 사용한 암호를 입력합니다.
+    메시지가 표시되면 이전에 만든 자격 증명을 사용합니다.
+
 2. 이 명령을 실행하여 브라우저에서 실행되는지 확인해 보겠습니다.
    
-        azure site browse
+        az appservice web browse --name <app_name> --resource-group my-php-app-group
    
     브라우저는 Laravel 시작 화면을 표시해야 합니다.
    
@@ -253,6 +278,6 @@ Azure에 웹앱을 성공적으로 배포했지만 Azure 웹앱으로 이동한 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

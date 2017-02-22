@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
+ms.sourcegitcommit: c63758346ebd8fa3d4c43e59c84bc2a6935e4bf7
+ms.openlocfilehash: 7f7d0c52b2b50a360711477e8e0eafc07ddcf374
 
 
 ---
@@ -102,8 +102,8 @@ container = azure_blob_service.create_container("test-container",
 
 유효한 **:public\_access\_level** 옵션 값은 다음과 같습니다.
 
-* **blob:** 컨테이너 및 blob 데이터에 대한 전체 공용 읽기 액세스 권한을 지정합니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
-* **컨테이너:** blob에 대한 공용 읽기 액세스 권한을 지정합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
+* **blob:** BLOB에 대한 공용 읽기 권한을 지정합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
+* **container:** 컨테이너 및 BLOB 데이터에 대한 전체 공용 읽기 액세스 권한을 지정합니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
 또는 **set\_container\_acl()** 메서드로 공용 액세스 수준을 지정하여 컨테이너의 공용 액세스 수준을 수정할 수 있습니다.
 
@@ -168,6 +168,6 @@ azure_blob_service.delete_blob(container.name, "image-blob")
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

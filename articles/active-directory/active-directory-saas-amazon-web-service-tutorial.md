@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 12/06/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 3e4bf3c31c077893b54f5d752c8d525f56230070
-ms.openlocfilehash: cc28e46b72a7e89c3a1d112e7176ee1afca99344
+ms.sourcegitcommit: bc60476253fd3e646fbd08cd6749e06fb403959c
+ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
 
 
 ---
@@ -60,19 +60,25 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 
    
     ![Active Directory][1] 
+
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다. 
    
     ![응용 프로그램][2]
+
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다. 
    
     ![응용 프로그램][3]
+
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다. 
    
     ![응용 프로그램][4]
+
 6. 검색 상자에서 **AWS(Amazon Web Services)**를 입력합니다.
    
     ![응용 프로그램][5]
+
 7. 결과 창에서 **AWS(Amazon Web Services)**를 선택한 다음 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
     ![응용 프로그램][6]
@@ -102,25 +108,33 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 1. Azure 클래식 포털의 **AWS(Amazon Web Services)** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
     ![Single Sign-On 구성][7]
+
 2. **사용자가 AWS(Amazon Web Services)에 로그인하는 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
     ![Single Sign-on 구성][8]
+
 3. **앱 설정 구성** 대화 상자 페이지에서 다음을 클릭합니다. 
    
     ![앱 설정 구성][9]
+
 4. **AWS(Amazon Web Services)에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 로컬로 저장합니다.
    
     ![Single Sign-On 구성][10]
+
 5. 다른 브라우저 창에서 AWS(Amazon Web Services) 회사 사이트에 관리자로 로그인합니다.
+
 6. **콘솔 홈**을 클릭합니다.
    
     ![Single Sign-On 구성][11]
+
 7. **ID 및 액세스 관리**를 클릭합니다. 
    
     ![Single Sign-on 구성][12]
+
 8. **ID 공급자**를 클릭한 다음 **공급자 만들기**를 클릭합니다. 
    
     ![Single Sign-On 구성][13]
+
 9. **공급자 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. 
    
     ![Single Sign-On 구성][14]
@@ -132,12 +146,15 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
      c. 다운로드한 메타데이터 파일을 업로드하려면 **파일 선택**을 클릭합니다.
    
      d. **다음 단계**를 클릭합니다.
+
 10. **공급자 정보 확인** 대화 상자 페이지에서 **만들기**를 클릭합니다. 
     
     ![Single Sign-On 구성][15]
+
 11. **역할**을 클릭하고 **새 역할 만들기**를 클릭합니다. 
     
     ![Single Sign-on 구성][16]
+
 12. **역할 이름 설정** 대화 상자에서 다음 단계를 수행합니다. 
     
     ![Single Sign-On 구성][17]
@@ -145,6 +162,7 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
     a. **역할 이름** 텍스트 상자에 역할 이름(예: *TestUser*)을 입력합니다.
     
     b. **다음 단계**를 클릭합니다.
+
 13. **역할 유형 선택** 대화 상자에서 다음 단계를 수행합니다. 
     
     ![Single Sign-On 구성][18]
@@ -152,6 +170,7 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
     a. **ID 공급자 액세스에 대한 역할**을 선택합니다.
     
     b. **SAML 공급자에게 WebSSO(웹 Single Sign-On) 액세스 권한 부여** 섹션에서 **선택**을 클릭합니다.
+
 14. **트러스트 설정** 대화 상자에서 다음 단계를 수행합니다.  
     
     ![Single Sign-On 구성][19]
@@ -159,12 +178,15 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
      a. 이전에 만든 SAML 공급자(예: *WAAD*)를 SAML 공급자로 선택합니다. 
     
      b. **다음 단계**를 클릭합니다.
+
 15. **역할 트러스트 확인** 대화 상자에서 **다음 단계**를 클릭합니다. 
     
     ![Single Sign-on 구성][32]
+
 16. **정책 연결** 대화 상자에서 **다음 단계**를 클릭합니다.  
     
     ![Single Sign-on 구성][33]
+
 17. **검토** 대화 상자에서 다음 단계를 수행합니다.   
     
     ![Single Sign-On 구성][34]
@@ -174,18 +196,23 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
      b. **신뢰할 수 있는 엔터티** ARN 값을 복사합니다.
     
      c. **역할 만들기**를 클릭합니다. 
+
 18. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
     
     ![Azure AD Connect의 정의][20]
+
 19. **Single Sign-On 확인** 페이지에서 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
     ![Azure AD Connect의 정의][22]
+
 20. 위쪽 메뉴에서 **특성** to open the **SAML Token 특성** 대화 상자를 엽니다. 
     
     ![Single Sign-on 구성][21]
+
 21. **사용자 특성 추가**를 클릭합니다. 
     
     ![Single Sign-On 구성][23]
+
 22. 사용자 특성 추가 대화 상자에서 다음 단계를 수행합니다. 
     
     ![Single Sign-On 구성][24] 
@@ -200,9 +227,11 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
     > 
     
     c. **완료**를 클릭하여 **사용자 특성 추가** 대화 상자를 닫습니다.
+
 23. **사용자 특성 추가**를 클릭합니다. 
     
     ![Single Sign-On 구성][23]
+
 24. 사용자 특성 추가 대화 상자에서 다음 단계를 수행합니다. 
     
     ![Single Sign-On 구성][25]
@@ -217,7 +246,7 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 
 1. **변경 내용 적용**을 클릭합니다. 
    
-   ![Single Sign-on 구성][26]
+ 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -229,20 +258,27 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png) 
+
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
+
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png) 
+
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png) 
+
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_05.png) 
    
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+
     c. 다음을 클릭합니다.
+
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_06.png) 
@@ -256,9 +292,11 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
     d. **역할** 목록에서 **사용자**를 선택합니다.
    
     e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_07.png) 
+
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_08.png) 
@@ -272,15 +310,19 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 
 ### <a name="to-create-a-user-called-britta-simon-in-amazon-web-services-aws-perform-the-following-steps"></a>AWS(Amazon Web Services)에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.
 1. **AWS(Amazon Web Services)** 회사 사이트에 관리자 권한으로 로그인합니다.
+
 2. **콘솔 홈** 아이콘을 클릭합니다. 
    
     ![Single Sign-On 구성][11]
+
 3. ID 및 액세스 관리를 클릭합니다. 
    
     ![Single Sign-On 구성][28]
+
 4. 대시보드에서 사용자를 클릭한 다음 새 사용자 만들기를 클릭합니다. 
    
     ![Single Sign-On 구성][29]
+
 5. 사용자 만들기 대화 상자에서 다음 단계를 수행합니다. 
    
     ![Single Sign-On 구성][30]
@@ -294,18 +336,22 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 
 ![사용자 할당][31]
 
-**Britta Simon을 CloudPassage에 할당하려면 다음 단계를 수행합니다.**
+**Britta Simon을 AWS(Amazon Web Services)에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
     ![사용자 할당][26]
+
 2. 응용 프로그램 목록에서 **AWS(Amazon Web Services)**를 선택합니다.
    
     ![사용자 할당][27]
+
 3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
     ![사용자 할당][25]
+
 4. 사용자 목록에서 **Britta Simon**을 선택합니다.
+
 5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
    
     ![사용자 할당][29]
@@ -379,6 +425,6 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO5-->
 
 

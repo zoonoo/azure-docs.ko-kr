@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 호스트에 MPIO 구성| Microsoft Docs"
+title: "StorSimple Virtual Array에 연결된 호스트에서 MPIO 구성| Microsoft Docs"
 description: "Windows Server 2012 R2를 실행하는 호스트에 연결된 StorSimple 가상 배열에 대해 MPIO(다중 경로 I/O)를 구성하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 53308da656f46a43332a204d9d49e972d8c1799c
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Windows Server 호스트에 StorSimple 가상 배열에 대한 다중 경로 I/O 구성
@@ -89,7 +89,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 배열에 생성된 볼륨이
     > iSCSI 연결에 개인 네트워크를 사용하는 경우 개인 네트워크에 연결된 데이터 포트의 IP 주소를 입력합니다.
      
 4. 배열의 두 번째 네트워크 인터페이스(예: 이더넷 2)에 대해 2~3단계를 반복합니다. 
-5. **iSCSI 초기자 속성** 대화 상자에서 **대상** 탭을 선택합니다. 가상 배열의 경우 각 볼륨 서피스가 **검색된 대상**아래에 대상으로 표시될 것입니다. 이 경우 3개 대상(3개의 볼륨에 해당하는)이 검색될 것입니다.
+5. **iSCSI 초기자 속성** 대화 상자에서 **대상** 탭을 선택합니다. 가상 배열의 경우 각 볼륨 서피스가 **검색된 대상**아래에 대상으로 표시될 것입니다. 이 경우&3;개 대상(3개의 볼륨에 해당하는)이 검색될 것입니다.
    
     ![mpio1](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio1.png)
 6. **연결**을 클릭하여 StorSimple 가상 배열로 iSCSI 세션을 설정합니다. **대상에 연결** 대화 상자가 표시됩니다. **다중 경로 사용** 확인란을 선택합니다. **고급**을 클릭합니다.
@@ -160,6 +160,6 @@ MPIO가 Windows Server에 구성된 후 StorSimple 배열에 생성된 볼륨이
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포
 [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md) 는 Azure의 조직에 대한 간단한 AD FS 인프라를 배포할 수 있는 방법으로 단계별 지침을 제공합니다. 이 문서에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 Azure AD FS에서 교차 지리적 배포를 만드는 다음 단계를 제공합니다. Azure Traffic Manager는 인프라에서 서로 다른 요구 사항에 맞게 사용할 수 있는 라우팅 방법의 범위를 사용하여 조직에 대해 지리적으로 분배된 고가용성 및 고성능 AD FS 인프라를 만들 수 있도록 합니다.
 
 항상 사용 가능한 교차 지리적 AD FS 인프라에서는 다음을 수행할 수 있습니다.
@@ -76,7 +76,7 @@ ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
    
    **대상 리소스 유형:** 공용 IP 주소를 이 속성에 대한 값으로 선택합니다. 
    
-   **대상 리소스:** 이렇게 하면 구독에서 사용할 수 있는 다른 DNS 레이블에서 선택할 수 있는 옵션이 제공됩니다. DNS 레이블을 선택합니다.
+   **대상 리소스:** 이렇게 하면 구독에서 사용할 수 있는 다른 DNS 레이블에서 선택할 수 있는 옵션이 제공됩니다. 구성하는 끝점에 해당되는 DNS 레이블을 선택합니다.
    
    Azure Traffic Manager에서 트래픽을 라우팅하려는 지역에 대한 끝점을 추가합니다.
    Traffic Manager에서 끝점을 추가/구성하는 방법에 대한 자세한 내용 및 단계는 [끝점 추가, 사용 안 함, 사용 또는 삭제](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>라우팅 및 AD FS 로그인 테스트
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>라우팅 및 AD FS 로그인 테스트
 ### <a name="routing-test"></a>테스트 라우팅
 라우팅에 대한 기본 테스트는 각 지역에 있는 컴퓨터에서 페더레이션 서비스 DNS 이름을 ping하는 것입니다. 선택한 라우팅 방법에 따라 실제로 ping한 끝점은 ping 디스플레이에 반영됩니다. 예를 들어 성능 라우팅을 선택한 경우 클라이언트 영역에 가장 가까운 끝점에 도달하게 됩니다. 아래는 두 개의 다른 지역 클라이언트 컴퓨터에서 동아시아 지역 및 미국 서부에 각각 하나씩 있는 두 ping의 스냅숏입니다. 
 
 ![테스트 라우팅](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>AD FS 로그인 테스트
+### <a name="ad-fs-sign-in-test"></a>AD FS 로그인 테스트
 AD FS를 테스트하는 가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이지를 사용하는 것입니다. 이렇게 하려면 AD FS 속성에 IdpInitiatedSignOn을 사용해야 합니다. AD FS 설치를 확인하려면 다음 단계를 수행합니다.
 
 1. 아래 AD FS 서버의 cmdlet을 실행하고 PowerShell을 사용하여 사용하도록 설정합니다. 
@@ -126,6 +126,6 @@ AD FS를 테스트하는 가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

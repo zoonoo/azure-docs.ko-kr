@@ -1,5 +1,5 @@
 ---
-title: "여러 Azure 지역에 Azure API 관리 서비스 인스턴스를 배포하는 방법"
+title: "여러 Azure 지역에 Azure API Management 서비스 배포 | Microsoft Docs"
 description: "여러 Azure 지역에 Azure API 관리 서비스 인스턴스를 배포하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,18 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
-ms.openlocfilehash: 98201867fd8b1b5f074aa6135e04b04faf384224
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 1c39fee739c2f5fd4b928e1e76e1ea57f072b5f8
 
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API 관리 서비스 인스턴스를 배포하는 방법
 API 관리는 원하는 Azure 지역의 수에 상관 없이 단일 API 관리 서비스를 배포하기 위해 API 게시자를 사용할 수 있는 여러 지역 배포를 지원합니다. 이를 통해 지역적으로 배포된 API 소비자가 느끼는 요청 대기 시간을 줄일 수 있으며 한 지역이 오프라인인 경우 가능한 서비스를 개선할 수도 있습니다. 
 
-API 관리 서비스가 처음 만들어질 때 한 [단위][단위]만 포함하며 단일 Azure 지역에 있어 기본 지역으로 지정됩니다. Azure Portal을 통해 추가 지역을 쉽게 추가할 수 있습니다. API 관리 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다. 
+API Management 서비스가 처음 만들어질 때 한 [단위][unit]만 포함하며 단일 Azure 지역에 있어 기본 지역으로 지정됩니다. Azure Portal을 통해 추가 지역을 쉽게 추가할 수 있습니다. API 관리 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다. 
 
 > [!IMPORTANT]
 > 다중 지역 배포는 **[프리미엄][Premium]** 계층에서만 사용할 수 있습니다.
@@ -32,7 +31,7 @@ API 관리 서비스가 처음 만들어질 때 한 [단위][단위]만 포함�
 
 ## <a name="add-region"> </a>새 지역에 API 관리 서비스 인스턴스 배포
 > [!NOTE]
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 > 
 > 
 
@@ -70,18 +69,18 @@ Azure Portal에서 API 관리 서비스 인스턴스에 대한 **크기 조정 �
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
 
-[새 지역에 API 관리 서비스 인스턴스 배포]: #add-region
-[지역에서 API 관리 서비스 인스턴스 삭제]: #remove-region
+[Deploy an API Management service instance to a new region]: #add-region
+[Delete an API Management service instance from a region]: #remove-region
 
-[단위]: http://azure.microsoft.com/pricing/details/api-management/
+[unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

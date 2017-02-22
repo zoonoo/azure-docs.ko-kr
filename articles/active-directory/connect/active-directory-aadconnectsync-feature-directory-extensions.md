@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
+ms.sourcegitcommit: 2f5c5e9af193c843765f63640d46c25f3a6d10c3
+ms.openlocfilehash: 3641f9309cc38f6575ce36d3450448cdae1601a9
 
 
 ---
@@ -26,23 +26,24 @@ ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
 현재 이 특성을 이용하는 Office 365 워크로드가 없습니다.
 
 설치 마법사의 사용자 지정 설정 경로에서 동기화할 추가 속성을 구성합니다.
-![스키마 확장 마법사](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) 설치 시 다음과 같은 특성이 표시됩니다. 이러한 특성은 유효한 후보입니다.
+![스키마 확장 마법사](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+설치 시 다음과 같은 특성이 표시됩니다. 이러한 특성은 유효한 후보입니다.
 
 * 사용자 및 그룹 개체 유형
 * 단일 값 특성: 문자열, 부울, 정수, 이진
 * 다중 값 특성: 문자열, 이진
 
-특성 목록은 Azure AD Connect 설치 도중에 만들어진 캐시에서 읽힙니다. 추가 특성을 사용하여 Active Directory 스키마를 확장한 경우 [스키마를 새로 고쳐야](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) 이러한 새 특성을 볼 수 있습니다.
+특성 목록은 Azure AD Connect 설치 도중에 만들어진 스키마 캐시에서 읽힙니다. 추가 특성을 사용하여 Active Directory 스키마를 확장한 경우 [스키마를 새로 고쳐야](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) 이러한 새 특성을 볼 수 있습니다.
 
-개체에는 최대 100개의 디렉터리 확장 특성이 있을 수 있습니다. 최대 길이는 250자입니다. 특성 값이 더 긴 경우 동기화 엔진에 의해 잘립니다.
+Azure AD의 개체에는 최대 100개의 디렉터리 확장 특성이 있을 수 있습니다. 최대 길이는 250자입니다. 특성 값이 더 긴 경우 동기화 엔진에 의해 잘립니다.
 
 Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는 응용 프로그램이 등록됩니다. Azure 포털에서 다음 응용 프로그램을 볼 수 있습니다.  
-![스키마 확장 앱](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+![스키마 확장 앱](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
 이제 이 특성은 Graph를 통해 사용할 수 있습니다.  
 ![그래프](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-특성은 extension\_{AppClientId}\_를 접두사로 사용합니다. AppClientId는 Azure AD 디렉터리의 모든 특성에 대해 동일한 값을 가집니다.
+특성은 extension\_{AppClientId}\_를 접두사로 사용합니다. AppClientId는 Azure AD 테넌트의 모든 특성에 대해 동일한 값을 가집니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
@@ -51,7 +52,6 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

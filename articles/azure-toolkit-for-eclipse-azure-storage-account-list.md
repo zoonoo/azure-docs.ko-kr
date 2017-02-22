@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
 
 
 ---
@@ -53,9 +53,9 @@ Azure 저장소 계정은 JDK, 응용 프로그램 서버, 임의 구성 요소�
 저장소 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 계정이 생성된 후에 **확인**를 클릭하여 **저장소 계정 추가** 대화 상자를 닫으면, 새 저장소 계정이 사용 가능한 저장소 계정 목록에 추가됩니다.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>기존 저장소 계정을 목록에 추가
-1. Azure 저장소 계정이 없는 경우에는 위의 **새 저장소 계정 만들기 섹션** 에 나열된 단계에 따라서 계정을 만듭니다. (또는 [Azure 관리 포털][Azure 관리 포털]에서 새 저장소 계정을 만들 수 있습니다.)
+1. Azure 저장소 계정이 없는 경우에는 위의 **새 저장소 계정 만들기 섹션** 에 나열된 단계에 따라서 계정을 만듭니다. (또는 [Azure Management Portal][Azure Management Portal]에서 새 저장소 계정을 만들 수 있습니다.)
 2. **저장소 계정** 대화 상자에서 **추가**를 클릭합니다.
-3. **저장소 계정 추가** 대화 상자에서 **이름** 및 **선택키**의 값을 입력합니다. 계정 이름 및 액세스 키는 기존 Azure 저장소 계정에 대한 값이어야 합니다. 저장소 계정 이름 및 키를 보려면 [Azure 관리 포털][Azure 관리 포털]의 **저장소** 섹션을 사용합니다. **Add Storage Account** 대화 상자는 다음과 유사한 모양입니다.
+3. **저장소 계정 추가** 대화 상자에서 **이름** 및 **선택키**의 값을 입력합니다. 계정 이름 및 액세스 키는 기존 Azure 저장소 계정에 대한 값이어야 합니다. 저장소 계정 이름 및 키를 보려면 [Azure Management Portal][Azure Management Portal]의 **저장소** 섹션을 사용합니다. **Add Storage Account** 대화 상자는 다음과 유사한 모양입니다.
    
     ![][ic719497]
 4. **확인**을 클릭하여 **저장소 계정 추가** 대화 상자를 닫습니다.
@@ -75,22 +75,22 @@ Azure 저장소 계정은 JDK, 응용 프로그램 서버, 임의 구성 요소�
 > 
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -101,6 +101,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

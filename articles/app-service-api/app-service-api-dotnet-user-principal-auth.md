@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cbac2de7334b8733c17b2db5b407eecb925bcc2f
+ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
+ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
 
 
 ---
@@ -182,7 +182,7 @@ Azure AD 인증을 구성하면 앱 서비스가 사용자에 대한 Azure AD �
 
 ToDoListAngular 프로젝트의 파일을 다음과 같이 변경합니다.
 
-1. *index.html* 파일을 엽니다.
+1. *Index.cshtml* 파일을 엽니다.
 2. ADAL(Active Directory 인증 라이브러리)를 참조하는 줄의 주석 처리를 해제합니다.
    
         <script src="app/scripts/adal.js"></script>
@@ -284,6 +284,6 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: jaime-espinosa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5b580977f0104cb45e8b304183abd0607a1342
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 00617f4d508c843000d69c02464a1bef36320a8e
 
 
 ---
@@ -74,11 +74,11 @@ Azure 포털에서는 여러 서비스의 구성 요소로 종단 간 응용 프
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
 ## <a name="more-resources"></a>추가 리소스
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure 마켓플레이스]: /marketplace/
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -88,6 +88,6 @@ Azure 포털에서는 여러 서비스의 구성 요소로 종단 간 응용 프
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9129eda8e4b3c3865878b8ceafb95a155ba02885
+ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
+ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
 
 
 ---
@@ -127,9 +127,17 @@ Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 �
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
-사용자 지정 역할을 만들려면 `New-AzureRmRoleDefinition` 명령을 사용합니다.
+사용자 지정 역할을 만들려면 ```New-AzureRmRoleDefinition``` 명령을 사용합니다. 역할을 구조화하는 방법에는 PSRoleDefinitionObject를 사용하거나 JSON 템플릿을 사용하는 두 가지 방법이 있습니다. 
 
-PowerShell을 사용하여 사용자 지정 역할을 만드는 경우 [기본 제공 역할](role-based-access-built-in-roles.md)중 하나로 시작해야 합니다. 속성을 편집하여 원하는 *Actions*, *notActions* 또는 *scopes*를 추가한 다음 변경 내용을 새 역할로 저장합니다.
+## <a name="get-actions-from-particular-resource-provider"></a>특정 리소스 공급자에서 작업 가져오기
+처음부터 사용자 지정 역할을 만드는 경우 리소스 공급자에서 가능한 모든 작업을 알고 있어야 합니다.
+```Get-AzureRMProviderOperation``` 명령을 사용하여 수행할 수 있습니다. 예를 들어, 가상 컴퓨터에 사용 가능한 모든 작업을 확인하려는 경우 다음 명령은 아래에 설명된 것과 같습니다.
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
+
+### <a name="create-role-with-psroledefinitionobject"></a>PSRoleDefinitionObject를 사용하여 역할 만들기
+PowerShell을 사용하여 사용자 지정 역할을 만들 때는 처음부터 시작하거나 [기본 제공 역할](role-based-access-built-in-roles.md) 중 하나를 출발점으로 사용할 수 있습니다. 이 예제에서는 후자가 사용됩니다. 속성을 편집하여 원하는 *Actions*, *notActions* 또는 *scopes*를 추가한 다음 변경 내용을 새 역할로 저장합니다.
 
 다음 예제에서는 *Virtual Machine Contributor* 역할로 시작한 후 이 역할을 사용하여 *Virtual Machine Operator*라는 사용자 지정 역할을 만듭니다. 새 역할은 *Microsoft.Compute*, *Microsoft.Storage* 및 *Microsoft.Network* 리소스 공급자의 모든 읽기 작업에 대한 액세스 권한을 부여하고 가상 컴퓨터를 시작, 다시 시작 및 모니터링할 수 있는 권한을 부여합니다. 두 구독 모두에서 사용자 지정 역할을 사용할 수 있습니다.
 
@@ -156,7 +164,37 @@ New-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
+### <a name="create-role-with-json-template"></a>JSON 템플릿을 사용하여 역할 만들기
+JSON 템플릿을 사용자 지정 역할의 원본 정의로 사용할 수 있습니다. 다음 예제에서는 저장소 및 계산 리소스에 대한 읽기 액세스, 지원 액세스를 허용하고 해당 역할을 두 개의 구독에 추가하는 사용자 지정 역할을 만듭니다. 다음 내용이 포함된 새 파일 `C:\CustomRoles\customrole1.json`을 만듭니다. 초기 역할 생성 시 새 ID가 생성되므로 Id를 `null`로 설정해야 합니다. 
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+구독에 역할을 추가하려면 다음 PowerShell 명령을 실행합니다.
+```
+New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
+
 ## <a name="modify-a-custom-role"></a>사용자 지정 역할 수정
+사용자 지정 역할을 만들 때와 유사하게 PSRoleDefinitionObject 또는 JSON 템플릿을 사용하여 기존 사용자 지정 역할을 수정할 수 있습니다.
+
+### <a name="modify-role-with-psroledefinitionobject"></a>PSRoleDefinitionObject를 사용하여 역할 수정
 사용자 지정 역할을 수정하려면 먼저 `Get-AzureRmRoleDefinition` 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 `Set-AzureRmRoleDefinition` 명령을 사용하여 수정한 역할 정의를 저장합니다.
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할에 `Microsoft.Insights/diagnosticSettings/*` 작업을 추가합니다.
@@ -175,11 +213,40 @@ Set-AzureRmRoleDefinition -Role $role
 Get-AzureRmSubscription - SubscriptionName Production3
 
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
-$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2"
-Set-AzureRmRoleDefinition -Role $role)
+$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2")
+Set-AzureRmRoleDefinition -Role $role
 ```
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
+
+### <a name="modify-role-with-json-template"></a>JSON 템플릿을 사용하여 역할 수정
+이전 JSON 템플릿을 통해 기존 사용자 지정 역할을 손쉽게 수정하여 작업을 추가 또는 제거할 수 있습니다. 아래와 같이 JSON 템플릿을 업데이트하고 네트워킹에 대한 읽기 작업을 추가합니다. 템플릿에 나열된 정의는 기존 정의에 점증적으로 적용되지 않습니다. 즉, 템플릿에 지정한 것과 똑같이 역할이 표시됩니다. 또한 Id를 역할의 ID로 업데이트해야 합니다. 이 값을 잘 모르는 경우 `Get-AzureRmRoleDefinition` cmdlet을 사용하여 이 정보를 가져올 수 있습니다.
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": "acce7ded-2559-449d-bcd5-e9604e50bad1",
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+
+기존 역할을 업데이트하려면 다음 PowerShell 명령을 실행합니다.
+```
+Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
 
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 사용자 지정 역할을 삭제하려면 `Remove-AzureRmRoleDefinition` 명령을 사용합니다.
@@ -216,6 +283,6 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

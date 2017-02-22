@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 67bb54e8a573607199143621451e598bf11947fe
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
 
 
 ---
@@ -133,7 +133,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 
 단일 큐에 대해 여러 메시지가 수신되는 경우에도 마찬가지입니다. 기본적으로 SDK는 한 번에 16개의 큐 메시지를 일괄로 가져오고 해당 메시지를 병렬로 처리하는 함수를 실행합니다. [일괄 처리 크기는 구성 가능합니다](#config). 처리되는 개수가 일괄 처리 크기의 절반으로 감소하면 SDK에서 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 일괄 처리 크기의 1.5배입니다. 이 제한은 `QueueTrigger` 특성이 있는 각 함수에 개별적으로 적용됩니다.
 
-하나의 큐에 수신된 메시지에 대해 병렬 실행을 사용하지 않으려면 일괄 처리 크기를 1로 설정하면 됩니다. **Azure WebJobs SDK 1.1.0 RTM** 에서 [큐 처리에 대한 제어 강화](/blog/azure-webjobs-sdk-1-1-0-rtm/)를 참조하세요.
+하나의 큐에 수신된 메시지에 대해 병렬 실행을 사용하지 않으려면 일괄 처리 크기를 1로 설정하면 됩니다. **Azure WebJobs SDK 1.1.0 RTM** 에서 [큐 처리에 대한 제어 강화](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)를 참조하세요.
 
 ### <a name="a-idqueuemetadataaget-queue-or-queue-message-metadata"></a><a id="queuemetadata"></a>큐 또는 큐 메시지 메타데이터 가져오기
 메서드 서명에 매개 변수를 추가하여 다음 메시지 속성을 가져올 수 있습니다.
@@ -282,7 +282,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 `IBinder` 인터페이스를 `Table` 및 `Blob` 특성과 함께 사용할 수도 있습니다.
 
 ## <a name="a-idblobsa-how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a><a id="blobs"></a> 큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
-`Blob` 및 `Table` 특성을 사용하여 Blob 및 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob이 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
+`Blob` 및 `Table` 특성을 사용하여 Blob 및 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob이 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob Storage로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Table Storage로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Blob 작업을 트리거하는 문자열 큐 메시지
 문자열이 포함된 큐 메시지의 경우 `queueTrigger`는 메시지 내용이 포함된 `Blob` 특성의 `blobPath` 매개 변수에 사용할 수 있는 자리 표시자입니다.
@@ -422,7 +422,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
             host.RunAndBlock();
         }
 
-### <a name="a-idconfigqueueaconfigure-queuetrigger-settings"></a><a id="configqueue"></a>QueueTrigger 설정 구성
+### <a name="a-idconfigqueueaconfigure-queuetrigger--settings"></a><a id="configqueue"></a>QueueTrigger 설정 구성
 큐 메시지 처리에 적용되는 다음 설정을 구성할 수 있습니다.
 
 * 병렬로 실행하도록 동시에 선택되는 최대 큐 메시지 수(기본값은 16).
@@ -581,6 +581,6 @@ public static void ErrorMonitor(
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

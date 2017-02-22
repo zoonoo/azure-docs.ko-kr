@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
-ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
 
 
 ---
@@ -44,8 +44,8 @@ ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 * 예약된 단위는 Azure 미디어 인덱서를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다.  그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
 * 공유 풀을 사용 중이어서 예약 단위가 없는 경우에는 인코딩 작업의 성능이 S1 RU와 동일해집니다. 그러나 작업이 대기된 상태로 유지될 수 있는 시간의 상한은 없으며 언제든지 작업은 최대 하나만 실행됩니다.
-* 브라질 남부, 인도 서부, 인도 중부, 인도 남부 데이터 센터는 **S2** 예약 단위 형식을 제공하지 않습니다.
-* 브라질 남부, 인도 서부, 인도 중부 데이터 센터는 **S3** 예약 단위 형식을 제공하지 않습니다.
+* 브라질 남부와 인도 서부 데이터 센터는 **S2** 예약 단위 형식을 제공하지 않습니다.
+* 인도 서부 데이터 센터는 **S3** 예약 단위 형식을 제공하지 않습니다.
 * 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다.
 
 ## <a name="quotas-and-limitations"></a>할당량 및 제한 사항
@@ -57,7 +57,7 @@ ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [포털](media-services-portal-scale-media-processing.md)
-> * [REST (영문)](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -72,6 +72,6 @@ ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

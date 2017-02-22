@@ -1,5 +1,5 @@
 ---
-title: "Service Bus 트랜잭션 | Microsoft Docs"
+title: "Azure Service Bus의 트랜잭션 처리 개요 | Microsoft Docs"
 description: "Azure 서비스 버스 원자성 트랜잭션 및 send via에 대한 개요"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/02/2017
 ms.author: clemensv;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
+ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
 
 
 ---
@@ -33,10 +33,10 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 ## <a name="operations-within-a-transaction-scope"></a>트랜잭션 범위 내 작업
 트랜잭션 범위 내에서 수행할 수 있는 작업은 다음과 같습니다.
 
-* **[QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx), [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender), [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-응용 프로그램이 일부 수신 루프 내에서 또는 [OnMessage](https://msdn.microsoft.com/library/azure/dn369601.aspx) 콜백과 함께 [ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) 모드를 사용하여 메시지를 획득한다고 가정하므로 수신 작업은 포함되지 않으며, 메시지 처리에 대한 트랜잭션 범위만 열립니다.
+응용 프로그램이 일부 수신 루프 내에서 또는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) 콜백과 함께 [ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) 모드를 사용하여 메시지를 획득한다고 가정하므로 수신 작업은 포함되지 않으며, 메시지 처리에 대한 트랜잭션 범위만 열립니다.
 
 메시지 처리(완료, 중단, 배달 못 한 편지, 지연)가 범위 내에서 그리고 전반적인 트랜잭션 결과에 다라 발생합니다.
 
@@ -48,14 +48,14 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한, 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예:
 
-```
+```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
 다음 예와 같이 간단한 트랜잭션이 이러한 요소를 사용합니다.
 
-```
+```csharp
 var msg = receiver.Receive();
 
 using (scope = new TransactionScope())
@@ -72,6 +72,7 @@ using (scope = new TransactionScope())
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 서비스 버스 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [자동 전달을 사용한 Service Bus 엔터티 연결](service-bus-auto-forwarding.md)
@@ -83,6 +84,6 @@ using (scope = new TransactionScope())
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

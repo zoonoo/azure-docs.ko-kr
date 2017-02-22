@@ -99,6 +99,6 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

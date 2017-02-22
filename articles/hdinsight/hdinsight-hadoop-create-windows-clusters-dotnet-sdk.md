@@ -1,6 +1,6 @@
 ---
 title: ".NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기 | Microsoft 문서"
-description: ".NET SDK를 사용하여 Azure HDInsight에 HDInsight 클러스터를 만드는 방법을 알아봅니다."
+description: ".NET SDK를 사용하여 HDInsight에 Windows 기반 Hadoop 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 4f597fad719637e66d64143c302334b1c62e226e
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-.NET SDK를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+.NET SDK를 사용하여 HDInsight에 Windows 기반 Hadoop 클러스터를 만드는 방법을 알아봅니다. 
+
+이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 생성에 대한 자세한 내용은 [.NET SDK를 사용하여 HDInsight에 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -163,7 +169,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 * [.NET SDK를 사용하여 HDInsight에서 Pig 작업 실행](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [HDInsight에서 Oozie 작업 실행](hdinsight-use-oozie.md)
-* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation] - HDInsight SDK를 살펴봅니다.
+* [Azure HDInsight SDK 설명서][hdinsight-sdk-documentation] - HDInsight SDK 살펴보기
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -245,6 +251,6 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

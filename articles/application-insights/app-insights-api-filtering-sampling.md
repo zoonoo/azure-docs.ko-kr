@@ -367,6 +367,6 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

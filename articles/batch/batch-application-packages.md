@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치에서 간편하게 응용 프로그램 설치 및 관리 | Microsoft Docs"
+title: "계산 노드에 응용 프로그램 패키지 설치 - Azure 배치 | Microsoft Docs"
 description: "Azure 배치의 응용 프로그램 패키지 기능을 사용하여 배치 계산 노드에 설치할 여러 응용 프로그램 및 버전을 간편하게 관리하세요."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/21/2016
+ms.date: 01/30/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 8bd78e80347175161053b28e4350fdeb78b3299b
+ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
+ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
 
 
 ---
@@ -251,7 +251,9 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-응용 프로그램의 기본 버전을 지정하면 버전 접미사를 생략할 수 있습니다. 예를 들어 *blender*응용 프로그램에 대해 기본 버전으로 "2.7"을 설정한 경우에는 태스크가 다음 환경 변수를 참조할 수 있으며 버전 2.7을 실행합니다.
+응용 프로그램 패키지를 업로드할 때 계산 노드에 배포할 기본 버전을 지정할 수 있습니다. 응용 프로그램의 기본 버전을 지정하면 응용 프로그램 참조 시 버전 접미사를 생략할 수 있습니다. [응용 프로그램 업로드 및 관리](#upload-and-manage-applications)에서 표시된 것처럼 Azure Portal의 응용 프로그램 블레이드에서 기본 응용 프로그램 버전을 지정할 수 있습니다.
+
+예를 들어 *blender*응용 프로그램에 대해 기본 버전으로 "2.7"을 설정한 경우에는 태스크가 다음 환경 변수를 참조할 수 있으며 버전 2.7을 실행합니다.
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -349,6 +351,6 @@ foreach (ApplicationSummary app in applications)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

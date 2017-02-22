@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2016
+ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
+ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
+ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
 
 
 ---
@@ -28,7 +28,7 @@ Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 H
 
 이 자습서에서는 Azure의 확장 가능한 주문형 계산 리소스를 사용하여 계산이 많이 사용되는 응용 프로그램을 실행하는 방법을 보여 줍니다. 이 방법을 클러스터 "클라우드로 버스트"라고도 합니다.
 
-이 자습서는 이전에 계산 클러스터나 HPC 팩을 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC 팩 클러스터를 프로덕션 환경에 대규모로 배포하는 단계와 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하십시오. Azure Virtual Machine의 자동화된 클러스터 배포를 포함한 HPC Pack을 사용한 다른 시나리오의 경우 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+이 자습서는 이전에 계산 클러스터나 HPC Pack 2012 R2를 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC Pack 클러스터를 프로덕션 환경에 대규모로 배포하거나 HPC Pack 2016을 사용하는 단계 및 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하세요. Azure Virtual Machine의 자동화된 클러스터 배포를 포함한 HPC Pack을 사용한 다른 시나리오의 경우 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
@@ -38,6 +38,10 @@ Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 H
   * HPC 팩을 지원하려면 운영 체제가 영어, 일본어 또는 중국어(간체) 언어 중 하나로 설치되어야 합니다.
   * 중요 업데이트가 설치되었는지 확인합니다.
 * **HPC Pack 2012 R2** - [다운로드](http://go.microsoft.com/fwlink/p/?linkid=328024) 하고 헤드 노드 컴퓨터나 네트워크 위치에 파일을 복사합니다. Windows Server 설치와 동일한 언어의 설치 파일을 선택합니다.
+
+    >[!NOTE]
+    > HPC Pack 2012 R2 대신 HPC Pack 2016을 사용하려는 경우 추가 구성이 필요합니다. [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하세요.
+    > 
 * **도메인 계정** - HPC Pack을 설치하려면 헤드 노드에서 로컬 관리자 권한으로 이 계정을 구성해야 합니다.
 * **포트 443의 헤드 노드와 Azure 간 TCP 연결**
 
@@ -127,7 +131,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
    > 
    > 
 4. 마법사의 나머지 페이지에서 **Next** 를 클릭하여 기본값을 적용합니다. **Review** 탭에서 **Configure**를 클릭하여 네트워크 구성을 완료합니다.
-5.  **Deployment To-do List**에서 **Provide installation credentials**을 참조하십시오.
+5. **Deployment To-do List**에서 **Provide installation credentials**을 참조하십시오.
 6. **Installation Credentials** 대화 상자에서 HPC 팩을 설치하는 데 사용한 도메인 계정의 자격 증명을 입력합니다. 그런 후 **OK**를 클릭합니다.
    
     ![Installation Credentials][config_hpc6]
@@ -136,7 +140,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
    > HPC 팩 서비스는 설치 자격 증명만을 사용하여 도메인에 가입된 계산 노드를 배포합니다. 이 자습서에서 추가한 Azure 노드는 가입되지 않은 도메인입니다.
    > 
    > 
-7.  **Deployment To-do List**에서 **Configure the naming of new nodes**을 참조하십시오.
+7. **Deployment To-do List**에서 **Configure the naming of new nodes**을 참조하십시오.
 8. **Specify Node Naming Series** 대화 상자에서 기본 이름 지정 시리즈를 적용하고 **OK**를 클릭합니다.
    
     ![노드 이름 지정][config_hpc8]
@@ -145,7 +149,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
    > 이 이름 지정 시리즈는 도메인에 가입된 계산 노드의 이름만 생성합니다. Azure 작업자 노드의 이름은 자동으로 지정됩니다.
    > 
    > 
-9.  **Deployment To-do List**에서 **Create a node template**을 참조하십시오. 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
+9. **Deployment To-do List**에서 **Create a node template**을 참조하십시오. 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
 10. Create Node Template Wizard에서 다음을 수행합니다.
     
     a. **노드 템플릿 유형 선택** 페이지에서 **Azure 노드 템플릿**을 클릭한 후 **다음**을 클릭합니다.
@@ -177,7 +181,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
 1. HPC 클러스터 관리자의 **노드 관리**(최신 버전의 HPC Pack에서 **리소스 관리**)에서 **동작** 창의 **노드 추가**를 클릭합니다.
    
     ![노드 추가][add_node1]
-2. Add Node Wizard의 **Select Deployment Method** 페이지에서 **Add Azure nodes**를 클릭한 후 **Next**를 클릭합니다.
+2. Add Node Wizard의 **Select Deployment Method** 페이지에서 **Add Windows Azure nodes**를 클릭한 후 **Next**를 클릭합니다.
    
     ![Azure 노드 추가][add_node1_1]
 3. **Specify New Nodes** 페이지에서 이전에 만든 Azure 노드 템플릿(기본적으로 **Default AzureNode Template**)을 선택합니다. 크기가 **Small**인 노드 **2**개를 지정하고 **Next**를 클릭합니다.
@@ -187,7 +191,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
     사용 가능한 크기에 대한 자세한 내용은 [클라우드 서비스에 적합한 크기](cloud-services-sizes-specs.md)를 참조하세요.
 4. **Completing the Add Node Wizard** 페이지에서 **Finish**를 클릭합니다.
    
-     이제 **AzureCN-0001** 및 **AzureCN-0002**라는 Azure 노드 2개가 HPC Cluster Manager에 표시됩니다. 둘 다 **배포되지 않음** 상태입니다.
+     이제 **AzureCN-0001** 및 **AzureCN-0002**라는 Azure 노드&2;개가 HPC Cluster Manager에 표시됩니다. 둘 다 **배포되지 않음** 상태입니다.
    
     ![추가된 노드][add_node3]
 
@@ -197,7 +201,7 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 1. HPC Cluster Manager의 **노드 관리**(최신 버전의 HPC Pack에서 **리소스 관리**)에서 노드 중 하나 또는 둘 다를 클릭하고 **동작** 창에서 **시작**을 클릭합니다.
    
    ![노드 시작][add_node4]
-2. **Start Azure Nodes** 대화 상자에서 **Start**를 클릭합니다.
+2. **Stop Windows Azure nodes** 대화 상자에서 **Start**를 클릭합니다.
    
     ![노드 시작][add_node5]
    
@@ -250,7 +254,7 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 1. HPC 클러스터 관리자의 **노드 관리**(최신 버전의 HPC Pack에서 **리소스 관리**)에서 두 Azure 노드를 모두 선택합니다. **Actions** 창에서 **Stop**을 클릭합니다.
    
     ![노드 중지][stop_node1]
-2. **Stop Azure Nodes** 대화 상자에서 **Stop**을 클릭합니다.
+2. **Stop Windows Azure nodes** 대화 상자에서 **Stop**을 클릭합니다.
    
     ![노드 중지][stop_node2]
 3. 노드가 **Stopping** 상태로 전환됩니다. 몇 분 후에 HPC Cluster Manager에서 노드가 **Not-Deployed**로 표시됩니다.
@@ -263,12 +267,12 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
     이제 자습서를 마쳤습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [HPC Pack 2012 R2 및 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)설명서를 참조하세요.
+* [HPC Pack](https://technet.microsoft.com/library/cc514029)설명서를 참조하세요.
 * 대규모 하이브리드 HPC Pack 클러스터 배포를 설정하려면 [Microsoft HPC Pack을 사용하여 Azure 작업자 역할 인스턴스로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)를 참조하세요.
 * Azure Resource Manager 템플릿 사용 등 Azure에서 HPC Pack 클러스터를 만드는 다른 방법은 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 * Azure의 큰 계산 및 HPC 클라우드 솔루션 범위에 대한 자세한 내용은 [Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스](../batch/big-compute-resources.md) 를 참조하세요.
 
-[개요]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
+[Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
 [install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
 [install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
@@ -307,6 +311,6 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

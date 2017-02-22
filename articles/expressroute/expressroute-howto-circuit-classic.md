@@ -1,10 +1,10 @@
 ---
-title: "클래식 배포 모델 및 PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정 | Microsoft 문서"
+title: "ExpressRoute 회로 만들기 및 수정: PowerShell: Azure 클래식 | Microsoft Docs"
 description: "이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여 줍니다."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
@@ -13,36 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
+ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
+ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
 > [!div class="op_single_selector"]
-> * [Azure 포털 - 리소스 관리자](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - 클래식](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [클래식 - PowerShell](expressroute-howto-circuit-classic.md)
+> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 단계를 안내합니다. 이 문서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 
 **Azure 배포 모델 정보**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
-### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. 필수 조건 및 워크플로 문서에 대한 검토
+### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>1단계. 필수 조건 및 워크플로 문서에 대한 검토
 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.  
 
-### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. 최신 버전의 Azure PowerShell 모듈 설치
-Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 의 지침을 따르세요.
+### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2단계. 최신 버전의 Azure PowerShell 모듈 설치
+Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 의 지침을 따르세요.
 
-### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Azure 계정에 로그인 및 구독 선택
+### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>3단계. Azure 계정에 로그인 및 구독 선택
 1. Windows PowerShell 프롬프트에서 다음 cmdlet 명령을 실행합니다.
    
         Add-AzureAccount
@@ -55,13 +59,13 @@ Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 �
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 프로비전
-### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Express 경로에 대한 PowerShell 모듈을 가져옵니다.
+### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>1단계. Express 경로에 대한 PowerShell 모듈을 가져옵니다.
  먼저 ExpressRoute cmdlet을 사용할 수 있도록 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 로컬 컴퓨터에 설치된 위치에 있는 모듈을 가져옵니다. 이 위치는 모듈 설치에 사용한 방법에 따라 다음 예제와 다를 수 있습니다. 따라서 필요한 경우 예제를 수정합니다.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
+### <a name="step-2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2단계. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 Express 경로 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
 PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 은(는) 이후 단계에서 사용할 이 정보를 반환합니다.
@@ -76,7 +80,7 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 은(는) 이후 단
 
 이제 Express 경로 회로를 만들 준비가 되었습니다.         
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Express 경로 회로 만들기
+### <a name="step-3-create-an-expressroute-circuit"></a>3단계. Express 경로 회로 만들기
 아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps Express 경로 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
 
 > [!IMPORTANT]
@@ -102,7 +106,7 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 은(는) 이후 단
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4-list-all-the-expressroute-circuits"></a>4. 모든 Express 경로 회로 나열
+### <a name="step-4-list-all-the-expressroute-circuits"></a>4단계. 모든 Express 경로 회로 나열
 만들어 놓은 모든 Express 경로 회로 목록을 가져오려면 `Get-AzureDedicatedCircuit` 명령을 실행합니다.
 
     Get-AzureDedicatedCircuit
@@ -135,7 +139,7 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 은(는) 이후 단
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비전을 위해 연결 공급자에 서비스 키 보내기
+### <a name="step-5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5단계. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 *ServiceProviderProvisioningState* 는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. *Status* 는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states) 문서를 참조하세요.
 
 새 Express 경로 회로를 만들면 회로는 다음 상태가 됩니다.
@@ -155,7 +159,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     Status                           : Enabled
 
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태를 주기적으로 확인
+### <a name="step-6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6단계. 회로 키의 상태를 주기적으로 확인
 이를 통해 공급자가 회로 활성화를 마치면 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *Provisioned*으로 표시됩니다.
 
     Get-AzureDedicatedCircuit
@@ -169,7 +173,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7-create-your-routing-configuration"></a>7. 라우팅 구성 만들기
+### <a name="step-7-create-your-routing-configuration"></a>7단계. 라우팅 구성 만들기
 단계별 지침은 [Express 경로 회로 라우팅 구성(회로 피어링 만들기 및 수정)](expressroute-howto-routing-classic.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
@@ -177,7 +181,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 > 
 > 
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 Express 경로 회로에 연결합니다.
+### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>8단계: 가상 네트워크를 Express 경로 회로에 연결합니다.
 그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-classic.md) 을 참조하세요. Express 경로에 클래식 배포 모델을 사용하여 가상 네트워크를 만들어야 할 경우 [Express 경로에 대해 가상 네트워크 만들기](expressroute-howto-vnet-portal-classic.md) 를 참조하세요.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Express 경로 회로의 상태 가져오기
@@ -217,7 +221,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     Status                           : Enabled
 
 
-다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
+다음 예제를 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
     get-help get-azurededicatedcircuit -detailed
 
@@ -255,12 +259,13 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 > 
 > 
 
-다음 사항에 유의하세요.
+#### <a name="considerations"></a>고려 사항
 
 * 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
 * 다른 지리적 위치의 모든 가상 네트워크를 연결 해제해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
 * 사설 피어링을 위해서는 경로 테이블의 경로가 4000개 미만이어야 합니다. 경로 테이블 크기가 4000개 경로 이상이면 BGP 세션이 폐기되고 게시된 프리픽스 수가 4000개 미만이 될 때까지 다시 활성화되지 않습니다.
 
+#### <a name="disable-the-premium-add-on"></a>Premium 추가 기능 사용 안 함
 다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다.
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
@@ -283,6 +288,8 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 > 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭 다운그레이드에서는 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
 > 
 > 
+
+#### <a name="resize-a-circuit"></a>회로 크기 조정
 
 필요한 크기를 선택한 후에, 다음 명령을 사용하여 회로 크기를 조정할 수 있습니다.
 
@@ -311,11 +318,14 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Express 경로 회로 프로비전 해제 및 삭제
-다음 사항에 유의하세요.
+
+### <a name="considerations"></a>고려 사항
 
 * 이 작업이 성공하려면 모든 가상 네트워크를 Express 경로 회로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
 * ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
 * 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
+
+#### <a name="delete-a-circuit"></a>회로 삭제
 
 다음 명령을 실행하여 Express 경로 회로를 삭제할 수 있습니다.
 
@@ -332,6 +342,6 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

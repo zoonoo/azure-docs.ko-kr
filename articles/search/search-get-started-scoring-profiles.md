@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
+ms.sourcegitcommit: 7a633460f249f7c7b6675a5ab23b1724549cccba
+ms.openlocfilehash: ca07067b73b72b5ff8b93a72fa7eef55e9d47cc2
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
 
 자습서를 완료하려면 Azure 구독 및 Azure 검색 서비스가 필요합니다. 서비스 설정에 대한 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
 
- [이 자습서를 완료하려면 Azure 계정이 있어야 합니다.](../../includes/free-trial-note.md)]
+[!INCLUDE [You need an Azure account to complete this tutorial](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 
@@ -72,19 +72,19 @@ URL 및 `api-key` 를 app.config에 추가하고 나면 응용 프로그램 설�
 
 * 콘솔 창을 엽니다.
 * 서비스 URL 및 `api-key`를 사용하여 Azure 검색 서비스에 연결합니다.
-* 있는 경우 `musicstoreindex` 을 삭제합니다.
-* schema.json 파일을 사용하여 새 `musicstoreindex` 를 만듭니다.
+* 있는 경우 `musicstoreindex`을 삭제합니다.
+* schema.json 파일을 사용하여 새 `musicstoreindex`를 만듭니다.
 * 데이터 파일을 사용하여 인덱스를 채웁니다.
-* 4개의 쿼리를 사용하여 인덱스를 쿼리합니다. 점수 매기기 프로필은 쿼리 매개 변수로 지정됩니다. 모든 쿼리는 같은 용어인 'best'를 검색합니다. 첫 번째 쿼리는 기본 점수 매기기를 보여 줍니다. 나머지 3개 쿼리는 점수 매기기 프로필을 사용합니다.
+* 4개의 쿼리를 사용하여 인덱스를 쿼리합니다. 점수 매기기 프로필은 쿼리 매개 변수로 지정됩니다. 모든 쿼리는 같은 용어인 'best'를 검색합니다. 첫 번째 쿼리는 기본 점수 매기기를 보여 줍니다. 나머지&3;개 쿼리는 점수 매기기 프로필을 사용합니다.
 
 <a id="sub-5"></a>
 
 ## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
-연결 또는 어셈블리 참조 문제를 방지하려면 먼저 제대로 작동하는 데 문제가 없는지 확인하기 위한 응용 프로그램을 빌드하고 실행합니다. 콘솔 응용 프로그램이 백그라운드에서 열려 있는지 확인해야 합니다. 모든 4개의 쿼리는 일시 중지 없이 순서대로 실행됩니다. 대부분 시스템에서 전체 프로그램은 15초 이내로 실행됩니다. 콘솔 응용 프로그램에 "Complete. Press enter to continue”라는 메시지가 표시되면 프로그램이 성공적으로 완료된 것입니다. 
+연결 또는 어셈블리 참조 문제를 방지하려면 먼저 제대로 작동하는 데 문제가 없는지 확인하기 위한 응용 프로그램을 빌드하고 실행합니다. 콘솔 응용 프로그램이 백그라운드에서 열려 있는지 확인해야 합니다. 모든&4;개의 쿼리는 일시 중지 없이 순서대로 실행됩니다. 대부분 시스템에서 전체 프로그램은 15초 이내로 실행됩니다. 콘솔 응용 프로그램에 "Complete. Press enter to continue”라는 메시지가 표시되면 프로그램이 성공적으로 완료된 것입니다. 
 
 쿼리 실행을 비교하려면 콘솔에서 쿼리 결과를 표시 및 복사하고 Excel 파일에 붙여넣을 수 있습니다. 
 
-다음 그림에서는 처음 3개 쿼리의 결과를 나란히 보여 줍니다. 모든 쿼리는 많은 앨범 제목에 나타나는 같은 검색어 'best'를 사용합니다.
+다음 그림에서는 처음&3;개 쿼리의 결과를 나란히 보여 줍니다. 모든 쿼리는 많은 앨범 제목에 나타나는 같은 검색어 'best'를 사용합니다.
 
    ![][10]
 
@@ -125,6 +125,6 @@ URL 및 `api-key` 를 app.config에 추가하고 나면 응용 프로그램 설�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

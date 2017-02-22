@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions 트리거 및 바인딩 | Microsoft Docs"
-description: "Azure Functions에서 트리거 및 바인딩을 사용하는 방법을 이해합니다."
+title: "Azure Functions의 트리거 및 바인딩 작업 | Microsoft Docs"
+description: "Azure Functions에서 트리거 및 바인딩을 사용하여 코드 실행을 온라인 이벤트 및 클라우드 기반 서비스에 연결하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,20 +14,26 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d809636cae48dd0ccca4c99370f41996430d89e4
-ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
+ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
+ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 
 
 ---
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Azure Functions 트리거 및 바인딩 개발자 참조
-이 항목에서는 트리거 및 바인딩에 대한 일반적인 참조를 제공합니다. 여기에는 몇 가지 고급 바인딩 기능과 모든 바인딩 형식에서 지원되는 구문이 포함됩니다.  
 
-특정 형식의 트리거 또는 바인딩 구성 및 코딩에 대한 자세한 내용을 보려면 아래 나열된 트리거 또는 바인딩 중 하나를 클릭하세요.
+# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Azure Functions의 트리거 및 바인딩 작업 방법 알아보기 
+이 항목에서는 Azure Functions의 트리거 및 바인딩을 사용하여 코드를 다양한 트리거 및 Azure 서비스와 기타 클라우드 기반 서비스에 연결하는 방법을 보여 줍니다. 또한 몇 가지 고급 바인딩 기능과 모든 바인딩 형식에서 지원되는 구문을 제공합니다.  
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+특정 유형의 트리거나 바인딩 작업에 대한 자세한 내용은 다음 참조 항목 중 하나를 참조하세요.
+
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [타이머](functions-bindings-timer.md) | [모바일 앱](functions-bindings-mobile-apps.md) | [서비스 버스](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage 큐](functions-bindings-storage-queue.md) |  [Storage 테이블](functions-bindings-storage-table.md) |  
+| [이벤트 허브](functions-bindings-event-hubs.md) | [알림 허브](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 이러한 문서에서는 사용자가 [Azure Functions 개발자 참조](functions-reference.md) 및 [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) 또는 [Node.js](functions-reference-node.md) 개발자 참조 문서를 읽었다고 가정합니다.
 
@@ -61,7 +67,7 @@ Azure 함수에 대한 이 정보가 큐 트리거 바인딩에 포함됩니다.
 }
 ```
 
-코드는 새 큐 항목의 처리 방법에 따라 서로 다른 유형의 출력을 보낼 수 있습니다. 예를 들어 Azure Storage 테이블에 새 레코드를 작성할 수 있습니다.  이를 위해 Azure Storage 테이블에 대한 출력 바인딩을 설정할 수 있습니다. 다음은 큐 트리거에서 사용할 수 있는 저장소 테이블 출력 바인딩이 포함된 *function.json*의 예입니다. 
+코드는 새 큐 항목의 처리 방법에 따라 서로 다른 유형의 출력을 보낼 수 있습니다. 예를 들어 Azure Storage 테이블에 새 레코드를 작성할 수 있습니다.  이를 위해 Azure Storage 테이블에 대한 출력 바인딩을 작성합니다. 다음은 큐 트리거에서 사용할 수 있는 저장소 테이블 출력 바인딩이 포함된 *function.json*의 예입니다. 
 
 ```json
 {
@@ -125,7 +131,7 @@ public class Person
 Azure Portal에서 고급 바인딩 기능을 사용하려면 함수의 **통합** 탭에서 **고급 편집기** 옵션을 클릭합니다. 고급 편집기를 사용하면 포털에서 직접 *function.json*을 편집할 수 있습니다.
 
 ## <a name="random-guids"></a>임의 GUID
-Azure Functions는 바인딩과 함께 임의 GUID를 생성하는 구문을 제공합니다. 다음 바인딩 구문은 Azure Storage 컨테이너에서 고유한 이름의 새 BLOB에 대한 출력을 작성합니다. 
+Azure Functions는 바인딩과 함께 임의 GUID를 생성하는 구문을 제공합니다. 다음 바인딩 구문은 Storage 컨테이너에서 고유한 이름의 새 BLOB에 대한 출력을 작성합니다. 
 
 ```json
 {
@@ -182,7 +188,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-이 방법은 아래의 Node.js에 나와 있습니다.
+다음과 같이 동일한 이 방법이 Node.js로 설명되어 있습니다.
 
 ```javascript
 module.exports = function (context, input) {
@@ -192,7 +198,7 @@ module.exports = function (context, input) {
 }
 ```
 
-아래에는 F# 예제가 제공되어 있습니다.
+다음은 F# 예입니다.
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -229,7 +235,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -305,53 +311,61 @@ module.exports = function (context, myNewOrderItem) {
 *function.json*을 사용하는 표준 입력 및 출력 바인딩 패턴은 [*선언적*](https://en.wikipedia.org/wiki/Declarative_programming) 바인딩이라고 하며, 여기서 바인딩은 JSON 선언에 의해 정의됩니다. 하지만 사용자는 [명령적](https://en.wikipedia.org/wiki/Imperative_programming) 바인딩을 사용할 수 있습니다. 이 패턴을 사용하면 함수 코드에서 지원되는 입력 및 출력 바인딩을 얼마든지 즉시 바인딩할 수 있습니다.
 경로 또는 다른 입력 바인딩 계산이 함수에서 설계 시간이 아닌 런타임에서 실행되어야 하는 경우 명령적 바인딩이 필요할 수 있습니다. 
 
-명령적 바인딩을 수행하려면 다음을 수행합니다.
+다음과 같이 명령적 바인딩을 정의합니다.
 
 - 원하는 명령적 바인딩에 대한 *function.json*에 항목을 포함하지 **마세요**.
 - 입력 매개 변수 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 또는 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)에 전달합니다. 
 - 다음 C# 패턴을 사용하여 데이터 바인딩을 수행합니다.
 
-        using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-        {
-                ...
-        }
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
 여기서 `BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. 또한 `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 `T`에는 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
     
 다음 예제 코드에서는 런타임에서 정의된 Blob경로를 사용하는 [Storage Blob 출력 바인딩](functions-bindings-storage-blob.md#storage-blob-output-binding)을 만든 다음, Blob에 문자열을 씁니다.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-                {
-                        writer.Write("Hello World!!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)는 [Storage Blob](functions-bindings-storage-blob.md) 입력 또는 출력 바인딩을 정의하며, [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)는 지원되는 출력 바인딩 형식입니다.
 코드는 저장소 계정 연결 문자열(즉 `AzureWebJobsStorage`)에 대한 기본 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                var attributes = new Attribute[]
-                {
-                        new BlobAttribute("samples-output/path"),
-                        new StorageAccountAttribute("MyStorageAccount")
-                };
-                using (var writer = await binder.BindAsync<TextWriter>(attributes))
-                {
-                        writer.Write("Hello World!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 다음 표에는 각 바인딩 형식에 사용하는 해당 .NET 특성과 참조가 나와 있습니다.
 
+> [!div class="mx-codeBreakAll"]
 | 바인딩 | 특성 | 추가 참조 |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
@@ -362,7 +376,7 @@ module.exports = function (context, myNewOrderItem) {
 | Storage 큐 | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Storage Blob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Storage 테이블 | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 
@@ -375,6 +389,6 @@ module.exports = function (context, myNewOrderItem) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

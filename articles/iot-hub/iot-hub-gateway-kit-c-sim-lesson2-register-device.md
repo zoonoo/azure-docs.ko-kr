@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Hub 만들기 및 장치 등록 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 2: 장치 등록 | Microsoft Docs"
 description: 
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: d3726201754b90a60e9bde2651c023adf9f9033b
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 759085dcb4993d38f79cb19efe58e1a968ddb682
 
 
 ---
@@ -108,6 +108,6 @@ IoT Hub를 만들고 IoT Hub에 장치 ID로 논리적 장치를 등록했습니
 [시뮬레이트된 장치 클라우드 업로드 샘플 응용 프로그램 구성 및 실행](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

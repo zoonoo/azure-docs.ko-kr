@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1f40d6119d5fefc48c1e12d510423f996239fe14
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: dd28e295df7acead773f9076d790e0e96b66adb9
 
 
 ---
 # <a name="availability-and-reliability-of-windows-based-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Windows 기반 Hadoop 클러스터의 가용성 및 안정성
-> [!NOTE]
-> 이 문서에서 사용한 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux 기반 클러스터를 사용하는 경우 Linux 관련 정보는 [HDInsight에서 Linux 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md) 을 참조하세요.
+> [!IMPORTANT]
+> 이 문서에서 사용한 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터를 사용하는 경우 Linux 관련 정보는 [HDInsight에서 Linux 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md) 을 참조하세요.
 >
 >
 
@@ -31,22 +31,22 @@ HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위
 
 * HDInsight용 Hadoop 클러스터는 두 가지 역할로 배포됩니다.
 
-  * 헤드 노드(노드 2개)
+  * 헤드 노드(노드&2;개)
   * 데이터 노드(노드 1개 이상)
 * HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다.
 
-  * 헤드 서버(노드 2개)
+  * 헤드 서버(노드&2;개)
   * 지역 서버(노드 1개 이상)
-  * 마스터/Zookeeper 노드(노드 3개)
+  * 마스터/Zookeeper 노드(노드&3;개)
 * HDInsight용 Storm 클러스터는 세 역할과 함께 배포됩니다.
 
-  * Nimbus 노드(노드 2개)
+  * Nimbus 노드(노드&2;개)
   * 감독자 서버(노드 1개 이상)
-  * Zookeeper 노드(노드 3개)
+  * Zookeeper 노드(노드&3;개)
 
-일반적으로 표준 방식으로 구현된 Hadoop 클러스터에는 헤드 노드가 1개뿐입니다. HDInsight는 보조 헤드 노드/헤드 서버/Nimbus 노드를 추가하여 단일 실패 지점을 제거하며 작업 관리에 필요한 서비스의 가용성 및 안정성을 향상합니다. 이러한 헤드 노드/헤드 서버/Nimbus 노드는 작업자 노드의 실패를 원활하게 관리하도록 디자인되었지만 헤드 노드에서 실행되는 마스터 서비스가 작동 중단되면 클러스터 작동이 중단될 수 있습니다.
+일반적으로 표준 방식으로 구현된 Hadoop 클러스터에는 헤드 노드가&1;개뿐입니다. HDInsight는 보조 헤드 노드/헤드 서버/Nimbus 노드를 추가하여 단일 실패 지점을 제거하며 작업 관리에 필요한 서비스의 가용성 및 안정성을 향상합니다. 이러한 헤드 노드/헤드 서버/Nimbus 노드는 작업자 노드의 실패를 원활하게 관리하도록 디자인되었지만 헤드 노드에서 실행되는 마스터 서비스가 작동 중단되면 클러스터 작동이 중단될 수 있습니다.
 
-[ZooKeeper](http://zookeeper.apache.org/) 노드(ZK)가 추가되었으며 헤드 노드의 리더 선택을 위해, 그리고 활성 헤드 노드(헤드 노드 0)가 비활성화될 때 보조 헤드 노드(헤드 노드 1)로 장애 조치(failover)될 때 작업자 노드 및 GW(게이트웨이)에서 알 수 있도록 하는 데 사용됩니다.
+[ZooKeeper](http://zookeeper.apache.org/) 노드(ZK)가 추가되었으며 헤드 노드의 리더 선택을 위해, 그리고 활성 헤드 노드(헤드 노드&0;)가 비활성화될 때 보조 헤드 노드(헤드 노드&1;)로 장애 조치(failover)될 때 작업자 노드 및 GW(게이트웨이)에서 알 수 있도록 하는 데 사용됩니다.
 
 ![HDInsight Hadoop 구현의 매우 안정적인 헤드 노드의 다이어그램](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
@@ -58,7 +58,7 @@ HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위
 스크린샷에서는 활성 헤드 노드가 *headnode0*입니다.
 
 ## <a name="access-log-files-on-the-secondary-head-node"></a>보조 헤드 노드의 로그 파일 액세스
-보조 헤드 노드가 활성 헤드 노드가 될 경우 이 노드의 작업 로그에 액세스하려는 경우 기본 활성 노드에서와 같이 JobTracker UI를 사용하면 됩니다. JobTracker에 액세스하려면 이전 섹션에 설명된 것처럼 RDP를 사용하여 Hadoop 클러스터에 연결해야 합니다. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 이름 노드 상태** 아이콘을 두 번 클릭한 후 **NameNode 로그**를 클릭하여 보조 헤드 노드의 로그 디렉터리로 이동합니다.
+보조 헤드 노드가 활성 헤드 노드가 될 경우 이 노드의 작업 로그에 액세스하려는 경우 기본 활성 노드에서와 같이 JobTracker UI를 사용하면 됩니다. JobTracker에 액세스하려면 이전 섹션에 설명된 것처럼 RDP를 사용하여 Hadoop 클러스터에 연결해야 합니다. RDP를 통해 클러스터에 연결한 경우 바탕 화면에 있는 **Hadoop 이름 노드 상태** 아이콘을 두 번 클릭한 후 **NameNode 로그**를 클릭하여 보조 헤드 노드의 로그 디렉터리로 이동합니다.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
@@ -106,6 +106,6 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

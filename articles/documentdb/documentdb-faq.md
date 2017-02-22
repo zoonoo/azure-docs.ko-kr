@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: ed520532e7a035baa0283f829ec13540194d136e
+ms.sourcegitcommit: 8afc15321db5c6d3b7c6cae2692a9a0d61ccdf6a
+ms.openlocfilehash: d62431f3fae21388d8ccfc0d411267f69823b700
 
 
 ---
@@ -46,7 +46,7 @@ DocumentDB는 자동 크기 조정, 예측 가능한 성능, 밀리초 응답 �
 ### <a name="how-does-documentdb-offer-predictable-performance"></a>DocumentDB는 어떻게 예측 가능한 성능을 제공하나요?
 DocumentDB의 처리량 측정값은 [요청 단위](documentdb-request-units.md) 입니다. 1RU는 1KB 문서의 GET 처리량에 해당합니다. 읽기, 쓰기, SQL 쿼리, 저장 프로시저 실행 등 DocumentDB에서의 모든 작업에는 작업을 완료하는 데 필요한 처리량을 기반으로 하는 결정론적 RU 값이 있습니다. CPU, IO 및 메모리와 이 각각이 응용 프로그램 처리량에 미치는 영향을 고려하는 대신 단일 RU 측정값 측면에서 고려할 수 있습니다.
 
-초당 RU 처리량 면에서 프로비전된 처리량으로 각 DocumentDB 컬렉션을 예약할 수 있습니다. 모든 규모의 응용 프로그램에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컬렉션을 프로비전할 수 있습니다. 또한 응용 프로그램 요구 사항이 진화함에 따라 컬렉션의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대한 자세한 내용 및 컬렉션 요구 사항 확인에 대한 도움말은 [성능 및 용량 관리](documentdb-manage.md)를 참고하고 [처리량 계산기](https://www.documentdb.com/capacityplanner)를 사용해 봅니다.
+초당 RU 처리량 면에서 프로비전된 처리량으로 각 DocumentDB 컬렉션을 예약할 수 있습니다. 모든 규모의 응용 프로그램에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컬렉션을 프로비전할 수 있습니다. 또한 응용 프로그램 요구 사항이 진화함에 따라 컬렉션의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대한 자세한 내용 및 컬렉션 요구 사항 확인에 대한 도움말은 [필요한 처리량 예측](documentdb-request-units.md#estimating-throughput-needs)을 참고하고 [처리량 계산기](https://www.documentdb.com/capacityplanner)를 사용해 봅니다.
 
 ### <a name="is-documentdb-hipaa-compliant"></a>DocumentDB HIPAA 규정을 준수합니까?
 예, DocumentDB는 HIPAA 규정을 준수합니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)를 참조하세요.
@@ -66,7 +66,7 @@ Azure를 처음 사용하는 경우 [Azure 무료 계정](https://azure.microsof
 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용하여 Azure 구독을 구입하지 않고도 무료로 로컬에서 응용 프로그램을 개발하고 테스트할 수 있습니다. DocumentDB 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure DocumentDB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
 ### <a name="how-can-i-get-additional-help-with-documentdb"></a>DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
-도움이 필요한 경우 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)를 팔로우하세요.
+도움이 필요한 경우 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb)를 통해 문의하거나 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)으로 메일을 보내 DocumentDB 엔지니어링 팀과의 1:1 채팅을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)를 팔로우하세요.
 
 ## <a name="set-up-microsoft-azure-documentdb"></a>Microsoft Azure DocumentDB 설정
 ### <a name="how-do-i-sign-up-for-microsoft-azure-documentdb"></a>Microsoft Azure DocumentDB에는 어떻게 등록하나요?
@@ -76,7 +76,7 @@ Microsoft Azure DocumentDB는 [Azure Portal][azure-portal]에 있습니다.  먼
 마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](documentdb-manage-account.md#keys)을 참조하세요.
 
 ### <a name="how-do-i-create-a-database"></a>데이터베이스를 어떻게 만드나요?
-[DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명대로 [Azure Portal]()을 사용하거나 [DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 데이터베이스를 만들 수 있습니다.  
+[DocumentDB 컬렉션 및 데이터베이스 만들기](documentdb-create-collection.md)의 설명대로 [Azure Portal]()을 사용하거나 [DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 데이터베이스를 만들 수 있습니다.  
 
 ### <a name="what-is-a-collection"></a>컬렉션이란 무엇인가요?
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 컬렉션은 사용한 처리량 및 저장소에 따라 [비용](documentdb-performance-levels.md) 이 결정되는 청구 가능 엔터티입니다. 컬렉션은 하나 이상의 파티션/서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 저장소 또는 처리량을 처리하도록 확장할 수 있습니다.
@@ -124,6 +124,6 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

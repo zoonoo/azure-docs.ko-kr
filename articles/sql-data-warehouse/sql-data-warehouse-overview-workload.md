@@ -1,5 +1,5 @@
 ---
-title: "데이터 웨어하우스 워크로드"
+title: "Azure SQL Data Warehouse 작업에 대해 알아보기 | Microsoft Docs"
 description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
 
 
 ---
@@ -65,13 +65,13 @@ ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
 * 분석을 위해 데이터 웨어하우스에서 분석 큐브를 빌드하고 데이터 웨어하우스에 대해 분석을 실행하거나 데이터를 미리 처리한 다음 추가 분석을 위해 분석 서버로 내보낼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][SQL Data Warehouse 만들기] 및 [샘플 데이터 로드][샘플 데이터 로드]에 대해 신속히 알아봅니다.
+SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][create a SQL Data Warehouse] 및 [샘플 데이터 로드][load sample data]에 대해 신속히 알아봅니다.
 
 <!--Image references-->
 
 <!--Article references-->
-[샘플 데이터 로드]: ./sql-data-warehouse-load-sample-databases.md
-[SQL Data Warehouse 만들기]: ./sql-data-warehouse-get-started-provision.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -79,6 +79,6 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

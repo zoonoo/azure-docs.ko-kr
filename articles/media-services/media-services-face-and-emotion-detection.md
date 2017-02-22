@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
-ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 
 ---
@@ -72,7 +72,7 @@ ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
 얼굴 탐지기는 조각화 기술(메타데이터가 시간 기반 청크로 나뉠 수 있으며 필요한 것만 다운로드할 수 있음) 및 분할 기술(이벤트가 너무 커질 경우 분할)을 사용합니다. 몇 가지 간단한 계산으로 데이터를 변환할 수 있습니다. 예를 들어 이벤트가 6300(틱)에서 시작하고 날짜 표시줄이 2997(틱/초), 프레임 속도가 29.97(프레임/초)인 경우 다음과 같습니다.
 
 * 시작/날짜 표시줄 = 2.1초
-* 초 x (프레임 속도/날짜 표시줄) = 63프레임
+* 초 x 프레임 속도 = 63개 프레임
 
 ## <a name="face-detection-input-and-output-example"></a>얼굴 검색 입력 및 출력 예제
 ### <a name="input-video"></a>입력 동영상
@@ -81,7 +81,18 @@ ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
 ### <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 얼굴 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 다음은 얼굴 검색에 대한 구성 기본 설정입니다.
 
-    {"version":"1.0"}
+    {
+      "version":"1.0"
+      "options":{
+          "TrackingMode": "Faster"
+      }
+    }
+
+#### <a name="attribute-descriptions"></a>특성 설명
+| 특성 이름 | 설명 |
+| --- | --- |
+| Mode |빠르게: 처리 속도는 더 빠르지만 정확도가 떨어집니다(기본값). <br/>품질: 추적 정확도는 더 높지만 시간이 더 오래 걸립니다. |
+
 
 ### <a name="json-output"></a>JSON 출력
 다음 JSON 출력 예는 잘린 상태입니다.
@@ -153,17 +164,17 @@ ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| Mode |얼굴: 얼굴 감지만 <br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
+| Mode |얼굴: 얼굴만 감지합니다.<br/>PerFaceEmotion: 각 얼굴 감지에 대해 독립적으로 감정을 반환합니다.<br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
 | AggregateEmotionWindowMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 각 집계 결과를 생성하는 데 사용되는 동영상의 길이를 밀리초 단위로 지정합니다. |
 | AggregateEmotionIntervalMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 집계 결과 생성 빈도를 지정합니다. |
 
 #### <a name="aggregate-defaults"></a>집계 기본값
 집계 창 및 간격 설정에는 아래 값이 권장됩니다. AggregateEmotionWindowMs는 AggregateEmotionIntervalMs보다 길어야 합니다.
 
-| 기본값 | 최대값 | 최소값 |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |
-| AggregateEmotionIntervalMs |0.5 |1 |
+|| 기본값 | 최소값 | 최대값 |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |0.25|
+| AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### <a name="json-output"></a>JSON 출력
 감정 집계에 대한 JSON 출력(잘림)입니다.
@@ -330,7 +341,7 @@ ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
 다음 프로그램은 방법을 보여 줍니다.
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
-2. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 얼굴 검색 작업을 만듭니다. 
+2. 다음 json 기본 설정을 포함하는 구성 파일을 기반으로 얼굴 감지 작업을 만듭니다. 
    
         {
             "version": "1.0"
@@ -514,6 +525,6 @@ ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

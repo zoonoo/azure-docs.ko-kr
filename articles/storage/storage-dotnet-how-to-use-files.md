@@ -15,8 +15,8 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: aba595f3eab2835cffb7b2678a72515b983f4cec
-ms.openlocfilehash: 7637a700ef718162f3042c53e469424cdcd218de
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
@@ -38,7 +38,7 @@ Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 A
 ## <a name="video-using-azure-file-storage-with-windows"></a>비디오: Windows에서 Azure 파일 저장소 사용
 Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는 비디오는 다음과 같습니다.
 
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -602,52 +602,61 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
    
     우리는 현재 AD 기반 인증 또는 ACL을 지원하지 않지만 우리의 기능 요청 목록에 해당 기능을 포함합니다. 현재 Azure 저장소 계정 키는 파일 공유에 대한 인증을 제공합니다. REST API 또는 클라이언트 라이브러리를 통해 공유 액세스 서명(SAS)을 사용하여 해결 방법을 제공합니다. SAS를 사용하면 지정된 시간 간격에 대해 유효한 특정 권한을 가진 토큰을 생성할 수 있습니다. 예를 들어 지정된 파일에 대한 읽기 전용 액세스 권한을 가진 토큰을 생성할 수 있습니다. 이 토큰이 유효한 동안 이 토큰을 가진 누구나 해당 파일에 대한 읽기 전용 액세스 권한을 갖습니다.
    
-    SAS는 REST API 또는 클라이언트 라이브러리를 통해서만 지원됩니다. SMB 프로토콜을 통해 파일 공유를 마운트할 때 SAS를 사용하여 해당 콘텐츠에 대한 액세스를 위임할 수 없습니다.
-2. **Azure 파일 공유는 인터넷을 통해 공개적으로 볼 수 있습니까 아니면 Azure에서만 연결할 수 있습니까?**
-   
-    포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하면(*예:*Windows 8 또는 Windows Server 2012) 인터넷을 통해 파일 공유를 사용할 수 있습니다.  
-3. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용이 청구되는 외부 대역폭으로 계산합니까?**
+    SAS는 REST API 또는 클라이언트 라이브러리를 통해서만 지원됩니다. SMB 프로토콜을 통해 파일 공유를 마운트할 때 SAS를 사용하여 해당 콘텐츠에 대한 액세스를 위임할 수 없습니다. 
+
+2. **웹 브라우저를 통해 특정 파일에 대한 액세스를 어떻게 제공할 수 있습니까?**
+   SAS를 사용하면 지정된 시간 간격에 대해 유효한 특정 권한을 가진 토큰을 생성할 수 있습니다. 예를 들어, 특정 기간 동안 특정 파일에 대해 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 이 URL을 소유한 사람은 토큰이 유효한 동안 모든 웹 브라우저에서 직접 다운로드할 수 있습니다. 저장소 탐색기 같은 UI에서 SAS 키를 쉽게 생성할 수 있습니다.
+
+3.   **Azure File Storage의 파일에 액세스하는 다른 방법은 무엇입니까?**
+    SMB 3.0 프로토콜을 사용하여 로컬 컴퓨터에서 파일 공유를 마운트하거나 [저장소 탐색기](http://storageexplorer.com/) 또는 Cloudberry 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. 응용 프로그램에서 클라이언트 라이브러리, REST API 또는 Powershell을 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
+    
+4.   **내 로컬 컴퓨터에서 Azure 파일 공유를 어떻게 마운트할 수 있습니까?** 포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하는 한(*예:* Windows 8 또는 Windows Server 2012) SMB 프로토콜을 통해 파일 공유를 마운트할 수 있습니다. 로컬 ISP 공급자를 사용하여 포트의 차단을 해제합니다. 일시적으로 저장소 탐색기 또는 Cloudberry와 같은 타사 프로그램을 사용하여 파일을 볼 수 있습니다.
+
+5. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용이 청구되는 외부 대역폭으로 계산합니까?**
    
     파일 공유와 가상 컴퓨터가 서로 다른 지역에 있는 경우 이들 사이의 트래픽은 외부 대역폭으로 비용 청구됩니다.
-4. **네트워크 트래픽이 같은 지역의 가상 컴퓨터와 파일 공유 사이에 있는 경우 무료입니까?**
+6. **네트워크 트래픽이 같은 지역의 가상 컴퓨터와 파일 공유 사이에 있는 경우 무료입니까?**
    
     예. 트래픽은 동일한 지역에 있는 경우 무료입니다.
-5. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure Express 경로에 따라 달라집니까?**
+7. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure Express 경로에 따라 달라집니까?**
    
     아니요. Express 경로가 없더라도 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)를 열어 놓기만 하면 온-프레미스에서 여전히 파일 공유에 액세스할 수 있습니다. 그러나 원하는 경우 Express 경로를 파일 저장소와 함께 사용할 수 있습니다.
-6. **장애 조치 클러스터에 대한 "파일 공유 감시"는 Azure 파일 저장소의 사용 사례 중 하나입니까?**
+8. **장애 조치 클러스터에 대한 "파일 공유 감시"는 Azure 파일 저장소의 사용 사례 중 하나입니까?**
    
     이 기능은 현재 지원되지 않습니다.
-7. **파일 저장소는 지금 바로 LRS 또는 GRS를 통해서만 복제됩니다. 맞습니까?**  
+9. **파일 저장소는 지금 바로 LRS 또는 GRS를 통해서만 복제됩니다. 맞습니까?**  
    
     우리는 RA-GRS를 지원할 계획이지만 아직 공유할 일정이 없습니다.
-8. **Azure 파일 저장소에 대한 기존 저장소 계정을 언제 사용할 수 있습니까?**
+10. **Azure 파일 저장소에 대한 기존 저장소 계정을 언제 사용할 수 있습니까?**
    
     Azure 파일 저장소는 이제 모든 저장소 계정에 대해 사용하도록 설정되었습니다.
-9. **이름 바꾸기 작업도 REST API에 추가됩니까?**
+11. **이름 바꾸기 작업도 REST API에 추가됩니까?**
    
     이름 바꾸기는 우리의 REST API에서 아직 지원되지 않습니다.
-10. **포함된 공유를 지정할 수 있습니까, 다시 말해서 공유 밑에 공유를 지정할 수 있습니까?**
+12. **포함된 공유를 지정할 수 있습니까, 다시 말해서 공유 밑에 공유를 지정할 수 있습니까?**
     
     아니요. 파일 공유는 마운트할 수 있는 가상 드라이버이므로 포함된 공유는 지원되지 않습니다.
-11. **공유 내의 폴더에 대한 읽기 전용 또는 쓰기 전용 권한을 지정할 수 있습니까?**
+13. **공유 내의 폴더에 대한 읽기 전용 또는 쓰기 전용 권한을 지정할 수 있습니까?**
     
     SMB를 통해 파일 공유를 마운트하는 경우 이 수준의 사용 권한 제어는 없습니다. 그러나 REST API 또는 클라이언트 라이브러리를 통해 공유 액세스 서명(SAS)를 만들어 이 목적을 달성할 수 있습니다.  
-12. **파일 저장소의 파일의 압축을 풀려고 하면 성능이 느려집니다. 어떻게 해야 하나요?**
+14. **파일 저장소의 파일의 압축을 풀려고 하면 성능이 느려집니다. 어떻게 해야 하나요?**
     
     다수의 파일을 파일 저장소로 전송하려면 네트워크 전송을 위해 최적화된 도구인 AzCopy, Azure Powershell(Windows) 또는 Azure CLI(Linux/Unix)를 사용하는 것이 좋습니다.
-13. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
+15. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
     
     Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 KB 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure Files Storage에 액세스할 때 성능 저하](https://support.microsoft.com/en-us/kb/3114025)를 확인하세요.
-14. **IBM MQ로 Azure 파일 저장소 사용**
+16. **IBM MQ로 Azure 파일 저장소 사용**
     
     IBM은 해당 서비스로 Azure 파일 저장소를 구성할 때 IBM MQ 고객을 안내하는 문서를 출시했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
-15. **Azure File Storage 오류를 어떻게 해결합니까?**
+17. **Azure File Storage 오류를 어떻게 해결합니까?**
     
     종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
-16. ** FileSystemWatcher를 사용하여 Azure File Service 공유에서 파일 및 디렉터리의 만들기/수정/삭제와 같은 이벤트를 수신 대기할 수 있나요?
 
-아니요. Azure 웹 작업 SDK를 사용할 수 있습니다. 트리거되거나 트리거되지 않은 고유한 바인딩을 작성하고 파일 저장소에서 이벤트를 수신 대기할 수 있습니다. [새 트리거 및 바인더를 작성하기 위한 지침](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)에서 시작하기 위한 세부 정보를 찾을 수 있습니다.
+18. **Azure Files에서 서버 쪽 암호화를 사용하하려면 어떻게 해야 하나요?**
+
+    [서버 쪽 암호화](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)는 현재 미리 보기 상태입니다. 이 기능은 미리 보기 기간 동안 새로 만든 ARM(Azure Resource Manager) 저장소 계정에 대해서만 사용할 수 있습니다.
+    Azure Portal을 사용하여 Azure Resource Manager 저장소 계정에서 이 기능을 사용할 수 있습니다. 2월 말에는 [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) 또는 [Microsoft Azure Storage 리소스 공급자 API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)에서 File Storage에 대한 암호화를 지원할 예정입니다. 이 기능을 사용하는 추가 비용은 없습니다. Azure File Storage에 저장소 서비스 암호화를 사용하도록 설정하면 데이터가 자동으로 암호화됩니다. 
+    저장소 서비스를 암호화에 대해 자세히 알아봅니다. 미리 보기에 대한 추가 질문은 ssediscussions@microsoft.com에서 찾아 볼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
@@ -660,6 +669,7 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
 * [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
 * [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md#create-and-manage-file-shares)
+* [Azure File Storage 문제 해결](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -673,6 +683,6 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

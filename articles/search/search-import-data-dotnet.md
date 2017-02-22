@@ -240,6 +240,6 @@ Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

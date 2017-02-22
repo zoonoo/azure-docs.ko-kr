@@ -84,6 +84,6 @@ SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

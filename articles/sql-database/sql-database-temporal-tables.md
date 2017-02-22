@@ -3,7 +3,7 @@ title: "Azure SQL Database의 임시 테이블 시작| Microsoft Docs"
 description: "Azure SQL 데이터베이스에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다."
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
-ms.date: 08/29/2016
-ms.author: carlrab
+ms.date: 01/10/2017
+ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b83d2561d37cb2dcb799d14774b6350e0681c42
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
 
 
 ---
@@ -69,7 +69,9 @@ CREATE TABLE WebsiteUserInfo
 
 이 경우에는 더 큰 데이터 집합으로 더 긴 데이터 기록에 걸친 시간 기반 추세 분석을 수행하려고 합니다. 그러므로 기록 테이블에 대한 저장소로 클러스터된 columnstore 인덱스를 선택합니다. 클러스터된 columnstore는 분석 쿼리를 훌륭하게 압축하고 좋은 성능을 제공합니다. 임시 테이블은 현재 및 임시 테이블에서 완전히 독립적으로 인덱스를 구성하는 유연성을 제공합니다. 
 
-**참고**: Columnstore 인덱스는 프리미엄 서비스 계층에서만 사용할 수 있습니다.
+> [!NOTE]
+> Columnstore 인덱스는 프리미엄 서비스 계층에서만 사용할 수 있습니다.
+>
 
 다음 스크립트는 기록 테이블에서 기본 인덱스를 클러스터된 columnstore로 변경하는 방법을 보여줍니다.
 
@@ -199,6 +201,6 @@ Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://ch
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

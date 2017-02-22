@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 | Microsoft Docs"
+title: "진단 및 메시지 분석기를 사용한 Azure Storage 문제 해결 | Microsoft Docs"
 description: "Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서"
 services: storage
 documentationcenter: dotnet
@@ -11,15 +11,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 82f0e5b9d0bfca1921367a2fd91259eeb4254285
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: c6e2c3415e6853b4df11f28a6dd59e7561a8e0cc
 
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 메시지 분석기를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## <a name="overview"></a>개요
@@ -180,14 +180,14 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 ![메트릭 선택](./media/storage-e2e-troubleshooting-classic-portal/choose-metrics-portal-1.png)
 
-이제 추가한 다른 메트릭과 함께 **성공 비율** 이 Azure 클래식 포털의 모니터링 차트에 표시됩니다(한번에 최대 6개까지 차트에 표시될 수 있음). 아래 그림에서 성공률이 100% 아래인 몇 가지를 볼 수 있는데 이 시나리오는 Message Analyzer에서 로그를 분석하여 조사합니다.
+이제 추가한 다른 메트릭과 함께 **성공 비율** 이 Azure 클래식 포털의 모니터링 차트에 표시됩니다(한번에 최대&6;개까지 차트에 표시될 수 있음). 아래 그림에서 성공률이 100% 아래인 몇 가지를 볼 수 있는데 이 시나리오는 Message Analyzer에서 로그를 분석하여 조사합니다.
 
 ![포털에서 메트릭 차트](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
 모니터링 페이지에 메트릭을 추가하는 방법에 대한 자세한 내용은 [방법: 메트릭 테이블에 메트릭 추가](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table)를 참조하세요.
 
 > [!NOTE]
-> 저장소 메트릭을 사용하도록 설정한 이후 Azure 클래식 포털에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure 클래식 포털에 표시되지 않기 때문입니다. 분 메트릭도 Azure 클래식 포털에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
+> 저장소 메트릭을 사용하도록 설정한 이후 Azure 클래식 포털에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure 클래식 포털에 표시되지 않기 때문입니다. 분 메트릭도 Azure 클래식 포털에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대&2;시간까지 걸릴 수 있습니다.
 > 
 > 
 
@@ -314,7 +314,7 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 저장소 자산에는 로그 데이터 범위를 좁혀 찾고 있는 오류 또는 추세를 찾는 데 사용할 수 있는 미리 정의된 필터가 포함되어 있습니다. 이제 두 가지 미리 정의된 필터 즉, 404 오류에 대해 서버 및 네트워크 추적 로그를 필터링하는 필터와 지정한 시간 범위에서 데이터를 필터링하는 필터를 적용하겠습니다.
 
 1. 표시되지 않은 경우 보기 필터 도구 창을 표시합니다. 도구 모음 리본에서 **도구 창**, **필터 보기**를 차례로 선택합니다.
-2. 보기 필터 창에서 **라이브러리**를 선택하고 `Azure Storage`를 검색하여 Azure Storage 필터를 찾습니다. **모든 로그의 404(찾을 수 없음) 메시지**에 대한 필터를 선택합니다.
+2. 보기 필터 창에서 **라이브러리**를 선택하고 `Azure Storage`를 검색하여 Azure Storage 필터를 찾습니다. **모든 로그의&404;(찾을 수 없음) 메시지**에 대한 필터를 선택합니다.
 3. **라이브러리** 메뉴를 다시 표시하고 **전역 시간 필터**를 찾아 선택합니다.
 4. 필터에 있는 타임스탬프를 표시하려는 범위로 편집합니다. 이 작업은 분석할 데이터의 범위를 좁히는 데 도움이 됩니다.
 5. 필터는 아래 예제와 같이 표시됩니다. **Apply(적용)** 를 클릭하여 분석 그리드에 필터를 적용합니다.
@@ -383,6 +383,6 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 * [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

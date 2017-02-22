@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b65a0c306ec9316fd8a86f8ebb2808cce65200a
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 
 
 ---
@@ -70,7 +70,7 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 * 응용 프로그램이 클라우드 서비스로 실행될 때 캐시 상태를 저장하기 위한 저장소 계정 이름 또는 캐시 상태를 저장하지 않으려면 해당 없음. (계산 에뮬레이터에서 응용 프로그램을 실행하는 경우 저장소 계정 이름은 사용되지 않습니다.) 저장소 계정 이름을 **(자동)**(기본값)으로 설정하는 경우 캐싱 구성은 **Azure에 게시** 대화 상자에서 선택한 것과 동일한 저장소 계정을 자동으로 사용합니다.
 
 > [!NOTE]
-> **(자동)** 설정은 Eclipse 도구 키트의 게시 마법사를 사용하여 배포를 게시하는 경우에만 원하는 효과를 가집니다. 대신 수동으로 [Azure 관리 포털][Azure 관리 포털]과 같은 외부 메커니즘을 사용하는 .cspkg 파일을 게시하는 경우 배포가 제대로 작동하지 않습니다.
+> **(자동)** 설정은 Eclipse 도구 키트의 게시 마법사를 사용하여 배포를 게시하는 경우에만 원하는 효과를 가집니다. 대신 수동으로 [Azure Management Portal][Azure Management Portal]과 같은 외부 메커니즘을 사용하는 .cspkg 파일을 게시하는 경우 배포가 제대로 작동하지 않습니다.
 > 
 > 
 
@@ -93,7 +93,7 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 캐시를 삭제하려면 캐시를 선택하고 **캐싱** 속성 페이지에서 **제거** 단추를 클릭한 다음 **예**를 클릭하여 삭제를 확인합니다.
 
-캐싱을 사용하는 방법에 대한 자세한 내용은 [공동 배치된 캐싱을 사용하는 방법][공동 배치된 캐싱을 사용하는 방법]을 참조하세요.
+캐싱을 사용하는 방법에 대한 자세한 내용은 [공동 배치된 캐싱을 사용하는 방법][How to Use Co-located Caching]을 참조하세요.
 
 <a name="certificates_properties"></a> 
 
@@ -102,7 +102,7 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 ![][ic710964]
 
-이 대화 상자에서는 Eclipse 프로젝트에서 참조하는 인증서를 추가하거나 제거할 수 있습니다. 여기에 나열된 인증서는 Java keystore 안에 자동으로 저장되지 않으며 따라서 Java 응용 프로그램 내에서 자동으로 사용할 수 없습니다. Azure로 등록되므로 배포를 실행하고 이어서 다른 Windows 소프트웨어에 의해 사용되는 가상 컴퓨터에서 Windows 인증서 저장소에 미리 로드할 수 있습니다. 현재 **인증서** 대화 상자에서 이런 방식으로 참조되는 인증서를 사용하는 도구 키트의 유일한 기능은 [SSL 오프로딩][SSL 오프로딩]입니다. 이는 인터넷 정보 서비스(IIS) 및 응용 프로그램 요청 라우팅(ARR)에 의존하기 때문에 이 방식으로 사용할 수 있도록 적절한 인증서가 필요합니다.
+이 대화 상자에서는 Eclipse 프로젝트에서 참조하는 인증서를 추가하거나 제거할 수 있습니다. 여기에 나열된 인증서는 Java keystore 안에 자동으로 저장되지 않으며 따라서 Java 응용 프로그램 내에서 자동으로 사용할 수 없습니다. Azure로 등록되므로 배포를 실행하고 이어서 다른 Windows 소프트웨어에 의해 사용되는 가상 컴퓨터에서 Windows 인증서 저장소에 미리 로드할 수 있습니다. 현재 **인증서** 대화 상자에서 이런 방식으로 참조되는 인증서를 사용하는 도구 키트의 유일한 기능은 [SSL 오프 로딩][SSL Offloading]입니다. 이는 인터넷 정보 서비스(IIS) 및 응용 프로그램 요청 라우팅(ARR)에 의존하기 때문에 이 방식으로 사용할 수 있도록 적절한 인증서가 필요합니다.
 
 게시 마법사를 사용하여 Azure에 프로젝트를 배포할 때 이전에 업로드 되지 않은 경우 Azure 서비스에 자동으로 업로드하기 위해 암호와 함께 이러한 인증서에 해당하는 개인 정보 교환(PFX) 파일을 가리키도록 묻는 메시지가 나타납니다.
 
@@ -181,7 +181,7 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 ![][ic719504]
 
-디버깅에 관련된 내용은 [Eclipse에서 Azure 응용 프로그램 디버깅][Eclipse에서 Azure 응용 프로그램 디버깅]을 참조하세요.
+디버깅에 관련된 내용은 [Eclipse에서 Azure 응용 프로그램 디버깅][Debugging Azure Applications in Eclipse]을 참조하세요.
 
 <a name="endpoints_properties"></a> 
 
@@ -204,9 +204,9 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 범위 대신 단일 포트 번호를 사용하려는 경우 범위 빈 값의 끝에 텍스트 상자를 둡니다.
 
-자동으로 설정된 포트의 경우 런타임 중에 실제로 사용되는 포트를 결정해야 하면 응용 프로그램이 Azure 서비스 런타임 API를 사용할 수 있으며 이는 [com.microsoft.windowsazure.serviceruntime 패키지 요약][com.microsoft.windowsazure.serviceruntime 패키지 요약]에서 설명합니다.
+자동으로 설정된 포트의 경우 런타임 중에 실제로 사용되는 포트를 결정해야 하면 응용 프로그램이 Azure 서비스 런타임 API를 사용할 수 있으며 이는 [com.microsoft.windowsazure.serviceruntime 패키지 요약][com.microsoft.windowsazure.serviceruntime package summary]에서 설명합니다.
 
-다중 인스턴스 배포를 디버깅하는 데 도움이 되도록 인스턴스 입력 끝점을 사용할 수 있는 방법을 보려면 [다중 인스턴스 배포의 특정 역할 인스턴스 디버깅][다중 인스턴스 배포의 특정 역할 인스턴스 디버깅]을 참조하세요.
+다중 인스턴스 배포를 디버깅하는 데 도움이 되도록 인스턴스 입력 끝점을 사용할 수 있는 방법을 보려면 [다중 인스턴스 배포의 특정 역할 인스턴스 디버깅][Debugging a specific role instance in a multi-instance deployment]을 참조하세요.
 
 끝점을 수정하려면 끝점을 선택하고 **끝점** 속성 페이지에서 **편집** 단추를 클릭합니다. 끝점 이름, 형식 및 공용과 개인 포트를 수정할 수 있는 대화 상자가 열립니다. **확인** 을 눌러 수정된 끝점 값을 저장합니다.
 
@@ -251,12 +251,12 @@ jsp 코드 내에서 `System.getenv` 메서드를 사용하여 값을 표시할 
 
 <a name="session_affinity_properties"></a> 
 
-### <a name="load-balancing-session-affinity-aka-sticky-sessions-properties"></a>부하 분산/세션 선호도(또는 "고정 세션") 속성
+### <a name="load-balancing--session-affinity-aka-sticky-sessions-properties"></a>부하 분산/세션 선호도(또는 "고정 세션") 속성
 Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴를 열고 **Azure**를 클릭한 다음 **부하 분산**을 클릭합니다. 이 대화 상자에서 다음 그림에서 보여주듯 세션 선호도를 사용하거나 사용하지 않는 기능이 있습니다.
 
 ![][ic719492]
 
-관련된 내용은 [세션 선호도][세션 선호도]를 참조하세요. 또한 [SSL 오프로딩][SSL 오프로딩]에서 설명한 대로 SSL 오프로딩의 컨텍스트에서이 기능의 동작에 유의합니다.
+관련된 내용은 [세션 선호도][Session Affinity]를 참조하세요. 또한 [SSL 오프로딩][SSL Offloading]에서 설명한 대로 SSL 오프로딩의 컨텍스트에서이 기능의 동작에 유의합니다.
 
 <a name="local_storage_properties"></a> 
 
@@ -267,7 +267,7 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 또한 필요에 따라 로컬 저장소에 해당하는 환경 변수를 지정할 수 있습니다.
 
-기본적으로 Azure에 배포하는 모든 항목은 역할 인스턴스의 **approot** 폴더에 배치(및 압축을 풀게)됩니다. 압축을 푼 후에도 대부분 간단한 배포의 크기가 맞는 반면 **approot** 디렉터리에 할당된 공간은 제한되고 잘 정의되지 않습니다. 1GB 보다 작은 점은 합리적인 좋은 방법입니다. 따라서 Azure에서 **approot** 폴더에 맞지 않는 대형 배포에 충분한 디스크 공간을 할당하려면 **로컬 저장소** 대화 상자를 사용하여 로컬 저장소 리소스를 설정해야 합니다. 이 작업을 수행하는 간단한 방법은 [대규모 배포][대규모 배포]를 참조하세요.
+기본적으로 Azure에 배포하는 모든 항목은 역할 인스턴스의 **approot** 폴더에 배치(및 압축을 풀게)됩니다. 압축을 푼 후에도 대부분 간단한 배포의 크기가 맞는 반면 **approot** 디렉터리에 할당된 공간은 제한되고 잘 정의되지 않습니다. 1GB 보다 작은 점은 합리적인 좋은 방법입니다. 따라서 Azure에서 **approot** 폴더에 맞지 않는 대형 배포에 충분한 디스크 공간을 할당하려면 **로컬 저장소** 대화 상자를 사용하여 로컬 저장소 리소스를 설정해야 합니다. 이 작업을 수행하는 간단한 방법은 [대규모 배포 배포][Deploying Large Deployments]를 참조하세요.
 
 **로컬 저장소** 대화 상자에 표시된 대로 리소스를 통해 Eclipse 도구 키트에서 자동으로 연결된 환경 변수를 사용하여 시작 스크립트에서 저장소 리소스를 쉽게 참조할 수 있습니다.(예: **startup.cmd**) 이 환경 변수는 시작 스크립트를 실행할 때 구성한 로컬 리소스의 전체 경로를 포함합니다. 
 
@@ -341,7 +341,7 @@ Windows에서 Eclipse를 사용하는 경우 계산 에뮬레이터와 함께 �
 **사용자 지정 다운로드에서 배포** 옵션을 사용하는 경우
 
 1. 앞의 단계에 따라 서버 형식을 이미 선택했는지 확인합니다. 선택한 서버 형식과 같은 제품군에서처럼 플러그인에 사용자 지정 다운로드에서 서버를 배포하는 방법을 설명합니다.
-2.  **사용자 지정 다운로드에서 배포**을 클릭합니다.
+2. **사용자 지정 다운로드에서 배포**을 클릭합니다.
     Azure Storage 계정에서 다운로드하려는 경우 **저장소 계정** 드롭다운 목록에서 저장소 계정을 선택(**계정** 링크를 클릭하여 목록의 내용을 수정할 수 있습니다.)하며 이는 부분적으로 **URL** 필드를 입력하고 URL의 나머지 부분을 서버 다운로드 ZIP에 입력합니다.(Azure Storage를 사용할 때 URL의 Blob 이름은 소문자여야 함) Azure Storage를 사용하려면 **저장소 계정** 드롭다운 목록에서 **(없음)**을 선택하고 **URL** 필드에서 서버 다운로드 ZIP에 URL을 입력합니다. ZIP은 응용 프로그램 서버 설치 디렉터리를 나타내는 하위 폴더를 포함합니다. 예를 들어 Apache Tomcat 7.0.35에 zip를 사용하는 경우 zip 내에서 하위 폴더는 **apache-tomcat-7.0.35**와 같은 설치 디렉터리를 나타냅니다. 
 3. 홈 디렉터리 환경 변수의 값을 지정합니다. 값이 있는 경우 기본적으로 로컬 응용 프로그램 서버에 사용되는 값이지만 클라우드 응용 프로그램 서버가 로컬 응용 프로그램 서버와 다른 경우 다른 값을 지정할 수 있습니다. 하지만 클라우드 응용 프로그램 서버가 이전에 선택한 형식의 서버와 동일한 제품군인지 확인해야 합니다.
     나중에 클라우드 응용 프로그램 서버 zip 파일을 업데이트하는 경우 홈 디렉터리 설정을 수동으로 변경하거나 로컬 설정과 다시 일치시킬 수 있습니다.(로컬 응용 프로그램 서버도 변경한 경우)
@@ -398,38 +398,38 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 ![][ic719481]
 
-이 대화 상자 내에서 SSL 오프로딩을 사용할 수 있으며 이를 통해 Java 응용 프로그램 서버에서 SSL을 구성하지 않고 Azure의 Java 배포에서 HTTPS(Hypertext Transfer Protocol Secure) 지원을 손쉽게 사용할 수 있습니다. 자세한 내용은 [SSL 오프로딩][SSL 오프로딩] 및 [SSL 오프로딩을 사용하는 방법][SSL 오프로딩을 사용하는 방법]을 참조하세요.
+이 대화 상자 내에서 SSL 오프로딩을 사용할 수 있으며 이를 통해 Java 응용 프로그램 서버에서 SSL을 구성하지 않고 Azure의 Java 배포에서 HTTPS(Hypertext Transfer Protocol Secure) 지원을 손쉽게 사용할 수 있습니다. 자세한 내용은 [SSL 오프로딩][SSL Offloading] 및 [SSL 오프로딩을 사용하는 방법][How to Use SSL Offloading]을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치]
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-[Azure 프로젝트 속성][Azure 프로젝트 속성]
+[Azure 프로젝트 속성][Azure Project Properties]
 
-[Azure 저장소 계정 목록][Azure 저장소 계정 목록]
+[Azure Storage 계정 목록][Azure Storage Account List]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure 프로젝트 속성]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
-[com.microsoft.windowsazure.serviceruntime 패키지 요약]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[다중 인스턴스 배포의 특정 역할 인스턴스 디버깅]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Eclipse에서 Azure 응용 프로그램 디버깅]: http://go.microsoft.com/fwlink/?LinkID=699535
-[대규모 배포]: http://go.microsoft.com/fwlink/?LinkID=699536
-[공동 배치된 캐싱을 사용하는 방법]: http://go.microsoft.com/fwlink/?LinkID=699542
-[SSL 오프로딩을 사용하는 방법]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
-[세션 선호도]: http://go.microsoft.com/fwlink/?LinkID=699548
-[SSL 오프로딩]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
+[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
+[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
+[SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -460,6 +460,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

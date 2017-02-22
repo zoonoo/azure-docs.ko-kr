@@ -1,5 +1,5 @@
 ---
-title: "Eclipse용 Azure 도구 키트에서 HDInsight 도구를 사용하여 Spark Scala 응용 프로그램 만들기 | Microsoft 문서"
+title: "Eclipse용 Azure 도구 키트를 사용하여 Spark용 Scala 응용 프로그램 만들기 | Microsoft Docs"
 description: "독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-linux-cluster"></a>Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기
+# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터용 Spark 응용 프로그램 만들기
 이 문서에서는 Scala로 작성된 Spark 응용 프로그램을 개발한 다음 Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터에 제출하는 과정의 단계별 지침을 제공합니다. 이 도구는 여러 가지 방식으로 사용할 수 있습니다.
 
 * HDInsight Spark 클러스터에서 Scala Spark 응용 프로그램을 개발 및 제출하려면
@@ -35,7 +35,7 @@ ms.openlocfilehash: b502313e1dd42c23dbabd506aabf4be1626a31c9
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Oracle Java Development Kit 버전 7 및 버전 8. 
   
   * **Java SDK 7** 은 Spark 프로젝트를 컴파일하는 데 사용됩니다. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)에서 Java SDK 7을 다운로드할 수 있습니다.
@@ -234,6 +234,6 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

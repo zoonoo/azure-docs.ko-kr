@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d76491683d08bf9afd505eebfdede5812e87f458
+ms.sourcegitcommit: a63996ad3661b43bea83870c1fa88fa6d64c6c6a
+ms.openlocfilehash: bc2bb9916baa08b14dc5cfeb0e6d712b1c0522ef
 
 
 ---
@@ -277,10 +277,10 @@ Microsoft ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음 응�
 
 예: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-[Azure 클래식 포털](https://manage.windowsazure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](active-directory-how-to-integrate.md)을 참조하세요.
+[Azure Portal](https://portal.azure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](active-directory-how-to-integrate.md)을 참조하세요.
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>3a단계: 인증서 기반 인증을 지원하도록 앱 및 개발자 포털에 리디렉션 URI 추가
-인증서 기반 인증을 지원하기 위해 응용 프로그램에 해당 지원을 추가하려는 경우 두 번째 "msauth"를 응용 프로그램 및 [Azure 클래식 포털](https://manage.windowsazure.com/)에 등록하여 인증서 인증을 처리해야 합니다.
+인증서 기반 인증을 지원하기 위해 응용 프로그램에 해당 지원을 추가하려는 경우 두 번째 "msauth"를 응용 프로그램 및 [Azure Portal](https://portal.azure.com/)에 등록하여 인증서 인증을 처리해야 합니다.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
@@ -301,6 +301,6 @@ ADAL은 canOpenURL을 사용하여 브로커가 장치에 설치되어 있는지
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

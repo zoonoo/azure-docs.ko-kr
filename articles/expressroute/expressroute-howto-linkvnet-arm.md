@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결 | Microsoft 문서"
+title: "ExpressRoute 회로에 가상 네트워크 연결: PowerShell: Azure | Microsoft Docs"
 description: "이 문서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: ba71cabd6b9ed88813c65c4ce82e5809606699b9
+ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
+ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결합니다.
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
-> * [Azure 포털 - 리소스 관리자](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell - 클래식](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [클래식 - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -152,6 +153,6 @@ Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-f
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

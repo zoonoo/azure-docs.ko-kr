@@ -1,5 +1,5 @@
 ---
-title: "Linux 기반 HDInsight(Hadoop)의 고가용성 기능 | Microsoft Docs"
+title: "HDInsight(Hadoop)의 고가용성 기능 | Microsoft Docs"
 description: "Linux 기반 HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이것이 Ambari 및 Hive 같은 Hadoop 서비스에 어떻게 영향을 미치는지 알아보고, SSH를 사용하여 각 헤드 노드를 개별적으로 연결하는 방법을 알아봅니다."
 services: hdinsight
 editor: cgronlun
@@ -13,23 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6709e134242f80bfaf74671b3d6d37b6a1eb0c6a
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
 
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
+
 Hadoop은 클러스터의 노드에서 서비스와 데이터의 중복 복사본을 배포하여 가용성 및 안정성을 높입니다. 그러나 Hadoop의 표준 배포에는 일반적으로 단일 헤드 노드만 있습니다. 단일 헤드 노드의 가동 중단으로 인해 클러스터의 작동이 중지될 수 있습니다.
 
-이 잠재적 문제를 해결하기 위해 Azure의 Linux 기반 HDInsight 클러스터는 두 개의 헤드 노드를 제공하여 실행 중인 Hadoop 서비스와 작업의 안정성 및 가용성을 높입니다.
+이 잠재적 문제를 해결하기 위해 Azure의 HDInsight 클러스터는 두 개의 헤드 노드를 제공하여 실행 중인 Hadoop 서비스와 작업의 안정성 및 가용성을 높입니다.
 
-> [!NOTE]
-> 이 문서에 사용된 단계는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 클러스터를 사용하는 경우 Windows 관련 정보는 [HDInsight에서 Windows 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability.md) 을 참조하세요.
-> 
-> 
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="understanding-the-nodes"></a>노드 이해
 HDInsight 클러스터에 있는 노드는 Azure 가상 컴퓨터를 사용하여 구현됩니다. 노드가 실패하는 경우 오프라인 상태가 되고 실패한 노드를 대체하는 새 노드가 생성됩니다. 노드가 오프라인 상태인 동안 새 노드가 온라인 상태가 될 때까지 동일한 형식의 다른 노드를 사용합니다.
@@ -187,14 +186,10 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 
 > [!NOTE]
 > 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](http://mobaxterm.mobatek.net/) 을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
-> 
-> 
 
 ### <a name="ambari"></a>Ambari
 > [!NOTE]
-> Ambari를 통해 로그 파일에 액세스하려면 SSH 터널이 필요합니다. 개별 서비스의 웹 사이트는 인터넷에서 공개적으로 노출되지 않기 때문입니다. SSH 터널의 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
-> 
-> 
+> Ambari를 통해 로그 파일에 액세스하려면 SSH 터널이 필요합니다. 개별 서비스의 웹 사이트는 인터넷에서 공개적으로 노출되지 않기 때문입니다. SSH 터널의 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음 **빠른 연결** 을 사용하여 로그를 볼 헤드 노드를 선택합니다.
 
@@ -203,7 +198,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 ## <a name="how-to-configure-the-node-size"></a>노드 크기를 구성하는 방법
 노드의 크기는 클러스터를 만들 동안에만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](https://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
 
-새 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음에서는 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 정보를 제공합니다.
+새 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음은 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 정보를 제공합니다.
 
 * **Azure 포털**: 새 클러스터를 만들 때 헤드의 크기(가격 책정 계층), 작업자 및 (클러스터 유형에서 사용하는 경우)클러스터에 대한 ZooKeeper 노드를 설정하는 옵션이 제공됩니다.
   
@@ -216,16 +211,16 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 
 * [Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Azure CLI 설치 및 구성](../xplat-cli-install.md)
-* [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)
+* [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)
 * [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
 * [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../xplat-cli-install.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service의 엔터프라이즈급 WordPress | Microsoft Docs"
+title: "Azure의 엔터프라이즈급 WordPress | Microsoft Docs"
 description: "Azure 앱 서비스에서 엔터프라이즈급 WordPress 사이트를 호스트하는 방법에 대해 알아봅니다."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f37777eb42051921087c90a57138cb4085dd7cd
-ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
+ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
+ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 
 
 ---
-# <a name="enterprise-class-wordpress-on-azure-app-service"></a>Azure 앱 서비스의 엔터프라이즈급 WordPress
+# <a name="enterprise-class-wordpress-on-azure"></a>Azure의 엔터프라이즈급 WordPress
 Azure App Service는 중요 업무용 대규모 [WordPress][wordpress] 사이트를 위한 안전하고 사용하기 쉬운 확장 가능 환경을 제공합니다. Microsoft는 자체적으로 [Office][officeblog] 및 [Bing][bingblog] 블로그와 같은 엔터프라이즈급 사이트를 운영하고 있습니다. 이 문서에서는 Microsoft Azure App Service의 Web Apps 기능을 사용하여 대규모 방문자를 처리할 수 있는 엔터프라이즈급 클라우드 기반 WordPress 사이트를 설정하고 유지 관리하는 방법을 보여 줍니다.
 
 ## <a name="architecture-and-planning"></a>아키텍처 및 계획
@@ -191,7 +191,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 * [Azure의 WordPress 관련 팁](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
 >
 >
 
@@ -246,6 +246,6 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

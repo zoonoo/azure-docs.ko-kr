@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-이 가이드의 단계를 수행하기 전에 API와 제품이 구성된 API 관리 서비스 인스턴스가 있어야 합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서에서 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
+이 가이드의 단계를 수행하기 전에 API와 제품이 구성된 API 관리 서비스 인스턴스가 있어야 합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 ## <a name="configure-caching"> </a>캐싱을 위해 작업 구성
 이 단계에서는 샘플 Echo API의 **GET Resource(캐시됨)** 작업에 대한 캐싱 설정을 검토합니다.
@@ -80,20 +80,22 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 
 이 작업에 대한 정책 정의에는 이전 단계에서 **캐싱** 탭을 사용하여 검토한 캐싱 구성을 정의하는 정책이 포함됩니다.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > 정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
@@ -138,12 +140,12 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 응답의 **sampleheader** 값은 이제 **value2**입니다. 작업 결과가 쿼리 문자열을 통해 입력되므로, 이전의 캐시된 응답은 반환되지 않았습니다.
 
 ## <a name="next-steps"> </a>다음 단계
-* 캐싱 정책에 대한 자세한 내용은 [API Management 정책 참조][API Management policy reference]에서 [캐싱 정책][Caching policies]을 참조하세요.
+* 캐싱 정책에 대한 자세한 내용은 [API Management 정책 참조][API Management policy reference]의 [캐싱 정책][Caching policies]을 참조하세요.
 * 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
-[api-관리-echo-api-작업]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
+[api-management-echo-api-operations]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
 [api-management-caching-tab]: ./media/api-management-howto-cache/api-management-caching-tab.png
 [api-management-operation-dropdown]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
 [api-management-policy-editor]: ./media/api-management-howto-cache/api-management-policy-editor.png
@@ -153,25 +155,25 @@ ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 추가하고 게시하는 방법]: api-management-howto-add-products.md
-[모니터링 및 분석]: api-management-monitoring.md
-[제품에 API 추가]: api-management-howto-add-products.md#add-apis
-[제품 게시]: api-management-howto-add-products.md#publish-product
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[API 관리 정책 참조]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[캐싱 정책]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[캐싱을 위해 작업 구성]: #configure-caching
-[캐싱 정책 검토]: #caching-policies
-[작업 호출 및 캐싱 테스트]: #test-operation
-[다음 단계]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

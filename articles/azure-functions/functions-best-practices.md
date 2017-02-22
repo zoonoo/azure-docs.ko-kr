@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
 
 ---
 
@@ -68,7 +68,7 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 
 큐 항목을 이미 처리한 경우 함수는 수행되지 않습니다.
 
-Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거](functions-bindings-storage.md#storagequeuetrigger)를 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요.
+Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거](functions-bindings-storage-queue.md#trigger)를 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요.
  
 
 
@@ -107,6 +107,6 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

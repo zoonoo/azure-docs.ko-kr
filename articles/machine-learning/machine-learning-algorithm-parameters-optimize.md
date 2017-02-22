@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning에서 알고리즘을 최적화하는 매개 변수 선택 | Microsoft Docs"
+title: "Azure Machine Learning에서 알고리즘 최적화 | Microsoft Docs"
 description: "Azure 기계 학습에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4c6dac8b1c5968995de12e678434e158045d5cc6
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: b3be7f31ac31c656744fb809e3972af0ac4ad4f1
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4c6dac8b1c5968995de12e678434e158045d5cc6
 
 모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. Machine Learning에서는 교차 유효성 검사가 모델 선택에 가장 널리 사용되는 방법 중 하나이며, Azure Machine Learning의 기본 모델 선택 메커니즘입니다. Azure Machine Learning에서는 R과 Python을 둘 다 지원하므로 언제든지 R 또는 Python을 사용하여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 
-최상의 매개 변수 집합을 찾는 프로세스는 4단계로 구성됩니다.
+최상의 매개 변수 집합을 찾는 프로세스는&4;단계로 구성됩니다.
 
 1. **매개 변수 공간 정의**: 먼저 알고리즘에 대해 고려할 정확한 매개 변수 값을 결정합니다.
 2. **교차 유효성 검사 설정 정의**: 데이터 집합에 대해 교차 유효성 검사 접기를 선택하는 방법을 결정합니다.
@@ -79,6 +79,6 @@ ms.openlocfilehash: 4c6dac8b1c5968995de12e678434e158045d5cc6
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

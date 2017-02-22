@@ -1,5 +1,5 @@
 ---
-title: "HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
+title: "Windows 기반 Azure HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
 description: "HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -12,23 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 427ddb00988b2ac6c2701c909d338942ae6a4352
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
-# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>HDinsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용
+# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용
 HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [피닉스 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
 
 > [!NOTE]
-> HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
+> HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)을 참조하세요.
 >
-> 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
 >
->
+
+
 
 ## <a name="use-sqlline"></a>SQLLine 사용
 [SQLLine](http://sqlline.sourceforge.net/) 은 SQL을 실행하는 명령줄 유틸리티입니다.
@@ -56,7 +59,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     이 샘플에 사용되는 명령:
 
@@ -78,12 +81,8 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 ### <a name="prerequisites"></a>필수 조건
 다음 절차를 수행하기 전에 다음이 있어야 합니다.
 
-* DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터.  자세한 내용은 [Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]을 참조하세요.
+* DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터.  자세한 내용은 [Azure Virtual Network에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet]를 참조하세요.
 
-  > [!IMPORTANT]
-  > 가상 네트워크에 DNS 서버를 설치해야 합니다. 자세한 내용은 [두 Azure Virtual Network 간 DNS 구성](hdinsight-hbase-geo-replication-configure-dns.md)을 참조하세요.
-  >
-  >
 * HBase 클러스터 연결별 DNS 접미사를 가져옵니다. 이렇게 하려면 클러스터에 RDP를 연결하고 IPConfig를 실행합니다.  DNS 접미사는 다음과 유사합니다.
 
         myhbase.b7.internal.cloudapp.net
@@ -106,7 +105,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 
 1. [Azure 클래식 포털][azure-portal]에 로그인합니다.
 2. 왼쪽에서 **네트워크**를 클릭합니다.
-3. 만든 가상 네트워크를 클릭합니다([Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 참조).
+3. 만든 Virtual Network를 클릭합니다([Azure Virtual Network에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 참조).
 4. 위쪽에서 **구성** 을 클릭합니다.
 5. **지점 및 사이트 간 연결** 섹션에서 **지점 및 사이트 간 연결 구성**을 선택합니다.
 6. **시작 IP** 및 **CIDR**을 구성하여 연결된 경우 VPN 클라이언트에서 IP 주소를 받을 IP 주소 범위를 지정합니다. 범위는 온-프레미스 네트워크 및 연결할 Azure 가상 네트워크에 있는 범위와 겹칠 수 없습니다. 예를 들어 모바일 서비스는 스크립트 실행 간에 상태를 유지하지 않으므로 스크립트 실행 간에 지속되어야 하는 모든 데이터를 테이블에 저장해야 합니다. 가상 네트워크에 대해 10.0.0.0/20을 선택한 경우 클라이언트 주소 공간은 10.1.0.0/24를 선택할 수 있습니다. 자세한 내용은 [지점 및 사이트 간 연결][vnet-point-to-site-connectivity] 페이지를 참조하세요.
@@ -123,7 +122,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 
     ![Azure 가상 네트워크 지점 및 사이트 간 가상 다이어그램][img-vnet-diagram]
 
-    다이어그램에 클라이언트 연결이 0개인 것으로 표시됩니다. 가상 네트워크에 연결하면 이 숫자가 1로 업데이트됩니다.
+    다이어그램에 클라이언트 연결이 0개인 것으로 표시됩니다. 가상 네트워크에 연결하면 이 숫자가&1;로 업데이트됩니다.
 
 #### <a name="create-your-certificates"></a>인증서 만들기
 X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)과 함께 제공되는 인증서 만들기 도구(makecert.exe)를 사용하는 것입니다.
@@ -155,7 +154,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
     루트 인증서 및 클라이언트 인증서는 컴퓨터의 개인 인증서 저장소에 저장됩니다. Certmgr.msc를 사용하여 확인합니다.
 
-    ![Azure 가상 네트워크 지점 대 사이트 vpn 인증서][img-certificate]
+    ![Azure Virtual Network 지점 및 사이트 간 VPN 인증서][img-certificate]
 
     클라이언트 인증서는 가상 네트워크에 연결하려는 각 컴퓨터에 설치되어야 합니다. 가상 네트워크에 연결 하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다. 클라이언트 인증서를 내보내려면 certmgr.msc를 사용합니다.
 
@@ -199,9 +198,11 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 2. jar 파일을 엽니다/실행합니다. [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)가 필요합니다.
 3. **다음** 를 두 번 클릭합니다.
 4. 쓰기 권한이 있는 경로를 지정하고 **다음**을 클릭합니다.
-    >[AZURE.NOTE] 기본 설치 폴더는 C:\Program Files\squirrel-sql-3.6 폴더에 있습니다.  이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
-    >
-    >     java.exe -jar [the path of the SQuirreL jar file]
+
+  > [!NOTE]
+  > 기본 설치 폴더는 C:\Program Files\squirrel-sql-3.6 폴더에 있습니다.  이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
+  >
+  >     java.exe -jar[SQuirreL jar 파일 경로]
 5. **확인** 을 클릭하여 대상 디렉터리 만들기를 확인합니다.
 6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다.  **다음**을 클릭합니다.
 7. **다음**을 두 번 클릭한 후 **완료**를 클릭합니다.
@@ -265,10 +266,10 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight에서 Apache Phoenix를 사용하는 방법에 대해 알아보았습니다.  자세한 내용은 다음을 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-* [Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]: 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
-* [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
+* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+* [Azure Virtual Network에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]: Virtual Network 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 Virtual Network에 HBase 클러스터를 배포할 수 있습니다.
+* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
+* [HDInsight에서 HBase를 사용하여 Twitter 감정][hbase-twitter-sentiment]: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [감정 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -290,6 +291,6 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

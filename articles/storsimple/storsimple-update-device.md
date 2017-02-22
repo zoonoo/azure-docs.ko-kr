@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e37687e44fa80f59a3e95ec0e3051290bd9c0c0
+ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
+ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
 
 
 ---
@@ -41,7 +41,7 @@ Azure 클래식 포털 또는 Windows PowerShell을 통해 정기적으로 업�
 > 
 > 
 
-* Azure 클래식 포털을 통해 정기적인 업데이트를 설치하는 방법에 대한 자세한 내용은 [Azure 클래식 포털을 통해 일반 업데이트 설치](#install-regular-updates-via-the-azure-classic-portal)를 참조하세요.
+* Azure 클래식 포털을 통해 일반 업데이트를 설치하는 방법에 대한 자세한 내용은 [Azure 클래식 포털을 통해 일반 업데이트 설치](#install-regular-updates-via-the-azure-classic-portal)를 참조하세요.
 * StorSimple용 Windows PowerShell을 통해 일반 업데이트를 설치할 수도 있습니다. 자세한 내용은 [StorSimple용 Windows PowerShell을 통해 일반 업데이트 설치](#install-regular-updates-via-windows-powershell-for-storsimple)를 참조하세요.
 
 ### <a name="maintenance-mode-updates"></a>유지 관리 모드 업데이트
@@ -122,6 +122,6 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

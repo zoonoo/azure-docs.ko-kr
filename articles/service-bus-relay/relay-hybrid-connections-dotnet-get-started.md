@@ -12,24 +12,26 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>릴레이 하이브리드 연결 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+이 자습서에서는 [Azure 릴레이 하이브리드 연결](relay-what-is-it.md#hybrid-connections)을 소개하고 메시지를 해당 수신기 응용 프로그램으로 보내는 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다. 
+
 ## <a name="what-will-be-accomplished"></a>수행될 작업
-하이브리드 연결에는 클라이언트와 서버 구성 요소가 모두 필요하므로 이 자습서에서는 두 개의 콘솔 응용 프로그램을 만듭니다. 단계는 다음과 같습니다.
+하이브리드 연결에는 클라이언트와 서버 구성 요소가 모두 필요하므로 이 자습서에서는 두 개의 콘솔 응용 프로그램을 만듭니다. 절차는 다음과 같습니다.
 
 1. Azure 포털을 사용하여 릴레이 네임스페이스를 만듭니다.
 2. Azure 포털을 사용하여 하이브리드 연결을 만듭니다.
-3. 메시지를 수신하는 서버 콘솔 응용 프로그램을 작성합니다.
-4. 메시지를 보내는 클라이언트 콘솔 응용 프로그램을 작성합니다.
+3. 메시지를 수신하는 서버(수신기) 콘솔 응용 프로그램을 작성합니다.
+4. 메시지를 보내는 클라이언트(발신자) 콘솔 응용 프로그램을 작성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 1. [Visual Studio 2013 또는 Visual Studio 2015](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용합니다.
@@ -38,7 +40,7 @@ ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure 포털을 사용하여 네임스페이스 만들기
-릴레이 네임스페이스를 이미 만든 경우 [Azure 포털을 사용하여 하이브리드 연결 만들기](#2-create-a-hybrid-connection-using-the-azure-portal) 섹션으로 이동합니다.
+릴레이 네임스페이스를 이미 만든 경우 [Azure Portal을 사용하여 하이브리드 연결 만들기](#2-create-a-hybrid-connection-using-the-azure-portal) 섹션으로 이동합니다.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
@@ -74,6 +76,6 @@ ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

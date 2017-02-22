@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 및 응용 프로그램: 사용자 할당 요구 | Microsoft Docs"
+title: "사용자 할당 필요 - Azure AD | Microsoft Docs"
 description: "Azure 응용 프로그램에 대해 사용자 할당을 요구하는 방법."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2015
+ms.date: 02/06/2017
 ms.author: inhenk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: de23d1d775cefa818b6f8a104194eecaa5d740e3
+ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
+ms.openlocfilehash: f5804d258c609f2bf289dcf4d173dc67137e7691
 
 
 ---
-# <a name="azure-ad-and-applications-requiring-user-assignment"></a>Azure AD 및 응용 프로그램: 사용자 할당 요구
+# <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD 및 응용 프로그램: 사용자 할당 요구
 ## <a name="requiring-user-assignment"></a>사용자 할당 요구
 1. 관리자 계정으로 Azure 포털에 로그인합니다.
 2. 주 메뉴에서 **모든 항목** 항목을 클릭합니다.
@@ -38,7 +38,6 @@ ms.openlocfilehash: de23d1d775cefa818b6f8a104194eecaa5d740e3
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -115,7 +115,7 @@ ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
                   <li class="unordered">
 기본 Microsoft 로고 대신 암호 재설정 포털의 위쪽에 사용자의 로고를 표시할지 여부를 결정합니다.<br><br></li>
                   <li class="unordered">
-                    <strong>참고:</strong> 직접 암호 재설정 페이지에 제공하는 경우 암호 재설정 포털의 첫 페이지에 로고가 보이지 않을 수도 있습니다.  사용자가 자신의 사용자 ID를 입력하고 다음을 클릭하면 로고가 표시됩니다.  다음과 같이 Whr 매개 변수를 암호 재설정 페이지로 전달하여 페이지 로드 시 로고를 강제로 나타나게 할 수 있습니다: <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a><br><br></li>
+                    <strong>참고:</strong> 직접 암호 재설정 페이지에 제공하는 경우 암호 재설정 포털의 첫 페이지에 로고가 보이지 않을 수도 있습니다.  사용자가 자신의 사용자 ID를 입력하고 다음을 클릭하면 로고가 표시됩니다.  다음과 같이 whr 매개 변수를 암호 재설정 페이지로 전달하여 페이지 로드 시 로고를 강제로 나타나게 할 수 있습니다. <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a><br><br></li>
                 </ul>
                 <p>
                   <strong>"관리자에게 문의" 전자 메일:</strong>
@@ -302,7 +302,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                   <li class="unordered">
 보안 질문은 디렉터리에서 사용자 개체에 대해 비공개적으로 안전하게 저장되며 등록하는 동안 사용자만이 답변할 수 있습니다.  현재 보안을 위해 관리자가 이 대답을 편집하거나 볼 수 있는 방법은 없습니다.<br><br></li>
                   <li class="unordered">
-                    <strong>참고: </strong>기본적으로 클라우드 특성 사무실 전화 및 휴대폰은 온-프레미스 디렉터리에서 클라우드 디렉터리에 동기화됩니다.  클라우드로 동기화되는 온-프레미스 특성에 대한 자세한 내용을 보려면, <a href="https://msdn.microsoft.com/library/azure/dn764938.aspx">Azure AD로 동기화된 특성을 참조하세요.</a><br><br></li>
+                    <strong>참고: </strong>기본적으로 클라우드 특성 사무실 전화 및 휴대폰은 온-프레미스 디렉터리에서 클라우드 디렉터리에 동기화됩니다.  클라우드로 동기화되는 온-프레미스 특성에 대한 자세한 내용을 보려면, <a href="https://msdn.microsoft.com/library/azure/dn764938.aspx">Azure AD로 동기화된 특성</a>을 참조하세요.<br><br></li>
                 </ul>
                 <p>
                   <strong>등록 포털:</strong>
@@ -724,7 +724,7 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
                   <li class="unordered">
 비밀번호 쓰기 저장을 사용하도록 설정하고 서비스에 구성 문제가 있다고 생각하는 경우, 이 탭으로 이동하고 잘못된 경우 <strong>비밀번호 쓰기 저장 서비스 상태</strong> 레이블을 살펴봅니다.<br><br></li>
                   <li class="unordered">
-표시할 수 있는 상태는 다음과 같습니다.<br><br><ul><li class="unordered"><strong>구성됨 </strong>– 모든 것이 예상대로 작동됩니다.<br><br></li><li class="unordered"><strong>구성되지 않음</strong> – 쓰기 저장은 설치되어 있지만 서비스에 도달할 수 없어, 443에 대한 아웃 바운드 연결을 차단하지 않았는지 확인하고 여전히 문제가 있을 경우 서비스를 다시 설치합니다.<br><br></li></ul></li>
+표시할 수 있는 상태는 다음과 같습니다.<br><br><ul><li class="unordered"><strong>구성됨</strong> – 모든 것이 예상대로 작동됩니다.<br><br></li><li class="unordered"><strong>구성되지 않음</strong> – 쓰기 저장은 설치되어 있지만 서비스에 도달할 수 없어, 443에 대한 아웃 바운드 연결을 차단하지 않았는지 확인하고 여전히 문제가 있을 경우 서비스를 다시 설치합니다.<br><br></li></ul></li>
                 </ul>
                 <p>
                   <strong>등록 포털:</strong>
@@ -767,7 +767,7 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
                 </p>
                 <ul>
                   <li class="unordered">
-이 기능을 사용하려면 Azure AD Connect의 2015년 8월 이상 릴리스(v. 1.0.8667.0 이상)를 설치해야 합니다.<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다.</a></li>
+이 기능을 사용하려면 Azure AD Connect의 2015년 8월 이상 릴리스(v. 1.0.8667.0 이상)를 설치해야 합니다.<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다</a>.</li>
 
                   <li class="unordered">
                     <strong>참고:</strong> 이 기능을 테스트하려면 비밀번호 쓰기 저장을 사용하도록 설정해야 하며 온-프레미스 기반(예: 페더레이션 또는 암호 동기화된 사용자) 및 잠긴 계정이 있는 계정을 사용합니다.  온-프레미스 기반이 아니고 잠긴 계정이 없는 사용자에게는 해당 계정의 잠금을 해제할 수 있는 옵션이 표시되지 않습니다.</li>
@@ -868,7 +868,7 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
 * [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다
@@ -880,6 +880,6 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

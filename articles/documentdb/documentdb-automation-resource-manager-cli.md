@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
+ms.date: 1/11/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 480dc512e93f8ae64a73067aaee95190f525e780
-ms.openlocfilehash: dc8e5a6990004716699420f1c9ab2a418dd6c54e
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 686b26f082951a71ad21f653c8086061afa56b59
 
 
 ---
@@ -133,7 +133,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
 *Azure 리소스 관리자 템플릿* 을 사용하면 선언적 방식으로 이러한 다양한 리소스를 하나의 논리적 배포 단위로 배포하고 관리할 수 있습니다. 명령을 통해 차례로 배포할 항목을 Azure에 지시하는 대신 JSON 파일에서 전체 배포(모든 리소스와 관련된 구성 및 배포 매개 변수)를 설명하고 이러한 리소스를 하나의 그룹으로 배포하도록 Azure에 지시합니다.
 
-Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 
 ## <a name="a-idquick-create-documentdb-accountatask-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>작업: 단일 지역 DocumentDB 계정 만들기
 이 섹션의 지침을 사용하여 단일 지역 DocumentDB 계정을 만들 수 있습니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI를 사용하여 이 작업을 수행할 수 있습니다.
@@ -146,16 +146,17 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
 >
 >
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
 
 * `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
 * `<resourcegrouplocation>`은 현재 리소스 그룹의 영역입니다.
+* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [DocumentDB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
 * `<databaseaccountname>` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
 * `<databaseaccountlocation>` 은 DocumentDB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력:
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
 
 새 계정이 프로비전될 때 다음과 같은 출력을 생성합니다.
 
@@ -202,6 +203,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -212,6 +214,124 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
             }
         ]
     }
+
+failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다. failoverPriority가 0이면 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다.
+명령줄에서 값을 입력하거나 값을 지정하는 매개 변수 파일을 만들 수 있습니다.
+
+매개 변수 파일을 만들려면 새 파일에 다음 내용을 복사하고 파일 이름을 azuredeploy.parameters.json으로 지정합니다. 명령 프롬프트에서 데이터베이스 계정 이름을 지정하려는 경우 이 파일을 만들지 않고 계속할 수 있습니다.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "value": "samplearmacct"
+            },
+            "locationName1": {
+                "value": "westus"
+            }
+        }
+    }
+
+azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 값 필드를 DocumentDB 계정을 만들려는 지역으로 업데이트합니다.
+
+리소스 그룹에 DocumentDB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
+
+매개 변수 파일을 사용하려면:
+
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
+
+* `<PathToTemplate>` 은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
+* `<PathToParameterFile>` 은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
+* `<resourcegroupname>` 은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
+* `<deploymentname>` 은 배포의 선택적 이름입니다.
+
+예제 입력:
+
+    azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
+
+또는 매개 변수 파일 없이 데이터베이스 계정 이름 매개 변수를 지정하려면 값에 대한 프롬프트가 대신 표시되며 이때 다음 명령을 입력합니다.
+
+    azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
+
+프롬프트 및 samplearmacct라는 데이터베이스 계정에 대한 항목을 표시하는 예제 입력:
+
+    azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    databaseAccountName: samplearmacct
+
+계정이 프로비전될 때 다음과 같은 정보가 표시됩니다.
+
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "azuredeploy"
+    + Waiting for deployment to complete
+    +
+    +
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    +
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
+    data:    DeploymentName     : azuredeploy
+    data:    ResourceGroupName  : new_res_group
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
+    data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
+    data:    Name                 Type    Value
+    data:    -------------------  ------  ------------------
+    data:    databaseAccountName  String  samplearmacct
+    data:    locationName1        String  westus
+    info:    group deployment create command OK
+
+오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.  
+
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+
+## <a name="a-idquick-create-documentdb-with-mongodb-api-accountatask-create-a-single-region-documentdb-with-support-for-mongodb-account"></a><a id="quick-create-documentdb-with-mongodb-api-account"></a>작업: MongoDB 계정에 대한 지원으로 단일 지역 DocumentDB 만들기
+이 섹션의 지침을 사용하여 MongoDB 계정에 대한 지원으로 단일 지역 DocumentDB를 만들 수 있습니다. Resource Manager 템플릿으로 Azure CLI를 사용하여 이 작업을 수행할 수 있습니다.
+
+### <a name="a-idcreate-single-documentdb-with-mongodb-api-account-cli-arma-create-a-single-region-documentdb-with-support-for-mongodb-account-using-azure-cli-with-resource-manager-templates"></a><a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI를 통해 MongoDB 계정에 대한 지원으로 단일 지역 DocumentDB 만들기
+이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 DocumentDB 계정 계정에 대한 지원으로 DocumentDB를 마드는 방법에 대해 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
+
+다음 내용이 포함된 로컬 템플릿 파일을 만듭니다. 파일 이름을 azuredeploy.json으로 지정합니다.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "type": "string"
+            },
+            "locationName1": {
+                "type": "string"
+            }
+        },
+        "variables": {},
+        "resources": [
+            {
+                "apiVersion": "2015-04-08",
+                "type": "Microsoft.DocumentDb/databaseAccounts",
+                "name": "[parameters('databaseAccountName')]",
+                "location": "[resourceGroup().location]",
+                "kind": "MongoDB",
+                "properties": {
+                    "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
+                    "locations": [
+                        {
+                            "failoverPriority": 0,
+                            "locationName": "[parameters('locationName1')]"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+
+이 종류는 MongoDB로 설정되어야 이 계정이 MongoDB API를 지동하도록 지정됩니다. 지정된 속성이 없을 경우 기본값은 네이티브 DocumentDB 계정이 됩니다.
 
 failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다. failoverPriority가 0이면 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다.
 명령줄에서 값을 입력하거나 값을 지정하는 매개 변수 파일을 만들 수 있습니다.
@@ -299,16 +419,17 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 >
 >
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"<ip-range-filter>\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
 
 * `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
 * `<resourcegrouplocation>`은 현재 리소스 그룹의 영역입니다.
+* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [DocumentDB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
 * `<databaseaccountname>` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
 * `<databaseaccountlocation1>` 및 `<databaseaccountlocation2>`는 DocumentDB를 일반적으로 사용할 수 있는 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력:
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
 새 계정이 프로비전될 때 다음과 같은 출력을 생성합니다.
 
@@ -358,6 +479,7 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "databaseAccountOfferType": "Standard",
+                    "ipRangeFilter": "",
                     "locations": [
                         {
                             "failoverPriority": 0,
@@ -470,7 +592,7 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
         azure group log show new_res_group --last-deployment
 
-    그런 다음 [Azure에서 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-cli.md) 을 참조하세요.
+    그런 다음 [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md) 을 참조하세요.
 * 오류 정보는 다음 스크린샷에 표시된 대로 Azure Portal에서도 사용할 수 있습니다. 오류 정보를 탐색하려면: Jumpbar에서 리소스 그룹을 클릭하고 오류가 있는 리소스 그룹을 선택한 다음 리소스 그룹 블레이드의 필수 항목 영역에서 마지막 배포 날짜를 클릭한 후 배포 기록 블레이드에서 실패한 배포를 선택한 다음 배포 블레이드에서 빨간색 느낌표가 있는 작업 세부 정보를 클릭합니다. 작업 세부 정보 블레이드에서 실패한 배포에 대한 상태 메시지가 표시됩니다.
 
     ![배포 오류 메시지를 탐색하는 방법을 보여 주는 Azure 포털의 스크린샷](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
@@ -478,7 +600,7 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 ## <a name="next-steps"></a>다음 단계
 이제 DocumentDB 계정을 만들었으므로 다음 단계에서는 DocumentDB 데이터베이스를 만들게 됩니다. 다음 중 하나를 사용하여 데이터베이스를 만들 수 있습니다.
 
-* Azure Portal, [Azure Portal을 사용하여 DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명을 참조하세요.
+* [Azure Portal을 사용하여 DocumentDB 컬렉션 및 데이터베이스 만들기](documentdb-create-collection.md)에 설명된 Azure Portal
 * GitHub에서 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) 리포지토리의 [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) 프로젝트에 있는 C# .NET 샘플.
 * [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다.
 
@@ -499,6 +621,6 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "필터 함수를 사용하여 마이그레이션할 행 선택(Stretch Database)| Microsoft Docs"
+title: "Stretch Database에 대해 마이그레이션할 행 선택 - Azure | Microsoft Docs"
 description: "필터 함수를 사용하여 마이그레이션할 행을 선택하는 방법을 알아봅니다."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/28/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76af756316523935cf04e19f12a3a1380d0f3a42
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: fc27cd6e25de8e5c3e6b50a0d887755f70d634fd
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 76af756316523935cf04e19f12a3a1380d0f3a42
 
 > [!NOTE]
 > 제대로 수행되지 않는 필터 함수를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. Stretch Database는 CROSS APPLY 연산자를 사용하여 테이블에 필터 함수를 적용합니다.
-> 
-> 
+>
+>
 
 필터 함수를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
@@ -53,7 +53,7 @@ RETURN    SELECT 1 AS is_eligible
 스키마 바인딩은 필터 함수에 의해 사용되는 열이 삭제되거나 변경되는 것을 방지하기 위해 필요합니다.
 
 ### <a name="return-value"></a>반환 값
-함수가 비어 있지 않은 결과를 반환하는 경우 해당 행을 마이그레이션할 수 있습니다. 그렇지 않은 경우 \- 즉 함수가 결과를 반환하지 않는 경우에는 \- 해당 행을 마이그레이션할 수 없습니다.
+함수가 비어 있지\-않은 결과를 반환하는 경우 해당 행을 마이그레이션할 수 있습니다. 그렇지 않은 경우 \- 즉 함수가 결과를 반환하지 않는 경우에는 \- 해당 행을 마이그레이션할 수 없습니다.
 
 ### <a name="conditions"></a>조건
 &lt;*조건자*&gt;는 하나의 조건 또는 AND 논리 연산자로 결합된 여러 조건으로 구성할 수 있습니다.
@@ -80,9 +80,9 @@ RETURN    SELECT 1 AS is_eligible
 ```
 
 * 함수 매개 변수와 상수 식을 비교합니다. 예: `@column1 < 1000`
-  
+
   다음은 *날짜* 열의 값이 &lt; 2016/1/1 이전인지 확인하는 예제입니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
   RETURNS TABLE
@@ -91,7 +91,7 @@ RETURN    SELECT 1 AS is_eligible
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
   GO
-  
+
   ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
       MIGRATION_STATE = OUTBOUND
@@ -99,9 +99,9 @@ RETURN    SELECT 1 AS is_eligible
   ```
 * IS NULL 또는 IS NOT NULL 연산자를 함수 매개 변수에 적용합니다.
 * IN 연산자를 사용하여 함수 매개 변수를 상수 값의 목록과 비교합니다.
-  
+
   다음은 *shipment\_status* 열의 값이 `IN (N'Completed', N'Returned', N'Cancelled')`인지 확인하는 예제입니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
   RETURNS TABLE
@@ -110,7 +110,7 @@ RETURN    SELECT 1 AS is_eligible
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (N'Completed', N'Returned', N'Cancelled')
   GO
-  
+
   ALTER TABLE table1 SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(shipment_status),
       MIGRATION_STATE = OUTBOUND
@@ -137,7 +137,7 @@ RETURN    SELECT 1 AS is_eligible
 ### <a name="other-expressions"></a>기타 식
 BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 함수가 여기에 설명된 규칙을 준수하는 경우 BETWEEN 및 NOT BETWEEN 연산자를 사용할 수 있습니다.
 
-하위 쿼리나 rand() 또는 getdate() 등의 비결정 함수를 사용할 수 없습니다.
+하위 쿼리나 RAND() 또는 GETDATE() 등의 비\-결정 함수를 사용할 수 없습니다.
 
 ## <a name="add-a-filter-function-to-a-table"></a>테이블에 필터 함수 추가
 **ALTER TABLE** 문을 실행하고 기존 인라인 테이블\-값 함수를 **FILTER\_PREDICATE** 매개 변수 값으로 지정하여 필터 함수를 테이블에 추가합니다. 예:
@@ -150,15 +150,15 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 ```
 함수를 조건자로 테이블에 바인딩한 후에는 다음과 같은 것들은 true가 됩니다.
 
-* 다음 번 데이터 마이그레이션 수행 시, 함수가 비어 있지 않은 값을 반환하는 행만 마이그레이션됩니다.
+* 다음 번 데이터 마이그레이션 수행 시, 함수가 비어 있지\-않은 값을 반환하는 행만 마이그레이션됩니다.
 * 함수에 의해 사용되는 열은 스키마 바운드됩니다. 테이블이 필터 조건자로 함수를 사용하는 한 이들 열을 변경할 수 없습니다.
 
 테이블이 필터 조건자로 함수를 사용하는 한 인라인 테이블\-값 함수를 삭제할 수 없습니다.
 
 > [!NOTE]
 > 필터 함수의 성능을 향상시키려면 해당 함수에서 사용되는 열에 대해 인덱스를 만듭니다.
-> 
-> 
+>
+>
 
 ### <a name="passing-column-names-to-the-filter-function"></a>필터 함수에 열 이름 전달
 테이블에 필터 함수를 할당하는 경우 필터 함수에 전달되는 열 이름을 한 부분으로 된 이름으로 지정합니다. 열 이름을 전달할 때 세 부분으로 된 이름을 지정하면 스트레치\-지원 테이블에 대한 후속 쿼리가 실패합니다.
@@ -187,7 +187,7 @@ ALTER TABLE SensorTelemetry
 **스트레치에 데이터베이스 사용** 마법사에서 만들 수 없는 함수를 사용하려는 경우 마법사를 종료한 후에 ALTER TABLE 문을 실행하여 함수를 지정할 수 있습니다. 그렇지만 함수를 적용하려면 먼저 이미 진행 중인 데이터 마이그레이션을 중지하고 마이그레이션된 데이터를 다시 가져와야 합니다. (이 작업이 필요한 이유에 대한 자세한 내용은 [기존 필터 함수 대체](#replacePredicate)를 참조하세요.  
 
 1. 마이그레이션 방향을 반대로 바꾸고 이미 마이그레이션된 데이터를 불러옵니다. 이 작업은 일단 시작되면 취소할 수 없습니다. 또한 Azure에서 아웃바운드 데이터 전송\(송신\)에 따른 비용이 발생합니다. 자세한 내용은 [Azure 가격 책정 방식](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.  
-   
+
     ```tsql  
     ALTER TABLE <table name>  
          SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
@@ -195,7 +195,7 @@ ALTER TABLE SensorTelemetry
 2. 마이그레이션이 완료될 때까지 기다립니다. SQL Server Management Studio에서 **Stretch Database 모니터**에서 상태를 확인하거나 **sys.dm_db_rda_migration_status** 뷰를 쿼리할 수 있습니다. 자세한 내용은 [데이터 마이그레이션 모니터링 및 문제 해결](sql-server-stretch-database-monitor.md) 또는 [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx)를 참조하세요.  
 3. 테이블에 적용할 필터 함수를 만듭니다.  
 4. 테이블에 함수를 추가하고 Azure에 대한 데이터 마이그레이션을 다시 시작합니다.  
-   
+
     ```tsql  
     ALTER TABLE <table name>  
         SET ( REMOTE_DATA_ARCHIVE  
@@ -298,7 +298,7 @@ COMMIT ;
 
 ## <a name="more-examples-of-valid-filter-functions"></a>유효한 필터 함수의 추가 예제
 * 다음 예제는 AND 논리 연산자를 사용하여 두 개의 기본 조건을 결합한 것입니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate((@column1 datetime, @column2 nvarchar(15))
   RETURNS TABLE
@@ -307,14 +307,14 @@ COMMIT ;
   RETURN    SELECT 1 AS is_eligible
     WHERE @column1 < N'20150101' AND @column2 IN (N'Completed', N'Returned', N'Cancelled')
   GO
-  
+
   ALTER TABLE table1 SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(date, shipment_status),
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
 * 다음 예제는 CONVERT를 통해 몇 가지 조건과 결정 변환을 사용한 것입니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example1(@column1 datetime, @column2 int, @column3 nvarchar)
   RETURNS TABLE
@@ -325,7 +325,7 @@ COMMIT ;
   GO
   ```
 * 다음 예제는 수치 연산자와 함수를 사용한 것입니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example2(@column1 float)
   RETURNS TABLE
@@ -336,7 +336,7 @@ COMMIT ;
   GO
   ```
 * 다음 예제는 BETWEEN 및 NOT BETWEEN 연산자를 사용한 것입니다. BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 함수가 여기에 설명된 규칙을 준수하기 때문에 이렇게 사용하는 것은 올바릅니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
   RETURNS TABLE
@@ -348,7 +348,7 @@ COMMIT ;
   GO
   ```
   BETWEEN과 NOT BETWEEN 연산자를 동등한 AND와 OR 식으로 대체하고 나면 선행 함수는 다음 함수와 동등하게 됩니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example4(@column1 int, @column2 int)
   RETURNS TABLE
@@ -360,8 +360,8 @@ COMMIT ;
   ```
 
 ## <a name="examples-of-filter-functions-that-arent-valid"></a>올바르지 않는 필터 함수 예제
-* 다음 함수는 비결정 변환을 포함하기 때문에 올바르지 않습니다.
-  
+* 다음 함수는 비\-결정 변환을 포함하기 때문에 올바르지 않습니다.
+
   ```tsql
   CREATE FUNCTION dbo.fn_example5(@column1 datetime)
   RETURNS TABLE
@@ -371,8 +371,8 @@ COMMIT ;
           WHERE @column1 < CONVERT(datetime, '1/1/2016')
   GO
   ```
-* 다음 함수는 비결정 함수 호출을 포함하기 때문에 올바르지 않습니다.
-  
+* 다음 함수는 비\-결정 함수 호출을 포함하기 때문에 올바르지 않습니다.
+
   ```tsql
   CREATE FUNCTION dbo.fn_example6(@column1 datetime)
   RETURNS TABLE
@@ -383,7 +383,7 @@ COMMIT ;
   GO
   ```
 * 다음 함수는 하위 쿼리를 포함하기 때문에 올바르지 않습니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example7(@column1 int)
   RETURNS TABLE
@@ -394,7 +394,7 @@ COMMIT ;
   GO
   ```
 * 다음 함수는 함수를 정의할 때 대수 연산자 또는 기본\-제공 함수를 사용하는 식이 상수에 대해 계산해야 하기 때문에 올바르지 않습니다. 대수 식 또는 함수 호출에 열 참조를 포함시킬 수 없습니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example8(@column1 int)
   RETURNS TABLE
@@ -403,7 +403,7 @@ COMMIT ;
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 % 2 =  0
   GO
-  
+
   CREATE FUNCTION dbo.fn_example9(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
@@ -413,7 +413,7 @@ COMMIT ;
   GO
   ```
 * 다음 함수는 BETWEEN 연산자를 동등한 AND 식으로 대체한 후 여기에 설명된 규칙을 위반하기 때문에 올바르지 않습니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example10(@column1 int, @column2 int)
   RETURNS TABLE
@@ -424,7 +424,7 @@ COMMIT ;
   GO
   ```
   BETWEEN 연산자를 동등한 AND 식으로 대체하고 나면 선행 함수는 다음 함수와 동등하게 됩니다. 이 함수는 기본 조건이 OR 논리 연산자만 사용할 수 있기 때문에 올바르지 않습니다.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example11(@column1 int, @column2 int)
   RETURNS TABLE
@@ -441,7 +441,7 @@ Stretch Database는 CROSS APPLY 연산자를 사용하여 테이블에 필터 �
 ```tsql
 SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
 ```
-함수가 행에 대해 비어 있지 않은 결과 반환할 경우 해당 행을 마이그레이션할 수 있습니다.
+함수가 행에 대해 비어 있지\-않은 결과 반환할 경우 해당 행을 마이그레이션할 수 있습니다.
 
 ## <a name="a-namereplacepredicateareplace-an-existing-filter-function"></a><a name="replacePredicate"></a>기존 필터 함수 대체
 **ALTER TABLE** 문을 다시 실행하고 **FILTER\_PREDICATE** 매개 변수에 대해 새 값을 지정하여 이전에 지정된 필터 함수를 대체할 수 있습니다. 예:
@@ -549,7 +549,6 @@ Db_owner 권한이 있는 손상된 계정은 다음 작업을 수행할 수 있
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

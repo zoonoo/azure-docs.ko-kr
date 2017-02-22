@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 구문 참조 | Microsoft Docs"
+title: "Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs"
 description: "SQLFilter 문법에 대한 세부 정보입니다."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/22/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5fb6b670ffa496d6626347bc50d537d35d51e08c
-ms.openlocfilehash: 8a5571ed56c6aa20cf157e7787004e2c329c9d54
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
 
 
 ---
@@ -90,7 +90,7 @@ ms.openlocfilehash: 8a5571ed56c6aa20cf157e7787004e2c329c9d54
   
 `[:IsLetter:]`는 유니코드 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsLetter(c)`에서는 `c`가 유니코드 문자인 경우 `true`를 반환합니다.  
   
-`[:IsDigit:]`는 10진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
+`[:IsDigit:]`는&10;진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
   
 `<regular_identifier>`는 예약된 키워드일 수 없습니다.  
   
@@ -119,7 +119,7 @@ ms.openlocfilehash: 8a5571ed56c6aa20cf157e7787004e2c329c9d54
   
 `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`: 0개 이상의 문자입니다.  
+-   `%`:&0;개 이상의 문자입니다.  
   
 -   `_`: 단일 문자입니다.  
   
@@ -158,7 +158,7 @@ ms.openlocfilehash: 8a5571ed56c6aa20cf157e7787004e2c329c9d54
   
      이후 버전에서는 이 숫자가 정확한 숫자 의미 체계를 지원하기 위해 다른 데이터 형식으로 저장될 수 있으므로 `<decimal_constant>`에 대한 기본 데이터 형식이 `System.Double`이라는 사실이 해당되지 않습니다.  
   
-     다음은 10진수 상수에 대한 예입니다.  
+     다음은&10;진수 상수에 대한 예입니다.  
   
     ```  
     1894.1204  
@@ -285,6 +285,6 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 - [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
 이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 온-프레미스 Cassandra 데이터베이스의 데이터를 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 섹션에 있는 싱크 열에 나열된 데이터 저장소에 복사하는 방법을 설명입니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
 현재 Data Factory는 Cassandra 데이터베이스에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 이동하는 작업만 지원하고, 다른 데이터 저장소의 데이터를 Cassandra 데이터베이스로 이동하는 작업은 지원하지 않습니다.
+
+## <a name="supported-versions"></a>지원되는 버전
+이 Cassandra 커넥터는 Cassandra 버전 2.X를 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Azure Data Factory 서비스에서 온-프레미스 Cassandra 데이터베이스에 연결할 수 있으려면 다음을 설치해야 합니다.
@@ -43,7 +46,7 @@ Cassandra 데이터베이스의 데이터를 지원되는 싱크 데이터 저�
 다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Cassandra 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.   
 
 ## <a name="sample-copy-data-from-cassandra-to-blob"></a>샘플: Cassandra에서 Blob으로 데이터 복사
-샘플은 1시간마다 Cassandra 데이터베이스의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다. Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서에 설명한 싱크로 직접 데이터를 복사할 수 있습니다.
+샘플은&1;시간마다 Cassandra 데이터베이스의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다. Azure Data Factory의 복사 작업을 사용하여 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서에 설명한 싱크로 직접 데이터를 복사할 수 있습니다.
 
 * [OnPremisesCassandra](#onpremisescassandra-linked-service-properties)형식의 연결된 서비스입니다.
 * [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)형식의 연결된 서비스
@@ -325,6 +328,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

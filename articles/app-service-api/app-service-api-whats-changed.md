@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
 
 
 ---
@@ -114,7 +114,7 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 4. 배포 시 다른 API 앱의 끝점과 함께 모든 API 앱(및 클라이언트)의 앱 설정을 채웁니다. API 앱이 url을 제어하므로 이는 템플릿 배포에 표시됩니다.
 
 ## <a name="using-api-apps-with-logic-apps"></a>논리 앱과 API 앱 사용
-새 API 앱 모델은 [논리 앱 스키마 버전 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md)에서 제대로 작동합니다.
+새 API 앱 모델은 [논리 앱 스키마 버전 2015-08-01](../logic-apps/logic-apps-schema-2015-08-01.md)에서 제대로 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
@@ -125,6 +125,6 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

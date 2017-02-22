@@ -1,23 +1,22 @@
 ---
 title: "Azure Government 서비스 | Microsoft 문서"
 description: "Azure Government에 제공되는 서비스의 개요 설명"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,23 +36,32 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 * 클라우드 서비스
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[네트워킹](documentation-government-networking.md)
-* 가상 네트워크
-* 부하 분산 장치
-* 응용 프로그램 게이트웨이
-* VPN 게이트웨이
-* 트래픽 관리자
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [BGP 커뮤니티 지원](documentation-government-networking.md#support-for-bgp-communities)
+* 가상 네트워크
+* [부하 분산 장치](documentation-government-networking.md#support-for-load-balancer)
+* Application Gateway
+* [트래픽 관리자](documentation-government-networking.md#support-for-traffic-manger)
+* [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[저장소](documentation-government-services-storage.md)
 * [Azure 저장소](documentation-government-services-storage.md#azure-storage)
+* [Blob Storage](documentation-government-services-storage.md#azure-storage)
+* [Table Storage](documentation-government-services-storage.md#azure-storage)
+* [Queue Storage](documentation-government-services-storage.md#azure-storage)
+* [File Storage](documentation-government-services-storage.md#azure-storage)
+* [Hot/Cool Storage](documentation-government-services-storage.md#azure-storage)
+* [저장소 서비스 암호화](documentation-government-services-storage.md#azure-storage)
+* [Premium Storage](documentation-government-services-storage.md#azure-storage)
+* [Blob Import/Export](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [백업](documentation-government-services-backup.md)
+* [사이트 복구](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * 가져오기/내보내기
-* StorSimple
-* 백업
-* 사이트 복구
 
-## <a name="web-mobile"></a>웹 + 모바일
-* 웹앱
-* 미디어 서비스
+## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[웹 + 모바일](documentation-government-services-webandmobile.md)
+* [App Services](documentation-government-services-webandmobile.md#app-services)
+* Media Services
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[데이터베이스](documentation-government-services-database.md)
 * [SQL 데이터베이스](documentation-government-services-database.md#sql-database)
@@ -66,21 +74,21 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 
 ## <a name="enterprise-integration"></a>엔터프라이즈 통합
 * 서비스 버스
-* StorSimple
-* SQL Server 스트레치 데이터베이스
+* [StorSimple](documentation-government-services-storage.md)
+* SQL Server Stretch Database
 
-## <a name="security-identitydocumentation-government-services-securityandidentitymd"></a>[보안 + ID](documentation-government-services-securityandidentity.md)
+## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[보안 + ID](documentation-government-services-securityandidentity.md)
 * [키 자격 증명 모음](documentation-government-services-securityandidentity.md#key-vault)
 * Azure Active Directory
 * Multi-Factor Authentication
 
-## <a name="monitoring-managementdocumentation-government-services-monitoringandmanagementmd"></a>[모니터링 + 관리](documentation-government-services-monitoringandmanagement.md)
+## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[모니터링 + 관리](documentation-government-services-monitoringandmanagement.md)
 * [자동화](documentation-government-services-monitoringandmanagement.md#automation)
-* 백업
+* [백업](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* 사이트 복구
+* [사이트 복구](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * 스케줄러
-* 트래픽 관리자
+* [트래픽 관리자](documentation-government-networking.md#support-for-traffic-manger)
 * 모니터링 및 진단
 
 ## <a name="next-steps"></a>다음 단계
@@ -89,6 +97,6 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

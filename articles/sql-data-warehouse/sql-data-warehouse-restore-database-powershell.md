@@ -178,6 +178,6 @@ Azure SQL Database 버전의 무중단 업무 방식 기능에 대해 알아보�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

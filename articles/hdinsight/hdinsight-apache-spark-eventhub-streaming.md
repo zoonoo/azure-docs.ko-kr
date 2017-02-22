@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Apache Spark를 통해 Azure Event Hubs 스트리밍 데이터 처리 | Microsoft 문서"
+title: "Azure HDInsight의 Apache Spark 클러스터로 Event Hubs에서 데이터 스트리밍 | Microsoft Docs"
 description: "Azure 이벤트 허브에 데이터 스트림을 보내는 방법에 대한 단계별 지침 및 scala 응용 프로그램을 사용하여 Spark에서 해당 이벤트 수신"
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 264f299f5b9dc71070b0cf497f2044081456a1cc
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ef0757914828128ed4edf569aeb3716300b17dee
 
 
 ---
-# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight-linux"></a>Spark 스트리밍: HDInsight Linux에서 Apache Spark 클러스터로 Azure 이벤트 허브의 이벤트 처리
+# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight"></a>Spark 스트리밍: HDInsight에서 Apache Spark 클러스터로 Azure Event Hubs의 이벤트 처리
 Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높은 처리량, 내결함성 스트림 처리 응용 프로그램을 빌드합니다. 여러 소스에서 데이터를 수집할 수 있습니다. 이 문서에서는 Azure 이벤트 허브를 사용하여 데이터를 수집합니다. 이벤트 허브는 초당 수백만의 이벤트를 유입하는 확장성이 뛰어난 수집 시스템입니다. 
 
 이 자습서에서는 Azure 이벤트 허브를 만드는 방법, Java의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 메시지를 수집하고 Scala에서 작성된 Spark 응용 프로그램을 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다. 이 응용 프로그램은 이벤트 허브를 통해 스트리밍된 데이터를 사용하고 서로 다른 출력(Azure 저장소 Blob, Hive 테이블 및 SQL 테이블)으로 라우팅합니다.
@@ -36,7 +36,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
 * Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 * SQL Server용 Microsoft JDBC 드라이버, v4.1 이상. SQL Server 데이터베이스에 이벤트 데이터를 작성해야 합니다. [여기](https://msdn.microsoft.com/sqlserver/aa937724.aspx)에서 설치할 수 있습니다.
@@ -53,7 +53,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 1. [Azure Portal](https://manage.windowsazure.com)에서 **새로 만들기** > **Service Bus** > **이벤트 허브** > **사용자 지정 만들기**를 선택합니다.
 2. **새 이벤트 허브 추가** 화면에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **하위 지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. **화살표** 를 클릭하여 계속합니다.
    
-    ![마법사 페이지 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Create an Azure Event Hub")
+    ![마법사 페이지 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Azure Event Hub 만들기")
    
    > [!NOTE]
    > 대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치** 를 선택해야 합니다.
@@ -61,7 +61,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
    > 
 3. **이벤트 허브 구성** 화면에서 **파티션 수** 및 **메시지 보존** 값을 입력한 다음 확인 표시를 클릭합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
    
-    ![마법사 페이지 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specify partition size and retention days for Event Hub")
+    ![마법사 페이지 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "이벤트 허브에 대한 파티션 크기 및 보존 일 지정")
 4. 사용자가 만든 이벤트 허브를 클릭하고 **구성**을 클릭한 다음 이벤트 허브에 대한 두 가지 액세스 정책을 만듭니다.
    
     <table>
@@ -72,13 +72,13 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
    
     권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 해당 이벤트 허브에서 보내고(**mysendpolicy**) 수신하는(**myreceivepolicy**) 데 사용되는 공유 액세스 정책이 만들어집니다.
    
-    ![정책](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Create Event Hub policies")
+    ![정책](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "이벤트 허브 정책 만들기")
 5. 같은 페이지에는 두 정책에 대해 생성된 정책 키를 기록합니다. 이러한 키는 나중에 사용되므로 저장합니다.
    
-    ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Save policy keys")
+    ![정책 키](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "정책 키 저장")
 6. **대시보드** 페이지의 아래에서 검색할 **연결 정보**를 클릭하고 두 정책을 사용하여 이벤트 허브에 대한 연결 문자열을 저장합니다.
    
-    ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
+    ![정책 키](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "정책 연결 문자열 저장")
 
 ## <a name="use-a-scala-application-to-send-messages-to-event-hub"></a>Scala 응용 프로그램을 사용하여 이벤트 허브에 메시지를 보냅니다.
 이 섹션에서는 독립 실행형 로컬 Scala 응용 프로그램을 사용하여 이전 단계에서 만든 Azure 이벤트 허브에 이벤트 스트림을 보냅니다. 이 응용 프로그램은 [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer)의 GitHub에서 사용할 수 있습니다. 여기의 단계는 이 GitHub 리포지토리를 이미 분기했다고 가정합니다.
@@ -129,7 +129,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
      1. 응용 프로그램이 열려 있는 IntelliJ IDEA 창에서 **파일**, **프로젝트 구조**, **라이브러리**를 차례로 클릭합니다. 
      2. 추가 아이콘(![추가 아이콘](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))을 클릭하고 **Java**를 클릭한 다음 JDBC 드라이버 jar를 다운로드한 위치로 이동합니다. 지시에 따라 프로젝트 라이브러리에 jar 파일을 추가합니다.
         
-         ![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
+         ![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
      3. **Apply**를 클릭합니다.
 7. 출력 jar 파일을 만듭니다. 다음 단계를 수행합니다.
    
@@ -343,6 +343,6 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

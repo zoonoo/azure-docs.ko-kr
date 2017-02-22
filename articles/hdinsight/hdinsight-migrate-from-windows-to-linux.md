@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: f82e8fcb6228df25c8e3181059fe06fea5fbce78
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: 856d75c58cd911c641ec74b78f5c6133e605b2ec
 
 
 ---
@@ -27,8 +27,6 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 
 > [!NOTE]
 > HDInsight 클러스터는 클러스터의 노드에 대한 운영 체제로 Ubuntu LTS(장기 지원)를 사용합니다. HDInsight와 함께 사용할 수 있는 Ubuntu의 버전 및 기타 구성 요소 버전 정보는 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md)을 참조하세요.
->
->
 
 ## <a name="migration-tasks"></a>마이그레이션 작업
 마이그레이션에 대한 일반적인 워크플로는 다음과 같습니다.
@@ -56,10 +54,13 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 
 1. 기존 클러스터에 대한 저장소 계정 및 기본 컨테이너 정보를 찾습니다. 다음 Azure PowerShell 스크립트를 사용하여 이 작업을 수행할 수 있습니다.
 
-        $clusterName="Your existing HDInsight cluster name"
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
-        write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```powershell
+    $clusterName="Your existing HDInsight cluster name"
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
+    write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```
+
 2. 새 테스트 환경을 만들려면 HDInsight에서 Linux 기반 클러스터 만들기 문서에 나와 있는 단계를 따릅니다. 클러스터를 만들기 전에 **옵션 구성**을 선택합니다.
 3. 옵션 구성 블레이드에서 **연결된 저장소 계정**을 선택합니다.
 4. **저장소 키 추가**를 선택하고 메시지가 표시되면, 1단계의 PowerShell 스크립트에서 반환된 저장소 계정을 선택합니다. 각 블레이드에서 **선택** 을 클릭하고 이를 닫습니다. 마지막으로 클러스터를 만듭니다.
@@ -71,7 +72,8 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
-    [AZURE.NOTE] 데이터를 포함하는 디렉터리 구조가 테스트 환경에 없는 경우 다음 명령을 사용하면 만들 수 있습니다.
+    > [!NOTE]
+    > 데이터를 포함하는 디렉터리 구조가 테스트 환경에 없는 경우 다음 명령을 사용하면 만들 수 있습니다.
 
         hdfs dfs -mkdir -p /new/path/to/create
 
@@ -81,7 +83,7 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 또는 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet을 사용하여 HDInsight 외부의 저장소 계정 간에 Blob을 복사할 수 있습니다. 자세한 내용은 Azure 저장소에서 Azure PowerShell 사용에 대한 Azure Blob 섹션 관리 방법을 참조하세요.
 
 ## <a name="client-side-technologies"></a>클라이언트 쪽 기술
-일반적으로 [Azure PowerShell cmdlets](../powershell-install-configure.md), [Azure CLI](../xplat-cli-install.md) 또는 [Hadoop용 .NET SDK](https://hadoopsdk.codeplex.com/)와 같은 클라이언트 쪽 기술은 Linux 기반 클러스터와 동일하게 작동하는데, 이는 두 클러스터의 OS 형식에서 동일한 REST API를 사용하기 때문입니다.
+일반적으로 [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md) 또는 [Hadoop용 .NET SDK](https://hadoopsdk.codeplex.com/)와 같은 클라이언트 쪽 기술은 Linux 기반 클러스터와 동일하게 작동하는데, 이는 두 클러스터의 OS 형식에서 동일한 REST API를 사용하기 때문입니다.
 
 ## <a name="server-side-technologies"></a>서버 쪽 기술
 다음 표는 Windows와 관련된 서버 쪽 구성 요소 마이그레이션에 대한 참고 자료를 제공합니다.
@@ -90,7 +92,7 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 | --- | --- |
 | **PowerShell** (서버 쪽 스크립트, 클러스터 생성 중 사용한 스크립트 동작 포함) |Bash 스크립트로 다시 작성합니다. 스크립트 동작의 경우 [스크립트 동작에서 Linux 기반 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 및 [Linux 기반 HDInsight에 대한 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요. |
 | **Azure CLI** (서버 쪽 스크립트) |Linux에서 Azure CLI를 사용할 수 있지만, HDInsight 클러스터 헤드 노드에 사전에 설치되어 있지는 않습니다. 서버 쪽 스크립팅에 필요한 경우 Linux 기반 플랫폼 설치에 대한 정보는 [Azure CLI 설치](../xplat-cli-install.md) 를 참조하세요. |
-| **.NET 구성 요소** |.NET은 Linux 기반 HDInsight 클러스터에서 완전히 지원되지 않습니다. 2017년 10월 28일 이후 생성된 HDInsight 클러스터의 Linux 기반 Storm은 SCP.NET 프레임워크를 사용하여 C# Storm 토폴로지를 지원합니다. .NET에 대한 추가 지원은 향후 업데이트에 추가될 예정입니다. |
+| **.NET 구성 요소** |.NET은 일부 Linux 기반 HDInsight 클러스터 유형에서 지원되지 않습니다. 2016년 10월 28일 이후 생성된 HDInsight 클러스터의 Linux 기반 Storm은 SCP.NET 프레임워크를 사용하여 C# Storm 토폴로지를 지원합니다. .NET에 대한 추가 지원은 향후 업데이트에 추가될 예정입니다. |
 | **Win32 구성 요소 또는 기타 Windows 전용 기술** |참고 자료는 구성 요소 또는 기술에 따라 다릅니다. Linux와 호환되는 버전을 찾을 수도 있고 대체 솔루션을 찾거나 이 구성 요소를 다시 작성해야 할 수도 있습니다. |
 
 ## <a name="cluster-creation"></a>클러스터 만들기
@@ -135,8 +137,6 @@ Ambari에는 클러스터의 잠재적인 문제를 알려주는 경고 시스�
 > Ambari 경고는 문제가 *있을 수 있다*라는 의미이며, 문제가 *있다*는 것은 아닙니다. 예를 들어 평소처럼 액세스할 수 있는데도 HiveServer2에 액세스할 수 없다는 경고가 나타날 수 있습니다.
 >
 > 많은 경고는 서비스에서 간격 기반 쿼리로 구현되므로 특정 시간 프레임 내에서 응답을 기대합니다. 그러므로 경고가 발생했다고 해서 반드시 해당 서비스가 다운되었다는 것이 아니라 예상된 시간 프레임 내에 결과를 반환하지 않았다는 것을 의미합니다.
->
->
 
 일반적으로 사용자는 조치를 취하기 전에 경고가 오랜 시간 동안 발생했는지 또는 클러스터에 이전에 보고되었던 사용자 문제를 반영하는지 여부를 평가해야 합니다.
 
@@ -191,7 +191,7 @@ Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure
 ### <a name="azure-data-factory-custom-net-activities"></a>Azure Data Factory 사용자 지정 .NET 작업
 Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight 클러스터에서 지원되지 않습니다. 대신 ADF 파이프라인의 일부로 사용자 지정 작업을 구현하기 위해서는 다음 방법 중 하나를 사용해야 합니다.
 
-* Azure 배치 풀에서 .NET 작업을 실행합니다.  [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/data-factory-use-custom-activities.md)
+* Azure 배치 풀에서 .NET 작업을 실행합니다. [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/data-factory-use-custom-activities.md)
 * MapReduce 작업으로 작업을 구현합니다. 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출](../data-factory/data-factory-map-reduce.md) 을 참조하세요.
 
 ### <a name="line-endings"></a>줄 끝
@@ -222,6 +222,6 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "클래식 배포 모델에 대한 VNet 간 연결 구성 | Microsoft Docs"
+title: "Azure Virtual Network를 다른 VNet에 연결: 클래식 | Microsoft Docs"
 description: "PowerShell 및 Azure 클래식 포털을 사용하여 Azure 가상 네트워크를 함께 연결하는 방법에 대해 설명합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 7413827f-233d-4c7c-a133-9c99cf031833
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 863b308125a7a9ae2b9d9104d150bd2474c064b3
 
 
 ---
@@ -60,7 +60,7 @@ ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
   * Azure 구독이 여러 개인 경우 이제 가상 네트워크 간에 여러 구독의 작업을 안전하게 연결할 수 있습니다.
   * 엔터프라이즈 또는 서비스 공급자의 경우 이제 Azure 내의 보안 VPN 기술을 사용하여 조직 간 통신을 사용하도록 설정할 수 있습니다.
 
-### <a name="vnet-to-vnet-faq-for-classic-vnets"></a>클래식 VNet에 대한 VNet-VNet FAQ
+### <a name="vnet-to-vnet-considerations-for-classic-vnets"></a>클래식 VNet에 대한 VNet 간 고려 사항
 * 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다.
 * 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
 * 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
@@ -200,6 +200,6 @@ VNet-VNet 구성을 만들 경우 포털의 **로컬 네트워크** 페이지에
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

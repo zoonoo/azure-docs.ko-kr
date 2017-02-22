@@ -1,6 +1,6 @@
 ---
-title: "SQL Azure에서 데이터 처리 | Microsoft Azure"
-description: "SQL Azure에서 데이터 처리"
+title: "Azure의 SQL Server 가상 컴퓨터에서 데이터 탐색 | Microsoft Docs"
+description: "Azure의 SQL Server 가상 컴퓨터에서 데이터를 탐색하고 기능 생성"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
-ms.openlocfilehash: 3e565090d751344a8ad3efd6ebdc3f26d5ee55ec
+ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
+ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
 
 
 ---
@@ -87,7 +87,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow [위도 및 경도의 정확도를 측정하는 방법](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
 
 * 부호는 지구에서 현재 위치의 방위(북쪽, 남쪽, 동쪽 또는 서쪽)를 알려 줍니다.
-* 0이 아닌 100자리수는 위도가 아니라 경도를 사용하고 있음을 알려 줍니다.
+* 0이 아닌&100;자리수는 위도가 아니라 경도를 사용하고 있음을 알려 줍니다.
 * 10자리수는 약 1,000km까지의 위치를 제공합니다. 현재 위치의 대륙 또는 대양에 대한 유용한 정보를 제공합니다.
 * 단위 자리수(하나의 도 단위)는 최대 111km(60해리, 약 69마일)까지의 위치를 제공합니다. 이는 현재 위치의 주 또는 국가를 대략적으로 알려 줍니다.
 * 첫 번째 소수 자릿수는 11.1km까지 적용되며, 하나의 대도시를 인접한 대도시와 구분할 수 있습니다.
@@ -150,6 +150,6 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

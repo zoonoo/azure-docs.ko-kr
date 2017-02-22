@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
+ms.sourcegitcommit: b089bc075ec3ec718eb21357bbbc5c4af09f4af1
+ms.openlocfilehash: b01125160875e367b9b6e1d02031c5dd80b41594
 
 
 ---
@@ -43,8 +43,8 @@ ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
 | 이름 | 값 |
 | --- | --- |
 | type |열거형<br />필수<br />**Microsoft.Storage/storageAccounts**<br /><br />만들려는 리소스 종류입니다. |
-| apiVersion |열거형<br />필수<br />**2015-06-15** 또는 **2015-05-01-preview**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |
-| 이름 |문자열<br />필수<br />3 ~ 24자여야 하며 숫자와 소문자만 가능합니다.<br /><br />만들려는 저장소 계정의 이름입니다. Azure의 모든 이름은 고유해야 합니다. 아래의 예제에 표시된 대로 명명 규칙에 따라 [uniqueString](resource-group-template-functions.md#uniquestring) 기능 사용을 고려합니다. |
+| apiVersion |열거형<br />필수<br />**2015-06-15** 또는 **2015-05-01-미리 보기**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |
+| 이름 |문자열<br />필수<br />3자에서 24자까지 중에서 숫자와 소문자만.<br /><br />만들려는 저장소 계정의 이름입니다. Azure의 모든 이름은 고유해야 합니다. 아래의 예제에 표시된 대로 명명 규칙에 따라 [uniqueString](resource-group-template-functions.md#uniquestring) 기능 사용을 고려합니다. |
 | 위치 |String<br />필수<br />저장소 계정을 지원하는 하위 지역입니다. 유효한 영역을 확인하려면 [지원되는 지역](resource-manager-supported-services.md#supported-regions)을 참조하세요.<br /><br />저장소 계정을 호스트하는 하위 지역입니다. |
 | properties |Object<br />필수<br />[properties 개체](#properties)<br /><br />만들려는 저장소 계정 유형을 지정하는 개체입니다. |
 
@@ -81,13 +81,13 @@ ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
 ## <a name="quickstart-templates"></a>빠른 시작 템플릿
 저장소 계정을 포함하는 많은 빠른 시작 템플릿이 있습니다. 다음 템플릿은 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-* [표준 저장소 계정 만들기](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-* [Windows VM의 간단한 배포](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-* [Linux VM의 간단한 배포](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-* [CDN 프로필, 저장소 계정을 원본으로 사용하여 CDN 끝점 만들기](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-* [Powershell DSC 확장을 사용하여 9개의 VM을 가진 고가용성 SharePoint 팜 만들기](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-* [WAD가 사용하도록 설정된 상태에서 5 노드 보안 서비스 패브릭 클러스터의 간단한 배포](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-* [4개의 빈 데이터 디스크를 사용하여 Windows 이미지에서 가상 컴퓨터 만들기](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
+* [표준 저장소 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+* [Windows VM의 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+* [Linux VM의 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin](영문)(https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+* [Powershell DSC 확장을 사용하여 9개의 VM을 가진 고가용성 SharePoint 팜 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+* [WAD가 사용하도록 설정된 상태에서 5 노드 보안 서비스 패브릭 클러스터의 간단한 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+* [4개의 빈 데이터 디스크를 사용하여 Windows 이미지에서 가상 컴퓨터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
 
 ## <a name="next-steps"></a>다음 단계
 * 저장소에 관한 일반적인 정보는 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
@@ -96,6 +96,6 @@ ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

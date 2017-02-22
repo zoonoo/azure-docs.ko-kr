@@ -3,7 +3,7 @@ title: "Azure CDN 실시간 경고 | Microsoft Docs"
 description: "Microsoft Azure CDN의 실시간 경고입니다. 실시간 경고는 CDN 프로필에서 끝점의 성능에 대한 알림을 제공합니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a6bd8982bb89c1829a6a5945f6ff9d8ed7009f0
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6e66eb076ac7220823a848b5047f147d4101cd55
 
 
 ---
@@ -107,13 +107,13 @@ ms.openlocfilehash: 2a6bd8982bb89c1829a6a5945f6ff9d8ed7009f0
 13. **저장** 단추를 클릭하여 경고 구성을 저장합니다.  5단계에서 **경고 사용** 을 선택한 경우 경고는 지금 활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
-*  [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-*  [사용 패턴](cdn-analyze-usage-patterns.md)
+* [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
+* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
+* [사용 패턴](cdn-analyze-usage-patterns.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

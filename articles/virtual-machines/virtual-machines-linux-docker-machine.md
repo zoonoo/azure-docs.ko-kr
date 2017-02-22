@@ -1,5 +1,5 @@
 ---
-title: "Docker Machine으로 Azure에서 Docker 호스트 만들기 | Microsoft Docs"
+title: "Docker Machine을 사용하여 Azure에서 Linux 호스트 만들기"
 description: "Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
+ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
 
 
 ---
 # <a name="use-docker-machine-with-the-azure-driver"></a>Azure 드라이버로 Docker Machine 사용
-[Docker](https://www.docker.com/) 는 공유 리소스에서 응용 프로그램 데이터와 계산을 격리시키는 한 가지 방법으로, 가상 컴퓨터 대신 Linux 컨테이너를 사용하며 가장 많이 사용되는 가상화 방법 중 하나입니다. 이 항목에서는 [Docker-machine](https://docs.docker.com/machine/)(`docker-machine` 명령)을 사용하는 시기 및 방법에 대해 설명하여 Azure에서 Linux 컨테이너의 Docker 호스트로 사용하도록 설정된 새 Linux VM을 만듭니다.
+[Docker](https://www.docker.com/)는 VM 대신 Linux 컨테이너를 사용하는 가상화를 제공하여 공유 리소스에서 응용 프로그램 데이터 및 계산을 격리합니다. 이 항목에서는 [Docker Machine](https://docs.docker.com/machine/)의 사용 방법과 사용 시기를 설명합니다. `docker-machine` 명령은 Linux 컨테이너에 대해 docker 호스트로 사용하도록 설정된 Azure에서 새 Linux VM을 만듭니다.
 
 ## <a name="create-vms-with-docker-machine"></a>Docker Machine으로 VM 만들기
 드라이버 옵션(`-d`)에 대한 `azure` 드라이버 인수 및 기타 인수를 사용하는 `docker-machine create` 명령으로 Azure에 Docker 호스트 VM을 만듭니다. 
@@ -38,7 +38,7 @@ docker-machine create -d azure \
   machine
 ```
 
-출력은 계정에 2단계 인증이 구성되어 있는지 여부에 따라 다음과 유사하게 표시됩니다.
+출력은 계정에&2;단계 인증이 구성되어 있는지 여부에 따라 다음과 유사하게 표시됩니다.
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
@@ -132,6 +132,6 @@ Docker를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Micr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

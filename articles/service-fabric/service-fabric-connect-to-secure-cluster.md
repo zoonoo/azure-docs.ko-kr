@@ -1,5 +1,5 @@
 ---
-title: "클러스터에 대한 클라이언트 액세스 인증 | Microsoft Docs"
+title: "Azure Service Fabric 클러스터에 안전하게 연결 | Microsoft Docs"
 description: "Service Fabric 클러스터에 대한 클라이언트 액세스를 인증하는 방법 및 클라이언트와 클러스터 간의 통신을 보호하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/03/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 65775053918e12ef8881f417dacc0a63f080d093
-ms.openlocfilehash: 6de98012e768abc7f8450e97648444a74474b5e9
+ms.sourcegitcommit: cb1c9734ef7745274095e5b3840698a76045bc91
+ms.openlocfilehash: 44dec18e40f5693e32a99cbea0bf0d1530dddb44
 
 
 ---
@@ -60,7 +60,7 @@ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --cli
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-secure-cluster-using-powershell"></a>PowerShell을 사용하여 보안 클러스터에 연결
+## <a name="connect-to-a-cluster-using-powershell"></a>PowerShell을 사용하여 클러스터에 연결
 PowerShell을 통해 클러스터에서 작업을 수행하기 전에 먼저 클러스터와 연결을 설정합니다. 클러스터 연결은 지정된 PowerShell 세션에서 모든 후속 명령에 사용됩니다.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>비보안 클러스터에 연결
@@ -82,7 +82,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
-다음 PowerShell 명령을 실행하여 관리자 액세스 권한을 부여하는 데 클라이언트 인증서를 사용하는 보안 클러스터에 연결합니다. 클러스터 관리를 위한 권한이 부여된 클러스터 인증서 지문과 클라이언트 인증서 지문을 제공합니다. 인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다.
+다음 PowerShell 명령을 실행하여 관리자 액세스 권한을 부여하는 데 클라이언트 인증서를 사용하는 보안 클러스터에 연결합니다. 클러스터 관리에 대한 권한이 부여된 클러스터 인증서 지문과 클라이언트 인증서 지문을 제공합니다. 인증서 세부 정보는 클러스터 노드의 인증서와 일치해야 합니다.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -106,8 +106,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-secure-cluster-using-the-fabricclient-apis"></a>FabricClient API를 사용하여 보안 클러스터에 연결
-Service Fabric SDK는 클러스터 관리를 위해 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) 클래스를 제공합니다. 
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>FabricClient API를 사용하여 클러스터에 연결
+Service Fabric SDK는 클러스터 관리를 위해 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 클래스를 제공합니다. FabricClient API를 사용하려면 Microsoft.ServiceFabric NuGet 패키지를 가져옵니다.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>비보안 클러스터에 연결
 
@@ -125,77 +125,63 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
 
-클러스터의 노드에는 해당 일반 이름 또는 SAN의 DNS 이름이 [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx)에 설정된 [RemoteCommonNames 속성](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx)에 표시되는 유효한 인증서가 있어야 합니다. 이 과정에 따라 클라이언트와 클러스터 노드 간 상호 인증이 가능해집니다.
+클러스터의 노드에는 해당 일반 이름 또는 SAN의 DNS 이름이 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)에 설정된 [RemoteCommonNames 속성](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames)에 표시되는 유효한 인증서가 있어야 합니다. 이 과정에 따라 클라이언트와 클러스터 노드 간 상호 인증이 가능해집니다.
 
 ```csharp
+using System.Fabric;
+using System.Security.Cryptography.X509Certificates;
+
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
 
-X509Credentials xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
-FabricClient fc = new FabricClient(xc, connection);
-Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
-try
-{
-    bool result = t.Result;
-    Console.WriteLine("Cluster is connected");
-}
-catch (AggregateException ae)
-{
-    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
-}
-catch (Exception e)
-{
-    Console.WriteLine("Connect failed: {0}", e.Message);
-}
-
-...
-
-static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
-{
-    X509Credentials xc = new X509Credentials();
-
-    // Client certificate
-    xc.StoreLocation = StoreLocation.CurrentUser;
-    xc.StoreName = "MY";
-    xc.FindType = X509FindType.FindByThumbprint;
-    xc.FindValue = thumb;
-
-    // Server certificate
-    xc.RemoteCertThumbprints.Add(thumb);
-    xc.RemoteCommonNames.Add(name);
-
-    xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
-    return xc;
-}
-```
-
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory를 사용하여 보안 클러스터에 연결
-
-이 절차를 따르면 클라이언트 ID에는 Azure Active Directory를, 서버 ID에는 서버 인증서를 사용할 수 있습니다.
-
-AAD 대화형 로그인 대화 상자가 표시되는 대화형 모드를 사용하려면:
-
-```csharp
-string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.westus.cloudapp.azure.com:19000";
-
-ClaimsCredentials claimsCredentials = new ClaimsCredentials();
-claimsCredentials.ServerThumbprints.Add(serverCertThumb);
-
-FabricClient fc = new FabricClient(
-    claimsCredentials,
-    connection);
+var xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
+var fc = new FabricClient(xc, connection);
 
 try
 {
     var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
     Console.WriteLine(ret.ToString());
 }
-catch (AggregateException ae)
+catch (Exception e)
 {
-    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
+{
+    X509Credentials xc = new X509Credentials();
+    xc.StoreLocation = StoreLocation.CurrentUser;
+    xc.StoreName = "My";
+    xc.FindType = X509FindType.FindByThumbprint;
+    xc.FindValue = clientCertThumb;
+    xc.RemoteCommonNames.Add(name);
+    xc.RemoteCertThumbprints.Add(serverCertThumb);
+    xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
+    return xc;
+}
+```
+
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Azure Active Directory를 사용하여 대화형으로 보안 클러스터에 연결
+
+다음 예제에서는 클라이언트 ID에는 Azure Active Directory를, 서버 ID에는 서버 인증서를 사용합니다.
+
+클러스터를 연결할 때는 대화형 로그인을 위한 대화 상자 창이 자동으로 표시됩니다.
+
+```csharp
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+var claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+
+var fc = new FabricClient(claimsCredentials, connection);
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
 }
 catch (Exception e)
 {
@@ -203,42 +189,36 @@ catch (Exception e)
 }
 ```
 
-사용자 개입 없이 자동 모드를 사용하려면:
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Azure Active Directory를 사용하여 비대화형으로 보안 클러스터에 연결
 
-(이 예에서는 Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213을 사용합니다.
+다음 예제에서는 Microsoft.IdentityModel.Clients.ActiveDirectory 버전 2.19.208020213을 사용합니다.
 
-토큰을 획득하는 방법 및 자세한 정보는 [Microsoft.IdentityModel.Clients.ActiveDirectory Namespace](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx)를 참조하세요.)
+AAD 토큰 획득에 대한 자세한 내용은 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx)를 참조하세요.
 
 ```csharp
-string tenantId = "c15cfcea-02c1-40dc-8466-fbd0ee0b05d2";
-string clientApplicationId = "118473c2-7619-46e3-a8e4-6da8d5f56e12";
+string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
+string clientApplicationId = "118473C2-7619-46E3-A8E4-6DA8D5F56E12";
 string webApplicationId = "53E6948C-0897-4DA6-B26A-EE2A38A690B4";
 
 string token = GetAccessToken(
     tenantId,
     webApplicationId,
     clientApplicationId,
-    "urn:ietf:wg:oauth:2.0:oob"
-    );
+    "urn:ietf:wg:oauth:2.0:oob");
 
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
-ClaimsCredentials claimsCredentials = new ClaimsCredentials();
+
+var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
 claimsCredentials.LocalClaims = token;
 
-FabricClient fc = new FabricClient(
-   claimsCredentials,
-   connection);
+var fc = new FabricClient(claimsCredentials, connection);
 
 try
 {
     var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
     Console.WriteLine(ret.ToString());
-}
-catch (AggregateException ae)
-{
-    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
 }
 catch (Exception e)
 {
@@ -255,23 +235,56 @@ static string GetAccessToken(
 {
     string authorityFormat = @"https://login.microsoftonline.com/{0}";
     string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
-    AuthenticationContext authContext = new AuthenticationContext(authority);
+    var authContext = new AuthenticationContext(authority);
 
-    string token = "";
-    try
-    {
-        var authResult = authContext.AcquireToken(
-            resource,
-            clientId,
-            new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
-        token = authResult.AccessToken;
-    }
-    catch (AdalException ex)
-    {
-        Console.WriteLine("Get AccessToken failed: {0}", ex.Message);
-    }
+    var authResult = authContext.AcquireToken(
+        resource,
+        clientId,
+        new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
+    return authResult.AccessToken;
+}
 
-    return token;
+```
+
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>사전 메타데이터 지식 없이 Azure Active Directory를 사용하여 보안 클러스터에 연결
+
+다음 예제에서는 비대화형 토큰 획득을 사용하지만 사용자 지정 대화형 토큰 획득 환경을 빌드하는 데 동일한 접근 방식을 사용할 수 있습니다. 토큰 획득에 필요한 Azure Active Directory 메타데이터는 클러스터 구성에서 읽습니다.
+
+```csharp
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+var claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+
+var fc = new FabricClient(claimsCredentials, connection);
+
+fc.ClaimsRetrieval += (o, e) =>
+{
+    return GetAccessToken(e.AzureActiveDirectoryMetadata);
+};
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+...
+
+static string GetAccessToken(AzureActiveDirectoryMetadata aad)
+{
+    var authContext = new AuthenticationContext(aad.Authority);
+
+    var authResult = authContext.AcquireToken(
+        aad.ClusterApplication,
+        aad.ClientApplication,
+        new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
+    return authResult.AccessToken;
 }
 
 ```
@@ -330,6 +343,6 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

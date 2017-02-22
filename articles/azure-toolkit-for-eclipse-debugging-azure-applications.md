@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 04e6a43e478484d90478e4aa90d489ea4eb0cc68
 
 
 ---
@@ -27,7 +27,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 
 이 자습서에서는 성공적으로 만들어진 응용 프로그램이 있고 계산 에뮬레이터 및 Azure에 배포에 대해 잘 알고 있다고 가정합니다.
 
-이 항목에 대한 출발점으로 [JSP에서 Azure 서비스 런타임 라이브러리 사용][JSP에서 Azure 서비스 런타임 라이브러리 사용] 자습서에서 응용 프로그램을 사용할 예정입니다. 계속하기 전에 응용 프로그램이 없는 경우 해당 응용 프로그램을 만듭니다.
+이 항목에 대한 출발점으로 [JSP에서 Azure 서비스 런타임 라이브러리 사용][Using the Azure Service Runtime Library in JSP] 자습서에서 응용 프로그램을 사용할 예정입니다. 계속하기 전에 응용 프로그램이 없는 경우 해당 응용 프로그램을 만듭니다.
 
 ## <a name="to-debug-your-application-while-running-in-azure"></a>Azure에서 실행되는 동안 응용 프로그램을 디버그하려면
 > [!WARNING]
@@ -39,10 +39,10 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 2. 프로젝트 다시 빌드: Eclipse 메뉴에서 **프로젝트**를 클릭한 후 **모두 빌드**를 클릭합니다.
 3. Azure의 *준비* 에 응용 프로그램을 배포합니다.
     >[AZURE.IMPORTANT] 위에서 설명했듯이 대부분의 경우에는 계산 에뮬레이터에서 디버그한 다음 추가 디버깅이 필요한 경우에만 스테이징 환경에서 디버그하는 것이 좋습니다. 프로덕션 환경에서 디버그하지 않는 것이 좋습니다.
-4. Azure에서 배포가 준비되면 [Azure 관리 포털][Azure 관리 포털]에서 배포에 대한 DNS 이름을 가져옵니다. 스테이징 배포는 http://*&lt;guid&gt;*.cloudapp.net의 형식으로 DNS 이름을 지정합니다. 여기서 *&lt;guid&gt;*는 Azure에서 할당된 GUID 값입니다.
+4. Azure에서 배포가 준비되면 [Azure Management Portal][Azure Management Portal]에서 배포에 대한 DNS 이름을 가져옵니다. 스테이징 배포는 http://*&lt;guid&gt;*.cloudapp.net의 형식으로 DNS 이름을 지정합니다. 여기서 *&lt;guid&gt;*는 Azure에서 할당된 GUID 값입니다.
 5. Eclipse의 프로젝트 탐색기에서 **WorkerRole1**을 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **디버깅**을 클릭합니다.
 6. **Properties for WorkerRole1 Debugging** 대화 상자에서:
-   1.  **Enable remote debugging for this role**
+   1. **Enable remote debugging for this role**
    2. **사용할 입력 끝점**에 대해 **디버깅(public:8090, private:8090)**을 사용합니다.
    3. **Start JVM in suspended mode, waiting for a debugger connection** 이 선택 취소되었는지 확인합니다.
        >[AZURE.IMPORTANT] **Start JVM in suspended mode, waiting for a debugger connection** 옵션은 계산 에뮬레이터에서 고급 디버깅 시나리오를 위한 것입니다(클라우드 배포용이 아님). **Start JVM in suspended mode, waiting for a debugger connection** 옵션을 사용하는 경우 Eclipse 디버거가 해당 JVM에 연결될 때까지 서버의 시작 프로세스를 일시 중단합니다. 계산 에뮬레이터를 사용하여 디버깅 세션에 이 옵션을 사용할 수도 있지만 클라우드 배포에서 디버깅 세션에 사용하지 마십시오. 서버 초기화는 Azure 시작 작업에서 수행되고 Azure 클라우드는 시작 작업이 완료될 때까지 사용 가능한 공용 끝점을 만들지 않습니다. 따라서 외부 Eclipse 클라이언트에서 연결을 수신할 수 없기 때문에 클라우드 배포에서 이 옵션을 사용하는 경우 시작 프로세스가 올바르게 완료되지 않습니다.
@@ -89,7 +89,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 2. 프로젝트 다시 빌드: Eclipse 메뉴에서 **프로젝트**를 클릭한 후 **모두 빌드**를 클릭합니다.
 3. Eclipse의 프로젝트 탐색기에서 **WorkerRole1**을 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **디버깅**을 클릭합니다.
 4. **Properties for WorkerRole1 Debugging** 대화 상자에서:
-   1.  **Enable remote debugging for this role**
+   1. **Enable remote debugging for this role**
    2. **사용할 입력 끝점**에 대해 **디버깅(public:8090, private:8090)**에 나열된 도구 키트에 의해 자동으로 생성된 기본 끝점을 사용합니다.
    3. **Start JVM in suspended mode, waiting for a debugger connection** 옵션이 선택 취소되었는지 확인합니다.
        >[AZURE.IMPORTANT] **Start JVM in suspended mode, waiting for a debugger connection** 옵션은 계산 에뮬레이터에서 고급 디버깅 시나리오를 위한 것입니다(클라우드 배포용이 아님). **Start JVM in suspended mode, waiting for a debugger connection** 옵션을 사용하는 경우 Eclipse 디버거가 해당 JVM에 연결될 때까지 서버의 시작 프로세스를 일시 중단합니다. 계산 에뮬레이터를 사용하여 디버깅 세션에 이 옵션을 사용할 수도 있지만 클라우드 배포에서 디버깅 세션에 사용하지 마십시오. 서버 초기화는 Azure 시작 작업에서 수행되고 Azure 클라우드는 시작 작업이 완료될 때까지 사용 가능한 공용 끝점을 만들지 않습니다. 따라서 외부 Eclipse 클라이언트에서 연결을 수신할 수 없기 때문에 클라우드 배포에서 이 옵션을 사용하는 경우 시작 프로세스가 올바르게 완료되지 않습니다.
@@ -119,22 +119,22 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 * GlassFish에서 원격 디버깅을 사용하려면 Eclipse용 Azure 도구 키트의 원격 디버깅 구성 기능을 사용하지 마십시오. 대신 GlassFish를 수동으로 구성합니다. GlassFish에서 환경 변수에서 미리 정의된 Java 옵션을 처리하는 방식으로 인해 도구 키트의 원격 디버깅 구성 기능이 GlassFish와 정상적으로 작동하지 않습니다. 도구 키트의 원격 디버깅 구성 기능을 사용하는 경우 GlassFish가 시작되지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
-[JSP에서 Azure 서비스 런타임 라이브러리 사용]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
@@ -145,6 +145,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

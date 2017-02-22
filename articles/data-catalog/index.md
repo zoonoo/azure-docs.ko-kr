@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Data Catalog 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "조직에서 데이터 원본을 찾아 이해하고 사용할 수 있는 데이터 카탈로그를 설정하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+services: data-catalog
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
-ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Data Catalog 설명서
@@ -67,16 +78,10 @@ Data Catalog를 사용하여 조직 및 팀에서 데이터 원본을 검색하�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Data Catalog 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

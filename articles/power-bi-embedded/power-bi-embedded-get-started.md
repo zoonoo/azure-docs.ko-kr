@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 49ca55f435239611350045cca31b6c2a9ca140e1
-ms.openlocfilehash: 602509d5dc977e8d559bc7f504bfab3d077829fa
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -69,6 +69,10 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 이제 응용 프로그램에 대한 Power BI의 인스턴스, **선택키**가 있으며 보고서를 사용자 자신의 앱에 가져올 수 있습니다. 보고서를 가져오는 방법을 알아보기 전에 다음 섹션에서 앱에 포함할 Power BI 데이터 집합 및 보고서를 만드는 방법에 대해 설명합니다.
 
+## <a name="working-with-workspaces"></a>작업 영역에서 작업
+
+작업 영역 컬렉션을 만든 후에는 보고서 및 데이터 집합을 보관할 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx)를 사용해야 합니다.
+
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
 이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI Desktop**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
@@ -109,6 +113,6 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

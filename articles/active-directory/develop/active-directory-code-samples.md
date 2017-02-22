@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 5acff25cca5d549541a8cd68f76e1736c1ed0cb0
+ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
+ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
 
 
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 코드 샘플
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 응용 프로그램 및 Web API에 인증 및 권한 부여를 추가할 수 있습니다. 이 섹션에는 이러한 작업 수행 방법을 보여 주는 코드 샘플과 응용 프로그램에 사용할 수 있는 코드 조각의 링크가 나와 있습니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 또한 코드는 중요한 섹션을 이해하는 데 도움이 되도록 주석으로 처리되어 있습니다.
+Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 응용 프로그램 및 Web API에 인증 및 권한 부여를 추가할 수 있습니다. 이 섹션에는 이러한 작업 수행 방법을 보여 주는 샘플과 응용 프로그램에 사용할 수 있는 코드 조각의 링크가 나와 있습니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 또한 코드는 중요한 섹션을 이해하는 데 도움이 되도록 주석으로 처리되어 있습니다.
 
 각 샘플 유형식에 대한 기본 시나리오를 이해하려면 Azure AD의 인증 시나리오를 참조하세요.
 
-GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?query=active-directory).
+GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## <a name="web-browser-to-web-application"></a>웹 브라우저-웹 응용 프로그램
 다음 샘플에서는 사용자의 브라우저가 사용자를 Azure AD에 로그인하도록 지시하는 웹 응용 프로그램을 작성하는 방법을 보여 줍니다.
@@ -133,7 +133,6 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6ce639dd0ee8386d3bd9ff48f5a05cb392d7979
-ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
+ms.sourcegitcommit: ef9c1d5511889cf78421d24f9c5902bf188890c7
+ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
 AMS(Azure 미디어 서비스)에서 **채널** 은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. **채널** 은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 미디어 서비스를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 AMS로 라이브 인코딩을 수행하도록 설정되지 않은 채널에 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 **채널**을 통과합니다. 이 방법을 **통과**라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 Elemental, Envivio, Cisco를 사용할 수 있습니다.  RTMP를 출력하는 라이브 인코더는 Adobe Flash Live, Telestream Wirecast 및 Tricaster 트랜스코더입니다.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 AMS로 라이브 인코딩을 수행하도록 설정되지 않은 채널에 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 **채널**을 통과합니다. 이 방법을 **통과**라고 합니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 MediaExcel, Ateme, Imagine Communications, Envivio, Cisco 및 Elemental을 사용할 수 있습니다. RTMP를 출력하는 라이브 인코더는 Adobe FMLE(Flash Media Live Encoder), Telestream Wirecast, Haivision, Teradek 및 Tricaster 인코더입니다.  또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
   
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
@@ -80,11 +80,6 @@ AMS(Azure 미디어 서비스)에서 **채널** 은 라이브 스트리밍 콘�
 
 ![라이브 워크플로][live-overview]
 
-## <a name="in-this-topic"></a>항목 내용
-* [일반적인 라이브 스트리밍 시나리오](media-services-manage-live-encoder-enabled-channels.md#scenario)
-* [채널 및 관련 구성 요소에 대한 설명](media-services-manage-live-encoder-enabled-channels.md#channel)
-* [고려 사항](media-services-manage-live-encoder-enabled-channels.md#Considerations)
-
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
 다음은 일반적인 라이브 스트리밍 응용 프로그램을 만드는 일반적인 단계입니다.
 
@@ -110,7 +105,9 @@ AMS(Azure 미디어 서비스)에서 **채널** 은 라이브 스트리밍 콘�
     .NET SDK 또는 REST를 사용하는 경우 자산을 만들고 프로그램을 만들 때 이 자산을 사용하도록 지정해야 합니다. 
 6. 프로그램과 연결된 자산을 게시합니다.   
    
-    콘텐츠를 스트림하려는 스트리밍 끝점에서 최소&1;개의 스트리밍 예약 단위가 있어야 합니다.
+    >[!NOTE]
+    >AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
+    
 7. 스트리밍 및 보관을 시작할 준비가 되었으면 프로그램을 시작합니다.
 8. 필요에 따라 라이브 인코더는 광고를 시작하라는 신호를 받을 수 있습니다. 광고는 출력 스트림에 삽입됩니다.
 9. 이벤트 스트리밍 및 보관을 중지할 때마다 프로그램을 중지 합니다.
@@ -217,7 +214,7 @@ Elemental Technologies, Ericsson, Ateme, Envivio와 같은 공급업체의 온-�
 
 채널을 만들면 수집 URL을 가져올 수 있습니다. 이러한 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널에 데이터 푸시를 시작할 준비가 되면 채널이 **실행 중** 상태여야 합니다. 채널이 데이터 수집을 시작하면 미리 보기 URL을 통해 스트림을 미리 볼 수 있습니다.
 
-SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스트림 수집 옵션이 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다.
+SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스트림 수집 옵션이 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
 
 ### <a name="allowed-ip-addresses"></a>허용된 IP 주소
 이 채널에 비디오를 게시하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소와 CIDR 서브넷 마스크를 사용하는 IP 범위(예: ‘10.0.0.1/22’) 또는 IP 주소와 점으로 구분된&10;진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)').
@@ -332,9 +329,10 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 선택 사항입니다. 슬레이트 이미지를 포함하는 미디어 서비스 자산의 자산 ID를 지정합니다. 기본값은 null입니다. 
 
->
+
 >[!NOTE] 
->채널을 만들기 전에 다음 제약 조건이 있는 슬레이트 이미지가 전용 자산(다른 파일이 이 자산에 없어야 함)으로 업로드되어야 합니다. 
+>채널을 만들기 전에 다음 제약 조건이 있는 슬레이트 이미지가 전용 자산(다른 파일이 이 자산에 없어야 함)으로 업로드되어야 합니다. 이 이미지는 라이브 인코더가 광고 재생으로 인해 슬레이트를 삽입하는 경우 또는 슬레이트를 삽입하라는 명시적인 신호를 받은 경우에만 사용됩니다. 라이브 인코더도 입력 신호가 손실되는 경우처럼 특정 오류 시 슬레이트 모드로 전환될 수 있습니다. 현재는 라이브 인코더가 이러한 '입력 신호 손실' 상태가 될 때 사용자 지정 이미지를 사용할 수 있는 방법이 없습니다. [여기](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel)서 이 기능에 대해 투표할 수 있습니다.
+
 
 * 최대 1920x1080 해상도.
 * 최대 3MB 크기.
@@ -348,7 +346,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 **보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
-각 프로그램은 스트리밍된 콘텐츠를 저장하는 자산과 연결됩니다. 자산은 Azure 저장소 계정의 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 Blob으로 저장됩니다. 고객이 스트림을 볼 수 있도록 프로그램을 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
+각 프로그램은 스트리밍된 콘텐츠를 저장하는 자산과 연결됩니다. 자산은 Azure 저장소 계정의 블록 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 Blob으로 저장됩니다. 고객이 스트림을 볼 수 있도록 프로그램을 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
 
 채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
 
@@ -397,7 +395,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 * 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
 * 채널이 **실행 중** 상태일 때만 청구됩니다. 자세한 내용은 [이](media-services-manage-live-encoder-enabled-channels.md#states) 섹션을 참조하세요.
 * 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
-* 콘텐츠를 스트림하려는 스트리밍 끝점에서 최소&1;개의 스트리밍 예약 단위가 있어야 합니다.
+* 콘텐츠를 스트림하려는 스트리밍 끝점이 **실행** 상태인지 확인합니다.
 * Azure를 사용하여 여러 언어 트랙을 입력하고 라이브 인코딩을 수행할 때 RTP만은 다국어 입력에 지원됩니다. RTP를 통해 MPEG-2 TS를 사용하여 최대 8개의 오디오 스트림을 정의할 수 있습니다. RTMP 또는 부드러운 스트리밍으로 여러 오디오 트랙을 수집하는 작업은 현재 지원되지 않습니다. [온-프레미스 라이브 인코딩](media-services-live-streaming-with-onprem-encoders.md)을 사용하여 라이브 인코딩을 수행할 때 AMS로 보내지는 항목은 추가적인 처리 없이 채널을 통해 전달되기 때문에 이러한 제한이 없습니다.
 * 인코딩 사전 설정에서 "최대 프레임 속도" 30fps의 개념을 사용합니다. 입력이 60fps/59.97i이면 입력 프레임이 30/29.97fps로 드롭/디인터레이스됩니다. 입력이 50fps/50i이면 입력 프레임이 25fps로 드롭/디인터레이스됩니다. 입력이 25fps이면 출력이 25fps를 유지합니다.
 * 작업이 끝나면 채널을 중지하는 것을 잊지 마세요. 그렇지 않으면 요금이 계속 청구됩니다.
@@ -407,16 +405,6 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 * RTP 지원은 전문 방송인을 위해 제공됩니다. [이](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 블로그에서 RTP에 대한 설명을 검토하세요.
 * 슬레이트 이미지는 [여기](media-services-manage-live-encoder-enabled-channels.md#default_slate)설명된 제한 사항을 따라야 합니다. 1920x1080보다 큰 기본 슬레이트를 사용하여 채널을 만들려고 하면 결국 요청이 오류로 처리됩니다.
 * 다시 한번 강조하지만, 작업이 끝나면 채널을 중지하는 것을 잊지 마세요. 그렇지 않으면 요금이 계속 청구됩니다.
-
-### <a name="how-to-create-channels-that-perform-live-encoding-from-a-singe-bitrate-to-adaptive-bitrate-stream"></a>단일 비트 전송률에서 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 만드는 방법
-**포털**, **.NET**, **REST API**를 선택하여 채널과 프로그램을 만들고 관리하는 방법을 살펴봅니다.
-
-> [!div class="op_single_selector"]
-> * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
-> * [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-> 
-> 
 
 ## <a name="next-step"></a>다음 단계
 미디어 서비스 학습 경로를 검토합니다.
@@ -429,6 +417,12 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 ## <a name="related-topics"></a>관련된 항목
 [Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-overview.md)
 
+[포털을 사용하여 단일 비트 전송률에서 적응형 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기](media-services-portal-creating-live-encoder-enabled-channel.md)
+
+[.NET SDK를 사용하여 단일 비트 전송률에서 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 만들기](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+
+[REST API를 사용하여 채널 관리](https://docs.microsoft.com/rest/api/media/operations/channel)
+ 
 [미디어 서비스 개념](media-services-concepts.md)
 
 [Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
@@ -438,6 +432,6 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성 | Microsoft Docs"
+title: "ApplicationInsights.config 참조 - Azure | Microsoft Docs"
 description: "데이터 수집 모듈을 사용하거나 사용하지 않도록 설정하고 성능 카운터 및 기타 매개 변수를 추가합니다."
 services: application-insights
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
 
 
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 응용 프로그램에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
 
-구성 파일의 이름은 응용 프로그램 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [많은 버전의 SDK를 설치][시작]할 때 프로젝트에 자동으로 추가됩니다. 또한 [IIS 서버의 상태 모니터][redfield]에 의해 또는 [Azure 웹사이트 또는 VM에 대한 Appplication Insights 확장](app-insights-azure-web-apps.md)을 선택하는 경우 웹앱에 추가됩니다.
+구성 파일의 이름은 응용 프로그램 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 또한 [IIS 서버의 상태 모니터][redfield]에 의해 또는 [Azure 웹사이트 또는 VM에 대한 Appplication Insights 확장](app-insights-azure-web-apps.md)을 선택하는 경우 웹앱에 추가됩니다.
 
-[웹 페이지에서 SDK][클라이언트]를 제어할 동급의 파일은 없습니다.
+[웹 페이지에서 SDK][client]를 제어할 동급의 파일은 없습니다.
 
 이 문서는 구성 파일에서 참조하는 섹션, SDK의 구성 요소를 제어하는 방법 및 해당 구성 요소를 로드하는 NuGet 패키지를 설명합니다.
 
@@ -37,7 +37,7 @@ Application Insights.NET SDK는  NuGet 패키지의 숫자로 구성됩니다. [
 ### <a name="dependency-tracking"></a>종속성 추적 
 [종속성 추적](app-insights-asp-net-dependencies.md) 은 앱이 데이터베이스 및 외부 서비스와 데이터베이스에 수행하는 호출에 대한 원격 분석을 수집합니다. 이 모듈이 IIS 서버에서 작동하도록 하려면 [상태 모니터를 설치][redfield]해야 합니다. Azure 웹앱 또는 VM에서 사용하려면 [Application Insights 확장을 선택](app-insights-azure-web-apps.md)합니다.
 
-[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 종속성 추적 코드를 작성할 수 있습니다.
+[TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency)를 사용하여 종속성 추적 코드를 작성할 수 있습니다.
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 패키지.
@@ -246,7 +246,7 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 
 ```
 
-새 키를 얻으려면 [Application Insights 포털에서 새 리소스를 만듭니다][신규].
+새 키를 얻으려면 [Application Insights 포털에서 새 리소스를 만듭니다][new].
 
 ## <a name="next-steps"></a>다음 단계
 [API에 대해 자세히 알아보세요][api].
@@ -254,16 +254,16 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[클라이언트]: app-insights-javascript.md
+[client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[신규]: app-insights-create-new-resource.md
+[new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[시작]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

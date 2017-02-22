@@ -16,18 +16,12 @@ ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5a3f40ff8811c08d130c2a3e0a7d61aed9457d1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
 
 
 ---
 # <a name="restore-a-deleted-azure-sql-database-using-the-azure-portal"></a>Azure 포털을 사용하여 삭제된 Azure SQL 데이터베이스 복원
-> [!div class="op_single_selector"]
-> * [개요](sql-database-recovery-using-backups.md)
-> * [**삭제된 DB 복원: 포털**](sql-database-restore-deleted-database-portal.md)
-> * [삭제된 DB 복원: PowerShell](sql-database-restore-deleted-database-powershell.md)
-> 
-> 
 
 ## <a name="select-the-database-to-restore"></a>복원할 데이터베이스를 선택합니다.
 Azure Portal에서 삭제된 데이터베이스를 복원하려면:
@@ -50,6 +44,6 @@ Azure Portal에서 삭제된 데이터베이스를 복원하려면:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

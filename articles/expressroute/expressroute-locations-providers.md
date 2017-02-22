@@ -1,10 +1,10 @@
 ---
-title: "ExpressRoute 위치 | Microsoft Docs"
-description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다."
+title: "위치 및 연결 공급자: Azure ExpressRoute | Microsoft Docs"
+description: "이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 위치에 따라 정렬됩니다."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f8392c4a930be10b159bcd950cdd893e55ea7af2
-ms.openlocfilehash: 740799ce9acd4cc0aa9d440033a41a22f2658609
+ms.sourcegitcommit: 040598d55939685e50a3fb7006e27e27097f9224
+ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
@@ -40,21 +40,21 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- |
-| **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티+, 토론토 |
+| **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 라스베이거스, 로스앤젤레스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티, 토론토 |
 | **남미** |브라질 남부 |상파울루 |
 | **유럽** |북유럽, 서유럽, 영국 서부, 영국 남부 |암스테르담, 더블린, 런던, 뉴포트(웨일스), 파리 |
 | **아시아** |동아시아, 동남 아시아 |홍콩 특별행정구, 싱가포르 |
 | **일본** |일본 서부, 일본 동부 |오사카, 도쿄 |
 | **오스트레일리아** |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 |
 | **인도** |인도 서부, 인도 중부, 인도 남부 |첸나이, 뭄바이 |
-| **대한민국** |한국 중부, 한국 남부 |부산+, 서울+ |
+| **대한민국** |한국 중부, 한국 남부 |부산, 서울 |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>국내 클라우드에 대한 지역 및 지리적 경계
 아래 표에서는 국가별 클라우드의 지역 및 지정학적 경계에 대한 정보를 제공합니다.
 
 | **지역** | **Azure 지역** | **Express 경로 위치** |
 | --- | --- | --- | --- |
-| **미국 정부 클라우드** |미국 아이오와 주 정부, 미국 버지니아 주 정부, US DoD 중부+, US DoD 동부+  |시카고, 댈러스, 뉴욕, 실리콘밸리+, 워싱턴 DC |
+| **미국 정부 클라우드** |미국 아이오와 주 정부, 미국 버지니아 주 정부, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 실리콘밸리, 워싱턴 DC |
 | **중국** |중국 북부, 중국 동부 |베이징, 상하이 |
 | **독일** |독일 중부, 독일 동부 |베를린, 프랑크푸르트 |
 
@@ -70,9 +70,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | --- | --- |
 | **암스테르담** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **애틀랜타** |Equinix |
-| **부산** |Sejong Telecom+ |
+| **부산** |LG CNS+, Sejong Telecom |
 | **첸나이** |SIFY, Tata Communications |
-| **시카코** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
+| **시카고** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **댈러스** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **더블린** |Colt, Telecity Group |
 | **홍콩** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
@@ -86,9 +86,10 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **뭄바이** |Tata Communications |
 | **오사카** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **파리** |Interxion, Equinix+ |
+| **퀘벡 시티** | Megaport |
 | **상파울루** |Equinix, Telefonica |
 | **시애틀** |Equinix, Level 3 Communications, Megaport |
-| **서울** |KINX+, Sejong Telecom+ |
+| **서울** |KINX, Sejong Telecom |
 | **실리콘밸리** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **싱가포르** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **시드니** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
@@ -103,10 +104,10 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
 | **위치**: | **서비스 공급자** |
 | --- | --- |
-| **시카코** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
+| **시카고** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** |Equinix, Megaport, Verizon |
 | **뉴욕** |Equinix, Level 3 Communications+, Verizon |
-| **실리콘밸리** | Equinix+ |
+| **실리콘밸리** | Equinix |
 | **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>중국
@@ -158,7 +159,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | --- | --- |
 | **아시아** |Avanade Inc., OneAs1a |
 | **오스트레일리아** | IT Consultancy |
-| **유럽** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
+| **유럽** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
 | **북아메리카** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **남미** |Avanade Inc. |
 ## <a name="next-steps"></a>다음 단계
@@ -170,6 +171,6 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

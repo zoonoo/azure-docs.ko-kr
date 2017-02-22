@@ -1,10 +1,10 @@
 ---
-title: "Express 경로 FAQ"
+title: Azure ExpressRoute FAQ | Microsoft Docs
 description: "Express 경로 FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9f26fd3796a45d6a4a782f80632e09a6390f1dbe
-ms.openlocfilehash: ae2dbb8524acba44f83397b7340ca98433b34de6
+ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
+ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
 
 
 ---
 # <a name="expressroute-faq"></a>Express 경로 FAQ
 ## <a name="what-is-expressroute"></a>Express 경로란?
-Express 경로는 온-프레미스 또는 공동 장소 환경의 Microsoft 데이터 센터와 인프라 사이에 개인 연결을 만들 수 있게 해 주는 서비스입니다. Express 경로 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+Express 경로는 온-프레미스 또는 공동 장소 환경의 Microsoft 데이터 센터와 인프라 사이에 개인 연결을 만들 수 있게 해 주는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Express 경로 및 개인 네트워크 연결을 사용할 경우 이점은 무엇인가요?
-Express 경로 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 대기 시간이 짧고 일관적인 일관된 속도를 제공하며 보안성이 높습니다. 경우에 따라 온-프레미스 장치와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수 있습니다.
+ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 대기 시간이 짧고 일관적인 일관된 속도를 제공하며 보안성이 높습니다. 경우에 따라 온-프레미스 장치와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수 있습니다.
 
 ### <a name="what-microsoft-cloud-services-are-supported-over-expressroute"></a>Express 경로를 통해 지원되는 Microsoft 클라우드 서비스는 무엇인가요?
 Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure 서비스를 지원합니다.  일반 가용성에 관한 업데이트를 찾아보세요.
@@ -43,10 +43,10 @@ Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure �
 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입할 Express 경로 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-required"></a>지정된 대역폭의 Express 경로 회로에 대 한 비용을 지불하는 경우, 필요하다면 더 높은 속도까지 버스트할 수 있나요?
-예. Express 경로 회로는 추가 비용 없이 확보된 대역폭 제한의 최대 2배까지 버스트할 수 있는 경우를 지원하도록 구성됩니다. 이 기능을 지원하는 경우 해당 서비스 공급자를 확인하세요.
+예. Express 경로 회로는 추가 비용 없이 확보된 대역폭 제한의 최대&2;배까지 버스트할 수 있는 경우를 지원하도록 구성됩니다. 이 기능을 지원하는 경우 해당 서비스 공급자를 확인하세요.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>동시에 가상 네트워크 및 다른 Azure 서비스와 동일한 개인 네트워크 연결을 사용할 수 있나요?
-예. Express 경로 회로를 일단 설정하면 동시에 가상 네트워크 내 서비스 및 기타 Azure 서비스에 액세스할 수 있습니다. 공용 피어링 경로를 통해 가상 네트워크에 연결하고 공용 피어링 경로를 통해 기타 서비스에 연결합니다.
+예. ExpressRoute 회로를 일단 설정하면 동시에 가상 네트워크 내 서비스 및 기타 Azure 서비스에 액세스할 수 있습니다. 공용 피어링 경로를 통해 가상 네트워크에 연결하고 공용 피어링 경로를 통해 기타 서비스에 연결합니다.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>Express 경로는 SLA(서비스 수준 계약)을 제공하나요?
 자세한 내용은 [Express 경로 SLA 페이지](https://azure.microsoft.com/support/legal/sla/) 를 참조하세요.
@@ -83,7 +83,7 @@ Microsoft 피어링
 ### <a name="what-connection-speeds-are-supported-by-expressroute"></a>Express 경로에서 지원되는 연결 속도는 무엇인가요?
 지원되는 대역폭은 다음을 제공합니다.
 
-|50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 2Gbps,  5Gbps, 10Gbps|
+|50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps|
 
 ### <a name="which-service-providers-are-available"></a>어떤 서비스 공급자를 사용할 수 있나요?
 서비스 공급자 및 위치 목록은 [Express 경로 파트너 및 위치](expressroute-locations.md) 를 참조하세요.
@@ -201,7 +201,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 기능이 활성화되어 있고 회로 상태를 업데이트하여 종료될 수 있는 경우, Express 경로 프리미엄 기능을 사용할 수 있습니다. 경로 작성 시 Express 경로 프리미엄을 사용하거나 업데이트 전용 회로 API / PowerShell cmdlet을 호출하여 Express 경로 프리미엄을 사용할 수 있습니다.
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>Express 경로 프리미엄을 사용하지 않도록 하려면 어떻게 하나요?
-업데이트 전용 회로 API / PowerShell cmdlet을 호출하여 Express 경로 프리미엄을 사용하지 않도록 설정할 수 있습니다. Express 경로 프리미엄을 사용하지 않도록 설정하기 전에 기본 제한을 충족하도록 연결 크기를 조정했는지 확인해야 합니다. 사용률이 확장 기본 제한을 초과 하는 경우, Express 경로 프리미엄을 사용하지 않도록 하는 요청이 실패합니다.
+전용 회로 API/PowerShell cmdlet을 호출하여 ExpressRoute 프리미엄을 사용하지 않도록 설정할 수 있습니다. ExpressRoute 프리미엄을 사용하지 않도록 설정하기 전에 기본 제한을 충족하도록 연결 요구를 확장했는지 확인해야 합니다. 사용률이 확장 기본 제한을 초과 하는 경우, Express 경로 프리미엄을 사용하지 않도록 하는 요청이 실패합니다.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>프리미엄 기능 집합에서 원하는 기능을 선택할 수 있나요?
 아니요. 필요한 기능을 선택할 수 없습니다. Express 경로 프리미엄을 켜면 모든 기능을 사용합니다.
@@ -216,10 +216,10 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online"></a>Office 365 서비스 및 CRM Online에 연결하려면 어떻게 Express 경로 회로를 만드나요?
-1. [ExpressRoute 필수 구성 요소 페이지](expressroute-prerequisites.md) 를 검토하여 요구 사항을 충족하는지 확인합니다.
+1. [ExpressRoute 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 충족하는지 확인합니다.
 2. 서비스 공급자 및 위치 목록을 [Express 경로 파트너 및 위치](expressroute-locations.md) 에서 검토하여 사용자 연결 요구 사항이 충족하는지 확인합니다.
 3. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
-4. [회로 프로비전 및 회로 상태에 대한 Express 경로 워크플로](expressroute-workflows.md)연결 설정 아래의 워크플로에 나열된 단계를 따르세요.
+4. [회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로](expressroute-workflows.md)연결 설정 아래의 워크플로에 나열된 단계를 따르세요.
 
 > [!IMPORTANT]
 > Office 365 서비스 및 CRM Online에 대한 연결을 구성하는 경우 Express 경로 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다.
@@ -233,7 +233,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는 데 용량이 충분한지 확인하고 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/) 은 연결 요구 사항을 계획하는 데 도움이 됩니다. [Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Express 경로 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요?
-Express 경로에서 지원되는 최신 서비스 목록은 [Office 365 URL 및 IP 주소 범위](http://aka.ms/o365endpoints) 페이지를 참조하세요.
+ExpressRoute에서 지원되는 최신 서비스 목록은 [Office 365 URL 및 IP 주소 범위](http://aka.ms/o365endpoints) 페이지를 참조하세요.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Office 365 서비스 및 CRM Online용 Express 경로 비용은 얼마인가요?
 Office 365 서비스 및 CRM Online에서는 프리미엄 추가 기능을 사용하도록 설정해야 합니다. [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/) 는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
@@ -245,11 +245,11 @@ Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용�
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
 
 ### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>ExpressRoute 연결을 통해 Dynamics 365 for Operations(이전의 Dynamics AX Online)에 액세스할 수 있나요?
-예. [Dynamics 365 for Operations](https://www.microsoft.com/en-us/dynamics365/operations)가 Azure에서 호스팅됩니다. 연결할 ExpressRoute 회로에서 Azure 공용 피어링을 연결할 수 있습니다. 
+예. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations)가 Azure에서 호스팅됩니다. 연결할 ExpressRoute 회로에서 Azure 공용 피어링을 연결할 수 있습니다. 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

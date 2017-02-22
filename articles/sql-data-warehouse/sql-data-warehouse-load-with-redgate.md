@@ -154,6 +154,6 @@ SQL Data Warehouse에서 데이터를 마이그레이션 및 로드하는 다른
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

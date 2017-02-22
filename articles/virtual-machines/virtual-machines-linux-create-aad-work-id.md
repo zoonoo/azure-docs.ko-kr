@@ -1,5 +1,5 @@
 ---
-title: "AAD에서 회사 또는 학교 ID 만들기 | Microsoft Docs"
+title: "Linux용 AAD에서 회사 또는 학교 ID 만들기 | Microsoft Docs"
 description: "Azure Active Directory에서 Linux 가상 컴퓨터로 사용할 회사 또는 학교 ID를 만드는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9332e089a7bafe0acc9f136795926c1290413448
+ms.sourcegitcommit: 1d35114800ba024d0c201840722df2c6a74d1d61
+ms.openlocfilehash: 0eaa83fc19316708685eed0ca994112bc09153e5
 
 
 ---
@@ -33,6 +33,6 @@ ms.openlocfilehash: 9332e089a7bafe0acc9f136795926c1290413448
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

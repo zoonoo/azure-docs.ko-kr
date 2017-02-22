@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager 템플릿의 상태 처리 | Microsoft Docs"
-description: "복잡한 개체를 사용하여 Azure 리소스 관리자 템플릿 및 연결된 템플릿과 상태 데이터를 공유하는 권장 방법을 보여 줍니다."
+title: "Azure 템플릿 간의 복잡한 값 전달 | Microsoft Docs"
+description: "복잡한 개체를 사용하여 Azure Resource Manager 템플릿 및 연결된 템플릿과 상태 데이터를 공유하는 권장 방법을 보여 줍니다."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cf2f6a82df28047ba7b50dc2cfd6fc2f0dfad794
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 
 ---
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿에서 상태 공유
+# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿과 상태 공유
 이 항목에서는 템플릿 내에서 상태를 관리 및 공유하는 방법에 대한 모범 사례를 보여 줍니다. 이 항목에 표시된 매개 변수 및 변수는 배포 요구 사항을 편리하게 구성하기 위해 정의할 수 있는 개체 유형의 예입니다. 이러한 예를 통해 사용자 환경에 맞는 속성 값으로 고유한 개체를 구현할 수 있습니다.
 
 이 항목은 더 큰 백서의 일부입니다. 전체 문서를 읽으려면 [세계적인 Resource Manager 템플릿 고려 사항 및 입증 사례](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)를 다운로드합니다.
@@ -415,6 +415,6 @@ ms.openlocfilehash: cf2f6a82df28047ba7b50dc2cfd6fc2f0dfad794
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

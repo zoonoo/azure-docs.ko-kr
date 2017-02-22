@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/09/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
-ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
+ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
+ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>MongoDB 연결 문자열을 사용하여 MongoDB 앱을 DocumentDB 계정에 연결
+# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>MongoDB 연결 문자열을 사용하여 MongoDB 앱을 DocumentDB 계정에 연결
 MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure DocumentDB 계정에 연결하는 방법에 대해 알아봅니다. MongoDB 앱을 Azure DocumentDB 데이터베이스에 연결하면 MongoDB 앱의 데이터 저장소로 DocumentDB 데이터베이스를 사용할 수 있습니다. 
 
 이 자습서에서는 연결 문자열 정보를 검색하는 다음 두 가지 방법을 제공합니다.
@@ -86,6 +86,6 @@ DocumentDB가 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -107,7 +107,7 @@ function loadPage(pageNum) {
 
 다음으로 페이지 변수 및 몇 가지 UI 단추를 사용하여 페이지 목록을 제공할 수 있습니다. 각 페이지에 대해 새 레코드를 로드하는 데 `loadPage()`를 사용합니다.  이미 로드된 레코드에 대한 액세스 속도를 높이려면 캐싱을 구현합니다.
 
-#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>방법: 정렬된 데이터 반환
+#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>방법: 정렬된 데이터 반환
 `.orderBy()` 또는 `.orderByDescending()` 쿼리 메서드 사용:
 
 ```
@@ -155,7 +155,7 @@ table
     }, failure);
 ```
 
-### <a name="a-namedeletingahow-to-delete-data"></a><a name="deleting"></a>방법: Blob 삭제
+### <a name="a-namedeletingahow-to-delete-data"></a><a name="deleting"></a>방법: 데이터 삭제
 레코드를 삭제하려면 `.del()` 메서드를 호출합니다.  개체 참조에 ID를 전달합니다.
 
 ```
@@ -167,6 +167,6 @@ table
 ```
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

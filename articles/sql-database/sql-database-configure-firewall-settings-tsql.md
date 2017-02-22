@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
+ms.sourcegitcommit: b80b3240cdc4917c0b7be8868e75feaf1efc24cc
+ms.openlocfilehash: c6ddae85ef44bd91ca33d99e8194bc87a0081df3
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 > 
 
 ## <a name="server-level-firewall-rules"></a>서버 수준 방화벽 규칙
-서버 수준 보안 주체 로그인 또는 Azure Active Directory 관리자만이 Transact-SQL을 사용하여 서버 수준 방화벽 규칙을 만들 수 있습니다.
+Azure SQL 서버 관리자 로그인 또는 Azure Active Directory 관리자만이 Transact-SQL을 사용하여 서버 수준 방화벽 규칙을 만들 수 있습니다.
 
 1. SQL Server Management Studio를 사용하여 쿼리 창을 시작하고 가상 마스터 데이터베이스에 연결합니다.
 2. 서버 수준 방화벽 규칙은 쿼리 창 내에서 선택, 생성, 업데이트 또는 삭제할 수 있습니다.
@@ -61,7 +61,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 ## <a name="database-level-firewall-rules"></a>데이터베이스 수준 방화벽 규칙
 데이터베이스에 대한 **제어** 권한이 있는 데이터베이스 사용자(예: 데이터베이스 소유자)만이 데이터베이스 수준 방화벽 규칙을 만들 수 있습니다.
 
-1. IP 주소에 대한 서버 수준 방화벽을 만든 후 클래식 포털 또는 SQL Server Management Studio를 통해 쿼리 창을 시작합니다.
+1. IP 주소에 대한 서버 수준 방화벽을 만든 후 Azure Portal 또는 SQL Server Management Studio를 통해 쿼리 창을 시작합니다.
 2. 데이터베이스 수준 방화벽 규칙을 만들려는 데이터베이스에 연결 합니다.
    
     데이터베이스 수준 방화벽 규칙을 새로 만들거나 기존 규칙을 업데이트하려면 `sp_set_database_firewall_rule` 저장 프로시저를 실행합니다. 다음 예제에서는 ContosoFirewallRule 이라는 새 방화벽 규칙을 만듭니다.
@@ -75,6 +75,11 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
         EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
 이러한 저장 프로시저에 대한 자세한 내용은 [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) 및 [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx)을 참조하세요.
+
+> [!NOTE]
+> 데이터베이스 수준 방화벽을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: SQL Server 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
+>
+
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법을 사용한 서버 수준 방화벽 규칙 만들기에 대한 방법 문서를 보려면 다음을 참조하세요. 
@@ -94,6 +99,6 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

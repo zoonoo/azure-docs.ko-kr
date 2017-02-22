@@ -12,7 +12,6 @@ Azure 설명서에 관심을 가져 주셔서 감사합니다.
 * [리포지토리 조직](#repository-organization)
 * [GitHub, Git 및 이 리포지토리 사용](#use-github-git-and-this-repository)
 * [항목의 서식을 지정하는 Markdown을 사용하는 방법](#how-to-use-markdown-to-format-your-topic)
-* [피드백, 의견 및 지원](./contributor-guide/feedback-and-comments.md)
 * [추가 리소스](#more-resources)
 * [모든 참여자 가이드 문서의 인덱스](contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다.)
 
@@ -87,6 +86,6 @@ GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

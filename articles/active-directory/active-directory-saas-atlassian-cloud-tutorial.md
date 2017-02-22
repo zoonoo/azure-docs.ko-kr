@@ -183,7 +183,7 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     a. SAML 화면에서 [SP Entity ID]를 복사하여 Azure AD에 **식별자** 값으로 붙여넣습니다.
 
-    b. [로그인 URL]은 Atlassian Cloud의 테넌트 URL입니다.   
+    b. [로그인 URL]은 Atlassian Cloud의 테넌트 URL입니다.     
 
     ![Single Sign-on 구성](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
     
@@ -335,6 +335,6 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

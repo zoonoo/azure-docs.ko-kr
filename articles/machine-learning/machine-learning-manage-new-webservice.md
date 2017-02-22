@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리 | Microsoft Docs"
+title: "Azure Machine Learning 웹 서비스 포털 사용 | Microsoft Docs"
 description: "Azure 기계 학습 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: ef24162006c508134db3f385e791306495ac4614
 
 
 ---
@@ -92,8 +92,8 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **계획 설명** 은 계획과 관련된 비용 및 용량에 대한 정보를 표시합니다.
 * **계획 사용량** 은 계획에 대한 요금이 청구된 트랜잭션 및 계산 시간 수를 표시합니다.
 * **웹 서비스** 해당 계획을 사용하는 웹 서비스의 수를 표시합니다.
-* **호출별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 호출을 발생시키는 최상위 4개 웹 서비스를 표시합니다.
-* **계산 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 계산 리소스를 사용하는 최상위 4개 웹 서비스를 표시합니다.
+* **호출별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 호출을 발생시키는 최상위&4;개 웹 서비스를 표시합니다.
+* **계산 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 계산 리소스를 사용하는 최상위&4;개 웹 서비스를 표시합니다.
 
 ## <a name="manage-classic-web-services"></a>기존 웹 서비스 관리
 > [!NOTE]
@@ -178,6 +178,6 @@ Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b7609a6353b32b9e4fbf05429d5d2ac22fd03f2c
+ms.sourcegitcommit: e1c9957f64e9a0a17823a881b060543a9346f457
+ms.openlocfilehash: 8e69d4efe14e29d9f009a4b65416207bb39faa8b
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Weekdone과의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독
-* Weekdone Single Sign-On이 설정된 구독
+* Weekdone SSO(Single Sign-On)가 설정된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -45,7 +45,7 @@ Weekdone과의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 
@@ -108,31 +108,31 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![Single Sign-on 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_03.png) 
 3. **앱 설정 구성** 대화 상자 페이지에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_04.png) 
+    ![Single Sign-on 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_04.png) 
 
-    a. **회신 URL** 텍스트 상자에 **"https://weekdone.com/a/azure"** 패턴으로 URL을 입력합니다.
+   1. **회신 URL** 텍스트 상자에 **"https://weekdone.com/a/azure"** 패턴으로 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에 **"https://weekdone.com/a/azure/metadata"** 패턴으로 URL을 입력합니다.
+   2. **식별자** 텍스트 상자에 **"https://weekdone.com/a/azure/metadata"** 패턴으로 URL을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+   3. **다음**을 클릭합니다.
 
 1. **앱 설정 구성** 대화 상자 페이지에서 **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"고급 설정 표시(선택 사항)"**를 클릭하고 **로그온 URL** 및 **식별자**를 입력한 후 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
    
-    a. **로그온 URL** 텍스트 상자에 **“https://weekdone.com/a/azure”** 패턴을 사용하여 사용자가 Weekdone 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
+   1. **로그온 URL** 텍스트 상자에 **“https://weekdone.com/a/azure”** 패턴을 사용하여 사용자가 Weekdone 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
    
-    b. **식별자** 텍스트 상자에 **"https://weekdone.com/a/azure/metadata"** 패턴으로 URL을 입력합니다.
+   2. **식별자** 텍스트 상자에 **"https://weekdone.com/a/azure/metadata"** 패턴으로 URL을 입력합니다.
    
-    c. **다음**을 클릭합니다.
+   3. **다음**을 클릭합니다.
 2. **Weekdone에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png) 
    
-    a. **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 저장합니다.
-   
-    b. **다음**을 클릭합니다.
-3. 응용 프로그램에 대해 SSO를 구성하려면 hello@weekdone.com. SSO를 Weekdone 쪽에서 설정하려면 다운로드한 인증서 파일을 메일에 첨부하고 Weekdone 팀과 메타데이터 URL(발급자 URL, SAML SSO URL 및 SINGLE SIGN-OUT 서비스 URL)을 공유합니다.
+   1. **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 저장합니다.
+   2. **다음**을 클릭합니다.
+    
+3. 응용 프로그램에 대해 SSO를 구성하려면 hello@weekdone.com을 통해 Weekdone 지원 팀에 문의하세요. SSO를 Weekdone 쪽에서 설정하려면 다운로드한 인증서 파일을 메일에 첨부하고 Weekdone 팀과 메타데이터 URL(발급자 URL, SAML SSO URL 및 SINGLE SIGN-OUT 서비스 URL)을 공유합니다.
 4. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Azure AD Single Sign-On][10]
@@ -149,39 +149,45 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
+   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
+    
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
-   
+4.    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_03.png) 
+    
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png) 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 단계를 수행합니다. 
+    
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
+
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 
    
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+    1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+    2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+    3. **다음**을 클릭합니다.
+    
+6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
+
+   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 
    
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-   
-    c. **다음**을 클릭합니다.
-6. **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
-   
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
-   
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
-   
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
-   
-   d. **역할** 목록에서 **사용자**를 선택합니다.
-   
-   e. **다음**을 클릭합니다.
+   1. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+   2. **성** 텍스트 상자에 **Simon**을 입력합니다.
+   3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+   4. **역할** 목록에서 **사용자**를 선택합니다.
+   5. **다음**을 클릭합니다.
+  
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_07.png) 
-8. **임시 암호 가져오기** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 단계를 수행합니다. 
+    
+8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
+
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 
    
-    a. **새 암호**값을 적어둡니다.
-   
-    b. **완료**를 클릭합니다.   
+   1. **새 암호**값을 적어둡니다. 
+   2. **완료**를 클릭합니다.   
 
 ### <a name="creating-a-weekdone-test-user"></a>Weekdone 테스트 사용자 만들기
 이 섹션은 Weekdone에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Weekdone은 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정됩니다.
@@ -243,6 +249,6 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

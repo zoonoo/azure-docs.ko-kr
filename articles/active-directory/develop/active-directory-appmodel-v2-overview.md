@@ -1,5 +1,5 @@
 ---
-title: "v2.0 끝점 개요 | Microsoft Docs"
+title: "Azure AD v2.0 끝점용 리소스 | Microsoft Docs"
 description: "Microsoft 계정 및 Azure Active Directory 로그인을 사용하는 앱 구축을 소개합니다."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 245655ac4feed23cb91890d6a4dd2fa5d23cf54f
-ms.openlocfilehash: 30b9f44cdde09d69f41ed9fb42f63786f08c4040
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: d3571d3d842ac908200c7e6b437b40d3c370b38d
 
 
 ---
@@ -59,6 +59,6 @@ ms.openlocfilehash: 30b9f44cdde09d69f41ed9fb42f63786f08c4040
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

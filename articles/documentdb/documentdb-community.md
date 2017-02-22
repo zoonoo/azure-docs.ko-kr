@@ -1,10 +1,10 @@
 ---
-title: "DocumentDB 커뮤니티 및 뉴스 | Microsoft 문서"
+title: "Azure DocumentDB 커뮤니티, 뉴스 및 이벤트 | Microsoft Docs"
 description: "Azure DocumentDB 커뮤니티에 참여하여 관계를 빌드하고 작업을 보여주며 기술을 단련합니다."
 services: documentdb
 documentationcenter: 
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
 ms.service: documentdb
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 3ab93acf3088b6c93c8ec231dc606f50de108fea
-ms.openlocfilehash: 5620a19c64913e0754c5433a8cc3f21ef01f1fb2
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
 
 
 ---
@@ -96,7 +96,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 ### <a name="recent-and-upcoming-events"></a>최근 및 예정된 이벤트
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | --- | --- | --- | --- | --- |
-| [Wintellect 웹 세미나: Azure DocumentDB 소개](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|온라인|2016년 12월 15일 오후 1시 EST|해당 없음|
+| [Wintellect 웹 세미나: Azure DocumentDB 소개](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|온라인|2017년 1월 12일 오후 1시 EST|해당 없음|
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 
@@ -131,7 +131,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 | [SQL Saturday #444 - 캔자스시티 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) |Jeff Renz |캔자스시티, MO |2015년 10월 3일 |해당 없음 |
 | [SQL Saturday #429 - 오포르토 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) |Leonard Lobel |오포르토, 포르투갈 |2015년 10월 3일 |해당 없음 |
 | [AzureCon](https://azure.microsoft.com/azurecon/) |David Makogon, Ryan Crawcour, John Macintyre |가상 이벤트 |2015년 9월 29일 |[Azure 데이터 및 분석 플랫폼](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) [DocumentDB에서 NoSQL 데이터 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Leonard Lobel |위트레흐트, 네덜란드 |2015년 9월 26일 |[Azure DocumentDB 소개](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [SQL Saturday #434 - 홀랜드 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Leonard Lobel |위트레흐트, 네덜란드 |2015년 9월 26일 |[Azure DocumentDB 소개](https://channel9.msdn.com/Blogs/Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [SQL Saturday #441 - 덴버 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) |Jeff Renz |덴버, CO |2015년 9월 19일 |해당 없음 |
 | [모임: 샌프란시스코만 지역 Azure 개발자](http://www.meetup.com/bayazure/events/223943785/) |Andrew Liu |샌프란시스코, CA |2015년 9월 15일 |해당 없음 |
 | [벨로루시 Azure 사용자 그룹 모임 접속](https://www.facebook.com/events/786540124800276/) |Alex Zyl |민스크, 벨로루시 |2015년 9월 9일 |[DocumentDB 개념 개요, 일관성 수준, 분할 전략 소개](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
@@ -152,7 +152,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 | [모임: 샬럿 Microsoft 클라우드](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) |Jamie Rance |샬럿, NC |2015년 4월 8일 |해당 없음 |
 | [SQL Saturday #375 - 실리콘 밸리 2015](http://www.sqlsaturday.com/375/Sessions/Details.aspx?sid=15289) |Ike Ellis |마운틴뷰, CA |2015년 3월 28일 |해당 없음 |
 | [모임: 이스탄불 Azure 모임](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) |Daron Yondem |이스탄불, 터키 |2015년 3월 7일 |해당 없음 |
-| [모임: 5대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) |Michael Collier |사우스필드, MI |2015년 2월 18일 |해당 없음 |
+| [모임:&5;대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) |Michael Collier |사우스필드, MI |2015년 2월 18일 |해당 없음 |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) |Magnus Mårtensson |스톡홀름, 스웨덴 |2015년 1월 28-29일 |[클라우드용 Azure 새 NoSQL 옵션의 DocumentDB](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
 ### <a name="videos-and-podcasts"></a>비디오 및 팟캐스트
@@ -184,7 +184,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 ### <a name="online-classes"></a>온라인 클래스
 | 학습 파트너 | 설명 |
 | --- | --- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) 는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) 는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) |[**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) 는 Azure 교육을 제공하는 핵심 Microsoft 파트너입니다. MSDN 구독자의 경우 구독 혜택을 사용하여 Microsoft Azure 교육을 이용할 수 있습니다. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) |[**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) 는 Microsoft Azure에 대한 세부 기술 교육을 제공합니다. 현장에서 이뤄지는 강사 주도형 교육 또는 업계에서 인정받고 있는 전문 강사로 구성된 원격 강의를 받아 보세요. |
 
@@ -195,13 +195,12 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 ### <a name="online-forums"></a>온라인 포럼
 | 포럼 공급자 | 설명 |
 | --- | --- |
-| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |프로그래머를 위해 공동으로 언어 독립적이게 편집된 질문 및 답변 사이트입니다.  [azure documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) |Microsoft Azure 기능 및 웹사이트, DocumentDB 등과 같은 서비스에 대한 지원 및 피드백을 할 수 있는 곳입니다. |
+| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |프로그래머를 위해 공동으로 언어 독립적이게 편집된 질문 및 답변 사이트입니다. [azure documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 
 ## <a name="contact-the-team"></a>팀에 문의
 ![팀](./media/documentdb-community/documentdb-team.png)
 
-기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하십니까? [DocumentDB 엔지니어링 팀에 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다. 또한 [전자 메일](mailto:askdocdb@microsoft.com)을 보내거나 [@DocumentDB](https://twitter.com/DocumentDB)에 트윗할 수 있습니다. 
+기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하십니까? [전자 메일](mailto:askdocdb@microsoft.com)을 보내거나 [@DocumentDB](https://twitter.com/DocumentDB)에서 트윗하여 DocumentDB 엔지니어링 팀과 직접 1:1 채팅을 예약할 수 있습니다.
 
 ## <a name="open-source-projects"></a>공개 소스 프로젝트
 이러한 프로젝트는 공개 소스 커뮤니티와 협력하여 Azure DocumentDB 팀에서 적극적으로 개발됩니다.
@@ -239,6 +238,6 @@ DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Service 소개 | Microsoft Docs"
+title: "Azure 클라우드의 Docker 컨테이너 클러스터 | Microsoft Docs"
 description: "Azure 컨테이너 서비스는 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 컴퓨터의 클러스터를 간단히 만들고 구성하고 관리하는 방법을 제공합니다."
 services: container-service
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
-ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 0521fbd689233c0f2359a10006e24c75c8997732
 
 
 ---
@@ -39,7 +39,7 @@ Azure 컨테이너 서비스를 사용하면 오케스트레이션 계층의 이
 Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 사용자가 선택한 Orchestrator에 대한 표준 API 끝점을 노출합니다(DC/OS, Docker Swarm 또는 Kubernetes). 이러한 끝점을 사용하면 해당 끝점과 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 Docker Swarm 끝점의 경우 Docker CLI(명령줄 인터페이스)를 사용하도록 선택할 수 있고 DC/OS의 경우 DCOS CLI를 사용하도록 선택할 수 있습니다. Kubernetes의 경우 kubectl을 사용하도록 선택할 수 있습니다.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Azure 컨테이너 서비스를 사용하여 Docker 클러스터 만들기
-Azure Container Service를 사용하려면 먼저 포털에서 Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) 또는 [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes))을 사용하거나 [CLI](/documentation/articles/xplat-cli-install/)를 사용하여 Azure Container Service 클러스터를 배포합니다('Azure Container Service' 검색). 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. Azure Container Service 클러스터 배포에 대한 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
+Azure Container Service를 사용하려면 먼저 포털에서 Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) 또는 [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes))을 사용하거나 [CLI](/articles/xplat-cli-install.md)를 사용하여 Azure Container Service 클러스터를 배포합니다('Azure Container Service' 검색). 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. Azure Container Service 클러스터 배포에 대한 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
 
 ## <a name="deploying-an-application"></a>응용 프로그램 배포
 Azure Container Service는 오케스트레이션을 위해 Docker Swarm, DC/OS 또는 Kubernetes 옵션을 제공합니다. 응용 프로그램을 배포하는 방법은 선택한 Orchestrator에 따라 달라집니다.
@@ -92,7 +92,7 @@ Kubernetes는 자동화된 컨테이너 배포, 컨테이너화된 응용 프로
 * 서비스 검색 및 부하 분산
 * 비밀 및 구성 관리
 * API 기반 자동화된 롤아웃 및 롤백
-* 자동 복구 
+* 자동 복구
 * 기타 등등
 
 
@@ -101,18 +101,17 @@ Kubernetes는 자동화된 컨테이너 배포, 컨테이너화된 응용 프로
 Azure Container Service 시작(101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
 Azure Container Service를 사용하여 응용 프로그램 빌드(빌드 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "배치 서비스 할당량 및 제한 | Microsoft Docs"
+title: "Azure Batch의 서비스 할당량 및 제한 | Microsoft Docs"
 description: "기본 Azure 배치 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/09/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
+ms.sourcegitcommit: 683ff9f9a829468d9852ce7e9699c766cab53f8b
+ms.openlocfilehash: 163f9f19dfed86e1280135b653086e018f85592b
 
 
 ---
@@ -30,12 +30,7 @@ ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 > 
 > 
 
-## <a name="subscription-quotas"></a>구독 할당량
-| **리소스** | **기본 제한** | **최대 제한** |
-| --- | --- | --- |
-| 구독당 지역별 배치 계정 |1 |50 |
-
-## <a name="batch-account-quotas"></a>배치 계정 할당량
+## <a name="resource-quotas"></a>리소스 할당량
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## <a name="other-limits"></a>기타 제한
@@ -103,6 +98,6 @@ ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

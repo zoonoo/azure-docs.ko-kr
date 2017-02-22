@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 397928e851524fb43d3ffa114b45024b0158a410
+ms.sourcegitcommit: b8b663d802fde83f3435f2d97ceb51d5b5c802bb
+ms.openlocfilehash: ef17c0226528fef35c0317cebbaa14b7bbe28b1d
 
 
 ---
@@ -105,7 +105,7 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 
 ### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>2단계 - 활성-활성 모드로 TestVNet1용 VPN Gateway 만들기
 #### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. 공용 IP 주소 및 게이트웨이 IP 구성 만들기
-VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 2개 요청합니다. 필요한 서브넷 및 IP 구성도 정의합니다. 
+VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를&2;개 요청합니다. 필요한 서브넷 및 IP 구성도 정의합니다. 
 
     $gw1pip1    = New-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
     $gw1pip2    = New-AzureRmPublicIpAddress -Name $GW1IPName2 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
@@ -116,7 +116,7 @@ VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 2개 요�
     $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $subnet1 -PublicIpAddress $gw1pip2
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. 활성-활성 구성으로 VPN Gateway 만들기
-TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 활성-활성 모드에는 HighPerformance SKU의 경로 기반 VPN 게이트웨가 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 30분 이상).
+TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 활성-활성 모드에는 HighPerformance SKU의 경로 기반 VPN 게이트웨가 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면&30;분 이상).
 
     New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 
@@ -227,14 +227,15 @@ TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfi
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 장치에 대한 VPN 및 BGP 매개 변수
 마찬가지로 아래에는 두 번째 VPN 장치에 입력하는 매개 변수가 나와 있습니다.
 
-    - Site5 ASN            : 65050
-    - Site5 BGP IP         : 10.52.255.254
-    - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-    - Azure VNet ASN       : 65010
-    - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-    - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-    - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5                        Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-    - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+      - Site5 ASN            : 65050
+      - Site5 BGP IP         : 10.52.255.254
+      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+      - Azure VNet ASN       : 65010
+      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 
 연결(터널)이 설정되면 이중 중복 VPN 장치와 터널을 통해 온-프레미스 네트워크와 Azure가 연결됩니다.
 
@@ -284,7 +285,7 @@ TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfi
     New-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 
 #### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. TestVNet2에 대한 활성-활성 VPN Gateway 만들기
-VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 2개 요청합니다. 필요한 서브넷 및 IP 구성도 정의합니다. 
+VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를&2;개 요청합니다. 필요한 서브넷 및 IP 구성도 정의합니다. 
 
     $gw2pip1    = New-AzureRmPublicIpAddress -Name $GW2IPName1 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
     $gw2pip2    = New-AzureRmPublicIpAddress -Name $GW2IPName2 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
@@ -381,6 +382,6 @@ AS 번호 및 "EnableActiveActiveFeature" 플래그를 사용하여 VPN Gateway�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

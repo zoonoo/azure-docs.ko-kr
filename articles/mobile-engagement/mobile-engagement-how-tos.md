@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 67f6427ab8dec58778c75b9b3826853c84ab7fe6
+ms.sourcegitcommit: 3a423e42441c6b3b2f1917ba02f80078c759ec69
+ms.openlocfilehash: 4c114f470631ae6b06968c3cc8601bc1c76bc1da
 
 
 ---
@@ -115,7 +115,7 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 "앱 외부에서만"을 선택한 경우 응용 프로그램이 빌드되고 있는 플랫폼(APNS 또는 GCM)의 인증서를 이미 제공했어야 합니다.
 
 ### <a name="see-also"></a>참고 항목
-* [Apple Push Notification Service - 인증서](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging - 인증서](http://developer.android.com/google/gcm/index.html) 
+* [Apple 푸시 알림 서비스 - 인증서](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging - 인증서](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>"앱 내에서만" 배달 모드
 ![Differentiate3][17]
@@ -314,6 +314,6 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

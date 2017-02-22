@@ -1,6 +1,6 @@
 ---
-title: "개발자 가이드 - 작업 | Microsoft Docs"
-description: "Azure IoT Hub 개발자 가이드 - 허브에 연결된 여러 장치에서 실행할 작업 예약"
+title: "Azure IoT Hub 작업 이해 | Microsoft 문서"
+description: "개발자 가이드 - IoT 허브에 연결된 여러 장치에서 실행할 작업 예약 작업은 태그와 원하는 속성을 업데이트하고 여러 장치에서 직접 메서드를 호출할 수 있습니다."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
+ms.sourcegitcommit: 8245c9d86d7a37bfb12c06b1cb2cbe9dae01d653
+ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
 
 
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
 ## <a name="overview"></a>개요
-이전 문서에 설명된 대로, Azure IoT Hub를 통해 다양한 구성 요소([장치 쌍 속성 및 태그][lnk-twin-devguide] 및 [직접 메서드][lnk-dev-methods])를 사용할 수 있습니다.  일반적으로, IoT 백 엔드 응용 프로그램을 사용하면 장치 관리자 및 운영자는 IoT 장치를 대량으로 및 예약된 시간에 업데이트 및 조작할 수 있습니다.  작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행하는 것을 캡슐화합니다.  예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 응용 프로그램을 사용합니다.
+이전 문서에 설명된 대로, Azure IoT Hub를 통해 다양한 구성 요소([장치 쌍 속성 및 태그][lnk-twin-devguide] 및 [직접 메서드][lnk-dev-methods])를 사용할 수 있습니다.  일반적으로, 백 엔드 앱을 사용하면 장치 관리자와 운영자는 IoT 장치를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다.  작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행하는 것을 캡슐화합니다.  예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
 
 ### <a name="when-to-use"></a>사용하는 경우
 솔루션 백 엔드가 장치 집합에서 다음 작업을 예약하고 진행 상태를 추적해야 하는 경우 작업을 사용하는 것이 좋습니다.
 
 * desired 속성 업데이트
-* 태그 업데이트
+* tags 업데이트
 * 직접 메서드 호출
 
 ## <a name="job-lifecycle"></a>작업 수명 주기
-작업은 솔루션 백 엔드에 의해 시작되고 IoT Hub에 의해 유지 관리됩니다.  서비스 지향 URI(`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`)를 통해 작업을 시작하고 서비스 지향 URI(`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`)를 통해 작업 실행 진행 상태를 쿼리할 수 있습니다.  작업이 시작된 후에는 작업 쿼리를 통해 백 엔드 응용 프로그램에서 실행 중인 작업의 상태를 새로 고칠 수 있습니다.
+작업은 솔루션 백 엔드에 의해 시작되고 IoT Hub에 의해 유지 관리됩니다.  서비스 지향 URI(`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`)를 통해 작업을 시작하고 서비스 지향 URI(`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`)를 통해 작업 실행 진행 상태를 쿼리할 수 있습니다.  작업이 시작된 후에는 작업 쿼리를 통해 백 엔드 앱에서 실행 중인 작업의 상태를 새로 고칠 수 있습니다.
 
 > [!NOTE]
 > 작업을 시작할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -46,7 +46,7 @@ ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
 작업을 사용하여 장치 집합에서 [직접 메서드][lnk-dev-methods]를 실행하기 위한 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
 
     ```
-    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -72,7 +72,7 @@ ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
 작업을 사용하여 장치 쌍 속성을 업데이트하는 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
 
     ```
-    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
@@ -93,7 +93,7 @@ ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
 [작업 쿼리][lnk-query]를 위한 HTTP 1.1 요청 세부 정보는 다음과 같습니다.
 
     ```
-    GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -123,7 +123,7 @@ ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
 | **완료됨** : 작업이 완료되었습니다. | |
 | **deviceJobStatistics** |작업 실행에 대한 통계입니다. |
 
-미리 보기 중에는 deviceJobStatistics 개체를 작업이 완료된 후에만 사용할 수 있습니다
+**deviceJobStatistics** 속성입니다.
 
 | 속성 | 설명 |
 | --- | --- |
@@ -134,13 +134,13 @@ ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
 | **deviceJobStatistics.pendingCount** |작업 실행이 보류 중인 장치 수입니다. |
 
 ### <a name="additional-reference-material"></a>추가 참조 자료
-개발자 가이드의 다른 참조 자료:
+이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-endpoints]에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다.
-* [제한 및 할당량][lnk-quotas]에서는 IoT Hub 서비스에 적용되는 할당량과 서비스를 언제 사용할지 예상하는 제한 동작을 설명합니다.
-* [Azure IoT 장치 및 서비스 SDK][lnk-sdks]에는 IoT Hub와 상호 작용하는 장치 및 서비스 응용 프로그램을 개발할 때 사용할 수 있는 다양한 언어 SDK가 나열되어 있습니다.
-* [장치 쌍 및 작업용 IoT Hub 쿼리 언어][lnk-query]에는 IoT Hub에서 장치 쌍 및 작업에 대한 내용을 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어가 설명되어 있습니다.
-* [IoT Hub MQTT 지원][lnk-devguide-mqtt]에는 MQTT 프로토콜에 대한 IoT Hub 지원에 대하여 자세한 정보가 제공됩니다.
+* [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
+* [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
+* [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용하는 다양한 언어 SDK를 나열합니다.
+* [장치 쌍 및 작업을 위한 IoT Hub 쿼리 언어][lnk-query] - IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
+* [IoT Hub MQTT 지원][lnk-devguide-mqtt] - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
@@ -162,6 +162,6 @@ ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

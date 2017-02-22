@@ -17,8 +17,8 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 03d93ac0416a947d43dca66297588c4c5b656a1d
-ms.openlocfilehash: 18ea4ab3ab6b82fd43ee290ece790d61cabf16a4
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
 
 
 ---
@@ -162,12 +162,12 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 Azure 리�
 계정과 연결된 구독이 Active Directory에서만 인증된 경우 로그아웃하면 구독 정보가 로컬 프로필에서 삭제됩니다. 그러나 구독에 대해 게시 설정 파일도 가져온 경우에는 로그아웃해도 Active Directory 관련 정보만 로컬 프로필에서 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* CLI 명령을 사용하려면 [Resource Manager 모드의 Azure CLI 명령](virtual-machines/azure-cli-arm-commands.md) 및 [서비스 관리 모드의 Azure CLI 명령](virtual-machines-command-line-tools.md)을 참조하세요.
+* CLI 명령을 사용하려면 [Resource Manager 모드의 Azure CLI 명령](virtual-machines/azure-cli-arm-commands.md) 및 [서비스 관리 모드의 Azure CLI 명령](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 * Azure CLI 또는 Azure를 사용하는 데 문제가 있는 경우 [Azure 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)을 방문하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

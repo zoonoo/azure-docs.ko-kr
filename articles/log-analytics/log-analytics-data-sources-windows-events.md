@@ -1,10 +1,10 @@
 ---
-title: "Log Analytics의 Windows 이벤트 로그 | Microsoft Docs"
+title: "OMS Log Analytics에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs"
 description: "Windows 이벤트 로그는 Log Analytics에서 사용되는 가장 일반적인 데이터 원본 중 하나입니다.  이 문서에서는 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 055a60c174c280ba56ea40cb47779e233b54fe8e
-ms.openlocfilehash: 867dc9fd84793debc8c8dcd2a27dfc0b0ccf69c4
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
 
 
 ---
@@ -35,7 +35,9 @@ Log Analytics에서는 설정에 지정된 Windows 이벤트 로그에서만 이
 ![Windows 이벤트 구성](media/log-analytics-data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>데이터 수집
-Log Analytics에서는 이벤트가 생성될 때 모니터링되는 이벤트 로그에서 선택한 심각도와 일치하는 각 이벤트를 수집합니다.  에이전트는 수집하는 각 이벤트 로그에 해당 위치를 기록합니다.  에이전트가 일정 기간 동안 오프라인 상태로 전환된 경우 Log Analytics는 마지막으로 오프라인 상태가 유지된 위치에서 이벤트를 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 이벤트가 생성된 경우에도 마찬가지입니다.
+Log Analytics에서는 이벤트가 생성될 때 모니터링되는 이벤트 로그에서 선택한 심각도와 일치하는 각 이벤트를 수집합니다.  에이전트는 수집하는 각 이벤트 로그에 해당 위치를 기록합니다.  에이전트가 일정 기간 동안 오프라인 상태로 전환된 경우 Log Analytics는 마지막으로 오프라인 상태가 유지된 위치에서 이벤트를 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 이벤트가 생성된 경우에도 마찬가지입니다.  에이전트가 오프라인 상태인 동안 이벤트 로그가 수집되지 않은 이벤트로 래핑하여 덮어쓰여지면 이벤트가 수집되지 않을 가능성이 있습니다.
+
+
 
 ## <a name="windows-event-records-properties"></a>Windows 이벤트 레코드 속성
 Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 있는 속성이 있습니다.
@@ -53,7 +55,7 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 이 값은 AOI-<workspace ID>입니다. |
 | RenderedDescription |매개 변수 값을 포함하는 이벤트 설명입니다. |
 | 원본 |이벤트의 원본입니다. |
-| SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br>  Linux – 모든 Linux 에이전트  <br>  AzureStorage – Azure 진단 |
+| SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure 진단 |
 | TimeGenerated |Windows에서 이벤트가 만들어진 날짜 및 시간입니다. |
 | 사용자 이름 |이벤트를 로깅한 계정의 사용자 이름입니다. |
 
@@ -76,6 +78,6 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

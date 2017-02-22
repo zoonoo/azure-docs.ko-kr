@@ -22,6 +22,7 @@ ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
 
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리 
+
 > [!NOTE]
 > [활성 지역 복제](sql-database-geo-replication-overview.md)는 현재 모든 서비스 계층의 모든 데이터베이스에 대해 제공됩니다.
 >  

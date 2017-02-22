@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 보안 의료 서비스 솔루션을 설계하는 실용 가이드 | Microsoft Docs"
-description: " 이 문서에서는 구성한 Azure 서비스 및 기능을 사용하여 의료 솔루션에 대한 보안을 개선하는 방법을 이해하도록 도움을 줍니다. "
+description: " 이 문서에서는 구성한 Azure 서비스 및 기능을 사용하여 의료 솔루션에 대한 보안을 개선하는 방법을 이해하도록 도움을 줍니다.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2016
+ms.date: 01/07/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 050128d937b7cbb7728264594a4399eaae0da57d
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: 34ded89eb7fe005be2341f96e5b883ec73d9e0a5
 
 
 ---
@@ -34,7 +34,6 @@ Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

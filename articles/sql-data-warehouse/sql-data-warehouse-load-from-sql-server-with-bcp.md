@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e61865c903f168e35cff6a7ce8ccd27dbaaff104
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 8dc7c2fb833c1c51ecef772ba1cbe5f0405fe494
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: e61865c903f168e35cff6a7ce8ccd27dbaaff104
 * 플랫 파일의 테이블을 SQL 데이터 웨어하우스로 가져옵니다.
 * 로드한 데이터에 대한 통계를 만듭니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
@@ -48,7 +48,7 @@ ms.openlocfilehash: e61865c903f168e35cff6a7ce8ccd27dbaaff104
 * 설치된 bcp 명령줄 유틸리티
 * 설치된 sqlcmd 명령줄 유틸리티
 
-[Microsoft 다운로드 센터][Microsoft 다운로드 센터]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
+[Microsoft 다운로드 센터][Microsoft Download Center]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 또는 UTF-16 형식 데이터
 사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다. 
@@ -134,7 +134,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 | 20151201 |4 |2 |
 
 ## <a name="4-create-statistics"></a>4. 통계 만들기
-SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 최고의 쿼리 성능을 얻으려면, 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다. 통계에 대한 자세한 설명은 [통계][통계]를 참조하세요. 
+SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 최고의 쿼리 성능을 얻으려면, 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다. 통계에 대한 자세한 설명은 [통계][Statistics]를 참조하세요. 
 
 다음 명령을 실행하여 새로 로드한 테이블에 대한 통계를 만듭니다.
 
@@ -178,28 +178,28 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 bcp의 **queryout** 함수를 사용하면 전체 테이블을 내보내는 대신 쿼리 결과를 내보낼 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][SQL 데이터 웨어하우스로 데이터 로드]를 참조하세요.
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요.
-SQL Data Warehouse에 테이블을 만드는 방법에 대한 내용은 [테이블 개요][테이블 개요] 또는 [CREATE TABLE 구문][CREATE TABLE 구문]을 참조하세요.
+로드 개요는 [SQL Data Warehouse로 데이터 로드][Load data into SQL Data Warehouse]를 참조하세요.
+더 많은 개발 팁은 [SQL Data Warehouse 개발 개요][SQL Data Warehouse development overview]를 참조하세요.
+SQL Data Warehouse에 테이블을 만드는 방법에 대한 내용은 [테이블 개요][Table Overview] 또는 [CREATE TABLE 구문][CREATE TABLE syntax]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
-[테이블 개요]: ./sql-data-warehouse-tables-overview.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE 구문]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

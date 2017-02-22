@@ -3,34 +3,31 @@ title: "Transact-SQL을 사용하여 Azure SQL Database 복사 | Microsoft Docs"
 description: "Transact-SQL을 사용하여 Azure SQL 데이터베이스 사본 만들기"
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 40ea3718-33f8-41af-90cb-3aa15059365e
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da730116fcc83d53b3665f953332a30c7fc6239d
+ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
+ms.openlocfilehash: 3ade1f2850b2a67f68e8a4a7f519b7dc7ba1de10
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-transact-sql"></a>Transact-SQL을 사용하여 Azure SQL 데이터베이스 복사
-> [!div class="op_single_selector"]
-> * [개요](sql-database-copy.md)
-> * [쉬운 테이블](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-다음 단계에서는 Transact-SQL을 사용하여 동일한 서버나 다른 서버에 SQL 데이터베이스를 복사하는 방법을 보여 줍니다. 데이터베이스 복사 작업에는 [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) 문이 사용됩니다.
+다음 단계에서는 Transact-SQL을 사용하여 동일한 서버나 다른 서버에 SQL 데이터베이스를 복사하는 방법을 보여 줍니다. 데이터베이스 복사 작업에는 [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) 문이 사용됩니다. 
+
+> [!NOTE]
+> [Azure Portal](sql-database-copy-portal.md) 또는 [PowerShell](sql-database-copy-powershell.md)을 사용하여 SQL 데이터베이스를 복사할 수도 있습니다.
+>
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -39,12 +36,12 @@ ms.openlocfilehash: da730116fcc83d53b3665f953332a30c7fc6239d
 * [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx). SSMS가 없거나 이 문서에서 설명한 기능을 사용할 수 없는 경우 [최신 버전을 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)합니다.
 
 ## <a name="copy-your-sql-database"></a>SQL 데이터베이스 복사
-서버 수준 보안 주체 로그인이나 복사하려는 데이터베이스에서 만든 로그인을 사용하여 주 데이터베이스에 로그온합니다. 데이터베이스를 복사하려면 서버 수준 보안 주체가 아닌 로그인은 dbmanager 역할의 구성원이어야 합니다. 서버에 로그인 및 연결하는 방법에 대한 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요.
+서버 수준 보안 주체 로그인이나 복사하려는 데이터베이스에서 만든 로그인을 사용하여 주 데이터베이스에 로그온합니다. 데이터베이스를 복사하려면 서버 수준 보안 주체가 아닌 로그인이 dbmanager 역할의 구성원이어야 합니다. 서버에 로그인 및 연결하는 방법에 대한 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요.
 
 [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) 문으로 원본 데이터베이스 복사를 시작합니다. 이 문을 실행하면 데이터베이스 복사 프로세스가 시작됩니다. 데이터베이스 복사는 비동기 프로세스이므로 CREATE DATABASE 문은 데이터베이스가 복사를 완료하기 전에 반환됩니다.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>동일한 서버에 SQL 데이터베이스 복사
-서버 수준 보안 주체 로그인이나 복사하려는 데이터베이스에서 만든 로그인을 사용하여 주 데이터베이스에 로그온합니다. 데이터베이스를 복사하려면 서버 수준 보안 주체가 아닌 로그인은 dbmanager 역할의 구성원이어야 합니다.
+서버 수준 보안 주체 로그인이나 복사하려는 데이터베이스에서 만든 로그인을 사용하여 주 데이터베이스에 로그온합니다. 데이터베이스를 복사하려면 서버 수준 보안 주체가 아닌 로그인이 dbmanager 역할의 구성원이어야 합니다.
 
 이 명령은 Database1을 동일한 서버에서 이름이 Database2인 새 데이터베이스에 복사합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -79,21 +76,12 @@ sys.databases 및 sys.dm_database_copies 뷰 쿼리를 통해 복사 프로세�
 새 데이터베이스의 모든 사용자가 원본 데이터베이스에서 가졌던 사용 권한을 그대로 유지합니다. 데이터베이스 복사를 실행한 사용자가 새 데이터베이스의 소유자가 되며 새 보안 식별자(SID)를 할당 받습니다. 복사 성공 후 다른 사용자를 다시 매핑하기 전에는 데이터베이스 소유자(DBO)인 복사를 시작한 로그인만 새 데이터베이스에 로그온할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure SQL 데이터베이스 복사에 대한 개요를 보려면 [Azure SQL 데이터베이스 복사](sql-database-copy.md) 를 참조하세요.
-* Azure 포털을 사용하여 데이터베이스를 복사하려면 [Azure 포털을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy-portal.md) 를 참조하세요.
-* PowerShell을 사용하여 데이터베이스를 복사하려면 [PowerShell을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy-powershell.md) 를 참조하세요.
-* 다른 논리 서버로 데이터베이스를 복사할 때 사용자 및 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법](sql-database-geo-replication-security-config.md) 을 참조하세요.
-
-## <a name="additional-resources"></a>추가 리소스
-* [로그인 관리](sql-database-manage-logins.md)
-* [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.](sql-database-connect-query-ssms.md)
-* [데이터베이스를 BACPAC로 내보내기](sql-database-export.md)
+* 다른 논리 서버로 데이터베이스를 복사할 때 사용자 및 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법](sql-database-geo-replication-security-config.md)을 참조하세요.
 * [비즈니스 연속성 개요](sql-database-business-continuity.md)
 * [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

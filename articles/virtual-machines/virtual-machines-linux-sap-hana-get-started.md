@@ -1,5 +1,5 @@
 ---
-title: "빠른 시작 가이드: Azure VM에 단일 인스턴스 SAP HANA 수동 설치 | Microsoft Docs"
+title: "Azure의 Linux VM에서 SAP HANA 설치 | Microsoft Docs"
 description: "Azure VM에 단일 인스턴스 SAP HANA를 수동으로 설치하기 위한 빠른 시작 가이드입니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: d8fe055ec2912b4bf8ba2c86ba63335cc6ac2600
-ms.openlocfilehash: 0683008470ade23abc5cf6c76ff945abdf303617
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0c7f550e9fe9c27315f8381a8b2a91ff75ba1535
 
 
 ---
@@ -103,7 +103,7 @@ SAP-Linux-Azure는 Azure Resource Manager에서만 지원하며 클래식 배포
 * SAP MC 시작 및 SAP GUI/HANA Studio를 통해 연결
 
 ## <a name="prepare-azure-vms-for-a-manual-installation-of-sap-hana"></a>SAP HANA의 수동 설치를 위한 Azure VM 준비
-이 섹션에서는 다음 5 가지 항목을 다룹니다.
+이 섹션에서는 다음&5; 가지 항목을 다룹니다.
 
 * 디스크 설정
 * 커널 매개 변수
@@ -135,11 +135,11 @@ PowerShell 또는 CLI를 사용하여 SUSE 이미지를 찾는 방법을 알아�
 * [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure에서 Linux VM에 LVM 구성](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-테스트 환경에서 다음 스크린샷과 같이 2개 Azure 표준 저장소 디스크가 SAP 앱 서버 VM에 연결되었습니다. 한 디스크에는 설치를 위한 모든 SAP 소프트웨어(즉, NetWeaver 7.5, SAP GUI, SAP HANA 등)를 저장했습니다. 다른 한 디스크에는 추가 요구 사항(예: 백업 및 테스트 데이터) 및 동일한 SAP 환경에 속한 모든 VM 간에 공유할 /sapmnt 디렉터리에 사용할 수 있을 만큼 충분한 여유 공간을 확보하도록 했습니다.
+테스트 환경에서 다음 스크린샷과 같이&2;개 Azure 표준 저장소 디스크가 SAP 앱 서버 VM에 연결되었습니다. 한 디스크에는 설치를 위한 모든 SAP 소프트웨어(즉, NetWeaver 7.5, SAP GUI, SAP HANA 등)를 저장했습니다. 다른 한 디스크에는 추가 요구 사항(예: 백업 및 테스트 데이터) 및 동일한 SAP 환경에 속한 모든 VM 간에 공유할 /sapmnt 디렉터리에 사용할 수 있을 만큼 충분한 여유 공간을 확보하도록 했습니다.
 
 ![2개 데이터 디스크와 해당 크기를 표시하는 SAP HANA 앱 서버 디스크 창](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
-앱 서버 VM 시나리오와 달리 다음 스크린샷과 같이 4개 디스크가 SAP HANA 서버 VM에 연결되었습니다. 2개 디스크는 SAP 소프트웨어를 저장하는 데 사용되었으며(NFS를 사용하여 SAP 소프트웨어 디스크를 공유할 수도 있음) 사용 가능한 여유 공간(예: 백업용)을 확보했습니다. 2개 추가 디스크는 SAP HANA 데이터와 로그 파일 및 /usr/sap 디렉터리를 저장하는 Azure 프리미엄 저장소 디스크였습니다.
+앱 서버 VM 시나리오와 달리 다음 스크린샷과 같이&4;개 디스크가 SAP HANA 서버 VM에 연결되었습니다. 2개 디스크는 SAP 소프트웨어를 저장하는 데 사용되었으며(NFS를 사용하여 SAP 소프트웨어 디스크를 공유할 수도 있음) 사용 가능한 여유 공간(예: 백업용)을 확보했습니다. 2개 추가 디스크는 SAP HANA 데이터와 로그 파일 및 /usr/sap 디렉터리를 저장하는 Azure 프리미엄 저장소 디스크였습니다.
 
 ![4개 데이터 디스크와 해당 크기를 표시하는 SAP HANA 앱 서버 디스크 창](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg)
 
@@ -170,11 +170,11 @@ SAP HANA 커널을 영구적으로 설정하려면 SLES 12에서 grub2를 사용
 ![YaST 부팅 로더의 커널 매개 변수 설정 탭](./media/virtual-machines-linux-sap-hana-get-started/image007.jpg)
 
 ### <a name="file-systems"></a>파일 시스템
-다음 스크린샷에서는 2개 Azure 표준 저장소 디스크에 연결된 SAP 앱 서버 VM에 만들어진 2개 파일 시스템을 보여 줍니다. 두 파일 시스템은 모두 XFS 형식이며 /sapdata 및 /sapsoftware에 탑재됩니다.
+다음 스크린샷에서는&2;개 Azure 표준 저장소 디스크에 연결된 SAP 앱 서버 VM에 만들어진&2;개 파일 시스템을 보여 줍니다. 두 파일 시스템은 모두 XFS 형식이며 /sapdata 및 /sapsoftware에 탑재됩니다.
 
 파일 시스템을 반드시 이 방식으로 구조화하는 것은 아닙니다. 디스크 공간을 구조화하기 위한 다른 옵션이 있습니다. 가장 중요한 고려 사항은 루트 파일 시스템의 여유 공간이 부족하지 않도록 하는 것입니다.
 
-![SAP 앱 서버 VM에 만든 2개 파일 시스템](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
+![SAP 앱 서버 VM에 만든&2;개 파일 시스템](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
 
 SAP HANA DB VM과 관련하여 데이터베이스 설치 중에 SAPinst(SWPM) 및 간단한 "일반" 설치 옵션을 사용할 때는 기본적으로 /hana 및 /usr/sap 아래에 모든 항목을 설치한다는 것을 알고 있어야 합니다. SAP HANA 로그 백업의 기본 설정은 /usr/sap 아래에 있습니다. 즉 루트 파일 시스템의 저장소 공간이 부족하지 않도록 하는 것이 중요하기 때문에 SWPM을 사용하여 SAP HANA를 설치하기 전에 /hana 및 /usr/sap 아래에 충분한 여유 공간이 있는지 확인합니다.
 
@@ -381,7 +381,7 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 SAP HANA Studio에�
 * [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 특히 Linux 워크로드를 위한 가상 컴퓨터 크기 정보
 * [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)(영문) - Azure에서 지원되는 모든 SAP 제품 및 SAP를 위해 지원되는 Azure VM 유형을 나열하고 있는 SAP Note
 * [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)(영문) - Azure에서 Linux VM을 사용하여 SAP "고급 모니터링"에 대한 SAP Note
-* [SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)(영문) - Azure "대규모 인스턴스"에 SAP HANA 제공.  Azure VM에서 SAP HANA를 실행하는 방법에 관한 정보가 아니라  Azure VM에서 SAP 앱 서버를 실행하지만 운영 체제 미설치(bare-metal) 서버에서 SAP HANA를 실행하는 하이브리드 환경에 관한 정보입니다.
+* Azure "큰 인스턴스"에 SAP HANA 제공 - 이 정보가 Azure VM에서 SAP HANA를 실행하는 것이 아님을 이해해야 합니다. SAP 앱 서버가 Azure VM에서 실행되지만 SAP HANA는 운영 체제 미설치 서버에서 실행되는 하이브리드 환경에 관한 것입니다([SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)(영문)).
 * [SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)(영문) - Linux의 SAPOSCOL에 대한 정보를 포함하고 있는 SAP Note
 * [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)(영문) - Microsoft Azure의 SAP용 주요 모니터링 메트릭
 * [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md) - Azure Resource Manager에 대한 정보
@@ -400,6 +400,6 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 SAP HANA Studio에�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

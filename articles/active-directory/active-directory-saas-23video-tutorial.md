@@ -122,7 +122,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     b. 23 Video 지원 팀에 [support@23company.com](mailto:support@23company.com)을 통해 문의하여 다운로드한 인증서, **발급자 URL**, **Single Sign-On Service URL** 및 **Single Sign-Out URL**을 제공한 다음 23 Video 앱의 SSO를 설정하도록 요청합니다. 
    
-    c. **Next**를 클릭합니다.
+    c. **다음**을 클릭합니다.
 5. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. 
    
     ![Azure AD Single Sign-On][10]
@@ -177,7 +177,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-23-video-test-user"></a>23 Video 테스트 사용자 만들기
 이 섹션은 23 Video에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
@@ -262,6 +262,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

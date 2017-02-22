@@ -17,24 +17,25 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 231044047e53b64f0d4f083ec6aec2b0687f3f2b
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
 
 
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight-on-windows"></a>Hadoop 자습서: Windows의 HDInsight에서 Hadoop 사용 시작
+
 > [!div class="op_single_selector"]
 > * [Linux 기반](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows 기반](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
+
+
 Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 데 도움이 되도록 이 자습서에서는 Hadoop 클러스터의 구조화되지 않은 데이터에서 Hive 쿼리를 실행하고 Microsoft Excel에서 결과를 분석하는 방법을 보여줍니다.
 
-> [!NOTE]
-> 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
-> 
-> 
+> [!IMPORTANT]
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터 생성에 대한 자세한 내용은 [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 구조화되지 않은 대량의 데이터 집합이 있고 Hive 쿼리를 실행하여 의미 있는 일부 정보를 추출하려고 한다면 이 자습서를 통해 적절한 도움을 얻을 수 있을 것입니다. 해당 방법은 다음과 같습니다.
 
@@ -67,10 +68,10 @@ Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있�
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다. 포털은 **새 HDInsight 클러스터** 블레이드를 엽니다.
    
-    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Create a new cluster in the Azure Portal")
+    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Azure Portal에서 새 클러스터 만들기")
 3. 다음을 입력하거나 선택합니다.
    
-    ![클러스터 이름 및 유형 입력](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "Enter cluster name and type")
+    ![클러스터 이름 및 형식 입력](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
    
    | 필드 이름 | 값 |
    | --- | --- |
@@ -81,8 +82,8 @@ Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있�
    | 구독 |클러스터에 사용할 Azure 구독을 선택합니다. |
    | 리소스 그룹 |기존 Azure 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 기본 HDInsight 클러스터는 클러스터 및 해당 기본 저장소 계정을 포함합니다.  쉽게 관리하기 위해 둘을 리소스 그룹으로 그룹화할 수 있습니다. |
    | 자격 증명 |클러스터 로그인 사용자 이름 및 암호를 입력합니다. Windows 기반 클러스터에는 2개의 사용자 계정이 있을 수 있습니다.  클러스터 사용자(또는 HTTP 사용자)는 클러스터를 관리하고 작업을 제출하는 데 사용됩니다.  경우에 따라 원격 데스크톱(RDP) 사용자 계정을 만들어 클러스터에 원격으로 연결할 수 있습니다. 원격 데스크톱을 사용하도록 선택하면 RDP 사용자 계정을 만듭니다. |
-   | 데이터 원본 |새로 만들기를 클릭하여 새 기본 Azure 저장소 계정을 만듭니다. 클러스터 이름을 기본 컨테이너 이름으로 사용합니다. 모든 HDinsight 클러스터에는 Azure 저장소 계정의 기본 Blob 컨테이너가 있습니다.  기본 Azure 저장소 계정의 위치는 HDInsight 클러스터의 위치를 결정합니다. |
-   | 노드 가격 책정 계층 |이 자습서에 대해 기본 작업자 노드 및 헤드 메모 가격 책정 계층으로 1 또는 2개의 작업자 노드를 사용합니다. |
+   | 데이터 원본 |새로 만들기를 클릭하여 새 기본 Azure 저장소 계정을 만듭니다. 클러스터 이름을 기본 컨테이너 이름으로 사용합니다. 모든 HDinsight 클러스터에는 Azure Storage 계정의 기본 Blob 컨테이너가 있습니다.  기본 Azure 저장소 계정의 위치는 HDInsight 클러스터의 위치를 결정합니다. |
+   | 노드 가격 책정 계층 |이 자습서에 대해 기본 작업자 노드 및 헤드 노드 가격 책정 계층으로 1 또는 2개의 작업자 노드를 사용합니다. |
    | 선택적 구성 |이 부분을 건너뜁니다. |
 4. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘은 클러스터를 만드는 중임을 나타내고 생성이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
    
@@ -165,14 +166,14 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 7. 왼쪽 위 모서리의 **닫기 및 로드**를 클릭하여 Hive 작업 출력을 Excel로 가져옵니다.
 
 ## <a name="run-samples"></a>샘플 실행
-HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위해 시작 갤러리를 포함하는 쿼리 콘솔을 제공합니다. 샘플을 통해 몇 가지 기본 시나리오를 단계별로 수행하여 HDInsight를 사용하는 방법을 익힐 수 있습니다. 이러한 샘플에는 분석할 데이터, 데이터에 대해 실행할 쿼리 등의 필요한 구성 요소가 모두 함께 제공됩니다. 시작 갤러리의 샘플에 대한 자세한 내용은 [HDInsight 시작 갤러리를 사용하여 HDInsight의 Hadoop에 대해 알아보기](hdinsight-learn-hadoop-use-sample-gallery.md)를 참조하세요.
+HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위해 시작 갤러리를 포함하는 쿼리 콘솔을 제공합니다. 샘플을 통해 몇 가지 기본 시나리오를 단계별로 수행하여 HDInsight를 사용하는 방법을 익힐 수 있습니다. 이러한 샘플에는 분석할 데이터, 데이터에 대해 실행할 쿼리 등의 필요한 구성 요소가 모두 함께 제공됩니다.
 
 **샘플을 실행하려면**
 
-1. Azure 포털 시작 보드에서 방금 만든 클러스터의 타일을 클릭합니다.
+1. Azure Portal 시작 보드에서 방금 만든 클러스터의 타일을 클릭합니다.
 2. 새 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름 및 암호를 입력합니다.
    
-    ![클러스터 대시보드 시작](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Launch cluster dashboard")
+    ![클러스터 대시보드 시작](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "클러스터 대시보드 시작")
 3. 열리는 웹 페이지에서 **갤러리 시작** 탭을 클릭한 다음 **샘플 데이터를 사용하는 솔루션** 범주에서 실행할 샘플을 클릭합니다. 웹 페이지의 지침에 따라 샘플을 완료합니다. 다음 표에는 몇 가지 샘플이 나열되어 있으며 각 샘플이 수행하는 내용에 대한 자세한 정보를 제공합니다.
 
 | 샘플 | 수행하는 작업 |
@@ -187,12 +188,12 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 ## <a name="next-steps"></a>다음 단계
 이 Hadoop 자습서에서는 HDInsight에서 Windows에 Hadoop 클러스터를 만들고 데이터에 대해 Hive 쿼리를 실행하며 Excel로 결과를 가져오는 방법을 배웠습니다. 여기서 비즈니스 인텔리전스 도구를 사용하여 추가 처리하고 그래픽으로 표시할 수 있습니다. 자세한 내용은 다음 자습서를 참조하세요.
 
-* [Visual Studio 용 HDInsight Hadoop 도구 사용 시작][1]
+* [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]
 * [HDInsight Emulator 시작][hdinsight-emulator]
 * [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]
 * [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
-* [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]
+* [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
@@ -231,8 +232,8 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#step-1-install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#step-1-install
 
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
@@ -255,6 +256,6 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

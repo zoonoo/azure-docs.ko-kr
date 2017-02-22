@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics에서 프록시 및 방화벽 설정 구성 | Microsoft Docs"
+title: "Azure Log Analytics에서 프록시 및 방화벽 설정 구성 | Microsoft Docs"
 description: "에이전트 또는 OMS 서비스에서 특정 포트를 사용해야 하는 경우 프록시 및 방화벽 설정을 구성합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Log Analytics에서 프록시 및 방화벽 설정 구성
-OMS의 Log Analytics에 대한 프록시 및 방화벽 설정을 구성하는 데 필요한 작업은 Operations Manager를 사용할 때와 다르며, 해당 에이전트는 서버에 직접 연결되는 Microsoft Monitoring Agent입니다. 사용하는 에이전트 유형에 따라 다음 섹션을 검토하세요.
+Log Analytics의 프록시 및 방화벽 설정을 구성하는 데 필요한 작업은 사용 중인 에이전트 유형과 다릅니다. 사용하는 에이전트 유형에 따라 다음 섹션을 검토하세요.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent를 사용하여 프록시 및 방화벽 설정 구성
+## <a name="settings-for-the-oms-gateway"></a>OMS 게이트웨이 설정
+
+에이전트에 인터넷 액세스가 없는 경우 사용자의 네트워크 리소스를 사용하여 에이전트 데이터를 OMS 게이트웨이로 대신 보낼 수 있습니다. 에이전트를 대신하여 게이트웨이가 데이터를 수집하여 OMS 서비스로 보냅니다.
+
+정규화된 도메인 이름 및 사용자 지정 포트 번호를 사용하여 OMS 게이트웨이와 통신하는 에이전트를 구성합니다.
+
+OMS 게이트웨이는 인터넷 액세스가 필요합니다. 설정한 OMS 게이트웨이와 사용하는 에이전트의 형식에 맞게 같은 프록시 서버나 방화벽 설정을 사용합니다. OMS 게이트웨이에 대한 자세한 내용은 [OMS 게이트웨이를 사용하여 컴퓨터 및 장치를 OMS에 연결](log-analytics-oms-gateway.md)을 참조하세요.
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent를 사용하여 설정 구성
 Microsoft Monitoring Agent를 사용하여 OMS 서비스에 연결하고 등록하려면 도메인 및 URL의 포트 번호에 대한 액세스 권한이 있어야 합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 OMS에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 다음 표에는 OMS에 필요한 포트가 나와 있습니다.
 
 | **에이전트 리소스** | **포트** | **HTTPS 검사 무시** |
@@ -71,7 +79,7 @@ Microsoft Monitoring Agent를 사용하여 OMS 서비스에 연결하고 등록�
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Operational Manager를 사용하여 프록시 및 방화벽 설정 구성
+## <a name="configure-settings-with-operations-manager"></a>Operational Manager를 사용하여 설정 구성
 Operations Manager 관리 그룹에서 OMS 서비스에 연결하고 등록하려면 도메인 및 URL의 포트 번호에 대한 액세스 권한이 있어야 합니다. Operations Manager 관리 서버와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 OMS에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. Operations Manager 관리 서버가 프록시 서버 뒤에 있지 않더라도 에이전트는 뒤에 있을 수 있습니다. 이 경우, 보안 및 로그 관리 솔루션 데이터가 OMS 웹 서비스로 보내지도록 허용하기 위해 에이전트가 구성된 방식과 동일하게 프록시 서버를 구성해야 합니다.
 
 Operations Manager 에이전트가 OMS 서비스와 통신하려면, Operations Manager 인프라(에이전트 포함)은 올바른 프록시 설정과 버전이 있어야 합니다. Operations Manager 콘솔에서 에이전트에 대한 프록시 설정이 지정됩니다. 버전은 다음 중 하나여야 합니다.
@@ -180,6 +188,6 @@ OMS에 솔루션을 추가한 경우 Operations Manager 콘솔의 **관리**아�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

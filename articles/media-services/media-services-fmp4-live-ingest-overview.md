@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 7f775813920af8b8a7ffac45e5227df6ba3e6622
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
 
 
 ---
@@ -46,7 +46,7 @@ ms.openlocfilehash: 7f775813920af8b8a7ffac45e5227df6ba3e6622
 2. [1]의 섹션 3.3.2는 라이브 수집용 StreamManifestBox라는 옵션 상자를 설명합니다. Microsoft Azure 부하 분산 장치의 라우팅 논리에 따라 이 상자를 사용할 수 없으며 Microsoft Azure 미디어 서비스에 수집하는 경우 있어서는 안 됩니다. 이 상자가 있는 경우 Azure 미디어 서비스는 자동으로 이를 무시합니다.
 3. [1]의 3.2.3.2에서 설명된 TrackFragmentExtendedHeaderBox는 반드시 조각마다 있어야 합니다.
 4. TrackFragmentExtendedHeaderBox 버전 2는 여러 데이터 센터에서 동일한 URL로 미디어 세그먼트를 생성하는 데 사용해야 합니다. 조각 인덱스 필드는 Apple HTTP 라이브 스트리밍(HLS) 및 인덱스 기반 MPEG-DASH와 같은 데이터 센터간 인덱스 기반 스트리밍의 장애 조치에 필요합니다.  데이터 센터간 장애 조치를 사용하려면 조각 인덱스가 반드시 여러 인코더에 걸쳐 동기화되고, 인코더 재시작이나 오류에서도 연속되는 각 미디어 조각에 대해 1씩 증가되어야 합니다.
-5. [1]의 섹션 3.3.6은 라이브 수집의 끝을 송신하여 채널에 EOS(스트리밍의 끝)를 나타낼 수 있는 MovieFragmentRandomAccessBox(‘mfra’)를 정의합니다. Azure 미디어 서비스의 수집 논리에 따라 EOS(스트리밍의 끝)가 사용되지 않고 라이브 수집용 ‘mfra’ 상자를 전송하지 않아야 합니다. 전송한 경우 Azure 미디어 서비스는 자동으로 이를 무시합니다. 수집 지점을 재설정하려면 [채널 재설정](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels)을 사용하고, 프레젠테이션 및 스트림을 종료하려면 [프로그램 중지](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs)를 사용하는 것이 좋습니다.
+5. [1]의 섹션 3.3.6은 라이브 수집의 끝을 송신하여 채널에 EOS(스트리밍의 끝)를 나타낼 수 있는 MovieFragmentRandomAccessBox(‘mfra’)를 정의합니다. Azure 미디어 서비스의 수집 논리에 따라 EOS(스트리밍의 끝)가 사용되지 않고 라이브 수집용 ‘mfra’ 상자를 전송하지 않아야 합니다. 전송한 경우 Azure 미디어 서비스는 자동으로 이를 무시합니다. 수집 지점을 재설정하려면 [채널 재설정](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels)을 사용하고, 프레젠테이션 및 스트림을 종료하려면 [프로그램 중지](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs)를 사용하는 것이 좋습니다.
 6. 클라이언트 매니페스트의 크기를 줄이고 반복 태그를 사용함으로써 클라이언트 다운로드 추론을 향상시키려면 MP4 조각 기간이 일정해야 합니다.  이 기간은 정수가 아닌 프레임 속도에 대한 보정을 위해 변동될 수 있습니다.
 7. MP4 조각 기간은 약 2~6초 사이여야 합니다.
 8. MP4 조각 타임 스탬프 및 인덱스(TrackFragmentExtendedHeaderBox fragment_absolute_time 및 fragment_index)는 오름차순으로 도착해야 합니다.  Azure 미디어 서비스는 중복 조각에 대한 복원력이 뛰어나지만 미디어 타임 라인에 따라 조각의 순서를 다시 지정하는 매우 한정된 기능을 가집니다.
@@ -194,6 +194,6 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

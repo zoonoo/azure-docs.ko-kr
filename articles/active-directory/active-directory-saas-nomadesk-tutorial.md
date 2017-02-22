@@ -45,7 +45,7 @@ Nomadesk와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
@@ -117,8 +117,8 @@ Nomadesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
-5. 응용 프로그램에 대해 SSO를 구성하려면 support@nomadesk.com. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Nomadesk 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
+    b. **다음**을 클릭합니다.
+5. 응용 프로그램에 대해 SSO를 구성하려면 Nomadesk 지원 팀(support@nomadesk.com)에 문의하세요. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Nomadesk 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Azure AD Single Sign-On][10]
@@ -236,6 +236,6 @@ Nomadesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

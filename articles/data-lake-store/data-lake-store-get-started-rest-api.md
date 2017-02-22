@@ -264,6 +264,6 @@ Data Lake 저장소 계정을 삭제하려면 다음 cURL 명령을 사용합니
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

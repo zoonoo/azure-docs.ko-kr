@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Database 및 단일 데이터베이스의 성능| Microsoft Docs"
+title: "단일 데이터베이스에 대한 Azure SQL Database 성능| Microsoft Docs"
 description: "이 문서는 응용 프로그램에 대해 선택할 서비스 계층을 결정하는 데 도움이 될 수 있습니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝하는 방법도 권고합니다."
 services: sql-database
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 02/09/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
+ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
+ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
 
 
 ---
@@ -29,13 +29,13 @@ Azure SQL Database는 세 가지 [서비스 계층](sql-database-service-tiers.m
 > 
 > 
 
-이들은 사용자가 선택할 수 있는 세 가지 Azure SQL Database 서비스 계층입니다(성능은 데이터베이스 처리량 단위 또는 [DTU](sql-database-what-is-a-dtu.md)단위로 측정함).
+사용자가 선택할 수 있는 세 가지 Azure SQL Database 서비스 계층이 있습니다(성능은 데이터베이스 처리량 단위 또는 [DTU](sql-database-what-is-a-dtu.md)로 측정함).
 
 * **Basic**. Basic 서비스 계층은 각 데이터베이스에 시간 단위의 적절한 성능 예측 가능성을 제공합니다. Basic 데이터베이스에서는 여러 개의 동시 요청이 없는 작은 데이터베이스에 충분한 우수한 성능을 지원합니다.
-* **Standard**. Standard 서비스 계층은 향상된 성능 예측 가능성을 제공하며 작업 그룹 및 웹 응용 프로그램과 같은 여러 개의 동시 요청을 가진 데이터베이스에 대한 기대 수준을 높여줍니다. Standard 서비스 계층 데이터베이스를 선택하면 분 단위의 예측 가능한 성능을 기준으로 데이터베이스 응용 프로그램의 규모를 조정할 수 있습니다.
+* **Standard**. Standard 서비스 계층은 향상된 성능 예측 가능성을 제공하며 작업 그룹 및 웹 응용 프로그램과 같이 여러 개의 동시 요청을 가진 데이터베이스에서 뛰어난 성능을 제공합니다. Standard 서비스 계층 데이터베이스를 선택하면 분 단위의 예측 가능한 성능을 기준으로 데이터베이스 응용 프로그램의 규모를 조정할 수 있습니다.
 * **Premium**. Premium 서비스 계층은 각 Premium 데이터베이스에 대한 예측 가능한 성능을 초 단위로 제공합니다. 프리미엄 서비스 계층을 선택하면 해당 데이터베이스에 대한 최대 부하를 기준으로 데이터베이스 응용 프로그램의 규모를 조정할 수 있습니다. 계획은 대기 시간이 중요한 작업에서 작은 쿼리가 예상하는 것보다 더 오래 걸릴 수 있는 경우를 제거합니다. 이 모델은 최고 리소스 요구 사항, 성능 차이 또는 쿼리 대기 시간에 관한 강력한 문을 만들어야 하는 응용 프로그램에 대한 개발 및 제품 유효성 검사 주기를 크게 간소화할 수 있습니다.
 
-각 서비스 계층에서 필요한 용량에 대해서만 요금을 지불하는 유연성을 갖도록 성능 수준을 설정합니다. 워크로드가 변함에 따라 [용량을 높거나 낮게 조정](sql-database-scale-up.md)할 수 있습니다. 예를 들어, 개학 전 쇼핑 시즌에 데이터베이스 워크로드가 많아질 경우 7월부터 9월까지 설정된 기간 동안 데이터베이스에 대한 성능 수준을 증가시킬 수 있습니다. 최대 시즌이 끝나면 성능 수준을 줄일 수 있습니다. 비즈니스의 계절성에 따라 클라우드 환경을 최적화하여 지불하는 비용을 최소화할 수 있습니다. 이 모델은 소프트웨어 개발 출시 주기에도 적합합니다. 테스트 팀은 테스트 실행 중 용량을 할당하고 테스트가 완료되면 용량을 해제할 수 있습니다. 용량 요청 방식에서는 필요할 때마다 용량에 대해 지불하며 거의 사용하지 않는 전용 리소스에 대한 비용 지출을 방지합니다.
+각 서비스 계층에서 필요한 용량에 대해서만 요금을 지불하는 유연성을 갖도록 성능 수준을 설정합니다. 워크로드가 변함에 따라 [용량을 높거나 낮게 조정](sql-database-service-tiers.md)할 수 있습니다. 예를 들어, 개학 전 쇼핑 시즌에 데이터베이스 워크로드가 많아질 경우&7;월부터&9;월까지 설정된 기간 동안 데이터베이스에 대한 성능 수준을 증가시킬 수 있습니다. 최대 시즌이 끝나면 성능 수준을 줄일 수 있습니다. 비즈니스의 계절성에 따라 클라우드 환경을 최적화하여 지불하는 비용을 최소화할 수 있습니다. 이 모델은 소프트웨어 개발 출시 주기에도 적합합니다. 테스트 팀은 테스트 실행 중 용량을 할당하고 테스트가 완료되면 용량을 해제할 수 있습니다. 용량 요청 방식에서는 필요할 때마다 용량에 대해 지불하며 거의 사용하지 않는 전용 리소스에 대한 비용 지출을 방지합니다.
 
 ## <a name="why-service-tiers"></a>왜 서비스 계층인가?
 각 데이터베이스 워크로드는 다를 수 있지만 서비스 계층의 목적은 다양한 성능 수준에서 성능 예측 가능성을 제공하는 것입니다. 데이터베이스 리소스 요구사항이 큰 고객은 더 많은 전용 컴퓨팅 환경에서 작업할 수 있습니다.
@@ -62,15 +62,8 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-다음 섹션에서는 이러한 한도와 관련된 사용을 보는 방법에 관하여 더 자세한 정보를 제공합니다.
-
 ### <a name="maximum-in-memory-oltp-storage"></a>최대 메모리 내 OLTP 저장소
 **sys.dm_db_resource_stats** 뷰를 사용하여 Azure 메모리 내 저장소 사용을 모니터링할 수 있습니다. 모니터링에 대한 자세한 내용은 [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)을 참조하세요.
-
-> [!NOTE]
-> 현재 Azure 메모리 내 온라인 트랜잭션 처리(OLTP) 미리 보기는 단일 데이터베이스에 대해서만 지원됩니다. 탄력적 풀에 있는 데이터베이스에서는 사용할 수 없습니다.
-> 
-> 
 
 ### <a name="maximum-concurrent-requests"></a>동시 요청이 최대인 경우
 동시 요청 수를 보려면 SQL Database에서 이 Transact-SQL 쿼리를 실행하세요.
@@ -113,10 +106,13 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 
 역시 이러한 쿼리도 지정 시간 수를 반환합니다. 시간이 지남에 따라 여러 샘플을 수집하는 경우 자신의 세션 사용을 잘 이해해야 합니다.
 
-SQL Database 분석을 위해 세션에 대한 기록 통계를 가져올 수 있습니다. **sys.resource_stats**를 쿼리하고 **active_session_count** 열을 사용합니다. 이 뷰의 사용에 대한 자세한 내용은 다음 섹션을 참조하세요.
+SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰를 쿼리하고 **active_session_count** 열을 검토하여 세션에 대한 통계 자료를 얻을 수 있습니다. 
 
 ## <a name="monitor-resource-use"></a>리소스 사용 모니터링
-두 뷰를 통해 해당 서비스 계층과 관련된 SQL Database의 리소스 사용을 모니터링할 수 있습니다.
+
+[SQL Database Query Performance Insight](sql-database-query-performance.md) 및 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)를 사용하여 리소스 사용량을 모니터링할 수 있습니다.
+
+또한 다음 두 가지 뷰를 사용하여 사용을 모니터링할 수도 있습니다.
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -203,7 +199,7 @@ Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 *
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    
-    데이터베이스의 SLO(서비스 수준 목표)를 기준으로 워크로드가 낮은 성능 수준에 적합한지 여부를 결정할 수 있습니다. 데이터베이스 워크로드 SLO가 99.9%이고 앞의 쿼리에서 세 가지 리소스 규격에 대해 99.9보다 큰 값을 반환할 경우 워크로드가 낮은 성능 수준에 적합할 가능성이 높습니다.
+    데이터베이스의 SLO(서비스 수준 목표)를 기준으로 워크로드가 낮은 성능 수준에 적합한지 여부를 결정할 수 있습니다. 데이터베이스 워크로드 SLO가 99.9%이고 앞의 쿼리에서 세 가지 리소스 규격에 대해 99.9%보다 큰 값을 반환할 경우 워크로드가 낮은 성능 수준에 적합할 가능성이 높습니다.
    
     적합률을 살펴보면 SLO를 충족하기 위해 상위 성능 수준으로 이동해야 하는지 여부를 알 수 있습니다. 예를 들어 userdb1에서 지난 주에 대한 CPU 사용률은 다음과 같습니다.
    
@@ -211,7 +207,7 @@ Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 *
    | --- | --- |
    | 24.5 |100.00 |
    
-    평균 CPU는 성능 수준 한도의 약 1/4이며 데이터베이스 성능 수준에 적합합니다. 하지만 최대값은 데이터베이스가 성능 수준 한도에 도달함을 보여줍니다. 다음 상위 성능 수준으로 이동해야 하나요? 워크로드가 100%에 도달하는 횟수를 살펴보고 데이터베이스 워크로드 SLO와 비교해야 합니다.
+    평균 CPU는 성능 수준 한도의 약&1;/4이며 데이터베이스 성능 수준에 적합합니다. 하지만 최대값은 데이터베이스가 성능 수준 한도에 도달함을 보여줍니다. 다음 상위 성능 수준으로 이동해야 하나요? 워크로드가 100%에 도달하는 횟수를 살펴보고 데이터베이스 워크로드 SLO와 비교합니다.
    
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
@@ -238,7 +234,7 @@ Azure SQL Database 서비스 계층이 응용 프로그램의 성능 안정성�
 이 섹션에서는 Azure SQL Database를 튜닝하여 응용 프로그램에서 최고의 성능을 달성하고 최저 성능 수준에서도 실행할 수 있는 몇 가지 기법에 대해 설명합니다. 이러한 기법 중 일부는 기존 SQL Server 튜닝의 모범 사례와 동일하지만 일부 기법은 Azure SQL Database에만 해당합니다. 경우에 따라 데이터베이스에 사용된 리소스를 조사하고 추가 튜닝 영역을 찾으면 기존 SQL Server 기법을 확장하여 Azure SQL Database에서도 사용할 수 있습니다.
 
 ### <a name="azure-portal-tools"></a>Azure 포털 도구
-Azure Portal에 SQL Database를 사용하여 성능 문제를 분석하고 해결하는 데 도움이 될 수 있는 두 가지 도구가 있습니다.
+Azure Portal에서 제공되는 다음 도구는 SQL Database를 사용하여 성능 문제를 분석하고 해결하는 데 도움이 될 수 있습니다.
 
 * [쿼리 성능 Insight](sql-database-query-performance.md)
 * [SQL 데이터베이스 관리자](sql-database-advisor.md)
@@ -394,7 +390,7 @@ SQL Server에서 공통적으로 적용되고 Azure SQL Database에도 적용되
 
 ![쿼리 힌트를 사용하여 쿼리 튜닝](./media/sql-database-performance-guidance/query_tuning_3.png)
 
-**sys.resource_stats** 테이블의 영향(테스트를 실행하는 시간부터 데이터가 테이블을 채울 때까지 지연이 발생함)을 확인할 수 있습니다. 이 예제에서 1부는 22:25:00 기간 중 실행되었으며 2부는 22:35:00에 실행되었습니다. 여기서 이전 기간은 (계획 효율성 개선으로 인해) 이후 기간보다 더 많은 리소스를 사용했습니다.
+**sys.resource_stats** 테이블의 영향(테스트를 실행하는 시간부터 데이터가 테이블을 채울 때까지 지연이 발생함)을 확인할 수 있습니다. 이 예제에서 1부는 22:25:00 기간 중 실행되었으며 2부는 22:35:00에 실행되었습니다. 이전 기간에는 같은 시간에 (계획 효율성 개선으로 인해) 이후 기간보다 더 많은 리소스를 사용했습니다.
 
     SELECT TOP 1000 *
     FROM sys.resource_stats
@@ -445,6 +441,6 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 응�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

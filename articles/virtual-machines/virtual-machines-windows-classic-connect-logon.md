@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b2a66b134d42e0b2d965c1f3ae83f93bed9cdfba
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: f8fb116f14f771947f321f59d9880df4cdfe6859
 
 
 ---
@@ -28,9 +28,8 @@ Linux VM에 연결하고 싶으세요? [Linux를 실행하는 가상 컴퓨터�
 
 [새 Azure Portal을 사용하여 이러한 단계를 수행](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 알아봅니다.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 모델을 사용하여 VM에 로그온하는 방법에 대한 정보는 [여기](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하여 VM에 로그온하는 방법에 대한 정보는 [여기](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ## <a name="video-walkthrough"></a>연습 동영상
 이 자습서의 비디오 연습은 다음과 같습니다. 또한 Azure에서 Windows VM에 연결하는 데 사용되는 끝점과 공용 및 개인 포트에 대해서도 설명합니다.
@@ -63,6 +62,6 @@ Resource Manager 모델을 사용하여 VM에 로그온하는 방법에 대한 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

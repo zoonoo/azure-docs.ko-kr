@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 01/11/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
+ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
 
 
 ---
@@ -39,10 +39,10 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 ### <a name="access-payout-reports-in-dev-center"></a>개발자 센터에서 지급액 보고서 액세스
 1. https://dev.windows.com/en-us에서 개발자 센터로 이동합니다.
 2. **대시보드**를 클릭합니다.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. **지급액 요약**을 클릭합니다.
-   
+
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>개발자 센터에서 지급 보고서 확인
@@ -52,10 +52,10 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 * 해당 지급에 대한 정보를 확인하려면 예정된 결제 또는 최근 결제 **세부 정보 보기** 링크를 클릭합니다.
 * 앱/제품별 수익 세부 정보를 보려면 **지불 명세서** 를 클릭합니다.
 * 개별 명세서를 보려면 **보기** 링크를 클릭합니다.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * 여러 앱/제품을 보려면 개별 명세서 하단에 있는 **수익 분석** 필터를 사용합니다(있는 경우).
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>게시 포털에서 지급 보고서 보기
@@ -64,7 +64,7 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 1. https://publish.windowsazure.com에서 게시 포털로 이동합니다.
 2. **게시자** 섹션에서 **지급 보고서**를 클릭합니다.
 3. 드롭다운을 클릭하면 사용할 수 있는 모든 분기별 지급 보고서가 표시됩니다.
-   
+
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>지급 보고서 읽기
@@ -110,6 +110,6 @@ ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

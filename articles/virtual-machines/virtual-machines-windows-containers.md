@@ -1,5 +1,5 @@
 ---
-title: "가상 컴퓨터 및 컨테이너 | Microsoft Docs"
+title: "Windows Azure Virtual Machines의 컨테이너 | Microsoft Docs"
 description: "가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b88308800720f36ac9443aed3c3b3cda8ccda20
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 721f476e63c82c75fd6bc7422b577b1750c6875e
 
 
 ---
@@ -28,6 +28,6 @@ ms.openlocfilehash: 4b88308800720f36ac9443aed3c3b3cda8ccda20
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

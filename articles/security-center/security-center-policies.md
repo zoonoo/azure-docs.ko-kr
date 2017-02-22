@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
    > 기존 VM 및 새 VM에 보안 모니터링을 사용할 수 있도록 각 구독에 데이터 수집을 설정하는 것이 좋습니다. 데이터 수집을 활성화하면 모니터링 에이전트가 설치됩니다. 지금 이 위치에서 데이터 수집을 활성화하지 않더라도 나중에 **상태** 및 **권장 사항** 보기에서 활성화할 수 있습니다. 또한 구독 전용 또는 선택한 VM에 대해 데이터 수집을 활성화할 수 있습니다. 지원되는 VM에 대한 자세한 내용은 [Azure 보안 센터 FAQ](security-center-faq.md) 를 참조하세요.
    > 
    > 
-5. 아직 저장소 계정이 구성되지 않았으면 **보안 정책**을 열었을 때 다음 스크린샷과 비슷한 경고가 표시될 수 있습니다.
+5. 아직 저장소 계정이 구성되지 않은 경우 **보안 정책**을 열 때 다음 스크린샷과 같은 경고가 표시될 수 있습니다. 각 지역별로 저장소 계정을 선택하지 않으면 사용자를 위한 계정이 만들어집니다.
    
     ![저장소 선택](./media/security-center-policies/security-center-policies-fig2.png)
 6. 이 경고가 표시되면 이 옵션을 클릭하고 다음 스크린샷에서 보여준 대로 지역을 선택합니다.
@@ -111,6 +111,6 @@ ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

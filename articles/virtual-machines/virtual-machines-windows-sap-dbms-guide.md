@@ -1,6 +1,6 @@
 ---
-title: "Windows VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드 | Microsoft Docs"
-description: "Windows VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드"
+title: "Azure VM에서 SAP NetWeaver - DBMS 배포 가이드 | Microsoft Docs"
+description: "Azure VMs(Virtual Machines)에서 SAP NetWeaver - DBMS 배포 가이드"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: 
 author: MSSedusch
@@ -17,66 +17,66 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 7b2beda1d7081da0dcc9b6de6745bec27ab45adc
-ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
+ms.sourcegitcommit: 73d08acd6cd57a9430826413d71a8c53b9646dd5
+ms.openlocfilehash: 61a1181ee06c989b4837442800110aee0c5f1abf
 
 
 ---
-# <a name="sap-netweaver-on-windows-virtual-machines-vms--dbms-deployment-guide"></a>Windows VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드
-[767598]:https://service.sap.com/sap/support/notes/767598
-[773830]:https://service.sap.com/sap/support/notes/773830
-[826037]:https://service.sap.com/sap/support/notes/826037
-[965908]:https://service.sap.com/sap/support/notes/965908
-[1031096]:https://service.sap.com/sap/support/notes/1031096
-[1139904]:https://service.sap.com/sap/support/notes/1139904
-[1173395]:https://service.sap.com/sap/support/notes/1173395
-[1245200]:https://service.sap.com/sap/support/notes/1245200
-[1409604]:https://service.sap.com/sap/support/notes/1409604
-[1558958]:https://service.sap.com/sap/support/notes/1558958
-[1585981]:https://service.sap.com/sap/support/notes/1585981
-[1588316]:https://service.sap.com/sap/support/notes/1588316
-[1590719]:https://service.sap.com/sap/support/notes/1590719
-[1597355]:https://service.sap.com/sap/support/notes/1597355
-[1605680]:https://service.sap.com/sap/support/notes/1605680
-[1619720]:https://service.sap.com/sap/support/notes/1619720
-[1619726]:https://service.sap.com/sap/support/notes/1619726
-[1619967]:https://service.sap.com/sap/support/notes/1619967
-[1750510]:https://service.sap.com/sap/support/notes/1750510
-[1752266]:https://service.sap.com/sap/support/notes/1752266
-[1757924]:https://service.sap.com/sap/support/notes/1757924
-[1757928]:https://service.sap.com/sap/support/notes/1757928
-[1758182]:https://service.sap.com/sap/support/notes/1758182
-[1758496]:https://service.sap.com/sap/support/notes/1758496
-[1772688]:https://service.sap.com/sap/support/notes/1772688
-[1814258]:https://service.sap.com/sap/support/notes/1814258
-[1882376]:https://service.sap.com/sap/support/notes/1882376
-[1909114]:https://service.sap.com/sap/support/notes/1909114
-[1922555]:https://service.sap.com/sap/support/notes/1922555
-[1928533]:https://service.sap.com/sap/support/notes/1928533
-[1941500]:https://service.sap.com/sap/support/notes/1941500
-[1956005]:https://service.sap.com/sap/support/notes/1956005
-[1973241]:https://service.sap.com/sap/support/notes/1973241
-[1984787]:https://service.sap.com/sap/support/notes/1984787
-[1999351]:https://service.sap.com/sap/support/notes/1999351
-[2002167]:https://service.sap.com/sap/support/notes/2002167
-[2015553]:https://service.sap.com/sap/support/notes/2015553
-[2039619]:https://service.sap.com/sap/support/notes/2039619
-[2121797]:https://service.sap.com/sap/support/notes/2121797
-[2134316]:https://service.sap.com/sap/support/notes/2134316
-[2178632]:https://service.sap.com/sap/support/notes/2178632
-[2191498]:https://service.sap.com/sap/support/notes/2191498
-[2233094]:https://service.sap.com/sap/support/notes/2233094
-[2243692]:https://service.sap.com/sap/support/notes/2243692
+# <a name="sap-netweaver-on-azure-virtual-machines-vms--dbms-deployment-guide"></a>Azure VMs(Virtual Machines)에서 SAP NetWeaver - DBMS 배포 가이드
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md(Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 배포 가이드) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f(VM 및 VHD용 캐싱) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91(소프트웨어 RAID) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152(Microsoft Azure Storage) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64(RDBMS 배포의 구조) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3(Azure VM에서 고가용성 및 재해 복구) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268(SQL Server 2012 SP1 CU4 이상) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b(SQL Server 2012 SP1 CU3 및 이전 버전) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8(Microsoft Azure Marketplace에서 SQL Server 이미지 사용) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30(Azure의 SAP용 일반 SQL Server 요약) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737(SQL Server RDBMS에 대한 고유 정보) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573(Storage 구성) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d(백업 및 복원) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c(백업 및 복원에 대한 성능 고려 사항) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818(기타) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md(Azure VMs(Virtual Machines)에서 SAP NetWeaver - DBMS 배포 가이드) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f(VM 및 VHD에 대한 캐싱) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91(소프트웨어 RAID) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152(Microsoft Azure Storage) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64(RDBMS 배포 구조) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3(Azure VM을 사용한 고가용성 및 재해 복구) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268(SQL Server 2012 SP1 CU4 이상) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b(SQL Server 2012 SP1 CU3 및 이전 버전) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8(Microsoft Azure Marketplace에서 SQL Server 이미지 사용) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30(Azure의 SAP용 SQL Server에 대한 일반적 요약) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737(SQL Server RDBMS에 대한 고유 정보) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573(저장소 구성) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d(백업 및 복원) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c(백업 및 복원에 대한 성능 고려 사항) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818(기타) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -88,7 +88,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 배포 가이드) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94(SAP 리소스) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab(사용자 지정 이미지를 사용하여 VM 배포) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281(시나리오 1: SAP용 Azure 마켓플레이스에서 VM 배포) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2(시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1(시나리오 3: SAP에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스에서 VM 이동) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e(Microsoft Azure에서의 SAP용 VM 배포 시나리오) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7(Azure PowerShell cmdlet 배포) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e(SAP 관련 PowerShell cmdlet 다운로드 및 가져오기) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc(온-프레미스 도메인에 VM 가입 - Windows에만 해당) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542(Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d(Azure VM 에이전트 다운로드, 설치 및 사용) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4(Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f(Azure CLI) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca(SAP용 Azure 고급 모니터링 확장 구성) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2(SAP용 Azure 고급 모니터링에 대한 준비 검사) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1(Azure 모니터링 인프라 구성에 대한 상태 검사) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8(SAP용 Azure 모니터링 인프라의 추가 문제 해결)
+[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (Azure VMs(Virtual Machines)에서 SAP NetWeaver - 배포 가이드) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94(SAP 리소스) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab(사용자 지정 이미지를 사용하여 VM 배포) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281(시나리오 1: SAP용 Azure Marketplace에서 VM 배포) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2(시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1(시나리오 3: SAP에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스에서 VM 이동) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e(Microsoft Azure에서의 SAP용 VM 배포 시나리오) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7(Azure PowerShell cmdlet 배포) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e(SAP 관련 PowerShell cmdlet 다운로드 및 가져오기) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc(온-프레미스 도메인에 VM 가입 - Windows에만 해당) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542(Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d(Azure VM 에이전트 다운로드, 설치 및 사용) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4(Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f(Azure CLI) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca(SAP용 Azure 고급 모니터링 확장 구성) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2(SAP용 Azure 고급 모니터링에 대한 준비 검사) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1(Azure 모니터링 인프라 구성에 대한 상태 검사) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8(SAP용 Azure 모니터링 인프라의 추가 문제 해결)
 
 [deployment-guide-configure-monitoring-scenario-1]:virtual-machines-windows-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
 [deployment-guide-configure-proxy]:virtual-machines-windows-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
@@ -116,9 +116,9 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [deployment-guide-install-vm-agent-windows]:virtual-machines-windows-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:virtual-machines-windows-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
 
-[deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
-[deploy-template-powershell]:../resource-group-template-deploy.md#deploy-with-powershell
+[deploy-template-cli]:../azure-resource-manager/resource-group-template-deploy-cli.md
+[deploy-template-portal]:../azure-resource-manager/resource-group-template-deploy-portal.md
+[deploy-template-powershell]:../azure-resource-manager/resource-group-template-deploy.md
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -145,7 +145,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:virtual-machines-windows-sap-planning-guide.md(Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 계획 및 구현 가이드) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff(리소스) [planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058(Azure 가상 컴퓨터에서 실행되는 SAP NetWeaver의 HA(고가용성) 및 DR(재해 복구)) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77(SAP 응용 프로그램 서버에 대한 고가용성) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f(SAP 인스턴스에 대해 자동 시작 사용) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803(클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10(프레미스 간 - 온-프레미스 네트워크에 요구 사항을 완전히 통합하고 Azure에 단일 또는 다중 SAP VM 배포) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a(Azure 지역) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358(장애 도메인) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560(업그레이드 도메인) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665(Azure 가용성 집합) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77(Microsoft Azure Virtual Machines 개념) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92(Azure 프리미엄 Storage) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53(일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c(고객별 이미지를 사용하여 VM 배포) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef(일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로의 VM 이동 준비) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3(SAP용 고객별 이미지를 사용하여 VM 배포 준비) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7(Azure용 SAP로 VM 준비) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79(Azure 디스크와 Azure 이미지 간 차이점) [planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a(온-프레미스에서 Azure로 VHD 업로드) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1(Azure Storage 계정 간 디스크 복사) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646(SAP 배포를 위한 VM/VHD 구조) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d(연결된 디스크에 대한 자동 탑재 설정) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30(SAP NetWeaver 데모/학습 시나리오가 있는 단일 VM) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14(SAP 인스턴스의 클라우드 전용 배포 개념) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3(SAP용 Azure 모니터링 솔루션) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92(Azure 프리미엄 Storage)
+[planning-guide]:virtual-machines-windows-sap-planning-guide.md(Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff(리소스) [planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058(Azure Virtual Machines에서 실행되는 SAP NetWeaver의 HA(고가용성) 및 DR(재해 복구)) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77(SAP 응용 프로그램 서버의 고가용성) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f(SAP 인스턴스에 대해 자동 시작 사용) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803(클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10(프레미스 간 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a(Azure 지역) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358(장애 도메인) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560(업그레이드 도메인) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665(Azure 가용성 집합) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77(Microsoft Azure Virtual Machine 개념) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92(Azure Premium Storage) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53(일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c(고객별 이미지를 사용하여 VM 배포) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef(일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3(SAP용 고객별 이미지를 사용하여 VM 배포 준비) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7(Azure용 SAP로 VM 준비) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79(Azure 디스크와 Azure 이미지 간 차이점) [planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a(온-프레미스에서 Azure로 VHD 업로드) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1(Azure Storage 계정 간 디스크 복사) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646(SAP 배포를 위한 VM/VHD 구조) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d(연결된 디스크에 대한 자동 탑재 설정) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30(SAP NetWeaver 데모/학습 시나리오가 있는 단일 VM) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14(SAP 인스턴스의 클라우드 전용 배포 개념) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3(SAP용 Azure 모니터링 솔루션) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92(Azure Premium Storage)
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -173,9 +173,9 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
-[resource-group-authoring-templates]:../resource-group-authoring-templates.md
-[resource-group-overview]:../resource-group-overview.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
+[resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -195,8 +195,8 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:virtual-machines-linux-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:../resource-manager-deployment-model.md
+[virtual-machines-azure-resource-manager-architecture]:../azure-resource-manager/resource-manager-deployment-model.md
+[virtual-machines-azurerm-versus-azuresm]:../azure-resource-manager/resource-manager-deployment-model.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
@@ -217,11 +217,11 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [virtual-machines-manage-availability]:virtual-machines-windows-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:virtual-machines-windows-sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -242,13 +242,11 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../xplat-cli-install.md
-[xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
+[xplat-cli-azure-resource-manager]:../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 이 가이드는 Microsoft Azure에서의 SAP 소프트웨어 구현 및 배포에 대한 설명서의 일부입니다. 이 가이드를 읽기 전에 [계획 및 구현 가이드][planning-guide]를 읽어보세요. 이 문서에서는 Azure IaaS(서비스 제공 인프라) 기능을 사용하는 Microsoft Azure VM(가상 컴퓨터)에서 SAP와 함께 다양한 RDBMS(관계형 데이터베이스 관리 시스템) 및 관련 제품을 배포하는 방법에 대해 설명합니다.
 
 이 문서는 지정된 플랫폼에서 SAP 소프트웨어 설치 및 배포에 대한 기본 리소스를 나타내는 SAP 설치 설명서 및 SAP 정보를 보완합니다.
-
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
 ## <a name="general-considerations"></a>일반적인 고려 사항
 이 챕터에서는 Azure VM에서 SAP 관계형 DBMS 시스템을 실행할 때의 고려 사항을 소개합니다. 이 챕터에는 특정 DBMS 시스템에 대한 참조가 거의 없습니다. 대신 이 챕터를 마친 후 이 문서 내에서 특정 DBMS 시스템을 다룹니다.
@@ -264,7 +262,7 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 * SAP 배경: 고객 IT 환경의 전체 SAP 자산입니다. SAP 배경에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: 예를 들어 SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
 * 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 Express 경로 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 '클라우드 전용' 배포라고도 합니다. 이 방법으로 배포된 가상 컴퓨터는 인터넷과 Azure의 VM에 할당된 공용 인터넷 끝점을 통해 액세스됩니다. 이러한 유형의 배포에서는 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 참고: 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 배경으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
-* 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 Express 경로 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 기능은 Azure의 SAP 자산 배포를 위한 가장 일반적인 시나리오가 될 것입니다. 자세한 내용은 [이][vpn-gateway-cross-premises-options] 문서 및 [이][vpn-gateway-site-to-site-create] 문서를 참조하세요.
+* 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 Express 경로 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 기능은 Azure의 SAP 자산 배포를 위한 가장 일반적인 시나리오가 될 것입니다. 자세한 내용은 [이 문서][vpn-gateway-cross-premises-options] 및 [이 문서][vpn-gateway-site-to-site-create]를 참조하세요.
 
 > [!NOTE]
 > 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure 가상 컴퓨터가 온-프레미스 도메인의 멤버인 SAP 시스템의 프레미스 간 배포가 지원됩니다. 일부 또는 전체 SAP 배경을 Azure로 배포하는 데 프레미스 간 구성이 지원됩니다. Azure에서 전체 SAP 배경을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS에 속해야 합니다. 이전 버전의 문서에서 하이브리드-IT 시나리오에 대해 설명했습니다. '하이브리드'란 온-프레미스와 Azure 간에 프레미스 간 연결을 사용한다는 사실을 기반으로 합니다. 이 경우 '하이브리드'는 Azure의 VM이 온-프레미스 Active Directory의 일부임을 의미하기도 합니다.
@@ -276,10 +274,10 @@ ms.openlocfilehash: e660f6cb4cd7226c37940496c97930c08fb7e6c2
 ### <a name="resources"></a>리소스
 다음 가이드는 Azure의 SAP 배포 항목에 대해 사용할 수 있습니다.
 
-* [Windows VM(가상 컴퓨터)의 SAP NetWeaver - 계획 및 구현 가이드][planning-guide]
-* [Windows VM(가상 컴퓨터)의 SAP NetWeaver - 배포 가이드][deployment-guide]
-* [Windows VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드(이 문서)][dbms-guide]
-* [Windows VM(가상 컴퓨터)에서 SAP NetWeaver - 고가용성 배포 가이드][ha-guide]
+* [Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드][planning-guide]
+* [Azure VMs(Virtual Machines)에서 SAP NetWeaver - 배포 가이드][deployment-guide]
+* [Azure VMs(Virtual Machines)에서 SAP NetWeaver – DBMS 배포 가이드(이 문서)][dbms-guide]
+* [Azure VMs(Virtual Machines)에서 SAP NetWeaver - 고가용성 배포 가이드][ha-guide]
 
 다음 SAP 정보는 Azure의 SAP 항목과 관련이 있습니다.
 
@@ -317,12 +315,12 @@ Microsoft Azure 아키텍처 및 Microsoft Azure 가상 컴퓨터 배포와 작�
 * 배포에 다양한 이미지 형식 사용
 * Azure IaaS의 고가용성
 
-## <a name="a-name65fa79d6-a85f-47ee-890b-22e794f51a64astructure-of-a-rdbms-deployment"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>RDBMS 배포의 구조
+## <a name="a-name65fa79d6-a85f-47ee-890b-22e794f51a64astructure-of-a-rdbms-deployment"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>RDBMS 배포 구조
 이 챕터를 진행하려면 [배포 가이드][deployment-guide]의 [이][deployment-guide-3] 챕터에 설명된 내용을 이해해야 합니다. 이 챕터를 읽기 전에 다양한 VM 시리즈와 그 차이점 및 Azure 표준과 프리미엄 저장소의 차이점에 대한 정보를 이해해야 합니다.
 
 2015년 3월까지 운영 체제를 포함한 Azure VHD 크기가 127GB로 제한되었습니다. 이 제한은 2015년 3월에 해제되었습니다(자세한 내용은 <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/> 확인). 이후 운영 체제를 포함하는 VHD는 다른 모든 VHD와 같은 크기를 가질 수 있습니다. 그렇지만 운영 체제, DBMS 및 최종 SAP 이진 파일이 데이터베이스 파일과 구분되는 배포 구조를 사용하는 것이 더 좋습니다. 따라서 Azure 가상 컴퓨터에서 실행 중인 SAP 시스템에 운영 체제와 함께 기본 VM(또는 VHD), DBMS(데이터베이스 관리 시스템) 실행 파일 및 SAP 실행 파일이 설치되어 있어야 합니다. DBMS 데이터 및 로그 파일은 Azure 저장소(표준 또는 프리미엄 저장소)에서 별도의 VHD 파일에 저장되며 원래 Azure 운영 체제 이미지 VM에 논리 디스크로 연결됩니다. 
 
-Azure 표준 저장소를 활용하는지 또는 프리미엄 저장소를 활용하는지(예: DS 시리즈 또는 GS 시리즈 VM 사용)에 따라 [여기][virtual-machines-sizes]에서 설명하는 Azure의 할당량이 달라집니다. Azure VHD를 계획할 때 다음에 대한 최적의 할당량 균형을 찾아야 합니다.
+Azure Standard Storage 또는 Azure Premium Storage(예: DS 시리즈 VM 또는 GS 시리즈 VM 사용)를 활용함에 따라 Azure 할당량이 달라지며, [여기][virtual-machines-sizes]에 문서화되어 있습니다. Azure VHD를 계획할 때 다음에 대한 최적의 할당량 균형을 찾아야 합니다.
 
 * 데이터 파일 수
 * 파일에 포함된 VHD 수
@@ -338,11 +336,11 @@ Azure는 VHD 드라이브당 IOPS 할당량을 적용합니다. 이러한 할당
 데이터베이스 파일 및 로그 파일의 배치와 사용되는 Azure 저장소 형식은 IOPS, 대기 시간 및 처리량 요구 사항에 따라 정의되어야 합니다. 트랜잭션 로그에 대해 충분한 IOPS를 사용하려면 트랜잭션 로그 파일을 위한 VHD를 여러 개 활용하거나 더 큰 프리미엄 저장소 디스크를 사용해야 할 수 있습니다. 이 경우 트랜잭션 로그를 포함할 VHD와 함께 소프트웨어 RAID(예: Windows용 Windows 저장소 풀 또는 Linux용 MDADM 및 LVM(논리 볼륨 관리자))를 빌드합니다.
 
 - - -
-> ![ Windows][Logo_Windows] Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > Azure VM의 드라이브 D:\는 Azure 계산 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이기 때문에 VM을 다시 부팅하면 D:\ 드라이브의 변경 내용이 손실됩니다. "변경 내용"이란 저장된 파일, 생성된 디렉터리, 설치된 응용 프로그램 등을 의미합니다.
 > 
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 > 
 > Linux Azure VM은 Azure 계산 노드의 논리 디스크에서 지원하는 비지속형 드라이브의 /mnt/resource에 자동으로 탑재됩니다. 비지속형이기 때문에 VM을 다시 부팅하면 /mnt/resource의 변경 내용이 손실됩니다. 변경 내용이란 저장된 파일, 생성된 디렉터리, 설치된 응용 프로그램 등을 의미합니다.
 > 
@@ -352,15 +350,15 @@ Azure는 VHD 드라이브당 IOPS 할당량을 적용합니다. 이러한 할당
 Azure VM 시리즈에 따라 계산 노드의 논리 디스크에 다음과 같이 범주로 분류할 수 있는 다양한 성능이 표시됩니다.
 
 * A0-A7: 매우 제한된 성능. Windows 페이지 파일 이외에 어떤 것에 대해서도 사용할 수 없음
-* A8-A11: 매우 양호한 성능(수 만개의 IOPS 및 1GB/초 이상의 처리량)
-* D 시리즈: 매우 양호한 성능(수 만개의 IOPS 및 1GB/초 이상의 처리량)
-* DS 시리즈: 매우 양호한 성능(수 만개의 IOPS 및 1GB/초 이상의 처리량)
-* G 시리즈: 매우 양호한 성능(수 만개의 IOPS 및 1GB/초 이상의 처리량)
-* GS 시리즈: 매우 양호한 성능(수 만개의 IOPS 및 1GB/초 이상의 처리량)
+* A8-A11: 매우 양호한 성능(수 만개의 IOPS 및&1;GB/초 이상의 처리량)
+* D 시리즈: 매우 양호한 성능(수 만개의 IOPS 및&1;GB/초 이상의 처리량)
+* DS 시리즈: 매우 양호한 성능(수 만개의 IOPS 및&1;GB/초 이상의 처리량)
+* G 시리즈: 매우 양호한 성능(수 만개의 IOPS 및&1;GB/초 이상의 처리량)
+* GS 시리즈: 매우 양호한 성능(수 만개의 IOPS 및&1;GB/초 이상의 처리량)
 
 위의 문은 SAP에서 인증된 VM 유형에 적용됩니다. tempdb 또는 임시 테이블 공간과 같이 일부 DBMS 기능에서 활용하는 데 필요한 뛰어난 IOPS 및 처리량을 제공하는 VM 시리즈입니다.
 
-### <a name="a-namec7abf1f0-c927-4a7c-9c1d-c7b5b3b7212facaching-for-vms-and-vhds"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>VM 및 VHD용 캐싱
+### <a name="a-namec7abf1f0-c927-4a7c-9c1d-c7b5b3b7212facaching-for-vms-and-vhds"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>VM 및 VHD에 대한 캐싱
 포털을 통해 이러한 디스크/VHD를 생성하거나 업로드된 VHD를 VM에 탑재할 때 VM과 Azure 저장소에 있는 VHD 간의 I/O 트래픽을 캐시할지 여부를 선택할 수 있습니다. Azure 표준 및 프리미엄 저장소에서는 이 유형의 캐시에 대해 두 가지 기술을 사용합니다. 두 경우 모두 캐시 자체가 VM의 임시 디스크(Windows의 D:\ 또는 Linux의 /mnt/resource)에서 사용하는 것과 동일한 드라이브에서 지원하는 디스크입니다.
 
 Azure 표준 저장소의 경우 가능한 캐시 유형은 다음과 같습니다.
@@ -376,10 +374,10 @@ Azure 프리미엄 저장소의 경우 다음과 같은 캐싱 옵션이 있습�
 * 캐싱 없음
 * 읽기 캐싱
 
-Azure 프리미엄 저장소에 대한 권장 사항은 SAP 데이터베이스의 **데이터 파일 읽기 캐싱**을 활용하고 **로그 파일의 VHD에 대한 캐싱 없음**을 선택하는 것입니다.
+Azure Premium Storage에 대한 권장 사항은 SAP 데이터베이스의 **데이터 파일 읽기 캐싱**을 활용하고 **로그 파일의 VHD에 대한 캐싱 없음**을 선택하는 것입니다.
 
 ### <a name="a-namec8e566f9-21b7-4457-9f7f-126036971a91asoftware-raid"></a><a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>소프트웨어 RAID
-위에서 설명한 것처럼 데이터베이스 파일에 필요한 IOPS 수를 구성 가능한 VHD 수 및 Azure VM이 VHD 또는 프리미엄 저장소 디스크 형식당 제공할 최대 IOPS에 맞게 배분해야 합니다. VHD에 대한 IOPS 부하를 처리하는 가장 쉬운 방법은 여러 VHD에 소프트웨어 RAID를 빌드하는 것입니다. 그런 다음 SAP DBMS의 여러 데이터 파일을 소프트웨어 RAID에서 얻은 LUN에 배치합니다. 3가지 프리미엄 저장소 디스크 중 2개는 표준 저장소 기반의 VHD보다 더 높은 IOPS 할당량을 제공하므로 요구 사항에 따라 프리미엄 저장소 사용도 고려해야 합니다. 또한 Azure 프리미엄 저장소는 훨씬 더 향상된 I/O 대기 시간을 제공합니다. 
+위에서 설명한 것처럼 데이터베이스 파일에 필요한 IOPS 수를 구성 가능한 VHD 수 및 Azure VM이 VHD 또는 프리미엄 저장소 디스크 형식당 제공할 최대 IOPS에 맞게 배분해야 합니다. VHD에 대한 IOPS 부하를 처리하는 가장 쉬운 방법은 여러 VHD에 소프트웨어 RAID를 빌드하는 것입니다. 그런 다음 SAP DBMS의 여러 데이터 파일을 소프트웨어 RAID에서 얻은 LUN에 배치합니다. 3가지 프리미엄 저장소 디스크 중&2;개는 표준 저장소 기반의 VHD보다 더 높은 IOPS 할당량을 제공하므로 요구 사항에 따라 프리미엄 저장소 사용도 고려해야 합니다. 또한 Azure 프리미엄 저장소는 훨씬 더 향상된 I/O 대기 시간을 제공합니다. 
 
 다른 DBMS 시스템의 트랜잭션 로그에도 동일하게 적용됩니다. DBMS 시스템은 한 번에 한 파일에만 쓰므로 Tlog 파일을 더 추가해도 도움이 되지 않습니다. VHD 기반의 단일 표준 저장소에서 제공하는 것보다 더 높은 IOPS 속도가 필요한 경우 여러 표준 저장소 VHD를 스트라이프하거나 해당 IOPS 속도보다 더 큰 프리미엄 저장소 디스크 형식을 사용하여 트랜잭션 로그에 I/O를 쓰기 위한 대기 시간을 줄일 수 있습니다.
 
@@ -390,11 +388,11 @@ Azure 배포에서 소프트웨어 RAID를 사용해야 하는 상황은 다음�
 * 데이터 파일당 정확한 I/O 워크로드는 알 수 없으며 DBMS에 대한 전체 IOPS 워크로드만 대략적으로 알 수 있습니다. 소프트웨어 RAID를 사용하여 하나의 LUN을 빌드하는 것이 가장 간단합니다. 이 LUN 뒤의 다중 VHD 할당량의 합이 알려진 IOPS 속도를 충족해야 합니다.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > 이전 Windows 버전의 Windows 스트라이프보다 Windows Server 2012 이상 저장소 공간이 더 효율적이므로 이 공간을 사용하는 것이 좋습니다. Windows Server 2012를 운영 체제로 사용하는 경우 PowerShell 명령을 사용하여 Windows 저장소 풀과 저장소 공간을 만들어야 할 수도 있습니다. PowerShell 명령은 <https://technet.microsoft.com/library/jj851254.aspx>에서 확인할 수 있습니다.
 > 
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 > 
 > Linux에서 소프트웨어 RAID를 빌드하는 경우 MDADM 및 LVM(논리 볼륨 관리자)만 지원됩니다. 자세한 내용은 다음 문서를 읽어보세요.
 > 
@@ -424,7 +422,7 @@ Azure 저장소 로컬 복제(로컬 중복)는 인프라 장애로 인한 데�
 * **GRS(지역 중복 저장소)**: 이 경우 다른 Azure 지역에 있는 3개의 추가 데이터 복제본을 공급하는 비동기 복제가 있습니다. 이러한 경우 대부분 동일한 지역(예: 북유럽 및 유럽 서부)에 있습니다. 이렇게 하면 추가 복제본이 3개가 되므로 총 6개의 복제본이 있습니다. 변형은 지역에서 복제된 Azure 지역의 데이터를 읽기 용도(읽기-액세스 지역 중복)로 사용할 수 있는 위치가 추가된 것입니다.
 * **ZRS(영역 중복 저장소)**: 이 경우 동일한 Azure 지역에 3개의 데이터 복제본이 있습니다. [계획 가이드][planning-guide]의 [이][planning-guide-3.1] 챕터에 설명된 대로 Azure 지역은 근접해 있는 여러 데이터 센터일 수 있습니다. LRS의 경우 복제본은 하나의 Azure 지역을 구성하는 여러 데이터 센터에 분산됩니다.
 
-자세한 내용은 [여기][storage-redundancy]를 참조하세요.
+자세한 내용은 [여기][storage-redundancy]에 있습니다.
 
 > [!NOTE]
 > DBMS 배포의 경우 지역 중복 저장소의 사용은 권장되지 않습니다.
@@ -433,16 +431,16 @@ Azure 저장소 로컬 복제(로컬 중복)는 인프라 장애로 인한 데�
 > 
 > 문제는 예제 시스템을 사용하여 설명하는 것이 가장 간단합니다. DBMS 데이터 파일을 포함하는 8개의 VHD와 트랜잭션 로그 파일을 포함하는 하나의 VHD가 있는 Azure에 SAP 시스템을 업로드했다고 가정합니다. 이러한 9개의 각 VHD에는 데이터가 데이터 파일에 기록되는지 트랜잭션 로그 파일에 기록되는지에 관계없이 DBMS에 따라 일관된 방법으로 데이터가 기록됩니다.
 > 
-> 데이터를 올바르게 지역 복제하고 일관성 있는 데이터베이스 이미지를 유지하려면 9개의 모든 VHD 콘텐츠가 서로 다른 9개 VHD에 대해 실행된 I/O 작업 순서와 동일하게 지역 복제되어야 합니다. 그러나 Azure 저장소 지역에서 복제는 VHD 간 종속성 선언을 허용하지 않습니다. 즉, Microsoft Azure 저장소 지역에서 복제는 이러한 서로 다른 9개 VHD의 콘텐츠가 서로 관련되어 있으며 데이터 변경 내용이 9개 VHD 모두에서 발생한 I/O 작업 순서대로 복제할 때만 일관되게 적용된다는 사실을 알지 못합니다.
+> 데이터를 올바르게 지역 복제하고 일관성 있는 데이터베이스 이미지를 유지하려면&9;개의 모든 VHD 콘텐츠가 서로 다른&9;개 VHD에 대해 실행된 I/O 작업 순서와 동일하게 지역 복제되어야 합니다. 그러나 Azure 저장소 지역에서 복제는 VHD 간 종속성 선언을 허용하지 않습니다. 즉, Microsoft Azure 저장소 지역에서 복제는 이러한 서로 다른 9개 VHD의 콘텐츠가 서로 관련되어 있으며 데이터 변경 내용이 9개 VHD 모두에서 발생한 I/O 작업 순서대로 복제할 때만 일관되게 적용된다는 사실을 알지 못합니다.
 > 
 > 이 시나리오에서는 지역 복제된 이미지가 일관성 있는 데이터베이스 이미지를 제공하지 않을 가능성이 높을 뿐 아니라, 성능에 큰 영향을 줄 수 있는 지역 중복 저장소의 성능이 저하됩니다. 한 마디로 말해 DBMS 형식 워크로드에 대해서는 이러한 유형의 저장소 중복을 사용하지 마세요.
 > 
 > 
 
 #### <a name="mapping-vhds-into-azure-virtual-machine-service-storage-accounts"></a>VHD를 Azure 가상 컴퓨터 서비스 저장소 계정에 매핑
-Azure 저장소 계정은 관리 구성 요소일 뿐 아니라 제한의 대상이 됩니다. 단, 제한은 Azure 표준 저장소 계정인지 또는 Azure 프리미엄 저장소 계정인지에 따라 달라집니다. 정확한 기능 및 제한은 [여기][storage-scalability-targets]에 나열되어 있습니다.
+Azure 저장소 계정은 관리 구성 요소일 뿐 아니라 제한의 대상이 됩니다. 단, 제한은 Azure 표준 저장소 계정인지 또는 Azure 프리미엄 저장소 계정인지에 따라 달라집니다. 정확한 기능 및 제한은 [여기][storage-scalability-targets]서 나열하고 있습니다.
 
-Azure 표준 저장소의 경우 저장소 계정당 IOPS의 제한이 있습니다([이 문서][storage-scalability-targets]의 '총 요청 속도'를 포함하는 행). 또한 2015년 7월 현재 초기 제한은 Azure 구독당 100개의 저장소 계정으로 설정되어 있습니다. 따라서 Azure 표준 저장소를 사용할 때 여러 저장소 계정 간 VM의 IOPS 균형을 조정해야 합니다. 반면 단일 VM은 가능한 경우 하나의 저장소 계정을 사용하는 것이 이상적입니다. 따라서 Azure 표준 저장소에서 호스트되는 각 VHD가 해당 할당량 한도에 도달할 수 있는 DBMS 배포의 경우 Azure 표준 저장소를 사용하는 Azure 저장소 계정당 30-40개의 VHD만 배포해야 합니다. 반면 Azure 프리미엄 저장소를 활용하고 대용량 데이터베이스를 저장하려는 경우 IOPS에 대해 신경 쓰지 않아도 됩니다. 하지만 Azure 프리미엄 저장소 계정은 데이터 볼륨 면에서 Azure 표준 저장소 계정보다 훨씬 더 제한적입니다. 결과적으로, 데이터 볼륨 제한에 도달할 때까지만 Azure 프리미엄 저장소 계정 내에 제한된 수의 VHD를 배포할 수 있습니다. 결국 Azure 저장소 계정은 IOPS 및/또는 용량이 제한된 "가상 SAN"이라고 할 수 있습니다. 결과적으로, 작업은 온-프레미스 배포에서처럼 여러 '가상 SAN 장치' 또는 Azure 저장소 계정에 대해 여러 SAP 시스템의 VHD 레이아웃을 정의합니다.
+따라서 Azure Standard Storage의 경우 저장소 계정당 IOPS에 제한이 있습니다([이 문서][storage-scalability-targets]의 '총 요청 속도'가 포함된 행). 또한 2015년 7월 현재 초기 제한은 Azure 구독당 100개의 저장소 계정으로 설정되어 있습니다. 따라서 Azure 표준 저장소를 사용할 때 여러 저장소 계정 간 VM의 IOPS 균형을 조정해야 합니다. 반면 단일 VM은 가능한 경우 하나의 저장소 계정을 사용하는 것이 이상적입니다. 따라서 Azure 표준 저장소에서 호스트되는 각 VHD가 해당 할당량 한도에 도달할 수 있는 DBMS 배포의 경우 Azure 표준 저장소를 사용하는 Azure 저장소 계정당 30-40개의 VHD만 배포해야 합니다. 반면 Azure 프리미엄 저장소를 활용하고 대용량 데이터베이스를 저장하려는 경우 IOPS에 대해 신경 쓰지 않아도 됩니다. 하지만 Azure 프리미엄 저장소 계정은 데이터 볼륨 면에서 Azure 표준 저장소 계정보다 훨씬 더 제한적입니다. 결과적으로, 데이터 볼륨 제한에 도달할 때까지만 Azure 프리미엄 저장소 계정 내에 제한된 수의 VHD를 배포할 수 있습니다. 결국 Azure 저장소 계정은 IOPS 및/또는 용량이 제한된 "가상 SAN"이라고 할 수 있습니다. 결과적으로, 작업은 온-프레미스 배포에서처럼 여러 '가상 SAN 장치' 또는 Azure 저장소 계정에 대해 여러 SAP 시스템의 VHD 레이아웃을 정의합니다.
 
 Azure 표준 저장소의 경우 여러 저장소 계정의 저장소를 단일 VM에 두는 것은 권장되지 않습니다.
 
@@ -478,13 +476,13 @@ SAP 응용 프로그램에서 사용하는 데이터베이스 콘텐츠를 기�
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a>일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동
 온-프레미스에서 Azure로 특정 SAP 시스템을 이동하려고 합니다(리프트 및 전환). 이 작업은 OS, SAP 이진 파일 및 결과적 DBMS 이진을 포함하는 VHD와 DBMS 데이터와 로그 파일이 있는 VHD를 Azure에 업로드하여 수행할 수 있습니다. 위의 시나리오 2와는 달리 Azure VM에서 호스트 이름, SAP SID 및 SAP 사용자 계정을 온-프레미스 환경에서 구성된 대로 유지합니다. 그러므로 이미지 일반화는 필요하지 않습니다. 이 경우는 SAP 배경의 일부가 온-프레미스에서 실행되고 일부는 Azure에서 실행되는 프레미스 간 시나리오에 주로 적용됩니다.
 
-## <a name="a-name871dfc27-e509-4222-9370-ab1de77021c3ahigh-availability-and-disaster-recovery-with-azure-vms"></a><a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>Azure VM에서 고가용성 및 재해 복구
+## <a name="a-name871dfc27-e509-4222-9370-ab1de77021c3ahigh-availability-and-disaster-recovery-with-azure-vms"></a><a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>Azure VM을 사용한 고가용성 및 재해 복구
 Azure는 SAP 및 DBMS 배포에 사용할 다양한 구성 요소에 적용할 수 있는 다음과 같은 HA(고가용성) 및 DR(재해 복구) 기능을 제공합니다.
 
 ### <a name="vms-deployed-on-azure-nodes"></a>Azure 노드에 배포된 VM
 Azure 플랫폼은 배포된 VM을 위한 실시간 마이그레이션 등의 기능을 제공하지 않습니다. 즉, VM이 배포된 서버 클러스터에 유지 관리가 필요한 경우 VM을 중지했다가 다시 시작해야 합니다. Azure에서의 유지 관리는 서버 클러스터 내의 업그레이드 도메인을 통해 수행됩니다. 한 번에 하나의 업그레이드 도메인만 유지 관리됩니다. 이렇게 다시 시작하는 동안 VM이 종료될 때 서비스가 중단되었다가 유지 관리가 수행되고 VM이 다시 시작됩니다. 그러나 대부분의 DBMS 공급업체는 주 노드를 사용할 수 없는 경우 다른 노드에서 DBMS 서비스를 신속하게 다시 시작하는 고가용성 및 재해 복구 기능을 제공합니다. Azure 플랫폼에서는 VM, 저장소 및 기타 Azure 서비스를 업그레이드 도메인에 분산하는 기능을 제공하여 계획된 유지 관리를 수행합니다. 그렇지 않으면 인프라 장애가 소수의 VM 또는 서비스에만 영향을 줍니다.  신중하게 계획할 경우 온-프레미스 인프라와 비슷한 수준의 가용성을 얻을 수 있습니다.
 
-Microsoft Azure 가용성 집합은 한 번에 한 노드만 종료되는 클러스터 내에서 VM 및 기타 서비스가 클러스터 내의 다른 오류 및 업그레이드 도메인에 분산되도록 하는 서비스 또는 VM의 논리적 그룹입니다(자세한 내용은 [이][virtual-machines-manage-availability] 문서 참조).
+Microsoft Azure 가용성 집합은 VM 및 기타 서비스를 클러스터 내 다른 장애 및 업그레이드 도메인에 배포하여 한 번에 한 노드만 종료되도록 하는 VM 또는 서비스의 논리적 그룹입니다(자세한 내용은 [이 문서][virtual-machines-manage-availability] 참조).
 
 VM을 롤아웃하려는 경우 다음과 같이 구성해야 합니다.
 
@@ -505,7 +503,7 @@ DBMS 배포의 고가용성 구성을 생성하려는 경우(사용된 개별 DB
 
 프레미스 간 시나리오에서 DHCP 설정의 온-프레미스 정책이 다른 경우에도 기본적으로 종료 및 할당 취소는 VM에서의 IP 주소 할당 취소를 의미합니다. 
 
-* 단, [여기][virtual-networks-reserved-private-ip]의 설명에 따라 고정 IP 주소를 네트워크 인터페이스에 할당한 경우는 예외입니다.
+* 예외는 [여기][virtual-networks-reserved-private-ip]서 설명한 대로 고정 IP 주소를 네트워크 인터페이스에 할당하는 경우입니다.
 * 이러한 경우 네트워크 인터페이스가 삭제되지 않는 한 IP 주소가 고정 상태로 유지됩니다.
 
 > [!IMPORTANT]
@@ -527,7 +525,7 @@ Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server �
 > 
 > 
 
-계속하기 전에 [이][virtual-machines-sql-server-infrastructure-services] 설명서를 검토하는 것이 좋습니다.
+계속하기 전에 [이 문서][virtual-machines-sql-server-infrastructure-services]를 검토하는 것이 좋습니다.
 
 다음 섹션에서는 위 링크에 있는 설명서의 일부를 집계 및 설명합니다. SAP에 대한 정보도 언급되며 몇 가지 개념도 보다 자세히 설명합니다. 그러나 SQL Server 관련 문서를 읽기 전에 먼저 위의 문서를 통해 작업하는 것이 좋습니다.
 
@@ -535,8 +533,8 @@ Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server �
 
 * **가상 컴퓨터 SLA**: Azure에서 실행 중인 가상 컴퓨터용 SLA는 <https://azure.microsoft.com/support/legal/sla/>에 있습니다.  
 * **SQL 버전 지원**: SAP 고객의 경우 Microsoft Azure 가상 컴퓨터에서 SQL Server 2008 R2 이상 버전을 지원합니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. SQL Server 2012 및 2014에서는 IaaS 시나리오(Azure 저장소에 대한 직접 백업 등)와 더 밀접하게 통합되어 확장되었습니다. 따라서 이 문서는 SQL Server 2012 및 2014와 Azure용 최신 패치 수준으로 제한됩니다.
-* **SQL 기능 지원**: 대부분의 SQL Server 기능이 Microsoft Azure 가상 컴퓨터에서 지원되지만 몇 가지 예외가 있습니다. **공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터링은 지원되지 않습니다**.  데이터베이스 미러링, AlwaysOn 가용성 그룹, 복제, 로그 전달 및 Service Broker와 같은 분산 기술은 단일 Azure 지역 내에서 지원됩니다. SQL Server AlwaysOn은 여기(<https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>)에 설명된 대로 다른 Azure 지역 간 지원됩니다.  자세한 내용은 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. AlwaysOn 구성을 배포하는 방법에 대한 예는 [이][virtual-machines-workload-template-sql-alwayson] 문서에서 보여 줍니다. 또한 \ [여기][virtual-machines-sql-server-infrastructure-services]에서 설명된 모범 사례를 확인하세요. 
-* **SQL 성능**: Microsoft Azure에서 호스트되는 가상 컴퓨터는 다른 공용 클라우드 가상화 서비스보다 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이][virtual-machines-sql-server-performance-best-practices] 문서를 확인하세요.
+* **SQL 기능 지원**: 대부분의 SQL Server 기능이 Microsoft Azure 가상 컴퓨터에서 지원되지만 몇 가지 예외가 있습니다. **공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터링은 지원되지 않습니다**.  데이터베이스 미러링, AlwaysOn 가용성 그룹, 복제, 로그 전달 및 Service Broker와 같은 분산 기술은 단일 Azure 지역 내에서 지원됩니다. SQL Server AlwaysOn은 여기(<https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>)에 설명된 대로 다른 Azure 지역 간 지원됩니다.  자세한 내용은 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. AlwaysOn 구성을 배포하는 방법에 대한 예제는 [이 문서][virtual-machines-workload-template-sql-alwayson]에 보여 줍니다. 또한 [여기][virtual-machines-sql-server-infrastructure-services]서 설명하는 모범 사례도 참조하세요. 
+* **SQL 성능**: Microsoft Azure에서 호스트되는 가상 컴퓨터는 다른 공용 클라우드 가상화 서비스보다 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이 문서][virtual-machines-sql-server-performance-best-practices]를 참조하세요.
 * **Azure 마켓플레이스에서 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure 마켓플레이스의 이미지를 사용하는 것입니다. Azure 마켓플레이스에는 SQL Server를 포함한 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 응용 프로그램에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure Marketplace에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요. 
 * 자세한 내용은 [가격 책정 정보](https://azure.microsoft.com/pricing/) 를 확인하세요. [SQL Server 2012 라이선스 가이드](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) 및 [SQL Server 2014 라이선스 가이드](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf)도 중요한 리소스입니다.
 
@@ -583,7 +581,7 @@ SQL Server 2014에서는 VHD '래퍼' 없이 Azure Blob 저장소에 직접 데�
 
 이 배포 유형에 대한 자세한 내용은 <https://msdn.microsoft.com/library/dn385720.aspx>를 참조하세요.
 
-SQL Server 데이터 파일을 Azure 프리미엄 저장소에 직접 저장하려면 최소 <https://support.microsoft.com/kb/3063054>에서 설명한 SQL Server 2014 패치 릴리스가 필요합니다. Azure 표준 저장소에 SQL Server 데이터 파일을 저장하는 작업은 SQL Server 2014의 릴리스 버전에서 사용할 수 있습니다. 그러나 해당 패치에는 SQL Server 데이터 파일 및 백업을 위한 Azure Blob 저장소의 직접 사용을 더 안정적으로 만드는 수정 사항과 다른 시리즈의 수정 사항이 포함되어 있습니다. 따라서 일반적으로 이러한 패치를 사용하는 것이 좋습니다.
+SQL Server 데이터 파일을 Azure Premium Storage에 직접 저장하려면 최소 <https://support.microsoft.com/kb/3063054>에서 설명한 SQL Server 2014 패치 릴리스가 필요합니다. Azure 표준 저장소에 SQL Server 데이터 파일을 저장하는 작업은 SQL Server 2014의 릴리스 버전에서 사용할 수 있습니다. 그러나 해당 패치에는 SQL Server 데이터 파일 및 백업을 위한 Azure Blob 저장소의 직접 사용을 더 안정적으로 만드는 수정 사항과 다른 시리즈의 수정 사항이 포함되어 있습니다. 따라서 일반적으로 이러한 패치를 사용하는 것이 좋습니다.
 
 ### <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014 버퍼 풀 확장
 SQL Server 2014에는 버퍼 풀 확장이라는 새로운 기능이 도입되었습니다. 이 기능은 메모리에 저장된 SQL Server의 버퍼 풀과 서버 또는 VM의 로컬 SSD에서 지원되는 보조 수준 캐시를 확장합니다. 따라서 '메모리 내'에서 더 큰 데이터 작업 집합을 유지할 수 있습니다. Azure 표준 저장소 액세스에 비해 Azure VM의 로컬 SSD에 저장된 버퍼 풀 확장에 대한 액세스는 많은 요소를 더 빠르게 만듭니다.  따라서 뛰어난 IOPS 및 처리량을 갖는 VM 유형의 로컬 D:\ 드라이브를 활용할 경우 Azure 저장소에 대한 IOPS 부하를 줄이고 쿼리 응답 시간을 크게 향상시킬 수 있습니다. 이 이점은 프리미엄 저장소를 사용하지 않는 경우에 특히 적용됩니다. 프리미엄 저장소와 계산 노드에서 프리미엄 Azure 읽기 캐시를 사용하는 경우 데이터 파일에 대해 권장된 것처럼 큰 차이가 없습니다. 그 이유는 두 캐시(SQL Server 버퍼 풀 확장 및 프리미엄 저장소 읽기 캐시)가 계산 노드의 로컬 디스크를 사용하기 때문입니다.
@@ -605,7 +603,7 @@ SQL Server를 Azure 저장소에 백업하는 방법은 세 가지가 있습니�
 
 이 경우 SQL Server 백업을 저장할 VHD가 필요하지 않습니다. 그러므로 할당되는 VHD 수가 적고 VHD IOPS의 전체 대역폭을 데이터 및 로그 파일에 사용할 수 있습니다. <https://msdn.microsoft.com/library/dn435916.aspx#limitations> 문서의 '제한' 섹션에 설명된 대로 최대 백업 크기는 1TB로 제한되어 있습니다. SQL Server 백업 압축을 사용해도 백업 크기가 1TB를 넘으면 이 문서의 [SQL Server 2012 SP1 CU3 및 이전 버전][dbms-guide-5.5.2] 챕터에서 설명한 기능을 사용해야 합니다.
 
-Azure Blob 저장소 백업에서의 데이터베이스 복원을 설명하는 [관련 문서](https://msdn.microsoft.com/library/dn449492.aspx)에서는 백업 크기가 25GB를 넘을 경우 Azure Blob 저장소에서 직접 복원하지 않도록 권장하고 있습니다. 이 문서에서는 기능 제한 때문이 아니라 단순히 성능 고려 사항을 기준으로 한 것입니다. 따라서 상황별로 서로 다른 조건이 적용될 수 있습니다.
+Azure Blob 저장소 백업에서의 데이터베이스 복원을 설명하는 [관련 문서](https://msdn.microsoft.com/library/dn449492.aspx)에서는 백업 크기가&25;GB를 넘을 경우 Azure Blob 저장소에서 직접 복원하지 않도록 권장하고 있습니다. 이 문서에서는 기능 제한 때문이 아니라 단순히 성능 고려 사항을 기준으로 한 것입니다. 따라서 상황별로 서로 다른 조건이 적용될 수 있습니다.
 
 이러한 형식의 백업 설정 및 활용 방법에 대한 설명서는 [이](https://msdn.microsoft.com/library/dn466438.aspx) 자습서에서 확인할 수 있습니다.
 
@@ -666,7 +664,7 @@ Microsoft Azure 저장소 BLOB을 더 최신 버전의 백업 대상으로 사�
 
 [설명]: <> (ARM에서 아직 지원되지 않음)
 [설명]: <> (#### Azure VM 백업)
-[설명]: <> (SAP 시스템 내의 VM은 Azure 가상 컴퓨터 백업 기능을 사용하여 백업할 수 있습니다. Azure 가상 컴퓨터 백업은 2015년 초반에 도입된 이후 Azure에서 전체 VM을 백업하는 표준 방법이 되었습니다. Azure 백업은 Azure에 백업을 저장하고 VM을 다시 복원할 수 있도록 합니다.) 
+[설명]: <> (SAP 시스템 내의 VM은 Azure 가상 컴퓨터 백업 기능을 사용하여 백업할 수 있습니다. Azure 가상 컴퓨터 백업은 2015년 초반에 도입된 이후 Azure에서 전체 VM을 백업하는 표준 방법이 되었습니다. Azure Backup은 Azure에 백업을 저장하고 VM을 다시 복원할 수 있도록 합니다.) 
 [설명]: <> DBMS 시스템에서 Windows VSS(Volume Shadow Copy Service - <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>)를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등 일관성 있는 방법으로 백업할 수 있습니다. 따라서 Azure VM 백업을 사용하여 SAP 데이터베이스의 복원 가능한 백업을 가져올 수 있습니다. 그러나 데이터베이스의 Azure VM 백업 기반의 지정 시간 복원은 가능하지 않습니다. 따라서 Azure VM 백업을 사용하지 않고 DBMS 기능을 사용하여 데이터베이스 백업을 수행하는 것이 좋습니다.) [설명]: <> (Azure 가상 컴퓨터 백업 기능을 익히려면 여기 <https://azure.microsoft.com/documentation/services/backup/>에서 시작하세요.)
 
 ### <a name="a-name1b353e38-21b3-4310-aeb6-a77e7c8e81c8ausing-a-sql-server-images-out-of-the-microsoft-azure-marketplace"></a><a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Microsoft Azure 마켓플레이스에서 SQL Server 이미지 사용
@@ -725,7 +723,7 @@ AlwaysOn은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]참
 
 * 가용성 그룹 수신기는 Windows Server 2012 또는 Windows Server 2012 R2를 VM의 게스트 OS로 사용할 때만 사용할 수 있습니다. Windows Server 2012의 경우 <https://support.microsoft.com/kb/2854082> 패치가 적용되고 있는지 확인해야 합니다. 
 * Windows Server 2008 R2의 경우 이 패치가 없고 연결 문자열에서 장애 조치(failover) 파트너를 지정하여 데이터베이스 미러링과 같은 방법으로 AlwaysOn을 사용해야 합니다(SAP default.pfl 매개 변수 dbs/mss/server를 통해 수행 - SAP Note [965908]참조).
-* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\host 파일을 유지 관리해야 합니다. 두 VM이 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않게 하려면 AlwaysOn 구성에서 이러한 VM의 네트워크 인터페이스에 대해 고정 IP 주소를 할당해야 합니다.(고정 IP 주소 정의는 [이][virtual-networks-reserved-private-ip] 문서에서 설명합니다.)
+* 가용성 그룹 수신기를 사용할 경우 데이터베이스 VM을 전용 부하 분산 장치에 연결해야 합니다. 클라우드 전용 배포의 이름을 확인하려면 SAP 시스템의 모든 VM(응용 프로그램 서버, DBMS 서버 및 (A)SCS 서버)이 동일한 가상 네트워크에 있어야 하며, SQL Server VM의 VM 이름을 확인하려면 SAP 응용 프로그램 계층에서 etc\host 파일을 유지 관리해야 합니다. 두 VM이 우발적으로 동시에 종료되는 경우 Azure에서 새 IP 주소를 할당하지 않도록 하려면 AlwaysOn 구성에서 해당 VM의 네트워크 인터페이스에 고정 IP 주소를 할당해야 합니다(고정 IP 주소 정의는 [이 문서][virtual-networks-reserved-private-ip]에서 설명).
 
 [설명]: <> (이전 블로그)
 [설명]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
@@ -764,14 +762,14 @@ AlwaysOn의 경우 데이터베이스 미러링에 비해 더 복잡한 설정�
 * 향상된 확장성
 * 둘 이상의 보조 복제본
 
-### <a name="a-name9053f720-6f3b-4483-904d-15dc54141e30ageneral-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Azure의 SAP용 일반 SQL Server 요약
-이 가이드에는 많은 권장 사항이 있으며 Azure 배포를 계획하기 전에 두 번 이상 읽는 것이 좋습니다. 하지만 일반적으로 상위 10개의 일반 Azure DBMS 특정 사항을 따라야 합니다.
+### <a name="a-name9053f720-6f3b-4483-904d-15dc54141e30ageneral-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Azure의 SAP용 SQL Server에 대한 일반적 요약
+이 가이드에는 많은 권장 사항이 있으며 Azure 배포를 계획하기 전에 두 번 이상 읽는 것이 좋습니다. 하지만 일반적으로 상위&10;개의 일반 Azure DBMS 특정 사항을 따라야 합니다.
 
-[설명]: <> (2.3 무엇보다 더 높은 처리량? 하나보다 많은 VHD?)
+[설명]: <> (2.3 이상의 처리량은? 하나 이상의 VHD는?)
 1. Azure에서 가장 많은 이점을 제공하는 SQL Server 2014와 같은 최신 DBMS 릴리스를 사용합니다. SQL Server의 경우 Azure 저장소 백업 기능을 포함하는 SQL Server 2012 SP1 CU4입니다. 그러나 SAP와 함께 최소 SQL Server 2014 SP1 CU1 또는 SQL Server 2012 SP2 및 최신 CU를 권장합니다.
 2. 데이터 파일 레이아웃과 Azure 제한 사항 균형을 조정하도록 Azure에서 SAP 시스템 배경을 신중하게 계획합니다.
    * VHD가 너무 많으면 안 되지만 필요한 IOPS에 도달할 수 있을 만큼 충분해야 합니다.
-   * IOPS는 Azure Storage 계정당 제한되어 있으며 저장소 계정은 각 Azure 구독 내에서 제한됩니다([자세한 내용][azure-subscription-service-limits]). 
+   * IOPS는 Azure Storage 계정별로 제한되며, 해당 저장소 계정도 각 Azure 구독 내에서 제한됩니다([자세한 내용][azure-subscription-service-limits]). 
    * 더 높은 처리량이 필요한 경우에만 VHD를 스트라이프합니다.
 3. D:\ 드라이브는 비영구적이며 Windows 재부팅 시 이 드라이브의 내용이 모두 손실되므로 계속 유지해야 하는 소프트웨어를 설치하거나 파일을 저장하지 마세요.
 4. Azure 표준 저장소에 대해 Azure VHD 캐싱을 사용하지 마세요.
@@ -862,7 +860,7 @@ SAP 시스템을 호스트하는 Azure 가상 컴퓨터가 사이트 간, 다중
 > 
 > 
 
-DNS 이름에 관련된 자세한 내용은 [여기][virtual-machines-azurerm-versus-azuresm]에서 확인할 수 있습니다.
+DNS 이름과 관련된 자세한 내용은 [여기][virtual-machines-azurerm-versus-azuresm]에 있습니다.
 
 SAP 프로필 매개 변수 icm/host_name_full을 Azure VM의 DNS 이름으로 설정할 경우 링크는 다음과 같습니다.
 
@@ -975,7 +973,7 @@ SAP ASE에서의 SAP Business Suite 실행에 대한 일반 정보는 [SCN](http
 
 이 구성을 사용하면 tempdb에서 시스템 드라이브에서 제공할 수 있는 것보다 더 많은 공간을 사용할 수 있습니다. 참조로 온-프레미스에 실행 중인 기존 시스템에서 tempdb 디렉터리 크기를 확인할 수 있습니다. 또는 이러한 구성은 시스템 드라이브에서 tempdb에 대해 제공할 수 있는 것보다 더 많은 IOPS 수를 사용합니다. 다시 말하지만 온-프레미스에서 실행 중인 시스템에서 tempdb에 대해 I/O 워크로드를 모니터링할 수 있습니다.
 
-SAP ASE 디렉터리를 VM의 /mnt 또는 /mnt/resource에 배치하지 마세요. 이는 tempdb에도 적용되며 tempdb에 저장된 개체가 임시 개체인 경우에도 마찬가지입니다. 왜냐하면 /mnt 또는 /mnt/resource가 비영구적인 기본 Azure VM 임시 공간이기 때문입니다. Azure VM의 임시 공간에 대한 자세한 내용은 [이 문서][virtual-machines-linux-how-to-attach-disk]에서 찾을 수 있습니다.
+SAP ASE 디렉터리를 VM의 /mnt 또는 /mnt/resource에 배치하지 마세요. 이는 tempdb에도 적용되며 tempdb에 저장된 개체가 임시 개체인 경우에도 마찬가지입니다. 왜냐하면 /mnt 또는 /mnt/resource가 비영구적인 기본 Azure VM 임시 공간이기 때문입니다. Azure VM 임시 공간에 대한 자세한 내용은 [이 문서][virtual-machines-linux-how-to-attach-disk]에 있습니다.
 
 #### <a name="impact-of-database-compression"></a>데이터베이스 압축의 영향
 I/O 대역폭이 제한 요인이 될 수 있는 구성에서 IOPS를 줄여 Azure와 같이 IaaS 시나리오에서 실행할 수 있는 워크로드를 확장할 수 있습니다. 따라서 기존 SAP 데이터베이스를 Azure에 업로드하기 전에 SAP ASE 압축이 사용되는지 확인해야 합니다.
@@ -1015,7 +1013,7 @@ SAP 시스템을 호스트하는 Azure 가상 컴퓨터가 사이트 간, 다중
 > 
 > 
 
-DNS 이름에 관련된 자세한 내용은 [여기][virtual-machines-azurerm-versus-azuresm]에서 확인할 수 있습니다.
+DNS 이름과 관련된 자세한 내용은 [여기][virtual-machines-azurerm-versus-azuresm]에 있습니다.
 
 SAP 프로필 매개 변수 icm/host_name_full을 Azure VM의 DNS 이름으로 설정할 경우 링크는 다음과 같습니다.
 
@@ -1102,9 +1100,9 @@ NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지
 
 Oracle 데이터베이스 파일에 대해 지원되지 **않습니다** .
 
-Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [VM 및 VHD용 캐싱][dbms-guide-2.1] 및 [Microsoft Azure Storage][dbms-guide-2.3] 챕터의 설명이 Oracle Database를 사용한 배포에도 적용됩니다.
+Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [VM 및 VHD에 대한 캐싱][dbms-guide-2.1] 및 [Microsoft Azure Storage][dbms-guide-2.3] 챕터의 설명이 Oracle Database를 사용한 배포에도 적용됩니다.
 
-이 문서 앞부분의 일반 정보에서 설명했듯이 Azure VHD에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 형식과 해당 할당량 목록은 [여기][virtual-machines-sizes]에서 찾을 수 있습니다.
+이 문서 앞부분의 일반 정보에서 설명했듯이 Azure VHD에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 유형과 해당 할당량의 목록은 [여기][virtual-machines-sizes]에 있습니다.
 
 지원되는 Azure VM 형식을 식별하려면 SAP Note [1928533]
 
@@ -1117,7 +1115,7 @@ Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 �
 
 #### <a name="high-availability"></a>고가용성
 [설명]: <> (ASM 참조 링크)
-높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. 세부 정보는 [이][virtual-machines-windows-classic-configure-oracle-data-guard] 설명서에서 찾을 수 있습니다.
+높은 가용성 및 재해 복구를 위해 Oracle Data Guard가 지원됩니다. 자세한 내용은 [이 설명서][virtual-machines-windows-classic-configure-oracle-data-guard]에 있습니다.
 
 #### <a name="other"></a>기타
 Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항목은 모두 이 문서의 처음 세 챕터에서 Oracle Database와 VM 배포에 대해 설명한 대로 적용됩니다.
@@ -1140,7 +1138,7 @@ SAP Note [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP MaxDB 구성 지침
 #### <a name="a-nameb48cfe3b-48e9-4f5b-a783-1d29155bd573astorage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>저장소 구성
-SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포의 구조][dbms-guide-2] 챕터에 설명된 일반 권장 사항을 따릅니다.
+SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-guide-2]. 챕터에 설명된 일반 권장 사항을 따릅니다.
 
 > [!IMPORTANT]
 > 다른 데이터베이스처럼 SAP MaxDB에도 데이터 및 로그 파일이 있습니다. 그러나 SAP MaxDB 용어에서 올바른 용어는 "볼륨"("파일" 아님)입니다. 예를 들어 SAP MaxDB 데이터 볼륨 및 로그 볼륨이 있습니다. 운영 체제 디스크 볼륨과 혼동하지 마세요. 
@@ -1209,7 +1207,7 @@ SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할�
 
 마찬가지로, SAP에서 지원하는 모든 Azure VM 인스턴스 형식의 경우 VM 메모리가 모두 실제 메모리에 매핑되므로 예를 들어 오버프로비저닝(오버 커밋)이 사용되지 않습니다.
 
-이러한 관점에서 볼 때, 새로운 D 시리즈 또는 DS 시리즈(Azure 프리미엄 저장소와 함께 사용) Azure VM 유형은 A 시리즈보다 60% 더 빠른 프로세서를 제공하므로 이 형식을 사용하는 것이 좋습니다. RAM 및 CPU 부하가 매우 높은 경우 G 시리즈와 GS 시리즈(Azure 프리미엄 저장소와 함께 사용) VM을 최신 Intel® Xeon® 프로세서 E5 v3 제품군과 함께 사용할 수 있으며 그 결과 D/DS 시리즈에 비해 2배 많은 메모리 및 4배 많은 SSD(반도체 드라이브)를 사용할 수 있습니다.
+이러한 관점에서 볼 때, 새로운 D 시리즈 또는 DS 시리즈(Azure 프리미엄 저장소와 함께 사용) Azure VM 유형은 A 시리즈보다 60% 더 빠른 프로세서를 제공하므로 이 형식을 사용하는 것이 좋습니다. RAM 및 CPU 부하가 매우 높은 경우 G 시리즈와 GS 시리즈(Azure 프리미엄 저장소와 함께 사용) VM을 최신 Intel® Xeon® 프로세서 E5 v3 제품군과 함께 사용할 수 있으며 그 결과 D/DS 시리즈에 비해&2;배 많은 메모리 및&4;배 많은 SSD(반도체 드라이브)를 사용할 수 있습니다.
 
 #### <a name="storage-configuration"></a>저장소 구성
 SAP liveCache는 SAP MaxDB 기술을 기반으로 하므로 [저장소 구성][dbms-guide-8.4.1] 챕터에 언급된 모든 SAP MaxDB에 대한 Azure Storage 모범 사례 권장 사항이 SAP liveCache에도 적용됩니다. 
@@ -1237,7 +1235,7 @@ SAP에서 현재 다음을 지원합니다.
 
 SAP Content Server의 최신 버전을 사용하는 것이 좋습니다. 이 문서를 작성할 당시를 기준으로 하면 **6.50 SP4**와 **Microsoft IIS 8.5**가 최신 버전입니다. 
 
-SAP Content Server 및 Microsoft IIS에서 지원되는 최신 버전은 [SAP PAM(제품 가용성 매트릭스)][sap-pam]을 참조하세요.
+지원되는 최신 버전의 SAP Content Server 및 Microsoft IIS는 [SAP PAM(제품 가용성 매트릭스)][sap-pam]을 참조하세요.
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>SAP Content Server에 대해 지원되는 Microsoft Windows 버전 및 Azure VM 유형
 Azure의 SAP Content Server에서 지원되는 Windows 버전을 확인하려면 다음을 참조하세요.
@@ -1300,9 +1298,9 @@ Microsoft Azure 가상 컴퓨터 서비스에서 LUW용 IBM DB2의 SAP는 DB2 �
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Azure 페이지 Blob 저장소 기반의 Azure VHD를 사용하는 경우 이 문서의 [RDBMS 배포 구조][dbms-guide-2] 챕터의 설명이 LUW용 IBM DB2 데이터베이스를 사용한 배포에도 적용됩니다. 
+Azure 페이지 Blob Storage 기반의 Azure VHD를 사용하는 경우 이 문서의 [RDBMS 배포 구조][dbms-guide-2] 챕터의 설명이 LUW용 IBM DB2 데이터베이스를 사용한 배포에도 적용됩니다. 
 
-이 문서 앞부분의 일반 정보에서 설명했듯이 Azure VHD에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 형식과 해당 할당량 목록은 [여기][virtual-machines-sizes]에서 찾을 수 있습니다.
+이 문서 앞부분의 일반 정보에서 설명했듯이 Azure VHD에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 유형과 해당 할당량의 목록은 [여기][virtual-machines-sizes]에 있습니다.
 
 디스크당 현재 IOPS 할당량이 충분한 경우 탑재된 단일 Azure VHD에 모든 데이터베이스 파일을 저장할 수 있습니다. 
 
@@ -1332,16 +1330,16 @@ MSCS(Microsoft Cluster Server)는 지원되지 않습니다.
 
 DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 컴퓨터에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
 
-Azure 저장소 지역에서 복제는 사용하지 마세요. 자세한 내용은 [Microsoft Azure Storage][dbms-guide-2.3] 및 [Azure VM에서 고가용성 및 재해 복구][dbms-guide-3] 챕터를 참조하세요.
+Azure 저장소 지역에서 복제는 사용하지 마세요. 자세한 내용은 [Microsoft Azure Storage][dbms-guide-2.3] 및 [Azure VM을 사용한 고가용성 및 재해 복구][dbms-guide-3] 챕터를 참조하세요.
 
 #### <a name="other"></a>기타
 Azure 가용성 집합 또는 SAP 모니터링과 같은 기타 일반적인 항목은 모두 이 문서의 처음 세 챕터에서 LUW용 IBM DB2와 VM 배포에 대해 설명한 대로 적용됩니다. 
 
-또한 [Azure의 SAP용 일반 SQL Server 요약][dbms-guide-5.8] 챕터를 참조하세요.
+또한 [Azure의 SAP용 SQL Server에 대한 일반적 요약][dbms-guide-5.8] 챕터를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

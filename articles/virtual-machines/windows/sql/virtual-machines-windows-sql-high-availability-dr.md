@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/07/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: fbde757e44d05bf14f9337b47865edfb53894f10
+ms.sourcegitcommit: e43906fda1f5abc38c138b55c991c4ef8c550aa0
+ms.openlocfilehash: 93696222ca82573194541bfa95263f23fe3e2c39
 
 
 ---
@@ -28,7 +28,7 @@ Microsoft Azure 가상 컴퓨터(VM)에 SQL Server를 설치하여 사용하면 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="understanding-the-need-for-an-hadr-solution"></a>HADR 솔루션의 필요성 이해
-데이터베이스 시스템에 서비스 수준 계약(SLA)이 필요한 HADR 기능을 도입하는 것은 여러분의 선택입니다. Azure는 클라우드 서비스를 위한 서비스 복구 및 가상 컴퓨터에 대한 오류 복구 감지와 같은 고가용성 메커니즘을 제공하기는 하지만, 이를 통해 원하는 SLA를 충족할 수 있다는 보장은 없습니다. 이러한 메커니즘은 VVM의 고가용성을 보호하기는 하지만 VM에서 실행되는 SQL Server의 고가용성을 보호하지는 않습니다. VM이 온라인 상태이고 정상인 경우에도 SQL Server에 문제가 생길 수 있습니다. 또한 Azure가 제공하는 고가용성 메커니즘을 사용해도 소프트웨어를 사용한 복구나 하드웨어 고장, 운영 체제 업그레이드와 같은 경우에는 VM이 가동 중지될 수 있습니다.
+데이터베이스 시스템에 서비스 수준 계약(SLA)이 필요한 HADR 기능을 도입하는 것은 여러분의 선택입니다. Azure는 클라우드 서비스를 위한 서비스 복구 및 Virtual Machines에 대한 오류 복구 감지와 같은 고가용성 메커니즘을 제공하기는 하지만, 이를 통해 원하는 SLA를 충족할 수 있다는 보장은 없습니다. 이러한 메커니즘은 VVM의 고가용성을 보호하기는 하지만 VM에서 실행되는 SQL Server의 고가용성을 보호하지는 않습니다. VM이 온라인 상태이고 정상인 경우에도 SQL Server에 문제가 생길 수 있습니다. 또한 Azure가 제공하는 고가용성 메커니즘을 사용해도 소프트웨어를 사용한 복구나 하드웨어 고장, 운영 체제 업그레이드와 같은 경우에는 VM이 가동 중지될 수 있습니다.
 
 지역 복제라는 기능으로 구현되는 Azure의 GRS(지역 중복 저장)도 데이터베이스의 적절한 재해 복구 솔루션이 되지 못할 수 있습니다. 지역 복제는 데이터를 비동기 방식으로 전송하기 때문에, 재해 발생 시 최근 업데이트 내용이 손실될 수 있습니다. 지역에서 복제의 제한 사항에 대한 자세한 내용은 [지역에서 복제는 별도의 디스크에 저장된 데이터 및 로그 파일에 대해 지원되지 않음](#geo-replication-support) 섹션에 설명되어 있습니다.
 
@@ -36,27 +36,27 @@ Microsoft Azure 가상 컴퓨터(VM)에 SQL Server를 설치하여 사용하면 
 Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 
 * [Always On 가용성 그룹](https://technet.microsoft.com/library/hh510230.aspx)
-* [데이터베이스 미러링](https://technet.microsoft.com/library/ms189852.aspx)
-* [로그 전달](https://technet.microsoft.com/library/ms187103.aspx)
-* [Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)
 * [Always On 장애 조치 클러스터 인스턴스](https://technet.microsoft.com/library/ms189134.aspx)
+* [로그 전달](https://technet.microsoft.com/library/ms187103.aspx)
+* [Azure Blob Storage 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)
+* [데이터베이스 미러링](https://technet.microsoft.com/library/ms189852.aspx) - SQL Server 2016에서에서 사용되지 않음
 
 이러한 기술을 조합하여 고가용성과 재해 복구 기능을 갖춘 SQL Server 솔루션을 구현하는 것도 가능합니다. 사용하는 기술에 따라, 하이브리드 배포에는 Azure 가상 네트워크와 함께 VPN 터널이 필요할 수도 있습니다. 다음 섹션에서 몇 가지 배포 아키텍처의 예를 소개합니다.
 
 ## <a name="azure-only-high-availability-solutions"></a>Azure 전용: 고가용성 솔루션
-Always On 가용성 그룹 또는 데이터베이스 미러링을 사용하여 Azure에서 SQL Server 데이터베이스를 위한 고가용성 솔루션을 구현할 수 있습니다.
+가용성 그룹 또는 장애 조치 클러스터 인스턴스를 포함한 Always On 기능을 사용하여 Azure에서 SQL Server 데이터베이스에 대한 고가용성 솔루션을 구현할 수 있습니다.
 
 | 기술 | 아키텍처의 예 |
 | --- | --- |
-| **Always On 가용성 그룹** |고가용성을 위해 Azure VM에서 실행되는 모든 가용성 복제본이 동일한 지역에 위치합니다. Windows Server 장애 조치 클러스터링(WSFC)에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/> ![Always On 가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>자세한 내용은 [Azure의 Always On 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조하세요. |
-| **Always On 장애 조치 클러스터 인스턴스** |공유 저장소를 필요로 하는 FCI(장애 조치(failover) 클러스터 인스턴스)는 2가지 방법으로 만들 수 있습니다.<br/><br/>1. 타사 클러스터링 솔루션에서 지원하는 저장소를 통해 Azure VM에서 실행하는 2 노드 WSFC의 FCI. SIOS DataKeeper를 사용하는 특정 예제는 [WSFC 및 타사 소프트웨어 SIOS Datakeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>2. Express 경로를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용하여 Azure VM에서 실행하는 2 노드 WSFC의 FCI. 예를 들어 NPS(NetApp 개인 저장소)는 Equinix와 함께 Express 경로를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 저장소 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>이 솔루션은 프리미엄 저장소를 사용하지 않기 때문에 [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/) 맨 위에서 FCI를 사용하는 것은 아직 지원되지 않습니다. 빠른 시일 내에 지원하기 위해 노력하고 있습니다. |
+| **Always On 가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다. Windows Server 장애 조치 클러스터링(WSFC)에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/> ![Always On 가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>자세한 내용은 [Azure의 Always On 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조하세요. |
+| **Always On 장애 조치 클러스터 인스턴스** |공유 저장소가 필요한 FCI(장애 조치 클러스터 인스턴스)는 3가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server 2016 저장소 공간 다이렉트 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용하는 연결된 저장소로 Azure VM에서 실행되는 2노드 WSFC는 소프트웨어 기반 가상 SAN을 제공합니다.<br/><br/>2. 타사 클러스터링 솔루션에서 지원하는 저장소를 사용하여 Azure VM에서 실행되는&2;노드 WSFC입니다. SIOS DataKeeper를 사용하는 특정 예제는 [WSFC 및 타사 소프트웨어 SIOS Datakeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>3. ExpressRoute를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용하여 Azure VM에서 실행되는&2;노드 WSFC입니다. 예를 들어 NPS(NetApp 개인 저장소)는 Equinix와 함께 Express 경로를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 저장소 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>이 솔루션은 프리미엄 저장소를 사용하지 않기 때문에 [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/) 맨 위에서 FCI를 사용하는 것은 아직 지원되지 않습니다. 빠른 시일 내에 지원하기 위해 노력하고 있습니다. |
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure 전용: 재해 복구 솔루션
 Always On 가용성 그룹, 데이터베이스 미러링 또는 저장소 BLOB을 사용한 백업 및 복원을 사용하여 Azure 내의 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축할 수 있습니다.
 
 | 기술 | 아키텍처의 예 |
 | --- | --- |
-| **Always On 가용성 그룹** |재해 복구를 위해 가용성 복제본을 Azure VM의 여러 데이터 센터에서 실행합니다. 이렇게 여러 영역에 나누어 실행되는 솔루션은 완전한 사이트 중단이 발생해도 데이터를 보호할 수 있습니다. <br/> ![Always On 가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>한 영역 내의 모든 복제본은 동일한 클라우드 서비스 및 동일한 VNet 내에 있어야 합니다. 각 영역에 별도의 VNet이 있으므로, 이러한 솔루션은 VNet 사이의 연결이 필요합니다. 자세한 내용은 [Azure 클래식 포털에서 사이트 간 VPN 구성](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요. |
+| **Always On 가용성 그룹** |재해 복구를 위해 가용성 복제본을 Azure VM의 여러 데이터 센터에서 실행합니다. 이렇게 여러 영역에 나누어 실행되는 솔루션은 완전한 사이트 중단이 발생해도 데이터를 보호할 수 있습니다. <br/> ![Always On 가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>한 영역 내의 모든 복제본은 동일한 클라우드 서비스 및 동일한 VNet 내에 있어야 합니다. 각 영역에 별도의 VNet이 있으므로, 이러한 솔루션은 VNet 사이의 연결이 필요합니다. 자세한 내용은 [Azure 클래식 포털에서 사이트 간 VPN 구성](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요. 자세한 지침은 [다른 지역의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-dr.md)을 참조하세요.|
 | **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. Active Directory 도메인을 여러 데이터 센터에 사용할 수 없으므로 서버 인증서를 사용하여 배포해야 합니다.<br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Azure Blob 저장소 서비스로 SQL Server 백업 및 복원** |재해 복구를 위해 프로덕션 데이터베이스를 다른 데이터 센터의 Blob 저장소에 직접 백업합니다.<br/>![백업 및 복원](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. |
 
@@ -79,7 +79,7 @@ Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오�
 ### <a name="wsfc-cluster-behavior-in-azure-networking"></a>Azure 네트워킹에서 WSFC 클러스터의 동작
 Azure에 RFC 호환이 아닌 DHCP 서비스를 사용하면 특정한 WSFC 클러스터 구성에 오류가 발생할 수 있습니다. 클러스터 노드에 같은 IP 주소가 사용되는 것과 같이 클러스터 네트워크 이름에 중복된 IP 주소가 할당될 수 있기 때문입니다. 이는 WSFC 기능에 의존하는 Always On 가용성 그룹을 구현할 때 문제가 될 수 있습니다.
 
-노드가 2개인 클러스터를 만들고 온라인 상태로 만드는 상황을 고려해 보십시오.
+노드가&2;개인 클러스터를 만들고 온라인 상태로 만드는 상황을 고려해 보십시오.
 
 1. 클러스터가 온라인 상태가 되면 다음 NODE1은 클러스터 네트워크 이름으로 동적 할당된 IP 주소를 요청합니다.
 2. DHCP에서 할당한 NODE1의 자체 IP 주소 외에는 다른 IP 주소가 없으므로, DHCP 서비스는 요청이 NODE1 자체에서 온 것으로 인식하게 됩니다.
@@ -95,7 +95,7 @@ Azure에 RFC 호환이 아닌 DHCP 서비스를 사용하면 특정한 WSFC 클�
 ### <a name="availability-group-listener-support"></a>가용성 그룹 수신기 지원
 가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에서 실행되는 Azure VM에서 지원됩니다. 가용성 그룹 노드인 Azure VM에서 부하 분산된 끝점을 사용하도록 설정하면 이러한 지원이 가능해집니다. 수신기가 작동하도록 하려면 Azure에서 실행되는 클라이언트 응용 프로그램과 온-프레미스 실행되는 클라이언트 응용 프로그램 모두에 대해 특별한 구성 단계를 따라야 합니다.
 
-수신기를 설정하는 두 가지 주요 옵션(외부(공용) 및 내부)이 있습니다. 외부(공용) 수신기는 인터넷 연결 부하 분산 장치를 사용하며 인터넷을 통해 액세스할 수 있는 공용 VIP(가상 IP)에 연결됩니다. 내부 수신기는 내부 부하 분산 장치를 사용하며 동일한 가상 네트워크 내에 있는 클라이언트만 지원합니다. 각 부하 분산 장치 유형에 대해 Direct Server Return (DSR)을 설정해야 합니다. 
+수신기를 설정하는 두 가지 주요 옵션(외부(공용) 및 내부)이 있습니다. 외부(공용) 수신기는 인터넷 연결 부하 분산 장치를 사용하며 인터넷을 통해 액세스할 수 있는 공용 VIP(가상 IP)에 연결됩니다. 내부 수신기는 내부 부하 분산 장치를 사용하며 동일한 Virtual Network 내에 있는 클라이언트만 지원합니다. 각 부하 분산 장치 유형에 대해 Direct Server Return (DSR)을 설정해야 합니다. 
 
 가용성 그룹이 여러 Azure 서브넷에 있는 경우(여러 Azure 지역에 배포한 경우와 같이) 클라이언트 연결 문자열에는 "**MultisubnetFailover = True**"가 포함되어야 합니다. 이렇게 하면 다른 서브넷에 있는 복제본에 대해 병렬 연결을 시도하게 됩니다. 수신기 설정에 대한 지침은 다음을 참조하세요.
 
@@ -139,6 +139,6 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

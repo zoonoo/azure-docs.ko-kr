@@ -1,5 +1,5 @@
 ---
-title: "Linux VM에 대한 FAQ | Microsoft Docs"
+title: "Azure의 Linux VM에 대한 질문과 대답 | Microsoft Docs"
 description: "리소스 관리자 모델을 사용하여 만든 Linux 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 84b100bef1ee9661a38c05056ffafdb1d6640986
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 78b476b31f030fba4034dc1f499b020d244e8288
 
 
 ---
@@ -114,6 +114,6 @@ Virtual Machine에 로그온하려면 SSH(보안 셸)를 사용하여 원격 연
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

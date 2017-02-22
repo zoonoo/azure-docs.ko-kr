@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 > [!NOTE]
 > * 회사 브랜딩은 Azure Active Directory의 Premium 또는 Basic Edition으로 업그레이드하거나 Office 365 사용자인 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 > * Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>로그인 페이지 사용자 지정
 일반적으로 조직이 구독하는 클라우드 앱 및 서비스에 대해 브라우저 기반 액세스가 필요한 경우 로그인 페이지를 사용합니다.
@@ -46,8 +46,8 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같�
 > [!NOTE]
 > * 도메인 이름은 브랜딩을 구성한 Azure 클래식 포털의 **Active Directory** > **디렉터리** > **도메인** 섹션에 “활성”으로 나타나야 합니다.
 > * 로그인 페이지 브랜딩은 Microsoft의 소비자 로그인 페이지에 적용되지 않습니다. 개인 Microsoft 계정으로 로그인한 사용자는 Azure AD에서 렌더링하는 브랜드가 지정된 사용자 타일 목록을 볼 수 있지만 조직의 브랜딩이 Microsoft 계정 로그인 페이지에 적용되지는 않습니다.
-> 
-> 
+>
+>
 
 이 페이지에 회사 브랜드, 색 및 기타 사용자지정 가능한 요소를 표시하려면 다음 이미지를 참조하여 두 환경의 차이를 이해하세요.
 
@@ -91,8 +91,8 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같�
 
 > [!NOTE]
 > 모든 요소는 선택 사항입니다. 예를 들어 배너 로고는 지정하고 큰 그림은 지정하지 않으면 로그인 페이지에는 대상 사이트에 대한 로고와 그림(예: Office 365 캘리포니아 고속도로 이미지)이 표시됩니다.
-> 
-> 
+>
+>
 
 로그인 페이지의 **로그인 유지** 확인란은 사용자가 브라우저를 닫았다가 다시 열 때 로그인 상태를 유지할 수 있도록 합니다. 세션 수명에는 영향을 미치지 않습니다. 이 확인란을 Azure Active Directory 로그인 페이지에서 숨길 수 있습니다.
 
@@ -100,12 +100,12 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같�
 
 ![][9]
 
-확인란을 숨기려면 이 설정을 **숨겨짐**으로 설정합니다. 
+확인란을 숨기려면 이 설정을 **숨겨짐**으로 설정합니다.
 
 > [!NOTE]
 > SharePoint Online과 Office 2010의 일부 기능은 이 확인란을 선택할 수 있는 사용자에 따라 달라집니다. 이 설정을 숨겨짐으로 구성하면 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
-> 
-> 
+>
+>
 
 이 페이지의 모든 요소를 지역화할 수도 있습니다. "기본" 사용자 지정 요소 집합을 구성한 후 다른 로캘로 추가 버전을 구성할 수 있습니다. 다양한 요소를 적절히 조합하여 사용할 수도 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
@@ -163,15 +163,15 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 4. **브랜딩 사용자 지정**을 클릭합니다.
 5. 브랜딩 사용자 지정 페이지에서 **기존 브랜딩 설정 편집** 을 선택하고 다음 페이지로 이동합니다.
 6. 제거하려는 요소에 따라 다음 중 하나 이상을 수행합니다.
-   
+
     a. **배너 로고** 아래에서 **업로드된 로고 제거**를 선택합니다.
-   
+
     b. **타일 로고** 아래에서 **업로드된 로고 제거**를 선택합니다.
-   
+
     c. 모든 텍스트 상자에서 텍스트를 제거합니다.
-   
+
     d. **Next**를 클릭합니다.
-   
+
     e. 모든 텍스트 상자에서 텍스트를 제거합니다.
 7. **저장** 을 클릭하여 요소를 제거합니다.
 8. 필요한 경우 **브랜딩 사용자 지정** 을 다시 클릭하여 제거해야 하는 모든 언어별 브랜딩에 대해 이러한 단계를 반복합니다.
@@ -224,6 +224,6 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

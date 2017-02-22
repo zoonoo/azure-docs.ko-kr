@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -43,8 +43,8 @@ ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 >
 
 ## <a name="create-a-sql-data-warehouse"></a>SQL 데이터 웨어하우스 만들기
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **+ 새로 만들기** > **데이터 + 저장소** > **SQL Data Warehouse**를 차례로 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. **+ 새로 만들기** > **데이터베이스** > **SQL Data Warehouse**를 차례로 클릭합니다.
 
     ![생성](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. **SQL 데이터 웨어하우스** 블레이드에 필요한 정보를 입력한 다음 '만들기'를 눌러서 만듭니다.
@@ -102,6 +102,6 @@ Transact-SQL을 사용하여 방화벽 규칙을 구성할 수도 있습니다. 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

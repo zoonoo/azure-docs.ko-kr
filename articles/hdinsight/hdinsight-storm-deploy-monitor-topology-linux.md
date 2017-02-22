@@ -12,32 +12,39 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ca8f3ac0dd5301e1fd06abaf3a292872eb631f47
 
 
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
-이 문서에서는 HDInsight 클러스터의 Linux 기반 Storm에서 실행되는 Storm 토폴로지의 모니터링 및 관리하는 기본 사항을 알아봅니다.
+# <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>HDInsight에서 Apache Storm 토폴로지 배포 및 관리
+
+이 문서에서는 HDInsight 클러스터의 Storm에서 실행되는 Storm 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Windows 기반 HDInsight에서 토폴로지의 배포 및 모니터링에 대한 정보는 [Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)
+> 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. 
 > 
-> 
+> Windows 기반 HDInsight에서 토폴로지의 배포 및 모니터링에 대한 정보는 [Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)
+
 
 ## <a name="prerequisites"></a>필수 조건
 * **HDInsight 클러스터의 Linux 기반 Storm**: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md) 을 참조하세요.
+
 * **SSH 및 SCP의 기본적인 지식**: HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
   * **Linux, Unix 또는 OS X 클라이언트**: See [Linux, OS X 또는 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
   * **Windows 클라이언트**: See [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 * **SCP 클라이언트**: 모든 Linux, Unix 및 OS X 체제로 제공됩니다. Windows 클라이언트의 경우 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 사용할 수 있는 PSCP를 사용하는 것이 좋습니다.
 
 ## <a name="start-a-storm-topology"></a>Storm 토폴로지 시작
+
 ### <a name="using-ssh-and-the-storm-command"></a>SSH 및 Storm 명령 사용
+
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. **USERNAME** 을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME** 을 HDInsight 클러스터 이름으로 바꿉니다.
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -45,10 +52,12 @@ ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
     SSH를 사용하여 HDInsight 클러스터로 연결하는 방법에 대한 자세한 내용은 다음 문서를 참조합니다.
    
    * **Linux, Unix 또는 OS X 클라이언트**: See [Linux, OS X 또는 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
    * **Windows 클라이언트**: See [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
    
     클러스터에서 예제 WordCount 토폴로지를 시작합니다. 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
    
@@ -60,9 +69,11 @@ ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
    > 
 
 ### <a name="programmatically"></a>프로그래밍 방식
+
 클러스터에서 호스트되는 Nimbus 서비스와 통신하여 HDInsight에서 Storm에 대한 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 는 Nimbus 서비스를 통해 토폴로지를 배포하고 시작하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공합니다.
 
 ## <a name="monitor-and-manage-using-the-storm-command"></a>Storm 명령을 사용한 모니터링 및 관리
+
 `storm` 유틸리티를 사용하면 명령줄에서 실행하는 토폴로지로 작업할 수 있습니다. 다음은 일반적으로 사용하는 명령 목록입니다. 전체 명령 목록에는 `storm -h` 를 사용합니다.
 
 ### <a name="list-topologies"></a>목록 토폴로지
@@ -147,7 +158,7 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 자세한 내용은 [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
 > [!IMPORTANT]
-> Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+> Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 > 
 > 
 
@@ -179,6 +190,6 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "PHP 웹 및 작업자 역할 | Microsoft Docs"
+title: "PHP용 Azure 웹 및 작업자 역할 만들기 | Microsoft Docs"
 description: "Azure 클라우드 서비스에서 PHP 웹 및 작업자 역할을 만들고 PHP 런타임을 구성하는 방법을 설명하는 가이드입니다."
 services: 
 documentationcenter: php
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: d3fc1370751065eb954abe249017ef204038bd07
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: b6b802092165926cdfeab67849df26167ad96ebf
 
 
 ---
@@ -216,6 +216,6 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

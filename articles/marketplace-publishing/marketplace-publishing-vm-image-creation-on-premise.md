@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b6b5b7ab2d48f7f15a437f807db2485f55376bd2
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
 
 
 ---
@@ -143,7 +143,7 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac 및 Linux용 명령줄 도구를 사용하여 VHD 업로드
-[Linux 명령줄 도구](../virtual-machines-command-line-tools.md)에서 azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>를 사용합니다.
+[Linux 명령줄 도구](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)에서 azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>를 사용합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
@@ -152,6 +152,6 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

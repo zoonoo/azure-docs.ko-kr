@@ -12,20 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: adbede3de17f055f5e39630658f526dd239d50da
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 72daf5bdce0dfcb2e09869c159eb88ee313be575
 
 
 ---
 # <a name="move-data-from-an-on-premise-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동
 이 토픽에서는 Azure 데이터 팩터리(ADF)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
 
-이 **메뉴** 는 팀 데이터 과학 프로세스 중 데이터를 저장하고 처리할 수 있는 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
-
-[!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+Azure SQL Database로 데이터를 이동하는 다양한 옵션을 요약한 표는 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
 ## <a name="a-nameintroaintroduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>소개: ADF란 무엇이며 데이터를 마이그레이션하는 데 사용하려면 언제 사용해야 하나요?
 Azure 데이터 팩터리는 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 완전히 관리되는 클라우드 기반의 데이터 통합 서비스입니다. ADF 모델의 핵심 개념은 파이프라인입니다. 파이프라인은 각각 데이터 집합에 포함된 데이터에 수행할 작업을 정의하는 활동의 논리적 그룹화입니다. 연결된 서비스는 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의하는 데 사용됩니다.
@@ -84,7 +82,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 SQL Server�
 ## <a name="a-nameadflinkedservicesacreate-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services)에 제공됩니다.
 
-이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
+이 시나리오에는 연결된 서비스가 필요한&3;개의 리소스가 있습니다.
 
 1. [온-프레미스 SQL Server에 대한 연결된 서비스](#adf-linked-service-onprem-sql)
 2. [Azure Blob 저장소에 대한 연결된 서비스](#adf-linked-service-blob-store)
@@ -122,7 +120,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면
 * 온 프레미스 SEL 서버의 **테이블 이름**은 *nyctaxi_data*임
 * the **컨테이너 이름** 은 *containername*  
 
-이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
+이 ADF 파이프라인에는&3;개의 테이블 정의가 필요합니다.
 
 1. [SQL 온-프레미스 테이블](#adf-table-onprem-sql)
 2. [Blob 테이블 ](#adf-table-blob-store)
@@ -233,7 +231,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 파이프라인에 포함될 활동을 지정하고 다음 스크립트 기반 프로시저로 파이프라인을 만듭니다. 파이프라인 속성을 정의하는 데 JSON 파일이 사용됩니다.
 
 * 스크립트는 **파이프라인 이름** 이 *AMLDSProcessPipeline*이라고 가정합니다.
-* 또한 파이프라인이 매일 정기적으로 실행되도록 파이프라인의 주기성을 설정하고 작업에 대한 기본 실행 시간을 사용합니다(오전 12시 UTC).
+* 또한 파이프라인이 매일 정기적으로 실행되도록 파이프라인의 주기성을 설정하고 작업에 대한 기본 실행 시간을 사용합니다(오전&12;시 UTC).
 
 > [!NOTE]
 > 다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline)를 참조하세요.
@@ -330,6 +328,6 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

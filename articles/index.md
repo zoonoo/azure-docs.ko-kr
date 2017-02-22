@@ -4,8 +4,8 @@ hide_bc: true
 title: "Microsoft Azure설명서 | Microsoft Docs"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
-ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
+ms.sourcegitcommit: 39bebdc52aea8f4ee154c8369c1c564ffe8be95d
+ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
 
 ---
 <div id="main" class="v2">
@@ -99,8 +99,8 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                         </li>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -714,18 +714,18 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/">
+                                <a href="/azure/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-web.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>모든 플랫폼 및 장치용 웹 및 모바일 앱 만들기</p>
+                                                    <h3>Web Apps</h3>
+                                                    <p>대규모로 중요 업무용 웹앱을 빠르게 만들고 배포</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1585,7 +1585,7 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PowerBI 포함</h3>
+                                                    <h3>Power BI Embedded</h3>
                                                     <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
@@ -2909,6 +2909,6 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

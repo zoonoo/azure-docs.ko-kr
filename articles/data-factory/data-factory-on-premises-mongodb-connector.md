@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
 
 
 ---
@@ -33,7 +33,7 @@ Data Factory 서비스는 데이터 관리 게이트웨이를 사용하여 온-�
 현재 Data Factory는 다른 데이터 저장소에서 MongoDB로 데이터 이동이 아닌 MongoDB에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
 ## <a name="supported-versions"></a>지원되는 버전
-이 MongoDB 커넥터는 MongoDB 버전 2.4 이상을 지원합니다.
+이 MongoDB 커넥터는 MongoDB 버전 2.4, 2.6, 3.0 및 3.2를 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터베이스에 연결할 수 있도록 하려면 다음 구성 요소를 설치해야 합니다.
@@ -358,6 +358,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

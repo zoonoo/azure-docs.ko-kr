@@ -1,5 +1,5 @@
 ---
-title: "호스트 컴퓨터 및 Azure IoT Hub 준비 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 단원 2: 도구 다운로드(Ubuntu) | Microsoft Docs"
 description: "Ubuntu를 실행하는 호스트 컴퓨터에 도구 및 소프트웨어를 설치하고, IoT Hub를 만들어 장치를 IoT Hub에 등록합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 3b8aaa4a8e23c69eb1d48574b78598a2e5393166
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 6414a4f37367d8acc0bab9356b8a09aadf13bfc9
 
 
 ---
@@ -124,6 +124,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/li
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

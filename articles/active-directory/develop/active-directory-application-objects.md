@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 1e75c89498d96712c63a5a992c6de13e74300c50
-ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
+ms.sourcegitcommit: 8f70d9aeb0a407cdb76a5ce25eb620be58bb2659
+ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
 Azure AD 응용 프로그램은 단순 소프트웨어보다는 광범위합니다. 그것은 개념적 용어로 응용 프로그램 소프트웨어를 나타낼 뿐 아니라, 런타임 시 인증 및 권한 부여 “대화”에 참여할 수 있도록 하는 Azure AD를 사용한 등록 (즉, ID 구성)을 나타내기도 합니다. 기본적으로 응용 프로그램은 [클라이언트](active-directory-dev-glossary.md#client-application) 역할(리소스 사용)이나 [리소스 서버](active-directory-dev-glossary.md#resource-server) 역할(클라이언트에게 API 노출) 또는 두 역할 모두에서 작동할 수 있습니다. 대화 프로토콜은 클라이언트/리소스가 각기 리소스 데이터를 액세스/보호할 수 있도록 하려는 목표를 가지고 [OAuth 2.0 권한 부여 흐름](active-directory-dev-glossary.md#authorization-grant)에 의해 정의됩니다. 이제 한 단계 더 깊이 들어가, Azure AD 응용 프로그램 모델이 응용 프로그램을 내부적으로 나타내는 방법을 알아봅니다. 
 
 ## <a name="application-registration"></a>응용 프로그램 등록
-응용 프로그램을 [Azure 클래식 포털][AZURE-Classic-Portal]에 등록할 때, Azure AD 테넌트에 응용 프로그램 개체와 서비스 주체 개체라는 두 개체가 만들어집니다.
+응용 프로그램을 [Azure Portal][AZURE-Portal]에 등록할 때, Azure AD 테넌트에 응용 프로그램 개체와 서비스 주체 개체라는 두 개체가 만들어집니다.
 
 #### <a name="application-object"></a>응용 프로그램 개체
 Azure AD 응용 프로그램은 응용 프로그램의 "홈" 테넌트라고도 알려진, 응용 프로그램이 등록된 Azure AD 테넌트에 상주하는 하나의 응용 프로그램 개체에 의해서만 *정의* 됩니다. 응용 프로그램 개체는 응용 프로그램에 대한 ID 관련 정보를 제공하고 런타임에 해당 서비스 주체 개체가 사용을 위해 *파생* 되는 템플릿입니다. 
@@ -69,10 +69,10 @@ Azure AD 테넌트가 보호 중인 리소스에 응용 프로그램이 액세�
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.com
+[AZURE-Classic-Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

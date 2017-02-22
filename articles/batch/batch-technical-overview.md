@@ -159,6 +159,6 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

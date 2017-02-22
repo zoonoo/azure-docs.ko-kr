@@ -14,103 +14,86 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 02/02/2017
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: b3b0251436497cfdfb36369a05e01519c631e351
+ms.sourcegitcommit: 3603f58a9df1f0222a75b863ad2c1ab1b6e13fb2
+ms.openlocfilehash: c6868566e513c5cd2c76be3305ca6c9035d58acd
 
 
 ---
 # <a name="testing-azure-functions"></a>Azure Functions 테스트
 ## <a name="overview"></a>개요
-이 자습서에서는 함수 테스트에 대한 다른 접근 방법을 살펴보겠습니다. 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 http 트리거 함수를 정의합니다. 기본 **HttpTrigger Node.js 함수** 템플릿 코드는 `name` 쿼리 문자열 매개 변수를 지원합니다. 또한 요청 본문의 사용자에 대한 `address` 정보와 함께 해당 매개 변수를 지원하는 코드를 추가합니다.
+이 항목은 다음의 일반적인 방법을 포함하여 함수를 테스트하는 다양한 방법을 보여 줍니다.
+
++ cURL, Postman, 웹 기반 트리거에 대한 웹 브라우저 등의 HTTP 기반 도구 
++ Azure Storage 기반 트리거를 테스트하기 위한 저장소 탐색기
++ Functions 포털의 테스트 탭
++ 타이머로 트리거되는 함수
++ 테스트 응용 프로그램 또는 프레임워크  
+
+표시되는 모든 테스트 방법은 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 HTTP 트리거 함수를 사용합니다. 이 함수는 첫 번째 섹션에서 만듭니다.
 
 ## <a name="create-a-function-for-testing"></a>테스트용 함수 만들기
-이 자습서의 대부분에서는 새 함수를 만들 때 사용할 수 있는 **HttpTrigger Nodejs 함수** 템플릿의 약간 수정된 버전을 사용합니다.  새 함수를 만드는 데 도움이 필요한 경우 [첫 번째 Azure 함수 만들기 자습서](functions-create-first-azure-function.md) 를 검토할 수 있습니다.  **Azure 포털** 에서 테스트 함수를 만들 때에는 [Azure Portal]템플릿만 선택하면 됩니다.
+이 자습서의 대부분에서는 새 함수를 만들 때 사용할 수 있는 HttpTrigger JavaScript 함수 템플릿의 약간 수정된 버전을 사용합니다.  새 함수를 만드는 데 도움이 필요한 경우 [첫 번째 Azure 함수 만들기 자습서](functions-create-first-azure-function.md) 를 검토할 수 있습니다.  [Azure Portal]에서 테스트 함수를 만들 때에는 **HttpTrigger- JavaScript** 템플릿만 선택하면 됩니다.
 
 기본 함수 템플릿은 기본적으로 요청 본문 또는 쿼리 문자열 매개 변수의 이름( `name=<your name>`)을 되돌려 주는 hello world 함수입니다.  또한 요청 본문의 JSON 콘텐츠로 이름 및 주소를 제공할 수 있도록 하는 코드를 업데이트합니다. 그러면 함수는 사용 가능한 경우 클라이언트에 다시 표시합니다.   
 
 함수를 테스트에 사용할 다음 코드로 업데이트합니다.
 
 ```javascript
-module.exports = function(context, req) {
-    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));    
+module.exports = function (context, req) {
+    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));
+    var res;
 
     if (req.query.name || (req.body && req.body.name)) {
         if (typeof req.query.name != "undefined") {
             context.log("Name was provided as a query string param...");
-            ProcessNewUserInformation(context, req.query.name);
+            res = ProcessNewUserInformation(context, req.query.name);
         }
         else {
             context.log("Processing user info from request body...");
-            ProcessNewUserInformation(context, req.body.name, req.body.address);
+            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
     }
     else {
-        context.res = {
+        res = {
             status: 400,
             body: "Please pass a name on the query string or in the request body"
         };
     }
-    context.done();
+    context.done(null, res);
 };
+function ProcessNewUserInformation(context, name, address) {
+    context.log("Processing user information...");
+    context.log("name = " + name);
+    var echoString = "Hello " + name;
+    var res;
 
-function ProcessNewUserInformation(context, name, address)
-{    
-    context.log("Processing User Information...");            
-    context.log("name = " + name);            
-    echoString = "Hello " + name;
-
-    if (typeof address != "undefined")
-    {
+    if (typeof address != "undefined") {
         echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);            
+        context.log("address = " + address);
     }
-
-    context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: echoString
-        };
+    res = {
+        // status: 200, /* Defaults to 200 */
+        body: echoString
+    };
+    return res;
 }
 ```
 
 ## <a name="test-a-function-with-tools"></a>도구를 사용하여 함수 테스트
-### <a name="test-with-curl"></a>cURL을 사용하여 테스트
-종종 소프트웨어를 테스트할 때 명령줄이 응용 프로그램을 디버그하는 데 도움이 되며 함수와 차이가 없습니다.
-
-위의 함수를 테스트하려면 포털에서 **함수 Url** 을 복사합니다. 다음과 같은 형식이 됩니다.
-
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-이는 함수를 트리거하는 Url이며, 함수에 대한 Get(`-G` 또는 `--get`) 요청을 수행하는 명령줄에서 cURL 명령을 사용하여 테스트할 수 있습니다.
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-이 특정 예제에서는 cURL 명령에서 데이터(`-d`)로 전달될 수 있는 쿼리 문자열 매개 변수가 필요합니다.
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
-
-Enter 키를 누르면 명령줄에 함수의 출력이 표시됩니다.
-
-![](./media/functions-test-a-function/curl-test.png)
-
-포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
-
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+Azure Portal 외부에는 테스트를 위해 함수를 트리거하는 데 사용할 수 있는 다양한 도구가 있습니다. 여기에는 UI 기반 및 명령줄 도구를 모두 포함하는 HTTP 테스트 도구, Azure Storage 액세스 도구 및 간단한 웹 브라우저도 포함됩니다.
 
 ### <a name="test-with-a-browser"></a>브라우저를 사용하여 테스트
-매개 변수가 필요하지 않거나 쿼리 문자열 매개 변수만 필요한 함수는 브라우저를 사용하여 테스트할 수 있습니다.
+웹 브라우저는 HTTP 통해 함수를 트리거하는 간단한 방법입니다. 본문 페이로드가 필요하지 않으며 쿼리 문자열 매개 변수만 사용하는 GET 요청에 대해서는 브라우저를 사용할 수 있습니다.
 
 위에서 정의한 함수를 테스트하려면 포털에서 **함수 Url** 을 복사합니다. 다음과 같은 형식이 됩니다.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-`<Enter a name here>` 자리 표시자에 대한 실제 이름을 사용하여 다음과 같이 `name` 쿼리 문자열 매개 변수를 추가합니다.
+`<Enter a name here>` 자리 표시자에 대한 실제 이름을 사용하여 쿼리 문자열에 `name` 매개 변수를 추가합니다. 
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
@@ -118,21 +101,23 @@ Enter 키를 누르면 명령줄에 함수의 출력이 표시됩니다.
 
 ![](./media/functions-test-a-function/browser-test.png)
 
+이 예제는 반환되는 문자열을 XML에 래핑하는 Chrome 브라우저입니다. 다른 브라우저에는 문자열 값만 표시됩니다.
+
 포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
     2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T07:35:10.338 Name was provided as a query string param.
     2016-03-23T07:35:10.338 Processing User Information...
     2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
 
 ### <a name="test-with-postman"></a>Postman을 사용하여 테스트
-Postman은 대부분의 함수 테스트에 권장되는 도구입니다. Postman을 설치하려면 [Postman 가져오기](https://www.getpostman.com/)를 참조하세요. Postman은 다양한 특성의 HTTP 요청에 대한 제어를 제공합니다.
+대부분의 함수를 테스트하는 데 권장되는 도구는 Chrome 브라우저에 통합되는 Postman입니다. Postman을 설치하려면 [Postman 가져오기](https://www.getpostman.com/)를 참조하세요. Postman은 다양한 특성의 HTTP 요청에 대한 제어를 제공합니다.
 
 > [!TIP]
-> 익숙한 REST 클라이언트를 사용합니다. 다음은 Postman의 몇 가지 대안입니다.  
+> 가장 익숙한 HTTP 테스트 도구를 사용하세요. 다음은 Postman의 몇 가지 대안입니다.  
 >
 > * [Fiddler](http://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
@@ -162,7 +147,7 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
     2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:04:57.763 Processing user info from request body...
     2016-03-23T08:04:57.763 Processing User Information...
@@ -170,10 +155,36 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
+### <a name="test-with-curl-from-the-command-line"></a>명령줄에서 cURL을 사용하여 테스트 
+종종 소프트웨어를 테스트할 때 명령줄이 응용 프로그램을 디버그하는 데 도움이 되며 함수와 차이가 없습니다. cURL은 Linux 기반 시스템에서 기본적으로 사용할 수 있습니다. Windows에서는 먼저 [cURL 도구](https://curl.haxx.se/)를 다운로드한 후 설치해야 합니다. 
+
+위의 함수를 테스트하려면 포털에서 **함수 URL**을 복사합니다. 다음과 같은 형식이 됩니다.
+
+    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+이는 함수를 트리거하는 URL이며, 명령줄에서 cURL 명령을 사용하여 함수에 대해 GET(`-G` 또는 `--get`) 요청을 수행하마으로써 이를 테스트할 수 있습니다.
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+이 특정 예제에서는 cURL 명령에서 데이터(`-d`)로 전달될 수 있는 쿼리 문자열 매개 변수가 필요합니다.
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+
+명령을 실행하면 명령줄에 다음과 같은 함수 출력이 표시됩니다.
+
+![](./media/functions-test-a-function/curl-test.png)
+
+포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+
+    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
+    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
+    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+
 ### <a name="test-a-blob-trigger-using-storage-explorer"></a>저장소 탐색기를 사용하여 Blob 트리거 테스트
 [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)를 사용하여 Blob 트리거 함수를 테스트할 수 있습니다.
 
-1. 함수 앱에 대한 [Azure Portal] 에서 새 C#, F# 또는 노드 Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
+1. 함수 앱에 대한 [Azure Portal] 에서 새 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
 
         files
 2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
@@ -193,6 +204,8 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
         2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## <a name="test-a-function-within-functions"></a>함수 내에서 함수 테스트
+Azure Functions 포털은 HTTP 및 타이머 트리거 함수를 테스트할 수 있도록 디자인되었습니다. 테스트하려는 다른 함수를 트리거하는 함수를 만들 수도 있습니다.
+
 ### <a name="test-with-the-functions-portal-run-button"></a>함수 포털 실행 단추를 사용하여 테스트
 포털에서는 몇 가지 제한된 테스트를 수행할 수 있는 **실행** 단추를 제공합니다. 실행 단추를 사용하여 요청 본문을 제공할 수 있지만 쿼리 문자열 매개 변수를 제공하거나 요청 헤더를 업데이트할 수 없습니다.
 
@@ -209,7 +222,7 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
     2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:03:18.697 Processing user info from request body...
     2016-03-23T08:03:18.697 Processing User Information...
@@ -288,9 +301,10 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 ## <a name="test-a-function-with-code"></a>코드를 사용하여 함수 테스트
-### <a name="test-a-http-trigger-function-with-code-nodejs"></a>코드를 사용하여 HTTP 트리거 함수 테스트: Node.js
-http 요청을 실행하는 Node.js 코드를 사용하여 Azure 함수를 테스트할 수 있습니다.
+함수를 테스트하기 위해 외부 응용 프로그램 또는 프레임워크를 만들어야 하는 경우도 있습니다.
 
+### <a name="test-a-http-trigger-function-with-code-nodejs"></a>코드를 사용하여 HTTP 트리거 함수 테스트: Node.js
+Node.js 앱을 사용하여 함수를 테스트하기 위한 HTTP 요청을 실행할 수 있습니다.
 다음을 수행해야 합니다.
 
 * 요청 옵션에서 `host` 를 함수 앱 호스트로 설정
@@ -352,7 +366,7 @@ req.end(bodyString);
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
     2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
     2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
     2016-03-23T08:09:01.153 Request Body Type = object
@@ -431,6 +445,6 @@ static void Main(string[] args)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

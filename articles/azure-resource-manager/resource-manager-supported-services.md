@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 12/27/2016
 ms.author: magoedte;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: af96c2b6063f7200cdeb6b51e5c729aa4643127f
+ms.sourcegitcommit: 53e57807e97671bd279c03ada4c147fc1e7f1e45
+ms.openlocfilehash: c7bfc5584c11a7e69aedeb93f143a78d97c9369a
 
 
 ---
@@ -33,7 +33,8 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 부여 | 리소스 관리자 사용 | REST API | 스키마 | 빠른 시작 템플릿 |
 | --- | --- | --- | --- | --- |
 | 배치 |예 |[Batch REST](/rest/api/batchservice) |[일괄 처리 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-12-01/Microsoft.Batch.json) | |
-| 컨테이너 |예 |[컨테이너 서비스 REST](/rest/api/containerregistry) |[컨테이너 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
+| Container Registry |예 |[컨테이너 레지스트리 REST](/rest/api/containerregistry) |[컨테이너 레지스트리 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json) |[Microsoft.ContainerRegistry](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerRegistry%22&type=Code) |
+| 컨테이너 서비스 |예 |[컨테이너 서비스 REST](/rest/api/compute/containerservices) |[컨테이너 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
 | Dynamics Lifecycle Services |예 | | | |
 | 크기 집합 |예 |[크기 집합 REST](/rest/api/compute/virtualmachinescalesets) |[크기 집합 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |[virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) |
 | 서비스 패브릭 |예 |[서비스 패브릭 Rest](/rest/api/servicefabric) | [Service Fabric 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |[Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
@@ -91,8 +92,8 @@ Cloud Services(클래식)는 다른 클래식 리소스와 함께 사용할 수 
 | Cognitive Services |예 | [Cognitive Services REST](/rest/api/cognitiveservices) |[Cognitive Services 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) | |
 | 데이터 카탈로그 |예 |[데이터 카탈로그 REST](/rest/api/datacatalog) |[Data Catalog 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) | |
 | 데이터 팩터리 |예 |[데이터 팩터리 REST](/rest/api/datafactory) | |[Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| 데이터 레이크 분석 |예 | [Data Lake REST](/rest/api/datalakeanalytics) |[Data Lake 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
-| 데이터 레이크 저장소 |예 |[Data Lake Store 저장소 REST](/rest/api/datalakestore) |[Data Lake 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
+| 데이터 레이크 분석 |예 | [Data Lake REST](/rest/api/datalakeanalytics) |[Data Lake Analytics 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
+| 데이터 레이크 저장소 |예 |[Data Lake Store 저장소 REST](/rest/api/datalakestore) |[Data Lake Store 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeStore.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
 | HDInsights |예 |[HDInsights REST](/rest/api/hdinsight) | |[Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | 기계 학습 |예 |[기계 학습 REST](/rest/api/machinelearning) |[Machine Learning 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) | |
 | Stream Analytics |예 |[스트림 분석 REST](/rest/api/streamanalytics) | | |
@@ -110,7 +111,7 @@ Cloud Services(클래식)는 다른 클래식 리소스와 함께 사용할 수 
 | 부여 | 리소스 관리자 사용 | REST API | 스키마 | 빠른 시작 템플릿 |
 | --- | --- | --- | --- | --- |
 | CDN |예 |[CDN REST](/rest/api/cdn) |[CDN 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) |[Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| 미디어 서비스 |예 |[미디어 서비스 REST](/rest/api/media) |[미디어 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) | |
+| 미디어 서비스 |예 |[미디어 서비스 REST](/rest/api/media) |[미디어 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |[Microsoft.Media](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
 
 ## <a name="hybrid-integration"></a>하이브리드 통합
 | 부여 | 리소스 관리자 사용 | REST API | 스키마 | 빠른 시작 템플릿 |
@@ -304,6 +305,6 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 12/06/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 04eebbe19354ab1e927ee2bb41f25dc6676a7c93
-ms.openlocfilehash: c28e73f0a6833793561d8702eb6c6480b9fbc0a4
+ms.sourcegitcommit: 45ba55083ecca1995e343dc1da1497df43f70e10
+ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Log Analytics에서 System Center Operations Manager 평가(미리 보기) 솔루션을 사용하여 환경 최적화
 
-System Center Operations Manager 평가 솔루션을 사용하여 일정한 간격으로 System Center Operations Manager 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고, 구성하고, 사용하도록 도와줍니다.
+System Center Operations Manager 평가 솔루션을 사용하여 일정한 간격으로 System Center Operations Manager 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고, 구성하고, 사용하도록 도와줍니다. 
 
 이 솔루션은 배포된 서버 인프라 관련 우선순위가 지정된 권장 사항 목록을 제공합니다. 권장 사항은 신속하게 위험을 이해하고 수정 조치를 취할 수 있도록 네 가지 주요 영역으로 분류되어 있습니다.
 
@@ -243,6 +243,12 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="system-center-operations-manager-assessment-solution-faq"></a>System Center Operations Manager 평가 솔루션 FAQ
 
+*평가 솔루션을 내 OMS 작업 공간에 추가합니다. 하지만 권장 사항이 표시되지 않습니다. 이유* 솔루션을 추가한 후, 다음 단계 보기를 사용하여 OMS 대시보드의 권장 사항을 봅니다.  
+
+- [System Center Operations Manager 평가를 위한 계정으로 실행 설정](#operations-manager-run-as-accounts-for-oms)  
+- [System Center Operations Manager 평가 규칙 구성](#configure-the-assessment-rule)
+
+
 *평가를 실행 빈도를 구성하는 방법이 있나요?* 예. [실행 빈도 구성](#configure-the-run-frequency)을 참조하세요.
 
 *System Center Operations Manager 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?* 예, 검색된 이후 기본적으로 7일마다 평가됩니다.
@@ -274,6 +280,6 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

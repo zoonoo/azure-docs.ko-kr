@@ -1,6 +1,6 @@
 ---
-title: "Service Bus를 사용하여 성능을 향상하는 모범 사례 | Microsoft Docs"
-description: "broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다."
+title: "Azure Service Bus를 사용하여 성능을 향상하는 모범 사례 | Microsoft Docs"
+description: "broker 저장 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5402481a0adc27474f7ddd9b5be1d71dc2c91d44
+ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
+ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
-이 항목에서는 조정된 메시지를 교환할 때 Azure Service Bus 메시징을 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
+이 문서에서는 broker 저장 메시지를 교환할 때 [Azure Service Bus 메시징](https://azure.microsoft.com/services/service-bus/)을 사용하여 성능을 최적화하는 방법에 대해 설명합니다. 이 항목의 첫 번째 부분에서는 성능 향상을 위해 제공되는 다양한 메커니즘에 대해 설명합니다. 두 번째 부분은 특정 시나리오에서 최고의 성능을 제공하는 방식으로 서비스 버스를 사용하는 방법에 대해 안내합니다.
 
 이 항목 전반적으로 "클라이언트"라는 용어는 Service Bus에 액세스하는 모든 엔터티를 가리킵니다. 클라이언트는 발신기 또는 수신기의 역할을 수행할 수 있습니다. "발신기"라는 용어는 메시지를 Service Bus 큐 또는 토픽에 보내는 Service Bus 큐 또는 토픽 클라이언트에 사용됩니다. "수신기"라는 용어는 Service Bus 큐 또는 구독에서 메시지를 수신하는 Service Bus 큐 또는 구독 클라이언트를 가리킵니다.
 
 다음 섹션에서는 서비스 버스가 성능 향상을 위해 사용하는 몇 가지 개념에 대해 소개합니다.
 
 ## <a name="protocols"></a>프로토콜
-Service Bus를 사용하면 클라이언트에서 세 가지 프로토콜을 통해 메시지를 보내고 받을 수 있습니다.
+Service Bus를 사용하면 클라이언트에서 세 가지 프로토콜 중 하나를 통해 메시지를 보내고 받을 수 있습니다.
 
 1. AMQP(고급 메시지 큐 프로토콜)
 2. SBMP(Service Bus 메시징 프로토콜)
-3. HTTP
+3. http
 
 AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 연결을 유지하기 때문에 둘 다 보다 효율적입니다. 또한 일괄 처리와 프리페치도 구현합니다. 명시적으로 언급하지 않는 한 이 항목의 모든 내용에서는 AMQP 또는 SBMP를 사용하는 것으로 가정합니다.
 
@@ -44,7 +44,7 @@ AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 �
 
 * **비동기 작업**: 클라이언트가 비동기 작업을 수행하여 작업을 예약합니다. 이전 요청이 완료되기 전에 다음 요청이 시작됩니다. 다음은 비동기 전송 작업의 예제입니다.
   
-  ```
+ ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
   BrokeredMessage m2 = new BrokeredMessage(body);
   
@@ -62,7 +62,7 @@ AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 �
   
   다음은 비동기 수신 작업의 예제입니다.
   
-  ```
+  ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   
@@ -87,13 +87,13 @@ AMQP와 SBMP는 메시징 팩터리가 존재하는 한 Service Bus에 대한 �
 서비스 버스는 수신 및 삭제 작업에 대한 트랜잭션을 지원하지 않습니다. 또한 클라이언트가 메시지를 연기하거나 [배달 못 한](service-bus-dead-letter-queues.md) 시나리오에서는 보기-잠금 의미 체계가 필요합니다.
 
 ## <a name="client-side-batching"></a>클라이언트 쪽 일괄 처리
-클라이언트 쪽 일괄 처리에서는 큐 또는 토픽 클라이언트가 일정 시간 동안 메시지 전송을 연기할 수 있습니다. 클라이언트가 이 기간 동안 추가 메시지를 보내면 메시지를 단일 배치로 전송합니다. 또한 클라이언트 쪽 일괄 처리에서는 또한 큐/구독 클라이언트가 여러 **완료** 요청을 단일 요청으로 일괄 처리합니다. 일괄 처리는 비동기 **전송** 및 **완료** 작업에만 사용할 수 있습니다. 동기 작업은 서비스 버스 서비스에 즉시 보내집니다. 일괄 처리는 보기 또는 수신 작업에 대해 발생하지 않으며 클라이언트 전반에서도 발생하지 않습니다.
+클라이언트 쪽 일괄 처리에서는 큐 또는 토픽 클라이언트가 일정 시간 동안 메시지 전송을 연기할 수 있습니다. 클라이언트가 이 기간 동안 추가 메시지를 보내면 메시지를 단일 배치로 전송합니다. 또한 클라이언트 쪽 일괄 처리에서는 또한 큐 또는 구독 클라이언트가 여러 **완료** 요청을 단일 요청으로 일괄 처리합니다. 일괄 처리는 비동기 **전송** 및 **완료** 작업에만 사용할 수 있습니다. 동기 작업은 서비스 버스 서비스에 즉시 보내집니다. 일괄 처리는 보기 또는 수신 작업에 대해 발생하지 않으며 클라이언트 전반에서도 발생하지 않습니다.
 
-배치가 최대 메시지 크기를 초과할 경우 마지막 메시지가 배치에서 제거되고 클라이언트가 배치를 즉시 보냅니다. 마지막 메시지는 다음 배치의 첫 번째 메시지가 됩니다. 기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
+기본적으로 클라이언트는 20ms의 배치 간격을 사용합니다. 메시지 팩터리를 만들기 전에 [BatchFlushInterval][BatchFlushInterval] 속성을 설정하여 배치 간격을 변경할 수 있습니다. 이 설정은이 이 팩터리에서 만든 모든 클라이언트에 영향을 줍니다.
 
 일괄 처리를 사용하지 않도록 설정하려면 [BatchFlushInterval][BatchFlushInterval] 속성을 **TimeSpan.Zero**로 설정합니다. 예:
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -103,11 +103,11 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 일괄 처리는 청구 가능 메시징 작업의 수에 영향을 주지 않으며 서비스 버스 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 일괄 처리를 지원하지 않습니다.
 
 ## <a name="batching-store-access"></a>저장소 액세스 일괄 처리
-큐/토픽/구독의 처리량을 높이기 위해 Service Bus는 내부 저장소에 쓸 때 여러 메시지를 일괄 처리합니다. 큐 또는 토픽에 설정된 경우 저장소에 메시지를 쓰는 작업이 일괄 처리됩니다. 큐 또는 구독에 설정된 경우 저장소에서 메시지를 삭제하는 작업이 일괄 처리됩니다. 엔터티에 대해 일괄 처리된 저장소 액세스를 사용할 경우 서비스 버스는 해당 엔터티와 관련된 저장소 쓰기 작업을 최대 20ms까지 지연합니다. 이 간격 동안 발생하는 추가 저장소 작업은 배치에 추가됩니다. 일괄 처리된 저장소 액세스는 **전송** 및 **완료** 작업에만 영향을 주고 수신 작업은 영향을 받지 않습니다. 일괄 처리된 저장소 액세스는 엔터티의 속성입니다. 일괄 처리는 일괄 처리된 저장소 액세스가 가능한 모든 엔터티에서 발생합니다.
+큐, 토픽 또는 구독의 처리량을 높이기 위해 Service Bus는 내부 저장소에 쓸 때 여러 메시지를 일괄 처리합니다. 큐 또는 토픽에 설정된 경우 저장소에 메시지를 쓰는 작업이 일괄 처리됩니다. 큐 또는 구독에 설정된 경우 저장소에서 메시지를 삭제하는 작업이 일괄 처리됩니다. 엔터티에 대해 일괄 처리된 저장소 액세스를 사용할 경우 서비스 버스는 해당 엔터티와 관련된 저장소 쓰기 작업을 최대 20ms까지 지연합니다. 이 간격 동안 발생하는 추가 저장소 작업은 배치에 추가됩니다. 일괄 처리된 저장소 액세스는 **전송** 및 **완료** 작업에만 영향을 주고 수신 작업은 영향을 받지 않습니다. 일괄 처리된 저장소 액세스는 엔터티의 속성입니다. 일괄 처리는 일괄 처리된 저장소 액세스가 가능한 모든 엔터티에서 발생합니다.
 
 새 큐, 토픽 또는 구독을 만들면 기본적으로 일괄 처리된 저장소 액세스가 사용하도록 설정됩니다. 일괄 처리된 저장소 액세스를 사용하지 않으려면 엔터티를 만들기 전에 [EnableBatchedOperations][EnableBatchedOperations] 속성을 **false**로 설정합니다. 예:
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -120,7 +120,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 메시지가 프리페치되는 경우 서비스는 프리페치된 메시지를 잠급니다. 이렇게 하면 프리페치된 메시지를 다른 수신기가 받을 수 없습니다. 잠금이 만료되기 전에 수신기가 메시지를 완료할 수 없는 경우 다른 수신기가 메시지를 사용할 수 있습니다. 프리페치된 메시지의 복사본은 캐시에 남아 있습니다. 만료 및 캐시된 복사본을 사용하는 수신기가 해당 메시지를 완료하려고 하면 예외를 수신합니다. 기본적으로 메시지 잠금은 60초 후에 만료됩니다. 이 값은 5분으로 연장할 수 있습니다. 만료된 메시지를 사용하지 못하도록 하려면 캐시 크기가 언제나 잠금 시간 초과 간격 이내에 클라이언트가 사용할 수 있는 메시지 수보다 작아야 합니다.
 
-기본 잠금 만료 시간인 60초를 사용할 경우 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]에는 모든 팩터리 수신기의 최대 처리 속도보다 20배 높은 값이 적합합니다. 예를 들어 팩터리에서 수신기 3개를 만들 경우 각 수신기는 초당 최대 10개의 메시지를 처리할 수 있습니다. 프리페치 수가 20\*3\*10 = 600을 초과해서는 안됩니다. 기본적으로 [QueueClient.PrefetchCount][QueueClient.PrefetchCount]는 서비스에서 추가 메시지를 페치하지 않음을 의미하는 0으로 설정되어 있습니다.
+기본 잠금 만료 시간인 60초를 사용할 경우 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]에는 모든 팩터리 수신기의 최대 처리 속도보다 20배 높은 값이 적합합니다. 예를 들어 팩터리에서 수신기 3개를 만들 경우 각 수신기는 초당 최대 10개의 메시지를 처리할 수 있습니다. 프리페치 수가 20 X 3 X 10 = 600을 초과해서는 안됩니다. 기본적으로 [QueueClient.PrefetchCount][QueueClient.PrefetchCount]는 서비스에서 추가 메시지를 페치하지 않음을 의미하는 0으로 설정되어 있습니다.
 
 메시지를 프리페치할 경우 전체 메시지 작업 수 또는 왕복 수가 감소하므로 큐 또는 구독에 대한 전체 처리량이 증가합니다. 그러나 첫 번째 메시지를 페치하는 작업은 증가된 메시지 크기로 인해 더 오래 걸립니다. 프리페치된 메시지는 클라이언트에서 이미 다운로드한 메시지이므로 더 빠르게 수신할 수 있습니다.
 
@@ -131,7 +131,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 ## <a name="express-queues-and-topics"></a>명시적 큐 및 토픽
 명시적 엔터티에서는 처리량이 높고 대기 시간이 감소된 시나리오가 지원됩니다. 명시적 엔터티를 사용할 경우 메시지가 큐 또는 토픽으로 전송되면 메시지 저장소에 즉시 저장되지 않고 대신 메모리에 캐시됩니다. 메시지가 큐에 몇 초 이상 남아 있을 경우 안정적 저장소에 자동으로 기록되므로 중단으로 인한 손실로부터 보호합니다. 메시지를 보낼 때에는 안정적 저장소에 액세스할 수 없기 때문에 메모리 캐시에 메시지를 쓰면 처리량이 증가하고 대기 시간이 감소합니다. 몇 초 이내에 사용된 메시지는 메시징 저장소에 기록되지 않습니다. 아래 예제에서는 명시적 토픽을 만듭니다.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -140,9 +140,9 @@ namespaceManager.CreateTopic(td);
 손실되어서는 안 되는 중요 정보가 포함된 메시지를 명시적 엔터티로 보낼 경우 발신기는 [ForcePersistence][ForcePersistence] 속성을 **true**로 설정하여 Service Bus가 메시지를 안정적 저장소에 즉시 기록하여 유지하도록 할 수 있습니다.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>분할된 큐 또는 토픽 사용
-Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][분할된 메시징 엔터티]를 참조하세요.
+Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;
@@ -150,14 +150,14 @@ namespaceManager.CreateQueue(qd);
 ```
 
 ## <a name="use-of-multiple-queues"></a>여러 큐 사용
+
 분할된 큐 또는 토픽을 사용할 수 없거나 분할된 단일 큐 또는 토픽으로 예상 부하를 처리할 수 없을 경우 여러 메시징 엔터티를 사용해야 합니다. 여러 엔터티를 사용할 때는 모든 엔터티에 동일한 클라이언트를 사용하는 대신 각 엔터티의 전용 클라이언트를 만듭니다.
 
-## <a name="development-testing-features"></a>개발 및 테스트 기능
-Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되는** 개발에 사용되는 한 가지 기능이 있습니다.
+## <a name="development-and-testing-features"></a>개발 및 테스트 기능
 
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되는** 개발에 사용되는 한 가지 기능이 있습니다. [TopicDescription.EnableFilteringMessagesBeforePublishing][]
 
-* 새 규칙 또는 필터가 항목에 추가되면 EnableFilteringMessagesBeforePublishing을 사용하여 새 필터 식이 예상대로 작동하는지 확인할 수 있습니다.
+새 규칙 또는 필터가 항목에 추가되면 [TopicDescription.EnableFilteringMessagesBeforePublishing][]을 사용하여 새 필터 식이 예상대로 작동하는지 확인할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오
 다음 섹션에서는 일반적인 메시징 시나리오에 대해 설명하고 기본 서비스 버스 설정에 대해 간단히 소개합니다. 처리량 속도는 적음(초당 1개 메시지 미만), 보통(초당 1개 메시지 이상, 초당 100개 메시지 미만), 높음(초당 100개 메시지 이상)으로 분류됩니다. 클라이언트 수는 적음(5개 이하), 보통(5개 초과, 20개 이하), 많음(20개 초과)으로 분류됩니다.
@@ -241,23 +241,24 @@ Service Bus에는 특별히 **프로덕션 구성에서 사용해서는 안 되�
 * 프리페치 수를 초당 예상 수신 속도의 20배로 설정합니다. 이렇게 하면 서비스 버스 클라이언트 프로토콜 전송 횟수가 줄어듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][분할된 메시징 엔터티]를 참조하세요.
+Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
-[EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
-[QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
-[SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
-[ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
-[EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-[분할된 메시징 엔터티]: service-bus-partitioning.md
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[Partitioned messaging entities]: service-bus-partitioning.md
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 2f6a8a728448432678a0545acd879a4f66a28557
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 2f6a8a728448432678a0545acd879a4f66a28557
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
 ## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>필수 조건
-이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 Azure Web App, 개발 환경 및 웹 프로젝트를 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
+이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱을 작업합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
 
 이 자습서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
 
@@ -131,7 +131,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
         }
 4. `ViewBag.Message` 줄에 [중단점을 설정](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)합니다.
 5. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
-6. **프로필** 드롭다운 목록에서 [Azure 및 ASP.NET 시작][GetStarted]에서 사용한 프로필과 동일한 프로필을 선택합니다.
+6. [Azure 및 ASP.NET 시작][GetStarted]에서 사용한 프로필과 동일한 프로필을 **프로필** 드롭다운 목록에서 선택합니다.
 7. **설정** 탭을 클릭하고 **구성**을 **디버그**로 변경한 후 **게시**를 클릭합니다.
 
     ![디버그 모드에서 게시](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
@@ -209,7 +209,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 ## <a name="notes-about-remote-debugging"></a>원격 디버깅 관련 참고 사항
 * 프로덕션 사이트에서 디버그 모드로 실행하는 것은 권장되지 않습니다. 프로덕션 웹 앱이 여러 서버 인스턴스로 확장되지 않은 경우 디버깅으로 인해 웹 서버에서 다른 요청에 응답할 수 없습니다. 여러 웹 서버 인스턴스를 배포하여 이들을 디버거에 연결한 경우 디버깅은 임의 인스턴스에서 실행되므로 후속 브라우저 요청이 해당 인스턴스로 이동하도록 보장할 수 있는 방법이 없습니다. 또한 일반적으로는 프로덕션 사이트에 디버그 빌드를 배포하지 않는데 이는 릴리스 빌드용 컴파일러 최적화로 인해 현재 진행되는 상황이 소스 코드에 자세히 표시되는 것이 불가능하기 때문입니다. 프로덕션 문제를 해결하는 데는 응용 프로그램 추적 및 웹 서버 로그가 최적의 리소스입니다.
 * 원격 디버깅 시 중단점에서 장시간 중지하지 않도록 합니다. 몇 분 이상 중지된 프로세스는 Azure에서 응답하지 않는 프로세스로 간주되어 종료되기 때문입니다.
-* 디버그하는 동안 서버는 데이터를 Visual Studio로 보내며, 이로 인해 대역폭 사용 요금에 영향을 줄 수 있습니다. 대역폭 요금에 대한 자세한 내용은 [Azure 가격 책정](/pricing/calculator/)을 참조하십시오.
+* 디버그하는 동안 서버는 데이터를 Visual Studio로 보내며, 이로 인해 대역폭 사용 요금에 영향을 줄 수 있습니다. 대역폭 요금에 대한 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/calculator/)을 참조하십시오.
 * *Web.config* 파일에서 `compilation` 요소의 `debug` 특성이 true로 설정되어 있어야 합니다. 디버그 빌드 구성을 게시하면 기본적으로 true로 설정됩니다.
 
         <system.web>
@@ -226,11 +226,11 @@ Azure 웹 앱에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은
 * **응용 프로그램 추적 로그**<br/>
   응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
 * **웹 서버 로그**<br/>
-   웹 서버는 웹 앱에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
+  웹 서버는 웹 앱에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
 * **자세한 오류 메시지 로그**<br/>
-   웹 서버는 실패한 HTTP 요청(상태 코드 400 이상으로 인해 발생한 오류)에 대해 일부 추가 정보가 수록된 HTML 페이지를 생성합니다.
+  웹 서버는 실패한 HTTP 요청(상태 코드 400 이상으로 인해 발생한 오류)에 대해 일부 추가 정보가 수록된 HTML 페이지를 생성합니다.
 * **실패한 요청 추적 로그**<br/>
-   웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
+  웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
 
 로깅 기능을 사용하면 웹 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 응용 프로그램 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 웹 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
 
@@ -239,7 +239,7 @@ Azure 웹 앱에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은
 ## <a name="a-nameapptracelogsacreate-and-view-application-trace-logs"></a><a name="apptracelogs"></a>응용 프로그램 추적 로그 만들기 및 보기
 이 섹션에서는 다음 작업을 수행합니다.
 
-* [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 프로젝트에 tracing 문을 추가합니다.
+* [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 프로젝트에 추적 문을 추가합니다.
 * 프로젝트를 로컬로 실행하는 경우 로그 보기
 * Azure에서 실행하는 응용 프로그램에서 생성된 로그 보기
 
@@ -570,7 +570,7 @@ Azure 앱 서비스에서 웹 앱 문제 해결에 대한 자세한 내용은 �
 
 * [웹 앱을 모니터링하는 방법](/manage/services/web-sites/how-to-monitor-websites/)
 * [Visual Studio 2013을 사용하여 Azure Web Apps에서 메모리 누수 검사](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
-* [알아 두면 도움이 되는 Azure Web Apps 온라인 도구](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
+* [알아 두면 도움이 되는 Azure Web Apps 온라인 도구](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
 
@@ -584,9 +584,9 @@ Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 
 ### <a name="remote-debugging-in-azure"></a>Azure의 원격 디버깅
 Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개.](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/)
-* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개 2부 - 원격 디버깅 세부 정보](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개.](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/)
+* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개 2부 - 원격 디버깅 세부 정보](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Azure 앱 서비스 웹 앱의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Webjob 디버깅(비디오)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 웹 앱에 Azure 웹 API 또는 모바일 서비스 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
@@ -595,15 +595,15 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 현재 인터넷에서 ASP.NET 추적과 관련하여 완벽한 최신 소개 정보를 제공하는 곳이 없습니다. 최상의 방법은 MVC가 아직 출시되지 않은 시점에 Web Forms용으로 작성된 기존 소개 자료를 먼저 참조한 후, 특정 문제에 주력하는 최신 블로그 게시물의 정보로 보충하는 것입니다. 시작하기에 유용한 리소스 위치는 다음과 같습니다.
 
 * [모니터링 및 원격 분석(Azure에서 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)<br>
-   Azure 클라우드 응용 프로그램에서 추적을 권장하는 전자책의 한 챕터
+  Azure 클라우드 응용 프로그램에서 추적을 권장하는 전자책의 한 챕터
 * [ASP.NET 추적](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
-   오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
+  오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
 * [추적 수신기](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)를 언급하지 않습니다.
 * [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-   이 자료도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
+  이 자료도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
 * [ASP.NET MVC Razor 뷰에서 추적](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   Razor 뷰의 추적 정보와 더불어, MVC 응용 프로그램의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 응용 프로그램의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](http://msdn.microsoft.com/library/bb397417.aspx) 에서 Global.asax를 참조하십시오. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
+  Razor 뷰의 추적 정보와 더불어, MVC 응용 프로그램의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 응용 프로그램의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](http://msdn.microsoft.com/library/bb397417.aspx) 에서 Global.asax를 참조하십시오. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
         try
         {
@@ -615,7 +615,7 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
             throw;
         }
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   이 자습서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다.
+  이 자습서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다.
 * [David Ebbo와 함께 하는 Web Apps 로깅 및 진단](/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Web Apps에서 로그 스트리밍](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   은 Scott Hanselman과 David Ebbo가 제작한 비디오입니다.
 
@@ -629,7 +629,7 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [LogParser를 사용하여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
+  웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
 * [Robert McMurray의 LogParser 사용 관련 블로그 게시물](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](http://support.microsoft.com/kb/943891)
 
@@ -641,6 +641,6 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

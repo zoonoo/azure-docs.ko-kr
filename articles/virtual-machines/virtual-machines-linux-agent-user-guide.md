@@ -1,5 +1,5 @@
 ---
-title: "Linux 에이전트 사용자 가이드 | Microsoft Docs"
+title: "Azure Linux VM 에이전트 개요 | Microsoft Docs"
 description: "Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
+ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
 
 
 ---
@@ -61,7 +61,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 * **VM 확장**
   
   * 소프트웨어 및 구성 자동화를 사용하도록 Microsoft 및 Partner에서 작성된 구성 요소를 Linux VM(IaaS)에 삽입
-  *  [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>통신
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
@@ -210,7 +210,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 **Provisioning.PasswordCryptId**  
 형식:String  
-기본값: 6
+기본값:&6;
 
 암호 해시를 생성할 때 암호화에 사용되는 알고리즘입니다.  
  1 - MD5  
@@ -220,7 +220,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 **Provisioning.PasswordCryptSaltLength**  
 형식:String  
-기본값: 10
+기본값:&10;
 
 암호 해시를 생성할 때 사용되는 임의 salt의 길이입니다.
 
@@ -309,6 +309,6 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/20/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: caab5d5d95200e909d0be26a0712f78e3960deb1
+ms.sourcegitcommit: ff9fb5f0b2229a470ea3f5c736622ee1e9228c93
+ms.openlocfilehash: 4120ca24bab11f21fe66d5219f06608e33b527d1
 
 
 ---
@@ -29,15 +29,15 @@ Azure RDMA 네트워크에 액세스하는 Linux VM에서 MPI 워크로드를 �
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC 팩 클러스터 배포 옵션
 Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하기 위해 온-프레미스 또는 Azure에서 HPC 클러스터를 만들 수 있도록 추가 비용 없이 제공되는 도구입니다. HPC Pack에 Windows(MS-MPI)용 메시지 전달 인터페이스의 Microsoft 구현에 대한 런타임 환경을 포함합니다. HPC Pack을 지원되는 Windows Server 운영 체제를 실행하는 RDMA 지원 인스턴스와 함께 사용하는 경우 Azure RDMA 네트워크에 액세스하는 Windows MPI 응용 프로그램을 효율적으로 실행할 수 있습니다. 
 
-이 문서에서는 Microsoft HPC Pack을 사용하여 Winodws RDMA 클러스터를 설정하기 위한 2가지 시나리오를 소개하고 자세한 지침을 제공하는 링크를 소개합니다. 
+이 문서에서는 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터를 설정하기 위한&2;가지 시나리오를 소개하고 자세한 지침을 제공하는 링크를 소개합니다. 
 
 * 시나리오 1. 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
 * 시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
 
 Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
 
-## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>시나리오 1. 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
-기존 HPC 팩 클러스터에서 클라우드 서비스(PaaS)에서 실행 중인 Azure 작업자 역할 인스턴스(Azure 노드)에 추가 계산 리소스를 추가합니다. 이 기능은 HPC 팩에서 "Azure로 버스트"라고도 하며 작업자 역할 인스턴스에 다양한 크기를 지원합니다. Azure 노드를 추가할 때 RDMA 지원 크기 중 하나를 지정하면 됩니다.
+## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>시나리오 1: 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
+기존 HPC 팩 클러스터에서 클라우드 서비스(PaaS)에서 실행 중인 Azure 작업자 역할 인스턴스(Azure 노드)에 추가 계산 리소스를 추가합니다. 이 기능은 HPC 팩에서 "Azure로 버스트"라고도 하며 작업자 역할 인스턴스에 다양한 크기를 지원합니다. Azure 노드를 추가할 때는 RDMA 지원 크기 중 하나를 지정합니다.
 
 다음은 기존 (일반적으로 온-프레미스) 클러스터에서 RDMA 지원 Azure 인스턴스로 버스트하는 단계 및 고려 사항입니다. 유사한 절차를 사용하여 Azure VM에 배포된 HPC 팩 헤드 노드에 작업자 역할 인스턴스를 추가합니다.
 
@@ -51,7 +51,7 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
 ### <a name="steps"></a>단계
 1. **HPC 팩 2012 R2 헤드 노드 배포 및 구성**
    
-    [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 최신 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [HPC Pack 시작하기 가이드](https://technet.microsoft.com/library/jj884144.aspx) 및 [Microsoft HPC Pack을 사용하여 Azure 작업자 인스턴스로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
+    [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 최신 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [Microsoft HPC Pack을 사용하여 Azure 작업자 인스턴스로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
 2. **Azure 구독에서 관리 인증서 구성**
    
     헤드 노드와 Azure 간 연결을 보호하기 위한 인증서를 구성합니다. 옵션 및 절차에 대한 자세한 내용은 [HPC 팩용 Azure 관리 인증서 구성 시나리오](http://technet.microsoft.com/library/gg481759.aspx)를 참조하세요. 테스트 배포의 경우 HPC 팩은 Azure 구독에 신속하게 업로드할 수 있는 기본 Microsoft HPC Azure 관리 인증서를 설치합니다.
@@ -70,7 +70,7 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
     노드 크기를 지정하는 경우 RDMA 지원 인스턴스 크기 중 하나를 선택합니다.
    
    > [!NOTE]
-   > 계산 집약적인 인스턴스를 사용하는 각 Azure로 버스트 배포에서 HPC 팩은 사용자가 지정하는 Azure 작업자 역할 인스턴스 이외에 최소 2개 이상의 RDMA 지원 인스턴스(예: A8)를 프록시 노드로 자동 배포합니다. 프록시 노드는 구독에 할당된 코어를 사용하고 Azure 작업자 역할 인스턴스와 함께 요금이 청구됩니다.
+   > 계산 집약적인 인스턴스를 사용하는 각 Azure로 버스트 배포에서 HPC 팩은 사용자가 지정하는 Azure 작업자 역할 인스턴스 이외에 최소&2;개 이상의 RDMA 지원 인스턴스(예: A8)를 프록시 노드로 자동 배포합니다. 프록시 노드는 구독에 할당된 코어를 사용하고 Azure 작업자 역할 인스턴스와 함께 요금이 청구됩니다.
    > 
    > 
 6. **노드를 시작(프로비전)하고 온라인 상태로 전환하여 작업 실행**
@@ -83,8 +83,8 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
    
    작업 실행을 마쳤으면 노드를 오프라인으로 전환하고 HPC 클러스터 관리자에서 **중지** 작업을 사용합니다.
 
-## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
-이 시나리오에서는 Azure 가상 네트워크의 Active Directory 도메인에 연결된 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 제공합니다. 예를 들어 고려 사항 및 다음 단계는 [HPC Pack IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 를 사용하여 이 프로세스의 대부분을 자동화할 수 있는 방법을 안내합니다.
+## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>시나리오 2: 계산 집약적 VM에 계산 노드 배포(IaaS)
+이 시나리오에서는 Azure 가상 네트워크의 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 제공합니다. 예를 들어, 다음 고려 사항 및 단계는 [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 사용하여 Azure에서 HPC Pack 2012 R2 클러스터의 배포를 자동화하는 방법을 안내합니다.
 
 ![Azure VM의 클러스터][iaas]
 
@@ -97,12 +97,12 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
    
     RDMA 지원 계산 노드를 배포하려면 다음 추가 고려 사항을 참조하세요.
    
-   * **가상 네트워크** - 사용하려는 RDMA 지원 인스턴스 크기를 사용할 수 있는 지역에서 새 가상 네트워크를 지정합니다.
-   * **Windows Server 운영 체제** - RDMA 연결을 지원하려면 계산 노드 VM에 대해 Windows Server 2012 R2 또는 Windows Server 2012 운영 체제를 지정합니다.
-   * **클라우드 서비스** - 헤드 노드를 한 클라우드 서비스에 배포하고 계산 노드를 다른 클라우드 서비스에 배포하는 것이 좋습니다.
-   * **헤드 노드 크기** - 이 시나리오의 경우 헤드 노드를 위해 최소한 A4 크기(매우 큼)를 고려합니다.
-   * **HpcVmDrivers 확장** - Windows Server 운영 체제로 크기가 A8 또는 A9인 계산 노드를 배포할 경우 배포 스크립트는 Azure VM 에이전트와 HpcVmDrivers 확장을 자동으로 설치합니다. HpcVmDrivers는 계산 노드 VM이 RDMA 네트워크에 연결할 수 있도록 이 VM에 드라이버를 설치합니다.
-   * **클러스터 네트워크 구성** - 배포 스크립트는 토폴로지 5(엔터프라이즈 네트워크에 있는 모든 노드)에 HPC Pack 클러스터를 자동으로 설정합니다. 이 토폴로지는 VM에서의 모든 HPC Pack 클러스터 배포에 필요합니다. 나중에 클러스터 네트워크 토폴로지를 변경하지 마십시오.
+   * **가상 네트워크**: 사용하려는 RDMA 지원 인스턴스 크기를 사용할 수 있는 지역에서 새 가상 네트워크를 지정합니다.
+   * **Windows Server 운영 체제**: RDMA 연결을 지원하려면 계산 노드 VM에 대해 Windows Server 2012 R2 또는 Windows Server 2012 운영 체제를 지정합니다.
+   * **클라우드 서비스**: 헤드 노드를 한 클라우드 서비스에 배포하고 계산 노드를 다른 클라우드 서비스에 배포하는 것이 좋습니다.
+   * **헤드 노드 크기**: 이 시나리오의 경우 헤드 노드를 위해 최소한 A4 크기(매우 큼)를 고려합니다.
+   * **HpcVmDrivers 확장**: Windows Server 운영 체제로 크기가 A8 또는 A9인 계산 노드를 배포할 경우 배포 스크립트는 Azure VM 에이전트와 HpcVmDrivers 확장을 자동으로 설치합니다. HpcVmDrivers는 계산 노드 VM이 RDMA 네트워크에 연결할 수 있도록 이 VM에 드라이버를 설치합니다. RDMA 지원 H 시리즈 VM에서는 HpcVmDrivers 확장을 수동으로 설치해야 합니다. [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network)를 참조하세요.
+   * **클러스터 네트워크 구성**: 배포 스크립트는 토폴로지 5(엔터프라이즈 네트워크에 있는 모든 노드)에 HPC Pack 클러스터를 자동으로 설정합니다. 이 토폴로지는 VM에서의 모든 HPC Pack 클러스터 배포에 필요합니다. 나중에 클러스터 네트워크 토폴로지를 변경하지 마십시오.
 2. **계산 노드를 온라인 상태로 전환하여 작업 실행**
    
     노드를 선택하고 HPC 클러스터 관리자에서 **온라인 상태로 전환** 작업을 사용합니다. 노드에서 작업을 실행할 준비가 되었습니다.
@@ -122,9 +122,9 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
 클러스터에서 mpipingpong을 실행하려면
 
 1. 헤드 노드 또는 올바르게 구성된 클라이언트 컴퓨터에서 명령 프롬프트를 엽니다.
-2. 4개 노드로 구성된 Azure 버스트 배포에서 쌍으로 연결된 노드 사이의 대기 시간을 추정하려면 다음 명령을 입력하여 작업을 제출하고 작은 패킷 크기와 많은 반복 수를 사용하여 mpipingpong을 실행합니다.
+2. 4개 노드로 구성된 Azure 버스트 배포에서 쌍으로 연결된 노드 사이의 대기 시간을 추정하려면 다음 명령을 입력하여 작업을 제출하고 작은 패킷 크기와 많은 반복을 사용하여 mpipingpong을 실행합니다.
    
-    ```
+    ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 1:100000 -op -s nul
     ```
    
@@ -132,23 +132,23 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
    
     Azure VM에 배포된 HPC 팩 클러스터를 배포한 경우 단일 클라우드 서비스에 배포된 계산 노드 VM이 포함된 노드 그룹을 지정하고 **mpiexec** 명령을 다음과 같이 수정합니다.
    
-    ```
+    ```Command
     job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI_DISABLE_SOCK 1 -env MSMPI_PRECONNECT all -env MPICH_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
     ```
 3. 작업이 완료된 다음 출력(이 경우 작업의 작업 1 출력)을 보려면 다음과 같이 입력합니다.
    
-    ```
+    ```Command
     task view <JobID>.1
     ```
    
     여기서 &lt;*JobID*&gt;는 제출된 작업의 ID입니다.
    
-    출력에는 다음과 유사한 대기 시간 결과가 포함 됩니다.
+    출력에는 다음과 유사한 대기 시간 결과가 포함됩니다.
    
     ![핑퐁 대기 시간][pingpong1]
-4. 쌍으로 연결된 Azure 버스트 노드 사이의 대기 시간을 추정하려면 다음 명령을 입력하여 작업을 제출하고 작은 패킷 크기와 많은 반복 수를 사용하여 **mpipingpong** 을 실행합니다.
+4. 쌍으로 연결된 Azure 버스트 노드 사이의 처리량을 추정하려면 다음 명령을 입력하여 작업을 제출하고 작은 패킷 크기와 적은 반복을 사용하여 **mpipingpong**을 실행합니다.
    
-    ```
+    ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 4000000:1000 -op -s nul
     ```
    
@@ -157,11 +157,11 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
     Azure VM에 배포된 HPC 팩 클러스터에서 2단계의 설명과 같이 명령을 수정합니다.
 5. 작업이 완료된 다음 출력(이 경우 작업의 작업 1 출력)을 보려면 다음과 같이 입력합니다.
    
-    ```
+    ```Command
     task view <JobID>.1
     ```
    
-   출력에는 다음과 유사한 처리량 결과가 포함 됩니다.
+   출력에는 다음과 유사한 처리량 결과가 포함됩니다.
    
    ![핑퐁 처리량][pingpong2]
 
@@ -194,6 +194,6 @@ RDMA 지원 인스턴스의 HPC 팩 배포를 확인하려면 클러스터에서
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

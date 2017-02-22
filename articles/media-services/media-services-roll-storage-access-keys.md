@@ -12,147 +12,62 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/28/2017
 ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 8321f677d344109e35da3d8ba1109d8bece70db1
+ms.sourcegitcommit: 8e0f0905748923177269b6d5df27be900770fece
+ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
 
 
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>저장소 액세스 키 롤링 후 Media Services 업데이트
-새 Azure 미디어 서비스 계정을 만들 때 미디어 콘텐츠를 저장하는 데 사용되는 Azure 저장소 계정을 선택하도록 요청받습니다. [하나 이상의 저장소 계정](meda-services-managing-multiple-storage-accounts.md) 을 미디어 서비스 계정에 추가할 수 있습니다.
+
+새 AMS(Azure Media Services) 계정을 만들 때 미디어 콘텐츠를 저장하는 데 사용되는 Azure Storage 계정을 선택하도록 요청받습니다. Media Services 계정에 저장소 계정을 둘 이상 추가할 수 있습니다. 이 항목에서는 저장소 키를 회전하는 방법을 보여 줍니다. 또한 미디어 계정에 저장소 계정을 추가하는 방법도 보여 줍니다. 
+
+이 항목에서 설명하는 작업을 수행하려면 [ARM API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)을 사용해야 합니다.  자세한 내용은 [PowerShell 및 Resource Manager로 Azure 리소스를 관리하는 방법](../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
+
+## <a name="overview"></a>개요
 
 새 저장소 계정이 만들어지면 Azure는 2개의 512비트 저장소 액세스 키를 만들며, 이는 저장소 계정에 대한 액세스를 인증하는 데 사용됩니다. 저장소 연결을 보다 안전하게 유지하려면 저장소 액세스 키를 주기적으로 다시 생성하고 회전하는 것이 좋습니다. 2개의 액세스 키(기본 및 보조)는 다른 액세스 키를 다시 생성하는 동안 하나의 액세스 키를 사용하여 저장소 계정에 대한 연결을 유지할 수 있도록 제공됩니다. 이 과정은 "액세스 키 롤링"이라고도 합니다.
 
-미디어 서비스는 제공되는 저장소 키에 따라 달라집니다. 특히, 자산을 스트림 또는 다운로드하는 데 사용되는 로케이터는 지정된 저장소 액세스 키에 따라 달라집니다. AMS 계정을 만들 때 기본적으로 기본 저장소 액세스 키에 종속되지만 사용자는 AMS의 저장소 키를 업데이트할 수 있습니다. 이 토픽에 설명된 다음과 같은 절차에 따라 사용할 키를 Media Services에 알려 주어야 합니다. 또한 저장소 액세스 키를 롤링할 때 로케이터를 업데이트해야 스트리밍 서비스가 중단되지 않습니다(이 단계도 이 토픽에 설명되어 있음).
+미디어 서비스는 제공되는 저장소 키에 따라 달라집니다. 특히, 자산을 스트림 또는 다운로드하는 데 사용되는 로케이터는 지정된 저장소 액세스 키에 따라 달라집니다. AMS 계정을 만들 때 기본적으로 기본 저장소 액세스 키에 종속되지만 사용자는 AMS의 저장소 키를 업데이트할 수 있습니다. 이 토픽에 설명된 다음과 같은 절차에 따라 사용할 키를 Media Services에 알려 주어야 합니다.  
 
-> [!NOTE]
-> 여러 저장소 계정이 있는 경우 각각의 저장소 계정마다 이 과정을 수행해야 합니다.
+>[!NOTE]
+> 여러 저장소 계정이 있는 경우 각각의 저장소 계정마다 이 과정을 수행해야 합니다. 저장 키를 회전하는 순서는 고정되어 있지 않습니다. 보조 키를 먼저 회전시킨 다음 기본 키를 회전하거나 그 반대로 회전할 수 있습니다.
 >
 > 이 토픽에서 설명한 단계를 프로덕션 계정에서 실행하기 전에 사전 프로덕션 계정에서 테스트해야 합니다.
 >
->
 
-## <a name="step-1-regenerate-secondary-storage-access-key"></a>1단계: 보조 저장소 액세스 키 다시 생성
-보조 저장소 키 다시 생성을 시작합니다. 기본적으로 보조 키는 미디어 서비스에서 사용됩니다.  저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
+## <a name="steps-to-rotate-storage-keys"></a>저장 키를 회전하는 단계 
+ 
+ 1. PowerShell cmdlet 또는 [Azure](https://portal.azure.com/) 포털을 통해 저장소 계정 기본 키를 변경합니다.
+ 2. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys cmdlet을 호출하여 미디어 계정에서 저장소 계정 키를 가져오도록 합니다.
+ 
+    다음 예제에서는 키를 저장소 계정에 동기화하는 방법을 보여 줍니다.
+  
+         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+  
+ 3. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
+ 4. PowerShell cmdlet 또는 Azure Portal을 통해 저장소 계정 보조 키를 변경합니다.
+ 5. 적절한 매개 변수로 Sync-AzureRmMediaServiceStorageKeys PowerShell cmdlet을 호출하여 미디어 계정에서 새 저장소 계정 키를 가져오도록 합니다. 
+ 6. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
+ 
+### <a name="a-powershell-cmdlet-example"></a>PowerShell cmdlet 예제 
 
-## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>2단계: Media Services를 업데이트하여 새 보조 저장소 키 사용
-미디어 서비스를 업데이트하여 보조 저장소 액세스 키를 사용합니다. 다음 두 가지 방법 중 하나를 사용하여 미디어 서비스와 다시 생성된 저장소 키를 동기화할 수 있습니다.
+다음 예제에서는 저장소 계정을 가져와서 AMS 계정과 동기화하는 방법을 보여 줍니다.
 
-* Azure Portal 사용: 이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 미디어 서비스와 동기화하려는 저장소 키에 따라 기본 키 동기화 또는 보조 키 동기화 단추를 선택합니다. 이 경우에는 보조 키를 사용합니다.
-* 미디어 서비스 관리 REST API를 사용합니다.
+    $regionName = "West US"
+    $resourceGroupName = "SkyMedia-USWest-App"
+    $mediaAccountName = "sky"
+    $storageAccountName = "skystorage"
+    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-다음 코드 예시는 Media Services와 지정된 저장소 키를 동기화하기 위해 https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key 요청을 생성하는 방법을 보여 줍니다. 이 경우에는 보조 저장소 키 값이 사용됩니다. 자세한 내용은 [방법: 미디어 서비스 관리 REST API 사용](https://docs.microsoft.com/rest/api/media/management/how-to-use-media-services-management-rest-api)을 참조하세요.
+    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
-    public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
-    {
-        var clientCert = GetCertificate(CertThumbprint);
+ 
+## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS 계정에 저장소 계정을 추가하는 단계
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
-        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
-        request.Method = "PUT";
-        request.ContentType = "application/json; charset=utf-8";
-        request.Headers.Add("x-ms-version", "2011-10-01");
-        request.Headers.Add("Accept-Encoding: gzip, deflate");
-        request.ClientCertificates.Add(clientCert);
-
-
-        using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-        {
-            streamWriter.Write("\"");
-            streamWriter.Write(storageAccountKey);
-            streamWriter.Write("\"");
-            streamWriter.Flush();
-        }
-
-        using (var response = (HttpWebResponse)request.GetResponse())
-        {
-            string jsonResponse;
-            Stream receiveStream = response.GetResponseStream();
-            Encoding encode = Encoding.GetEncoding("utf-8");
-            if (receiveStream != null)
-            {
-                var readStream = new StreamReader(receiveStream, encode);
-                jsonResponse = readStream.ReadToEnd();
-            }
-        }
-    }
-
-이 단계를 수행한 후에는 다음 단계에 표시된 대로 기존 로케이터(이전 저장소 키에 대한 종속성이 있음)를 업데이트합니다.
-
-> [!NOTE]
-> 보류 중인 작업에 영향을 받지 않기 위해 미디어 서비스와 함께 작업을 수행하기 전에 30분 가량 기다립니다.
->
->
-
-## <a name="step-3-update-locators"></a>3단계: 로케이터 업데이트
-> [!NOTE]
-> 저장소 액세스 키를 롤링할 때 기존 로케이터 업데이트를 확인해야 스트리밍 서비스에서의 중단이 없습니다.
->
->
-
-새 저장소 키를 AMS와 동기화 한 후 30분 이상 기다립니다. 그런 다음 지정된 저장소 키에 대한 종속성을 가져오고 기존 URL을 유지할 수 있도록 주문형 로케이터를 다시 만듭니다.
-
-SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경됩니다.
-
-> [!NOTE]
-> 주문형 로케이터의 기존 URL을 유지하려면 기존 로케이터를 삭제하고 동일한 ID로 새 로케이터를 만들어야 합니다.
->
->
-
-아래 .NET 예제에서는 동일한 ID로 로케이터를 다시 만드는 방법을 보여줍니다.
-
-    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
-    {
-    // Save properties of existing locator.
-    var asset = locator.Asset;
-    var accessPolicy = locator.AccessPolicy;
-    var locatorId = locator.Id;
-    var startDate = locator.StartTime;
-    var locatorType = locator.Type;
-    var locatorName = locator.Name;
-
-    // Delete old locator.
-    locator.Delete();
-
-    if (locator.ExpirationDateTime <= DateTime.UtcNow)
-        {
-            throw new Exception(String.Format(
-                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
-                locator.Id));
-        }
-
-        // Create new locator using saved properties.
-        var newLocator = context.Locators.CreateLocator(
-            locatorId,
-            locatorType,
-            asset,
-            accessPolicy,
-            startDate,
-            locatorName);
-
-
-
-        return newLocator;
-    }
-
-
-## <a name="step-5-regenerate--primary-storage-access-key"></a>5단계: 기본 저장소 액세스 키 다시 생성
-기본 저장소 액세스 키를 다시 생성합니다. 저장소 키를 롤링하는 방법에 대한 자세한 내용은 [방법: 저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
-
-## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>6단계: 미디어 서비스를 업데이트하여 새 기본 저장소 키 사용
-이번에만 [2단계](media-services-roll-storage-access-keys.md#step2) 에서 설명한 것과 동일한 과정을 통해 새 기본 저장소 액세스 키와 Media Services 계정을 동기화합니다.
-
-> [!NOTE]
-> 보류 중인 작업에 영향을 받지 않기 위해 미디어 서비스와 함께 작업을 수행하기 전에 30분 가량 기다립니다.
->
->
-
-## <a name="step-7-update-locators"></a>7단계: 로케이터 업데이트
-30분 후 주문형 로케이터를 다시 만들어 새 기본 저장소 키에 대한 종속성을 가져오고 기존의 URL을 유지할 수 있습니다.
-
-[3단계](media-services-roll-storage-access-keys.md#step-3-update-locators)에 설명된 것과 동일한 절차를 사용하세요.
+[Media Services 계정에 여러 저장소 계정 연결](meda-services-managing-multiple-storage-accounts.md) 문서에서 AMS 계정에 저장소 계정을 추가하는 방법을 보여 줍니다.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -165,6 +80,6 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

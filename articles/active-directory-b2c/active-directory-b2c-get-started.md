@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
 
 
 ---
@@ -67,6 +67,14 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
    > 
    > 
 
+## <a name="step-4-link-your-azure-ad-b2c-tenant-to-your-azure-subscription"></a>4단계: Azure AD B2C 테넌트를 Azure 구독에 연결
+프로덕션 앱에 대해 B2C 테넌트를 사용하려는 경우 사용 요금을 지불하기 위해 Azure AD B2C 테넌트를 Azure 구독에 연결해야 합니다. 이 방법을 알아보려면 [이 문서](active-directory-b2c-how-to-enable-billing.md)를 읽어보세요.
+
+   > [!IMPORTANT]
+   > Azure AD B2C 테넌트를 Azure 구독에 연결하지 않으면 Azure Portal의 B2C 기능 블레이드에 경고 메시지("이 B2B 테넌트에 연결된 구독이 없거나 구독에 유의해야 합니다.")가 표시됩니다. 프로덕션에 앱을 전달하기 전에 이 단계를 수행해야 합니다.
+   > 
+   > 
+
 ## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Azure 포털의 B2C 기능 블레이드에 쉽게 액세스합니다.
 검색 가능성을 개선하기 위해 Azure 포털에서 B2C 기능 블레이드에 바로 가기를 추가 했습니다.
 
@@ -82,6 +90,6 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

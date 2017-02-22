@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 
 ![원격 분석을 보기 위한 주요 경로](./media/app-insights-dashboards/010-oview.png)
 
-다른 차트를 사용자 지정하고 이를 대시보드에 고정할 수 있습니다. 이런 방식으로 다른 앱에서 키 차트를 함께 가져올 수 있습니다.
+차트 및 표를 사용자 지정하고 이를 대시보드에 고정할 수 있습니다. 이런 방식으로 중앙 대시보드에 있는 여러 다른 앱의 주요 원격 분석을 함께 불러올 수 있습니다.
 
 ## <a name="dashboards"></a>대시보드
 [Microsoft Azure 포털](https://portal.azure.com) 에 로그인한 후 가장 먼저 표시되는 것이 대시보드입니다. [Azure Application Insights](app-insights-overview.md)의 원격 분석을 포함하여, 모든 Azure 리소스에서 가장 중요한 차트를 이곳에 한데 모을 수 있습니다.
@@ -119,8 +119,8 @@ ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 조사
 
 * [**응용 프로그램 맵**](app-insights-app-map.md) - 종속성 정보에서 파생된 응용 프로그램의 구성 요소를 표시하는 활성 맵입니다.
-* [**사전 진단**](app-insights-proactive-diagnostics.md) - 최근 성능 경고를 검토합니다.
-* [**라이브 스트림**](app-insights-metrics-explorer.md#live-metrics-stream) - 거의 즉각적인 고정된 메트릭 집합을 제공하며, 새 빌드를 배포 또는 디버깅할 때 유용합니다.
+* [**스마트 감지**](app-insights-proactive-diagnostics.md) - 최근 성능 경고를 검토합니다.
+* [**라이브 스트림**](app-insights-live-stream.md) - 거의 즉각적인 고정된 메트릭 집합을 제공하며, 새 빌드를 배포 또는 디버깅할 때 유용합니다.
 * [**가용성/웹 테스트**](app-insights-monitor-web-app-availability.md) - 전세계에서 웹앱에 일반 요청을 전송합니다.*
 * [**오류, 성능**](app-insights-web-monitor-performance.md) - 사용자의 앱에 대한 요청 및 사용자 앱의 [종속성](app-insights-asp-net-dependencies.md)에 대한 요청의 예외, 실패율 및 응답 시간입니다.
 * [**성능**](app-insights-web-monitor-performance.md) - 응답 시간, 종속성 응답 시간입니다.
@@ -157,6 +157,6 @@ ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

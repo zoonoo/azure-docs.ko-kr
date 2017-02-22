@@ -1,10 +1,10 @@
 ---
-title: "가상 네트워크 게이트웨이에 대한 VPN Gateway 설정 정보 | Microsoft Docs"
-description: "Azure 가상 네트워크용 VPN Gateway 설정에 대해 알아봅니다."
+title: "크로스-프레미스 Azure 연결에 대한 VPN 게이트웨이 설정 | Microsoft Docs"
+description: "Azure Virtual Network 게이트웨이의 VPN Gateway 설정에 대해 알아봅니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc3c8469657b50e4e09a1849d9c63f4ef1e0c414
+ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
+ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
 
 
 ---
-# <a name="about-vpn-gateway-settings"></a>VPN Gateway 설정 정보
-VPN Gateway 연결 솔루션은 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 전송하기 위해 여러 리소스의 구성에 의존합니다. 각 리소스에는 구성 가능한 설정이 포함되어 있습니다. 리소스 및 설정에 따라 연결 결과가 결정됩니다.
+# <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
+VPN Gateway는 공용 연결을 통해 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 가상 네트워크 게이트웨이의 유형입니다. 또한 VPN Gateway를 사용하여 Azure 백본에 있는 가상 네트워크 간에 트래픽을 전송할 수 있습니다.
 
-이 문서의 섹션에서는 **Resource Manager** 배포 모델의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. 연결 토폴로지 다이어그램을 통해 사용 가능한 구성을 쉽게 확인할 수 있습니다. [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다. 
+VPN 게이트웨이 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서의 섹션에서는 Resource Manager 배포 모델에서 생성된 가상 네트워크의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>게이트웨이 유형
 가상 네트워크마다 각 유형의 가상 네트워크 게이트웨이를 하나씩만 포함할 수 있습니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
@@ -47,13 +47,13 @@ VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>게이트웨이 SKU 구성
-**Azure 포털에서 게이트웨이 SKU 지정**
+####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Azure 포털에서 게이트웨이 SKU 지정
 
 Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨이를 만드는 경우 드롭다운을 사용하여 게이트웨이 SKU를 선택할 수 있습니다. 표시되는 옵션은 선택한 게이트웨이 형식 및 선택한 VPN 형식에 해당합니다.
 
 예를 들어 게이트웨이 형식 'VPN' 및 VPN 형식 '정책 기반'을 선택하면 PolicyBased VPN에 대해 사용할 수 있는 유일한 SKU인 '기본' SKU만 표시됩니다. '경로 기반'을 선택하는 경우 기본, 표준 및 HighPerformance SKU 중에서 선택할 수 있습니다. 
 
-**PowerShell을 사용하여 게이트웨이 SKU 지정**
+####<a name="specifying-the-gateway-sku-using-powershell"></a>PowerShell을 사용하여 게이트웨이 SKU 지정
 
 다음 PowerShell 예제에서는 `-GatewaySku` 를 *표준*으로 지정합니다.
 
@@ -61,7 +61,7 @@ Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨�
     -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
     -GatewayType Vpn -VpnType RouteBased
 
-**게이트웨이 SKU 변경**
+####<a name="changing-a-gateway-sku"></a>게이트웨이 SKU 변경
 
 게이트웨이 SKU를 좀 더 강력한 SKU로 업그레이드하려면(기본/표준에서 HighPerformance로) `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet을 사용할 수 있습니다. 또한 이 cmdlet을 사용하여 게이트웨이 SKU 크기를 다운그레이드할 수도 있습니다.
 
@@ -107,11 +107,9 @@ VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="a-namegwsubagateway-subnet"></a><a name="gwsub"></a>게이트웨이 서브넷
-가상 네트워크 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷이 제대로 작동하려면 이름을 *GatewaySubnet* 으로 지정해야 합니다. 이 이름을 사용하면 Azur에서 해당 게이트웨이에 이 서브넷을 사용해야 한다는 것을 알게 됩니다.
+VNet의 가상 네트워크 게이트웨이를 구성하기 위해 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 서비스가 사용하는 IP 주소를 포함합니다. 게이트웨이 서브넷이 제대로 작동하려면 이름을 *GatewaySubnet* 으로 지정해야 합니다. 이 이름을 사용하면 Azur에서 해당 게이트웨이에 이 서브넷을 사용해야 한다는 것을 알게 됩니다.
 
-게이트웨이 서브넷의 최소 크기는 전적으로 만들려는 구성에 따라 달라집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26등). 
-
-더 큰 게이트웨이 크기를 만드는 경우 게이트웨이 크기 제한에 대해 실행되지 않도록 방지합니다. 예를 들어 S2S 연결에 대해 게이트웨이 서브넷 크기가 /29인 가상 네트워크 게이트웨이를 만들었을 수 있습니다. 이제 S2S/Express 경로 공존 구성을 지정하려고 합니다. 해당 구성에는 게이트웨이 서브넷 최소 크기 /28이 필요합니다. 구성을 만들려면 연결에 대한 최소 요구 수준인 /28을 충족하도록 게이트웨이 서브넷을 수정해야 합니다.
+게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 서비스에 할당됩니다. 일부 구성은 게이트웨이 서비스에 다른 구성보다 더 많은 IP 주소를 할당해야 합니다. 이후 성장 및 새로운 연결 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하는 것이 좋습니다. 따라서 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26등). 만들려는 구성에 대한 요구 사항을 검토하고 가지고 있는 게이트웨이 서브넷이 해당 요구 사항을 충족하는지 확인하세요.
 
 다음 Resource Manager PowerShell 예제에서는 이름이 GatewaySubnet인 게이트웨이 서브넷을 보여 줍니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 
@@ -145,6 +143,6 @@ VPN Gateway 구성을 만들 때 로컬 네트워크 게이트웨이는 종종 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

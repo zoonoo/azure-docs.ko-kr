@@ -1,6 +1,6 @@
 ---
-title: "정규 분포 웹 서비스 제품군 | Microsoft Docs"
-description: "정규 분포 웹 서비스 제품군"
+title: "(사용되지 않음) 정규 분포 웹 서비스 제품군 - Azure | Microsoft Docs"
+description: "(사용되지 않음) 정규 분포 웹 서비스 제품군"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3783df1f80fc6453d64c16f5002262fb7197309
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: da7b70171d13c82e9269064069e69a35b9b2daaa
 
 
 ---
-# <a name="normal-distribution-suite"></a>정규 분포 제품군
+# <a name="deprecated-normal-distribution-suite"></a>(사용되지 않음) 정규 분포 제품군
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 정규 분포 제품군은 정규 분포 생성 및 처리를 도와주는 일련의 샘플 웹 서비스([생성기](https://datamarket.azure.com/dataset/aml_labs/ndg7), [분위수 계산기](https://datamarket.azure.com/dataset/aml_labs/ndq5), [확률 계산기](https://datamarket.azure.com/dataset/aml_labs/ndp5))입니다. 서비스를 통해 무제한 정규 분포 시퀀스를 생성하고, 제공된 확률에서 분위수를 계산하고, 제공된 분위수에서 확률을 계산할 수 있습니다. 각 서비스는 선택된 서비스를 기반으로 서로 다른 출력을 내보냅니다(아래 설명 참조). 정규 분포 제품군은 R stats 패키지에 포함된 R 함수 qnorm, rnorm 및 pnorm을 기반으로 합니다.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,6 +276,6 @@ ms.openlocfilehash: e3783df1f80fc6453d64c16f5002262fb7197309
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

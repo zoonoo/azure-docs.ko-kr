@@ -12,11 +12,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 * **CreateDeviceIdentity.js**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치 앱에 연결합니다.
 * **ReadDeviceToCloudMessages.js**는 시뮬레이션된 장치 앱에서 보낸 원격 분석을 표시합니다.
-* **SimulatedDevice.js**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 AMQP 프로토콜을 사용하여 매초마다 원격 분석 메시지를 보냅니다.
+* **SimulatedDevice.js**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 MQTT 프로토콜을 사용하여 매초마다 원격 분석 메시지를 보냅니다.
 
 > [!NOTE]
 > [Azure IoT SDKs][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보를 제공합니다.
@@ -113,7 +113,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 > 
 > 
 
-1. **readdevicetocloudmessages**라는 빈 폴더를 새로 만듭니다. **readdevicetocloudmessages** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
+1. **readdevicetocloudmessages**라는 빈 폴더를 만듭니다. **readdevicetocloudmessages** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
     ```
     npm init
@@ -149,7 +149,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
       console.log('');
     };
     ```
-7. 다음 코드를 추가하여 **EventHubClient**를 만들고 IoT Hub에 대한 연결을 열고 각 파티션에 대한 수신기를 만듭니다. 이 응용 프로그램은 수신기를 만들 때 필터를 사용하여 수신기가 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지만을 읽습니다. 이 필터는 테스트 환경에서 현재 메시지 집합을 볼 수 있어 유용합니다. 프로덕션 환경에서는 코드가 모든 메시지를 처리하는지 확인해야 합니다. 자세한 내용은 [IoT Hub 장치-클라우드 메시지 처리 방법][lnk-process-d2c-tutorial] 자습서를 참조하세요.
+7. 다음 코드를 추가하여 **EventHubClient**를 만들고 IoT Hub에 대한 연결을 열고 각 파티션에 대한 수신기를 만듭니다. 이 응용 프로그램은 수신기를 만들 때 필터를 사용하여 수신기가 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지만을 읽습니다. 이 필터는 테스트 환경에서 현재 메시지 집합을 볼 수 있어 유용합니다. 프로덕션 환경에서는 코드가 모든 메시지를 처리하는지 확인해야 합니다. 자세한 내용은 [IoT Hub 장치-클라우드 메시지를 처리하는 방법][lnk-process-d2c-tutorial] 자습서를 참조하세요.
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -171,23 +171,23 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 ## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
 이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Node.js 콘솔 앱을 작성합니다.
 
-1. **simulateddevice**라는 빈 폴더를 새로 만듭니다. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
+1. **simulateddevice**라는 빈 폴더를 만듭니다. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
     ```
     npm init
     ```
-2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 장치 SDK 패키지 및 **azure-iot-device-amqp** 패키지를 설치합니다.
+2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 장치 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
-    npm install azure-iot-device azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. 텍스트 편집기를 사용하여 **simulateddevice** 폴더에 새 **SimulatedDevice.js** 파일을 만듭니다.
+3. 텍스트 편집기를 사용하여 **simulateddevice** 폴더에 **SimulatedDevice.js** 파일을 만듭니다.
 4. **SimulatedDevice.js** 파일 앞에 다음 `require` 문을 추가합니다.
    
     ```
     'use strict';
    
-    var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
+    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
 5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다. **{youriothostname}** 을 *IoT Hub 만들기* 섹션에서 만든 IoT Hub의 이름으로 바꿉니다. **{yourdevicekey}** 를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
@@ -207,7 +207,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
       };
     }
     ```
-7. 콜백을 만들고 **setInterval** 함수를 사용하여 초당 하나의 새 메시지를 IoT Hub로 전송합니다.
+7. 다음과 같이 콜백을 만들고 **setInterval** 함수를 사용하여 메시지를 초당 하나씩 IoT Hub로 전송합니다.
    
     ```
     var connectCallback = function (err) {
@@ -283,7 +283,7 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -296,6 +296,6 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

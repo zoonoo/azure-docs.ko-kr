@@ -3,7 +3,7 @@ title: "AzCopy 사용하여 저장소로 데이터 이동 또는 복사 | Micros
 description: "AzCopy 유틸리티를 사용하여 blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure 저장소로 데이터를 복사하거나, 저장소 계정 내에서 데이터를 복사하거나, 저장소 계정 간에 데이터를 복사합니다. 데이터를 Azure 저장소로 손쉽게 마이그레이션할 수 있습니다."
 services: storage
 documentationcenter: 
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3db01b38213b569d657284ca1354f3ec1869c7f
+ms.sourcegitcommit: a2d0f959bfcae54367512db1f63e22c866c35671
+ms.openlocfilehash: ca26ad38722560054aef1a153b9b95296d8bb021
 
 
 ---
@@ -39,7 +39,9 @@ AzCopy는 Mac/Linux Os에 사용할 수 없습니다. 그러나 Azure CLI는 Azu
 ## <a name="writing-your-first-azcopy-command"></a>첫 번째 AzCopy 명령 작성
 AzCopy 명령의 기본 구문은 다음과 같습니다.
 
-    AzCopy /Source:<source> /Dest:<destination> [Options]
+```azcopy
+AzCopy /Source:<source> /Dest:<destination> [Options]
+```
 
 명령 창을 열고 컴퓨터의 AzCopy 설치 디렉터리로 이동합니다. 이 디렉터리에 `AzCopy.exe` 실행 파일이 있습니다. 원할 경우 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다. 기본적으로 AzCopy는 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 또는 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`에 설치됩니다.
 
@@ -47,17 +49,26 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 
 ## <a name="blob-download"></a>Blob: 다운로드
 ### <a name="download-single-blob"></a>단일 blob 다운로드
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
+
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
+```
 
 `C:\myfolder` 폴더가 없으면 AzCopy는 파일 시스템에서 이 폴더를 만든 후 새 폴더에 `abc.txt `를 다운로드합니다.
 
 ### <a name="download-single-blob-from-secondary-region"></a>보조 지역에서 단일 Blob 다운로드
-    AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+```
 
 지역 중복 저장소가 사용된 읽기 액세스가 있어야 합니다.
 
 ### <a name="download-all-blobs"></a>모든 Blob 다운로드
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
+
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
+```
 
 다음 Blob이 지정된 컨테이너에 있는 경우를 생각해 보겠습니다.  
 
@@ -78,7 +89,10 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 `/S`옵션을 지정하지 않으면 Blob이 다운로드됩니다.
 
 ### <a name="download-blobs-with-specified-prefix"></a>지정된 접두사가 있는 Blob 다운로드
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
+
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
+```
 
 다음 Blob이 지정된 컨테이너에 있는 경우를 생각해 보겠습니다. 접두사 `a` 로 시작하는 모든 Blob이 다운로드됩니다.
 
@@ -98,29 +112,45 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 접두사는 Blob 이름의 처음 부분을 구성하는 가상 디렉터리에 적용됩니다. 위에 표시된 예에서는 가상 디렉터리가 지정된 접두사와 일치하지 않으므로 다운로드가 진행되지 않습니다. 또한 옵션 `\S` 이(가) 지정되지 않으면 AzCopy는 어떤 Blob도 다운로드하지 않습니다.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>내보낸 파일의 마지막으로 수정한 시간을 소스 Blob과 동일하게 설정
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
+
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
+```
 
 또한 마지막으로 수정한 시간에 따라 다운로드 작업에서 Blob을 제외할 수도 있습니다. 예를 들어 마지막으로 수정된 시간이 대상 파일과 동일하거나 더 최신인 Blob을 제외하려는 경우 `/XN` 옵션을 추가합니다.
 
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
+```
 
 또는 마지막으로 수정된 시간이 대상 파일과 동일하거나 더 이전인 Blob을 제외하려는 경우 `/XO` 옵션을 추가합니다.
 
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
+```
 
 ## <a name="blob-upload"></a>Blob: 업로드
 ### <a name="upload-single-file"></a>단일 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
+```
 
 지정된 대상 컨테이너가 존재하지 않을 경우 AzCopy는 컨테이너를 만든 후 여기에 파일을 업로드합니다.
 
 ### <a name="upload-single-file-to-virtual-directory"></a>가상 디렉터리에 단일 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
+```
 
 지정한 가상 디렉터리가 없으면 AzCopy는 해당 이름에 가상 디렉터리를 포함하여 파일을 업로드합니다(*예*: 위 예의 `vd/abc.txt`).
 
 ### <a name="upload-all-files"></a>모든 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
+```
 
 `/S` 옵션을 지정하면 지정된 디렉터리의 내용이 Blob 저장소에 재귀적으로 업로드됩니다. 즉, 모든 하위 폴더 및 해당 파일도 업로드됩니다. 예를 들어 다음 파일이 `C:\myfolder` 폴더에 있는 경우를 생각해 보겠습니다.
 
@@ -132,7 +162,7 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 
 업로드 작업 후에 컨테이너에는 다음 파일이 포함됩니다.
 
-      abc.txt
+    abc.txt
     abc1.txt
     abc2.txt
     subfolder\a.txt
@@ -145,7 +175,10 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
     abc2.txt
 
 ### <a name="upload-files-matching-specified-pattern"></a>지정된 패턴과 일치하는 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
+```
 
 다음 파일이 `C:\myfolder`폴더에 있는 경우를 생각해 보겠습니다.
 
@@ -173,30 +206,46 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 ### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>대상 Blob의 MIME 콘텐츠 형식을 지정합니다.
 기본적으로 AzCopy에서는 대상 Blob의 콘텐츠 형식을 `application/octet-stream`으로 설정합니다. 버전 3.1.0부터는 `/SetContentType:[content-type]`옵션을 통해 콘텐츠 형식을 명시적으로 지정할 수 있습니다. 이 구문은 업로드 작업에서 모든 Blob의 콘텐츠 형식을 설정합니다.
 
-    AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
+```azcopy
+AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
+```
 
 값 없이 `/SetContentType` 을 지정하면 AzCopy에서 각 Blob 또는 파일의 콘텐츠 형식을 파일 확장명에 따라 설정합니다.
 
-    AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
+```azcopy
+AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
+```
 
 ## <a name="blob-copy"></a>Blob: 복사
 ### <a name="copy-single-blob-within-storage-account"></a>저장소 계정 내 단일 Blob 복사
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
+```
 
 저장소 계정 내에 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>저장소 계정 간 단일 Blob 복사
-    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+```
 
 저장소 계정 간 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>보조 지역에서 주 지역으로 단일 Blob 복사
-    AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+```
 
 지역 중복 저장소가 사용된 읽기 액세스가 있어야 합니다.
 
 ### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>저장소 계정 간 단일 Blob 및 스냅숏 복사
+
+```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
+```
 
 복사 작업 후에 대상 컨테이너에는 Blob 및 해당 스냅숏이 포함됩니다. 위 예에서 Blob에 두 개의 스냅숏이 있다면 컨테이너에는 다음 Blob과 스냅숏이 포함될 것입니다.
 
@@ -209,49 +258,77 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 
 `/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
 
-    AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
+```azcopy
+AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
+```
 
 `/SyncCopy` 은(는) 비동기 복사와 비교하여 추가적인 송신 비용이 발생할 수 있으므로 송신 비용을 방지하려면 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하는 것이 좋습니다.
 
 ## <a name="file-download"></a>파일: 다운로드
 ### <a name="download-single-file"></a>단일 파일 다운로드
-    AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+```
 
 지정된 소스가 Azure 파일 공유이면 단일 파일을 다운로드할 정확한 파일 이름(*예:* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 다운로드해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
 
 ### <a name="download-all-files"></a>모든 파일 다운로드
-    AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
+
+```azcopy
+AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
+```
 
 빈 폴더는 다운로드되지 않습니다.
 
 ## <a name="file-upload"></a>파일: 업로드
 ### <a name="upload-single-file"></a>단일 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:abc.txt
+```
 
 ### <a name="upload-all-files"></a>모든 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
+```
 
 빈 폴더는 업로드되지 않습니다.
 
 ### <a name="upload-files-matching-specified-pattern"></a>지정된 패턴과 일치하는 파일 업로드
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
+```
 
 ## <a name="file-copy"></a>파일: 복사
 ### <a name="copy-across-file-shares"></a>파일 공유 간 복사
-    AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
+
+```azcopy
+AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
+```
 
 ### <a name="copy-from-file-share-to-blob"></a>파일 공유에서 Blob으로 복사
-    AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
+
+```azcopy
+AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
+```
 
 파일 저장소-페이지 Blob로의 비동기 복사는 지원되지 않습니다.
 
 ### <a name="copy-from-blob-to-file-share"></a>Blob에서 파일 공유로 복사
-    AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
+
+```azcopy
+AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
+```
 
 ### <a name="synchronously-copy-files"></a>동기적으로 파일 복사
 `/SyncCopy` 옵션을 지정하여 파일 저장소 간에, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다.
 
-    AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
+```azcopy
+AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
+```
 
 파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `/BlobType:page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
 
@@ -259,7 +336,10 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 
 ## <a name="table-export"></a>테이블: 내보내기
 ### <a name="export-table"></a>테이블 내보내기
-    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
+
+```azcopy
+AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
+```
 
 AzCopy는 지정된 대상 폴더에 매니페스트 파일을 씁니다. 매니페스트 파일은 필요한 데이터 파일을 찾고 데이터 유효성 검사를 수행하는 가져오기 프로세스에서 사용됩니다. 매니페스트 파일에는 기본적으로 다음의 명명 규칙이 사용됩니다.
 
@@ -267,10 +347,15 @@ AzCopy는 지정된 대상 폴더에 매니페스트 파일을 씁니다. 매니
 
 매니페스트 파일 이름을 설정하는 `/Manifest:<manifest file name>` 옵션을 지정할 수도 있습니다.
 
-    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
+```azcopy
+AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
+```
 
 ### <a name="split-export-into-multiple-files"></a>여러 파일로 분할 내보내기
-    AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
+
+```azcopy
+AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
+```
 
 AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 여러 파일을 구분합니다. 볼륨 인덱스는 *파티션 키 범위 인덱스*와 *분할 파일 인덱스*의 두 부분으로 구성됩니다. 두 인덱스는 모두 0부터 시작됩니다.
 
@@ -286,19 +371,27 @@ AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 
 ### <a name="export-table-to-json-or-csv-data-file-format"></a>JSON 또는 CSV 데이터 파일 형식으로 테이블 내보내기
 기본적으로 AzCopy는 JSON 데이터 파일로 테이블을 내보냅니다. `/PayloadFormat:JSON|CSV` 옵션을 지정하여 JSON 또는 CSV 형태로 테이블을 내보낼 수 있습니다.
 
-    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
+```azcopy
+AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
+```
 
 CSV 페이로드 형식을 지정하는 경우 AzCopy는 각 데이터 파일에 대해 파일 확장명 `.schema.csv` 을(를) 가진 스키마 파일도 생성합니다.
 
 ### <a name="export-table-entities-concurrently"></a>동시에 테이블 엔터티 내보내기
-    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
+
+```azcopy
+AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
+```
 
 사용자가 `/PKRS`옵션을 지정하면 AzCopy는 엔터티를 내보내는 동시 작업을 시작합니다. 각 작업에서는 파티션 키 범위 하나를 내보냅니다.
 
 `/NC`옵션도 동시 작업 수를 제어합니다. AzCopy는 `/NC`가 지정되지 않은 경우에도 테이블 엔터티를 복사할 때 `/NC`의 기본값으로 코어 프로세서의 수를 사용합니다. 사용자가 `/PKRS`옵션을 지정하는 경우 AzCopy는 두 값, 즉 파티션 키 범위와 암시적 또는 명시적으로 지정된 동시 작업의 수 중 더 작은 쪽을 사용하여 시작할 동시 작업의 수를 결정합니다. 자세한 내용을 확인하려면 명령줄에 `AzCopy /?:NC` 를 입력하세요.
 
 ### <a name="export-table-to-blob"></a>Blob에 테이블 내보내기
-    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
+
+```azcopy
+AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
+```
 
 AzCopy는 다음 명명 규칙을 사용하여 Blob 컨테이너에 JSON 데이터 파일을 생성합니다.
 
@@ -310,7 +403,10 @@ AzCopy는 다음 명명 규칙을 사용하여 Blob 컨테이너에 JSON 데이�
 
 ## <a name="table-import"></a>테이블: 가져오기
 ### <a name="import-table"></a>테이블 가져오기
-    AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
+
+```azcopy
+AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
+```
 
 `/EntityOperation` 옵션은 테이블에 엔터티를 삽입하는 방법을 나타냅니다. 가능한 값은 다음과 같습니다.
 
@@ -330,7 +426,9 @@ Blob 컨테이너에는 Azure 테이블과 해당 매니페스트 파일을 나�
 
 해당 Blob 컨테이너에 매니페스트 파일을 사용하여 엔터티를 테이블로 가져오려면 다음 명령을 실행할 수 있습니다.
 
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https://myaccount.table.core.windows.net/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https://myaccount.table.core.windows.net/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
+```
 
 ## <a name="other-azcopy-features"></a>기타 AzCopy 기능
 ### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>대상에 없는 데이터만 복사
@@ -342,10 +440,13 @@ Blob 컨테이너에는 Azure 테이블과 해당 매니페스트 파일을 나�
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
-참고: 원본 또는 대상이 테이블인 경우 지원되지 않습니다.
+원본 또는 대상이 테이블인 경우에는 지원되지 않습니다.
 
 ### <a name="use-a-response-file-to-specify-command-line-parameters"></a>지시 파일을 사용하여 명령줄 매개 변수 지정
-    AzCopy /@:"C:\responsefiles\copyoperation.txt"
+
+```azcopy
+AzCopy /@:"C:\responsefiles\copyoperation.txt"
+```
 
 지시 파일에 AzCopy 명령줄 매개 변수를 포함할 수 있습니다. AzCopy는 파일의 매개 변수가 마치 명령줄에 지정된 것처럼 처리하고 파일 내용을 직접적으로 대체합니다.
 
@@ -385,18 +486,27 @@ AzCopy에 대한 옵션을 지정하는 `options.txt` 라는 지시 파일이 �
 
 모두 `C:\responsefiles`디렉터리에 있는 이러한 지시 파일을 사용하여 AzCopy를 호출하려면 다음 명령을 사용합니다.
 
-    AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
+```azcopy
+AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
+```
 
 AzCopy는 명령줄에 개별 매개 변수를 모두 포함할 때처럼 이 명령을 처리합니다.
 
-    AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
+```azcopy
+AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
+```
 
 ### <a name="specify-a-shared-access-signature-sas"></a>SAS(공유 액세스 서명) 지정
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
+
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
+```
 
 또한 컨테이너 URI에서 SAS를 지정할 수도 있습니다.
 
-    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
+```azcopy
+AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
+```
 
 ### <a name="journal-file-folder"></a>저널 파일 폴더
 AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일이 있는지 또는 이 옵션을 통해 지정한 폴더에 있는지 확인합니다. 저널 파일이 이 두 위치에 없으면 AzCopy는 이 작업을 새 작업으로 취급하고 새 저널 파일을 생성합니다.
@@ -405,30 +515,41 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 저널 파일에 대해 기본 위치를 사용하는 경우
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
+```
 
 `/Z` 옵션을 생략하거나 위에 표시된 것처럼 폴더 경로 없이 `/Z`를 지정하면 AzCopy는 기본 위치인 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`에 저널 파일을 만듭니다. 저널 파일이 이미 있으면 AzCopy는 저널 파일을 기반으로 작업을 다시 시작합니다.
 
 저널 파일의 사용자 지정 위치를 지정하려는 경우
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
+```
 
 이 예에서는 저널 파일이 없는 경우 파일을 만듭니다. 저널 파일이 있으면 AzCopy는 저널 파일을 기반으로 작업을 다시 시작합니다.
 
 AzCopy 작업을 다시 시작하려는 경우
 
-    AzCopy /Z:C:\journalfolder\
+```azcopy
+AzCopy /Z:C:\journalfolder\
+```
 
 이 예에서는 완료하지 못했을 수 있는 마지막 작업을 다시 시작합니다.
 
 ### <a name="generate-a-log-file"></a>로그 파일 생성
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
+
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
+```
 
 세부 정보 표시 로그에 대한 파일 경로를 제공하지 않고 `/V` 옵션을 지정하면 AzCopy는 기본 위치인 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`에 로그 파일을 만듭니다.
 
 그렇지 않으면 사용자 지정 위치에 로그 파일을 만들 수 있습니다.
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
+```
 
 `/V:test/azcopy1.log`와 같이 `/V` 옵션 다음에 상대 경로를 지정하면 하위 폴더 `test` 내의 현재 작업 디렉터리에 세부 정보 표시 로그가 만들어집니다.
 
@@ -438,11 +559,15 @@ AzCopy 작업을 다시 시작하려는 경우
 ### <a name="run-azcopy-against-azure-storage-emulator"></a>Azure 저장소 에뮬레이터에 대해 AzCopy 실행
 Blob 및 테이블용 [Azure 저장소 에뮬레이터](storage-use-emulator.md) 에 대해 AzCopy를 실행할 수
 
-    AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
+```azcopy
+AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
+```
 
 있습니다.
 
-    AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
+```azcopy
+AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
+```
 
 ## <a name="azcopy-parameters"></a>AzCopy 매개 변수
 AzCopy의 매개 변수는 아래에 설명되어 있습니다. 명령줄에서 다음 명령 중 하나를 입력하여 AzCopy 사용을 위한 도움말을 확인할 수도 있습니다.
@@ -472,7 +597,7 @@ AzCopy의 매개 변수는 아래에 설명되어 있습니다. 명령줄에서 
 
 AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 대/소문자를 구분해서 검색하고 다른 모든 경우에서 대/소문자를 구분하지 않습니다.
 
-파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 에 대해 잘 알고 있다는 것을 가정합니다. 이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.
+파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *에 대해 잘 알고 있다는 것을 가정합니다.* 이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.
 
 **적용 대상:** Blob, 파일
 
@@ -509,7 +634,7 @@ AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 �
 
 **적용 대상:** Blob, 파일
 
-### <a name="blobtypeblock-page-append"></a>/BlobType:"block" | "page" | "append"
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 대상 Blob이 블록 Blob인지, 페이지 Blob인지 아니면 추가 Blob인지를 지정합니다. 이 옵션은 Blob을 업로드하는 경우에만 적용됩니다. 그렇지 않은 경우 오류가 생성합니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.
 
 **적용 대상:** Blob
@@ -657,12 +782,12 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 
 **적용 대상:** Blob, 파일, 테이블
 
-### <a name="sourcetypeblob-table"></a>/SourceType:"Blob" | "Table"
+### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 `source` 리소스를 저장소 에뮬레이터에서 실행되는 로컬 개발 환경에서 사용할 수 있는 Blob로 지정합니다.
 
 **적용 대상:** Blob, 테이블
 
-### <a name="desttypeblob-table"></a>/DestType:"Blob" | "Table"
+### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 `destination` 리소스를 저장소 에뮬레이터에서 실행되는 로컬 개발 환경에서 사용할 수 있는 Blob로 지정합니다.
 
 **적용 대상:** Blob, 테이블
@@ -691,7 +816,7 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 
 **적용 대상:** 테이블
 
-### <a name="entityoperationinsertorskip-insertormerge-insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 테이블 데이터 가져오기 동작을 지정합니다.
 
 * InsertOrSkip - 기존 엔터티를 건너뛰거나 테이블에 엔터티가 없으면 새 엔터티를 삽입합니다.
@@ -727,7 +852,7 @@ Blob 저장소 내에서, 파일 저장소 내에서 또는 Blob 저장소에서
 
 **적용 대상:** Blob, 파일
 
-### <a name="payloadformatjson-csv"></a>/PayloadFormat:"JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 테이블의 내보낸 데이터 파일의 형식을 지정합니다.
 
 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 JSON 형식으로 테이블 데이터 파일을 내보냅니다.
@@ -783,6 +908,6 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

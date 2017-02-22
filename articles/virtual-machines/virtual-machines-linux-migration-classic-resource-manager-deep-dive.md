@@ -1,5 +1,5 @@
 ---
-title: "클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보 | Microsoft Docs"
+title: "Azure의 Linux VMS 배포 모델 간 마이그레이션 | Microsoft Docs"
 description: "이 문서에서는 플랫폼 지원 방식으로 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정의 기술적 측면을 설명합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: fc778c8b78a20cbcd9f3988ab28b763ab1c62f48
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: c30916c0b5078a6e346ac2a7ddeb07eda3bda218
 
 
 ---
@@ -68,6 +68,6 @@ ms.openlocfilehash: fc778c8b78a20cbcd9f3988ab28b763ab1c62f48
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
 
 
 ---
@@ -32,11 +32,11 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure 검색 서비스를 만들어야](search-create-service-portal.md)합니다.
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Azure 검색 블레이드로 이동
-1.  [Azure 포털](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+## <a name="go-to-your-azure-search-blade"></a>Azure 검색 블레이드로 이동
+1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)의 왼쪽에 있는 메뉴에서 "모든 리소스"를 클릭합니다.
 2. Azure 검색 서비스 선택
 
-## <a name="ii-add-and-name-your-index"></a>II. 인덱스 추가 및 명명
+## <a name="add-and-name-your-index"></a>인덱스 추가 및 명명
 1. "인덱스 추가" 단추를 클릭합니다.
 2. Azure 검색 인덱스를 명명합니다. 이 가이드에서 호텔을 검색하는 인덱스를 만들고 있으므로 인덱스를 "호텔"로 명명합니다.
    * 인덱스 이름은 문자로 시작하고 소문자, 숫자 또는 대시("-")만 포함해야 합니다.
@@ -45,7 +45,7 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## <a name="iii-create-and-define-the-fields-of-your-index"></a>III. 인덱스의 필드 만들기 및 정의
+## <a name="create-and-define-the-fields-of-your-index"></a>인덱스의 필드 만들기 및 정의
 1. "필드" 항목을 선택하여 인덱스 정의를 입력하라는 양식과 함께 새 블레이드가 열립니다.
 2. 양식을 사용하여 인덱스에 필드를 추가합니다.
    
@@ -62,12 +62,12 @@ ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next"></a>다음
+## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

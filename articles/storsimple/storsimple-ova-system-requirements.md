@@ -1,28 +1,27 @@
 ---
-title: "StorSimple 가상 배열 시스템 요구 사항"
+title: "Microsoft Azure StorSimple Virtual Array 요구 사항 | Microsoft Docs"
 description: "StorSimple 가상 배열의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
-ms.assetid: df0a45e8-4d6f-4849-94c0-82c615770821
+ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/17/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0d1a1e654aa0a1aa968d87f1f6bc836ed4c3118a
-
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요
-이 문서는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함) 및 배열에 액세스하는 저장소 클라이언트에 대한 주요 시스템 요구 사항을 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
+이 문서에서는 Microsoft Azure StorSimple Virtual Array 및 배열에 액세스하는 저장소 클라이언트의 중요한 시스템 요구 사항에 대해 설명합니다. StorSimple 시스템을 배포하기 전에 정보를 신중하게 검토하고 배포 및 후속 작업 중 필요에 따라 다시 검토하는 것이 좋습니다.
 
 시스템 요구 사항에는 다음 내용이 포함됩니다.
 
@@ -47,7 +46,7 @@ ms.openlocfilehash: 0d1a1e654aa0a1aa968d87f1f6bc836ed4c3118a
 | **구성 요소** | **요구 사항** |
 | --- | --- |
 | 최소 가상 프로세서(코어) 수 |4 |
-| 최소 메모리(RAM) |8GB |
+| 최소 메모리(RAM) |8GB <br> 파일 서버의 경우 2백만 개 미만의 파일에 대해 8GB, 2-4백만 개 파일에 대해 16GB|
 | 디스크 공간<sup>1</sup> |OS 디스크 - 80GB  <br></br>데이터 디스크 - 500GB~8TB |
 | 최소 네트워크 인터페이스 수 |1 |
 | 최소 인터넷 대역폭<sup>2</sup> |5Mbps |
@@ -90,9 +89,9 @@ ms.openlocfilehash: 0d1a1e654aa0a1aa968d87f1f6bc836ed4c3118a
 | --- | --- | --- | --- | --- |
 | TCP 80(HTTP) |아웃 |WAN |아니요 |업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | TCP 443(HTTPS) |아웃 |WAN |예 |아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
-| UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> **참고**: 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다. |
-| UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> **참고:** 파일 서버를 배포하는 경우에는 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
-| TCP 80(HTTP) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다. <br></br> **참고**: HTTP를 통해 로컬 UI에 액세스할 경우 HTTPS로 자동으로 리디렉션됩니다. |
+| UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다. |
+| UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> 파일 서버를 배포하는 경우 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
+| TCP 80(HTTP) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다. <br></br> HTTP를 통해 로컬 UI에 액세스하면 HTTPS로 자동으로 리디렉션됩니다. |
 | TCP 443(HTTPS) |그런 다음 |LAN |예 |로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다. |
 | TCP 3260(iSCSI) |그런 다음 |LAN |아니요 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
 
@@ -104,11 +103,12 @@ ms.openlocfilehash: 0d1a1e654aa0a1aa968d87f1f6bc836ed4c3118a
 > 
 
 ### <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. 가상 배열 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정, Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다. 
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. 가상 배열 및 StorSimple 장치 관리자 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft Update 서버와 같은 다른 Microsoft 응용 프로그램에 따라 달라집니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다. 
 
 StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
 > [!NOTE]
+> 
 > * 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다. 
 > * 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 > 
@@ -116,7 +116,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 | URL 패턴 | 구성 요소/기능 |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple 장치 관리자 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스 |
 | `http://*.backup.windowsazure.com` |장치 등록 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |
@@ -126,11 +126,11 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 | `http://*.data.microsoft.com ` |Windows의 원격 분석 서비스는 [사용자 환경 및 진단 원격 분석 업데이트](https://support.microsoft.com/en-us/kb/3068708)를 참조하세요. |
 
 ## <a name="next-step"></a>다음 단계
-* [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-ova-deploy1-portal-prep.md)
+* [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03c511f53704f306aa3fce2dd394188e5b3a0fa2
+ms.sourcegitcommit: 24e86b2a0c47576eba67f74c88bf9b9a42394653
+ms.openlocfilehash: 556da1513345b3cadf4fda622bb351835c114845
 
 
 ---
@@ -65,10 +65,11 @@ Azure AD B2C에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 
 * [OAuth 2.0을 사용하여 모바일 및 네이티브 응용 프로그램 빌드](active-directory-b2c-reference-oauth-code.md)
 * [OpenID Connect를 사용하여 웹앱 빌드](active-directory-b2c-reference-oidc.md)
+* [OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 구축](active-directory-b2c-reference-spa.md)
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

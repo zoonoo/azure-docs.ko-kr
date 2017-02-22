@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c644f67c985ef1de13286bc1ef8c2bb84a2939e3
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
 
 
 ---
@@ -34,7 +34,7 @@ Azure App Service는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현�
 * 들어오는 API 요청을 전처리합니다. 즉, 앱 서비스에서 지원하는 모든 언어 또는 프레임워크와 작동합니다.
 * 사용자 고유의 코드에서 얼마나 많은 인증이 작동하도록 할지에 대한 여러 옵션을 제공합니다.
 * 최종 사용자 및 서비스 계정 인증 모두에 대해 작동합니다. 
-* 여기서는 Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정의 5가지 ID 공급자를 지원합니다.
+* 여기서는 Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정의&5;가지 ID 공급자를 지원합니다.
 * API 앱, 웹앱 및 모바일 앱에 대해서도 마찬가지로 작동합니다.
 
 ![](./media/app-service-api-authentication/api-apps-overview.png)
@@ -83,7 +83,7 @@ Azure App Service는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현�
 
 앱 서비스 인증을 사용하지 않고 서비스 간 시나리오를 처리하려면 클라이언트 인증서 또는 기본 인증을 사용하면 됩니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요. ASP.NET에서 기본 인증에 대한 자세한 내용은 [ASP.NET Web API 2에서의 인증 필터](http://www.asp.net/web-api/overview/security/authentication-filters)를 참조하세요.
 
-앱 서비스 논리 앱에서 API 앱으로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에 설명된 특수 사례입니다.
+앱 서비스 논리 앱에서 API 앱으로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../logic-apps/logic-apps-custom-hosted-api.md)에 설명된 특수 사례입니다.
 
 ## <a name="mobile-client-authentication"></a>모바일 클라이언트 인증
 모바일 클라이언트에서 인증을 처리하는 방법에 대한 내용은 [모바일 앱을 위한 인증에 대한 설명서](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요. 앱 서비스 인증은 모바일 앱 및 API 앱에서 동일한 방식으로 작동합니다.
@@ -91,7 +91,7 @@ Azure App Service는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현�
 ## <a name="more-information"></a>자세한 정보
 Azure 앱 서비스에서 인증 및 권한 부여에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [앱 서비스 인증/권한 부여 확장](/blog/announcing-app-service-authentication-authorization/)
+* [앱 서비스 인증/권한 부여 확장](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 * [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
 
 OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은 다음 리소스를 참조하세요.
@@ -112,6 +112,6 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4222de44e426c449a42822994b1c15b44c3fec54
+ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
+ms.openlocfilehash: 2b16840e5e9fc6e0268d83f9177a6fc6ad02841c
 
 
 ---
 # <a name="define-lab-policies-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 정책 정의
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
 > 
 > 
 
@@ -107,8 +107,8 @@ Azure DevTest Labs에서 비용을 관리하고 랩에서의 낭비를 최소화
 ## <a name="next-steps"></a>다음 단계
 랩에 대한 다양한 VM 정책 설정을 정의 및 적용한 후에는 다음 작업을 수행하세요.
 
-* [비용 관리 구성](devtest-lab-configure-cost-management.md) - **월간 예상 원가 추세** 차트를 사용하여   
-  이번 달의 현재 예상 비용 합계 및 월말 추정 비용을 확인하는 방법을 보여 줍니다.
+* [비용 관리 구성](devtest-lab-configure-cost-management.md) - **월간 예상 원가 추세** 차트 사용 방법을 보여 줍니다  
+  현재까지의 예상 비용과 예상되는 월말 비용을 봅니다.
 * [사용자 지정 이미지 만들기](devtest-lab-create-template.md) - VM을 만들 때 사용자 지정 이미지 또는 마켓플레이스 이미지 중에서 기본 이미지를 지정할 수 있습니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다.
 * [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs에서 Azure Marketplace 이미지에 기반하여 VM을 만들 수 있습니다. 이 문서에서는 랩에서 VM을 만들 때 사용할 수 있는 Azure 마켓플레이스 이미지(있는 경우)를 지정하는 방법을 보여 줍니다.
 * [랩에서 VM 만들기](devtest-lab-add-vm-with-artifacts.md) - 기본 이미지(사용자 지정 또는 마켓플레이스 이미지)에서 VM을 만드는 방법 및 VM에서 아티팩트 작업 방법에 대해 설명합니다.
@@ -116,6 +116,6 @@ Azure DevTest Labs에서 비용을 관리하고 랩에서의 낭비를 최소화
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 276033907d454a54b2d9d5354f8e1dc48a7b01d4
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
 
 
 ---
@@ -31,17 +31,26 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Data Lake Store 계정에 대한 진단 로깅 사용
 1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. Data Lake Store 계정을 열고 Data Lake Store 계정 블레이드에서 **설정**, **진단 설정**을 차례로 클릭합니다.
+2. Data Lake Store 계정을 열고 Data Lake Store 계정 블레이드에서 **설정**, **진단 로그**를 차례로 클릭합니다.
+3. **진단 로그** 블레이드에서 **진단 켜기**를 클릭합니다.
+
+    ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "진단 로그 사용")
+
 3. **진단** 블레이드에서 진단 로깅을 구성하려면 다음과 같이 변경합니다.
    
-    ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![진단 로깅 사용](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "진단 로그 사용")
    
    * 진단 로깅을 사용하려면 **상태**를 **켜기**로 설정합니다.
-   * 두 가지 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
-     * Azure 이벤트 허브에 로그 데이터를 스트리밍하려면 **이벤트 허브로 내보내기** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
-     * **저장소 계정에 내보내기** 옵션을 선택하여 Azure 저장소 계정에 로그를 저장합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure 저장소 계정을 제공하여 로그를 저장해야 합니다.
+   * 다양한 방법으로 데이터를 저장/처리하도록 선택할 수 있습니다.
+     
+        * Azure Storage 계정에 로그를 저장하려면 **저장소 계정에 보관** 옵션을 선택합니다. 나중에 배치로 처리할 데이터를 보관하려는 경우 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 Azure 저장소 계정을 제공하여 로그를 저장해야 합니다.
+        
+        * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
+
+        * Azure Log Analytics 서비스를 사용하여 생성된 로그 데이터를 분석하려면 **Log Analytics으로 전송** 옵션을 선택합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Operations Management Suite 작업 영역에 세부 정보를 제공해야 합니다.
+     
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
-   * 데이터를 유지해야 하는 일 수를 지정합니다.
+   * 데이터를 유지해야 하는 일 수를 지정합니다. Azure Storage 계정을 사용하여 로그 데이터를 보관하는 경우에만 보존 기능이 적용됩니다.
    * **Save**를 클릭합니다.
 
 진단 설정을 사용하도록 설정했으면 **진단 로그** 탭에서 로그를 볼 수 있습니다.
@@ -55,7 +64,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 ### <a name="using-the-data-lake-store-settings-view"></a>Data Lake Store 설정 보기 사용
 1. Data Lake Store 계정 **설정** 블레이드에서 **진단 로그**를 클릭합니다.
    
-    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "진단 로그 보기") 
 2. **진단 로그** 블레이드에서 **감사 로그** 및 **요청 로그**로 분류된 로그가 표시됩니다.
    
    * 요청 로그는 Data Lake Store 계정에 대한 모든 API 요청을 캡처합니다.
@@ -65,13 +74,13 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>로그 데이터를 포함하는 Azure 저장소 계정에서
 1. 로깅을 위한 Data Lake Store와 연결된 Azure 저장소 계정 블레이드를 열고 Blob을 클릭합니다. **Blob 서비스** 블레이드는 두 개의 컨테이너를 나열합니다.
    
-    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "진단 로그 보기")
    
    * **insights-logs-audit** 컨테이너는 감사 로그를 포함합니다.
    * **insights-logs-requests** 컨테이너는 요청 로그를 포함합니다.
 2. 이러한 컨테이너 내에서 로그는 다음 구조로 저장됩니다.
    
-    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+    ![진단 로깅 보기](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "진단 로그 보기")
    
     예를 들어, 감사 로그에 대한 전체 경로는 `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -109,7 +118,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | resourceId |문자열 |작업이 수행되는 리소스의 ID |
-| 카테고리 |문자열 |로그 범주. 예: **Requests** |
+| 카테고리 |문자열 |로그 범주 예: **Requests** |
 | operationName |String |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
 | callerIpAddress |문자열 |요청한 클라이언트의 IP 주소 |
@@ -155,7 +164,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | resourceId |문자열 |작업이 수행되는 리소스의 ID |
-| 카테고리 |문자열 |로그 범주. 예: **Audit**. |
+| 카테고리 |문자열 |로그 범주 예: **Audit**. |
 | operationName |String |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |문자열 |작업의 상태, 예를 들어 200 |
 | CorrelationId |문자열 |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
@@ -177,6 +186,6 @@ Azure Data Lake Store에서는 로그 데이터를 처리하고 분석하는 방
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

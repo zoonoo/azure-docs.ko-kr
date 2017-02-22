@@ -1,5 +1,5 @@
 ---
-title: "데이터 팩터리 복사 마법사 | Microsoft Docs"
+title: "복사 마법사를 사용하여 데이터를 쉽게 복사 - Azure | Microsoft Docs"
 description: "Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdd816303cb971403eaa074d0fe8a46f11017a42
+ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
+ms.openlocfilehash: 0fc9eb7869ebe7316e4aed0d561638a05bc9a91c
 
 
 ---
-# <a name="data-factory-copy-wizard"></a>데이터 팩터리 복사 마법사
+# <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory Copy Wizard를 진행할 때는 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 그러나 마법사의 모든 단계를 완료한 후 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 생성됩니다. 또한 Copy Wizard를 사용하면 작성 당시에 수집 중인 데이터의 유효성을 검사할 수 있으므로 특히 데이터 원본에서 데이터를 처음 수집하는 경우 많은 시간이 절약됩니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 
 ![복사 마법사](./media/data-factory-copy-wizard/copy-data-wizard.png)
@@ -57,7 +57,7 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
-### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure blob 폴더의 데이터 필터링
+### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
 폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}**입니다. 예: inputfolder/{year}/{month}/{day}.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
@@ -93,6 +93,6 @@ Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

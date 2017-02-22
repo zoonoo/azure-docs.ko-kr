@@ -1,5 +1,5 @@
 ---
-title: "리소스의 여러 인스턴스를 배포 | Microsoft Docs"
+title: "Azure 리소스의 여러 인스턴스 배포 | Microsoft Docs"
 description: "Azure 리소스 관리자 템플릿에서 복사 작업 및 배열을 사용하여 여러 번 반복하는 방법을 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스의 여러 인스턴스 배포
 이 항목에서는 Azure 리소스 관리자 템플릿을 반복하여 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex 및 length
@@ -73,7 +73,7 @@ ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
 자식 리소스를 사용하려면 [자식 리소스의 여러 인스턴스 만들기](#create-multiple-instances-of-a-child-resource)를 참조하세요.
 
 ## <a name="use-index-value-in-name"></a>이름에 인덱스 값 사용
-복사 작업을 사용하여 증분 인덱스를 기준으로 고유하게 명명되는 리소스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 배포되는 각 리소스 이름의 끝에 고유 번호를 추가할 수 있습니다. 다음 이름의 웹 사이트 3개를 배포하려면
+복사 작업을 사용하여 증분 인덱스를 기준으로 고유하게 명명되는 리소스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 배포되는 각 리소스 이름의 끝에 고유 번호를 추가할 수 있습니다. 다음 이름의 웹 사이트&3;개를 배포하려면
 
 * examplecopy-0
 * examplecopy-1
@@ -104,14 +104,14 @@ ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
     ]
 
 ## <a name="offset-index-value"></a>인덱스 값 오프셋
-앞의 예제에서 인덱스 값은 0에서 2로 이동합니다. 인덱스 값을 오프셋하여 값을 **copyIndex(1)**와 같은 **copyIndex()** 함수를 전달할 수 있습니다. 수행할 반복 수는 복사 요소에서 지정되지만 copyIndex의 값이 지정된 값 만큼 오프셋됩니다. 따라서 이전 예제와 같은 서식 파일을 사용하지만 **copyIndex(1)** 를 지정하여 다음과 같이 명명된 3개의 웹 사이트를 배포합니다.
+앞의 예제에서 인덱스 값은 0에서 2로 이동합니다. 인덱스 값을 오프셋하여 값을 **copyIndex(1)**와 같은 **copyIndex()** 함수를 전달할 수 있습니다. 수행할 반복 수는 복사 요소에서 지정되지만 copyIndex의 값이 지정된 값 만큼 오프셋됩니다. 따라서 이전 예제와 같은 서식 파일을 사용하지만 **copyIndex(1)** 를 지정하여 다음과 같이 명명된&3;개의 웹 사이트를 배포합니다.
 
 * examplecopy-1
 * examplecopy-2
 * examplecopy-3
 
 ## <a name="use-copy-with-array"></a>배열을 사용하여 복사
-복사 작업은 배열의 각 요소를 반복할 수 있으므로 배열을 사용할 때 유용합니다. 다음 이름의 웹 사이트 3개를 배포하려면
+복사 작업은 배열의 각 요소를 반복할 수 있으므로 배열을 사용할 때 유용합니다. 다음 이름의 웹 사이트&3;개를 배포하려면
 
 * examplecopy-Contoso
 * examplecopy-Fabrikam
@@ -122,7 +122,7 @@ ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
     "parameters": { 
       "org": { 
          "type": "array", 
-             "defaultValue": [ 
+         "defaultValue": [ 
              "Contoso", 
              "Fabrikam", 
              "Coho" 
@@ -148,7 +148,7 @@ ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
 물론, 복사본 개수를 배열 길이가 아닌 다른 값으로 설정할 수 있습니다. 예를 들어 많은 값이 포함된 배열을 만든 다음 배포할 배열 요소 수를 지정하는 매개 변수 값을 전달할 수 있습니다. 이 경우 첫 번째 예제와 같이 복사본 개수를 설정합니다. 
 
 ## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
-**dependsOn** 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정할 수 있습니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 **dependsOn** 요소에 copy 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포하기 전에 저장소 계정 3개를 배포하는 방법을 보여줍니다. 전체 가상 컴퓨터 정의는 표시되지 않습니다. 참고로 copy 요소의 **name**은 **storagecopy**로 설정되고 가상 컴퓨터에 대한 **dependsOn** 요소도 **storagecopy**로 설정되었습니다.
+**dependsOn** 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정할 수 있습니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 **dependsOn** 요소에 copy 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포하기 전에 저장소 계정&3;개를 배포하는 방법을 보여줍니다. 전체 가상 컴퓨터 정의는 표시되지 않습니다. 참고로 copy 요소의 **name**은 **storagecopy**로 설정되고 가상 컴퓨터에 대한 **dependsOn** 요소도 **storagecopy**로 설정되었습니다.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -168,13 +168,13 @@ ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
                      "count": 3 
                   }
             },
-           {
-               "apiVersion": "2015-06-15", 
-               "type": "Microsoft.Compute/virtualMachines", 
-               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-               "dependsOn": ["storagecopy"],
-               ...
-           }
+            {
+                "apiVersion": "2015-06-15", 
+                "type": "Microsoft.Compute/virtualMachines", 
+                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+                "dependsOn": ["storagecopy"],
+                ...
+            }
         ],
         "outputs": {}
     }
@@ -556,6 +556,6 @@ ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

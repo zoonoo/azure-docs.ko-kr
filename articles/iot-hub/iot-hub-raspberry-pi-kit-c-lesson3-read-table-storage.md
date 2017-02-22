@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage에 유지되는 메시지 읽기 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 3: 테이블 저장소 | Microsoft Docs"
 description: "장치-클라우드 메시지가 Azure Table Storage에 기록될 때 해당 메시지를 모니터링합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 4e1107400ef08cc3fd955d693c77f332446ecc37
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 41e89f524bf9ae67489ab3a0eb09ceda6b211f15
 
 
 ---
@@ -74,6 +74,6 @@ Pi를 클라우드의 IoT Hub에 성공적으로 연결했고 깜빡이는 샘�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

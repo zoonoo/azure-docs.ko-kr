@@ -1,5 +1,5 @@
 ---
-title: "분할된 데이터베이스 맵 관리 | Microsoft Docs"
+title: "Azure SQL Database 규모 확장 | Microsoft Docs"
 description: "ShardMapManager 및 .NET용 탄력적 데이터베이스를 사용하는 방법"
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3c2cb9a99bb28c2530e1c58ec8ad2fd16b9cc97c
+ms.sourcegitcommit: eb5483e497ef1c1a239f207a034eb8c67f485a39
+ms.openlocfilehash: c7a46ebf0df6db92d2e66c7523e00c0a574ebf56
 
 
 ---
@@ -76,7 +76,7 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 ### <a name="range-shard-maps"></a>범위 분할된 데이터베이스 맵
 **범위 분할된 데이터베이스 맵**에서 키 범위는 한 쌍 **[낮은 값, 높은 값)**으로 기술됩니다. 여기서 *낮은 값*은 범위에서 최소 키이고 *높은 값*은 범위보다 높은 첫 번째 값입니다. 
 
-예를 들어 **[0, 100)**에는 0 이상 100 미만의 모든 정수가 포함됩니다. 여러 범위가 동일한 데이터베이스를 가리킬 수 있으며 연결되지 않은 범위도 지원됩니다. 예를 들어 아래 예제에서 [100, 200) 및 400, 600)은 모두 데이터베이스 C를 가리킵니다.
+예를 들어 **[0, 100)**에는 0 이상 100 미만의 모든 정수가 포함됩니다. 여러 범위가 동일한 데이터베이스를 가리킬 수 있으며 연결되지 않은 범위도 지원됩니다. 예를 들어 아래 예제에서 [100,&200;) 및&400;,&600;)은 모두 데이터베이스 C를 가리킵니다.
 
 | 키 | 분할된 데이터베이스 위치 |
 | --- | --- |
@@ -325,6 +325,6 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

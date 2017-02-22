@@ -1,5 +1,5 @@
 ---
-title: "테스트/개발 시나리오에 대해 Windows 클라이언트 이미지 사용 | Microsoft Docs"
+title: "Azure에서 Windows 클라이언트 이미지 사용 | Microsoft Docs"
 description: "Visual Studio 구독 혜택을 사용하여 개발/테스트 시나리오용으로 Azure에서 Windows 7/8/10을 배포하는 방법"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d95dad55ad2f9feaf1e62f671adbf3187adf8cca
+ms.sourcegitcommit: 568bd06d1dfd0e253b960dcf2fb5409a390da91b
+ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
 
 
 ---
@@ -59,6 +59,6 @@ Azure 계정 포털의 ['구독' 탭](http://account.windowsazure.com/Subscripti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

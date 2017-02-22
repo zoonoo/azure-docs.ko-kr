@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 Azure Mobile Engagement는 데이터 기반 통찰력을 앱 사용, 실시간 사용자 분석에 제공하고 컨텍스트 인식 푸시 알림 및 앱 내 메시징을 가능하게 하는 SaaS(Software-as-a-Service) 사용자 참여 플랫폼입니다.
 
 ### <a name="overview-video"></a>개요 동영상
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Mobile-Engagement-Overview/player]
 > 
 > 
 
@@ -54,6 +54,6 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

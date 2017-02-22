@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 14997080496adfd363fee249c858ed9a0b553066
+ms.sourcegitcommit: 64650bf7baf46b0f5473deb1a9b4ec329979d153
+ms.openlocfilehash: 0fc78521abb0fce2a38b14d1411dad42b3580df2
 
 
 ---
+
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure 저장소 중단이 발생할 경우 수행할 작업
 Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 경우에 따라 강제적으로 우리의 제어 영향을 벗어나 하나 이상의 지역에서 계획되지 않은 서비스 중단이 발생되는 경우가 있습니다. 이러한 드문 경우를 처리할 수 있도록 Azure 저장소 서비스에 대해 다음과 같은 높은 수준의 지침을 제공합니다.
 
@@ -54,7 +55,9 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 저장소 지역 장애 조치(failover)는 Azure 저장소 팀에 의해서만 트리거되며 고객이 수행할 작업은 없습니다.
 * Blob, 테이블, 큐 및 파일에 대한 기존 저장소 서비스 끝점은 장애 조치(failover) 후에도 그대로 유지되며 주 지역에서 보조 지역으로 전환하려면 DNS 항목을 업데이트해야 합니다.
 * 지역 장애 조치(failover) 전과 수행하는 동안에는 재해 영향으로 인해 저장소 계정에 대한 쓰기 권한이 없지만 저장소 계정이 RA-GRS로 구성된 경우에는 보조에서 여전히 읽을 수 있습니다.
-* 지역 장애 조치(failover)가 완료되고 DNS 변경 사항이 전파되면 저장소 계정에 대한 읽기 및 쓰기 권한을 다시 갖게 됩니다. [저장소 계정의 "마지막 지역 장애 조치(failover) 시간"](https://msdn.microsoft.com/library/azure/ee460802.aspx) 을 쿼리하여 세부 정보를 가져올 수 있습니다.
+* 지역 장애 조치(failover)가 완료되고 DNS 변경 사항이 전파되면 저장소 계정에 대한 읽기 및 쓰기 권한을 다시 갖게 되고, 보조 끝점이었던 부분을 가리키게 됩니다. 
+* 저장소 계정에 대해 GRS 또는 RA-GRS가 구성되어 있으면 쓰기 권한을 갖게 됩니다. 
+* [저장소 계정의 "마지막 지역 장애 조치(failover) 시간"](https://msdn.microsoft.com/library/azure/ee460802.aspx) 을 쿼리하여 세부 정보를 가져올 수 있습니다.
 * 장애 조치(failover) 후 저장소 계정이 완벽하게 작동하게 되지만 실제로 지역에서 복제할 수 없는 독립 실행형 지역에 호스트되므로 “저하됨” 상태가 됩니다. 이러한 위험을 완화하기 위해 원래 기본 지역을 복원한 다음 원래의 상태를 복원하기 위해 지역 장애 복구(failback)를 수행합니다. 원래 기본 지역을 복구할 수 없는 경우 다른 보조 지역을 할당합니다.
   Azure 저장소 지역 복제의 인프라에 대한 자세한 내용은 저장소 팀 블로그에서 [중복 옵션 및 RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)에 대한 문서를 참조하세요.
 
@@ -66,9 +69,11 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 테이블 – [AzCopy](storage-use-azcopy.md) 를 사용하여 다른 지역에 있는 다른 저장소 계정으로 테이블 데이터를 내보냅니다.
 * 파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
+RA-GRS 기능을 충분히 활용하는 응용 프로그램 생성에 대한 자세한 내용은 [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

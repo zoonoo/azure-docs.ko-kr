@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -44,7 +44,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-javascript/01-create.png)
 
-*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](app-insights-create-new-resource를 구독해야 합니다.md)를 구독해야 합니다.
+*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](app-insights-create-new-resource.md)를 구독해야 합니다.
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>앱 또는 웹 페이지에 SDK 스크립트를 추가합니다.
 빠른 시작에서 웹 페이지용 스크립트를 가져옵니다.
@@ -129,17 +129,17 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 페이지 보기 수 및 표준 편차를 확인합니다. 페이지 수가 매우 낮은 경우 사용자에게 큰 문제가 되지 않습니다. 높은 표준 편차(자체 평균 비교 시)는 개별 측정값 간의 차이가 많음을 나타냅니다.
 
-**한 URL 및 한 페이지 보기에서 확대합니다.**  해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
+**한 URL 및 한 페이지 보기에서 확대합니다.** 해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
 
 ![](./media/app-insights-javascript/35.png)
 
 `...` 을(를) 클릭하여 해당 이벤트에 대한 속성의 전체 목록을 보거나 Ajax 호출 및 관련된 이벤트를 검사합니다. 느린 Ajax 호출은 동기화할 때 전체 페이지 로드 시간에 영향을 줍니다. 관련된 이벤트에는 동일한 URL에 대한 서버 요청을 포함합니다(웹 서버에서 Application Insights를 설정한 경우).
 
-**시간에 따른 페이지 성능**  브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
+**시간에 따른 페이지 성능** 브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
 
 ![표의 머리글을 클릭하고 새 차트 종류를 선택합니다.](./media/app-insights-javascript/10-page-perf-area.png)
 
-**다른 차원으로 분류**  특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
+**다른 차원으로 분류** 특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -170,7 +170,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 Ajax 호출에 대한 전체 원격 분석을 하려면 `...` 을(를) 클릭합니다.
 
 ### <a name="no-ajax-calls-reported"></a>Ajax 호출이 보고되지 않았습니까?
-Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 포함합니다. 보고된 호출이 없는 경우, 코드 조각이 `disableAjaxTracking` 또는 `maxAjaxCallsPerView` [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정하지 않았는지 확인합니다.
+Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호출을 포함합니다. 보고된 호출이 없는 경우, 코드 조각이 `disableAjaxTracking` 또는 `maxAjaxCallsPerView` [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정하지 않았는지 확인합니다.
 
 ## <a name="browser-exceptions"></a>브라우저 예외
 브라우저 블레이드에는 예외 요약 차트가 있고 좀 더 아래에는 예외 형식의 표가 있습니다.
@@ -193,7 +193,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 > 
 > 
 
-또한 강력한 [분석 쿼리 언어](app-insights-analytics-tour.md) 를 사용하여 페이지 보기를 검색할 수 있습니다.
+또한 강력한 [분석 쿼리 언어](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) 를 사용하여 페이지 보기를 검색할 수 있습니다.
 
 ### <a name="page-view-properties"></a>페이지 보기 속성
 * **페이지 보기 기간** 
@@ -230,6 +230,6 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -4,7 +4,7 @@ description: "미리 구성된 Azure IoT Suite 솔루션을 사용자 지정하�
 services: 
 suite: iot-suite
 documentationcenter: .net
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 45fd461defc00c5dc018496b85b8bf85614f03dd
-ms.openlocfilehash: 0037b9e28b20c9a85f810cba45aa5b4cbcf6ab6b
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 
 
 ---
@@ -33,9 +33,9 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 미리 구성된 솔루션에 대한 소스 코드는 패턴과 Azure IoT Suite를 사용하여 IoT 솔루션의 종단 간 기능을 구현하는 데 사용하는 작업 방식과 패턴을 보여 주기 위해 제공됩니다. GitHub 리포지토리에서 솔루션을 빌드 및 배포하는 방법에 대한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="changing-the-preconfigured-rules"></a>미리 구성된 규칙 변경
-원격 모니터링 솔루션은 솔루션에 대해 표시되는 장치 정보, 원격 분석 및 규칙 논리를 구현하는 세 개의 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업을 포함합니다.
+원격 모니터링 솔루션은 솔루션에서 장치 정보, 원격 분석 및 규칙 논리를 다루는 세 개의 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업을 포함합니다.
 
-세 개의 스트림 분석 작업 및 해당 구문은 [원격 모니터링 미리 구성된 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)에 자세히 설명되어 있습니다. 
+세 개의 Stream Analytics 작업 및 해당 구문은 [원격 모니터링 미리 구성된 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)에 자세히 설명되어 있습니다. 
 
 논리를 변경하거나 시나리오에 관련된 논리를 추가하도록 이러한 작업을 직접 편집할 수 있습니다. 다음과 같이 스트림 분석 작업을 찾을 수 있습니다.
 
@@ -59,12 +59,12 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 ## <a name="customizing-devices"></a>장치 사용자 지정
 가장 일반적인 확장 작업 중 하나는 시나리오와 관련된 장치를 사용하는 것입니다. 장치를 사용하는 여러 방법이 있습니다. 이 방법은 해당 시나리오에 맞게 시뮬레이션된 장치를 변경하거나 [IoT 장치 SDK][IoT Device SDK] 를 사용하여 솔루션에 대한 실제 장치에 연결하는 것이 포함됩니다.
 
-미리 구성된 원격 모니터링 솔루션에 장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 및 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 디자인된 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring)을 참조하세요.
+장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 문서 및 미리 구성된 원격 모니터링 솔루션을 사용하도록 디자인된 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring)을 참조하세요.
 
 ### <a name="creating-your-own-simulated-device"></a>고유한 시뮬레이션된 장치 만들기
-.NET 시뮬레이터는 원격 모니터링 솔루션 소스 코드(위 참조)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령에 응답하도록 변경될 수 있습니다.
+.NET 시뮬레이터는 [원격 모니터링 솔루션 소스 코드](https://github.com/Azure/azure-iot-remote-monitoring)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령에 응답하도록 변경될 수 있습니다.
 
-원격 모니터링 미리 구성된 솔루션에서 미리 구성된 시뮬레이터는 온도 및 습도 원격 분석을 내보내는 냉각 장치이며 GitHub 리포지토리를 분기한 경우 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 프로젝트에서 시뮬레이터를 수정할 수 있습니다.
+미리 구성된 솔루션 시뮬레이터의 원격 모니터링에서 미리 구성된 시뮬레이터는 온도 및 습도 원격 분석을 내보내는 냉각 장치입니다. GitHub 리포지토리를 분기한 경우 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 프로젝트에서 시뮬레이터를 수정할 수 있습니다.
 
 ### <a name="available-locations-for-simulated-devices"></a>시뮬레이션된 장치에 사용 가능한 위치
 위치의 기본 집합은 시애틀/레드먼드, 워싱턴, 미국입니다. [SampleDeviceFactory.cs][lnk-sample-device-factory]에서 이러한 위치를 변경할 수 있습니다.
@@ -80,7 +80,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 기본값은 200입니다. [TelemetryApiController.cs][lnk-telemetry-api-controller-01]에서 이 수를 변경할 수 있습니다.
 
 ### <a name="time-period-of-telemetry-graph"></a>원격 분석 그래프의 시간 간격
-기본값은 10분입니다. [TelmetryApiController.cs][lnk-telemetry-api-controller-02]에서 이를 변경할 수 있습니다.
+기본값은 10분입니다. [TelmetryApiController.cs][lnk-telemetry-api-controller-02]에서 이 값을 변경할 수 있습니다.
 
 ## <a name="manually-setting-up-application-roles"></a>수동으로 응용 프로그램 역할 설정
 다음 절차에서는 미리 구성된 솔루션에 **관리** 및 **읽기 전용** 응용 프로그램 역할을 추가하는 방법을 설명합니다. azureiotsuite.com 사이트에서 프로비전되는 미리 구성된 솔루션에는 **관리** 및 **읽기 전용** 역할이 이미 포함되어 있습니다.
@@ -94,12 +94,12 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 5. 미리 구성된 솔루션 이름과 일치하는 응용 프로그램의 이름을 클릭합니다. 목록에 응용 프로그램이 표시되지 않으면 **표시** 드롭다운에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
 6. 페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 다운로드**를 차례로 클릭합니다.
 7. 그러면 .json 파일이 로컬 컴퓨터에 다운로드됩니다.  이 파일을 편집할 수 있도록 원하는 텍스트 편집기에서 엽니다.
-8. .json 파일의 세 번째 줄에는 다음 코드가 있습니다.
+8. .json 파일의 세 번째 줄에는 다음 내용을 확인할 수 있습니다.
    
    ```
    "appRoles" : [],
    ```
-   이 코드를 아래 코드로 바꿉니다.
+   이 줄을 다음 코드로 바꿉니다.
    
    ```
    "appRoles": [
@@ -125,12 +125,12 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
    } ],
    ```
 9. 업데이트한 .json 파일을 저장합니다. 기존 파일을 덮어쓰면 됩니다.
-10. Azure 관리 포털 페이지 아래쪽에서 **매니페스트 관리**와 **매니페스트 업로드**를 차례로 클릭하여 이전 단계에서 저장한 .json 파일을 업로드합니다.
+10. Azure 클래식 포털 페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 업로드**를 차례로 클릭하여 이전 단계에서 저장한 .json 파일을 업로드합니다.
 11. 이제 **관리** 및 **읽기 전용** 역할이 응용 프로그램에 추가되었습니다.
 12. 이러한 역할 중 하나를 디렉터리의 사용자에게 할당하려면 [azureiotsuite.com 사이트의 권한][lnk-permissions]을 참조하세요.
 
 ## <a name="feedback"></a>사용자 의견
-이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서에 대한 의견을 아래쪽에 입력해 주시기 바랍니다. 
+이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서에 대한 의견을 입력해 주시기 바랍니다. 
 
 ## <a name="next-steps"></a>다음 단계
 미리 구성된 솔루션을 사용자 지정하기 위한 옵션에 대한 자세한 내용은 다음을 참조하세요.
@@ -153,6 +153,6 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

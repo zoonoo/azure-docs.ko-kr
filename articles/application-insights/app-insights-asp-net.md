@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6e5898d94a43b6859ce354f154bdb25948f7686
+ms.sourcegitcommit: 919f67a422faad2ba4c19e1f11f8e873098e8bd1
+ms.openlocfilehash: 9c27cfb674a7743c7cfe47b35b263da48c9c564e
 
 
 ---
 # <a name="set-up-application-insights-for-aspnet"></a>ASP.NET용 Application Insights 설치
-[Visual Studio Application Insights](app-insights-overview.md)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단](app-insights-detect-triage-diagnose.md)하고 [앱이 어떻게 사용되는지 검색](app-insights-overview-usage.md)할 수 있도록 돕습니다.  Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 클라우드 VM에서 호스트된 앱에서도 작동합니다.
+[Azure Application Insights](app-insights-overview.md)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단](app-insights-detect-triage-diagnose.md)하고 [앱이 어떻게 사용되는지 검색](app-insights-overview-usage.md)할 수 있도록 돕습니다.  Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 클라우드 VM에서 호스트된 앱에서도 작동합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 다음 작업을 수행해야 합니다.
@@ -55,11 +55,13 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 
 ## <a name="3-see-your-telemetry"></a>3. 원격 분석을 확인합니다.
 ### <a name="-in-visual-studio"></a>Visual Studio에서
-Visual Studio에서 Application Insights 창을 열고 Application Insights 단추를 클릭하거나 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
+Visual Studio에서 Application Insights 창을 열고 Application Insights 단추를 클릭하거나 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 `Application Insights`를 선택한 다음 `Search Live Telemetry`를 클릭합니다.
 
 ![Visual Studio에서 Application Insights 단추는 디버깅하는 동안 표시됩니다.](./media/app-insights-asp-net/55.png)
 
-이 보기에서는 앱의 서버 쪽에서 생성된 원격 분석을 보여 줍니다. 필터를 테스트하고 이벤트를 클릭하여 자세한 정보를 확인합니다.
+이 보기('디버그 세션의 데이터')에서는 앱의 서버 쪽에서 생성된 원격 분석을 보여 줍니다. 필터를 테스트하고 이벤트를 클릭하여 자세한 정보를 확인합니다.
+
+* *데이터가 없나요? 시간 범위가 올바른지 확인하고 [검색] 아이콘을 클릭하세요.*
 
 [Visual Studio의 Application Insights 도구에 대해 자세히 알아봅니다](app-insights-visual-studio.md).
 
@@ -70,15 +72,34 @@ Visual Studio에서 Application Insights 창을 열고 Application Insights 단�
 
 포털에는 Visual Studio 보다 많은 차트, 분석 도구 및 대시보드가 있습니다. 
 
-[Azure 포털](https://portal.azure.com/)에서 Application Insights 리소스를 엽니다.
+Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 해당 위치에서 찾거나 Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하면 됩니다.
 
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-포털은 앱에서 원격 분석의 보기를 엽니다. ![](./media/app-insights-asp-net/66.png)
+* *액세스 오류인가요? Microsoft 자격 증명 집합이 둘 이상인 경우 잘못된 집합으로 로그인했을 수 있습니다. 포털에서 로그아웃하고 다시 로그인하세요.*
 
-* [라이브 메트릭 스트림](app-insights-metrics-explorer.md#live-metrics-stream)에 첫 번째 원격 분석이 표시됩니다.
-* **검색** (1)에 개별 이벤트가 표시됩니다. 데이터가 표시되는 데 몇 분이 걸릴 수 있습니다. 이벤트를 클릭하여 속성을 확인합니다. 
-* 집계된 메트릭은 차트(2)에 표시됩니다. 데이터를 여기에 표시하려면 1-2분 정도 걸릴 수 있습니다. 차트를 클릭하여 자세한 내용이 있는 블레이드를 엽니다.
+포털이 앱의 원격 분석 보기에서 열립니다. ![Application Insights 개요 페이지](./media/app-insights-asp-net/66.png)
+
+자세한 정보를 확인하려면 원하는 타일 또는 차트를 클릭합니다.
+
+### <a name="more-detail-in-the-portal"></a>포털의 자세한 정보
+
+* [**라이브 메트릭 스트림**](app-insights-live-stream.md)은 거의 즉시로 원격 분석을 표시합니다.
+
+    ![[개요] 블레이드에서 [라이브 스트림] 클릭](./media/app-insights-asp-net/livestream.png)
+
+    앱이 실행되는 동시에 [라이브 스트림]을 열어 연결을 허용합니다.
+
+    [라이브 스트림]은 전송된 후&1;분 동안 원격 분석만 표시합니다. 자세한 기록 조사를 수행하려면 [검색], [메트릭 탐색기] 및 [분석]을 사용합니다. 이러한 위치에 데이터가 표시되려면 몇 분 정도 걸릴 수 있습니다.
+
+* [**검색**](app-insights-diagnostic-search.md)은 요청, 예외 및 페이지 보기와 같은 개별 이벤트를 표시합니다. 이벤트 유형, 용어 일치 및 속성 값을 기준으로 필터링할 수 있습니다. 이벤트를 클릭하여 속성 및 관련 이벤트를 확인합니다. 
+
+    ![[개요] 블레이드에서 [검색] 클릭](./media/app-insights-asp-net/search.png)
+
+ * 개발 모드에서는 종속성(AJAX) 이벤트를 많이 볼 수 있습니다. 이러한 이벤트는 브라우저와 서버 에뮬레이터 간의 동기화입니다. 이를 숨기려면 [종속성] 필터를 클릭합니다.
+* [**집계된 메트릭**](app-insights-metrics-explorer.md)(예: 요청 및 실패율)이 차트에 표시됩니다. 차트를 클릭하여 자세한 내용이 있는 블레이드를 엽니다. 차트의 **편집** 태그를 클릭하여 필터, 크기 등을 설정합니다.
+    
+    ![[개요] 블레이드에서 차트 클릭](./media/app-insights-asp-net/metrics.png)
 
 [Azure 포털에서 Application Insights를 사용하는 방법에 대해 자세히 알아봅니다](app-insights-dashboards.md).
 
@@ -113,17 +134,25 @@ Application Insights는 앱에서 Microsoft Azure에서 호스팅되는 Applicat
 ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업그레이드 전에 복사본을 저장하고 나중에 변경 내용을 새 버전에 병합합니다.
 
 ## <a name="add-more-telemetry"></a>원격 분석 더 추가
-### <a name="web-pages-and-singlepage-apps"></a>웹 페이지와 단일 페이지 앱
-1. 웹 페이지에 [JavaScript 코드 조각을 추가](app-insights-javascript.md)하여 브라우저 및 사용량 블레이드를 페이지 보기, 로드 시간, 브라우저 예외, AJAX 호출 성능, 사용자 및 세션 수에 대한 데이터로 명확하게 합니다.
-2. [사용자 지정 이벤트를 코딩](app-insights-api-custom-events-metrics.md)하여 사용자 작업의 수와 시간을 측정하고 평가합니다.
-
 ### <a name="dependencies-exceptions-and-performance-counters"></a>종속성, 예외 및 성능 카운터
-서버 컴퓨터 각각에 대한 [상태 모니터를 설치](app-insights-monitor-performance-live-website-now.md)하여 앱에 대한 추가 원격 분석을 가져옵니다. 결과는 다음과 같습니다.
+
+IIS 서버 컴퓨터 각각에 [상태 모니터를 설치](http://go.microsoft.com/fwlink/?LinkId=506648)하여 웹앱에 대한 추가 원격 분석을 가져옵니다.
+
+이미 설치되어 있으면 아무 작업도 수행할 필요가 없습니다. 
+
+런타임 시 앱 모니터링을 시작하기 위해 상태 모니터를 이미 사용했을 수도 있습니다. 
+
+빌드 시간 SDK외에 상태 모니터링을 사용하면 다음을 포함하는 보다 완전한 원격 분석 집합을 얻을 수 있습니다.
 
 * [성능 카운터](app-insights-performance-counters.md) - 
   CPU, 메모리, 디스크 및 응용 프로그램에 관련된 다른 성능 카운터입니다. 
 * [예외](app-insights-asp-net-exceptions.md) - 자세한 몇 가지 예외에 대한 원격 분석입니다.
-* [종속성](app-insights-asp-net-dependencies.md) - REST API 또는 SQL 서비스를 호출합니다. 외부 구성 요소에서 느린 응답이 앱에서 성능 문제를 유발하는지 여부에 대해 알아봅니다. (응용 프로그램에서 .NET 4.6을 실행하는 경우 원격 분석을 가져올 때 상태 모니터가 필요 없습니다.)
+* [종속성](app-insights-asp-net-dependencies.md) - 반환 값이 포함됩니다.
+
+### <a name="web-pages-and-single-page-apps"></a>웹 페이지와 단일 페이지 앱
+1. 웹 페이지에 [JavaScript 코드 조각을 추가](app-insights-javascript.md)하여 브라우저 및 사용량 블레이드를 페이지 보기, 로드 시간, 브라우저 예외, AJAX 호출 성능, 사용자 및 세션 수에 대한 데이터로 명확하게 합니다.
+2. [사용자 지정 이벤트를 코딩](app-insights-api-custom-events-metrics.md)하여 사용자 작업의 수와 시간을 측정하고 평가합니다.
+
 
 ### <a name="diagnostic-code"></a>진단 코드
 문제가 있습니까? 문제를 진단하기 위해 앱에 코드를 삽입 하려는 경우 몇 가지 옵션이 있습니다.
@@ -170,11 +199,10 @@ Visual Studio Team Services를 사용하는 경우 새 버전을 릴리스할 �
 | --- | --- |
 | **[Visual Studio Online에서 Application Insights로 작업](app-insights-visual-studio.md)**<br/>원격 분석, 진단 검색을 디버깅하여 코드에 드릴스루합니다. |
 | **[Application Insights 포털 사용](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |
-| **[더 많은 데이터 추가](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -14,6 +14,7 @@
 ### [인증 공급자 만들기](multi-factor-authentication-get-started-auth-provider.md)
 ### [설정 구성](multi-factor-authentication-whats-next.md)
 ### [MFA 보고서](multi-factor-authentication-manage-reports.md)
+### [기존 네트워크 정책 서버 사용](multi-factor-authentication-nps-extension.md)
 ### 온-프레미스에서 Azure MFA
 #### [사용자 포털 설치](multi-factor-authentication-get-started-portal.md)
 #### [고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [IIS 웹앱](multi-factor-authentication-get-started-server-iis.md)
 ### [원격 데스크톱 게이트웨이](multi-factor-authentication-get-started-server-rdg.md)
 
-## 개발 
+## 개발
 ### [사용자 지정 앱에 작성(SDK)](multi-factor-authentication-sdk.md)
 
 ## 문제 해결
@@ -46,6 +47,6 @@
 ### [질문하기](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

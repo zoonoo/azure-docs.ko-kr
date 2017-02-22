@@ -1,5 +1,5 @@
 ---
-title: "Service Bus Relay 샘플 개요 | Microsoft Docs"
+title: "Azure Service Bus Relay 샘플 개요 | Microsoft Docs"
 description: "Service Bus Relay 샘플을 분류하고 각각에 대한 링크와 함께 설명합니다."
 services: service-bus-relay
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
+ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
 
 
 ---
@@ -24,23 +24,23 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 Service Bus Relay 샘플은 [Service Bus Relay](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
 
 > [!NOTE]
-> 서비스 버스 샘플은 SDK로 설치되지 않습니다. 샘플을 얻으려면 [Azure SDK 샘플 페이지](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)를 방문하세요.
+> Service Bus 샘플은 Azure SDK를 사용하여 설치되지 않습니다. 샘플을 얻으려면 [Azure SDK 샘플 페이지](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)를 방문하세요.
 > 
-> 또한 [여기](https://github.com/Azure-Samples/azure-servicebus-relay-samples)(작성 일자 기준으로 이 문서에 설명되어 있지 않음)에 업데이트된 Service Bus Relay 샘플 집합이 있습니다.  
+> 또한 업데이트된 일련의 Service Bus Relay 샘플이 [여기](https://github.com/Azure-Samples/azure-servicebus-relay-samples)에 있습니다.  
 > 
 > 
 
-메시징 예제는 [Service Bus 메시징 샘플](../service-bus-messaging/service-bus-samples.md)을 참조하세요.
+Service Bus 메시지 샘플은 [Service Bus 메시지 샘플](../service-bus-messaging/service-bus-samples.md)을 참조하세요.
 
-## <a name="service-bus-relay"></a>서비스 버스 릴레이
-다음 예제에서는 Service Bus Relay 서비스를 사용하는 응용 프로그램을 작성하는 방법을 보여줍니다.
+## <a name="azure-service-bus-relay"></a>Azure 서비스 버스 릴레이
+다음 샘플에서는 Azure Relay 서비스를 사용하는 응용 프로그램을 작성하는 방법을 보여줍니다.
 
-릴레이 샘플은 Service Bus 네임스페이스에 액세스하기 위해 연결 문자열을 필요로 합니다.
+Relay 네임스페이스에 액세스하기 위해 Relay 샘플에는 연결 문자열이 필요합니다.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Azure 서비스 버스에 대한 연결 문자열을 가져오려면
+### <a name="to-obtain-a-connection-string-for-azure-relay"></a>Azure Relay에 대한 연결 문자열을 가져오려면
 1. [Azure 포털](http://portal.azure.com)에 로그온합니다.
-2. 왼쪽 열에서 **서비스 버스**를 클릭합니다.
-3. 목록에서 네임스페이스의 이름을 클릭합니다.
+2. **모든 리소스** 창에서 네임스페이스의 목록을 확장하도록 클릭합니다.
+3. 목록에서 Relay 네임스페이스의 이름을 클릭합니다.
 4. 네임스페이스 블레이드에서 **공유 액세스 정책**을 클릭합니다.
 5. **공유 액세스 정책** 블레이드에서 **RootManageSharedAccessKey**를 클릭합니다.
 6. 연결 문자열을 클립보드에 복사합니다.
@@ -48,13 +48,13 @@ Service Bus Relay 샘플은 [Service Bus Relay](https://azure.microsoft.com/serv
 ### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Windows Server용 서비스 버스에 대한 연결 문자열을 가져오려면
 1. 다음 PowerShell cmdlet를 실행합니다.
    
-    ```
+    ```powershell
     get-sbClientConfiguration
     ```
 2. 이 샘플의 경우 App.config 파일에 연결 문자열을 붙여넣습니다.
 
-## <a name="service-bus-relay"></a>서비스 버스 릴레이
-서비스 버스 릴레이를 보여주는 샘플입니다.
+## <a name="azure-relay"></a>Azure Relay
+Azure Relay를 보여 주는 샘플입니다.
 
 ### <a name="getting-started"></a>시작
 | 샘플 이름 | 설명 | 최소 SDK 버전 | Availability |
@@ -84,13 +84,13 @@ Service Bus Relay 샘플은 [Service Bus Relay](https://azure.microsoft.com/serv
 ## <a name="next-steps"></a>다음 단계
 Service Bus의 개념적 개요는 다음 항목을 참조하세요.
 
-* [Service Bus Relay 개요](service-bus-relay-overview.md)
+* [Azure Relay 개요](relay-what-is-it.md)
 * [서비스 버스 아키텍처](../service-bus-messaging/service-bus-architecture.md)
 * [서비스 버스 기본 사항](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

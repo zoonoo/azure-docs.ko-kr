@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
 
 
 ---
@@ -41,7 +41,7 @@ Azure 포털에서 또는 [Azure Resource Manager](../azure-resource-manager/res
    ![설정 블레이드에서 CORS 선택](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 4. 텍스트 상자에서 가져올 JavaScript 호출을 허용하려는 URL을 입력합니다.
 
-    예를 들어 todolistangular라는 웹앱에 JavaScript 응용 프로그램을 배포한 경우 "https://todolistangular.azurewebsites.net"을 입력합니다. 대신 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정할 수 있습니다.
+    예를 들어 todolistangular라는 웹앱에 JavaScript 응용 프로그램을 배포한 경우 " https://todolistangular.azurewebsites.net " 을 입력합니다. 대신 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정할 수 있습니다.
 
 
 1. **Save**를 클릭합니다.
@@ -51,7 +51,7 @@ Azure 포털에서 또는 [Azure Resource Manager](../azure-resource-manager/res
    **저장**을 클릭하면 API 앱이 지정된 URL의 JavaScript 호출을 수락합니다.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure 리소스 관리자 도구를 사용하여 CORS 구성
-명령줄 도구에서 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../xplat-cli-install.md) 등의 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다. 
+명령줄 도구에서 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../xplat-cli-install.md) 등의 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다. 
 
 CORS 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면 [이 자습서의 응용 프로그램 예제에 대한 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다. 다음 예제와 같은 탬플릿의 섹션을 찾습니다.
 
@@ -252,6 +252,6 @@ API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

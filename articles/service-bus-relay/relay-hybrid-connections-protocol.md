@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -95,7 +95,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 
 | 코드 | 오류 | 설명 |
 | --- | --- | --- |
-| 404 | 찾을 수 없음 |하이브리드 연결 **경로**가 유효하지 않거나 기본 URL이 잘못되었습니다. |
+| 404 |찾을 수 없음 |하이브리드 연결 **경로**가 유효하지 않거나 기본 URL이 잘못되었습니다. |
 | 401 |권한 없음 |보안 토큰은 누락되었거나 잘못되었거나 유효하지 않습니다. |
 | 403 |사용할 수 없음 |보안 토큰이 이 작업의 이 경로에 대해 올바르지 않습니다. |
 | 500 |내부 오류 |서비스에 오류가 발생했습니다. |
@@ -118,7 +118,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 * **connectHeaders** – 발신자가 릴레이 끝점으로 보낸 모든 HTTP 헤더로, Sec-WebSocket-Protocol 및 Sec-WebSocket-Extensions 헤더를 포함합니다.
 
 #### <a name="accept-message"></a>수락 메시지
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 * **token** – 네임스페이스 또는 **수신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰입니다.
 
 #### <a name="renewtoken-message"></a>renewToken 메시지
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -231,7 +231,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=
 
 | 매개 변수 | Required? | 설명 |
 | --- | --- | --- |
-| sb-hc-action |예 |수신기 역할의 경우 매개 변수는 `action=connect`이어야 합니다. |
+| sb-hc-action |예 |발신자 역할의 경우 매개 변수는 `action=connect`여야 합니다. |
 | {path} |예 |(다음 단락 참조) |
 | sb-hc-token |예\* |수신기는 네임스페이스 또는 **발신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰을 제공해야 합니다. |
 | sb-hc-id |아니요 |종단 간 진단 추적을 허용하고 수락 핸드셰이크 중 수신기에 대해 사용할 수 있는 옵션 ID입니다. |
@@ -248,7 +248,7 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 | 코드 | 오류 | 설명 |
 | --- | --- | --- |
-| 404 | 찾을 수 없음 |하이브리드 연결 `path`가 유효하지 않거나 기본 URL이 잘못되었습니다. |
+| 404 |찾을 수 없음 |하이브리드 연결 `path`가 유효하지 않거나 기본 URL이 잘못되었습니다. |
 | 401 |권한 없음 |보안 토큰은 누락되었거나 잘못되었거나 유효하지 않습니다. |
 | 403 |사용할 수 없음 |보안 토큰이 이 작업의 이 경로에 대해 올바르지 않습니다. |
 | 500 |내부 오류 |서비스에 오류가 발생했습니다. |
@@ -271,6 +271,6 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

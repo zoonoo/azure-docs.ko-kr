@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: raprasa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
+ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
 
 
 ---
@@ -29,7 +29,7 @@ Azure DocumentDB는 자동으로 모든 데이터의 백업을 정기적으로 �
 ## <a name="high-availability-with-documentdb---a-recap"></a>DocumentDB를 사용한 고가용성 - 정리
 DocumentDB는 [전역적으로 분산](documentdb-distribute-data-globally.md)되도록 설계되었습니다. 이를 통해 정책 기반 장애 조치 및 투명한 멀티 호밍 API와 함께 여러 Azure 지역에서 처리량을 크기 조정할 수 있습니다. [99.99% 가용성 SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/)를 제공하는 데이터베이스 시스템으로 DocumentDB의 모든 쓰기는 클라이언트에게 승인되기 전에 로컬 데이터 센터 내에서 복제본의 쿼럼으로 로컬 디스크에 지속적으로 커밋됩니다. DocumentDB의 고가용성은 로컬 저장소에 의존하고 외부 저장소 기술에 의존하지 않습니다. 또한 데이터베이스 계정이 둘 이상의 Azure 지역과 연결되어 있는 경우 사용자의 쓰기도 다른 지역에 걸쳐 복제됩니다. 낮은 대기 시간에 처리량을 확장하고 데이터에 액세스하기 위해 원하는 만큼 많이 데이터베이스 계정과 연결된 읽기 지역을 가질 수 있습니다. 각 읽기 지역에서 (복제된) 데이터는 복제본 세트에서 지속적으로 유지됩니다.  
 
-다음 다이어그램에서 나와 있듯이 단일 DocumentDB 컬렉션은 [수평 분할](documentdb-partition-data.md)되어 있습니다. "파티션"은 다음 다이어그램에서 원으로 표시되고 각 파티션은 복제본 세트를 통해 고가용성으로 만들어집니다. 이는 단일 Azure 지역 내에서 로컬 배포입니다(X축에 의해 표시됨). 또한 각 파티션(해당 복제본 세트와 함께)은 데이터베이스 계정과 연결된 여러 지역으로 전역적으로 분산됩니다(예를 들어 이 그림에서 3개의 지역 - 미국 동부, 미국 서부 및 인도 중부). "파티션 집합"은 전역적으로 분산된 각 지역의 여러 데이터 복사본으로 구성된 엔터티입니다(Y축에 의해 표시됨). 데이터베이스 계정에 연결된 지역에 우선 순위를 지정할 수 있으며 DocumentDB는 재해가 발생할 경우 다음 지역에 대해 투명하게 장애 조치합니다. 응용 프로그램의 종단 간 가용성 테스트를 위해 장애 조치를 수동으로 시뮬레이션할 수 있습니다.  
+다음 다이어그램에서 나와 있듯이 단일 DocumentDB 컬렉션은 [수평 분할](documentdb-partition-data.md)되어 있습니다. "파티션"은 다음 다이어그램에서 원으로 표시되고 각 파티션은 복제본 세트를 통해 고가용성으로 만들어집니다. 이는 단일 Azure 지역 내에서 로컬 배포입니다(X축에 의해 표시됨). 또한 각 파티션(해당 복제본 세트와 함께)은 데이터베이스 계정과 연결된 여러 지역으로 전역적으로 분산됩니다(예를 들어 이 그림에서&3;개의 지역 - 미국 동부, 미국 서부 및 인도 중부). "파티션 집합"은 전역적으로 분산된 각 지역의 여러 데이터 복사본으로 구성된 엔터티입니다(Y축에 의해 표시됨). 데이터베이스 계정에 연결된 지역에 우선 순위를 지정할 수 있으며 DocumentDB는 재해가 발생할 경우 다음 지역에 대해 투명하게 장애 조치합니다. 응용 프로그램의 종단 간 가용성 테스트를 위해 장애 조치를 수동으로 시뮬레이션할 수 있습니다.  
 
 다음 이미지는 높은 수준의 DocumentDB와의 중복성을 보여 줍니다.
 
@@ -38,7 +38,7 @@ DocumentDB는 [전역적으로 분산](documentdb-distribute-data-globally.md)�
 ![높은 수준의 DocumentDB와의 중복성](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>전체, 자동, 온라인 백업
-이런, 내 컬렉션 또는 데이터베이스를 삭제했습니다! DocumentDB를 사용하면 데이터 뿐만 아니라 데이터의 백업이 높은 중복 및 지역 재해에 대한 복원력으로 만들어집니다. 이러한 자동화된 백업은 현재 약 4시간마다 수행됩니다. 
+이런, 내 컬렉션 또는 데이터베이스를 삭제했습니다! DocumentDB를 사용하면 데이터 뿐만 아니라 데이터의 백업이 높은 중복 및 지역 재해에 대한 복원력으로 만들어집니다. 이러한 자동화된 백업은 현재 약 4시간마다 수행되고 항상 최근 2개의 백업이 저장됩니다. 데이터가 실수로 삭제되거나 손상되면 8시간 이내에 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하세요. 
 
 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. DocumentDB는 프로비전된 RU를 소비하거나 성능에 영향을 주지 않고 NoSQL 데이터베이스의 가용성에 영향을 주지 않고 백그라운드에서 백업을 수행합니다. 
 
@@ -62,6 +62,6 @@ Azure 지원에 문의하려면 [Azure 포털에서 티켓 제출](https://porta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

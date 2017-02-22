@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub 크기 조정 | Microsoft Docs"
-description: "Azure IoT Hub의 크기를 조정하는 방법을 설명합니다."
+description: "예상된 메시지 처리량을 지원하도록 IoT hub를 확장하는 방법입니다. 분할을 위한 옵션 및 각 계층에 지원되는 처리량에 대한 요약을 포함합니다."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 992c271fe3426f4a1e59f4e546b0f7f4e0d59e59
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 7683a6c6afa3dbec3fccadc9f095480ed90aa039
 
 
 ---
 # <a name="scaling-iot-hub"></a>IoT Hub 크기 조정
-Azure IoT Hub는 동시에 최대 백만 개의 연결된 장치를 지원할 수 있습니다. 자세한 내용은 [IoT Hub 가격 책정][lnk-pricing].을 참조하세요. 각 IoT Hub 단위는 특정 개수의 일일 메시지를 허용합니다.
+Azure IoT Hub는 동시에 최대 백만 개의 연결된 장치를 지원할 수 있습니다. 자세한 내용은 [IoT Hub 가격 책정][lnk-pricing]을 참조하세요. 각 IoT Hub 단위는 특정 개수의 일일 메시지를 허용합니다.
 
 솔루션의 규모를 적절히 조정하려면 IoT Hub의 특정 용도를 고려합니다. 특히 다음과 같은 범주의 작업에 필요한 최대 처리량을 고려해야 합니다.
 
@@ -29,7 +29,7 @@ Azure IoT Hub는 동시에 최대 백만 개의 연결된 장치를 지원할 �
 * 클라우드-장치 메시지
 * ID 레지스트리 작업
 
-이 처리량 정보 외에도 [IoT Hub 할당량 및 제한][IoT Hub 할당량 및 제한]을 참조하고 솔루션을 적절히 디자인하세요.
+이 처리량 정보 외에도 [IoT Hub 할당량 및 제한][IoT Hub quotas and throttles]을 참조하고 솔루션을 적절히 디자인하세요.
 
 ## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>장치-클라우드 및 클라우드-장치 메시지 처리량
 IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별로 트래픽을 평가하는 것입니다.
@@ -45,7 +45,7 @@ IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별
 ## <a name="identity-registry-operation-throughput"></a>ID 레지스트리 작업 처리량
 IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련되므로 런타임 작업으로 간주되지 않습니다.
 
-관련 버스트 성능 수치는 [IoT Hub 할당량 및 제한][IoT Hub 할당량 및 제한]을 참조하세요.
+관련 버스트 성능 수치는 [IoT Hub 할당량 및 제한][IoT Hub quotas and throttles]을 참조하세요.
 
 ## <a name="sharding"></a>분할
 단일 IoT Hub를 수백만 대의 장치로 확장할 수 있기는 하지만, 솔루션에서 단일 IoT Hub에서 보장할 수 없는 특정 성능 특성을 필요로 하는 경우가 있습니다. 이 경우 여러 IoT Hub로 장치를 분할하는 것이 좋습니다. 여러 IoT Hub가 갑작스러운 트래픽 증가를 원활하게 처리하고 필요한 처리량 또는 필요한 작업 속도를 얻습니다.
@@ -53,17 +53,17 @@ IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련�
 ## <a name="next-steps"></a>다음 단계
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [개발자 가이드][lnk-devguide]
+* [IoT Hub 개발자 가이드][lnk-devguide]
 * [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub 할당량 및 제한]: iot-hub-devguide-quotas-throttling.md
+[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

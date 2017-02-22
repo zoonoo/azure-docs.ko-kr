@@ -1,5 +1,5 @@
 ---
-title: "데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 | Microsoft Docs"
+title: "데이터 과학에 사용할 수 있게 데이터가 준비되었나요? 데이터 평가 - Azure | Microsoft Docs"
 description: "데이터 과학에 사용할 수 있게 데이터를 준비하기 위한 4가지 기준을 알아보세요. 초급자를 위한 데이터 과학 비디오 2에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다."
 keywords: "관련 데이터,데이터 평가,데이터 준비,데이터 기준,데이터 준비"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
-“데이터 과학에 사용할 수 있게 데이터가 준비되었나요?” 비디오를 시작합니다. 이 비디오는 *초급자를 위한 데이터 과학* 시리즈 중 2번째 비디오입니다.  
+“데이터 과학에 사용할 수 있게 데이터가 준비되었나요?” 비디오를 시작합니다. 이 비디오는 *초급자를 위한 데이터 과학* 시리즈 중&2;번째 비디오입니다.  
 
 데이터 과학을 통해 원하는 대답을 얻으려면 먼저 작업할 고품질 원재료를 제공해야 합니다. 피자를 만들 때처럼 더 나은 재료로 시작할수록 더 나은 최종 제품을 얻을 수 있습니다.
 
@@ -60,7 +60,7 @@ ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
 
 ![관련 데이터 및 관련이 없는 데이터 - 데이터 평가](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
 
-왼쪽의 표를 보세요. 우리는 보스턴 술집 밖에서 7명의 사람들을 만나서 그들의 혈중 알코올 농도, 마지막 Red Sox 게임에서 Red Sox의 평균 타율, 가장 가까운 편의점 우유 가격을 측정했습니다.
+왼쪽의 표를 보세요. 우리는 보스턴 술집 밖에서&7;명의 사람들을 만나서 그들의 혈중 알코올 농도, 마지막 Red Sox 게임에서 Red Sox의 평균 타율, 가장 가까운 편의점 우유 가격을 측정했습니다.
 
 이 모든 것은 완벽하게 합법적인 데이터입니다. 유일한 결함은 서로 관련성이 없다는 것입니다. 이러한 수치 간에는 명확한 관계가 없습니다. 현재 우유 가격과 Red Sox 타율 평균을 안다고 해서 혈중 알코올 농도도 알 수 있는 방법은 없습니다.
 
@@ -80,7 +80,7 @@ ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
 그렇지만 오른쪽의 표는 꽉 차서 완전합니다. 연결된 데이터의 예로 볼 수 있습니다.
 
 ## <a name="is-your-data-accurate"></a>데이터가 정확한가요?
-필요한 다음 재료는 정확성입니다. 화살로 맞추려는 4개의 과녁이 있습니다.
+필요한 다음 재료는 정확성입니다. 화살로 맞추려는&4;개의 과녁이 있습니다.
 
 ![정확한 데이터 및 부정확한 데이터 - 데이터 기준](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
 
@@ -101,11 +101,11 @@ ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
 
 붓 자국이 어느 정도 있어야 대략적인 결정을 내릴 수 있게 됩니다. 제가 가보고 싶은 곳일까요? 밝고 깨끗한 물처럼 보입니다. 맞습니다. 제가 휴가를 보내고 싶은 곳입니다.
 
-더 많은 데이터를 추가하면 그림이 좀 더 명확해지고 보다 자세한 결정을 내릴 수 있게 됩니다. 이제 왼쪽 강둑에 있는 세 곳의 호텔을 볼 수 있습니다. 아시다시피 저는 앞쪽에 있는 호텔의 건축 특성을 정말 좋아합니다. 그 호텔 3층에 머물 것입니다.
+더 많은 데이터를 추가하면 그림이 좀 더 명확해지고 보다 자세한 결정을 내릴 수 있게 됩니다. 이제 왼쪽 강둑에 있는 세 곳의 호텔을 볼 수 있습니다. 아시다시피 저는 앞쪽에 있는 호텔의 건축 특성을 정말 좋아합니다. 그 호텔&3;층에 머물 것입니다.
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
-Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”에 있는 다른 4개의 비디오도 확인해 보세요.
+Microsoft Azure Machine Learning의 *초급자를 위한 데이터 과학*에 포함된 다른 비디오도 확인해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
@@ -113,6 +113,6 @@ Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

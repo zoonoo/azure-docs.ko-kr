@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: ec9be7c94c953155808ce8543b8297a361552c6e
+ms.sourcegitcommit: bb4188bed4839aea6d19c49a8f0e6d154a343ec1
+ms.openlocfilehash: e0f77f88ee91b263c49a148197e418fdf64cca0b
 
 
 ---
@@ -133,11 +133,13 @@ Data Factory 솔루션에서 사용될 사용자 지정 배치 활동을 만들�
 
 Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업을 만들려면 **IDotNetActivity** 인터페이스를 구현하는 클래스와 함께 **.NET 클래스 라이브러리** 프로젝트를 만들어야 합니다. 이 인터페이스는 **Execute**라는 하나의 메서드만 포함합니다. 해당 메서드의 서명은 다음과 같습니다.
 
-    public IDictionary<string, string> Execute(
-                IEnumerable<LinkedService> linkedServices,
-                IEnumerable<Dataset> datasets,
-                Activity activity,
-                IActivityLogger logger)
+```csharp
+public IDictionary<string, string> Execute(
+            IEnumerable<LinkedService> linkedServices,
+            IEnumerable<Dataset> datasets,
+            Activity activity,
+            IActivityLogger logger)
+```
 
 이 메서드에는 이해해야 하는 몇 가지 주요 구성 요소가 포함됩니다.
 
@@ -162,186 +164,201 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
 3. **패키지 관리자 콘솔**에서 다음 명령을 실행하여 **Microsoft.Azure.Management.DataFactories**를 가져옵니다.
 
-           Install-Package Microsoft.Azure.Management.DataFactories
+    ```powershell
+    Install-Package Microsoft.Azure.Management.DataFactories
+    ```
 4. **Azure 저장소** NuGet 패키지를 프로젝트로 가져옵니다. 이 샘플에서 Blob 저장소 API를 사용하므로 이 패키지가 필요합니다.
 
-       Install-Package Azure.Storage
+    ```powershell
+    Install-Package Azure.Storage
+    ```
 5. 다음 **using** 지시문을 프로젝트의 원본 파일에 추가합니다.
 
-       using System.IO;
-       using System.Globalization;
-       using System.Diagnostics;
-       using System.Linq;
-
-       using Microsoft.Azure.Management.DataFactories.Models;
-       using Microsoft.Azure.Management.DataFactories.Runtime;
-
-       using Microsoft.WindowsAzure.Storage;
-       using Microsoft.WindowsAzure.Storage.Blob;
+    ```csharp
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
+    
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
+    
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    ```
 6. **namespace**의 이름을 **MyDotNetActivityNS**로 변경합니다.
 
-       namespace MyDotNetActivityNS
+    ```csharp
+    namespace MyDotNetActivityNS
+    ```
 7. 클래스 이름을 **MyDotNetActivity**로 변경하고 아래와 같이 **IDotNetActivity** 인터페이스에서 클래스를 파생합니다.
 
-       public class MyDotNetActivity : IDotNetActivity
+    ```csharp
+    public class MyDotNetActivity : IDotNetActivity
+    ```
 8. **IDotNetActivity** 인터페이스의 **Execute** 메서드를 **MyDotNetActivity** 클래스에 구현(추가)하고 다음 샘플 코드를 메서드에 복사합니다. 이 메서드에 사용되는 논리에 대한 설명은 [메서드 실행](#execute-method) 섹션을 참조하세요.
 
-       /// <summary>
-       /// Execute method is the only method of IDotNetActivity interface you must implement.
-       /// In this sample, the method invokes the Calculate method to perform the core logic.  
-       /// </summary>
-       public IDictionary<string, string> Execute(
-           IEnumerable<LinkedService> linkedServices,
-           IEnumerable<Dataset> datasets,
-           Activity activity,
-           IActivityLogger logger)
-       {
-
-           // declare types for input and output data stores
-           AzureStorageLinkedService inputLinkedService;
-
-           Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-
-           foreach (LinkedService ls in linkedServices)
-               logger.Write("linkedService.Name {0}", ls.Name);
-
-           // using First method instead of Single since we are using the same
-           // Azure Storage linked service for input and output.
-           inputLinkedService = linkedServices.First(
-               linkedService =>
-               linkedService.Name ==
-               inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
-               as AzureStorageLinkedService;
-
-           string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
-           string folderPath = GetFolderPath(inputDataset);
-           string output = string.Empty; // for use later.
-
-           // create storage client for input. Pass the connection string.
-           CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
-           CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
-
-           // initialize the continuation token before using it in the do-while loop.
-           BlobContinuationToken continuationToken = null;
-           do
-           {   // get the list of input blobs from the input storage client object.
-               BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-                                        true,
-                                        BlobListingDetails.Metadata,
-                                        null,
-                                        continuationToken,
-                                        null,
-                                        null);
-
-               // Calculate method returns the number of occurrences of
-               // the search term (“Microsoft”) in each blob associated
-               // with the data slice.
-               //
-               // definition of the method is shown in the next step.
-               output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-
-           } while (continuationToken != null);
-
-           // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-           Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-
-           folderPath = GetFolderPath(outputDataset);
-
-           logger.Write("Writing blob to the folder: {0}", folderPath);
-
-           // create a storage object for the output blob.
-           CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-           // write the name of the file.
-           Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-
-           logger.Write("output blob URI: {0}", outputBlobUri.ToString());
-           // create a blob and upload the output text.
-           CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-           logger.Write("Writing {0} to the output blob", output);
-           outputBlob.UploadText(output);
-
-           // The dictionary can be used to chain custom activities together in the future.
-           // This feature is not implemented yet, so just return an empty dictionary.
-           return new Dictionary<string, string>();
-       }
+    ```csharp
+    /// <summary>
+    /// Execute method is the only method of IDotNetActivity interface you must implement.
+    /// In this sample, the method invokes the Calculate method to perform the core logic.  
+    /// </summary>
+    public IDictionary<string, string> Execute(
+       IEnumerable<LinkedService> linkedServices,
+       IEnumerable<Dataset> datasets,
+       Activity activity,
+       IActivityLogger logger)
+    {
+    
+       // declare types for input and output data stores
+       AzureStorageLinkedService inputLinkedService;
+    
+       Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+    
+       foreach (LinkedService ls in linkedServices)
+           logger.Write("linkedService.Name {0}", ls.Name);
+    
+       // using First method instead of Single since we are using the same
+       // Azure Storage linked service for input and output.
+       inputLinkedService = linkedServices.First(
+           linkedService =>
+           linkedService.Name ==
+           inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
+           as AzureStorageLinkedService;
+    
+       string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
+       string folderPath = GetFolderPath(inputDataset);
+       string output = string.Empty; // for use later.
+    
+       // create storage client for input. Pass the connection string.
+       CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
+       CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
+    
+       // initialize the continuation token before using it in the do-while loop.
+       BlobContinuationToken continuationToken = null;
+       do
+       {   // get the list of input blobs from the input storage client object.
+           BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
+    
+           // Calculate method returns the number of occurrences of
+           // the search term (“Microsoft”) in each blob associated
+           // with the data slice.
+           //
+           // definition of the method is shown in the next step.
+           output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+    
+       } while (continuationToken != null);
+    
+       // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
+       Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    
+       folderPath = GetFolderPath(outputDataset);
+    
+       logger.Write("Writing blob to the folder: {0}", folderPath);
+    
+       // create a storage object for the output blob.
+       CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
+       // write the name of the file.
+       Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    
+       logger.Write("output blob URI: {0}", outputBlobUri.ToString());
+       // create a blob and upload the output text.
+       CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+       logger.Write("Writing {0} to the output blob", output);
+       outputBlob.UploadText(output);
+    
+       // The dictionary can be used to chain custom activities together in the future.
+       // This feature is not implemented yet, so just return an empty dictionary.
+       return new Dictionary<string, string>();
+    }
+    ```
 9. 클래스에 다음과 같은 도우미 메서드를 추가합니다. 이 메서드는 **Execute** 메서드로 호출됩니다. 가장 중요한 점은 **Calculate** 메서드가 각 Blob을 반복하는 코드를 격리한다는 것입니다.
 
-       /// <summary>
-       /// Gets the folderPath value from the input/output dataset.
-       /// </summary>
-       private static string GetFolderPath(Dataset dataArtifact)
+    ```csharp
+    /// <summary>
+    /// Gets the folderPath value from the input/output dataset.
+    /// </summary>
+    private static string GetFolderPath(Dataset dataArtifact)
+    {
+       if (dataArtifact == null || dataArtifact.Properties == null)
        {
-           if (dataArtifact == null || dataArtifact.Properties == null)
-           {
-               return null;
-           }
-
-           AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-           if (blobDataset == null)
-           {
-               return null;
-           }
-
-           return blobDataset.FolderPath;
+           return null;
        }
-
-       /// <summary>
-       /// Gets the fileName value from the input/output dataset.
-       /// </summary>
-
-       private static string GetFileName(Dataset dataArtifact)
+    
+       AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+       if (blobDataset == null)
        {
-           if (dataArtifact == null || dataArtifact.Properties == null)
-           {
-               return null;
-           }
-
-           AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-           if (blobDataset == null)
-           {
-               return null;
-           }
-
-           return blobDataset.FileName;
+           return null;
        }
-
-       /// <summary>
-       /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
-       /// and prepares the output text that is written to the output blob.
-       /// </summary>
-
-       public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
+    
+       return blobDataset.FolderPath;
+    }
+    
+    /// <summary>
+    /// Gets the fileName value from the input/output dataset.
+    /// </summary>
+    
+    private static string GetFileName(Dataset dataArtifact)
+    {
+       if (dataArtifact == null || dataArtifact.Properties == null)
        {
-           string output = string.Empty;
-           logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
-           foreach (IListBlobItem listBlobItem in Bresult.Results)
-           {
-               CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
-               if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
-               {
-                   string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
-                   logger.Write("input blob text: {0}", blobText);
-                   string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
-                   var matchQuery = from word in source
-                                    where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
-                                    select word;
-                   int wordCount = matchQuery.Count();
-                   output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-               }
-           }
-           return output;
+           return null;
        }
-
+    
+       AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+       if (blobDataset == null)
+       {
+           return null;
+       }
+    
+       return blobDataset.FileName;
+    }
+    
+    /// <summary>
+    /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+    /// and prepares the output text that is written to the output blob.
+    /// </summary>
+    
+    public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
+    {
+       string output = string.Empty;
+       logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
+       foreach (IListBlobItem listBlobItem in Bresult.Results)
+       {
+           CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
+           if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
+           {
+               string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
+               logger.Write("input blob text: {0}", blobText);
+               string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+               var matchQuery = from word in source
+                                where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
+                                select word;
+               int wordCount = matchQuery.Count();
+               output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+           }
+       }
+       return output;
+    }
+    ```
     **GetFolderPath** 메서드는 데이터 집합이 가리키는 폴더로 경로를 반환하고 **GetFileName** 메서드는 데이터 집합이 가리키는 Blob/파일의 이름을 반환합니다.
 
-        "name": "InputDataset",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "fileName": "file.txt",
-                "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+    ```csharp
 
+    "name": "InputDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "fileName": "file.txt",
+            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+    ```
 
     **Calculate** 메서드는 입력 파일(폴더에서 Blob)에서 **Microsoft** 키워드의 인스턴스 수를 계산합니다. 검색 용어("Microsoft")는 코드에 하드 코딩됩니다.
 
@@ -357,54 +374,74 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 1. 입력 컬렉션을 반복하는 멤버는 [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) 네임스페이스에 있습니다. Blob 컬렉션을 반복하려면 **BlobContinuationToken** 클래스를 사용해야 합니다. 본질적으로 루프를 종료하기 위한 메커니즘으로 토큰과 함께 do-while 루프를 사용해야 합니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)(영문)을 참조하세요. 기본 루프는 다음과 같습니다.
 
-     // Initialize the continuation token.
-     BlobContinuationToken continuationToken = null; do { // Get the list of input blobs from the input storage client object.
-     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+    ```csharp
+    // Initialize the continuation token.
+    BlobContinuationToken continuationToken = null;
+    do
+    {
+    // Get the list of input blobs from the input storage client object.
+    BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+    
+                         true,
+                                   BlobListingDetails.Metadata,
+                                   null,
+                                   continuationToken,
+                                   null,
+                                   null);
+    // Return a string derived from parsing each blob.
+    
+     output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+    
+    } while (continuationToken != null);
 
-                             true,
-                                       BlobListingDetails.Metadata,
-                                       null,
-                                       continuationToken,
-                                       null,
-                                       null);
-     // Return a string derived from parsing each blob.
-
-         output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-
-     } while (continuationToken != null);
-
+    ```
    자세한 내용은 [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) 메서드에 대한 설명서를 참조하세요.
 2. Blob 집합을 진행하는 코드는 논리적으로 do-while 루프 안으로 들어갑니다. **Execute** 메서드에서 do-while 루프는 **Calculate**라는 메서드로 Blob 목록을 전달합니다. 이 메서드는 **output** 이라는 문자열 변수를 반환하는데, 이는 세그먼트에서 모든 Blob을 반복한 결과입니다.
 
    **Calculate** 메서드에 전달된 Blob에서 검색 용어(**Microsoft**) 발생 수를 반환합니다.
 
-     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+    ```csharp
+    output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+    ```
 3. **Calculate** 메서드가 작업을 완료한 후에는 새 Blob에 작성되어야 합니다. 따라서 처리된 모든 BLOB 집합에 대해 결과를 새 BLOB에 작성할 수 있습니다. 새 BLOB를 작성하려면 먼저 출력 데이터 집합을 찾습니다.
 
-     // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
-     Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    ```csharp
+    // Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
+    Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    ```
 4. 이 코드는 **GetFolderPath** 도우미 메서드도 호출하여 폴더 경로(저장소 컨테이너 이름)를 검색합니다.
 
-     folderPath = GetFolderPath(outputDataset);
-
+    ```csharp
+    folderPath = GetFolderPath(outputDataset);
+    ```
    **GetFolderPath** 는 DataSet 개체를 AzureBlobDataSet로 캐스팅하며 여기에는 FolderPath라는 속성이 포함됩니다.
 
-     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-
-     return blobDataset.FolderPath;
+    ```csharp
+    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+    
+    return blobDataset.FolderPath;
+    ```
 5. 이 코드는 파일 이름(BLOB 이름)을 검색할 **GetFileName** 메서드를 호출합니다. 이 코드는 폴더 경로를 가져오는 위의 코드와 유사합니다.
 
-     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-
-     return blobDataset.FileName;
+    ```csharp
+    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+    
+    return blobDataset.FileName;
+    ```
 6. 파일 이름은 URI 개체를 만들어 기록합니다. URI 생성자는 컨테이너 이름을 반환하는 **BlobEndpoint** 속성을 사용합니다. 출력 BLOB URI를 생성하기 위해 폴더 경로 및 파일 이름이 추가됩니다.  
 
-     // Write the name of the file.
-     Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    ```csharp
+    // Write the name of the file.
+    Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    ```
 7. 파일 이름이 작성되었고 이제 **Calculate** 메서드에서 새 Blob으로 출력 문자열을 작성할 수 있습니다.
 
-     // Create a blob and upload the output text.
-     CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials); logger.Write("Writing {0} to the output blob", output); outputBlob.UploadText(output);
+    ```csharp
+    // Create a blob and upload the output text.
+    CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+    logger.Write("Writing {0} to the output blob", output);
+    outputBlob.UploadText(output);
+    ```
 
 ### <a name="create-the-data-factory"></a>데이터 팩터리 만들기
 [사용자 지정 작업 만들기](#create-the-custom-activity) 섹션에서 사용자 지정 작업을 만들고 이진과 함께 zip 파일을 업로드하고 PDB 파일을 Azure Blob 컨테이너에 업로드했습니다. 이 섹션에서는 **사용자 지정 작업**을 사용하는 **파이프라인**으로 Azure **데이터 팩터리**를 만듭니다.
@@ -413,33 +450,40 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 입력 폴더에 있는 하나 이상의 파일을 삭제합니다.
 
-    mycontainer -\> inputfolder
-        2015-11-16-00
-        2015-11-16-01
-        2015-11-16-02
-        2015-11-16-03
-        2015-11-16-04
+```
+mycontainer -\> inputfolder
+    2015-11-16-00
+    2015-11-16-01
+    2015-11-16-02
+    2015-11-16-03
+    2015-11-16-04
+```
 
 예를 들어 각 폴더에 다음과 같은 콘텐츠로 하나의 파일(file.txt)을 삭제합니다.
 
-    test custom activity Microsoft test custom activity Microsoft
+```
+test custom activity Microsoft test custom activity Microsoft
+```
 
 각 입력 폴더는 폴더에 2개 이상의 파일이 포함된 경우에도 Azure Data Factory의 조각에 해당합니다. 각 조각이 파이프라인으로 처리될 때 사용자 지정 작업은 해당 조각에 대한 입력 폴더에서 모든 BLOB를 반복합니다.
 
-동일한 콘텐츠를 가진 5개의 출력 파일이 표시됩니다. 예를 들어 2015-11-16-00 폴더의 파일 처리에서 출력 파일은 다음 내용을 포함합니다.
+동일한 콘텐츠를 가진&5;개의 출력 파일이 표시됩니다. 예를 들어 2015-11-16-00 폴더의 파일 처리에서 출력 파일은 다음 내용을 포함합니다.
 
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+```
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+```
 
 동일한 콘텐츠를 가진 여러 개의 파일(file.txt, file2.txt, file3.txt)을 입력 폴더로 삭제하면 출력 파일에 다음 내용이 표시됩니다. 각 폴더(2015-11-16-00 등)는 폴더에 여러 개의 입력 파일이 있더라도 이 샘플에 있는 분할 영역에 해당합니다.
 
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file2.txt.
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file3.txt.
-
+```csharp
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file2.txt.
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file3.txt.
+```
 
 출력 파일은 이제 조각(2015-11-16-00)과 연결된 폴더의 각 입력 파일(Blob)에 하나씩 세 개의 줄을 가집니다.
 
-각 작업 실행에 대한 작업(task)이 만들어집니다. 이 샘플에서는 파이프라인에 하나의 작업만 있습니다. 조각이 파이프라인에 의해 처리될 때 사용자 지정 작업은 조각을 처리하도록 Azure 배치에서 실행됩니다. 5개 조각(각 조각은 여러 Blob 또는 파일을 가질 수 있음)이 있으므로 Azure 배치에서 생성된 5개의 작업이 있게 됩니다. 작업이 일괄 처리에서 실행될 때 실제로 사용자 지정 작업이 실행됩니다.
+각 작업 실행에 대한 작업(task)이 만들어집니다. 이 샘플에서는 파이프라인에 하나의 작업만 있습니다. 조각이 파이프라인에 의해 처리될 때 사용자 지정 작업은 조각을 처리하도록 Azure 배치에서 실행됩니다. 5개 조각(각 조각은 여러 Blob 또는 파일을 가질 수 있음)이 있으므로 Azure 배치에서 생성된&5;개의 작업이 있게 됩니다. 작업이 일괄 처리에서 실행될 때 실제로 사용자 지정 작업이 실행됩니다.
 
 다음 연습에서는 추가 정보를 제공합니다.
 
@@ -481,7 +525,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
    1. **계정 이름**을 Azure 배치 계정의 이름으로 대체합니다.
    2. **액세스 키**를 Azure 배치 계정의 액세스 키로 대체합니다.
-   3. **poolName** 속성에 대한 풀 ID를 입력합니다**.**  이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
+   3. **poolName** 속성에 대한 풀 ID를 입력합니다**.** 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
    4. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
@@ -507,65 +551,67 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 1. Data Factory의 **편집기**에서 도구 모음의 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Blob 저장소**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 코드 조각으로 바꿉니다.
 
-       {
-           "name": "InputDataset",
-           "properties": {
-               "type": "AzureBlob",
-               "linkedServiceName": "AzureStorageLinkedService",
-               "typeProperties": {
-                   "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
-                   "format": {
-                       "type": "TextFormat"
-                   },
-                   "partitionedBy": [
-                       {
-                           "name": "Year",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "yyyy"
-                           }
-                       },
-                       {
-                           "name": "Month",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "MM"
-                           }
-                       },
-                       {
-                           "name": "Day",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "dd"
-                           }
-                       },
-                       {
-                           "name": "Hour",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "HH"
-                           }
+    ```json
+    {
+       "name": "InputDataset",
+       "properties": {
+           "type": "AzureBlob",
+           "linkedServiceName": "AzureStorageLinkedService",
+           "typeProperties": {
+               "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+               "format": {
+                   "type": "TextFormat"
+               },
+               "partitionedBy": [
+                   {
+                       "name": "Year",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "yyyy"
                        }
-                   ]
-               },
-               "availability": {
-                   "frequency": "Hour",
-                   "interval": 1
-               },
-               "external": true,
-               "policy": {}
-           }
+                   },
+                   {
+                       "name": "Month",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "MM"
+                       }
+                   },
+                   {
+                       "name": "Day",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "dd"
+                       }
+                   },
+                   {
+                       "name": "Hour",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "HH"
+                       }
+                   }
+               ]
+           },
+           "availability": {
+               "frequency": "Hour",
+               "interval": 1
+           },
+           "external": true,
+           "policy": {}
        }
+    }
+    ```
 
-     이 연습에서는 시작 시간: 2015-11-16T00:00:00Z 및 종료 시간: 2015-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. **매시간** 데이터를 생성하도록 예약되어 있어 5개의 입/출력 조각이 있습니다(**00**:00:00 -\> **05**:00:00 범위).
+    이 연습에서는 시작 시간: 2015-11-16T00:00:00Z 및 종료 시간: 2015-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. **매시간** 데이터를 생성하도록 예약되어 있어 5개의 입/출력 조각이 있습니다(**00**:00:00 -\> **05**:00:00 범위).
 
-     입력 데이터 집합의 **빈도** 및 **간격**은 **Hour** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
+    입력 데이터 집합의 **빈도** 및 **간격**은 **Hour** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
 
-     다음은 각 조각에 대한 시작 시간이며 위의 JSON 코드 조각에서 **SliceStart** 시스템 변수로 표현됩니다.
+    다음은 각 조각에 대한 시작 시간이며 위의 JSON 코드 조각에서 **SliceStart** 시스템 변수로 표현됩니다.
 
     | **조각** | **시작 시간**          |
     |-----------|-------------------------|
@@ -575,7 +621,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
     | 4         | 2015-11-16T**03**:00:00 |
     | 5         | 2015-11-16T**04**:00:00 |
 
-     **folderPath**는 조각 시작 시간(**SliceStart**)의 연도, 월, 일 및 시간 부분을 사용하여 계산됩니다. 따라서 입력 폴더가 조각에 매핑되는 방식은 다음과 같습니다.
+    **folderPath**는 조각 시작 시간(**SliceStart**)의 연도, 월, 일 및 시간 부분을 사용하여 계산됩니다. 따라서 입력 폴더가 조각에 매핑되는 방식은 다음과 같습니다.
 
     | **조각** | **시작 시간**          | **입력 폴더**  |
     |-----------|-------------------------|-------------------|
@@ -593,34 +639,35 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 1. Data Factory의 **편집기**에서 도구 모음의 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Blob 저장소**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 코드 조각으로 바꿉니다.
 
-       {
-           "name": "OutputDataset",
-           "properties": {
-               "type": "AzureBlob",
-               "linkedServiceName": "AzureStorageLinkedService",
-               "typeProperties": {
-                   "fileName": "{slice}.txt",
-                   "folderPath": "mycontainer/outputfolder",
-                   "partitionedBy": [
-                       {
-                           "name": "slice",
-                           "value": {
-                               "type": "DateTime",
-                               "date": "SliceStart",
-                               "format": "yyyy-MM-dd-HH"
-                           }
+    ```json
+    {
+       "name": "OutputDataset",
+       "properties": {
+           "type": "AzureBlob",
+           "linkedServiceName": "AzureStorageLinkedService",
+           "typeProperties": {
+               "fileName": "{slice}.txt",
+               "folderPath": "mycontainer/outputfolder",
+               "partitionedBy": [
+                   {
+                       "name": "slice",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "yyyy-MM-dd-HH"
                        }
-                   ]
-               },
-               "availability": {
-                   "frequency": "Hour",
-                   "interval": 1
-               }
+                   }
+               ]
+           },
+           "availability": {
+               "frequency": "Hour",
+               "interval": 1
            }
        }
+    }
+    ```
 
-     각 입력 조각에 대해 출력 BLOB/파일이 생성됩니다. 각 조각에 대해 출력 파일의 이름을 지정하는 방법은 다음과 같습니다. **mycontainer\\outputfolder**라는 하나의 출력 폴더에 모든 출력 파일이 생성됩니다.
-
+    각 입력 조각에 대해 출력 BLOB/파일이 생성됩니다. 각 조각에 대해 출력 파일의 이름을 지정하는 방법은 다음과 같습니다. **mycontainer\\outputfolder**라는 하나의 출력 폴더에 모든 출력 파일이 생성됩니다.
 
     | **조각** | **시작 시간**          | **출력 파일**       |
     |-----------|-------------------------|-----------------------|
@@ -630,7 +677,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
-     입력 폴더(예: 2015-11-16-00)에 있는 모든 파일은 시작 시간(2015-11-16-00)의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. 폴더 2015-11-16-00에 세 개의 파일이 있는 경우 출력 파일(2015-11-16-00.txt)에 세 줄이 있게 됩니다.
+    입력 폴더(예: 2015-11-16-00)에 있는 모든 파일은 시작 시간(2015-11-16-00)의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. 폴더 2015-11-16-00에 세 개의 파일이 있는 경우 출력 파일(2015-11-16-00.txt)에 세 줄이 있게 됩니다.
 
 1. 도구 모음에서 **배포**를 클릭하여 **OutputDataset**을 만들고 배포합니다.
 
@@ -645,48 +692,49 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 1. 데이터 팩터리 편집기의 명령 모음에서 **새 파이프라인**을 클릭합니다. 명령이 표시되지 않으면 **... (줄임표)**을 클릭하여 표시합니다.
 2. 오른쪽 창의 JSON을 다음 JSON 스크립트로 바꿉니다.
 
-       {
-           "name": "PipelineCustom",
-           "properties": {
-               "description": "Use custom activity",
-               "activities": [
-                   {
-                       "type": "DotNetActivity",
-                       "typeProperties": {
-                           "assemblyName": "MyDotNetActivity.dll",
-                           "entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-                           "packageLinkedService": "AzureStorageLinkedService",
-                           "packageFile": "customactivitycontainer/MyDotNetActivity.zip"
-                       },
-                       "inputs": [
-                           {
-                               "name": "InputDataset"
-                           }
-                       ],
-                       "outputs": [
-                           {
-                               "name": "OutputDataset"
-                           }
-                       ],
-                       "policy": {
-                           "timeout": "00:30:00",
-                           "concurrency": 5,
-                           "retry": 3
-                       },
-                       "scheduler": {
-                           "frequency": "Hour",
-                           "interval": 1
-                       },
-                       "name": "MyDotNetActivity",
-                       "linkedServiceName": "AzureBatchLinkedService"
-                   }
-               ],
-               "start": "2015-11-16T00:00:00Z",
-               "end": "2015-11-16T05:00:00Z",
-               "isPaused": false
-          }
-       }
-
+    ```json
+    {
+       "name": "PipelineCustom",
+       "properties": {
+           "description": "Use custom activity",
+           "activities": [
+               {
+                   "type": "DotNetActivity",
+                   "typeProperties": {
+                       "assemblyName": "MyDotNetActivity.dll",
+                       "entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+                       "packageLinkedService": "AzureStorageLinkedService",
+                       "packageFile": "customactivitycontainer/MyDotNetActivity.zip"
+                   },
+                   "inputs": [
+                       {
+                           "name": "InputDataset"
+                       }
+                   ],
+                   "outputs": [
+                       {
+                           "name": "OutputDataset"
+                       }
+                   ],
+                   "policy": {
+                       "timeout": "00:30:00",
+                       "concurrency": 5,
+                       "retry": 3
+                   },
+                   "scheduler": {
+                       "frequency": "Hour",
+                       "interval": 1
+                   },
+                   "name": "MyDotNetActivity",
+                   "linkedServiceName": "AzureBatchLinkedService"
+               }
+           ],
+           "start": "2015-11-16T00:00:00Z",
+           "end": "2015-11-16T05:00:00Z",
+           "isPaused": false
+      }
+    }
+    ```
    다음 사항에 유의하세요.
 
    * 파이프라인에는 **DotNetActivity** 유형의 작업 하나만 있습니다.
@@ -701,7 +749,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     -   **isPaused** 속성은 기본적으로 false로 설정됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다.
 
-    -   **start** 시간과 **end** 시간은 5시간 차이이며 파이프라인이 작동하면서 매시간 5개 조각이 생성됩니다.
+    -   **start** 시간과 **end** 시간은&5;시간 차이이며 파이프라인이 작동하면서 매시간&5;개 조각이 생성됩니다.
 
 1. 명령 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다.
 
@@ -714,7 +762,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 2. 다이어그램 뷰에서 **InputDataset** 입력 데이터 집합을 두 번 클릭합니다.
 
    ![](./media/data-factory-data-processing-using-batch/image11.png)
-3. 모든 5조각이 준비된 상태로 **InputDataset** 블레이드가 표시됩니다. 각 조각에 대해 **SLICE START TIME** 및 **SLICE END TIME**입니다.
+3. 모든&5;조각이 준비된 상태로 **InputDataset** 블레이드가 표시됩니다. 각 조각에 대해 **SLICE START TIME** 및 **SLICE END TIME**입니다.
 
    ![](./media/data-factory-data-processing-using-batch/image12.png)
 4. **다이어그램 뷰**에서 **OutputDataset**을 클릭합니다.
@@ -726,25 +774,28 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
    ![](./media/data-factory-data-processing-using-batch/image15.png)
 
-   각 입력 조각에 대해 하나씩 5개의 출력 파일이 표시됩니다. 각 출력 파일은 다음 출력과 유사한 콘텐츠를 가져야 합니다.
+   각 입력 조각에 대해 하나씩&5;개의 출력 파일이 표시됩니다. 각 출력 파일은 다음 출력과 유사한 콘텐츠를 가져야 합니다.
 
-       2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
-
+    ```
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+    ```
    다음 다이어그램에서는 데이터 팩터리 조각이 Azure 배치의 작업에 매핑하는 방법을 보여 줍니다. 이 예제에서는 하나의 조각은 하나의 실행만 가집니다.
 
    ![](./media/data-factory-data-processing-using-batch/image16.png)
 8. 이제 폴더의 여러 파일을 시도해 보겠습니다. 파일 만들기: **2015-11-06-01** 폴더의 file.txt와 동일한 콘텐츠를 가진 **file2.txt**, **file3.txt**, **file4.txt** 및 **file5.txt**
 9. 출력 폴더에서 출력 파일 **2015-11-16-01.txt**를 **삭제**합니다.
-10. 이제 **OutputDataset** 블레이드에서 **11/16/2015 01:00:00 AM**으로 설정된 **SLICE START TIME**으로 조각을 오른쪽 단추로 클릭하고 **실행**을 클릭하여 조각을 다시 실행/다시 처리합니다. 이제 조각에 하나의 파일 대신 5개의 파일이 있습니다.
+10. 이제 **OutputDataset** 블레이드에서 **11/16/2015 01:00:00 AM**으로 설정된 **SLICE START TIME**으로 조각을 오른쪽 단추로 클릭하고 **실행**을 클릭하여 조각을 다시 실행/다시 처리합니다. 이제 조각에 하나의 파일 대신&5;개의 파일이 있습니다.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
 11. 조각이 실행되고 해당 상태가 **Ready** 상태가 된 후 Blob 저장소에 있는 **mycontainer**의 **outputfolder**에 있는 이 조각(**2015-11-16-01.txt**)에 대한 출력 파일의 콘텐츠를 확인합니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
-        2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
+    ```
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
+    ```
 
 > [!NOTE]
 > 5개의 입력 파일을 시도하기 전에 출력 파일 2015-11-16-01.txt를 삭제하지 않은 경우 이전 조각 실행에서 한 줄이 표시되고 현재 조각 실행에서 5줄이 표시됩니다. 기본적으로 콘텐츠는 이미 있는 경우 출력 파일에 추가됩니다.
@@ -758,7 +809,7 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
 
 조각의 각 작업 실행에 대한 작업(task)이 작업(job)에 만들어집니다. 처리를 위해 준비된 10개 조각이 있는 경우 이 작업에 10개 작업(task)이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
 
-이 예제에서는 5개 조각이 있으므로 Azure 배치에 5개의 작업이 있게 됩니다. Azure Data Factory의 파이프라인 JSON에서 **동시성**을 **5**로, **2**개의 VM이 있는 Azure 배치 풀에서 **VM당 최대 태스크**를 **2**로 설정하여 태스크가 매우 빠르게 실행됩니다(태스크에 대한 시작 및 종료 시간 확인).
+이 예제에서는&5;개 조각이 있으므로 Azure 배치에&5;개의 작업이 있게 됩니다. Azure Data Factory의 파이프라인 JSON에서 **동시성**을 **5**로, **2**개의 VM이 있는 Azure 배치 풀에서 **VM당 최대 태스크**를 **2**로 설정하여 태스크가 매우 빠르게 실행됩니다(태스크에 대한 시작 및 종료 시간 확인).
 
 포털을 사용하여 배치 작업 및 **조각**과 연결된 작업을 보고 각 조각이 실행된 VM을 봅니다.
 
@@ -784,13 +835,15 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
 
    또한 system-0.log에서 시스템 오류 메시지 및 예외를 확인합니다.
 
-       Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
-
-       Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
-
-       Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
-
-       Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
+    ```
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
+    
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
+    
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
+    
+    Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
+    ```
 3. Zip 파일에 **PDB** 파일을 포함하여 오류 발생 시 오류 세부 정보에 **호출 스택**과 같은 정보가 포함되도록 합니다.
 4. 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위**여야 합니다.
 
@@ -816,15 +869,19 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 3. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 데이터 팩터리 솔루션에서 Azure 배치 연결된 서비스를 업데이트합니다. (4단계: **VM당 최대 작업** 설정에 대한 파이프라인 만들기 및 실행을 참조하세요.)
 4. **자동 크기 조정** 기능이 있는 Azure 배치 풀을 만듭니다. Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 응용 프로그램에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 예를 들어 보류 중인 작업의 수에 따라 0 전용 VM 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다.
 
-   한 번에 보류 중인 작업당 하나의 VM(예: 보류 중인 5개의 작업 -> 5개의 VM)
-
-       pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-       $TargetDedicated = max(pendingTaskSampleVector);
+   한 번에 보류 중인 작업당 하나의 VM(예: 보류 중인&5;개의 작업 ->&5;개의 VM)
+    
+    ```
+    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+    $TargetDedicated = max(pendingTaskSampleVector);
+    ```
 
    보류 중인 작업의 수에 관계 없이 한 번에 최대 하나의 VM
 
-       pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
-       $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+    ```
+    pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+    $TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+    ```
 
    자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](../batch/batch-automatic-scaling.md) 을 참조하세요.
 
@@ -857,6 +914,6 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

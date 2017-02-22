@@ -1,5 +1,5 @@
 ---
-title: "Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링"
+title: "Azure API Management, Event Hubs 및 Runscope를 사용하여 API 모니터링 | Microsoft Docs"
 description: "Azure API 관리, Azure 이벤트 허브 및 HTTP 로깅 및 모니터링에 대한 Runscope에 연결하여  log-to-eventhub 정책을 보여주는 샘플 응용 프로그램"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: darrmi
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0aff583146736eb90e9940ca26be24da84bc4a14
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링
@@ -48,29 +47,31 @@ Azure 이벤트 허브는 대부분 API 프로세스를 요청하는 HTTP 수 �
 
 이 메시지를 만들 수 있게 되려면 Azure API 관리에서 C# 기반 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx) 을 활용해야 합니다. 다음은 Azure 이벤트 허브에 HTTP 요청 메시지를 전송하는 정책입니다.
 
-       <log-to-eventhub logger-id="conferencelogger" partition-id="0">
-       @{
-           var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
-                                                       context.Request.Method,
-                                                       context.Request.Url.Path + context.Request.Url.QueryString);
+```xml
+<log-to-eventhub logger-id="conferencelogger" partition-id="0">
+@{
+   var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
+                                               context.Request.Method,
+                                               context.Request.Url.Path + context.Request.Url.QueryString);
 
-           var body = context.Request.Body?.As<string>(true);
-           if (body != null && body.Length > 1024)
-           {
-               body = body.Substring(0, 1024);
-           }
+   var body = context.Request.Body?.As<string>(true);
+   if (body != null && body.Length > 1024)
+   {
+       body = body.Substring(0, 1024);
+   }
 
-           var headers = context.Request.Headers
-                                  .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
-                                  .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                  .ToArray<string>();
+   var headers = context.Request.Headers
+                          .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
+                          .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                          .ToArray<string>();
 
-           var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+   var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-           return "request:"   + context.Variables["message-id"] + "\n"
-                               + requestLine + headerString + "\r\n" + body;
-       }
-       </log-to-eventhub>
+   return "request:"   + context.Variables["message-id"] + "\n"
+                       + requestLine + headerString + "\r\n" + body;
+}
+</log-to-eventhub>
+```
 
 ### <a name="policy-declaration"></a>정책 선언
 이 정책 식에 대한 몇 가지 특정 사항을 설명합니다. log-to-eventhub 정책에는 API 관리 서비스 내에서 생성된 로거의 이름을 의미하는 logger-id라는 특성이 있습니다. API 관리 서비스에서 이벤트 허브 로거를 설정하는 방법에 대한 세부 정보는 [Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)에서 찾을 수 있습니다. 두 번째 특성은 메시지를 저장하도록 분할하는 이벤트 허브에 지시하는 선택적 매개 변수입니다. 이벤트 허브는 파티션을 사용하여 확장성을 사용하고 최소한 두 개가 필요합니다. 파티션 내에서 메시지의 순차적인 전달이 보장됩니다. 이벤트 허브에 메시지를 저장할 파티션을 지정하지 않는 경우 라운드 로빈 알고리즘을 사용하여 로드를 분산합니다. 그러나 일부 메시지가 순서대로 처리되지 않는 경우가 발생할 수 있습니다.  
@@ -87,67 +88,71 @@ HTTP 헤더는 간단한 키/값 쌍 형식인 메시지 형식을 통해 간단
 ### <a name="message-metadata"></a>메시지 메타데이터
 이벤트 허브로 보낼 전체 메시지를 작성할 때 첫 번째 줄은 실제 `application/http` 메시지의 일부가 아닙니다. 첫 번째 줄은 메시지가 응답에 대한 요청을 상호 연결하는 데 사용된 요청 또는 응답 메시지 및 메시지 ID로 구성된 추가 메타데이터입니다. 메시지 ID는 다음과 같이 다른 정책을 사용하여 만들어집니다.
 
-    <set-variable name="message-id" value="@(Guid.NewGuid())" />
+```xml
+<set-variable name="message-id" value="@(Guid.NewGuid())" />
+```
 
 요청 메시지를 만들고 응답이 반환될 때까지 변수에 저장한 다음 요청 및 응답을 단일 메시지로 전송했을 수 있습니다. 그러나 요청 및 응답을 독립적으로 전송하고 둘을 상호 연결하는 메시지 ID를 사용하여 메시지 순서를 유지 관리하는 동안 여러 파티션을 활용하는 기능과 같이 메시지 크기 면에서 유연성을 얻고 요청이 곧 로깅 대시보드에 표시됩니다. 또한 유효한 응답이 API 관리 서비스에서 발생한 심각한 요청 오류 때문에 이벤트 허브에 전송되지 않은 일부 시나리오가 있을 수 있지만 아직 요청한 기록은 남아 있습니다.
 
 HTTP 응답 메시지를 보내는 정책은 요청과 매우 유사하므로 완성된 정책 구성은 다음과 같습니다.
 
-      <policies>
-          <inbound>
-              <set-variable name="message-id" value="@(Guid.NewGuid())" />
-              <log-to-eventhub logger-id="conferencelogger" partition-id="0">
-              @{
-                  var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
-                                                              context.Request.Method,
-                                                              context.Request.Url.Path + context.Request.Url.QueryString);
+```xml
+<policies>
+  <inbound>
+      <set-variable name="message-id" value="@(Guid.NewGuid())" />
+      <log-to-eventhub logger-id="conferencelogger" partition-id="0">
+      @{
+          var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
+                                                      context.Request.Method,
+                                                      context.Request.Url.Path + context.Request.Url.QueryString);
 
-                  var body = context.Request.Body?.As<string>(true);
-                  if (body != null && body.Length > 1024)
-                  {
-                      body = body.Substring(0, 1024);
-                  }
+          var body = context.Request.Body?.As<string>(true);
+          if (body != null && body.Length > 1024)
+          {
+              body = body.Substring(0, 1024);
+          }
 
-                  var headers = context.Request.Headers
-                                       .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
-                                       .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                       .ToArray<string>();
+          var headers = context.Request.Headers
+                               .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
+                               .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                               .ToArray<string>();
 
-                  var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+          var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-                  return "request:"   + context.Variables["message-id"] + "\n"
-                                      + requestLine + headerString + "\r\n" + body;
-              }
-          </log-to-eventhub>
-          </inbound>
-          <backend>
-              <forward-request follow-redirects="true" />
-          </backend>
-          <outbound>
-              <log-to-eventhub logger-id="conferencelogger" partition-id="1">
-              @{
-                  var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
-                                                      context.Response.StatusCode,
-                                                      context.Response.StatusReason);
+          return "request:"   + context.Variables["message-id"] + "\n"
+                              + requestLine + headerString + "\r\n" + body;
+      }
+  </log-to-eventhub>
+  </inbound>
+  <backend>
+      <forward-request follow-redirects="true" />
+  </backend>
+  <outbound>
+      <log-to-eventhub logger-id="conferencelogger" partition-id="1">
+      @{
+          var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
+                                              context.Response.StatusCode,
+                                              context.Response.StatusReason);
 
-                  var body = context.Response.Body?.As<string>(true);
-                  if (body != null && body.Length > 1024)
-                  {
-                      body = body.Substring(0, 1024);
-                  }
+          var body = context.Response.Body?.As<string>(true);
+          if (body != null && body.Length > 1024)
+          {
+              body = body.Substring(0, 1024);
+          }
 
-                  var headers = context.Response.Headers
-                                                  .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                                  .ToArray<string>();
+          var headers = context.Response.Headers
+                                          .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                                          .ToArray<string>();
 
-                  var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+          var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-                  return "response:"  + context.Variables["message-id"] + "\n"
-                                      + statusLine + headerString + "\r\n" + body;
-             }
-          </log-to-eventhub>
-          </outbound>
-      </policies>
+          return "response:"  + context.Variables["message-id"] + "\n"
+                              + statusLine + headerString + "\r\n" + body;
+     }
+  </log-to-eventhub>
+  </outbound>
+</policies>
+```
 
 `set-variable` 정책은 `<inbound>` 섹션 및 `<outbound>` 섹션의 모든 `log-to-eventhub` 정책에서 액세스할 수 있는 값을 만듭니다.  
 
@@ -160,40 +165,45 @@ Azure 이벤트 허브의 이벤트는 [AMQP 프로토콜](http://www.amqp.org/)
 ### <a name="ieventprocessor"></a>IEventProcessor
 `EventProcessorHost`를 사용하할 때 중앙 개념은 `ProcessEventAsync` 메서드를 포함하는 `IEventProcessor` 인터페이스를 구현하도록 만드는 것입니다. 해당 메서드의 핵심은 다음과 같습니다.
 
-  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages) {
+```c#
+async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+{
 
-           foreach (EventData eventData in messages)
-           {
-               _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+   foreach (EventData eventData in messages)
+   {
+       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-               try
-               {
-                   var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-                   await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-               }
-               catch (Exception ex)
-               {
-                   _Logger.LogError(ex.Message);
-               }
-           }
-            ... checkpointing code snipped ...
-        }
+       try
+       {
+           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+       }
+       catch (Exception ex)
+       {
+           _Logger.LogError(ex.Message);
+       }
+   }
+    ... checkpointing code snipped ...
+}
+```
 
 EventData 개체의 목록이 메서드로 전달되고 해당 목록을 반복합니다. 각 메서드의 바이트는 HttpMessage 개체로 구문 분석되고 해당 개체는 IHttpMessageProcessor의 인스턴스에 전달됩니다.
 
 ### <a name="httpmessage"></a>HttpMessage
 `HttpMessage` 인스턴스는 세 가지 데이터를 포함합니다.
 
-      public class HttpMessage
-       {
-           public Guid MessageId { get; set; }
-           public bool IsRequest { get; set; }
-           public HttpRequestMessage HttpRequestMessage { get; set; }
-           public HttpResponseMessage HttpResponseMessage { get; set; }
+```c#
+public class HttpMessage
+{
+   public Guid MessageId { get; set; }
+   public bool IsRequest { get; set; }
+   public HttpRequestMessage HttpRequestMessage { get; set; }
+   public HttpResponseMessage HttpResponseMessage { get; set; }
 
-        ... parsing code snipped ...
+... parsing code snipped ...
 
-      }
+}
+```
 
 `HttpMessage` 인스턴스는 개체가 HttpRequestMessage 및 HttpResponseMessage의 인스턴스를 포함하는지를 식별하는 해당 HTTP 응답 및 부울 값에 HTTP 요청을 연결하도록 하는  `MessageId` GUID를 포함합니다.  `System.Net.Http`에서 기본 제공 HTTP 클래스를 사용하여 `System.Net.Http.Formatting`에 포함된 코드의 `application/http` 구문을 분석하도록 활용할 수 있습니다.  
 
@@ -205,46 +215,48 @@ EventData 개체의 목록이 메서드로 전달되고 해당 목록을 반복�
 
 `IHttpMessageProcessor` 구현은 다음과 같습니다
 
-      public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
+```c#
+public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
+{
+   private HttpClient _HttpClient;
+   private ILogger _Logger;
+   private string _BucketKey;
+   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+   {
+       _HttpClient = httpClient;
+       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+       _Logger = logger;
+   }
+
+   public async Task ProcessHttpMessage(HttpMessage message)
+   {
+       var runscopeMessage = new RunscopeMessage()
        {
-           private HttpClient _HttpClient;
-           private ILogger _Logger;
-           private string _BucketKey;
-           public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-           {
-               _HttpClient = httpClient;
-               var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-               _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-               _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-               _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-               _Logger = logger;
-           }
+           UniqueIdentifier = message.MessageId
+       };
 
-           public async Task ProcessHttpMessage(HttpMessage message)
-           {
-               var runscopeMessage = new RunscopeMessage()
-               {
-                   UniqueIdentifier = message.MessageId
-               };
-
-               if (message.IsRequest)
-               {
-                   _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-                   runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-               }
-               else
-               {
-                   _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-                   runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-               }
-
-               var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-               messagesLink.BucketKey = _BucketKey;
-               messagesLink.RunscopeMessage = runscopeMessage;
-               var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-               _Logger.LogDebug("Request sent to Runscope");
-           }
+       if (message.IsRequest)
+       {
+           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
        }
+       else
+       {
+           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+       }
+
+       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+       messagesLink.BucketKey = _BucketKey;
+       messagesLink.RunscopeMessage = runscopeMessage;
+       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+       _Logger.LogDebug("Request sent to Runscope");
+   }
+}
+```
 
 해당 서비스에 `HttpRequestMessage` 및 `HttpResponseMessage` 인스턴스를 쉽게 푸시하도록 하는 [Runscope용 기존 클라이언트 라이브러리](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)를 활용할 수 있었습니다. Runscope API에 액세스하기 위해 계정 및 API 키가 필요합니다. API 키를 가져오는 지침은 [Runscope API에 액세스하는 응용 프로그램 만들기](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 동영상 가이드에서 찾을 수 있습니다.
 
@@ -262,8 +274,8 @@ Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 이벤트 허브에 대해 자세히 알아보기
-  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
   * [Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)
@@ -272,7 +284,6 @@ Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

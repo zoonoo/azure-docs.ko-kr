@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
 
 
 ---
@@ -32,6 +32,7 @@ Microsoft AMS(Azure Media Services)를 사용하면 사용자 컴퓨터에서 �
 AMS는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증된 클라이언트에 배달하는 서비스를 제공합니다. Azure Portal을 사용하면 모든 암호화 형식에 대해 **키/라이선스 권한 부여 정책** 을 만들 수 있습니다.
 
 이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 정책을 구성하는 방법에 대해 설명합니다. 또한 자산에 동적 암호화를 적용하는 방법을 보여 줍니다.
+
 
 > [!NOTE]
 > 보호 정책을 Azure 클래식 포털을 사용하여 만든 경우 [Azure Portal](https://portal.azure.com/)에 나타나지 않을 수 있습니다. 그러나 모든 이전 정책은 여전히 존재합니다. 해당 정책을 Azure Media Services .NET SDK 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) 도구를 사용하여 검사할 수 있습니다(정책을 보려면 자산을 마우스 오른쪽 단추로 클릭 -> 정보를 표시(F4) -> 콘텐츠 키 탭 클릭 -> 키 클릭). 
@@ -93,10 +94,7 @@ FairPlay 암호화를 사용하려면 FairPlay 구성 옵션을 통해 응용 �
 ![콘텐츠 보호](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>동적 암호화를 자산에 적용
-동적 암호화를 이용하려면 다음을 수행해야 합니다.
-
-* 원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
-* 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 주문형 스트리밍 단위를 구성합니다. 자세한 내용은 [주문형 스트리밍 예약 단위를 확장하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+동적 암호화를 활용하려면 소스 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩해야 합니다.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>암호화하려는 자산을 선택
 모든 자산을 보려면 **설정** > **자산**을 선택합니다.
@@ -137,6 +135,6 @@ FairPlay 암호화를 사용하려면 Content Protection 설정 블레이드의 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

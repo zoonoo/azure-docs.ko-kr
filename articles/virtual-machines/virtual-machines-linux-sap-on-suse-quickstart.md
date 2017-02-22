@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 02/14/2017
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
-ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
+ms.sourcegitcommit: 046f58eba906980f23ce1177794b28930e3314a1
+ms.openlocfilehash: e7255c4123849f8f3fb29767308b433b5c0e511b
 
 
 ---
@@ -29,10 +29,13 @@ Linux VM의 SAP에 대한 자세한 내용은 [Linux VM(가상 컴퓨터)에서 
 다음 정보는 일부 잠재적인 문제를 예방하는 데 도움이 됩니다.
 
 ## <a name="suse-images-on-azure-for-running-sap"></a>SAP 실행을 위한 Azure의 SUSE 이미지
-Azure에서 SAP NetWeaver를 실행하기 위해서는 SUSE Linux Enterprise Server SLES 12(SPx)만 사용해야 합니다. 자세한 내용은 SAP 정보 1928533을 참조하세요. 특수한 SUSE 이미지는 Azure 마켓플레이스("SLES 11 SP3 for SAP CAL")에 있지만, 일반 용도는 아닙니다. 이 이미지는 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 솔루션을 위한 것이기 때문에 사용하지 않습니다.  
+Azure에서 SAP NetWeaver를 실행하기 위해서는 SUSE Linux Enterprise Server SLES 12(SPx)만 사용해야 합니다. 자세한 내용은 SAP 정보 1928533을 참조하세요. 특수한 SUSE 이미지는 Azure Marketplace("SLES 11 SP3 for SAP CAL")에 있지만, 일반 용도는 아닙니다. 이 이미지는 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 솔루션을 위한 것이기 때문에 사용하지 않습니다.  
 
-Azure의 모든 새로운 테스트 및 설치에 대해 Azure 리소스 관리자를 사용해야 합니다. Azure PowerShell 또는 Azure 명령줄 인터페이스(CLI)를 사용하여 SUSE SLES 이미지나 버전을 찾아보려면 다음 명령을 사용합니다. 그런 다음 새 SUSE Linux VM 배포용 JSON 템플릿에서 OS 이미지를 정의하는 등 출력 내용을 사용할 수 있습니다.
+Azure의 모든 새로운 테스트 및 설치에 대해 Azure Resource Manager를 사용해야 합니다. Azure PowerShell 또는 Azure 명령줄 인터페이스(CLI)를 사용하여 SUSE SLES 이미지나 버전을 찾아보려면 다음 명령을 사용합니다. 그런 다음 새 SUSE Linux VM 배포용 JSON 템플릿에서 OS 이미지를 정의하는 등 출력 내용을 사용할 수 있습니다.
 PowerShell 명령은 Azure PowerShell 1.0.1 이상 버전에 유효합니다.
+
+SAP 설치를 위한 표준 SLES 이미지를 여전히 사용할 수 있지만 이제 Azure 이미지 갤러리에서 사용할 수 있는 새 SLES를 SAP 이미지에 사용하는 것이 좋습니다. 이러한 이미지에 대한 자세한 내용은 [Azure Marketplace 페이지]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES-SAP ) 또는 [SAP용 SLES에 관한 SUSE FAQ 웹 페이지]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ )를 참조하십시오.
+
 
 * SUSE를 포함하는 기존 게시자를 찾습니다.
   
@@ -50,17 +53,21 @@ PowerShell 명령은 Azure PowerShell 1.0.1 이상 버전에 유효합니다.
   
    ```
    PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP"
    CLI : azure vm image list-skus westeurope SUSE SLES
+   CLI : azure vm image list-skus westeurope SUSE SLES-SAP
    ```
 * 특정 버전의 SLES SKU를 찾습니다.
   
    ```
-   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   CLI : azure vm image list westeurope SUSE SLES 12
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
+   CLI : azure vm image list westeurope SUSE SLES 12-SP2
+   CLI : azure vm image list westeurope SUSE SLES-SAP 12-SP2
    ```
 
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>SUSE VM에 WALinuxAgent 설치
-WALinuxAgent라고 하는 이 에이전트는 Azure 마켓플레이스 내 SLES 이미지의 일부분입니다. 수동으로(예: 온-프레미스에서 SLES OS VHD(가상 하드 디스크)를 업로드하는 경우) 설치와 관련된 내용은 다음을 참조하세요.
+WALinuxAgent라고 하는 이 에이전트는 Azure Marketplace 내 SLES 이미지의 일부분입니다. 수동으로(예: 온-프레미스에서 SLES OS VHD(가상 하드 디스크)를 업로드하는 경우) 설치와 관련된 내용은 다음을 참조하세요.
 
 * [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -77,15 +84,15 @@ SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 �
 UUID를 통한 탑재에 대한 유일한 예외는 다음 섹션에 설명된 대로 문제 해결을 위해 OS 디스크를 연결하는 것입니다.
 
 ## <a name="troubleshooting-a-suse-vm-that-isnt-accessible-anymore"></a>더 이상 액세스할 수 없는 SUSE VM 문제 해결
-Azure에서 SUSE VM 부팅 프로세스가 중지되는 상황이 발생할 수 있습니다(예: 디스크 탑재에 관련된 오류로 인해). Azure 포털에서 Azure 가상 컴퓨터 v2에 대한 부팅 진단 기능을 사용하여 이 문제를 확인할 수 있습니다. 자세한 내용은 [부팅 진단](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)을 참조하세요.
+Azure에서 SUSE VM 부팅 프로세스가 중지되는 상황이 발생할 수 있습니다(예: 디스크 탑재에 관련된 오류로 인해). Azure 포털에서 Azure Virtual Machines v2에 대한 부팅 진단 기능을 사용하여 이 문제를 확인할 수 있습니다. 자세한 내용은 [부팅 진단](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)을 참조하세요.
 
 문제를 해결하는 한 가지 방법은 손상된 VM에서 Azure의 다른 SUSE VM에 OS 디스크를 연결하는 것입니다. 다음 섹션에 설명된 대로 /etc/fstab을 편집하거나 네트워크 udev 규칙을 제거하는 것과 같이 적절하게 변경합니다.
 
-하지만 고려해야 할 한 가지 중요한 사항이 있습니다. 동일한 Azure 마켓플레이스 이미지(예: SLES 11 SP4)에서 여러 SUSE VM을 배포하면 OS 디스크가 항상 동일한 UUID로 탑재되게 됩니다. 따라서 동일한 Azure 마켓플레이스 이미지를 사용하여 배포된 다른 VM에서 OS 디스크를 연결하도록 UUID를 사용하면 두 개의 동일한 UUID가 발생합니다. 이로 인해 문제가 발생하며 문제 해결을 위한 VM이 사실상 원본 디스크 대신 연결되고 손상된 OS 디스크에서 부팅되게 될 수 있습니다.
+하지만 고려해야 할 한 가지 중요한 사항이 있습니다. 동일한 Azure Marketplace 이미지(예: SLES 11 SP4)에서 여러 SUSE VM을 배포하면 OS 디스크가 항상 동일한 UUID로 탑재되게 됩니다. 따라서 동일한 Azure Marketplace 이미지를 사용하여 배포된 다른 VM에서 OS 디스크를 연결하도록 UUID를 사용하면 두 개의 동일한 UUID가 발생합니다. 이로 인해 문제가 발생하며 문제 해결을 위한 VM이 사실상 원본 디스크 대신 연결되고 손상된 OS 디스크에서 부팅되게 될 수 있습니다.
 
 이를 방지하는 방법에는 다음 두 가지가 있습니다.
 
-* VM 문제 해결을 위해 서로 다른 Azure 마켓플레이스 이미지를 사용합니다(예: SLES 12 대신 SLES 11 SPx).
+* VM 문제 해결을 위해 서로 다른 Azure Marketplace 이미지를 사용합니다(예: SLES 12 대신 SLES 11 SPx).
 * UUID를 사용하여 다른 VM에서 손상된 OS 디스크를 연결하지 말고 다른 방법을 사용합니다.
 
 ## <a name="uploading-a-suse-vm-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 SUSE VM 업로드
@@ -126,13 +133,13 @@ tuned-adm 프로필 sap-hana에 대한 SLES 설명서는 [여기](https://www.su
 tuned-adm을 사용하여 SAP 워크로드를 위한 시스템 튜닝은 6.2장의 [여기](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) 에서 확인할 수 있습니다.
 
 ## <a name="nfs-share-in-distributed-sap-installations"></a>분산된 SAP 설치에서 NFS 공유
-예를 들어 데이터베이스 및 SAP 응용 프로그램 서버를 별도의 VM에 설치하려는 분산 설치의 경우 NFS(네트워크 파일 시스템)을 통해 /sapmnt 디렉토리를 공유할 수 있습니다. /sapmnt에 NFS 공유를 생성한 후에 설치 단계에서 문제가 발생하면 공유에 "no_root_squash"가 설정되어 있는지 확인합니다.
+예를 들어 데이터베이스 및 SAP 응용 프로그램 서버를 별도의 VM에 설치하려는 분산 설치의 경우 NFS(네트워크 파일 시스템)을 통해 /sapmnt 디렉터리를 공유할 수 있습니다. /sapmnt에 NFS 공유를 생성한 후에 설치 단계에서 문제가 발생하면 공유에 "no_root_squash"가 설정되어 있는지 확인합니다.
 
 ## <a name="logical-volumes"></a>논리 볼륨
 과거에는 여러 Azure 데이터 디스크에 큰 논리 볼륨이 필요한 경우(예: SAP 데이터베이스에 대해) lvm은 아직 Azure에서 유효성이 완전하게 확인되지 않았으므로 mdadm을 사용하는 것이 좋았습니다. mdadm을 사용하여 Azure에서 Linux RAID를 설정하는 방법을 알아보려면 [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 2016년 5월부터 당분간 lvm이 Azure에서 완전히 지원되며 mdadm 대신 사용될 수 있습니다. Azure의 lvm에 대한 자세한 내용은 [Azure에서 Linux VM에 LVM 구성](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a name="azure-suse-repository"></a>Azure SUSE 리포지토리
-표준 Azure SUSE 리포지토리에 액세스하는 데 문제가 있는 경우 간단한 명령을 사용하여 리포지토리를 다시 설정할 수 있습니다. Azure 지역에 개인 OS 이미지를 만든 다음 이 개인 OS 이미지를 기반으로 하는 새 VM을 배포하려는 다른 지역으로 해당 이미지를 복사하는 경우에 이런 상황이 발생할 수 있습니다. VM 내부에서 다음 명령을 실행합니다.
+표준 Azure SUSE 리포지토리에 액세스하는 데 문제가 있는 경우 간단한 명령을 사용하여 리포지토리를 다시 설정할 수 있습니다. Azure 지역에 개인 OS 이미지를 만든 다음 이 개인 OS 이미지를 기반으로 하는 새 VM을 배포하려는 다른 하위 지역으로 해당 이미지를 복사하는 경우에 이런 상황이 발생할 수 있습니다. VM 내부에서 다음 명령을 실행합니다.
 
    ```
    service guestregister restart
@@ -154,11 +161,11 @@ Gnome 데스크톱을 사용하여 SAP GUI, 브라우저 및 SAP 관리 콘솔�
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>클라우드에서 Linux의 Oracle에 대한 SAP 지원
-가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. Azure 관련 항목은 아니지만 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 항목을 논의하려면 Oracle에 직접 문의합니다.
+가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. Azure 관련 토픽은 아니지만 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 토픽을 논의하려면 Oracle에 직접 문의합니다.
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

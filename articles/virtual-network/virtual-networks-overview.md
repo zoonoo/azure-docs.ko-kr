@@ -1,6 +1,6 @@
 ---
-title: "Azure 가상 네트워크(VNet) 개요"
-description: "Azure의 가상 네트워크(VNet)에 대해 자세히 알아봅니다."
+title: Azure Virtual Networks | Microsoft Docs
+description: "Azure의 가상 네트워크에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
+ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
 
 
 ---
-# <a name="virtual-network-overview"></a>가상 네트워크 개요
-Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나타내는 표현입니다.  구독 전용 Azure 클라우드를 논리적으로 격리한 것이 가상 네트워크입니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. 또한 VNet을 여러 서브넷으로 분할하고 Azure IaaS VM(가상 컴퓨터) 및/또는 [클라우드 서비스(PaaS 역할 인스턴스)](../cloud-services/cloud-services-choose-me.md)를 실행할 수 있습니다. 뿐만 아니라 Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) 중 하나를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. 기본적으로 네트워크를 Azure로 확장하여 IP 주소 블록을 완벽하게 제어하고, Azure가 제공하는 엔터프라이즈급 솔루션의 혜택을 누릴 수 있습니다.
+# <a name="virtual-networks"></a>가상 네트워크
+Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나타내는 표현입니다.  구독 전용 Azure 클라우드를 논리적으로 격리한 것이 가상 네트워크입니다. 사용자는 이 네트워크 내부의 IP 주소 블록, DNS 설정, 보안 정책 및 경로 테이블을 완벽하게 제어할 수 있습니다. 또한 VNet을 여러 서브넷으로 분할하고 Azure IaaS VM(가상 컴퓨터) 및/또는 [클라우드 서비스(PaaS 역할 인스턴스)](../cloud-services/cloud-services-choose-me.md)를 실행할 수 있습니다. 뿐만 아니라 Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) 중 하나를 사용하여 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있습니다. 기본적으로 네트워크를 Azure로 확장하여 IP 주소 블록을 완벽하게 제어하고, Azure가 제공하는 엔터프라이즈급 솔루션의 혜택을 누릴 수 있습니다.
 
 VNet을 더 잘 이해하기 위해 간소화된 온-프레미스 네트워크가 표시된 아래 그림을 살펴보겠습니다.
 
@@ -37,21 +37,19 @@ Azure 인프라가 라우터의 역할을 수행하여 어떠한 구성도 필�
 
 > [!NOTE]
 > Azure에는 클래식(서비스 관리라고도 함) 및 ARM(Azure 리소스 관리자)의 두 가지 배포 모드가 있습니다. 클래식 VNet은 선호도 그룹에 추가하거나 지역 VNet으로 생성할 수 있습니다. VNet이 선호도 그룹에 있는 경우는 [지역 VNet으로 마이그레이션](virtual-networks-migrate-to-regional-vnet.md)하는 것이 좋습니다.
-> 
-> 
+>
 
-## <a name="virtual-network-benefits"></a>가상 네트워크의 장점
+## <a name="benefits"></a>이점
 * **격리**. VNet은 서로 완전히 격리됩니다. 따라서 동일한 CIDR 주소 블록을 사용하는 개발, 테스트 및 프로덕션 환경에 대해 개별 네트워크를 만들 수 있습니다.
 * **공용 인터넷 액세스**. VNet의 모든 IaaS VM 및 PaaS 역할 인스턴스에서 기본적으로 공용 인터넷에 액세스할 수 있습니다. NSG(네트워크 보안 그룹)을 사용하면 사용자가 액세스를 제어할 수 있습니다.
 * **VNet 내의 VM 액세스**. PaaS 역할 인스턴스 및 IaaS VM은 서로 다른 서브넷에 있는 경우에도 게이트웨이를 구성하거나 공용 IP 주소를 사용할 필요 없이 개인 IP 주소를 사용하여 동일한 가상 네트워크에서 실행하고 서로 연결할 수 있습니다.
-* **이름 확인**. Azure는 VNet에 배포된 IaaS VM 및 PaaS 역할 인스턴스에 대한 내부 이름 확인 기능을 제공합니다. 또한 사용자 고유의 DNS 서버를 배포하고 이 서버를 사용하도록 VNet을 구성할 수도 있습니다.
+* **이름 확인**. Azure는 VNet에 배포된 IaaS VM 및 PaaS 역할 인스턴스에 대한 [내부 이름 확인 기능](virtual-networks-name-resolution-for-vms-and-role-instances.md)을 제공합니다. 또한 사용자 고유의 DNS 서버를 배포하고 이 서버를 사용하도록 VNet을 구성할 수도 있습니다.
 * **보안**. 네트워크 보안 그룹을 사용하여 VNet에서 가상 컴퓨터 및 PaaS 역할 인스턴스로 들어오고 나가는 트래픽을 제어할 수 있습니다.
-* **연결**. VNet은 네트워크 게이트웨이 또는 VNet 피어링을 사용하여 서로 연결될 수 있으며, 사이트 간 VPN 네트워크 또는 Azure ExpressRoute를 통해 온-프레미스 데이터 센터에도 연결될 수 있습니다. 사이트 간 VPN 연결에 대한 자세한 내용은 [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site)를 참조하세요. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요. VNet 피어링에 대한 자세한 내용은 [VNet 피어링](virtual-network-peering-overview.md)을 참조하세요.
-  
+* **연결**. VNet은 네트워크 게이트웨이 또는 VNet 피어링을 사용하여 서로 연결될 수 있으며, 사이트 간 VPN 네트워크 또는 Azure ExpressRoute를 통해 온-프레미스 데이터 센터에도 연결될 수 있습니다. 사이트 간 VPN 연결에 대한 자세한 내용은 [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections)를 참조하세요. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요. VNet 피어링에 대한 자세한 내용은 [VNet 피어링](virtual-network-peering-overview.md)을 참조하세요.
+
   > [!NOTE]
   > 임의의 IaaS VM 또는 PaaS 역할 인스턴스를 Azure 환경에 배포하기 전에 VNet을 만들었는지 확인합니다. ARM 기반 VM은 VNet이 필요하며 기존 VNet을 지정하지 않으면 Azure에서 기본 VNet을 만드는데, 이 기본 VNet은 온-프레미스 네트워크와 CIDR 주소 블록 충돌이 발생할 수 있습니다. 이 문제가 발생하면 VNet을 온-프레미스 네트워크에 연결할 수 없습니다.
-  > 
-  > 
+  >
 
 ## <a name="subnets"></a>서브넷
 서브넷은 VNet의 IP 주소 범위이며, 사용자가 구성 및 보안을 목적으로 VNet을 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 서브넷에 경로 테이블 및 Nsg를 구성할 수 있습니다.
@@ -69,7 +67,7 @@ Azure 부하 분산 장치를 사용하여 가상 네트워크의 가상 컴퓨�
 
 Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 개요](../load-balancer/load-balancer-overview.md)를 참조하세요.
 
-## <a name="network-security-group-nsg"></a>NSG(네트워크 보안 그룹)
+## <a name="network-security-groups-nsg"></a>네트워크 보안 그룹(NSG)
 네트워크 인터페이스(NIC), VM 및 서브넷에 대한 인바운드 및 아웃바운드 액세스를 제어하는 NSG를 만들 수 있습니다. 각 NSG에는 원본 IP 주소, 원본 포트, 대상 IP 주소 및 대상 포트에 기반하여 트래픽을 승인할지 또는 거부할지 지정하는 하나 이상의 규칙이 포함되어 있습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](virtual-networks-nsg.md)을 참조하세요.
 
 ## <a name="virtual-appliances"></a>가상 어플라이언스
@@ -93,7 +91,6 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

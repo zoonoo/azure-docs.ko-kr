@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a3b64e99d46eba00d814192a590eda9420d08abd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
 
 
 ---
@@ -65,7 +65,7 @@ ms.openlocfilehash: a3b64e99d46eba00d814192a590eda9420d08abd
   
     ![][12]    
 
-## <a name="targeted-personalized-push-notifications"></a>**대상 지정 및 개인 설정된 푸시 알림**
+## <a name="targeted--personalized-push-notifications"></a>**대상 지정 및 개인 설정된 푸시 알림**
 * **수집된 데이터를 기반으로 세그먼트 만들기** 이를 위해 이벤트/세션/활동/작업/충돌/오류/태그 데이터를 사용할 수 있습니다.
   
     ![][13]
@@ -153,6 +153,6 @@ ms.openlocfilehash: a3b64e99d46eba00d814192a590eda9420d08abd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

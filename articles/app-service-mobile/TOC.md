@@ -207,11 +207,15 @@
 ### [Visual Studio를 사용하여 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 참조
-## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [.NET 백 엔드 SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Node.js 백 엔드 SDK](https://azure.github.io/azure-mobile-apps-node/)
+## [Android 클라이언트 SDK](https://azure.github.io/azure-mobile-apps-android-client/)
+## [iOS 클라이언트 SDK](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [JavaScript/Cordova 클라이언트 SDK](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Windows/Xamarin 클라이언트 SDK](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # 관련 항목
-## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [App Service 참조](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [GitHub 리포지토리](https://github.com/Azure/azure-mobile-apps)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 리소스
@@ -219,6 +223,14 @@
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## 샘플
+### [현장 엔지니어](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [구조화된 데이터 동기화](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### 빠른 시작 완료됨
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [.NET 백 엔드](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Node.js 백 엔드](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [App Service 모범 사례](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [WebJob 리소스 목록](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -227,6 +239,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,22 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
+ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
+ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Azure 활동 로그 개요
-**Azure 활동 로그** 는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하므로 이전에 "감사 로그" 또는 "작업 로그"로 알려져 있습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업은 포함되지 않습니다.
+**Azure 활동 로그** 는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하므로 이전에 "감사 로그" 또는 "작업 로그"로 알려져 있습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 Classic/"RDFE" 모델을 사용하는 리소스에 대한 읽기(GET) 작업이 포함되지 않습니다.
 
 활동 로그는 리소스에서 내보낸 모든 로그를 나타내는 [진단 로그](monitoring-overview-of-diagnostic-logs.md)와 다릅니다. 이러한 로그는 해당 리소스에 대한 작업보다는 해당 리소스의 작업에 대한 데이터를 제공합니다.
 
 Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다.
 
 [활동 로그를 소개하는 이 비디오](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz)를 보세요.  
+
+> [!WARNING]
+> Azure 활동 로그는 주로 Azure Resource Manager에서 발생하는 활동을 대상으로 하며 Classic/RDFE 모델을 사용하는 활동에는 사용하지 않습니다. 일부 Classic 리소스 유형(예: Microsoft.ClassicCompute)에는 Azure Resource Manager의  프록시 리소스 공급자가 있습니다. 사용자가 이러한 프록시 리소스 공급자를 사용하는 Azure Resource Manager를 통해 Classic 리소스 유형과 상호 작용하면 작업이 활동 로그에 표시됩니다. 사용자가 클래식 포털의 Classic 리소스 유형이나 Azure Resource Manager 프록시 외부의 Classic 리소스 유형과 상호 작용할 경우 사용자 작업은 클래식 포털에서만 액세스할 수 있는 작업 로그에만 기록됩니다.
+>
+>
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>활동 로그에서 수행할 수 있는 작업
 활동 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
@@ -45,7 +50,7 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 **로그 프로필** 은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.
 
 * 활동 로그를 보낼 위치(저장소 계정 또는 이벤트 허브)
-* 보낼 이벤트 범주(쓰기, 삭제, 작업)
+* 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 컨텍스트에서 "카테고리"의 의미는 활동 로그 이벤트에서 "카테고리" 속성 의미와 다릅니다. 로그 프로필의 "카테고리"는 작업 유형(쓰기, 삭제, 작업)을 나타내는 반면 활동 로그 이벤트의 "카테고리" 속성은 이벤트(관리, ServiceHealth, 경고 등)의 원본 또는 형식을 나타냅니다.*
 * 내보낼 하위 지역(위치)
 * 저장소 계정에 활동 로그를 보존할 기간 -&0;일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
@@ -239,6 +244,6 @@ azure insights logprofile delete --name my_log_profile
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

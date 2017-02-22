@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/22/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: c89ce056cb0fa84b2169df161660916d083bec3f
-ms.openlocfilehash: bcef9de167fa31001ee4086d7e5b85c2d8bc4613
+ms.sourcegitcommit: 2826f825b2d34005ce6e7142dd4371285a452ca8
+ms.openlocfilehash: bd1952281dde6f262848d1520995efdb131a3b38
 
 
 ---
 
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 OS 디스크 확장
-Azure에서 Linux VM(가상 컴퓨터)에서 OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 일반적으로 30GB입니다. [데이터 디스크를 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하여 추가 저장소 공간을 제공하고 OS 디스크를 확장할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Linux VM에 대한 OS 디스크를 확장하는 방법을 설명합니다.
+Azure에서 Linux VM(가상 컴퓨터)에서 OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 일반적으로 30GB입니다. [데이터 디스크를 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하여 추가 저장소 공간을 제공하고 OS 디스크를 확장할 수 있습니다. 이 문서에서는 Azure CLI와 함께 관리되지 않는 디스크를 사용하여 Linux VM에 대한 OS 디스크를 확장하는 방법을 설명합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -46,7 +46,7 @@ azure config mode arm
     > [!NOTE]
     > `azure vm stop`은 계산 리소스를 릴리스하지 않습니다. 계산 리소스를 릴리스하려면 `azure vm deallocate`을 사용합니다. VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다.
 
-2. `azure vm set` 명령을 사용하여 OS 디스크 크기를 업데이트합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`이 `50`GB가 되도록 없데이트합니다.
+2. `azure vm set` 명령을 사용하여 OS 관리되지 않는 디스크 크기를 업데이트합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`이 `50`GB가 되도록 업데이트합니다.
 
     ```azurecli
     azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50
@@ -72,6 +72,6 @@ azure config mode arm
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
+ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
+ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
 * 현재 인프라 및 응용 프로그램을 배포하는 스크립트를 자동화한 경우 마이그레이션을 위해 해당 스크립트를 사용하여 유사한 테스트 설정을 만들어봅니다. 또는 Azure 포털을 사용하여 샘플 환경을 설정할 수도 있습니다.
 
 > [!IMPORTANT]
-> ExpressRoute 게이트웨이 및 Application Gateway는 현재 클래식에서 Resource Manager로 마이그레이션할 수 없습니다. ExpressRoute 또는 Application 게이트웨이를 사용하여 클래식 가상 네트워크를 마이그레이션하려면 커밋 작업을 실행하여 네트워크를 이동하기 전에 게이트웨이를 제거합니다(ExpressRoute 또는 Application 게이트웨이를 삭제하지 않고 준비 단계를 실행할 수 있음). 마이그레이션을 완료한 후 Azure Resource Manager에서 게이트웨이를 다시 연결합니다.
+> Application Gateway는 현재 클래식에서 Resource Manager로 마이그레이션될 수 없습니다. Application Gateway를 사용하여 클래식 가상 네트워크를 마이그레이션하려면 커밋 작업을 실행하여 네트워크를 이동하기 전에 게이트웨이를 제거합니다(Application Gateway를 삭제하지 않고 준비 단계를 실행할 수 있음). 마이그레이션을 완료한 후 Azure Resource Manager에서 게이트웨이를 다시 연결합니다. 게이트웨이 및 ExpressRoute 회로가 같은 구독에 있는 경우에 ExpressRoute 게이트웨이를 마이그레이션하려면 지원에 문의해야 합니다. 다른 구독에서 ExpressRoute 회로에 연결하는 ExpressRoute 게이트웨이를 마이그레이션할 수 없습니다. 이러한 경우에 ExpressRoute 게이트웨이를 제거하고 가상 네트워크를 마이그레이션한 다음 게이트웨이를 다시 만듭니다.
 > 
 > 
 
@@ -274,6 +274,6 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

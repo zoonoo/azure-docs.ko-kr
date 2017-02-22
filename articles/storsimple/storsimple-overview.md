@@ -1,5 +1,5 @@
 ---
-title: "StorSimple이란? | Microsoft Docs"
+title: "StorSimple 8000 시리즈 솔루션 개요 | Microsoft Docs"
 description: "StorSimple 계층화, 장치, 가상 장치, 서비스, 저장소 관리에 대해 설명하고 StorSimple에서 사용하는 주요 용어를 소개합니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: 34b09279785d87f75d16e3baf320ffb66cf9b682
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 3575e4f22e17608de7f3b66e9dd577a1d4a4c148
 
 
 ---
@@ -32,9 +32,9 @@ StorSimple 업데이트 2를 사용하여 *로컬로 고정* 으로 적절한 �
 
 저장소 관리 외에도 StorSimple 데이터 보호 기능을 통해 주문형 백업 및 예약된 백업을 만든 다음 로컬로 또는 클라우드에 저장할 수 있습니다. 백업은 증분 스냅숏 형태로 생성되므로 빠르게 만들고 복원할 수 있습니다. 클라우드 스냅숏은 보조 저장소 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
 
-![동영상 아이콘](./media/storsimple-overview/video_icon.png)  Microsoft Azure StorSimple의 간단한 소개에 대한 동영상을 봅니다.
+![동영상 아이콘](./media/storsimple-overview/video_icon.png) Microsoft Azure StorSimple의 간단한 소개에 대한 동영상을 봅니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 > 
 > 
 
@@ -80,7 +80,7 @@ Microsoft Azure StorSimple 장치는 기본 저장소 및 그 곳에 저장된 �
 StorSimple 장치에 클러스터링 및 자동 장애 조치에 대한 지원 및 SSD 및 하드 디스크 드라이브 HDD가 포함됩니다. 공유 프로세서, 공유 저장소 및 미러링된 컨트롤러 두 개를 포함합니다. 각 컨트롤러는 다음을 제공합니다.
 
 * 호스트 컴퓨터에 연결
-* 로컬 영역 네트워크(LAN)에 연결하는데 최대 6개의 네트워크 포트
+* 로컬 영역 네트워크(LAN)에 연결하는데 최대&6;개의 네트워크 포트
 * 하드웨어 모니터링
 * 전원이 중단되는 경우 정보를 유지하는 비휘발성 임의 액세스 메모리(NVRAM)
 * 클러스터 인식 업데이트는 서비스 가용성에 영향을 주지 않거나 최소한의 영향을 주도록 장애 조치 클러스터의 서버의 소프트웨어 업데이트를 관리합니다.
@@ -241,7 +241,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
 | 일반 |DFSR |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |모든 버전 |
 | 일반 |인덱싱 |예* |계층화된 볼륨의 경우 메타데이터만 인덱싱만 지원됩니다(데이터 없음).<br>로컬 고정 볼륨의 경우 전체 인덱싱이 지원됩니다. |모든 버전 |
-| 일반 |바이러스 백신 |예* |계층화된 볼륨의 경우 열기 및 닫기 시 검색만 지원됩니다.<br>  로컬 고정 볼륨의 경우 전체 검색이 지원됩니다. |모든 버전 |
+| 일반 |바이러스 백신 |예* |계층화된 볼륨의 경우 열기 및 닫기 시 검색만 지원됩니다.<br> 로컬 고정 볼륨의 경우 전체 검색이 지원됩니다. |모든 버전 |
 
 *예&#42; - 솔루션 지침 및 제한 사항이 적용됩니다.*
 
@@ -310,6 +310,6 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

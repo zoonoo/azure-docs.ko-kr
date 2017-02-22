@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 기능이 있는 Windows 가상 컴퓨터 만들기 | Microsoft Docs"
+title: "Azure Virtual Machines에 모니터링 및 진단 추가 | Microsoft Docs"
 description: "Azure 리소스 관리자 템플릿을 사용하여 새로운 Windows 가상 컴퓨터와 Azure 진단 확장을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 1/23/2017
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: b84b4c0bd31d2e0bebafa2053a725e5e78bc3c9f
+ms.sourcegitcommit: e9258143cae9d9f8ba1f357617e2c45cf8487ab9
+ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
 
 
 ---
@@ -139,7 +139,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 
     "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 집계를 나타냅니다.
+MetricAggregation의 *PT1H* 및 *PT1M* 값은&1;분간의 집계와&1;시간의 집계를 나타냅니다.
 
 ## <a name="wadmetrics-tables-in-storage"></a>저장소의 WADMetrics 테이블
 위의 Metrics 구성은 다음과 같은 명명 규칙으로 진단 저장소 계정에 테이블을 생성합니다.
@@ -171,6 +171,6 @@ MetricAggregation의 *PT1H* 및 *PT1M* 값은 1분간의 집계와 1시간의 �
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

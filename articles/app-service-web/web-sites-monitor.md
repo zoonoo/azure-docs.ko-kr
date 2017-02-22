@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8f119626aff7a7826e61f4534de686d2c22ed5d7
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
 
 
 ---
@@ -152,7 +152,7 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 기본, 표준 또는 프리미엄 앱 서비스 계획에 호스팅된 앱 서비스 앱은 **자동 크기 조정**을 지원합니다. 이렇게 하면 앱 서비스 계획 메트릭을 모니터링하는 규칙을 구성하고 필요에 따라 추가 리소스를 제공하거나 응용 프로그램이 과도하게 프로비전될 때 비용을 절감해주는 인스턴스 수를 늘리거나 줄일 수 있습니다. [확장 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)에서 자동 크기 조정에 대해 자세히 알아볼 수 있습니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -171,6 +171,6 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

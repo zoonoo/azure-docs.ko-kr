@@ -1,21 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Windows Virtual Machines 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Windows 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 설명서를 통해 클라우드에서 가상 컴퓨터 컴퓨팅 환경을 계획, 배포 및 관리할 수 있습니다."
-title: "Windows용 Azure Virtual Machines 설명서, 자습서 및 API 참조 | Microsoft Docs"
-services: virtual-machines
+services: virtual-machines\windows
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines
+ms.service: virtual-machines\windows
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
-ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
-
+ms.sourcegitcommit: 90d760207ee6b6e0d8c15ff597bf53512f071ef0
+ms.openlocfilehash: ace8475bd9a75eb92a3b5c084ee27b9813f13bfb
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
@@ -165,6 +164,6 @@ Windows 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 자습�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

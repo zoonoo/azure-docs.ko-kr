@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager에서 리소스 연결 | Microsoft Docs"
+title: "Azure 솔루션에서 관련 리소스 연결 | Microsoft Docs"
 description: "Azure Resource Manager에서 다른 리소스 그룹의 관련 리소스 간에 링크를 만듭니다."
 services: azure-resource-manager
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 87d19e4680a6da6be6da55eeab80ee7739361f8c
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2750e971ae281e498e9c505e1cd2790cefbfbc78
 
 
 ---
-# <a name="linking-resources-in-azure-resource-manager"></a>Azure 리소스 관리자에서 리소스 연결
+# <a name="link-related-resources-from-different-resource-groups"></a>다른 리소스 그룹의 관련 리소스 연결
 배포 중 다른 리소스에 종속적인 것으로 리소스를 표시할 수 있지만 배포 시 라이프사이클은 종료됩니다. 배포 후에는 종속 리소스 간에 관계가 식별되지 않습니다. Resource Manager는 리소스 간에 지속적인 관계를 설정하기 위해 리소스 연결이라는 기능을 제공합니다.
 
 리소스 연결을 통해 리소스 그룹에 걸쳐 있는 관계를 문서화할 수 있습니다. 예를 들어 자체 수명 주기를 갖는 데이터베이스를 하나의 리소스 그룹에 두고 다른 주기를 갖는 앱을 다른 리소스 그룹에 두는 것이 일반적입니다. 응용 프로그램은 응용 프로그램과 데이터베이스 간 연결을 표시하도록 데이터베이스에 연결합니다. 
@@ -76,6 +76,6 @@ properties 요소는 두 번째 리소스에 대한 식별자를 포함합니다
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

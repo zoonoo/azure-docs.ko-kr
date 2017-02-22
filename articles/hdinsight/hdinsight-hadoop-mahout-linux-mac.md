@@ -1,6 +1,6 @@
 ---
-title: "Mahout 및 Linux 기반 HDInsight를 사용하여 권장 생성 | Microsoft 문서"
-description: "Apache Mahout 기계 학습 라이브러리를 사용하여 Linux 기반 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다."
+title: "Mahout 및 HDInsight(SSH)를 사용하여 추천 생성 | Microsoft Docs"
+description: "Apache Mahout 기계 학습 라이브러리를 사용하여 HDInsight(Hadoop)에서 영화 추천을 생성하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 2cd1c44552183b3167ea1cfec6b2c1d7c6b3fd0c
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: be8146ae3dd34f4c8d5e02b06fd1b1f8d5d63dc1
 
 
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight"></a>HDInsight의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -29,12 +29,12 @@ Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 �
 
 Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 권장 엔진을 사용하여 친구가 본 영화를 기준으로 영화 권장을 생성합니다.
 
-> [!NOTE]
-> 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Hadoop가 필요합니다. Windows 기반 클러스터와 함께 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Windows 기반 Hadoop로 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)
-
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 클러스터의 Linux 기반 Hadoop HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]를 참조하세요.
+* Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="mahout-versioning"></a>Mahout 버전 관리
 
@@ -48,9 +48,9 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 * **동시 발생**: Joe, Alice 및 Bob은 모두 *스타워즈*, *제국의 역습* 및 *제다이의 귀환*을 좋아합니다. Mahout은 이러한 영화 중 하나를 좋아하면서 다른 두 개도 좋아하는 사용자를 확인합니다.
 
-* **동시 발생**: Bob 및 Alice는 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*도 좋아합니다. Mahout은 이전의 3개 영화를 좋아했던 사용자가 이 3개 영화도 좋아하는지 확인합니다.
+* **동시 발생**: Bob 및 Alice는 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*도 좋아합니다. Mahout은 이전의&3;개 영화를 좋아했던 사용자가 이&3;개 영화도 좋아하는지 확인합니다.
 
-* **유사성 추천**: Joe가 첫 3개 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*를 추천합니다.
+* **유사성 추천**: Joe가 첫&3;개 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*를 추천합니다.
 
 ### <a name="understanding-the-data"></a>데이터 이해
 
@@ -270,6 +270,6 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

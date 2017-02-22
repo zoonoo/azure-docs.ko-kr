@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2016
+ms.date: 12/14/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09c1df79e9a4af666cdd46da115b9af78dd27d72
+ms.sourcegitcommit: e6033f089152c27713f98f12634c53012f5ff070
+ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
 
 
 ---
@@ -26,7 +26,7 @@ Azure 자동화에서 사용자 고유의 Runbook 및 모듈을 만드는 대신
 Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [PowerShell 갤러리](#modules-in-powerShell-gallery)에서 가져올 수 있습니다.  또한 자신이 개발한 시나리오를 공유하여 커뮤니티에 기여할 수 있습니다.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbook 갤러리의 Runbook
-[Runbook 갤러리](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)는 Azure 자동화로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](http://gallery.technet.microsoft.com/)에서 호스팅되는 갤러리로부터 Runbook을 다운로드하거나, Azure 클래식 포털 또는 Azure 포털의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
+[Runbook 갤러리](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)는 Azure 자동화로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/site/upload)에서 호스팅되는 갤러리로부터 Runbook을 다운로드하거나, Azure 클래식 포털 또는 Azure 포털의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
 
 Azure 클래식 포털 또는 Azure 포털을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있습니다. Windows PowerShell을 사용하여 이 함수를 수행할 수 없습니다.
 
@@ -125,6 +125,6 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

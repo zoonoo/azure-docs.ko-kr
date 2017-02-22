@@ -12,16 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 702f2d8b936e52a49afc6000d2018f02c18e448a
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
 
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 끝점
-## <a name="list-of-iot-hub-endpoints"></a>IoT Hub 끝점 목록
+## <a name="list-of-built-in-iot-hub-endpoints"></a>기본 제공 IoT Hub 끝점 목록
 Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기능을 노출합니다. 아래 다이어그램에서는 IoT Hub가 노출하는 다양한 끝점을 보여줍니다.
 
 ![IoT Hub 끝점][img-endpoints]
@@ -45,7 +45,7 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
     장치 쌍 및 메서드 끝점은 [MQTT v3.1.1][lnk-mqtt]을 사용하는 경우에만 제공됩니다.
 * **서비스 끝점**. 각 IoT Hub는 솔루션 백 엔드에서 장치와 통신하는 데 사용할 수 있는 끝점의 집합을 노출합니다. 이러한 끝점은 현재 HTTP 1.1을 통해 공개되는 메서드 호출 끝점은 제외하고는 [AMQP][lnk-amqp] 프로토콜을 사용하여 공개됩니다.
   
-  * *장치-클라우드 메시지 받기*. 이 끝점은 [Azure Event Hubs][lnk-event-hubs]와 호환됩니다. 백 엔드 서비스는 이 끝점을 사용하여 장치에서 보낸 모든 [장치-클라우드 메시지][lnk-d2c]를 읽을 수 있습니다.
+  * *장치-클라우드 메시지 받기*. 이 끝점은 [Azure Event Hubs][lnk-event-hubs]와 호환됩니다. 백 엔드 서비스는 이 끝점을 사용하여 장치에서 보낸 모든 [장치-클라우드 메시지][lnk-d2c]를 읽을 수 있습니다. 이 기본 제공 끝점 외에도 IoT Hub에 사용자 지정 끝점을 만들 수 있습니다.
   * *클라우드-장치 메시지를 보내고 배달 승인 받기*. 이러한 끝점을 사용하면 솔루션 백 엔드에서 신뢰할 수 있는 [클라우드-장치 메시지][lnk-c2d]를 전송하고 해당 전달 또는 만료 승인을 수신할 수 있습니다.
   * *파일 알림을 받습니다*. 이 메시징 끝점을 사용하면 장치가 성공적으로 파일을 업로드하는 경우 알림을 받을 수 있습니다. 
   * *직접 메서드 호출*. 이 끝점을 사용하면 백 엔드 서비스가 장치에서 [직접 메서드][lnk-methods]를 호출할 수 있습니다.
@@ -54,10 +54,25 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 마지막으로 모든 IoT Hub 끝점이 [TLS][lnk-tls] 프로토콜을 사용하고 어떤 끝점도 암호화되지/보안되지 않은 채널에 공개되지 않는다는 점에 유의합니다.
 
+## <a name="custom-endpoints"></a>사용자 지정 끝점
+구독의 기존 Azure 서비스를 IoT Hub에 연결하여 메시지 라우팅을 위한 끝점 역할을 할 수 있습니다. 이러한 끝점은 서비스 끝점 역할을 하며 메시지 경로에 대한 싱크로 사용됩니다. 장치는 추가 끝점에 직접 쓸 수 없습니다. 메시지 경로에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기][lnk-devguide-messaging]의 개발자 가이드 항목을 참조하세요.
+
+IoT Hub는 현재 추가 끝점으로 다음과 같은 Azure 서비스를 지원합니다.
+
+* Event Hubs
+* 서비스 버스 큐
+* 서비스 버스 토픽
+
+IoT Hub는 메시지 라우팅을 작동하기 위해 이러한 서비스 끝점에 대한 쓰기 액세스가 필요합니다. Azure Portal을 통해 끝점을 구성하는 경우 필요한 권한이 추가됩니다. 예상된 처리량을 지원하도록 서비스를 구성해야 합니다. 먼저 IoT 솔루션을 구성한 다음 실제 부하에 필요한 부분을 수정할 때 추가 끝점을 모니터링해야 합니다.
+
+메시지가 동일한 끝점을 가리키는 여러 경로와 일치하는 경우 IoT Hub는 메시지를 해당 끝점에 한 번만 전달합니다. 따라서 Service Bus 큐 또는 항목에 대해 중복 제거를 구성할 필요가 없습니다. 분할된 큐에서 파티션 선호도는 메시지 순서를 보장합니다. 세션이 설정된 큐는 끝점으로 지원되지 않습니다. 중복 제거가 설정된 분할된 큐 및 항목도 지원되지 않습니다.
+
+추가할 수 있는 끝점의 수에 대한 제한은 [할당량 및 제한][lnk-devguide-quotas]을 참조하세요.
+
 ## <a name="field-gateways"></a>현장 게이트웨이
 IoT 솔루션에서 *필드 게이트웨이*는 장치와 IoT Hub 끝점 사이에 위치하며 일반적으로 장치 가까이에 위치합니다. 장치는 해당 장치에서 지원되는 프로토콜을 사용하여 필드 게이트웨이와 직접 통신합니다. 필드 게이트웨이는 IoT Hub에서 지원하는 프로토콜을 사용하여 IoT Hub 끝점에 연결됩니다. 필드 게이트웨이는 게이트웨이에 의도된 종단 간 시나리오를 완수하는 소프트웨어를 실행하는 매우 특수화된 하드웨어나 저출력 컴퓨터일 수 있습니다.
 
-[Azure IoT Gateway SDK][lnk-gateway-sdk]를 사용하여 필드 게이트웨이를 구현할 수 있습니다. SDK는 여러 장치에서 IoT Hub로 동일한 연결을 하는 통신을 다중 송신할 수 있는 기능과 같은 특정한 기능을 제공합니다.
+[Azure IoT Gateway SDK][lnk-gateway-sdk]를 사용하여 필드 게이트웨이를 구현할 수 있습니다. SDK는 여러 장치에서 동일한 IoT Hub 연결로 통신을 다중 송신할 수 있는 기능과 같은 특정한 기능을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
@@ -93,9 +108,10 @@ IoT 솔루션에서 *필드 게이트웨이*는 장치와 IoT Hub 끝점 사이�
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

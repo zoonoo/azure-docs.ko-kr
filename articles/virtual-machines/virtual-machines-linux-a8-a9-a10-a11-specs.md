@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: e42736725bb3636115a6c81aea1f929612a351fe
+ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
+ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms"></a>H 시리즈 및 계산 집약적인 A 시리즈 VM 정보
-여기에는 *계산 집약적* 인스턴스로 알려진 최신 Azure H 시리즈 및 이전 A8, A9, A10 및 A11 크기 사용에 대한 일부 고려 사항과 배경 정보가 나와 있습니다. 이 문서는 Linux VM에 대해 이러한 크기를 사용하는 것에 중점을 둡니다. 이 문서는 [Windows VM](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에도 적용됩니다.
+여기에는 *계산 집약적* 인스턴스로 알려진 최신 Azure H 시리즈 및 이전 A8, A9, A10 및 A11 크기 사용에 대한 일부 고려 사항과 배경 정보가 나와 있습니다. 이 문서는 Linux VM에 대해 이러한 크기를 사용하는 것에 중점을 둡니다. 이 문서는 [Windows VM](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에도 적용됩니다. 
+
+기본 사양의 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
@@ -49,7 +51,7 @@ ms.openlocfilehash: e42736725bb3636115a6c81aea1f929612a351fe
   * **HPC용 SLES 12 SP1 이미지** - 다음 명령을 실행하여 배포된 Intel MPI 패키지를 VM에 설치합니다.
     
           sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-  * **HPC용 SLES 12 이미지** - 별도로 등록한 후 Intel MPI를 다운로드하여 설치해야 합니다. [Intel MPI Library 설치 가이드](https://software.intel.com/sites/default/files/managed/7c/2c/intelmpi-2017-installguide-linux.pdf)를 참조하세요.
+  * **HPC용 SLES 12 이미지** - 별도로 등록한 후 Intel MPI를 다운로드하여 설치해야 합니다. 지침에 대해서는 [Intel MPI Library 설명서 ](https://software.intel.com/en-us/intel-mpi-library/documentation)를 참조하세요.
   * **CentOS 기반 HPC 이미지** - Intel MPI 5.1은 미리 설치되어 있습니다.  
     
     클러스터된 VM에서 MPI 작업을 실행하기 위해 추가 시스템 구성이 필요합니다. 예를 들어 VM 클러스터에서 계산 노드 간에 트러스트를 설정해야 합니다. 일반적인 설정에 대해서는 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
@@ -130,6 +132,6 @@ done
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: df275d6ee1aed7e44eb26f999a068b6b56ca918f
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: 697a99ec828984d4e6f6e3dc446bc6dc8377cf57
 
 
 ---
@@ -39,10 +39,10 @@ Azure에는 현재 Azure SQL server 작업 부하를 호스팅하기 위한 두 
 ## <a name="a-idodbcadata-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>데이터 액세스 기술: ODBC 및 OLE DB
 Azure SQL DB에 연결하는 것은 다르지 않고 데이터베이스에 연결하는 방법에는 ODBC(Open Database connectivity) 및 OLE DB(개체 연결 및 포함 데이터베이스)의 두 가지가 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다. 
 
-## <a name="a-idcreateastep-1-creating-your-azure-sql-database"></a><a id="Create">1단계: Azure SQL Database 만들기</a>
-샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md) 를 참조하세요.  또는 [짧은 2분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
+## <a name="a-idcreateastep-1--creating-your-azure-sql-database"></a><a id="Create">1단계: Azure SQL Database 만들기</a>
+샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md) 를 참조하세요.  또는 [짧은&2;분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
 
-## <a name="a-idconnectionstringastep-2-get-connection-string"></a><a id="ConnectionString"></a>2단계: 연결 문자열 가져오기
+## <a name="a-idconnectionstringastep-2--get-connection-string"></a><a id="ConnectionString"></a>2단계: 연결 문자열 가져오기
 Azure SQL Database를 프로비전한 후 연결 정보를 확인하고 방화벽 액세스에 대한 클라이언트 IP를 추가하려면 다음 단계를 수행해야 합니다. 
 
 [Azure Portal](https://portal.azure.com/)에서, 데이터베이스에 대한 개요 섹션의 일부로 나열된 **데이터베이스 연결 문자열 표시**를 사용하여 Azure SQL Database ODBC 연결 문자열로 이동합니다. 
@@ -53,7 +53,7 @@ Azure SQL Database를 프로비전한 후 연결 정보를 확인하고 방화�
 
 **ODBC(Node.js 포함) [SQL 인증]** 문자열의 내용을 복사합니다. 이 문자열은 C++ ODBC 명령줄 인터프리터에서 연결하는 데 사용합니다. 이 문자열은 드라이버, 서버 및 다른 데이터베이스 연결 매개 변수 등의 세부 정보를 제공합니다. 
 
-## <a name="a-idfirewallastep-3-add-your-ip-to-the-firewall"></a><a id="Firewall"></a>3단계: 방화벽에 IP 추가
+## <a name="a-idfirewallastep-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>3단계: 방화벽에 IP 추가
 Database 서버에 대한 방화벽 섹션으로 이동하고 [이 단계를 사용하여 방화벽에 클라이언트 IP](sql-database-configure-firewall-settings.md)를 추가하여 다음과 같이 성공적인 연결을 설정하도록 합니다. 
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
@@ -128,8 +128,8 @@ github에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 * [ODBC C++ Windows 샘플](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), Azure SQL에 연결하려면 Linux C++ ODBC 샘플 다운로드
 
 ## <a name="next-steps"></a>다음 단계
-*  [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
-* [ODBC API 참조](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)에 대한 자세한 정보
+* [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
+* [ODBC API 참조](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
@@ -138,6 +138,6 @@ github에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

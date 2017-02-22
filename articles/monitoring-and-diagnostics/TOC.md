@@ -23,7 +23,7 @@
 ### [자동 크기 조정에 대한 모범 사례](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [자동 크기 조정에 대한 공통 메트릭](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Resource Manager 템플릿을 사용하여 VM Scale Sets 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [자동 크기 조정의 웹후크 및 메일 알림 구성](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## 활동 로그 관리
 ### [활동 로그의 이벤트 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## REST API 사용
 ### [REST API를 사용하여 연습](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST (영문)](/rest/api/monitor/)
+## [Azure 진단 스키마](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [진단 스키마 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [진단 스키마 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [진단 스키마 1.3 ~ 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # 리소스
 ## [PowerShell 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI 2.0(미리보기) 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Azure CLI 1.0 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

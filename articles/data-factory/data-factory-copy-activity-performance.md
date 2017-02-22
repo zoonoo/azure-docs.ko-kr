@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 4cc2906d19562fc420d92ea0f3097a972acc45b9
-ms.openlocfilehash: dfacb95f816c45413b292c93c13d0e37b7ce517e
+ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
+ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
 
 
 ---
@@ -156,12 +156,13 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 **cloudDataMovementUnits** 속성에 **허용되는 값**은 1(기본값), 2, 4, 8입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다.
 
 > [!NOTE]
-> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 현재는 **Blob Storage/Data Lake Store/Amazon S3에서 Blob Storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 8 이상의 설정이 작동하며, 파일 크기는 개별적으로 16MB 이상입니다.
+> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 현재는 **Blob storage/Data Lake Store/Amazon S3/cloud FTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 8 이상의 설정이 작동하며, 파일 크기는 개별적으로 16MB 이상입니다.
 >
 >
 
 이러한&2;가지 속성을 개선하고 데이터 이동 처리량을 향상시키려면 [샘플 사용 사례](#case-study-use-parallel-copy)를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.  
 
+### <a name="billing-impact"></a>청구 영향
 복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 동일한 상태로 유지됩니다. 예를 들어&4;개의 클라우드 단위를 사용합니다. 첫 번째 클라우드 단위 10분, 두 번째 10분, 세 번째 5분, 네 번째 5분으로 모두 하나의 복사 작업 실행으로 수행됩니다. 총 복사(데이터 이동) 시간(10 + 10 + 5 + 5 = 30분)에 대한 요금이 청구됩니다. **parallelCopies**의 사용은 청구에 영향을 주지 않습니다.
 
 ## <a name="staged-copy"></a>준비된 복사
@@ -410,6 +411,6 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -60,6 +60,6 @@ Media Services는 다중 비트 전송률 MP4를 스트리밍 형식(MPEG DASH, 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

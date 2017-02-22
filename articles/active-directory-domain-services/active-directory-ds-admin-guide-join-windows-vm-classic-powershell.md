@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
+ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
 
 
 ---
@@ -119,7 +119,7 @@ VM에 대한 서브넷을 설정합니다.
 
 * Windows Server 2012 R2 Datacenter 이미지를 사용함
 * 매우 작은 가상 컴퓨터임
-* 이름이 contoso-test임
+* 이름이 Contoso100-test임
 * contoso100 관리되는 도메인에 자동으로 가입된 도메인임
 * 관리되는 도메인과 동일한 가상 네트워크에 추가됨
 
@@ -160,6 +160,6 @@ Windows 가상 컴퓨터를 만들고 자동으로 Azure AD 도메인 서비스 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

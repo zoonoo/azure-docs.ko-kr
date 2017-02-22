@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -47,7 +47,7 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 * SQL 데이터베이스 기능의 [GA(General Availability) 공지](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) 에 대해 필터링되었습니다.
 
 > [!TIP]
-> 기존 데이터베이스와 Azure SQL Database와의 호환성을 테스트하려면 [Azure SQL Database 호환성 유효성 검사](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)를 참조하세요.
+> 기존 데이터베이스와 Azure SQL Database와의 호환성을 테스트하려면 [SQL Server 데이터베이스를 Azure로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 >
 
 | **기능** | **SQL Server** | **Azure SQL Database** | 
@@ -161,6 +161,6 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

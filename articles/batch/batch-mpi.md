@@ -1,5 +1,5 @@
 ---
-title: "다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI 응용 프로그램 실행 | Microsoft Docs"
+title: "다중 인스턴스 작업을 사용하여 MPI 응용 프로그램 실행 - Azure Batch | Microsoft Docs"
 description: "Azure 배치에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 응용 프로그램을 실행하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 90e41fc2a2a0109aa69bfd0d826444b6d3d559ea
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: fc681f21925464d37c43a7fae4f6deaf75e357b2
 
 
 ---
@@ -369,6 +369,6 @@ Sample complete, hit ENTER to exit...
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

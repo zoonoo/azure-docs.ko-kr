@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Resource Manager PowerShell을 사용하
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 6f061810b865e7855877bf08b02e758351f3e63c
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 
 
 ---
@@ -30,8 +30,6 @@ Application Gateway가 지원하는 또 다른 기능은 특정 SSL 프로토콜
 
 > [!NOTE]
 > SSL 2.0 및 SSL 3.0은 기본적으로 사용할 수 없도록 설정되며 사용하도록 설정할 수 없습니다. 보안되지 않은 것으로 간주되며 Application Gateway와 함께 사용할 수 없습니다.
-> 
-> 
 
 ![시나리오 이미지][scenario]
 
@@ -135,8 +133,6 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 > [!IMPORTANT]
 > Application Gateway는 정의된 도메인 레이블로 만든 공용 IP 주소의 사용을 지원하지 않습니다. 도메인 레이블이 동적으로 생성된 공용 IP 주소만 지원됩니다. Application Gateway에 친숙한 dns 이름이 필요한 경우 cname 레코드를 별칭으로 사용하는 것이 좋습니다.
-> 
-> 
 
 ## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
 
@@ -167,9 +163,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendI
 ```
 
 > [!NOTE]
-> 정규화된 도메인 이름(FQDN) 역시 -BackendFqdns 스위치를 사용하여 백 엔드 서버의 IP 주소를 대체할 수 있는 유효한 값입니다.
-> 
-> 
+> 정규화된 도메인 이름(FQDN) 역시 -BackendFqdns 스위치를 사용하여 백 엔드 서버의 IP 주소를 대체할 수 있는 유효한 값입니다. 
 
 ### <a name="step-4"></a>4단계
 
@@ -189,8 +183,6 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 > [!NOTE]
 > 이 샘플은 SSL 연결에 사용된 인증서를 구성합니다. 인증서는 .pfx 형식으로 4~12자 사이의 암호이어야 합니다.
-> 
-> 
 
 ### <a name="step-6"></a>6단계
 
@@ -206,8 +198,6 @@ ssl이 활성화된 백 엔드 풀 리소스에 사용할 인증서를 업로드
 
 > [!NOTE]
 > 기본 프로브는 공용 키를 백엔드의 IP 주소에 바인딩된 **기본** SSL에서 가져오고 프로브가 받는 공용 키 값과 여기서 사용자가 제공한 공용 키 값을 비교합니다. 검색된 공용 키는 사용자가 호스트 헤더 및 SNI를 사용하는 **경우** 트래픽이 이동하는 대상 사이트에 반드시 존재하는 것은 아닙니다. 확실하지 않은 경우 백엔드에서 https://127.0.0.1/을 방문하여 **기본** SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. 호스트 헤더 및 HTTPS의 SNI를 사용하고, 수동 브라우저 요청에서 https://127.0.0.1/로 응답 및 인증서를 받지 않은 경우 백엔드에서 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
-> 
-> 
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -215,8 +205,6 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitel
 
 > [!NOTE]
 > 이 단계에서 제공하는 인증서는 백 엔드에 있는 pfx 인증서의 공개 키이어야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 .CER 서식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 Application Gateway를 통해 백 엔드를 허용 목록에 추가합니다.
-> 
-> 
 
 ### <a name="step-8"></a>8단계
 
@@ -244,8 +232,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > 테스트 목적으로 인스턴스 수 1을 선택할 수 있습니다. 그러나 두 개 미만의 인스턴스 수는 SLA에서 다루지 않으므로 권장되지 않는다는 점을 알아야 합니다. 작은 게이트웨이는 개발 테스트용이며 프로덕션용으로는 사용되지 않습니다.
-> 
-> 
 
 ### <a name="step-11"></a>11단계
 
@@ -331,12 +317,12 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
- [웹 응용 프로그램 방화벽 개요](application-gateway-webapplicationfirewall-overview.md)
+[웹 응용 프로그램 방화벽 개요](application-gateway-webapplicationfirewall-overview.md)
 
 [scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

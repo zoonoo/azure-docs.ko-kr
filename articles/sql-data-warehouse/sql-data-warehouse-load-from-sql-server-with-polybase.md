@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f6feb844774fba00e3c46438f686e61b52d03d3
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
 * 데이터를 정의하는 데이터베이스 개체 만들기
 * 데이터를 로드하는 T-SQL 쿼리 실행
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
 
 * SQL 데이터 웨어하우스 데이터베이스
 * 표준 로컬 중복 저장소(표준-LRS), 표준 지역 중복 저장소(표준-GRS) 또는 표준 읽기 액세스 지역 중복 저장소(표준-RAGRS) 유형의 Azure 저장소 계정
-* AzCopy 명령줄 유틸리티. Microsoft Azure Storage 도구와 함께 설치되는 [AzCopy 최신 버전][AzCopy 최신 버전]을 다운로드하여 설치합니다.
+* AzCopy 명령줄 유틸리티. Microsoft Azure Storage 도구와 함께 설치되는 [AzCopy 최신 버전][latest version of AzCopy]을 다운로드하여 설치합니다.
   
     ![Azure 저장소 도구](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -106,7 +106,7 @@ Azure 저장소 키를 찾으려면:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
- [AzCopy 명령줄 유틸리티 시작][AzCopy 최신 버전]을 선택합니다.
+[AzCopy 명령줄 유틸리티 시작][latest version of AzCopy]을 참조하세요.
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Blob 저장소 컨테이너 탐색
 Blob 저장소에 업로드한 파일을 보려면:
@@ -126,11 +126,11 @@ PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소의 데이터�
 
 이 단계의 예제는 다음 Transact-SQL 문을 사용하여 외부 테이블을 만듭니다.
 
-* [마스터 키 만들기(Transact-SQL)][마스터 키 만들기(Transact-SQL)]: 데이터베이스 범위 자격 증명의 암호를 암호화합니다.
-* [데이터베이스 범위 자격 증명 만들기(Transact-SQL)][데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: Azure 저장소 계정에 대한 인증 정보를 지정합니다.
-* [외부 데이터 원본 만들기(Transact-SQL)][외부 데이터 원본 만들기(Transact-SQL)]: Azure Blob 저장소의 위치를 지정합니다.
-* [외부 파일 형식 만들기(Transact-SQL)][외부 파일 형식 만들기(Transact-SQL)]: 데이터 형식을 지정합니다.
-* [외부 테이블 만들기(Transact-SQL)][외부 테이블 만들기(Transact-SQL)]: 테이블 정의 및 데이터의 위치를 지정합니다.
+* [마스터 키 만들기(Transact-SQL)][Create Master Key (Transact-SQL)]: 데이터베이스 범위 자격 증명의 암호를 암호화합니다.
+* [데이터베이스 범위 자격 증명 만들기(Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure Storage 계정에 대한 인증 정보를 지정합니다.
+* [외부 데이터 원본 만들기(Transact-SQL)][Create External Data Source (Transact-SQL)]: Azure Blob Storage의 위치를 지정합니다.
+* [외부 파일 형식 만들기(Transact-SQL)][Create External File Format (Transact-SQL)]: 데이터의 형식을 지정합니다.
+* [외부 테이블 만들기(Transact-SQL)][Create External Table (Transact-SQL)]: 테이블 정의 및 데이터의 위치를 지정합니다.
 
 SQL 데이터 웨어하우스 데이터베이스에 대해 이 쿼리를 실행합니다. Azure Blob 저장소의 샘플 데이터 DimDate2.txt를 가리키는 dbo 스키마에 DimDate2External이라는 이름의 외부 테이블이 생성됩니다.
 
@@ -210,8 +210,8 @@ Visual Studio의 SQL Server 개체 탐색기에 외부 파일 형식, 외부 데
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>3단계: SQL 데이터 웨어하우스에 데이터 로드
 외부 테이블이 생성되면, 새 테이블에 데이터를 로드하거나 기존 테이블에 데이터를 삽입할 수 있습니다.
 
-* 새 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT(Transact-SQL)] 문을 실행합니다. 새 테이블에는 쿼리에 명명된 열이 포함됩니다. 열의 데이터 형식은 외부 테이블 정의에 있는 데이터 형식과 일치합니다.
-* 기존 테이블에 데이터를 로드하려면 [INSERT...SELECT(Transact-SQL)][INSERT...SELECT(Transact-SQL)] 문을 사용합니다.
+* 새 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 실행합니다. 새 테이블에는 쿼리에 명명된 열이 포함됩니다. 열의 데이터 형식은 외부 테이블 정의에 있는 데이터 형식과 일치합니다.
+* 기존 테이블에 데이터를 로드하려면 [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] 문을 사용합니다.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -237,45 +237,45 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-자세한 내용은 [통계][통계]를 참조하세요.  
+자세한 내용은 [통계][Statistics]를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
-PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적인 내용은 [PolyBase 가이드][PolyBase 가이드]를 참조하세요.
+PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적인 내용은 [PolyBase 가이드][PolyBase guide]를 참조하세요.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[SQL Data Warehouse의 PolyBase 자습서]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[bcp를 사용하여 데이터 로드]: ./sql-data-warehouse-load-with-bcp.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[PolyBase 가이드]: ./sql-data-warehouse-load-polybase-guide.md
-[AzCopy 최신 버전]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[지원되는 원본/싱크]: https://msdn.microsoft.com/library/dn894007.aspx
-[복사 작업]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server 대상 어댑터]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[외부 데이터 원본 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
-[외부 파일 형식 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
-[외부 테이블 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[외부 데이터 원본 삭제(Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
-[외부 파일 형식 삭제(Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
-[외부 테이블 삭제(Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[선택한 테이블 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
-[삽입...선택(Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
-[마스터 키 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
-[자격 증명 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
-[데이터베이스 범위 자격 증명 만들기(Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
-[자격 증명 삭제(Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

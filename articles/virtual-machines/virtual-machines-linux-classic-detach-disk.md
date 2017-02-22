@@ -1,5 +1,5 @@
 ---
-title: "Linux VM에서 디스크 분리 | Microsoft Docs"
+title: "Azure의 Linux VM에서 디스크 분리 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에서 데이터 디스크를 분리하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f556fd0318accc19f0fa56fa7f2a8716ee6f1c02
-ms.openlocfilehash: 74925fe82d7f05799b7e850eb2807a7d4d7197a1
+ms.sourcegitcommit: 9bb7878836c0444d3ccc058fd89b8bbd9f6e255a
+ms.openlocfilehash: 3ba234eca45e643a235abf120efc6d8f82af461f
 
 
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 디스크를 분리하는 방법
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -30,11 +31,11 @@ ms.openlocfilehash: 74925fe82d7f05799b7e850eb2807a7d4d7197a1
 다음 문서에서 Linux VM을 사용하는 방법을 읽어볼 수 있습니다.
 
 * [Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [클래식 배포 모델에서 Azure CLI 사용](../virtual-machines-command-line-tools.md)
+* [클래식 배포 모델에서 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

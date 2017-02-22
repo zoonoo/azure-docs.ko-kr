@@ -1,5 +1,5 @@
 ---
-title: "IP 주소(기본) | Microsoft Docs"
+title: "Azure의 IP 주소 유형(클래식) | Microsoft Docs"
 description: "Azure에서 공용 및 개인 IP 주소(기본)에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c164ac86c404f11a4bc77bc9346ad6fc45e0a7
+ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
+ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
 
 
 ---
-# <a name="ip-addresses-classic-in-azure"></a>Azure의 IP 주소(기본)
+# <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure의 IP 주소 유형 및 할당 방법
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
 
 공용 IP 주소는 Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
@@ -182,6 +182,6 @@ Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

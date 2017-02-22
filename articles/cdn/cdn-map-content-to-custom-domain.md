@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법 | Microsoft Docs"
-description: "이 항목에서는 CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법을 설명합니다."
+title: "Azure CDN 콘텐츠를 사용자 지정 도메인 매핑 | Microsoft Docs"
+description: "Azure CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Azure CDN 콘텐츠를 사용자 지정 도메인에 매핑
 azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 대한 URL에 고유한 도메인 이름을 사용하려면 사용자 지정 도메인을 CDN 끝점에 매핑할 수 있습니다.
 
 사용자 지정 도메인을 CDN 끝점에 매핑하는 두 가지 방법이 있습니다.
@@ -84,6 +84,6 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

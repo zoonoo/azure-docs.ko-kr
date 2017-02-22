@@ -1,5 +1,5 @@
 ---
-title: "Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리 | Microsoft Docs"
+title: "Azure Application Insights에서 Stream Analytics를 사용하여 내보내기 | Microsoft Docs"
 description: "Stream Analytics를 사용하면 Application Insights에서 내보내는 데이터를 지속적으로 변환, 필터링 및 라우팅할 수 있습니다."
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6fb4cdbbe8c334245517f2df0292ca172af5c7b
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
 
 
 ---
@@ -135,7 +135,7 @@ ms.openlocfilehash: e6fb4cdbbe8c334245517f2df0292ca172af5c7b
 
 **회사 또는 학교 계정** 을 제공하여 스트림 분석에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
 
-![이름 3개를 생성합니다.](./media/app-insights-export-stream-analytics/170.png)
+![이름&3;개를 생성합니다.](./media/app-insights-export-stream-analytics/170.png)
 
 ## <a name="set-the-query"></a>쿼리 설정
 쿼리는 입력에서 출력으로 번역을 제어합니다.
@@ -230,7 +230,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 ## <a name="video"></a>비디오
 Noam Ben Zeev에서는 Stream Analytics를 사용하여 내보낸 데이터를 처리하는 방법을 보여 줍니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Export-to-Power-BI-from-Application-Insights/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
 > 
 
@@ -243,6 +243,6 @@ Noam Ben Zeev에서는 Stream Analytics를 사용하여 내보낸 데이터를 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

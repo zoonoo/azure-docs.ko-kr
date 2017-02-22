@@ -19,10 +19,6 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [제품 비교 모니터링](operations-management-suite-monitoring-product-comparison.md)
 ### [경고 관리](operations-management-suite-monitoring-alerts.md)
-## 관리
-### [계획 및 배포](operations-management-suite-solutions-creating.md)
-### [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
-### [뷰](operations-management-suite-solutions-resources-views.md)
 ## 자동화
 ### [Azure Automation 개요](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 백업
@@ -35,6 +31,11 @@
 ### [맬웨어 평가](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [시스템 업데이트 평가](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [보안 제품 연결](oms-security-connect-products.md)
+## 솔루션 만들기
+### [관리 솔루션](operations-management-suite-solutions-creating.md)
+### [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
+### [로그 검색 및 경고](operations-management-suite-solutions-resources-searches-alerts.md)
+### [뷰](operations-management-suite-solutions-resources-views.md)
 ## [OMS와 통합](operations-management-suite-integration.md)
 
 
@@ -65,6 +66,6 @@
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

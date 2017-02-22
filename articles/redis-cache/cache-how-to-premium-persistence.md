@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 628dfc48c00e61fe5c4883f6237a44e0f1309f0e
+ms.sourcegitcommit: 50d8db29ccce1244387f1fe0e3e42e610575e483
+ms.openlocfilehash: bc8c54b51f9eee653fbe84351081dcef562e62d4
 
 
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 데이터 지속성을 구성하는 방법
-Azure Redis Cache에는 새 프리미엄 계층을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다.
-
-Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가상 네트워크 지원 등의 기능이 포함됩니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 지속성을 구성하는 방법을 설명합니다.
+Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 지속성을 구성하는 방법을 설명합니다.
 
 다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
@@ -32,16 +30,9 @@ Redis 지속성을 사용하면 Redis에 저장된 데이터를 유지할 수 �
 
 Azure Redis Cache는 [RDB 모델](http://redis.io/topics/persistence)을 사용하여 Redis 지속성을 제공하며 이는 Azure 저장소 계정에 데이터를 저장합니다. 지속성이 구성된 경우 Azure Redis Cache는 구성 가능한 백업 주기에 따라 Redis 이진 형식으로 Redis 캐시의 스냅숏을 디스크에 지속적으로 유지합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅숏을 사용하여 캐시를 재구성합니다.
 
-기존 프리미엄 캐시의 경우 **설정** 블레이드에서 지속성을 구성하고 캐시를 만드는 경우에는 **새 Redis Cache** 블레이드에서 지속성을 구성할 수 있습니다.
+지속성은 캐시를 만드는 동안 **새 Redis Cache** 블레이드에서 구성하거나 기존 프리미엄 캐시의 **리소스 메뉴**에서 구성할 수 있습니다.
 
-## <a name="create-a-premium-cache"></a>프리미엄 캐시 만들기
-캐시를 만들고 지속성을 구성하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 **새로 만들기**->**데이터 + 저장소**>**Redis Cache**를 클릭합니다.
-
-![Redis Cache 만들기][redis-cache-new-cache-menu]
-
-지속성을 구성하려면 먼저 **가격 책정 계층 선택** 블레이드에서 **프리미엄** 캐시 중 하나를 선택합니다.
-
-![가격 책정 계층 선택][redis-cache-premium-pricing-tier]
+[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 프리미엄 가격 책정 계층을 선택한 다음 **Redis 지속성**을 클릭합니다.
 
@@ -50,7 +41,7 @@ Azure Redis Cache는 [RDB 모델](http://redis.io/topics/persistence)을 사용�
 다음 섹션의 단계에서는 새 프리미엄 캐시에서 Redis 지속성을 구성하는 방법에 대해 설명합니다. Redis 지속성이 구성되어 있는 경우 **만들기** 를 클릭하여 Redis 지속성을 사용하는 새 프리미엄 캐시를 만듭니다.
 
 ## <a name="configure-redis-persistence"></a>Redis 지속성 구성
-Redis 지속성은 **Redis 데이터 지속성** 블레이드에서 구성됩니다. 새 캐시의 경우 위의 섹션에서 설명한 대로 캐시 만들기 프로세스 중 이 블레이드에 액세스합니다. 기존 캐시의 경우 캐시의 **설정** 블레이드에서 **Redis 데이터 지속성** 블레이드에 액세스합니다.
+Redis 지속성은 **Redis 데이터 지속성** 블레이드에서 구성됩니다. 새 캐시의 경우 위의 섹션에서 설명한 대로 캐시 만들기 프로세스 중 이 블레이드에 액세스합니다. 기존 캐시의 경우 캐시의 **리소스 메뉴** 블레이드에서 **Redis 데이터 지속성** 블레이드에 액세스합니다.
 
 ![Redis 설정][redis-cache-settings]
 
@@ -61,7 +52,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 **저장소 계정**을 클릭하여 사용할 저장소 계정을 선택하고 **저장소 키** 드롭다운 목록에서 사용할 **기본 키** 또는 **보조 키**를 선택합니다. 캐시와 동일한 영역에 있는 저장소 계정을 선택해야 하며 높은 처리량을 가진 **프리미엄 저장소** 계정을 사용하는 것이 좋습니다. 
 
 > [!IMPORTANT]
-> 지속성 계정에 대한 저장소 키가 다시 생성된 경우에는 **저장소 키** 드롭다운에서 원하는 키를 다시 선택해야 합니다.
+> 지속성 계정에 대한 저장소 키가 다시 생성된 경우에는 **저장소 키** 드롭다운에서 원하는 키를 다시 구성해야 합니다.
 > 
 > 
 
@@ -116,6 +107,6 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

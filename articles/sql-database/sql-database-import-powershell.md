@@ -13,32 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/31/2016
+ms.date: 02/07/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
+ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
+ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
 
 
 ---
 # <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>PowerShell을 사용하여 BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> 
-> 
-
 이 문서에서는 PowerShell을 통해 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일을 가져와 Azure SQL 데이터베이스를 만드는 방법에 대한 지침을 제공합니다.
 
-데이터베이스는 Azure Storage Blob 컨테이너에서 가져온 BACPAC 파일(.bacpac)로 만들어집니다. Azure Storage에 BACPAC 파일이 없는 경우 [PowerShell을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관](sql-database-export-powershell.md)을 참조하세요. Azure Storage에 없는 BACPAC 파일이 이미 있는 경우 [AzCopy를 사용하여 Azure Storage 계정에 쉽게 업로드합니다](../storage/storage-use-azcopy.md#blob-upload).
-
-> [!NOTE]
-> Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [SQL 데이터베이스 자동화된 백업](sql-database-automated-backups.md)을 참조하세요.
-> 
-> 
+## <a name="prequisites"></a>필수 조건
 
 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
@@ -106,11 +93,14 @@ Blob 이름은 데이터베이스를 만들려는 기존 BACPAC 파일의 이름
 
 
 ## <a name="next-steps"></a>다음 단계
-* 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)
+* 가져온 SQL 데이터베이스에 연결하고 쿼리하는 방법을 알아보려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리 수행](sql-database-connect-query-ssms.md)을 참조하세요.
+* BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
+* 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

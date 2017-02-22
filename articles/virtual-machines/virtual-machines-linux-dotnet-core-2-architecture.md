@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 계산 리소스 배포 | Microsoft Docs"
+title: "Azure Resource Manager 템플릿을 사용하여 Linux 계산 리소스 배포 | Microsoft Docs"
 description: "Azure 가상 컴퓨터 DotNet Core 자습서"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
+ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
 
 
 ---
@@ -274,6 +274,6 @@ Azure SQL Database 배포에 대한 자세한 내용은 [Azure SQL Database 설�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

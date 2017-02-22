@@ -275,6 +275,6 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/23/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: e5703e7aa26af81a0bf76ec393f124ddc80bf43c
-ms.openlocfilehash: 76adad7bc7f195b04601368fb715e34f5d3d7782
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
 
 
 ---
@@ -212,6 +212,37 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analyt
 > 
 > 
 
+### <a name="schema-creation"></a>스키마 생성
+Azure Stream Analytics는 사용자를 대신하여 Power BI 데이터 집합 및 테이블을 만듭니다(아직 없는 경우). 다른 모든 경우에 테이블은 새 값으로 업데이트됩니다. 현재 데이터 집합 내에 하나의 테이블만 있을 수 있다는 제한이 있습니다.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>ASA에서 Power BI로 데이터 형식 변환
+Azure Stream Analytics는 출력 스키마가 변경되면 런타임 시 동적으로 데이터 모델을 업데이트합니다. 열 이름 변경, 열 형식 변경 및 열 추가 또는 제거 작업이 모두 추적됩니다.
+
+다음 표는 POWER BI 데이터 집합 및 테이블이 존재하지 않는 경우 [Stream Analytics 데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx)에서 Power BI [EDM(엔터티 데이터 모델) 형식](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)으로의 데이터 형식 변환을 보여 줍니다.
+
+
+Stream Analytics에서 | Power BI로
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | string
+datetime | DateTime
+float | Double
+레코드 배열 | 문자열 형식, 상수 값 "IRecord" 또는 "IArray"
+
+### <a name="schema-update"></a>스키마 업데이트
+Stream Analytics는 출력의 첫 번째 이벤트 집합을 기반으로 데이터 모델 스키마를 유추합니다. 나중에 필요한 경우 데이터 모델 스키마는 들어오는 이벤트에 맞게 업데이트되며 이는 원래 스키마에 맞지 않을 수 있습니다.
+
+행에서 동적 스키마를 업데이트하지 않으려면 `SELECT *` 쿼리는 피해야 합니다. 잠재적으로 성능에 미치는 영향 외에도 결과까지 걸리는 시간이 불확실할 수 있습니다. Power BI 대시보드에 표시될 정확한 필드를 선택해야 합니다. 또한 데이터 값은 선택한 데이터 형식을 준수해야 합니다.
+
+
+이전/현재 | Int64 | string | DateTime | Double
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | string | 문자열 | Double
+Double | Double | string | 문자열 | Double
+string | 문자열 | 문자열 | 문자열 |  | string | 
+DateTime | string | string |  DateTime | string
+
+
 ### <a name="renew-power-bi-authorization"></a>Power BI 권한 부여 갱신
 작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에 Power BI 계정을 다시 인증해야 합니다. MFA(Multi-Factor Authentication)가 AAD(Azure Active Directory) 테넌트에 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
 
@@ -272,40 +303,17 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analyt
 ## <a name="documentdb"></a>DocumentDB
 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 는 완벽하게 관리되는 NoSQL 문서 데이터베이스 서비스로, 스키마 없는 데이터에 대한 쿼리 및 트랜잭션, 예측 가능하고 신뢰할 수 있는 성능 및 신속한 개발을 제공합니다.
 
-다음 테이블은 DocumentDB 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
+아래 목록은 DocumentDB 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
-<table>
-<tbody>
-<tr>
-<td>속성 이름</td>
-<td>설명</td>
-</tr>
-<tr>
-<td>계정 이름</td>
-<td>DocumentDB 계정의 이름입니다.  계정에 대한 끝점이 될 수도 있습니다.</td>
-</tr>
-<tr>
-<td>계정 키</td>
-<td>DocumentDB 계정에 대한 공유 선택키입니다.</td>
-</tr>
-<tr>
-<td>데이터베이스</td>
-<td>DocumentDB 데이터베이스 이름입니다.</td>
-</tr>
-<tr>
-<td>컬렉션 이름 패턴</td>
-<td>사용할 컬렉션에 대한 컬렉션 이름 패턴입니다. 컬렉션 이름 형식은 선택적 {partition} 토큰을 사용하여 구성할 수 있으며 파티션은 0부터 시작합니다.<BR>예: 다음은 유효한 입력입니다.<BR>MyCollection{partition}<BR>MyCollection<BR>컬렉션은 스트림 분석 작업이 시작하기 전에 존재해야 하며 자동으로 만들어지지 않습니다.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.</td>
-</tr>
-<tr>
-<td>문서 ID</td>
-<td>삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.</td>
-</tr>
-</tbody>
-</table>
+* **출력 별칭** – ASA 쿼리에서 이 출력을 참조할 별칭입니다.  
+* **계정 이름** – DocumentDB 계정의 이름 또는 끝점 URI입니다.  
+* **계정 키** – DocumentDB 계정에 대한 공유 선택키입니다.  
+* **데이터베이스** – DocumentDB 데이터베이스 이름입니다.  
+* **컬렉션 이름 패턴** – 사용될 컬렉션에 대한 컬렉션 이름이나 패턴입니다. 컬렉션 이름 형식은 선택적 {partition} 토큰을 사용하여 구성할 수 있으며 파티션은 0부터 시작합니다. 다음은 유효한 입력 샘플입니다.  
+  1\) MyCollection – "MyCollection"이라는 이름의 컬렉션이 있어야 합니다.  
+  2\) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.  
+* **파티션 키** – 선택 사항. 컬렉션 이름 패턴에 {파티션} 토큰을 사용하는 경우에만 필요합니다. 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.  
+* **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.  
 
 
 ## <a name="get-help"></a>도움말 보기
@@ -317,7 +325,7 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analyt
 * [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
@@ -329,6 +337,6 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analyt
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

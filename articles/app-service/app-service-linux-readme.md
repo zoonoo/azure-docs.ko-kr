@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea9e29aa4fc4d88a4c2109e898b1d90f6efb5757
+ms.sourcegitcommit: f978be8872961695731ba1daffc0f4d4a54a670a
+ms.openlocfilehash: bd5ebd7ee969acc0a785e179ebff0cd498b9b5ec
 
 
 ---
@@ -34,10 +34,11 @@ Linux의 App Service는 현재 공개 미리 보기에 포함되며 고객은 Li
 
 * [Linux의 App Service란?](../app-service-web/app-service-linux-intro.md)
 * [Linux의 App Service에서 앱 만들기](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
+* [Linux의 Azure App Service Web Apps에 대한 FAQ](../app-service-web/app-service-linux-faq.md) 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

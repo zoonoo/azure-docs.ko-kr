@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 226134e11a87f6bd847192661d3120b78ea6cf7c
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: ba6129382b6ec367428aa451ee74d5bceaa4ad35
 
 
 ---
@@ -31,8 +31,8 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio 2013](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-*  [Node.js](https://nodejs.org/download/)
-*  [Python 버전 2.7.10](https://www.python.org/)
+* [Node.js](https://nodejs.org/download/)
+* [Python 버전 2.7.10](https://www.python.org/)
 
 ## <a name="create-a-cloud-service-project"></a>클라우드 서비스 프로젝트 만들기
 다음은 Socket.IO 응용 프로그램을 호스트하는 클라우드 서비스 프로젝트를 만드는 단계입니다.
@@ -119,14 +119,14 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
    > [!IMPORTANT]
    > 고유한 이름을 사용해야 합니다. 그렇지 않으면 게시 프로세스가 실패합니다. 배포가 완료되면 브라우저가 열리고 배포된 서비스로 이동합니다.
    > 
-   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다.  **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
    
    ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
    
    > [!NOTE]
-   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다.  **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
+   > 제공한 구독 이름이 가져온 게시 프로필에 존재하지 않는다는 내용의 오류를 받게 되는 경우, Azure를 배포하기 전에 구독에 대한 게시 프로필을 다운로드하고 가져와야 합니다. **Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포** (영문)에서 [Azure에 응용 프로그램 배포](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)
    > 
    > 
 
@@ -145,14 +145,14 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
-[Node.js에 대한 Azure SDK GitHub 리포지토리]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-[Node.js용 Azure SDK]: https://www.windowsazure.com/develop/nodejs/
-[Node.js 웹 응용 프로그램]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Socket.IO GitHub 리포지토리]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[Azure 고려 사항]: #windowsazureconsiderations
-[작업자 역할에서 채팅 예제 호스트]: #hostingthechatexampleinawebrole
-[요약 및 다음 단계]: #summary
+[Azure Considerations]: #windowsazureconsiderations
+[Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
+[Summary and Next Steps]: #summary
 [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
 
 [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
@@ -167,6 +167,6 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

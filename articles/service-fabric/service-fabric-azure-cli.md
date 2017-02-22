@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
 
 
 ---
@@ -98,16 +98,16 @@ azure servicefabric cluster connect --connection-endpoint http://ip:19080 --clie
 ```
 여러 CA가 있는 경우 구분 기호로 쉼표를 사용합니다.
 
-인증서에 있는 일반 이름이 연결 끝점과 일치하지 않는 경우 다음 명령에 표시된 것처럼 `--strict-ssl` 매개 변수를 사용하여 확인을 바이패스할 수 있습니다. 
+인증서에 있는 일반 이름이 연결 끝점과 일치하지 않는 경우 다음 명령에 표시된 것처럼 `--strict-ssl-false` 매개 변수를 사용하여 확인을 바이패스할 수 있습니다. 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-CA 확인을 건너뛰려면 다음 명령에 표시된 것처럼 --reject-unauthorized 매개 변수를 추가하면 됩니다. 
+CA 확인을 건너뛰려면 다음 명령에 표시된 것처럼 --reject-unauthorized-false 매개 변수를 추가하면 됩니다. 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 연결 후에는 클러스터와 상호 작용하기 위해 다른 CLI 명령을 실행할 수 있습니다. 
@@ -168,6 +168,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 자세한 내용은 [OpenSSL 설명서](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html)를 참조하세요.
 
+<a id="troubleshooting"></a>
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>응용 프로그램 패키지 복사 실패
 `openssh` 가 설치되어 있는지 확인합니다. 기본적으로 Ubuntu Desktop에는 설치되어 있지 않습니다. 다음 명령을 사용하여 설치합니다.
@@ -203,6 +204,6 @@ ssh 인증을 위한 키 사용(암호 아님)이 아직 지원되지 않으므�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

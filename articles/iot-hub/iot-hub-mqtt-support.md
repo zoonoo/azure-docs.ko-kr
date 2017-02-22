@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: 0fc92fd63118dd1b3c9bad5cf7d5d8397bc3a0b6
-ms.openlocfilehash: 2f952b85a99300d0a52a59f639675d6f02fafe08
+ms.sourcegitcommit: 47e1d5172dabac18c1b355d8514ae492cd973d32
+ms.openlocfilehash: 5c362af149afd4a204c2705ae3d7f67361d8d528
 
 
 ---
@@ -87,8 +87,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 또한 장치 앱은 `devices/{device_id}/messages/events/{property_bag}`을 **Will 항목 이름**으로 사용하여 원격 분석 메시지로서 전달할 *Will 메시지*를 정의할 수 있습니다.
 
-IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 장치 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
-IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 응용 프로그램 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
+- IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 장치 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
+- IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 응용 프로그램 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
+- IoT Hub는 장치 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 장치 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
 
 자세한 내용은 [메시징 개발자 가이드][lnk-messaging]를 참조하세요.
 
@@ -136,7 +137,13 @@ ID 레지스트리 항목의 본문은 “properties” 구성원으로 제한�
 
 ### <a name="update-device-twins-reported-properties"></a>장치 쌍의 reported 속성 업데이트
 
-먼저 작업의 응답을 수신하기 위해 장치가 `$iothub/twin/res/#`을 구독해야 합니다. 그런 다음 **request id**에 채워진 값을 사용하여 장치 쌍 업데이트를 포함하는 메시지를 `$iothub/twin/PATCH/properties/reported/?$rid={request id}`에 보냅니다. 그러면 서비스는 요청과 동일한 **request id**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 장치 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
+다음 시퀀스에서는 장치가 IoT Hub의 장치 쌍에서 보고된 속성을 업데이트하는 방법을 설명합니다.
+
+1. 장치는 먼저 `$iothub/twin/res/#` 항목을 구독하여 IoT Hub에서 작업의 응답을 수신해야 합니다.
+
+1. 장치는 장치 쌍 업데이트를 포함하는 메시지를 `$iothub/twin/PATCH/properties/reported/?$rid={request id}` 항목에 전송합니다. 이 메시지는 **요청 ID** 값을 포함합니다.
+
+1. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
 요청 메시지 본문은 reported 속성에 대한 새 값을 제공하는 JSON 문서를 포함합니다(다른 속성 또는 메타데이터는 수정될 수 없음).
 JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예:
@@ -159,7 +166,7 @@ JSON 문서의 각 구성원은 장치 쌍의 문서에 있는 해당 구성원�
 
 ### <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-장치가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예를 들어
+장치가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예:
 
         {
             "telemetrySendFrequency": "5m",
@@ -231,6 +238,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

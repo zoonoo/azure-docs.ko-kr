@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 암호 변경 | Microsoft Docs"
+title: "StorSimple 장치 관리자를 통해 암호 변경 | Microsoft Docs"
 description: "StorSimple 관리자 서비스를 사용하여 StorSimple 스냅숏 관리자 및 장치 관리자 암호를 변경하는 방법에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43df835da672a7d6584cb91f0837b4e11671c27a
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
 
 
 ---
@@ -60,6 +60,6 @@ StorSimple 스냅숏 관리자에서 장치를 구성하면, 장치 IP 주소 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

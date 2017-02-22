@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
+ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
 
 ---
@@ -46,14 +46,13 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
    > Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
    > 
    > 
-2. Azure 포털에서 **새로 만들기**를 클릭합니다. 포털에 **새** 블레이드가 열립니다. SQL Server VM 리소스가 마켓플레이스의 **가상 컴퓨터** 그룹에 있습니다.
-3. **새로 만들기** 블레이드에서 **Virtual Machines**를 클릭합니다.
-4. 사용 가능한 이미지를 모두 확인하려면 **Virtual Machines** 블레이드에서 **모두 표시**를 클릭합니다.
-   
-    ![Azure 가상 컴퓨터 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. **데이터베이스 서버** 아래에서 **SQL Server**를 클릭합니다. **데이터베이스 서버**를 찾으려면 아래로 스크롤해야 할 수도 있습니다. 사용 가능한 SQL Server 템플릿을 검토합니다.
-   
-    ![가상 컴퓨터 갤러리 SQL 이미지](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. Azure 포털에서 **새로 만들기**를 클릭합니다. 포털에 **새** 블레이드가 열립니다. SQL Server VM 리소스는 Marketplace의 **계산** 그룹에 있습니다.
+3. **새로 만들기** 블레이드에서 **계산**을 클릭한 다음 **모두 표시**를 클릭합니다.
+4. **필터** 텍스트 상자에서 SQL Server를 입력하고 ENTER 키를 누릅니다.
+
+   ![Azure 가상 컴퓨터 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. 사용 가능한 SQL Server 템플릿을 검토합니다.
 6. 각 템플릿은 SQL Server 버전 및 운영 체제를 식별합니다. 목록에서 이러한 이미지 중 하나를 선택합니다. 그런 다음 가상 컴퓨터 이미지에 대한 설명을 제공하는 세부 정보 블레이드를 검토하십시오.
    
    > [!NOTE]
@@ -65,7 +64,7 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
     ![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>VM 구성
-SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있습니다.
+SQL Server 가상 컴퓨터를 구성하기 위한&5;개의 블레이드가 있습니다.
 
 | 단계 | 설명 |
 | --- | --- |
@@ -82,7 +81,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 * VM의 로컬 관리자 계정에 대한 **사용자 이름** 을 지정합니다. 이 계정은 SQL Server **sysadmin** 고정 서버 역할에도 추가됩니다.
 * 강력한 **암호**를 제공합니다.
 * 구독이 여러 개인 경우 구독이 새 VM에 대해 올바른지 확인합니다.
-* **리소스 그룹** 상자에 새 리소스 그룹의 이름을 입력합니다. 또는 기존 리소스 그룹을 사용하려면 **기존 항목 선택**을 클릭합니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 컴퓨터, 저장소 계정, 가상 네트워크 등).
+* **리소스 그룹** 상자에 새 리소스 그룹의 이름을 입력합니다. 또는 기존 리소스 그룹을 사용하려면 **기존 항목 사용**을 클릭합니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 컴퓨터, 저장소 계정, 가상 네트워크 등).
   
   > [!NOTE]
   > 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 완료한 후 리소스 그룹을 삭제하면 VM과 해당 리소스 그룹과 연결된 모든 리소스가 자동으로 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
@@ -216,10 +215,12 @@ SQL 자동화된 백업을 사용하면 다음을 구성할 수 있습니다.
 * 백업에 대한 보존 기간(일)
 * 백업에 사용할 저장소 계정
 * 백업을 위한 암호화 옵션 및 암호
+* 시스템 데이터베이스 백업
+* 백업 일정 구성
 
 백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다.
 
-![SQL 자동화된 백업](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![SQL 자동화된 백업](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
@@ -302,6 +303,6 @@ Azure Virtual Machines의 SQL Server에 대한 비디오 개요는 [Azure VM은 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

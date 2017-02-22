@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
+ms.sourcegitcommit: 1c3a38e46f427e6c6398971d9c45baec27d39a03
+ms.openlocfilehash: f34e5cfabbec7cc9c1299bea282404d6de69f82f
 
 
 ---
@@ -25,10 +25,10 @@ ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [클래식 - PowerShell](vpn-gateway-multi-site.md)
-> 
-> 
+>
+>
 
-이 문서에서는 PowerShell을 사용하여 기존 연결이 있는 VPN 게이트웨이에 S2S(사이트 간) 연결을 추가하는 과정을 안내합니다. 이러한 유형의 연결을 "다중 사이트" 구성이라고 합니다. 
+이 문서에서는 PowerShell을 사용하여 기존 연결이 있는 VPN 게이트웨이에 S2S(사이트 간) 연결을 추가하는 과정을 안내합니다. 이러한 유형의 연결을 "다중 사이트" 구성이라고 합니다.
 
 이 문서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 만들어진 가상 네트워크에 적용됩니다. 이러한 단계가 Express 경로/사이트 간 공존 연결 구성에는 적용되지 않습니다. 공존 연결에 대한 자세한 내용은 [xpress 경로/S2S 공존 연결](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
 
@@ -42,12 +42,12 @@ ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
 ## <a name="about-connecting"></a>연결 정보
 단일 가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있습니다. 이 방식은 하이브리드 클라우드 솔루션을 구축하는 경우 특히 유용합니다. Azure 가상 네트워크 게이트웨이에 대한 다중 사이트 연결을 만드는 작업은 다른 사이트 간 연결을 만드는 작업과 매우 비슷합니다. 실제로, 게이트웨이가 동적(경로 기반)이라면 기존 Azure VPN 게이트웨이를 사용할 수 있습니다.
 
-이미 정적 게이트웨이가 가상 네트워크에 연결된 경우에는 가상 네트워크를 다시 빌드하지 않고도 게이트웨이 유형을 동적으로 변경하여 다중 사이트를 수용할 수 있습니다. 라우팅 유형을 변경하기 전에 온-프레미스 VPN 게이트웨이가 경로 기반 VPN 구성을 지원하는지 확인합니다. 
+이미 정적 게이트웨이가 가상 네트워크에 연결된 경우에는 가상 네트워크를 다시 빌드하지 않고도 게이트웨이 유형을 동적으로 변경하여 다중 사이트를 수용할 수 있습니다. 라우팅 유형을 변경하기 전에 온-프레미스 VPN 게이트웨이가 경로 기반 VPN 구성을 지원하는지 확인합니다.
 
-![다중 사이트 다이어그램](./media/vpn-gateway-multi-site/multisite.png "multi-site")
+![다중 사이트 다이어그램](./media/vpn-gateway-multi-site/multisite.png "다중 사이트")
 
 ## <a name="points-to-consider"></a>고려할 항목
-**가상 네트워크 변경을 위해 Azure 클래식 포털을 사용할 수 없습니다.** 이 릴리스에서는, Azure 클래식 포털을 사용하는 대신 네트워크 구성 파일을 변경해야 합니다. Azure 클래식 포털에서 변경한 경우, 사용자의 다중 사이트 참조 설정을 덮어씁니다. 
+**가상 네트워크 변경을 위해 Azure 클래식 포털을 사용할 수 없습니다.** 이 릴리스에서는, Azure 클래식 포털을 사용하는 대신 네트워크 구성 파일을 변경해야 합니다. Azure 클래식 포털에서 변경한 경우, 사용자의 다중 사이트 참조 설정을 덮어씁니다.
 
 따라서 다중 사이트 절차를 완료할 때까지는 네트워크 구성 파일을 사용하는 데 익숙해져야 합니다. 그러나 네트워크 구성을 여러 사용자가 사용하는 경우에는 이 제한에 대해 모든 사람이 알 수 있도록 해야 합니다. Azure 클래식 포털을 아예 사용할 수 없다는 뜻은 아닙니다. 이 특정 가상 네트워크에 대한 구성 변경을 제외한 모든 작업에 관리 포털을 사용할 수 있습니다.
 
@@ -59,9 +59,9 @@ ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
 * 각 VPN 장치에 대한 외부 연결 공용 IPv4 IP 주소. IP 주소는 NAT 뒤에 배치할 수 없습니다. 이는 필수 요구 사항입니다.
 * 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 * VPN 하드웨어 구성에 능숙한 사용자. Azure 클래식 포털에서 자동으로 생성된 VPN 스크립트를 사용하여 VPN 장치를 구성할 수 없습니다. 따라서 사용자가 VPN 장치 구성 방법에 대해 매우 잘 알고 있거나 이와 관련된 지식이 있는 사람과 작업해야 합니다.
-* 가상 네트워크에 사용할 IP 주소 범위(아직 만들지 않은 경우). 
-* 연결할 각 로컬 네트워크 사이트에 대한 IP 주소 범위. 연결하려는 각 로컬 네트워크 사이트의 IP 주소 범위가 겹치지 않도록 해야 합니다. 그렇지 않은 경우, Azure 클래식 포털 또는 REST API는 업로드 중인 구성을 거절합니다. 
-  
+* 가상 네트워크에 사용할 IP 주소 범위(아직 만들지 않은 경우).
+* 연결할 각 로컬 네트워크 사이트에 대한 IP 주소 범위. 연결하려는 각 로컬 네트워크 사이트의 IP 주소 범위가 겹치지 않도록 해야 합니다. 그렇지 않은 경우, Azure 클래식 포털 또는 REST API는 업로드 중인 구성을 거절합니다.
+
     예를 들어 두 로컬 네트워크 사이트에 IP 주소 범위 10.2.3.0/24가 모두 포함되어 있고 대상 주소가 10.2.3.3인 패키지가 있는 경우, 주소 범위가 겹치기 때문에 Azure는 어떤 사이트에 패키지를 전송할지 알지 못하게 됩니다. 라우팅 문제를 방지하기 위해 Azure에서는 범위가 겹치는 구성 파일의 업로드를 허용하지 않습니다.
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. 사이트 간 VPN 만들기
@@ -69,14 +69,14 @@ ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>사이트 간 가상 네트워크가 이미 있지만 정적(정책 기반) 라우팅 게이트웨이가 있는 경우:
 1. 게이트웨이 유형을 동적 라우팅으로 변경합니다. 다중 사이트 VPN에는 동적(경로 기반이라고도 함) 라우팅 게이트웨이가 필요합니다. 게이트웨이 유형을 변경하려면 먼저 기존 게이트웨이를 삭제한 다음 새로 만들어야 합니다. 자세한 내용은 [게이트웨이의 VPN 라우팅 유형을 변경하는 방법](vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway)을 참조하세요.  
-2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 자세한 내용은 [Azure 클래식 포털에서 VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요. 먼저, 게이트웨이 유형을 동적 라우팅으로 변경합니다. 
+2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 자세한 내용은 [Azure 클래식 포털에서 VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요. 먼저, 게이트웨이 유형을 동적 라우팅으로 변경합니다.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>사이트 간 가상 네트워크 사이트가 없는 경우:
 1. [Azure 클래식 포털에서 사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
 2. [VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
 
 ## <a name="a-nameexporta2-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일을 내보내기
-네트워크 구성 파일을 내보냅니다. 내보내는 파일은 새로 다중 사이트 설정을 구성하는 데 사용됩니다. 파일을 내보내는 방법에 대한 지침은 이 문서의 [Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)섹션을 참조하세요. 
+네트워크 구성 파일을 내보냅니다. 내보내는 파일은 새로 다중 사이트 설정을 구성하는 데 사용됩니다. 파일을 내보내는 방법에 대한 지침은 이 문서의 [Azure Portal에서 클래식 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-pportal.md#how-to-create-a-classic-vnet-in-the-azure-portal) 섹션을 참조하세요.
 
 ## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일 열기
 마지막 단계에서 다운로드한 네트워크 구성 파일을 엽니다. 원하는 xml 편집기를 사용합니다. 파일은 다음과 유사하게 나타납니다.
@@ -137,7 +137,7 @@ ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-    To add additional site references (create a multi-site configuration), simply add additional "LocalNetworkSiteRef" lines, as shown in the example below: 
+    To add additional site references (create a multi-site configuration), simply add additional "LocalNetworkSiteRef" lines, as shown in the example below:
 
         <Gateway>
           <ConnectionsToLocalNetwork>
@@ -147,7 +147,7 @@ ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
         </Gateway>
 
 ## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일 가져오기
-네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. 파일을 가져오는 방법에 대한 지침은 이 문서의 [Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)섹션을 참조하세요. 
+네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. 파일을 가져오는 방법에 대한 지침은 이 문서의 [Azure Portal에서 클래식 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-pportal.md#how-to-create-a-classic-vnet-in-the-azure-portal) 섹션을 참조하세요.  
 
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet `Get-AzureVNetGatewayKey`을 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
@@ -194,7 +194,6 @@ VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](v
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

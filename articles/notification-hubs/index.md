@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure Notification Hubs 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Notification Hubs를 통해 백 엔드에서 모바일 장치에 푸시 알림을 전송하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Notification Hubs 설명서
 
 신속하게 수백만 개의 메시지를 보내기 위한 확장 가능한 다중 플랫폼 푸시 알림 엔진인 Notification Hubs를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 백 엔드에서 모바일 장치에 푸시 알림을 설정하고 보내는 방법을 보여 줍니다. 
@@ -205,6 +217,6 @@ ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

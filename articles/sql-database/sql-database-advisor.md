@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL 데이터베이스 관리자"
+title: "쿼리 성능 조정 권장 사항 - Azure SQL Database | Microsoft Docs"
 description: "Azure SQL 데이터베이스 관리자는 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 제공합니다."
 services: sql-database
 documentationcenter: 
@@ -16,21 +16,16 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f7bffa4f13d7a4fa0ea3c120a826638ee5d6c65a
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
 
 
 ---
 # <a name="sql-database-advisor"></a>SQL 데이터베이스 관리자
-> [!div class="op_single_selector"]
-> * [SQL 데이터베이스 관리자 개요](sql-database-advisor.md)
-> * [포털](sql-database-advisor-portal.md)
-> 
-> 
 
 Azure SQL Database에서 응용 프로그램을 학습하여 여기에 맞게 변경하고 사용자 지정된 권장 사항을 제공하여 SQL Database의 성능을 최대화할 수 있습니다. Azure SQL Database 관리자는 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 제공합니다. 이 관리자는 SQL Database의 사용 기록을 분석하여 성능을 평가합니다. 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 사용하는 것이 좋습니다. 
 
-다음 권장 사항은 V12 서버에 대해 사용할 수 있습니다(V11 서버에는 권장 사항을 사용할 수 없습니다). 현재는 만들기 및 삭제 인덱스 권장 사항이 자동으로 적용되도록 설정할 수 있습니다. 자세한 내용은 [자동 인덱스 관리](sql-database-advisor-portal.md#enable-automatic-index-management)를 참조하세요.
+다음 권장 사항은 Azure SQL Database 서버에 사용할 수 있습니다. 현재는 만들기 및 삭제 인덱스 권장 사항이 자동으로 적용되도록 설정할 수 있습니다. 자세한 내용은 [자동 인덱스 관리](sql-database-advisor-portal.md#enable-automatic-index-management)를 참조하세요.
 
 ## <a name="create-index-recommendations"></a>인덱스 만들기 권장 사항
 **인덱스 만들기** 권장 사항은 SQL 데이터베이스 서비스에서 인덱스 누락을 감지하면 나타나며(생성된 경우) 데이터베이스 워크로드에 유용할 수 있습니다(비클러스터형 인덱스만).
@@ -79,6 +74,6 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager에서 가상 컴퓨터에 대한 Key Vault 설정 | Microsoft Docs"
+title: "Azure Resource Manager에서 Windows VM에 대한 Key Vault 설정 | Microsoft Docs"
 description: "Azure Resource Manager에서 사용할 주요 자격 증명 모음을 설정하는 방법"
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2016
-ms.author: singhkay
+ms.date: 01/24/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: cf928d43851e7b3d38742387bce136de5f547fa6
+ms.sourcegitcommit: bcb347e8a2ebef14100e990ef71eac5362de5a48
+ms.openlocfilehash: 74124056ea77dc1007fb87853ceb10622c9ceaea
 
 
 ---
@@ -71,6 +71,6 @@ CLI의 경우 먼저 주요 자격 증명 모음을 만든 다음 배포 정책�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

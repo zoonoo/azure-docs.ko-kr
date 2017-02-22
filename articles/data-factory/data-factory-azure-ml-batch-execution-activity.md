@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
-ms.openlocfilehash: aa7b7ff406d06016aa6c4ee956dbf10a856a0e24
+ms.sourcegitcommit: cbd5ca0444a1d0f9ad67864ae9507d5659191a05
+ms.openlocfilehash: aea3600cafeb297822280d7dc7ec9d13cce76ca1
 
 
 ---
@@ -34,28 +34,30 @@ ms.openlocfilehash: aa7b7ff406d06016aa6c4ee956dbf10a856a0e24
 >
 
 ## <a name="introduction"></a>소개
+
+### <a name="azure-machine-learning"></a>Azure 기계 학습
 [Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/) 을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
 1. **학습 실험 만들기**. Azure ML Studio를 사용하여 이 단계를 수행합니다. ML Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.  
 
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. [Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
+### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+Data Factory는 데이터의 **이동**과 **변환**을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 다양한 데이터 저장소에서 데이터를 수집하고 변환/처리하며 데이터 저장소에 결과 데이터를 게시할 수 있는 Data Factory 서비스를 사용하여 데이터 통합 솔루션을 만들 수 있습니다.
 
-Azure 데이터 팩터리 파이프라인에서 **배치 실행 작업** 을 사용하여 Azure ML 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다. 자세한 내용은 [배치 실행 작업을 사용하여 Azure ML 웹 서비스 호출](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) 섹션을 참조하세요.
+Data Factory 서비스를 통해 데이터를 이동하고 변환하는 파이프라인을 실행한 다음 데이터 파이프라인을 지정된 일정(매시간, 매일, 매주 등)으로 만들 수 있습니다. 또한 데이터 파이프라인 간의 종속성과 계보를 표시하는 다양한 시각화를 제공하며 문제를 쉽고 정확하게 파악하고 모니터링 경고를 설정하는 통합된 단일 보기에서 모든 데이터 파이프라인을 모니터링합니다.
+
+[Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
+
+### <a name="data-factory-and-machine-learning-together"></a>Data Factory 및 Machine Learning
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure 데이터 팩터리 파이프라인에서 **배치 실행 작업** 을 사용하여 Azure ML 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다. 자세한 내용은 [배치 실행 작업을 사용하여 Azure ML 웹 서비스 호출](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) 섹션을 참조하세요.
 
 시간이 지남에 따라 Azure ML 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 다음 단계를 수행하여 데이터 팩터리 파이프라인에서 Azure ML 모델을 다시 학습할 수 있습니다.
 
 1. 웹 서비스로 학습 실험(예측 실험 아님)을 게시합니다. 이전 시나리오에서 웹 서비스로 예측 실험을 노출했으므로 Azure ML Studio에서 이 단계를 수행합니다.
 2. Azure ML 배치 실행 작업을 사용하여 학습 실험을 위한 웹 서비스를 호출합니다. 기본적으로, Azure ML 배치 실행 작업을 사용하여 학습 웹 서비스와 점수 매기기 웹 서비스를 모두 호출할 수 있습니다.
 
-재학습으로 완료한 후에는 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트하려고 합니다. 단계는 다음과 같습니다.
-
-1. 점수 매기기 웹 서비스에 기본값이 아닌 끝점을 추가합니다. 웹 서비스의 기본 끝점은 업데이트할 수 없으므로 Azure 포털을 사용하여 기본이 아닌 끝점을 만들어야 합니다. 개념 정보와 절차적 단계는 모두 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 를 참조하세요.
-2. 점수 매기기에서 기본이 아닌 끝점을 사용하도록 기존 Azure ML 연결된 서비스를 업데이트합니다. 업데이트된 웹 서비스를 사용하려면 새 끝점에서 사용을 시작해야 합니다.
-3. **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
-
-자세한 내용은 [업데이트 리소스 작업을 사용하여 Azure ML 모델 업데이트](#updating-azure-ml-models-using-the-update-resource-activity) 를 참조하세요.
+재학습으로 완료한 후에는 **Azure ML 업데이트 리소스 작업**을 사용하여 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](#updating-models-using-update-resource-activity)를 참조하세요.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>배치 실행 작업을 사용하여 웹 서비스 호출
 Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케스트레이션한 다음 Azure 기계 학습을 사용하는 배치 실행을 수행할 수 있습니다. 최상위 단계는 다음과 같습니다.
@@ -64,8 +66,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 
    1. **요청 URI** . 웹 서비스 페이지에서 **배치 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
    2. **API 키** . 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
-
-      1. **AzureMLBatchExecution** 작업을 사용합니다.
+   3. **AzureMLBatchExecution** 작업을 사용합니다.
 
       ![기계 학습 대시보드](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
@@ -252,7 +253,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
    3. 배치 실행 출력을 출력 데이터 집합에 지정된 Blob에 복사합니다.
 
       > [!NOTE]
-      > AzureMLBatchExecution 작업에는 0개 이상의 입력 및 1개 이상의 출력이 있을 수 있습니다.
+      > AzureMLBatchExecution 작업에는&0;개 이상의 입력 및&1;개 이상의 출력이 있을 수 있습니다.
       >
       >
 
@@ -549,18 +550,67 @@ Azure ML 웹 서비스의 판독기 및 기록기 모듈은 GlobalParameters를 
 
 다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](../machine-learning/machine-learning-retrain-models-programmatically.md) 을 참조하세요.
 
-| 웹 서비스의 유형 | description |
-|:--- |:--- |
-| **학습 웹 서비스** |학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob 저장소에서 .ilearner 파일입니다.  웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 끝점** 이 자동으로 만들어집니다. 더 많은 끝점을 만들 수 있지만 예제에서는 기본 끝점만 사용합니다. |
-| **점수 매기기 웹 서비스** |레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력은 실험의 구성에 따라 .csv 파일 또는 Azure SQL 데이터베이스의 행과 같은 다양한 형태를 포함할 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 끝점이 자동으로 만들어집니다. **Azure 포털** 을 사용하여 두 번째 [기본이 아닌 업데이트 가능한 끝점](https://manage.windowsazure.com)을 만듭니다. 더 많은 끝점을 만들 수 있지만 이 예제에서는 기본이 아닌 업데이트 가능한 끝점만 사용합니다. 이에 대한 단계는 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. |
+- **학습 웹 서비스** - 학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob 저장소에서 .ilearner 파일입니다. 웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 끝점** 이 자동으로 만들어집니다. 더 많은 끝점을 만들 수 있지만 예제에서는 기본 끝점만 사용합니다.
+- **점수 매기기 웹 서비스** - 레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력은 실험의 구성에 따라 .csv 파일 또는 Azure SQL 데이터베이스의 행과 같은 다양한 형태를 포함할 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 끝점이 자동으로 만들어집니다. 
 
 다음 그림에서는 Azure ML에서 학습 및 점수 매기기 끝점 간의 관계를 보여줍니다.
 
 ![웹 서비스](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-**Azure ML Batch 실행 작업**을 사용하여 **학습 웹 서비스**를 호출할 수 있습니다. 학습 웹 서비스를 호출하는 것은 점수 매기기 데이터에 대해 Azure ML 웹 서비스(점수 매기기 웹 서비스)를 호출하는 것과 동일합니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 Azure ML 웹 서비스를 호출하는 방법에 대해 자세히 설명합니다.
+**Azure ML Batch 실행 작업**을 사용하여 **학습 웹 서비스**를 호출할 수 있습니다. 학습 웹 서비스를 호출하는 것은 점수 매기기 데이터에 대해 Azure ML 웹 서비스(점수 매기기 웹 서비스)를 호출하는 것과 동일합니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 Azure ML 웹 서비스를 호출하는 방법에 대해 자세히 설명합니다. 
 
-**scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 위의 표에 설명한 대로 기본이 아닌 업데이트 가능한 끝점을 만들어 사용해야 합니다. 또한 데이터 팩터리에서 기본이 아닌 끝점을 사용하도록 기존의 연결된 서비스를 업데이트하여 항상 최신의 재학습된 모델을 사용하도록 해야 합니다.
+**scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 다음 예제에서는 연결된 서비스 정의를 제공합니다. 
+
+### <a name="scoring-web-service-is-a-classic-web-service"></a>웹 서비스 점수 매기기는 클래식 웹 서비스입니다.
+웹 서비스 점수 매기기가 **클래식 웹 서비스**인 경우 [Azure Portal](https://manage.windowsazure.com)을 사용하여 두 번째 **기본이 아닌 업데이트 가능한 끝점**을 만들어야 합니다. 이에 대한 단계는 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 끝점을 만든 후 다음을 수행합니다.
+
+* **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
+* **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 끝점 페이지 자체의 오른쪽 하단에 있습니다.
+
+![업데이트 가능한 끝점](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+
+다음 예제에서는 AzureML 연결된 서비스에 샘플 JSON 정의를 제공합니다. 연결된 서비스는 인증을 위해 apiKey를 사용합니다.  
+
+```json
+{
+    "name": "updatableScoringEndpoint2",
+    "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
+            "apiKey": "endpoint2Key",
+            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+        }
+    }
+}
+```
+
+### <a name="scoring-web-service-is-a-new-type-of-web-service-azure-resource-manager"></a>웹 서비스 점수 매기기는 새로운 유형의 웹 서비스(Azure Resource Manager)입니다.
+웹 서비스가 Azure Resource Manager 끝점을 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 끝점을 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint**는 다음 형식을 갖습니다. 
+
+```
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+```
+
+[Azure Machine Learning 웹 서비스 포털](https://services.azureml.net/)에서 웹 서비스를 쿼리할 때 URL에 대한 자리 표시자 값을 가져올 수 있습니다. 새로운 유형의 업데이트 리소스 끝점에는 AAD(Azure Active Directory) 토큰이 필요합니다. AzureML 연결된 서비스에서 **servicePrincipalId** 및 **servicePrincipalKey**를 지정합니다. [서비스 보안 주체 만들기 및 Azure 리소스를 관리하기 위한 권한 할당 방법](../azure-resource-manager/resource-group-create-service-principal-portal.md)을 참조하세요. 샘플 AzureML 연결된 서비스 정의는 다음과 같습니다. 
+
+```json
+{
+    "name": "AzureMLLinkedService",
+    "properties": {
+        "type": "AzureML",
+        "description": "The linked service for AML web service.",
+        "typeProperties": {
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
+            "apiKey": "xxxxxxxxxxxx",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
+            "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
+            "servicePrincipalKey": "xxxxx",
+            "tenant": "mycompany.com"
+        }
+    }
+}
+```
 
 다음 시나리오는 보다 자세한 내용을 제공합니다. Azure Data Factory 파이프라인에서 Azure ML 모델을 재학습 및 업데이트하는 예제가 포함되어 있습니다.
 
@@ -679,22 +729,16 @@ Azure 저장소는 다음 데이터를 보관합니다.
     "properties": {
         "type": "AzureML",
         "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": "endpoint2Key",
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/00000000eb0abe4d6bbb1d7886062747d7/services/00000000026734a5889e02fbb1f65cefd/jobs?api-version=2.0",
+            "apiKey": "sooooooooooh3WvG1hBfKS2BNNcfwSO7hhY6dY98noLfOdqQydYDIXyf2KoIaN3JpALu/AKtflHWMOCuicm/Q==",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
+            "servicePrincipalId": "fe200044-c008-4008-a005-94000000731",
+            "servicePrincipalKey": "zWa0000000000Tp6FjtZOspK/WMA2tQ08c8U+gZRBlw=",
+            "tenant": "mycompany.com"
         }
     }
 }
 ```
-
-Azure ML 연결된 서비스를 만들고 배포하기 전에 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서의 단계에 따라 점수 매기기 웹 서비스에 대한 두 번째(기본이 아닌 업데이트 가능한) 끝점을 만듭니다.
-
-기본이 아닌 업데이트 가능한 끝점을 만든 후 다음을 수행합니다.
-
-* **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
-* **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 끝점 페이지 자체의 오른쪽 하단에 있습니다.
-
-![업데이트 가능한 끝점](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
 #### <a name="placeholder-output-dataset"></a>자리 표시자 출력 데이터 집합:
 Azure ML 업데이트 리소스 작업은 어떠한 출력도 생성하지 않습니다. 그러나 Azure Data Factory에서 파이프라인의 일정을 구동하려면 출력 데이터 집합이 필요합니다. 따라서 이 예에서는 더미/자리 표시자 데이터 집합을 사용합니다.  
@@ -876,6 +920,6 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

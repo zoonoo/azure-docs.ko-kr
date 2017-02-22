@@ -1,13 +1,25 @@
 ---
+title: "Azure DNS 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "Azure Domain Name System을 사용하여 DNS 레코드를 관리하는 방법에 대해 알아봅니다. 설명서에서는 도메인 이름에 대한 DNS 영역 및 레코드를 설정하고 관리하는 방법을 보여 줍니다."
+services: dns
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
+ms.sourcegitcommit: f415cc458e91085ce315ef7ee5755b96bbcfa170
+ms.openlocfilehash: b9608dc3bafeea5faec8e379c67810113b00ffd9
 
 ---
 # <a name="dns-documentation"></a>DNS 설명서
 
-Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다.  Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
+호스팅 서비스인 Azure Domain Name System을 사용하여 DNS 레코드를 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 다른 설명서에서는 도메인 이름에 대한 DNS 영역 및 레코드를 설정하고 관리하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,7 +121,7 @@ Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft
                     <h3>언어</h3>
                     <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
                     <p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p>
-                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
+                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.JS</a></p>
                     <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>
                     <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html">Python</a></p>
                 </div>
@@ -131,16 +143,10 @@ Azure DNS(Domain Name System)는 DNS 도메인에 대한 서비스로, Microsoft
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-DNS 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

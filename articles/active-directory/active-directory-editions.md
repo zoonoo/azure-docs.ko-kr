@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
 
 
 ---
@@ -124,7 +124,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 | Free Edition | Basic Edition | Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
 |:---:|:---:|:---:|:---:|
-| 사용자당 앱 10개 [1] |사용자당 앱 10개 [1] |제한 없음 [2] |사용자당 앱 10개 [1] |
+| 사용자당 앱&10;개 [1] |사용자당 앱&10;개 [1] |제한 없음 [2] |사용자당 앱&10;개 [1] |
 
 1. Azure AD Free 및 Azure AD Basic을 사용하는 최종 사용자에게는 최대 10개의 응용 프로그램에 대한 Single Sign-On 액세스가 제공됩니다.
 2. 응용 프로그램 갤러리 메뉴에 제공되는 템플릿을 사용하여 SAML, SCIM 또는 양식 기반 인증을 지원하는 모든 응용 프로그램을 셀프 서비스로 통합합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)을 참조하세요.
@@ -377,7 +377,7 @@ Azure AD는 Free, Basic 및 Premium(P1 및 P2) 버전의 일반 기능 외에도
 * [iOS에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-ios.md)
 * [Android에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 * [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 * [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)

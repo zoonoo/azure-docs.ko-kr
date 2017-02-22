@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning 관리 PowerShell cmdlet을 사용하여 새로운 앱 서비스 다시 학습 | Microsoft Docs"
+title: "PowerShell을 사용하여 새 Azure Machine Learning 웹 서비스 다시 학습 | Microsoft Docs"
 description: "Machine Learning Management PowerShell cmdlet를 사용하여 Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
 
 
 ---
@@ -112,6 +112,6 @@ Machine Learning PowerShell Management cmdlet을 사용하여 다음과 같은 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 배포 - VMware에서 프로비전 | Microsoft Docs"
+title: "VMware에서 StorSimple Virtual Array 프로비전 | Microsoft Docs"
 description: "StorSimple 가상 배열 배포 시리즈의 두 번째 자습서에는 VMware에서 가상 장치를 프로비전하는 내용이 포함됩니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 655c00e3042cca78872df052cb89bab43fbc35a4
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 가상 배열 프로비전
@@ -43,7 +43,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 * 가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
 
   * 코어 4개 이상
-  * RAM 8GB 이상
+  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개 미만의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
   * 네트워크 인터페이스 하나
   * 시스템 데이터용 가상 디스크 500GB
 
@@ -66,7 +66,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 * ESXi 호스트를 관리하기 위한 시스템의 VMware vSphere 클라이언트
 
   * 코어 4개 이상
-  * RAM 8GB 이상
+  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개 미만의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
   * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 장치가 최적으로 작동할 수 있도록 허용하는 최소 인터넷 대역폭은 5Mbps입니다.
   * 데이터용 가상 디스크 500GB
 
@@ -77,6 +77,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 
    1. 최신 이미지 파일을 다운로드했는지 확인합니다. 이전에 이미지를 다운로드한 경우 최신 이미지인지 확인하기 위해 다시 다운로드합니다. 최신 이미지에는 하나가 아니라 두 개의 파일이 있습니다.
    2. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
+
 2. vSphere 클라이언트를 사용하여 ESXi 서버에 로그인합니다. 가상 컴퓨터를 만들려면 관리자 권한이 필요합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -243,6 +244,6 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

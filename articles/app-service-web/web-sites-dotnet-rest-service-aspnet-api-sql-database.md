@@ -1,5 +1,5 @@
 ---
-title: "Azure 앱 서비스에서 ASP.NET Web API 및 SQL 데이터베이스를 사용하여 REST 서비스 만들기"
+title: "ASP.NET 및 SQL DB를 사용하여 Azure에서 REST API 만들기 | Microsoft Docs"
 description: "Visual Studio를 사용하여 Azure 웹 앱에 ASP.NET Web API를 사용하는 앱을 배포하는 방법에 대해 설명하는 자습서입니다."
 services: app-service\web
 documentationcenter: .net
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2188a56fee942cd58b20b92fb77891708ab62d24
+ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
+ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
 
 
 ---
@@ -59,7 +59,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 이전에 Azure에 로그인한 적이 없는 경우 로그인하라는 메시지가 나타납니다.
 
-1. 구성 마법사에서 *ContactManager* 를 기준으로 고유한 이름을 제안합니다(아래 이미지 참조). 근처에 있는 지역을 선택합니다.  [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") 을 사용하여 대기 시간이 가장 짧은 데이터 센터를 찾을 수 있습니다. 
+1. 구성 마법사에서 *ContactManager* 를 기준으로 고유한 이름을 제안합니다(아래 이미지 참조). 근처에 있는 지역을 선택합니다. [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") 을 사용하여 대기 시간이 가장 짧은 데이터 센터를 찾을 수 있습니다. 
 2. 기존에 만든 데이터베이스 서버가 없으면 **새 서버 만들기**를 선택하고 데이터베이스 사용자 이름과 암호를 입력합니다.
    
     ![Azure 웹 사이트 구성](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/configAz.PNG)
@@ -663,7 +663,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 이제 응용 프로그램이 클라우드에서 실행되고 데이터를 저장하는 데 SQL 데이터베이스가 사용됩니다. Azure에서 응용 프로그램 테스트를 마치면 해당 응용 프로그램을 삭제해야 합니다. 응용 프로그램이 공개될 뿐 아니라 액세스를 제한할 메커니즘이 없기 때문입니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -685,10 +685,10 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
-[OAuth 공급자 추가]: #addOauth
-[멤버 자격 데이터베이스에 역할 추가]:#mbrDB
-[데이터 배포 스크립트 작성]:#ppd
-[멤버 자격 데이터베이스 업데이트]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Add Roles to the Membership Database]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -742,9 +742,9 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[XSRF 보호 추가]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[XSRF 보호 추가]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
@@ -755,6 +755,6 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

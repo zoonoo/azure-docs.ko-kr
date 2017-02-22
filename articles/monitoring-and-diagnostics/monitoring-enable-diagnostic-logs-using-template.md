@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
+ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
+ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
 
 
 ---
@@ -102,9 +102,9 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
     ]
     ```
 
-진단 설정에 대한 속성 Blob는 [이 문서에 설명된 형식](https://msdn.microsoft.com/library/azure/dn931931.aspx)을 따릅니다. `metrics` 속성을 추가하면 리소스 메트릭을 이러한 동일한 출력으로 보낼 수도 있습니다.
+진단 설정에 대한 속성 Blob는 [이 문서에 설명된 형식](https://msdn.microsoft.com/library/azure/dn931931.aspx)을 따릅니다. `metrics` 속성을 추가하면 [리소스는 Azure Monitor 메트릭스를 지원합니다](monitoring-supported-metrics.md)를 표시하고 리소스 메트릭을 이러한 동일한 출력으로 보낼 수도 있습니다.
 
-다음은 네트워크 보안 그룹을 만들고 이벤트 허브로 스트리밍 및 저장소 계정에 저장을 설정하는 전체 예제입니다.
+다음은 Logic App을 만들고 Event Hubs로 스트리밍 및 저장소 계정에 저장을 설정하는 전체 예제입니다.
 
 ```json
 
@@ -112,11 +112,15 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "nsgName": {
+    "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the NSG that will be created."
+        "description": "Name of the Logic App that will be created."
       }
+    },
+    "testUri": {
+      "type": "string",
+      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
     "storageAccountName": {
       "type": "string",
@@ -140,19 +144,49 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('nsgName')]",
-      "apiVersion": "2016-03-30",
-      "location": "westus",
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('logicAppName')]",
+      "apiVersion": "2016-06-01",
+      "location": "[resourceGroup().location]",
       "properties": {
-        "securityRules": []
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
       },
       "resources": [
         {
           "type": "providers/diagnosticSettings",
           "name": "Microsoft.Insights/service",
           "dependsOn": [
-            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+            "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
           "apiVersion": "2015-07-01",
           "properties": {
@@ -161,15 +195,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {
-                "category": "NetworkSecurityGroupEvent",
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "NetworkSecurityGroupRuleCounter",
+                "category": "WorkflowRuntime",
                 "enabled": true,
                 "retentionPolicy": {
                   "days": 0,
@@ -218,6 +244,6 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

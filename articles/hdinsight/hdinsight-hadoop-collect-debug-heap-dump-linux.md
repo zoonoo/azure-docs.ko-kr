@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
 
 힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 응용 프로그램의 메모리에 대한 스냅숏을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 매우 유용합니다.
 
-> [!NOTE]
-> 이 문서의 정보는 Linux 기반 HDInsight에만 적용됩니다. Windows 기반 HDInsight에 대한 자세한 내용은 [Windows 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dumps.md)
-> 
-> 
+
+
+> [!IMPORTANT]
+> 이 문서의 단계는 Linux를 사용하는 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
 다음 서비스에 힙 덤프를 사용할 수 있습니다.
@@ -62,7 +62,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+** 는 이 옵션이 사용하도록 설정되었음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
+**+** 는 이 옵션이 사용하도록 설정되었음을 나타냅니다. 기본적으로 이 옵션은 사용하지 않도록 설정됩니다.
 
 > [!WARNING]
 > 덤프 파일은 용량이 클 수 있기 때문에 HDInsight의 Hadoop 서비스에는 기본적으로 힙 덤프가 사용되지 않습니다. 문제 해결을 위해 사용하도록 설정한 경우에는 문제를 재현하고 덤프 파일을 수집한 후 사용하지 않도록 설정해야 합니다.
@@ -134,6 +134,6 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/14/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
+ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
 
 
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 보안 센터 문제 해결 가이드
-이 가이드는 Azure 보안 센터를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 보안 센터 문제를 해결해야 합니다.
+이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
 
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
 이 가이드에서는 보안 센터 관련 문제를 해결하는 방법을 설명합니다. 보안 센터에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음 사항을 확인할 수 있습니다.
@@ -51,8 +51,16 @@ Azure 보안 모니터링 확장은 다양한 보안 관련 구성을 검색하�
 
 > [!NOTE]
 > Azure 보안 센터 에이전트가 오작동하는 경우 에이전트를 중지하고 시작하는 명령이 없기 때문에 대상 VM을 다시 시작해야 합니다.
-> 
-> 
+
+
+데이터 수집에 여전히 문제가 있는 경우 다음 단계를 따라 에이전트를 제거할 수 있습니다.
+
+1. **Azure Portal**에서 데이터 수집 문제가 있는 가상 컴퓨터를 선택하고 **확장**을 클릭합니다.
+2. 마우스 오른쪽 단추로 **Microsoft.Azure.Security.Monitoring**클릭하고 **제거**를 클릭합니다.
+
+![에이전트 제거](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+Azure 보안 모니터링 확장은 몇 분 내에 자동으로 다시 설치됩니다.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Linux에서 문제 해결 모니터링 에이전트 설치
 Linux 시스템에 문제 해결 VM 에이전트를 설치할 때 확장이 /var/lib/waagent/에 다운로드되었는지 확인해야 합니다. 아래 명령을 실행하여 설치되었는지 확인할 수 있습니다.
@@ -68,8 +76,12 @@ Linux 시스템에 문제 해결 VM 에이전트를 설치할 때 확장이 /var
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>대시보드 로딩 문제 해결
+
+Security Center 대시보드를 로드하는 문제가 있는 경우 Security Center에 구독을 등록하는 사용자(즉, 구독을 사용하여 Security Center를 연 첫 번째 사용자)와 데이터 수집을 켜려는 사용자가 구독의 *소유자* 또는 *참여자*인지 확인합니다. 또한 사용자는 이때부터 구독에서 *리더*를 사용하여 dashboard/alerts/recommendation/policy를 볼 수 있습니다.
+
 ## <a name="contacting-microsoft-support"></a>Microsoft 지원에 문의
-이 문서에서 제공된 지침을 사용하여 몇 가지 문제를 식별할 수 있으며 그 외 문제는 보안 센터 공용 [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)에 설명되어 있는 것을 찾을 수 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 Azure 포털을 사용하여 새로운 지원 요청을 열 수 있습니다. 
+이 문서에서 제공된 지침을 사용하여 몇 가지 문제를 식별할 수 있으며 그 외 문제는 보안 센터 공용 [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)에 설명되어 있는 것을 찾을 수 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal**을 사용하여 새로운 지원 요청을 열 수 있습니다. 
 
 ![Microsoft 지원](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +98,6 @@ Linux 시스템에 문제 해결 VM 에이전트를 설치할 때 확장이 /var
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

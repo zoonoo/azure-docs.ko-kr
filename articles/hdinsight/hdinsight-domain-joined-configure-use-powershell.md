@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
+ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
+ms.openlocfilehash: 3217399ee868707309e96234d4954548b063534a
 
 
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview-use-azure-powershell"></a>Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성(미리 보기)
+# <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성(미리 보기)
 Azure PowerShell을 사용하여 Azure AD(Azure Active Directory) 및 [Apache Ranger](http://hortonworks.com/apache/ranger/)와 함께 Azure HDInsight 클러스터를 설정하는 방법에 대해 알아봅니다. Azure PowerShell 스크립트는 보다 빠르게 구성하고 구성 오류를 줄이기 위해 제공됩니다. 도메인에 가입된 HDInsight는 Linux 기반 클러스터에만 구성할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 소개](hdinsight-domain-joined-introduction.md)를 참조하세요.
 
 일반적인 도메인 가입 HDInsight 클러스터 구성 단계는 다음과 같습니다.
@@ -39,9 +39,9 @@ Azure PowerShell을 사용하여 Azure AD(Azure Active Directory) 및 [Apache Ra
 
 최종 토폴로지의 예는 다음과 같습니다.
 
-![도메인에 가입된 HDInsight 토폴로지](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![도메인에 가입된 HDInsight 토폴로지](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-현재 Azure AD는 클래식 가상 네트워크(VNet)만 지원하고 Linux 기반 HDInsight 클러스터는 Azure Resource Manager 기반 VNet만 지원하므로 HDInsight Azure AD를 통합하려면 두 VNet이 있어야 하고 또 두 VNet을 피어링해야 합니다. 두 배포 모델의 비교 정보는 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../resource-manager-deployment-model.md)를 참조하세요. 두 VNet이 Azure AD DS와 동일한 지역에 있어야 합니다.
+현재 Azure AD는 클래식 가상 네트워크(VNet)만 지원하고 Linux 기반 HDInsight 클러스터는 Azure Resource Manager 기반 VNet만 지원하므로 HDInsight Azure AD를 통합하려면 두 VNet이 있어야 하고 또 두 VNet을 피어링해야 합니다. 두 배포 모델의 비교 정보는 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요. 두 VNet이 Azure AD DS와 동일한 지역에 있어야 합니다.
 
 > [!NOTE]
 > 이 자습서에서는 사용자에게 Azure AD가 없다고 가정합니다. 갖고 있는 경우 2단계로 건너뛸 수 있습니다.
@@ -54,7 +54,7 @@ Azure PowerShell을 사용하여 Azure AD(Azure Active Directory) 및 [Apache Ra
 * [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) 및 [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/) 구조를 숙지합니다.
 * 구독이 이 공개 미리 보기에 대한 허용 목록에 추가되었는지 확인합니다. 구독 ID로 hdipreview@microsoft.com에 전자 메일을 전송하여 추가할 수 있습니다.
 * 도메인의 서명 기관에서 서명한 SSL 인증서가 필요합니다. 이 인증서는 보안 LDAP를 구성하는 데 필요합니다. 자체 서명된 인증서는 사용할 수 없습니다.
-* Azure PowerShell.  [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell.  [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Azure AD에 대한 Azure 클래식 VNet을 만듭니다.
 지침에 대해서는 [여기](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet)를 참조하세요.
@@ -105,7 +105,7 @@ PowerShell 스크립트는 [GitHub](https://github.com/hdinsight/DomainJoinedHDI
 역방향 DNS 영역을 만드는 동안 스크립트에서는 네트워크 ID를 입력하라는 메시지를 표시합니다. 이 네트워크 ID는 Resource Manager 가상 네트워크의 주소 접두사여야 합니다. 예를 들어 Resource Manager 가상 네트워크 서브넷 주소 공간이 10.2.0.0/24인 경우 도구에서 네트워크 ID를 요청하는 메시지를 표시하면 10.2.0.0/24를 입력합니다. 
 
 ## <a name="create-hdinsight-cluster"></a>HDInsight 클러스터 만들기
-이 섹션에서는 Azure Portal 또는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
+이 섹션에서는 Azure Portal 또는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
 
 **Azure Portal을 사용하여 도메인에 가입된 HDInsight 클러스터를 만들려면**
 
@@ -156,7 +156,7 @@ PowerShell 스크립트는 [GitHub](https://github.com/hdinsight/DomainJoinedHDI
 
 1. Azure Portal에서 Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. Resource Manager 템플릿은 공용 blob 컨테이너에 있습니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **매개 변수** 블레이드에서 다음 값을 입력합니다.
    
    * **구독**: (Azure 구독을 선택합니다.)
@@ -183,12 +183,13 @@ PowerShell 스크립트는 [GitHub](https://github.com/hdinsight/DomainJoinedHDI
 이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#delete-clusters)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)을 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하는 방법에 대한 자세한 내용은 [Linux, Unix 또는 OS X에서 SSH를 HDInsight의 Linux 기반 Hadoop과 함께 사용](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster)을 참조하세요.
+* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하는 방법에 대한 자세한 내용은 [Linux, Unix 또는 OS X에서 SSH를 HDInsight의 Linux 기반 Hadoop과 함께 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

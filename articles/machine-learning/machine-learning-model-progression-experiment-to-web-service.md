@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정 | Microsoft Docs"
+title: "Azure Machine Learning 모델이 웹 서비스가 되는 과정 | Microsoft Docs"
 description: "Azure Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
 
 
 ---
@@ -35,7 +35,7 @@ Azure Machine Learning Studio는 예측 분석 모델을 대신하는 ***실험*
 이 문서에서는 Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다.
 
 > [!NOTE]
-> 다른 방법으로도 기계 학습 모델을 개발 및 배포할 수 있지만 이 문서에서는 기계 학습 스튜디오를 사용하는 방법을 중점적으로 설명합니다. R을 사용하여 기존 예측 웹 서비스를 만드는 방법에 대한 논의 사항은 [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)(영문)을 참조하세요.
+> 다른 방법으로도 기계 학습 모델을 개발 및 배포할 수 있지만 이 문서에서는 기계 학습 스튜디오를 사용하는 방법을 중점적으로 설명합니다. 예를 들어, R을 사용하여 기존 예측 웹 서비스를 만드는 방법에 대한 논의 사항은 [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)(영문)을 참조하세요.
 > 
 > 
 
@@ -78,7 +78,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 실험을 반복한 후 만족한 경우:
 
 1. **웹 서비스 설정**을 클릭하고 **재학습 웹 서비스**를 선택합니다. 입력 및 출력 노드가 자동으로 추가됩니다.
-2.  **실행**을 클릭합니다.
+2. **실행**을 클릭합니다.
 3. **웹 서비스 배포**를 클릭하고 배포하려는 환경에 따라 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]**를 선택합니다.
 
 이제 웹 서비스가 배포되고 예측 웹 서비스처럼 액세스하고 관리할 수 있습니다.
@@ -122,6 +122,6 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ff5ad648d429da433170301205eafb850be5d81
+ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
+ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
 
 
 ---
@@ -26,12 +26,11 @@ ms.openlocfilehash: 0ff5ad648d429da433170301205eafb850be5d81
 ## <a name="common-t-sql-limitations"></a>일반적인 T-SQL 제한 사항
 다음 목록에서는 Azure SQL 데이터 웨어하우스에서 지원하지 않는 가장 일반적인 기능을 간략하게 설명합니다. 링크를 따라 이동하면 지원되지 않는 기능에 대한 대안을 확인할 수 있습니다.
 
-* [업데이트 시 ANSI 조인][업데이트 시 ANSI 조인]
-* [삭제 시 ANSI 조인][삭제 시 ANSI 조인]
-* [병합 문][병합 문]
+* [업데이트 시 ANSI 조인][ANSI joins on updates]
+* [삭제 시 ANSI 조인][ANSI joins on deletes]
+* [병합 문][merge statement]
 * 데이터베이스 간 조인
-* [커서][커서]
-* [SELECT..INTO][SELECT..INTO]
+* [커서][cursors]
 * [INSERT..EXEC][INSERT..EXEC]
 * output 절
 * 인라인 사용자 정의 함수
@@ -46,11 +45,11 @@ ms.openlocfilehash: 0ff5ad648d429da433170301205eafb850be5d81
 * 커밋 / 롤백 작업
 * 트랜잭션 저장
 * 실행 컨텍스트 (EXECUTE AS)
-* [롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절][롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]
-* [8를 초과한 중첩 수준][8를 초과한 중첩 수준]
-* [뷰를 통한 업데이트][뷰를 통한 업데이트]
-* [변수 할당을 위한 select 사용][변수 할당을 위한 select 사용]
-* [동적 SQL 문자열에 대한 최대 데이터 형식][동적 SQL 문자열에 대한 최대 데이터 형식]
+* [롤업/큐브/그룹화 집합 옵션을 사용하는 GROUP BY 절][group by clause with rollup / cube / grouping sets options]
+* [8을 초과한 중첩 수준][nesting levels beyond 8]
+* [뷰를 통한 업데이트][updating through views]
+* [변수 할당에 대한 select 사용][use of select for variable assignment]
+* [동적 SQL 문자열에 대한 MAX 데이터 형식 없음][no MAX data type for dynamic SQL strings]
 
 다행히 대부분의 이러한 제한을 해결할 수 있습니다. 위에서 언급한 개발 관련 문서에 대한 설명이 제공됩니다.
 
@@ -77,7 +76,7 @@ CTE(공용 테이블 식)는 SQL 데이터 웨어하우스에서 부분적으로
 * Sp_prepare에 의해 준비된 문에서 사용할 경우 CTE는 PDW에서 다른 SELECT 문과 동일한 방식으로 작동합니다. 그러나 sp_prepare를 통해 준비된 CETAS의 일부로 CTE를 사용할 경우 sp_prepare에 대해 구현되는 바인딩 방식이 다르기 때문에 동작이 SQL Server 및 다른 PDW와 다를 수 있습니다. CTE를 참조하는 SELECT 문이 CTE에 없는 잘못된 열을 사용할 경우 오류를 감지하지 않고 sp_prepare를 통과합니다. 대신 sp_execute 동안 오류가 throw됩니다.
 
 ## <a name="recursive-ctes"></a>재귀 CTE
-재귀 CTE는 SQL 데이터 웨어하우스에서 지원되지 않습니다.  재귀 CTE의 마이그레이션은 완료될 수는 있으나 가장 좋은 프로세스는 여러 단계로 분할하는 것입니다. 재귀 중간 쿼리를 반복할 때 일반적으로 루프를 사용하여 임시 테이블을 채울 수 있습니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절][롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절] 문서에서 `GROUP BY WITH CUBE` 해결에 사용한 것과 비슷한 방법입니다.
+재귀 CTE는 SQL 데이터 웨어하우스에서 지원되지 않습니다.  재귀 CTE의 마이그레이션은 완료될 수는 있으나 가장 좋은 프로세스는 여러 단계로 분할하는 것입니다. 재귀 중간 쿼리를 반복할 때 일반적으로 루프를 사용하여 임시 테이블을 채울 수 있습니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업/큐브/그룹화 집합 옵션을 사용하는 GROUP BY 절][group by clause with rollup / cube / grouping sets options] 문서에서 `GROUP BY WITH CUBE`를 해결하는 데 사용한 것과 비슷한 방법입니다.
 
 ## <a name="unsupported-system-functions"></a>지원되지 않는 시스템 함수
 지원하지 않는 일부 시스템 함수도 있습니다. 일반적으로 데이터 웨어하우징에서 사용될 수 있는 일부 기본 함수는 다음과 같습니다.
@@ -115,24 +114,23 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>다음 단계
-지원되는 모든 T-SQL 문의 전체 목록은 [Transact-SQL 항목][Transact-SQL 항목]을 참조하세요.
+지원되는 모든 T-SQL 문의 전체 목록은 [Transact-SQL 항목][Transact-SQL topics]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[업데이트 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[삭제 시 ANSI 조인]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[병합 문]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[merge statement]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
 [INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[Transact-SQL 항목]: ./sql-data-warehouse-reference-tsql-statements.md
+[Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[커서]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
-[롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]: ./sql-data-warehouse-develop-group-by-options.md
-[8를 초과한 중첩 수준]: ./sql-data-warehouse-develop-transactions.md
-[뷰를 통한 업데이트]: ./sql-data-warehouse-develop-views.md
-[변수 할당을 위한 select 사용]: ./sql-data-warehouse-develop-variable-assignment.md
-[동적 SQL 문자열에 대한 최대 데이터 형식]: ./sql-data-warehouse-develop-dynamic-sql.md
+[cursors]: ./sql-data-warehouse-develop-loops.md
+[group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
+[updating through views]: ./sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
@@ -140,6 +138,6 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

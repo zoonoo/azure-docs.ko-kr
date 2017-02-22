@@ -1,5 +1,5 @@
 ---
-title: "구독 및 계정 지침 | Microsoft Docs"
+title: "Linux VM에 대한 Azure 구독 및 계정 | Microsoft Docs"
 description: "Azure의 구독 및 계정에 대한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b22f5fe87e1bf741e59ed71a3f57e756e2fad88
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0a4ddfa550913df1c987d1782bcd4bc3c41eb048
 
 
 ---
-# <a name="subscription-and-accounts-guidelines"></a>구독 및 계정 지침
+# <a name="azure-subscription-and-accounts-guidelines"></a>Azure 구독 및 계정 지침
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 환경 및 사용자 기반이 커질 때 구독 및 계정 관리에 접근하는 방식을 이해하는 데 주안점을 둡니다.
@@ -57,7 +57,7 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-조직은 다음과 같습니다.
+조직은 다음 예제와 같습니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
@@ -69,6 +69,6 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager에서 가상 컴퓨터에 대한 WinRM 액세스 설정 | Microsoft Docs"
-description: "Azure Resource Manager에서 사용할 WinRM 액세스를 설정하는 방법"
+title: "Azure VM에 대한 WinRM 액세스 설정 | Microsoft Docs"
+description: "Resource Manager 배포 모델에서 만든 Azure 가상 컴퓨터에 대한 WinRM 액세스를 설정합니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
-ms.author: singhkay
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 84a5272844b36951bb0132b21be9913ca50ee817
+ms.sourcegitcommit: ebc2195bbb3526171359cc126ea6b59d0089f4a0
+ms.openlocfilehash: 6559b8605a311bb774f6c8b38a9298875d3a5362
 
 
 ---
@@ -167,6 +167,6 @@ VM에 연결하려면 먼저 컴퓨터가 WinRM 원격 관리에 맞게 구성�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

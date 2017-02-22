@@ -1,5 +1,5 @@
 ---
-title: "Azure 자동화 문제 해결 | Microsoft Docs"
+title: "일반적인 Azure Automation 문제 해결 | Microsoft Docs"
 description: "이 문서에서는 일반적인 Azure 자동화 오류 해결을 도와줄정보를 제공합니다."
 services: automation
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/24/2017
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f5db3c68122185eabb2168d9be582c3e0b17f9ff
+ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
+ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 
 
 ---
-# <a name="troubleshoot-azure-automation"></a>Azure 자동화 문제 해결 
+# <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation이 일반적인 문제 해결 
 이 문서에서는 Azure 자동화에서 발생할 수 있는 일반적인 문제 해결 도움말을 제공하고 가능한 문제 해결 방법을 제시합니다.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure 자동화 Runbook을 사용할 때 인증 오류
@@ -175,6 +175,6 @@ ms.openlocfilehash: f5db3c68122185eabb2168d9be582c3e0b17f9ff
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

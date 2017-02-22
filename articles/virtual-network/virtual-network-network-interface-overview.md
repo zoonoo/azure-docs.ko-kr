@@ -1,10 +1,10 @@
 ---
-title: "네트워크 인터페이스 | Microsoft Docs"
-description: "Azure Resource Manager의 Azure 네트워크 인터페이스에 대해 알아봅니다."
+title: "Azure의 네트워크 인터페이스 | Microsoft Docs"
+description: "Azure Resource Manager 배포 모델에서 Azure 네트워크 인터페이스에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
 
 
 ---
-# <a name="network-interfaces"></a>네트워크 인터페이스
+# <a name="network-interfaces-in-azure"></a>Azure의 네트워크 인터페이스
 네트워크 인터페이스(NIC)는 VM(가상 컴퓨터)과 기본 소프트웨어 네트워크 간 상호 연결입니다. 이 문서에서는 네트워크 인터페이스란 무엇이며 Azure Resource Manager 배포 모델에서 어떻게 사용되는지에 대해 설명합니다.
 
 Resource Manager 배포 모델을 사용하여 새 리소스를 배포하는 것이 좋지만 [클래식](virtual-network-ip-addresses-overview-classic.md) 배포 모델의 네트워크 연결을 통해 VM을 배포할 수도 있습니다. 클래식 모델에 익숙한 경우 Resource Manager 배포 모델의 VM 네트워킹에 중요한 차이가 있다는 사실에 유의합니다. [가상 컴퓨터 네트워킹 - 클래식](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) 문서를 읽어 이러한 차이점을 자세히 알아봅니다.
@@ -56,6 +56,6 @@ Azure의 네트워크 인터페이스:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

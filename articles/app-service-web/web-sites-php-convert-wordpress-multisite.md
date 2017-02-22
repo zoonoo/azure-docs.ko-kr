@@ -12,23 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0d7d5143879eaf0ee42a70a04d865a33879733
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 45a5c8f16dd70f65967907c18752f4f98ffa75ea
 
 
 ---
 # <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>Azure 앱 서비스에서 멀티사이트로 WordPress 변환
 ## <a name="overview"></a>개요
-*작성자: [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
+*[Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 이 자습서에서는 Azure의 갤러리를 통해 만든 기존 WordPress 웹앱을 가져와서 WordPress 멀티 사이트 설치로 변환하는 방법을 알아봅니다. 또한 설치 내에 있는 각 하위 사이트에 사용자 지정 도메인을 할당하는 방법도 알아봅니다.
 
-여기서는 WordPress가 이미 설치되어 있다고 가정합니다. 아직 설치하지 않은 경우 [Azure의 갤러리에서 WordPress 웹 사이트 만들기][website-from-gallery]의 지침을 따르세요.
+여기서는 WordPress가 이미 설치되어 있다고 가정합니다. 그렇지 않은 경우 [Azure의 갤러리에서 WordPress 웹 사이트 만들기][website-from-gallery]의 지침을 따르십시오.
 
-기존 WordPress 단일 사이트 설치를 멀티 사이트로 변환하는 작업은 일반적으로 매우 간단하며 여기서는 초기의 많은 단계를 [WordPress Codex](http://codex.wordpress.org)의 [네트워크 만들기][wordpress-codex-create-a-network] 페이지에서 가져옵니다.
+기존 WordPress 단일 사이트 설치를 멀티 사이트로 변환하는 작업은 일반적으로 매우 간단하며 여기서는 초기의 많은 단계를 [WordPress Codex](http://codex.wordpress.org)(영문)의 [네트워크 만들기][wordpress-codex-create-a-network] 페이지에서 가져옵니다.
 
 이제 시작하겠습니다.
 
@@ -47,13 +47,13 @@ ms.openlocfilehash: 5a0d7d5143879eaf0ee42a70a04d865a33879733
 파일을 저장하고 다시 서버에 업로드해야 합니다.
 
 ## <a name="network-setup"></a>네트워크 설정
-웹앱의 *wp-admin*에 로그인하면 **도구** 메뉴 아래에 **네트워크 설정**이라는 새 항목이 표시됩니다. **네트워크 설정** 을 클릭하고 네트워크의 세부 정보를 채웁니다.
+웹앱의 *wp-admin*에 로그인하면 **도구** 메뉴 아래에 **네트워크 설정**이라는 새 항목이 표시됩니다. **네트워크 설정**을 클릭하고 네트워크의 세부 정보를 채웁니다.
 
 ![네트워크 설정 화면][wordpress-network-setup]
 
-이 자습서에서는 *Sub-directories* 사이트 스키마가 항상 적절히 작동하므로 이 스키마를 사용하며 이 자습서의 뒷부분에서 각 하위 사이트에 대한 사용자 지정 도메인을 설정합니다. 그러나 [Azure 포털](https://portal.azure.com) 을 통해 도메인을 매핑하고 와일드카드 DNS를 제대로 설정한 경우 하위 도메인 설치를 설정할 수 있습니다.
+이 자습서에서는 *Sub-directories* 사이트 스키마가 항상 적절히 작동하므로 이 스키마를 사용하며 이 자습서의 뒷부분에서 각 하위 사이트에 대한 사용자 지정 도메인을 설정합니다. 그러나 [Azure 포털](https://portal.azure.com)을 통해 도메인을 매핑하고 와일드카드 DNS를 제대로 설정한 경우 하위 도메인 설치를 설정할 수 있습니다.
 
-하위 도메인과 하위 디렉터리 설정에 대한 자세한 내용은 WordPress Codex의 [멀티사이트 네트워크 유형][wordpress-codex-types-of-networks] 문서를 참조하세요.
+하위 도메인과 하위 디렉터리 설정에 대한 자세한 내용은 WordPress Codex의 [멀티 사이트 네트워크 유형][wordpress-codex-types-of-networks] 문서를 참조하세요.
 
 ## <a name="enable-the-network"></a>네트워크 사용
 이제 네트워크가 데이터베이스에 구성되어 있지만 네트워크 기능을 사용하도록 설정하는 단계가 하나 남아 있습니다. `wp-config.php` 설정을 완료하고 `web.config`에서 각 사이트를 적절히 라우팅하는지 확인하세요.
@@ -107,9 +107,9 @@ Azure 웹앱에서 CNAME과 A 레코드를 모두 허용하지만 적절한 도�
 이전 단계의 IP 주소를 사용하여 DNS 관리자로 돌아와서 해당 IP를 가리키도록 A 레코드를 설정하십시오.
 
 ## <a name="install-and-setup-the-plugin"></a>플러그 인 설치 및 설정
-WordPress 멀티 사이트에는 사용자 지정 도메인에 매핑하는 기본 제공 방법이 현재 없습니다. 그러나 매핑 기능을 추가해 주는 [WordPress MU 도메인 매핑][wordpress-plugin-wordpress-mu-domain-mapping]이라는 플러그 인이 있습니다. 사이트의 네트워크 관리 부분에 로그인하여 **WordPress MU 도메인 매핑** 플러그 인을 설치하십시오.
+WordPress 멀티 사이트에는 사용자 지정 도메인에 매핑하는 기본 제공 방법이 현재 없습니다. 그러나 매핑 기능을 추가해 주는 [WordPress MU 도메인 매핑][wordpress-plugin-wordpress-mu-domain-mapping](영문)이라는 플러그 인이 있습니다. 사이트의 네트워크 관리 부분에 로그인하여 **WordPress MU 도메인 매핑** 플러그 인을 설치하십시오.
 
-플러그 인을 설치하고 활성화한 후 **규모 확장** > **도메인 매핑** 으로 이동하여 플러그 인을 구성합니다. 첫 번째 텍스트 상자인 *서버 IP 주소*에서, 도메인의 A 레코드를 설정하는 데 사용한 IP 주소를 입력합니다. 원하는 임의의 *도메인 옵션* 을 설정하고(대개 기본값을 그대로 사용하는 것이 좋음) **저장**을 클릭합니다.
+플러그 인을 설치하고 활성화한 후 **규모 확장** > **도메인 매핑** 으로 이동하여 플러그 인을 구성합니다. 첫 번째 텍스트 상자인 *서버 IP 주소*에서, 도메인의 A 레코드를 설정하는 데 사용한 IP 주소를 입력합니다. 원하는 임의의 *도메인 옵션*을 설정하고(대개 기본값을 그대로 사용하는 것이 좋음) **저장**을 클릭합니다.
 
 ## <a name="map-the-domain"></a>도메인 매핑
 도메인을 매핑할 사이트의 **대시보드** 로 이동합니다. **도구** > **도메인 매핑**을 클릭하고 텍스트 상자에 새 도메인을 입력한 후 **추가**를 클릭합니다.
@@ -120,7 +120,7 @@ WordPress 멀티 사이트에는 사용자 지정 도메인에 매핑하는 기�
 Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있습니다. 다른 도메인을 추가하려면 각 도메인에 대해 **도메인 확인** 및 **도메인 A 레코드 설정** 섹션을 실행해야 합니다.    
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -143,6 +143,6 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

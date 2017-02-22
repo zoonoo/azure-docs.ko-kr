@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5ed7edef886c9a3308f3f30f983124c46db3452
+ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
+ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
 
 
 ---
@@ -111,7 +111,8 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     b. **식별자** 텍스트 상자에 `https://app.10000ft.com/saml/metadata`를 입력합니다.
 
-    > [AZURE.NOTE] 사용자 지정 도메인이 있는 경우 **식별자** 값이 다릅니다. 도움이 필요하면 [10,000ft Plans 지원 팀](mailto:support@10000ft.com)에 문의하세요.  
+    > [!NOTE] 
+    > 사용자 지정 도메인이 있는 경우 **식별자** 값이 다릅니다. 도움이 필요하면 [10,000ft Plans 지원 팀](mailto:support@10000ft.com)에 문의하세요.  
 
     c. 페이지 맨 아래에 있는 **다음**
 
@@ -122,7 +123,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 2. 응용 프로그램에 대해 구성된 SSO를 가져오려면 [10,000ft Plans 지원 팀](mailto:support@10000ft.com)에 문의합니다. 이때 다운로드한 인증서를 첨부하고 발급자 URL, SAML SSO URL 및 로그아웃 URL을 제공합니다.
 3. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
@@ -159,17 +160,18 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_07.png) 
@@ -240,6 +242,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

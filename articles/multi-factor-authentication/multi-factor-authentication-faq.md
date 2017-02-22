@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ
+title: Azure Multi-Factor Authentication FAQ| Microsoft Docs
 description: "Azure multi-factor Authentication과 관련된 질문과 대답 목록을 제공합니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c83a7216d9763994fd5006dd9cd40883337ba4a
+ms.sourcegitcommit: 9617cd00ed4a5f8f867542238e5008a9a17663c9
+ms.openlocfilehash: 1e01bdc099af865e01eb2784cf367e482300ade8
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 0c83a7216d9763994fd5006dd9cd40883337ba4a
 ## <a name="general"></a>일반
 **Q: Azure Multi-Factor Authentication 서버는 사용자 데이터를 어떻게 처리하나요?**
 
-Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온-프레미스 서버에만 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하는 경우 Multi-factor Authentication 서버는 인증을 위해 Azure Multi-factor Authentication 클라우드 서비스에 데이터를 보냅니다. Multi-factor Authentication 서버와 Multi-factor Authentication 클라우드 서비스 간의 통신에는 포트 443 아웃바운드을 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다.
+Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온-프레미스 서버에만 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가&2;단계 인증을 수행하는 경우 Multi-factor Authentication 서버는 인증을 위해 Azure Multi-factor Authentication 클라우드 서비스에 데이터를 보냅니다. Multi-factor Authentication 서버와 Multi-factor Authentication 클라우드 서비스 간의 통신에는 포트 443 아웃바운드을 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다.
 
 클라우드 서비스에 인증 요청을 보내는 경우 인증 및 사용 보고서를 위한 데이터를 수집합니다. 2단계 인증 로그에 포함된 데이터 필드는 다음과 같습니다.
 
@@ -61,6 +61,8 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 "사용자 당" 또는 "인증 당" 모델을 사용하는 경우 Azure MFA는 소비 기반 리소스입니다. 요금은 가상 컴퓨터, 웹 사이트 등과 같은 조직의 Azure 구독에 대해 청구됩니다.
 
 라이선스 모델을 사용하는 경우 Azure Multi-Factor Authentication 라이센스를 구입한 다음 Office 365 및 기타 구독 제품과 마찬가지로 사용자에게 할당합니다.
+
+[Azure Multi-factor Authentication 작동 방법](multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication)에서 옵션에 대해 자세히 알아보기
 
 **Q: 관리자용 Azure Multi-Factor Authentication의 무료 버전이 있나요?**
 
@@ -122,7 +124,7 @@ Multi-Factor Authentication을 사용하도록 구성된 사용자는 일부 비
 
 **Q: Azure Multi-factor Authentication 서버에서 하드웨어 토큰을 사용할 수 있나요?**
 
-Azure Multi-factor Authentication 서버를 사용하는 경우 타사 OATH(공개 인증), TOTP(시간 기반, 일회용 암호) 토큰을 가져온 후 2단계 인증에 사용할 수 있습니다.
+Azure Multi-factor Authentication 서버를 사용하는 경우 타사 OATH(공개 인증), TOTP(시간 기반, 일회용 암호) 토큰을 가져온 후&2;단계 인증에 사용할 수 있습니다.
 
 암호 키를 CSV 파일에 추가하고 Azure Multi-factor Authentication 서버에 가져올 수 있는 경우 OATH TOTP 토큰에 해당하는 ActiveIdentity 토큰을 사용할 수 있습니다. OATH 토큰은 ADFS(Active Directory 페더레이션 서비스), RADIUS(원격 인증 전화 접속 사용자 서비스)(클라이언트 시스템에서 액세스 챌린지 응답을 처리할 수 있는 경우), IIS(인터넷 정보 서버) 폼 기반 인증에서 사용할 수 있습니다.
 
@@ -160,8 +162,6 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 ## <a name="next-steps"></a>다음 단계
 질문이 여기에서 답변되지 않은 경우 페이지의 맨 아래에 의견을 남겨 주세요. 또는 도움말을 얻는 몇 가지 추가 옵션은 다음과 같습니다.
 
-**Q: Azure Multi-Factor Authentication에 대한 도움을 받으려면 어떻게 해야 하나요?**
-
 * [Microsoft 지원 기술 자료](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)에서 일반적인 기술 문제에 대한 솔루션을 검색합니다.
 * 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)에서 직접 원하는 질문을 할 수 있습니다.
 * 기존 PhoneFactor 고객이며 암호를 재설정에 대해 질문이 있거나 도움이 필요한 경우 [암호 재설정](mailto:phonefactorsupport@microsoft.com) 링크를 사용하여 지원 사례를 개설하세요.
@@ -170,6 +170,6 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

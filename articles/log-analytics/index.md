@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Log Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Log Analytics를 사용하여 실제 위치에 관계 없이 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집하고 분석하는 방법에 대해 알아봅니다."
+services: log-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: log-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
+ms.sourcegitcommit: d2a324dac6c90791c0aca4aa819082515aa479f2
+ms.openlocfilehash: 98ff8af15be112c0ed3f699ddf8344cb81352114
 
 ---
 
@@ -90,6 +101,6 @@ Operations Management Suite에서 Log Analytics를 사용하여 클라우드 및
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

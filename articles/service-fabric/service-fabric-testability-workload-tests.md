@@ -1,5 +1,5 @@
 ---
-title: "사용자 지정 테스트 시나리오 | Microsoft Docs"
+title: "Azure 마이크로 서비스의 시뮬레이션 오류 | Microsoft Docs"
 description: "정상/비정상 오류로부터 서비스의 보안을 강화하는 방법"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/17/2016
 ms.author: anmola
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ebdffa2a9270fb19ab80fac234e8c5edcfbaa49e
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: eefc05c85d07f397261f2230373ad93e07675159
 
 
 ---
@@ -161,6 +161,6 @@ class Test
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 63e822de6ae50be33590048140e06e89526282ee
+ms.sourcegitcommit: b54a95c4f81d9a981912e1b596a817dc6ad56334
+ms.openlocfilehash: 52684fe3212454abbfb0cf9d1c67759fce9a1549
 
 
 ---
@@ -185,44 +185,13 @@ ms.openlocfilehash: 63e822de6ae50be33590048140e06e89526282ee
 
 가상 컴퓨터에 사용 가능한 크기 목록은 [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
 
-## <a name="add-a-data-disk-to-a-virtual-machine"></a>데이터 디스크를 가상 컴퓨터에 추가
-이 예제는 기존 가상 컴퓨터에 데이터 디스크를 추가하는 방법을 보여줍니다.
-
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-
-추가한 디스크가 초기화되지 않았습니다. 디스크를 초기화 하려면 그것에 로그인하여 디스크 관리를 사용할 수 있습니다. 그것을 만들 때 WinRM 및 인증서를 설치했다면 원격 PowerShell을 사용하여 디스크를 초기화할 수 있습니다. 또한 사용자 지정 스크립트 확장을 사용할 수 있습니다. 
-
-    $location = "location-name"
-    $scriptName = "script-name"
-    $fileName = "script-file-name"
-    Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
-
-스크립트 파일은 디스크를 초기화하기 위해 이 코드와 같은 것을 포함할 수 있습니다.
-
-    $disks = Get-Disk |   Where partitionstyle -eq 'raw' | sort number
-
-    $letters = 70..89 | ForEach-Object { ([char]$_) }
-    $count = 0
-    $labels = @("data1","data2")
-
-    foreach($d in $disks) {
-        $driveLetter = $letters[$count].ToString()
-        $d | 
-        Initialize-Disk -PartitionStyle MBR -PassThru |
-        New-Partition -UseMaximumSize -DriveLetter $driveLetter |
-        Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] `
-            -Confirm:$false -Force 
-        $count++
-    }
 
 ## <a name="next-steps"></a>다음 단계
-배포에 문제가 있는 경우 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
+배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 살펴봅니다.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

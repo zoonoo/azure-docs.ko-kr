@@ -11,7 +11,7 @@
 
 # 시작하기
 ## [필수 구성 요소](active-directory-aadconnect-prerequisites.md)
-## [Azure AD Connect 설치](active-directory-aadconnect-accounts-permissions.md)
+## [Azure AD Connect 설치](active-directory-aadconnect-select-installation.md)
 ### [Express 설정](active-directory-aadconnect-get-started-express.md)
 ### [사용자 지정 설정](active-directory-aadconnect-get-started-custom.md)
 ### [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,7 +33,6 @@
 
 
 ## Azure AD Connect 동기화 관리
-### [일반 SQL 커넥터 단계별 가이드](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # 참조
-## [Windows PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md)
-## [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md)
-## [일반 LDAP 커넥터](active-directory-aadconnectsync-connector-genericldap.md)
-## [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md)
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [포트 및 프로토콜이 필요한 하이브리드 ID](active-directory-aadconnect-ports.md)
 ## [미리 보기의 기능](active-directory-aadconnect-feature-preview.md)
 ## [버전 기록](active-directory-aadconnect-version-history.md)
+## [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect 동기화
 ### [Azure Active Directory에 동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

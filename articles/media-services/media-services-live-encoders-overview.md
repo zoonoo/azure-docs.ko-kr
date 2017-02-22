@@ -1,5 +1,5 @@
 ---
-title: "Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만들 때 온-프레미스 인코더를 구성하는 방법 | Microsoft 문서"
+title: "Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만들 때 온-프레미스 인코더 구성 | Microsoft Docs"
 description: "이 토픽에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는 데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 토픽은 나열된 인코더의 구성 방법을 보여 주는 자습서에 연결합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ae703cd1edcfca58aea40376e3b961e3e77d5ee
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0ebed14fe5a24f2b161c0bab0a0e1d36dadb6b5b
 
 
 ---
@@ -47,6 +47,6 @@ ms.openlocfilehash: 6ae703cd1edcfca58aea40376e3b961e3e77d5ee
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

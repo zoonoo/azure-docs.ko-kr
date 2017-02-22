@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c881b378a96b9d3eca7018bc32154a265ec524ea
-ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
 
 
 ---
@@ -40,17 +40,17 @@ ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
 1. `https://azure.microsoft.com/services/data-catalog`로 이동하여 **시작**을 클릭합니다.
 2. Azure Data Catalog 포털에 로그인하고 **데이터 게시**를 클릭합니다.
 
-    ![데이터 원본 등록](./media/data-lake-store-with-data-catalog/register-data-source.png "Register a data source")
+    ![데이터 원본 등록](./media/data-lake-store-with-data-catalog/register-data-source.png "데이터 원본 등록")
 3. 다음 페이지에서 **응용 프로그램 시작**을 클릭합니다. 컴퓨터에 응용 프로그램 매니페스트 파일이 다운로드됩니다. 매니페스트 파일을 두 번 클릭하여 응용 프로그램을 시작합니다.
 4. 시작 페이지에서 **로그인**을 클릭하고 자격 증명을 입력합니다.
 
-    ![시작 화면](./media/data-lake-store-with-data-catalog/welcome.screen.png "Welcome screen")
+    ![시작 화면](./media/data-lake-store-with-data-catalog/welcome.screen.png "시작 화면")
 5. 데이터 원본 선택 페이지에서 **Azure Data Lake**를 선택하고 **다음**을 클릭합니다.
 
-    ![데이터 원본 선택](./media/data-lake-store-with-data-catalog/select-source.png "Select data source")
+    ![데이터 원본 선택](./media/data-lake-store-with-data-catalog/select-source.png "데이터 원본 선택")
 6. 다음 페이지에서, 데이터 카탈로그에 등록할 Data Lake 저장소 계정 이름을 제공합니다. 다른 옵션은 기본값으로 두고 **연결**을 클릭합니다.
 
-    ![데이터 원본에 연결](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connect to data source")
+    ![데이터 원본에 연결](./media/data-lake-store-with-data-catalog/connect-to-source.png "데이터 원본에 연결")
 7. 다음 페이지는 다음과 같은 세그먼트로 나눌 수 있습니다.
 
     a. **서버 계층 구조** 상자는 Data Lake 저장소 계정 폴더 구조를 나타냅니다. **$Root**는 Data Lake Store 계정 루트를, **AmbulanceData**는 Data Lake Store 계정의 루트에 생성된 폴더를 나타냅니다.
@@ -59,20 +59,20 @@ ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
 
     c. **등록할 개체** 상자에는 Azure Data Catalog에 등록할 파일과 폴더가 나열됩니다.
 
-    ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
-8. 이 자습서에서는, 디렉터리의 모든 파일을 등록합니다. 이를 위해, (![개체 이동](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")) 단추를 클릭하여 모든 파일을 **등록할 개체** 상자로 이동합니다.
+    ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-data-structure.png "데이터 구조 보기")
+8. 이 자습서에서는, 디렉터리의 모든 파일을 등록합니다. 이를 위해, (![개체 이동](./media/data-lake-store-with-data-catalog/move-objects.png "개체 이동")) 단추를 클릭하여 모든 파일을 **등록할 개체** 상자로 이동합니다.
 
     데이터를 조직 전체의 데이터 카탈로그에 등록하는 것이므로, 나중에 데이터를 신속하게 찾는 데 사용할 수 있는 메타데이터를 추가하는 것이 좋습니다. 예를 들어, 데이터 소유자(예: 데이터를 업로드한 사람)의 전자 메일 주소를 추가하거나 데이터 식별을 위한 태그를 추가할 수 있습니다. 아래 스크린 캡처에서 데이터에 추가하는 태그를 볼 수 있습니다.
 
-    ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
+    ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "데이터 구조 보기")
 
     **Register**를 클릭합니다.
 9. 다음 화면 캡처는 데이터가 데이터 카탈로그에 성공적으로 등록된 것을 나타냅니다.
 
-    ![등록 완료](./media/data-lake-store-with-data-catalog/registration-complete.png "View data structure")
+    ![등록 완료](./media/data-lake-store-with-data-catalog/registration-complete.png "데이터 구조 보기")
 10. **포털 보기** 를 클릭하고 데이터 카탈로그로 돌아가서, 이제 포털에서 등록된 데이터를 액세스할 수 있는지 확인합니다. 데이터 검색을 위해, 데이터를 등록할 때 사용한 태그를 사용할 수 있습니다.
 
-     ![카탈로그에서 데이터 검색](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Search data in catalog")
+     ![카탈로그에서 데이터 검색](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "카탈로그에서 데이터 검색")
 11. 이제 데이터에 주석 및 설명서를 추가하는 등의 작업을 수행할 수 있습니다. 자세한 내용은 다음 링크를 참조하세요.
 
     * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
@@ -85,6 +85,6 @@ ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

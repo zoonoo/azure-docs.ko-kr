@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
-ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
 
 
 ---
@@ -403,7 +403,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 내보냅니다.
 3. 둘 이상의 대체를 제공할 수 있습니다. 예를 들어, 컬렉션 [0-1] [0-9]는 0이 이름 앞에 오는 20개의 컬렉션을 생성합니다(collection01,... 02... 03).
 
-컬렉션 이름이 지정되면 원하는 컬렉션 처리량을 선택합니다(400RU~250,000RU). 가져오기 성능을 최적화하려면 더 높은 처리량을 선택합니다. 성능 수준에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요. 처리량 >10,000RU로 컬렉션에 가져오기는 파티션 키가 필요합니다. 250,000RU 이상을 선택하는 경우 [DocumentDB 계정 제한 증가 요청](documentdb-increase-limits.md)을 참조하세요.
+컬렉션 이름이 지정되면 원하는 컬렉션 처리량을 선택합니다(400RU~250,000RU). 가져오기 성능을 최적화하려면 더 높은 처리량을 선택합니다. 성능 수준에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요. 처리량 >10,000RU로 컬렉션에 가져오기는 파티션 키가 필요합니다. 250,000RU 이상을 보유하도록 선택한 경우에는 계정을 늘리도록 포털에 요청을 접수해야 합니다.
 
 > [!NOTE]
 > 처리량 설정은 컬렉션 생성에만 적용됩니다. 지정된 컬렉션이 이미 있는 경우 해당 처리량은 수정되지 않습니다.
@@ -526,6 +526,6 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

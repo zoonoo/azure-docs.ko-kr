@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 963a15ce1218ea7b3244e58377b9624680f5930b
-ms.openlocfilehash: e41e72957846dbcdab15960b67caab80882e49e1
+ms.sourcegitcommit: 0d37eb09a6c8a0bb39a331e51a8993c114202b91
+ms.openlocfilehash: 88858cffa5ddc6ba83152d3430f5400a1c66a26a
 
 
 ---
@@ -190,6 +190,7 @@ Node.js 또는 C# 함수에서 개체를 직렬화할 수 있습니다. C# 함�
 * 구현하는 모든 형식 `ITableEntity`
 * `ICollector<T>`(여러 엔터티를 출력. [샘플](#outcsharp)을 참조하세요.)
 * `IAsyncCollector<T>`(비동기 버전의 `ICollector<T>`)
+* `CloudTable` (Azure Storage SDK 사용. [샘플](#readmulti)을 참조하세요.)
 
 <a name="outputsample"></a>
 
@@ -342,6 +343,6 @@ public class Person : TableEntity
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

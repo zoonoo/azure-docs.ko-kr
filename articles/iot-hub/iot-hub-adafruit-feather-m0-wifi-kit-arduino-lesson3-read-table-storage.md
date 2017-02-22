@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage에 유지되는 메시지 읽기 | Microsoft Docs"
+title: "Azure IoT에 Arduino(C) 연결 - 단원 3: 테이블 저장소 | Microsoft Docs"
 description: "장치-클라우드 메시지가 Azure Table Storage에 기록될 때 해당 메시지를 모니터링합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 66d403fd63782d1945d6786220b8f329035ee456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 7a49a15b00bf25c9416235f41da8cc86e54d0062
 
 
 ---
@@ -86,6 +86,6 @@ Arduino 보드를 클라우드의 IoT Hub에 성공적으로 연결했고 깜빡
 [send-cloud-to-device-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

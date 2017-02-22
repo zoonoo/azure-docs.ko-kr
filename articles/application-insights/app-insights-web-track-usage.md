@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 1480c67792dc0ef6d2742b5b7f1c13e81cefbc1c
+ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
+ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
 
 
 ---
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석
 사람들이 사용자의 응용 프로그램을 어떻게 사용하는지 알면 사람들에게 가장 중요한 시나리오로 개발 작업을 하는 데 초점을 맞출 수 있으며, 사람들이 달성하기 더 쉽거나 어려워하는 목표에 대한 통찰력을 얻을 수 있습니다. 
 
-Azure Application Insights는 2단계 사용 현황 추적을 제공합니다.
+Azure Application Insights는&2;단계 사용 현황 추적을 제공합니다.
 
 * **사용자, 세션 및 페이지 보기 데이터** - 독점적으로 제공합니다.  
-* **사용자 지정 원격 분석** - 앱의 사용자 경험을 통해 사용자를 추적하는 [코드를 작성][api]합니다. 
+* **사용자 지정 원격 분석** - [코드를 작성][api]하여 앱의 사용자 경험을 통해 사용자를 추적합니다. 
 
 ## <a name="setting-up"></a>설치
 [Azure 포털](https://portal.azure.com)에서 Application Insights 리소스를 열고, 빈 브라우저 페이지 로드 차트를 클릭하고 설치 지침을 따릅니다.
@@ -33,7 +33,7 @@ Azure Application Insights는 2단계 사용 현황 추적을 제공합니다.
 [자세히 알아보기](app-insights-javascript.md) 
 
 ## <a name="how-popular-is-my-web-application"></a>내 웹 응용 프로그램의 인기는 어느 정도인가요?
-[Azure Portal][portal]에 로그인하고 응용 프로그램 리소스를 찾은 다음 사용을 클릭합니다.
+[Azure Portal][portal]에 로그인하고 응용 프로그램 리소스를 찾은 다음 [사용]을 클릭합니다.
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
@@ -58,7 +58,7 @@ Azure Application Insights는 2단계 사용 현황 추적을 제공합니다.
 
 장치 특성, 지리적 위치, 운영 체제 등의 각 세션에 대한 풍부한 컨텍스트 정보가 수집됩니다.
 
-클라이언트와 서버를 모두 계측하는 경우([ASP.NET][greenbrown] 또는 [J2EE][java]), 양쪽 모두에 대한 이벤트를 상호 관련시킬 수 있도록 클라이언트와 서버 간에 세션 id를 전파합니다.
+클라이언트와 서버를 둘 다 계측하면([ASP.NET][greenbrown] 또는 [J2EE][java]) SDK에서 클라이언트와 서버 간에 세션 ID를 전파하므로 양쪽 모두의 이벤트를 서로 연관시킬 수 있습니다.
 
 [문제를 진단][diagnostic]할 때 모든 요청, 기록된 이벤트, 예외 또는 추적을 포함하여 문제가 발생한 세션과 관련된 모든 원격 분석을 찾을 수 있습니다.
 
@@ -75,6 +75,7 @@ Azure Application Insights는 2단계 사용 현황 추적을 제공합니다.
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : 사용자의 비활성으로 인해 세션을 만료하는 시간(밀리초 단위). 기본값: 30분.
 * `sessionExpirationMs` : 최대 세션 길이(밀리초 단위). 이 시간 후 사용자가 활성 상태로 남아 있으면 다른 세션이 계산됩니다. 기본값: 24시간.
@@ -115,7 +116,7 @@ Azure Application Insights는 2단계 사용 현황 추적을 제공합니다.
 
 Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 다음 적절히 표시하려고 합니다. 대부분의 경우 종합 트래픽은 JavaScript SDK를 호출하지 않으므로, 이 활동은 사용자 및 세션 계산에서 제외됩니다. 
 
-그러나 Application Insights [웹 테스트][가용성]의 경우, 사용자 ID는 POP 위치에 따라 자동으로 설정되며, 세션 ID는 테스트 실행 ID에 따라 설정됩니다. 기본 보고서의 경우, 종합 트래픽은 이러한 사용자 및 세션을 제외하도록 기본적으로 필터링됩니다. 그러나 종합 트래픽을 포함하면 전체 사용자 및 세션 수가 약간 증가할 수 있습니다.
+그러나 Application Insights [웹 테스트][availability]의 경우 사용자 ID는 POP 위치에 따라 자동으로 설정되며, 세션 ID는 테스트 실행 ID에 따라 설정됩니다. 기본 보고서의 경우, 종합 트래픽은 이러한 사용자 및 세션을 제외하도록 기본적으로 필터링됩니다. 그러나 종합 트래픽을 포함하면 전체 사용자 및 세션 수가 약간 증가할 수 있습니다.
 
 ## <a name="page-usage"></a>페이지 사용
 가장 인기 있는 페이지의 분석과 함께 보다 확대된 버전을 가져오려면 페이지 보기 차트를 클릭합니다.
@@ -241,7 +242,7 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 ![검색 필드에 값 입력](./media/app-insights-web-track-usage/12-searchEvents.png)
 
-## <a name="a-b-testing"></a>A | B 테스트
+## <a name="a--b-testing"></a>A | B 테스트
 기능의 어느 변형이 보다 성공적인지 알 수 없는 경우, 다른 사용자가 각각 접근할 수 있도록 하여 둘 다 릴리스합니다. 각각의 성공 여부를 측정한 다음 통합 버전으로 이동합니다.
 
 이 기술의 경우 사용자 앱의 각 버전이 전송한 모든 원격 분석에 고유 태그를 연결합니다. 활성화된 TelemetryContext에서 속성을 정의하여 수행할 수 있습니다. 이러한 기본 속성은 사용자 지정 메시지뿐 아니라 표준 원격 분석도 응용 프로그램이 전송하는 모든 원격 분석 메시지에 추가됩니다. 
@@ -324,8 +325,8 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[가용성]: app-insights-monitor-web-app-availability.md
-[클라이언트]: app-insights-javascript.md
+[availability]: app-insights-monitor-web-app-availability.md
+[client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
@@ -337,6 +338,6 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

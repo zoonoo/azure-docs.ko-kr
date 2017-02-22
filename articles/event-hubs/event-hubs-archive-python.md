@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 01/12/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0dc22f03c114508190a8da7ae4ca385c39690d2c
-ms.openlocfilehash: ee85bfc9cfd852306a52d21772d33accdf484fdf
+ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
+ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
 
 
 ---
 # <a name="event-hubs-archive-walkthrough-python"></a>Event Hubs 보관 연습: Python
 Event Hubs 보관은 Event Hubs의 스트리밍 데이터를 선택한 Azure Blob Storage 계정에 자동으로 전달할 수 있도록 하는 이벤트 허브의 새로운 기능입니다. 이렇게 하면 손쉽게 실시간 스트리밍 데이터에서 일괄 처리를 수행할 수 있습니다. 이 문서에서는 Python과 함께 Event Hubs 보관을 사용하는 방법을 설명합니다. Event Hubs 보관에 대한 자세한 내용은 [개요 문서](event-hubs-archive-overview.md)를 참조하세요.
 
-이 샘플에서는 Azure Python SDK를 사용하여 보관 기능을 보여 줍니다. sender.py 프로그램이 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. 이벤트 허브는 보관 기능을 사용하여 Blob Storage에 일괄 작업으로 이 데이터를 작성하도록 구성됩니다. 그런 다음 archivereader.py 앱이 이러한 Blob을 읽고 장치당 추가 파일을 만들어 .csv 파일에 데이터를 작성합니다.
+이 샘플에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 보관 기능을 보여 줍니다. sender.py 프로그램이 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. 이벤트 허브는 보관 기능을 사용하여 Blob Storage에 일괄 작업으로 이 데이터를 작성하도록 구성됩니다. 그런 다음 archivereader.py 앱이 이러한 Blob을 읽고 장치당 추가 파일을 만들어 .csv 파일에 데이터를 작성합니다.
 
 수행될 작업
 
@@ -37,19 +37,18 @@ Event Hubs 보관은 Event Hubs의 스트리밍 데이터를 선택한 Azure Blo
 
 - Python 2.7.x
 - Azure 구독
+- 활성 [Event Hubs 네임스페이스 및 이벤트 허브](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 1. [Azure Portal][Azure portal]에 로그인합니다.
-2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **데이터 + 저장소**, **저장소 계정**을 차례로 클릭합니다.
+2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **저장소**, **저장소 계정**을 차례로 클릭합니다.
 3. 저장소 계정 블레이드에서 필드를 완성한 후 **만들기**를 클릭합니다.
    
    ![][1]
 4. **배포 성공** 메시지가 나타나면 새 저장소 계정의 이름을 클릭하고 **Essentials** 블레이드에서 **Blob**을 클릭합니다. **Blob service** 블레이드가 열리면 맨 위의 **+ 컨테이너**를 클릭합니다. 컨테이너 이름을 **archive**로 지정한 다음 **Blob service** 블레이드를 닫습니다.
 5. 왼쪽 블레이드에서 **선택키** 를 클릭하고 저장소 계정 이름과 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.
-
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 ## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>이벤트 허브로 이벤트를 보내는 Python 스크립트 만들기
 1. 선호하는 Python 편집기(예: [Visual Studio Code][Visual Studio Code])를 엽니다.
@@ -72,10 +71,10 @@ Event Hubs 보관은 Event Hubs의 스트리밍 데이터를 선택한 Azure Blo
        for dev in devices:
            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
            s = json.dumps(reading)
-           sbs.send\_event('myhub', s)
+           sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. Event Hubs 네임스페이스를 만들 때 얻은 키 값과 네임스페이스 이름을 사용하도록 앞의 코드를 업데이트합니다.
+4. Event Hubs 네임스페이스를 만들 때 얻은 네임스페이스 이름, 키 값 및 Event Hub 이름을 사용하도록 앞의 코드를 업데이트합니다.
 
 ## <a name="create-a-python-script-to-read-your-archive-files"></a>보관 파일을 읽는 Python 스크립트 만들기
 1. 블레이드를 채우고 **만들기**를 클릭합니다.
@@ -95,33 +94,33 @@ Event Hubs 보관은 Event Hubs의 스트리밍 데이터를 선택한 Azure Blo
        reader = DataFileReader(open(filename, 'rb'), DatumReader())
        dict = {}
        for reading in reader:
-           parsed\_json = json.loads(reading["Body"])
-           if not 'id' in parsed\_json:
+           parsed_json = json.loads(reading["Body"])
+           if not 'id' in parsed_json:
                return
-           if not dict.has\_key(parsed\_json['id']):
+           if not dict.has_key(parsed_json['id']):
            list = []
-           dict[parsed\_json['id']] = list
+           dict[parsed_json['id']] = list
        else:
-           list = dict[parsed\_json['id']]
-           list.append(parsed\_json)
+           list = dict[parsed_json['id']]
+           list.append(parsed_json)
        reader.close()
        for device in dict.keys():
            deviceFile = open(device + '.csv', "a")
            for r in dict[device]:
-               deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\\n')
+               deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\n')
    
    def startProcessing(accountName, key, container):
        print 'Processor started using path: ' + os.getcwd()
-       block\_blob\_service = BlockBlobService(account\_name=accountName, account\_key=key)
-       generator = block\_blob\_service.list\_blobs(container)
+       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
+       generator = block_blob_service.list_blobs(container)
        for blob in generator:
-           if blob.properties.content\_length != 0:
+           if blob.properties.content_length != 0:
                print('Downloaded a non empty blob: ' + blob.name)
-               cleanName = string.replace(blob.name, '/', '\_')
-               block\_blob\_service.get\_blob\_to\_path(container, blob.name, cleanName)
+               cleanName = string.replace(blob.name, '/', '_')
+               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
                processBlob(cleanName)
                os.remove(cleanName)
-           block\_blob\_service.delete\_blob(container, blob.name)
+           block_blob_service.delete_blob(container, blob.name)
    startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
    ```
 4. 호출의 저장소 계정 이름 및 키의 적절한 값을 `startProcessing`에 붙여넣습니다.
@@ -168,7 +167,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Azure portal]: https://portal.azure.com/
 [Overview of Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: ../storage/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -176,6 +175,6 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

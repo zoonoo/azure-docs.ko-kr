@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
 
 
 ---
@@ -36,7 +36,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 * ambariserverlog
 * ambariagentlog
 
-Windows 기반 클러스터에 3개의 테이블을 만듭니다.
+Windows 기반 클러스터에&3;개의 테이블을 만듭니다.
 
 * setuplog: HDInsight 클러스터를 프로비전/설정할 때 발생한 이벤트/예외의 로그입니다.
 * hadoopinstalllog: 클러스터에 Hadoop를 설치하는 경우 발생한 이벤트/예외의 로그입니다. 이 테이블은 사용자 지정 매개 변수를 사용하여 만든 클러스터와 관련된 문제를 디버깅하는 데 유용할 수 있습니다.
@@ -116,7 +116,7 @@ Windows 기반 클러스터에 3개의 테이블을 만듭니다.
 
 ## <a name="view-cluster-health-and-job-logs"></a>클러스터 상태 및 작업 로그 보기
 ### <a name="access-hadoop-ui"></a>Hadoop UI에 액세스
-Azure 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다.
+Azure Portal에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다.
 
 ![클러스터 대시보드 시작](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
@@ -125,7 +125,7 @@ Azure 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 �
 ![Hadoop UI 시작](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
 ### <a name="access-the-yarn-ui"></a>Yarn UI에 액세스
-Azure 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **YARN UI**를 클릭합니다.
+Azure Portal에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **YARN UI**를 클릭합니다.
 
 YARN UI를 사용하여 다음을 수행할 수 있습니다.
 
@@ -136,7 +136,7 @@ YARN UI를 사용하여 다음을 수행할 수 있습니다.
 * **작업 상태를 모니터링**합니다. 왼쪽 창에서 **클러스터**를 확장하고 **응용 프로그램**을 클릭하여 클러스터의 모든 작업을 나열합니다. 특정 상태(새로움, 제출됨, 실행 중과 같은)에 있는 작업을 확인하려면 **응용 프로그램**에서 적절한 링크를 클릭합니다. 더 자세한 내용을 보려면 작업 이름을 클릭하여 출력, 로그 등을 비롯하여 작업에 대해 자세히 확인할 수 있습니다.
 
 ### <a name="access-the-hbase-ui"></a>HBase UI에 액세스
-Azure 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **HBase UI**를 클릭합니다.
+Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **HBase UI**를 클릭합니다.
 
 ## <a name="hdinsight-error-codes"></a>HDInsight 오류 코드
 이 섹션의 항목별 오류 메시지를 통해 Azure HDInsight의 Hadoop 사용자는 Azure PowerShell을 사용하여 서비스를 관리할 때 발생할 수 있는 가능한 오류 상태에 대해 이해할 수 있으며, 오류를 복구하기 위해 수행할 수 있는 단계에 대해 도움을 받을 수 있습니다.
@@ -331,6 +331,6 @@ Azure 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

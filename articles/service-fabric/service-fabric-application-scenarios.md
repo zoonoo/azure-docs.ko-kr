@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 160d6a41fc1ea3eecd39e8ad199bc5e69f236061
+ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
+ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
 
 
 ---
@@ -51,6 +51,9 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 * Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) 및 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 상태 비저장 및 상태 저장 서비스 구축을 시작합니다.
+* [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)에 대해 자세히 알아보세요.
+* [고객 사례 연구](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+)에 대해 알아보세요.
 * 또한 다음 항목을 참조하세요.
   * [마이크로 서비스 정보](service-fabric-overview-microservices.md)
   * [서비스 상태 정의 및 관리](service-fabric-concepts-state.md)
@@ -63,6 +66,6 @@ Azure 클라우드 서비스 작업자 역할이 있는 응용 프로그램을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

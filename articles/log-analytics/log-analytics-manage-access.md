@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
-Log Analytics에 대한 액세스를 관리하려면 작업 영역에 관련된 다양한 관리 태스크를 수행합니다. 이 문서에서는 다양한 계정 유형을 사용하여 작업 영역 관리하는 데 사용할 수 있는 모범 사례 조언 및 절차를 제공합니다. 작업 영역은 기본적으로 계정에 대한 간단한 구성 정보와 계정 정보를 포함하는 컨테이너입니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
+Log Analytics에 대한 액세스를 관리하려면 작업 영역에 관련된 다양한 관리 태스크를 수행합니다. 이 문서에서는 작업 영역을 관리하는 모범 사례 조언 및 절차를 제공합니다. 작업 영역은 기본적으로 계정에 대한 간단한 구성 정보와 계정 정보를 포함하는 컨테이너입니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
 
 작업 영역을 만들려면 다음 항목을 수행해야 합니다.
 
@@ -41,6 +41,7 @@ Log Analytics에 대한 액세스를 관리하려면 작업 영역에 관련된 
 * 데이터 저장소의 지리적 위치
 * 대금 청구에 대한 세분성
 * 데이터 격리
+* 구성 범위
 
 위의 특성을 기반으로 다음과 같은 경우 여러 작업 영역을 만드는 것이 좋습니다.
 
@@ -61,7 +62,7 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 #### <a name="view-workspace-information-the-azure-portal"></a>Azure Portal에서 작업 영역 정보 보기
 
 1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
-2. **허브** 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Log Analytics**를 클릭합니다.  
+2. **허브** 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 클릭합니다.  
     ![Azure 허브](./media/log-analytics-manage-access/hub.png)  
 3. Log Analytics 구독 블레이드에서 작업 영역을 선택합니다.
 4. 작업 영역 블레이드는 추가 정보에 대한 작업 영역 및 링크에 대한 세부 정보를 표시합니다.  
@@ -78,8 +79,7 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 * Azure에서 역할 기반 액세스 제어를 사용하여 Azure 구독 및 연결된 Azure 리소스에 대한 액세스를 제공할 수 있습니다. 이러한 권한은 PowerShell 및 REST API 액세스에도 사용됩니다.
 * OMS 포털에서 연결된 Azure 구독이 아닌 OMS 포털에만 액세스합니다.
 
-OMS 포털에 대한 액세스 권한만을 주고 연결된 Azure 구독에 대한 액세스 권한을 주지 않은 경우 사용자는 백업 및 사이트 복구 솔루션 타일에서 데이터를 볼 수 없습니다.
-모든 사용자에게 이 솔루션의 데이터를 보도록 허용하려면, 작업 영역에 연결된 Backup 자격 증명 모음 및 Site Recovery 자격 증명 모음에 대해 적어도 **읽기** 권한을 갖도록 해야 합니다.   
+Backup 및 Site Recovery 솔루션 타일에서 데이터를 보려면 작업 영역이 연결된 Azure 구독에 대한 관리자 또는 공동 관리자 권한이 필요합니다.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Azure 포털을 사용하여 Log Analytics에 대한 액세스 관리
 Azure 사용 권한을 사용하여 사람들에게 Log Analytics 작업 영역에 대한 액세스를 제공하는 경우(예: Azure Portal에서) 같은 사용자가 Log Analytics 포털에도 액세스할 수 있습니다. 사용자가 Azure Portal에 있는 경우 사용자는 Log Analytics 작업 영역 리소스를 볼 때 **OMS 포털** 태스크를 클릭하여 OMS 포털로 이동할 수 있습니다.
@@ -199,7 +199,7 @@ OMS 계정과 연결된 사용자의 계정 역할을 변경할 수 있습니다
 8. **확인**을 클릭합니다. 작업 영역이 이제 Azure 계정에 연결되었습니다.
 
 > [!NOTE]
-> 연결할 작업 영역이 표시되지 않으면, Azure 구독이 OMS 웹 사이트를 사용하여 만든 작업 영역에 대한 액세스가 없는 것입니다.  OMS 포털에서 이 계정에 대한 액세스를 부여해야 합니다. 이 내용은 [기존 작업 영역에 사용자 추가](#add-a-user-to-an-existing-workspace)를 참조하십시오.
+> 연결할 작업 영역이 표시되지 않으면, Azure 구독이 OMS 웹 사이트를 사용하여 만든 작업 영역에 대한 액세스가 없는 것입니다.  OMS 포털에서 이 계정에 대한 액세스 권한을 부여 받으려면 [기존 작업 영역에 사용자 추가](#add-a-user-to-an-existing-workspace)를 참조하세요.
 >
 >
 
@@ -232,19 +232,24 @@ Azure 구독이 연결된 기업 등록에 대한 Azure 통화 커밋이 있는 
 
 작업 영역이 연결되어 있는 Azure 구독을 변경하려면, Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet을 사용합니다.  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>작업 영역을 유료 데이터 플랜으로 변경하려면
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>작업 영역을 유료 가격 책정 계층으로 변경
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
 2. **Log Analytics**를 찾아서 선택합니다.
 3. 기존 작업 영역 목록이 표시됩니다. 작업 영역을 선택합니다.  
 4. 작업 영역 블레이드의 **일반**에서 **가격 책정 계층**을 클릭합니다.  
-5. **가격 책정 계층**에서 데이터 요금제 선택을 클릭한 다음 **선택**을 클릭합니다.  
+5. **가격 책정 계층**에서 가격 책정 계층 선택을 클릭한 다음 **선택**을 클릭합니다.  
     ![요금제 선택](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Azure 포털에서 보기를 새로 고치면, 선택한 플랜에 따라 **가격 책정 계층**이 업데이트된 것을 볼 수 있습니다.  
+6. Azure Portal에서 보기를 새로 고치면, 선택한 계층에 따라 **가격 책정 계층**이 업데이트된 것을 볼 수 있습니다.  
     ![업데이트된 요금제](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> 작업 영역이 자동화 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **자동화 및 제어** 솔루션을 삭제하고 자동화 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. 자동화 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 자동화 계정의 이름을 클릭합니다.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics의 데이터 저장 기간 변경
 
-무료 가격 책정 계층에서 Log Analytics는 데이터를 7일 동안 사용할 수 있도록 합니다.
+무료 가격 책정 계층에서 Log Analytics는 데이터를&7;일 동안 사용할 수 있도록 합니다.
 표준 가격 책정 계층에서 Log Analytics는 데이터를 30일 동안 사용할 수 있도록 합니다.
 프리미엄 가격 책정 계층에서 Log Analytics는 데이터를 365일 동안 사용할 수 있도록 합니다.
 독립 실행형 및 OMS 가격 책정 계층에서 Log Analytics는 데이터를 31일 동안 사용할 수 있도록 합니다.
@@ -293,6 +298,6 @@ Log Analytics 작업 영역을 삭제하면 30일 내에 작업 영역과 관련
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

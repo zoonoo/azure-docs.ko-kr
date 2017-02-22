@@ -11,35 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 01/05/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 73753bb96d2c9680ed5d5bdf5eb3780e371c08d3
-ms.openlocfilehash: 53f971624c2c7a7f64eed257aeb0c402461cc7ba
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
 
 
 ---
-# <a name="azure-app-service-deployment-credentials"></a>Azure App Service 배포 자격 증명
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 플랫폼은 콘텐츠 배포를 위해 두 가지 유형의 자격 증명을 지원합니다.
-* 배포 자격 증명: 사용자 범위 자격 증명
-* 게시 프로필: 앱 범위 자격 증명 
+# <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다.
 
-## <a name="a-nameuserscopeauser-scoped-credentials"></a><a name="userscope"></a>사용자 범위 자격 증명
-사용자 범위 자격 증명은 Azure 사용자가 만들며 특정 App Service 앱이 아닌 Microsoft 계정에 직접 매핑됩니다. 사용자 범위 배포 자격 증명은 각 App Service 앱에 편집 시작 지점이 있는 [Azure Portal](https://portal.azure.com)의 **앱 배포 > 배포 자격 증명**에서 설정하거나 다시 설정할 수 있습니다. 시작 지점에 관계 없이 이러한 사용자 범위 자격 증명에 대한 편집 내용은 전체 Microsoft 계정에 적용됩니다. 이러한 자격 증명은 FTP 및 Git 배포에 자주 사용됩니다.
+* **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 이는 **App Services** > **&lt;app_name>** > **배포 자격 증명**에서 구성하는 기본 자격 증명 집합이며, 포털 GUI에서 볼 수 있는 기본 집합이기도 입니다(예: **개요** 및 **속성**의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
-![Azure App Service 배포 자격 증명](./media/app-service-deployment-credentials/deployment_credentials.png)
- 
-RBAC(역할 기반 액세스 제어) 또는 공동 관리자 권한을 통해 Azure 리소스에 대한 액세스 권한을 위임하는 경우 액세스 권한을 수신하는 각 Azure 사용자는 액세스 권한이 취소될 때까지 자신의 사용자 범위 자격 증명에 사용할 수 있습니다. 이러한 배포 자격 증명은 다른 Azure 사용자와 공유하지 말아야 합니다.
+    > [!NOTE]
+    > RBAC(역할 기반 액세스 제어) 또는 공동 관리자 권한을 통해 Azure 리소스에 대한 액세스 권한을 위임하는 경우 앱에 대한 액세스 권한을 받은 각 Azure 사용자는 액세스 권한이 취소될 때까지 개인 사용자 수준 자격 증명을 사용할 수 있습니다. 이러한 배포 자격 증명은 다른 Azure 사용자와 공유하지 말아야 합니다.
+    >
+    >
 
-## <a name="a-nameappscopeaapp-scoped-credentials"></a><a name="appscope"></a>앱 범위 자격 증명
-앱 범위 자격 증명은 App Service 플랫폼에서 자동으로 만들어집니다. 각 App Service 앱에 대한 XML 게시 프로필에 저장됩니다. 게시 프로필은 앱의 **개요** 블레이드에 있는 **게시 프로필 가져오기** 작업을 통해 [Azure Portal](https://portal.azure.com)에서 사용할 수 있습니다. 이러한 자격 증명은 WebDeploy 기반 배포에 자주 사용됩니다. FTP 또는 Git 배포에 사용할 수도 있습니다. WebDeploy 기반 배포에 대한 진입점에 해당하는 Visual Studio는 인증을 위해 게시 프로필을 구문 분석할 수 있습니다.
+* **앱 수준 자격 증명** - 각 앱마다 하나씩의 자격 증명 집합입니다. 해당 앱에만 배포하는 데 사용할 수 있습니다. 각 앱의 자격 증명은 앱을 만들 때 자동으로 만들어지며 앱의 게시 프로필에 있습니다. 자격 증명을 수동으로 구성할 수는 없지만 언제든지 앱에 대해 다시 설정할 수 있습니다.
 
-![Azure App Service 게시 프로필](./media/app-service-deployment-credentials/publish_profile.png)
+## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>사용자 수준 자격 증명 설정 및 다시 설정
 
-RBAC(역할 기반 액세스 제어) 또는 공동 관리자 권한을 통해 Azure 리소스에 대한 액세스 권한을 위임하는 경우 액세스 권한을 수신하는 각 Azure 사용자는 동일한 앱 특정 게시 프로필을 다운로드할 수 있습니다. Azure Portal 앱 **개요** 블레이드에서 언제든지 게시 프로필을 다시 설정할 수 있습니다. 위임된 액세스 권한을 취소한 후에 앱 범위 자격 증명을 다시 설정하는 것이 좋습니다.
+모든 앱의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 사용자 수준 자격 증명을 구성할 수 있습니다. 이러한 자격 증명을 구성하는 앱에 관계 없이 Azure 계정의 모든 앱과 모든 구독에 적용됩니다. 
+
+사용자 수준 자격 증명을 구성하려면
+
+1. [Azure Portal](https://portal.azure.com)에서 App Service> **&lt;any_app>** > **배포 자격 증명**을 차례로 클릭합니다.
+
+    > [!NOTE]
+    > 포털에서 배포 자격 증명 블레이드에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
+
+2. 사용자 이름과 암호를 구성한 다음 **저장**을 클릭합니다.
+
+    ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
+
+배포 자격 증명을 설정하면 앱의 **개요**에서 *Git* 배포 사용자 이름을 찾을 수 있습니다.
+
+![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+
+그런 다음 앱의 **속성**에서 *FTP* 배포 사용자 이름을 찾을 수 있습니다.
+
+![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
+
+> [!NOTE]
+> Azure에서는 사용자 수준 배포 암호가 표시되지 않습니다. 암호를 잊어버리면 암호를 검색할 수 없습니다. 그러나 이 섹션의 단계를 수행하면 자격 증명을 다시 설정할 수 있습니다.
+>
+>  
+
+## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>앱 수준 자격 증명 정보 가져오기 및 다시 설정
+App Service의 각 앱에 대한 앱 수준 자격 증명은 XML 게시 프로필에 저장되어 있습니다.
+
+앱 수준 자격 증명을 가져오려면
+
+1. [Azure Portal](https://portal.azure.com)에서 App Service> **&lt;any_app>** > **개요**를 차례로 클릭합니다.
+
+2. **...추가** > **게시 프로필 가져오기**를 차례로 클릭하고 .PublishSettings 파일 다운로드를 시작합니다.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+
+3. .PublishSettings 파일을 열고 `publishMethod="FTP"` 속성의 `<publishProfile>` 태그를 찾습니다. 그런 다음 `userName` 및 `password` 속성을 가져옵니다.
+이러한 속성이 앱 수준 자격 증명입니다.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
+
+    사용자 수준 자격 증명과 마찬가지로 FTP 배포 사용자 이름은 `<app_name>\<username>` 형식이며, Git 배포 사용자 이름은 선행하는 `<app_name>\`이 없이 `<username>`일뿐 입니다.
+
+앱 수준 자격 증명을 다시 설정하려면
+
+1. [Azure Portal](https://portal.azure.com)에서 App Service> **&lt;any_app>** > **개요**를 차례로 클릭합니다.
+
+2. **...추가** > **게시 프로필 다시 설정**을 차례로 클릭합니다. **예**를 클릭하여 다시 설정을 확인합니다.
+
+    다시 설정 작업은 앞에서 다운로드한 .PublishSettings 파일을 무효화합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+이러한 자격 증명을 사용하여 [로컬 Git](app-service-deploy-local-git.md)에서 또는 [FTP/S](app-service-deploy-ftp.md)를 통해 앱을 배포하는 방법을 알아봅니다.
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

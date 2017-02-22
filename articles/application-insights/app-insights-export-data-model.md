@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 
 
 ---
@@ -155,7 +155,7 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 | internal.data.id |string | |
 
 ## <a name="events"></a>이벤트
-[TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)에 의해 생성된 사용자 지정 이벤트입니다.
+[TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
 | basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>추적 메시지
-[TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) 및 [로깅 어댑터](app-insights-asp-net-trace-logs.md)에서 전송합니다.
+[TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](app-insights-asp-net-trace-logs.md)에서 전송합니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 | remoteDependency [0] urlData.host |string |최대 길이 200 |
 
 ## <a name="requests"></a>요청
-[TrackRequest](app-insights-api-custom-events-metrics.md#track-request)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
+[TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
 | Path | 형식 | 참고 |
 | --- | --- | --- |
@@ -354,6 +354,6 @@ TrackMetric()에서 생성합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-* [Azure Powershell](../powershell-install-configure.md)을 설치하고 구성합니다.
+* [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치하고 구성합니다.
 * Node.js 앱을 Azure 클라우드 서비스에 배포합니다. 자세한 내용은 [Node.js 응용 프로그램을 만들어서 Azure 클라우드 서비스에 배포](cloud-services-nodejs-develop-deploy-app.md)를 참조하세요.
 
 ## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스 구성
@@ -106,6 +106,6 @@ ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

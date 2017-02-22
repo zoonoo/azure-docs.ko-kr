@@ -1,5 +1,5 @@
 ---
-title: "Azure Batch 진단 로깅 | Microsoft Docs"
+title: "배치 이벤트에 대한 진단 로깅 사용 - Azure | Microsoft Docs"
 description: "풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 진단 로그 이벤트를 기록 및 분석합니다."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/01/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
+ms.sourcegitcommit: 4b8343ac07aa7b2c0771a723306cf1f875cb6147
+ms.openlocfilehash: aeba32d62458f948c7aa99294c90519979924d57
 
 
 ---
@@ -93,7 +93,7 @@ Azure Storage 계정에 진단 로그를 저장하는 것 외에도 [Azure Event
 * [이벤트 허브로 Azure 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
   배치 진단 이벤트를 확장성 높은 데이터 수집 서비스인 이벤트 허브에 스트림합니다. 이벤트 허브는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다.
-* [Log Analytics를 사용하여 Azure 진단 로그 분석 ](../log-analytics/log-analytics-azure-storage-json.md)
+* [Log Analytics를 사용하여 Azure 진단 로그 분석 ](../log-analytics/log-analytics-azure-storage.md)
   
   OMS(Operations Management Suite) 포털에서 분석할 수 있게 진단 로그를 Log Analytics로 보내거나, Power BI 또는 Excel에서의 분석을 위해 내보냅니다.
 
@@ -108,6 +108,6 @@ Azure Storage 계정에 진단 로그를 저장하는 것 외에도 [Azure Event
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio의 Python 웹 및 작업자 역할 | Microsoft 문서"
+title: "Python 및 Azure Cloud Services 시작 | Microsoft Docs"
 description: "Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다."
 services: cloud-services
 documentationcenter: python
@@ -12,15 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
+
 이 문서에서는 [Visual Studio용 Python Tools][Visual Studio용 Python Tools]를 통해 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -346,25 +347,25 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python 개발자 센터]: /develop/python/
 
-[Blob service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
 [큐 서비스]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table service]: ../storage/storage-python-how-to-use-table-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
 [Service Bus 큐]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus 토픽]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Visual Studio용 Python Tools]: http://aka.ms/ptvs
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
-[클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Cloud Service 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [VS 2013용 Azure SDK Tools]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[VS 2015용 Azure SDK Tools]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32비트]: https://www.python.org/downloads/
 [Python 3.5 32비트]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

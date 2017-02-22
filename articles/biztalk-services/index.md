@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Biztalk Services 설명서 - 자습서 | Microsoft Docs"
 description: "BizTalk Services를 사용하여 SAP, Oracle EBS, SQL Server 및 PeopleSoft용 온-프레미스 및 LOB(기간 업무) 응용 프로그램 통합에 클라우드를 제공하는 방법을 알아봅니다."
+services: biztalk-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: biztalk-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
-ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
+ms.sourcegitcommit: 8c09bee7be24d8ba18fa67f3aef1c951dfde1434
+ms.openlocfilehash: 80b381d59e95297cf8d7616e6a2eb3186ab26a05
 
 ---
 # <a name="biztalk-services-documentation"></a>BizTalk Services 설명서
@@ -67,18 +78,10 @@ BizTalk Services를 사용하여 SAP, Oracle EBS, SQL Server 및 PeopleSoft용 �
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-BizTalk Services 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

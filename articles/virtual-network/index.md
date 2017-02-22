@@ -1,10 +1,20 @@
 ---
-layout: LandingPage
-+toc_rel: breadcrumb.json
+title: "Azure Virtual Network 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 가상 네트워크를 사용하는 방법에 대해 알아봅니다. 설명서에서는 VNet을 배포하고 사용하여 리소스를 시작하고 온-프레미스 네트워크와 통합하는 방법을 보여 줍니다."
+services: virtual-network
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
+ms.sourcegitcommit: c69489141c704965b2406210b3e2c20842c34a6c
+ms.openlocfilehash: 2b130d8b29270e08d432af9a117592c8ce7bac57
 
 ---
 # <a name="virtual-network-documentation"></a>Virtual Network 설명서
@@ -153,6 +163,6 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

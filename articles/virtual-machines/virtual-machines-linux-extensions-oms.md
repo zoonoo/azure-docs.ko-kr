@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/09/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 9f27890e52cb7a9a0d46f2bb84bfe92f7c6fff37
-ms.openlocfilehash: 9864314956d79317785c1c2a4bc87621bc6a3e2d
+ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
+ms.openlocfilehash: 2d7592680289d9f222f5e0aa36aa66d12f4fa517
 
 
 ---
@@ -26,10 +26,6 @@ ms.openlocfilehash: 9864314956d79317785c1c2a4bc87621bc6a3e2d
 ## <a name="overview"></a>개요
 
 OMS(Operations Management Suite)는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. Linux용 OMS 에이전트 가상 컴퓨터 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure Virtual Machines에 OMS 에이전트를 설치하고 기존 OMS 작업 영역에 가상 컴퓨터를 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Linux용 OMS 가상 컴퓨터 확장에 대한 배포 옵션을 설명합니다.
-
-Azure Virtual Machine 확장에 대한 일반적인 내용은 [가상 컴퓨터 확장 개요](./virtual-machines-linux-extensions-features.md)를 참조하세요.
-
-Operations Management Suite에 대한 자세한 내용은 [Operations Management Suite 개요](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,49 +42,13 @@ OM 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습�
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
 | SUSE Linux Enterprise Server | 11 및 12 |
 
-### <a name="connectivity"></a>연결
+### <a name="internet-connectivity"></a>인터넷 연결
 
 Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연결되어 있어야 합니다. 
 
-## <a name="extension-configuration"></a>확장 구성
+## <a name="extension-schema"></a>확장 스키마
 
-Linux용 OMS 에이전트가 가상 컴퓨터 확장에는 대상 OMS 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요합니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 구성에 저장됩니다. Azure VM 확장으로 보호되는 구성 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. 공용 및 개인 구성은 배포 시점에 지정되며 이 문서의 후속 섹션에서 자세히 설명합니다.
-
-### <a name="public-configuration"></a>공용 구성
-
-공용 구성의 스키마:
-
-- workspaceId: (필수, 문자열) 가상 컴퓨터를 등록할 OMS 작업 영역 id입니다.
-
-```json
-{
-  "workspaceId": "myWorkspaceId"
-}
-```
-
-### <a name="private-configuration"></a>개인 구성
-
-공용 구성의 스키마:
-
-- workspaceKey: (필수, 문자열) 작업 영역의 주/보조 공유 키입니다.
-
-```json
-{
-  "workspaceKey": "myWorkSpaceKey"
-}
-```
-
-## <a name="template-deployment"></a>템플릿 배포
-
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 OMS에 등록과 같이 배포 후 구성이 필요한 하나 이상의 가상 컴퓨터를 배포하는 경우에 이상적입니다. OMS 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
-
-이 샘플은 이 단추를 사용하여 이 문서에서 배포할 수 있습니다.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-OMS 에이전트 VM 확장을 배포하는 데 사용되는 JSON은 다음 JSON 예제와 같습니다.
+다음 JSON은 OMS 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 OMS 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, OMS 포털에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다.
 
 ```json
 {
@@ -113,12 +73,28 @@ OMS 에이전트 VM 확장을 배포하는 데 사용되는 JSON은 다음 JSON 
 }
 ```
 
+### <a name="property-values"></a>속성 값
+
+| 이름 | 값/예제 |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | OmsAgentForLinux |
+| typeHandlerVersion | 1.0 |
+| workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+
+## <a name="template-deployment"></a>템플릿 배포
+
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 템플릿은 OMS에 온보딩과 같이 배포 후 구성이 필요한 하나 이상의 Virtual Machines를 배포하는 경우에 이상적입니다. OMS 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
+
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
 Azure CLI를 사용하여 OMS 에이전트 VM 확장을 기존 가상 컴퓨터에 배포할 수 있습니다. OM 에이전트 확장을 배포하기 전에 public.json 및 protected.json 파일을 만듭니다. 이러한 파일에 대한 스키마는 이 문서의 앞부분에 자세히 설명되어 있습니다.
 
 ```azurecli
-azure vm extension set <resource-group> <vm-name> \
+azure vm extension set myResourceGroup myVM \
   OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
   --public-config-path public.json  \
   --private-config-path protected.json
@@ -146,6 +122,6 @@ azure vm extension get myResourceGroup myVM
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

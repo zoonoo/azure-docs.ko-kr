@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 8424fb5d107935833e9652ef86e03933ea14c26e
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
 
 먼저 다음 설정 단계를 수행했는지 확인해야 합니다.
 
-*  [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+* [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855) 설치 확인
-*  [인증 토큰](../resource-group-authenticate-service-principal.md)
-* [Azure PowerShell](../resource-group-template-deploy.md), [Azure CLI](../resource-group-template-deploy-cli.md) 또는 [Azure Portal](../resource-group-template-deploy-portal.md)을 사용하여 리소스 그룹을 만듭니다.
+* [인증 토큰](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 또는 [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)을 사용하여 리소스 그룹을 만듭니다.
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
 
@@ -225,17 +225,19 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
         using System.IO;
 2. Program 클래스에 다음 메서드를 추가하여 자격 증명을 만드는 데 필요한 토큰을 가져옵니다.
 
-     private static async Task<AuthenticationResult> GetAccessTokenAsync()   {
-
-       var cc = new ClientCredential("{client-id}", "{client-secret}");
-       var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-       if (token == null)
-       {
-         throw new InvalidOperationException("Could not get the token.");
-       }
-       return token;
+   ```
+   private static async Task<AuthenticationResult> GetAccessTokenAsync()
+   {
+     var cc = new ClientCredential("{client-id}", "{client-secret}");
+     var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+     var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+     if (token == null)
+     {
+       throw new InvalidOperationException("Could not get the token.");
      }
+     return token;
+   }
+   ```
 
    {client-id}를 Azure Active Directory의 식별자로 바꾸고 {client-secret}을 AD 응용 프로그램의 선택키로 바꾸고, {tenant-id}를 구독의 테넌트 식별자로 바꿉니다. Get-AzureRmSubscription을 실행하여 테넌트 ID를 찾을 수 있습니다. 선택키는 Azure 포털을 사용하여 찾을 수 있습니다.
 3. 자격 증명을 만들려면 Program.cs 파일에서 Main 메서드에 다음 코드를 추가합니다.
@@ -294,42 +296,44 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 1. 리소스 그룹을 삭제하려면 Program 클래스에 다음 메서드를 추가합니다.
 
-     public static async void DeleteResourceGroupAsync(
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
 
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
 2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
-     DeleteResourceGroupAsync(
-
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## <a name="step-6-run-the-console-application"></a>6단계: 콘솔 응용 프로그램 실행
 1. 콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작** 을 클릭한 다음 구독에 사용되는 동일한 자격 증명을 사용하여 Azure AD에 로그인합니다.
 2. 수락됨 상태가 표시된 후에 **Enter** 키를 누릅니다.
 
-   이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. Enter를 눌러 리소스를 삭제하기 전에 Azure 포털에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다.
+   이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약&5;분이 필요합니다. Enter를 눌러 리소스를 삭제하기 전에 Azure 포털에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다.
 3. 리소스의 상태를 보려면 Azure 포털에서 감사 로그로 이동합니다.
 
     ![Azure 포털에서 감사 로그 찾아보기](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 배포에 문제가 있는 경우 다음 단계로서 [Azure Portal을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
+* 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 살펴봅니다.
 * [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

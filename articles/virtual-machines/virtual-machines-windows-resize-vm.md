@@ -1,5 +1,5 @@
 ---
-title: "Windows VM 크기 조정 | Microsoft Docs"
+title: "Azure에서 PowerShell을 사용하여 Windows VM 크기 조정 | Microsoft Docs"
 description: "Azure Powershell을 사용하여 Resource Manager 배포 모델에서 만든 Windows 가상 컴퓨터의 크기를 조정합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 49c1dd035d616e6495ff200388838482197c59c3
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: 3112be84acd3f3e11252270c850955068d35029e
 
 
 ---
@@ -107,6 +107,6 @@ VM(가상 컴퓨터)을 만든 후 VM 크기를 변경하여 VM의 크기를 확
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

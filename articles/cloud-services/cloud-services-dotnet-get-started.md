@@ -772,6 +772,6 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

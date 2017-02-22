@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a664cd0a2a10be17cd57f7ace418ea0dc92f70d0
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: 59bff7e1f7bdfc1786c4ee47ab2a652e2df85289
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: a664cd0a2a10be17cd57f7ace418ea0dc92f70d0
 ### <a name="rbac-for-account-management"></a>계정 관리를 위한 RBAC
 기본적으로 네 가지 기본 역할이 Data Lake Store에 대해 정의됩니다. 역할은 Azure 포털, PowerShell cmdlet 및 REST API를 통해 Data Lake Store 계정에서 다양한 작업을 허용합니다. 소유자 및 참여자 역할은 해당 계정에 다양한 관리 기능을 수행할 수 있습니다. 데이터와 상호 작용하는 사용자에 리더 역할을 할당할 수 있습니다.
 
-![RBAC 역할](./media/data-lake-store-security-overview/rbac-roles.png "RBAC roles")
+![RBAC 역할](./media/data-lake-store-security-overview/rbac-roles.png "RBAC 역할")
 
 계정 관리에 대한 역할이 할당되어 있지만 일부 역할은 데이터 액세스에 영향을 줍니다. 파일 시스템에 대해 사용자가 수행할 수 있는 작업에 대한 액세스를 제어하기 위해 ACL을 사용해야 합니다. 다음 표는 관리 권한 및 기본 역할에 대한 데이터 액세스 권한의 요약을 보여 줍니다.
 
@@ -65,19 +65,19 @@ ms.openlocfilehash: a664cd0a2a10be17cd57f7ace418ea0dc92f70d0
 ### <a name="using-acls-for-operations-on-file-systems"></a>파일 시스템 작업에 ACL 사용
 Data Lake Store는 HDFS(Hadoop 분산 파일 시스템)와 같은 계층적 파일 시스템이며 [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 지원합니다. 소유자 역할, 소유자 그룹 및 다른 사용자 및 그룹의 리소스에 대한 읽기(r), 쓰기(w) 및 실행(x) 권한을 제어합니다. Data Lake Store 공개 미리 보기(현재 릴리스)에서 ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Store의 컨텍스트에서 ACL 작동 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
 
-[보안 그룹](../active-directory/active-directory-accessmanagement-manage-groups.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스에 대해 최대 9개의 항목을 추가하는 제한 때문에 사용자 지정 액세스를 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
+[보안 그룹](../active-directory/active-directory-accessmanagement-manage-groups.md)을 사용하여 여러 사용자에 대한 ACL을 정의하는 것이 좋습니다. 사용자를 보안 그룹에 추가한 다음 파일 또는 폴더에 대한 ACL을 해당 보안 그룹에 할당합니다. 사용자 지정 액세스에 대해 최대&9;개의 항목을 추가하는 제한 때문에 사용자 지정 액세스를 제공하려는 경우에 유용합니다. Azure Active Directory 보안 그룹을 사용하여 Data Lake Store에 저장된 데이터의 보안을 강화하는 방법에 대한 자세한 내용은 [ACL인 사용자 또는 보안 그룹을 Azure Data Lake Store 파일 시스템에 할당](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
-![표준 및 사용자 지정 액세스 나열](./media/data-lake-store-security-overview/adl.acl.2.png "List standard and custom access")
+![표준 및 사용자 지정 액세스 나열](./media/data-lake-store-security-overview/adl.acl.2.png "표준 및 사용자 지정 액세스 나열")
 
 ## <a name="network-isolation"></a>네트워크 격리
 네트워크 수준에서 데이터 저장소에 대한 액세스를 제어하려면 Data Lake Store를 사용합니다. 방화벽을 설정하고 신뢰할 수 있는 클라이언트에 대한 IP 주소 범위를 정의할 수 있습니다. IP 주소 범위와 함께 정의된 범위 내에서 IP 주소를 가지고 있는 클라이언트만 Data Lake Store에 연결할 수 있습니다.
 
-![방화벽 설정 및 IP 액세스](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall settings and IP address")
+![방화벽 설정 및 IP 액세스](./media/data-lake-store-security-overview/firewall-ip-access.png "방화벽 설정 및 IP 주소")
 
 ## <a name="data-protection"></a>데이터 보호
 Azure Data Lake Store는 수명 주기 전체에 걸쳐 데이터를 보호합니다. 전송 중인 데이터의 경우 Data Lake Store는 업계 표준 TLS(전송 계층 보안) 프로토콜을 사용하여 네트워크에서 데이터를 보호합니다.
 
-![Data Lake Store 암호화](./media/data-lake-store-security-overview/adls-encryption.png "Encryption in Data Lake Store")
+![Data Lake Store의 암호화](./media/data-lake-store-security-overview/adls-encryption.png "Data Lake Store의 암호화")
 
 또한 Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 암호화를 선택하면 Data Lake Store에 저장된 데이터가 영구 미디어에 저장되기 전에 암호화됩니다. 이 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 완전히 투명합니다. 데이터를 암호화/해독하기 위해 클라이언트 쪽에서 코드를 변경할 필요가 없습니다.
 
@@ -94,12 +94,12 @@ Azure Data Lake Store는 수명 주기 전체에 걸쳐 데이터를 보호합�
 
 계정 관리 감사 내역의 경우 기록하려는 열을 보고 선택합니다. Azure Storage에 감사 로그를 내보낼 수도 있습니다.
 
-![감사 로그](./media/data-lake-store-security-overview/audit-logs.png "Audit logs")
+![감사 로그](./media/data-lake-store-security-overview/audit-logs.png "감사 로그")
 
 ### <a name="diagnostic-logs"></a>진단 로그
 Azure 포털에서 데이터 액세스 감사 내역을 설정(진단 설정에서)하고 로그가 저장되는 Azure Blob 저장소 계정을 만들 수 있습니다.
 
-![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
+![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "진단 로그")
 
 진단 설정을 구성한 후 **진단 로그** 탭에서 로그를 볼 수 있습니다.
 
@@ -118,6 +118,6 @@ Data Lake Store의 새로운 기능을 참조하려는 경우 [Data Lake Store U
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

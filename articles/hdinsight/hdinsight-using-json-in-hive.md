@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a79029fef54dc8beaaa9daea690a67ae1940c44
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
 
 
 ---
@@ -156,7 +156,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
    3. 새 **JAVA_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\Program Files\Java\jdk1.7.0_55** 또는 JDK 설치 위치를 가리킵니다.
       
       ![JDK에 대한 올바른 구성 값 설정][image-hdi-hivejson-jdk]
-2.  [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
+2. [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
     제어판-->사용자 계정의 환경 변수에 대한 시스템 변수 편집으로 이동하여 bin 폴더를 경로에 추가합니다. 아래의 스크린샷은 이 작업을 수행하는 방법을 보여 줍니다.
    
@@ -260,6 +260,6 @@ To find which subjects a given student has scored more than 80 points SELECT
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

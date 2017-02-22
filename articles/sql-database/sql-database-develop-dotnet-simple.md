@@ -13,34 +13,34 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 02/03/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85e49c3c7f23f90942ca2f9382626369cce7140e
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: cc756c662b97c64ab30a7d5bf2cc325f9e74d905
 
 
 ---
 # <a name="connect-to-sql-database-by-using-net-c"></a>.NET(C#)을 사용하여 SQL 데이터베이스에 연결
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-## <a name="step-1-configure-development-environment"></a>1단계: 개발 환경 구성
-[ADO.NET 개발을 위한 개발 환경 구성](https://msdn.microsoft.com/library/mt718321.aspx)
+## <a name="step-1--configure-development-environment"></a>1단계: 개발 환경 구성
+[ADO.NET 개발을 위한 개발 환경 구성](https://docs.microsoft.com/sql/connect/ado-net/step-1-configure-development-environment-for-ado-net-development/)
 
 ## <a name="step-2-create-a-sql-database"></a>2단계: SQL 데이터베이스 만들기
 샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md) 를 참조하세요.  안내에 따라 **AdventureWorks 데이터베이스 템플릿**을 만드는 것이 중요합니다. 아래 표시된 샘플은 **AdventureWorks 스키마**에서만 작동합니다.  
 
-## <a name="step-3-get-connection-string"></a>3단계: 연결 문자열 가져오기
+## <a name="step-3--get-connection-string"></a>3단계: 연결 문자열 가져오기
 [!INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
 ## <a name="step-4-run-sample-code"></a>4단계: 샘플 코드 실행
-* [ADO.NET을 사용하여 SQL에 연결하는 개념 증명](https://msdn.microsoft.com/library/mt718320.aspx)
-* [ADO.NET으로 SQL에 탄력적으로 연결](https://msdn.microsoft.com/library/mt703195.aspx)
+* [ADO.NET을 사용하여 SQL에 연결하는 개념 증명](https://docs.microsoft.com/sql/connect/ado-net/step-3-proof-of-concept-connecting-to-sql-using-ado-net/)
+* [ADO.NET으로 SQL에 탄력적으로 연결](https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net/)
 
 ## <a name="next-steps"></a>다음 단계
 * [인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure App Service에 배포](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
-*  [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
-*  [SQL Server용 Microsoft ADO.Net Driver](https://msdn.microsoft.com/library/mt657768.aspx)
+* [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
+* [SQL Server용 Microsoft ADO.Net Driver](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server/)
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
@@ -49,6 +49,6 @@ ms.openlocfilehash: 85e49c3c7f23f90942ca2f9382626369cce7140e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

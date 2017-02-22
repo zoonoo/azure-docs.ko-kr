@@ -40,6 +40,7 @@
 ## [클라우드 서비스의 여러 VIP 구성](load-balancer-multivip.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [여러 IP 구성 사용](load-balancer-multiple-ip.md)
+### [여러 IP 구성 사용(CLI)](load-balancer-multiple-ip-cli.md)
 ## [Azure Load Balancer에 대한 Log analytics](load-balancer-monitor-log.md)
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
 

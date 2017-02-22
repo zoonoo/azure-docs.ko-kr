@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 5f398dbc4390e300df3647093339ead6f927a833
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: a918737c762fe93cd8472f51dfdd945ceff6c877
 
 
 ---
 # <a name="add-hive-libraries-during-hdinsight-cluster-creation"></a>HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가
+
 HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경우 이 문서는 클러스터를 만드는 동안 스크립트 작업을 사용하여 라이브러리를 사전 로드하는 정보를 포함합니다. 그러면 라이브러리를 Hive에서 전역적으로 사용할 수 있습니다(로드하기 위해 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 을 사용할 필요 없음).
 
 ## <a name="how-it-works"></a>작동 방법
+
 클러스터를 만들 때 생성된 클러스터 노드에서 스크립트를 실행하는 스크립트 작업을 선택적으로 지정할 수 있습니다. 이 문서의 스크립트는 단일 매개 변수를 수락하며 이는 미리 로드된 라이브러리(jar 파일로 저장됨)가 포함 WASB 위치입니다.
 
 클러스터를 만들 때 스크립트는 파일을 열거하고 헤드 및 작업자 노드의 `/usr/lib/customhivelibs/` 디렉터리에 복사한 다음 `core-site.xml` 파일의 `hive.aux.jars.path` 속성에 추가합니다. 또한 Linux 기반 클러스터에서 파일의 위치로 `hive-env.sh` 파일을 업데이트합니다.
@@ -42,6 +44,9 @@ HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경
 **Linux 기반 클러스터**의 경우: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
 
 **Windows 기반 클러스터**의 경우: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 **요구 사항**
 
@@ -89,6 +94,6 @@ HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

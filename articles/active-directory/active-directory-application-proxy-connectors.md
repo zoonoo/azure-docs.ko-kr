@@ -1,22 +1,22 @@
 ---
-title: "Azure AD 응용 프로그램 프록시 커넥터 작업 | Microsoft Docs"
+title: "클래식 포털 Azure AD 앱 프록시 커넥터 | Microsoft Docs"
 description: "Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
+ms.sourcegitcommit: 7ed296a6773763f7aaae55e9a1667efca7d9e590
+ms.openlocfilehash: d84eaf5abc80270325e34ec6b5d1ee3edfac637a
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
 > [!div class="op_single_selector"]
 > * [Azure 포털](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-application-proxy-connectors.md)
-> 
-> 
+>
+>
 
 커넥터 그룹은 다음을 비롯한 다양한 시나리오에 유용합니다.
 
@@ -71,7 +71,6 @@ ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

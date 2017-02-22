@@ -1,6 +1,6 @@
 ---
-title: "CLI를 사용하여 클래식 Linux VM 만들기 | Microsoft Docs"
-description: "Azure CLI에서 클래식 배포 모델을 사용하여 Linux 가상 컴퓨터를 만드는 방법을 알아봅니다."
+title: "Azure CLI 1.0을 사용하여 클래식 Linux VM 만들기 | Microsoft Docs"
+description: "Azure CLI 1.0에서 클래식 배포 모델을 사용하여 Linux 가상 컴퓨터를 만드는 방법에 대해 알아보기"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: d3817e5e0f2c237375cb36993661968358c28b55
+ms.sourcegitcommit: 35f75c6feba187b15857c8e01df02bf918662fae
+ms.openlocfilehash: 0c667a20ba813ac37e49805c339cccb52832fdf0
 
 
 ---
-# <a name="how-to-create-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM을 만드는 방법
+# <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 클래식 Linux VM을 만드는 방법
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 버전은 [여기](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-이 항목에서는 Azure CLI에서 클래식 배포 모델을 사용하여 Linux VM(가상 컴퓨터)을 만드는 방법을 설명합니다. Azure에서 제공되는 **이미지** 의 Linux 이미지를 사용합니다. Azure CLI 명령은 특히 다음과 같은 구성 선택 항목을 제공합니다.
+이 항목에서는 Azure CLI 1.0에서 클래식 배포 모델을 사용하여 Linux VM(가상 컴퓨터)을 만드는 방법을 설명합니다. Azure에서 제공되는 **이미지** 의 Linux 이미지를 사용합니다. Azure CLI 1.0 명령은 특히 다음과 같은 구성 선택 항목을 제공합니다.
 
 * 가상 네트워크에 VM 연결
 * 기존 클라우드 서비스에 VM 추가
@@ -43,6 +43,6 @@ ms.openlocfilehash: d3817e5e0f2c237375cb36993661968358c28b55
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법 | Microsoft Docs"
+title: "Azure CLI를 사용하여 Azure Redis Cache 관리 | Microsoft Docs"
 description: "모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 Redis cache를 만들고 관리하는 방법에 대해 알아봅니다."
 services: redis-cache
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: db8095f225a6d5a954474f7014ce35800a363b55
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 940210325c28252de2f38cfe56e56d4c3ecd28ed
 
 
 ---
@@ -269,6 +269,6 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

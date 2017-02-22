@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/15/2016
 ms.author: anhowe
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2c8eb4c0c983bc00384484e0a8f1f84299356cf5
+ms.sourcegitcommit: 7ed8fb75f057d5a7cfde5436e72e8fec52d07156
+ms.openlocfilehash: f3b2fc301bf7083f192c0ec872c4e032472eef97
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 2c8eb4c0c983bc00384484e0a8f1f84299356cf5
 # <a name="microsoft-azure-container-service-engine---kubernetes-walkthrough"></a>Microsoft Azure Container Service 엔진 - Kubernetes 연습
 
 ## <a name="prerequisites"></a>필수 조건
-이 연습에서는 ['azure-cli' 명령줄 도구](https://github.com/azure/azure-cli#installation)가 설치되어 있고 `~/.ssh/id_rsa.pub`에서 [SSH 공용 키](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)를 만들었다고 가정합니다.
+이 연습에서는 ['azure-cli' 명령줄 도구](https://github.com/azure/azure-cli#installation)가 설치되어 있고 `~/.ssh/id_rsa.pub`에서 [SSH 공용 키](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)를 만들었다고 가정합니다.
 
 ## <a name="overview"></a>개요
 

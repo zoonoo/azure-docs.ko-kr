@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 445074060f1cae200405b17d04be41075f7306d7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 096d67dc4880f4c0a50e3981485dbe2d8f4c22a7
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
 [미디어 서비스 REST API를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-rest-configure-content-key-auth-policy.md)
 
 ### <a name="some-considerations-apply"></a>다음과 같은 몇 가지 고려 사항이 적용됩니다.
-* 동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 스트리밍 예약 단위가 있어야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+* AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 끝점이 **실행** 상태에 있어야 합니다. 
 * 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](media-services-encode-asset.md)을 참조하세요.
 * 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다.  ContentKeyAuthorizationPolicy를 만들고 "Token" 제한을 사용하도록 지정 및 테스트하고 정책의 제한을 "개방"으로 업데이트 하는 경우, 해당 정책이 "개방" 버전으로 전환하는 데 약 15분이 소요됩니다.
 
@@ -77,7 +77,7 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-**정책 xml 가져오기** 단추를 클릭하고, [여기](https://msdn.microsoft.com/library/azure/dn783459.aspx)에 정의된 XML 스키마를 준수하는 별도의 XML을 제공할 수 있습니다.
+**정책 xml 가져오기** 단추를 클릭하고, [여기](media-services-playready-license-template-overview.md)에 정의된 XML 스키마를 준수하는 별도의 XML을 제공할 수 있습니다.
 
 ## <a name="next-step"></a>다음 단계
 미디어 서비스 학습 경로를 검토합니다.
@@ -93,6 +93,6 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

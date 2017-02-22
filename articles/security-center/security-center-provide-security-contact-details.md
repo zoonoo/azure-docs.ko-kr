@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9921bce954186ba5d3fa21312aa596dcddfe827f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f4ae3395c44f175603556711bfe2f90f0f987c94
 
 
 ---
@@ -27,8 +27,8 @@ Azure 보안 센터는 아직 없는 경우 Azure 구독에 대한 보안 연락
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **보안 연락처 세부 정보 제공**을 선택합니다.
@@ -36,7 +36,7 @@ Azure 보안 센터는 아직 없는 경우 Azure 구독에 대한 보안 연락
 2. **보안 연락처 세부 정보 제공**블레이드가 열립니다. 연락처 정보를 제공할 Azure 구독을 선택합니다.
    ![보안 연락처 세부 정보 제공][2]
 3. 두 번째 **보안 연락처 세부 정보 제공** 블레이드가 열립니다.
-   
+
    * 쉼표로 구분하여 보안 연락처 전자 메일 주소 또는 주소를 입력합니다. 입력할 수 있는 전자 메일 주소 수에 제한이 없습니다.
    * 하나의 보안 연락처 국제 전화 번호를 입력합니다.
    * 심각도 높은 경고에 대해 전자 메일을 받으려면 **경고에 대한 전자 메일 받기**옵션을 설정합니다.
@@ -60,6 +60,6 @@ Azure 보안 센터는 아직 없는 경우 Azure 구독에 대한 보안 연락
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

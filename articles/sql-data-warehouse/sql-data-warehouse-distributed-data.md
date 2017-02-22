@@ -1,5 +1,5 @@
 ---
-title: "SQL Data Warehouse 및 병렬 데이터 웨어하우스의 대규모 병렬 처리(MPP) 시스템에 대한 분산 데이터 및 분산 테이블 옵션 | Microsoft Docs"
+title: "Azure SQL Data Warehouse의 분산 데이터 작동 원리 | Microsoft Docs"
 description: "SQL Data Warehouse 및 병렬 데이터 웨어하우스의 대규모 병렬 처리(MPP) 시스템에 데이터가 분산되는 원리와 분산 테이블의 옵션에 대해 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
 
 
 ---
@@ -38,7 +38,7 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 
 분산 열을 선택할 때 고유성, 데이터 오차, 시스템에서 실행되는 쿼리 종류 등 성능에 대해 고려할 사항이 있습니다.
 
-![분산 테이블](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![분산 테이블](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "분산 테이블")  
 
 * 각 행은 하나의 분산에 속합니다.  
 * 결정적 해시 알고리즘은 각 행을 하나의 분산에 할당합니다.  
@@ -56,7 +56,7 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 ## <a name="difference-between-a-distribution-and-a-compute-node"></a>분산과 계산 노드의 차이점
 분산은 분산 데이터를 저장하고 병렬 쿼리를 처리하는 기본 단위입니다. 분산은 계산 노드로 그룹화됩니다. 각 계산 노드는 하나 이상의 분산을 추적합니다.  
 
-* 분석 플랫폼 시스템은 하드웨어 아키텍처 및 확장 기능의 중앙 구성 요소로 계산 노드를 사용합니다. 해시 분산 테이블에 대한 다이어그램처럼 항상 계산 노드 하나당 8개의 분산을 사용합니다. 계산 노드의 수 그리고 그에 따른 분산의 수는 어플라이언스에 대해 구매하는 계산 노드의 수에 따라 결정됩니다. 예를 들어 8개의 계산 노드를 구매하면 64개의 분산(계산 노드 8개 x 분산 8개/노드)을 얻게 됩니다. 
+* 분석 플랫폼 시스템은 하드웨어 아키텍처 및 확장 기능의 중앙 구성 요소로 계산 노드를 사용합니다. 해시 분산 테이블에 대한 다이어그램처럼 항상 계산 노드 하나당&8;개의 분산을 사용합니다. 계산 노드의 수 그리고 그에 따른 분산의 수는 어플라이언스에 대해 구매하는 계산 노드의 수에 따라 결정됩니다. 예를 들어 8개의 계산 노드를 구매하면 64개의 분산(계산 노드 8개 x 분산 8개/노드)을 얻게 됩니다. 
 * SQL Data Warehouse는 분산의 수는 60개로 고정되어 있고 계산 노드의 수는 유연하게 결정할 수 있습니다. 계산 노드는 Azure 컴퓨팅 및 저장소 리소스를 통해 구현됩니다. 데이터 웨어하우스에 대해 지정하는 백 엔드 서비스 워크로드 및 컴퓨팅 용량(DWU)에 따라 계산 노드의 수가 달라질 수 있습니다. 계산 노드의 수가 변경되면 계산 노드당 분산의 수도 변경됩니다. 
 
 ### <a name="can-i-view-the-compute-nodes"></a>계산 노드를 볼 수 있나요?
@@ -69,7 +69,7 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 
 다음은 각 계산 노드에 저장된 복제 테이블을 보여 주는 다이어그램입니다. 복제 테이블은 해당 계산 노드에 할당된 모든 디스크에 저장됩니다. 이 디스크 전략은 SQL Server 파일 그룹을 사용하여 구현됩니다.  
 
-![복제 테이블](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![복제 테이블](media/sql-data-warehouse-distributed-data/replicated-table.png "복제 테이블") 
 
 ## <a name="next-steps"></a>다음 단계
 분산 테이블을 효과적으로 사용하려면 [SQL Data Warehouse의 테이블 분산](sql-data-warehouse-tables-distribute.md)을 참조하세요.  
@@ -77,6 +77,6 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

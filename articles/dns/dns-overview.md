@@ -1,6 +1,6 @@
 ---
 title: "Azure DNS 개요 | Microsoft 문서"
-description: "Microsoft Azure의 Azure DNS 호스팅 서비스 개요 Microsoft Azure에 도메인을 호스트하세요."
+description: "Microsoft Azure의 DNS 호스팅 서비스 개요입니다. Microsoft Azure에 도메인을 호스트하세요."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: 32b6c12a07f67d39d7a1dcf213f0372d3c3cd40c
+ms.sourcegitcommit: 87122cb432f90573fdb0a35943ce14c8d62e84a5
+ms.openlocfilehash: f8ccf5c0fab1e4aca85b22b99a1a5b48f35dfcbc
 
 ---
 
@@ -26,17 +26,17 @@ Domain Name System, 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 I
 
 Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크에 호스팅됩니다. 사용 가능한 가장 가까운 DNS 서버에서 각 DNS 쿼리에 응답하도록 애니캐스트 네트워킹이 사용됩니다. 이렇게 하면 도메인에 대해 빠른 성능과 고가용성이 제공됩니다.
 
-Azure DNS 서비스는 ARM(Azure Resource Manager)을 기반으로 합니다. 이 경우 역할 기반 액세스 제어, 감사 로그 및 리소스 잠금과 같은 ARM 기능의 이점을 누릴 수 있습니다. 도메인과 레코드는 Azure 포털, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 통해 관리할 수 있습니다. 자동 DNS 관리가 필요한 응용 프로그램은 REST API 및 SDK를 통해 서비스와 통합할 수 있습니다.
+Azure DNS 서비스는 Azure Resource Manager를 기반으로 합니다. 이 경우 역할 기반 액세스 제어, 감사 로그 및 리소스 잠금과 같은 리소스 관리자 기능의 이점을 누릴 수 있습니다. 도메인과 레코드는 Azure 포털, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 통해 관리할 수 있습니다. 자동 DNS 관리가 필요한 응용 프로그램은 REST API 및 SDK를 통해 서비스와 통합할 수 있습니다.
 
 Azure DNS는 현재 도메인 이름 구입을 지원하지 않습니다. 도메인을 구입하려면 타사 도메인 이름 등록 기관을 사용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md) 을 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
+### <a name="next-steps"></a>다음 단계
 
-[DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
-
-
+[DNS 영역 만들기](./dns-getstarted-create-dnszone-portal.md)
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

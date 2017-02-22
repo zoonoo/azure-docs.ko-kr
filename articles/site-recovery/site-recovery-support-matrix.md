@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0de569ccf12f3ef428960fe8bb745eb7512c80ce
-ms.openlocfilehash: f81088bcc28e49091f45cdcb1207b30aeb3b70f2
+ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
+ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
 
 
 ---
@@ -189,7 +189,7 @@ SAN(ISCSI) | 예 | 예
 **저장소(게스트 VM/물리적 서버)** | **VMware/물리적 서버** | **Hyper-V(VMM 포함)**
 --- | --- | ---
 VMDK | 예 | 해당 없음
-VHD/VHDX | 해당 없음 | 예(최대 64개 디스크)
+VHD/VHDX | 해당 없음 | 예(최대 16개 디스크)
 2세대 VM | 해당 없음 | 예
 공유 클러스터 디스크 | 예  | 아니요
 암호화된 디스크 | 아니요 | 아니요
@@ -241,7 +241,7 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 **게스트 운영 체제 아키텍처** | 64비트 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **운영 체제 디스크 크기** | 최대 1023GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **운영 체제 디스크 수** | 1 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
-**데이터 디스크 수** | 16 개 이하(최대 값은 만들고자 하는 가상 컴퓨터 크기의 함수) 16 = XL) | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
+**데이터 디스크 수** | **Azure에 VMware VM**을 복제하는 경우 64개 이하, **Azure에 Hyper-V VM**을 복제하는 경우 16개 이하 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **데이터 디스크 VHD 크기** | 최대 1023GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 **네트워크 어댑터** | 여러 어댑터가 지원됩니다. |
 **고정 IP 주소** | 지원됨 | 주 가상 컴퓨터가 고정 IP 주소를 사용하는 경우 Azure에서 생성되는 가상 컴퓨터에 대해 고정 IP 주소를 지정할 수 있습니다.<br/><br/> **Hyper-V에서 실행되는 Linux VM**에 대한 고정 IP 주소는 지원되지 않습니다.
@@ -265,6 +265,6 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

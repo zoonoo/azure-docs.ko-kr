@@ -10,14 +10,14 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
+ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
+ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 이 항목에서는 Azure SQL 논리 서버를 사용하는 고려 사항 및 지침을 제공합니다. Azure SQL Database에 대한 자세한 내용은 [SQL Database](sql-database-overview.md)를 참조하세요.
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>Azure SQL Database 논리 서버란?
-Azure SQL Database 논리 서버는 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 합니다. SQL Database에서 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치르 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다. Azure SQL 논리 서버에 대한 자세한 정보는 [논리 서버](sql-database-server-overview.md)를 참조하세요. 
+Azure SQL Database 논리 서버는 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 합니다. SQL Database에서 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치르 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다.  
 
 Azure 데이터베이스 논리 서버는 다음과 같습니다.
 
@@ -40,7 +40,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 데이터베이스 액세스에 대한 연결 끝점을 제공합니다(<serverName>.database.windows.net).
 - 마스터 데이터베이스에 연결하여 DMV를 통해 포함된 리소스 관련 메타데이터에 대한 액세스를 제공합니다. 
 - 로그인, 방화벽, 감사, 위협 요소 탐지 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다. 
-- 상위 구독 내의 할당량으로 제한됩니다(구독 당 6대의 서버 [여기에서 구독 제한 참조](../azure-subscription-service-limits.md)).
+- 상위 구독 내의 할당량으로 제한됩니다(구독 당&6;대의 서버 [여기에서 구독 제한 참조](../azure-subscription-service-limits.md)).
 - 포함한 리소스에 대한 데이터베이스 할당량 및 DTU 할당량의 범위를 제공합니다(예: V12에서 45000DTU).
 - 포함된 리소스에서 사용하도록 설정된 기능에 대한 버전 관리 범위입니다(최신 버전 V12).
 - 서버 수준 주체 로그인은 서버에 있는 모든 데이터베이스를 관리할 수 있습니다.
@@ -85,6 +85,6 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

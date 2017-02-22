@@ -58,6 +58,6 @@ SQL Server가 원격 Azure 서버와 통신할 수 있도록 Azure 서버의 Azu
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

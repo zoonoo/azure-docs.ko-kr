@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0ecbaaf030e5c87ff05228af852477b865329596
-ms.openlocfilehash: 3b06c7c32c6ec27659365ca4da6193457fff7162
+ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
+ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
 
 
 ---
@@ -159,18 +159,13 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>조건부 액세스가 Exchange ActiveSync에서 작동합니까?
  
-Exchange ActiveSync는 조건부 액세스 정책에서 사용할 수 있지만 이 시나리오는 제한적으로 지원됩니다.  
-Exchange ActiveSync를 포함한 정책에 적용되는 제한 사항은 제한 사항은 다음과 같습니다.
+아니요. 현재 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 없습니다.
 
-- **Exchange Online**만 **클라우드 앱** 할당으로 선택됩니다.
 
-- **제어 문**을 설정해야 하는 경우 **준수 장치 필요**만 선택할 수 있습니다. 
- 
-    ![허용](./media/active-directory-conditional-access-azure-portal/22.png)
- 
-- **조건 문**을 구성해야 하는 경우 **클라이언트 앱**만 구성할 수 있습니다.   
+### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>다단계 인증이나 준수 장치가 필요하면 어떻게 되나요?
 
-    ![조건](./media/active-directory-conditional-access-azure-portal/21.png)
+현재, 장치에 관계 없이 다단계 인증을 수행하도록 요구됩니다.
+
 
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
@@ -193,7 +188,7 @@ Exchange ActiveSync를 포함한 정책에 적용되는 제한 사항은 제한 
 
 사용자 환경에서 Intune을 사용하는 경우 Azure 콘솔에서 조건부 액세스 정책 인터페이스를 즉시 사용할 수 있습니다.
 
-많은 Intune 고객이 조건부 액세스를 사용하여 신뢰할 수 있는 장치만 Office 365 서비스에 액세스할 수 있도록 합니다. 즉 모바일 장치가 Intune에 등록되고 준수 정책 요구 사항을 충족하며 Windows PC가 온-프레미스 도메인에 가입되어 있음을 의미합니다. 주요 개선 사항은 Office 365 서비스마다 동일한 정책을 설정할 필요가 없다는 것입니다.  즉 새 정책을 만들 때 조건부 액세스로 보호하려는 Office 365 앱 각각을 포함하도록 클라우드 앱을 구성합니다. 
+많은 Intune 고객이 조건부 액세스를 사용하여 신뢰할 수 있는 장치만 Office 365 서비스에 액세스할 수 있도록 합니다. 즉 모바일 장치가 Intune에 등록되고 준수 정책 요구 사항을 충족하며 Windows PC가 온-프레미스 도메인에 가입되어 있음을 의미합니다. 주요 개선 사항은 Office 365 서비스마다 동일한 정책을 설정할 필요가 없다는 것입니다.  즉 새 정책을 만들 때 조건부 액세스로 보호하려는 Office&365; 앱 각각을 포함하도록 클라우드 앱을 구성합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -201,6 +196,6 @@ Exchange ActiveSync를 포함한 정책에 적용되는 제한 사항은 제한 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2def733a07d3e8132f998c29538df1c7cbacfee4
+ms.sourcegitcommit: 8b88db5bb2c8153953109fcd0511c22042bcf931
+ms.openlocfilehash: bef30df14f6d00c4a7f5f5b3d59ec85b2e4fbe10
 
 
 ---
@@ -34,10 +34,14 @@ ms.openlocfilehash: 2def733a07d3e8132f998c29538df1c7cbacfee4
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure HDInsight 클러스터**
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * **Azure PowerShell이 포함된 워크스테이션**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="a-idpowershellarun-pig-jobs-using-powershell"></a><a id="powershell"></a>PowerShell을 사용하여 Pig 작업 실행
 Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있는 *cmdlet* 을 제공합니다. 내부적으로는 HDInsight 클러스터에서 실행되는 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (이전의 Templeton)에 대한 REST 호출을 사용하여 이 작업을 수행합니다.
@@ -52,27 +56,22 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
-1. 편집기를 사용하여 다음 코드를 **pigjob.ps1**로 저장합니다. **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
+1. 편집기를 사용하여 다음 코드를 **pigjob.ps1**로 저장합니다.
    
-        #Login to your Azure subscription
-        Login-AzureRmAccount
-        #Get credentials for the admin/HTTPs account
-        $creds = Get-Credential
-   
-        #Specify the cluster name
-        $clusterName = "CLUSTERNAME"
-   
-        #Get the cluster info so we can get the resource group, storage, etc.
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container = $clusterInfo.DefaultStorageContainer
-        $storageAccountKey = (Get-AzureRmStorageAccountKey `
-            -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
-   
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Add-AzureRmAccount
+        }
+
+        # Get cluster info
+        $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $creds=Get-Credential -Message "Enter the login for the cluster"
+
         #Store the Pig Latin into $QueryString
-        $QueryString =  "LOGS = LOAD 'wasbs:///example/data/sample.log';" +
+        $QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
         "LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
         "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
         "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
@@ -104,16 +103,15 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
         Get-AzureRmHDInsightJobOutput `
             -ClusterName $clusterName `
             -JobId $pigJob.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds
+
 
 1. 새 Windows PowerShell 명령 프롬프트를 엽니다. **pigjob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
    
         .\pigjob.ps1
    
     먼저 Azure 구독에 로그인하라는 메시지가 표시될 수 있습니다. 그런 다음 HTTPs/관리자 계정 이름과 HDInsight 클러스터 암호를 묻는 메시지가 표시됩니다.
+
 2. 작업이 완료되면 다음과 유사한 정보가 반환됩니다.
    
         Start the Pig job ...
@@ -127,6 +125,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
         (FATAL,2)
 
 ## <a name="a-idtroubleshootingatroubleshooting"></a><a id="troubleshooting"></a>문제 해결
+
 작업이 완료될 때 정보가 반환되지 않은 경우, 처리하는 동안 오류가 발생했을 수 있습니다. 이 작업에 대한 오류 정보를 보려면 **pigjob.ps1** 파일 끝에 다음 명령을 추가하고 저장한 다음 다시 실행합니다.
 
     # Print the output of the Pig job.
@@ -134,9 +133,6 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
     Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
@@ -158,6 +154,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

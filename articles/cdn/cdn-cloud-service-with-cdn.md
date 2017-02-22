@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN과 클라우드 서비스 통합 | Microsoft Docs"
-description: "통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 설명하는 자습서입니다."
+title: "Azure CDN과 Azure 클라우드 서비스 통합 | Microsoft Docs"
+description: "통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 알아봅니다."
 services: cdn, cloud-services
 documentationcenter: .net
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: tysonn
 ms.assetid: b3c0108f-9ec5-43a8-8fd0-40eafbd32637
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 
 
 ---
@@ -45,7 +45,7 @@ ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
 이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
 * 활성 [Microsoft Azure 계정](/account/)
-*  [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
+* [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
@@ -603,6 +603,6 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

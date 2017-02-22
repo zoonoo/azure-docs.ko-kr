@@ -1,5 +1,5 @@
 ---
-title: "원격 데스크톱 상세 문제 해결 | Microsoft Docs"
+title: "Azure에서 원격 데스크톱 상세 문제 해결 | Microsoft Docs"
 description: "Azure에서 Windows 가상 컴퓨터에 연결할 수 없는 원격 데스크톱 오류에 대한 자세한 문제 해결 단계 검토"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 
 
 ---
@@ -28,8 +28,6 @@ ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 > [!IMPORTANT]
 > 일반적인 원격 데스크톱 오류를 제거하려면 계속하기 전에 [원격 데스크톱에 대한 기본적인 문제 해결 문서](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어야 합니다.
-> 
-> 
 
 [기본 원격 데스크톱 문제 해결 가이드](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 나오는 특정 오류 메시지와 유사하지 않는 원격 데스크톱 오류 메시지가 발생할 수 있습니다. RDP(원격 데스크톱) 클라이언트에서 Azure VM의 RDP 서비스에 연결할 수 없는 이유를 확인하려면 다음 단계를 수행합니다.
 
@@ -141,7 +139,7 @@ ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
 
 클래식 배포 모델을 사용하여 만든 VM의 경우 Azure 가상 컴퓨터에 대해 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 컴퓨터의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure 가상 컴퓨터에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) 으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터에 다운로드합니다.
 
-다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 다음으로, Azure PowerShell 명령 프롬프트를 열고 현재 폴더를 **InstallWinRMCertAzureVM.ps1** 스크립트 파일 위치로 변경합니다. Azure PowerShell 스크립트를 실행하려면 올바른 실행 정책을 설정해야 합니다. 현재 정책 수준을 지정하려면 **Get-ExecutionPolicy** 명령을 실행합니다. 적절한 수준을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)를 참조하세요.
 
@@ -192,7 +190,7 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)
+[Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -201,6 +199,6 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

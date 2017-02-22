@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 
 
 ---
@@ -30,7 +30,10 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 
 ## <a name="overview"></a>개요
-**참고**: 행 분할과 달리 이 DDL 문은 탄력적 데이터베이스 클라이언트 라이브러리를 통한 분할 맵이 있는 데이터 계층 정의에 종속되지 않습니다.
+
+> [!NOTE]
+> 행 분할과 달리 이 DDL 문은 Elastic Database 클라이언트 라이브러리를 통한 분할 맵이 있는 데이터 계층 정의에 종속되지 않습니다.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [데이터베이스 범위 자격 증명 만들기](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +48,9 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
     SECRET = '<password>'
     [;]
 
-**참고** *<username>*에 *"@servername"* 접미사가 포함되지 않아야 합니다. 
+> [!NOTE]
+> `<username>`에 **"@servername"** 접미사가 포함되지 않아야 합니다. 
+>
 
 ## <a name="create-external-data-sources"></a>외부 데이터 원본 만들기
 구문
@@ -58,9 +63,11 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**중요** TYPE 매개 변수는 **RDBMS**로 설정해야 합니다. 
+> [!IMPORTANT]
+> TYPE 매개 변수는 **RDBMS**로 설정해야 합니다. 
+>
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제에서는 외부 데이터 원본에 대한 CREATE 문 사용을 보여줍니다. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
@@ -130,7 +137,7 @@ SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데�
 외부 테이블에 대한 액세스 권한이 있는 사용자는 외부 데이터 원본 정의에서 제공한 자격 증명에 따라 자동으로 기본 원격 테이블에 액세스할 수 있습니다. 외부 데이터 원본의 자격 증명을 통해 원치 않는 권한 상승을 방지하려면 외부 테이블에 대한 액세스 관리에 주의가 필요합니다. 일반 SQL 권한을 사용하여 일반 테이블에서처럼 외부 테이블에 대한 액세스를 부여하거나 취소할 수 있습니다.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>예: 수직 분할된 데이터베이스 쿼리
-다음 쿼리는 주문 및 주문 라인을 위한 2개의 로컬 테이블과 고객을 위한 원격 테이블 간의 3방향 조인을 수행합니다. 탄력적 쿼리에 대한 참조 데이터 사용 사례의 예입니다. 
+다음 쿼리는 주문 및 주문 라인을 위한&2;개의 로컬 테이블과 고객을 위한 원격 테이블 간의&3;방향 조인을 수행합니다. 탄력적 쿼리에 대한 참조 데이터 사용 사례의 예입니다. 
 
     SELECT      
      c_id as customer,
@@ -185,6 +192,6 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "병렬 작업 사용으로 배치 노드 최대화 | Microsoft Docs"
+title: "병렬 작업을 실행하여 노드 사용량 극대화 - Azure Batch | Microsoft Docs"
 description: "Azure 배치 풀의 각 노드에서 동시 작업을 실행하고 더 적은 수의 계산 노드를 사용하여 효율성은 높이고 비용은 낮춥니다."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 7fec2e08209365e306d423ab35e67532ee0876c0
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 8080c8c43d1e88381cd49bdac6a5f36b6cd82709
 
 
 ---
@@ -146,6 +146,6 @@ Azure Batch [샘플 응용 프로그램][github_samples] 중 하나인 [Azure Ba
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

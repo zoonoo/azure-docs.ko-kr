@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ad4878dd2684c44f8458a9eb8288730e8fd45308
-ms.openlocfilehash: dbb39aad69f63765bf7f72129dbdcde36ed40ec7
+ms.sourcegitcommit: 89e5486f3302098f3a1d49e4390ec5b21617d778
+ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
 
 ---
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: dbb39aad69f63765bf7f72129dbdcde36ed40ec7
 
 |Cmdlet|설명|
 |:---|:---|
-|[Get AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Runbook 또는 DSC 구성에 사용할 인증서 정보를 검색합니다. Get-AzureRmAutomationCertificate 활동에서는 인증서 자체만 검색할 수 있습니다.|
+|[Get AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Runbook 또는 DSC 구성에 사용할 인증서 정보를 검색합니다. Get-AutomationCertificate 활동에서는 인증서 자체만 검색할 수 있습니다.|
 |[New-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|Azure Automation으로 새 인증서를 만듭니다.|
 [Remove-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|Azure 자동화에서 인증서를 제거합니다.|Azure Automation으로 새 인증서를 만듭니다.
 |[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|인증서 파일 업로드 및 .pfx 암호 설정을 포함하여 기존 인증서에 대한 속성을 설정합니다.|
@@ -98,6 +98,6 @@ ms.openlocfilehash: dbb39aad69f63765bf7f72129dbdcde36ed40ec7
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

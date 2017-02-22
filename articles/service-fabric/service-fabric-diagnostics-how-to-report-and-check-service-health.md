@@ -15,20 +15,21 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e3c63c8f92c860ed28bfc4dac395c1d5abf131ae
+ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
+ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
 
 
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
 서비스에 문제가 발생할 때 인시던트 및 중단에 응답하고 수정하는 능력은 문제를 빠르게 검색할 수 있는 능력과 밀접한 관련이 있습니다. 서비스 코드에서 Azure 서비스 패브릭 상태 관리자로 문제 및 오류를 보고하면 서비스 패브릭이 제공하는 표준 상태 모니터링 도구를 사용하여 상태를 확인할 수 있습니다.
 
-두 가지 방법으로 서비스에서 상태를 보고할 수 있습니다.
+세 가지 방법으로 서비스에서 상태를 보고할 수 있습니다.
 
 * [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) 또는 [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx) 개체를 사용합니다.  
   `Partition` 및 `CodePackageActivationContext` 개체를 사용하여 현재 컨텍스트의 일부인 요소의 상태를 보고할 수 있습니다. 예를 들어 복제본의 일부로 실행되는 코드는 해당 복제본, 복제본이 속하는 파티션 및 복제본을 포함하는 응용 프로그램에 대해서만 상태를 보고할 수 있습니다.
 * `FabricClient`를 사용합니다.   
   `FabricClient` 를 사용하면 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 서비스가 관리자 권한으로 실행되는 경우에 서비스 코드에서 상태를 보고할 수 있습니다. 대부분의 실제 시나리오에서는 이 경우가 해당되지 않습니다. `FabricClient`를 사용하면 클러스터의 일부인 모든 엔터티의 상태를 보고할 수 있습니다. 하지만 이상적으로 서비스 코드는 자체 상태와 관련된 보고서만 보내야 합니다.
+* 클러스터, 응용 프로그램, 배포된 응용 프로그램, 서비스, 서비스 패키지, 파티션, 복제본 또는 노드 수준에서 REST API를 사용합니다. 이는 컨테이너 내에서 상태를 보고하는 데 사용할 수 있습니다.
 
 이 문서에서는 서비스 코드에서 상태를 보고하는 예제를 보여 줍니다. 또한 이 예제에서는 서비스 패브릭에서 제공하는 도구를 사용하여 상태를 확인할 수 있는 방법을 보여 줍니다. 이 문서는 서비스 패브릭의 상태 모니터링 기능을 신속하게 소개할 목적으로 작성되었습니다. 보다 자세한 내용은 이 문서의 마지막 부분에 있는 링크를 누르면 시작되는 상태에 대한 심화 문서 시리즈를 통해 알아볼 수 있습니다.
 
@@ -106,8 +107,8 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     if (!result.HasValue)
     {
        var replicaHealthReport = new StatefulServiceReplicaHealthReport(
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
+            this.Context.PartitionId,
+            this.Context.ReplicaId,
             new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }
@@ -147,11 +148,13 @@ activationContext.ReportApplicationHealth(healthInformation);
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
+* [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
+* [서비스 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
+* [응용 프로그램 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c16e1e10b721ac80c27f97223b4dbd975954fa01
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 1dd99c8fb989921a4d0b6f0b1545a1cf67fb6902
 
 
 ---
@@ -109,7 +109,7 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. 로그온 URL 텍스트 상자에 **“https://companyname.capriza.com/tenantid”** 패턴을 사용하여 사용자가 Capriza 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 
 1. **Capriza에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -155,17 +155,17 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) 
@@ -175,7 +175,7 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-capriza-test-user"></a>Capriza 테스트 사용자 만들기
 이 섹션은 Capriza에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Capriza는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. **사용자 프로비전에 대한 도메인 이름이 Capriza로 구성되어 있는지 확인합니다. 그 이후에만 적시에 사용자 프로비전이 작동합니다.**
@@ -236,6 +236,6 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

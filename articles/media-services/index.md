@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure Media Services 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 주문형 또는 브로드캐스트 품질 라이브 비디오를 안전하게 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+services: media-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: media-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
+ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
+ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
 
 ---
+
 # <a name="media-services-documentation"></a>Media Services 설명서
 
 확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 브로드캐스트 품질 비디오를 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
@@ -202,6 +214,6 @@ ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a584086e459c5446a814bbca3e50ac343fa9201e
-ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
+ms.sourcegitcommit: fceb8f6c8f28e84eb8926586257cf39dc0cd14d4
+ms.openlocfilehash: 4977daeecd9e206906c2e0b3b95b63d4d55cb859
 
 
 ---
@@ -53,7 +53,7 @@ ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
 네임스페이스 당 20개의 처리량 단위로 기본 할당량이 적용됩니다. 지원 티켓을 제출하여 더 많은 처리량 단위 할당량을 요청할 수 있습니다. 20개의 처리량 단위 제한을 초과하면 번들은 20-100 처리량 단위에서 사용할 수 있습니다. 20개 이상의 처리량 단위를 사용하면 지원 티켓을 제출하지 않고 처리량 단위 수를 변경하는 기능을 제거합니다.
 
 ## <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>24시간 이상 이벤트 허브 이벤트를 유지 하려면 비용이 청구됩니까?
-이벤트 허브 표준 계층은 최대 30일 동안 24시간 이상 메시지 보존을 허용합니다. 저장된 이벤트 수의 총 크기가 선택한 처리량 단위(처리량 단위당 84GB)에 대한 저장소 허용 한도를 초과하면, 해당 허용 한도를 초과하는 크기는 게시된 Azure Blob 저장소 요금으로 청구됩니다. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
+이벤트 허브 표준 계층은 최대 30일 동안 24시간 이상 메시지 보존을 허용합니다. 저장된 이벤트 수의 총 크기가 선택한 처리량 단위(처리량 단위당&84;GB)에 대한 저장소 허용 한도를 초과하면, 해당 허용 한도를 초과하는 크기는 게시된 Azure Blob 저장소 요금으로 청구됩니다. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
 
 ## <a name="what-is-the-maximum-retention-period"></a>최대 보존 기간
 이벤트 허브 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다.
@@ -62,7 +62,7 @@ ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
 모든 이벤트 허브의 디스크 저장소 구조 또는 이벤트 헤더의 내부 오버 헤드를 포함하여, 저장된 모든 이벤트의 총 크기는 하루 종일 측정됩니다. 하루가 끝날 때 최대 저장소 크기가 계산됩니다. 일일 저장소 허용 한도는 하루 동안 선택된 최소 처리량 단위 수를 기준으로 계산됩니다(각 처리량 단위는 84GB의 허용 한도를 제공함) . 총 크기가 계산된 일일 저장소 허용 한도를 초과하면, 초과 저장소는 Azure Blob 저장소 가격을 사용하여 청구됩니다( **로컬 중복 저장소** 속도로).
 
 ## <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-event-hubs-and-service-bus-queuestopics"></a>이벤트 허브 및 서비스 버스 큐/항목에서 보내고 받는 단일 AMQP 연결을 사용할 수 있습니까?
-예, 모든 이벤트 허브, 큐 및 항목은 동일한 네임스페이스에 있습니다. 이와 같이 비용 효율적이고 확장성 있는 방식으로 1초 미만의 대기 시간으로 양방향 조정된 연결을 여러 장치에 구현할 수 있습니다.
+예, 모든 이벤트 허브, 큐 및 항목은 동일한 네임스페이스에 있습니다. 이와 같이 비용 효율적이고 확장성 있는 방식으로&1;초 미만의 대기 시간으로 양방향 조정된 연결을 여러 장치에 구현할 수 있습니다.
 
 ## <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 이벤트 허브에 적용됩니까?
 송신자의 경우, AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 컨트롤 시나리오에서 양방향 통신 설정), 조정된 연결을 구성하는 정보 및 계량 방법에 대한 자세한 내용은 [서비스 버스 가격 정보](https://azure.microsoft.com/pricing/details/service-bus/) 페이지를 참조하세요.
@@ -79,11 +79,15 @@ Azure 이벤트 허브는 지원되는 모든 Azure 지역에서 사용할 수 �
 
 SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 페이지를 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.
+## <a name="diagnostic-logs"></a>진단 로그
 
-* [이벤트 허브 개요][Event Hubs overview]
-* [Event Hubs를 사용하는 응용 프로그램 예제][sample application that uses Event Hubs] 전체.
+Event Hubs는 두 가지 유형의 [진단 로그](event-hubs-diagnostic-logs.md)인 보관 오류 로그와 작업 로그를 지원합니다. 두 로그 모두 json으로 표시되고 Azure Portal을 통해 설정될 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+* [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
+* [이벤트 허브 만들기](event-hubs-create.md)
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -91,6 +95,6 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

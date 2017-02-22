@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
 
 
 ---
@@ -42,7 +42,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * **페더레이션됨**: 이러한 ID는 온-프레미스 및 클라우드에 위치합니다.  Azure AD Connect를 사용하여 기존 Azure AD 계정으로 이러한 사용자를 만들거나 조인합니다.  
 
 > [!NOTE]
-> 동기화 옵션에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)을 참조하세요.
+> 동기화 옵션에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](connect/active-directory-aadconnect.md)을 참조하세요.
 > 
 > 
 
@@ -110,7 +110,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 ![](./media/hybrid-id-design-considerations/single-forest.png) 단일 포리스트 시나리오는 그림 5와 같이 다중 포리스트가 있는 크고 작은 조직에서 매우 일반적입니다.
 
 > [!NOTE]
-> Azure AD connect 동기화를 사용하여 다른 온-프레미스 및 Azure AD 토폴로지에 대한 자세한 정보는 [Azure AD Connect에 대한 토폴로지](active-directory-aadconnect-topologies.md)문서를 읽습니다.
+> Azure AD connect 동기화를 사용하여 다른 온-프레미스 및 Azure AD 토폴로지에 대한 자세한 정보는 [Azure AD Connect에 대한 토폴로지](connect/active-directory-aadconnect-topologies.md)문서를 읽습니다.
 > 
 > 
 
@@ -130,7 +130,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * 연결된 사서함이 있다면 로그인에 사용되는 다른 포리스트에도 다른 계정이 있습니다.
 
 > [!NOTE]
-> 온-프레미스 및 클라우드에 존재하는 개체는 고유 식별자를 통해 "연결"됩니다. 디렉터리 동기화의 컨텍스트에서 이 고유한 식별자는 SourceAnchor라고 합니다. Single Sign-On의 컨텍스트에서 ImmutableId라고 합니다. [Azure AD Connect에 대한 설계 개념](active-directory-aadconnect-design-concepts.md#sourceanchor) 
+> 온-프레미스 및 클라우드에 존재하는 개체는 고유 식별자를 통해 "연결"됩니다. 디렉터리 동기화의 컨텍스트에서 이 고유한 식별자는 SourceAnchor라고 합니다. Single Sign-On의 컨텍스트에서 ImmutableId라고 합니다. [Azure AD Connect에 대한 설계 개념](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) 
 > 
 > 
 
@@ -216,6 +216,6 @@ Multi-Factor 설계 옵션:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

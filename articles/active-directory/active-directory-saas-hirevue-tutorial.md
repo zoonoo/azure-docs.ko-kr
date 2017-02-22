@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9dfa1df1497d7505f283b7ed3bffa3c37ac0b351
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb121d54310c518795269dee68f24ab21f7d31b
 
 
 ---
@@ -252,6 +252,6 @@ HireVue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

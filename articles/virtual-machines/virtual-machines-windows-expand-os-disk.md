@@ -1,6 +1,6 @@
 ---
-title: "Azure 리소스 그룹에서 가상 컴퓨터의 OS 드라이브를 확장하는 방법 | Microsoft Docs"
-description: "이 문서에서는 Azure Resource Manager Powershell을 사용하여 가상 컴퓨터의 OS 드라이브 크기를 확장하는 방법을 설명합니다."
+title: "Azure에서 Windows VM의 OS 드라이브 확장 | Microsoft Docs"
+description: "Resource Manager 배포 모델에서 Azure Powershell을 사용하여 가상 컴퓨터의 OS 드라이브 크기를 확장합니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: kirpasingh
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: kirpas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c2b8d9c9dfc60b71afc5b2a1db212a64649ea5b
+ms.sourcegitcommit: dad38b1d122537b326e25bd0d3f3cf220549e30f
+ms.openlocfilehash: 8fcc4bf792639f3193ab089db4192705601df456
 
 
 ---
@@ -27,6 +27,6 @@ ms.openlocfilehash: 5c2b8d9c9dfc60b71afc5b2a1db212a64649ea5b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

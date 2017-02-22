@@ -1,5 +1,5 @@
 ---
-title: "Azure 가용성 집합 지침 | Microsoft Docs"
+title: "Linux VM에 대한 Azure 가용성 집합 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 가용성 집합을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-linux
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0c31fb1d02e26491de8d1076d074a2021906999f
 
 
 ---
@@ -56,6 +56,6 @@ Azure의 기본 인프라는 도메인 및 장애 도메인을 업데이트하�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: a70eb51e7ebbc79e1aab4176d154dbef754368c1
 
 
 ---
@@ -67,7 +67,11 @@ ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
 프로그램 작동 방식에 관심이 있는 경우 이 섹션에 설명된 샘플 코드의 주요 부분을 참조하세요. 코드를 실행하기만 하려면 [프로그램 빌드 및 실행](#buildandrun)으로 건너뛰세요.
 
 #### <a name="defining-the-model"></a>모델 정의
-이 샘플에서는 [직렬 변환기][lnk-serializer] 라이브러리를 사용하여 장치와 IoT Hub 간에 보내고 받을 수 있는 메시지를 지정하는 모델을 정의합니다. 이 샘플에서 **Contoso** 네임스페이스는 장치 ID, 장치 속성, 장치에서 응답하는 명령 등의 메타데이터와 함께 **온도**, **ExternalTemperature** 및 **습도** 원격 분석 데이터를 지정하는 **자동 온도 조절기** 모델을 정의합니다.
+이 샘플에서는 [직렬 변환기][lnk-serializer] 라이브러리를 사용하여 장치와 IoT Hub 간에 보내고 받을 수 있는 메시지를 지정하는 모델을 정의합니다. 이 샘플에서 **Contoso** 네임스페이스는 다음을 지정하는 **자동 온도 조절기**를 정의합니다.
+
+- **온도**, **ExternalTemperature** 및 **습도** 원격 분석 데이터.
+- 장치 ID, 장치 속성 등의 메타데이터.
+- 장치에서 응답하는 명령은 다음과 같습니다.
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -204,6 +208,6 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: ff5e7721e2cdf2f8b034f714b6b58642efcb6368
+ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
+ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: ff5e7721e2cdf2f8b034f714b6b58642efcb6368
 * 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
 ## <a name="connect-to-azure"></a>Azure에 연결
-Azure PowerShell을 시작하고 [구독에 연결](../powershell-install-configure.md)합니다.
+Azure PowerShell을 시작하고 [구독에 연결](/powershell/azureps-cmdlets-docs)합니다.
 
 ```PowerShell
 
@@ -81,7 +81,7 @@ GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>예 2
-[TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 응용 프로그램이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
+[TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 응용 프로그램이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -108,19 +108,19 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | `clientPerformance.total.value` |브라우저 페이지 로드 시간 |사용자가 요청한 때부터 DOM, 스타일시트, 스크립트 및 이미지가 로드될 때까지 소요된 시간입니다. |
 | `performanceCounter.available_bytes.value` |사용 가능한 메모리 |처리를 위해서나 시스템에서 바로 사용할 수 있는 실제 메모리입니다. |
 | `performanceCounter.io_data_bytes_per_sec.value` |프로세스 IO 속도 |파일, 네트워크 및 장치에서 읽고 쓴 초당 총 바이트 수입니다. |
-| `performanceCounter.number_of_exceps_thrown_per_sec` |예외 속도 |초당 발생한 예외입니다. |
+| `performanceCounter.number_of_exceps_thrown_per_sec.value` |예외 속도 |초당 발생한 예외입니다. |
 | `performanceCounter.percentage_processor_time.value` |CPU 프로세스 |응용 프로그램 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다. |
 | `performanceCounter.percentage_processor_total.value` |프로세서 시간 |프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다. |
 | `performanceCounter.process_private_bytes.value` |프로세스 전용 바이트 |모니터링되는 응용 프로그램의 프로세스에 독점적으로 할당된 메모리입니다. |
 | `performanceCounter.request_execution_time.value` |ASP.NET 요청 실행 시간 |가장 최근 요청의 실행 시간입니다. |
 | `performanceCounter.requests_in_application_queue.value` |실행 큐의 ASP.NET 요청 |응용 프로그램 요청 큐의 길이입니다. |
-| `performanceCounter.requests_per_sec` |ASP.NET 요청 속도 |ASP.NET에서 응용 프로그램에 전송된 모든 요청의 속도(초)입니다. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET 요청 속도 |ASP.NET에서 응용 프로그램에 전송된 모든 요청의 속도(초)입니다. |
 | `remoteDependencyFailed.durationMetric.count` |종속성 실패 |서버 응용 프로그램에서 외부 리소스에 보낸 호출이 실패한 횟수입니다. |
 | `request.duration` |서버 응답 시간 |HTTP 요청을 받은 후 응답 전송을 완료한 때까지의 시간입니다. |
 | `request.rate` |요청 속도 |응용 프로그램에 전송된 모든 요청의 속도(초)입니다. |
 | `requestFailed.count` |실패한 요청 |응답 코드가 400 이상인 HTTP 요청의 개수입니다. |
 | `view.count` |페이지 보기 |웹 페이지에 대한 클라이언트 사용자 요청의 수입니다. 가상 트래픽은 필터링됩니다. |
-| {사용자 지정 메트릭 이름} |{사용자의 메트릭 이름} |메트릭 값은 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)에 의해 또는 [추적 호출의 측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)에 보고됩니다. |
+| {사용자 지정 메트릭 이름} |{사용자의 메트릭 이름} |메트릭 값은 [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric)에 의해 또는 [추적 호출의 측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)에 보고됩니다. |
 
 다음과 같은 다양한 원격 분석 모듈에서 메트릭이 전송됩니다.
 
@@ -142,6 +142,6 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

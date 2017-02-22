@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.workload: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/22/2017
 ms.author: betorres
 translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: cd6c1d094f8601a06642a2a84ef1234a29a8f058
+ms.sourcegitcommit: cdcf121e52eaf6a1fc45194b7a4f5a02e9e5c001
+ms.openlocfilehash: f6b354caf37f94906865b5a2f334e2b7a02f9d5b
 
 ---
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: cd6c1d094f8601a06642a2a84ef1234a29a8f058
 ![][1]
 
 상태를 **On**으로 변경하고 사용할 Azure Storage 계정을 선택하고 복사할 데이터(로그, 메트릭 또는 둘 다)를 선택합니다. 로그 및 메트릭을 복사하는 것이 좋습니다.
-1일 ~ 365일까지 데이터에 대한 보존 정책을 설정할 수 있습니다. 데이터를 무기한으로 보존하지 않으려는 경우 보존(일)을 0으로 설정하세요.
+1일 ~ 365일까지 데이터에 대한 보존 정책을 설정할 수 있습니다. 데이터를 무기한으로 보존하려면 보존(일)을 0으로 설정하세요.
 
 ![][2]
 
@@ -77,7 +77,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 | 이름 | 형식 | 예 | 참고 사항 |
 | --- | --- | --- | --- |
 | 실시간 |datetime |"2015-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |string |"Query.Search" |작업 이름 |
 | operationVersion |string |"2016-09-01" |사용된 api-version |
 | 카테고리 |string |"OperationLogs" |constant |
@@ -96,13 +96,13 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 
 ### <a name="metrics"></a>메트릭
 메트릭 Blob에는 검색 서비스에 대한 집계 값이 포함됩니다.
-각 파일은 **레코드** 라는 하나의 루트 개체를 포함하며 여기에는 메트릭 개체의 배열이 포함됩니다. 이 루트 개체에 데이터를 사용할 수는 1 분마다 메트릭이 포함되어 있습니다.
+각 파일은 **레코드** 라는 하나의 루트 개체를 포함하며 여기에는 메트릭 개체의 배열이 포함됩니다. 이 루트 개체에 데이터를 사용할 수는&1; 분마다 메트릭이 포함되어 있습니다.
 
 사용 가능한 메트릭:
 
-* SearchLatency: 검색 쿼리를 처리하는 데 필요한 검색 서비스의 시간을 1분마다 집계합니다.
-* SearchQueriesPerSecond: 초당 수신된 검색 쿼리 수를 1분마다 집계합니다.
-* ThrottledSearchQueriesPercentage: 제한된 검색 쿼리의 비율을 1분마다 집계합니다.
+* SearchLatency: 검색 쿼리를 처리하는 데 필요한 검색 서비스의 시간을&1;분마다 집계합니다.
+* SearchQueriesPerSecond: 초당 수신된 검색 쿼리 수를&1;분마다 집계합니다.
+* ThrottledSearchQueriesPercentage: 제한된 검색 쿼리의 비율을&1;분마다 집계합니다.
 
 > [!IMPORTANT]
 > 제한은 너무 많은 쿼리가 송신되어 서비스의 프로비전된 리소스 용량을 다 써버린 경우에 발생합니다. 서비스에 더 많은 복제본을 추가하는 것이 좋습니다.
@@ -112,7 +112,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 #### <a name="metrics-schema"></a>메트릭 스키마
 | 이름 | 형식 | 예 | 참고 사항 |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |string |"Latency" |메트릭 이름 |
 | 실시간 |datetime |"2015-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
 | average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
@@ -122,12 +122,12 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 | count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 | timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
 
-모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
+모든 메트릭은&1; 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
 
 SearchQueriesPerSecond 메트릭의 경우, 최소값은 해당 분 동안 등록된 초당 검색 쿼리 수에 대한 가장 낮은 값입니다. 최대값도 마찬가지입니다. 평균은 전체 분에 대한 집계입니다.
 1분 동안 이 시나리오에 관한 생각: SearchQueriesPerSecond에 대한 최대값 만큼 부하가 매우 높은 1초가 지난 후 58초 동안 중간 부하 상태가 계속되다가 마지막으로 최소값인 쿼리 한 개만 있는 1초가 이어집니다.
 
-ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합계가 모두 같은 값이며, 이 값은 1분 동안 총 검색 쿼리 수에서 제한된 검색 쿼리의 비율입니다.
+ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합계가 모두 같은 값이며, 이 값은&1;분 동안 총 검색 쿼리 수에서 제한된 검색 쿼리의 비율입니다.
 
 ## <a name="analyzing-your-data"></a>데이터 분석
 데이터는 사용자 자신의 저장소 계정에 있고 사례에 가장 적합한 방식으로 이 데이터를 탐색하는 것이 좋습니다.
@@ -143,70 +143,83 @@ ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): 데이터를 탐색하고 데이터에 대한 고유의 시각화를 만듭니다. 다음 섹션의 시작 쿼리를 참조하세요.
 
 1. 새 PowerBI Desktop 보고서를 엽니다.
+
 2. 데이터 가져오기 -> 자세히...를 선택합니다.
 
     ![][5]
-3. Microsoft Azure Blob 저장소 및 연결을 선택합니다.
+
+3. Microsoft Azure Blob Storage 및 연결을 선택합니다.
 
     ![][6]
+
 4. 저장소 계정의 이름 및 계정 키를 입력합니다.
+
 5. "insight-logs-operationlogs" 및 "insights-metrics-pt1m"을 선택한 다음 편집을 클릭합니다.
+
 6. 쿼리 편집기가 열리면 왼쪽에서 "insight-logs-operationlogs"가 선택되었는지 확인합니다. 이제 보기 -> 고급 편집기를 선택하여 고급 편집기를 엽니다.
 
     ![][7]
+    
 7. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
 
-   > # <a name="insights-logs-operationlogs--sourcenameinsights-logs-operationlogsdata"></a>"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
-   > # <a name="sorted-rows--tablesortinsights-logs-operationlogsdate-modified-orderdescending"></a>"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-   > # <a name="kept-first-rows--tablefirstnsorted-rows744"></a>"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-   > # <a name="removed-columns--tableremovecolumnskept-first-rowsname-extension-date-accessed-date-modified-date-created-attributes-folder-path"></a>"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-   > # <a name="parsed-json--tabletransformcolumnsremoved-columnsjsondocument"></a>"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-   > # <a name="expanded-content--tableexpandrecordcolumnparsed-json-content-records-records"></a>"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-   > # <a name="expanded-records--tableexpandlistcolumnexpanded-content-records"></a>"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-   > # <a name="expanded-records1--tableexpandrecordcolumnexpanded-records-records-time-resourceid-operationname-operationversion-category-resulttype-resultsignature-durationms-properties-time-resourceid-operationname-operationversion-category-resulttype-resultsignature-durationms-properties"></a>"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}, {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}),
-   > # <a name="expanded-properties--tableexpandrecordcolumnexpanded-records1-properties-description-query-indexname-documents-description-query-indexname-documents"></a>"Expanded properties" = Table.ExpandRecordColumn(#"Expanded records1", "properties", {"Description", "Query", "IndexName", "Documents"}, {"Description", "Query", "IndexName", "Documents"}),
-   > # <a name="renamed-columns--tablerenamecolumnsexpanded-propertiestime-datetime-resourceid-resourceid-operationname-operationname-operationversion-operationversion-category-category-resulttype-resulttype-resultsignature-resultsignature-durationms-duration"></a>"Renamed Columns" = Table.RenameColumns(#"Expanded properties",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"operationName", "OperationName"}, {"operationVersion", "OperationVersion"}, {"category", "Category"}, {"resultType", "ResultType"}, {"resultSignature", "ResultSignature"}, {"durationMS", "Duration"}}),
-   > # <a name="added-custom2--tableaddcolumnrenamed-columns-queryparameters-each-uripartshttptmp--query"></a>"Added Custom2" = Table.AddColumn(#"Renamed Columns", "QueryParameters", each Uri.Parts("http://tmp" & [Query])),
-   > # <a name="expanded-queryparameters--tableexpandrecordcolumnadded-custom2-queryparameters-query-query1"></a>"Expanded QueryParameters" = Table.ExpandRecordColumn(#"Added Custom2", "QueryParameters", {"Query"}, {"Query.1"}),
-   > # <a name="expanded-query1--tableexpandrecordcolumnexpanded-queryparameters-query1-search-skip-top-count-api-version-searchmode-filter-search-skip-top-count-api-version-searchmode-filter"></a>"Expanded Query.1" = Table.ExpandRecordColumn(#"Expanded QueryParameters", "Query.1", {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}, {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}),
-   > # <a name="removed-columns1--tableremovecolumnsexpanded-query1operationversion"></a>"Removed Columns1" = Table.RemoveColumns(#"Expanded Query.1",{"OperationVersion"}),
-   > # <a name="changed-type--tabletransformcolumntypesremoved-columns1datetime-type-datetimezone-resourceid-type-text-operationname-type-text-category-type-text-resulttype-type-text-resultsignature-type-text-duration-int64type-description-type-text-query-type-text-indexname-type-text-documents-int64type-search-type-text-skip-int64type-top-int64type-count-type-logical-api-version-type-text-searchmode-type-text-filter-type-text"></a>"Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Datetime", type datetimezone}, {"ResourceId", type text}, {"OperationName", type text}, {"Category", type text}, {"ResultType", type text}, {"ResultSignature", type text}, {"Duration", Int64.Type}, {"Description", type text}, {"Query", type text}, {"IndexName", type text}, {"Documents", Int64.Type}, {"search", type text}, {"$skip", Int64.Type}, {"$top", Int64.Type}, {"$count", type logical}, {"api-version", type text}, {"searchMode", type text}, {"$filter", type text}}),
-   > # <a name="inserted-date--tableaddcolumnchanged-type-date-each-datetimedatedatetime-type-date"></a>"Inserted Date" = Table.AddColumn(#"Changed Type", "Date", each DateTime.Date([Datetime]), type date),
-   > # <a name="duplicated-column--tableduplicatecolumninserted-date-resourceid-copy-of-resourceid"></a>"Duplicated Column" = Table.DuplicateColumn(#"Inserted Date", "ResourceId", "Copy of ResourceId"),
-   > # <a name="split-column-by-delimiter--tablesplitcolumnduplicated-columncopy-of-resourceidsplittersplittextbyeachdelimiter-null-truecopy-of-resourceid1-copy-of-resourceid2"></a>"Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column","Copy of ResourceId",Splitter.SplitTextByEachDelimiter({"/"}, null, true),{"Copy of ResourceId.1", "Copy of ResourceId.2"}),
-   > # <a name="changed-type1--tabletransformcolumntypessplit-column-by-delimitercopy-of-resourceid1-type-text-copy-of-resourceid2-type-text"></a>"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Copy of ResourceId.1", type text}, {"Copy of ResourceId.2", type text}}),
-   > # <a name="removed-columns2--tableremovecolumnschanged-type1copy-of-resourceid1"></a>"Removed Columns2" = Table.RemoveColumns(#"Changed Type1",{"Copy of ResourceId.1"}),
-   > # <a name="renamed-columns1--tablerenamecolumnsremoved-columns2copy-of-resourceid2-servicename"></a>"Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Copy of ResourceId.2", "ServiceName"}}),
-   > # <a name="lowercased-text--tabletransformcolumnsrenamed-columns1servicename-textlower"></a>"Lowercased Text" = Table.TransformColumns(#"Renamed Columns1",{{"ServiceName", Text.Lower}}),
-   > # <a name="added-custom--tableaddcolumnlowercased-text-daysfromtoday-each-durationdaysdatetimezoneutcnow---datetime"></a>"Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
-   > # <a name="changed-type2--tabletransformcolumntypesadded-customdaysfromtoday-int64type"></a>"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
+   ~~~~
+   > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
+   > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
+   > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+   > # "Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+   > # "Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+   > # "Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+   > # "Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+   > # "Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}, {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}),
+   > # "Expanded properties" = Table.ExpandRecordColumn(#"Expanded records1", "properties", {"Description", "Query", "IndexName", "Documents"}, {"Description", "Query", "IndexName", "Documents"}),
+   > # "Renamed Columns" = Table.RenameColumns(#"Expanded properties",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"operationName", "OperationName"}, {"operationVersion", "OperationVersion"}, {"category", "Category"}, {"resultType", "ResultType"}, {"resultSignature", "ResultSignature"}, {"durationMS", "Duration"}}),
+   > # "Added Custom2" = Table.AddColumn(#"Renamed Columns", "QueryParameters", each Uri.Parts("http://tmp" & [Query])),
+   > # "Expanded QueryParameters" = Table.ExpandRecordColumn(#"Added Custom2", "QueryParameters", {"Query"}, {"Query.1"}),
+   > # "Expanded Query.1" = Table.ExpandRecordColumn(#"Expanded QueryParameters", "Query.1", {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}, {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}),
+   > # "Removed Columns1" = Table.RemoveColumns(#"Expanded Query.1",{"OperationVersion"}),
+   > # "Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Datetime", type datetimezone}, {"ResourceId", type text}, {"OperationName", type text}, {"Category", type text}, {"ResultType", type text}, {"ResultSignature", type text}, {"Duration", Int64.Type}, {"Description", type text}, {"Query", type text}, {"IndexName", type text}, {"Documents", Int64.Type}, {"search", type text}, {"$skip", Int64.Type}, {"$top", Int64.Type}, {"$count", type logical}, {"api-version", type text}, {"searchMode", type text}, {"$filter", type text}}),
+   > # "Inserted Date" = Table.AddColumn(#"Changed Type", "Date", each DateTime.Date([Datetime]), type date),
+   > # "Duplicated Column" = Table.DuplicateColumn(#"Inserted Date", "ResourceId", "Copy of ResourceId"),
+   > # "Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column","Copy of ResourceId",Splitter.SplitTextByEachDelimiter({"/"}, null, true),{"Copy of ResourceId.1", "Copy of ResourceId.2"}),
+   > # "Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Copy of ResourceId.1", type text}, {"Copy of ResourceId.2", type text}}),
+   > # "Removed Columns2" = Table.RemoveColumns(#"Changed Type1",{"Copy of ResourceId.1"}),
+   > # "Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Copy of ResourceId.2", "ServiceName"}}),
+   > # "Lowercased Text" = Table.TransformColumns(#"Renamed Columns1",{{"ServiceName", Text.Lower}}),
+   > # "Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
+   > # "Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
    > in
    >
-   > # <a name="changed-type2"></a>"Changed Type2"
+   > # "Changed Type2"
    >
+   ~~~~
+
 8. 완료를 클릭합니다.
+
 9. 이제 왼쪽 쿼리 목록에서 "insights-metrics-pt1m"을 선택하고 고급 편집기를 다시 엽니다. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
 
-   > # <a name="insights-metrics-pt1m1--sourcenameinsights-metrics-pt1mdata"></a>"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
-   > # <a name="sorted-rows--tablesortinsights-metrics-pt1m1date-modified-orderdescending"></a>"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
-   > # <a name="kept-first-rows--tablefirstnsorted-rows744"></a>"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-   > # <a name="removed-columns--tableremovecolumnskept-first-rowsname-extension-date-accessed-date-modified-date-created-attributes-folder-path"></a>"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-   > # <a name="parsed-json--tabletransformcolumnsremoved-columnsjsondocument"></a>"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-   > # <a name="expanded-content--tableexpandrecordcolumnparsed-json-content-records-records"></a>"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-   > # <a name="expanded-records--tableexpandlistcolumnexpanded-content-records"></a>"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-   > # <a name="expanded-records1--tableexpandrecordcolumnexpanded-records-records-resourceid-metricname-time-average-minimum-maximum-total-count-timegrain-resourceid-metricname-time-average-minimum-maximum-total-count-timegrain"></a>"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
-   > # <a name="filtered-rows--tableselectrowsexpanded-records1-each-metricname--latency"></a>"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
-   > # <a name="removed-columns1--tableremovecolumnsfiltered-rowstimegrain"></a>"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
-   > # <a name="renamed-columns--tablerenamecolumnsremoved-columns1time-datetime-resourceid-resourceid-metricname-metricname-average-average-minimum-minimum-maximum-maximum-total-total-count-count"></a>"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
-   > # <a name="changed-type--tabletransformcolumntypesrenamed-columnsresourceid-type-text-metricname-type-text-datetime-type-datetimezone-average-type-number-minimum-int64type-maximum-int64type-total-int64type-count-int64type"></a>"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+   ~~~~
+   > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+   > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+   > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+   > # "Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+   > # "Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+   > # "Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+   > # "Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+   > # "Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+   > # "Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+   > # "Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+   > # "Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+   > # "Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
    > Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
    >
-   > # <a name="changed-type1--tabletransformcolumntypesroundingaverage-type-number"></a>"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
-   > # <a name="inserted-date--tableaddcolumnchanged-type1-date-each-datetimedatedatetime-type-date"></a>"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+   > # "Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+   > # "Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
    > in
    >
-   > # <a name="inserted-date"></a>"Inserted Date"
+   > # "Inserted Date"
    >
+   ~~~~
+
 10. 완료를 클릭한 다음 홈 탭에서 닫기 및 적용을 선택합니다.
 
 11. 이제 지난 30일 동안의 데이터가 사용할 준비가 되었습니다. 진행하여 몇 가지 [시각화](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/)를 만듭니다.
@@ -228,6 +241,6 @@ ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: 관리되는 도메인에서의 동기화 | Microsoft Docs"
-description: "Azure Active Directory Domain Services 관리되는 도메인에서의 동기화를 이해합니다."
+description: "Azure Active Directory Domain Services 관리되는 도메인에서의 동기화 이해"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/13/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b89917f71701cccd6e78c036b78b136c19e9c2c
+ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
+ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
 
 
 ---
@@ -32,11 +32,13 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 
 > [!NOTE]
 > 모든 알려진 버그에 대한 수정 프로그램을 유지할 수 있도록 항상 최신 버전의 Azure AD Connect를 사용합니다.
-> 
-> 
+>
+>
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Azure AD 테넌트에서 관리되는 도메인으로 동기화
-사용자 계정, 그룹 구성원 자격 및 자격 증명 해시는 Azure AD 테넌트에서 Azure AD Domain Services 관리되는 도메인으로 동기화됩니다. 이 동기화 프로세스는 자동입니다. 이 동기화 프로세스는 구성, 모니터링 또는 관리할 필요가 없습니다. 또한 동기화 프로세스는 본질적으로 단방향입니다. 관리되는 도메인은 사용자가 만든 사용자 지정 OU를 제외하고는 대부분 읽기 전용입니다. 따라서 관리되는 도메인 내에서는 사용자 특성, 사용자 암호 또는 그룹 구성원 자격을 변경할 수 없습니다. 그렇기 때문에 관리되는 도메인에서 Azure AD 테넌트로 변경 내용의 역방향 동기화는 없습니다.
+사용자 계정, 그룹 구성원 자격 및 자격 증명 해시는 Azure AD 테넌트에서 Azure AD Domain Services 관리되는 도메인으로 동기화됩니다. 이 동기화 프로세스는 자동입니다. 이 동기화 프로세스는 구성, 모니터링 또는 관리할 필요가 없습니다. 디렉터리의 일회성 초기 동기화가 완료되면 Azure AD에 적용된 변경 사항이 관리되는 도메인에 반영되는 데 일반적으로 약 20분이 소요됩니다. 이 동기화 간격은 Azure AD에서의 암호 변경 또는 속성 변경에 적용됩니다.
+
+또한 동기화 프로세스는 본질적으로 단방향입니다. 관리되는 도메인은 사용자가 만든 사용자 지정 OU를 제외하고는 대부분 읽기 전용입니다. 따라서 관리되는 도메인 내에서는 사용자 특성, 사용자 암호 또는 그룹 구성원 자격을 변경할 수 없습니다. 그렇기 때문에 관리되는 도메인에서 Azure AD 테넌트로 변경 내용의 역방향 동기화는 없습니다.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>다중 포리스트 온-프레미스 환경에서의 동기화
 많은 조직에는 여러 계정 포리스트로 구성된 매우 복잡한 온-프레미스 ID 인프라가 있습니다. Azure AD Connect는 다중 포리스트 환경에서 Azure AD 테넌트로의 사용자, 그룹 및 자격 증명 해시 동기화를 지원합니다.
@@ -66,8 +68,8 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 
 > [!NOTE]
 > **UPN 형식을 사용하여 관리되는 도메인에 로그인:** 관리되는 도메인의 일부 사용자 계정에 대해 SAMAccountName 특성이 자동으로 생성될 수 있습니다. 여러 사용자가 동일한 mailNickname 특성을 사용하거나 사용자의 UPN 접두사가 너무 긴 경우 이러한 사용자에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 SAMAccountName 형식(예: 'CONTOSO100\joeuser')은 도메인에 로그인하는 안정적인 방법이 아닐 수 있습니다. 자동 생성된 사용자의 SAMAccountName은 UPN 접두사와 다를 수 있습니다. 관리되는 도메인에 안정적으로 로그인하려면 UPN 형식(예: 'joeuser@contoso100.com')을 사용하세요.
-> 
-> 
+>
+>
 
 ### <a name="attribute-mapping-for-user-accounts"></a>사용자 계정에 대한 특성 매핑
 다음 표에서는 Azure AD 테넌트의 사용자 개체에 대한 특정 특성이 관리되는 도메인의 해당 특성에 동기화되는 방식을 보여 줍니다.
@@ -122,7 +124,6 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

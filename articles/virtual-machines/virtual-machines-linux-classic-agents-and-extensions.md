@@ -1,5 +1,5 @@
 ---
-title: "Azure VM 에이전트 및 확장 | Microsoft Docs"
+title: "Azure의 Linux VM 에이전트 및 확장 | Microsoft Docs"
 description: "에이전트 및 확장에 대한 개요와 클래식 배포 모델을 사용하여 에이전트 설치 방법을 제공합니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0a03dbdc8858e2fd3e8b9bad468e66bc250229a6
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 383e32eca05888c8bf08f80a413c0b64a9b4fb46
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: 0a03dbdc8858e2fd3e8b9bad468e66bc250229a6
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

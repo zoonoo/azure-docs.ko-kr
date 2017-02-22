@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8bb80209ac225e60f43c406052035c6fbbc545c2
+ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
+ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
 
 
 ---
@@ -42,6 +42,7 @@ Azure Data Lake Store는 다음 원본에서 데이터를 복사하는 [AdlCopy]
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure 저장소 Blob** 컨테이너
+* **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 * **Azure 데이터 레이크 분석 계정(선택 사항)** - 데이터 레이크 저장소 계정을 만드는 방법에 대한 지침은 [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 을 참조하세요.
 * **AdlCopy 도구**. [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy)에서 AdlCopy 도구를 설치합니다.
 
@@ -89,6 +90,10 @@ Azure Data Lake Store는 다음 원본에서 데이터를 복사하는 [AdlCopy]
    
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
+### <a name="performance-considerations"></a>성능 고려 사항
+
+Azure Blob Storage 계정에서 복사할 경우 Blob Storage 쪽에서 복사하는 동안 제한될 수 있습니다. 따라서 복사 작업의 성능이 저하됩니다. Azure Blob Storage의 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조하세요.
+
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-store-account"></a>AdlCopy(독립 실행형)를 사용하여 다른 Data Lake Store 계정에서 데이터 복사
 AdlCopy를 사용하여 두 Data Lake Store 계정 간에 데이터를 복사할 수도 있습니다.
 
@@ -117,6 +122,10 @@ AdlCopy를 사용하여 두 Data Lake Store 계정 간에 데이터를 복사할
    
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
+### <a name="performance-considerations"></a>성능 고려 사항
+
+AdlCopy를 독립 실행형 도구로 사용할 때는 공유된 Azure 관리 리소스에서 복사본이 실행됩니다. 이 환경에서의 성능은 시스템 부하 및 사용 가능한 리소스에 따라 다릅니다. 이 모드는 임시로 작은 양을 전송하는 데 가장 적합합니다. AdlCopy를 독립 실행형 도구로 사용하는 경우 매개 변수를 조정할 필요가 없습니다.
+
 ## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Data Lake Analytics 계정에 AdlCopy를 사용하여 데이터 복사
 또한 데이터 레이크 분석 계정을 사용하여 Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사하는 AdlCopy 작업을 실행할 수 있습니다. 이동할 데이터가 기가바이트 및 테라바이트 범위에 있고 보다 향상되고 예측 가능한 성능 처리량을 원하는 경우 일반적으로 이 옵션을 사용합니다.
 
@@ -135,10 +144,13 @@ Data Lake Analytics 계정을 사용하여 Azure 저장소 Blob에서 Data Lake 
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-
 마찬가지로 Data Lake Analytics 계정을 사용하여 Azure 저장소 Blob에서 Data Lake Store 계정으로 복사하려면 다음 명령을 실행합니다.
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
+
+### <a name="performance-considerations"></a>성능 고려 사항
+
+테라바이트 범위의 데이터를 복사할 때 사용자 고유의 Azure Data Lake Analytics 계정으로 AdlCopy를 사용하면 보다 예측 가능하고 더욱 뛰어난 성능을 제공합니다. 조정해야 할 매개 변수는 복사 작업에 사용할 Azure Data Lake Analytics 단위의 수입니다. 단위 수를 늘리면 복사 작업의 성능이 향상됩니다. 복사할 각 파일은 최대 하나의 단위를 사용할 수 있습니다. 복사할 파일 수보다 더 많은 단위를 지정한다고 성능이 증가되지는 않습니다.
 
 ## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>AdlCopy를 사용하여 패턴 일치를 통해 데이터 복사
 이 섹션에서는 AdlCopy를 사용하여 패턴 일치를 통해 원본(아래 예제에서는 Azure 저장소 Blob)의 데이터를 대상 Data Lake Store 계정으로 복사하는 방법을 알아봅니다. 예를 들어 아래 단계를 사용하여 원본 Blob에서 확장명이 .csv인 모든 파일을 대상으로 복사할 수 있습니다.
@@ -159,6 +171,10 @@ Data Lake Analytics 계정을 사용하여 Azure 저장소 Blob에서 Data Lake 
 ## <a name="considerations-for-using-adlcopy"></a>AdlCopy 사용에 대한 고려 사항
 * AdlCopy(버전 1.0.5)는 모두 수천 개가 넘는 파일과 폴더가 있는 원본에서 데이터를 복사하는 작업을 지원합니다. 그러나 대량의 데이터 집합을 복사할 때 문제가 발생할 경우, 파일/폴더를 다른 하위 폴더에 배포하고 해당 하위 폴더에 대한 경로를 원본으로 대신 사용할 수 있습니다.
 
+## <a name="performance-considerations-for-using-adlcopy"></a>AdlCopy 사용에 대한 성능 고려 사항
+
+AdlCopy는 수천 개의 파일 및 폴더가 포함된 데이터의 복사를 지원합니다. 그러나 대량의 데이터 집합을 복사할 때 문제가 발생할 경우 파일/폴더를 더 작은 하위 폴더에 배포할 수 있습니다. AdlCopy는 임시 복사본용으로 빌드되었습니다. 반복적으로 데이터를 복사하려는 경우 복사 작업 관련 전체 관리 기능을 제공하는 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) 사용을 고려해야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -167,6 +183,6 @@ Data Lake Analytics 계정을 사용하여 Azure 저장소 Blob에서 Data Lake 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

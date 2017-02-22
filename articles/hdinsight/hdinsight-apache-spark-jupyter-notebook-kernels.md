@@ -1,6 +1,6 @@
 ---
-title: "Linux의 HDInsight Spark 클러스터에서 Jupyter Notebook과 함께 사용할 수 있는 커널 | Microsoft 문서"
-description: "Hdinsight Linux의 Spark 클러스터와 함께 사용할 수 있는 추가 Jupyter 노트북 커널에 대해 알아봅니다."
+title: "Azure Spark 클러스터에서 Jupyter Notebook에 다른 커널 사용 | Microsoft Docs"
+description: "Hdinsight Linux에서 Spark 클러스터와 함께 Jupyter Notebook에 사용할 수 있는 PySpark 및 Spark 커널에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -13,65 +13,66 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b322e44f53567e2618df086500ca42e81e4e233e
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: fc39933ac8d9f3c46023a5852df036b87e559647
 
 
 ---
-# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight-linux"></a>HDInsight Linux의 Apache Spark 클러스터로 Jupyter 노트북에 사용할 수 있는 커널
-HDInsight(Linux)의 Apache Spark 클러스터는 응용 프로그램을 테스트하는 데 사용할 수 있는 Jupyter 노트북을 포함합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. HDInsight Spark 클러스터는 Jupyter Notebook에 사용할 수 있는 두 개의 커널을 제공합니다. 다음과 같습니다.
+# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>HDInsight의 Apache Spark 클러스터와 Jupyter Notebook 
 
-1. **PySpark** (Python에서 작성한 응용 프로그램용)
-2. **Spark** (Scala에서 작성한 응용 프로그램용)
+HDInsight Spark 클러스터는 Spark 응용 프로그램 테스트를 위해 Jupyter Notebook 노트북과 함께 사용할 수 있는 두 개의 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 두 개의 커널은 다음과 같습니다.
 
-이 문서에서는 이러한 커널을 사용하는 방법 및 이를 사용하여 얻을 수 있는 이점에 대해 배우게 됩니다.
+- **PySpark** (Python에서 작성한 응용 프로그램용)
+- **Spark** (Scala에서 작성한 응용 프로그램용)
+
+이 문서에서는 이러한 커널의 사용 방법과 사용 시의 이점에 대해 알아봅니다.
 
 **필수 조건:**
 
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-## <a name="how-do-i-use-the-kernels"></a>커널은 어떻게 사용합니까?
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
-2. Spark 클러스터 블레이드에서 **클러스터 대시보드**를 클릭하고 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
+1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 엽니다.  지침에 대해서는 [클러스터 나열 및 표시](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요. 클러스터는 새 포털 블레이드에서 열립니다.
+2. **빠른 링크** 섹션에서 **클러스터 대시보드**를 클릭하여 **클러스터 대시보드** 블레이드를 엽니다.  **빠른 링크**가 표시되지 않으면 블레이드의 왼쪽 메뉴에서 **개요**를 클릭합니다.
+
+    ![클러스터 대시보드](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "클러스터 대시보드") 
+3. **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
    
    > [!NOTE]
    > 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
-   > 
+   >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
-3. 새 커널로 새 노트북을 만듭니다. **새로 만들기**를 클릭한 다음 **Pyspark** 또는 **Spark** 클릭합니다. Scala 응용 프로그램에 대해 Spark 커널을 Python 응용 프로그램에 대해 PySpark 커널을 사용해야 합니다.
+3. **새로 만들기**를 클릭하고 **Pyspark** 또는 **Spark** 중 하나를 클릭하여 새 Notebook을 만듭니다. Scala 응용 프로그램에 대해 Spark 커널을 Python 응용 프로그램에 대해 PySpark 커널을 사용해야 합니다.
    
-    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
+    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "새 Jupyter 노트북 만들기") 
+
 4. 선택한 커널로 새 노트북을 열어야 합니다.
 
-## <a name="why-should-i-use-the-pyspark-or-spark-kernels"></a>왜 PySpark 또는 Spark 커널을 사용해야 하나요?
+## <a name="choose-between-the-kernels"></a>커널 중에서 선택
 다음은 새 커널 사용 시 얻을 수 있는 몇 가지 이점입니다.
 
-1. **컨텍스트를 미리 설정합니다**. Jupyter Notebook에 제공되는 **PySpark** 또는 **Spark** 커널을 사용하면 개발 중인 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 즉 Spark 또는 Hive 컨텍스트를 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
+- **컨텍스트를 미리 설정합니다**. **PySpark** 또는 **Spark** 커널을 사용하면 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 이러한 컨텍스트를 기본적으로 사용할 수 있기 때문입니다. 이러한 컨텍스트는 다음과 같습니다.
    
    * **sc** - Spark 컨텍스트용
    * **sqlContext** - Hive 컨텍스트용
 
     따라서 컨텍스트를 설정하기 위해 다음과 같은 문을 실행할 필요가 없습니다.
 
-        ###################################################
-        # <a name="you-do-not-need-to-run-this-with-the-new-kernels"></a>YOU DO NOT NEED TO RUN THIS WITH THE NEW KERNELS
-        ###################################################
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
+      sc = SparkContext('yarn-client')  sqlContext = HiveContext(sc)
 
     대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
-1. **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
+- **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
    
     아래 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
-   
+
    | 매직 | 예 | 설명 |
    | --- | --- | --- |
    | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
@@ -82,11 +83,11 @@ HDInsight(Linux)의 Apache Spark 클러스터는 응용 프로그램을 테스�
    | 로그 |`%%logs` |현재 Livy 세션에 대한 로그를 출력합니다. |
    | delete |`%%delete -f -s <session number>` |현재 Livy 끝점의 특정 세션을 삭제합니다. 커널 자체에 대해 시작된 세션은 삭제할 수 없습니다. |
    | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 끝점에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
-   
+
    > [!NOTE]
-   > PySpark 커널에서 추가한 매직 외에도 `%%sh`를 포함하여 [기본 제공 IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다. 
-   > 
-   > 
+   > PySpark 커널에서 추가한 매직 외에도 `%%sh`를 포함하여 [기본 제공 IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.
+   >
+   >
 2. **자동 시각화**. **Pyspark** 커널은 Hive 및 SQL 쿼리 출력을 자동으로 시각화합니다. 테이블, 원형, 선, 영역, 막대를 포함하여 다양한 시각화 형식 중에서 선택할 수 있습니다.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>%%sql 매직에서 지원되는 매개 변수
@@ -102,7 +103,7 @@ HDInsight(Linux)의 Apache Spark 클러스터는 응용 프로그램을 테스�
 
 **예제:**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2 
+    %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
 위의 문은 다음 작업을 수행합니다.
@@ -168,7 +169,6 @@ HDInsight Spark 클러스터에 대해 실행되는 Jupyter Notebook은 Google C
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

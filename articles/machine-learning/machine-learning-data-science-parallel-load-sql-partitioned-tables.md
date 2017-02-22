@@ -1,5 +1,5 @@
 ---
-title: "SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기 | Microsoft Docs"
+title: "Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화 | Microsoft Docs"
 description: "SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
 
 
 ---
@@ -24,18 +24,16 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL Database로 빅 데이터를 로드/전송할 때 *분할된 테이블 및 뷰*를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>새 데이터베이스 및 파일 그룹 만들기
-* [새 데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx) (존재하지 않는 경우)
-* 분할된 실제 파일을 보유할 데이터베이스에 데이터베이스 파일 그룹 추가
-  
-  참고: 새 데이터베이스를 만드는 경우 [데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx)를 사용하여, 기존 데이터베이스가 있는 경우 [데이터베이스 변경](https://msdn.microsoft.com/library/bb522682.aspx)을 사용하여 이 작업을 수행할 수 있음
-* 각 데이터베이스 파일 그룹에 파일을 하나 이상(필요한 만큼) 추가
+* 아직 존재하지 않으면 [새 데이터베이스를 만듭니다](https://technet.microsoft.com/library/ms176061.aspx).
+* 분할된 실제 파일을 보유할 데이터베이스에 데이터베이스 파일 그룹을 추가합니다. 이렇게 하려면 데이터베이스가 존재하지 않는 경우 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx)를 사용하거나 이미 있는 경우 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx)를 사용하면 됩니다.
+* 필요한 경우 각 데이터베이스 파일 그룹에 파일을 하나 이상 추가합니다.
   
   > [!NOTE]
   > 이 파티션의 데이터를 보유할 대상 파일 그룹과 파일 그룹 데이터가 저장될 실제 데이터베이스 파일 이름을 지정합니다.
   > 
   > 
 
-다음은 기본 그룹 및 로그 그룹이 아닌 3개의 파일 그룹이 있고 각 파일 그룹에 물리적 파일 1개가 포함되는 새 데이터베이스를 만드는 예제입니다. SQL Server 인스턴스에 구성된 것처럼 데이터베이스 파일은 기본 SQL Server 데이터 폴더에 생성됩니다. 기본 파일 위치에 대한 자세한 내용은 [SQL Server의 기본 인스턴스 및 명명된 인스턴스의 파일 위치](https://msdn.microsoft.com/library/ms143547.aspx)를 참조하세요.
+다음은 기본 그룹 및 로그 그룹이 아닌&3;개의 파일 그룹이 있고 각 파일 그룹에 물리적 파일&1;개가 포함되는 새 데이터베이스를 만드는 예제입니다. SQL Server 인스턴스에 구성된 것처럼 데이터베이스 파일은 기본 SQL Server 데이터 폴더에 생성됩니다. 기본 파일 위치에 대한 자세한 내용은 [SQL Server의 기본 인스턴스 및 명명된 인스턴스의 파일 위치](https://msdn.microsoft.com/library/ms143547.aspx)를 참조하세요.
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -76,7 +74,7 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  팁: 함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
+  함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +183,6 @@ ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

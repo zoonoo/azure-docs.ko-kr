@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.  
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. App Service에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.  
 > 
 > 
 
@@ -150,14 +150,14 @@ ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
 * [Git 설명서](http://git-scm.com/documentation)
 * [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
 * [Azure 앱 서비스에 연속 배포](app-service-continuous-deployment.md)
-* [Azure용 PowerShell 사용 방법](../powershell-install-configure.md)
+* [Azure용 PowerShell 사용 방법](/powershell/azureps-cmdlets-docs)
 * [Azure 명령줄 인터페이스를 사용하는 방법](../xplat-cli-install.md)
 
 [Azure 앱 서비스]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
-[Azure 개발자 센터]: http://www.windowsazure.com/en-us/develop/overview/
+[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [로컬 Git]: https://portal.azure.com
-[Git 웹 사이트]: http://git-scm.com
-[Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Git website]: http://git-scm.com
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure 명령줄 인터페이스]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
@@ -165,6 +165,6 @@ ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

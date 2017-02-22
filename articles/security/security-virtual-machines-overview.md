@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Machines 보안 개요 | Microsoft Docs"
-description: " Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다.  이 문서에서는 Azure 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다. "
+title: "Azure Virtual Machines에 사용되는 Azure 보안 기능 | Microsoft Docs"
+description: " Azure Virtual Machines에서 사용될 수 있는 핵심 Azure 보안 기능에 대한 개요입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 0be0500296ad9bed302f65da9ef8de63e0ed08f6
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
 
 
 ---
@@ -154,6 +154,6 @@ Azure 가상 컴퓨터는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

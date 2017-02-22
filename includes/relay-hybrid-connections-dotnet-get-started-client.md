@@ -6,22 +6,26 @@
 2. **찾아보기** 탭을 클릭한 다음 "Microsoft Azure 릴레이"를 검색하고 **Microsoft Azure 릴레이** 항목을 선택합니다. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
 
 ### <a name="write-some-code-to-send-messages"></a>메시지를 보내는 코드 작성
-1. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
+1. Program.cs 파일의 위쪽에 있는 기존 `using` 문을 다음 문으로 바꿉니다.
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. 상수를 하이브리드 연결 연결 정보에 대한 `Program` 클래스에 추가합니다. 대괄호 안의 자리 표시자를 하이브리드 연결을 만들 때 얻은 적절한 값으로 바꿉니다.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. 다음과 같이 새 메서드를 `Program` 클래스에 추가합니다.
+3. `Program` 클래스에 다음 새 메서드를 추가합니다.
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -82,13 +86,13 @@
     ```
 4. `Program` 클래스의 `Main` 메서드에 다음 코드 줄을 추가합니다.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Program.cs는 다음과 같아야 합니다.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -172,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

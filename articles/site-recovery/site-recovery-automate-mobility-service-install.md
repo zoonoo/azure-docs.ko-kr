@@ -1,6 +1,6 @@
 ---
-title: "Azure Automation DSC와 함께 Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 복제 | Microsoft Docs"
-description: "Azure 자동화 DSC를 사용하여 가상/실제 컴퓨터용으로 Azure Site Recovery 모바일 서비스와 Azure 에이전트를 자동으로 배포하는 방법을 설명합니다."
+title: "Azure Automation DSC를 사용하여 Site Recovery 모바일 서비스 배포 | Microsoft Docs"
+description: "Azure Automation DSC를 사용하여 Azure Site Recovery 모바일 서비스 및 VMware VM과 물리적 서버 복제를 위한 Azure 에이전트를 자동으로 배포하는 방법에 대해 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -12,15 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/06/2017
 ms.author: krnese
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5895b772d411f783480275ee990163f662b7ee2
+ms.sourcegitcommit: efacf5d10b80fbeea7bd3d2569d878bd8bfa002b
+ms.openlocfilehash: ac6b72bbb70f838493a7e4857217f7c0e669841c
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-by-using-site-recovery-with-azure-automation-dsc"></a>Azure 자동화 DSC와 함께 Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 복제
+# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM 복제를 위해 Azure Automation DSC를 사용하여 모바일 서비스 배포
 Operations Management Suite에서는 무중단 업무 방식 계획의 일부분으로 사용 가능한 포괄적인 백업 및 재해 복구 솔루션이 제공됩니다.
 
 처음에는 Hyper-V에서 Hyper-V 복제본을 통해 이러한 솔루션이 제공되었습니다. 하지만 고객의 클라우드에는 여러 하이퍼바이저와 플랫폼이 포함되어 있으므로, 다른 유형의 설정을 지원하도록 솔루션 범위가 확장되었습니다.
@@ -50,31 +50,31 @@ Azure에서 장애 복구(failback)가 수행되면 *마스터 대상* 역할이
 ## <a name="prerequisites"></a>필수 조건
 * 필수 설치 프로그램을 저장할 저장소
 * 관리 서버에 등록하기 위해 필요한 암호를 저장할 저장소
-  
+
   > [!NOTE]
   > 각 관리 서버에 대해 고유한 암호가 생성됩니다. 여러 관리 서버를 배포하려는 경우 올바른 암호가 passphrase.txt 파일에 저장되어 있는지 확인해야 합니다.
-  > 
-  > 
+  >
+  >
 * 보호할 수 있도록 설정하려는 컴퓨터에 WMF(Windows Management Framework) 5.0 설치(자동화 DSC의 요구 사항)
-  
+
   > [!NOTE]
   > WMF 4.0이 설치되어 있는 Windows 컴퓨터에 대해 DSC를 사용하려는 경우 [연결이 끊어진 환경에서 DSC 사용](#Use DSC in disconnected environments) 섹션을 참조하세요.
-  > 
-  > 
+  >
+  >
 
 모바일 서비스는 명령줄을 통해 설치할 수 있으며 여러 인수를 허용합니다. 그러므로 설치에서 이진 파일을 추출한 다음 DSC 구성을 사용하여 검색할 수 있는 위치에 저장해야 합니다.
 
 ## <a name="step-1-extract-binaries"></a>1단계: 이진 파일 추출
 1. 이 설치에 필요한 파일을 추출하려면 관리 서버에서 다음 디렉터리로 이동합니다.
-   
+
     **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
-   
+
     이 폴더에 다음과 같은 이름의 MSI 파일이 표시됩니다.
-   
+
     **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
-   
+
     다음 명령을 사용하여 설치 관리자를 추출합니다.
-   
+
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
 2. 모든 파일을 선택하여 압축된(zip) 폴더로 전송합니다.
 
@@ -205,8 +205,8 @@ configuration ASRMobilityService {
 
 > [!NOTE]
 > 에이전트가 정상적으로 연결되고 올바른 암호를 사용하도록 하려면 실제 관리 서버를 반영하도록 구성의 CSIP를 바꾸세요.
-> 
-> 
+>
+>
 
 ## <a name="step-3-upload-to-automation-dsc"></a>3단계: 자동화 DSC 업로드
 이전 단계에서 작성한 DSC 구성은 필수 DSC 리소스 모듈(xPSDesiredStateConfiguration)을 가져오므로 DSC 구성을 업로드하기 전에 자동화에서 해당 모듈을 가져와야 합니다.
@@ -255,8 +255,8 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 ## <a name="step-4-onboard-machines-to-automation-dsc"></a>4단계: 자동화 DSC에 컴퓨터 등록
 > [!NOTE]
 > 이 시나리오를 완료하기 위한 필수 구성 요소 중 하나는 WMF의 최신 버전을 설치하여 Windows 컴퓨터를 업데이트하는 것입니다. [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=50395)에서 사용 중인 플랫폼에 적합한 버전을 다운로드하여 설치할 수 있습니다.
-> 
-> 
+>
+>
 
 이제 노드에 적용할 DSC용 metaconfig를 만듭니다. 이 작업에 성공하려면 Azure에서 선택한 자동화 계정에 대한 끝점 URL과 기본 키를 검색해야 합니다. 이러한 값은 자동화 계정 **모든 설정** 블레이드의 **키** 아래에 나와 있습니다.
 
@@ -514,7 +514,6 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

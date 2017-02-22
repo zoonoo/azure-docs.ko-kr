@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 2. **Active Directory**를 선택한 다음 조직 디렉터리의 이름을 선택합니다.
 3. **사용자** 탭을 선택한 다음 명령 모음에서 **사용자 추가**를 선택합니다.
 4. **이 사용자에 대해 알리기** 페이지의 **사용자 형식**에서 다음 중 하나를 선택합니다.
-   
+
    * **조직의 새 사용자** – 디렉터리에 새 사용자 계정을 추가합니다.
    * **기존 Microsoft 계정이 있는 사용자** – 디렉터리에 기존 사용자 Microsoft 고객 계정(예: Outlook 계정)을 추가합니다.
 5. **사용자 유형**에 따라 사용자 이름(새 사용자) 또는 전자 메일 주소(Microsoft 계정이 있는 사용자)를 입력합니다.
@@ -37,11 +37,11 @@ ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 > [!IMPORTANT]
 > 조직에서 둘 이상의 도메인을 사용하는 경우 사용자 계정을 추가할 때 다음과 같은 문제를 알고 있어야 합니다.
-> 
-> * 도메인 간에 동일한 UPN(사용자 계정 이름)을 갖는 여러 개의 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com,을 추가한 **다음** geoffgrisso@contoso.com.을 추가합니다.
-> * geoffgrisso@contoso.onmicrosoft.com.을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**. 이 작업은 중요하며 실행을 취소하기가 복잡할 수 있습니다.
-> 
-> 
+>
+> * 도메인 간에 동일한 UPN(사용자 계정 이름)을 갖는 여러 개의 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com,을 추가한 **다음** geoffgrisso@contoso.com을 추가합니다.
+> * geoffgrisso@contoso.onmicrosoft.com을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**. 이 작업은 중요하며 실행을 취소하기가 복잡할 수 있습니다.
+>
+>
 
 ## <a name="change-user-information"></a>사용자 정보 변경
 개체 ID를 제외하고 모든 사용자 특성을 변경할 수 있습니다.
@@ -87,6 +87,6 @@ Azure 클래식 포털에서 **구성** 탭을 열려면 **Active Directory**를
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

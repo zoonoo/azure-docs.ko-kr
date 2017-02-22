@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d5c5d6ae177b6f662df261f3254816b20bac764
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: f355ea88f4d14e48d9523a0ac7aff965171bed4b
 
 
 ---
@@ -216,7 +216,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 ### <a name="azure-tools"></a>Azure 도구
 다음 Azure 도구가 VM에 설치됩니다.
 
-* **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](../virtual-machines-command-line-tools.md)를 참조하세요.
+* **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
 * **Microsoft Azure 저장소 탐색기**: Microsoft Azure 저장소 탐색기는 Azure 저장소 계정에 저장한 개체를 찾아보고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
 * **Azure 라이브러리**: 아래에는 미리 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
@@ -233,7 +233,7 @@ Azure Machine Learning Studio에 로그인하고 나면 Machine Learning 알고�
 
 VM에서 R 또는 Python으로 모델을 빌드한 다음 Azure Machine Learning에서 프로덕션 환경으로 배포할 수도 있습니다. R 및 Python에는 이 기능을 사용하는 데 필요한 라이브러리(각각 **AzureML**과 **azureml**)가 설치되어 있습니다.
 
-R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터에서 수행할 수 있는 10가지 작업](machine-learning-data-science-vm-do-ten-things.md) , 특히 "R 또는 Python을 사용하여 모델을 빌드하고 Azure Machine Learning을 사용하여 운용 가능하도록 설정" 섹션을 참조하세요.
+R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터에서 수행할 수 있는&10;가지 작업](machine-learning-data-science-vm-do-ten-things.md) , 특히 "R 또는 Python을 사용하여 모델을 빌드하고 Azure Machine Learning을 사용하여 운용 가능하도록 설정" 섹션을 참조하세요.
 
 > [!NOTE]
 > 이러한 지침은 데이터 과학 VM의 Windows 버전에 대해 작성되었습니다. 하지만 Azure Machine Learning에 모델을 배포하는 방법에 대해 제공되는 정보는 Linux VM에도 적용할 수 있습니다.
@@ -251,7 +251,7 @@ VM에는 로컬에서 미리 컴파일되어 미리 설치된 몇 가지 기계 
   
         install.packages(<lib name>)
 
-아래에서는 목록의 처음 3개 기계 학습 도구에 대해 추가로 설명합니다.
+아래에서는 목록의 처음&3;개 기계 학습 도구에 대해 추가로 설명합니다.
 
 #### <a name="cntk"></a>CNTK
 오픈 소스 심화 학습 도구 키트입니다. 명령줄 도구(cntk)이며 PATH에 이미 포함되어 있습니다.
@@ -348,6 +348,6 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: team-pi@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae05e89346fe6bb85408cd560505dab3c03837cc
+ms.sourcegitcommit: dc1dac6e590088b45aa7afb87cf2d41027506635
+ms.openlocfilehash: 5ad1d7f026836e90d04d493bd1c0454b83f936ef
 
 
 ---
@@ -60,7 +60,8 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 4. **SendGrid**를 검색하고 결과 목록에서 **SendGrid** 항목을 선택합니다.
    
    ![SendGrid NuGet 패키지][SendGrid-NuGet-package]
-5. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+5. 이 문서에서 설명하는 개체 모델 및 API를 사용하려면 버전 드롭다운에서 **버전 6.3.4**의 Nuget 패키지를 선택합니다.
+6. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
 
 SendGrid의 .NET 클래스 라이브러리는 **SendGridMail**이라고 합니다. 다음 네임스페이스가 포함되어 있습니다.
 
@@ -251,6 +252,6 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

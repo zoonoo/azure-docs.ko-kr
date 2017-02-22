@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
+ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
 
 
 ---
@@ -67,13 +67,7 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **앱 데이터**: 개별 앱이 데이터 동기화 가능 |백업 동기화 |백업 동기화 |내부 |
 | **앱 목록**: 설치된 앱 목록 |X |backup |기타 |
 | **Bluetooth**: 모든 Bluetooth 설정 |X |X | |
-| **명령 프롬프트**: 모든 명령 프롬프트 설정 |sync |X | |
-| **Cortana**: 켜기 또는 끄기 |X |X | |
-| **Cortana**: 잠금 화면에서 Cortana 활성화 |X |X | |
-| **Cortana**: 사용자 이름 |sync |sync |내부 |
-| **Cortana**: SMS를 소리 내어 읽기 |X |sync |내부 |
-| **Cortana**: 안전한 검색 |X |sync |내부 |
-| **Cortana**: 항공편 등에 대한 정보 검색 |X |sync |내부 |
+| **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |sync |X | |
 | **자격 증명**: 자격 증명 보관 |sync |sync |password |
 | **날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |sync |sync |language |
 | **날짜, 시간 및 지역**: 24시간 |sync |X |language |
@@ -95,8 +89,8 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **Edge 브라우저**: 읽기 목록 |sync |sync |내부 |
 | **Edge 브라우저**: 즐겨찾기 |sync |sync |내부 |
 | **Edge 브라우저**: 기타 모든 Edge 설정 |X |X | |
-| **고대비**: 켜기 또는 끄기 |sync |sync |간편한 액세스 |
-| **고대비**: 테마 설정 |sync |X | |
+| **고대비**: 켜기 또는 끄기 |sync |X |간편한 액세스 |
+| **고대비**: 테마 설정 |sync |X |간편한 액세스 |
 | **Internet Explorer**: 탭 열기(URL 및 제목) |sync |sync |Internet Explorer |
 | **Internet Explorer**: 읽기 목록 |sync |sync |Internet Explorer |
 | **Internet Explorer**: 입력한 URL |sync |sync |Internet Explorer |
@@ -113,8 +107,8 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **언어**: CHS QWERTY - 동적 후보 순위 활성화 |sync |X |language |
 | **언어**: CHS QWERTY - 문자 집합 중국어 간체 |sync |X |language |
 | **언어**: CHS QWERTY - 문자 집합 중국어 번체 |sync |X |language |
-| **언어**: CHS QWERTY - 퍼지 핀잉 |sync |sync |language |
-| **언어**: CHS QWERTY - 퍼지 쌍 |sync |sync |language |
+| **언어**: CHS QWERTY - 퍼지 핀잉 |sync |backup |언어 |
+| **언어**: CHS QWERTY - 퍼지 쌍 |sync |backup |언어 |
 | **언어**: CHS QWERTY - 완전 핀잉 |sync |X |language |
 | **언어**: CHS QWERTY - 이중 핀잉 |sync |X |language |
 | **언어**: CHS QWERTY - 읽기 자동 교정 |sync |X |language |
@@ -122,7 +116,7 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **언어**: CHS QWERTY - C/E 전환 키, Ctrl |sync |X |language |
 | **언어**: CHS WUBI - 단일 문자 입력 모드 |sync |X |language |
 | **언어**: CHS WUBI - 나머지 후보 코딩 표시 |sync |X |language |
-| **언어**: CHS WUBI - 4 코딩이 유효하지 않을 때 경고음 |sync |X |language |
+| **언어**: CHS WUBI - 4 코딩이 유효하지 않을 때 경고음 |sync |X |언어 |
 | **언어**: CHS 보포모포 - CJK Ext-A 포함 |sync |X |language |
 | **언어**: 일본어 IME - 예측 입력 및 사용자 지정 단어 |sync |sync |language |
 | **언어**: 한국어(KOR) IME |X |X |language |
@@ -147,11 +141,11 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 | **내레이터**: 내레이터 뒤에 커서 삽입(기본적으로 켜져 있음) |sync |X |간편한 액세스 |
 | **내레이터**: 내레이터 커서의 시각적 강조 표시 활성화(기본적으로 켜져 있음) |sync |X |간편한 액세스 |
 | **내레이터**: 오디오 재생 큐(기본적으로 켜져 있음) |sync |X |간편한 액세스 |
-| **내레이터**: 사용자가 손가락을 떼면 터치 키보드의 키 활성화(기본적으로 꺼져 있음) |sync |sync |간편한 액세스 |
+| **내레이터**: 사용자가 손가락을 떼면 터치 키보드의 키 활성화(기본적으로 꺼져 있음) |sync |X |간편한 액세스 |
 | **간편한 액세스**: 깜박이 커서의 두께 설정 |sync |X |간편한 액세스 |
 | **간편한 액세스**: 배경 이미지 제거(기본적으로 꺼져 있음) |sync |X |간편한 액세스 |
 | **전원 및 절전**: 모든 설정 |X |X | |
-| **시작 화면 개인 설정**: 시스템 색 |sync |sync |테마 |
+| **시작 화면 개인 설정**: 강조 색(phone 전용) |X |sync |테마 |
 | **입력**: 맞춤법 사전 |sync |backup |language |
 | **입력**: 맞춤법이 틀린 단어 자동 교정 |sync |backup |language |
 | **입력**: 맞춤법이 틀린 단어에 강조 표시 |sync |backup |language |
@@ -169,10 +163,10 @@ Edge 브라우저 설정 그룹(즐겨찾기, 읽기 목록) 동기화는 Edge �
 * [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
 * [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

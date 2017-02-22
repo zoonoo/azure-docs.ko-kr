@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: dbc03f9951a5a76da98f4e3097c16cf373aaf146
-ms.openlocfilehash: b3fc83b83655f270be6bad08a99a99503aa14042
+ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
+ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 
 ---
@@ -131,7 +131,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 배포하려는 클러스터에 대한 템플릿이 있으면(샘플 템플릿이 있거나 사용자 지정 Resource Manager 템플릿을 만들어) 다음 단계에 따라 템플릿에서 역방향 프록시를 사용하도록 설정할 수 있습니다.
 
-1. 템플릿의 [매개 변수 섹션](../resource-group-authoring-templates.md) 에서 역방향 프록시에 대한 포트를 정의합니다.
+1. 템플릿의 [매개 변수 섹션](../azure-resource-manager/resource-group-authoring-templates.md) 에서 역방향 프록시에 대한 포트를 정의합니다.
    
     ```json
     "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         }
     },
     ```
-2. **클러스터** [리소스 형식 섹션](../resource-group-authoring-templates.md)
+2. **클러스터** [리소스 형식 섹션](../azure-resource-manager/resource-group-authoring-templates.md)
    
     '2016-09-01' 이전의 apiVersion's의 경우 포트는 ***httpApplicationGatewayEndpointPort***라는 매개 변수 이름으로 식별됩니다.
    
@@ -229,7 +229,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         ]
     }
     ```
-4. 역방향 프록시에 대한 포트에서 SSL 인증서를 구성하려면 **클러스터** [리소스 형식 섹션](../resource-group-authoring-templates.md)
+4. 역방향 프록시에 대한 포트에서 SSL 인증서를 구성하려면 **클러스터** [리소스 형식 섹션](../azure-resource-manager/resource-group-authoring-templates.md)
    
     '2016-09-01' 이전의 apiVersion's의 경우 인증서는 ***httpApplicationGatewayCertificate***라는 매개 변수 이름으로 식별됩니다.
    
@@ -287,6 +287,6 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -99,22 +99,6 @@
 ### [장치 등록](active-directory-azureadjoin-personal-device.md)
 ### [Windows 10 장치 등록](active-directory-azureadjoin-user-upgrade.md)
 
-### [조건부 액세스](active-directory-conditional-access.md)
-#### [시작](active-directory-conditional-access-azuread-connected-apps.md)
-#### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
-#### [장치 등록](active-directory-conditional-access-device-registration-overview.md)
-#### [자동 등록 관리](active-directory-conditional-access-automatic-device-registration.md)
-##### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [인증자 앱 관리](active-directory-conditional-access-azure-authenticator-app.md)
-#### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
-#### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
-#### [온-프레미스 배포](active-directory-conditional-access-on-premises-setup.md)
-#### [FAQ](active-directory-conditional-faqs.md)
-#### [문제 해결](active-directory-conditional-access-device-remediation.md)
-#### [참조](active-directory-conditional-access-technical-reference.md)
-
 ### [Azure AD 조인](active-directory-azureadjoin-overview.md)
 #### [계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [장치 등록 설정](active-directory-azureadjoin-setup.md)
@@ -124,10 +108,10 @@
 #### [비즈니스용 Windows Hello 사용](active-directory-azureadjoin-passport-deployment.md)
 #### [Windows 10 통합 이해](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10 장치 사용](active-directory-azureadjoin-windows10-devices.md)
-
-### 인증서 기반 인증
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### 문제 해결
+##### [Windows 10 및 Windows Server 2016에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Windows 하위 수준 클라이언트에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ## 앱 관리
 ### [개요](active-directory-enable-sso-scenario.md)
@@ -176,6 +160,7 @@
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
 #### [SSO 인증서](active-directory-sso-certs.md)
+#### [테넌트 제한 사항](active-directory-tenant-restrictions.md)
 
 ### [SCIM 프로비전 사용자 사용](active-directory-scim-provisioning.md)
 ### [문서 라이브러리](active-directory-apps-index.md)
@@ -207,14 +192,24 @@
 #### [FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Azure AD B2B와 파트너 통합](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [개요](active-directory-b2b-collaboration-overview.md)
-#### [작동 방법](active-directory-b2b-how-it-works.md)
-#### [기능 비교](active-directory-b2b-compare-external-identities.md)
-#### [연습](active-directory-b2b-detailed-walkthrough.md)
-#### [제한 사항](active-directory-b2b-current-preview-limitations.md)
-#### [CSV 파일 형식](active-directory-b2b-references-csv-file-format.md)
-#### [사용자 개체](active-directory-b2b-references-external-user-object-attribute-changes.md)
-#### [사용자 토큰](active-directory-b2b-references-external-user-token-format.md)
+#### [B2B 사용자를 추가하는 관리자](active-directory-b2b-admin-add-users.md)
+#### [B2B 사용자를 추가하는 지식 근로자](active-directory-b2b-iw-add-users.md)
+#### [초대 전자 메일](active-directory-b2b-invitation-email.md)
+#### [초대 상환](active-directory-b2b-redemption-experience.md)
+#### [라이선스](active-directory-b2b-licensing.md)
+#### [B2B 문제 해결](active-directory-b2b-troubleshooting.md)
+#### [FAQ](active-directory-b2b-faq.md)
+#### [API 및 사용자 지정](active-directory-b2b-api.md)
+#### [B2B용 Multi-Factor Authentication](active-directory-b2b-mfa-instructions.md)
+#### [역할에 게스트 사용자 추가](active-directory-b2b-add-guest-to-role.md)
+#### [초대 위임](active-directory-b2b-delegate-invitations.md)
+#### [동적 그룹 및 B2B](active-directory-b2b-dynamic-groups.md)
+#### [코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
+#### [B2B용 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
+#### [B2B 사용자 토큰](active-directory-b2b-user-token.md)
+#### [B2B 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
+#### [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
+#### [현재 제한 사항](active-directory-b2b-current-limitations.md)
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
 
@@ -238,6 +233,22 @@
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
 ## ID 보안
+### [조건부 액세스](active-directory-conditional-access.md)
+#### [시작](active-directory-conditional-access-azuread-connected-apps.md)
+#### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
+#### [장치 등록](active-directory-conditional-access-device-registration-overview.md)
+#### [자동 등록 관리](active-directory-conditional-access-automatic-device-registration.md)
+##### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [인증자 앱 관리](active-directory-conditional-access-azure-authenticator-app.md)
+#### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
+#### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
+#### [온-프레미스 배포](active-directory-conditional-access-on-premises-setup.md)
+#### [FAQ](active-directory-conditional-faqs.md)
+#### [문제 해결](active-directory-conditional-access-device-remediation.md)
+#### [참조](active-directory-conditional-access-technical-reference.md)
+### 인증서 기반 인증
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Azure AD ID 보호](active-directory-identityprotection.md)
 #### [사용](active-directory-identityprotection-enable.md)
 #### [취약점 감지](active-directory-identityprotection-vulnerabilities.md)
@@ -301,6 +312,6 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

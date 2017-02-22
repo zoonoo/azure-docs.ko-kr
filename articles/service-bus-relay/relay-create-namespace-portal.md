@@ -1,6 +1,6 @@
 ---
 title: "Azure 포털을 사용하여 릴레이 네임스페이스 만들기 | Microsoft Docs"
-description: "Azure 릴레이를 시작하려면 네임스페이스가 필요합니다. Azure 포털을 사용하여 만드는 방법은 다음과 같습니다."
+description: "Azure Portal을 사용하여 릴레이 네임스페이스를 만드는 방법입니다."
 services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: e51dc77e0a0fc3c0a2cc4050d7b896e177a86cc0
-
+ms.sourcegitcommit: 97c793abc9935707115c166a97f6f7bdfee1a8c5
+ms.openlocfilehash: d6ef2e0c75a27b294ee653bf9a0219c2233d272c
 
 ---
+
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure 포털을 사용하여 릴레이 네임스페이스 만들기
 네임스페이스는 모든 릴레이 구성 요소에 대한 공용 컨테이너입니다. 여러 릴레이는 단일 네임스페이스에 있을 수 있으며 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다. 현재 두 가지 다른 방법으로 릴레이 네임스페이스를 만들 수 있습니다.
 
@@ -39,6 +39,6 @@ ms.openlocfilehash: e51dc77e0a0fc3c0a2cc4050d7b896e177a86cc0
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

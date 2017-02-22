@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
+ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
 
 
 ---
@@ -54,6 +54,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 이러한 링크는 서비스를 자세히 탐색하는 데 유용합니다.
 
 * [Azure Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c/)를 참조하세요.
+* Azure Active Directory B2C에 대한 [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c)을 검토합니다. 
 * [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
 * [사용자 의견](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
 * [Azure AD B2C 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 검토합니다.
@@ -67,6 +68,6 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

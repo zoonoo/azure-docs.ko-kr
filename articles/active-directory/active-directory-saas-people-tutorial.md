@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c8ca9d1ac59b0470a87e22731494adbc359b3420
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: eb24c4fe5f382a30acc524065f2ee9e3a27ce94f
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 People과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure 구독
-* People Single Sign-On이 설정된 구독
+* People SSO(Single Sign-on)이 설정된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -45,7 +45,7 @@ People과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -104,33 +104,24 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     ![Single Sign-on 구성](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) 
    
-    a. **로그온 URL** 텍스트 상자에 **“https://\<company name\>.peoplehr.com/”** 패턴을 사용하여 사용자가 People 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. 
-   
-    b. 테넌트 URL을 모르는 경우 [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) 을 통해 People 지원 팀에 문의합니다.  
-   
-    c. **식별자** 텍스트 상자에 테넌트 URL을 입력합니다. 
-   
-    d. **회신 URL** 텍스트 상자에 "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**" 패턴으로 URL을 입력합니다.
-   
-    e. 페이지 맨 아래에 있는 **다음**
+   1. **로그온 URL** 텍스트 상자에 **“https://\<company name\>.peoplehr.com/”** 패턴을 사용하여 사용자가 People 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. 
+   2. 테넌트 URL을 모르는 경우 [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) 을 통해 People 지원 팀에 문의합니다.    3. **식별자** 텍스트 상자에 테넌트 URL을 입력합니다. 
+   4. **회신 URL** 텍스트 상자에 "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**" 패턴으로 URL을 입력합니다.
+   5. **다음**을 클릭합니다.
 4. **People에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **완료**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
    
-    a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
-   
-    b. **다음**을 클릭합니다.
+   1. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
+   2. **다음**을 클릭합니다.
 5. 응용 프로그램에 대해 구성된 SSO를 가져오려면 관리자 권한으로 People 테넌트에 로그온해야 합니다.
    
-    a. 왼쪽 메뉴에서 **설정**을 클릭합니다.
-   
-    ![Single Sign-on 구성](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) 
-   
-    b. **“회사”**를 클릭합니다.
+   1. 왼쪽 메뉴에서 **설정**을 클릭합니다.
+    ![Single Sign-On 구성](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)    
+   2. **“회사”**를 클릭합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
-   
-    c. **“'Single Sign On' SAML 메타데이터 파일 업로드”**에서 **찾아보기**를 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
+    3. **“'Single Sign On' SAML 메타데이터 파일 업로드”**에서 **찾아보기**를 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
@@ -162,24 +153,18 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
-   
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-   
-    c. **다음**을 클릭합니다.
+    1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+    2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+    3. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
-   
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
-   
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
-   
-   d. **역할** 목록에서 **사용자**를 선택합니다.
-   
-   e. **다음**을 클릭합니다.
+   1. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+   2. **성** 텍스트 상자에 **Simon**을 입력합니다.
+   3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+   4. **역할** 목록에서 **사용자**를 선택합니다.
+   5. **다음**을 클릭합니다.
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-people-tutorial/create_aaduser_07.png) 
@@ -187,9 +172,8 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-people-tutorial/create_aaduser_08.png) 
    
-    a. **새 암호**값을 적어둡니다.
-   
-    b. **완료**를 클릭합니다.   
+   1. **새 암호**값을 적어둡니다.
+   2. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-people-test-user"></a>People 테스트 사용자 만들기
 이 섹션은 People에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. People에서는 Just-In-Time 프로비전을 지원하지 않으므로 사용자를 수동으로 만들려면 People 지원 팀에 문의해야 합니다.
@@ -243,6 +227,6 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -95,6 +95,6 @@ Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
