@@ -1,5 +1,5 @@
 ---
-title: "Azure VM에 대한 계획된 유지 관리 예약 방법 | Microsoft Docs"
+title: "Azure에서 Linux VM에 계획된 유지 관리 예약 방법 | Microsoft Docs"
 description: "Azure VM에 계획된 유지 관리 예약 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/13/2016
 ms.author: igalf
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 2f4e32f48ed26ffe1d1cb6bf7cdbd99bc56688a2
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 54b15a13d29eb1921cc1264456c5f746b550386c
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: 2f4e32f48ed26ffe1d1cb6bf7cdbd99bc56688a2
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

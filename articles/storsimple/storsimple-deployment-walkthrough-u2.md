@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>온-프레미스 StorSimple 장치(업데이트 2) 배포
+# <a name="deploy-your-on-premises-storsimple-device-update-2"></a>온-프레미스 StorSimple 장치(업데이트 2) 배포
 > [!div class="op_single_selector"]
 > * [업데이트 2 이상](storsimple-deployment-walkthrough-u2.md)
 > * [업데이트 1](storsimple-deployment-walkthrough-u1.md)
@@ -56,7 +56,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | [1단계: 새 서비스 만들기](#step-1-create-a-new-service) |StorSimple 장치에 대한 클라우드 관리 및 저장소를 설정합니다. *다른 StorSimple 장치에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
 | [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key) |이 키를 사용하여 StorSimple 장치를 관리 서비스에 등록 및 연결합니다. |
 | [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |장치를 네트워크에 연결하고 관리 서비스를 사용하여 Azure로 등록하여 설정을 완료합니다. |
-| [4단계: 최소 장치 설정 완료](#step-4-complete-minimum-device-setupd)</br>[선택 사항: StorSimple 장치를 업데이트합니다.](#scan-for-and-apply-updates) |관리 서비스를 사용하여 장치 설정을 완료하고 저장소를 제공할 수 있도록 설정합니다. |
+| [4단계: 최소 장치 설정 완료](#step-4-complete-minimum-device-setup)</br>[선택 사항: StorSimple 장치를 업데이트합니다.](#scan-for-and-apply-updates) |관리 서비스를 사용하여 장치 설정을 완료하고 저장소를 제공할 수 있도록 설정합니다. |
 | [5단계: 볼륨 컨테이너 만들기](#step-5-create-a-volume-container) |볼륨을 프로비전할 컨테이너를 만듭니다. 볼륨 컨테이너에는 저장소 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. |
 | [6단계: 볼륨 만들기](#step-6-create-a-volume) |서버에 대한 StorSimple 장치의 저장소 볼륨을 프로비전합니다. |
 | [7단계: 볼륨 탑재, 초기화 및 포맷](#step-7-mount-initialize-and-format-a-volume)</br>[선택 사항: MPIO를 구성합니다.](storsimple-configure-mpio-windows-server.md) |서버를 장치에서 제공하는 iSCSI 저장소에 연결합니다. 필요에 따라 MPIO를 구성하여 서버가 링크, 네트워크 및 인터페이스 실패를 허용할 수 있도록 합니다. |
@@ -95,7 +95,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 
 * [StorSimple 장치에 대한 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)에서 설명한 대로 데이터 센터 방화벽에서 포트가 열려 있어 iSCSI 및 클라우드 트래픽을 허용합니다.
 
-## <a name="stepbystep-deployment"></a>단계별 배포
+## <a name="step-by-step-deployment"></a>단계별 배포
 다음 단계별 지침을 사용하여 데이터 센터에서 StorSimple 장치를 배포합니다.
 
 ## <a name="step-1-create-a-new-service"></a>1단계: 새 서비스 만들기
@@ -224,6 +224,6 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

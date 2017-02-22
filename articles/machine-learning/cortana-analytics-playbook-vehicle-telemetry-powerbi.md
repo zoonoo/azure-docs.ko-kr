@@ -1,5 +1,5 @@
 ---
-title: "차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침 | Microsoft Docs"
+title: "차량 상태 및 주행 습관에 대한 Power BI - Azure | Microsoft Docs"
 description: "Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 66a2375d7560b41f0fddef3c8c32e41917eb1649
-ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
 
 
 ---
@@ -372,7 +372,7 @@ ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
 
 ![차량 원격 분석 Power BI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard1.png) 
 
-**참고로 보고서에는 6페이지가 있음:**  
+**참고로 보고서에는&6;페이지가 있음:**  
 1페이지: 차량 밀도  
 2페이지: 실시간 차량 상태  
 3페이지: 적극적으로 운전한 차량   
@@ -423,6 +423,6 @@ ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

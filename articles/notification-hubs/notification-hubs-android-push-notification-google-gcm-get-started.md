@@ -3,7 +3,7 @@ title: "Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기 |
 description: "이 자습서에서 Azure 알림 허브를 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다."
 services: notification-hubs
 documentationcenter: android
-keywords: "푸시 알림, 푸시 알림, Android 푸시 알림"
+keywords: "푸시 알림,푸시알림,android 푸시 알림"
 author: ysxu
 manager: erikre
 editor: 
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 ### <a name="create-a-new-android-project"></a>새 Android 프로젝트 만들기
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
    
-     ![Android Studio - 새 프로젝트][13]
+   ![Android Studio - 새 프로젝트][13]
 2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **다음**을 클릭합니다.
    
-     ![Android Studio - 프로젝트 만들기 워크플로][14]
+   ![Android Studio - 프로젝트 만들기 워크플로][14]
 3. **빈 활동**을 기본 활동으로 선택하고 **다음**, **마침**을 차례로 클릭합니다.
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
@@ -619,13 +619,14 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 #### <a name="running-the-application"></a>응용 프로그램 실행
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
    
-       ![Testing on Android - Channel registration][18]
+      ![Android에서 테스트 - 채널 등록][18]
 2. 허브에 등록된 모든 Android 장치로 보낼 알림 메시지를 입력합니다.
    
-       ![Testing on Android - sending a message][19]
+      ![Android에서 테스트 - 메시지 보내기][19]
+
 3. **알림 보내기**를 누릅니다. 앱을 실행 중인 장치에 푸시 알림 메시지가 포함된 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되고 있지는 않지만 이전에 푸시 알림을 등록한 장치는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 살짝 밀어 알림을 볼 수 있습니다.
    
-       ![Testing on Android - notifications][21]
+      ![Android에서 테스트 - 알림][21]
 
 ## <a name="next-steps"></a>다음 단계
 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
@@ -671,6 +672,6 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

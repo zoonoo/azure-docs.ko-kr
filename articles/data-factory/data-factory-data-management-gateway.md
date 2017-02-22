@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
-ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
+ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
+ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
 
 
 ---
@@ -55,9 +55,9 @@ ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
 
 ### <a name="considerations-for-using-gateway"></a>게이트웨이 사용을 위한 고려 사항
 * 데이터 관리 게이트웨이 인스턴스 하나를 여러 온-프레미스 데이터 소스에 사용할 수 있습니다. 그러나 **각 게이트웨이 인스턴스는 Azure Data Factory 하나에만 연결**되며, 다른 Data Factory와 공유할 수는 없습니다.
-* 단일 컴퓨터에 **데이터 관리 게이트웨이 인스턴스를 하나만** 설치할 수 있습니다. 온-프레미스 데이터 소스에 액세스해야 하는 Data Factory가 2개라면 두 온-프레미스 컴퓨터에 게이트웨이를 설치해야 합니다. 즉, 게이트웨이는 특정 Data Factory에 연결됩니다.
+* 단일 컴퓨터에 **데이터 관리 게이트웨이 인스턴스를 하나만** 설치할 수 있습니다. 온-프레미스 데이터 소스에 액세스해야 하는 Data Factory가&2;개라면 두 온-프레미스 컴퓨터에 게이트웨이를 설치해야 합니다. 즉, 게이트웨이는 특정 Data Factory에 연결됩니다.
 * **게이트웨이가 데이터 소스와 같은 컴퓨터에 있을 필요는 없습니다**. 그러나 게이트웨이를 데이터 소스에 가까이 배치하면 게이트웨이가 데이터 소스에 연결하는 데 걸리는 시간을 줄일 수 있습니다. 온-프레미스 데이터 소스를 호스트하는 컴퓨터와는 다른 컴퓨터에 게이트웨이를 설치하는 것이 좋습니다. 게이트웨이와 데이터 소스가 서로 다른 컴퓨터에 있으면 게이트웨이와 데이터 소스 간에 리소스 경합이 발생하지 않습니다.
-* **서로 다른 컴퓨터의 여러 게이트웨이가 동일한 온-프레미스 데이터 원본에 연결**할 수 있습니다. 예를 들어 두 게이트웨이가 2개의 데이터 팩터리를 처리하지만 동일한 온-프레미스 데이터 원본이 두 데이터 팩터리에 등록되어 있습니다.
+* **서로 다른 컴퓨터의 여러 게이트웨이가 동일한 온-프레미스 데이터 원본에 연결**할 수 있습니다. 예를 들어 두 게이트웨이가&2;개의 데이터 팩터리를 처리하지만 동일한 온-프레미스 데이터 원본이 두 데이터 팩터리에 등록되어 있습니다.
 * 컴퓨터에 **Power BI** 시나리오를 처리할 게이트웨이가 이미 설치된 경우 **별도의 Azure Data Factory용 게이트웨이**를 다른 컴퓨터에 설치하세요.
 * **Express 경로**를 사용할 때도 게이트웨이를 사용해야 합니다.
 * **Express 경로**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 게이트웨이를 사용하여 서비스와 데이터 소스 간의 연결을 설정합니다.
@@ -164,8 +164,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
 * **프록시 사용 안 함**: 게이트웨이가 클라우드 서비스에 연결하는 데 프록시를 명시적으로 사용하지 않습니다.
-* **시스템 프록시 사용**: 게이트웨이가 diahost.exe.config에 구성되어 있는 프록시 설정을 사용합니다.  diahost.exe.config에 프록시가 구성되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다.
-* **사용자 지정 프록시 사용**: diahost.exe.config의 구성을 사용하는 대신 게이트웨이에 사용할 HTTP 프록시 설정을 구성합니다.  이 경우 주소 및 포트를 지정해야 합니다.  사용자 이름 및 암호는 프록시 인증 설정에 따라 입력할 수 있습니다.  모든 설정은 게이트웨이의 자격 증명 인증서를 사용하여 암호화되며 게이트웨이 호스트 컴퓨터에 로컬로 저장됩니다.
+* **시스템 프록시 사용**: 게이트웨이가 diahost.exe.config 및 diawp.exe.config에 구성되어 있는 프록시 설정을 사용합니다.  diahost.exe.config 및 diawp.exe.config에 프록시가 구성되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다.
+* **사용자 지정 프록시 사용**: diahost.exe.config 및 diawp.exe.config의 구성을 사용하는 대신 게이트웨이에 사용할 HTTP 프록시 설정을 구성합니다.  이 경우 주소 및 포트를 지정해야 합니다.  사용자 이름 및 암호는 프록시 인증 설정에 따라 입력할 수 있습니다.  모든 설정은 게이트웨이의 자격 증명 인증서를 사용하여 암호화되며 게이트웨이 호스트 컴퓨터에 로컬로 저장됩니다.
 
 업데이트된 프록시 설정을 저장하고 나면 데이터 관리 게이트웨이 호스트 서비스가 자동으로 다시 시작됩니다.
 
@@ -185,8 +185,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 >
 >
 
-### <a name="configure-proxy-server-settings-in-diahostexeconfig"></a>diahost.exe.config에서 프록시 서버 설정 구성
-HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 경우 게이트웨이는 diahost.exe.config의 프록시 설정을 사용합니다.  diahost.exe.config에 프록시가 지정되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 config 파일을 업데이트하는 지침을 제공합니다.
+### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성 
+HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 경우 게이트웨이는 diahost.exe.config 및 diawp.exe.config의 프록시 설정을 사용합니다.  diahost.exe.config 및 diawp.exe.config에 프록시가 지정되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.  
 
 1. 파일 탐색기에서 원본 파일을 백업할 C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config의 안전한 복사본을 만듭니다.
 2. 관리자 권한으로 Notepad.exe 실행을 시작하고 텍스트 파일 "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config"를 엽니다. 다음 코드와 같이 system.net에 대한 기본 태그를 찾습니다.
@@ -206,7 +206,11 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
    프록시 태그 내에 scriptLocation과 같은 필수 설정을 지정하는 추가 속성을 사용할 수 있습니다. 구문의 [proxy 요소(네트워크 설정)](https://msdn.microsoft.com/library/sa91de1e.aspx)를 참조하세요.
 
          <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 호스트 서비스를 다시 시작하면 변경 내용이 적용됩니다. 서비스를 다시 시작하려면 제어판의 서비스 애플릿을 사용하거나, **데이터 관리 게이트웨이 구성 관리자**에서 **서비스 중지** 단추를 클릭한 후 **서비스 시작**을 클릭합니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 응용 프로그램 구성 파일에 추가되었을 가능성이 높습니다.     
+3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 호스트 서비스를 다시 시작하면 변경 내용이 적용됩니다. 서비스를 다시 시작하려면 제어판의 서비스 애플릿을 사용하거나, **데이터 관리 게이트웨이 구성 관리자**에서 **서비스 중지** 단추를 클릭한 후 **서비스 시작**을 클릭합니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 응용 프로그램 구성 파일에 추가되었을 가능성이 높습니다.
+
+> [!IMPORTANT]
+> diahost.exe.config 및 diawp.exe.config를 **둘 다** 업데이트해야 합니다.  
+     
 
 이러한 사항 외에 Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
@@ -447,6 +451,6 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

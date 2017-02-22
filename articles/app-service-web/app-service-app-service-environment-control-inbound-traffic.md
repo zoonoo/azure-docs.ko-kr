@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 01/11/2017
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 618f8e4b22e7ef00c6b05d26290b61638e24640c
+ms.sourcegitcommit: e7a9192a44b590335e479df143c13709c4dfa016
+ms.openlocfilehash: d3acf5352302528cdf3502e166337cbe808e71c8
 
 
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요
-App Service 환경을 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork] **중 하나**에서 만들 수 있습니다.  앱 서비스 환경을 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 앱 서비스 환경을 만들 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수 있습니다.  App Service 환경을 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
+App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 **만들 수도 있습니다**.  앱 서비스 환경을 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 앱 서비스 환경을 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수 있습니다.  앱 서비스 환경을 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
 
 앱 서비스 환경은 항상 서브넷 내에 만들어야 합니다. 서브넷은 특정 업스트림 IP 주소의 HTTP 및 HTTPS 트래픽만 허용되도록 업스트림 장치 및 서비스 뒤의 인바운드 트래픽을 잠그는 데 사용할 수 있는 네트워크 경계를 제공하기 때문입니다.
 
@@ -32,7 +32,7 @@ App Service 환경을 Azure Resource Manager 가상 네트워크 **또는** 클�
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="network-ports-used-in-an-app-service-environment"></a>앱 서비스 환경에서 사용되는 네트워크 포트
+## <a name="inbound-network-ports-used-in-an-app-service-environment"></a>App Service 환경에서 사용하는 인바운드 네트워크 포트
 네트워크 보안 그룹을 사용하여 인바운드 네트워크 트래픽을 잠그기 전에 앱 서비스 환경에서 사용되는 필수 및 선택적 네트워크 포트 집합을 알아야 합니다.  일부 포트에 대한 트래픽을 실수로 닫으면 앱 서비스 환경의 기능이 손실될 수 있습니다.
 
 다음은 App Service 환경에서 사용되는 포트 목록입니다. 명확하게 언급이 없는 한 모든 포트는 **TCP**입니다.
@@ -49,14 +49,14 @@ App Service 환경을 Azure Resource Manager 가상 네트워크 **또는** 클�
 * 4020: Visual Studio 2015를 통한 원격 디버깅에 사용됩니다.  이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>아웃 바운드 연결 및 DNS 요구 사항
-앱 서비스 환경이 제대로 작동하려면 다양한 끝점에 대한 아웃바운드 액세스가 필요합니다. ASE에서 사용하는 외부 끝점의 전체 목록은 [Express 경로에 대한 네트워크 구성](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 문서의 "필수 네트워크 연결" 섹션에 있습니다.
+App Service 환경이 제대로 작동하려면 다양한 끝점에 대한 아웃바운드 액세스가 필요합니다. ASE에서 사용하는 외부 끝점의 전체 목록은 [Express 경로에 대한 네트워크 구성](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 문서의 "필수 네트워크 연결" 섹션에 있습니다.
 
 앱 서비스 환경에는 가상 네트워크에 대해 구성된 유효한 DNS 인프라가 필요합니다.  앱 서비스 환경을 만든 후에 어떤 이유로든 DNS 구성이 변경되면 개발자는 앱 서비스 환경을 강제하여 새 DNS 구성을 선택할 수 있습니다.  [Azure Portal][NewPortal]에서 App Service 환경 관리 블레이드의 상단에 있는 "다시 시작" 아이콘을 사용하여 롤링 환경 다시 부팅을 트리거하면 환경에서 새 DNS 구성을 선택하게 됩니다.
 
 Vnet의 모든 사용자 지정 DNS 서버는 앱 서비스 환경 생성보다 미리 설치하는 것을 권장합니다.  앱 서비스 환경이 만들어질 때 가상 네트워크의 DNS 구성이 변경될 경우, 앱 서비스 환경 생성 과정에 장애가 발생합니다.  이와 비슷하게, 사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있고 DNS 서버를 연결하거나 사용할 수 없는 경우 앱 서비스 환경을 만드는 프로세스도 실패합니다.
 
 ## <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
-네트워크 보안 그룹의 작동 방식에 대한 자세한 내용은 다음 [정보][NetworkSecurityGroups]를 참조하세요.  다음은 네트워크 보안 그룹을 구성하고 앱 서비스 환경이 포함된 서브넷에 적용하는 방법을 중심으로 설명된 네트워크 보안 그룹에 대한 세부 정보입니다.
+네트워크 보안 그룹의 작동 방식에 대한 자세한 내용은 다음 [정보][NetworkSecurityGroups]를 참조하세요.  다음Azure Service Management 예는 네트워크 보안 그룹을 구성하고 App Service 환경이 포함된 서브넷에 적용하는 방법을 중심으로 설명된 네트워크 보안 그룹에 대한 세부 정보입니다.
 
 **참고:**[Azure Portal](https://portal.azure.com) 을 사용하거나 Azure PowerShell을 통해 그래픽 방식으로 네트워크 보안 그룹을 구성할 수 있습니다.
 
@@ -109,14 +109,14 @@ Visual Studio를 통한 원격 디버깅을 사용하는 경우 다음과 같은
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>명시적 IP-SSL에 대한 특별 고려 사항
-앱이 앱 서비스 환경의 기본 IP 주소를 사용하는 대신 명시적 IP-SSL 주소(공용 VIP만 있는 ASE에 해당)로 구성된 경우 HTTP 및 HTTPS 트래픽 모두 포트 80 및 443이 아닌 다른 포트 집합을 통해 서브넷으로 전송됩니다.
+앱이 앱 서비스 환경의 기본 IP 주소를 사용하는 대신 명시적 IP-SSL 주소(공용 VIP*만* 있는 ASE에 해당)로 구성된 경우 HTTP 및 HTTPS 트래픽 모두 포트 80 및 443이 아닌 다른 포트 집합을 통해 서브넷으로 전송됩니다.
 
 각 IP-SSL 주소에 사용되는 개별 포트 쌍은 앱 서비스 환경 세부 정보 UX 블레이드의 포털 사용자 인터페이스에서 확인할 수 있습니다.  "모든 설정" > "lP 주소"를 선택합니다.  "IP 주소" 블레이드에는 앱 서비스 환경에 대해 명시적으로 구성된 모든 IP-SSL 주소와 함께 각 IP SSL 주소와 연관된 HTTP 및 HTTPS 트래픽을 라우팅하는 데 사용되는 특수 포트 쌍이 나열된 표가 표시됩니다.  이 포트 쌍은 네트워크 보안 그룹에서 규칙을 구성할 때 DestinationPortRange에 사용해야 합니다.
 
 ASE의 앱이 IP-SSL을 사용하도록 구성되어 있으면 외부 고객에게 보이지 않으므로 특수 포트 쌍 매핑에 대한 지식이 필요하지 않습니다.  앱에 대한 트래픽은 구성된 IP-SSL 주소를 정상적으로 이동됩니다.  특수 포트 쌍으로의 변환은 ASE를 포함하는 서브넷으로의 라우팅 트래픽 최종 레그 동안 내부적으로 자동 발생합니다. 
 
 ## <a name="getting-started"></a>시작
-App Service 환경을 시작하려면 [앱 서비스 환경 소개][IntroToAppServiceEnvironment]를 참조하세요.
+App Service 환경을 시작하려면 [App Service 환경 소개][IntroToAppServiceEnvironment]
 
 앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
@@ -142,6 +142,6 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service][Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

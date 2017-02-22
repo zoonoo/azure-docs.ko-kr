@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,6 +87,14 @@ DocumentDB를 사용하면 JavaScript로만 작성된 명명된 프로그램으�
 
 DocumentDB 내의 JavaScript 실행은 JavaScript를 Transact-SQL의 최신 대체로 사용하여 관계형 데이터베이스 시스템이 지원하는 개념을 따라 모델링됩니다. 모든 JavaScript 논리는 스냅숏 격리를 사용하여 앰비언트 ACID 트랜잭션 내에서 실행됩니다. 실행 중 JavaScript에서 예외가 발생하면 전체 트랜잭션이 중단됩니다.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>DocumentDB에 온라인 과정이 있습니까?
+
+예, Azure DocumentDB에 [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) 과정이 있습니다. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>다음 단계
 Azure 계정이 있나요? 그러면 [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB)에서 [DocumentDB 데이터베이스 계정을 만들기](documentdb-create-account.md)로 DocumentDB를 시작할 수 있습니다.
 
@@ -103,6 +111,6 @@ Azure 계정이 없나요? 다음을 수행할 수 있습니다.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

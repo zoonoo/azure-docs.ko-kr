@@ -21,11 +21,19 @@
 ### [아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md)
 ### [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 
-## VM 기본 항목 관리
-### [사용자 지정 이미지 만들기](devtest-lab-create-template.md)
+## VM 기본 항목 및 템플릿 관리
+### [Azure Resource Manager 템플릿으로 다중 VM 환경 만들기](devtest-lab-create-environment-from-arm.md)
 ### [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md)
-### [수식 관리](devtest-lab-manage-formulas.md)
 ### [수식 및 이미지 비교](devtest-lab-comparing-vm-base-image-types.md)
+### [수식 관리](devtest-lab-manage-formulas.md)
+### [VM에서 사용자 지정 이미지 만들기](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Azure Portal을 사용하여 VHD에서 사용자 지정 이미지 만들기](devtest-lab-create-template.md)
+### [PowerShell을 사용하여 VHD에서 사용자 지정 이미지 만들기](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [AzCopy를 사용하여 VHD 파일 업로드](devtest-lab-upload-vhd-using-azcopy.md)
+### [PowerShell을 사용하여 VHD 업로드](devtest-lab-upload-vhd-using-powershell.md)
+### [저장소 탐색기를 사용하여 VHD 파일 업로드](devtest-lab-upload-vhd-using-storage-explorer.md)
+
+
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)
@@ -35,6 +43,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

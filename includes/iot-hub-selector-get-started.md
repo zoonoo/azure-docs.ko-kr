@@ -20,6 +20,6 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

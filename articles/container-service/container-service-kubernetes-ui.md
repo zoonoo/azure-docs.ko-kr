@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Service에서 Kubernetes 웹 UI 사용 | Microsoft Docs"
+title: "웹 UI를 사용하여 Azure Kubernetes 클러스터 관리 | Microsoft Docs"
 description: "Azure Container Service에서 Kubernetes 웹 UI 사용"
 services: container-service
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
-ms.openlocfilehash: 9ae6e606bf215d9f53f725899b8ac7c466b781f1
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 4192369f2e7758200131aa85c60d07436f7cbbdc
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---using-the-kubernetes-web-ui"></a>Microsoft Azure Container Service 엔진 - Kubernetes 웹 UI 사용
+# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Azure Container Service에서 Kubernetes 웹 UI 사용
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
@@ -136,6 +136,6 @@ UI에서 개체를 보는 것 외에, Kubernetes API 개체를 편집하고 업�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

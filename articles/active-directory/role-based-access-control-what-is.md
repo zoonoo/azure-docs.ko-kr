@@ -1,5 +1,5 @@
 ---
-title: "역할 기반 Access Control | Microsoft Docs"
+title: "역할을 통한 액세스 및 사용 권한 관리 - Azure RBAC | Microsoft Docs"
 description: "Azure 포털에서 Azure 역할 기반 액세스 제어를 통해 액세스 관리를 시작합니다. 디렉터리에서 사용 권한을 할당하기 위해 역할 할당을 사용합니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0e724ac386e9b92904b6218e4fcc0ac1766378ce
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: fb12fb78d4257fc8264bd476de70671eb8264323
 
 
 ---
@@ -35,7 +35,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 할당하는 RBAC 역할에 따라 해당 범위 내에서 사용자, 그룹 또는 응용 프로그램이 관리할 수 있는 리소스가 결정됩니다.
 
 ## <a name="built-in-roles"></a>기본 제공 역할
-Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
+Azure RBAC에는 모든 리소스 유형에 적용되는&3;가지 기본 역할이 있습니다.
 
 * **소유자** 는 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다.
 * **참여자** 는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수 없습니다.
@@ -65,12 +65,11 @@ Azure RBAC는 Azure 포털 및 Azure Resource Manager API에서 Azure 리소스�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 통해 시작합니다.
-*  [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
-*  [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
+* [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
+* [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

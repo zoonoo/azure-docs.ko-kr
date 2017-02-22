@@ -1,5 +1,5 @@
 ---
-title: "VM 크기 집합이란? | Microsoft Docs"
+title: "Azure CLI를 사용하여 Azure VM Scale Sets 만들기 | Microsoft Docs"
 description: "VM 크기 집합에 대해 알아봅니다."
 keywords: "linux 가상 컴퓨터, 가상 컴퓨터 크기 집합"
 services: virtual-machines-linux
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/24/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 8d274127a4e1947e42b5544c3c1f62c4e48dcee9
 
 
 ---
@@ -50,6 +50,6 @@ ms.openlocfilehash: 9ee2d1d4e50a5bf4c146c48024aae5f10cea32ef
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d6cee6b4d47264bb0b91d3169490af0b08c05711
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4bf0847e41b10862fdfdaa662ab7ce48a1cf747a
 
 
 ---
@@ -204,7 +204,7 @@ IBM Kenexa Survey Enterprise에서 Azure AD Single Sign-On을 구성하고 테�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-an-ibm-kenexa-survey-enterprise-test-user"></a>IBM Kenexa Survey Enterprise 테스트 사용자 만들기
 이 섹션에서는 IBM Kenexa Survey Enterprise에서 Britta Simon이라는 사용자를 만듭니다. IBM Kenexa 지원 팀과 협력하여 모든 사용자에 대한 SSO ID를 매핑하세요. 또한 이 SSO ID 값을 Azure AD의 NameIdentifier 값에 매핑해야 합니다. 특성 탭에서 이 기본 설정을 변경할 수 있습니다.
@@ -264,6 +264,6 @@ IBM Kenexa Survey Enterprise에서 Azure AD Single Sign-On을 구성하고 테�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

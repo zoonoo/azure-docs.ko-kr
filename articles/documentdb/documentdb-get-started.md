@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 414c41cbccb755e058fb76f10bba62bd1ffa1835
-ms.openlocfilehash: d2989a3292117ada029fb26536bfffbce83f5e1b
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 4ddd790efde26b6c2d2215c72e42bd9e2839e50e
 
 
 ---
@@ -601,7 +601,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-축하합니다. 이 NoSQL 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 셩겼습니다.
+축하합니다. 이 NoSQL 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 생겼습니다.
 
 ## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> 전체 NoSQL 자습서 솔루션 다운로드
 이 자습서의 단계를 완료할 시간이 없거나 코드 샘플을 다운로드하려는 경우 [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)에서 가져올 수 있습니다. 
@@ -621,17 +621,16 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 
 ## <a name="next-steps"></a>다음 단계
 * 보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
-* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다.  [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
+* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
 * [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
 * [DocumentDB 설명서](https://azure.microsoft.com/documentation/services/documentdb/)페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
 > [!NOTE]
 > 긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 참조하세요. 문제 해결 정보는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 > 
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -77,7 +77,7 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
 9. **추가 Azure 서비스 탐색** 을 탭하여 SQL 데이터베이스를 추가합니다.
    
     ![새 서비스 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/n2.png)
-10.  **+** 아이콘을 탭하여 SQL 데이터베이스를 추가합니다.
+10. **+** 아이콘을 탭하여 SQL 데이터베이스를 추가합니다.
     
      ![새 SQL DB](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nsql.png)
 11. **SQL Database 구성** 대화 상자에서 **새로 만들기**를 탭합니다.
@@ -104,10 +104,10 @@ ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
     ![솔루션 탐색기의 _Layout.cshtml][newapp004]
 2. *Layout.cshtml* 파일의 ActionLink를 다음 코드로 바꿉니다.
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    세 번째 매개 변수를 "Home"에서 "Contacts"로 변경해야 합니다. 위의 태그는 각 페이지에 Contacts 컨트롤러의 Index 메소드에 대한 "Contacts" 링크를 만듭니다. "My ASP.NET Application" 및 "Application name"에서 "Contact Manager" 및 "CM Demo"로 머리글 및 바닥글의 응용 프로그램 이름을 변경합니다. 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   세 번째 매개 변수를 "Home"에서 "Contacts"로 변경해야 합니다. 위의 태그는 각 페이지에 Contacts 컨트롤러의 Index 메소드에 대한 "Contacts" 링크를 만듭니다. "My ASP.NET Application" 및 "Application name"에서 "Contact Manager" 및 "CM Demo"로 머리글 및 바닥글의 응용 프로그램 이름을 변경합니다. 
 
 ### <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
 1. Ctrl+F5를 눌러 앱을 실행합니다.
@@ -443,7 +443,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
           }
    
     *AllowAnonymous*에 대한 전체 검색을 수행한 경우 Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인하게 됩니다.
-3. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
+3. *ContactsController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]
@@ -492,7 +492,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
     ![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 8. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다.
 9. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
-10. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. 
+10. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자&0;임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. 
 11.  해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다. 
 12. 데이터를 변경할 수 있는지 확인합니다.
 
@@ -663,6 +663,6 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트에 깜박임 응용 프로그램 배포 | Microsoft Docs"
+title: "Azure IoT에 Arduino 연결 - 단원 1: 앱 배포 | Microsoft Docs"
 description: "GitHub에서 샘플 Arduino 응용 프로그램을 복제하고 gulp를 실행하여 이 응용 프로그램을 Adafruit Feather M0 WiFi에 배포합니다. 이 샘플 응용 프로그램은 GPIO를 깜박입니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 918c8d7c732dc9b50c1e22917d3c4314c326a57d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a2058611cecb33eab04de9249ad73b1c4ec6c2a5
 
 
 ---
@@ -135,6 +135,6 @@ Arduino 보드 작업에 필요한 도구를 설치했으며 LED를 깜박이게
 [get-the-azure-tools]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

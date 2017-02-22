@@ -8,7 +8,7 @@ manager: jhubbard
 author: tmullaney
 ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
-ms.custom: shared databases; app development; auth and access
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26a2056ee413ebbf081643d6e8ea455120799e58
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 19afc13a1715890316b34ed1128b594105c53c69
 
 
 ---
@@ -37,10 +37,10 @@ ms.openlocfilehash: 26a2056ee413ebbf081643d6e8ea455120799e58
 
 ## <a name="download-the-sample-project"></a>샘플 프로젝트 다운로드
 ### <a name="prerequisites"></a>필수 조건
-* Visual Studio 2012 이상 사용 
-* Azure SQL 데이터베이스 3개 생성 
+* Visual Studio&2012; 이상 사용 
+* Azure SQL 데이터베이스&3;개 생성 
 * 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](http://go.microsoft.com/?linkid=9888163)
-  *  **Program.cs** 
+  * **Program.cs** 
 
 이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 위의 다이어그램에서 볼 수 있듯이 테넌트 네 명과 다중 테넌트 분할 데이터베이스 두 개를 사용하여 블로그 및 게시물을 만드는 간단한 콘솔 응용 프로그램을 구축하는 프로젝트입니다. 
 
@@ -304,7 +304,7 @@ GO
 탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 응용 프로그램의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스를 사용하여 데이터를 보다 효율적으로 저장할 수 있고(특히 테넌트 수는 많은데 데이터 행은 적은 경우), 단일 테넌트 분할된 데이터베이스를 사용하여 성능 및 격리 요구 사항이 엄격한 프리미엄 테넌트를 지원할 수 있습니다.  자세한 내용은 [행 수준 보안 참조](https://msdn.microsoft.com/library/dn765131)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure 탄력적 데이터베이스 풀이란?](sql-database-elastic-pool.md)
+* [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
 * [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
 * [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Azure AD 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
@@ -321,6 +321,6 @@ GO
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

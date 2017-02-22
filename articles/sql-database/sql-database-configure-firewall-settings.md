@@ -12,23 +12,16 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 70fdb8e0dceb75bcbfca05d89bc3e093952d6a05
-ms.openlocfilehash: 31f40c802c7330984365645e2960c7ec32da7a59
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 만들기 및 관리
-> [!div class="op_single_selector"]
-> * [개요](sql-database-firewall-configure.md)
-> * [Azure 포털](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
-> 
 
 관리자는 서버 수준 방화벽 규칙을 사용하여 지정된 IP 주소 또는 IP 주소 범위에서 SQL Database 서버에 액세스 할 수 있습니다. 또한 동일한 액세스를 요구하는 데이터베이스가 많이 있고 각 데이터베이스를 개별적으로 구성하는 데 시간을 허비하지 않으려는 경우 사용자에 대해 서버 수준 방화벽 규칙을 사용할 수도 있습니다. 보안을 강화하고 데이터베이스의 휴대성을 높이기 위해 가능한 경우에는 항상 데이터베이스 수준 방화벽 규칙을 사용하는 것이 좋습니다. SQL Database 방화벽에 대한 개요는 [SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md)를 참조하세요.
 
@@ -50,8 +43,8 @@ ms.openlocfilehash: 31f40c802c7330984365645e2960c7ec32da7a59
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작 자습서에 대해서는 [SQL Database 자습서: 서버, 서버 수준 방화벽 규칙, 샘플 데이터베이스, 데이터베이스 수준 방화벽 규칙 및 SQL Server 연결 만들기](sql-database-get-started.md)를 참조하세요.
-- 보안 자습서를 시작하려면 [보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
+- 서버 수준 방화벽을 사용하여 서버에 프로비전 및 연결하는 방법을 보여주는 자습서는 [자습서: Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database에 프로비전 및 액세스](sql-database-get-started.md)합니다.
+- SQL Server 인증 및 데이터베이스 수준 방화벽에 대한 자습서는 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)를 참조하세요.
 - 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
 - 데이터베이스에 연결할 수 있는 추가 사용자를 만드는 방법을 이해하려면 [SQL 데이터베이스 인증 및 권한 부여: 액세스 부여](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
@@ -64,6 +57,6 @@ ms.openlocfilehash: 31f40c802c7330984365645e2960c7ec32da7a59
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

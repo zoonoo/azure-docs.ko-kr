@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics의 사용자 지정 로그 | Microsoft Docs"
+title: "OMS Log Analytics에서 사용자 지정 로그 수집 | Microsoft Docs"
 description: "Log Analytics는 Windows와 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다.  이 문서는 새 사용자 지정 로그를 정의하는 방법을 설명하고 OMS 리포지토리에 만드는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
 
 
 ---
@@ -122,7 +122,7 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 | 속성 | 설명 |
 |:--- |:--- |
 | TimeGenerated |Log Analytics에 의해 레코드가 수집된 날짜와 시간입니다.  로그에 시간 기반 구분 기호가 사용되는 경우, 항목에서 수집한 시간이 여기에 해당됩니다. |
-| SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br>  Linux – 모든 Linux 에이전트 |
+| SourceSystem |레코드가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br> Linux – 모든 Linux 에이전트 |
 | RawData |수집된 항목의 전체 텍스트. |
 | ManagementGroupName |SCOM 에이전트의 경우 관리 그룹의 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
 
@@ -177,6 +177,6 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

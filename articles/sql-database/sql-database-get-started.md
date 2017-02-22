@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal: Azure SQL Database 시작 | Microsoft Docs"
-description: "Azure Portal을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법에 대해 알아봅니다. SQL Server Management Studio를 사용하여 데이터베이스를 쿼리하는 방법을 알아봅니다."
+title: "빠른 시작: 첫 번째 Azure SQL Database | Microsoft Docs"
+description: "Azure Portal을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법에 대해 알아봅니다. 또한 Azure SQL Database와 SQL Server Management Studio를 사용하는 방법에 대해 알아봅니다."
 keywords: "SQL 데이터베이스 자습서, SQL 데이터베이스 만들기"
 services: sql-database
 documentationcenter: 
@@ -14,38 +14,37 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>SQL Database 자습서: Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작
+# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>빠른 시작 자습서: 첫 번째 Azure SQL Database
 
-이 시작 자습서에서는 다음을 수행하기 위해 Azure Portal을 사용하는 방법에 대해 알아봅니다.
+이 빠른 시작 자습서에서 다음에 대해 알아봅니다.
 
-* 새 Azure 리소스 그룹 만들기
-* Azure SQL 논리 서버 만들기
-* Azure SQL 논리 서버 속성 보기
-* 서버 수준 방화벽 규칙 만들기
-* Adventure Works LT 샘플 데이터베이스를 단일 데이터베이스로 만들기
-* Azure에서 Adventure Works LT 샘플 데이터베이스 속성 보기
+* [새로운 논리 서버 만들기](sql-database-get-started.md#create-a-new-logical-sql-server) 
+* [논리 서버 속성 보기](sql-database-get-started.md#view-the-logical-server-properties) 
+* [서버 수준 방화벽 규칙 만들기](sql-database-get-started.md#create-a-server-level-firewall-rule) 
+* [SSMS로 서버에 연결](sql-database-get-started.md#connect-to-the-server-with-ssms) 
+* [샘플 데이터로 데이터베이스 만들기](sql-database-get-started.md#create-a-database-with-sample-data) 
+* [데이터베이스 속성 보기](sql-database-get-started.md#view-the-database-properties) 
+* [Azure Portal에서 데이터베이스 쿼리](sql-database-get-started.md#query-the-database-in-the-azure-portal) 
+* [SSMS로 데이터베이스 연결 및 쿼리](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
+* [SSMS로 빈 데이터베이스 만들기](sql-database-get-started.md#create-a-blank-database-with-ssms) 
+* [연결 문제 해결](sql-database-get-started.md#troubleshoot-connectivity) 
+* [데이터베이스 삭제](sql-database-get-started.md#delete-a-single-database) 
 
-또한 이 자습서에서는 다음을 수행하기 위해 최신 버전의 SQL Server Management Studio를 사용합니다.
 
-* 논리 서버 및 해당 master 데이터베이스 연결
-* master 데이터베이스 쿼리
-* 샘플 데이터베이스 연결
-* 샘플 데이터베이스 쿼리
-
-이 자습서를 완료하면 샘플 데이터베이스와 빈 데이터베이스가 Azure 리소스 그룹에서 실행되며 논리 서버에 연결됩니다. 또한 서버 수준 보안 주체가 지정된 IP 주소(또는 IP 주소 범위)에서 서버에 로그인할 수 있도록 구성된 서버 수준 방화벽 규칙을 갖게 됩니다. 
+이 빠른 시작 자습서에서는 Azure 리소스 그룹에서 실행되고 논리 서버에 연결된 샘플 데이터베이스와 빈 데이터베이스를 만듭니다. 또한 지정된 두 개의 IP 주소에서 서버 수준 보안 주체가 서버에 로그인할 수 있도록 구성된 두 개의 서버 수준 보안 규칙도 만듭니다. 마지막으로, Azure Portal에서 데이터베이스를 쿼리하는 방법과 SQL Server Management Studio를 사용하여 연결하고 쿼리하는 방법을 배웁니다. 
 
 **예상 시간**: 이 자습서의 경우 약 30분 소요됩니다(이미 필수 조건을 충족한다고 가정).
 
 > [!TIP]
-> [C#](sql-database-get-started-csharp.md) 또는 [PowerShell](sql-database-get-started-powershell.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행 할 수 있습니다.
+> [C#](sql-database-get-started-csharp.md) 또는 [PowerShell](sql-database-get-started-powershell.md)을 사용하여 이러한 동일한 태스크를 수행할 수 있습니다.
 >
 
 ## <a name="prerequisites"></a>필수 조건
@@ -55,12 +54,12 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 * 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 [SQL Database 서버 개요](sql-database-server-overview.md), [SQL Database 개요](sql-database-overview.md) 및 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md) 학습 항목의 콘텐츠를 학습할 수 있습니다.
+> 이 빠른 시작 자습서에서는 [SQL Database 서버 개요](sql-database-server-overview.md), [SQL Database 개요](sql-database-overview.md) 및 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md)와 같은 학습 항목의 콘텐츠를 학습할 수 있습니다.
 >  
 
 
-### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Azure 계정을 사용하여 Azure Portal에 로그인합니다.
-[기존 구독](https://account.windowsazure.com/Home/Index)을 사용하고 이러한 다음 단계를 수행하여 Azure Portal에 연결합니다.
+### <a name="sign-in-to-the-azure-portal-with-your-azure-account"></a>Azure 계정을 사용하여 Azure Portal에 로그인합니다.
+[Aure 계정](https://account.windowsazure.com/Home/Index)을 사용하여 이러한 단계를 따라 Azure Portal에 연결합니다.
 
 1. 선택한 브라우저를 열고 [Azure Portal](https://portal.azure.com/)에 연결합니다.
 2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -71,7 +70,9 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Azure Portal에서 새 논리 SQL 서버 만들기
+## <a name="create-a-new-logical-sql-server"></a>새로운 SQL 논리 서버 만들기
+
+이 절차의 단계를 따라 사용자가 선택한 지역에서 Azure Portal을 사용하여 새로운 논리 서버를 만듭니다.
 
 1. **새로 만들기**를 클릭하고 **sql server**를 입력한 다음 **Enter** 키를 클릭합니다.
 
@@ -87,7 +88,7 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
     ![새 서버 이름](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > 새 서버의 정규화된 이름은 <your_server_name>.database.windows.net입니다.
+    > 새 서버의 정규화된 이름의 형식은 <your_server_name>.database.windows.net입니다.
     >
     
 4. [서버 관리자 로그인] 텍스트 상자에서 이 서버의 SQL 인증 로그인을 위한 사용자 이름을 제공합니다. 이 로그인은 서버 보안 주체 로그인으로 알려져 있습니다. 녹색 확인 표시가 유효한 이름을 제공한 것을 나타냅니다.
@@ -115,7 +116,9 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![만들기 단추](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Azure Portal에서 논리 SQL Server 보기
+## <a name="view-the-logical-server-properties"></a>논리 서버 속성 보기
+
+이 절차의 단계를 수행하여 Azure Portal을 사용하여 서버 속성을 확인합니다. 이후 절차에서 이 서버에 연결하려면 정규화된 서버 이름이 필요합니다. 
 
 1. Azure Portal에서 **추가 서비스**를 클릭합니다.
 
@@ -137,17 +140,15 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![정규화된 SQL 서버 이름](./media/sql-database-get-started/sql-server-full-name.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
+## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
+
+다음 절차의 단계를 따라 다음 단계에서 SQL Server Management Studio를 사용하여 서버에 연결하기 위해 Azure Portal을 사용하여 새 서버 수준 방화벽 규칙을 만듭니다.
 
 1. SQL 서버 블레이드의 [설정]에서 **방화벽**을 클릭하여 SQL 서버를 위한 [방화벽] 블레이드를 엽니다.
 
     ![SQL 서버 방화벽](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. 표시된 클라이언트 IP 주소를 검토하고 선택한 브라우저를 사용하여 인터넷에서 사용자의 IP 주소인지 확인합니다("내 IP 주소는?"이라고 묻기). 때로는 여러 가지 이유로 일치하지 않습니다.
-
-    ![사용자 IP 주소](./media/sql-database-get-started/your-ip-address.png)
-
-3. IP 주소가 일치한다고 가정하고 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다.
+2. 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다.
 
     ![클라이언트 IP 추가](./media/sql-database-get-started/add-client-ip.png)
 
@@ -159,14 +160,16 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![클라이언트 IP 추가](./media/sql-database-get-started/save-firewall-rule.png)
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 SQL 서버 연결
+## <a name="connect-to-the-server-with-ssms"></a>SSMS로 서버에 연결
+
+이 절차의 단계를 따라 SQL Server Management Studio를 사용하여 SQL 논리 서버에 연결합니다.
 
 1. 아직 연결하지 않은 경우 [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 SSMS 최신 버전을 다운로드하여 설치합니다. 최신 상태로 유지하기 위해 최신 버전의 SSMS에서는 새 버전을 다운로드할 수 있는 경우 메시지를 표시합니다.
 
 2. 설치한 후에 Windows 검색 상자에서 **Microsoft SQL Server Management Studio**를 입력하고 **Enter** 키를 클릭하여 SSMS를 엽니다.
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. [서버에 연결] 대화 상자에서 SQL Server 인증을 사용하여 SQL 서버에 연결하는 데 필요한 정보를 입력합니다.
+3. [서버에 연결] 대화 상자에서 SQL Server 인증을 사용하여 SQL Server에 연결하는 데 필요한 정보를 입력합니다.
 
     ![서버 연결](./media/sql-database-get-started/connect-to-server.png)
 4. **Connect**를 클릭합니다.
@@ -191,7 +194,9 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
     > SQL 보안을 탐색하려면 [SQL 보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
     >
 
-## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Adventure Works LT 샘플을 사용하여 Azure Portal에서 새 데이터베이스 만들기
+## <a name="create-a-database-with-sample-data"></a>샘플 데이터로 데이터베이스 만들기
+
+이 절차의 단계를 따라 Azure Portal을 사용하여 샘플 데이터로 데이터베이스를 만듭니다. 이 데이터베이스를 이전에 만든 논리 서버에 연결시킵니다. 서버를 만든 지역에서 기본 서비스 계층을 사용할 수 없는 경우 서버를 삭제하고 다른 지역에서 다시 만듭니다. 삭제 단계에서 이 자습서의 마지막 절차를 참조하세요.
 
 1. Azure Portal에서 **SQL 데이터베이스**를 클릭합니다.
 
@@ -223,7 +228,9 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![만들기 단추](./media/sql-database-get-started/create.png)
 
-## <a name="view-database-properties-in-the-azure-portal"></a>Azure Portal의 데이터베이스 속성 보기
+## <a name="view-the-database-properties"></a>데이터베이스 속성 보기
+
+이 절차의 단계를 따라 Azure Portal을 사용하여 데이터베이스를 쿼리합니다.
 
 1. SQL 데이터베이스 블레이드에서 새 데이터베이스를 클릭하여 Azure Portal에서 해당 속성을 봅니다. 이후 자습서에서는 이 블레이드에서 사용할 수 있는 옵션을 이해할 수 있도록 합니다. 
 
@@ -242,7 +249,41 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![서버 필수 창의 새 샘플 데이터베이스](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
 
-## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>SQL Server Management Studio를 사용하여 샘플 데이터베이스 연결 및 쿼리
+## <a name="query-the-database-in-the-azure-portal"></a>Azure Portal에서 데이터베이스 쿼리
+
+이 절차의 단계를 따라 Azure Portal에서 쿼리 편집기를 사용하여 데이터베이스를 쿼리합니다. 쿼리는 데이터베이스의 개체를 표시합니다.
+
+1. SQL Database 블레이드의 도구 모음에서 **도구**를 클릭합니다.
+
+    ![도구](./media/sql-database-get-started/tools.png)
+2. 도구 블레이드에서 **쿼리 편집기(미리 보기)**를 클릭합니다.
+
+    ![쿼리 편집기](./media/sql-database-get-started/query-editor.png)
+3. 이 확인란을 클릭하여 쿼리 편집기가 미리 보기 기능인지 확인한 다음 **확인**을 클릭합니다.
+4. **쿼리 편집기** 블레이드에서 **로그인**을 클릭합니다.
+
+    ![쿼리 편집기 블레이드](./media/sql-database-get-started/query-editor-blade.png)
+5. 인증 유형 및 로그인을 검토한 다음 이 로그인에 대한 암호를 제공합니다. 
+
+    ![쿼리 편집기 로그인](./media/sql-database-get-started/query-editor-login.png)
+6. **확인**을 클릭하여 로그인하려고 합니다.
+7. 클라이언트의 IP 주소에 대한 방화벽 규칙이 없기 때문에 클라이언트가 로그인할 사용 권한이 없음을 알리는 로그인 오류가 표시되는 경우 오류 창에서 클라이언트의 IP 주소를 복사하고 이 데이터베이스에 대한 SQL Server 블레이드에서 서버 수준 방화벽 규칙을 만듭니다.
+
+    ![쿼리 편집기 오류](./media/sql-database-get-started/query-editor-error.png)
+8. 데이터베이스에 로그인하려면 이전 6개의 단계를 반복합니다.
+9. 인증된 후에 쿼리 창에서 다음 쿼리를 입력합니다.
+
+   ```select * from sys.objects```
+
+    ![쿼리 편집기 쿼리](./media/sql-database-get-started/query-editor-query.png)
+10.  **실행**을 클릭합니다.
+11. **결과** 창에서 쿼리 결과를 검토합니다.
+
+    ![쿼리 편집기 결과](./media/sql-database-get-started/query-editor-results.png)
+
+## <a name="connect-and-query-the-database-with-ssms"></a>SSMS로 데이터베이스 연결 및 쿼리
+
+데이터베이스에서 개체를 보기 위해 이 절차의 단계를 수행하여 SQL Server Management Studio를 사용하여 데이터베이스에 연결한 다음 샘플 데이터를 쿼리합니다.
 
 1. SQL Server Management Studio로 전환하고 [개체 탐색기]에서 도구 모음의 **데이터베이스**를 클릭한 다음 **새로 고침**을 클릭하여 샘플 데이터베이스를 봅니다.
 
@@ -261,7 +302,9 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![SSMS를 통한 새 샘플 데이터베이스 쿼리 시스템 개체](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>SQL Server Management Studio를 사용하여 새 빈 데이터베이스 만들기
+## <a name="create-a-blank-database-with-ssms"></a>SSMS로 빈 데이터베이스 만들기
+
+이 절차의 단계를 따라 SQL Server Management Studio를 사용하여 논리 서버에서 새 데이터베이스를 만듭니다.
 
 1. [개체 탐색기]에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭한 다음 **새 데이터베이스**를 클릭합니다.
 
@@ -288,15 +331,34 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
     ![개체 탐색기의 새 빈 데이터베이스](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
+## <a name="troubleshoot-connectivity"></a>연결 문제 해결
+
+> [!IMPORTANT]
+> 연결에 문제가 있는 경우 [연결 문제](sql-database-troubleshoot-common-connection-issues.md)를 참조하세요.
+> 
+
+## <a name="delete-a-single-database"></a>단일 데이터베이스 삭제
+
+이 절차의 단계를 따라 Azure Portal을 사용하여 단일 데이터베이스를 삭제합니다.
+
+1. Azure Portal에 있는 SQL Database에 대한 블레이드에서 **삭제**를 클릭합니다.
+
+    ![delete-database](./media/sql-database-get-started/delete-database.png)
+2. **예**를 클릭하여 이 데이터베이스를 영구적으로 삭제한다고 확인합니다.
+
+    ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
+
 > [!TIP]
-> 사용하지 않는 데이터베이스를 삭제하여 일부 학습 비용을 절약할 수 있습니다. 기본 버전의 데이터베이스인 경우&7;일 이내에 복원할 수 있습니다. 그러나 서버는 삭제하지 마세요. 서버를 삭제하면 서버 또는 이 서버의 삭제된 데이터베이스를 복구할 수 없기 때문입니다.
+> 데이터베이스에 대한 보존 기간 중에 서비스 시작 자동 백업에서 복원할 수 있습니다. 기본 버전의 데이터베이스인 경우&7;일 이내에 복원할 수 있습니다. 그러나 서버는 삭제하지 마세요. 서버를 삭제하면 서버 또는 이 서버의 삭제된 데이터베이스를 복구할 수 없기 때문입니다. 데이터베이스 백업에 대한 자세한 내용은 [SQL Database 백업에 대해 알아보기](sql-database-automated-backups.md)를 참조하고 백업에서 데이터베이스를 복원하는 방법에 대한 정보는 [데이터베이스 복구](sql-database-recovery-using-backups.md)를 참조하세요. 삭제된 데이터베이스를 복원하는 방법에 대한 방법 문서는 [삭제된 Azure SQL Database 복원 - Azure Portal](sql-database-restore-deleted-database-portal.md)을 참조하세요.
 >
 
 
 ## <a name="next-steps"></a>다음 단계
 이제 이 자습서를 완료했으므로 여기서 학습한 내용을 빌드하기 위해 탐색할 수 있는 추가 자습서가 다음과 같이 다양하게 준비되어 있습니다. 
 
-* Azure SQL Database 보안을 탐색하려면 [보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
+- SQL Server 인증 자습서를 시작하려면 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)를 참조하세요.
+- Azure Active Directory 인증 자습서를 시작하려면 [AAD 인증 및 권한 부여](sql-database-control-access-aad-authentication-get-started.md)를 참조하세요.
+* Azure Portal에서 샘플 데이터베이스를 쿼리하려는 경우 [공개 미리 보기: SQL 데이터베이스에 대한 대화형 쿼리 경험](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)을 참조하세요.
 * Excel을 알고 있는 경우 [Azure에서 Excel로 SQL Database에 연결](sql-database-connect-excel.md)하는 방법에 대해 알아보세요.
 * 코딩을 시작할 준비가 되었다면 [SQL Database 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)에서 프로그래밍 언어를 선택합니다.
 * 온-프레미스 SQL Server 데이터베이스를 Azure로 이동하려면 [SQL Database로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
@@ -311,6 +373,6 @@ ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

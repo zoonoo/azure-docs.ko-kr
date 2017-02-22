@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
-ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 249f2dcd852c771d0c48aa223a4596992e5ce3d7
 
 
 ---
@@ -59,7 +59,7 @@ Azure IoT Hub에서는 메시지, 파일 전송 및 요청-회신 메서드를 �
 
 * **장치 쌍**. [장치 쌍][lnk-twins]을 사용하여 장치 메타데이터 및 상태 정보를 저장, 동기화 및 쿼리할 수 있습니다. 장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT Hub에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다. 
 * **장치별 인증 및 보안 연결**. IoT Hub에 연결할 수 있도록 각 장치를 고유한 [보안 키][lnk-devguide-security]로 프로비전할 수 있습니다. [IoT Hub ID 레지스트리][lnk-devguide-identityregistry]는 솔루션의 키와 장치 ID를 저장합니다. 솔루션 백 엔드는 개별 장치를 허용 목록 및 거부 목록에 추가하여 장치 액세스를 완전히 제어할 수 있습니다.
-* **선언적 규칙에 따라 Azure 서비스에 장치-클라우드 메시지를 라우팅합니다**. IoT Hub를 사용하면 허브에서 장치-클라우드 메시지를 보내는 곳을 제어하기 위해 메시지 규칙을 기반으로 메시지 경로를 정의할 수 있습니다. 메시지 규칙는 사용자에게 모든 코드를 작성하도록 요구하지 않으며 사용자 지정 사후-수집 메시지 디스패처를 대신할 수 있습니다.
+* **선언적 규칙에 따라 Azure 서비스에 장치-클라우드 메시지를 라우팅합니다**. IoT Hub를 사용하면 허브에서 장치-클라우드 메시지를 보내는 곳을 제어하기 위해 라우팅 규칙을 기반으로 메시지 경로를 정의할 수 있습니다. 라우팅 규칙은 사용자에게 모든 코드를 작성하도록 요구하지 않으며 사용자 지정 사후-수집 메시지 디스패처를 대신할 수 있습니다.
 * **장치 연결 작업에 대한 모니터링**. 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 모니터링 기능을 통해 IoT 솔루션에서 잘못된 자격 증명을 사용하여 연결하려 하거나, 메시지를 너무 자주 보내거나, 모든 클라우드-장치 간 메시지를 거부하는 장치와 같은 연결 문제를 식별할 수 있습니다.
 * **광범위한 장치 라이브러리 집합**. [Azure IoT 장치 SDK][lnk-device-sdks]는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 * **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. 다음을 수행하여 사용자 지정 프로토콜에 대한 지원을 제공하는 IoT Hub를 확장할 수도 있습니다.
@@ -91,7 +91,7 @@ Azure IoT Hub는 [서비스 지원 통신][lnk-service-assisted-pattern] 패턴�
 IoT Hub는 ExpressRoute의 공용 피어링 경로를 통해 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-장치에서 메시지를 보내고 IoT hub에서 수신하는 방법 뿐만 아니라 IoT hub에 대한 메시지 경로를 구성하는 방법을 알아보려면 [IoT Hub와 메시지 보내고 받기][lnk-send-messages]를 참조하세요.
+장치에서 메시지를 보내고 IoT hub에서 수신하는 방법 뿐만 아니라 메시지 경로를 구성하는 방법을 알아보려면 [IoT Hub와 메시지 보내고 받기][lnk-send-messages]를 참조하세요.
 
 IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장치를 관리, 구성, 업데이트할 수 있는 방법을 알아보려면 [IoT Hub를 사용한 장치 관리의 개요][lnk-device-management]를 참조하세요.
 
@@ -127,6 +127,6 @@ IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,3 +1,4 @@
+
 # 개요
 ## [DocumentDB가 무엇인가요?](documentdb-introduction.md)
 ## [핵심 개념](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [분할 및 크기 조정](documentdb-partition-data.md)
 ### [일관성](documentdb-consistency-levels.md)
 ### [NoSQL과 SQL](documentdb-nosql-vs-sql.md)
+### [비용 효율적인 읽기 및 쓰기](documentdb-key-value-store-cost.md)
 
 ## 관리
 ### [데이터 가져오기](documentdb-import-data.md)
@@ -40,14 +42,13 @@
 ### [인덱스 사용자 지정](documentdb-indexing-policies.md)
 ### [데이터에 안전하게 액세스](documentdb-secure-access-to-data.md)
 ### [백업 및 복원](documentdb-online-backup-and-restore.md)
-### [성능 수준](documentdb-performance-levels.md)
+### [사용 중지 S1, S2, S3](documentdb-performance-levels.md)
 ### [요청 단위](documentdb-request-units.md)
 ### Azure CLI
 #### [계정 만들기](documentdb-automation-resource-manager-cli.md)
 #### [영역 추가 또는 제거](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [방화벽 지원](documentdb-firewall-support.md)
-### [계정 수퍼차지](documentdb-supercharge-your-account.md)
 
 ## 개발
 ### [SQL query](documentdb-sql-query.md)
@@ -71,6 +72,7 @@
 ## 포털 사용
 ### [데이터베이스 계정 만들기](documentdb-create-account.md)
 ### [컬렉션 만들기](documentdb-create-collection.md)
+### [처리량 설정](documentdb-set-throughput.md)
 ### [글로벌 복제 추가](documentdb-portal-global-replication.md)
 ### [문서 추가 및 편집](documentdb-view-json-document-explorer.md)
 ### [쿼리 문서](documentdb-query-collections-query-explorer.md)
@@ -88,9 +90,10 @@
 ### [Azure Search와의 통합](../search/search-howto-index-documentdb.md)
 ### [Azure Data Factory를 사용하여 데이터 이동](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Azure Stream Analytics로 실시간 데이터 분석](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Logic Apps로 알림 받기](documentdb-change-notification.md)
+### [Logic Apps를 사용하여 변경된 HL7 FHIR 레코드 가져오기](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [실시간 프로세스 센서 데이터](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI를 사용하여 데이터 시각화](documentdb-powerbi-visualize.md)
+### [데이터 시각화에 ODBC 드라이버 활용](documentdb-nosql-odbc-driver.md)
 
 
 # 참조
@@ -123,6 +126,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

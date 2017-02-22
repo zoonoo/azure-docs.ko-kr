@@ -1,14 +1,15 @@
 # 개요
 ## [ExpressRoute란?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
+## [연결 모델](expressroute-connectivity-models.md)
 ## [위치 및 파트너](expressroute-locations.md)
 ### [위치별 공급자](expressroute-locations-providers.md)
 ### [공급자별 위치](expressroute-locations.md)
 
 # 시작
-## [회로 및 라우팅 도메인](expressroute-circuit-peerings.md)
 ## [워크플로](expressroute-workflows.md)
 ## [필수 구성 요소](expressroute-prerequisites.md)
+## [회로 및 라우팅 도메인](expressroute-circuit-peerings.md)
 ## [라우팅 요구 사항](expressroute-routing.md)
 ## [라우팅 최적화](expressroute-optimize-routing.md)
 ## [NAT 요구 사항](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

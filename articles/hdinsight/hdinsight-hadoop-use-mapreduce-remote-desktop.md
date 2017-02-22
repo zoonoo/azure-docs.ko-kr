@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: a79f10cfb0ca882b00eb4a969fbf1d397ebdcf2f
+ms.sourcegitcommit: dc8e9647d99b39cdee36ec11e144452326e2d968
+ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
 
 
 ---
@@ -25,6 +25,11 @@ ms.openlocfilehash: a79f10cfb0ca882b00eb4a969fbf1d397ebdcf2f
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에서 Hadoop에 연결한 다음 Hadoop 명령을 사용하여 MapReduce 작업을 실행하는 방법을 배웁니다.
+
+> [!IMPORTANT]
+> 원격 데스크톱은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+>
+> HDInsight 3.4 이상의 경우 HDInsight 클러스터에 연결 및 MapReduce 작업 실행에 대한 자세한 내용은 [SSH로 MapReduce 사용](hdinsight-hadoop-use-mapreduce-ssh.md)을 참좋세요.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
@@ -99,6 +104,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

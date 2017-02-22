@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>PowerShell로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작
-> [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 이 문서에서는 PowerShell로 SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치를 시작하는 방법을 보여 줍니다. 지역에서 복제를 구성하려면 [Azure SQL 데이터베이스에 대한 지역에서 복제 구성](sql-database-geo-replication-powershell.md)을 참조하세요.
 
@@ -45,7 +39,7 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 
 다음 명령은 리소스 그룹 "rg2" 아래의 서버 "srv2"에서 데이터베이스 "mydb"의 역할을 주 데이터베이스로 전환합니다. 두 데이터베이스를 완전히 동기화한 후 "db2"가 연결되었던 기존 주 데이터베이스를 보조로 전환합니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -55,7 +49,7 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>주 데이터베이스에서 보조 데이터베이스로 계획되지 않은 장애 조치 시작
-**Set-AzureRmSqlDatabaseSecondary** cmdlet와 **–Failover** 및 **-AllowDataLoss** 매개 변수를 함께 사용하여 주 데이터베이스를 더 이상 사용할 수 없는 경우 보조가 되도록 기존 주의 수준 내리기를 강제하는 계획되지 않은 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다.
+**Set-AzureRmSqlDatabaseSecondary** cmdlet과 **–Failover** 및 **-AllowDataLoss** 매개 변수를 함께 사용하여 주 데이터베이스를 더 이상 사용할 수 없는 경우 보조가 되도록 기존 주의 수준 내리기를 강제하는 계획되지 않은 방식으로 보조 데이터베이스가 새로운 주 데이터베이스가 되도록 승격할 수 있습니다.
 
 이 기능은 데이터베이스의 가용성 복원이 중요하고 일부 데이터 손실이 허용되는 경우 재해 복구를 위해 설계되었습니다. 강제 장애 조치가 호출되면 지정된 보조 데이터베이스는 즉시 주 데이터베이스가 되며 쓰기 트랜잭션 승인을 시작합니다. 강제 장애 조치(failover) 작업 후, 기존 주 데이터베이스가 이 새 주 데이터베이스와 다시 연결할 수 있는 즉시 기존 주 데이터베이스에서 증분 백업이 수행되고 이어서 이전 주 데이터베이스는 새 주 데이터베이스에 대한 보조 데이터베이스로 만들어지며 이는 단순히 새 주의 복제본입니다.
 
@@ -70,8 +64,8 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 
 다음 명령은 주 데이터베이스를 사용할 수 없을 때 "mydb"라는 데이터베이스의 역할을 주로 전환합니다. 다시 온라인 상태가 되면 "mydb"가 연결되었던 기존 주 데이터베이스가 보조로 전환됩니다. 해당 지점에서 동기화로 인해 데이터 손실이 발생할 수 있습니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
+    $database | Set-AzureRmSqlDatabaseSecondary -Failover -AllowDataLoss
 
 
 
@@ -87,6 +81,6 @@ ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

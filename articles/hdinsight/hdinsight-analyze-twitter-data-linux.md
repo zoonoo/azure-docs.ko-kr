@@ -13,21 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 64324eb5258a060f31902cfb30c97425304b7e33
 
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
-이 문서에는 Twitter 스트리밍 API를 사용하여 트윗을 가져온 다음 Linux 기반 HDInsight 클러스터에서 Apache Hive를 사용하여 JSON 형식의 데이터를 처리합니다. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
 
-> [!NOTE]
-> Windows 기반 HDInsight 클러스터(예: Python)와 함께 이 문서의 개별 항목을 사용할 수 있지만 이 문서의 많은 단계는 Linux 기반 HDInsight 클러스터 사용을 기준으로 합니다. Windows 기반 클러스터에 대한 특정 단는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)을 참조하세요.
-> 
-> 
+이 문서에는 Twitter 스트리밍 API를 사용하여 트윗을 가져온 다음 HDInsight 클러스터에서 Apache Hive를 사용하여 JSON 형식의 데이터를 처리합니다. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
+
+> [!IMPORTANT]
+> 이 문서의 단계는 Linux 기반 HDInsight 클러스터에서 테스트했습니다.
+>
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -61,8 +62,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
 
 > [!NOTE]
 > Windows에서 curl 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
-> 
-> 
+
 
 ### <a name="download-tweets"></a>트윗 다운로드
 다음 Python 코드는 Twitter에서 10,000개의 트윗을 다운로드하고 **tweets.txt**라는 파일에 저장합니다.
@@ -316,6 +316,6 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

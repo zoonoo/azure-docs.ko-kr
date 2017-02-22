@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v2.0 암시적 흐름 | Microsoft Docs"
+title: "Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 응용 프로그램 보호 | Microsoft Docs"
 description: "단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: c38acf898a96b63c348ce28fb315a4e30fdb460f
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 1ea1f54832a13b57caf3d6783e482fad4ba00781
 
 
 ---
@@ -44,7 +44,7 @@ v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을
 ![OpenId Connect 스윔 레인](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
-사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고 2.0 끝점으로부터 `id_token`을 받습니다.
+사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고&2;.0 끝점으로부터 `id_token`을 받습니다.
 
 ```
 // Line breaks for legibility only
@@ -242,6 +242,6 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "질문과 대답 | Microsoft 문서"
+title: "Azure Media Services 질문과 대답 | Microsoft Docs"
 description: "FAQ(질문과 대답)"
 services: media-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6972550d74965fa6a7c69a5903b3287d5d219851
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 9a6d772bddc4417004c99f319ec7592d026efdb1
 
 
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
+
+이 문서에서는 AMS(Azure Media Services) 사용자 커뮤니티에 자주 올라오는 질문과 대답을 다룹니다.
+
 ## <a name="general-ams-faqs"></a>일반 AMS FAQ
 Q: 인덱싱을 확장하려면 어떻게 하나요?
 
@@ -28,7 +31,7 @@ A: 예약 단위는 인코딩 및 인덱싱 작업에서 동일합니다. [인�
 
 Q: 업로드, 인코딩 및 동영상을 게시합니다. 스트리밍하려고 할 때 어떤 이유로 비디오가 재생되지 않는 걸까요?
 
-A: 가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 끝점에 할당된 예약된 스트리밍 단위가 없기 때문입니다.  [스트리밍 예약 단위 크기를 조정하는 방법](media-services-portal-scale-streaming-endpoints.md)의 지침에 따르세요.
+A: 가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 끝점이 **실행 중** 상태가 아니기 때문입니다.  
 
 Q: 라이브 스트림에서 합치기를 수행할 수 있나요?
 
@@ -48,7 +51,7 @@ A: .NET을 사용하여 Media Services 계정 간에 자산을 복사하려면 [
 
 Q: AMS에서 작업할 때 파일 이름 지정에 지원되는 문자는 무엇인가요?
 
-A: Media Services에서는 스트리밍 콘텐츠의 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#[]". 같은 [퍼센트 Encoding 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+A: Media Services에서는 스트리밍 콘텐츠의 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
 Q: REST를 사용하여 연결하려면 어떻게 해야 하나요?
 
@@ -56,7 +59,7 @@ A: https://media.windows.net에 성공적으로 연결되면 다른 Media Servic
 
 Q: 인코딩 프로세스 중에 비디오를 회전하려면 어떻게 해야 하나요?
 
-A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-standard.md) 은 90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 MP4/MOV 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **소스** 요소를 [여기](http://msdn.microsoft.com/library/azure/mt269960.aspx)에 정의된 json 사전 설정 중 하나에 포함합니다.
+A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-standard.md) 은 90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 MP4/MOV 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **소스** 요소를 [여기](media-services-mes-presets-overview.md)에 정의된 json 사전 설정 중 하나에 포함합니다.
 
     "Version": 1.0,
     "Sources": [
@@ -82,6 +85,6 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

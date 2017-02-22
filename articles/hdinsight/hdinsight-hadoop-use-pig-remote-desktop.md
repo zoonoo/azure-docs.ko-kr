@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
 
 
 ---
@@ -26,7 +26,10 @@ ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
 
 이 문서에서는 Windows 기반 HDInsight 클러스터에 대한 원격 데스크톱 연결을 통해 Pig 명령을 사용하여 Pig Latin 문을 실행하는 과정을 안내합니다. Pig Latin을 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 설명하여 MapReduce 응용 프로그램을 만들 수 있습니다.
 
-이 문서에서는 다음 작업 방법에 대해 알아봅니다.
+> [!IMPORTANT]
+> 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+>
+> HDInsight 3.4 이상의 경우 명령줄에서 클러스터의 Pig 작업을 대화형으로 실행하는 방법에 대한 자세한 내용은 [HDInsight 및 SSH로 Pig 사용](hdinsight-hadoop-use-pig-ssh.md)을 참조하세요.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
@@ -128,6 +131,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

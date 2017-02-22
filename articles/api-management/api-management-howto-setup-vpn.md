@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: antonba
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3016778f22597921f716cfcf7845c550d6d822d5
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 98e88b1c69de8732f1a4ae54c8ecd0b11a547f35
 
 
 ---
@@ -29,11 +29,11 @@ API 관리의 VPN 지원을 사용하여 API 관리 게이트웨이를 Azure 가
 > 
 
 ## <a name="enable-vpn"> </a>VPN 연결 사용
-> VPN 연결은 **프리미엄** 및 **개발자** 계층에서만 사용할 수 있습니다. 전환하려면 [Azure 클래식 포털][Azure 클래식 포털]에서 API 관리 서비스를 열고 **크기 조정** 탭을 엽니다. **일반** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
+> VPN 연결은 **프리미엄** 및 **개발자** 계층에서만 사용할 수 있습니다. 전환하려면 [Azure 클래식 포털][Azure Classic Portal] 에서 API Management 서비스를 열고 **크기 조정** 탭을 엽니다. **일반** 섹션에서 프리미엄 계층을 선택하고 저장을 클릭합니다.
 > 
 > 
 
-VPN 연결을 사용하려면 [Azure 클래식 포털][Azure 클래식 포털]에서 API 관리 서비스를 열고 **구성** 탭으로 전환합니다. 
+VPN 연결을 사용하려면 [Azure 클래식 포털][Azure Classic Portal] 에서 API Management 서비스를 열고 **구성** 탭으로 전환합니다. 
 
 VPN 섹션에서 **VPN 연결**을 **켜기**로 전환합니다.
 
@@ -71,24 +71,24 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 API Management는 다양한 Azure 서비스에 따라 달라집니다. API Management 서비스 인스턴스가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스팅되면 해당 Azure 서비스의 호스트 이름을 확인할 수 있어야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 지침을 따르세요.  
 
 ## <a name="related-content"> </a>관련 콘텐츠
-* [Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기][Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기]
-* [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법][API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]
+* [Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 Virtual Network 만들기][Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]
+* [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법][How to use the API Inspector to trace calls in Azure API Management]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-add-api.png
 
-[VPN 연결 사용]: #enable-vpn
-[VPN 뒤에서 웹 서비스에 연결]: #connect-vpn
-[관련 콘텐츠]: #related-content
+[Enable VPN connections]: #enable-vpn
+[Connect to a web service behind VPN]: #connect-vpn
+[Related content]: #related-content
 
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
-[API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

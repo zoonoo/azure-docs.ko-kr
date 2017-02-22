@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: fff714765508285f4c074b3a7287701a538fbf95
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
 
 
 ---
@@ -47,10 +47,11 @@ Azure 클래식 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 
 >
 >
 
+## <a name="next-steps"></a>다음 단계
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

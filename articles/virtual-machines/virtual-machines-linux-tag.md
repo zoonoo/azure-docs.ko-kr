@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6e39b13de1808ebb1d0571ab0c1c620261046d0d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
 
 
 ---
@@ -47,17 +47,17 @@ Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요][Azure Resource Manager 개요] 및 [태그를 사용하여 Azure 리소스 구성][태그를 사용하여 Azure 리소스 구성]을 참조하세요.
-* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Azure 청구서 이해] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Microsoft Azure 리소스 소비에 대한 통찰력 얻기]를 참조하세요.
+* Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요][Azure Resource Manager Overview] 및 [태그를 사용하여 Azure 리소스 구성][Using Tags to organize your Azure Resources]을 참조하세요.
+* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Understanding your Azure Bill] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Gain insights into your Microsoft Azure resource consumption]를 참조하세요.
 
-[Azure CLI 환경]: ./xplat-cli-azure-resource-manager.md
-[Azure Resource Manager 개요]: ../azure-resource-manager/resource-group-overview.md
-[태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
-[Azure 청구서 이해]: ../billing/billing-understand-your-bill.md
-[Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
+[Azure CLI environment]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

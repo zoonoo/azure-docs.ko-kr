@@ -1,5 +1,5 @@
 ---
-title: "Azure 도구 얻기(Windows 7 이상) | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 2: Azure 도구(Windows) | Microsoft Docs"
 description: "Windows 7 이상 버전에 Python 및 Azure CLI(Azure 명령줄 인터페이스)를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 59d6edc1af60c9850a97378ac8758f0f245e68d6
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 1ae210489b8d369a5fca33e1824b9dc224ad33d2
 
 
 ---
@@ -75,6 +75,6 @@ Azure CLI를 설치했습니다. 다음 작업은 Azure CLI를 사용하여 Azur
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Monitor 자동 크기 조정에 대한 모범 사례. | Microsoft Docs"
-description: "Azure Monitor에서 자동 크기 조정을 효과적으로 사용하기 위한 원칙을 알아봅니다."
+title: "자동 크기 조정에 대한 모범 사례 | Microsoft Docs"
+description: "가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스의 크기를 효과적으로 자동 조정하기 위한 원칙을 알아봅니다."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
+ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
 
 
 ---
-# <a name="best-practices-for-azure-monitor-autoscaling"></a>Azure Monitor 자동 크기 조정에 대한 모범 사례
-이 문서의 다음 섹션에서는 Azure에서 자동 크기 조정에 대한 모범 사례를 이해하도록 도와줍니다. 이 정보를 검토한 후에는 Azure 인프라에서 자동 크기 조정을 효과적으로 사용할 수 있게 됩니다.
+# <a name="best-practices-autoscaling-virtual"></a>모범 사례 자동 크기 조정 가상
+이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. 이 내용은 가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스와 관련이 있습니다.  다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
 ## <a name="autoscale-concepts"></a>자동 크기 조정 개념
 * 하나의 리소스에는 *하나의* 자동 크기 조정 설정만 있을 수 있습니다.
@@ -46,7 +46,7 @@ ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
 이 조합의 한 부분만 사용하는 경우에는 자동 크기 조정에서 최대값 또는 최소값에 도달할 때까지 해당 부분만 규모를 확장하거나 감축합니다.
 
 ### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>자동 크기 조정을 관리할 때 Azure 포털 및 Azure 클래식 포털 간에 전환 금지
-Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.com)을 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 가상 컴퓨터 크기 조정 집합의 경우 PoSH, CLI 또는 REST API를 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 자동 크기 조정 구성을 관리할 때 Azure 클래식 포털(manage.windowsazure.com)과 Azure 포털(portal.azure.com) 간에 전환 금지 Azure 클래식 포털과 해당 기본 백 엔드에는 제한이 있습니다. 그래픽 사용자 인터페이스를 사용하여 자동 크기 조정을 관리하려면 Azure 포털로 이동합니다. Azure 리소스 탐색기를 통해 자동 크기 조정 PowerShell, CLI 또는 REST API를 사용할 수 있습니다.
+Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.com)을 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 가상 컴퓨터 크기 집합의 경우 PowerShellH, CLI 또는 REST API를 사용하여 자동 크기 조정 설정을 만들고 관리합니다. 자동 크기 조정 구성을 관리할 때 Azure 클래식 포털(manage.windowsazure.com)과 Azure 포털(portal.azure.com) 간에 전환 금지 Azure 클래식 포털과 해당 기본 백 엔드에는 제한이 있습니다. 그래픽 사용자 인터페이스를 사용하여 자동 크기 조정을 관리하려면 Azure 포털로 이동합니다. Azure 리소스 탐색기를 통해 자동 크기 조정 PowerShell, CLI 또는 REST API를 사용할 수 있습니다.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>진단 메트릭에 적절한 통계 선택
 진단 메트릭의 경우 크기를 조정할 메트릭으로 *평균*, *최소*, *최대* 및 *합계* 중에서 선택할 수 있습니다. 가장 일반적인 통계는 *평균*입니다.
@@ -67,7 +67,7 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 4. 축소하기 전에 자동 크기 조정에서 감축된 경우의 최종 상태를 예측하려고 시도합니다. 예를 들어 575x3(현재 인스턴스 수) = 1,725/2(축소된 경우의 최종 인스턴스 수) = 862.5스레드입니다. 이는 평균 스레드 수가 동일하게 유지되거나 약간만 감소한 경우 자동 크기 조정에서 규모가 감축된 후 즉시 다시 확장해야 함을 의미합니다. 그러나 규모가 다시 확장된 경우 전체 프로세스가 반복되므로 무한 루프가 발생합니다.
 5. 이 "느슨한" 상황을 방지하기 위해 자동 크기 조정에서는 규모를 축소하지 않습니다. 대신 건너뛰고 다음에 서비스의 작업이 실행될 때 조건을 다시 평가합니다. 이는 평균 스레드 수가 575일 때 자동 크기 조정이 작동하지 않는 것처럼 보이기 때문에 많은 사용자에게 혼동을 줄 수 있었습니다.
 
-규모 감축 중의 평가는 "느슨한" 상황을 방지하기 위한 것입니다. 규모 확장 및 감축에 대해 동일한 임계값을 선택할 때 이 동작을 염두에 두어야 합니다.
+규모 감축 동안의 예측은 확장 및 감축 작업이 지속적으로 발생하는 "플래핑" 상황을 방지하기 위한 것입니다. 규모 확장 및 감축에 대해 동일한 임계값을 선택할 때 이 동작을 염두에 두어야 합니다.
 
 규모 확장 및 감축 임계값 사이에 적당한 간격을 선택하는 것이 좋습니다. 예를 들어, 다음과 같은 더 나은 규칙 조합을 고려합니다.
 
@@ -152,7 +152,6 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

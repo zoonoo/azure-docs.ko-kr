@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4cfe4af2d7e4ef030faff8493b95e632bb5b095c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8194e0d72bd8547595b15d5e1dcba5771d7b11c8
 
 
 ---
@@ -190,7 +190,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-an-reward-gateway-test-user"></a>Reward Gateway 테스트 사용자 만들기
 이 섹션에서는 Reward Gateway에서 Britta Simon이라는 사용자를 만듭니다. Reward Gateway 플랫폼에서 사용자를 추가하려면 Reward Gateway [지원팀](mailTo:clientsupport@rewardgateway.com)에 문의하세요.
@@ -245,6 +245,6 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

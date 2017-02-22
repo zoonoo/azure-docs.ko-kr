@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric 지원 옵션 | Microsoft Docs"
+title: "Azure Service Fabric 지원 옵션 살펴보기 | Microsoft Docs"
 description: "지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크"
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2016
+ms.date: 02/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: d848bebea962e8ba883266188cd0bafe991dd804
-ms.openlocfilehash: 5d27e6622faeee7cf9f4cdb2911171ef29d94b5c
+ms.sourcegitcommit: 05e433b028762016759637b2afa8c741b04f31ff
+ms.openlocfilehash: a31a297f909ffb1c6da748623b0050415c43486b
 
 
 ---
@@ -79,11 +79,9 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 | **Service Fabric 런타임 클러스터** | **지원 종료 날짜** |
 | --- | --- |
 | 5.3.121 이전의 모든 클러스터 버전 |2017년 1월 20일 |
-| 5.3.121.* |2017년 2월 24일 |
-| 5.3.204.* |2017년 2월 24일 |
-| 5.3.301.* |2017년 2월 24일 |
-| 5.3.311.* |2017년 2월 24일 |
-| 5.4. *. * |현재 버전 및 종료 날짜 |
+| 5.3.* |2017년 2월 24일 |
+| 5.4.* |2017년 4월 17일     |
+| 5.5.* |현재 버전 및 종료 날짜
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -100,6 +98,6 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

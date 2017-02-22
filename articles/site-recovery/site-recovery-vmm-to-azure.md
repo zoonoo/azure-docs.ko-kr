@@ -1,5 +1,5 @@
 ---
-title: "Azure 포털을 사용하여 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제 | Microsoft Docs"
+title: "VMM 클라우드의 Hyper-V VM을 Azure로 복제 | Microsoft Docs"
 description: "Site Recovery를 배포하고 VMM 클라우드의 Hyper-V VM을 Azure에 복제, 장애 조치(Failover) 및 복구하는 작업을 어떻게 조정해야 하는지 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 278c4f1dba4f1cd6885855122ac44896ffc6f81a
-ms.openlocfilehash: 2b5f3c2cc8db362a1800f2d693416351cd092dbd
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 
 
 ---
@@ -47,7 +47,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 | **온-프레미스 제한 사항** |HTTPS 기반 프록시는 지원되지 않음 |
 | **공급자/에이전트** |복제된 VM에는 Azure Site Recovery 공급자가 필요합니다.<br/><br/> Hyper-V 호스트에는 Recovery Services 에이전트가 필요합니다.<br/><br/> 배포 중에 설치합니다. |
 |  **Azure 요구 사항** |Azure 계정<br/><br/> 복구 서비스 자격 증명 모음<br/><br/> 자격 증명 모음 지역에 있는 LRS 또는 GRS 저장소 계정<br/><br/> 표준 저장소 계정<br/><br/> 자격 증명 모음 지역에서 Azure 가상 네트워크. [전체 세부 정보](#azure-prerequisites). |
-|  **Azure 제한 사항** |GRS를 사용하는 경우 로깅을 위해 다른 LRS 계정이 필요합니다.<br/><br/> Azure Portal에서 만든 저장소 계정은 동일하거나 다른 구독에서 리소스 그룹 간에 이동할 수 없습니다. <br/><br/> 프리미엄 저장소는 지원되지 않습니다.<br/><br/> Site Recovery에 사용되는 Azure 네트워크는 동일하거나 다른 구독에서 리소스 그룹 간에 이동할 수 없습니다. 
+|  **Azure 제한 사항** |GRS를 사용하는 경우 로깅을 위해 다른 LRS 계정이 필요합니다.<br/><br/> Azure Portal에서 만든 저장소 계정은 동일하거나 다른 구독에서 리소스 그룹 간에 이동할 수 없습니다. <br/><br/> 프리미엄 저장소는 지원되지 않습니다.<br/><br/> Site Recovery에 사용되는 Azure 네트워크는 동일하거나 다른 구독에서 리소스 그룹 간에 이동할 수 없습니다.
 |  **VM 복제** |[VM은 Azure 필수 구성 요소를 따라야 합니다.](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
 |  **복제 제한 사항** |고정 IP 주소를 사용하여 Linux를 실행하는 VM을 복제할 수 없습니다.<br/><br/> 복제에서 OS 디스크뿐만 아니라 특정 디스크를 제외할 수 있습니다.
 | **배포 단계** |1) Azure 준비(구독, 저장소, 네트워크) -> 2) 온-프레미스 준비(VMM 및 네트워크 매핑) -> 3) Recovery Services 자격 증명 모음 만들기 -> 4) VMM 및 Hyper-V 호스트 설정 -> 5) 복제 설정 구성 -> 6) 복제 활성화 -> 7) 복제 및 장애 조치 테스트. |
@@ -393,16 +393,16 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 7. **속성** > **속성 구성**에서 선택한 VM의 운영 체제 및 OS 디스크를 선택합니다. 기본적으로 VM의 모든 디스크는 복제를 위해 선택됩니다. Azure에 불필요한 데이터를 복제함에 따른 대역폭 사용량을 줄이기 위해 복제에서 디스크를 제외할 수 있습니다. 예를 들어 임시 데이터 또는 컴퓨터나 응용 프로그램이 다시 시작할 때마다 새로 고쳐지는 데이터(예: pagefile.sys 또는 SQL Server tempdb)가 포함된 디스크를 복제하고 싶지 않을 수 있습니다. 디스크를 선택 취소하여 복제에서 해당 디스크를 제외할 수 있습니다. Azure VM 이름(대상 이름)이 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements) 을 준수하는지 확인하고 필요한 경우 이름을 수정합니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-    
+
     >[!NOTE]
-    > 
-    > * 기본 디스크만 복제에서 제외할 수 있습니다. OS 디스크는 제외할 수 없으며 동적 디스크는 제외하는 것을 권장하지 않습니다. ASR는 어떤 VHD 디스크가 게스트 VM 내에서 기본 또는 동적 디스크인지 식별할 수 없습니다.  모든 종속적인 동적 볼륨 디스크가 제외되지 않으면, 보호된 동적 디스크는 장애 조치 VM에 실패한 디스크로 나타나며 해당 디스크에 있는 데이터는 액세스할 수 없습니다.   
+    >
+    > * 기본 디스크만 복제에서 제외할 수 있습니다. OS 디스크는 제외할 수 없으며 동적 디스크는 제외하는 것을 권장하지 않습니다. ASR는 어떤 VHD 디스크가 게스트 VM 내에서 기본 또는 동적 디스크인지 식별할 수 없습니다.  모든 종속적인 동적 볼륨 디스크가 제외되지 않으면, 보호된 동적 디스크는 장애 조치 VM에 실패한 디스크로 나타나며 해당 디스크에 있는 데이터는 액세스할 수 없습니다.
     > * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 VM에 대한 보호를 사용하지 않도록 설정한 다음 다시 사용하도록 설정해야 합니다.
     > * 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행될 수 있도록 디스크를 Azure에 수동으로 만들어야 합니다. 또는 Azure 자동화를 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
     > * Azure에서 수동으로 만드는 디스크는 장애 복구(failback)가 되지 않습니다. 예를 들어 디스크&3;장을 장애 조치하고&2;장을 직접 Azure VM에서 만든다면 장애 조치된&3;장의 디스크만이 Azure에서 다시 Hyper-V로 장애 복구됩니다. 장애 복구 또는 Hyper-V에서 Azure로 역방향 복제에서 수동으로 만든 디스크를 포함할 수 없습니다.
     >
     >
-    
+
 
 8. **복제 설정** > **복제 설정 구성**에서 보호되는 VM에 적용할 복제 정책을 선택합니다. 그런 후 **OK**를 클릭합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책을 수정할 수 있습니다. 적용하는 변경 사항은 이미 복제 중인 컴퓨터와 새 컴퓨터에 사용됩니다.
 
@@ -419,7 +419,8 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. **계산 및 네트워크** > **계산 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements) 을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 수정할 수 있습니다. 다음 사항에 유의하세요.
+3. **계산 및 네트워크** > **계산 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements) 을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 수정할 수 있습니다.
+다음 사항에 유의하세요.
 
    * 대상 IP 주소를 설정할 수 있습니다. 주소를 입력하지 않으면 장애 조치(Failover)된 컴퓨터가 DHCP를 사용합니다. 장애 조치(Failover) 시 사용할 수 없는 주소를 설정하면 장애 조치(Failover)가 실패합니다. 주소를 테스트 장애 조치(Failover) 네트워크에서 사용할 수 있는 경우 테스트 장애 조치(Failover)에 동일한 대상 IP 주소를 사용해도 됩니다.
    * 네트워크 어댑터 수는 다음과 같이 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다.
@@ -490,6 +491,6 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

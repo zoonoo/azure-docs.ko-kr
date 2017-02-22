@@ -1,6 +1,6 @@
 ---
-title: "Azure 및 Linux VM 저장소 | Microsoft Docs"
-description: "Linux 가상 컴퓨터와 Azure Standard 및 Premium Storage를 설명합니다."
+title: "Azure Linux VM 및 Azure Storage | Microsoft Docs"
+description: "Linux 가상 컴퓨터와 Azure Standard 및 Premium Storage와 Managed Disks 및 관리되지 않는 디스크를 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -12,28 +12,84 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/04/2016
-ms.author: v-livech
+ms.date: 2/7/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
+ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
 
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 및 Linux VM 저장소
 Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다.  Azure Storage는 개발자가 새로운 시나리오를 지원할 대규모 응용 프로그램을 빌드할 수 있게 할 뿐만 아니라 Azure 가상 컴퓨터의 저장소 기반을 제공합니다.
 
-## <a name="azure-storage-standard-and-premium"></a>Azure Storage: Standard 및 Premium
-Azure VM은 Standard Storage 디스크 또는 Premium Storage 디스크에 빌드될 수 있습니다.  VM을 선택하도록 포털을 사용하는 경우 기본 사항 화면의 드롭다운을 토글하여 표준 및 프리미엄 디스크를 확인해야 합니다.  다음 스크린샷은 해당 토글 메뉴를 강조 표시합니다.  SSD에 토글될 때 SSD 드라이브에서 지원하는 Premium Storage만 사용하도록 설정한 VM이 표시됩니다.  HDD로 토글되면 SSD에서 지원하는 Premium Storage VM과 함께 Standard Storage를 사용하도록 설정한 VM 지원 회전 디스크 드라이브가 표시됩니다.
+## <a name="managed-disks"></a>Managed Disks
 
-  ![screen1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+Azure VM은 이제 [Azure Storage 계정](../storage/storage-introduction.md)을 직접 만들거나 관리하지 않고 VM을 만들 수 있도록 하는 [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다. 프리미엄 또는 표준 저장소를 원하는지 여부와 디스크의 크기를 지정하고 Azure는 VM 디스크를 만듭니다. Managed Disks가 있는 VM에는 다음을 포함한 여러 가지 중요한 기능이 있습니다.
+
+- 자동 확장성 지원. Azure는 디스크를 만들고 기본 저장소를 관리하여 구독당 최대 10,000개의 디스크를 지원합니다.
+- 가용성 집합으로 향상된 안정성. Azure는 가용성 집합 내에서 자동으로 VM 디스크를 서로 분리합니다.
+- 향상된 액세스 제어. Managed Disks는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)로 제어되는 다양한 작업을 노출합니다. 
+
+Managed Disks의 가격 책정은 관리되지 않는 디스크의 가격 책정과 다릅니다. 해당 정보는 [Managed Disks에 대한 가격 책정 및 요금 청구](../storage/storage-managed-disks-overview.md#pricing-and-billing)를 참조하세요. 
+
+관리되지 않는 디스크를 사용하는 기존 VM을 [az vm convert](/cli/azure/vm#convert)로 관리되는 디스크를 사용하도록 변환할 수 있습니다. 자세한 내용은 [Linux VM을 관리되지 않는 디스크에서 Azure Managed Disks로 변환하는 방법](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 현재 또는 이전에 [Azure SSE(Storage Service Encryption)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 암호화된 저장소 계정에 관리되지 않는 디스크가 있는 경우 관리되지 않는 디스크를 관리되는 디스크로 변환할 수 없습니다. 다음은 현재 암호화되었거나 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크를 변환하는 자세한 단계입니다.
+
+- [az storage blob copy start](/cli/azure/storage/blob/copy#start)를 사용하여 Azure Storage Service Encryption을 사용하도록 설정되지 않은 저장소 계정으로 [VHD(가상 하드 디스크)를 복사](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks)합니다.
+- 관리되는 디스크를 사용하는 VM을 만들고 [az vm create](/cli/azure/vm#create)로 생성되는 동안 해당 VHD 파일을 지정합니다. 또는
+- [az vm disk attach](/cli/azure/vm/disk#attach)로 복사된 VHD를 관리되는 디스크가 있는 실행 중인 VM에 연결합니다.
+
+
+## <a name="azure-storage-standard-and-premium"></a>Azure Storage: Standard 및 Premium
+Managed Disks 또는 관리되지 않는 디스크를 사용하는지 여부에 따라 Azure VM을 표준 저장소 디스크 또는 프리미엄 저장소 디스크에 빌드할 수 있습니다. VM을 선택하도록 포털을 사용하는 경우 **기본** 사항 화면의 드롭다운을 토글하여 표준 및 프리미엄 디스크를 확인해야 합니다. SSD에 토글될 때 SSD 드라이브에서 지원하는 Premium Storage만 사용하도록 설정한 VM이 표시됩니다.  HDD로 토글되면 SSD에서 지원하는 프리미엄 저장소 VM과 함께 회전 디스크 드라이브에서 지원하는 표준 저장소를 사용하도록 설정한 VM이 표시됩니다.
 
 `azure-cli`에서 VM을 만들 경우 `-z` 또는 `--vm-size` CLI 플래그를 통해 선택하는 경우 표준 및 프리미엄 간에 VM 크기를 선택할 수 있습니다.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>CLI에서 Standard Storage VM으로 VM 만들기
-CLI 플래그 `-z`은 Standard Storage 기반 Linux VM인 A1으로 Standard_A1을 선택합니다.
+## <a name="creating-a-vm-with-a-managed-disk"></a>Managed Disk를 사용하여 VM 만들기
 
-```bash
+다음 예제에는 Azure CLI 2.0(미리 보기)이 필요합니다. [여기에서 설치]할 수 있습니다.
+
+먼저 리소스를 관리하는 리소스 그룹을 만듭니다.
+
+```azurecli
+az group create --location westus --name myResourceGroup
+```
+
+그런 다음 아래 예제와 같이 `az vm create` 명령을 사용하여 VM을 만듭니다. `manageddisks`는 이미 사용 중일 가능성이 있으므로 고유한 `--public-ip-address-dns-name` 인수를 지정해야 합니다.
+
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+앞의 예제는 표준 저장소 계정에 관리되는 디스크로 VM을 만듭니다. 프리미엄 저장소 계정을 사용하려면 다음 예제와 같이 `--storage-sku Premium_LRS` 인수를 추가합니다.
+
+```azurecli
+az vm create \
+--storage-sku Premium_LRS
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+
+### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 관리되지 않는, 표준 디스크로 VM 만들기
+
+물론 Azure CLI 1.0을 사용하여 표준 및 프리미엄 디스크 VM을 만들 수도 있지만 이번에는 Azure CLI 1.0을 사용하여 Managed Disks에서 지원하는 VM을 만들 수 없습니다.
+
+`-z` 옵션은 표준 저장소 기반 Linux VM인 Standard_A1을 선택합니다.
+
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -44,10 +100,10 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>CLI에서 Premium Storage로 VM 만들기
-CLI 플래그 `-z`은 Premium Storage 기반 Linux VM인 DS1으로 Standard_DS1을 선택합니다.
+### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 프리미엄 저장소로 VM 만들기
+`-z` 옵션은 프리미엄 저장소 기반 Linux VM인 Standard_DS1을 선택합니다.
 
-```bash
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -68,7 +124,7 @@ Premium Storage 기능은 다음과 같습니다.
 
 * Premium Storage 디스크: Azure Premium Storage는DS, DSv2 또는 GS 시리즈 Azure VM에 연결할 수 있는 VM 디스크를 지원합니다.
 * 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
-* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다.
+* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본&3;개를 유지합니다.
 * [Premium Storage](../storage/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>프리미엄 저장소 지원 VM
@@ -119,10 +175,10 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 * RA-GRS(읽기 액세스 지역 중복 저장소)
 
 ### <a name="locally-redundant-storage"></a>로컬 중복 저장소
-로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한 3개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
+로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한&3;개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
 
 ### <a name="zone-redundant-storage"></a>영역 중복 저장소
-영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐 2~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
+영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐&2;~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
 
 ### <a name="geo-redundant-storage"></a>지역 중복 저장소
 지역 중복 저장소(GRS)는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터를 복제합니다. 저장소 계정에서 GRS를 활성화하면, 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해이더라도 데이터는 지속됩니다.
@@ -186,6 +242,6 @@ SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

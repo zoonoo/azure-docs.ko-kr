@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9dd4539122de38221e229ad5799961b62a4f648a
+ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
+ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
 
 
 ---
 # <a name="run-background-tasks-with-webjobs"></a>WebJob으로 백그라운드 작업 실행
 ## <a name="overview"></a>개요
-[앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱에서 세 가지 방법, 요청 시, 계속 실행 또는 일정에 따라 웹 작업에서 프로그램이나 스크립트를 실행할 수 있습니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱의 WebJobs에서 세 가지 방법, 즉 요청 시, 계속 실행 또는 일정에 따라 프로그램이나 스크립트를 실행할 수 있습니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
 
 이 문서에서는 [Azure 포털](https://portal.azure.com)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 
 Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)를 참조하세요.
 
- Azure Functions(현재 미리 보기 모드)를 사용해도 Azure 앱 서비스에서 프로그램과 스크립트를 실행할 수 있습니다. 자세한 내용은 [Azure Functions 개요](../azure-functions/functions-overview.md)를 참조하세요.
+ Azure Functions는 서버가 없는 환경이나 App Service 앱에서 프로그램과 스크립트를 실행할 수 있는 또 다른 방법을 제공합니다. 자세한 내용은 [Azure Functions 개요](../azure-functions/functions-overview.md)를 참조하세요.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -207,6 +207,6 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

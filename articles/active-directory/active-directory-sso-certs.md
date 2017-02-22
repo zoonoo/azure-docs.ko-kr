@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/09/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 275afec9fd3d2ce6051f48b257c7e116d765186b
+ms.sourcegitcommit: fb33a0b01b7d9806c92dfc66303b0dd2ca1044d9
+ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 275afec9fd3d2ce6051f48b257c7e116d765186b
 ![Azure AD Single Sign-On](./media/active-directory-sso-certs/fed-sso.PNG)
 
 ## <a name="how-to-customize-the-expiration-date-for-your-federation-certificate"></a>페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법
-기본적으로 인증서는 2년 후에 만료되도록 설정됩니다. 다음 단계를 수행하여 인증서에 대한 다른 만료 날짜를 선택할 수 있습니다. 포함된 스크린샷에서는 예제를 위해 Salesforce를 사용하지만 이러한 단계는 페더레이션된 모든 SaaS 앱에 적용할 수 있습니다.
+기본적으로 인증서는&2;년 후에 만료되도록 설정됩니다. 다음 단계를 수행하여 인증서에 대한 다른 만료 날짜를 선택할 수 있습니다. 포함된 스크린샷에서는 예제를 위해 Salesforce를 사용하지만 이러한 단계는 페더레이션된 모든 SaaS 앱에 적용할 수 있습니다.
 
 1. Azure Active Directory에서 응용 프로그램에 대한 빠른 시작 페이지의 **Single Sign-On 구성**을 클릭합니다.
    
@@ -78,6 +78,6 @@ ms.openlocfilehash: 275afec9fd3d2ce6051f48b257c7e116d765186b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

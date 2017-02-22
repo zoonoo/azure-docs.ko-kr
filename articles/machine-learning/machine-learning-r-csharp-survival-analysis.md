@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning을 사용한 생존 분석 | Microsoft Docs"
-description: "생존 분석 이벤트 발생 확률"
+title: "(사용되지 않음) Azure Machine Learning을 사용한 생존 분석 | Microsoft Docs"
+description: "(사용되지 않음) 생존 분석 이벤트 발생 확률"
 services: machine-learning
 documentationcenter: 
 author: zhangya
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: zhangya
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e689f1e6fad3e65c3d25631adc93f1e0106706f2
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
 
 
 ---
-# <a name="survival-analysis"></a>생존 분석
+# <a name="deprecated-survival-analysis"></a>(사용되지 않음) 생존 분석
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 대부분 시나리오에서 평가되는 주요 결과는 관련 이벤트에 대한 시간입니다. 즉, "이 이벤트가 언제 발생할까요?"라고  질문합니다. 예제로서 데이터가 관련 이벤트(질병 재발, 박사 학위 취득, 브레이크 패드 고장)가 발생할 때까지 경과된 시간(일, 년, 마일리지 등)을 설명하는 상황을 고려해 보세요. 데이터의 각 인스턴스는 특정 개체(환자, 학생, 자동차 등)를 나타냅니다.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -32,7 +39,7 @@ ms.openlocfilehash: e689f1e6fad3e65c3d25631adc93f1e0106706f2
 > 
 
 ## <a name="consumption-of-web-service"></a>웹 서비스 사용
-웹 서비스의 입력 데이터가 다음 표에 표시됩니다. 학습 데이터, 테스트 데이터, 관련 시간, "시간" 차원 인덱스, "이벤트" 차원 인덱스 및 변수 유형(연속 또는 요소)의 6가지 정보가 입력으로 필요합니다. 학습 데이터는 행이 쉼표로 구분되고 열이 세미콜론으로 구분되는 문자열로 표시됩니다. 데이터 기능 수는 유연합니다. 입력 문자열의 모든 요소는 숫자여야 합니다. 학습 데이터에서 "시간" 차원은 연구 시작점(환자가 약물 치료 프로그램을 받음, 학생이 박사 과정을 시작함, 자동차가 운행을 시작함 등) 이후 관련 이벤트(환자가 약물을 사용함, 학생이 박사 학위를 받음, 자동차의 브레이크 패드가 고장 남 등)가 발생할 때까지 경과된 시간 단위(일, 년, 마일리지 등) 수를 나타냅니다. "이벤트" 차원은 연구 종료 시 관련 이벤트가 발생하는지를 나타냅니다. "이벤트=1" 값은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생함을 의미하지만 "이벤트=0"은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생하지 않았음을 의미합니다.
+웹 서비스의 입력 데이터가 다음 표에 표시됩니다. 학습 데이터, 테스트 데이터, 관련 시간, "시간" 차원 인덱스, "이벤트" 차원 인덱스 및 변수 유형(연속 또는 요소)의&6;가지 정보가 입력으로 필요합니다. 학습 데이터는 행이 쉼표로 구분되고 열이 세미콜론으로 구분되는 문자열로 표시됩니다. 데이터 기능 수는 유연합니다. 입력 문자열의 모든 요소는 숫자여야 합니다. 학습 데이터에서 "시간" 차원은 연구 시작점(환자가 약물 치료 프로그램을 받음, 학생이 박사 과정을 시작함, 자동차가 운행을 시작함 등) 이후 관련 이벤트(환자가 약물을 사용함, 학생이 박사 학위를 받음, 자동차의 브레이크 패드가 고장 남 등)가 발생할 때까지 경과된 시간 단위(일, 년, 마일리지 등) 수를 나타냅니다. "이벤트" 차원은 연구 종료 시 관련 이벤트가 발생하는지를 나타냅니다. "이벤트=1" 값은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생함을 의미하지만 "이벤트=0"은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생하지 않았음을 의미합니다.
 
 * trainingdata - 문자열입니다. 행은 쉼표로 구분되고 열은 세미콜론으로 구분됩니다. 각 행에는 "시간" 차원, "이벤트" 차원 및 예측 요인 변수가 포함됩니다.
 * testingdata - 특정 개체에 대한 예측 요인 변수를 포함하는 데이터의 한 행입니다.
@@ -209,6 +216,6 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌으며 두 개
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

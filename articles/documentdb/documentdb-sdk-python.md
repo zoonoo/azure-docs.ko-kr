@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB Python API 및 SDK | Microsoft Docs"
+title: "Azure DocumentDB용 Python API 및 SDK 리소스 | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB Python SDK의 각 버전 간의 변경 내용을 포함하는 Python API 및 SDK에 대한 모든 것을 알아봅니다."
 services: documentdb
 documentationcenter: python
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 
 
 ---
@@ -97,7 +97,7 @@ ms.openlocfilehash: 6e2ab89f3895edcfb818ad918dfffd597f4905d3
 ### <a name="a-name100100httpspypipythonorgpypipydocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
 * GA SDK.
 
-## <a name="release-retirement-dates"></a>릴리스 및 사용 중지 날짜
+## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
@@ -142,6 +142,6 @@ DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

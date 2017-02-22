@@ -97,7 +97,7 @@ ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
               <p><strong>사용자 암호 재설정 정책</strong> 섹션이 보이지만 그 아래에 나타나는 유일한 플래그는 <strong>암호 재설정 활성화한 사용자</strong> 플래그입니다.</p>
             </td>
             <td>
-              <p><strong>암호 재설정 활성화한 사용자</strong> 플래그를 <strong>예로 전환하는 경우 UI의 나머지가 나타납니다.</strong></p>
+              <p><strong>암호 재설정 활성화한 사용자</strong> 플래그를 <strong>예</strong>로 전환하는 경우 UI의 나머지가 나타납니다.</p>
             </td>
           </tr>
           <tr>
@@ -524,7 +524,7 @@ TCP 443(HTTPS)를 통한 모든 트래픽<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-다음에 아웃바운드 연결 <br\><br\></li>
+다음에 아웃바운드 연결<br\><br\></li>
               </ul>
               <p>
 
@@ -1504,7 +1504,7 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -1519,6 +1519,6 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

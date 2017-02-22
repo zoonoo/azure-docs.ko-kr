@@ -16,8 +16,8 @@ ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 666b9e47953674b17be6cc84dbc6aeec28e28b57
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 94a6a0968336f74ff116bf71aaa2e7c2ee135105
 
 
 ---
@@ -31,7 +31,7 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규
 ## <a name="set-up-an-hpc-pack-cluster"></a>HPC 팩 클러스터 설정
 [다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
 
-Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)문서를 참조하세요.
+Azure PowerShell은 필수 요소입니다. PowerShell이 로컬 컴퓨터에 구성되지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)문서를 참조하세요.
 
 이 문서를 작성할 당시 Azure 마켓플레이스의 Linux 이미지(Azure용 InfiniBand 포함)는 SLES 12, CentOS 6.5, CentOS 7.1용입니다. 이 문서는 SLES 12 사용을 기반으로 합니다. 마켓플레이스에서 HPC를 지원하는 모든 Linux 이미지의 이름을 검색하려면 다음 PowerShell 명령을 실행합니다.
 
@@ -336,6 +336,6 @@ Azure에서 Intel MPI와 함께 사용하는 MPI 옵션은 다음과 같습니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
 
 
 ---
@@ -44,10 +44,10 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 ## <a name="get-an-azure-machine-learning-authorization-key"></a>Azure 기계 학습 권한 부여 키 가져오기
 실험을 배포할 때 웹 서비스에 API 키가 생성됩니다. 여러 위치에서 키를 검색할 수 있습니다.
 
-## <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Microsoft Azure Machine Learning 웹 서비스 포털에서
+### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Microsoft Azure Machine Learning 웹 서비스 포털에서
 [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인합니다.
 
-새 Machine Learning 웹 서비스에 대한 API 키를 가져오려면:
+새 Machine Learning 웹 서비스에 대한 API 키를 가져오려면 다음을 수행합니다.
 
 1. Azure Machine Learning 웹 서비스 포털의 최상위 메뉴에서 **웹 서비스**를 클릭합니다.
 2. 키를 검색하려는 웹 서비스를 클릭합니다.
@@ -62,14 +62,14 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 4. 위쪽 메뉴에서 **사용**을 클릭합니다.
 5. **기본 키**를 복사하고 저장합니다.
 
-## <a name="classic-web-service"></a>기존 웹 서비스
- Machine Learning 스튜디오 또는 Azure Portal에서 클래식 웹 서비스에 대한 키를 검색할 수도 있습니다.
+### <a name="classic-web-service"></a>기존 웹 서비스
+ Machine Learning 스튜디오 또는 Azure Classic Portal에서 클래식 웹 서비스에 대한 키를 검색할 수도 있습니다.
 
-### <a name="machine-learning-studio"></a>기계 학습 스튜디오
+#### <a name="machine-learning-studio"></a>Machine Learning 스튜디오
 1. 기계 학습 스튜디오의 왼쪽에서 **웹 서비스** 를 클릭합니다.
 2. 웹 서비스를 클릭합니다. **API 키**는 **대시보드** 탭에 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-classic-portal"></a>Azure 클래식 포털
 1. 왼쪽에서 **기계 학습** 을 클릭합니다.
 2. 웹 서비스의 위치에 있는 작업 영역을 클릭합니다.
 3. **웹 서비스**를 클릭합니다.
@@ -127,6 +127,6 @@ Machine Learning 웹 서비스에 연결하려면 ScoreData를 전달하는 **ur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

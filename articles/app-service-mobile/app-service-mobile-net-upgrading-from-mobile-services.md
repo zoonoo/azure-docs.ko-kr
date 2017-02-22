@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: c157517124d8c4c17cff6e8701135e16d41ee194
-ms.openlocfilehash: b1c7f3951d8865feb1cd7600f3bb6d1741d7cde0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
 
 
 ---
@@ -260,21 +260,21 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [Azure Portal]: https://portal.azure.com/
 [구성]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop.md
-[웹 사이트와 Mobile Services를 이미 사용하고 있습니다. App Service가 내게 어떤 도움을 주나요?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [모바일 앱 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Mobile Apps 만들기]: app-service-mobile-xamarin-ios-get-started.md
-[Mobile Apps에 푸시 알림 추가]: app-service-mobile-xamarin-ios-get-started-push.md
-[모바일 앱에 인증 추가]: app-service-mobile-xamarin-ios-get-started-users.md
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 스케줄러]: /en-us/documentation/services/scheduler/
 [웹 작업]: ../app-service-web/websites-webjobs-resources.md
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Mobile Services에서 App Service 모바일 앱으로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
-[기존 Mobile Services를 App Service로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

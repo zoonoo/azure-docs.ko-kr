@@ -12,84 +12,109 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 237a92713ee8dca72a09550c47519189f2fd23cc
+ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
+ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
 
 
 ---
-# <a name="performance-levels-and-pricing-tiers-in-documentdb"></a>DocumentDB에서 성능 수준 및 가격 책정 계층
-이 문서에서는 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)의 성능 수준에 대해 개괄적으로 설명합니다.
+# <a name="performance-levels-in-documentdb"></a>DocumentDB의 성능 수준
 
-이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
+> [!IMPORTANT] 
+> 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 DocumentDB 컬렉션에서 더 이상 사용할 수 없습니다.
+>
 
-* 성능 수준이란?
-* 데이터베이스 계정에 대해 처리량은 어떻게 예약되는가?
-* 성능 수준을 사용하는 방법은 무엇인가?
-* 성능 수준에 따른 청구 방식은 무엇인가?
+이 문서에서는 S1, S2 및 S3 성능 수준에 대한 개요를 간략히 설명하고, 이러한 성능 수준을 사용하는 컬렉션을 2017년 8월 1일부터 단일 파티션 컬렉션으로 마이그레이션하는 방법에 대해 설명합니다. 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-## <a name="introduction-to-performance-levels"></a>성능 수준 소개
-표준 DocumentDB 계정으로 생성된 각 DocumentDB 컬렉션은 연관된 성능 수준과 함께 프로비전됩니다. 데이터베이스에서 각 컬렉션은 자주 액세스되는 컬렉션에 대해 더 많은 처리량을 지정하고 가끔 액세스되는 컬렉션에 대해 더 적은 처리량을 지정할 수 있도록 여러 성능 수준을 포함할 수 있습니다. 
+- [S1, S2 및 S3 성능 수준의 사용이 중지되는 이유는?](#why-retired)
+- [단일 파티션 컬렉션 및 분할된 컬렉션을 S1, S2, S3 성능 수준과 비교하면 어떻습니까?](#compare)
+- [내 데이터에 중단 없이 액세스하려면 어떻게 해야 합니까?](#uninterrupted-access)
+- [마이그레이션하면 내 컬렉션이 어떻게 변경됩니까?](#collection-change)
+- [단일 파티션 컬렉션으로 마이그레이션하면 요금 청구는 어떻게 변경됩니까?](#billing-change)
+- [저장 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?](#more-storage-needed)
+- [2017년 8월 1일 이전의 S1, S2 및 S3 성능 수준을 변경할 수 있습니까?](#change-before)
+- [내 컬렉션이 마이그레이션된 시기는 어떻게 알 수 있습니까?](#when-migrated)
+- [S1, S2, S3 성능 수준에서 단일 파티션 컬렉션으로 마이그레이션하려면 어떻게 해야 합니까?](#migrate-diy)
+- [EA 고객에게 미치는 영향은?](#ea-customer)
 
-DocumentDB는 아래 테이블에 보이는 대로 **사용자 정의** 성능 수준과 **미리 정의된** 성능 수준을 모두 지원합니다.  사용자 정의 성능을 통해 100RU/s 단위인 처리량을 보유할 수 있습니다. 반면 세 가지 미리 정의된 성능 수준은 지정된 처리량 옵션 및 10GB 저장소 할당량이 있습니다. 다음 테이블은 **사용자 정의** 성능을 **미리 정의된** 성능과 비교합니다.
+<a name="why-retired"></a>
 
-|성능 형식|세부 정보|처리량|저장소|버전|API|
-|----------------|-------|----------|-------|-------|----|
-|사용자 정의 성능|사용자는 처리량을 초당 100RU/s 단위로 설정합니다.|Unlimited|Unlimited|V2|API 2015-12-16 이상|
-|미리 정의된 성능|예약 저장소 10GB<br><br>S1 = 250RU/s<br>S2 = 1000RU/s<br>S3 = 2500RU/s|초당 2,500RU|10 GB|V1|모두|
+## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>S1, S2 및 S3 성능 수준의 사용이 중지되는 이유는?
 
-처리량은 컬렉션당 보유되며 해당 컬렉션에서 단독으로 사용할 수 있습니다. 처리량은 [요청 단위(RU)](documentdb-request-units.md)로 측정되며 다양한 DocumentDB 데이터베이스 작업을 수행하는 데 필요한 리소스의 양을 식별합니다.
+S1, S2 및 S3 성능 수준은 DocumentDB 단일 파티션 컬렉션에서 제공하는 유연성을 제공하지 않습니다. S1, S2, S3 성능 수준에서는 처리량과 저장소 용량 모두가 미리 설정되었습니다. 이제 DocumentDB는 처리량과 저장소를 사용자 지정할 수 있는 기능을 제공하므로 크기 조정 기능을 필요에 따라 훨씬 더 유연하게 제공할 수 있습니다.
 
-> [!NOTE]
-> 컬렉션의 성능 수준은 [SDK](documentdb-sdk-dotnet.md) 또는 [Azure Portal](https://portal.azure.com/)을 통해 조정할 수 있습니다. 성능 수준 변경은 3 분 이내에 완료될 것으로 예상됩니다.
-> 
-> 
+<a name="compare"></a>
 
-## <a name="setting-performance-levels-for-collections"></a>컬렉션에 대한 성능 수준 설정
-컬렉션을 만든 다음에는 지정된 성능 수준을 기반으로 RU에 대한 전체 할당이 해당 컬렉션에 대해 예약됩니다.
+## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>단일 파티션 컬렉션 및 분할된 컬렉션을 S1, S2, S3 성능 수준과 비교하면 어떻습니까?
 
-DocumentDB는 사용자 정의 성능 수준과 미리 정의된 성능 수준 둘 다에서 처리량 예약을 기준으로 작동합니다. 컬렉션을 만들면 해당 처리량을 실제로 얼마나 사용하는지에 관계없이 응용 프로그램용으로 처리량이 예약되며 예약된 처리량에 따라 요금이 청구됩니다. 사용자 정의 성능 수준을 사용할 때는 사용량을 기준으로 저장소를 측정하지만 미리 정의된 성능 수준을 사용할 때는 컬렉션을 만들 때 10GB의 저장소가 예약됩니다.  
+다음 표에서는 단일 파티션 컬렉션, 분할된 컬렉션 및 S1, S2, S3 성능 수준에서 사용할 수 있는 처리량 및 저장소 옵션을 비교합니다. 다음은 미국 동부 2 지역의 예입니다.
 
-컬렉션을 만든 후에 [SDK](documentdb-sdk-dotnet.md) 또는 [Azure Portal](https://portal.azure.com/)을 사용하여 성능 수준 및/또는 처리량을 수정할 수 있습니다.
+|   |분할된 컬렉션|단일 파티션 컬렉션|S1|S2|S3|
+|---|---|---|---|---|---|
+|최대 처리량|Unlimited|10,000RU/s|250RU/s|1,000RU/s|2,500RU/s|
+|최소 처리량|2,500RU/s|400RU/s|250RU/s|1,000RU/s|2,500RU/s|
+|최대 저장소|Unlimited|10 GB|10 GB|10 GB|10 GB|
+|가격|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|처리량: $6/100RU/s<br><br>저장소: $0.25/GB|$25(미화)|$50(미화)|$100(미화)|
 
-> [!IMPORTANT]
-> DocumentDB 표준 컬렉션은 시간 단위로 요금이 청구되며, 생성되는 각 컬렉션은 최소 1시간 사용량을 기준으로 청구됩니다.
-> 
-> 
+EA 고객입니까? 그렇다면 [EA 고객에게 미치는 영향은?](#ea-customer)을 참조하세요.
 
-한 시간 내에 컬렉션의 성능 수준을 조정할 경우, 해당 시간 중에 설정된 가장 높은 성능 수준을 기준으로 요금이 청구됩니다. 예를 들어 오전 8:53분에 컬렉션의 성능 수준을 늘린 경우, 오전 8:00부터 새로운 수준에 대한 요금이 청구됩니다. 마찬가지로, 오전 8:53분에 성능 수준을 낮춘 경우, 새 요금은 오전 9:00부터 적용됩니다.
+<a name="uninterrupted-access"></a>
 
-요청 단위는 설정된 성능 수준을 기준으로 각 컬렉션에 대해 예약됩니다. 요청 단위 소비는 초당 비율로 평가됩니다. 컬렉션에서 프로비전된 요청 속도(또는 성능 수준)를 초과하는 응용 프로그램은 해당 비율이 컬렉션에 예약된 수준 이하로 떨어질 때까지 조정됩니다. 응용 프로그램에 더 높은 처리량 수준이 필요한 경우 각 컬렉션에 대한 성능 수준을 높일 수 있습니다.
+## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>내 데이터에 중단 없이 액세스하려면 어떻게 해야 합니까?
 
-> [!NOTE]
-> 응용 프로그램이 하나 이상의 컬렉션에 대한 성능 수준을 초과할 경우 컬렉션당 기준에 따라 요청이 제한됩니다. 즉, 응용 프로그램 요청이 경우에 따라 성공하거나 제한될 수도 있습니다. 요청 트래픽이 급증하는 것을 처리하기 위해 제한하는 경우 적은 수의 재시도를 추가하는 것이 좋습니다.
-> 
-> 
+아무 작업도 수행할 필요 없이 DocumentDB에서 전적으로 마이그레이션을 처리합니다. S1, S2 또는 S3 컬렉션이 있는 경우 현재 컬렉션은 2017년 7월 31일부터 단일 파티션 컬렉션으로 마이그레이션됩니다. 
 
-## <a name="working-with-performance-levels"></a>성능 수준 작업
-DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 성능 요구를 기준으로 데이터를 그룹화할 수 있습니다. DocumentDB의 자동 인덱싱 및 쿼리 지원을 통해 동일한 컬렉션 내에서 이기종 문서를 수집하는 것이 상당히 일반적입니다. 개별 컬렉션을 사용해야 할지 여부를 결정할 때는 다음과 같은 주요 사항을 고려합니다.
+<a name="collection-change"></a>
 
-* 쿼리 - 컬렉션은 쿼리 실행을 위한 범위입니다. 문서 집합에 대해 쿼리를 수행해야 할 경우, 가장 효율적인 읽기 패턴은 문서를 단일 컬렉션에 배치하는 것으로부터 시작됩니다.
-* 트랜잭션 - 모든 트랜잭션은 단일 컬렉션 내에 포함되도록 범위가 지정됩니다. 단일 저장 프로시저 또는 트리거 내에서 업데이트해야 하는 문서가 있는 경우에는 같은 컬렉션 내에 해당 문서를 저장해야 합니다. 구체적으로 설명하자면, 컬렉션 내의 파티션 키가 트랜잭션 경계로 사용됩니다. 자세한 내용은 [DocumentDB의 분할](documentdb-partition-data.md) 을 참조하세요.
-* 성능 격리 - 컬렉션에는 성능 수준이 연관되어 있습니다. 이렇게 하면 각 컬렉션이 예약된 RU를 통해 예측 가능한 성능을 갖게 됩니다. 액세스 빈도에 따라 다양한 성능 수준으로 서로 다른 컬렉션에 데이터를 할당할 수 있습니다.
+## <a name="how-will-my-collection-change-after-the-migration"></a>마이그레이션하면 내 컬렉션이 어떻게 변경됩니까?
 
-> [!IMPORTANT]
-> 응용 프로그램에서 생성된 컬렉션 수를 기반으로 전체 표준 요금이 청구됩니다.
-> 
-> 
+S1 컬렉션이 있는 경우 400RU/s 처리량의 단일 파티션 컬렉션으로 마이그레이션됩니다. 400RU/s는 단일 파티션 컬렉션에서 사용할 수 있는 최소 처리량입니다. 그러나 400RU/s 단일 파티션 컬렉션에 대한 비용은 250RU/s S1 컬렉션에 지불한 비용과 거의 동일하며, 사용 가능한 여분의 150RU/s에 대해 지불하지 않습니다.
 
-응용 프로그램은 큰 저장소 또는 처리량 요구 사항이 있지 않으면 적은 수의 컬렉션을 사용하는 것이 좋습니다. 새 컬렉션 작성을 위한 응용 프로그램 패턴을 잘 이해합니다. 응용 프로그램 외부에서 처리되는 관리 작업으로 컬렉션 생성을 예약하도록 선택할 수 있습니다. 마찬가지로 컬렉션에 대한 성능 수준을 조정하면 컬렉션에 대해 비용이 청구되는 시간 비율이 변경됩니다. 응용 프로그램에서 이를 동적으로 조정할 경우에는 컬렉션 성능 수준을 모니터링해야 합니다.
+S2 컬렉션이 있는 경우 1,000RU/s 단일 파티션 컬렉션으로 마이그레이션됩니다. 처리량 수준은 변경되지 않습니다.
 
-## <a name="a-idchanging-performance-levels-using-the-azure-portalachange-from-s1-s2-s3-to-user-defined-performance"></a><a id="changing-performance-levels-using-the-azure-portal"></a>S1, S2, S3에서 사용자 정의 성능으로 변경
-미리 정의된 처리량 수준을 사용하여 Azure 포털에서 사용자 정의 처리량 수준으로 변경하려면 다음 단계를 수행합니다. 사용자 정의 처리량 수준을 사용하여 요구에 맞게 처리량을 조정할 수 있습니다. 그리고 S1 계정을 사용 중인 경우 단 몇 번의 클릭으로 기본 처리량을 250RU/s에서 400RU/s로 늘릴 수 있습니다. S1, S2 또는 S3 표준(사용자 정의)에서 컬렉션을 이동하면 S1, S2 또는 S3로 다시 컬렉션을 이동할 수 없습니다. 하지만 언제든지 표준 컬렉션의 처리량을 수정할 수 있습니다.
+S3 컬렉션이 있는 경우 2,500RU/s 단일 파티션 컬렉션으로 마이그레이션됩니다. 처리량 수준은 변경되지 않습니다.
 
-미리 정의된 사용자 정의 처리량과 관련된 가격 책정 변경에 대한 자세한 내용은 블로그 게시물 [DocumentDB: 새 가격 책정 옵션 사용에 대해 알아야 하는 모든 항목](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)을 참조하세요.
+이러한 각각의 경우에서 컬렉션을 마이그레이션한 후에는 처리량 수준을 사용자 지정하거나 필요에 따라 크기를 조정하여 대기 시간이 짧은 액세스를 사용자에게 제공할 수 있습니다. 컬렉션을 마이그레이션한 후에 처리량 수준을 변경하려면 Azure Portal에서 DocumentDB 계정을 열고 [크기 조정]을 클릭하고 컬렉션을 선택한 후 다음 스크린샷과 같이 처리량 수준을 조정하면 됩니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance/player]
-> 
-> 
+![Azure Portal에서 처리량을 조정하는 방법](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
+
+<a name="billing-change"></a>
+
+## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>단일 파티션 컬렉션으로 마이그레이션한 후 요금 청구는 어떻게 변경됩니까?
+
+미국 동부 지역에 각각 10개의 S1 컬렉션(각각 1GB 저장소 사용)이 있고, 이러한 10개 S1 컬렉션을 400RU/s(최소 수준)의 10개 단일 파티션 컬렉션으로 마이그레이션한다고 가정합니다. 한 달 동안 10개의 단일 파티션 컬렉션을 유지하는 경우 청구서는 다음과 같이 표시됩니다.
+
+![10개 S1 컬렉션 및 10개 단일 파티션 컬렉션에 대한 가격 비교](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
+
+<a name="more-storage-needed"></a>
+
+## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>저장 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?
+
+S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션 중 어느 것을 가지고 있든 모두 10GB 저장소를 사용할 수 있는 경우 DocumentDB 데이터 마이그레이션 도구를 사용하여 거의 무제한의 저장소를 사용하는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요. S1, S2, S3 또는 단일 파티션 컬렉션을 분할된 컬렉션으로 마이그레이션하는 방법에 대한 내용은 [단일 파티션에서 분할된 컬렉션으로 마이그레이션](documentdb-partition-data.md#migrating-from-single-partition)을 참조하세요. 
+
+<a name="change-before"></a>
+
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>2017년 8월 1일 이전의 S1, S2 및 S3 성능 수준을 변경할 수 있습니까?
+
+S1, S2 및 S3 성능을 갖춘 기존 계정만 포털을 통하거나 프로그래밍 방식으로 성능 수준 계층을 변경할 수 있습니다. S1, S2 및 S3 성능 수준은 2017년 8월 1일 이후로 더 이상 사용할 수 없게 됩니다. S1, S3 또는 S3에서 단일 파티션 컬렉션으로 변경하면 S1, S2 또는 S3 성능 수준으로 되돌릴 수 없습니다.
+
+<a name="when-migrated"></a>
+
+## <a name="how-will-i-know-when-my-collection-has-migrated"></a>내 컬렉션이 마이그레이션된 시기는 어떻게 알 수 있습니까?
+
+마이그레이션은 2017년 7월 31일부로 시행됩니다. S1, S2 또는 S3 성능 수준을 사용하는 컬렉션을 가지고 있는 경우 마이그레이션을 수행하기 전에 DocumentDB 팀에서 전자 메일로 연락을 드립니다. 마이그레이션이 완료되면 2017년 8월 1일 Azure Portal에서 컬렉션에 표준 가격 정책이 적용되었음을 보여 줍니다.
+
+![표준 가격 책정 계층으로 마이그레이션된 컬렉션을 확인하는 방법](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
+
+<a name="migrate-diy"></a>
+
+## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>S1, S2, S3 성능 수준에서 단일 파티션 컬렉션으로 마이그레이션하려면 어떻게 해야 합니까?
+
+Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성능 수준에서 단일 파티션 컬렉션으로 마이그레이션할 수 있습니다. 8월 1일 이전에 이 작업을 직접 수행하여 단일 파티션 컬렉션에서 사용할 수 있는 유연한 처리량 옵션을 활용할 수 있거나 2017년 7월 31일에 사용자를 위해 컬렉션을 마이그레이션할 것입니다.
+
+**Azure Portal을 사용하여 단일 파티션 컬렉션으로 마이그레이션하려면**
 
 1. [**Azure Portal**](https://portal.azure.com)에서 **NoSQL(DocumentDB)**를 클릭한 다음 수정할 DocumentDB 계정을 선택합니다. 
  
@@ -99,20 +124,27 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 
     ![처리량 값을 변경하는 위치를 보여 주는 설정 블레이드의 스크린 샷](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-3. **규모** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자에 기본값인 400이 표시됩니다. 처리량을 400~10,000개 RU/s( [요청 단위](documentdb-request-units.md)/초) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **월별 예상 비용**이 자동으로 업데이트됩니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+3. **규모** 블레이드로 돌아가면 **가격 책정 계층**이 **표준**으로 변경되어 있으며 **처리량(RU/s)** 상자에 기본값인 400이 표시됩니다. 처리량을 400~10,000개 RU/s( [요청 단위](documentdb-request-units.md)/초) 사이로 설정합니다. 월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **월별 예상 비용**이 자동으로 업데이트됩니다. 
 
-    더 많은 처리량(10,000RU/s 초과) 또는 더 많은 저장소(10GB 초과)가 필요하다고 판단되는 경우 분할된 컬렉션을 만들 수 있습니다. 분할된 컬렉션을 만들려면 [컬렉션 만들기](documentdb-create-collection.md)를 참조하세요.
+    >[!IMPORTANT] 
+    > 변경 내용을 저장하고 표준 가격 책정 계층으로 이동하면 S1, S2 또는 S3 성능 수준으로 롤백할 수 없습니다.
 
-> [!NOTE]
-> 컬렉션의 성능 수준을 변경하면 최대 2분이 걸릴 수 있습니다.
-> 
-> 
+4. **저장**을 클릭하여 변경 내용을 저장합니다.
 
-## <a name="changing-performance-levels-using-the-net-sdk"></a>.NET SDK을 사용하여 성능 수준 변경
-컬렉션의 성능 수준 변경에 대한 다른 옵션은 SDK를 통하는 것입니다. 이 섹션에서는 [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx)를 사용한 컬렉션 성능 수준 변경에 대해서만 설명하지만 다른 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)의 경우에도 프로세스는 유사합니다. .NET SDK을 처음 사용하는 경우 [시작 자습서](documentdb-get-started.md)를 참조하세요.
+    더 많은 처리량(10,000RU/s 초과) 또는 더 많은 저장소(10GB 초과)가 필요하다고 판단되는 경우 분할된 컬렉션을 만들 수 있습니다. 단일 파티션 컬렉션을 분할된 컬렉션으로 마이그레이션하려면 [단일 파티션에서 분할된 컬렉션으로 마이그레이션](documentdb-partition-data.md#migrating-from-single-partition)을 참조하세요.
 
-offer 처리량을 초당 50,000개 요청 단위로 변경하는 코드 조각은 다음과 같습니다.
+    > [!NOTE]
+    > S1, S2 또는 S3에서 표준 계층으로 변경하는 데에는 최대 2분 정도 걸릴 수 있습니다.
+    > 
+    > 
 
+**.NET SDK를 사용하여 단일 파티션 컬렉션으로 마이그레이션하려면**
+
+컬렉션의 성능 수준 변경에 대한 다른 옵션은 SDK를 통하는 것입니다. 이 섹션에서는 [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx)를 사용한 컬렉션 성능 수준 변경에 대해서만 설명하지만 다른 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)의 경우에도 프로세스는 유사합니다. .NET SDK를 처음 사용하는 경우 [시작 자습서](documentdb-get-started.md)를 참조하세요.
+
+다음 코드 조각에서는 컬렉션 처리량을 5,000RU/s로 변경합니다.
+    
+```C#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -124,20 +156,7 @@ offer 처리량을 초당 50,000개 요청 단위로 변경하는 코드 조각�
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
-
-    // Set the throughput to S2
-    offer = new Offer(offer);
-    offer.OfferType = "S2";
-
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
-
-
-
-> [!NOTE]
-> 초당 요청 단위 10,000개 미만이 프로비전되는 컬렉션은 사용자 정의 처리량을 사용하는 제품과 미리 정의된 처리량(S1, S2, S3)을 사용하는 offer 간에 언제든지 마이그레이션할 수 있습니다. 초당 요청 단위가 10,000개보다 많이 프로비전되는 컬렉션은 미리 정의된 처리량 수준으로 변환할 수 없습니다.
-> 
-> 
+```
 
 offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 을 방문하세요.
 
@@ -146,42 +165,21 @@ offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN]
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a name="a-idchange-throughputachanging-the-throughput-of-a-collection"></a><a id="change-throughput"></a>컬렉션의 처리량 변경
-사용자 정의 성능을 이미 사용 중인 경우 다음을 수행하여 컬렉션의 처리량을 변경할 수 있습니다. S1, S2 또는 S3 성능 수준(미리 정의된 성능)에서 사용자 정의 성능으로 변경해야 할 경우 [S1, S2, S3에서 사용자 정의 성능으로 변경](#changing-performance-levels-using-the-azure-portal)을 참조하세요.
+<a name="ea-customer"></a>
 
-1. [**Azure Portal**](https://portal.azure.com)에서 **NoSQL(DocumentDB)**를 클릭한 다음 수정할 DocumentDB 계정을 선택합니다.    
-2. 리소스 메뉴의 **컬렉션** 아래에서 **규모**를 클릭하고 드롭다운 목록에서 수정할 컬렉션을 선택합니다.
-3. **처리량(RU/s)** 상자에서 새 처리량 수준을 입력합니다. 
-   
-    월별 예상 비용을 제공하기 위해 페이지 아래쪽의 **월별 예상 비용**이 자동으로 업데이트됩니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>EA 고객에게 미치는 영향은?
 
-    처리량을 얼마나 높일지 잘 모를 경우 [필요한 처리량 예측](documentdb-request-units.md#estimating-throughput-needs) 및 [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
-
-## <a name="troubleshooting"></a>문제 해결
-
-**가격 책정 계층 선택** 블레이드에서 S1, S2 또는 S3 성능 수준 사이를 변경할 수 있는 옵션이 표시되지 않으면 **모두 보기**를 클릭하여 표준, S1, S2 및 S3 성능 수준을 표시합니다. 표준 가격 책정 계층을 사용하는 경우 S1, S2 및 S3 사이를 변경할 수 없습니다.
-
-![모두 강조 표시된 보기가 있는 가격 책정 계층 선택 블레이드의 스크린샷](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
-
-S1, S2 또는 S3에서 표준으로 컬렉션을 변경하면 S1, S2 또는 S3으로 다시 이동할 수 없습니다.
+EA 고객에게 적용한 가격은 현재 계약이 종료될 때까지 보호됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
-* [DocumentDB 가격 책정](https://azure.microsoft.com/pricing/details/documentdb/)
-* [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md)
-* [DocumentDB에서 데이터 분할](documentdb-partition-data.md)
-* [요청 단위](http://go.microsoft.com/fwlink/?LinkId=735027)
-
-DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
-
-DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
-
-[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
-[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
+1.    [DocumentDB의 데이터 분할](documentdb-partition-data.md) 단일 파티션 컬렉션과 분할된 컬렉션 간의 차이점을 이해하고 유연하게 크기를 조정할 수 있도록 분할 전략을 구현하는 데 유용한 팁에 대해 알아봅니다.
+2.    [DocumentDB 가격](https://azure.microsoft.com/pricing/details/documentdb/) 처리량 프로비전 및 저장소 소비 비용에 대해 알아봅니다.
+3.    [요청 단위](documentdb-request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.
+4.    [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md) DocumentDB의 데이터 모델링 방법에 대해 알아봅니다.
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

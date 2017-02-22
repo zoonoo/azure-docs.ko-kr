@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal에서 VM에 대한 FQDN 만들기 | Microsoft Docs"
+title: "Azure Portal에서 Windows VM에 대한 FQDN 만들기 | Microsoft Docs"
 description: "Azure Portal에서 가상 컴퓨터를 기반으로 한 Resource Manager에 대한 정규화된 도메인 이름 또는 FQDN을 만드는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 102/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f556fd0318accc19f0fa56fa7f2a8716ee6f1c02
-ms.openlocfilehash: 72d176803151af5b3c5da50f1f2d72c0dd27f44a
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: e89e5769701f00c6f403bd54cb2b29bcce53bf15
 
 
 ---
@@ -36,6 +36,6 @@ VM에 공용 IP 및 DNS 이름을 지정했으므로 IIS, SQL, SharePoint 등의
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

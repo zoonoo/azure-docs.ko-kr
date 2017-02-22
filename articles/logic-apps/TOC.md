@@ -23,6 +23,7 @@
 ### [호출 가능 끝점인 논리 앱](logic-apps-http-endpoint.md)
 ### [루프, 범위 및 분할](logic-apps-loops-and-scopes.md)
 ### [사용자 지정 API 사용](logic-apps-custom-hosted-api.md)
+### [switch 문 사용](logic-apps-switch-case.md)
 ### [예외 처리](logic-apps-exception-handling.md)
 ### [예외 처리 시나리오](logic-apps-scenario-error-and-exception-handling.md)
 ### [콘텐츠 처리 유형](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

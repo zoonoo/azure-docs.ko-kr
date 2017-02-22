@@ -1,5 +1,5 @@
 ---
-title: "자습서 - Python용 Azure Batch 클라이언트 라이브러리 사용 | Microsoft Docs"
+title: "자습서 - Python용 Azure Batch SDK 사용 | Microsoft Docs"
 description: "Azure 배치의 기본 개념과 간단한 시나리오를 통해 배치 서비스를 개발하는 방법을 알아봅니다."
 services: batch
 documentationcenter: python
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 155c535c66788d807c47a3eaae50c94ab6b94164
+ms.sourcegitcommit: 02f68c743f18fa691afdd5ff02f427b89d28c663
+ms.openlocfilehash: 146eaea2bf523ff6e7d9024205e47965fa2e0413
 
 
 ---
@@ -708,6 +708,6 @@ Press ENTER to exit...
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

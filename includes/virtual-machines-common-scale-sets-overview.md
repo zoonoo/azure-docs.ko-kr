@@ -16,7 +16,7 @@ VM 규모 집합에 대한 예제 템플릿의 집합은 Azure 빠른 시작 템
 
 이 템플릿의 세부 정보 페이지에는 포털 배포 기능으로 연결되는 단추가 있습니다. VM 규모 집합을 배포하려면 단추를 클릭하고 포털에 필요한 매개 변수를 채웁니다. 리소스에서 대문자 또는 대/소문자 혼용이 지원되는지 확실하지 않으면 항상 소문자 매개 변수 값을 사용하는 것이 안전합니다. VM 규모 집합 템플릿에 대한 유용한 분석 동영상도 있습니다.
 
-[VM 규모 집합 템플릿 분석](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[VM 규모 집합 템플릿 분석](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>VM 규모 집합 확장 및 축소
 VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *용량* 속성만 변경하고 템플릿을 다시 배포합니다. Azure 자동 크기 조정에서 지원되지 않는 사용자 지정 크기 조정(custom scale) 이벤트를 정의하려는 경우 이러한 단순성을 통해 사용자 지정 크기 조정 계층을 쉽게 작성할 수 있습니다.
@@ -118,6 +118,6 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

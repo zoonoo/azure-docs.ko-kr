@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f469d0e17f874244539b05579598d35aa7dd01d5
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
 
 
 ---
@@ -25,11 +25,12 @@ ms.openlocfilehash: f469d0e17f874244539b05579598d35aa7dd01d5
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="monitoring-partner-solutions"></a>파트너 솔루션 모니터링
 **Security Center** 블레이드의 **파트너 솔루션** 타일을 통해 Azure 구독과 통합된 파트너 솔루션의 상태를 한 눈에 모니터링할 수 있습니다.
+
 ![파트너 솔루션 타일][1]
 
 **파트너 솔루션** 타일은 파트너 솔루션의 수와 해당 솔루션의 상태 요약을 표시합니다.
@@ -43,15 +44,19 @@ ms.openlocfilehash: f469d0e17f874244539b05579598d35aa7dd01d5
 * 보고되지 않음(회색) - 솔루션이 아무 것도 보고하지 않았습니다. 솔루션이 방금 연결되었고 여전히 배포 중인 경우 솔루션의 상태를 보고하지 않을 수 있습니다.
 
 구독과 통합된 솔루션이 없는 경우 이 타일은 솔루션이 없음을 표시합니다. **파트너 솔루션** 타일을 선택하면 **권장 사항** 블레이드를 열어 파트너 보안 솔루션을 배포할 수 있습니다.
+
 ![파트너 솔루션 없음][2]
 
 파트너 솔루션의 상태를 보려면:
 
 1. **파트너 솔루션** 타일을 선택합니다. 블레이드가 열리고 보안 센터에 연결된 파트너 솔루션의 목록을 표시합니다.
+
    ![파트너 솔루션][3]
 2. 파트너 솔루션을 선택합니다. 이 예제에서는 **F5 WAF2** 솔루션을 선택하도록 합니다.  블레이드가 열리고 파트너 솔루션의 상태 및 솔루션의 관련 리소스를 표시합니다. **솔루션 콘솔** 을 선택하여 이 솔루션에 대한 파트너 관리 환경을 엽니다.
+
    ![파트너 솔루션 세부 정보][4]
 3. **F5-WAF2** 블레이드로 돌아가 **앱 연결**을 선택합니다. **응용 프로그램 연결** 블레이드가 열립니다. 여기서 리소스를 파트너 솔루션에 연결할 수 있습니다.
+
    ![리소스를 파트너 솔루션에 연결][5]
 
 ## <a name="see-also"></a>참고 항목
@@ -73,6 +78,6 @@ ms.openlocfilehash: f469d0e17f874244539b05579598d35aa7dd01d5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

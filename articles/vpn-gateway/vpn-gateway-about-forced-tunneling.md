@@ -1,10 +1,10 @@
 ---
-title: "클래식 배포 모델을 사용하여 사이트 간 연결의 강제 터널링 구성 | Microsoft Docs"
+title: "Azure 사이트 간 연결의 강제 터널링 구성: 클래식 | Microsoft Docs"
 description: "모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 &quot;강제 적용&quot;하는 방법입니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 33ca336c6ae3ffc68997d21c4d7da9275ff48a00
+ms.sourcegitcommit: 5183fc3b4e7ec3fe6060a6a9551656332300995f
+ms.openlocfilehash: 75cd2b7073d5cda6fc90aa963a9ad321e6992743
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 33ca336c6ae3ffc68997d21c4d7da9275ff48a00
 ## <a name="requirements-and-considerations"></a>요구 사항 및 고려 사항
 Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)을 통해 구성됩니다. 온-프레미스 사이트에 트래픽을 리디렉션하는 것은 Azure VPN 게이트웨이에 기본 경로로 표현됩니다. 다음 섹션에서는 Azure 가상 네트워크에 대한 라우팅 테이블 및 경로의 현재 제한 사항을 나열합니다.
 
-* 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
+* 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음&3;개의 경로 그룹이 있습니다.
   
   * **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
   * **온-프레미스 경로:** Azure VPN 게이트웨이로
@@ -110,7 +110,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
       </VirtualNetworkSite>
     </VirtualNetworkSite>
 
-이 예제에서 가상 네트워크 "MultiTier-VNet"에는 3개의 서브넷(*프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷)과 함께 4개의 프레미스 간 연결(*DefaultSiteHQ* 및 3개의 *분기*)이 있습니다. 
+이 예제에서 가상 네트워크 "MultiTier-VNet"에는&3;개의 서브넷(*프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷)과 함께&4;개의 프레미스 간 연결(*DefaultSiteHQ* 및&3;개의 *분기*)이 있습니다. 
 
 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ* 를 설정하고 중간 계층 및 백 엔드 서브넷을 구성하여 강제 터널링을 사용합니다.
 
@@ -163,6 +163,6 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

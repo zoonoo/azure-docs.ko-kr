@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
-ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
 
 
 ---
@@ -37,11 +37,14 @@ ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 .NET API 참조](https://msdn.microsoft.com/library/mt415893.aspx) 를 참조하세요.
+> 
+> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
+
 
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 살펴보고 자습서 개요를 가져와서 **필수 구성 요소** 를 완료합니다.
 * Visual Studio 2012, 2013 또는 2015
-*  [Azure .NET SDK](http://azure.microsoft.com/downloads/)
+* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램을 만듭니다.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
@@ -50,44 +53,61 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 1. **PowerShell**을 시작합니다.
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
 
-        Login-AzureRmAccount
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
 3. 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 
-        Get-AzureRmSubscription
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
 4. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **&lt;NameOfAzureSubscription**&gt;을 Azure 구독의 이름으로 바꿉니다.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
 
    > [!IMPORTANT]
    > 이 명령의 출력에서 **SubscriptionId** 및 **TenantId**를 적어둡니다.
 
 5. PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     리소스 그룹이 이미 있다면 업데이트(Y)할지 또는 유지(N)할지를 지정합니다.
 
     다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹의 이름을 사용해야 합니다.
 6. Azure Active Directory 응용 프로그램을 만듭니다.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```
 
     다음과 같은 오류가 발생하면 다른 URL을 지정하고 명령을 다시 실행합니다.
-
-        Another object with the same value for property identifierUris already exists.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
 7. AD 서비스 주체를 만듭니다.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
 8. **데이터 팩터리 참가자** 역할에 서비스 주체를 추가합니다.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
 9. 응용 프로그램 ID를 가져옵니다.
 
-        $azureAdApplication
-
+    ```PowerShell
+    $azureAdApplication 
+    ```
     응용 프로그램 ID(출력에서**applicationID** )를 적어둡니다.
 
-이 단계에서 다음과 같은 4가지 값이 있어야 합니다.
+이 단계에서 다음과 같은&4;가지 값이 있어야 합니다.
 
 * 테넌트 ID
 * 구독 ID
@@ -474,7 +494,10 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 16. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 17. Azure Blob 저장소의 **adftutorial** 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 **Emp.txt** 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
-       John, Doe    Jane, Doe
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 18. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 19. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
    * 연결된 서비스: **LinkedService_AzureStorage**
@@ -483,12 +506,18 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 20. 지정된 Azure SQL Database의 "**emp**" 테이블에서 두 개의 직원 레코드가 만들어졌는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참고하며 여기서 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다.
-* 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 .NET API 참조](https://msdn.microsoft.com/library/mt415893.aspx) 를 참조하세요. 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다.
+| 항목 | 설명 |
+|:--- |:--- |
+| [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory에서 파이프라인 및 작업을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+[데이터 팩터리 .NET API 참조](/dotnet/api/) | 데이터 팩터리 .NET SDK에 대한 세부 정보를 제공합니다(트리 뷰에서 Microsoft.Azure.Management.DataFactories.Models 검색). 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO1-->
 
 

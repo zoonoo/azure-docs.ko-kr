@@ -196,6 +196,6 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

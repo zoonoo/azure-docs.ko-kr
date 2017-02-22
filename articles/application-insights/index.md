@@ -1,13 +1,25 @@
 ---
+title: "Azure Application Insights 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "확장 가능한 응용 프로그램 성능 관리인 Application Insights를 사용하여 웹앱 및 서비스의 문제를 감지, 심사 및 진단하는 방법에 대해 알아봅니다."
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Application Insights 설명서
 
-Application Insights는 웹 개발자를 위한 확장 가능한 APM(응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 응용 프로그램을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스 또는 클라우드의 다양한 플랫폼에서 앱과 함께 사용합니다. 또한 devOps 프로세스와 통합하고 다양한 다른 도구를 가리키도록 연결합니다.
+웹 개발자를 위한 확장 가능한 응용 프로그램 성능 관리 서비스인 Application Insights을 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 웹앱 및 서비스의 문제를 감지, 심사 및 진단하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -151,16 +163,10 @@ Application Insights는 웹 개발자를 위한 확장 가능한 APM(응용 프�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Application Insights 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,29 +1,29 @@
 ---
-title: "Windows Phone Silverlight SDK 개요"
+title: "Azure Mobile Engagement Windows Phone Silverlight SDK 개요 | Microsoft Docs"
 description: "Azure Mobile Engagement용 Windows Phone Silverlight SDK의 개요"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 0e3d2420-0509-4952-8891-392e3dad9aaf
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 105335b3c4c6e805f9398fbc002d5c4051acd147
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
 
 
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Azure Mobile Engagement의 Windows Phone Silverlight SDK 개요
 이 문서에서는 Windows Phone Silverlight 앱에 Azure Mobile Engagement를 통합하는 방법에 대한 세부 사항을 확인할 수 있습니다. 먼저 통합을 연습해 보려면 [15분 자습서](mobile-engagement-windows-phone-get-started.md)를 완료합니다.
 
- [SDK 콘텐츠](mobile-engagement-windows-phone-sdk-content.md)
+[SDK 콘텐츠](mobile-engagement-windows-phone-sdk-content.md)
 
 ## <a name="integration-procedures"></a>통합 절차
 1. 시작: [Windows Phone Silverlight 앱에서 Mobile Engagement를 통합하는 방법](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,10 +31,10 @@ ms.openlocfilehash: 105335b3c4c6e805f9398fbc002d5c4051acd147
 3. 태그 계획 구현: [Windows Phone Silverlight 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
-### <a name="330-04192016"></a>3.3.0(2016/04/19)
- *MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.4.0**
+###<a name="331-11032016"></a>3.3.1 (11/03/2016)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.4.1**의 일부
 
-* SDK로 내보낸 콘솔 로그를 사용/사용 안 함/필터링하기 위해 "TestLogLevel" API를 추가했습니다.
+* 안정성 향상
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-windows-phone-release-notes.md)
 
@@ -51,11 +51,11 @@ ms.openlocfilehash: 105335b3c4c6e805f9398fbc002d5c4051acd147
             EngagementAgent.Instance.Init();
 
 ### <a name="upgrade-from-older-versions"></a>이전 버전에서 업그레이드
- [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md)
+[Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

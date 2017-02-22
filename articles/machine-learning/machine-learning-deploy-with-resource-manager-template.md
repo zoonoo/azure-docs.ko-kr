@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 Machine Learning 작업 영역 배포 | Microsoft Docs"
+title: "Azure Resource Manager를 사용하여 Machine Learning 작업 영역 배포 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 Azure 기계 학습에 대한 작업 영역을 배포하는 방법"
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: cf00c0c11f1572c0cca066ac1c0aac2a0f350393
 
 
 ---
@@ -152,6 +152,6 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

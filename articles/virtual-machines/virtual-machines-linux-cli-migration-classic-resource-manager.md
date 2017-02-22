@@ -1,9 +1,9 @@
 ---
-title: "Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션 | Microsoft Docs"
+title: "Azure CLI를 사용하여 Resource Manager로 VM 마이그레이션 | Microsoft Docs"
 description: "이 문서에서는 플랫폼 지원 방식의 Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 리소스를 마이그레이션하는 과정을 안내합니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: cynthn
+ms.date: 02/21/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
 
 
 ---
@@ -57,7 +57,7 @@ ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-등록이 완료될 때까지 5분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다. 계속 진행하기 전에 RegistrationState가 `Registered` 인지 확인합니다.
+등록이 완료될 때까지&5;분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다. 계속 진행하기 전에 RegistrationState가 `Registered` 인지 확인합니다.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
@@ -116,7 +116,7 @@ CLI 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구성을 
 
 
 
-## <a name="step-4-option-2---migrate-virtual-machines-in-a-virtual-network"></a>4단계: 옵션 2 - 가상 네트워크에서 가상 컴퓨터 마이그레이션
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>4단계: 옵션 2 - 가상 네트워크에서 가상 컴퓨터 마이그레이션
 마이그레이션할 가상 네트워크를 선택합니다. 가상 네트워크에 웹/작업자 역할이 포함되어 있거나 지원되지 않는 구성을 포함하는 VM이 있으면, 유효성 검사 오류 메시지가 표시됩니다.
 
 다음 명령을 사용하여 구독의 모든 가상 네트워크를 가져옵니다.
@@ -163,6 +163,6 @@ CLI 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

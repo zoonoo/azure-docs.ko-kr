@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Windows 7 이상)에 대한 Azure 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 2: Azure 도구(Windows) | Microsoft Docs"
 description: "Windows 7 이상 버전에 Python 및 Azure CLI(Azure 명령줄 인터페이스)를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: db954667527381952a37fadcbebe449c99e71a70
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 181d7113bda6e9d39bc24c1892940803fc03fd6b
 
 
 ---
@@ -81,6 +81,6 @@ Azure CLI를 설치했습니다. 다음 작업은 Azure CLI를 사용하여 Azur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

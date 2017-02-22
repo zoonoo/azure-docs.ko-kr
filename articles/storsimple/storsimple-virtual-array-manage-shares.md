@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 장치 관리자 - Microsoft Azure StorSimple 가상 배열에서 공유 관리 | Microsoft Docs"
+title: "StorSimple Virtual Array 공유 관리 | Microsoft Docs"
 description: "StorSimple 장치 관리자 및 이 기능을 사용하여 StorSimple 가상 배열에서 공유를 관리하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 90b932453c83d15e7e33eb0653f0f7ceaf7eeff4
+ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
+ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열에서 공유 관리
@@ -74,9 +74,9 @@ StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된
 
 1. StorSimple 서비스 요약 블레이드의 명령 모음에서 **+공유 추가**를 클릭합니다. 그려면 **공유 추가** 블레이드가 열립니다.
 
-![공유 추가](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![공유 추가](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-1. **공유 추가** 블레이드에서 다음을 수행합니다.
+2. **공유 추가** 블레이드에서 다음을 수행합니다.
    
     1. **공유 이름** 필드에서 공유의 고유 이름을 입력합니다. 이름은 3~127개의 문자를 포함하는 문자열이어야 합니다.
 
@@ -87,8 +87,8 @@ StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된
     4. **용량** 필드에서 공유의 크기를 지정합니다. 계층화된 공유는 500GB에서 20TB 사이여야 하고 로컬로 고정된 공유는 50GB에서 2TB 사이여야 합니다.
 
     5. **전체 기본 사용 권한 설정** 필드에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. 사용자 또는 사용자 그룹의 이름을 _john@contoso.com_ 형식으로 지정합니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
-2. 공유 구성을 완료했다면 **만들기**를 클릭합니다. 지정한 설정으로 공유가 만들어지면 알림이 표시됩니다. 기본적으로 공유에 대한 백업을 사용하도록 설정합니다.
-3. 공유가 성공적으로 만들어졌는지 확인하려면 **공유** 블레이드로 이동합니다. 공유가 목록으로 표시되어야 합니다.
+3. 공유 구성을 완료했다면 **만들기**를 클릭합니다. 지정한 설정으로 공유가 만들어지면 알림이 표시됩니다. 기본적으로 공유에 대한 백업을 사용하도록 설정합니다.
+4. 공유가 성공적으로 만들어졌는지 확인하려면 **공유** 블레이드로 이동합니다. 공유가 목록으로 표시되어야 합니다.
    
     ![공유 만들기 성공](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
@@ -146,6 +146,6 @@ StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

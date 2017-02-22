@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
-ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
+ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
+ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 
 
 ---
@@ -28,12 +28,72 @@ ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
 ## <a name="quick-commands"></a>빠른 명령
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
 
+관리되는 디스크를 사용하려면:
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+관리되지 않는 디스크를 사용하려면:
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## <a name="attach-a-disk"></a>디스크 연결
-새 디스크 연결이 빠릅니다. `azure vm disk attach-new myResourceGroup myVM sizeInGB`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
+## <a name="attach-a-managed-disk"></a>관리되는 디스크 연결
+
+관리되는 디스크를 사용하면 Azure Storage 계정에 대한 걱정 없이 VM 및 해당 디스크에 집중할 수 있습니다. 관리되는 디스크를 신속하게 만들고 동일한 Azure 리소스 그룹을 사용하는 VM에 연결하거나 원하는 수의 디스크를 만들고 연결할 수 있습니다.
+
+
+### <a name="attach-a-new-disk-to-a-vm"></a>VM에 새 디스크 연결
+
+VM에 새 디스크가 필요한 경우 `az vm disk attach` 명령을 사용할 수 있습니다.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### <a name="attach-an-existing-disk"></a>기존 디스크 연결 
+
+대부분의 경우에서 이미 생성된 디스크를 연결합니다. 먼저 디스크 ID를 찾은 다음 `az vm disk attach-disk` 명령에 전달합니다. 다음 코드는 `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`으로 만든 디스크를 사용합니다.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+출력은 다음과 같이 보입니다(모든 명령에 `-o table` 옵션을 사용하여 출력을 서식 지정할 수 있음).
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## <a name="attach-an-unmanaged-disk"></a>관리되지 않는 디스크 연결
+
+VM과 동일한 저장소 계정에 디스크를 만들어도 상관없는 경우 새 디스크 연결은 신속합니다. `azure vm disk attach-new`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -251,7 +311,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 ```
 
 > [!NOTE]
-> 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 `nofail` 및/또는 `nobootwait` fstab 옵션를 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
+> 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 `nofail` 및/또는 `nobootwait` fstab 옵션을 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 > 
 > **nofail** 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 
@@ -292,6 +352,6 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

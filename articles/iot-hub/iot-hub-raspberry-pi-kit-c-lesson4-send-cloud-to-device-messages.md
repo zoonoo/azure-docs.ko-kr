@@ -1,5 +1,5 @@
 ---
-title: "샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 4: 클라우드-장치 | Microsoft Docs"
 description: "샘플 응용 프로그램은 Pi에서 실행되며 IoT Hub에서 들어오는 메시지를 모니터링합니다. 새로운 gulp 작업은 IoT Hub에서 Pi로 메시지를 보내고 LED를 깜빡입니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 5101cc1942ab430fd0bcbfa2699129e2ffd96117
+ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
+ms.openlocfilehash: 3a6957ebbb239eacb4fce696b7fcfd02e690310b
 
 
 ---
@@ -90,6 +90,6 @@ IoT Hub에서 Pi에 메시지를 보내서 LED를 깜빡이는 데 성공했습�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

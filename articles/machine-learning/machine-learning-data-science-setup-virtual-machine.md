@@ -12,23 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a12d11ba5dfdb312fcfa57f665aa5fc0f471b3dd
+ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
+ms.openlocfilehash: b266dc9ead635fb852d64efa82587299f692a153
 
 
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
-이 토픽에서는 데이터 과학 환경의 일부로 사용할 수 있는 고급 분석용 Azure 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 고급 분석 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
+이 토픽에서는 데이터 과학 환경의 일부로 사용할 수 있는 고급 분석용 Azure 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure Storage Explorer 및 AzCopy와 같은 지원 도구뿐만 아니라 고급 분석 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
 
 ## <a name="a-namecreate-vmastep-1-create-a-general-purpose-azure-virtual-machine"></a><a name="create-vm"></a>1단계: 범용 Azure 가상 컴퓨터 만들기
 Azure 가상 컴퓨터가 이미 있는 경우 여기에서 IPython Notebook 서버를 설정하려면 이 단계를 건너뛰고 [2단계: 기존 가상 컴퓨터에 IPython Notebook에 대한 끝점 추가](#add-endpoint)로 이동할 수 있습니다.
 
 Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 해당 프로젝트에 대한 데이터를 처리하는 데 필요한 컴퓨터의 크기를 결정해야 합니다. 컴퓨터가 작을수록 메모리가 작고 CPU 코어 수가 적지만 비용도 적게 듭니다. 컴퓨터 유형 및 가격 목록은 <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">가상 컴퓨터 가격</a> 페이지를 참조하세요.
 
-1.  <a href="https://manage.windowsazure.com" target="_blank">Azure 클래식 포털</a>에 로그인하여 왼쪽 아래에서 **새로 만들기** 를 클릭합니다. 팝업 창이 나타납니다. **계산** -> **가상 컴퓨터** -> **갤러리에서**를 선택합니다.
+1. <a href="https://manage.windowsazure.com" target="_blank">Azure 클래식 포털</a>에 로그인하여 왼쪽 아래에서 **새로 만들기** 를 클릭합니다. 팝업 창이 나타납니다. **계산** -> **가상 컴퓨터** -> **갤러리에서**를 선택합니다.
    
     ![작업 영역 만들기][24]
 2. 다음 이미지 중 하나를 선택합니다.
@@ -90,13 +90,13 @@ IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라�
 ![작업 영역 만들기][18]
 
 ## <a name="a-nameuploadastep-5-upload-an-existing-ipython-notebook-from-a-local-machine-to-the-ipython-notebook-server"></a><a name="upload"></a>5단계: 로컬 컴퓨터에서 IPython Notebook 서버로 기존 IPython Notebook 업로드
-IPython Notebook은 사용자가 로컬 컴퓨터에 있는 기존 IPython Notebook을 가상 컴퓨터의 IPython Notebook 서버로 쉽게 업로드할 수 있는 방법을 제공합니다. 사용자는 웹 브라우저에서 IPython Notebook에 로그온한 후 IPython Notebook을 업로드할 **디렉터리** 를 클릭합니다. 그런 다음 **파일 탐색기**를 사용하여 로컬 컴퓨터에서 업로드할 IPython Notebook .ipynb 파일을 선택한 후 웹 브라우저에서 IPython Notebook 디렉터리로 끌어 놓습니다. **업로드** 단추를 클릭하여 .ipynb 파일을 IPython Notebook 서버에 업로드합니다. 이제 다른 사용자가 자신의 웹 브라우저에서 이 파일을 사용할 수 있습니다.
+IPython Notebook은 사용자가 로컬 컴퓨터에 있는 기존 IPython Notebook을 가상 컴퓨터의 IPython Notebook 서버로 쉽게 업로드할 수 있는 방법을 제공합니다. 웹 브라우저에서 IPython Notebook에 로그온한 후 IPython Notebook을 업로드할 **디렉터리**를 클릭합니다. 그런 다음 **파일 탐색기**를 사용하여 로컬 컴퓨터에서 업로드할 IPython Notebook .ipynb 파일을 선택한 후 웹 브라우저에서 IPython Notebook 디렉터리로 끌어 놓습니다. **업로드** 단추를 클릭하여 .ipynb 파일을 IPython Notebook 서버에 업로드합니다. 이제 다른 사용자가 자신의 웹 브라우저에서 이 파일을 사용할 수 있습니다.
 
 ![작업 영역 만들기][22]
 
 ![작업 영역 만들기][23]
 
-## <a name="a-nameshutdownashutdown-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
+## <a name="a-nameshutdownashut-down-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
 > [!NOTE]
@@ -137,6 +137,6 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

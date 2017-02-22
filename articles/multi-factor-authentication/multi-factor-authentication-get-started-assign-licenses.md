@@ -1,6 +1,6 @@
 ---
 title: "Azure MFA의 라이선스 할당 | Microsoft Docs"
-description: "Microsoft Azure Multi-Factor Authentication의 사용자 라이선스를 할당하는 방법에 대해 알아봅니다."
+description: "Microsoft Azure Multi-Factor Authentication의 라이선스를 할당하는 방법에 대해 알아봅니다."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c93db18866478556e91da8acbc9f0c749b65dc62
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
 
 
 ---
@@ -38,9 +38,11 @@ Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있
 9. 할당된 라이선스 수와 실패한 수를 알려주는 메시지가 표시됩니다.  **확인**을 클릭합니다.
    ![라이선스 할당](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
+## <a name="next-steps"></a>다음 단계
+
+- 자세한 내용은 [Microsoft Azure Active Directory 라이선스란?](../active-directory/active-directory-licensing-what-is.md)을 참조하세요.
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

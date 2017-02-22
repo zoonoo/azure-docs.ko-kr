@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 234ab46713657c7400148210c6029c63afd35e96
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 234ab46713657c7400148210c6029c63afd35e96
 이 문서에서는 다음에 대해 알아봅니다.
 
 * Azure AD(Azure Active Directory)를 사용하여 인증되지 않은 액세스로부터 API 앱을 보호하는 방법
-* Azure AD 서비스 주체(앱 ID) 자격 증명을 사용하여 API 앱, 웹앱 또는 모바일 앱의 보호된 API 앱을 사용하는 방법 논리 앱에서 사용하는 방법에 대한 자세한 내용은 [논리 앱으로 App Service에서 호스트되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)을 참조하세요.
+* Azure AD 서비스 주체(앱 ID) 자격 증명을 사용하여 API 앱, 웹앱 또는 모바일 앱의 보호된 API 앱을 사용하는 방법 논리 앱에서 사용하는 방법에 대한 자세한 내용은 [논리 앱으로 App Service에서 호스트되는 사용자 지정 API 사용](../logic-apps/logic-apps-custom-hosted-api.md)을 참조하세요.
 * 로그온된 사용자가 보호된 API 앱을 브라우저에서 호출할 수 없도록 하는 방법입니다.
 * 특정 Azure AD 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하는 방법입니다.
 
@@ -352,6 +352,6 @@ Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/as
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

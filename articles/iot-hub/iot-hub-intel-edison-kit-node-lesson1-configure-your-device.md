@@ -1,5 +1,5 @@
 ---
-title: "깜박임 응용 프로그램 만들기 및 Azure IoT 시작 키트에 배포 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 1: 장치 구성 | Microsoft Docs"
 description: "처음 사용을 위한 Intel Edison을 구성합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/7/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 4511f88bc6a3e71fe3ea9375711dade15fd4ef70
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 203d3976b9ba0960f5a3dbff4e2b1fcdf4c0dc33
 
 
 ---
@@ -145,6 +145,6 @@ ms.openlocfilehash: 4511f88bc6a3e71fe3ea9375711dade15fd4ef70
 [get-the-tools]: iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

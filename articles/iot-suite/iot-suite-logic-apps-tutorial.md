@@ -4,7 +4,7 @@ description: "논리 앱을 비즈니스 프로세스에 대한 Azure IoT Suite�
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. **요청**을 선택합니다. 이 작업은 특정 JSON 형식 페이로드와 함께 들어오는 HTTP 요청이 트리거로 작동하도록 지정합니다.
-7. 다음을 요청 본문 JSON 스키마에 붙여 넣습니다.
+7. 다음 코드를 요청 본문 JSON 스키마에 붙여 넣습니다.
    
     ```
     {
@@ -172,6 +172,6 @@ ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

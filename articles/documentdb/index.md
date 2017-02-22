@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure DocumentDB 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "스키마 없는 NoSQL 문서 데이터베이스인 DocumentDB를 사용하는 방법에 대해 알아봅니다. 자습서에서는 앱과 통합하고 JSON 문서에서 SQL 쿼리를 사용하는 방법을 보여 줍니다."
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
-ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>DocumentDB 설명서
 
 웹, 모바일, 게임 및 IoT용 고성능 응용 프로그램에서 DocumentDB를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 NoSQL 데이터베이스 서비스의 유연한 스키마를 통해 JSON 데이터를 저장하고 SQL쿼리를 수행하는 방법을 보여 줍니다.
@@ -188,7 +200,7 @@ ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
                         <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
                         <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
                         <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
-                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.JS</a></p>
                         <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
                     </div>
                 </div>
@@ -210,18 +222,10 @@ ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-DocumentDB 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

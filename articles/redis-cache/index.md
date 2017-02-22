@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Redis Cache 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "응용 프로그램이 데이터에 빠르게 액세스할 수 있도록 하는 보안 데이터 캐시 및 메시징 broker인 Azure Redis Cache를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+services: redis-cache
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: redis-cache
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
+ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
+ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
 
 ---
 #<a name="redis-cache-documentation"></a>Redis Cache 설명서
@@ -188,6 +199,6 @@ ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

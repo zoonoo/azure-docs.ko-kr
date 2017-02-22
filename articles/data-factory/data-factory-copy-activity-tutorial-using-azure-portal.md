@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
 
 
 ---
@@ -35,13 +35,18 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 
 이 자습서에서는 Azure Portal를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
+> [!NOTE]
+> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
+> 
+> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+
 이 자습서의 일부로 수행하는 단계는 다음과 같습니다.
 
 | 단계 | 설명 |
 | --- | --- |
 | [Azure 데이터 팩터리 만들기](#create-data-factory) |이 단계에서는 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다. |
 | [연결된 서비스 만들기](#create-linked-services) |이 단계에서는 **AzureStorageLinkedService** 및 **AzureSqlLinkedService**와 같은 두 개의 연결된 서비스를 만듭니다. <br/><br/>AzureStorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactory에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다. |
-| [입력 및 출력 데이터 집합을 만듭니다.](#create-datasets) |이전 단계에서는 입출력 데이터가 포함된 데이터 저장소를 참조하는 연결된 서비스를 만들었습니다. 이 단계에서는 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 집합인 **InputDataset** 및 **OutputDataset**을 정의합니다. <br/><br/>InputDataset에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, OutputDataset에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다. |
+| [입력 및 출력 데이터 집합을 만듭니다.](#create-datasets) |이전 단계에서는 입출력 데이터가 포함된 데이터 저장소를 참조하는 연결된 서비스를 만들었습니다. 이 단계에서는 데이터 저장소에 저장된 입출력 데이터를 나타내는&2;개의 데이터 집합인 **InputDataset** 및 **OutputDataset**을 정의합니다. <br/><br/>InputDataset에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, OutputDataset에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다. |
 | [파이프라인을 만듭니다.](#create-pipeline) |이 단계에서는 ADFTutorialDataFactory에 **ADFTutorialPipeline** 이라는 파이프라인을 만듭니다. <br/><br/>이 파이프라인에 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업** 을 추가합니다. 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요. |
 | [파이프라인 모니터링](#monitor-pipeline) |이 단계에서는 Azure 포털을 사용하여 입력 및 출력 테이블의 조각을 모니터링합니다. |
 
@@ -125,7 +130,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 > 
 
 ## <a name="create-datasets"></a>데이터 집합 만들기
-이전 단계에서는 연결된 서비스 **AzureStorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService 및 AzureSqlLinkedService로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **InputDataset** 및 **OutputDataset**라는 2개의 데이터 집합을 정의합니다. InputDataset에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, OutputDataset에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 
+이전 단계에서는 연결된 서비스 **AzureStorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService 및 AzureSqlLinkedService로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **InputDataset** 및 **OutputDataset**라는&2;개의 데이터 집합을 정의합니다. InputDataset에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, OutputDataset에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 
 
 ### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
 이 단계에서는 **AzureStorageLinkedService** 연결된 서비스가 나타내는 Azure Storage의 Blob 컨테이너를 가리키는 **InputDataset**이라는 데이터 집합을 만듭니다.
@@ -178,7 +183,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
      
      **입력** 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
      
-     **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid\&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+     **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
      
      **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 **partitionedBy** 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2016-09-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2016/09/20으로 설정되고 fileName은 08.csv로 설정됩니다. 
 
@@ -231,14 +236,14 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
         }
       }
     }
-    ```     
+    ```       
     다음 사항에 유의하세요. 
    
    * 데이터 집합 **형식**을 **AzureSQLTable**로 설정합니다.
    * **linkedServiceName**을 **AzureSqlLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
    * **tablename**을 **emp**로 설정합니다.
    * 데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
-   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을&1;시간마다 생성합니다.
 3. 도구 모음에서 **배포**를 클릭하여 **OutputDataset** 데이터 집합을 만들고 배포합니다. 트리 뷰에 **OutputDataset** 이 표시되는지 확인합니다. 
 
 > [!NOTE]
@@ -311,7 +316,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 3. 도구 모음에서 **배포**를 클릭하여 **ADFTutorialPipeline**을 만들고 배포합니다. 트리 뷰에 파이프라인이 표시되는지 확인합니다. 
 4. 이제 **X**를 클릭하여 **편집기** 블레이드를 닫습니다. **X**를 다시 클릭하여 **ADFTutorialDataFactory**에 대한 **Data Factory** 홈페이지를 봅니다.
 
-**축하합니다.**  Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.   
+**축하합니다.** Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.   
 
 ### <a name="view-the-data-factory-in-a-diagram-view"></a>다이어그램 뷰에서 데이터 팩터리 보기
 1. **Data Factory** 블레이드에서 **다이어그램**을 클릭합니다.
@@ -379,7 +384,7 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
     
     ![SQL 쿼리 결과](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>앱 모니터링 및 관리를 사용하여 파이프라인 모니터링
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>앱 모니터링 및 관리를 사용하여 파이프라인 모니터링
 응용 프로그램 모니터링 및 관리를 사용하여 파이프라인을 모니터링할 수도 있습니다. 이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링 및 관리를 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
 1. 데이터 팩터리의 홈페이지에서 **모니터링 및 관리** 타일을 클릭합니다.
@@ -404,15 +409,12 @@ ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 ## <a name="see-also"></a>참고 항목
 | 항목 | 설명 |
 |:--- |:--- |
-| [데이터 이동 활동](data-factory-data-movement-activities.md) |이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
-| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory에서 파이프라인 및 작업을 이해하는 데 도움이 됩니다. |
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
-| [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

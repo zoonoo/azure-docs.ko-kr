@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c0f17c4ff79bab7f5b13f42cd31e170780fc0c2
+ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
+ms.openlocfilehash: 7d1be1dea6ed4ecda196743f592456a5b977e9b0
 
 
 ---
@@ -53,8 +53,10 @@ Azure AD 응용 프로그램 프록시를 사용하면 다양한 유형의 내�
 * 여러 장치에서 다양한 응용 프로그램을 표시하려는 웹 API  
 * 원격 데스크톱 게이트웨이 뒤에서 호스트되는 응용 프로그램  
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-the-service-work-with-connectors"></a>서비스가 커넥터와 함께 작동하는 방식
 응용 프로그램 프록시는 네트워크 내에서 커넥터라는 간단한 Windows Server 서비스를 설치하여 사용합니다. 커넥터를 사용하면 인바운드 포트를 열거나 DMZ에 항목을 저장할 필요가 없습니다. 앱에 대한 트래픽이 많은 경우 커넥터를 더 추가하면 서비스에서 부하 분산을 처리합니다. 커넥터는 상태를 저장하지 않으며 필요에 따라 클라우드에서 모든 항목을 가져옵니다.
+
+커넥터에 대한 정보는 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)를 참조하세요. 
 
 사용자가 응용 프로그램에 원격으로 액세스 하는 경우 게시된 끝점에 연결됩니다. 사용자는 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 응용 프로그램에 라우팅됩니다.
 
@@ -71,6 +73,8 @@ Azure AD 응용 프로그램 프록시를 사용하면 다양한 유형의 내�
 ### <a name="single-sign-on"></a>SSO(Single sign-on)
 Azure AD 응용 프로그램 프록시는 Windows 통합 인증(IWA) 또는 클레임 인식 응용 프로그램을 사용하는 응용 프로그램에 SSO(Single Sign-On)를 제공합니다. 응용 프로그램에서 IWA를 사용하는 경우 응용 프로그램 프록시는 SSO를 제공하는 Kerberos 제한 위임을 사용하여 사용자를 가장합니다. Azure Active Directory를 신뢰하는 클레임 인식 응용 프로그램이 있는 경우에는 사용자가 이미 Azure AD에 의해 인증되었으므로 SSO가 실현된 것입니다.
 
+Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 대해 확인하려는 모든 정보](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)를 참조하세요.
+
 ## <a name="how-to-get-started"></a>시작하는 방법
 Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자인 Azure AD 디렉터리가 있는지 확인합니다. 앱에 액세스하는 디렉터리 관리자 및 사용자용 Azure AD 기본 또는 프리미엄 라이선스도 필요합니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md) 을 참조하세요.
 
@@ -83,6 +87,7 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
 
 * [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
+* [기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md) 
 * [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
 * [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
 * [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
@@ -92,6 +97,6 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

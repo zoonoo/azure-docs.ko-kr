@@ -1,6 +1,6 @@
 ---
 title: "소개: Recovery Services 자격 증명 모음으로 Azure VM 보호 | Microsoft 문서"
-description: "복구 서비스 자격 증명 모음으로 Azure VM 보호. Resource Manager에 의해 배포된 VM, 클래식으로 배포된 VM 및 프리미엄 저장소 VM의 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다."
+description: "복구 서비스 자격 증명 모음으로 Azure VM 보호. Resource Manager에 의해 배포된 VM, 클래식으로 배포된 VM 및 Premium Storage VM, 암호화된 VM, Managed Disks의 VM 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2016
+ms.date: 02/06/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
-ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
+ms.sourcegitcommit: b73d5bb1f4f9e7adc65bf38a3c98db846a341cb3
+ms.openlocfilehash: 2d8bedcf51cf55e13cc22d5a2d258218f0a786bb
 
 
 ---
@@ -33,10 +33,11 @@ ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
 * Azure Resource Manager 배포 VM
 * 클래식 VM
 * 표준 저장소 VM
-* 프리미엄 저장소 VM
+* 프리미엄 저장소 VM 
+* Managed Disks에서 실행 중인 VM
 * Azure Disk Encryption와 BEK 및 KEK를 사용하여 암호화된 VM
 
-Premium Storage VM을 보호하는 방법에 대한 자세한 내용은 [Premium Storage VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)
+Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)을 참조하세요. Managed Disks VM 지원에 대한 자세한 내용은 [Managed Disks의 VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
 
 > [!NOTE]
 > 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다.
@@ -246,6 +247,6 @@ Azure VM 백업의 경우 보호된 인스턴스 모델에 따라 청구됩니�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

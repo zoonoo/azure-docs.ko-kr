@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
+ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
+ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
     이는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. 계산 리소스 공급자 아래에서, 만든 VM 규모 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 VM 규모 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 올바른지 확인합니다.
 * 진단 확장이 작동 중이고 성능 데이터를 내보내고 있나요?
   
-    **업데이트:** 더 이상 진단 확장을 설치하지 않아도 되는 호스트 기반 메트릭 파이프라인을 사용하도록 Azure 자동 크기 조정 기능이 향상되었습니다. 즉, 새 파이프라인을 사용하여 자동 크기 조정 응용 프로그램을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale을 포함합니다. 
+    **업데이트:** 더 이상 진단 확장을 설치하지 않아도 되는 호스트 기반 메트릭 파이프라인을 사용하도록 Azure 자동 크기 조정 기능이 향상되었습니다. 즉, 새 파이프라인을 사용하여 자동 크기 조정 응용 프로그램을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale입니다. 
   
     자동 크기 조정을 위한 호스트 기반 메트릭을 사용하는 것이 좋은 이유는 다음과 같습니다.
   
@@ -85,6 +85,6 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

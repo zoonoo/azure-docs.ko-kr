@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics의 경고 | Microsoft Docs"
+title: "OMS Log Analytics에서 경고 만들기 | Microsoft Docs"
 description: "Log Analytics의 경고는 OMS 저장소의 중요한 정보를 식별하며 문제를 미리 알리거나 작업을 호출하여 문제 해결을 시도합니다.  이 문서에서는 경고 규칙을 만드는 방법을 설명하고 규칙에서 실행할 수 있는 여러 가지 작업을 자세히 설명합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/25/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+ms.sourcegitcommit: 9fe104a1ea26afa2817aedaa8ed77d042404cda6
+ms.openlocfilehash: 9a62ed7540de05b1db7610e12f2671d33fc8049d
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
 Log Analytics의 경고는 OMS 저장소에서 중요한 정보를 식별합니다.  경고 규칙은 일정에 따라 로그 검색을 자동으로 실행하고 결과가 특정 조건과 일치하면 경고 레코드를 생성합니다.  그런 다음 규칙에 따라 하나 이상의 작업이 자동으로 실행되어 경고를 미리 알리거나 다른 프로세스를 호출할 수 있습니다.   
 
 ![Log Analytics rudrh](media/log-analytics-alerts/overview.png)
+
+>[!NOTE]
+> 현재 공개 미리 보기인 미터법 경고 규칙에 대한 자세한 내용은 [공개 미리 보기의 새 미터법 경고 규칙 유형](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/)을 참조하세요.
 
 ## <a name="creating-an-alert-rule"></a>경고 규칙 만들기
 경고 규칙을 만들려면 경고를 호출해야 하는 레코드에 대한 로그 검색을 만드는 것으로 시작합니다.  그러면 **경고** 단추를 사용할 수 있으며 이 단추를 사용하여 경고 규칙을 만들고 구성할 수 있습니다.
@@ -43,7 +46,7 @@ Log Analytics의 경고는 OMS 저장소에서 중요한 정보를 식별합니�
 | 이름 |경고 규칙을 식별하는 고유 이름입니다. |
 | 심각도 |이 규칙에 의해 생성되는 경고의 심각도입니다. |
 | 검색 쿼리 |**현재 검색 쿼리 사용** 을 선택하여 현재 쿼리를 사용하거나 목록에서 기존 저장된 검색을 선택합니다.  쿼리 구문이 텍스트 상자에 제공되며 필요하면 텍스트 상자의 내용을 수정할 수 있습니다. |
-| 기간 |쿼리에 대한 시간 범위를 지정합니다.  쿼리에서는 현재 시간의 이 범위 내에서 생성된 레코드만 반환합니다.  이는 5 분에서 24 시간 사이의 임의 값일 수 있습니다.  이는 경고 빈도보다 크거나 같아야 합니다.  <br><br>  예를 들어 기간을 60 분으로 설정했는데 오후 1시 15분에 쿼리를 실행하면 오후 12시 15분부터 오후 1시 15분 사이의 레코드만 반환됩니다. |
+| 기간 |쿼리에 대한 시간 범위를 지정합니다.  쿼리에서는 현재 시간의 이 범위 내에서 생성된 레코드만 반환합니다.  이는 5 분에서 24 시간 사이의 임의 값일 수 있습니다.  이는 경고 빈도보다 크거나 같아야 합니다.  <br><br> 예를 들어 기간을 60 분으로 설정했는데 오후 1시 15분에 쿼리를 실행하면 오후 12시 15분부터 오후 1시 15분 사이의 레코드만 반환됩니다. |
 | **일정** | |
 | 임계값 |경고를 만드는 시기에 대한 조건입니다.  쿼리에서 반환된 레코드 수가 이 조건과 일치하면 경고가 생성됩니다. |
 | 경고 빈도 |쿼리를 실행해야 하는 빈도를 지정합니다.  5 분에서 24 시간 사이의 임의 값일 수 있습니다.  기간보다 작거나 같아야 합니다. |
@@ -61,6 +64,7 @@ Log Analytics의 경고는 OMS 저장소에서 중요한 정보를 식별합니�
 | Runbook 선택 |자동화 솔루션에서 구성한 자동화 계정의 Runbook에서 시작할 Runbook을 선택합니다. |
 | 실행 |Azure 클라우드에서 Runbook을 실행하려면 **Azure** 를 선택합니다.  로컬 환경의 **Hybrid Runbook Worker** 에서 Runbook을 실행할 [Hybrid Worker](../automation/automation-hybrid-runbook-worker.md) 를 선택합니다. |
 
+
 ## <a name="manage-alert-rules"></a>경고 규칙 관리
 Log Analytics **설정**의 **경고** 메뉴에서 모든 경고 규칙의 목록을 가져올 수 있습니다.  
 
@@ -75,7 +79,11 @@ Log Analytics **설정**의 **경고** 메뉴에서 모든 경고 규칙의 목�
 * 옆에 있는 연필 아이콘을 클릭하여 경고 규칙을 편집합니다.
 * 옆에 있는 **X** 아이콘을 클릭하여 경고 규칙을 제거합니다. 
 
-## <a name="setting-time-windows"></a>기간 설정
+## <a name="setting-time-windows-and-thresholds"></a>기간 및 임계값 설정
+
+>[!NOTE]
+> 현재 공개 미리 보기인 미터법 경고 규칙에 대한 자세한 내용은 [공개 미리 보기의 새 미터법 경고 규칙 유형](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/)을 참조하세요.
+ 
 ### <a name="event-alerts"></a>이벤트 경고
 이벤트는 Windows 이벤트 로그, Syslog 및 사용자 지정 로그와 같은 데이터 원본을 포함합니다.  특정 오류 이벤트가 생성될 때 또는 특정 기간 내에 복수의 오류 이벤트가 생성되는 경우 경고를 만드는 것이 좋습니다.
 
@@ -83,20 +91,24 @@ Log Analytics **설정**의 **경고** 메뉴에서 모든 경고 규칙의 목�
 
 일부 응용 프로그램은 경고를 발생시키지 않아야 할 가끔씩 발생하는 오류를 기록할 수 있습니다.  예를 들어 응용 프로그램이 오류 이벤트를 생성한 프로세스를 재시도한 후 다음에 성공할 수 있습니다.  이 경우 특정 기간 내에 복수의 이벤트가 생성되지 않은 한 경고를 만들지 않는 것이 좋습니다.  
 
-경우에 따라 이벤트가 없을 때 경고를 만드는 것이 좋습니다.  예를 들어 프로세스에서 일반 이벤트가 올바르게 작동 중임을 나타내기 위해 일반 이벤트를 기록할 수 있습니다.  특정 기간 내에 이러한 이벤트 중 하나가 기록되지 않으면 경고를 만들어야 합니다.  이 경우 임계값을 *1 보다 작게*설정할 수 있습니다.
+경우에 따라 이벤트가 없을 때 경고를 만드는 것이 좋습니다.  예를 들어 프로세스에서 일반 이벤트가 올바르게 작동 중임을 나타내기 위해 일반 이벤트를 기록할 수 있습니다.  특정 기간 내에 이러한 이벤트 중 하나가 기록되지 않으면 경고를 만들어야 합니다.  이 경우 임계값을 **1보다 작게** 설정할 수 있습니다.
 
 ### <a name="performance-alerts"></a>성능 경고
-[성능 데이터](log-analytics-data-sources-performance-counters.md) 는 이벤트와 유사한 레코드로 OMS 저장소에 저장됩니다.  각 레코드의 값은 이전 30 분 동안 측정된 평균입니다.  성능 카운터가 특정 임계값을 초과하는 경우 경고하도록 하려면 해당 임계값을 쿼리에 포함시켜야 합니다.
+[성능 데이터](log-analytics-data-sources-performance-counters.md) 는 이벤트와 유사한 레코드로 OMS 저장소에 저장됩니다.  성능 카운터가 특정 임계값을 초과하는 경우 경고하도록 하려면 해당 임계값을 쿼리에 포함시켜야 합니다.
 
-예를 들어 프로세서가 30분 동안 90% 넘게 실행하는 경우 경고하게 하려면*Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90*과 같은 쿼리를 사용하고 경고 규칙에 대한 임계값을 *0보다 큰* 값으로 설정할 수 있습니다.  
+예를 들어 프로세서가 90%를 초과하여 실행되는 경우 경고하려면 다음과 같은 쿼리를 사용하고 경고 규칙에 대한 임계값을 **0보다 크게** 설정합니다.
 
- [성능 레코드](log-analytics-data-sources-performance-counters.md) 는 각 카운터를 수집하는 빈도와 상관없이 매 30 분마다 집계되며, 기간이 30 분보다 작으면 레코드가 반환되지 않을 수 있습니다.  기간을 30 분으로 설정하면 해당 시간에 대한 평균을 나타내는 각 연결된 소스에 대해 단일 레코드를 얻을 수 있습니다.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+
+특정 기간에 프로세서 평균 사용량이 90%를 초과하는 경우에 경고하려면 다음과 같은 [측정 명령](log-analytics-search-reference.md#commands)을 사용하여 쿼리하고 경고 규칙에 대한 임계값을 **0보다 크게** 설정합니다. 
+
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 ## <a name="alert-actions"></a>경고 작업
 경고 레코드를 생성할 뿐만 아니라 하나 이상의 작업을 자동으로 실행하도록 경고 규칙을 구성할 수 있습니다.  작업은 경고를 미리 알리거나 감지된 문제의 해결을 시도하는 일부 프로세스를 호출할 수 있습니다.  다음 섹션에서는 현재 사용할 수 있는 작업에 대해 설명합니다.
 
 ### <a name="email-actions"></a>전자 메일 작업
-전자 메일 작업은 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다.  메일의 제목을 지정할 수 있지만 그 내용은 Log Analytics이 구성한 표준 형식입니다.  메일은 로그 검색에서 반환된 10개까지의 레코드에 대한 세부 정보 외에 경고의 이름과 같은 요약 정보를 포함하고 있습니다.  또한 쿼리에서 전체 레코드 집합을 반환할 Log Analytics의 로그 검색에 대한 링크를 포함하고 있습니다.   메일의 보낸 사람은 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*입니다. 
+전자 메일 작업은 한 명 이상의 수신자에게 경고의 세부 정보가 포함된 전자 메일을 보냅니다.  메일의 제목을 지정할 수 있지만 그 내용은 Log Analytics이 구성한 표준 형식입니다.  메일은 로그 검색에서 반환된&10;개까지의 레코드에 대한 세부 정보 외에 경고의 이름과 같은 요약 정보를 포함하고 있습니다.  또한 쿼리에서 전체 레코드 집합을 반환할 Log Analytics의 로그 검색에 대한 링크를 포함하고 있습니다.   메일의 보낸 사람은 *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*입니다. 
 
 ### <a name="webhook-actions"></a>웹후크 작업
 웹후크 작업을 사용하여 단일 HTTP POST 요청을 통해 외부 프로세스를 호출할 수 있습니다.  호출 중인 서비스는 웹후크를 지원하고 수신하는 페이로드를 사용하는 방법을 결정해야 합니다.  또한 요청이 API에서 이해하는 형식으로 되어 있다면 웹후크를 명시적으로 지원하지 않는 REST API를 호출할 수도 있습니다.  경고에 응답하여 웹후크를 사용하는 예는 [Slack](http://slack.com)과 같은 서비스를 사용하여 경고의 세부 정보가 포함된 메시지를 보내거나 [PagerDuty](http://pagerduty.com/)와 같은 서비스에서 인시던트를 생성하는 것입니다.  
@@ -213,6 +225,6 @@ Log Analytics의 규칙에 의해 만든 경고 레코드에는 **경고**의 **
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

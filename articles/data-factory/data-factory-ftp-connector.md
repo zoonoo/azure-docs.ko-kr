@@ -1,5 +1,5 @@
 ---
-title: "FTP 서버에서 데이터 이동 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동 | Microsoft Docs"
 description: "Azure Data Factory를 사용하여 FTP 서버에서 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 01/24/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: f27d978eab3aba52ee9a51a5f284b592e3edd6af
+ms.sourcegitcommit: 5e7abf7b5cd6042ce64e6e09683b259bac82d6df
+ms.openlocfilehash: 492c383865e86a19e56af816a77e02922adbc790
 
 
 ---
@@ -45,7 +45,7 @@ FTP 서버에서 데이터를 복사하는 파이프라인을 만드는 가장 �
 * [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 * [FileSystemSource](#ftp-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
-샘플은 1시간마다 FTP 서버의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+샘플은&1;시간마다 FTP 서버의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 **FTP 연결 서비스** 이 예제에서는 일반 텍스트의 사용자 이름과 암호를 기본 인증으로 사용합니다. 다음 방법 중 하나를 사용할 수도 있습니다.
 
@@ -323,6 +323,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

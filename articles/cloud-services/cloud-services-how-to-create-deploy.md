@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a3437ce502711a56f7201a87c84e8336b7a3e05
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
 
 
 ---
@@ -32,7 +32,7 @@ Azure 클래식 포털은 클라우드 서비스를 만들고 배포하는 두 �
 이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드** 를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 작업을 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 Azure 클래식 포털에서 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
 > [!NOTE]
-> VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService]을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
+> VSTS(Visual Studio Team Services)에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSTS 게시를 설정합니다. 자세한 내용은 [Visual Studio Team Services를 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService]을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 > 
 > 
 
@@ -40,11 +40,11 @@ Azure 클래식 포털은 클라우드 서비스를 만들고 배포하는 두 �
 Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다음과 같은 세 가지 구성 요소가 필요합니다.
 
 * **서비스 정의**  
-   클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
+  클라우드 서비스 정의 파일(.csdef)은 역할 수를 포함하여 서비스 모델을 정의합니다.
 * **서비스 구성**  
-   클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
+  클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 * **서비스 패키지**  
-   서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
+  서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
 
 이러한 구성 요소에 대한 자세한 내용과 패키지를 만드는 방법은 [여기](cloud-services-model-and-package.md)에서 볼 수 있습니다.
 
@@ -131,6 +131,6 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

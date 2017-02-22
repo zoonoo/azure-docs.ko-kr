@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 2cf2d842c2f04d56c30b3bec1b9ee8b5897f1e6b
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>감사 로그 수집
-문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 감사 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
+## <a name="collect-activity-logs"></a>활동 로그 수집
+문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
-[Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
+[배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[리소스 관리자로 작업 감사](../resource-group-audit.md)
+[활동 로그를 보고 Azure 리소스 관리](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -88,6 +88,6 @@ ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

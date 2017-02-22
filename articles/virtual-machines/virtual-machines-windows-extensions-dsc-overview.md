@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 09/15/2016
+ms.date: 01/09/2017
 ms.author: zachal
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d2668d6dcdc7e7af45f2fdfa317565e541e035ba
+ms.sourcegitcommit: c2ce603e80243584fdc302c545e520b4503f5555
+ms.openlocfilehash: ca2d8d4b277f48ec46156293f73b18b6c2967c51
 
 
 ---
@@ -55,13 +55,13 @@ Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure 
 WMF를 설치하려면 다시 부팅해야 합니다. 다시 부팅한 후에 확장은 `modulesUrl` 속성에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob 저장소인 경우 SAS 토큰은 `sasToken` 속성에 지정되어 파일에 액세스할 수 있습니다. .zip을 다운로드하고 압축을 푼 후에 `configurationFunction` 에 정의된 구성 함수를 실행하여 MOF 파일을 생성합니다. 그런 다음 확장은 생성된 MOF 파일에 `Start-DscConfiguration -Force` 를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 다시 작성합니다. 이 시점부터 DSC LCM은 모니터링 및 수정을 정상적으로 처리합니다. 
 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
-PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 패키징하고 게시하며 모니터링할 수 있습니다. 나열된 다음 cmdlet은 ASM 모듈이지만 "Azure"는 ARM 모델을 사용하는 "AzureRm"으로 바꿀 수 있습니다. 예를 들어 `Publish-AzureVMDscConfiguration`은 ASM을 사용하며 `Publish-AzureRmVMDscConfiguration`은 ARM을 사용합니다. 
+PowerShell cmdlet은 DSC 확장 배포를 패키징하고 게시하며 모니터링하기 위해 Azure Resource Manager 또는 클래식 배포 모델과 함께 사용할 수 있습니다. 나열된 다음 cmdlet은 클래식 배포 모듈이지만 "Azure"는 Azure Resource Manager 모델을 사용하는 "AzureRm"으로 바꿀 수 있습니다. 예를 들어, `Publish-AzureVMDscConfiguration`에서는 클래식 배포 모델을 사용하고 `Publish-AzureRmVMDscConfiguration`에서는 Azure Resource Manager를 사용합니다. 
 
 `Publish-AzureVMDscConfiguration` 은 구성 파일을 받고 종속 DSC 리소스를 검색하며 구성 및 구성을 적용하는 데 필요한 DSC 리소스를 포함하는 .zip 파일을 만듭니다. 또는 `-ConfigurationArchivePath` 매개 변수를 사용하여 패키지를 로컬로 만들 수도 있습니다. 그렇지 않으면 Azure Blob 저장소에 .zip 파일을 게시하고 SAS 토큰으로 보호합니다.
 
 이 cmdlet에서 만든 .zip 파일은 보관 폴더의 루트에서 .ps1 구성 스크립트를 포함합니다. 리소스에는 보관 폴더에 위치한 모듈 폴더가 있습니다. 
 
-`Set-AzureVMDscExtension`은 VM 구성 개체에 PowerShell DSC 확장에서 필요한 설정을 삽입하며 이는 `Update-AzureVM`를 사용하여 Azure VM에 적용될 수 있습니다.
+`Set-AzureVMDscExtension`은 VM 구성 개체에 PowerShell DSC 확장에서 필요한 설정을 삽입합니다. 클래식 배포 모델에서 VM 변경 사항은 `Update-AzureVM` 지원 Azure VM에 적용되어야 합니다. 
 
 `Get-AzureVMDscExtension`은 특정 VM의 DSC 확장 상태를 검색합니다. 
 
@@ -69,18 +69,18 @@ PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 
 
 `Remove-AzureVMDscExtension` 은 지정된 가상 컴퓨터에서 확장 처리기를 제거합니다. 이 cmdlet은 구성을 제거하거나 WMF를 제거하거나 가상 컴퓨터에 적용된 설정을 변경하지 **않습니다** . 확장 처리기를 제거합니다. 
 
-**ASM 및 ARM cmdlet의 주요 차이점**
+**ASM과 Azure Resource Manager cmdlets의 주요 차이점**
 
-* ARM cmdlet은 동기입니다. ASM cmdlet은 비동기입니다.
-* ResourceGroupName, VMName, ArchiveStorageAccountName, 버전, 위치는 모두 새 필수 매개 변수입니다.
-* ArchiveResourceGroupName는 ARM에 대한 새로운 선택적 매개 변수입니다. 저장소 계정이 가상 컴퓨터를 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
-* ConfigurationArchive는 ARM에서 ArchiveBlobName이라고 합니다.
-* ContainerName은 ARM에서 ArchiveContainerName이라고 합니다.
-* StorageEndpointSuffix는 ARM에서 ArchiveStorageEndpointSuffix라고 합니다.
-* AutoUpdate 스위치가 ARM에 추가되어 확장 처리기를 사용할 수 있는 경우 최신 버전으로 자동으로 업데이트할 수 있습니다. 이 매개 변수를 사용하면 새 버전의 WMF가 릴리스될 때 VM이 다시 시작될 가능성이 있습니다. 
+* Azure Resource Manager cmdlets는 동기입니다. ASM cmdlet은 비동기입니다.
+* ResourceGroupName, VMName, ArchiveStorageAccountName, 버전, 위치는 Azure Resource Manager에서 모두 새 필수 매개 변수입니다.
+* ArchiveResourceGroupName은 Azure Resource Manager에 대한 새로운 선택적 매개 변수입니다. 저장소 계정이 가상 컴퓨터를 만들 위치가 아닌 다른 리소스 그룹에 속해 있는 경우 이 매개 변수를 지정할 수 있습니다.
+* ConfigurationArchive는 Azure Resource Manager에서 ArchiveBlobName이라고 합니다.
+* ContainerName은 Azure Resource Manager에서 ArchiveContainerName이라고 합니다.
+* StorageEndpointSuffix는 Azure Resource Manager에서 ArchiveStorageEndpointSuffix라고 합니다.
+* AutoUpdate 스위치가 Azure Resource Manager에 추가되어 확장 처리기를 사용할 수 있는 경우 최신 버전으로 자동으로 업데이트할 수 있습니다. 이 매개 변수를 사용하면 새 버전의 WMF가 릴리스될 때 VM이 다시 시작될 가능성이 있습니다. 
 
 ## <a name="azure-portal-functionality"></a>Azure 포털 기능
-클래식 VM으로 이동합니다. 설정 -> 일반에서 "확장"을 클릭합니다. 새 창을 만듭니다. "추가"를 클릭하고 PowerShell DSC를 선택합니다.
+VM으로 이동합니다. 설정 -> 일반에서 "확장"을 클릭합니다. 새 창을 만듭니다. "추가"를 클릭하고 PowerShell DSC를 선택합니다.
 
 포털에 입력해야 합니다.
 **구성 모듈 또는 스크립트**: 이 필드는 필수 필드입니다. .zip 파일 내의 모듈 폴더에서 루트 및 모든 종속 리소스 루트에 구성 스크립트를 포함하는 .ps1 파일 또는 .ps1 구성 스크립트를 포함하는 .zip 파일이 필요합니다. Azure PowerShell SDK에 포함된 `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` cmdlet으로 만들 수 있습니다. .zip 파일은 SAS 토큰에 의해 보호된 사용자 Blob 저장소에 업로드됩니다. 
@@ -109,7 +109,7 @@ configuration IISInstall
 ```
 
 다음 단계는 지정된 VM에서 IisInstall.ps1 스크립트를 배치하고 구성을 실행하며 상태를 다시 보고합니다.
-
+###<a name="classic-model"></a>클래식 모델
 ```powershell
 #Azure PowerShell cmdlets are required
 Import-Module Azure
@@ -121,13 +121,26 @@ $demoVM = Get-AzureVM DscDemo1
 Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
 
 #Set the VM to run the DSC configuration
-Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "demo.ps1.zip" -StorageContext $storageContext -ConfigurationName "runScript" -Verbose
+Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
 
 #Update the configuration of an Azure Virtual Machine
 $demoVM | Update-AzureVM -Verbose
 
 #check on status
 Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
+```
+###<a name="azure-resource-manager-model"></a>Azure Resource Manager 모델
+
+```powershell
+$resourceGroup = "dscVmDemo"
+$location = "westus"
+$vmName = "myVM"
+$storageName = "demostorage"
+#Publish the configuration script into user storage
+Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+#Set the VM to run the DSC configuration
+Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
+
 ```
 
 ## <a name="logging"></a>로깅
@@ -147,6 +160,6 @@ PowerShell DSC로 관리할 수 있는 추가 기능을 찾으려면 추가 DSC 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics에서 Service Fabric 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs"
+title: "Azure Service Fabric 응용 프로그램 및 마이크로 서비스 평가 | Microsoft Docs"
 description: "Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
+ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
 > [!div class="op_single_selector"]
 > * [리소스 관리자](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 이 문서에서는 Log Analytics에서 Service Fabric 솔루션을 사용하여 Service Fabric 노드가 수행되는 방식과 응용 프로그램 및 마이크로 서비스가 실행되는 방식에 대한 가시성을 확보하여 Service Fabric 클러스터 간의 문제를 파악 및 해결하는 방법에 대해 설명합니다.
 
@@ -43,8 +43,8 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 > [!NOTE]
 > OMS가 검색하는 이름과 일치하는 이름으로 저장소 테이블에 로그를 업로드하도록 Azure 진단 확장을 구성해야 합니다. 로그를 수집하는 방법에 대한 자세한 내용은 [Azure 진단을 사용하여 로그를 수집하는 방법](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md)을 참조하세요. 이 문서의 구성 설정 예에서는 필요한 저장소 테이블 이름을 보여줍니다. 클러스터에 진단이 설정되었고 로그를 저장소 계정에 업로드하는 중이면 다음 단계는 이러한 로그를 수집하도록 OMS를 구성하는 것입니다.
-> 
-> 
+>
+>
 
 **deploy.ps1**을 실행하여 구성 업데이트를 적용하려면 먼저 새 EventSources에 대해 항목을 추가하도록 **template.json** 파일의 **EtwEventSourceProviderConfiguration** 섹션을 업데이트해야 합니다. 업로드를 위한 테이블은 (ETWEventTable)과 같습니다. 지금은 OMS가 해당 테이블에서 응용 프로그램 ETW 이벤트만 읽을 수 있습니다. 그러나 사용자 지정 ETW 테이블에 대한 지원을 개발 중입니다.
 
@@ -369,8 +369,8 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 
 > [!NOTE]
 > 대시보드 맨 위에서 **Data based on last 7 days(최근 7일에 따른 데이터)**를 클릭하여 Service Fabric 솔루션에서 이러한 이벤트 범위를 변경할 수 있습니다. 최근 7일, 1일 또는 6시간 내에 생성된 경고를 보여 줄 수 있습니다. 또는 **사용자 지정**을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Service Fabric 및 OMS 구성 문제 해결
 OMS에서 이벤트 데이터를 볼 수 없어 OMS 구성을 확인해야 하는 경우에는 아래 스크립트를 사용합니다. Service Fabric 진단 구성을 읽고 데이터가 테이블에 기록되는지 확인하고 테이블에서 읽어 오도록 OMS가 구성되었는지 확인합니다.
@@ -542,7 +542,7 @@ function Check-ServiceFabricScaleSetDiagnostics {
         Write-Debug ("Found WADcfg")
         Write-Debug $scaleSetDiagnostics.WadCfg
         $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration 
+        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
@@ -639,7 +639,6 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

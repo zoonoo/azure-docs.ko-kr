@@ -7,27 +7,30 @@
 ## [소개 영상 보기](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # 시작
-## [배포 준비](site-recovery-best-practices.md)
+## [VMware VM을 Azure에 복제](site-recovery-vmware-to-azure.md)
+## [다중 테넌트 배포(CSP)에서 VMware VM을 Azure에 복제](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Hyper-V VM을 Azure에 복제(VMM 있음)](site-recovery-vmm-to-azure.md)
+## [Hyper-V VM을 Azure에 복제](site-recovery-hyper-v-site-to-azure.md)
+## [VMware VM 및 물리적 서버를 보조 사이트에 복제](site-recovery-vmware-to-vmware.md)
+## [Hyper-V VM을 보조 사이트에 복제(VMM 있음)](site-recovery-vmm-to-vmm.md)
 
 # 방법
 ## 계획
-### [용량 계획](site-recovery-capacity-planner.md)
-### [성능 및 규모 테스트 결과](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [배포 필수 조건](site-recovery-prereq.md)
 ### [네트워크 인프라 고려 사항](site-recovery-network-design.md)
-### [네트워크 매핑(VMM)](site-recovery-network-mapping.md)
-### [온-프레미스 사이트 간 저장소 매핑](site-recovery-storage-mapping.md)
-## 복제
-### [VMware VM 및 물리적 서버에서 Azure로](site-recovery-vmware-to-azure.md)
-### [VMware VM 및 물리적 서버에서 보조 사이트로](site-recovery-vmware-to-vmware.md)
-### [CSP 프로그램을 사용하여 다중 테넌트를 지원하는 VMware VM에서 Azure로](site-recovery-multi-tenant-support-vmware-using-csp.md)
-### [Hyper-V VM에서 Azure로(VMM 사용)](site-recovery-vmm-to-azure.md)
-### [Hyper-V VM에서 Azure로(VMM 없음)](site-recovery-hyper-v-site-to-azure.md)
-### [Hyper-V VM에서 보조 사이트로](site-recovery-vmm-to-vmm.md)
-### [SAN을 사용하여 Hyper-V VM에서 보조 사이트로](site-recovery-vmm-san.md)
-### [Hyper-V VM(단일 VMM 서버 있음)](site-recovery-single-vmm.md)
+### [Site Recovery Capacity Planner 사용](site-recovery-capacity-planner.md)
+### [용량을 계획하고 VMware 복제를 Azure에 확장](site-recovery-plan-capacity-vmware.md)
+## 구성
+### [소스 복제 환경 설정](site-recovery-set-up-vmware-to-azure.md)
+### [복제 설정 구성](site-recovery-setup-replication-settings-vmware.md)
+### [VMware 복제를 위해 모바일 서비스 배포](site-recovery-vmware-to-azure-install-mob-svc.md)
+#### [System Center Configuration Manager를 사용하여 모바일 서비스 배포](site-recovery-install-mobility-service-using-sccm.md)
+#### [ASR Automation DSC를 사용하여 모바일 서비스 배포](site-recovery-automate-mobility-service-install.md)
+### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
 ## 마이그레이션
+### [Azure로 마이그레이션](site-recovery-migrate-to-azure.md)
 ### [Azure 지역 간 마이그레이션](site-recovery-migrate-azure-to-azure.md)
-### [AWS Windows 인스턴스에서 Azure로](site-recovery-migrate-aws-to-azure.md)
+### [AWS Windows 인스턴스를 Azure로 마이그레이션](site-recovery-migrate-aws-to-azure.md)
 ## 워크로드
 ### [Active Directory 및 DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -38,14 +41,15 @@
 ### [SAP](site-recovery-workload.md#protect-sap)
 ### [기타 워크로드](site-recovery-workload.md#workload-summary)
 ## 복제 자동화
-### [Hyper-V VM(VMM 포함)](site-recovery-deploy-with-powershell.md)
-### [Hyper-V VM(VMM 없음)](site-recovery-deploy-with-powershell-resource-manager.md)
-### [복구 계획에 자동화 추가](site-recovery-runbook-automation.md)
-### [모바일 서비스 배포 자동화](site-recovery-automate-mobility-service-install.md)
-## 관리
-### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
+### [Azure에 Hyper-V 복제 자동화(VMM 없음)](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Azure에 Hyper-V 복제 자동화(VMM 있음)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [보조 사이트에 Hyper-V 복제 자동화(VMM 있음)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+## 장애 조치 및 장애 복구
+### [사이트 복구에서 장애 조치](site-recovery-failover.md)
 ### [복구 계획 설정](site-recovery-create-recovery-plans.md)
-### [Site Recovery의 장애 조치(failover)](site-recovery-failover.md)
+#### [Azure Runbook을 복구 계획에 추가](site-recovery-runbook-automation.md)
+### [VMware로부터 Azure에 테스트 장애 조치(failover) 실행](site-recovery-test-failover-to-azure.md)
+### [두 VMM 사이트 간 테스트 장애 조치(failover) 실행](site-recovery-test-failover-vmm-to-vmm.md)
 ### [VMware VM 및 물리적 서버 장애 복구(failback)](site-recovery-failback-azure-to-vmware.md)
 ## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
@@ -65,6 +69,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

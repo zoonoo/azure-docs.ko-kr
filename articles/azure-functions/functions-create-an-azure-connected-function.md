@@ -1,37 +1,34 @@
 ---
-title: "Azure 서비스를 바인딩하는 Azure Function 만들기 | Microsoft Docs"
-description: "다른 Azure 서비스와 상호 작용하는, 서버가 없는 응용 프로그램인 Azure Function을 작성합니다."
+title: "Azure 서비스에 연결하는 함수 만들기 | Microsoft Docs"
+description: "다른 Azure 서비스에 연결하는 서버가 없는 응용 프로그램을 만들려면 Azure Functions를 사용합니다."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
 manager: manager-alias
 editor: 
 tags: 
-keywords: "Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
 ms.assetid: ab86065d-6050-46c9-a336-1bfc1fa4b5a1
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Azure 서비스에 연결된 Azure Function 만들기
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>다른 Azure 서비스에 연결하는 함수를 만들려면 Azure Functions를 사용합니다.
 
-이 항목에서는 Azure Storage 큐의 메시지를 수신 대기하고 Azure Storage 테이블에 그 메시지를 복사하는 Azure Function을 만드는 방법에 대해 알아봅니다. 메시지를 큐에 로드하는 데 타이머 트리거 함수가 사용됩니다. 두 번째 함수는 큐에서 메시지를 읽어 와서 테이블에 씁니다. 바인딩 정의를 기반으로 Azure Functions가 사용자에 대한 큐와 테이블을 모두 생성합니다. 
+이 항목에서는 Azure Storage 큐의 메시지를 수신 대기하고 Azure Storage 테이블에 그 메시지를 복사하는 Azure Functions에서 함수 만드는 방법에 대해 알아봅니다. 메시지를 큐에 로드하는 데 타이머 트리거 함수가 사용됩니다. 두 번째 함수는 큐에서 메시지를 읽어 와서 테이블에 씁니다. 바인딩 정의를 기반으로 Azure Functions가 사용자에 대한 큐와 테이블을 모두 생성합니다. 
 
-좀더 흥미로운 학습을 위해 한 함수는 JavaScript로 다른 함수는 C# 스크립트로 작성합니다. 여기서는 함수 앱이 다양한 언어로 된 함수를 포함하는 방식을 보여 줍니다.
+좀더 흥미로운 학습을 위해 한 함수는 JavaScript로 다른 함수는 C# 스크립트로 작성합니다. 여기서는 함수 앱이 다양한 언어로 된 함수를 포함하는 방식을 보여 줍니다. 
 
-## <a name="watch-the-video"></a>비디오 보기
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+[채널 9의 비디오](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player)에서 설명된 이 시나리오를 볼 수 있습니다.
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>큐에 기록할 함수 만들기
 
@@ -186,9 +183,9 @@ ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
 Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 * [Azure Functions 개발자 참조](functions-reference.md)  
-   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
+  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
-   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
+  함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
 
@@ -197,6 +194,6 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

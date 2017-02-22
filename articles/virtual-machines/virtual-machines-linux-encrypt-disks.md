@@ -1,5 +1,5 @@
 ---
-title: "Linux VM에서 디스크 암호화 | Microsoft Docs"
+title: "Azure에서 Linux VM의 디스크 암호화 | Microsoft Docs"
 description: "Azure CLI 및 Resource Manager 배포 모델을 사용하여 Linux VM에서 디스크를 암호화하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
-ms.openlocfilehash: 15b3c7c910f5f55da31a8a7113b4d66714f1c908
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
 
 
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 디스크 암호화
-가상 컴퓨터(VM)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가장 디스크를 미사용 시 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서는 Azure CLI 및 Resource Manager 배포 모델을 사용하여 Linux VM에서 가상 디스크를 암호화하는 방법을 자세히 설명합니다.
+가상 컴퓨터(VM)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 미사용 시 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서는 Azure CLI 및 Resource Manager 배포 모델을 사용하여 Linux VM에서 가상 디스크를 암호화하는 방법을 자세히 설명합니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 VM에서 가상 디스크를 암호화하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#overview-of-disk-encryption) 문서 끝까지 참조하세요.
@@ -41,7 +41,7 @@ azure provider register Microsoft.KeyVault
 azure group create myResourceGroup --location WestUS
 ```
 
-Azure Key Vault를 만듭니다. 다음 예제에서는`myKeyVault`이라는 Key Vault를 만듭니다.
+Azure Key Vault를 만듭니다. 다음 예제에서는`myKeyVault`라는 Key Vault를 만듭니다.
 
 ```azurecli
 azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
@@ -57,7 +57,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
   --enabled-for-disk-encryption true
 ```
 
-Key Vault의 암호화 키를 교환하고 인증을 처리하기 위해 Azure Active Directory를 사용하여 끝점을 만듭니다. `--home-page` 및 `--identifier-uris`에는 실제 라우팅이 가능한 주소를 사용할 필요가 없습니다. 최고 수준의 보안을 위해 암호 대신 클라이언트 암호가 사용되어야 합니다. Azure CLI는 현재 클라이언트 암호를 생성할 수 없습니다. 클라이언트 암호는 Azure Portal에서만 생성될 수 있습니다. 다음 예제는 `myAADApp`라는 사용자 이름과 `myPassword`라는 암호로 Azure Active Directory 끝점을 만듭니다. 다음과 같이 사용자 고유의 암호를 지정합니다.
+Key Vault의 암호화 키를 교환하고 인증을 처리하기 위해 Azure Active Directory를 사용하여 끝점을 만듭니다. `--home-page` 및 `--identifier-uris`에는 실제 라우팅이 가능한 주소를 사용할 필요가 없습니다. 최고 수준의 보안을 위해 암호 대신 클라이언트 암호가 사용되어야 합니다. Azure CLI는 현재 클라이언트 암호를 생성할 수 없습니다. 클라이언트 암호는 Azure Portal에서만 생성될 수 있습니다. 다음 예제는 `myAADApp`이라는 Azure Active Directory 끝점을 만들고 `myPassword`라는 암호를 사용합니다. 다음과 같이 사용자 고유의 암호를 지정합니다.
 
 ```azurecli
 azure ad app create --name myAADApp \
@@ -91,7 +91,7 @@ azure keyvault key show myKeyVault myKey
 사용자 고유의 매개 변수 이름을 입력하여 다음과 같이 디스크를 암호화합니다.
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -103,7 +103,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 Azure CLI는 암호화 프로세스 중에 자세한 오류를 제공하지 않습니다. 추가적인 문제 해결 정보는 `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`를 참조하세요. 이전 명령에 변수가 많기 때문에 프로세스가 실패한 이유에 대한 정보가 확실치 않을 수 있습니다. 전체 명령 예제는 다음과 같습니다.
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -120,7 +120,7 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 ```
 
 ## <a name="overview-of-disk-encryption"></a>디스크 암호화 개요
-Linux VM의 가상 디스크는 미사용 시 [dm-crypt](https://wikipedia.org/wiki/Dm-crypt)를 사용하여 암호화됩니다. Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감시할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. Azure Active Directory 끝점은 VM이 켜지고 꺼지는 경우 이러한 암호화 키 발급을 위한 보안 메커니즘을 제공합니다.
+Linux VM의 가상 디스크는 미사용 시 [dm-crypt](https://wikipedia.org/wiki/Dm-crypt)를 사용하여 암호화됩니다. Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. Azure Active Directory 끝점은 VM이 켜지고 꺼지는 경우 이러한 암호화 키 발급을 위한 보안 메커니즘을 제공합니다.
 
 VM을 암호화하는 프로세스는 다음과 같습니다.
 
@@ -142,7 +142,7 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
   * 응용 프로그램은 적절한 암호화 키를 요청하고 발급받기 위한 Virtual Machines 서비스 및 Key Vault의 끝점에 더 가깝습니다. Azure Active Directory와 통합되는 실제 응용 프로그램을 개발하지는 않습니다.
 
 ## <a name="requirements-and-limitations"></a>요구 사항 및 제한 사항
-디스크 암호화를 위해 지원되는 시나리오 및 요구 사항:
+디스크 암호화에 대해 지원되는 시나리오 및 요구 사항은 다음과 같습니다.
 
 * 다음 Linux Server SKU - Ubuntu, CentOS, SUSE 및 SLES(SUSE Linux Enterprise Server)와 Red Hat Enterprise Linux.
 * 모든 리소스(예: Key Vault, 저장소 계정, VM)는 동일한 Azure 지역 및 구독 내에 있어야 합니다.
@@ -250,7 +250,7 @@ azure keyvault key show myKeyVault myKey
 다음과 같이 `azure keyvault show` 및 `azure keyvault key show` 명령의 출력을 사용하여 가상 디스크를 암호화합니다.
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -262,7 +262,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 앞의 명령에 변수가 많으므로 다음 예제에서 전체 명령을 참조할 수 있습니다.
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -294,7 +294,7 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 명령을 다시 실행하여 가상 디스크를 암호화 하고, 이번에는 `--sequence-version` 매개 변수를 추가하여, 다음과 같이 첫 번째 실행의 값을 증가시킵니다.
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -312,6 +312,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

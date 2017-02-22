@@ -1,6 +1,6 @@
 ---
-title: "개발자 분석을 사용하여 모바일 웹앱에 대 한 성능 모니터링 | Microsoft Docs"
-description: "모바일 앱 개발자를 위한 응용 프로그램 성능 및 사용 현황 모니터링입니다. HockeyApp 및 Application Insights를 사용하여 데스크톱, 웹 서비스 및 백 엔드 앱을 모니터링합니다."
+title: "Mobile Apps 성능 모니터링 - Azure Application Insights | Microsoft Docs"
+description: "모바일 앱 개발자를 위한 응용 프로그램 성능 및 사용 현황 모니터링입니다. HockeyApp 및 Application Insights를 사용한 DevOps"
 author: alancameronwills
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: c4077aa88a401a1c75c0d3fbcd58186f7cb137c2
 
 
 ---
@@ -64,6 +64,6 @@ Windows 데스크톱 앱에는 HockeyApp을 사용하는 것이 좋습니다. �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

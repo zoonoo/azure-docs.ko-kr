@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub를 사용하여 클라우드-장치 메시지 보내기 | Microsoft Docs"
-description: "이 자습서에 따라 Java에서 Azure IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법을 알아봅니다."
+title: "Azure IoT Hub(노드)를 사용한 클라우드-장치 메시지 | Microsoft Docs"
+description: "Node.js용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 수신하도록 시뮬레이션된 장치 앱을 수정하고 클라우드-장치 메시지를 보내도록 백 엔드 앱을 수정합니다."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,26 +15,26 @@ ms.workload: na
 ms.date: 09/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: fdd0a695675aae56d87bb62a3299bbadf1b1676f
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 05ccc7f419a420cb80f9fd71d5c59912468eb8f8
 
 
 ---
-# <a name="tutorial-how-to-send-cloud-to-device-messages-with-iot-hub-and-nodejs"></a>자습서: IoT Hub 및 Node.js를 사용하여 클라우드-장치 메시지를 보내는 방법
+# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>IoT Hub(노드)를 사용하여 클라우드-장치 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만의 장치와 응용 프로그램 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 볼 수 있습니다.
+Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
 
 이 자습서는 [IoT Hub 시작하기]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
 
-* 응용 프로그램 클라우드 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지 단일 장치로 보냅니다.
+* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
 * 장치에서 클라우드-장치 메시지를 받습니다.
-* 응용 프로그램 클라우드 백 엔드에서 IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서, IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
 
-클라우드-장치 메시지에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]에서 찾아볼 수 있습니다.
+클라우드-장치 메시지에 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]에서 찾아볼 수 있습니다.
 
-이 자습서의 끝 부분에서는 다음 두 개의 Node.js 콘솔 응용 프로그램을 실행합니다.
+이 자습서의 끝 부분에서는 다음 두 개의 Node.js 콘솔 앱을 실행합니다.
 
 * **SimulatedDevice**, [IoT Hub 시작하기]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
 * **SendCloudToDeviceMessage**, IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
@@ -78,12 +78,12 @@ Azure IoT Hub는 수백만의 장치와 응용 프로그램 백 엔드 간에 �
     ```
    
    > [!NOTE]
-   > 전송으로 MQTT 또는 AMQP 대신 HTTP을 사용하는 경우 **DeviceClient** 인스턴스는 IoT Hub의 메시지를 자주(25분 미만 간격으로) 확인합니다. MQTT, AMQP 및 HTTP 지원 간의 차이점 및 IoT Hub 제한에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+   > 전송으로 MQTT 또는 AMQP 대신 HTTP을 사용하는 경우 **DeviceClient** 인스턴스는 IoT Hub의 메시지를 자주(25분 미만 간격으로) 확인합니다. MQTT, AMQP 및 HTTP 지원과 IoT Hub 제한 간의 차이점에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]를 참조하세요.
    > 
    > 
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [IoT Hub 시작하기] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 IoT Hub에 대한 연결 문자열도 필요합니다.
+이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [IoT Hub 시작하기] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
 
 1. **sendcloudtodevicemessage**라는 빈 폴더를 만듭니다. **sendcloudtodevicemessage** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
@@ -104,7 +104,7 @@ Azure IoT Hub는 수백만의 장치와 응용 프로그램 백 엔드 간에 �
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
-5. **SendCloudToDeviceMessage.js** 파일에 다음 코드를 추가합니다. 연결 문자열 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 만든 IoT Hub의 연결 문자열로 대체합니다. 대상 장치 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 추가한 장치의 장치 ID로 교체합니다.
+5. **SendCloudToDeviceMessage.js** 파일에 다음 코드를 추가합니다. IoT Hub 연결 문자열 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 만든 IoT Hub 연결 문자열로 대체합니다. 대상 장치 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 추가한 장치의 장치 ID로 교체합니다.
    
     ```
     var connectionString = '{iot hub connection string}';
@@ -188,7 +188,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 <!-- Links -->
 
 [IoT Hub 시작하기]: iot-hub-node-node-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -199,6 +199,6 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

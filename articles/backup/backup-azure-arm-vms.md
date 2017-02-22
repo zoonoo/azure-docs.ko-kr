@@ -1,10 +1,10 @@
 ---
 title: "복구 서비스 자격 증명 모음에 Azure VM 백업 | Microsoft Docs"
-description: "Azure 가상 컴퓨터 백업에 대한 절차를 사용하여 Azure 가상 컴퓨터를 복구 서비스 자격 증명 모음으로 검색, 등록 및 백업합니다."
+description: "Azure 가상 컴퓨터를 검색하고, 등록하고, Recovery Services 자격 증명 모음에 백업합니다."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "가상 컴퓨터 백업; 가상 컴퓨터 백업; 백업 및 재해 복구; ARM VM 백업"
 ms.assetid: 5c68481d-7be3-4e68-b87c-0961c267053e
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 1/30/2017
+ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: ac8df40db8ddcc84a0a6221dddd0f17fecbe6586
-ms.openlocfilehash: e80d4fdb6f189bf46096422602508b0827f41a67
+ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
+ms.openlocfilehash: 28a5014f7ee73b30f879d249811e7fc303b13ac6
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: e80d4fdb6f189bf46096422602508b0827f41a67
 >
 >
 
-이 문서는 Azure VM(Resource Manager 배포 VM과 클래식 배포 VM 모두)을 복구 서비스 자격 증명 모음에 백업하는 절차를 제공합니다. VM을 백업하기 위한 작업은 대부분 준비 작업입니다. VM을 백업하거나 보호할 수 있으려면, VM을 보호하도록 환경을 준비하기 위한 [필수 구성 요소](backup-azure-arm-vms-prepare.md) 를 완료해야 합니다. 필수 구성 요소를 완비하고 나면, VM의 스냅숏을 만드는 백업 작업을 시작할 수 있습니다.
+이 문서에서는 Azure VM(Resource Manager 배포 및 클래식 배포 모두)을 Recovery Services 자격 증명 모음에 백업하는 방법에 대해 자세히 설명합니다. VM을 백업하기 위한 작업은 대부분 준비 작업입니다. VM을 백업하거나 보호할 수 있으려면, VM을 보호하도록 환경을 준비하기 위한 [필수 구성 요소](backup-azure-arm-vms-prepare.md) 를 완료해야 합니다. 필수 구성 요소를 완비하고 나면, VM의 스냅숏을 만드는 백업 작업을 시작할 수 있습니다.
 
 
 [!INCLUDE [learn about backup deployment models](../../includes/backup-deployment-models.md)]
@@ -82,6 +82,6 @@ VM을 보호했으므로 다음 문서를 확인하여 VM 관리 작업과 VM �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

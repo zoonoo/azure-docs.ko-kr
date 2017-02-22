@@ -1,6 +1,6 @@
 ---
-title: "ACS 앱에 공용 액세스를 사용하도록 설정 | Microsoft Docs"
-description: "Azure Container Service에 공용 액세스를 사용하도록 설정하는 방법입니다."
+title: "Azure DC/OS 컨테이너 앱에 대한 액세스 허용 | Microsoft Docs"
+description: "Azure Container Service에서 DC/OS 컨테이너에 대해 공용 액세스를 사용하도록 설정하는 방법입니다."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: b432755bdae235228a9b677783a8cad94142b6ca
 
 
 ---
@@ -91,6 +91,6 @@ ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

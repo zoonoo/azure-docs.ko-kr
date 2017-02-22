@@ -16,6 +16,10 @@
 ### [자동 크기 조정 기능이 포함된 Linux 크기 집합](virtual-machine-scale-sets-linux-autoscale.md)
 ### [자동 크기 조정 기능이 포함된 Windows 크기 집합](virtual-machine-scale-sets-windows-autoscale.md)
 ### [크기 집합의 응용 프로그램](virtual-machine-scale-sets-deploy-app.md)
+### [크기 집합으로 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)
+### [큰 크기 집합으로 작업](virtual-machine-scale-sets-placement-groups.md)
+### [크기 집합 템플릿을 변환하여 관리 디스크 사용](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 ## 관리
 ### [PowerShell을 사용한 Windows 크기 집합](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +28,7 @@
 ### [크기 집합을 위한 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [DSC 및 크기 집합 사용](virtual-machine-scale-sets-dsc.md)
+### [템플릿을 관리 디스크로 변환](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## 문제 해결
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
@@ -40,6 +45,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

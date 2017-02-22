@@ -1,5 +1,5 @@
 ---
-title: "VM에 태그를 지정하는 방법 | Microsoft Docs"
+title: "Azure에서 Windows VM 리소스에 태그 지정 | Microsoft Docs"
 description: "리소스 관리자 배포 모델을 사용하여 Azure에서 만든 Windows 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 97efb86f31f75d2214e4169d88b792ab189354ed
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: 57b88baeeb5c27cfdf142c77aef37b66bb6640d6
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 97efb86f31f75d2214e4169d88b792ab189354ed
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>PowerShell을 사용한 태그 지정
-PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azure Resource Manager를 사용하여 PowerShell 환경][Azure Resource Manager를 사용하여 PowerShell 환경]을 설정해야 합니다. 설정을 완료한 후 계산, 네트워크 및 저장소 리소스를 만들 때 또는 PowerShell을 통해 리소스를 만든 후에 태그를 배치할 수 있습니다. 이 문서에서는 가상 컴퓨터에 배치된 태그 보기/편집을 중점적으로 살펴봅니다.
+PowerShell을 통해 태그를 만들고 추가 및 삭제하려면 먼저 [Azure Resource Manager를 사용하여 PowerShell 환경][PowerShell environment with Azure Resource Manager]을 설정해야 합니다. 설정을 완료한 후 계산, 네트워크 및 저장소 리소스를 만들 때 또는 PowerShell을 통해 리소스를 만든 후에 태그를 배치할 수 있습니다. 이 문서에서는 가상 컴퓨터에 배치된 태그 보기/편집을 중점적으로 살펴봅니다.
 
 먼저 `Get-AzureRmVM` cmdlet을 통해 가상 컴퓨터로 이동합니다.
 
@@ -63,7 +63,7 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
         Value        Production
         Name        Environment
 
-세 번째 명령은 *$tags* 변수에 태그를 더 추가합니다.  **+=** 을 사용하여 *$tags* 목록에 새로운 키/값 쌍을 추가합니다.
+세 번째 명령은 *$tags* 변수에 태그를 더 추가합니다. **+=** 을 사용하여 *$tags* 목록에 새로운 키/값 쌍을 추가합니다.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
@@ -88,23 +88,23 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
         Value        MyLocation
         Name        Location
 
-PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][Azure 리소스 Cmdlet]을 참조하세요.
+PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][Azure Resource Cmdlets]을 참조하세요.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요][Azure Resource Manager 개요] 및 [태그를 사용하여 Azure 리소스 구성][태그를 사용하여 Azure 리소스 구성]을 참조하세요.
-* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Azure 청구서 이해] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Microsoft Azure 리소스 소비에 대한 통찰력 얻기]를 참조하세요.
+* Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요][Azure Resource Manager Overview] 및 [태그를 사용하여 Azure 리소스 구성][Using Tags to organize your Azure Resources]을 참조하세요.
+* 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해][Understanding your Azure Bill] 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기][Gain insights into your Microsoft Azure resource consumption]를 참조하세요.
 
-[Azure Resource Manager를 사용하여 PowerShell 환경]: ../powershell-azure-resource-manager.md
-[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/library/azure/dn757692.aspx
-[Azure Resource Manager 개요]: ../azure-resource-manager/resource-group-overview.md
-[태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
-[Azure 청구서 이해]: ../billing/billing-understand-your-bill.md
-[Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
+[PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

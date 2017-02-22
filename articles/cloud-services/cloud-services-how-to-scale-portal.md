@@ -1,5 +1,5 @@
 ---
-title: "포털에서 클라우드 서비스의 크기를 자동으로 조정하는 방법 | Microsoft Docs"
+title: "포털(클래식 포털)에서 클라우드 서비스 크기 자동 조정 | Microsoft Docs"
 description: "포털을 사용하여 Azure에서 클라우드 서비스 웹 역할 또는 작업자 역할에 대한 자동 크기 조정 규칙을 구성하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 087346d82c78bb315d8c35cfdcb2258e44b02205
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 087346d82c78bb315d8c35cfdcb2258e44b02205
 ## <a name="considerations"></a>고려 사항
 응용 프로그램의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
 
-* 크기 조정은 코어 사용량의 영향을 받습니다. 역할 인스턴스가 클수록 더 많은 코어를 사용합니다. 응용 프로그램의 크기는 구독에 대한 코어 제한 내에서만 조정할 수 있습니다. 예를 들어 구독의 코어 제한이 20이고 중간 크기의 클라우드 서비스 두 대에서 응용 프로그램을 실행할 경우(총 코어 수 4개), 구독에 있는 다른 클라우드 서비스 배포를 16코어까지만 확장할 수 있습니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](cloud-services-sizes-specs.md) 를 참조하세요.
+* 크기 조정은 코어 사용량의 영향을 받습니다. 역할 인스턴스가 클수록 더 많은 코어를 사용합니다. 응용 프로그램의 크기는 구독에 대한 코어 제한 내에서만 조정할 수 있습니다. 예를 들어 구독의 코어 제한이&20;이고 중간 크기의 클라우드 서비스 두 대에서 응용 프로그램을 실행할 경우(총 코어 수&4;개), 구독에 있는 다른 클라우드 서비스 배포를&16;코어까지만 확장할 수 있습니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](cloud-services-sizes-specs.md) 를 참조하세요.
 * 큐 메시지 임계값에 따라 크기를 조정할 수 있습니다. 큐 사용 방법에 대한 자세한 내용은 [큐 저장소 서비스를 사용하는 방법](../storage/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 * 구독에 연결된 다른 리소스의 크기도 조정할 수 있습니다.
 * 응용 프로그램의 가용성을 높이려면 응용 프로그램이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
@@ -114,6 +114,6 @@ ms.openlocfilehash: 087346d82c78bb315d8c35cfdcb2258e44b02205
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

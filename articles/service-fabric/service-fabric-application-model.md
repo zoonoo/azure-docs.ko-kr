@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 1/05/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b27f818d5f91fe1272017cf6b7e859bc1673fe92
+ms.sourcegitcommit: 62374d57829067b27bb5876e6bbd9f869cff9187
+ms.openlocfilehash: 4991992f15b941ab9250705e20ff5f37defc30d0
 
 
 ---
@@ -70,6 +70,10 @@ ms.openlocfilehash: b27f818d5f91fe1272017cf6b7e859bc1673fe92
         <Program>MyServiceHost.exe</Program>
       </ExeHost>
     </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
   </CodePackage>
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
@@ -81,6 +85,8 @@ ms.openlocfilehash: b27f818d5f91fe1272017cf6b7e859bc1673fe92
 **ServiceTypes**는 이 매니페스트의 **CodePackages**에서 지원하는 서비스 유형을 선언합니다. 이러한 서비스 유형 중 하나에 대해 서비스가 인스턴스화되면 코드 패키지의 진입점을 실행하여 이 매니페스트에 선언된 모든 코드 패키지가 활성화됩니다. 결과 프로세스는 런타임에 지원되는 서비스 유형을 등록합니다. 서비스 유형은 코드 패키지 수준이 아니라 매니페스트 수준에서 선언됩니다. 따라서 코드 패키지가 여러 개인 경우 시스템에서 선언된 서비스 유형 중 어떤 하나를 조회하면 모든 코드 패키지가 활성화됩니다.
 
 **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다. **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).
+
+**EnvironmentVariables**는 이 코드 패키지에 대해 설정된 환경 변수 목록을 제공합니다. `ApplicationManifest.xml`에서 이를 재정의하여 다른 서비스 인스턴스의 다른 값을 제공할 수 있습니다. 
 
 **DataPackage**는 **Name** 특성을 통해 이름이 지정되고 런타임에 프로세스에서 사용할 임의의 정적 데이터를 포함하는 폴더를 선언합니다.
 
@@ -125,6 +131,8 @@ For more information about other features supported by service manifests, refer 
   <Description>An example application manifest</Description>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
+    <ConfigOverrides/>
+    <EnvironmentOverrides CodePackageRef="MyCode"/>
   </ServiceManifestImport>
   <DefaultServices>
      <Service Name="MyService">
@@ -138,7 +146,8 @@ For more information about other features supported by service manifests, refer 
 
 서비스 매니페스트와 마찬가지로 **Version** 특성은 구조화되지 않은 문자열이며 시스템에서 구문을 분석하지 않습니다. 또한 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
-**ServiceManifestImport** 는 이 응용 프로그램 유형을 구성하는 서비스 매니페스트에 대한 참조를 포함합니다. 가져온 서비스 매니페스트는 이 응용 프로그램 유형 내에서 유효한 있는 서비스 유형을 결정합니다.
+**ServiceManifestImport** 는 이 응용 프로그램 유형을 구성하는 서비스 매니페스트에 대한 참조를 포함합니다. 가져온 서비스 매니페스트는 이 응용 프로그램 유형 내에서 유효한 있는 서비스 유형을 결정합니다. ServiceManifestImport 내에서 Settings.xml의 구성 값과 ServiceManifest.xml 파일의 환경 변수를 재정의할 수 있습니다. 
+
 
 **DefaultServices** 는 이 응용 프로그램 유형에 대해 응용 프로그램이 인스턴스화할 때마다 자동으로 생성되는 서비스 인스턴스를 선언합니다. 기본 서비스는 편리하기는 하지만 생성된 후 모든 면에서 일반 서비스처럼 동작합니다. 응용 프로그램 인스턴스의 다른 서비스와 함께 업그레이드되며 제거할 수도 있습니다.
 
@@ -188,6 +197,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
+**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.  
+
+### <a name="configure"></a>구성 
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
 Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패키지 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
 
@@ -196,6 +208,13 @@ Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패�
 ![Visual Studio를 통해 응용 프로그램 패키징][vs-package-command]
 
 패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾습니다. Visual Studio에서 응용 프로그램을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
+
+### <a name="build-a-package-by-command-line"></a>명령줄로 패키지 빌드
+`msbuild.exe`를 사용하여 응용 프로그램을 프로그래밍 방식으로 패키징할 수도 있습니다. 내부적으로 보면 Visual Studio가 실행하고 있으므로 출력은 동일합니다.
+
+```shell
+D:\Temp> msbuild HelloWorld.sfproj /t:Package
+```
 
 ### <a name="test-the-package"></a>패키지 테스트
 **Test-ServiceFabricApplicationPackage** 명령을 사용하여 PowerShell을 통해 로컬에서 패키지 구조를 확인할 수 있습니다. 이 명령은 매니페스트 구문 해석 문제를 확인하고 모든 참조의 유효성을 검사합니다. 이 명령은 패키지에 포함된 디렉터리와 파일의 구조적인 정확성만을 검사합니다. 필요한 파일이 모두 있는 지만 확인하고 그 이상은 코드 또는 데이터 패키지 콘텐츠를 검사하지 않습니다.
@@ -236,11 +255,11 @@ PS D:\temp>
 응용 프로그램이 올바르게 패키징되고 확인 절차를 통과하면 배포 준비가 완료된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 배포 및 제거][10]
+[응용 프로그램 배포 및 제거][10]에서는 PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.
 
-[여러 환경에 대한 응용 프로그램 매개 변수 관리][11]
+[여러 환경에 대한 응용 프로그램 매개 변수 관리][11]에서는 여러 응용 프로그램 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
 
-[RunAs: 다른 보안 권한으로 Service Fabric 응용 프로그램 실행][12]
+[응용 프로그램에 대한 보안 정책 구성][12]에서는 액세스를 제한하는 보안 정책에 따라 서비스를 실행하는 방법을 설명합니다.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
@@ -255,6 +274,6 @@ PS D:\temp>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
 
 
 ---
@@ -27,14 +27,17 @@ ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
 이 문서에서는 SSH(Secure Shell)를 사용하여 Azure HDInsight 클러스터의 Hadoop에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다.
 
 > [!IMPORTANT]
-> Hive 명령을 Linux 기반 HDInsight 클러스터에서 사용할 수 있지만 Beeline을 사용하는 것이 좋습니다. Beeline은 하이브를 사용하기 위한 최신 클라이언트이고 HDInsight 클러스터에 포함됩니다. 사용에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
-> 
-> 
+> Hive 명령을 HDInsight 클러스터에서 사용할 수 있지만 Beeline을 사용하는 것이 좋습니다. Beeline은 하이브를 사용하기 위한 최신 클라이언트이고 HDInsight 클러스터에 포함됩니다. 사용에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
@@ -73,7 +76,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
    * **CREATE EXTERNAL TABLE** - Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
    * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
    * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
-   * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
+   * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이&3;개 있으므로 **3** 값이 반환되어야 합니다.
    * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
      
      > [!NOTE]
@@ -97,7 +100,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
      
        SELECT * from errorLogs;
      
-     데이터 중 t4 열에 모두 **[ERROR]** 가 포함된 3개 행이 반환되어야 합니다.
+     데이터 중 t4 열에 모두 **[ERROR]** 가 포함된&3;개 행이 반환되어야 합니다.
      
      > [!NOTE]
      > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
@@ -154,6 +157,6 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

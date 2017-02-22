@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN에서 에지 성능 분석 | Microsoft Docs"
+title: "Azure CDN에서 에지 노드 성능 분석 | Microsoft Docs"
 description: "Microsoft Azure CDN에서 에지 노드 성능을 분석합니다. 에지 성능 분석은 CDN에 대한 세분화된 정보 트래픽과 대역폭 사용을 제공합니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61fe3f9419b5a6b15beb27d7b3f0782b404cd076
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
 
 
 ---
@@ -59,7 +59,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
     에지 노드 분석 대시보드가 표시됩니다.
 
 ### <a name="chart"></a>차트
-대시보드에는 대시보드 바로 아래 나타나는 타임라인에서 선택한 기간 동안 메트릭을 추적하는 차트가 포함되어 있습니다.  최근 2년 동안까지의 CDN 활동을 그래프로 표시한 타임라인이 차트 바로 아래 표시됩니다.
+대시보드에는 대시보드 바로 아래 나타나는 타임라인에서 선택한 기간 동안 메트릭을 추적하는 차트가 포함되어 있습니다.  최근&2;년 동안까지의 CDN 활동을 그래프로 표시한 타임라인이 차트 바로 아래 표시됩니다.
 
 #### <a name="using-the-chart"></a>차트 사용
 * 기본적으로 최근 30일 동안의 캐시 효율성 비율이 차트로 작성됩니다.
@@ -71,7 +71,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 #### <a name="updating-the-chart"></a>차트 업데이트
 * 시간 범위: 다음 중 하나를 수행합니다.
   * 타임라인에서 원하는 지역을 선택합니다. 차트가 선택한 기간에 해당하는 데이터로 업데이트됩니다.
-  * 차트를 두 번 클릭하면 제공되는 모든 기록 데이터가 최대 2년까지 표시됩니다.
+  * 차트를 두 번 클릭하면 제공되는 모든 기록 데이터가 최대&2;년까지 표시됩니다.
 * 메트릭: 원하는 메트릭 옆에 표시되는 차트 아이콘을 클릭합니다. 차트 및 타임라인이 해당 메트릭에 대한 데이터로 새로 고쳐집니다.
 
 ### <a name="key-metrics-and-statistics"></a>주요 메트릭 및 통계
@@ -191,6 +191,6 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

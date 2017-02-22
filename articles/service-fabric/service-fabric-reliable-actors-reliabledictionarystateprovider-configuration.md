@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric Reliable Actors ReliableDictionaryActorStateProvider 구성의 개요 | Microsoft Docs"
+title: "Azure 마이크로 서비스에서 ReliableDictionaryActorStateProvider 설정 변경 | Microsoft Docs"
 description: "&quot;ReliableDictionaryActorStateProvider&quot; 형식의 Azure 서비스 패브릭 상태 저장 행위자 구성에 대해 알아봅니다."
 services: Service-Fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2016
+ms.date: 02/8/2017
 ms.author: sumukhs
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59c8a1a09580161593639d01cc8a3d8d8ef0f6f4
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
 
 
 ---
@@ -128,6 +128,6 @@ SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

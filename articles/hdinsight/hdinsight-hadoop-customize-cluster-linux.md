@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: a7febd4af48a28daace9f267c8ddd1440cbedabf
+ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
+ms.openlocfilehash: 49bec6125bcd76c3bb52f1237b0f0e0ceff85ffb
 
 
 ---
@@ -25,8 +25,10 @@ ms.openlocfilehash: a7febd4af48a28daace9f267c8ddd1440cbedabf
 
 HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립트를 호출하는 **스크립트 작업** 이라는 구성 옵션을 제공합니다. 이러한 스크립트는 클러스터를 만들 때 또는 이미 실행 중인 클러스터에 사용할 수 있으며, 추가 구성 요소를 설치하거나 구성 설정을 변경하는 데 사용됩니다.
 
-> [!NOTE]
-> 이미 실행 중인 클러스터에 스크립트 작업을 사용하는 기능은 Linux 기반 HDInsight 클러스터에만 제공됩니다. Windows 기반 클러스터에 스크립트 작업을 사용하는 방법은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Windows)](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
+> [!IMPORTANT]
+> 이미 실행 중인 클러스터에 스크립트 작업을 사용하는 기능은 Linux 기반 HDInsight 클러스터에만 제공됩니다.
+>
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 
 스크립트 작업을 Azure 마켓플레이스에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure 마켓플레이스에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
@@ -96,8 +98,6 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 * 클러스터 노드에서 **루트 수준 권한**으로 실행됩니다.
 * **Azure Portal**, **Azure PowerShell**, **Azure CLI** 또는 **HDInsight .NET SDK**를 통해 사용할 수 있습니다.
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
-
 클러스터에 어떤 스크립트가 적용되었는지 이해하고 승격 또는 강등할 스크립트 ID를 확인하는 데 도움을 주기 위해, 지금까지 실행된 모든 스크립트 기록이 클러스터에 보관됩니다.
 
 > [!IMPORTANT]
@@ -138,7 +138,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 >
 > 스크립트 작업은 루트 권한으로 실행되므로 클러스터에 스크립트 작업을 적용하기 전에 스크립트가 어떤 일을 하는지 정확하게 이해해야 합니다.
 
-클러스터에 스크립트를 적용하면 클러스터 상태가 **실행 중**에서 **수락됨**으로 바뀌었다가 다시 **HDInsight 구성**으로 바뀝니다. 그리고 스크립트가 성공하면 다시 **실행 중**으로 바뀝니다. 스크립트 상태는 스크립트 작업 내역에 기록되며, 이 내역을 사용하여 스크립트가 성공했는지 아니면 실패했는지 확인할 수 있습니다. 예를 들어 `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet을 사용하여 스크립트 상태를 볼 수 있습니다. 이 명령은 다음과 유사한 정보를 반환합니다.
+클러스터에 스크립트를 적용하면 클러스터 상태가 **실행 중**에서 **수락됨**으로 바뀌었다가 다시 **HDInsight 구성**으로 바뀝니다. 그리고 스크립트가 성공하면 다시 **실행 중**으로 바뀝니다. 스크립트 상태는 스크립트 작업 내역에 기록되며, 이 내역을 사용하여 스크립트가 성공했는지 아니면 실패했는지 확인할 수 있습니다. 예를 들어 `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet을 사용하여 스크립트 상태를 볼 수 있습니다. 이 명령은 다음과 비슷한 정보를 반환합니다.
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 2/23/2016 7:40:55 PM
@@ -418,7 +418,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
         $containerName = $clusterName
         $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the storage account.
         $clusterNodes = <ClusterSizeInNumbers>            # The number of nodes in the HDInsight cluster.
-        $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster will be created in
+        $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster is created in
 
 2. 구성 값(예: 클러스터의 노드) 및 사용할 기본 저장소를 지정합니다.
 
@@ -628,7 +628,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
     # Promote this to a persisted script
     # Note: the script must have a unique name to be promoted
-    # if the name is not unique, you will receive an error
+    # if the name is not unique, you receive an error
     Set-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -ScriptExecutionId 635920937765978529
 
     # Demote the script back to ad hoc
@@ -667,7 +667,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 * **사용자 지정 구성 요소** - 클러스터의 사용자로서 사용자는 커뮤니티에서 사용 가능한 모든 구성 요소 또는 사용자가 만든 구성 요소를 작업에 설치하거나 사용할 수 있습니다.
 
 > [!WARNING]
-> HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+> HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원되며 Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.
 >
 > 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/)).
 
@@ -719,7 +719,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
-* 같은 이름으로 반복해서 스크립트 작업 클러스터를 만들 수 있습니다. 이 경우에는 날짜 폴더 이름을 기준으로 관련 로그를 구분할 수 있습니다. 예를 들어, 서로 다른 날짜에 만든 클러스터(mycluster)의 폴더 구조는 다음과 같습니다.
+* 같은 이름으로 반복해서 스크립트 작업 클러스터를 만들 수 있습니다. 이 경우에는 날짜 폴더 이름을 기준으로 관련 로그를 구분할 수 있습니다. 예를 들어 서로 다른 날짜에 만든 클러스터(mycluster)의 폴더 구조는 다음과 같습니다.
 
     * `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04`
 
@@ -735,6 +735,31 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
 > [!WARNING]
 > Linux 기반 HDInsight 클러스터에서 Ambari Watchdog(hdinsightwatchdog)의 암호를 변경하지 마세요. 이 계정의 암호를 변경하면 HDInsight 클러스터에서 새 스크립트 동작을 실행할 수 없게 됩니다.
+
+### <a name="cannot-import-name-blobservice"></a>이름 BlobService를 가져올 수 없음
+
+__증상__: 스크립트 작업이 실패하면 Ambari에서 작업을 볼 때 다음과 유사한 오류가 표시됩니다.
+
+```
+Traceback (most recent call list):
+  File "/var/lib/ambari-agent/cache/custom_actions/scripts/run_customscriptaction.py", line 21, in <module>
+    from azure.storage.blob import BlobService
+ImportError: cannot import name BlobService
+```
+
+__원인__: 이 오류는 HDInsight 클러스터에 포함된 Python Azure Storage 클러스터를 업그레이드할 경우에 발생합니다. HDInsight는 Azure Storage 클라이언트 0.20.0을 예상합니다.
+
+__해결 방법__: 이 오류를 해결하려면 `ssh`를 사용하여 각 클러스터 노드에 수동으로 연결하고 다음 명령을 사용하여 올바른 스토리지 클라이언트 버전을 다시 설치합니다.
+
+```
+sudo pip install azure-storage==0.20.0
+```
+
+SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+* [Linux, Unix, OS X 또는 Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>클러스터를 만드는 동안 기록에 스크립트가 표시되지 않음
 
@@ -761,6 +786,6 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: bcb91660500484210c342a84595386ebb5e0bbbd
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -43,7 +43,7 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
 작동 방식은 다음과 같습니다. Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 [크로스-원본 자원 공유 (CORS)](http://www.w3.org/TR/cors/)을 호출하는 최신 방법을 사용하여 정책에서 지정한 URL에서 콘텐츠를 로드합니다. 다른 페이지에 다른 URL을 지정할 수 있습니다. 코드는 Azure AD B2C의 UI 요소를 해당 URL에서 로드된 콘텐츠에 병합하고 소비자에게 페이지를 표시합니다. 꼭 해야 할 일:
 
 1. `<body>` 어딘가에 있는 `<div id="api"></div>` 요소(빈 요소이어야 함)를 사용하여 잘 구성된(Well-Formed) HTML5 콘텐츠를 만듭니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 표시합니다.
-2. (허용된 CORS로)HTTPS 끝점의 콘텐츠를 호스트합니다.
+2. (허용된 CORS로)HTTPS 끝점의 콘텐츠를 호스트합니다. CORS를 구성할 때 GET 및 OPTIONS 요청 메서드를 둘 다 사용하도록 설정해야 합니다.
 3. Azure AD B2C가 삽입하는 UI 요소의 스타일을 만듭니다.
 
 ## <a name="test-out-the-ui-customization-feature"></a>UI 사용자 지정 기능 테스트하기
@@ -72,7 +72,7 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
 ```
 
 ## <a name="the-core-ui-elements-in-each-type-of-page"></a>페이지의 각 형식에서 코어 UI 요소
-다음 섹션에는 Azure AD B2C가 콘텐츠의 `<div id="api"></div>` 요소에 병합하는 HTML5 조각의 예가 있습니다. **HTML 5 콘텐츠에 이러한 조각을 삽입하지 마십시오.**  Azure AD B2C 서비스는 런타임에 삽입합니다. 이러한 예제를 사용하여 사용자 고유의 스타일 시트를 디자인합니다.
+다음 섹션에는 Azure AD B2C가 콘텐츠의 `<div id="api"></div>` 요소에 병합하는 HTML5 조각의 예가 있습니다. **HTML 5 콘텐츠에 이러한 조각을 삽입하지 마십시오.** Azure AD B2C 서비스는 런타임에 삽입합니다. 이러한 예제를 사용하여 사용자 고유의 스타일 시트를 디자인합니다.
 
 ### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>"ID 공급자 선택 페이지"에 삽입되는 Azure AD B2C 콘텐츠
 이 페이지는 등록 또는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. Facebook, Google+ 또는 로컬 계정(메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자입니다.
@@ -340,20 +340,15 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
 
 * Azure AD B2C의 기본 콘텐츠를 복사하거나 수정하려고 하지 마세요. 처음부터 HTML5 콘텐츠를 작성하고 기본 콘텐츠를 참조로 사용하는 것이 가장 좋습니다.
 * 로그인, 등록 및 프로필 편집 정책에 의해 처리되는 모든 페이지(오류 페이지 제외)에서 사용자가 제공하는 스타일 시트는 <head> 조각에서 이들 페이지에 추가한 기본 스타일 시트를 재정의해야합니다. 등록 또는 로그인 및 암호 재설정 정책, 모든 정책의 오류 페이지에 의해 처리되는 모든 페이지에서 사용자는 모든 스타일을 직접 제공해야 합니다.
-* 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 대부분의 필요한 것을 즉시 사용할 수 있어야 합니다. 그렇지 않으면 [사용자 의견](http://feedback.azure.com/forums/169401-azure-active-directory) 을 통해 새로운 기능을 요청합니다.
+* 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다. 대부분의 필요한 것을 즉시 사용할 수 있어야 합니다. 그렇지 않으면 [사용자 의견](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) 을 통해 새로운 기능을 요청합니다.
 * 지원되는 브라우저 버전:
-  * Internet Explorer 11
-  * Internet Explorer 10
-  * Internet Explorer 9 (제한됨)
-  * Internet Explorer 8 (제한됨)
-  * Google Chrome 43.0
-  * Google Chrome 42.0
-  * Mozilla Firefox 38.0
-  * Mozilla Firefox 37.0
+  * Internet Explorer 11, 10, Edge
+  * Internet Explorer 9, 8에 대한 지원 제한
+  * Google Chrome 42.0 이상
+  * Mozilla Firefox 38.0 이상
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

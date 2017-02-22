@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a5e0ba0128b7f20d6307f5dea784de007e71321c
+ms.sourcegitcommit: bc3921003bf3b91de88e70ff18b5c397687c288c
+ms.openlocfilehash: 6f4a825faac413652b1dc3880d899e0e40caedbc
 
 
 ---
-# <a name="different-ways-to-create-a-windows-virtual-machine-with-resource-manager"></a>리소스 관리자로 Windows 가상 컴퓨터를 만드는 다양한 방법
+# <a name="different-ways-to-create-a-windows-vm"></a>Windows VM을 만드는 다양한 방법
 가상 컴퓨터는 다양한 사용자와 목적에 맞게 조절 가능하기 때문에 Azure에서는 여러 방법으로 가상 컴퓨터를 만들 수 있습니다. 즉 가상 컴퓨터를 만드는 방법과 그에 대한 몇 가지 선택이 필요합니다. 이 문서에서는 이 선택 사항 및 지침에 대한 링크 요약을 제공합니다.
 
 ## <a name="azure-portal"></a>Azure 포털
@@ -47,6 +47,6 @@ Visual Studio를 사용하여 Azure Tools for Visual Studio 및 Azure SDK로 VM�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

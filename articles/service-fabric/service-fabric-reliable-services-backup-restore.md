@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a063d7ec6759bb9890d9b541088a8190dfd79aef
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
 
 
 ---
@@ -177,15 +177,62 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 * 복원할 때 복원 중인 백업이 데이터 손실 이전의 파티션 상태보다 오래된 것일 가능성이 있습니다. 이 때문에 가능한 많은 데이터를 복구하기 위한 마지막 수단으로만 복원해야 합니다.
 * 백업 폴더 경로와 백업 폴더 내 파일 경로를 나타내는 문자열은 FabricDataRoot 경로 및 응용 프로그램 형식 이름의 길이에 따라 255자보다 길 수 있습니다. 이로 인해 **Directory.Move** 등과 같은 일부 .NET 메서드에서 **PathTooLongException** 예외가 발생할 수 있습니다. 한 가지 해결 방법은 **CopyFile**과 같은 kernel32 API를 직접 호출하는 것입니다.
 
-## <a name="backup-and-restore-reliable-actors"></a>Reliable Actors 백업 및 복원
-Reliable Actors에 대한 백업 및 복원은 Reliable Services에서 제공하는 백업 및 복원 기능에 기반합니다. 서비스 소유자는 **ActorService** (행위자를 호스팅하는 서비스 패브릭 Reliable Service임)에서 파생되는 사용자 지정 행위자 서비스를 만든 다음 이전 섹션에서 설명한 것과 같이 Reliable Services와 유사한 백업/복원을 수행해야 합니다. 백업이 파티션 단위로 수행되기 때문에 특정 파티션에서 모든 행위자에 대한 상태는 백업됩니다(또한 복원은 비슷하고 파티션 기준으로 발생함).
 
-* 사용자 지정 행위자 서비스를 만들 경우 행위자를 등록하는 동안 사용자 지정 행위자 서비스도 등록해야 합니다. **ActorRuntime.RegistorActorAsync**를 참조하세요.
-* **KvsActorStateProvider** 는 현재 전체 백업만을 지원합니다. 또한 **RestorePolicy.Safe** 옵션은 **KvsActorStateProvider**에 의해 무시됩니다.
+
+
+## <a name="backup-and-restore-reliable-actors"></a>Reliable Actors 백업 및 복원
+
+
+Reliable Actors 프레임워크는 Reliable Services를 기반으로 구축됩니다. 행위자를 호스팅하는 ActorService는 상태 저장 신뢰할 수 있는 서비스입니다. 따라서 Reliable Services에서 사용 가능한 모든 백업 및 복원 기능이 Reliable Actors에도 제공됩니다(상태 제공자와 관련된 동작은 제외). 백업이 파티션 단위로 수행되기 때문에 파티션에서 모든 행위자에 대한 상태는 백업됩니다(또한 복원은 비슷하고 파티션 기준으로 발생함). 백업/복원을 수행하려면 서비스 소유자는 ActorService에서 파생되는 사용자 지정 행위자 서비스 클래스를 만든 다음 이전 섹션에서 설명한 것과 같이 Reliable Services와 유사한 백업/복원을 수행해야 합니다.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo)
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+사용자 지정 행위자 서비스 클래스를 만들 경우 행위자를 등록할 때 사용자 지정 행위자 서비스도 등록해야 합니다.
+
+```
+ActorRuntime.RegisterActorAsync<MyActor>(
+   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+```
+
+Reliable Actors의 기본 상태 제공자는 **KvsActorStateProvider**입니다. **KvsActorStateProvider**에 대한 증분 백업은 기본적으로 사용하지 않도록 설정되어 있습니다. 다음 코드 조각에 나와 있는 것처럼 생성자에 적절한 설정을 사용하여 **KvsActorStateProvider**를 만들고 ActorService 생성자에 전달하여 증분 백업을 사용하도록 설정할 수 있습니다.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+증분 백업을 사용하도록 설정한 후 다음 이유 중 하나로 인한 FabricMissingFullBackupException 때문에 증분 백업이 실패할 수 있으며, 증분 백업을 수행하기 전에 전체 백업을 수행해야 합니다.
+
+* 복제본이 주가 된 이후로 전체 백업을 수행한 적이 없었습니다.
+* 마지막 백업이 수행된 이후로 로그 레코드의 일부가 잘렸습니다.
+
+증분 백업을 사용하도록 설정하면 **KvsActorStateProvider**가 순환 버퍼를 사용하여 해당 로그 레코드를 관리하고 주기적으로 자르지 않습니다. 사용자가 45분 동안 백업을 수행하지 않을 경우 시스템이 로그 레코드를 자동으로 자릅니다. 이 간격은 **KvsActorStateProvider** 생성자에 **logTrunctationIntervalInMinutes**를 지정하여 구성할 수 있습니다(증분 백업을 사용하도록 설정할 때와 유사함). 주 복제본이 모든 데이터를 전송하여 다른 복제본을 구축해야 하는 경우 로그 레코드가 잘릴 수도 있습니다.
+
+백업 체인에서 복원 작업을 수행할 때는 Reliable Services와 마찬가지로 BackupFolderPath에 전체 백업이 포함된 하위 디렉터리 하나와 증분 백업이 포함된 다른 하위 디렉터리가 포함되어 있어야 합니다. 백업 체인 유효성 검사에 실패할 경우 복원 API에서 적절한 오류 메시지와 함께 FabricException을 throw합니다. 
 
 > [!NOTE]
-> 기본 ActorStateProvider(즉, **KvsActorStateProvider**)는 백업 폴더를 자체적으로 정리하지 **않습니다**(ICodePackageActivationContext.WorkDirectory를 통해 가져온 응용 프로그램 작업 폴더 아래). 따라서 사용자 작업 폴더가 가득 찰 수 있습니다. 백업을 외부 저장소로 이동한 후 백업 콜백에서 백업 폴더를 명시적으로 정리해야 합니다.
-> 
+> **KvsActorStateProvider**는 현재 RestorePolicy.Safe 옵션을 무시합니다. 이 기능은 이후 릴리스에서 지원될 예정입니다.
 > 
 
 ## <a name="testing-backup-and-restore"></a>테스트 백업 및 복원
@@ -230,6 +277,6 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

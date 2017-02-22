@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 장치 관리자 - Microsoft Azure StorSimple 가상 배열에 대한 지원 티켓 기록 | Microsoft Docs"
+title: "StorSimple 장치 관리자를 통해 지원 티켓 로그 | Microsoft Docs"
 description: "StorSimple 장치 관리자 진단 기능 및 이 기능을 사용하여 StorSimple 가상 배열 문제를 해결하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: adf6454fef9cfdea60241909453266c79416ac4e
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 지원 요청 기록
@@ -70,6 +70,6 @@ StorSimple 장치 관리자는 서비스 요약 블레이드 내에서 **새로�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

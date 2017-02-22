@@ -1,5 +1,5 @@
 ---
-title: "VM에 디스크 연결 | Microsoft Docs"
+title: "클래식 Azure VM에 디스크 연결 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크를 연결하고 초기화합니다."
 services: virtual-machines-windows, storage
 documentationcenter: 
@@ -13,27 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0e0dc3c764928aae2186aa87fcf4208f37685c8c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 8393b8ce2b373e8ff33454a61c944a5f8f7a8168
 
 
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-새 포털을 사용하려면 [Azure Portal에서 Windows VM에 데이터 디스크를 연결하는 방법](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 새 포털을 사용하려면 [Azure Portal에서 Windows VM에 데이터 디스크를 연결하는 방법](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 추가 데이터 디스크가 필요한 경우 빈 디스크나, 데이터가 있는 기존 디스크를 VM에 연결할  수 있습니다. 두 경우 모두, 디스크는 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 새 디스크의 경우 디스크를 연결한 후, Windows VM에서 사용할 수 있게 초기화가 필요합니다.
 
-디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
 ## <a name="initialize-the-disk"></a>디스크 초기화
-1. 가상 컴퓨터에 연결합니다. 지침은 [Windows Server를 실행하여 가상 컴퓨터에 로그온하는 방법][로그온]을 참조하세요.
+1. 가상 컴퓨터에 연결합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법][logon]을 참조하세요.
 2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 저장소 서비스**를 선택합니다.
    
     ![서버 관리자 열기](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
@@ -54,10 +53,10 @@ ms.openlocfilehash: 0e0dc3c764928aae2186aa87fcf4208f37685c8c
 
 [가상 컴퓨터용 디스크 및 VHD에 대하여](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[로그온]: virtual-machines-windows-classic-connect-logon.md
+[logon]: virtual-machines-windows-classic-connect-logon.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

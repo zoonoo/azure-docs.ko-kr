@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f1955e3e1618c6228bfa5439ca66155148ff1cb3
-ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
+ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
+ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
 
 
 ---
@@ -134,7 +134,7 @@ ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
 
 ## <a name="next-steps"></a>다음 단계
 * 활동 로그를 보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
-* 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
+* 배포에 대한 세부 정보를 보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
 * 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
@@ -142,6 +142,6 @@ ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

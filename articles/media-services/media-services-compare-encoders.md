@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
+ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
+ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 
 ---
@@ -28,8 +28,8 @@ ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
 ### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>각 인코더에서 사용되는 요금 청구 기준
 | 미디어 프로세서 이름 | 적용 가능한 가격 | 참고 사항 |
 | --- | --- | --- |
-| **미디어 인코더 표준** |인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [here][1](ENCODER 열 아래)에 지정된 비율로 청구됩니다. |
-| **Media Encoder Premium 워크플로** |프리미엄 인코더 |인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [here][1](PREMIUM ENCODER 열 아래)에 지정된 비율로 청구됩니다. |
+| **미디어 인코더 표준** |인코더 |인코딩 작업은 [여기][1]의 인코더 열 아래에 지정된 요율을 기준으로, 출력으로 생성된 모든 미디어 파일의 전체 재생 시간(분)에 따라 요금이 부과됩니다. |
+| **Media Encoder Premium 워크플로** |프리미엄 인코더 |인코딩 작업은 [여기][1]의 프리미엄 인코더 열 아래에 지정된 요율을 기준으로, 출력으로 생성된 모든 미디어 파일의 전체 재생 시간(분)에 따라 요금이 부과됩니다. |
 
 ### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 | 입력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
@@ -118,6 +118,8 @@ ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
 | MP3(MPEG-1 Audio Layer 3) |아니요 |예 |
 | Windows Media 오디오 |아니요 |예 |
 
+>[!NOTE]
+>Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -134,6 +136,6 @@ ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

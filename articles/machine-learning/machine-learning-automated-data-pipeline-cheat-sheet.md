@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning 예측에 대한 자동화된 데이터 파이프라인에 대한 참고 자료 | Microsoft Docs"
+title: "Azure Machine Learning 자동화된 데이터 파이프라인 참고 자료 | Microsoft Docs"
 description: "데이터가 온-프레미스인지, 스트리밍인지, Azure에 있는지, 아니면 타사 클라우드 서비스에 있는지에 따라 Azure 기계 학습 웹 서비스에 대해 자동화된 데이터 파이프라인을 설정하는 방법을 보여 주는 인쇄할 수 있는 참고 자료입니다."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: mithal;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>기계 학습 자동화된 데이터 파이프라인 참고 자료 다운로드
 참고 자료를 다운로드하면 tabloid 크기(11x17인치)로 인쇄할 수 있습니다.
 
- **[Microsoft Azure 기계 학습 자동화 데이터 파이프라인 참고 자료](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+**[Microsoft Azure 기계 학습 자동화 데이터 파이프라인 참고 자료](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure 기계 학습 스튜디오 기능 개요][op-cheat-sheet]
 
@@ -46,6 +46,6 @@ ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

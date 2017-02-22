@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치의 작업 및 태스크 지속성 | Microsoft Docs"
+title: "작업 및 태스크의 출력 유지 - Azure Batch | Microsoft Docs"
 description: "Azure Storage를 배치 태스크 및 작업 출력의 영구 저장소로 사용하고 이 보관된 출력을 Azure 포털에서 표시하도록 설정하는 방법을 알아봅니다."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1ae4ee2e8728ac8bcbc1dc528eb76d11a2f3d8a3
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
 
 
 ---
@@ -251,6 +251,6 @@ Azure Portal에서 태스크 출력 및 로그를 보려면 관심 있는 출력
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

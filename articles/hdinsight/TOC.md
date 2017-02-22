@@ -77,9 +77,7 @@
 ### [Phoenix 및 SQLLine 사용](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [실시간 트윗 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [가상 네트워크의 클러스터 만들기](hdinsight-hbase-provision-vnet.md)
-### [VPN 연결 구성](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [DNS 서버 구성](hdinsight-hbase-geo-replication-configure-dns.md)
-### [HBase 지역에서 복제 구성](hdinsight-hbase-geo-replication.md)
+### [HBase 복제 구성](hdinsight-hbase-replication.md)
 ### [Java 사용하여 앱 개발](hdinsight-hbase-build-java-maven-linux.md)
 ## Storm 사용
 ### [토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Hadoop으로 시작](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started.md)
 ### [HBase로 시작](hdinsight-hbase-tutorial-get-started.md)
-### [HDInsight 샘플 갤러리](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Hadoop MapReduce 샘플 실행](hdinsight-run-samples.md)
 ### [Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)
 #### [Azure Portal 사용](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -228,6 +225,6 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

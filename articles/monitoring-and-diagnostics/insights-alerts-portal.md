@@ -1,8 +1,8 @@
 ---
-title: "Azure Portal을 사용하여 Azure 서비스에 대한 경고 만들기| Microsoft 문서"
-description: "Azure 포털을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 Azure 경고를 만듭니다."
+title: "Azure 서비스에 대한 경고 만들기 - Azure portal | Microsoft Docs"
+description: "지정한 조건이 충족될 경우 전자 메일, 알림, 웹 사이트 URL 호출(웹후크) 또는 자동화를 트리거합니다."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Azure 포털을 사용하여 Azure 서비스에 대한 경고 만들기
+# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal
 > [!div class="op_single_selector"]
 > * [포털](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure 포털을 사용하여 Azure 경고를 설정하는 방법을 보여 줍니다.   
@@ -53,13 +53,13 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure 포털에서 메트릭에 대한 경고 규칙 만들기
 1. [포털](https://portal.azure.com/)에서 모니터링하려는 리소스를 찾아 선택합니다.
 2. MONITORING 섹션에서 **경고** 또는 **경고 규칙**을 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다.  
-   
+
     ![모니터링](./media/insights-alerts-portal/AlertRulesButton.png)
 3. **Add alert** 명령을 선택하고 필드에 입력합니다.
-   
+
     ![Add alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. 경고 규칙의 **이름**을 지정하고 **설명**을 선택합니다. 알림 이메일에도 표시되는 항목입니다.
-5. 모니터링할 **메트릭**을 선택하고 해당 메트릭에 대한 **조건** 및 **임계값**을 선택합니다. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간** 도 선택합니다. 예를 들어, "PT5M" 기간을 사용하고 경고가 80% 이상으 CPU를 찾는다면 이 경고는 CPU가 5분 동안 계속 80%를 넘으면 트리거됩니다. 첫 번째 트리거가 발생한 후 CPU가 5분 동안 80% 미만을 유지하면 다시 트리거됩니다. CPU 측정은 1 분마다 발생합니다.   
+5. 모니터링할 **메트릭**을 선택하고 해당 메트릭에 대한 **조건** 및 **임계값**을 선택합니다. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간** 도 선택합니다. 예를 들어, "PT5M" 기간을 사용하고 경고가 80% 이상인 CPU를 찾는다면 이 경고는 CPU가 5분 동안 계속 80%를 넘으면 트리거됩니다. 첫 번째 트리거가 발생한 후 CPU가 5분 동안 80% 미만을 유지하면 다시 트리거됩니다. CPU 측정은 1 분마다 발생합니다.   
 6. 경고가 발생했을 때 관리자 및 공동 관리자에게 이메일을 보내려면 **소유자에게 이메일 보내기...** 를 선택합니다.
 7. 경고가 발생했을 때 다른 이메일 주소에서 알림을 받으려면 해당 이메일을 **추가 관리자 이메일** 필드에 추가합니다. 여러 이메일은 세미콜론( *email@contoso.com;email2@contoso.com*
 8. 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
@@ -84,7 +84,6 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

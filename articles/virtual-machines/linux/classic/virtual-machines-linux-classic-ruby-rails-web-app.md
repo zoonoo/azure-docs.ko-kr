@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b8ab951046e031e5b1f8ae428ba7dc6ea936066e
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: b8ab951046e031e5b1f8ae428ba7dc6ea936066e
 이 자습서의 내용은 Ubuntu Server 14.04 LTS를 사용하여 유효성이 검사되었습니다. 다른 Linux 배포를 사용하는 경우, Rails를 설치하는 단계를 수정해야 합니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 > 
 > 
 
@@ -37,7 +37,7 @@ Linux 이미지와 Azure VM을 만들어 시작합니다.
 VM을 만들려면 Azure 클래식 포털 또는 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다.
 
 ### <a name="azure-management-portal"></a>Azure 관리 포털
-1.  [Azure 클래식 포털](http://manage.windowsazure.com)
+1. [Azure 클래식 포털](http://manage.windowsazure.com)
 2. **새로 만들기** > **Compute** > **Virtual Machine** > **빠른 생성**을 클릭합니다. Linux 이미지를 선택합니다.
 3. 암호를 입력합니다.
 
@@ -121,7 +121,7 @@ Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드][rail
 
 Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참조하세요.
 
-* [Blob을 사용하여 데이터 저장][blobs]
+* [BLOB을 사용하여 구조화되지 않은 데이터 저장][blobs]
 * [테이블을 사용하여 키/값 쌍 저장][tables]
 * [Content Delivery Network로 높은 대역폭 콘텐츠 제공][cdn-howto]
 
@@ -146,6 +146,6 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

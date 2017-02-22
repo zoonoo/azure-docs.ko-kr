@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Service로의 다중 컨테이너 Docker 응용 프로그램의 지속적인 통합 및 배포 | Microsoft Docs"
+title: "Azure Container Service 및 DC/OS를 사용한 CI/CD | Microsoft Docs"
 description: "다중 컨테이너 Docker 앱의 빌드 및 DC/OS를 실행하는 Azure Container Service 클러스터로의 배포를 완전하게 자동화하는 방법"
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 71fdc7b13fd3b42b136b4907c3d747887fde1a19
-ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
+ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
+ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
 
 
 ---
@@ -47,15 +47,18 @@ OS X, Windows 또는 Linux에서 이 연습을 실행할 수 있습니다.
 ## <a name="create-an-azure-container-service-cluster-configured-with-dcos"></a>DC/OS로 구성된 Azure Container Service 클러스터 만들기
 
 >[!IMPORTANT]
-> 보안 클러스터를 만들려면 `az acs create`를 호출할 때 SSH 공개 키 파일을 전달합니다. `--generate-ssh-keys` 옵션을 사용하여 Azure CLI 2.0에서 키를 자동으로 생성하고 동시에 전달하게 하거나 `--ssh-key-value` 옵션을 사용하여 키에 대한 경로를 제공할 수 있습니다(기본 위치는 Linux에서 `~/.ssh/id_rsa.pub`, Windows에서 `%HOMEPATH%\.ssh\id_rsa.pub`이지만 변경할 수 있음). Linux에서 SSH 공용 및 개인 키 파일을 만들려면 [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. Windows에서 SSH 공용 및 개인 키 파일을 만들려면 [Windows에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
+> 보안 클러스터를 만들려면 `az acs create`를 호출할 때 SSH 공개 키 파일을 전달합니다. `--generate-ssh-keys` 옵션을 사용하여 Azure CLI 2.0에서 키를 자동으로 생성하고 동시에 전달하게 하거나 `--ssh-key-value` 옵션을 사용하여 키에 대한 경로를 제공할 수 있습니다(기본 위치는 Linux에서 `~/.ssh/id_rsa.pub`, Windows에서 `%HOMEPATH%\.ssh\id_rsa.pub`이지만 변경할 수 있음).
+<!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
+> Linux에서 SSH 공용 및 개인 키 파일을 만들려면 [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
+> Windows에서 SSH 공용 및 개인 키 파일을 만들려면 [Windows에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
 
 1. 먼저 터미널 창에 [az login](/cli/azure/#login) 명령을 입력하여 Azure CLI를 사용하여 Azure 구독에 로그인합니다. 
 
     `az login`
 
-1. [az resource group create](/cli/azure/resource/group#create)를 사용하여 클러스터를 배치할 리소스 그룹을 만듭니다.
+1. [az group create](/cli/azure/group#create)를 사용하여 클러스터를 배치할 리소스 그룹을 만듭니다.
     
-    `az resource group create --name myacs-rg --location westus`
+    `az group create --name myacs-rg --location westus`
 
     본인에게 가장 가까운 [Azure 데이터 센터 지역](https://azure.microsoft.com/regions)을 지정할 수 있습니다. 
 
@@ -325,26 +328,26 @@ ACS 클러스터 삭제:
 1. ACS 클러스터를 포함하는 리소스 그룹을 찾습니다.
 1. 리소스 그룹의 블레이드 UI를 열고 블레이드의 명령 모음에서 **삭제**를 클릭합니다.
 
-Azure Container Registry 삭제:
-1. Azure Portal에서 Azure Container Registry를 검색한 후 삭제합니다. 
+Azure Container Registry 삭제: Azure Portal에서 Azure Container Registry를 검색한 후 삭제합니다. 
 
-[Visual Studio Team Services 계정은 처음 5명의 사용자에게 무료 기본 액세스 수준을 제공하지만](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/) 빌드 및 릴리스 정의를 삭제할 수 있습니다.
-1. VSTS 빌드 정의 삭제:
+[Visual Studio Team Services 계정은 처음&5;명의 사용자에게 무료 기본 액세스 수준을 제공하지만](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/) 빌드 및 릴리스 정의를 삭제할 수 있습니다.
+
+VSTS 빌드 정의 삭제:
         
-    * 브라우저에서 빌드 정의 URL을 연 다음 **빌드 정의** 링크(현재 보고 있는 빌드 정의 이름 옆에 있음)를 클릭합니다.
-    * 삭제하려는 빌드 정의 옆에 있는 작업 메뉴를 클릭하고 **정의 삭제**를 선택합니다.
+1. 브라우저에서 빌드 정의 URL을 연 다음 **빌드 정의** 링크(현재 보고 있는 빌드 정의 이름 옆에 있음)를 클릭합니다.
+2. 삭제하려는 빌드 정의 옆에 있는 작업 메뉴를 클릭하고 **정의 삭제**를 선택합니다.
 
-    ![VSTS 빌드 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![VSTS 빌드 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. VSTS 릴리스 정의 삭제:
+VSTS 릴리스 정의 삭제:
 
-    * 브라우저에서 릴리스 정의 URL을 엽니다.
-    * 왼쪽의 릴리스 정의 목록에서 삭제하려는 릴리스 정의 옆에 있는 드롭다운을 클릭하고 **삭제**를 선택합니다.
+1. 브라우저에서 릴리스 정의 URL을 엽니다.
+2. 왼쪽의 릴리스 정의 목록에서 삭제하려는 릴리스 정의 옆에 있는 드롭다운을 클릭하고 **삭제**를 선택합니다.
 
-    ![VSTS 릴리스 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
+`![VSTS 릴리스 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

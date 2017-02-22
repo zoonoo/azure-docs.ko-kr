@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: a2da505166f429b2f6a9823f64499a848d6e0153
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: c56a568fa003ec45e92279e070e6309763071827
 
 
 ---
@@ -36,7 +36,7 @@ IoT Hub 자체를 통한 브로커 메시지 대신 IoT Hub는 연결된 Azure �
 reported 속성, 장치-클라우드 메시지 또는 파일 업로드 사용에 대해 궁금한 점이 있으면 [장치-클라우드 통신 지침][lnk-d2c-guidance]을 참조하세요.
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Azure Storage 계정을 IoT Hub와 연결
-파일 업로드 기능을 사용하려면 먼저 Azure 저장소 계정을 IoT Hub에 연결해야 합니다. [Azure Portal][lnk-management-portal]을 통하거나 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 통해 프로그래밍 방식으로 이 작업을 수행할 수 있습니다. Azure Storage 계정을 IoT Hub와 연결하면 서비스는 장치가 파일 업로드 요청을 시작할 때 장치에 SAS URI를 반환합니다.
+파일 업로드 기능을 사용하려면 먼저 Azure 저장소 계정을 IoT Hub에 연결해야 합니다. [Azure Portal][lnk-management-portal]을 통하거나 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 통해 프로그래밍 방식으로 이 작업을 완료할 수 있습니다. Azure Storage 계정을 IoT Hub와 연결하면 서비스는 장치가 파일 업로드 요청을 시작할 때 장치에 SAS URI를 반환합니다.
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-sdks]는 SAS URI 검색, 파일 업로드 및 IoT Hub에 완료된 업로드 알림을 자동으로 처리합니다.
@@ -52,7 +52,7 @@ IoT Hub는 파일을 업로드하기 위해 저장소에 대한 SAS URI를 요�
 }
 ```
 
-IoT Hub는 파일을 업로드하기 위해 장치에서 사용할 다음 내용을 반환합니다.
+IoT Hub는 파일을 업로드하기 위해 장치에서 사용할 다음 데이터를 반환합니다.
 
 ```
 {
@@ -66,7 +66,7 @@ IoT Hub는 파일을 업로드하기 위해 장치에서 사용할 다음 내용
 
 ### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>사용되지 않음: GET으로 파일 업로드 초기화
 > [!NOTE]
-> 이 섹션에서는 IoT Hub에서 SAS URI를 수신하는 방법으로 더 이상 사용되지 않는 기능을 설명합니다. 위에 설명된 POST 메서드를 사용하세요.
+> 이 섹션에서는 IoT Hub에서 SAS URI를 수신하는 방법으로 더 이상 사용되지 않는 기능을 설명합니다. 앞에서 설명한 POST 메서드를 사용해야 합니다.
 > 
 > 
 
@@ -103,7 +103,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 끝점을 가집니�
 | LastUpdatedTime |파일이 마지막으로 업데이트된 시간을 나타내는 타임스탬프입니다. |
 | BlobSizeInBytes |업로드된 파일의 크기입니다. |
 
-**예제**. 파일 업로드 알림 메시지의 예제 본문입니다.
+**예제**. 이 예제는 파일 업로드 알림 메시지의 본문을 보여 줍니다.
 
 ```
 {
@@ -131,7 +131,7 @@ IoT Hub는 파일 업로드를 지원하는 두 개의 REST 끝점을 가집니�
 
 * [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
-* [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용하는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 * [장치 쌍 및 작업을 위한 IoT Hub 쿼리 언어][lnk-query] - IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt] - MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
@@ -171,6 +171,6 @@ IoT Hub를 사용하여 장치에서 파일을 업로드하는 방법에 대해 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

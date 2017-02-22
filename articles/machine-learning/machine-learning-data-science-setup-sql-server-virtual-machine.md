@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 353f09a8a6fa3798d764d41618a8f0b3ba83e3d0
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 777dc11be139b20363e2060776ac0227883591ff
 
 
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
-이 토픽에서는 클라우드 기반 데이터 과학 환경의 일부로 사용할 SQL Server 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
+이 토픽에서는 클라우드 기반 데이터 과학 환경의 일부로 사용할 SQL Server 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure Storage Explorer 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
 
 Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 데이터 요구 사항에 적합한 SQL Server VM 이미지를 선택하세요. 권장 이미지는 다음과 같습니다.
 
@@ -233,7 +233,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 3. **서버 사용자 계정 이름** 텍스트 상자에 SQL 사용자 이름을 입력합니다.
 4. **서버 사용자 계정 암호** 텍스트 상자에 SQL 사용자의 암호를 입력합니다.
    
-   ![Azure ML 데이터 가져오기][13]
+   ![Azure 기계 학습 데이터 가져오기][13]
 
 ## <a name="a-nameshutdownashutdown-and-deallocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
@@ -277,6 +277,6 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

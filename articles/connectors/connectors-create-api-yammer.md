@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 274ddce2bd3586dfba9ee214055accdba52f3ba9
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: c69f7af9f9427eb295481657eaefcdad76b48ccb
 
 
 ---
@@ -35,7 +35,7 @@ Yammer를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 * 그룹의 새 메시지 또는 팔로잉의 피드가 있을 때 트리거를 사용합니다.
 * 메시지 게시, 모든 메시지 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 메시지가 표시되면 Office 365를 사용하여 메일을 보낼 수 있습니다.
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Yammer에는 다음 트리거 및 작업이 포함됩니다. 
@@ -180,7 +180,7 @@ Yammer 웹 인터페이스의 "모든" 대화에 해당합니다.
 | full_name |string |no |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
@@ -190,6 +190,6 @@ Yammer 웹 인터페이스의 "모든" 대화에 해당합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

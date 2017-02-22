@@ -1,5 +1,5 @@
 ---
-title: "Linux VM에서 MySQL 설정 | Microsoft Docs"
+title: "Azure의 Linux VM에서 MySQL 설정 | Microsoft Docs"
 description: "Azure Linux 가상 컴퓨터(Ubuntu 또는 RedHat 제품군 OS)에 MySQL 스택을 설치하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d75d1541671fac02e6373ae880137b76f15ec7ae
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 84722fffc5419f866250d4093250839066c54c46
 
 
 ---
@@ -181,6 +181,6 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

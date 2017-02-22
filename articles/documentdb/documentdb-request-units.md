@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB의 요청 단위 | Microsoft Docs"
+title: "요청 단위 및 예상 처리량 - Azure DocumentDB | Microsoft Docs"
 description: "DocumentDB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법에 알아봅니다."
 services: documentdb
 author: syamkmsft
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
 
 
 ---
@@ -205,7 +205,7 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 | 문서 읽기 |100 |100 |
 | 제조업체로 음식 선택 |25 |175 |
 | 음식 그룹으로 선택 |10 |700 |
-| 상위 10개 선택 |15 |총 150 |
+| 상위 10개 선택 |15 |총&150; |
 
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
 
@@ -239,6 +239,6 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

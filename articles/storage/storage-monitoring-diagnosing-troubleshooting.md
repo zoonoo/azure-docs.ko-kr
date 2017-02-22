@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d66c03926008f89fe53102847e541a41385d43c
+ms.sourcegitcommit: b0abc4df06849ef2a887a190a8ea306849d40b3d
+ms.openlocfilehash: e7613084c6a7f20913b49b1f3c33bb681897c118
 
 
 ---
@@ -267,36 +267,37 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 아래의 코드 샘플은 요청의 **OperationContext** 개체를 저장소 서비스에 연결하여 사용자 지정 **ClientRequestId** 값을 설정하는 방법을 보여 줍니다. 또한 응답 메시지에서 **ServerRequestId** 값을 검색하는 방법도 보여 줍니다.
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
-    OperationContext oc = new OperationContext();
-    oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
+// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
+OperationContext oc = new OperationContext();
+oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
-    try
+try
+{
+    CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
+    ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
+    var downloadToPath = string.Format("./{0}", blob.Name);
+    using (var fs = File.OpenWrite(downloadToPath))
     {
-        CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
-        ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
-        var downloadToPath = string.Format("./{0}", blob.Name);
-        using (var fs = File.OpenWrite(downloadToPath))
-        {
-            blob.DownloadToStream(fs, null, null, oc);
-            Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
-        }
+        blob.DownloadToStream(fs, null, null, oc);
+        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
     }
-    catch (StorageException storageException)
+}
+catch (StorageException storageException)
+{
+    Console.WriteLine("Storage exception {0} occurred", storageException.Message);
+    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
+    foreach (var result in oc.RequestResults)
     {
-        Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-        // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
-        foreach (var result in oc.RequestResults)
-        {
-                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
-        }
+            Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
     }
-
+}
+```
 
 ### <a name="a-nametimestampsatimestamps"></a><a name="timestamps"></a>타임스탬프
 타임스탬프를 사용하여 관련 로그 항목을 찾을 수는 있지만 이 경우 클라이언트와 서버 간의 클럭 오차 가능성에 주의해야 합니다. 클라이언트의 타임스탬프를 기준으로 앞뒤 15분 동안이 일치하는 서버 쪽 항목을 검색해야 합니다. 메트릭이 포함된 Blob의 Blob 메타데이터는 Blob에 저장된 메트릭의 시간 범위를 나타냅니다. 같은 분이나 시간에 대해 메트릭 Blob가 여러 개인 경우 이 메타데이터가 유용합니다.
@@ -364,11 +365,13 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 
 테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency**에 비해 **AverageE2ELatency**가 길어질 수 있습니다. 자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 응용 프로그램에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application_Start** 메서드 예제가 나와 있습니다.
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-    tableServicePoint.UseNagleAlgorithm = false;
-    ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
-    queueServicePoint.UseNagleAlgorithm = false;
+```csharp
+var storageAccount = CloudStorageAccount.Parse(connStr);
+ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
+tableServicePoint.UseNagleAlgorithm = false;
+ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
+queueServicePoint.UseNagleAlgorithm = false;
+```
 
 클라이언트 쪽 로그를 통해 클라이언트 응용 프로그램이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 응용 프로그램 문제 해결을 시작하려면 [디버깅, 추적 및 프로파일링](http://msdn.microsoft.com/library/7fe0dd2y)을 참조하세요.
 
@@ -472,7 +475,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14에 대한 동기 요청을 시작하는 중입니다. |
+| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 에 대한 동기 요청을 시작하는 중입니다. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
 | Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음.. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -563,53 +566,29 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 아래 표에는 저장소 로깅 로그 파일의 샘플 서버 쪽 로그 메시지가 나와 있습니다.
 
-<table>
-  <tr>
-    <td>요청 시작 시간</td>
-    <td>2014-05-30T06:17:48.4473697Z</td>
-  </tr>
-  <tr>
-    <td>작업 유형</td>
-    <td>GetBlobProperties</td>
-  </tr>
-  <tr>
-    <td>요청 상태</td>
-    <td>SASAuthorizationError</td>
-  </tr>
-  <tr>
-    <td>HTTP 상태 코드</td>
-    <td>404</td>
-  </tr>
-  <tr>
-    <td>인증 유형</td>
-    <td>Sas</td>
-  </tr>
-  <tr>
-    <td>서비스 유형</td>
-    <td>Blob</td>
-  </tr>
-  <tr>
-    <td>요청 URL</td>
-    <td>
-    https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;amp;sr=c&amp;amp;si=mypolicy&amp;amp;sig=XXXXX&amp;amp;api-version=2014-02-14&amp;amp;</td>
-  </tr>
-  <tr>
-    <td>요청 ID 헤더</td>
-    <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
-  </tr>
-  <tr>
-    <td>클라이언트 요청 ID</td>
-    <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
-  </tr>
-</table>
+| 이름 | 값 |
+| --- | --- |
+| 요청 시작 시간 | 2014-05-30T06:17:48.4473697Z |
+| 작업 유형     | GetBlobProperties            |
+| 요청 상태     | SASAuthorizationError        |
+| HTTP 상태 코드   | 404                          |
+| 인증 유형| Sas                          |
+| 서비스 유형       | Blob                         |
+| 요청 URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| 요청 ID 헤더  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| 클라이언트 요청 ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+
 
 클라이언트 응용 프로그램이 권한을 부여받지 않은 작업을 시도하는 이유를 조사해야 합니다.
 
 #### <a name="a-namejavascript-code-does-not-have-permissionaclient-side-javascript-code-does-not-have-permission-to-access-the-object"></a><a name="JavaScript-code-does-not-have-permission"></a>클라이언트 쪽 JavaScript 코드에 개체 액세스 권한이 없음
 JavaScript 클라이언트를 사용 중인데 저장소 서비스에서 HTTP 404 메시지를 반환하는 경우에는 브라우저에서 다음 JavaScript 오류를 확인해야 합니다.
 
-    SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
-    SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
+SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
+SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
+```
 
 > [!NOTE]
 > 클라이언트 쪽 JavaScript 문제를 해결할 때는 Internet Explorer에서 F12 개발자 도구를 사용하여 브라우저와 저장소 서비스 간에 교환되는 메시지를 추적할 수 있습니다.
@@ -622,19 +601,21 @@ JavaScript 문제를 해결하려면 클라이언트가 액세스하는 저장�
 
 다음 코드 샘플에서는 Contoso 도메인에서 실행되는 JavaScript가 Blob Storage 서비스의 Blob에 액세스할 수 있도록 Blob 서비스를 구성하는 방법을 보여 줍니다.
 
-    CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-    // Set the service properties.
-    ServiceProperties sp = client.GetServiceProperties();
-    sp.DefaultServiceVersion = "2013-08-15";
-    CorsRule cr = new CorsRule();
-    cr.AllowedHeaders.Add("*");
-    cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
-    cr.AllowedOrigins.Add("http://www.contoso.com");
-    cr.ExposedHeaders.Add("x-ms-*");
-    cr.MaxAgeInSeconds = 5;
-    sp.Cors.CorsRules.Clear();
-    sp.Cors.CorsRules.Add(cr);
-    client.SetServiceProperties(sp);
+```csharp
+CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
+// Set the service properties.
+ServiceProperties sp = client.GetServiceProperties();
+sp.DefaultServiceVersion = "2013-08-15";
+CorsRule cr = new CorsRule();
+cr.AllowedHeaders.Add("*");
+cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
+cr.AllowedOrigins.Add("http://www.contoso.com");
+cr.ExposedHeaders.Add("x-ms-*");
+cr.MaxAgeInSeconds = 5;
+sp.Cors.CorsRules.Clear();
+sp.Cors.CorsRules.Add(cr);
+client.SetServiceProperties(sp);
+```
 
 #### <a name="a-namenetwork-failureanetwork-failure"></a><a name="network-failure"></a>네트워크 오류
 네트워크 패킷 손실로 인해 저장소 서비스가 HTTP 404 메시지를 클라이언트에 반환하는 경우가 있습니다. 예를 들어 클라이언트 응용 프로그램이 테이블 서비스의 엔터티를 삭제할 때 클라이언트가 저장소 예외를 throw하고 테이블 서비스에서 "HTTP 404(찾을 수 없음)" 상태 메시지를 보고할 수 있습니다. 그런데 테이블 저장소 서비스에서 테이블을 조사하면 서비스가 요청대로 엔터티를 삭제했음이 확인됩니다.
@@ -713,10 +694,12 @@ SDK 설치 시 로컬 컴퓨터에서 저장소 에뮬레이터 설치가 실패
 
 이 오류의 원인은 기존 LocalDB 설치의 문제입니다. 저장소 에뮬레이터는 Azure 저장소 서비스를 시뮬레이트할 때 기본적으로 LocalDB를 사용하여 데이터를 영구적으로 저장합니다. SDK를 설치하기 전에 명령 프롬프트 창에서 다음 명령을 실행하여 LocalDB 인스턴스를 다시 설정할 수 있습니다.
 
-    sqllocaldb stop v11.0
-    sqllocaldb delete v11.0
-    delete %USERPROFILE%\WAStorageEmulatorDb3*.*
-    sqllocaldb create v11.0
+```
+sqllocaldb stop v11.0
+sqllocaldb delete v11.0
+delete %USERPROFILE%\WAStorageEmulatorDb3*.*
+sqllocaldb create v11.0
+```
 
 **delete** 명령은 저장소 에뮬레이터의 이전 설치에서 오래된 데이터베이스 파일을 모두 제거합니다.
 
@@ -789,7 +772,9 @@ Microsoft Message Analyzer를 사용하여 Fiddler와 비슷한 방식으로 HTT
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer를 사용하여 웹 추적 세션 구성
 Microsoft Message Analyzer를 사용하여 HTTP 및 HTTPS 트래픽에 대해 웹 추적 세션을 구성하려면 Microsoft Message Analyzer 응용 프로그램을 시작하고 **파일** 메뉴에서 **캡처/추적**을 클릭합니다. 사용 가능한 추적 시나리오 목록에서 **웹 프록시**를 선택합니다. 그런 다음 **추적 시나리오 구성** 패널의 **HostnameFilter** 텍스트 상자에 저장소 끝점의 이름을 추가합니다. [Azure Portal](https://portal.azure.com)에서 이러한 이름을 조회할 수 있습니다. 예를 들어 Azure storage 계정의 이름이 **contosodata**인 경우 **HostnameFilter** 텍스트 상자에 다음을 추가해야 합니다.
 
-    contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
+contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
+```
 
 > [!NOTE]
 > 호스트 이름이 여러 개이면 공백 문자로 구분합니다.
@@ -908,6 +893,6 @@ Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

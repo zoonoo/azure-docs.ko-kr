@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 translationtype: Human Translation
-ms.sourcegitcommit: 460d26bad4407de32f0e805063e0699ff3a31dbd
-ms.openlocfilehash: 62a3e78c95a39aa03ea1130e10950531dc60788e
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
 
 ---
 
@@ -152,7 +152,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 이 시나리오에서 Load Balancer는 고가용성 클러스터 내에서 웹 계층으로부터 데이터베이스로 연결을 배포합니다.
 
-고가용성 데이터베이스 클러스터에서 SQL Server Always On을 사용하는 경우 단계별 지침은 [하나 이상의 Always On 가용성 그룹 수신기 구성](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+고가용성 데이터베이스 클러스터에서 SQL Server Always On을 사용하는 경우 단계별 지침은 [하나 이상의 Always On 가용성 그룹 수신기 구성](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)을 참조하세요.
 
 내부 부하 분산 장치 구성에 대한 자세한 내용은 [Azure Portal에서 내부 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)를 참조하세요.
 
@@ -213,6 +213,6 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

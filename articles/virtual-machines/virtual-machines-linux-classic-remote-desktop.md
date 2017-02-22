@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 98b2f3d9108c3f7a4179f5756d56fce9c5acd915
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 5acf43ac97fca98bc6d06a174b5fcc66f06a03b2
 
 
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>원격 데스크톱을 사용하여 Microsoft Azure Linux VM에 연결
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="overview"></a>개요
 RDP(원격 데스크톱 프로토콜)는 Windows에 사용되는 독점 프로토콜입니다. 어떻게 RDP를 사용하여 Linux VM에 원격으로 연결할 수 있을까요?
@@ -115,6 +116,6 @@ xrdp를 사용하는 방법에 대한 자세한 내용은 [여기](http://www.xr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

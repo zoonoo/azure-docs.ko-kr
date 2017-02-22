@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: antonba
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
 
 
 ---
@@ -131,34 +131,37 @@ ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
 
 **returnUrl의 해시를 생성하는 C# 코드**
 
-    using System.Security.Cryptography;
+```c#
+using System.Security.Cryptography;
 
-    string key = "delegation validation key";
-    string returnUrl = "returnUrl query parameter";
-    string salt = "salt query parameter";
-    string signature;
-    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-    {
-        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
-        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
-        // compare signature to sig query parameter
-    }
-
+string key = "delegation validation key";
+string returnUrl = "returnUrl query parameter";
+string salt = "salt query parameter";
+string signature;
+using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+{
+    signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
+}
+```
 
 **returnUrl의 해시를 생성하는 NodeJS 코드**
 
-    var crypto = require('crypto');
+```
+var crypto = require('crypto');
 
-    var key = 'delegation validation key'; 
-    var returnUrl = 'returnUrl query parameter';
-    var salt = 'salt query parameter';
+var key = 'delegation validation key'; 
+var returnUrl = 'returnUrl query parameter';
+var salt = 'salt query parameter';
 
-    var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
-    var digest = hmac.update(salt + '\n' + returnUrl).digest();
-    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
-    // compare signature to sig query parameter
+var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+var digest = hmac.update(salt + '\n' + returnUrl).digest();
+// change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+// compare signature to sig query parameter
 
-    var signature = digest.toString('base64');
+var signature = digest.toString('base64');
+```
 
 ## <a name="next-steps"></a>다음 단계
 위임에 대한 자세한 내용은 다음 비디오를 참조하세요.
@@ -167,18 +170,18 @@ ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
 > 
 > 
 
-[개발자 로그인 및 등록 위임]: #delegate-signin-up
-[제품 구독 위임]: #delegate-product-subscription
+[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating product subscription]: #delegate-product-subscription
 [SSO(Single-Sign-On) 토큰을 요청]: http://go.microsoft.com/fwlink/?LinkId=507409
 [create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [제품 구독을 위해 REST API를 호출]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
-[다음 단계]: #next-steps
+[Next steps]: #next-steps
 [아래 제공된 예제 코드]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

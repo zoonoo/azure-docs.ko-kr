@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a39a8aaeb2bc3603e5fd2404f061697c98c0ff2f
+ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
+ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
 
 
 ---
@@ -33,8 +33,8 @@ Security Center는 두 계층으로 제공됩니다.
 
 > [!NOTE]
 > Security Center에서는 Azure Storage를 사용하여 보호된 노드에서 생성된 보안 데이터를 저장합니다. 이 저장소와 관련된 비용은 서비스 가격에 포함되지 않으며, 일반 [Azure Storage 요금](https://azure.microsoft.com/pricing/details/storage/blobs/)이 별도로 부과됩니다. 평가판을 사용하는 동안에도 Storage 요금이 부과됩니다.
-> 
-> 
+>
+>
 
 ## <a name="try-standard-free-for-90-days"></a>90일 표준 계층 무료 사용
 표준 계층에는 90일 무료 평가판이 제공됩니다. 표준 계층의 무료 평가판을 받으려면 **Security Center** 블레이드의 **정책** 타일을 선택합니다. 표준으로 업그레이드하려는 경우 구독을 선택합니다. **보안 정책** 블레이드에서 **가격 책정 계층**을 선택합니다. **가격 책정 계층 선택** 블레이드에서 **표준 – 무료 평가판**을 선택합니다.
@@ -86,6 +86,6 @@ Security Center의 표준 계층은 무료 계층의 모든 기능과 고급 위
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

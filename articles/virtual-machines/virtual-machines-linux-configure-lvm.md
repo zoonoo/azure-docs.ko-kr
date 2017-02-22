@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 0113eb896b4549e61526f6bf1450aaf5ad00edfd
+ms.sourcegitcommit: 9b77d0e6d21ece908960a60d17a0460b806399ee
+ms.openlocfilehash: df7a1f44f5c7733a4c4b889db13291f8d3d1a3d8
 
 
 ---
@@ -151,8 +151,35 @@ LVM을 사용하여 단일 저장소 볼륨에 여러 실제 디스크를 결합
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
+## <a name="trimunmap-support"></a>TRIM/UNMAP 지원
+일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이러한 작업은 Azure에 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 알리는 데 표준 저장소에서 주로 유용합니다. 큰 파일을 만들고 삭제하는 경우 페이지를 삭제하여 비용을 절감할 수 있습니다.
+
+Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
+
+- `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
+
+    ```bash 
+    /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
+    ```
+
+- 일부 경우 `discard` 옵션에는 성능이 저하 될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
+
+    **Ubuntu**
+
+    ```bash 
+    # sudo apt-get install util-linux
+    # sudo fstrim /datadrive
+    ```
+
+    **RHEL/CentOS**
+
+    ```bash 
+    # sudo yum install util-linux
+    # sudo fstrim /datadrive
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

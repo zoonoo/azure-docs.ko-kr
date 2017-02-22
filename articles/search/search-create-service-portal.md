@@ -11,23 +11,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 11/29/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5975bd5b2a2e7fe8799155ab47d96c3ecd0093ee
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 5046b3fc1444e37388505f2662a28486342c8822
 
 
 ---
 # <a name="create-an-azure-search-service-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 검색 서비스 만들기
-이 가이드에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Azure 검색 서비스를 만드는(또는 프로비전하는) 프로세스를 안내합니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure Search 서비스를 만드는(또는 프로비전하는) 프로세스를 안내합니다.
 
-이 가이드에서는 사용자가 이미 Azure 구독을 소유하고 있으며 Azure 포털에 로그인할 수 있다고 가정합니다.
+이 문서에서는 사용자가 이미 Azure 구독을 소유하고 있으며 Azure Portal에 로그인할 수 있다고 가정합니다.
 
 ## <a name="find-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure 검색 찾기
-1. [Azure 포털](https://portal.azure.com/) 로 이동하고 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하고 로그인합니다.
 2. 왼쪽 위 모퉁이에서 더하기 기호("+")를 클릭합니다.
-3. **데이터 + 저장소**를 선택합니다.
+3. **웹 + 모바일**을 선택합니다.
 4. **Azure 검색**을 선택합니다.
 
 ![](./media/search-create-service-portal/find-search.png)
@@ -58,21 +58,20 @@ Azure 서비스인 Azure 검색은 전 세계 데이터 센터에서 호스팅�
 ![](./media/search-create-service-portal/create-service.png)
 
 ## <a name="scale-your-service"></a>서비스 확장
-서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure 검색 서비스에 대한 표준 계층을 선택한 경우 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본을 추가할 수 있습니다.
+서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Search 서비스에 대한 표준 계층을 선택했기 때문에 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
 
 ***파티션***을 사용하면 서비스를 저장하고 더 많은 문서를 통해 검색할 수 있습니다.
 
 ***복제본***을 사용하면 서비스가 검색 쿼리의 높은 부하를 처리할 수 있습니다. [서비스에는 읽기 전용 SLA를 달성할 2개의 복제본 및 읽기/쓰기 SLA를 달성할 3개의 복제본이 필요합니다](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Azure 포털에서 Azure 검색 서비스의 관리 블레이드로 이동합니다.
+1. Azure Portal에서 Azure Search 서비스의 관리 블레이드로 이동합니다.
 2. **설정** 블레이드에서 **규모**를 선택합니다.
 3. 복제본 또는 파티션을 추가하여 서비스를 확장할 수 있습니다.
-   * 36개의 검색 단위를 넘도록 서비스를 확장할 수 없습니다. 총 검색 단위 수는 복제본과 파티션을 합한 제품(복제본 * 파티션 = 총 검색 단위)입니다.
-   * 기본 계층을 선택한 경우 3개 복제본으로 확장할 수 있습니다. 기본 서비스는 단일 파티션에 바인딩됩니다.
+   * 서비스의 각 계층에는 단일 서비스에서 허용하는 총 검색 단위 수(복제본 * 파티션 = 총 검색 단위)에 대한 다른 [제한](search-limits-quotas-capacity.md)이 있습니다.
 
 ![](./media/search-create-service-portal/scale-service.png)
 
-## <a name="next"></a>다음
+## <a name="next-steps"></a>다음 단계
 Azure 검색 서비스를 프로비전한 후에 [Azure 검색 인덱스를 정의](search-what-is-an-index.md) 할 준비가 되었으므로 데이터를 업로드하고 검색할 수 있습니다.
 
 간략한 자습서는 [포털에서 Azure 검색 시작](search-get-started-portal.md) 을 참조하세요.
@@ -80,6 +79,6 @@ Azure 검색 서비스를 프로비전한 후에 [Azure 검색 인덱스를 정�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 37d0a4b953c51ce244a21d9a67d97df960d4edaf
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7d547ee39c4fe2bd52dd1fedce9c61d63b4e3011
 
 
 ---
@@ -55,7 +55,7 @@ Azure에 배포한 후 원격 액세스를 사용하도록 설정하려면 다�
    * 클릭하여 **원격 데스크톱 사용** 확인란을 선택합니다.
    * 원격 액세스에 대해 사용하려는 사용자 이름 및 암호를 지정합니다.
    * 사용할 인증서를 선택합니다.
-6.  **확인** 
+6. **확인** 
 
 구성 변경이 진행 중임을 나타내는 메시지가 표시되며 완료하려면 몇 분 정도 소요될 수 있습니다. 구성 변경이 완료된 후 이 문서의 뒷부분에 나오는 **원격으로 로그인하려면** 섹션의 단계를 따릅니다.
 
@@ -100,21 +100,21 @@ Azure에 배포한 후 원격 액세스를 사용하도록 설정하려면 다�
 > 
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure 관리 포털]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -127,6 +127,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure Resource Manager를 사용하여 ILB(내부 부하 분산 장치)에서 Application Gateway 만들기 및 구성 | Microsoft Docs"
+title: "내부 부하 분산 장치에서 Azure Application Gateway 사용 - PowerShell | Microsoft Docs"
 description: "이 페이지에서는 Azure Resource Manager용 ILB(내부 부하 분산 장치)를 사용하여 Azure 응용 프로그램 게이트웨이를 만들고, 구성하고, 시작하고, 삭제하기 위한 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad7bf23b10f16fb2d9e9bc946d8d4e840428558
-ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
 > [!div class="op_single_selector"]
 > * [Azure 클래식 PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
-> 
-> 
 
 Azure 응용 프로그램 게이트웨이는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 응용 프로그램의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 응용 프로그램 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
 
@@ -76,11 +74,11 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.<BR>
+자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
 ### <a name="step-3"></a>3단계
 
-사용할 Azure 구독을 선택합니다. <BR>
+사용할 Azure 구독을 선택합니다.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -96,61 +94,61 @@ New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 응용 프로그램 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
 
-위 예제에서는 "appgw-rg"라는 리소스 그룹과 "West US"라는 위치를 만들었습니다.
+이전 예제에서는 "appgw-rg"라는 리소스 그룹과 "미국 서부"라는 위치를 만들었습니다.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>응용 프로그램 게이트웨이에 대한 가상 네트워크 및 서브넷 만들기
 
 다음 예제에서는 Resource Manager를 사용하여 가상 네트워크를 만드는 방법을 보여 줍니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 ```powershell
 $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-주소 범위 10.0.0.0/24를 가상 네트워크를 만드는 데 사용할 서브넷 변수에 할당합니다.
+이 단계에서는 주소 범위 10.0.0.0/24를 가상 네트워크를 만드는 데 사용할 서브넷 변수에 할당합니다.
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-접두사 10.0.0.0/16과 서브넷 10.0.0.0/24를 사용하여 미국 서부 지역에 리소스 그룹 "appgw-rg"에서 "appgwvnet"이라는 가상 네트워크를 만듭니다.
+이 단계에서는 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24를 사용하여 미국 서부 지역에 리소스 그룹 "appgw-rg"에서 "appgwvnet"이라는 가상 네트워크를 만듭니다.
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 ```powershell
 $subnet = $vnet.subnets[0]
 ```
 
-다음 단계를 위해 $subnet 변수에 서브넷 개체를 할당합니다.
+이 단계에서는 다음 단계를 위해 $subnet 변수에 서브넷 개체를 할당합니다.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-"gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+이 단계에서는 "gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 ```powershell
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 ```
 
-IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 위의 IP 주소를 바꿉니다.
+이 단계에서는 IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 이전 IP 주소를 바꿉니다.
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 ```powershell
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 "poolsetting01"을 구성합니다.
+이 단계에서는 백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 Application Gateway 설정 "poolsetting01"을 구성합니다.
 
 ### <a name="step-4"></a>4단계
 
@@ -158,7 +156,7 @@ $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsettin
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
-ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합니다.
+이 단계에서는 ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합니다.
 
 ### <a name="step-5"></a>5단계
 
@@ -166,7 +164,7 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-"fipconfig01"라는 프런트 엔드 IP 구성을 만들고 현재 가상 네트워크 서브넷의 개인 IP와 연결합니다.
+이 단계에서는 "fipconfig01"라는 프런트 엔드 IP 구성을 만들고 현재 가상 네트워크 서브넷의 개인 IP와 연결합니다.
 
 ### <a name="step-6"></a>6단계
 
@@ -174,7 +172,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Su
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-"listener01"라는 수신기를 만들고 프런트 엔드 IP 구성에 프런트 엔드 포트를 연결합니다.
+이 단계에서는 "listener01"라는 수신기를 만들고 프런트 엔드 IP 구성에 프런트 엔드 포트를 연결합니다.
 
 ### <a name="step-7"></a>7단계
 
@@ -182,35 +180,32 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protoco
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-"rule01"라는 부하 분산 장치 라우팅 규칙을 만들고 부하 분산 장치 동작을 구성합니다.
+이 단계에서는 "rule01"라는 부하 분산 장치 라우팅 규칙을 만들고 부하 분산 장치 동작을 구성합니다.
 
-### <a name="step-8"></a>8단계
+### <a name="step-8"></a>8단계:
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다.
+이 단계에서는 Application Gateway의 인스턴스 크기를 구성합니다.
 
 > [!NOTE]
-> *InstanceCount* 에 대한 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. Standard_Small, Standard_Medium 및 Standard_Large 간에 선택할 수 있습니다.
-> 
-> 
+> *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. Standard_Small, Standard_Medium 및 Standard_Large 간에 선택할 수 있습니다.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>New-AzureApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
-위 단계의 모든 구성 항목으로 응용 프로그램 게이트웨이를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
-
+이전 단계의 모든 구성 항목으로 Application Gateway를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-위 단계의 모든 구성 항목으로 응용 프로그램 게이트웨이를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
+이 단계에서는 이전 단계의 모든 구성 항목으로 Application Gateway를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
 
 ## <a name="delete-an-application-gateway"></a>응용 프로그램 게이트웨이 삭제
 
-응용 프로그램 게이트웨이를 삭제하려면 다음을 순서대로 수행해야 합니다.
+Application Gateway를 삭제하려면 다음 단계를 순서대로 수행해야 합니다.
 
 1. `Stop-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이를 중지합니다.
 2. `Remove-AzureRmApplicationGateway` cmdlet을 사용하여 게이트웨이를 제거합니다.
@@ -256,8 +251,6 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 > [!NOTE]
 > **-force** 스위치를 사용하여 제거 확인 메시지가 표시되지 않도록 할 수 있습니다.
-> 
-> 
 
 서비스가 제거되었는지 확인하려면 `Get-AzureRmApplicationGateway` cmdlet을 사용합니다. 이 단계는 필요 하지 않습니다.
 
@@ -285,6 +278,6 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 가용성 집합 지침 | Microsoft Docs"
+title: "Windows VM에 대한 Azure 가용성 집합 | Microsoft Docs"
 description: "Azure 인프라 서비스에서 가용성 집합을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2e981b0bebbc88fdad23ce8279762fe717e48a4c
-ms.openlocfilehash: 59ef4be4854c4625bed5f9f1f32e7771ccb6979d
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
 
 
 ---
@@ -56,6 +56,6 @@ Azure의 기본 인프라는 도메인 및 장애 도메인을 업데이트하�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

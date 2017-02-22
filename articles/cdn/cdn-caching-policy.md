@@ -1,6 +1,6 @@
 ---
-title: "미디어 서비스 확장의 CDN 캐싱 정책"
-description: "이 항목에서는 Media Services Extension의 CDN 캐싱 정책에 대한 개요를 제공합니다."
+title: "Azure Media Services에서 Azure CDN 캐싱 정책 관리 | Microsoft Docs"
+description: "Azure Media Services에서 Azure CDN 캐싱 정책을 관리하는 방법을 알아봅니다."
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/04/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8e5fa4f3de86be0a8ef65971e42c8b20f61f0b2
+ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
+ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
 
 
 ---
-# <a name="cdn-caching-policy-in-media-services-extension"></a>미디어 서비스 확장의 CDN 캐싱 정책
+# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure Media Services에서 Azure CDN 캐싱 정책 관리
 Azure 미디어 서비스는 HTTP 기반 적응 스트리밍 및 점진적 다운로드를 제공합니다. HTTP 기반 스트리밍은 클라이언트 쪽 캐싱뿐만 아니라 프록시 및 CDN 계층의 캐싱을 활용하므로 확장성이 뛰어납니다. 스트리밍 끝점은 일반적인 스트리밍 기능 및 HTTP 캐시 헤더에 대한 구성을 제공합니다. 스트리밍 끝점은 HTTP Cache-Control: max-age 및 Expires 헤더를 설정합니다. HTTP 캐시 헤더에 대한 자세한 내용은 [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)에서 확인할 수 있습니다.
 
 ## <a name="default-caching-headers"></a>기본 캐싱 헤더
@@ -30,9 +30,9 @@ Azure 미디어 서비스는 HTTP 기반 적응 스트리밍 및 점진적 다�
 Azure 미디어 서비스는 스트리밍 끝점에 대한 [CDN 통합](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) 을 제공합니다. Cache-control 헤더는 CDN 사용 스트리밍 끝점에 스트리밍 끝점과 동일한 방식으로 적용됩니다. Azure CDN은 스트리밍 끝점에 구성된 캐시 값을 사용하여 내부적으로 캐시된 개체의 수명을 정의하며, 이 값을 사용하여 배달 캐시 헤더도 설정합니다. CDN 사용 스트리밍 끝점을 사용하는 경우에는 작은 캐시 값을 설정하지 않는 것이 좋습니다. 작은 값을 설정하면 성능이 저하되고 CDN의 이점이 줄어듭니다. CDN 사용 스트리밍 끝점의 경우 캐시 헤더를 600초보다 작게 설정할 수 없습니다.
 
 > [!IMPORTANT]
-> Azure 미디어 서비스와 Azure CDN의 통합은 **Verizon의 Azure CDN**에 구현됩니다.  Azure Media Services에 **Akamai의 Azure CDN** 을 사용하려면 [끝점을 수동으로 구성](cdn-create-new-endpoint.md)해야 합니다.  Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](cdn-overview.md)를 참조하세요.
+>Azure Media Services는 Azure CDN과 완전하게 통합됩니다. 한 번의 클릭으로 사용 가능한 모든 Azure CDN 공급자(Akamai 및 Verizon)를 CDN 표준 및 프리미엄 제품을 포함하는 스트리밍 끝점에 통합할 수 있습니다. 자세한 내용은 이 [공지](https://azure.microsoft.com/blog/standardstreamingendpoint/)를 참조하세요.
 > 
-> 
+> 스트리밍 끝점에서 CDN으로의 데이터 요금은 스트리밍 끝점 API 또는 Azure 관리 포털의 스트리밍 끝점 섹션을 통해 CDN이 사용되도록 설정되는 경우에만 사용되지 않도록 설정됩니다. 수동 통합이나 CDN API 또는 포털 섹션을 통해 CDN 끝점을 직접 만드는 경우에는 데이터 요금이 사용되지 않도록 설정되지 않습니다.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Azure 미디어 서비스를 사용하여 캐시 헤더 구성
 Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 헤더 값을 구성할 수 있습니다.
@@ -49,6 +49,6 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -47,7 +47,7 @@ Boomi와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -139,7 +139,7 @@ Boomi 응용 프로그램은 특정 형식의 SAML 어설션이 필요하므로,
 
     > [!NOTE]
     > 응답에 있는 NameID 클레임 값은 Boomi 시스템에 구성된 페더레이션 ID와 일치해야 합니다. 따라서 Boomi 지원 팀과 협력하여 조직의 적절한 사용자 ID를 페더레이션 ID로 매핑하세요. 기본적으로 Azure AD는 NameIdentifier를 UPN 값으로 설정합니다. 아래 스크린샷에 표시된 것처럼 특성 탭에서 이를 변경할 수 있습니다. 올바른 매핑을 완료해야만 통합이 작동합니다. 
-    
+     
     ![Single Sign-On 구성](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_51.png)
 
 5. 다른 웹 브라우저 창에서 Boomi 회사 사이트에 관리자로 로그인합니다. 
@@ -238,13 +238,13 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
 2. 로그인 후 **사용자 관리**, **사용자**로 이동합니다.
 
-    ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "Users")
+    ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "사용자")
 
 3. ** + ** 아이콘을 클릭하면 **사용자 역할 추가/유지 관리** 대화 상자가 열립니다.
 
-    ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "Users")
+    ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "사용자")
 
-    ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Users")
+    ![사용자](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "사용자")
 
 4. 사용자의 **사용자 전자 메일 주소**를 입력합니다.
 
@@ -321,6 +321,6 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트에 깜박임 응용 프로그램 배포 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 1: 앱 배포 | Microsoft Docs"
 description: "GitHub에서 샘플 C 응용 프로그램을 복제하고 gulp를 실행하여 이 응용 프로그램을 Intel Edison 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4184a56cc1dacb1868a5cc74d291341c07a0bb5c
-ms.openlocfilehash: 532ccc6f602b0bd66308af184b3e972edf4b735a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 182e63d40986b61a12885799b1b33bb570437a3c
 
 
 ---
@@ -119,6 +119,6 @@ Edison 작동에 필요한 도구를 설치했으며 LED를 깜박이게 하는 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Compiling configurations in Azure Automation DSC | Microsoft Docs
-description: "필요한 상태 구성(DSC) 구성을 컴파일하는 두 가지 방법의 개요: Azure 포털에서와 Windows PowerShell을 사용하는 방법입니다. "
+description: "이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다."
 services: automation
 documentationcenter: na
 author: eslesar
@@ -11,18 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 12/13/2016
-ms.author: eslesar
+ms.date: 02/07/2017
+ms.author: magoedte; eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 30c93d801c68e24b45f5fbc119724e0a18076a13
+ms.sourcegitcommit: 032747ffb7a603c54e8913c0d82edbc8e11b73c3
+ms.openlocfilehash: 0b808dd6bcf0a0d1f8e459927a4010dc1887ca60
 
 ---
+
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure 자동화 DSC에서 구성을 컴파일
 
-Azure 자동화를 사용하여 두 가지 방법으로 필요한 상태 구성(DSC) 구성을 컴파일할 수 있습니다. Azure 포털에서와 Windows PowerShell을 사용하는 방법입니다. 다음 테이블에서는 각각의 특징을 기반으로 어떤 방법을 언제 사용할지 결정하도록 합니다.
+Azure Automation를 사용하여 두 가지 방법인 Azure Portal 및 Windows PowerShell을 사용하여 DSC(필요한 상태 구성) 구성을 컴파일할 수 있습니다. 다음 테이블에서는 각각의 특징을 기반으로 어떤 방법을 언제 사용할지 결정하도록 합니다.
 
-### <a name="azure-preview-portal"></a>Azure 미리 보기 포털
+### <a name="azure-portal"></a>Azure 포털
 
 * 대화형 사용자 인터페이스를 사용하는 간단한 방법
 * 단순한 매개 변수 값을 제공하는 양식
@@ -43,7 +44,7 @@ Azure 자동화를 사용하여 두 가지 방법으로 필요한 상태 구성(
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Azure 포털을 사용하여 DSC 구성 컴파일
 
-1. 자동화 계정에서 **구성**을 클릭합니다.
+1. Automation 계정에서 **구성**을 클릭합니다.
 2. 구성을 클릭하여 해당 블레이드를 엽니다.
 3. **컴파일**을 클릭합니다.
 4. 구성에 매개 변수가 없는 경우 컴파일할지 확인하라는 메시지가 표시됩니다. 구성에 매개 변수가 있는 경우 **컴파일 구성** 블레이드를 열어 매개 변수 값을 제공할 수 있습니다. 매개 변수에 대한 자세한 내용은 아래의 [**기본 매개 변수**](#basic-parameters) 섹션을 참조하세요.
@@ -204,7 +205,7 @@ PowerShell DSC가 [**ConfigurationData**](#configurationdata)을 클릭합니다
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {
@@ -241,6 +242,6 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

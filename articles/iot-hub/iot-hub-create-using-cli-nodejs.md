@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 
 
 ---
@@ -34,7 +34,7 @@ Azure CLI&2;.0(azure.js)을 사용하여 Azure IoT Hub를 프로그래밍 방식
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
-* [Azure CLI 0.10.4][lnk-CLI-install] 이상 Azure CLI가 이미 있다면 다음 명령을 사용하여 명령 프롬프트에서 현재 버전을 확인할 수 있습니다.
+* [Azure CLI 0.10.4][lnk-CLI-install] 이상 Azure CLI가 이미 설치된 경우 다음 명령을 사용하여 명령 프롬프트에서 현재 버전을 확인할 수 있습니다.
   ```
     azure --version
   ```
@@ -55,7 +55,7 @@ Azure CLI&2;.0(azure.js)을 사용하여 Azure IoT Hub를 프로그래밍 방식
     azure login
    ```
    제안된 웹 브라우저와 코드를 사용하여 인증합니다.
-2. Azure 구독이 여러 개 있는 경우 Azure에 연결하면 자격 증명과 연결된 모든 Azure 구독에 액세스할 수 있습니다. 다음 명령을 사용하여 Azure 구독 및 기본적으로 사용되는 구독을 볼 수 있습니다.
+2. Azure 구독이 여러 개 있는 경우 Azure에 연결하면 자격 증명과 연결된 모든 Azure 구독에 액세스할 수 있습니다. 다음 명령을 사용하여 Azure 구독을 보고 기본적으로 사용되는 구독을 확인할 수 있습니다.
    
    ```
     azure account list 
@@ -67,7 +67,7 @@ Azure CLI&2;.0(azure.js)을 사용하여 Azure IoT Hub를 프로그래밍 방식
     azure account set <subscription name>
    ```
 
-3. 리소스 그룹이 없으면 **exampleResourceGroup**라는 이름의 리소스 그룹을 만듭니다. 
+3. 리소스 그룹이 없으면 **exampleResourceGroup**이라는 이름의 리소스 그룹을 만들 수 있습니다.
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
@@ -95,14 +95,14 @@ Azure CLI&2;.0(azure.js)을 사용하여 Azure IoT Hub를 프로그래밍 방식
 ```
 간단한 예제:
 
- **exampleResourceGroup**이라는 리소스 그룹에 **exampleIoTHubName**이라는 IoT Hub를 만들려면 간단히 다음 명령을 실행합니다.
+ **exampleResourceGroup**이라는 리소스 그룹에 **exampleIoTHubName**이라는 IoT Hub를 만들려면 다음 명령을 실행합니다.
 
 ```
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> 이 Azure CLI 명령은 대금이 청구되는 S1 표준 IoT Hub를 만듭니다. 다음 명령을 사용하여 IoT hub **exampleIoTHubName**을 삭제할 수 있습니다. 
+> 이 Azure CLI 명령은 대금이 청구되는 S1 표준 IoT Hub를 만듭니다. 다음 명령을 사용하여 IoT hub **exampleIoTHubName**을 삭제할 수 있습니다.
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -133,6 +133,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

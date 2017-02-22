@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: SubramaR
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f52903801c53a50d149fe8732bf514194aae0478
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
 
 
 ---
@@ -25,7 +25,7 @@ Linux의 서비스 패브릭 미리 보기를 사용하면 Windows에서와 마�
 
 Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으로 동일합니다(OS 사양 및 프로그래밍 언어 지원 제외). 따라서 대부분의 [기존 설명서](http://aka.ms/servicefabricdocs) 를 통해 이 기술을 익힐 수 있습니다.
 
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Service-Fabric-Linux-Preview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
 > 
 > 
 
@@ -50,6 +50,6 @@ Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

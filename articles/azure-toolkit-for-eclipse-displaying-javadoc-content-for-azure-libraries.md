@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0b0de62a891b579875edbb687e013316c491527
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: d52054de2ac5119db39e1cd3c927a790db7524aa
 
 
 ---
@@ -26,7 +26,7 @@ Javadoc 콘텐츠를 Java용 Azure 라이브러리 패키지에 연결하면 Jav
 이 절차는 빌드 경로에 Java용 Azure 라이브러리를 이미 추가했다고 가정합니다.
 
 ## <a name="to-display-javadoc-content-in-eclipse-for-the-azure-libraries-for-java"></a>Eclipse에서 Java용 Azure 라이브러리의 Javadoc 콘텐츠를 표시하려면
-* Eclipse의 프로젝트 탐색기에 있는 프로젝트 **참조 라이브러리** 섹션에서 Java JAR용 Azure 라이브러리의 상황에 맞는 메뉴를 엽니다. 예를 들어 **microsoft windowsazure-api 0.1.0.jar** (버전 번호는 설치한 버전에 따라 다를 수 있음)입니다.
+* Eclipse의 프로젝트 탐색기에 있는 프로젝트 **참조 라이브러리** 섹션에서 Java JAR용 Azure 라이브러리의 상황에 맞는 메뉴를 엽니다. 예를 들어 **microsoft windowsazure-api&0;.1.0.jar** (버전 번호는 설치한 버전에 따라 다를 수 있음)입니다.
 * **속성**을 클릭합니다.
 * **속성** 대화 상자의 왼쪽 창에서 **Javadoc 위치**를 클릭합니다. **Javadoc Location** (Javadoc 위치) 대화 상자가 표시됩니다.
 * **Javadoc URL** 또는 **보관 중인 Javadoc**을 지정할 수 있습니다.
@@ -42,20 +42,20 @@ Javadoc 콘텐츠를 Java용 Azure 라이브러리 패키지에 연결하면 Jav
 ![][ic553488]
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -66,6 +66,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

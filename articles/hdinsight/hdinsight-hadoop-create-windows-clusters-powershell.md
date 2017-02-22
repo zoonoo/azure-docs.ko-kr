@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell을 사용하여 HDInsight에서 Windows 기반 Hadoop 클러스터 만들기| Microsoft 문서"
-description: "Azure PowerShell을 사용하여 Azure HDInsight에 클러스터를 만드는 방법을 알아봅니다."
+title: "PowerShell을 사용하여 Windows 기반 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+description: "PowerShell을 사용하여 HDInsight에 Windows 기반 Hadoop 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: a71718eabc3863e4e78619a2f1ceb174c7c0f058
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9870b61eb00cee169973ae7c09b0c4886cd2db53
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. Azure PowerShell은 Windows PowerShell로 Azure를 관리하기 위한 cmdlet을 제공하는 모듈입니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+PowerShell을 사용하여 HDInsight에 Windows 기반 Hadoop 클러스터를 만드는 방법을 알아봅니다. 
+
+이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 생성에 대한 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -131,8 +137,8 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만들려면 다음 �
     ####################################
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
-## <a name="create-clusters-using-resource-management-template"></a>리소스 관리 템플릿을 사용하여 클러스터 만들기
-Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 Azure Resource Management 템플릿을 배포할 수 있습니다.  [Azure PowerShell을 사용하여 템플릿 호출](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell)을 참조하세요.
+## <a name="create-clusters-using-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클러스터 만들기
+Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 Azure Resource Manager 템플릿을 배포할 수 있습니다.  [Azure PowerShell을 사용하여 템플릿 호출](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell)을 참조하세요.
 
 ## <a name="customize-clusters"></a>클러스터 사용자 지정
 * [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell)을 참조하세요.
@@ -155,6 +161,6 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 Azure Resou
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

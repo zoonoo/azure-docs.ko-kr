@@ -1,6 +1,6 @@
 ---
-title: "어휘집 기반 감정 분석 | Microsoft Docs"
-description: "어휘집 기반 감정 분석"
+title: "(사용되지 않음) 어휘집 기반 감정 분석 - Azure | Microsoft Docs"
+description: "(사용되지 않음) 어휘집 기반 감정 분석"
 services: machine-learning
 documentationcenter: 
 author: pengxia
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/16/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: pengxia
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c702fda88e0af40084958b1ad51e7156c7f4aee3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
 
 
 ---
-# <a name="lexicon-based-sentiment-analysis"></a>어휘집 기반 감정 분석
+# <a name="deprecated-lexicon-based-sentiment-analysis"></a>(사용되지 않음) 어휘집 기반 감정 분석
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 온라인 소셜 네트워크(예: Facebook 게시물, 트윗, 리뷰 등)에서 브랜드나 주제에 대한 사용자의 의견과 태도를 어떻게 측정할 수 있을까요? 감정 분석을 통해 이러한 질문을 분석할 수 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -158,6 +165,6 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

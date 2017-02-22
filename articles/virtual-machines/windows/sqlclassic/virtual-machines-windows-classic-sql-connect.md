@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 98165704fe2699f8ff8a90edb7af8ad10b4d296c
+ms.sourcegitcommit: c6c716c4dce810f190ed66d633524472ba665256
+ms.openlocfilehash: 60d74f1a8dff6441aa461cdc740b5aadc6b77be3
 
 
 ---
@@ -55,7 +55,7 @@ ms.openlocfilehash: 98165704fe2699f8ff8a90edb7af8ad10b4d296c
 ### <a name="connect-to-sql-server-over-the-internet"></a>인터넷을 통해 SQL Server에 연결 
 인터넷을 통해 SQL Server 데이터베이스 엔진에 연결할 경우 들어오는 TCP 통신에 대해 가상 컴퓨터 끝점을 만들어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
 
-인터넷을 통해 연결하려면 VM의 DNS 이름 및 VM 끝점 포트 번호(이 문서 뒷부분에서 구성)를 사용해야 합니다. DNS 이름을 찾으려면 Azure 포털로 이동한 후 **가상 컴퓨터(클래식)**를 선택합니다. 그런 다음 가상 컴퓨터를 선택합니다. **DNS 이름**이 **개요** 섹션에 표시됩니다.
+인터넷을 통해 연결하려면 VM의 DNS 이름 및 VM 끝점 포트 번호(이 문서 뒷부분에서 구성)를 사용해야 합니다. DNS 이름을 찾으려면 Azure Portal로 이동하고 **가상 컴퓨터(클래식)**를 선택합니다. 그런 다음 가상 컴퓨터를 선택합니다. **DNS 이름**이 **개요** 섹션에 표시됩니다.
 
 예를 들어 이름이 **mysqlvm**, DNS 이름이 **mysqlvm7777.cloudapp.net**이고 VM 끝점이 **57500**인 클래식 가상 컴퓨터를 고려해보세요. 올바르게 구성된 연결이라고 가정할 경우 다음 연결 문자열을 사용하여 인터넷의 어디에서든지 가상 컴퓨터에 액세스할 수 있습니다.
 
@@ -112,6 +112,6 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
+ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
+ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
 
 
 ---
@@ -31,12 +31,12 @@ ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
 
 각 커넥터 작업 또는 트리거에는 구성할 속성 집합이 있습니다.  정보 단추를 클릭하여 작업에 대해 자세히 알아보거나 해당 설명서에서 [자세한 내용을 확인](apis-list.md)할 수 있습니다.
 
-아직 커넥터가 아닌 서비스 또는 API와 통합하려면 [사용자 지정 커넥터](../app-service-logic/app-service-logic-create-api-app.md) 를 통해 논리 앱을 확장하거나 HTTP와 같은 프로토콜을 통해 서비스를 직접 호출할 수도 있습니다.
+아직 커넥터가 아닌 서비스 또는 API와 통합하려면 [사용자 지정 커넥터](../logic-apps/logic-apps-create-api-app.md) 를 통해 논리 앱을 확장하거나 HTTP와 같은 프로토콜을 통해 서비스를 직접 호출할 수도 있습니다.
 
 ## <a name="triggers"></a>트리거
 일부 커넥터에는 트리거가 있습니다. 이것은 해당 커넥터의 이벤트가 논리 앱을 실행하고 트리거의 일부로 데이터를 전달함을 의미합니다.  트리거는 항상 논리 앱의 첫 번째 단계입니다.  인기 있는 트리거에는 다음과 같은 작업이 포함됩니다.
 
-* 되풀이 - 1시간마다 실행
+* 되풀이 -&1;시간마다 실행
 * HTTP 요청을 받은 경우
 * 큐에 항목이 추가될 때
 * 전자 메일이 수신될 때
@@ -56,9 +56,9 @@ ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
 Azure에서 **찾아보기**를 클릭하고 **API 연결**을 선택하여 연결을 보고 관리할 수 있습니다.  API 연결 리소스에서 만든 연결을 보거나, 편집하거나, 업데이트하거나, 권한을 다시 부여할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [첫 번째 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
-* [논리 앱의 일반 용도 및 예제에 대해 자세히 알아보기](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-* [엔터프라이즈 통합 트리거 및 작업 시작](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+* [첫 번째 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
+* [논리 앱의 일반 용도 및 예제에 대해 자세히 알아보기](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [엔터프라이즈 통합 트리거 및 작업 시작](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
@@ -66,6 +66,6 @@ Azure에서 **찾아보기**를 클릭하고 **API 연결**을 선택하여 연�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

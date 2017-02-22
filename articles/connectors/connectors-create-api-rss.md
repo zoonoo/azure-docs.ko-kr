@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7a43c010945c6b1601fac5b2fbf934c3d48811e5
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 5e13e126fecda66a453b4ced619016121af98b2c
 
 
 ---
@@ -29,7 +29,7 @@ RSS는 블로그 항목 및 뉴스 헤드라인처럼 자주 업데이트되는 
 > 
 > 
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다. 
@@ -78,7 +78,7 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -99,7 +99,7 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -119,11 +119,11 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 | updatedOn |string |아니요 |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

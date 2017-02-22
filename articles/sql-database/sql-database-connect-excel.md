@@ -17,18 +17,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: jhubbard
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 69e1f52e108293a48a3fbdee8973601423b9117c
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
 
 
 ---
-# <a name="sql-database-tutorial-connect-excel-to-an-azure-sql-database-and-create-a-report"></a>SQL 데이터베이스 자습서: Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
+# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기
 
 클라우드에서 SQL 데이터베이스에 Excel을 연결하여 데이터를 가져오고 데이터베이스의 값을 기반으로 테이블 및 차트를 만드는 방법에 대해 알아봅니다. 이 자습서에서는 Excel과 데이터베이스 테이블 간의 연결을 설정하고 Excel에 대한 데이터 및 연결 정보가 있는 파일을 저장한 후 데이터베이스 값에서 피벗 차트를 만듭니다.
 
@@ -89,6 +83,6 @@ ms.openlocfilehash: 69e1f52e108293a48a3fbdee8973601423b9117c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

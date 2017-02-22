@@ -1,5 +1,5 @@
 ---
-title: "VM의 Linux 이미지에 대한 정보 | Microsoft Docs"
+title: "Azure의 Linux VM 이미지 정보 | Microsoft Docs"
 description: "Azure의 가상 컴퓨터에서 Linux 이미지를 사용하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0c2c9a68be71b929e52b94209f0ef63e6763b49f
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 480211dd13ddc6af348f4179a3c36fd62d7374fc
 
 
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 이미지 정보
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Resource Manager 모델을 사용하는 이미지에 대한 정보는 [여기](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하는 이미지에 대한 정보는 [여기](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
@@ -39,6 +38,6 @@ Azure 구독에 사용할 수 있는 이미지를 관리하려면 Mac, Linux 및
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

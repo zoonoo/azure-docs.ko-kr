@@ -1,5 +1,5 @@
 ---
-title: "Azure 포털을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법 | Microsoft Docs"
+title: "Azure Portal을 사용하여 온-프레미스 인코더로 라이브 스트리밍 | Microsoft Docs"
 description: "이 자습서에서는 통과 배달을 위해 구성된 채널을 만드는 단계를 안내합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -157,6 +157,6 @@ Azure 포털에서 생성된 알림 및 오류를 보려면 알림 아이콘을 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

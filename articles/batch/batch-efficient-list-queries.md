@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치의 효율적인 목록 쿼리 | Microsoft Docs"
+title: "효율적인 목록 쿼리 디자인 - Azure Batch | Microsoft Docs"
 description: "풀, 작업, 태스크 및 계산 노드와 같은 배치 리소스에 대한 정보를 요청할 때 쿼리를 필터링하여 성능을 향상시킵니다."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 62487d3d26ba66ce2ba88ae1a71858d68e68544c
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 4e127422e2ad4644aa028cdb987ca5bafa101868
 
 
 ---
@@ -292,6 +292,6 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "보조 사이트에 온-프레미스 VMWare 가상 컴퓨터 또는 물리적 서버 복제 | Microsoft Docs"
+title: "다른 사이트에 VMware VM 또는 물리적 서버 복제(Azure 클래식 포털) | Microsoft Docs"
 description: "Azure Site Recovery를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버를 보조 사이트에 복제하려면 이 문서를 사용합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: d325ce41e79ec85e08fbf4bb86e0cd7e0edf1c8f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
 
 
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMWare 가상 컴퓨터 또는 물리적 서버 복제
+# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Azure 클래식 포털에서 보조 사이트에 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버 복제
+
 ## <a name="overview"></a>개요
 Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 실시간 복제 기능을 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다.
 
@@ -83,7 +84,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 ## <a name="updates"></a>업데이트
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 4
-Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업데이트 3까지의 모든 수정 프로그램과 다음 새 버그 수정 및 향상된 기능이 있습니다.
+Scout 업데이트 4는 누적 업데이트입니다. 업데이트&1;부터 업데이트&3;까지의 모든 수정 프로그램과 다음 새 버그 수정 및 향상된 기능이 있습니다.
 
 **새 플랫폼 지원**
 
@@ -115,7 +116,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
 * 범위 이탈 예외로 인해 cxps 전송 서버 작동이 중단됩니다.
 * vContinuum 마법사의 푸시 설치 페이지에서 서버 이름 및 IP 열의 크기를 조정할 수 있습니다.
 * RX API 향상 기능
-  * 사용 가능한 5개의 최신 공통된 일관성 지점을 제공합니다(보장됨 태그만).
+  * 사용 가능한&5;개의 최신 공통된 일관성 지점을 제공합니다(보장됨 태그만).
   * 보호된 모든 장치에 대한 용량 및 여유 공간 세부 정보를 제공합니다.
   * 원본 서버에서 Scout 드라이버 상태를 제공합니다.
 
@@ -172,7 +173,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 1
 업데이트 1에는 다음 버그 수정 및 새로운 기능이 포함됩니다.
 
-* 서버 인스턴스 당 31일간 무료 보호됩니다. 기능을 테스트 하거나 개념 증명을 설정할 수 있습니다.
+* 서버 인스턴스 당&31;일간 무료 보호됩니다. 기능을 테스트 하거나 개념 증명을 설정할 수 있습니다.
   * 장애 조치 및 장애 복구를 포함한 서버의 모든 작업은 사이트 복구 Scout를 사용하여 서버를 먼저 보호한 시점부터 시작하여 처음 31일에 대해 무료입니다.
   * 32일째부터는 보호된 각 서버가 사이트를 소유하는 고객에게 Azure Site Recovery 보호를 위해 표준 인스턴스 요금으로 청구됩니다.
   * 언제든지 현재 부과되고 있는 보호된 서버의 수는 Azure Site Recovery 자격 증명의 대시보드 페이지에서 사용할 수 있습니다.
@@ -199,6 +200,6 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

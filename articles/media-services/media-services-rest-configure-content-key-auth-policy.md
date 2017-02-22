@@ -1,5 +1,5 @@
 ---
-title: "Media Services REST API를 사용하여 콘텐츠 키 인증 정책 구성 | Microsoft 문서"
+title: "REST를 사용하여 콘텐츠 키 인증 정책 구성 | Microsoft 문서"
 description: "미디어 서비스 REST API를 사용하여 콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 171a971411546d1421a48f3dceab98fb2b54b25f
 
 
 ---
@@ -36,14 +36,14 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 
 자세한 내용은 다음을 참조하세요.
 
-[JWT 토큰 인증을 참조하세요.](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
 [Azure Active Directory와 Azure 미디어 서비스 OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Azure ACS를 사용하여 토큰을 발급합니다](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>다음과 같은 몇 가지 고려 사항이 적용됩니다.
-* 동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 스트리밍 예약 단위가 있어야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+* 동적 패키징 및 동적 암호화를 사용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태인지 확인합니다.
 * 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](media-services-encode-asset.md)을 참조하세요.
 * **AssetCreationOptions.StorageEncrypted** 옵션을 사용하여 자산을 업로드하고 인코딩합니다.
 * 동일한 정책 구성이 필요한 여러 콘텐츠 키를 사용하려는 경우 단일 인증 정책을 만들고 여러 콘텐츠 키와 함께 다시 사용 하는 것이 좋습니다.
@@ -51,7 +51,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 * 자산 배달 정책을 추가하거나 업데이트하는 경우 기존 로케이터(있는 경우)를 삭제하고 새 로케이터를 만들어야 합니다.
 * 현재 점진적 다운로드를 암호화할 수 없습니다.
 
-## <a name="aes-128-dynamic-encryption"></a>AES 128 동적 암호화.
+## <a name="aes-128-dynamic-encryption"></a>AES&128; 동적 암호화.
 > [!NOTE]
 > 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 > 
@@ -285,7 +285,7 @@ Media Services에서 자산을 암호화하려는 경우 [여기](media-services
 ## <a name="playready-dynamic-encryption"></a>PlayReady 동적 암호화
 Media Services를 사용하면 사용자가 보호된 콘텐츠를 재생하려고 할 때 PlayReady DRM 런타임이 적용하도록 하려는 권한 및 제한을 구성할 수 있습니다. 
 
-PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지정해야 하는 항목 중 하나는 [PlayReady 라이선스 템플릿](https://msdn.microsoft.com/library/azure/dn783459.aspx)을 정의하는 XML 문자열입니다. 
+PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지정해야 하는 항목 중 하나는 [PlayReady 라이선스 템플릿](media-services-playready-license-template-overview.md)을 정의하는 XML 문자열입니다. 
 
 ### <a name="open-restriction"></a>열기 제한
 열기 제한은 시스템이 키를 요청하는 사람에게 키를 제공하는 것을 의미합니다. 이 제한은 테스트 목적으로 유용할 수 있습니다.
@@ -450,6 +450,6 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

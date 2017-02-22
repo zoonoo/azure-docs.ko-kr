@@ -90,12 +90,12 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 ### <a name="set-up-the-tool"></a>도구 설정
 
-1.  전체 솔루션을 다운로드하고 빌드합니다. 
+1.    전체 솔루션을 다운로드하고 빌드합니다. 
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  [여기](https://ffmpeg.org/download.html)에서 FFMPEG를 다운로드합니다. 이 프로젝트는 정적 링크가 있는 be1d324(2016-10-04)를 사용하여 개발되었습니다. 
-3.  ffmpeg.exe 및 ffprobe.exe를 AzureMediaRedactor.exe와 동일한 출력 폴더에 복사합니다. 
+2.    [여기](https://ffmpeg.org/download.html)에서 FFMPEG를 다운로드합니다. 이 프로젝트는 정적 링크가 있는 be1d324(2016-10-04)를 사용하여 개발되었습니다. 
+3.    ffmpeg.exe 및 ffprobe.exe를 AzureMediaRedactor.exe와 동일한 출력 폴더에 복사합니다. 
 
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -113,9 +113,9 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
     
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  아래쪽 텍스트 필드는 얼굴 ID로 업데이트됩니다. 줄 바꿈으로 구분된 이러한 ID 목록으로 "idlist.txt"라는 파일을 만듭니다. 
-6.  1단계의 출력 자산에 이 파일을 업로드합니다. 이 자산에도 원본 비디오를 업로드하고 기본 자산으로 설정합니다. 
-7.  "Redact" 모드를 사용하여 이 자산에 대해 교정 작업을 실행하여 교정된 최종 비디오를 얻습니다. 
+5.    아래쪽 텍스트 필드는 얼굴 ID로 업데이트됩니다. 줄 바꿈으로 구분된 이러한 ID 목록으로 "idlist.txt"라는 파일을 만듭니다. 
+6.    1단계의 출력 자산에 이 파일을 업로드합니다. 이 자산에도 원본 비디오를 업로드하고 기본 자산으로 설정합니다. 
+7.    "Redact" 모드를 사용하여 이 자산에 대해 교정 작업을 실행하여 교정된 최종 비디오를 얻습니다. 
 
 ## <a name="next-steps"></a>다음 단계 
 
@@ -132,6 +132,6 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

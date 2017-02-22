@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c6e67ba61732beba96831e6c3b0fd89bb8097972
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 9f664b07566fe78d93b1e35a2e0f7e5513960fad
 
 
 ---
@@ -42,20 +42,20 @@ Azure 서비스 끝점은 응용 프로그램이 글로벌 Azure 플랫폼에서
   7. 개인 Azure 플랫폼 `preferenceset` 요소를 만들면 **서비스 끝점** 대화 상자의 **편집** 단추를 클릭하여 요소에 할당된 값을 변경할 수 있습니다. 또한 원하는 경우 여러 개인 Azure 플랫폼 `preferenceset` 요소를 만들 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -65,6 +65,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

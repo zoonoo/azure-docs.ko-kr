@@ -229,6 +229,6 @@ Azure IoT 아키텍처에서 설명한 각 범주에서, 데이터/정보가 존
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

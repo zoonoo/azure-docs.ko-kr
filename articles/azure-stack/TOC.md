@@ -69,15 +69,18 @@
 ## [Linux 가상 컴퓨터 배포](azure-stack-linux.md)
 ## [업데이트 관리](azure-stack-updates.md)
 ## [Azure Stack에 대한 개발](azure-stack-developer.md)
-## SQL 또는 MySQL 리소스 공급자 배포
-### [MySQL 데이터베이스를 Azure Stack에 PaaS로 사용](azure-stack-mysql-resource-provider-deploy.md)
-### [Azure Stack에 SQL Server 리소스 공급자 어댑터 배포](azure-stack-sql-resource-provider-deploy.md)
+## SQL 또는 MySQL을 PaaS로 제공
+### [MySQL 리소스 공급자 배포](azure-stack-mysql-resource-provider-deploy.md)
+### [SQL 리소스 공급자 배포](azure-stack-sql-resource-provider-deploy.md)
 
-## App Service 계획 및 배포
+## App Service를 PaaS로 제공
 ### [Azure Stack 개요에 대한 App Service](azure-stack-app-service-overview.md)
 ### [시작하기 전에](azure-stack-app-service-before-you-get-started.md)
+### [App Service 리소스 공급자 배포](azure-stack-app-service-deploy.md)
 ### [웹 작업자 역할 추가](azure-stack-app-service-add-worker-roles.md)
-### [Azure Stack에 App Service 리소스 공급자 추가](azure-stack-app-service-deploy.md)
+### [FTP 게시 사용](azure-stack-app-service-enable-ftp.md)
+### [배포 소스 구성](azure-stack-app-service-configure-deployment-sources.md)
+
 
 # 문제 해결
 ## [Azure Stack 문제 해결](azure-stack-troubleshooting.md)
@@ -88,6 +91,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

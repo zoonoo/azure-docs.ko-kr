@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2e38c7dba04c1402a227fe0a65d637667fd73aa2
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 2e38c7dba04c1402a227fe0a65d637667fd73aa2
 
 이 문서에 설명된 모든 내용은 **serializer** SDK 샘플을 기반으로 합니다. 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 응용 프로그램을 참조하세요.
 
-[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C용 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://azure.github.io/azure-iot-sdk-c/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-modeling-language"></a>모델링 언어
 이 시리즈의 [소개 자료](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 응용 프로그램에 제공된 예제를 통해 **C용 Azure IoT 장치 SDK** 모델링 언어를 소개했습니다.
@@ -438,7 +438,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 중요한 사항은 여러 데이터 이벤트를 **SERIALIZE** 로 전달하면 각 이벤트가 단일 JSON 개체의 속성인 것으로 가정한다는 것입니다.
 
-최적의 접근 방식은 사용자와 사용자가 모델에 대해 어떻게 생각하는지에 따라 결정됩니다. "이벤트"를 클라우드로 전송하고 각 이벤트에 정의된 속성 집합이 있다면 첫 번째  접근 방식이 바람직합니다. 이 경우 **DECLARE\_STRUCT**를 사용하여 각 이벤트의 구조체를 정의한 후 **WITH\_DATA** 매크로를 사용하여 이를 모델에 포함합니다. 그런 다음 위의 첫 번째 예에서 했던 것처럼 각 이벤트를 전송합니다. 이 접근 방식에서는 **SERIALIZER**로 단일 데이터 이벤트만 전달합니다.
+최적의 접근 방식은 사용자와 사용자가 모델에 대해 어떻게 생각하는지에 따라 결정됩니다. "이벤트"를 클라우드로 전송하고 각 이벤트에 정의된 속성 집합이 있다면 첫 번째 접근 방식이 바람직합니다. 이 경우 **DECLARE\_STRUCT**를 사용하여 각 이벤트의 구조체를 정의한 후 **WITH\_DATA** 매크로를 사용하여 이를 모델에 포함합니다. 그런 다음 위의 첫 번째 예에서 했던 것처럼 각 이벤트를 전송합니다. 이 접근 방식에서는 **SERIALIZER**로 단일 데이터 이벤트만 전달합니다.
 
 모델을 개체 지향 방식으로 생각한다면 두 번째 접근 방식이 적합할 수 있습니다. 이 경우에 **WITH\_DATA**를 사용하여 정의된 요소는 개체의 "속성"입니다. 클라우드로 전송하려는 "개체" 상태의 양에 따라 이벤트의 하위 집합을 원하는 대로 **SERIALIZE** 로 전달합니다.
 
@@ -526,14 +526,21 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 동작 이름은 모델에 정의된 동작과 정확히 일치해야 합니다. 매개 변수 이름도 일치해야 합니다. 또한 대/소문자 구분 여부도 확인합니다. **Name** 및 **Parameters**는 항상 대문자입니다. 모델에서 동작 이름 및 매개 변수의 대/소문자와 일치해야 합니다. 이 예에서 동작 이름은 "setairresistance"가 아닌, "SetAirResistance"입니다.
 
+두 가지 작업 **TurnFanOn** 및 **TurnFanOff**는 장치에 다음 메시지를 전송하여 호출할 수 있습니다.
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 이 섹션에서는 **serializer** 라이브러리로 이벤트를 전송하고 메시지를 수신할 때 알아야 할 모든 내용에 대해 설명합니다. 설명을 진행하기 전에, 모델의 크기를 제어하기 위해 구성할 수 있는 몇 가지 매개 변수에 대해 살펴봅니다.
 
 ## <a name="macro-configuration"></a>매크로 구성
 **Serializer** 라이브러리를 사용하는 경우 알아야 할 SDK의 중요한 내용은 azure-c-shared-utility 라이브러리에 있습니다.
---recursive 옵션을 사용하여 GitHub에서 Azure-iot-sdks 리포지토리를 복제한 경우 이 공유 유틸리티 라이브러리를 다음에서 찾을 수 있습니다.
+--recursive 옵션을 사용하여 GitHub에서 Azure-iot-sdk-c 리포지토리를 복제한 경우 이 공유 유틸리티 라이브러리를 다음에서 찾을 수 있습니다.
 
 ```
-.\\c\\azure-c-shared-utility
+.\\c-utility
 ```
 
 라이브러리를 복제하지 않은 경우 [여기](https://github.com/Azure/azure-c-shared-utility)에서 찾을 수 있습니다.
@@ -658,7 +665,7 @@ serializer_deinit();
 ## <a name="next-steps"></a>다음 단계
 이 문서는 **C용 Azure IoT 장치 SDK**에 포함된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명합니다. 제공된 정보로 모델을 사용하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신하는 방법을 잘 이해할 수 있습니다.
 
-또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdks) 가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
+또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한&3;부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk-sdks]를 참조하세요.
 
@@ -672,6 +679,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

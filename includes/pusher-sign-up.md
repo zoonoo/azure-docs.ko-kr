@@ -1,21 +1,21 @@
 첫 번째 단계에서는 자습서에 사용할 계정을 새로 만듭니다. 무료 샌드박스 플랜을 사용할 수 있으며 이 자습서에 안성맞춤입니다.
 
-### 푸셔 계정을 등록하려면
-1. [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
+### <a name="to-sign-up-for-a-pusher-account"></a>푸셔 계정을 등록하려면
+1. [Azure 관리 포털][Azure Management Portal]에 로그인합니다.
 2. 관리 포털의 아래쪽 창에서 **New**를 클릭합니다.
    
     ![command-bar-new][command-bar-new]
 3. **Store**를 클릭합니다.
    
     ![pusher-store][pusher-store]
-4. **Choose an Add-on** 대화 상자에서 **Pusher**를 선택하고 오른쪽 화살표를 클릭합니다.
-5. **Personalize Add-on** 대화 상자에서 등록할 **Pusher** 플랜을 선택합니다.
-6. Azure 설정에서 사용자의 **Pusher** 서비스를 식별하기 위한 이름을 입력하거나 **Pusher** 기본값을 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
+4. **추가 기능 선택** 대화 상자에서 **푸셔**를 선택하고 오른쪽 화살표를 클릭합니다.
+5. **추가 기능 개인 설정** 대화 상자에서 등록할 **푸셔** 플랜을 선택합니다.
+6. Azure 설정에서 사용자의 **푸셔** 서비스를 식별하기 위한 이름을 입력하거나 **푸셔** 기본값을 사용합니다. 이름은 1자에서 100자 사이의 문자여야 하며, 영숫자, 대시, 점, 밑줄만 포함됩니다. 이 이름은 가입한 Azure 저장소 항목 목록에서 고유해야 합니다.
    
     ![store-screen-1][store-screen-1]
-7. 지역 값(예: 미국 서부)을 선택합니다.
+7. 지역 값(예: 미국 서부)을 선택합니다. 
 8. 오른쪽 화살표를 클릭합니다.
-9. **Review Purchase** 탭에서 요금제 및 가격 정보를 검토하고 약관을 확인합니다. 약관에 동의하면 확인 표시를 클릭합니다. 확인 표시를 클릭하면 푸셔 계정이 프로비전 프로세스를 시작합니다.
+9. **Review Purchase** 탭에서 요금제 및 가격 정보를 검토하고 약관을 확인합니다. 약관에 동의하면 확인 표시를 클릭합니다. 확인 표시를 클릭하면 푸셔 계정이 프로비전 프로세스를 시작합니다. 
    
    ![store-screen-2][store-screen-2]
 10. 구매를 확인하면 추가 기능 대시보드로 리디렉션되고 **Purchasing Pusher**라는 메시지가 나타납니다.
@@ -30,7 +30,7 @@
 
 푸셔를 사용할 때 푸셔 앱 연결 설정을 제공해야 합니다.
 
-### 푸셔 연결 설정을 찾으려면
+### <a name="to-find-your-pusher-connection-settings"></a>푸셔 연결 설정을 찾으려면
 1. **Connection Info**를 클릭합니다.
    
     ![pusher-connection-info-button][pusher-connection-info-button]
@@ -38,7 +38,7 @@
    
     ![pusher-connection-info][pusher-connection-info]
 
-푸셔 시작에 대한 자세한 내용은 [푸셔 이해][푸셔 이해](영문)를 참조하십시오.
+푸셔 시작에 대한 자세한 내용은 [푸셔 이해][Understanding Pusher](영문)를 참조하세요.
 
 <!--images-->
 
@@ -53,7 +53,11 @@
 
 <!--Links-->
 
-[Azure 관리 포털]: https://manage.windowsazure.com
-[푸셔 이해]: http://pusher.com/docs
+[Azure Management Portal]: https://manage.windowsazure.com
+[Understanding Pusher]: http://pusher.com/docs
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

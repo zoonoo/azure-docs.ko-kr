@@ -1,5 +1,5 @@
 ---
-title: "클래식 배포 모델 및 PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결 | Microsoft 문서"
+title: "ExpressRoute 회로에 가상 네트워크 연결: PowerShell: 클래식: Azure | Microsoft Docs"
 description: "이 문서는 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
+ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
+ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결합니다.
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
-> * [Azure 포털 - 리소스 관리자](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell - 클래식](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [클래식 - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -73,7 +74,7 @@ ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
 
 **권한 부여 만들기**
 
-회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로 관리자는(Contoso IT) 다른 구독의 관리자가(Dev-Test) 회로에 대해 최대 2개의 가상 네트워크를 연결하도록 설정합니다. Contoso IT 관리자는 Dev-Test Microsoft ID를 지정하여 이것을 설정합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
+회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로 관리자는(Contoso IT) 다른 구독의 관리자가(Dev-Test) 회로에 대해 최대&2;개의 가상 네트워크를 연결하도록 설정합니다. Contoso IT 관리자는 Dev-Test Microsoft ID를 지정하여 이것을 설정합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 
@@ -162,6 +163,6 @@ Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-f
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

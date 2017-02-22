@@ -4,7 +4,7 @@ description: "Azure SQL 데이터베이스에 대한 일반적인 연결 오류�
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -61,8 +61,8 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 * 사용자 오류: 예를 들어 연결 문자열에서 서버 이름과 같이 연결 매개 변수를 잘못 입력했습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
-1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙](sql-database-configure-firewall-settings.md) 을 설정합니다.
-2. 클라이언트와 인터넷 간의 모든 방화벽에서 포트 1433이 아웃바운드 연결에 대해 열려 있는지 확인합니다. 추가 포인터는 [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](https://msdn.microsoft.com/library/cc646023.aspx) 을 검토하세요.
+1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙](sql-database-configure-firewall-settings.md) 을 설정합니다. 임시 테스트 목적으로 시작 IP 주소 범위로 0.0.0.0을 사용하고 끝 IP 주소 범위로 255.255.255.255를 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다. 
+2. 클라이언트와 인터넷 간의 모든 방화벽에서 포트 1433이 아웃바운드 연결에 대해 열려 있는지 확인합니다. [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](https://msdn.microsoft.com/library/cc646023.aspx) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports)에서 Azure Active Directory 인증을 위해 열어야 하는 추가 포트와 관련된 추가 포인터를 검토하세요.
 3. 연결 문자열 및 기타 연결 설정을 확인합니다. [연결 문제 항목](sql-database-connectivity-issues.md#connections-to-azure-sql-database)의 연결 문자열 섹션을 참조하세요.
 4. 대시보드에서 서비스 상태를 확인합니다. 지역별 가동 중단이 있다고 생각되는 경우 [가동 중단에서 복구](sql-database-disaster-recovery.md) 를 참조하여 새 지역으로 복구하는 단계를 따르세요.
 
@@ -77,13 +77,11 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 | 4 |[Microsoft Azure SQL 데이터베이스의 연결 문제 해결](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |이 도구는 문제를 식별하고 연결 오류를 해결하는 데 도움을 줍니다. |
 | 5 |[&lt;y&gt; 서버의 &lt;x&gt; 데이터베이스를 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오." 오류 해결](sql-database-troubleshoot-connection.md) |“40613 오류: &lt;y&gt; 서버의 &lt;x&gt; 데이터베이스를 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오.”를 식별하고 해결하는 방법을 설명합니다. |
 | 6 |[SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md) |일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL 데이터베이스 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대한 정보를 제공합니다. |
-| 7 |[독립 실행형 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) |응용 프로그램에 적합한 서비스 계층을 확인하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL 데이터베이스를 최대한 활용하도록 응용 프로그램을 조정하기 위한 권장 지침도 제공합니다. |
+| 7 |[단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md) |응용 프로그램에 적합한 서비스 계층을 확인하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL 데이터베이스를 최대한 활용하도록 응용 프로그램을 조정하기 위한 권장 지침도 제공합니다. |
 | 8 |[SQL 데이터베이스 개발 개요](sql-database-develop-overview.md) |이 항목에서는 SQL 데이터베이스에 연결하고 상호 작용하는 데 사용할 수 있는 여러 기술에 대한 코드 샘플의 링크를 제공합니다. |
-| 9 |Azure SQL Database v12로 업그레이드 페이지([Azure Portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Azure 포털 또는 PowerShell을 사용하여 기존 Azure SQL 데이터베이스 V11 서버 및 데이터베이스를 Azure SQL 데이터베이스 V12로 업그레이드하는 방법에 대한 지침을 제공합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure SQL 데이터베이스 성능 문제 해결](sql-database-troubleshoot-performance.md)
-* [Azure SQL 데이터베이스 권한 문제 해결](sql-database-troubleshoot-permissions.md)
 * [Microsoft Azure 설명서 검색](http://azure.microsoft.com/search/documentation/)
 * [Azure SQL 데이터베이스 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -91,12 +89,10 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 * [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 * [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 * [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
-* [Azure SQL 데이터베이스를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [탄력적 데이터베이스 기능 및 도구를 사용하기 위한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열에 대한 액세스 제어 레코드 관리 | Microsoft Docs"
+title: "StorSimple Virtual Array에 대한 액세스 제어 레코드 관리 | Microsoft Docs"
 description: "ACR(액세스 제어 레코드)을 관리하여 어떤 호스트가 StorSimple 가상 배열의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: a0ba81faa20587d9559bf25cdc82dd6e20f42948
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 1a93ef9c3418da64302d251203fd195708437931
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple 가상 배열에 대한 액세스 제어 레코드 관리
@@ -131,6 +131,6 @@ Azure Portal에서 **구성** 페이지를 사용하여 ACR을 삭제합니다.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

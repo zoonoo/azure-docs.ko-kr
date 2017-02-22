@@ -1,5 +1,5 @@
 ---
-title: "HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
+title: "Azure HDinsight(HBase)에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
 description: "HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: ceb33327ec2ced7c1ffad89696e64538c7fd4a5d
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 42d64d58fab19fc564fbcbf19f464bce8cf46eb7
 
 
 ---
@@ -94,6 +94,6 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,27 +43,27 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 > 
 
 ## <a name="change-headers-styling"> </a>머리글의 스타일 변경
-포털에서 페이지의 색, 글꼴, 크기, 간격 및 기타 스타일 관련 요소는 스타일 규칙에 따라 정의됩니다. 스타일을 편집하려면 게시자 포털의 **개발자 포털** 메뉴에서 **모양**을 클릭한 후 **사용자 지정 시작**을 클릭하여 스타일 편집기를 사용합니다.
+포털에서 페이지의 색, 글꼴, 크기, 간격 및 기타 스타일 관련 요소는 스타일 규칙에 따라 정의됩니다. 스타일을 편집하려면 **개발자 포털**에서 사용자 지정 아이콘 위로 이동하여 왼쪽에서 사용자 지정 도구 모음을 열고 도구 모음에서 "스타일"를 선택합니다.
 
-브라우저가 개발자 포털 내의 숨겨진 페이지로 전환되며, 이 페이지에는 사이트의 임의의 위치에서 사용되는 모든 스타일 규칙의 예제와 함께 콘텐츠 샘플이 들어 있습니다. 스타일 편집기를 열려면 페이지의 맨 왼쪽에 있는 가느다란 회색 세로선으로 커서를 가져갑니다. 편집기 도구 모음이 나타납니다.
+![사용자 지정 도구 모음 단추][api-management-customization-toolbar-button]
+
+스타일 규칙 편집에는 두 가지 주요 방법이 있습니다. 기본적으로 표시되는 곳에 사용되는 모든 스타일 규칙의 목록을 확인하고 필요에 따라 스타일을 수정하거나, **페이지에서 요소 선택**을 선택한 다음 페이지에서 아무 곳이나 클릭하여 해당 요소에 대한 스타일만 확인할 수 있습니다.
+
+이 섹션에서는 머리글에 대해서만 스타일을 변경합니다. 스타일 편집기 도구 모음 옵션에서 **페이지에서 요소 선택**을 클릭합니다. 
 
 ![사용자 지정 도구 모음][api-management-customization-toolbar]
 
-스타일 규칙 편집의 두 가지 주요 모드가 있습니다. **모든 규칙 편**집은 임의의 위치에서 사용되는 모든 스타일 규칙의 목록을 표시하고, **요소 선택**은 현재 페이지에서 요소를 선택할 수 있게 하며 해당 요소에 대한 스타일만 표시합니다.
+이제 마우스를 요소 위로 가져가면 요소가 강조 표시되어 클릭하면 어느 요소의 스타일부터 편집을 시작하게 되는지가 나타납니다. 머리글에서 회사 이름을 나타내는 텍스트(이전 섹션의 지침을 따른 경우 "Fabrikam 개발자 포털") 위로 마우스를 가져간 후 텍스트를 클릭합니다. 명명되고 분류된 스타일 규칙 집합이 스타일 편집기 내에 나타납니다. 각 규칙은 선택한 요소의 스타일 속성을 나타냅니다. 예를 들어, 위에서 선택한 머리글 텍스트의 경우 텍스트의 크기는 @font-size-h1이고, 대체 항목이 있는 글꼴의 이름은 @headings-font-family입니다.
 
-이 섹션에서는 머리글에 대해서만 스타일을 변경합니다. 스타일 편집기 도구 모음에서 **요소 선택** 옵션을 클릭한 후 **사용자 지정할 요소 선택**을 클릭합니다. 이제 마우스를 요소 위로 가져가면 요소가 강조 표시되어 클릭하면 어느 요소의 스타일부터 편집을 시작하게 되는지가 나타납니다. 머리글에서 회사 이름을 나타내는 텍스트(이전 섹션의 지침을 따른 경우 "Fabrikam 개발자 포털") 위로 마우스를 가져간 후 텍스트를 클릭합니다. 명명되고 분류된 스타일 규칙 집합이 스타일 편집기 내에 나타납니다.
-
-각 규칙은 선택한 요소의 스타일 속성을 나타냅니다. 예를 들어 위에서 선택한 머리글 텍스트의 경우 텍스트의 크기는 @font-size-h1이고, 대체 항목이 있는 글꼴의 이름은 @headings-font-family.
-
-> [부트스트랩][bootstrap]에 익숙한 경우, 이 규칙은 실제로 개발자 포털에서 사용되는 부트스트랩 테마 내의 [LESS 변수][LESS variables]입니다.
+> [부트스트랩][bootstrap](영문)에 익숙한 경우 이 규칙은 실제로 개발자 포털에서 사용하는 부트스트랩 테마 내의 [LESS 변수][LESS variables](영문)입니다.
 > 
 > 
 
-이제 제목 텍스트의 색을 변경하겠습니다. **@headings-color** 필드에서 항목을 선택하고 **#000000**을 입력합니다. 이는 검정색의 16진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
+이제 제목 텍스트의 색을 변경하겠습니다. **@headings-color** 필드에서 항목을 선택하고 **#000000**을 입력합니다. 이는 검정색의&16;진 코드입니다. 이 과정에서 텍스트 상자 끝부분에 사각형 색 표시기가 나타나는 것이 확인됩니다. 이 표시기를 클릭하면 색 선택을 통해 색을 선택할 수 있습니다.
 
 ![색 선택][api-management-customization-toolbar-color-picker]
 
-선택한 요소의 스타일 변경을 마치면 **변경 내용 미리 보기** 를 클릭하여 화면에 결과를 표시합니다. 이때 결과는 관리자에게만 보입니다. 변경 내용을 모든 사람이 볼 수 있게 하려면 스타일 편집기에서 **게시** 단추를 클릭하고 변경 내용을 확인하세요.
+변경 내용을 적용하면 실시간으로 미리 보기를 확인할 수 있지만 관리자에게만 표시됩니다. 변경 내용을 모든 사람이 볼 수 있게 하려면 스타일 편집기에서 **게시** 단추를 클릭하고 변경 내용을 확인하세요.
 
 ![게시 메뉴][api-management-customization-toolbar-publish-form]
 
@@ -87,15 +87,16 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 ## <a name="next-steps"> </a>다음 단계
 * [개발자 포털 템플릿](api-management-developer-portal-templates.md)을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 방법 알아보기.
 
-[페이지 머리글의 텍스트/로고 변경]: #change-page-headers
-[머리글의 스타일 변경]: #change-headers-styling
-[페이지의 콘텐츠 편집]: #edit-page-contents
-[다음 단계]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -103,10 +104,10 @@ ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
 
 
 [bootstrap]: http://getbootstrap.com/
-[LESS 변수]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

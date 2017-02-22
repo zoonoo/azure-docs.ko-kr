@@ -12,33 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dcb28a67ef21728d9b21159f356ed122e0b7a1be
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: b3ff0e93ee144e98dec69c0678c3b467db1e0bc0
 
 
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>HDInsight에서 Spark를 사용하여 Application Insights 원격 분석 로그 분석
+
 [Visual Studio Application Insights](../application-insights/app-insights-overview.md) 는 웹 응용 프로그램을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있고 해당 위치에서 HDInsight로 분석할 수 있습니다.
 
 이 문서에서는 Apache Spark를 사용하여 Application Insight 원격 분석 데이터를 분석하기 위해 HDInsight를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 * Azure 구독.
+
 * 응용 프로그램에서 Application Insights를 사용하도록 구성합니다. 
+
 * Linux 기반 HDInsight 클러스터를 만드는 데 익숙해야 합니다. 클러스터를 만드는 방법을 잘 모르는 경우 자세한 내용은 [HDInsight에서 Spark 만들기](hdinsight-apache-spark-jupyter-spark-sql.md) 를 참조하세요.
   
-  > [!NOTE]
-  > 이 문서에서는 새 클러스터를 만드는 방법에 대한 연습을 제공하지 않습니다. 대신, 원격 분석 데이터에 액세스할 수 있는 클러스터를 만드는 방법에 대한 정보를 제공하는 다른 문서를 참조합니다.
-  > 
-  > 
+  > [!IMPORTANT]
+  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * 웹 브라우저. Jupyter Notebook을 사용하여 분석을 대화형으로 실행하는 데 사용됩니다.
 
 이 문서를 개발하고 테스트에 사용된 항목은 다음과 같습니다.
 
 * [Application Insights를 사용하도록 구성된 Node.js 웹앱](../application-insights/app-insights-nodejs.md)를 사용하여 Application Insights 원격 분석 데이터를 생성했습니다.
+
 * HDInsight 클러스터 버전 3.4의 Linux 기반 Spark는 데이터를 분석하는 데 사용되었습니다.
 
 ## <a name="architecture-and-planning"></a>아키텍처 및 계획
@@ -47,6 +51,7 @@ ms.openlocfilehash: dcb28a67ef21728d9b21159f356ed122e0b7a1be
 ![다이어그램에서는 데이터를 Application Insights에서 Blob 저장소로 전달하고 HDInsight의 Spark에서 처리하는 방법을 보여 줍니다.](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### <a name="azure-storage"></a>Azure 저장소
+
 HDInsight 클러스터는 Azure Storage 계정에서 블록 Blob에 직접 액세스할 수 있고 Application Insights를 구성하여 Azure Storage의 Blob에 대한 원격 분석 정보를 지속적으로 내보낼 수 있습니다. 그러나 따라야 할 몇 가지 요구 사항이 있습니다.
 
 * **위치**: 장소 계정은 HDInsight와 동일한 지역에 있어야 합니다. 데이터에 액세스할 때 대기 시간을 줄이고 지역 간에 데이터를 이동할 때 발생하는 송신 요금을 방지합니다.
@@ -56,6 +61,7 @@ HDInsight 클러스터는 Azure Storage 계정에서 블록 Blob에 직접 액�
     대신, HDInsight 및 Application Insights 원격 분석에 별도의 저장소 계정을 사용하고 [SAS(공유 액세스 서명)를 사용하여 HDInsight에서 데이터에 액세스를 제한](hdinsight-storage-sharedaccesssignature-permissions.md)하는 것이 좋습니다. SAS를 사용하면 원격 분석 데이터에 대한 HDInsight 읽기 전용 액세스 권한을 부여할 수 있습니다.
 
 ### <a name="data-schema"></a>데이터 스키마
+
 Application Insights는 Blob으로 내보낸 원격 분석 데이터 형식에 대한 [데이터 모델 내보내기](../application-insights/app-insights-export-data-model.md) 정보를 제공합니다. 이 문서의 단계에서는 Spark SQL을 데이터와 함께 사용합니다. Spark SQL은 분석을 수행할 때 스키마를 수동으로 정의하지 않도록 Application Insights에 의해 기록된 JSON 데이터 구조에 대한 스키마를 자동으로 생성할 수 있습니다.
 
 ## <a name="export-telemetry-data"></a>원격 분석 데이터 내보내기
@@ -349,6 +355,6 @@ Spark 응용 프로그램을 만들고 실행하는 자세한 내용은 다음 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

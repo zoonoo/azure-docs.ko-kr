@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
+ms.sourcegitcommit: 82e359621b18f6fd2f90b34799212006426cbc94
+ms.openlocfilehash: acd226c2eee8216843b68e322f6880de45a26b9a
 
 
 ---
@@ -36,11 +36,9 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 
 **필수 구성 요소**
 
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * (선택 사항) [cURL][curl]를 참조하세요. 설치하려면 [cURL 릴리스 및 다운로드][curl-download]를 참조하세요.
   
   > [!NOTE]
@@ -54,18 +52,16 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
   |   HDInsight 클러스터 이름 |$clusterName | |HDInsight 클러스터의 이름입니다. |
   |   클러스터 사용자 이름 |$clusterUsername | |클러스터 사용자 이름은 클러스터를 만들 때 지정됩니다. |
   |   클러스터 암호 |$clusterPassword | |클러스터 사용자 암호입니다. |
-  
-  > [!NOTE]
-  > 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
-  > 
-  > 
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 ## <a name="jump-start"></a>신속한 시작
 Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 방법이 있습니다.
 
 **Azure PowerShell 사용**
 
-다음은 *HDInsight 3.1 클러스터*에서 MapReduce 작업 추적기 정보를 가져오는 Azure PowerShell 스크립트입니다.  가장 큰 차이점은 MapReduce가 아니라 YARN 서비스에서 이러한 세부 정보를 가져온다는 것입니다.
+다음 Azure PowerShell 스크립트는 *HDInsight 3.1 클러스터*에서 MapReduce 작업 추적기 정보를 가져옵니다.  가장 큰 차이점은 MapReduce가 아니라 YARN 서비스에서 이러한 세부 정보를 가져온다는 것입니다.
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -81,7 +77,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
     $response.metrics.'yarn.queueMetrics'
 
-다음은 *HDInsight 2.1 클러스터*에서 MapReduce 작업 추적기 정보를 가져오는 Azure PowerShell 스크립트입니다.
+다음 Azure PowerShell 스크립트는 *HDInsight 2.1 클러스터*에서 MapReduce 작업 추적기 정보를 가져옵니다.
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -103,7 +99,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **cURL 사용**
 
-다음은 cURL을 사용하여 클러스터 정보를 가져오는 예입니다.
+다음 예제는 cURL을 사용하여 클러스터 정보를 가져옵니다.
 
     curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
@@ -137,7 +133,7 @@ Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{c
 | 클러스터 정보 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |클러스터, 서비스, 호스트 |
 | 서비스 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |서비스에 포함: hdfs, mapreduce |
 | 서비스 정보 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
-| 서비스 구성 요소 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker |
+| 서비스 구성 요소 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
 | 구성 요소 정보 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, host-components, 메트릭 |
 | 호스트 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0, workernode0 |
 | 호스트 정보 가져오기 |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
@@ -149,7 +145,7 @@ Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{c
 ## <a name="next-steps"></a>다음 단계
 Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
+* [Azure Portal을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]
 * [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
 * [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][hdinsight-admin-cli]
 * [HDInsight 설명서][hdinsight-documentation]

@@ -1,5 +1,5 @@
 ---
-title: "Linux VM에 디스크 연결 | Microsoft Docs"
+title: "Azure의 Linux VM에 디스크 연결 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 Linux VM에 데이터 디스크를 연결하고 디스크를 사용 가능하도록 초기화하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
-ms.openlocfilehash: 96ec97914784f53739b11b4ef7916de620b4ed6e
+ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
+ms.openlocfilehash: b78deeeb7fd8d337b83c8e831f51f8e57014cf43
 
 
 ---
@@ -227,7 +227,7 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]
 * [Linux 가상 컴퓨터에서 디스크를 분리하는 방법](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [클래식 배포 모델에서 Azure CLI 사용](../virtual-machines-command-line-tools.md)
+* [클래식 배포 모델에서 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure에서 Linux VM에 RAID 구성](virtual-machines-linux-configure-raid.md)
 * [Azure에서 Linux VM에 LVM 구성](virtual-machines-linux-configure-lvm.md)
 
@@ -237,6 +237,6 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

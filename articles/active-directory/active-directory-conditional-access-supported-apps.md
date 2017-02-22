@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
+ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
+ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
 
 
 ---
@@ -41,8 +41,8 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) |
 | Office 365 Exchange Online |iOS, Android |Outlook 모바일 앱 |
 | Office 365 Exchange Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정), 비즈니스용 Skype(향후 지원 예정) |
-| Office 365 SharePoint Online |Windows 10 |Office 2016 앱, Office Universal 앱, Office 2013(최신 인증 사용), 비즈니스용 OneDrive 앱(NGSC(차세대 동기화 클라이언트) 향후 지원 예정), Office Groups(향후 지원 예정), SharePoint 앱(향후 지원 예정) |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 앱, Office 2013(최신 인증 사용), 비즈니스용 OneDrive 앱(Groove 동기화 클라이언트) |
+| Office 365 SharePoint Online |Windows 10 |Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) 참조, 미래를 위해 계획된 Office 그룹 지원, 미래를 위해 계획된 SharePoint 앱 지원 |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조) |
 | Office 365 SharePoint Online |iOS, Android |Office 모바일 앱 |
 | Office 365 SharePoint Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정) |
 | Office 365 Yammer |Windows 10, iOS 및 Android |Office Yammer 앱 |
@@ -111,6 +111,6 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 10a56e134f0e31e60758d6e616b771dabc0f4dad
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
 
 
 ---
@@ -44,7 +44,7 @@ VM *VM1*은 *WestUS-VNet1*이라는 VNet 내에 있는 *Subnet1* 서브넷의 �
 ## <a name="detailed-troubleshooting-steps"></a>자세한 문제 해결 단계
 VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
-1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell을 사용하는 데 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 문서를 읽어보세요.
+1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell을 사용하는 데 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서를 읽어보세요.
 2. 다음 명령을 입력하여 리소스 그룹 *RG1*의 NIC *VM1-NIC1*에 적용되는 모든 NSG 규칙을 반환합니다.
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -201,6 +201,6 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

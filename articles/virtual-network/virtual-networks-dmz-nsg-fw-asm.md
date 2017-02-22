@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 178771fb235e8b2786e4b6d0ac117d5c90540c67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 
 
 ---
-# <a name="example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
+# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
 이 예에서는 방화벽, 4개의 Windows Server 및 네트워크 보안 그룹이 포함된 DMZ를 만듭니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명도 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다. 
@@ -173,7 +173,7 @@ ms.openlocfilehash: 178771fb235e8b2786e4b6d0ac117d5c90540c67
 9. DNS 서버는 응답을 캐시하고 IIS01에 대한 초기 요청에 다시 응답합니다.
 10. 백 엔드 서브넷에 아웃바운드 규칙이 없고 트래픽이 허용됩니다.
 11. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
-    1. 백 엔드 서브넷에서 프런트엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
+    1. 백 엔드 서브넷에서 프런트 엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
     2. 서브넷 간의 트래픽을 허용하는 기본 시스템 규칙에서 이 트래픽을 허용하므로 트래픽이 허용됩니다.
 12. IIS01은 DNS01에서 응답을 수신합니다.
 
@@ -582,6 +582,6 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

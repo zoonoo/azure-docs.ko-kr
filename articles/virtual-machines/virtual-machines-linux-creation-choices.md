@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: b757afc3a90f7f2280517ccb7064d79f4cdf27ee
-ms.openlocfilehash: 2fb24a0c5e6033a0ce6bbd710e7500eb4eea8b3d
+ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
+ms.openlocfilehash: 23862762fcf0939ce84859fdae0274421c0bb5fe
 
 
 ---
@@ -41,19 +41,21 @@ Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
-
-  * 이 예제에서는 `id_rsa.pub` 공개 키를 가진 최신 Debian 이미지를 사용하여 `myVM` VM을 만들기 위해 [az vm create](/cli/azure/vm#create)를 사용합니다.
+    
+  * 이 예제에서는 Azure Managed Disks와 `id_rsa.pub`라는 공개 키를 가진 최신 Debian 이미지를 사용하여 `myVM`이라는 VM을 만들기 위해 [az vm create](/cli/azure/vm#create)를 사용합니다.
 
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
     ```
+
+    * 관리되지 않는 디스크를 사용하려는 경우 `--use-unmanaged-disks` 플래그를 위 명령에 추가합니다. 저장소 계정이 생성됩니다. 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요.
 
 * [Azure 템플릿을 사용하여 안전한 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
@@ -71,8 +73,8 @@ Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴
 
 * [Linux VM에 디스크 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * 다음 예제에서는 [az vm disk attach-new](/cli/azure/vm/disk#attach-new)를 사용하여 `myVM`라는 기존 VM에 `myDataDisk.vhd`라는 5Gb 디스크를 추가합니다.
-    
+  * 다음 예제에서는 [az vm disk attach-new](/cli/azure/vm/disk#attach-new)를 사용하여 `myDataDisk.vhd`라는 5Gb 관리되지 않는 디스크를 `myVM`이라는 기존 VM에 추가합니다.
+  
     ```azurecli
     az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
       --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
@@ -135,7 +137,7 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 * [보증되지 않는 배포에 대한 정보](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Linux 가상 컴퓨터를 Resource Manager 템플릿으로 캡처하는 방법](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
-  * 기존 VM을 캡처하는 빠른 시작 **az vm** 예제 명령은 다음과 같습니다.
+  * 관리되지 않는 디스크를 사용하여 기존 VM을 캡처하는 빠른 시작 **az vm** 예제 명령은 다음과 같습니다.
     
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -150,7 +152,6 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

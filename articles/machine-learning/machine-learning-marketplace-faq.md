@@ -1,6 +1,6 @@
 ---
-title: "FAQ: Azure Marketplace에서 Machine Learning 앱 서비스 게시 및 사용 | Microsoft Docs"
-description: "질문과 대답"
+title: "(사용되지 않음) FAQ: Azure Marketplace에서 Machine Learning 앱 게시 및 사용 | Microsoft Docs"
+description: "(사용되지 않음) Azure Marketplace에서 Machine Learning 앱 게시에 관한 FAQ"
 services: machine-learning
 documentationcenter: 
 author: bharaths
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8ae758a406dfed48968531ae20a9bbd2383db92
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
 
 
 ---
-# <a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>Azure 마켓플레이스에서 기계 학습 앱 게시 및 사용: FAQ
+# <a name="deprecated-publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>(사용되지 않음) Azure Marketplace에서 Machine Learning 앱 게시 및 사용: FAQ
+
+> [!NOTE]
+> DataMarket 및 Data Services는 종료되며 기존 구독은 2017년 3월 31일부터 종료 및 취소됩니다. 결과적으로,이 문서는 사용되지 않습니다. 
+> 
+> 대안으로, 데이터 과학 커뮤니티를 위하여 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)에 Machine Learning 실험을 게시할 수 있습니다. 자세한 내용은 [Cortana Intelligence 갤러리에서 리소스 공유 및 검색](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish)을 참조하십시오.
+
+
 ## <a name="questions-about-consuming-from-marketplace"></a>마켓플레이스에서의 사용 관련 질문
 **1. 웹 서비스에 입력한 후에 다음과 같은 오류 메시지가 표시되는 이유는 무엇인가요?**
 
@@ -72,6 +80,6 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory에서 암호 정책 및 제한 | Microsoft 문서"
-description: "허용되는 문자, 길이 및 만료를 포함하여 Azure Active Directory에서 암호에 적용되는 정책에 대해 설명합니다."
+description: "허용되는 문자, 길이 및 만료를 포함하여 Azure Active Directory에서 암호에 적용되는 정책을 설명합니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
 
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>모든 사용자 계정에 적용되는 UserPrincipalName 정책
 Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에는 해당 계정에 연결된 고유한 UPN(사용자 계정 이름) 특성 값이 있어야 합니다. 다음 표에서는 온-프레미스 Active Directory 기반 사용자 계정(클라우드로 동기화됨) 및 클라우드 전용 사용자 계정에 모두 적용되는 정책을 간략하게 요약하고 있습니다.
@@ -35,7 +35,7 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 | --- | --- |
 | 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> 을 참조하세요. - \_ ! \# ^ \~</li></ul> |
 | 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 '@' 문자입니다.</li> <li>'@' 기호 바로 앞에는 '.'(마침표) 문자를 사용할 수 없습니다.</li></ul> |
-| 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>‘@’ 기호 앞에 64자</li><li>‘@’ 기호 뒤에 48자</li></ul> |
+| 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>‘@’ 기호 앞에&64;자</li><li>‘@’ 기호 뒤에&48;자</li></ul> |
 
 ## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>클라우드 사용자 계정에만 적용되는 암호 정책
 다음 표에서는 Azure AD에서 만들어지고 관리되는 사용자 계정에 적용할 수 있는 사용 가능 암호 정책 설정을 설명합니다.
@@ -66,7 +66,6 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

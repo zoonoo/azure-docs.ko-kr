@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF | Microsoft Docs"
+title: "Azure DocumentDB에 대한 서버 쪽 JavaScript 프로그래밍 | Microsoft Docs"
 description: "DocumentDB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다."
 keywords: "데이터베이스 트리거, 저장된 프로시저, 저장된 프로시저, 데이터베이스 프로그램, sproc, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
 
 
 ---
@@ -26,7 +26,7 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
 
 먼저 Andrew Liu가 DocumentDB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다. 
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
@@ -63,7 +63,7 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
 
     var helloWorldStoredProc = {
         id: "helloWorld",
-        body: function () {
+        serverScript: function () {
             var context = getContext();
             var response = context.getResponse();
 
@@ -105,7 +105,7 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
-        body: function createMyDocument(documentToCreate) {
+        serverScript: function createMyDocument(documentToCreate) {
             var context = getContext();
             var collection = context.getCollection();
 
@@ -161,8 +161,8 @@ DocumentDB에서 JavaScript는 데이터베이스와 동일한 메모리 공간�
 
     // JavaScript source code
     var exchangeItemsSproc = {
-        name: "exchangeItems",
-        body: function (playerId1, playerId2) {
+        id: "exchangeItems",
+        serverScript: function (playerId1, playerId2) {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -298,8 +298,8 @@ JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. DocumentD
 DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거를 제공합니다. 예를 들어 문서를 만들 때 사전 트리거를 지정할 수 있습니다. 이 사전 트리거는 문서를 만들기 전에 실행됩니다. 다음은 사전 트리거를 사용하여 만드는 문서의 속성 유효성을 검사할 수 있는 방법의 예입니다.
 
     var validateDocumentContentsTrigger = {
-        name: "validateDocumentContents",
-        body: function validate() {
+        id: "validateDocumentContents",
+        serverScript: function validate() {
             var context = getContext();
             var request = context.getRequest();
 
@@ -369,8 +369,8 @@ DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거�
 다음 예제는 사후 트리거 작동을 보여 줍니다.
 
     var updateMetadataTrigger = {
-        name: "updateMetadata",
-        body: function updateMetadata() {
+        id: "updateMetadata",
+        serverScript: function updateMetadata() {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -442,8 +442,8 @@ UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하
 다음 샘플에서는 다양한 수입 브래킷에 대한 비율에 따라 소득세를 계산하는 UDF를 만든 다음 쿼리 내부에서 사용하여 납부한 세금이 $20,000를 초과하는 모든 사람을 찾습니다.
 
     var taxUdf = {
-        name: "tax",
-        body: function tax(income) {
+        id: "tax",
+        serverScript: function tax(income) {
 
             if(income == undefined) 
                 throw 'no input';
@@ -814,6 +814,6 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 75f05f003b691ee6464168453fa7935f1fae166e
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
 
 ---
 
@@ -55,7 +55,7 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 
     위의 예에서는 "sqlsvc1" 및 "sqlsvc2"라는 2개의 VM이 클라우드 서비스 "Sqlsvc"에서 실행 중입니다. `DirectServerReturn` 스위치를 사용하여 ILB를 만든 후 ILB에 부하 분산 끝점을 추가하여 SQL에서 가용성 그룹에 대한 수신기를 구성할 수 있게 합니다.
 
-SQL AlwaysOn에 대한 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 내부 부하 분산 장치 구성](../virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fload-balancer%2ftoc.json)을 참조하세요.
+SQL AlwaysOn에 대한 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 내부 부하 분산 장치 구성](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 [인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
@@ -68,6 +68,6 @@ SQL AlwaysOn에 대한 자세한 내용은 [Azure에서 AlwaysOn 가용성 그�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

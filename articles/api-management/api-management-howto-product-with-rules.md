@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -39,7 +39,7 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 
 ![게시자 포털][api-management-management-console]
 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management에서 첫 번째 API 관리][Manage your first API in Azure API Management] 자습서에서 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management에서 첫 번째 API 관리][Manage your first API in Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 > 
 > 
 
@@ -78,7 +78,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 ## <a name="add-api"> </a>제품에 API를 추가하려면
 이 자습서 단계에서는 새 무료 평가판 제품에 Echo API를 추가합니다.
 
-> 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API Management에서 첫 번째 API 관리][Manage your first API in Azure API Management]를 참조하세요.
+> 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API Management에서 첫 번째 API Management][Manage your first API in Azure API Management]를 참조하세요.
 > 
 > 
 
@@ -113,66 +113,82 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 **인바운드** 정책 요소에 커서가 놓이면 **구독당 호출 속도 제한** 옆에 있는 화살표를 클릭하여 정책 템플릿을 삽입합니다.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **구독당 호출 속도 제한** 은 제품 수준에서 사용할 수 있고 API 및 개별 작업 이름 수준에서도 사용할 수 있습니다. 이 자습서에서는 제품 수준 정책만 사용되므로, 다음 예제처럼 **rate-limit** 요소에서 **api** 및 **operation** 요소를 삭제하여 외부 **rate-limit** 요소만 남게 합니다.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 무료 평가판 제품에서 최대 허용 호출 속도는 분당 호출 10개이므로 **호출** 특성 값으로 **10**을 입력하고 **renewal-period** 특성으로 **60**을 입력합니다.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 **구독당 사용 할당량 설정** 정책을 구성하려면 **인바운드** 요소 내에서 새로 추가된 **rate-limit** 요소 바로 아래에 커서를 놓은 다음, **구독당 사용 할당량 설정** 왼쪽의 화살표를 클릭합니다.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 이 정책은 제품 수준에서도 사용하기 때문에 다음 예제처럼 **api** 및 **operation** 이름 요소를 삭제합니다.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 할당량은 간격이나 대역폭 기준 또는 간격과 대역폭 기준의 호출 수에 기반합니다. 이 자습서에서는 대역폭 기반으로 제한하지 않으므로 **bandwidth** 특성을 삭제합니다.
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 무료 평가판 제품에서 할당량은 주당 호출 200개입니다. **호출** 특성 값으로 **200**을 지정한 다음, **renewal-period** 값으로 **604800**을 지정합니다.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
-> 정책 간격은 초 단위로 지정합니다. 일주일의 간격을 계산하려면 일수(7), 하루의 시간 수(24), 한 시간의 분 수(60) 및 일 분의 초 수(60)를 곱하면 됩니다. 즉, 7 * 24 * 60 * 60 = 604800이 됩니다.
+> 정책 간격은 초 단위로 지정합니다. 일주일의 간격을 계산하려면 일수(7), 하루의 시간 수(24), 한 시간의 분 수(60) 및 일 분의 초 수(60)를 곱하면 됩니다. 즉 7 * 24 * 60 * 60 = 604800이 됩니다.
 > 
 > 
 
 정책 구성을 마치면 다음 예제와 같아집니다.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 원하는 정책이 구성된 후 **저장**을 클릭합니다.
 
@@ -286,30 +302,30 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 추가하고 게시하는 방법]: api-management-howto-add-products.md
-[모니터링 및 분석]: ../api-management-monitoring.md
-[제품에 API 추가]: api-management-howto-add-products.md#add-apis
-[제품 게시]: api-management-howto-add-products.md#publish-product
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[Azure API 관리에서 그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
-[제품 구독자 보기]: api-management-howto-add-products.md#view-subscribers
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-[다음 단계]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[제품 만들기]: #create-product
-[호출 속도 제한 및 할당량 정책 구성]: #policies
-[제품에 API 추가]: #add-api
-[제품 게시]: #publish-product
-[제품에 개발자 계정 구독]: #subscribe-account
-[작업 호출 및 속도 제한 테스트]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[호출 속도 제한]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[사용 할당량]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

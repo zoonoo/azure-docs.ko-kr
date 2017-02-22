@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6e0056af13bfa064d740205746a93afeef9b33ab
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: dba809c8d7021357142ec2832b4660c6fb10ec96
 
 
 ---
@@ -135,7 +135,6 @@ Ceridian Dayforce HCM 응용 프로그램은 특정 형식의 SAML 어설션이 
     프로덕션 환경에서는 다음을 사용합니다. `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2`  
     테스트 환경에서는 다음을 사용합니다. `https://fs-test.dayforcehcm.com/sp/ACS.saml2`  
 
-
 1. **Ceridian Dayforce HCM의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sing-on 구성](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_05.png) 
@@ -184,17 +183,18 @@ Ceridian Dayforce HCM 응용 프로그램은 특정 형식의 SAML 어설션이 
     c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png) 
@@ -260,6 +260,6 @@ Ceridian Dayforce HCM 응용 프로그램에서 사용자를 추가하려면 Cer
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

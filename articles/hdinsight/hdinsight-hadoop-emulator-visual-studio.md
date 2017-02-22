@@ -1,5 +1,5 @@
 ---
-title: "Hortonworks Sandbox와 Visual Studio용 Microsoft Azure Data Lake 도구 사용 | Microsoft 문서"
+title: "Visual Studio용 Azure Data Lake 도구 및 Hortonworks 샌드박스 | Microsoft Docs"
 description: "Hortonworks Sandbox(로컬 VM에서 실행됨)와 Visual Studio용 Azure Data Lake 도구를 사용하는 방법을 알아봅니다. 이러한 도구로 샌드박스에 대한 Hive 및 Pig 작업을 만들고 실행하며 작업 출력 및 기록을 볼 수 있습니다."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4b0572d8fb3b81fd4bd2a34794141f137b50eed0
-ms.openlocfilehash: 42f53e0c725ed7744c2e3d919c960c42e4cebc0c
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a1e6216647b7401183ab2f47f72aaee1f80ccee0
 
 
 ---
@@ -43,6 +43,7 @@ Hortonworks Sandbox가 실행되고 있는지 확인하고 [Hadoop 에코시스�
 ## <a name="connect-the-tools-to-the-sandbox"></a>샌드박스에 도구 연결
 
 1. Visual Studio를 열고 **보기** 및 **서버 탐색기**를 차례로 선택합니다.
+
 2. **서버 탐색기**에서 **HDInsight** 항목을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight Emulator에 연결**을 선택합니다.
 
     ![HDInsight Emulator에 연결](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
@@ -209,6 +210,6 @@ Hive는 구조화된 데이터로 작업하기 위한 SQL과 같은 언어를 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

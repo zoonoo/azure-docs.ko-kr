@@ -227,6 +227,6 @@ Site Recovery는 지원되는 VM 및 물리적 서버에서 실행 중인 앱을
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

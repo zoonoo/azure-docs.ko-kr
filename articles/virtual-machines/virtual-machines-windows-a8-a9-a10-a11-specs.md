@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 31c630088b6dc7481068e8050972b693f4dcaf71
+ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
+ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
 
 
 ---
@@ -38,7 +38,7 @@ Windows MPI 트래픽 Azure RDMA 네트워크에 액세스하려면 RDMA 지원 
 * **MPI** - Microsoft MPI(MS-MPI) 2012 R2 이상, Intel MPI Library 5.x
 
   지원되는 MPI 구현은 Microsoft Network Direct 인터페이스를 사용하여 인스턴스 간에 통신합니다. 
-* **HpcVmDrivers VM 확장** - RDMA 지원 VM에서는 RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. (클라우드 서비스와 일부 VM 배포에서는 HpcVmDrivers 확장이 자동으로 추가됩니다.) VM에 VM 확장을 추가해야 하는 경우 Azure 리소스 관리자 용 [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlet을 사용할 수 있습니다.
+* **HpcVmDrivers VM 확장** - RDMA 지원 VM에서는 RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. (일부 A8 및 A9 인스턴스 배포에서는 HpcVmDrivers 확장이 자동으로 추가됩니다.) VM에 VM 확장을 추가해야 하는 경우 Azure 리소스 관리자 용 [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlet을 사용할 수 있습니다.
 
   최신 HpcVmDrivers 확장에 대한 정보 가져오기
 
@@ -67,6 +67,6 @@ Windows Server에서 HPC 팩을 사용하여 계산 집약적 인스턴스를 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

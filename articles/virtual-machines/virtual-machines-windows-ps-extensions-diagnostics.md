@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정 | Microsoft Docs"
+title: "Azure PowerShell을 사용하여 Windows VM에서 진단을 사용하도록 설정 | Microsoft Docs"
 services: virtual-machines-windows
 documentationcenter: 
 description: "PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정하는 방법에 대해 알아봅니다."
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 8c4bc48c6ddb9bc03198f0f6c630b05d987a4b43
+ms.sourcegitcommit: ee413eef16291f98f3d5b1bd54602f167ebe87f7
+ms.openlocfilehash: 795d70951452155ebc58100063c0720a055e1405
 
 
 ---
@@ -201,6 +201,6 @@ cmdlet은 *PublicSettings*을 반환하며, 여기에는 Base64 인코딩 형식
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

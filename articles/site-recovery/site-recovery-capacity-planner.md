@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획 | Microsoft Docs"
-description: "Azure Site Recovery에 대한 복제 용량 계획"
+title: "Azure에서 복제 용량 추정 | Microsoft Docs"
+description: "Azure Site Recovery로 복제할 때 이 문서를 사용하여 용량을 추정합니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 8fca992488746bc50a7342644de62b862a9aaea7
-ms.openlocfilehash: a427969378d2454246217d48bafe6f360e93df0f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
 
 
 ---
@@ -65,9 +65,9 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
    * **필요한 BLOB 디스크 수** 는 Azure 저장소에 생성될 디스크 수를 제공합니다.
    * **필요한 프리미엄 저장소 계정 수** 는 VM을 보호하는 데 필요한 총 프리미엄 저장소 계정 수를 제공합니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 Premium Storage 계정이 필요합니다. 프리미엄 저장소 계정은 최대 80000 IOPS를 보유할 수 있습니다.
    * **프리미엄 저장소에 대한 총 IOPS** 는 총 프리미엄 저장소 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다.  Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
-   * **필요한 구성 서버 수**는 배포에 필요한 구성 서버 수를 보여 줍니다. 
+   * **필요한 구성 서버 수**는 배포에 필요한 구성 서버 수를 보여 줍니다.
    * **필요한 추가 프로세스 서버 수**는 기본적으로 구성 서버에서 실행되는 프로세스 서버 외에 추가 프로세스 서버가 필요한지 보여 줍니다.
-   * **원본의 100% 추가 저장소** 는 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
+   * **원본의&100;% 추가 저장소** 는 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
 
    ![출력](./media/site-recovery-capacity-planner/output.png)
 
@@ -102,14 +102,14 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 ![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>예
-예를 들어 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure 저장소 요구 사항을 계산 및 할당합니다.
+예를 들어 테이블에 값이 표시된&6;개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure 저장소 요구 사항을 계산 및 할당합니다.
 
 ![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * 이 예제 출력에서 다음을 확인할 수 있습니다.
 
   * 첫 번째 열은 VM, 디스크 및 이탈에 대한 유효성 검사 열입니다.
-  * VM 5대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다.
+  * VM&5;대에 표준 저장소 계정 두 개와 프리미엄 저장소 계정 하나가 필요합니다.
   * VM3은 하나 이상의 디스크가 1TB를 초과하므로 보호하기에 적합하지 않습니다.
   * VM1 및 VM2는 첫 번째 표준 저장소 계정을 사용할 수 있습니다.
   * VM4는 두 번째 표준 저장소 계정을 사용할 수 있습니다.
@@ -117,7 +117,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
     > [!NOTE]
     > 표준 및 Premium Storage의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 가상 컴퓨터는 디스크당 최대 500개의 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 Premium Storage가 필요합니다. 그러나 디스크의 IOPS가 500개보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한(VM 크기, 디스크 수, 어댑터 수, CPU, 메모리) 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. 사용자는 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
-   
+
 
 1. 모든 세부 정보가 올바르게 배치되었으면 **플래너 도구에 데이터 전송**을 클릭하여 강조 표시된 **Capacity Planner** 워크로드를 열고 보호에 적합한지 여부를 확인합니다.
 
@@ -129,6 +129,6 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

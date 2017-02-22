@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c34684760f8de856c64565e8859b31dc73554e00
+ms.sourcegitcommit: 6494f8bd610c26ceda718a38faf32d0346a063d7
+ms.openlocfilehash: 73187757207eef345f262dfc16780e7a6dbfb739
 
 
 ---
@@ -82,7 +82,7 @@ SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 �
 > 
 
 ## <a name="status"></a>가동 상태
-확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure 포털에서 에이전트 상태를 확인하는 것입니다. 가상 컴퓨터 블레이드에서 **모든 설정**을 선택하고 **확장**을 클릭합니다. 목록에 **SQLIaaSAgent** 확장이 표시되어야 합니다.
+확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure 포털에서 에이전트 상태를 확인하는 것입니다. 가상 컴퓨터 블레이드에서 나열된 가상 컴퓨터를 선택하고 **확장**을 클릭합니다. 목록에 **SQLIaaSAgent** 확장이 표시되어야 합니다.
 
 ![Azure 포털에서 SQL Server IaaS 에이전트 확장](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
@@ -91,7 +91,7 @@ SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 �
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## <a name="removal"></a>제거
-Azure 포털에서 가상 컴퓨터 속성의 **확장** 블레이드에서 줄임표를 클릭하여 확장을 제거할 수 있습니다. 그런 다음 **삭제**를 클릭합니다.
+Azure 포털에서 가상 컴퓨터 속성의 **확장** 블레이드에서 줄임표를 클릭하여 확장을 제거할 수 있습니다. 그런 후 **제거**를 클릭합니다.
 
 ![Azure 포털에서 SQL Server IaaS 에이전트 확장 제거](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
@@ -107,6 +107,6 @@ Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

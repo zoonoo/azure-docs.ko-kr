@@ -11,12 +11,12 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
+experiment_id: heidist-experiment1-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29385af9183ef2f8431581aaa5fe38e89404d068
-
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
 
 ---
 # <a name="what-is-azure-search"></a>Azure 검색이란?
@@ -25,13 +25,13 @@ Azure Search는 서버 및 인프라 관리를 Microsoft에 의한 클라우드 
 ## <a name="give-your-users-a-powerful-search-experience"></a>사용자에게 강력한 검색 환경 제공
 **단순 쿼리 구문** 을 사용하여 [강력한 쿼리](https://msdn.microsoft.com/library/azure/dn798920.aspx)를 공식화할 수 있습니다. 뿐만 아니라 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx) 은 유사 항목 검색, 근접 검색, 용어 승격 및 정규식을 사용할 수 있습니다. 또한 Azure 검색은 응용 프로그램에서 음성 일치를 사용하는 복잡한 검색 쿼리와 정규식을 처리할 수 있도록 사용자 지정 어휘 분석기를 지원합니다.
 
-**언어 지원** 은 [56개 언어](https://msdn.microsoft.com/library/azure/dn879793.aspx)로 제공됩니다. Lucene 분석기와 Microsoft 분석기를 사용하여(Office 및 Bing에서 자연어를 처리에 온 연 수 만큼 개선됨) Azure 검색은 응용 프로그램의 검색 상자에서 텍스트를 분석하여 동사 시제, 성, 불규칙 복수 명사(예: ‘쥐들'과 ‘쥐'), 분리된 단어, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 포함하여 언어별 언어를 지능적으로 처리할 수 있습니다.
+**언어 지원** 은 [56개 언어](https://msdn.microsoft.com/library/azure/dn879793.aspx)로 제공됩니다. Azure Search는 Lucene 분석기와 Microsoft 분석기를 사용하여(Office 및 Bing에서 자연어를 처리해 온 연 수만큼 개선됨) 응용 프로그램의 검색 상자에서 텍스트를 분석하여 동사 시제, 성, 불규칙 복수 명사(예: '쥐들'과 '쥐'), 분리된 단어, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 포함한 언어별 언어를 지능적으로 처리할 수 있습니다.
 
 **제안 검색** 은 자동 완성 검색 표시줄과 자동 완성 쿼리에 사용할 수 있습니다. [인덱스의 실제 문서가 제안됩니다](https://msdn.microsoft.com/library/azure/dn798936.aspx) .
 
 **적중 항목 강조 표시** [허용](https://msdn.microsoft.com/library/azure/dn798927.aspx) 합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.
 
-**패싯 탐색** 은 Azure 검색을 사용하는 검색 결과 페이지에 간단하게 추가됩니다. [쿼리 매개 변수 하나만 사용하면](https://msdn.microsoft.com/library/azure/dn798927.aspx)Azure Search가 앱 UI에 패싯 검색 환경을 구축하는 데 필요한 모든 정보를 반환하므로 사용자가 검색 결과를 드릴다운 및 필터링할 수 있습니다(예: 가격 범위 또는 브랜드로 카탈로그 항목 필터링).
+**패싯 탐색** 은 Azure 검색을 사용하는 검색 결과 페이지에 간단하게 추가됩니다. Azure Search는 [쿼리 매개 변수 하나만 사용하여](https://msdn.microsoft.com/library/azure/dn798927.aspx) 앱 UI에 패싯 검색 환경을 구축하는 데 필요한 모든 정보를 반환하므로 사용자가 검색 결과를 드릴다운 및 필터링할 수 있습니다(예: 가격 범위 또는 브랜드로 카탈로그 항목 필터링).
 
 **지리 공간** 지원을 사용하여 지리적 위치를 지능적으로 처리, 필터링 및 표시할 수 있습니다. Azure 검색을 통해 사용자는 지정된 위치와 검색 결과의 근접도에 따라 또는 특정 지리적 영역에 따라 데이터를 검색할 수 있습니다. [채널 9: Azure 검색 및 지리 공간적 데이터](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)동영상에서 작동 방법을 설명합니다.
 
@@ -80,13 +80,16 @@ Azure 검색 서비스에 콘텐츠를 업로드하려면 먼저 Azure 검색 �
 Azure 검색 인덱스를 채웠으면 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 끝점에 [검색 쿼리를 실행](https://msdn.microsoft.com/library/azure/dn798927.aspx) 할 수 있습니다.
 
 ## <a name="try-it-now-for-free"></a>지금 평가판 사용(무료!)
-지금 당장 Azure 검색을 사용해 볼 수 있습니다! Azure 계정이 있는 분은 [무료 계층에서 서비스를 프로비전](search-create-service-portal.md)할 수 있습니다.
+Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create-service-portal.md)할 수 있습니다.
 
-Azure 계정이 없는 분은 등록 없이 무료 60분 세션을 사용할 수 있습니다. [Azure 앱 서비스 시도](http://go.microsoft.com/fwlink/p/?LinkId=618214) 로 이동하여 "웹앱"을 선택하세요. 그런 다음 "ASP.NET + Azure 검색" 템플릿을 선택하여 시작하세요.
+구독자가 아닐 경우 [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
+
+또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO2-->
 
 

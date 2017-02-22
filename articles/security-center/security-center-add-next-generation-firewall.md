@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 차세대 방화벽 추가 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **차세대 방화벽 추가** 및 **NGFW를 통해서만 트래픽 라우팅**을 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure Security Center 권장 사항 **차세대 방화벽 추가** 및 **NGFW를 통해서만 트래픽 라우팅**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4cc9541251157a3c8c632a01fafb52ea87ba58dd
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
 
 
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure 보안 센터에서 차세대 방화벽 추가
-Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.
+Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **차세대 방화벽 추가**를 선택합니다.
    ![차세대 방화벽 추가][1]
 2. **차세대 방화벽 추가** 블레이드에서 끝점을 선택합니다.
    ![끝점 선택][2]
-3. 두 번째 **차세대 방화벽 추가** 블레이드가 열립니다. 새 솔루션을 사용할 수 있거나 만들 수 있는 경우 기존 솔루션을 사용하도록 선택할 수 있습니다. 이 예제에서는 사용할 수 있는 기존 솔루션이 없으므로 새 NGFW를 만들어 보겠습니다.
-   ![새 차세대 방화벽 만들기][3]
-4. 새 NGFW를 만들려면 통합 파트너 목록에서 솔루션을 선택합니다. 이 예에서 선택 **검사점**을 선택합니다.
+3. 두 번째 **차세대 방화벽 추가** 블레이드가 열립니다. 새 솔루션을 사용할 수 있거나 만들 수 있는 경우 기존 솔루션을 사용하도록 선택할 수 있습니다. 이 예제에서는 사용할 수 있는 기존 솔루션이 없으므로 NGFW를 만들어 보겠습니다.
+   ![차세대 방화벽 만들기][3]
+4. NGFW를 만들려면 통합 파트너 목록에서 솔루션을 선택합니다. 이 예제에서는 **검사점**을 선택합니다.
    ![차세대 방화벽 솔루션 선택][4]
 5. 파트너 솔루션에 대한 정보를 제공하는 **검사점** 블레이드가 열립니다. 정보 블레이드에서 **만들기** 를 선택합니다.
    ![방화벽 정보 블레이드][5]
@@ -43,7 +43,7 @@ Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft �
    ![NGFW를 실행하기 위해 가상 컴퓨터 만들기][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>NGFW를 통해서만 트래픽 라우팅
-**권장 사항** 블레이드로 돌아갑니다. 보안 센터를 통해 NGFW를 추가한 후 **NGFW를 통해서만 트래픽 라우팅**이라는 새 항목이 생성되었습니다. 이 권장 사항은 보안 센터를 통해 NGFW를 설치한 경우에만 생성됩니다. 인터넷 끝점이 있는 경우 보안 센터는 NGFW를 통해 인바운드 트래픽을 VM으로 강제하는 네트워크 보안 그룹 규칙을 구성할 것을 권장합니다.
+**권장 사항** 블레이드로 돌아갑니다. Security Center를 통해 NGFW를 추가한 후 **NGFW를 통해서만 트래픽 라우팅**이라는 새 항목이 생성되었습니다. 이 권장 사항은 보안 센터를 통해 NGFW를 설치한 경우에만 생성됩니다. 인터넷 끝점이 있는 경우 Security Center는 NGFW를 통해 인바운드 트래픽을 VM으로 강제하는 네트워크 보안 그룹 규칙을 구성할 것을 권장합니다.
 
 1. **권장 사항 블레이드**에서 **NGFW를 통해서만 트래픽 라우팅**을 선택합니다.
    ![NGFW를 통해서만 트래픽 라우팅][7]
@@ -83,6 +83,6 @@ Azure 보안 센터에서는 보안 보호를 증가시키기 위해 Microsoft �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

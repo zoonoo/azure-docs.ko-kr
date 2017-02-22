@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
-ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
 
 
 ---
@@ -49,7 +49,7 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 1. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다.
 
    ![Azure 메뉴][1]
-2. 처음으로 Security Center에 액세스하는 경우 **시작** 블레이드가 열립니다. **Security Center** 블레이드를 열고  데이터 수집을 사용하도록 설정하려면 **예! Azure Security Center를 시작하겠습니다.**를 선택합니다.
+2. 처음으로 Security Center에 액세스하는 경우 **시작** 블레이드가 열립니다. **예!  Azure Security Center를 시작하겠습니다.**를 선택하여 **Security Center** 블레이드를 열고 데이터 수집을 사용하도록 설정합니다.
    ![시작 화면][10]
 3. 시작 블레이드에서 Security Center를 시작하거나 Microsoft Azure 메뉴에서 Security Center를 선택하면 **Security Center** 블레이드가 열립니다. 향후 **Security Center** 블레이드에 손쉽게 액세스하려면 오른쪽 위에 있는 **대시보드에 블레이드 고정** 옵션을 선택합니다.
    ![대시보드 옵션에 블레이드 고정][2]
@@ -61,7 +61,7 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
    ![보안 정책][3]
 2. **보안 정책 – 구독 또는 리소스 그룹별 정책 정의** 블레이드에서 구독을 선택합니다.
 3. **보안 정책** 블레이드에서 자동으로 로그를 수집하도록 **데이터 수집**을 활성화합니다. 구독에 있는 현재 VM과 새로운 VM에 모니터링 확장이 프로비전됩니다. (**데이터 수집**을 **끄기**로 설정하여 데이터 수집을 해제할 수 있지만, 이렇게 하면 Security Center에서 보안 경고 및 권장 사항을 제공하지 않습니다.)
-4. **보안 정책** 블레이드에서 **지역별 저장소 계정 선택**을 선택합니다. VM이 실행 중인 각 영역에 대해 VM에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역별로 저장소 계정을 선택하지 않으면 사용자를 위한 계정이 만들어집니다. 수집된 데이터는 보안상의 이유로 다른 고객의 데이터와 논리적으로 격리됩니다.
+4. **보안 정책** 블레이드에서 **지역별 저장소 계정 선택**을 선택합니다. VM이 실행 중인 각 영역에 대해 VM에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면, 사용자를 위해 저장소 계정을 만들고 securitydata 리소스 그룹에 배치합니다. 수집된 데이터는 보안상의 이유로 다른 고객의 데이터와 논리적으로 격리됩니다.
 
    > [!NOTE]
    > 먼저 구독 수준에서 데이터 수집을 활성화하고 저장소 계정을 선택하는 것이 좋습니다. Azure 구독 수준 및 리소스 그룹 수준의 보안 정책을 설정할 수 있지만, 데이터 수집 및 저장소 계정은 구독 수준에서만 구성됩니다.
@@ -126,6 +126,6 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

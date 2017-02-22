@@ -13,19 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: a5b9d93ee6c358338dda3702453341591e54b707
+ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
+ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>HBase 자습서: HDInsight에서 Apache HBase 사용 시작
 
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
-
-이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 내용을 보려면, 페이지 상단의 탭 선택기를 사용하여 전환합니다.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -228,15 +226,15 @@ HBase Rest에 대한 자세한 내용은 [Apache HBase 참조 가이드](https:/
 ## <a name="check-cluster-status"></a>클러스터 상태 확인
 HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 제공됩니다. 웹 UI를 사용하여 지역에 대한 정보 또는 통계를 요청할 수 있습니다.
 
-**HBase 마스터 UI에 액세스하려면**
+**HBase Master UI에 액세스하려면**
 
 1. https://&lt;Clustername>.azurehdinsight.net에서 Ambari 웹 UI를 엽니다.
 2. 왼쪽 메뉴에서 **HBase**를 클릭합니다.
-3. 페이지 위쪽에서 **빠른 링크**를 클릭하고 활성 Zookeeper 노드 링크를 가리킨 다음 **HBase 마스터 UI**를 클릭합니다.  UI는 다른 브라우저 탭에서 열립니다.
+3. 페이지 위쪽에서 **빠른 링크**를 클릭하고 활성 Zookeeper 노드 링크를 가리킨 다음 **HBase Master UI**를 클릭합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
   ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  HBase 마스터 UI에는 다음 섹션이 포함되어 있습니다.
+  HBase Master UI에는 다음 섹션이 포함되어 있습니다.
 
   - 지역 서버
   - 백업 마스터
@@ -285,6 +283,6 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

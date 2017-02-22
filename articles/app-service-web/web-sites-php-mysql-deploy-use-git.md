@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1b1da346a253443c0b5eaf6f8a9a5a399923e760
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
 
 다음 내용을 배웁니다.
 
-* [Azure Portal][management-portal]을 사용하여 웹앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714) 에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
+* [Azure Portal][management-portal]을 사용하여 웹 앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714) 에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
 * 작성기 확장을 사용하여 `git push`마다 작성기 태스크를 자동화하는 방법
 
@@ -234,7 +234,7 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
     ![Azure PHP 웹 사이트][running-app]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -299,6 +299,6 @@ ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

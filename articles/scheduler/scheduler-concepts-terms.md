@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>스케줄러 개념, 용어 + 엔터티 계층 구조
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>스케줄러 개념, 용어 + 엔터티 계층 구조
 ## <a name="scheduler-entity-hierarchy"></a>스케줄러 엔터티 계층 구조
 다음 표에서 스케줄러 API에서 노출 하거나 사용하는 주 리소스를 설명 합니다.
 

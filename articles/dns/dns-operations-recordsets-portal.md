@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal을 사용하여 DNS 레코드 집합 및 레코드 관리 | Microsoft 문서"
-description: "Azure DNS에서 도메인을 호스트하는 경우 DNS 레코드 집합 및 레코드를 관리합니다."
+title: "Azure DNS에서 DNS 레코드 집합 및 레코드 관리 | Microsoft Docs"
+description: "Azure DNS는 도메인을 호스트하는 경우 DNS 레코드 집합 및 레코드를 관리하는 기능을 제공합니다."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: db14074ba4f3b5b675f608b76c496c84f7c22945
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
 
 ---
 
@@ -105,11 +105,11 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 ### <a name="modify-soa-records"></a>SOA 레코드 수정
 
-영역 루트(이름 = "@").에 자동으로 만들어진 SOA 레코드 집합에서 레코드를 추가하거나 제거할 수는 없지만 SOA 레코드 내의 모든 매개 변수('Host' 제외) 및 레코드 집합 TTL은 수정할 수 있습니다.
+영역 루트(이름 = "@"))에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>영역 루트의 NS 레코드 수정
 
-영역 루트(이름 = "@").에 자동으로 만들어진 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 허용되는 유일한 변경 작업은 레코드 집합 TTL을 수정하는 것입니다.
+영역 루트(이름 = "@"))에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 레코드 집합 TTL을 수정하는 변경 작업만 허용됩니다.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>SOA 또는 NS 레코드 집합 삭제
 
@@ -123,6 +123,6 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

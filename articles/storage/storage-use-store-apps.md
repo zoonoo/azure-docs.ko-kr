@@ -3,8 +3,8 @@ title: "Windows 스토어 앱에서 Azure Storage 사용 | Microsoft Docs"
 description: "Azure Blob, 큐, 테이블 또는 파일 저장소를 사용하는 Windows 스토어 앱을 만드는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 63c4b29d-b2f2-4d7c-b164-a0d38f4d14f6
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 678592957e5740194e9292393231be111d6067a5
+ms.sourcegitcommit: 5b86154414c7745430af11d59355a937fc525d54
+ms.openlocfilehash: 3284f94b28d814b3442d8088f69a301ef4dabc79
 
 
 ---
@@ -42,16 +42,20 @@ Visual Studio 2012 이상에서 새 Windows 스토어 앱 프로젝트를 만듭
 ### <a name="using-the-library-with-the-blob-and-queue-services"></a>Blob 및 큐 서비스로 라이브러리 사용
 이제 앱에서 Azure Blob 및 큐 서비스를 호출할 준비가 되었습니다. Azure 저장소 형식을 직접 참조할 수 있도록 다음 **using** 문을 추가합니다.
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+```
 
 그런 다음, 페이지에 단추를 추가합니다. 다음 코드를 단추의 **Click** 이벤트에 추가하고 [async 키워드](http://msdn.microsoft.com/library/vstudio/hh156513.aspx)를 사용하여 이벤트 처리기 메서드를 수정합니다.
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var blobClient = account.CreateCloudBlobClient();
-    var container = blobClient.GetContainerReference("container1");
-    await container.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var blobClient = account.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference("container1");
+await container.CreateIfNotExistsAsync();
+```
 
 이 코드에서는 두 개의 문자열 변수인 *accountName* 및 *accountKey*가 있다고 가정합니다. 저장소 계정의 이름 및 해당 계정과 연결된 계정 키를 나타냅니다.
 
@@ -70,11 +74,13 @@ Azure 테이블 서비스와 통신하는 데 사용되는 형식은 Windows 스
 
 WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 이벤트에서 코드를 변경합니다.
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var tableClient = account.CreateCloudTableClient();
-    var table = tableClient.GetTableReference("table1");
-    await table.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var tableClient = account.CreateCloudTableClient();
+var table = tableClient.GetTableReference("table1");
+await table.CreateIfNotExistsAsync();
+```
 
 이 코드는 *table1* 이라는 테이블이 계정이 있는지 확인하고 없으면 새로 만듭니다.
 
@@ -86,6 +92,6 @@ WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

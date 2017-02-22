@@ -1,5 +1,5 @@
 ---
-title: "Chaos 및 장애 조치 테스트 | Microsoft Docs"
+title: "Azure 마이크로 서비스에 대한 비정상 상황 및 장애 조치(Failover) 테스트 만들기 | Microsoft 문서"
 description: "서비스 패브릭 Chaos 테스트 및 장애 조치 테스트 시나리오를 통해 결함을 유도하고 서비스의 신뢰성을 확인합니다."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/19/2017
 ms.author: motanv
 translationtype: Human Translation
-ms.sourcegitcommit: 1a9bec270650223cd40b3b60e5bc9fc7e212a207
-ms.openlocfilehash: 2b533be6bc7aa0fac0a6b0e4f5aee1df3714acd7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 8975df6b0fe594b092c9890352c7b3787733d8db
 
 
 ---
@@ -43,7 +43,7 @@ ms.openlocfilehash: 2b533be6bc7aa0fac0a6b0e4f5aee1df3714acd7
 
 비정상 상황 테스트에서는 지정된 기간 동안 오류 및 클러스터 유효성 검사를 여러 차례 반복해서 실행합니다. 클러스터가 안정화되고 유효성 검사가 성공하는 데 걸리는 시간도 구성할 수 있습니다. 클러스터 유효성 검사에서 단일 오류가 발생하면 시나리오가 실패합니다.
 
-예를 들어 1시간 동안 실행되고 최대 세 가지 오류가 동시에 발생하도록 설정된 테스트를 생각해 보세요. 이 테스트에서는 세 가지 오류를 유도한 후 클러스터 상태를 확인합니다. 클러스터가 비정상 상태가 되거나 1시간이 지날 때까지 이전 단계가 반복됩니다. 구성된 시간 내에 클러스터가 안정화되지 못한 경우처럼 반복 과정 중에 클러스터가 비정상 상태가 되면 예외와 함께 테스트가 실패합니다. 이 예외는 뭔가가 잘못되었으며 자세한 조사가 필요함을 나타냅니다.
+예를 들어&1;시간 동안 실행되고 최대 세 가지 오류가 동시에 발생하도록 설정된 테스트를 생각해 보세요. 이 테스트에서는 세 가지 오류를 유도한 후 클러스터 상태를 확인합니다. 클러스터가 비정상 상태가 되거나&1;시간이 지날 때까지 이전 단계가 반복됩니다. 구성된 시간 내에 클러스터가 안정화되지 못한 경우처럼 반복 과정 중에 클러스터가 비정상 상태가 되면 예외와 함께 테스트가 실패합니다. 이 예외는 뭔가가 잘못되었으며 자세한 조사가 필요함을 나타냅니다.
 
 현재 상태에서는 비정상 상황 테스트의 오류 생성 엔진이 안전 오류만 유도합니다. 다시 말해서 외부 오류가 없으면 쿼럼 또는 데이터 손실이 절대 발생하지 않습니다.
 
@@ -256,6 +256,6 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

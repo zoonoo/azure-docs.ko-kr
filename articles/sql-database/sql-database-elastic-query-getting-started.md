@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
+ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
 
 
 ---
@@ -36,8 +36,8 @@ ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
 1. **탄력적 데이터베이스 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
     ![명령 프롬프트][1]
-2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-3. [Azure 포털](https://portal.azure.com) 에서 사용자의 v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
+2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을&4;번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+3. [Azure 포털](https://portal.azure.com) 에서 사용자의 v12 서버 내에 새로운&3;개의 데이터베이스가 보여야 합니다.
 
    ![Visual Studio 확인][2]
 
@@ -51,7 +51,9 @@ ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
 
     ![Azure 포털 및 가격 책정 계층][3]
 
-    참고: 기존 데이터베이스를 사용할 수 있습니다. 그럴 경우, 사용자가 실행하고 싶은 쿼리가 포함된 분할된 데이터베이스가 아닙니다. 이 데이터베이스는 탄력적 데이터베이스 쿼리에 대한 메타데이터 개체를 만들기 위해 사용됩니다.
+    > [!NOTE]
+    > 기존 데이터베이스를 사용할 수 있습니다. 그럴 경우, 사용자가 실행하고 싶은 쿼리가 포함된 분할된 데이터베이스가 아닙니다. 이 데이터베이스는 탄력적 데이터베이스 쿼리에 대한 메타데이터 개체를 만들기 위해 사용됩니다.
+    >
 
 ## <a name="create-database-objects"></a>데이터베이스 개체 만들기
 ### <a name="database-scoped-master-key-and-credentials"></a>데이터베이스-범위 마스터 키 및 자격 증명
@@ -139,6 +141,6 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

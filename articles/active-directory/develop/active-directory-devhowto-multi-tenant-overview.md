@@ -1,5 +1,5 @@
 ---
-title: "모든 Azure Active Directory 사용자에게 로그인할 수 있는 응용 프로그램을 작성하는 방법 | Microsoft Docs"
+title: "모든 Azure AD 사용자에게 로그인할 수 있는 앱 작성 방법 | Microsoft Docs"
 description: "모든 Azure Active Directory 테넌트로부터 사용자를 로그인할 수 있게 하는 응용 프로그램(또는 다중 테넌트 응용 프로그램으로 알려짐)을 빌드하기 위한 단계별 지침."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
+ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
+ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
 
 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 응용 프로그램을 빌드하는 것에 이미 익숙하다고 가정합니다.  잘 알지 못할 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]로 돌아가 빠른 시작 중 하나를 시도합니다!
 
-다음과 같은 간단한 4 단게를 통해 응용 프로그램을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
+다음과 같은 간단한&4; 단게를 통해 응용 프로그램을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
 
 1. 응용 프로그램 등록을 다중 테넌트로 업데이트합니다.
 2. /common 끝점에 요청을 보내도록 코드를 업데이트합니다. 
@@ -39,9 +39,9 @@ ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
 각 단계를 자세히 살펴보겠습니다. 또한 [이 다중 테넌트 샘플 목록][AAD-Samples-MT]으로 바로 건너뛸 수 있습니다.
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
-기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다.  [Azure 클래식 포털][AZURE-classic-portal]에 있는 응용 프로그램 등록의 구성 페이지에서 "응용 프로그램은 다중 테넌트" 스위치를 찾아 "예"로 설정함으로써 등록을 다중 테넌트로 만들 수 있습니다.
+기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다.  [Azure Portal][AZURE-portal]에 있는 응용 프로그램 등록의 속성 페이지에서 "다중 테넌트" 스위치를 찾아 "예"로 설정함으로써 등록을 다중 테넌트로 만들 수 있습니다.
 
-참고: 응용 프로그램을 다중 테넌트로 만들기 위해서는 먼저 응용 프로그램의 앱 ID URI이 전역적으로 고유하게 되는 것을 Azure AD에서 필요로 합니다. 앱 ID URI는 프로토콜 메시지에서 응용 프로그램을 식별하는 방법 중 하나입니다.  단일 테넌트 앱의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다.  다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다.  앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다.  예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 `https://contoso.onmicrosoft.com/myapp`이 될 것입니다.  테넌트가 확인된 도메인 `contoso.com`를 가진 경우, 유효한 앱 ID URI은 또한 `https://contoso.com/myapp`이 됩니다.  앱 ID URI이 이 패턴을 따르지 않는다면 응용 프로그램을 다중 테넌트로 설정하는 것은 실패합니다.
+응용 프로그램을 다중 테넌트로 만들기 위해서는 먼저 응용 프로그램의 앱 ID URI이 전역적으로 고유하게 되는 것을 Azure AD에서 필요로 합니다. 앱 ID URI는 프로토콜 메시지에서 응용 프로그램을 식별하는 방법 중 하나입니다.  단일 테넌트 앱의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다.  다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다.  앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다.  예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 `https://contoso.onmicrosoft.com/myapp`이 될 것입니다.  테넌트가 확인된 도메인 `contoso.com`를 가진 경우, 유효한 앱 ID URI은 또한 `https://contoso.com/myapp`이 됩니다.  앱 ID URI이 이 패턴을 따르지 않는다면 응용 프로그램을 다중 테넌트로 설정하는 것은 실패합니다.
 
 기본 클라이언트 등록은 기본적으로 다중 테넌트입니다.  기본 클라이언트 응용 프로그램 등록을 다중 테넌트로 만들기 위해 아무 조치도 취할 필요가 없습니다.
 
@@ -101,7 +101,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 이제 다중 테넌트 응용 프로그램에 로그인하는 사용자를 위한 사용자 환경을 살펴보겠습니다.
 
 ## <a name="understanding-user-and-admin-consent"></a>사용자 및 관리자 동의 이해하기
-사용자가 Azure AD에서 응용 프로그램에 로그인하려면 응용 프로그램이 사용자의 테넌트에 나타나야 합니다.  이를 통해 조직은 사용자가 테넌트로부터 응용 프로그램에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다.  단일 테넌트 응용 프로그램의 경우 이 등록은 간단합니다. [Azure 클래식 포털][AZURE-classic-portal]에서 응용 프로그램을 등록할 때 이루어집니다.
+사용자가 Azure AD에서 응용 프로그램에 로그인하려면 응용 프로그램이 사용자의 테넌트에 나타나야 합니다.  이를 통해 조직은 사용자가 테넌트로부터 응용 프로그램에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다.  단일 테넌트 응용 프로그램의 경우 이 등록은 간단합니다. [Azure Portal][AZURE-portal]에서 응용 프로그램을 등록할 때 이루어집니다.
 
 다중 테넌트 응용 프로그램의 경우, 응용 프로그램에 대한 초기 등록은 개발자가 사용한 Azure AD 테넌트에 있습니다.  다른 테넌트에서 사용자가 처음으로 응용 프로그램에 로그인할 때, Azure AD는 응용 프로그램에서 요청하는 사용 권한에 동의하는지 묻습니다.  동의한다면 *서비스 주체* 라는 응용 프로그램의 표현이 사용자 테넌트에 생성되고 로그인은 계속 진행할 수 있습니다. 위임이 또한 사용자의 동의를 응용 프로그램에 기록하는 디렉토리에 만들어집니다. 응용 프로그램의 Application 및 ServicePrincipal 개체와 서로 간의 관계에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
 
@@ -125,7 +125,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 응용 프로그램이 관리자 동의를 필요로 하고 관리자가 응용 프로그램에 로그인하지만 `prompt=admin_consent` 매개 변수는 전송되지 않는 경우, 관리자는 응용 프로그램에 성공적으로 동의할 수 있지만 자신의 사용자 계정에 대해서만 동의하는 것입니다.  일반 사용자는 여전히 응용 프로그램에 로그인하여 동의할 수 없습니다.  다른 사용자들에게 액세스를 허용하기 전에 응용 프로그램을 탐색하는 기능을 테넌트 관리자에게 주고자 할 때 유용합니다.
 
-테넌트 관리자는 일반 사용자가 응용 프로그램에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다.  이 기능을 사용하지 않도록 설정한다면, 테넌트에 응용 프로그램을 설정할 때 항상 관리자 동의가 필요합니다.  일반 사용자 동의를 사용하지 않도록 설정한 응용 프로그램을 테스트하려면 [Azure 클래식 포털][AZURE-classic-portal]의 Azure AD 테넌트 구성 섹션에서 구성 스위치를 찾을 수 있습니다.
+테넌트 관리자는 일반 사용자가 응용 프로그램에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다.  이 기능을 사용하지 않도록 설정한다면, 테넌트에 응용 프로그램을 설정할 때 항상 관리자 동의가 필요합니다.  일반 사용자 동의를 사용하지 않도록 설정한 응용 프로그램을 테스트하려면 [Azure Portal][AZURE-portal]의 Azure AD 테넌트 구성 섹션에서 구성 스위치를 찾을 수 있습니다.
 
 > [!NOTE]
 > 일부 응용 프로그램은 처음에는 일반 사용자가 동의할 수 있고 나중에는 응용 프로그램이 관리자를 참여시키고 관리자 동의가 필요한 권한을 요청할 수 있는 환경을 원합니다.  현재 Azure AD에서 단일 응용 프로그램 등록을 이렇게 할 방법은 없습니다.  앞으로 제공될 Azure AD v2 끝점은 응용 프로그램이 등록 시가 아니라 런타임 시 사용 권한을 요청할 수 있으며, 이를 통해 이 시나리오를 사용하도록 설정할 수 있습니다.  자세한 내용은 [Azure AD 앱 모델 v2 개발자 가이드][AAD-V2-Dev-Guide]를 참조하세요.
@@ -153,7 +153,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 사용자와 관리자는 언제든지 응용 프로그램에 대한 동의를 해지할 수 있습니다.
 
 * 사용자는 자신의 [액세스 패널 응용 프로그램][AAD-Access-Panel] 목록에서 개별 응용 프로그램을 제거하여 해당 응용 프로그램에 대한 액세스 권한을 취소합니다.
-* 관리자는 [Azure 클래식 포털][AZURE-classic-portal]의 Azure AD 관리 섹션을 사용하여 Azure Ad에서 응용 프로그램을 제거하여 해당 응용 프로그램에 대한 액세스 권한을 취소합니다.
+* 관리자는 [Azure Portal][AZURE-portal]의 Azure AD 관리 섹션을 사용하여 Azure Ad에서 응용 프로그램을 제거하여 해당 응용 프로그램에 대한 액세스 권한을 취소합니다.
 
 관리자가 테넌트의 모든 사용자에 대해 응용 프로그램에 동의하는 경우 사용자는 개별적으로 액세스를 해지할 수 없습니다.  관리자만이 액세스를 해지할 수 있으며 전체 응용 프로그램에 대해서만 해지할 수 있습니다.
 
@@ -173,7 +173,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 * [Microsoft Graph API 권한 범위][MSFT-Graph-AAD](영문)
 * [Azure AD Graph API 권한 범위][AAD-Graph-Perm-Scopes]
 
-아래 DISQUS 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+아래의 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -188,7 +188,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
@@ -211,7 +211,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
@@ -239,6 +239,6 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

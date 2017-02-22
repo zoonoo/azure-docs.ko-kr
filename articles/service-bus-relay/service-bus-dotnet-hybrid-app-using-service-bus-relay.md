@@ -1,13 +1,13 @@
 ---
 title: "하이브리드 온-프레미스/클라우드 응용 프로그램(.NET) | Microsoft Docs"
-description: "Azure 서비스 버스 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다."
-services: service-bus
+description: "Azure WCF 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다."
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,35 +15,35 @@ ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+ms.sourcegitcommit: 29ede770e6e63a50ba398cfb0bc8035cacdea392
+ms.openlocfilehash: 2b00b8206189dbed02e03807658c53f81171b111
 
 
 ---
-# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Azure Service Bus WCF Relay를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
+# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 ## <a name="introduction"></a>소개
 이 문서에서는 Microsoft Azure 및 Visual Studio로 하이브리드 클라우드 응용 프로그램을 구축하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 30분 이내에 여러 Azure 리소스를 사용하는 응용 프로그램을 클라우드에서 실행할 수 있습니다.
 
 다음 내용을 배웁니다.
 
 * 웹 서비스를 만들거나 기존 웹 서비스를 웹 솔루션에서 사용할 수 있도록 변경하는 방법
-* Azure Service Bus WCF Relay 서비스를 사용하여 Azure 응용 프로그램과 다른 위치에서 호스트되는 웹 서비스 사이에 데이터를 공유하는 방법
+* Azure WCF 릴레이 서비스를 사용하여 Azure 응용 프로그램과 다른 위치에서 호스트되는 웹 서비스 사이에 데이터를 공유하는 방법
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="how-the-service-bus-relay-helps-with-hybrid-solutions"></a>하이브리드 솔루션에 유용한 서비스 버스 릴레이
+## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>하이브리드 솔루션에 유용한 Azure 릴레이
 비즈니스 솔루션은 일반적으로 새로운 고유 비즈니스 요구 사항에 부합하도록 작성된 사용자 지정 코드와 이미 있는 솔루션 및 시스템에서 제공하는 기존 기능의 조합으로 구성됩니다.
 
 솔루션 설계자는 확장 요구 사항을 더 간편하게 처리하고 운영 비용을 낮추기 위해 클라우드를 사용하기 시작했습니다. 클라우드를 사용하면 솔루션의 구성 요소로 활용할 기존 서비스 자산이 회사 방화벽 내부에 위치하게 되며 클라우드 솔루션에서 이 자산에 쉽게 액세스할 수 없게 됩니다. 다수의 내부 서비스는 회사 네트워크 가장자리에서 쉽게 노출될 수 있는 방식으로 빌드되거나 호스트되지 않습니다.
 
-서비스 버스 릴레이는 회사 네트워크 인프라에 대한 침입적인 변경 없이도 회사 범위 외부에 있는 솔루션에서 기존 WCF(Windows Communication Foundation) 웹 서비스에 안전하게 액세스할 수 있게 만드는 사용 사례를 위해 고안되었습니다. 이러한 서비스 버스 릴레이 서비스는 기존 환경 내에 계속 호스트되지만 클라우드 호스트 서비스 버스에 들어오는 세션 및 요청에 대한 수신을 위임합니다. 또한 Service Bus는 SAS([공유 액세스 서명](../service-bus-messaging/service-bus-sas-overview.md)) 인증을 사용하여 이러한 서비스에 무단으로 액세스하지 못하도록 보호합니다.
+Azure 릴레이는 회사 네트워크 인프라에 대한 침입적인 변경 없이도 회사 범위 외부에 있는 솔루션에서 기존 WCF(Windows Communication Foundation) 웹 서비스에 안전하게 액세스할 수 있게 만드는 사용 사례를 위해 고안되었습니다. 이러한 릴레이 서비스는 기존 환경 내에 계속 호스트되지만 클라우드 호스트 릴레이 서비스에 들어오는 세션 및 요청에 대한 수신을 위임합니다. 또한 Azure 릴레이는 SAS([공유 액세스 서명](../service-bus-messaging/service-bus-sas-overview.md)) 인증을 사용하여 이러한 서비스에 무단으로 액세스하지 못하도록 보호합니다.
 
 ## <a name="solution-scenario"></a>솔루션 시나리오
 이 자습서에서는 제품 재고 페이지에 제품 목록을 표시할 수 있는 ASP.NET 웹 사이트를 만듭니다.
 
 ![][0]
 
-이 자습서는 기존 온-프레미스 시스템에 제품 정보가 있으며 해당 시스템에 도달하는 데 서비스 버스 릴레이를 사용하는 개발자를 대상으로 합니다. 간단한 콘솔 응용 프로그램에서 실행되며 메모리 내 제품 집합에서 지원되는 웹 서비스에서 이를 시뮬레이션합니다. 개발자는 자신의 컴퓨터에서 이 콘솔 응용 프로그램을 실행하여 Azure에 웹 역할을 배포할 수 있습니다. 이렇게 함으로써, 개발자의 컴퓨터가 하나 이상의 방화벽 및 NAT(Network Address Translation) 계층 뒤에 위치하는 것이 거의 확실한 경우에도 Azure 데이터 센터에서 실행 중인 웹 역할이 실제로 개발자의 컴퓨터에 호출되는 것을 확인하게 됩니다.
+이 자습서는 기존 온-프레미스 시스템에 제품 정보가 있으며 해당 시스템에 도달하는 데 Azure 릴레이를 사용하는 개발자를 대상으로 합니다. 간단한 콘솔 응용 프로그램에서 실행되며 메모리 내 제품 집합에서 지원되는 웹 서비스에서 이를 시뮬레이션합니다. 개발자는 자신의 컴퓨터에서 이 콘솔 응용 프로그램을 실행하여 Azure에 웹 역할을 배포할 수 있습니다. 이렇게 함으로써, 개발자의 컴퓨터가 하나 이상의 방화벽 및 NAT(Network Address Translation) 계층 뒤에 위치하는 것이 거의 확실한 경우에도 Azure 데이터 센터에서 실행 중인 웹 역할이 실제로 개발자의 컴퓨터에 호출되는 것을 확인하게 됩니다.
 
 다음은 완료된 웹 응용 프로그램의 시작 페이지 스크린샷입니다.
 
@@ -59,11 +59,11 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개�
 5. 설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다. Visual Studio가 설치되어 있지 않으면 SDK에서 무료로 제공되는 Visual Studio Express도 설치합니다.
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
-Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Azure 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-onpremises-server"></a>온-프레미스 서버 만들기
+## <a name="create-an-on-premises-server"></a>온-프레미스 서버 만들기
 먼저, (모의) 온-프레미스 제품 카탈로그 시스템을 빌드합니다. 매우 간단합니다. 통합하려는 전체 서비스 표면이 있는 실제 온-프레미스 제품 카탈로그 시스템을 나타내는 것으로 생각하면 됩니다.
 
 이 프로젝트는 Visual Studio 콘솔 응용 프로그램으로, [Azure Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 사용하여 Service Bus 라이브러리 및 구성 설정을 포함합니다.
@@ -434,10 +434,10 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
     ![][38]
 
 ## <a name="next-steps"></a>다음 단계
-서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하십시오.  
+Azure 릴레이에 대한 자세한 내용은 다음 리소스를 참조하세요.  
 
-* [Azure Service Bus][sbwacom]  
-* [Service Bus 큐 사용 방법][sbwacomqhowto]  
+* [Azure 릴레이란?](relay-what-is-it.md)  
+* [릴레이 사용 방법](service-bus-dotnet-how-to-use-relay.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
@@ -467,12 +467,8 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
 
 
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: eba5adfcbba4800632e197d3f25760a857137a88
+ms.sourcegitcommit: 7814e02df5c6aa0ea9c38e3a048dd52e39436c3c
+ms.openlocfilehash: 349a7d82a96868f65598597c1db192484da9b34d
 
 
 ---
-# <a name="what-is-microsoft-azure-diagnostics"></a>Microsoft Azure 진단이란?
+# <a name="what-is-azure-diagnostics"></a>Azure 진단이란?
 Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure 클라우드 서비스 웹 및 작업자 역할, Microsoft Windows 및 서비스 패브릭을 실행하는 Azure 가상 컴퓨터에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 별도의 자체 진단이 있습니다.
 
 ## <a name="data-you-can-collect"></a>수집할 수 있는 데이터
@@ -82,6 +82,6 @@ Azure 진단 확장은 이 데이터를 Azure Storage 계정에 전송하거나 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

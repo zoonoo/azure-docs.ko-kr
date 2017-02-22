@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 40874984ca29f6a284270e743b7cf70a396f81d1
+ms.sourcegitcommit: dd281ead7d2c06af98ea0baea31d897b5be0d9d7
+ms.openlocfilehash: 04d8031a4c5f06d56afc1d08d4a4fa5fb50f8a25
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 40874984ca29f6a284270e743b7cf70a396f81d1
 > 
 > 
 
-Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 저장합니다. 이 사용자 데이터는 사용자 프로필 디스크(UPD)라고 하는 사용자별 컬렉션 디스크에 저장됩니다. 디스크는 사용자를 따르며 사용자가 로그인한 위치와 관계 없이 일관된 환경을 보장합니다. 저장 
+Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 저장합니다. 이 사용자 데이터는 사용자 프로필 디스크(UPD)라고 하는 사용자별 컬렉션 디스크에 저장됩니다. 디스크는 사용자를 따르며 사용자가 로그인한 위치와 관계 없이 일관된 환경을 보장합니다.
 
 사용자 프로필 디스크는 사용자에게 완전히 투명합니다. 사용자는 자신의 문서 폴더에 문서를 저장하고(로컬 드라이브처럼 표시된) 일반적인 방법으로 해당 앱 설정을 변경합니다. 동시에 모든 장치에서 Azure RemoteApp에 연결할 때 모든 개인 설정이 유지됩니다. 사용자가 볼 수 있는 것은 같은 위치의 해당 데이터입니다.
 
@@ -149,6 +149,6 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

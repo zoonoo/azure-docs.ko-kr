@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 11/18/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 6dd149808a89ccf7da2989751788e074d5340d5c
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 * **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>가상 네트워크에 HBase 클러스터 만들기
-이 섹션에서는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
+이 섹션에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
 
 > [!NOTE]
 > 일부 속성이 템플릿에 하드 코딩되었습니다. 예:
@@ -45,19 +45,19 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 > * **위치**: 미국 동부 2
 > * __클러스터 버전: 3.4
 > * **클러스터 작업자 노드 수**: 4
-> * **기본 저장소 계정**: &lt;클러스터 이름>저장소
+> * **기본 저장소 계정**: 고유한 문자열
 > * **가상 네트워크 이름**: &lt;클러스터 이름>-vnet
 > * **가상 네트워크 주소 공간**: 10.0.0.0/16
-> * **서브넷 이름**: 기본값
+> * **서브넷 이름**: subnet1
 > * **서브넷 주소 범위**: 10.0.0.0/24
 >
-> &lt;클러스터 이름>은 템플릿을 사용할 때 제공하는 클러스터 이름으로 변경됩니다.
+> &lt;클러스터 이름>은 템플릿을 사용할 때 제공하는 클러스터 이름으로 대체됩니다.
 >
 >
 
-1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 공용 Blob 컨테이너에 있습니다.
+1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)에 있습니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **사용자 지정 배포** 블레이드에서 다음을 입력합니다.
 
    * **구독**: HDInsight 클러스터, 종속 Storage 계정 및 Azure 가상 네트워크를 만드는 데 사용한 Azure 구독을 선택합니다.
@@ -74,17 +74,18 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
 새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Hadoop을 통해 HBase 사용 시작](hdinsight-hbase-tutorial-get-started.md)의 절차를 사용할 수 있습니다.
 
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>HBase Java RPC API를 사용하여 HBase 클러스터에 연결
-1. 동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 만듭니다. 새 IaaS 가상 컴퓨터를 만드는 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 문서의 단계를 수행할 때 다음과 같은 네트워크 구성을 사용해야 합니다.
+1. 동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 만듭니다. 새 IaaS 가상 컴퓨터를 만드는 지침은 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요. 이 문서의 단계를 수행할 때 다음과 같은 네트워크 구성을 사용해야 합니다.
 
    * **가상 네트워크**: &lt;클러스터 이름>-vnet
-   * **서브넷**: 기본값
+   * **서브넷**: subnet1
 
    > [!IMPORTANT]
    > &lt;클러스터 이름>을 이전 단계에서 HDInsight 클러스터를 만들 때 사용한 이름으로 변경합니다.
    >
    >
 
-   이러한 값을 사용하면 가상 컴퓨터가 HDInsight 클러스터와 동일한 가상 네트워크와 서브넷을 사용하도록 구성됩니다. 이렇게 하면 서로 직접 통신이 가능해집니다.
+   이러한 값을 사용하면 가상 컴퓨터가 HDInsight 클러스터와 동일한 가상 네트워크와 서브넷에 배치됩니다. 이 구성을 사용하면 서로 직접 통신할 수 있습니다. 빈 에지 노드가 있는 HDInsight 클러스터를 만드는 방법이 있습니다. 에지 노드를 사용하여 클러스터를 관리할 수 있습니다.  자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
+
 2. Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
 
    * 웹 브라우저를 사용하여 Ambari를 호출합니다.
@@ -206,7 +207,7 @@ ms.openlocfilehash: 41e6338b8f8fce150e77a277c163bf71d42fb0c7
      그러면 DNS 접미사가 반환됩니다. 예를 들면 **yourclustername.b4.internal.cloudapp.net**과 같습니다.
    * RDP 사용
 
-     원격 데스크톱을 사용하여 HBase 클러스터에 연결하고(헤드 노드에 연결됨) 명령 프롬프트에서 **ipconfig** 를 실행하여 DNS 접미사를 가져올 수도 있습니다. RDP(원격 데스크톱 프로토콜)를 사용하도록 설정하고 RDP를 사용하여 클러스터에 연결하는 방법에 대한 지침은 [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+     원격 데스크톱을 사용하여 HBase 클러스터에 연결하고(헤드 노드에 연결됨) 명령 프롬프트에서 **ipconfig** 를 실행하여 DNS 접미사를 가져올 수도 있습니다. RDP를 사용하도록 설정하고 RDP(원격 데스크톱 프로토콜)를 통해 클러스터에 연결하는 방법에 대한 지침은 [Azure Portal을 사용하여 HDInsight에서 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
 
      ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -243,7 +244,8 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 이 자습서에서는 HBase 클러스터를 만드는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
-* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md)
+* [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)
+* [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)
 * [HDInsight의 Hadoop에서 HBase 사용 시작](hdinsight-hbase-tutorial-get-started.md)
 * [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
@@ -274,7 +276,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
@@ -297,6 +299,6 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

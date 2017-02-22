@@ -146,6 +146,6 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

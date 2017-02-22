@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 
 ---
@@ -46,14 +46,14 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 
 다음 비디오에서는 디자이너를 사용하는 방법을 보여줍니다.
 
-### <a name="day-1-getting-started"></a>1일차 – 시작하기
+### <a name="day-1--getting-started"></a>1일차 – 시작하기
 1일차 비디오에서 다루는 내용은 다음과 같습니다.
 
 * 디자이너 개요
 * 기본 워크플로 – "Hello World"
 * Azure 미디어 서비스 스트리밍에서 사용할 여러 출력 MP4 파일 만들기
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -64,7 +64,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 * 고급 논리를 사용한 워크플로
 * 그래프 단계
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 * 현재 인코더에 대한 제한 사항
 * Q&A
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
@@ -87,7 +87,7 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-지원이 필요하거나 Workflow Designer 도구에서 사용자 지정 워크플로를 만드는 방법에 대해 질문이 있는 경우 mepd@microsoft.com으로 메일을 보내주세요.
+지원이 필요하거나 Workflow Designer 도구에서 사용자 지정 워크플로를 만드는 방법에 대해 질문이 있는 경우 mepd@microsoft.com로 메일을 보내주세요.
 
 ## <a name="see-also"></a>참고 항목
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
@@ -95,6 +95,6 @@ ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 솔루션 배포 | Microsoft Docs"
+title: "IPv6를 사용하는 인터넷 연결 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs"
 description: "Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법."
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: f031fb76e225248a6d0535106b846dc3bef10e76
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
 
 ---
 
@@ -29,7 +29,7 @@ ms.openlocfilehash: f031fb76e225248a6d0535106b846dc3bef10e76
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
-Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
+Azure 부하 분산 장치는 계층&4;(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
 ## <a name="example-deployment-scenario"></a>예제 배포 시나리오
 
@@ -135,6 +135,6 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

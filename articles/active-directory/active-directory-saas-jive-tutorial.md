@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: 8e5af99c6c0a8ce4d1b239b3271846f39bc387be
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 304ee87e82ce5acc4479fd16d3ac1aa340e42815
 
 
 ---
@@ -45,7 +45,7 @@ Jive와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
@@ -207,7 +207,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 다음 스크린샷은 Azure AD의 관련 대화 상자 예를 보여줍니다.
 
-![사용자 프로비저닝 구성](./media/active-directory-saas-jive-tutorial/IC698794.png "Configure User Provisioning")
+![사용자 프로비전 구성](./media/active-directory-saas-jive-tutorial/IC698794.png "사용자 프로비전 구성")
 
 #### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비저닝을 구성하려면
 1. Azure 관리 포털의 **Jive** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
@@ -283,6 +283,6 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

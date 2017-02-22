@@ -427,7 +427,7 @@ Azure SQL 데이터 웨어하우스를 사용하여 필요에 따라 데이터 �
 <!--Article references-->
 [SQL 데이터 웨어하우스의 트랜잭션]: ./sql-data-warehouse-develop-transactions.md
 [테이블 파티션]: ./sql-data-warehouse-tables-partition.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[동시성]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
 

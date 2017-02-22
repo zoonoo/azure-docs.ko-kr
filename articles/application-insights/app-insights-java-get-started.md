@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 
 
 ---
@@ -38,10 +38,10 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. Application Insights 리소스 만들기 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
-   
+
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-get-started/02-create.png)
 3. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
-   
+
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. 프로젝트에 Java용 Aplication Insights SDK 추가
@@ -54,6 +54,8 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 pom.xml 파일에 다음 코드를 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
+
+```XML
 
     <repositories>
        <repository>
@@ -71,7 +73,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-
+```
 
 * *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `<version>1.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트해야 하는 경우*  프로젝트의 종속성을 새로 고칩니다.
@@ -81,6 +83,8 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
+```JSON
+
     repositories {
       mavenCentral()
     }
@@ -89,6 +93,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
+```
 
 * *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
 * *새 SDK로 업데이트하려면*
@@ -102,11 +107,11 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 
 ### <a name="questions"></a>질문...
 * *zip에서 `-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
-  
+
   * `applicationinsights-core` 는 최소한의 API를 제공합니다. 이 구성 요소는 항상 필요합니다.
   * `applicationinsights-web` 은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
-  
+
   * 최신 버전의 [Java용 Application Insights SDK](https://aka.ms/qqkaq6) 를 다운로드하여 이전 버전을 대체합니다.
   * 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
@@ -114,6 +119,8 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
 Azure 포털에서 가져온 계측 키를 대체합니다.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -144,6 +151,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
@@ -160,8 +168,10 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 
 또한 [코드로 설정](app-insights-api-custom-events-metrics.md#ikey)할 수 있습니다.
 
-    telemetryClient.InstrumentationKey = "...";
+```Java
 
+    telemetryClient.InstrumentationKey = "...";
+```
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP 필터 추가
 마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
@@ -169,6 +179,8 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹앱 노드 아래에 다음 코드를 병합합니다.
 
 가장 정확한 결과를 얻으려면 필터를 다른 모든 필터 전에 매핑해야 합니다.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -180,9 +192,12 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 이상을 사용하는 경우
 Application Insights 패키지를 포함하도록 *-servlet.xml에서 이러한 요소 편집:
+
+```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -192,14 +207,18 @@ Application Insights 패키지를 포함하도록 *-servlet.xml에서 이러한 
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
 
 #### <a name="if-youre-using-struts-2"></a>Struts 2를 사용하는 경우
 Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 struts-default.xml이라고 함):
+
+```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+```
 
 (기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.)
 
@@ -220,11 +239,11 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>인스턴스 데이터
-특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다. 
+특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
 
 집계된 데이터, 평균, 개수, 합계로 저장 및 표시된 인스턴스 데이터와 HTTP 요청, 예외, 페이지 보기 또는 사용자 지정 이벤트의 개별 보고서 등 두 종류의 데이터가 Application Insights에 표시됩니다.
 
@@ -233,7 +252,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
-더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다. [분석]() 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
+더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](app-insights-analytics.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
 
 ![분석 예제](./media/app-insights-java-get-started/025.png)
 
@@ -241,16 +260,16 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
 
 * 방화벽에서 응용 프로그램이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
-  
+
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
 
-* 나가는 트래픽이 방화벽을 통해 라우팅되어야 하는 경우 시스템 속성 `http.proxyHost` 및 `http.proxyPort`를 정의합니다. 
+* 나가는 트래픽이 방화벽을 통해 라우팅되어야 하는 경우 시스템 속성 `http.proxyHost` 및 `http.proxyPort`를 정의합니다.
 
 * Windows 서버에 다음을 설치합니다.
-  
+
   * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
 
@@ -261,7 +280,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions]. 
+* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions].
 * [서버에 Java 에이전트를 설치합니다](app-insights-java-agent.md). 감시 방법을 지정할 수 있습니다.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>메서드 호출 및 외부 종속성 모니터링
@@ -275,20 +294,25 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
 성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 코드를 추가합니다.
 
+```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### <a name="collect-additional-performance-counters"></a>추가 성능 카운터 수집
 추가 성능 카운터가 수집되도록 지정할 수 있습니다.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX 카운터(Java 가상 컴퓨터를 통해 노출됨)
+
+```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` - Application Insights 포털에서 표시되는 이름입니다.
 * `objectName` – JMX 개체 이름입니다.
@@ -301,12 +325,14 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 #### <a name="windows-performance-counters"></a>Windows 성능 카운터
 각 [Windows 성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) 는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
 
+```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName - Application Insights 포털에서 표시되는 이름입니다.
 * categoryName – 이 성능 카운터와 관련된 성능 카운터 범주(성능 개체)입니다.
@@ -344,7 +370,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 ![웹 테스트의 예](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[가용성 웹 테스트에 대한 자세히 알아봅니다.][availability] 
+[가용성 웹 테스트에 대한 자세히 알아봅니다.][availability]
 
 ## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
 [Java 문제 해결](app-insights-java-troubleshoot.md)
@@ -355,13 +381,13 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 * [웹 페이지에 모니터링](app-insights-javascript.md)을 추가하여 페이지 로드 시간, AJAX 호출, 브라우저 예외를 모니터링합니다.
 * [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md)을 작성하여 브라우저 또는 서버에서 사용량을 추적합니다.
 * [대시보드](app-insights-dashboards.md)를 만들어서 시스템을 모니터링하기 위한 키 차트를 가져옵니다.
-* 앱의 원격 분석을 통한 강력한 쿼리에 대해 [분석](app-insights-analytics.md)을 사용합니다.
+* 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](app-insights-analytics.md)을 사용합니다.
 * 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -371,6 +397,6 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

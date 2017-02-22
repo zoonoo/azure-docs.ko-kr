@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 968e4039b2c94d67560fafb245b6558c70b6d2e3
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 091ab246826c96b9d816c87b27014c1e54039429
 
 
 ---
@@ -31,6 +31,11 @@ ms.openlocfilehash: 968e4039b2c94d67560fafb245b6558c70b6d2e3
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
+> 
+
+> [!NOTE]
+> 대량의 데이터(큰 파일, 많은 수의 파일 또는 둘 다)를 업로드 및 다운로드하는 경우 [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) 또는 [Azure PowerShell](data-lake-store-get-started-powershell.md)을 사용하는 것이 좋습니다. 이러한 옵션을 여러 스레드를 사용하여 데이터 이동을 병렬화할 때 더 나은 성능을 제공합니다.
+> 
 > 
 
 Node.js용 Azure SDK를 사용하여 Azure Data Lake Store 계정을 만들고 기본 작업(예: 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등)을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Store 개요](data-lake-store-overview.md)를 참조하세요. 현재는 SDK에서 다음을 지원합니다.
@@ -146,6 +151,6 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

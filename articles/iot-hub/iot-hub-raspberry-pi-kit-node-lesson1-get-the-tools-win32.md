@@ -1,5 +1,5 @@
 ---
-title: "도구 얻기(Windows 7 이상) | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 1: 도구 다운로드(Windows) | Microsoft Docs"
 description: "Windows 7 이상 버전에 Pi의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 63d4a4a5cbc0d7313c5b527e5ec417d1b968483a
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 73df1a85cbcf7ee54fe625b6a150f89366ea2c14
 
 
 ---
@@ -77,6 +77,6 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/wi
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

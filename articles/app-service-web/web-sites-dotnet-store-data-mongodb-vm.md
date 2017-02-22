@@ -16,25 +16,25 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c5ce6c8024026e8fb88a2c6e8e5475c8aba7aa30
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5ce82ddd2f58fed338bd061fa963978aa63e5fdc
 
 
 ---
 # <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a>가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure에서 웹 앱 만들기
-Git을 사용하여 Azure 웹 서비스 웹 앱에 ASP.NET 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 연결되는 간단한 프런트 엔드 ASP.NET MVC 작업 목록 응용 프로그램을 빌드합니다.  [MongoDB][MongoDB] 는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. 개발 컴퓨터에서 ASP.NET 응용 프로그램을 실행하고 테스트한 후에 Git을 사용하여 앱 서비스 웹 앱에 응용 프로그램을 업로드합니다.
+Git을 사용하여 Azure 웹 서비스 웹 앱에 ASP.NET 응용 프로그램을 배포할 수 있습니다. 이 자습서에서는 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 연결되는 간단한 프런트 엔드 ASP.NET MVC 작업 목록 응용 프로그램을 빌드합니다.  [MongoDB][MongoDB]는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 개발 컴퓨터에서 ASP.NET 응용 프로그램을 실행하고 테스트한 후에 Git을 사용하여 앱 서비스 웹 앱에 응용 프로그램을 업로드합니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 ## <a name="background-knowledge"></a>배경 지식
 다음과 관련한 지식이 있으면 이 자습서에 유용하지만 필수 사항은 아닙니다.
 
-* MongoDB의 C# 드라이버. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 MongoDB [CSharp 언어 센터][MongoC#LangCenter]를 참조하세요. 
-* ASP .NET 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET 웹 사이트][ASP.NET]에서 알아볼 수 있습니다.
-* ASP .NET MVC 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET MVC 웹 사이트][MVCWebSite]에서 알아볼 수 있습니다.
+* MongoDB의 C# 드라이버. MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 MongoDB [CSharp 언어 센터][MongoC#LangCenter](영문)를 참조하세요. 
+* ASP .NET 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.net 웹 사이트][ASP.NET]에서 확인할 수 있습니다.
+* ASP .NET MVC 웹 응용 프로그램 프레임워크. 자세한 내용은 [ASP.NET MVC 웹 사이트][MVCWebSite]에서 확인할 수 있습니다.
 * Azure. [Azure][WindowsAzure]의 내용을 읽어 보고 시작할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -413,7 +413,7 @@ MongoDB C# 드라이버를 설치하려면
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-`<vm-dns-name>`을 이 자습서의 [가상 컴퓨터 만들기 및 MongoDB 설치][가상 컴퓨터 만들기 및 MongoDB 설치] 단계에서 만든 MongoDB를 실행하는 가상 컴퓨터의 DNS 이름으로 바꿉니다.  가상 컴퓨터의 DNS 이름을 찾으려면 Azure Portal로 이동하여 **가상 컴퓨터**를 선택하고 **DNS 이름**을 찾습니다.
+`<vm-dns-name>`을 이 자습서의 [가상 컴퓨터 만들기 및 MongoDB 설치][Create a virtual machine and install MongoDB] 단계에서 만든 MongoDB를 실행하는 가상 컴퓨터의 DNS 이름으로 바꿉니다.  가상 컴퓨터의 DNS 이름을 찾으려면 Azure Portal로 이동하여 **가상 컴퓨터**를 선택하고 **DNS 이름**을 찾습니다.
 
 가상 컴퓨터의 DNS 이름이 "testlinuxvm.cloudapp.net"이고 MongoDB가 기본 포트 27017을 수신 대기하는 경우 연결 문자열 코드 줄은 다음과 같습니다.
 
@@ -423,7 +423,7 @@ MongoDB C# 드라이버를 설치하려면
 
      private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-MongoDB 연결 문자열에 대한 자세한 내용은 [연결][MongoConnectionStrings]을 참조하세요.
+MongoDB 연결 문자열에 대한 자세한 내용은 [연결][MongoConnectionStrings](영문)을 참조하세요.
 
 ## <a name="test-the-local-deployment"></a>로컬 배포 테스트
 개발 컴퓨터에서 응용 프로그램을 실행하려면 **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다. IIS Express가 시작되고 브라우저가 열려 응용 프로그램의 홈페이지를 시작합니다.  새 작업을 추가할 수 있습니다. 이 작업은 Azure의 가상 컴퓨터에서 실행되는 MongoDB 데이터베이스에 추가됩니다.
@@ -445,7 +445,7 @@ MongoDB 연결 문자열에 대한 자세한 내용은 [연결][MongoConnectionS
 2. **웹 앱**을 클릭합니다. 
 3. **웹 앱** 목록에서 웹 앱을 선택합니다.
 
-MongoDB에 대한 C# 응용 프로그램 개발의 자세한 내용은 [CSharp 언어 센터][MongoC#LangCenter]를 참조하세요. 
+MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [CSharp 언어 센터][MongoC#LangCenter](영문)를 참조하세요. 
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -482,13 +482,13 @@ MongoDB에 대한 C# 응용 프로그램 개발의 자세한 내용은 [CSharp �
 [Image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
 
 <!-- TOC BOOKMARKS -->
-[가상 컴퓨터 만들기 및 MongoDB 설치]: #virtualmachine
-[개발 컴퓨터에서 내 태스크 목록 ASP.NET 응용 프로그램 만들기 및 실행]: #createapp
-[Azure 웹 사이트 만들기]: #createwebsite
-[Git을 사용하여 웹 사이트에 ASP.NET 응용 프로그램 배포]: #deployapp
+[Create a virtual machine and install MongoDB]: #virtualmachine
+[Create and run the My Task List ASP.NET application on your development computer]: #createapp
+[Create an Azure web site]: #createwebsite
+[Deploy the ASP.NET application to the web site using Git]: #deployapp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

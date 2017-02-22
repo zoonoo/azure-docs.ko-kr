@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 0d8c4b4af9672ca40da44b19938604f668390569
+ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
+ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 
 
 ---
@@ -64,7 +64,7 @@ Azure Active Directory는 토큰을 검색할 뿐만 아니라 다른 옵션을 
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.4</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -73,7 +73,7 @@ Azure Active Directory는 토큰을 검색할 뿐만 아니라 다른 옵션을 
           </dependency>
         </dependencies>
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Store SDK(`azure-datalake-store`)를 사용하는 것입니다. 두 번째 종속성(`slf4j-nop`)은 이 응용 프로그램에 사용하는 로깅 프레임워크를 지정하는 것입니다. Data Lake Store SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Store SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성(`slf4j-nop`)은 이 응용 프로그램에 사용하는 로깅 프레임워크를 지정하는 것입니다. Data Lake Store SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
 ### <a name="add-the-application-code"></a>응용 프로그램 코드 추가
 코드에는 세 가지 주요 부분이 있습니다.
@@ -83,27 +83,39 @@ Azure Active Directory는 토큰을 검색할 뿐만 아니라 다른 옵션을 
 3. Data Lake Store 클라이언트를 사용하여 작업을 수행합니다.
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>1단계: Azure Active Directory 토큰 가져오기
-Data Lake Store SDK는 Data Lake Store 계정에 대해 이야기 하는 데 필요한 보안 토큰을 가져올 수 있는 편리한 방법을 제공합니다. 그러나 SDK에서는 이러한 방법만 필수로 사용해야 하는 것은 아닙니다. [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) 또는 사용자 지정 코드를 사용할 뿐만 아니라 토큰을 가져오는 다른 방법을 사용할 수 있습니다.
+Data Lake Store SDK는 Data Lake Store 계정에 대해 이야기하는 데 필요한 보안 토큰을 관리할 수 있는 편리한 방법을 제공합니다. 그러나 SDK에서는 이러한 방법만 필수로 사용해야 하는 것은 아닙니다. [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) 또는 사용자 지정 코드를 사용할 뿐만 아니라 토큰을 가져오는 다른 방법을 사용할 수 있습니다.
 
-Data Lake Store SDK를 사용하여 앞에서 만든 Active Directory 웹 응용 프로그램에 대한 토큰을 가져오려면 `AzureADAuthenticator` 클래스에서 정적 메서드를 사용합니다. **FILL-IN-HERE**를 Azure Active Directory 웹 응용 프로그램의 실제 값으로 바꿉니다.
+Data Lake Store SDK를 사용하여 앞에서 만든 Active Directory 웹 응용 프로그램에 대한 토큰을 가져오려면 `AccessTokenProvider` 서브클래스 중 하나(아래 예에서 `ClientCredsTokenProvider` 사용)를 사용합니다. 토큰 공급자는 메모리에 토큰을 가져오는 데 사용 되는 자격 증명을 캐시하고 만료될 경우 토큰을 자동으로 갱신합니다. `AccessTokenProvider`의 자체 서브클래스를 만들 수 있기 때문에 고객 코드를 통해 토큰을 가져올 수 있지만 지금은 SDK에서 제공되는 토큰을 사용합니다.
+
+**FILL-IN-HERE**를 Azure Active Directory 웹 응용 프로그램의 실제 값으로 바꿉니다.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
     private static String clientKey = "FILL-IN-HERE";
 
-    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>2단계: Azure Data Lake Store 클라이언트(ADLStoreClient) 개체 만들기
-[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들면 마지막 단계에서 생성된 Data Lake Store 계정 이름 및 Azure Active Directory 토큰을 지정해야 합니다. Data Lake Store 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE**를 **mydatalakestore.azuredatalakestore.net**과 같은 이름으로 바꿉니다.
+[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들면 마지막 단계에서 생성된 Data Lake Store 계정 이름 및 토큰 공급자를 지정해야 합니다. Data Lake Store 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE**를 **mydatalakestore.azuredatalakestore.net**과 같은 이름으로 바꿉니다.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
-    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
 ### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>3단계: ADLStoreClient를 사용하여 파일 및 디렉터리 작업 수행
 아래 코드에는 몇 가지 일반적인 작업의 예제 코드 조각이 포함되어 있습니다. 다른 작업을 확인하려면 **ADLStoreClient** 개체의 전체 [Data Lake Store Java SDK API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 살펴볼 수 있습니다.
 
 표준 Java 스트림을 사용하여 파일을 읽고 작성합니다. 즉, Data Lake Store 스트림 기반으로 하는 Java 스트림 계층화하여 표준 Java 기능(예: 서식이 지정된 출력의 인쇄 스트림 또는 추가 기능에 대한 압축 또는 암호화 스트림)을 활용할 수 있습니다.
 
+     // create file and write some content
+     String filename = "/a/b/c.txt";
+     OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+     PrintStream out = new PrintStream(stream);
+     for (int i = 1; i <= 10; i++) {
+         out.println("This is line #" + i);
+         out.format("This is the same line (%d), but using formatted output. %n", i);
+     }
+     out.close();
+    
     // set file permission
     client.setPermission(filename, "744");
 
@@ -142,6 +154,7 @@ Data Lake Store SDK를 사용하여 앞에서 만든 Active Directory 웹 응용
 2. 명령줄 빌드에서 실행할 수 있는 독립 실행형 jar을 생성하려면 [Maven 어셈블리 플러그 인](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html)을 사용하여 포함된 모든 종속성을 가진 jar을 빌드합니다. [GitHub의 원본 코드 예제](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml)에서 pom.xml에는 이 작업을 수행하는 예제가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+* [Java SDK에 대한 JavaDoc 탐색](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -149,6 +162,6 @@ Data Lake Store SDK를 사용하여 앞에서 만든 Active Directory 웹 응용
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

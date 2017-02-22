@@ -1,6 +1,6 @@
 ---
 title: "팀 데이터 과학 프로세스 수명 주기 | Microsoft 문서"
-description: "팀 데이터 과학 팀 수명 주기의 핵심 구성 요소에 대한 개요입니다."
+description: "데이터 과학 프로젝트를 구조화하기 위한 수명 주기 단계 및 구성 요소"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 725f6d4a209ada154eb9aa90a8226dcaa0859990
+ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
+ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
 
 
 ---
@@ -29,7 +29,7 @@ TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트의 개�
 
 ![TDSP 수명 주기](./media/data-science-process-overview/tdsp-lifecycle.png) 
 
-TDSP 수명 주기는 반복적으로 실행되는 5가지 주요 단계로 구성됩니다. 내용은 다음과 같습니다.
+TDSP 수명 주기는 반복적으로 실행되는&5;가지 주요 단계로 구성됩니다. 내용은 다음과 같습니다.
 
 * **비즈니스 이해**
 * **데이터 취득 및 이해**
@@ -200,6 +200,6 @@ TDSP는 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataSc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

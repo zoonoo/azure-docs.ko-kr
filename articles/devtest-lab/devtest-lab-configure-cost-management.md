@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a95b496d16459e415e4ece50b230615bd1bd2169
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
 
 
 ---
@@ -35,7 +35,7 @@ DevTest Labs의 비용 관리 기능은 랩의 비용을 추적하는 데 도움
    
     ![비용 차트](./media/devtest-lab-configure-cost-management/graph.png)
 
-**예상 비용** 값은 현재 월의 현재까지의 예상 비용입니다. **예측 비용** 은 이번 달 전체의 예상 비용으로, 이전 5일 동안의 랩 비용을 사용해서 계산합니다.
+**예상 비용** 값은 현재 월의 현재까지의 예상 비용입니다. **예측 비용** 은 이번 달 전체의 예상 비용으로, 이전&5;일 동안의 랩 비용을 사용해서 계산합니다.
 
 금액은 다음 정수로 올림됩니다. 예: 
 
@@ -46,7 +46,7 @@ DevTest Labs의 비용 관리 기능은 랩의 비용을 추적하는 데 도움
 차트에 언급되어 있듯이, 차트에 보이는 비용은 *종량제* 제안 요율을 사용하여 [예상된](https://azure.microsoft.com/offers/ms-azr-0003p/) 비용입니다.
 또한 다음 항목은 비용 계산에 포함되지 *않습니다* .
 
-* Azure DevTest Labs에서는 [Azure 청구 API](../billing-usage-rate-card-overview.md) 를 사용하여 랩 비용을 계산하며 CSP 또는 Dreamspark 구독을 지원하지 않으므로 이러한 구독 방식이 현재 지원되지 않습니다.
+* Azure DevTest Labs에서는 [Azure 청구 API](../billing/billing-usage-rate-card-overview.md) 를 사용하여 랩 비용을 계산하며 CSP 또는 Dreamspark 구독을 지원하지 않으므로 이러한 구독 방식이 현재 지원되지 않습니다.
 * 사용자에 대한 제안 요율. 현재는 Microsoft 또는 Microsoft 파트너와 협상한 제안 요율(구독 아래에 표시됨)을 사용할 수 없습니다. 종량제 요율을 사용합니다.
 * 사용자 세금
 * 사용자 할인
@@ -69,6 +69,6 @@ DevTest Labs의 비용 관리 기능은 랩의 비용을 추적하는 데 도움
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

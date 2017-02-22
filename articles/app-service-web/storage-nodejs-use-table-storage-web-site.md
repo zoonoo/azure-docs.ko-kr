@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
 ![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -462,7 +462,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 1. 다음 명령을 입력합니다.
    
-        azure account download
+        azure login
    
     이 명령은 브라우저를 시작하고 다운로드 페이지로 이동합니다. 메시지가 나타나면 Azure 구독과 관련된 계정으로 로그인합니다.
    
@@ -559,12 +559,12 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 <!-- URLs -->
 
 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
-[Azure 개발자 센터]: /develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
-[무료]: http://windowsazure.com
+[for free]: http://windowsazure.com
 [Git 원격]: http://git-scm.com/docs/git-remote
 
 [Azure CLI]: ../xplat-cli-install.md
@@ -574,9 +574,9 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [nconf]: https://www.npmjs.com/package/nconf
 [async]: https://www.npmjs.com/package/async
 
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
 
 <!-- Image References -->
 
@@ -594,6 +594,6 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

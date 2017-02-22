@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a3e09e63f3952ad8b7229397f22c8d2f86ce6614
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
 
 
 ---
@@ -152,7 +152,7 @@ Blob 저장소는 다른 많은 Azure 기능(가상 컴퓨터 포함)에 사용�
 
 예를 들어 비디오, 광범위한 파일, 기타 이진 정보 등을 저장하는 응용 프로그램에서 간단하고 저렴한 저장소인 Blob을 사용할 수 있습니다. 또한 Blob은 일반적으로 CDN(콘텐츠 배달 네트워크) 등 나중에 다룰 다른 서비스와 함께 사용됩니다.  
 
-### <a name="import-export"></a>가져오기/내보내기
+### <a name="import--export"></a>가져오기/내보내기
 ![Azure 가져오기 내보내기 서비스](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
 
 *그림: Azure 가져오기/내보내기 서비스는 보다 빠르고 저렴하게 대량 데이터를 가져오거나 내보내기 위해 Azure에 실제 하드 드라이브를 배송하거나 배송받는 기능을 제공합니다.*  
@@ -519,7 +519,7 @@ Azure 미디어 서비스가 이 문제를 해결해 줍니다. Azure 미디어 
 
 **참조**
 
-미디어 서비스 방식에 대해 보다 시각적으로 확인하려면 [Azure Media Services Poster][Azure Media Services Poster]와 같은 다양한 시각적 보조 기능 및 관리 포털의 범주로 서비스를 그룹화합니다.
+미디어 서비스 방식에 대해 보다 시각적으로 확인하려면 [Azure Media Services Poster][Azure Media Services Poster]를 다운로드하세요.
 
 ## <a name="commerce"></a>상거래
 SaaS(Software as a Service)의 인기로 응용 프로그램 개발 방법이 혁신적으로 달라지고 있습니다. 이는 응용 프로그램을 판매하는 방법도 달라진다는 의미입니다. SaaS 응용 프로그램은 클라우드에 있으므로 잠재 고객은 온라인에서 솔루션을 찾는 고객이 될 것입니다. 또한 이러한 변경은 응용 프로그램뿐 아니라 데이터에도 적용됩니다. 상거래 가능한 데이터 집합을 위한 공간으로 클라우드는 어떨까요? Microsoft는 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)를 통해 두 문제를 모두 해결했습니다.
@@ -540,6 +540,6 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

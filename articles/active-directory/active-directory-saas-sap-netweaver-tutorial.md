@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2793f2b59207d4c329b2fd76eb164b3c4237b9e3
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: c7205f2a743bf2d835e9a1a5e6aad2542a7782ad
 
 
 ---
@@ -116,19 +116,20 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
    
     c. **회신 URL** 텍스트 상자에 **https://\<your company instance of SAP NetWeaver\>/sap/saml2/sp/acs/100** 패턴을 사용하여 URL을 입력합니다.
    
-   > [!NOTE]
-   > SAP NetWeaver 파트너가 제공하는 페더레이션 메타데이터 문서에서 이러한 모든 값을 찾을 수 있습니다.
-   > 
-   > 
+    > [!NOTE]
+    > SAP NetWeaver 파트너가 제공하는 페더레이션 메타데이터 문서에서 이러한 모든 값을 찾을 수 있습니다.
+    > 
+    > 
    
     d. click **다음**
+
 4. **SAP NetWeaver에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_05.png)
    
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 SAP NetWeaver 파트너에 문의하고 다음을 제공하세요.
    
     • 다운로드한 **메타데이터**
@@ -169,17 +170,18 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
     c. **다음**을 클릭합니다.
-6. **사용자 프로필** 대화 상자 페이지에서 ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
+6. **사용자 프로필** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+    a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
+    b. **성** 텍스트 상자에 **Simon**을 입력합니다.
    
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
-   d. **역할** 목록에서 **사용자**를 선택합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다.
    
-   e. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
+
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_07.png) 
@@ -189,7 +191,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-an-sap-netweaver-test-user"></a>SAP NetWeaver 테스트 사용자 만들기
 이 섹션에서는 SAP NetWeaver에서 Britta Simon이라는 사용자를 만듭니다. SAP NetWeaver 플랫폼에서 사용자를 추가하려면 SAP NetWeaver 파트너에게 문의하세요.
@@ -244,6 +246,6 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

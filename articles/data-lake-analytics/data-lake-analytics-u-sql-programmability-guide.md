@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 8da474fbc9eae750bbd2e1f6908046d2e7e7be55
-ms.openlocfilehash: 42e1d0cdde66f4bf4a6f3b23421e137716d05beb
+ms.sourcegitcommit: cd2aafd80db337cadaa2217a6638d93186975b68
+ms.openlocfilehash: 563a6821b4a3736ef1233aa67d86b9ba06565788
 
 
 ---
@@ -65,7 +65,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-위 예제에는 @input_file. **지역 변수**로 정의된 **입력 파일**(input_file.tsv 파일)이 있습니다.
+위 예제에는 @input_file **지역 변수**로 정의된 **입력 파일**(input_file.tsv 파일)이 있습니다.
 
 위 U-SQL 스크립트를 실행하면 다음 작업이 수행됩니다.
 
@@ -112,7 +112,7 @@ U-SQL 기본 스크립트의 예는 다음과 같습니다.
     DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 ```
 
-C# 식은 행 집합의 일부로 열을 조작할 때 확장된 기능을 제공할 수 있습니다. 예를 들어 datetime 열을 0시간의 날짜로 변환하려면 U-SQL 기본 스크립트의 다음 SELECT 부분을 사용할 수 있습니다.
+C# 식은 행 집합의 일부로 열을 조작할 때 확장된 기능을 제공할 수 있습니다. 예를 들어 datetime 열을&0;시간의 날짜로 변환하려면 U-SQL 기본 스크립트의 다음 SELECT 부분을 사용할 수 있습니다.
 
 ```sql
 @rs1 =
@@ -289,7 +289,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### <a name="using-code-behind"></a>코드 숨김 사용
 U-SQL 프로그램의 코드 숨김 섹션에서 동일한 기능을 사용하려면 ToDateTime C# 함수를 정의합니다.
 
-변경할 필요가 있는 위 기본 U-SQL 스크립트의 섹션은 다음과 같습니다.
+다음은 필요한 사항을 변경한 기본 U-SQL 스크립트 섹션입니다.
 
 ```sql
      @rs1 =
@@ -392,6 +392,7 @@ U-SQL 확장성 모델은 사용자 지정 코드를 추가하는 기능에 따�
 스크립트를 열 때 다음과 같이 생성된 프롤로그와 에필로그를 확인할 수 있습니다.
 
 ![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
 **그림 2**: 코드 숨김에 대해 자동 생성된 프롤로그 및 에필로그
 <br />
 
@@ -422,7 +423,7 @@ U-SQL 확장성 모델은 사용자 지정 코드를 추가하는 기능에 따�
 
 아래 예제에서는 이러한 두 옵션을 모두 사용합니다. [이미지 처리 최근 블로그 게시물](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/)은 이러한 등록 옵션을 사용할 수 있는 미리 정의된 어셈블리의 사용을 보여 주는 또 다른 예입니다.
 
-이제 등록된 어셈블리의 데이터베이스에 대한 권한이 있는 모든 U-SQL 스크립트에서 등록된 어셈블리를 참조할 수 있습니다(그림 4의 U-SQL 스크립트에 있는 코드 참조). 별도로 등록된 모든 어셈블리에 대한 참조를 추가해야 합니다. 추가 리소스 파일은 자동으로 배포됩니다. 해당 스크립트에는 참조된 어셈블리의 코드에 대한 코드 숨김 파일이 더 이상 없지만, 다른 코드는 계속 제공할 수 있습니다.
+이제 등록된 어셈블리의 데이터베이스에 대한 권한이 있는 모든 U-SQL 스크립트에서 등록된 어셈블리를 참조할 수 있습니다(그림 4의 U-SQL 스크립트에 있는 코드 참조). 별도로 등록된 모든 어셈블리에 대한 참조를 추가해야 합니다. 추가 리소스 파일은 자동으로 배포됩니다. 해당 스크립트에는 참조된 어셈블리의 코드에 대한 코드 숨김 파일이 더 이상 없지만, 코드 숨김 파일은 다른 코드를 계속 제공할 수 있습니다.
 
 ### <a name="registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts"></a>Visual Studio 및 U-SQL 스크립트에서 ADL 도구를 통해 어셈블리 등록
 Visual Studio의 ADL 도구를 사용하면 어셈블리를 쉽게 등록할 수 있지만, 예를 들어 다른 플랫폼에서 개발 중이거나 이미 업로드하고 등록하려는 어셈블리를 컴파일한 경우 도구에서 사용자를 위해 수행하는 것과 같은 방식으로 스크립트를 사용하여 등록할 수도 있습니다. 기본적으로 다음 단계를 수행합니다.
@@ -439,6 +440,7 @@ Visual Studio의 ADL 도구를 사용하면 어셈블리를 쉽게 등록할 수
 먼저 [Visual Studio 프로젝트](https://github.com/Azure/usql/tree/master/Examples/DataFormats)를 로컬 개발 환경에 다운로드합니다(예: Windows용 GitHub 도구를 사용하여 로컬 복사본 만들기). 그런 다음 Visual Studio에서 솔루션을 열고 위에서 설명한대로 프로젝트를 마우스 오른쪽 단추로 클릭하여 어셈블리를 등록합니다. 이 어셈블리에는 두 가지 종속성이 있지만 이미 Azure Data Lake에서 System.Xml을 사용할 수 있으므로 Newtonsoft 종속성만 포함하면 됩니다(명시적으로 참조해야 함). 그림 6에서는 어셈블리 이름을 지정하고(점을 포함하지 않는 다른 이름도 선택할 수 있음)과 Newtonsoft dll도 추가하는 방법을 보여 줍니다. 두 어셈블리 각각은 이제 지정된 데이터베이스(예: JSONBlog)에 개별적으로 등록됩니다.
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+
 **그림 6**: Visual Studio에서 Microsoft.Analytics.Samples.Formats 어셈블리를 등록하는 방법
 <br />
 
@@ -449,7 +451,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-그리고 XML 기능을 사용하려면 시스템 어셈블리 참조와 어셈블리를 등록된 어셈블리에 추가합니다.
+그리고 XML 기능을 사용하려면 시스템 어셈블리 참조와 등록된 어셈블리에 대한 참조를 추가합니다.
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -540,7 +542,7 @@ U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
 
 먼저 UDF를 만드는 간단한 예제를 살펴보겠습니다.
 
-이 사용 사례 시나리오에서는 특정 사용자에 대한 첫 번째 로그인의 회계 기간, 즉 회계 분기 및 회계 월을 결정해야 합니다. 시나리오에서 해당 연도의 첫 번째 회계 월은 6월입니다.
+이 사용 사례 시나리오에서는 특정 사용자에 대한 첫 번째 로그인의 회계 기간, 즉 회계 분기 및 회계 월을 결정해야 합니다. 시나리오에서 해당 연도의 첫 번째 회계 월은&6;월입니다.
 
 회계 기간을 계산하기 위해 다음 C# 함수를 소개합니다.
 
@@ -579,7 +581,7 @@ U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
         }
 ```
 
-단순히 회계 월과 분기를 계산하고 문자열 값을 반환합니다. 첫 번째 회계 분기의 첫 번째 회계 월인 6 월의 경우 ‘Q1:P1’, 7 월의 경우 'Q1: P2' 등등입니다.
+단순히 회계 월과 분기를 계산하고 문자열 값을 반환합니다. 첫 번째 회계 분기의 첫 번째 회계 월인&6; 월의 경우 ‘Q1:P1’,&7; 월의 경우 'Q1: P2' 등등입니다.
 
 이는 U-SQL 프로젝트를 사용할 일반 C# 함수입니다.
 
@@ -766,9 +768,9 @@ LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS 
            string.IsNullOrEmpty(LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
            USQLApplication21.UserSession.StampUserSession
            (
-            EventDateTime,
-            LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
-            LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
+               EventDateTime,
+               LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
+               LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
            )
            AS UserSessionTimestamp
     FROM @records;
@@ -822,7 +824,10 @@ USING Outputters.Csv();
 ## <a name="using-user-defined-types---udt"></a>사용자 정의 형식 사용
 UDT(사용자 정의 형식)는 U-SQL의 또 다른 프로그래밍 기능입니다. U-SQL UDT는 일반 C# 사용자 정의 형식처럼 작동합니다. C#는 기본 제공 및 사용자 지정 UDT를 사용할 수 있는 강력한 형식의 언어입니다.
 
-현재 U-SQL은 UDT 데이터를 외부 파일에(서) 암시적으로 직렬화/역직렬화할 수 없습니다. 이로 인해 IFormatter 인터페이스는 UDT 정의의 일부로 Serialize/De-serialize 메서드를 사용하여 정의해야 합니다. ADLA V1에서는 intermediate 직렬화만 지원합니다. 즉 IFormatter는 내부 UDT 처리에 중요하지만 EXTRACTOR 또는 OUTPUTTER의 영구 직렬화에는 사용할 수 없습니다. OUTPUTTER를 통해 파일에 데이터를 쓰거나 EXTRACTOR를 통해 데이터를 읽을 때 UDT는 UDT 구현의 ToString() 메서드를 사용하여 문자열로 직렬화되어야 합니다. 대안으로 UDT를 처리할 때 사용자 지정 EXTRACTOR/OUTPUTTER를 사용할 수 있습니다.  
+U-SQL은 UDT가 행 집합의 꼭지점 사이에서 전달되는 동안 임의의 UDT를 묵시적으로 직렬화/역직렬화할 수 없습니다. 따라서 사용자는 IFormatter 인터페이스를 사용하는 명시적인 포맷터를 제공해야 합니다. 이는 UDT에 대해 직렬화 및 역직렬화 메서드를 U-SQL에 제공합니다. 
+
+> [!NOTE]
+> U-SQL의 기본 제공 추출기 및 출력기는 현재 IFormatter 집합이 있는 파일에/로부터 UDT 데이터를 직렬화/역직렬화할 수 없습니다.  따라서 UDT 데이터를 OUTPUT 문으로 파일에 쓰거나 추출기로 읽는 경우, 사용자는 이를 문자열 또는 바이트 배열으로 전달하고 직렬화 및 역직렬화 코드(예: UDT의 ToString() 메서드) 명시적으로 호출해야 합니다. 반면 사용자 정의 추출기 및 출력기는 UDT를 읽고 쓸 수 있습니다.
 
 이전 SELECT의 외부에 있는 EXTRACTOR 또는 OUTPUTTER에서 UDT를 사용하는 경우:
 
@@ -837,7 +842,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 다음과 같은 오류가 발생합니다.
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+    Error    1    E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
     MyNameSpace.Myfunction_Returning_UDT.
 
     Description:
@@ -847,8 +852,8 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
     Resolution:
 
     Implement a custom outputter that knows how to serialize this type or call a serialization method on the type in
-    the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
-    USQL-Programmability\Types.usql 52  1   USQL-Programmability
+    the preceding SELECT.    C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+    USQL-Programmability\Types.usql    52    1    USQL-Programmability
 ```
 
 Outptutter에서 UDT를 사용하려면 ToString() 메서드를 사용하여 문자열로 직렬화하거나 사용자 지정 Outputter를 만들어야 합니다.
@@ -856,7 +861,7 @@ Outptutter에서 UDT를 사용하려면 ToString() 메서드를 사용하여 문
 UDT는 현재 GROUP BY에서 사용할 수 없습니다. GROUP BY에 UDT를 사용하면 다음과 같은 오류가 발생합니다.
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
+    Error    1    E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
     for column myfield
 
     Description:
@@ -867,7 +872,7 @@ UDT는 현재 GROUP BY에서 사용할 수 없습니다. GROUP BY에 UDT를 사�
 
     Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
     C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
-    62  5   USQL-Programmability
+    62    5    USQL-Programmability
 ```
 
 UDT를 정의하려면 다음을 수행해야 합니다.
@@ -896,7 +901,7 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 ```c#
     [SqlUserDefinedType(typeof(MyTypeFormatter))]
       public class MyType
-           {
+              {
              …
            }
 ```
@@ -932,9 +937,9 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 `IColumnWriter` 기록기/`IColumnReader` 판독기 - 기본 열 스트림입니다.  
 `ISerializationContext` 컨텍스트 - 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다. 
  
-    * *Intermediate* - 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
+   * *Intermediate* - 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
 
-    * *Persistence* - 원본 또는 대상 컨텍스트가 지속형 저장소임을 지정합니다.
+   * *Persistence* - 원본 또는 대상 컨텍스트가 지속형 저장소임을 지정합니다.
 
 일반 C# 형식으로 U-SQL UDT 정의는 +/==/!= 등의 연산자에 대한 재정의 및 정적 메서드 등을 포함할 수 있습니다. 예를 들어 U-SQL MIN 집계 함수에 이 UDT를 매개 변수로 사용하는 경우 < 연산자 override를 정의해야 합니다.
 
@@ -1116,6 +1121,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
+       
+       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
@@ -1285,10 +1292,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-### <a name="udts-from-built-in-types"></a>기본 제공 형식 UDT
-서비스 예정
-
-## <a name="user-defined-aggregates-udagg"></a>사용자 정의 집계
+## <a name="user-defined-aggregates--udagg"></a>사용자 정의 집계
 UDAGG(사용자 정의 집계)는 U-SQL에서 제공되지 않는 집계 관련 함수입니다. 예제는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계일 수 있습니다.
 
 UDAGG 기본 클래스 정의:
@@ -1424,7 +1428,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 사용 사례 시나리오에서는 특정 사용자에 대한 GUID 클래스를 연결합니다.
 
-## <a name="user-defined-objects-udo"></a>사용자 정의 개체
+## <a name="user-defined-objects--udo"></a>사용자 정의 개체
 U-SQL은 UDO(사용자 정의 개체)라는 사용자 지정 프로그래밍 기능 개체를 정의하는 기능을 제공합니다.
 
 U-SQL의 UDO 목록은 다음과 같습니다.
@@ -1523,7 +1527,7 @@ SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 A
     {
     …
         string[] parts = line.Split(my_column_delimiter);
-            foreach (string part in parts)
+               foreach (string part in parts)
         {
         …
         }
@@ -2174,9 +2178,9 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 이 사용 사례 시나리오에서 사용자 정의 적용자는 car fleet 속성에 대한 쉼표로 분리된 값 파서로 작동합니다. 입력 파일 행은 다음과 같습니다.
 
 ```
-103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
-210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
+103    Z1AB2CD123XY45889    Ford,Explorer,2005,SUV,152345
+303    Y0AB2CD34XY458890    Shevrolet,Cruise,2010,4Dr,32455
+210    X5AB2CD45XY458893    Nissan,Altima,2011,4Dr,74000
 ```
 
 이 파일은 Make, Model 등의 car 속성을 포함하는 Properties 열이 탭으로 분리된 일반적인 TSV 파일입니다. 이러한 속성은 테이블 열로 구문 분석되어야 합니다. 또한 제공된 적용자를 사용하면 전달된 매개 변수(모든 속성 집합 또는 특정 속성 집합만)에 기반하여 결과 행 집합에 동적 개수의 속성을 생성할 수 있습니다.
@@ -2608,6 +2612,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

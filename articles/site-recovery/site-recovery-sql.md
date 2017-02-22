@@ -1,5 +1,5 @@
 ---
-title: "SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호 | Microsoft Docs"
+title: "SQL Server 및 Azure Site Recovery를 사용한 앱 복제 | Microsoft Docs"
 description: "이 문서에서는 SQL Server 재해 기능의 Azure Site Recovery를 사용하여 SQL Server를 복제하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
-ms.openlocfilehash: 40c4f88bc91773158d416d5e89424b92cf15cf91
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 2d55db297bcef2c5789cb33a8791cf2c787a0789
 
 
 ---
@@ -29,8 +29,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 다양한 작업에서 SQL Server를 기본으로 사용합니다. SharePoint, Dynamics 및 SAP과 같은 응용 프로그램은 SQL Server를 사용하여 데이터 서비스를 구현합니다.  응용 프로그램은 다음과 같은 다양한 방법으로 SQL Server를 배포합니다.
 
 * **독립 실행형 SQL Server**: SQL Server 및 모든 데이터베이스는 단일 컴퓨터(물리적 또는 가상)에서 호스트됩니다. 가상화된 경우 호스트 클러스터링은 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 구현되지 않습니다.
-* **SQL Server 장애 조치(Failover) 클러스터링 인스턴스(항상 On FCI)**: 공유된 디스크와 함께 SQL Server 인스턴스의 노드가 2개 이상 Windows 장애 조치 클러스터에 구성됩니다. 클러스터 인스턴스 중 하나가 작동 중단되는 경우 클러스터는 SQL 서버를 다른 인스턴스로 장애 조치할 수 있습니다. 이 설정은 일반적으로 기본 사이트에서 HA를 위해 사용됩니다. 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 ISCSI, 파이버 채널 또는 공유 VHDx를 사용하여 구현할 수 있습니다.
-* **SQL Always ON 가용성 그룹**: 이 설정에서 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 2개의 노드를 설정합니다.
+* **SQL Server 장애 조치(Failover) 클러스터링 인스턴스(항상 On FCI)**: 공유된 디스크와 함께 SQL Server 인스턴스의 노드가&2;개 이상 Windows 장애 조치 클러스터에 구성됩니다. 클러스터 인스턴스 중 하나가 작동 중단되는 경우 클러스터는 SQL 서버를 다른 인스턴스로 장애 조치할 수 있습니다. 이 설정은 일반적으로 기본 사이트에서 HA를 위해 사용됩니다. 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 ISCSI, 파이버 채널 또는 공유 VHDx를 사용하여 구현할 수 있습니다.
+* **SQL Always ON 가용성 그룹**: 이 설정에서 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서&2;개의 노드를 설정합니다.
 
 Enterprise 버전에서 SQL Server는 또한 데이터베이스를 원격 사이트로 복구하기 위한 네이티브 재해 복구 기술도 제공합니다. 이 문서에서는 이러한 네이티브 SQL 재해 복구 기술을 활용 및 통합합니다.
 
@@ -89,11 +89,11 @@ Site Recovery는 재해 복구 솔루션을 제공하기 위해 아래 표에 �
 
 이 문서의 지침에서는 도메인 컨트롤러를 보조 위치에서 사용할 수 있다고 가정합니다. [자세히 알아보세요](site-recovery-active-directory.md) .
 
-## <a name="integrate-protection-with-sql-server-always-on-on-premises-to-azure"></a>SQL Server Always-On(온-프레미스에서 Azure)와 보호 통합
+## <a name="integrate-protection-with-sql-server-always-on-in-classic-azure-portal-on-premises-to-azure"></a>클래식 Azure Portal에서 SQL Server Always-On(Azure를 기준으로 온-프레미스)과 보호 통합
 Site Recovery는 기본적으로 SQL AlwaysOn을 지원합니다. Azure 가상 컴퓨터를 '보조'로 설정한 상태에서 SQL 가용성 그룹을 만든 경우 Site Recovery를 사용하여 가용성 그룹의 장애 조치(failover)를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 현재 미리 보기이며 기본 데이터 센터의 Hyper-V 호스트 서버가 VMM 클라우드에서 관리되는 경우 및 VMware 설정이 [구성 서버](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites)에 의해 관리되는 경우 사용할 수 있습니다. 지금은 새 Azure 포털에서 이 기능을 사용할 수 없습니다.
+> 이 기능은 현재 미리 보기이며 기본 데이터 센터의 Hyper-V 호스트 서버가 VMM 클라우드에서 관리되는 경우 및 VMware 설정이 [구성 서버](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites)에 의해 관리되는 경우 사용할 수 있습니다. 지금은 새 Azure 포털에서 이 기능을 사용할 수 없습니다. 새 Azure Portal을 사용하는 경우 [이 섹션](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal)의 단계를 수행하세요.
 >
 >
 
@@ -106,7 +106,7 @@ Site Recovery와 SQL AlwaysOn을 통합하는 데 다음과 같은 항목이 필
 * 온-프레미스 SQL Server 컴퓨터에 PowerShell 원격을 사용하도록 설정해야 합니다. VMM Server 또는 구성 서버는 SQL Server에 원격 PowerShell 호출을 수행할 수 있어야 합니다.
 * 온-프레미스 SQL Server에서 최소한 다음과 같은 사용 권한이 있는 SQL 사용자 그룹에 사용자 계정을 추가해야 합니다.
   * ALTER AVAILABILITY GROUP - 권한 [여기](https://msdn.microsoft.com/library/hh231018.aspx) 및 [여기](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-  * ALTER DATABASE - 권한[여기](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+  * ALTER DATABASE - 권한 [여기](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 * 이전 단계에서 언급한 사용자에 대해 CSPSConfigtool.exe를 사용하여 VMM 서버에 RunAs 계정을 생성하거나 구성 서버에 계정을 생성해야 함
 * 온-프레미스 및 Azure 가상 컴퓨터에서 실행되는 SQL Server에 SQL PS 모듈을 설치해야 함
 * Azure에서 실행되는 가상 컴퓨터에 VM 에이전트를 설치해야 함
@@ -183,7 +183,7 @@ SQL Server를 추가한 후 **SQL Server** 탭에 나타납니다.
 >
 >
 
-### <a name="protect-machines-without-a-vmm-server-or-a-configuration-server"></a>VMM 서버 또는 구성 서버 없이 컴퓨터 보호
+### <a name="protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal"></a>VMM 서버 또는 구성 서버 없이 클래식 Azure Portal에서 또는 새로운 Azure 포털에서 컴퓨터 보호
 VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure 자동화 Runbook을 사용하여 SQL 가용성 그룹의 스크립팅된 장애 조치를 구성할 수 있습니다. 다음은 구성 단계입니다.
 
 1. 가용성 그룹을 장애 조치하기 위해 스크립트용 로컬 파일을 만듭니다. 이 샘플 스크립트는 Azure 복제본에서 가용성 그룹에 대한 경로를 지정하고 해당 복제본 인스턴스에 장애 조치를 합니다. 이 스크립트는 사용자 지정 스크립트 확장으로 전달을 통해 SQL Server 복제본 가상 컴퓨터에서 실행됩니다.
@@ -205,15 +205,15 @@ VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure
 
 
 1. **테스트 장애 조치**: SQL AlwaysOn는 테스트 장애 조치를 고유하게 지원하지 않습니다. 따라서 다음과 같은 작업 수행을 권장합니다.
-    1. Azure에서 가용성 그룹 복제본을 호스팅하는 가상 컴퓨터에서 [Azure 백업](../backup/backup-azure-vms.md)을 설정합니다. 
-    1. 복구 계획의 테스트 장애 조치를 트리거하기 전에 1단계에서 수행된 백업에서 가상 머신을 복구합니다.
+    1. Azure에서 가용성 그룹 복제본을 호스팅하는 가상 컴퓨터에서 [Azure 백업](../backup/backup-azure-vms.md)을 설정합니다.
+    1. 복구 계획의 테스트 장애 조치를 트리거하기 전에&1;단계에서 수행된 백업에서 가상 머신을 복구합니다.
     1. 복구 계획에 대해 테스트 장애 조치(failover)를 수행합니다.
 
 
 > [!NOTE]
-> 아래의 스크립트는 SQL 가용성 그룹이 클래식 Azure 가상 컴퓨터에서 호스팅되고 2단계에서 복구된 가상 컴퓨터의 이름은 SQLAzureVM-Test라고 가정합니다. 복구된 가상 컴퓨터에 사용할 이름을 기반으로 하는 스크립트를 수정합니다.
-> 
-> 
+> 아래의 스크립트는 SQL 가용성 그룹이 클래식 Azure 가상 컴퓨터에서 호스팅되고&2;단계에서 복구된 가상 컴퓨터의 이름은 SQLAzureVM-Test라고 가정합니다. 복구된 가상 컴퓨터에 사용할 이름을 기반으로 하는 스크립트를 수정합니다.
+>
+>
 
 
      workflow SQLAvailabilityGroupFailover
@@ -241,7 +241,7 @@ VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
                     Write-output "tfo"
-                    
+
                     Write-Output "Creating ILB"
                     Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
                     Write-Output "ILB Created"
@@ -251,14 +251,14 @@ VMM 서버 또는 구성 서버에서 관리하지 않는 환경의 경우 Azure
                     Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
 
                     Write-Output "Added Endpoint"
-        
-                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
-                       
+
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test"
+
                     Write-Output "UnInstalling custom script extension"
-                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM
                     Write-Output "Installing custom script extension"
                     Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
-                    
+
                     Write-output "Starting AG Failover"
                     Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
                     Write-output "Completed AG Failover"
@@ -342,6 +342,6 @@ SQL 표준 클러스터의 경우 계획되지 않은 장애 조치(failover) �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3173c64af4c2b09ee825cc4fdaaa6da448be60e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879854c4afc6fa5ac31f8e18dad0164e77f190cd
 
 
 ---
@@ -129,7 +129,7 @@ Azure 모바일 앱을 사용하면 서비스 내에서 Azure Active Directory, 
 버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다. 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
+            "https://contoso.azurewebsites.net" // URL of the Mobile App
         );
 
 아래 링크를 통해 새 SDK를 설치하고 새 구조를 사용하는 데 대한 내용을 읽을 수 있습니다.
@@ -145,40 +145,40 @@ Azure 모바일 앱을 사용하면 서비스 내에서 Azure Active Directory, 
 
 <!-- URLs. -->
 
-[Azure 포털]: https://portal.azure.com/
-[구성]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop.md
-[웹 사이트와 Mobile Services를 이미 사용하고 있습니다. App Service가 내게 어떤 도움을 주나요?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile App 서버 SDK]: https://www.npmjs.com/package/azure-mobile-apps
-[Mobile Apps 만들기]: app-service-mobile-xamarin-ios-get-started.md
-[Mobile Apps에 푸시 알림 추가]: app-service-mobile-xamarin-ios-get-started-push.md
-[모바일 앱에 인증 추가]: app-service-mobile-xamarin-ios-get-started-users.md
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[웹 작업]: ../app-service-web/websites-webjobs-resources.md
-[.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Mobile Services에서 App Service 모바일 앱으로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
-[기존 Mobile Services를 App Service로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
-[.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [인증 개념]: ../app-service/app-service-authentication-overview.md
 [인증 빠른 시작]: app-service-mobile-auth.md
 
 [Azure 포털]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[GitHub의 기본 앱 샘플]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
-[GitHub의 할 일 샘플]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
-[GitHub의 샘플 디렉터리]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
-[GitHub에서 정적 스키마 샘플]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
+[basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
+[static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Visual Studio용 Node.js Tools 1.1]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[mssql Node.js 패키지]: https://www.npmjs.com/package/mssql
+[Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[mssql Node.js package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
-[윈스턴]: https://github.com/winstonjs/winston
+[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Winston]: https://github.com/winstonjs/winston
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

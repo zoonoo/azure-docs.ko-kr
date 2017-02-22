@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ece7ee4f0235f5677e03526cef8935809770cd93
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
 
 
 ---
@@ -48,10 +48,10 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
         PS C:\> Login-AzureRmAccount
 2. 웹앱에 대한 PHP 버전을 설정합니다.
    
-        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
    
-        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-command-line-interface-linux-mac-windows"></a>Azure 명령줄 인터페이스(Linux, Mac, Windows)
 Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 설치해야 합니다.
@@ -61,10 +61,20 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
         azure login
 2. 웹앱에 대한 PHP 버전을 설정합니다.
    
-        azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
    
-        azure site show {site-name}
+        azure site show {app-name}
+
+> [!NOTE] 
+> 위에 해당하는 [Azure CLI 2.0 (미리 보기)](https://github.com/Azure/azure-cli) 명령
+>
+>
+
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
 
 ## <a name="how-to-change-the-built-in-php-configurations"></a>방법: 기본 제공 PHP 구성 변경
 기본 제공 PHP 런타임에 대해 아래 단계에 따라 구성 옵션을 변경할 수 있습니다. php.ini 지시문에 대한 자세한 내용은 [php.ini 지시문 목록]을 참조하세요.
@@ -172,7 +182,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -197,6 +207,6 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

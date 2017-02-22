@@ -1,5 +1,5 @@
 ---
-title: "StorSimple 장치의 배터리 교체 | Microsoft Docs"
+title: "Microsoft Azure StorSimple 장치의 배터리 교체 | Microsoft Docs"
 description: "StorSimple 장치의 백업 배터리 모듈을 꺼내고 교체 및 유지 관리하는 방법을 설명합니다."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59af78e188441979d9d5a177a1f7b31b8080a0b5
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
 
 
 ---
@@ -114,6 +114,6 @@ Azure 클래식 포털에서 **유지 관리** 페이지의 **하드웨어 상�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

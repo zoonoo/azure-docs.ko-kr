@@ -1,5 +1,5 @@
 ---
-title: "데이터를 만들어서 Blob Storage의 Hive 테이블에 로드 | Microsoft Docs"
+title: "Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드 | Microsoft Docs"
 description: "Hive 테이블을 만들어서 blob의 데이터를 Hive 테이블에 로드"
 services: machine-learning,storage
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 30820eede776ebdca36b34c6f6c595ae466d0484
-ms.openlocfilehash: 136e1571c616cb3e8f0b989b690fd8ec18c38b06
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 
 
 ---
-# <a name="create-and-load-data-into-hive-tables-from-azure-blob-storage"></a>데이터를 만들어서 Azure blob 저장소의 Hive 테이블에 로드
+# <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 이 토픽에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 또한 Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선하는 방법에 대한 지침도 제공됩니다.
 
 이 **메뉴** 는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 대상 환경에 데이터를 수집하는 방법을 설명하는 토픽에 연결됩니다.
@@ -238,6 +238,6 @@ blob 저장소의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

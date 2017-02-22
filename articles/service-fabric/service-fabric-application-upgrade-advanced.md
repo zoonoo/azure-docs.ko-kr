@@ -1,5 +1,5 @@
 ---
-title: "응용 프로그램 업그레이드: 고급 항목 | Microsoft Docs"
+title: "고급 응용 프로그램 업그레이드 항목 | Microsoft Docs"
 description: "이 문서에서는 서비스 패브릭 응용 프로그램 업그레이드와 관련된 고급 항목을 다룹니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 01/05/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
+ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
+ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
 
 
 ---
@@ -24,13 +24,13 @@ ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>응용 프로그램을 업그레이드하는 동안 서비스 추가 또는 제거
 새 서비스가 이미 배포된 응용 프로그램에 추가되고 업그레이드로 게시되면 새 서비스는 배포된 응용 프로그램에 추가됩니다.  이러한 업그레이드는 응용 프로그램에 이미 속하는 서비스에는 영향을 주지 않습니다. 하지만 새 서비스가 활성화( `New-ServiceFabricService` cmdlet 사용)되려면 추가된 서비스 인스턴스가 시작되어야 합니다.
 
-업그레이드의 일부로 응용 프로그램에서 서비스를 제거할 수도 있습니다. 그러나 업그레이드를 계속하기 전에 삭제하려는 서비스의 모든 현재 인스턴스를 중지해야 합니다( `Remove-ServiceFabricService` cmdlet 사용). 
+업그레이드의 일부로 응용 프로그램에서 서비스를 제거할 수도 있습니다. 그러나 업그레이드를 계속하기 전에 삭제하려는 서비스의 모든 현재 인스턴스를 중지해야 합니다( `Remove-ServiceFabricService` cmdlet 사용).
 
 ## <a name="manual-upgrade-mode"></a>수동 업그레이드 모드
 > [!NOTE]
 > 모니터링되지 않는 수동 모드는 업그레이드가 실패 또는 일시 중단된 경우에만 고려해야 합니다. 서비스 패브릭 응용 프로그램에 권장되는 업그레이드 모드는 모니터링 모드입니다.
-> 
-> 
+>
+>
 
 Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하는 여러 업그레이드 모드를 제공합니다. 선택한 배포 옵션은 환경마다 다를 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하�
 * 여러 서비스 매니페스트 파일 및/또는 여러 코드 패키지, config 패키지 또는 데이터 패키지를 참조하는 대형 응용 프로그램 패키지가 있는 경우에는 diff 패키지가 좋습니다.
 * 응용 프로그램 빌드 프로세스에서 직접 빌드 레이아웃을 생성하는 배포 시스템을 사용하는 경우에는 diff 패키지가 좋습니다. 이 경우 코드가 변경되지 않았더라도 새로 빌드된 어셈블리는 다른 체크섬을 갖습니다. 전체 응용 프로그램 패키지를 사용하려면 모든 코드 패키지의 버전을 업데이트해야 합니다. diff 패키지를 사용하면 변경된 파일과 버전이 변경된 매니페스트 파일만 제공하면 됩니다.
 
-Visual Studio를 사용하여 응용 프로그램이 업그레이드되는 경우 diff 패키지가 자동으로 게시됩니다. diff 패키지를 수동으로 만들려면 응용 프로그램 매니페스트 및 서비스 매니페스트를 업데이트해야 하지만 변경된 패키지만 최종 응용 프로그램 패키지에 포함되어야 합니다. 
+Visual Studio를 사용하여 응용 프로그램이 업그레이드되는 경우 diff 패키지가 자동으로 게시됩니다. diff 패키지를 수동으로 만들려면 응용 프로그램 매니페스트 및 서비스 매니페스트를 업데이트해야 하지만 변경된 패키지만 최종 응용 프로그램 패키지에 포함되어야 합니다.
 
 예를 들어 다음 응용 프로그램을 시작하겠습니다(이해하기 쉽도록 버전 번호 제공).
 
@@ -102,7 +102,6 @@ app1/
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

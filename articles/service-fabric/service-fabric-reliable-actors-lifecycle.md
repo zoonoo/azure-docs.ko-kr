@@ -1,5 +1,5 @@
 ---
-title: "Reliable Actors 수명 주기 | Microsoft Docs"
+title: "행위자 기반 Azure 마이크로 서비스 수명 주기 개요 | Microsoft Docs"
 description: "서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 0ce3808e44d715aca5f335aa93a3c9425810b03f
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 22f906de37ad7ae2a48acf26be26f2af1e3bde7a
 
 
 ---
@@ -83,7 +83,7 @@ public class Program
 
 각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 `ScanIntervalInSeconds`마다 각 행위자를 검사하여 가비지 수집 가능한지 확인하고 `IdleTimeoutInSeconds` 동안 유휴 상태였는지 수집합니다.
 
-행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds`동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자는 행위자 미리 알림 콜백이 실행되는 행위자 인터페이스 메서드 중 하나인 경우, 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다** .
+행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds`동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자 인터페이스 메서드 또는 행위자 미리 알림 콜백이 실행되는 경우, 행위자가 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다** .
 
 다음 다이어그램에서는 이러한 개념을 설명하는 단일 행위자의 수명 주기를 보여 줍니다.
 
@@ -137,6 +137,6 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b9ea0593e0ae6dc9e1b6b07665fc3b3fad264bf
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
 
 
 ---
@@ -40,7 +40,7 @@ Informix용 Microsoft 커넥터는 Logic Apps를 IBM Informix 데이터베이스
 
 이 항목에서는 논리 앱에서 커넥터를 사용하여 데이터베이스 작업을 처리하는 방법을 보여 줍니다.
 
-Logic Apps에 대해 자세히 알아보려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+Logic Apps에 대해 자세히 알아보려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="available-actions"></a>사용 가능한 작업
 이 커넥터에서 지원하는 논리 앱 작업은 다음과 같습니다.
@@ -393,7 +393,7 @@ Informix 테이블의 기존 행을 업데이트합니다.
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |
-| 404 | 찾을 수 없음 |
+| 404 |찾을 수 없음 |
 | 500 |내부 서버 오류. 알 수 없는 오류 발생 |
 | 기본값 |작업이 실패했습니다. |
 
@@ -404,11 +404,11 @@ DRDA (Distributed Relational Database Architecture) 클라이언트 연결을 �
 * IBM Informix 11.7
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,9 +16,10 @@
 # 방법
 ## [라우팅 방법 구성](traffic-manager-configure-routing-method.md)
 ## [설정 테스트](traffic-manager-testing-settings.md)
-## [성능 저하된 끝점 문제 해결](traffic-manager-troubleshooting-degraded.md)
 ## [부하 분산 서비스 조합](traffic-manager-load-balancing-azure.md)
 ## [네트워크 리소스 사용](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## 문제 해결
+### [성능 저하된 끝점 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

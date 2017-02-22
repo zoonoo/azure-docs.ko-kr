@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4ce631d80b84661a61f0aaeb9d29de0b4420ecaf
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: c3f5fd335da2d1ed4e3c68223c3195d4a81c1a5c
 
 
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 컴퓨터는 작업을 처리하고 그 결과를 클라이언트 컴퓨터 또는 모바일 응용 프로그램에 제공할 수 있습니다. 이 문서를 읽고 나면 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법을 이해할 수 있게 됩니다.
 
@@ -66,7 +67,7 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
    3. 지역, 선호도 그룹 또는 가상 네트워크를 지정합니다. 이 자습서에서는 지역(예: **미국 서부**)을 지정합니다.
    4. **저장소 계정** 상자에서 **자동으로 생성된 저장소 계정 사용**을 선택합니다.
    5. **가용성 집합**에서 **(없음)**을 선택합니다.
-   6. **Next**를 클릭합니다.
+   6. **다음**을 클릭합니다.
 7. 마지막 **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
    1. 기본 끝점 항목을 그대로 사용합니다.
    2. **완료**를 클릭합니다.
@@ -78,7 +79,7 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 4. **연결**을 클릭합니다.
 5. 가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
 
-Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE(Java Runtime Environment)에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하세요.
+Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE(Java Runtime Environment)에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하십시오.
 
 ## <a name="how-to-create-a-service-bus-namespace"></a>서비스 버스 네임스페이스를 만드는 방법
 Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
@@ -524,6 +525,6 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

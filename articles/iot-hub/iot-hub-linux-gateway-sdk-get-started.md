@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
-ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 1. 셸을 엽니다.
 2. **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본에서 루트 폴더로 이동합니다.
-3. **tools/build.sh --skip-unittests** 스크립트를 실행합니다. 이 스크립트는 **cmake** 유틸리티를 사용하여 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본 루트 폴더에 **build**라는 폴더를 만들고 메이크파일을 생성합니다. 그런 다음 솔루션을 빌드하고 단위 테스트를 건너뜁니다. 단위 테스트를 빌드하고 실행하려는 경우 **--skip-unittests** 매개 변수를 제거합니다.
+3. **tools/build.sh** 스크립트를 실행합니다. 이 스크립트는 **cmake** 유틸리티를 사용하여 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본 루트 폴더에 **build**라는 폴더를 만들고 메이크파일을 생성합니다. 그러면 스크립트에서 솔루션을 빌드하고 단위 테스트 및 종단간 테스트를 건너뜁니다. 단위 테스트를 빌드하고 실행하려는 경우 **--run-unittests** 매개 변수를 추가합니다. 종단간 테스트를 빌드하고 실행하려는 경우 **--run-e2e-tests** 매개 변수를 추가합니다.
 
 > [!NOTE]
 > **build.sh** 스크립트를 실행할 때마다 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본 루트 폴더에서 **build** 폴더가 삭제되었다가 다시 생성됩니다.
@@ -92,6 +92,6 @@ ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

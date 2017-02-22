@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7d60b453fec2ce4c78179419362eee30ab7cb2
-ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
+ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
+ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
 
 |이름|설명|
 |---|---|
-|adminUsername|관리자 사용자 이름. 사용자 이름은 [Azure 사용자 이름 요구 사항](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 준수해야 합니다.|
+|adminUsername|관리자 사용자 이름. 사용자 이름은 [Azure 사용자 이름 요구 사항](../virtual-machines/virtual-machines-windows-faq.md)을 준수해야 합니다.|
 |adminPassword|관리자 암호. 이 암호는 [Azure 암호 요구 사항](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm)을 준수해야 합니다.|
 |dnsLabelPrefix|PublicIPAddressName1에 대한 DNS 이름. DNS 이름은 VM에 할당된 공용 IP 주소 중 하나로 확인됩니다. 이 이름은 VM을 만든 Azure 하위 지역(위치) 내에서 고유해야 합니다.|
 |dnsLabelPrefix1|PublicIPAddressName2에 대한 DNS 이름. DNS 이름은 VM에 할당된 공용 IP 주소 중 하나로 확인됩니다. 이 이름은 VM을 만든 Azure 하위 지역(위치) 내에서 고유해야 합니다.|
@@ -67,9 +67,26 @@ Azure Portal, PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용�
 
 Azure Portal을 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
-    - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
-    - 수신 메일의 지침을 따르기 전에 
+1. 로그인하고 적절한 구독을 선택한 후에 PowerShell에서 다음 명령을 실행하여 미리 보기에 등록합니다.
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    ```Get-AzureRmProviderFeature``` 명령을 실행하면 다음과 같은 출력이 표시될 때까지 나머지 단계를 완료하지 마세요.
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >몇 분이 걸릴 수 있습니다.
+
 2. 필요한 경우 템플릿을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
 3. 다음 방법 중 하나로 템플릿을 배포합니다.
     - **포털에서 템플릿 선택:** [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) 문서의 단계를 완료합니다. *101-vm-multiple-ipconfig*이라는 기존 템플릿을 선택합니다.
@@ -81,9 +98,26 @@ Azure Portal을 사용하여 템플릿을 배포하려면 다음 단계를 완�
 
 PowerShell을 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
-    - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
-    - 수신 메일의 지침을 따르기 전에
+1. 로그인하고 적절한 구독을 선택한 후에 PowerShell에서 다음 명령을 실행하여 미리 보기에 등록합니다.
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    ```Get-AzureRmProviderFeature``` 명령을 실행하면 다음과 같은 출력이 표시될 때까지 나머지 단계를 완료하지 마세요.
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >몇 분이 걸릴 수 있습니다.
+
 2. [PowerShell을 사용하여 템플릿 배포](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy) 문서의 단계를 완료하여 템플릿을 배포합니다. 이 문서에서는 템플릿 배포를 위한 여러 옵션을 설명합니다. `-TemplateUri parameter`를 사용하여 배포하도록 선택한 경우 이 템플릿의 URI는 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*입니다. `-TemplateFile` 매개 변수를 사용하여 배포하도록 선택한 경우 GitHub의 [템플릿 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내용을 컴퓨터의 새 파일에 복사합니다. 필요한 경우 템플릿 내용을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `-TemplateParameterFile` 매개 변수의 값으로 사용합니다.
@@ -99,14 +133,31 @@ PowerShell을 사용하여 템플릿을 배포하려면 다음 단계를 완료�
 
 Azure CLI 1.0을 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
-    - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
-    - 수신 메일의 지침을 따르기 전에
+1. 로그인하고 적절한 구독을 선택한 후에 PowerShell에서 다음 명령을 실행하여 미리 보기에 등록합니다.
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    ```Get-AzureRmProviderFeature``` 명령을 실행하면 다음과 같은 출력이 표시될 때까지 나머지 단계를 완료하지 마세요.
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >몇 분이 걸릴 수 있습니다.
+
 2. [Azure CLI를 사용하여 템플릿 배포](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy) 문서의 단계를 완료하여 템플릿을 배포합니다. 이 문서에서는 템플릿 배포를 위한 여러 옵션을 설명합니다. `--template-uri`(-f)를 사용하여 배포하도록 선택한 경우 이 템플릿의 URI는 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*입니다. `--template-file`(-f) 매개 변수를 사용하여 배포하도록 선택한 경우 GitHub의 [템플릿 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내용을 컴퓨터의 새 파일에 복사합니다. 필요한 경우 템플릿 내용을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `--parameters-file`(-e) 매개 변수의 값으로 사용합니다.
     
-    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli) 문서의 단계를 완료합니다.
+    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10) 문서의 단계를 완료합니다.
 
 3. VM이 배포된 후에 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 단계를 완료하여 VM에 연결하고 배포된 운영 체제에 개인 IP 주소를 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
@@ -114,6 +165,6 @@ Azure CLI 1.0을 사용하여 템플릿을 배포하려면 다음 단계를 완�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정으로 MongoChef 사용 | Microsoft Docs"
+title: "Azure DocumentDB로 MongoDB에 MongoChef 사용 | Microsoft Docs"
 description: "MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef를 사용하는 방법을 알아봅니다. 현재 미리 보기를 지원합니다."
 keywords: MongoChef
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: b1e73ced8f11c06adc509af355ccf47b616a211b
-ms.openlocfilehash: 41b94580277bc07aad2f122b5db9060e2d7938d8
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
 
 
 ---
@@ -118,6 +118,6 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

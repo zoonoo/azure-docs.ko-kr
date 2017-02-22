@@ -74,7 +74,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
    > **아니요** 옵션을 선택하여 실행 계정을 만들지 않는 경우 **자동화 계정 추가** 블레이드에 경고 메시지가 나타납니다.  Azure 포털에서 계정이 생성되는 동안, 클래식 또는 Resource Manager 구독 디렉터리 서비스 내에 해당하는 인증 ID가 없으므로 구독의 리소스에 대한 액세스 권한도 없습니다.  이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
    > 
    > ![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
-   >  서비스 주체가 만들어지지 않은 경우 참여자 역할은 할당되지 않습니다.
+   > 서비스 주체가 만들어지지 않은 경우 참여자 역할은 할당되지 않습니다.
    > 
    > 
 7. Azure에서 자동화 계정을 만드는 동안 메뉴의 **알림** 에서 진행률을 추적할 수 있습니다.
@@ -86,7 +86,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 PowerShell Runbook입니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 PowerShell Runbook입니다. |
-| AzureRunAsCertificate |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 인증서 자산입니다.  Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있도록 해줍니다.  이 인증서는 수명이 1년입니다. |
+| AzureRunAsCertificate |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 인증서 자산입니다.  Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있도록 해줍니다.  이 인증서는 수명이&1;년입니다. |
 | AzureRunAsConnection |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 연결 자산입니다. |
 
 다음 표에는 클래식 실행 계정에 대한 리소스가 요약되어 있습니다.<br>
@@ -95,7 +95,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |클래식 실행 계정(인증서)를 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 출력하는 예제 Runbook입니다. |
 | AzureClassicAutomationTutorial Script Runbook |클래식 실행 계정(인증서)를 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 출력하는 예제 Runbook입니다. |
-| AzureClassicRunAsCertificate |Runbook의 Azure 클래식 리소스를 관리할 수 있도록 Azure를 통해 인증하는 데 사용되는 자동 생성 인증서 자산입니다.  이 인증서는 수명이 1년입니다. |
+| AzureClassicRunAsCertificate |Runbook의 Azure 클래식 리소스를 관리할 수 있도록 Azure를 통해 인증하는 데 사용되는 자동 생성 인증서 자산입니다.  이 인증서는 수명이&1;년입니다. |
 | AzureClassicRunAsConnection |Runbook의 Azure 클래식 리소스를 관리할 수 있도록 Azure를 통해 인증하는 데 사용되는 자동 생성 연결 자산입니다. |
 
 ## <a name="verify-run-as-authentication"></a>실행 인증 확인
@@ -394,6 +394,6 @@ Runbook으로 클래식 리소스를 관리하는 클래식 실행 계정을 사
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

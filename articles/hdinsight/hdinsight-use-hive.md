@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/19/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c12201094bfdc648f1e5c32575d0d506cc92aedc
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 18131c083a0dc24eaa6f58445aa61d5872210417
 
 
 ---
@@ -99,7 +99,7 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 * **CREATE EXTERNAL TABLE**: Hive에서 새 **외부** 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 원래 형태로 남아 있습니다.
 * **ROW FORMAT**: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 * **STORED AS TEXTFILE LOCATION**: 데이터가 저장된 위치(example/data 디렉터리)에 텍스트로 저장되었음을 Hive에 알립니다. 데이터는 디렉터리 내에서 하나의 파일 또는 여러 파일에 걸쳐 분산될 수 있습니다.
-* **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
+* **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이&3;개 있으므로 **3** 값이 반환되어야 합니다.
 * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
 
 > [!NOTE]
@@ -161,13 +161,16 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 또는or Windows |Windows |
 | [원격 데스크톱](hdinsight-hadoop-use-hive-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 ## <a name="running-hive-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>온-프레미스 SQL Server Integration Services를 사용하여 Azure HDInsight에서 Hive 작업 실행
 SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 수도 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Hive 작업을 하는 다음 구성 요소를 제공합니다.
 
 * [Azure HDInsight Hive 작업][hivetask]
 * [Azure 구독 연결 관리자][connectionmanager]
 
-[여기][ssispack]서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 이제 Hive의 정의 및 HDInsight에서 Hadoop와 Hive를 사용하는 방법을 살펴보았으므로 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
@@ -176,9 +179,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
 * [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
-* [HDInsight에서 MapReduce 사용][hdinsight-use-mapreduce]
-
-[확인]: ./media/hdinsight-use-hive/hdi.checkmark.png
+* [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -206,20 +207,15 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

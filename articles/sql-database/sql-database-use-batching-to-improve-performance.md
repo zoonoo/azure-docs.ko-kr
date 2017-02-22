@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a4310e365148e94a7d9b61df354e7328863f8662
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
 
 
 ---
@@ -236,7 +236,7 @@ SQL 대량 복사는 대량의 데이터를 대상 데이터베이스에 삽입�
 > 
 > 
 
-소규모 배치에서는, 테이블 반환 매개 변수가 **SqlBulkCopy** 클래스보다 성능이 뛰어납니다. 하지만 1,000~10,000개 행에 대한 테스트의 경우 **SqlBulkCopy** 가 테이블 반환 매개 변수보다 12–31% 더 빠르게 수행됩니다. 테이블 반환 매개 변수처럼 **SqlBulkCopy** 역시 일괄 처리된 삽입의 좋은 옵션이며, 비일괄 처리 작업의 성능과 비교하면 특히 그렇습니다.
+소규모 배치에서는, 테이블 반환 매개 변수가 **SqlBulkCopy** 클래스보다 성능이 뛰어납니다. 하지만 1,000개 및 10,000개 행에 대한 테스트의 경우 **SqlBulkCopy** 가 테이블 반환 매개 변수보다 12-31% 더 빠르게 수행됩니다. 테이블 반환 매개 변수처럼 **SqlBulkCopy** 역시 일괄 처리된 삽입의 좋은 옵션이며, 비일괄 처리 작업의 성능과 비교하면 특히 그렇습니다.
 
 ADO.NET에서 대량 복사에 대한 자세한 내용은 [SQL Server에서의 대량 복사 작업](https://msdn.microsoft.com/library/7ek5da1a.aspx)을 참조하세요.
 
@@ -328,7 +328,7 @@ Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니
 ### <a name="parallel-processing"></a>병렬 처리
 배치의 규모는 줄이면서 다수의 스레드를 사용하여 작업을 실행하는 방법을 취하면 어떨까요? 앞서 언급했지만, 테스트에 따르면 여러 개의 소형 다중 스레드 배치는 일반적으로 하나의 대형 배치보다 성능이 낮았습니다. 다음 테스트는 1000개의 행을 하나 이상의 병렬 배치에 삽입하려고 합니다. 이 테스트는 동시에 실행되는 배치가 많아질수록 실제로 성능이 어떻게 감소되는가를 보여줍니다.
 
-| 배치 크기[반복 횟수] | 스레드 2개(밀리초) | 스레드 4개(밀리초) | 스레드 6개(밀리초) |
+| 배치 크기[반복 횟수] | 스레드&2;개(밀리초) | 스레드&4;개(밀리초) | 스레드&6;개(밀리초) |
 | --- | --- | --- | --- |
 | 1000 [1] |277 |315 |266 |
 | 500 [2] |548 |278 |256 |
@@ -451,7 +451,7 @@ NavHistoryDataMonitor 클래스는 사용자 탐색 데이터를 데이터베이
 이 버퍼링 클래스를 사용하기 위해서 응용 프로그램은 정적 NavHistoryDataMonitor 개체를 생성합니다. 사용자가 페이지에 액세스할 때마다 응용 프로그램은 NavHistoryDataMonitor.RecordUserNavigationEntry 메서드를 호출합니다. 버퍼링 논리는 이러한 항목의 데이터베이스에 대한 일괄 전송을 처리하도록 진행됩니다.
 
 ### <a name="master-detail"></a>마스터-세부 정보
-테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은 4개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
+테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은&4;개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
 
     CREATE TABLE [dbo].[PurchaseOrder](
     [OrderID] [int] IDENTITY(1,1) NOT NULL,
@@ -461,7 +461,7 @@ NavHistoryDataMonitor 클래스는 사용자 탐색 데이터를 데이터베이
      CONSTRAINT [PrimaryKey_PurchaseOrder] 
     PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 
-각각의 주문은 하나 이상의 제품 구매를 포함합니다. 이 정보는 PurchaseOrderDetail 테이블에 캡처됩니다. 다음 Transact-SQL은 5개의 열 즉, OrderID, OrderDetailID, ProductID, UnitPrice, OrderQty를 포함하는 PurchaseOrderDetail 테이블을 생성합니다.
+각각의 주문은 하나 이상의 제품 구매를 포함합니다. 이 정보는 PurchaseOrderDetail 테이블에 캡처됩니다. 다음 Transact-SQL은&5;개의 열 즉, OrderID, OrderDetailID, ProductID, UnitPrice, OrderQty를 포함하는 PurchaseOrderDetail 테이블을 생성합니다.
 
     CREATE TABLE [dbo].[PurchaseOrderDetail](
     [OrderID] [int] NOT NULL,
@@ -622,11 +622,11 @@ PurchaseOrderDetail 테이블의 OrderID 열은 PurchaseOrder 테이블에서 �
 * 보다 많은 시나리오에 일괄 처리를 구현하는 방법으로 크기 및 시간에 따른 버퍼링을 고려합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
+이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

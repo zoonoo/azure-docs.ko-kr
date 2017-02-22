@@ -1,5 +1,5 @@
 ---
-title: "Media Services REST API 개요 | Microsoft Docs"
+title: "Media Services Operations REST API 개요 | Microsoft Docs"
 description: "미디어 서비스 REST API 개요"
 services: media-services
 documentationcenter: 
@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900c8fe2710d02d117c1b8155623ed911796203b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
 
 
 ---
-# <a name="media-services-rest-api-overview"></a>미디어 서비스 REST API 개요
+# <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+
+**Media Services Operations REST** API는 미디어 서비스 계정에서 작업, 자산, 액세스 정책 작성 및 개체에 대한 다른 작업에 사용됩니다. 자세한 내용은 [Media Services Operations REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
 
 Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하는 서비스이며 verbose JSON 또는 atom + pub 형식으로 다시 응답할 수 있습니다. 미디어 서비스는 Azure의 설계 지침을 따르기 때문에 미디어 서비스에 연결할 때 각 클라이언트가 사용해야 하는 필수 HTTP 헤더 집합뿐만 아니라 선택적 헤더로 사용할 수 있는 집합도 있습니다. 다음 섹션에서는 요청을 작성하고 미디어 서비스에서 응답을 수신할 때 사용할 수는 헤더 및 HTTP 동사를 설명합니다.
 
+
 ## <a name="considerations"></a>고려 사항
+
 REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
 * 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
@@ -114,6 +118,6 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

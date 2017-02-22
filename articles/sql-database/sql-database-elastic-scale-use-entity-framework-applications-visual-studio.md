@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a57ad6211403712bc35f20710e0c8c1728d2639d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
 
 
 ---
@@ -36,7 +36,7 @@ ms.openlocfilehash: a57ad6211403712bc35f20710e0c8c1728d2639d
   
     **Azure SQL의 탄력적 DB 도구 - Entity Framework 통합**이라는 샘플을 선택합니다. 라이선스를 수락한 후 샘플을 로드합니다. 
 
-샘플을 실행하려면 Azure SQL 데이터베이스에서 3개의 빈 데이터베이스를 만들어야 합니다.
+샘플을 실행하려면 Azure SQL 데이터베이스에서&3;개의 빈 데이터베이스를 만들어야 합니다.
 
 * 분할된 데이터베이스 맵 관리자 데이터베이스
 * 분할 1 데이터베이스
@@ -45,7 +45,7 @@ ms.openlocfilehash: a57ad6211403712bc35f20710e0c8c1728d2639d
 이러한 데이터베이스를 만든 후 Azure SQL DB 서버 이름, 데이터베이스 이름 및 데이터베이스에 연결하는 자격 증명을 **Program.cs** 의 자리 표시자에 입력합니다. Visual Studio에서 솔루션을 빌드합니다. Visual Studio는 탄력적 데이터베이스 클라이언트 라이브러리, Entity Framework 및 일시적인 오류 처리를 위해 필요한 NuGet 패키지를 빌드 프로세스 중에 다운로드합니다. 사용 중인 솔루션에 대해 NuGet 패키지를 복원할 수 있는지 확인합니다. Visual Studio 솔루션 탐색기에서 솔루션 파일을 마우스 오른쪽 단추로 클릭하여 이 설정을 사용할 수 있습니다. 
 
 ## <a name="entity-framework-workflows"></a>Entity Framework 워크플로
-Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용하여 응용 프로그램을 구축하고 응용 프로그램 개체의 지속성을 확인합니다. 
+Entity Framework 개발자는 다음&4;개의 워크플로 중 하나를 사용하여 응용 프로그램을 구축하고 응용 프로그램 개체의 지속성을 확인합니다. 
 
 * **Code First (New Database)**: EF 개발자가 응용 프로그램 코드에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 생성합니다. 
 * **Code First (Existing Database)**: EF가 기존 데이터베이스에서 모델에 대한 응용 프로그램 코드를 생성하도록 지정합니다.
@@ -269,6 +269,6 @@ EF 마이그레이션을 통한 스키마 배포는 **열려 있지 않은 연�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

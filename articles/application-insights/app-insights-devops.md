@@ -1,5 +1,5 @@
 ---
-title: "Application Insights로 웹앱과 서비스 심층 진단 | Microsoft Docs"
+title: "웹 응용 프로그램 성능 모니터링 - Azure Application Insights | Microsoft Docs"
 description: "devOps 주기에 Application Insights를 적용하는 방법"
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 9599f0088647c6f017736f5cab36a04ad6024c1d
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
 
 
 ---
@@ -105,7 +105,7 @@ Real Madrid는 Power BI 모듈을 사용하여 원격 분석을 확인합니다.
 Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 하면서 리소스 한도까지 올라가서 시간 초과를 발생시키는 축소된 데이터베이스를 발견했습니다. 이 문제를 분류하는 즉시 사전 감지 경고가 나왔습니다. 제품 광고에 나왔던 대로 거의 실시간에 가까운 속도였습니다. 이 경고는 Azure 플랫폼 경고와 더불어 문제를 즉시 해결하도록 도와주었습니다. 총 가동 중지 시간은 10분 미만이었습니다."
 
 ## <a name="live-metrics-stream"></a>라이브 메트릭 스트림
-최신 빌드를 배포하는 작업은 많은 걱정을 수반하는 경험일 수 있습니다. 어떤 문제가 있을 경우 즉시 알아내어 필요 시 취소할 수 있어야 할 것입니다. 라이브 메트릭 스트림은 약 1초의 대기 시간으로 주요 메트릭을 제공합니다.
+최신 빌드를 배포하는 작업은 많은 걱정을 수반하는 경험일 수 있습니다. 어떤 문제가 있을 경우 즉시 알아내어 필요 시 취소할 수 있어야 할 것입니다. 라이브 메트릭 스트림은 약&1;초의 대기 시간으로 주요 메트릭을 제공합니다.
 
 ![라이브 메트릭](./media/app-insights-devops/040.png)
 
@@ -174,6 +174,6 @@ Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

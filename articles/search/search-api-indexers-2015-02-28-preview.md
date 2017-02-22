@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 11/01/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 
 
 ---
@@ -42,7 +42,7 @@ ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
 현재 지원되는 데이터 원본은 다음과 같습니다.
 
 * **Azure SQL Database** 및 **Azure VM의 SQL Server** 대상 연습은 [이 문서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)를 참조하세요. 
-* **Azure DocumentDB**. 대상 연습은 [이 문서](../documentdb/documentdb-search-indexer.md)를 참조하세요. 
+* **Azure DocumentDB**. 대상 연습은 [이 문서](search-howto-index-documentdb.md)를 참조하세요. 
 * **Azure Blob 저장소**- PDF, Microsoft Office(DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP 및 일반 텍스트 파일(JSON 포함) 문서 형식을 포함합니다. 대상 연습은 [이 문서](search-howto-indexing-azure-blob-storage.md)를 참조하세요.
 * **Azure Table Storage**. 대상 연습은 [이 문서](search-howto-indexing-azure-tables.md)를 참조하세요.
 
@@ -53,7 +53,7 @@ ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
 ## <a name="typical-usage-flow"></a>일반적인 사용 흐름
 지정된 `data source` 또는 `indexer` 리소스에 대한 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 통해 인덱서 및 데이터 원본을 만들고 관리할 수 있습니다.
 
-자동 인덱싱은 일반적으로 다음 4단계 프로세스를 통해 설정됩니다.
+자동 인덱싱은 일반적으로 다음&4;단계 프로세스를 통해 설정됩니다.
 
 1. 인덱싱해야 하는 데이터가 포함된 데이터 원본을 식별합니다. Azure 검색에서는 데이터 원본에 있는 일부 데이터 형식을 지원하지 않을 수 있습니다. 목록은 [지원되는 데이터 형식](https://msdn.microsoft.com/library/azure/dn798938.aspx) 을 참조하세요.
 2. 스키마가 데이터 원본과 호환되는 Azure 검색 인덱스를 만듭니다.
@@ -95,7 +95,7 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다. 
 
-* `Content-Type`: 필수 사항입니다.  `application/json`
+* `Content-Type`: 필수 사항입니다. `application/json`
 * `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key` 는 [Azure Portal](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
@@ -799,6 +799,6 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

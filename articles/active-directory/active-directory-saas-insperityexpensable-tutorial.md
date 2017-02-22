@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: baee414ff1a25d09503937148906ff2461b38a70
+ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
+ms.openlocfilehash: b009b203edadae92907aecd2a4eb626815492749
 
 
 ---
@@ -44,7 +44,7 @@ Insperity ExpensAble과의 Azure AD 통합을 구성하려면 다음 항목이 �
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -109,7 +109,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **로그온 URL** 텍스트 상자에 `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>` 패턴을 사용하여 사용자가 Insperity ExpensAble 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 1. **Insperity ExpensAble의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
@@ -117,7 +117,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 2. 응용 프로그램에 대해 SSO를 구성하려면 Insperity ExpensAble 기술 지원 팀에 문의하세요. 사례가 할당된 다음 다운로드한 인증서 파일을 메일로 보냅니다. 또한 SSO 통합을 위해 구성할 수 있도록 발급자 URL 및 Single Sign On 서비스 URL을 제공하세요. 
 
@@ -236,6 +236,6 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

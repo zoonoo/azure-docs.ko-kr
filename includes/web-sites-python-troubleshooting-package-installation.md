@@ -12,7 +12,7 @@
 
 컴파일러가 필요하므로 패키지가 설치되지 않는 경우에는 로컬 컴퓨터에 컴파일러를 설치하고 패키지용 휠을 빌드할 수 있습니다. 그런 다음 이 휠을 리포지토리에 포함합니다.
 
-Mac/Linux 사용자: Windows 컴퓨터에 액세스할 수 없는 경우 Azure에서 VM을 만드는 방법에 대한 자세한 내용은 [Windows를 실행하는 가상 컴퓨터 만들기][Create a Virtual Machine Running Windows]를 참조하세요.  이 내용을 참조하여 휠을 빌드하여 리포지토리에 추가하고 원하는 경우 VM을 취소할 수 있습니다. 
+Mac/Linux 사용자: Windows 컴퓨터에 액세스할 수 없는 경우 Azure에서 VM을 만드는 방법에 대한 자세한 내용은 [Windows를 실행하는 가상 컴퓨터 만들기][Windows를 실행하는 가상 컴퓨터 만들기]를 참조하세요.  이 내용을 참조하여 휠을 빌드하여 리포지토리에 추가하고 원하는 경우 VM을 취소할 수 있습니다. 
 
 Python 2.7의 경우 [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7]을 설치하면 됩니다.
 

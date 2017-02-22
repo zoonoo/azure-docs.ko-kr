@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
-ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
 
 
 ---
@@ -33,7 +33,7 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리) |Standard_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** |사전 업데이트 2 이상을 실행하는 버전 |업데이트 2 이상을 실행하는 버전 |
 | **지역 가용성** |모든 Azure 지역 |프리미엄 저장소를 지원하는 Azure 지역<br></br>하위 지역 목록은 [8020에 대해 지원되는 하위 지역](#supported-regions-for-8020) |
-| **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br>  [표준 저장소 계정을 만드는](../storage/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
+| **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는](../storage/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/storage-premium-storage.md) 방법 알아보기 |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드  <br></br>재해 복구용 보조 장치 |
 
 <sup>1</sup> *이전에 1100로 알려짐*.
@@ -103,7 +103,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 가상 장치를 만들기 전에 Azure StorSimple 서비스에 대한 다음 업데이트를 확인합니다.
 
 * 가상 장치에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-manage-acrs.md) 를 추가합니다.
-* 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account) 을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정](../storage/storage-create-storage-account.md) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 만드는 방법을 참조하세요.
+* 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account) 을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정](../storage/storage-create-storage-account.md) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 만드는 방법을 참조하세요.
 * 데이터에 사용된 계정이 아닌 가상 장치 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
 
 시작하기 전에 다음 정보가 있는지 확인합니다.
@@ -259,6 +259,6 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

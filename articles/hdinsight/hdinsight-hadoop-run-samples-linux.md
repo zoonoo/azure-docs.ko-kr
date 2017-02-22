@@ -1,6 +1,6 @@
 ---
-title: "Linux 기반 HDInsight에서 Hadoop MapReduce 샘플 실행 | Microsoft 문서"
-description: "Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
+title: "HDInsight에서 Hadoop MapReduce 샘플 실행 | Microsoft Docs"
+description: "HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,22 +13,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
 
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>HDInsight에서 Hadoop 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용할 수 있는 MapReduce 샘플 집합을 제공합니다. 이 문서에서는 사용 가능한 샘플을 살펴보고 그 중 일부를 실행하는 과정을 안내합니다.
+HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용할 수 있는 MapReduce 샘플 집합을 제공합니다. 이 문서에서는 사용 가능한 샘플을 살펴보고 그 중 일부를 실행하는 과정을 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+
+
 * **Linux 기반 HDInsight 클러스터**: [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 * **SSH 클라이언트**: HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
   
   * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -65,7 +70,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 **소스 코드**: 이러한 샘플에 대한 소스 코드는 HDInsight 클러스터 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**에 포함되어 있습니다.
 
 > [!NOTE]
->  `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
+> `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
 > 
 > 
 
@@ -120,7 +125,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
 
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku) 는 9개의 3x3 표로 구성된 논리 퍼즐입니다. 표의 일부 셀에는 숫자가 있고 다른 셀은 비어 있으며, 빈 셀을 해결하는 것이 목표입니다. 위의 링크에는 퍼즐에 대한 자세한 내용이 나와 있지만 이 샘플의 목적은 빈 셀을 해결하는 것입니다. 따라서 입력은 다음과 같은 형식의 파일이어야 합니다.
 
-* 9개 열의 9개 행
+* 9개 열의&9;개 행
 * 각 열은 숫자 또는 `?` (빈 셀을 나타냄)를 포함할 수 있음
 * 셀은 공백으로 구분됨
 
@@ -137,7 +142,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
->  `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
+> `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
 > 
 > 
 
@@ -224,6 +229,6 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

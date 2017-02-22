@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
+ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
+ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 69ffe9fd723e582bb9148ca9de570ede9231961d
 
 그러나 contoso.com 등의 고유한 도메인 이름에도 응용 프로그램을 표시할 수 있습니다. 이 문서에서는 클라우드 서비스 웹 역할에 대해 사용자 지정 도메인 이름을 예약 또는 구성하는 방법에 대해 설명합니다.
 
-CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너뛰고 이동](#add-a-cname-record-for-your-custom-domain)하세요.
+CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너뛰고 이동하세요](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
 > 작업을 보다 빠르게 수행하려면 Azure [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하세요. 이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스 또는 Azure 웹 사이트와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
@@ -76,7 +76,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
        ![사이트 URL을 표시하는 한눈에 보기 섹션][csurl]
      
        **또는**  
-   * [Azure Powershell](../powershell-install-configure.md)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치 및 구성하고 다음 명령을 사용합니다.
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
        ![VIP를 표시하는 한눈에 보기 섹션][vip]
      
        **또는**  
-   * [Azure Powershell](../powershell-install-configure.md)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치 및 구성하고 다음 명령을 사용합니다.
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -147,18 +147,18 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)구성
 
-[사용자 지정 도메인에 응용 프로그램 표시]: #access-app
+[Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
-[사용자 지정 도메인에 데이터 표시]: #access-data
-[VIP 교환]: http://msdn.microsoft.com/library/ee517253.aspx
-[하위 도메인을 저장소 계정과 연결하는 CNAME 레코드 만들기]: #create-cname
+[Expose Your Data on a Custom Domain]: #access-data
+[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [Azure 클래식 포털]: https://manage.windowsazure.com
-[사용자 지정 도메인 유효성 검사 대화 상자]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
+[Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

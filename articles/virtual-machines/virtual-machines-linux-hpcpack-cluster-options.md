@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 09/26/2016
+ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 38480e52de891a3432eefadff16a057a864817de
+ms.sourcegitcommit: 7d153f1f45eb5cb06d7b960e7449450b4c74747a
+ms.openlocfilehash: e6c1fcea6ba7f6865cab97be9e3431bec2184064
 
 
 ---
@@ -28,6 +28,7 @@ ms.openlocfilehash: 38480e52de891a3432eefadff16a057a864817de
 
 ## <a name="run-an-hpc-pack-cluster-in-azure-vms"></a>Azure VM에서 HPC Pack 클러스터 실행
 ### <a name="azure-templates"></a>Azure 템플릿
+* (GitHub) [HPC 팩 2016 클러스터 템플릿](https://github.com/MsHpcPack/HPCPack2016)
 * (마켓플레이스) [Linux 워크로드용 HPC Pack 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 * (퀵 스타트) [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
@@ -51,6 +52,6 @@ ms.openlocfilehash: 38480e52de891a3432eefadff16a057a864817de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

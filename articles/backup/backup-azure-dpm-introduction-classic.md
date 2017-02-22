@@ -1,5 +1,5 @@
 ---
-title: "Azure DPM 백업 소개 | Microsoft Docs"
+title: "Azure 클래식 포털에 DPM 워크로드 백업 | Microsoft Docs"
 description: "Azure 백업 서비스를 사용하여 DPM 서버를 백업하는 방법 소개"
 services: backup
 documentationcenter: 
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2016
-ms.author: trinadhk;giridham;jimpark;markgal
+ms.author: nkolli;giridham;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
 
 
 ---
@@ -27,8 +27,8 @@ ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
 > * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Azure 백업 서버(클래식)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM(클래식)](backup-azure-dpm-introduction-classic.md)
-> 
-> 
+>
+>
 
 이 문서에서는 Microsoft Azure 백업을 사용하여 System Center Data Protection Manager(DPM) 서버와 워크로드를 보호하는 방법을 소개합니다. 이 문서를 읽어 보면 다음을 이해하게 됩니다.
 
@@ -55,8 +55,8 @@ DPM 서버 백업에 Azure 백업을 사용할 경우의 비즈니스 이점은 
 
 > [!NOTE]
 > Linux 가상 컴퓨터의 경우 파일 일치 백업만 가능합니다.
-> 
-> 
+>
+>
 
 ## <a name="prerequisites"></a>필수 조건
 DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합니다.
@@ -100,12 +100,11 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 
 > [!NOTE]
 > System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

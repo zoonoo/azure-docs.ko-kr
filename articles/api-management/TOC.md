@@ -14,6 +14,7 @@
 ## 백 엔드 보호
 ### [AAD로 웹 API 백 엔드 보호](api-management-howto-protect-backend-with-aad.md)
 ### [가상 네트워크에 연결](api-management-using-with-vnet.md)
+### [내부 가상 네트워크에 연결](api-management-using-with-internal-vnet.md)
 ### [상호 인증서 인증](api-management-howto-mutual-certificates.md)
 ## 정책 구성
 ### [사용자 지정 캐싱](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

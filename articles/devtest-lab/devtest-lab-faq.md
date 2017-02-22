@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
+ms.sourcegitcommit: f772060243ce6d741d26113710be32cb76135479
+ms.openlocfilehash: 41a28f43942d4e6bf395b7fd024bd22b96420d55
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
 ## <a name="general"></a>일반
 * [여기서 내 질문에 대답하지 않으면 어떻게 하나요?](#what-if-my-question-isnt-answered-here)
 * [Azure DevTest Labs를 사용해야 하는 이유는 무엇인가요?](#why-should-i-use-azure-devtest-labs) 
-* ["걱정 없는 무료, 셀프 서비스"는 무슨 의미인가요?](#what-does-quotworry-free-self-servicequot-mean)
+* ["걱정 없는 무료, 셀프 서비스"는 무슨 의미인가요?](#what-does-worry-free-self-service-mean)
 * [Azure DevTest Labs를 어떻게 사용할 수 있나요?](#how-can-i-use-azure-devtest-labs) 
 * [Azure DevTest Labs에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-devtest-labs) 
 
@@ -246,6 +246,6 @@ Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

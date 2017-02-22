@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/28/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
 > 
 > 
 
-Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 문제가 서비스에 있든, 응용 프로그램에 있든, 클러스터 자체에 있든 상관없이 손쉽게 분석하고 해결할 수 있습니다. 로그를 업로드 및 수집하는 방법 중 하나는 로그를 Azure 저장소에 업로드하는 Azure 진단 확장을 사용하는 것입니다. 저장소의 이벤트를 읽고 [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) 또는 다른 로그 구문 분석 솔루션과 같은 제품에 배치할 수 있습니다.
+Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 문제가 서비스에 있든, 응용 프로그램에 있든, 클러스터 자체에 있든 상관없이 손쉽게 분석하고 해결할 수 있습니다. 로그를 업로드 및 수집하는 방법 중 하나는 로그를 Azure Storage, Azure Application Insights 또는 Azure 이벤트 허브에 업로드하는 Azure 진단 확장을 사용하는 것입니다. 또한 저장소 또는 이벤트 허브의 이벤트를 읽고 [Log Analytics](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션과 같은 제품에 배치할 수 있습니다. [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)에는 포괄적인 로그 검색 및 분석 서비스가 기본 제공됩니다.
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>수집하려는 로그 원본
 * **Service Fabric 로그:** [LTTng](http://lttng.org)를 통해 플랫폼에서 내보내고 저장소 계정에 업로드됩니다. 로그는 플랫폼에서 내보내는 작업 이벤트 또는 런타임 이벤트일 수 있습니다. 이러한 로그는 클러스터 매니페스트에서 지정하는 위치에 저장됩니다. (저장소 계정 세부 정보를 가져오려면 **AzureTableWinFabETWQueryable** 태그를 찾아서 **StoreConnectionString**을 검색합니다.)
@@ -52,6 +52,6 @@ Azure Resource Manager를 사용하여 진단 확장을 배포할 수도 있습�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

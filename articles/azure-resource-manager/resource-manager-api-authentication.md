@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2016
+ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1b0a9c9532662cb96a90300453d946e4c1e6f866
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: cacb2ce368a09c71c6f02548c5a1836ad77f540a
 
 
 ---
-# <a name="how-to-use-azure-active-directory-and-resource-manager-to-manage-a-customers-resources"></a>Azure Active Directory 및 Resource Manager를 사용하여 고객의 리소스를 관리하는 방법
+# <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
 고객의 Azure 리소스를 관리하는 앱을 만들어야 하는 소프트웨어 개발자의 경우 이 항목은 Azure Resource Manager API를 사용하여 인증하고 다른 구독에 있는 리소스에 액세스하는 방법을 보여 줍니다. 
 
@@ -108,7 +108,7 @@ Azure AD 권한 부여 끝점에 대한 Open ID Connect/OAuth2.0 권한 부여 �
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 요청](../active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code) 항목에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 요청](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) 항목에서 설명합니다.
 
 다음 예제에서는 OAuth2.0 권한 부여를 요청하는 방법을 보여 줍니다.
 
@@ -121,7 +121,7 @@ Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사�
 ### <a name="auth-request-open-id-connect"></a>인증 요청(Open ID Connect)
 사용자를 대신하여 Azure Resource Manager에 액세스할 뿐만 아니라 사용자가 자신의 Azure AD 계정을 사용하여 응용 프로그램에 로그인할 수 있도록 하려면 Open ID Connect 권한 부여 요청을 실행합니다. 또한 Open ID Connect를 사용하면 응용 프로그램이 Azure AD로부터 앱에서 사용자를 로그인하는 데 사용할 수 있는 id_token을 받습니다.
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [로그인 요청 보내기](../active-directory/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) 항목에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [로그인 요청 보내기](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) 항목에서 설명합니다.
 
 Open ID Connect 요청 예제:
 
@@ -138,7 +138,7 @@ Open ID Connect 응답 예제:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 사용](../active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) 항목에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 사용](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) 항목에서 설명합니다.
 
 다음 예제에서는 암호 자격 증명을 사용하여 코드 부여 토큰에 대한 요청을 보여 줍니다.
 
@@ -149,7 +149,7 @@ Open ID Connect 응답 예제:
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 토큰에 대한 클레임 형식은 [JWT 토큰 클레임](../active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims)에 나옵니다. 참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
+인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 토큰에 대한 클레임 형식은 [JWT 토큰 클레임](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims)에 나옵니다. 참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
 
 클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 을 참조하세요. 
 
@@ -169,11 +169,11 @@ Open ID Connect 응답 예제:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
 #### <a name="handle-code-grant-token-response"></a>코드 부여 토큰 응답 처리
-성공적인 토큰 응답은 Azure Resource Manager에 대한(사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은 이 액세스 토큰을 사용하여 사용자를 대신해 Resource Manager에 액세스합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1시간입니다. 웹 응용 프로그램이(사용자 + 앱) 액세스 토큰을 갱신해야 할 가능성은 낮습니다. 액세스 토큰을 갱신해야 한다면 응용 프로그램이 토큰 응답에서 받는 새로 고침 토큰을 사용합니다. OAuth2.0 토큰 요청을 Azure AD 토큰 끝점에 게시: 
+성공적인 토큰 응답은 Azure Resource Manager에 대한(사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은 이 액세스 토큰을 사용하여 사용자를 대신해 Resource Manager에 액세스합니다. Azure AD에서 발급하는 액세스 토큰의 수명은&1;시간입니다. 웹 응용 프로그램이(사용자 + 앱) 액세스 토큰을 갱신해야 할 가능성은 낮습니다. 액세스 토큰을 갱신해야 한다면 응용 프로그램이 토큰 응답에서 받는 새로 고침 토큰을 사용합니다. OAuth2.0 토큰 요청을 Azure AD 토큰 끝점에 게시: 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-새로 고침 요청에 사용할 매개 변수는 [액세스 토큰 새로 고침](../active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens)에서 설명합니다.
+새로 고침 요청에 사용할 매개 변수는 [액세스 토큰 새로 고침](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens)에서 설명합니다.
 
 다음 예제에서는 새로 고침 토큰을 사용하는 방법을 보여 줍니다.
 
@@ -223,14 +223,14 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
 사용자는 Azure Resource Manager에 대한 액세스 토큰만 가지고 있으므로 Azure AD Graph API를 호출하려면 새 액세스 토큰이 필요합니다. Azure AD의 모든 응용 프로그램은 서비스 주체 개체를 직접 쿼리하는 권한을 가지고 있으므로 앱 전용 액세스 토큰이면 충분합니다.
 
-<a id="app-azure-ad-graph">
+<a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Azure AD Graph API에 대한 응용 프로그램 전용 액세스 토큰 가져오기
 앱을 인증하고 Azure AD Graph API에 대한 토큰을 가져오려면 Azure AD 토큰 끝점(**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**)에 대한 클라이언트 자격 증명 부여 OAuth2.0 흐름 토큰 요청을 실행합니다.
 
 ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 메서드는 Active Directory Authentication Library for .NET을 사용하여 Graph API에 대한 앱 전용 액세스 토큰을 가져옵니다.
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [액세스 토큰 요청](../active-directory/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) 항목에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [액세스 토큰 요청](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) 항목에서 설명합니다.
 
 클라이언트 자격 증명 부여 토큰에 대한 요청 예제: 
 
@@ -366,6 +366,6 @@ ASP.net MVC 샘플 앱의 [RevokeRoleFromServicePrincipalOnSubscription 메서�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

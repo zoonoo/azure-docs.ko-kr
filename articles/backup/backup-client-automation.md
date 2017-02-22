@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Docs"
+title: "PowerShell을 사용하여 Azure에 Windows Server 백업 | Microsoft Docs"
 description: "PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 services: backup
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 87384588e9e2a77a5b545ce30db2776541223001
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: cc5326eb314c90c906e0ef869124463a13f5e725
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [클래식](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
@@ -46,27 +46,27 @@ Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는
 다음 단계는 복구 서비스 자격 증명 모음을 만드는 과정을 안내합니다. 복구 서비스 자격 증명 모음은 백업 자격 증명 모음과 다릅니다.
 
 1. 처음으로 Azure Backup을 사용하는 경우 **Register-AzureRMResourceProvider** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. 복구 서비스 자격 증명 모음은 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. **New-AzureRmRecoveryServicesVault** cmdlet을 사용하여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. [LRS(로컬 중복 저장소)](../storage/storage-redundancy.md#locally-redundant-storage) 또는 [GRS(지역 중복 저장소)](../storage/storage-redundancy.md#geo-redundant-storage) 중에 사용할 저장소 중복 유형을 지정합니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
-   
+
    > [!TIP]
    > 많은 Azure 백업 cmdlet에는 복구 서비스 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 복구 서비스 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -149,8 +149,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>네트워킹 서비스
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
@@ -177,8 +177,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>파일 및 폴더 백업
 Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
@@ -633,7 +633,6 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## 디스크 저장소 
+### [리소스 관리자 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [PowerShell을 사용하여 관리 디스크를 Windows VM에 연결](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [관리 디스크를 Linux VM에 추가](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Windows에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Linux에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # 방법
 ## [저장소 계정을 만드는](storage-create-storage-account.md)
 ## Blob 사용
@@ -62,13 +70,21 @@
 ### [개요](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## 가상 컴퓨터 디스크 사용
+## 디스크 사용
+### [Windows VM용 디스크 및 VHD](storage-about-disks-and-vhds-windows.md)
+### [Linux VM용 디스크 및 VHD](storage-about-disks-and-vhds-linux.md)
+### [Azure Managed Disks 개요](storage-managed-disks-overview.md)
+### [Azure VM을 Azure Managed Disks로 마이그레이션](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [AWS 및 기타 플랫폼에서 Managed Disks로 마이그레이션](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Azure IaaS VM에 대한 질문과 대답](storage-faq-for-disks.md)
 ### Premium Storage
-#### [VM 작업을 위한 고성능 저장소](storage-premium-storage.md)
-#### [프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
+#### [VM 디스크용 고성능 Premium Storage](storage-premium-storage.md)
 #### [고성능을 위한 디자인](storage-premium-storage-performance.md)
 ### 표준 저장소
-#### [증분 스냅숏을 사용하여 VM 디스크 백업](storage-incremental-snapshots.md)
+#### [비용 효율적인 표준 저장소와 관리되지 않는 VM 디스크 및 관리되는 VM 디스크](storage-standard-storage.md)
+### 관리되지 않는 디스크 사용
+#### [프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
+#### [증분 스냅숏을 사용하여 관리되지 않는 VM 디스크 백업](storage-incremental-snapshots.md)
 ## 계획 및 디자인
 ### [복제](storage-redundancy.md)
 ### [확장성 및 성능 대상](storage-scalability-targets.md)
@@ -155,12 +171,12 @@
 ### [리소스 관리자](/dotnet/api/microsoft.azure.management.storage)
 ### [데이터 이동](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blob, 큐, 테이블 및 파일](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST (영문)
 ### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

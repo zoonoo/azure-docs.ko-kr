@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 002e7fe3a0573898fff2552264a318d528eec25c
+ms.sourcegitcommit: 808343035c2554a3cd01cf3fe0ef6ebba2c54e23
+ms.openlocfilehash: 5b4443a8746bc8c88e2c5b58068c200aafc4beea
 
 
 ---
@@ -36,7 +36,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 * 포털을 사용하려면 [Azure Portal에서 데이터 디스크를 연결하는 방법](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 * 클래식 포털을 사용하려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 
 
-## <a name="temporarily-move-pagefilesys-to-c-drive"></a> pagefile.sys를 C 드라이브로 임시 이동
+## <a name="temporarily-move-pagefilesys-to-c-drive"></a>pagefile.sys를 C 드라이브로 임시 이동
 1. 가상 컴퓨터에 연결합니다. 
 2. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
 3. 왼쪽 메뉴에서 **고급 시스템 설정**을 선택합니다.
@@ -52,20 +52,9 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 1. VM이 다시 시작되면 VM에 다시 로그인합니다.
 2. **시작** 메뉴를 클릭하고 **diskmgmt.msc**를 입력한 후 Enter 키를 누릅니다. 디스크 관리가 시작됩니다.
 3. 임시 저장소 드라이브인 **D**를 마우스 오른쪽 단추로 클릭하고 **드라이브 문자 및 경로 변경**을 선택합니다.
-4. 드라이브 문자에서 드라이브 **G**를 선택한 후 **확인**을 클릭합니다. 
+4. 드라이브 문자에서 **T**와 같은 새 드라이브를 선택한 후 **확인**을 클릭합니다. 
 5. 데이터 디스크를 마우스 오른쪽 단추로 클릭하고 **드라이브 문자 및 경로 변경**을 선택합니다.
 6. 드라이브 문자에서 드라이브 **D**를 선택한 후 **확인**을 클릭합니다. 
-7. 임시 저장소 드라이브인 **G**를 마우스 오른쪽 단추로 클릭하고 **드라이브 문자 및 경로 변경**을 선택합니다.
-8. 드라이브 문자에서 드라이브 **E**를 선택한 후 **확인**을 클릭합니다. 
-
-> [!NOTE]
-> VM에 다른 디스크 또는 드라이브가 있으면 동일한 방법을 사용하여 다른 디스크 및 드라이브의 드라이브 문자를 다시 할당합니다. 원하는 디스크 구성:  
-> 
-> * C: OS 디스크  
-> * D: 데이터 디스크  
-> * E: 임시 디스크
-> 
-> 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>pagefile.sys를 임시 저장소 드라이브로 다시 이동합니다.
 1. **시작** 메뉴를 마우스 오른쪽 단추로 클릭하고 **시스템**을 선택합니다.
@@ -74,7 +63,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 4. **고급** 탭을 선택합니다.
 5. **가상 메모리** 섹션에서 **변경**을 선택합니다.
 6. OS 드라이브 **C**를 선택하고 **페이징 파일 없음**을 클릭하고 **설정**을 클릭합니다.
-7. 임시 저장소 드라이브 **E**를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
+7. 임시 저장소 드라이브 **T**를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
 8. **Apply**를 클릭합니다. 변경 내용을 적용하려면 컴퓨터를 다시 시작해야 한다는 경고가 표시됩니다.
 9. 가상 컴퓨터를 다시 시작합니다.
 
@@ -84,6 +73,6 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

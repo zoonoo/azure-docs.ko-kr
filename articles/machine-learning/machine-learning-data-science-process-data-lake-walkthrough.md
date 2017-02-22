@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습 | Microsoft Docs"
+title: "Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습 | Microsoft Docs"
 description: "Azure Data Lake를 사용하여 데이터 집합에 대해 데이터 탐색 및 이진 분류 작업을 수행하는 방법입니다."
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c625752b40cffd0e7f791bd3a360f4bfb4622e7
+ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
+ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 
 
 ---
-# <a name="scalable-data-science-in-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습
 이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 ### <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
@@ -53,14 +53,6 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 > 
 > 
 
-* Azure Data Lake 미리 보기 등록
-
-> [!NOTE]
-> 이러한 서비스는 미리 보기 상태이므로 Azure Data Lake 저장소(ADLS) 및 Azure Data Lake 분석(ADLA) 사용에 대한 승인을 받아야 합니다. 첫 번째 ADLS 또는 ADLA를 만들 때 등록하라는 메시지가 표시됩니다. 등록하려면 **미리 보기 등록**을 클릭하고 규약 내용을 읽은 후 **확인**을 클릭합니다. 예를 들어 다음은 ADLS 등록 페이지입니다.
-> 
-> 
-
- ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Azure Data Lake에 대한 데이터 과학 환경 준비
 이 연습에 대한 데이터 과학 환경을 준비하려면 다음 리소스를 만듭니다.
@@ -72,13 +64,15 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 * Visual Studio용 Azure Data Lake 도구(권장)
 
 이 섹션에서는 이러한 각 리소스를 만드는 방법에 대한 지침을 제공합니다. Azure 기계 학습에서 Python 대신 Hive 테이블을 사용하여 모델을 작성하려는 경우 HDInsight(Hadoop) 클러스터를 프로비전해야 합니다. 이러한 대체 절차는 아래의 해당 섹션에 설명되어 있습니다.
-<br/>
 
-> AZURE.NOTE **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
-> <br/>
+
+> [!NOTE]
+> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
+>
 > 
-> ### <a name="create-an-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 만들기
-> 
+
+### <a name="create-an-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 만들기
+
 
 [Azure 포털](http://portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다. 
 
@@ -695,6 +689,6 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

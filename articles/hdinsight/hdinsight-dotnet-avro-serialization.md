@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2d3250eb1c0855d185228b0bca990b255f9aa9bd
 
 
 ---
@@ -95,7 +95,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111" target="_blank">Azure 코드 샘플</a> (영문) 사이트에서 다운로드할 수 있습니다.
 
-6번째 샘플은 Avro 직렬화를 사용하여 데이터를 Azure Blob 저장소에 업로드하고 HDInsight(Hadoop) 클러스터에서 Hive를 사용하여 데이터를 분석하는 방법을 보여 줍니다.  <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 코드 샘플</a> 사이트에서 다운로드할 수 있습니다.
+6번째 샘플은 Avro 직렬화를 사용하여 데이터를 Azure Blob 저장소에 업로드하고 HDInsight(Hadoop) 클러스터에서 Hive를 사용하여 데이터를 분석하는 방법을 보여 줍니다. <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 코드 샘플</a> 사이트에서 다운로드할 수 있습니다.
 
 이 항목에서 설명된 6개 샘플의 링크는 다음과 같습니다.
 
@@ -359,7 +359,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 이 예제에서 데이터는 [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx)를 사용하여 직렬화되고 [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx)를 사용하여 역직렬화됩니다. 그런 후 초기 인스턴스와 결과를 비교하여 ID를 확인합니다.
 
-개체 컨테이너 파일의 데이터는 .NET Framework 4에서 기본 [**Deflate**][deflate-100] 압축 코덱을 통해 압축됩니다. .NET Framework 4.5에 제공되는 더 나은 최신 버전의 [**Deflate**][deflate-110] 압축 코덱을 사용하는 방법은 이 항목의 <a href="#Scenario5">다섯 번째 예제</a>를 참조하세요.
+개체 컨테이너 파일의 데이터는 .NET Framework 4의 기본 [**Deflate**][deflate-100] 압축 코덱을 사용하여 압축됩니다. .NET Framework 4.5에 제공되는 더 나은 최신 버전의 [**Deflate**][deflate-110] 압축 코덱을 사용하는 방법은 이 항목의 <a href="#Scenario5"> 다섯 번째 예</a>를 참조하세요.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -859,7 +859,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 ### <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>샘플 5: 사용자 지정 압축 코덱과 함께 개체 컨테이너 파일을 사용한 직렬화
 5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 [Azure 코드 샘플](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) (영문) 사이트에서 다운로드할 수 있습니다.
 
-[Avro 사양](http://avro.apache.org/docs/current/spec.html#Required+Codecs)에서는 **Null** 및 **Deflate** 기본값 외에도 선택적 압축 코덱을 사용할 수 있습니다. 이 예는 Snappy( [Avro 사양](http://avro.apache.org/docs/current/spec.html#snappy)에 지원되는 선택적 코덱으로 명시) 같은 완전히 새로운 코덱을 구현하지 않습니다. 여기서는 기본 .NET Framework 4 버전보다 더 나은 [zlib](http://zlib.net/) 압축 라이브러리 기반의 압축 알고리즘을 제공하는 [**Deflate**][deflate-110] 코덱의 .NET Framework 4.5 구현을 사용하는 방법을 보여 줍니다.
+[Avro 사양](http://avro.apache.org/docs/current/spec.html#Required+Codecs)에서는 **Null** 및 **Deflate** 기본값 외에도 선택적 압축 코덱을 사용할 수 있습니다. 이 예는 Snappy( [Avro 사양](http://avro.apache.org/docs/current/spec.html#snappy)에 지원되는 선택적 코덱으로 명시) 같은 완전히 새로운 코덱을 구현하지 않습니다. 여기서는 기본 .NET Framework 4 버전보다 더 나은 [zlib](http://zlib.net/) 압축 라이브러리 기반의 압축 알고리즘을 제공하는 .NET Framework 4.5에서 구현된 [**Deflate**][deflate-110] 코덱 사용 방법을 보여줍니다.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1390,6 +1390,6 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

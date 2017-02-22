@@ -1,5 +1,5 @@
 ---
-title: "네트워킹 인프라 지침 | Microsoft Docs"
+title: "Azure 네트워킹 인프라 지침 - Windows | Microsoft Docs"
 description: "Azure 인프라 서비스에서 가상 네트워킹을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
+ms.sourcegitcommit: 84b64fd79da641987d5346d90bb77bde154b58c4
+ms.openlocfilehash: 6c89e59fc948606860439b12987676c453732f55
 
 
 ---
-# <a name="networking-infrastructure-guidelines"></a>네트워킹 인프라 지침
+# <a name="azure-networking-infrastructure-guidelines"></a>Azure 네트워킹 인프라 지침
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 Azure 내의 가상 네트워킹 및 기존 온-프레미스 환경 간 연결에 필요한 계획 단계를 집중적으로 살펴봅니다.
@@ -72,7 +72,7 @@ ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
 ## <a name="subnets"></a>서브넷
 서브넷을 사용하면 관련된 리소스를 로컬로(예: 동일한 응용 프로그램에 관련된 VM에 대한 하나의 서브넷) 또는 물리적으로(예: 리소스 그룹당 하나의 서브넷) 조직할 수 있습니다. 또한 보안 강화를 위해 서브넷 격리 기술을 이용할 수도 있습니다.
 
-크로스-프레미스 가상 네트워크의 경우 온-프레미스 리소스에 사용하는 동일한 규칙으로 서브넷을 설계해야 합니다. **Azure는 항상 각 서브넷에 해당 주소 공간의 처음 3개의 IP 주소를 사용합니다**. 서브넷에 필요한 주소 수를 확인하려면 지금 필요한 VM 수를 계산하여 시작합니다. 향후 성장을 예측한 후 다음 표를 사용하여 서브넷의 크기를 결정합니다.
+크로스-프레미스 가상 네트워크의 경우 온-프레미스 리소스에 사용하는 동일한 규칙으로 서브넷을 설계해야 합니다. **Azure는 항상 각 서브넷에 해당 주소 공간의 처음&3;개의 IP 주소를 사용합니다**. 서브넷에 필요한 주소 수를 확인하려면 지금 필요한 VM 수를 계산하여 시작합니다. 향후 성장을 예측한 후 다음 표를 사용하여 서브넷의 크기를 결정합니다.
 
 | 필요한 VM 수 | 필요한 호스트 비트 수 | 서브넷 크기 |
 | --- | --- | --- |
@@ -106,6 +106,6 @@ ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

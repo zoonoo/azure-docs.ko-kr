@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 2939e7450c9ce80317ada770fd95f0e9950a58af
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: ebdd4df0bd990ee37cb173da8c1f38b60d203158
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 2939e7450c9ce80317ada770fd95f0e9950a58af
 > [!NOTE]
 > 새 VHDX 형식은 Azure에서 지원되지 않습니다. VM을 만들 때 VHD를 형식으로 지정합니다. 필요하다면 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 또는 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet을 사용하여 VHDX 디스크를 VHD로 변환할 수 있습니다. 그뿐 아니라 Azure는 동적 VHD 업로드를 지원하지 않으므로 업로드하기 전에 이러한 디스크를 정적 VHD로 변환해야 합니다. Azure로 업로딩하는 과정 중에 [GO용 Azure VHD 유틸리티](https://github.com/Microsoft/azure-vhd-utils-for-go) 와 같은 도구를 사용하여 동적 디스크를 변환할 수 있습니다.
 
-* **Azure 명령줄 인터페이스** - VHD를 업로드하려면 최신 [Azure 명령줄 인터페이스](../virtual-machines-command-line-tools.md) 를 설치합니다.
+* **Azure 명령줄 인터페이스** - VHD를 업로드하려면 최신 [Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) 를 설치합니다.
 
 <a id="prepimage"> </a>
 
@@ -109,7 +109,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 고유한 VM을 만들려면 자신의 사용자 이름 + 암호, 위치, DNS 이름 및 이미지 이름을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [Azure 클래식 배포 모델에 대한 Azure CLI 참조](../virtual-machines-command-line-tools.md)를 참조하세요.
+자세한 내용은 [Azure 클래식 배포 모델에 대한 Azure CLI 참조](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
@@ -117,6 +117,6 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

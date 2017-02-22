@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
+ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
+ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
 
 **참고:** 
 
-* *이 문서는 docker-machine 버전 0.7.0 이상에 따라 달라집니다.*
+* *이 문서는 docker-machine 버전 0.9.0-rc2 이상에 따라 달라집니다.*
 * *가까운 미래에 Windows 컨테이너가 docker-machine을 통해 지원될 예정입니다.*
 
 ## <a name="create-vms-with-docker-machine"></a>Docker Machine으로 VM 만들기
@@ -45,10 +45,15 @@ Azure 드라이버에는 구독 ID가 필요합니다. [Azure CLI](xplat-cli-ins
 옵션과 해당 옵션의 기본값을 보려면 `docker-machine create --driver azure` 을 입력합니다.
 또한 자세한 내용은 [Docker Azure 드라이버 설명서](https://docs.docker.com/machine/drivers/azure/) 를 참조할 수 있습니다. 
 
-다음 예제는 기본값을 사용하지만 인터넷 액세스에 대해 VM에서 선택적으로 포트 80을 엽니다. 
+다음 예제는 [기본값](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22)을 사용하지만 선택적으로 다음 값을 설정합니다. 
+
+* 공용 IP 및 생성된 인증서와 연결된 이름의 경우 azure-dns.  그러면 VM은 동적 IP를 안전하게 중지하고 릴리스하며 VM이 새 IP로 다시 시작한 후에 다시 연결할 수 있는 기능을 제공합니다.  이름 접두사는 해당 영역 UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com에 대해 고유해야 합니다.
+* 아웃 바운드 인터넷 액세스를 위한 VM의 개방 포트 80
+* 더 빠른 Premium Storage를 활용할 수 있는 VM 크기
+* VM 디스크에 사용하는 Premium Storage
 
 ```
-docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## <a name="choose-a-docker-host-with-docker-machine"></a>Docker-machine으로 docker 호스트를 선택합니다.
@@ -119,6 +124,6 @@ Visual Studio를 사용한 .NET 핵심 응용 프로그램 개발은 [Visual Stu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

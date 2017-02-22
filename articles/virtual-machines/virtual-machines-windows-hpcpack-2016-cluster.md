@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 12/15/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 7e7dc6b6d58da556dfa07d5d21b3e70483d36ef9
-ms.openlocfilehash: 688f3f0885606949a265300af215f416e8f94155
+ms.sourcegitcommit: f4c29b292ecd97b51620b5e41cbcd6a096a7768e
+ms.openlocfilehash: e96d26e458f3b8f88ba88a5839dff9c48a755ffa
 
 
 ---
@@ -36,6 +36,23 @@ Microsoft HPC 팩 2016 클러스터에는 HPC 노드 간 통신을 보호하기 
 * 키 교환이 가능한 개인 키가 있어야 함
 * 디지털 서명 및 키 암호화를 포함하는 키 사용
 * 클라이언트 인증 및 서버 인증을 포함하는 강화된 키 사용
+
+이러한 요구 사항을 충족하는 인정서가 아직 없는 경우 인증 기관에서 인증서를 요청할 수 있습니다. 또는 다음 명령을 사용하여 명령을 실행하는 운영 체제에 따라 자체 서명된 인증서를 생성하고 개인 키가 있는 PFX 형식 인증서를 내보낼 수 있습니다.
+
+* **Windows 10 또는 Windows Server 2016의 경우**, 다음과 같이 기본 제공 **New-SelfSignedCertificate** PowerShell cmdlet를 실행합니다.
+
+  ```PowerShell
+  New-SelfSignedCertificate -Subject "CN=HPC Pack 2016 Communication" -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2") -CertStoreLocation cert:\CurrentUser\My -KeyExportPolicy Exportable -NotAfter (Get-Date).AddYears(5)
+  ```
+* **Windows 10 또는 Windows Server 2016 이전의 운영 체제의 경우** Microsoft Script Center에서 [자체 서명 인증서 생성기](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)를 다운로드합니다. 그 내용을 추출하고 PowerShell 프롬프트에서 다음 명령을 실행합니다.
+
+    ```PowerShell 
+    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+  
+    New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
+    ```
+
+### <a name="upload-certificate-to-an-azure-key-vault"></a>Azure Key Vault에 인증서 업로드
 
 HPC 클러스터를 배포하기 전에 인증서를 [Azure Key Vault](../key-vault/index.md)에 암호로 업로드하고 배포하는 동안 사용할 **자격 증명 모음 이름**, **자격 증명 모음 리소스 그룹**, **인증서 URL** 및 **인증서 지문** 정보를 기록합니다.
 
@@ -122,7 +139,7 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 **자격 증명 모음 이름**, **자격 증명 모음 리소스 그룹**, **인증서 URL** 및 **인증서 지문** 매개 변수의 필수 구성 요소에 기록한 값을 지정합니다.
 
-###<a name="step-3-review-legal-terms-and-create"></a>3단계. 약관 검토 및 만들기
+### <a name="step-3-review-legal-terms-and-create"></a>3단계. 약관 검토 및 만들기
 **약관 검토**를 클릭하고 약관을 검토합니다. 동의하면 **구매**를 클릭한 다음 **만들기**를 클릭하여 배포를 시작합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
@@ -142,6 +159,6 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "웹 서비스 확장 | Microsoft Docs"
-description: "동시성을 늘리고 새 끝점을 추가하여 웹 서비스를 확장하는 방법을 알아봅니다."
+title: "Azure Machine Learning 웹 서비스의 동시성을 향상하는 방법 | Microsoft Docs"
+description: "끝점을 추가하여 Azure Machine Learning 웹 서비스의 동시성을 향상하는 방법을 알아봅니다."
 services: machine-learning
 documentationcenter: 
 author: neerajkh
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/23/2017
 ms.author: neerajkh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
+ms.sourcegitcommit: c54b16517b6f08ed8bfddfb6e2c793ec0f292899
+ms.openlocfilehash: 678f747fd1b2e5017d1859fd594c3b4bc465ea41
 
 
 ---
-# <a name="scaling-a-web-service"></a>웹 서비스 확장
+# <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>끝점을 추가하여 Azure Machine Learning 웹 서비스 확장
 > [!NOTE]
 > 이 토픽에서는 기존 Machine Learning 웹 서비스에 적용되는 기술을 설명합니다. 
 > 
@@ -31,7 +31,6 @@ ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
 
 최대 동시 호출 값인 200에서 지원하는 것보다 많은 부하를 가진 API를 호출하려는 경우 동일한 웹 서비스에서 여러 끝점을 만들어야 합니다. 그런 다음 모든 끝점에 부하를 무작위로 분산해야 합니다.
 
-## <a name="add-new-endpoints-for-same-web-service"></a>동일한 웹 서비스에 대한 새 끝점 추가
 웹 서비스의 크기를 조정하는 것은 일반적인 작업입니다. 크기를 조정하는 몇 가지 이유는 200개 이상의 동시 요청을 지원하거나, 여러 끝점을 통해 가용성을 높이거나, 웹 서비스에 대한 별도의 끝점을 제공하기 위해서 입니다. [Azure 클래식 포털](https://manage.windowsazure.com/) 또는 [Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털을 통해 동일한 웹 서비스에 대한 추가 끝점을 추가하여 규모를 증가시킬 수 있습니다.
 
 새로운 끝점 추가에 대한 자세한 내용은 [끝점 만들기](machine-learning-create-endpoint.md)를 참조하세요.
@@ -46,6 +45,6 @@ ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

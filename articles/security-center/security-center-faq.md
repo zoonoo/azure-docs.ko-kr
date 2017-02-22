@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0135732e95279f2e717334d3dd39902b56b0aa90
-ms.openlocfilehash: 30a327f59b8149f41c3b5206e0b0c2fc859934a0
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
 
 
 ---
@@ -49,7 +49,7 @@ Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Az
 Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 제공하며 위협에 경고하기 위해 Virtual Machines에서 데이터를 수집합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집을 사용하는 것이 좋지만 보안 센터 정책에서 [데이터 수집을 사용하지 않도록 설정](#how-do-i-disable-data-collection) 하여 옵트아웃(opt out)할 수 있습니다.
 
 ### <a name="how-do-i-disable-data-collection"></a>데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-언제든지 보안 정책에서 구독에 대해 **데이터 수집** 을 사용하지 않도록 설정할 수 있습니다. 이렇게 하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다.  구독을 선택하면 새 블레이드가 열리고 **데이터 수집**을 해제하는 옵션이 제공됩니다. 기존 Virtual Machines에서 에이전트를 삭제하려면 위쪽 리본에서 **에이전트 삭제** 옵션을 선택합니다.
+언제든지 보안 정책에서 구독에 대해 **데이터 수집** 을 사용하지 않도록 설정할 수 있습니다. 이렇게 하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다.  구독을 선택하면 새 블레이드가 열리고 **데이터 수집**을 해제하는 옵션이 제공됩니다. Azure 모니터링 에이전트는 데이터 수집을 해제하면 구독의 기존 가상 컴퓨터에서 자동으로 제거됩니다.
 
 > [!NOTE]
 > Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 데이터 수집을 해제하려면 구독을 선택해야 합니다.
@@ -71,7 +71,7 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 에이전트 및 확장은 시스템 리소스의 명목 양을 소비하며 성능에 거의 영향을 미치지 않습니다. 성능 영향과 에이전트 및 확장에 대한 자세한 내용은 [계획 및 작업 가이드](security-center-planning-and-operations-guide.md#data-collection-and-storage)를 참조하세요.
 
 ### <a name="where-is-my-data-stored"></a>내 데이터는 어디에 저장되나요?
-가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 이렇게 하면 쉽게 개인 정보 및 데이터 독립성과 같은 지리적 영역에 데이터를 유지할 수 있습니다. 보안 정책에서 구독에 대한 저장소 계정을 선택합니다. 이렇게 하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다. 구독을 선택하면 새 블레이드가 열립니다. 지역을 선택하려면 **저장소 계정 선택**을 선택합니다.
+가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 이렇게 하면 쉽게 개인 정보 및 데이터 독립성과 같은 지리적 영역에 데이터를 유지할 수 있습니다. 보안 정책에서 구독에 대한 저장소 계정을 선택합니다. 이렇게 하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책**을 차례로 선택합니다. 구독을 선택하면 새 블레이드가 열립니다. 지역을 선택하려면 **저장소 계정 선택**을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면, 사용자를 위해 저장소 계정을 만들고 securitydata 리소스 그룹에 배치합니다.
 
 > [!NOTE]
 > Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 저장소 계정에 대한 지역은 구독 수준에서만 선택할 수 있습니다.
@@ -140,6 +140,7 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 지원되는 Linux VM:
 
@@ -147,7 +148,7 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * Debian 버전 7, 8
 * CentOS 버전 6.\*, 7.*
 * RHEL(Red Hat Enterprise Linux) 버전 6.\*, 7.*
-* SLES(SUSE Linux Enterprise Server) 버전 11.\*, 12.*
+* SUSE Linux Enterprise Server(SLES) 버전 11 SP4+, 12.*
 * Oracle Linux 버전 6.\*, 7.*
 
 클라우드 서비스에서 실행 중인 VM도 지원됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
@@ -163,6 +164,6 @@ Azure Security Center에서 데이터 수집을 사용하도록 설정한 후 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

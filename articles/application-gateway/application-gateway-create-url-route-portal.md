@@ -1,5 +1,5 @@
 ---
-title: "포털을 사용하여 응용 프로그램 게이트웨이에 대한 경로 기반 규칙 만들기 | Microsoft Docs"
+title: "경로 기반 규칙 만들기 - Azure Application Gateway - Azure Portal | Microsoft Docs"
 description: "포털을 사용하여 응용 프로그램 게이트웨이에 대한 경로 기반 규칙을 만드는 방법을 알아봅니다."
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
 
 
 ---
@@ -90,6 +90,6 @@ Azure 응용 프로그램 게이트웨이를 사용하여 SSL 오프로드를 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

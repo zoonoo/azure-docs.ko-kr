@@ -1,5 +1,5 @@
 ---
-title: "Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법 | Microsoft Docs"
+title: "Azure API Management에서 백업 및 복원을 사용하여 재해 복구 구현 | Microsoft Docs"
 description: "Azure API 관리에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
-
+ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
+ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -30,7 +29,7 @@ API 관리 서비스를 호스트하는 지역에 영향을 주는 가용성 문
 > [!NOTE]
 > 재해 복구를 위한 API 관리 서비스 인스턴스를 백업 및 복원하는 프로세스는 스테이징과 같은 시나리오에 대한 API 관리 서비스 인스턴스를 복제하는 데 사용할 수도 있습니다.
 >
-> 각 백업은 7일 후 만료되니 유의하세요. 7일의 만료 기간이 만료된 후 백업을 복원하려고 하면 `Cannot restore: backup expired` 메시지와 함께 복원이 실패합니다.
+> 각 백업은 30일 후 만료되니 유의하세요. 30일의 만료 기간이 만료된 후 백업을 복원하려고 하면 `Cannot restore: backup expired` 메시지와 함께 복원이 실패합니다.
 >
 >
 
@@ -71,28 +70,30 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 
 백업 및 복원을 생성하는 API를 호출하기 전에 토큰을 가져와야 합니다. 다음 예제는 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget 패키지를 사용하여 토큰을 검색합니다.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 다음 지침을 사용하여 `{tentand id}`, `{application id}` 및 `{redirect uri}`을 바꿉니다.
 
@@ -112,10 +113,12 @@ Azure Active Directory 응용 프로그램의 **구성** 탭의 **리디렉션 U
 
 다음 섹션에서 설명하는 백업 및 복원 작업을 호출하기 전에, REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
-## <a name="step1"> </a>API 관리 서비스 백업
-API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
+## <a name="step1"> </a>API Management 서비스 백업
+API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
@@ -128,23 +131,25 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 
 요청 본문에서 대상 Azure 저장소 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 `Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.
 
 백업은 오랫동안 실행되는 작업으로, 완료되려면 몇 분이 걸릴 수 있습니다.  요청이 정상적으로 실행되어 백업 프로세스가 시작되면 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다.  `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 백업이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 백업 작업이 정상적으로 완료된 것입니다.
 
-**참고**:
+백업 요청을 수행할 때는 다음의 제약 조건을 참조하십시오.
 
 * 요청 본문에 지정된 **Container**가 **있어야 합니다**.
 * 백업이 진행 중인 동안에는 SKU 업그레이드/다운그레이드, 도메인 이름 변경 등의 **서비스 관리 작업을 수행하면 안 됩니다** .
-* 백업 복원은 생성 시점부터 **7일 동안만 보장** 됩니다.
-* 분석 보고서를 만드는 데 사용되는 **사용 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API 관리 REST API][Azure API 관리 REST API]를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
+* 백업 복원은 생성 시점부터 **30일 동안만 보장**됩니다.
+* 분석 보고서를 만드는 데 사용되는 **사용 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][Azure API Management REST API] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
 * 서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API 관리 서비스에 대한 중요 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 * 백업 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성을 **변경**하는 경우 **해당 내용이 백업에 포함되지 않아 손실될 수 있습니다**.
 
@@ -162,12 +167,14 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 
 요청 본문에서 백업 파일 위치(Azure 저장소 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름)를 지정합니다.
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 `Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.
 
@@ -188,11 +195,11 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 * [Azure API 관리: 백업 및 복원 구성](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   * Stuart에서 구체화된 접근 방식은 공식 지침과 일치하지 않지만 매우 흥미롭습니다.
 
-[API 관리 서비스 백업]: #step1
-[API 관리 서비스 복원]: #step2
+[Backup an API Management service]: #step1
+[Restore an API Management service]: #step2
 
 
-[Azure API 관리 REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -206,6 +213,6 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c52dcd46b8a293d7540bd1d00cfaeda3f8202a0
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 0b1f13f816c7836557cd6f646f2d9b38f7bc5b14
 
 
 ---
@@ -44,10 +44,10 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 > 
-> * [Azure 계정을 무료로 개설](/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
-> * [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/) 할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
+> * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) 할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 > 
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -101,7 +101,7 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 > 
 > 
 
-1. 이제 CDN 끝점 주소로 이동합니다. 끝점이 준비되면 웹앱이 표시됩니다. **HTTP 404** 오류가 발생하는 경우 CDN 끝점이 준비되지 않은 것입니다. CDN 구성이 모든 에지 노드로 전파될 때까지 최대 1시간 정도 기다려야 할 수 있습니다. 
+1. 이제 CDN 끝점 주소로 이동합니다. 끝점이 준비되면 웹앱이 표시됩니다. **HTTP 404** 오류가 발생하는 경우 CDN 끝점이 준비되지 않은 것입니다. CDN 구성이 모든 에지 노드로 전파될 때까지 최대&1;시간 정도 기다려야 할 수 있습니다. 
    
     ![](media/cdn-websites-with-cdn/11-access-success.png)
 2. 다음으로 ASP.NET 프로젝트의 **~/Content/bootstrap.css** 파일에 액세스합니다. 브라우저 창에서 **http://*&lt;cdn 이름>*.azureedge.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
@@ -479,7 +479,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
    * `window.Modernizr` 는 modernizer-{version}.js에 정의되어 있습니다.
    * `$.fn.modal` 은 bootstrap.js에 정의되어 있습니다.
      
-     여기서는 `~/Cointent/css` 번들에 대해 CdnFallbackExpression을 설정하지 않았습니다. 그 이유는 현재 필요한 `<link>` 태그 대신 대체 CSS의 `<script>` 태그를 삽입하는 [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104)(영문)가 있기 때문입니다.
+     여기서는 `~/Cointent/css` 번들에 대해 CdnFallbackExpression을 설정하지 않았습니다. 그 이유는 현재 필요한 `<link>` 태그 대신 대체 CSS의 `<script>` 태그를 삽입하는 [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104)가 있기 때문입니다.
      
      그러나 [Ember 컨설팅 그룹](https://github.com/EmberConsultingGroup)(영문)에서 제공한 우수한 [스타일 번들 대체](https://github.com/EmberConsultingGroup/StyleBundleFallback)(영문)를 사용할 수 있습니다. 
 2. CSS에 대해 이 해결 방법을 사용하려면 *StyleBundleExtensions.cs*라는 ASP.NET 프로젝트의 *App_Start* 폴더에서 새로운 .cs 파일을 만들어 해당 내용을 [GitHub의 코드](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)(영문)로 바꿉니다. 
@@ -548,6 +548,6 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

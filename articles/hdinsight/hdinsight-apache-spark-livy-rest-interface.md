@@ -1,5 +1,5 @@
 ---
-title: "Livy를 사용하여 원격으로 Spark 작업 제출 | Microsoft 문서"
+title: "Azure HDInsight에서 Livy를 사용하여 Spark에 원격으로 작업 제출 | Microsoft Docs"
 description: "HDInsight 클러스터와 함께 Livy를 사용하여 Spark 작업을 원격으로 제출하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 564bd1f3095446edf839d0353b92e0df256e1007
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-linux-using-livy"></a>Livy를 사용하여 HDInsight Linux의 Apache Spark 클러스터에 원격으로 Spark 작업 제출
+# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Livy를 사용하여 HDInsight의 Apache Spark 클러스터에 원격으로 Spark 작업 제출
+
 Azure HDInsight의 Apache Spark 클러스터는 Spark 클러스터에 원격으로 작업을 제출하기 위한 Livy, REST 인터페이스를 포함합니다. 자세한 설명서는 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)를 참조하세요.
 
 Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 아래 구문은 Curl을 사용하여 Livy 끝점에 대한 REST 호출을 만듭니다.
@@ -31,9 +32,9 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-## <a name="submit-a-batch-job-the-cluster"></a>배치 작업 제출
+## <a name="submit-a-batch-job"></a>배치 작업 제출
 배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 저장소에 응용 프로그램 jar을 업로드해야 합니다. [**AzCopy**](../storage/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -80,7 +81,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 다음 단계를 수행합니다.
 
-1. 먼저 Livy가 클러스터에서 실행 중인지 확인하도록 합니다. 실행 중인 배치 목록을 가져와서 확인할 수 있습니다. Livy를 사용하여 처음으로 작업을 실행하는 경우 0을 반환해야 합니다.
+1. 먼저 Livy가 클러스터에서 실행 중인지 확인하도록 합니다. 실행 중인 배치 목록을 가져와서 확인할 수 있습니다. Livy를 사용하여 처음으로 작업을 실행하는 경우&0;을 반환해야 합니다.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
@@ -154,6 +155,17 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
    
     출력의 마지막 줄은 배치가 성공적으로 삭제된 것을 보여 줍니다. 실행되는 동안 작업을 삭제하는 경우 기본적으로 작업이 중단됩니다. 성공적으로 완료됐거나 그렇지 않은 작업을 삭제하는 경우 작업 정보를 완전히 삭제합니다.
 
+## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>HDInsight 3.5 Spark 클러스터에서 Livy 사용
+
+기본적으로 HDInsight 3.5 클러스터는 로컬 파일 경로를 사용하여 샘플 데이터 파일이나 jar를 액세스하지 못하도록 합니다. 클러스터에서 jar 또는 샘플 데이터 파일에 액세스하는 대신 `wasb://` 경로를 사용하는 것이 좋습니다. 로컬 경로를 사용하려면 이에 따라 Ambari 구성을 적절하게 업데이트해야 합니다. 이렇게 하려면 다음을 수행합니다.
+
+1. 클러스터에 대한 Ambari 포털로 이동합니다. Ambari 웹 UI는 https://**CLUSTERNAME**.azurehdidnsight.net의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 CLUSTERNAME은 클러스터 이름입니다.
+
+2. 왼쪽의 탐색 창에서 **Livy**를 클릭한 다음 **구성**을 클릭합니다.
+
+3. **livy-default** 아래에서 `livy.file.local-dir-whitelist` 속성 이름을 추가하고 파일 시스템에 대한 전체 액세스를 허용하려면 값을 **"/"**(슬래시)로 설정합니다. 특정 디렉터리에 대한 액세스만 허용하려면 해당 디렉터리에 대한 경로를 값으로 제공합니다.
+
+
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
@@ -182,6 +194,6 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

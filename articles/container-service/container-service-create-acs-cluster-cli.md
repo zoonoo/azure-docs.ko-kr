@@ -14,116 +14,137 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 991e91fe7699840fe126e22fc55c9f28ea150a8c
+ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
+ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
 
 
 ---
 # <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0 미리 보기를 사용하여 Azure Container Service 클러스터 만들기
 
-Azure Container Service 클러스터를 만들려면 다음이 필요합니다.
-* Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI v. 2.0(미리 보기)](https://github.com/Azure/azure-cli#installation)가 설치됨
-* Azure 계정에 로그인됨(아래 참조)
+Azure CLI 2.0(미리 보기)에서 `az acs` 명령을 사용하여 Azure Container Service에서 클러스터를 만들고 관리합니다. [Azure Portal](container-service-deployment.md) 또는 Azure Container Service API를 사용하여 Azure Container Service 클러스터를 배포할 수도 있습니다.
 
-## <a name="log-in-to-your-account"></a>계정에 로그인
+`az acs` 명령에 대한 도움말은 `-h` 매개 변수를 명령에 전달합니다. 예: `az acs create -h`
+
+
+
+## <a name="prerequisites"></a>필수 조건
+Azure CLI 2.0(미리 보기)을 사용하여 Azure Container Service 클러스터를 만들려면 다음을 수행해야 합니다.
+* Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))이 있어야 합니다.
+* [Azure CLI v. 2.0(미리보기)](/cli/azure/install-az-cli2)을 설치하고 설정해야 합니다.
+
+## <a name="get-started"></a>시작 
+### <a name="log-in-to-your-account"></a>계정에 로그인
 ```azurecli
 az login 
 ```
-이 [링크](https://login.microsoftonline.com/common/oauth2/deviceauth)로 이동하여 CLI에 제공된 장치 코드로 인증을 받아야 합니다.
 
-![명령 입력](media/container-service-create-acs-cluster-cli/login.png)
+프롬프트를 따라 대화형으로 로그인합니다. 로그인을 위한 다른 메서드는 [Azure CLI 2.0 (미리 보기) 시작](/cli/azure/get-started-with-az-cli2)을 참조하세요.
 
-![만들기](media/container-service-create-acs-cluster-cli/login-browser.png)
+### <a name="set-your-azure-subscription"></a>Azure 구독 설정
+
+Azure 구독이 두 개 이상인 경우 기본 구독을 설정합니다. 예:
+
+```
+az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
+```
 
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+### <a name="create-a-resource-group"></a>리소스 그룹 만들기
+모든 클러스터에 대한 리소스 그룹을 만드는 것이 좋습니다. Azure Container Service가 [사용 가능](https://azure.microsoft.com/en-us/regions/services/)한 Azure 지역을 지정합니다. 예:
+
 ```azurecli
 az group create -n acsrg1 -l "westus"
 ```
+다음과 유사하게 출력됩니다.
 
-![이미지 리소스 그룹 만들기](media/container-service-create-acs-cluster-cli/rg-create.png)
+![리소스 그룹 만들기](media/container-service-create-acs-cluster-cli/rg-create.png)
 
-## <a name="list-of-available-azure-container-service-cli-commands"></a>사용 가능한 Azure Container Service CLI 명령 목록
-
-```azurecli
-az acs -h
-```
-
-![ACS 명령 사용법](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
 ## <a name="create-an-azure-container-service-cluster"></a>Azure Container Service 클러스터 만들기
 
-*CLI의 ACS create 사용법*
+클러스터를 만들려면 `az acs create`를 사용합니다.
+컨테이너의 이름, 이전 단계에서 만든 리소스 그룹의 이름은 필수 매개 변수입니다. 
 
-```azurecli
-az acs create -h
-```
-컨테이너 서비스의 이름, 이전 단계에서 만든 리소스 그룹 및 고유한 DNS 이름은 필수입니다. 해당 스위치를 사용하여 덮어쓰지 않는 한, 다른 입력은 기본값으로 설정됩니다(도움말을 포함하는 다음 화면 스냅숏 참조).
-![이미지 ACS create 도움말](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
+해당 스위치를 사용하여 덮어쓰지 않는 한, 다른 입력은 기본값으로 설정됩니다(다음 화면 참조). 예를 들어 orchestrator는 기본으로 DC/OS로 설정됩니다. 지정하지 않는 경우 DNS 이름 접두사는 클러스터 이름에 따라 생성됩니다.
 
-*기본값을 사용하여 ACS create를 빠르게 진행합니다. SSH 키가 없으면 두 번째 명령을 사용합니다. 이 두 번째 create 명령과 --generate-ssh-keys 스위치를 사용하면 ACS 하나가 만들어집니다.*
+![az acs create 사용](media/container-service-create-acs-cluster-cli/create-help.png)
+
+
+### <a name="quick-acs-create-using-defaults"></a>기본값을 사용하는 빠른 `acs create`
+기본 위치에 SSH 공용 키 파일 `id_rsa.pub`가 있는 경우(또는 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)용으로 만든 SSH 공용 키) 다음과 같은 명령을 사용합니다.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
 ```
+SSH 공용 키가 없는 경우 다음 두 번째 명령을 사용합니다. `--generate-ssh-keys` 스위치가 있는 이 명령은 SSH 공용 키를 만듭니다.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789 --generate-ssh-keys
 ```
 
-*dns-prefix (-d 스위치)가 고유한지 확인합니다. 오류가 발생하면 고유 문자열을 사용하여 다시 시도합니다.*
-
-앞의 명령을 입력한 후 클러스터가 만들어질 때까지 10분 정도 기다립니다.
+명령을 입력한 후 클러스터가 만들어질 때까지 10분 정도 기다립니다. 명령 출력은 마스터의 FQDN(정규화된 도메인 이름) 및 에이전트 노드 및 첫 번째 마스터에 연결하기 위한 SSH 명령을 포함합니다. 다음은 축약된 출력입니다.
 
 ![이미지 ACS create](media/container-service-create-acs-cluster-cli/cluster-create.png)
 
-## <a name="list-acs-clusters"></a>ACS 클러스터 나열 
+> [!TIP]
+> [Kubernetes 연습](container-service-kubernetes-walkthrough.md)은 Kubernetes 클러스터를 만드는 기본값으로 `az acs create`를 사용하는 방법을 보여 줍니다.
+>
 
-### <a name="under-a-subscription"></a>구독에서
+## <a name="manage-acs-clusters"></a>ACS 클러스터 관리
+
+추가 `az acs` 명령을 사용하여 클러스터를 관리합니다. 다음은 몇 가지 예제입니다.
+
+### <a name="list-clusters-under-a-subscription"></a>구독 아래에 클러스터 나열
 
 ```azurecli
 az acs list --output table
 ```
 
-### <a name="in-a-specific-resource-group"></a>특정 리소스 그룹에서
+### <a name="list-clusters-in-a-resource-group"></a>리소스 그룹의 클러스터 나열
 
 ```azurecli
 az acs list -g acsrg1 --output table
 ```
 
-![이미지 ACS list](media/container-service-create-acs-cluster-cli/acs-list.png)
+![acs 목록](media/container-service-create-acs-cluster-cli/acs-list.png)
 
 
-## <a name="display-details-of-a-container-service-cluster"></a>컨테이너 서비스 클러스터 세부 정보 표시
+### <a name="display-details-of-a-container-service-cluster"></a>컨테이너 서비스 클러스터 세부 정보 표시
 
 ```azurecli
 az acs show -g acsrg1 -n acs-cluster --output list
 ```
 
-![이미지 ACS list](media/container-service-create-acs-cluster-cli/acs-show.png)
+![acs 표시](media/container-service-create-acs-cluster-cli/acs-show.png)
 
 
-## <a name="scale-the-acs-cluster"></a>ACS 클러스터 크기 조정
-*확장 및 축소가 모두 허용됩니다. new-agent-count 매개 변수는 ACS 클러스터의 새 에이전트 수입니다.*
+### <a name="scale-the-cluster"></a>클러스터 크기 조정
+에이전트 노드의 확장 및 축소가 모두 허용됩니다. `new-agent-count` 매개 변수는 ACS 클러스터의 새 에이전트 수입니다.
 
 ```azurecli
 az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```
 
-![이미지 ACS scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
+![acs scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>컨테이너 서비스 클러스터 삭제
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-*이 delete 명령은 컨테이너 서비스를 만드는 동안 만들어진 모든 리소스(네트워크 및 저장소)를 삭제하는 것이 아닙니다. 모든 리소스를 삭제하려면 리소스 그룹당 단일 ACS 클러스터를 만든 다음 acs cluster가 더 이상 필요하지 않을 때 리소스 그룹 자체를 삭제하도록 하여 관련된 모든 리소스가 삭제되고 요금이 부과되지 않도록 하는 것이 좋습니다.*
+이 명령은 컨테이너 서비스를 만드는 동안 만들어진 모든 리소스(네트워크 및 저장소)를 삭제하지 않습니다. 모든 리소스를 쉽게 삭제하려면 고유한 리소스 그룹에 각 클러스터를 배포하는 것이 좋습니다. 그런 다음 클러스터가 더 이상 필요하지 않을 때 리소스 그룹을 삭제합니다.
+
+## <a name="next-steps"></a>다음 단계
+이제 클러스터가 작동하기 시작했으니 연결 및 관리 정보는 다음 문서를 참조하세요.
+
+* [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
+* [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
+* [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
+* [Azure Container Service 및 Kubernetes로 작업](container-service-kubernetes-walkthrough.md)
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

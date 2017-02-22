@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 35eb6b7c8a2aa3ddfb1723eebdb92dc47a49f65a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: f7b508071e76deb47bfbaf397ce168ebc78aa068
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 35eb6b7c8a2aa3ddfb1723eebdb92dc47a49f65a
 
 시작하려면 먼저 다음 비디오를 보고 DocumentDB 및 HDInsight를 사용해서 Hive 작업을 실행하는 방법을 확인하는 것이 좋습니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
 >
 >
 
@@ -436,6 +436,6 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

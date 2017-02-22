@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ec30d3a0c00adef585e3cf22c682830a7d5cce4
+ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
+ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
 
 
 ---
@@ -68,7 +68,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 5. **리소스 그룹**을 선택하거나 만듭니다.
    
    리소스 그룹을 통해 관련 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대해 역할 기반 액세스 제어(RBAC) 규칙을 설정할 때 유용합니다. 자세한 내용은 Azure 리소스 관리를 참조하세요.
-6.  **인증서 SKU** 
+6. **인증서 SKU** 
    
    마지막으로, 요구 사항에 맞는 인증서 SKU를 선택하고 만들기를 클릭합니다. 지금 Azure App Service를 통해 두 개의 서로 다른 SKU를 구입할 수 있습니다.
    
@@ -107,18 +107,8 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 ## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>2단계: 도메인 소유권 확인
 이 단계에서는 방금 주문한 SSL 인증서에 대한 도메인 소유권 확인을 수행하는 방법을 배웁니다. 
 
-1. **"인증서 구성"** 블레이드에서 **"2단계: 확인"** 단계를 클릭합니다. 앱 서비스 인증서에서 지원되는 4가지 유형의 도메인 확인이 있습니다.
+1. **"인증서 구성"** 블레이드에서 **"2단계: 확인"** 단계를 클릭합니다. App Service Certificate에서 지원하는 3가지 유형의 도메인 확인이 있습니다.
    
-   * **앱 서비스 확인** 
-     
-     * **App Service 앱에 사용자 지정 도메인이 이미 할당되어 있는 경우** 가장 간단한 프로세스입니다. 이 방법은 이 조건을 충족하는 모든 앱 서비스 앱을 모두 나열합니다. 
-        예를 들어,이 경우 **contosocertdemo.com**은 **“ContosoCertDemo”**라는 앱 서비스 앱에 할당된 사용자 지정 도메인이므로 앱 서비스 앱만 여기에 나열됩니다. 다중 지역 배포인 경우 지역 간 모든 항목을 나열합니다.
-       
-        확인 방법은 표준(기본) 인증서 구입에 대해서만 사용할 수 있습니다. 와일드카드 인증서인 경우 건너뛰고 아래 옵션 B, C 또는 D로 이동합니다.
-     * **"확인"** 단추를 클릭하고 이 단계를 완료합니다.
-     * 확인이 끝났으면 **"새로 고침"** 을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
-     
-     ![앱 서비스 확인 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
    * **도메인 확인** 
      
      * **[Azure App Service에서 사용자 지정 도메인을 구입](custom-dns-web-site-buydomains-web-app.md)**한 **경우에만** 가장 간단한 프로세스입니다.
@@ -131,15 +121,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
      * 확인 전자 메일을 다시 전송해야 하는 경우 **"전자 메일 다시 보내기"** 단추를 클릭합니다.
    * **수동 확인**    
      
-     1. **HTML 웹 페이지 확인**
-        
-        * **{Domain Verification Token}**.html이라는 HTML 파일을 만듭니다(도메인 확인 상태 블레이드에서 토큰을 복사할 수 있음).
-        * 이 파일의 내용은 **도메인 확인 토큰**의 이름과 정확히 같아야 합니다.
-        * 이 파일을 도메인을 호스팅하는 웹 서버의 루트에서 업로드합니다.
-        * 확인이 끝났으면 **"새로 고침"** 을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
-          
-          예를 들어 도메인 확인 토큰 **'cAGgQrKc'**로 contosocertdemo.com에 대한 표준 인증서를 구입하는 경우 **‘http://contosocertdemo.com/cAGgQrKc.html’**에 대한 웹 요청은 **cAGgQrKc**를 반환합니다.
-     2. **DNS TXT 레코드 확인**
+      **DNS TXT 레코드 확인**
         
         * DNS 관리자를 사용하여 **‘DZC’** 하위 도메인에 값이 **도메인 확인 토큰**과 같은 TXT 레코드를 만듭니다.
         * 확인이 끝났으면 **"새로 고침"** 을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -172,7 +154,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 
 **IP 기반 SSL** 을 선택했으며 사용자 지정 도메인이 A 레코드를 사용하여 구성된 경우 다음과 같은 추가 단계를 수행해야 합니다.
 
-* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다.  **외부 IP 주소**
+* IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니다. **호스트 이름** 섹션.바로 위에 있는 앱 설정 아래 **사용자 지정 도메인** 페이지에서 이 IP 주소를 확인할 수 있습니다. **외부 IP 주소**
   
     ![IP SSL 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
   
@@ -200,13 +182,13 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 * [Azure 관리 포털](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

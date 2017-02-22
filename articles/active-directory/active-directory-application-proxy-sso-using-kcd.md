@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
-ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
+ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
+ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
 
 ---
 
@@ -62,7 +62,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 #### <a name="connector-and-published-server-in-the-same-domain"></a>동일한 도메인 내의 커넥터와 게시된 서버
 1. Active Directory에서 **도구** > **사용자 및 컴퓨터**로 이동합니다.
 2. 커넥터를 실행하는 서버를 선택합니다.
-3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
+.3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
 4. **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 선택합니다. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 응용 프로그램 서버의 SPN ID 값을 추가합니다.
 5. 그러면 응용 프로그램 프록시 커넥터가 목록에 정의된 응용 프로그램에 대해 AD에서 사용자를 가장할 수 있습니다.
 
@@ -105,6 +105,8 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 
 ![비 Windows SSO 다이어그램](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
+Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 대해 확인하려는 모든 정보](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)를 참조하세요.
+
 ### <a name="delegated-login-identity"></a>위임된 로그인 ID
 위임된 로그인 ID를 사용하면 다른 두 개의 로그인 시나리오를 처리할 수 있습니다.
 
@@ -130,7 +132,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 또한 비Windows 백 엔드 서버의 경우 매우 일반적인 시나리오인 전자 메일 주소 형식의 주소를 허용하지 않는 응용 프로그램에는 도움이 됩니다.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>다른 클라우드 및 온-프레미스 ID에 SSO 설정
-1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
+1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office&365;, Windows&10; 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID** 를 선택합니다.
 
@@ -160,6 +162,6 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

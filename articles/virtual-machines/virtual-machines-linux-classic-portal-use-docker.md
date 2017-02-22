@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51490fa46a1d9c23d73d4071fb900a97327425a8
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: a1742808be5df2a57e53bb6918f89df4953d0694
 
 
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Azure 클래식 포털에서 Docker VM 확장 사용
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트] 에서 관리되는 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
 
@@ -136,11 +137,11 @@ WARNING: No swap limit support
 이제 [Docker 사용자 가이드] 로 이동하여 Docker VM을 사용할 수 있습니다. 명령줄 인터페이스를 통해 Azure VM에서 Docker 호스트를 자동으로 만들려면 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]
 
 <!--Anchors-->
-[이미지 갤러리에서 새 VM 만들기]: #createvm
-[Docker 인증서 만들기]: #dockercerts
-[Docker VM 확장 추가]: #adddockerextension
-[Docker 클라이언트 및 Azure Docker 호스트 테스트]: #testclientandserver
-[다음 단계]: #next-steps
+[Create a new VM from the Image Gallery]: #createvm
+[Create Docker Certificates]: #dockercerts
+[Add the Docker VM Extension]: #adddockerextension
+[Test Docker Client and Azure Docker Host]: #testclientandserver
+[Next steps]: #next-steps
 
 <!--Image references-->
 [StartingPoint]: ./media/StartingPoint.png
@@ -158,13 +159,13 @@ WARNING: No swap limit support
 <!--Link references-->
 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Azure Linux 에이전트]: virtual-machines-linux-agent-user-guide.md
-[다른 azure.microsoft.com 설명서 항목에 대한 링크 3]: ../storage-whatis-account.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

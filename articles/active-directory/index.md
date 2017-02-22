@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: "Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs"
+services: active-directory
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
+ms.sourcegitcommit: 2dc340dcb864325554700f58057d157dd46f7f7a
+ms.openlocfilehash: ba13ea0d6c17e50e7b1887373d67ca691bdfad01
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
-Azure Active Directory Premium은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공하는 식별 및 액세스 관리 클라우드 솔루션입니다. Azure Active Directory는 Enterprise Mobility 및 공동 작업을 사용하고 장치 상태, 사용자 위치 및 위험 수준에 따라 Multi-Factor Authentication(MFA), 보안 보고서, 감사, 경고 및 적응 조건부 액세스 정책을 통해 고급 ID 보호 기능을 제공합니다.
+Azure AD(Azure Active Directory)를 사용하여 디렉터리를 동기화하고 Single Sign-On을 활성화하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 Multi-Factor Authentication, 장치 등록, 역할 기반 액세스 제어 및 보안 모니터링과 경고를 포함하여 ID 관리 기능을 통합하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -119,7 +131,7 @@ Azure Active Directory Premium은 수천 개의 클라우드 앱에 Single Sign-
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>다른</h3>
+                        <h3>기타</h3>
                         <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">서비스 제한 및 제한 사항</a></p>
                     </div>
                 </div>
@@ -128,16 +140,8 @@ Azure Active Directory Premium은 수천 개의 클라우드 앱에 Single Sign-
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Active Directory 설명서 다운로드 </div>
-    </a>
-</div>
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

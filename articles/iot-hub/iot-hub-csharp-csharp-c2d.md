@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub를 사용하여 클라우드-장치 메시지 보내기 | Microsoft 문서"
-description: "이 자습서에 따라 C#에서 Azure IoT Hub를 사용하여 클라우드-장치 메시지를 보내는 방법을 알아봅니다."
+title: "Azure IoT Hub(.NET)를 사용한 클라우드-장치 메시지 | Microsoft Docs"
+description: ".NET용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 장치로 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 수신하도록 시뮬레이션된 장치 앱을 수정하고 클라우드-장치 메시지를 보내도록 백 엔드 앱을 수정합니다."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,28 +15,28 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 873043eefc33603bd472c6d4e0e8c10d1ad400ee
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
 
 
 ---
-# <a name="tutorial-how-to-send-cloud-to-device-messages-with-iot-hub-and-net"></a>자습서: IoT Hub 및 .Net을 사용하여 클라우드-장치 메시지를 보내는 방법
+# <a name="send-cloud-to-device-messages-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드-장치 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만 개의 장치와 응용 프로그램 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
 
 이 자습서는 [IoT Hub 시작하기]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
 
-* 응용 프로그램 클라우드 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지 단일 장치로 보냅니다.
+* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
 * 장치에서 클라우드-장치 메시지를 받습니다.
-* 응용 프로그램 클라우드 백 엔드에서 IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서, IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
 
-클라우드-장치 메시지에 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]에서 찾아볼 수 있습니다.
+클라우드-장치 메시지에 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]에서 찾아볼 수 있습니다.
 
-이 자습서의 끝 부분에서는 다음 두 개의 Windows 콘솔 응용 프로그램을 실행합니다.
+이 자습서의 끝 부분에서 다음의 두 .NET 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice** - [IoT Hub 시작하기]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
+* **SimulatedDevice**, [IoT Hub 시작하기]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
 * **SendCloudToDevice** - IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
 
 > [!NOTE]
@@ -72,10 +72,10 @@ Azure IoT Hub는 수백만 개의 장치와 응용 프로그램 백 엔드 간�
    
     `ReceiveAsync` 메서드는 수신 메시지를 장치에서 받은 시간에 비동기적으로 반환합니다. 지정 가능한 시간 제한 기간(이 경우 기본값 1분이 사용됨) 이후에는 *null* 을 반환합니다. 앱에서 *null*을 수신하면 새 메시지를 계속 기다려야 합니다. 이 요구 사항은 `if (receivedMessage == null) continue` 줄 때문입니다.
    
-    `CompleteAsync()`에 대한 호출은 메시지가 정상적으로 처리되었음을 IoT Hub에 알립니다. 장치 큐에서 메시지를 안전하게 제거할 수 있습니다. 장치 앱의 메시지 처리를 완료하지 못하게 하는 문제가 발생하는 경우 IoT Hub에서 메시지를 다시 전달합니다. 장치 앱의 메시지 처리 논리는 *멱등성(idempotent)*이므로 같은 메시지를 여러 번 수신하면 동일한 결과가 생성됩니다. 응용 프로그램이 메시지를 일시적으로 중단할 수도 있으며 이 경우 IoT hub는 나중에 사용하기 위해 큐에 메시지를 보관합니다. 또는 응용 프로그램이 메시지를 거부할 수 있습니다. 이 경우 큐에서 메시지가 영구적으로 제거됩니다. 클라우드-장치 메시지 수명 주기에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+    `CompleteAsync()`에 대한 호출은 메시지가 정상적으로 처리되었음을 IoT Hub에 알립니다. 장치 큐에서 메시지를 안전하게 제거할 수 있습니다. 장치 앱의 메시지 처리를 완료하지 못하게 하는 문제가 발생하는 경우 IoT Hub에서 메시지를 다시 전달합니다. 장치 앱의 메시지 처리 논리는 *idempotent*이므로 같은 메시지를 여러 번 수신하면 동일한 결과가 생성됩니다. 응용 프로그램이 메시지를 일시적으로 중단할 수도 있으며 이 경우 IoT hub는 나중에 사용하기 위해 큐에 메시지를 보관합니다. 또는 응용 프로그램이 메시지를 거부할 수 있습니다. 이 경우 큐에서 메시지가 영구적으로 제거됩니다. 클라우드-장치 메시지 수명 주기에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]를 참조하세요.
    
    > [!NOTE]
-   > MQTT 또는 AMQP 대신 HTTP를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTP에서 클라우드-장치 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 장치에 간헐적으로 연결됩니다. HTTP 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP 및 HTTP 지원과 IoT Hub 제한 간의 차이점에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+   > MQTT 또는 AMQP 대신 HTTP를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTP에서 클라우드-장치 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 장치에 간헐적으로 연결됩니다. HTTP 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP 및 HTTP 지원과 IoT Hub 제한 간의 차이점에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]를 참조하세요.
    > 
    > 
 2. **Main** 메서드에서 `Console.ReadLine()` 줄 바로 앞에 다음 메서드를 추가합니다.
@@ -88,7 +88,7 @@ Azure IoT Hub는 수백만 개의 장치와 응용 프로그램 백 엔드 간�
 > 
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이션된 장치 앱으로 보내는 Windows 콘솔 앱을 작성합니다.
+이 섹션에서는 클라우드-장치 메시지를 시뮬레이션된 장치 앱으로 보내는 .NET 콘솔 앱을 작성합니다.
 
 1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 앱 프로젝트를 만듭니다. 프로젝트 **SendCloudToDevice**의 이름을 지정합니다.
    
@@ -98,7 +98,8 @@ Azure IoT Hub는 수백만 개의 장치와 응용 프로그램 백 엔드 간�
     이 작업은 **NuGet 패키지 관리** 창을 엽니다.
 3. `Microsoft Azure Devices`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다. 
    
-    이 작업은 [Azure IoT - 서비스 SDK NuGet 패키지]에 대한 참조를 다운로드, 설치 및 추가합니다.
+    그러면 [Azure IoT 서비스 SDK NuGet 패키지]가 다운로드 및 설치되고 해당 참조가 추가됩니다.
+
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
@@ -130,7 +131,7 @@ Azure IoT Hub는 수백만 개의 장치와 응용 프로그램 백 엔드 간�
    ![앱 메시지 수신][21]
 
 ## <a name="receive-delivery-feedback"></a>배달 피드백 받기
-각 클라우드-장치 메시지에 대해 배달(또는 만료) 승인을 IoT Hub에 요청할 수 있습니다. 이 옵션을 사용하면 클라우드 백 엔드에서 다시 시도 또는 보정 논리를 쉽게 알릴 수 있습니다. 클라우드-장치 피드백에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]를 참조하세요.
+각 클라우드-장치 메시지에 대해 배달(또는 만료) 승인을 IoT Hub에 요청할 수 있습니다. 이 옵션을 사용하면 솔루션 백 엔드에서 다시 시도 또는 보정 논리를 쉽게 알릴 수 있습니다. 클라우드-장치 피드백에 대한 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]를 참조하세요.
 
 이 섹션에서는 **SendCloudToDevice** 앱을 수정하여 피드백을 요청하고 IoT Hub로부터 수신합니다.
 
@@ -184,10 +185,10 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 
 <!-- Links -->
 
-[Azure IoT - 서비스 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Azure IoT 서비스 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [IoT Hub 시작하기]: iot-hub-csharp-csharp-getstarted.md
@@ -197,6 +198,6 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

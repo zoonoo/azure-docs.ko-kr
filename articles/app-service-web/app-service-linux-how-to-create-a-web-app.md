@@ -1,5 +1,5 @@
 ---
-title: "Linux에서 App Service를 사용하여 웹앱을 만드는 방법 | Microsoft Docs"
+title: "Linux에서 실행되는 Azure Web App 만들기 | Microsoft Docs"
 description: "Linux의 App Service용 웹앱 만들기 워크플로"
 keywords: "azure app service, 웹앱, linux, oss"
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Linux에서 App Service를 사용하여 웹앱 만들기
+# <a name="create-an-azure-web-app-running-on-linux"></a>Linux에서 실행되는 Azure Web App 만들기
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Azure Portal을 사용하여 웹앱 만들기
 다음 그림에 나와 있는 것처럼 [Azure Portal](https://portal.azure.com)에서 Linux의 웹앱을 만들 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
 1. 웹앱에 이름을 지정합니다.
 2. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. ([제한 사항 섹션](app-service-linux-intro.md)에서 사용 가능한 지역 참조)
 3. 기존 Azure App Service 계획을 선택하거나 새 App Service 계획을 만듭니다. ([제한 사항 섹션](app-service-linux-intro.md)에서 App Service 정보 참조)
-4. 사용하려는 응용 프로그램 스택을 선택합니다. 여러 버전의 Node.js 및 PHP 중에서 선택할 수 있습니다.
+4. 사용하려는 응용 프로그램 스택을 선택합니다. 여러 버전의 Node.js, PHP, .Net Core, Ruby 중에 선택할 수 있습니다.
 
 앱을 만든 후 다음 그림에 나와 있는 것처럼 응용 프로그램 설정에서 응용 프로그램 스택을 변경할 수 있습니다.
 
@@ -59,6 +59,6 @@ ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

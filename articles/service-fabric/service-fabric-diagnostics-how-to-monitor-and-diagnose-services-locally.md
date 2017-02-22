@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric으로 작성된 서비스를 로컬에서 모니터링 및 진단 | Microsoft Docs"
+title: "Windows에서 Azure 마이크로 서비스 디버그 | Microsoft Docs"
 description: "로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
 
 
 ---
@@ -32,9 +32,9 @@ ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
 ## <a name="the-benefits-of-event-tracing-for-windows"></a>Windows용 이벤트 추적의 이점
 [Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. 그 이유는 다음과 같습니다.
 
-* **ETW는 속도가 빠릅니다.**  코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
+* **ETW는 속도가 빠릅니다.** 코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
 * **ETW 추적은 로컬 개발 환경 및 실제 사용 클러스터 설정에서도 매끄럽게 작동합니다.** 즉, 실제 클러스터에 코드를 배포할 준비가 되었을 때 추적 코드를 다시 쓸 필요가 없습니다.
-* **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.**  따라서 서비스 패브릭 시스템 추적으로 인터리브된 응용 프로그램 추적을 볼 수 있습니다. 또한 기본 시스템에서 응용 프로그램 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
+* **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.** 따라서 서비스 패브릭 시스템 추적으로 인터리브된 응용 프로그램 추적을 볼 수 있습니다. 또한 기본 시스템에서 응용 프로그램 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
 * **서비스 패브릭 Visual Studio 도구는 ETW 이벤트 보기를 내부적으로 지원합니다.**
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 시스템 이벤트 보기
@@ -50,7 +50,7 @@ ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
 
 **서비스 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우 `RunAsync` 구현을 검색하기만 하면 됩니다.
 
-1.  `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 응용 프로그램 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
+1. `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 응용 프로그램 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
 2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 ** 메서드에서 오버로드를 확인할 수 있습니다.
 
 **행위자 템플릿** (상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
@@ -65,11 +65,11 @@ ms.openlocfilehash: 57e281b5e3a86b2a7bc78d47163b0475898869f0
 위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
 
 * [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
-* [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+* [서비스 프로세스에서 직접 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

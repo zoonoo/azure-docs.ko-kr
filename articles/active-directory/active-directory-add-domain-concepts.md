@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory에서 사용자 지정 도메인 이름의 개념적 개요 | Microsoft Docs"
-description: "Azure Active Directory에서 Single Sign-On을 위한 페더레이션을 포함하여 사용자 지정 도메인 이름을 사용하기 위한 개념적 프레임워크에 대해 설명합니다."
+description: "Single Sign-On을 위한 페더레이션을 포함하여 Azure Active Directory에서 사용자 지정 도메인 이름 사용에 대한 개념적 프레임워크를 설명합니다."
 services: active-directory
 documentationcenter: 
 author: jeffsta
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2faa2c270b192a9b3476fa911333f6abfabb1ee9
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
 
 
 ---
@@ -65,6 +65,6 @@ Azure 클래식 포털 및 PowerShell에서 도메인 관리 작업을 완료할
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Nov16_HO3-->
 
 

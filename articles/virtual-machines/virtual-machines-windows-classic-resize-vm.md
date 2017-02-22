@@ -1,5 +1,5 @@
 ---
-title: "클래식 Windows VM 크기 조정 | Microsoft Docs"
+title: "클래식 배포 모델에서 Windows VM 크기 조정 - Azure | Microsoft Docs"
 description: "Azure Powershell을 사용하여 클래식 배포 모델에서 만든 Windows 가상 컴퓨터의 크기를 조정합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 9e874689e15fa1cd289a01c7781e3c9d1ad7ac67
+ms.sourcegitcommit: 3352e5d17777a213a91911440274419f2058940b
+ms.openlocfilehash: 381cf34b9e65a46a8033880a95e94446bd01edf1
 
 
 ---
@@ -72,6 +72,6 @@ VM을 호스팅하는 하드웨어 클러스터에서 사용할 수 없는 크�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

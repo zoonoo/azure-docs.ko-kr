@@ -1,0 +1,312 @@
+---
+title: Azure Metadata Service - Scheduled Events | Microsoft Docs
+description: "Virtual Machine에 강력한 영향을 미치는 이벤트가 발생하기 전에 조치를 취합니다."
+services: virtual-machines-windows, virtual-machines-linux, cloud-services
+documentationcenter: 
+author: zivraf
+manager: timlt
+editor: 
+tags: 
+ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/10/2016
+ms.author: zivr
+translationtype: Human Translation
+ms.sourcegitcommit: c7f552825f3230a924da6e5e7285e8fa7fa42842
+ms.openlocfilehash: 541709ca17b96f8334e67dbdbbd9a10eefffa06b
+
+
+---
+# <a name="azure-metadata-service---scheduled-events"></a>Azure Metadata Service - Scheduled Events
+
+Azure Metadata Service를 사용하면 Azure에서 호스팅되는 Virtual Machine에 대한 정보를 검색할 수 있습니다. 공개된 범주 중 하나인 Scheduled Events는 예정된 이벤트(예: 다시 부팅)에 대한 정보를 나타내므로 응용 프로그램에서 이벤트를 준비하고 중단을 제한할 수 있습니다. PaaS 및 IaaS를 포함한 모든 Azure Virtual Machine 유형에 사용할 수 있습니다. 이 서비스는 Virtual Machine에 예방 작업을 수행하고 이벤트의 영향을 최소화할 수 있는 시간을 제공합니다. 예를 들어 중단을 피하기 위해 인스턴스가 다시 부팅되도록 예약되어 있는지 관찰한 후 서비스에서 세션을 중단하고 새 선행지표를 선택하거나 데이터를 복사할 수 있습니다.
+
+
+
+## <a name="introduction---why-scheduled-events"></a>소개 - Scheduled Events가 필요한 이유
+
+Scheduled Events를 사용하면 Virtual Machine의 가용성에 영향을 줄 수 있는 예정된 이벤트를 파악(검색)하고 자동 관리 작업을 수행하여 서비스에 미치는 영향을 제한할 수 있습니다.
+복제 기술을 사용하여 상태를 유지 관리하는 다중 인스턴스 워크로드는 여러 인스턴스에서 자주 발생하는 중단에 취약할 수 있습니다. 이러한 중단으로 인해 비용이 많이 드는 작업(예: 인덱스 다시 빌드) 또는 복제본 손실이 발생할 수 있습니다.
+다른 많은 경우에서 정상 종료 시퀀스를 사용하면 전체 서비스 가용성이 향상됩니다. 예를 들어 메모리 내 트랜잭션을 완료(또는 취소)하고 다른 작업을 클러스터의 다른 VM에 다시 할당(수동 장애 조치)하고, 부하 분산 장치 풀에서 Virtual Machine을 제거합니다.
+예정된 이벤트에 대해 관리자에게 알리거나 그러한 이벤트를 로깅하는 것만으로도 클라우드에 호스팅된 응용 프로그램의 서비스 효율성을 개선하는 데 도움이 되는 경우가 있습니다.
+
+Azure Metadata Service는 다음 사용 사례에서 예정된 이벤트를 나타냅니다.
+-   플랫폼에서 시작하는 '영향력이 강한' 유지 관리(예: 호스트 OS 롤아웃)
+-   플랫폼에서 시작하는 '영향력이 없는' 유지 관리(예: 내부 VM 마이그레이션)
+-   대화형 호출(예: 사용자에 의한 VM 다시 시작 또는 다시 배포)
+
+
+
+## <a name="scheduled-events---the-basics"></a>Scheduled Events - 기본 사항  
+
+Azure Metadata Service는 VM 내에서 REST 끝점을 사용하여 Virtual Machines 실행에 대한 정보를 공개합니다. 이 정보는 라우팅할 수 없는 IP를 통해 사용할 수 있으므로 VM 외부에 공개되지 않습니다.
+
+### <a name="scope"></a>범위 
+Scheduled Events는 클라우드 서비스의 모든 Virtual Machines 또는 가용성 집합의 모든 Virtual Machines에 나타납니다. 따라서 이벤트의 **리소스** 필드를 확인하여 영향을 받을 VM을 식별해야 합니다.
+
+### <a name="discover-the-endpoint"></a>끝점 검색
+Virtual Machine이 VNet(가상 네트워크) 내에 만들어지는 경우 라우팅할 수 없는 IP(169.254.169.254)에서 메타데이터 서비스를 사용할 수 있습니다.
+
+Virtual Machine이 클라우드 서비스(PaaS)에 사용되는 경우 레지스트리를 사용하여 메타데이터 서비스 끝점을 검색할 수 있습니다.
+
+    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+
+### <a name="versioning"></a>버전 관리 
+Metadata Service는 http://{ip}/metadata/{version}/scheduledevents 형식의 버전이 있는 API를 사용합니다. 서비스에서 http://{ip}/metadata/latest/scheduledevents에 있는 최신 버전을 사용하는 것이 좋습니다.
+
+### <a name="using-headers"></a>헤더 사용
+Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니다. 
+
+### <a name="enable-scheduled-events"></a>Scheduled Events 사용
+처음으로 예약된 이벤트를 호출하면 Azure는 Virtual Machine의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대&1;분의 첫 번째 호출에서 지연된 응답을 예상해야 합니다. 
+
+
+## <a name="using-the-api"></a>API 사용
+
+### <a name="query-for-events"></a>이벤트 쿼리
+다음과 같이 호출하여 Scheduled Events를 쿼리할 수 있습니다.
+
+    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+
+응답에는 예약된 이벤트의 배열이 포함됩니다. 빈 배열은 현재 예약된 이벤트가 없음을 의미합니다.
+예약된 이벤트가 있는 경우 응답에 다음과 같은 이벤트의 배열이 포함됩니다. 
+
+    {
+     "Events":[
+          {
+                "EventId":{eventID},
+                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "ResourceType":"VirtualMachine",
+                "Resources":[{resourceName}],
+                "EventStatus":"Scheduled" | "Started",
+                "NotBefore":{timeInUTC},              
+         }
+     ]
+    }
+
+EventType은 다음과 같이 Virtual Machine에 예상되는 영향을 캡처합니다.
+- 일시 중지: 몇 초 동안 Virtual Machine을 일시 중지하도록 예약됩니다. 메모리, 열려 있는 파일 또는 네트워크 연결에는 영향을 미치지 않습니다.
+- 다시 부팅: Virtual Machine을 다시 부팅하도록 예약됩니다(메모리 초기화됨).
+- 다시 배포: Virtual Machine을 다른 노드로 이동하도록 예약됩니다(임시 디스크 손실됨). 
+
+이벤트가 예약되면(Status = Scheduled) Azure에서 이벤트가 시작될 수 있는 시간(NotBefore 필드에서 지정)을 공유합니다.
+
+### <a name="starting-an-event-expedite"></a>이벤트 시작(신속 이동)
+
+예정된 이벤트에 대해 알게 되고 정상 종료를 위한 논리를 완료하면 **POST** 호출을 통해 Azure에서 더 빨리 이동할 수 있음(가능한 경우)을 나타낼 수 있습니다. 
+ 
+
+## <a name="powershell-sample"></a>PowerShell 샘플 
+
+다음 샘플에서는 예약된 이벤트에 대한 메타데이터 서버를 읽고 승인하기 전에 응용 프로그램 이벤트 로그에 기록합니다.
+
+```PowerShell
+$localHostIP = "169.254.169.254"
+$ScheduledEventURI = "http://"+$localHostIP+"/metadata/latest/scheduledevents"
+
+# Call Azure Metadata Service - Scheduled Events 
+$scheduledEventsResponse =  Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $ScheduledEventURI -Method get 
+
+if ($json.Events.Count -eq 0 )
+{
+    Write-Output "++No scheduled events were found"
+}
+
+for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventIdx++)
+{
+    if ($scheduledEventsResponse.Events[$eventIdx].Resources[0].ToLower().substring(1) -eq $env:COMPUTERNAME.ToLower())
+    {    
+        # YOUR LOGIC HERE 
+         pause "This Virtual Machine is scheduled for to "+ $scheduledEventsResponse.Events[$eventIdx].EventType
+
+        # Acknoledge the event to expedite
+        $jsonResp = "{""StartRequests"" : [{ ""EventId"": """+$scheduledEventsResponse.events[$eventIdx].EventId +"""}]}"
+        $respbody = convertto-JSon $jsonResp
+       
+        Invoke-RestMethod -Uri $ScheduledEventURI  -Headers @{"Metadata"="true"} -Method POST -Body $jsonResp 
+    }
+}
+
+
+``` 
+
+
+## <a name="c-sample"></a>C\# 샘플 
+다음 코드는 Metadata Service와 통신하기 위한 클라이언트 쪽 API입니다
+```csharp
+   public class ScheduledEventsClient
+    {
+        private readonly string scheduledEventsEndpoint;
+        private readonly string defaultIpAddress = "169.254.169.254"; 
+
+        public ScheduledEventsClient()
+        {
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+        }
+        /// Retrieve Scheduled Events 
+        public string GetDocument()
+        {
+            Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
+            using (var webClient = new WebClient())
+            {
+                webClient.Headers.Add("Metadata", "true");
+                return webClient.DownloadString(cloudControlUri);
+            }   
+        }
+
+        /// Issues a post request to the scheduled events endpoint with the given json string
+        public void PostResponse(string jsonPost)
+        {
+            using (var webClient = new WebClient())
+            {
+                webClient.Headers.Add("Content-Type", "application/json");
+                webClient.UploadString(scheduledEventsEndpoint, jsonPost);
+            }
+        }
+    }
+
+```
+Scheduled Events는 다음 데이터 구조를 사용하여 구문 분석될 수 있습니다. 
+
+```csharp
+    public class ScheduledEventsDocument
+    {
+        public List<CloudControlEvent> Events { get; set; }
+    }
+
+    public class CloudControlEvent
+    {
+        public string EventId { get; set; }
+        public string EventStatus { get; set; }
+        public string EventType { get; set; }
+        public string ResourceType { get; set; }
+        public List<string> Resources { get; set; }
+        public DateTime NoteBefore { get; set; }
+    }
+
+    public class ScheduledEventsApproval
+    {
+        public List<StartRequest> StartRequests = new List<StartRequest>();
+    }
+
+    public class StartRequest
+    {
+        [JsonProperty("EventId")]
+        private string eventId;
+
+        public StartRequest(string eventId)
+        {
+            this.eventId = eventId;
+        }
+    }
+
+```
+
+클라이언트를 사용하여 이벤트를 검색, 처리 및 확인하는 샘플 프로그램:   
+
+```csharp
+public class Program
+    {
+    static ScheduledEventsClient client;
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            client = new ScheduledEventsClient();
+            string json = client.GetDocument();
+            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
+
+            HandleEvents(scheduledEventsDocument.Events);
+
+            // Wait for user response
+            Console.WriteLine("Press Enter to approve executing events\n");
+            Console.ReadLine();
+
+            // Approve events
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
+            {
+                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
+            }
+            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
+            {
+                // Serialize using Newtonsoft.Json
+                string approveEventsJsonDocument =
+                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
+
+                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
+                client.PostResponse(approveEventsJsonDocument);
+            }
+
+            Console.WriteLine("Complete. Press enter to repeat\n\n");
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+
+    private static void HandleEvents(List<CloudControlEvent> events)
+    {
+        // Add logic for handling events here
+    }
+}
+
+```
+
+## <a name="python-sample"></a>Python 샘플 
+
+```python
+
+
+#!/usr/bin/python
+
+import json
+import urllib2
+import socket
+import sys
+
+metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+headers="{Metadata:true}"
+this_host=socket.gethostname()
+
+def get_scheduled_events():
+   req=urllib2.Request(metadata_url)
+   req.add_header('Metadata','true')
+   resp=urllib2.urlopen(req)
+   data=json.loads(resp.read())
+   return data
+
+def handle_scheduled_events(data):
+    for evt in data['Events']:
+        eventid=evt['EventId']
+        status=evt['EventStatus']
+        resources=evt['Resources'][0]
+        eventype=evt['EventType']
+        restype=evt['ResourceType']
+        notbefore=evt['NotBefore'].replace(" ","_")
+        if this_host in evt['Resources'][0]:
+            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
+            print "++ Add you logic here"
+
+def main():
+   data=get_scheduled_events()
+   handle_scheduled_events(data)
+   
+
+if __name__ == '__main__':
+  main()
+  sys.exit(0)
+
+
+```
+## <a name="next-steps"></a>다음 단계 
+[Azure에서 가상 컴퓨터에 대한 계획된 유지 관리](./virtual-machines-linux-planned-maintenance.md)
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

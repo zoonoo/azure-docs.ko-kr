@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b808a791abc843a93d772b1eeafc9f6280196185
+ms.sourcegitcommit: 7e77858b36d07049333422d4454c29a9e1acb748
+ms.openlocfilehash: bdec7eb0b32cd8853dc01791466abf48c61a5fe8
 
 
 ---
@@ -44,27 +44,37 @@ ms.openlocfilehash: b808a791abc843a93d772b1eeafc9f6280196185
 
 ## <a name="manual-steps"></a>수동 단계
 > [!NOTE]
-> Azure에 대해 고유한 사용자 지정 Ubuntu 이미지를 만들기 전에 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) 의 이미지를 사용하는 것을 고려하세요.
+> Azure에 대해 고유한 사용자 지정 Ubuntu 이미지를 만들기 전에 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/)에서 미리 빌드되고 테스트된 이미지를 사용하는 것을 고려하세요.
 > 
 > 
 
 1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
+
 2. **연결** 을 클릭하여 가상 컴퓨터 창을 엽니다.
+
 3. Ubuntu의 Azure 리포지토리를 사용하도록 이미지의 현재 리포지토리를 바꿉니다. 단계는 Ubuntu 버전에 따라 약간씩 다릅니다.
    
-   /etc/apt/sources.list를 편집하기 전에 백업을 만드는 것이 좋습니다.
+    `/etc/apt/sources.list`를 편집하기 전에 백업을 만드는 것이 좋습니다.
    
-   # <a name="sudo-cp-etcaptsourceslist-etcaptsourceslistbak"></a>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-   Ubuntu 12.04:
+        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    Ubuntu 12.04:
    
-   # <a name="sudo-sed--i-sa-za-zarchiveubuntucomazurearchiveubuntucomg-etcaptsourceslist"></a>sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
-   Ubuntu 14.04:
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
+    Ubuntu 14.04:
    
-   # <a name="sudo-sed--i-sa-za-zarchiveubuntucomazurearchiveubuntucomg-etcaptsourceslist"></a>sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
+    Ubuntu 16.04:
+   
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
 4. 이제 Ubuntu Azure 이미지는 *하드웨어 지원* (HWE) 커널을 따릅니다. 다음 명령을 실행하여 운영 체제를 최신 커널로 업데이트합니다.
-   
+
     Ubuntu 12.04:
    
         # sudo apt-get update
@@ -82,22 +92,42 @@ ms.openlocfilehash: b808a791abc843a93d772b1eeafc9f6280196185
         (recommended) sudo apt-get dist-upgrade
    
         # sudo reboot
-5. Azure용 커널 매개 변수를 추가로 포함하려면 Grub의 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/etc/default/grub"을 텍스트 편집기에서 열고 `GRUB_CMDLINE_LINUX_DEFAULT` 변수를 찾거나 필요한 경우 추가하여 다음 매개 변수가 포함되도록 편집합니다.
+
+    Ubuntu 16.04:
+   
+        # sudo apt-get update
+        # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
+        (recommended) sudo apt-get dist-upgrade
+
+        # sudo reboot
+
+    **참고 항목:**
+    - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+    - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
+
+
+5. Azure용 커널 매개 변수를 추가로 포함하려면 Grub의 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 `/etc/default/grub`을 텍스트 편집기에서 열고 `GRUB_CMDLINE_LINUX_DEFAULT` 변수를 찾거나 필요한 경우 추가하여 다음 매개 변수가 포함되도록 편집합니다.
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
-   
-    이 파일을 저장하고 닫은 다음 '`sudo update-grub`'을 실행합니다. 이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 기술 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
+
+    이 파일을 저장하고 닫은 다음 `sudo update-grub`을 실행합니다. 이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 기술 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
+
 6. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
+
 7. Azure Linux 에이전트를 설치합니다.
    
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
-   # <a name="sudo-apt-get-install-walinuxagent"></a>sudo apt-get install walinuxagent
-   `walinuxagent` 패키지를 설치하면 `NetworkManager` 및 `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거합니다.
+        # sudo apt-get update
+        # sudo apt-get install walinuxagent
+
+    >[!Note]
+    `walinuxagent` 패키지는 `NetworkManager` 및 `NetworkManager-gnome` 패키지가 설치되어 있는 경우 이러한 패키지를 제거할 수 있습니다.
+
 8. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
    
-   # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-   # <a name="export-histsize0"></a>export HISTSIZE=0
-   # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 9. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -112,6 +142,6 @@ Ubuntu 하드웨어 지원(HWE) 커널
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

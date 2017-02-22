@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
+ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
+ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
 
 
 ---
@@ -30,6 +30,9 @@ ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 > 
 
 [Azure Portal](https://portal.azure.com/) 을 사용하여 Azure SQL Database 및 서버를 만들고, 모니터링하고, 관리할 수 있습니다. 이 문서에서는 더 많은 일반 작업의 간략한 설명과 더 자세한 설명에 대한 링크를 제공합니다.
+
+> [!TIP]
+> 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, SQL Server Management Studio로 연결, master 데이터베이스 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, SQL Server Management Studio로 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started.md)를 참조하세요.
 
 ## <a name="view-your-azure-sql-databases-servers-and-pools"></a>Azure SQL Database, 서버 및 풀 보기
 사용 가능한 SQL Database 서비스를 보려면 **서비스 더 보기**를 클릭하고 검색 상자에 **SQL**을 입력합니다.
@@ -47,7 +50,7 @@ ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 ![SQL Server](./media/sql-database-manage-portal/sql-servers.png)
 
 ## <a name="how-do-i-create-or-view-sql-elastic-pools"></a>SQL 탄력적 풀을 만들거나 보는 방법
-**SQL 탄력적 풀** 블레이드를 열려면 **SQL 탄력적 풀**을 클릭한 다음 작업하려는 풀을 클릭하거나 **+추가**를 클릭하여 풀을 만듭니다. 자세한 내용은 [Azure Portal로 Elastic Database 풀 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요.
+**SQL 탄력적 풀** 블레이드를 열려면 **SQL 탄력적 풀**을 클릭한 다음 작업하려는 풀을 클릭하거나 **+추가**를 클릭하여 풀을 만듭니다. 자세한 내용은 [Azure Portal로 탄력적 풀 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요.
 
 ![SQL 탄력적 풀](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -103,7 +106,7 @@ SQL 데이터베이스의 BACPAC를 만들려면 **SQL 데이터베이스** 블�
 ![SQL 데이터베이스 내보내기](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time"></a>이전 시점으로 SQL Database를 복원하는 방법
-SQL 데이터베이스를 복원하려면 **SQL 데이터베이스** 블레이드에서 **복원**을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 이전 시점으로 Azure SQL Database 복원](sql-database-point-in-time-restore-portal.md)을 참조하세요.
+SQL 데이터베이스를 복원하려면 **SQL 데이터베이스** 블레이드에서 **복원**을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 이전 시점으로 Azure SQL Database 복원](sql-database-point-in-time-restore.md)을 참조하세요.
 
 ![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-restore.png)
 
@@ -122,11 +125,11 @@ SQL 데이터베이스를 삭제하려면 **SQL 데이터베이스** 블레이�
 
 ## <a name="additional-resources"></a>추가 리소스
 * [SQL 데이터베이스](sql-database-technical-overview.md)
-* [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)
+* [Azure Portal을 사용하여 탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

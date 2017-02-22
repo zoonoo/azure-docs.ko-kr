@@ -1,5 +1,5 @@
 ---
-title: "Apple FairPlay 및/또는 Microsoft PlayReady로 HLS 콘텐츠 보호 | Microsoft 문서"
+title: "Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호 - Azure | Microsoft Docs"
 description: "이 토픽에서는 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다. 또한 미디어 서비스 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 61ac849c20fa21181bd41289da896b4d53e0b9c3
 
 
 ---
@@ -566,6 +566,6 @@ Azure 미디어 서비스를 사용하여 다음 형식으로 HLS(HTTP 라이브
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

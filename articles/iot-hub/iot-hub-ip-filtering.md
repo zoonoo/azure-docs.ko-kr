@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Hub IP 필터 | Microsoft Docs"
+title: "Azure IoT Hub IP 연결 필터 | Microsoft Docs"
 description: "특정 IP 주소에서 Azure IoT hub로 연결을 차단하도록 IP 필터링을 사용하는 방법입니다. 개별 또는 IP 주소 범위에서 연결을 차단할 수 있습니다."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 784454c3bc0500ac0896177e843b3c194341cdd1
+ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
+ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
 
 
 ---
@@ -57,9 +57,12 @@ IP 필터 규칙을 추가하는 경우 다음 값을 입력하라는 메시지�
 
 ![][img-ip-filter-save-new-rule]
 
-최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
+최대&10;개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
 규칙을 포함하는 행을 두 번 클릭하면 기존 규칙을 편집할 수 있습니다.
+
+> [!NOTE]
+> IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 IoT Hub와 상호 작용하는 것을 막을 수 있습니다.
 
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
@@ -71,7 +74,7 @@ IP 필터 규칙을 삭제하려면 그리드에서 규칙을 하나 이상 선�
 
 IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번째 규칙이 수락 또는 거부 작업을 결정합니다.
 
-예를 들어 192.168.100.0/22 범위의 주소를 수락하고 그 외의 주소는 거부하려는 경우 그리드에 있는 첫 번째 규칙이 주소 범위 192.168.100.0/22를 수락해야 합니다. 다음 규칙은 0.0.0.0/0 범위를 사용하여 모든 주소를 거부해야 합니다. 0.0.0.0/0 범위를 거부하는 마지막 규칙을 추가하면 기본 동작은 허용 목록 사용으로 변경하게 됩니다.
+예를 들어 192.168.100.0/22 범위의 주소를 수락하고 그 외의 주소는 거부하려는 경우 그리드에 있는 첫 번째 규칙이 주소 범위 192.168.100.0/22를 수락해야 합니다. 다음 규칙은 0.0.0.0/0 범위를 사용하여 모든 주소를 거부해야 합니다.
 
 행의 시작 부분에 있는 세 개의 세로 점을 클릭하고 끌어서 놓기를 사용하여 그리드에서 IP 필터 규칙의 순서를 변경할 수 있습니다.
 
@@ -103,6 +106,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

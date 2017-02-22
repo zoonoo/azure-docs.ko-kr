@@ -12,11 +12,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 6de51407a78b3e33e6d3de544caeee714c9d1f4c
+ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
+ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
 
 
 ---
@@ -55,6 +55,10 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
+> [!NOTE]
+> 비 SSL 포트는 새 Azure Redis Cache 인스턴스에 대해 사용하지 않도록 설정되어 있습니다. SSL을 지원하지 않는 다른 클라이언트를 사용하는 경우 [비 SSL 포트를 사용하도록 설정하는 방법](cache-configure.md#access-ports)을 참조하세요.
+> 
+> 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>캐시에 항목 추가 및 검색
 다음 예제에서는 Azure Redis Cache 인스턴스에 연결하여 캐시의 항목을 저장하고 검색하는 방법을 보여줍니다. [node_redis](https://github.com/mranney/node_redis) 클라이언트가 포함된 Redis 사용에 관한 더 많은 예는 [http://redis.js.org/](http://redis.js.org/)를 참조하세요.
@@ -85,6 +89,6 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

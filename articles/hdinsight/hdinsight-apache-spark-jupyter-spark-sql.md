@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2017
+ms.date: 02/01/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: ebd6edc0e3ef58fac8a0f32373736a9470a7ecce
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
 
 
 ---
@@ -70,10 +70,10 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 * **PySpark** (Python에서 작성한 응용 프로그램용)
 * **Spark** (Scala에서 작성한 응용 프로그램용)
 
-이 문서에서는 PySpark 커널을 사용합니다. PySpark 커널을 사용하는 이점에 대한 세부 정보는 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) 문서를 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
+이 문서에서는 PySpark 커널을 사용합니다. 두 커널에 대한 자세한 내용은 [HDInsight에서 Apache Spark 클러스터와 함께 Jupyter 노트북 커널 사용](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
 
-* Spark 및 Hive에 대한 컨텍스트를 설정할 필요가 없습니다. 자동으로 설정됩니다.
-* `%%sql`과 같은 셀 매직을 사용하여 이전 코드 조각 없이 직접 SQL 또는 Hive 쿼리를 실행할 수 있습니다.
+* Spark 및 Hive에 대한 컨텍스트가 자동으로 설정됩니다.
+* `%%sql`과 같은 셀 매직을 사용하여 이전 코드 조각 없이 직접 SQL 또는 Hive 쿼리를 실행합니다.
 * SQL 또는 Hive 쿼리의 출력은 자동으로 시각화됩니다.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>PySpark 커널을 사용하여 Jupyter Notebook 만들기
@@ -82,7 +82,7 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 2. 왼쪽 메뉴에서 **리소스 그룹**을 클릭합니다.
 3. 마지막 섹션에서 만든 리소스 그룹을 클릭합니다. 너무 많은 리소스 그룹이 있는 경우 검색 기능을 사용할 수 있습니다. 그룹, HDInsight 클러스터 및 기본 저장소 계정에서 두 개의 리소스를 볼 수 있습니다.
 4. 클러스터를 클릭하여 엽니다.
- 
+
 2. **빠른 링크**에서 **클러스터 대시보드**를 클릭한 다음 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
    ![HDInsight 클러스터 대시보드](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight 클러스터 대시보드")
@@ -97,12 +97,12 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 
    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
-   새 노트북이 만들어지고 Untitled(Untitled.pynb) 이름으로 열립니다. 
+   새 노트북이 만들어지고 Untitled(Untitled.pynb) 이름으로 열립니다.
 
 4. 맨 위에서 노트북 이름을 클릭하고 원하는 경우 식별하기 쉬운 이름을 입력합니다.
 
     ![노트북 이름 제공](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
-5. 빈 셀에 다음 코드를 붙여넣은 다음 **SHIFT + ENTER**를 눌러 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
+5. 빈 셀에 다음 코드를 붙여 넣은 다음 **SHIFT + ENTER**를 눌러 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 
         from pyspark.sql.types import *
 
@@ -130,13 +130,13 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
         hvacdf.registerTempTable("hvac")
 
     HDInsight의 Spark 클러스터는 **\HdiSamples\HdiSamples\SensorSampleData\hvac** 아래에서 샘플 데이터 파일 **hvac.csv**와 함께 제공됩니다.
-    
+
 7. 다음 코드를 실행하여 데이터를 쿼리합니다.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels)을 참조하세요.
+   PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels)을 참조하세요.
 
    다음과 같은 테이블 형식 출력이 기본적으로 표시됩니다.
 
@@ -190,6 +190,6 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

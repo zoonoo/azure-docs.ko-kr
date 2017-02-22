@@ -182,6 +182,6 @@ Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

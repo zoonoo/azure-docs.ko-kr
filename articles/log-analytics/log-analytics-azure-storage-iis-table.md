@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+ms.sourcegitcommit: 79f5bad314b230df27c73fb7e60e173778c96865
+ms.openlocfilehash: da31e1ceebfecf766828fa761b01f4e346cd13aa
 
 
 ---
@@ -69,8 +69,6 @@ Log Analytics가 이러한 Azure Diagnostics 로그를 수집하려면 로그가
    4. **상태**를 **켬**으로 설정합니다.
    5. 수집하려는 각 진단 로그를 선택합니다.
    6. **확인**을 클릭합니다.
-
-Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다. [테이블 저장소에 기록된 Azure Diagnostics 또는 Blob에 기록된 IIS 로그를 사용하여 데이터 수집](log-analytics-azure-storage-json.md)을 참조하세요.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>IIS 로그 및 이벤트 컬렉션에 대한 웹 역할에서 Azure 진단 사용
 Azure 진단을 사용하도록 설정하는 일반적인 단계는 [클라우드 서비스에서 진단을 사용하도록 설정하는 방법](../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요. 아래 지침에서는 Log Analytics에서 사용하기 위해 이 정보를 사용자 지정합니다.
@@ -192,12 +190,12 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Blob Storage에서 JSON 파일을 사용](log-analytics-azure-storage-json.md)하여 JSON 형식의 Blob Storage에 진단을 기록한 Azure 서비스에서 로그를 읽습니다.
+* 지원되는 Azure 서비스에 대해 [Azure 서비스에 대한 로그 및 메트릭 수집](log-analytics-azure-storage.md)
 * [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
 * [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

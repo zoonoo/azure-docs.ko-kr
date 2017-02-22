@@ -1,5 +1,5 @@
 ---
-title: "Windows VM에 MongoDB 설치 | Microsoft Docs"
+title: "Azure에서 Windows VM에 MongoDB 설치 | Microsoft Docs"
 description: "클래식 배포 모델을 사용하여 만든, Windows Server를 실행하는 Azure VM에 MongoDB를 설치하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f198d295272c8c860bc455cfa300cad3ff375c5d
-ms.openlocfilehash: cb618cbc47748a002351caa3a5935c9824c2bc32
+ms.sourcegitcommit: 015b152b2e807de6ad92d141d3c8bad6bb8d8eba
+ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
 
 
 ---
-# <a name="install-mongodb-on-a-windows-vm"></a>Windows VM에 MongoDB 설치
+# <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 MongoDB 설치
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 배포 모델을 사용하여 MongoDB를 설치하고 구성하려면 [이 문서](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-[MongoDB][MongoDB] 는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는[Azure 클래식 포털][AzurePortal]을 사용하여 Windows Server VM(가상 컴퓨터)을 만드는 과정을 안내합니다. 그런 다음 MongoDB를 설치하고 구성하기 전에 데이터 디스크를 만든 후 VM에 연결합니다. Azure에 사용하려는 기존 VM이 있는 경우 [MongoDB 설치 및 구성](#install-and-run-mongodb-on-the-virtual-machine)단계로 바로 건너뛸 수 있습니다.
+[MongoDB][MongoDB]는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서에서는[Azure 클래식 포털][AzurePortal]을 사용하여 Windows Server VM(가상 컴퓨터)을 만드는 과정을 안내합니다. 그런 다음 MongoDB를 설치하고 구성하기 전에 데이터 디스크를 만든 후 VM에 연결합니다. Azure에 사용하려는 기존 VM이 있는 경우 [MongoDB 설치 및 구성](#install-and-run-mongodb-on-the-virtual-machine)단계로 바로 건너뛸 수 있습니다.
 
 ## <a name="create-a-virtual-machine-running-windows-server"></a>Windows Server를 실행하는 가상 컴퓨터 만들기
 가상 컴퓨터를 만들려면 다음 지침을 따르십시오.
@@ -48,7 +48,7 @@ ms.openlocfilehash: cb618cbc47748a002351caa3a5935c9824c2bc32
 [!INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ## <a name="summary"></a>요약
-이 자습서에서는 Windows Server를 실행하는 가상 컴퓨터를 만들고 가상 컴퓨터에 원격으로 연결한 다음 데이터 디스크를 연결하는 방법을 배웠습니다.  또한 Windows 기반 가상 컴퓨터에 MongoDB를 설치 및 구성하는 방법을 배웠습니다. 이제 [MongoDB 설명서][MongoDocs]의 고급 항목에 따라 Windows 기반 가상 컴퓨터에서 MongoDB에 액세스할 수 있습니다.
+이 자습서에서는 Windows Server를 실행하는 가상 컴퓨터를 만들고 가상 컴퓨터에 원격으로 연결한 다음 데이터 디스크를 연결하는 방법을 배웠습니다.  또한 Windows 기반 가상 컴퓨터에 MongoDB를 설치 및 구성하는 방법을 배웠습니다. 이제 [MongoDB 설명서][MongoDocs](영문)의 고급 항목에 따라 Windows 기반 가상 컴퓨터에서 MongoDB에 액세스할 수 있습니다.
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
@@ -56,6 +56,6 @@ ms.openlocfilehash: cb618cbc47748a002351caa3a5935c9824c2bc32
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

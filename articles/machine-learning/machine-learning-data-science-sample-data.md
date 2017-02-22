@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b62d42ccf9a62c0b7057a9c08cdd2d7793ffaedc
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: c046220304075242f655bced2f0f16a6fb692ad3
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: b62d42ccf9a62c0b7057a9c08cdd2d7793ffaedc
 * **SQL Server 데이터** 는 SQL 및 Python 프로그래밍 언어를 모두 사용하여 샘플링됩니다. 
 * **Hive 테이블 데이터** 는 Hive 쿼리를 사용하여 샘플링됩니다.
 
-아래의 **메뉴** 는 이러한 각 Azure 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 토픽에 연결되는 링크입니다. 
+다음의 **메뉴** 는 이러한 각 Azure Storage 환경에서 데이터를 샘플링하는 방법을 설명하는 토픽에 연결되는 링크입니다. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
@@ -39,6 +39,6 @@ ms.openlocfilehash: b62d42ccf9a62c0b7057a9c08cdd2d7793ffaedc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

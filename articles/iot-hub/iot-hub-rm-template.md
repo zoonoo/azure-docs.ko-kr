@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
-ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 49c7506b35f661509346dfd8305f10c0d63422eb
 
 
 ---
@@ -45,7 +45,7 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **Microsoft.Azure.Management.ResourceManager**를 검색합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
 4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다.  **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
-5. Program.cs에서 기존 **using** 문을 다음으로 바꿉니다.
+5. Program.cs에서 기존 **using** 문을 다음 코드로 바꿉니다.
    
     ```
     using System;
@@ -193,7 +193,7 @@ Azure Resource Manager 템플릿을 사용하여 C# 프로그램에서 IoT Hub�
 * [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 읽어보세요.
 * Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요][lnk-azure-rm-overview]를 참조하세요.
 
-IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [C SDK 소개][lnk-c-sdk]
 * [Azure IoT SDK][lnk-sdks]
@@ -218,6 +218,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -307,6 +307,6 @@ MSDN의 [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.micr
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

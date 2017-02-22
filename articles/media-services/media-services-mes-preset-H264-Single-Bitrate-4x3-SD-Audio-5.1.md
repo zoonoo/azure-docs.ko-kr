@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 7bf48559416f63b3e10d426ce13f1f64050192bf
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: eefd96f0e2280ad68a4524ffa8b66efa320a3743
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 7bf48559416f63b3e10d426ce13f1f64050192bf
   
  이 항목은 XML 및 JSON 형식의 `H264 Single Bitrate 4x3 SD Audio 5.1` 미리 설정을 보여줍니다.  
   
- 이 미리 설정은 AAC 5.1 오디오 및 비트 전송률이 18000kbps인 단일 MP4 파일을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md)를 참조하세요.  
+ 이 미리 설정은 AAC 5.1 오디오 및 비트 전송률이 1800kbps인 단일 MP4 파일을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md)를 참조하세요.  
   
  XML  
   
@@ -119,6 +119,7 @@ ms.openlocfilehash: 7bf48559416f63b3e10d426ce13f1f64050192bf
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

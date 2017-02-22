@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5c6129050dacf098fa60439175b91b3a2d219182
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
 
 
 ---
@@ -80,7 +80,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 절차를 완료합니다.
 
-1. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on), 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on) - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. [Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user), Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. [Proofpoint on Demand 테스트 사용자 만들기](#creating-a-proofpoint-ondemand-test-user), Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Proofpoint on Demand에 만듭니다.
 4. [Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user), Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
@@ -169,7 +169,7 @@ Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     a. **새 암호** 상자의 값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="create-a-proofpoint-on-demand-test-user"></a>Proofpoint on Demand 테스트 사용자 만들기
 이 섹션에서는 Proofpoint on Demand에서 Britta Simon이라는 사용자를 만듭니다. Proofpoint on Demand 지원 팀과 함께 Proofpoint on Demand 플랫폼에 사용자를 추가하세요.
@@ -222,6 +222,6 @@ Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

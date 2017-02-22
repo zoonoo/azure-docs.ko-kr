@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 및 응용 프로그램: 개발자 안내 | Microsoft Docs"
+title: "Azure AD용 LOB 앱 개발 | Microsoft Docs"
 description: "IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 응용 프로그램 통합에 대한 지침을 제공합니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
+ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
+ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
 
 
 ---
@@ -36,18 +36,18 @@ Azure Active Directory를 사용하기 위해 응용 프로그램을 등록해�
 * 응용 프로그램에서 사용할 수 있는 하나 이상의 암호/키를 가져와서 AD에 자신을 인증
 * Azure 포털에서 사용자 지정 이름, 로고 등으로 응용 프로그램 브랜딩
 * 다음을 포함하여 앱에 대한 Azure AD 권한 부여 기능 적용
-  
+
   * 역할 기반 액세스 제어(RBAC)
   * OAuth 권한 부여 서버인 Azure Active Directory(응용 프로그램에서 노출된 API 보호)
 * 응용 프로그램에 예상 대로 작동하는 데 필요한 다음을 포함하는 사용 권한을 선언합니다.
-  
+
       - 앱 사용 권한(전역 관리자만 해당) 예: 다른 Azure AD 응용 프로그램에서 역할 멤버 자격 또는 Azure 리소스, 리소스 그룹 또는 구독에 상대적인 역할 멤버 자격
       - 위임된 권한(모든 사용자). 예: Azure AD, 로그인 및 프로필 읽기
 
 > [!NOTE]
 > 기본적으로 모든 멤버는 응용 프로그램을 등록할 수 있습니다. 특정 멤버에 응용 프로그램 등록에 대한 사용 권한을 제한하는 방법을 알아보려면 [Azure AD에 응용 프로그램을 추가하는 방법](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)을 참조하세요.
-> 
-> 
+>
+>
 
 다음은 개발자가 자신의 응용 프로그램을 생산할 준비를 돕기 위해 전역 관리자가 수행해야 하는 사항입니다.
 
@@ -83,7 +83,6 @@ Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

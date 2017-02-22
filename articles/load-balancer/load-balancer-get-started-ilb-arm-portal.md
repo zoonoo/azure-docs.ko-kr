@@ -107,6 +107,6 @@ Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

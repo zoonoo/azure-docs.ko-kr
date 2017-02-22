@@ -1,6 +1,6 @@
 ---
-title: "크로스-프레미스 사이트 간 Azure VPN 연결 구성: 클래식 포털 | Microsoft Docs"
-description: "클래식 배포 모델을 사용하여 프레미스 간 구성과 하이브리드 구성에 대해 사이트 간 S2S VPN 게이트웨이 연결로 VNet를 만듭니다."
+title: "온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN: Classic Portal | Microsoft Docs"
+description: "공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 클래식 포털과 클래식 배포 모델을 사용하여 크로스-프레미스 사이트 간 VPN 게이트웨이 연결을 만드는 데 도움이 됩니다."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0258e1093926e6239650a8b1ecbb7c7a778616c6
-ms.openlocfilehash: 9c92ab15d3fd320bdac69444d40f72d56482103e
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 9c92ab15d3fd320bdac69444d40f72d56482103e
 
 이 문서에서는 클래식 배포 모델 및 클래식 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 게이트웨이 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
 
-![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
+![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>사이트 간 연결에 대한 배포 모델 및 메서드
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]

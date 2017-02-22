@@ -1,5 +1,5 @@
 ---
-title: "프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용 | Microsoft 문서"
+title: "프리미엄 인코더를 통한 여러 입력 파일 및 구성 요소 속성 - Azure | Microsoft 문서"
 description: "이 항목에서는 setRuntimeProperties를 사용하여 여러 입력 파일을 사용하고 사용자 지정 데이터를 미디어 인코더 Premium 워크플로 미디어 프로세서에 전달하는 방법을 설명합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: xpouyat;anilmur;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: c789a5518575706992c8719c1927a8566c504fbb
 
 
 ---
@@ -27,32 +27,51 @@ ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
 * 각 입력 비디오에 대해 런타임에(예: 현재 날짜) 비디오 위에 텍스트 오버레이 및 텍스트 값 설정
 * 클립 목록 XML 사용자 지정(잘라내기 등을 사용/사용하지 않고 하나 이상의 소스 파일 지정)
 * 비디오를 인코딩하는 동안 입력 비디오에 로고 이미지 오버레이
+* 다중 오디오 언어 인코딩
 
 작업을 만들거나 여러 입력 파일을 전송할 때 **미디어 인코더 프리미엄 워크플로**에 사용자가 워크플로의 일부 속성을 변경하고 있음을 알리려면 **setRuntimeProperties** 및/또는 **transcodeSource**를 포함하는 구성 문자열을 사용해야 합니다. 이 항목에서는 이를 사용하는 방법을 설명합니다.
 
 ## <a name="configuration-string-syntax"></a>구성 문자열 구문
 인코딩 작업에서 설정할 구성 문자열은 다음과 같은 XML 문서를 사용합니다.
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <transcodeRequest>
-      <transcodeSource>
-      </transcodeSource>
-      <setRuntimeProperties>
-        <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
-      </setRuntimeProperties>
-    </transcodeRequest>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<transcodeRequest>
+  <transcodeSource>
+  </transcodeSource>
+  <setRuntimeProperties>
+    <property propertyPath="Media File Input/filename" value="VideoFileName.mp4" />
+  </setRuntimeProperties>
+</transcodeRequest>
+```
 
+다음은 파일에서 XML 구성을 읽고 적절한 비디오 파일 이름으로 업데이트한 후 해당 작업에 전달하는 C# 코드입니다.
 
-다음은 파일에서 XML 구성을 읽은 후 해당 작업에 전달하는 C# 코드입니다.
+```c#
+string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
-    XDocument configurationXml = XDocument.Load(xmlFileName);
-    IJob job = _context.Jobs.CreateWithSingleTask(
-                                                  "Media Encoder Premium Workflow",
-                                                  configurationXml.ToString(),
-                                                  myAsset,
-                                                  "Output asset",
-                                                  AssetCreationOptions.None);
+// Declare a new job.
+IJob job = _context.Jobs.Create("Premium Workflow encoding job");
 
+// Get a media processor reference, and pass to it the name of the 
+// processor to use for the specific task.
+IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
+
+// Create a task with the encoding details, using a string preset.
+ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
+                              processor,
+                              premiumConfiguration,
+                              TaskOptions.None);
+
+// Specify the input assets
+task.InputAssets.Add(workflow); // workflow asset
+task.InputAssets.Add(video); // video asset with multiple files
+
+// Add an output asset to contain the results of the job. 
+// This output is specified as AssetCreationOptions.None, which 
+// means the output asset is not encrypted. 
+task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
+```
 
 ## <a name="customizing-component-properties"></a>구성 요소 속성 사용자 지정
 ### <a name="property-with-a-simple-value"></a>간단한 값이 있는 속성
@@ -64,53 +83,53 @@ ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
 
 예제:
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <transcodeRequest>
-        <setRuntimeProperties>
-          <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
-          <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
-          <property propertyPath="Optional Overlay/Overlay/filename" value="MyLogo.png"/>
-          <property propertyPath="Optional Text Overlay/Text To Image Converter/text" value="Today is Friday the 13th of May, 2016"/>
-      </setRuntimeProperties>
-    </transcodeRequest>
-
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+  <transcodeRequest>
+    <setRuntimeProperties>
+      <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
+      <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
+      <property propertyPath="Optional Text Overlay/Text To Image Converter/text" value="Today is Friday the 13th of May, 2016"/>
+  </setRuntimeProperties>
+</transcodeRequest>
+```
 
 ### <a name="property-with-an-xml-value"></a>XML 값이 있는 속성
 XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용하여 캡슐화하세요.
 
 예제:
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <transcodeRequest>
-        <setRuntimeProperties>
-          <property propertyPath="/primarySourceFile" value="start.mxf" />
-          <property propertyPath="/inactiveTimeout" value="65" />
-          <property propertyPath="clipListXml" value="xxx">
-          <extendedValue><![CDATA[<clipList>
-            <clip>
-              <videoSource>
-                <mediaFile>
-                  <file>start.mxf</file>
-                </mediaFile>
-              </videoSource>
-              <audioSource>
-                <mediaFile>
-                  <file>start.mxf</file>
-                </mediaFile>
-              </audioSource>
-            </clip>
-            <primaryClipIndex>0</primaryClipIndex>
-            </clipList>]]>
-          </extendedValue>
-          </property>
-          <property propertyPath="Media File Input Logo/filename" value="logo.png" />
-        </setRuntimeProperties>
-      </transcodeRequest>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+  <transcodeRequest>
+    <setRuntimeProperties>
+      <property propertyPath="/primarySourceFile" value="start.mxf" />
+      <property propertyPath="/inactiveTimeout" value="65" />
+      <property propertyPath="clipListXml" value="xxx">
+      <extendedValue><![CDATA[<clipList>
+        <clip>
+          <videoSource>
+            <mediaFile>
+              <file>start.mxf</file>
+            </mediaFile>
+          </videoSource>
+          <audioSource>
+            <mediaFile>
+              <file>start.mxf</file>
+            </mediaFile>
+          </audioSource>
+        </clip>
+        <primaryClipIndex>0</primaryClipIndex>
+        </clipList>]]>
+      </extendedValue>
+      </property>
+      <property propertyPath="Media File Input Logo/filename" value="logo.png" />
+    </setRuntimeProperties>
+  </transcodeRequest>
+```
 
 > [!NOTE]
 > `<![CDATA[` 바로 뒤에 캐리지 리턴을 두지 마세요.
->
->
 
 ### <a name="propertypath-value"></a>propertyPath 값
 이전 예제에서 propertyPath는 "/Media File Input/filename", "/inactiveTimeout", "clipListXml"였습니다.
@@ -152,99 +171,106 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 ### <a name="clip-list-xml-customization"></a>클립 목록 XML 사용자 지정
 구성 문자열 XML에서 **transcodeSource** 를 사용하여 워크플로에서 런타임에 클립 목록 XML을 지정할 수 있습니다. 이를 위해서는 클립 목록 XML 핀을 워크플로에서 미디어 원본 구성 요소에 연결해야 합니다.
 
-    <?xml version="1.0" encoding="utf-16"?>
-      <transcodeRequest>
-        <transcodeSource>
-          <clipList>
-            <clip>
-              <videoSource>
-                <mediaFile>
-                  <file>video-part1.mp4</file>
-                </mediaFile>
-              </videoSource>
-              <audioSource>
-                <mediaFile>
-                  <file>video-part1.mp4</file>
-                </mediaFile>
-              </audioSource>
-            </clip>
-            <primaryClipIndex>0</primaryClipIndex>
-          </clipList>
-        </transcodeSource>
-        <setRuntimeProperties>
-          <property propertyPath="Media File Input Logo/filename" value="logo.png" />
-        </setRuntimeProperties>
-      </transcodeRequest>
+```xml
+<?xml version="1.0" encoding="utf-16"?>
+  <transcodeRequest>
+    <transcodeSource>
+      <clipList>
+        <clip>
+          <videoSource>
+            <mediaFile>
+              <file>video-part1.mp4</file>
+            </mediaFile>
+          </videoSource>
+          <audioSource>
+            <mediaFile>
+              <file>video-part1.mp4</file>
+            </mediaFile>
+          </audioSource>
+        </clip>
+        <primaryClipIndex>0</primaryClipIndex>
+      </clipList>
+    </transcodeSource>
+    <setRuntimeProperties>
+      <property propertyPath="Media File Input Logo/filename" value="logo.png" />
+    </setRuntimeProperties>
+  </transcodeRequest>
+```
 
 'Expressions'를 사용하여 출력 파일의 이름을 지정하는 데 이 속성을 사용하도록 /primarySourceFile을 지정하는 경우, 클립 목록이 /primarySourceFile 설정으로 재정의되지 않도록 클립 목록 XML을 /primarySourceFile 속성 *이후의* 속성으로 전달하는 것이 좋습니다.
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <transcodeRequest>
-        <setRuntimeProperties>
-          <property propertyPath="/primarySourceFile" value="c:\temp\start.mxf" />
-          <property propertyPath="/inactiveTimeout" value="65" />
-          <property propertyPath="clipListXml" value="xxx">
-          <extendedValue><![CDATA[<clipList>
-            <clip>
-              <videoSource>
-                <mediaFile>
-                  <file>c:\temp\start.mxf</file>
-                </mediaFile>
-              </videoSource>
-              <audioSource>
-                <mediaFile>
-                  <file>c:\temp\start.mxf</file>
-                </mediaFile>
-              </audioSource>
-            </clip>
-            <primaryClipIndex>0</primaryClipIndex>
-            </clipList>]]>
-          </extendedValue>
-          </property>
-          <property propertyPath="Media File Input Logo/filename" value="logo.png" />
-        </setRuntimeProperties>
-      </transcodeRequest>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+  <transcodeRequest>
+    <setRuntimeProperties>
+      <property propertyPath="/primarySourceFile" value="c:\temp\start.mxf" />
+      <property propertyPath="/inactiveTimeout" value="65" />
+      <property propertyPath="clipListXml" value="xxx">
+      <extendedValue><![CDATA[<clipList>
+        <clip>
+          <videoSource>
+            <mediaFile>
+              <file>c:\temp\start.mxf</file>
+            </mediaFile>
+          </videoSource>
+          <audioSource>
+            <mediaFile>
+              <file>c:\temp\start.mxf</file>
+            </mediaFile>
+          </audioSource>
+        </clip>
+        <primaryClipIndex>0</primaryClipIndex>
+        </clipList>]]>
+      </extendedValue>
+      </property>
+      <property propertyPath="Media File Input Logo/filename" value="logo.png" />
+    </setRuntimeProperties>
+  </transcodeRequest>
+```
 
 추가 프레임 정확한 트리밍 사용:
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <transcodeRequest>
-        <setRuntimeProperties>
-          <property propertyPath="/primarySourceFile" value="start.mxf" />
-          <property propertyPath="/inactiveTimeout" value="65" />
-          <property propertyPath="clipListXml" value="xxx">
-          <extendedValue><![CDATA[<clipList>
-            <clip>
-              <videoSource>
-                <trim>
-                  <inPoint fps="25">00:00:05:24</inPoint>
-                  <outPoint fps="25">00:00:10:24</outPoint>
-                </trim>
-                <mediaFile>
-                  <file>start.mxf</file>
-                </mediaFile>
-              </videoSource>
-              <audioSource>
-               <trim>
-                  <inPoint fps="25">00:00:05:24</inPoint>
-                  <outPoint fps="25">00:00:10:24</outPoint>
-                </trim>
-                <mediaFile>
-                  <file>start.mxf</file>
-                </mediaFile>
-              </audioSource>
-            </clip>
-            <primaryClipIndex>0</primaryClipIndex>
-            </clipList>]]>
-          </extendedValue>
-          </property>
-          <property propertyPath="Media File Input Logo/filename" value="logo.png" />
-        </setRuntimeProperties>
-      </transcodeRequest>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+  <transcodeRequest>
+    <setRuntimeProperties>
+      <property propertyPath="/primarySourceFile" value="start.mxf" />
+      <property propertyPath="/inactiveTimeout" value="65" />
+      <property propertyPath="clipListXml" value="xxx">
+      <extendedValue><![CDATA[<clipList>
+        <clip>
+          <videoSource>
+            <trim>
+              <inPoint fps="25">00:00:05:24</inPoint>
+              <outPoint fps="25">00:00:10:24</outPoint>
+            </trim>
+            <mediaFile>
+              <file>start.mxf</file>
+            </mediaFile>
+          </videoSource>
+          <audioSource>
+            <trim>
+              <inPoint fps="25">00:00:05:24</inPoint>
+              <outPoint fps="25">00:00:10:24</outPoint>
+            </trim>
+            <mediaFile>
+              <file>start.mxf</file>
+            </mediaFile>
+          </audioSource>
+        </clip>
+        <primaryClipIndex>0</primaryClipIndex>
+        </clipList>]]>
+      </extendedValue>
+      </property>
+      <property propertyPath="Media File Input Logo/filename" value="logo.png" />
+    </setRuntimeProperties>
+  </transcodeRequest>
+```
 
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예 1: 비디오 위에 이미지 오버레이
 
-## <a name="example"></a>예
-비디오를 인코딩하는 동안 로고 이미지를 입력 비디오에 오버레이하는 예를 살펴보겠습니다. 이 예에서는 입력 비디오의 이름을 "MyInputVideo.mp4"로 지정하고 로고 이름을 "MyLogo.png"로 지정합니다. 다음 단계를 수행해야 합니다.
+### <a name="presentation"></a>프레젠테이션
+비디오를 인코딩하는 동안 로고 이미지를 입력 비디오에 오버레이하는 예를 살펴보겠습니다. 이 예제에서 입력 비디오의 이름은 "Microsoft_HoloLens_Possibilities_816p24.mp4", 로고 이름은 "logo.png"로 지정합니다. 다음 단계를 수행해야 합니다.
 
 * 워크플로 파일로 워크플로 자산 만들기(아래 예제 참조)
 * 두 파일(기본 파일로 MyInputVideo.mp4 및 MyLogo.png)을 포함하는 미디어 자산 만들기
@@ -252,29 +278,28 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 
 구성:
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <transcodeRequest>
-        <setRuntimeProperties>
-          <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
-          <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
-          <property propertyPath="Media File Input Logo/filename" value="MyLogo.png" />
-        </setRuntimeProperties>
-      </transcodeRequest>
-
+```xml
+<?xml version="1.0" encoding="utf-16"?>
+  <transcodeRequest>
+    <setRuntimeProperties>
+      <property propertyPath="Media File Input/filename" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
+      <property propertyPath="/primarySourceFile" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
+      <property propertyPath="Media File Input Logo/filename" value="logo.png" />
+    </setRuntimeProperties>
+  </transcodeRequest>
+```
 
 위 예제에서 비디오 파일의 이름이 미디어 파일 입력 구성 요소 및 primarySourceFile 속성으로 전송됩니다. 로고 파일의 이름은 그래픽 오버레이 구성 요소에 연결되어 있는 다른 미디어 파일 입력으로 전송됩니다.
 
 > [!NOTE]
 > 비디오 파일 이름은 primarySourceFile 속성에 전송됩니다. 그 이유는 예를 들어 Expressions를 사용하여 올바른 출력 파일 이름을 작성하기 위해 워크플로에서 이 속성을 사용해야 하기 때문입니다.
->
->
 
-### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>비디오 맨 위의 로고를 오버레이하는 단계별 워크플로 만들기
+### <a name="step-by-step-workflow-creation"></a>단계별 워크플로 만들기
 입력으로 두 개의 파일(비디오 및 이미지)을 사용하는 워크플로를 만드는 단계는 다음과 같습니다. 비디오 맨 위에서 이미지를 오버레이합니다.
 
 **워크플로 디자이너**를 열고 **파일** > **새 작업 영역** > **청사진 트랜스코딩**을 선택합니다.
 
-새 워크플로는 3개의 요소를 보여 줍니다.
+새 워크플로는&3;개의 요소를 보여 줍니다.
 
 * 기본 원본 파일
 * 클립 목록 XML
@@ -358,8 +383,6 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 > [!NOTE]
 > 자산에서 기본 파일을 설정해야 합니다(기본 비디오 파일).
->
->
 
 ![AMSE에서 자산 파일](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -375,14 +398,16 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 그런 다음, 다음 XML 데이터를 붙여 넣습니다. 미디어 파일 입력 및 primarySourceFile 모두에 대한 비디오 파일의 이름을 지정해야 합니다. 로고에 대한 파일 이름도 지정합니다.
 
-    <?xml version="1.0" encoding="utf-16"?>
-      <transcodeRequest>
-        <setRuntimeProperties>
-          <property propertyPath="Media File Input/filename" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
-          <property propertyPath="/primarySourceFile" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
-          <property propertyPath="Media File Input Logo/filename" value="logo.png" />
-        </setRuntimeProperties>
-      </transcodeRequest>
+```xml
+<?xml version="1.0" encoding="utf-16"?>
+  <transcodeRequest>
+    <setRuntimeProperties>
+      <property propertyPath="Media File Input/filename" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
+      <property propertyPath="/primarySourceFile" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
+      <property propertyPath="Media File Input Logo/filename" value="logo.png" />
+    </setRuntimeProperties>
+  </transcodeRequest>
+```
 
 ![setRuntimeProperties](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture20_amsexmldata.png)
 
@@ -390,7 +415,9 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 .NET SDK를 사용하여 작업을 만들고 실행한 경우 이 XML 데이터를 구성 문자열로 전달해야 합니다.
 
-    public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
+```c#
+public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
+```
 
 작업이 완료되면 출력 자산의 MP4 파일이 오버레이를 표시합니다.
 
@@ -399,6 +426,43 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 *비디오에서 오버레이*
 
 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/)에서 샘플 워크플로를 다운로드할 수 있습니다.
+
+## <a name="example-2--multiple-audio-language-encoding"></a>예 2: 다중 오디오 언어 인코딩
+
+다중 오디오 언어 인코딩 워크플로의 예는 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding)에서 제공합니다.
+
+이 폴더에는 MXF 파일을 여러 오디오 트랙이 있는 다중 MP4 파일 자산으로 인코딩하는 데 사용할 수 있는 샘플 워크플로가 포함되어 있습니다.
+
+이 워크플로는 MXF 파일에 오디오 트랙 하나가 포함된 것으로 가정하며, 추가 오디오 트랙은 별도의 오디오 파일(WAV 또는 MP4)로 전달해야 합니다.
+
+인코딩하려면 다음 단계를 따릅니다.
+
+* MXF 파일 및 오디오 파일(0~18개 오디오 파일)을 사용하여 Media Services 자산을 만듭니다.
+* MXF 파일을 기본 파일로 설정합니다.
+* Premium 워크플로 인코더 프로세서를 사용하여 작업 및 태스크를 만듭니다. 제공된 워크플로(MultiMP4-1080p-19audio-v1.workflow)를 사용합니다.
+* setruntime.xml 데이터를 작업에 전달합니다(Azure Media Services 탐색기를 사용하는 경우 “xml 데이터를 워크플로에 전달” 단추를 사용).
+  * XML 데이터를 업데이트하여 올바른 파일 이름 및 언어 태그를 지정합니다.
+  * 워크플로에는 Audio 1부터 Audio 18까지 오디오 구성 요소가 있습니다.
+  * RFC5646은 언어 태그에 지원됩니다.
+
+```xml
+<?xml version="1.0" encoding="utf-16"?>
+<transcodeRequest>
+  <setRuntimeProperties>
+    <property propertyPath="Media File Input Video/filename" value="MainVideo.mxf" />
+    <property propertyPath="Language/language_code" value="en" />
+    <property propertyPath="/primarySourceFile" value="MainVideo.mxf" />
+    <property propertyPath="Audio 1/Media File Input/filename" value="french-audio.wav" />
+    <property propertyPath="Audio 1/Language/language_code" value="fr" />
+    <property propertyPath="Audio 2/Media File Input/filename" value="german-audio.wav" />
+    <property propertyPath="Audio 2/Language/language_code" value="de" />
+    <property propertyPath="Audio 3/Media File Input/filename" value="japanese-audio.wav" />
+    <property propertyPath="Audio 3/Language/language_code" value="ja" />
+  </setRuntimeProperties>
+</transcodeRequest>
+```
+
+* 인코딩된 자산은 다중 언어 오디오 트랙을 포함하며 이러한 트랙을 Azure Media Player에서 선택할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 * [Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
@@ -416,6 +480,6 @@ AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

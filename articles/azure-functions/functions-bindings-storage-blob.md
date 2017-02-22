@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
-ms.openlocfilehash: b3d9dcceb8e0a3a7c31e4a0a8cf1eb9dd82bf6c8
+ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
+ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
 
 
 ---
@@ -37,7 +37,7 @@ ms.openlocfilehash: b3d9dcceb8e0a3a7c31e4a0a8cf1eb9dd82bf6c8
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Storage Blob 트리거
-Azure Storage Blob 트리거를 사용하면 신규 및 업데이트된 Blob에 대한 저장소 컨테이너를 모니터링하고 이에 반응할 수 있습니다. 
+Azure Storage Blob 트리거를 통해 저장소 컨테이너에서 새롭고 업데이트된 Blob을 모니터링하고 변경 사항이 감지되면 함수 코드를 실행할 수 있습니다. 
 
 함수에 대한 Storage Blob 트리거는 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
 
@@ -328,9 +328,9 @@ Azure Storage Blob 출력 바인딩을 사용하면 함수의 저장소 컨테�
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
@@ -372,6 +372,6 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

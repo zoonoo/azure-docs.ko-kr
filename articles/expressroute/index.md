@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure ExpressRoute 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 개인 ExpressRoute 연결을 구성하고 관리하는 방법에 대해 알아봅니다."
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
+ms.sourcegitcommit: 6eb84236ff7814ab7dfade718693060d7e7383b9
+ms.openlocfilehash: a060970a2f2870a40d4925b8eeccf4fec4af1aa4
 
 ---
+
 #<a name="expressroute-documentation"></a>ExpressRoute 설명서
 
 ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.
@@ -102,6 +114,6 @@ ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

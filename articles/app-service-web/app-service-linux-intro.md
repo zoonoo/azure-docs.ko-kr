@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
-ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
+ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
 
 
 ---
@@ -33,6 +33,7 @@ Linux의 App Service는 현재 다음과 같은 응용 프로그램 스택을 �
 * Node.js
 * PHP
 * .NET Core
+* Ruby
 
 고객은 다음을 사용하여 해당 응용 프로그램을 배포할 수 있습니다.
 
@@ -66,6 +67,8 @@ Linux의 웹앱은 전용 App Service 계획에서만 지원되며 무료 또는
 
 Linux의 웹앱은 동일한 지역에 비 Linux 웹앱을 포함하지 않는 리소스 그룹에서 만들어야 합니다.
 
+Linux의 Web Apps는 아직 컴파일되지 않은 원본에서 .NET Core 앱의 배포를 지원하지 않습니다. 먼저 .NET Core 앱을 로컬에 게시/컴파일한 다음 게시된 사이트 비트를 앱으로 푸시해야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
@@ -73,9 +76,9 @@ Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [�
 * [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용하는 방법](app-service-linux-using-custom-docker-image.md)
 * [Linux의 웹앱에 있는 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
 * [Linux의 Azure App Service 웹앱에서 .NET Core 사용](app-service-linux-using-dotnetcore.md)
+* [Linux의 Azure App Service Web Apps에 대한 FAQ](app-service-linux-faq.md)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

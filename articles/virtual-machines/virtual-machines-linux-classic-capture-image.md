@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: de9b8b35e12af63ef6c29c87d28beaea81be1e69
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: c81c2f86802c1b1d672105962c196b36fbb2c081
 
 
 ---
@@ -93,7 +93,7 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
    ![이미지 캡처 성공](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 이미지를 사용하여 VM을 만들 수 있습니다. Azure CLI 명령 `azure vm create` 을 사용하고 만든 이미지 이름을 제공할 수 있습니다. 자세한 내용은 [클래식 배포 모델에서 Azure CLI 사용](../virtual-machines-command-line-tools.md)을 참조하세요. 
+이제 이미지를 사용하여 VM을 만들 수 있습니다. Azure CLI 명령 `azure vm create` 을 사용하고 만든 이미지 이름을 제공할 수 있습니다. 자세한 내용은 [클래식 배포 모델에서 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요. 
 
 또는 [Azure 클래식 포털][Azure classic portal]에서 **갤러리에서** 방법을 사용한 후 만든 이미지를 선택하여 사용자 지정 VM을 만듭니다. 자세한 내용은 [사용자 지정 VM을 만드는 방법][How to Create a Custom Virtual Machine]을 참조하세요
 
@@ -107,6 +107,6 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Site Recovery로 온-프레미스 Hyper-V 가상 컴퓨터와 Azure(VMM 없음) 간 복제 | Microsoft Docs"
+title: "클래식 포털에서 Azure에 Hyper-V VM 복제 | Microsoft Docs"
 description: "이 문서에서는 컴퓨터가 VMM 클라우드에서 관리되지 않는 경우 Azure 사이트 복구를 사용하여 Azure에 Hyper-V 가상 컴퓨터를 복제하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea89244efea6afa7d7b9d60f400117284fb5d1e1
-ms.openlocfilehash: 3c5e51c562d9251f2ad40eeb1939d1651c845391
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 
 
 ---
@@ -222,13 +222,13 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
        * 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
        * 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
-       * 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.
-       
+       * 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가&4;를 지원하는 경우, 대상 컴퓨터에는&2;개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는&1;개의 어댑터만 있어야 합니다.
+
      * **Azure 네트워크**: 가상 컴퓨터가 장애 조치되는 네트워크를 지정합니다. 가상 컴퓨터에 여러 네트워크가 있는 경우 모든 어댑터는 동일한 Azure 네트워크에 연결되어야 합니다.
      * **서브넷** 가상 컴퓨터에서 각 네트워크 어댑터에 대해 장애 조치 후 컴퓨터가 연결되는 Azure 네트워크의 서브넷을 선택합니다.
      * **대상 IP 주소**: 원본 가상 컴퓨터의 네트워크 어댑터를 고정 IP 주소를 사용하도록 구성하는 경우, 대상 가상 컴퓨터의 IP 주소를 지정하여 장애 조치 후 컴퓨터가 동일한 IP 주소를 갖도록 할 수 있습니다.  IP 주소를 지정하지 않으면 사용 가능한 임의의 주소가 장애 조치 시 할당됩니다. 사용 중인 주소를 지정하는 경우 장애 조치가 실패합니다.
 
-     > [!NOTE] 
+     > [!NOTE]
      > 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대한 [네트워크의 마이그레이션](../azure-resource-manager/resource-group-move-resources.md)은 Site Recovery를 배포하는 데 사용되는 네트워크에 지원되지 않습니다.
      >
 
@@ -286,6 +286,6 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

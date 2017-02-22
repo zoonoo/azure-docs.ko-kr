@@ -1,12 +1,22 @@
 ---
-layout: LandingPage
+title: "Azure 모니터링 및 진단 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. API 참조, 모범 사례 등입니다."
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
+ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
+ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>모니터링 및 진단 설명서
 
 Azure 모니터링 및 진단 서비스를 사용하여 성능을 추적하고 보안을 유지 관리하며 추세를 파악하는 방법에 대해 알아봅니다. 자습서, API 참조, 모범 사례 및 기타 설명서를 통해 모니터링 및 진단의 사용법과 확장성 및 안정성이 뛰어난 솔루션을 계획하고 배포하는 방법을 이해할 수 있습니다.
@@ -144,12 +154,26 @@ Azure 모니터링 및 진단 서비스를 사용하여 성능을 추적하고 �
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure 진단 스키마</a></h3>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure 진단 스키마 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure 진단 스키마 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5">Azure 진단 스키마 1.3 ~ 1.5</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

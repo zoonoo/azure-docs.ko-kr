@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 2/6/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c03033fcadf0f92b77820fba1dd588f460287b86
+ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
+ms.openlocfilehash: abf5e4bc69aa32ca9af8998ef81de20baae24560
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>미리 보기: Service Fabric 및 컨테이너
 > [!NOTE]
-> 이 기능은 Linux용 미리 보기 상태이며 Windows Server 2016에서는 현재 사용할 수 없습니다. Windows Server 2016 GA 후 Azure Service Fabric의 다음 릴리스에서 Windows Server용 미리 보기로 제공된 후에 후속 릴리스에서 지원될 예정입니다.
-> 
-> 
+> 이 기능은 Linux 및 Windows Server 2016용 미리 보기 상태입니다. 
+>   
 
 ## <a name="introduction"></a>소개
-Azure Service Fabric은 컴퓨터 클러스터에 걸쳐있는 서비스 [오케스트레이터](service-fabric-cluster-resource-manager-introduction.md)입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-deploy-existing-app.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. 시나리오에 따라 두 가지 환경의 장점을 활용할 수 있습니다.
+Azure Service Fabric은 컴퓨터 클러스터에서 사용되는 여러 서비스의 [Orchestrator](service-fabric-cluster-resource-manager-introduction.md)로, Microsoft의 방대한 서비스에서 수년 동안 사용되면서 최적화 과정을 거친 기능입니다. 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md) 사용부터 [게스트 실행 파일](service-fabric-deploy-existing-app.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. 프로세스는 클러스터 내에서 리소스의 최고밀도 사용과 가장 신속한 활성화를 제공합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. 
+
+## <a name="containers-and-service-fabric-roadmap"></a>컨테이너 및 Service Fabric 로드맵
+향후 제공될 몇 번의 릴리스에서 Service Fabric은 네트워킹, 리소스 제약 조건, 보안, 진단, 볼륨 드라이버 및 도구 지원(특히 Visual Studio) 향상을 비롯하여 Windows 및 Linux 둘 다에서 포괄적인 컨테이너 지원을 지속적으로 추가하여 컨테이너 이미지를 사용하여 서비스를 배포하는 환경을 최고 수준까지 끌어올릴 에정입니다. 이를 통해 컨테이너를 사용하여 기존 코드를 패키지하는 방식(예: IIS MVC 앱) 또는 Service Fabric 프로그래밍 모델 중에서 선택할 수 있습니다. 또한 Service Fabric에서는 이러한 두 가지 방식을 동일하게 취급하므로 응용 프로그램에서 이러한 방식을 혼합하여 코드를 보다 유연하게 배포할 수 있게 됩니다. 시나리오에 따라 두 가지 환경의 장점을 활용할 수 있습니다.
 
 ## <a name="what-are-containers"></a>컨테이너란?
 컨테이너는 캡슐화되어 개별적으로 배포가 가능한 구성 요소로, 운영 체제가 제공하는 가상화를 활용하기 위해 동일한 커널에서 격리된 인스턴스로 실행됩니다. 즉, 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제 구성물의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행된다는 의미입니다. 이식성과 더불어 이러한 수준의 보안 및 리소스 격리는 서비스를 프로세스에서 실행하지 않고 Service Fabric에서 컨테이너를 사용하는 주요 장점입니다.
@@ -50,7 +52,7 @@ Docker는 고급 수준의 API를 제공하여 Linux 커널 컨테이너 위에�
 ### <a name="windows-server-containers"></a>Windows Server 컨테이너
 Windows Server 2016은 제공되는 격리 수준이 다른 두 가지 유형의 컨테이너를 제공합니다. Windows Server 컨테이너와 Docker 컨테이너는 둘다 네임스페이스와 파일 시스템이 있다는 점에서 유사하지만 이들 컨테이너가 실행되는 호스트가 있는 커널을 공유합니다. Linux에서, 이러한 격리는 일반적으로 cgroups 및 네임스페이스에 의해 제공되었으며 Windows Server 컨테이너도 유사하게 작동합니다.
 
-Windows Hyper-V 컨테이너는 각 컨테이너가 다른 컨테이너 또는 호스트가 있는 운영 체제 커널을 공유하지 않기 때문에 더 많은 격리 및 보안을 제공합니다. 이렇게 보안 격리 수준이 높은 Hyper-V 컨테이너는 특히 적대적인 다중 테넌트 시나리오를 대상으로 합니다.
+Windows Hyper-V 컨테이너는 각 컨테이너가 다른 컨테이너 또는 호스트가 있는 운영 체제 커널을 공유하지 않기 때문에 더 많은 격리 및 보안을 제공합니다. 이렇게 보안 격리 수준이 높은 Hyper-V 컨테이너는 적대적인 다중 테넌트 시나리오를 대상으로 합니다.
 
 이 작업을 수행하는 방법에 대한 연습은 [Windows 컨테이너를 Service Fabric에 배포](service-fabric-deploy-container.md)를 참조하세요.
 
@@ -61,7 +63,7 @@ Windows Hyper-V 컨테이너는 각 컨테이너가 다른 컨테이너 또는 �
 다음은 컨테이너가 적합한 일반적인 예입니다.
 
 * **IIS 리프트 및 이동**: 기존의 [ASP.NET MVC](https://www.asp.net/mvc) 앱을 계속 사용하려는 경우 앱을 ASP.NET 코어로 마이그레이션하는 대신 컨테이너에 둡니다. 이러한 ASP.NET MVC 앱은 IIS(인터넷 정보 서비스)에 다릅니다. 이것을 미리 만든 IIS 이미지의 컨테이너 이미지로 패키징하고 Service Fabric을 사용하여 배포할 수 있습니다. IIS 이미지를 만드는 방법에 대한 자세한 내용은 [Windows Server의 컨테이너 이미지](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images)를 참조하세요.
-* **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 응용 프로그램의 일부에 사용합니다. 예를 들어, 응용 프로그램의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 Reliable Services를 사용하여 빌드한 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다. 이런 시나리오의 사례로는 게임 응용 프로그램이 있습니다.
+* **컨테이너와 Service Fabric 마이크로 서비스의 혼합**: 기존 컨테이너 이미지를 응용 프로그램의 일부에 사용합니다. 예를 들어, 응용 프로그램의 웹 프런트 엔드에 [NGINX 컨테이너](https://hub.docker.com/_/nginx/) 를 사용하고 상태 저장 서비스를 보다 집약적인 백 엔드 계산에 사용합니다.
 * **"시끄러운 이웃" 서비스의 영향 감소**: 컨테이너의 리소스 관리 기능을 사용하여 호스트에 서비스가 사용하는 리소스를 제한합니다. 서비스는 많은 리소스를 소비하고 다른 서비스의 성능에 영향을 미칠 수 있는 경우(예: 장기적으로 실행되는 쿼리 같은 연산), 리소스 관리를 사용하는 컨테이너에 이 서비스를 넣는 것이 좋습니다.
 
 ## <a name="service-fabric-support-for-containers"></a>컨테이너에 대한 Service Fabric 지원
@@ -93,6 +95,6 @@ Service Fabric에는 컨테이너화된 마이크로 서비스로 구성된 응�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

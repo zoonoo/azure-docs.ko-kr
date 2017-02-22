@@ -1,6 +1,6 @@
 ---
-title: "자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자"
-description: "Azure Resource Manager 모드에서 Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
+title: "Azure Resource Manager VM의 고가용성 설정 | Microsoft Docs"
+description: "이 자습서에서는 Azure Resource Manager 모드에서 Azure Virtual Machines로 Always On 가용성 그룹을 만드는 방법을 보여 줍니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/20/2016
-ms.author: MikeRayMSFT
+ms.workload: iaas-sql-server
+ms.date: 1/23/2017
+ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 27967ee372c379de08ae0c4740638cbeaabc4e55
+ms.sourcegitcommit: d0910bd4e0bf50591ac83991eb2eb679bdc3cadf
+ms.openlocfilehash: 4cbe4f189f5d562edbe5d5cbb524581aa4cb66f2
 
 
 ---
@@ -38,7 +38,7 @@ ms.openlocfilehash: 27967ee372c379de08ae0c4740638cbeaabc4e55
 
 * 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 * AD(Active Directory) 도메인을 포함한 두 개의 도메인 컨트롤러
-* 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 SQL Server VM 2개
+* 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 SQL Server VM&2;개
 * 노드 과반수 쿼럼 모델을 포함하는 3-노드 WSFC 클러스터
 * 가용성 데이터베이스의 두 개의 동기 커밋 복제본이 포함된 가용성 그룹
 
@@ -231,6 +231,6 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

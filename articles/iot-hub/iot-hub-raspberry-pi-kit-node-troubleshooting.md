@@ -1,5 +1,5 @@
 ---
-title: "문제 해결 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 문제 해결 | Microsoft Docs"
 description: "Raspberry Pi Node.js 환경 문제 해결 페이지"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
 
 
 ---
@@ -123,6 +123,7 @@ Azure CLI를 사용하여 Azure IoT Hub 프로비저닝을 완료했고 IoT Hub�
 ### <a name="device-explorer"></a>장치 탐색기
 [장치 Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) 도구는 Windows 로컬 컴퓨터에서 실행되며 Azure의 IoT Hub에 연결합니다. 다음과 같은 [IoT Hub 끝점](iot-hub-devguide.md)과 통신합니다.
 
+
 * *장치 ID 관리*: IoT Hub에 등록된 장치를 프로비전하고 관리합니다.
 * *장치-클라우드 받기*: 장치에서 IoT Hub로 보내는 메시지를 모니터링할 수 있습니다.
 * *클라우드-장치 보내기*: IoT Hub에서 장치로 메시지를 보낼 수 있습니다.
@@ -153,6 +154,6 @@ iothub-explorer help
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

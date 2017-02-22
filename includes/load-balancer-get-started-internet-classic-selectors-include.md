@@ -1,10 +1,11 @@
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/load-balancer/load-balancer-get-started-internet-classic-pportal.md)
-> * [Azure classic Portal](../articles/load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [Azure 포털](../articles/load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Azure 클래식 포털](../articles/load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../articles/load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-classic-cli.md)
-> * [Azure Cloud Services](../articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md)
-> 
-> 
+> * [Azure 클라우드 서비스](../articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+
+<!--HONumber=Jan17_HO3-->
+
+

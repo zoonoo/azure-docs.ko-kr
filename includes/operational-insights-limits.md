@@ -1,29 +1,35 @@
----
-title: Operational Insights 제한 사항 테이블
-description: Operational Insights를 위한 시스템 제한 사항을 설명합니다.
-services: operational-insights
-documentationcenter: NA
-author: bandersmsft
-manager: jwhit
-editor: ''
 
-ms.service: operational-insights
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/01/2015
-ms.author: banders
+>[!NOTE]
+>Log Analytics는 이전에 Operational Insights로 알려져 있었습니다.
+>
+>
 
----
-Operational Insights 구독에는 다음과 같은 제한이 적용됩니다.
+구독당 Log Analytics 리소스에는 다음과 같은 제한이 적용됩니다.
 
-|  | 무료 | 표준 | PREMIUM |
-| --- | --- | --- | --- |
-| 일별 데이터 전송 제한 |500MB<sup>1</sup> |없음 |없음 |
-| 데이터 보존 기간 |7 일 |1개월 |12개월 |
-| 데이터 저장소 제한 |500MB x 7일 = 3.5GB |무제한 |무제한 |
+| 리소스 | 기본 제한 | 설명
+| --- | --- | --- |
+| 구독당 무료 작업 영역의 수 | 10 | 이 제한은 늘릴 수 없습니다. |
+| 구독당 유료 작업 영역의 수 | 해당 없음 | 리소스 그룹 내 리소스의 수와 구독당 리소스 그룹의 수에 의해 제한됩니다. | 
 
-<sup>1</sup>고객이 500MB 일별 데이터 전송 제한에 도달한 경우 데이터 분석이 중지되고 다음날 다시 시작됩니다. 1일은 UTC를 기준으로 합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+각 Log Analytics 작업 영역에는 다음 제한이 적용됩니다.
+
+|  | 무료 | Standard | Premium | 독립 실행형 | OMS |
+| --- | --- | --- | --- | --- | --- |
+| 하루에 수집된 데이터 볼륨 |500MB<sup>1</sup> |없음 |없음 | 없음 | 없음
+| 데이터 보존 기간 |7 일 |1개월 |12개월 | 1개월<sup>2</sup> | 1개월 <sup>2</sup>|
+
+<sup>1</sup> 고객이 500MB 일별 데이터 전송 제한에 도달한 경우 데이터 분석이 중지되고 다음날 다시 시작됩니다. 1일은 UTC를 기준으로 합니다.
+
+<sup>2</sup> 독립 실행형 및 OMS 가격 계획에 대한 데이터 보존 기간을 730일로 늘릴 수 있습니다.
+
+| Category | 제한 | 설명
+| --- | --- | --- |
+| 데이터 수집기 API | 단일 post에 대한 최대 크기는 30MB<br>필드 값에 대한 최대 크기는 32KB | 여러 개의 게시물에 더 큰 볼륨을 분할합니다.<br>32KB보다 긴 필드는 잘립니다. |
+| 검색 API | 집계되지 않은 데이터에 대한 반환된&5;,000개 레코드<br>집계된 데이터에 대한&500;,000개 레코드 | 집계된 데이터는 `measure` 명령을 포함하는 검색입니다.
+ 
+
+
+<!--HONumber=Feb17_HO3-->
+
+

@@ -1,10 +1,10 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 배포 1 - 포털 준비 | Microsoft Docs"
+title: "StorSimple Virtual Array를 위한 포털 준비 | Microsoft Docs"
 description: "StorSimple 가상 배열을 배포하는 첫 번째 자습서에는 Azure 포털 준비가 포함됩니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>StorSimple 가상 배열 배포 – 포털 준비
@@ -72,7 +72,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 * 가상 배열을 프로비전하려면 호스트 시스템에서 다음 리소스를 전용으로 사용할 수 있습니다.
   
   * 코어 4개 이상
-  * RAM 8GB 이상
+  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개의 파일을 지원합니다. 2백-4백만 개의 계획 파일을 지원하려면 16GB RAM이 필요합니다.
   * 네트워크 인터페이스 하나
   * 시스템 데이터용 가상 디스크 500GB
 
@@ -172,6 +172,6 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

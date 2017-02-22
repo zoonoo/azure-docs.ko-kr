@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
+ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
+ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
 
 
 ---
@@ -33,11 +33,12 @@ ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
 자산에 포함된 파일을 **자산 파일**이라고 합니다. **AssetFile** 인스턴스 및 실제 미디어 파일은 별개의 두 개체입니다. AssetFile 인스턴스는 미디어 파일에 대한 메타데이터를 포함하는 반면 미디어 파일은 실제 미디어 콘텐츠를 포함합니다.
 
 > [!NOTE]
-> 자산 파일 이름을 선택할 경우 다음과 같은 고려 사항이 적용됩니다.
+> 고려 사항은 다음과 같습니다.
 > 
-> * Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 [퍼센트 인코딩 예약(percent-encoding-reserved) 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), 즉 !*'();:@&=+$,/?%#[]".를 사용할 수 없습니다.
+> * Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 > * 이름 길이는 260자보다 클 수 없습니다.
-> 
+> * Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 항목을 참조하세요.
+>
 > 
 
 자산을 만들 때 다음 암호화 옵션을 지정할 수 있습니다. 
@@ -297,6 +298,11 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
+## <a name="next-steps"></a>다음 단계
+
+이제 업로드된 자산을 인코딩할 수 있습니다. 자세한 내용은 [자산 인코딩](media-services-portal-encode.md)을 참조하세요.
+
+또한 Azure Functions를 사용하여 구성된 컨테이너에 도착하는 파일에 따라 인코딩 작업을 트리거할 수도 있습니다. 자세한 내용은 [이 샘플](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )을 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -312,6 +318,6 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

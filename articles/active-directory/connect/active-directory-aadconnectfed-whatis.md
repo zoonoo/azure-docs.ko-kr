@@ -50,6 +50,6 @@ Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

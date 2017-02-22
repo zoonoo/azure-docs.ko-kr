@@ -1,10 +1,10 @@
 ---
-title: "Log Analytics의 Syslog 메시지 | Microsoft Docs"
+title: "OMS Log Analytics에서 Syslog 메시지 수집 및 분석 | Microsoft Docs"
 description: "Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.   이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
 
 
 ---
@@ -77,7 +77,7 @@ rsyslog에 대한 구성 파일은 **/etc/rsyslog.d/95-omsagent.conf**에 있습
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-rsyslog의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 모든 기능 및 모든 심각도에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.   
+syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.  기본 내용은 아래와 같습니다.  이 파일은 모든 기능 및 모든 심각도에 대해 로컬 에이전트에서 전송된 syslog 메시지를 수집합니다.   
 
     #
     # Warnings (except iptables) in one file:
@@ -182,6 +182,6 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

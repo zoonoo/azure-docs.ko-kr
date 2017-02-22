@@ -1,6 +1,6 @@
 ---
-title: "선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법"
-description: "선호도 그룹에서 지역 VNet으로 마이그레이션하는 방법을 알아봅니다."
+title: "선호도 그룹에서 지역으로 Azure 가상 네트워크 마이그레이션 | 클래식 | Microsoft Docs"
+description: "선호도 그룹에서 지역으로 가상 네트워크를 마이그레이션하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 198a726229f4950906e79272da6913f1a1afd15d
+ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
+ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
 
 
 ---
-# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-vnet"></a>선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법
+# <a name="how-to-migrate-a-virtual-network-from-an-affinity-group-to-a-region"></a>선호도 그룹에서 지역으로 가상 네트워크를 마이그레이션하는 방법
 선호도 그룹을 사용하면 동일한 선호도 그룹 내에서 만든 리소스가 서로 가까이 있는 서버에서 물리적으로 호스트되도록 할 수 있으며, 이러한 리소스는 더욱 빠르게 통신할 수 있습니다. 과거에는 선호도 그룹이 VNet(가상 네트워크)을 만들기 위한 요구 사항이었습니다. 동시에 VNet을 관리한 네트워크 관리자 서비스는 실제 서버 집합 또는 배율 단위 내에서만 작동할 수 있었습니다. 아키텍처 개선을 통해 네트워크 관리 범위가 하위 지역까지 증가했습니다.
 
 이러한 아키텍처 개선의 결과, 선호도 그룹이 더 이상 권장 사항이 아니며 가상 네트워크에 필수가 아닙니다. VNet에 선호도 그룹을 사용하는 것은 하위 지역 사용으로 바뀌고 있습니다. 하위 지역과 연결된 VNet을 지역 VNet이라고 합니다.
@@ -74,6 +74,6 @@ VM을 배포하면 단일 배율 단위에 배포됩니다. 선호도 그룹이 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [쉬운 테이블](active-directory-groups-create-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 Azure AD(Azure Active Directory) 사용자 관리의 주요 기능 중 하나는 사용자 그룹을 만드는 기능입니다. 그룹을 사용하여 한 번에 많은 사용자에게 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다. 그룹을 사용하여 액세스 권한을 할당할 수도 있습니다.
 
@@ -73,13 +73,13 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여 그룹의 멤�
 
 > [!NOTE]
 > 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 중첩 그룹 구성원은 현재 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
-> 
+>
 > 그룹의 동적 멤버 자격에는 할당될 Azure AD Premium 라이선스가 필요합니다.
-> 
+>
 > * 그룹의 규칙을 관리하는 관리자
 > * 그룹의 모든 멤버
-> 
-> 
+>
+>
 
 **그룹에 동적 멤버 자격을 사용하려면**
 
@@ -103,7 +103,6 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여 그룹의 멤�
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

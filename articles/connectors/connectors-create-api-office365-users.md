@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f9877f6bbf57da525ad988a6f6dafa6822a7503
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 2e4af1c9369a97d518d027dc4679b9f01ca53d4c
 
 
 ---
@@ -34,7 +34,7 @@ Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
 * Office 365 사용자에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 * 부하 직원 가져오기, 관리자의 사용자 프로필 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 사용자의 부하 직원을 가져온 다음 이 정보를 사용하여 SQL Azure 데이터베이스를 업데이트합니다. 
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
@@ -173,7 +173,7 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 | MobilePhone |string |no |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
@@ -187,6 +187,6 @@ Office 365 사용자 커넥터에서는 다음과 같은 작업을 사용할 수
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "크기 집합 CLI 빠르게 만들기 | Microsoft Docs"
+title: "Azure에서 빠르게 크기 집합 만들기 - CLI | Microsoft Docs"
 description: "CLI 빠르게 만들기를 사용하여 크기 집합을 배포합니다."
 keywords: "가상 컴퓨터 크기 집합"
 services: virtual-machine-scale-sets
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/23/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c99a461b243d9ca59752dc1590126727ec5bbb9
+ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
+ms.openlocfilehash: d89010dd5e6cdfe1ad427cdee1a5aad23155ace1
 
 
 ---
@@ -33,6 +33,6 @@ ms.openlocfilehash: 5c99a461b243d9ca59752dc1590126727ec5bbb9
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

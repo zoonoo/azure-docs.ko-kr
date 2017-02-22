@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 0fcb0e2d8feea3c72688aace6d53edca728dd48b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
 
 
 ---
@@ -286,7 +286,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [Install and Configure the Azure CLI]: ../xplat-cli-install.md
 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Node.js 개발자 센터]: /develop/nodejs/
-[App Service 체험]: http://go.microsoft.com/fwlink/?LinkId=523751
+[App Service 체험]: https://azure.microsoft.com/try/app-service/
 [Azure 웹 사이트의 인스턴스 선호도]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Azure Redis 캐시에서 캐시 만들기]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 
@@ -302,6 +302,6 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

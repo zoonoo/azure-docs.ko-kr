@@ -6,18 +6,17 @@ keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
+ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
+ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
 
 
 ---
@@ -32,16 +31,16 @@ Azure Active Directory ID 보호는 의심스러운 로그인 활동 및 잠재�
 1. 전역 관리자로 Azure Portal에 [로그온](https://ms.portal.azure.com/)합니다. 
 2. Azure 포털에서 **Marketplace**를 클릭합니다.
    
-    ![만들기](./media/active-directory-identityprotection-enable/01.png "Create")
+    ![만들기](./media/active-directory-identityprotection-enable/01.png "만들기")
 3. 응용 프로그램 목록에서 **보안 + ID**를 클릭합니다.
    
-    ![만들기](./media/active-directory-identityprotection-enable/02.png "Create")
+    ![만들기](./media/active-directory-identityprotection-enable/02.png "만들기")
 4. **Azure AD ID 보호**를 클릭합니다.
    
-    ![생성](./media/active-directory-identityprotection-enable/03.png "Create")
+    ![만들기](./media/active-directory-identityprotection-enable/03.png "만들기")
 5. **Azure AD ID 보호** 블레이드에서 **만들기**를 클릭합니다.
    
-    ![생성](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![만들기](./media/active-directory-identityprotection-enable/04.png "만들기")
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
@@ -49,6 +48,6 @@ Azure Active Directory ID 보호는 의심스러운 로그인 활동 및 잠재�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

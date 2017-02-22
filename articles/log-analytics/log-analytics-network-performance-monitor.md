@@ -4,7 +4,7 @@ description: "네트워크 성능 모니터를 사용하면 네트워크 성능�
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/31/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
+ms.sourcegitcommit: d1cae87bb312ef903d099b8be59ad39a5b83d468
+ms.openlocfilehash: 4b683ef50ca1046686213b55c32e07b5fb8cca68
 
 
 ---
 # <a name="network-performance-monitor-preview-solution-in-oms"></a>OMS의 네트워크 성능 모니터(미리 보기)
 > [!NOTE]
-> [미리 보기 솔루션](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)입니다.
+> [미리 보기 솔루션](log-analytics-add-solutions.md#preview-management-solutions-and-features)입니다.
 >
 >
 
@@ -149,6 +149,51 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 6. 구성을 저장하려면 **Save**를 클릭합니다.  
    ![사용자 지정 모니터링 규칙 만들기](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
+### <a name="choose-the-right-protocol-icmp-or-tcp"></a>올바른 프로토콜 ICMP 또는 TCP 선택
+
+네트워크 성능 모니터(NPM)는 가상 트랜잭션을 사용하여 패킷 손실 및 연결 대기 시간과 같은 네트워크 성능 메트릭을 계산합니다. 이에 대한 이해를 돕기 위해 네트워크 링크의 한 쪽 끝에 연결된 NPM 에이전트를 살펴보겠습니다. NPM 에이전트는 네트워크의 다른 쪽 끝에 연결된 두 번째 NPM 에이전트에 프로브 패킷을 보냅니다. 두 번째 에이전트는 응답 패킷을 사용하여 회신합니다. 이 프로세스는 몇 번 반복됩니다. 첫 번째 NPM 에이전트는 응답 수 및 각 응답을 수신하는 데 소요된 시간을 측정하여 연결 대기 시간 및 패킷 삭제를 평가합니다.
+
+이러한 패킷의 형식, 크기 및 시퀀스는 모니터링 규칙을 만들 때 선택하는 프로토콜에 의해 결정됩니다. 패킷의 프로토콜을 기반으로 중간 네트워크 장치(라우터, 스위치 등)는 이러한 패킷을 다르게 처리할 수 있습니다. 따라서 프로토콜 선택은 결과의 정확성이 영향을 미칩니다. 또한 프로토콜 선택은 NPM 솔루션을 배포한 후 수동 단계를 수행해야 하는지 여부도 결정합니다.
+
+NPM에서는 ICMP 및 TCP 프로토콜 중 가상 트랜잭션 수행에 사용할 프로토콜을 선택할 수 있습니다.
+가상 트랜잭션 규칙을 만들 때 ICMP를 선택하면 NPM 에이전트는 ICMP 에코 메시지를 사용하여 네트워크 대기 시간 및 패킷 손실을 계산합니다. ICMP 에코는 기본 Ping 유틸리티에서 보낸 것과 같은 메시지를 사용합니다. TCP를 프로토콜로 사용하는 경우 NPM 에이전트는 네트워크를 통해 TCP SYN 패킷을 보냅니다. 이것은 TCP 핸드셰이크 완료 후에 RST 패킷을 사용한 연결 제거로 이어집니다.
+
+#### <a name="points-to-consider-before-choosing-the-protocol"></a>프로토콜을 선택하기 전에 고려할 사항
+사용할 프로토콜을 선택하기 전에 다음 정보를 고려하세요.
+
+##### <a name="discovering-multiple-network-routes"></a>여러 네트워크 경로 검색
+TCP는 여러 경로 검색 시 보다 정확하며 각 서브넷에 필요한 에이전트 수가 더 적습니다. 예를 들어 TCP를 사용하는 하나 또는 두 개의 에이전트는 서브넷 간의 모든 중복 경로를 검색할 수 있습니다. 하지만 ICMP를 사용하여 비슷한 결과를 달성하려면 에이전트가 여러 개 필요합니다. ICMP 사용 시 두 서브넷 간에 경로가 *N*개이면 원본 또는 대상 서브넷에 에이전트가 5*N*개 넘게 필요합니다.
+
+##### <a name="accuracy-of-results"></a>결과의 정확성
+라우터와 스위치는 ICMP 에코 패킷에 TCP 패킷보다 낮은 우선 순위를 할당하는 경향이 있습니다. 특정 상황에서 네트워크 장치에 부하가 심하면 TCP에서 가져온 데이터가 응용 프로그램에 발생하는 손실과 대기 시간을 보다 철저하게 반영합니다. 이것은 대부분의 응용 프로그램 트래픽이 TCP를 통해 흐르기 때문입니다. 이런 경우 ICMP는 TCP보다 덜 정확한 결과를 제공합니다.
+
+##### <a name="firewall-configuration"></a>방화벽 구성
+TCP 프로토콜에서는 TCP 패킷이 대상 포트에 전송되어야 합니다. NPM 에이전트에 사용되는 기본 포트는 8084이지만 에이전트를 구성할 때 이것을 변경할 수 있습니다. 따라서 네트워크 방화벽 또는 NSG 규칙(Azure의)이 포트에 트래픽을 허용하는지 확인해야 합니다. 에이전트가 설치된 컴퓨터의 로컬 방화벽이 이 포트에 트래픽을 허용하는지도 확인해야 합니다.
+
+PowerShell 스크립트를 사용하여 Windows를 실행하는 컴퓨터에서 방화벽 규칙을 구성할 수 있지만 네트워크 방화벽을 수동으로 구성해야 합니다.
+
+반면에 ICMP는 포트를 사용하여 운영되지 않습니다. 대부분의 엔터프라이즈 시나리오에서 ICMP 트래픽은 방화벽을 통해 Ping 유틸리티와 같은 네트워크 진단 도구를 사용할 수 있도록 허용됩니다. 따라서 한 컴퓨터에서 다른 컴퓨터에 Ping을 할 수 있으면 방화벽을 수동으로 구성하지 않고도 ICMP 프로토콜을 사용할 수 있습니다.
+
+> [!NOTE]
+> 어떤 프로토콜을 사용할지 잘 모를 경우에는 ICMP를 선택하여 시작하세요. 결과가 만족스럽지 않으면 나중에 TCP로 언제든 전환할 수 있습니다.
+
+
+#### <a name="how-to-switch-the-protocol"></a>프로토콜 전환 방법
+
+배포하는 동안 ICMP를 사용하도록 선택한 경우에는 기본 모니터링 규칙을 편집하여 TCP로 언제든 전환할 수 있습니다.
+
+##### <a name="to-edit-the-default-monitoring-rule"></a>기본 모니터링 규칙을 편집하려면
+1.  **네트워크 성능** > **모니터** > **구성** > **모니터**로 이동한 다음 **기본 규칙**을 클릭합니다.
+2.  **프로토콜** 섹션으로 스크롤하여 사용할 프로토콜을 선택합니다.
+3.  **저장**을 클릭하여 설정을 적용합니다.
+
+기본 규칙에서 특정 프로토콜을 사용하더라도 다른 프로토콜로 새 규칙을 만들 수 있습니다. 일부 규칙은 ICMP를 사용하고 다른 곳에서는 TCP를 사용하는 혼합 규칙을 만들 수도 있습니다.
+
+
+
+
+
+
 ## <a name="data-collection-details"></a>데이터 수집 세부 정보
 네트워크 성능 모니터는 TCP SYN-SYNACK-ACK 핸드셰이크 패킷을 사용하여 손실 및 대기 시간 정보를 수집하며 traceroute도 사용하여 토폴로지 정보를 가져옵니다.
 
@@ -158,7 +203,7 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![예](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![예](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![아니요](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
 
-이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크 교환 TCP 패킷의 다양한 지점에 설치된 OMS 에이전트는 다른 OMS 에이전트와 함께 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론합니다. 테스트는 5초마다 반복되며 에이전트는 이 데이터를 3분 기간마다 집계하여 OMS에 업로드합니다.
+이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크 교환 TCP 패킷의 다양한 지점에 설치된 OMS 에이전트는 다른 OMS 에이전트와 함께 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론합니다. 테스트는&5;초마다 반복되며 에이전트는 이 데이터를&3;분 기간마다 집계하여 OMS에 업로드합니다.
 
 > [!NOTE]
 > 에이전트가 서로 자주 통신하긴 하지만 테스트를 수행하는 동안 많은 네트워크 트래픽을 생성하지 않습니다. 에이전트는 TCP SYN-SYNACK-ACK 핸드셰이크에만 의존하여 손실과 대기 시간을 결정하며 데이터 패킷은 교환되지 않습니다. 이 프로세스에서 에이전트는 필요할 때에만 다른 에이전트와 통신하며 네트워크 트래픽을 줄이도록 에이전트 통신 토폴로지가 최적화됩니다.
@@ -180,7 +225,7 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 
 **Top Unhealthy Network Links** 블레이드에는 비정상 네트워크 링크 목록이 표시됩니다. 비정상 네트워크 링크는 부정적 상태 이벤트가 하나 이상 있는 네트워크 링크입니다.
 
-**Top Subnetwork Links with Most Loss** 블레이드에는 패킷 손실이 가장 많은 서브네크워크 링크가 표시되며 **Subnetwork Links with Most Latency** 블레이드에는 대기 시간이 가장 긴 서브네트워크 링크가 표시됩니다. 특정 네트워크 링크는 대기 시간 또는 패킷 손실량이 높은 상태가 정상일 수 있습니다. 이러한 링크는 목록에 상위 10개 안에 포함되지만 비정상으로 표시되지 않습니다.
+**Top Subnetwork Links with Most Loss** 블레이드에는 패킷 손실이 가장 많은 서브네크워크 링크가 표시되며 **Subnetwork Links with Most Latency** 블레이드에는 대기 시간이 가장 긴 서브네트워크 링크가 표시됩니다. 특정 네트워크 링크는 대기 시간 또는 패킷 손실량이 높은 상태가 정상일 수 있습니다. 이러한 링크는 목록에 상위&10;개 안에 포함되지만 비정상으로 표시되지 않습니다.
 
 **Common Queries** 블레이드에는 원시 네트워크 모니터링 데이터를 직접 가져오는 검색 쿼리 집합이 포함되어 있습니다. 이러한 쿼리를 시작점으로 사용하여 사용자 지정 보고를 위한 쿼리를 만들 수 있습니다.
 
@@ -246,6 +291,6 @@ ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

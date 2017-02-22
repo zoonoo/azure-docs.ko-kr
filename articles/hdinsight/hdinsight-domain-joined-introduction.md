@@ -58,6 +58,6 @@ HDInsight에서 경계 보안은 가상 네트워크 및 게이트웨이 서비�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

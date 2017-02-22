@@ -12,25 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 67e0007c7a40cf59609b1030b7f0ddbee90fa237
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 496aa7754b35877900da020283c8b7efe0e04cef
 
 
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Azure API 관리에서 API를 만드는 방법
 API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 새 API가 게시자 포털에서 생성되고 필요한 작업이 추가됩니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
 
-이 가이드에서는 프로세스의 첫 번째 단계인 API 관리에서 새 API를 만들고 구성하는 방법을 보여 줍니다. 작업 추가 및 제품 게시에 대한 자세한 내용은 [API에 작업을 추가하는 방법][API에 작업을 추가하는 방법] 및 [제품을 만들고 게시하는 방법][제품을 만들고 게시하는 방법]을 참조하세요.
+이 가이드에서는 프로세스의 첫 번째 단계인 API 관리에서 새 API를 만들고 구성하는 방법을 보여 줍니다. 작업 추가 및 제품 게시에 대한 자세한 내용은 [API에 작업을 추가하는 방법][How to add operations to an API] 및 [제품을 만들고 게시하는 방법][How to create and publish a product]을 참조하세요.
 
 ## <a name="create-new-api"> </a>새 API 만들기
 게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다.
 
 ![게시자 포털][api-management-management-console]
 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 > 
 > 
 
@@ -59,9 +59,9 @@ API 관리에서 API는 클라이언트 응용 프로그램이 호출할 수 있
 
 ![API 설정][api-management-api-settings]
 
-API를 구현하는 백엔드 서비스에 대해 게이트웨이 인증을 구성하려면 **보안** 탭을 선택합니다. **자격 증명 포함** 드롭다운을 사용하여 **HTTP 기본** 또는 **클라이언트 인증서**를 구성할 수 있습니다. HTTP 기본 인증을 사용하려면 원하는 자격 증명을 입력합니다. 클라이언트 인증서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법][Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법]을 참조하세요.
+API를 구현하는 백엔드 서비스에 대해 게이트웨이 인증을 구성하려면 **보안** 탭을 선택합니다. **자격 증명 포함** 드롭다운을 사용하여 **HTTP 기본** 또는 **클라이언트 인증서**를 구성할 수 있습니다. HTTP 기본 인증을 사용하려면 원하는 자격 증명을 입력합니다. 클라이언트 인증서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법][How to secure back-end services using client certificate authentication in Azure API Management]을 참조하세요.
 
-**보안** 탭에서 OAuth 2.0을 사용하여 **사용자 권한 부여**를 구성할 수도 있습니다. 자세한 내용은 [Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법][Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법]을 참조하세요.
+**보안** 탭에서 OAuth 2.0을 사용하여 **사용자 권한 부여**를 구성할 수도 있습니다. 자세한 내용은 [Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법][How to authorize developer accounts using OAuth 2.0 in Azure API Management]을 참조하세요.
 
 ![기본 인증 설정][api-management-api-settings-credentials]
 
@@ -70,8 +70,8 @@ API를 구현하는 백엔드 서비스에 대해 게이트웨이 인증을 구�
 ## <a name="next-steps"> </a>다음 단계
 API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추가하고, 제품에 API를 추가하고, 개발자가 사용할 수 있도록 게시하는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [API에 작업을 추가하는 방법][API에 작업을 추가하는 방법]
-* [제품을 만들고 게시하는 방법][제품을 만들고 게시하는 방법]
+* [API에 작업을 추가하는 방법][How to add operations to an API]
+* [제품을 만들고 게시하는 방법][How to create and publish a product]
 
 [api-management-create-api]: ./media/api-management-howto-create-apis/api-management-create-api.png
 [api-management-management-console]: ./media/api-management-howto-create-apis/api-management-management-console.png
@@ -81,22 +81,22 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 [api-management-api-summary]: ./media/api-management-howto-create-apis/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-create-apis/api-management-echo-operations.png
 
-[API란?]: #what-is-api
-[새 API 만들기]: #create-new-api
-[API 설정 구성]: #configure-api-settings
-[API 작업 구성]: #configure-api-operations
-[다음 단계]: #next-steps
+[What is an API?]: #what-is-api
+[Create a new API]: #create-new-api
+[Configure API settings]: #configure-api-settings
+[Configure API operations]: #configure-api-operations
+[Next steps]: #next-steps
 
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
 
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-[Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법]: api-management-howto-mutual-certificates.md
-[Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법]: api-management-howto-oauth2.md
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

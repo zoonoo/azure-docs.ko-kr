@@ -3,7 +3,7 @@ title: "Azure Portal을 사용하여 Linux VM 만들기 | Microsoft Docs"
 description: "Azure 포털을 사용하여 Linux VM을 만듭니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: iainfoulds
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/28/2016
-ms.author: v-livech
+ms.date: 1/17/2016
+ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 3ad64861bc4c3b0a938c75990fc516ef634943ef
+ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
+ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
 
 
 ---
@@ -30,52 +30,63 @@ ms.openlocfilehash: 3ad64861bc4c3b0a938c75990fc516ef634943ef
 * [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="sign-in"></a>로그인
-Azure 계정 ID를 사용하여 Azure 포털에 로그인하고 왼쪽 위에서 **+ 새로 만들기** 를 클릭합니다.
+Azure 계정 ID로 Azure Portal에 로그인합니다. 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭합니다.
 
-![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
+![Azure 리소스 만들기](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
 
 ## <a name="choose-vm"></a>VM 선택
-**마켓플레이스**에서 **Virtual Machines**를 클릭한 다음 **추천 앱** 이미지 목록에서 **Ubuntu Server 14.04 LTS**를 클릭합니다.  맨 아래에서 배포 모델이 `Resource Manager` 인지 확인하고 **만들기**를 클릭합니다.
+**Marketplace**에서 **Compute**를 클릭한 다음 **추천 앱** 이미지 목록에서 **Ubuntu Server 16.04 LTS**를 클릭합니다.  맨 아래에서 배포 모델이 `Resource Manager` 인지 확인하고 **만들기**를 클릭합니다.
 
-![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
+![Azure Marketplace에서 가상 컴퓨터 이미지 선택](./media/virtual-machines-linux-quick-create-portal/create_new_vm.png)
 
 ## <a name="enter-vm-options"></a>VM 옵션 입력
 **기본** 페이지에서 다음을 입력합니다.
 
 * VM의 이름
+* VM 디스크 유형(기본적으로 SSD 또는 HDD)
 * 관리 사용자의 사용자 이름
-* 인증 유형이 **SSH 공개 키**
-* 문자열로 SSH 공개 키( `~/.ssh/` 디렉터리에서)
-* 새 리소스 그룹 이름 또는 기존 항목 선택
+* **인증 유형**을 **SSH 공개 키**로 설정
+* SSH 공개 키 문자열(`~/.ssh/` 디렉터리에 있음)
+* 리소스 그룹 이름 또는 기존 리소스 그룹 선택
 
-계속하려면 **확인**을 클릭하고 VM 크기를 선택합니다. 다음 스크린샷과 같이 표시됩니다.
+**확인**을 클릭하여 계속합니다. 블레이드가 다음 화면과 유사하게 표시됩니다.
 
-![screen3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
+![기본 Azure VM 옵션 입력](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
 
 ## <a name="choose-vm-size"></a>VM 크기 선택
-Premium SSD에 Ubuntu를 설치하는 **DS1** 크기를 선택하고 **선택**을 클릭하여 설정을 구성합니다.
+VM 크기를 선택합니다. 다음 예제에서는 Premium SSD에 Ubuntu를 설치하는 **DS1_V2 Standard**를 선택합니다. VM 크기의 **S**는 SSD 지원을 나타냅니다. **선택**을 클릭하여 설정을 구성합니다.
 
-![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
+![Azure VM 크기 선택](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
 
 ## <a name="storage-and-network"></a>저장소 및 네트워크
-**설정**에서 저장소와 네트워크에 대한 기본값을 그대로 두고 **확인**을 클릭하여 요약을 확인합니다.  DS1을 선택하여 디스크 유형을 프리미엄 SSD로 설정하면 **S** 는 SSD를 나타냅니다.
+**설정** 블레이드에서 Azure Managed Disks를 VM으로 사용하도록 선택할 수 있습니다. 현재 기본 설정은 관리되지 않는 디스크를 사용하기 위한 설정입니다. Azure Managed Disks는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. 관리되지 않는 디스크의 경우 가상 하드 디스크에 대한 저장소 계정을 만들거나 선택해야 합니다.
 
-![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
+![Managed Disks가 아닌 디스크에 대한 저장소 계정 선택](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
+
+Azure Managed Disks를 사용하기로 선택하는 경우에는 아래 예제에 표시된 것과 같이 추가로 구성할 저장소 옵션이 없습니다.
+
+![포털에서 Azure Managed Disks 옵션 선택](./media/virtual-machines-linux-quick-create-portal/select_managed_disks.png)
+
+나머지 네트워크 설정을 기본 설정대로 유지합니다.
 
 ## <a name="confirm-vm-settings-and-launch"></a>VM 설정 확인 및 시작
 새로운 Ubuntu VM에 대한 설정을 확인하고 **확인**을 클릭합니다.
 
-![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
+![Azure VM 설정 검토 및 VM 만들기](./media/virtual-machines-linux-quick-create-portal/review_final_vm_settings.png)
 
-## <a name="find-the-vm-nic"></a>VM NIC 찾기
-포털 대시보드를 열고 **네트워크 인터페이스** 에서 NIC를 선택합니다.
+## <a name="select-the-vm-resource"></a>VM 리소스 선택
+포털 홈 페이지의 왼쪽 위 모서리에 있는 메뉴에서 **리소스 그룹**을 선택합니다. 필요한 경우 메뉴 맨 위의 막대 세 개를 클릭하여 다음과 같이 목록을 확장합니다.
 
-![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
+![리소스 그룹 목록 열기](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
+
+리소스 그룹을 선택한 다음 새 VM을 클릭합니다.
+
+![Azure VM NIC 설정 찾기](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
 
 ## <a name="find-the-public-ip"></a>공용 IP 찾기
-NIC 설정 아래에서 공용 IP 주소 메뉴를 엽니다.
+VM에 할당된 **공용 IP 주소**를 살펴봅니다.
 
-![screen8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
+![Azure VM의 공용 IP 주소 가져오기](./media/virtual-machines-linux-quick-create-portal/view_public_ip_address.png)
 
 ## <a name="ssh-to-the-vm"></a>VM에 SSH
 SSH 공개 키를 사용하여 공용 IP로 SSH합니다.  Mac 또는 Linux 워크스테이션에서 터미널에서 직접 SSH할 수 있습니다. Windows 워크스테이션에 있으면 PuTTY, MobaXTerm 또는 Cygwin을 사용하여 Linux에 SSH해야 합니다.  아직 없는 경우 Linux에 SSH하도록 Windows 워크스테이션을 준비하는 문서는 다음과 같습니다.
@@ -83,7 +94,7 @@ SSH 공개 키를 사용하여 공용 IP로 SSH합니다.  Mac 또는 Linux 워�
 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```
-ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -96,6 +107,6 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

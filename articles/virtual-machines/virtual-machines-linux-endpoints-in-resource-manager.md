@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager의 클래식 끝점 | Microsoft Docs"
-description: "클래식 배포 모델의 끝점이 네트워크 보안 그룹 및 ACL 규칙을 사용하여 Resource Manager에서 구현되는 방식 이해"
+title: "Azure의 Linux VM에 대한 끝점 이해 | Microsoft Docs"
+description: "클래식 배포 모델의 끝점이 네트워크 보안 그룹 및 ACL 규칙을 사용하여 Resource Manager에서 구현되는 방식 알아보기"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 381d098fcd3c82aa0ea73cc05b42d8412b473e52
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 890c1ea7f7039886b1d2de72ea8f4a453a7b8ce2
 
 
 ---
-# <a name="classic-endpoints-in-resource-manager"></a>리소스 관리자의 클래식 끝점
+# <a name="classic-endpoints-for-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 Linux VM의 클래식 끝점
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>다음 단계
@@ -34,6 +34,6 @@ ms.openlocfilehash: 381d098fcd3c82aa0ea73cc05b42d8412b473e52
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

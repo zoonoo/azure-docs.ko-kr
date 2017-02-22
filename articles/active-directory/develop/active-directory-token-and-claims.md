@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 토큰 참조 | Microsoft Docs"
+title: "Azure AD에서 지원하는 다른 토큰 및 클레임 유형에 대해 알아보기 | Microsoft Docs"
 description: "AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다."
 documentationcenter: na
 author: bryanla
@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 796b892d555ea114af330117365e3d0a0f622f3f
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 4612c1f516dca51aea925343f79649761448c05d
 
 
 ---
@@ -70,7 +70,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `sub` |제목
  |응용 프로그램 사용자 등 토큰에서 정보를 어설션하는 보안 주체를 나타냅니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. <br> `SubjectConfirmation` 클레임이 아닙니다. SubjectConfirmation은 토큰의 주체를 확인하는 방법을 설명합니다. `Bearer` 주체가 소유한 토큰을 통해 주체를 확인한다는 뜻입니다. <br><br> **SAML 값 예제**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **JWT 값 예제**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |테넌트 ID |토큰을 발급한 디렉터리 테넌트를 식별하는 변경할 수 없고 다시 사용할 수 없는 식별자입니다. 이 값을 사용하여 다중 테넌트 응용 프로그램의 테넌트별 디렉터리 리소스에 액세스할 수 있습니다. 예를 들어 이 값을 사용하여 Graph API 호출의 테넌트를 식별할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **JWT 값 예제**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
-| `nbf`, `exp` |토큰 수명 |토큰이 유효한 시간 간격을 정의합니다. 토큰의 유효성을 검사하는 서비스에서는 현재 날짜가 토큰 수명 내에 있는지 확인하고 수명 내에 없으면 토큰을 거부합니다. Azure AD와 서비스 간의 시계 시간 차이("시간차")를 고려하여 서비스에서 토큰 수명 범위를 벗어나 최대 5분까지 여유 시간을 허용 할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **JWT 값 예제**: <br> `"nbf":1363289634, "exp":1363293234` |
+| `nbf`, `exp` |토큰 수명 |토큰이 유효한 시간 간격을 정의합니다. 토큰의 유효성을 검사하는 서비스에서는 현재 날짜가 토큰 수명 내에 있는지 확인하고 수명 내에 없으면 토큰을 거부합니다. Azure AD와 서비스 간의 시계 시간 차이("시간차")를 고려하여 서비스에서 토큰 수명 범위를 벗어나 최대&5;분까지 여유 시간을 허용 할 수 있습니다. <br><br> **SAML 값 예제**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **JWT 값 예제**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn` |사용자 계정 이름 |사용자 계정의 사용자 이름을 저장합니다.<br><br> **JWT 값 예제**: <br> `"upn": frankm@contoso.com` |
 | `ver` |버전 |토큰의 버전 번호를 저장합니다. <br><br> **JWT 값 예제**: <br> `"ver": "1.0"` |
 
@@ -305,6 +305,6 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

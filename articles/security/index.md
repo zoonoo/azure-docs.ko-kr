@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Security 설명서 - 자습서 | Microsoft Docs"
 description: "클라우드에 있는 서비스 및 데이터의 배포 요구 사항에 맞게 Azure 서비스에서 보안 옵션을 사용자 지정하는 방법에 대해 알아봅니다."
+services: security
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: security
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
+ms.sourcegitcommit: 92b37ea86e4744a46efd81e4731c7949413011e3
+ms.openlocfilehash: f85d46d513dc4600c09112e1a52e207681da6f38
 
 ---
 # <a name="security-documentation"></a>Security 설명서
@@ -109,6 +120,6 @@ Azure 보안을 사용하여 클라우드에서 서비스 및 데이터를 보�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure에서 Docker 컨테이너 클러스터 배포 | Microsoft Docs"
-description: "Azure 포털, Azure CLI 또는 PowerShell을 사용하여 Azure 컨테이너 서비스 클러스터를 배포합니다."
+description: "Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 Azure Container Service 클러스터를 배포합니다."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -14,142 +14,158 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/02/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 047e939df8ba61245644793bb156315cfb32f042
+ms.sourcegitcommit: 01fe5302e1c596017755c4669103bac910e3452c
+ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Azure 컨테이너 서비스 클러스터 배포
-Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러스터링 및 오케스트레이션 솔루션의 신속한 배포를 제공합니다. Azure Container Service를 사용하면 Azure Resource Manager 템플릿 또는 Azure Portal을 통해 DC/OS, Kubernetes 및 Docker Swarm 클러스터를 배포할 수 있습니다. Azure 가상 컴퓨터 규모 집합을 사용하여 이러한 클러스터를 배포하면 클러스터가 Azure 네트워킹 및 저장소 기능을 활용합니다. Azure 컨테이너 서비스에 액세스하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다.
+
+
+
+Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러스터링 및 오케스트레이션 솔루션의 신속한 배포를 제공합니다. 이 문서에서는 Azure portal 또는 Azure Resource Manager 빠른 시작 템플릿을 사용하여 Azure Container Service 클러스터를 배포하는 방법을 안내합니다. 
 
 > [!NOTE]
 > Azure Container Service의 Kubernetes 지원은 현재 미리 보기로 제공됩니다.
->
 
-이 문서에서는 [Azure portal](#creating-a-service-using-the-azure-portal), [Azure CLI(명령줄 인터페이스)](#creating-a-service-using-the-azure-cli) 및 [Azure PowerShell 모듈](#creating-a-service-using-powershell)을 사용하여 Azure Container Service 클러스터를 배포하는 방법을 안내합니다.  
+[Azure CLI 2.0(미리 보기)](container-service-create-acs-cluster-cli.md) 또는 Azure Container Service API를 사용하여 Azure Container Service 클러스터를 배포할 수도 있습니다.
 
-## <a name="create-a-service-by-using-the-azure-portal"></a>Azure 포털을 사용하여 서비스 만들기
+
+
+## <a name="prerequisites"></a>필수 조건
+
+* **Azure 구독**: 없는 경우 지금 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록하세요.
+
+* **SSH 공개 키**: 포털 또는 Azure 빠른 시작 템플릿 중 하나를 통해 배포할 때 Azure Container Service 가상 컴퓨터에 대한 인증을 위한 공개 키를 제공해야 합니다. SSH(보안 셸) 키를 만들려면 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) 지침을 참조하세요. 
+
+* **서비스 주치 클라이언트 ID 및 암호**(Kubernetes에만 해당): 서비스 주체 만들기에 대한 정보 및 지침은 [Kubernetes 클러스터에 대한 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
+
+
+
+## <a name="create-a-cluster-by-using-the-azure-portal"></a>Azure Portal을 사용하여 클러스터 만들기
 1. Azure Portal에 로그인하여 **새로 만들기**를 선택하고 Azure Marketplace에서 **Azure Container Service**를 검색합니다.
 
-    ![배포 만들기 1](media/acs-portal1.png)  <br />
+    ![Marketplace의 Azure Container Service](media/container-service-deployment/acs-portal1.png)  <br />
 
 2. **Azure Container Service**를 선택하고 **만들기**를 클릭합니다.
 
-    ![배포 만들기 2](media/acs-portal2.png)  <br />
+    ![컨테이너 서비스 만들기](media/container-service-deployment/acs-portal2.png)  <br />
 
 3. 다음 정보를 입력합니다.
 
-    * **사용자 이름**: Azure 컨테이너 서비스 클러스터의 가상 컴퓨터 규모 집합 및 각 가상 컴퓨터의 계정에 사용할 사용자 이름입니다.
+    * **사용자 이름**: Azure Container Service 클러스터의 가상 컴퓨터 규모 집합 및 각 가상 컴퓨터의 계정에 사용할 사용자 이름입니다.
     * **구독**: Azure 구독을 선택합니다.
     * **리소스 그룹**: 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
     * **위치**: Azure 컨테이너 서비스 배포를 위한 Azure 지역을 선택합니다.
-    * **SSH 공개 키**: Azure 컨테이너 서비스 가상 컴퓨터에 대한 인증에 사용할 공개 키를 추가합니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함해야 합니다. **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**와 같은 형태여야 합니다. SSH(보안 셸) 키를 만드는 방법에 대한 지침은 [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) 및 [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) 문서를 참조하세요.
+    * **SSH 공개 키**: Azure Container Service 가상 컴퓨터에 대한 인증에 사용할 공개 키를 추가합니다. 키에 줄 바꿈이 없고 `ssh-rsa` 접두사를 포함해야 합니다. `username@domain` 접미사는 선택 사항입니다. 키는 **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**와 같은 형태여야 합니다. 
 
 4. 진행할 준비가 되면 **확인** 을 클릭합니다.
 
-    ![배포 만들기 3](media/acs-portal3.png)  <br />
+    ![기본 설정](media/container-service-deployment/acs-portal3.png)  <br />
 
 5. 오케스트레이션 유형을 선택합니다. 옵션은 다음과 같습니다.
 
-    * **DC/OS**: DC/OS 클러스터를 배포합니다.
-    * **Swarm**: Docker Swarm 클러스터를 배포합니다.
-    * **Kubernetes**: Kubernetes 클러스터를 배포합니다.
+  * **DC/OS**: DC/OS 클러스터를 배포합니다.
+  * **Swarm**: Docker Swarm 클러스터를 배포합니다.
+  * **Kubernetes**: Kubernetes 클러스터를 배포합니다.
+
 
 6. 진행할 준비가 되면 **확인** 을 클릭합니다.
 
-    ![배포 만들기 4](media/acs-portal4-new.png)  <br />
+    ![조정자 선택](media/container-service-deployment/acs-portal4-new.png)  <br />
 
 7. 드롭다운 목록에서 **Kubernetes**를 선택한 경우 서비스 주체 클라이언트 ID 및 서비스 주체 클라이언트 비밀을 입력해야 합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
 
-    ![배포 4.5 만들기](media/acs-portal10.PNG)  <br />
+    ![Kubernetes에 대한 서비스 주체 입력](media/container-service-deployment/acs-portal10.png)  <br />
 
 7. **Azure Container Service** 설정 블레이드에서 다음 정보를 입력합니다.
 
-    * **마스터 수**: 클러스터의 마스터 수입니다. Kubernetes를 선택하는 경우 마스터의 수는 1이라는 기본값으로 설정됩니다
-    * **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 에이전트 크기 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수를(1개의 마스터에 대한 공개 에이전트&1;개,&3; 또는&5;개의 마스터에 대한 공개 에이전트&2;개)를 결정합니다.
+    * **마스터 수**: 클러스터의 마스터 수입니다. Kubernetes를 선택하는 경우 마스터의 수는 1이라는 기본값으로 설정됩니다.
+    * **에이전트 수**: Docker Swarm 및 Kubernetes의 경우, 이 값은 에이전트 크기 집합의 초기 에이전트 수입니다. DC/OS의 경우, 사설 규모 집합의 초기 에이전트 수입니다. 또한, 사전에 지정된 수의 에이전트를 포함하는 DC/OS에 대한 공개 규모 집합이 생성됩니다. 이 공개 규모 집합의 에이전트 수는 클러스터에 생성된 마스터의 수(1개의 마스터에 대한 공개 에이전트&1;개,&3; 또는&5;개의 마스터에 대한 공개 에이전트&2;개)를 결정합니다.
     * **에이전트 가상 컴퓨터 크기**: 에이전트 가상 컴퓨터의 크기입니다.
-    * **DNS 접두사**: 서비스의 정규화된 도메인 이름의 주요 부분에 접두사로 사용될 세계적으로 고유 이름입니다.
+    * **DNS 접두사**: 서비스의 정규화된 도메인 이름의 주요 부분에 접두사로 사용되는 세계적으로 고유한 이름입니다.
+    * **VM 진단**: 선택하는 일부 orchestrator의 경우 VM 진단을 활성화하도록 선택할 수 있습니다.
 
 8. 진행할 준비가 되면 **확인** 을 클릭합니다.
 
-    ![배포 만들기 5](media/acs-portal5.png)  <br />
+    ![컨테이너 서비스 설정](media/container-service-deployment/acs-portal5.png)  <br />
 
 9. 서비스 유효성 검사가 완료되면 **확인** 을 클릭합니다.
 
-    ![배포 만들기 6](media/acs-portal6.png)  <br />
+    ![유효성 검사](media/container-service-deployment/acs-portal6.png)  <br />
 
-10. **구매** 를 클릭하여 배포 프로세스를 시작합니다.
+10. 약관을 검토합니다. 배포 프로세스를 시작하려면 **구매**를 클릭합니다.
 
-    ![배포 만들기 7](media/acs-portal7.png)  <br />
+    ![Purchase](media/container-service-deployment/acs-portal7.png)  <br />
 
     Azure 포털에 배포를 고정하도록 선택한 경우 배포 상태를 볼 수 있습니다.
 
-    ![배포 만들기 8](media/acs-portal8.png)  <br />
+    ![배포 상태](media/container-service-deployment/acs-portal8.png)  <br />
 
-배포가 완료되면 Azure 컨테이너 서비스 클러스터를 사용할 준비가 됩니다.
+배포를 완료하려면 몇 분이 걸립니다. 그런 다음 Azure Container Service 클러스터를 사용할 준비가 됩니다.
 
-## <a name="create-a-service-by-using-the-azure-cli"></a>Azure CLI를 사용하여 서비스 만들기
-명령줄을 사용하여 Azure 컨테이너 서비스의 인스턴스를 만들려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다. 또한 Azure CLI를 [설치](../xplat-cli-install.md) 및 [구성](../xplat-cli-connect.md)해야 합니다.
 
-1. DC/OS, Docker Swarm 또는 Kubernetes 클러스터를 배포하려면 GitHub에서 다음 템플릿 중 하나를 선택합니다. 
+
+## <a name="create-a-cluster-by-using-a-quickstart-template"></a>빠른 시작 템플릿을 사용하여 클러스터 만들기
+Azure Container Service에서 클러스터를 배포하는 데 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. Azure 빠른 시작 템플릿을 사용하여 Azure Container Service 클러스터를 만들려면 Azure 구독이 필요합니다. 없는 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록하세요. 
+
+템플릿 및 Azure CLI 2.0(미리 보기)을 사용하여 클러스터를 배포하려면 다음 단계를 수행합니다([설치 및 설정 지침](/cli/azure/install-az-cli2.md) 참조).
+
+> [!NOTE] 
+> Windows 시스템의 경우 Azure PowerShell을 사용하여 템플릿을 배포하는 데 비슷한 단계를 사용할 수 있습니다. 이 섹션의 뒷부분에 나오는 단계를 참조하세요. [포털](../azure-resource-manager/resource-group-template-deploy-portal.md) 또는 다른 방법을 통해 템플릿을 배포할 수도 있습니다.
+
+1. DC/OS, Docker Swarm 또는 Kubernetes 클러스터를 배포하려면 GitHub에서 다음 템플릿 중 하나를 선택합니다. DC/OS 및 Swarm 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
 
     * [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
     * [Kubernetes 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-2. 다음으로, Azure CLI가 Azure 구독에 연결되어 있는지 확인합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
+2. Azure 계정에 로그인하고(`az login`) Azure CLI가 Azure 구독에 연결되어 있는지 확인합니다. 다음 명령을 사용하여 기본 구독을 확인할 수 있습니다.
 
-    ```bash
-    azure account show
+    ```azurecli
+    az account show
     ```
-    Azure 계정이 반환되지 않으면 다음 명령을 사용하여 CLI를 Azure에 로그인합니다.
+    
+    둘 이상의 구독이 있고 다른 기본 구독을 설정해야 하는 경우 `az account set --subscription`을 실행하고 구독 ID 또는 이름을 지정합니다.
 
-    ```bash
-    azure login -u user@domain.com
-    ```
+3. 모범 사례로 배포에 새 리소스 그룹을 사용합니다. 리소스 그룹을 만들려면 `az group create` 명령을 사용하고 리소스 그룹 이름 및 위치를 지정합니다. 
 
-3. Azure Resource Manager를 사용하도록 Azure CLI 도구를 구성합니다.
-
-    ```bash
-    azure config mode arm
+    ```azurecli
+    az group create --name "RESOURCE_GROUP" --location "LOCATION"
     ```
 
-4. 다음 명령을 통해 Azure 리소스 그룹 및 컨테이너 서비스 클러스터를 만듭니다.
+4. 필수 템플릿 매개 변수가 포함된 JSON 파일을 만듭니다. GitHub에서 Azure Container Service 템플릿 `azuredeploy.json`과 함께 제공되는 `azuredeploy.parameters.json`이라는 매개 변수 파일을 다운로드합니다. 클러스터에 대한 필수 매개 변수 값을 입력합니다. 
 
-    * **RESOURCE_GROUP**은 이 서비스에 사용할 리소스 그룹의 이름입니다.
-    * **LOCATION** 은 리소스 그룹 및 Azure 컨테이너 서비스 배포를 만들 Azure 지역입니다.
-    * **TEMPLATE_URI**는 배포 파일의 위치입니다. GitHub UI에 대한 포인터가 아닌 원시 파일이어야 합니다. 이 URL을 찾으려면 GitHub에서 azuredeploy.json 파일을 선택하고 **원시** 단추를 클릭합니다.
+    예를 들어 [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)을 사용하려면 `dnsNamePrefix` 및 `sshRSAPublicKey`에 대한 매개 변수 값을 제공합니다. `azuredeploy.json`의 설명 및 다른 매개 변수에 대한 옵션을 참조하세요.  
+ 
+
+5. 다음 명령을 사용하여 배포 매개 변수 파일을 전달하여 컨테이너 서비스 클러스터를 만듭니다. 다음과 같습니다.
+
+    * **RESOURCE_GROUP**은 이전 단계에서 만든 리소스 그룹의 이름입니다.
+    * **DEPLOYMENT_NAME**(선택 사항)은 배포에 제공한 이름입니다.
+    * **TEMPLATE_URI**는 배포 파일 `azuredeploy.json`의 위치입니다. 이 URI는 GitHub UI에 대한 포인터가 아닌 원시 파일이어야 합니다. 이 URI를 찾으려면 GitHub에서 `azuredeploy.json` 파일을 선택하고 **원시** 단추를 클릭합니다.  
+
+    ```azurecli
+    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters @azuredeploy.parameters.json
+    ```
+
+    또한 명령줄에서 JSON 형식 문자열로 매개 변수를 제공할 수도 있습니다. 다음과 유사한 명령을 사용합니다.
+
+    ```azurecli
+    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters "{ \"param1\": {\"value1\"} … }"
+    ```
 
     > [!NOTE]
-    > 이 명령을 실행하면 셸에서 배포 매개 변수 값을 묻는 메시지가 표시됩니다.
+    > 배포를 완료하려면 몇 분이 걸립니다.
     > 
 
-    ```bash
-    azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
-    ```
+### <a name="equivalent-powershell-commands"></a>동일한 PowerShell 명령
+PowerShell 사용하여 Azure Container Service 클러스터 템플릿을 배포할 수도 있습니다. 이 문서는 [Azure PowerShell 모듈](https://azure.microsoft.com/blog/azps-1-0/)버전 1.0을 기반으로 합니다.
 
-### <a name="provide-template-parameters"></a>템플릿 매개 변수 제공
-이 버전의 명령에서는 사용자가 대화형으로 매개 변수를 정의해야 합니다. JSON 형식 문자열 같은 매개 변수를 제공하려는 경우 `-p` 스위치로 수행할 수 있습니다. 예:
-
- ```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
-```
-
-또는 `-e` 스위치를 사용하여 JSON 형식 매개 변수를 제공할 수 있습니다.
-
-```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
-```
-
-`azuredeploy.parameters.json`이라는 이름의 예제 매개 변수를 보려면 GitHub의 Azure 컨테이너 서비스 템플릿을 사용하여 해당 매개 변수를 찾아보세요.
-
-## <a name="create-a-service-by-using-powershell"></a>PowerShell을 사용하여 서비스 만들기
-PowerShell 사용하여 Azure 컨테이너 서비스 클러스터를 배포할 수도 있습니다. 이 문서는 [Azure PowerShell 모듈](https://azure.microsoft.com/blog/azps-1-0/)버전 1.0을 기반으로 합니다.
-
-1. DC/OS, Docker Swarm 또는 Kubernetes 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
+1. DC/OS, Docker Swarm 또는 Kubernetes 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. DC/OS 및 Swarm 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
 
     * [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -167,7 +183,7 @@ PowerShell 사용하여 Azure 컨테이너 서비스 클러스터를 배포할 �
     Login-AzureRmAccount
     ```
 
-4. 새 리소스 그룹에 배포하는 경우 먼저 리소스 그룹을 만들어야 합니다. 새 리소스 그룹을 만들려면 `New-AzureRmResourceGroup` 명령을 사용하고 리소스 그룹 이름 및 대상 지역을 지정합니다.
+4. 모범 사례로 배포에 새 리소스 그룹을 사용합니다. 리소스 그룹을 만들려면 `New-AzureRmResourceGroup` 명령을 사용하고 리소스 그룹 이름 및 대상 지역을 지정합니다.
 
     ```powershell
     New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -179,7 +195,7 @@ PowerShell 사용하여 Azure 컨테이너 서비스 클러스터를 배포할 �
     New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
     ```
 
-### <a name="provide-template-parameters"></a>템플릿 매개 변수 제공
+#### <a name="provide-template-parameters"></a>템플릿 매개 변수 제공
 PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌러 Cmdlet에 사용할 수 있는 매개 변수를 순환시켜 볼 수 있습니다. 이 기능은 템플릿에 정의하는 매개 변수에 대해서도 작동합니다. 템플릿 이름을 입력하자마자 cmdlet이 템플릿을 인출하고 매개 변수의 구문을 분석한 다음 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 PowerShell이 값을 묻는 메시지를 표시합니다.
 
 다음은 매개 변수가 포함된 전체 명령입니다. 리소스의 이름에 대한 고유한 값을 제공할 수 있습니다.
@@ -198,7 +214,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

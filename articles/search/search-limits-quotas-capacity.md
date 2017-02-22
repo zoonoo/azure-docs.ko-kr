@@ -1,6 +1,6 @@
 ---
 title: "Azure Search의 서비스 제한 사항 | Microsoft Docs"
-description: "용량 계획에 사용되는 서비스 제한 및 Azure 검색에 대한 요청 및 응답의 최대 제한입니다."
+description: "용량 계획에 사용되는 서비스 제한 및 Azure Search에 대한 요청 및 응답의 최대 제한입니다."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: ffdd03fb1e9718b0f72f5a13bb80de4a4bfe2709
-ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
+ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
+ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
 
 * **무료** 는 Azure 구독과 함께 제공되는 다중 테넌트 공유 서비스입니다. 전용 리소스에 등록하기 전에 서비스를 경험해 볼 수 있는 기존 구독자를 위한 추가 비용이 없는 옵션입니다.
 * **기본**은 소규모의 프로덕션 워크로드를 위한 전용 컴퓨팅 리소스를 제공합니다.
-* **표준**은 모든 수준에서 더 많은 저장소 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은 4가지 수준인 S1, S2, S3 및 S3 HD(S3 고밀도)로 제공됩니다.
+* **표준**은 모든 수준에서 더 많은 저장소 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은&4;가지 수준인 S1, S2, S3 및 S3 HD(S3 고밀도)로 제공됩니다.
 
 모든 계층은 [포털에 프로비전](search-create-service-portal.md)될 수 있습니다. 처음에는 하나의 서비스에 하나의 파티션과 하나의 복제본이 할당되지만 서비스를 만든 후에는 리소스 할당을 늘릴 수 있습니다.
 
@@ -67,7 +67,7 @@ ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
 ## <a name="workload-limits-queries-per-second"></a>작업 제한(초당 쿼리 수)
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| QPS |해당 없음 |복제본당 3이하 |복제본당 15이하 |복제본당 60이하 |복제본당 60 초과 |복제본당 60 초과 |
+| QPS |해당 없음 |복제본당&3;이하 |복제본당&15;이하 |복제본당&60;이하 |복제본당&60; 초과 |복제본당&60; 초과 |
 
 QPS(초당 쿼리 수)는 예상된 값을 파생하는 데 시뮬레이트된 워크로드 및 실제 고객 워크로드를 사용하는 추론을 기반으로 한 근사치입니다. 정확한 QPS 처리량은 데이터 및 쿼리의 특성에 따라 달라집니다.
 
@@ -96,6 +96,6 @@ API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

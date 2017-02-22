@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0bdc5a415b6f7bb40652893d35f7a844e19812a2
-ms.openlocfilehash: 3d8a347fac8b9b13d4fcef3f81ba9e89d8ca1d66
+ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
+ms.openlocfilehash: edcf34610e7517f9ca16f8c239e4080c475933f4
 
 
 ---
@@ -45,9 +45,10 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 ### <a name="microsoft-hpc-pack"></a>Microsoft HPC 팩
 HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC 솔루션으로, Windows와 Linux HPC 작업을 모두 실행할 수 있습니다.  
 
+* [HPC Pack 2016 R2 다운로드](https://www.microsoft.com/download/details.aspx?id=54507)
 * [HPC 팩 2012 R2 업데이트 3 다운로드(영문)](https://www.microsoft.com/download/details.aspx?id=49922)
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
-* Azure의 [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) HPC 팩 클러스터 옵션
+* Azure의 HPC Pack 클러스터 옵션: [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
 * [HPC 팩을 사용한 Azure 작업자 인스턴스에 버스트](https://technet.microsoft.com/library/gg481749.aspx)
 * [HPC 팩을 사용하여 Azure 배치로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
 * [Windows HPC 포럼](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -60,7 +61,7 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 * [Lustre 소프트웨어용 Intel 클라우드 버전 - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## <a name="microsoft-mpi"></a>Microsoft MPI
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI)는 Microsoft가 구현한 메시지 전달 인터페이스 표준으로서, Windows 플랫폼에서 병렬 응용 프로그램을 개발 및 실행하는 데 사용됩니다. 최신 버전은 MS-MPI v7입니다.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI)는 Microsoft가 구현한 메시지 전달 인터페이스 표준으로서, Windows 플랫폼에서 병렬 응용 프로그램을 개발 및 실행하는 데 사용됩니다.
 
 * [MS-MPI 다운로드](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 * [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
@@ -113,6 +114,6 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

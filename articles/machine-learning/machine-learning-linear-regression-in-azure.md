@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: kbaroni;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eb6fc4b1451d9c1ba17d1787bc8a77507b694258
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b519769502f9883c5be59dc453bce872660774b5
 
 
 ---
@@ -53,8 +53,8 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 
 1. 데이터 집합을 csv 파일(매우 작은 파일)로 Azure 기계 학습에 업로드했습니다.
 2. 새 실험을 만들고 [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 Excel에서 사용되는 동일한 데이터 기능을 선택했습니다.   
-3. [데이터 분할][split] 모듈(*상대 식* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 정확히 동일한 학습 집합으로 나누었습니다.  
-4. [선형 회기][linear-regression] 모듈(기본 옵션만)로 실험하고 기록하여 결과를 Excel 회귀 모델과 비교했습니다.
+3. [Split Data][split] 모듈(*Relative Expression* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 정확히 동일한 학습 집합으로 나누었습니다.  
+4. [Linear Regression][linear-regression] 모듈(기본 옵션만)로 실험하고 기록하여 결과를 Excel 회귀 모델과 비교했습니다.
 
 ### <a name="review-initial-results"></a>초기 결과 검토
 Excel 모델의 성능이 Azure 기계 학습 모델보다 분명히 뛰어났습니다.  
@@ -63,13 +63,13 @@ Excel 모델의 성능이 Azure 기계 학습 모델보다 분명히 뛰어났�
 | --- |:---:|:---:|
 | 성능 | | |
 | <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |해당 없음 |
-| <ul style="list-style-type: none;"><li>결정  <br />계수</li></ul> |해당 없음 |0.78<br />(낮은 정확도) |
+| <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |해당 없음 |0.78<br />(낮은 정확도) |
 | 평균 절대 오류 |$9.5M |$19.4M |
 | 평균 절대 오차율(%) |6.03% |12.2% |
 
 프로세스를 실행한 결과 Azure 기계 학습 팀의 개발자 및 데이터 과학자는 몇 가지 유용한 팁을 신속하게 제공했습니다.  
 
-* Azure ML에서 [선형 회귀][linear-regression] 모듈을 사용할 경우 두 가지 방법이 제공됩니다.
+* Azure 기계 학습에서 [Linear Regression][linear-regression] 모듈을 사용할 경우 두 가지 방법이 제공됩니다.
   * 온라인 기울기 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
   * 최소 자승법: 대부분의 사람들이 선형 회귀에 대해 떠올리는 방법입니다. 데이터 집합이 작은 경우 최소 자승법이 보다 적합할 수 있습니다.
 * L2 정규화 가중치 매개 변수를 조정하여 성능을 개선하는 것이 좋습니다. 기본적으로 0.001로 설정되며, 우리의 작은 데이터 집합에서는 성능 향상을 위해 0.005로 설정했습니다.    
@@ -117,9 +117,9 @@ Excel 내에서 Azure 기계 학습 웹 서비스를 사용하려고 했습니�
 ![][2]
 
 ### <a name="optimization-and-further-experiments"></a>최적화 및 추가 실험
-Excel 모델을 사용하여 기준을 만들었으므로 이제 Azure 기계 학습 선형 회귀 모델을 최적화하는 과정을 진행했습니다.  [필터 기반 기능 선택][filter-based-feature-selection] 모듈을 사용하여 초기 데이터 요소 선택을 개선함으로써 절대 평균 오차가 4.6%로 향상되는 효과를 얻었습니다.   향후 프로젝트에 이 기능을 사용하면 모델링에 사용할 올바른 기능 집합을 찾기 위해 데이터 특성을 반복하는 시간을 몇 주 정도 단축할 수 있습니다.  
+Excel 모델을 사용하여 기준을 만들었으므로 이제 Azure 기계 학습 선형 회귀 모델을 최적화하는 과정을 진행했습니다.  [Filter-Based Feature Selection][filter-based-feature-selection] 모듈을 사용하여 초기 데이터 요소 선택을 개선함으로써 절대 평균 오차가 4.6%로 향상되는 효과를 얻었습니다.   향후 프로젝트에 이 기능을 사용하면 모델링에 사용할 올바른 기능 집합을 찾기 위해 데이터 특성을 반복하는 시간을 몇 주 정도 단축할 수 있습니다.  
 
-다음에는 [베이지안][bayesian-linear-regression] 또는 [향상된 의사 결정 트리][boosted-decision-tree-regression]와 같은 추가 알고리즘을 포함하여 성능을 비교할 계획입니다.    
+다음에는 [Bayesian][bayesian-linear-regression] 또는 [Boosted Decision Trees][boosted-decision-tree-regression]와 같은 추가 알고리즘을 포함하여 성능을 비교할 계획입니다.    
 
 회귀를 사용하여 실험하려는 경우 많은 숫자 특성이 포함된 Energy Efficiency Regression 샘플 데이터 집합을 사용하는 것이 좋습니다. 이 데이터 집합은 기계 학습 스튜디오에서 샘플 데이터 집합의 일부로 제공됩니다.  다양한 학습 모듈을 사용하여 난방 부하 또는 냉방 부하를 예측할 수 있습니다.  아래 차트에는 대상 변수 Cooling Load를 예측하여 Energy Efficiency 데이터 집합에 대해 다양한 회귀에서 학습한 결과의 성능이 비교되어 있습니다. 
 
@@ -131,9 +131,9 @@ Excel 모델을 사용하여 기준을 만들었으므로 이제 Azure 기계 �
 | 선형 회귀(최소 자승법) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>핵심 내용
-Excel 회귀와 Azure 기계 학습 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 Azure ML [선형 회기][linear-regression]을 사용하는 모델과 비교하여 Azure ML에 대해 배우고 데이터 선택 및 모델 성능을 향상시킬 수 있었습니다.         
+Excel 회귀와 Azure 기계 학습 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 Azure 기계 학습 [Linear Regression][linear-regression]을 사용하는 모델과 비교하여 Azure 기계 학습에 대해 배우고 데이터 선택 및 모델 성능을 향상시킬 수 있었습니다.         
 
-또한 향후 예측 프로젝트를 가속화하려면 [필터 기반 기능 선택][filter-based-feature-selection]을 사용하는 것이 좋다는 것도 알았습니다.  기능 선택을 데이터에 적용하면 Azure 기계 학습에서 더 나은 성능으로 향상된 모델을 만들 수 있습니다. 
+또한 향후 예측 프로젝트를 가속화하려면 [Filter-Based Feature Selection][filter-based-feature-selection]을 사용하는 것이 좋다는 것도 알았습니다.  기능 선택을 데이터에 적용하면 Azure 기계 학습에서 더 나은 성능으로 향상된 모델을 만들 수 있습니다. 
 
 Azure 기계 학습에서 Excel로 예측 분석을 체계적으로 전송하는 기능을 사용하면 광범위한 비즈니스 사용자에게 결과를 제공할 수 있는 성능이 크게 향상됩니다.     
 
@@ -159,6 +159,6 @@ Azure 기계 학습에서 Excel로 예측 분석을 체계적으로 전송하는
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

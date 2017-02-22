@@ -1,5 +1,5 @@
 ---
-title: "가상 컴퓨터에 사용자 지정 데이터 삽입 | Microsoft Docs"
+title: "Azure의 Windows VM에 데이터 삽입 | Microsoft Docs"
 description: "이 항목에서는 인스턴스를 만들 때 Azure 가상 컴퓨터에 사용자 지정 데이터를 삽입하는 방법과 Windows 또는 Linux에서 사용자 지정 데이터를 찾는 방법에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0c0db476389611be616cfaa4e470319db8386670
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 1732d6126edad7125a3f67c6d6af068422aa9d1f
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: 0c0db476389611be616cfaa4e470319db8386670
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

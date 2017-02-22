@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
 
 기존 앱을 모니터링하려고 웹 서버에 *[상태 모니터를 설치](app-insights-monitor-performance-live-website-now.md)했지만 결과가 보이지 않습니다.*
 
-* [상태 모니터 문제 해결](app-insights-monitor-performance-live-website-now.md#troubleshooting)을 참조하세요. 
+* [상태 모니터 문제 해결](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)을 참조하세요. 
 
 ## <a name="a-nameq01ano-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
 *Visual Studio에서 새 프로젝트를 만들 때 또는 솔루션 탐색기에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭할 때 Application Insights 옵션이 표시되지 않습니다.*
@@ -187,6 +187,6 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

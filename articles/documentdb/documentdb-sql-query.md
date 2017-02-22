@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a28aace9269bafe9158cccf9bea2dc26f77cf937
-ms.openlocfilehash: 54a763530961073655257251f0381b0b379ae73c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: f4f04a05c1d522f43668e31db15092476b4ef6df
 
 
 ---
@@ -566,7 +566,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary-and-coalesce-operators"></a>3항(?) 및 병합(??) 연산자
+### <a name="ternary--and-coalesce--operators"></a>3항(?) 및 병합(??) 연산자
 3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건 식을 작성할 수 있습니다. 
 
 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
@@ -617,7 +617,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 
 ### <a name="nested-properties"></a>중첩 속성
-다음 예제에서는 두 개의 중첩된 속성 `f.address.state` 및 `f.address.city`를 프로젝션합니다.
+다음 예제에서는 두 개의 중첩된 속성 `f.address.state` and `f.address.city`와 일치하는 문서를 반환합니다.
 
 **쿼리**
 
@@ -882,7 +882,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 위에 나와 있는 것처럼 상수 값 또는 매개 변수가 있는 쿼리를 사용하는 변수 값과 함께 TOP를 사용할 수 있습니다. 자세한 내용은 아래의 매개 변수가 있는 쿼리를 참조하세요.
 
 ## <a name="order-by-clause"></a>ORDER BY 절
-ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. Order By를 자세히 살펴보려면 [DocumentDB Order By 연습](documentdb-orderby.md)을 참조하세요.
+ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다.
 
 예를 들어 상주하는 도시의 이름 순으로 가족을 검색하는 쿼리는 다음과 같습니다.
 
@@ -1162,7 +1162,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 * 데이터베이스 트랜잭션을 사용하여 제어 흐름, 변수 범위 지정 및 예외 처리 기본 형식의 할당과 통합을 기본적으로 모델링할 수 있습니다. DocumentDB의 JavaScript 통합 지원에 대한 자세한 내용은 JavaScript 서버 쪽 프로그래밍 기능 설명서를 참조하세요.
 
 ### <a name="user-defined-functions-udfs"></a>UDF(사용자 정의 함수)
-이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
+이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가&0;개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
 
 이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB SQL 구문이 확장됩니다. UDF를 DocumentDB에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
 
@@ -2190,6 +2190,6 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

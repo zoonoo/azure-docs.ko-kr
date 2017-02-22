@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -49,7 +49,7 @@ App Service는 여러 *앱 형식*을 제공하며 각각은 특정 워크로드
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - 웹 사이트와 웹 응용 프로그램을 호스팅합니다.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) 모바일 앱 백 엔드를 호스팅합니다.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 호스팅합니다.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - 비즈니스 프로세스를 자동화하고 코드를 작성하지 않고도 클라우드를 통해 시스템과 데이터를 통합합니다.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) - 비즈니스 프로세스를 자동화하고 코드를 작성하지 않고도 클라우드를 통해 시스템과 데이터를 통합합니다.
 
 여기서 *앱* 이라는 단어는 워크로드를 전용으로 실행하는 호스팅 리소스를 의미합니다. 예를 들어 "웹앱"의 경우 함께 브라우저에 대한 기능을 제공하는 계산 리소스와 응용 프로그램 코드를 모두 웹앱으로 생각하는 것이 익숙할 것입니다. 하지만 앱 서비스에서 *웹앱* 은 Azure에서 응용 프로그램 코드를 호스팅하기 위해 제공하는 계산 리소스입니다. 
 
@@ -66,7 +66,7 @@ App Service는 여러 *앱 형식*을 제공하며 각각은 특정 워크로드
 App Service 계획은 다음을 정의합니다.
 
 - **지역**(미국 서부, 미국 동부 등)
-- **확장 개수**(1, 2, 3개 인스턴스 등)
+- **확장 개수**(1,&2;,&3;개 인스턴스 등)
 - **인스턴스 크기**(소, 중, 대)
 - **SKU**(무료, 공유, 기본, 표준, 프리미엄)
 
@@ -82,18 +82,18 @@ App Service 계획의 **SKU** 및 **규모**에 따라 호스트되는 앱 수�
 앱 서비스 비용에 대한 정보는 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
 ## <a name="test-drive-app-service"></a>App Service 시험 사용
-[샘플 웹앱, 모바일 앱 또는 논리 앱을 만들고](http://go.microsoft.com/fwlink/?LinkId=523751) 1시간 동안 재생합니다. 신용 카드나 약정, 번거로운 과정도 필요하지 않습니다.
+[샘플 웹앱, 모바일 앱 또는 논리 앱을 만들고](https://azure.microsoft.com/try/app-service/)&1;시간 동안 재생합니다. 신용 카드나 약정, 번거로운 과정도 필요하지 않습니다.
 
 또는 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 열고 시작 자습서 중 하나를 사용해 봅니다.
 
 * [자습서: 웹앱 만들기](../app-service-web/app-service-web-get-started.md)
 * [자습서: 모바일 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [자습서: API 앱 만들기](../app-service-api/app-service-api-dotnet-get-started.md)
-* [자습서: 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [자습서: 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

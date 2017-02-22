@@ -3,7 +3,7 @@ title: "Azure RemoteApp의 클라우드 컬렉션을 만드는 방법 | Microsof
 description: "Azure 클라우드에 데이터를 저장하는 Azure RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 4d7c6956-7e4a-4a41-b7f2-7e5832bf01e3
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 21d6cabf44d2a2b63b158f1ebd567cc8945e0333
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
 
 
 ---
@@ -94,7 +94,7 @@ Azure RemoteApp 컬렉션에 여러 앱을 게시할 수 있습니다. 게시 �
    
    **참고:** 
    
-   “user@domain.com” 형식을 사용해야 합니다.
+   *user@domain.com* 형식을 사용해야 합니다.
    
    컬렉션에서 Office 365 ProPlus를 사용하는 경우 사용자에 대해 Active Directory ID를 사용해야 합니다. 그러면 라이선스 유효성 검사에 도움이 됩니다. 
 3. 사용자가 확인되면 **저장**을 클릭합니다.
@@ -108,6 +108,6 @@ Azure RemoteApp 클라우드 컬렉션을 만들고 배포했습니다. 다음 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

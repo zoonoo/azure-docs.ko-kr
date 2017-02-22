@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
-ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: d31201fa2ad57006d5181ee808020cea80446557
 
 
 ---
@@ -45,7 +45,7 @@ Everbridge와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
@@ -114,7 +114,7 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     b. **회신 URL** 텍스트 상자에 다음 패턴 `https://manager.everbridge.net/saml/SSO/{<company name>}/alias/defaultAlias`을 사용하여 URL을 입력합니다.
    
-    c.  **다음**
+    c. **다음**
 4. **Everbridge에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_05.png)
@@ -253,6 +253,6 @@ Everbridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

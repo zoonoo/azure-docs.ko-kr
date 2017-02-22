@@ -1,28 +1,25 @@
 ---
-title: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법"
+title: "Git를 사용하여 API Management 서비스 구성 - Azure | Microsoft Docs"
 description: "Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
-> [!IMPORTANT]
-> API 관리에 대한 Git 구성은 현재 미리 보기로 제공됩니다. 기능적으로는 완전하지만 이 기능에 대한 의견을 적극적으로 기다리고 있으므로 미리 보기로 제공됩니다. 고객 피드백에 대한 응답으로 새로운 변경 사항을 만들었을 수 있으므로 프로덕션 환경에서 사용할 기능에 따르지 않는 것이 좋습니다. 의견이나 질문이 있으면 `apimgmt@microsoft.com`에서 알려 주시기 바랍니다.
 > 
 > 
 
@@ -40,7 +37,7 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 다음 단계는 Git를 이용한 API 관리 서비스 인스턴스 관리를 간략하게 보여 줍니다.
 
-1. 서비스에 Git 액세스 사용
+1. 서비스의 Git 구성에 액세스
 2. Git 리포지토리에 서비스 구성 데이터베이스 저장
 3. 로컬 컴퓨터에 Git 리포지토리 복제
 4. 리포지토리를 로컬 컴퓨터에 풀하고 커밋한 다음 변경 내용을 리포지토리에 다시 푸시
@@ -48,20 +45,14 @@ ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
 
 이 문서에서는 Git를 사용하도록 설정하고 이를 사용하여 서비스 구성을 관리하는 방법을 설명하며 Git 리포지토리의 파일 및 폴더에 대한 참조를 제공합니다.
 
-## <a name="to-enable-git-access"></a>Git 액세스를 사용하도록 설정하려면
-게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 Git 액세스는 아직 활성화되지 않았습니다.
+## <a name="access-git-configuration-in-your-service"></a>서비스의 Git 구성에 액세스
+게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 상태 메시지는 리포지토리에 대해 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API 관리 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
 
 ![Git 상태][api-management-git-icon-enable]
 
 Git 구성 설정을 확인 및 구성하려면 Git 아이콘을 클릭하거나 **보안** 메뉴를 클릭하고 **구성 리포지토리** 탭으로 이동합니다.
 
 ![GIT 사용][api-management-enable-git]
-
-Git 액세스를 사용하도록 설정하려면 **Git 액세스 사용** 확인란을 선택합니다.
-
-잠시 후 변경 내용이 저장되고 확인 메시지가 표시됩니다. Git 아이콘은 Git 액세스가 활성화되었음을 나타내도록 색으로 변경되었으며 이제 상태 메시지는 리포지토리에 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API 관리 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
-
-![Git 활성화됨][api-management-git-enabled]
 
 > [!IMPORTANT]
 > 속성으로 정의되지 않은 비밀은 리포지토리에 저장되며 Git 액세스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 때까지 기록에 남아 있습니다. 속성은 모든 API 구성 및 정책에 대해 비밀을 포함한 상수 문자열 값을 관리하는 안전한 장소를 제공하므로 정책을 정책 설명에 직접 저장할 필요가 없습니다. 자세한 내용은 [Azure API 관리 정책에 속성을 사용하는 방법](api-management-howto-properties.md)을 참조하세요.
@@ -109,42 +100,58 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 원하는 폴더에서 Git 도구를 열고 게시자 포털에서 제공한 다음 명령을 실행하여 Git 리포지토리를 로컬 컴퓨터에 복제합니다.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 메시지가 표시되면 사용자 이름 및 암호를 제공합니다.
 
 오류가 발생하면 다음 예제와 같이 `git clone` 명령을 사용자 이름 및 암호를 포함하도록 수정해 보십시오.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 그래도 오류가 발생하면 명령의 암호 부분에 대해 URL 인코딩을 시도해 보십시오. 이렇게 하는 한 가지 빠른 방법은 Visual Studio를 열고 **직접 실행 창**에서 다음 명령을 실행하는 것입니다. **직접 실행 창**을 열려면 Visual Studio에서 솔루션 또는 프로젝트를 열고(또는 비어 있는 새 콘솔 응용 프로그램을 만들고) **디버그** 메뉴에서 **창**, **직접 실행**을 선택합니다.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 사용자 이름 및 리포지토리 위치와 함께 인코딩된 암호를 사용하여 Git 명령을 생성합니다.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 리포지토리가 복제된 후 로컬 파일 시스템에서 이를 보고 작업할 수 있습니다. 자세한 내용은 [로컬 Git 리포지토리의 파일 및 폴더 구조 참조](#file-and-folder-structure-reference-of-local-git-repository)를 참조하세요.
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
 게시자 포털에서 또는 REST API를 사용하여 API 관리 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이 작업을 수행하려면 게시자 포털의 **구성 리포지토리** 탭에서 **리포지토리에 구성 저장**을 클릭한 후 로컬 리포지토리에서 다음 명령을 실행합니다.
 
-    git pull
+```
+git pull
+```
 
 `git pull` 을 실행하기 전에 현재 로컬 리포지토리에 대한 폴더에 있는지 확인하십시오. `git clone` 명령을 방금 완료한 경우 다음과 같은 명령을 실행하여 디렉터리를 리포지토리로 변경해야 합니다.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면
 로컬 리포지토리의 변경 내용을 서버 리포지토리에 푸시하려면 변경 내용을 커밋한 다음 이를 서버 리포지토리에 게시해야 합니다. 변경 내용을 커밋하려면 Git 명령 도구를 열고 로컬 리포지토리의 디렉터리로 전환한 후 다음 명령을 실행합니다.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 모든 커밋을 서버에 푸시하려면 다음 명령을 실행합니다.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>서비스 구성 변경 내용을 API 관리 서비스 인스턴스에 배포하려면
 로컬 변경 내용이 커밋되고 서버 리포지토리에 푸시된 후 이를 API 관리 서비스 인스턴스에 배포할 수 있습니다.
@@ -190,19 +197,21 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="root-api-management-folder"></a>루트 api 관리 폴더
 루트 `api-management` 폴더에는 다음과 같은 형식의 서비스 인스턴스에 관한 최상위 정보를 포함하고 있는 `configuration.json` 파일이 포함되어 있습니다.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 처음 네 설정(`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` 및 `UserRegistrationTermsConsentRequired`)은 **보안** 섹션의 **ID** 탭에 있는 다음과 같은 설정에 매핑됩니다.
 
@@ -303,6 +312,6 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
