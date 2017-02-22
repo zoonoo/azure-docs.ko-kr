@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 11/14/2016
 ms.author: daviste
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
+ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
 
 
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens에서 Application Insights 원격 분석
-웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 응용 프로그램에 [Visual Studio Application Insights](app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx)에 표시됩니다. 즉, 각 학수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.
+웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 응용 프로그램에 [Azure Application Insights](app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx)에 표시됩니다. 즉, 각 함수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
@@ -55,7 +55,7 @@ ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
 > CodeLens에서 "0개의 예외"가 표시되지만 예외가 있다는 점을 아는 경우 CodeLens에서 올바른 Application Insights 리소스가 선택되었는지 확인합니다. 다른 리소스를 선택하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights > 원격 분석 원본 선택**을 선택합니다. CodeLens는 지난 24시간 동안 응용 프로그램에서 가장 자주 발생한 15개의 예외에 대해서만 표시되므로, 가장 자주 발생하는 16번째 이후의 예외인 경우 "0 exceptions(0개의 예외)"가 표시됩니다. ASP.NET 보기에서 예외는 해당 보기를 생성하는 컨트롤러 메서드에 나타나지 않을 수 있습니다.
 > 
 > [!TIP]
-> ”가 표시되면? CodeLens에 "?개의 예외"가 표시되면 Azure 계정을 Visual Studio에 연결해야 합니다. 또는 Azure 계정 자격 증명이 만료되었을 수 있습니다. 두 경우 모두 "? 개의 예외"를 클릭하고 **계정 추가...**를 선택하여 자격 증명을 입력합니다.
+> ”가 표시되면? CodeLens에 "?개의 예외"가 표시되면 Azure 계정을 Visual Studio에 연결해야 합니다. 또는 Azure 계정 자격 증명이 만료되었을 수 있습니다. 두 경우 모두 "? 예외"를 클릭하고 **계정 추가...**를 선택하여 자격 증명을 입력합니다.
 > 
 > 
 
@@ -82,6 +82,6 @@ ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

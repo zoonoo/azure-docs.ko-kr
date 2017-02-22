@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
     `<InstrumentationKey>` *복사한 계측 키* `</InstrumentationKey>`
 * 솔루션 탐색기에서 ApplicationInsights.config라는 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
 
+[다양한 빌드 구성을 위해 키를 전환](app-insights-separate-resources.md)하려면 계측 키를 코드로 설정하는 것이 유용합니다. 키를 코드로 설정하면 `.config` 파일에서 설정할 필요가 없습니다.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a> 프로젝트 실행
 **F5** 키를 사용하여 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 
@@ -132,6 +134,6 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

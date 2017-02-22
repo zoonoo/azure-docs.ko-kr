@@ -1,4 +1,4 @@
-## WebAPI 프로젝트
+## <a name="webapi-project"></a>WebAPI 프로젝트
 1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 **AppBackend** 프로젝트를 엽니다.
 2. Notifications.cs에서 전체 **Notifications** 클래스를 다음 코드로 바꿉니다. 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure 클래식 포털](http://manage.windowsazure.com)에서 이러한 값을 가져올 수 있습니다. 이 모듈은 이제 전송할 다른 보안 알림을 나타냅니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다.
    
@@ -66,10 +66,10 @@
            await Notifications.Instance.Hub.SendNotificationAsync(rawNotificationToBeSent, usernameTag);
    
            // apns
-           await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{"aps": {"content-available": 1}, "secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}", usernameTag);
+           await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{\"aps\": {\"content-available\": 1}, \"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}", usernameTag);
    
            // gcm
-           await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{"data": {"secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}}", usernameTag);
+           await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{\"data\": {\"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}}", usernameTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -78,6 +78,10 @@
 이제 `Post` 메서드는 알림 메시지를 보내지 않습니다. 중요 콘텐츠가 아닌 알림 ID만 포함하는 원시 알림을 보냅니다. 또한 알림 허브에서 자격 증명을 구성하지 않은 플랫폼에 대한 보내기 작업은 오류를 발생시키므로 이 작업을 주석으로 처리합니다.
 
 1. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-2. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점*이라고 합니다. **게시**를 클릭합니다.
+2. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점* 이라고 합니다. **게시**를 클릭합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
