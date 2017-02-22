@@ -69,6 +69,7 @@
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST (영문)](/rest/api/loganalytics)
 
 # 리소스
 ## [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -76,6 +77,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

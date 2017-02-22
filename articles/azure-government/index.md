@@ -13,8 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 651e65243a8f5d170b61352e0ab1d57d1a25ad1b
-ms.openlocfilehash: 1dc06fadc9c6b49ff314d5eab53ef1b0b1e91eda
+ms.sourcegitcommit: a715413312c7d8bd3dcfb9b252f3dae8d95fafd7
+ms.openlocfilehash: 7c4a0c1167837a876164d93d93e6dd6cd8f62ee6
 
 ---
 #<a name="azure-government-documentation"></a>Azure Government 설명서
@@ -70,13 +70,27 @@ Microsoft Azure Government는 보안, 개인 정보 보호 및 제어, 규정 �
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">이미지</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">마켓플레이스</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">파트너용 마켓플레이스</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Services</h3>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">계산</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">저장소</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">데이터베이스</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">네트워킹</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">보안 + ID</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">모니터링 + 관리</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-compute">계산</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-storage">저장소</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-database">데이터베이스</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-networking">네트워킹</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-securityandidentity">보안 + ID</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">모니터링 + 관리</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">웹 + 모바일</a></p>
                     </div>
                 </div>
             </div>
@@ -89,6 +103,6 @@ Microsoft Azure Government는 보안, 개인 정보 보호 및 제어, 규정 �
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
