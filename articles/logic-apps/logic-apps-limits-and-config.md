@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: b2845e1835c5571909a911b1eb0bfd61ac00da86
+ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
+ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
 
 
 ---
@@ -81,7 +81,7 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 
 |Name|제한|참고 사항|
 |----|----|----|
-|초당 트리거 수|100|필요에 따라 여러 앱 간에 워크플로를 배포할 수 있음|
+|초당 작업 실행|100|필요에 따라 여러 앱 간에 워크플로를 배포할 수 있음|
 
 ### <a name="definition-limits"></a>정의 한도
 
@@ -182,6 +182,7 @@ B2B 프로토콜에 대한 제한임
 - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

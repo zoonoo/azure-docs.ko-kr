@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 887505f7b7309a3925505484c167448b9d4868e6
-ms.openlocfilehash: 144e196492bc4bdfbbdda34ca88531295cc8716a
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 59a7fe2d1eea948f1452f21d2185e6bdf93dc41f
 
 
 ---
@@ -50,18 +50,19 @@ B2B 공동 작업 기능을 통해 B2B 사용자에게 확장되는 모든 유�
 Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 
 * [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](active-directory-b2b-admin-add-users.md)
-* [정보 작업자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](active-directory-b2b-how-it-works.md)
+* [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)
+* [정보 근로자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-iw-add-users.md)
 * [B2B 공동 작업 초대 전자 메일의 요소](active-directory-b2b-invitation-email.md)
 * [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)
 * [Azure Active Directory B2B 공동 작업 문제 해결](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B 공동 작업 자주 묻는 질문 (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B 공동 작업 자주 묻는 질문(FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
+* [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

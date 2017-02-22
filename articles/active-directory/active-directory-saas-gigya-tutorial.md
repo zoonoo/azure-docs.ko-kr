@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
+ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
+ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
 
 
 ---
@@ -35,7 +35,7 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![Single Sign-On 구성](./media/active-directory-saas-gigya-tutorial/IC789512.png "Configure Single Sign-On")
+![Single Sign-On 구성](./media/active-directory-saas-gigya-tutorial/IC789512.png "Single Sign-On 구성")
 
 ## <a name="enabling-the-application-integration-for-gigya"></a>Gigya에 응용 프로그램 통합 사용
 이 섹션은 Gigya에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -49,19 +49,19 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-gigya-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-gigya-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-gigya-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-gigya-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-gigya-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-gigya-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에서 **Gigya**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-gigya-tutorial/IC789513.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-gigya-tutorial/IC789513.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **Gigya**를 선택한 다음 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -76,29 +76,29 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Gigya** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-gigya-tutorial/IC789528.png "Single Sign-On 구성")
 
 2. **사용자가 Gigya에 로그인하는 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-gigya-tutorial/IC789529.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지의 **Gigya 로그인 URL** 텍스트 상자에서 "*http://company.gigya.com*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-gigya-tutorial/IC789530.png "앱 URL 구성")
 
 4. **Gigya에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 인증서 파일을 컴퓨터에 저장합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-gigya-tutorial/IC789531.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-gigya-tutorial/IC789531.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 Gigya 회사 사이트에 관리자로 로그인합니다.
 
 6. **설정 \> SAML 로그인**으로 이동한 다음 **추가** 단추를 클릭합니다.
    
-    ![공용](./media/active-directory-saas-gigya-tutorial/IC789532.png "SAML Login")
+    ![SAML 로그인](./media/active-directory-saas-gigya-tutorial/IC789532.png "SAML 로그인")
 
 7. **SAML 로그인** 섹션에서 다음 단계를 수행합니다.
    
-    ![SAML 구성](./media/active-directory-saas-gigya-tutorial/IC789533.png "SAML Configuration")
+    ![SAML 구성](./media/active-directory-saas-gigya-tutorial/IC789533.png "SAML 구성")
    
     a. **이름** 텍스트 상자에 구성할 이름을 입력합니다.
    
@@ -115,13 +115,13 @@ ms.openlocfilehash: 040cfb1c9f5a0b6a12c62ca6706576c4173c0636
     > 
     > 
    
-    f. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
+    f. Base&64;로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
    
     g. **설정 저장**을 클릭합니다.
 
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-gigya-tutorial/IC789534.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-gigya-tutorial/IC789534.png "Single Sign-On 구성")
    
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -132,11 +132,11 @@ Gigya의 경우 프로비전은 수동 작업입니다.
 1. **Gigya** 회사 사이트에 관리자 권한으로 로그인합니다.
 2. **관리자 \> 사용자 관리**로 이동한 다음 **사용자 초대**를 클릭합니다.
    
-    ![사용자 관리](./media/active-directory-saas-gigya-tutorial/IC789535.png "Manage Users")
+    ![사용자 관리](./media/active-directory-saas-gigya-tutorial/IC789535.png "사용자 관리")
 
 3. 사용자 초대 대화 상자에서 다음 단계를 수행합니다.
    
-    ![사용자 초대](./media/active-directory-saas-gigya-tutorial/IC789536.png "Invite Users")
+    ![사용자 초대](./media/active-directory-saas-gigya-tutorial/IC789536.png "사용자 초대")
    
     a. **전자 메일** 텍스트 상자에서 프로비전하려는 유효한 Azure Active Directory 계정의 전자 메일 별칭을 입력합니다.
     
@@ -156,17 +156,17 @@ Gigya의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Gigya ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-gigya-tutorial/IC789537.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-gigya-tutorial/IC789537.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-gigya-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-gigya-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

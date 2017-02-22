@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 23979aec895649d80aab21d729833a846c4aeb19
-ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
+ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
+ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
 
 
 ---
@@ -32,8 +32,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 
 | 부여                 | 리소스 종류                           | 로그        | 메트릭     | 해결 방법 |
 | --- | --- | --- | --- | --- |
-| 응용 프로그램 게이트웨이    | Microsoft.Network/applicationGateways   | 진단 | 진단 | [Azure Networking Analytics(미리 보기)](log-analytics-azure-networking-analytics.md) |
-| API 관리          | Microsoft.ApiManagement/service         |             | 진단 | |
+| 응용 프로그램 게이트웨이    | Microsoft.Network/applicationGateways   | 진단 | 진단 | [Azure Application Gateway 분석](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | 커넥터   | 커넥터   | [Application Insights 커넥터](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)(미리 보기) |
 | 자동화 계정     | Microsoft.Automation/AutomationAccounts | 진단 |             | [자세한 정보](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | 배치 계정          | Microsoft.Batch/batchAccounts           | 진단 | 진단 | |
@@ -43,10 +42,10 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | 진단 |             | |
 | 이벤트 허브 네임스페이스     | Microsoft.EventHub/namespaces           | 진단 | 진단 | |
 | IoT Hub                | Microsoft.Devices/IotHubs               |             | 진단 | |
-| 키 자격 증명 모음               | Microsoft.KeyVault/vaults               | 진단 |             | [KeyVault 분석(미리 보기)](log-analytics-azure-key-vault.md) |
+| 키 자격 증명 모음               | Microsoft.KeyVault/vaults               | 진단 |             | [KeyVault 분석](log-analytics-azure-key-vault.md) |
 | 부하 분산 장치          | Microsoft.Network/loadBalancers         | 진단 |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | 진단 | 진단 | |
-| 네트워크 보안 그룹 | Microsoft.Network/networksecuritygroups | 진단 |             | [Azure Networking Analytics(미리 보기)](log-analytics-azure-networking-analytics.md) |
+| 네트워크 보안 그룹 | Microsoft.Network/networksecuritygroups | 진단 |             | [Azure 네트워크 보안 그룹 분석](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Search 서비스         | Microsoft.Search/searchServices         | 진단 | 진단 | |
 | 서비스 버스 네임스페이스   | Microsoft.ServiceBus/namespaces         | 진단 | 진단 | |
 | Service Fabric          |                                         | 저장소     |             | [Service Fabric 분석(미리 보기)](log-analytics-service-fabric.md) |
@@ -112,6 +111,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure 진단 -> Azure Storage -> Log Analytics
 
@@ -152,6 +152,6 @@ Azure 템플릿 갤러리에는 [Azure Automation을 사용하여](https://azure
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

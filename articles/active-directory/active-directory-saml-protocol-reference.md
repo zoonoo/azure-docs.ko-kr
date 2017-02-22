@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e14e2227d95b396d7d281edfd367f0a24ac54f7a
+ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
+ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
 
 
 ---
@@ -25,9 +25,7 @@ Azure AD(Azure Active Directory)는 SAML 2.0 프로토콜을 사용하여 응용
 
 SAML 프로토콜에는 자신에 대한 정보를 교환하기 위해 ID 공급자(Azure AD)와 서비스 공급자(응용 프로그램)가 필요합니다.
 
-응용 프로그램이 Azure AD에 등록된 경우 앱 개발자는 페더레이션 관련 정보를 Azure AD에 등록합니다. 여기에는 응용 프로그램의 **리디렉션 URI** 및 **메타데이터 URI**가 포함됩니다.
-
-Azure AD는 클라우드 서비스의 **메타데이터 URI** 를 사용하여 클라우드 서비스의 서명 키 및 로그아웃 URI를 검색합니다. 응용 프로그램에서 메타데이터 URI를 지원하지 않으면 개발자가 Microsoft 지원에 문의하여 로그아웃 URI 및 서명 키를 제공해야 합니다.
+응용 프로그램이 Azure AD에 등록된 경우 앱 개발자는 페더레이션 관련 정보를 Azure AD에 등록합니다. 여기에는 응용 프로그램의 **리디렉션 URI**가 포함됩니다.
 
 Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single sign-on 및 single sign-out 끝점을 노출합니다. 이러한 URL은 단순한 식별자가 아니라 주소 지정 가능한 위치를 나타내므로 끝점으로 이동하여 메타데이터를 읽을 수 있습니다.
 
@@ -39,7 +37,6 @@ Azure AD에서 게시하는 페더레이션 메타데이터 문서에 대한 자
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

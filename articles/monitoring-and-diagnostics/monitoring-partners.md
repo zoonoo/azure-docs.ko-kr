@@ -12,21 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 2/10/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 244cc5e4f053901a8de94adb8fc983edf30ca516
-ms.openlocfilehash: 46b3ade8bb58ccd0637ce4f2cf5c484f599e6173
+ms.sourcegitcommit: 7a3b8c4d373a97db1a1fae4af6d6ee4d8c35d4c4
+ms.openlocfilehash: ae3d9963045749f5487b4baac77e5eacc16ac9fc
 
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
+| [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
+| [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
+| [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다. 여기에는 Azure Monitor API를 통한 Azure 감사 로그가 포함됩니다.  이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
@@ -42,6 +43,11 @@ AppDynamics APM(Application Performance Management)을 사용하면 응용 프�
 Azure Monitor 경고에 JIRA 티켓을 만들 수 있습니다.
 
 [설명서로 이동합니다.][atlassian-doc]
+
+## <a name="cloudhealth"></a>CloudHealth
+상당한 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 통해 CloudHealth는 클라우드 관리를 재정의하고 있습니다. Cloudhealth 플랫폼을 사용하면 엔터프라이즈 및 MSP가 클라우드 투자에 따른 수익을 최대화하고 비용, 사용량, 성능 및 보안과 관련하여 확고한 결정을 내릴 수 있습니다.
+
+[자세히 알아보세요.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 CloudMonix는 Microsoft Azure 플랫폼을 위한 모니터링, 자동화 및 자동 복구 서비스를 제공합니다.
@@ -79,6 +85,11 @@ OpsGenie는 Azure가 생성한 경고의 디스패처 역할을 합니다. OpsGe
 
 [설명서로 이동합니다.][pagerduty-doc]
 
+## <a name="sciencelogic"></a>ScienceLogic
+ScienceLogic은 어디서든지 모든 기술을 관리하는 차세대 IT 서비스 보증 플랫폼을 제공합니다.  하나의 플랫폼에서 ScienceLogic은 일정한 동작에 있는 IT 리소스, 서비스 및 응용 프로그램을 관리하는 확장 태스크를 간소화하는 데 필요한 규모, 보안, 자동화 및 복원력을 제공합니다.  ScienceLogic 플랫폼은 Azure API를 사용하여 Microsoft Azure와 상호 작용합니다.  ScienceLogic은 Azure 서비스 및 리소스에 대한 실시간 가시성을 제공하므로 항목이 작동하지 않는 경우 더 빠르게 해결할 수 있습니다. 또한 다른 클라우드 및 데이터 센터 시스템과 서비스와 함께 Azure를 관리할 수 있습니다.
+
+[자세히 알아봅니다][sciencelogic-doc].
+
 ## <a name="splunk-add-on-for-microsoft-cloud-services"></a>Microsoft 클라우드 서비스를 위한 Splunk 추가 기능
 Microsoft 클라우드 서비스를 위한 Splunk 추가 기능은 [여기 Splunkbase](https://splunkbase.splunk.com/app/3110/)에서 사용할 수 있습니다.
 
@@ -90,13 +101,16 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [자세히 알아봅니다][sumologic-doc].
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../azure-resource-manager/resource-group-audit.md)
-* [Azure 활동 로그를 이벤트 허브로 스트림](monitoring-stream-activity-logs-event-hubs.md)
+* [Azure Monitor에 대한 자세한 정보](monitoring-overview.md)
+* [REST API를 사용하여 메트릭 액세스](monitoring-rest-api-walkthrough.md)
+* [타사 서비스에 활동 로그 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
+* [타사 서비스에 진단 로그 스트리밍](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
-<!--Connectors Documentation-->
+<!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "DataDog"
@@ -104,6 +118,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
+[sciencelogic-anchor]: #sciencelogic "ScienceLogic"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
 
@@ -111,6 +126,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png
+[cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
@@ -118,6 +134,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
 [pagerduty-logo]: ./media/partner-logos/pagerduty.png
+[sciencelogic-logo]: ./media/partner-logos/sciencelogic.png
 [splunk-logo]: ./media/partner-logos/splunk.png
 [sumologic-logo]: ./media/partner-logos/sumologic.png
 
@@ -125,18 +142,20 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 설명서."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "AppDynamics 설명서."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 소개."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "DataDog 설명서."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Dynatrace 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."
-[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서"
+[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서."
+[sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 설명서."
 [splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Splunk 설명서."
-[sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서"
+[sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

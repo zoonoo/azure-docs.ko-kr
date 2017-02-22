@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 4ebe010ab1f3d9df8bef1a6fc2ac5c24a7d1f5ee
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: 9071f344946999d49aee2e6bc420d35edfca96cd
 
 
 ---
@@ -27,6 +27,7 @@ DataFu은 Hadoop과 함께 사용하기 위해 공개 소스 라이브러리의 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독.
+
 * Azure HDInsight 클러스터(Linux 또는 Windows 기반)
 
   > [!IMPORTANT]
@@ -45,32 +46,38 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
 1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
    
-    * [Linux, OS X 및 Unix의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Linux, OS X, Unix 및 Windows 10의 Bash의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. 다음 명령을 사용하여 wget 유틸리티를 사용하여 DataFu jar 파일을 다운로드하거나 브라우저에 링크를 복사하여 붙여 넣여 다운로드를 시작합니다.
    
-        wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    ```
+    wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    ```
 
 3. 그런 다음 HDInsight 클러스터의 기본 저장소에 파일을 업로드합니다. 이렇게 하면 클러스터의 모든 노드에서 파일을 사용할 수 있으며, 클러스터를 삭제하고 다시 만들더라도 파일이 저장소에 남아 있습니다.
    
-        hdfs dfs -put datafu-1.2.0.jar /example/jars
+    ```
+    hdfs dfs -put datafu-1.2.0.jar /example/jars
+    ```
    
     > [!NOTE]
-    > 위의 예제에서는 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `wasbs:///example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
+    > 위의 예제에서는 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `/example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
 
 ## <a name="use-datafu-with-pig"></a>Pig와 함께 DataFu 사용
 
 이 섹션의 단계에서는 HDInsight에서 Pig를 사용하는 것에 익숙하고 Pig Latin 문만 제공하고 클러스터와 함께 사용하는 방법에 대한 단계는 제공하지 않는 것을 가정합니다. HDInsight와 함께 Pig 사용에 대한 자세한 내용은 [Pig와 함께 HDInsight 사용](hdinsight-use-pig.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Linux 기반 HDInsight 클러스터의 Pig에서 DataFu를 사용하는 경우 다음 Pig Latin 문을 사용하여 jar 파일을 먼저 등록해야 합니다.
+> Linux 기반 HDInsight 클러스터의 Pig에서 DataFu를 사용하는 경우 먼저 jar 파일을 등록해야 합니다.
 > 
-> ```register wasbs:///example/jars/datafu-1.2.0.jar```
+> 클러스터에서 Azure Storage를 사용하는 경우에는 `wasb://` 패스를 사용해야 합니다. 예: `register wasb:///example/jars/datafu-1.2.0.jar`.
+>
+> 클러스터에서 Azure Data Lake Store를 사용하는 경우에는 `adl://` 패스를 사용해야 합니다. 예: `register adl://home/example/jars/datafu-1.2.0.jar`.
 > 
 > DataFu는 기본적으로 Windows 기반 HDInsight 클러스터에 등록됩니다.
 
-일반적으로 DataFu 함수에 대한 별칭을 정의합니다. 예:
+종종 DataFu 함수에 대한 별칭을 정의합니다. 예:
 
     DEFINE SHA datafu.pig.hash.SHA();
 
@@ -97,7 +104,7 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
     Shi Liao,4,6,0
     Tjasa Zemljaric,0,2,5
 
-다음 출력이 표시됩니다.
+다음 출력이 생성됩니다.
 
     (c1a743b0f34d349cfc2ce00ef98369bdc3dba1565fec92b4159a9cd5de186347,5,9,1)
     (713d030d621ab69aa3737c8ea37a2c7c724a01cd0657a370e103d8cdecac6f99,9,3,6)
@@ -120,6 +127,6 @@ DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

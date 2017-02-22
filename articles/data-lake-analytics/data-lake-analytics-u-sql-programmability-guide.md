@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 847081123123c849033c9de2b3c4359042d41359
-ms.openlocfilehash: da29f6015502e4ce5a63ca1c47106dc346026803
+ms.sourcegitcommit: cd2aafd80db337cadaa2217a6638d93186975b68
+ms.openlocfilehash: 563a6821b4a3736ef1233aa67d86b9ba06565788
 
 
 ---
@@ -768,9 +768,9 @@ LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS 
            string.IsNullOrEmpty(LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
            USQLApplication21.UserSession.StampUserSession
            (
-            EventDateTime,
-            LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
-            LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
+               EventDateTime,
+               LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
+               LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
            )
            AS UserSessionTimestamp
     FROM @records;
@@ -824,7 +824,10 @@ USING Outputters.Csv();
 ## <a name="using-user-defined-types---udt"></a>사용자 정의 형식 사용
 UDT(사용자 정의 형식)는 U-SQL의 또 다른 프로그래밍 기능입니다. U-SQL UDT는 일반 C# 사용자 정의 형식처럼 작동합니다. C#는 기본 제공 및 사용자 지정 UDT를 사용할 수 있는 강력한 형식의 언어입니다.
 
-현재 U-SQL은 UDT 데이터를 외부 파일에(서) 암시적으로 직렬화/역직렬화할 수 없습니다. 이로 인해 IFormatter 인터페이스는 UDT 정의의 일부로 Serialize/De-serialize 메서드를 사용하여 정의해야 합니다. ADLA V1에서는 intermediate 직렬화만 지원합니다. 즉 IFormatter는 내부 UDT 처리에 중요하지만 EXTRACTOR 또는 OUTPUTTER의 영구 직렬화에는 사용할 수 없습니다. OUTPUTTER를 통해 파일에 데이터를 쓰거나 EXTRACTOR를 통해 데이터를 읽을 때 UDT는 UDT 구현의 ToString() 메서드를 사용하여 문자열로 직렬화되어야 합니다. 대안으로 UDT를 처리할 때 사용자 지정 EXTRACTOR/OUTPUTTER를 사용할 수 있습니다.  
+U-SQL은 UDT가 행 집합의 꼭지점 사이에서 전달되는 동안 임의의 UDT를 묵시적으로 직렬화/역직렬화할 수 없습니다. 따라서 사용자는 IFormatter 인터페이스를 사용하는 명시적인 포맷터를 제공해야 합니다. 이는 UDT에 대해 직렬화 및 역직렬화 메서드를 U-SQL에 제공합니다. 
+
+> [!NOTE]
+> U-SQL의 기본 제공 추출기 및 출력기는 현재 IFormatter 집합이 있는 파일에/로부터 UDT 데이터를 직렬화/역직렬화할 수 없습니다.  따라서 UDT 데이터를 OUTPUT 문으로 파일에 쓰거나 추출기로 읽는 경우, 사용자는 이를 문자열 또는 바이트 배열으로 전달하고 직렬화 및 역직렬화 코드(예: UDT의 ToString() 메서드) 명시적으로 호출해야 합니다. 반면 사용자 정의 추출기 및 출력기는 UDT를 읽고 쓸 수 있습니다.
 
 이전 SELECT의 외부에 있는 EXTRACTOR 또는 OUTPUTTER에서 UDT를 사용하는 경우:
 
@@ -839,7 +842,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 다음과 같은 오류가 발생합니다.
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+    Error    1    E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
     MyNameSpace.Myfunction_Returning_UDT.
 
     Description:
@@ -849,8 +852,8 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
     Resolution:
 
     Implement a custom outputter that knows how to serialize this type or call a serialization method on the type in
-    the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
-    USQL-Programmability\Types.usql 52  1   USQL-Programmability
+    the preceding SELECT.    C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+    USQL-Programmability\Types.usql    52    1    USQL-Programmability
 ```
 
 Outptutter에서 UDT를 사용하려면 ToString() 메서드를 사용하여 문자열로 직렬화하거나 사용자 지정 Outputter를 만들어야 합니다.
@@ -858,7 +861,7 @@ Outptutter에서 UDT를 사용하려면 ToString() 메서드를 사용하여 문
 UDT는 현재 GROUP BY에서 사용할 수 없습니다. GROUP BY에 UDT를 사용하면 다음과 같은 오류가 발생합니다.
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
+    Error    1    E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
     for column myfield
 
     Description:
@@ -869,7 +872,7 @@ UDT는 현재 GROUP BY에서 사용할 수 없습니다. GROUP BY에 UDT를 사�
 
     Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
     C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
-    62  5   USQL-Programmability
+    62    5    USQL-Programmability
 ```
 
 UDT를 정의하려면 다음을 수행해야 합니다.
@@ -898,7 +901,7 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 ```c#
     [SqlUserDefinedType(typeof(MyTypeFormatter))]
       public class MyType
-           {
+              {
              …
            }
 ```
@@ -1118,6 +1121,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
+       
+       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
@@ -1286,9 +1291,6 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
     }
 }
 ```
-
-### <a name="udts-from-built-in-types"></a>기본 제공 형식 UDT
-서비스 예정
 
 ## <a name="user-defined-aggregates--udagg"></a>사용자 정의 집계
 UDAGG(사용자 정의 집계)는 U-SQL에서 제공되지 않는 집계 관련 함수입니다. 예제는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계일 수 있습니다.
@@ -1525,7 +1527,7 @@ SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 A
     {
     …
         string[] parts = line.Split(my_column_delimiter);
-            foreach (string part in parts)
+               foreach (string part in parts)
         {
         …
         }
@@ -2176,9 +2178,9 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 이 사용 사례 시나리오에서 사용자 정의 적용자는 car fleet 속성에 대한 쉼표로 분리된 값 파서로 작동합니다. 입력 파일 행은 다음과 같습니다.
 
 ```
-103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
-210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
+103    Z1AB2CD123XY45889    Ford,Explorer,2005,SUV,152345
+303    Y0AB2CD34XY458890    Shevrolet,Cruise,2010,4Dr,32455
+210    X5AB2CD45XY458893    Nissan,Altima,2011,4Dr,74000
 ```
 
 이 파일은 Make, Model 등의 car 속성을 포함하는 Properties 열이 탭으로 분리된 일반적인 TSV 파일입니다. 이러한 속성은 테이블 열로 구문 분석되어야 합니다. 또한 제공된 적용자를 사용하면 전달된 매개 변수(모든 속성 집합 또는 특정 속성 집합만)에 기반하여 결과 행 집합에 동적 개수의 속성을 생성할 수 있습니다.
@@ -2610,6 +2612,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

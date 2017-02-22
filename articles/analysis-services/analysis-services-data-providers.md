@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4dbd2c87d648f6923772b070fdfe7379de22e6c5
-ms.openlocfilehash: e1adeaca702de3bad1c2e572f89ade9eba753173
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
 
 
 ---
@@ -40,10 +40,10 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그�
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>다음 단계
-최신 데이터 공급자가 설치된 클라이언트 응용 프로그램은 서버에 연결할 준비가 됩니다. 연결에 대한 자세한 내용은 [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)를 참조하세요.
+최신 데이터 공급자가 설치된 클라이언트 응용 프로그램은 서버에 연결할 준비가 됩니다. 클라이언트에서 연결에 대한 자세한 내용은 [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)를 참조하세요.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

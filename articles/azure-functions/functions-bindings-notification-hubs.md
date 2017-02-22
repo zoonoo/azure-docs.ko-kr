@@ -3,7 +3,7 @@ title: "Azure Functions Notification Hub 바인딩 | Microsoft Docs"
 description: "Azure Functions에서 Azure 알림 허브 바인딩을 사용하는 방법을 파악합니다."
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: 
 tags: 
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
+ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
+ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
 
 
 ---
@@ -76,8 +76,8 @@ function.json 파일은 다음 속성을 제공합니다.
 
 1. Azure Portal의 **함수 앱** 블레이드에서 **함수 앱 설정 > App Service 설정으로 이동**을 클릭합니다.
 2. **설정** 블레이드에서 **응용 프로그램 설정**을 클릭합니다.
-3. **연결 문자열** 섹션을 아래로 스크롤하여 알림 허브에 *DefaultFullSharedAccessSignature* 값에 대한 명명된 항목을 추가합니다. 형식을 **사용자 지정**으로 변경합니다.
-4. 출력 바인딩에서 연결 문자열 이름을 참조합니다. 위의 예제에서 사용된 **MyHubConnectionString** 과 유사합니다.
+3. **앱 설정** 섹션까지 아래로 스크롤하여 알림 허브에 *DefaultFullSharedAccessSignature* 값에 대한 명명된 항목을 추가합니다.
+4. 출력 바인딩에서 앱 설정 문자열 이름을 참조합니다. 위의 예제에서 사용된 **MyHubConnectionString** 과 유사합니다.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>C# 큐 트리거를 사용한 APNS 기본 알림
 이 예제에서는 [Microsoft Azure Notification Hubs 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)에 정의된 형식을 사용하여 기본 APNS 알림을 보내는 방법을 보여 줍니다. 
@@ -298,6 +298,6 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 1fbf8cd4347c5a49fe7769fd8d02c2dbfddfc74e
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
 
 
 ---
@@ -81,7 +81,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
             **USERNAME**은 클러스터의 SSH 사용자 계정으로 바꿉니다. **CLUSTERNAME**은 HDInsight 클러스터 이름으로 바꿉니다.
         
         > [!NOTE]
-        > Windows 환경에서는 scp 대신 PSCP 유틸리티를 사용해야 합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
+        > Windows 환경에는 `scp` 명령이 없을 수 있습니다. 그렇다면 PSCP 유틸리티를 대신 사용합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
 
     * **Windows 기반 HDInsight**의 경우 다음 단계에 따라 jar 파일을 다운로드합니다.
      
@@ -199,6 +199,6 @@ JDBC를 사용하여 Hive와 함께 작업하는 방법을 살펴보았으므로
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

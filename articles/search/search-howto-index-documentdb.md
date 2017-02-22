@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: efa4a720a306aaedcd2d5857d30d34394a76f5f6
-ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: ca09ac90dfcf125291bc0b312b16e28160a18527
 
 
 ---
@@ -27,6 +27,9 @@ DocumentDB 데이터에 대한 뛰어난 검색 환경을 구현하려는 경우
 이를 설정하려면 [Azure Search 서비스](search-create-service-portal.md)와 인덱스, 인덱서 및 데이터 소스가 있어야 합니다. [포털](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search) 또는 모든 비.NET 언어에 대한 [REST API](/rest/api/searchservice/) 중 하나를 사용하여 이러한 개체를 만들 수 있습니다. 
 
 포털을 사용할 경우 [데이터 가져오기 마법사](search-import-data-portal.md)가 이러한 모든 개체의 생성 방법을 안내합니다. 일반적으로 기본 인덱스는 자동으로 생성됩니다.
+
+> [!NOTE]
+> DocumentDB 대시보드에서 **데이터 가져오기** 마법사를 시작하여 해당 데이터 원본에 대한 인덱싱을 단순화할 수 있습니다. 왼쪽 탐색에서 **컬렉션** > **Azure Search 추가**로 이동하여 시작합니다.
 
 ## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Azure 검색 인덱서 개념
 Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스에 대해 작동하는 인덱서의 생성 및 관리가 지원됩니다.
@@ -121,7 +124,7 @@ HTTP POST 요청을 실행해서 Azure Search 서비스에서 다음 요청 헤�
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
     
     
-필터링 쿼리:
+필터 쿼리:
 
     SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
 
@@ -291,6 +294,6 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 * Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

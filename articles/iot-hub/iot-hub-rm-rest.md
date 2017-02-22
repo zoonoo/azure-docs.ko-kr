@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
-ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 0e5f420833276d23565ae0aa83f79bbbe47faf67
 
 
 ---
@@ -44,7 +44,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **Microsoft.Azure.Management.ResourceManager**를 검색합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
 4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다.  **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
-5. Program.cs에서 기존 **using** 문을 다음으로 바꿉니다.
+5. Program.cs에서 기존 **using** 문을 다음 코드로 바꿉니다.
    
     ```
     using System;
@@ -84,13 +84,13 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
    
     }
     ```
-2. 다음 코드를 **CreateIoTHub** 메서드에 추가하여 헤더에 있는 인증 토큰으로 **HttpClient** 개체를 만듭니다.
+2. **CreateIoTHub** 메서드에 다음 코드를 추가합니다. 이 코드에서는 헤더에서 인증 토큰을 사용하여 **HttpClient** 개체를 만듭니다.
    
     ```
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
-3. 다음 코드를 **CreateIoTHub** 메서드에 추가하여 JSON 표현을 만들고 생성하도록 IoT Hub를 설명합니다. IoT Hub를 지원하는 현재 위치 목록에 대해서는 [Azure 상태][lnk-status]를 참조하세요.
+3. **CreateIoTHub** 메서드에 다음 코드를 추가합니다. 이 코드는 JSON 표현을 만들고 생성하는 IoT Hub를 설명합니다. IoT Hub를 지원하는 현재 위치 목록에 대해서는 [Azure 상태][lnk-status]를 참조하세요.
    
     ```
     var description = new
@@ -107,7 +107,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
    
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
-4. 다음 코드를 **CreateIoTHub** 메서드에 추가하여 Azure에 REST 요청을 제출하고 응답을 확인하며 배포 작업의 상태를 모니터링하는 데 사용할 수 있는 URL을 검색합니다.
+4. **CreateIoTHub** 메서드에 다음 코드를 추가합니다. 이 코드는 Azure에 REST 요청을 제출하고 응답을 확인하며 배포 태스크의 상태를 모니터링하는 데 사용할 수 있는 URL을 검색합니다.
    
     ```
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -122,7 +122,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
    
     var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
-5. **CreateIoTHub** 메서드의 끝에 다음 코드를 추가하여 배포가 완료되기를 기다리는 이전 단계에서 검색된 **asyncStatusUri** 주소를 사용합니다.
+5. **CreateIoTHub** 메서드의 끝에 다음 코드를 추가합니다. 이 코드는 배포가 완료되기를 대기하는 이전 단계에서 검색된 **asyncStatusUri** 주소를 사용합니다.
    
     ```
     string body;
@@ -133,7 +133,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
     } while (body == "{\"status\":\"Running\"}");
     ```
-6. **CreateIoTHub** 메서드의 끝에 다음 코드를 추가하여 만든 IoT Hub의 키를 검색하고 콘솔에 인쇄합니다.
+6. **CreateIoTHub** 메서드의 끝에 다음 코드를 추가합니다. 이 코드는 사용자가 만들고 콘솔에 출력한 IoT Hub의 키를 검색합니다.
    
     ```
     var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
@@ -166,7 +166,7 @@ ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 * [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 읽어보세요.
 * Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요][lnk-azure-rm-overview]를 참조하세요.
 
-IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [C SDK 소개][lnk-c-sdk]
 * [Azure IoT SDK][lnk-sdks]
@@ -190,6 +190,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: da120b0ea1bfa7a0afcb6eed864c4eadbd2bbec0
+ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
+ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 
 
 ---
 # <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기
-Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 미리 보기 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)  이 문서는 규칙 특성 및 이러한 고급 규칙을 만드는 구문에 대해 자세히 설명합니다.
+Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 미리 보기 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 이 문서는 규칙 특성 및 이러한 고급 규칙을 만드는 구문에 대해 자세히 설명합니다.
 
 ## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -38,7 +38,7 @@ Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azu
 
    ![동적 멤버 자격 규칙 추가](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 6. **동적 멤버 자격 규칙** 블레이드에서 **동적 멤버 자격 고급 규칙 추가** 상자에 규칙을 입력하고 Enter를 누른 다음 블레이드 맨 아래의 **만들기**를 선택합니다.
-7.  **만들기** on the **그룹** 를 선택하여 그룹을 만듭니다.
+7. **만들기** on the **그룹** 를 선택하여 그룹을 만듭니다.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>고급 규칙 본문 생성
 그룹의 동적 멤버 자격에 대해 만들 수 있는 고급 규칙은 기본적으로 세 부분으로 구성되며 true 또는 false 결과를 생성하는 이진 식입니다. 세 부분은 다음과 같습니다.
@@ -119,6 +119,7 @@ Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azu
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 $null입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 $null입니다. |(user.country -eq "value") |
+| CompanyName | 임의의 문자열 값 또는 $null입니다. | (user.CompanyName -eq "value") |
 | department |임의의 문자열 값 또는 $null입니다. |(user.department -eq "value") |
 | displayName |임의의 문자열 값입니다. |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |임의의 문자열 값 또는 $null입니다. |(user.facsimileTelephoneNumber -eq "value") |
@@ -194,7 +195,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | isManaged |true false null |(device.isManaged -eq "false") |
 | isCompliant |true false null |(device.isCompliant -eq "true") |
 
-## <a name="additional-information"></a>추가 정보
+## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory의 그룹에 대한 추가 정보를 제공합니다.
 
 * [기존 그룹 보기](active-directory-groups-view-azure-portal.md)
@@ -205,6 +206,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

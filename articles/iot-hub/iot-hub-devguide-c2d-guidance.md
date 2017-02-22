@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17b338ab15ae7cf46f6732e7e7a1005eec98990b
+ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
+ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
 
 
 ---
@@ -35,9 +35,9 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 장치 
 | 데이터 흐름 | 양방향. 장치 앱에서 메서드에 즉시 응답할 수 있습니다. 솔루션 백 엔드에서 컨텍스트에 따라 요청에 대한 결과를 수신합니다. | 단방향. 장치 앱에서 속성 변경 알림을 수신합니다. | 단방향. 장치 앱에서 메시지를 수신합니다.
 | 내구성 | 연결이 끊긴 장치는 연결되지 않습니다. 장치가 연결되어 있지 않다고 백 엔드에 알립니다. | 속성 값은 장치 쌍에 유지됩니다. 다음에 다시 연결할 때 장치에서 이 알림을 읽습니다. 속성 값은 [IoT Hub 쿼리 언어][lnk-query]로 검색할 수 있습니다. | 메시지는 최대 48시간 동안 IoT Hub에 보관할 수 있습니다. |
 | 대상 | **deviceId**를 사용하는 단일 장치 또는 [jobs][lnk-jobs]를 사용하는 여러 장치 | **deviceId**를 사용하는 단일 장치 또는 [jobs][lnk-jobs]를 사용하는 여러 장치 | **deviceId**를 사용하는 단일 장치 |
-| 크기 | 최대 8KB 요청 및 최대 8KB 응답 | 최대 desired 속성 크기는 8KB입니다. | 최대 256KB 메시지 |
+| 크기 | 최대 8KB 요청 및 최대 8KB 응답 | 최대 desired 속성 크기는 8KB입니다. | 최대 64KB 메시지입니다. |
 | Frequency(빈도) | 높음. 자세한 내용은 [IoT Hub 제한][lnk-quotas] 참조 | 중간. 자세한 내용은 [IoT Hub 제한][lnk-quotas] 참조 | 낮음. 자세한 내용은 [IoT Hub 제한][lnk-quotas] 참조 |
-| 프로토콜 | MQTT 및 AMQP에서 사용할 수 있습니다. | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTP를 사용할 경우 장치에서 폴링해야 합니다. |
+| 프로토콜 | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 현재 MQTT를 사용할 때만 사용할 수 있습니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTP를 사용할 경우 장치에서 폴링해야 합니다. |
 
 다음 자습서에서 직접 메서드, desired 속성 및 클라우드-장치 메시지를 사용하는 방법에 대해 알아보세요.
 
@@ -56,6 +56,7 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 장치 
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

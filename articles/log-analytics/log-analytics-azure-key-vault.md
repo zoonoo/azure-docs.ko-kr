@@ -12,22 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: b781d7b8cbf3f6b9a0a92f4368491404ee033f91
-ms.openlocfilehash: a6612d59d9504b1befd691f3b784ac9378c2b414
+ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
+ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
 
 
 ---
-# <a name="azure-key-vault-analytics-preview-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics(Preview) 솔루션
+# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics 솔루션
 
 Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다.
-
-> [!NOTE]
-> Azure Key Vault Analytics는 [미리 보기 솔루션](log-analytics-add-solutions.md#preview-management-solutions-and-features)입니다.
-> 
-> 
 
 솔루션을 사용하려면 Azure Key Vault 진단 로깅을 사용하도록 설정하고 진단을 Log Analytics 작업 영역으로 보내야 합니다. Azure Blob Storage에 로그를 작성할 필요는 없습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "가상 컴퓨터의 여러 IP 주소 - Portal | Microsoft Docs"
+title: "Azure Virtual Machines의 여러 IP 주소 - 포털 | Microsoft Docs"
 description: "Azure Portal | Resource Manager를 사용하여 가상 컴퓨터에 여러 IP 주소를 할당하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
@@ -16,41 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 7ce83952f0f16e01a4837ce2155571d223d7b551
-ms.openlocfilehash: b1a2549e0f04dbc00a47a57ecc888ca36339c646
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: 6e7eac6ae505c627ffa1d63aace76b9006d92c74
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 여러 IP 주소 할당
 
-> [!div class="op_single_selector"]
-> * [포털](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+>[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 >
-
-Azure VM(가상 컴퓨터)에는 하나 이상의 네트워크 인터페이스(NIC)가 연결되어 있습니다. 모든 NIC에는 하나 이상의 정적 또는 동적 공용 및 개인 IP 주소가 할당되어 있을 수 있습니다. VM에 여러 IP 주소를 할당하면 다음을 수행할 수 있습니다.
-
-* 단일 서버에서 IP 주소와 SSL 인증서를 사용하여 여러 웹 사이트 또는 서비스를 호스트할 수 있습니다.
-* 방화벽 또는 부하 분산 장치와 같은 네트워크 가상 어플라이언스로 사용됩니다.
-* NIC의 개인 IP 주소를 Azure Load Balancer 백 엔드 풀에 추가할 수 있습니다. 이전에 기본 NIC의 기본 IP 주소만 백 엔드 풀에 추가할 수 있었습니다. 여러 IP 구성의 부하를 분산하는 방법에 대해 자세히 알아보려면 [여러 IP 구성의 부하 분산](../load-balancer/load-balancer-multiple-ip.md) 문서를 참조하세요.
-
-VM에 연결된 모든 NIC에는 하나 이상의 IP 구성이 연결되어 있습니다. 각 구성에는 하나의 정적 또는 동적 개인 IP 주소가 할당됩니다. 각 구성에는 하나의 공용 IP 주소 리소스가 연결되어 있을 수도 있습니다. 공용 IP 주소 리소스에는 동적 또는 정적 IP 주소가 할당되어 있습니다. Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [Azure의 IP 주소](virtual-network-ip-addresses-overview-arm.md)를 확인하세요.
-
-이 문서에서는 Azure Portal을 사용하여 Azure Resource Manager 배포 모델을 통해 만든 VM에 여러 IP 주소를 할당하는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
+이 문서는 Azure Portal을 사용하여 Azure Resource Manager 배포 모델을 통해 VM(가상 컴퓨터)을 만드는 방법을 설명합니다. 클래식 배포 모델을 통해 생성된 리소스에 여러 IP 주소를 할당할 수 없습니다. Azure 배포 모델에 대해 자세히 알아보려면 [배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## <a name="scenario"></a>시나리오
-단일 NIC가 있는 VM을 만들고 가상 네트워크에 연결합니다. VM은 세 개의 *개인* IP 주소와 두 개의 *공용* IP 주소가 필요합니다. IP 주소는 다음 IP 구성에 할당됩니다.
-
-* **IPConfig-1:** *동적* 개인 IP 주소(기본값)와 *정적* 공용 IP 주소를 할당합니다.
-* **IPConfig-2:** *정적* 개인 IP 주소와 *정적* 공용 IP 주소를 할당합니다.
-* **IPConfig-3:** *동적* 개인 IP 주소를 할당하고 공용 IP 주소를 할당하지 않습니다.
-  
-    ![여러 IP 주소](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에 연결됩니다. 시나리오에 사용되는 IP 주소 유형은 예시입니다. 필요한 모든 IP 주소 및 할당 유형을 지정할 수 있습니다.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
@@ -58,16 +37,30 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
 
 ## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>VM에 IP 주소 추가
 
-다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 이 문서의 [시나리오](#Scenario)에서 설명한 3개의 IP로 구성된 VM이 이미 있다는 가정 하에 진행하되 필수 사항은 아닙니다.
-
-> [!NOTE]
-> 이 문서를 통해 모든 IP 구성을 단일 NIC에 할당하면 여러 IP 구성도 VM의 모든 NIC에 할당할 수 있습니다. 여러 NIC로 VM을 만드는 방법에 대해 자세히 알아보려면 [여러 NIC를 사용하여 VM 만들기](virtual-network-deploy-multinic-arm-ps.md) 문서를 참조하세요.
+다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 이 문서의 [시나리오](#Scenario)에서 설명한&3;개의 IP로 구성된 VM이 이미 있다는 가정 하에 진행하되 필수 사항은 아닙니다.
 
 ### <a name="a-namecoreaddacore-steps"></a><a name="coreadd"></a>핵심 단계
 
-1. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
-    - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
-    - 수신 메일의 지침을 따르기 전에
+1. 로그인하고 적절한 구독을 선택한 후에 PowerShell에서 다음 명령을 실행하여 미리 보기에 등록합니다.
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+    ```Get-AzureRmProviderFeature``` 명령을 실행하면 다음과 같은 출력이 표시될 때까지 나머지 단계를 완료하지 마세요.
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >몇 분이 걸릴 수 있습니다.
+    
 2. https://portal.azure.com의 Azure Portal로 이동한 후 필요한 경우 로그인합니다.
 3. 포털에서 **더 많은 서비스**를 클릭하고 필터 상자에 *가상 컴퓨터*를 입력하고 **가상 컴퓨터**를 클릭합니다.
 4. **가상 컴퓨터** 블레이드에서 IP 주소를 추가하려는 VM을 클릭합니다. 나타나는 가상 컴퓨터 블레이드에서 **네트워크 인터페이스**를 클릭한 다음 IP 주소를 추가할 네트워크 인터페이스를 선택합니다. 다음 그림의 예제에서는 *myVM*이라는 VM에서 *myNIC*라는 NIC가 선택됩니다.
@@ -85,7 +78,7 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
 새 개인 IP 주소를 추가하려면 다음 단계를 완료합니다.
 
 1. 이 문서의 [핵심 단계](#coreadd) 섹션에 나오는 단계를 완료합니다.
-2. **추가**를 클릭합니다. 다음 그림과 같이 나타나는 **IP 구성 추가** 블레이드에서 *고정* 개인 IP 주소가 *10.0.0.7*인 *IPConfig 4*라는 IP 구성을 만든 후 **확인**을 클릭합니다.
+2. **추가**를 클릭합니다. 다음 그림과 같이 나타나는 **IP 구성 추가** 블레이드에서 *고정* 개인 IP 주소가 *10.0.0.7*인 *IPConfig&4;*라는 IP 구성을 만든 후 **확인**을 클릭합니다.
 
     ![개인 IP 추가](./media/virtual-network-multiple-ip-addresses-portal/figure3.png)
 
@@ -161,6 +154,6 @@ NIC를 만들 때 IP 구성이 NIC에 연결되고 VM을 만들 때 NIC가 VM에
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

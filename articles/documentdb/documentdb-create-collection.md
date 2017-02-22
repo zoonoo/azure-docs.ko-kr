@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
-ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
+ms.sourcegitcommit: a87b2811175193377142e391597011f48f169f11
+ms.openlocfilehash: 4c16c843ba43a9e38d73fc1fd44d06f6f72de60c
 
 
 ---
@@ -40,7 +40,7 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
     처리량 수준이 초당 400-10,000요청 단위(RU/s)인 [단일 파티션 컬렉션](documentdb-partition-data.md#single-partition-and-partitioned-collections)을 원하는 경우 저장소 용량을 **10GB**로 설정합니다. 하나의 RU는 1KB 문서를 읽는 처리량에 해당합니다. 요청 단위에 대한 자세한 내용은 [요청 단위](documentdb-request-units.md)를 참조하세요.
 
-    여러 파티션에서 무제한 저장소를 처리하도록 확장하고 최소 처리량 수준이 10,100RU/s인 [분할된 컬렉션](documentdb-partition-data.md#single-partition-and-partitioned-collections)을 원하는 경우 저장소 용량을 **250GB**로 설정합니다.
+    여러 파티션에서 무제한 저장소를 처리하도록 확장하고 최소 처리량 수준이 2,500RU/s인 [분할된 컬렉션](documentdb-partition-data.md#single-partition-and-partitioned-collections)을 원하는 경우 저장소 용량을 **250GB**로 설정합니다.
 
     10GB 또는 250GB 이외의 양을 프로비저닝하려는 경우 저장소 용량을 **사용자 지정**으로 설정합니다. DocumentDB의 규모는 거의 무제한이므로, 지원 요청에 요청하는 저장소 크기 및 처리량 값을 포함해 주세요.
 
@@ -83,6 +83,6 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "저장소에 대한 Azure Resource Manager 정책 | Microsoft Docs"
+title: "저장소 계정에 대한 Azure 리소스 정책 | Microsoft Docs"
 description: "저장소 계정 배포를 관리하기 위한 Azure Resource Manager 정책을 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ce31bbcb96a6afe19cf6c25dd9a68d6c2d4d080c
-ms.openlocfilehash: f2141304f6db6d137065e06558e10c721b11f892
+ms.sourcegitcommit: 5ea75843bf671ad4d879c01cdd20d5bbc5e889c2
+ms.openlocfilehash: 08c991e9f217c49828889d0b806888e193b245a8
 
 
 ---
-# <a name="apply-azure-resource-policies-to-storage-accounts"></a>저장소 계정에 Azure 리소스 정책 적용
-Azure Resource Manager 정책을 통해 조직 내에서 리소스가 배포되는 방식에 대한 일관적인 규칙을 정의합니다. 조직의 리소스를 관리하는 데 필요한 규칙을 조직 내 사용자가 위반하지 않도록 사용자 지정된 정책을 만듭니다. 이 항목은 Azure Storage 계정에 대한 규칙을 정의하는 몇 가지 정책을 보여줍니다. 정책에 대한 자세한 내용은 [리소스 정책을 사용하여 리소스 관리](resource-manager-policy.md)를 참조하세요.
-
-이 항목의 예제는 정책 규칙에 하드 코드된 값을 보여줍니다. 하지만 매개 변수를 사용하여 정책을 할당할 때 사용되는 값을 전달할 수 있습니다. 자세한 내용은 [정책 매개 변수](resource-manager-policy.md#parameters)를 참조하세요.
+# <a name="apply-resource-policies-to-storage-accounts"></a>저장소 계정에 리소스 정책 적용
+이 항목에서는 Azure Storage 계정에 적용할 수 있는 몇 가지 [리소스 정책](resource-manager-policy.md)을 보여 줍니다. 이러한 정책을 통해 조직에 배포된 저장소 계정에 대한 일관성을 보장합니다. 
 
 ## <a name="define-permitted-storage-account-types"></a>허용되는 저장소 계정 유형 정의
 
@@ -53,6 +51,8 @@ Azure Resource Manager 정책을 통해 조직 내에서 리소스가 배포되�
   }
 }
 ```
+
+허용되는 SKU를 수락하는 매개 변수를 사용하는 비슷한 정책 규칙은 기본 제공 정책 정의로 제공됩니다. 기본 제공 정책에는 `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`의 리소스 ID가 있습니다. 
 
 ## <a name="define-permitted-access-tier"></a>허용되는 액세스 계층 정의
 
@@ -110,16 +110,15 @@ Azure Resource Manager 정책을 통해 조직 내에서 리소스가 배포되�
 }
 ```
 
-## <a name="create-and-assign-policies"></a>정책 만들기 및 할당
-
-앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책을 만들어서 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 정책을 만들고 할당하는 예제는 [정책 만들기 및 할당](resource-manager-policy.md#create-and-assign-a-policy)을 참조하세요. 
+또한 이 정책 규칙은 `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`의 리소스 ID를 사용하여 기본 제공 정책 정의로 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 정책을 만들고 할당하는 예제는 [정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요. 
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

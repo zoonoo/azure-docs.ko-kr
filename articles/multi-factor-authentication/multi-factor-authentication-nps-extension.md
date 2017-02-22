@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: c9cf1540c0f8d16b0a5cdbedc78ac58cd5686107
-ms.openlocfilehash: 51ebadc241892ebc6fb26b29955e3030ae1bdcb3
+ms.sourcegitcommit: 68f1088a7303b5eddecc9ff99f7330c0462baafc
+ms.openlocfilehash: 9fb517a08fb56a1adb9e23f820aa2e4aa20eacf6
 
 
 ---
@@ -49,10 +49,8 @@ NPS 구성 요소를 사용하도록 설정된 Windows Server 2008 R2 SP1 이상
 
 ### <a name="libraries"></a>라이브러리
 
-NPS 확장에는 설치 과정에서 설치되는 다음 두 가지  라이브러리가 필요합니다.
-
--   Microsoft Visual Studio 2013 C++ 재배포 가능 패키지(X64)
--   Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166
+-    [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -64,19 +62,22 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 
+> [!IMPORTANT]
+> VPN 액세스 지점 이외의 다른 서버에 NPS 확장을 설치합니다. 
+
 Azure MFA용 NPS 확장을 설치하려면
 
-1.  Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
-2.  이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
-3.  *setup.exe*를 실행하고 설치 지침을 따릅니다.
+1.    Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
+2.    이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
+3.    *setup.exe*를 실행하고 설치 지침을 따릅니다.
 
 설치를 완료하면 설치 관리자에서 `C:\Program Files\Microsoft\AzureMfa\Config`(여기서 C: \는 설치 드라이브임) 위치에 PowerShell 스크립트를 만듭니다. 이 PowerShell 스크립트는 다음 작업을 수행합니다.
 
--   자체 서명된 인증서를 만듭니다.
--   인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
--   로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
--   네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
--   NPS를 다시 시작합니다.
+-    자체 서명된 인증서를 만듭니다.
+-    인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
+-    로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
+-    네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+-    NPS를 다시 시작합니다.
 
 PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다.
 
@@ -137,7 +138,7 @@ PowerShell 명령 프롬프트를 열고 다음 명령을 실행합니다.
 1. NPS 서버를 다시 시작합니다.
 2. 클라이언트 인증서가 예상대로 설치되었는지 확인합니다.
 3. 인증서가 Azure AD의 테넌트와 연결되어 있는지 확인합니다.
-4. 확장을 실행하는 서버에서 https://login.windows.new/에 액세스할 수 있는지 확인합니다.
+4. 확장을 실행하는 서버에서 https://login.windows.net/에 액세스할 수 있는지 확인합니다.
 
 -------------------------------------------------------------
 
@@ -157,6 +158,6 @@ Azure MFA를 [Active Directory](multi-factor-authentication-get-started-server-d
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/10/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
-ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
+ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
+ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
 
 
 ---
@@ -72,9 +72,9 @@ OMS 게이트웨이 설치 파일을 가져오는 방법은 세 가지가 있습
 
 ### <a name="oms-portal"></a>OMS 포털
 
-1.  OMS 작업 영역에 로그인 합니다.
-2.  **설정** > **소스 연결** > **Windows 서버**를 선택합니다.
-3.  **OMS Gateway 다운로드**를 클릭합니다.
+1.    OMS 작업 영역에 로그인 합니다.
+2.    **설정** > **소스 연결** > **Windows 서버**를 선택합니다.
+3.    **OMS Gateway 다운로드**를 클릭합니다.
 
 
 ### <a name="azure-portal"></a>Azure 포털
@@ -100,11 +100,11 @@ OMS 게이트웨이 설치 파일을 가져오는 방법은 세 가지가 있습
 4. 포트 및 프록시 주소 페이지에서:
    1. 게이트웨이에 사용될 TCP 포트 번호를 입력합니다. 설치 프로그램이 Windows 방화벽에서 이 포트 번호를 엽니다. 기본값은 8080입니다.
       유효한 포트 번호 범위는 1 ~ 65535입니다. 입력한 내용이 이 범위를 벗어나면 오류 메시지가 표시됩니다.
-   2. 선택적으로, 게이트웨이가 설치되어 있는 서버에서 프록시를 사용해야 하는 경우에는 게이트웨이 연결이 필요한 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`. 만약 비워두면 게이트웨이는 인터넷에 직접 연결을 시도합니다. 그렇지 않은 경우 게이트웨이는 프록시에 연결합니다. 프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
+   2. 선택적으로, 게이트웨이가 설치되어 있는 서버에서 프록시를 사용해야 하는 경우에는 게이트웨이 연결이 필요한 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`. 만약 비워두면 게이트웨이는 인터넷에 직접 연결을 시도합니다. 그렇지 않은 경우 게이트웨이는 프록시에 연결합니다. 프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.  
        ![게이트웨이 마법사 프록시 구성](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. **다음**
 5. Microsoft 업데이트를 사용하도록 설정되어있지 않으면 Microsoft Updates를 사용하도록 설정을 선택할 수 있는 Microsoft Update 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
-6. 대상 폴더 페이지에서 기본 폴더 **%ProgramFiles%\OMS Gateway**를 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
+6. 대상 폴더 페이지에서 기본 폴더 c:\ProgramFiles\OMS를 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
 7. 설치 준비 완료 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되고 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
 8. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어서 서비스 목록에 **OMS 게이트웨이**가 표시되는 것을 확인하여 서비스가 실행 중인 것을 확인할 수 있습니다.  
     ![서비스 – OMS 게이트웨이](./media/log-analytics-oms-gateway/gateway-service.png)
@@ -214,7 +214,7 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 4. 이전 단계에서 발생한 오류가 없으면 모듈 가져오기가 완료된 것이고 cmdlet을 사용할 수 있습니다. `Get-Module OMSGateway`를 입력합니다.
 5. cmdlet을 사용하여 변경한 후에는 게이트웨이 서비스를 다시 시작해야 합니다.
 
-3단계에서 오류가 발생하면 모듈을 가져오기가 완료되지 못한 것입니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. 게이트웨이 설치 경로 C:\Program File\Microsoft OMS Gateway\PowerShell에서 해당 모듈을 찾을 수 있습니다.
+3단계에서 오류가 발생하면 모듈을 가져오기가 완료되지 못한 것입니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. 게이트웨이 설치 경로 C:\Program Files\Microsoft OMS Gateway\PowerShell에서 해당 모듈을 찾을 수 있습니다.
 
 | **Cmdlet** | **매개 변수** | **설명** | **예** |
 | --- | --- | --- | --- |
@@ -280,6 +280,6 @@ Azure Portal에 로그인되어 있으면 OMS 게이트웨이 또는 다른 Azur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

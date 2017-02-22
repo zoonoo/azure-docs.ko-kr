@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: 01133742302c366e283b6fac8b1e9436fc98901f
+ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
+ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
 
 
 ---
@@ -48,7 +48,7 @@ ms.openlocfilehash: 01133742302c366e283b6fac8b1e9436fc98901f
 > 
 > 응용 프로그램 기술 지원 웹 사이트 또는 연락처 정보:
 > 
-> 응용 프로그램 정보( https://manage.windowsazure.com )에 표시된 응용 프로그램의 클라이언트 ID:
+> https://portal.azure.com의 응용 프로그램 세부 정보에 표시된 응용 프로그램의 응용 프로그램 ID:
 > 
 > 고객이 응용 프로그램에 등록하거나 구입하기 위해 이동하는 응용 프로그램 등록 URL:
 > 
@@ -97,6 +97,6 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

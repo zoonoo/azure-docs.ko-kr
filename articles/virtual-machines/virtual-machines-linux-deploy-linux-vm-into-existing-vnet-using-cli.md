@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63485f0c9e151db22f23d291e2a4425dd01fb7ee
-ms.openlocfilehash: b22ac95ee11fe059d36a9416434a14814da1ee7d
+ms.sourcegitcommit: 34e9b401444aeec233d846a6b52f4a452c54cdaf
+ms.openlocfilehash: 106571bf36454ab20e75cb4ee42b2aca787a9d5a
 
 
 ---
@@ -53,12 +53,9 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Debian \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup
+    --nics myNic
 ```
 
 ## <a name="detailed-walkthrough"></a>자세한 연습
@@ -154,17 +151,23 @@ az network nic create \
 
 [az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 전체 VM을 배포하기 위해 Azure CLI 2.0(미리 보기)과 함께 사용하는 플래그에 대한 자세한 내용은 [Azure CLI를 사용하여 전체 Linux 환경 만들기](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
+다음 예제는 Azure Managed Disks를 사용하여 VM을 만듭니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. 관리되지 않는 디스크를 사용하려는 경우 아래의 추가 정보를 참조하세요.
+
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Debian \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup
+    --nics myNic
+```
+
+관리 디스크를 사용하는 경우 이 단계를 건너뜁니다. 관리되지 않는 디스크를 사용하려는 경우 다음과 같은 추가 매개 변수를 진행 명령에 추가하여 `mystorageaccount`라는 저장소 계정에 관리되지 않는 디스크를 만들어야 합니다. 
+
+```azurecli
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 기존 리소스를 호출하기 위해 CLI 플래그를 사용하여 Azure에서 기존 네트워크 내에 VM을 배포하도록 지시합니다. 다시 말해, 가상 네트워크 및 서브넷이 배포되면 Azure 지역 내에서 정적 또는 영구적으로 리소스로 유지할 수 있습니다. 이 예제에서는 VNic에 공용 IP 주소를 만들어 할당하지 않았기 때문에 이 VM은 인터넷을 통해 공개적으로 액세스할 수 없습니다. 자세한 내용은 [Azure CLI을 사용하여 고정 공용 IP가 있는 VM 만들기](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
@@ -178,6 +181,6 @@ Azure에서 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 �
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

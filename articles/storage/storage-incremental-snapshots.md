@@ -1,5 +1,5 @@
 ---
-title: "Azure VM의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs"
+title: "관리되지 않는 Azure VM 디스크의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs"
 description: "증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다."
 services: storage
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: 848c3fb655688dd55176cff00c728a151fd8f548
+ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
+ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
 
 
 ---
-# <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크 백업
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업
 ## <a name="overview"></a>개요
 Azure 저장소는 Blob의 스냅숏을 만드는 기능을 제공합니다. 스냅숏은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅숏을 사용하여 가상 컴퓨터 디스크의 백업을 유지 관리할 수 있는 방법의 시나리오에 대해 설명합니다. Azure 백업 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다.
 
@@ -123,6 +123,6 @@ Blob의 스냅숏을 만들고 아래와 같은 링크를 사용하여 VM 백업
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

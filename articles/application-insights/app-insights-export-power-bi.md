@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: dba7f1ac2257246f14acf79de6e9fc714689b276
+ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
+ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
 
 
 ---
@@ -39,7 +39,7 @@ Power BI에 Application Insights 데이터를 내보내는 세 가지 권장 방
 3. Application Insights 리소스의 세부 정보를 제공합니다.
    
     ![Application Insights 데이터 원본에서 가져오기](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. 데이터를 가져오는 데 1, 2분 정도 기다립니다.
+4. 데이터를 가져오는 데&1;,&2;분 정도 기다립니다.
    
     ![Power BI 어댑터](./media/app-insights-export-power-bi/010.png)
 
@@ -92,6 +92,6 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

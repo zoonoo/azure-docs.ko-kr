@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/10/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: eff605d7a3c493e5797bc9c3c805c103828c93e3
-ms.openlocfilehash: ada7dd484805040d7f1d55081bddf4ae9f821a4b
+ms.sourcegitcommit: 0eef684115f9c21ea61502a10576f74cac0ace8e
+ms.openlocfilehash: 2054cb65b5192e08fc64e56f59a456fc911f0829
 
 
 ---
@@ -100,17 +100,18 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 
 * [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)
-* [정보 근로자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-how-it-works.md)
+* [정보 근로자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-iw-add-users.md)
 * [B2B 공동 작업 초대 전자 메일의 요소](active-directory-b2b-invitation-email.md)
 * [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B 공동 작업 라이선스](active-directory-b2b-licensing.md)
 * [Azure Active Directory B2B 공동 작업 문제 해결](active-directory-b2b-troubleshooting.md)
 * [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
+* [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

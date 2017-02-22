@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 18fa3fd2fc9bb68b9e68c0c5ac5663a8a8348fd7
-ms.openlocfilehash: e02cb1916c65d137dc06b1ce6a9dd9621a31b56c
+ms.sourcegitcommit: 16ec322d0c921f97819375cfe52d2c3f02a2c53b
+ms.openlocfilehash: d573090fb2dc4ea02308e0711c24371e17fb3cde
 
 
 ---
@@ -133,7 +133,7 @@ SAP HANA Cloud Platform Identity Authentication 응용 프로그램은 특정 �
 
 2. **Single sign on** 대화 상자에서 **모드**로 **SAML 기반 로그온**을 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
-    ![Single Sign-On 구성][5]
+    ![Single Sign-on 구성][5]
 
 3. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 SAP 응용 프로그램에 특성이 필요한 경우(예: "firstName") SAML 토큰 특성 대화 상자에서 "firstName" 특성을 추가합니다.
 
@@ -276,6 +276,7 @@ SAP HANA Cloud Platform Identity Authentication에서 ID 페더레이션을 사�
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_203.png
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

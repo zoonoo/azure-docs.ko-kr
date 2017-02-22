@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 809fc7a5454c814d1d3edb8ebcdd40978952bc2c
-ms.openlocfilehash: d05404ed6893978a857a3ad66d5129998272ebbd
+ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
+ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -148,7 +148,7 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 
 * 요청 본문에 지정된 **Container**가 **있어야 합니다**.
 * 백업이 진행 중인 동안에는 SKU 업그레이드/다운그레이드, 도메인 이름 변경 등의 **서비스 관리 작업을 수행하면 안 됩니다** .
-* 백업 복원은 생성 시점부터 **7일 동안만 보장** 됩니다.
+* 백업 복원은 생성 시점부터 **30일 동안만 보장**됩니다.
 * 분석 보고서를 만드는 데 사용되는 **사용 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][Azure API Management REST API] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
 * 서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API 관리 서비스에 대한 중요 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 * 백업 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성을 **변경**하는 경우 **해당 내용이 백업에 포함되지 않아 손실될 수 있습니다**.
@@ -213,6 +213,6 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

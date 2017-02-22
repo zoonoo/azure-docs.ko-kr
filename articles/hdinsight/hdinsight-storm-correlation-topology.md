@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 87d3b5ef8989984420f1d0fe7d4188698a68dd0d
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 6c9e70c3de404a3a5af343570203d6724342e062
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 87d3b5ef8989984420f1d0fe7d4188698a68dd0d
 
 Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시간에 도착하는 데이터 항목의 상관 관계를 지정할 수 있습니다. 예를 들어, 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 연결하여 세션이 얼마나 지속되었는지 계산할 수 있습니다.
 
-이 문서에서는 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 추적하는 기본 C# 스톰 토폴로지를 만드는 방법을 배우고 세션의 지속 시간을 계산합니다. 토폴로지는 영구 데이터 저장소로 HBase를 사용합니다. HBase는 또한 기록 데이터에 대해 배치 쿼리를 수행시켜서 특정 기간에 얼마나 많은 사용자 세션이 시작 또는 종료했는지와 같은 추가적인 통찰력을 생성해줍니다.
+이 문서에서는 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 추적하는 기본 C# Storm 토폴로지를 만드는 방법을 배우고 세션의 지속 시간을 계산합니다. 토폴로지는 영구 데이터 저장소로 HBase를 사용합니다. HBase는 또한 기록 데이터에 대해 배치 쿼리를 수행시켜서 특정 기간에 얼마나 많은 사용자 세션이 시작 또는 종료했는지와 같은 추가적인 통찰력을 생성해줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,6 +37,9 @@ Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시�
   > 2016년 10월 28일 이후 생성된 Linux 기반 Storm 클러스터에서는 SCP.NET 토폴로지가 지원되지만 2016년 10월 28일 기준으로 사용 가능한 HBase SDK for .NET 패키지는 Linux에서 제대로 작동하지 않습니다.
 
 * HDInsight 클러스터에서 Apache HBase(Linux 또는 Windows 기반) 이 예제의 데이터 저장소입니다.
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
 * 개발 환경에서 [Java](https://java.com) 1,7 이상 - Java는 HDInsight 클러스터에 제출될 때 토폴로지를 패키징하는 데 사용됩니다.
 
@@ -165,16 +168,16 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
    
    ![Storm 메뉴 항목에 제출 이미지](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
-6. **토폴로지 제출** 대화 상자에서 이 토폴로지를 실행할 Storm 클러스터를 선택합니다.
+6. **토폴로지 제출** 대화 상자에서 이 토폴로지를 배포하려는 Storm 클러스터를 선택합니다.
    
    > [!NOTE]
    > 처음으로 토폴로지를 제출하면 HDInsight 클러스터의 이름을 검색하는 데 몇 초가 걸릴 수도 있습니다.
 
-7. 토폴로지가 업로드되고 클러스터에 제출되면 **Storm 토폴로지 보기** 가 실행 중인 토폴로지를 열고 표시합니다. **CorrelationTopology** 를 선택하고 페이지의 상단 오른쪽에 있는 새로 고침 단추를 사용하여 토폴로지 정보를 새로 고칩니다.
+7. 토폴로지가 업로드되고 클러스터에 제출되면 **Storm 토폴로지 보기**가 열리고 실행 중인 토폴로지를 표시합니다. **CorrelationTopology** 를 선택하고 페이지의 상단 오른쪽에 있는 새로 고침 단추를 사용하여 토폴로지 정보를 새로 고칩니다.
    
    ![토폴로지 보기 이미지](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
-   토폴로지가 데이터의 생성을 시작하면 **내보낸** 열의 값이 증가합니다.
+   토폴로지가 데이터를 생성하기 시작하면 **내보낸** 열의 값이 증가합니다.
    
    > [!NOTE]
    > **Storm 토폴로지 보기** 가 자동으로 열리지 않으면 다음 단계를 이용하여 여십시오.
@@ -196,12 +199,12 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
    
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
-END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합니다. 하지만, END 이벤트는 START 이벤트 후 1분과 5분 사이에 임의로 생성됩니다. 따라서 END 이벤트를 찾기 위해서는 범위를 몇 차례 시도해야 할 수 있습니다. END 이벤트에는 또한 START 이벤트 시간과 END 이벤트 시간 사이의 차이인 세션의 소요 시간도 포함됩니다. 다음은 END 이벤트에 대한 데이터 예제입니다.
+END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합니다. 하지만, END 이벤트는 START 이벤트 후 1분과 5분 사이에 임의로 생성됩니다. 따라서 END 이벤트를 찾기 위해서는 범위를 몇 차례 시도해야 할 수 있습니다. 또한 END 이벤트에는 START 이벤트 시간과 END 이벤트 시간 사이의 차이인 세션의 소요 시간도 포함됩니다. 다음은 END 이벤트에 대한 데이터 예제입니다.
 
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
 > [!NOTE]
-> 입력한 시간 값은 현지 시간이지만 쿼리로부터 반환된 시간은 UTC입니다.
+> 입력한 시간 값은 로컬 시간 단위이지만 쿼리로부터 반환된 시간은 UTC 단위입니다.
 
 ## <a name="stop-the-topology"></a>토폴로지 중지
 
@@ -218,6 +221,6 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

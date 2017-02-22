@@ -16,21 +16,18 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
+ms.sourcegitcommit: edfbc0d94d9d5b33a25788772a98173187e394b8
+ms.openlocfilehash: 031a17d179cee8d6cceb9ed3aefd993add1958b8
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-powershell"></a>PowerShell을 사용하여 Azure SQL 데이터베이스 복사
-> [!div class="op_single_selector"]
-> * [개요](sql-database-copy.md)
-> * [쉬운 테이블](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-이 문서에서는 PowerShell을 사용하여 동일한 서버나 다른 서버에 SQL 데이터베이스를 복사하거나 데이터베이스를 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)에 복사하는 방법을 보여줍니다. 데이터베이스 복사 작업에서는 [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) cmdlet을 사용합니다. 
+이 문서에서는 PowerShell을 사용하여 동일한 서버나 다른 서버에 SQL 데이터베이스를 복사하거나 데이터베이스를 [탄력적 풀](sql-database-elastic-pool.md)에 복사하는 방법을 보여줍니다. 데이터베이스 복사 작업에서는 [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx) cmdlet을 사용합니다. 
+
+> [!NOTE]
+> [Azure Portal](sql-database-copy-portal.md) 또는 [Transact-SQL](sql-database-copy-transact-sql.md)을 사용하여 SQL 데이터베이스를 복사할 수도 있습니다.
+>
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -55,7 +52,7 @@ SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyServerName "server2" -CopyDatabaseName "database1_copy"
 
 
-## <a name="copy-a-sql-database-into-an-elastic-database-pool"></a>SQL 데이터베이스를 탄력적 데이터베이스 풀에 복사
+## <a name="copy-a-sql-database-into-an-elastic-pool"></a>탄력적 풀에 SQL 데이터베이스 복사
 풀에서 SQL 데이터베이스의 복사본을 만들려면 `-ElasticPoolName` 매개 변수를 기존 풀로 설정합니다.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
@@ -94,7 +91,7 @@ SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델
     # -------------------------------------
     New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceDbResourceGroupName -ServerName $sourceDbServerName -DatabaseName $sourceDbName -CopyResourceGroupName $copyDbResourceGroupName -CopyServerName $copyDbServerName -CopyDatabaseName $copyDbName
 
-    # Copy a database into an elastic database pool
+    # Copy a database into an elastic pool
     # ---------------------------------------------
     $poolName = "pool1"
 
@@ -105,10 +102,10 @@ SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델
 
 
 ## <a name="next-steps"></a>다음 단계
-* Azure SQL 데이터베이스 복사에 대한 개요를 보려면 [Azure SQL 데이터베이스 복사](sql-database-copy.md) 를 참조하세요.
-* Azure 포털을 사용하여 데이터베이스를 복사하려면 [Azure 포털을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy-portal.md) 를 참조하세요.
-* Transact-SQL을 사용하여 데이터베이스를 복사하려면 [T-SQL을 사용하여 Azure SQL 데이터베이스 복사](sql-database-copy-transact-sql.md) 를 참조하세요.
-* 다른 논리 서버로 데이터베이스를 복사할 때 사용자 및 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법](sql-database-geo-replication-security-config.md) 을 참조하세요.
+* 다른 논리 서버로 데이터베이스를 복사할 때 사용자 및 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법](sql-database-geo-replication-security-config.md)을 참조하세요.
+* PowerShell을 사용하여 데이터베이스를 BACPAC 파일로 내보내는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 데이터베이스를 BACPAC로 내보내기](sql-database-export-powershell.md)를 참조하세요.
+* [비즈니스 연속성 개요](sql-database-business-continuity.md)
+* [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
 ## <a name="additional-resources"></a>추가 리소스
 * [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644\(v=azure.300\).aspx)
@@ -123,6 +120,6 @@ SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 
-title: "포털에서 VM 문제를 해결하는 Linux 사용 | Microsoft Docs"
+title: "Azure Portal에서 Linux 문제 해결 VM 사용 | Microsoft Docs"
 description: "Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux 가상 컴퓨터 문제를 해결하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationCenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
-ms.openlocfilehash: 4edfcbfb011c2296ad499d4ff62a07f0c388432a
+ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
+ms.openlocfilehash: c4ae1c80b854e84fe94a52e2872bec2c24b4580f
 
 
 ---
@@ -179,6 +179,6 @@ VM에 연결하는 데 문제가 있는 경우 [Azure VM에 SSH 연결 문제 �
 Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

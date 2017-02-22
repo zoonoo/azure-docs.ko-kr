@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 477c766afbfaccd70313e73e5d2ec5873c12d105
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
 
 
 ---
@@ -53,21 +53,23 @@ SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
-HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X 및 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X, Unix 및 Windows 10의 Bash에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ### <a name="putty-windows-clients"></a>PuTTY(Windows 클라이언트)
 
-Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+이전 버전의 Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight 의 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
 ## <a name="a-idhadoopause-hadoop-commands"></a><a id="hadoop"></a>Hadoop 명령 사용
 
 1. HDInsight 클러스터에 연결되면 다음 **Hadoop** 명령을 사용하여 MapReduce 작업을 시작합니다.
    
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
-   
-    이 명령은 **hadoop-mapreduce-examples.jar** 파일에 포함된 **wordcount** 클래스를 시작합니다. 입력으로 **wasbs://example/data/gutenberg/davinci.txt** 문서를 사용하고 출력은 **wasbs:///example/data/WordCountOutput**에 저장됩니다.
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
+    ```
+
+    이 명령은 **hadoop-mapreduce-examples.jar** 파일에 포함된 **wordcount** 클래스를 시작합니다. 입력으로 **/example/data/gutenberg/davinci.txt** 문서를 사용하고 출력은 **/example/data/WordCountOutput**에 저장됩니다.
    
     > [!NOTE]
     > 이 MapReduce 작업 및 예 데이터에 대한 자세한 내용은 [HDInsight Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
@@ -81,7 +83,9 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 3. 작업이 완료되면 **wasbs://example/data/WordCountOutput**에 저장된 출력 파일을 나열하려면 다음 명령을 사용합니다.
    
-        hdfs dfs -ls wasbs:///example/data/WordCountOutput
+    ```
+    hdfs dfs -ls /example/data/WordCountOutput
+    ```
    
     **_SUCCESS** 및 **part-r-00000**이라는 두 개의 파일이 표시됩니다. **part-r-00000** 파일은 이 작업에 대한 출력을 포함합니다.
    
@@ -90,7 +94,9 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
 
 4. 출력을 보려면 다음 명령을 사용합니다.
    
-        hdfs dfs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+    ```
+    hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
+    ```
    
     그러면 **wasbs://example/data/gutenberg/davinci.txt** 파일에 포함된 단어의 목록과 각 단어가 나타나는 횟수가 표시됩니다. 다음은 파일에 포함된 데이터의 예입니다.
    
@@ -120,6 +126,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

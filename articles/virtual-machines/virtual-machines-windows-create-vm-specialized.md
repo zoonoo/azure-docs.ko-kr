@@ -1,6 +1,6 @@
 ---
-title: "Windows VM 복사본 만들기 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 Windows를 실행 중인 전문화된 Azure VM의 복사본을 만드는 방법을 알아봅니다."
+title: "Azure에서 특수한 디스크로 VM 만들기 | Microsoft Docs"
+description: "Resource Manager 배포 모델에서 특수한 관리 디스크 또는 비관리 디스크를 연결하여 새 VM을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a779f084e0ad6de71ad3e2de86a2fb85738b8fe6
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: cbe3d72bbd0d9cc425b1b26ad412e77b33f385b2
 
 
 ---
-# <a name="create-a-vm-from-a-specialized-vhd"></a>전문화된 VHD에서 VM 만들기
-Powershell을 사용하여 OS 디스크인 특수한 VHD를 연결하여 새 VM을 만듭니다. 특수한 VHD는 사용자 계정, 응용 프로그램 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
+# <a name="create-a-vm-from-a-specialized-disk"></a>특수한 디스크에서 VM 만들기
 
-일반화된 VHD에서 VM을 만들려는 경우 [일반화된 VHD 이미지에서 VM 만들기](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Powershell을 사용하여 특수한 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 응용 프로그램 및 원본 VM의 기타 상태 데이터를 유지합니다. 특수한 [관리 디스크](../storage/storage-managed-disks-overview.md) 또는 특수한 비관리 디스크를 사용하여 새 VM을 만들 수 있습니다.
+
+## <a name="before-you-begin"></a>시작하기 전에
+PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
+
 
 ## <a name="create-the-subnet-and-vnet"></a>서브넷 및 VNet 만들기
+
 [가상 네트워크](../virtual-network/virtual-networks-overview.md)의 VNet 및 서브넷을 만듭니다.
 
 1. 서브넷을 만듭니다. 이 예제에서는 **myResourceGroup** 리소스 그룹에 **mySubNet**으로 명명된 서브넷을 만들고 **10.0.0.0/24**에 대한 서브넷 주소 접두사를 설정합니다.
@@ -59,8 +68,8 @@ Powershell을 사용하여 OS 디스크인 특수한 VHD를 연결하여 새 VM�
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>네트워크 보안 그룹 및 RDP 규칙 만들기
@@ -78,45 +87,89 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
 
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+    
 ```
 
 끝점 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-## <a name="create-the-vm-configuration"></a>VM 구성 만들기
-복사한 VHD를 OS VHD로 연결하도록 VM 구성을 설정합니다.
+## <a name="set-the-vm-name-and-size"></a>VM 이름 및 크기 설정
+
+이 예에서는 VM 이름을 "myVM"으로 설정하고 VM 크기를 "Standard_A2"로 설정합니다.
 
 ```powershell
-# Set the URI for the VHD that you want to use. In this example, the VHD file named "myOsDisk.vhd" is kept 
-# in a storage account named "myStorageAccount" in a container named "myContainer".
-$osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-
-# Set the VM name and size. This example sets the VM name to "myVM" and the VM size to "Standard_A2".
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-
-# Add the NIC
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-# Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the 
-# term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this 
-# Windows-based VHD should be attached to the VM as the OS disk.
-$osDiskName = $vmName + "osDisk"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
 ```
 
+## <a name="add-the-nic"></a>NIC 추가
+    
+```powershell
+$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+```
+    
+    
+## <a name="configure-the-os-disk"></a>OS 디스크 구성
 
-데이터 디스크를 VM에 연결해야 하는 경우 다음을 추가해야 합니다. 
+특수한 OS는 [Azure에 업로드한](virtual-machines-windows-upload-image.md) VHD일 수도 있고 [기존 Azure VM의 VHD 복사본](virtual-machines-windows-vhd-copy.md)일 수도 있습니다. 
+
+다음 두 가지 옵션 중 하나를 선택하세요.
+- **옵션 1**: 기존 저장소 계정의 특수한 VHD로 특수한 관리 디스크를 만들어 OS 디스크로 사용합니다.
+
+또는 
+
+- **옵션 2**: 사용자 고유의 저장소 계정(비관리 디스크)에 저장된 특수한 VHD를 사용합니다. 
+
+### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>옵션 1: 특수한 비관리 디스크로 관리 디스크 만들기
+
+1. 사용자의 저장소 계정에 있는 기존의 특수한 VHD로 관리 디스크를 만듭니다. 이 예에서는 디스크 이름으로 **myOSDisk1**을 사용하고, 디스크를 **StandardLRS** 저장소에 배치하고, 원본 VHD의 URI로 **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd**를 사용합니다.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
+    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
+    -ResourceGroupName $rgName
+    ```
+
+2. 구성에 OS 디스크를 추가합니다. 이 예에서는 디스크 크기를 **128GB**로 설정하고 관리 디스크를 **Windows** OS 디스크로 연결합니다.
+    
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+선택 사항: 추가 관리 디스크를 데이터 디스크로 연결합니다. 이 옵션은 사용자가 [관리 데이터 디스크 만들기](virtual-machines-windows-create-managed-disk-ps.md)에 따라 관리 데이터 디스크를 만들었다고 가정합니다. 
 
 ```powershell
-# Optional: Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit 
-# Number (Lun).
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
+$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 ```
 
-데이터 및 운영 체제 디스크 URL은 다음과 유사하게 나타납니다. `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd` 포털에서 대상 저장소 컨테이너로 이동하고 운영 체제 또는 복사된 데이터 VHD를 클릭한 다음 URL의 내용을 복사하여 이 내용을 찾을 수 있습니다.
+
+### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>옵션 2: 기존 저장소 계정에 있는 VHD 연결
+
+1. 사용하려는 VHD의 URI를 설정합니다. 이 예에서는 **myOsDisk.vhd**라는 VHD 파일을 **myContainer**라는 컨테이너의 **myStorageAccount**라는 저장소 계정에 보관합니다.
+
+    ```powershell
+    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
+    ```
+2. 복사한 OS VHD의 URL을 사용하여 OS 디스크를 추가합니다. 이 예에서는 OS 디스크가 만들어지면 VM 이름에 "osDisk"가 추가되어 OS 디스크 이름이 완성됩니다. 또한 이 예에서는 이 Windows 기반 VHD를 VM에 OS 디스크로 연결해야 하는 것으로 지정합니다.
+    
+    ```powershell
+    $osDiskName = $vmName + "osDisk"
+    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    ```
+
+선택 사항: VM에 연결해야 하는 데이터 디스크가 있는 경우 데이터 VHD의 URL과 적절한 Lun(논리 단위 번호)을 사용하여 데이터 디스크를 추가합니다.
+
+```powershell
+$dataDiskName = $vmName + "dataDisk"
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+```
+
+저장소 계정을 사용하는 경우 데이터 및 운영 체제 디스크 URL은 `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd` 형식입니다. 포털에서 대상 저장소 컨테이너로 이동하고 운영 체제 또는 복사된 데이터 VHD를 클릭한 다음 URL의 내용을 복사하여 이 내용을 찾을 수 있습니다.
+
 
 ## <a name="create-the-vm"></a>VM 만들기
+
 방금 만든 구성을 사용하여 VM을 만듭니다.
 
 ```powershell
@@ -147,6 +200,6 @@ $vmList.Name
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

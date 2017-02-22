@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/10/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 45358e89561ef2265ca5d8ae522b823c4629b3fc
-ms.openlocfilehash: f869e456ef40d04f7dd085d4ce7c3d654cdf2091
+ms.sourcegitcommit: 28846f2effd26c5b7ca7a79fba52d8ba1cb4ea91
+ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
 
 
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
+
+이 문서에서는 Microsoft Authenticator 앱과 관련하여 발생하는 일반적인 질문에 대해 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요. 또한 앱의 특정 기능인 [휴대폰 FAQ를 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)에 대한 다른 FAQ도 있습니다.
+
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. 이 앱은 Windows Phone, Android 및 iOS에 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -40,7 +43,7 @@ Microsoft Authenticator 앱은 서로를 대체합니다. Azure Authenticator는
 아니요. 푸시 알림은 Microsoft 계정 및 Azure Active Directory 계정에만 작동합니다. 회사 또는 학교에서 Azure AD 계정을 사용하는 경우 이 기능을 사용하지 않도록 설정할 수 있습니다.  
 
 ### <a name="i-restored-my-device-from-a-backup-and-my-account-codes-are-missing-or-not-working-what-happened"></a>백업에서 장치를 복원했으며 내 계정 코드가 누락되었거나 작동하지 않습니다. 어떻게 된 건가요?
-보안을 위해 앱 백업에서 계정을 복원하지 않습니다. 백업에서 iOS 앱을 복원하는 경우 계정이 계속 표시되지만 로그인 확인을 수신하기 위해 작동되거나 보안 코드를 생성하지 않습니다. 앱을 복원한 후에 계정을 삭제한 후 다시 추가합니다.
+보안을 위해 앱 백업에서 계정을 복원하지 않습니다.  앱을 복원한 후에 계정을 삭제한 후 다시 추가합니다.
 
 ### <a name="i-got-a-new-device-how-do-i-remove-the-microsoft-authenticator-app-from-my-old-device-and-move-to-the-new-one"></a>새 장치가 있습니다. 이전 장치에서 Microsoft Authenticator를 제거하고 새 장치로 이동시키려면 어떻게 해야 하나요?
 새 장치에 Microsoft Authenticator 앱을 추가해도 다른 장치에서 자동으로 제거하지 않습니다. 계정에 대해 구성된 장치를 관리하도록&2;단계 인증을 관리하는 데 사용한 동일한 웹 사이트를 방문하여 이전 앱을 제거합니다.
@@ -52,10 +55,10 @@ Microsoft Authenticator 앱은 서로를 대체합니다. Azure Authenticator는
 * Windows Phone: 메인 화면에서 메뉴 단추를 선택한 다음 **계정을 편집**합니다. 계정 이름 옆에 있는 **X**를 누릅니다.
 * Android: 메인 화면에서 메뉴 단추를 선택한 다음 **계정을 편집**합니다. 계정 이름 옆에 있는 **X**를 누릅니다.
 
-조직에 등록된 Android 장치가 있는 경우 계정을 제거하도록 추가 단계를 완료해야 합니다. 이러한 장치에서 Microsoft Authenticator 앱은 장치 관리자는 자동으로 등록됩니다. 앱을 완전히 제거하려면 먼저 앱 설정에서 앱 등록을 취소해야 합니다.
+조직에 등록된 장치가 있는 경우 계정을 제거하도록 추가 단계를 완료해야 합니다. 이러한 장치에서 Microsoft Authenticator 앱은 장치 관리자는 자동으로 등록됩니다. 앱을 완전히 제거하려면 먼저 앱 설정에서 앱 등록을 취소해야 합니다.
 
 ### <a name="why-does-the-app-request-so-many-permissions"></a>앱이 너무 많은 권한을 요청하는 이유는 무엇인가요?
-요청한 사용 권한의 전체 목록은 다음과 같으며 앱에서 사용하는 방법은 다음과 같습니다.
+요청한 사용 권한의 전체 목록은 다음과 같으며 앱에서 사용하는 방법은 다음과 같습니다. 표시되는 특정 사용 권한은 사용하는 휴대폰의 종류에 따라 달라 집니다.
 
 * **카메라**: 카메라를 사용하여 회사, 학교 또는 Microsoft가 아닌 계정을 추가할 때 QR 코드를 검색합니다.
 * **연락처 및 휴대폰**: 개인 Microsoft 계정으로 로그인하는 경우 휴대폰에서 사용하는 기존 계정을 검색하여 프로세스를 단순화하려고 합니다.
@@ -77,16 +80,17 @@ Microsoft Authenticator 앱은 서로를 대체합니다. Azure Authenticator는
 ## <a name="next-steps"></a>다음 단계
 
 ### <a name="contact-us"></a>문의처
-궁금한 내용에 대한 답변이 여기에 없으면 직접 질문을 남겨주세요. [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 질문을 게시하고, 커뮤니티의 도움을 받고, 이 페이지에 의견을 남기거나 [지원에 문의](https://support.microsoft.com/contactus)하세요. 최대한 신속하게 답변을 드리겠습니다.
+궁금한 내용에 대한 답변이 여기에 없으면 직접 질문을 남겨주세요. [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 질문을 게시하고, 커뮤니티의 도움을 받고, 이 페이지에 의견을 남기세요.
 
 
 ### <a name="related-topics"></a>관련된 항목
 * Microsoft 계정에 대한 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)
 * 회사 또는 학교 계정에 [2단계 인증 문제](multi-factor-authentication-end-user-troubleshoot.md)가 있나요?
+* [Microsoft Authenticator를 사용하여 휴대폰에서 로그인합니다.](microsoft-authenticator-app-phone-signin-faq.md)
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

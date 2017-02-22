@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: c6171ad4077e833162bfad31b01abbc9947f8e45
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -41,9 +41,9 @@ Apache Kafka는 HDInsight에서 사용할 수 있는 게시-구독 메시징 솔
 
 * SSH 클라이언트(`ssh` 및 `scp` 명령 필요) - HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
   
-  * [Linux, Unix 및 Mac OS의 Linux 기반 HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Linux, Unix, Mac OS 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-  * [Windows에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
@@ -134,9 +134,9 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
    
     HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
    
-    * [Linux, Unix 및 Mac OS의 Linux 기반 HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Linux, Unix, Mac OS 및 Windows 10에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Windows에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. SSH 연결에서 Kafka 클러스터로 다음 명령을 사용하여 Ambari에서 Zookeeper 노드를 가져옵니다.
 
@@ -206,9 +206,9 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
    
     HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
    
-    * [Linux, Unix 및 Mac OS의 Linux 기반 HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Linux, Unix, Mac OS 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Windows에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Storm 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 `set-env-variables.sh` 스크립트를 실행합니다.
 
@@ -322,6 +322,6 @@ Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
-ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
 1. 웹앱에 이름을 지정합니다.
 2. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. ([제한 사항 섹션](app-service-linux-intro.md)에서 사용 가능한 지역 참조)
 3. 기존 Azure App Service 계획을 선택하거나 새 App Service 계획을 만듭니다. ([제한 사항 섹션](app-service-linux-intro.md)에서 App Service 정보 참조)
-4. 사용하려는 응용 프로그램 스택을 선택합니다. 여러 버전의 Node.js 및 PHP 중에서 선택할 수 있습니다.
+4. 사용하려는 응용 프로그램 스택을 선택합니다. 여러 버전의 Node.js, PHP, .Net Core, Ruby 중에 선택할 수 있습니다.
 
 앱을 만든 후 다음 그림에 나와 있는 것처럼 응용 프로그램 설정에서 응용 프로그램 스택을 변경할 수 있습니다.
 
@@ -59,6 +59,6 @@ ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

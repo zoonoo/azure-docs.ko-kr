@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
-ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
 
 
 ---
@@ -35,7 +35,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![Azure 포털에서 응용 프로그램의 개요 블레이드 열기](./media/app-insights-metrics-explorer/03-range.png)
 
-일부 데이터가 표시되어야 하지만 아직 표시되지 않은 경우 새로 고침을 클릭합니다. 차트는 특정 간격에 따라 자체적으로 새로 고쳐지지만 시간 범위가 더 클 경우 간격이 늘어납니다. 릴리스 모드에서 차트에 분석 파이프라인을 내놓기 위한 데이터에는 시간이 걸릴 수 있습니다.
+일부 데이터가 표시되어야 하지만 아직 표시되지 않은 경우 새로 고침을 클릭합니다. 차트는 특정 간격에 따라 자체적으로 새로 고쳐지지만 시간 범위가 더 클 경우 간격이 늘어납니다. 차트에 분석 파이프라인을 내놓기 위한 데이터에는 시간이 걸릴 수 있습니다.
 
 차트의 일부를 확대하려면 해당 부분을 끕니다.
 
@@ -115,6 +115,11 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![모든 메트릭의 선택을 취소하여 기본값 표시](./media/app-insights-metrics-explorer/06-total.png)
 
+## <a name="pin-y-axis"></a>Y축 고정 
+기본적으로 차트는 값 퀀텀을 시각적으로 나타내기 위해&0;부터 시작해서 데이터 범위의 최대값까지 Y축 값을 표시합니다. 그렇지만 경우에 따라 값의 경미한 변화를 시각적으로 확인하기 위해 컨텀 이상에 관심이 있을 수 있습니다. 이와 같은 사용자 지정을 위해서는 Y축 범위 편집 기능을 사용하여 Y축 최소값 또는 최대값을 원하는 위치에 고정합니다.
+"고급 설정" 확인란을 클릭하여 Y축 범위 설정 표시
+
+![고급 설정을 클릭하고, 사용자 지정 범위를 선택한 후 최소값 및 최대값 지정](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## <a name="filter-your-data"></a>데이터 필터링
 속성 값의 선택한 집합에 대한 메트릭 보기:
@@ -158,23 +163,9 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![메트릭 탐색기 위쪽에 있는 단추](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## <a name="live-metrics-stream"></a>라이브 메트릭 스트림
 
-## <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>라이브 메트릭 스트림: 면밀한 모니터링을 위한 인스턴트 메트릭
-라이브 메트릭 스트림은 거의 실시간에 가까운 1초의 대기 시간으로 응용 프로그램 메트릭을 바로 표시합니다. 이 기능은 새 빌드를 릴리스하고 예상한 대로 작동하는지 확인하려고 할 때 또는 실시간으로 인시던트를 조사할 때 특히 유용합니다.
-
-![개요 블레이드에서 라이브 스트림 클릭](./media/app-insights-metrics-explorer/live-stream.png)
-
-메트릭 탐색기와 달리, 라이브 메트릭 스트림은 고정된 메트릭 집합을 표시합니다. 해당 데이터는 차트에 있는 동안만 지속된 후 삭제됩니다.
-
-### <a name="live-failures"></a>라이브 실패
-
-실패 또는 예외가 기록된 경우 라이브 스트림은 샘플을 선택합니다. **일시 중지**를 클릭하여 특정 샘플을 유지하고 세부 정보 표시할 이벤트를 선택합니다.
-
-![샘플링된 라이브 실패](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-라이브 메트릭 스트림은 최신 버전의 [웹용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)에서 사용할 수 있습니다.
+원격 분석을 더 빠르게 즉시 보려면 [라이브 스트림](app-insights-live-stream.md)을 엽니다. 대부분의 메트릭은 집계 프로세스 때문에 몇 분 정도 지나야 표시됩니다. 반면 라이브 메트릭은 짧은 대기 시간에 최적화되었습니다. 
 
 ## <a name="set-alerts"></a>경고 설정
 메트릭의 비정상적인 값에 대한 알림을 메일로 받으려면 경고를 추가합니다. 계정 관리자나 특정 메일 주소로 메일을 보내도록 선택할 수 있습니다.
@@ -224,6 +215,6 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

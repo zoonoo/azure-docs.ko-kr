@@ -1,5 +1,5 @@
 ---
-title: "HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
+title: "Windows 기반 Azure HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
 description: "HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -12,23 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
-# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>HDinsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용
+# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>HDInsight에서 Windows 기반 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용
 HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [피닉스 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
 
 > [!NOTE]
 > HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)을 참조하세요.
 >
-> 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
+
+> [!IMPORTANT]
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
 >
->
+
+
 
 ## <a name="use-sqlline"></a>SQLLine 사용
 [SQLLine](http://sqlline.sourceforge.net/) 은 SQL을 실행하는 명령줄 유틸리티입니다.
@@ -56,7 +59,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     이 샘플에 사용되는 명령:
 
@@ -80,10 +83,6 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 
 * DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터.  자세한 내용은 [Azure Virtual Network에 HBase 클러스터 만들기][hdinsight-hbase-provision-vnet]를 참조하세요.
 
-  > [!IMPORTANT]
-  > 가상 네트워크에 DNS 서버를 설치해야 합니다. 자세한 내용은 [두 Azure Virtual Network 간 DNS 구성](hdinsight-hbase-geo-replication-configure-dns.md)을 참조하세요.
-  >
-  >
 * HBase 클러스터 연결별 DNS 접미사를 가져옵니다. 이렇게 하려면 클러스터에 RDP를 연결하고 IPConfig를 실행합니다.  DNS 접미사는 다음과 유사합니다.
 
         myhbase.b7.internal.cloudapp.net
@@ -123,7 +122,7 @@ Azure 가상 네트워크에서 HBase 클러스터를 프로비전했는지 확�
 
     ![Azure 가상 네트워크 지점 및 사이트 간 가상 다이어그램][img-vnet-diagram]
 
-    다이어그램에 클라이언트 연결이 0개인 것으로 표시됩니다. 가상 네트워크에 연결하면 이 숫자가 1로 업데이트됩니다.
+    다이어그램에 클라이언트 연결이 0개인 것으로 표시됩니다. 가상 네트워크에 연결하면 이 숫자가&1;로 업데이트됩니다.
 
 #### <a name="create-your-certificates"></a>인증서 만들기
 X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)과 함께 제공되는 인증서 만들기 도구(makecert.exe)를 사용하는 것입니다.
@@ -155,7 +154,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
     루트 인증서 및 클라이언트 인증서는 컴퓨터의 개인 인증서 저장소에 저장됩니다. Certmgr.msc를 사용하여 확인합니다.
 
-    ![Azure 가상 네트워크 지점 대 사이트 vpn 인증서][img-certificate]
+    ![Azure Virtual Network 지점 및 사이트 간 VPN 인증서][img-certificate]
 
     클라이언트 인증서는 가상 네트워크에 연결하려는 각 컴퓨터에 설치되어야 합니다. 가상 네트워크에 연결 하려는 각 컴퓨터에 대해 고유한 클라이언트 인증서를 만드는 것이 좋습니다. 클라이언트 인증서를 내보내려면 certmgr.msc를 사용합니다.
 
@@ -203,7 +202,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
   > [!NOTE]
   > 기본 설치 폴더는 C:\Program Files\squirrel-sql-3.6 폴더에 있습니다.  이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
   >
-  >     java.exe -jar [the path of the SQuirreL jar file]
+  >     java.exe -jar[SQuirreL jar 파일 경로]
 5. **확인** 을 클릭하여 대상 디렉터리 만들기를 확인합니다.
 6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다.  **다음**을 클릭합니다.
 7. **다음**을 두 번 클릭한 후 **완료**를 클릭합니다.
@@ -292,6 +291,6 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
+ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
+ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
 
 사용자 고유의 스키마를 사용하여 Analytics로 데이터를 가져올 수 있습니다. 요청 또는 추적과 같은 표준 Application Insights 스키마를 사용할 필요는 없습니다.
 
-현재, CSV(쉼표로 구분된 값) 파일 또는 탭이나 세미콜론 구분 기호를 사용하는 비슷한 형식을 가져올 수 있습니다.
+JSON 또는 DSV(구분 기호 쉼표, 세미콜론 또는 탭으로 구분된 값) 파일을 가져올 수 있습니다.
 
 다음과 같은 세 가지 상황에서는 Analytics로 가져오는 것이 유용합니다.
 
@@ -72,12 +72,15 @@ ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
 
     ![새 데이터 원본 추가](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. 지침에 따라 샘플 데이터 파일을 업로드합니다.
+2. 샘플 데이터 파일을 업로드합니다. 스키마 정의를 업로드하는 경우의 선택 사항입니다.
 
- * 이 샘플의 첫 번째 행은 열 머리글일 수 있습니다. (다음 단계에서 필드 이름을 변경할 수 있습니다.)
- * 샘플은 10개 이상의 데이터 행을 포함해야 합니다.
+    이 샘플의 첫 번째 행은 열 머리글일 수 있습니다. (다음 단계에서 필드 이름을 변경할 수 있습니다.)
 
-3. 마법사가 샘플에서 유추한 스키마를 검토합니다. 필요한 경우 유추된 열 형식을 조정할 수 있습니다.
+    샘플은 10개 이상의 데이터 행을 포함해야 합니다.
+
+3. 마법사가 제공하는 스키마를 검토합니다. 샘플에서 형식을 유추한 경우 유추된 열 형식을 조정해야 할 것입니다.
+
+   선택 사항입니다. 스키마 정의를 업로드합니다. 아래 형식을 참조하세요.
 
 4. 타임스탬프를 선택합니다. Analytics의 모든 데이터에는 타임스탬프 필드가 있어야 합니다. `datetime` 형식이어야 하지만 이름이 'timestamp'일 필요는 없습니다. 데이터에 ISO 형식의 날짜 및 시간을 포함하는 열이 있는 경우 이 열을 타임스탬프 열로 선택합니다. 그렇지 않으면 "데이터 도착 시"를 선택합니다. 그러면 가져오기 프로세스가 타임스탬프 필드를 추가합니다.
 
@@ -85,6 +88,37 @@ ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
 
 5. 데이터 원본을 만듭니다.
 
+### <a name="schema-definition-file-format"></a>스키마 정의 파일 형식
+
+UI에서 스키마를 편집하는 대신 파일에서 스키마 정의를 로드할 수 있습니다. 스키마 정의 형식은 다음과 같습니다. 
+
+구분된 형식 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+JSON 형식 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+각 열은 위치, 이름 및 형식으로 식별됩니다. 
+
+* 위치 – 구분된 파일 형식인 경우 매핑된 값의 위치입니다. JSON 형식인 경우 매핑된 키의 jpath입니다.
+* 이름 - 열의 표시 이름입니다.
+* 유형 – 해당 열의 데이터 형식입니다.
+ 
+샘플 데이터가 사용되었고 파일 형식이 구분된 경우 스키마 정의에서 모든 열을 매핑하고 마지막에 새 열을 추가해야 합니다. 
+
+JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 스키마 정의가 샘플 데이터에서 발견되는 모든 키를 매핑할 필요가 없습니다. 샘플 데이터에 포함되지 않은 열도 매핑할 수 있습니다. 
 
 ## <a name="import-data"></a>데이터 가져오기
 
@@ -271,7 +305,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
@@ -334,6 +367,6 @@ namespace IngestionClient
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Windows 유니버설 SDK 통합"
+title: "Azure Mobile Engagement Windows 유니버설 SDK 통합 | Microsoft Docs"
 description: "Azure Mobile Engagement의 Windows 유니버설 SDK 통합"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: piyushjo;ricksal
+ms.date: 11/03/2016
+ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
 
 
 ---
@@ -40,10 +40,9 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 [Windows 유니버설 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
-### <a name="340-04192016"></a>3.4.0(2016/04/19)
-* 도달률 오버레이 개선 사항입니다.
-* SDK로 내보낸 콘솔 로그를 사용/사용 안 함/필터링하기 위해 "TestLogLevel" API를 추가했습니다.
-* 앱을 시작할 때 표시되지 않는 첫 번째 활동을 대상으로 하는 비활성 알림을 수정했습니다.
+### <a name="341-11032016"></a>3.4.1 (11/03/2016)
+
+* 안정성 향상
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-windows-store-release-notes.md)
 
@@ -73,11 +72,11 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 > 
 
 ### <a name="upgrade-from-older-versions"></a>이전 버전에서 업그레이드
- [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md)
+[Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

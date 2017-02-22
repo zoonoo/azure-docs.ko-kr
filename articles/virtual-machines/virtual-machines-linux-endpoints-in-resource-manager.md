@@ -1,6 +1,6 @@
 ---
 title: "Azure의 Linux VM에 대한 끝점 이해 | Microsoft Docs"
-description: "클래식 배포 모델의 끝점이 네트워크 보안 그룹 및 ACL 규칙을 사용하여 Resource Manager에서 구현되는 방식 이해"
+description: "클래식 배포 모델의 끝점이 네트워크 보안 그룹 및 ACL 규칙을 사용하여 Resource Manager에서 구현되는 방식 알아보기"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3079b9103f450b511d60ce3a2bf5021332149525
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 890c1ea7f7039886b1d2de72ea8f4a453a7b8ce2
 
 
 ---
@@ -34,6 +34,6 @@ ms.openlocfilehash: 3079b9103f450b511d60ce3a2bf5021332149525
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

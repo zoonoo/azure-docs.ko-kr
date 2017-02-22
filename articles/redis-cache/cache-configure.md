@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
+ms.sourcegitcommit: 1c002b796ed926fb8b0c6cedf3e361816e50b803
+ms.openlocfilehash: d51eeebba7ce2a1ca1005954feb0471f6ad7e05b
 
 
 ---
@@ -31,9 +31,11 @@ ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
 ## <a name="configure-redis-cache-settings"></a>Redis 캐시 설정 구성
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Azure Redis Cache는 **리소스 메뉴**에 다음 설정을 제공합니다.
+Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache** 블레이드에서 살펴보고 구성할 수 있습니다.
 
 ![Redis 캐시 설정](./media/cache-configure/redis-cache-settings.png)
+
+**리소스 메뉴**를 사용하여 다음 설정을 살펴보고 구성할 수 있습니다.
 
 * [개요](#overview)
 * [활동 로그](#activity-log)
@@ -476,6 +478,6 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

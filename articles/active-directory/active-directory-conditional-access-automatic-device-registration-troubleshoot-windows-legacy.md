@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 535badb5444fd4c29211f83556c0a750ee8adf70
-ms.openlocfilehash: 0e031760b84aa59fefda2469606475b36dbc1ff7
+ms.sourcegitcommit: 1b12d8ef3bbbfd2688f7bbd47968332e83a35252
+ms.openlocfilehash: 6cb5aee751e89ad1e825fae4fdfd460f1bfd8b6c
 
 
 ---
@@ -100,6 +100,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 자세한 내용은 [자동 장치 등록 FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)를 참조하세요. 
 
 
-<!--HONumber=Feb17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

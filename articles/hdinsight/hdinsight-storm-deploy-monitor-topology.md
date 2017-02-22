@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 8da7631d2dfc51e21269d05ace737760e3be61b8
 
 
 ---
@@ -28,7 +28,9 @@ Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 HDInsight 클러스터의 Windows 기반 Storm이 필요합니다. Linux 기반 클러스터를 사용하는 방법은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)
+> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터에 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+>
+> Linux를 사용하는 HDInsight 클러스터에서 Storm 토폴로지 배포 및 관리에 대한 자세한 내용은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +57,7 @@ Storm 대시보드의 위쪽에서 **토폴로지 제출**을 선택합니다. �
 
 ### <a name="storm-ui"></a>Storm UI
 
-Storm 대시보드에서 **Storm UI** 링크를 선택합니다. 실행 중인 토폴로지뿐 아니라 클러스터에 대한 정보가 표시됩니다.
+Storm 대시보드에서 **Storm UI** 링크를 선택합니다. 실행 중인 토폴로지 외에도 클러스터에 대한 정보가 표시됩니다.
 
 ![Storm UI][storm-dashboard-ui]
 
@@ -192,6 +194,6 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

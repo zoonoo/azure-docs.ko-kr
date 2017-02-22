@@ -1,5 +1,5 @@
 ---
-title: "RDP로 Azure VM에 연결할 수 없음 | Microsoft Docs"
+title: "Azure에서 RDP를 사용하여 Windows VM에 연결할 수 없음 | Microsoft Docs"
 description: "원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결할 수 없을 때의 문제 해결"
 keywords: "원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연결할 수 없습니다,원격 데스크톱 문제 해결"
 services: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 10/26/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: b6b9540f4120ef87d819605579df4ab0c9657e45
 
 
 ---
@@ -40,7 +40,7 @@ Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토�
 6. VM이 다시 시작됩니다.
 7. VM을 다시 배포 합니다.
 
-자세한 단계와 설명이 필요한 경우 계속 읽어보세요.
+자세한 단계와 설명이 필요한 경우 계속 읽어보세요. [자세한 RDP 문제 해결 시나리오](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 설명한 대로 라우터 및 방화벽과 같은 로컬 네트워크 장비가 아웃바운드 TCP 포트 3389를 차단하지 않는지 확인합니다.
 
 > [!TIP]
 > 포털에서 VM의 **연결** 단추가 회색으로 표시되고 [Express 경로](../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)에서 확인할 수 있습니다.
@@ -256,6 +256,6 @@ RDP를 통해 VM에 연결하려고 할 때 특정 오류 메시지가 나타날
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

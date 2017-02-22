@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: bcbd421e4e8a4643695011b27482722029611a3d
+ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
+ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
 
 
 ---
@@ -34,10 +34,10 @@ ms.openlocfilehash: bcbd421e4e8a4643695011b27482722029611a3d
 자세한 내용은 [Azure AD 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
 
 ## <a name="application-manifest"></a>응용 프로그램 매니페스트
-[Azure 클래식 포털][AZURE-classic-portal]이 제공하는 기능, 응용 프로그램 ID 구성의 JSON 표현을 생성하며 연결된 [응용 프로그램][AAD-Graph-App-Entity] 및 [ServicePrincipal][AAD-Graph-Sp-Entity] 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해][AAD-App-Manifest]를 참조하세요.
+[Azure Portal][AZURE-portal]이 제공하는 기능, 응용 프로그램 ID 구성의 JSON 표현을 생성하며 연결된 [응용 프로그램][AAD-Graph-App-Entity] 및 [ServicePrincipal][AAD-Graph-Sp-Entity] 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해][AAD-App-Manifest]를 참조하세요.
 
 ## <a name="application-object"></a>응용 프로그램 개체
-[Azure 클래식 포털][AZURE-classic-portal]의 응용 프로그램을 등록/업데이트할 때, 포털은 응용 프로그램 개체와 그 테넌트에 대한 해당 [서비스 주체 개체](#service-principal-object)를 만들기/업데이트합니다. 응용 프로그램 개체는 응용 프로그램의 ID 구성을 전역으로(액세스하는 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿을 제공합니다.
+[Azure Portal][AZURE-portal]의 응용 프로그램을 등록/업데이트할 때, 포털은 응용 프로그램 개체와 그 테넌트에 대한 해당 [서비스 주체 개체](#service-principal-object)를 만들기/업데이트합니다. 응용 프로그램 개체는 응용 프로그램의 ID 구성을 전역으로(액세스하는 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿을 제공합니다.
 
 자세한 내용은 [응용 프로그램 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
 
@@ -109,7 +109,7 @@ Azure AD 응용 프로그램 통합의 경우 Azure AD는 예를 들어 [Microso
 
 또한 [동의](#consent) 프로세스 동안 표면화되어 관리자 또는 리소스 소유자에게 자신의 테넌트에 있는 리소스에 대한 클라이언트 액세스를 허용/거부할 기회를 제공합니다.
 
-사용 권한 요청은 [Azure 클래식 포털][AZURE-classic-portal]의 “응용 프로그램” / "구성" 탭에서 원하는 "위임된 권한" 및 "응용 프로그램 사용 권한"(후자는 전역 관리자 역할 필요)을 선택하여 “다른 응용 프로그램에 대한 권한” 아래에 구성됩니다. [공용 클라이언트](#client-application)는 자격 증명을 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 응용 프로그램 권한을 모두 요청할 수 있습니다. 클라이언트의 [응용 프로그램 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][AAD-Graph-App-Entity]에 저장할 수 있습니다.
+사용 권한 요청은 [Azure Portal][AZURE-portal]의 "응용 프로그램" / "설정" 탭에서 원하는 "위임된 권한" 및 "응용 프로그램 사용 권한"(후자는 전역 관리자 역할 필요)을 선택하여 "필요한 사용 권한" 아래에 구성됩니다. [공용 클라이언트](#client-application)는 자격 증명을 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 응용 프로그램 권한을 모두 요청할 수 있습니다. 클라이언트의 [응용 프로그램 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][AAD-Graph-App-Entity]에 저장할 수 있습니다.
 
 ## <a name="resource-owner"></a>리소스 소유자
 [OAuth2 권한 부여 프레임워크][OAuth2-Role-Def]에 정의된 대로, 보호된 리소스에 대한 액세스 부여할 수 있는 엔터티입니다. 리소스 소유자가 개인인 경우 최종 사용자라고 합니다. 예를 들어, [클라이언트 응용 프로그램](#client-application)이 [Microsoft Graph API][Microsoft-Graph]를 통해 사용자 사서함에 액세스하려 한다면 사서함의 리소스 소유자로부터 사용 권한 허가가 필요합니다.
@@ -124,14 +124,14 @@ Azure AD 응용 프로그램 통합의 경우 Azure AD는 예를 들어 [Microso
 ## <a name="roles"></a>roles
 [범위](#scopes)와 마찬가지로 역할은 [리소스 서버](#resource-server)에서 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 여기에는 두 가지 유형이 있습니다. "사용자" 역할은 리소스에 대한 액세스 권한이 필요한 사용자/그룹의 역할 기반 액세스 제어를 구현하는 반면, "응용 프로그램" 역할은 액세스 권한이 필요한 [클라이언트 응용 프로그램](#client-application)에 대해 동일한 제어를 구현합니다.
 
-역할은 리소스 정의 문자열(예: "비용 승인자", "읽기 전용", "Directory.ReadWrite.All")로, 리소스의 [응용 프로그램 매니페스트](#application-manifest)를 통해 [Azure 클래식 포털][AZURE-classic-portal]에서 관리되며, 리소스의 [appRoles 속성][AAD-Graph-Sp-Entity]에 저장됩니다. Azure 클래식 포털은 "user" 역할에 사용자를 할당하고 클라이언트 [응용 프로그램 사용 권한](#permissions) 을 구성하는 데 사용되어 "application" 역할에 액세스합니다.
+역할은 리소스 정의 문자열(예: "비용 승인자", "읽기 전용", "Directory.ReadWrite.All")로, 리소스의 [응용 프로그램 매니페스트](#application-manifest)를 통해 [Azure Portal][AZURE-portal]에서 관리되며, 리소스의 [appRoles 속성][AAD-Graph-Sp-Entity]에 저장됩니다. Azure Portal은 "user" 역할에 사용자를 할당하고 클라이언트 [응용 프로그램 사용 권한](#permissions)을 구성하는 데 사용되어 "application" 역할에 액세스합니다.
 
 Azure AD Graph API에 의해 노출된 응용 프로그램 역할에 대한 자세한 내용은 [Graph API 사용 권한 범위][AAD-Graph-Perm-Scopes]를 참조하세요. 단계별 구현 예제는 [Azure AD를 사용하여 클라우드 응용 프로그램에서 역할 기반 액세스 제어][Duyshant-Role-Blog]를 참조하세요.
 
 ## <a name="scopes"></a>범위
 [역할](#roles)과 마찬가지로 범위는 [리소스 서버](#resource-server)에서 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 범위는 해당 소유자가 리소스에 대해 위임한 액세스를 부여한 [클라이언트 응용 프로그램](#client-application)에 대해 [범위 기반][OAuth2-Access-Token-Scopes] 액세스 제어를 구현하는 데 사용됩니다.
 
-범위는 리소스 정의 문자열(예: "Mail.Read", "Directory.ReadWrite.All")로, 리소스의 [응용 프로그램 매니페스트](#application-manifest)를 통해 [Azure 클래식 포털l][AZURE-classic-portal]에서 관리되며, 리소스의 [oauth2Permissions property][AAD-Graph-Sp-Entity]에 저장됩니다. 또한 Azure 클래식 포털은 클라이언트 응용 프로그램 [위임된 사용 권한](#permissions) 을 구성하는 데 사용되어 범위에 액세스합니다.
+범위는 리소스 정의 문자열(예: "Mail.Read", "Directory.ReadWrite.All")로, 리소스의 [응용 프로그램 매니페스트](#application-manifest)를 통해 [Azure Portal][AZURE-portal]에서 관리되며, 리소스의 [oauth2Permissions 속성][AAD-Graph-Sp-Entity]에 저장됩니다. 또한 Azure Portal은 클라이언트 응용 프로그램 [위임된 사용 권한](#permissions)에서 범위에 액세스하도록 구성하는 데도 사용됩니다.
 
 모범 사례 명명 규칙은 "resource.operation.constraint" 형식을 사용 하는 것입니다. Azure AD Graph API에 의해 노출된 범위에 대한 자세한 내용은 [Graph API 사용 권한 범위][AAD-Graph-Perm-Scopes]를 참조하세요. Office 365 서비스에 의해 노출되는 범위는 [Office 365 API 사용 권한 참조][O365-Perm-Ref]를 참조하세요.
 
@@ -139,7 +139,7 @@ Azure AD Graph API에 의해 노출된 응용 프로그램 역할에 대한 자�
 OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명된 문서입니다. OAuth2 [권한 부여](#authorization-grant)의 경우 [액세스 토큰](#access-token)(OAuth2)과 [ID 토큰](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)은 보안 토큰의 유형으로서 둘 다 [JWT(JSON Web Token)][JWT] 형식으로 구현됩니다.
 
 ## <a name="service-principal-object"></a>서비스 주체 개체
-[Azure 클래식 포털][AZURE-classic-portal]의 응용 프로그램을 등록/업데이트할 때, 포털은 [응용 프로그램 개체](#application-object)와 그 테넌트에 대한 해당 서비스 주체 개체를 만들기/업데이트합니다. 응용 프로그램 개체는 응용 프로그램의 ID 구성을 전역으로(액세스 권한이 관련된 응용 프로그램에 부여된 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿입니다.
+[Azure Portal][AZURE-portal]의 응용 프로그램을 등록/업데이트할 때, 포털은 [응용 프로그램 개체](#application-object)와 그 테넌트에 대한 해당 서비스 주체 개체를 만들기/업데이트합니다. 응용 프로그램 개체는 응용 프로그램의 ID 구성을 전역으로(액세스 권한이 관련된 응용 프로그램에 부여된 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿입니다.
 
 자세한 내용은 [응용 프로그램 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
 
@@ -195,7 +195,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
@@ -211,6 +211,6 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

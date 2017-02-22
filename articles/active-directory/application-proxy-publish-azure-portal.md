@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
+ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
+ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
 
 ---
 
@@ -45,17 +45,13 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 
   ![엔터프라이즈 응용 프로그램 추가](./media/application-proxy-publish-azure-portal/add-app.png)
 
-3. [범주] 페이지에서 **또는 직접 추가**를 선택합니다.  
+3. 범주 페이지에서 **온-프레미스 응용 프로그램**을 선택합니다.  
 
   ![응용 프로그램 직접 추가](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. 드롭다운 메뉴에서 **기존 응용 프로그램 배포**를 선택합니다.
-5. 앱 이름을 입력한 다음 **추가**를 선택합니다. ‘로드하는 중’ 창이 나타나고 앱이 추가되면 [빠른 시작] 블레이드가 열립니다.
-6. [빠른 시작] 블레이드에서 **온-프레미스 응용 프로그램에 대한 원격 액세스 사용**을 선택합니다.
+4. 응용 프로그램에 대한 다음과 같은 정보를 제공합니다.
 
-  ![온-프레미스 응용 프로그램에 대한 원격 액세스 사용 설정](./media/application-proxy-publish-azure-portal/enable-remote-access.png)
-
-7. 응용 프로그램에 대한 다음과 같은 정보를 제공합니다.
+   - **이름**: 액세스 패널에 표시될 응용 프로그램의 이름입니다. 
 
    - **내부 URL**: 응용 프로그램 프록시 커넥터가 개인 네트워크 내부에서 응용 프로그램에 액세스하는 데 사용하는 주소입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.
 
@@ -72,9 +68,8 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 
    ![응용 프로그램 구성](./media/application-proxy-publish-azure-portal/configure-app.png)
 
-8. **저장**을 선택합니다.
+8. **추가**를 선택합니다.
 
-   ![응용 프로그램 프록시 설정 저장](./media/application-proxy-publish-azure-portal/save-app-proxy.png)
 
 ## <a name="add-a-test-user"></a>테스트 사용자 추가 
 
@@ -105,6 +100,6 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d95d42592e1102d635e5eaad473196c4fa461136
-ms.openlocfilehash: e633562e35276b2d0c6dd19ada5a17bae7b1b0b6
+ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
+ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
 
 
 ---
@@ -423,8 +423,10 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 ### <a name="using-service-principal-authentication-recommended"></a>서비스 주체 인증 사용(권장)
 서비스 주체 인증을 사용하려면 AAD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여해야 합니다. 그런 다음 해당 응용 프로그램 ID, 응용 프로그램 키 및 테넌트 정보로 Azure Data Factory에서 아래 속성을 지정하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다. 필요한 정보를 설정하고 검색하는 방법은 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
->[!NOTE]
->AAD에서 서비스 주체를 새로 만들면 실제로 적용하는 데 몇 분이 소요될 수 있습니다. 복사 마법사의 오류 또는 "제공된 자격 증명이 유효하지 않다"는 복사 실행 정보가 표시되면 잠시 기다렸다가 다시 시도하세요.
+> [!IMPORTANT]
+> 복사 마법사를 사용하는 경우 폴더들 사이에서 성공적으로 탐색하도록 하려면 서비스 주체에게 ADLS 루트("/")에 대해 최소한의 읽기 권한 또는 ADLS 계정에 대한 읽기 역할을 부여하세요. 그렇지 않으면 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)" 오류가 표시될 수 있습니다.
+>
+> AAD에서 서비스 주체를 새로 만들면/업데이트하면 실제로 적용하는 데 몇 분이 소요될 수 있습니다. 먼저 서비스 주체와 ADLS ACL 구성을 다시 확인하고, 여전히 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)"라는 오류가 나타나는 경우 잠시 기다린 후 다시 시도하세요.
 >
 
 | 속성 | 설명 | 필수 |
@@ -594,6 +596,6 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: 5b77d16c4a373936dfa5fbba35bc3dc4c9a37e78
+ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
+ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
 
 
 ---
@@ -97,7 +97,7 @@ Office 365 하이브리드 시나리오에 대한 테넌트 설정|x|x|x|
 ### <a name="understanding-user-principal-name"></a>사용자 계정 이름 이해
 Active Directory에서 기본 UPN 접미사는 사용자 계정이 생성된 도메인의 DNS 이름입니다. 대부분의 경우에서 인터넷에서 엔터프라이즈 도메인으로 등록된 도메인 이름입니다. 그러나 Active Directory 도메인 및 트러스트를 사용하여 더 많은 UPN 접미사를 추가할 수 있습니다.
 
-사용자의 UPN은 username@domain. 형식입니다. 예를 들어, Active Directory 도메인의 이름이 'contoso.com'인 경우 사용자 John은 UPN 'john@contoso.com'.을 사용할 수 있습니다. 사용자의 UPN은 RFC 822에 기반합니다. UPN 및 전자 메일이 동일한 형식을 공유하더라도 사용자의 UPN 값은 사용자의 전자 메일 주소와 같지 않을 수 있습니다.
+사용자의 UPN은 username@domain 형식입니다. 예를 들어 'contoso.com'이라는 Active Directory 도메인의 경우 사용자에게 UPN 'john@contoso.com'이 있을 수 있습니다. 사용자의 UPN은 RFC 822에 기반합니다. UPN 및 전자 메일이 동일한 형식을 공유하더라도 사용자의 UPN 값은 사용자의 전자 메일 주소와 같지 않을 수 있습니다.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Azure AD의 사용자 계정 이름
 Azure AD Connect 마법사는 userPrincipalName 특성을 사용하거나 온-프레미스에서 Azure AD의 사용자 계정 이름으로 사용할 수 있는 특성을 사용자 지정 설치로 지정할 수 있습니다. Azure AD에 로그인하는 데 사용할 값입니다. 사용자 계정 이름 특성의 값이 Azure AD에서 확인된 도메인에 해당하지 않으면 Azure AD는 이를 기본 .onmicrosoft.com 값으로 바꿉니다.
@@ -178,6 +178,6 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

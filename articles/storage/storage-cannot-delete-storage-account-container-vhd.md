@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 822bace005a6244a47c9484487dab85b1aec9d9a
-ms.openlocfilehash: e20b1ca582c56da7b4fb1e2df3be90bd1c29a8b6
+ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
+ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
 
 
 ---
@@ -36,29 +36,21 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack 
 다음 섹션에서는 Azure 저장소 계정, 컨테이너 또는 VHD를 삭제하려고 할 때 발생할 수 있는 일반적인 오류에 대해 설명합니다.
 
 ### <a name="scenario-1-unable-to-delete-a-storage-account"></a>시나리오 1: 저장소 계정을 삭제할 수 없음
-[Azure Portal](https://portal.azure.com/) 또는 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 저장소 계정으로 이동하여 **삭제**를 선택하면 다음 오류 메시지가 표시될 수 있습니다.
+[Azure Portal](https://portal.azure.com/)에서 클래식 저장소 계정으로 이동하여 **삭제**를 선택하면 저장소 계정을 삭제할 수 없는 개체의 목록이 표시될 수 있습니다.
 
-*저장소 계정 StorageAccountName에는 VM 이미지가 들어 있습니다. 이 저장소 계정을 삭제하려면 이러한 VM 이미지를 제거해야 합니다.*
+  ![저장소 계정 삭제 시 오류 이미지](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
 
-다음 오류도 표시될 수 있습니다.
+[Azure 클래식 포털](https://manage.windowsazure.com/)에서 저장소 계정으로 이동하여 **삭제**를 선택하면 다음 오류 중 하나가 표시될 수 있습니다.
 
-**Azure 포털**:
+- *저장소 계정 StorageAccountName에는 VM 이미지가 들어 있습니다. 이 저장소 계정을 삭제하려면 이러한 VM 이미지를 제거해야 합니다.*
 
-*저장소 계정 <vm-storage-account-name>을(를) 삭제하지 못했습니다. <vm-storage-account-name> 저장소 계정을 삭제할 수 없습니다. '저장소 계정 <vm-storage-account-name>에 일부 활성 이미지 및/또는 디스크가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.'.*
+- *저장소 계정 <vm-storage-account-name>을(를) 삭제하지 못했습니다. <vm-storage-account-name> 저장소 계정을 삭제할 수 없습니다. '저장소 계정 <vm-storage-account-name>에 일부 활성 이미지 및/또는 디스크가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.'.*
 
-**Azure 클래식 포털**:
+- *저장소 계정 <vm-storage-account-name>에 xxxxxxxxx- xxxxxxxxx-O-209490240936090599과(와) 같은 일부 활성 이미지 및/또는 디스크가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.*
 
-*저장소 계정 <vm-storage-account-name>에 xxxxxxxxx- xxxxxxxxx-O-209490240936090599과(와) 같은 일부 활성 이미지 및/또는 디스크가 있습니다. 이 저장소 계정을 삭제하려면 이러한 이미지 및/또는 디스크를 제거해야 합니다.*
+- *저장소 계정 <vm-storage-account-name>에 활성 이미지 및/또는 디스크 아티팩트를 포함하는 1 컨테이너가 있습니다. 이 저장소 계정을 삭제하려면 이미지 리포지토리에서 이러한 아티팩트를 제거해야 합니다*.
 
-또는
-
-**Azure 포털**:
-
-*저장소 계정 <vm-storage-account-name>에 활성 이미지 및/또는 디스크 아티팩트를 포함하는 1 컨테이너가 있습니다. 이 저장소 계정을 삭제하려면 이미지 리포지토리에서 이러한 아티팩트를 제거해야 합니다*.
-
-**Azure 클래식 포털**:
-
-*제출 실패 저장소 계정 <vm-storage-account-name>에 활성 이미지 및/또는 디스크 아티팩트를 포함하는 1 컨테이너가 있습니다. 이 저장소 계정을 삭제하려면 이미지 리포지토리에서 이러한 아티팩트를 제거해야 합니다. 저장소 계정을 삭제하려고 하는데 해당 저장소 계정과 연결된 활성 디스크가 남아 있는 경우에는 남아 있는 활성 디스크를 삭제해야 한다는 내용의 메시지가 표시됩니다*.
+- *제출 실패 저장소 계정 <vm-storage-account-name>에 활성 이미지 및/또는 디스크 아티팩트를 포함하는 1 컨테이너가 있습니다. 이 저장소 계정을 삭제하려면 이미지 리포지토리에서 이러한 아티팩트를 제거해야 합니다. 저장소 계정을 삭제하려고 하는데 해당 저장소 계정과 연결된 활성 디스크가 남아 있는 경우에는 남아 있는 활성 디스크를 삭제해야 한다는 내용의 메시지가 표시됩니다*.
 
 ### <a name="scenario-2-unable-to-delete-a-container"></a>시나리오 2: 컨테이너를 삭제할 수 없음
 저장소 컨테이너를 삭제하려고 할 때 다음 오류가 표시될 수 있습니다.
@@ -102,7 +94,7 @@ VM을 삭제한후 연결된 VHD의 blob를 삭제하려고 하면 다음 메시
     5. **Virtual Machines** > **디스크**로 이동하고 **연결된 항목** 필드가 빈 상태로 될 때까지 기다립니다. 이는 디스크가 VM에서 성공적으로 분리되었음을 나타냅니다.
     6. **Virtual Machines** > **디스크**의 아래쪽에 있는 **삭제**를 선택하여 디스크를 삭제합니다.
 
-  - 디스크가 OS 디스크(**OS 2 포함** 필드에 Windows와 같은 값이 있음)이고 VM에 연결되어 있는 경우 다음 단계에 따라 VM을 삭제합니다. OS 디스크는 분리할 수 없으므로 VM을 삭제하여 연결 상태를 끊어야 합니다.
+  - 디스크가 OS 디스크(**OS&2; 포함** 필드에 Windows와 같은 값이 있음)이고 VM에 연결되어 있는 경우 다음 단계에 따라 VM을 삭제합니다. OS 디스크는 분리할 수 없으므로 VM을 삭제하여 연결 상태를 끊어야 합니다.
 
     1. [데이터 디스크]에 연결된 Virtual Machine의 이름을 확인합니다.  
     2. **Virtual Machines** > **인스턴스**로 이동한 다음 디스크가 연결된 VM을 선택합니다.
@@ -125,7 +117,7 @@ VM을 삭제한후 연결된 VHD의 blob를 삭제하려고 하면 다음 메시
     그런 다음 저장소 계정, 컨테이너 또는 VHD를 다시 삭제해 봅니다.
 
 > [!WARNING]
-> 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. 삭제된 저장소 계정을 복원할 수 없거나 삭제 전에 포함된 콘텐츠를 검색할 수 없습니다. 계정의 리소스도 마찬가지입니다. VHD, blob, 테이블, 큐 또는 파일은 삭제하는 경우 영구적으로 삭제됩니다. 리소스가 사용되고 있지 않은지 확인합니다.
+> 계정을 삭제하기 전에 저장할 내용을 백업했는지 확인합니다. VHD, BLOB, 테이블, 큐 또는 파일을 삭제하면 영구적으로 삭제됩니다. 리소스가 사용되고 있지 않은지 확인합니다.
 >
 >
 
@@ -148,6 +140,6 @@ VM을 삭제한후 연결된 VHD의 blob를 삭제하려고 하면 다음 메시
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 888e88c3e8ede6b67b9cf26b426d73b86b2aff62
-ms.openlocfilehash: 17e9d5d8afe3b11ca5d3944158dcd6c9126ceeda
+ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
+ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
 
 
 ---
@@ -28,6 +28,10 @@ Azure DocumentDB는 명시적 장애 조치와 정책 기반 장애 조치를 �
 * 수동 장애 조치가 DocumentDB에서 작동하는 방법
 * 자동 장애 조치가 DocumentDB에서 작동하는 방법
 * 응용 프로그램 아키텍처에서 수동 장애 조치를 사용하는 방법
+
+Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하는 이 Azure Friday 비디오를 통해 지역 장애 조치에 대해서도 자세히 알아 볼 수 있습니다.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>다중 지역 응용 프로그램 구성
 장애 조치 모드로 들어가기 전에 지역별 장애 조치에 직면하여 다중 지역 가용성을 활용하고 탄력적으로 대처할 수 있도록 응용 프로그램을 구성하는 방법을 살펴봅니다.
@@ -119,6 +123,6 @@ Azure DocumentDB는 명시적 장애 조치와 정책 기반 장애 조치를 �
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

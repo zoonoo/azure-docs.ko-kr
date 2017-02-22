@@ -1,5 +1,5 @@
 ---
-title: "단순 모델을 사용하여 답변 예측 - 회귀 모델 | Microsoft Docs"
+title: "단순 회귀 모델을 사용하여 답변 예측 - Azure | Microsoft Docs"
 description: "초급자를 위한 데이터 과학 비디오 4에는 가격을 예측하는 단순 회귀 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 선형 회귀가 포함됩니다."
 keywords: "모델 만들기,단순 모델,가격 예측,단순 회귀 모델"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 
 
 ---
@@ -28,8 +28,8 @@ ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>이 시리즈의 다른 비디오
 *초급자를 위한 데이터 과학* 은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
@@ -135,7 +135,6 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

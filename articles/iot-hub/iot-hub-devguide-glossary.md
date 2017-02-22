@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 85fd7b0e867ebe5fff937ff9fc83b688649fcfba
-ms.openlocfilehash: 70feb409d05b26a4d874bad2d1984fda5db32216
+ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
+ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
 
 
 ---
@@ -131,7 +131,7 @@ IoT의 컨텍스트에서 일반적으로 장치는 데이터를 수집하거나
 ## <a name="device-twin-queries"></a>장치 쌍 쿼리
 [장치 쌍 쿼리](iot-hub-devguide-query-language.md)에서는 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 장치 쌍에서 정보를 검색합니다. 동일한 IoT Hub 쿼리 언어를 사용하여 IoT Hub에서 실행 중인 [작업](#job)에 대한 정보를 검색할 수 있습니다.
 
-## <a name="device-twins-rest-api"></a>장치 쌍 REST API
+## <a name="device-twin-rest-api"></a>장치 쌍 REST API
 솔루션 백 엔드에서 [장치 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)를 사용하여 장치 쌍을 관리할 수 있습니다. API를 사용하면 [장치 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
 
 ## <a name="device-twin-synchronization"></a>장치 쌍 동기화
@@ -185,8 +185,8 @@ Azure IoT Suite는 Azure 서비스를 미리 구성된 솔루션과 함께 패�
 ## <a name="job"></a>작업
 솔루션 백 엔드에서는 IoT Hub에 등록된 장치 집합에서의 활동을 예약 및 추적하는 [작업](iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 장치 쌍 [desired 속성](#desired-properties) 업데이트, 장치 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
 
-## <a name="job-api"></a>작업 API
-[작업 api](https://docs.microsoft.com/rest/api/iothub/jobapi)는 IoT 허브에서 실행되는 [작업](#job)을 관리할 수 있게 해주는 REST API입니다.
+## <a name="jobs-rest-api"></a>작업 REST API
+[작업 REST API](https://docs.microsoft.com/rest/api/iothub/jobapi)는 IoT Hub에서 실행되는 [작업](#job)을 관리할 수 있게 해줍니다.
 
 ## <a name="module"></a>모듈
 [Azure IoT Gateway SDK](iot-hub-linux-gateway-sdk-get-started.md)에서 [모듈](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Gateway SDK에는 샘플 모듈 집합이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.

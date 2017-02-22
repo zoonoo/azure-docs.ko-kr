@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: ebf876f946eceddce9c8c990d8b28fcb969bec23
-ms.openlocfilehash: 112226028c053cc91f9fb2bc0e5978f7cb2343ed
+ms.sourcegitcommit: 518d586a921926874cd959587ad2730ad346df71
+ms.openlocfilehash: cae3f0192d6b0e6204ede4c1855b731a2ffa4ae1
 
 
 ---
@@ -37,9 +37,9 @@ Storm 토폴로지의 성능을 조정할 때 고려해야 할 몇 가지 요소
 Azure Data Lake Store와의 I/O 동시성을 늘리면 더 나은 성능을 얻을 수 있습니다.  
 Storm 토폴로지에는 병렬 처리를 결정하는 일련의 구성이 포함되어 있습니다.
 * 작업자 프로세스 수: 작업자는 VM 간에 균일하게 분산됩니다.
-* Spout 실행기 인스턴스 수
-* Bolt 실행기 인스턴스 수
-* Spout 태스크 수
+* Spout 실행자 인스턴스 수
+* Bolt 실행자 인스턴스 수
+* Spout 작업 수
 * Bolt 태스크 수
 
 예를 들어 VM 4개와 작업자 프로세스 4개, Spout 실행기 32개, Spout 태스크 32개, Bolt 실행기 256개, Bolt 태스크 512개가 있는 클러스터에는 다음 내용이 적용됩니다.
@@ -144,6 +144,6 @@ Storm의 추가 성능 조정은 이 [블로그](https://blogs.msdn.microsoft.co
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

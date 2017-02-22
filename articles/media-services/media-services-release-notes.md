@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
+ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
+ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 
 
 ---
@@ -43,6 +43,10 @@ ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
 
 ## <a name="a-idrestversionhistoryarest-api-version-history"></a><a id="rest_version_history"></a>REST API 버전 기록
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
+
+## <a name="febuary-2017-release"></a>2017년 2월 릴리스
+
+2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 [여기](media-services-dotnet-manage-entities.md)에 설명된 코드를 사용할 수 있습니다.
 
 ## <a name="january-2017-release"></a>2017년 1월 릴리스
 
@@ -535,6 +539,6 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

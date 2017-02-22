@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: 8b21bcbea774f7a5107da54081f75db331459b5f
+ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
+ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
 
 
 ---
@@ -74,10 +74,12 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 온-프레미스 워크로드 및 응용 프로그램이 있는 경우 재해가 발생하더라도 비즈니스를 계속 실행할 수 있는 솔루션이 필요합니다. Azure Site Recovery는 가상 컴퓨터 및 실제 서버의 복제, 장애 조치 및 복구를 처리합니다. 복제된 데이터는 Azure 저장소에 저장되므로 보조 현장 데이터 센터가 필요 없습니다.
 
 자세한 내용은 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 를 참조하세요.
+### <a name="moving-data-faq"></a>데이터 이동 FAQ:
+## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>VHD를 복사하지 않고 한 지역에서 다른 지역으로 마이그레이션할 수 있나요?
+지역 간에 VHD를 복사하는 유일한 방법은 각 지역의 저장소 계정 간에 데이터를 복사하는 것입니다. 이 작업에는 AZCopy를 사용할 수 있습니다. 자세한 내용은 AzCopy 명령줄 유틸리티로 데이터 전송을 참조하세요. 대용량 데이터의 경우 Azure Import/Export를 사용할 수도 있습니다. 자세한 내용은 [Azure 가져오기/내보내기](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) 를 참조하세요.
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 249d08341311e48a93db8031439f0bc35162f823
-ms.openlocfilehash: 28c70685cfa3da94cc0648cebae7ec296af60986
+ms.sourcegitcommit: 1b738d952685fe71e5a1eecd809afae1c9904267
+ms.openlocfilehash: 8f32c2c85d2f6c2265048e58d5c2b0256fa020bd
 
 
 ---
@@ -41,13 +41,13 @@ EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서�
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인
 
-비용을 보려면 [구독 수준 액세스](../active-directory/role-based-access-control-configure.md) 권한이 필요하지만 계정 관리자만 [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 등록 프로세스를 거친 사용자입니다. 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+비용을 보려면 [구독 수준 액세스](../active-directory/role-based-access-control-configure.md) 권한이 필요하지만 계정 관리자만 [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 등록 프로세스를 거친 사용자입니다. 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 
 계정 관리자인 경우 [Azure Portal의 구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동한 후 액세스 권한이 있는 구독 목록을 찾습니다. **내 역할** 아래에서 확인합니다. *계정 관리자*가 표시되면 문제가 없는 것입니다. *소유자* 등이 표시되면 모든 권한이 있는 것은 아닙니다.
 
 ![Azure Portal의 구독 보기에 표시되는 역할의 스크린 샷](./media/billing-getting-started/sub-blade-view.PNG)
 
-계정 관리자가 아니면 경우 누군가가 [Azure Active Directory RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 통해 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾고](../billing-subscription-transfer.md#whoisaa) 작업을 수행하거나 [구독을 전송](../billing-subscription-transfer.md)하도록 요청합니다.
+계정 관리자가 아니면 경우 누군가가 [Azure Active Directory RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 통해 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾고](billing-subscription-transfer.md#whoisaa) 작업을 수행하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
 
 계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 할 경우 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 
 
@@ -65,7 +65,7 @@ EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서�
 
 ### <a name="set-up-billing-alerts"></a>청구 경고 설정
 
-사용 비용이 지정한 금액을 초과하는 경우 전자 메일을 받도록 청구 경고를 설정합니다. 월별 크레딧이 있는 경우 지정된 금액을 다 사용하는 경우에 대해 경고를 설정합니다. 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](../billing-set-up-alerts.md)을 참조하세요.
+사용 비용이 지정한 금액을 초과하는 경우 전자 메일을 받도록 청구 경고를 설정합니다. 월별 크레딧이 있는 경우 지정된 금액을 다 사용하는 경우에 대해 경고를 설정합니다. 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](billing-set-up-alerts.md)을 참조하세요.
 
 ![청구 경고 전자 메일 스크린 샷](./media/billing-getting-started/billing-alert.png)
 
@@ -154,9 +154,9 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 자세한 내용은 [Advisor 비용 권장 사항](../advisor/advisor-cost-recommendations.md)을 참조하세요.
 
-### <a name="a-nameinvoice-and-usagea-download-invoice-and-detail-usage-after-your-first-billing-period"></a><a name="invoice-and-usage"></a> 첫 번째 청구 기간 후 청구서 및 세부 사용 현황 다운로드
+### <a name="a-nameinvoice-and-usagea-get-your-invoice-and-detail-usage-after-your-first-billing-period"></a><a name="invoice-and-usage"></a> 첫 번째 청구 기간 후 청구서 및 세부 사용 현황 받기
 
-첫 번째 청구 기간이 지난 후 Portable Document Format(.pdf) 송장 및 쉼표로 구분된 값(.csv) 사용 현황 세부 정보를 다운로드할 수 있습니다. 이러한 파일은 세금 공제 후 금액, 할인 및 크레딧에 최종적으로 청구되는 금액을 이해하는 데 도움이 됩니다. 구독에 연결된 지불 방법이 없는 경우 이러한 파일을 사용할 수 없습니다. 자세한 내용은 [Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드하는 방법](../billing-download-azure-invoice-daily-usage-date.md) 및 [Microsoft Azure 요금 청구 방식](/billing-understand-your-bill.md)을 참조하세요.
+첫 번째 청구 기간이 지난 후 Portable Document Format(.pdf) 송장 및 쉼표로 구분된 값(.csv) 사용 현황 세부 정보를 다운로드할 수 있습니다. 또한 청구서를 전자 메일로 받도록 옵트인할 수 있습니다. 이러한 파일은 세금 공제 후 금액, 할인 및 크레딧에 최종적으로 청구되는 금액을 이해하는 데 도움이 됩니다. 구독에 연결된 지불 방법이 없는 경우 이러한 파일을 사용할 수 없습니다. 자세한 내용은 [Azure 청구서 및 일간 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md) 및 [Microsoft Azure 요금 청구 방식](billing-understand-your-bill.md)을 참조하세요.
 
 ![.pdf 송장 스크린 샷](./media/billing-getting-started/invoice.png)
 
@@ -166,7 +166,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 ### <a name="billing-api"></a>청구 API
 
-청구 API를 사용하여 프로그래밍 방식으로 사용 현황 데이터를 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](../billing-usage-rate-card-overview.md)를 참조하세요.
+청구 API를 사용하여 프로그래밍 방식으로 사용 현황 데이터를 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하세요.
 
 ## <a name="a-nameother-offersa-additional-resources-for-ea-csp-and-sponsorship"></a><a name="other-offers"></a> EA, CSP 및 스폰서쉽에 대한 추가 리소스
 
@@ -174,7 +174,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 | 제안 | 리소스 |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| EA(기업 계약) | [EA 포털](https://ea.azure.com/) 및 [도움말 문서](https://ea.azure.com/helpdocs) |
+| EA(기업 계약) | [EA 포털](https://ea.azure.com/), [도움말 문서](https://ea.azure.com/helpdocs) 및 [Power BI 보고서](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | CSP(클라우드 솔루션 공급자) | 공급자에게 알림 |
 | Azure 스폰서쉽 | [스폰서쉽 포털](https://www.microsoftazuresponsorships.com/) |
 
@@ -182,6 +182,6 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

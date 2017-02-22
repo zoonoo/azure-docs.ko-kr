@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 476af10550075cde145a9cf2153330f063ad17b3
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: d4d9ed8380a0e8726fe2e2835e4b10fd262e1562
 
 
 ---
@@ -70,7 +70,7 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
 
 2. 다음 코드를 사용하여 클러스터에 Pig Latin 작업을 제출합니다.
    
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
    
     이 명령에서 사용된 매개 변수는 다음과 같습니다.
    
@@ -98,18 +98,9 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
 
 ## <a name="a-idresultsaview-results"></a><a id="results"></a>결과 보기
 
-작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob 저장소에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 **wasbs:///example/pigcurl**)가 포함됩니다. 이 주소는 HDInsight 클러스터에서 사용된 기본 저장소 컨테이너의 **example/pigcurl** 디렉터리에 작업의 출력을 저장합니다.
+작업 상태가 **SUCCEEDED**로 변경되면 클러스터에서 사용하는 기본 저장소에서 해당 작업의 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 **/example/pigcurl**)가 포함됩니다. 
 
-[Azure CLI](../xplat-cli-install.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/pigcurl**에 파일을 나열하려면 다음 명령을 사용합니다.
-
-    azure storage blob list <container-name> example/pigcurl
-
-파일을 다운로드하려면 다음을 사용합니다.
-
-    azure storage blob download <container-name> <blob-name> <destination-file>
-
-> [!NOTE]
-> `-a` 및 `-k` 매개 변수를 사용하여 Blob을 포함하는 저장소 계정 이름을 지정하거나 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 환경 변수를 설정해야 합니다.
+HDInsight의 백업 저장소는 Azure Storage 또는 Azure Data Lake Store가 될 수 있으며 사용하는 것에 따라 데이터에서 얻을 수 있는 다양한 방법이 있습니다. Azure Storage와 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 Linux 문서에서 HDInsight의 [HDFS, Blob Storage 및 Data Lake Store](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) 섹션을 참조하세요.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
 
@@ -131,6 +122,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

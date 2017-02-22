@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: b01d0ddef2271c440cbff1684c85d23dcda9a1de
-ms.openlocfilehash: 75d657412a61de38ab53708a8108d40309de742d
+ms.sourcegitcommit: 67650676117fef834ea819da2fc45ca66ed15493
+ms.openlocfilehash: 1b713e015f48b044c6c9d8ff6a0d8669d4532a9f
 
 
 ---
@@ -54,7 +54,7 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 보안 이점을 제�
 * Azure AD ID 보호는 기계 학습 기반 인텔리전스와 Digital Crimes Unit 및 Microsoft 보안 대응 센터로부터 데이터 피드를 포함합니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 실시간 보호를 제공합니다. 감염된 장치에서 익명의 네트워크를 통한 액세스, 일반적이고 가능성이 적은 위치 등 다양한 요소를 고려합니다.
 * 이러한 많은 보고서 및 이벤트는 SIEM 시스템과 통합을 위해 API를 통해 이미 제공됩니다.
 * Azure AD ID 보호에 대한 자세한 내용은 [Azure Active Directory ID 보호](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection)를 참조하세요.
-
+!
 **원격 액세스 서비스:** 온-프레미스 서버의 유지 관리 및 패치 적용에 대해 걱정하지 않아도 됩니다.
 
 * Azure AD 앱 프록시는 Microsoft가 소유한 인터넷 규모 서비스이므로 항상 최신 보안 패치 및 업그레이드가 제공된다는 사실에 안심할 수 있습니다. 따라서 네트워크의 보안이 해결됩니다.
@@ -65,6 +65,12 @@ Azure AD와 함께 제공되는 원격 액세스 서비스는 [Azure 보안 센�
 아래 다이어그램은 Azure AD를 통해 온-프레미스 응용 프로그램에 어떻게 안전하게 원격으로 액세스할 수 있는지를 보여 줍니다.
 
  ![AzureAD 응용 프로그램 프록시 커넥터](./media/application-proxy-security-considerations/secure-remote-access.png)
+
+>[!NOTE] 
+>Azure AD 응용 프로그램 프록시에 의해 게시된 응용 프로그램의 보안을 개선하기 웹 크롤러 로봇이 응용 프로그램을 인덱싱하고 보관하지 못하도록 합니다. 웹 크롤러 로봇이 게시된 앱에 대한 로봇 설정을 검색하려 할 때마다 앱 프록시는 다음을 포함하는 robots.txt 파일로 응답합니다. <br>
+>   _User-agent: *_<br>
+>   _Disallow: /_
+>
 
 ## <a name="components-of-the-azure-ad-app-proxy-solution"></a>Azure AD 앱 프록시 솔루션의 구성 요소
 
@@ -141,6 +147,6 @@ Azure AD 응용 프로그램 프록시는 두 부분으로 구성됩니다.
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

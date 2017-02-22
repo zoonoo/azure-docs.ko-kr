@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
-ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
+ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
+ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
 
 
 ---
@@ -33,6 +33,10 @@ VM 크기 집합에서 실행되는 응용 프로그램은 일반적으로 다�
 **사용자 지정 스크립트 확장 명령에 중요한 정보(예: 암호)를 전달할 때는 `settings` 특성 대신, 사용자 지정 스크립트 확장의 `protectedSettings` 특성에 `commandToExecute`를 지정해야 합니다.**
 
 * 단일 VHD에 OS 및 응용 프로그램을 둘 다 포함하는 사용자 지정 VM 이미지를 만듭니다. 크기 집합은 사용자가 만든 이미지에서 복사된 VM 집합으로 구성되며, 사용자가 관리해야 합니다. 이 방법을 사용할 때는 VM 배포 시에 추가 구성이 필요하지 않습니다. 그러나 `2016-03-30` 버전(및 이전 버전)의 VM 크기 집합에서 크기 집합에 포함된 VM에 대한 OS 디스크는 단일 저장소 계정으로 제한됩니다. 따라서 플랫폼 이미지에 대한 크기 집합당 100VM 제한과 달리, 한 크기 집합에 최대 40개의 VM을 유지할 수 있습니다. 자세한 내용은 [크기 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 참조하세요.
+
+    >[!NOTE]
+    >VM Scale Sets API 버전 `2016-04-30-preview`는 운영 체제 디스크 및 모든 추가 데이터 디스크에 대한 Azure Managed Disks 사용을 지원합니다. 자세한 내용은 [Managed Disks 개요](../storage/storage-managed-disks-overview.md) 및 [연결된 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)을 참조하세요. 
+
 * 기본적으로 컨테이너 호스트에 해당하는 플랫폼 또는 사용자 지정 이미지를 배포하고, orchestrator 또는 구성 관리 도구로 관리하는 하나 이상의 컨테이너로 응용 프로그램을 설치합니다. 이 방법의 장점은 응용 프로그램 계층에서 클라우드 인프라를 추상화하고 별도로 유지할 수 있다는 것입니다.
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>VM 크기 집합이 확장되면 어떻게 되나요?
@@ -42,6 +46,7 @@ VM 크기 집합에서 실행되는 응용 프로그램은 일반적으로 다�
 VM 크기 집합의 응용 프로그램 업데이트의 경우 세 가지 이전 응용 프로그램 배포 방법에 포함되는 세 가지 주요 접근 방법을 진행합니다.
 
 * VM 확장으로 업데이트. 새 VM이 배포되거나, 기존 VM이 이미지로 다시 설치되거나, VM 확장이 업데이트될 때마다 VM 크기 집합에 대해 정의된 모든 VM 확장이 실행됩니다. 응용 프로그램을 업데이트해야 할 경우 확장을 통해 응용 프로그램을 직접 업데이트하는 것이 가능한 방법입니다. 확장 정의를 업데이트하기만 하면 됩니다. 이 작업을 수행할 수 있는 간단한 방법은 새 소프트웨어를 가리키도록 fileUris를 변경하는 것입니다.
+
 * 변경할 수 없는 사용자 지정 이미지 접근 방법에 해당합니다. VM 이미지에 응용 프로그램(또는 앱 구성 요소)을 적용하는 경우 신뢰할 수 있는 파이프라인을 구축하여 이미지의 빌드, 테스트 및 배포를 자동화하는 데 주력할 수 있습니다. 미리 구성된 크기 집합을 용이하게 프로덕션으로 빠르게 교체할 수 있도록 아키텍처를 디자인할 수 있습니다. 이 방법의 예로 [Azure Spinnaker 드라이버 작업](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/)이 있습니다.
 
 Packer 및 Terraform도 Azure Resource Manager를 지원하므로, 이미지를 "코드로" 정의하고 Azure에서 빌드한 다음 해당 VHD를 크기 집합에서 사용할 수 있습니다. 그러나 사용자가 마켓플레이스에서 직접 조작하지 않으므로 확장/사용자 지정 스크립트가 좀 더 중요한 경우 이렇게 하면 마켓플레이스 이미지에 문제가 될 수 있습니다.
@@ -56,6 +61,6 @@ VM 크기 집합을 계속 실행하면서 OS 이미지를 업데이트하려고
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

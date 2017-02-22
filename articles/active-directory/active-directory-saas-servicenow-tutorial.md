@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2e650a5f6e2e69b11d7acbc7628e6ce6f29e5e1c
-ms.openlocfilehash: 6909e6b9770761ecba2069d43df1ad8c04345d4a
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: d134b91131321f633471893d9c2d5ffa041aa99c
 
 
 ---
@@ -47,7 +47,7 @@ ServiceNow 및 ServiceNow Express와의 Azure AD 통합을 구성하려면 다�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -101,15 +101,15 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 ### <a name="configuring-azure-ad-single-sign-on-for-servicenow"></a>ServiceNow에 대한 Azure AD Single Sign-On 구성
 1. Azure AD 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Single Sign-On 구성")
 
 2. **ServiceNow에 대한 사용자 로그온 방법 선택** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Single Sign-On 구성")
 
 3. **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC769497.png "앱 URL 구성")
    
     a. **ServiceNow 로그인 URL** 텍스트 상자에 다음 패턴 `https://<instance-name>.service-now.com`을 따라 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.
    
@@ -119,11 +119,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 4. Azure AD에서 SAML 기반 인증용으로 ServiceNow를 자동으로 구성하도록 하려면 ServiceNow 인스턴스 이름, 관리자 사용자 이름 및 관리자 암호를 **Single Sign-On 자동 구성** 양식에 입력하고 *구성*을 클릭합니다. 입력하는 관리자 사용자 이름에 ServiceNow의 **security_admin** 역할이 할당되어 있어야 이 절차를 수행할 수 있습니다. 이 방법을 사용하지 않고 ServiceNow가 SAML ID 공급자로 Azure AD를 사용하도록 수동으로 구성하려면 **응용 프로그램을 Single Sign-On에 대해 수동 구성**을 클릭하고 **다음**을 클릭하여 다음 단계를 완료합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "앱 URL 구성")
 
 5. **ServiceNow에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭하고 컴퓨터에 로컬로 인증서 파일을 저장합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Single Sign-On 구성")
 
 6. ServiceNow 응용 프로그램에 관리자 권한으로 로그온합니다.
 
@@ -131,11 +131,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
     a. 왼쪽 탐색 창에서 **시스템 정의** 섹션으로 이동한 다음 **플러그 인**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "플러그 인 활성화")
    
     b. *통합 - 여러 공급자 Single Sign-On 설치 관리자*를 검색합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "Activate plugin")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "플러그 인 활성화")
    
     c. 플러그 인을 선택합니다. 마우스 오른쪽을 클릭하고 **활성화/업그레이드**를 선택합니다.
    
@@ -143,11 +143,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 8. 왼쪽의 탐색 창에서 **속성**을 클릭합니다.  
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "앱 URL 구성")
 
 9. **여러 공급자 SSO 속성** 대화 상자에서 다음 단계를 수행합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "앱 URL 구성")
    
     a. **여러 공급자 SSO 사용**을 **예**로 선택합니다.
    
@@ -159,15 +159,15 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 10. 왼쪽의 탐색 창에서 **x509 Certificates**을 클릭합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Single Sign-On 구성")
 
 11. **X.509 인증서** 대화 상자에서 **새로 만들기**를 클릭합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Single Sign-On 구성")
 
 12. **X.509 Certificates** 대화 상자에서 다음 단계를 수행합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Single Sign-On 구성")
     
      a. **새로 만들기**를 클릭합니다.
     
@@ -185,19 +185,19 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 13. 왼쪽의 탐색 창에서 **ID 공급자**를 클릭합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Single Sign-On 구성")
 
 14. **ID 공급자** 대화 상자에서 **새로 만들기**를 클릭합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Single Sign-On 구성")
 
 15. **ID 공급자** 대화 상자에서 **SAML2 Update1?**을 클릭합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Single Sign-On 구성")
 
 16. SAML2 Update1 속성 대화 상자에서 다음 단계를 수행합니다.
     
-     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configure single sign-on")
+     ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Single Sign-On 구성")
 
     a. **이름** 텍스트 상자에서 구성할 이름을 입력합니다(예: **SAML 2.0**).
 
@@ -239,48 +239,48 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 1. Azure AD 클래식 포털에서 Single Sign-On을 구성했음을 확인한다는 확인란을 선택하고 **다음**을 클릭합니다. 
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Single Sign-On 구성")
 
 2. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Single Sign-On 구성")
 
 ### <a name="configuring-azure-ad-single-sign-on-for-servicenow-express"></a>ServiceNow Express에 대한 Azure AD Single Sign-On 구성
 1. Azure AD 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Single Sign-On 구성")
 
 2. **ServiceNow에 대한 사용자 로그온 방법 선택** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Single Sign-On 구성")
 
 3. **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC769497.png "앱 URL 구성")
    
     a. **ServiceNow 로그인 URL** 텍스트 상자에 다음 패턴 `https://<instance-name>.service-now.com`을 따라 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.
    
     b. **발급자 URL** 텍스트 상자에 다음 패턴 `https://<instance-name>.service-now.com`을 따라 사용자가 ServiceNow 응용 프로그램에 로그인하는 데 사용한 URL을 입력합니다.
    
-    c.  **다음**
+    c. **다음**
 
 4. **Single Sign-On에 대한 응용 프로그램을 수동으로 구성**을 클릭한 후 **다음**을 클릭하고 다음 단계를 완료합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "앱 URL 구성")
 
 5. **ServiceNow에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭하고 컴퓨터에 로컬로 인증서 파일을 저장한 후 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Single Sign-On 구성")
 
 6. ServiceNow Express 응용 프로그램에 관리자 권한으로 로그온합니다.
 
 7. 왼쪽 탐색 창에서 **Single Sign-On**을 클릭합니다.  
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "앱 URL 구성")
 
 8. **Single Sign-on** 대화 상자에서 오른쪽 위의 구성 아이콘을 클릭하고 다음 속성을 설정합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "앱 URL 구성")
    
     a. **여러 공급자 SSO 사용**을 오른쪽으로 설정/해제합니다.
    
@@ -289,10 +289,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     c. **...하는 사용자 테이블의 필드** 텍스트 상자에서 **user_name**을 입력합니다.
 9. **Single Sign-On** 대화 상자에서 **새 인증서 추가**를 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Single Sign-On 구성")
 10. **X.509 Certificates** 대화 상자에서 다음 단계를 수행합니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Single Sign-On 구성")
     
     a. **이름** 텍스트 상자에서 구성할 이름을 입력합니다(예: **TestSAML2.0**).
     
@@ -314,10 +314,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     g. **업데이트**를 클릭합니다.
 11. **Single Sign-On** 대화 상자에서 **새 IdP 추가**를 클릭합니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Single Sign-On 구성")
 12. **새 ID 공급자 추가** 대화 상자의 **ID 공급자 구성** 아래에서 다음 단계를 수행합니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Single Sign-On 구성")
 
     a. **이름** 텍스트 상자에서 구성할 이름을 입력합니다(예: **SAML 2.0**).
 
@@ -332,7 +332,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 1. **고급 설정**을 클릭하고 **추가 ID 공급자 속성** 아래에서 다음 단계를 수행합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Single Sign-On 구성")
    
     a. **IDP의 SingleLogoutRequest에 대한 프로토콜 바인딩** 텍스트 상자에 **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**를 입력합니다.
    
@@ -344,7 +344,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 2. **추가 서비스 공급자 속성** 아래에서 다음 단계를 수행합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Single Sign-On 구성")
    
     a. **ServiceNow 홈페이지** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다.
    
@@ -370,11 +370,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 3. Azure AD 클래식 포털에서 Single Sign-On을 구성했음을 확인한다는 확인란을 선택하고 **다음**을 클릭합니다. 
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Single Sign-On 구성")
 
 4. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 이 섹션에서는 ServiceNow에 Active Directory 사용자 계정을 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명합니다.
@@ -382,7 +382,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비저닝을 구성하려면
 1. Azure 관리 클래식 포털의 **ServiceNow** 응용 프로그램 통합 페이지에서 **사용자 프로비전 구성**을 클릭합니다. 
    
-    ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
+    ![사용자 프로비전](./media/active-directory-saas-servicenow-tutorial/IC769498.png "사용자 프로비전")
 
 2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 다음 구성 설정을 제공합니다.
    
@@ -398,7 +398,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
    
      f. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "**이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다. 
    
-    ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Next Steps")
+    ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
    
      g. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
 
@@ -519,6 +519,6 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

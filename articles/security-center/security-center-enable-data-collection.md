@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 486ab53ede1465da2cba16ff4160599b50c2b092
-ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
+ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
+ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Azure 보안 센터에서 데이터 수집 활성화
-위협을 방지, 감지 및 대응하는 고객을 위해 Azure 보안 센터에서는 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 Azure 가상 컴퓨터에 대한 데이터를 수집하고 처리합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집를 사용하는 것이 좋지만 보안 센터 정책에서 데이터 수집을 해제하여 옵트아웃할 수 있습니다( [데이터 수집 비활성화](#disabling-data-collection)를 참조). 데이터 수집을 해제하면 보안 센터는 해당 구독에 대한 보안 정책에서 데이터 수집을 켜도록 권장합니다.
+위협을 방지, 감지 및 대응하는 고객을 위해 Azure 보안 센터에서는 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 Azure 가상 컴퓨터에 대한 데이터를 수집하고 처리합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집를 사용하는 것이 좋지만 Security Center 정책에서 데이터 수집을 해제하여 옵트아웃할 수 있습니다([데이터 수집 비활성화](#disabling-data-collection)를 참조). 데이터 수집을 해제하면 Security Center는 해당 구독에 대한 보안 정책에서 데이터 수집을 켜도록 권장합니다.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
@@ -39,7 +39,7 @@ ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
    ![보안 정책 블레이드][3]
 
 5. **저장**을 선택합니다.
-6. **지역당 저장소 계정 선택**을 선택합니다. 가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면 사용자를 위해 계정이 자동으로 생성됩니다. 이 예제에서는 **newstoracct**를 선택합니다. 구독에 대한 보안 정책에 돌아가서 다른 저장소 계정을 선택하여 나중에 저장소 계정을 변경할 수 있습니다.
+6. **지역당 저장소 계정 선택**을 선택합니다. 가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면, 사용자를 위해 저장소 계정을 만들고 securitydata 리소스 그룹에 배치합니다. 이 예제에서는 **newstoracct**를 선택합니다. 구독에 대한 보안 정책에 돌아가서 다른 저장소 계정을 선택하여 나중에 저장소 계정을 변경할 수 있습니다.
    ![저장소 계정 선택][4]
 7. **확인**을 선택합니다.
 
@@ -49,10 +49,10 @@ ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
 >
 
 ## <a name="after-data-collection-is-enabled"></a>데이터 수집을 활성화한 후에
-데이터 수집은 Azure 모니터링 에이전트 및 Azure 보안 모니터링 확장을 통해 사용하도록 설정됩니다. Azure 보안 모니터링 확장은 다양한 보안 관련 구성을 검사하여 ETW( [Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) )로 보냅니다. 또한 운영 체제는 이벤트 로그 항목을 만듭니다. Azure 모니터링 에이전트는 이벤트 로그 항목을 읽으며 ETW는 이를 추적하고 분석을 위해 저장소 계정에 복사합니다. 또한 모니터링 에이전트는 저장소 계정에 크래시 덤프 파일을 복사합니다. 이는 보안 정책에 구성된 저장소 계정입니다.
+데이터 수집은 Azure 모니터링 에이전트 및 Azure 보안 모니터링 확장을 통해 사용하도록 설정됩니다. Azure 보안 모니터링 확장은 다양한 보안 관련 구성을 검사하여 ETW([Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx))로 보냅니다. 또한 운영 체제는 이벤트 로그 항목을 만듭니다. Azure 모니터링 에이전트는 이벤트 로그 항목을 읽으며 ETW는 이를 추적하고 분석을 위해 저장소 계정에 복사합니다. 또한 모니터링 에이전트는 저장소 계정에 크래시 덤프 파일을 복사합니다. 이는 보안 정책에 구성된 저장소 계정입니다.
 
 ## <a name="disabling-data-collection"></a>데이터 수집 비활성화
-언제든지 데이터 컬렉션을 비활성화할 수 있으며, 그러면 Security Center에서 이전에 설치한 모니터링 에이전트가 자동으로 제거됩니다.  데이터 수집을 해제할 구독을 선택해야 합니다.
+언제든지 데이터 컬렉션을 비활성화할 수 있으며, 그러면 Security Center에서 이전에 설치한 모니터링 에이전트가 자동으로 제거됩니다. 데이터 수집을 해제할 구독을 선택해야 합니다.
 
 > [!NOTE]
 > Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 데이터 수집을 해제하려면 구독을 선택해야 합니다.
@@ -67,7 +67,7 @@ ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
 4. 상단 리본에서 **저장** 을 선택합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터 권장 사항 "데이터 수집 활성화"를 구현하는 방법을 보여 주었습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
@@ -88,6 +88,6 @@ ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
