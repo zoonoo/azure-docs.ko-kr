@@ -3,7 +3,7 @@ title: "Azure Active Directory에서 사용자 지정 도메인 이름 관리 | 
 description: "Azure Active Directory에서 사용자 지정 도메인에 대한 관리 개념 및 관리 방법"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: cf3523bd-9ee0-439e-963d-ccea038867b9

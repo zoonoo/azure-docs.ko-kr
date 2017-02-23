@@ -164,7 +164,8 @@ az network nic create --resource-group myResourceGroup --location westeurope --n
 
 ```azurecli
 az vm availability-set create --resource-group myResourceGroup --location westeurope \
-  --name myAvailabilitySet
+  --name myAvailabilitySet \
+  --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
 [az vm create](/cli/azure/vm#create)를 사용하여 첫 번째 Linux VM을 만듭니다. 다음 예제는 Azure Managed Disks를 사용하여 `myVM1`이라는 VM을 만듭니다. 관리되지 않는 디스크를 사용하려는 경우 아래의 추가 정보를 참조하세요.
@@ -176,9 +177,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic1 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
@@ -200,9 +198,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic2 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
@@ -997,7 +992,8 @@ az network nic create --resource-group myResourceGroup --location westeurope --n
 
 ```azurecli
 az vm availability-set create --resource-group myResourceGroup --location westeurope \
-  --name myAvailabilitySet
+  --name myAvailabilitySet \
+  --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
 장애 도메인은 공통의 전원 및 네트워크 스위치를 공유하는 가상 컴퓨터 그룹을 정의합니다. 기본적으로 가용성 집합 안에 구성된 가상 컴퓨터는 최대&3;개의 장애 도메인에 분산되어 있습니다. 이러한 장애 도메인 중 하나에서 발생한 하드웨어 문제가 앱을 실행 중인 모든 VM에 영향을 미치지 않는 것이 가장 좋습니다. Azure는 가용성 집합에 VM을 배치할 때 VM을 전체 장애 도메인에 자동으로 분산합니다.
@@ -1021,9 +1017,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic1 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
@@ -1086,9 +1079,6 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic2 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username azureuser
