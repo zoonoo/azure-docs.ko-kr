@@ -10,10 +10,12 @@
 ## [문제 해결](multi-factor-authentication-end-user-troubleshoot.md)
 ## [앱 암호 설정](multi-factor-authentication-end-user-app-passwords.md)
 ## Microsoft Authenticator 앱 사용
-### [시작](microsoft-authenticator-app-how-to.md)
+### [앱 시작](microsoft-authenticator-app-how-to.md)
+### [휴대폰으로 로그인](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

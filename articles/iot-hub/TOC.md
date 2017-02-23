@@ -7,11 +7,10 @@
 ## 시뮬레이션된 장치 사용
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [노드](iot-hub-node-node-getstarted.md)
+### [Node.JS](iot-hub-node-node-getstarted.md)
 
 ## Raspberry Pi 사용
-### Node.js
-#### [시작](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### 단원 1: 장치 구성
 ##### [장치 구성](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [선택 사항: LED 동작 변경](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [문제 해결](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [시작](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### 단원 1: 장치 구성
 ##### [장치 구성](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [도구 얻기(Windows 7 이상)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [문제 해결](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Intel Edison 사용
-### Node.js
-#### [시작](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 #### 단원 1: 장치 구성
 ##### [장치 구성](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [도구 얻기(Windows 7 이상)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [선택 사항: LED 동작 변경](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [문제 해결](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [시작](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### 단원 1: 장치 구성
 ##### [장치 구성](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [도구 얻기(Windows 7 이상)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [문제 해결](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Arduino 사용
-### Node.js
-#### [시작](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.JS](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### 단원 1: 장치 구성
 ##### [장치 구성](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [도구 얻기(Windows 7 이상)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Windows에서 시뮬레이션](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## IoT Gateway Starter Kit 사용
-### 시뮬레이션된 장치
-
-#### [시작](iot-hub-gateway-kit-c-sim-get-started.md)
+### [시뮬레이션된 장치](iot-hub-gateway-kit-c-sim-get-started.md)
 #### 단원 1: NUC 구성
 ##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [문제 해결](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### SensorTag 장치
-#### [시작](iot-hub-gateway-kit-c-get-started.md)
+### [SensorTag 장치](iot-hub-gateway-kit-c-get-started.md)
 #### 단원 1: NUC 구성
 ##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## C용 Azure IoT 장치 SDK 사용
-### [소개](iot-hub-device-sdk-c-intro.md)
+## [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
 ### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
 ### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
 
@@ -280,6 +271,6 @@
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

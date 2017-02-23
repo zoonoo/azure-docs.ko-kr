@@ -52,8 +52,19 @@
 ## [사이버 보안 컨설팅](azure-security-cyber-services.md)
 ## [Virtual Academy의 보안 과정](security-microsoft-virtual-academy.md)
 ## [Channel 9의 보안 동영상](security-channel-nine.md)
+## [위협 모델링 도구](azure-security-threat-modeling-tool.md)
+###[감사 및 로깅](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[인증](azure-security-threat-modeling-tool-authentication.md)
+###[권한 부여](azure-security-threat-modeling-tool-authorization.md)
+###[통신 보안](azure-security-threat-modeling-tool-communication-security.md)
+###[구성 관리](azure-security-threat-modeling-tool-configuration-management.md)
+###[암호화](azure-security-threat-modeling-tool-cryptography.md)
+###[예외 관리](azure-security-threat-modeling-tool-exception-management.md)
+###[유효성 검사 입력](azure-security-threat-modeling-tool-input-validation.md)
+###[중요 데이터](azure-security-threat-modeling-tool-sensitive-data.md)
+###[세션 관리](azure-security-threat-modeling-tool-session-management.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

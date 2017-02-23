@@ -3,6 +3,7 @@
 ## [App Service 정의](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Linux의 App Service](app-service-linux-intro.md)
+## [Linux의 App Service FAQ](app-service-linux-faq.md)
 
 # 시작
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [마켓플레이스 앱](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### ASP.NET 앱
 #### [Visual Studio를 사용하여 Azure에서 ASP.NET 앱 만들기](web-sites-dotnet-get-started.md)
 #### [ASP.NET Web API를 사용한 REST 서비스 만들기](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Visual Studio 코드에서 5 ASP.NET 웹앱 만들기](web-sites-create-web-app-using-vscode.md)
+#### [Linux의 Web Apps에서 .NET Core 사용](app-service-linux-using-dotnetcore.md)
+
 
 ### Node.js 앱
 #### [App Service용 Node.js 개발](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [WebMatrix를 사용하여 빌드 및 배포](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP 앱
-#### [App Service용 PHP 앱 개발](app-service-web-php-get-started.md) 
+#### [App Service용 PHP 앱 개발](app-service-web-php-get-started.md)    
 #### [Git를 사용하여 PHP-SQL 웹앱 만들기 및 배포](web-sites-php-sql-database-deploy-use-git.md)
 #### [Azure App Service에서 WordPress 웹앱 만들기](web-sites-php-web-site-gallery.md)
 #### [Azure에서 MySQL 데이터베이스 만들기 및 연결](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Visual Studio용 Python Tools 2.2를 사용하는 Flask 및 Table Storage](web-sites-python-ptvs-flask-table-storage.md)
 #### [Azure의 Django 및 MySQL과 Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Azure의 Django 및 SQL Database와 Python Tools 2.2 for Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Ruby 앱
+#### [Linux의 Web Apps에서 Ruby 사용](app-service-linux-using-ruby.md)
 
 ### [5분 내에 Azure에 첫 번째 기본 웹앱 배포](app-service-web-get-started-html.md)
 ### [Web Apps에 대한 프로덕션에서 테스트 시작](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Python 구성](web-sites-python-configure.md)
 #### [Linux에서 Node.js 시작 구성](app-service-linux-using-nodejs-pm2.md)
 
+
 ### 사용자 지정 도메인
 #### [사용자 지정 도메인 구입 및 구성](custom-dns-web-site-buydomains-web-app.md)
 #### [사용자 고유의 사용자 지정 도메인 매핑](web-sites-custom-domain-name.md)
+#### [활성 사용자 지정 도메인 마이그레이션](app-service-custom-domain-name-migrate.md)
 #### [GoDaddy 도메인 구성](web-sites-godaddy-custom-domain-name.md)
 #### [Traffic Manager로 도메인 사용자 지정](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -267,6 +276,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
