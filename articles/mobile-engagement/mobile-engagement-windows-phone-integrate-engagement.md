@@ -101,7 +101,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 > 
 
 ## <a name="basic-reporting"></a>기본 보고
-### <a name="recommended-method-overload-your-phoneapplicationpage-classes"></a>권장 방법: `PhoneApplicationPage` 클래스 오버로드
+### <a name="recommended-method--overload-your-phoneapplicationpage-classes"></a>권장 방법: `PhoneApplicationPage` 클래스 오버로드
 Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 계산하는 데 필요한 모든 로그의 보고를 활성화하려는 경우 모든 `PhoneApplicationPage` 서브클래스가 `EngagementPage` 클래스에서 상속하도록 지정하면 됩니다.
 
 아래에는 응용 프로그램 페이지에 대해 이 작업을 수행하는 방법의 예제가 나와 있습니다. 응용 프로그램의 모든 페이지에 대해 동일한 작업을 수행할 수 있습니다.

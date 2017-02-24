@@ -39,9 +39,10 @@
 ## Azure 서비스와의 통합
 ### [Azure VNET의 Vm에서 액세스](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics와 함께 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [포털을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [PowerShell을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Resource Manager 템플릿을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Data Lake Store와 함께 HDInsight 사용 - 포털](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [Data Lake Store와 함께 HDInsight를 기본 저장소로 사용 - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [Data Lake Store와 함께 HDInsight를 추가 저장소로 사용 - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Data Lake Store와 함께 HDInsight 사용 - Azure 템플릿](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [데이터 팩터리와 함께 사용](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Stream Analytics와 함께 사용](data-lake-store-stream-analytics.md)
 ### [Power BI와 함께 사용](data-lake-store-power-bi.md)
@@ -71,6 +72,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

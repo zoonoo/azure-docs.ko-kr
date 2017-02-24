@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
 
 
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell을 사용하여 Azure 웹앱에서 Application Insights 설정
-[Microsoft Azure](https://azure.com)는 [Visual Studio Application Insights](app-insights-overview.md)에 [Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)될 수 있습니다. 진단은 Azure 클라우드 서비스 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
+[Microsoft Azure](https://azure.com)는 [Azure Application Insights](app-insights-overview.md)에 [Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)될 수 있습니다. 진단은 Azure 클라우드 서비스 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
 ## <a name="azure-template"></a>Azure 템플릿
 웹앱이 Azure에 있고 Azure Resource Manager 템플릿을 사용하여 리소스를 만드는 경우 리소스 노드에 이를 추가하여 Application Insights를 구성할 수 있습니다.
@@ -141,6 +141,6 @@ Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-Azu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

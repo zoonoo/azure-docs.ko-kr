@@ -1,5 +1,6 @@
 # 개요
 ## [Application Gateway란?](application-gateway-introduction.md)
+## [Application Gateway FAQ](application-gateway-faq.md)
 ## [웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)
 ## [상태 모니터링](application-gateway-probe-overview.md)
 ## [URL 라우팅](application-gateway-url-route-overview.md)
@@ -38,10 +39,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## 관리
-### [진단](application-gateway-diagnostics.md)
-### [문제 해결](application-gateway-troubleshooting-502.md)
-
+## 문제 해결
+### [Application Gateway의 오류 해결](application-gateway-troubleshooting-502.md)
+### [진단 로깅 및 메트릭](application-gateway-diagnostics.md)
 # 참조
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Azure CLI 2.0 미리 보기](/cli/azure/network/application-gateway)
@@ -50,7 +50,7 @@
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST (영문)](https://msdn.microsoft.com/library/mt684941)
+## [REST (영문)](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt299393)
 # 관련 항목
 ## [ExpressRoute](/azure/expressroute/)
@@ -67,6 +67,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

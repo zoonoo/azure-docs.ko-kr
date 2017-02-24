@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Data Warehouse 쿼리(sqlcmd) | Microsoft Docs"
-description: "sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL 데이터 웨어하우스를 쿼리합니다."
+title: "Azure SQL Data Warehouse sqlcmd에 연결 | Microsoft Azure"
+description: "[sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Azure SQL 데이터 웨어하우스 쿼리(sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd를 사용하여 SQL 데이터 웨어하우스에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure 기계 학습](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-이 연습에서는 [sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse를 쿼리합니다.  
+[sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.  
 
 ## <a name="1-connect"></a>1. 연결
 [sqlcmd][sqlcmd]를 시작하려면 명령 프롬프트를 열고 SQL Data Warehouse 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd**를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
@@ -100,6 +100,6 @@ sqlcmd에서 사용할 수 있는 옵션에 대한 세부 정보는 [sqlcmd 설�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -69,7 +69,7 @@ Azure AD 테넌트가 보호 중인 리소스에 응용 프로그램이 액세�
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://portal.azure.com
+[AZURE-Portal]: https://portal.azure.com
 
 
 

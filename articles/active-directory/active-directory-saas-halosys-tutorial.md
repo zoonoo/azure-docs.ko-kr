@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
@@ -124,7 +124,7 @@ Halosys에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **로그온 URL** 텍스트 상자에 `https://<company-name>.Halosys.com/client-api/api` 패턴을 사용하여 사용자가 Halosys 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
-    b.**식별자 URL** 텍스트 상자에 `https://<company-name>.Halosys.com` 패턴으로 URL을 입력합니다.   
+    b.**식별자 URL** 텍스트 상자에 `https://<company-name>.Halosys.com` 패턴으로 URL을 입력합니다.    
          
 4. **Halosys에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 파일을 저장합니다.
 

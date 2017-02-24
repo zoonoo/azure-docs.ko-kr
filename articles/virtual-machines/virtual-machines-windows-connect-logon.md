@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db417fb72442ea8a5cd4ef882eb657b08bebaa0a
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
 
 
 ---
@@ -41,7 +41,7 @@ Azure 포털의 **연결** 단추를 사용하여 RDP(원격 데스크톱) 세�
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>다음 단계
-연결하려고 할 때 문제가 발생할 경우 [원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
+연결하려고 할 때 문제가 발생할 경우 [원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
 
 
 

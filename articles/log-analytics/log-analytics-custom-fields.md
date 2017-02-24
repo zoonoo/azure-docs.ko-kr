@@ -44,7 +44,7 @@ Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으
 > 
 > 
 
-### <a name="step-1-identify-records-that-will-have-the-custom-field"></a>1단계 – 사용자 지정 필드를 갖게 될 레코드를 식별합니다.
+### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1단계 – 사용자 지정 필드를 갖게 될 레코드를 식별합니다.
 첫 번째 단계는 사용자 지정 필드를 갖게 될 레코드를 식별하는 것입니다.  [표준 로그 검색](log-analytics-log-searches.md) 부터 시작한 다음 Log Analytics가 학습하는 모델 역할을 할 레코드를 선택합니다.  사용자 지정 필드에 데이터를 추출할 것이라고 지정하면, **Field Extraction Wizard** (필드 추출 마법사)가 열리고 여기서 조건의 유효성을 검사하고 구체화합니다.
 
 1. **로그 검색** 으로 이동하고 사용자 지정 필드를 갖게 될 [레코드를 검색할 쿼리](log-analytics-log-searches.md) 를 사용합니다.
@@ -60,7 +60,7 @@ Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으
 2. **추출** 을 클릭하여 수집된 레코드에 대한 분석을 수행합니다.  
 3. **요약** 및 **검색 결과** 섹션에 정확성을 검사할 수 있도록 추출 결과가 표시됩니다.  **요약** 에 식별된 각각의 데이터 값에 대한 개수 및 레코드를 식별하는 데 사용된 조건이 표시됩니다.  **검색 결과** 에 조건에 맞는 레코드의 자세한 목록이 제공됩니다.
 
-### <a name="step-3-verify-accuracy-of-the-extract-and-create-custom-field"></a>3단계 – 사용자 지정 필드 만들기 및 추출의 정확성을 검사합니다.
+### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>3단계 – 사용자 지정 필드 만들기 및 추출의 정확성을 검사합니다.
 초기 추출을 수행하면, Log Analytics에 이미 수집된 데이터에 기반한 결과가 표시됩니다.  결과가 정확해 보이면 더 이상 작업을 수행하지 않고 사용자 지정 필드를 만들 수 있습니다.  그렇지 않으면, Log Analytics의 논리를 개선할 수 있도록 결과를 구체화합니다.
 
 1. 초기 추출에 정확하지 않은 값이 있으면, 정확하지 않은 레코드 옆의 **편집** 아이콘을 클릭하고 선택을 수정하기 위해서 **Modify this highlight**(이 강조 표시 수정)를 선택합니다.

@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Application Insights SDK를 추가하여 Node.js 앱 모니터링
-*Application Insights는 미리 보기 상태입니다.*
 
-[Visual Studio Application Insights](app-insights-overview.md)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단](app-insights-detect-triage-diagnose.md)하고 [앱이 어떻게 사용되는지 검색](app-insights-overview-usage.md)할 수 있도록 돕습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다.
+
+[Azure Application Insights](app-insights-overview.md)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단](app-insights-detect-triage-diagnose.md)하고 [앱이 어떻게 사용되는지 검색](app-insights-overview-usage.md)할 수 있도록 돕습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다.
 
 SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모리, RPS) 및 처리되지 않은 예외의 자동 컬렉션을 제공합니다. 또한, 사용자 지정 호출을 추가하여 종속성, 메트릭, 또는 기타 이벤트를 추적할 수 있습니다.
 
@@ -95,7 +95,7 @@ appInsights.setup("<instrumentation_key>").start();
 [이 문제 해결 항목](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)을 참조하세요.
 
 ## <a name="customized-usage"></a>사용자 지정한 사용 현황
-### <a name="disabling-autocollection"></a>자동 컬렉션 사용 안 함
+### <a name="disabling-auto-collection"></a>자동 컬렉션 사용 안 함
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -192,14 +192,14 @@ server.on("listening", () => {
 <!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
+[메트릭]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
+[포털]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [역할]: app-insights-resources-roles-access-control.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

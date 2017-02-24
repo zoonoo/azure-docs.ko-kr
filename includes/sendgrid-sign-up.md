@@ -1,6 +1,6 @@
-Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][모든 API](Web, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스에 대한 내용은 [SendGrid 기능][SendGrid 기능](영문) 페이지를 참조하십시오.
+Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][모든 API](Web, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스에 대한 내용은 [SendGrid 기능][SendGrid 기능] (영문) 페이지를 참조하십시오.
 
-### SendGrid 계정을 등록하려면
+### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid 계정을 등록하려면
 1. [Azure 관리 포털][Azure 관리 포털]에 로그인합니다.
 2. 관리 포털의 아래쪽 창에서 **New**를 클릭합니다.
    
@@ -22,23 +22,23 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
     
     ![sendgrid-purchasing-message][sendgrid-purchasing-message]
     
-    SendGrid 계정이 즉시 프로비전되며 **Successfully purchased Add-On SendGrid**라는 메시지가 나타납니다. 이제 사용자의 계정과 자격 증명이 만들어졌습니다. 이제 전자 메일을 보낼 준비가 되었습니다.
+    SendGrid 계정이 즉시 프로비전되며 **Successfully purchased Add-On SendGrid**라는 메시지가 나타납니다. 이제 사용자의 계정과 자격 증명이 만들어졌습니다. 이제 전자 메일을 보낼 준비가 되었습니다. 
     
-    구독 계획을 수정하거나 SendGrid 연락처 설정을 보려면 SendGrid 서비스 이름을 클릭하여 SendGrid 마켓플레이스 대시보드를 여세요.
+    구독 계획을 수정하거나 SendGrid 연락처 설정을 보려면 SendGrid 서비스 이름을 클릭하여 SendGrid 마켓플레이스 대시보드를 여세요. 
     
     ![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
     
     SendGrid를 사용하여 전자 메일을 보내려면 계정 자격 증명(사용자 이름 및 암호)을 제공해야 합니다.
 
-### SendGrid 자격 증명을 찾으려면
+### <a name="to-find-your-sendgrid-credentials"></a>SendGrid 자격 증명을 찾으려면
 1. **Connection Info**를 클릭합니다.
    
     ![sendgrid-connection-info-button][sendgrid-connection-info-button]
-2. *Connection info* 대화 상자에서 이 자습서에서 나중에 사용하도록 **Password**와 사용자 이름을 복사합니다.
+2. *Connection info* 대화 상자에서 이 자습서에서 나중에 사용하도록 **Password** 와 사용자 이름을 복사합니다.
    
     ![sendgrid-connection-info][sendgrid-connection-info]
    
-    전자 메일 배달 설정을 설정하려면 **Manage** 단추를 클릭합니다. 그러면 SendGrid Control Panel로 리디렉션됩니다.
+    전자 메일 배달 설정을 설정하려면 **Manage** 단추를 클릭합니다. 그러면 SendGrid Control Panel로 리디렉션됩니다. 
    
     ![sendgrid-control-panel][sendgrid-control-panel]
    
@@ -61,7 +61,11 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 [SendGrid 기능]: http://sendgrid.com/features
 [Azure 관리 포털]: https://manage.windowsazure.com
 [SendGrid 시작]: http://sendgrid.com/docs
-[SendGrid 프로비전 프로세스]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [모든 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

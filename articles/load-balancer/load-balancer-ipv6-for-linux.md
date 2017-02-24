@@ -70,7 +70,7 @@ Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel-centos-oracle-linux"></a>RHEL / CentOS / Oracle Linux
+## <a name="rhel--centos--oracle-linux"></a>RHEL / CentOS / Oracle Linux
 
 1. 파일 `/etc/sysconfig/network` 을 편집하고 다음 매개 변수를 추가합니다.
 
@@ -87,7 +87,7 @@ Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11-opensuse-13"></a>SLES 11 및 openSUSE 13
+## <a name="sles-11--opensuse-13"></a>SLES 11 및 openSUSE 13
 
 Azure의 최근 SLES 및 openSUSE 이미지는 DHCPv6를 사용해 미리 구성되었습니다. 이러한 이미지를 사용할 경우 추가 변경이 필요하지 않습니다. 이전 또는 사용자 지정 SUSE 이미지를 기반으로 하는 VM인 경우 다음 단계를 사용합니다.
 

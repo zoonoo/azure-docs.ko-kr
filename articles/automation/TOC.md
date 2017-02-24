@@ -55,6 +55,7 @@
 ### [리소스 그룹 제거](automation-scenario-remove-resourcegroup.md)
 ### [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 ### [GitHub Enterprise와 소스 제어 통합](automation-scenario-source-control-integration-with-github-ent.md)
+### [VSTS와 소스 제어 통합](automation-scenario-source-control-integration-with-VSTS.md)
 ## 모니터
 ### [Log Analytics에 Azure Automation 작업 데이터 전달](automation-manage-send-joblogs-log-analytics.md)
 ### [Log Analytics에서 Azure Automation 계정 연결 해제](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

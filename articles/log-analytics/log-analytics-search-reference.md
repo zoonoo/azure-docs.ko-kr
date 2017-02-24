@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
-ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
+ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
 
 
 ---
@@ -77,7 +77,7 @@ system error | sort ManagementGroupName, TimeGenerated desc | top 10
 These all are string literals
 ```
 
-이 쿼리는 발생하는 5개 단어를 모두 포함하는 결과를 검색합니다. 복잡한 문자열 검색을 수행하려면 다음과 같이 문자열 리터럴을 큰따옴표로 묶습니다.
+이 쿼리는 발생하는&5;개 단어를 모두 포함하는 결과를 검색합니다. 복잡한 문자열 검색을 수행하려면 다음과 같이 문자열 리터럴을 큰따옴표로 묶습니다.
 
 ```
 " Windows Server"
@@ -86,7 +86,7 @@ These all are string literals
 "Windows Server"와 정확히 일치하는 결과를 반환합니다.
 
 ### <a name="numbers"></a>숫자
-파서는 숫자 필드에 10 진수 정수 및 부동 소수점 수 구문을 지원합니다.
+파서는 숫자 필드에&10; 진수 정수 및 부동 소수점 수 구문을 지원합니다.
 
 예제:
 
@@ -298,7 +298,7 @@ Type:Alert AND NOT(Severity:1 OR ObjectId:"8066bbc0-9ec8-ca83-1edc-6f30d4779bcb8
 | 시스템 "Windows Server" OR 심각도:1 |시스템 AND ("Windows Server" OR 심각도:1) |
 
 ### <a name="wildcarding"></a>와일드 카드 사용
-쿼리 언어는 쿼리의 값에 대해 하나 이상의 문자를 나타내는 (*\*) 문자 사용을 지원합니다.
+쿼리 언어는 쿼리의 값에 대해 하나 이상의 문자를 나타내는 (\*) 문자 사용을 지원합니다.
 
 예제:
 
@@ -367,7 +367,7 @@ Type=Event Computer=*SQL*
 
     Type:Alert errors detected | select Name, Severity
 
-이름 and 심각도에서 데이터와 유사한 범주를 dill-into하는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.
+*이름* and *심각도*에서 데이터와 유사한 범주를 dill-into하는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.
 
 ### <a name="measure"></a>측정값
 *측정값* 명령은 통계 함수를 원시 검색 결과에 적용하는 데 사용됩니다. 이 명령은 데이터에서 *group-by* 보기를 가져오는 데 매우 유용합니다. *measure* 명령을 사용하는 경우 Log Analytics 검색은 집계된 결과가 포함된 테이블을 표시합니다.
@@ -499,7 +499,7 @@ Computer별로 성능을 그룹화하고 CounterName을 기준으로 그룹화�
 
 *설명*
 
-경고의 최대 수와 상위 5개 워크플로를 가져옵니다.
+경고의 최대 수와 상위&5;개 워크플로를 가져옵니다.
 
 **예제 14**
 
@@ -813,6 +813,6 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
