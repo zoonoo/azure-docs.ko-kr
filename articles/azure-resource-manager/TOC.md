@@ -27,7 +27,6 @@
 ### [Azure CLI](resource-group-template-deploy-cli.md)
 ### [포털](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [개발 및 테스트 환경](solution-dev-test-environments.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## 관리
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -59,7 +58,7 @@
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
-## [Azure 2.0 CLI(미리 보기)](/cli/azure/resource)
+## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)

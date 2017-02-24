@@ -100,7 +100,7 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 
 규칙은 요청 본문에 포함된 순서대로 처리되므로 모범 사례에 따르면 원본과 관련하여 가장 제한적인 규칙을 목록에서 첫 번째로 지정하는 것이 좋습니다. 그러면 해당 규칙이 먼저 평가됩니다. 모든 원본을 허용하는 규칙과 같이 제한 수준이 가장 낮은 규칙은 목록의 맨 끝에 지정합니다.
 
-### <a name="example-cors-rules-evaluation"></a>예제 - CORS 규칙 평가
+### <a name="example--cors-rules-evaluation"></a>예제 - CORS 규칙 평가
 다음 예제에서는 저장소 서비스에 대해 CORS 규칙을 설정하는 작업의 요청 본문 중 일부분을 보여 줍니다. 요청을 생성하는 방법에 대한 자세한 내용은 [Blob 서비스 속성 설정](https://msdn.microsoft.com/library/hh452235.aspx), [큐 서비스 속성 설정](https://msdn.microsoft.com/library/hh452232.aspx) 및 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)을 참조하세요.
 
 ```xml

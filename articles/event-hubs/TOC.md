@@ -20,6 +20,7 @@
 ## 계획 및 디자인
 ### [Event Hubs 전용](event-hubs-dedicated-overview.md)
 ### [인증 및 보안 모델 개요](event-hubs-authentication-and-security-model-overview.md)
+### [가용성 및 일관성](event-hubs-availability-and-consistency.md)
 ## 개발
 ### [사용 가능한 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
@@ -59,6 +60,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

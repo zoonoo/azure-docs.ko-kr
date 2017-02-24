@@ -104,7 +104,7 @@ Visual Studio 웹 테스트 파일을 업로드하고 실행하려면
    
     ![테스트 다시 실행](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
 
-## <a name="q-a"></a>질문과 대답
+## <a name="q--a"></a>질문과 대답
 #### <a name="q-is-there-a-limit-on-how-long-i-can-run-a-test"></a>Q: 테스트 실행 시간에 제한이 있나요?
 **A**: 예. Azure Portal에서 최대에서 최대 1시간 동안 테스트를 실행할 수 있습니다.
 

@@ -2,7 +2,7 @@
 ## [Site Recovery란?](site-recovery-overview.md)
 ## [Site Recovery가 작동하는 방식](site-recovery-components.md)
 ## [어떤 워크로드를 보호할 수 있나요?](site-recovery-workload.md)
-## [Site Recovery 지원 매트릭스](site-recovery-support-matrix.md)
+## [Site Recovery 지원 매트릭스](site-recovery-support-matrix-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
 ## [소개 영상 보기](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -26,7 +26,14 @@
 ### [VMware 복제를 위해 모바일 서비스 배포](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [System Center Configuration Manager를 사용하여 모바일 서비스 배포](site-recovery-install-mobility-service-using-sccm.md)
 #### [ASR Automation DSC를 사용하여 모바일 서비스 배포](site-recovery-automate-mobility-service-install.md)
-### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
+## 장애 조치 및 장애 복구
+### [사이트 복구에서 장애 조치](site-recovery-failover.md)
+### [복구 계획 설정](site-recovery-create-recovery-plans.md)
+#### [Azure Runbook을 복구 계획에 추가](site-recovery-runbook-automation.md)
+### [Azure로 테스트 장애 조치(Failover) 실행](site-recovery-test-failover-to-azure.md)
+### [두 VMM 사이트 간 테스트 장애 조치(failover) 실행](site-recovery-test-failover-vmm-to-vmm.md)
+### [VMware VM 및 물리적 서버 장애 복구(failback)](site-recovery-failback-azure-to-vmware.md)
+
 ## 마이그레이션
 ### [Azure로 마이그레이션](site-recovery-migrate-to-azure.md)
 ### [Azure 지역 간 마이그레이션](site-recovery-migrate-azure-to-azure.md)
@@ -44,13 +51,9 @@
 ### [Azure에 Hyper-V 복제 자동화(VMM 없음)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Azure에 Hyper-V 복제 자동화(VMM 있음)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [보조 사이트에 Hyper-V 복제 자동화(VMM 있음)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## 장애 조치 및 장애 복구
-### [사이트 복구에서 장애 조치](site-recovery-failover.md)
-### [복구 계획 설정](site-recovery-create-recovery-plans.md)
-#### [Azure Runbook을 복구 계획에 추가](site-recovery-runbook-automation.md)
-### [VMware로부터 Azure에 테스트 장애 조치(failover) 실행](site-recovery-test-failover-to-azure.md)
-### [두 VMM 사이트 간 테스트 장애 조치(failover) 실행](site-recovery-test-failover-vmm-to-vmm.md)
-### [VMware VM 및 물리적 서버 장애 복구(failback)](site-recovery-failback-azure-to-vmware.md)
+## 관리
+### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
+### [복제 설정 편집](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
 ## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
 # 참조
@@ -69,6 +72,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -26,7 +26,7 @@ ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
 이 문서에서는 SAP 클라우드 어플라이언스 라이브러리 3.0을 통해 Microsoft Azure에서 S/4 HANA를 배포하는 방법을 설명합니다.
 스크린샷은 프로세스를 단계별로 보여줍니다. 프로세스 관점에서 동일한 방식으로 작동하는 BW/4 HANA와 같은 다른 SAP HANA 기반 솔루션을 배포합니다. 서로 다른 솔루션을 선택하면 됩니다.
 
-SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다. 
+SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 [여기](https://cal.sap.com/)로 이동합니다. 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 정보를 제공하는 SAP의 블로그가 있습니다.
 
 다음 스크린샷은 Microsoft Azure에 S/4 HANA를 배포하는 방법을 단계별로 보여줍니다. 이 과정은 BW/4 HANA와 같은 다른 솔루션과 동일한 방식으로 작동합니다.
 
@@ -46,8 +46,6 @@ SAP 클라우드 어플라이언스 라이브러리(SAP CAL)를 시작하려면 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic6b.jpg)
 
 새 Azure 포털의 왼쪽에서 "구독" 항목을 찾습니다. 이 항목을 클릭하면 사용자에 대한 모든 활성 구독이 표시됩니다.
-
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
 구독 중 하나를 선택한 후 "관리 인증서"를 선택하면 새 Azure Resource Manager 모델에 대해 "서비스 보안 주체"를 사용하는 새로운 개념이 있다는 내용이 설명됩니다.
 이 모델에 대해 SAP CAL이 아직 도입되지 않았으며 관리 인증서를 작동하려면 여전히 "클래식" 모델과 이전 Azure 포털이 필요합니다.
@@ -92,7 +90,6 @@ Azure 포털에서 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 다른 옵션은 클라이언트 Windows VM에 로그인하고 예를 들어 미리 구성된 SAP GUI를 시작하는 것입니다.
-
 
 
 

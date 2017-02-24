@@ -45,7 +45,7 @@
 ## [Azure 진단 스키마](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
 ### [진단 스키마 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
 ### [진단 스키마 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
-### [진단 스키마 1.3 ~ 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+### [진단 스키마 1.3 ~ 1.7](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
 
 
 # 리소스
@@ -54,6 +54,6 @@
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

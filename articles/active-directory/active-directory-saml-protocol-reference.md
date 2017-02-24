@@ -37,6 +37,6 @@ Azure AD에서 게시하는 페더레이션 메타데이터 문서에 대한 자
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

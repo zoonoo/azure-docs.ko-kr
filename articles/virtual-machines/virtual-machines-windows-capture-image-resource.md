@@ -74,7 +74,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 2. VM의 할당이 취소되었는지 확인합니다.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. 가상 컴퓨터의 상태를 **일반화됨**으로 설정합니다. 
@@ -119,7 +119,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 2. VM을 중지/할당 취소합니다.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. VM을 일반화됨으로 표시합니다.

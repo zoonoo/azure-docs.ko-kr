@@ -41,6 +41,8 @@
 #### [작업 관리](storsimple-virtual-array-manage-jobs.md)
 #### [장치 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
 #### [Windows Server 호스트에 MPIO 구성](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [진단 및 문제 해결](storsimple-virtual-array-diagnose-problems.md)
+#### [로그 지원 요청](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Azure 클래식 포털을 통해 관리](storsimple-ova-manager-service-administration.md)
 #### [최신 업데이트 설치](storsimple-ova-install-update-01.md)
@@ -175,6 +177,7 @@
 #### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 업데이트
+#### [업데이트 4 설치](storsimple-install-update-4.md)
 #### [업데이트 3 설치](storsimple-install-update-3.md)
 #### [업데이트 2.2 설치](storsimple-install-update-21.md)
 #### [업데이트 2 설치](storsimple-install-update-2.md)
@@ -182,7 +185,8 @@
 #### [장치 업데이트](storsimple-update-device.md)
 
 ## 릴리스 정보
-### [업데이트 3 - 현재](storsimple-update3-release-notes.md)
+### [업데이트 4 - 현재](storsimple-update4-release-notes.md)
+### [업데이트 3](storsimple-update3-release-notes.md)
 ### [업데이트 2.2](storsimple-update21-release-notes.md)
 ### [업데이트 2](storsimple-update2-release-notes.md)
 ### [업데이트 1](storsimple-update1-release-notes.md)
@@ -206,6 +210,18 @@
 ## 방법
 ### [.NET을 사용하여 데이터 변환](storsimple-data-manager-dotnet-jobs.md)
 
+# 파트너용 StorSimple
+## 개요
+### [솔루션이란?](storsimple-partner-csp-overview.md)
+
+## 시작
+### [CSP용 가상 배열 배포](storsimple-partner-csp-deploy.md)
+
+## 릴리스 정보
+### [StorSimple 릴리스 정보](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [CSP 릴리스 정보](https://partner.microsoft.com/Support/whats-new)
+### [CSP용 StorSimple: FAQ](storsimple-partner-csp-faq.md)
+
 # 관련 항목
 ## [StorSimple 5000-7000 시리즈](http://onlinehelp.storsimple.com)
 
@@ -223,6 +239,6 @@
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

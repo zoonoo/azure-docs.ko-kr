@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Microsoft에 보내는 네트워크에서 생성된 트래픽
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Microsoft에 보내는 네트워크에서 생성된 트래픽
 * 트래픽이 유효한 공용 IPv4 주소로 Microsoft 피어링 경로를 입력하고 있는지 확인해야 합니다. Microsoft는 지역별 라우팅 인터넷 레지스트리(RIR) 또는 인터넷 라우팅 레지스트리(IRR)에 대한 IPv4 NAT 주소 풀에 관해 소유자의 유효성을 검사할 수 있어야 합니다. 확인은 피어링된 AS 번호 및 NAT.에 사용된 IP 주소에 기반하여 수행됩니다. 라우팅 레지스트리에 대한 정보는 [Express 경로 라우팅 요구 사항](expressroute-routing.md) 을 참조합니다.
 * Azure 공용 피어링 설치 및 기타 Express 경로 회로에 사용되는 IP 주소는 BGP 세션을 통해 Microsoft에 보급하지 말아야 합니다. 피어링을 통해 보급된 NAT IP 접두사의 길이에 대한 제한은 없습니다.
   
@@ -54,7 +54,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>네트워크에 보내는 Microsoft에서 생성된 트래픽
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>네트워크에 보내는 Microsoft에서 생성된 트래픽
 * 특정 시나리오는 네트워크 내에서 호스팅되는 서비스 끝점에 대한 연결을 시작하기 위해 Microsoft이 필요합니다. 시나리오의 일반적인 예는 Office 365에서 네트워크에 호스팅된 ADFS 서버에 대한 연결입니다. 이러한 경우 네트워크에서 Microsoft 피어링에 적절한 접두사를 유출해야 합니다. 
 * Microsoft에서 네트워크 내의 IP 주소로 향하는 SNAT 트래픽이어야 합니다. 
 
@@ -70,6 +70,6 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -19,4 +19,8 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 * 데이터 저장소에는 영향이 없으며 데이터는 그대로 유지됩니다. 
 * SQL 데이터 웨어하우스가 실행 중이거나 큐에 있는 모든 작업을 취소합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

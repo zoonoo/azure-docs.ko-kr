@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure 포털을 사용하여 BizTalk 서비스 만들기
-Azure 포털에서 Azure BizTalk 서비스 만들기
 
 > [!TIP]
 > Azure 포털에 로그인하려면 Azure 계정과 Azure 구독이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure 무료 평가판](http://go.microsoft.com/fwlink/p/?LinkID=239738)을 참조하세요.
@@ -116,7 +115,7 @@ Azure 포털에서 Azure BizTalk 서비스 만들기
 
 BizTalk 서비스 상태에 따라 완료할 수 없는 작업도 일부 있습니다. 이러한 작업 목록은 [BizTalk 서비스 상태 차트](biztalk-service-state-chart.md)를 참조하세요.
 
-## <a name="postprovisioning-steps"></a>프로비전 후 단계
+## <a name="post-provisioning-steps"></a>프로비전 후 단계
 * [로컬 컴퓨터에 인증서 설치](#InstallCert)
 * [프로덕션이 준비된 인증서 추가](#AddCert)
 * [액세스 제어 네임스페이스 가져오기](#ACS)
@@ -131,7 +130,7 @@ BizTalk 서비스 프로비전의 일부로 자체 서명된 인증서가 만들
    ![SSL 인증서 수정][QuickGlance]
 5. 인증서를 두 번 클릭하고 마법사를 실행하여 인증서를 설치합니다. **신뢰할 수 있는 루트 인증 기관** 저장소에 인증서를 설치해야 합니다.
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>프로덕션이 준비된 인증서 추가
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>프로덕션이 준비된 인증서 추가
 BizTalk 서비스를 만들 때 자동으로 만들어진 자체 서명된 인증서는 개발 환경에서만 사용하기 위한 용도로 제공됩니다. 프로덕션 시나리오의 경우 이 인증서를 프로덕션이 준비된 인증서로 대체합니다.
 
 1. **대시보드** 탭에서 **SSL 인증서 업데이트**를 선택합니다.
@@ -275,6 +274,6 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

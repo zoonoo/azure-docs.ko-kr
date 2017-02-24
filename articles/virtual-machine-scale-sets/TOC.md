@@ -3,6 +3,7 @@
 
 # 시작
 ## [포털에 크기 집합 만들기](virtual-machine-scale-sets-portal-create.md)
+## [Azure CLI를 사용하여 크기 집합 만들기](virtual-machine-scale-sets-linux-create-cli.md)
 
 # 방법
 ## 계획 및 디자인
@@ -10,6 +11,7 @@
 
 ## 배포
 ### [포털을 사용하는 크기 집합](virtual-machine-scale-sets-portal-create.md)
+### [관리 디스크가 포함된 크기 집합](virtual-machine-scale-sets-managed-disks.md)
 ### [Visual Studio를 사용하는 크기 집합](virtual-machine-scale-sets-vs-create.md)
 ### [PowerShell을 사용한 크기 집합](virtual-machine-scale-sets-windows-create.md)
 ### [Azure CLI를 사용한 크기 집합](virtual-machine-scale-sets-linux-create-cli.md)
@@ -19,6 +21,7 @@
 ### [크기 집합으로 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)
 ### [큰 크기 집합으로 작업](virtual-machine-scale-sets-placement-groups.md)
 ### [크기 집합 템플릿을 변환하여 관리 디스크 사용](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## 관리
@@ -36,7 +39,7 @@
 # 참조
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST (영문)](/rest/api/compute/)
+## [REST (영문)](/rest/api/virtualmachinescalesets/)
 
 # 리소스
 ## 가격 
@@ -45,6 +48,6 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

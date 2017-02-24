@@ -2,7 +2,7 @@
 ## [Azure Active Directory란?](active-directory-whatis.md)
 ## [버전 선택](active-directory-editions.md)
 ## [Azure ID 관리 정보](fundamentals-identity.md)
-## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
+## [Azure AD Portal 환경 미리 보기](active-directory-preview-explainer.md)
 
 
 # 시작
@@ -50,8 +50,11 @@
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
 ### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
-## [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
+## [활동 및 보안 보고서 보기](active-directory-view-access-usage-reports.md)
 ### [Azure AD 보고](active-directory-reporting-getting-started.md)
+### [FAQ](active-directory-reporting-faq.md)
+### [보고서 마이그레이션](active-directory-reporting-migration.md)
+
 ### [알려진 네트워크](active-directory-known-networks.md)
 
 ### [보고 가이드](active-directory-reporting-guide.md)
@@ -106,6 +109,7 @@
 #### [배포](active-directory-azureadjoin-devices-group-policy.md)
 #### [암호 없이 인증](active-directory-azureadjoin-passport.md)
 #### [비즈니스용 Windows Hello 사용](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Windows 10 통합 이해](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10 장치 사용](active-directory-azureadjoin-windows10-devices.md)
 #### [FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
@@ -123,25 +127,31 @@
 
 ### [앱에 대한 원격 액세스 제공](active-directory-application-proxy-get-started.md)
 #### [앱 프록시 사용](active-directory-application-proxy-enable.md)
+#### [커넥터 이해](application-proxy-understand-connectors.md)
+
 #### 앱 게시
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [클래식 포털](active-directory-application-proxy-publish.md)
+#### [보안](application-proxy-security-considerations.md)
+#### [네트워크](application-proxy-network-topology-considerations.md)
+#### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### 별도 네트워크에 게시
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [클래식 포털](active-directory-application-proxy-connectors.md)
+#### [프록시 서버](application-proxy-working-with-proxy-servers.md)
 #### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
+#### [앱 액세스](active-directory-appssoaccess-whatis.md)
+##### [Azure Portal](application-proxy-sso-azure-portal.md)
 #### [Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
-##### [Azure 포털](application-proxy-sso-azure-portal.md)
 #### [클레임 인식 앱](active-directory-application-proxy-claims-aware-apps.md)
 #### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
+#### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
 #### [조건부 액세스](active-directory-application-proxy-conditional-access.md)
 #### [자동 설치](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
-### [앱용 SSO 이해](active-directory-appssoaccess-whatis.md)
-
-### SaaS 앱 통합
-#### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
-#### [클래식 포털](active-directory-sso-integrate-saas-apps.md)
 
 ### 엔터프라이즈 앱 관리
 #### [사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)
@@ -164,7 +174,6 @@
 
 ### [SCIM 프로비전 사용자 사용](active-directory-scim-provisioning.md)
 ### [문서 라이브러리](active-directory-apps-index.md)
-
 
 ## 디렉터리 관리
 ### 사용자 지정 도메인 이름
@@ -191,25 +200,29 @@
 #### [Windows 10 설정](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Azure AD B2B와 파트너 통합](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [B2B 사용자를 추가하는 관리자](active-directory-b2b-admin-add-users.md)
 #### [B2B 사용자를 추가하는 지식 근로자](active-directory-b2b-iw-add-users.md)
 #### [초대 전자 메일](active-directory-b2b-invitation-email.md)
 #### [초대 상환](active-directory-b2b-redemption-experience.md)
-#### [라이선스](active-directory-b2b-licensing.md)
-#### [B2B 문제 해결](active-directory-b2b-troubleshooting.md)
-#### [FAQ](active-directory-b2b-faq.md)
-#### [API 및 사용자 지정](active-directory-b2b-api.md)
-#### [B2B용 Multi-Factor Authentication](active-directory-b2b-mfa-instructions.md)
+#### [B2B 사용자 속성](active-directory-b2b-user-properties.md)
 #### [역할에 게스트 사용자 추가](active-directory-b2b-add-guest-to-role.md)
+#### [API 및 사용자 지정](active-directory-b2b-api.md)
 #### [초대 위임](active-directory-b2b-delegate-invitations.md)
 #### [동적 그룹 및 B2B](active-directory-b2b-dynamic-groups.md)
-#### [코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
-#### [B2B용 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
+#### [B2B용 Multi-Factor Authentication](active-directory-b2b-mfa-instructions.md)
 #### [B2B 사용자 토큰](active-directory-b2b-user-token.md)
 #### [B2B 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
 #### [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
+#### [B2B용 SaaS 앱 구성](active-directory-b2b-configure-saas-apps.md)
+#### [코드 및 PowerShell 샘플](active-directory-b2b-code-samples.md)
 #### [현재 제한 사항](active-directory-b2b-current-limitations.md)
+#### [라이선스](active-directory-b2b-licensing.md)
+#### [B2B 문제 해결](active-directory-b2b-troubleshooting.md)
+#### [B2B 공동 작업 및 B2C 비교](active-directory-b2b-compare-b2c.md)
+#### [B2B에 대한 지원 받기](active-directory-b2b-support.md)
+#### [FAQ](active-directory-b2b-faq.md)
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
 
@@ -219,9 +232,9 @@
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [Azure의 리소스 액세스](active-directory-understanding-resource-access.md)
 ### [역할 기반 액세스 제어](role-based-access-control-what-is.md)
-#### 액세스 관리
-##### [Azure Portal](role-based-access-control-manage-assignments.md)
-##### [클래식 포털](role-based-access-control-configure.md)
+#### 액세스 할당 관리
+##### [사용자별](role-based-access-control-manage-assignments.md)
+##### [리소스별](role-based-access-control-configure.md)
 #### [기본 제공 역할](role-based-access-built-in-roles.md)
 #### [사용자 지정 역할](role-based-access-control-custom-roles.md)
 #### [보고](role-based-access-control-access-change-history-report.md)
@@ -312,6 +325,6 @@
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

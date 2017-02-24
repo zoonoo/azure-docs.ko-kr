@@ -31,7 +31,7 @@ ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
 4. "__ElasticDatabaseJob"이라는 이름의 리소스 그룹을 선택합니다.
 5. 해당 리소스 그룹을 삭제합니다.
 
-## <a name="uninstall-elastic-database-jobs-components-using-powershell"></a>PowerShell을 사용하여 탄력적 데이터베이스 작업 구성 요소 제거
+## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>PowerShell을 사용하여 탄력적 데이터베이스 작업 구성 요소 제거
 1. Microsoft Azure PowerShell 명령 창을 시작하고 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x 폴더 아래의 tools 하위 디렉터리로 이동합니다. **cd tools**를 입력합니다.
    
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > cd 도구

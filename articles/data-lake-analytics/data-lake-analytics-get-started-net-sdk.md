@@ -1,6 +1,6 @@
 ---
 title: ".NET SDK를 사용하여 Azure Data Lake Analytics 시작 | Microsoft Docs"
-description: ".NET SDK를 사용하여 데이터 레이크 저장소 계정을 만들고, 데이터 레이크 분석 작업을 만들고, U-SQL로 작성된 작업을 제출하는 방법에 대해 알아봅니다. "
+description: ".NET SDK를 사용하여 Data Lake Analytics 계정을 만들고, Data Lake Analytics 작업을 만들고, U-SQL로 작성된 작업을 제출하는 방법에 대해 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ C# 프로그램에서 **/Samples/Data/SearchLog.tsv** 파일 및 **/Output/** �
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ C# 프로그램에서 **/Samples/Data/SearchLog.tsv** 파일 및 **/Output/** �
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ C# 프로그램에서 **/Samples/Data/SearchLog.tsv** 파일 및 **/Output/** �
           }
         }
 
-1. **F5** 키를 눌러 응용 프로그램을 실행합니다. 출력은 다음과 같습니다.
+5. **F5** 키를 눌러 응용 프로그램을 실행합니다. 출력은 다음과 같습니다.
    
     ![Azure Data Lake Analytics 작업 U-SQL .NET SDK 출력](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. 출력 파일을 확인합니다.  기본 경로 및 파일 이름은 c:\Temp\SearchLog-from-Data-Lake.csv입니다.
+6. 출력 파일을 확인합니다.  기본 경로 및 파일 이름은 c:\Temp\SearchLog-from-Data-Lake.csv입니다.
 
 ## <a name="see-also"></a>참고 항목
 * 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
@@ -257,6 +257,6 @@ C# 프로그램에서 **/Samples/Data/SearchLog.tsv** 파일 및 **/Output/** �
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

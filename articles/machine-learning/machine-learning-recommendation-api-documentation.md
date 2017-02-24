@@ -201,7 +201,7 @@ OData XML
       </entry>
     </feed>
 
-### <a name="53-get-all-models"></a>5.3.    모든 모델 가져오기
+### <a name="53----get-all-models"></a>5.3.    모든 모델 가져오기
 현재 사용자의 모든 모델을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -266,7 +266,7 @@ OData XML
         </entry>
     </feed>
 
-### <a name="54-update-model"></a>5.4.    모델 업데이트
+### <a name="54----update-model"></a>5.4.    모델 업데이트
 모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br>
 <ins>활성 빌드 ID</ins> – 모든 모델에 대한 모든 빌드에는 빌드 ID가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br>
 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
@@ -286,7 +286,7 @@ OData XML
 
 HTTP 상태 코드: 200
 
-### <a name="55-delete-model"></a>5.5.    모델 삭제
+### <a name="55----delete-model"></a>5.5.    모델 삭제
 ID별로 기존 모델을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -327,7 +327,7 @@ OData XML
     </feed>
 
 ## <a name="6-model-advanced"></a>6. 모델 고급
-### <a name="61-model-data-insight"></a>6.1.    모델 데이터 정보
+### <a name="61----model-data-insight"></a>6.1.    모델 데이터 정보
 이 모델을 빌드할 때 사용된 사용 데이터에 대한 통계 데이터를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -563,7 +563,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="62-model-insight"></a>6.2.    모델 정보
+### <a name="62----model-insight"></a>6.2.    모델 정보
 활성 빌드 또는 특정 빌드(지정된 경우)에 대한 모델 정보를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -644,7 +644,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="63-get-model-sample"></a>6.3.    모델 샘플 가져오기
+### <a name="63----get-model-sample"></a>6.3.    모델 샘플 가져오기
 권장 사항 모델의 샘플을 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -689,7 +689,7 @@ Level 1 --------------- 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 655f
 * <strong>FeatureWhiteList</strong> - 기능 허용 목록은 특정 기능 값을 가진 항목만 추천할 수 있습니다.
 * <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
-### <a name="71-get-model-rules"></a>7.1.    모델 규칙 가져오기
+### <a name="71----get-model-rules"></a>7.1.    모델 규칙 가져오기
 | HTTP 메서드 | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetModelRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>예제:<br>`<rootURI>/GetModelRules?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
@@ -746,7 +746,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="72-add-rule"></a>7.2.    규칙 추가
+### <a name="72----add-rule"></a>7.2.    규칙 추가
 | HTTP 메서드 | URI |
 |:--- |:--- |
 | POST |`<rootURI>/AddRule?apiVersion=%271.0%27` |
@@ -803,7 +803,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="73-delete-rule"></a>7.3.    규칙 삭제
+### <a name="73----delete-rule"></a>7.3.    규칙 삭제
 | HTTP 메서드 | URI |
 |:--- |:--- |
 | 삭제 |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>예제:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27` |
@@ -820,7 +820,7 @@ OData XML
 
 HTTP 상태 코드: 200
 
-### <a name="74-delete-all-rules"></a>7.4.    모든 규칙 삭제
+### <a name="74----delete-all-rules"></a>7.4.    모든 규칙 삭제
 | HTTP 메서드 | URI |
 |:--- |:--- |
 | 삭제 |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>예제:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27` |
@@ -837,7 +837,7 @@ HTTP 상태 코드: 200
 HTTP 상태 코드: 200
 
 ## <a name="8-catalog"></a>8. 카탈로그
-### <a name="81-import-catalog-data"></a>8.1.    카탈로그 데이터 가져오기
+### <a name="81----import-catalog-data"></a>8.1.    카탈로그 데이터 가져오기
 여러 번 호출하여 여러 카탈로그 파일을 같은 모델에 업로드하면 새 카탈로그 항목만 삽입됩니다. 기존 항목은 원래 값으로 유지됩니다. 이 메서드를 사용하여 카탈로그 데이터를 업데이트할 수 없습니다.
 
 카탈로그 데이터는 다음 형식을 따라야 합니다.
@@ -902,7 +902,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="82-get-catalog"></a>8.2.    카탈로그 가져오기
+### <a name="82----get-catalog"></a>8.2.    카탈로그 가져오기
 모든 카탈로그 항목을 검색합니다.
 한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
@@ -1005,7 +1005,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="83-get-catalog-items-by-token"></a>8.3.    토큰별 카탈로그 항목 가져오기
+### <a name="83----get-catalog-items-by-token"></a>8.3.    토큰별 카탈로그 항목 가져오기
 | HTTP 메서드 | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetCatalogItemsByToken?modelId=%27<modelId>%27&token=%27<token>%27&apiVersion=%271.0%27`<br><br>예제:<br>`GetCatalogItemsByToken?modelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&token=%27Cla%27&apiVersion=%271.0%27` |
@@ -1059,7 +1059,7 @@ OData XML
     </feed>
 
 ## <a name="9-usage-data"></a>9. 사용 데이터
-### <a name="91-import-usage-data"></a>9.1.    사용 데이터 가져오기
+### <a name="91----import-usage-data"></a>9.1.    사용 데이터 가져오기
 #### <a name="911-uploading-file"></a>9.1.1. 파일 업로드
 이 섹션에서는 파일을 사용하여 사용 데이터를 업로드하는 방법을 보여 줍니다. 사용 데이터를 사용하여 이 API를 여러 번 호출할 수 있습니다. 모든 호출에 대한 모든 사용 데이터가 저장됩니다.
 
@@ -1212,7 +1212,7 @@ OData XML
 
 **응답**: HTTP 상태 코드: 200
 
-### <a name="92-list-model-usage-files"></a>9.2.    모델 사용 파일 나열
+### <a name="92----list-model-usage-files"></a>9.2.    모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다.
 한 번에 한 페이지씩 사용 파일이 검색됩니다. 각 페이지는 100개의 항목을 포함합니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
@@ -1277,7 +1277,7 @@ OData XML
     </entry>
 </feed>
 
-### <a name="93-get-usage-statistics"></a>9.3.    사용 통계 가져오기
+### <a name="93----get-usage-statistics"></a>9.3.    사용 통계 가져오기
 사용 통계를 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -1362,7 +1362,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="94-get-usage-file-sample"></a>9.4.    사용 파일 샘플 가져오기
+### <a name="94----get-usage-file-sample"></a>9.4.    사용 파일 샘플 가져오기
 사용 파일 내용의 처음 2KB를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1388,7 +1388,7 @@ HTTP 상태 코드: 200
 </pre>
 
 
-### <a name="95-get-model-usage-file"></a>9.5.    모델 사용 파일 가져오기
+### <a name="95----get-model-usage-file"></a>9.5.    모델 사용 파일 가져오기
 사용 파일의 전체 내용을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1414,7 +1414,7 @@ HTTP 상태 코드: 200
 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
 </pre>
 
-### <a name="96-delete-usage-file"></a>9.6.    사용 파일 삭제
+### <a name="96----delete-usage-file"></a>9.6.    사용 파일 삭제
 지정한 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1433,7 +1433,7 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-### <a name="97-delete-all-usage-files"></a>9.7.    모든 사용 파일 삭제
+### <a name="97----delete-all-usage-files"></a>9.7.    모든 사용 파일 삭제
 모든 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2652,7 +2652,7 @@ HTTP 상태 코드: 200
 
 12.1의 응답 예제 참조
 
-### <a name="127-get-user-recommendations-of-a-specific-build"></a>12.7. 사용자 권장 사항 가져오기(특정 빌드)
+### <a name="127-get-user-recommendations--of-a-specific-build"></a>12.7. 사용자 권장 사항 가져오기(특정 빌드)
 특정 빌드 형식이 "Recommendation"인 사용자 권장 사항을 가져옵니다.
 
 API는 사용자의 사용 기록에 따라 예측된 항목의 목록을 반환합니다(특정 빌드에 사용).

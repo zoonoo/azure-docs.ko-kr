@@ -3,7 +3,7 @@
 ## [FAQ](container-service-faq.md)
 # 시작
 ## [ACS 클러스터 배포](container-service-deployment.md)
-## [Azure CLI 2.0(미리 보기)을 사용하여 ACS에 배포](container-service-create-acs-cluster-cli.md)
+## [Azure CLI 2.0을 사용하여 ACS에 배포](container-service-create-acs-cluster-cli.md)
 ## [ACS 클러스터와 연결](container-service-connect.md)
 ## [ACS 클러스터 확장](container-service-scale.md)
 # 방법
@@ -23,6 +23,7 @@
 #### [Dynatrace로 모니터링](container-service-monitoring-dynatrace.md)
 ## Kubernetes를 사용하여 관리
 ### [Kubernetes 시작](container-service-kubernetes-walkthrough.md)
+### [Kubernetes 및 Windows 시작](container-service-kubernetes-windows-walkthrough.md)
 ### [서비스 주체](container-service-kubernetes-service-principal.md)
 ### [컨테이너 관리 - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Kubernetes 컨테이너 부하 분산](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker 및 Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm 연속 통합](container-service-docker-swarm-setup-ci-cd.md)
 # 참조
-## [Azure CLI 2.0(미리 보기)](/cli/azure/acs)
+## [Azure CLI 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST (영문)](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

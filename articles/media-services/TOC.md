@@ -195,7 +195,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [포털](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [작업 알림을 모니터링하는 Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Queue Storage와 함께 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-queues.md)
+### [웹후크와 함께 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## 문제 해결
 ### [질문과 대답](media-services-frequently-asked-questions.md)
@@ -216,6 +217,6 @@
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

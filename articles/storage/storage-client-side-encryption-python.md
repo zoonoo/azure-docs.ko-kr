@@ -120,7 +120,7 @@ tableservice batch() 메서드를 통해 배치가 컨텍스트 관리자로 생
 
 저장소 클라이언트 라이브러리는 제공된 KEK 및 키 확인자가 다음 인터페이스를 구현할 것으로 예상합니다. [Azure 주요 자격 증명 모음](https://azure.microsoft.com/services/key-vault/) 지원이 보류 중이며, 완료 시 이 라이브러리에 통합될 예정입니다.
 
-## <a name="client-api-interface"></a>클라이언트 API / 인터페이스
+## <a name="client-api--interface"></a>클라이언트 API / 인터페이스
 저장소 서비스 개체(예: blockblobservice)가 생성된 후에 사용자는 암호화 정책 key_encryption_key, key_resolver_function 및 require_encryption을 구성하는 필드에 값을 할당할 수 있습니다. 사용자는 KEK만, 확인자만 또는 둘 다를 제공할 수 있습니다. key_encryption_key는 key 래핑/래핑 해제에 대한 논리를 제공하고 키 식별자를 사용하여 식별 되는 기본 키 유형입니다. key_resolver_function은 암호 해독 프로세스에서 키를 해독하기 위해 사용됩니다. 지정된 키 식별자에 대해 유효한 KEK를 반환합니다. 이것은 사용자에게 여러 위치에서 관리되는 여러 키 중 하나를 선택할 수 있게 합니다.
 
 KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 구현해야 합니다.
