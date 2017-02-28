@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: e64b544d8785b7453f4d77333fd0eb6673d32504
-ms.openlocfilehash: f5a6ee866891fdfb27ed00a22cbd784484ae5e5f
+ms.sourcegitcommit: 354bf45625c209c22118804d3835ca71e3128580
+ms.openlocfilehash: deda64fb779e176bb00c3256fa3028e7e3567eb4
+ms.lasthandoff: 02/18/2017
 
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
-Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.
+Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 
 
 > [!NOTE]
 > 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 이 목록에는 통합 Azure Monitor 메트릭 파이프라인의 공개 미리 보기를 통해 사용할 수 있는 공개 미리보기 메트릭만 포함됩니다.
@@ -34,6 +35,23 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|
 |qpu_metric|QPU|개수|평균|QPU. 범위는 S1의 경우 0-100, S2의 경우 0-200, S4의 경우 0-400임|
 |memory_metric|메모리|바이트|평균|메모리. 범위는 S1의 경우 0-25GB, S2의 경우 0-50GB, S4의 경우 0-100GB임|
+|TotalConnectionRequests|총 연결 요청 수|개수|평균|도착한 총 연결 요청 수입니다.|
+|SuccessfullConnectionsPerSec|초당 성공한 연결 수|초당 개수|평균|성공적으로 완료된 연결 비율입니다.|
+|TotalConnectionFailures|총 연결 실패 수|개수|평균|실패한 총 연결 시도 수입니다.|
+|CurrentUserSessions|현재 사용자 세션 수|개수|평균|현재 설정된 사용자 세션 수입니다.|
+|QueryPoolBusyThreads|쿼리 풀의 사용 중인 스레드|개수|평균|쿼리 스레드 풀의 사용 중인 스레드 수입니다.|
+|CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|
+|ProcessingPoolJobQueueLength|처리 풀의 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 비-I/O 작업 수입니다.|
+
+## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|TotalRequests|총 게이트웨이 요청|개수|합계|게이트웨이 요청 수|
+|SuccessfulRequests|성공적인 게이트웨이 요청|개수|합계|성공적인 게이트웨이 요청 수|
+|UnauthorizedRequests|허가되지 않은 게이트웨이 요청|개수|합계|허가되지 않은 게이트웨이 요청 수|
+|FailedRequests|실패한 게이트웨이 요청|개수|합계|게이트웨이 요청 실패 수|
+|OtherRequests|기타 게이트웨이 요청|개수|합계|기타 게이트웨이 요청 수|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -282,29 +300,66 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |디스크 쓰기 작업/초|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
-| 메트릭 | 매트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
-| --- | --- | --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol |원격 분석 메시지 보내기 시도 |개수 |합계 |IoT Hub로 보내려 한 장치-클라우드 원격 분석 메시지 수 |
-| d2c.telemetry.ingress.success |보낸 원격 분석 메시지 |개수 |합계 |IoT Hub로 보내기 성공한 장치-클라우드 원격 분석 메시지 수 |
-| d2c.telemetry.egress.success | 배달된 원격 분석 메시지 | 개수 | 합계 | 끝점에 대한 쓰기가 모두 성공한 수 |
-| d2c.telemetry.egress.invalid | 잘못된 원격 분석 메시지 배달 시도 | 개수 | 합계 | 끝점과 호환되지 않아서 배달되지 않은 메시지 수 |
-| d2c.telemetry.egress.dropped | 삭제된 원격 분석 메시지 | 개수 | 합계 | 끝점이 비정상적이어서 삭제된 메시지 수 |
-| d2c.telemetry.egress.fallback | 대체 조건과 일치하는 원격 분석 메시지 | 개수 | 합계 | 대체 경로와 일치하는 메시지 수 |
-| d2c.telemetry.egress.orphaned | 분리된 원격 분석 메시지 | 개수 | 합계 | 대체 경로를 포함하여 경로가 일치하지 않는 메시지 수 |
-| d2c.endpoints.latency.eventHubs | 이벤트 허브 끝점에 대한 메시지 대기 시간 | 밀리초 | 평균 | IoT Hub에 대한 메시지 수신과 이벤트 허브 끝점에 대한 메시지 수신 간의 평균, 최소 및 최대 대기 시간(밀리초) |
-| d2c.endpoints.latency.serviceBusQueues | Service Bus 큐 끝점에 대한 메시지 대기 시간 | 밀리초 | 평균 | IoT Hub에 대한 메시지 수신과 Service Bus 큐 끝점에 대한 메시지 수신 간의 평균, 최소 및 최대 대기 시간(밀리초) |
-| d2c.endpoints.latency.serviceBusTopics | Service Bus 항목 끝점에 대한 메시지 대기 시간 | 밀리초 | 평균 | IoT Hub에 대한 메시지 수신과 Service Bus 항목 끝점에 대한 메시지 수신 간의 평균, 최소 및 최대 대기 시간(밀리초) |
-| c2d.commands.egress.complete.success |완료된 명령 |개수 |합계 |장치에서 성공적으로 완료한 클라우드-장치 명령 수 |
-| c2d.commands.egress.abandon.success |명령 중단됨 |개수 |합계 |장치에서 중단한 클라우드-장치 명령 수 |
-| c2d.commands.egress.reject.success |명령 거부됨 |개수 |합계 |장치에서 거부한 클라우드-장치 명령 수 |
-| devices.totalDevices |총 장치 |개수 |합계 |IoT 허브에 등록된 장치 수 |
-| devices.connectedDevices.allProtocol |연결된 장치 |개수 |합계 |IoT 허브에 연결된 장치 수 |
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 장치-클라우드 원격 분석 메시지 수|
+|d2c.telemetry.ingress.success|보낸 원격 분석 메시지|개수|합계|IoT Hub로 보내기 성공한 장치-클라우드 원격 분석 메시지 수|
+|c2d.commands.egress.complete.success|완료된 명령|개수|합계|장치에서 성공적으로 완료한 클라우드-장치 명령 수|
+|c2d.commands.egress.abandon.success|중단된 명령|개수|합계|장치에서 중단한 클라우드-장치 명령 수|
+|c2d.commands.egress.reject.success|거부된 명령|개수|합계|장치에서 거부한 클라우드-장치 명령 수|
+|devices.totalDevices|총 장치|개수|합계|IoT 허브에 등록된 장치 수|
+|devices.connectedDevices.allProtocol|연결된 장치|개수|합계|IoT 허브에 연결된 장치 수|
+|d2c.telemetry.egress.success|배달된 원격 분석 메시지|개수|합계|메시지가 끝점에 성공적으로 작성된 횟수(전체)|
+|d2c.telemetry.egress.dropped|삭제된 메시지|개수|합계|어떤 경로에도 일치하지 않고 대체(fallback) 경로가 사용되지 않도록 설정되었으므로 삭제된 메시지 수|
+|d2c.telemetry.egress.orphaned|분리된 메시지|개수|합계|대체 경로를 포함하여 경로가 일치하지 않는 메시지 수|
+|d2c.telemetry.egress.invalid|잘못된 메시지|개수|합계|끝점과 호환되지 않아서 배달되지 않은 메시지 수|
+|d2c.telemetry.egress.fallback|대체(fallback) 조건과 일치하는 메시지|개수|합계|대체(fallback) 끝점에 작성된 메시지 수|
+|d2c.endpoints.egress.eventHubs|이벤트 허브 끝점에 배달된 메시지|개수|합계|메시지가 이벤트 허브 끝점에 성공적으로 작성된 횟수|
+|d2c.endpoints.latency.eventHubs|이벤트 허브 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 이벤트 허브 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|
+|d2c.endpoints.egress.serviceBusQueues|Service Bus 큐 끝점에 배달된 메시지|개수|합계|메시지가 Service Bus 큐 끝점에 성공적으로 작성된 횟수|
+|d2c.endpoints.latency.serviceBusQueues|Service Bus 큐 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 큐 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|
+|d2c.endpoints.egress.serviceBusTopics|Service Bus 토픽 끝점에 배달된 메시지|개수|합계|메시지가 Service Bus 토픽 끝점에 성공적으로 작성된 횟수|
+|d2c.endpoints.latency.serviceBusTopics|Service Bus 항목 끝점에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 끝점에 대한 메시지 수신 간의 평균 대기 시간(밀리초)|
+|d2c.endpoints.egress.builtIn.events|기본 제공 끝점에 배달된 메시지(메시지/이벤트)|개수|합계|메시지가 기본 제공 끝점에 성공적으로 작성된 횟수(메시지/이벤트)|
+|d2c.endpoints.latency.builtIn.events|기본 제공 끝점에 대한 메시지 대기 시간(메시지/이벤트)|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 끝점(메시지.이벤트)에 대한 메시지 수신 간의 평균 대기 시간(밀리초) |
+|d2c.twin.read.success|장치에서의 성공한 쌍 읽기|개수|합계|성공한 모든 장치 시작 쌍 읽기 수입니다.|
+|d2c.twin.read.failure|장치에서의 실패한 쌍 읽기|개수|합계|실패한 모든 장치 시작 쌍 읽기 수입니다.|
+|d2c.twin.read.size|장치에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 장치 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|
+|d2c.twin.update.success|장치에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 장치 시작 쌍 업데이트 수입니다.|
+|d2c.twin.update.failure|장치에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 장치 시작 쌍 업데이트 수입니다.|
+|d2c.twin.update.size|장치에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 장치 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|
+|c2d.methods.success|성공한 직접 메서드 호출|개수|합계|성공한 모든 직접 메서드 호출의 수입니다.|
+|c2d.methods.failure|실패한 직접 메서드 호출|개수|합계|실패한 모든 직접 메서드 호출의 수입니다.|
+|c2d.methods.requestSize|직접 메서드 호출의 요청 크기|바이트|평균|성공한 모든 직접 메서드 요청의 평균, 최소값, 최대값입니다.|
+|c2d.methods.responseSize|직접 메서드 호출의 응답 크기|바이트|평균|성공한 모든 직접 메서드 응답의 평균, 최소값, 최대값입니다.|
+|c2d.twin.read.success|백 엔드에서의 성공한 쌍 읽기|개수|합계|성공한 모든 백 엔드 시작 쌍 읽기 수입니다.|
+|c2d.twin.read.failure|백 엔드에서의 실패한 쌍 읽기|개수|합계|실패한 모든 백 엔드 시작 쌍 읽기 수입니다.|
+|c2d.twin.read.size|백 엔드에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|
+|c2d.twin.update.success|백 엔드에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 백 엔드 시작 쌍 업데이트 수입니다.|
+|c2d.twin.update.failure|백 엔드에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 백 엔드 시작 쌍 업데이트 수입니다.|
+|c2d.twin.update.size|백 엔드에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|
+|twinQueries.success|성공한 쌍 쿼리|개수|합계|성공한 모든 쌍 쿼리의 수입니다.|
+|twinQueries.failure|실패한 쌍 쿼리|개수|합계|실패한 모든 쌍 쿼리의 수입니다.|
+|twinQueries.resultSize|쌍 쿼리 결과 크기|바이트|평균|성공한 모든 쌍 쿼리 결과 크기의 평균, 최소값 및 최대값입니다.|
+|jobs.createTwinUpdateJob.success|쌍 업데이트 작업에 대한 성공한 만들기|개수|합계|쌍 업데이트 작업에 대한 성공한 모든 만들기의 수입니다.|
+|jobs.createTwinUpdateJob.failure|쌍 업데이트 작업에 대한 실패한 만들기|개수|합계|쌍 업데이트 작업에 대한 실패한 모든 만들기의 수입니다.|
+|jobs.createDirectMethodJob.success|메서드 호출 작업에 대한 성공한 만들기|개수|합계|직접 메서드 호출 작업에 대한 성공한 모든 만들기의 수입니다.|
+|jobs.createDirectMethodJob.failure|실패한 메서드 호출 작업 만들기|개수|합계|직접 메서드 호출 작업에 대한 실패한 모든 만들기의 수입니다.|
+|jobs.listJobs.success|목록 작업에 대한 성공한 호출|개수|합계|목록 작업에 대한 성공한 모든 호출 수입니다.|
+|jobs.listJobs.failure|목록 작업에 대한 실패한 호출|개수|합계|목록 작업에 대한 실패한 모든 호출 수입니다.|
+|jobs.cancelJob.success|성공한 작업 취소|개수|합계|작업 취소에 대한 성공한 모든 호출 수입니다.|
+|jobs.cancelJob.failure|실패한 작업 취소|개수|합계|작업 취소에 대한 실패한 모든 호출 수입니다.|
+|jobs.queryJobs.success|성공한 작업 쿼리|개수|합계|쿼리 작업에 대한 성공한 모든 호출 수입니다.|
+|jobs.queryJobs.failure|실패한 작업 쿼리|개수|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|
+|jobs.completed|완료된 작업|개수|합계|완료된 모든 작업의 수입니다.|
+|jobs.failed|실패한 작업|개수|합계|실패한 모든 작업의 수입니다.|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
-|INREQS|들어오는 요청|개수|합계|Event Hub 네임스페이스에 대한 들어오는 메시지 처리량|
+|INREQS|들어오는 요청|개수|합계|네임스페이스에 대한 총 들어오는 요청|
 |SUCCREQ|성공한 요청|개수|합계|네임스페이스에 대한 총 성공한 요청|
 |FAILREQ|실패한 요청|개수|합계|네임스페이스에 대한 총 실패한 요청|
 |SVRBSY|서버 작업 중 오류|개수|합계|네임스페이스에 대한 총 서버 작업 중 오류|
@@ -312,8 +367,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MISCERR|다른 오류|개수|합계|네임스페이스에 대한 총 실패한 요청|
 |INMSGS|들어오는 메시지 |개수|합계|네임스페이스에 대한 총 들어오는 메시지|
 |OUTMSGS|보내는 메시지 |개수|합계|네임스페이스에 대한 총 나가는 메시지|
-|EHINMBS|초당 들어오는 바이트|초당 바이트 수|합계|Event Hub 네임스페이스에 대한 들어오는 메시지 처리량|
-|EHOUTMBS|초당 나가는 바이트|초당 바이트 수|합계|네임스페이스에 대한 총 나가는 메시지|
+|EHINMBS|들어오는 바이트|초당 바이트 수|합계|Event Hub 네임스페이스에 대한 들어오는 메시지 처리량|
+|EHOUTMBS|나가는 바이트|초당 바이트 수|합계|네임스페이스에 대한 총 나가는 메시지|
 |EHABL|백로그 메시지 보관|개수|합계|Event Hub 네임스페이스에 대한 백로그에 메시지 보관|
 |EHAMSGS|메시지 보관|개수|합계|Event Hub 네임스페이스에 보관된 메시지|
 |EHAMBS|메시지 보관 처리량|초당 바이트 수|합계|Event Hub 네임스페이스에서 보관된 메시지 처리량|
@@ -359,6 +414,70 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|
 |처리량|처리량|초당 바이트 수|평균||
 
+## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|registration.all|등록 작업|개수|합계|성공한 모든 등록 작업(만들기 업데이트 쿼리 및 삭제)입니다. |
+|registration.create|등록 만들기 작업|개수|합계|성공한 모든 등록 만들기의 수입니다.|
+|registration.update|등록 업데이트 작업|개수|합계|성공한 모든 등록 업데이트의 수입니다.|
+|registration.get|등록 읽기 작업|개수|합계|성공한 모든 등록 쿼리의 수입니다.|
+|registration.delete|등록 삭제 작업|개수|합계|성공한 모든 등록 삭제의 수입니다.|
+|incoming|들어오는 메시지 |개수|합계|성공한 모든 API 호출 전송의 수입니다. |
+|incoming.scheduled|전송된 예약된 푸시 알림|개수|합계|취소된 예약된 푸시 알림|
+|incoming.scheduled.cancel|취소된 예약된 푸시 알림|개수|합계|취소된 예약된 푸시 알림|
+|scheduled.pending|보류 중인 예약된 알림|개수|합계|보류 중인 예약된 알림|
+|installation.all|설치 관리 작업|개수|합계|설치 관리 작업|
+|installation.get|설치 작업 가져오기|개수|합계|설치 작업 가져오기|
+|installation.upsert|설치 작업 만들기 또는 업데이트|개수|합계|설치 작업 만들기 또는 업데이트|
+|installation.patch|설치 작업 패치|개수|합계|설치 작업 패치|
+|installation.delete|설치 작업 삭제|개수|합계|설치 작업 삭제|
+|outgoing.allpns.success|성공적인 알림|개수|합계|성공한 모든 알림의 수입니다.|
+|outgoing.allpns.invalidpayload|페이로드 오류|개수|합계|PNS가 잘못된 페이로드 오류를 반환하기 때문에 실패한 푸시의 수입니다.|
+|outgoing.allpns.pnserror|외부 알림 시스템 오류|개수|합계|PNS와 통신하는 데 문제(인증 문제 제외)가 있기 때문에 실패한 푸시의 수입니다.|
+|outgoing.allpns.channelerror|채널 오류|개수|합계|채널이 잘못되었거나 제한 또는 만료된 올바른 앱과 연결되지 않았으므로 실패 한 푸시의 수입니다.|
+|outgoing.allpns.badorexpiredchannel|잘못되거나 만료된 채널 오류|개수|합계|등록의 channel/token/registrationId가 만료되었거나 올바르지 않기 때문에 실패한 푸시의 수입니다.|
+|outgoing.wns.success|WNS 성공적인 알림|개수|합계|성공한 모든 알림의 수입니다.|
+|outgoing.wns.invalidcredentials|WNS 권한 부여 오류(잘못된 자격 증명)|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다. (Windows Live는 자격 증명을 인식하지 못함)|
+|outgoing.wns.badchannel|WNS 잘못된 채널 오류|개수|합계|등록의 ChannelURI가 인식되지 않아 실패한 푸시의 수입니다(WNS 상태: 404 찾을 수 없음).|
+|outgoing.wns.expiredchannel|WNS 만료된 채널 오류|개수|합계|ChannelURI가 만료되어 실패한 푸시의 수입니다(WNS 상태: 410 없음).|
+|outgoing.wns.throttled|WNS 제한된 알림|개수|합계|WNS가 이 앱을 제한하기 때문에 실패한 푸시의 수입니다(WNS 상태: 406 승인 금지).|
+|outgoing.wns.tokenproviderunreachable|WNS 권한 부여 오류(연결할 수 없음)|개수|합계|Windows Live에 연결할 수 없습니다.|
+|outgoing.wns.invalidtoken|WNS 권한 부여 오류(잘못된 토큰)|개수|합계|WNS에 제공한 토큰이 잘못되었습니다(WNS 상태: 401 권한 없음).|
+|outgoing.wns.wrongtoken|WNS 권한 부여 오류(잘못된 토큰)|개수|합계|WNS에 제공된 토큰은 유효하지만 다른 응용 프로그램에 대해서는 유효하지 않습니다(WNS 상태: 403 사용 권한 없음). 등록의 ChannelURI가 다른 앱에 연결된 경우 이 문제가 발생할 수 있습니다. 클라이언트 앱은 자격 증명이 알림 허브에 있는 동일한 앱과 연결되어 있는지 확인합니다.|
+|outgoing.wns.invalidnotificationformat|WNS 잘못된 알림 형식|개수|합계|알림의 형식이 잘못되었습니다(WNS 상태: 400). WNS가 잘못된 모든 페이로드를 거부하지는 않습니다.|
+|outgoing.wns.invalidnotificationsize|WNS 잘못된 알림 크기 오류|개수|합계|알림 페이로드가 너무 큽니다(WNS 상태: 413).|
+|outgoing.wns.channelthrottled|WNS 채널 제한|개수|합계|등록의 ChannelURI가 제한되어 알림이 삭제되었습니다(WNS 응답 헤더: X-WNS-NotificationStatus:channelThrottled).|
+|outgoing.wns.channeldisconnected|WNS 채널 연결 끊김|개수|합계|등록의 ChannelURI가 제한되어 알림이 삭제되었습니다(WNS 응답 헤더: X-WNS-DeviceConnectionStatus: disconnected).|
+|outgoing.wns.dropped|WNS 삭제된 알림|개수|합계|등록의 ChannelURI가 제한되어 알림이 삭제되었습니다(X-WNS-NotificationStatus: dropped but not X-WNS-DeviceConnectionStatus: disconnected).|
+|outgoing.wns.pnserror|WNS 오류|개수|합계|WNS와의 통신 오류로 인해 알림이 배달되지 않습니다.|
+|outgoing.wns.authenticationerror|WNS 인증 오류|개수|합계|Windows Live와의 통신 오류(잘못된 자격 증명 또는 잘못된 토큰)로 인해 알림이 배달되지 않습니다.|
+|outgoing.apns.success|APNS 성공적인 알림|개수|합계|성공한 모든 알림의 수입니다.|
+|outgoing.apns.invalidcredentials|APNS 권한 부여 오류|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다.|
+|outgoing.apns.badchannel|APNS 잘못된 채널 오류|개수|합계|토큰이 잘못되어 실패한 푸시의 수입니다(APNS 상태 코드: 8).|
+|outgoing.apns.expiredchannel|APNS 만료된 채널 오류|개수|합계|APNS 피드백 채널에서 무효화된 토큰의 수입니다.|
+|outgoing.apns.invalidnotificationsize|APNS 잘못된 알림 크기 오류|개수|합계|페이로드가 너무 커서 실패한 푸시의 수입니다(APNS 상태 코드: 7).|
+|outgoing.apns.pnserror|APNS 오류|개수|합계|APNS와의 통신 오류로 인해 실패한 푸시의 수입니다.|
+|outgoing.gcm.success|GCM 성공적인 알림|개수|합계|성공한 모든 알림의 수입니다.|
+|outgoing.gcm.invalidcredentials|GCM 권한 부여 오류(잘못된 자격 증명)|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다.|
+|outgoing.gcm.badchannel|GCM 잘못된 채널 오류|개수|합계|등록의 registrationId가 인식되지 않기 때문에 실패한 푸시의 수입니다(GCM 결과: 잘못된 등록).|
+|outgoing.gcm.expiredchannel|GCM 만료된 채널 오류|개수|합계|등록의 registrationId가 만료되었기 때문에 실패한 푸시의 수입니다(GCM 결과: NotRegistered).|
+|outgoing.gcm.throttled|GCM 제한된 알림|개수|합계|GCM이 이 앱을 제한하기 때문에 실패한 푸시의 수(GCM 상태 코드: 501-599 또는 결과: Unavailable).|
+|outgoing.gcm.invalidnotificationformat|GCM 잘못된 알림 형식|개수|합계|페이로드 형식이 올바르지 않기 때문에 실패한 푸시의 수입니다(GCM 결과: InvalidDataKey 또는 InvalidTtl).|
+|outgoing.gcm.invalidnotificationsize|GCM 잘못된 알림 크기 오류|개수|합계|페이로드가 너무 커서 실패한 푸시의 수입니다(GCM 결과: MessageTooBig).|
+|outgoing.gcm.wrongchannel|GCM 잘못된 채널 오류|개수|합계|등록의 registrationId가 현재 앱과 연결되지 않기 때문에 실패한 푸시의 수입니다(GCM 결과: InvalidPackageName).|
+|outgoing.gcm.pnserror|GCM 오류|개수|합계|GCM과의 통신 오류로 인해 실패한 푸시의 수입니다.|
+|outgoing.gcm.authenticationerror|GCM 인증 오류|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나, 자격 증명이 차단되었거나, 앱에서 SenderId가 올바르게 구성되지 않았기 때문에 실패한 푸시의 수입니다(GCM 결과: MismatchedSenderId).|
+|outgoing.mpns.success|MPNS 성공적인 알림|개수|합계|성공한 모든 알림의 수입니다.|
+|outgoing.mpns.invalidcredentials|MPNS 잘못된 자격 증명|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다.|
+|outgoing.mpns.badchannel|MPNS 잘못된 채널 오류|개수|합계|등록의 ChannelURI가 인식되지 않아 실패한 푸시의 수입니다(MPNS 상태: 404 찾을 수 없음).|
+|outgoing.mpns.throttled|MPNS 제한된 알림|개수|합계|MPNS가 이 앱을 제한하기 때문에 실패한 푸시의 수입니다(WNS MPNS: 406 승인 금지).|
+|outgoing.mpns.invalidnotificationformat|MPNS 잘못된 알림 형식|개수|합계|알림의 페이로드가 너무 커서 실패한 푸시의 수입니다.|
+|outgoing.mpns.channeldisconnected|MPNS 채널 연결 끊김|개수|합계|등록의 ChannelURI 연결이 끊어졌으므로 실패한 푸시의 수입니다(MPNS 상태: 412 찾을 수 없음).|
+|outgoing.mpns.dropped|MPNS 삭제된 알림|개수|합계|MPNS에서 삭제된 푸시의 수입니다(MPNS 응답 헤더: X-NotificationStatus: QueueFull 또는 Suppressed).|
+|outgoing.mpns.pnserror|MPNS 오류|개수|합계|MPNS와의 통신 오류로 인해 실패한 푸시의 수입니다.|
+|outgoing.mpns.authenticationerror|MPNS 인증 오류|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다.|
+
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
@@ -388,13 +507,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |blocked_by_firewall|방화벽에 의해 차단|개수|합계|방화벽에 의해 차단|
 |교착 상태|교착 상태|개수|합계|교착 상태|
 |storage_percent|데이터베이스 크기 비율|백분율|최대|데이터베이스 크기 비율|
-|xtp_storage_percent|메모리 내 OLTP 저장소 백분율(미리 보기)|백분율|평균|메모리 내 OLTP 저장소 백분율(미리 보기)|
+|xtp_storage_percent|메모리 내 OLTP 저장소 백분율|백분율|평균|메모리 내 OLTP 저장소 백분율|
 |workers_percent|작업자 백분율|백분율|평균|작업자 백분율|
 |sessions_percent|세션 백분율|백분율|평균|세션 백분율|
 |dtu_limit|DTU 제한|개수|평균|DTU 제한|
 |dtu_used|DTU 사용됨|개수|평균|DTU 사용됨|
 |service_level_objective|데이터베이스의 서비스 수준 목표|개수|합계|데이터베이스의 서비스 수준 목표|
-|dwu_limit|dwu 제한|개수|최대|dwu 제한|
+|dwu_limit|DWU 제한|개수|최대|DWU 제한|
 |dwu_consumption_percent|DWU 백분율|백분율|평균|DWU 백분율|
 |dwu_used|DWU 사용됨|개수|평균|DWU 사용됨|
 
@@ -413,6 +532,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |storage_limit|저장소 제한|바이트|평균|저장소 제한|
 |eDTU_used|eDTU 사용|개수|평균|eDTU 사용|
 |storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
+|xtp_storage_percent|메모리 내 OLTP 저장소 백분율|백분율|평균|메모리 내 OLTP 저장소 백분율|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -441,7 +561,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |BytesReceived|데이터 입력|바이트|합계|데이터 입력|
 |BytesSent|데이터 출력|바이트|합계|데이터 출력|
 
-## <a name="microsoftwebsites-including-azure-functions"></a>Microsoft.Web/sites(Azure Functions 포함)
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites(Functions 포함)
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
@@ -458,8 +578,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Http406|Http 406|개수|합계|Http 406|
 |Http4xx|Http 4xx|개수|합계|Http 4xx|
 |Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|
-|MemoryWorkingSet|메모리 작업 집합|바이트|합계|메모리 작업 집합|
-|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|합계|평균 메모리 작업 집합|
+|MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|
+|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
 |FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|
 |FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
@@ -481,8 +601,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Http406|Http 406|개수|합계|Http 406|
 |Http4xx|Http 4xx|개수|합계|Http 4xx|
 |Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|
-|MemoryWorkingSet|메모리 작업 집합|바이트|합계|메모리 작업 집합|
-|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|합계|평균 메모리 작업 집합|
+|MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|
+|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
 |FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|
 |FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
@@ -491,10 +611,5 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview.md#monitoring-sources)
 * [메트릭에 대한 경고 만들기](insights-receive-alert-notifications.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
