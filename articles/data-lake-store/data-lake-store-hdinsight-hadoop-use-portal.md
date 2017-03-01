@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2017
+ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f65661013ce7cb5987ba83fb824befe7b4d1f70b
-ms.openlocfilehash: 4c230046bb5314f5fbd3e6d65e1317cb056fa647
+ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
+ms.openlocfilehash: 0ec19832d395547e8ebd3eee0d44dcf466a2ace7
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-portal"></a>Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
 Azure Portal을 사용하여 Azure Data Lake Store에 대한 액세스 권한이 있는 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다. 지원되는 클러스터 유형의 경우 Data Lake Store는 기본 저장소 또는 추가 저장소 계정으로 사용됩니다. Data Lake Store를 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Store 계정에 저장될 수 있습니다. Data Lake 저장소를 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
 
-몇 가지 중요한 고려 사항
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>HDInsight 클러스터 저장소에서 Data Lake Store 사용
+
+Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사항은 다음과 같습니다.
 
 * 기본 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5에서 사용할 수 있습니다.
 
@@ -52,12 +56,6 @@ Azure Portal을 사용하여 Azure Data Lake Store에 대한 액세스 권한이
 
     **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 사용자를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
-## <a name="do-you-learn-faster-with-videos"></a>비디오를 통해 보다 빠르게 사용 방법을 익힐 수 있습니다.
-Data Lake 저장소에 대한 액세스와 HDInsight 클러스터를 프로비전하는 방법을 이해하려면 다음 비디오를 시청하세요.
-
-* [Data Lake 저장소에 대한 액세스와 HDInsight 클러스터 만들기](https://mix.office.com/watch/l93xri2yhtp2)
-* 클러스터가 설정된 후, [Hive 및 Pig 스크립트를 사용하여 Data Lake 저장소의 데이터에 액세스](https://mix.office.com/watch/1n9g5w0fiqv1q)
-
 ## <a name="create-an-hdinsight-cluster-with-access-to-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 계정에 액세스할 수 있는 HDInsight 클러스터를 만듭니다.
 이 섹션에서는 추가 저장소로 데이터 레이크 저장소를 사용하는 HDInsight Hadoop 클러스터를 만듭니다. 이 릴리스에서 Hadoop 클러스터의 경우 데이터 레이크 저장소는 클러스터에 대해 추가 저장소로만 사용될 수 있습니다. 기본 저장소는 여전히 Azure 저장소 Blob(WASB)이 됩니다. 따라서 먼저 클러스터에 필요한 저장소 계정 및 저장소 컨테이너를 만들어 보겠습니다.
 
@@ -65,14 +63,16 @@ Data Lake 저장소에 대한 액세스와 HDInsight 클러스터를 프로비�
 
 2. [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight/hdinsight-provision-clusters.md) 에서 단계를 따라 HDInsight 클러스터 프로비전을 시작합니다.
 
-3. **데이터 원본** 블레이드에서 Azure Storage(WASB) 또는 Data Lake Store를 기본 저장소로 사용할지 여부를 지정합니다. Azure Data Lake Store를 기본 저장소로 사용하려면 다음 단계로 건너뜁니다.
+3. **저장소** 블레이드에서 Azure Storage(WASB) 또는 Data Lake Store를 기본 저장소로 사용할지 여부를 지정합니다. Azure Data Lake Store를 기본 저장소로 사용하려면 다음 단계로 건너뜁니다.
 
-    Azure Storage Blob을 기본 저장소로 사용하려면 **기본 저장소 유형**에 대해 **Azure Storage**를 클릭합니다. 저장소 계정 및 저장소 컨테이너에 대한 세부 정보를 지정하고 **위치**를 **미국 동부 2**로 지정한 다음 **Data Lake Store 액세스**를 클릭합니다.
+    Azure Storage Blob을 기본 저장소로 사용하려면 **기본 저장소 유형**에 대해 **Azure Storage**를 클릭합니다. 그런 다음 Azure 구독의 일부인 저장소 계정을 지정하고 저장소 계정을 선택하려는 경우 **선택 방법**에서 **내 구독**을 선택할 수 있습니다. 그렇지 않으면 **선택키**를 클릭하고 Azure 구독 외부에서 선택하려는 저장소 계정에 대한 정보를 제공합니다. **기본 컨테이너**의 경우 포털에서 제안한 기본 컨테이너 이름을 사용하거나 고유한 이름을 지정하도록 선택할 수 있습니다. 
+
+    Azure Storage Blob을 기본 저장소로 사용하는 경우 클러스터에 대한 추가 저장소로 Azure Data Lake Store를 계속 사용할 수 있습니다. 이렇게 하려면 **Data Lake Store 액세스**를 클릭한 다음 5단계로 건너뜁니다.
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "HDInsight 클러스터에 서비스 주체 추가")
 
 
-4. Azure Data Lake Store를 기본 저장소로 사용하려면 **기본 저장소 유형**에 대해 **Data Lake Store**를 클릭합니다. 이미 존재하는 Data Lake Store 계정을 선택하고 클러스터 특정 파일을 저장할 루트 폴더 경로를 제공하고(아래 참고 참조) **위치**를 **미국 동부 2**로 지정한 다음 **Data Lake Store 액세스**를 클릭합니다. 이 옵션은 HDInsight 3.5 클러스터에서만 사용할 수 있습니다(Standard 버전). HDInsight 3.5 클러스터에서 이 옵션은 HBase 클러스터 유형에 사용할 수 없습니다.
+4. Azure Data Lake Store를 기본 저장소로 사용하려면 **기본 저장소 유형**에 대해 **Data Lake Store**를 클릭합니다. 이미 존재하는 Data Lake Store 계정을 선택하고 클러스터 특정 파일을 저장할 루트 폴더 경로를 제공하고 **위치**를 **미국 동부 2**로 지정한 다음 **Data Lake Store 액세스**를 클릭합니다. 이 옵션은 HDInsight 3.5 클러스터에서만 사용할 수 있습니다(Standard 버전). HDInsight 3.5 클러스터에서 이 옵션은 HBase 클러스터 유형에 사용할 수 없습니다.
 
     아래 화면 캡처에서 루트 폴더 경로는 /clusters/myhdiadlcluster이며, 여기서 **myhdiadlcluster**는 만들려는 클러스터의 이름입니다. 이 경우 **/clusters** 폴더가 이미 Data Lake Store 계정에 존재하는지 확인합니다. 클러스터를 만드는 동안에 **myhdiadlcluster** 폴더가 만들어집니다. 마찬가지로 루트 경로가 /hdinsight/clusters/data/myhdiadlcluter로 설정된 경우 **/hdinsight/clusters/data/**가 이미 Data Lake Store 계정에 존재하는지 확인해야 합니다.
 
@@ -158,9 +158,4 @@ Spark 클러스터를 사용하여 Data Lake Store에 저장된 데이터에서 
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
