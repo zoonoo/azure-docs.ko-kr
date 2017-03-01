@@ -1,5 +1,5 @@
 ---
-title: "내보내기 작업 복구 | Microsoft Docs"
+title: "Azure Import 작업 복구 | Microsoft Docs"
 description: "Azure Import-Export 서비스를 사용하여 생성 및 실행된 내보내기 작업을 복구하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 486eb0db0c3a9a1a8ab5e70526fe23aa5f51229d
-ms.openlocfilehash: f3a38bf7e306f2677b79de7f7a3a360b29fe4d0c
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -155,9 +156,4 @@ G:\pictures\wild\canyon.jpg.properties
 [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
 [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)   
 [Azure Import-Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

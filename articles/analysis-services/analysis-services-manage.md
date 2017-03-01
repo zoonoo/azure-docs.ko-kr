@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: fdc4e495fb3fb99022b0f7c487001b2fba42cccc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -30,8 +31,8 @@ Azure에 Analysis Services 서버를 만들었으면 즉시 또는 조만간에 
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 연결하는 것과 같습니다. SSMS에서는 데이터 처리와 같이 동일한 작업을 많이 수행하거나 처리 스크립트를 만들고 역할을 관리하고 PowerShell을 사용할 수 있습니다. [최신 버전의 SSMS를 다운로드하여 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
-
+Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 연결하는 것과 같습니다. SSMS에서는 데이터 처리와 같이 동일한 작업을 많이 수행하거나 처리 스크립트를 만들고 역할을 관리하고 PowerShell을 사용할 수 있습니다. [SSMS를 다운로드하여 설치합니다.](#download-and-install-ssms)
+  
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
  큰 차이점 중 하나는 서버에 연결하는 데 사용하는 인증에 있습니다. Azure Analysis Services 서버에 연결하려면 **Active Directory 암호 인증**을 선택해야 합니다.
@@ -49,7 +50,7 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
    
     **Active Directory 암호 인증** - 조직의 계정을 사용합니다. 예를 들어 비도메인 가입 컴퓨터에서 연결하는 경우에 이 옵션을 사용합니다.
    
-    참고: Active Directory 인증이 표시되지 않으면 [최신 버전의 SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)로 업데이트해야 할 수 있습니다.
+    참고: Active Directory 인증이 표시되지 않으면 [최신 버전의 SSMS](#download-and-install-ssms)로 업데이트해야 할 수 있습니다.
    
     ![SSMS에서 연결](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
@@ -58,6 +59,25 @@ Azure에서 SSMS를 사용하여 서버를 관리하는 것은 온-프레미스 
 ## <a name="server-administrators-and-database-users"></a>서버 관리자 및 데이터베이스 사용자
 Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리자 및 데이터베이스 사용자가 있습니다. 두 가지 유형의 사용자 모두 Azure Active Directory에 포함되어야 하며 조직 전자 메일 주소 또는 UPN으로 지정해야 합니다. 이는 Windows 도메인 사용자 이름으로 서버 관리자 및 데이터베이스 사용자를 지원하는 온-프레미스 테이블 형식 모델 데이터베이스와 다릅니다. 자세한 내용은 [Azure Analysis Services의 사용자 관리](analysis-services-manage-users.md)를 참조하세요.
 
+## <a name="download-and-install-ssms"></a>SSMS 다운로드 및 설치
+[SQL Server Management Studio를 다운로드합니다](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+
+다운로드 페이지에는 두 가지 옵션이 제공됩니다.
+ 
+* 릴리스 후보 - Azure Analysis Services 미리 보기에만 연결할 때 사용하는 것이 좋습니다. 이 릴리스는 최신 업데이트를 받으며 Azure Analysis Services 미리 보기에서 가장 잘 작동합니다.
+* 현재 프로덕션 릴리스 - 프로덕션 서버와 Azure Analysis Services 미리 보기 모두에 연결할 때 사용하는 것이 좋습니다. 이 릴리스를 사용할 경우 Azure Active Directory 인증을 사용하도록 레지스트리를 편집해야 할 수 있습니다.
+
+## <a name="enable-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용 설정
+
+레지스트리에서 SSMS의 Azure Active Directory 인증 기능을 사용하도록 설정하려면 EnableAAD.reg라는 텍스트 파일을 만든 후 다음을 복사하여 붙여넣습니다.
+
+```
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
+"AS AAD Enabled"="True"
+```
+
+저장한 다음 파일을 실행합니다.
 
 ## <a name="troubleshooting-connection-problems"></a>연결 문제 해결
 SSMS를 사용하여 서버에 연결할 때(3단계) 페더레이션 되지 않은 계정 또는 Azure Active Directory에 없는 계정을 사용하여 로그인하려고 하는데 연결할 수 없는 경우 로그인 캐시를 지워야 할 수 있습니다. 다음 단계를 수행하기 전에 SSMS를 닫습니다.
@@ -71,10 +91,5 @@ SSMS를 사용하여 서버에 연결할 때(3단계) 페더레이션 되지 않
 새 서버에 테이블 형식 모델을 아직 배포하지 않았으면 지금이야말로 좋은 기회입니다. 자세한 내용은 [Azure Analysis Services에 배포](analysis-services-deploy.md)를 참조하세요.
 
 서버에 모델을 배포한 경우에는 클라이언트 또는 브라우저를 통해 연결할 준비가 된 것입니다. 자세한 내용은 [Azure Analysis Services 서버에서 데이터 가져오기](analysis-services-connect.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

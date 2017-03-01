@@ -5,7 +5,7 @@ keywords: "Azure App Service, 웹앱, faq, linux, oss"
 services: app-service
 documentationCenter: 
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: d4a5260dde1994bbf4ef4467eddd2fb80a2199b0
-ms.openlocfilehash: 22c6c22ba3123555d279fac087a6be2f99bde8d7
+ms.sourcegitcommit: 831ef097027721146531e8d699fe3f67417a57ea
+ms.openlocfilehash: b88aa3d0ae89aec81c2b9144fb5de3210a0b8d1e
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -43,19 +44,25 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 
 **Q:** VM에 SSH를 사용할 수 있나요?
 
-**A:** 아니요, 조만간 앱 컨테이너에 SSH하는 방법을 제공할 예정입니다.
+**A:** 아니요, 향후 릴리스에서 앱 컨테이너에 SSH하는 방법을 제공할 예정입니다.
 
-## <a name="continous-integration--deployment"></a>지속적인 통합/배포 ##
+## <a name="continuous-integration--deployment"></a>지속적인 통합/배포 ##
 
 **Q:** DockerHub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합/배포를 지원하나요?
 
-**A:** 웹앱을 중지했다가 시작하거나 더미 응용 프로그램 설정을 변경/추가하여 컨테이너를 강제로 새로 고칠 수 있으며, 조만간 사용자 지정 컨테이너를 위한 CI/CD 기능이 제공될 것입니다.
+**A:** 웹앱을 중지했다가 시작하거나 더미 응용 프로그램 설정을 변경/추가하여 컨테이너를 강제로 새로 고칠 수 있으며, 향후 릴리스에서 사용자 지정 컨테이너를 위한 CI/CD 기능이 제공될 것입니다.
 
 ## <a name="language-support"></a>언어 지원 ##
 
 **Q:** 컴파일되지 않은 .net core 앱을 지원하나요?
 
-**A:** 아니요, 모든 종속성과 함께 컴파일된 .net core 앱을 배포해야 하며, 조만간 완전한 배포 및 빌드 환경을 제공할 예정입니다.
+**A:** 아니요, 모든 종속성과 함께 컴파일된 .net core 앱을 배포해야 하며, 향후 릴리스에서 완전한 배포 및 빌드 환경을 제공할 예정입니다.
+
+## <a name="built-in-images"></a>기본 제공 이미지 ##
+
+**Q:** 런타임 스택을 구성할 때 시작 파일 섹션에 대해 예상되는 값은 무엇인가요?
+
+**A:** Node.Js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정할 수 있습니다. .Net Core의 경우 컴파일된 dll 이름을 지정해야 합니다. Ruby를 통해 앱을 초기화하려면 Ruby 스크립트를 지정할 수 있습니다.
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너 ##
 
@@ -69,11 +76,15 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 
 **Q:** 사용자 고유의 저장소를 가져올 수 있나요?
 
-**A:** 현재는 지원되지 않지만 조만간 지원할 계획입니다.
+**A:** 현재는 지원되지 않습니다.
 
 **Q:** 내 사용자 지정 컨테이너의 파일 시스템 또는 실행 중인 프로세스를 SCM 사이트에서 찾을 수 없습니다. 그 이유는 무엇입니까?
 
 **A:** SCM 사이트는 별도의 컨테이너에서 실행되기 때문에 사용자가 앱 컨테이너의 파일 시스템 또는 실행 중인 프로세스를 확인할 수 없습니다.
+
+**Q:** 내 사용자 지정 컨테이너가 포트 80 이외의 포트를 수신합니다. 해당 포트로 요청을 라우팅하도록 내 앱을 구성하려면 어떻게 합니까?
+
+**A:** **포트**라는 응용 프로그램 설정을 지정하고 예상되는 포트 번호 값을 지정할 수 있습니다.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA ##
 
@@ -92,12 +103,6 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 **A:** https://aka.ms/webapps-uservoice에서 아이디어를 제출할 수 있습니다. 아이디어 제목에 [Linux]를 붙여 주세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Linux의 App Service 소개](./app-service-linux-intro.md) 
 * [Linux의 App Service란?](app-service-linux-intro.md)
-* [Linux의 App Service에서 웹앱 만들기](./app-service-linux-how-to-create-a-web-app.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Linux의 App Service에서 웹앱 만들기](app-service-linux-how-to-create-a-web-app.md)
 

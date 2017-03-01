@@ -12,19 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: subramar
+ms.date: 02/02/2017
+ms.author: subramar;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
-ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
+ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
+ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>응용 프로그램을 업그레이드하는 동안 서비스 추가 또는 제거
-새 서비스가 이미 배포된 응용 프로그램에 추가되고 업그레이드로 게시되면 새 서비스는 배포된 응용 프로그램에 추가됩니다.  이러한 업그레이드는 응용 프로그램에 이미 속하는 서비스에는 영향을 주지 않습니다. 하지만 새 서비스가 활성화( `New-ServiceFabricService` cmdlet 사용)되려면 추가된 서비스 인스턴스가 시작되어야 합니다.
+새 서비스가 이미 배포된 응용 프로그램에 추가되고 업그레이드로 게시되면 새 서비스는 배포된 응용 프로그램에 추가됩니다.  이러한 업그레이드는 응용 프로그램에 이미 속하는 서비스에는 영향을 주지 않습니다. 하지만 새 서비스가 활성화(`New-ServiceFabricService` cmdlet 사용)되려면 추가된 서비스 인스턴스가 시작되어야 합니다.
 
-업그레이드의 일부로 응용 프로그램에서 서비스를 제거할 수도 있습니다. 그러나 업그레이드를 계속하기 전에 삭제하려는 서비스의 모든 현재 인스턴스를 중지해야 합니다( `Remove-ServiceFabricService` cmdlet 사용).
+업그레이드의 일부로 응용 프로그램에서 서비스를 제거할 수도 있습니다. 그러나 업그레이드를 계속하기 전에 삭제하려는 서비스의 모든 현재 인스턴스를 중지해야 합니다(`Remove-ServiceFabricService` cmdlet 사용).
 
 ## <a name="manual-upgrade-mode"></a>수동 업그레이드 모드
 > [!NOTE]
@@ -38,7 +39,7 @@ Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하�
 
  응용 프로그램 관리자는 수동 롤링 응용 프로그램 업그레이드 모드를 사용하여 여러 업그레이드 도메인의 모든 업그레이드 진행 상황을 제어할 수 있습니다. 이 모드는 응용 프로그램의 데이터가 이미 손실된 경우처럼 사용자 지정 또는 복잡한 상태 평가 정책이 필요하거나 일반적이지 않은 업그레이드가 수행될 때 유용합니다.
 
-마지막으로 자동화된 롤링 응용 프로그램 업그레이드는 서비스를 개발하는 동안 개발 또는 테스트 환경에서 빠른 반복 주기를 제공하는 데  유용합니다.
+마지막으로 자동화된 롤링 응용 프로그램 업그레이드는 서비스를 개발하는 동안 개발 또는 테스트 환경에서 빠른 반복 주기를 제공하는 데 유용합니다.
 
 ## <a name="change-to-manual-upgrade-mode"></a>수동 업그레이드 모드로 변경
 **수동**--현재 UD에서 응용 프로그램 업그레이드를 중지하고 업그레이드 모드를 모니터링되지 않은 수동 모드로 변경합니다. 관리자가 수동으로 **MoveNextApplicationUpgradeDomainAsync** 를 호출하고 새 업그레이드를 초기화하여 업그레이드를 진행하거나 롤백을 트리거해야 합니다. 업그레이드가 수동 모드로 전환되면 새 업그레이드가 초기화될 때까지 수동 모드가 유지됩니다. **GetApplicationUpgradeProgressAsync** 명령은 FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING을 반환합니다.
@@ -99,9 +100,4 @@ app1/
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 3e87a3b4086d3a2b0dec5ec7d954864922f51279
-ms.openlocfilehash: c262134df624b548b99c22bd749bb56fcda6fb1b
+ms.sourcegitcommit: 90327223d19ffc6697237d697b93fe88e1654e2c
+ms.openlocfilehash: fc668e1b4af662506da6652bbf21bab6cf91b114
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -149,10 +150,5 @@ ms.openlocfilehash: c262134df624b548b99c22bd749bb56fcda6fb1b
 2. [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
  
 ---
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

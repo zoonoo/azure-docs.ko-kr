@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: da682645640d74485a1caaff82fd0483a0e3f149
-ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
+ms.sourcegitcommit: 93ac6629df82b1a5b8d14a1ad289e1e462b49b17
+ms.openlocfilehash: 8883b2d15592ea5e0c286bd6e6fc7c38134326a7
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>소프트웨어 배포 도구를 사용하여 모바일 서비스 설치 자동화
@@ -83,8 +84,10 @@ ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
 | 명령 줄 | install.bat |
 | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 9. 다음 페이지에서 대상 운영 체제를 선택합니다. Mobility Service는 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2에만 설치할 수 있습니다.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. 마법사를 완료하려면 "다음"을 두 번 완료합니다.
+
 > [!NOTE]
 > 스크립트는 모바일 서비스 에이전트의 새로운 설치 및 이미 설치된 에이전트의 업그레이드/업데이트를 모두 지원합니다.
 
@@ -199,9 +202,4 @@ Mobility Service를 구성한 일정에 따라 Linux Server 장치 컬렉션에 
 
 ## <a name="next-steps"></a>다음 단계
 이제 가상 컴퓨터의 [보호를 활성화](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications)할 준비가 되었습니다.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

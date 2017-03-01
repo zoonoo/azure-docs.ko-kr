@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/16/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 855fd05d9addc2e57568067e4d434836ceeed570
-ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
+ms.sourcegitcommit: 2a04860ea7349798d5786e50dc1d564896341d60
+ms.openlocfilehash: 50f13ae0184e5b9609994d382acc126eb2868271
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -54,7 +55,11 @@ ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
 DocumentDB .NET Core SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md)의 최신 버전에 대응하는 기능이 있습니다.
 
 > [!NOTE] 
-> DocumentDB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK의 미리 보기 버전은 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)(으)로 전자 메일을 보내세요.
+> DocumentDB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK에 관심이 있는 경우 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)(으)로 전자 메일을 보내세요.
+
+### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
+
+분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
 
@@ -76,15 +81,11 @@ DocumentDB .NET Core Preview SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotn
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |2017년 2월 16일 |--- |
 | [1.0.0](#1.0.0) |2016년 12월 21일 |--- |
 | [0.1.0-preview](#0.1.0-preview) |2016년 11월 15일 |2015년 12월 31일 |
 
 ## <a name="see-also"></a>참고 항목
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요. 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

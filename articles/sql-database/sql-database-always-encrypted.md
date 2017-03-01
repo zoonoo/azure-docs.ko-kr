@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cffa8955cf044398e526b1ad6158eefebbf91b3b
-ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 02ea369d76c1fe7266e9dc0cad2c75e4b5eada6a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>상시 암호화 - SQL 데이터베이스의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
-> [!div class="op_single_selector"]
-> * [Azure 키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md)
-> * [Windows 인증서 저장소](sql-database-always-encrypted.md)
-> 
-> 
 
 이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 
@@ -54,7 +50,7 @@ ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기** > **데이터 + 저장소** > **SQL Database**를 클릭합니다.
-3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure 포털에서 데이터베이스를 만드는 자세한 지침은 [몇 분 만에 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 자세한 지침은 [첫 Azure SQL Database](sql-database-get-started.md)를 참조하세요.
    
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted/create-database.png)
 
@@ -522,10 +518,5 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 * [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
 * [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 * [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Import/Export 서비스에서 작업 열거 | Microsoft Docs"
+title: "Azure Import/Export 작업 모두 나열 | MicrosoftDocs"
 description: "구독에서 모든 Azure Import/Export 서비스 작업을 열거하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 65d8912c4eced92206ee1262f3e3307b3162cbd6
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: 5bbe99110b86cb15d23eadc48c1ea45bbab13daf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="enumerating-jobs"></a>작업 열거
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Azure Import/Export 서비스에서 작업 열거
 구독에서 모든 작업을 열거하려면 [목록 작업](/rest/api/storageimportexport/jobs#Jobs_List) 작업을 호출 합니다. `List Jobs`은 작업의 목록과 다음과 같은 특성을 반환합니다.
 
 -   작업의 유형(가져오기 또는 내보내기)
@@ -32,9 +33,4 @@ ms.openlocfilehash: 65d8912c4eced92206ee1262f3e3307b3162cbd6
 
 ## <a name="see-also"></a>참고 항목
  [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

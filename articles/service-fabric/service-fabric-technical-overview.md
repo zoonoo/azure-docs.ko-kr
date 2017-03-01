@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -31,11 +32,11 @@ ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
 **노드**: 클러스터의 일부인 컴퓨터로 VM 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`이라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
 ## <a name="application-concepts"></a>응용 프로그램 개념
-**응용 프로그램 종류**: 이름/버전이 서비스 형식의 컬렉션에 할당됩니다. `ApplicationManifest.xml` 파일에 정의되고 응용 프로그램 패키지 디렉터리에 포함된 후 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서이 응용 프로그램 형식에서 명명된 응용 프로그램을 만들 수 있습니다.
+**응용 프로그램 종류**: 이름/버전이 서비스 형식의 컬렉션에 할당됩니다. `ApplicationManifest.xml` 파일에 정의되고 응용 프로그램 패키지 디렉터리에 포함된 후 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 이 응용 프로그램 형식에서 명명된 응용 프로그램을 만들 수 있습니다.
 
 자세한 내용은 [응용 프로그램 모델](service-fabric-application-model.md) 문서를 참조하세요.
 
-**응용 프로그램 패키지**: 응용 프로그램 형식인 `ApplicationManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 응용 프로그램 형식를 구성하는 각 서비스 형식에 대한 서비스 패키지를 참조합니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.
+**응용 프로그램 패키지**: 응용 프로그램 형식인 `ApplicationManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 응용 프로그램 형식을 구성하는 각 서비스 형식에 대한 서비스 패키지를 참조합니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.
 
 **명명된 응용 프로그램**: 응용 프로그램 패키지가 이미지 저장소에 복사된 후에 응용 프로그램 패키지의 응용 프로그램 형식을 지정하여 클러스터 내에서 응용 프로그램의 인스턴스를 만듭니다(이름/버전 사용). 각 응용 프로그램 형식 인스턴스는 `"fabric:/MyNamedApp"`와 같은 URI 이름이 할당됩니다. 클러스터 내에서 단일 응용 프로그램 형식에서 여러 명명된 응용 프로그램을 만들 수 있습니다. 또한 다른 형식의 응용 프로그램에서 명명된 응용 프로그램을 만들 수 있습니다. 명명된 응용 프로그램은 각각 독립적으로 관리되고 버전이 지정됩니다.      
 
@@ -76,6 +77,8 @@ ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
 
 **이미지 저장소 서비스**: 각 서비스 패브릭 클러스터에는 배포되어 버전이 지정된 응용 프로그램 패키지가 보관되는 이미지 저장소 서비스가 있습니다. 이미지 저장소에 응용 프로그램 패키지를 복사하고 해당 응용 프로그램 패키지 내에 포함된 응용 프로그램 형식을 등록합니다. 응용 프로그램 형식을 프로비전한 후에 명명된 응용 프로그램을 만듭니다. 명명된 응용 프로그램이 모두 삭제된 후에 이미지 저장소 서비스에서 응용 프로그램 형식의 등록을 취소할 수 있습니다.
 
+이미지 저장소 서비스에 대한 자세한 내용은 [ImageStoreConnectionString 설정 이해](service-fabric-image-store-connection-string.md)를 참조하세요.
+
 이미지 저장소 서비스에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md) 문서를 참조하세요.
 
 ## <a name="built-in-programming-models"></a>기본 제공 프로그래밍 모델
@@ -94,10 +97,5 @@ ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
 * [서비스 패브릭의 개요](service-fabric-overview.md)
 * [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 * [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

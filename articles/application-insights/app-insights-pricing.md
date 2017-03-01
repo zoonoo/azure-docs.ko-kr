@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
-ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
+ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
+ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -98,7 +99,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ## <a name="data-rate"></a>데이터 속도
 다음 세 가지 방법으로 데이터 전송 볼륨이 제한됩니다.
 
-* **일일 한도** - 기본적으로 500GB/일로 설정됩니다. 앱이 이 한도에 도달하면 전자 메일이 전송되며 하루가 끝날 때까지 데이터가 삭제됩니다. 이 설정을 변경하려면 [데이터 볼륨 관리] 블레이드를 사용합니다.
+* **일일 한도** - 최대 한도는 500GB/일입니다. Visual Studio에서 Application Insights 리소스를 만들 때 기본값은 적습니다(불과 32.3MB/일). Azure Portal에서 Application Insights 리소스를 만들 경우 최대값으로 설정됩니다. 이 값을 변경할 때는 한도에 도달하면 나머지 기간에 대한 데이터가 손실되므로 주의해야 합니다. 이 설정을 변경하려면 [데이터 볼륨 관리] 블레이드에서 연결된 일별 볼륨 한도를 사용합니다.
 * **[샘플링](app-insights-sampling.md)** - 이 메커니즘은 메트릭을 최소로만 조정하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다.
 * **제한** - 데이터 속도를 평균 1분 이상 초당 32,000개 이벤트로 제한합니다. 
 
@@ -117,12 +118,14 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ## <a name="to-reduce-your-data-rate"></a>데이터 속도를 줄이려면
 다음 작업을 수행하여 데이터 볼륨을 줄일 수 있습니다.
 
-* 일별 볼륨 한도를 줄입니다. 기본값은 500GB/일입니다.
 * [샘플링](app-insights-sampling.md)을 사용합니다. 이 기술은 메트릭을 왜곡하지 않으며 검색에서 관련 항목 간 이동 기능을 중단하지 않고 데이터 속도를 낮춥니다. 서버 앱에서는 이 기능이 자동으로 수행됩니다.
 * [보고될 수 있는 Ajax 호출 수를 제한](app-insights-javascript.md#detailed-configuration) 하거나 Ajax 보고를 해제합니다.
 * [ApplicationInsights.config를 편집](app-insights-configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 * 원격 분석을 분할하여 계측 키를 구분합니다. 
-* 메트릭을 미리 집계합니다. 앱에 TrackMetric에 대한 호출을 추가한 경우 측정 일괄 처리의 평균 및 표준 편차 계산을 허용하는 오버로드를 사용하여 트래픽을 줄일 수 있습니다. 또는 [사전 집계 패키지](https://www.myget.org/gallery/applicationinsights-sdk-labs)를 사용할 수 있습니다. 
+* 메트릭을 미리 집계합니다. 앱에 TrackMetric에 대한 호출을 추가한 경우 측정 일괄 처리의 평균 및 표준 편차 계산을 허용하는 오버로드를 사용하여 트래픽을 줄일 수 있습니다. 또는 [사전 집계 패키지](https://www.myget.org/gallery/applicationinsights-sdk-labs)를 사용할 수 있습니다.
+* 마지막으로 수집된 데이터를 제한하도록 일별 볼륨 한도를 줄일 수 있으나 이 경우 나머지 기간에 대한 데이터가 손실됩니다. 변경하려면 **Features+pricing**(기능+가격 책정), **데이터 관리**를 엽니다.
+
+    ![일별 원격 분석 볼륨 한도 조정](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>샘플링
 [샘플링](app-insights-sampling.md) 은 진단 검색 중에 관련 이벤트를 찾는 기능은 계속 유지하고 올바른 이벤트 개수를 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 
@@ -172,10 +175,5 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

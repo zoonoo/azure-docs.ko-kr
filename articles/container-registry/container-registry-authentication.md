@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 1a5af0b498cfdf1946f5c405d9557b0c2d2c8e63
-ms.openlocfilehash: 1e9e54ee935b4c27eb93f72eb99c3ce52cc6c7e2
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="authenticate-with-a-container-registry"></a>컨테이너 레지스트리로 인증
@@ -59,7 +60,7 @@ docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
 
 
 ## <a name="admin-account"></a>관리자 계정
-만드는 각 레지스트리에는 관리자 계정이 자동으로 만들어집니다. 기본적으로 계정은 사용할 수 없지만 [포털](container-registry-get-started-portal.md#manage-registry-settings) 또는 [Azure CLI 2.0 미리 보기 명령](container-registry-get-started-azure-cli.md#manage-admin-credentials)을 통해 계정을 사용하도록 설정하고 자격 증명을 관리할 수 있습니다. 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증을 위해 사용자 이름과 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
+만드는 각 레지스트리에는 관리자 계정이 자동으로 만들어집니다. 기본적으로 계정은 사용할 수 없지만 [포털](container-registry-get-started-portal.md#manage-registry-settings) 또는 [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md#manage-admin-credentials)을 통해 계정을 사용하도록 설정하고 자격 증명을 관리할 수 있습니다. 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증을 위해 사용자 이름과 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
@@ -74,10 +75,5 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 * [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
 * 컨테이너 레지스트리 미리 보기의 인증에 대한 자세한 내용은 [블로그 게시물](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/)을 참조하세요. 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

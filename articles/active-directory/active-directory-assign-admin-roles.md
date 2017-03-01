@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
+ms.sourcegitcommit: 7bd403bb8569950a5bf4da3bd84905604753cda7
+ms.openlocfilehash: f29128dd156576276014e159afa9050364169c46
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -51,6 +52,8 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "기술 지원팀 관리자"로 식별됩니다.
   >
   >
+* **Power BI 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Power BI 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Power BI를 보다 쉽게 관리하기](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/)를 참조합니다.
+* **권한 있는 역할 관리자**: 이 역할의 사용자는 Azure AD [권한 있는 ID 관리자](active-directory-privileged-identity-management-configure.md)를 관리하고 다른 사용자에 대한 역할을 업데이트할 수 있습니다.
 * **SharePoint 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)를 참조하세요.
 * **[서비스 관리자](#service-administrator)**: 서비스 요청을 관리하고 서비스 상태를 모니터링합니다.
 
@@ -114,6 +117,17 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 6. **사용 위치** 드롭다운 목록에서 위치를 지정합니다.
 7. 완료 되면 **저장**을 클릭합니다.
 
+## <a name="deprecated-roles"></a>사용되지 않는 역할
+
+다음 역할은 사용할 수 없습니다. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다.
+
+* 임시 라이선스 관리자
+* 전자 메일 확인 사용자 생성자
+* 장치 연결
+* 장치 관리
+* 장치 사용자
+* 작업 공간 장치 연결
+
 ## <a name="next-steps"></a>다음 단계
 * Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](active-directory-understanding-resource-access.md)
@@ -121,9 +135,4 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 * [사용자 관리](active-directory-create-users.md)
 * [암호 관리](active-directory-manage-passwords.md)
 * [그룹 관리](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

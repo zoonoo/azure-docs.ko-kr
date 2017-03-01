@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
-ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
+ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
+ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -100,7 +101,7 @@ Ubuntu와 같은 클라우드 초기화 기반 Linux 배포를 사용하는 경�
 원래 백업한 VM과 같은 이름으로 같은 클라우드 서비스에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 클라우드 서비스에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Azure 데이터 센터 재해 중 VM 복원
-백업 자격 증명 모음을 지리적으로 중복되도록 구성해 놓은 경우, VM이 실행되는 기본 데이터 센터에 재해가 발생하면, Azure 백업을 통해 쌍을 이루는 데이터 센터에 백업한 VM을 복원할 수 있습니다. 이러한 시나리오가 발생하면, 쌍을 이루는 데이터 센터에 존재하는 저장소 계정을 선택해야 하며 나머지 복원 프로세스는 동일합니다. Azure 백업은 쌍을 이루는 지역의 계산 서비스를 사용하여 복원된 가상 컴퓨터를 생성합니다. 
+백업 자격 증명 모음을 지리적으로 중복되도록 구성해 놓은 경우, VM이 실행되는 기본 데이터 센터에 재해가 발생하면, Azure 백업을 통해 쌍을 이루는 데이터 센터에 백업한 VM을 복원할 수 있습니다. 이러한 시나리오가 발생하면, 쌍을 이루는 데이터 센터에 존재하는 저장소 계정을 선택해야 하며 나머지 복원 프로세스는 동일합니다. Azure 백업은 쌍을 이루는 지역의 계산 서비스를 사용하여 복원된 가상 컴퓨터를 생성합니다. [Azure 데이터 센터 복원력](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)에 대한 자세한 정보
 
 ## <a name="restoring-domain-controller-vms"></a>도메인 컨트롤러 VM 복원
 DC(도메인 컨트롤러) 가상 컴퓨터 백업은 Azure 백업을 사용하는 지원되는 시나리오입니다. 그러나 복원 프로세스 중 몇 가지 사항을 주의해야 입니다. 복원 환경이 단일 DC 구성의 도메인 컨트롤러 VM과 다중 DC 구성의 VM에서 크기 다릅니다.
@@ -153,10 +154,5 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 ## <a name="next-steps"></a>다음 단계
 * [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 * [가상 컴퓨터 관리](backup-azure-manage-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

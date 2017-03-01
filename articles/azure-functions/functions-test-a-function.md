@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions 테스트 | Microsoft Docs"
-description: "Postman, cURL 및 Node.js를 사용하여 Azure Functions 테스트"
+title: "Azure 함수 테스트 | Microsoft Docs"
+description: "Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -17,27 +17,28 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3603f58a9df1f0222a75b863ad2c1ab1b6e13fb2
-ms.openlocfilehash: c6868566e513c5cd2c76be3305ca6c9035d58acd
+ms.sourcegitcommit: 811d39a10cee3a602a43b6733d6743959cd02f45
+ms.openlocfilehash: 3795bfa395409fe3850f19cd351371cf07e42b58
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="testing-azure-functions"></a>Azure Functions 테스트
-## <a name="overview"></a>개요
-이 항목은 다음의 일반적인 방법을 포함하여 함수를 테스트하는 다양한 방법을 보여 줍니다.
+# <a name="testing-azure-functions"></a>Azure 함수 테스트
 
-+ cURL, Postman, 웹 기반 트리거에 대한 웹 브라우저 등의 HTTP 기반 도구 
-+ Azure Storage 기반 트리거를 테스트하기 위한 저장소 탐색기
-+ Functions 포털의 테스트 탭
+이 토픽에서는 다음과 같은 일반적인 방법을 사용하여 함수를 테스트하는 다양한 방법을 보여 줍니다.
+
++ cURL, Postman, 웹 기반 트리거에 대한 웹 브라우저 등의 HTTP 기반 도구
++ Azure Storage 기반 트리거를 테스트하기 위한 Azure Storage 탐색기
++ Azure Functions 포털의 테스트 탭
 + 타이머로 트리거되는 함수
-+ 테스트 응용 프로그램 또는 프레임워크  
++ 테스트 응용 프로그램 또는 프레임워크
 
-표시되는 모든 테스트 방법은 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 HTTP 트리거 함수를 사용합니다. 이 함수는 첫 번째 섹션에서 만듭니다.
+이 모든 테스트 방법은 쿼리 문자열 매개 변수 또는 요청 본문을 통해 입력을 허용하는 HTTP 트리거 함수를 사용합니다. 첫 번째 섹션에서는 이 함수를 만듭니다.
 
 ## <a name="create-a-function-for-testing"></a>테스트용 함수 만들기
-이 자습서의 대부분에서는 새 함수를 만들 때 사용할 수 있는 HttpTrigger JavaScript 함수 템플릿의 약간 수정된 버전을 사용합니다.  새 함수를 만드는 데 도움이 필요한 경우 [첫 번째 Azure 함수 만들기 자습서](functions-create-first-azure-function.md) 를 검토할 수 있습니다.  [Azure Portal]에서 테스트 함수를 만들 때에는 **HttpTrigger- JavaScript** 템플릿만 선택하면 됩니다.
+이 자습서의 대부분에서는 함수를 만들 때 제공되는 HttpTrigger JavaScript 함수 템플릿의 약간 수정된 버전을 사용합니다. 함수를 만드는 데 도움이 필요한 경우 이 [자습서](functions-create-first-azure-function.md)를 검토하세요. [Azure Portal]에서 테스트 함수를 만들 때에는 **HttpTrigger- JavaScript** 템플릿을 선택합니다.
 
-기본 함수 템플릿은 기본적으로 요청 본문 또는 쿼리 문자열 매개 변수의 이름( `name=<your name>`)을 되돌려 주는 hello world 함수입니다.  또한 요청 본문의 JSON 콘텐츠로 이름 및 주소를 제공할 수 있도록 하는 코드를 업데이트합니다. 그러면 함수는 사용 가능한 경우 클라이언트에 다시 표시합니다.   
+기본 함수 템플릿은 기본적으로 요청 본문 또는 쿼리 문자열 매개 변수의 이름(`name=<your name>`)을 되돌려 주는 hello world 함수입니다.  요청 본문의 JSON 콘텐츠로 이름 및 주소를 입력할 수 있도록 코드를 업데이트할 예정입니다. 그렇게 되면 함수는 사용 가능한 경우 이를 다시 클라이언트에 표시합니다.   
 
 함수를 테스트에 사용할 다음 코드로 업데이트합니다.
 
@@ -84,26 +85,26 @@ function ProcessNewUserInformation(context, name, address) {
 ```
 
 ## <a name="test-a-function-with-tools"></a>도구를 사용하여 함수 테스트
-Azure Portal 외부에는 테스트를 위해 함수를 트리거하는 데 사용할 수 있는 다양한 도구가 있습니다. 여기에는 UI 기반 및 명령줄 도구를 모두 포함하는 HTTP 테스트 도구, Azure Storage 액세스 도구 및 간단한 웹 브라우저도 포함됩니다.
+Azure Portal 외부에는 테스트용 함수를 트리거하는 데 사용할 수 있는 다양한 도구가 있습니다. 여기에는 UI 기반 및 명령줄 도구를 모두 포함하는 HTTP 테스트 도구, Azure Storage 액세스 도구 및 간단한 웹 브라우저도 포함됩니다.
 
 ### <a name="test-with-a-browser"></a>브라우저를 사용하여 테스트
 웹 브라우저는 HTTP 통해 함수를 트리거하는 간단한 방법입니다. 본문 페이로드가 필요하지 않으며 쿼리 문자열 매개 변수만 사용하는 GET 요청에 대해서는 브라우저를 사용할 수 있습니다.
 
-위에서 정의한 함수를 테스트하려면 포털에서 **함수 Url** 을 복사합니다. 다음과 같은 형식이 됩니다.
+위에서 정의한 함수를 테스트하려면 포털에서 **함수 Url**을 복사합니다. 다음과 같은 형식입니다.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-`<Enter a name here>` 자리 표시자에 대한 실제 이름을 사용하여 쿼리 문자열에 `name` 매개 변수를 추가합니다. 
+쿼리 문자열에 `name` 매개 변수를 추가합니다. `<Enter a name here>` 자리 표시자의 실제 이름을 사용합니다.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
-브라우저에 URL을 붙여넣으면 다음과 유사한 응답을 얻게 됩니다.
+브라우저에 URL을 붙여 넣으면 다음과 유사한 응답을 얻게 됩니다.
 
-![](./media/functions-test-a-function/browser-test.png)
+![테스트 응답이 표시된 Chrome 브라우저 탭의 스크린샷](./media/functions-test-a-function/browser-test.png)
 
 이 예제는 반환되는 문자열을 XML에 래핑하는 Chrome 브라우저입니다. 다른 브라우저에는 문자열 값만 표시됩니다.
 
-포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+함수를 실행하는 동안 포털 **로그** 창에 다음과 유사한 출력이 기록됩니다.
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
@@ -126,24 +127,24 @@ Azure Portal 외부에는 테스트를 위해 함수를 트리거하는 데 사�
 
 Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 
-1. Chrome 브라우저 창의 왼쪽 위에 있는 **앱** 단추를 눌러 Postman을 시작합니다.
-2. **함수 Url** 을 복사하여 Postman에 붙여넣습니다. 액세스 코드 쿼리 문자열 매개 변수를 포함합니다.
+1. Chrome 브라우저 창의 왼쪽 위에 있는 **앱** 단추에서 Postman을 시작합니다.
+2. **함수 Url**을 복사하여 Postman에 붙여 넣습니다. 액세스 코드 쿼리 문자열 매개 변수를 포함합니다.
 3. HTTP 메서드를 **POST**로 변경합니다.
-4. **본문** > **원시**를 클릭하여 다음과 유사한 JSON 요청 본문을 추가합니다.
-    
+4. **본문** > **원시**를 클릭하고, 다음과 유사한 JSON 요청 본문을 추가합니다.
+
     ```json
     {
         "name" : "Wes testing with Postman",
-        "address" : "Seattle, W.A. 98101"
+        "address" : "Seattle, WA 98101"
     }
     ```
-5. **Send**를 클릭합니다.
+5. **보내기**를 클릭합니다.
 
 다음 이미지는 이 자습서의 간단한 에코 함수 예제 테스트를 보여 줍니다.
 
-![](./media/functions-test-a-function/postman-test.png)
+![Postman 사용자 인터페이스의 스크린샷](./media/functions-test-a-function/postman-test.png)
 
-포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+함수를 실행하는 동안 포털 **로그** 창에 다음과 유사한 출력이 기록됩니다.
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
@@ -155,61 +156,61 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
-### <a name="test-with-curl-from-the-command-line"></a>명령줄에서 cURL을 사용하여 테스트 
-종종 소프트웨어를 테스트할 때 명령줄이 응용 프로그램을 디버그하는 데 도움이 되며 함수와 차이가 없습니다. cURL은 Linux 기반 시스템에서 기본적으로 사용할 수 있습니다. Windows에서는 먼저 [cURL 도구](https://curl.haxx.se/)를 다운로드한 후 설치해야 합니다. 
+### <a name="test-with-curl-from-the-command-line"></a>명령줄에서 cURL을 사용하여 테스트
+소프트웨어를 테스트할 때 명령줄만 살펴보아도 응용 프로그램을 디버그하는 데 전혀 문제가 없는 경우가 종종 있습니다. 테스트 함수와 전혀 차이가 없습니다. cURL은 Linux 기반 시스템에서 기본적으로 사용할 수 있습니다. Windows에서는 먼저 [cURL 도구](https://curl.haxx.se/)를 다운로드한 후 설치해야 합니다.
 
-위의 함수를 테스트하려면 포털에서 **함수 URL**을 복사합니다. 다음과 같은 형식이 됩니다.
+위에서 정의한 함수를 테스트하려면 포털에서 **함수 URL**을 복사합니다. 다음과 같은 형식입니다.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-이는 함수를 트리거하는 URL이며, 명령줄에서 cURL 명령을 사용하여 함수에 대해 GET(`-G` 또는 `--get`) 요청을 수행하마으로써 이를 테스트할 수 있습니다.
+함수를 트리거하는 URL입니다. 명령줄에서 cURL 명령을 사용하여 함수에 대한 GET(`-G` 또는 `--get`) 요청을 만들어서 테스트를 수행합니다.
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-이 특정 예제에서는 cURL 명령에서 데이터(`-d`)로 전달될 수 있는 쿼리 문자열 매개 변수가 필요합니다.
+이 예제에서는 cURL 명령에서 데이터(`-d`)로 전달할 수 있는 쿼리 문자열 매개 변수가 필요합니다.
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
 
 명령을 실행하면 명령줄에 다음과 같은 함수 출력이 표시됩니다.
 
-![](./media/functions-test-a-function/curl-test.png)
+![명령 프롬프트 출력의 스크린샷](./media/functions-test-a-function/curl-test.png)
 
-포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+함수를 실행하는 동안 포털 **로그** 창에 다음과 유사한 출력이 기록됩니다.
 
     2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
     2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
     2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
-### <a name="test-a-blob-trigger-using-storage-explorer"></a>저장소 탐색기를 사용하여 Blob 트리거 테스트
-[Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)를 사용하여 Blob 트리거 함수를 테스트할 수 있습니다.
+### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>저장소 탐색기를 사용하여 Blob 트리거 테스트
+[Azure Storage 탐색기](http://storageexplorer.com/)를 사용하여 Blob 트리거 함수를 테스트할 수 있습니다.
 
-1. 함수 앱에 대한 [Azure Portal] 에서 새 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
+1. 함수 앱에 대한 [Azure Portal]에서 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
 
         files
 2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
-3. 다음 텍스트로 텍스트 파일을 만들고 저장합니다.
+3. 다음 텍스트를 사용하여 텍스트 파일을 만들고 저장합니다.
 
         A text file for blob trigger function testing.
-4. [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/) 를 실행하고 모니터링되고 있는 저장소 계정의 Blob 컨테이너에 연결합니다.
-5. **업로드** 단추를 클릭하고 텍스트 파일을 업로드합니다.
+4. [Azure Storage 탐색기](http://storageexplorer.com/)를 실행하고 모니터링되고 있는 저장소 계정의 Blob 컨테이너에 연결합니다.
+5. **업로드**를 클릭하여 텍스트 파일을 업로드합니다.
 
-    ![](./media/functions-test-a-function/azure-storage-explorer-test.png)
+    ![저장소 탐색기의 스크린샷](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
-    기본 Blob 트리거 함수 코드는 로그에서 Blob 처리를 보고합니다.
+기본 Blob 트리거 함수 코드는 로그에 Blob 처리 상황을 보고합니다.
 
-        2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-        2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-        2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-        2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+    2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+    2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## <a name="test-a-function-within-functions"></a>함수 내에서 함수 테스트
 Azure Functions 포털은 HTTP 및 타이머 트리거 함수를 테스트할 수 있도록 디자인되었습니다. 테스트하려는 다른 함수를 트리거하는 함수를 만들 수도 있습니다.
 
 ### <a name="test-with-the-functions-portal-run-button"></a>함수 포털 실행 단추를 사용하여 테스트
-포털에서는 몇 가지 제한된 테스트를 수행할 수 있는 **실행** 단추를 제공합니다. 실행 단추를 사용하여 요청 본문을 제공할 수 있지만 쿼리 문자열 매개 변수를 제공하거나 요청 헤더를 업데이트할 수 없습니다.
+포털에서는 몇 가지 제한된 테스트를 수행할 수 있는 **실행** 단추를 제공합니다. 이 단추를 사용하여 요청 본문을 제공할 수 있지만 쿼리 문자열 매개 변수를 제공하거나 요청 헤더를 업데이트할 수는 없습니다.
 
-**요청 본문** 필드에서 다음과 유사한 JSON 문자열을 추가하여 앞에서 만든 HTTP 트리거 함수를 테스트한 다음 **실행** 단추를 클릭합니다.
+**요청 본문** 필드에 다음과 유사한 JSON 문자열을 추가하여 앞에서 만든 HTTP 트리거 함수를 테스트합니다. 그런 다음 **실행** 단추를 클릭합니다.
 
 ```json
 {
@@ -218,7 +219,7 @@ Azure Functions 포털은 HTTP 및 타이머 트리거 함수를 테스트할 �
 }
 ```
 
-포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+함수를 실행하는 동안 포털 **로그** 창에 다음과 유사한 출력이 기록됩니다.
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
@@ -232,17 +233,17 @@ Azure Functions 포털은 HTTP 및 타이머 트리거 함수를 테스트할 �
 
 
 ### <a name="test-with-a-timer-trigger"></a>타이머 트리거를 사용하여 테스트
-일부 함수는 앞에서 언급한 도구를 사용하여 제대로 테스트할 수 없습니다. 예를 들어 [Azure 큐 저장소](../storage/storage-dotnet-how-to-use-queues.md)에 메시지를 놓을 때 실행되는 큐 트리거 함수입니다. 언제나 큐에 메시지를 놓는 코드를 작성할 수 있으며 콘솔 프로젝트의 이러한 예는 아래 제공됩니다. 그러나 함수를 직접 테스트하는 데 사용할 수 있는 또 다른 방법이 있습니다.  
+일부 함수는 앞에서 언급한 도구를 사용하여 제대로 테스트할 수 없습니다. 예를 들어 [Azure 큐 저장소](../storage/storage-dotnet-how-to-use-queues.md)에 메시지를 놓을 때 실행되는 큐 트리거 함수를 생각해 보세요. 언제든지 큐에 메시지를 놓는 코드를 작성할 수 있으며, 콘솔 프로젝트의 이러한 예는 이 문서의 후반부에 제공됩니다. 그러나 함수를 직접 테스트하는 데 사용할 수 있는 또 다른 방법이 있습니다.  
 
-큐 출력 바인딩으로 구성된 타이머 트리거를 사용할 수 있습니다. 타이머 트리거 코드가 해당 큐에 테스트 메시지를 작성할 수 있습니다. 이 섹션에서는 예제를 통해 살펴봅니다.
+큐 출력 바인딩으로 구성된 타이머 트리거를 사용할 수 있습니다. 이 타이머 트리거 코드는 큐에 테스트 메시지를 작성할 수 있습니다. 이 섹션에서는 그에 대한 예를 살펴보겠습니다.
 
 Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 개발자 참조](functions-reference.md)를 참조하세요.
 
-#### <a name="create-queue-trigger-for-testing"></a>테스트용 큐 트리거 만들기
-이 방법을 시연하려면 먼저 `queue-newusers`라는 큐를 테스트하려는 큐 트리거 함수를 만듭니다. 이 함수는 Azure 큐 저장소에 놓은 새 사용자에 대한 이름 및 주소 정보를 처리합니다.
+#### <a name="create-a-queue-trigger-for-testing"></a>테스트용 큐 트리거 만들기
+이 방법을 시연하기 위해 먼저 `queue-newusers`라는 큐를 테스트하려는 큐 트리거 함수를 만듭니다. 이 함수는 큐 저장소에 놓은 새 사용자의 이름 및 주소 정보를 처리합니다.
 
 > [!NOTE]
-> 다른 큐 이름을 사용하는 경우 해당 이름이 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx) 규칙을 준수해야 합니다.  그러지 않으면 HTTP 상태 코드 400(“잘못된 요청”)이 발생합니다.
+> 다른 큐 이름을 사용하는 경우 해당 이름이 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx) 규칙을 준수해야 합니다. 그렇지 않으면 오류가 발생합니다.
 >
 >
 
@@ -250,25 +251,25 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 2. 큐 함수가 모니터링할 큐 이름을 입력합니다.
 
         queue-newusers
-3. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** (추가) 단추를 클릭하여 사용하려는 저장소 계정을 선택하거나 만듭니다. 그런 다음 **Create**를 클릭합니다.
+3. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
 4. 기본 큐 함수 템플릿 코드에 대한 로그 항목을 모니터링할 수 있도록 포털 브라우저 창을 그대로 열어 둡니다.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>큐에 메시지를 놓는 타이머 트리거 만들기
-1. 새 브라우저 창에서 [Azure Portal] 을 열고 함수 앱으로 이동합니다.
-2. **새 함수** > **TimerTrigger - C#**을 클릭합니다. 타이머 코드가 큐 함수 테스트를 실행하는 빈도를 설정하는 cron 식을 입력합니다. 그런 다음 **Create**를 클릭합니다. 테스트를 30초마다 실행하려는 경우 다음 [CRON 식](https://wikipedia.org/wiki/Cron#CRON_expression)을 사용할 수 있습니다.
+1. 새 브라우저 창에서 [Azure Portal]을 열고 함수 앱으로 이동합니다.
+2. **새 함수** > **TimerTrigger - C#**을 클릭합니다. 타이머 코드가 큐 함수 테스트할 빈도를 설정하는 cron 식을 입력합니다. 그런 다음 **Create**를 클릭합니다. 테스트를 30초마다 실행하려는 경우 다음 [CRON 식](https://wikipedia.org/wiki/Cron#CRON_expression)을 사용할 수 있습니다.
 
         */30 * * * * *
 3. 새 타이머 트리거에 대한 **통합** 탭을 클릭합니다.
-4. **출력**에서 **+ 새 출력** 단추를 클릭합니다. 그런 다음 **큐** 및 **선택** 단추를 클릭합니다.
-5. 타이머 함수 코드에서 사용할 **큐 메시지 개체** 에 사용하는 이름을 확인합니다.
+4. **출력**에서 **+ 새 출력**을 클릭합니다. 그런 다음 **큐** 및 **선택**을 클릭합니다.
+5. **큐 메시지 개체**에 사용한 이름을 메모해 두세요. 이 이름은 타이머 함수 코드에 사용됩니다.
 
         myQueue
-6. 메시지가 전송될 큐 이름을 입력합니다.
+6. 메시지가 전송되는 큐 이름을 입력합니다.
 
         queue-newusers
-7. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** (추가) 단추를 클릭하여 큐 트리거와 함께 이전에 사용한 저장소 계정을 선택합니다. 그런 다음 **Save**를 클릭합니다.
+7. **+** 단추를 클릭하여 이전에 큐 트리거와 함께 사용한 저장소 계정을 선택합니다. 그런 다음 **Save**를 클릭합니다.
 8. 타이머 트리거에 대한 **개발** 탭을 클릭합니다.
-9. 위에 표시된 동일한 큐 메시지 개체 이름을 사용하는 한 C# 타이머 함수에 대해 다음 코드를 사용할 수 있습니다. 그런 다음 **Save**
+9. 위에 표시된 것과 동일한 큐 메시지 개체 이름을 사용하는 한 C# 타이머 함수에 다음 코드를 사용할 수 있습니다. 그런 다음 **Save**를 클릭합니다.
 
     ```cs
     using System;
@@ -285,7 +286,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
     }
     ```
 
-이때 예제 cron 식을 사용하는 경우 C# 타이머 함수가 30초마다 실행됩니다. 타이머 함수에 대한 로그에서 각 실행을 보고합니다.
+예제 cron 식을 사용했다면 C# 타이머 함수가 30초마다 실행됩니다. 타이머 함수의 로그에서 각 실행을 보고합니다.
 
     2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
@@ -293,7 +294,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
     2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
     2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
 
-큐 함수에 대한 브라우저 창에 처리 중인 각 메시지가 나타납니다.
+큐 함수에 대한 브라우저 창에 처리 중인 각 메시지가 표시됩니다.
 
     2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
@@ -303,11 +304,11 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 ## <a name="test-a-function-with-code"></a>코드를 사용하여 함수 테스트
 함수를 테스트하기 위해 외부 응용 프로그램 또는 프레임워크를 만들어야 하는 경우도 있습니다.
 
-### <a name="test-a-http-trigger-function-with-code-nodejs"></a>코드를 사용하여 HTTP 트리거 함수 테스트: Node.js
+### <a name="test-an-http-trigger-function-with-code-nodejs"></a>코드를 사용하여 HTTP 트리거 함수 테스트: Node.js
 Node.js 앱을 사용하여 함수를 테스트하기 위한 HTTP 요청을 실행할 수 있습니다.
 다음을 수행해야 합니다.
 
-* 요청 옵션에서 `host` 를 함수 앱 호스트로 설정
+* 요청 옵션에서 `host`를 함수 앱 호스트로 설정
 * `path`에서 함수 이름 설정
 * `path`에서 액세스 코드(`<your code>`) 설정
 
@@ -362,7 +363,7 @@ req.end(bodyString);
     Hello Wes testing with Node.JS code
     The address you provided is Dallas, T.X. 75201
 
-포털 **로그** 창에 다음과 유사한 출력이 함수를 실행하는 동안 기록됩니다.
+함수를 실행하는 동안 포털 **로그** 창에 다음과 유사한 출력이 기록됩니다.
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
@@ -381,7 +382,7 @@ req.end(bodyString);
 콘솔 앱에서 이 코드를 테스트하려면 다음을 수행해야 합니다.
 
 * [app.config 파일에서 저장소 연결 문자열을 구성합니다](../storage/storage-dotnet-how-to-use-queues.md).
-* 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다. 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 위치(예:`C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`
+* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
 
 C# 코드 예제:
 
@@ -431,7 +432,7 @@ static void Main(string[] args)
 }
 ```
 
-큐 함수에 대한 브라우저 창에 처리 중인 각 메시지가 나타납니다.
+큐 함수에 대한 브라우저 창에 처리 중인 각 메시지가 표시됩니다.
 
     2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
@@ -442,9 +443,4 @@ static void Main(string[] args)
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

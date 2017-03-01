@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Active Directory v2.0 및 OpenID Connect 프로토콜 | Microsoft Docs"
 description: "OpenID Connect 인증 프로토콜의 Azure AD v2.0 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
@@ -13,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 1d81be4ba596f7bc0ed7d16cb8bb9b375bd1e223
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 4e43304c108fceb7df70fc37898ffcf989beb922
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -199,6 +199,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
+## <a name="single-sign-out"></a>Single Sign-Out
+v2.0 끝점은 쿠키를 사용하여 사용자의 세션을 식별합니다. 사용자가 처음으로 응용 프로그램에 로그인하는 경우 v2.0 끝점은 사용자의 브라우저에서 쿠키를 설정합니다. 사용자가 이후에 다른 응용 프로그램에 로그인할 때, Azure AD는 사용자를 다시 인증하는 대신 사용자가 Azure AD v2.0 끝점이 있는 유효한 로그온 세션을 가지고 있는지 판단하기 위해 쿠키를 먼저 확인합니다.
+
+마찬가지로, 사용자가 먼저 응용 프로그램에서 로그아웃한 경우, v2.0 끝점은 브라우저에서 쿠키를 지웁니다. 하지만 사용자는 인증을 위해 Azure AD v2.0 끝점을 사용하는 다른 응용 프로그램에 여전히 로그인되어 있을 수 있습니다. 사용자가 모든 응용 프로그램에서 로그아웃되도록 하기 위해 v2.0 끝점은 현재 사용자가 로그인된 모든 응용 프로그램의 `LogoutUrl`로 HTTP GET 요청을 보냅니다. 응용 프로그램은 사용자의 세션을 식별하는 모든 쿠키를 지움으로써 이 요청에 응답해야 합니다. Azure Portal에서 `LogoutUrl`을 설정할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+2. 페이지의 오른쪽 위 모서리에 있는 사용자 계정을 클릭하여 Active Directory를 선택합니다.
+3. 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택하고 응용 프로그램을 선택합니다.
+4. **속성**을 클릭하고 **로그아웃 URL** 텍스트 상자를 찾습니다. 
+
 ## <a name="protocol-diagram-token-acquisition"></a>프로토콜 다이어그램: 토큰 가져오기
 대부분의 웹앱은 사용자를 로그인할 뿐만 아니라 OAuth를 사용하여 해당 사용자 대신 웹 서비스에 액세스해야 합니다. 이 시나리오에서는 OAuth 권한 부여 코드 흐름을 사용하여 액세스 토큰을 가져오는 데 사용할 수 있는 권한 부여 코드를 획득하는 동시에 사용자 인증에 OpenID Connect를 사용합니다.
 
@@ -268,10 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 가능한 오류 코드 및 권장되는 클라이언트 응답에 대한 설명은 [권한 부여 끝점 오류에 대한 오류 코드](#error-codes-for-authorization-endpoint-errors)를 참조하세요.
 
 권한 부여 코드와 ID 토큰이 있는 경우 사용자로 로그인하여 액세스 토큰을 대신 가져올 수 있습니다. 사용자로 로그인하려면 [정확히 위에 설명된 대로](#validate-the-id-token) ID 토큰의 유효성을 검사해야 합니다. 액세스 토큰을 얻으려면 [OAuth 프로토콜 설명서](active-directory-v2-protocols-oauth-code.md#request-an-access-token)에 설명된 단계를 따릅니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b898e56a9f7f76d7a342c102fb6912408116c5a
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -98,16 +99,11 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](../monitoring-and-diagnostics/insights-service-health.md)을 참조하세요.
 
 ### <a name="enable-auditing"></a>감사 사용
-데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요.
+데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [Database 감사](sql-database-auditing.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)
 * 비즈니스 연속성 설계 및 복구 시나리오에 대해 알아보려면 [연속성 시나리오](sql-database-business-continuity.md)
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

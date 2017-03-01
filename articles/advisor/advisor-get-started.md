@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
 translationtype: Human Translation
-ms.sourcegitcommit: 14e9e494d6e824964b9164ff36d9938341e244be
-ms.openlocfilehash: 7adaa1a457e19c66bdc31a01f4e04b7911e58062
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 8ed18f6f62b6d2895e2470df1c3bdd448ea98210
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -35,7 +36,7 @@ Azure Portal을 사용하여 Advisor에 액세스하고, 권장 사항을 가져
 4. 특정 범주에 대한 권장 사항을 얻으려면 **고가용성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭합니다.
  
 > [!NOTE]
-> Azure Advisor는 **소유자**, **참가자** 또는 **읽기 권한자** 역할이 할당된 구독에 대한 권장 사항을 생성합니다.
+> Advisor 권장 사항을 보려면 먼저 구독을 Advisor에 **등록**해야 합니다. 구독은 **구독 소유자**가 Advisor 대시보드를 시작하고 **권장 사항 가져오기** 단추를 클릭할 때 등록됩니다. 이 작업은 **한 번만** 수행하면 됩니다. 구독이 등록되면 구독, 리소스 그룹 또는 특정 리소스에 대한 **소유자**, **참여자** 또는 **리더**는 Advisor 권장 사항에 액세스할 수 있습니다.
 
   ![Azure Advisor 대시보드](./media/advisor-overview/advisor-all-tab.png)
 
@@ -78,9 +79,4 @@ Advisor에 대한 자세한 내용은 다음 리소스를 참조하세요.
 -  [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 -  [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 -  [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

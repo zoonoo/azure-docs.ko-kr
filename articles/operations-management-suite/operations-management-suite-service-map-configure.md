@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
-ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
+ms.sourcegitcommit: 1ce47043f85e30f616c8b22e1107b192d4962d8a
+ms.openlocfilehash: 73c35da427f1e2080ab6fdd086d3168dad495415
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -27,14 +28,14 @@ ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
 
 
 ## <a name="connected-sources"></a>연결된 소스
-다음 표는 서비스 맵 솔루션이 지원하는 연결된 소스를 설명합니다.
+서비스 맵은 Microsoft 종속성 에이전트에서 해당 데이터를 가져옵니다.  종속성 에이전트는 OMS 연결에 사용된 OMS 에이전트에 따라 달라집니다.  이는 서버에 먼저 OMS 에이전트를 설치하고 구성한 다음, 종속성 에이전트를 설치할 수 있다는 의미입니다.  다음 표는 서비스 맵 솔루션이 지원하는 연결된 소스를 설명합니다.
 
 | 연결된 소스 | 지원됨 | 설명 |
 |:--|:--|:--|
-| [Windows 에이전트](../log-analytics/log-analytics-windows-agents.md) | 예 | 서비스 맵은 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.  <br><br>OMS 에이전트 외에도 Windows 에이전트에는 Microsoft 종속성 에이전트가 필요합니다.  전체 운영 체제 목록 버전은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
-| [Linux 에이전트](../log-analytics/log-analytics-linux-agents.md) | 예 | 서비스 맵은 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.  <br><br>OMS 에이전트 외에도 Linux 에이전트에는 Microsoft 종속성 에이전트가 필요합니다.  전체 운영 체제 목록 버전은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
-| [SCOM 관리 그룹](../log-analytics/log-analytics-om-agents.md) | 예 | 서비스 맵은 연결된 SCOM(System Center Operations Manager) 관리 그룹의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>SCOM 에이전트 컴퓨터에서 OMS로 직접 연결이 필요합니다. 데이터는 관리 그룹에서 OMS 리포지토리로 직접 전달됩니다.|
-| [Azure 저장소 계정](../log-analytics/log-analytics-azure-storage.md) | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Windows 에이전트 | 예 | 서비스 맵은 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.  <br><br>[OMS 에이전트](../log-analytics/log-analytics-windows-agents.md) 외에도 Windows 에이전트에는 Microsoft 종속성 에이전트가 필요합니다.  전체 운영 체제 목록 버전은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
+| Linux 에이전트 | 예 | 서비스 맵은 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.  <br><br>[OMS 에이전트](../log-analytics/log-analytics-linux-agents.md) 외에도 Linux 에이전트에는 Microsoft 종속성 에이전트가 필요합니다.  전체 운영 체제 목록 버전은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
+| SCOM 관리 그룹 | 예 | 서비스 맵은 연결된 [SCOM(System Center Operations Manager) 관리 그룹](../log-analytics/log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>SCOM 에이전트 컴퓨터에서 OMS로 직접 연결이 필요합니다. 데이터는 관리 그룹에서 OMS 리포지토리로 직접 전달됩니다.|
+| Azure 저장소 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 서비스 맵은 64비트 플랫폼만 지원합니다.
 
@@ -97,10 +98,10 @@ MP는 Microsoft.IntelligencePacks.ApplicationDependencyMonitor*라고 합니다.
 
 각 Windows 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1.  OMS에 직접 컴퓨터 연결의 지침을 사용하여 OMS 에이전트가 설치되어 있는지 확인합니다.
-2.  Windows 에이전트를 다운로드하고 다음 명령을 사용하여 실행합니다. <br>*InstallDependencyAgent-Windows.exe*
-3.  마법사에 따라 에이전트를 설치합니다.
-4.  종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 *C:\Program Files\Microsoft Dependency Agent\logs*입니다. 
+1.    OMS에 직접 컴퓨터 연결의 지침을 사용하여 OMS 에이전트가 설치되어 있는지 확인합니다.
+2.    Windows 에이전트를 다운로드하고 다음 명령을 사용하여 실행합니다. <br>*InstallDependencyAgent-Windows.exe*
+3.    마법사에 따라 에이전트를 설치합니다.
+4.    종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 *C:\Program Files\Microsoft Dependency Agent\logs*입니다. 
 
 제어판을 통해 관리자가 Windows용 종속성 에이전트를 제거할 수 있습니다.
 
@@ -112,9 +113,9 @@ MP는 Microsoft.IntelligencePacks.ApplicationDependencyMonitor*라고 합니다.
  
 각 Linux 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1.  [Linux 컴퓨터에서 데이터 수집 및 관리의 지침을 사용하여 OMS 에이전트가 설치되어 있는지 확인합니다.  Linux 종속성 에이전트](https://technet.microsoft.com/library/mt622052.aspx) 이전에 설치해야 합니다.
-2.  다음 명령을 사용하여 루트로 Linux 종속성 에이전트를 설치합니다.<br>*sh InstallDependencyAgent-Linux64.bin*.
-3.  종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다.
+1.    [Linux 컴퓨터에서 데이터 수집 및 관리의 지침을 사용하여 OMS 에이전트가 설치되어 있는지 확인합니다.  Linux 종속성 에이전트](https://technet.microsoft.com/library/mt622052.aspx) 이전에 설치해야 합니다.
+2.    다음 명령을 사용하여 루트로 Linux 종속성 에이전트를 설치합니다.<br>*sh InstallDependencyAgent-Linux64.bin*.
+3.    종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Linux에서 종속성 에이전트 제거
 Linux에서 종속성 에이전트를 완전히 제거하려면 에이전트 자체와 에이전트와 함께 자동으로 설치된 커넥터를 제거해야 합니다.  다음 단일 명령으로 둘 다 제거할 수 있습니다.
@@ -142,7 +143,7 @@ Windows 종속성 에이전트에 대한 파일은 기본적으로 *C:\Program F
 
     InstallDependencyAgent-Linux64.bin -help
 
-| 플래그  설명
+| 플래그    설명
 |:--|:--|
 | -s | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
 | --check | 사용 권한 및 운영 체제를 확인하지만 에이전트를 설치하지 않습니다. |
@@ -177,8 +178,8 @@ Windows 종속성 에이전트에 대한 파일은 기본적으로 *C:\Program F
   
 다음 단계를 수행하여 관리 팩이 다운로드되었는지 확인합니다.
 
-1.  C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs에서 Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp라는 파일을 찾습니다.  
-2.  파일이 없고 에이전트가 SCOM 관리 그룹에 연결된 경우 운영 콘솔의 관리 작업 영역에서 관리 팩을 확인하여 파일을 SCOM으로 가져왔는지 확인합니다.
+1.    C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs에서 Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp라는 파일을 찾습니다.  
+2.    파일이 없고 에이전트가 SCOM 관리 그룹에 연결된 경우 운영 콘솔의 관리 작업 영역에서 관리 팩을 확인하여 파일을 SCOM으로 가져왔는지 확인합니다.
 
 서비스 맵 MP는 Operations Manager Windows 이벤트 로그에 이벤트를 기록합니다.  로그는 시스템 로그 솔루션을 통해 [OMS에서 검색](../log-analytics/log-analytics-log-searches.md)할 수 있으며 여기서 업로드할 로그 파일을 구성할 수 있습니다.  디버그 이벤트가 사용하도록 설정된 경우 이벤트 원본 *ADMConnector*와 함께 응용 프로그램 이벤트 로그에 기록됩니다.
 
@@ -198,7 +199,7 @@ Windows 종속성 에이전트에 대한 파일은 기본적으로 *C:\Program F
 #### <a name="microsoft-dependency-agent"></a>Microsoft 종속성 에이전트
 종속성 에이전트에서 문제 해결 데이터를 생성하려면 sudo 또는 루트 권한이 있는 계정으로 로그인하고 다음 명령을 실행합니다.  --help 플래그를 추가하여 추가 옵션을 표시할 수 있습니다.
 
-    /opt/microsoft/dependency-agent/scripts/collect-dependency-agent-data.sh
+    /opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
 
 지원 데이터 패키지는 에이전트의 설치 디렉터리 아래 /var/opt/microsoft/dependency-agent/log(루트인 경우) 또는 스크립트를 실행하는 사용자의 홈 디렉터리(루트가 아닌 경우)에 저장됩니다.  다른 위치에 저장하려면 --file <filename> 옵션을 사용하면 됩니다.
 
@@ -322,9 +323,4 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 맵이 배포 및 구성된 경우 [서비스 맵을 사용](operations-management-suite-service-map.md)하는 방법을 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

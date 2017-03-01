@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5622ab215fd7fea4c24ad00ea7132d12ecabbcd5
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 02a1b163c77f3f7f6853762f442bffa617bd9f52
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,9 +31,7 @@ ms.openlocfilehash: 5622ab215fd7fea4c24ad00ea7132d12ecabbcd5
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>B2B 공동 작업 사용자를 응용 프로그램에 추가하는 정보 근로자
 다음 비디오에서 표시된 대로 B2B 공동 작업 사용자를 파트너 조직의 정보 근로자로 할당합니다.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
-
-  이 비디오가 포함된 비디오로 표시되지 않는 경우 [여기](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps)에서 확인할 수 있습니다.
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>B2B 공동 작업 사용자를 그룹에 추가하는 정보 근로자
 
@@ -56,9 +55,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
+ms.sourcegitcommit: fc73b667112fe35473872c33bc98423a424c5c65
+ms.openlocfilehash: d6bee5afea6afcd756b53f41baef5dd984423c0a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -48,8 +49,8 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 | 암호 만료 기간 |<ul><li>기본값: **90**일 </li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 Set-MsolPasswordPolicy cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전)</li><li>값은 Set-MsolPasswordPolicy cmdlet을 사용하여 구성 할 수 있습니다.</li></ul> |
 | 암호 만료 |<ul><li>기본값: **false**일(사용 가능한 암호 만료임을 나타냄) </li><li>Set-MsolUser cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다. </li></ul> |
-| 암호 기록 |마지막 암호를 다시 사용할 수 없습니다. |
-| 암호 기록 기간 |영구 |
+| 암호 **변경** 기록 |암호를 **변경**한 경우 마지막 암호는 다시 **사용할 수 없습니다**. |
+| 암호 **재설정** 기록 | 잊은 암호를 **다시 설정**하면 마지막 암호를 다시 사용**할 수도** 있습니다. |
 | 계정 잠금 |로그인 시도를 10번 실패하면(잘못된 암호) 1분 동안 사용자가 잠기게 됩니다. 잘못된 로그인을 더 시도하면 사용자가 잠기는 시간이 더 늘어납니다. |
 
 ## <a name="next-steps"></a>다음 단계
@@ -63,9 +64,4 @@ Azure AD 인증 시스템에 로그인해야 하는 모든 사용자 계정에�
 * [암호 관리 FAQ](active-directory-passwords-faq.md)
 * [암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
 * [자세한 정보](active-directory-passwords-learn-more.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

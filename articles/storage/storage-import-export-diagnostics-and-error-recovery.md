@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 060e8cbbd812ed2495d1c589f29760d2453af51b
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 88c42ff541aac2e43724fe62f99e3ddea56afc3c
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="diagnostics-and-error-recovery-for-import-export-jobs"></a>Import-Export 작업에 대한 진단 및 오류 복구
+# <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure Import/Export 작업에 대한 진단 및 오류 복구
 처리된 각 드라이브의 경우 Azure Import/Export 서비스가 연결된 저장소 계정에 오류 로그를 만듭니다. [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 또는 [업데이트 작업 속성](/rest/api/storageimportexport/jobs#Jobs_Update) 작업을 호출할 때 `LogLevel` 속성을 `Verbose`로 설정하여 자세한 정보 로깅을 사용하도록 설정할 수도 있습니다.
 
  기본적으로 로그는 `waimportexport`라는 컨테이너에 기록됩니다. `Put Job` 또는 `Update Job Properties` 조작을 호출할 때 `DiagnosticsPath` 속성을 설정하여 다른 이름을 지정할 수 있습니다. 로그는 다음 명명 규칙을 사용하여 블록 Blob으로 저장됩니다. `waies/jobname_driveid_timestamp_logtype.xml`.
@@ -58,9 +59,4 @@ ms.openlocfilehash: 060e8cbbd812ed2495d1c589f29760d2453af51b
 
 ## <a name="see-also"></a>참고 항목
 [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

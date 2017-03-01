@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
+ms.openlocfilehash: 217715ad1657582eb35008b765de6d19bd2a8b0b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -39,7 +40,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 > 
 > 
 
-각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 컴퓨터에 할당하는 프로덕션 스타일 노드 구성를 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 컴퓨터에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 클러스터를 삭제하고 새 버전으로 다시 만들어야 합니다.
+각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 컴퓨터에 할당하는 프로덕션 스타일 노드 구성을 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 컴퓨터에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 클러스터를 삭제하고 새 버전으로 다시 만들어야 합니다.
 
 클러스터를 최신 또는 지원되는 Service Fabric 버전으로 업그레이드하는 데는 두 가지 워크플로가 있습니다. 하나는 자동으로 최신 Service Fabric 버전을 다운로드하도록 연결된 클러스터를 위한 것이며, 다른 하나는 연결되지 않은 클러스터를 위한 것입니다.
 
@@ -124,8 +125,14 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로입니다.
-1. [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에서 최신 버전의 패키지를 다운로드하세요. 
-2. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다. 
+1. 클러스터의 노드 중 하나에서 Get-ServiceFabricClusterUpgrade를 실행하고 TargetCodeVersion을 기록해 둡니다.
+2. 인터넷에 연결된 컴퓨터에서 다음을 실행하여 현재 버전과 호환 가능한 모든 업그레이드 버전을 나열하고 연결된 다운로드 링크에서 해당 패키지를 다운로드합니다.
+   ```powershell
+   
+    ###### Get list of all upgrade compatible packages
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1>
+    ```
+3. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다. 
    
     ```powershell
    
@@ -140,7 +147,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-3. 다운로드 한 패키지를 클러스터 이미지 저장소에 복사합니다.
+4. 다운로드 한 패키지를 클러스터 이미지 저장소에 복사합니다.
    
     ```powershell
    
@@ -152,7 +159,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 
     ```
 
-1. 복사된 패키지 등록 
+5. 복사된 패키지 등록 
    
     ```powershell
    
@@ -163,7 +170,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. 클러스터 업그레이드를 사용 가능한 버전 중 하나에 시작합니다. 
+6. 클러스터 업그레이드를 사용 가능한 버전 중 하나에 시작합니다. 
    
     ```Powershell
    
@@ -184,16 +191,29 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 
 롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
+
+## <a name="cluster-configuration-upgrade"></a>클러스터 구성 업그레이드
+클러스터 구성 업그레이드를 수행하려면 Start-ServiceFabricClusterConfigurationUpgrade를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+### <a name="cluster-certificate-config-upgrade-pls-hold-on-till-v55-is-released-because-cluster-cert-upgrade-doesnt-work-till-v55"></a>클러스터 인증서 구성 업그레이드(클러스터 인증서 업그레이드는 v5.5까지 작동하지 않으므로 PLS HOLD ON TILL v5.5가 릴리스됨)
+오류는 클러스터 노드 간의 통신을 차단하므로 주의해서 인증서 롤오버가 실행될 수 있도록 클러스터 노드 간 인증에 클러스터 인증서가 사용됩니다.
+기술적으로 두 가지 옵션이 지원됩니다.
+
+1. 단일 인증서 업그레이드: 업그레이드 경로는 '인증서 A(기본) -> 인증서 B(기본) -> 인증서 C(기본) ->...'입니다. 
+2. 이중 인증서 업그레이드: 업그레이드 경로는 '인증서 A(기본) -> 인증서 A(기본) 및 B(보조) -> 인증서 B(기본) -> 인증서 B(기본) 및 C(보조) -> 인증서 C(기본) ->...'입니다.
+
+
 ## <a name="next-steps"></a>다음 단계
-*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

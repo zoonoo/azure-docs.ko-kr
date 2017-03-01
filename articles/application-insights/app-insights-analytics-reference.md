@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f336058fd743b4dfec17eb301a3b28d035ca8d0f
-ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
+ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
+ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -27,13 +28,13 @@ ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 * 입력 시 분석 기능에서 많은 참조 자료를 사용할 수 있습니다. 쿼리를 입력하기 시작하면 가능한 완성 단어가 표시됩니다.
 * [자습서 페이지](app-insights-analytics-tour.md)에는 언어 기능에 대한 단계별 소개가 표시됩니다.
 * [SQL 사용자 치트 시트](https://aka.ms/sql-analytics)에서는 가장 일반적인 코드를 변환합니다.
-* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, [시뮬레이션된 데이터에 대한 드라이브 분석을 테스트](https://analytics.applicationinsights.io/demo)합니다.
+* 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우 [시뮬레이션된 데이터에 대한 분석 시험 사용](https://analytics.applicationinsights.io/demo)을 수행합니다.
  
 
 ## <a name="index"></a>인덱스
 **사용** [사용](#let-clause)
 
-**쿼리 및 연산자** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**쿼리 및 연산자** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **집계** [모든](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [최대](#max) | [min](#min) | [백분위 수](#percentile) | [백분위 수](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [차이](#variance)
 
@@ -43,9 +44,9 @@ ms.openlocfilehash: ff9931fa3b549179ed612508ebb3555c21fafd30
 
 **날짜 및 시간** [날짜 및 시간 식](#date-and-time-expressions) | [날짜 및 시간 리터럴](#date-and-time-literals) | [전](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [지금](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**문자열** [Guid](#guids) | [난독 처리하는 문자열 리터럴](#obfuscated-string-literals) | [문자열 리터럴](#string-literals) | [문자열 비교](#string-comparisons) | [countof](#countof) | [추출](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [대체](#replace) | [분할](#split) | [strcat](#strcat) | [strlen](#strlen) | [부분 문자열](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**문자열** [GUID](#guids) | [난독 처리된 문자열 리터럴](#obfuscated-string-literals) | [문자열 리터럴](#string-literals) | [문자열 비교](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**배열, 개체 및 동적** [배열 및 개체 리터럴](#array-and-object-literals) | [동적 개체 함수](#dynamic-object-functions) | [let 절의 동적 개체](#dynamic-objects-in-let-clauses) | [JSON Path 식](#json-path-expressions) | [이름](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**배열, 개체 및 동적** [배열 및 개체 리터럴](#array-and-object-literals) | [동적 개체 함수](#dynamic-object-functions) | [let 절의 동적 개체](#dynamic-objects-in-let-clauses) | [JSON Path 식](#json-path-expressions) | [이름](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [in, !in](#in) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 ## <a name="let"></a>사용
 ### <a name="let-clause"></a>let 절
@@ -439,7 +440,10 @@ traces
 
 ### <a name="find-operator"></a>find 연산자
 
-    find in (Table1, Table2, Table3) where id=='42'
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
 
 테이블 집합 사이에서 조건자와 일치하는 행을 찾습니다.
 
@@ -453,6 +457,7 @@ traces
 
 * *Table1* 테이블 이름 또는 쿼리. let 정의 테이블일 수 있으나 함수는 아닙니다. 테이블 이름이 쿼리보다 더 효율적입니다.
 * *조건자* 지정된 테이블의 모든 행에 대해 계산되는 부울 식입니다.
+ * 문자열 비교 시 열 이름 대신 "*"를 사용할 수 있습니다.
 * *Column1* `project` 옵션을 사용하여 출력에 항상 표시되어야 하는 열을 지정할 수 있습니다. 
 
 **결과**
@@ -889,7 +894,7 @@ range timestamp from ago(4h) to now() step 1m
 
 두 개의 열 `Pattern` 및 `Count`입니다. 대부분의 경우 패턴은 열의 전체 값입니다. 경우에 따라 일반적인 용어를 식별하고 변수 부분을 '*'로 바꿉니다.
 
-예를 들어 `reduce by city` 의 결과는 포함할 수도 있습니다. 
+예를 들어 `reduce by city`의 결과는 포함할 수도 있습니다. 
 
 | 패턴 | 개수 |
 | --- | --- |
@@ -1140,7 +1145,7 @@ Traces
 [join 연산자](#join-operator)를 대신 사용할 수도 있습니다.
 
 ### <a name="where-operator"></a>where 연산자
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 조건자를 만족하는 행의 부분집합으로 테이블을 필터링합니다.
 
@@ -1183,61 +1188,7 @@ traces
 
 참고로 마지막 두 열은 인덱스를 이용할 수 없고 스캔을 강제로 실행하므로 해당 두 열 사이에 비교를 넣습니다.
 
-### <a name="where-in-operator"></a>where-in 연산자
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**구문**
-
-    T | where col in (listExpression)
-    T | where col !in (listExpression)
-
-**인수**
-
-* `col`: 테이블의 열입니다.
-* `listExpression`...: 스칼라 식의 목록 또는 목록으로 평가되는 식입니다. 
-
-중첩된 배열은 단일 목록으로 결합됩니다. 예를 들어 `where x in (dynamic([1,[2,3]]))`은 `where x in (1,2,3)`이 됩니다.
-
-`col`이(가) 식 `expr1...` 중 하나와 동일한 행만을 포함하도록 `in`을(를) 사용합니다.
-
-`col`이(가) 식 `expr1...` 중 어느 것과도 동일하지 않은 행만을 포함하도록 `!in`을(를) 사용합니다.  
-
-**예**
-
-```AIQL
-let cities = dynamic(['Dublin','Redmond','Amsterdam']);
-requests | where client_City in (cities) 
-|  summarize count() by client_City
-```
-
-계산된 목록:
-
-```AIQL
-let topCities =  toscalar ( // convert single column to value
-   requests
-   | summarize count() by client_City 
-   | top 4 by count_ 
-   | summarize makeset(client_City)) ;
-requests
-| where client_City in (topCities) 
-| summarize count() by client_City;
-```
-
-함수 호출을 목록 식으로 사용:
-
-```AIQL
-let topCities =  (n:int) {toscalar (
-   requests
-   | summarize count() by client_City 
-   | top n by count_ 
-   | summarize makeset(client_City)) };
-requests
-| where client_City in (topCities(3)) 
-| summarize count() by client_City;
-```
- 
 
 ## <a name="aggregations"></a>집계
 집계는 [작업 요약](#summarize-operator)에서 만든 그룹의 값을 결합하는 데 사용되는 함수입니다. 예를 들어 이 쿼리에서 dcount()는 집계 함수입니다.
@@ -1326,7 +1277,7 @@ traces
       "rawStack":"string"
     }}
 
-참고로 `indexer` 은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
+참고로 `indexer`은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
 
     details[0].parsedStack[2].level
     details[0].message
@@ -1982,7 +1933,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### <a name="date-and-time-expressions"></a>날짜 및 시간 식
-| Expression | 결과 |
+| 식 | 결과 |
 | --- | --- |
 | `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
 | `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
@@ -2239,8 +2190,8 @@ h"hello"
 | `endswith` |RHS가 LHS의 종료 하위 문자열임 |아니요 |`"Fabrikam" endswith "kam"` |
 | `!endswith` |RHS가 LHS의 종료 하위 문자열이 아님 |아니요 |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |LHS가 RHS에 대한 일치 항목을 포함 |예 |`"Fabrikam" matches regex "b.*k"` |
-| `in` |요소와 같음 |예 |`"abc" in ("123", "345", "abc")` |
-| `!in` |요소와 같지 않음 |예 |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |요소와 같음 |예 |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |요소와 같지 않음 |예 |`"bc" !in ("123", "345", "abc")` |
 
 전체 어휘 용어의 존재를 시험하는 경우 `has` 또는 `in`을 사용합니다. 즉, 기호 또는 필드 시작 또는 끝에 경계가 지어진 영숫자 단어입니다. `has` 는(은) `contains`, `startswith` 또는 `endswith` 보다 빠르게 수행합니다. 이러한 쿼리의 첫 번째 쿼리가 더 빠르게 실행됩니다.
 
@@ -2323,6 +2274,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
     isempty("") == true
@@ -2579,7 +2532,7 @@ substring("ABCD", 0, 2)       // AB
       "rawStack":"string"
     }}
 
-참고로 `indexer` 은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
+참고로 `indexer`은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
 
     details[0].parsedStack[2].level
     details[0].message
@@ -2611,8 +2564,8 @@ T
 ### <a name="dynamic-object-functions"></a>동적 개체 함수
 |  |  |
 | --- | --- |
-| *값* `in` *array* |== *value*인 *array*의 요소가 있으면 True<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *값* `!in` *array* |== *value*인 *array*의 요소가 없으면 True |
+| [*value* `in` *array*](#in) |*array*에서 *value* 포함 |
+| [*value* `!in` *array*](#in) |*array*에서 *value* 포함 안 함 |
 | [`arraylength(`array`)`](#arraylength) |배열이 아니면 Null |
 | [`extractjson(`path,object`)`](#extractjson) |path를 사용하여 object를 탐색합니다. |
 | [`parsejson(`source`)`](#parsejson) |JSON 개체를 동적 개체로 변환합니다. |
@@ -2631,7 +2584,57 @@ T
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### <a name="in"></a>in
+    value in (listExpression)
+    value !in (listExpression)
 
+값에 해당하는 항목이 목록에 있는지 여부를 결정합니다. 값이 문자열인 경우 대/소문자를 구분합니다.
+
+**인수**
+
+* `value`: 스칼라 식입니다.
+* `listExpression`...: 스칼라 식의 목록 또는 목록으로 평가되는 식입니다. 
+
+중첩된 배열은 단일 목록으로 결합됩니다. 예를 들어 `where x in (dynamic([1,[2,3]]))`은 `where x in (1,2,3)`이 됩니다.  
+
+**예**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+계산된 목록:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+함수 호출을 목록 식으로 사용:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### <a name="arraylength"></a>arraylength
 동적 배열 내의 요소 수입니다.
@@ -2693,7 +2696,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 * `extractjson()`
 * 정규식 일치 사용은 [extract](#extract) 를 대신 사용하는 것으로 간주합니다. 이렇게 하면 훨씬 더 빠르게 실행될 수 있으며 JSON이 템플릿에서 생성된 경우 효과적입니다.
-* JSON에서 값을 둘 이상 추출해야 하는 경우 `parsejson()` 을 사용합니다.
+* JSON에서 값을 둘 이상 추출해야 하는 경우 `parsejson()`을 사용합니다.
 * 열 형식을 동적으로 선언하여 수집 시 JSON이 구문 분석되게 하는 것으로 간주합니다.
 
 ### <a name="json-path-expressions"></a>JSON Path 식
@@ -2829,14 +2832,9 @@ path 식의 배열입니다.
 | ['경로\\file\n\'x\''] |이스케이프 문자에 \를 사용 |
 | ["d-e.=/f#\n"] | |
 | [@'path\file'] |이스케이프 없음 - \는 리터럴입니다. |
-| [@"\now & 다음\"] | |
+| [@"\now & then\"] | |
 | [where] |언어 키워드를 이름으로 사용 |
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

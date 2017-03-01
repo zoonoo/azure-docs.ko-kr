@@ -14,8 +14,9 @@ ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 032747ffb7a603c54e8913c0d82edbc8e11b73c3
-ms.openlocfilehash: 0b808dd6bcf0a0d1f8e459927a4010dc1887ca60
+ms.sourcegitcommit: 146fe63ba2c9efd8b734eb8cc8cb5dee82a94f2a
+ms.openlocfilehash: 97757f2cc78dc02f4efdcb3c09cee7741504448b
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -44,7 +45,7 @@ Azure Automation를 사용하여 두 가지 방법인 Azure Portal 및 Windows P
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Azure 포털을 사용하여 DSC 구성 컴파일
 
-1. Automation 계정에서 **구성**을 클릭합니다.
+1. Automation 계정에서 **DSC 구성**을 클릭합니다.
 2. 구성을 클릭하여 해당 블레이드를 엽니다.
 3. **컴파일**을 클릭합니다.
 4. 구성에 매개 변수가 없는 경우 컴파일할지 확인하라는 메시지가 표시됩니다. 구성에 매개 변수가 있는 경우 **컴파일 구성** 블레이드를 열어 매개 변수 값을 제공할 수 있습니다. 매개 변수에 대한 자세한 내용은 아래의 [**기본 매개 변수**](#basic-parameters) 섹션을 참조하세요.
@@ -240,8 +241,39 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
 
+## <a name="importing-node-configurations"></a>노드 구성 가져오기
+
+Azure 외부에서 컴파일한 노드 구성(MOF)을 가져올 수도 있습니다. 이 경우 장점 중 하나는 노드 구성을 서명할 수 있다는 것입니다.
+서명된 노드 구성은 DSC 에이전트에 의해 관리되는 노드에서 로컬로 확인되어 인증된 출처에서 가져온 노드에 구성을 적용할 수 있습니다.
+
+> [!NOTE]
+> 서명된 구성을 Azure Automation 계정으로 가져오기를 사용할 수 있지만 Azure Automation에서는 현재 서명된 구성의 컴파일을 지원하지 않습니다.
+
+> [!NOTE]
+> 노드 구성 파일은 Azure Automation으로 가져오기 위해 1MB보다 크지 않아야 합니다.
+
+다음 위치에서 노드 구성을 서명하는 방법을 알아볼 수 있습니다. https://msdn.microsoft.com/ko-kr/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module
+
+### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Azure Portal에서 노드 구성 가져오기
+
+1. Automation 계정에서 **DSC 노드 구성**을 클릭합니다.
+
+    ![DSC 노드 구성](./media/automation-dsc-compile/node-config.png)
+2. **DSC 노드 구성** 블레이드에서 **노드 구성 추가**를 클릭합니다.
+3. **가져오기** 블레이드에서 **노드 구성 파일** 텍스트 상자 옆의 폴더 아이콘을 클릭하여 로컬 컴퓨터에서 노드 구성 파일(MOF)을 찾습니다.
+
+    ![로컬 파일 찾기](./media/automation-dsc-compile/import-browse.png)
+4. **구성 이름** 텍스트 상자에 이름을 입력합니다. 이 이름은 노드 구성이 컴파일된 구성 이름과 일치해야 합니다.
+5. **확인**을 클릭합니다.
+
+### <a name="importing-a-node-configuration-with-powershell"></a>PowerShell을 사용하여 노드 구성 가져오기
+
+[Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.automation/v1.0.12/import-azurermautomationdscnodeconfiguration) cmdlet을 사용하여 노드 구성을 Automation 계정으로 가져올 수 있습니다.
+
+```powershell
+Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```
 
 
-<!--HONumber=Feb17_HO2-->
 
 

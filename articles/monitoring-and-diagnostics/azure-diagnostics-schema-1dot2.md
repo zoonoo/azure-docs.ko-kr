@@ -1,22 +1,23 @@
 ---
 title: "Azure 진단 1.2 구성 스키마 | Microsoft Docs"
 description: "Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 또는 Cloud Services에서 Azure SDK 2.5를 사용하는 경우에만 해당됩니다."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 8cfb5116d06532b132d5ae9fe54dff1345d6948a
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: b76ef954d8a00e190817e3d7f8e2b064210d0357
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure 진단은 Azure Monitor, Application Insights 및 Log Analytics와 같은 
 
  다음 PowerShell 명령을 실행하여 공용 구성 파일 스키마 정의를 다운로드합니다.  
 
-```  
+```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
@@ -204,9 +205,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 모든 이벤트를 수집하려면 "*"를 지정합니다.|
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

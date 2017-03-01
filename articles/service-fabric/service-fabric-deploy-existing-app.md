@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 02/17/2016
+ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,6 +34,10 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 * 상태 모니터링. Service Fabric 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
 * 응용 프로그램 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
 * 밀도. 한 클러스터에서 여러 응용 프로그램을 실행할 수 있으므로 응용 프로그램을 고유의 하드웨어에서 실행할 필요가 없습니다.
+
+## <a name="samples"></a>샘플
+* [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>응용 프로그램 및 서비스 매니페스트 파일 개요
 게스트 실행 파일을 배포하는 일환으로 [응용 프로그램 모델](service-fabric-application-model.md)에 설명된 Service Fabric 패키징 및 배포 모델을 이해하는 것이 유용합니다. Service Fabric 패키징 모델은 두 XML 파일(응용 프로그램 및 서비스 매니페스트)에 의존합니다. ApplicationManifest.xml 및 ServiceManifest.xml에 대한 스키마 정의는 Service Fabric SDK와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
@@ -208,7 +213,7 @@ SetupEntryPoint가 하나밖에 없으므로 응용 프로그램의 설치에 �
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
-* `WorkingFolder` 는 곧 시작될 프로세스의 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
+* `WorkingFolder`는 곧 시작될 프로세스의 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
   * `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조의 `Code` 디렉터리).
   * `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조의 `GuestService1Pkg`).
     * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
@@ -333,13 +338,9 @@ Yeoman는 설치 및 제거 스크립트와 함께 해당 응용 프로그램과
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
 
-* 패키징 도구 시험판의 링크를 포함하여 [GitHub에 게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* 패키징 도구 시험판의 링크를 포함하여 [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 * [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

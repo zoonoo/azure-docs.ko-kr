@@ -4,7 +4,7 @@ description: "이 문서에서는 클라우드 환경에서 실행되는 다중 
 keywords: 
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -90,7 +91,7 @@ ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
 
 그림 2: 인기 있는 다중 테넌트 데이터 모델
 
-그림 2의 오른쪽 아래 사분면에는 공유된 독립 실행형 데이터베이스(대형일 수 있음)와 공유 테이블 또는 개별 스키마 방식을 사용하는 응용 프로그램 패턴이 나와 있습니다. 이 패턴은 모든 테넌트가 단일 데이터베이스의 동일한 데이터베이스 리소스(CPU, 메모리, 입력/출력)를 사용하기 때문에 리소스 공유에 적합합니다. 그러나 테넌트 격리는 제한됩니다. 응용 프로그램 계층에서 테넌트를 서로 보호하기 위해 추가 단계를 실행해야 할 수 있습니다. 이와 같은 추가 단계로 인해 경우 응용 프로그램 개발 및 관리에 소요되는 운영 개발 비용이 대폭 증가할 수 있습니다. 데이터베이스를 호스트하는 하드웨어의 규모에 따라 확장성이 제한됩니다.
+그림 2의 오른쪽 아래 사분면에는 공유된 단일 데이터베이스(대형일 수 있음)와 공유 테이블 또는 개별 스키마 방식을 사용하는 응용 프로그램 패턴이 나와 있습니다. 이 패턴은 모든 테넌트가 단일 데이터베이스의 동일한 데이터베이스 리소스(CPU, 메모리, 입력/출력)를 사용하기 때문에 리소스 공유에 적합합니다. 그러나 테넌트 격리는 제한됩니다. 응용 프로그램 계층에서 테넌트를 서로 보호하기 위해 추가 단계를 실행해야 할 수 있습니다. 이와 같은 추가 단계로 인해 경우 응용 프로그램 개발 및 관리에 소요되는 운영 개발 비용이 대폭 증가할 수 있습니다. 데이터베이스를 호스트하는 하드웨어의 규모에 따라 확장성이 제한됩니다.
 
 그림 2의 왼쪽 아래 사분면은 여러 데이터베이스(일반적으로 하드웨어 규모 단위가 서로 다름)에 대한 멀티 테넌트 공유를 나타냅니다. 각 데이터베이스는 다른 패턴의 확장성 문제를 해결하는 테넌트의 하위 집합을 호스트합니다. 테넌트가 추가되어 용량이 더 필요하면 새 하드웨어 규모 단위에 할당된 새 데이터베이스에 손쉽게 용량을 배치할 수 있습니다. 그러나 리소스 공유 양이 줄어듭니다. 동일한 규모 단위에 배치된 테넌트만이 리소스를 공유합니다. 이 방식은 다수의 테넌트가 서로의 작업으로부터 자동으로 보호받지 못하고 여전히 동일한 공간에 함께 배치되기 때문에 테넌트 격리를 향상시키지 않습니다. 응용 프로그램 복잡성의 높게 유지됩니다.
 
@@ -124,7 +125,7 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 | [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 데이터 배포를 관리하고 테넌트를 데이터베이스에 매핑합니다. | |
 
 ## <a name="shared-models"></a>공유 모델
-앞서 언급했듯이, 대부분의 SaaS 공급자에게 공유 모델 방식은 테넌트 격리 문제는 물론 응용 프로그램 개발 및 유지 관리의 복잡성과 관련해서도 문제를 유발할 수 있습니다. 그러나 소비자에게 서비스를 직접 제공하는 다중 테넌트 응용 프로그램의 경우, 테넌트 격리 요구 사항은 비용 최소화만큼 우선 순위가 높지 않을 수 있습니다. 이 경우에는 비용을 줄이기 위해서 하나 이상의 데이터베이스에 높은 밀도로 테넌트를 압축할 수 있습니다. 독립 실행형 데이터베이스 또는 다수의 분할된 데이터베이스를 사용하는 공유 데이터베이스 모델은 리소스 공유 효율을 높이고 전체 비용을 낮출 수 있습니다. Azure SQL 데이터베이스는 고객이 보안 향상 및 데이터 계층의 대규모 관리를 위해 격리를 구축하는 데 도움이 되는 몇 가지 기능을 제공합니다.
+앞서 언급했듯이, 대부분의 SaaS 공급자에게 공유 모델 방식은 테넌트 격리 문제는 물론 응용 프로그램 개발 및 유지 관리의 복잡성과 관련해서도 문제를 유발할 수 있습니다. 그러나 소비자에게 서비스를 직접 제공하는 다중 테넌트 응용 프로그램의 경우, 테넌트 격리 요구 사항은 비용 최소화만큼 우선 순위가 높지 않을 수 있습니다. 이 경우에는 비용을 줄이기 위해서 하나 이상의 데이터베이스에 높은 밀도로 테넌트를 압축할 수 있습니다. 단일 데이터베이스 또는 다수의 분할된 데이터베이스를 사용하는 공유 데이터베이스 모델은 리소스 공유 효율을 높이고 전체 비용을 낮출 수 있습니다. Azure SQL 데이터베이스는 고객이 보안 향상 및 데이터 계층의 대규모 관리를 위해 격리를 구축하는 데 도움이 되는 몇 가지 기능을 제공합니다.
 
 | 응용 프로그램 요구 사항 | SQL 데이터베이스 기능 |
 | --- | --- |
@@ -150,7 +151,7 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 
 Azure SQL 데이터베이스 도구를 사용하여 [규모 확장할 기존 데이터베이스를 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)합니다.
 
-[탄력적 풀을 만드는 방법](sql-database-elastic-pool-create-portal.md)에 관한 자습서를 참조하세요.  
+Azure Portal을 사용하여 탄력적 풀을 만들려면 [탄력적 풀 만들기](sql-database-elastic-pool-manage-portal.md)를 참조하세요.  
 
 [탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)방법에 대해 알아보세요.
 
@@ -160,14 +161,9 @@ Azure SQL 데이터베이스 도구를 사용하여 [규모 확장할 기존 데
 * [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Azure Active Directory 및 OpenID Connect를 사용하여 다중 테넌트 앱에서 인증](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin 설문 조사 응용 프로그램](../guidance/guidance-multitenant-identity-tailspin.md)
-* [솔루션 빠른 시작](sql-database-solution-quick-starts.md)
+
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 궁금한 사항이 있는 경우 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 방문하세요. [SQL 데이터베이스 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

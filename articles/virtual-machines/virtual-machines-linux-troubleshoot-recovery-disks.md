@@ -1,6 +1,6 @@
 ---
 
-title: "Azure CLI 1.0과 함께 Linux 문제 해결 VM 사용 | Microsoft Docs"
+title: "Azure CLI 2.0(미리 보기)을 사용하여 Linux 문제 해결 VM 사용 | Microsoft Docs"
 description: "Azure CLI 1.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제를 해결하는 방법 알아보기"
 services: virtual-machines-linux
 documentationCenter: 
@@ -12,17 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: cb876ea4281fefa334e0aaf4ed66d87fa5653099
-ms.openlocfilehash: 2d0eedd3dfd2b9c754b450228fa65d06fe0514f5
+ms.sourcegitcommit: c4dd7f0cc0a5f7ca42554da95ef215a5a6ae0dbc
+ms.openlocfilehash: 8157e6fd3c4e01d0f99acedfc119fd65879c4979
+ms.lasthandoff: 02/17/2017
 
 
 ---
 
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
-Linux 가상 컴퓨터(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI를 사용하는 방법을 자세히 설명합니다.
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
+Linux 가상 컴퓨터(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI 2.0(미리 보기)을 사용하는 방법을 자세히 설명합니다.
+
+
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+- [Azure CLI 1.0](virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
+- [Azure CLI 2.0(미리 보기)](#recovery-process-overview) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
 
 
 ## <a name="recovery-process-overview"></a>복구 프로세스 개요
@@ -34,11 +42,7 @@ Linux 가상 컴퓨터(VM)에 부팅 또는 디스크 오류가 발생하는 경
 4. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
 5. 원래 가상 하드 디스크를 사용하여 VM을 만듭니다.
 
-[최신 Azure CLI 1.0](../xplat-cli-install.md)이 설치되어 있으며 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
-
-```azurecli
-azure config mode arm
-```
+이러한 문제 해결 단계를 수행하려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`이 포함됩니다.
 
@@ -46,52 +50,36 @@ azure config mode arm
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
 VM이 올바르게 부팅할 수 없는 원인을 확인하려면 직렬 출력을 검사합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목 또는 삭제하거나 이동 중인 기본 가상 하드 디스크입니다.
 
-다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에서 직렬 출력을 수신합니다.
+[az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#get-boot-log)를 사용하여 부팅 로그를 가져옵니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에서 직렬 출력을 수신합니다.
 
 ```azurecli
-azure vm get-serial-output --resource-group myResourceGroup --name myVM
+az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 ```
 
 직렬 출력을 검토하여 VM가 부팅되지 않는 원인을 확인합니다. 직렬 출력에 아무런 표시가 없는 경우, 가상 하드 디스크가 문제 해결 VM에 연결하고 `/var/log`에 로그 파일을 검토해야 할 수 있습니다.
 
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>기존 가상 하드 디스크 세부 정보 보기
-가상 하드 디스크를 다른 VM에 연결하기 전에 가상 하드 디스크(VHD)의 이름을 식별해야 합니다. 
+VHD(가상 하드 디스크)를 다른 VM에 연결하기 전에 OS 디스크의 URI를 식별해야 합니다. 
 
-다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 대한 정보를 수신합니다.
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
-```
-
-이전 명령의 출력에서 `Vhd URI`를 찾습니다. 다음의 잘린 예제 출력은 마지막 줄에 `Vhd URI`가 표시됩니다.
+[az vm show](/cli/azure/vm#show)를 사용하여 VM에 대한 정보를 볼 수 있습니다. `--query`플래그를 사용하여 OS 디스크에 대한 URI를 추출합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 대한 디스크 정보를 수신합니다.
 
 ```azurecli
-info:    Executing command vm show
-+ Looking up the VM "myVM"
-+ Looking up the NIC "myNic"
-+ Looking up the public ip "myPublicIP"
-...
-data:
-data:      OS Disk:
-data:        OSType                      :Linux
-data:        Name                        :myVM
-data:        Caching                     :ReadWrite
-data:        CreateOption                :FromImage
-data:        Vhd:
-data:          Uri                       :https://mystorageaccount.blob.core.windows.net/vhds/myVM201610292712.vhd
+az vm show --resource-group myResourceGroup --name myVM \
+    --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
+URI는 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**와 비슷합니다.
 
 ## <a name="delete-existing-vm"></a>기존 VM 삭제
 가상 하드 디스크와 VM은 Azure의 두 가지 별개의 리소스입니다. 가상 하드 디스크에는 운영 체제 자체, 응용 프로그램 및 구성이 저장됩니다. VM 자체는 크기 또는 위치를 정의하고 가상 하드 디스크 또는 가상 네트워크 인터페이스 카드(NIC)와 같은 리소스를 참조하는 메타데이터일 뿐입니다. 각 가상 하드 디스크에는 VM에 연결할 때 할당된 임대가 있습니다. VM을 실행하는 동안에도 데이터 디스크를 연결하고 분리할 수 있지만, VM 리소스를 삭제하지 않는 한 OS 디스크를 분리할 수 없습니다. 해당 VM이 중지 및 할당 취소된 상태에 있을 때에도 임대는 OS 디스크와 VM을 계속 연결합니다.
 
 VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것입니다. VM을 삭제하면 가상 하드 디스크는 저장소 계정에 남게 됩니다. VM을 삭제한 후 가상 하드 디스크를 다른 VM에 연결하여 문제와 오류를 해결합니다.
 
-다음 예제에서는 리소스 그룹 `myResourceGroup`에서 VM `myVM`을 삭제합니다.
+[az vm delete](/cli/azure/vm#delete)를 사용하여 VM을 삭제합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 VM `myVM`을 삭제합니다.
 
 ```azurecli
-azure vm delete --resource-group myResourceGroup --name myVM 
+az vm delete --resource-group myResourceGroup --name myVM 
 ```
 
 가상 하드 디스크를 다른 VM에 연결 하기 전에 VM이 삭제 작업을 끝낼 때까지 기다립니다. VM과 연결하는 가상 하드 디스크의 임대는 가상 하드 디스크를 다른 VM에 연결하기 전에 해제해야 합니다.
@@ -100,11 +88,11 @@ azure vm delete --resource-group myResourceGroup --name myVM
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>기존 가상 하드 디스크를 다른 VM에 연결
 다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 기존 가상 하드 디스크를 이 문제 해결 VM에 연결하여 디스크의 콘텐츠를 찾아 편집합니다. 예를 들어 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다. 다른 VM을 선택하거나 만들어 문제 해결에 사용합니다.
 
-기존 가상 하드 디스크를 연결하는 경우 이전 `azure vm show` 명령에서 획득한 디스크에 URL을 지정합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 문제 해결 VM `myVMRecovery`에 기존 가상 하드 디스크를 연결합니다.
+[az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk#attach)를 사용하여 기존 가상 하드 디스크를 연결합니다. 기존 가상 하드 디스크를 연결하는 경우 이전 `az vm show` 명령에서 획득한 디스크에 URI를 지정합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 문제 해결 VM `myVMRecovery`에 기존 가상 하드 디스크를 연결합니다.
 
 ```azurecli
-azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
-    --vhd-url https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
+az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
+    --vhd-uri https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
 ```
 
 
@@ -166,76 +154,45 @@ azure vm disk attach --resource-group myResourceGroup --name myVMRecovery \
     sudo umount /dev/sdc1
     ```
 
-2. 이제 VM에서 가상 하드 디스크를 분리합니다. 문제 해결 VM에 대한 SSH 세션을 종료합니다. Azure CLI에서 먼저 문제 해결 VM에 연결된 데이터 디스크를 나열합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVMRecovery`에 연결된 데이터 디스크를 나열합니다.
+2. 이제 VM에서 가상 하드 디스크를 분리합니다. 문제 해결 VM에 대한 SSH 세션을 종료합니다. [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk#list)를 사용하여 문제 해결 중인 VM에 연결된 데이터 디스크를 나열합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVMRecovery`에 연결된 데이터 디스크를 나열합니다.
 
     ```azurecli
-    azure vm disk list --resource-group myResourceGroup --vm-name myVMRecovery
+    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
+        --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    기존 가상 하드 디스크에 대한 `Lun` 값을 적어둡니다. 다음 예제 명령 출력은 LUN 0에서 연결된 기존 가상 디스크를 보여줍니다.
+    기존 가상 하드 디스크의 이름을 적어둡니다. 예를 들어, **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**라는 URI를 사용하는 디스크의 이름은 **myVHD**입니다. 
+
+    [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk#detach) VM에서 데이터 디스크를 분리합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVMRecovery`에서 디스크 `myVHD`을 분리합니다.
 
     ```azurecli
-    info:    Executing command vm disk list
-    + Looking up the VM "myVMRecovery"
-    data:    Name              Lun  DiskSizeGB  Caching  URI
-    data:    ------            ---  ----------  -------  ------------------------------------------------------------------------
-    data:    myVM              0                None     https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
-    info:    vm disk list command OK
-    ```
-
-    적용 가능한 `Lun` 값을 사용하여 VM에서 데이터 디스크를 분리합니다.
-
-    ```azurecli
-    azure vm disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --lun 0
+    az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
+        --name myVHD
     ```
 
 
 ## <a name="create-vm-from-original-hard-disk"></a>원래 하드 디스크에서 VM 만들기
-원래 가상 하드 디스크에서 VM을 만들려면 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet)을 사용합니다. 실제 JSON 템플릿은 다음 링크에 있습니다.
+원래 가상 하드 디스크에서 VM을 만들려면 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)을 사용합니다. 실제 JSON 템플릿은 다음 링크에 있습니다.
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-템플릿은 이전 명령의 VHD URL을 사용하여 VM을 기존 가상 네트워크에 배포합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에 템플릿을 배포합니다.
-
-```azurecli
-azure group deployment create --resource-group myResourceGroup --name myDeployment \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
-```
-
-VM 이름(다음 예제의 `myDeployedVM`), OS 유형(`Linux`) 및 VM 크기(`Standard_DS1_v2`) 등 템플릿에 대한 프롬프트에 응답합니다. `osDiskVhdUri`는 기존 가상 하드 디스크를 문제 해결 VM에 연결할 때 이전에 사용된 것과 동일합니다. 명령 출력과 프롬프트의 예는 다음과 같습니다.
+템플릿은 이전 명령에서 VHD URI를 사용하여 VM을 배포합니다. [az group deployment create](/cli/azure/vm/deployment#create)를 사용하여 템플릿을 배포합니다. 원래 VHD에 URI를 제공하고 OS 형식, VM 크기 및 VM 이름을 다음과 같이 지정합니다.
 
 ```azurecli
-info:    Executing command group deployment create
-info:    Supply values for the following parameters
-vmName:  myDeployedVM
-osType:  Linux
-osDiskVhdUri:  https://mystorageaccount.blob.core.windows.net/vhds/myVM201610292712.vhd
-vmSize:  Standard_DS1_v2
-existingVirtualNetworkName:  myVnet
-existingVirtualNetworkResourceGroup:  myResourceGroup
-subnetName:  mySubnet
-dnsNameForPublicIP:  mypublicipdeployed
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "mydeployment"
-+ Waiting for deployment to complete
-+
+az group deployment create --resource-group myResourceGroup --name myDeployment \
+  --parameters '{"osDiskVhdUri": {"value": "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"},
+    "osType": {"value": "Linux"},
+    "vmSize": {"value": "Standard_DS1_v2"},
+    "vmName": {"value": "myDeployedVM"}}' \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 ```
-
 
 ## <a name="re-enable-boot-diagnostics"></a>부트 진단 다시 사용
-
-기존 가상 하드 디스크에서 VM을 만든 경우 부팅 진단을 자동으로 사용할 수 없습니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myDeployedVM`에서 진단 확장을 사용할 수 있습니다.
+기존 가상 하드 디스크에서 VM을 만든 경우 부팅 진단을 자동으로 사용할 수 없습니다. [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#enable)을 사용하여 부팅 진단을 사용하도록 설정합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myDeployedVM`에서 진단 확장을 사용할 수 있습니다.
 
 ```azurecli
-azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
+az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [Azure VM에 SSH 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Linux VM에서 응용 프로그램 연결 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

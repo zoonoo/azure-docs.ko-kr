@@ -1,6 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Azure HDInsight 및 Data Lake Store 만들기 | Microsoft Docs"
-description: "Azure PowerShell을 사용하여 Azure 데이터 레이크로 HDInsight Hadoop 클러스터 만들기 및 사용"
+title: "PowerShell: Data Lake Store를 추가 기능 저장소로 사용하는 Azure HDInsight 클러스터 | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: 
 author: nitinme
@@ -12,34 +11,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0fed9cff7a357c596d7e178ec756be449cd1dff0
-ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
+ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
+ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-powershell"></a>Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
+# <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Azure PowerShell을 사용하여 Data Lake Store를 (추가 저장소로) 사용하여 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Azure PowerShell을 사용하여 Azure Data Lake Store에 대한 액세스 권한이 있는 HDInsight 클러스터를 구성하는 방법에 대해 알아봅니다. 지원되는 클러스터 유형의 경우 Data Lake Store는 기본 저장소 또는 추가 저장소 계정으로 사용됩니다. Data Lake Store를 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Store 계정에 저장될 수 있습니다. Data Lake 저장소를 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
+Azure PowerShell을 사용하여 Azure Data Lake Store에서 HDInsight 클러스터를 **추가 저장소로** 구성하는 방법에 대해 알아봅니다. 기본 저장소로 Azure Data Lake Store를 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [Data Lake Store를 기본 저장소로 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)를 참조하세요.
 
-몇 가지 중요한 고려 사항
+지원되는 클러스터 유형의 경우 Data Lake Store는 기본 저장소 또는 추가 저장소 계정으로 사용될 수 있습니다. Data Lake Store를 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Store 계정에 저장될 수 있습니다. Data Lake 저장소를 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
 
-* 기본 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5에서 사용할 수 있습니다.
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>HDInsight 클러스터 저장소에서 Data Lake Store 사용
+
+Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사항은 다음과 같습니다.
 
 * 추가 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2, 3.4 및 3.5에서 사용할 수 있습니다.
 
 * HBase 클러스터(Windows 및 Linux)의 경우 Data Lake Store는 기본 저장소뿐만 아니라 추가 저장소에 대해서도 저장소 옵션으로 **지원되지 않습니다**.
 
-
-이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다. 기본 저장소로 Data Lake Store를 사용하여 Hadoop 클러스터를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 Data Lake 저장소를 포함한 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
 PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도록 HDInsight를 구성하는 단계는 다음과 같습니다.
 
@@ -161,8 +162,9 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-## <a name="create-an-hdinsight-linux-cluster-with-authentication-to-data-lake-store"></a>Data Lake Store에 대한 인증을 사용하여 HDInsight Linux 클러스터 만들기
-이 섹션에서는HDInsight Hadoop Linux 클러스터를 만듭니다. 이 릴리스의 경우 HDInsight 클러스터와 Data Lake Store는 동일한 위치에 있어야 합니다.
+## <a name="create-an-hdinsight-linux-cluster-with-data-lake-store-as-additional-storage"></a>Data Lake Store를 추가 저장소로 사용하여 HDInsight 클러스터 만들기
+
+이 섹션에서는 Data Lake Store를 추가 저장소로 사용하여 HDInsight 클러스터를 만듭니다. 이 릴리스의 경우 HDInsight 클러스터와 Data Lake Store는 동일한 위치에 있어야 합니다.
 
 1. 구독 테넌트 ID 검색을 시작합니다. 나중에 필요합니다.
 
@@ -248,9 +250,4 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
-ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
+ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
+ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -91,7 +92,10 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 ### <a name="showhide-self-links"></a>자체 링크 표시/숨기기
 자체 링크 표시를 클릭하면 서버 내에서 프로세스를 시작 및 종료하는 TCP 연결에 해당하는 자체 링크를 포함하는 서버 노드가 다시 그려집니다.  자체 링크가 표시되면 메뉴가 자체 링크 숨기기로 변경되므로 사용자는 자체 링크 그리기를 전환할 수 있습니다.
 
+## <a name="computer-summary"></a>컴퓨터 요약
+컴퓨터 요약 패널에는 서버 운영 체제 및 종속성 계수의 개요, 성능 메트릭, 변경 추적, 보안, 업데이트 등을 비롯한 다른 OMS 솔루션의 다양한 데이터가 포함됩니다.
 
+![컴퓨터 요약](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>컴퓨터 및 프로세스 속성
 서비스 맵 맵을 탐색할 때는 해당 속성에 대한 추가 컨텍스트를 얻으려면 컴퓨터 및 프로세스를 선택할 수 있습니다.  컴퓨터는 DNS 이름, IPv4 주소, CPU 및 메모리 용량, VM 유형, 운영 체제 버전, 마지막으로 다시 부팅 시간 및 해당 OMS 및 서비스 맵 에이전트의 ID에 대한 정보를 제공합니다.
@@ -106,10 +110,22 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 ![프로세스 요약](media/oms-service-map/process-summary.png)
 
-## <a name="computer-summary"></a>컴퓨터 요약
-컴퓨터 요약 패널에는 서버 운영 체제 및 종속성 계수의 개요, 성능 메트릭, 변경 추적, 보안, 업데이트 등을 비롯한 다른 OMS 솔루션의 다양한 데이터가 포함됩니다.
+## <a name="oms-alerts-integration"></a>OMS 경고 통합
+서비스 맵은 OMS 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다.  현재 경고가 있으면 서버에 아이콘이 표시되고 컴퓨터 경고 패널에 경고가 표시됩니다.
 
-![컴퓨터 요약](media/oms-service-map/machine-summary.png)
+![컴퓨터 경고 패널](media/oms-service-map/machine-alerts.png)
+
+서비스 맵에 관련 경고를 표시할 수 있으려면 특정 컴퓨터에 대해 발생하도록 경고 규칙을 만들어야 합니다.  적절한 경고를 만들려면
+- 컴퓨터별로 그룹화하기 위해 “by Computer interval 1minute" 절 포함
+- 미터법을 기준으로 경고하도록 선택
+
+![경고 구성](media/oms-service-map/alert-configuration.png)
+
+
+## <a name="oms-log-events-integration"></a>OMS 로그 이벤트 통합
+서비스 맵은 로그 검색과 통합되어 선택한 시간 범위 내에서 선택한 서버에 대해 사용할 수 있는 모든 로그 이벤트의 개수를 표시합니다.  이벤트 수 목록의 행을 클릭하면 로그 검색으로 이동하고 개별 로그 이벤트를 볼 수 있습니다.
+
+![로그 이벤트](media/oms-service-map/log-events.png)
 
 ## <a name="oms-change-tracking-integration"></a>OMS 변경 내용 추적 통합
 변경 내용 추적과 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 OMS 작업 영역에서 구성된 경우 자동입니다.
@@ -138,19 +154,6 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 컴퓨터 업데이트 패널에는 선택한 서버에 대한 OMS 업데이트 관리 솔루션의 데이터가 표시됩니다.  이 패널은 선택한 시간 범위 동안 서버에 대한 누락된 업데이트의 요약을 표시합니다.
 ![컴퓨터 변경 내용 추적 패널](media/oms-service-map/machine-updates.png)
-
-
-## <a name="oms-alerts-integration"></a>OMS 경고 통합
-서비스 맵은 OSM 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다.  현재 경고가 있으면 서버에 아이콘이 표시되고 컴퓨터 경고 패널에 경고가 표시됩니다.
-
-![컴퓨터 경고 패널](media/oms-service-map/machine-alerts.png)
-
-서비스 맵에 관련 경고를 표시할 수 있으려면 특정 컴퓨터에 대해 발생하도록 경고 규칙을 만들어야 합니다.  적절한 경고를 만들려면
-- 컴퓨터별로 그룹화하기 위해 “by Computer interval 1minute" 절 포함
-- 미터법을 기준으로 경고하도록 선택
-
-![경고 구성](media/oms-service-map/alert-configuration.png)
-
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
 서비스 맵의 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-log-searches.md)에 사용할 수 있습니다.  이것은 마이그레이션 계획, 용량 분석, 검색 및 임시 성능 문제 해결 등의 시나리오에 적용할 수 있습니다.
@@ -251,10 +254,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## <a name="rest-api"></a>REST API
+서비스 맵의 모든 서버, 프로세스 및 종속성 데이터는 [서비스 맵 REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/)를 통해 사용할 수 있습니다.
+
+
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용 현황 데이터
 Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 데이터를 자동으로 수집합니다. Microsoft는 이 데이터를 사용하여 서비스 맵 서비스의 품질, 보안 및 무결성을 제공 및 개선합니다. 데이터에는 운영 체제 및 버전과 같은 소프트웨어 구성에 대한 정보가 포함되며 정확하고 효율적인 문제 해결 기능을 제공하기 위해 IP 주소, DNS 이름 및 워크스테이션 이름도 포함됩니다. 이름, 주소 또는 기타 연락처 정보는 수집하지 않습니다.
 
-데이터 수집 및 사용에 대한 자세한 내용은 [Microsoft Online Services 개인 정보 취급 방침](hhttps://go.microsoft.com/fwlink/?LinkId=512132)을 참조하세요.
+데이터 수집 및 사용에 대한 자세한 내용은 [Microsoft Online Services 개인 정보 취급 방침](https://go.microsoft.com/fwlink/?LinkId=512132)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -263,9 +270,4 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="feedback"></a>사용자 의견
 서비스 맵 또는 이 설명서에 대한 의견이 있습니까?  기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

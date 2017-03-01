@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB 스크립트 탐색기, JavaScript 편집기 | Microsoft Docs"
-description: "저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 관리하는 Azure 포털 도구인 DocumentDB 스크립트 탐색기에 대해 알아봅니다."
+title: "Azure DocumentDB 포털 도구: 스크립트 탐색기 | Microsoft Docs"
+description: "JavaScript 저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 관리하는 Azure Portal 도구인 DocumentDB 스크립트 탐색기에 대해 알아봅니다."
 keywords: "javascript 편집기"
 services: documentdb
 author: kirillg
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
+ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
+ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -25,7 +26,9 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 이 문서에서는 저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 보고 실행할 수 있도록 하는 Azure 포털의 JavaScript 편집기인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 스크립트 탐색기의 개요를 제공합니다. DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [Stored procedures, database triggers, and UDFs](documentdb-programming.md) (저장 프로시저, 데이터베이스 트리거 및 UDF) 문서를 참조하세요.
 
 ## <a name="launch-script-explorer"></a>스크립트 탐색기 시작
-1. Azure 포털의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다. **DocumentDB 계정**이 표시되지 않으면 **서비스 추가**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색에서 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다. 
+
+    **NoSQL(DocumentDB)**이 표시되지 않으면 아래쪽에서 **추가 서비스**를 클릭한 다음 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다.
 2. 리소스 메뉴에서 **스크립트 탐색기**를 클릭합니다.
    
     ![스크립트 탐색기 명령의 스크린샷](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -36,7 +39,8 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
    
     ![필터링된 결과와 함께 스크립트 탐색기의 스크린샷](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] 스크립트 탐색기 필터 기능은 ***현재*** 로드된 스크립트 집합만 필터링하고 현재 선택한 컬렉션을 자동으로 새로 고치지 않습니다.
+    > [!IMPORTANT] 
+    > 스크립트 탐색기 필터 기능은 ***현재*** 로드된 스크립트 집합만 필터링하고 현재 선택한 컬렉션을 자동으로 새로 고치지 않습니다.
 
 1. 스크립트 탐색기에서 로드한 스크립트 목록을 새로 고치려면, 블레이드 맨 위에 있는 **새로 고침** 명령을 클릭하면 됩니다.
    
@@ -106,10 +110,5 @@ Azure 포털의 스크립트 탐색기는 저장 프로시저, 트리거 및 Doc
 DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md) 문서를 참조하세요.
 
 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 도 DocumentDB에 대해 자세히 파악할 수 있는 유용한 리소스입니다.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9fe568a3b6632950cccbbd4ea3fe024e7aa68a
-ms.openlocfilehash: f0ac2d226f9df9eeae9c3b29674459ec330ae04b
+ms.sourcegitcommit: 988d859e2cc9cd723e23704193b6c3bbdce08379
+ms.openlocfilehash: 976aa382e34cdc417a79b513c0e8e063b30d9e01
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -75,7 +76,7 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |소프트웨어 업데이트 &#42; |일반  <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
+| 1. |KB4011839 |소프트웨어 업데이트 |일반 <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반 <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
 | 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |OS 보안 업데이트 패키지 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |OS 업데이트 패키지 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
@@ -101,10 +102,5 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 ## <a name="next-steps"></a>다음 단계
 [업데이트 4 릴리스](storsimple-update4-release-notes.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

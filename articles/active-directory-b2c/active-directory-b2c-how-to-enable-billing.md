@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
-ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
+ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
+ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -73,8 +74,8 @@ B2C 테넌트 리소스를 클릭하면 다음을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 각 B2C 테넌트에 대해 이러한 단계가 완료되면 Azure 직접 또는 기업 계약 세부 정보에 따라 비용이 Azure 구독에 청구됩니다.
-- Azure 구독을 선택한 상태에서 사용 현황 및 청구를 검토합니다.
-- 사용 현황 보고 API를 사용하여 자세한 일일 사용 현황 보고서를 검토합니다(미정).
+- Azure 구독을 선택한 상태에서 사용 현황 및 청구 검토
+- [사용 현황 보고 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)를 사용하여 자세한 일일 사용 현황 보고서 검토
 
 
 
@@ -82,9 +83,4 @@ B2C 테넌트 리소스를 클릭하면 다음을 수행할 수 있습니다.
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

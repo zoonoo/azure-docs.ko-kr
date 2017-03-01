@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 SQL Database에 대한 감사 사용 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **SQL 데이터베이스에 감사 사용**을 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure Security Center 권장 사항 **SQL Database에 감사 사용**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: d36bb775d0b0fd732562b18787b65600c8fb5fa1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,22 +30,25 @@ ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **SQL Database에 감사 활성화**를 선택합니다.  이렇게 하면 **SQL 데이터베이스에 감사 활성화** 블레이드가 열립니다.
-   ![Enable auditing on SQL databases][1]
+
+   ![SQL 데이터베이스에 감사 활성화][1]
 2. 감사를 사용하도록 설정할 SQL 데이터베이스를 선택합니다. 그러면 **감사 및 위협 감지** 블레이드가 열립니다.
+
    ![감사 및 위협 감지][2]
 3. **감사 및 위협 감지** 블레이드의 **감사**에서 **켜기**를 선택합니다.
+
    ![감사 및 위협 감지 켜기][3]
-4. [SQL 데이터베이스 위협 감지 시작](../sql-database/sql-database-threat-detection-get-started.md) 의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
+4. [Azure Portal에서 SQL Database 위협 감지](../sql-database/sql-database-threat-detection-portal.md)의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터 권장 사항 "SQL 데이터베이스에 감사 활성화"를 구현하는 방법을 보여 주었습니다. SQL 데이터베이스 보안 유지에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [SQL 데이터베이스 보안 설정](../sql-database/sql-database-security.md)
+* [SQL 데이터베이스 보안 설정](../sql-database/sql-database-security-overview.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -60,9 +64,4 @@ ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

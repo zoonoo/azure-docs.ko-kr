@@ -1,6 +1,6 @@
 ---
 title: "클래식 포털에서 Azure에 Hyper-V VM 복제 | Microsoft Docs"
-description: "이 문서에서는 컴퓨터가 VMM 클라우드에서 관리되지 않는 경우 Azure 사이트 복구를 사용하여 Azure에 Hyper-V 가상 컴퓨터를 복제하는 방법을 설명합니다."
+description: "이 문서에서는 컴퓨터가 VMM 클라우드에서 관리되지 않는 경우 Azure에 Hyper-V 가상 컴퓨터를 복제하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 0c2ca459a691b353a528edc48f4d13c231a440c4
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,16 +29,9 @@ ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 >
 >
 
-Azure Site Recovery 서비스를 시작합니다.
-
-Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 Azure 서비스로 클라우드(Azure) 또는 보조 데이터 센터에 대한 온-프레미스 물리적 서버 및 가상 컴퓨터의 복제를 조정합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [Azure Site Recovery란?](site-recovery-overview.md)
-
-이 문서에서는 Azure Portal에서 Azure Site Recovery를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다. 이 시나리오에서는 VMM 클라우드에서 Hyper-V 서버가 관리되지 않습니다.
+이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다. 이 시나리오에서는 VMM 클라우드에서 Hyper-V 서버가 관리되지 않습니다.
 
 이 문서를 읽은 후에는 하단에서 의견을 게시하거나 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 기술적인 질문을 합니다.
-
-
-
 
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Azure 포털에서 Site Recovery
@@ -48,7 +42,7 @@ Azure에는 리소스를 만들고 작업하는 Azure Resource Manager와 클래
 
 ## <a name="site-recovery-in-your-business"></a>사용자 비즈니스에서 Site Recovery
 
-조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. 수행할 수 있는 Site Recovery는 다음과 같습니다.
+조직에서는 계획된 중단 또는 불의의 중지 시간에 앱 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. 수행할 수 있는 Site Recovery는 다음과 같습니다.
 
 * Hyper-V VM에서 실행되는 비즈니스 앱에 대한 오프사이트 보호.
 * 복제, 장애 조치(Failover), 복구를 설정, 관리 및 모니터링하는 단일 위치.
@@ -67,7 +61,7 @@ Azure에는 리소스를 만들고 작업하는 Azure Resource Manager와 클래
 * 기술 자료 [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977")에서 의견이나 질문을 게시합니다.
 
 ## <a name="virtual-machine-prerequisites"></a>가상 컴퓨터 필수 조건
-보호할 가상 컴퓨터는 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)에 맞아야 합니다.
+보호할 가상 컴퓨터는 [Azure 가상 컴퓨터 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 맞아야 합니다.
 
 ## <a name="provider-and-agent-prerequisites"></a>공급자 및 에이전트 필수 조건
 Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recovery 공급자 및 Azure 복구 서비스 에이전트를 설치합니다. 다음 사항에 유의하세요.
@@ -283,9 +277,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 ## <a name="next-steps"></a>다음 단계
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md) .
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 096fcd2a7415da03714f05bb1f29ceac6f186eda
-ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
+ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
+ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -203,11 +204,13 @@ SQL 통합 변경 내용 추적 정책이 권장되지만 이 정책은 테이�
 
 * 모든 삽입 시 열의 값을 지정합니다.
 * 항목에 대한 모든 업데이트는 열의 값도 변경합니다.
-* 각 변경 시에 열의 값이 증가합니다.
+* 삽입 또는 업데이트할 때마다 이 열의 값이 증가합니다.
 * 다음 WHERE 및 ORDER BY 절이 포함된 쿼리를 효율적으로 실행할 수 있습니다. `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-예를 들어 인덱싱된 **rowversion** 열은 이상적인 상위 워터 마크 열입니다.
-이 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
+> [!IMPORTANT] 
+> 변경 추적 시 **rowversion** 열을 사용하는 것이 좋습니다. 다른 데이터 형식을 사용하는 경우 변경 추적이 인덱서 쿼리와 동시에 실행되는 트랜잭션의 모든 변경 내용을 캡처하지는 않습니다.
+
+높은 워터 마크 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
     {
         "name" : "myazuresqldatasource",
@@ -216,7 +219,7 @@ SQL 통합 변경 내용 추적 정책이 권장되지만 이 정책은 테이�
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
@@ -312,9 +315,4 @@ A: 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 
 **Q:** 인덱서를 실행하면 쿼리 작업이 영향을 받습니까?
 
 A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 검색 서비스를 확장하는 것이 좋습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9bc03ee35436180e7c8639233ca80fb7e7e200f6
-ms.openlocfilehash: e4ce74244ceb7a493d33a1ed2aad8f7a36b96ad9
+ms.sourcegitcommit: bd280fabf22d569f3c4dae9f00f44b08700c8fc4
+ms.openlocfilehash: f034f028b0b1e0011e152b88d304dd54cfbc8320
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -68,7 +69,7 @@ ms.openlocfilehash: e4ce74244ceb7a493d33a1ed2aad8f7a36b96ad9
 1. **추가+**를 선택하여 Azure Resource Manager 템플릿 리포지토리를 추가합니다.
 1. 두 번째 **리포지토리** 블레이드가 열리면 다음과 같이 필요한 정보를 입력합니다.
     - **이름** - 랩에서 사용되는 리포지토리 이름을 입력합니다.
-    - **Git 복제 URI** - GitHub 또는 Visual Studio Team Services의 GIT HTTPS 복제 URL을 입력합니다.  
+    - **Git 복제 URL** - GitHub 또는 Visual Studio Team Services의 GIT HTTPS 복제 URL을 입력합니다.  
     - **분기** - Azure Resource Manager 템플릿 정의에 액세스하기 위한 분기 이름을 입력합니다. 
     - **개인 액세스 토큰** - 개인 액세스 토큰은 리포지토리에 안전하게 액세스하는 데 사용됩니다. Visual Studio Team Services에서 토큰을 가져오려면 **&lt;YourName>> 내 프로필> 보안> 공용 액세스 토큰**을 차례로 선택합니다. GitHub에서 토큰을 가져오려면 **설정 > 공용 액세스 토큰**을 선택한 다음 아바타를 선택합니다. 
     - **폴더 경로** - 두 입력 필드 중 하나를 사용하여 슬래시(/)로 시작하는 폴더 경로를 입력합니다. 이 경로는 아티팩트 정의(첫 번째 입력 필드) 또는 Azure Resource Manager 템플릿 정의에 대한 Git 복제 URI의 상대 경로입니다.   
@@ -115,8 +116,4 @@ ms.openlocfilehash: e4ce74244ceb7a493d33a1ed2aad8f7a36b96ad9
 ## <a name="next-steps"></a>다음 단계
 * VM을 만든 후에는 해당 VM의 블레이드에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
 * [Azure 빠른 시작 템플릿 갤러리의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates)(영문)을 탐색합니다.
-
-
-<!--HONumber=Feb17_HO1-->
-
 

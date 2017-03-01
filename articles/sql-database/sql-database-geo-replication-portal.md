@@ -3,7 +3,7 @@ title: "Azure Portal로 Azure SQL Database에 대한 지역에서 복제 구성 
 description: "Azure Portal을 사용하여 Azure SQL Database에 대한 지역에서 복제 구성"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,21 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Azure 포털로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
-> [!div class="op_single_selector"]
-> * [개요](sql-database-geo-replication-overview.md)
-> * [쉬운 테이블](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Azure Portal로 Azure SQL Database에 대한 활성 지역 복제 구성
 
 이 문서에서는 [Azure Portal](http://portal.azure.com)을 사용하여 SQL Database에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
 
@@ -39,7 +33,7 @@ Azure 포털에서 장애 조치를 시작하려면 [Azure SQL 데이터베이�
 > 
 > 
 
-Azure Portal을 사용하여 지역에서 복제를 구성하려면 다음 리소스가 필요합니다.
+Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리소스가 필요합니다.
 
 * Azure SQL Database: 다른 지역으로 복제하려는 주 데이터베이스입니다.
 
@@ -51,7 +45,7 @@ Azure Portal을 사용하여 지역에서 복제를 구성하려면 다음 리�
 
 보조 데이터베이스를 추가하려면 구독 소유자 또는 공동 소유자여야 합니다.
 
-보조 데이터베이스는 주 데이터베이스와 동일한 이름을 포함하며 기본적으로 동일한 수준의 서비스입니다. 보조 데이터베이스는 독립 실행형 데이터베이스 또는 탄력적 풀에 있는 데이터베이스일 수 있습니다. 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+보조 데이터베이스는 주 데이터베이스와 동일한 이름을 포함하며 기본적으로 동일한 수준의 서비스입니다. 보조 데이터베이스는 단일 데이터베이스 또는 탄력적 풀에 있는 데이터베이스일 수 있습니다. 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 보조가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 새로운 보조 데이터베이스로 복제되기 시작합니다.
 
 > [!NOTE]
@@ -90,10 +84,5 @@ Azure Portal을 사용하여 지역에서 복제를 구성하려면 다음 리�
 ## <a name="next-steps"></a>다음 단계
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

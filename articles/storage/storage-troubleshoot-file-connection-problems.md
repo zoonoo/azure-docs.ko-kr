@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0aa4ea770d23d1b581c54b636c10e59ce1d3c
-ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
+ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
+ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,11 +29,13 @@ ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
 
 * [파일을 열 때 할당량 오류 발생](#quotaerror)
 * [Windows 또는 Linux에서 Azure File Storage에 액세스할 때 성능이 저하됨](#slowboth)
+* [Azure File Storage에서 읽기 및 쓰기 작업을 추적하는 방법](#traceop)
 
 **Windows 클라이언트 문제**
 
 * [Windows 8.1 또는 Windows Server 2012 R2에서 Azure File Storage에 액세스할 때 성능이 저하됨](#windowsslow)
 * [Azure 파일 공유를 탑재할 때 오류 53 발생](#error53)
+* [오류 87 Azure File Share를 마운트하려고 시도하는 중 매개 변수가 올바르지 않음](#error87)
 * [Net use에 성공했지만 Windows Explorer에 탑재된 Azure 파일 공유가 표시되지 않음](#netuse)
 * [내 저장소 계정에 "/"가 포함되고 net use 명령이 실패함](#slashfails)
 * [내 응용 프로그램/서비스가 탑재된 Azure Files 드라이브에 액세스할 수 없음.](#accessfiledrive)
@@ -41,12 +44,13 @@ ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
 **Linux 클라이언트 문제**
 
 * [파일을 Azure Files에 업로드/복사할 때 "암호화를 지원하지 않는 대상에 파일을 복사하는 중임" 오류 발생](#encryption)
-* [기존 파일 공유에서 "호스트가 중단됨" 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨](#errorhold)
+* [일시적인 IO 오류 - 기존 파일 공유에서 “호스트가 중단됨”오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨](#errorhold)
 * [Linux VM에 Azure Files를 탑재할 때 탑재 오류 115 발생](#error15)
 * [Linux VM에서 "ls" 등 명령의 임의 지연 발생](#delayproblem)
 * [오류 112 - 시간 초과 오류](#error112)
 
 **다른 응용 프로그램에서 액세스**
+
 * [Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?](#webjobs)
 
 <a id="quotaerror"></a>
@@ -54,19 +58,15 @@ ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
 ## <a name="quota-error-when-trying-to-open-a-file"></a>파일을 열 때 할당량 오류 발생
 Windows에서 다음과 같은 오류 메시지가 수신됩니다.
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Not enough quota is available to process this command**
-
-**Invalid handle value GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
-**<filename> [permission denied]**
-
-**Disk quota exceeded**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### <a name="cause"></a>원인
 파일에 허용되는 동시 열린 핸들의 상한에 도달했기 때문에 문제가 발생합니다.
@@ -93,14 +93,21 @@ Windows 8.1 또는 Windows Server 2012 R2를 실행 중인 클라이언트에서
 
 핫픽스가 설치된 경우 다음 출력이 표시됩니다.
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > 2015년 12월부터 Azure Marketplace의 Windows Server 2012 R2 이미지에는 핫픽스 KB3114025가 기본적으로 설치되어 있습니다.
 >
 >
+
+<a id="traceop"></a>
+
+### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Azure File Storage에서 읽기 및 쓰기 작업을 추적하는 방법
+
+[Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226)는 클라이언트의 요청을 명확한 텍스트로 보여줄 수 있고 연결 요청 및 트랜잭션(여기서는 REST가 아니라 SMB로 가정) 간에 상당히 좋은 관계가 있습니다.  많은 IaaS VM 작업자가 있는 경우 각 클라이언트에서 이를 실행해야 하기 때문에 시간이 많이 소요된다는 단점이 있습니다.
+
+ProcMon과 함께 Message Analyze를 사용하면 응용 프로그램 코드가 트랜잭션에 역할을 할 수 있는 좋은 아이디어를 얻을 수 있습니다.
 
 <a id="additional"></a>
 
@@ -134,8 +141,9 @@ Portqry 사용에 대한 자세한 내용은 [Portqry.exe 명령줄 유틸리티
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 IT 조직과 협력하여 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 포트 445 아웃바운드를 엽니다.
 
+<a id="error87"></a>
 ### <a name="cause-3"></a>원인 3
-클라이언트에서 NTLMv1 통신이 사용될 경우 “시스템 오류 53”이 수신될 수도 있습니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 이것이 오류의 원인인지 확인하려면 다음 레지스트리 하위 키가 3의 값으로 설정되어 있는지 확인합니다.
+클라이언트에서 NTLMv1 통신이 사용될 경우 “시스템 오류 53 또는 시스템 오류 87”이 수신될 수도 있습니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 이것이 오류의 원인인지 확인하려면 다음 레지스트리 하위 키가 3의 값으로 설정되어 있는지 확인합니다.
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -238,7 +246,11 @@ mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발
 ### <a name="solution"></a>해결 방법
 "/etc/fstab" 항목에서 **serverino**를 확인합니다.
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+명령 **sudo mount | grep cifs**를 실행하고 출력으로 찾아 해당 옵션이 사용되고 있는지 확인할 수도 있습니다.
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 **serverino** 옵션이 없으면 **serverino** 옵션이 선택된 상태에서 Azure Files를 탑재 해제하고 다시 탑재합니다.+
 
@@ -253,7 +265,7 @@ mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발
 
 ### <a name="workaround"></a>해결 방법
 
-Linux 문제가 수정되었지만 Linux 배포판으로는 아직 포팅되지 않았습니다. 이 문제가 Linux에서 다시 연결 문제로 인해 발생하는 경우 유휴 상태가 되지 않게 함으로써 이를 해결할 수 있습니다. 이를 위해 30초마다 작성하는 Azure 파일 공유에 파일을 보관합니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 연결을 트리거하지 않을 수 있습니다.
+Linux 문제가 수정되었지만 Linux 배포판으로는 아직 포팅되지 않았습니다. 이 문제가 Linux에서 다시 연결 문제로 인해 발생하는 경우 유휴 상태가 되지 않게 함으로써 이를 해결할 수 있습니다. 이를 위해 30초 이하 간격으로 작성하는 Azure File 공유에 파일을 보관합니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 연결을 트리거하지 않을 수 있습니다.
 
 <a id="webjobs"></a>
 
@@ -263,9 +275,4 @@ Linux 문제가 수정되었지만 Linux 배포판으로는 아직 포팅되지 
 ## <a name="learn-more"></a>자세한 정보
 * [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md)
 * [Linux에서 Azure File Storage 시작](storage-how-to-use-files-linux.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

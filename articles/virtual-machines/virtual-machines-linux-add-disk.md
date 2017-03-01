@@ -1,6 +1,6 @@
 ---
-title: "Linux VM에 디스크 추가 | Microsoft Docs"
-description: "Linux VM에 영구 디스크를 추가하는 방법 알아보기"
+title: "Azure CLI를 사용하여 Linux VM에 디스크 추가 | Microsoft Docs"
+description: "Azure CLI 1.0과 2.0을 사용하여 Linux VM에 영구 디스크를 추가하는 방법 알아보기"
 keywords: "Linux 가상 컴퓨터, 리소스 디스크 추가"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
-ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
-
+ms.sourcegitcommit: f520ed9cc1a3a7063d5b3ddacf7f0c8174e75a36
+ms.openlocfilehash: 77cbdaaea0eec5265ef005f66dd5efdd8e237022
+ms.lasthandoff: 02/21/2017
 
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
-이 문서에는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 디스크를 추가하려면 리소스 관리자 모드(`azure config mode arm`)로 구성된 [Azure CLI](../xplat-cli-install.md)가 필요합니다.  
+이 문서에는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 
 
 ## <a name="quick-commands"></a>빠른 명령
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
@@ -31,13 +32,15 @@ ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 관리되는 디스크를 사용하려면:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 관리되지 않는 디스크를 사용하려면:
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## <a name="attach-a-managed-disk"></a>관리되는 디스크 연결
@@ -50,17 +53,18 @@ azure vm disk attach-new myResourceGroup myVM 50
 VM에 새 디스크가 필요한 경우 `az vm disk attach` 명령을 사용할 수 있습니다.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>기존 디스크 연결 
 
-대부분의 경우에서 이미 생성된 디스크를 연결합니다. 먼저 디스크 ID를 찾은 다음 `az vm disk attach-disk` 명령에 전달합니다. 다음 코드는 `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`으로 만든 디스크를 사용합니다.
+대부분의 경우에서 이미 생성된 디스크를 연결합니다. 먼저 디스크 ID를 찾은 다음 `az vm disk attach` 명령에 전달합니다. 다음 예제는 `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`으로 만든 디스크를 사용합니다.
 
 ```azurecli
 # find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
-az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 출력은 다음과 같이 보입니다(모든 명령에 `-o table` 옵션을 사용하여 출력을 서식 지정할 수 있음).
@@ -96,22 +100,13 @@ az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
 VM과 동일한 저장소 계정에 디스크를 만들어도 상관없는 경우 새 디스크 연결은 신속합니다. `azure vm disk attach-new`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에 `50`GB 디스크를 연결합니다.
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
-```
-
-출력
-
-```azurecli
-info:    Executing command vm disk attach-new
-+ Looking up the VM "myVM"
-info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
-+ Updating VM "myVM"
-info:    vm disk attach-new command OK
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
 > [!NOTE]
-> 이 항목에서는 사용자 이름 및 암호를 사용하여 VM에 연결합니다. 공용 및 개인 키 쌍을 사용하여 VM과 통신하려면 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. `azure vm reset-access` 명령을 사용하여 `azure vm quick-create` 명령으로 만든 VM의 **SSH** 연결 기능을 수정하여 **SSH** 액세스를 완전히 초기화하거나 사용자를 추가/제거하고 공용 키 파일을 추가하여 액세스를 보호할 수 있습니다.
+> 이 항목에서는 사용자 이름 및 암호를 사용하여 VM에 연결합니다. 공용 및 개인 키 쌍을 사용하여 VM과 통신하려면 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 
 > 
 > 
 
@@ -348,10 +343,5 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 * 해당 정보를 [fstab](http://en.wikipedia.org/wiki/Fstab) 파일에 쓰지 않았는데 다시 부팅하면 새 디스크를 VM에 사용할 수 없게 됩니다.
 * Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 권장 사항을 검토합니다.
 * 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

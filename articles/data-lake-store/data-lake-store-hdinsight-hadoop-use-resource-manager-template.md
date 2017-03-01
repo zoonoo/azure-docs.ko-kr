@@ -1,5 +1,5 @@
 ---
-title: "Resource Manager 템플릿을 사용하여 Azure Data Lake Store를 포함한 HDInsight 클러스터 만들기 | Microsoft 문서"
+title: "Azure 템플릿을 사용하여 Azure HDInsight 및 Data Lake Store 만들기 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Store로 HDInsight Hadoop 클러스터 만들기 및 사용"
 services: data-lake-store,hdinsight
 documentationcenter: 
@@ -15,21 +15,28 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: ec8c45c567e83304757ad3f534aee1295a4f9e2b
+ms.sourcegitcommit: 98f1c50774c2ee70afd18a1e036b6e3264518552
+ms.openlocfilehash: b67be76eab9b6c467f8ab9760f7ea481f1d6db90
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [PowerShell 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [PowerShell 사용(기본 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [PowerShell 사용(추가 저장소의 경우)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Resource Manager 사용](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
+>
 
-Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Store에 대한 액세스 권한이 있는 HDInsight 클러스터를 구성하는 방법에 대해 알아봅니다. 지원되는 클러스터 유형의 경우 Data Lake Store는 기본 저장소 또는 추가 저장소 계정으로 사용됩니다. Data Lake Store를 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Store 계정에 저장될 수 있습니다. Data Lake 저장소를 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
+Azure PowerShell을 사용하여 Azure Data Lake Store에서 HDInsight 클러스터를 **추가 저장소로** 구성하는 방법에 대해 알아봅니다. 
 
-몇 가지 중요한 고려 사항
+지원되는 클러스터 유형의 경우 Data Lake Store는 기본 저장소 또는 추가 저장소 계정으로 사용됩니다. Data Lake Store를 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Store 계정에 저장될 수 있습니다. Data Lake 저장소를 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
+
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>HDInsight 클러스터 저장소에서 Data Lake Store 사용
+
+Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사항은 다음과 같습니다.
 
 * 기본 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5에서 사용할 수 있습니다.
 
@@ -209,9 +216,4 @@ Found 1 items
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Storage Blob에서 Data Lake Store로 데이터 복사](data-lake-store-copy-data-wasb-distcp.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

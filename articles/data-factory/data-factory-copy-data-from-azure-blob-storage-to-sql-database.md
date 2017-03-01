@@ -1,5 +1,5 @@
 ---
-title: "Blob Storage에서 SQL Database로 데이터 복사 | Microsoft 문서"
+title: "Blob Storage에서 SQL Database로 데이터 복사 - Azure | Microsoft Docs"
 description: "이 자습서에서는 Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다."
 keywords: "Blob SQL, Blob 저장소, 데이터 복사"
 services: data-factory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 70c38f155874c5d9254260c684fea23e22dd59fd
+ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
+ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -126,9 +127,4 @@ ms.openlocfilehash: 70c38f155874c5d9254260c684fea23e22dd59fd
 > [!NOTE]
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 > 
-> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 내용은 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 

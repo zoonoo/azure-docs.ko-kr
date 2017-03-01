@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
+ms.sourcegitcommit: 7e99731f6826e563109da734a80fcccfff85676a
+ms.openlocfilehash: 3deb0e1668aae15a7d9abe00791f4524ed49d77b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -128,9 +129,7 @@ ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
 
 1. Azure CLI를 열고 단일 CLI 세션 내에서 이 섹션의 나머지 단계를 완료합니다. 아직 Azure CLI를 설치 및 구성하지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서에 나오는 단계를 완료하고 Azure 계정에 로그인합니다.
 
-2. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
-    - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
-    - 수신 메일의 지침을 따르기 전에
+2. **여러 IP 주소를 사용하여 VM 만들기** 섹션에서 2단계를 따라 공개 미리 보기에 등록합니다.
 
 3. 요구 사항에 따라 다음 섹션 중 하나의 단계를 완료합니다.
 
@@ -208,9 +207,4 @@ ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
 9. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 지침에 따라 NIC에 추가한 개인 IP 주소를 VM 운영 체제에 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마십시오.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
