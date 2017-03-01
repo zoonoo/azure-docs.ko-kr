@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에 연속 배포를 활성화하는 방법에 
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 071e8056382128f7c5070b46591b2a66ba5b7e41
 ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -96,9 +97,4 @@ Azure 앱 서비스에 Visual Studio 솔루션을 푸시하는 것은 간단한 
 [리포지토리 만들기(BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [VSTS 시작]: https://www.visualstudio.com/docs/vsts-tfs-overview
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

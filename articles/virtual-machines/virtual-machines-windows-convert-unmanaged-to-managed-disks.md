@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: be2752f46ebedf35a28277ad853207ae8038e345
-ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
+ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
+ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,12 +40,12 @@ ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
 
 **데이터 디스크**:
 1.    VM에서 데이터 디스크를 분리합니다.
-2.    SSE가 한 번도 설정되지 않은 저장소 계정에 VHD를 복사합니다. 다른 저장소 계정에 디스크를 복사하려면 [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`을 사용합니다.
+2.    SSE가 한 번도 설정되지 않은 저장소 계정에 VHD를 복사합니다. 다른 저장소 계정에 디스크를 복사하려면 [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`을 사용합니다.
 3.    복사한 디스크를 VM에 연결하고 VM을 변환합니다.
 
 **OS 디스크**:
 1.    할당 취소된 VM을 중지합니다. 필요한 경우 VM 구성을 저장합니다.
-2.    SSE가 한 번도 설정되지 않은 저장소 계정에 OS VHD를 복사합니다. 다른 저장소 계정에 디스크를 복사하려면 [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`을 사용합니다.
+2.    SSE가 한 번도 설정되지 않은 저장소 계정에 OS VHD를 복사합니다. 다른 저장소 계정에 디스크를 복사하려면 [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`을 사용합니다.
 3.    관리 디스크를 사용하는 VM을 만들고 생성되는 동안 해당 VHD 파일을 OS 디스크로 연결합니다.
 
 
@@ -176,10 +177,5 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="next-steps"></a>다음 단계
 
 [스냅숏](virtual-machines-windows-snapshot-copy-managed-disk.md)을 사용하여 VM의 읽기 전용 복사본을 만듭니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

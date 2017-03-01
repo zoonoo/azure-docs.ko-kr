@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
+ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
+ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,6 +26,8 @@ ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence 대회
 **[대회](https://gallery.cortanaintelligence.com/competitions)**는 Cortana Intelligence Suite를 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
+
+Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 대한 답변은 [Microsoft Cortana Intelligence 대회 관련 FAQ](machine-learning-competition-faq.md)를 참조하세요.
 
 ## <a name="discover"></a>검색
   갤러리에서 대회를 찾아보려면, [갤러리](http://gallery.cortanaintelligence.com)를 열고, 갤러리 홈 페이지의 맨 위에 있는 **추가**를 마우스로 가리키고 **대회**를 선택합니다.
@@ -54,10 +57,5 @@ ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

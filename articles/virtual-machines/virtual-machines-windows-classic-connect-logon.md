@@ -13,55 +13,57 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 02/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: f8fb116f14f771947f321f59d9880df4cdfe6859
+ms.sourcegitcommit: 3c542d2fb8b644ead469272c628b64de72a371ad
+ms.openlocfilehash: 3051eba69dcba7162ba026f7720c9f8d873c9ea2
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-classic-portal"></a>Azure 클래식 포털을 사용하여 Windows 가상 컴퓨터에 로그온
-Azure 클래식 포털에서 **연결** 버튼을 사용하여 원격 데스크톱 세션을 시작 및 Windows VM에 로그온합니다.
+# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Azure 포털을 사용하여 Windows 가상 컴퓨터에 로그온
+Azure 포털에서 **연결** 단추를 사용하여 원격 데스크톱 세션을 시작하고 Windows VM에 로그온합니다.
 
 Linux VM에 연결하고 싶으세요? [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
-[새 Azure Portal을 사용하여 이러한 단계를 수행](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하는 방법을 알아봅니다.
+<!--
+Deleting, but not 100% sure
+Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+-->
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하여 VM에 로그온하는 방법에 대한 정보는 [여기](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-## <a name="video-walkthrough"></a>연습 동영상
-이 자습서의 비디오 연습은 다음과 같습니다. 또한 Azure에서 Windows VM에 연결하는 데 사용되는 끝점과 공용 및 개인 포트에 대해서도 설명합니다.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Logging-On-To-VM-Running-Windows-Server-on-Azure/player]
-
-
-
 ## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
-1. Azure 클래식 포털에 로그인합니다.
-2. **가상 컴퓨터**를 클릭한 다음 가상 컴퓨터를 선택합니다.
-3. 페이지 아래쪽의 명령 모음에서 **연결**을 클릭합니다.
-   
-    ![가상 컴퓨터에 로그온](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
+1. Azure 포털에 로그인합니다.
+2. 액세스할 가상 컴퓨터를 클릭합니다. 이름은 **모든 리소스** 창에 나열됩니다.
 
+    ![Virtual-machine-locations](./media/virtual-machines-windows-classic-connect-logon/azureportaldashboard.png)
+
+3. 가상 컴퓨터 대시보드 위쪽의 명령 모음에서 **연결**을 클릭합니다.
+
+    ![가상 컴퓨터의 연결 아이콘](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_connect.png)
+
+<!-- Don't know if this still applies
+     I think we can zap this.
 > [!TIP]
-> **연결** 버튼을 사용할 수 없는 경우 이 문서의 끝에 문제 해결 팁을 참조하세요.
-> 
-> 
+> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
+>
+>
+-->
 
 ## <a name="log-on-to-the-virtual-machine"></a>가상 컴퓨터에 로그온
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* **연결** 단추가 비활성 상태이거나 원격 데스크톱 연결에 다른 문제가 있는 경우 구성을 다시 설정해 봅니다. 가상 컴퓨터 대시보드에서, **빠른 보기** 아래 **원격 구성 재설정**을 클릭합니다.
-* 암호에 문제가 있는 경우 암호를 다시 설정합니다. 가상 컴퓨터 대시보드에서, **빠른 보기** 아래 **암호 재설정**을 클릭합니다.
+* **연결** 단추가 비활성 상태이거나 원격 데스크톱 연결에 다른 문제가 있는 경우 구성을 다시 설정해 봅니다. 가상 컴퓨터 대시보드에서 **원격 액세스 재설정**을 클릭합니다.
+
+    ![Reset-remote-access](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+
+* 암호에 문제가 있는 경우 암호를 다시 설정합니다. **지원 + 문제 해결** 아래에서 가상 컴퓨터 대시보드의 왼쪽 가장자리를 따라 **암호 재설정**을 클릭합니다.
+
+    ![Reset-password](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_reset_password.png)
 
 이러한 팁이 작동하지 않거나 필요한 정보가 아닌 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

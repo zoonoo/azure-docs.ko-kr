@@ -1,5 +1,5 @@
 ---
-title: "SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원 | Microsoft Docs"
+title: Multi-Factor Authentication - Azure SQL | Microsoft Docs
 description: "SQL 데이터베이스 및 SQL 데이터 웨어하우스용 SSMS에서 Multi-Factor Authentication 사용"
 services: sql-database
 documentationcenter: 
@@ -14,16 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 10/04/2016
-ms.author: rick.byham@microsoft.com
+ms.date: 01/23/2017
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c9a37db7c0b2306ce4a29d23e172a8d4b4d3e954
+ms.sourcegitcommit: 6e68ff56eaab3de8166711c872bf1b5707dbdf56
+ms.openlocfilehash: ce77a059a05f83d74e80c71a87a22de6755b2dbb
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="ssms-support-for-azure-ad-mfa-with-sql-database-and-sql-data-warehouse"></a>SQL 데이터베이스 및 SQL 데이터 웨어하우스를 사용한 Azure AD MFA에 대한 SSMS 지원
-Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스는 이제 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. Active Directory 유니버설 인증은 *Azure MFA(Multi-factor Authentication)* 를 지원하는 대화형 워크플로입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)을 참조하세요.
+Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스는 이제 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. Active Directory 유니버설 인증은 *Azure MFA(Multi-factor Authentication)* 를 지원하는 대화형 워크플로입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 또한 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 여러 가지 간편한 인증 옵션을 통해 강력한 인증을 제공하므로 사용자는 선호하는 방법을 선택할 수 있습니다. 
+
+* Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)을 참조하세요.
+* [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조하세요.
+
+## <a name="multi-factor-options"></a>다중 요소 옵션
 
 SSMS는 이제 다음을 지원합니다.
 
@@ -41,49 +47,13 @@ MFA에 대해 사용자 계정을 구성하면 대화형 인증 워크플로는 
 * 다른 Azure Active Directory에서 현재 Active Directory로 가져온 사용자의 경우 SSMS에서 Active Directory 유니버설 인증이 지원되지 않습니다. 이러한 사용자는 계정의 유효성을 검사하는 테넌트 ID가 필요하며 이를 제공하는 메커니즘이 없으므로 지원되지 않습니다.
 * 지원되는 버전의 SSMS를 사용해야 한다는 점을 제외하고, Active Directory 유니버설 인증에 대한 추가적인 소프트웨어 요구 사항은 없습니다.
 
-## <a name="configuration-steps"></a>구성 단계
-Multi-factor Authentication를 구현하려면 4가지 기본 단계가 필요합니다.
 
-1. **Azure Active Directory 구성** – 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
-2. **MFA 구성** – 단계별 지침을 보려면 [Azure Multi-factor Authentication 구성](../multi-factor-authentication/multi-factor-authentication-whats-next.md)을 참조하세요. 
-3. **Azure AD 인증을 위해 SQL 데이터베이스 또는 SQL 데이터 웨어하우스 구성** – 단계별 지침에 대해서는 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결](sql-database-aad-authentication.md)을 참조하세요.
-4. **SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS(2016년 8월 이상)를 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다.
-
-## <a name="connecting-by-using-universal-authentication-with-ssms"></a>SSMS를 통한 유니버설 인증을 사용하여 연결
-다음 단계에서는 최신 SSMS를 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결하는 방법을 설명합니다.
-
-1. 유니버설 인증을 사용하여 연결하려면 **서버에 연결** 대화 상자에서 **Active Directory 유니버설 인증**을 선택합니다.
-   ![1mfa-universal-connect][1]
-2. SQL 데이터베이스 및 SQL 데이터 웨어하우스에 대해 평소처럼 **옵션**을 클릭하고 **옵션** 대화 상자에서 데이터베이스를 지정합니다. 그런 다음 **연결**을 클릭합니다.
-3. **사용자 계정 로그인** 대화 상자가 나타나면 Azure Active Directory ID의 계정 및 암호를 제공합니다.
-   ![2mfa-sign-in][2]
-   
-   > [!NOTE]
-   > MFA를 요구하지 않는 계정을 사용한 유니버설 인증의 경우 이 시점에서 연결합니다. MFA가 필요한 사용자는 다음 단계를 계속 진행합니다.
-   > 
-   > 
-4. 두 개의 MFA 설치 대화 상자가 나타날 수 있습니다. 이 일회성 작업은 MFA 관리자 설정에 따라 다르므로 선택적일 수 있습니다. MFA 사용 도메인의 경우 이 단계는 경우에 따라 미리 정의됩니다(예를 들어 도메인은 사용자에게 스마트 카드와 핀을 사용하도록 요구함).  
-   ![3mfa-setup][3]
-5. 두 번째 가능한 일회성 대화 상자를 사용하여 인증 방법의 세부 정보를 선택할 수 있습니다. 가능한 옵션은 관리자가 구성합니다.
-   ![4mfa-verify-1][4]
-6. Azure Active Directory는 사용자에게 확인 정보를 보냅니다. 확인 코드를 받게되면 **확인 코드 입력** 상자에 해당 코드를 입력하고 **로그인**을 클릭합니다.
-   ![5mfa-verify-2][5]
-
-확인이 완료되면 SSMS는 일반적으로 가정된 유효한 자격 증명 및 방화벽 액세스를 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
-데이터베이스에 대한 액세스를 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 부여](sql-database-manage-logins.md)  
+
+* [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조하세요.
+* 데이터베이스에 대한 액세스를 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 부여](sql-database-manage-logins.md)  
 방화벽을 통해 연결할 수 있는지 확인합니다. [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)
 
-[1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png
-[2]: ./media/sql-database-ssms-mfa-auth/2mfa-sign-in.png
-[3]: ./media/sql-database-ssms-mfa-auth/3mfa-setup.png
-[4]: ./media/sql-database-ssms-mfa-auth/4mfa-verify-1.png
-[5]: ./media/sql-database-ssms-mfa-auth/5mfa-verify-2.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

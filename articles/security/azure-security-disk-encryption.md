@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: d86c39ca96633fc84311a4843deee997df9305a6
-ms.openlocfilehash: 692ee9272224369b8d5f892160bc92d5a30c346c
+ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
+ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -348,7 +349,7 @@ Azure Disk Encryption을 통해 Key Vault에서 디스크 암호화 키 및 비�
 #### <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 Key Vault를 만들려면 다음 옵션 중 하나를 사용합니다.
 
-* ["101-Create-KeyVault" Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
+* ["101-Key-Vault-Create" Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell Key Vault cmdlet](https://msdn.microsoft.com/library/dn868052.aspx)
 * Azure 리소스 관리자
 
@@ -1227,9 +1228,4 @@ OS 디스크를 연결할 때 `$KeyEncryptionKey` 및 `$secretUrl`을 전달합�
 ## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 1부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

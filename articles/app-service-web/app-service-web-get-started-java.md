@@ -4,7 +4,7 @@ description: "샘플 앱을 배포하여 App Service에서 웹앱을 실행하�
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>5분 내 Azure에 첫 번째 Java 웹앱 배포(CLI 2.0 미리 보기)
-
-> [!div class="op_single_selector"]
-> * [첫 번째 HTML 사이트](app-service-web-get-started-html-cli-nodejs.md)
-> * [첫 번째 .NET 앱](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [첫 번째 PHP 앱](app-service-web-get-started-php-cli-nodejs.md)
-> * [첫 번째 Node.js 앱](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [첫 번째 Python 앱](app-service-web-get-started-python-cli-nodejs.md)
-> * [첫 번째 Java 앱](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 이 자습서를 통해 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 간단한 Java 웹앱을 배포합니다.
 App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/learning-paths/appservice-mobileapps/) 및 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md)을 만들 수 있습니다.
@@ -127,10 +119,5 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 
 * [사용자의 코드를 Azure에 배포하는 다른 방법](web-sites-deploy.md)을 시도해 보세요. 
 * 다음 수준으로 Azure 앱을 이동합니다. 사용자를 인증합니다. 요구에 따라 규모를 조정합니다. 몇 가지 성능 경고를 설정합니다. 이 모든 작업이 클릭 몇 번으로 가능합니다. [첫 번째 웹앱에 기능 추가](app-service-web-get-started-2.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

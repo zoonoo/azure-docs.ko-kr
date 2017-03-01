@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c65c4021f5d0beda8005abdd375ac51729acf0a8
-ms.openlocfilehash: 8ff246ab7d70bd00ce989d3049e016d692722d18
+ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
+ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -78,11 +79,13 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+## <a name="throughput-faq"></a>처리량 FAQ
+
+**내 처리량을 400RU/s 미만으로 설정할 수 있나요?**
+
+DocumentDB 단일 파티션 컬렉션에서 사용할 수 있는 최소 처리량은&400;RU/s이며 분할된 컬렉션에 대한 최소값은&2500;RU/s입니다. 요청 단위는 100RU/s 간격으로 설정되어 있지만 처리량은 100RU/s 또는 400RU/s 미만인 값으로 설정할 수 없습니다. DocumentDB를 개발하고 테스트하는 비용 효율적인 메서드를 찾는 경우 무료 [DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용하면 됩니다. 이 기능은 비용 없이 로컬로 배포할 수 있습니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
 DocumentDB를 사용하여 프로비전을 수행하고 대규모로 크기를 조정하려면 [DocumentDB로 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
-
-
-<!--HONumber=Feb17_HO2-->
-
 

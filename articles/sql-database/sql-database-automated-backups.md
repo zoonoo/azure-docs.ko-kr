@@ -1,5 +1,5 @@
 ---
-title: "SQL Database 백업 - 자동, 지역 중복 | Microsoft Docs"
+title: "Azure SQL Database 백업 - 자동, 지역 중복 | Microsoft Docs"
 description: "SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다."
 services: sql-database
 documentationcenter: 
@@ -14,101 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2016
-ms.author: sashan;carlrab;barbkess
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: f6bb6e1c81cafe5f0e5c43c99ab15a0483742868
+ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
+ms.openlocfilehash: 3fd8bda40daa09d1b5d4294382b523d41173b8cb
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="learn-about-sql-database-backups"></a>SQL Database 백업에 대한 자세한 정보
-<!------------------
-This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
-
-Metadata guidelines
-
-pageTitle
-    60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Microsoft Azure site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
-
-TEMPLATE GUIDELINES for feature topics
-
-The Feature Topic is a one-pager (ok, sometimes longer) that explains a capability of the product or service. It explains what the capability is and characteristics of the capability.  
-
-It is a "learning" topic, not an action topic.
-
-DO explain this:
-    � Definition of the feature terminology.  i.e., What is a database backup?
-    � Characteristics and capabilities of the feature. (How the feature works)
-    � Common uses with links to overview topics that recommend when to use the feature.
-    � Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    � Next Steps with links to related overviews, features, and tasks.
-
-DON'T explain this:
-    � How to steps for using the feature (Tasks)
-    � How to solve business problems that incorporate the feature (Overviews)
-
-GUIDELINES for the H1 
-
-    The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
-
-    To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
-
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
-GUIDELINES for introduction
-
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
-
-    If the introduction is short enough, your article can pop to the top in Google Instant Answers.
-
-    In this example:
-
-Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-    SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
-
-Sentence #2 Explains why I should care about this.  
-    Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
-
--------------------->
 
 SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 지리적 중복을 제공합니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 사용자는 아무 작업도 할 필요가 없습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 고유한 저장소 컨테이너에서 백업을 유지하려면 장기 백업 보존 정책을 구성할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-<!-- This image needs work, so not putting it in right now.
-
-This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
-
-![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
-
--->
-
-<!---------------
-GUIDELINES for the first ## H2.
-
-    The first ## describes what the feature encompasses and how it is used. It points to related task articles.
-
-    For consistency, being the heading with "What is ... "
------------------>
-
 ## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?
-<!-- 
-    Explains what a SQL Database backup is and answers an important question that people want to know.
--->
-
-
-<!----------------- 
-    Explains first component of the backup feature
------------------->
 
 SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](https://msdn.microsoft.com/library/ms175526.aspx) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 일반적으로 트랜잭션 로그 백업은 데이터베이스 활동의 성능 수준 및 양에 따른 빈도로 5 - 10분마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
 
-<!--------------- 
-    Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 이러한 백업을 사용하여 다음을 수행할 수 있습니다.
 
@@ -119,25 +40,15 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 * 복원을 수행하려면 [백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 
 > [!TIP]
-> 자습서는 [데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery.md)을 참조하세요.
+> 자습서는 [데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery-portal.md)을 참조하세요.
 >
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 > [!NOTE]
 > Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 파일을 복사하는 것을 말합니다. SQL의 *데이터베이스 복제* 는 주 데이터베이스와 동기화된 다수의 보조 데이터베이스를 유지하는 것을 말합니다. 
 > 
 > 
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>무료 백업 저장소가 얼마나 포함되어 있습니까?
 SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소를 갖습니다. 제공된 백업 저장소를 데이터베이스가 초과하면, Azure 지원 팀에 문의하여 보존 기간을 줄이도록 선택할 수 있습니다. 또 다른 옵션은 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금이 청구되는 추가 백업 저장소에 대한 비용을 지불하는 것입니다. 
 
@@ -149,20 +60,16 @@ SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 �
 ## <a name="how-long-do-you-keep-my-backups"></a>백업 보존 기간
 각 SQL Database 백업의 보존 기간은 데이터베이스의 [서비스 계층](sql-database-service-tiers.md)에 따라 다릅니다. 데이터베이스의 보존 기간은 다음과 같습니다.
 
-<!------------------
-
-    Using a list so the information is easy to find when scanning.
-------------------->
 
 * 기본 서비스 계층은 7일입니다.
 * 표준 서비스 계층은 35일입니다.
 * 프리미엄 서비스 계층은 35일입니다.
 
-데이터베이스를 표준 또는 프리미엄 서비스 계층에서 기본 계층으로 다운그레이드하면 백업이 7일 동안 저장됩니다. 7일보다 오래된 모든 기존 백업은 더 이상 사용할 수 없게 됩니다. 
+데이터베이스를 표준 또는 프리미엄 서비스 계층에서 기본 계층으로 다운그레이드하면 백업이&7;일 동안 저장됩니다. 7일보다 오래된 모든 기존 백업은 더 이상 사용할 수 없게 됩니다. 
 
 데이터베이스를 기본 서비스 계층에서 표준 또는 프리미엄으로 업그레이드하면 SQL Database가 기존 백업을 35일 동안 보관합니다. 새 백업이 발생하면 새 백업을 35일 동안 보관합니다.
 
-데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 보관합니다. 예를 들어 보존 기간이 7일인 기본 데이터베이스를 삭제한다고 가정해 봅시다. 4일 된 백업은 앞으로 3일 동안 더 보관됩니다.
+데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 보관합니다. 예를 들어 보존 기간이&7;일인 기본 데이터베이스를 삭제한다고 가정해 봅시다. 4일 된 백업은 앞으로&3;일 동안 더 보관됩니다.
 
 > [!IMPORTANT]
 > SQL Database를 호스트하는 Azure SQL 서버를 삭제하면 해당 서버에 속하는 모든 데이터베이스도 삭제되어 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
@@ -175,61 +82,14 @@ SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 �
 Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추가했으면 매주 전체 데이터베이스 백업이 사용자 고유의 Azure Backup Service Vault로 자동으로 복사됩니다. TDE를 사용하여 암호화된 데이터베이스는 미사용 시 자동으로 암호화됩니다.  Services Vault는 타임 스탬프 또는 LTR 정책에 따라 만료된 백업을 자동으로 삭제합니다.  따라서 백업 일정을 관리할 필요가 없으며 이전 파일의 정리를 걱정할 필요가 없습니다. 복원 API는 자격 증명 모음이 SQL Database와 동일한 구독 내에만 있다면 자격 증명 모음에 저장된 백업을 지원합니다. Azure 포털 또는 PowerShell을 사용하여 이러한 백업에 액세스할 수 있습니다.
 
 > [!TIP]
-> 자습서는 [데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery.md)을 참조하세요.
+> 자습서는 [데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery-portal.md)을 참조하세요.
 >
-
-<!-------------------
-OPTIONAL section
-## Best practices 
---------------------->
-
-<!-------------------
-OPTIONAL section
-## General remarks
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Limitations and restrictions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Metadata
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Performance
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Permissions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Security
---------------------->
-
-<!-------------------
-GUIDELINES for Next Steps
-
-    The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
-
-    You don't need to repeat links you have already given them.
---------------------->
 
 ## <a name="next-steps"></a>다음 단계
 
 - 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
-- 특정 시점으로 복원하려면 [특정 시점으로 데이터베이스 복원](sql-database-point-in-time-restore.md)을 참조하세요.
-- 데이터베이스의 서비스에서 생성된 백업에서 가장 오래된 복원 지점을 보려면 [가장 오래된 복원 지점 보기](sql-database-view-oldest-restore-point.md)를 참조하세요.
-- Azure Recovery Services 자격 증명 모음에 자동화된 백업의 장기 보존을 구성하려면 [장기 백업 보존 구성](sql-database-configure-long-term-retention.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+- Azure Portal을 사용하여 지정 시간으로 복원하려면 [Azure Portal을 사용하여 지정 시간으로 데이터베이스 복원](sql-database-point-in-time-restore-portal.md)을 참조하세요.
+- PowerShell을 사용하여 지정 시간으로 복원하려면 [PowerShell을 사용하여 지정 시간으로 데이터베이스 복원](sql-database-point-in-time-restore-powershell.md)을 참조하세요.
+- Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-portal.md)를 참조하세요.
+- PowerShell을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
 

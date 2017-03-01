@@ -3,7 +3,7 @@ title: "Window Server에 대한 Azure 하이브리드 사용 혜택 | Microsoft 
 description: "Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Server Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: george-moore
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -17,6 +17,7 @@ ms.author: georgem
 translationtype: Human Translation
 ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
 ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -187,9 +188,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 참조하세요.
 
 [Resource Manager 템플릿 사용](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

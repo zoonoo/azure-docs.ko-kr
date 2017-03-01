@@ -4,7 +4,7 @@ description: "모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Micr
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a7a4f4b5884c7c8536ad969558eaad4262be52c7
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: cdc8d62c0adb81330353b73be8a0a9db8cef0052
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -99,12 +100,7 @@ ms.openlocfilehash: a7a4f4b5884c7c8536ad969558eaad4262be52c7
     항목 목록을 아래로 끌어서 새로 고침 제스처를 수행하고 로그인 화면이 나타나도록 합니다. 유효한 자격 증명을 성공적으로 입력하면 앱이 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 
 <!-- URLs. -->
-[앱 제출 페이지]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[내 응용 프로그램]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Xamarin.iOS 앱 만들기]: app-service-mobile-xamarin-ios-get-started.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

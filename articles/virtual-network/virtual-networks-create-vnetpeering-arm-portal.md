@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c19ad7c0c466d178e97e83bb2d46b9905130d00e
-ms.openlocfilehash: a97aff9cb7071edc0b7fd1046bdd10d440d75eab
+ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
+ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -120,7 +121,7 @@ VNet 피어링의 링크 각각에는 이전 속성 집합이 있습니다. 포�
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
 2. *동일한* 구독의 다양한 배포 모델을 통해 배포된 VNet 간에 피어링을 만드는 경우 3단계로 건너뜁니다. *다른* 구독에 있는 다른 배포 모델을 통해 배포된 VNet 간에 VNet 피어링을 만드는 기능은 **미리 보기** 릴리스에 제공됩니다. 미리 보기 릴리스의 기능은 일반 릴리스 기능과 동일한 수준의 안정성 및 서비스 수준 계약을 제공하지 않습니다. 다른 구독의 다른 배포 모델을 통해 배포된 VNet 간에 피어링을 만드는 경우 먼저 다음 단계를 완료해야 합니다.
-    - PowerShell에서 다음 명령을 입력하여 Azure 구독에 미리 보기 기능을 등록합니다. `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` 이 단계는 포털에서 완료할 수 없습니다.
+    - PowerShell에서 `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` 및 `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network` 명령을 입력하여 Azure 구독에서 미리 보기 기능을 등록합니다. 이 단계는 포털에서 완료될 수 없습니다.
     - 이 문서의 [구독간 피어링](#x-sub) 섹션에 나오는 1-6단계를 완료합니다.
 3. 이 시나리오에서 VNET 피어링을 설정하려면 Azure Resource Manager에서 가상 네트워크에서 클래식의 가상 네트워크에 하나의 링크를 만들어야 합니다. 즉 **VNET1**에서 **VNET2**입니다. 포털에서 **찾아보기** >를 클릭하고 **Virtual Networks**를 선택합니다.
 4. 가상 네트워크 블레이드에서 **VNET1**을 선택합니다. **피어링**을 클릭한 다음 **추가**를 클릭합니다.
@@ -141,10 +142,5 @@ VNet 피어링의 링크 각각에는 이전 속성 집합이 있습니다. 포�
 
     ![삭제2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. 이 상태에서는 피어링 링크 상태가 시작됨으로 변경될 때까지 링크를 다시 만들 수 없습니다. VNET 피어링을 다시 만들기 전에 링크를 모두 제거하는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

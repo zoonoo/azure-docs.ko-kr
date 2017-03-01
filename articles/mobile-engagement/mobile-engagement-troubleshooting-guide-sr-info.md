@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement 문제를 해결하기 위해 지원 팀�
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -40,10 +41,5 @@ Mobile Engagement 서비스에 대한 서비스 요청을 개설할 때는 다�
 * 앱의 SDK 버전 및 플랫폼(Android SDK 2.4.1, iOS 1.16.2 등)
 * 프로덕션 앱(또는 개발 앱의 APK/TGZ 파일)의 다운로드 위치
 * "AndroidManifest.xml" 및/또는 Azure Mobile Engagement와 관련된 앱의 코드 조각(고급 문제 해결용)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

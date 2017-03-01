@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: aeaf8d06749d63d19e02573b5bf66ceac644cb3e
+ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
+ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -201,7 +202,7 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
 | **Azure 저장소** |복제된 데이터를 저장하려면 Azure Storage 계정이 필요합니다.<br/><br/> 계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.<br/><br/> 계정은 Azure Site Recovery 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md) 을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.<br/><br/> 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요. | |
 | **Azure 가상 네트워크** |구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다. | |
 | **Azure 리소스** |모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요. | |
-| **Azure 가상 컴퓨터** |보호할 가상 컴퓨터는 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 충족해야 합니다.<br/><br/> **디스크 수**—하나의 보호된 서버에서 최대 31개의 디스크를 지원할 수 있습니다.<br/><br/> **디스크 크기**—개별 디스크 용량은 1023GB 이하여야 합니다.<br/><br/> **클러스터링**—클러스터형 서버는 지원되지 않습니다.<br/><br/> **부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/> **볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.<br/><br/> **서버 이름**- 이름은 1~63자 사이여야 하며 문자, 숫자, 하이픈을 사용할 수 있습니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다. | |
+| **Azure 가상 컴퓨터** |보호할 가상 컴퓨터는 [Azure 필수 구성 요소](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)를 충족해야 합니다.<br/><br/> **디스크 수**—하나의 보호된 서버에서 최대 31개의 디스크를 지원할 수 있습니다.<br/><br/> **디스크 크기**—개별 디스크 용량은 1023GB 이하여야 합니다.<br/><br/> **클러스터링**—클러스터형 서버는 지원되지 않습니다.<br/><br/> **부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/> **볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.<br/><br/> **서버 이름**- 이름은 1~63자 사이여야 하며 문자, 숫자, 하이픈을 사용할 수 있습니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다. | |
 | **구성 서버** |Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버에 대한 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 구성 서버에 대해 연결 유형으로 공용 인터넷을 선택하는 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다.<br/><br/> 설치 경로는 영어 문자로만 이루어져야 합니다. | |
 | **마스터 대상 서버** |Azure 가상 컴퓨터, 표준 A4, D14 또는 DS4.<br/><br/> 설치 경로는 영어 문자로만 이루어져야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR** 이어야 합니다. | |
 | **프로세스 서버** |최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.<br/><br/> 보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.<br/><br/> 프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 가상 컴퓨터 또는 vCenter 서버로 관리하는 가상 컴퓨터를 검색하려면 프로세스 서버에 VMware vSphere CLI 구성 요소가 필요합니다.<br/><br/> 설치 경로는 영어 문자로만 이루어져야 합니다.<br/><br/> ReFS 파일 시스템은 지원되지 않습니다. | |
@@ -739,9 +740,4 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -44,8 +44,9 @@
 ### [백업 및 복원](documentdb-online-backup-and-restore.md)
 ### [사용 중지 S1, S2, S3](documentdb-performance-levels.md)
 ### [요청 단위](documentdb-request-units.md)
-### Azure CLI
-#### [계정 만들기](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+### Azure CLI 1.0
+#### [계정 만들기](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [영역 추가 또는 제거](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [방화벽 지원](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [야구를 통해 설명하는 데이터 일관성](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [서적: Node.js 응용 프로그램에서 Microsoft Azure DocumentDB 사용](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

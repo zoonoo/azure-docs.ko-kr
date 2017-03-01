@@ -4,7 +4,7 @@ description: "WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 �
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -578,9 +579,4 @@ public static void ErrorMonitor(
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

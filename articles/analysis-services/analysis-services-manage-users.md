@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/18/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 8725687a5700df72026f9154659758b9280872f4
-ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
+ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
+ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,14 +80,17 @@ Azure Analysis Services 모델 데이터베이스 사용자는 *Azure Active Dir
 }
 ```
 
+## <a name="role-based-access-control-rbac"></a>역할 기반 액세스 제어(RBAC)
+
+구독 관리자는 제어 블레이드에서 **액세스 제어**를 사용하여 역할을 구성할 수 있습니다. 위에 설명된 것처럼 서버 또는 데이터베이스 수준에서 구성된 서버 관리자 또는 데이터베이스 사용자와 다릅니다. 
+
+![Azure Portal의 액세스 제어](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+역할은 포털에서 완료할 수 있거나 Azure Resource Manager 템플릿을 사용하여 작업을 수행해야 하는 사용자 또는 계정에 적용됩니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 아직 테이블 형식 모델을 새 서버에 배포하지 않았다면 지금이야말로 좋은 기회입니다. 자세한 내용은 [Azure Analysis Services에 배포](analysis-services-deploy.md)를 참조하세요.
 
 서버에 모델을 배포한 경우에는 클라이언트 또는 브라우저를 통해 연결할 준비가 된 것입니다. 자세한 내용은 [Azure Analysis Services 서버에서 데이터 가져오기](analysis-services-connect.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

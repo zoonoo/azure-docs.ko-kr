@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
 ms.openlocfilehash: 2f5cf1155f116b22fa28cf86bb8c87667df981b7
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -104,9 +105,4 @@ HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한
 * [HDInsight에 RStudio Server 추가(클러스터를 만드는 중에 설치되지 않은 경우)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [HDInsight의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 * [HDInsight에서 R Server의 Azure Storage 옵션](hdinsight-hadoop-r-server-storage.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

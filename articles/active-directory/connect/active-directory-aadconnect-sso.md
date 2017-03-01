@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
-ms.openlocfilehash: ae97e66b8fb0992550c5a4f1f8418c5cb7e496b5
+ms.sourcegitcommit: e208b2bf861d698901b287458a3969e833540e44
+ms.openlocfilehash: f8f67af3cb6adb333924714bd758609b950845af
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -68,6 +69,17 @@ Azure AD Connect에서 Single Sign-On을 활성화하면 온-프레미스 Active
 5.    Azure AD는 이전에 공유된 키를 사용하여 Kerberos 티켓의 암호를 해독합니다. 그런 다음 리소스의 요청에 따라 사용자에게 토큰을 반환하거나 사용자에게 Multi-Factor Authentication과 같은 추가적인 증명을 제공하도록 요청합니다.
 
 Single Sign-On은 편의적인 기능입니다. 즉 Single Sign-On이 어떤 이유로 실패하더라도 사용자는 평상시와 같이 로그인 페이지에 암호를 입력하기만 하면 됩니다.
+
+## <a name="single-sign-on-sso-prerequisites"></a>SSO(Single Sign-On)의 필수 구성 요소
+'통과 인증'으로 'Single Sign On'을 사용하는 경우에 다음과 같은 '통과 인증'에 필요한 것보다 많은 추가 필수 조건이 없습니다.
+
+'암호 동기화’로 Single Sign On'을 사용하는 경우에 Azure AD Connect와 Azure AD 간의 방화벽이 있는 경우 다음 사항을 확인합니다.
+- Azure AD Connect 서버는 *. msappproxy.net와 통신할 수 있습니다.
+- Azure AD Connect가 아래 포트에서 Azure AD에 대해 HTTPS(TCP) 요청을 수행할 수 있습니다.
+
+|프로토콜|포트 번호|설명
+| --- | --- | ---
+|HTTPS|9090|    SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
 
 ## <a name="enabling-sso-with-pass-through-authentication-or-password-sync"></a>통과 인증 또는 암호 동기화를 통해 SSO 활성화
 Azure AD Connect는 통과 인증 또는 암호 동기화를 통해 Single Sign-On을 활성화할 수 있는 간단한 프로세스를 제공합니다. 컴퓨터 계정에서 Kerberos SPN(서비스 주체 이름)을 구성할 수 있으려면 동기화하는 각 포리스트에 포함된 도메인 중 하나에 대해 도메인 관리자 권한이 있어야 합니다. 사용자 이름 및 암호는 Azure AD Connect 또는 Azure AD에 저장되지 않으며 이 작업용으로만 사용됩니다.
@@ -132,9 +144,4 @@ Azure AD의 Single Sign-On에 사용된 URL에 마침표가 포함되어 있기 
       </Query>
     </QueryList>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

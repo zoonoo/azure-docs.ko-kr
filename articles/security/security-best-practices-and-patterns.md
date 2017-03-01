@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 02/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
-ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+ms.sourcegitcommit: e3d01fadc5597efa7beb5ee690470f428ee12b62
+ms.openlocfilehash: 216146ffaa0f2732b2f2369107e80de0bbc4e466
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,6 +32,7 @@ ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
 * [Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례](azure-security-best-practices-software-updates-iaas.md)
 * [Azure 경계 보안 모범 사례](../best-practices-network-security.md)
 * [Azure에서 보안 하이브리드 네트워크 아키텍처 구현](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Azure PaaS 모범 사례] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합니다. Azure의 솔루션을 보다 안전하게 만들기 위한 서비스와 기술도 제공합니다. 사용할 수 있는 옵션이 많기 때문에 많은 분들이 Microsoft가 보안 개선의 모범 사례 및 패턴으로 추천하는 내용에 관해 관심을 표명했습니다.
 
@@ -47,9 +49,4 @@ Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합�
 * 해당 모범 사례를 사용하는 방법을 알아보는 방법
 
 Azure 보안 아키텍처 및 모범 사례에 대한 많은 문서를 갖추려고 합니다. 추가할 항목이 있으시면 이 페이지의 아래쪽에 있는 토론 영역에서 알려주세요.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

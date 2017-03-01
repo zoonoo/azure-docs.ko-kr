@@ -11,36 +11,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
+ms.sourcegitcommit: ddbe54eb6f9565e0c42d138231dbde22592e75b5
+ms.openlocfilehash: d6191e01450859a5e91b815df84d9a024bbee2c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>자습서: Abintegro와 Azure Active Directory 통합
 이 자습서는 Azure 및 Abintegro의 통합을 보여주기 위한 것입니다.  
+
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* Abintegro Single Sign-on이 설정된 구독
+* Abintegro SSO(Single Sign-On)이 설정된 구독
 
 이 자습서를 완료한 후 Abintegro에 할당한 Azure AD 사용자가 Abintegro 회사 사이트 (서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
-1. Abintegro에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
-3. 사용자 프로비전 구성
-4. 사용자 할당
+* Abintegro에 응용 프로그램 통합 사용
+* SSO(Single Sign-On) 구성
+* 사용자 프로비전 구성
+* 사용자 할당
 
 ![시나리오](./media/active-directory-saas-abintegro-tutorial/IC790076.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-abintegro"></a>Abintegro에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-abintegro"></a>Abintegro에 응용 프로그램 통합 사용
 이 섹션은 Abintegro에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-abintegro-perform-the-following-steps"></a>Abintegro에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+**Abintegro에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-abintegro-tutorial/IC700993.png "Active Directory")
@@ -61,11 +64,12 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
    
    ![Abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
    
-   ## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Abintegro에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 **Abintegro** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Single Sign-On 구성")
@@ -80,24 +84,25 @@ ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
    ![Single Sign-On 구성](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Single Sign-On 구성")
 5. 메타데이터를 Abintegro 지원팀에 보냅니다.
    
-   > [!NOTE]
-   > Single sign-on 구성을 Abintegro 지원팀에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
-   > 
-   > 
+   >[!NOTE]
+   >Single sign-on 구성을 Abintegro 지원팀에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
+   >  
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Single Sign-On 구성")
+  ![Single Sign-On 구성](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Single Sign-On 구성")
    
-   ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Abintegro를 프로비전하는 사용자를 구성할 작업 항목이 없습니다.  
 할당된 사용자가 액세스 패널을 사용하여 Abintegro에 로그인하려는 경우 Abintegro는 사용자가 존재하는지를 확인합니다.  
+
 사용할 수 있는 사용자 계정이 없으면 자동으로 Abintegro에 의해 생성됩니다.
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-abintegro-perform-the-following-steps"></a>Abintegro에 사용자를 할당하려면 다음 단계를 수행합니다.
+**Abintegro에 사용자를 할당하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Abintegro** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -107,10 +112,5 @@ Abintegro를 프로비전하는 사용자를 구성할 작업 항목이 없습�
    ![예](./media/active-directory-saas-abintegro-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

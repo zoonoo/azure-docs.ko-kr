@@ -1,8 +1,8 @@
 ---
-title: "가져오기-내보내기 서비스 매니페스트 파일 형식 | Microsoft Docs"
+title: "Azure Import/Export 매니페스트 파일 형식 | Microsoft Docs"
 description: "가져오기 내보내기 서비스에서 Azure Blob Storage의 Blob와 가져오기 또는 내보내기 작업에 있는 드라이브의 파일 간에 매핑을 설명하는 드라이브 매니페스트 파일의 형식에 대해 알아보기"
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: c79d4e4b088bab056459ed4add442acfb0176692
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="import-export-service-manifest-file-format"></a>가져오기-내보내기 서비스 매니페스트 파일 형식
+# <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export 서비스 매니페스트 파일 형식
 드라이브 매니페스트 파일에서는 Azure Blob Storage의 Blob와 가져오기 또는 내보내기 작업으로 구성된 드라이브의 파일 간에 매핑을 설명합니다. 가져오기 작업의 경우 매니페스트 파일은 드라이브 준비 프로세스의 일부로 만들어지고 Azure 데이터 센터에 드라이브를 전송하기 전에 드라이브에 저장됩니다. 내보내기 작업 도중 Azure Import/Export 서비스에 의해 매니페스트가 생성되어 드라이브에 저장됩니다.  
   
 가져오기 또는 내보내기 작업의 경우 드라이브 매니페스트 파일은 가져오기 및 내보내기 드라이브에 저장되고 API 작업을 통해 서비스에 전송되지 않습니다.  
@@ -100,7 +101,7 @@ block-list ::=
 |`Drive`|중첩 XML 요소|각 드라이브에 대한 매니페스트를 포함합니다.|  
 |`DriveId`|문자열|드라이브의 고유한 드라이브 식별자입니다. 해당 일련 번호에 대한 드라이브를 쿼리하여 드라이브 식별자를 찾을 수 있습니다. 드라이브 일련 번호는 일반적으로 드라이브의 외부에 인쇄됩니다. `DriveID` 요소는 매니페스트 파일에서 `BlobList` 요소보다 먼저 나타나야 합니다.|  
 |`StorageAccountKey`|string|`ContainerSas`이 지정되지 않은 경우 가져오기 작업에 필요합니다. Azure Storage 계정의 계정 키는 작업과 연결되었습니다.<br /><br /> 이 요소는 내보내기 작업에 대한 매니페스트에서 생략됩니다.|  
-|`ContainerSas`|string|`StorageAccountKey`이 지정되지 않은 경우 가져오기 작업에 필요합니다. 작업과 연결된 Blob에 액세스하기 위한 컨테이너 SAS입니다. 해당 형식은 [작업 배치](/rest/api/storageservices/importexport/Put-Job)를 참조하세요. 이 요소는 내보내기 작업에 대한 매니페스트에서 생략됩니다.|  
+|`ContainerSas`|string|`StorageAccountKey`이 지정되지 않은 경우 가져오기 작업에 필요합니다. 작업과 연결된 Blob에 액세스하기 위한 컨테이너 SAS입니다. 해당 형식은 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)를 참조하세요. 이 요소는 내보내기 작업에 대한 매니페스트에서 생략됩니다.|  
 |`ClientCreator`|문자열|XML 파일을 만든 클라이언트를 지정합니다. 이 값은 Import/Export 서비스에서 해석되지 않습니다.|  
 |`BlobList`|중첩 XML 요소|가져오기 또는 내보내기 작업의 일부인 Blob의 목록을 포함합니다. Blob 목록에 있는 각 Blob는 동일한 메타데이터 및 속성을 공유합니다.|  
 |`BlobList/MetadataPath`|문자열|선택 사항입니다. 기본 메타데이터를 포함하는 디스크에 대한 파일의 상대 경로를 지정합니다. 메타데이터는 가져오기 작업의 Blob 목록에 있는 Blob에 대해 설정됩니다. 이 메타데이터는 Blob 별로 선택적으로 재정의될 수 있습니다.<br /><br /> 이 요소는 내보내기 작업에 대한 매니페스트에서 생략됩니다.|  
@@ -131,10 +132,5 @@ block-list ::=
 |`Blob/PropertiesPath/@Hash`|특성, 문자열|Blob 속성 파일의 Base16 인코딩 MD5 해시를 지정합니다.|  
   
 ## <a name="see-also"></a>참고 항목  
-[저장소 Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[저장소 Import/Export REST](/rest/api/storageimportexport/)
 

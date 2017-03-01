@@ -3,7 +3,7 @@ title: "Blob 저장소와 함께 Hudson을 사용하는 방법 | Microsoft Docs"
 description: "아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다."
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 37ad86ce34d7f9ed6642e6f0fa98cf5fbf26e8bc
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -169,8 +170,3 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 * [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

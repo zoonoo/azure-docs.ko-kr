@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -200,10 +201,5 @@ Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다�
 
 ### <a name="acknowledgments"></a>승인
 이 문서를 만들 때 기여한 Axinom의 Kristjan Jõgi, Mingfei Yan 그리고 Amit Rajput에게 감사를 드립니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

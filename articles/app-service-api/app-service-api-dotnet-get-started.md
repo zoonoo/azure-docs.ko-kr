@@ -4,7 +4,7 @@ description: "Visual Studio 2015를 사용하여 Azure 앱 서비스에서 ASP.N
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -438,10 +439,5 @@ API 앱에 기존 웹 API 프로젝트를 배포하고 API 앱에 클라이언�
 ![Visual Studio에서 API 앱 템플릿](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 **Azure API 앱** 프로젝트 템플릿은 **빈** ASP.NET 4.5.2 템플릿을 선택하고, 확인란을 클릭하여 Web API 지원을 추가하고, Swashbuckle NuGet 패키지를 설치하는 것과 동일합니다. 또한 탬플릿은 중복 Swagger 작업 ID가 만들어지지 않도록 하기 위해 설계된 일부 Swashbuckle 구성 코드를 추가합니다. API 앱 프로젝트를 만들면 이 자습서와 동일한 방식으로 API 앱에 배포할 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

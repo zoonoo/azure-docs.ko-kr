@@ -4,7 +4,7 @@ description: "Azure 웹 앱에서 GoDaddy의 도메인 이름을 사용하는 �
 services: app-service
 documentationcenter: 
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -87,10 +88,5 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ab139ce55ba293526a3ccfb6bcd6cd5838b383f9
-ms.openlocfilehash: 0be5bb571f3d8fe6d5d9fcde2fe64e9147837445
+ms.sourcegitcommit: 6ac9ccd5510c7cdc8748767281965345a5fa0637
+ms.openlocfilehash: 04294bf682ec2e6cf294ebdb686e1fd58e6c58e4
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -45,7 +46,7 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 | Debian |Debian 7.9 이상, 8.2 이상 |커널에 있음 |패키지: "waagent"에서 리포지토리의  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4 이상, 7.0 이상 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ 및 <p> SAP용 SLES |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| SUSE Linux Enterprise |SLES/SAP용 SLES<br>11 SP4<br>12 SP1+|커널에 있음 |패키지:<p> 11의 경우 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<br>12의 경우 "python-azure-agent" 아래의 "공용 클라우드" 모듈에 포함됨<br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.1+ |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
@@ -88,10 +89,5 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 Canonical 엔지니어링과 개방형 커뮤니티 관리로 인해 고객에 대한 개인 클라우드 서비스와 클라이언트, 서버 및 클라우드 컴퓨팅에서 Ubuntu가 성공할 수 있었습니다. Ubuntu의 통합된 무료 플랫폼에 대해 Canonical은 전화에서 클라우드에 이르기까지 전화, 태블릿, TV 및 데스크톱에 일관된 인터페이스를 보여주어 공용 클라우드 공급자에서 가전 제품 제조업체에 이르기까지 다양한 기관에서 Ubuntu를 우선적으로 선택하도록 만들고 개인 과학 분야 기술자들 사이에서 선호하도록 만듭니다.
 
 Canonical은 전 세계의 개발자 및 엔지니어링 센터와 함께 PC에서 서버 및 핸드헬드 장치에 이르는 업계에 Ubuntu 솔루션을 제공하기 위해 하드웨어 제조업체, 콘텐츠 공급자 및 소프트웨어 개발자와 유일하게 파트너 입장에 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

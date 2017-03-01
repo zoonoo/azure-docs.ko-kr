@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: d6ce5ac0207ac94a4eb8e6dccedd36c7cb446d70
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-kintone-tutorial/IC785859.png "Scenario")
+![시나리오](./media/active-directory-saas-kintone-tutorial/IC785859.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-kintone"></a>Kintone에 응용 프로그램 통합 사용
 이 섹션은 Kintone에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-kintone-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-kintone-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-kintone-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-kintone-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-kintone-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-kintone-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **Kintone**을 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-kintone-tutorial/IC785867.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-kintone-tutorial/IC785867.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **Kintone**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -74,41 +75,41 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Kintone** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785872.png "Single Sign-On 구성")
 
 2. **Kintone에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785873.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지의 **Kintone 로그온 URL** 텍스트 상자에 "*https://company.kintone.com*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-kintone-tutorial/IC785875.png "앱 URL 구성")
 
 4. **Kintone에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785878.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785878.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 **Kintone** 회사 사이트에 관리자로 로그인합니다.
 
 6. **설정**을 클릭합니다.
    
-    ![설정](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![설정](./media/active-directory-saas-kintone-tutorial/IC785879.png "설정")
 
 7. **사용자 및 시스템 관리**를 클릭합니다.
    
-    ![사용자 및 시스템 관리](./media/active-directory-saas-kintone-tutorial/IC785880.png "Users & System Administration")
+    ![사용자 및 시스템 관리](./media/active-directory-saas-kintone-tutorial/IC785880.png "사용자 및 시스템 관리")
 
 8. **시스템 관리 \> 보안**에서 **로그인**을 클릭합니다.
    
-    ![로그인](./media/active-directory-saas-kintone-tutorial/IC785881.png "Login")
+    ![로그인](./media/active-directory-saas-kintone-tutorial/IC785881.png "로그인")
 
 9. **SAML 인증 사용**을 클릭합니다.
    
-    ![SAML 인증](./media/active-directory-saas-kintone-tutorial/IC785882.png "SAML Authentication")
+    ![SAML 인증](./media/active-directory-saas-kintone-tutorial/IC785882.png "SAML 인증")
 
 10. SAML Authentication 섹션에서 다음 단계를 수행합니다.
     
-    ![SAML 인증](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML Authentication")
+    ![SAML 인증](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML 인증")
     
     1. Azure 클래식 포털의 **Kintone에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
    
@@ -120,7 +121,7 @@ ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
 
 11. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single Sign-on 구성](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785884.png "Single Sign-On 구성")
     
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -132,23 +133,23 @@ Kintone의 경우 프로비전은 수동 작업입니다.
 
 2. **설정**을 클릭합니다.
    
-    ![설정](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![설정](./media/active-directory-saas-kintone-tutorial/IC785879.png "설정")
 
 3. **사용자 및 시스템 관리**를 클릭합니다.
    
-    ![사용자 및 시스템 관리](./media/active-directory-saas-kintone-tutorial/IC785880.png "User & System Administration")
+    ![사용자 및 시스템 관리](./media/active-directory-saas-kintone-tutorial/IC785880.png "사용자 및 시스템 관리")
 
 4. **사용자 관리**에서 **부서 및 사용자**를 클릭합니다.
    
-    ![부서 및 사용자](./media/active-directory-saas-kintone-tutorial/IC785888.png "Department & Users")
+    ![부서 및 사용자](./media/active-directory-saas-kintone-tutorial/IC785888.png "부서 및 사용자")
 
 5. **새 사용자**를 클릭합니다.
    
-    ![새 사용자](./media/active-directory-saas-kintone-tutorial/IC785889.png "New Users")
+    ![새 사용자](./media/active-directory-saas-kintone-tutorial/IC785889.png "새 사용자")
 
 6. **새 사용자** 섹션에서 다음 단계를 수행합니다.
    
-    ![새 사용자](./media/active-directory-saas-kintone-tutorial/IC785890.png "New Users")
+    ![새 사용자](./media/active-directory-saas-kintone-tutorial/IC785890.png "새 사용자")
    
     1. **표시 이름**, **로그인 이름**, **새 암호**, **암호 확인**, **전자 메일 주소** 및 관련 텍스트 상자에 프로비전할 유효한 AAD 계정의 세부 정보를 입력합니다.
  
@@ -167,17 +168,12 @@ Kintone의 경우 프로비전은 수동 작업입니다.
 
 2. **Kintone** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-kintone-tutorial/IC785891.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-kintone-tutorial/IC785891.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-kintone-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-kintone-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

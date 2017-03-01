@@ -1,6 +1,6 @@
 ---
 title: Log Analytics FAQ | Microsoft Docs
-description: "Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다."
+description: "Azure Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 4695669dc20b4b4b90ccdaf4db06df2cfcba2167
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -63,7 +64,7 @@ A. 여러 유형의 Express 경로 트래픽이 [Express 경로 설명서](../ex
 
 Log Analytics에 대한 트래픽은 공용 피어링 Express 경로 회로를 사용합니다.
 
-**Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?**   Azure 구독에서 테스트 및 시험해본 여러 고객의 OMS 작업 영역이 있으며 이 작업 영역을 자신의 Azure/OMS 구독으로 이동하기 위해 프로덕션으로 이동 중입니다.  
+**Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?**  Azure 구독에서 테스트 및 시험해본 여러 고객의 OMS 작업 영역이 있으며 이 작업 영역을 자신의 Azure/OMS 구독으로 이동하기 위해 프로덕션으로 이동 중입니다.  
 
 A. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 자동화 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
 
@@ -89,6 +90,13 @@ A: 에이전트가 OMS와 통신할 수 있는지 확인하려면 제어판, 보
 
 A: SCOM에서는 OMS 관리되는 목록에서 컴퓨터를 제거합니다. 그러면 에이전트에서 SCOM을 통한 모든 통신이 중지됩니다. OMS에 직접 연결된 에이전트인 경우 제어판, 보안 및 설정, **Microsoft Monitoring Agent**를 통해 OMS와 통신을 중지할 수 있습니다.
 **Azure Log Analytics(OMS)**아래에서 나열된 모든 작업 영역을 제거합니다.
+
+**Q: 내 작업 영역을 특정 Azure 구독에서 다른 구독으로 이동하려고 하는 경우 오류가 발생하는 이유는 무엇인가요?**
+
+A: 솔루션을 추가하는 경우 Azure에서는 작업 영역이 위치한 Azure 구독에 리소스를 만듭니다.
+
+일반적으로 구독을 추가하는 사용자는 *Azure 구독*의 관리자 또는 참가자입니다. 사용자도 Azure 구독의 Azure Portal에서 동일한 사용 권한이 없는 경우 OMS 포털의 관리자 또는 참가자는 충분하지 않습니다.
+
 
 ## <a name="agent-data"></a>에이전트 데이터
 **Q. 에이전트를 통해 Log Analytics로 얼마나 많은 데이터를 보낼 수 있나요? 고객 한 명당 최대 데이터 용량이 있나요?**  
@@ -121,9 +129,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics 시작](log-analytics-get-started.md) 에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

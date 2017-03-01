@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
 ms.openlocfilehash: a46db1815b84f0ecf93c805f3ea36e4e3d4282ac
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -142,7 +143,7 @@ VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  데이터 VHD 파일에서 관리되는 데이터 디스크를 만들고 새 VM에 추가합니다.
@@ -159,13 +160,13 @@ VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가
 5.  공용 IP, Virtual Network 및 NIC를 설정하여 새 VM을 만듭니다.
 
     ```powershell
-    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'\_ip') '
+    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
     -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
     
     $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
     
-    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'\_nic') '
-    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets\[0\].Id '
+    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
+    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
     -PublicIpAddressId $publicIp.Id
     
     $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
@@ -181,10 +182,5 @@ VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가
 ## <a name="next-steps"></a>다음 단계
 
 - 가상 컴퓨터에 연결합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

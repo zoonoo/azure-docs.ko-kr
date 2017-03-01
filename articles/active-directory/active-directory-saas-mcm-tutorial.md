@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: 2a204ffbb915370328e574dc3cba6a617e97c87a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,7 +45,7 @@ MCM과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.
@@ -66,19 +67,19 @@ MCM의 Azure AD 통합을 구성하려면 갤러리의 MCM을 관리되는 SaaS 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **MCM**을 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **MCM**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -106,15 +107,15 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 
 1. Azure 클래식 포털의 **MCM** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Single Sign-On 구성")
 
 2. **MCM에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+    ![Microsoft Azure AD Single Sign-on](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-on")
 
 3. 앱 설정 구성 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "앱 URL 구성")
    
     a. **로그온 URL** 텍스트 상자에 `https://myaba.co.uk/client-access/<company name>/saml.php`를 입력합니다.
    
@@ -122,17 +123,17 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 
 4. **MCM에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Single Sign-On 구성")
 
 5. 응용 프로그램에 대해 SSO를 구성하려면 MCM 지원 팀에 문의하세요. 다운로드한 메타데이터 파일을 첨부하고 MCM 팀에서 SSO를 설정할 수 있게 공유하세요.
 
 6. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Single Sign-On 구성")
 
 7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Single Sign-On 구성")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -189,7 +190,7 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-mcm-test-user"></a>MCM 테스트 사용자 만들기
 이 섹션에서는 MCM에서 Britta Simon이라는 사용자를 만듭니다. MCM 플랫폼에서 사용자를 추가하려면 MCM 지원 팀에 문의하세요.
@@ -202,13 +203,13 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 이 섹션의 목적은 Britta Simon에게 MCM에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다.
 
-![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assign users")
+![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "사용자 할당")
 
 **Britta Simon을 MCM에 할당하려면 다음 단계를 수행합니다.**
 
 1. 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "사용자 할당")
 
 2. 응용 프로그램 목록에서 **MCM**을 선택합니다.
    
@@ -216,13 +217,13 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 
 3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "사용자 할당")
 
 4. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
 5. 아래쪽 도구 모음에서 **할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "사용자 할당")
 
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
@@ -232,10 +233,5 @@ MCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구�
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

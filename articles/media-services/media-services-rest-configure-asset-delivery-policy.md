@@ -4,7 +4,7 @@ description: "이 항목에서는 미디어 서비스 REST API를 사용하여 �
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -427,10 +428,5 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

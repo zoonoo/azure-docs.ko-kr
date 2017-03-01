@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement용 Windows Phone Silverlight SDK 업그레
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -110,7 +111,7 @@ Capptain 리소스를 사용자 지정한 경우 이전 파일 콘텐츠를 복�
         </engagement:EngagementPage>
 4. Capptain 그림과 같은 기타 리소스도 "Engagement"를 사용하도록 이름이 바뀌었습니다.
 
-### <a name="application-id-sdk-key"></a>응용 프로그램 ID/SDK 키
+### <a name="application-id--sdk-key"></a>응용 프로그램 ID/SDK 키
 Engagement에서는 연결 문자열을 사용합니다. 따라서 Mobile Engagement에서는 응용 프로그램 ID와 SDK 키를 지정할 필요가 없으며 연결 문자열만 지정하면 됩니다. EngagementConfiguration 파일에서 연결 문자열을 설정할 수 있습니다.
 
 Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파일에서 설정할 수 있습니다.
@@ -142,10 +143,5 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 * GetCapptainPageName의 이름은 GetEngagementPageName으로 바뀌었습니다.
 
 이와 같이 바뀐 이름은 재정의되는 메서드에도 영향을 줍니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -17,14 +17,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: bc1a78a2891c73df23bc2a57cec67e6b73414165
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>C#을 사용하여 .NET용 SQL Database 라이브러리로 SQL 데이터베이스 만들기
 
-C#을 사용하여 [.NET용 Microsoft Azure SQL 관리 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 풀을 만들려면 [탄력적 풀 만들기](sql-database-elastic-pool-create-csharp.md)를 참조하세요.
+C#을 사용하여 [.NET용 Microsoft Azure SQL 관리 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 풀을 만들려면 [탄력적 풀 만들기](sql-database-elastic-pool-manage-csharp.md)를 참조하세요.
 
 .NET용 Azure SQL Database 관리 라이브러리는 [Resource Manager 기반 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 API를 제공합니다.
 
@@ -284,9 +285,4 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 [7]: ./media/sql-database-get-started-csharp/add-application.png
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

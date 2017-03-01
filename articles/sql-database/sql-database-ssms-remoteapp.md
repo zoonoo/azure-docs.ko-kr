@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: d0edcf7f7e927f817caae1cb7f4519596a09f140
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: a8540a541d05d1d8a0afeb2aeb42c77951ebf8c2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: d0edcf7f7e927f817caae1cb7f4519596a09f140
 **예상 완료 시간:** 45분
 
 ## <a name="ssms-in-azure-remoteapp"></a>Azure RemoteApp의 SSMS
-Azure RemoteApp은 응용 프로그램을 제공하는 Azure의 RDS 서비스입니다.  [RemoteApp이란?](../remoteapp/remoteapp-whatis.md)
+Azure RemoteApp은 응용 프로그램을 제공하는 Azure의 RDS 서비스입니다. [RemoteApp이란?](../remoteapp/remoteapp-whatis.md)
 
 Azure RemoteApp에서 실행되는 SSMS은 SSMS를 로컬로 실행할 때와 동일한 환경을 제공합니다.
 
@@ -41,7 +42,7 @@ Azure RemoteApp에서 실행되는 SSMS은 SSMS를 로컬로 실행할 때와 �
 ## <a name="benefits"></a>이점
 다음을 비롯하여 Azure RemoteApp에서 SSMS를 사용하는 많은 이점이 있습니다.
 
-* Azure SQL Server의 포트 1433는 외부에서(Azure 외부)에 노출될 필요가 없습니다.
+* Azure SQL Server의 포트 1433은 외부에서(Azure 외부)에 노출될 필요가 없습니다.
 * Azure SQL Server 방화벽에서 IP 주소를 계속 추가하고 제거할 필요가 없습니다.
 * Azure RemoteApp 연결은 모두 암호화된 원격 데스크톱 프로토콜을 사용하여 포트 443에서 HTTPS를 통해 발생합니다.
 * 다중 사용자이며 확장할 수 있습니다.
@@ -127,8 +128,3 @@ SQL 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [SQL
 [4]: ./media/sql-database-ssms-remoteapp/allowazure.png
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
-
-
-<!--HONumber=Dec16_HO1-->
-
-

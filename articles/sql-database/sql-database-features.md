@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -57,12 +58,12 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 | AlwaysOn 가용성 그룹 | [지원됨](https://msdn.microsoft.com/library/hh510230.aspx) | 지원되지 않음 - [활성 지역 복제](sql-database-geo-replication-overview.md) 참조 |
 | 데이터베이스 연결 | [지원됨](https://msdn.microsoft.com/library/ms190209.aspx) | 지원되지 않음 |
 | 응용 프로그램 역할 | [지원됨](https://msdn.microsoft.com/library/ms190998.aspx) | [지원됨](https://msdn.microsoft.com/library/ms190998.aspx) |
-| 자동 크기 조정 | 지원되지 않음 | [지원됨](sql-database-scale-up.md) |
+| 자동 크기 조정 | 지원되지 않음 | [지원됨](sql-database-service-tiers.md) |
 | Azure Active Directory | 지원되지 않음 | [지원됨](sql-database-aad-authentication.md) |
 | Azure 데이터 팩터리 | 지원되지 않음 - [SSIS(SQL Server Integration Services)](https://msdn.microsoft.com/library/ms141026.aspx) 참조 | [지원됨](https://azure.microsoft.com/services/data-factory/) |
-| 감사 | [지원됨](https://msdn.microsoft.com/library/cc280386.aspx) | [지원됨](sql-database-auditing-get-started.md) |
+| 감사 | [지원됨](https://msdn.microsoft.com/library/cc280386.aspx) | [지원됨](sql-database-auditing.md) |
 | BACPAC 파일(내보내기) | [지원됨](https://msdn.microsoft.com/library/hh213241.aspx) | [지원됨](sql-database-export.md) |
-| BACPAC 파일(가져오기) | [지원됨](https://msdn.microsoft.com/library/hh710052.aspx) | [지원됨](sql-database-import.md) |
+| BACPAC 파일(가져오기) | [지원됨](https://msdn.microsoft.com/library/hh710052.aspx) | [지원됨](sql-database-import-portal.md) |
 | BACKUP 및 RESTORE 문 | [지원됨](https://msdn.microsoft.com/library/ff848768.aspx) | 지원되지 않음 |
 | 기본 제공 함수 | [지원됨](https://msdn.microsoft.com/library/ms174318.aspx) | [대부분](https://msdn.microsoft.com/library/ms174318.aspx) |
 | 변경 데이터 캡처 | [지원됨](https://msdn.microsoft.com/library/cc645937.aspx) | 지원되지 않음 |
@@ -132,7 +133,7 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 | SQL Server 통합 서비스(SSIS) | [지원됨](https://msdn.microsoft.com/library/ms141026.aspx) | 지원되지 않음 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 참조 |
 | SQL Server PowerShell | [지원됨](https://msdn.microsoft.com/library/hh245198.aspx) | [지원됨](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [지원됨](https://msdn.microsoft.com/library/ms181091.aspx) | 지원되지 않음 - [확장 이벤트](https://msdn.microsoft.com/library/ms181091.aspx) 참조 |
-| SQL Server 복제 | [지원됨](https://msdn.microsoft.com/library/ms151198.aspx) | [트랜잭션 및 스냅숏 복제 구독자만 해당](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server 복제 | [지원됨](https://msdn.microsoft.com/library/ms151198.aspx) | [트랜잭션 및 스냅숏 복제 구독자만 해당](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services(SSRS) | [지원됨](https://msdn.microsoft.com/library/ms159106.aspx) | 지원되지 않음 |
 | 저장 프로시저 | [지원됨](https://msdn.microsoft.com/library/ms190782.aspx) | [지원됨](https://msdn.microsoft.com/library/ms190782.aspx) |
 | 시스템 저장 함수 | [지원됨](https://msdn.microsoft.com/library/ff848780.aspx) | [일부](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -158,9 +159,4 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 정보입니다. 서비스 계층에 대한 개요는 [SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 - 보안 개요에 대해서는 [Azure SQL Database 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

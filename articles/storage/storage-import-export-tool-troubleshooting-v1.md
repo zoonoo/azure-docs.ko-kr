@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: a6e5253f9242ce5d9e1be06e24ab2e1a70d1b321
-ms.openlocfilehash: 4cc9e33c63d3fdf4a7d9368b11e802063c67bec7
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="troubleshooting-the-azure-import-export-tool"></a>Azure Import-Export 도구 문제 해결
+# <a name="troubleshooting-the-azure-import-export-tool"></a>Azure Import/Export 도구 문제 해결
 Microsoft Azure Import/Export 도구는 문제가 발생하는 경우 오류 메시지를 반환합니다. 이 항목에는 사용자가 실행할 수 있는 몇 가지 일반적인 문제가 나와 있습니다.  
   
 ## <a name="a-copy-session-fails-what-i-should-do"></a>복사 세션에 실패하면 어떻게 해야 하나요?  
@@ -43,9 +44,4 @@ Microsoft Azure Import/Export 도구는 문제가 발생하는 경우 오류 메
  [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
  [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)   
  [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

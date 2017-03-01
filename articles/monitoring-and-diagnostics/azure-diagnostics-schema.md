@@ -1,22 +1,23 @@
 ---
 title: "Azure 진단 구성 스키마 버전 목록 | Microsoft Docs"
 description: "Azure Virtual Machines, VM Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 컬렉션을 구성하는 데 사용됩니다."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 2e1bc45b55cd79af8579a5ddaf43cf0db019c92f
+ms.sourcegitcommit: ac1ae46a165baad675c6b2445f91e05694eae6f9
+ms.openlocfilehash: 5d0894430dc915fc46d753a0b672de3b51ce3888
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,6 +40,10 @@ Azure 진단은 Azure Monitor, Application Insights 및 Log Analytics와 같은 
 |2.6               |1.3                         |"|  
 |2.7               |1.4                         |"|  
 |2.8               |1.5                         |"|  
+|2.9               |1.6                         |"|
+|2.96              |1.7                         |"|
+
+
 
  Azure 진단 버전 1.0은 처음에는 플러그 인 모델로 제공되었습니다. 따라서 Azure SDK를 설치할 때 함께 제공되는 Azure 진단 버전을 사용할 수 있게 되었습니다.  
 
@@ -51,10 +56,5 @@ Azure 진단은 Azure Monitor, Application Insights 및 Log Analytics와 같은 
 
 [진단 1.2 구성 스키마](azure-diagnostics-schema-1dot2.md)  
 
-[진단 1.3 ~ 1.5 구성 스키마](azure-diagnostics-schema-1dot3-to-1dot5.md)  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[진단 1.3 이상 구성 스키마](azure-diagnostics-schema-1dot3-and-later.md)  
 

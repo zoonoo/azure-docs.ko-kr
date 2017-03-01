@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
 ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -41,9 +42,4 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그�
 
 ## <a name="next-steps"></a>다음 단계
 최신 데이터 공급자가 설치된 클라이언트 응용 프로그램은 서버에 연결할 준비가 됩니다. 클라이언트에서 연결에 대한 자세한 내용은 [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

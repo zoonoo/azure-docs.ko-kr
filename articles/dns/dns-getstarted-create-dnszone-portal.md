@@ -16,17 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: c9bebc8f54d3f732b3014f6885ee65a067e9d1d8
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 7119ce18e04b427c268d4d8636b1a5fa02ed0cc3
+ms.lasthandoff: 02/27/2017
 
 ---
 
 # <a name="create-a-dns-zone-in-the-azure-portal"></a>Azure 포털에서 DNS 영역 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](dns-getstarted-create-dnszone-portal.md)
+> * [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
-> * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-dnszone-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-dnszone-cli.md)
 
 이 문서에서는 Azure 포털을 사용하여 DNS 영역을 만드는 단계를 안내합니다. PowerShell 또는 CLI를 사용하여 DNS 영역을 만들 수도 있습니다.
 
@@ -96,10 +98,5 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 ## <a name="next-steps"></a>다음 단계
 
 DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset-portal.md)를 만들어 인터넷 도메인에 대한 DNS 기록을 만들어야 합니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

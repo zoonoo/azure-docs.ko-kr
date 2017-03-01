@@ -13,18 +13,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/27/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 7e10f4d051a484965c7d58de6351dd357aa64c0f
-ms.openlocfilehash: 0c0e682c79a6a25ac29760f649a832f22f39e8b5
+ms.sourcegitcommit: 8078f9822b392af09e00e9bf1e448e0a51994e11
+ms.openlocfilehash: 15707a71500424e4776adc80491af95b57bea222
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="automate-azure-documentdb-account-management-using-azure-powershell"></a>Azure Powershell을 사용하여 Azure DocumentDB 계정 관리 자동화
 > [!div class="op_single_selector"]
-> * [Azure 포털](documentdb-create-account.md)
-> * [Azure CLI 및 ARM](documentdb-automation-resource-manager-cli.md)
+> * [Azure Portal](documentdb-create-account.md)
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 > * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 이 문서에서는 Azure Powershell을 사용하여 DocumentDB 데이터베이스 계정 관리를 자동화하는 명령에 대해 설명합니다. [다중 하위 지역 데이터베이스 계정][scaling-globally]에서 계정 키 및 장애 조치 우선 순위를 관리하는 명령도 포함되어 있습니다. 데이터베이스 계정을 업데이트하면 일관성 정책을 수정하고 하위 지역을 추가/제거할 수 있습니다. DocumentDB 데이터베이스 계정의 플랫폼 간 관리를 위해 [Azure CLI](documentdb-automation-resource-manager-cli.md), [리소스 공급자 REST API][rp-rest-api] 또는 [Azure Portal](documentdb-create-account.md)을 사용할 수 있습니다.
@@ -190,8 +192,3 @@ DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액�
 [azure-resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
-
-
-<!--HONumber=Dec16_HO3-->
-
-

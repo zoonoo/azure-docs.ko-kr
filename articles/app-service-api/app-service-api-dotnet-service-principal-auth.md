@@ -4,7 +4,7 @@ description: "서비스 간 시나리오에 대해 Azure 앱 서비스에서 API
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -348,10 +349,5 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
     [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 샘플은 이 자습서에 표시된 것과 비슷하지만, 앱 서비스 인증을 사용할 필요가 없습니다.
 
 Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure App Service 앱을 배포하는 방법](../app-service-web/web-sites-deploy.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

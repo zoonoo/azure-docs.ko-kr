@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 02/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
-ms.openlocfilehash: b884fe128b8414ae1692df92e89a41f7ba1c0447
+ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
+ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -135,7 +136,7 @@ Azure Resource Manager 템플릿을 사용하여 PowerShell에서 IoT Hub를 배
 * [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 읽어보세요.
 * Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요][lnk-azure-rm-overview]를 참조하세요.
 
-IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [C SDK 소개][lnk-c-sdk]
 * [Azure IoT SDK][lnk-sdks]
@@ -157,9 +158,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

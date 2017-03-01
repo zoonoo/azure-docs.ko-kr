@@ -4,7 +4,7 @@ description: "하나의 리소스 그룹에서 다른 리소스 그룹으로 웹
 services: app-service
 documentationcenter: 
 author: ZainRizvi
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: zarizvi
 translationtype: Human Translation
 ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
 ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -31,10 +32,5 @@ Azure 웹앱은 현재 다음 이동 시나리오를 지원합니다.
 
 * 여전히 자신의 현재 앱 서비스 계획(앱 서비스 계획은 이전 리소스 그룹에 유지)에서 호스트하는 동안 다른 리소스 그룹으로 개별 웹앱을 이동
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

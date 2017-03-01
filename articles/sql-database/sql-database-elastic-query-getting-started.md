@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
-ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
+ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
+ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
 
     ![명령 프롬프트][1]
 2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을&4;번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-3. [Azure 포털](https://portal.azure.com) 에서 사용자의 v12 서버 내에 새로운&3;개의 데이터베이스가 보여야 합니다.
+3. [Azure Portal](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운&3;개의 데이터베이스가 보여야 합니다.
 
    ![Visual Studio 확인][2]
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
    다음 섹션에서는 분할 된 데이터베이스 간 데이터의 다양한 쿼리를 지원하는 샘플 데이터베이스 끝점을 만듭니다.
 
 ## <a name="create-an-elastic-query-database"></a>탄력적 쿼리 데이터베이스 만들기
-1. [Azure 포털](https://portal.azure.com) 을 열고 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 로그인합니다.
 2. 분할 된 데이터베이스를 설치한 동일 서버에서 새 Azure SQL 데이터베이스를 만듭니다. 데이터베이스 이름을"ElasticDBQuery."로 합니다.
 
     ![Azure 포털 및 가격 책정 계층][3]
@@ -129,7 +130,16 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>다음 단계
+
+## <a name="next-steps"></a>다음 단계
+
+* 탄력적 쿼리의 개요는 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md)를 참조하세요.
+* 수직 분할 자습서는 [데이터베이스 간 쿼리 시작(수직 분할)](sql-database-elastic-query-getting-started-vertical.md)을 참조하세요.
+* 수직 분할된 데이터에 대한 구문 및 예제 쿼리는 [수직 분할된 데이터 쿼리하기](sql-database-elastic-query-vertical-partitioning.md)를 참조하세요.
+* 행 분할된 데이터에 대한 구문 및 예제 쿼리는 [행 분할된 데이터 쿼리하기](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
+* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 집합에서 TRANSACT-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](https://msdn.microsoft.com/library/mt703714)을 참조하세요.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
@@ -138,9 +148,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

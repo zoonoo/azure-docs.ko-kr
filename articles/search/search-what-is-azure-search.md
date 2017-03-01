@@ -13,10 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-experiment_id: heidist-experiment1-20170221
+experimental: true
+experiment_id: heidist-20170221
 translationtype: Human Translation
 ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
 ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
+ms.lasthandoff: 01/14/2017
 
 ---
 # <a name="what-is-azure-search"></a>Azure 검색이란?
@@ -86,10 +88,5 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 
 또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

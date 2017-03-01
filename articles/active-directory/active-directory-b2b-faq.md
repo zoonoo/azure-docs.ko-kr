@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0eef684115f9c21ea61502a10576f74cac0ace8e
-ms.openlocfilehash: 2054cb65b5192e08fc64e56f59a456fc911f0829
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -72,7 +73,7 @@ B2B 공동 작업 사용자는 제한된 관리자 또는 전역 관리자 역�
 2. ![](media/active-directory-b2b-faq/group-with-guest-users.png) 게스트 사용자를 포함하는 동적 그룹을 만듭니다.
 3. 다음 비디오에서 보여 주듯이 조건부 액세스 정책을 설정하여 게스트 사용자가 포털에 액세스하지 못하도록 차단합니다.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
+  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
   이 비디오가 포함된 것으로 표시되지 않으면 [여기](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user)서 연결할 수 있습니다.
 
@@ -109,9 +110,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

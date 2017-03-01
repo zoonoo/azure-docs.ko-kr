@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
+ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,7 +40,7 @@ Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
 * 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다.
-* Active Directory 평가 솔루션을 사용하려면 OMS 에이전트가 있는 각 컴퓨터에 .NET Framework 4를 설치해야 합니다.
+* Active Directory 평가 솔루션을 사용하려면 OMS 에이전트가 있는 각 컴퓨터에 지원되는 버전의 .NET Framework 4(4.5.2 이상)를 설치해야 합니다.
 * [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 Active Directory 평가 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
   > [!NOTE]
@@ -60,7 +61,7 @@ Active Directory 평가는 사용하도록 설정한 에이전트를 통해 WMI 
 작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
 
 ### <a name="how-weights-are-calculated"></a>가중치 계산 방법
-가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
+가중치는&3;개의 주요 요인을 기반으로 하는 집계 값입니다.
 
 * 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
@@ -170,9 +171,4 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 AD 평가 데이터 및 권장 사항을 볼 수 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

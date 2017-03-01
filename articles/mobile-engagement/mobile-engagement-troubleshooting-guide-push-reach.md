@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement에서 사용자 상호 작용 및 알림 �
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 3f1886b7-1fdd-47f4-b6b0-d79f158d5ef3
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -99,10 +100,5 @@ ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
 * 둘 이상의 캠페인을 동시에 시작하면 사용자층을 검색하는 데 시간이 더 오래 걸릴 수 있습니다. 캠페인은 한 번에 하나씩 최대 4개까지만 시작하고, 이전 사용자는 검색하지 않아도 되도록 활성 사용자만을 대상으로 지정해 봅니다.
 * 도달률 캠페인의 "캠페인" 섹션에서 "대상을 무시하고 API를 통해 사용자에게 푸시 전송" 옵션을 사용하는 경우에는 캠페인이 자동으로 전송되지 않으며 도달률 API를 통해 수동으로 캠페인을 전송해야 합니다.
 * 도달률에서 사용자 지정 범주를 사용하여 앱 내 알림을 표시하는 경우에는 올바른 알림 수명 주기를 따라야 합니다. 그렇지 않으면 사용자가 알림을 해제해도 알림이 지워지지 않을 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

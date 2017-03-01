@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dfd9690f2e3e017ca308649f79a84466d49d844
-ms.openlocfilehash: 91ee5da0885fc0b044150e524757eac659a003a4
+ms.sourcegitcommit: e37f1716b459ea8eb0f2d0a5a12e7a3a8ab2c083
+ms.openlocfilehash: e2ec0cefb6e009f22c3406ccd1570748dc467ed0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -135,7 +136,7 @@ Azure 클래식 포털에서 이러한 위험 이벤트 중 일부는 이미 Azu
 | 익명 IP 주소에서 로그인 |알 수 없는 원본에서 로그인 |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |의심스러운 작업이 있는 IP 주소에서 로그인 |
 | 잘 모르는 위치에서 로그인 |- |
-| 잠금 이벤트 |- |
+
 
 다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 클래식 포털에서 계속 사용할 수 있습니다. 그렇지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
 
@@ -149,10 +150,5 @@ Azure 클래식 포털에서 이러한 위험 이벤트 중 일부는 이미 Azu
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

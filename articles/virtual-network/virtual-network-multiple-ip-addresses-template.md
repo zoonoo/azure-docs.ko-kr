@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
-ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 080404a7b4fde0e2fd8b8be407090190d07c6f2a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -122,7 +123,7 @@ PowerShell을 사용하여 템플릿을 배포하려면 다음 단계를 완료�
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `-TemplateParameterFile` 매개 변수의 값으로 사용합니다.
     
-    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#powershell) 문서의 단계를 완료합니다.
+    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) 문서의 단계를 완료합니다.
 
     >[!TIP]
     >dnslabelprefix를 사용할 수 있는지 확실하지 않은 경우 `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` 명령을 입력하여 확인합니다. 사용할 수 있으면 이 명령은 `True`를 반환합니다.
@@ -157,14 +158,9 @@ Azure CLI 1.0을 사용하여 템플릿을 배포하려면 다음 단계를 완�
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `--parameters-file`(-e) 매개 변수의 값으로 사용합니다.
     
-    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10) 문서의 단계를 완료합니다.
+    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) 문서의 단계를 완료합니다.
 
 3. VM이 배포된 후에 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 단계를 완료하여 VM에 연결하고 배포된 운영 체제에 개인 IP 주소를 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

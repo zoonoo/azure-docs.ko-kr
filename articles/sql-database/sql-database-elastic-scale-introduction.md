@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 83eb96e8e9d1d5ff31d87141fe7270c0db8867bd
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -93,7 +94,7 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 
 도구를 사용하도록 기존 데이터베이스를 변환하려면 [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
 
-탄력적 풀의 세부 사항을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [자습서](sql-database-elastic-pool-create-portal.md)를 사용하여 새로운 풀을 만드세요.  
+탄력적 풀의 세부 사항을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [탄력적 풀](sql-database-elastic-pool-manage-portal.md)을 사용하여 새로운 풀을 만드세요.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -103,10 +104,5 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

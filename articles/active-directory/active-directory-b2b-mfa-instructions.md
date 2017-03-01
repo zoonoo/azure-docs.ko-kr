@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 32d0b45080d57712209e0c5a3e5adf981fb4b66e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -36,10 +37,14 @@ ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
 7. 요약하자면 파트너 조직 자체(MFA 기능이 있어도 관계 없음)가 아닌 초대하는 테넌시가 *항상* B2B 공동 작업 사용자의 MFA를 책임집니다. 이후 릴리스에서는 초대하는 조직이 초대하는 조직의 MFA를 사용하는 대신 특정 파트너 조직의 MFA를 신뢰할 수 있도록 할 예정입니다.
 
 ## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대한 MFA 설정
-B2B 공동 작업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한지 알아보려면 [이 비디오](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup)를 시청하세요.
+B2B 공동 작업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한지 알아보려면 다음 비디오를 시청하세요.
 
-## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>제안 상환을 위한 B2B 공동 작업 사용자 MFA 환경
-[이 비디오](https://channel9.msdn.com/Blogs/Azure/MFA-redemption)에 표시된 것처럼 아래 애니메이션을 통해 상환 환경을 확인할 수 있습니다.
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
+
+## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>B2B 사용자는 제안 상환을 위해 MFA 환경을 사용합니다.
+다음 비디오에 표시된 것처럼 아래 애니메이션을 통해 상환 환경을 확인할 수 있습니다.
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대해 다시 설정된 MFA
 현재 관리자는 다음 PowerShell cmdlet을 사용하여 B2B 공동 작업 사용자에게 다시 입증하도록 요구할 수 있습니다. 따라서 B2B 공동 작업 사용자의 증명 방법을 다시 설정하려면 다음 PowerShell cmdlet을 사용해야 합니다.
@@ -85,9 +90,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

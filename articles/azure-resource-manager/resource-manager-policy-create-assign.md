@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 138197bab775ec854f2761a64c52a9a9c8baca60
-ms.openlocfilehash: dec7ebd834514a10d02d739264b03b01a65a4375
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -192,11 +193,11 @@ New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $poli
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
 ### <a name="create-policy-definition"></a>정책 정의 만들기
 
-정책 정의 명령과 함께 Azure CLI 2.0(미리 보기)를 사용하여 정책 정의를 만들 수 있습니다. 아래 예제에서는 유럽 북부와 유럽 서부에서만 리소스를 허용하는 정책을 만듭니다.
+정책 정의 명령과 함께 Azure CLI 2.0를 사용하여 정책 정의를 만들 수 있습니다. 아래 예제에서는 유럽 북부와 유럽 서부에서만 리소스를 허용하는 정책을 만듭니다.
 
 ```azurecli
 az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
@@ -292,10 +293,5 @@ azure policy assignment delete --name regionPolicyAssignment --scope /subscripti
 
 ## <a name="next-steps"></a>다음 단계
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

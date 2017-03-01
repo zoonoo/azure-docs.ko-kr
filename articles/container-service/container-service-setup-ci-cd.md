@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
 ## <a name="get-started"></a>시작
 OS X, Windows 또는 Linux에서 이 연습을 실행할 수 있습니다.
 - Azure 구독이 필요합니다. 계정이 없는 경우 [계정을 등록](https://azure.microsoft.com/)할 수 있습니다.
-- [Azure 명령줄 도구](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview)를 설치합니다.
+- [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치합니다.
 
 ## <a name="what-well-create"></a>만들 항목
 설정한 앱 및 해당 배포 흐름의 몇 가지 핵심 측면을 살펴보겠습니다.
@@ -319,7 +320,7 @@ VSTS에서 빌드 정의를 열면 다음과 유사한 결과가 나타납니다
 ## <a name="clean-up"></a>정리
 이 자습서와 관련된 계산 비용을 최소화하려면 다음 명령을 실행하고 ACS 클러스터에 관련된 배포 파이프라인 리소스를 적어둡니다.
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +346,4 @@ VSTS 릴리스 정의 삭제:
 2. 왼쪽의 릴리스 정의 목록에서 삭제하려는 릴리스 정의 옆에 있는 드롭다운을 클릭하고 **삭제**를 선택합니다.
 
 `![VSTS 릴리스 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

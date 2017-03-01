@@ -4,7 +4,7 @@ description: "온-프레미스 Active Directory를 사용하여 인증하는 Azu
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dde6b7e6-bf6a-4fa5-8390-3a18155d21bd
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f989ea86c76706af9413b2bb945956b1c6432e1d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ AD FS(Active Directory Federation Services)와 같은 온-프레미스 STS(보�
 * 온-프레미스 AD 데이터에 액세스하려면 회사 방화벽을 통한 별도의 솔루션이 필요합니다.
 
 온-프레미스 STS를 인증하는 LOB(기간 업무) Azure 앱을 작성하는 방법은 [AD FS 인증을 사용하여 LOB(기간 업무) Azure 앱 만들기](web-sites-dotnet-lob-application-adfs.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 Linux VM에 MongoDB 설치 | Microsoft Docs"
-description: "리소스 관리자 배포 모델을 사용하여 Azure에서 Linux 가상 컴퓨터에 MongoDB를 설치하고 구성하는 방법을 알아봅니다."
+title: "Azure CLI 2.0(미리 보기)을 사용하여 Linux VM에 MongoDB 설치 | Microsoft Docs"
+description: "Azure CLI 2.0(미리 보기)을 사용하여 Linux 가상 컴퓨터에 MongoDB를 설치하고 구성하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,39 +12,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/20/2016
+ms.date: 02/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
-ms.openlocfilehash: fd323a828ee879d6093e2473accbea883f861420
+ms.sourcegitcommit: 16e6a02e9b40643aaa1393f5736d5a28049a086f
+ms.openlocfilehash: 9e4b5b8aa877b8a2197d402957028c2bb7b5cf49
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="install-and-configure-mongodb-on-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 MongoDB를 설치 및 구성
+# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 Linux VM에 MongoDB를 설치하고 구성하는 방법을 알아봅니다.
 [MongoDB](http://www.mongodb.org)는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서는 리소스 관리자 배포 모델을 사용하여 Azure에서 Linux VM에 MongoDB를 설치하고 구성하는 방법을 보여줍니다. 표시된 예제는 다음과 같은 방법을 자세히 보여줍니다.
 
 * [기본 MongoDB 인스턴스를 수동으로 설치 및 구성](#manually-install-and-configure-mongodb-on-a-vm)
 * [Resource Manager 템플릿을 사용하여 기본 MongoDB 클러스터 만들기](#create-basic-mongodb-instance-on-centos-using-a-template)
 * [Resource Manager 템플릿을 사용하여 복제본 세트로 복합적인 MongoDB 분할된 클러스터 만들기](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
-## <a name="prerequisites"></a>필수 조건
-이 문서에 필요한 조건은 다음과 같습니다.
 
-* Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* `azure login`으로 로그인된 [Azure CLI](../xplat-cli-install.md)
-* Azure CLI는 `azure config mode arm`을 사용하여 Azure Resource Manager 모드에 *있어야 합니다*.
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+- [Azure CLI 1.0](virtual-machines-linux-install-mongodb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
+- Azure CLI 2.0(미리 보기) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>VM에서 MongoDB 수동 설치 및 구성
-MongoDB는 Red Hat/CentOS, SUSE, Ubuntu 및 Debian을 포함하는 Linux 배포판에 대한 [설치 지침을 제공](https://docs.mongodb.com/manual/administration/install-on-linux/)합니다. 다음 예제는 `~/.ssh/id_rsa.pub`에 저장된 SSH 키를 사용하여 `CentOS` VM을 만듭니다. 저장소 계정 이름, DNS 이름, 관리자 자격 증명을 묻는 프롬프트에 답변합니다.
+MongoDB는 Red Hat/CentOS, SUSE, Ubuntu 및 Debian을 포함하는 Linux 배포판에 대한 [설치 지침을 제공](https://docs.mongodb.com/manual/administration/install-on-linux/)합니다. 다음 예제는 `~/.ssh/id_rsa.pub`에 저장된 SSH 키를 사용하여 `CentOS` VM을 만듭니다. 이 환경을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
+
+[az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `West US` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
+ az group create --name myResourceGroup --location westus
 ```
 
-앞의 VM 생성 단계 끝에 표시된 공용 IP 주소를 사용하여 VM에 로그인합니다.
+[az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 다음 예제에서는 SSH 공개 키 인증 및 `mypublicdns`의 공용 DNS 항목을 사용하여 `azureuser`라는 사용자 권한으로 `myVM`라는 가상 컴퓨터 VM을 만듭니다.
+
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image CentOS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --public-ip-address-dns-name mypublicdns
+```
+
+VM의 공용 DNS 주소를 사용하여 VM에 로그온합니다. [az vm show](/cli/azure/vm#show)를 사용하여 공용 DNS 주소를 볼 수 있습니다.
+
+```azurecli
+az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+```
+
+고유한 사용자 이름 및 공용 DNS 주소를 사용하여 VM에 SSH합니다.
 
 ```bash
-ssh ops@40.78.23.145
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
 MongoDB에 대한 설치 소스를 추가하려면 다음과 같이 `yum` 리포지토리 파일을 만듭니다.
@@ -112,28 +134,38 @@ Github의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 단일 
 
 * [CentOS의 기본 MongoDB 인스턴스](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-다음 예제는 `WestUS` 지역에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 다음과 같이 사용자 고유의 값을 입력합니다.
+이 환경을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다. 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `West US` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-azure group create --name myResourceGroup --location WestUS \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+az group create --name myResourceGroup --location westus
 ```
 
-> [!NOTE]
-> Azure CLI는 배포 생성 몇 초 내에 프롬프트를 반환하지만 설치 및 구성 작업이 완료되려면 몇 분 정도 소요됩니다. `azure group deployment show myResourceGroup`을 사용하고 해당 리소스 그룹의 이름을 입력하여 배포 상태를 확인합니다. VM에 SSH를 시도하기 전에 `ProvisioningState`에 'Succeeded'가 표시될 때까지 기다립니다.
-> 
-> 
-
-배포가 완료되면 VM에 SSH를 수행합니다. 다음 예제와 같이 `azure vm show` 명령을 사용하여 VM의 IP 주소를 불러옵니다.
+다음으로 [az group deployment create](/cli/azure/group/deployment#create)를 사용하여 MongoDB 템플릿을 배포합니다. 필요한 경우 `newStorageAccountName`, `virtualNetworkName` 및 `vmSize`과 같은 고유한 리소스 이름 및 크기를 정의합니다.
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myLinuxVM
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
+    "adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "dnsNameForPublicIP": {"value": "mypublicdns"},
+    "virtualNetworkName": {"value": "myVnet"},
+    "vmSize": {"value": "Standard_DS1_v2"},
+    "vmName": {"value": "myVM"},
+    "publicIPAddressName": {"value": "myPublicIP"},
+    "nicName": {"value": "myNic"}}' \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-출력의 끝 쪽에 `Public IP address`가 표시됩니다. VM의 IP 주소를 사용하여 VM에 SSH를 수행합니다.
+VM의 공용 DNS 주소를 사용하여 VM에 로그온합니다. [az vm show](/cli/azure/vm#show)를 사용하여 공용 DNS 주소를 볼 수 있습니다.
+
+```azurecli
+az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+```
+
+고유한 사용자 이름 및 공용 DNS 주소를 사용하여 VM에 SSH합니다.
 
 ```bash
-ssh ops@138.91.149.74
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
 다음과 같이 로컬 `mongo` 클라이언트를 사용하여 연결하여 MongoDB 설치를 확인합니다.
@@ -155,26 +187,46 @@ test
 
 
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>템플릿을 사용하여 CentOS에서 복합적인 MongoDB 분할된 클러스터 만들기
-Github의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합적인 MongoDB 분할된 클러스터를 만들 수 있습니다. 이 템플릿은 [MongoDB 분할된 클러스터 모범 사례](https://docs.mongodb.com/manual/core/sharded-cluster-components/)에 따라 중복성 및 고가용성을 제공합니다. 템플릿은 각 복제본 세트에 3개의 노드가 있는 2개의 분할 클러스터를 만듭니다. 노드가 3개 있는 구성 서버 복제본 세트 하나와 `mongos` 라우터 서버 2개가 만들어져서 분할 전반의 응용 프로그램에 대한 일관성을 제공합니다.
+Github의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합적인 MongoDB 분할된 클러스터를 만들 수 있습니다. 이 템플릿은 [MongoDB 분할된 클러스터 모범 사례](https://docs.mongodb.com/manual/core/sharded-cluster-components/)에 따라 중복성 및 고가용성을 제공합니다. 템플릿은 각 복제본 세트에&3;개의 노드가 있는&2;개의 분할 클러스터를 만듭니다. 노드가&3;개 있는 구성 서버 복제본 세트 하나와 `mongos` 라우터 서버&2;개가 만들어져서 분할 전반의 응용 프로그램에 대한 일관성을 제공합니다.
 
 * [CentOS의 MongoDB 분할 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > 이러한 복합적인 MongoDB 분할된 클러스터를 배포하려면 20개가 넘는 코어가 필요하며, 일반적으로 이 수치는 구독에 대한 지역당 기본 코어 수입니다. 코어 수를 늘리려면 Azure 지원 요청을 생성하십시오.
-> 
-> 
 
-다음 예제는 `WestUS` 지역에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 다음과 같이 사용자 고유의 값을 입력합니다.
+이 환경을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다. 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `West US` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-azure group create --name myResourceGroup --location WestUS \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+az group create --name myResourceGroup --location westus
 ```
 
-> [!NOTE]
-> Azure CLI는 배포 생성 몇 초 내에 프롬프트를 반환하지만 설치 및 구성 작업이 완료되려면 한 시간이 넘게 소요될 수 있습니다. `azure group deployment show myResourceGroup`을 사용하고 리소스 그룹의 이름을 맞게 조정하여 배포 상태를 확인합니다. VM에 연결하기 전에 `ProvisioningState`에 'Succeeded'가 표시될 때까지 기다립니다.
-> 
-> 
+다음으로 [az group deployment create](/cli/azure/group/deployment#create)를 사용하여 MongoDB 템플릿을 배포합니다. 필요한 경우 `mongoAdminUsername`, `sizeOfDataDiskInGB` 및 `configNodeVmSize`과 같은 고유한 리소스 이름 및 크기를 정의합니다.
+
+```azurecli
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "mongoAdminUsername": {"value": "mongoadmin"},
+    "mongoAdminPassword": {"value": "P@ssw0rd!"},
+    "dnsNamePrefix": {"value": "mypublicdns"},
+    "environment": {"value": "AzureCloud"},
+    "numDataDisks": {"value": "4"},
+    "sizeOfDataDiskInGB": {"value": 20},
+    "centOsVersion": {"value": "7.0"},
+    "routerNodeVmSize": {"value": "Standard_DS3_v2"},
+    "configNodeVmSize": {"value": "Standard_DS3_v2"},
+    "replicaNodeVmSize": {"value": "Standard_DS3_v2"},
+    "zabbixServerIPAddress": {"value": "Null"}}' \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json \
+  --name myMongoDBCluster --no-wait
+```
+
+이 배포는 모든 VM 인스턴스를 배포하고 구성하는 데&1;시간 이상이 걸릴 수 있습니다. 템플릿 배포가 Azure 플랫폼에서 수락되면 명령 프롬프트로 제어를 반환하는 이전 명령의 끝에 `--no-wait` 플래그가 사용됩니다. 그런 다음 [az group deployment show](/cli/azure/group/deployment#show)를 사용하여 배포 상태를 볼 수 있습니다. 다음 예제에서는 `myResourceGroup` 리소스 그룹에서 `myMongoDBCluster` 배포에 대한 상태를 볼 수 있습니다.
+
+```azurecli
+az group deployment show --resource-group myResourceGroup --name myMongoDBCluster \
+    --query [properties.provisioningState] --output tsv
+```
 
 ## <a name="next-steps"></a>다음 단계
 이 예는 VM을 통해 로컬에서 MongoDB 인스턴스에 연결합니다. 다른 VM 또는 네트워크에서 MongoDB 인스턴스에 연결하려면 적절한 [네트워크 보안 그룹 규칙이 생성되어있어야](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 합니다.
@@ -182,10 +234,5 @@ azure group create --name myResourceGroup --location WestUS \
 템플릿을 사용하여 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 Azure Resource Manager 템플릿은 사용자 지정 스크립트 확장을 사용하여 VM에 스크립트를 다운로드하고 실행합니다. 자세한 내용은 [Linux 가상 컴퓨터에서 Azure 사용자 지정 스크립트 확장 사용](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

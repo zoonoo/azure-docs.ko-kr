@@ -4,7 +4,7 @@ description: "Azure 앱 서비스로 RESTful API를 개발, 호스팅, 소비하
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -58,10 +59,5 @@ API 관리 및 API 앱의 일부 기능에는 유사한 함수가 있습니다. 
 * [Java](app-service-api-java-api-app.md) 
 
 API 앱에 대해 질문하려면 [API 앱 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)에서 스레드를 시작하세요. 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

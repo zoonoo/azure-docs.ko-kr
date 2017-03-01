@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 31b86898552ef9eb6708c83968736f14597223b1
+ms.sourcegitcommit: 57175ddc53d5856cd3492d4c631a92d4bf9247c4
+ms.openlocfilehash: 859f87356448041a320c2e126478aabf1efa0d44
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -49,9 +50,9 @@ ms.openlocfilehash: 31b86898552ef9eb6708c83968736f14597223b1
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-
-2. **찾아보기** 탭을 클릭한 다음 "Microsoft Azure 이벤트 프로세서 호스트"를 검색하고 **Microsoft Azure 이벤트 프로세서 호스트**를 선택합니다. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+* 다음 NuGet 패키지를 프로젝트에 추가합니다.
+  * [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
+  * [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
 
 ### <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor 인터페이스 구현
 
@@ -220,8 +221,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

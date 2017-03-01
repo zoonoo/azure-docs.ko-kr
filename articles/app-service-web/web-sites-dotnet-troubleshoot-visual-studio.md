@@ -4,7 +4,7 @@ description: "Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -638,9 +639,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

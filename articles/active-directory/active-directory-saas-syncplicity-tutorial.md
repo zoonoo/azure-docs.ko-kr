@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
 ms.openlocfilehash: 57c649e974cc0514d3a534a5977d537bdd2bb7c5
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -170,10 +171,5 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 응용 프로그램에 �
     ![예](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

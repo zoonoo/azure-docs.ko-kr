@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
-ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>논리 앱 가격 책정 모델
@@ -27,7 +28,7 @@ Azure Logic Apps을 사용하면 클라우드에서 통합 워크플로의 크�
 ### <a name="what-are-action-executions"></a>작업 실행이란 무엇인가요?
 논리 앱 정의의 모든 단계는 트리거, 조건과 같은 제어 흐름 단계, 범위, for each 루프, do until 루프, 커넥터와 네이티브 작업에 대한 호출을 포함하는 작업입니다
 트리거는 특정 이벤트가 발생할 때 논리 앱의 새 인스턴스를 인스턴스화하기 위해 설계된 특수한 작업입니다.  논리 앱을 측정하는 방식에 영향을 줄 수 있는 트리거의 다양한 동작이 있습니다.
-* **폴링 트리거** – 이 트리거는 논리 앱의 인스턴스를 만들기 위한 기준을 만족하는 메시지를 수신할 때까지 끝점을 지속적으로 폴링합니다.  논리 앱 디자이너의 트리거에서 폴링 간격을 구성할 수 있습니다.  각 폴링 요청은 논리 앱의 인스턴스를 만들지 않더라도 작업 실행으로 계산됩니다.
+* **폴링 트리거** – 이 트리거는 논리 앱의 인스턴스를 만들기 위한 기준을 만족하는 메시지를 수신할 때까지 끝점을 지속적으로 폴링합니다.  Logic App Designer의 트리거에서 폴링 간격을 구성할 수 있습니다.  각 폴링 요청은 논리 앱의 인스턴스를 만들지 않더라도 작업 실행으로 계산됩니다.
 * **웹후크 트리거** – 이 트리거는 클라이언트가 특정 끝점에서 요청을 보낼 때까지 대기합니다.  웹후크 끝점으로 전송된 각 요청은 작업 실행으로 계산됩니다. 요청 및 HTTP 웹후크 트리거는 둘 다 웹후크 트리거입니다.
 * **되풀이 트리거** – 이 트리거는 트리거에 구성된 되풀이 간격을 기반으로 논리 앱의 인스턴스를 만듭니다.  예를 들어&3;일 또는&1;분마다 실행하도록 되풀이 트리거를 구성할 수 있습니다.
 
@@ -58,10 +59,5 @@ App Service 계획을 참조하여 이전에 만든 Logic Apps는 계속 이전�
 ## <a name="next-steps"></a>다음 단계
 * [Logic Apps 개요][whatis]
 * [첫 번째 논리 앱 만들기][만들기] [가격 책정]: https://azure.microsoft.com/pricing/details/logic-apps/ [whatis]: logic-apps-what-are-logic-apps.md [만들기]: logic-apps-create-a-logic-app.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

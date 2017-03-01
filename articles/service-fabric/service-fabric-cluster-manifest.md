@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
+ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
+ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -156,7 +157,7 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 * *applicationPorts*는 Service Fabric 응용 프로그램에서 사용되는 포트입니다. 이는 응용 프로그램의 끝점 요구 사항을 충족할 수 있는 *ephemeralPorts*의 하위 집합이어야 합니다. Service Fabric은 새 포트가 필요할 때마다 이를 사용하며 이러한 포트의 방화벽 열기를 처리합니다. 
 * *reverseProxyEndpointPort*는 선택적 역방향 프록시 끝점입니다. 자세한 내용은 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 
 
-### <a name="other-settings"></a>기타 설정
+### <a name="log-settings"></a>로그 설정
 **fabricSettings** 섹션에서는 Service Fabric 데이터 및 로그에 대한 루트 디렉터리를 설정할 수 있습니다. 이러한 디렉터리는 초기 클러스터 생성 중에만 사용자 지정할 수 있습니다. 이 섹션의 샘플 코드 조각에 대해서는 아래를 참조하세요.
 
     "fabricSettings": [{
@@ -171,12 +172,19 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 
 OS가 아닌 드라이브를 사용하면 OS 충돌 시에도 더 큰 안정성을 제공하므로 이러한 드라이브를 FabricDataRoot 및 FabricLogRoot로 사용하는 것이 좋습니다. 데이터 루트만 사용자 지정하는 경우 로그 루트가 데이터 루트에서 한 수준 아래에 배치됩니다.
 
+### <a name="stateful-reliable-service-settings"></a>상태 저장 신뢰할 수 있는 서비스 설정
+**KtlLogger** 섹션에서는 Reliable Services에 대한 전역 구성 설정을 설정할 수 있습니다. 이러한 설정에 대한 자세한 내용 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md)을 참조하세요.
+아래 예제에서는 상태 저장 서비스에 대한 모든 신뢰할 수 있는 컬렉션 백업을 만드는 공유 트랜잭션 로그를 변경하는 방법을 보여 줍니다.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
 ## <a name="next-steps"></a>다음 단계
 독립 실행형 클러스터 설치에 따라 완전한 ClusterConfig.JSON 파일을 구성한 경우 [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에 따라 클러스터를 배포한 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 계속 진행할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

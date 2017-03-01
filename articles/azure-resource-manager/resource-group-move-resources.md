@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  Azure CLI 2.0(미리 보기)의 경우 다음을 사용합니다.
+  Azure CLI 2.0의 경우 다음을 사용합니다.
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -80,7 +81,6 @@ ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
 * CDN
 * 클라우드 서비스 - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
-* 컨테이너 서비스
 * Content Moderator
 * 데이터 카탈로그
 * 데이터 팩터리
@@ -127,6 +127,7 @@ ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
 * 응용 프로그램 게이트웨이
 * Application Insights
 * BizTalk 서비스
+* 컨테이너 서비스
 * Express 경로
 * DevTest Labs - 같은 구독의 새 리소스 그룹으로의 이동이 사용되도록 설정되지만 구독 간 이동은 사용되도록 설정되지 않습니다.
 * Dynamics LCS
@@ -319,7 +320,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기) 사용
+## <a name="use-azure-cli-20"></a>Azure CLI 2.0 사용
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 `az resource move` 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 명령을 사용하여 리소스 ID를 가져올 수 있습니다.
 
 ```azurecli
@@ -382,10 +383,5 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 * 구독을 관리하기 위한 Azure CLI 명령에 대한 자세한 내용은 [Resource Manager에서 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 * 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](resource-group-portal.md)를 참조하세요.
 * 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

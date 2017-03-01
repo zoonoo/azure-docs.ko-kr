@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
-ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
+ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
+ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -81,7 +82,8 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 
 |Name|제한|참고 사항|
 |----|----|----|
-|초당 작업 실행|100|필요에 따라 여러 앱 간에 워크플로를 배포할 수 있음|
+|초당 작업 실행(버스트)|1,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+|시간당 작업 실행(유지됨)|1,000,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
 
 ### <a name="definition-limits"></a>정의 한도
 
@@ -180,9 +182,4 @@ B2B 프로토콜에 대한 제한임
 - [일반적인 예제 및 시나리오 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

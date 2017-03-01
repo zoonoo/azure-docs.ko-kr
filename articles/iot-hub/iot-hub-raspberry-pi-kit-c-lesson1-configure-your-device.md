@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 4fdd8de3a24bf521b8ea13416900e69d24e1b62d
+ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
+ms.openlocfilehash: 3e34b8202794bc969bf41765ce519d083037ab46
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -80,6 +81,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 > [!NOTE]
 > Raspberry가 정상 작동하는 데 충분한 전원이 공급되도록 2A 이상인 키트의 전원 공급 장치를 사용하는 것이 좋습니다.
 
+## <a name="enable-ssh"></a>SSH 사용
+2016년 11월 릴리스를 기준으로 Raspbian은 기본적으로 SSH 서버를 비활성화했습니다. 수동으로 활성화해야 합니다. [공식 지침](https://www.raspberrypi.org/documentation/remote-access/ssh/)을 참조하거나 모니터를 연결하고 **기본 설정 -> Raspberry Pi 구성**으로 이동하여 SSH를 사용하도록 설정할 수 있습니다.
+
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>Raspberry Pi 3을 네트워크에 연결
 Pi를 유선 네트워크 또는 무선 네트워크에 연결합니다. Pi가 컴퓨터와 같은 네트워크에 연결되어 있어야 합니다. 예를 들어 Pi를 컴퓨터가 연결된 스위치와 같은 스위치에 연결할 수 있습니다.
 
@@ -113,10 +117,5 @@ LED 극성이 중요합니다. 이 극성 설정은 일반적으로 활성(낮�
 
 ## <a name="next-steps"></a>다음 단계
 [도구 얻기](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

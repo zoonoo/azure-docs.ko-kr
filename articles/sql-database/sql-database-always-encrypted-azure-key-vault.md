@@ -1,6 +1,6 @@
 ---
-title: "상시 암호화: 데이터베이스 암호화를 사용하여 Azure SQL Database의 중요한 데이터 보호 | Microsoft Docs"
-description: "몇 분 만에 SQL 데이터베이스의 중요한 데이터를 보호합니다."
+title: "상시 암호화: SQL Database - Azure Key Vault | Microsoft Docs"
+description: "이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure 주요 자격 증명 모음에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다."
 keywords: "데이터 암호화, 암호화 키, 클라우드 암호화"
 services: sql-database
 documentationcenter: 
@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL 데이터베이스의 중요한 데이터 보호 및 Azure 주요 자격 증명 모음에 암호화 키 저장
-> [!div class="op_single_selector"]
-> * [Azure 키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md)
-> * [Windows 인증서 저장소](sql-database-always-encrypted.md)
-> 
-> 
 
 이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure 주요 자격 증명 모음에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다.
 
@@ -62,7 +58,7 @@ ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
 5. **로그온 URL** 및 **앱 ID URI**의 경우 유효한 URL(예: *http://myClientApp*)을 입력하고 계속할 수 있습니다.
 6. **구성**을 클릭합니다.
 7. **클라이언트 ID**를 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
-8. **키** 섹션에서 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다. (14단계에서 저장한 후 키를 복사합니다.)
+8. **키** 섹션에서 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다. (13단계에서 저장한 후 키를 복사합니다.)
 9. 아래로 스크롤하여 **응용 프로그램 추가**를 클릭합니다.
 10. **표시**를 **Microsoft 앱**으로 설정하고 **Microsoft Azure 서비스 관리**를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
 11. **위임된 권한** 드롭다운 목록에서 **Azure 서비스 관리** 액세스를 선택합니다.
@@ -86,7 +82,7 @@ ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
@@ -98,7 +94,7 @@ ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기** > **데이터 + 저장소** > **SQL Database**로 이동합니다.
-3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure 포털에서 데이터베이스를 만드는 자세한 지침은 [몇 분 만에 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 방법에 대한 자세한 지침은 [첫 Azure SQL Database](sql-database-get-started.md)를 참조하세요.
    
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
@@ -144,7 +140,7 @@ SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
 ## <a name="encrypt-columns-configure-always-encrypted"></a>열 암호화(상시 암호화 구성)
 SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설정하여 상시 암호화를 쉽게 구성하는 마법사를 제공합니다.
 
-1.  **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
+1. **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
    
     ![열 암호화](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
@@ -646,10 +642,5 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 *열 암�
 * [SQL Server 암호화](https://msdn.microsoft.com/library/bb510663.aspx)
 * [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 * [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

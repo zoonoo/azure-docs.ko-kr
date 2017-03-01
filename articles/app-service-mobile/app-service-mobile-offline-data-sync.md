@@ -3,7 +3,7 @@ title: "Azure Mobile Apps에서 오프라인 데이터 동기화 | Microsoft Doc
 description: "Azure 모바일 앱에 대한 오프라인 데이터 동기화 기능의 개념 참조 및 개요"
 documentationcenter: windows
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
 ms.openlocfilehash: dc179f6186d501bc7c8e4ca72b2bf23e89a9443e
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -102,9 +103,4 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 [Xamarin iOS: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [유니버설 Windows 플랫폼: 오프라인 동기화 사용]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -2,7 +2,7 @@
 title: "Azure App Service의 고밀도 호스팅 | Microsoft Docs"
 description: "Azure App Service의 고밀도 호스팅"
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 services: app-service\web
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
 ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -152,10 +153,5 @@ App Service 계획은 **PerSiteScaling** 속성을 true(```"perSiteScaling": tru
 3. App Service 계획에서 PerSiteScaling 플래그를 true로 설정합니다.
 4. 새 앱이 만들어지고 **1**로 설정된 **numberOfWorkers** 속성이 있는 해당 App Service 계획에 할당됩니다. 이 구성을 사용하면 작업자 풀에서 고밀도가 가능해 집니다.
 5. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 예를 들어, 높은 사용량 앱은 **numberOfWorkers**를 **3**으로 설정하여 앱에 대한 처리 용량을 늘리는 반면 낮은 사용량 앱은 **numberOfWorkers**를 **1**로 설정합니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

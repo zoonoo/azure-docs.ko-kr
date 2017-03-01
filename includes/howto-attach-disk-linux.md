@@ -1,5 +1,5 @@
 
-디스크에 대한 자세한 내용은 [Virtual Machines용 디스크 및 VHD 정보](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+디스크에 대한 자세한 내용은 [Virtual Machines용 디스크 및 VHD 정보](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 <a id="attachempty"></a>
 
@@ -114,9 +114,4 @@
 > 데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다(디스크를 초기화하는 실행하는 방법에 대한 자세한 내용은 다음 단계를 참조하세요).
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

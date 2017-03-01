@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
+ms.sourcegitcommit: 7d3b927a1dc111c54efadadac469cf070596dd43
+ms.openlocfilehash: 9e4f80be051b9de05e9bb890259116071dba59c0
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
 이 문서에서는 Azure PowerShell을 사용하여 일반화된 Azure VM 이미지를 만드는 방법을 보여줍니다. 그런 다음 이미지를 사용하여 다른 VM을 만들 수 있습니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 새 VM을 만들 때 해당 리소스를 설정해야 하므로 이미지는 가상 네트워크 리소스를 포함하지 않습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-* 이미 [일반화된 VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 갖고 있어야 합니다. VM을 일반화하면 여러 정보 중에서 모든 개인 계정 정보가 제거되고 이미지로 사용할 컴퓨터가 준비됩니다.
+* 이미 [일반화된 VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 갖고 있어야 합니다. VM을 일반화하면 여러 정보 중에서 모든 개인 계정 정보가 제거되고 이미지로 사용할 컴퓨터가 준비됩니다. `sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. VM을 캡처하는 데 CLI를 사용하는 방법에 대한 정보는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 일반화하고 캡처하는 방법](virtual-machines-linux-capture-image.md)을 참조하세요.
 * Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="log-in-to-azure-powershell"></a>Azure PowerShell에 로그인합니다.
@@ -82,10 +83,5 @@ ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
 
 ## <a name="next-steps"></a>다음 단계
 * 이제 [이미지에서 VM을 만들 수 있습니다](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

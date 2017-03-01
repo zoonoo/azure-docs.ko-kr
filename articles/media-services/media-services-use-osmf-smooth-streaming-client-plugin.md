@@ -4,7 +4,7 @@ description: "Adobe 오픈 소스 미디어 프레임워크용 Azure 미디어 �
 services: media-services
 documentationcenter: 
 author: juliako
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 32b530e5234610363b1a160e22921f1b0ce8bdc0
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -326,7 +327,7 @@ package {
     }
 }
 
-## <a name="strobe-media-playback-with-the-ss-odmf-dynamic-plugin"></a>Strobe Media Playback 및 SS ODMF 동적 플러그 인
+## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Strobe Media Playback 및 SS ODMF 동적 플러그 인
 OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](http://osmf.org/strobe_mediaplayback.html)(영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
 
 1. [Strobe Media Playback 설정 페이지](http://osmf.org/dev/2.0gm/setup.html)(영문)로 이동합니다. 
@@ -392,10 +393,5 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 
 ## <a name="see-also"></a>참고 항목
 [OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

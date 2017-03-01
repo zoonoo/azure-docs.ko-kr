@@ -11,18 +11,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/21/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 3b1654355ee84610d25da8b6ad4a66036285faba
+ms.sourcegitcommit: 4df32e7e03f17ec46e46a3f2718d24783424ab9e
+ms.openlocfilehash: fc1f3c7160a4956ed7372a2797c03c2892fbfb65
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
 
-연속 내보내기는 [엔터프라이즈 가격 책정 모델](http://azure.microsoft.com/pricing/details/application-insights/)에서 사용할 수 있습니다.
+연속 내보내기를 사용할 경우 추가 요금이 발생할 수 있습니다. [가격 책정 모델](http://azure.microsoft.com/pricing/details/application-insights/)을 확인하세요.
 
 연속 내보내기를 설정하기 전에 고려하려는 일부 대안이 있습니다.
 
@@ -61,7 +62,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 내보내기를 만들면 진행을 시작합니다. (내보내기를 만든 후에는 도착하는 데이터만 받습니다.) 
 
-데이터가 Blob에 표시되기까지 1시간 정도 지연될 수 있습니다.
+데이터가 Blob에 표시되기까지&1;시간 정도 지연될 수 있습니다.
 
 나중에 이벤트 유형을 변경하려는 경우 내보내기를 편집하면 됩니다.
 
@@ -84,7 +85,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 데이터에는 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md) 의 결과도 포함됩니다. 
 
 > [!NOTE]
-> **샘플링**  응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+> **샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 > 
 > 
 
@@ -109,7 +110,7 @@ Where
 * `blobDeliveryTimeUtc` 는 Blob이 내보내기 대상 저장소에 복사되는 시간입니다.
 
 ## <a name="a-nameformata-data-format"></a><a name="format"></a> 데이터 형식
-* 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다. 여기에는 약 30초 동안 처리된 원격 분석 데이터가 있습니다.
+* 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다. 여기에는 약&30;초 동안 처리된 원격 분석 데이터가 있습니다.
 * 각 행은 요청 또는 페이지 보기와 같은 원격 분석 데이터 요소를 나타냅니다.
 * 각 행은 서식이 지정되지 않은 JSON 파일입니다. 관찰만 하려는 경우 Visual Studio에서 열고 편집, 고급, 형식 파일을 선택합니다.
 
@@ -164,7 +165,7 @@ Where
 
 더 큰 규모에서는 [HDInsight](https://azure.microsoft.com/services/hdinsight/) (클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터에 대한 다양한 관리 분석 기술을 제공하므로 이를 사용하여 Application Insights에서 내보낸 데이터를 처리할 수 있습니다.
 
-## <a name="q-a"></a>질문과 대답
+## <a name="q--a"></a>질문과 대답
 * *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
   
     예, 수행할 수 있습니다. 블레이드 맨 위에서 [데이터 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 클릭합니다.
@@ -203,10 +204,5 @@ Where
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

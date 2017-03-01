@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c3519943bf60aebc8510b7a7ac577bbe04587bd8
-ms.openlocfilehash: 05f4d8d6e9155f163ef44ef189067427ac606f46
+ms.sourcegitcommit: d7a08bb0f4128eb3915658b41843b35613108a98
+ms.openlocfilehash: d544695654ff136ee25856cb4a0309f882057ebb
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 05f4d8d6e9155f163ef44ef189067427ac606f46
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## <a name="overview"></a>개요
-기본적으로 저장소 메트릭은 저장소 서비스에 대해 사용되지 않습니다. [Azure Portal](https://portal.azure.com)이나 Windows PowerShell을 통해 또는 저장소 클라이언트 라이브러리를 통해 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다.
+새 저장소 계정을 만들 때 기본적으로 저장소 메트릭을 사용하도록 설정되어 있습니다. [Azure Portal](https://portal.azure.com)이나 Windows PowerShell을 통해 또는 저장소 클라이언트 라이브러리 중 하나를 통해 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다.
 
-저장소 메트릭을 사용하도록 설정할 때는데이터 보존 기간을 선택해야 합니다. 이 기간에 따라 저장소 서비스에서 메트릭을 보관하는 기간이 결정되며, 해당 메트릭을 저장하는 데 필요한 저장소에 대해 요금이 청구됩니다. 일반적으로는 시간 메트릭보다 분 메트릭에 더 짧은 보존 기간을 사용해야 합니다. 분 메트릭의 경우 추가 공간이 상당히 많이 필요하기 때문입니다. 데이터를 분석하고 오프라인 분석용 또는 보고용으로 보관할 메트릭을 다운로드할 시간이 충분하도록 보존 기간을 선택해야 합니다. 저장소 계정에서 메트릭 데이터를 다운로드할 때도 요금이 청구됩니다.
+메트릭 데이터 보존 기간을 구성해야 합니다. 이 기간에 따라 저장소 서비스에서 메트릭을 보관하는 기간이 결정되며, 해당 메트릭을 저장하는 데 필요한 저장소에 대해 요금이 청구됩니다. 일반적으로는 시간 메트릭보다 분 메트릭에 더 짧은 보존 기간을 사용해야 합니다. 분 메트릭의 경우 추가 공간이 상당히 많이 필요하기 때문입니다. 데이터를 분석하고 오프라인 분석용 또는 보고용으로 보관할 메트릭을 다운로드할 시간이 충분하도록 보존 기간을 선택해야 합니다. 저장소 계정에서 메트릭 데이터를 다운로드할 때도 요금이 청구됩니다.
 
 ## <a name="how-to-enable-metrics-using-the-azure-portal"></a>Azure Portal을 사용하여 메트릭을 사용하도록 설정하는 방법
 [Azure Portal](https://portal.azure.com)에서 메트릭을 사용하도록 설정하려면 다음 단계를 따릅니다.
@@ -111,10 +112,10 @@ blobClient.SetServiceProperties(properties);
 * 사용자 지정 응용 프로그램 또는 스크립트를 작성하여 테이블을 읽고 저장합니다.
 
 대부분의 타사 저장소 찾아보기 도구는 이러한 테이블을 인식하며 테이블을 직접 보는 기능을 제공합니다.
-사용 가능한 도구의 목록은 [Azure 저장소 탐색기](storage-explorers.md) 를 참조하세요.
+사용 가능한 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요.
 
 > [!NOTE]
-> [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)버전 0.8.0부터 이제 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
+> [Microsoft Azure Storage Explorer](http://storageexplorer.com/) 버전 0.8.0부터 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
 > 
 > 
 
@@ -149,7 +150,12 @@ blobClient.SetServiceProperties(properties);
 
 위의 샘플 데이터는 오전 11시부터 1분 동안의 모든 레코드를 표시하므로 QueryEntities 요청의 수 + QueryEntity 요청의 수 + UpdateEntity 요청의 수 = 7입니다. 이 합계가 user:All 행에 표시됩니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산하여 user:All 행에 평균 종단 간 대기 시간인 104.4286을 표시할 수 있습니다.
 
-저장소 메트릭이 저장소 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)의 모니터 페이지에서 경고를 설정하는 것을 고려하세요. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 저장소 탐색기 도구의 목록은 [Microsoft Azure Storage 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) 블로그 게시물을 참조하세요.
+## <a name="metrics-alerts"></a>메트릭 알림
+저장소 메트릭이 저장소 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것을 고려해야 합니다. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 저장소 탐색기 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요. 저장소 계정 메뉴 블레이드에서 **모니터링** 아래에서 액세스할 수 있는 **경고 규칙** 블레이드에서 알림을 구성할 수 있습니다.
+
+> [!IMPORTANT]
+> 저장소 이벤트와 해당 시간 또는 분 메트릭 데이터가 기록되는 시간 사이에 지연이 있을 수 있습니다. 분 메트릭의 경우 데이터의 몇 분을 한 번에 작성할 수 있습니다. 이로 인해 현재 분의 트랜잭션에 집계되는 이전 분의 트랜잭션이 발생할 수 있습니다. 이 경우 알림 서비스에는 구성된 알림 간격에 대한 사용 가능한 모든 메트릭 데이터가 없을 수 있어서 예기치 않게 알림이 발생할 수 있습니다.
+>
 
 ## <a name="accessing-metrics-data-programmatically"></a>프로그래밍 방식으로 메트릭 데이터 액세스
 다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 이 코드는 저장소의 메트릭 테이블 액세스를 간소화하는 CloudAnalyticsClient 클래스가 포함된 Azure 저장소 라이브러리 버전 4를 사용합니다.
@@ -208,9 +214,4 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 * 사용자가 로그를 옵트인(opt in)한 경우 Blob용 용량 테이블에는 매일 2개 행이 추가됩니다. 따라서 이 테이블의 크기가 매일 약 300바이트씩 증가합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[저장소 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/dn782840.aspx)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+[저장소 로깅 사용 및 로그 데이터 액세스](/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

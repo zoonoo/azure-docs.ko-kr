@@ -5,7 +5,7 @@ keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b6a85bc6-5fe2-45d7-aae6-3bf93c314548
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: naziml
 translationtype: Human Translation
 ms.sourcegitcommit: f978be8872961695731ba1daffc0f4d4a54a670a
 ms.openlocfilehash: bd5ebd7ee969acc0a785e179ebff0cd498b9b5ec
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,10 +36,5 @@ Linux의 App Service는 현재 공개 미리 보기에 포함되며 고객은 Li
 * [Linux의 App Service란?](../app-service-web/app-service-linux-intro.md)
 * [Linux의 App Service에서 앱 만들기](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
 * [Linux의 Azure App Service Web Apps에 대한 FAQ](../app-service-web/app-service-linux-faq.md) 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

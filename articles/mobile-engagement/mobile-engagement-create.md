@@ -4,7 +4,7 @@ description: "Azure에서 새 Mobile Engagement 앱 컬렉션을 만들고 Mobil
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecffc5a867c1c69354a88a8b7ce29ab67ea29cc1
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -47,10 +48,5 @@ Mobile Engagement 포털에 위치하게 되면 세그먼트를 분석, 생성 �
 [Mobile Engagement 전략 정의](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Azure Mobile Engagement 시작](mobile-engagement-windows-store-dotnet-get-started.md) (페이지 맨 위에 있는 다른 모바일 플랫폼을 선택할 수 있습니다)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 
