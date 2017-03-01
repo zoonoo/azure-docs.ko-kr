@@ -46,7 +46,7 @@
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0(미리 보기)](/cli/azure/network/lb)
+## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
@@ -66,8 +66,3 @@
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

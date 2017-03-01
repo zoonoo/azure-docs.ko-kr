@@ -257,7 +257,7 @@
 ### [웹앱 성능 문제 해결](app-service-web-troubleshoot-performance-degradation.md)
 
 # 참조
-## [Azure CLI 2.0 미리 보기](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST (영문)](/rest/api/appservice)
@@ -273,9 +273,3 @@
 # 리소스
 ## [모범 사례](app-service-best-practices.md)
 ## [WebJob 리소스 목록](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

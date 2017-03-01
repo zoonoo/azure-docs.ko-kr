@@ -39,6 +39,7 @@
 ### [분할 큐 및 항목](service-bus-partitioning.md)
 ### [배달하지 못한 편지 큐](service-bus-dead-letter-queues.md)
 ### [트랜잭션 처리](service-bus-transactions.md)
+### [진단 로그](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

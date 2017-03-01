@@ -51,7 +51,7 @@
 ### [ARP 테이블(클래식) 받기](expressroute-troubleshooting-arp-classic.md)
 
 # 참조
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -79,8 +79,3 @@
 ### [연결성을 위한 네트워크 인프라 발전](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [하이브리드 파트너: 온-프레미스 시나리오 사용](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=expressroute)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

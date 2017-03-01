@@ -12,7 +12,6 @@
 ### [SQL 및 NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 ## [SQL Database 도구](sql-database-manage-overview.md)
 ## [SQL Database 자습서](sql-database-explore-tutorials.md)
-## [솔루션 빠른 시작](sql-database-solution-quick-starts.md)
 ## 보안
 ### [보안 개요](sql-database-security-overview.md)
 ### [Azure SQL Database에 대한 Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
@@ -273,6 +272,7 @@
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell(탄력적 DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.JS](https://msdn.microsoft.com/library/mt652093.aspx)
@@ -302,8 +302,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
