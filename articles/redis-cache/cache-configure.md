@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1c002b796ed926fb8b0c6cedf3e361816e50b803
-ms.openlocfilehash: d51eeebba7ce2a1ca1005954feb0471f6ad7e05b
+ms.sourcegitcommit: 296a842157e4ecae1b3700e1d22c56852ffc06a2
+ms.openlocfilehash: ad88d998302d264b2a0f607d8408cd12bf833a68
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: d51eeebba7ce2a1ca1005954feb0471f6ad7e05b
 이 항목에서는 Azure Redis Cache 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.
 
 > [!NOTE]
-> 프리미엄 캐시 기능 구성 및 사용에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+> 프리미엄 캐시 기능을 구성하고 사용하는 방법에 대한 자세한 내용은 [지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 > 
 > 
 
@@ -110,7 +111,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 
 ### <a name="access-keys"></a>액세스 키
-**선택키** 를 클릭하여 캐시에 대한 선택키를 보거나 다시 생성할 수 있습니다. 이러한 키는 클라이언트가 캐시에 연결할 때 **속성** 블레이드에서 호스트 이름 및 포트와 함께 사용됩니다.
+**선택키** 를 클릭하여 캐시에 대한 선택키를 보거나 다시 생성할 수 있습니다. 이러한 키는 캐시에 연결하는 클라이언트에서 사용합니다.
 
 ![Redis 캐시 액세스 키](./media/cache-configure/redis-cache-manage-keys.png)
 
@@ -131,18 +132,18 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 ![Redis 캐시 Maxmemory 정책](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-**Maxmemory 정책** 을 사용하여 다음 제거 정책 중에서 선택할 수 있습니다.
+**Maxmemory 정책**을 사용하여 다음 제거 정책 중에서 선택할 수 있습니다.
 
-* volatile-lru - 기본값입니다.
-* allkeys-lru
-* volatile-random
-* allkeys-random
-* volatile-ttl
-* noeviction
+* `volatile-lru` - 이것이 기본값입니다.
+* `allkeys-lru`
+* `volatile-random`
+* `allkeys-random`
+* `volatile-ttl`
+* `noeviction`
 
-Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
+`maxmemory` 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
-**maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 조각화 비율이 높을 때 사용할 수도 있습니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 이는 캐시된 데이터의 저장에는 사용할 수 없습니다.
+**maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 조각화 비율이 높을 때 사용할 수도 있습니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
 > [!IMPORTANT]
 > **maxmemory-reserved** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
@@ -180,7 +181,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 캐시가 오랫동안 이러한 메트릭의 최대 용량에 근접하면 추천이 생성됩니다. **추천** 도구에서 검토하는 메트릭 및 제한에 대한 자세한 내용은 다음 테이블을 참조하세요.
 
-| Redis Cache 메트릭 | 자세한 내용은 다음을 참조하세요. |
+| Redis Cache 메트릭 | 자세한 정보 |
 | --- | --- |
 | 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-faq.md#cache-performance) |
 | 연결된 클라이언트 |[기본 Redis 서버 구성 - maxclients](#maxclients) |
@@ -222,7 +223,16 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이터베이스) 백업을 사용하도록 설정합니다. Redis 지속성을 사용하지 않으려면 **사용 안 함**을 클릭합니다.
 
-백업 간격을 구성하려면 드롭다운 목록에서 **백업 빈도** 를 선택합니다. **15분**, **30분**, **60분**, **6시간**, **12시간** 및 **24시간** 중에서 선택할 수 있습니다. 이 간격은 이전 백업 작업이 성공적으로 완료되어 새 백업이 시작된 시점부터 계산됩니다.
+백업 간격을 구성하려면 드롭다운 목록에서 다음 **백업 빈도** 항목 중 하나를 선택합니다. 
+
+- **15분**
+- **30분**
+- **60분**
+- **6시간**
+- **12시간**
+- **24시간**
+
+이 백업 간격은 이전 백업 작업이 성공적으로 완료된 후부터 계산하기 시작합니다. 해당 간격이 경과되면 새 백업이 시작됩니다.
 
 **저장소 계정**을 클릭하여 사용할 저장소 계정을 선택하고 **저장소 키** 드롭다운 목록에서 사용할 **기본 키** 또는 **보조 키**를 선택합니다. 캐시와 동일한 영역에 있는 저장소 계정을 선택해야 하며 높은 처리량을 가진 **프리미엄 저장소** 계정을 사용하는 것이 좋습니다. 지속성 계정에 대한 저장소 키가 다시 생성된 경우에는 **저장소 키** 드롭다운에서 원하는 키를 다시 선택해야 합니다.
 
@@ -237,7 +247,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 **업데이트 예약** 블레이드에서는 캐시의 Redis 서버 업데이트에 대한 유지 관리 기간을 지정할 수 있습니다. 
 
 > [!IMPORTANT]
-> 유지 관리 기간이 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.
+> 유지 관리 기간은 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.
 > 
 > 
 
@@ -246,7 +256,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
 
 > [!IMPORTANT]
-> 업데이트 예약은 프리미엄 계층 캐시에만 제공됩니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 업데이트 예약](cache-administration.md#schedule-updates)을 참조하세요.
+> **업데이트 예약** 기능은 프리미엄 계층 캐시에만 제공됩니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 업데이트 예약](cache-administration.md#schedule-updates)을 참조하세요.
 > 
 > 
 
@@ -267,7 +277,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 ![Redis 캐시 속성](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>잠금
-**잠금** 섹션은 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 할 수 있게 합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
+**잠금** 섹션에서는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 방지할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
 
 ### <a name="automation-script"></a>자동화 스크립트
 
@@ -289,9 +299,9 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 > 
 
 ### <a name="importexport"></a>가져오기/내보내기
-가져오기/내보내기는 프리미엄 캐시에서 Azure 저장소 계정의 페이지 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 이를 통해, 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
+Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보냄으로써 캐시에서 데이터를 가져오고 내보낼 수 있습니다. 가져오기/내보내기를 통해 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
-가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스를 진행하는 동안, Azure Redis Cache는 Azure 저장소에서 메모리로 RDB 파일을 로드한 다음 키를 캐시에 삽입합니다.
+가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스를 진행하는 동안, Azure Redis Cache는 Azure Storage에서 메모리로 RDB 파일을 로드한 다음 키를 캐시에 삽입합니다.
 
 내보내기를 통해 Azure Redis Cache에 저장된 데이터를 Redis 호환 RDB 파일로 내보낼 수 있습니다. 이 기능을 사용하면 Azure Redis Cache 인스턴스에서 다른 인스턴스나 다른 Redis 서버로 데이터를 이동할 수 있습니다. 내보내기 프로세스를 진행하는 동안, Azure Redis Cache 서버 인스턴스를 호스트하는 VM에 임시 파일이 생성되고, 지정된 저장소 계정에 그 파일이 업로드됩니다. 성공 또는 실패 상태로 내보내기 작업이 완료되면, 임시 파일은 삭제됩니다.
 
@@ -301,7 +311,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 > 
 
 ### <a name="reboot"></a>Reboot
-**재부팅** 블레이드에서는 하나 이상의 캐시 노드를 재부팅할 수 있습니다. 따라서 오류 발생 시 응용 프로그램의 복원력을 테스트할 수 있습니다.
+**다시 부팅** 블레이드에서는 캐시 노드를 다시 부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 응용 프로그램의 복원력을 테스트할 수 있습니다.
 
 ![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
@@ -309,7 +319,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-하나 이상의 캐시 노드를 재부팅하려면 원하는 노드를 선택하고 **재부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 분할된 데이터 베이스를 선택하고 **재부팅**을 클릭합니다. 몇 분 후 선택된 노드가 재부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
+하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 재부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
 > [!IMPORTANT]
 > 재부팅은 프리미엄 계층 캐시에만 사용할 수 있습니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
@@ -332,7 +342,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 
 ### <a name="alert-rules"></a>경고 규칙
 
-**경고 규칙**을 클릭하여 Redis 캐시 메트릭을 기반으로 경고를 구성합니다. 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+**경고 규칙**을 클릭하여 Redis Cache 메트릭을 기반으로 경고를 구성합니다. 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
 ### <a name="diagnostics"></a>진단
 
@@ -371,19 +381,19 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
-> **max-memory-policy**와 같이 구성 가능한 모든 값은 Azure 포털 또는 명령줄 관리 도구(예: Azure CLI 또는 PowerShell)를 통해 구성할 수 있습니다.
+> **max-memory-policy**와 같이 구성 가능한 모든 값은 Azure Portal 또는 명령줄 관리 도구(예: Azure CLI 또는 PowerShell)를 통해 구성할 수 있습니다.
 > 
 > 
 
 | 설정 | 기본값 | 설명 |
 | --- | --- | --- |
-| 데이터베이스 |16 |데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 선택할 수 있습니다. 여기서 dbid는 `0`에서 `databases - 1` 사이의 숫자입니다. |
-| maxclients |가격 책정 계층에 따라 달라집니다.<sup>2</sup> |이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 보내고 모든 새 연결을 닫습니다. |
-| maxmemory-policy |volatile-lru |Maxmemory 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis 캐시를 사용할 때의 기본 설정은 volatile-lru로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 Azure 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요. |
-| maxmemory-samples |3 |LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘은 아니지만 대략적인(메모리 절약을 위해) 알고리즘이므로, 확인할 샘플도 선택할 수 있습니다. 기본 Redis를 예로 들면 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
-| lua-time-limit |5,&000; |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답합니다. |
-| lua-event-limit |500 |스크립트 이벤트 큐의 최대 크기입니다. |
-| client-output-buffer-limit normalclient-output-buffer-limit pubsub |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)를 참조하세요. |
+| `databases` |16 |데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 선택할 수 있습니다. 여기서 `dbid`는 `0`에서 `databases - 1` 사이의 숫자입니다. |
+| `maxclients` |가격 책정 계층에 따라 달라집니다.<sup>2</sup> |이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 반환하고 모든 새 연결을 닫습니다. |
+| `maxmemory-policy` |`volatile-lru` |`maxmemory` 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis Cache를 사용할 때의 기본 설정은 `volatile-lru`로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 Azure 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요. |
+| `maxmemory-sample`s |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
+| `lua-time-limit` |5,&000; |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
+| `lua-event-limit` |500 |스크립트 이벤트 큐의 최대 크기 |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)를 참조하세요. |
 
 <a name="databases"></a>
 <sup>1</sup>`databases`에 대한 제한은 Azure Redis Cache 가격 책정 계층마다 다르며 캐시를 만들 때 설정할 수 있습니다. 캐시를 만드는 동안 `databases` 설정이 지정되지 않았다면 기본값은 16입니다.
@@ -427,7 +437,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 
 ## <a name="redis-commands-not-supported-in-azure-redis-cache"></a>Azure Redis Cache에서 지원되지 않는 Redis 명령
 > [!IMPORTANT]
-> Azure Redis Cache 인스턴스의 구성과 관리는 Microsoft가 관리하므로 다음 명령이 비활성화됩니다. 이러한 명령을 호출하려고 하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
+> Azure Redis Cache 인스턴스를 Microsoft에서 구성하고 관리하기 때문에 다음 명령은 비활성화됩니다. 이러한 명령을 호출하려고 하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
 > 
 > * BGREWRITEAOF
 > * BGSAVE
@@ -474,10 +484,5 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 
 ## <a name="next-steps"></a>다음 단계
 * Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

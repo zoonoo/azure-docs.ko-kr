@@ -14,8 +14,9 @@ ms.workload: identity
 ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: c22eb13206e629399c20b02fcaeb422d20ac0b21
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -31,8 +32,7 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 
 이 항목에서는 Office 365 Enterprise, Business, Education 및 미국 정부 계획에서 테넌트 사용자가 Android 장치에서 CBA를 구성하는 데 지원되는 시나리오 및 요구 사항에 대해 설명합니다. 
 
-이 기능은 Office 365 중국, 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다. 
-
+이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 
 
 ## <a name="office-mobile-applications-support"></a>Office 모바일 응용 프로그램 지원
@@ -79,9 +79,4 @@ Android 5.0(Lollipop) 이상의 특정 Exchange ActiveSync 응용 프로그램�
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

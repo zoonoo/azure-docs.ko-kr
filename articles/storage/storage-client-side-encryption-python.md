@@ -3,7 +3,7 @@ title: "Microsoft Azure Storage용 Python을 사용하는 클라이언트 쪽 �
 description: "Python용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화를 지원합니다."
 services: storage
 documentationcenter: python
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -241,8 +242,3 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="next-steps"></a>다음 단계
 *  [Java PyPi 패키지에 대한 Azure 저장소 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage)
 *  [Python 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

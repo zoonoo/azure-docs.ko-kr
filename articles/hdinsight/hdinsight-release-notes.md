@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9f1222e797446a5835726a10e5c9e8b535a8cf4d
-ms.openlocfilehash: c1c13f21fff7ba201eb00f6c9f594131a75c44fc
+ms.sourcegitcommit: e6167db5f9b6c8b2520b1f3c2d443c7497d44552
+ms.openlocfilehash: b3e625852648e15ccde427ec8c5bb8fe0393cb74
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -30,9 +31,9 @@ ms.openlocfilehash: c1c13f21fff7ba201eb00f6c9f594131a75c44fc
 Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있습니다.
 
 ## <a name="notes-for-11162016-release-of-r-server-90-on-hdinsight-35-spark-20"></a>HDInsight 3.5의 R Server 9.0(Spark 2.0)의 2016/11/16 릴리스 정보
-*   R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
-*   HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 ?RxHiveData 및 ?RxParquetData 명령을 사용하여 R에서 이러한 함수에 대한 온라인 도움말을 참조하세요.
-*   RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.
+*    R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
+*    HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 ?RxHiveData 및 ?RxParquetData 명령을 사용하여 R에서 이러한 함수에 대한 온라인 도움말을 참조하세요.
+*    RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.
 
 ## <a name="notes-for-11092016-release-of-spark-20-on-hdinsight"></a>HDInsight의 Spark 2.0 2016/11/09 릴리스 정보
 * 이제 HDInsight 3.5에서 Spark 2.0 클러스터에서는 Livy 및 Jupyter 서비스를 지원합니다.
@@ -345,7 +346,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
-| 기본 HDP 버전 HDP 2.2로 변경됨 |HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure 포털, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다. |부여 |모두 |해당 없음 |
+| 기본 HDP 버전 HDP 2.2로 변경됨 |HDInsight Windows 클러스터의 기본 버전이 HDP 2.2로 변경됩니다. HDInsight 버전 3.2(HDP 2.2)는 2015년 2월 이후 일반에서 사용할 수 있습니다. 이 변경에서는 Azure 포털, PowerShell cmdlet 또는 SDK를 사용하여 프로비전하는 동안 명시적 선택이 없을 때 기본 클러스터 버전만 앞으로 이동합니다.  |부여 |모두 |해당 없음 |
 | 단일 가상 네트워크의 Linux 클러스터에서 여러 HDInsight 배포를 위한 VM 이름 형식 변경 |단일 가상 네트워크에서의 여러 HDInsight Linux 클러스터 배포에 대한 지원이 이 릴리스에 추가되었습니다. 이러한 지원의 일환으로, 클러스터의 가상 컴퓨터 이름 형식이 headnode\*, workernode\* 및 zookeepernode\*에서 hn\*, wn\*, zk\*로 변경되었습니다. 이 내용은 변경될 수 있으므로 가상 컴퓨터 이름의 형식에 직접적인 종속성을 만들지 않는 것이 좋습니다. 로컬 컴퓨터나 Ambari API에서 "hostname -f"를 사용하여 호스트 목록과 호스팅 대상 구성 요소의 매핑을 판단합니다. 자세한 내용은 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 및 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md)에서 확인할 수 있습니다. |부여 |Linux 기반 HDInsight 클러스터 |해당 없음 |
 | 구성 변경 내용 |HDInsight 3.1 클러스터의 경우 이제  <ul><li>tez.yarn.ats.enabled 및yarn.log.server.url 구성을 사용할 수 있습니다. 이렇게 하면 응용 프로그램 타임라인 서버 및 로그 서버가 로그를 채울 수 있습니다.</li></ul>HDInsight 3.2 클러스터의 경우 다음 구성이 수정되었습니다. <ul><li>mapreduce.fileoutputcommitter.algorithm.version 구성이 2로 설정되었습니다. 이를 통해 FileOutputCommitter의 V2 버전을 사용할 수 있게 됩니다.</li></ul> |부여 |모두 |해당 없음 |
 
@@ -773,7 +774,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 <td>HBase 클러스터의 노드 크기 조정</td>
 <td>이제 HBase 클러스터에서 HDInsight 버전 3.1 및 3.2에 대한 노드 크기를 조정(확장 및 축소)할 수 있습니다.</td>
 <td>부여</td>
-<td>HBase:</td>
+<td>HBase</td>
 <td>해당 없음</td>
 </tr>
 <tr>
@@ -787,12 +788,12 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 <td>JVM 구성 업데이트</td>
 <td>HDInsight 버전 3.1 및 3.2에 대해 JVM 구성 networkaddress.cache.ttl이 기본값 -1에서 300으로 업데이트되었습니다. 이 구성 값은 이름 서비스에서의 성공적인 이름 조회에 대한 캐싱 정책을 제어합니다. 이는 HBase 클러스터 확장 및 축소와 관련된 버그를 수정합니다.</td>
 <td>부여</td>
-<td>HBase:</td>
+<td>HBase</td>
 <td>해당 없음</td>
 </tr>
 <tr>
-<td>Java 2.0용 Azure Storage SDK 업그레이드</td>
-<td>HDInsight 버전 3.2가 최신 버전의 Java용 Azure Storage SDK를 사용하도록 업그레이드되었습니다. 여기에는 현재 0.6.0 버전에 대한 몇 가지 중요한 버그 수정 프로그램이 포함되어 있습니다.</td>
+<td>Java 2.0용 Azure 저장소 SDK 업그레이드</td>
+<td>HDInsight 버전 3.2가 최신 버전의 Java용 Azure 저장소 SDK를 사용하도록 업그레이드되었습니다. 여기에는 현재 0.6.0 버전에 대한 몇 가지 중요한 버그 수정 프로그램이 포함되어 있습니다.</td>
 <td>HDP</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1280,7 +1281,7 @@ HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce�
 Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*"
 
 * 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureRmHDInsightCluster** 또는 **Invoke-AzureRmHDInsightHiveJob**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 "*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
-* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)에서 얻을 수 있습니다.
+* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)에서 얻을 수 있습니다.
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>HDInsight 3.1의 2014/9/12 릴리스 정보
 * 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) 을 참조하세요.
@@ -1294,7 +1295,7 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
   * 이 변경은 낮은 메모리 제한으로 인해 특정 Hive 쿼리가 발생하는 "컨테이너가 실제 메모리 제한 이상으로 실행합니다." 오류를 해결합니다.
   * 이전 기본값으로 되돌리려면 클러스터 생성 시 다음 명령을 사용하여 Azure PowerShell을 통해 이 구성 값을 512로 설정하면 됩니다.
 
-      Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
+      Add-AzureHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
 * *zookeeper*역할의 호스트 이름이 zookeeper로 변경되었습니다. 이 변경은 클러스터 내의 이름 확인에 영향을 주지만 외부 REST API에는 영향을 주지 않습니다. *zookeepernode* 호스트 이름을 사용하는 구성 요소가 있는 경우 새 이름을 사용하도록 해당 구성 요소를 업데이트해야 합니다. 3개 zookeeper 노드의 새로운 이름은 다음과 같습니다.
 
   * zookeeper0
@@ -1526,9 +1527,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

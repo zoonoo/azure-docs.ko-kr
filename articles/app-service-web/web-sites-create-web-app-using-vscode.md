@@ -4,7 +4,7 @@ description: "이 자습서에서는 Visual Studio Code를 사용하여 ASP.NET 
 services: app-service\web
 documentationcenter: .net
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 877bff08-9ef7-405a-a1ca-1194f33c55f2
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4f1bf0f15a373dfe60d923f017a96784424d6563
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -240,10 +241,5 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 
 ## <a name="summary"></a>요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/) 문서를 참조하세요. App Service Web Apps에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

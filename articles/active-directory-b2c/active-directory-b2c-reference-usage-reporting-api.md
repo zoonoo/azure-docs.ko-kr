@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 4b2cbf5f62ee63bada42b2a06506b793d4349fdb
-ms.openlocfilehash: 7db9a45a4c80ea8d01937837dfa7a15c171fb66b
+ms.sourcegitcommit: 274ed196cc7159e77f6de4d84328c3607b155ee9
+ms.openlocfilehash: 9bb528aa0172fb7179b5498be89aee9a92b788f8
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -102,8 +103,7 @@ if ($oauth.access_token -ne $null) {
  * TotalUserCount = 모든 사용자 개체의 수
  * OtherUserCount = AAD 디렉터리 사용자의 수(B2C가 아닌 사용자)
  * LocalUserCount = B2C 테넌트에 로컬인 자격 증명을 사용하여 만든 B2C 사용자 계정의 수
-
-**AlternateIdUserCount** = 외부 ID 공급자로 등록된 B2C 사용자의 수(예: facebook, Microsoft 계정, 다른 AAD 테넌트 - OrgId라고도 함)
+ * AlternateIdUserCount** = 외부 ID 공급자로 등록된 B2C 사용자의 수(예: facebook, Microsoft 계정, 다른 AAD 테넌트 - OrgId라고도 함)
 
 **b2cAuthenticationCountSummary** – 일별 및 유형별로 구분된 인증 흐름에서 최근 30일 동안 청구 가능한 인증의 수 일일 합계
 
@@ -140,9 +140,4 @@ $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

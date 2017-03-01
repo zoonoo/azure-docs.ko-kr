@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 문서 탐색기, JSON 보기 | Microsoft Docs"
+title: "Azure DocumentDB 포털 도구: 문서 탐색기 | Microsoft Docs"
 description: "NoSQL 문서 데이터베이스인 DocumentDB를 사용하여 JSON을 보고, 편집하고, 만들고, JSON 문서를 업로드하는 Azure 포털 도구인 DocumentDB 문서 탐색기에 대해 알아봅니다."
 keywords: "JSON 보기"
 services: documentdb
@@ -13,21 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
+ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
+ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드
 이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드하고, 필터링할 수 있는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다. 
 
-MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 탐색기를 사용할 수 없습니다. 이 페이지는 이 기능이 설정된 경우에 업데이트됩니다.
+> [!NOTE]
+> MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 탐색기를 사용할 수 없습니다. 이 페이지는 이 기능이 설정된 경우에 업데이트됩니다.
 
-## <a name="launch-document-explorer"></a>문서 탐색기 시작
-1. Azure 포털의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다. **DocumentDB(NoSQL)**가 표시되지 않으면 **서비스 더 보기**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다.
+<a id="launch-document-explorer"></a>
+
+## <a name="launch-document-explorer-in-the-azure-portal"></a>Azure Portal에서 문서 탐색기 시작
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색에서 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다. 
+
+    **NoSQL(DocumentDB)**이 표시되지 않으면 아래쪽에서 **추가 서비스**를 클릭한 다음 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다.
 2. 계정 이름을 선택합니다. 
 3. 리소스 메뉴에서 **문서 탐색기**를 클릭합니다. 
    
@@ -35,7 +41,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
    
     **문서 탐색기** 블레이드에서 **데이터베이스** 및 **컬렉션** 드롭다운 목록은 문서 탐색기를 시작한 컨텍스트에 따라 미리 채워집니다. 
 
-## <a name="create-a-document"></a>문서 만들기
+## <a name="create-a-json-document"></a>JSON 문서 만들기
 1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 2. **문서 탐색기** 블레이드에서 **문서 만들기**를 클릭합니다. 
    
@@ -53,7 +59,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
    
     JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소 Amazon DynamoDB, HBase 또는 기타 DocumentDB 컬렉션의 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md) 를 사용하여 데이터를 신속하게 가져올 수 있습니다.
 
-## <a name="edit-a-document"></a>문서 편집
+## <a name="edit-a-json-document"></a>JSON 문서 편집
 1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 2. 기존 문서를 편집하려면 **문서 탐색기** 블레이드에서 문서를 선택하고 **문서** 블레이드에서 편집한 다음 **저장**을 클릭합니다.
    
@@ -63,7 +69,7 @@ MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 �
    
     ![문서 탐색기 무시 명령 스크린샷](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document"></a>문서 삭제
+## <a name="delete-a-document-from-documentdb"></a>DocumentDB에서 문서 삭제
 1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 2. **문서 탐색기**에서 문서를 선택하고 **삭제**를 클릭한 다음 삭제를 확인합니다. 확인하면 문서가 문서 탐색기 목록에서 바로 제거됩니다.
    
@@ -156,12 +162,5 @@ Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 �
 
 ## <a name="next-steps"></a>다음 단계
 문서 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
-
-[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 도 DocumentDB에 대해 자세히 파악할 수 있는 유용한 리소스입니다. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

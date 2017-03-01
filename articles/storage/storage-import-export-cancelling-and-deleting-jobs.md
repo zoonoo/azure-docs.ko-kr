@@ -1,5 +1,5 @@
 ---
-title: "Azure Import/Export 서비스 작업 취소 및 삭제 | Microsoft Docs"
+title: "Azure Import/Export 작업의 취소/삭제 | Microsoft Docs"
 description: "Microsoft Azure Import/Export 서비스에 대해 작업을 취소하고 삭제하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 640b814e4280f5cce029bea7324881bbfef4b1a4
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 26e06529cb9354030da32c235d3c4819d46d669d
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="cancelling-and-deleting-jobs"></a>작업 취소 및 삭제
+# <a name="canceling-and-deleting-azure-importexport-jobs"></a>Azure Import/Export 서비스 작업 취소 및 삭제
 [작업 속성 업데이트](/rest/api/storageimportexport/jobs#Jobs_Update) 작업을 호출하고 `CancelRequested` 요소를 `true`로 설정하여 작업이 `Packaging` 상태가 되기 전에 취소되도록 요청할 수 있습니다. 작업은 최선의 결과가 얻어지는 방향으로 취소됩니다. 드라이브가 데이터 전송 중인 상태이면 취소가 요청된 후에도 데이터가 계속 전송될 수 있습니다.
 
  취소된 작업은 `Completed` 상태로 옮겨져서 90일 동안 유지되다가 그 이후 삭제됩니다.
@@ -30,9 +31,4 @@ ms.openlocfilehash: 640b814e4280f5cce029bea7324881bbfef4b1a4
 
 ## <a name="see-also"></a>참고 항목
  [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

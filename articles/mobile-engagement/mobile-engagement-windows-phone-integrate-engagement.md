@@ -4,7 +4,7 @@ description: "Windows Phone Silverlight 앱에서 Azure Mobile Engagement를 통
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -246,10 +247,5 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 > 1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

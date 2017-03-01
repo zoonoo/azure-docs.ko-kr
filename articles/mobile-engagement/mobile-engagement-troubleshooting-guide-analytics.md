@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement에서 분석, 모니터링, 구분 및 대
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -59,10 +60,5 @@ ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
 ### <a name="causes"></a>원인
 * 분석, 모니터링 또는 대시보드에서 나타나는 응용 프로그램 작동 중단 문제를 해결하려면 릴리스 정보에서 이전 버전 SDK의 알려진 문제를 확인하세요.
 * 응용 프로그램 작동 중단 문제를 추가로 해결하려면 응용 프로그램이 설치된 테스트 장치에서 이벤트를 수행한 다음 Azure Mobile Engagement UI의 "모니터 - 이벤트" 섹션에서 장치 ID를 조회합니다. 그런 다음 응용 프로그램 작동 중단의 원인이 되는 이벤트를 수행하여 Azure Mobile Engagement UI의 "모니터 - 이벤트" 섹션에서 추가 정보를 조회합니다. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

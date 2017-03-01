@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 2ea87726b06a0e8ab20515031424bf4e93f45a80
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,7 +36,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Proofpoint on Demand와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독
-* Proofpoint on Demand Single Sign-On 구독
+* Proofpoint on Demand SSO(Single Sign-On) 구독
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 따릅니다.
 
@@ -47,8 +48,8 @@ Proofpoint on Demand와 Azure AD 통합을 구성하려면 다음 항목이 필�
 
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Proofpoint on Demand를 추가합니다.
-2. Azure AD Single Sign-On을 구성하고 테스트합니다.
+* 갤러리에서 Proofpoint on Demand를 추가합니다.
+* Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 ## <a name="add-proofpoint-on-demand-from-the-gallery"></a>갤러리에서 Proofpoint on Demand 추가
 Proofpoint on Demand의 Azure AD 통합을 구성하려면 갤러리의 Proofpoint on Demand를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -98,28 +99,19 @@ Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하�
 3. **앱 설정 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![입력된 상자가 있는 "앱 설정 구성" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
-   
-    a. **로그온 URL** 상자에 사용자가 Proofpoint on Demand 응용 프로그램에 로그인하는 URL을 입력합니다. 다음 패턴 **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**을 사용합니다.
-   
-    b. **식별자** 상자에 다음 패턴 **https://\<hostname/>.pphosted.com/ppssamlsp**를 사용하여 URL을 입력합니다.
-   
-    c. **회신 URL** 상자에 다음 패턴 **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**를 사용하여 URL을 입력합니다.
-   
-    d. **다음**을 클릭합니다.
+   1. **로그온 URL** 상자에 사용자가 Proofpoint on Demand 응용 프로그램에 로그인하는 URL을 입력합니다. 다음 패턴 **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**을 사용합니다.
+   2. **식별자** 상자에 다음 패턴 **https://\<hostname/>.pphosted.com/ppssamlsp**를 사용하여 URL을 입력합니다.
+   3. **회신 URL** 상자에 다음 패턴 **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**를 사용하여 URL을 입력합니다.  
+   4. **다음**을 클릭합니다.
 4. **Proofpoint on Demand에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
     !["인증서 다운로드" 단추가 있는 "Proofpoint on Demand에서 Single Sign-On 구성" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
-   
-    a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
-   
-    b. **Next**를 클릭합니다.
+   1. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.   
+   2. **다음**을 클릭합니다.
 5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 Proofpoint on Demand 지원 팀에 문의하고 다음을 제공하세요.
-   
-    • 다운로드한 인증서
-   
-    • 엔터티 ID
-   
-    • SAML SSO URL
+   * 다운로드한 인증서
+   * 엔터티 ID
+   * SAML SSO URL
 6. 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
     ![Single Sign-On을 구성했는지 확인하는 확인란][10]
@@ -142,34 +134,28 @@ Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하�
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
     ![사용자 추가 단추](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
-5. **이 사용자에 대해 알리기** 페이지에서 다음 단계  ![입력된 상자가 있는 "이 사용자에 대해 알리기" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)를 수행 합니다.
-   
-    a. **사용자 유형** 상자에서 **조직의 새 사용자**를 선택합니다.
-   
-    b. **사용자 이름** 상자에 **BrittaSimon**을 입력합니다.
-   
-    c. **다음**을 클릭합니다.
-6. **사용자 프로필** 페이지에서 다음 단계 ![입력된 상자가 있는 "사용자 프로필" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)를 수행합니다.
-   
-   a. **이름** 상자에 **Britta**를 입력합니다.  
-   
-   b. **성** 상자에 **Simon**을 입력합니다.
-   
-   c. **표시 이름** 상자에 **Britta Simon**을 입력합니다.
-   
-   d. **역할** 목록에서 **사용자**를 선택합니다.
-   
-   e. **다음**을 클릭합니다.
+5. **이 사용자에 대한 정보 입력** 페이지에서 다음 단계를 수행합니다.
+
+    ![입력된 상자가 있는 [이 사용자에 대한 정보 입력] 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)   
+   1. **사용자 유형** 상자에서 **조직의 새 사용자**를 선택합니다.
+   2. **사용자 이름** 상자에 **BrittaSimon**을 입력합니다.
+   3. **다음**을 클릭합니다.
+6. **사용자 프로필** 페이지에서 다음 단계를 수행합니다.
+
+  ![입력된 상자가 있는 [사용자 프로필] 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)   
+   1. **이름** 상자에 **Britta**를 입력합니다.  
+   2. **성** 상자에 **Simon**을 입력합니다.
+   3. **표시 이름** 상자에 **Britta Simon**을 입력합니다.
+   4. **역할** 목록에서 **사용자**를 선택합니다.
+   5. **다음**을 클릭합니다.
 7. **임시 암호 가져오기** 페이지에서 **만들기**를 클릭합니다.
    
-    ![임시 암호를 만들기 위한 단추](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+   ![임시 암호를 만들기 위한 단추](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
 8. **임시 암호 가져오기** 페이지에서 다음 단계를 수행합니다.
    
-    ![암호 정보가 있는 "임시 암호 가져오기" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
-   
-    a. **새 암호** 상자의 값을 적어둡니다.
-   
-    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
+   ![암호 정보가 있는 "임시 암호 가져오기" 페이지](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)  
+   1. **새 암호** 상자의 값을 적어둡니다.
+   2. **완료**를 클릭합니다.   
 
 ### <a name="create-a-proofpoint-on-demand-test-user"></a>Proofpoint on Demand 테스트 사용자 만들기
 이 섹션에서는 Proofpoint on Demand에서 Britta Simon이라는 사용자를 만듭니다. Proofpoint on Demand 지원 팀과 함께 Proofpoint on Demand 플랫폼에 사용자를 추가하세요.
@@ -219,9 +205,4 @@ Proofpoint on Demand에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [203]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

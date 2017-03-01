@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9ab2950715850d0c2ee0f398cd44399a5974c1a9
-ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
+ms.sourcegitcommit: ad9c78483af88a85a1b790269231683155760d76
+ms.openlocfilehash: aef560c2b05a80c59743c4cc6d68d6d2c14bdc3f
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -93,7 +94,7 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Infor Retail – Information Management 테스트 사용자 만들기](#creating-an-infor-retail---information-management-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Infor Retail – Information Management에 만듭니다.
+3. **[Infor Retail – Information Management 테스트 사용자 만들기](#creating-an-infor-retail---information-management-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Infor Retail – Information Management에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -115,28 +116,28 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
     ![Single Sign-on 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    a. **식별자** 텍스트 상자에 다음 패턴 `http://<company name>.mingle.infor.com`을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<company name>.mingle.infor.com` 패턴을 사용하여 URL을 입력합니다.
     
-    b. **회신 URL** 텍스트 상자에 다음 패턴 `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<company name>.mingle.infor.com/sp/ACS.saml2`
     
 4. **SP 시작 모드**에서 응용 프로그램을 구성하려는 경우 **Infor Retail – Information Management 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
     
     ![Single Sign-on 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_03.png)
 
-    a. **고급 URL 설정 표시** 옵션 클릭합니다.
+    a. **고급 URL 설정 표시** 옵션을 클릭합니다.
 
-    b. **로그온 URL** 텍스트 상자에서 `https://<company name>.mingle.infor.com/<company code>` 패턴을 사용하여 URL을 입력합니다.
+    b. **로그온 URL** 텍스트 상자에서 다음 패턴 `https://<company name>.mingle.infor.com/<company code>`을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트해야 합니다. 이러한 값을 가져오려면 [Infor Retail – Information Management 지원 팀](http://www.infor.com/contact/)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트해야 합니다. 이들 값을 얻으려면 [Infor Retail – Information Management 지원 팀](mailto:innovate@infor.com)에 문의하세요.
 
 5. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)   
+    ![Single Sign-On 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)     
 
 6. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 **만료 날짜**를 선택합니다. 그런 후 **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_300.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_300.png)
 
 7. **SAML 서명 인증서** 섹션에서 **새 인증서 활성화**를 선택한 후 **저장** 단추를 클릭합니다.
 
@@ -146,11 +147,11 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
     ![Single Sign-on 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+9. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. 응용 프로그램에 대해 SSO를 구성하려면 [Infor Retail – Information Management 지원 팀](http://www.infor.com/contact/)에 문의하고 다운로드한 **metadata** 파일을 제공합니다.
+10. 응용 프로그램에 대해 SSO를 구성하려면 [Infor Retail – Information Management 지원 팀](mailto:innovate@infor.com)에 문의하고 다운로드한 **metadata** 파일을 제공합니다.
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -188,7 +189,7 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
 ### <a name="creating-an-infor-retail--information-management-test-user"></a>Infor Retail – Information Management 테스트 사용자 만들기
 
-이 섹션에서는 Infor Retail – Information Management에서 Britta Simon이라는 사용자를 만듭니다. [Infor Retail – Information Management 지원 팀](http://www.infor.com/contact/)과 협의하여 Infor Retail – Information Management 플랫폼에 사용자를 추가하세요.
+이 섹션에서는 Infor Retail – Information Management에서 Britta Simon이라는 사용자를 만듭니다. [Infor Retail – Information Management 지원 팀](mailto:innovate@infor.com)과 협의하여 Infor Retail – Information Management 플랫폼에 사용자를 추가하세요.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -250,8 +251,3 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 [201]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

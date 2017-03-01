@@ -4,7 +4,7 @@ description: "Azure 알림 허브의 일반적인 문제를 진단하는 방법�
 services: notification-hubs
 documentationcenter: Mobile
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -239,10 +240,5 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 [EnableTestSend 기능]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
 [프로그래밍 방식 원격 분석 액세스]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [API 샘플을 통한 원격 분석 액세스]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

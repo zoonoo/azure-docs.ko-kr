@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement를 SharePoint 백 엔드와 연결하여 S
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4774f33c821410fb8fbed8d64b94fede36cb0a90
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 4774f33c821410fb8fbed8d64b94fede36cb0a90
 1. 샘플 SharePoint 목록은 다음과 같습니다. **제목**, **범주**, **NotificationTitle**, **메시지** 및 **URL**은 공지를 만드는 데 사용됩니다. 콘솔 프로그램 형식으로 샘플 자동화 프로세스에서 사용되는 **IsProcessed** 라는 열이 있습니다. 이 콘솔 프로그램을 Azure WebJob으로 실행하여 예약하거나 직접 SharePoint 워크플로를 사용하여 항목이 SharePoint 목록에 삽입될 때 공지를 만들고 활성화하도록 프로그래밍할 수 있습니다. 이 샘플에서는 SharePoint 목록의 항목을 확인하고 Azure Mobile Engagement에서 각 항목에 대한 공지를 만들고 나서 마지막으로 공지를 성공적으로 만들었을 때 **IsProcessed** 플래그를 true로 표시하는 콘솔 프로그램을 사용합니다.
    
     ![][1]
-2.  *여기* [클라이언트 개체 모델을 사용하여 SharePoint 온라인에서 원격 인증](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) (영문)의 코드를 사용하여 SharePoint 목록으로 인증합니다.
+2. *여기* [클라이언트 개체 모델을 사용하여 SharePoint 온라인에서 원격 인증](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) (영문)의 코드를 사용하여 SharePoint 목록으로 인증합니다.
 3. 인증되고 나면 목록 항목을 반복하여 새로 만들어진 항목을 찾습니다( **IsProcessed** = false가 포함됨). 
    
          static async void CreateCampaignFromSharepoint()
@@ -202,10 +203,5 @@ ms.openlocfilehash: 4774f33c821410fb8fbed8d64b94fede36cb0a90
 [5]: ./media/mobile-engagement-sample-backend-integration-sharepoint/diagram.png
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

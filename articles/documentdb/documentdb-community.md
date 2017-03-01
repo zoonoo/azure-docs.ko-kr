@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2017
+ms.date: 02/16/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
+ms.sourcegitcommit: cf163b2809f50daf0273398d6fec50dfc6fd69a2
+ms.openlocfilehash: 96dbc1f5a84f52ab39a3515511c7851bba5fa9a9
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -96,15 +97,20 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 ### <a name="recent-and-upcoming-events"></a>최근 및 예정된 이벤트
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | --- | --- | --- | --- | --- |
-| [Wintellect 웹 세미나: Azure DocumentDB 소개](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|온라인|2017년 1월 12일 오후 1시 EST|해당 없음|
+|[사우스 플로리다 코드 캠프: Azure DocumentDB를 사용하여 10분 이내에 .NET 개발자용 NoSQL](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|2017년 3월 11일|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
+|[올랜도 코드 캠프: Azure DocumentDB를 사용하여 10분 이내에 .NET 개발자용 NoSQL](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|2017년 4월 8일|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
+|[Global Azure Bootcamp: Azure Functions 및 DocumentDB를 사용하여 Azure에서 서버 없이 컴퓨팅](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|애틀랜타, GA|2017년 4월 22일|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 
 ### <a name="previous-events-and-recordings"></a>이전 이벤트 및 기록
 | 이벤트 이름 | 발표자 | 위치 | Date | 기록 |
 | --- | --- | --- | --- | --- |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |뉴욕, NY |2016년 11월 16-18일 |[Channel 9 Connect(); videos](https://channel9.msdn.com/Events/Connect) |
-| [Capital City .NET 사용자 그룹](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, FL |2016년 11월 3일 |해당 없음 |
+|[Ignite 오스트레일리아: Hello DocumentDB: 전 세계적인 규모의 속도가 아주 빠른 Azure NoSQL](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Andrew Liu](https://twitter.com/aliuy8)|퀸즐랜드, 오스트레일리아|2017년 2월 15일 수요일|출시 예정|
+|[Ignite 오스트레일리아: Azure DocumentDB의 심층 분석: 파티션, 데이터 모델링 및 지역에서 복제](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Andrew Liu](https://twitter.com/aliuy8)|퀸즐랜드, 오스트레일리아|2017년 2월 16일|출시 예정|
+| Wintellect 웹 세미나: Azure DocumentDB 소개| [Josh Lane](https://twitter.com/jplane)|온라인|2017년 1월 12일 오후 1시 EST|[Azure DocumentDB: 클라우드 기반 지역 크기 조정된 NoSQL Superweapon... 눈앞에서 숨기기](https://www.youtube.com/watch?v=uVcWgIYtBoc)|
+| [Connect(); // 2016](https://connectevent.microsoft.com/) |[Kirill Gavrylyuk](https://twitter.com/kirillg_msft) |뉴욕, NY |2016년 11월 16-18일 |[Channel 9 Connect(); videos](https://channel9.msdn.com/Events/Connect) |
+| [Capital City .NET 사용자 그룹](http://www.meetup.com/tally-dot-net/events/233768568/) |[Santosh Hari](https://twitter.com/_s_hari)|Tallahassee, FL |2016년 11월 3일 |해당 없음 |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |DocumentDB 팀 |애틀랜타, GA |2016년 9월 26-30일 |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |몬트리올, 캐나다 |2016년 7월 4-8일 |[NoSQL, 문제 없음, Azure DocumentDB 사용](http://www.slideshare.net/KenCenerelli) |
 | [통합 및 IoT ](http://www.btug.be/events) |Eldert Grootenboer |Kontich, Belgium |2016년 6월 30일 |해당 없음 |
@@ -206,14 +212,14 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 이러한 프로젝트는 공개 소스 커뮤니티와 협력하여 Azure DocumentDB 팀에서 적극적으로 개발됩니다.
 
 ### <a name="sdks"></a>SDK
-| 플랫폼 | GitHub | 패키지 |
+| 플랫폼 | Github | 패키지 |
 | --- | --- | --- |
 | Node.js |[azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) |[npm](https://www.npmjs.com/package/documentdb) |
 | Java |[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python |[azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) |[PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
 ### <a name="other-projects"></a>다른 프로젝트
-| 이름 | GitHub | 웹 사이트 |
+| 이름 | Github | 웹 사이트 |
 | --- | --- | --- |
 | 설명서 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[설명서 웹 사이트](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop 커넥터 |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
@@ -234,10 +240,5 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com)자신이나 다른 사용자를 후보로 지명할 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

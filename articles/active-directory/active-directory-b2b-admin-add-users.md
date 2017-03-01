@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 6a854486060c77d743cbdd42b7a341860ab77361
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,24 +32,21 @@ ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
 ## <a name="admins-adding-guest-users-to-the-directory"></a>디렉터리에 게스트 사용자를 추가하는 관리자
 다음 비디오와 같이 Azure AD B2B 공동 작업 사용자를 Azure AD 관리자로 디렉터리에 추가합니다.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant/Player]
 
-  이 비디오가 포함된 비디오로 표시되지 않는 경우 [여기](https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant)에서 확인할 수 있습니다.
 
 ## <a name="admins-adding-guest-users-to-a-group"></a>그룹에 게스트 사용자를 추가하는 관리자
 다음 비디오와 같이 B2B 공동 작업 사용자를 Azure AD 관리자로 그룹에 추가합니다.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
-  이 비디오가 포함된 비디오로 표시되지 않는 경우 [여기](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group)에서 확인할 수 있습니다.
 
 ## <a name="admins-adding-guest-users-to-an-application"></a>응용 프로그램에 게스트 사용자를 추가하는 관리자
 
 다음 비디오와 같이 B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추가합니다.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
-  이 비디오가 포함된 비디오로 표시되지 않는 경우 [여기](https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps)에서 확인할 수 있습니다.
 
 ## <a name="related-articles"></a>관련된 문서
 
@@ -65,9 +63,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

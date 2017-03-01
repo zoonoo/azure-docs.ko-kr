@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement용 Windows Phone Silverlight SDK의 콘텐
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
 * `EngagementIconCloseLight.png` : Windows Phone 밝은 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
 * `EngagementIconCloseDark.png`: Windows Phone 어두운 테마용 Mobile Engagement 도달률 알림의 "닫기" 아이콘입니다.
 * `EngagementConfiguration.xml`: Mobile Engagement 구성 파일입니다. 이 파일에서 Engagement 연결 문자열, 작동 중단 보고 등의 Engagement 설정을 사용자 지정할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

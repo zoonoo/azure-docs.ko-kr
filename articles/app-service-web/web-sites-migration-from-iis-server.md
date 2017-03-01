@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 2e846fc0-37cc-42e6-ac57-ff442ef16e85
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -137,10 +138,5 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

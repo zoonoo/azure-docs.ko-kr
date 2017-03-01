@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 2/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 963bf66d71a5c3eb2bf4ec8449e342ff1da782a8
-ms.openlocfilehash: d54a3d812051869e70102c19674292fe9edbf248
+ms.sourcegitcommit: f0875344b05b7eb8c6f9f6e39c3b864c202e2931
+ms.openlocfilehash: 968814db9496fd410162d482191592c8a56101f0
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -136,16 +137,11 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 ## <a name="next-steps"></a>다음 단계
 이제 Blob Storage의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
 
-* [Python 개발자 센터](/develop/python/)
+* [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Azure 저장소 서비스 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure 저장소 팀 블로그]
 * [Microsoft Azure Storage SDK for Python]
 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4612c1f516dca51aea925343f79649761448c05d
+ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
+ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -75,18 +76,20 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `ver` |버전 |토큰의 버전 번호를 저장합니다. <br><br> **JWT 값 예제**: <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>액세스 토큰
+인증 성공 시 Azure AD는 보호된 리소스에 액세스하는 데 사용할 수 있는 액세스 토큰을 반환합니다. 액세스 토큰은 base 64 인코딩 JWT(JSON Web Token)이며 디코더를 통해 실행하여 해당 콘텐츠를 검사할 수 있습니다.
 
 앱이 액세스 토큰만 *사용하여* API에 액세스하는 경우, 액세스 토큰은 앱이 HTTP 요청의 리소스에 전달할 수 있는 문자열에 불과하므로 완전히 불투명한 것으로 간주할 수 있으며 이와 같이 간주해야 합니다.
 
 액세스 토큰을 요청하는 경우 Azure AD는 사용할 수 있도록 액세스 토큰에 대한 일부 메타데이터도 반환합니다.  이 정보에는 액세스 토큰의 만료 시간 및 유효한 범위가 포함됩니다.  따라서 앱이 액세스 토큰 자체를 구문 분석하지 않아도 액세스 토큰의 지능형 캐싱을 수행할 수 있습니다.
 
-앱이 HTTP 요청에서 액세스 토큰을 필요로 하는 Azure AD로 보호된 API이면 수신하는 토큰의 유효성을 검사하고 조사해야 합니다. .NET에서 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure AD에서 전달자 토큰을 사용하여 Web API 보호](active-directory-devquickstarts-webapi-dotnet.md)를 참조하세요.
+앱이 HTTP 요청에서 액세스 토큰을 필요로 하는 Azure AD로 보호된 API이면 수신하는 토큰의 유효성을 검사하고 조사해야 합니다. 리소스를 액세스하는 데 토큰을 사용하기 전에 앱에서 액세스 토큰의 유효성 검사를 수행해야 합니다. 유효성 검사에 대한 자세한 내용은 [토큰 유효성 검사](#validating-tokens)를 참조하세요.  
+.NET에서 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure AD에서 전달자 토큰을 사용하여 Web API 보호](active-directory-devquickstarts-webapi-dotnet.md)를 참조하세요.
 
 ## <a name="refresh-tokens"></a>새로 고침 토큰
 
 새로 고침 토큰은 앱이 OAuth 2.0 흐름에서 새 액세스 토큰을 획득하는 데 사용할 수 있는 보안 토큰입니다.  새로 고침 토큰을 통해 앱은 사용자 조작을 요구하지 않고 사용자 대신 리소스에 장기적으로 액세스할 수 있습니다.
 
-새로고침 토큰은 다중 리소스로서, 하나의 리소스에 대한 토큰 요청 중에는 받지만, 완전히 다른 리소스에 대한 액세스 토큰으로 사용할 수 있습니다. 다중 리소스를 지정하려면, 대상 리소스에 대한 요청에 `resource`매개 변수를 설정합니다.
+새로 고침 토큰은 다중 리소스입니다.  즉, 한 리소스에 대한 토큰 요청 중에 받은 새로 고침 토큰을 완전히 다른 리소스에 대한 액세스 토큰으로 교환할 수 있습니다. 이를 수행하려면 요청의 `resource` 매개 변수를 대상 리소스로 설정합니다.
 
 새로 고침 토큰은 앱에 완전히 불투명합니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다.  다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다.  앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 Azure AD 토큰 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
@@ -94,9 +97,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 ## <a name="validating-tokens"></a>토큰 유효성 검사
 
-id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다.
+id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 테넌트 독립적인 문서 버전은 [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration)에 있습니다. Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 기능을 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요.  
 
-기본 프로세스 이해를 원하는 경우, 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리 및 코드 샘플이 제공됩니다.  JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대한 옵션이 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대한 자세한 내용은 [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
+토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리 및 코드 샘플이 제공됩니다. 아래 정보는 단순히 기본 프로세스를 이해하려는 사용자를 위한 것입니다.  JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대해 옵션이 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대한 자세한 내용은 [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
 
 #### <a name="validating-the-signature"></a>서명 유효성 검사
 
@@ -301,10 +304,4 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ## <a name="related-content"></a>관련 콘텐츠
 * Azure AD Graph API 통해 토큰 수명 정책을 관리하는 방법에 대한 자세한 내용은 Azure AD 그래프 [정책 작업](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) 및 [정책 엔터티](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)를 참조하세요.
 * 자세한 내용과 예제를 포함하여, PowerShell cmdlet를 통한 정책 관리 방법에 대한 샘플은 [Azure AD에서 구성 가능한 토큰 수명](../active-directory-configurable-token-lifetimes.md)을 참조하십시오. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

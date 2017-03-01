@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
+ms.sourcegitcommit: f179a19dd3a126d23c33520a428a8c3a644f4171
+ms.openlocfilehash: 08a1399e702dbf9222b8412950ee62509b53ef76
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -89,7 +90,7 @@ ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
     
     ```powershell
     $IpConfigName2 = "IPConfig-2"
-    $IPAddress     = 10.0.0.5
+    $IPAddress     = "10.0.0.5"
     $myPublicIp2   = New-AzureRmPublicIpAddress -Name "myPublicIp2" -ResourceGroupName $myResourceGroup `
     -Location $location -AllocationMethod Static
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName2 `
@@ -132,9 +133,7 @@ ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
 다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 이 문서의 [시나리오](#Scenario)에서 설명한&3;개의 IP로 구성된 VM이 이미 있다는 가정 하에 진행하되 필수 사항은 아닙니다.
 
 1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서의 단계를 완료합니다.
-2. 구독 ID 및 사용 목적을 적은 전자 메일을 [여러 IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)로 보내어 미리 보기를 등록합니다. 다음 작업이 끝나기 전까지 나머지 단계를 완료하려 하지 마세요.
-    - 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지
-    - 받은 전자 메일의 지침을 따르기 전까지
+2. **여러 IP 주소를 사용하여 VM 만들기** 섹션에서 2단계를 따라 공개 미리 보기에 등록합니다.
 3. 다음 $Variables의 "값"을 IP 주소를 추가하려는 NIC의 이름과 NIC가 있는 리소스 그룹 및 위치로 변경합니다.
 
     ```powershell
@@ -252,8 +251,4 @@ ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
 9. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 사용자 운영 체제별 단계를 완료하여 개인 IP 주소를 VM 운영 체제에 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ Azure 리소스 커넥터 API 앱을 사용하려면 먼저 해당 앱의 인스
 
 David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시물](http://blog.davidebbo.com/2014/12/azure-service-principal.html) 을 작성했습니다. 이 블로그의 모든 지침에 따라 **테넌트 ID**, **클라이언트 ID** 및 **비밀**을 가져옵니다. 이러한 세 필드와 함께 **구독 ID**가 커넥터를 구성하는 데 필요한 항목입니다.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>논리 앱 디자이너에서 Azure 리소스 커넥터 사용
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>논리 앱 디자이너에서 Azure 리소스 커넥터 사용
 ### <a name="trigger"></a>트리거
 커넥터에서는 두 개의 트리거가 지원됩니다.
 
@@ -106,9 +107,4 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

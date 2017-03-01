@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: 3d7e28c1cd221d704cf9cfec66da535e079fb472
+ms.openlocfilehash: 30044abc0d7d42b11ddd210dfb9ea3eadb94dda6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,7 +40,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 > 
 > 
 
-각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 컴퓨터에 할당하는 프로덕션 스타일 노드 구성를 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 컴퓨터에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 클러스터를 삭제하고 새 버전으로 다시 만들어야 합니다.
+각 Service Fabric 노드를 별도 물리적 컴퓨터 또는 가상 컴퓨터에 할당하는 프로덕션 스타일 노드 구성을 사용하는 경우에만 클러스터를 새 버전으로 업그레이드할 수 있습니다. 하나의 물리적 또는 가상 컴퓨터에 Service Fabric 노드가 여러 개 있는 개발 클러스터가 있는 경우 클러스터를 삭제하고 새 버전으로 다시 만들어야 합니다.
 
 클러스터를 최신 또는 지원되는 Service Fabric 버전으로 업그레이드하는 데는 두 가지 워크플로가 있습니다. 하나는 자동으로 최신 Service Fabric 버전을 다운로드하도록 연결된 클러스터를 위한 것이며, 다른 하나는 연결되지 않은 클러스터를 위한 것입니다.
 
@@ -124,7 +125,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로입니다.
-1. [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에서 최신 버전의 패키지를 다운로드하세요. 
+1. [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에서 최신 버전의 패키지를 다운로드하세요.
 2. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다. 
    
     ```powershell
@@ -152,7 +153,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 
     ```
 
-1. 복사된 패키지 등록 
+4. 복사된 패키지 등록 
    
     ```powershell
    
@@ -163,7 +164,7 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. 클러스터 업그레이드를 사용 가능한 버전 중 하나에 시작합니다. 
+5. 클러스터 업그레이드를 사용 가능한 버전 중 하나에 시작합니다. 
    
     ```Powershell
    
@@ -184,16 +185,22 @@ Microsoft에서 새로운 버전을 릴리스하거나 클러스터가 실행하
 
 롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
+
+## <a name="cluster-configuration-upgrade"></a>클러스터 구성 업그레이드
+클러스터 구성 업그레이드를 수행하려면 Start-ServiceFabricClusterConfigurationUpgrade를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+
 ## <a name="next-steps"></a>다음 단계
-*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

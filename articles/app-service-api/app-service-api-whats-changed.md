@@ -4,7 +4,7 @@ description: "Azure 앱 서비스의 API 앱에 대한 새로운 기능을 알�
 services: app-service\api
 documentationcenter: .net
 author: mohitsriv
-manager: wpickett
+manager: erikre
 editor: tdykstra
 ms.assetid: a9b58066-e8fd-48b8-a651-4613b1736433
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
 ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -121,10 +122,5 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 
 * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 * [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

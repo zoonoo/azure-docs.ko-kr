@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -92,13 +93,8 @@ Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 
 | imageVersion |선택한 SKU에 대한 이미지 버전 지정 |
 
 ## <a name="create-the-policy"></a>정책 만들기
-정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. [정책 만들기 및 할당](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)에 대해 읽어볼 수 있습니다.
+정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. [정책 만들기 및 할당](../azure-resource-manager/resource-manager-policy.md)에 대해 읽어볼 수 있습니다.
 
 ## <a name="apply-the-policy"></a>정책 적용
-정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. [정책 만들기 및 할당](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)에 대해 읽어볼 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. [정책 만들기 및 할당](../azure-resource-manager/resource-manager-policy.md)에 대해 읽어볼 수 있습니다.
 

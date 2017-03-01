@@ -1,6 +1,6 @@
 ---
 title: "BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역 | Microsoft Docs"
-description: "Azure 지역 쌍을 통해 데이터 센터 오류 중 응용 프로그램의 복원성을 유지할 수 있습니다."
+description: "Azure 지역 쌍을 통해 데이터 센터 오류 중 응용 프로그램의 복원성을 유지하는 방법에 대해 알아봅니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 56fe2f8d65379c9e957e46e1f44195b3ad2d0055
-ms.openlocfilehash: 30ec787997c0c622e8ade6eec2b2dcc635a5a664
+ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
+ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -91,9 +92,4 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![데이터](./media/best-practices-availability-paired-regions/9Orange.png)
 **데이터 상주** – 지역은 세금 및 법률 집행 관할 구역의 데이터 상주 요구 사항을 충족하기 위해 동일한 지리적 위치 내에 쌍으로 상주합니다(브라질 남부 제외).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

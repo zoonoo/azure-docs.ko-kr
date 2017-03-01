@@ -3,7 +3,7 @@ title: "Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용 | Microso
 description: "이 자습서에서는 Jenkins 연속 통합 솔루션을 사용하여 만든 아티팩트용 리포지토리로 Azure Blob 서비스를 사용하는 방법을 보여 줍니다."
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f4e5ca75-f6cb-4f74-981b-2aa06bb8de45
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 317b8d537465daf77c6feeb8fed927c72bdd7190
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -155,8 +156,3 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 * [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

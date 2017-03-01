@@ -5,7 +5,7 @@ keywords: "azure app service, 웹앱, linux, docker, 컨테이너"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 54b38c7f8cf685387ac639653d208a00cefbc3fa
-ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -27,8 +28,8 @@ ms.openlocfilehash: f2a03c58ab09ef09ea2fc482a978bf0d9c23f212
 App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. Linux의 App Service는 Docker 컨테이너를 사용하여 이러한 미리 작성된 응용 프로그램 스택을 호스트합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 배포할 수도 있습니다. 사용자 지정 Docker 이미지는 공용 또는 개인 Docker 리포지토리에 호스트할 수 있습니다.
 
 
-## <a name="how-to-set-a-custom-docker-image-for-a-new-web-app"></a>방법: 새 웹앱에 대한 사용자 지정 Docker 이미지 설정
-신규 및 기존 웹앱에 대해 사용자 지정 Docker 이미지를 설정할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 Linux의 새 웹앱을 만들 경우 **컨테이너 구성**을 클릭하여 사용자 지정 Docker 이미지를 설정합니다.
+## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>방법: 웹앱에 대한 사용자 지정 Docker 이미지 설정
+신규 및 기존 웹앱에 대해 사용자 지정 Docker 이미지를 설정할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 Linux의 웹앱을 만들 경우 **컨테이너 구성**을 클릭하여 사용자 지정 Docker 이미지를 설정합니다.
 
 ![Linux의 새 웹앱에 대한 사용자 지정 Docker 이미지][1]
 
@@ -53,7 +54,7 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 1. [Azure Portal](https://portal.azure.com)에서 Linux의 웹앱을 찾은 후 **설정**에서 **Docker 컨테이너**를 클릭합니다.
 
-2.  **개인 레지스트리**를 **이미지 소스**로 선택하고 개인 레지스트리에 대한 **이미지 및 선택적 태그 이름**, **서버 URL**을 입력하고 자격 증명(**로그인 사용자 이름** 및 **암호**)를 함께 입력한 다음 **저장**을 클릭합니다.
+2.  **이미지 소스**로 **개인 레지스트리**를 클릭합니다. 개인 레지스트리에 대한 **이미지 및 선택적 태그 이름**, **서버 URL**을 입력하고 자격 증명(**로그인 사용자 이름** 및 **암호**)를 함께 입력합니다. **Save**를 클릭합니다.
 
     ![개인 레지스트리에서 Docker 이미지 구성][4]
 
@@ -71,9 +72,7 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 명령의 마지막 줄에서 런타임에 PORT 환경 변수가 전달된다는 것을 알 수 있습니다. 명령은 대/소문자를 구분해야 합니다.
 
-다른 사용자가 작성한 기존 Docker 이미지를 사용하면 응용 프로그램에 대해 포트 80 이외의 포트를 지정해야 할 수도 있습니다. 
-
-이를 위해 이미지에 필요한 값과 함께 `PORT`라는 응용 프로그램 설정을 추가합니다.
+다른 사용자가 작성한 기존 Docker 이미지를 사용하면 응용 프로그램에 대해 포트 80 이외의 포트를 지정해야 할 수도 있습니다. 포트를 구성하려면 아래와 같이 값과 함께 `PORT`라는 응용 프로그램 설정을 추가합니다.
 
 ![사용자 지정 Docker 이미지에 대한 PORT 앱 설정 구성][6]
 
@@ -104,6 +103,7 @@ Linux에서 App Service를 시작하려면 다음 링크를 따르세요.
 * [Linux의 App Service 소개](./app-service-linux-intro.md)
 * [Linux의 App Service에서 웹앱 만들기](./app-service-linux-how-to-create-a-web-app.md)
 * [Linux의 웹앱에 있는 Node.js용 PM2 구성 사용](./app-service-linux-using-nodejs-pm2.md)
+* [Linux의 Azure App Service Web Apps에 대한 FAQ](app-service-linux-faq.md)
 
 [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시하세요.
 
@@ -116,9 +116,4 @@ Linux에서 App Service를 시작하려면 다음 링크를 따르세요.
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

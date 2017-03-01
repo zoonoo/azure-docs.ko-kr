@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/07/2016
+ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: e731c2334ca2d63017b54f0362657aaace585ae0
+ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
+ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -100,7 +101,7 @@ HDInsight와 함께 Azure Virtual Network를 사용하는 방법에 대한 자�
 Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 예제는 [Storm 및 HBase의 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
 
 ## <a name="cluster-tiers"></a>클러스터 계층
-Azure HDInsight는 빅 데이터 클라우드 제품을 Standard 및 [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)의 두 범주로 제공합니다. HDInsight 프리미엄은 R 및 기타 추가 구성 요소를 포함합니다. HDInsight 프리미엄은 HDInsight 버전 3.4에서만 지원됩니다.
+Azure HDInsight는 빅 데이터 클라우드 제품을 Standard 및 [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)의 두 범주로 제공합니다. HDInsight 프리미엄은 R 및 기타 추가 구성 요소를 포함합니다. HDInsight 프리미엄은 HDInsight 버전 3.5에서만 지원됩니다.
 
 다음 표에는 HDInsight 클러스터 유형 및 HDInsight Premium 지원 행렬이 나와 있습니다.
 
@@ -155,9 +156,9 @@ HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같�
   >
 
 ### <a name="data-source"></a>데이터 원본
-기존의 Hadoop 분산 파일 시스템(HDFS)은 클러스터에 있는 많은 로컬 디스크를 사용합니다. HDInsight는 데이터 저장소로 Azure Blob Storage를 사용합니다. Azure Blob Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDFS 인터페이스를 통해 HDInsight의 전체 구성 요소 집합을 Blob Storage에서 구조적 또는 비구조적 데이터에 대해 직접 작동할 수 있습니다. Blob Storage에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+기존의 Hadoop 분산 파일 시스템(HDFS)은 클러스터에 있는 많은 로컬 디스크를 사용합니다. HDInsight는 데이터 저장소로 Azure Blob Storage를 사용합니다. Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDFS 인터페이스를 통해 HDInsight의 전체 구성 요소 집합을 Blob 저장소에서 구조적 또는 비구조적 데이터에 대해 직접 작동할 수 있습니다. Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-구성 중에 Azure Storage 계정과 해당 Azure Storage 계정의 Azure Blob Storage 컨테이너를 지정해야 합니다. 일부 생성 프로세스는 Azure Storage 계정 및 Blob Storage 컨테이너를 미리 만들어 두어야 합니다. Blob Storage 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소)을 지정할 수 있습니다. 클러스터는 전체 공용 읽기 액세스 또는 Blob 전용 공용 읽기 액세스로 구성된 모든 Blob Storage 컨테이너에 액세스할 수도 있습니다.  자세한 내용은 [Azure Storage 리소스에 대한 액세스 관리](../storage/storage-manage-access-to-resources.md)를 참조하세요.
+구성 중에 Azure 저장소 계정과 해당 Azure 저장소 계정의 Azure Blob 저장소 컨테이너를 지정해야 합니다. 일부 생성 프로세스는 Azure Storage 계정 및 Blob 저장소 컨테이너를 미리 만들어 두어야 합니다. Blob 저장소 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소)을 지정할 수 있습니다. 클러스터는 전체 공용 읽기 액세스 또는 Blob 전용 공용 읽기 액세스로 구성된 모든 Blob Storage 컨테이너에 액세스할 수도 있습니다.  자세한 내용은 [Azure Storage 리소스에 대한 액세스 관리](../storage/storage-manage-access-to-resources.md)를 참조하세요.
 
 ![HDInsight 저장소](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -337,9 +338,4 @@ Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터�
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |✔ |✔ |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |✔ |
 | [Azure 리소스 관리자 템플릿](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

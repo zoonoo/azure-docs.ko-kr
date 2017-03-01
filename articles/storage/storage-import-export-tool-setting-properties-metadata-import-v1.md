@@ -1,5 +1,5 @@
 ---
-title: "가져오기 프로세스 중에 속성 및 메타데이터 설정 | Microsoft Docs"
+title: "Azure Import/Export를 사용하여 속성 및 메타데이터 설정 | Microsoft Docs | Microsoft Docs"
 description: "Import-Export 도구를 실행하여 드라이브를 준비할 때 대상 Blob에 설정할 속성과 메타데이터를 지정하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: f49604cf6738da3576ed2a65ca96d083d5e8219b
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>가져오기 프로세스 중에 속성 및 메타데이터 설정
-Microsoft Azure Import/Export 도구를 실행하여 드라이브를 준비할 때 대상 Blob에 설정할 속성과 메타데이터를 지정할 수 있습니다. 다음 단계를 수행하세요.  
+Microsoft Azure Import/Export 도구를 실행하여 드라이브를 준비할 때 대상 BLOB에 설정할 속성과 메타데이터를 지정할 수 있습니다. 다음 단계를 수행하세요.  
   
 1.  Blob 속성을 설정하려면 속성 이름 및 값을 지정하는 텍스트 파일을 로컬 컴퓨터에 만듭니다.  
   
@@ -70,9 +71,4 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
   
 ## <a name="see-also"></a>참고 항목  
 [Import-Export 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

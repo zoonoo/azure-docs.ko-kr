@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
-ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 242cc7d58acb4af66d7ea5da4502db4ce2b414c6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -45,7 +46,7 @@ Lesson.ly와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 
@@ -141,7 +142,7 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
     b. **다음**을 클릭합니다.
-2. 응용 프로그램에 대해 SSO를 구성하려면 dev@lessonly.com. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Lesson.ly 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
+2. 응용 프로그램에 대해 SSO를 구성하려면 dev@lessonly.com를 통해 Lesson.ly 지원 팀에 문의하세요. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Lesson.ly 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
 3. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
    ![Azure AD Single Sign-On][10]
@@ -257,9 +258,4 @@ Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

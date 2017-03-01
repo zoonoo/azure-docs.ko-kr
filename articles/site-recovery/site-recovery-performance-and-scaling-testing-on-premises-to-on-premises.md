@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
+ms.sourcegitcommit: 1b95723ec9886835c5967c9efe95b4922390a847
+ms.openlocfilehash: 92b5200016b943c06ef7732344d4136bd3c491b7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -71,7 +72,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 ![보조 결과](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
 ### <a name="effect-of-replication-on-network-utilization"></a>네트워크 사용률에 미치는 복제 효과
-기존 대역폭은 초당 5GB인데 반해 기본 및 보조 노드(압축 사용 시) 간에 네트워크 대역폭은 초당 평균 275MB가 사용됩니다.
+기존 대역폭은 초당 5Gb인데 반해 기본 및 보조 노드(압축 사용 시) 간에 네트워크 대역폭은 초당 평균 275Mb가 사용됩니다.
 
 ![결과 네트워크 사용률](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
@@ -170,9 +171,4 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ## <a name="next-steps"></a>다음 단계
 * [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

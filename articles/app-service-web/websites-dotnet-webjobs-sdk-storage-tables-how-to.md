@@ -4,7 +4,7 @@ description: "WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -156,10 +157,5 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 `CloudS
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
 이 가이드에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2016
+ms.date: 02/15/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f4911d012b0e63f90ad1567a6fc3ff429516d75
-ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
+ms.sourcegitcommit: 1b2e22150f9cea004af4892cd7fa2fb2b59c8787
+ms.openlocfilehash: 16e53dbdb4ce6de02a9c8acb2fb1d8a3ac265b8f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -37,14 +38,14 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | MaxDiskQuotaInMB |int, 기본값: 65536 |Windows Fabric 로그 파일의 디스크 할당량(MB) |
 | DiskFullSafetySpaceInMB |int, 기본값: 1024 |DCA에서 사용하지 못하도록 보호하기 위해 남아 있는 디스크 공간(MB) |
 | ApplicationLogsFormatVersion |int, 기본값: 0 |응용 프로그램 로그 형식의 버전. 지원되는 값은 0과 1입니다. 버전 1은 버전 0보다 더 많은 ETW 이벤트 레코드 필드를 포함합니다. |
-| ClusterId |string |클러스터를 만들 때 생성되는  고유한 클러스터 ID |
+| ClusterId |String |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
 | EnableTelemetry |bool, 기본값: true |원격 분석 사용 여부 |
 | EnableCircularTraceSession |bool, 기본값: false |플래그에서 순환 추적 세션을 사용해야 하는지 여부를 나타냅니다. |
 
 ### <a name="section-name-traceetw"></a>섹션 이름: Trace/Etw
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| Level |int, 기본값: 4 |ETW 추적 수준 |
+| Level |int, 기본값: 4 |ETW 추적 수준은 1, 2, 3, 4 값을 가질 수 있습니다. 지원 받으려면 추적 수준을 4에서 유지해야 합니다. |
 
 ### <a name="section-name-performancecounterlocalstore"></a>섹션 이름: PerformanceCounterLocalStore
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -58,11 +59,11 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 ### <a name="section-name-setup"></a>섹션 이름: Setup
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| FabricDataRoot |string |Windows Fabric 데이터 루트 디렉터리 |
-| FabricLogRoot |String |Windows Fabric 로그 루트 디렉터리 |
+| FabricDataRoot |String |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
+| FabricLogRoot |문자열 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
 | ServiceRunAsAccountName |String |패브릭 호스트 서비스를 실행할 계정 이름 |
 | ServiceStartupType |String |패브릭 호스트 서비스의 시작 유형 |
-| SkipFirewallConfiguration |bool, 기본값: false |방화벽 설정을 건너뛸지 여부 |
+| SkipFirewallConfiguration |bool, 기본값: false |시스템에서 방화벽 설정을 설정해야 하는지 여부를 지정합니다. Windows 방화벽을 사용하는 경우에만 적용됩니다. 타사 방화벽을 사용하는 경우 사용할 시스템 및 응용 프로그램에 대한 포트를 열어야 합니다. |
 
 ### <a name="section-name-transactionalreplicator"></a>섹션 이름: TransactionalReplicator
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -91,7 +92,7 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 ### <a name="section-name-fabricclient"></a>섹션 이름: FabricClient
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| NodeAddresses |wstring, 기본값: L"" |이름 지정 서비스와 통신하는 데 사용할 수 있는 여러 노드의 주소 컬렉션(연결 문자열). 초기에는 클라이언트에서 주소 중 하나를 임의로 선택하여 연결합니다. 연결 문자열이 둘 이상 제공되고 통신 오류 또는 시간 제한 오류로 인해 연결이 실패하는 경우 Client(클라이언트)에서 다음 주소를 순차적으로 사용하도록 전환합니다. 다시 시도 체계에 대한 자세한 내용은 이름 지정 서비스 주소 다시 시도 섹션을 참조하세요. |
+| NodeAddresses |wstring, 기본값: "" |이름 지정 서비스와 통신하는 데 사용할 수 있는 여러 노드의 주소 컬렉션(연결 문자열). 초기에는 클라이언트에서 주소 중 하나를 임의로 선택하여 연결합니다. 연결 문자열이 둘 이상 제공되고 통신 오류 또는 시간 제한 오류로 인해 연결이 실패하는 경우 Client(클라이언트)에서 다음 주소를 순차적으로 사용하도록 전환합니다. 다시 시도 체계에 대한 자세한 내용은 이름 지정 서비스 주소 다시 시도 섹션을 참조하세요. |
 | ConnectionInitializationTimeout |time(초), 기본값: 2 |시간 간격은 초 단위로 지정합니다. 클라이언트에서 게이트웨이에 대한 연결을 열려고 시도 할 때마다 적용되는 연결 시간 제한 간격입니다. |
 | PartitionLocationCacheLimit |int, 기본값: 100000 |서비스 확인을 위해 캐시되는 파티션 수(제한하지 않을 경우 0으로 설정) |
 | ServiceChangePollInterval |time(초), 기본값: 120 |시간 간격은 초 단위로 지정합니다. 등록된 서비스 변경 알림 콜백을 위해 클라이언트에서 게이트웨이로의 서비스 변경에 대한 연속 폴링 간격입니다. |
@@ -120,7 +121,7 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 ### <a name="section-name-nodedomainids"></a>섹션 이름: NodeDomainIds
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| UpgradeDomainId |wstring, 기본값: L"" |노드가 속한 업그레이드 도메인을 설명합니다. |
+| UpgradeDomainId |wstring, 기본값: "" |노드가 속한 업그레이드 도메인을 설명합니다. |
 | PropertyGroup |NodeFaultDomainIdCollection |노드가 속한 장애 도메인을 설명합니다. 장애 도메인은 데이터 센터에서 노드의 위치를 설명하는 URI를 통해 정의됩니다.  장애 도메인 URI에는 fd:/fd/ 형식 뒤에 URI 경로 세그먼트가 나옵니다.|
 
 ### <a name="section-name-nodeproperties"></a>섹션 이름: NodeProperties
@@ -138,27 +139,27 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | --- | --- | --- |
 | StartApplicationPortRange |int, 기본값: 0 |호스트 하위 시스템에서 관리하는 응용 프로그램 포트의 시작. Hosting(호스팅)에서 EndpointFilteringEnabled가 true인 경우 필수입니다. |
 | EndApplicationPortRange |int, 기본값: 0 |호스팅 하위 시스템에서 관리하는 응용 프로그램 포트의 끝(inclusive 없음). Hosting(호스팅)에서 EndpointFilteringEnabled가 true인 경우 필수입니다. |
-| ClusterX509StoreName |wstring, 기본값: L"My" |클러스터 내 통신을 보호하기 위한 클러스터 인증서가 있는 X.509 인증서 저장소의 이름 |
-| ClusterX509FindType |wstring, 기본값: L"FindByThumbprint" |ClusterX509StoreName으로 지정한 저장소에서 클러스터 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: "FindByThumbprint", "FindBySubjectName" With "FindBySubjectName". 여러 항목이 일치하는 경우 맨 끝에 있는 만료를 사용하는 항목이 적용됩니다. |
-| ClusterX509FindValue |wstring, 기본값: L"" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
-| ClusterX509FindValueSecondary |wstring, 기본값: L"" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
-| ServerAuthX509StoreName |wstring, 기본값: L"My" |주 서비스에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
-| ServerAuthX509FindType |wstring, 기본값: L"FindByThumbprint" |ServerAuthX509StoreName에 지정한 저장소에서 서버 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
-| ServerAuthX509FindValue |wstring, 기본값: L"" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
-| ServerAuthX509FindValueSecondary |wstring, 기본값: L"" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
-| ClientAuthX509StoreName |wstring, 기본값: L"My" |FabricClient 기본 관리자 역할에 대한 인증서가 있는 X.509 인증서 저장소의 이름 |
-| ClientAuthX509FindType |wstring, 기본값: L"FindByThumbprint" |ClientAuthX509StoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
-| ClientAuthX509FindValue |wstring, 기본값: L"" | FabricClient 기본 관리자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
-| ClientAuthX509FindValueSecondary |wstring, 기본값: L"" |FabricClient 기본 관리자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
-| UserRoleClientX509StoreName |wstring, 기본값: L"My" |FabricClient 기본 사용자 역할에 대한 인증서가 있는 X.509 인증서 저장소의 이름 |
-| UserRoleClientX509FindType |wstring, 기본값: L"FindByThumbprint" |UserRoleClientX509StoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
-| UserRoleClientX509FindValue |wstring, 기본값: L"" |FabricClient 기본 사용자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
-| UserRoleClientX509FindValueSecondary |wstring, 기본값: L"" |FabricClient 기본 사용자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
+| ClusterX509StoreName |wstring, 기본값: "My" |클러스터 내 통신을 보호하기 위한 클러스터 인증서가 있는 X.509 인증서 저장소의 이름 |
+| ClusterX509FindType |wstring, 기본값: "FindByThumbprint" |ClusterX509StoreName으로 지정한 저장소에서 클러스터 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: "FindByThumbprint", "FindBySubjectName" With "FindBySubjectName". 여러 항목이 일치하는 경우 맨 끝에 있는 만료를 사용하는 항목이 적용됩니다. |
+| ClusterX509FindValue |wstring, 기본값: "" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
+| ClusterX509FindValueSecondary |wstring, 기본값: "" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
+| ServerAuthX509StoreName |wstring, 기본값: "My" |주 서비스에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
+| ServerAuthX509FindType |wstring, 기본값: "FindByThumbprint" |ServerAuthX509StoreName에 지정한 저장소에서 서버 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+| ServerAuthX509FindValue |wstring, 기본값: "" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
+| ServerAuthX509FindValueSecondary |wstring, 기본값: "" |클러스터 인증서를 찾는 데 사용되는 검색 필터 값 |
+| ClientAuthX509StoreName |wstring, 기본값: "My" |FabricClient 기본 관리자 역할에 대한 인증서가 있는 X.509 인증서 저장소의 이름 |
+| ClientAuthX509FindType |wstring, 기본값: "FindByThumbprint" |ClientAuthX509StoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+| ClientAuthX509FindValue |wstring, 기본값: "" | FabricClient 기본 관리자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
+| ClientAuthX509FindValueSecondary |wstring, 기본값: "" |FabricClient 기본 관리자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
+| UserRoleClientX509StoreName |wstring, 기본값: "My" |FabricClient 기본 사용자 역할에 대한 인증서가 있는 X.509 인증서 저장소의 이름 |
+| UserRoleClientX509FindType |wstring, 기본값: "FindByThumbprint" |UserRoleClientX509StoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+| UserRoleClientX509FindValue |wstring, 기본값: "" |FabricClient 기본 사용자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
+| UserRoleClientX509FindValueSecondary |wstring, 기본값: "" |FabricClient 기본 사용자 역할에 대한 인증서를 찾는 데 사용되는 검색 필터 값 |
 
 ### <a name="section-name-paas"></a>섹션 이름: Paas
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| ClusterId |wstring, 기본값: L"" |구성을 보호하기 위해 패브릭에서 사용하는 X509 인증서 저장소 |
+| ClusterId |wstring, 기본값: "" |구성을 보호하기 위해 패브릭에서 사용하는 X509 인증서 저장소 |
 
 ### <a name="section-name-fabrichost"></a>섹션 이름: FabricHost
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -172,10 +173,6 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | EnableServiceFabricBaseUpgrade |bool, 기본값: false |서버에 대한 기본 업데이트를 사용하도록 설정합니다. |
 | EnableRestartManagement |bool, 기본값: false |서버를 다시 시작하도록 설정합니다. |
 
-### <a name="section-name-votes"></a>섹션 이름: Votes
-| **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
-| --- | --- | --- |
-| PropertyGroup |VoteConfig |투표는 클러스터의 쿼럼에 대한 단일 계산을 나타냅니다. 투표 기관에서 투표권 소유자(노드)에게 투표를 할당합니다. 투표 기관은 일반적으로 클러스터의 노드(시드 노드)입니다. 클러스터에는 상태와 기능을 유지하도록 보장하기 위해 제시할 투표 퀀텀이 필요합니다.  투표 쿼럼을 잃으면 클러스터가 중단됩니다. 시드 노드의 대안으로 SQL 투표가 있습니다. 여기서 투표 기관은 클러스터의 노드가 아니라 SQL Server 인스턴스입니다. 이 경우 SQL 투표 ID에 가장 가까운 ID를 가진 노드가 프록시 역할을 수행합니다. 구성을 통해 선택한 투표는 모든 노드에서 동일해야 합니다. ID는 클러스터의 투표 ID를 나타내는 정수(Long)로 구문 분석되는 문자열입니다. Type은 SeedNode 또는 SqlServer의 두 옵션 중 하나 일 수 있습니다. 클러스터에서 사용하는 투표 기관에 따라 다릅니다. 연결 문자열의 형식은 type에 따라 다릅니다. SeedNode의 연결 문자열은 동일한 NodeID를 가진 노드의 NodeEndpoint입니다. type=SqlServer의 경우 SQL Server 2008 이상에 대한 연결 문자열입니다. SeedNode 예제: '0 = SeedNode;10.0.0.1:10000'. SQL 투표 예제: 'sqlvote1 = SqlServer;Provider=SQLNCLI10;Server=.\SQLEXPRESS;Database=master;Integrated Security=SSPI'. |
 
 ### <a name="section-name-failovermanager"></a>섹션 이름: FailoverManager
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -189,36 +186,51 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
 | TargetReplicaSetSize |int, 기본값: 7 |이름 지정 서비스 저장소의 각 파티션에 대한 복제본 집합 수. 복제본 집합의 수를 늘리면 Windows Fabric에 대한 로드가 증가하고 이름 지정 데이터 업데이트를 수행하는 데 시간을 소모하더라도 이름 지정 서비스 저장소에 있는 정보의 안정성 수준이 높아지고 노드 장애의 결과로 정보가 손실될 변화를 낮춥니다.|
-
-| MinReplicaSetSize | int, 기본값: 3 | 업데이트를 완료하기 위해 작성하는 데 필요한 이름 지정 서비스 복제본의 최소 수. 시스템에 이 활성 값보다 적은 수의 복제본이 있는 경우 Reliability System(안정성 시스템)에서 복제본이 복원될 때까지 이름 지정 서비스 저장소에 대한 업데이트를 거부합니다. 이 값은 반드시 TargetReplicaSetSize 이하여야 합니다. | | ReplicaRestartWaitDuration | time(초), 기본값: 60.0 * 30 | 시간 간격은 초 단위로 지정합니다. 이름 지정 서비스 복제본이 중단될 때 이 타이머가 시작됩니다.  만료되면 FM에서 중단된 복제본을 대체하기 시작합니다(아직 손실된 복제본으로 간주하지 않을 경우). | | QuorumLossWaitDuration | time(초), 기본값: MaxValue | 시간 간격은 초 단위로 지정합니다. 이름 지정 서비스가 쿼럼 손실 상태가 될 때 이 타이머가 시작됩니다.  만료되면 FM에서 중단된 복제본을 손실된 것으로 간주하고 쿼럼을 복구하려고 시도합니다. 데이터 손실이 발생할 수 있습니다. | | StandByReplicaKeepDuration | time(초), 기본값: 3600.0 * 2 | 시간 간격은 초 단위로 지정합니다. 이름 지정 서비스 복제본이 중단된 상태에서 돌아올 때 복제본이 이미 대체되었을 수 있습니다.  이 타이머는 FM에서 대기 복제본을 삭제하기 전에 보관할 기간을 결정합니다. | | PlacementConstraints | wstring, 기본값: L"" | 이름 지정 서비스의 Placement(배치) 제약 조건 | | ServiceDescriptionCacheLimit |int, 기본값: 0 | 이름 지정 저장소 서비스의 LRU 서비스 설명 캐시에 유지되는 최대 항목 수(제한하지 않을 경우 0으로 설정) | | RepairInterval | int, 기본값: 5 | 시간 간격은 초 단위로 지정합니다. 기관 소유자와 이름 소유자 간의 이름 지정 불일치 복구가 시작되는 간격 | MaxNamingServiceHealthReports | int, 기본값: 10 | 한 번에 이름 지정 저장소 서비스에서 비정상 상태로 보고하는 느린 작업의 최대 수. 0인 경우 모든 느린 작업이 전송됩니다. | | MaxMessageSize | int, 기본값: 4*1024*1024 | 이름 지정을 사용할 때 클라이언트 노드 통신에 대한 최대 메시지 크기. DOS 공격을 낮추려는 경우 기본값은 4MB입니다. | | MaxFileOperationTimeout | time(초), 기본값: 30 | 시간 간격은 초 단위로 지정합니다. 파일 저장소 서비스 작업에 허용되는 최대 시간 제한. 더 큰 시간 제한을 지정하는 요청은 거부됩니다. | | MaxOperationTimeout | time(초), 기본값: 600 | 시간 간격은 초 단위로 지정합니다. 클라이언트 작업에 허용되는 최대 시간 제한. 더 큰 시간 제한을 지정하는 요청은 거부됩니다. | | MaxClientConnections | int, 기본값: 1000 | 게이트웨이당 허용되는 최대 클라이언트 연결 수 | | ServiceNotificationTimeout | time(초), 기본값: 30 | 시간 간격은 초 단위로 지정합니다. 클라이언트에 서비스 알림을 배달할 때 사용되는 시간 제한입니다. | | MaxOutstandingNotificationsPerClient | int, 기본값: 1000 | 게이트웨이에서 클라이언트 등록을 강제로 닫기 전에 처리되지 않은 알림의 최대 수 | | MaxIndexedEmptyPartitions | int, 기본값: 1000 | 다시 연결하는 클라이언트를 동기화하기 위해 알림 캐시에 인덱싱되어 있는 빈 파티션의 최대 수. 이 수를 초과하는 빈 파티션은 모두 인덱스에서 조회 버전 오름차순으로 제거됩니다. 다시 연결하는 클라이언트를 다시 연결하면 빈 파티션 업데이트를 계속 동기화하고 받을 수 있지만 동기화 프로토콜에 더 많은 비용이 듭니다. | | GatewayServiceDescriptionCacheLimit |int, 기본값: 0 | 이름 지정 게이트웨이의 LRU 서비스 설명 캐시에 유지되는 최대 항목 수(제한하지 않을 경우 0으로 설정) | | PartitionCount | int, 기본값: 3 | 만들려는 이름 지정 서비스 저장소의 파티션 수. 각 파티션은 자체의 인덱스에 해당하는 단일 파티션 키를 소유하므로 파티션 키[0, PartitionCount)가 존재합니다. 이름 지정 서비스 파티션의 수를 늘리면 PartitionCount * ReplicaSetSize 서비스 복제본을 유지해야 하므로 리소스 사용이 늘어나더라도 모든 백업 복제본 세트에서 보유하는 평균 데이터 양을 줄여 이름 지정 서비스에서 수행할 수 있는 크기가 늘어납니다.|
+|MinReplicaSetSize | int, 기본값: 3 | 업데이트를 완료하기 위해 작성하는 데 필요한 이름 지정 서비스 복제본의 최소 수. 시스템에 이 활성 값보다 적은 수의 복제본이 있는 경우 Reliability System(안정성 시스템)에서 복제본이 복원될 때까지 이름 지정 서비스 저장소에 대한 업데이트를 거부합니다. 이 값은 반드시 TargetReplicaSetSize 이하여야 합니다. |
+|ReplicaRestartWaitDuration | time(초), 기본값: 60.0 * 30| 시간 간격은 초 단위로 지정합니다. 이름 지정 서비스 복제본이 중단될 때 이 타이머가 시작됩니다.  만료되면 FM은 다운되는 복제본을 대체하기 시작합니다(분실된 것으로 간주하지 않음). |
+|QuorumLossWaitDuration | time(초), 기본값: MaxValue | 시간 간격은 초 단위로 지정합니다. 이름 지정 서비스가 쿼럼 손실 상태가 될 때 이 타이머가 시작됩니다.  만료되면 FM에서 중단된 복제본을 손실된 것으로 간주하고 쿼럼을 복구하려고 시도합니다. 데이터가 손실될 수 있습니다. |
+|StandByReplicaKeepDuration | time(초), 기본값: 3600.0 * 2 | 시간 간격은 초 단위로 지정합니다. 이름 지정 서비스 복제본이 중단된 상태에서 돌아올 때 복제본이 이미 대체되었을 수 있습니다.  이 타이머는 FM에서 대기 복제본을 삭제하기 전에 보관할 기간을 결정합니다. |
+|PlacementConstraints | wstring, 기본값: "" | 이름 지정 서비스에 대한 배치 제약 조건. |
+|ServiceDescriptionCacheLimit | int, 기본값: 0 | 이름 지정 저장소 서비스의 LRU 서비스 설명 캐시에 유지되는 최대 항목 수(제한하지 않을 경우 0으로 설정). |
+|RepairInterval | time(초), 기본값: 5 | 시간 간격은 초 단위로 지정합니다. 기관 소유자와 이름 소유자 간의 이름 지정 불일치 복구가 시작되는 간격 |
+|MaxNamingServiceHealthReports | int, 기본값: 10 | 한 번에 이름 지정 저장소 서비스에서 비정상 상태로 보고하는 느린 작업의 최대 수. 0인 경우 모든 느린 작업이 전송됩니다. |
+| MaxMessageSize |int, 기본값: 4*1024*1024 |이름 지정을 사용할 때 클라이언트 노드 통신에 대한 최대 메시지 크기. DOS 공격을 낮추려는 경우 기본값은 4MB입니다. |
+| MaxFileOperationTimeout |시간(초), 기본값: 30 |시간 간격은 초 단위로 지정합니다. 파일 저장소 서비스 작업에 허용되는 최대 시간 제한. 더 큰 시간 제한을 지정하는 요청은 거부됩니다. |
+| MaxOperationTimeout |time(초), 기본값: 600 |시간 간격은 초 단위로 지정합니다. 클라이언트 작업에 허용되는 최대 시간 제한. 더 큰 시간 제한을 지정하는 요청은 거부됩니다. |
+| MaxClientConnections |int, 기본값: 1000 |게이트웨이당 허용되는 최대 클라이언트 연결 수. |
+| ServiceNotificationTimeout |시간(초), 기본값: 30 |시간 간격은 초 단위로 지정합니다. 클라이언트에 서비스 알림을 배달할 때 사용되는 시간 제한입니다. |
+| MaxOutstandingNotificationsPerClient |int, 기본값: 1000 |게이트웨이에서 클라이언트 등록을 강제로 닫기 전에 처리되지 않은 알림의 최대 수. |
+| MaxIndexedEmptyPartitions |int, 기본값: 1000 |다시 연결하는 클라이언트를 동기화하기 위해 알림 캐시에 인덱싱되어 있는 빈 파티션의 최대 수. 이 수를 초과하는 빈 파티션은 모두 인덱스에서 조회 버전 오름차순으로 제거됩니다. 다시 연결하는 클라이언트를 다시 연결하면 빈 파티션 업데이트를 계속 동기화하고 받을 수 있지만 동기화 프로토콜에 더 많은 비용이 듭니다. |
+| GatewayServiceDescriptionCacheLimit |int, 기본값: 0 |이름 지정 게이트웨이의 LRU 서비스 설명 캐시에 유지되는 최대 항목 수(제한하지 않을 경우 0으로 설정). |
+| PartitionCount |int, 기본값: 3 |만들려는 이름 지정 서비스 저장소의 파티션 수. 각 파티션은 자체의 인덱스에 해당하는 단일 파티션 키를 소유하므로 파티션 키[0, PartitionCount)가 존재합니다. 이름 지정 서비스 파티션의 수를 늘리면 PartitionCount * ReplicaSetSize 서비스 복제본을 유지해야 하므로 리소스 사용이 늘어나더라도 모든 백업 복제본 세트에서 보유하는 평균 데이터 양을 줄여 이름 지정 서비스에서 수행할 수 있는 크기가 늘어납니다.|
 
 ### <a name="section-name-runas"></a>섹션 이름: RunAs
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| RunAsAccountName |wstring, 기본값: L"" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
-|RunAsAccountType|wstring, 기본값: L"" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"|
-|RunAsPassword|wstring, 기본값: L"" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
+| RunAsAccountName |wstring, 기본값: "" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
+|RunAsAccountType|wstring, 기본값: "" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"|
+|RunAsPassword|wstring, 기본값: "" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
 ### <a name="section-name-runasfabric"></a>섹션 이름: RunAs_Fabric
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| RunAsAccountName |wstring, 기본값: L"" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
-|RunAsAccountType|wstring, 기본값: L"" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
-|RunAsPassword|wstring, 기본값: L"" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
+| RunAsAccountName |wstring, 기본값: "" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
+|RunAsAccountType|wstring, 기본값: "" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
+|RunAsPassword|wstring, 기본값: "" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
 ### <a name="section-name-runashttpgateway"></a>섹션 이름: RunAs_HttpGateway
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| RunAsAccountName |wstring, 기본값: L"" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
-|RunAsAccountType|wstring, 기본값: L"" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
-|RunAsPassword|wstring, 기본값: L"" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
+| RunAsAccountName |wstring, 기본값: "" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
+|RunAsAccountType|wstring, 기본값: "" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
+|RunAsPassword|wstring, 기본값: "" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
 ### <a name="section-name-runasdca"></a>섹션 이름: RunAs_DCA
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| RunAsAccountName |wstring, 기본값: L"" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
-|RunAsAccountType|wstring, 기본값: L"" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
-|RunAsPassword|wstring, 기본값: L"" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
+| RunAsAccountName |wstring, 기본값: "" |RunAs 계정 이름을 나타냅니다. "DomainUser" 또는 "ManagedServiceAccount" 계정 유형에만 필요합니다. 유효한 값: "domain \ user" 또는 "user@domain" |
+|RunAsAccountType|wstring, 기본값: "" |RunAs 계정 유형을 나타냅니다. RunAs 섹션에 필요합니다. 유효한 값: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem" |
+|RunAsPassword|wstring, 기본값: "" |RunAs 계정 암호를 나타냅니다. "DomainUser" 계정 유형에만 필요합니다. |
 
 ### <a name="section-name-httpgateway"></a>섹션 이름: HttpGateway
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -234,8 +246,8 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 |WriteBufferMemoryPoolMinimumInKB |int, 기본값: 8388608 |쓰기 버퍼 메모리 풀에 처음으로 할당할 KB 수. 제한하지 않으려면 0을 사용합니다. 기본값은 아래의 SharedLogSizeInMB와 일치해야 합니다. |
 |WriteBufferMemoryPoolMaximumInKB | int, 기본값: 0 |쓰기 버퍼 메모리 풀이 확장할 수 있는 KB 수. 제한하지 않으려면 0을 사용합니다. |
 |MaximumDestagingWriteOutstandingInKB | int, 기본값: 0 | 공유 로그가 전용 로그보다 먼저 진행될 수 있도록 허용하는 KB 수. 제한하지 않으려면 0을 사용합니다.
-|SharedLogPath |wstring, 기본값: L"" | 공유 로그 컨테이너를 배치할 경로 및 파일 이름. 패브릭 데이터 루트 아래의 기본 경로를 사용하려면 L""을 사용합니다. |
-|SharedLogId |wstring, 기본값: L"" |공유 로그 컨테이너에 대한 고유 GUID. 패브릭 데이터 루트 아래의 기본 경로를 사용하려면 L""을 사용합니다. |
+|SharedLogPath |wstring, 기본값: "" | 공유 로그 컨테이너를 배치할 경로 및 파일 이름. 패브릭 데이터 루트 아래의 기본 경로를 사용하려면 ""을 사용합니다. |
+|SharedLogId |wstring, 기본값: "" |공유 로그 컨테이너에 대한 고유 GUID. 패브릭 데이터 루트 아래의 기본 경로를 사용하는 경우 ""을 사용합니다. |
 |SharedLogSizeInMB |int, 기본값: 8192 | 공유 로그 컨테이너에 할당할 MB 수 |
 
 ### <a name="section-name-applicationgatewayhttp"></a>섹션 이름: ApplicationGateway/Http
@@ -243,14 +255,14 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | --- | --- | --- |
 |IsEnabled |bool, 기본값: false | HttpApplicationGateway를 사용하거나 사용하지 않도록 설정합니다. HttpApplicationGateway는 기본적으로 사용하지 않도록 설정되며, 이 구성을 활성화하려면 사용하도록 설정해야 합니다. |
 |NumberOfParallelOperations | uint, 기본값: 1000 | http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
-|DefaultHttpRequestTimeout |time(초) , 기본값: 60 |시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
+|DefaultHttpRequestTimeout |시간(초). 기본값: 60 |시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
 |ResolveServiceBackoffInterval |time(초), 기본값: 5 |시간 간격은 초 단위로 지정합니다.  실패한 서비스 확인 작업을 다시 시도하기 전의 기본 백오프 간격을 지정합니다. |
 |BodyChunkSize |uint, 기본값: 4096 |  본문을 읽는 데 사용되는 청크의 크기(바이트)를 지정합니다. |
-|GatewayAuthCredentialType |wstring, 기본값: L"None" | http 앱 게이트웨이 끝점에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
-|GatewayX509CertificateStoreName |wstring, 기본값: L"My" | http 앱 게이트웨이에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
-|GatewayX509CertificateFindType |wstring, 기본값: L"FindByThumbprint" | GatewayX509CertificateStoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
-|GatewayX509CertificateFindValue | wstring, 기본값: L"" | http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. 먼저 FindValue를 조회하며. 이 FindValue가 없는 경우 FindValueSecondary를 조회합니다. |
-|GatewayX509CertificateFindValueSecondary | wstring, 기본값: L"" |http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. 먼저 FindValue를 조회하며. 이 FindValue가 없는 경우 FindValueSecondary를 조회합니다.|
+|GatewayAuthCredentialType |wstring, 기본값: "없음" | http 앱 게이트웨이 끝점에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
+|GatewayX509CertificateStoreName |wstring, 기본값: "My" | http 앱 게이트웨이에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
+|GatewayX509CertificateFindType |wstring, 기본값: "FindByThumbprint" | GatewayX509CertificateStoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
+|GatewayX509CertificateFindValue | wstring, 기본값: "" | http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. 먼저 FindValue를 조회하며. 이 FindValue가 없는 경우 FindValueSecondary를 조회합니다. |
+|GatewayX509CertificateFindValueSecondary | wstring, 기본값: "" |http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. 먼저 FindValue를 조회하며. 이 FindValue가 없는 경우 FindValueSecondary를 조회합니다.|
 
 ### <a name="section-name-management"></a>섹션 이름: Management
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -281,7 +293,7 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | ReplicaRestartWaitDuration |time(초), 기본값: 60분|시간 간격은 초 단위로 지정합니다. FaultAnalysisService의 ReplicaRestartWaitDuration입니다. |
 | QuorumLossWaitDuration | time(초), 기본값: MaxValue |시간 간격은 초 단위로 지정합니다. FaultAnalysisService의 QuorumLossWaitDuration입니다. |
 | StandByReplicaKeepDuration| time(초), 기본값:&60;*24*7분 |시간 간격은 초 단위로 지정합니다. FaultAnalysisService의 StandByReplicaKeepDuration입니다. |
-| PlacementConstraints | wstring, 기본값: L""| FaultAnalysisService의 PlacementConstraints입니다. |
+| PlacementConstraints | wstring, 기본값: ""| FaultAnalysisService의 PlacementConstraints입니다. |
 | StoredActionCleanupIntervalInSeconds | int, 기본값: 3600 |저장소를 정리하는 빈도.  터미널 상태에 있는 작업 및 적어도 CompletedActionKeepDurationInSeconds 전에 완료된 작업만 제거합니다. |
 | CompletedActionKeepDurationInSeconds | int, 기본값: 604800 | 대체로 터미널 상태에 있는 작업을 유지하는 기간입니다.  또한 정리 작업이 StoredActionCleanupIntervalInSeconds의 간격에서만 수행되기 때문에 이 간격에 따라 달라집니다. 604800은 7일입니다. |
 | StoredChaosEventCleanupIntervalInSeconds | int, 기본값: 3600 |저장소를 정리하기 위해 감사하는 빈도. 이벤트 수가 30,000개를 초과하면 정리가 시작됩니다. |
@@ -297,20 +309,20 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | MaxRequestProcessingThreads | uint, 기본값: 200 |기본 저장소에서 요청을 처리할 수 있도록 허용되는 최대 병렬 스레드 수. '0'은 코어 수와 동등합니다. |
 | MaxSecondaryFileCopyFailureThreshold | uint, 기본값: 25| 보조 저장소에서 파일 복사를 포기하기 전에 다시 시도할 최대 횟수 |
 | AnonymousAccessEnabled | bool, 기본값: true |FileStoreService 공유에 대한 익명 액세스를 사용하거나 사용하지 않도록 설정합니다. |
-| PrimaryAccountType | wstring, 기본값: L"" |FileStoreService에서 공유하는 ACL에 대한 주체의 기본 계정 유형 |
-| PrimaryAccountUserName | wstring, 기본값: L"" |FileStoreService에서 공유하는 ACL에 대한 주체의 기본 계정 사용자 이름 |
+| PrimaryAccountType | wstring, 기본값: "" |FileStoreService에서 공유하는 ACL에 대한 주체의 기본 계정 유형 |
+| PrimaryAccountUserName | wstring, 기본값: "" |FileStoreService에서 공유하는 ACL에 대한 주체의 기본 계정 사용자 이름 |
 | PrimaryAccountUserPassword | SecureString, 기본값: 비어 있음 |FileStoreService에서 공유하는 ACL에 대한 주체의 기본 계정 암호 |
 | FileStoreService | PrimaryAccountNTLMPasswordSecret | SecureString, 기본값: 비어 있음 | NTLM 인증을 사용할 때 동일한 암호를 생성하기 위해 시드로 사용한 암호 |
-| PrimaryAccountNTLMX509StoreLocation | wstring, 기본값: L"LocalMachine"| NTLM 인증을 사용할 때 PrimaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 위치 |
-| PrimaryAccountNTLMX509StoreName | wstring, 기본값: L"MY"| NTLM 인증을 사용할 때 PrimaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 이름 |
-| PrimaryAccountNTLMX509Thumbprint | wstring, 기본값: L""|NTLM 인증을 사용할 때 PrimaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 지문 |
-| SecondaryAccountType | wstring, 기본값: L""| FileStoreService에서 공유하는 ACL에 대한 주체의 보조 계정 유형 |
-| SecondaryAccountUserName | wstring, 기본값: L""| FileStoreService에서 공유하는 ACL에 대한 주체의 보조 계정 사용자 이름 |
+| PrimaryAccountNTLMX509StoreLocation | wstring, 기본값: "LocalMachine"| NTLM 인증을 사용할 때 PrimaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 위치 |
+| PrimaryAccountNTLMX509StoreName | wstring, 기본값: "MY"| NTLM 인증을 사용할 때 PrimaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 이름 |
+| PrimaryAccountNTLMX509Thumbprint | wstring, 기본값: ""|NTLM 인증을 사용할 때 PrimaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 지문 |
+| SecondaryAccountType | wstring, 기본값: ""| FileStoreService에서 공유하는 ACL에 대한 주체의 보조 계정 유형 |
+| SecondaryAccountUserName | wstring, 기본값: ""| FileStoreService에서 공유하는 ACL에 대한 주체의 보조 계정 사용자 이름 |
 | SecondaryAccountUserPassword | SecureString, 기본값: 비어 있음 |FileStoreService에서 공유하는 ACL에 대한 주체의 보조 계정 암호  |
 | SecondaryAccountNTLMPasswordSecret | SecureString, 기본값: 비어 있음 | NTLM 인증을 사용할 때 동일한 암호를 생성하기 위해 시드로 사용한 암호 |
-| SecondaryAccountNTLMX509StoreLocation | wstring, 기본값: L"LocalMachine" |NTLM 인증을 사용할 때 SecondaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 위치 |
-| SecondaryAccountNTLMX509StoreName | wstring, 기본값: L"MY" |NTLM 인증을 사용할 때 SecondaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 이름 |
-| SecondaryAccountNTLMX509Thumbprint | wstring, 기본값: L""| NTLM 인증을 사용할 때 SecondaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 지문 |
+| SecondaryAccountNTLMX509StoreLocation | wstring, 기본값: "LocalMachine" |NTLM 인증을 사용할 때 SecondaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 위치 |
+| SecondaryAccountNTLMX509StoreName | wstring, 기본값: "MY" |NTLM 인증을 사용할 때 SecondaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 저장소 이름 |
+| SecondaryAccountNTLMX509Thumbprint | wstring, 기본값: ""| NTLM 인증을 사용할 때 SecondaryAccountNTLMPasswordSecret에서 HMAC를 생성하는 데 사용되는 X509 인증서의 지문 |
 
 ### <a name="section-name-imagestoreservice"></a>섹션 이름: ImageStoreService
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -321,7 +333,7 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | ReplicaRestartWaitDuration | time(초), 기본값: 60.0 * 30 | 시간 간격은 초 단위로 지정합니다. ImageStoreService의 ReplicaRestartWaitDuration입니다. |
 | QuorumLossWaitDuration | time(초), 기본값: MaxValue | 시간 간격은 초 단위로 지정합니다. ImageStoreService의 QuorumLossWaitDuration입니다. |
 | StandByReplicaKeepDuration | time(초), 기본값: 3600.0 * 2 | 시간 간격은 초 단위로 지정합니다. ImageStoreService의 StandByReplicaKeepDuration입니다. |
-| PlacementConstraints | wstring, 기본값: L"" | ImageStoreService의 PlacementConstraints입니다. |
+| PlacementConstraints | wstring, 기본값: "" | ImageStoreService의 PlacementConstraints입니다. |
 | ClientUploadTimeout | time(초), 기본값: 1800 |시간 간격은 초 단위로 지정합니다. 이미지 저장소 서비스에 대한 최상위 수준 업로드 요청의 시간 제한 값입니다. |
 | ClientCopyTimeout | time(초), 기본값: 1800 | 시간 간격은 초 단위로 지정합니다. 이미지 저장소 서비스에 대한 최상위 수준 복사 요청의 시간 제한 값입니다. |
 | ClientDownloadTimeout | time(초), 기본값: 1800 | 시간 간격은 초 단위로 지정합니다. 이미지 저장소 서비스에 대한 최상위 수준 다운로드 요청의 시간 제한 값입니다. |
@@ -340,11 +352,7 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 ### <a name="section-name-tokenvalidationservice"></a>섹션 이름: TokenValidationService
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| 공급자 |wstring, 기본값: L"DSTS" |사용하도록 설정할 쉼표로 구분된 토큰 유효성 검사 공급자 목록(유효한 공급자: DSTS, AAD). 현재 단일 공급자만 언제든지 사용할 수 있습니다. |
-
-### <a name="section-name-dststokenvalidationservice"></a>섹션 이름: DSTSTokenValidationService
-| **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
- | DSTSDnsName | wstring, 기본값: L"" | DSTS 서버의 DNS 이름 | | DSTSRealm | wstring, 기본값: L"" | DSTS 서버의 영역 이름 | | CloudServiceDnsName | wstring, 기본값: L"" | DSTS 보안 토큰이 요청되는 클라우드 서비스의 DNS 이름 | | CloudServiceName | wstring, 기본값: L"" | DSTS 보안 토큰이 요청되는 클라우드 서비스의 이름 | | PublicCertificateFindValue | wstring, 기본값: L"" | X509 인증서에서 DSTS 공용 인증서의 값을 찾습니다. | | PublicCertificateFindType | wstring, 기본값: L"" | DSTS 공용 인증서에 대한 X509 인증서 (예: FindByThumbprint) | | PublicCertificateStoreName | wstring, 기본값: L"My" | DSTS 서버 공용 인증서가 저장된 저장소 이름 |
+| 공급자 |wstring, 기본값: "DSTS" |사용하도록 설정할 쉼표로 구분된 토큰 유효성 검사 공급자 목록(유효한 공급자: DSTS, AAD). 현재 단일 공급자만 언제든지 사용할 수 있습니다. |
 
 ### <a name="section-name-upgradeorchestrationservice"></a>섹션 이름: UpgradeOrchestrationService
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -354,113 +362,113 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 | ReplicaRestartWaitDuration | time(초), 기본값: 60분| 시간 간격은 초 단위로 지정합니다. UpgradeOrchestrationService의 ReplicaRestartWaitDuration입니다. |
 | QuorumLossWaitDuration | time(초), 기본값: MaxValue | 시간 간격은 초 단위로 지정합니다. UpgradeOrchestrationService의 QuorumLossWaitDuration입니다. |
 | StandByReplicaKeepDuration | time(초), 기본값: 60*24*7분 | 시간 간격은 초 단위로 지정합니다. UpgradeOrchestrationService의 StandByReplicaKeepDuration입니다. |
-| PlacementConstraints | wstring, 기본값: L"" | UpgradeOrchestrationService의 PlacementConstraints입니다. |
+| PlacementConstraints | wstring, 기본값: "" | UpgradeOrchestrationService의 PlacementConstraints입니다. |
 | AutoupgradeEnabled | bool, 기본값: true | 목표 상태(goal-state) 파일에 기반한 자동 폴링 및 업그레이드 작업입니다. |
 | UpgradeApprovalRequired | bool, 기본값: false | 코드를 업그레이드하도록 설정하려면 계속하기 전에 먼저 관리자의 승인이 필요합니다. |
 
 ### <a name="section-name-upgradeservice"></a>섹션 이름: UpgradeService
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| PlacementConstraints |wstring, 기본값: L"" |UpgradeService의 PlacementConstraints입니다. |
+| PlacementConstraints |wstring, 기본값: "" |UpgradeService의 PlacementConstraints입니다. |
 | TargetReplicaSetSize | int, 기본값: 3 | UpgradeService의 TargetReplicaSetSize입니다. |
 | MinReplicaSetSize | int, 기본값: 2 | UpgradeService의 MinReplicaSetSize입니다. |
-| CoordinatorType | wstring, 기본값: L"WUTest"| UpgradeService의 CoordinatorType입니다. |
-| BaseUrl | wstring, 기본값: L"" |UpgradeService의 BaseUrl입니다. |
-| ClusterId | wstring, 기본값: L"" | UpgradeService의 ClusterId입니다. |
-| X509StoreName | wstring, 기본값: L"My"| UpgradeService의 X509StoreName입니다. |
-| X509StoreLocation | wstring, 기본값: L"" | UpgradeService의 X509StoreLocation입니다. |
-| X509FindType | wstring, 기본값: L""| UpgradeService의 X509FindType입니다. |
-| X509FindValue | wstring, 기본값: L"" | UpgradeService의 X509FindValue입니다. |
-| X509SecondaryFindValue | wstring, 기본값: L"" | UpgradeService의 X509SecondaryFindValue입니다. |
+| CoordinatorType | wstring, 기본값: "WUTest"| UpgradeService의 CoordinatorType입니다. |
+| BaseUrl | wstring, 기본값: "" |UpgradeService의 BaseUrl입니다. |
+| ClusterId | wstring, 기본값: "" | UpgradeService의 ClusterId입니다. |
+| X509StoreName | wstring, 기본값: "My"| UpgradeService의 X509StoreName입니다. |
+| X509StoreLocation | wstring, 기본값: "" | UpgradeService의 X509StoreLocation입니다. |
+| X509FindType | wstring, 기본값: ""| UpgradeService의 X509FindType입니다. |
+| X509FindValue | wstring, 기본값: "" | UpgradeService의 X509FindValue입니다. |
+| X509SecondaryFindValue | wstring, 기본값: "" | UpgradeService의 X509SecondaryFindValue입니다. |
 | OnlyBaseUpgrade | bool, 기본값: false | UpgradeService의 OnlyBaseUpgrade입니다. |
-| TestCabFolder | wstring, 기본값: L"" | UpgradeService의 TestCabFolder입니다. |
+| TestCabFolder | wstring, 기본값: "" | UpgradeService의 TestCabFolder입니다. |
 
 ### <a name="section-name-securityclientaccess"></a>섹션 이름: Security/ClientAccess
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- |
-| CreateName |wstring, 기본값: L"Admin" |이름 지정 URI 만들기에 대한 보안 구성 |
-| DeleteName |wstring, 기본값: L"Admin" |이름 지정 URI 삭제에 대한 보안 구성 |
-| PropertyWriteBatch |wstring, 기본값: L"Admin" |이름 지정 속성의 쓰기 작업에 대한 보안 구성 |
-| CreateService |wstring, 기본값: L"Admin" | 서비스 만들기에 대한 보안 구성 |
-| CreateServiceFromTemplate |wstring, 기본값: L"Admin" |템플릿에서 서비스 만들기에 대한 보안 구성 |
-| UpdateService |wstring, 기본값: L"Admin" |서비스 업데이트에 대한 보안 구성 |
-| DeleteService  |wstring, 기본값: L"Admin" |서비스 삭제에 대한 보안 구성 |
-| ProvisionApplicationType |wstring, 기본값: L"Admin" | 응용 프로그램 유형 프로비전에 대한 보안 구성 |
-| CreateApplication |wstring, 기본값: L"Admin" | 응용 프로그램 만들기에 대한 보안 구성 |
-| DeleteApplication |wstring, 기본값: L"Admin" | 응용 프로그램 삭제에 대한 보안 구성 |
-| UpgradeApplication |wstring, 기본값: L"Admin" | 응용 프로그램 업그레이드 시작 또는 중단에 대한 보안 구성 |
-| RollbackApplicationUpgrade |wstring, 기본값: L"Admin" | 응용 프로그램 업그레이드 롤백에 대한 보안 구성 |
-| UnprovisionApplicationType |wstring, 기본값: L"Admin" | 응용 프로그램 유형 프로비전 해제에 대한 보안 구성 |
-| MoveNextUpgradeDomain |wstring, 기본값: L"Admin" | 명시적 업그레이드 도메인으로 응용 프로그램 업그레이드 다시 시작에 대한 보안 구성 |
-| ReportUpgradeHealth |wstring, 기본값: L"Admin" | 현재 업그레이드 진행으로 응용 프로그램 업그레이드 다시 시작에 대한 보안 구성 |
-| ReportHealth |wstring, 기본값: L"Admin" | 상태 보고에 대한 보안 구성 |
-| ProvisionFabric |wstring, 기본값: L"Admin" | MSI 및/또는 클러스터 매니페스트 프로비전에 대한 보안 구성 |
-| UpgradeFabric |wstring, 기본값: L"Admin" | 클러스터 업그레이드 시작에 대한 보안 구성 |
-| RollbackFabricUpgrade |wstring, 기본값: L"Admin" | 클러스터 업그레이드 롤백에 대한 보안 구성 |
-| UnprovisionFabric |wstring, 기본값: L"Admin" | MSI 및/또는 클러스터 매니페스트 프로비전 해제에 대한 보안 구성 |
-| MoveNextFabricUpgradeDomain |wstring, 기본값: L"Admin" | 명시적 업그레이드 도메인으로 클러스터 업그레이드 다시 시작에 대한 보안 구성 |
-| ReportFabricUpgradeHealth |wstring, 기본값: L"Admin" | 현재 업그레이드 진행으로 클러스터 업그레이드 다시 시작에 대한 보안 구성 |
-| StartInfrastructureTask |wstring, 기본값: L"Admin" | 인프라 작업 시작에 대한 보안 구성 |
-| FinishInfrastructureTask |wstring, 기본값: L"Admin" | 인프라 작업 완료에 대한 보안 구성 |
-| ActivateNode |wstring, 기본값: L"Admin" | 노드 활성화에 대한 보안 구성 |
-| DeactivateNode |wstring, 기본값: L"Admin" | 단일 노드 비활성화에 대한 보안 구성 |
-| DeactivateNodesBatch |wstring, 기본값: L"Admin" | 여러 노드 비활성화에 대한 보안 구성 |
-| RemoveNodeDeactivations |wstring, 기본값: L"Admin" | 여러 노드에서 비활성화 되돌리기에 대한 보안 구성 |
-| GetNodeDeactivationStatus |wstring, 기본값: L"Admin" | 비활성화 상태 검사에 대한 보안 구성 |
-| NodeStateRemoved |wstring, 기본값: L"Admin" | 제거된 노드 상태 보고에 대한 보안 구성 |
-| RecoverPartition |wstring, 기본값: L"Admin" | 단일 파티션 복구에 대한 보안 구성 |
-| RecoverPartitions |wstring, 기본값: L"Admin" | 여러 파티션 복구에 대한 보안 구성 |
-| RecoverServicePartitions |wstring, 기본값: L"Admin" | 서비스 파티션 복구에 대한 보안 구성 |
-| RecoverSystemPartitions |wstring, 기본값: L"Admin" | 시스템 서비스 파티션 복구에 대한 보안 구성 |
-| ReportFault |wstring, 기본값: L"Admin" | 오류 보고에 대한 보안 구성 |
-| InvokeInfrastructureCommand |wstring, 기본값: L"Admin" | 인프라 작업 관리 명령에 대한 보안 구성 |
-| FileContent |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 파일 전송(클러스터 외부)에 대한 보안 구성 |
-| FileDownload |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 파일 다운로드 시작(클러스터 외부)에 대한 보안 구성 |
-| InternalList |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 파일 목록 작업(내부)에 대한 보안 구성 |
-| 삭제 |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 삭제 작업에 대한 보안 구성 |
-| 업로드 |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 업로드 작업에 대한 보안 구성 |
-| GetStagingLocation |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 스테이징 위치 검색에 대한 보안 구성 |
-| GetStoreLocation |wstring, 기본값: L"Admin" | 이미지 저장소 클라이언트 저장소 위치 검색에 대한 보안 구성 |
-| NodeControl |wstring, 기본값: L"Admin" | 노드 시작, 중지 및 다시 시작에 대한 보안 구성 |
-| CodePackageControl |wstring, 기본값: L"Admin" | 코드 패키지 다시 시작에 대한 보안 구성 |
-| UnreliableTransportControl |wstring, 기본값: L"Admin" | 동작 추가 및 제거에 대한 신뢰할 수 없는 전송 |
-| MoveReplicaControl |wstring, 기본값: L"Admin" | 복제본 이동 |
-| PredeployPackageToNode |wstring, 기본값: L"Admin" | 배포 전 API |
-| StartPartitionDataLoss |wstring, 기본값: L"Admin" | 파티션에 데이터 손실을 유도합니다. |
-| StartPartitionQuorumLoss |wstring, 기본값: L"Admin" | 파티션에 쿼럼 손실을 유도합니다. |
-| StartPartitionRestart |wstring, 기본값: L"Admin" | 파티션의 일부 또는 모든 복제본을 동시에 다시 시작합니다. |
-| CancelTestCommand |wstring, 기본값: L"Admin" | 실행 중인 특정 TestCommand를 취소합니다. |
-| StartChaos |wstring, 기본값: L"Admin" | 아직 시작되지 않은 Chaos(격리 안 함)를 시작합니다. |
-| StopChaos |wstring, 기본값: L"Admin" | 시작된 Chaos를 중지합니다. |
-| StartNodeTransition |wstring, 기본값: L"Admin" | 노드 전환 시작에 대한 보안 구성 |
-| StartClusterConfigurationUpgrade |wstring, 기본값: L"Admin" | 파티션에 StartClusterConfigurationUpgrade를 유도합니다. |
-| GetUpgradesPendingApproval |wstring, 기본값: L"Admin" | 파티션에 GetUpgradesPendingApproval을 유도합니다. |
-| StartApprovedUpgrades |wstring, 기본값: L"Admin" | 파티션에 StartApprovedUpgrades를 유도합니다. |
-| Ping |wstring, 기본값: L"Admin|\|User" | 클라이언트 ping에 대한 보안 구성 |
-| 쿼리 |wstring, 기본값: L"Admin|\|User" | 쿼리에 대한 보안 구성 |
-| NameExists |wstring, 기본값: L"Admin|\|User" | 이름 지정 URI 존재 확인에 대한 보안 구성 |
-| EnumerateSubnames |wstring, 기본값: L"Admin|\|User" | 이름 지정 URI 열거형에 대한 보안 구성 |
-| EnumerateProperties |wstring, 기본값: L"Admin|\|User" | 이름 지정 속성 열거형에 대한 보안 구성 |
-| PropertyReadBatch |wstring, 기본값: L"Admin|\|User" | 이름 지정 속성 읽기 작업에 대한 보안 구성 |
-| GetServiceDescription |wstring, 기본값: L"Admin|\|User" | 장기 폴링 서비스 알림 및 읽기 서비스 설명에 대한 보안 구성 |
-| ResolveService |wstring, 기본값: L"Admin|\|User" | 불만 기반 서비스 확인에 대한 보안 구성 |
-| ResolveNameOwner |wstring, 기본값: L"Admin|\|User" | 이름 지정 URI 소유자 확인에 대한 보안 구성 |
-| ResolvePartition |wstring, 기본값: L"Admin|\|User" | 시스템 서비스 확인에 대한 보안 구성 |
-| ServiceNotifications |wstring, 기본값: L"Admin|\|User" | 이벤트 기반 서비스 알림에 대한 보안 구성 |
-| PrefixResolveService |wstring, 기본값: L"Admin|\|User" | 불만 기반 서비스 접두사 확인에 대한 보안 구성 |
-| GetUpgradeStatus |wstring, 기본값: L"Admin|\|User" | 응용 프로그램 업그레이드 상태 폴링에 대한 보안 구성 |
-| GetFabricUpgradeStatus |wstring, 기본값: L"Admin|\|User" | 클러스터 업그레이드 상태 폴링에 대한 보안 구성 |
-| InvokeInfrastructureQuery |wstring, 기본값: L"Admin|\|User" | 인프라 작업 쿼리에 대한 보안 구성 |
-| 나열 |wstring, 기본값: L"Admin|\|User" | 이미지 저장소 클라이언트 파일 목록 작업에 대한 보안 구성 |
-| ResetPartitionLoad |wstring, 기본값: L"Admin|\|User" | failoverUnit의 로드 다시 설정에 대한 보안 구성 |
-| ToggleVerboseServicePlacementHealthReporting | wstring, 기본값: L"Admin|\|User" | Verbose ServicePlacement HealthReporting 전환에 대한 보안 구성 |
-| GetPartitionDataLossProgress | wstring, 기본값: L"Admin|\|User" | 데이터 손실 API 호출에 대한 진행률을 가져옵니다. |
-| GetPartitionQuorumLossProgress | wstring, 기본값: L"Admin|\|User" | 쿼럼 손실 API 호출에 대한 진행률을 가져옵니다. |
-| GetPartitionRestartProgress | wstring, 기본값: L"Admin|\|User" | 파티션 다시 시작 API 호출에 대한 진행률을 가져옵니다. |
-| GetChaosReport | wstring, 기본값: L"Admin|\|User" | 지정한 시간 범위 내에서 Chaos(격리 안 함) 상태를 가져옵니다. |
-| GetNodeTransitionProgress | wstring, 기본값: L"Admin|\|User" | 노드 전환 명령의 진행률 가져오기에 대한 보안 구성 |
-| GetClusterConfigurationUpgradeStatus | wstring, 기본값: L"Admin|\|User" | 파티션에 GetClusterConfigurationUpgradeStatus를 유도합니다. |
-| GetClusterConfiguration | wstring, 기본값: L"Admin|\|User" | 파티션에 GetClusterConfiguration을 유도합니다. |
+| CreateName |wstring, 기본값: "Admin" |이름 지정 URI 만들기에 대한 보안 구성 |
+| DeleteName |wstring, 기본값: "Admin" |이름 지정 URI 삭제에 대한 보안 구성 |
+| PropertyWriteBatch |wstring, 기본값: "Admin" |이름 지정 속성의 쓰기 작업에 대한 보안 구성 |
+| CreateService |wstring, 기본값: "Admin" | 서비스 만들기에 대한 보안 구성 |
+| CreateServiceFromTemplate |wstring, 기본값: "Admin" |템플릿에서 서비스 만들기에 대한 보안 구성 |
+| UpdateService |wstring, 기본값: "Admin" |서비스 업데이트에 대한 보안 구성 |
+| DeleteService  |wstring, 기본값: "Admin" |서비스 삭제에 대한 보안 구성 |
+| ProvisionApplicationType |wstring, 기본값: "Admin" | 응용 프로그램 유형 프로비전에 대한 보안 구성 |
+| CreateApplication |wstring, 기본값: "Admin" | 응용 프로그램 만들기에 대한 보안 구성 |
+| DeleteApplication |wstring, 기본값: "Admin" | 응용 프로그램 삭제에 대한 보안 구성 |
+| UpgradeApplication |wstring, 기본값: "Admin" | 응용 프로그램 업그레이드 시작 또는 중단에 대한 보안 구성 |
+| RollbackApplicationUpgrade |wstring, 기본값: "Admin" | 응용 프로그램 업그레이드 롤백에 대한 보안 구성 |
+| UnprovisionApplicationType |wstring, 기본값: "Admin" | 응용 프로그램 유형 프로비전 해제에 대한 보안 구성 |
+| MoveNextUpgradeDomain |wstring, 기본값: "Admin" | 명시적 업그레이드 도메인으로 응용 프로그램 업그레이드 다시 시작에 대한 보안 구성 |
+| ReportUpgradeHealth |wstring, 기본값: "Admin" | 현재 업그레이드 진행으로 응용 프로그램 업그레이드 다시 시작에 대한 보안 구성 |
+| ReportHealth |wstring, 기본값: "Admin" | 상태 보고에 대한 보안 구성 |
+| ProvisionFabric |wstring, 기본값: "Admin" | MSI 및/또는 클러스터 매니페스트 프로비전에 대한 보안 구성 |
+| UpgradeFabric |wstring, 기본값: "Admin" | 클러스터 업그레이드 시작에 대한 보안 구성 |
+| RollbackFabricUpgrade |wstring, 기본값: "Admin" | 클러스터 업그레이드 롤백에 대한 보안 구성 |
+| UnprovisionFabric |wstring, 기본값: "Admin" | MSI 및/또는 클러스터 매니페스트 프로비전 해제에 대한 보안 구성 |
+| MoveNextFabricUpgradeDomain |wstring, 기본값: "Admin" | 명시적 업그레이드 도메인으로 클러스터 업그레이드 다시 시작에 대한 보안 구성 |
+| ReportFabricUpgradeHealth |wstring, 기본값: "Admin" | 현재 업그레이드 진행으로 클러스터 업그레이드 다시 시작에 대한 보안 구성 |
+| StartInfrastructureTask |wstring, 기본값: "Admin" | 인프라 작업 시작에 대한 보안 구성 |
+| FinishInfrastructureTask |wstring, 기본값: "Admin" | 인프라 작업 완료에 대한 보안 구성 |
+| ActivateNode |wstring, 기본값: "Admin" | 노드 활성화에 대한 보안 구성 |
+| DeactivateNode |wstring, 기본값: "Admin" | 단일 노드 비활성화에 대한 보안 구성 |
+| DeactivateNodesBatch |wstring, 기본값: "Admin" | 여러 노드 비활성화에 대한 보안 구성 |
+| RemoveNodeDeactivations |wstring, 기본값: "Admin" | 여러 노드에서 비활성화 되돌리기에 대한 보안 구성 |
+| GetNodeDeactivationStatus |wstring, 기본값: "Admin" | 비활성화 상태 검사에 대한 보안 구성 |
+| NodeStateRemoved |wstring, 기본값: "Admin" | 제거된 노드 상태 보고에 대한 보안 구성 |
+| RecoverPartition |wstring, 기본값: "Admin" | 단일 파티션 복구에 대한 보안 구성 |
+| RecoverPartitions |wstring, 기본값: "Admin" | 여러 파티션 복구에 대한 보안 구성 |
+| RecoverServicePartitions |wstring, 기본값: "Admin" | 서비스 파티션 복구에 대한 보안 구성 |
+| RecoverSystemPartitions |wstring, 기본값: "Admin" | 시스템 서비스 파티션 복구에 대한 보안 구성 |
+| ReportFault |wstring, 기본값: "Admin" | 오류 보고에 대한 보안 구성 |
+| InvokeInfrastructureCommand |wstring, 기본값: "Admin" | 인프라 작업 관리 명령에 대한 보안 구성 |
+| FileContent |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 파일 전송(클러스터 외부)에 대한 보안 구성 |
+| FileDownload |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 파일 다운로드 시작(클러스터 외부)에 대한 보안 구성 |
+| InternalList |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 파일 목록 작업(내부)에 대한 보안 구성 |
+| 삭제 |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 삭제 작업에 대한 보안 구성 |
+| 업로드 |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 업로드 작업에 대한 보안 구성 |
+| GetStagingLocation |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 스테이징 위치 검색에 대한 보안 구성 |
+| GetStoreLocation |wstring, 기본값: "Admin" | 이미지 저장소 클라이언트 저장소 위치 검색에 대한 보안 구성 |
+| NodeControl |wstring, 기본값: "Admin" | 노드 시작, 중지 및 다시 시작에 대한 보안 구성 |
+| CodePackageControl |wstring, 기본값: "Admin" | 코드 패키지 다시 시작에 대한 보안 구성 |
+| UnreliableTransportControl |wstring, 기본값: "Admin" | 동작 추가 및 제거에 대한 신뢰할 수 없는 전송 |
+| MoveReplicaControl |wstring, 기본값: "Admin" | 복제본 이동 |
+| PredeployPackageToNode |wstring, 기본값: "Admin" | 배포 전 API |
+| StartPartitionDataLoss |wstring, 기본값: "Admin" | 파티션에 데이터 손실을 유도합니다. |
+| StartPartitionQuorumLoss |wstring, 기본값: "Admin" | 파티션에 쿼럼 손실을 유도합니다. |
+| StartPartitionRestart |wstring, 기본값: "Admin" | 파티션의 일부 또는 모든 복제본을 동시에 다시 시작합니다. |
+| CancelTestCommand |wstring, 기본값: "Admin" | 실행 중인 특정 TestCommand를 취소합니다. |
+| StartChaos |wstring, 기본값: "Admin" | 아직 시작되지 않은 Chaos(격리 안 함)를 시작합니다. |
+| StopChaos |wstring, 기본값: "Admin" | 시작된 Chaos를 중지합니다. |
+| StartNodeTransition |wstring, 기본값: "Admin" | 노드 전환 시작에 대한 보안 구성 |
+| StartClusterConfigurationUpgrade |wstring, 기본값: "Admin" | 파티션에 StartClusterConfigurationUpgrade를 유도합니다. |
+| GetUpgradesPendingApproval |wstring, 기본값: "Admin" | 파티션에 GetUpgradesPendingApproval을 유도합니다. |
+| StartApprovedUpgrades |wstring, 기본값: "Admin" | 파티션에 StartApprovedUpgrades를 유도합니다. |
+| Ping |wstring, 기본값: "Admin\|\|User" | 클라이언트 ping에 대한 보안 구성 |
+| 쿼리 |wstring, 기본값: "Admin\|\|User" | 쿼리에 대한 보안 구성 |
+| NameExists |wstring, 기본값: "Admin\|\|User" | 이름 지정 URI 존재 확인에 대한 보안 구성 |
+| EnumerateSubnames |wstring, 기본값: "Admin\|\|User" | 이름 지정 URI 열거형에 대한 보안 구성 |
+| EnumerateProperties |wstring, 기본값: "Admin\|\|User" | 이름 지정 속성 열거형에 대한 보안 구성 |
+| PropertyReadBatch |wstring, 기본값: "Admin\|\|User" | 이름 지정 속성 읽기 작업에 대한 보안 구성 |
+| GetServiceDescription |wstring, 기본값: "Admin\|\|User" | 장기 폴링 서비스 알림 및 읽기 서비스 설명에 대한 보안 구성 |
+| ResolveService |wstring, 기본값: "Admin\|\|User" | 불만 기반 서비스 확인에 대한 보안 구성 |
+| ResolveNameOwner |wstring, 기본값: "Admin\|\|User" | 이름 지정 URI 소유자 확인에 대한 보안 구성 |
+| ResolvePartition |wstring, 기본값: "Admin\|\|User" | 시스템 서비스 확인에 대한 보안 구성 |
+| ServiceNotifications |wstring, 기본값: "Admin\|\|User" | 이벤트 기반 서비스 알림에 대한 보안 구성 |
+| PrefixResolveService |wstring, 기본값: "Admin\|\|User" | 불만 기반 서비스 접두사 확인에 대한 보안 구성 |
+| GetUpgradeStatus |wstring, 기본값: "Admin\|\|User" | 응용 프로그램 업그레이드 상태 폴링에 대한 보안 구성 |
+| GetFabricUpgradeStatus |wstring, 기본값: "Admin\|\|User" | 클러스터 업그레이드 상태 폴링에 대한 보안 구성 |
+| InvokeInfrastructureQuery |wstring, 기본값: "Admin\|\|User" | 인프라 작업 쿼리에 대한 보안 구성 |
+| 나열 |wstring, 기본값: "Admin\|\|User" | 이미지 저장소 클라이언트 파일 목록 작업에 대한 보안 구성 |
+| ResetPartitionLoad |wstring, 기본값: "Admin\|\|User" | failoverUnit의 로드 다시 설정에 대한 보안 구성 |
+| ToggleVerboseServicePlacementHealthReporting | wstring, 기본값: "Admin\|\|User" | Verbose ServicePlacement HealthReporting 전환에 대한 보안 구성 |
+| GetPartitionDataLossProgress | wstring, 기본값: "Admin\|\|User" | 데이터 손실 API 호출에 대한 진행률을 가져옵니다. |
+| GetPartitionQuorumLossProgress | wstring, 기본값: "Admin\|\|User" | 쿼럼 손실 API 호출에 대한 진행률을 가져옵니다. |
+| GetPartitionRestartProgress | wstring, 기본값: "Admin\|\|User" | 파티션 다시 시작 API 호출에 대한 진행률을 가져옵니다. |
+| GetChaosReport | wstring, 기본값: "Admin\|\|User" | 지정한 시간 범위 내에서 Chaos(격리 안 함) 상태를 가져옵니다. |
+| GetNodeTransitionProgress | wstring, 기본값: "Admin\|\|User" | 노드 전환 명령의 진행률 가져오기에 대한 보안 구성 |
+| GetClusterConfigurationUpgradeStatus | wstring, 기본값: "Admin\|\|User" | 파티션에 GetClusterConfigurationUpgradeStatus를 유도합니다. |
+| GetClusterConfiguration | wstring, 기본값: "Admin\|\|User" | 파티션에 GetClusterConfiguration을 유도합니다. |
 
 ### <a name="section-name-reconfigurationagent"></a>섹션 이름: ReconfigurationAgent
 | **매개 변수** | **허용되는 값** | **지침 또는 간단한 설명** |
@@ -505,10 +513,10 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 |UseMoveCostReports | bool, 기본값: false | 점수 매기기 함수의 비용 요소를 무시하도록 LB에 지시합니다. 보다 효율적인 분산 배치를 위해 잠재적으로 많은 수의 이동이 발생합니다. |
 |PreventTransientOvercommit | bool, 기본값: false | PLB에서 시작된 이동으로 인해 확보될 리소스를 즉시 계산해야 하는지 결정합니다. 기본적으로 PLB는 일시적인 초과 커밋을 만들 수 있는 동일한 노드에서 인출과 인입을 시작할 수 있습니다. 이 매개 변수를 true로 설정하면 이러한 종류의 초과 커밋을 방지하고 주문형 조각 모음, 즉 placementWithMove를 사용할 수 없게 됩니다. |
 |InBuildThrottlingEnabled | bool, 기본값: false | 빌드 내(in-build) 제한을 사용할 수 있는지 결정합니다. |
-|InBuildThrottlingAssociatedMetric | wstring, 기본값: L"" | 이 제한의 관련 메트릭 이름 |
+|InBuildThrottlingAssociatedMetric | wstring, 기본값: "" | 이 제한의 관련 메트릭 이름 |
 |InBuildThrottlingGlobalMaxValue | int, 기본값: 0 |전역으로 허용되는 빌드 내 복제본의 최대 수 |
 |SwapPrimaryThrottlingEnabled | bool, 기본값: false| 스왑-주(swap-primary) 제한을 사용할 수 있는지 결정합니다. |
-|SwapPrimaryThrottlingAssociatedMetric | wstring, 기본값: L""| 이 제한의 관련 메트릭 이름 |
+|SwapPrimaryThrottlingAssociatedMetric | wstring, 기본값: ""| 이 제한의 관련 메트릭 이름 |
 |SwapPrimaryThrottlingGlobalMaxValue | int, 기본값: 0 | 전역으로 허용되는 스왑-주 복제본의 최대 수 |
 |PlacementConstraintPriority | int, 기본값: 0 | 배치 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 음수: 무시) |
 |PreferredLocationConstraintPriority | int, 기본값: 2| 권장되는 위치 제약 조건의 우선 순위를 결정합니다(0: 하드, 1: 소프트, 2: 최적화, 음수: 무시) |
@@ -563,7 +571,7 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 |ReplicaRestartWaitDuration |time(초), 기본값: 60.0 * 30|시간 간격은 초 단위로 지정합니다. ClusterManager의 ReplicaRestartWaitDuration입니다. |
 |QuorumLossWaitDuration |time(초), 기본값: MaxValue | 시간 간격은 초 단위로 지정합니다. ClusterManager의 QuorumLossWaitDuration입니다. |
 |StandByReplicaKeepDuration | time(초), 기본값: 3600.0 * 2|시간 간격은 초 단위로 지정합니다. ClusterManager의 StandByReplicaKeepDuration입니다. |
-|PlacementConstraints | wstring, 기본값: L"" |ClusterManager의 PlacementConstraints입니다. |
+|PlacementConstraints | wstring, 기본값: "" |ClusterManager의 PlacementConstraints입니다. |
 |SkipRollbackUpdateDefaultService | bool, 기본값: false |CM에서 응용 프로그램 업그레이드 롤백 중에 업데이트된 기본 서비스 되돌리기를 건너뜁니다. |
 |EnableDefaultServicesUpgrade | bool, 기본값: false |응용 프로그램 업그레이드 중에 기본 서비스 업그레이드를 사용하도록 설정합니다. 업그레이드 후에 기본 서비스 설명을 덮어씁니다. |
 |InfrastructureTaskHealthCheckWaitDuration |time(초), 기본값: 0| 시간 간격은 초 단위로 지정합니다. 인프라 태스크를 사후 처리한 후 상태 검사를 시작하기 전까지 대기하는 시간입니다. |
@@ -583,10 +591,5 @@ ms.openlocfilehash: 8981d9149f925e003652a16d308c14b7e105a8d5
 클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.
 
 [Azure 클러스터에서 인증서 추가, 롤오버, 제거 ](service-fabric-cluster-security-update-certs-azure.md) 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

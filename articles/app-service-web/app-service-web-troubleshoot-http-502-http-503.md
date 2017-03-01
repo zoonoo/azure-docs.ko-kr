@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 호스트되는 웹앱의 502 잘못된 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "502 잘못된 게이트웨이, 503 서비스를 사용할 수 없음, 오류 503, 오류 502"
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -129,10 +130,5 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
  ![앱을 다시 시작하여 502 잘못된 게이트웨이 및 503 서비스를 사용할 수 없음 HTTP 오류 해결](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

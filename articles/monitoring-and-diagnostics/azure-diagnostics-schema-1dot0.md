@@ -1,22 +1,23 @@
 ---
 title: "Azure 진단 1.0 구성 스키마 | Microsoft Docs"
 description: "Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 또는 Cloud Services에서 Azure SDK 2.4 이하를 사용하는 경우에만 해당됩니다."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: c749a0929d292913e03fa7340bbbebad411fb44d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -274,9 +275,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |특성|형식|설명|  
 |---------------|----------|-----------------|  
 |**name**|string|필수입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

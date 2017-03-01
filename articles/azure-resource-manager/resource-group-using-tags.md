@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
-ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,6 +29,10 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 > 
 > 
 
+## <a name="ensure-tag-consistency-with-policies"></a>정책을 사용하여 태그 일관성 보장
+
+리소스 정책을 통해 조직의 표준 규칙을 만들 수 있습니다. 적절한 값으로 리소스에 태그가 지정되도록 정책을 만들 수 있습니다. 자세한 내용은 [태그에 대한 리소스 정책 적용](resource-manager-policy-tags.md)을 참조하세요.
+
 ## <a name="templates"></a>템플릿
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
@@ -38,9 +43,9 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Azure CLI 2.0(미리 보기)을 사용하면 리소스와 리소스 그룹에 태그를 추가하고 태그 값으로 리소스를 쿼리할 수 있습니다.
+Azure CLI 2.0을 사용하면 리소스와 리소스 그룹에 태그를 추가하고 태그 값으로 리소스를 쿼리할 수 있습니다.
 
 리소스 또는 리소스 그룹에 태그를 적용할 때마다 해당 리소스 또는 리소스 그룹의 기존 태그가 덮어써집니다. 따라서 리소스 또는 리소스 그룹에 유지하려는 기존 태그가 있는지에 따라 다른 방법을 사용해야 합니다. 경우에 따라 태그를 추가하는 방법은 다음과 같습니다.
 
@@ -110,10 +115,5 @@ az resource list --tag Dept=Finance
 * 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 * 포털 사용에 대한 소개는 [Azure 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)  
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

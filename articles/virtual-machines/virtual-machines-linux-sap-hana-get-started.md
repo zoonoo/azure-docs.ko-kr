@@ -1,5 +1,5 @@
 ---
-title: "Azure의 Linux VM에서 SAP HANA 설치 | Microsoft Docs"
+title: "빠른 시작 가이드: Azure VM에 단일 인스턴스 SAP HANA 수동 설치 | Microsoft Docs"
 description: "Azure VM에 단일 인스턴스 SAP HANA를 수동으로 설치하기 위한 빠른 시작 가이드입니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0c7f550e9fe9c27315f8381a8b2a91ff75ba1535
+ms.sourcegitcommit: bd70596bcc34684a6f751076e71cb3d0aa3877dd
+ms.openlocfilehash: 4c40fd95f42f4e89e86d829c8a32583a0398c74e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -60,7 +61,7 @@ SAP-Linux-Azure는 Azure Resource Manager에서만 지원하며 클래식 배포
 이 섹션에서는 SAP SWPM을 사용하여 분산형 SAP NetWeaver 7.5를 설치할 때의 데모 또는 프로토타입을 위한 단일 인스턴스 SAP HANA 수동 설치의 주요 단계를 나열합니다. 문서 전체에서 항목을 개별적으로 설명하고 스크린샷 형식으로 자세히 보여 줍니다.
 
 * 2개 테스트 VM이 포함된 Azure가상 네트워크 만들기
-* Azure Resource Manager 모델에 따라 OS SLES 12 SP1이 설치된 2개 Azure VM 배포
+* Azure Resource Manager 모델에 따라 OS SLES/SLES-for-SAP 응용 프로그램 12 SP1이 설치된 2개의 Azure VM 배포
 * 앱 서버 VM에 2개 표준 저장소 디스크 연결(예: 75GB 및 500GB 디스크)
 * HANA DB 서버 VM에 4개 디스크 연결 - 2개 표준 저장소 디스크(앱 서버 VM용) + 2개 프리미엄 저장소 디스크(예: 2x512GB 디스크)
 * 크기 또는 처리량 요구 사항에 따라 여러 디스크 연결 및 VM 내부의 OS 수준에서 LVM(논리 볼륨 관리) 또는 mdadm(다중 장치 관리 유틸리티)을 사용하여 스트라이프 볼륨 만들기
@@ -82,7 +83,7 @@ SAP-Linux-Azure는 Azure Resource Manager에서만 지원하며 클래식 배포
 이 섹션에서는 SAP hdblcm을 사용하여 분산형 SAP NetWeaver 7.5를 설치할 때의 데모 또는 프로토타입을 위한 단일 인스턴스 SAP HANA 수동 설치의 주요 단계를 나열합니다. 문서 전체에서 항목을 개별적으로 설명하고 스크린샷 형식으로 자세히 보여 줍니다.
 
 * 2개 테스트 VM이 포함된 Azure가상 네트워크 만들기
-* Azure Resource Manager 모델에 따라 OS SLES 12 SP1이 설치된 2개 Azure VM 배포
+* Azure Resource Manager 모델에 따라 OS SLES/SLES-for-SAP 응용 프로그램 12 SP1이 설치된 2개의 Azure VM 배포
 * 앱 서버 VM에 2개 표준 저장소 디스크 연결(예: 75GB 및 500GB 디스크)
 * HANA DB 서버 VM에 4개 디스크 연결 - 2개 표준 저장소 디스크(앱 서버 VM용) + 2개 프리미엄 저장소 디스크(예: 2x512GB 디스크)
 * 크기 또는 처리량 요구 사항에 따라 여러 디스크 연결 및 VM 내부의 OS 수준에서 LVM(논리 볼륨 관리) 또는 mdadm(다중 장치 관리 유틸리티)을 사용하여 스트라이프 볼륨 만들기
@@ -103,13 +104,40 @@ SAP-Linux-Azure는 Azure Resource Manager에서만 지원하며 클래식 배포
 * SAP MC 시작 및 SAP GUI/HANA Studio를 통해 연결
 
 ## <a name="prepare-azure-vms-for-a-manual-installation-of-sap-hana"></a>SAP HANA의 수동 설치를 위한 Azure VM 준비
-이 섹션에서는 다음&5; 가지 항목을 다룹니다.
+이 섹션에서는 다음 항목을 다룹니다.
 
+* OS 업데이트
 * 디스크 설정
 * 커널 매개 변수
 * 파일 시스템
 * /etc/hosts
 * /etc/fstab
+
+### <a name="os-updates"></a>OS 업데이트
+SUSE가 보안 및 원활한 작업을 유지 관리할 수 있는 OS의 업데이트 및 픽스를 제공하므로 추가 소프트웨어를 설치하기 전에 사용할 수 있는 업데이트가 있는지 확인하는 것이 좋습니다.
+시스템이 실제 패치 수준인 경우 지원 호출을 여러 번 회피할 수 있습니다.
+
+Azure 주문형 이미지는 추가 소프트웨어 및 업데이트를 제공하는 SUSE 업데이트 인프라에 자동으로 연결됩니다.
+BYOS 이미지를 SUSE 고객 센터(https://scc.suse.com)에 등록해야 합니다.
+
+다음 항목을 사용하여 사용 가능한 패치를 단순히 확인합니다.
+
+ `sudo zypper list-patches`
+
+오류의 종류에 따라 패치는 범주 및 심각도별로 분류됩니다.
+
+범주에 대해 자주 사용되는 값은 보안, 권장됨, 선택 사항, 기능, 문서 또는 YaST입니다.
+
+심각도에 대해 자주 사용되는 값은 위험, 중요, 보통, 낮음 또는 지정되지 않음입니다.
+
+zypper는 설치된 패키지에 필요한 업데이트를 찾습니다.
+
+따라서 예제 명령은 다음과 같습니다.
+
+`sudo zypper patch  --category=security,recommended --severity=critical,important`
+
+매개 변수 *--dry-run*을 추가하는 경우 업데이트를 테스트할 수 있지만 실제로 시스템을 업데이트하지 않습니다.
+
 
 ### <a name="disk-setup"></a>디스크 설정
 Azure에서 Linux VM의 루트 파일 시스템 크기는 제한됩니다. 따라서 SAP를 실행하기 위한 추가 디스크 공간을 VM에 연결해야 합니다. SAP 앱 서버 VM을 순수 프로토타입 또는 데모 환경에서 사용하는 경우 Azure 표준 저장소 디스크를 사용하는 것이 좋습니다. SAP HANA DB 데이터 및 로그 파일의 경우 프로덕션 환경이 아닌 환경에서도 Azure 프리미엄 저장소 디스크를 사용합니다.
@@ -121,7 +149,7 @@ Azure 디스크 캐싱의 경우 HANA 트랜잭션 로그를 저장하는 데 �
 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.
 
 VM 만들기를 위한 샘플 JSON 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)으로 이동합니다.
-"101-vm-simple-linux" 템플릿은 추가 100GB 데이터 디스크가 있는 저장소 섹션을 포함하고 있는 기본 템플릿을 보여 줍니다.
+"vm-simple-sles" 템플릿은 추가 100GB 데이터 디스크가 있는 저장소 섹션을 포함하고 있는 기본 템플릿을 보여 줍니다.
 
 PowerShell 또는 CLI를 사용하여 SUSE 이미지를 찾는 방법을 알아보고 UUID를 사용하여 디스크를 연결하는 중요성을 이해하려면 [Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
@@ -146,20 +174,18 @@ PowerShell 또는 CLI를 사용하여 SUSE 이미지를 찾는 방법을 알아�
 ### <a name="kernel-parameters"></a>커널 매개 변수
 SAP HANA에는 표준 Azure 갤러리 이미지의 일부가 아닌 특정 Linux 커널 설정이 필요하며, 수동으로 설정해야 합니다. SAP HANA Note에서 SLES 12/SLES for SAP Applications 12에 권장되는 운영 체제 설정에 대해 설명합니다([SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)).
 
-SLES에서 SAP HANA를 실행하는 것과 관련된 추가 페이지 캐시 항목에 대해서는 [SUSE Linux Enterprise Server for SAP Applications 12 SP1 가이드](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache)(영문)의 "6.1 커널: 페이지 캐시 제한"을 참조하세요.
 
-또 다른 SAP Note([SAP Note 1557506](https://launchpad.support.sap.com/#/notes/1557506))에서 페이지 캐시 제한에 대해 설명합니다.
+SLES-for-SAP Applications 12 GA 및 SP1에는 이전 sapconf 유틸리티를 대체하는 새로운 도구가 있습니다. tuned-adm이라고 하며, 특별한 SAP HANA 프로필을 사용할 수 있습니다. SAP HANA에 대해 시스템을 조정하려면 루트 사용자로 'tuned-adm profile sap-hana'를 입력하면 됩니다.
 
-SLES 12에는 이전 sapconf 유틸리티를 대체하는 새로운 도구가 있습니다. tuned-adm이라고 하며, 특별한 SAP HANA 프로필을 사용할 수 있습니다. tuned-adm에 대한 자세한 내용은 다음 문서를 참조하세요.
+tuned-adm에 대한 자세한 내용은 다음에 있는 SUSE 문서를 참조하세요.
 
-* [tuned-adm 프로필 sap-hana에 대한 SLES 설명서](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html)(영문)
-* [tuned-adm 프로필 sap-hana에 대한 SLES 설명서 6.2장 tuned-adm으로 SAP 워크로드용 시스템 튜닝](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)(영문)
+* [tuned-adm profile sap-hana에 대한 SLES-for-SAP Applications 12 SP1 설명서](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip)
 
 다음 스크린샷에서는 필수 SAP HANA 설정에 따라 tuned-adm에서 transparent_hugepage 및 numa_balancing 값을 변경한 방법을 확인할 수 있습니다.
 
 ![tuned-adm 도구는 필수 SAP HANA 설정에 따라 값을 변경합니다.](./media/virtual-machines-linux-sap-hana-get-started/image005.jpg)
 
-SAP HANA 커널을 영구적으로 설정하려면 SLES 12에서 grub2를 사용합니다. grub2에 대한 자세한 내용은 [SUSE 설명서의 "구성 파일 구조" 섹션](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html)(영문)을 참조하세요.
+SAP HANA 커널을 영구적으로 설정하려면 SLES 12에서 grub2를 사용합니다. grub2에 대한 자세한 내용은 [SUSE 설명서의 "구성 파일 구조" 섹션](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip)(영문)을 참조하세요.
 
 다음 스크린샷에서는 구성 파일에서 커널 설정을 변경한 다음 grub2-mkconfig를 사용하여 컴파일하는 방법을 보여 줍니다.
 
@@ -181,7 +207,7 @@ SAP HANA DB VM과 관련하여 데이터베이스 설치 중에 SAPinst(SWPM) �
 SAP HANA의 표준 파일 시스템 레이아웃에 대한 설명은 [SAP HANA 서버 설치 및 업데이트 가이드](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)(영문)를 참조하세요.
 ![SAP 앱 서버 VM에 만든 추가 파일 시스템](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg)
 
-표준 SLES 12 Azure 갤러리 이미지에 SAP NetWeaver를 설치하면 교환 공간이 없다는 메시지가 표시됩니다. 이 메시지를 해제하려면 dd, mkswap 및 swapon을 사용하여 교환 파일을 수동으로 추가하면 됩니다. 자세한 내용은 [SUSE 설명서의 "YaST Partitioner 사용" 섹션](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)(영문)에서 "수동으로 교환 파일 추가"를 검색해 보세요.
+표준 SLES/SLES-for-SAP 응용 프로그램 12 Azure 갤러리 이미지에 SAP NetWeaver를 설치하면 교환 공간이 없다는 메시지가 표시됩니다. 이 메시지를 해제하려면 dd, mkswap 및 swapon을 사용하여 교환 파일을 수동으로 추가하면 됩니다. 자세한 내용은 [SUSE 설명서의 "YaST Partitioner 사용" 섹션](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip)(영문)에서 "수동으로 교환 파일 추가"를 검색해 보세요.
 
 또 다른 옵션은 Linux VM 에이전트를 사용하여 교환 공간을 구성하는 것입니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
@@ -199,16 +225,16 @@ SAP 설치를 시작하기 전에 SAP VM의 호스트 이름 및 IP 주소를 /e
 
 ![fstab에 nofail 매개 변수 추가](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
-## <a name="install-graphical-gnome-desktop-on-sles-12"></a>SLES 12에 그래픽 Gnome 데스크톱 설치
+## <a name="install-graphical-gnome-desktop-on-sles-12sles-for-sap-applications-12"></a>SLES 12/SLES-for-SAP 응용 프로그램 12에 그래픽 Gnome 데스크톱 설치
 이 섹션에서는 다음 항목을 다룹니다.
 
-* SLES 12에 Gnome 데스크톱 및 xrdp 설치
-* SLES 12에서 Firefox를 사용하여 Java 기반 SAP MC 실행
+* SLES 12/SLES-for-SAP 응용 프로그램 12에 Gnome 데스크톱 및 xrdp 설치
+* SLES 12/SLES-for-SAP 응용 프로그램 12에서 Firefox를 사용하여 Java 기반 SAP MC 실행
 
 Xterminal 또는 VNC와 같은 대안을 사용할 수도 있지만 이 가이드에서는 2016년 9월부터 xrdp만 설명합니다.
 
-### <a name="installing-gnome-desktop-and-xrdp-on-sles-12"></a>SLES 12에 Gnome 데스크톱 및 xrdp 설치
-백그라운드에서 Microsoft Windows를 사용하는 경우 SAP Linux VM 내에서 그래픽 데스크톱을 직접 사용하여 Firefox, Sapinst, SAP GUI, SAP MC 또는 HANA Studio를 실행하고 Windows 컴퓨터에서 RDP를 통해 VM에 연결할 수 있습니다. 프로시저가 프로덕션 데이터베이스 서버에 적합하지 않을 수 있지만 순수 프로토타입/데모 환경에는 적합합니다. Azure SLES 12 VM에 Gnome 데스크톱을 설치하는 방법은 다음과 같습니다.
+### <a name="installing-gnome-desktop-and-xrdp-on-sles-12sles-for-sap-applications-12"></a>SLES 12/SLES-for-SAP 응용 프로그램 12에 Gnome 데스크톱 및 xrdp 설치
+백그라운드에서 Microsoft Windows를 사용하는 경우 SAP Linux VM 내에서 그래픽 데스크톱을 직접 사용하여 Firefox, Sapinst, SAP GUI, SAP MC 또는 HANA Studio를 실행하고 Windows 컴퓨터에서 RDP를 통해 VM에 연결할 수 있습니다. 프로시저가 프로덕션 데이터베이스 서버에 적합하지 않을 수 있지만 순수 프로토타입/데모 환경에는 적합합니다. Azure SLES 12/SLES-for-SAP 응용 프로그램 12 VM에 Gnome 데스크톱을 설치하는 방법은 다음과 같습니다.
 
 다음 명령을 입력하여 gnome 데스크톱을 설치합니다(예: Putty 창에서).
 
@@ -237,7 +263,7 @@ RDP 연결에 문제가 있으면 다시 시작합니다(아마도 Putty 창에�
 제거한 다음 restart를 다시 시도합니다.
 
 ### <a name="sap-mc"></a>SAP MC
-Gnome 데스크톱을 설치한 후 Azure SLES 12 VM에서 실행되는 Firefox에서 그래픽 Java 기반 SAP MC를 시작하면 누락된 Java 브라우저 플러그 인으로 인해 오류를 표시할 수 있습니다.
+Gnome 데스크톱을 설치한 후 Azure SLES 12/SLES-for-SAP 응용 프로그램 12 VM에서 실행되는 Firefox에서 그래픽 Java 기반 SAP MC를 시작하면 누락된 Java 브라우저 플러그 인으로 인해 오류를 표시할 수 있습니다.
 
 SAP MC를 시작할 URL은 <server>:5<instance_number>13입니다.
 
@@ -255,7 +281,9 @@ SAP 관리 콘솔 URL을 반복하면 플러그 인을 활성화하도록 요청
 
 ![플러그 인 활성화를 요청하는 대화 상자](./media/virtual-machines-linux-sap-hana-get-started/image015.jpg)
 
-발생할 수 있는 또 다른 문제 하나는 누락된 javafx.properties 파일에 대한 오류 메시지입니다. 이 오류는 SAP GUI 7.4에 필요한 Java 1.8 설치와 관련이 있습니다. YaST에서 표시하는 IBM Java 버전에는 이 파일이 없습니다. 이 문제를 해결하려면 Oracle에서 Java를 다운로드합니다. 이 문제에 대한 자세한 내용은 [SAPGui 7.4 Java for openSUSE 42.1 Leap](https://scn.sap.com/thread/3908306)(영문)를 참조하세요.
+발생할 수 있는 또 다른 문제 하나는 누락된 javafx.properties 파일에 대한 오류 메시지입니다. 이 항목은 SAP GUI 7.4용 Oracle Java 1.8의 요구 사항과 관련이 있습니다. [SAP 참고 사항 2059429 참조](https://launchpad.support.sap.com/#/notes/2059424) IBM Java 버전 또는 SLES/SLES-for-SAP 응용 프로그램 12와 함께 제공된 openjdk 패키지에는 필요한 javafx가 포함됩니다. 솔루션은 Oracle에서 Java SE8를 다운로드하고 설치하는 것입니다.
+
+openjdk와 openSUSE에 대한 비슷한 문제를 다루는 문서는 [SAPGui 7.4 Java for openSUSE 42.1 Leap](https://scn.sap.com/thread/3908306)에서 찾을 수 있습니다.
 
 ## <a name="install-sap-hana-manually-by-using-swpm-as-part-of-a-netweaver-75-installation"></a>NetWeaver 7.5 설치의 일부로 SWPM을 사용하여 수동으로 SAP HANA 설치
 이 섹션에서 보여 주는 일련의 스크린샷은 SWPM(SAPinst)을 사용할 때 SAP NetWeaver 7.5 및 SAP HANA SP12를 설치하기 위한 주요 단계를 보여 줍니다. NetWeaver 7.5 설치의 일부로 SWPM은 HANA 데이터베이스를 단일 인스턴스로 설치할 수도 있습니다.
@@ -397,9 +425,4 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 SAP HANA Studio에�
 * HANA SP12 Platform Edition 다운로드:
 
  ![HANA SP12 Platform Edition을 다운로드하기 위한 SAP 서비스 설치 및 업그레이드 창](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

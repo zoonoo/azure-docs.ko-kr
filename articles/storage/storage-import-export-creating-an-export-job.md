@@ -1,5 +1,5 @@
 ---
-title: "Azure Import/Export 서비스에 대한 내보내기 작업 만들기 | Microsoft Docs"
+title: "Azure Import/Export에 대한 내보내기 작업 만들기 | Microsoft Docs"
 description: "Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 24b9d103ef1e53bddbf72f9867f134ed522aa497
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="creating-an-export-job"></a>내보내기 작업 만들기
+# <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
 
 -   내보낼 blob 선택
@@ -95,9 +96,4 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 ## <a name="see-also"></a>참고 항목
  [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

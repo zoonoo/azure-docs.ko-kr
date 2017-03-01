@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 7547ff2f6db375644dccb9db4283d83a9837e826
+ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
+ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,11 +36,11 @@ ms.openlocfilehash: 7547ff2f6db375644dccb9db4283d83a9837e826
 | 게시자 정책 | 해당 없음 | 예 | 예 |     
 | 소비자 그룹 | 1 - 기본값 | 20 | 20 |
 | 메시지 재생 | 예 | 예 | 예 |
-| 최대 처리량 단위 | 20 | 20(100까지 유연하게 구성 가능)  | 1 CU≈200 |
+| 최대 처리량 단위 | 20 | 20(100까지 유연하게 구성 가능)    | 1 CU≈200 |
 | 조정된 연결 | 100개 포함 | 1,000개 포함 | 100,000개 포함 |
 | 추가 조정된 연결 | 해당 없음 | 예 | 예 |
 | 메시지 보존 | 1일 포함 | 1일 포함 | 최대 7일 포함 |
-| 보관(미리 보기) | 해당 없음   | 시간당 요금 부과 | 포함됨 |
+| 보관(미리 보기) | 해당 없음    | 시간당 요금 부과 | 포함됨 |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Event Hubs Dedicated 용량의 이점
 
@@ -60,7 +61,7 @@ Event Hubs Dedicated를 사용하는 경우 다음과 같은 이점이 제공됩
 
 ## <a name="how-to-onboard"></a>등록 방법
 
-Event Hubs Dedicated 플랫폼은 기업 계약을 통해 다양한 크기의 CU로 대중에게 제공됩니다. 각 CU는 처리량 단위 약 200개와 동일한 처리량을 제공하며 요금은 $31/시간입니다. 언제든지 요구 사항에 맞게 CU를 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. Dedicated 요금제는 Event Hubs 제품 팀의 실습 온보딩을 통해 고객에게 적합하도록 유연한 배포가 가능하다는 고유의 장점이 있습니다. 
+Event Hubs Dedicated 플랫폼은 기업 계약을 통해 다양한 크기의 CU로 대중에게 제공됩니다. 각 CU는 대략 처리량 단위 200개와 동일한 처리량을 제공합니다. 언제든지 요구 사항에 맞게 CU를 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. Dedicated 요금제는 Event Hubs 제품 팀의 실습 온보딩을 통해 고객에게 적합하도록 유연한 배포가 가능하다는 고유의 장점이 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs Dedicated 용량에 대한 추가 정보를 얻으려면 Microsoft 영업 담당자 또는 Microsoft 지원에 문의하세요. 다음 링크에서도 Event Hubs에 대한 자세한 내용을 확인할 수 있습니다.
@@ -69,9 +70,4 @@ Event Hubs Dedicated 용량에 대한 추가 정보를 얻으려면 Microsoft �
 
 - [Event Hubs Dedicated 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) Microsoft 영업 담당자 또는 Microsoft 지원 서비스에서 Event Hubs Dedicated 용량에 대한 추가 정보를 얻을 수도 있습니다.
 - [Event Hubs FAQ](event-hubs-faq.md)에서는 가격 책정 정보를 설명하고 이벤트 허브에 대해 일부 자주 묻는 질문에 대한 답변을 제공합니다. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

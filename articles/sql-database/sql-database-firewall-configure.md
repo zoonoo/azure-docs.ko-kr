@@ -12,26 +12,19 @@ ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 5b94c884c585824ab580f307f3a04e27c8536947
-ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 09bc875449ecdf48c2570f1029df68d28ae5e798
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="overview-of-azure-sql-database-firewall-rules"></a>Azure SQL Database 방화벽 규칙 개요 
-> [!div class="op_single_selector"]
-> * [개요](sql-database-firewall-configure.md)
-> * [Azure 포털](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 
@@ -41,7 +34,7 @@ Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응�
 * **데이터베이스 수준 방화벽 규칙:** 이 규칙은 Azure SQL Database 서버 내의 개별 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 각 데이터베이스에 대해 이러한 규칙을 만들 수 있으며 규칙은 개별 데이터베이스에 저장됩니다. (**master** 데이터베이스에 대해 데이터베이스 수준 방화벽 규칙을 만들 수 있습니다.) 이 규칙은 동일 논리 서버 내의 특정(보안) 데이터베이스에 액세스를 제한할 때 유용합니다. Transact-SQL 문을 사용해야만 데이터베이스 수준 방화벽 규칙을 구성할 수 있습니다.
 
    > [!NOTE]
-   > 데이터베이스 수준 방화벽을 사용하는 방법을 보여 주는 자습서는 [SQL Database 자습서: SQL Server 인증, 로그인 및 사용자 계정, 데이터베이스 역할, 사용 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
+   > 데이터베이스 수준 방화벽 사용을 보여주는 자습서는 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)를 참조하세요.
    >
 
 **권장 사항:** Microsoft는 보안을 강화하고 데이터베이스의 휴대성이 높아질수록 데이터베이스 수준 방화벽을 사용하도록 권장합니다. 관리자의 경우 서버 수준 방화벽 규칙을 사용하면 동일한 액세스를 요구하는 데이터베이스가 많을 때 각 데이터베이스를 개별적으로 구성할 필요가 없습니다.
@@ -135,14 +128,14 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
   * 클라이언트 컴퓨터 대신 고정 IP 주소를 얻고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
-서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기에 대한 방법 문서를 보려면 다음을 참조하세요.
+서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기에 대한 문서를 보려면 다음을 참조하세요.
 
 * [Azure 포털을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)
 * [T-SQL을 사용하여 Azure SQL 데이터베이스 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-tsql.md)
 * [PowerShell을 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-powershell.md)
 * [REST API를 사용하여 Azure SQL 데이터베이스 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings-rest.md)
 
-데이터베이스를 만드는 방법에 대한 자습서는 [Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+데이터베이스를 만드는 방법에 대한 자습서는 [첫 Azure SQL Database](sql-database-get-started.md)를 참조하세요.
 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
 데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
@@ -152,9 +145,4 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

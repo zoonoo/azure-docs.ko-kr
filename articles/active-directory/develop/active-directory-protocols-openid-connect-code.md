@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
-ms.openlocfilehash: bd195ee282b6813034ac25e607f64a88cbdedf37
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,12 +26,37 @@ ms.openlocfilehash: bd195ee282b6813034ac25e607f64a88cbdedf37
 
 OpenID Connect는 서버에서 호스트되고 브라우저를 통해 액세스되는 웹 응용 프로그램을 빌드하는 경우 권장 사항입니다.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
+
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
 ## <a name="authentication-flow-using-openid-connect"></a>OpenID Connect를 사용하는 인증 흐름
 대부분의 기본 로그인 흐름은 다음 단계를 포함합니다. - 각 단계를 아래에서 자세히 설명합니다.
 
 ![OpenId Connect 인증 흐름](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
+
+## <a name="openid-connect-metadata-document"></a>OpenID Connect 메타데이터 문서
+
+OpenID Connect는 앱이 로그인을 수행하는 데 필요한 대부분의 정보를 포함하는 메타데이터 문서를 설명합니다. 여기에는 사용할 URL, 서비스의 공개 서명 키의 위치 등과 같은 정보가 포함됩니다. OpenID Connect 메타데이터 문서는 다음 위치에서 찾을 수 있습니다.
+
+```
+https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
+```
+메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 이 조각의 내용은 [OpenID Connect 사양](https://openid.net)에 자세히 설명되어 있습니다.
+
+```
+{
+    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "token_endpoint_auth_methods_supported":
+    [
+        "client_secret_post",
+        "private_key_jwt"
+    ],
+    "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys"
+    
+    ...
+}
+```
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
 웹 응용 프로그램이 사용자를 인증해야 하는 경우 사용자를 `/authorize` 끝점으로 보내야 합니다. 이 요청은 몇 가지 중요한 차이점이 있지만 [OAuth 2.0 인증 코드 흐름](active-directory-protocols-oauth-code.md)의 첫 번째 레그와 유사합니다.
@@ -57,7 +83,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다.  허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
-| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 응용 프로그램 ID입니다. Azure 클래식 포털에서 이를 확인할 수 있습니다. **Active Directory**를 클릭하고 해당 디렉터리를 선택하고 응용 프로그램을 선택한 후 **구성**을 클릭합니다. |
+| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 응용 프로그램 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. **Azure Active Directory**를 클릭하고 **앱 등록**을 클릭하고 응용 프로그램을 선택하여 응용 프로그램 페이지에서 응용 프로그램 ID를 찾습니다. |
 | response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `code`와 같은 다른 response_types을 포함할 수도 있습니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다.  OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다.  동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
 | nonce |필수 |결과 `id_token`에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다.  그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다.  값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열 또는 GUID입니다. |
@@ -142,6 +168,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |권장 |성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다.  포함되지 않은 경우 사용자에게 일반 메시지를 표시합니다. |
 
+## <a name="single-sign-out"></a>Single Sign-Out
+Azure AD는 쿠키를 사용하여 사용자의 세션을 식별합니다. 웹 응용 프로그램은 응용 프로그램 내에서 세션을 관리하는 쿠키를 설정하기도 있습니다. 사용자는 먼저 응용 프로그램에 로그인하는 경우 Azure AD는 사용자의 브라우저에서 쿠키를 설정합니다. 사용자가 나중에 다른 응용 프로그램에 로그인할 때, Azure AD는 사용자를 다시 인증하는 대신 사용자가 Azure AD 끝점이 있는 유효한 로그온 세션을 가지고 있는지 판단하기 위해 쿠키를 먼저 확인합니다.
+
+마찬가지로, 사용자가 먼저 응용 프로그램에서 로그아웃한 경우, Azure AD는 브라우저에서 쿠키를 지웁니다. 하지만 사용자는 인증을 위해 Azure AD를 사용하는 다른 응용 프로그램에 여전히 로그인되어 있을 수 있습니다. 사용자가 모든 응용 프로그램에서 로그아웃되도록 하기 위해 Azure AD는 현재 사용자가 로그인된 모든 응용 프로그램의 `LogoutUrl`로 HTTP GET 요청을 보냅니다. 응용 프로그램은 사용자의 세션을 식별하는 모든 쿠키를 지움으로써 이 요청에 응답해야 합니다. Azure Portal에서 `LogoutUrl`을 설정할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+2. 페이지의 오른쪽 위 모서리에 있는 사용자 계정을 클릭하여 Active Directory를 선택합니다.
+3. 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택한 다음, **앱 등록**을 선택하고 응용 프로그램을 선택합니다.
+4. **속성**을 클릭하고 **로그 아웃 URL** 텍스트 상자를 찾습니다. 
+
 ## <a name="token-acquisition"></a>토큰 획득
 대부분의 웹앱은 사용자를 로그인할 뿐만 아니라 OAuth를 사용하여 해당 사용자 대신 웹 서비스에 액세스해야 합니다. 이 시나리오에서는 OAuth 인증 코드 흐름을 사용하여 `access_tokens`을(를) 가져오는 데 사용할 수 있는 `authorization_code`을(를) 획득하는 동시에 사용자 인증에 OpenID Connect를 사용합니다.
 
@@ -200,8 +236,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 가능한 오류 코드 및 권장되는 클라이언트 작업에 대한 설명은 [권한 부여 끝점 오류에 대한 오류 코드](#error-codes-for-authorization-endpoint-errors)를 참조하세요.
 
 인증 `code` 및 `id_token`을 받은 후 사용자를 로그인하고 대신 액세스 토큰을 얻을 수 있습니다.  사용자를 로그인하려면 위에 설명된 대로 정확하게 `id_token` 의 유효성을 검사해야 합니다. 액세스 토큰을 얻으려면 [OAuth 프로토콜 설명서](active-directory-protocols-oauth-code.md)의 "권한 부여 코드를 사용하여 액세스 토큰 요청" 섹션에 설명된 단계를 따르면 됩니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
 

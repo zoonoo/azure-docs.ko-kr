@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 CORS 지원을 사용하는 방법을 �
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱에 대한 자세한 내용은 [App Service에서 인증 소개](../app-service/app-service-authentication-overview.md)를 참고하고 [API 앱에 대한 사용자 인증](app-service-api-dotnet-user-principal-auth.md) 자습서로 이동합니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

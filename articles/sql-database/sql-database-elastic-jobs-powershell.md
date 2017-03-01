@@ -15,17 +15,13 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 225896e724717a00057be4c708ce485c8b785d45
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
-> * [PowerShell](sql-database-elastic-jobs-powershell.md)
-> 
-> 
 
 **탄력적 데이터베이스 작업** (미리 보기)에 PowerShell API를 사용하면 스크립트를 실행할 데이터베이스 그룹을 정의할 수 있습니다. 이 문서는 PowerShell cmdlet을 사용하여 **탄력적 데이터베이스 작업** 을 만들고 관리하는 방법을 보여줍니다. [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
@@ -72,7 +68,7 @@ ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
 
   <tr>
     <td>DACPAC</td>
-    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">데이터베이스에서 적용할 데이터 계층 응용 프로그램</a> 패키지입니다.
+    <td>데이터베이스에서 적용할 <a href="https://msdn.microsoft.com/library/ee210546.aspx">데이터 계층 응용 프로그램</a> 패키지입니다.
 
     </td>
     <td>
@@ -649,9 +645,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [1]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

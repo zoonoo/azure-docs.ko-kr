@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,6 +67,13 @@ Azure에서 Analysis Services 서버를 만들 경우 고유한 이름 및 만�
 
 Excel 2016에서 데이터 가져오기 또는 이전 버전의 파워 쿼리를 사용하여 Excel에서 Azure Analysis Services 서버에 연결하도록 지원합니다. [MSOLAP.7 공급자](analysis-services-data-providers.md)가 필요합니다. 파워 피벗에서 테이블 가져오기 마법사를 사용하여 연결하는 작업은 지원되지 않습니다.
 
+> [!NOTE]
+> 일부 조직에서는 지연된 채널에서 Office 365 업데이트를 배포하므로 버전 업데이트는 현재 버전부터 최대 4개월까지 지연됩니다. Excel 2016 빌드 1609.7369.2115 이전 버전 또는 Excel 2013의 경우, Office 데이터 연결(.odc) 파일을 만들고 Azure Analysis Services 서버에 연결하기 위해 MSOLAP.7 공급자를 수동으로 업데이트할 수 있습니다. 자세한 내용은 [.odc 파일 만들기](analysis-services-odc.md)를 참조하세요.
+> 
+> 
+
+**Excel 2016에서 연결하려면**
+
 1. Excel 2016의 **데이터** 리본 메뉴에서 **외부 데이터 가져오기** > **다른 원본에서** > **Analysis Services에서**를 클릭합니다.
 2. 데이터 연결 마법사의 **서버 이름**에서 클립보드의 서버 이름을 붙여 넣습니다. 그런 다음 **로그온 자격 증명**에서 **다음 사용자 이름 및 암호 사용**을 선택하고 조직 사용자 이름(예: nancy@adventureworks.com, 및 암호)을 입력합니다.
 
@@ -94,10 +102,5 @@ Excel 2016에서 데이터 가져오기 또는 이전 버전의 파워 쿼리를
 ## <a name="next-steps"></a>다음 단계
 
 [서버 관리](analysis-services-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

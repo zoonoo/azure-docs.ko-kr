@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: 16a2a67840e7ee85f7a605e8f114293305f84b50
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: f643deb0b76c598df9bd983474b4bd2bcba129e7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,8 +29,9 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 
 이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다. 
 
-이 항목에서는 Office 365 Enterprise, Business, Education 및 미국 연방 정부 계획에서 테넌트 사용자가 iOS 장치에서 CBA를 구성하는 데 지원되는 시나리오 및 요구 사항에 대해 설명합니다. Office 365 Defense는 포함하지 않습니다. 
+이 항목에서는 Office 365 Enterprise, Business, Education 및 미국 정부 계획에서 테넌트 사용자가 Android 장치에서 CBA를 구성하는 데 지원되는 시나리오 및 요구 사항에 대해 설명합니다. 
 
+이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 
 
 
@@ -85,9 +87,4 @@ iOS 9 이상에서, 네이티브 iOS 메일 클라이언트가 지원됩니다. 
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

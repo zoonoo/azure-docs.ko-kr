@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: cbd7e36c5ef5c78b38a2cc7791b442cac1711b95
-ms.openlocfilehash: 92e8e25abc047811fc0ff45f424bd1b97a045e1f
+ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
+ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -84,7 +85,7 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 6. **자격 증명 모음 만들기**를 클릭합니다. 백업 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 맨 아래에서 상태 알림을 모니터링합니다.
 
     ![자격 증명 모음 알림 메시지 만들기](./media/backup-azure-vms-prepare/creating-vault.png)
-7. 자격 증명 모음이 성공적으로 만들어졌다는 메시지가 표시되고 **Recovery Services** 페이지에서 **활성**으로 표시됩니다. 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#step-1-create-a-recovery-services-vault)에 대해 자세히 알아보세요.
+7. 자격 증명 모음이 성공적으로 만들어졌다는 메시지가 표시되고 **Recovery Services** 페이지에서 **활성**으로 표시됩니다. 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#create-a-recovery-services-vault)에 대해 자세히 알아보세요.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 8. 백업 자격 증명 모음을 클릭하면 **빠른 시작** 페이지로 이동하며, Azure 가상 컴퓨터의 백업 지침이 표시됩니다.
@@ -231,9 +232,4 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 * [가상 컴퓨터 설정](backup-azure-vms.md)
 * [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

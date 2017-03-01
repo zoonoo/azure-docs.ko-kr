@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bf282f9f17c7a651c9229d262db3c61fcb92c799
+ms.sourcegitcommit: 70341f4a14ee807a085931c3480a19727683e958
+ms.openlocfilehash: ce0f2ddb42e19ee33767878797188e924f5cd1e9
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -34,9 +35,14 @@ Redis 출력 캐시 공급자 NuGet 패키지를 사용하여 Visual Studio에�
 
 ![Azure Redis Cache 출력 캐시 공급자](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
 
-Reids Output 캐시 공급자 NuGet 패키지는 StackExchange.Redis.StrongName 패키지에 종속성을 갖습니다. StackExchange.Redis.StrongName 패키지가 프로젝트에 나타나지 않는 경우 설치됩니다. 강력한 이름의 StackExchange.Redis.StrongName 패키지 외에도 StackExchange.Redis non-strong-name 버전이 있다는 것을 참고하세요. 프로젝트에 non-strong 이름의 StackExchange.Redis 버전을 사용하고 있다면 Redis 출력 캐시 공급자 NuGet Package 설치 전이나 후에 꼭 삭제해야 합니다. 그렇지 않은 경우 프로젝트 내에 이름 충돌이 일어납니다.  이 패키지에 대한 자세한 내용은 [.NET 캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
+Reids Output 캐시 공급자 NuGet 패키지는 StackExchange.Redis.StrongName 패키지에 종속성을 갖습니다. StackExchange.Redis.StrongName 패키지가 프로젝트에 나타나지 않는 경우 설치됩니다.
 
-NuGet 패키지를 다운로드하고 필요한 어셈블리 참조를 추가합니다. Redis 출력 캐시 공급자를 사용하도록 ASP.NET 응용 프로그램에 필요한 구성이 포함된 web.config 파일에 다음 섹션을 추가합니다.
+>[!NOTE]
+>강력한 이름의 StackExchange.Redis.StrongName 패키지 외에도 StackExchange.Redis 강력하지 않은 이름의 버전이 있습니다. 프로젝트가 StackExchange.Redis 강력하지 않은 이름의 버전을 사용하는 경우 해당 버전을 제거해야 합니다. 그렇지 않으면 프로젝트에서 이름이 충돌합니다. 이 패키지에 대한 자세한 내용은 [.NET 캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
+>
+>
+
+NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가하며 web.config 파일에 다음 섹션을 추가합니다. 이 섹션에서는 Redis 출력 캐시 공급자를 사용하기 위해 ASP.NET 응용 프로그램에 필수 구성을 포함합니다.
 
 ```xml
 <caching>
@@ -70,7 +76,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 * **ssl** – ssl로 캐시/클라이언트 통신을 보호하려는 경우 true가 되고, 그 외의 경우 false입니다. 올바른 포트를 지정해야 합니다.
   * 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용하여 설정에 대한 true를 지정합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 토픽의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요.
 * **databaseId** – 캐시 출력 데이터에 사용할 데이터베이스를 지정합니다. 지정하지 않으면 기본값 0이 사용됩니다.
-* **applicationName** – <AppName>_<SessionId>_데이터로 redis에 저장된 키입니다. 이 방법으로 여러 응용 프로그램이 동일한 키를 공유할 수 있습니다. 이 매개변수는 선택적이며 사용자가 제공하지 않으면 기본값이 사용됩니다.
+* **applicationName** – `<AppName>_<SessionId>_Data`로 redis에 저장된 키입니다. 이 이름 지정 체계를 사용하면 여러 응용 프로그램이 동일한 키를 공유할 수 있습니다. 이 매개변수는 선택적이며 사용자가 제공하지 않으면 기본값이 사용됩니다.
 * **connectionTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 connectTimeout 설정을 무시할 수 있게 해줍니다. 지정하지 않으면 기본 connectTimeout 설정인 5000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 * **operationTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 syncTimeout 설정을 무시할 수 있게 해 줍니다. 지정하지 않으면 기본 syncTimeout 설정인 1000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 
@@ -80,16 +86,11 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-이 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 출력 캐시 지시문에 대한 자세한 내용은 [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837)을 참조하세요.
+이전 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 출력 캐시 지시문에 대한 자세한 내용은 [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837)을 참조하세요.
 
 이 단계를 수행하면, 응용 프로그램은 Redis 출력 캐시 공급자를 사용하도록 구성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md)를 확인하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

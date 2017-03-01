@@ -1,6 +1,6 @@
 ---
 
-title: "가져오기-내보내기 서비스 로그 파일 형식 | Microsoft Docs"
+title: "Azure Import/Export 로그 파일 형식 | Microsoft Docs"
 description: "가져오기-내보내기 서비스 작업에 대한 단계를 실행할 때 만든 로그 파일의 형식에 대해 알아보기"
 author: muralikk
 manager: syadav
@@ -13,22 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: fab36b750ec4ba518fad8392f611cd46d8155985
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="import-export-service-log-file-format"></a>가져오기-내보내기 서비스 로그 파일 형식
+# <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
 Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 저장소 계정의 블록 Blob에 작성됩니다.  
   
 Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 있습니다.  
   
 -   오류 로그는 항상 오류가 발생한 경우에 생성됩니다.  
   
--   세부 정보 표시 로그는 기본적으로 해제되어 있지만 [작업 배치](/rest/api/storageservices/importexport/Put-Job) 또는 [작업 속성 업데이트](/rest/api/storageservices/importexport/Update-Job-Properties) 작업에서 `EnableVerboseLog` 속성을 설정하여 사용할 수 있습니다.  
+-   세부 정보 표시 로그는 기본적으로 해제되어 있지만 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 또는 [작업 속성 업데이트](/rest/api/storageimportexport/jobs#Jobs_Update) 작업에서 `EnableVerboseLog` 속성을 설정하여 사용할 수 있습니다.  
   
 ## <a name="log-file-location"></a>로그 파일 위치  
 로그는 `Put Job` 작업에서 설정할 수 있는 `ImportExportStatesPath` 설정에서 지정한 컨테이너 또는 가상 디렉터리의 블록 Blob에 작성됩니다. 로그가 기록되는 위치는 `ImportExportStatesPath`에 지정된 값과 함께 작업에 인증을 지정하는 방법에 따라 달라집니다. 저장소 계정 키 또는 컨테이너 SAS(공유 액세스 서명)를 통해 작업에 대한 인증을 지정할 수 있습니다.  
@@ -44,7 +45,7 @@ Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 �
 |컨테이너 SAS|기본값|기본 이름인 `waimportexport`라는 가상 디렉터리는 SAS에 지정된 컨테이너 아래에 있습니다.<br /><br /> 예를 들어 작업에 대해 지정된 SAS가 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`인 경우 로그 위치는 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`입니다.|  
 |컨테이너 SAS|사용자 지정 값|사용자가 명명한 가상 디렉터리는 SAS에 지정된 컨테이너 아래에 있습니다.<br /><br /> 예를 들어 작업에 대해 지정된 SAS가 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`이고 지정된 가상 디렉터리 이름이 `mylogblobs`인 경우 로그 위치는 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`입니다.|  
   
-[작업 가져오기](/rest/api/storageservices/importexport/Get-Job3) 작업을 호출하여 오류 및 세부 정보 표시 로그의 URL를 검색할 수 있습니다. 로그는 드라이브의 처리가 완료된 후에 사용할 수 있습니다.  
+[작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업을 호출하여 오류 및 세부 정보 표시 로그의 URL를 검색할 수 있습니다. 로그는 드라이브의 처리가 완료된 후에 사용할 수 있습니다.  
   
 ## <a name="log-file-format"></a>로그 파일 형식  
 두 로그의 형식은 동일합니다. 하드 드라이브와 고객의 계정 간에 Blob을 복사하는 동안 발생하는 이벤트의 XML 설명을 포함하는 Blob입니다.  
@@ -358,10 +359,5 @@ properties-status ::=
 ```
   
 ## <a name="see-also"></a>참고 항목  
-[저장소 Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[저장소 Import/Export REST](/rest/api/storageimportexport/)
 

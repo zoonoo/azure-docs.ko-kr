@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6c2464b2f4d16f70c2841faf18e2246c8125b60f
-ms.openlocfilehash: 9421b8545715def823a4bdafd27c261e159fbbab
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 9742523c0a1743ff5982e746aa3c99aed8934499
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -42,7 +43,7 @@ Service Fabric은 다양한 유형의 비즈니스 응용 프로그램 및 서�
 </a></center>
 
 ## <a name="get-started-and-create-your-first-app"></a>첫 번째 앱 시작하기 및 만들기 
-Service Fabric SDK 및 도구를 사용하여 Windows, Linux 또는 MacOS 환경에서 앱을 개발하고, 개발한 앱을 Windows 또는 Linux 기반 클러스터에 배포할 수 있습니다.  다음 가이드에서는 몇 분 안에 앱을 배포합니다.  첫 번째 응용 프로그램을 실행한 후 일부 [샘플 앱](http://aka.ms/servicefabricsamples)을 다운로드하여 실행합니다.
+Service Fabric SDK 및 도구를 사용하여 Windows, Linux 또는 MacOS 환경에서 앱을 개발하고, 개발한 앱을 Windows 또는 Linux 기반 클러스터에 배포할 수 있습니다.  다음 가이드에서는 몇 분 안에 앱을 배포합니다.  첫 번째 응용 프로그램을 실행한 후 일부 [샘플 앱](http://aka.ms/servicefabricsamples)을 다운로드하여 실행합니다. 특별히 [샘플 시작하기](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)로 시작
 
 ### <a name="on-windows"></a>Windows 
 서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 최초 응용 프로그램을 만들어 개발 컴퓨터에서 실행하는 과정을 안내합니다.
@@ -50,7 +51,9 @@ Service Fabric SDK 및 도구를 사용하여 Windows, Linux 또는 MacOS 환경
 [개발 환경 설정](service-fabric-get-started.md)
 [첫 번째 앱 만들기(C#)](service-fabric-create-your-first-application-in-visual-studio.md)
 
-이 광범위한 [실습 랩](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx)을 통해 포괄적인 Service Fabric 개발 흐름을 익힙니다.  상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행하는 방법을 학습합니다. 
+#### <a name="practical-hands-on-labs"></a>실용적인 실습 랩
+이 광범위한 [실습 랩 파트1](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx)을 통해 포괄적인 Service Fabric 개발 흐름을 익힙니다.  상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행하는 방법을 학습합니다. 그런 다음 상태 저장 서비스를 안내하는 [실습 랩 파트 2](http://aka.ms/sflab2)를 수행합니다.
+
 
 다음 Channel9 비디오에서는 Visual Studio에서 C# 앱을 만드는 과정을 안내합니다.  
 <center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
@@ -91,7 +94,7 @@ Linux 클러스터에서 실행되도록 MacOS X에서 Service Fabric 응용 프
 
 ![서비스 패브릭 응용 프로그램 유형 및 서비스 유형][cluster-imagestore-apptypes]
 
-응용 프로그램 패키지는 응용 프로그램 형식의 ApplicationManifest.xml 파일이 들어 있는 디스크 디렉터리로, 응용 프로그램 형식을 구성하는 각 서비스 형식에 대해 서비스 패키지를 참조합니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 
+응용 프로그램 패키지는 응용 프로그램 형식의 ApplicationManifest.xml 파일이 들어 있는 디스크 디렉터리로, 응용 프로그램 형식을 구성하는 각 서비스 형식에 대해 서비스 패키지를 참조합니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 
 
 서비스 패키지는 서비스 형식의 ServiceManifest.xml 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 서비스 패키지 디렉터리의 파일은 응용 프로그램 형식의 ApplicationManifest.xml 파일에서 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
@@ -138,9 +141,4 @@ Reliable Services의 최상위에 구축되는 [Reliable Actor](service-fabric-r
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

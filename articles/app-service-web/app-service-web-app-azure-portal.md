@@ -4,7 +4,7 @@ description: "앱 서비스 웹에 대한 사용자 환경과 관련해서 관�
 services: app-service
 documentationcenter: 
 author: jaime-espinosa
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 0cc6a3cc-bd89-4a96-9177-d25f6fb737bb
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: jaime-espinosa
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 00617f4d508c843000d69c02464a1bef36320a8e
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -84,10 +85,5 @@ Azure 포털에서는 여러 서비스의 구성 요소로 종단 간 응용 프
 
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

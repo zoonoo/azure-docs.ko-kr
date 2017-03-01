@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 02/15/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
-ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
+ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
+ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -406,14 +407,14 @@ UDF 등록 취소는 단순히 기존 UDF 리소스에 대해 HTTP DELETE를 실
 위 조각에서는 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js)를 통한 등록(POST), 등록 취소(PUT), 읽기/나열(GET) 및 실행(POST)을 보여 주었지만 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 다른 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용할 수도 있습니다. 
 
 ## <a name="documents"></a>문서
-컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. DocumentDB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다.   
+컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. DocumentDB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다. 기본적으로 문서에 대한 최대 크기는 2MB입니다.   
 
 진정한 개방형 데이터베이스 서비스인 DocumentDB는 직렬화된 데이터 형식(예: 날짜/시간) 또는 JSON 문서에 대한 특정 인코딩을 고안하지 않습니다. DocumentDB는 다양한 문서 간의 관계를 분류하기 위한 특별한 JSON 규칙이 필요 없습니다. DocumentDB의 SQL 구문에서 특별한 주석 없이 문서를 쿼리 및 프로젝션하는 강력한 계층적 관계형 쿼리 연산자를 제공하거나 고유 속성을 사용하여 문서 간의 관계를 분류해야 합니다.  
 
 다른 모든 리소스와 마찬가지로, REST API 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 문서를 쉽게 만들고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. 문서를 삭제하면 중첩된 모든 첨부 파일에 해당하는 할당량이 즉시 해제됩니다. 문서의 읽기 일관성 수준은 데이터베이스 계정의 일관성 정책을 따릅니다. 응용 프로그램의 데이터 일관성 요구 사항에 따라 요청 단위로 이 정책을 재정의할 수 있습니다. 문서를 쿼리할 때 읽기 일관성은 컬렉션에 설정된 인덱싱 모드를 따릅니다. "일관성"의 경우 계정의 일관성 정책을 따릅니다. 
 
 ## <a name="attachments-and-media"></a>첨부 파일 및 미디어
-DocumentDB는 DocumentDB에 포함 또는 원격 미디어 스토어에 이진 Blob/미디어를 저장하도록 허용합니다. 또한 첨부 파일이라는 특수 문서 측면에서 미디어의 메타데이터를 나타낼 수 있습니다. DocumentDB의 첨부 파일은 다른 곳에 저장된 미디어/blob을 참조하는 특수(JSON) 문서입니다. 첨부 파일은 단순히 원격 미디어 저장소에 저장된 미디어의 메타데이터(예: 위치, 작성자 등)를 캡처하는 특수 문서입니다. 
+DocumentDB를 사용하면 DocumentDB(계정 당 최대 2GB) 또는 원격 미디어 스토어에 이진 Blob/미디어를 저장할 수 있습니다. 또한 첨부 파일이라는 특수 문서 측면에서 미디어의 메타데이터를 나타낼 수 있습니다. DocumentDB의 첨부 파일은 다른 곳에 저장된 미디어/blob을 참조하는 특수(JSON) 문서입니다. 첨부 파일은 단순히 원격 미디어 저장소에 저장된 미디어의 메타데이터(예: 위치, 작성자 등)를 캡처하는 특수 문서입니다. 
 
 DocumentDB를 사용하여 잉크 주석과 설명, 강조, 책갈피, 등급, 좋아요/싫어요 등 지정된 사용자의 전자책에 대해 연결된 메타데이터를 저장하는 특수 읽기 응용 프로그램을 고려해 보세요.   
 
@@ -460,10 +461,5 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

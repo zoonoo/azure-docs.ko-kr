@@ -4,7 +4,7 @@ description: "Python Tools for Visual Studio를 사용하여 Azure 테이블 저
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f075124b-db79-4e51-b394-09187dd6c634
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4aa0e4d036b7031e51abc6ac53872db64c2f90b4
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -190,9 +191,4 @@ Python Tools for Visual Studio, Bottle 및 Azure 테이블 저장소에 대해 �
 [클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 683ff9f9a829468d9852ce7e9699c766cab53f8b
-ms.openlocfilehash: 163f9f19dfed86e1280135b653086e018f85592b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: a0f47a19f7ef1832e64e9a0bdc4bda3434f77aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Azure 배치 서비스에 대한 할당량 및 제한
+# <a name="batch-service-quotas-and-limits"></a>배치 서비스 할당량 및 제한
+
 다른 Azure 서비스와 마찬가지로 배치 서비스와 관련하여 특정 리소스에 대한 제한이 있습니다. 이러한 제한 대부분은 Azure 구독 또는 계정 수준에서 적용되는 기본 할당량입니다. 이 문서는 그러한 기본값을 설명하고 할당량 증가를 요청하는 방법을 설명합니다.
 
 배치에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기본값의 할당량 중 두 개 이상을 늘려야 할 수 있습니다. 할당량을 늘리려면 무료 온라인 [고객지원 요청](#increase-a-quota) 을 개설합니다.
@@ -95,9 +98,4 @@ ms.openlocfilehash: 163f9f19dfed86e1280135b653086e018f85592b
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

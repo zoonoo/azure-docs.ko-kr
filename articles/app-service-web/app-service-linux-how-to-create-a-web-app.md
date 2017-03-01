@@ -5,7 +5,7 @@ keywords: "azure app service, 웹앱, linux, oss"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3a71d10a-a0fe-4d28-af95-03b2860057d5
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
-ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 19a42a8dc9a4026d93c10dd209e84d4e14b8f00a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 ![응용 프로그램 설정][3]
 
 ## <a name="deploy-your-web-app"></a>웹앱 배포
-관리 포털에서 **배포 옵션**을 선택하면 로컬 Git 또는 GitHub 리포지토리를 사용하여 응용 프로그램을 배포하기 위한 옵션이 제공됩니다. 나머지 지침은 비 Linux 웹앱에 대한 내용과 비슷하며 [로컬 Git 배포](app-service-deploy-local-git.md) 또는 GitHub용 [지속적인 배포](app-service-continuous-deployment.md) 문서의 지침을 따를 수도 있습니다.
+관리 포털에서 **배포 옵션**을 선택하면 로컬 Git 또는 GitHub 리포지토리를 사용하여 응용 프로그램을 배포하기 위한 옵션이 제공됩니다. 나머지 설명은 비 Linux 웹앱과 유사합니다. [로컬 Git 배포](app-service-deploy-local-git.md) 또는 [연속 배포](app-service-continuous-deployment.md)의 지침에 따라 앱을 배포할 수 있습니다.
 
 또한 FTP를 사용하여 사이트에 응용 프로그램을 업로드할 수도 있습니다. 다음 그림에 나와 있는 것처럼 진단 로그 섹션에서 웹앱에 대한 FTP 끝점을 가져올 수 있습니다.
 
@@ -50,15 +51,12 @@ ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 ## <a name="next-steps"></a>다음 단계
 * [Linux의 App Service란?](app-service-linux-intro.md)
 * [Linux의 웹앱에 있는 Node.js용 PM2 구성 사용](app-service-linux-using-nodejs-pm2.md)
+* [Linux의 Azure App Service Web Apps에서 Ruby 사용](app-service-linux-using-ruby.md)
+* [Linux의 Azure App Service Web Apps에 대한 FAQ](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png
 [2]: ./media/app-service-linux-how-to-create-a-web-app/create-blade.png
 [3]: ./media/app-service-linux-how-to-create-a-web-app/application-settings-change-stack.png
 [4]: ./media/app-service-linux-how-to-create-a-web-app/diagnostic-logs-ftp.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

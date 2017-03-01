@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI를 사용하여 가상 네트워크 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 가상 네트워크를 만드는 방법 알아보기 | Resource Manager."
+title: "Azure CLI 2.0을 사용하여 가상 네트워크 만들기 | Microsoft Docs"
+description: "Azure CLI 2.0을 사용하여 가상 네트워크를 만드는 방법 알아보기 | Resource Manager."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
+ms.sourcegitcommit: 617ac4672b24d339c5d4c0b671de7fb19cd9af91
+ms.openlocfilehash: 3cbb679048a0cc1121b221bda8fc1e3df0e307c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,8 +27,14 @@ ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모델이 있습니다. Resource Manager 배포 모델을 통해 리소스를 만드는 것이 좋습니다. 두 가지 모델의 차이점에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md) 문서를 참조하세요.
+
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
+- [Azure CLI 2.0(미리 보기)](#create-a-virtual-network) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
  
-이 문서는 Azure 명령줄 인터페이스(CLI)를 사용하여 Resource Manager 배포 모델을 통해 VNet을 만드는 방법을 설명합니다. 다른 도구를 사용하여 Resource Manager를 통해 VNet을 만들거나 다음 목록에서 다른 옵션을 선택하여 클래식 배포 모델을 통해 VNet을 만들 수도 있습니다.
+    다른 도구를 사용하여 Resource Manager를 통해 VNet을 만들거나 다음 목록에서 다른 옵션을 선택하여 클래식 배포 모델을 통해 VNet을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 - [포털](virtual-networks-create-vnet-arm-pportal.md)
@@ -40,81 +47,149 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
+
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-Azure CLI를 사용하여 가상 네트워크를 만들려면 다음 단계를 완료하세요.
+Azure CLI 2.0을 사용하여 가상 네트워크를 만들려면 다음 단계를 완료하세요.
 
-1. [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서에 나오는 단계에 따라 Azure CLI를 설치 및 구성합니다.
+1. 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
 
-2. VNet 및 서브넷을 만들려면 다음 명령을 실행합니다.
+2. `--name` 및 `--location` 인수를 포함한 [az group create](/cli/azure/group#create) 명령을 사용하여 VNet에 대한 리소스 그룹을 만듭니다.
 
     ```azurecli
-    azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
+    az group create --name myVNet --location centralus
+    ```
+
+3. VNet 및 서브넷을 만듭니다.
+
+    ```azurecli
+    az network vnet create \
+        --name TestVNet \
+        --resource-group myVNet \
+        --location centralus \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name FrontEnd \
+        --subnet-prefix 192.168.1.0/24
     ```
 
     예상 출력:
    
-            info:    Executing command network vnet create
-            + Looking up network configuration
-            + Looking up locations
-            + Setting network configuration
-            info:    network vnet create command OK
+    ```json
+    {
+        "newVNet": {
+            "addressSpace": {
+            "addressPrefixes": [
+                "192.168.0.0/16"
+            ]
+            },
+            "dhcpOptions": {
+            "dnsServers": []
+            },
+            "provisioningState": "Succeeded",
+            "resourceGuid": "<guid>",
+            "subnets": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                "name": "FrontEnd",
+                "properties": {
+                "addressPrefix": "192.168.1.0/24",
+                "provisioningState": "Succeeded"
+                },
+                "resourceGroup": "myVNet"
+            }
+            ]
+        }
+    }
+    ```
 
     사용된 매개 변수:
 
-   * **--vnet**. 만들 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*
-   * **-e(또는 --address-space)**. VNet 주소 공간입니다. 이 시나리오에서는 *192.168.0.0*
-   * **-i(또는 -cidr)**. CIDR 형식의 네트워크 마스크입니다. 이 시나리오에서는 *16*입니다.
-   * **-n(또는 --subnet-name**). 첫 번째 서브넷의 이름입니다. 이 시나리오에서는 *FrontEnd*입니다.
-   * **-p(또는 --subnet-start-ip)**. 서브넷 또는 서브넷 주소 공간의 시작 IP 주소입니다. 이 시나리오에서는 *192.168.1.0*입니다.
-   * **-r(또는 --subnet-cidr)**. 서브넷에 대한 CIDR 형식의 네트워크 마스크입니다. 이 시나리오에서는 *24*입니다.
-   * **-l(또는 --location)**. VNet을 만들 Azure 지역입니다. 이 시나리오에서는 *Central US*입니다.
-3. 다음 명령을 실행하여 서브넷을 만듭니다.
+    - `--name TestVNet`: 만들 VNet의 이름입니다.
+    - `--resource-group myVNet`: # 리소스를 제어하는 리소스 그룹 이름입니다. 
+    - `--location centralus`: 배포할 위치입니다.
+    - `--address-prefix 192.168.0.0/16`: 주소 접두사와 블록입니다.  
+    - `--subnet-name FrontEnd`: 서브넷의 이름입니다.
+    - `--subnet-prefix 192.168.1.0/24`: 주소 접두사와 블록입니다.
+
+    다음 명령에서 사용할 기본 정보를 나열하려면 [쿼리 필터](/cli/azure/query-az-cli2)를 사용하여 VNet을 쿼리할 수 있습니다.
 
     ```azurecli
-    azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
+    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
+    ```
+
+    다음과 같은 출력을 생성합니다.
+
+        Where      Name      Group
+        ---------  --------  -------
+        centralus  TestVNet  myVNet
+
+4. 서브넷을 만듭니다.
+
+    ```azurecli
+    az network vnet subnet create \
+        --address-prefix 192.168.2.0/24 \
+        --name BackEnd \
+        --resource-group myVNet \
+        --vnet-name TestVNet
     ```
    
     예상 출력:
 
-            info:    Executing command network vnet subnet create
-            + Looking up network configuration
-            + Creating subnet "BackEnd"
-            + Setting network configuration
-            + Looking up the subnet "BackEnd"
-            + Looking up network configuration
-            data:    Name                            : BackEnd
-            data:    Address prefix                  : 192.168.2.0/24
-            info:    network vnet subnet create command OK
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid> \"",
+    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "ipConfigurations": null,
+    "name": "BackEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myVNet",
+    "resourceNavigationLinks": null,
+    "routeTable": null
+    }
+    ```
 
     사용된 매개 변수:
 
-   * **-t(또는 --vnet-name)**. 서브넷이 만들어지는 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
-   * **-n(또는 --name)**. 새 서브넷의 이름입니다. 이 시나리오에서는 *BackEnd*입니다.
-   * **-a(또는 --address-prefix)**. 서브넷 CIDR 블록입니다. 이 시나리오에서는 *192.168.2.0/24*입니다.
-4. 새 VNet의 속성을 보려면 다음 명령을 실행합니다.
+    - `--address-prefix 192.168.2.0/24`: 서브넷 CIDR 블록입니다.
+    - `--name BackEnd`: 새 서브넷의 이름입니다.
+    - `--resource-group myVNet`: 리소스 그룹입니다.
+    - `--vnet-name TestVNet`: 소유한 VNet의 이름입니다.
+
+5. 새 VNet의 속성을 쿼리합니다.
 
     ```azurecli
-    azure network vnet show
+    az network vnet show \
+    -g myVNET \
+    -n TestVNet \
+    --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
+    -o table
     ```
    
     예상 출력:
    
-            info:    Executing command network vnet show
-            Virtual network name: TestVNet
-            + Looking up the virtual network sites
-            data:    Name                            : TestVNet
-            data:    Location                        : Central US
-            data:    State                           : Created
-            data:    Address space                   : 192.168.0.0/16
-            data:    Subnets:
-            data:      Name                          : FrontEnd
-            data:      Address prefix                : 192.168.1.0/24
-            data:
-            data:      Name                          : BackEnd
-            data:      Address prefix                : 192.168.2.0/24
-            data:
-            info:    network vnet show command OK
+        Name      Where      Group    Status       SubnetCount
+        --------  ---------  -------  ---------  -------------
+        TestVNet  centralus  myVNet   Succeeded              2
+
+6. 서브넷의 속성을 쿼리합니다.
+
+    ```azurecli
+    az network vnet subnet list \
+    -g myvnet \
+    --vnet-name testvnet \
+    --query '[].{Name:name,CIDR:addressPrefix,Status:provisioningState}' \
+    -o table
+    ```
+
+    예상 출력:
+
+        Name      CIDR            Status
+        --------  --------------  ---------
+        FrontEnd  192.168.1.0/24  Succeeded
+        BackEnd   192.168.2.0/24  Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -122,9 +197,4 @@ Azure CLI를 사용하여 가상 네트워크를 만들려면 다음 단계를 �
 
 - 가상 컴퓨터(VM)에서 가상 네트워크 연결은 [Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md) 문서를 참조하세요. 해당 문서의 단계에서 VNet 및 서브넷을 만드는 대신 기존 VNet 및 서브넷을 VM에 연결하도록 선택할 수 있습니다.
 - 가상 네트워크에서 다른 가상 네트워크 연결은 [VNet 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 문서를 참조하세요.
-- 가상 네트워크에서 온-프레미스 네트워크 연결은 사이트 간 VPN(가상 사설망) 또는 ExpressRoute 회로를 사용합니다. 자세한 내용은 [사이트 간 VPN을 사용하여 VNet을 온-프레미스 네트워크에 연결](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) 및 [VNet을 ExpressRoute 회선에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) 문서를 참조하세요.
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+- 가상 네트워크에서 온-프레미스 네트워크 연결은 사이트 간 VPN(가상 사설망) 또는 ExpressRoute 회로를 사용합니다. 자세한 내용은 [사이트 간 VPN을 사용하여 VNet을 온-프레미스 네트워크에 연결](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) 및 [VNet을 ExpressRoute 회선에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)을 참조하세요.

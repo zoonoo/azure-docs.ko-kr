@@ -17,8 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
-ms.openlocfilehash: b6b9540f4120ef87d819605579df4ab0c9657e45
+ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
+ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -248,14 +249,7 @@ RDP를 통해 VM에 연결하려고 할 때 특정 오류 메시지가 나타날
 
 ## <a name="additional-resources"></a>추가 리소스
 이러한 오류가 발생하지 않았는데도 여전히 원격 데스크톱을 통해 VM에 연결할 수 없는 경우 [원격 데스크톱에 대한 자세한 문제 해결 가이드](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어보세요.
-
-* [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * VM에서 실행 중인 응용 프로그램에 액세스하는 문제 해결 단계는 [Azure VM에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 * SSH(Secure Shell)를 사용하여 Azur에서 Linux VM에 연결하는 데 문제가 있는 경우 [Azure에서 Linux VM에 SSH 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

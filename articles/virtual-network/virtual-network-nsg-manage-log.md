@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
-ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
+ms.sourcegitcommit: e657e901900b4879d649ac82d8de026957a409c2
+ms.openlocfilehash: 36a872e3e5bd3230dcfe2abdab9b4dbf25212cdb
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,7 +32,14 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 > [!NOTE]
 > 진단 로그는 Azure Resource Manager 배포 모델을 통해 배포된 NSG에 대해서만 사용할 수 있습니다. 클래식 배포 모델을 통해 배포된 NSG에 대해 진단 로깅을 사용할 수 없습니다. 두 모델의 이해를 돕기 위해 [Azure 배포 모델 이해](../resource-manager-deployment-model.md) 문서를 참조하세요.
 
-활동 로깅(이전의 감사 또는 작업 로그)은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그에 있는 NSG의 완료된 작업을 확인하려면 Microsoft.ClassicNetwork/networkSecurityGroups, Microsoft.ClassicNetwork/networkSecurityGroups/securityRules, Microsoft.Network/networkSecurityGroups 및 Microsoft.Network/networkSecurityGroups/securityRules와 같은 리소스 유형을 포함하는 항목을 찾습니다. 활동 로그에 대한 자세한 내용을 보려면 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) 문서를 확인합니다. 
+활동 로깅(이전의 감사 또는 작업 로그)은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다. 
+
+- Microsoft.ClassicNetwork/networkSecurityGroups 
+- Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+- Microsoft.Network/networkSecurityGroups
+- Microsoft.Network/networkSecurityGroups/securityRules 
+
+활동 로그에 대한 자세한 내용을 보려면 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) 문서를 확인합니다. 
 
 ## <a name="enable-diagnostic-logging"></a>진단 로깅 사용
 
@@ -116,9 +124,4 @@ JSON 형식 데이터는 두 로그에 기록됩니다. 각 로그 형식에 대
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
 활동 로그 데이터를 보는 방법을 알아보려면 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 확인합니다. 진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 확인합니다. Log Analytics에 진단 데이터를 보내는 경우 향상된 통찰력을 위해 [Azure 네트워크 보안 그룹 분석](../log-analytics/log-analytics-azure-networking-analytics.md)(미리 보기) 관리 솔루션을 사용할 수 있습니다. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

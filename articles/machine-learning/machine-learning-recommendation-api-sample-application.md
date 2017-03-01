@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26c492ebdb40bef23247487c2f3015ecd9314cb6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: 9afbae9b7c24c72cbb2ef64e693f7a317dc81a46
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="recommendations-api-sample-application-walkthrough"></a>권장 사항 API 응용 프로그램 예제 연습
 > [!NOTE]
 > 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다.
->  [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)
+> [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -61,7 +62,7 @@ ms.openlocfilehash: 26c492ebdb40bef23247487c2f3015ecd9314cb6
 일반적으로 특정 기간에 대해 Get Recommendation을 호출합니다. 해당 기간 동안 사용 현황 데이터를 기계 학습 권장 시스템으로 리디렉션할 수 있으며, 이 경우 지정된 모델 컨테이너에 이 데이터가 추가됩니다. 사용 현황 데이터가 충분히 모였으면 추가 사용 현황 데이터를 통합하는 새 권장 사항 모델을 빌드할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-* Visual Studio 2013
+* Visual Studio 2013 이상
 * 인터넷 액세스 
 * 권장 사항 API에 대한 구독입니다(https://datamarket.azure.com/dataset/amla/recommendations).
 
@@ -90,10 +91,5 @@ API에 대한 자세한 내용은 Microsoft Azure 마켓플레이스 설명서�
 
 ## <a name="disclaimer"></a>고지 사항
 샘플 앱은 프로덕션 환경에서 실행할 수 없습니다. 카탈로그에 제공되는 데이터가 매우 작기 때문에 의미 있는 권장 사항 모델을 제공하지 않습니다. 제공되는 데이터는 시연용입니다. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

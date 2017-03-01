@@ -12,24 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/23/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c28d84bf59c161cfe6a80062f13f10f44bf43f34
-ms.openlocfilehash: 09261f739d2cd3976f68c499d0e83fe25beef0b8
+ms.sourcegitcommit: b40ae90ea313638cbd0b60792dc4803d3d08aa0a
+ms.openlocfilehash: 03c1442daf07f57476af64491229f1f38f6ffeff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 Azure Active Directory(Azure AD)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다.
 
-Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Office365, Salesforce.com, DropBox, Concur와 같은 [수천 개의 SaaS 응용 프로그램 클라우드](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx) 에 대한 SSO(Single Sign-On) 액세스 권한을 부여하는 사용하기 편리한 솔루션을 제공합니다.
+Azure AD는 IT 관리자를 위해 직원 및 비즈니스 파트너에게 Office365, Salesforce.com, DropBox, Concur와 같은 [수천 개의 SaaS 응용 프로그램 클라우드](active-directory-saas-tutorial-list.md) 에 대한 SSO(Single Sign-On) 액세스 권한을 부여하는 사용하기 편리한 솔루션을 제공합니다.
 
 응용 프로그램 개발자는 Azure AD를 사용하여, 전 세계 수백 만 조직에서 사용하는 ID 관리 솔루션과 빠르고 쉽게 통합함으로써, 응용 프로그램을 구축하는 데 집중할 수 있습니다.
 
 Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사 및 보안 모니터링 및 경고를 포함하는 완전한 ID 관리 기능이 포함되어 있습니다. 이러한 기능을 통해 클라우드 기반 응용 프로그램을 보호하고, IT 프로세스를 간소화하고, 비용을 절감하고, 회사의 규정 준수 목표를 충족할 수 있도록 합니다.
 
-또한 [네 번 클릭](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)만으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존에 투자된 온-프레미스 ID를 활용할 수 있고, 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
+또한 [네 번 클릭](./connect/active-directory-aadconnect-get-started-express.md)만으로 Azure AD를 기존 Windows Server Active Directory와 통합하여 기존에 투자된 온-프레미스 ID를 활용할 수 있고, 클라우드를 기반으로 하는 SaaS 응용 프로그램에 대한 액세스를 관리하는 기능을 조직에 제공할 수 있습니다.
 
 Office365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를 사용하고 있다는 것을 알지 못할 수도 있습니다. 모든 Office365, Azure 및 Dynamics CRM 테넌트는 실제로 이미 Azure AD 테넌트입니다. 따라서 언제든 해당 Azure AD 테넌트를 사용하여 Azure AD와 수천개의 클라우드 응용 프로그램을 통합할 수 있으며 이에 대한 액세스를 관리할 수 있습니다.
 
@@ -58,86 +59,6 @@ Azure AD(Azure Active Directory)와 온-프레미스 Active Directory(Active Dir
 AD DS는 Windows Server의 서버 역할로, 물리적 컴퓨터 또는 가상 컴퓨터에 배포할 수 있습니다. 또한 X.500 기반 계층 구조를 갖습니다. DNS를 사용하여 개체를 찾고, LDAP를 사용하여 상호 작용할 수 있으며 인증에는 Kerberos를 주로 사용합니다. Active Directory에서는 컴퓨터가 도메인에 가입될 수 있을 뿐 아니라 OU(조직 구성 단위) 및 GPO(그룹 정책 개체)를 사용할 수 있으며 도메인 간에 트러스트가 형성됩니다.
 
 Azure AD는 다중 고객 공용 디렉터리 서비스이므로, Azure AD 내에서 클라우드 서버 및 응용 프로그램에 대해 Office 365와 같은 테넌트를 만들 수 있습니다. 사용자 및 그룹은 OU나 GPO 없는 플랫 구조로 만들어집니다. 인증은 SAML, WS-Federation 및 OAuth와 같은 프로토콜을 통해 수행됩니다. Azure AD를 쿼리할 수 있지만 대신 LDAP를 사용하여 AD Graph API라고 하는 REST API를 사용해야 합니다. 이러한 모든 기능은 HTTP 및 HTTPS를 통해 작동합니다.
-
-Azure AD Connect를 사용하여 온-프레미스 ID를 Azure AD와 동기화할 수 있습니다.
-
----
-
-### <a name="authentication-and-authorization-details"></a>인증 및 권한 부여 정보
-
-#### <a name="azure-ad"></a>Azure AD
-`SAML`, `WS-Federation`, 지원되는 자격 증명을 사용한 대화형, OAuth 2.0, OpenID Connect 
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-`SAML``WS-Federation`, NTLM, Kerberos, MD5, 기본
-
----
-
-### <a name="object-repository-details"></a>개체 리포지토리 세부 정보
-
-#### <a name="azure-ad"></a>Azure AD
-Azure AD Graph 및 Microsoft Graph를 통한 액세스 
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-X.500 LDAP  
-
----
-
-
-### <a name="programmatic-access-details"></a>프로그래밍 방식 액세스 세부 정보
-
-#### <a name="azure-ad"></a>Azure AD
-MS/Azure AD Graph REST API 
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-LDAP 
-
----
-
-### <a name="sso-to-applications-details"></a>SSO-응용 프로그램 세부 정보
-
-#### <a name="azure-ad"></a>Azure AD
-`OpenID Connect`, `SAML` 
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-`Open-ID Connect`, `SAML`, WS-Fed 
-
----
-
-### <a name="access-management-details"></a>액세스 관리 세부 정보
-
-#### <a name="azure-ad"></a>Azure AD
-리소스 정의 범위 및 역할 기반 액세스 제어, 클라이언트 정의 위임 및 응용 프로그램 사용 권한, 승인 프레임워크(리소스/클라이언트에서 정의/요청된 대로 적절한 사용자/관리자 승인 적용) 
-
-앱 역할을 통해, 개별적으로 또는 그룹을 통해 적용 가능, 지원 기능: 관리자 관리, 셀프 서비스 응용 프로그램 액세스, 사용자 동의
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-ACL을 통해, 개별적으로 또는 그룹을 통해 적용 가능, 지원 기능: 관리자 관리 
-
----
-
-### <a name="group-management-details"></a>그룹 관리 세부 정보
-
-#### <a name="azure-ad"></a>Azure AD
-`Admin managed`, 규칙/동적 관리, 셀프 서비스 그룹 관리 
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-`Admin managed`, 다음을 위한 외부 시스템(FIM 또는 기타) 필요| 규칙/동적 관리
-
----
-
-### <a name="supported-credentials-details"></a>지원되는 자격 증명 세부 정보
-
-#### <a name="azure-ad"></a>Azure AD
-`Username + password`, `Smartcard` 
-
-#### <a name="on-premises-ad-ds"></a>온-프레미스 AD DS
-`Username + password`, `Smartcard` 
- 
----
-
-
-
 
 
 
@@ -170,9 +91,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 * [Microsoft Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

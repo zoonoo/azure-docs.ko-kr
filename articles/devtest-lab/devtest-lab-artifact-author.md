@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
+ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -75,7 +76,7 @@ ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
 | type |예 |매개 변수 값의 형식입니다. 허용되는 형식은 아래 목록을 참조하세요. |
-| displayName 예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. | |
+| displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. | |
 | 설명 |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
@@ -129,10 +130,5 @@ ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
 
 ## <a name="next-steps"></a>다음 단계
 * [랩에 Git 아티팩트 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

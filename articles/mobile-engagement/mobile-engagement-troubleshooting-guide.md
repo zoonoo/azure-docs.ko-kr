@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement용 문제 해결 가이드"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -114,10 +115,5 @@ ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
    * 장치 ID
    * 모바일 고객 관리 SDK 버전(예: Android SDK v2.1.0)
    * 정확한 오류 메시지 및 시나리오가 있는 오류 세부 정보
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

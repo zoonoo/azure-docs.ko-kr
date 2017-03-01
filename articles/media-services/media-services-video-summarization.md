@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
+ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -26,7 +27,11 @@ ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
 
 **Azure 미디어 비디오 미리 보기** MP는 현재 미리 보기 상태입니다.
 
-이 토픽에서는 **Azure Media Video Thumbnails**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
+이 항목에서는 **Azure Media Video Thumbnails**에 대한 세부 정보 및 .NET용 Media Services SDK와 함께 사용하는 방법을 보여줍니다.
+
+## <a name="limitations"></a>제한 사항
+
+여러 장면으로 구성되지 않은 비디오의 경우 하나의 장면만 출력됩니다.
 
 ## <a name="video-summary-example"></a>비디오 요약 예제
 Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 수 있는 작업의 몇 가지 예는 다음과 같습니다.
@@ -55,7 +60,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 |  |  |  |
 | --- | --- | --- | --- | --- |
 | 비디오 지속 시간 |d < 3분 |3분 < d < 15분 |
-| 미리 보기 지속 시간 |15초(장면 2~3개) |30초(장면 3~5개) |
+| 미리 보기 지속 시간 |15초(장면&2;~3개) |30초(장면&3;~5개) |
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
 
@@ -262,10 +267,5 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

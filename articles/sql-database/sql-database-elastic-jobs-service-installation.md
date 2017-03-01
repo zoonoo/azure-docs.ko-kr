@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
+ms.sourcegitcommit: 6489f013f72a8d283ad5c0723d0a46ea4e66a2d9
+ms.openlocfilehash: f4fa7b12afe0002d5b7e5267c8f670cae8d253da
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -41,17 +42,21 @@ ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 3. cd tools를 입력하여 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x 폴더 아래의 tools 하위 디렉터리로 이동합니다. 예를 들면 다음과 같습니다.
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
 4. .\InstallElasticDatabaseJobsCmdlets.ps1 스크립트를 실행하여 ElasticDatabaseJobs 디렉터리를 $Home\Documents\WindowsPowerShell\Modules에 복사합니다. 그러면 사용할 모듈도 자동으로 가져옵니다. 예를 들면 다음과 같습니다.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools > Unblock-file.\UninstallElasticDatabaseJobs.ps1 PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools >.\UninstallElasticDatabaseJobs.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>PowerShell을 사용하여 탄력적 데이터베이스 작업 구성 요소 설치
 1. Microsoft Azure PowerShell 명령 창을 시작하고 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x 폴더 아래의 \tools 하위 디렉터리로 이동합니다. cd \tools를 입력합니다.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > cd 도구
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
 2. .\InstallElasticDatabaseJobs.ps1 PowerShell 스크립트를 실행하고 요청된 변수에 대한 값을 제공합니다. 이 스크립트는 [탄력적 데이터베이스 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing) 에 설명된 구성 요소를 만들고 종속 구성 요소를 적절하게 사용하도록 Azure 클라우드 서비스를 구성합니다.
-   
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
+
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 이 명령을 실행하면 **사용자 이름**과 **암호**를 묻는 창이 열립니다. 이는 Azure 자격 증명이 아니며, 새 서버에 만들려는 관리자 자격 증명이 될 사용자 이름과 암호를 입력해야 합니다.
 
@@ -178,9 +183,4 @@ ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: squillace
 translationtype: Human Translation
-ms.sourcegitcommit: 4d2bd4bbcaf889ee25cc4567772384b167166c10
-ms.openlocfilehash: 736f30768da968f8e1d39ff94fe9de66cc219321
+ms.sourcegitcommit: 50f3c56daaa28b1f28e201ec0502a91804313e5f
+ms.openlocfilehash: 111a80548982a1dab529d9dd6fb46eb759b7f908
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -80,6 +81,8 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 업데이트되고 Azure 런타임에 대해 최적화되도록 합니다.  파트너에 대한 자세한 내용은 아래의 해당 마켓플레이스 페이지를 확인하세요.
 
 Azure의 Linux - [보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+SUSE- [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
 
 Redhat - [Azure 마켓플레이스 - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 
@@ -151,9 +154,4 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 
 * [포털을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

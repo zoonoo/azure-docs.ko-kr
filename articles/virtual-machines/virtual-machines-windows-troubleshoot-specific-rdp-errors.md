@@ -17,8 +17,9 @@ ms.topic: support-article
 ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 5398d262bf1f54c40663d6ee76e8dfb48aa3226b
+ms.sourcegitcommit: 3a4516d267dbedc6fc0a4afda93e052d9798434a
+ms.openlocfilehash: cf1d80f52ac61845083e9c28c0ad3e88a029fc4f
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -107,13 +108,7 @@ VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 �
 ## <a name="next-steps"></a>다음 단계
 이러한 오류가 발생하지 않고 RDP를 사용한 연결에 대해 알려지지 않은 문제가 있는 경우 [원격 데스크톱에 대한 자세한 문제 해결 가이드](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-* [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * VM에서 실행 중인 응용 프로그램에 액세스하는 문제 해결 단계는 [Azure VM에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 * SSH(Secure Shell)를 사용하여 Azur에서 Linux VM에 연결하는 데 문제가 있는 경우 [Azure에서 Linux VM에 SSH 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -18,6 +18,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 92c0892128655141f29380890c31451e62ca8853
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -746,10 +747,5 @@ Contact: 연락처
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

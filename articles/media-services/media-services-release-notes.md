@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
-ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
+ms.sourcegitcommit: 83881cda043fc9f1ef48281e8160a882c1f9bced
+ms.openlocfilehash: 5aa7353e681a16d2032fecaf8a2de50e241ac4ad
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 | 문제 | 설명 |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 미디어 서비스 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
-| 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다. |
+| 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다. |
 | Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다. |미디어 서비스에서는 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다. |
 | 미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다. |자세한 내용은 [Azure 미디어 서비스 오류 코드](media-services-encoding-error-codes.md) 항목의 503 HTTP 상태 코드 설명을 참조하세요. |
 | 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. |[이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. |
@@ -103,6 +104,12 @@ Azure 미디어 서비스는 강력한 비디오 인텔리전스를 위한 Azure
 기본, 표준 및 프리미엄 인코딩 예약 단위의 이름이 S1, S2 및 S3 예약 단위로 각각 바뀌었습니다.  현재 기본 인코딩 RU를 사용하는 고객에게는 Azure 포털(및 청구서)에서 S1이 레이블로 표시되고 표준 및 프리미엄 고객에게는 S2 및 S3이 각각 레이블로 표시됩니다. 
 
 ## <a name="a-iddecchanges15adecember-2015-release"></a><a id="dec_changes_15"></a>2015년 12월 릴리스
+
+### <a name="azure-media-encoder-deprecation-announcement"></a>Azure Media Encoder 사용 중단 알림
+
+Azure Media Encoder는 12개월 내에 사용되지 않습니다. [Media Encoder Standard](media-services-media-encoder-standard-formats.md) 인코더를 사용하기 시작하세요.
+
+### <a name="azure-sdk-for-php"></a>PHP용 Azure SDK
 Azure SDK 팀은 Microsoft Azure 미디어 서비스에 대한 업데이트 및 새 기능을 포함하는 [PHP용 Azure SDK](http://github.com/Azure/azure-sdk-for-php) 패키지의 새 릴리스를 게시합니다. 특히, PHP용 Azure 미디어 서비스 SDK는 현재 최신 [콘텐츠 보호](media-services-content-protection-overview.md) 기능(토큰 제한을 사용하거나 사용하지 않는 AES 및 DRM(PlayReady 및 Widevine)을 사용하는 동적 암호화)을 지원합니다. 또한 [인코딩 단위](media-services-dotnet-encoding-units.md)크기 조정을 지원합니다.
 
 자세한 내용은 다음을 참조하세요.
@@ -535,10 +542,5 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [여러 저장소 계정에서 미디어 서비스 자산 관리]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 API 앱에 대해 제공하는 인증 �
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -108,10 +109,5 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 시작 시리즈의 다음 자습서는 [앱 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 보여 줍니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

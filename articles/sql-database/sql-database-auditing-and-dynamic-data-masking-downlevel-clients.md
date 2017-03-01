@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: d225a6156ea3672ed214f8308d7e944e6ff08576
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database - 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경
-[SQL Database 테이블 감사](sql-database-auditing-get-started.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 자동으로 작동합니다. BLOB 감사 메서드를 사용하는 경우에는 해당 리디렉션이 적용되지 않습니다.
+[데이터베이스 감사](sql-database-auditing.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 자동으로 작동합니다. BLOB 감사 메서드를 사용하는 경우에는 해당 리디렉션이 적용되지 않습니다.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>하위 클라이언트 지원
 TDS 7.4를 구현하는 모든 클라이언트는 리디렉션도 지원해야 합니다. 이에 대한 예외에는 리디렉션 기능이 완전히 지원되지 않는 JDBC 4.0 및 리디렉션이 구현되지 않은 Node.JS용 Tedious가 포함됩니다.
@@ -77,9 +78,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 캐나다 동부 |40.86.227.82, 40.86.225.194 |
 | 영국 북부 |13.87.101.18, 13.87.100.232 |
 | 영국 남부 2 |13.87.32.202, 13.87.32.226 |
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

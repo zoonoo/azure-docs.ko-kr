@@ -4,7 +4,7 @@ description: "앱 서비스 환경으로의 인바운드 트래픽을 제어하�
 services: app-service
 documentationcenter: 
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: stefsch
 translationtype: Human Translation
 ms.sourcegitcommit: e7a9192a44b590335e479df143c13709c4dfa016
 ms.openlocfilehash: d3acf5352302528cdf3502e166337cbe808e71c8
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -138,10 +139,5 @@ Azure App Service 플랫폼에 대한 자세한 내용은 [Azure App Service][Az
 [NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

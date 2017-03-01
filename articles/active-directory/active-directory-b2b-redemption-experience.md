@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,9 +33,7 @@ ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
 ## <a name="social-id-user-first-time-redemption"></a>소셜 ID 사용자의 최초 상환
 Azure AD B2B 공동 작업을 사용하면 어떤 전자 메일 주소로도 쉽게 상환을 수행할 수 있습니다. Microsoft 이외 전자 메일 주소를 B2B 공동 작업에 사용하는 상환 환경을 살펴보겠습니다. 이러한 환경은 상환 시에 계정을 만들어야 할 수 있으므로 상환 흐름에 좀 더 적합합니다. 다음 비디오에서 확인해보세요.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
-
-이 비디오가 포함된 비디오로 표시되지 않는 경우 [여기](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group)에서 확인할 수 있습니다.
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -51,9 +50,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

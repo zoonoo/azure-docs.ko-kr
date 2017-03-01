@@ -83,7 +83,6 @@
 ### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [SQL Server에서 BCP](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase 지침](sql-data-warehouse-load-polybase-guide.md)
@@ -146,8 +145,3 @@
 ### [비즈니스 인텔리전스](sql-data-warehouse-partner-business-intelligence.md)
 ### [데이터 통합](sql-data-warehouse-partner-data-integration.md)
 ### [데이터 관리](sql-data-warehouse-partner-data-management.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

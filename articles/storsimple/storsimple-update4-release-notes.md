@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9b020c6175ba8f47cde5cba0f69a1c8c228479
-ms.openlocfilehash: 48d2274fff2fb1300406f48c8d3e772aefa9933f
+ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
+ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 48d2274fff2fb1300406f48c8d3e772aefa9933f
 StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 포함된 정보를 검토하십시오.
 
 > [!IMPORTANT]
-> * 업데이트 4는 장치 소프트웨어, USM 펌웨어, LSI 드라이버 및 펌웨어, 디스크 펌웨어, Storport 및 Spaceport, 보안 및 기타 OS 업데이트를 포함합니다. 이 업데이트를 설치하는 데는 1.5~2시간 정도 걸립니다. 장치를 최신 상태로 유지하도록 이 업데이트를 적용하는 것이 좋습니다. 
+> * 업데이트 4는 장치 소프트웨어, USM 펌웨어, LSI 드라이버 및 펌웨어, 디스크 펌웨어, Storport 및 Spaceport, 보안 및 기타 OS 업데이트를 포함합니다. 이 업데이트를 설치하는 데는 4시간 정도 걸립니다. 장치를 최신 상태로 유지하도록 이 업데이트를 적용하는 것이 좋습니다. 
 > * 새 릴리스의 경우, 업데이트의 단계적 롤아웃을 수행하기 때문에 즉시 업데이트를 볼 수는 없습니다. 업데이트가 곧 제공될 예정이니 몇 일 후에 업데이트를 다시 검색하세요.
 
 ## <a name="whats-new-in-update-4"></a>업데이트 4의 새로운 기능
@@ -91,10 +92,5 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## <a name="next-step"></a>다음 단계
 
 StorSimple 장치에 [업데이트 4를 설치](storsimple-install-update-4.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

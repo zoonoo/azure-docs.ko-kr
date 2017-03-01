@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2017
+ms.date: 2/23/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 47d5a9173d8791124a3071b090d6db027dba9448
-ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
+ms.sourcegitcommit: 244471c5e90a0e2d89c34b255f2da077a94f91cf
+ms.openlocfilehash: 1e87486dc7a186c0ab7147719ac47177c87be148
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -50,35 +51,6 @@ ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
 ###### <a name="october-23-2016"></a>**2016년 10월 23일**
 Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 4.6을 지원합니다.
 
-###### <a name="september-13-2016"></a>**2016년 9월 13일**
-게스트 OS 9월 롤아웃은 2016년 9월 13일에 시작되며 2016년 10월 13일에 출시될 예정입니다.
-
-###### <a name="august-9-2016"></a>**2016년 8월 9일**
-게스트 OS 롤아웃은 2016년 8월 9일에 시작되며 2016년 9월 8일에 출시될 예정입니다. 
-
-###### <a name="july-13-2016"></a>**2016년 7월 13일**
-게스트 OS 7월 롤아웃은 2016년 7월 13일에 시작되며 2016년 8월 12일에 출시될 예정입니다. 
-
-###### <a name="june-15-2016"></a>**2016년 6월 15일**
-게스트 OS 6월 롤아웃은 2016년 6월 15일에 시작되며 2016년 7월 14일에 출시될 예정입니다. 
-
-###### <a name="may-17-2016"></a>**2016년 5월 17일**
-게스트 OS 5월 롤아웃은 오늘 2016년 5월 17일에 시작되며 2016년 6월 10일에 출시될 예정입니다. 
-
-###### <a name="april-18-2016"></a>**2016년 4월 18일**
-게스트 OS 4월 롤아웃은 2016년 4월 18일에 시작되며 2016년 5월 12일에 출시될 예정입니다. 
-
-###### <a name="march-14-2016"></a>**2016년 3월 14일**
-게스트 OS 3월 롤아웃은 2016년 3월 14일에 시작되며 2016년 4월 8일에 출시될 예정입니다. 
-
-###### <a name="february-22-2016"></a>**2016년 2월 22일**
-게스트 OS 2월 롤아웃은 2016년 2월 22일에 시작되며 2016년 3월 9일에 출시될 예정입니다.
-
-###### <a name="january-18-2016"></a>**2016년 1월 18일**
-게스트 OS 1월 롤아웃은 2016년 1월 18일에 시작되며 2016년 2월 12일에 출시될 예정입니다.
-
-###### <a name="january-4-2016"></a>**2016년 1월 4일**
-11월 201511-02 게스트 OS는 2016년 1월 4일에 배포용으로 릴리스되었습니다. 이 OS 버전은 자동 업데이트에 대한 기본 OS로 설정되지 않았기 때문에 11월 201511-02 OS 버전에 대한 게스트 OS 배포의 프로비전 시간이 약간 길어질 수 있습니다. 
 
 ## <a name="releases"></a>릴리스
 ## <a name="family-5-releases"></a>제품군 5 릴리스
@@ -251,10 +223,5 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

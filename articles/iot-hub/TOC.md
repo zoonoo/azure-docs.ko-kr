@@ -3,7 +3,7 @@
 ## [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)
 ## [장치 관리 개요](iot-hub-device-management-overview.md)
 
-# 시작
+# [시작](iot-hub-get-started.md)
 ## 시뮬레이션된 장치 사용
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -23,7 +23,7 @@
 ##### [Azure 도구 얻기(macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### 단원 3: 장치-클라우드 메시지 보내기
-##### [Azure 함수 앱 및 저장소 계정 만들기]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [저장소에 유지되는 메시지 읽기](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### 단원 4: 클라우드-장치 메시지 보내기
@@ -66,7 +66,7 @@
 ##### [Azure 도구 얻기(macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### 단원 3: 장치-클라우드 메시지 보내기
-##### [Azure 함수 앱 및 저장소 계정 만들기]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [저장소에 유지되는 메시지 읽기](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### 단원 4: 클라우드-장치 메시지 보내기
@@ -107,13 +107,13 @@
 ##### [Azure 도구 얻기(Windows 7 이상)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Azure 도구 얻기(Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Azure 도구 얻기(macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [IoT Hub 만들기 및 Raspberry Pi 등록]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [IoT Hub 만들기 및 Raspberry Pi 등록](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### 단원 3: 장치-클라우드 메시지 보내기
-##### [Azure 함수 앱 및 저장소 계정 만들기]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Azure 함수 앱 및 저장소 계정 만들기](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [예제 응용 프로그램을 실행하여 메시지 전송](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [저장소에 유지되는 메시지 읽기](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### 단원 4: 클라우드-장치 메시지 보내기
-##### [예제 응용 프로그램을 실행하여 메시지 수신]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [선택 사항: LED 동작 변경](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [문제 해결](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -172,7 +172,7 @@
 ### [솔루션 확장](iot-hub-scaling.md)
 ### [고가용성 및 재해 복구](iot-hub-ha-dr.md)
 ### [추가 프로토콜 지원](iot-hub-protocol-gateway.md)
-## 개발
+## [개발](iot-hub-how-to.md)
 ### [개발자 가이드](iot-hub-devguide.md)
 #### [메시지 보내기 및 받기](iot-hub-devguide-messaging.md)
 #### [장치-클라우드 기능 가이드](iot-hub-devguide-d2c-guidance.md)
@@ -269,8 +269,3 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

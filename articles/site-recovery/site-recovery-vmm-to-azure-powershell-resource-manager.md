@@ -1,5 +1,5 @@
 ---
-title: "Azure Site Recovery 및 PowerShell을 사용하여 VMM의 Hyper-V VM 복제(Resource Manager) | Microsoft Docs"
+title: "Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제(Resource Manager) | Microsoft Docs"
 description: "Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제"
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 19/01/2017
+ms.date: 02/02/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
+ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
+ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -58,7 +59,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 * [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site 복구 관리자 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
 * CSP 구독 시나리오에 복제하려면 CSP 구독이 필요합니다. [CSP 프로그램에 등록하는 방법](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)에서 CSP 프로그램에 대해 자세히 알아보세요.
 * Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(Resource Manager) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure 저장소 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md) 를 참조하세요.
-* 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수하는지 확인해야 합니다.
+* 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인해야 합니다.
 
 > [!NOTE]
 > 현재, VM 수준 작업만 Powershell을 통해 수행할 수 있습니다. 복구 계획 수준 작업에 대한 지원이 곧 제공될 것입니다.  지금은 '보호되는 VM' 수준에서만 장애 조치(Failover)를 수행할 수 있고 복구 수준에서는 수행할 수 없습니다.
@@ -132,7 +133,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: 복구 서비스 자격 증명 모음 설정
 
 다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
-   
+
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="step-4-install-the-azure-site-recovery-provider"></a>4단계: Azure Site Recovery 공급자 설치
@@ -166,7 +167,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 ## <a name="step-5-create-an-azure-storage-account"></a>5단계: Azure 저장소 계정 만들기
 
 Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증명 모음과 동일한 지역에 지역에서 복제가 활성화된 계정을 만듭니다.
-   
+
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
         $ResourceGroupName =  “myRG”             #ResourceGroupName
@@ -243,7 +244,7 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
  다음 사항에 유의하세요.
 
-* 가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 [필수 조건 및 지원](site-recovery-best-practices.md) 에서 해당 요구 사항을 확인하세요.
+* 가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 [필수 조건 및 지원](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) 에서 해당 요구 사항을 확인하세요.
 * 보호를 사용하도록 설정하려면 가상 컴퓨터에 대해 운영 체제 및 운영 체제 디스크 속성을 설정해야 합니다. VMM에서 가상 컴퓨터 템플릿을 사용하여 가상 컴퓨터를 만들 때 속성을 설정할 수 있습니다. 가상 컴퓨터 속성의 **일반** 및 **하드웨어 구성** 탭에서 기존 가상 컴퓨터에 대해 이러한 속성을 설정할 수도 있습니다. 이러한 속성을 VMM에서 설정하지 않는 경우 Azure Site Recovery 포털에서 구성할 수 있습니다.
 
 1. 보호를 활성화하려면 다음 명령을 실행하여 보호 컨테이너를 가져옵니다.
@@ -307,9 +308,4 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
 ## <a name="next-steps"></a>다음 단계
 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx) .
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

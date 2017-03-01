@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure로 Windows Server 또는 클라이언트 백업 | Microsoft Docs"
+title: "Azure(Resource Manager)에 Windows Server 백업 | Microsoft Docs"
 description: "백업 자격 증명 모음을 만들고, 자격 증명을 다운로드하고, 백업 에이전트를 설치하고, 파일 및 폴더의 초기 백업을 완료하여 Windows 서버 또는 클라이언트를 Azure에 백업합니다."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "백업 자격 증명 모음, Windows 서버 백업, Windows 백업"
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jimpark; trinadhk; markgal
+ms.date: 2/16/2017
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 738b8e29fbc139753ea59f1a20416386383f942d
-ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: 018a1bde8163eda660fd50a41839b6c1ec622d79
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -165,7 +166,7 @@ ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
 6. **Next**를 클릭합니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
 
-    매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
+    매일(하루에 최대 속도로&3;회) 또는 매주 백업을 예약할 수 있습니다.
 
     ![Windows Server 백업에 대한 항목](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
@@ -222,9 +223,4 @@ VM 또는 다른 워크로드를 백업하는 방법에 대한 자세한 내용�
 
 * 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 * 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
 ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -76,10 +77,5 @@ ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
 
 ## <a name="next-steps"></a>다음 단계
 온-프레미스 데이터 원본이 있는 경우 [온-프레미스 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. SSDT 또는 SSMS에서 서버를 관리하는 방법에 대해 알아보려면 [사용자 서버 관리](analysis-services-manage.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -5,7 +5,7 @@ keywords: "azure app service, 웹앱, nodejs, pm2, linux, oss"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
 ms.service: app-service
@@ -13,20 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a46f52198e956406c2384c45ed4323aff27259a0
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Linux의 웹앱에 있는 Node.js용 PM2 구성 사용
-Linux의 웹앱용 Node.js에 대해 응용 프로그램 스택을 설정한 경우 다음 그림과 같이 Node.js 시작 파일을 설정하는 옵션이 제공됩니다.
+Linux의 Web Apps용 Node.js에 대해 응용 프로그램 스택을 설정한 경우 다음 이미지와 같이 Node.js 시작 파일을 설정하는 옵션이 제공됩니다.
 
 ![Node.js 시작 파일 설정][1]
 
-이를 사용하여 다음 작업 중 하나를 수행할 수 있습니다.
+이 옵션을 사용하여 다음 작업 중 하나를 수행할 수 있습니다.
 
 * Node.js 앱용 시작 스크립트 지정(예: /bin/server.js)
 * Node.js 앱에 사용할 PM2 구성 파일 지정(예: /foo/process.json)
@@ -61,12 +62,8 @@ Linux의 웹앱용 Node.js에 대해 응용 프로그램 스택을 설정한 경
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux의 App Service란?](app-service-linux-intro.md)
+* [Linux의 Azure App Service Web Apps에 대한 FAQ](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

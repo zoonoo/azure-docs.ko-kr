@@ -16,17 +16,20 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e5f2eaa55e92c9a630533a5594e1a659cc2192f1
-ms.openlocfilehash: 390195c8f07430e5fac6d53a77f6bb1aba53b197
+ms.sourcegitcommit: 44c1f6ddac328516d707cfe5d328e02e50652e5b
+ms.openlocfilehash: e66857cf6cc05aae2fa102173a2958564ec936e6
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure VM을 Azure의 Managed Disks로 마이그레이션
 
-Azure Managed Disks를 사용하면 Azure VM의 [저장소 계정](../storage/storage-introduction.md)을 관리할 필요가 없습니다. 필요한 디스크의 유형인 [프리미엄](../storage/storage-premium-storage-performance.md) 또는 [표준](../storage/storage-standard-storage.md)과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리합니다. 
+Azure Managed Disks는 저장소 계정을 별도로 관리하지 않아도 되기 때문에 저장소 관리를 간소화합니다.  또한 기존 Azure VM을 Managed Disks에 마이그레이션하여 가용성 집합에서 VM의 안정성을 향상시킬 수 있습니다. 가용성 집합에서 여러 VM의 디스크는 단일 실패 지점을 방지하기 위해 충분히 서로 격리되어야 합니다. 서로 다른 저장소 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 저장소 배율 단위 오류의 영향을 제한합니다. 필요에 따라 두 가지 유형의 저장소 옵션 중에 하나를 선택할 수 있습니다. 
+ 
+- [프리미엄 Managed Disks](../storage/storage-premium-storage.md)는 I/O 집약적인 워크로드를 실행하는 가상 컴퓨터에 대한 고성능의 짧은 대기 시간 디스크 지원을 제공하는 반도체 드라이브(SSD) 기반 저장소 미디어입니다. 프리미엄 Managed Disks로 마이그레이션하여 이러한 디스크의 속도와 성능 혜택을 활용할 수 있습니다.
 
-현재 디스크에 대한 표준 저장소 옵션을 사용 중인 경우 프리미엄 Managed Disks를 마이그레이션하여 이러한 디스크의 속도 및 성능을 활용합니다. [프리미엄 Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance)는 I/O 집약적인 워크로드를 실행하는 가상 컴퓨터에 대한 고성능의 짧은 대기 시간 디스크 지원을 제공하는 반도체 드라이브(SSD)에 저장됩니다.
+- [표준 Managed Disks](../storage/storage-standard-storage.md)는 하드 디스크 드라이브(HDD) 기반 저장소 미디어이며 개발/테스트를 비롯하여 성능 변화에 덜 민감하고 자주 발생되지 않는 액세스 워크로드에 가장 적합합니다. 
 
 다음과 같은 시나리오에서 Managed Disks를 마이그레이션할 수 있습니다.
 
@@ -40,13 +43,7 @@ Azure Managed Disks를 사용하면 Azure VM의 [저장소 계정](../storage/st
 | Managed Disks의 클래식에서 Resource Manager로의 VNet에 있는 모든 VM     | [클래식에서 Resource Manager로 IaaS 리소스를 마이그레이션](virtual-machines-windows-ps-migration-classic-resource-manager.md)한 다음 [관리되지 않는 디스크에서 Managed Disks로 VM 변환](virtual-machines-windows-convert-unmanaged-to-managed-disks.md) | 
 
 
-## <a name="overview-of-managed-disks"></a>Managed Disks 개요
 
-Azure Managed Disks는 저장소 계정을 별도로 관리하지 않아도 되기 때문에 저장소 관리를 간소화합니다.  또한 기존 Azure VM을 Managed Disks에 마이그레이션하여 가용성 집합에서 VM의 안정성을 향상시킬 수 있습니다. 가용성 집합에서 여러 VM의 디스크는 단일 실패 지점을 방지하기 위해 충분히 서로 격리되어야 합니다. 서로 다른 저장소 배율 단위(스탬프)인 자동 가용성 집합에서 다른 VM의 디스크를 자동으로 배치합니다. 그러면 하드웨어 및 소프트웨어 오류로 인해 발생한 단일 저장소 배율 단위 오류의 영향을 제한합니다. 필요에 따라 두 가지 유형의 저장소 옵션 중에 하나를 선택할 수 있습니다. 
- 
-- [프리미엄 Managed Disks](../storage/storage-premium-storage.md)는 I/O 집약적인 워크로드를 실행하는 가상 컴퓨터에 대한 고성능의 짧은 대기 시간 디스크 지원을 제공하는 반도체 드라이브(SSD) 기반 저장소 미디어입니다. 프리미엄 Managed Disks로 마이그레이션하여 이러한 디스크의 속도와 성능 혜택을 활용할 수 있습니다.
-
-- [표준 Managed Disks](../storage/storage-standard-storage.md)는 하드 디스크 드라이브(HDD) 기반 저장소 미디어이며 개발/테스트를 비롯하여 성능 변화에 덜 민감하고 자주 발생되지 않는 액세스 워크로드에 가장 적합합니다. 
 
 
 ## <a name="plan-for-the-conversion-to-managed-disks"></a>Managed Disks로 변환 계획 수립
@@ -100,9 +97,4 @@ VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가
 ## <a name="next-steps"></a>다음 단계
 
 - [Managed Disks](../storage/storage-managed-disks-overview.md)에 대한 자세한 정보
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

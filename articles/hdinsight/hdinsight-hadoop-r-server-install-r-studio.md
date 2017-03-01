@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
 ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -112,10 +113,5 @@ ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
 ## <a name="see-also"></a>참고 항목
 * [HDInsight 클러스터의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 * [HDInsight에서 R Server의 Azure Storage 옵션](hdinsight-hadoop-r-server-storage.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
