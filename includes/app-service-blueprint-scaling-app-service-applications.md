@@ -2,7 +2,7 @@
   
   * 중복성 및 안정성 이해
   * 상태 저장 vs 상태 비저장 응용 프로그램
-    * [상태 비저장 앱 구성](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+    * [상태 비저장 앱 구성](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 * 앱 서비스의 부하 테스트 앱   
 * 앱 서비스 크기 조정 모범 사례
   
@@ -13,9 +13,4 @@
 * 지역 배포
   
   * [트래픽 관리자를 활용하여 글로벌 규모 달성](../articles/traffic-manager/traffic-manager-overview.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

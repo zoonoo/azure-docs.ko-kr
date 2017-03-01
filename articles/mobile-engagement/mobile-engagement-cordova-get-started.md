@@ -4,7 +4,7 @@ description: "Cordova/Phonegap 앱에 대해 분석 및 푸시 알림과 함께 
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
-ms.openlocfilehash: 18a32c7282fd24280cb634b90db20721503437e7
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 2fc534e90431d7c44dc05327fd3d32a2e6ab1c8b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: 18a32c7282fd24280cb634b90db20721503437e7
 * [Mobile Engagement Cordova 플러그 인](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
->  [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
+> [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
 > 
 > 
 
@@ -182,7 +183,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
    
    * 캠페인에 **이름** 을 제공합니다. 
    * **전달 형식**을 *시스템 알림* *단순*으로 선택합니다.
-   *  **전달 시간** 을 *"언제든지"*
+   * **전달 시간** 을 *"언제든지"*
    * 푸시에서 첫째 줄에 있는 알림에 **제목** 을 제공합니다.
    * 메시지 본문으로 사용하는 알림에 **메시지** 를 제공합니다. 
      
@@ -190,7 +191,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 4. 입력을 제공하여 캠페인을 만듭니다. **[iOS]**
    
    * 캠페인에 **이름** 을 제공합니다. 
-   *  **전달 시간** 을*"앱 외부에서만"*
+   * **전달 시간** 을*"앱 외부에서만"*
    * 푸시에서 첫째 줄에 있는 알림에 **제목** 을 제공합니다.
    * 메시지 본문으로 사용하는 알림에 **메시지** 를 제공합니다. 
      
@@ -219,10 +220,5 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

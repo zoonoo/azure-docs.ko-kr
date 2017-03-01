@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 * [저장소 서비스 REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [.NET, Windows Phone 및 Windows 런타임용 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Java/Android용 저장소 클라이언트 라이브러리](/develop/java/)
+* [Java/Android용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/java/)
 * [Node.js용 저장소 클라이언트 라이브러리](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [PHP용 저장소 클라이언트 라이브러리](/develop/php/)
-* [Ruby용 저장소 클라이언트 라이브러리](/develop/ruby/)
-* [Python용 저장소 클라이언트 라이브러리](/develop/python/)
+* [PHP용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/php/)
+* [Ruby용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/ruby/)
+* [Python용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/python/)
 * [PowerShell 1.0용 저장소 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Azure Storage 관리 서비스
-* [저장소 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [.NET용 저장소 리소스 공급자 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [PowerShell 1.0용 저장소 리소스 공급자 Cmdlet](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [저장소 리소스 공급자 REST API 참조](/rest/api/storagerp/)
+* [.NET용 저장소 리소스 공급자 클라이언트 라이브러리](/dotnet/api/microsoft.azure.management.storage)
+* [PowerShell 1.0용 저장소 리소스 공급자 Cmdlet](/powershell/storage/)
 * [저장소 서비스 관리 REST API(클래식](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Storage 데이터 이동 서비스
-* [저장소 가져오기/내보내기 서비스 REST API](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [저장소 가져오기/내보내기 서비스 REST API](storage-import-export-service.md)
 * [.NET용 저장소 데이터 이동 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
@@ -248,9 +249,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 * [Python에서 테이블 저장소를 사용하는 방법](storage-python-how-to-use-table-storage.md)
 * [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 * [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
