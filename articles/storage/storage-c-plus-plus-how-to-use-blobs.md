@@ -3,7 +3,7 @@ title: "C++에서 Blob Storage(개체 저장소)를 사용하는 방법 | Micros
 description: "Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 1f87e40edc8b6ad8567f2409e6df435ed66f2bbc
 ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -55,8 +56,8 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 Azure 저장소 API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/blob.h"
+include <was/storage_account.h>
+include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
@@ -272,10 +273,5 @@ blockBlob.delete_blob();
 * [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 * [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

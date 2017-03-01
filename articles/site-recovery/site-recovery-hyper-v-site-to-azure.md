@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 266b9d0e36aa5e3bef9b689e7602449fbe86b3cd
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: c4129d5b5ebd0295035e81760b2a39f3caf16499
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -385,7 +385,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 다양한 유형의 장애 조치 및 각 장애 조치를 수행할 때와 방법에 대한 자세한 설명을 [알아보세요](site-recovery-failover.md).
 
 > [!NOTE]
-> 가상 컴퓨터를 Azure에 마이그레이션하려면 [계획된 장애 조치(Failover) 작업](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary)을 사용하는 것이 좋습니다. 테스트 장애 조치를 통해 Azure에서 마이그레이션된 응용 프로그램의 유효성을 검사한 후에는 [마이그레이션 완료](#Complete-migration-of-your-virtual-machines-to-Azure) 단계에 설명된 단계를 사용하여 가상 컴퓨터의 마이그레이션을 완료합니다. 커밋 또는 삭제를 수행할 필요가 없습니다. 마이그레이션 완료는 마이그레이션을 완료하고, 가상 컴퓨터에 대한 보호를 제거하며, 컴퓨터에 대한 Azure Site Recovery 청구를 중지합니다.
+> 가상 컴퓨터를 Azure에 마이그레이션하려면 [계획된 장애 조치(Failover) 작업](site-recovery-failover.md)을 사용하는 것이 좋습니다. 테스트 장애 조치를 통해 Azure에서 마이그레이션된 응용 프로그램의 유효성을 검사한 후에는 [마이그레이션 완료](#Complete-migration-of-your-virtual-machines-to-Azure) 단계에 설명된 단계를 사용하여 가상 컴퓨터의 마이그레이션을 완료합니다. 커밋 또는 삭제를 수행할 필요가 없습니다. 마이그레이션 완료는 마이그레이션을 완료하고, 가상 컴퓨터에 대한 보호를 제거하며, 컴퓨터에 대한 Azure Site Recovery 청구를 중지합니다.
 
 
 ### <a name="run-a-planned-failover"></a>계획된 장애 조치(Failover) 실행
@@ -408,7 +408,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 4. **가상 컴퓨터 종료 및 최신 데이터 동기화** 를 선택하여 사이트 복구가 보호된 가상 컴퓨터를 종료하고 데이터를 동기화하여 최신 버전의 데이터가 장애 조치되도록 지정해야 합니다.
 5. 가상 컴퓨터는 장애 조치 후에 커밋 보류 중 상태입니다.  **커밋** 을 클릭하여 장애 조치를 커밋합니다.
 
-[자세히 알아보기](site-recovery-failover.md#run-an-unplanned-failover)
+[자세히 알아보기](site-recovery-failover.md)
 
 ## <a name="complete-migration-of-your-virtual-machines-to-azure"></a>Azure로의 가상 컴퓨터 마이그레이션 완료
 > [!NOTE]

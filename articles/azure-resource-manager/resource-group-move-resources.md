@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: a7771c2cee3f2820db014a4e5e8620442eea3dd1
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -81,7 +81,6 @@ ms.lasthandoff: 02/21/2017
 * CDN
 * 클라우드 서비스 - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
-* 컨테이너 서비스
 * Content Moderator
 * 데이터 카탈로그
 * 데이터 팩터리
@@ -128,6 +127,7 @@ ms.lasthandoff: 02/21/2017
 * 응용 프로그램 게이트웨이
 * Application Insights
 * BizTalk 서비스
+* 컨테이너 서비스
 * Express 경로
 * DevTest Labs - 같은 구독의 새 리소스 그룹으로의 이동이 사용되도록 설정되지만 구독 간 이동은 사용되도록 설정되지 않습니다.
 * Dynamics LCS

@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9df48eb93a003f67ad79cc937f41db1531e94d
-ms.openlocfilehash: be280f8de4d2b1316ff6e9e69a4eb93870e8e187
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 54cf67bf630a9de30d4ccafdb09a3f8986c04145
+ms.openlocfilehash: 4415af41cfaf7230f398016e37b8a8cde453fa54
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,10 +29,10 @@ ms.lasthandoff: 02/17/2017
 이 문서에서는 VMware에서 실행 중인 가상 컴퓨터의 복제를 Azure로 설정하는 방법을 설명합니다.
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다. 
+이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 
 1.  [온-프레미스 원본 환경 설정](site-recovery-set-up-vmware-to-azure.md)
-2.  [Azure에서 대상 환경 설정](site-recovery-prepare-target-vmware-to-azure.md) 
+2.  [Azure에서 대상 환경 설정](site-recovery-prepare-target-vmware-to-azure.md)
 
 
 ## <a name="enable-replication"></a>복제 활성화
@@ -63,7 +63,7 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 
    * 프리미엄 또는 표준 저장소 계정을 선택할 수 있습니다. 프리미엄 계정을 선택하는 경우 지속적인 복제 로그를 위한 추가 표준 저장소 계정을 지정해야 합니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
    * 소유하고 있는 저장소 계정이 아닌 다른 저장소 계정을 사용하려는 경우 *시작에서 다룰 리소스 관리자를 사용하여 저장소 계정 만들기에 대한 자리 표시자 링크*를 하나 만들 수 있습니다. Resource Manager 모델을 사용하여 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 저장소 계정을 만들려면 [Azure 포털에서](../storage/storage-create-storage-account-classic-portal.md)만들면 됩니다.
- 
+
 
 8. 장애 조치(Failover) 후 Azure VM이 회전하면 연결될 Azure 네트워크 및 서브넷을 선택합니다 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 네트워크가 없는 경우 [만들어야](#set-up-an-azure-network) 합니다. Resource Manager 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 클래식 모델을 사용하여 네트워크를 만들려면 [Azure 포털](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 만들면 됩니다. 해당하는 경우 서브넷을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
@@ -89,7 +89,7 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 >
 
 ## <a name="view-and-manage-vm-properties"></a>VM 속성 보기 및 관리
-원본 컴퓨터의 속성을 확인하는 것이 좋습니다. Azure VM 이름이 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)에 맞아야 합니다.
+원본 컴퓨터의 속성을 확인하는 것이 좋습니다. Azure VM 이름이 [Azure 가상 컴퓨터 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 맞아야 합니다.
 
 1. **설정** > **복제된 항목**을 클릭하고 컴퓨터를 선택합니다. **Essentials** 블레이드는 컴퓨터 설정 및 상태에 대한 정보를 표시합니다.
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
@@ -115,5 +115,6 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 * 2세대/UEFI 지원 가상 컴퓨터의 경우 운영 체제 제품군이 Windows이고 부팅 디스크는 300GB 미만이어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
- 
-보호가 완료되면 테스트 장애 조치를 시도하여 응용 프로그램이 Azure에서 온 것인지 여부를 확인할 수 있습니다.    
+
+보호가 완료되면 테스트 장애 조치를 시도하여 응용 프로그램이 Azure에서 온 것인지 여부를 확인할 수 있습니다.
+

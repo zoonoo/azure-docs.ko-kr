@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7519ff07efd5bb450362fca8d54e4d9e3be8f0df
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -289,10 +290,5 @@ Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure 저장소 소개](storage-introduction.md)
 * [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md), [큐](storage-dotnet-how-to-use-queues.md) 및 [파일](storage-dotnet-how-to-use-files.md)에 대한 저장소 시작
 * 저장소 아키텍처 – [Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

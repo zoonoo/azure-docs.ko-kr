@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
 ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -119,10 +120,5 @@ Azure Analysis Services 서버에 라이브 연결되고 OneDrive 또는 SharePo
 
 ## <a name="next-steps"></a>다음 단계
 Azure Analysis Services에 대해 자세히 이해했으므로 이제는 이 서비스를 시작할 단계입니다. Azure에서 [서버를 만들고](analysis-services-create-server.md) 이 서버에 [테이블 형식 모델을 배포하는](analysis-services-deploy.md) 방법에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

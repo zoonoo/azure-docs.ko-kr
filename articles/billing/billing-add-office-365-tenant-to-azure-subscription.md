@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: a8e6423020fc0b669aad2bc48198c1df84db4dd2
-ms.openlocfilehash: 18de4326edef50953c972e17cc9e75ea85a1fb82
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 42db903244e5642dbf273e71994d402f8aeda1e9
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,7 +28,7 @@ Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 별도 Azu
 Azure Active Directory 인스턴스에서 사용자를 위한 Office 365 구독이 필요하거나 Office 365 계정이 있지만 Azure 계정이 없는 경우 [Office 365 계정을 사용하여 Azure에 등록](billing-use-existing-office-365-account-azure-subscription.md)을 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* Azure 구독 서비스 관리자의 자격 증명이 있어야 합니다. 공동 관리자 계정은 이 문서의 단계 중 일부를 수행할 수 없습니다. 서비스 관리자를 변경하려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription)을 참조하세요.
+* Azure 구독 서비스 관리자의 자격 증명이 있어야 합니다. 공동 관리자 계정은 이 문서의 단계 중 일부를 수행할 수 없습니다. 서비스 관리자를 변경하려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)을 참조하세요.
 * Office 365 테넌트 전역 관리자의 자격 증명이 있어야 합니다.
 * 서비스 관리자의 전자 메일 주소가 Office 365 테넌트에 있지 않아야 합니다.
 * 서비스 관리자의 전자 메일 주소가 Office 365 전역 관리자의 전자 메일 주소와 일치하지 않아야 합니다.
