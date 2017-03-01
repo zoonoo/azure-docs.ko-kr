@@ -14,17 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
-ms.openlocfilehash: 175e8620828a2b0a0aff6de0b1a39860ea59514b
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 67b780d66eac4199b0a2367f575477191542cfa7
+ms.lasthandoff: 02/27/2017
 
 ---
 
 # <a name="create-dns-record-sets-and-records-by-using-powershell"></a>PowerShell을 사용하여 DNS 레코드 집합 및 레코드 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-create-recordset-portal.md)
+> * [Azure 포털](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Azure CLI](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
 이 문서는 Azure PowerShell을 사용하여 레코드 및 레코드 집합을 만드는 과정을 안내합니다.
 
@@ -48,7 +50,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 `New-AzureRmDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 레코드 집합을 만들 때, 레코드 집합 이름, 영역, TTL(Time-to-Live), 레코드 형식 및 만들 레코드를 지정해야 합니다.
 
-영역의 구로에서 레코드 집합을 만들려면(이 경우 "contoso.com"), 따옴표를 포함한 레코드 이름 "@",를 사용합니다. 이것이 일반적인 DNS 규칙입니다.
+영역의 구로에서 레코드 집합을 만들려면(이 경우 "contoso.com"), 따옴표를 포함한 레코드 이름 "@"를 사용합니다. 이것이 일반적인 DNS 규칙입니다.
 
 다음 예제에서는 DNS 영역 "contoso.com"에 상대적 이름 "www"가 포함된 새 레코드 집합을 만듭니다. 레코드의 정규화된 이름은 “www.contoso.com”입니다. 레코드 형식은 "A"이고 TTL은 3600초입니다. 레코드 집합은 "1.2.3.4" IP 주소를 가진 단일 레코드를 포함합니다.
 
@@ -114,10 +116,5 @@ Address:  1.2.3.4
 
 [PowerShell을 사용하여 DNS 레코드 및 레코드 집합을 관리하는](dns-operations-recordsets.md) 방법에 대해 알아봅니다.
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

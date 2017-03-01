@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 09c5c2333748eeca3d6e93b62810d62c8a3e53a1
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -72,7 +73,7 @@ ms.openlocfilehash: 09c5c2333748eeca3d6e93b62810d62c8a3e53a1
 * `<Your application name>`은(는) 응용 프로그램의 이름으로 바꿉니다.
 
 > [!TIP]
->  `android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
+> `android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
 > 
 > 
 
@@ -383,10 +384,5 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
               android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[장치 API]: http://go.microsoft.com/?linkid=9876094
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Device API]: http://go.microsoft.com/?linkid=9876094
 
