@@ -4,7 +4,7 @@ description: "TLS에 클라이언트 인증서 인증을 사용 하 여 웹앱�
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: naziml
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: db2f48b248e2232f913a99b4ffbc0d18b77407e8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -191,9 +192,4 @@ ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱
             }
         }
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

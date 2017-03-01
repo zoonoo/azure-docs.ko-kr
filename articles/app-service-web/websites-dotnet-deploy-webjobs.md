@@ -4,7 +4,7 @@ description: "Visual Studio를 사용하여 Azure 앱 서비스에 Azure WebJob�
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -175,10 +176,5 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
 이 문서는 Visual Studio를 사용하여 WebJobs를 배포하는 방법을 설명했습니다. Azure WebJobs를 배포하는 방법은 [Azure WebJobs - 권장 리소스 - 배포](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

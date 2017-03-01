@@ -4,7 +4,7 @@ description: "몇 분 안에 첫 번째 웹앱에 멋진 기능 추가"
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -153,10 +154,5 @@ ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
   [Tinfoil Security](https://www.tinfoilsecurity.com/)에서 제공하는 서비스를 사용하여 최신 위협에 대해 웹앱을 스캔합니다.
 * [백그라운드 작업 실행](../azure-functions/functions-overview.md) - 데이터 처리, 보고 등의 작업을 실행합니다.
 * [앱 서비스 작동 방법 알아보기](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

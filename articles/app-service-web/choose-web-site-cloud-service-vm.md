@@ -4,7 +4,7 @@ description: "웹 응용 프로그램을 호스트하는 데 Azure App Service, 
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -189,9 +190,4 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

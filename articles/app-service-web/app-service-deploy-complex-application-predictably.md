@@ -4,7 +4,7 @@ description: "PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예�
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -271,10 +272,5 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 * [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
 ms.openlocfilehash: 7e1f1ccd109a2777f6d5df96b5f5d02eefc4b841
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -166,10 +167,5 @@ TalentLMS의 경우 프로비전은 수동 작업입니다.
     ![예](./media/active-directory-saas-talentlms-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

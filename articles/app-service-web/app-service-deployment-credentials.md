@@ -4,7 +4,7 @@ description: "Azure App Service 배포 자격 증명 사용 방법을 알아봅�
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.service: app-service
 ms.workload: na
@@ -16,6 +16,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
 ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -88,8 +89,3 @@ App Service의 각 앱에 대한 앱 수준 자격 증명은 XML 게시 프로�
 ## <a name="next-steps"></a>다음 단계
 
 이러한 자격 증명을 사용하여 [로컬 Git](app-service-deploy-local-git.md)에서 또는 [FTP/S](app-service-deploy-ftp.md)를 통해 앱을 배포하는 방법을 알아봅니다.
-
-
-<!--HONumber=Jan17_HO1-->
-
-

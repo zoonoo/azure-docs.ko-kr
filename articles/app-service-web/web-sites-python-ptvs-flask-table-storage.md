@@ -5,7 +5,7 @@ services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06
 ms.service: app-service-web
@@ -18,6 +18,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -190,9 +191,4 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Azure WebJobs 및 Azure WebJobs SDK를 사용하는 방법에 대�
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
 ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -132,10 +133,5 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Azure 웹앱 사용자 음성 사이트](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). 해시 태그 #AzureWebJobs를 사용합니다.
 * [WebJobs 버그 또는 문제 보고](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

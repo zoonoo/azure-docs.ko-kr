@@ -4,7 +4,7 @@ description: "Azure WebJobs SDK에 대해 소개하고 SDK의 정의, SDK가 유
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2d21cd34427921ad789b4c95212c07caddd5a966
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -166,10 +167,5 @@ WebJobs SDK는 WebJobs SDK 트리거 또는 바인더를 사용하지 않더라�
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
 WebJobs SDK의 최신 개선 사항에 대한 정보는 [릴리스 정보](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

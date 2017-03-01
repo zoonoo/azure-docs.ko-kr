@@ -2,7 +2,7 @@
 title: "REST를 사용하여 Media Services 엔터티 관리 | Microsoft Docs"
 description: "REST API를 사용하여 미디어 서비스 엔터티를 관리하는 방법을 알아봅니다."
 author: juliako
-manager: dwrede
+manager: erikre
 editor: 
 services: media-services
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
 ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -179,10 +180,5 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

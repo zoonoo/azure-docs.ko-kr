@@ -4,7 +4,7 @@ description: "통합 Azure CDN 끝점에서 콘텐츠를 제공하는 Azure 앱 
 services: app-service\web,cdn
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: b81ee930-dd6d-4b65-971f-c4cb7902168c
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 0b1f13f816c7836557cd6f646f2d9b38f7bc5b14
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -544,10 +545,5 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * [Azure CDN 사용](../cdn/cdn-create-new-endpoint.md)
 * [Azure CDN과 클라우드 서비스 통합](../cdn/cdn-cloud-service-with-cdn.md)
 * [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

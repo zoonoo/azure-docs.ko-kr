@@ -4,7 +4,7 @@ description: "백그라운드 테스트를 실행하는 WebJobs를 빌드하는 
 services: app-service
 documentationcenter: 
 author: christopheranderson
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 85975432-04c9-4b83-b937-b30c082d52a1
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: chrande
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 45016e09e981bab6e4413048838c66f1108dc663
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -30,10 +31,5 @@ Visual Studio의 통합 도구를 사용하면 WebJob을 원활하게 만들고,
 Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하는 기능을 비롯하여 WebJob의 실행을 완전히 제어할 수 있는 강력한 관리 기능을 제공합니다. 또한 대시보드에는 런타임 함수 및 로깅 출력도 표시됩니다.
 
 [!INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

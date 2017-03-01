@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement용 Windows 유니버설 앱 SDK 업그레�
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -276,7 +277,7 @@ Package.appxmanifest에서 `File Type Associations` 이(가) 다음과 같이 �
 * capptain\_reach\_content를 engagement\_reach\_content로
 * capptain\_log\_file을 engagement\_log\_file로
 
-### <a name="application-id-sdk-key"></a>응용 프로그램 ID/SDK 키
+### <a name="application-id--sdk-key"></a>응용 프로그램 ID/SDK 키
 Engagement에서는 연결 문자열을 사용합니다. 따라서 Mobile Engagement에서는 응용 프로그램 ID와 SDK 키를 지정할 필요가 없으며 연결 문자열만 지정하면 됩니다. EngagementConfiguration 파일에서 연결 문자열을 설정할 수 있습니다.
 
 Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파일에서 설정할 수 있습니다.
@@ -308,10 +309,5 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 * GetCapptainPageName의 이름은 GetEngagementPageName으로 바뀌었습니다.
 
 이와 같이 바뀐 이름은 재정의되는 메서드에도 영향을 줍니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
