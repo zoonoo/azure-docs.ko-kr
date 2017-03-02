@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 02/22/2017
 ms.author: chackdan
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 17c8c9aee01e8a991259ee23279d2a659fa60de3
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -119,9 +120,4 @@ VM이 제거될 때 노드가 제거되는지 확인하기 위한 두 가지 옵
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
