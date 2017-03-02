@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: dcf61a8875793bb9e5ed4eda51f9da14366a4fba
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: c4c2cd8ddcb541b2619f7e1b140222899f15f87c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/15/2017
 ![쿼리 탐색기 쿼리 오류 스크린샷](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## <a name="run-documentdb-sql-queries-outside-the-portal"></a>포털 외부 DocumentDB SQL 쿼리 실행
-Azure 포털의 쿼리 탐색기는 DocumentDB에 대해 SQL 쿼리를 실행하는 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 SQL 쿼리를 실행할 수도 있습니다. 이러한 다른 방법에 대한 자세한 내용은 [SQL 쿼리 실행](documentdb-sql-query.md#executing-sql-queries)
+Azure 포털의 쿼리 탐색기는 DocumentDB에 대해 SQL 쿼리를 실행하는 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 SQL 쿼리를 실행할 수도 있습니다. 이러한 다른 방법에 대한 자세한 내용은 [SQL 쿼리 실행](documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## <a name="next-steps"></a>다음 단계
 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.

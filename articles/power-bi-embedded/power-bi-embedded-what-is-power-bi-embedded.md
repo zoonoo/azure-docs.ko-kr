@@ -18,6 +18,7 @@ ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 81215430b5731a53d4f4700499c1d9af963e712c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -37,7 +38,7 @@ Power BI Embedded는 ISV(독립 소프트웨어 공급업체) 및 앱 개발자�
 Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure Resource Manager API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전하는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
 
 ## <a name="workspace-collection"></a>작업 영역 컬렉션
-**작업 영역 컬렉션**은 0개 이상의 **작업 영역**을 포함하는 리소스의 최상위 Azure 컨테이너입니다.  **작업 영역** **컬렉션** has all of the standard zure properties, as well as the following:
+**작업 영역 컬렉션**은 0개 이상의 **작업 영역**을 포함하는 리소스의 최상위 Azure 컨테이너입니다.  **작업 영역** **컬렉션**에는 모든 표준 Azure 속성과 다음 항목이 있습니다.
 
 * **액세스 키** - Power BI API(다음 섹션에서 설명)를 안전하게 호출할 때 사용하는 키입니다.
 * **사용자** - Azure Portal 또는 Azure Resource Manager API를 통해 Power BI 작업 영역 컬렉션을 관리하는 관리자 권한이 있는 AAD(Azure Active Directory) 사용자입니다.
@@ -68,9 +69,4 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure Res
 ## <a name="see-also"></a>참고 항목
 * [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
 * [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
