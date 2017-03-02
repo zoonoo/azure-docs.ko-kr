@@ -17,6 +17,7 @@
 ### [템플릿 작성](resource-group-authoring-templates.md)
 ### [템플릿 함수](resource-group-template-functions.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
+### [리소스 이름 및 유형을 자식 설정](resource-manager-template-child-resource.md)
 ### [리소스 유형의 여러 인스턴스 만들기](resource-group-create-multiple.md)
 ### [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

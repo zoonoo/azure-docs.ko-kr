@@ -15,6 +15,7 @@
 ### [AAD로 웹 API 백 엔드 보호](api-management-howto-protect-backend-with-aad.md)
 ### [가상 네트워크에 연결](api-management-using-with-vnet.md)
 ### [내부 가상 네트워크에 연결](api-management-using-with-internal-vnet.md)
+### [내부 VNet에 Application Gateway 통합](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [상호 인증서 인증](api-management-howto-mutual-certificates.md)
 ## 정책 구성
 ### [사용자 지정 캐싱](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [정책 참조 인덱스](api-management-policy-reference.md)
 ### [정책 개요](api-management-howto-policies.md)
 ### [속성을 사용하여 기밀 관리](api-management-howto-properties.md)
+### [클라이언트 인증서 인증을 사용하여 API 보안](api-management-howto-mutual-certificates-for-clients.md)
 ## 개발자 환경 사용자 지정
-### [개발자 포털 사용자 지정](api-management-customize-portal.md)
+### [페이지 콘텐츠 및 레이아웃 수정](api-management-modify-content-layout.md)
+### [페이지 요소 스타일 사용자 지정](api-management-customize-styles.md)
+### [템플릿을 사용하여 시스템 페이지 사용자 지정](api-management-developer-portal-templates.md)
 ### [AAD로 인증](api-management-howto-aad.md)
+### [AAD B2C로 인증](api-management-howto-aad-b2c.md)
 ### [위임된 인증](api-management-howto-setup-delegation.md)
 ### [전자 메일 알림 및 템플릿](api-management-howto-configure-notifications.md)
 ### [콘솔 OAuth 지원 사용](api-management-howto-oauth2.md)
-### [템플릿을 사용하여 사용자 지정](api-management-developer-portal-templates.md)
 ## 프로덕션에서 관리
 ### [그룹 관리](api-management-howto-create-groups.md)
 ### [여러 Azure 지역에 배포](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [REST API를 사용하여 RBAC 유사 액세스 제공](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [API Management API를 호출하는 PostMan 설정](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [SmartBear Ready용 API Management 플러그 인! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -9,12 +9,31 @@
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
 ## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
-## [AD 라이선스 관리](active-directory-licensing-what-is.md)
+## Azure AD 라이선스 관리
+### [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
+### [클래식 포털](active-directory-licensing-what-is.md)
 ## [조직의 Azure 가져오기](sign-up-organization.md)
 ## [FAQ](active-directory-faq.md)
 ## [SaaS 앱 자습서](active-directory-saas-tutorial-list.md)
 
 # 방법
+## 계획 및 디자인
+### [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
+#### 요구 사항 결정
+##### [ID](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [디렉터리 동기화](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-Factor Auth](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [ID 수명 주기 전략](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [데이터 보안 계획](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [데이터 보호](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [콘텐츠 관리](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [액세스 제어](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [사고 대응](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### ID 수명 주기 계획
+##### [작업](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [채택 전략](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [다음 단계](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## 사용자 관리
 ### 사용자 추가
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -47,17 +66,26 @@
 ### 고급 규칙 만들기
 #### [Azure 포털](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [클래식 포털](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [그룹 기반 라이선스](active-directory-licensing-whatis-azure-portal.md)
+#### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
+#### [그룹에 대한 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](active-directory-licensing-group-migration-azure-portal.md)
+#### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
 ### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
-## [활동 및 보안 보고서 보기](active-directory-view-access-usage-reports.md)
-### [Azure AD 보고](active-directory-reporting-getting-started.md)
+## [작업 보고서 보기](active-directory-view-access-usage-reports.md)
+### [로그인](active-directory-reporting-activity-sign-ins.md)
+### [감사 로그](active-directory-reporting-activity-audit-logs.md)
+### [위험에 노출된 사용자](active-directory-reporting-security-user-at-risk.md)
+### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### [보고서 마이그레이션](active-directory-reporting-migration.md)
-
 ### [알려진 네트워크](active-directory-known-networks.md)
 
-### [보고 가이드](active-directory-reporting-guide.md)
+### 클래식 포털
+#### [Azure AD 보고](active-directory-reporting-getting-started.md)
+#### [보고 가이드](active-directory-reporting-guide.md)
 #### [미리 보기](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 ##### [감사 참조](active-directory-reporting-api-audit-reference.md)
@@ -65,20 +93,18 @@
 ##### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
 ##### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [감사 이벤트](active-directory-reporting-audit-events.md)
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
-### 보고서 이해
-#### [비정상적인 로그인](active-directory-reporting-irregular-sign-in-activity.md)
-#### [여러 번의 로그인 실패](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [의심스러운 IP 주소](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [여러 지리적 위치](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [감염 가능성이 있는 장치](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [알 수 없는 원본](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### 보고서 이해
+##### [비정상적인 로그인](active-directory-reporting-irregular-sign-in-activity.md)
+##### [여러 번의 로그인 실패](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [의심스러운 IP 주소](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [여러 지리적 위치](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [감염 가능성이 있는 장치](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [알 수 없는 원본](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [암호 관리](active-directory-manage-passwords.md)
 ### [고유 암호 업데이트](active-directory-passwords-update-your-own-password.md)
@@ -99,9 +125,11 @@
 #### [문제 해결](active-directory-passwords-troubleshoot.md)
 
 ## 장치 관리
+### [장치 등록](active-directory-conditional-access-device-registration-overview.md)
+#### [자동 등록 관리](active-directory-conditional-access-automatic-device-registration.md)
+#### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [장치 등록](active-directory-azureadjoin-personal-device.md)
 ### [Windows 10 장치 등록](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Azure AD 조인](active-directory-azureadjoin-overview.md)
 #### [계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [장치 등록 설정](active-directory-azureadjoin-setup.md)
@@ -176,6 +204,7 @@
 ### [문서 라이브러리](active-directory-apps-index.md)
 
 ## 디렉터리 관리
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
 #### [개요](active-directory-add-domain-concepts.md)
 #### 도메인 이름 추가
@@ -249,10 +278,6 @@
 ### [조건부 액세스](active-directory-conditional-access.md)
 #### [시작](active-directory-conditional-access-azuread-connected-apps.md)
 #### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
-#### [장치 등록](active-directory-conditional-access-device-registration-overview.md)
-#### [자동 등록 관리](active-directory-conditional-access-automatic-device-registration.md)
-##### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [인증자 앱 관리](active-directory-conditional-access-azure-authenticator-app.md)
 #### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 #### [온-프레미스 배포](active-directory-conditional-access-on-premises-setup.md)
@@ -274,27 +299,12 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Azure VM에 배포](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Azure VM에 AD DS 배포](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM의 Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)
 ### [Azure 가상 네트워크의 복제본 도메인 컨트롤러](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Azure 가상 네트워크의 새 포리스트](active-directory-new-forest-virtual-machine.md)
 
-## [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
-### 요구 사항 결정
-#### [ID](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [디렉터리 동기화](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Multi-Factor Auth](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [ID 수명 주기 전략](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [데이터 보안 계획](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [데이터 보호](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [콘텐츠 관리](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [액세스 제어](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [사고 대응](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### ID 수명 주기 계획
-#### [작업](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [채택 전략](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [다음 단계](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
 ### [고가용성](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -323,8 +333,3 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

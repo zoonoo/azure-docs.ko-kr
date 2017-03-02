@@ -1,41 +1,29 @@
 ---
-title: "Azure Logic Apps 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "온-프레미스 및 클라우드에 비즈니스 워크플로를 자동화하고 간소화하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조입니다."
-services: logic-apps
-author: carolz
-manager: carolz
 layout: LandingPage
-ms.assetid: 
-ms.service: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
+description: "Network Watcher를 사용하여 네트워크 수준에서 상태를 모니터링하고 진단하는 방법에 대해 알아봅니다."
 translationtype: Human Translation
-ms.sourcegitcommit: a0bb42ad612c47111c946afe280e5ed0b3acc2a7
-ms.openlocfilehash: 02ea87d181ede4a0a2d5934b7875f335a25d6ce3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 7b51e3df9aa449bb3fdabd28ce80ac9d4fd7a951
+ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
+ms.lasthandoff: 02/22/2017
 
 ---
+# <a name="azure-network-watcher-documentation"></a>Azure Network Watcher 설명서
 
-# <a name="logic-apps-documentation"></a>Logic Apps 설명서
-
-클라우드에서 확장 가능한 워크플로를 단순화하고 통합하는 논리 앱을 개발하는 방법에 대해 알아봅니다. 자습서, 템플릿 및 API 참조를 통해 온-프레미스 및 클라우드에 자동화된 비즈니스 워크플로를 디자인하고 배포할 수 있습니다.
+네트워크 시나리오 수준에서 상태를 모니터링 및 진단할 수 있는 서비스인 Network Watcher를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 패킷 캡처, 토폴로지 등과 같은 도구를 사용하여 Azure 네트워크에 대한 통찰력을 얻는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
+        <a href="/azure/network-watcher/network-watcher-monitoring-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/logic-apps.svg" alt="" />
+                            <img src="media/index/network-watcher.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Logic Apps에 대해 알아보기</h3>
+                        <h3>Network Watcher에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +31,7 @@ ms.lasthandoff: 02/24/2017
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=network-watcher">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +41,7 @@ ms.lasthandoff: 02/24/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service 비디오 라이브러리</h3>
+                        <h3>Network Watcher 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -61,7 +49,7 @@ ms.lasthandoff: 02/24/2017
         </a>
     </li>
     <li>
-        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
+        <a href="/azure/network-watcher/network-watcher-packet-capture-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -71,15 +59,15 @@ ms.lasthandoff: 02/24/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>SaaS 서비스에 연결하는 새 논리 앱 만들기 시작</h3>
+                        <h3>패킷 캡처 시작</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/logic-apps/logic-apps-arm-provision">
+    </li> 
+     <li>
+        <a href="/azure/network-watcher/network-watcher-security-group-view-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +77,7 @@ ms.lasthandoff: 02/24/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>템플릿을 사용하여 논리 앱 만들기 시작</h3>
+                        <h3>보안 그룹 보기 시작</h3>
                     </div>
                 </div>
             </div>
@@ -97,7 +85,7 @@ ms.lasthandoff: 02/24/2017
         </a>
     </li>
     <li>
-        <a href="/azure/logic-apps/logic-apps-create-api-app">
+        <a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -107,13 +95,51 @@ ms.lasthandoff: 02/24/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Logic Apps와 함께 사용할 사용자 지정 API 만들기 시작</h3>
+                        <h3>IP 흐름 시작 확인 시작</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/network-watcher/network-watcher-next-hop-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>다음 홉 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
+     <li>
+        <a href="/azure/network-watcher/network-watcher-topology-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>토폴로지 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
 </ul>
 
 ---
@@ -126,7 +152,7 @@ ms.lasthandoff: 02/24/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs/">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -137,10 +163,9 @@ ms.lasthandoff: 02/24/2017
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>스키마 기록</h3>
-                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">GA</a></p>
-                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">미리 보기</a></p>
-                   </div>
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,9 +176,7 @@ ms.lasthandoff: 02/24/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/logic/definition-language">워크플로 정의 언어</a></p>
-                        <p><a href="/rest/api/logic/actions-and-triggers">워크플로 작업 및 트리거</a></p>
-                        <p><a href="/rest/api/logic/">REST API 참조</a></p>
+                        <p><a href="/rest/api/networkwatcher">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
