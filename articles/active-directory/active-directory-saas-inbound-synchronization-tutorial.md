@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 50f75a05cd7e22316be5434c0b37f0f0a2ee8509
 ms.openlocfilehash: 75c7565806c9737a464d9fa3fc34e4d15eb6a16b
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -163,10 +164,5 @@ ms.openlocfilehash: 75c7565806c9737a464d9fa3fc34e4d15eb6a16b
    ![프로비저닝 시작](./media/active-directory-saas-inbound-synchronization-tutorial/IC750998.png "프로비저닝 시작")  
 
 이제 **사용자** 섹션으로 이동하여 Workday 사용자를 가져왔는지 확인할 수 있습니다.    
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

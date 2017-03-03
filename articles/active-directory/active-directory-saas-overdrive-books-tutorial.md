@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
 ms.openlocfilehash: 35c1dfb5aaee4427f40e72a2293c756ae4fcb76c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -114,10 +115,5 @@ OverDrive를 프로비전하는 사용자를 구성할 작업 항목이 없습�
    ![예](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

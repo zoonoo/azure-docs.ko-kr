@@ -17,6 +17,7 @@ ms.author: magoedte;bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 89e5486f3302098f3a1d49e4390ec5b21617d778
 ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
+ms.lasthandoff: 02/11/2017
 
 ---
 
@@ -95,9 +96,4 @@ ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
 ## <a name="next-steps"></a>다음 단계
 
 - Runbook이 수행하도록 설계된 활동의 논리적 흐름을 제어하도록 링크로 작업하는 방법에 대한 자세한 정보는 [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 참조하세요. 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

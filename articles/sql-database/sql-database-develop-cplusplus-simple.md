@@ -18,6 +18,7 @@ ms.author: tobiast
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: 697a99ec828984d4e6f6e3dc446bc6dc8377cf57
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -134,10 +135,5 @@ github에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

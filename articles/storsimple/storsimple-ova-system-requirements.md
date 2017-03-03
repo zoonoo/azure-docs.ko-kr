@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
 ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
@@ -127,10 +128,5 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 ## <a name="next-step"></a>다음 단계
 * [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

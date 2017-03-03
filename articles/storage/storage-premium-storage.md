@@ -17,6 +17,7 @@ ms.author: ramankum
 translationtype: Human Translation
 ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
 ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -277,8 +278,3 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 ### <a name="blog-posts"></a>블로그 게시물
 * [일반적으로 제공되는 Azure 프리미엄 저장소](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [GS 시리즈 발표: 공용 클라우드의 최대 VM에 프리미엄 저장소 지원 추가](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

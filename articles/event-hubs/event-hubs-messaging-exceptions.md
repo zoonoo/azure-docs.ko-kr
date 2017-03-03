@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: ab0df01d637c15b05c2d83f1936a0154118034f7
 ms.openlocfilehash: f88c4914478c3adf823fc22a0e049e73fb43e8db
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -106,9 +107,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

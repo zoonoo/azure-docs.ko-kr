@@ -18,6 +18,7 @@ ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 1d4d27812b1c7cadbc70c3ede8fb10dfdc86b0ea
 ms.openlocfilehash: c8a5bfcb253300488e6bbd1cb89b23cabb181ca9
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -332,10 +333,5 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 ## <a name="next-steps"></a>다음 단계
 이제 CentOS Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에서 2단계 및 3단계를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

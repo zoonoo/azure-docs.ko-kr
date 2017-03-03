@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
 ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
 ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -273,10 +274,5 @@ Reliable State Manager는 읽기 및 쓰기 작업을 차단하지 않고 일관
 * [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 구성](service-fabric-reliable-services-configuration.md)
 * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

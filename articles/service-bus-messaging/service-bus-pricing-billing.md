@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
 ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ WCF 릴레이는 표준 계층 네임 스페이스 에서만 사용할 수 있�
 * Service Bus 가격 책정 및 대금 청구에 대한 몇 가지 일반적인 FAQ를 보려면 [Service Bus FAQ](service-bus-faq.md#pricing)를 참조하세요.
 
 [Azure classic portal]: http://manage.windowsazure.com
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

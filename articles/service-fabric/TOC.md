@@ -105,6 +105,7 @@
 #### Azure에서 클러스터 만들기
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio 및 Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [노드 유형 및 VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [클러스터의 크기 조정](service-fabric-cluster-scale-up-down.md)
 #### [클러스터 업그레이드](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Party 클러스터 무료 체험](http://aka.ms/tryservicefabric)
 
 ### 독립 실행형 클러스터
+#### [배포를 위한 계획 및 준비](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Service Fabric 독립 실행형 패키지의 내용](service-fabric-cluster-standalone-package-contents.md)
 #### [독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 #### [Azure Virtual Machines에서 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [클러스터의 크기 조정](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

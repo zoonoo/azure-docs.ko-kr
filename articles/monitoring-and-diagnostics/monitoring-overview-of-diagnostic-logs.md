@@ -17,6 +17,7 @@ ms.author: johnkem; magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
 ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -213,9 +214,4 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 * [**Event Hubs**로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

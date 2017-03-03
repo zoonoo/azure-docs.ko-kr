@@ -63,6 +63,7 @@
 ### [HDInsight MapReduce 작업](data-factory-map-reduce.md)
 ### [HDInsight 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 ### [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+### [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 ### [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 ### [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -99,8 +100,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

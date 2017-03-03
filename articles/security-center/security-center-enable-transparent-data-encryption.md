@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
 ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -63,9 +64,4 @@ ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
 [2]:./media/security-center-enable-tde-on-sql-databases/transparent-data-encryption-blade.png
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

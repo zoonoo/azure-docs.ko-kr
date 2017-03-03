@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 991a7d112bc0cd65466be394dbb1aad9ca823681
 ms.openlocfilehash: 726880186693756941538f767dfba40c54ac9fd9
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -156,10 +157,5 @@ Mozy Enterprise의 경우 프로비전은 수동 작업입니다.
    ![예](./media/active-directory-saas-mozy-enterprise-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

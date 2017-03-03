@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
+ms.sourcegitcommit: f42e31c99bf43e8f034c8d6f4f98d777661c3d81
+ms.openlocfilehash: 204ec83dc1000bb1e10df6fecc303b6ac7795739
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -176,9 +177,6 @@ Azure Active Directory Device Registration은 iOS 장치에 대해 무선 프로
 ### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration을 사용하여 Windows 7 장치 연결
 Windows 7 도메인 가입 장치를 등록하려면 장치 등록 소프트웨어 패키지를 배포해야 합니다. 이 소프트웨어 패키지를 Windows 7용 작업 공간 연결이라고 하며 [Microsoft Connect 웹 사이트](https://connect.microsoft.com/site1164)에서 다운로드할 수 있습니다. 패키지를 사용하는 방법에 대한 지침은 [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)을 참조하세요.
 
-### <a name="join-an-android-device-using-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration을 사용하여 Android 장치 연결
-[Android용 Azure Authenticator 항목](active-directory-conditional-access-azure-authenticator-app.md) 에는 Android 장치에 Azure Authenticator 앱을 설치하고 회사 계정을 추가하는 방법에 대한 지침이 있습니다. Android 장치에 회사 계정이 성공적으로 생성되면 해당 장치가 작업 공간 연결을 통해 조직에 연결됩니다.
-
 ## <a name="verify-registered-devices-are-written-back-to-active-directory"></a>등록된 장치가 Active Directory에 쓰기 저장되는지 확인
 LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 쓰기 저장되었는지 보고 확인할 수 있습니다. 둘 다 Active Directory 관리자 도구에서 사용할 수 있습니다.
 
@@ -234,10 +232,5 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

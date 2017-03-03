@@ -18,6 +18,7 @@ ms.author: janeng
 translationtype: Human Translation
 ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
 ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -75,10 +76,5 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

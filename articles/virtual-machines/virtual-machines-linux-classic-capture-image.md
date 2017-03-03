@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: c81c2f86802c1b1d672105962c196b36fbb2c081
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -104,9 +105,4 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
 [How to Create a Custom Virtual Machine]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [How to Create a Linux Virtual Machine]: virtual-machines-linux-classic-create-custom.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

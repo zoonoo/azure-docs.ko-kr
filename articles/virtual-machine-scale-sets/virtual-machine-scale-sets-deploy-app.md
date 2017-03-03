@@ -18,6 +18,7 @@ ms.author: guybo
 translationtype: Human Translation
 ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
 ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -57,10 +58,5 @@ Packer 및 Terraform도 Azure Resource Manager를 지원하므로, 이미지를 
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>업데이트 도메인 간에 OS 업데이트를 롤아웃하려면 어떻게 해야 할까요?
 VM 크기 집합을 계속 실행하면서 OS 이미지를 업데이트하려고 할 것입니다. 이렇게 하는 한 가지 방법은 VM 이미지를 VM 단위로 한 번에 하나씩 업데이트하는 것입니다. 이 작업은 PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다. VM 크기 집합 모델(구성이 정의되는 방식)을 업데이트하고 개별 VM에서 "수동 업그레이드" 호출을 실행하는 별도의 명령이 있습니다. 또한 VM 크기 집합에서 OS 업그레이드를 수행하는 데 사용할 수 있는 옵션에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 업그레이드](./virtual-machine-scale-sets-upgrade-scale-set.md) Azure 문서에서 제공합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

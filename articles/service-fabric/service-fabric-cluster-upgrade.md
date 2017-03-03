@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/22/2017
 ms.author: chackdan
 translationtype: Human Translation
 ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
 ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -223,9 +224,4 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 [ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

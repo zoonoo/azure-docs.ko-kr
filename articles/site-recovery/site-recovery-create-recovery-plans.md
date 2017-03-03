@@ -17,6 +17,7 @@ ms.author: raynew
 translationtype: Human Translation
 ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
 ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -104,9 +105,4 @@ VMM 원본 사이트가 있는 경우 VMM 서버에 스크립트를 생성하고
 ## <a name="next-steps"></a>다음 단계
 
 장애 조치를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

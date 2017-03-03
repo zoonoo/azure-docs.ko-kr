@@ -18,6 +18,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: d1ffb9aba0eb1e17d1efd913f536f6f3997fccbb
 ms.openlocfilehash: 7b635b1810536f5b3eb1371d687e9c355e604e41
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -152,10 +153,5 @@ ms.openlocfilehash: 7b635b1810536f5b3eb1371d687e9c355e604e41
 * **함수 이벤트** 는 요청의 이벤트 수를 나타냅니다. 기본적으로 Machine Learning 웹 서비스에 대한 각 요청에는 최대 1,000개의 이벤트가 포함됩니다.  
   
     ![Stream Analytics Machine Learning, Machine Learning 모니터 보기](./media/stream-analytics-machine-learning-integration-tutorial/job-monitor.png)  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

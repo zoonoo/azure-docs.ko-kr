@@ -17,6 +17,7 @@ ms.author: inhenk
 translationtype: Human Translation
 ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
 ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -91,10 +92,5 @@ Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 �
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

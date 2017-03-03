@@ -17,6 +17,7 @@ ms.author: msfussell
 translationtype: Human Translation
 ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
 ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -302,9 +303,4 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 
 * [Service Fabric 및 컨테이너 개요](service-fabric-containers-overview.md)
 * 예제 응용 프로그램에 대해서는 [GitHub에서 Service Fabric 컨테이너 코드 샘플을 확인하세요](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

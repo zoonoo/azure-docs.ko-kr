@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
 ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -82,9 +83,4 @@ API에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/libr
 
 ## <a name="next-steps"></a>다음 단계
 부가 정보 및 업데이트를 보려면 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2016
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 [저장소 계정 또는](websites-dotnet-webjobs-sdk-get-started.md) 여러 저장소 계정 [을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs) 을 알고 있는 것으로 가정합니다.
 
 대부분의 코드 조각은 다음 예제와 같이 `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
 
@@ -124,7 +124,7 @@ Blob을 복사하는 다음 예제와 같이 비동기 함수는 [취소 토큰]
 * `CloudQueueMessage`
 
 ### <a name="a-idpollinga-polling-algorithm"></a><a id="polling"></a> 폴링 알고리즘
-SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 SDK는 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#config).
+SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 저장소 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 SDK는&2;초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면&4;초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값&1;분)에 도달할 때까지 대기 시간이 계속 증가합니다. [최대 대기 시간은 구성 가능합니다](#config).
 
 ### <a name="a-idinstancesa-multiple-instances"></a><a id="instances"></a> 여러 인스턴스
 웹앱이 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. WebJobs SDK 큐 트리거는 함수가 큐 메시지를 여러 번 처리하는 것을 방지합니다. 함수를 idempotent로 작성할 필요가 없습니다. 그러나 호스트 웹앱의 여러 인스턴스가 있는 경우에는 함수는 하나의 인스턴스만 실행되도록 하려는 경우 `Singleton` 특성을 사용할 수 있습니다.
@@ -132,7 +132,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 ### <a name="a-idparallela-parallel-execution"></a><a id="parallel"></a> 병렬 실행
 여러 함수가 서로 다른 큐에서 수신 대기 중이면 메시지가 동시에 수신될 경우 SDK에서 병렬로 호출합니다.
 
-단일 큐에 대해 여러 메시지가 수신되는 경우에도 마찬가지입니다. 기본적으로 SDK는 한 번에 16개의 큐 메시지를 일괄로 가져오고 해당 메시지를 병렬로 처리하는 함수를 실행합니다. [일괄 처리 크기는 구성 가능합니다](#config). 처리되는 개수가 일괄 처리 크기의 절반으로 감소하면 SDK에서 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 일괄 처리 크기의 1.5배입니다. 이 제한은 `QueueTrigger` 특성이 있는 각 함수에 개별적으로 적용됩니다.
+단일 큐에 대해 여러 메시지가 수신되는 경우에도 마찬가지입니다. 기본적으로 SDK는 한 번에 16개의 큐 메시지를 일괄로 가져오고 해당 메시지를 병렬로 처리하는 함수를 실행합니다. [일괄 처리 크기는 구성 가능합니다](#config). 처리되는 개수가 일괄 처리 크기의 절반으로 감소하면 SDK에서 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 일괄 처리 크기의&1;.5배입니다. 이 제한은 `QueueTrigger` 특성이 있는 각 함수에 개별적으로 적용됩니다.
 
 하나의 큐에 수신된 메시지에 대해 병렬 실행을 사용하지 않으려면 일괄 처리 크기를 1로 설정하면 됩니다. **Azure WebJobs SDK 1.1.0 RTM** 에서 [큐 처리에 대한 제어 강화](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)를 참조하세요.
 

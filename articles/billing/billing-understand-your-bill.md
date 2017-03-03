@@ -18,6 +18,7 @@ ms.author: erihur;genli
 translationtype: Human Translation
 ms.sourcegitcommit: 29a6290a19186d5bc8a07d87617b47d21529d6b7
 ms.openlocfilehash: 2e99332e2a2b023c00669b3ad5ea07f0c791a805
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -154,10 +155,5 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
  
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
 ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
+ms.lasthandoff: 02/03/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링
@@ -281,9 +282,4 @@ Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하
   * [Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)
   * [로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [log-to-eventhub 정책 참조](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

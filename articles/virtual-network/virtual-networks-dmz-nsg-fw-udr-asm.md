@@ -17,6 +17,7 @@ ms.author: jonor;sivae
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -983,9 +984,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

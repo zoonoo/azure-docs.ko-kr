@@ -18,6 +18,7 @@ ms.author: anandy
 translationtype: Human Translation
 ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
 ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -45,10 +46,5 @@ AD FS(Active Directory Federation Services)는 변조될 수 없음을 확인하
 
 ## <a name="also-read"></a>참조 항목
 * [Azure AD Connect를 사용하여 Office 365 트러스트 복구](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

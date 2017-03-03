@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
 ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -215,10 +216,5 @@ Azure SQL 데이터베이스에서 데이터베이스를 복사하는 동안 다
 ## <a name="related-links"></a>관련 링크
 * [Azure SQL Database 기능](sql-database-features.md)
 * [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

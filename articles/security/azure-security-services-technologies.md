@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
 ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -72,9 +73,4 @@ ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
 * [Azure express 경로](../expressroute/expressroute-introduction.md)
 * [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)
 * [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-enable.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

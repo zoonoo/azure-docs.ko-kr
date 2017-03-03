@@ -18,6 +18,7 @@ ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
 ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -409,10 +410,5 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 1. [DocumentDB .NET 인덱스 관리 코드 샘플](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [DocumentDB REST API 컬렉션 작업](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [DocumentDB SQL을 사용한 쿼리](documentdb-sql-query.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

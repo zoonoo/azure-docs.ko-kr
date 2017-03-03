@@ -18,6 +18,7 @@ ms.author: ashmaka
 translationtype: Human Translation
 ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
 ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -57,8 +58,3 @@ Azure Search에서 판별할 수 있는 데이터 형식은 JSON이며, 데이�
 
 > [!TIP]
 > 수많은 [Azure Search 코드 샘플](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)에는 포함되거나 쉽게 사용할 수 있는 데이터 집합이 있어 손쉽게 시작할 수 있는 방법을 제공합니다. 또한 포털에서는 작은 부동산 데이터 집합("realestate-us-sample")으로 구성된 샘플 인덱서 및 데이터 원본도 제공합니다. 샘플 데이터 원본에 미리 구성된 인덱서를 실행하면 인덱스가 [검색 탐색기] 또는 작성한 코드로 쿼리할 수 있는 문서로 만들어지고 로드됩니다.
-
-
-<!--HONumber=Feb17_HO3-->
-
-

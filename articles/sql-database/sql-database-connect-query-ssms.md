@@ -20,6 +20,7 @@ ms.author: sstein;carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -65,10 +66,5 @@ ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
 - SQL Server 인증 자습서를 시작하려면 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)를 참조하세요.
 - Azure Active Directory 인증 자습서를 시작하려면 [Azure AD 인증 및 권한 부여](sql-database-control-access-aad-authentication-get-started.md)를 참조하세요.
 - SSMS에 대한 자세한 내용은 [SQL Server Management Studio 사용](https://msdn.microsoft.com/library/ms174173.aspx)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

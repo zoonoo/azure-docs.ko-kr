@@ -19,6 +19,7 @@ ms.author: rclaus
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: 581ddd7ac3d612007614ca4f582364dfa16d30f6
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -389,10 +390,5 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 업데이트한 날짜: 2016년 12월
 
 [이 가이드는 여기서 확인할 수 있습니다.][ha-guide]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

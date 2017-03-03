@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -437,10 +438,5 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 응�
 * 서비스 계층에 대한 자세한 내용은 [Azure SQL Database 옵션 및 성능](sql-database-service-tiers.md)
 * 탄력적 풀에 대한 자세한 내용은 [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 * 성능 및 탄력적 풀에 대한 자세한 내용은 [탄력적 풀을 고려 하는 경우](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

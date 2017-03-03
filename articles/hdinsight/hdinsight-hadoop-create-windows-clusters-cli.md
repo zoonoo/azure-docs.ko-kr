@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
 ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -139,10 +140,5 @@ CLI에서 Azure Resource Manager 템플릿을 호출하여 클러스터를 만�
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md) - 프로그래밍 방식으로 작업을 HDInsight에 제출하는 방법을 알아봅니다.
 * [Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md)
 * [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

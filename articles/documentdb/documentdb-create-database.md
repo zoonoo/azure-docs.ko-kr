@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5f3881cb477c3cb90adfc53a57ff82a8d312d0f
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: ad15b1695ad4697aebc38ac39723a1dd1647c466
+ms.lasthandoff: 02/23/2017
 
 
 
@@ -19,11 +20,6 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 ## <a name="next-steps"></a>다음 단계
 데이터베이스와 컬렉션을 만든 후에 포털의 문서 탐색기를 사용하여 [JSON 문서를 추가](documentdb-view-json-document-explorer.md)하고, DocumentDB 데이터 마이그레이션 도구를 사용하여 컬렉션으로 [문서를 가져오거나](documentdb-import-data.md), [DocumentDB SDK](documentdb-sdk-dotnet.md) 하나를 사용하여 CRUD 작업을 수행할 수 있습니다. DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. 문서 만들기, 제거, 업데이트 및 삭제 방법을 보여주는 .NET 코드 샘플의 경우, [.NET 문서 예제](documentdb-dotnet-samples.md#document-examples)를 참조하세요. Node.js SDK를 사용한 문서 작업에 대한 자세한 내용은 [Node.js 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요. 
 
-컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-sql-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다. 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#ExecutingSqlQueries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다. 
 
 

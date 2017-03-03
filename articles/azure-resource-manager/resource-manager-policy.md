@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
 ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -328,10 +329,5 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 * 정책 규칙을 정의한 후에 범위에 할당합니다. 정책 할당에 대한 정보는 [정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 * 정책 스키마는 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)에 게시되어 있습니다. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

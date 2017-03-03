@@ -17,6 +17,7 @@ ms.author: magoedte;eslesar
 translationtype: Human Translation
 ms.sourcegitcommit: f0d3a5c1929bb6dafef735ae3f4291e329861cc9
 ms.openlocfilehash: b750878703baf143a2e8247bdd01f358e462e598
+ms.lasthandoff: 02/03/2017
 
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure 자동화 DSC 개요
@@ -118,10 +119,5 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 * [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

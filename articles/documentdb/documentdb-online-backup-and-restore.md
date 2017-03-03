@@ -18,6 +18,7 @@ ms.author: raprasa
 translationtype: Human Translation
 ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
 ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,10 +59,5 @@ DocumentDB 내에 저장된 데이터와 달리 자동 백업은 Azure Blob Stor
 여러 데이터 센터에서 NoSQL 데이터베이스를 복제하려면 [DocumentDB를 사용하여 데이터를 전역적으로 배포](documentdb-distribute-data-globally.md)를 참조하세요. 
 
 Azure 지원에 문의하려면 [Azure 포털에서 티켓 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

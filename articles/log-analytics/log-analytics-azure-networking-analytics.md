@@ -17,6 +17,7 @@ ms.author: richrund
 translationtype: Human Translation
 ms.sourcegitcommit: 14df6b49d79aa1bf6f414070c60e7acac6578301
 ms.openlocfilehash: 7267b41d5d1a7903a084eea2c813bc40249fbf6a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -210,10 +211,5 @@ Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspac
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Azure 진단 데이터를 확인합니다.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

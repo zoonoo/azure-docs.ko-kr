@@ -16,7 +16,7 @@
 #### [Windows 에이전트](log-analytics-windows-agents.md)
 #### [Linux 에이전트](log-analytics-linux-agents.md)
 #### [Azure 가상 컴퓨터](log-analytics-azure-vm-extension.md)
-#### [Azure 리소스](log-analytics-azure-storage.md)
+#### [Azure 저장소](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [구성 관리자](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## 쿼리 데이터
 ### [로그 검색 개요](log-analytics-log-searches.md)
 ### [Search 참조](log-analytics-search-reference.md)
+#### [정규식](log-analytics-log-searches-regex.md)
 ### [컴퓨터 그룹](log-analytics-computer-groups.md)
-### [경고](log-analytics-alerts.md)
 ## 데이터 분석
 ### [대시보드](log-analytics-dashboards.md)
 ### [뷰 디자이너](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [AD 평가](log-analytics-ad-assessment.md)
 #### [AD 복제 상태](log-analytics-ad-replication-status.md)
 #### [경고 관리](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analytics](log-analytics-azure-sql.md)
 #### [용량 관리](log-analytics-capacity.md)
 #### [변경 내용 추적](log-analytics-change-tracking.md)
 #### [컨테이너](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [실시간 데이터](log-analytics-wire-data.md)
 #### [SCOM 평가](log-analytics-scom-assessment.md)
+## 경고 만들기
+### [경고 이해](log-analytics-alerts.md)
+### [경고 작업](log-analytics-alerts-actions.md)
+### 경고 규칙 만들기
+#### [OMS 포털](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Resource Manager 템플릿](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Webhook 작업 샘플](log-analytics-alerts-webhooks.md)
+### [경고 관리 솔루션](log-analytics-solution-alert-management.md)
 ## 개발
 ### [데이터 수집기 API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlet](log-analytics-powershell-workspace-configuration.md)
@@ -75,8 +85,3 @@
 ## [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

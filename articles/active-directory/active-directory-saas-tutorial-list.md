@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/23/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 48fc6d16c2a9c0a5e617f5c0fd9d5e6aebe6ce05
-ms.openlocfilehash: 2c45857dea0d9962b724d5c890cd7d5595cf89dc
+ms.sourcegitcommit: ca6774310d97cb1c3e72ed43a3340e3bb3d9c70a
+ms.openlocfilehash: 9900183d8207a664b47426209ab3b3b0f6154b2a
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="list-of-tutorials-on-how-to-integrate-saas-apps-with-azure-active-directory"></a>Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
 Azure Active Directory와 모든 클라우드 [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) 응용 프로그램을 쉽게 통합할 수 있도록 하기 위해 필요한 구성 단계를 각각 보여주는 자습서의 컬렉션을 개발했습니다.
 
-Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
+Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Active Directory 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요.
 
 ## <a name="list-of-tutorials"></a>자습서 목록
 
@@ -323,10 +324,5 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

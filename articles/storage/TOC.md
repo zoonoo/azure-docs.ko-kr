@@ -44,8 +44,8 @@
 ### [Python](storage-python-how-to-use-file-storage.md)
 
 ## 디스크 저장소 
-### [리소스 관리자 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [PowerShell을 사용하여 관리 디스크를 Windows VM에 연결](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [관리 디스크를 Linux VM에 추가](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Windows에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [속성 및 메타데이터 설정 및 검색](storage-properties-metadata.md)
 ## 관리
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0(미리 보기)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## 보안
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -17,6 +17,7 @@ ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -108,10 +109,5 @@ Machine Learning PowerShell Management cmdlet을 사용하여 다음과 같은 �
 
 * 새 데이터를 사용하는 주기적 모델 재학습.
 * 자신의 데이터를 사용하여 모델을 다시 학습할 수 있도록 하는 것을 목표로 고객에게 모델 배포.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

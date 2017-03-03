@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 1d2d3d9d6c8dee02f2eb96ba20894e1d52541102
 ms.openlocfilehash: 584af73f3f2d428f7551de0b12b498b1a118e5dc
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -283,9 +284,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -17,6 +17,7 @@ ms.author: hascipio; v-divte
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -148,10 +149,5 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 ## <a name="see-also"></a>참고 항목
 * [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 * [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

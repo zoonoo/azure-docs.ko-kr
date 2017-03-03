@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
 ms.openlocfilehash: 7d1be1dea6ed4ecda196743f592456a5b977e9b0
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -93,10 +94,5 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 * [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

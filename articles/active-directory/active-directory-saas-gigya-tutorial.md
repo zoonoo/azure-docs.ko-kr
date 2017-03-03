@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
 ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -163,10 +164,5 @@ Gigya의 경우 프로비전은 수동 작업입니다.
     ![예](./media/active-directory-saas-gigya-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

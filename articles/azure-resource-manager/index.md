@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: c4a7875e7a5cace68b592cc7c4ea673851e0b070
 ms.openlocfilehash: ecf5fcec2ec5c1d11c34a035f24d78f991d66b57
+ms.lasthandoff: 02/15/2017
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Azure Resource Manager 설명서
@@ -160,10 +161,5 @@ Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포, 모
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: hawong
 translationtype: Human Translation
 ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
 ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -115,9 +116,4 @@ DocumentDB를 시작하기 위해 [계정](https://azure.microsoft.com/pricing/f
 * [Orange Tribes](https://customers.microsoft.com/en-US/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). 눈과 입을 충족하는 훌륭한 음식 앱입니다.
 * [Real Madrid](https://customers.microsoft.com/en-US/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid는 Microsoft 클라우드를 통해 전 세계 4억5천만 명에 이르는 팬들을 경기장에 끌어모읍니다.
 * [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU는 Azure 서비스의 도움으로 차를 구입하는 재미를 줍니다. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

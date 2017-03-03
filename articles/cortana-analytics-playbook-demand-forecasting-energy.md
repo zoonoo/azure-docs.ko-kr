@@ -17,6 +17,7 @@ ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -400,10 +401,5 @@ Cortana Intelligence에 에너지 수요 예측 솔루션을 실제로 배포하
 ![종단 간 배포 아키텍처](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 각 구성 요소 및 전체 아키텍처에 대한 자세한 내용은 에너지 솔루션 템플릿을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: f68cf75cb8261ddac3fd56a8718f900bedb51c2b
 ms.openlocfilehash: 7e0f7d8fefad539960436a58a254087a4ebd2f78
+ms.lasthandoff: 02/15/2017
 
 ---
 
@@ -52,8 +53,3 @@ Azure Multi-factor Authentication은 Juniper/Pulse Secure SSL VPN 로그인 및 
 - [Azure Multi-Factor Authentication에 대한 NPS 확장을 사용하여 기존 인증 인프라 보강](multi-factor-authentication-nps-extension.md)
 
 - [Azure Multi-Factor Authentication 구성 설정](multi-factor-authentication-whats-next.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

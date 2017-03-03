@@ -4,8 +4,9 @@ hide_bc: true
 title: "Microsoft Azure설명서 | Microsoft Docs"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 39bebdc52aea8f4ee154c8369c1c564ffe8be95d
-ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
+ms.sourcegitcommit: a2f5d05e9911e0ceb9a3815245fb92704b0619a7
+ms.openlocfilehash: 989b9a20705290ed6764f2e5857cc1485ced39dc
+ms.lasthandoff: 02/28/2017
 
 ---
 <div id="main" class="v2">
@@ -273,7 +274,13 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>ExpressRoute</p>
+                                                <p>Express 경로</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -997,6 +1004,25 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Azure로 전용 사설 네트워크 파이버 연결</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>네트워크 시나리오 수준에서 상태 모니터링 및 진단</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2587,12 +2613,12 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 미리 보기 </h3>
+                                                <h3>Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">시작</a>
+                                                    <a href="/cli/azure/overview">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Azure CLI 2.0 다운로드</a>
+                                                    <a href="/cli/azure/install-azure-cli">Azure CLI 2.0 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">참조</a>
@@ -2906,9 +2932,4 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
         </ul>
     </div>
 </div>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

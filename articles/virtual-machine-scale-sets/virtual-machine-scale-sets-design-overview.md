@@ -19,6 +19,7 @@ ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: e869b06935736fae72bd3b5407ebab7c3830098d
 ms.openlocfilehash: de3687a1bf36bf49db400a5660ac631f20b629d0
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -56,10 +57,5 @@ Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Ma
 사용자 지정 이미지에 구축된 크기 집합은 Azure Managed Disks로 구성된 경우 최대 100개의 VM 용량을 가질 수 있습니다. 크기 집합이 사용자 관리 저장소 계정으로 구성된 경우 하나의 저장소 계정 내에서 모든 OS 디스크 VHD를 만들어야 합니다. 그 결과 사용자 지정 이미지 및 사용자 관리 저장소에 구축하는 크기 집합의 최대 추천 VM 수는 20개입니다. 오버프로비전을 해제할 경우 40개를 초과할 수 있습니다.
 
 이러한 한도보다 더 많은 VM이 있는 경우 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)에 나오는 것처럼 여러 크기 집합을 배포해야 합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
