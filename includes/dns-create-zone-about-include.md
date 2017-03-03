@@ -12,7 +12,3 @@ Azure DNS에서 DNS 영역을 만드는 경우:
 > Azure DNS에서 해당 도메인 이름으로 DNS 영역을 만들기 위해 도메인을 소유할 필요는 없습니다. 하지만 도메인 이름 등록 기관에 도메인 이름의 올바른 이름 서버로 Azure DNS 이름 서버를 구성하려면 도메인을 소유해야 합니다.
 > 
 > 자세한 내용은 [Azure DNS에 도메인 위임](../articles/dns/dns-domain-delegation.md)을 참조하세요.
-
-<!--HONumber=Jan17_HO1-->
-
-
