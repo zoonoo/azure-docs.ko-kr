@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
 ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -103,10 +104,5 @@ GEP는 다양한 Azure 서비스를 사용하여 고객에 요구에 응답할 �
 * GEP의 부소장, 설계자 Huzaifa Matawala
 * GEP의 엔지니어링 관리자 Sathyan Narasingh
 * GEP의 데이터베이스 설계자 Deepa Velukutty
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -151,10 +152,5 @@ Azure CLI를 사용하여 리소스 그룹의 현재 상태를 나타내는 템�
 * Azure CLI를 사용하여 배포 작업의 자세한 내용을 보고 배포 오류의 문제를 해결하려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * CLI를 사용하여 리소스에 액세스하도록 응용 프로그램이나 스크립트를 설정하려면 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: manuaery
 translationtype: Human Translation
 ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
 ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -214,10 +215,5 @@ Azure StorSimple Manager 서비스의 **작업** 페이지에서 이러한 작�
 **Q.** 클라우드 장비에 로컬로 고정된 볼륨을 사용하여 볼륨 컨테이너를 장애 조치할 수 있나요?
 
 **A.** 예, 할 수 있습니다. 로컬로 고정된 볼륨은 계층화된 볼륨으로 장애 조치됩니다. 자세한 내용은 [버전에 걸쳐 로컬로 고정된 볼륨의 장애 조치 및 DR](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

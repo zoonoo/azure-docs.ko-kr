@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -129,10 +130,5 @@ Azure를 클라우드 파트너로 선택한 이후부터 Umbraco는 셀프 호�
 * 백업 및 복구에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.    
 * 모니터링 풀에 대한 자세한 내용은 [모니터링 풀](sql-database-elastic-pool-manage-portal.md)을 참조하세요.    
 * 서비스로서의 Umbraco에 대한 자세한 내용은 [Umbraco](https://umbraco.com/cloud)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

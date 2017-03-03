@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 0b2c783712419de1ab1897a0404429fc4ed4c688
 ms.openlocfilehash: 244c3320d673b884057b4200bed0c7858b1a2fea
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -607,9 +608,4 @@ typeProperties 섹션은 데이터 집합의 각 형식마다 다릅니다. 데�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
  Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 다양한 최적화 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md) 를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

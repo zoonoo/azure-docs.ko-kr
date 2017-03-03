@@ -18,6 +18,7 @@ ms.author: anhoh
 translationtype: Human Translation
 ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
 ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -522,10 +523,5 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 ## <a name="next-steps"></a>다음 단계
 * DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
