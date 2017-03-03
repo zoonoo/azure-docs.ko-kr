@@ -16,6 +16,7 @@ ms.author: ashmaka
 translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
+ms.lasthandoff: 01/14/2017
 
 ---
 
@@ -163,9 +164,4 @@ api-key: [query key]
 ```
 
 자세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)의 "응답" 섹션을 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
