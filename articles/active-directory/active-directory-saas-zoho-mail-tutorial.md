@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
-ms.author: markvi
+ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
 ms.openlocfilehash: 394777b77cbf2fe9fa779c270eec9dded21bdfae
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -176,10 +177,5 @@ Zoho mail의 경우, 수동으로 프로비전합니다.
     ![예](./media/active-directory-saas-zoho-mail-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

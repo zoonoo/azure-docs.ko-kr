@@ -17,6 +17,7 @@ ms.author: priyamo
 translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -34,9 +35,4 @@ Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single si
 * 테넌트 독립적 끝점은 `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. 이 끝점 주소에는 테넌트 도메인 이름 또는 ID 대신 **common**이 나타납니다.
 
 Azure AD에서 게시하는 페더레이션 메타데이터 문서에 대한 자세한 정보는 [페더레이션 메타데이터](active-directory-federation-metadata.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

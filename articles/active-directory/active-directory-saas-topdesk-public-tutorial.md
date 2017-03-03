@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
 ms.openlocfilehash: ee413f5044d541a7a127690fab0115341c7619f3
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -209,10 +210,5 @@ TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
     ![예](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

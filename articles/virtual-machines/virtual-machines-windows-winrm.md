@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: ebc2195bbb3526171359cc126ea6b59d0089f4a0
 ms.openlocfilehash: 6559b8605a311bb774f6c8b38a9298875d3a5362
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -164,9 +165,4 @@ VM에 연결하려면 먼저 컴퓨터가 WinRM 원격 관리에 맞게 구성�
 설정이 끝나면 아래 명령을 사용하여 VM에 연결할 수 있습니다.
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

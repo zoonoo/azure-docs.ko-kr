@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -31,10 +32,5 @@ ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 **Microsoft DSVM(데이터 과학 가상 컴퓨터)**은 Azure VM(가상 컴퓨터) 이미지로 사용할 수 있습니다. 이 VM은 데이터 분석 및 Machine Learning에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치되고 구성됩니다. Windows 및 Linux에는 DSVM를 사용할 수 있습니다. 자세한 내용은 [Linux 및 Windows용 클라우드 기반 데이터 과학 가상 컴퓨터에 대한 소개](machine-learning-data-science-virtual-machine-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

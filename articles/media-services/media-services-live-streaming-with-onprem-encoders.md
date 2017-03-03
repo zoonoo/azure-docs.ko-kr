@@ -17,6 +17,7 @@ ms.author: cenkd;juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 7d980e14776cade574fc9ef4e63aea5c91fb8fdf
 ms.openlocfilehash: a5867566afc80fe7ae57b5027b5578e3144f7f07
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -227,9 +228,4 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 [Media Services 개념](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

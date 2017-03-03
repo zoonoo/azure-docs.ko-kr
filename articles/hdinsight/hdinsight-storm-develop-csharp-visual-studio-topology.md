@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 1336f95809712779ca5c4c68237a3a8c6d630af4
 ms.openlocfilehash: 337e1c185ef8989345ec3abb60f6b255dbc9ef4f
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -729,10 +730,5 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 **HDInsight의 Apache HBase**
 
 * [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

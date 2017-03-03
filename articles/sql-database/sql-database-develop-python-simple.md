@@ -18,6 +18,7 @@ ms.author: meetb
 translationtype: Human Translation
 ms.sourcegitcommit: 2793ddb1c903f6732a193276a2d804192b7ab53b
 ms.openlocfilehash: 86524dd1a73df3b60245cb664c0e17a63df00763
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -160,9 +161,4 @@ cnxn.rollback()
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
 ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -174,10 +175,5 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
 [Azure AD Connect: 설계 개념](active-directory-aadconnect-design-concepts.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

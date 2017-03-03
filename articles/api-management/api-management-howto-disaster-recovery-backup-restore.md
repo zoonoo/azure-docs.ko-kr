@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
 ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -210,9 +211,4 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
 ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -270,10 +271,5 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정�
 * 마이그레이션에 대한 자세한 내용은 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)을 참조하세요.
 * Azure PowerShell을 사용하여 추가 네트워크 리소스를 Resource Manager로 마이그레이션하려면 [Move-AzureNetworkSecurityGroup](https://msdn.microsoft.com/library/mt786729.aspx), [Move-AzureReservedIP](https://msdn.microsoft.com/library/mt786752.aspx) 및 [Move-AzureRouteTable](https://msdn.microsoft.com/library/mt786718.aspx)과 비슷한 단계를 사용합니다.
 * Azure 리소스를 클래식에서 Resource Manager로 마이그레이션하는 데 사용할 수 있는 오픈 소스 스크립트에 대해서는 [Azure Resource Manager로 마이그레이션하기 위한 커뮤니티 도구](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
 ms.openlocfilehash: 3ade1f2850b2a67f68e8a4a7f519b7dc7ba1de10
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -79,9 +80,4 @@ sys.databases 및 sys.dm_database_copies 뷰 쿼리를 통해 복사 프로세�
 * 다른 논리 서버로 데이터베이스를 복사할 때 사용자 및 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL 데이터베이스 보안을 관리하는 방법](sql-database-geo-replication-security-config.md)을 참조하세요.
 * [비즈니스 연속성 개요](sql-database-business-continuity.md)
 * [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: 9b5cdc89985c43250e082518087d2ef209ff0217
 ms.openlocfilehash: 9574d30b228c9254ef57d0d3253cd5fc841efad4
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -398,9 +399,4 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 
 ## <a name="next-steps"></a>다음 단계
 PowerShell을 사용하여 Azure 리소스와 연결하려는 경우 Windows Server를 보호하기 위한 PowerShell 문서, [Windows Server에 대한 백업 배포 및 관리](backup-client-automation.md)를 확인하세요. DPM 백업을 관리하기 위한 PowerShell 문서, [DPM에 대한 백업 배포 및 관리](backup-dpm-automation.md)도 있습니다. 이러한 문서 모두에 Resource Manager 배포용 버전뿐 아니라 클래식 배포용 버전도 포함되어 있습니다.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
 ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -94,10 +95,5 @@ Azure SQL 데이터베이스는 빠르고 안정적인 서비스를 즐기는 Sp
 * 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * Azure 서비스 버스에 대한 자세한 내용은 [Azure 서비스 버스](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
 * 자동 크기 조정에 대한 자세한 내용은 [클라우드 서비스 크기 조정](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

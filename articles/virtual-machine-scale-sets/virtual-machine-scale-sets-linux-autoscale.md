@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 3c00742d9686b986841d676872cc93b58827a8e8
 ms.openlocfilehash: b87b507118244f0f275f54cd65cea13a92cdaec6
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -591,10 +592,5 @@ azure group delete vmsstestrg1
 * [크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)에서 알림 기능에 대해 알아보세요.
 * [감사 로그를 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림을 보내는](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 방법을 알아보세요.
 * 가상 컴퓨터 크기 집합의 자동 크기 조정 기능을 실행하도록 LAMP 스택을 설정하는 [Ubuntu/Apache/PHP 앱을 실행하는 VM 크기 집합 자동 크기 조정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) 템플릿을 확인합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
