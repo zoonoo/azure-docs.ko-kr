@@ -18,6 +18,7 @@ ms.author: daleche
 translationtype: Human Translation
 ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
 ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -89,10 +90,5 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 * [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 * [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 * [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

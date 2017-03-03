@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -40,10 +41,5 @@ Azure Portal에서 삭제된 데이터베이스를 복원하려면:
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)  
 * 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -18,6 +18,7 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
 ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 * 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 * 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

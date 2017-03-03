@@ -19,6 +19,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,10 +80,5 @@ ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
 * 고급 쿼리 및 분석을 위해 [SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-ssms.md) 하는 방법에 대해 알아보세요.
 * [탄력적 풀](sql-database-elastic-pool.md)의 이점에 대해 알아보세요.
 * [백 엔드에서 SQL 데이터베이스에 연결할 웹 응용 프로그램을 만드는](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)방법에 대해 알아보세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

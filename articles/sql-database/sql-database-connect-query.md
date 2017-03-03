@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -77,10 +78,5 @@ Visual Studio를 사용하여 SQL 데이터베이스에 연결하려면 다음�
 ## <a name="next-steps"></a>다음 단계
 * Visual Studio에서 SQL 데이터베이스를 열고 SQL Server Data Tools를 사용합니다. 자세한 내용은 [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx)를 참조하세요.
 * 코드를 사용하여 SQL 데이터베이스에 연결하려면 [.NET(C#)을 사용하여 SQL 데이터베이스에 연결](sql-database-develop-dotnet-simple.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
