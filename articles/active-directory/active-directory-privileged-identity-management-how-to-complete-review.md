@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: b31863124b4c1aa64951de5a9afb1d6d85d54ee0
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -58,9 +59,4 @@ ms.openlocfilehash: b31863124b4c1aa64951de5a9afb1d6d85d54ee0
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

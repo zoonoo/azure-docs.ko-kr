@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -228,9 +229,4 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 * [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) 또는 [Azure](app-insights-azure.md)에서 호스트되는 이미 배포된 앱
 * [웹 페이지](app-insights-javascript.md) - 단일 페이지 앱 또는 일반 웹 페이지 - 독립적으로 또는 다른 서버 옵션과 함께 사용
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 공용 인터넷에서 앱 테스트
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

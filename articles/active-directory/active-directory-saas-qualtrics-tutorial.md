@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
 ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -108,10 +109,5 @@ Qualtrics를 프로비전하는 사용자를 구성할 작업 항목이 없습�
    ![예](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

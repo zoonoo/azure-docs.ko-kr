@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
 ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -139,9 +140,4 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
 * [Application Insights에 Microsoft Azure 진단 결합 자동화](app-insights-powershell-azure-diagnostics.md)
 * [경고에 대한 응답 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

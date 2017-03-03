@@ -18,6 +18,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -107,8 +108,3 @@ Azure Portal 및 Visual Studio는 데이터 팩터리를 빌드하는 GUI 방식
 
 
   
-
-
-<!--HONumber=Feb17_HO1-->
-
-

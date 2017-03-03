@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
 ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -45,10 +46,5 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 1. Azure 미디어 서비스에서 구성된 캐시 값은 기본값을 재정의합니다.
 2. 수동 구성이 없으면 기본값이 적용됩니다.
 3. 라이브 스트리밍에는 Azure 미디어 또는 Azure 저장소 구성에 상관없이 기본적으로 2초 캐시 헤더가 적용되며, 이 값은 재정의할 수 없습니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

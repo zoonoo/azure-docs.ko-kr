@@ -18,6 +18,7 @@ ms.author: andrela
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: cbd13711911b67ace7ef43676b4c52aa93744bcb
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -45,10 +46,5 @@ ms.openlocfilehash: cbd13711911b67ace7ef43676b4c52aa93744bcb
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 모든 [SQL 데이터베이스의 기능](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

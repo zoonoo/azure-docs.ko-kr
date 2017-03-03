@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
 ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -178,8 +179,3 @@ Azure DocumentDB에서 가격 책정 및 데이터 관리에 대해 자세히 �
 2.    [DocumentDB 가격](https://azure.microsoft.com/pricing/details/documentdb/) 처리량 프로비전 및 저장소 소비 비용에 대해 알아봅니다.
 3.    [요청 단위](documentdb-request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.
 4.    [DocumentDB에서 데이터 모델링](documentdb-modeling-data.md) DocumentDB의 데이터 모델링 방법에 대해 알아봅니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
