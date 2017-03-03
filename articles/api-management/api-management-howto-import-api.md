@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
@@ -93,9 +94,4 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create APIs]: api-management-howto-create-apis.md
 [How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

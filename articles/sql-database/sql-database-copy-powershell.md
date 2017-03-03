@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: edfbc0d94d9d5b33a25788772a98173187e394b8
 ms.openlocfilehash: 031a17d179cee8d6cceb9ed3aefd993add1958b8
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -116,10 +117,5 @@ SQL Database의 여러 새로운 기능은 [Azure Resource Manager 배포 모델
 * [비즈니스 연속성 개요](sql-database-business-continuity.md)
 * [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Azure SQL Database PowerShell Cmdlet 참조](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

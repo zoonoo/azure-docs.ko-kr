@@ -18,6 +18,7 @@ ms.author: ganesr
 translationtype: Human Translation
 ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
 ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -159,10 +160,5 @@ ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
 
 ## <a name="next-steps"></a>다음 단계
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: markvi;andkjell
 translationtype: Human Translation
 ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
 ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -458,10 +459,5 @@ Active Directory에 장치 개체를 만듭니다. 이러한 개체는 Azure AD�
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

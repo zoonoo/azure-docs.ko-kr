@@ -17,6 +17,7 @@ ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
 ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -81,10 +82,5 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 * [관리되는 도메인에서 그룹 정책 구성](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Active Directory 관리 센터: 시작](https://technet.microsoft.com/library/dd560651.aspx)
 * [서비스 계정 단계별 가이드](https://technet.microsoft.com/library/dd548356.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

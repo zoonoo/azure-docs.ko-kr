@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
 ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -179,9 +180,4 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -17,6 +17,7 @@ ms.author: jarrettr
 translationtype: Human Translation
 ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
 ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -77,9 +78,4 @@ Azure 저장소에 데이터를 백업해야 하는 경우 Azure 백업을 사�
 ### <a name="moving-data-faq"></a>데이터 이동 FAQ:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>VHD를 복사하지 않고 한 지역에서 다른 지역으로 마이그레이션할 수 있나요?
 지역 간에 VHD를 복사하는 유일한 방법은 각 지역의 저장소 계정 간에 데이터를 복사하는 것입니다. 이 작업에는 AZCopy를 사용할 수 있습니다. 자세한 내용은 AzCopy 명령줄 유틸리티로 데이터 전송을 참조하세요. 대용량 데이터의 경우 Azure Import/Export를 사용할 수도 있습니다. 자세한 내용은 [Azure 가져오기/내보내기](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) 를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

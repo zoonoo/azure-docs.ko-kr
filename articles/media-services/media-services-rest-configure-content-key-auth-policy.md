@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 171a971411546d1421a48f3dceab98fb2b54b25f
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -446,10 +447,5 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 ## <a name="next-steps"></a>다음 단계
 콘텐츠 키의 권한 부여 정책을 구성했으므로 [자산 배포 정책 구성 방법](media-services-rest-configure-asset-delivery-policy.md) 항목으로 이동합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

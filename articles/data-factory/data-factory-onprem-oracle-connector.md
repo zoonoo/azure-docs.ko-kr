@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
 ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -566,9 +567,4 @@ Oracle에서 데이터를 이동하는 경우 Oracle 데이터 형식에서 .NET
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

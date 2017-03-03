@@ -19,6 +19,7 @@ ms.author: masaran;trinadhk;pullabhk;markgal
 translationtype: Human Translation
 ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
 ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -275,9 +276,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 * [SQL Server 백업](backup-azure-backup-sql.md)
 * [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 * [대체 서버 백업](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

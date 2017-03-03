@@ -17,6 +17,7 @@ ms.author: aungoo
 translationtype: Human Translation
 ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
 ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -119,10 +120,5 @@ Blob의 스냅숏을 만들고 아래와 같은 링크를 사용하여 VM 백업
 
 * [Blob의 스냅숏 만들기](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [VM 백업 인프라 계획](../backup/backup-azure-vms-introduction.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
 ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -275,9 +276,4 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 ## <a name="next-steps"></a>다음 단계
 * [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
 * [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md)참조: 탄력적 도구를 사용하여 규모를 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

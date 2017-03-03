@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
 ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -132,9 +133,4 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 
 * 먼저 [Azure Data Factory를 사용하여 Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)할 수 있습니다.
 * 그 후에는 [Power BI를 Azure SQL Data Warehouse와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) 하여 데이터를 시각적으로 표현할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

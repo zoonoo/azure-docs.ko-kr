@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
 ms.openlocfilehash: 9fa8c7d06675c3a7481e64c8f5390f1b5470a280
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -118,9 +119,4 @@ SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터�
 * [탄력적 풀 만들기](sql-database-elastic-pool-manage-portal.md)
 * [탄력적 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)
 * [SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 항목 이해](sql-database-service-tiers.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

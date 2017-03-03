@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 9fe4e1356064d62d1a373ecbabf4f9cf276524f6
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -36,10 +37,5 @@ Azure 클래식 포털에서 Linux 가상 컴퓨터를 만들 때 SSH(Secure She
 ## <a name="next-steps"></a>다음 단계
 * [Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 사용하여 VM 끝점을 만들 수도 있습니다. **azure vm endpoint create** 명령을 실행합니다.
 * 리소스 관리자 배포 모델에서 가상 컴퓨터를 만들면, 리소스 관리자에서 Azure CLI를 사용하여 VM에 대한 트래픽을 제어하는 [네트워크 보안 그룹을 만들 수 있습니다](../virtual-network/virtual-networks-create-nsg-arm-cli.md) .
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

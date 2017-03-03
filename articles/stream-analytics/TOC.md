@@ -31,6 +31,7 @@
 ### [창 함수](stream-analytics-window-functions.md)
 
 ## 관리
+### [작업 안정성](stream-analytics-job-reliability.md)
 ### [작업 모니터링](stream-analytics-monitoring.md)
 ### [진단 로그](stream-analytics-job-diagnostic-logs.md)
 ### [프로그래밍 방식으로 작업 모니터링](stream-analytics-monitor-jobs.md)
@@ -59,8 +60,3 @@
 ## [피드백 포럼](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

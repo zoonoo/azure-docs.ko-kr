@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
 ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -284,9 +285,4 @@ SQL 쿼리 옵션을 선택한 경우 내보내기에는 삽입/업데이트/삭
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -408,7 +408,7 @@ project.json 파일은 종속성을 포함합니다.
 
                 ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
 

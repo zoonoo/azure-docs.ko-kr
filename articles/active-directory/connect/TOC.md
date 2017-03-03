@@ -22,8 +22,10 @@
 ## 계획 및 디자인
 ### [설계 개념](active-directory-aadconnect-design-concepts.md)
 ### [Azure AD Connect에 대한 토폴로지](active-directory-aadconnect-topologies.md)
+### [Single Sign-On](active-directory-aadconnect-sso.md)
+### [Azure의 Active Directory Federation Services](active-directory-aadconnect-azure-adfs.md)
 ### [인스턴스에 대한 특별 고려 사항](active-directory-aadconnect-instances.md)
-
+### [Azure AD가 이미 있는 경우](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect 관리](active-directory-aadconnect-whats-next.md)
 ### [O365 및 Azure AD에 대한 인증서 갱신](active-directory-aadconnect-o365-certs.md)
 ### [장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Azure AD Connect 동기화 관리
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [설치 마법사](active-directory-aadconnectsync-installation-wizard.md)
 ### [기본 구성 변경](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [필터링 구성](active-directory-aadconnectsync-configure-filtering.md)
 ### [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)
 ### [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [작업](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [작업](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [메타 버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## 페더레이션 서비스 관리
 ### [관리 및 사용자 지정](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # 리소스
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

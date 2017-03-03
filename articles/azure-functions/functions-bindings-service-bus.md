@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff4286d6006eb362b6fba705e2afca1fd872f72
-ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
+ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
+ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -71,7 +72,7 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 * `accessRights`의 경우 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 `listen`으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업을 시도하고 실패할 수 있습니다.
 
 ## <a name="trigger-behavior"></a>트리거 동작
-* **단일 스레딩** - 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, *host.json*에서 `serviceBus.maxConcurrrentCalls`를 1로 설정합니다. 
+* **단일 스레딩** - 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, *host.json*에서 `serviceBus.maxConcurrentCalls`를 1로 설정합니다. 
   *host.json*에 대한 자세한 내용은 [폴더 구조](functions-reference.md#folder-structure) 및 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
 * **포이즌 메시지 처리** - Service Bus는 Azure Functions 구성 또는 코드로 제어되거나 구성될 수 없는 자체 포이즌 메시지 처리를 수행합니다. 
 * **PeekLock 동작** - 함수 런타임은 [`PeekLock` 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 받아 함수가 정상적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 
@@ -299,10 +300,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

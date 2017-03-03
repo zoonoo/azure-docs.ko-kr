@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: ac0d7d9aaf1208c97e0ae797ac7c2b0ffecb88ae
 ms.openlocfilehash: daa0d0a7a0816f16f62904dc0e407105eb25c4ec
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -250,9 +251,4 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * IaaS VM [부하를 분산](../load-balancer/load-balancer-overview.md)시키고 [여러 Azure 지역을 통한 라우팅 관리](../traffic-manager/traffic-manager-overview.md) 방법을 이해합니다.
 * [NSG에 대해 알아보고 NSG 솔루션을 계획 및 디자인하는 방법](virtual-networks-nsg.md) 에 대해 알아봅니다.
 * [크로스-프레미스 및 VNet 연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections)에 대해 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

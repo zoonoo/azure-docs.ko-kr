@@ -21,6 +21,7 @@
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
 ### [오프라인 소스에서 데이터 업로드](data-lake-store-offline-bulk-data-upload.md)
+### [지역 간 Azure Data Lake Store 마이그레이션](data-lake-store-migration-cross-region.md)
 
 ## 보안 데이터
 ### [보안 개요](data-lake-store-security-overview.md)
@@ -70,8 +71,3 @@
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

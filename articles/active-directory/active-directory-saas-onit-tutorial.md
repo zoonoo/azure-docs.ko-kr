@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: b1c18ac614e17cbd25691dc92dbd14a781e4d8ab
 ms.openlocfilehash: ee656180676450834940b996bccf93c26190f9d6
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -182,10 +183,5 @@ Onit의 경우 프로비전은 수동 작업입니다.
    ![예](./media/active-directory-saas-onit-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

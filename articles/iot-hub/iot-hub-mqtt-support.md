@@ -17,6 +17,7 @@ ms.author: kdotchko
 translationtype: Human Translation
 ms.sourcegitcommit: 47e1d5172dabac18c1b355d8514ae492cd973d32
 ms.openlocfilehash: 5c362af149afd4a204c2705ae3d7f67361d8d528
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -235,9 +236,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 [lnk-devguide-twin]: iot-hub-devguide-device-twins.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

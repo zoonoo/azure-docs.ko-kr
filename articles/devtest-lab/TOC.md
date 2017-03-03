@@ -5,7 +5,7 @@
 
 # 시작
 ## [랩 만들기](devtest-lab-create-lab.md)
-## [VM 아티팩트 만들기](devtest-lab-add-vm-with-artifacts.md)
+## [VM 만들기](devtest-lab-add-vm.md)
 ## [교육용 랩 만들기](devtest-lab-training-lab.md)
 ## [FAQ](devtest-lab-faq.md)
 
@@ -20,6 +20,7 @@
 ## 아티팩트 관리
 ### [아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md)
 ### [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
+### [아티팩트 관리](devtest-lab-add-vm-with-artifacts.md)
 
 ## VM 기본 항목 및 템플릿 관리
 ### [Azure Resource Manager 템플릿으로 다중 VM 환경 만들기](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

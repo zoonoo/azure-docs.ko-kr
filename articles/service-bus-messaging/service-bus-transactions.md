@@ -17,6 +17,7 @@ ms.author: clemensv;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
 ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -80,10 +81,5 @@ using (scope = new TransactionScope())
 * [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

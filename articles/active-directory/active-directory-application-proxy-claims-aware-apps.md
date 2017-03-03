@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -48,10 +49,5 @@ ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
 * [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 * [네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용](active-directory-application-proxy-native-client.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

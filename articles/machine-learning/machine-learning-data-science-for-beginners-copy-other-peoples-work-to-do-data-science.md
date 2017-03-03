@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
 ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -93,9 +94,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 ## <a name="next-steps"></a>다음 단계
 * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
 * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

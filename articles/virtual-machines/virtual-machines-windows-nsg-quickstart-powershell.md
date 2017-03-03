@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 91c2e6f53f8ba490d2943a60c7ad519d856707b9
 ms.openlocfilehash: 0d57a27c0862b09e2628520a1e50a0cc56a55881
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -87,10 +88,5 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 * [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)
 * [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)
 * [부하 분산 장치에 대한 Azure Resource Manager 개요](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

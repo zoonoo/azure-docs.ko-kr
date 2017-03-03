@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
 ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -76,10 +77,5 @@ SERVICE_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용
 탄력적 풀을 만든 후에 탄력적 작업을 만들어 풀에 있는 탄력적 데이터베이스를 관리할 수 있습니다. 탄력적 작업을 통해 개수에 관계없이 풀에 있는 데이터베이스에 대해 T-SQL 스크립트를 실행할 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
 [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md)참조: 탄력적 데이터베이스 도구를 사용하여 규모를 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

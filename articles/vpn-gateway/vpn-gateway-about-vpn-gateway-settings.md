@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
 ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -139,10 +140,5 @@ VPN Gateway 구성을 만들 때 로컬 네트워크 게이트웨이는 종종 �
 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 연결 구성에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 를 참조하세요. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

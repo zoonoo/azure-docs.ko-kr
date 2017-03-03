@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: f63bd47c15439e6fedc0f6edf579681697155592
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -147,10 +148,5 @@ SQL 데이터베이스 관리자는 SQL 데이터베이스 성능 향상을 위�
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

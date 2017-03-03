@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
 ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 ## <a name="next-steps"></a>다음 단계
 * [일반화된 VHD에서 Azure에 VM 만들기](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * 새 VM을 만들 때 OS 디스크로 연결하여 [특수한 VHD에서 Azure에 VM을 만듭니다](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
 ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -533,8 +534,3 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [Windows XP 이상 버전의 Windows에서 “시스템 암호화: 암호화, 해시, 서명에 FIPS 준수 알고리즘 사용” 보안 설정 효과(영문)](https://support.microsoft.com/kb/811833)
   
   이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

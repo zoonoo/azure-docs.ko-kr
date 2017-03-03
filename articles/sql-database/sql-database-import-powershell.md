@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
 ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -97,10 +98,5 @@ Blob 이름은 데이터베이스를 만들려는 기존 BACPAC 파일의 이름
 * BACPAC 파일을 사용한 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 * 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

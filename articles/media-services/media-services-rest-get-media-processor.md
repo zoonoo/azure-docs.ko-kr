@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
 ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -94,10 +95,5 @@ ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 
 ## <a name="next-steps"></a>다음 단계
 미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-rest-get-started.md) 토픽으로 이동합니다.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

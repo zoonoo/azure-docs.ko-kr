@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
 ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -695,9 +696,4 @@ Tracktrace()를 사용하여 앱에서 보낸 원격 분석 데이터나 [다른
 * [SQL 사용자 치트 시트](https://aka.ms/sql-analytics)에서는 가장 일반적인 코드를 변환합니다.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

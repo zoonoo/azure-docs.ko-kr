@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
 ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -152,10 +153,5 @@ Single sign on을 통해 첫 번째 로그인 시 사용자가 자동으로 추�
    ![예](./media/active-directory-saas-policystat-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

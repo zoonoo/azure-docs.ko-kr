@@ -18,6 +18,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 46f65a2898c39774bd63ff2f8f053224d7238fb0
 ms.openlocfilehash: 0abfceb43ec5c333e9800ee6fca4e31fb317208d
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -50,10 +51,5 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 SQL 데이�
 * [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)
 * [Azure 자동화 학습 맵](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Azure 자동화: 클라우드의 SQL 에이전트](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: eb46368541551feff1b28642f9343e508ef47b95
 ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -75,10 +76,5 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 ## <a name="see-also"></a>참고 항목
 * [Azure CDN 끝점에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

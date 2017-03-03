@@ -18,6 +18,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
 ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -87,10 +88,5 @@ ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
 ### <a name="for-the-linux-data-science-vm"></a>Linux 데이터 과학 VM
 * Linux 버전에서 사용할 수 있는 도구를 실행하는 방법에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-linux-dsvm-intro.md)을 참조하세요.
 * Linux VM을 통해 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 가상 컴퓨터의 데이터 과학](machine-learning-data-science-linux-dsvm-walkthrough.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

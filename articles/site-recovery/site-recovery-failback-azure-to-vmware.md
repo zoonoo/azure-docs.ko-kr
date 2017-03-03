@@ -17,6 +17,7 @@ ms.author: ruturajd
 translationtype: Human Translation
 ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
 ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -243,9 +244,4 @@ VPN 연결 또는 Azure ExpressRoute 연결을 통해 장애 복구할 수 있�
 
 * ExpressRoute 연결은 원본 컴퓨터에서 장애 조치하고 장애 조치가 발생한 후 Azure VM이 있는 Azure 가상 네트워크에 설정되어 있어야 합니다.
 * 데이터는 공용 끝점의 Azure 저장소 계정에 복제됩니다. ExpressRoute 연결을 사용하려면 ExpressRoute에서 Site Recovery 복제를 위한 대상 데이터 센터로 공용 피어링을 설정합니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

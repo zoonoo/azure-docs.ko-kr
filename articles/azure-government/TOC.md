@@ -42,8 +42,3 @@
 ## [평가판](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [블로그](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Azure Government 웹 사이트](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

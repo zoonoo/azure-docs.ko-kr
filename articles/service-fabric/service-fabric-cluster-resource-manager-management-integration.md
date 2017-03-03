@@ -17,6 +17,7 @@ ms.author: masnider
 translationtype: Human Translation
 ms.sourcegitcommit: b2428f93680c12c76000fa8eb1a7138f72a8efe7
 ms.openlocfilehash: 9d67f089f4aba03e846a8fe020a91b6b1ac6ea48
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -184,9 +185,4 @@ PreferredLocation 제약 조건은 약간 다르기 때문에 "Optimization"으�
 
 ## <a name="next-steps"></a>다음 단계
 * 처음부터 시작 및 [서비스 패브릭 클러스터 Resource Manager 소개](service-fabric-cluster-resource-manager-introduction.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 232e1d1640352be38720e19f713959e84243af72
 ms.openlocfilehash: 1cd2b9d819acd7d422698d3c14a9009a846973f7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -38,10 +39,5 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 간단한 가상 컴퓨터를 신속하게 만들어 가상 컴퓨터를 사용해봅니다. 지침은 [Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 이 자습서로 가상 컴퓨터를 신속하게 만들 수 있기 때문에 가상 컴퓨터를 만들 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구 및 지침에 대한 링크의 요약은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

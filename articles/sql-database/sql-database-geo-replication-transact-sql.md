@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -160,10 +161,5 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 ## <a name="next-steps"></a>다음 단계
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

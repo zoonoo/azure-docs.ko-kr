@@ -17,6 +17,7 @@ ms.author: mithal;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -42,10 +43,5 @@ ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
 * 점수 매기기 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [기계 학습 실험에서 배포된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

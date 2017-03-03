@@ -17,6 +17,7 @@ ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -141,10 +142,5 @@ Azure SQL 테이블에서 데이터를 읽으려면
             }
         };
 10. 응용 프로그램을 실행합니다. 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -54,6 +54,7 @@
 ### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
 ## 메모리 내 처리에 Spark 사용
+### [심층 학습을 위한 Caffe 사용](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)
 ### [독립 실행형 앱](hdinsight-apache-spark-create-standalone-application.md)
@@ -223,8 +224,3 @@
 # 리소스
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

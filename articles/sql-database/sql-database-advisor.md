@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
 ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -70,10 +71,5 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: annahar
 translationtype: Human Translation
 ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
 ms.openlocfilehash: d7df8f3271c6c92df427a840d73fdb9a0c6b54a1
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -167,9 +168,4 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
     ```
 
 13. 마지막으로 DNS 리소스 레코드가 부하 분산 장치의 각 프런트 엔드 IP 주소를 가리키도록 구성해야 합니다. 도메인을 Azure DNS에 호스트할 수 있습니다. Load Balancer와 Azure DNS를 사용하는 방법에 대한 자세한 내용은 [다른 Azure 서비스와 함께 Azure DNS 사용](../dns/dns-for-azure-services.md)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
