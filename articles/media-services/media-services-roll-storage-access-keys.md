@@ -17,6 +17,7 @@ ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 8e0f0905748923177269b6d5df27be900770fece
 ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -77,9 +78,4 @@ ms.openlocfilehash: a2802dbf1d8a22c33b20dd4e71fcf26d9780f86a
 
 ### <a name="acknowledgments"></a>승인
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

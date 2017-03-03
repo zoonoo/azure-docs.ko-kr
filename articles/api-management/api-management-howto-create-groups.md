@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
@@ -114,9 +115,4 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

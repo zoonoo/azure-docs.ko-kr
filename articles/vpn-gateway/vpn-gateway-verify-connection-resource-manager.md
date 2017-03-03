@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
 ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -73,10 +74,5 @@ PowerShell을 사용하여 확인하려면 최신 버전의 Azure PowerShell cmd
 
 ## <a name="next-steps"></a>다음 단계
 * 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -19,6 +19,7 @@ ms.author: sedusch
 translationtype: Human Translation
 ms.sourcegitcommit: d835d5825268a4ec0fa5b761f9b5714e3236b0ce
 ms.openlocfilehash: 1177321875aa41bc5604b587c4b99fbf81f8637a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -1927,9 +1928,4 @@ Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.
 * SAP DBMS 계층의 백업 목적에 대해서는 [DBMS 가이드][dbms-guide]를 확인하세요.
 * 간단한 대화 상자 인스턴스를 재배포하는 것이 더 빠르므로 SAP 대화 상자 인스턴스를 백업하는 것은 거의 의미가 없습니다.
 * SAP 시스템의 전체 디렉터리를 포함하는 VM과 다양한 인스턴스의 모든 프로필을 백업하는 것은 도움이 되며 Windows 백업(또는 Linux의 tar)을 사용하여 수행해야 합니다. Windows Server 2008(R2) 및 Windows Server 2012(R2) 간에는 차이가 있으며 좀 더 최신의 Windows Server 릴리스를 사용하여 백업하는 것이 더 쉬우므로 Windows Server 2012(R2)를 Windows 게스트 운영 체제로 실행하는 것이 좋습니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: e4c1dd67dce33c2cb30f6fd3e7163c68c7084e67
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -84,10 +85,5 @@ Azure Storage 환경을 디자인할 때 배포하는 VM 수가 증가할 경우
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

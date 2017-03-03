@@ -17,6 +17,7 @@ ms.author: brandwe
 translationtype: Human Translation
 ms.sourcegitcommit: 3f89a0e06ea4596d38f7f7b5e52cea54c5e30780
 ms.openlocfilehash: bb94ab8d794d1e836df57e1bc42df42825f2668d
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -27,10 +28,5 @@ ms.openlocfilehash: bb94ab8d794d1e836df57e1bc42df42825f2668d
 >Microsoft는 타사 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요.
 >
 >
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 253b7fe3614579d5a9a74d1de21bd2d3efe50d09
 ms.openlocfilehash: bf642e08d92414543f55ddeceff297c886b82882
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -196,9 +197,4 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
