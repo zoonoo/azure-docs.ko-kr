@@ -18,6 +18,7 @@ ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: 1ad5307054dbd860f9c65db4b82ea5f560a554c8
 ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -173,10 +174,5 @@ TTL은 문서 전체에 적용됩니다. 문서의 일부만 만료하고 싶다
 
 ## <a name="next-steps"></a>다음 단계
 Azure DocumentDB에 대해 자세히 알아보려면 서비스 [*설명서*](https://azure.microsoft.com/documentation/services/documentdb/) 페이지를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

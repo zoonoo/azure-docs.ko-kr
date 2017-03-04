@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: e6a3e91e5821e761af0ff710da2a817eb7c185bb
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -196,9 +197,4 @@ Sqoop을 사용하여 HDInsight 클러스터와 Azure SQL Database 또는 SQL �
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

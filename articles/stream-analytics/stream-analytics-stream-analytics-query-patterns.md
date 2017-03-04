@@ -18,6 +18,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
 ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -510,10 +511,5 @@ GROUP BY
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

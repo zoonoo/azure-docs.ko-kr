@@ -18,6 +18,7 @@ ms.author: nepeters
 translationtype: Human Translation
 ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
 ms.openlocfilehash: 63e2509b92b4d97bfdc98629cc356816839b03b5
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -114,9 +115,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 ### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/en-us/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/en-us/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/en-us/support/faq/)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

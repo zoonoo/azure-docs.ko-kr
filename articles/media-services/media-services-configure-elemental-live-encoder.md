@@ -17,6 +17,7 @@ ms.author: cenkd;anilmur;juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -173,9 +174,4 @@ AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: brjohnst
 translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -63,9 +64,4 @@ Azure 검색은 항상 REST API를 통해 실험 기능을 미리 공개한 다�
 .NET SDK의 코드 마이그레이션에 대한 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration.md)에서 찾을 수 있습니다.
 
 일반 공급은 Azure 검색이 현재 SLA(서비스 수준 계약) 하에 있다는 의미입니다. SLA는 [Azure 검색 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에서 찾을 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

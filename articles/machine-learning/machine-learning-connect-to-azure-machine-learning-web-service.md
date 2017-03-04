@@ -17,6 +17,7 @@ ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
 ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -123,10 +124,5 @@ Machine Learning 웹 서비스에 연결하려면 ScoreData를 전달하는 **ur
 1. 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 배포합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 이 문서의 시작 부분 가까이에 있는 **Azure Machine Learning 권한 부여 키 가져오기** 섹션을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

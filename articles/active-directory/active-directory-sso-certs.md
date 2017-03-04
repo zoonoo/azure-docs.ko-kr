@@ -17,6 +17,7 @@ ms.author: asmalser
 translationtype: Human Translation
 ms.sourcegitcommit: fb33a0b01b7d9806c92dfc66303b0dd2ca1044d9
 ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -74,10 +75,5 @@ ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
 * [SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -16,6 +16,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -65,9 +66,4 @@ SQL AlwaysOn에 대한 자세한 내용은 [Azure에서 AlwaysOn 가용성 그�
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

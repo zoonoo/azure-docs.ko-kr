@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: dd50971e16da2cec046dd6dbe2f94dd58d01fb09
 ms.openlocfilehash: c2f0e5b1348a25f4cb4c92b2a837fd22207e5dad
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -175,10 +176,5 @@ Azure AD 사용자가 **ScreenSteps**에 로그인할 수 있도록 하려면 **
    
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

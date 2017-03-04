@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
 ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -138,10 +139,5 @@ ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
 * 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](resource-group-template-deploy-portal.md)를 참조하세요.
 * 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

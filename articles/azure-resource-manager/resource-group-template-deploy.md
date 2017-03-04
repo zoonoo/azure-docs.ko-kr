@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
 ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -229,10 +230,5 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 * 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 * 배포 자동화에 대한&4;가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

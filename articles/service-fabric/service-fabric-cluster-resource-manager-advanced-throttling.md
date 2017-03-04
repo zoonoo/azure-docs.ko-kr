@@ -17,6 +17,7 @@ ms.author: masnider
 translationtype: Human Translation
 ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
 ms.openlocfilehash: 8a8419497bda3f1df523d6aff28028548abc155a
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -76,9 +77,4 @@ ms.openlocfilehash: 8a8419497bda3f1df523d6aff28028548abc155a
 ## <a name="next-steps"></a>다음 단계
 * 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
 * 클러스터 Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

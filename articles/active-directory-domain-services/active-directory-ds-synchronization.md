@@ -17,6 +17,7 @@ ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
 ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -121,9 +122,4 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure AD 도메인 서비스에 대한 네트워킹 고려 사항](active-directory-ds-networking.md)
 * [Azure AD 도메인 서비스 시작](active-directory-ds-getting-started.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

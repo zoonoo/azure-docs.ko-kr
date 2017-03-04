@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
 ms.openlocfilehash: c58d2c68b6b95d7020e03333e36b281ad7d0f9f9
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -221,10 +222,5 @@ Azure AD 사용자가 SAP HANA Cloud Platform으로 로그를 사용하려면, S
    ![예](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

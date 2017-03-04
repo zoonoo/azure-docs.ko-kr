@@ -17,6 +17,7 @@ ms.author: masnider
 translationtype: Human Translation
 ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
 ms.openlocfilehash: 52dcf341a34478bf4e800d8f1b9d44867b5feaf6
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -79,9 +80,4 @@ Service Fabric 개념에 대한 자세한 내용은 다음 문서를 참조하�
 * [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
 * [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 * [상태 정의 및 관리](service-fabric-concepts-state.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

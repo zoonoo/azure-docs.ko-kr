@@ -19,6 +19,7 @@ ms.author: daleche
 translationtype: Human Translation
 ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
 ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -446,10 +447,5 @@ public bool IsTransient(Exception ex)
 * 다른 일반적인 Azure SQL 데이터베이스 연결 문제를 해결하는 경우, [Azure SQL 데이터베이스에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)을 참조하세요.
 * [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

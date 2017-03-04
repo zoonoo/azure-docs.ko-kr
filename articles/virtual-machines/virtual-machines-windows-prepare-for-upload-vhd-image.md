@@ -18,6 +18,7 @@ ms.author: glimoli;genli
 translationtype: Human Translation
 ms.sourcegitcommit: 5d8274f61c3de178c9d418adb9be1efe0fe62bc1
 ms.openlocfilehash: 6fbfc74cb1cce744b51345c0732b40b95be21c94
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -299,10 +300,5 @@ Windows용 최신 업데이트를 설치합니다. 가능하지 않은 경우 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

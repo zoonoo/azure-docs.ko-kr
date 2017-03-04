@@ -17,6 +17,7 @@ ms.author: masnider
 translationtype: Human Translation
 ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
 ms.openlocfilehash: f85365a36aea39b4179805e728c7ddafa140f08b
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -57,9 +58,4 @@ MoveCost를 사용하면 전체적으로 중단을 최소화며 가장 쉽게 �
 * 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [Service Fabric 클러스터 부하 분산](service-fabric-cluster-resource-manager-balancing.md)을 참조하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

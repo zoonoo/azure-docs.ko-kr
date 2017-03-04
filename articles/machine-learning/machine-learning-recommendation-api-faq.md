@@ -17,6 +17,7 @@ ms.author: luisca
 translationtype: Human Translation
 ms.sourcegitcommit: 9ac2a1bf5987fc6fc30e20a1b4a10340eeed3825
 ms.openlocfilehash: 15cf891b9c31e1f2e2b108e631f32883ce2f36a7
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -136,10 +137,5 @@ API 설명서는 [Azure Machine Learning 권장 사항 - 빠른 시작 가이드
 **사용 약관은 어디서 찾을 수 있습니까?**
 
 [Microsoft Azure 기계 학습 권장 사항 API 서비스 약관](https://datamarket.azure.com/dataset/amla/recommendations#terms)에서 찾을 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

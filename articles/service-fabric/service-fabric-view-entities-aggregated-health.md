@@ -17,6 +17,7 @@ ms.author: oanapl
 translationtype: Human Translation
 ms.sourcegitcommit: 2573f300231ceb080343dad5c1c2aa65cc31c59e
 ms.openlocfilehash: f62a7a8f594c67cac687159d72bfdb00a3355025
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -1151,9 +1152,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
