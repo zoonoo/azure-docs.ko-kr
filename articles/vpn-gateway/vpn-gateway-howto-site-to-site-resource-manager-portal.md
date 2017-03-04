@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
 ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -126,10 +127,5 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 ## <a name="next-steps"></a>다음 단계
 *  연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
 *  BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
 ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -258,9 +259,4 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 * [클래식 배포 모델에서 NSG를 배포합니다](virtual-networks-create-nsg-classic-ps.md).
 * [Resource Manager에서 NSG를 배포합니다](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG 로그를 관리](virtual-network-nsg-manage-log.md)합니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -17,6 +17,7 @@ ms.author: briz
 translationtype: Human Translation
 ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
 ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -109,9 +110,4 @@ IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
