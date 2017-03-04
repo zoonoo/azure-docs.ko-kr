@@ -17,6 +17,7 @@ ms.author: banders;magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
 ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -185,9 +186,4 @@ OMS에 솔루션을 추가한 경우 Operations Manager 콘솔의 **관리**아�
 ## <a name="next-steps"></a>다음 단계
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 * [로그 검색](log-analytics-log-searches.md) 을 통해 솔루션에서 수집한 자세한 정보를 확인하는 방법을 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

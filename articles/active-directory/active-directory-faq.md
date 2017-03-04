@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
 ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -202,9 +203,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
 **A:** 아니요.  Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

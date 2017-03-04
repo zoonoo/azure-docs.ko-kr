@@ -13,8 +13,3 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
