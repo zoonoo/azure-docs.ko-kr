@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c8568846837f404eee0293be284c70bd27f06380
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -688,9 +689,4 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
 [공유 액세스 서명 이해]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Azure 저장소 계정 만들기]:  ../storage/storage-create-storage-account.md#create-a-storage-account
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

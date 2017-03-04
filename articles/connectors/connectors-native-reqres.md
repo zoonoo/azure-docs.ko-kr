@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -110,10 +111,5 @@ HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

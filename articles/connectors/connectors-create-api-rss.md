@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 5e13e126fecda66a453b4ced619016121af98b2c
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -120,10 +121,5 @@ RSS 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

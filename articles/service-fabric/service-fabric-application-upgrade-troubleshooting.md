@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
 ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -223,10 +224,5 @@ PS D:\temp>
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

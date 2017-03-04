@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 193bbedca440302ead00eaac0df62fb7fe767515
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -137,9 +138,4 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
   </Certificates>
 </ApplicationManifest>
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -17,6 +17,7 @@ ms.author: jodehavi;stgriffi
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -437,9 +438,4 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 작업의 경우 **Office 365 - 전자 메일 보내기**를 선택합니다. 정의된 조건에서 **false**를 반환하는 경우 보낼 전자 메일을 작성하도록 필드를 채웁니다. Office 365가 없는 경우 같은 결과를 얻을 수 있는 대안을 살펴볼 수 있습니다.
 
 현재는&1;분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
