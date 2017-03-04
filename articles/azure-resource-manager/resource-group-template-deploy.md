@@ -56,7 +56,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 1. Azure 계정에 로그인
 
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
     사용자 계정에 대한 요약이 반환됩니다.
