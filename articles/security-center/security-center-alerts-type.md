@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -182,7 +183,7 @@ Azure 보안 센터는 많은 경우 명령 및 제어 센터에서 Microsoft �
 ![발신 DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>리소스 분석
-Security Center 리소스 분석은 [Azure SQL DB 위협 요소 탐지](../sql-database/sql-database-threat-detection-get-started.md) 기능과의 통합과 같은 PaaS 서비스에 집중합니다. 이러한 영역에서 분석의 결과에 따라 Security Center는 리소스 관련 경고를 트리거합니다.
+Security Center 리소스 분석은 [Azure SQL Database 위협 요소 탐지](../sql-database/sql-database-threat-detection.md) 기능과의 통합 같은 PaaS 서비스에 집중합니다. 이러한 영역에서 분석의 결과에 따라 Security Center는 리소스 관련 경고를 트리거합니다.
 
 ### <a name="potential-sql-injection"></a>잠재적인 SQL 삽입
 SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스턴스로 전달된 문자열에 악성 코드를 삽입한 공격입니다. SQL Server가 수신하는 모든 구문상 유효한 쿼리를 실행하기 때문에 SQL 문을 생성하는 모든 프로시저에 삽입 취약성이 있는지 검토해야 합니다. SQL 위협 요소 탐지는 기계 학습, 동작 분석 및 이상 탐지를 사용하여 Azure SQL Databases에서 발생할 수 있는 의심스러운 이벤트를 확인합니다. 예:
@@ -213,9 +214,4 @@ SQL 삽입 공격에 발생할 수 있는 취약점을 나타낼 수 있는 데�
 * [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

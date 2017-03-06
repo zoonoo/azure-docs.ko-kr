@@ -1,21 +1,22 @@
 ---
-title: "Application Insights SDK를 추가하여 Node.js 앱 모니터링 | Microsoft Docs"
+title: "Application Insights SDK를 사용하여 Node.js 앱 모니터링 | Microsoft Docs"
 description: "Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,15 +32,14 @@ SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모�
 #### <a name="before-you-start"></a>시작하기 전에
 다음 작업을 수행해야 합니다.
 
-* Visual Studio 2013 이상. 나중일수록 좋습니다.
 * [Microsoft Azure](http://azure.com)구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Application Insights 리소스 만들기
-[Azure 포털][포털]에 로그인한 다음 새 Application Insights 리소스를 만듭니다. Azure에서 [리소스][역할]은 서비스의 인스턴스입니다. 이 리소스는 사용자에게 분석 및 제공되는 앱의 원격 분석을 하는 곳입니다.
+[Azure Portal][portal]에 로그인하여 새 Application Insights 리소스를 만듭니다. Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소스는 사용자에게 분석 및 제공되는 앱의 원격 분석을 하는 곳입니다.
 
 ![새로 만들기, Application Insights 클릭](./media/app-insights-nodejs/01-new-asp.png)
 
-응용 프로그램 형식으로 기타를 선택합니다. 선택하는 응용 프로그램 유형에 따라 [메트릭 탐색기][메트릭]에 표시되는 리소스 블레이드 및 속성의 기본 콘텐츠가 설정됩니다.
+응용 프로그램 유형으로 일반을 선택합니다. 선택하는 응용 프로그램 유형에 따라 [메트릭 탐색기][metrics]에 표시되는 리소스 블레이드 및 속성의 기본 콘텐츠가 설정됩니다.
 
 #### <a name="copy-the-instrumentation-key"></a>계측 키 복사
 키는 리소스를 식별하며, 데이터를 리소스로 보내기 위해 SDK에서 곧 설치합니다.
@@ -70,7 +70,7 @@ appInsights.setup("<instrumentation_key>").start();
 ## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> 원격 분석 보기
 [Azure 포털](https://portal.azure.com) 로 돌아가서 Application Insights 리소스를 찾습니다.
 
-개요 페이지에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
+개요 페이지에서 데이터를 찾습니다. 처음에는 요소가&1;~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-nodejs/12-first-perf.png)
 
@@ -80,7 +80,7 @@ appInsights.setup("<instrumentation_key>").start();
 * 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 * [검색](app-insights-diagnostic-search.md) 타일을 열고 개별 이벤트를 봅니다. 경우에 따라 메트릭 파이프라인을 통해 들어오려면 이벤트가 약간 더 걸립니다.
 * 몇 초 정도 기다렸다가 **새로고침**을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 일부 데이터가 표시되기를 기다리는 경우에는 수동으로 새로 고칠 수 있습니다.
-* [문제 해결][qna]를 참조하세요.
+* [문제 해결][qna]을 참조하세요.
 
 ## <a name="publish-your-app"></a>앱 게시
 이제 응용 프로그램을 IIS 또는o Azure에 배포하고 누적되는 데이터를 관찰합니다.
@@ -192,14 +192,9 @@ server.on("listening", () => {
 <!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
-[메트릭]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
-[포털]: http://portal.azure.com/
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[역할]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[roles]: app-insights-resources-roles-access-control.md
 

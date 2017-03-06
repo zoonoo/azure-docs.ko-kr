@@ -3,7 +3,7 @@ title: "Azure Active Directory에 사용자 지정 도메인 이름 추가 | Mic
 description: "Azure Active Directory에 회사의 도메인 이름을 추가하는 방법 및 도메인 이름을 확인하는 방법."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. 이제 Azure Active Directory(Azure AD)를 사용 중이므로 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. 이렇게 하면 사용자에게 친숙한 ‘alice@contoso.com.’과 같은 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
+조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. 이제 Azure Active Directory(Azure AD)를 사용 중이므로 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. 이렇게 하면 사용자에게 alice@contoso.com 같은 친숙한 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
 
 1. 디렉터리에 사용자 지정 도메인 이름 추가
 2. 도메인 이름 등록 기관의 도메인 이름에 대한 DNS 항목 추가
@@ -85,10 +86,5 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 * [Azure AD에서 도메인 관리 개념 알아보기](active-directory-add-domain-concepts.md)
 * [사용자 로그인 시 회사의 브랜딩 표시](active-directory-add-company-branding.md)
 * [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
+ms.sourcegitcommit: a3fc1a6bf552ed8c6511c432c0d74b76247ce877
+ms.openlocfilehash: c08d863ef8913b9bad766c6232faaaa0a6cfa950
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,12 +36,12 @@ ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 * **기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
-* **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
+* **표준** –&2;노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
 * **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
 
 각 계층은 기능과 가격이 다릅니다. 가격 책정에 대한 내용은 [캐시 가격 책정 정보][Cache Pricing Details]를 참조하세요.
 
-이 가이드는 C\# 코드를 사용하는 [StackExchange.Redis][StackExchange.Redis] 클라이언트 사용 방법을 보여줍니다. 적용되는 시나리오에는 **캐시 만들기 및 구성**, **캐시 클라이언트 구성** 및 **캐시에서 개체 추가 및 제거** 등이 포함됩니다. Azure Redis Cache 사용에 대한 자세한 내용은 [다음 단계][Next Steps] 섹션을 참조하세요. Redis Cache를 사용하여 ASP.NET MVC 웹앱을 만드는 단계별 자습서는 [Redis Cache를 사용하여 웹앱을 만드는 방법](cache-web-app-howto.md)을 참조하세요.
+이 가이드는 C\# 코드를 사용하는 [StackExchange.Redis][StackExchange.Redis] 클라이언트 사용 방법을 보여줍니다. 적용되는 시나리오에는 **캐시 만들기 및 구성**, **캐시 클라이언트 구성** 및 **캐시에서 개체 추가 및 제거** 등이 포함됩니다. Azure Redis Cache 사용에 대한 자세한 내용은 [다음 단계][Next Steps]를 참조하세요. Redis Cache를 사용하여 ASP.NET MVC 웹앱을 만드는 단계별 자습서는 [Redis Cache를 사용하여 웹앱을 만드는 방법](cache-web-app-howto.md)을 참조하세요.
 
 <a name="getting-started-cache-service"></a>
 
@@ -88,9 +89,9 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 > 
 > 
 
-Azure Redis Cache 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다. 이 클래스는 클라이언트 응용 프로그램 전체에서 공유하고 다시 사용하도록 설계되었으며 작업별로 만들 필요가 없습니다. 
+Azure Redis Cache 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다. 이 클래스는 클라이언트 응용 프로그램 전체에서 공유되고 다시 사용되어야 하며 작업별로 만들 필요가 없습니다. 
 
-Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스를 반환하려면 다음 예제와 같이 정적 `Connect` 메서드를 호출하여 캐시 끝점 및 키에 전달합니다. Azure 포털에서 생성된 키를 암호 매개 변수로 사용합니다.
+Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스가 반환되도록 하려면 정적 `Connect` 메서드를 호출하여 캐시 끝점 및 키에 전달합니다. Azure Portal에서 생성된 키를 암호 매개 변수로 사용합니다.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -102,11 +103,11 @@ Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스
 SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변수를 생략합니다.
 
 > [!NOTE]
-> 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하는 지침은 [포트 액세스](cache-configure.md#access-ports)를 참조하세요...
+> 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하는 지침은 [포트 액세스](cache-configure.md#access-ports)를 참조하세요.
 > 
 > 
 
-응용 프로그램의 `ConnectionMultiplexer` 인스턴스를 공유하는 방법은 다음 예제와 비슷하게 연결된 인스턴스를 반환하는 정적 속성을 갖는 것입니다. 스레드가 안전하도록 단일 연결된 `ConnectionMultiplexer` 인스턴스를 초기화하는 방법을 제공합니다. 이러한 예에서 `abortConnect` 은 false로 설정되며 이는 Azure Redis Cache에 연결이 설정 되지 않은 경우에도 호출이 성공한다는 사실을 의미합니다. `ConnectionMultiplexer` 의 한 가지 주요 기능은 연결 네트워크 문제 또는 다른 원인이 해결되면 캐시에 연결이 자동으로 복원된다는 점입니다.
+응용 프로그램의 `ConnectionMultiplexer` 인스턴스를 공유하는 방법은 다음 예제와 비슷하게 연결된 인스턴스를 반환하는 정적 속성을 갖는 것입니다. 이 방법은 스레드가 안전하도록 단일 연결된 `ConnectionMultiplexer` 인스턴스를 초기화하는 방법을 제공합니다. 이 예에서 `abortConnect`는 false로 설정되며 이것은 Azure Redis Cache에 연결이 설정되지 않은 경우에도 호출이 성공한다는 것을 의미합니다. `ConnectionMultiplexer`의 한 가지 주요 기능은 네트워크 문제 또는 다른 원인이 해결되면 캐시에 연결이 자동으로 복원된다는 점입니다.
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -154,7 +155,7 @@ Azure Redis Cache 인스턴스에 연결하고 캐시 데이터베이스에 대�
 
 Redis는 대부분의 데이터를 Redis 문자열로 저장하지만, 이 문자열은 캐시에 .NET 개체를 저장할 때 사용할 수 있는 직렬화된 이진 데이터를 포함하여 다양한 데이터 유형을 포함할 수 있습니다.
 
-`StringGet` 호출 시 개체가 있으면 반환되고 없으면 `null`이 반환됩니다. 이 경우에는 원하는 데이터 소스에서 값을 검색하여 이후에 사용할 수 있게 캐시에 저장할 수 있습니다. 이를 캐시 배제 패턴이라고 합니다.
+`StringGet` 호출 시 개체가 있으면 반환되고 없으면 `null`이 반환됩니다. `null`이 반환되면 원하는 데이터 원본에서 값을 검색하여 이후에 사용할 수 있게 캐시에 저장할 수 있습니다. 이런 사용 패턴을 캐시 배제 패턴이라고 합니다.
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -171,7 +172,7 @@ Redis는 대부분의 데이터를 Redis 문자열로 저장하지만, 이 문�
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
 ## <a name="work-with-net-objects-in-the-cache"></a>캐시의 .NET 개체 사용
-Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 있습니다. 하지만 .NET 개체를 캐시하려면 먼저 직렬화해야 합니다. 이 과정은 응용 프로그램 개발자가 수행하며 이때 개발자는 유연하게 직렬 변환기를 선택할 수 있습니다.
+Azure Redis Cache는 .NET 개체 및 기본 데이터 유형을 캐시할 수 있지만 .NET 개체를 캐시하려면 먼저 직렬화해야 합니다. .NET 개체 직렬화는 응용 프로그램 개발자의 책임이며 개발자는 유연하게 직렬 변환기를 선택할 수 있습니다.
 
 개체를 직렬화하는 간단한 방법은 [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1)에서 `JsonConvert` 직렬화 방법을 사용하고 JSON 간에 직렬화하는 것입니다. 다음 예제에서는 `Employee` 개체 인스턴스를 사용하는 가져오기 및 설정을 보여줍니다.
 
@@ -207,7 +208,7 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 * Redsmin 및 Redis Desktop Manager와 같은 타사 서비스 및 도구와 함께 Azure Redis Cache를 사용할 수도 있습니다.
   * Redsmin에 대한 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][How to retrieve an Azure Redis connection string and use it with Redsmin]을 참조하세요.
   * [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)를 사용하여 GUI가 포함된 Azure Redis Cache의 데이터에 액세스하고 해당 데이터를 검사합니다.
-* [redis][redis](영문) 설명서를 참조하고 [redis 데이터 형식][redis data types](영문) 및 [Redis 데이터 형식에 대한 15분 소개][a fifteen minute introduction to Redis data types](영문)에 대해 읽어 보세요.
+* [redis][redis](영문) 설명서를 참조하고 [redis 데이터 형식][redis data types](영문) 및 [Redis 데이터 형식에 대한&15;분 소개][a fifteen minute introduction to Redis data types](영문)에 대해 읽어 보세요.
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
@@ -277,7 +278,7 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -295,10 +296,5 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

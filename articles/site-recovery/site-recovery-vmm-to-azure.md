@@ -1,6 +1,6 @@
 ---
 title: "VMM 클라우드의 Hyper-V VM을 Azure로 복제 | Microsoft Docs"
-description: "Site Recovery를 배포하고 VMM 클라우드의 Hyper-V VM을 Azure에 복제, 장애 조치(Failover) 및 복구하는 작업을 어떻게 조정해야 하는지 설명합니다."
+description: "System Center VMM 클라우드에서 관리되는 Hyper-V VM의 복제, 장애 조치 및 복구를 Azure로 오케스트레이션합니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,16 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/23/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
-
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure Portal에서 Site Recovery를 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터를 Azure에 복제
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Azure 클래식](site-recovery-vmm-to-azure-classic.md)
@@ -29,45 +29,12 @@ ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 > * [PowerShell 클래식](site-recovery-deploy-with-powershell.md)
 
 
-Azure Site Recovery 서비스를 시작합니다.
+이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다.
 
-Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 Azure 서비스로 클라우드(Azure) 또는 보조 데이터 센터에 대한 온-프레미스 물리적 서버 및 가상 컴퓨터의 복제를 조정합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [Azure Site Recovery란?](site-recovery-overview.md)에서 자세한 내용을 확인해 보세요.
-
-이 문서에서는 Azure 포털에서 Azure Site Recovery를 사용하여 System Center VMM 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다.
-
-이 문서를 읽은 후 하단에 의견을 남겨 주세요. 기술 관련 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의하세요.
-
-## <a name="quick-reference"></a>빠른 참조
-전체 배포를 위해서는 이 문서의 모든 단계를 따르는 것이 좋습니다. 하지만 시간이 없는 경우 빠른 요약은 다음과 같습니다.
-
-| **영역** | **세부 정보** |
-| --- | --- |
-| **배포 시나리오** |Azure 포털을 사용하여 VMM 클라우드의 Hyper-V VM을 Azure로 복제 |
-| **온-프레미스 요구 사항** |하나 이상의 클라우드가 있는 System Center 2012 R2에서 실행되는 VMM 서버가 하나 이상 필요합니다.<br/><br/> 클라우드에 하나 이상의 VMM 호스트 그룹이 있어야 합니다.<br/><br/> 클라우드에서 하나 이상의 Hyper-V 서버, Windows Server 2012 R2 이상(Hyper-V 역할 수행) 또는 최신 업데이트가 포함된 Microsoft Hyper-V Server 2012 R2를 실행하고 있어야 합니다.<br/><br/> VMM 서버 및 Hyper-V 호스트는 인터넷에 액세스할 수 있어야 하고 특정 URL에 직접 또는 프록시를 통해 액세스할 수 있어야 합니다. [전체 세부 정보](#on-premises-prerequisites). |
-| **온-프레미스 제한 사항** |HTTPS 기반 프록시는 지원되지 않음 |
-| **공급자/에이전트** |복제된 VM에는 Azure Site Recovery 공급자가 필요합니다.<br/><br/> Hyper-V 호스트에는 Recovery Services 에이전트가 필요합니다.<br/><br/> 배포 중에 설치합니다. |
-|  **Azure 요구 사항** |Azure 계정<br/><br/> 복구 서비스 자격 증명 모음<br/><br/> 자격 증명 모음 지역에 있는 LRS 또는 GRS 저장소 계정<br/><br/> 표준 저장소 계정<br/><br/> 자격 증명 모음 지역에서 Azure 가상 네트워크. [전체 세부 정보](#azure-prerequisites). |
-|  **Azure 제한 사항** |GRS를 사용하는 경우 로깅을 위해 다른 LRS 계정이 필요합니다.<br/><br/> Azure Portal에서 만든 저장소 계정은 동일하거나 다른 구독에서 리소스 그룹 간에 이동할 수 없습니다. <br/><br/> 프리미엄 저장소는 지원되지 않습니다.<br/><br/> Site Recovery에 사용되는 Azure 네트워크는 동일하거나 다른 구독에서 리소스 그룹 간에 이동할 수 없습니다.
-|  **VM 복제** |[VM은 Azure 필수 구성 요소를 따라야 합니다.](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
-|  **복제 제한 사항** |고정 IP 주소를 사용하여 Linux를 실행하는 VM을 복제할 수 없습니다.<br/><br/> 복제에서 OS 디스크뿐만 아니라 특정 디스크를 제외할 수 있습니다.
-| **배포 단계** |1) Azure 준비(구독, 저장소, 네트워크) -> 2) 온-프레미스 준비(VMM 및 네트워크 매핑) -> 3) Recovery Services 자격 증명 모음 만들기 -> 4) VMM 및 Hyper-V 호스트 설정 -> 5) 복제 설정 구성 -> 6) 복제 활성화 -> 7) 복제 및 장애 조치 테스트. |
-
-## <a name="site-recovery-in-the-azure-portal"></a>Azure 포털에서 Site Recovery
-
-Azure에는 리소스를 만들고 작업하는 Azure Resource Manager와 클래식이라는 두 가지 [배포 모델](../resource-manager-deployment-model.md)이 있습니다. Azure에는 두 가지, 즉 Azure 클래식 포털 및 Azure 포털이 있습니다. 이 문서에서는 Azure 포털에 배포하는 방법을 설명합니다.
+이 문서를 읽은 후에 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견을 게시합니다.
 
 
-이 문서에서는 간소화된 배포 환경을 제공하는 Azure Portal에서 배포하는 방법을 설명합니다. 기존 자격 증명 모음을 유지하기 위해 클래식 포털을 사용할 수 있습니다. 클래식 포털을 사용하여 새 자격 증명 모음을 만들 수 없습니다.
 
-
-## <a name="site-recovery-in-your-business"></a>사용자 비즈니스에서 Site Recovery
-
-조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. 수행할 수 있는 Site Recovery는 다음과 같습니다.
-
-* Hyper-V VM에서 실행되는 비즈니스 앱에 대한 오프사이트 보호.
-* 복제, 장애 조치(Failover), 복구를 설정, 관리 및 모니터링하는 단일 위치.
-* Azure로 간단한 장애 조치 및 Azure에서 온-프레미스 사이트의 Hyper-V 호스트 서버로 장애 복구(Failback)(복원).
-* 계층화된 응용 프로그램 워크로드가 함께 장애 조치(Failover)되도록 여러 VM을 포함하는 복구 계획.
 
 ## <a name="scenario-architecture"></a>시나리오 아키텍처
 다음은 시나리오 구성 요소입니다.
@@ -100,15 +67,15 @@ Azure에서 다음 항목이 필요합니다.
 ## <a name="protected-machine-prerequisites"></a>보호된 컴퓨터 필수 조건
 | **필수 구성 요소** | **세부 정보** |
 | --- | --- |
-| **보호되는 VM** |VM을 장애 조치(Failover)하려면 Azure VM에 할당될 이름이 [Azure 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수하는지 확인해야 합니다. VM에 대한 복제를 활성화한 후 이름을 수정할 수 있습니다. <br/><br/> 보호되는 컴퓨터의 개별 디스크 용량이 1023GB 이하여야 합니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다.<br/><br/> 공유 디스크 게스트 클러스터는 지원되지 않습니다.<br/><br/> UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/> 원본 VM에 NIC 팀이 있는 경우 Azure에 장애 조치 후 단일 NIC로 변환됩니다.<br/><br/>고정 IP 주소를 사용하여 Linux를 실행하는 Hyper-V VM 보호는 지원되지 않습니다. |
+| **보호되는 VM** |VM을 장애 조치(Failover)하려면 Azure VM에 할당될 이름이 [Azure 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인해야 합니다. VM에 대한 복제를 활성화한 후 이름을 수정할 수 있습니다. <br/><br/> 보호되는 컴퓨터의 개별 디스크 용량이 1023GB 이하여야 합니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다.<br/><br/> 공유 디스크 게스트 클러스터는 지원되지 않습니다.<br/><br/> UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/> 원본 VM에 NIC 팀이 있는 경우 Azure에 장애 조치 후 단일 NIC로 변환됩니다.<br/><br/>고정 IP 주소를 사용하여 Linux를 실행하는 Hyper-V VM 보호는 지원되지 않습니다. |
 
 ## <a name="prepare-for-deployment"></a>배포 준비
 배포를 준비하기 위해 다음을 수행해야 합니다.
 
 1. [Azure 네트워크를 설정](#set-up-an-azure-network) 합니다.
 2. [Azure 저장소 계정을 설정](#set-up-an-azure-storage-account) 합니다.
-3. Site Recovery를 배포할 [VMM 서버를 준비](#prepare-the-vmm-server)합니다.
-4. [네트워크 매핑을 준비](#prepare-for-network-mapping)합니다. Site Recovery를 배포하는 동안 네트워크 매핑을 구성할 수 있도록 네트워크를 설정합니다.
+3. [VMM 서버를 준비](#prepare-the-vmm-server) 합니다.
+4. 네트워크 매핑을 준비합니다. Site Recovery를 배포하는 동안 네트워크 매핑을 구성할 수 있도록 네트워크를 설정합니다.
 
 ### <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정
 장애 조치(Failover) 후 생성된 Azure VM이 연결될 수 있도록 Azure 네트워크가 필요합니다.
@@ -137,7 +104,6 @@ Site Recovery를 배포하는 동안 네트워크 매핑을 설정해야 합니�
 
   * 원본 Hyper-V 호스트 서버의 VM이 VMM VM 네트워크에 연결되어야 합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
   * [위의](#set-up-an-azure-network)
-* 네트워크 매핑의 작동 원리에 대해 [알아보세요](site-recovery-network-mapping.md).
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -177,14 +143,17 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 자격 증명 모음
 1. **2단계: 인프라 준비** > **원본**을 클릭합니다.
 
     ![원본 설정](./media/site-recovery-vmm-to-azure/set-source1.png)
+    
 2. **소스 준비**에서 **+VMM**을 클릭하여 VMM 서버를 추가합니다.
 
     ![원본 설정](./media/site-recovery-vmm-to-azure/set-source2.png)
+    
 3. **서버 추가** 블레이드에서 **System Center VMM 서버**가 **서버 유형**에 표시되고 VMM 서버가 [필수 조건 및 URL 요구 사항](#on-premises-prerequisites)을 만족하는지 확인합니다.
 4. Azure Site Recovery 공급자 설치 파일을 다운로드합니다.
 5. 등록 키를 다운로드합니다. 설정을 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터&5;일간 유효합니다.
 
     ![원본 설정](./media/site-recovery-vmm-to-azure/set-source3.png)
+    
 6. VMM 서버에 Azure Site Recovery 공급자를 설치합니다.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Azure Site Recovery 공급자 설치
@@ -274,7 +243,7 @@ VM을 복제하려면 Hyper-V 호스트에서 실행되는 복구 서비스 에�
     ![창고](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
-    ![저장소](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+      ![저장소](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 4. 아직 저장소 계정을 만들지 않았으며 Resource Manager를 사용하여 계정을 만들려면 **+저장소 계정**을 클릭하여 인라인에서 계정을 만듭니다.  **저장소 계정 만들기** 블레이드에서 계정 이름, 형식, 구독 및 위치를 지정합니다. 계정이 복구 서비스 자격 증명 모음과 같은 위치에 있어야 합니다.
 
@@ -291,7 +260,8 @@ VM을 복제하려면 Hyper-V 호스트에서 실행되는 복구 서비스 에�
    클래식 모델을 사용하여 네트워크를 만들려면 Azure 포털에서 만들면 됩니다. [자세히 알아보기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>네트워크 매핑 구성
-* [읽어보세요](#prepare-for-network-mapping) . [이 문서를 읽어보세요](site-recovery-network-mapping.md) .
+
+* [읽어보세요](#prepare-for-network-mapping) .
 * VMM 서버의 가상 컴퓨터가 VM 네트워크에 연결되었으며 Azure 가상 네트워크를 하나 이상 만들었는지 확인합니다. 단일 Azure 네트워크에 여러 개의 VM 네트워크를 매핑할 수 있습니다.
 
 다음과 같이 매핑을 구성합니다.
@@ -390,16 +360,17 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 6. **Virtual Machines** > **가상 컴퓨터 선택**에서 복제하려는 각 컴퓨터를 클릭하여 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. **속성** > **속성 구성**에서 선택한 VM의 운영 체제 및 OS 디스크를 선택합니다. 기본적으로 VM의 모든 디스크는 복제를 위해 선택됩니다. Azure에 불필요한 데이터를 복제함에 따른 대역폭 사용량을 줄이기 위해 복제에서 디스크를 제외할 수 있습니다. 예를 들어 임시 데이터 또는 컴퓨터나 응용 프로그램이 다시 시작할 때마다 새로 고쳐지는 데이터(예: pagefile.sys 또는 SQL Server tempdb)가 포함된 디스크를 복제하고 싶지 않을 수 있습니다. 디스크를 선택 취소하여 복제에서 해당 디스크를 제외할 수 있습니다. Azure VM 이름(대상 이름)이 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements) 을 준수하는지 확인하고 필요한 경우 이름을 수정합니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
+
+7. **속성** > **속성 구성**에서 선택한 VM의 운영 체제 및 OS 디스크를 선택합니다. 기본적으로 VM의 모든 디스크는 복제를 위해 선택됩니다. Azure에 불필요한 데이터를 복제함에 따른 대역폭 사용량을 줄이기 위해 복제에서 디스크를 제외할 수 있습니다. 예를 들어 임시 데이터 또는 컴퓨터나 응용 프로그램이 다시 시작할 때마다 새로 고쳐지는 데이터(예: pagefile.sys 또는 SQL Server tempdb)가 포함된 디스크를 복제하고 싶지 않을 수 있습니다. 디스크를 선택 취소하여 복제에서 해당 디스크를 제외할 수 있습니다. Azure VM 이름(대상 이름)이 [Azure 가상 컴퓨터 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) 을 준수하는지 확인하고 필요한 경우 이름을 수정합니다. 그런 후 **OK**를 클릭합니다. 나중에 추가 속성을 설정할 수 있습니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
     >[!NOTE]
     >
-    > * 기본 디스크만 복제에서 제외할 수 있습니다. OS 디스크는 제외할 수 없으며 동적 디스크는 제외하는 것을 권장하지 않습니다. ASR는 어떤 VHD 디스크가 게스트 VM 내에서 기본 또는 동적 디스크인지 식별할 수 없습니다.  모든 종속적인 동적 볼륨 디스크가 제외되지 않으면, 보호된 동적 디스크는 장애 조치 VM에 실패한 디스크로 나타나며 해당 디스크에 있는 데이터는 액세스할 수 없습니다.
+    > * 기본 디스크만 복제에서 제외할 수 있습니다. OS 디스크는 제외할 수 없으며 동적 디스크는 제외하는 것을 권장하지 않습니다. Site Recovery는 게스트 VM 내의 VHD 디스크가 기본 또는 동적인지 여부를 확인할 수 없습니다.  모든 종속적인 동적 볼륨 디스크가 제외되지 않으면, 보호된 동적 디스크가 VM 장애 조치 시 실패한 디스크가 되고 해당 디스크의 데이터에 액세스할 수 없게 됩니다.
     > * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 VM에 대한 보호를 사용하지 않도록 설정한 다음 다시 사용하도록 설정해야 합니다.
     > * 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행될 수 있도록 디스크를 Azure에 수동으로 만들어야 합니다. 또는 Azure 자동화를 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
-    > * Azure에서 수동으로 만드는 디스크는 장애 복구(failback)가 되지 않습니다. 예를 들어 디스크&3;장을 장애 조치하고&2;장을 직접 Azure VM에서 만든다면 장애 조치된&3;장의 디스크만이 Azure에서 다시 Hyper-V로 장애 복구됩니다. 장애 복구 또는 Hyper-V에서 Azure로 역방향 복제에서 수동으로 만든 디스크를 포함할 수 없습니다.
+    > * Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크&3;장을 장애 조치하고&2;장을 직접 Azure VM에서 만든다면 장애 조치된&3;장의 디스크만이 Azure에서 다시 Hyper-V로 장애 복구됩니다. 장애 복구 또는 Hyper-V에서 Azure로 역방향 복제에서 수동으로 만든 디스크를 포함할 수 없습니다.
     >
     >
 
@@ -411,7 +382,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 ### <a name="view-and-manage-vm-properties"></a>VM 속성 보기 및 관리
-원본 컴퓨터의 속성을 확인하는 것이 좋습니다. Azure VM 이름이 [Azure 가상 컴퓨터 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)에 맞아야 합니다.
+원본 컴퓨터의 속성을 확인하는 것이 좋습니다. Azure VM 이름이 [Azure 가상 컴퓨터 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 맞아야 합니다.
 
 1. **설정** > **보호된 항목** > **복제된 항목**을 차례로 클릭하고 세부 정보를 확인할 컴퓨터를 선택합니다.
 
@@ -419,7 +390,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
 
     ![복제 활성화](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. **계산 및 네트워크** > **계산 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements) 을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 수정할 수 있습니다.
+3. **계산 및 네트워크** > **계산 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) 을 준수하도록 이름을 수정합니다. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당될 IP 주소에 대한 정보를 보고 수정할 수 있습니다.
 다음 사항에 유의하세요.
 
    * 대상 IP 주소를 설정할 수 있습니다. 주소를 입력하지 않으면 장애 조치(Failover)된 컴퓨터가 DHCP를 사용합니다. 장애 조치(Failover) 시 사용할 수 없는 주소를 설정하면 장애 조치(Failover)가 실패합니다. 주소를 테스트 장애 조치(Failover) 네트워크에서 사용할 수 있는 경우 테스트 장애 조치(Failover)에 동일한 대상 IP 주소를 사용해도 됩니다.
@@ -473,7 +444,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 1. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. 속성을 열려면 VM을 클릭하거나 **설정** > **Site Recovery 작업**의 **테스트 장애 조치(Failover)** 작업을 클릭하여 진행률을 추적할 수 있습니다.
 1. 또한 장애 조치(failover)가 완료된 후 Azure 포털 > **Virtual Machines**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. VM의 크기가 적당하고, 올바른 네트워크에 연결되었고, 실행 중인지 확인해야 합니다.
 1. [장애 조치(failover) 후 연결을 준비](#prepare-to-connect-to-Azure-VMs-after-failover)하는 경우 Azure VM에 연결할 수 있어야 합니다.
-1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 가상 컴퓨터가 삭제됩니다. 
+1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 가상 컴퓨터가 삭제됩니다.
 
 자세한 내용은 [Azure에 대한 테스트 장애 조치](site-recovery-test-failover-to-azure.md) 문서를 참조하세요.
 
@@ -483,14 +454,9 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 1. 자격 증명 모음 이름을 클릭하여 **Essentials** 대시보드에 액세스합니다. 이 대시보드에서 Site Recovery 작업, 복제 상태, 복구 계획, 서버 상태 및 이벤트를 모니터링할 수 있습니다.  다른 Site Recovery 및 백업 자격 증명 모음의 상태를 포함하여 가장 유용한 타일과 레이아웃을 표시하도록 **Essentials**를 사용자 지정할 수 있습니다.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. **상태** 타일에서 문제가 있는 사이트 서버(VMM 또는 구성 서버)와 지난 24시간 동안 Site Recovery에 의해 발생한 이벤트를 모니터링할 수 있습니다.
+2. *상태**에서 온-프레미스 서버(VMM 또는 구성 서버)의 문제와 지난 24시간 동안 Site Recovery에서 발생한 이벤트를 모니터링할 수 있습니다.
 3. **복제된 항목**, **복구 계획** 및 **Site Recovery 작업** 타일에서 복제를 관리 및 모니터링할 수 있습니다. **설정** > **작업** > **Site Recovery 작업**에서 작업을 자세히 살펴볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "작업 영역 관리 | Microsoft Docs"
-description: "사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 태스크를 사용하여 Log Analytics에서 작업 영역을 관리합니다."
+description: "사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 태스크를 사용하여 Azure Log Analytics에서 작업 영역을 관리합니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -97,10 +98,13 @@ Azure Portal에 대해 주의해야 할 사항:
 
   URL은 다음과 같습니다. `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+예를 들어 관리 솔루션을 추가 또는 제거하기 위해 Azure Portal을 사용하는 경우 사용자는 Azure 구독의 관리자 또는 참가자여야 합니다. 또한 사용자는 OMS 작업 영역 참가자의 구성원이거나 OMS 포털에서 관리자 역할이 있어야 합니다.
+
 ### <a name="managing-users-in-the-oms-portal"></a>OMS 포털에서 사용자 관리
 사용자를 관리하고 설정 페이지의 **계정** 탭에 있는 **사용자 관리** 탭에서 그룹화합니다.   
 
 ![사용자 관리](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>기존 작업 영역에 사용자 추가
 작업 영역에 사용자 또는 그룹을 추가하려면 다음 단계를 따르세요.
@@ -295,9 +299,4 @@ Log Analytics 작업 영역을 삭제하면 30일 내에 작업 영역과 관련
 * 에이전트를 추가하고 데이터를 수집하려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 을 참조하세요.
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 * [Log Analytics에서 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md) 합니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

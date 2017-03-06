@@ -1,6 +1,6 @@
 ---
-title: "가상 컴퓨터 규모 집합 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 가상 컴퓨터 규모 집합 만들기"
+title: "Azure CLI 2.0을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs"
+description: "Azure CLI 2.0을 사용하여 가상 컴퓨터 크기 집합을 만드는 방법 알아보기"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -13,20 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2016
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 89e8e1dd9524c80e76aea8927bbd0578d475fc39
+ms.sourcegitcommit: 9b2ef23effa32e9b7507ad6e6eb29e97609a2034
+ms.openlocfilehash: e4f12b0d2959a0238753499e7068c930155072d9
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI를 사용하여 Linux 가상 컴퓨터 규모 집합 만들기
+# <a name="create-a-linux-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Linux 가상 컴퓨터 크기 집합 만들기
+
+이 문서에서는 Azure CLI 2.0을 사용합니다. Azure CLI 1.0을 사용하려면 [이 문서](./virtual-machine-scale-sets-linux-create-cli-nodejs.md)를 참조하세요.
+
 [!INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

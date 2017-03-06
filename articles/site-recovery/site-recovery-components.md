@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,13 +25,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Azure Site Recovery 서비스의 기본 아키텍처와 이를 작동하게 하는 구성 요소에 대해서는 이 문서를 읽어보세요.
 
-조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 BCDR 전략이 필요합니다. BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 유지하고 워크로드를 지속적으로 가용 상태로 유지해야 합니다.
-
-사이트 복구는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다.  [사이트 복구란?](site-recovery-overview.md)
+사이트 복구는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [사이트 복구란?](site-recovery-overview.md)
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)의 배포에 대해 설명합니다. [Azure 클래식 포털](https://manage.windowsazure.com/)은 기존 Site Recovery 자격 증명을 유지하는 데 사용할 수 있지만 새 자격 증명 모음을 만들 수는 없습니다.
 
-문서의 하단에 의견을 남겨 주세요. 기술 관련 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의하세요.
+이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견을 게시합니다.
 
 
 ## <a name="deployment-scenarios"></a>배포 시나리오
@@ -83,7 +82,7 @@ Site Recovery는 지원되는 VM 및 물리적 서버에서 실행 중인 앱을
 ### <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
 1. 온-프레미스 VMware VM 및 물리적 서버에서 Azure로 계획되지 않은 장애 조치를 실행합니다. 계획된 장애 조치는 지원되지 않습니다.
-2. 단일 컴퓨터에 장애 조치를 수행하거나 [복구 계획](site-recovery-create-recovery-plans.md)을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
+2. 단일 컴퓨터에 장애 조치를 수행하거나 [복구 계획](site-recovery-create-recovery-plans.md)을 만들어 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
 3. 장애 조치를 실행하면 Azure에 복제본 VM이 만들어집니다. 복제본 Azure VM에서 워크로드에 액세스하려면 장애 조치를 커밋합니다.
 4. 기본 온-프레미스 사이트를 다시 사용할 수 있는 경우 장애 복구를 수행할 수 있습니다. 장애 복구 인프라를 설정하고 보조 사이트에서 기본 사이트에 컴퓨터를 복제하기 시작하며 보조 사이트에서 계획되지 않은 장애 조치를 실행합니다. 이 장애 조치를 커밋한 후에 데이터가 다시 온-프레미스로 돌아오면 Azure에 다시 복제를 사용하도록 설정해야 합니다. [자세히 알아보기](site-recovery-failback-azure-to-vmware.md)
 
@@ -133,8 +132,9 @@ Site Recovery는 지원되는 VM 및 물리적 서버에서 실행 중인 앱을
 
 **구성 요소** | **세부 정보**
 --- | ---
+
 **Azure** | Azure에서는 Microsoft Azure 계정, Azure Storage 계정 및 Azure 네트워크가 필요합니다.<br/><br/> 저장소 및 네트워크는 Resource Manager 기반 계정 또는 기존 계정일 수 있습니다.<br/><br/> 복제된 데이터를 저장소 계정에 저장하고 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
-**VMM 서버** | Hyper-V 호스트가 VMM 클라우드에 있는 경우 논리 및 VM 네트워크를 설정하여 [네트워크 매핑](site-recovery-network-mapping.md)을 구성해야 합니다. VM 네트워크는 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
+**VMM 서버** | Hyper-V 호스트가 VMM 클라우드에 있는 경우 논리 네트워크와 VM 네트워크를 설정하여 네트워크 매핑을 구성해야 합니다. VM 네트워크는 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
 **Hyper-V 호스트** | 하나 이상의 Hyper-V 호스트 서버가 필요합니다.
 **Hyper-V VM** | Hyper-V 호스트 서버에 하나 이상의 VM이 필요합니다. Hyper-V 호스트에서 실행 중인 공급자는 인터넷을 통해 Site Recovery 서비스에서의 복제를 조정 및 오케스트레이션합니다. 에이전트는 HTTPS 443을 통해 데이터 복제 데이터를 처리합니다. 공급자 및 에이전트로부터의 통신은 모두 보호 및 암호화됩니다. Azure 저장소에 복제된 데이터도 암호화됩니다.
 
@@ -176,7 +176,7 @@ Site Recovery는 지원되는 VM 및 물리적 서버에서 실행 중인 앱을
 **구성 요소** | **세부 정보**
 --- | ---
 **Azure 계정** | Microsoft Azure 계정이 있어야 합니다.
-**VMM 서버** | VMM 서버는 기본 사이트에서 1개, 보조 사이트에서 1개를 인터넷에 연결하는 것이 좋습니다.<br/><br/> 각 서버에는 Hyper-V 기능 프로필 집합을 가진 하나 이상의 VMM 사설 클라우드가 있어야 합니다.<br/><br/> VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 인터넷을 통해 사이트 복구 서비스에서의 복제를 조정 및 오케스트레이션합니다. 공급자와 Azure 간의 통신은 모두 안전하고 암호화됩니다.
+**VMM 서버** | VMM 서버는 기본 사이트에서&1;개, 보조 사이트에서&1;개를 인터넷에 연결하는 것이 좋습니다.<br/><br/> 각 서버에는 Hyper-V 기능 프로필 집합을 가진 하나 이상의 VMM 사설 클라우드가 있어야 합니다.<br/><br/> VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 인터넷을 통해 사이트 복구 서비스에서의 복제를 조정 및 오케스트레이션합니다. 공급자와 Azure 간의 통신은 모두 안전하고 암호화됩니다.
 **Hyper-V 서버** |  기본 및 보조 VMM 클라우드에 있는 하나 이상의 Hyper-V 호스트 서버가 있어야 합니다. 서버는 인터넷에 연결되어야 합니다.<br/><br/> Kerberos 또는 인증서 인증을 사용하여 LAN 또는 VPN을 통해 기본 및 보조 Hyper-V 호스트 서버 간에 데이터가 복제됩니다.  
 **원본 컴퓨터** | 원본 Hyper-V 호스트 서버에는 복제하려는 하나 이상의 VM이 있어야 합니다.
 
@@ -200,8 +200,8 @@ Site Recovery는 지원되는 VM 및 물리적 서버에서 실행 중인 앱을
 
 1. 온-프레미스 사이트 간에 계획된 또는 계획되지 않은 [장애 조치](site-recovery-failover.md)를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
 2. 단일 컴퓨터에 장애 조치를 수행하거나 [복구 계획](site-recovery-create-recovery-plans.md)을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
-4. 보조 사이트에 계획되지 않은 장애 조치를 수행했다면 장애 조치 후에 보조 위치에 있는 장애 조치 컴퓨터는 보호 또는 복제하도록 설정되지 않습니다. 계획된 장애 조치를 했다면 장애 조치 후에 보조 위치 내 장애 조치 컴퓨터가 보호됩니다.
-5. 그런 다음 복제본 VM에서 워크로드에 액세스하려면 장애 조치를 커밋합니다.
+4. 보조 사이트에 계획되지 않은 장애 조치를 수행했다면 장애 조치 후에 보조 위치에 있는 장애 조치 컴퓨터는 보호 또는 복제하도록 설정되지 않습니다. 계획된 장애 조치를 실행했으면 장애 조치 후에 보조 위치에 있는 컴퓨터가 보호됩니다.
+5. 그런 다음 장애 조치를 커밋하여 복제본 VM에서 워크로드에 액세스합니다.
 6. 기본 사이트를 사용할 수 있는 경우 역방향 복제를 시작하여 보조 사이트에서 기본 사이트로 복제합니다. 역방향 복제는 가상 컴퓨터를 보호된 상태로 가져오지만 보조 데이터 센터는 여전히 활성 위치입니다.
 7. 기본 사이트를 활성 위치로 다시 만들려면 다른 역방향 복제 후에 보조 사이트에서 기본 사이트로 계획된 장애 조치를 시작합니다.
 
@@ -223,10 +223,5 @@ Site Recovery는 지원되는 VM 및 물리적 서버에서 실행 중인 앱을
 
 ## <a name="next-steps"></a>다음 단계
 
-[배포 준비](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[필수 구성 요소 확인](site-recovery-prereq.md)
 

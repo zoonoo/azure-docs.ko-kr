@@ -13,57 +13,50 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 02/15/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 07cb3fe0d5688d5b63fe3312cad14c2274a58a09
-ms.openlocfilehash: e98a64910f28da0a8a9b4a58c717c40d791ccf00
+ms.sourcegitcommit: b652c0f817e5e56d4ff50701345b03db634f616c
+ms.openlocfilehash: 043c54094f53ae539c833eb8f167201781c677a6
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>연습: Azure 기계 학습의 신용 위험 평가에 대한 예측 분석 솔루션 개발
 
-이 연습에서는 Machine Learning Studio에서 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 예측 분석 모델을 개발한 다음 이 모델에서 새로운 데이터를 사용하여 예측할 수 있는 Azure Machine Learning 웹 서비스로 배포할 것입니다. 
+이 연습에서는 Machine Learning Studio에서 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발한 다음 이 모델에서 새로운 데이터를 사용하여 예측할 수 있는 Azure Machine Learning 웹 서비스로 배포합니다. 
 
-> [!TIP]
-> 이 연습에서는 이전에 Machine Learning Studio를 사용해 본 경험이 한 번 이상 있으며 기계 학습 개념에 대해 어느 정도 이해하고 있지만 어느 쪽이든 전문가는 아니라고 가정합니다.
-> 
->**Azure Machine Learning Studio**를 사용한 경험이 없는 경우 [Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기](machine-learning-create-experiment.md) 자습서를 시작하는 것이 좋습니다. 이 자습서를 통해 처음으로 Machine Learning Studio를 사용할 수 있으며, 여기서는 실험에 모듈을 끌어 놓고 서로 연결하여 실험을 실행한 다음 결과를 확인할 수 있는 방법에 대한 기본 사항을 보여 줍니다.
->
->기계 학습이 처음이라면 비디오 시리즈 [초보자를 위한 데이터 과학](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)이 시작에 좋은 출발점이 될 수 있습니다. 이 비디오 시리즈는 일상적인 언어 및 개념을 사용하여 기계 학습을 잘 소개하고 있습니다.
-> 
+이 연습에서는 이전에 Machine Learning Studio를 사용해 본 경험이 한 번 이상 있으며 기계 학습 개념에 대해 어느 정도 이해하고 있다고 가정합니다. 그러나 어느 쪽이든 전문가는 아니라고 가정합니다.
+
+**Azure Machine Learning Studio**를 사용한 경험이 없는 경우 [Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기](machine-learning-create-experiment.md) 자습서를 시작하는 것이 좋습니다. 해당 자습서에서는 처음으로 Machine Learning Studio를 안내합니다. 이 자습서는 실험에 모듈을 끌어 놓고 서로 연결하고 실험을 실행하고 결과를 확인하는 방법의 기본 사항을 보여 줍니다. 시작하는 데 도움이 될 수 있는 다른 도구는 Machine Learning Studio의 기능에 대한 개요를 제공하는 다이어그램입니다. [Azure Machine Learning Studio 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)에서 다운로드하고 인쇄할 수 있습니다.
+ 
+일반적으로 기계 학습 분야를 처음 접하는 경우 도움이 될 수 있는 비디오 시리즈가 있습니다. [초급자를 위한 데이터 과학](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)이라고 하며 일상적인 언어 및 개념을 사용하여 기계 학습에 대한 훌륭한 소개를 제공할 수 있습니다.
+
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+ 
 
 ## <a name="the-problem"></a>문제
 
 신용대출 지원 시 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-물론 신용 위험 평가는 복잡한 문제이지만 질문의 매개 변수를 약간 간소화하겠습니다. 그런 다음 Machine Learning Studio와 Machine Learning 웹 서비스가 있는 Microsoft Azure Machine Learning을 사용하여 이러한 예측 분석 솔루션을 만들 수 있는 방법의 예제로 사용할 것입니다.  
+신용 위험 평가는 복잡한 문제이지만 이 연습에서는 다소 간소화할 수 있습니다. Microsoft Azure Machine Learning을 사용하여 예측 분석 솔루션을 만들 수 있는 방법의 예로 사용합니다. 이 작업을 수행하기 위해 Azure Machine Learning Studio 및 Machine Learning 웹 서비스를 사용합니다.  
 
 ## <a name="the-solution"></a>솔루션
 
-이 자세한 연습에서는 공개적으로 사용 가능한 신용 위험 데이터에서 시작하여 해당 데이터에 기반한 예측 모델을 개발하고 학습한 다음 신용 위험 평가를 위해 다른 사람이 사용할 수 있는 웹 서비스로 모델을 배포할 것입니다.
+이 자세한 연습에서는 공개적으로 사용 가능한 신용 위험 데이터와 함께 시작하고 개발하고 해당 데이터를 기반으로 예측 모델을 학습합니다. 그런 다음 다른 사용자가 신용 위험 평가를 위해 사용할 수 있도록 웹 서비스로 모델을 배포합니다.
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-신용 위험 평가 솔루션을 만들려면 다음 단계를 따릅니다.  
+이 신용 위험 평가 솔루션을 만들려면 다음 단계를 따릅니다.  
 
 1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
-3. [새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
+3. [실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
 4. [모델 학습 및 평가](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5. [웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 6. [웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
-이 연습은 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)에서 [이진 분류: 신용 위험 예측](http://go.microsoft.com/fwlink/?LinkID=525270) 샘플 실험의 간소화된 버전을 기반으로 합니다.
-
-
-> [!TIP]
-> 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
+> [!TIP] 
+> [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com)의 이 연습에서 개발하는 실험의 작업 복사본을 찾을 수 있습니다. **[연습 - 신용 위험 예측](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**으로 이동하고 **Studio에서 열기**를 클릭하여 Machine Learning Studio 작업 영역으로 실험의 복사본을 다운로드합니다.
 > 
-> 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+> 이 연습은 [이진 분류: 신용 위험 예측](http://go.microsoft.com/fwlink/?LinkID=525270) 샘플 실험의 간소화된 버전을 기반으로 하며 [갤러리](http://gallery.cortanaintelligence.com/)에서 사용 가능합니다.
 

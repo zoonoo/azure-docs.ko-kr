@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 02/19/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
-ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 7fd5c4edadc6d9cc070dff937a963f9a83ec66c2
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2에서 AD FS와 함께 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 AD FS(Active Directory Federation Services)를 사용하고 클라우드 또는 온-프레미스 리소스 보안을 유지하려는 경우, AD FS와 작동하도록 Azure Multi-Factor Authentication 서버를 구성할 수 있습니다. 이 구성은 높은 값의 끝점에 대해&2;단계 인증을 트리거합니다.
 
 이 문서에서는 Windows Server 2012 R2에서 AD FS와 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 설명합니다. 자세한 내용은 [AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안을 유지](multi-factor-authentication-get-started-adfs-adfs2.md)하는 방법에 대해 읽어보세요.
@@ -141,9 +142,4 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 
 ## <a name="related-topics"></a>관련된 항목
 문제 해결 도움말을 보려면 [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

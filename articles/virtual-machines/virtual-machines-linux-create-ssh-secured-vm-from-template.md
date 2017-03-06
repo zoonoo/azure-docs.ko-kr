@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Azure 템플릿을 사용하여 Linux VM 만들기
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Linux VM을 만드는 방법
 이 문서에서는 Azure 템플릿을 사용하여 Azure에서 Linux 가상 컴퓨터를 신속하게 배포하는 방법을 보여 줍니다.  이 문서의 내용을 실행하기 위해 필요한 사항:
 
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
@@ -78,10 +80,5 @@ info:    group create command OK
 
 ## <a name="next-steps"></a>다음 단계
 [템플릿 갤러리](https://azure.microsoft.com/documentation/templates/) 를 검색하여 다음에 배포할 앱 프레임워크를 검색합니다.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 
