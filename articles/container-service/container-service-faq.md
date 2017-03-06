@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,15 +30,15 @@ ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Azure Container Service에 어떤 컨테이너 오케스트레이터가 지원되나요? 
 
-오픈 소스 DC/OS, Docker Swarm 및 Kubernetes가 지원됩니다. DC/OS 및 Docker Swarm에 대한 지원은 일반 공급되는 반면 Kubernetes 지원은 현재 미리 보기 상태입니다. 자세한 내용은 [개요](container-service-intro.md)를 참조하세요.
+오픈 소스 DC/OS, Docker Swarm 및 Kubernetes가 지원됩니다. 자세한 내용은 [개요](container-service-intro.md)를 참조하세요.
  
-### <a name="do-you-support-swarm-mode"></a>Swarm 모드가 지원되나요? 
+### <a name="do-you-support-docker-swarm-mode"></a>Docker Swarm 모드가 지원되나요? 
 
 현재 Swarm 모드는 지원되지 않지만 서비스 로드맵에 포함되어 있습니다. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Azure Container Service에 Windows 컨테이너가 지원되나요?  
 
-현재는 Linux 컨테이너가 지원됩니다. DC/OS, Docker Swarm 및 Kubernetes 오케스트레이터가 포함된 Windows 컨테이너에 대한 지원은 서비스 로드맵에 포함되어 있습니다. 
+현재 Linux 컨테이너는 모든 오케스트레이터에 지원됩니다. Kubernetes를 통한 Windows 컨테이너에 대한 지원은 미리 보기 상태입니다.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Azure Container Service에 권장되는 특정 오케스트레이터가 있나요? 
 일반적으로 특정 오케스트레이터가 권장되지는 않습니다. 지원되는 오케스트레이터 중 하나에 경험이 있다면 그러한 경험을 Azure Container Service에 적용할 수 있습니다. 하지만 데이터 경향에 따르면 DC/OS는 빅 데이터 및 IoT 워크로드에 대해 성능이 입증되었고 Kubernetes는 클라우드 네이티브 워크로드에 적합하며 Docker Swarm은 Docker 도구와의 통합 및 학습이 쉬운 것으로 알려져 있습니다.
@@ -55,29 +56,23 @@ Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의
 
 클러스터의 Linux 가상 컴퓨터에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 개인 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) 지침을 참조하세요. 
 
-[Azure CLI 2.0(미리 보기) 명령](container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
+[Azure CLI 2.0 명령](container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Kubernetes 클러스터에 대한 서비스 주체는 어떻게 만드나요?
 
 Azure Container Service에서 Kubernetes 클러스터를 만들려면 Azure Active Directory 서비스 주체 ID 및 암호도 필요합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
 
 
-[Azure CLI 2.0(미리 보기) 명령](container-service-create-acs-cluster-cli.md)을 사용하여 Kubernetes 클러스터를 배포하는 경우 서비스 주체 자격 증명이 클러스터에 대해 자동으로 생성될 수 있습니다.
+[Azure CLI 2.0 명령](container-service-create-acs-cluster-cli.md)을 사용하여 Kubernetes 클러스터를 배포하는 경우 서비스 주체 자격 증명이 클러스터에 대해 자동으로 생성될 수 있습니다.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>클러스터를 만든 후 마스터 수는 어떻게 늘리나요? 
-클러스터를 만들고 나면 마스터 수가 고정되어 변경할 수 없습니다. 클러스터를 만드는 동안 고가용성을 위해 세 개 또는 다섯 개의 마스터를 적당히 선택해야 합니다.
+클러스터를 만들고 나면 마스터 수가 고정되어 변경할 수 없습니다. 클러스터를 만드는 동안 고가용성을 위해 다수의 마스터를 적당히 선택해야 합니다.
 
-> [!NOTE]
-> 미리 보기에서 Azure Container Service의 Kubernetes 클러스터는 마스터를 하나만 둘 수 있습니다.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>클러스터를 만든 후 에이전트 수는 어떻게 늘리나요? 
 클러스터의 에이전트 수는 Azure Portal 또는 명령줄 도구를 사용하여 조정할 수 있습니다. [Azure Container Service 클러스터 규모 조정](container-service-scale.md)을 참조하세요.
 
-> [!NOTE]
-> 미리 보기에서 Azure Container Service의 Kubernetes 클러스터에는 고정된 수의 에이전트가 있습니다. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>마스터와 에이전트의 URL은 무언인가요? 
 Azure Container Service에 있는 클러스터 리소스의 URL은 사용자가 제공한 DNS 이름 접두사 및 배포를 위해 사용자가 선택한 Azure 지역의 이름을 기반으로 합니다. 예를 들어 마스터 노드의 FQDN(정규화된 도메인 이름)은 다음과 같은 형식입니다.
@@ -114,9 +109,4 @@ ssh userName@masterFQDN –A –p 22
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Container Service에 대해 [자세히 알아보세요](container-service-intro.md).
-* [포털](container-service-deployment.md) 또는 [Azure CLI 2.0(미리 보기)](container-service-create-acs-cluster-cli.md)를 사용하여 컨테이너 서비스 클러스터 배포.
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* [포털](container-service-deployment.md) 또는 [Azure CLI 2.0](container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터 배포.

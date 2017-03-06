@@ -13,18 +13,26 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
-ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
+ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
+ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기
 
-이 문서에서는 [리소스 관리자](../azure-resource-manager/resource-group-overview.md) 및 PowerShell을 사용하여 Windows Server를 실행하는 Azure Virtual Machine 및 필요한 리소스를 빠르게 만드는 방법을 보여 줍니다. 이 문서의 모든 단계는 가상 컴퓨터를 만드는 데 필요하며 단계를 수행하려면 약 30분 정도가 걸립니다. 명령 예제의 매개 변수 값을 사용자 환경에서 식별할 수 있는 이름으로 바꿉니다.
+이 문서에서는 [리소스 관리자](../azure-resource-manager/resource-group-overview.md) 및 Azure PowerShell을 사용하여 Windows Server를 실행하는 Azure Virtual Machine 및 필요한 리소스를 빠르게 만드는 방법을 보여 줍니다.  
+
+이 문서의 모든 단계는 가상 컴퓨터를 만드는 데 필요하며 단계를 수행하려면 약 30분 정도가 걸립니다. 명령 예제의 매개 변수 값을 사용자 환경에서 식별할 수 있는 이름으로 바꿉니다.
 
 ## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
 
 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+
+> [!NOTE]
+> 이 문서에서 기능을 사용하려면 Azure PowerShell을 다시 설치해야 합니다. Managed Disks 기능은 버전 3.5 이상에 있습니다.
+> 
+> 
 
 ## <a name="step-2-create-a-resource-group"></a>2단계: 리소스 그룹 만들기
 
@@ -175,10 +183,5 @@ ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
 * 배포에 문제가 있는 경우 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 살펴봅니다.
 * [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 자신이 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 * [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

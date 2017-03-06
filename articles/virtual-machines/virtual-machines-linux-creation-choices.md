@@ -13,31 +13,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2016
+ms.date: 01/03/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 23862762fcf0939ce84859fdae0274421c0bb5fe
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: 1287a028122080c0d9745502a4a98a957894a0de
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="different-ways-to-create-a-linux-vm-including-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 포함한 Linux VM을 만드는 다양한 방법
-Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴퓨터)을 만드는 유연성이 있습니다. 이 문서에서는 Linux 가상 컴퓨터를 만드는 경우의 차이점과 옵션을 요약하고 있습니다.
+# <a name="different-ways-to-create-a-linux-vm"></a>Linux VM을 만드는 다양한 방법
+Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴퓨터)을 만드는 유연성이 있습니다. 이 문서에서는 Azure CLI 2.0을 포함하여 Linux 가상 컴퓨터를 만드는 경우의 차이점과 옵션을 요약하고 있습니다. [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md)을 포함하여 만들기 선택 항목을 볼 수도 있습니다.
 
-## <a name="azure-cli"></a>Azure CLI
-다음 CLI 버전 중 하나를 사용하여 Azure에서 VM을 만들 수 있습니다.
+[Azure CLI 2.0](/cli/azure/install-az-cli2)은 npm 패키지, 배포판 제공 패키지 또는 Docker 컨테이너를 통해 여러 플랫폼에서 사용할 수 있습니다. [az login](/cli/azure/#login)을 사용하여 Azure 계정에 환경 및 로그인에 가장 적합한 빌드를 설치합니다.
 
-- [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
-- Azure CLI 2.0(미리 보기) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+다음 예제에서는 Azure CLI 2.0을 사용합니다. 표시된 명령에 대한 자세한 내용은 각각의 문서를 참조하세요. [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md)을 사용하여 Linux를 만드는 선택에 대한 예제를 찾을 수 있습니다.
 
-[Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)는 npm 패키지, 배포판 제공 패키지 또는 Docker 컨테이너를 통해 여러 플랫폼에서 사용할 수 있습니다. [az login](/cli/azure/#login)을 사용하여 Azure 계정에 환경 및 로그인에 가장 적합한 빌드를 설치합니다.
-
-다음 예제에서는 Azure CLI 2.0(미리 보기)를 사용합니다. 표시된 명령에 대한 자세한 내용은 각각의 문서를 참조하세요. [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md)을 사용하여 Linux를 만드는 선택에 대한 예제를 찾을 수 있습니다.
-
-* [Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI 2.0을 사용하여 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * 이 예제에서는 [az group create](/cli/azure/group#create)를 사용하여 `myResourceGroup`라는 리소스 그룹을 만듭니다. 
-    
+-    
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
@@ -47,9 +42,9 @@ Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username azureuser \
+     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --public-ip-address-dns-name myPublicDNS \
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
@@ -73,11 +68,11 @@ Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴
 
 * [Linux VM에 디스크 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * 다음 예제에서는 [az vm disk attach-new](/cli/azure/vm/disk#attach-new)를 사용하여 `myDataDisk.vhd`라는 5Gb 관리되지 않는 디스크를 `myVM`이라는 기존 VM에 추가합니다.
+  * 다음 예제에서는 [az vm disk attach-new](/cli/azure/vm/disk#attach-new)를 사용하여 `myVM`이라는 기존 VM에 50Gb 관리되는 디스크를 추가합니다.
   
     ```azurecli
-    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-      --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
+    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
+    –-new --size-gb 50
     ```
 
 ## <a name="azure-portal"></a>Azure 포털
@@ -101,13 +96,13 @@ az vm image list-publishers --location WestUS
 지정된 게시자에 사용 가능한 제품(제품) 나열:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location WestUS
 ```
 
 지정된 제품 중 사용 가능한 SKU(배포판 릴리스) 나열:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
 ```
 
 지정된 릴리스에 사용 가능한 모든 이미지 나열:
@@ -149,9 +144,4 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 * [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)로 [포털](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 Linux VM을 만들거나 [Azure Resource Manager 템플릿](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Linux VM을 만듭니다.
 * Linux VM을 만든 후에 [데이터 디스크를 추가합니다](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [암호 또는 SSH 키 다시 설정 및 사용자 관리](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

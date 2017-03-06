@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI를 사용하여 Linux VM 만들기 | Microsoft Docs"
-description: "NodeJs용 Azure CLI를 사용하여 Azure에서 Linux VM을 만듭니다."
+title: "Azure CLI 1.0을 사용하여 Linux VM 만들기 | Microsoft Docs"
+description: "Azure CLI 1.0을 사용하여 Azure에서 Linux VM 만들기"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -9,23 +9,24 @@ editor:
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2c37d5186e169789881a4b29597cb37cd6f7ede9
-ms.openlocfilehash: dc5c575873ceb2acc8321b949031276d9a8f8cc8
+ms.sourcegitcommit: a0d80ae5a4fe5af6f46e97a8f5d9a0c0715361b8
+ms.openlocfilehash: 5643a7f792cdfd1a445e69ac18b149a736951991
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM 만들기
+# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Linux VM 만들기
 
 이 문서에서는 Azure 명령줄 인터페이스(CLI)의 `azure vm quick-create` 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. `quick-create` 명령은 개념을 신속하게 프로토타입하거나 테스트하는 데 사용할 수 있는 기본 인프라 내에 VM을 배포합니다.
 
 > [!NOTE]
-Azure CLI 2.0(미리 보기)을 사용하여 VM을 만들려면 [Azure CLI를 사용하여 VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+Azure CLI 2.0을 사용하여 VM을 만들려면 [Azure CLI를 사용하여 VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 이 문서의 내용을 실행하기 위해 필요한 사항:
 
@@ -211,9 +212,4 @@ myAdminUser@myVM:~$
 * [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [다양한 명령으로 `docker-machine` Azure 드라이버를 사용하여 Linux VM을 Docker 호스트로 신속하게 만들 수 있습니다](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -12,17 +12,20 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: fb53c1748d42e605048d1ab4e033460399c75911
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 배치 계정 만들기
+# <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
+
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [배치 관리 .NET](batch-management-dotnet.md)
 > 
 > 
@@ -125,9 +128,4 @@ Azure 포털을 사용하는 것 외에도 다음 항목으로 배치 계정을 
 [account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

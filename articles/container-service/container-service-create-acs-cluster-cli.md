@@ -1,6 +1,6 @@
 ---
 title: "Docker 컨테이너 클러스터 배포 - Azure CLI | Microsoft Docs"
-description: "Azure CLI 2.0 미리 보기를 사용하여 Azure Container Service 클러스터 배포"
+description: "Azure CLI 2.0을 사용하여 Azure Container Service 클러스터 배포"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,24 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0 미리 보기를 사용하여 Azure Container Service 클러스터 만들기
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0을 사용하여 Azure Container Service 클러스터 만들기
 
-Azure CLI 2.0(미리 보기)에서 `az acs` 명령을 사용하여 Azure Container Service에서 클러스터를 만들고 관리합니다. [Azure Portal](container-service-deployment.md) 또는 Azure Container Service API를 사용하여 Azure Container Service 클러스터를 배포할 수도 있습니다.
+Azure CLI 2.0의 `az acs` 명령을 사용하여 Azure Container Service에서 클러스터를 만들고 관리합니다. [Azure Portal](container-service-deployment.md) 또는 Azure Container Service API를 사용하여 Azure Container Service 클러스터를 배포할 수도 있습니다.
 
 `az acs` 명령에 대한 도움말은 `-h` 매개 변수를 명령에 전달합니다. 예: `az acs create -h`
 
 
 
 ## <a name="prerequisites"></a>필수 조건
-Azure CLI 2.0(미리 보기)을 사용하여 Azure Container Service 클러스터를 만들려면 다음을 수행해야 합니다.
+Azure CLI 2.0을 사용하여 Azure Container Service 클러스터를 만들려면 다음을 수행해야 합니다.
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))이 있어야 합니다.
-* [Azure CLI v. 2.0(미리보기)](/cli/azure/install-az-cli2)을 설치하고 설정해야 합니다.
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 설정해야 합니다.
 
 ## <a name="get-started"></a>시작 
 ### <a name="log-in-to-your-account"></a>계정에 로그인
@@ -41,7 +42,7 @@ Azure CLI 2.0(미리 보기)을 사용하여 Azure Container Service 클러스�
 az login 
 ```
 
-프롬프트를 따라 대화형으로 로그인합니다. 로그인을 위한 다른 메서드는 [Azure CLI 2.0 (미리 보기) 시작](/cli/azure/get-started-with-az-cli2)을 참조하세요.
+프롬프트를 따라 대화형으로 로그인합니다. 로그인을 위한 다른 메서드는 [Azure CLI 2.0 시작](/cli/azure/get-started-with-az-cli2)을 참조하세요.
 
 ### <a name="set-your-azure-subscription"></a>Azure 구독 설정
 
@@ -74,7 +75,7 @@ az group create -n acsrg1 -l "westus"
 
 
 ### <a name="quick-acs-create-using-defaults"></a>기본값을 사용하는 빠른 `acs create`
-기본 위치에 SSH 공용 키 파일 `id_rsa.pub`가 있는 경우(또는 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)용으로 만든 SSH 공용 키) 다음과 같은 명령을 사용합니다.
+기본 위치에 SSH RSA 공개 키 파일 `id_rsa.pub`가 있는 경우(또는 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)용으로 만든 경우) 다음과 같은 명령을 사용합니다.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -143,8 +144,3 @@ az acs delete -g acsrg1 -n acs-cluster
 * [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
 * [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 * [Azure Container Service 및 Kubernetes로 작업](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

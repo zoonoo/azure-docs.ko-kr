@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 9a17b749a50c0f75890fa71b4ae00391aa63876a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-feature-overview-for-developers"></a>개발자를 위한 배치 기능 개요
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
+
 Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자가 대규모 병렬 계산 솔루션을 구축하는 데 사용할 수 있는 기본 서비스 기능 및 리소스를 설명합니다.
 
 분산된 컴퓨팅 응용 프로그램 또는 [REST API][batch_rest_api] 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-technical-overview.md#batch-development-apis) 중 하나를 사용하는 경우 이 문서에서 설명할 다양한 리소스 및 기능을 사용하게 됩니다.
@@ -486,9 +489,4 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

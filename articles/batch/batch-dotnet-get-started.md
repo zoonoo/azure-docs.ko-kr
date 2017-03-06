@@ -1,6 +1,6 @@
 ---
 title: "자습서 - .NET용 Azure Batch 클라이언트 라이브러리 사용 | Microsoft Docs"
-description: "Azure 배치의 기본 개념과 예제 시나리오를 통해 배치 서비스를 개발하는 방법을 알아봅니다."
+description: "Azure Batch의 기본 개념을 알아보고 .NET을 사용하여 간단한 솔루션을 빌드합니다."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 5af894b60180d32593ed19c13aecf2732645120a
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-library-for-net"></a>.NET용 Azure 배치 라이브러리 시작
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET용 Batch 클라이언트 라이브러리를 사용한 솔루션 빌드 시작
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -802,9 +805,4 @@ Sample complete, hit ENTER to exit...
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "포털의 배치 자격 증명"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

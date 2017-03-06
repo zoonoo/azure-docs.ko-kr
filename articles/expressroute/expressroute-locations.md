@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0afada6b5ade6c1f246b99e924a972cd7d34fdfa
-ms.openlocfilehash: b17defc732be9f1fbdb816727d5602eb037b7e06
+ms.sourcegitcommit: 4f20e8d3d5774eb57038e40fac6a4bac2e17909e
+ms.openlocfilehash: 569786c864d5f8ceb93422c65ae1ffb47f66a787
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -70,6 +71,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **서비스 공급자** | **Microsoft Azure** | **Office 365 및 CRM Online** | **위치** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |지원됨 |지원됨 |멜버른, 시드니 |
+| **Airtel** | 서비스 예정 | 서비스 예정 | 첸나이, 뭄바이 |
 | **[Aryaka Networks](http://www.aryaka.com/)** |지원됨 |지원됨 |암스테르담, 댈러스, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 실리콘밸리, 싱가포르, 시드니, 워싱턴 DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |지원됨 |지원됨 |토론토 |
@@ -79,16 +81,16 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |지원됨 |지원됨 |댈러스, 몬트리올, 토론토 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 더블린, 런던, 도쿄 |
 | **Comcast** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
-| **Console**| 지원됨 | 지원됨 |실리콘밸리 |
+| **Console**| 지원됨 | 지원됨 |실리콘밸리, 토론토 |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |지원됨 |지원됨 |로스앤젤레스, 뉴욕 |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 시카고, 댈러스, 홍콩, 런던, 로스앤젤레스, 멜버른, 뉴욕, 오사카, 파리+, 상 파울로, 시애틀, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
 | **euNetworks** |지원됨 |지원됨 |암스테르담 |
-| **GCX(Global Cloud Exchange)** | 곧 공개됩니다 | 곧 공개됩니다 | 첸나이 |
+| **Global CloudXchange(GCX)** | 지원됨| 지원됨 | 첸나이 |
 | **GÉANT** |지원됨 |지원됨 |암스테르담 |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |지원됨 |지원됨 |오사카, 도쿄 |
 | **[InterCloud](https://www.intercloud.com/)** |지원됨 |지원됨 |암스테르담, 런던, 싱가포르, 워싱턴 DC |
 | **Internet Solutions - 클라우드 연결** |지원됨 |지원됨 |암스테르담, 런던 |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |지원됨 |지원됨 |암스테르담, 런던, 파리 |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |지원됨 |지원됨 |암스테르담, 런던, 파리 |
 | **Jisc** |지원됨 |지원됨 |런던 |
 | **KINX** |지원됨 |지원됨 |서울 |
 | **[KPN](http://www.kpn.com/cloudconnect)** | 지원됨 | 지원됨 | 암스테르담 | 
@@ -150,7 +152,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
   * [Cologix](http://www.cologix.com/)
   * [CoreSite](http://www.coresite.com/)
   * [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
+  * [Interxion](http://www.interxion.com/products/interconnection/cloud-connect/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
@@ -162,21 +164,24 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **연결 공급자** | **Exchange** | **위치** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |싱가포르 |
+| **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | 토론토, 몬트리올 |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |도쿄 |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |시애틀 |
+| **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | 런던
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | 몬트리올, 토론토 |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | 댈러스
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | 암스테르담 |
 | **[지수 E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | 런던 |
+| **[Fastweb S.p.A](http://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | 암스테르담 |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | 런던, 슬라우 |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |뉴욕, 워싱턴 DC |
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | 시드니 |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | 워싱턴 D.C. |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | 암스테르담, 프랑크푸르트 |  
+| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | 런던
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | 댈러스, 로스앤젤레스 |  
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | 프랑크푸르트 |  
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix |시카고, 실리콘밸리, 워싱턴 DC |
-| **[XO Communications](http://www.xo.com/)** |Equinix |실리콘밸리 |
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | 마드리드 |
 
 
@@ -185,13 +190,16 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 | **시스템 통합 업체** | **대륙** |
 | --- | --- |
+| **[Altogee](http://www.altogee.be/expressroute)** | 유럽 |
 | **[Avanade Inc.](http://www.avanade.com/)** | 아시아, 유럽, 북아메리카, 남미 |
+| **Bright Skies GmbH** | 유럽
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | 유럽 |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | 북아메리카 |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | 오스트레일리아 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 유럽(독일) |
 | **[Nelite](http://nelite.com/)** | 유럽 |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | 아시아 |
+| **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | 유럽 |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북아메리카 |
 | **[Project Leadership](http://www.projectleadership.net/azure)** | 북아메리카 |
 
@@ -202,9 +210,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

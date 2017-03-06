@@ -1,23 +1,25 @@
 ---
-title: "Azure 포털을 사용하여 가상 네트워크 만들기 | Microsoft Docs"
-description: "Azure Portal을 사용하여 가상 네트워크를 만드는 방법 알아보기 | Resource Manager."
+title: "가상 네트워크 만들기 - Azure Portal | Microsoft Docs"
+description: "Azure 포털을 사용하여 가상 네트워크를 만드는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/8/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: c7257faad9a41174fb1d65e04c99cd96a8af3ea9
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 54094c18dcbb751835bfa56d53358ce19e08387d
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -81,8 +83,3 @@ Azure Portal을 사용하여 가상 네트워크를 만들려면 다음 단계�
 - 가상 컴퓨터(VM)에서 가상 네트워크 연결은 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 또는 [Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-portal.md) 문서를 참조하세요. 해당 문서의 단계에서 VNet 및 서브넷을 만드는 대신 기존 VNet 및 서브넷을 VM에 연결하도록 선택할 수 있습니다.
 - 가상 네트워크에서 다른 가상 네트워크 연결은 [VNet 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 문서를 참조하세요.
 - 가상 네트워크에서 온-프레미스 네트워크 연결은 사이트 간 VPN(가상 사설망) 또는 ExpressRoute 회로를 사용합니다. 자세한 내용은 [사이트 간 VPN을 사용하여 VNet을 온-프레미스 네트워크에 연결](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) 및 [VNet을 ExpressRoute 회선에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) 문서를 참조하세요.
-
-
-<!--HONumber=Jan17_HO1-->
-
-
