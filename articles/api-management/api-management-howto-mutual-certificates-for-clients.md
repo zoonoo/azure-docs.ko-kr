@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b04ce0fe0db7649cebc7a1eeb2a35f1d53bf9636
-ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
+ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
+ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -59,10 +60,5 @@ API Management에서는 클라이언트 인증서를 사용하여 API에 대한 
 
 *  [클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [인증서 업로드 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

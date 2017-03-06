@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage에서 Azure CLI 2.0(미리 보기) 사용 | Microsoft Docs"
-description: "Azure Storage에서 Azure CLI(명령줄 인터페이스) 2.0(미리 보기)을 사용하여 저장소 계정을 만들어 관리하고 Azure Blob과 파일로 작업하는 방법에 대해 알아봅니다. Azure CLI 2.0은 플랫폼 간 도구입니다."
+title: "Azure Storage에서 Azure CLI 2.0 사용 | Microsoft Docs"
+description: "Azure Storage에서 Azure 명령줄 인터페이스(Azure CLI) 2.0을 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다. Azure CLI 2.0은 Python으로 작성된 플랫폼 간 도구입니다."
 services: storage
 documentationcenter: na
 author: mmacy
@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/18/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 9a9ae2758aba17f35b7262560f8d980404ecd394
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 5008bb0292bc7513a6264ff1768976fd5ba11bfa
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-with-azure-storage"></a>Azure Storage에서 Azure CLI 2.0(미리 보기) 사용
+# <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage에서 Azure CLI 2.0 사용
 
 ## <a name="overview"></a>개요
 
-플랫폼 간 오픈 소스 Azure CLI 2.0(미리 보기)은 Azure 플랫폼을 사용하기 위한 명령 집합을 제공합니다. 풍부한 데이터 액세스를 포함하여 [Azure Portal](https://portal.azure.com)과 동일한 기능을 제공합니다.
+플랫폼 간 오픈 소스 Azure CLI 2.0은 Azure 플랫폼을 사용하기 위한 명령 집합을 제공합니다. 풍부한 데이터 액세스를 포함하여 [Azure Portal](https://portal.azure.com)과 동일한 기능을 제공합니다.
 
-이 가이드에서는 [Azure CLI 2.0(미리 보기)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 통해 Azure Storage 계정의 리소스를 사용하는 몇 가지 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 버전의 CLI 2.0을 다운로드하여 설치하거나 업그레이드하는 것이 좋습니다.
+이 가이드에서는 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 통해 Azure Storage 계정의 리소스를 사용하는 몇 가지 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 버전의 CLI 2.0을 다운로드하여 설치하거나 업그레이드하는 것이 좋습니다.
 
 이 가이드의 예제에서는 Ubuntu에서 Bash 셸을 사용한다고 가정하지만 다른 플랫폼에서도 비슷하게 수행해야 합니다. 
 
@@ -39,9 +40,9 @@ ms.openlocfilehash: 9a9ae2758aba17f35b7262560f8d980404ecd394
 * **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/).
 * **저장소 계정**: [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
 
-### <a name="install-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기) 설치
+### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 설치
 
-[Azure CLI 2.0 설치(미리 보기)](/cli/azure/install-az-cli2)에서 설명하는 지침에 따라 Azure CLI 2.0(미리 보기)을 다운로드하여 설치합니다.
+[Azure CLI 2.0 설치](/cli/azure/install-az-cli2)에 설명된 지침에 따라 Azure CLI 2.0을 다운로드하여 설치합니다.
 
 > [!TIP]
 > 설치하는 데 문제가 있으면 관련 문서의 [설치 문제 해결](/cli/azure/install-az-cli2#installation-troubleshooting) 섹션 및 GitHub의 [설치 문제 해결](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) 가이드를 참조하세요.
@@ -70,21 +71,24 @@ Here are the base commands:
                 resources.
     appservice: Commands to manage your Azure web apps and App Service plans.
     cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 (Preview) components.
-    configure : Configure Azure CLI 2.0 Preview or view your configuration. The command is
+    component : Commands to manage and update Azure CLI 2.0 components.
+    configure : Configure Azure CLI 2.0 or view your configuration. The command is
                 interactive, so just type `az configure` and respond to the prompts.
     container : Set up automated builds and deployments for multi-container Docker applications.
-    context   : Manage contexts.
+    disk      : Commands to manage 'Managed Disks'.
     feature   : Commands to manage resource provider features, such as previews.
     feedback  : Loving or hating the CLI?  Let us know!
     group     : Commands to manage resource groups.
+    image     : Commands to manage custom virtual machine images based on managed disks/snapshots.
+    lock
     login     : Log in to access Azure subscriptions.
-    logout    : Log out to remove accesses to Azure subscriptions.
+    logout    : Log out to remove access to Azure subscriptions.
     network   : Manages Network resources.
     policy    : Commands to manage resource policies.
     provider  : Manage resource providers.
     resource  : Generic commands to manage Azure resources.
     role      : Use role assignments to manage access to your Azure resources.
+    snapshot  : Commands to manage snapshots.
     storage   : Durable, highly available, and massively scalable cloud storage.
     tag       : Manage resource tags.
     vm        : Provision Linux and Windows virtual machines in minutes.
@@ -191,7 +195,7 @@ test_blob.txt
 Done
 ```
 
-> [!NOTE]
+> [!TIP]
 > 앞서의 출력은 **테이블** 형식입니다. CLI 명령에서 `--output` 인수를 지정하여 사용할 출력 형식을 지정하거나 `az configure`를 사용하여 전역으로 설정할 수 있습니다.
 >
 
@@ -344,32 +348,19 @@ az storage file list -s myshare/myDir
 az storage file list -s myshare -p myDir/mySubDir/MySubDir2
 ```
 
-### <a name="copy-files"></a>파일 복사      
+### <a name="copy-files"></a>파일 복사        
 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 예를 들어 파일을 다른 공유의 디렉터리에 복사하려면 다음과 같이 수행합니다.        
         
 ```azurecli
-# Get the URL for the source file you want to copy
-az storage file url -s myshare -p /mydir/image.png
-
-# Copy the file to another share
 az storage file copy start \
-    --source-uri https://mystorageaccount.file.core.windows.net/myshare/mydir/image.png \   
-    --destination-share myshare2 --destination-path mydir2/image.png        
+--source-share share1 --source-path dir1/file.txt \
+--destination-share share2 --destination-path dir2/file.txt        
 ```
 
-> [!NOTE]
-> CLI 2.0(미리 보기)에서 `--source-share`과 `--source-path`를 사용하지 못하게 하는 것으로 알려진 문제가 있습니다. 이 문제가 해결될 때까지 `--source-uri` 인수를 해결 방법으로 사용할 수 있습니다.
->
-
 ## <a name="next-steps"></a>다음 단계
-Azure CLI 2.0(미리 보기)을 사용하는 방법에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다.
+Azure CLI 2.0을 사용하는 방법에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다.
 
-* [Azure CLI 2.0(미리 보기) 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0(미리 보기) 명령 참조](/cli/azure)
-* [GitHub의 Azure CLI 2.0(미리 보기)](https://github.com/Azure/azure-cli)(영문)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+* [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Azure CLI 2.0 명령 참조](/cli/azure)
+* [GitHub의 Azure CLI 2.0](https://github.com/Azure/azure-cli)
 

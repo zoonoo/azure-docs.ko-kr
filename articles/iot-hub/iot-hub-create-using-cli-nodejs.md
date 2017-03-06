@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 1be7dc038f1bc864e7c6461b616449d75ecda439
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ Azure CLI&2;.0(azure.js)을 사용하여 Azure IoT Hub를 프로그래밍 방식
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 * Azure CLI(azure.js) - 이 문서에 설명된 것처럼 클래식 및 리소스 관리 배포 모델용 CLI입니다.
-* [Azure CLI 2.0(미리 보기)(az.py)](iot-hub-create-using-cli.md) - 리소스 관리 배포 모델용 차세대 CLI입니다.
+* [Azure CLI 2.0(az.py)](iot-hub-create-using-cli.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -130,9 +131,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
