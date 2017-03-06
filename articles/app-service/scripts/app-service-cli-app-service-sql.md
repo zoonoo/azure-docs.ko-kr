@@ -32,7 +32,7 @@ ms.lasthandoff: 02/27/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")]
+[!code-azurecli][기본](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
