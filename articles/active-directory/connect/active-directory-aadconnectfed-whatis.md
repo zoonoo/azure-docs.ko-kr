@@ -17,6 +17,7 @@ ms.author: anandy
 translationtype: Human Translation
 ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
 ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -47,9 +48,4 @@ Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이�
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
 * [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -17,6 +17,7 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
 ms.openlocfilehash: c56a568fa003ec45e92279e070e6309763071827
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -168,9 +169,4 @@ IoT Hub를 사용하여 장치에서 파일을 업로드하는 방법에 대해 
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

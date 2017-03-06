@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
-ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="application-gateway-overview"></a>응용 프로그램 게이트웨이 개요
+# <a name="overview-of-application-gateway"></a>Application Gateway에 대한 개요
 
 ## <a name="what-is-application-gateway"></a>Application Gateway란?
 
@@ -92,9 +94,4 @@ REST API, PowerShell cmdlets, Azure CLI 또는 [Azure Portal](https://portal.azu
 Application Gateway에 대해 학습한 후에 [응용 프로그램 게이트웨이를 만들](application-gateway-create-gateway-portal.md)거나 [응용 프로그램 게이트웨이 SSL 오프로드를 만들](application-gateway-ssl-arm.md)어서 HTTPS 연결의 부하를 분산할 수 있습니다.
 
 URL 기반 콘텐츠 라우팅을 사용하여 응용 프로그램 게이트웨이를 만드는 방법에 대한 자세한 내용은 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-arm-ps.md) 를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

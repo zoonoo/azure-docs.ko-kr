@@ -18,6 +18,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 20880eccbf28cabfb594bb8129cb0a5a3beeb224
 ms.openlocfilehash: e62e4f6c208f5506108b2ef5f6c1aabe43f086a2
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -70,9 +71,4 @@ DocumentDB를 Stream Analytics의 출력으로 만들면 아래와 같은 정보
   2\) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.  
 * **파티션 키** – 선택 사항. 컬렉션 이름 패턴에 {parition} 토큰을 사용하는 경우에만 필요합니다. 컬렉션에서 출력 분할을 위한 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다. 단일 컬렉션 출력의 경우 임의의 출력 열(예: PartitionId)이 사용될 수 있습니다.  
 * **문서 ID** – 선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

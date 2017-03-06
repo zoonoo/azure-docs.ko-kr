@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -133,10 +134,5 @@ Azure 데이터 레이크 저장소 계정을 삭제하려면 데이터 레이�
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "CLI를 사용하여 클래식 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs"
-description: "정적 개인 IP(DIP) 및 CLI를 사용하여 클래식 모드에서 관리 방법 이해"
+title: "VM(클래식)에 대한 개인 IP 주소 구성 - Azure CLI 1.0 | Microsoft Docs"
+description: "Azure CLI(명령줄 인터페이스) 1.0을 사용하여 가상 컴퓨터(클래식)에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 0d0b896e64dfba0081e2ec23f2181e07226faebe
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-classic-in-azure-cli"></a>Azure CLI에서 정적 개인 IP 주소(클래식)를 설정하는 방법
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 가상 컴퓨터(클래식)에 대한 개인 IP 주소 구성
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -117,10 +120,5 @@ ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "샘플 앱을 배포하여 App Service에서 웹앱을 실행하�
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
-ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>5분 내 Azure에 첫 번째 HTML 웹앱 배포(CLI 2.0 미리 보기)
-
-> [!div class="op_single_selector"]
-> * [첫 번째 HTML 사이트](app-service-web-get-started-html.md)
-> * [첫 번째 .NET 앱](app-service-web-get-started-dotnet.md)
-> * [첫 번째 PHP 앱](app-service-web-get-started-php.md)
-> * [첫 번째 Node.js 앱](app-service-web-get-started-nodejs.md)
-> * [첫 번째 Python 앱](app-service-web-get-started-python.md)
-> * [첫 번째 Java 앱](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 이 자습서를 통해 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 간단한 HTML+CSS 웹앱을 배포합니다.
 App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/learning-paths/appservice-mobileapps/) 및 [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md)을 만들 수 있습니다.
@@ -49,7 +41,7 @@ App Service를 사용하여 웹앱, [모바일 앱 백 엔드](/documentation/le
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](app-service-web-get-started-html.md) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](app-service-web-get-started-html.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 ## <a name="prerequisites"></a>필수 조건
 * [Git](http://www.git-scm.com/downloads)
@@ -150,10 +142,5 @@ Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디�
 
 * [사용자의 코드를 Azure에 배포하는 다른 방법](web-sites-deploy.md)을 시도해 보세요. 예를 들어 GitHub 리포지토리 중 하나에서 배포하려면 **배포 옵션**에서 **로컬 Git 리포지토리** 대신에 **GitHub**를 선택합니다.
 * 다음 수준으로 Azure 앱을 이동합니다. 사용자를 인증합니다. 요구에 따라 규모를 조정합니다. 몇 가지 성능 경고를 설정합니다. 이 모든 작업이 클릭 몇 번으로 가능합니다. [첫 번째 웹앱에 기능 추가](app-service-web-get-started-2.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

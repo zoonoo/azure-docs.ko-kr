@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: f592dc23938c436e803c7a0d8f7fd2dd5b4185c8
 ms.openlocfilehash: 3b645725b88b33e7283ce2bf89383b285d75cddc
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>HDInsight에서 Apache Kafka(미리 보기) 시작
@@ -350,10 +351,5 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
 * [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](hdinsight-apache-kafka-mirroring.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
 * [HDInsight의 Kafka에서 Apache Spark 사용](hdinsight-apache-spark-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

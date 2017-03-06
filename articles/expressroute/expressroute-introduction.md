@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처
 * 업계 표준 프로토콜을 통해 네트워크와 Microsoft 간의 동적 라우팅입니다.(BGP) 
 * 높은 안정성을 위한 모든 피어링 위치의 기본 중복성입니다.
 * 연결 가동 시간 [SLA](https://azure.microsoft.com/support/legal/sla/)입니다.
-* 비즈니스용 Skype와 같은 특수한 응용 프로그램에 대한 서비스의 여러 클래스에 대 한 QoS 및 지원입니다.
+* 비즈니스용 Skype에 대한 QoS 지원.
 
 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
@@ -108,8 +109,4 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
   * [Express 경로 회로 만들기](expressroute-howto-circuit-portal-resource-manager.md)
   * [라우팅 구성](expressroute-howto-routing-portal-resource-manager.md)
   * [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

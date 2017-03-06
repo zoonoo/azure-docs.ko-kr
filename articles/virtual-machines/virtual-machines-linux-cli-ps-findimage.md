@@ -15,20 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dc0797927d75a06117d72f52d7065927e65678b4
-ms.openlocfilehash: 76d6288832b50d187c729afaee9118923517eb94
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: e9be064425ae6b9048098333cc664310e7128314
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="select-linux-vm-images-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM 이미지 선택
+# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM 이미지를 찾는 방법
 이 항목은 배포할 수 있는 각 위치에 대한 게시자, 제안, SKU 및 버전을 찾는 방법을 설명합니다. 
 
 
-## <a name="use-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기) 사용
+## <a name="use-azure-cli-20"></a>Azure CLI 2.0 사용
 
-[Azure CLI 2.0(미리 보기)을 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)한 후 `az vm image list` 명령을 사용하여 인기 있는 VM 이미지의 캐시된 목록을 확인합니다. 예를 들어, 명령 `az vm image list -o table`의 다음 예제가 표시됩니다.
+[Azure CLI 2.0을 설치](https://docs.microsoft.com/cli/azure/install-az-cli2)한 후 `az vm image list` 명령을 사용하여 인기 있는 VM 이미지의 캐시된 목록을 확인합니다. 예를 들어, 명령 `az vm image list -o table`의 다음 예제가 표시됩니다.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list

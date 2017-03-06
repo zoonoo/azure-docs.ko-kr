@@ -17,6 +17,7 @@ ms.author: tarcher
 translationtype: Human Translation
 ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
 ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -77,9 +78,4 @@ ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
 ##<a name="next-steps"></a>다음 단계
 
 - [랩에 VM 추가](./devtest-lab-add-vm-with-artifacts.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

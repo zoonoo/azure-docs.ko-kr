@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs"
-description: "PowerShell을 사용하여 가상 컴퓨터 크기 집합 만들기"
+title: "PowerShell을 사용하여 Azure 가상 컴퓨터 크기 집합 만들기 | Microsoft Docs"
+description: "PowerShell을 사용하여 Azure 가상 컴퓨터 크기 집합 만들기"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -56,46 +57,6 @@ ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### <a name="storage-account"></a>저장소 계정
-저장소 계정은 가상 컴퓨터에서 운영 체제 디스크 및 크기 조정에 사용되는 진단 데이터를 저장하기 위해 사용합니다. 가능하면 규모 집합에서 만들어진 각 가상 컴퓨터에 대해 저장소 계정을 갖는 것이 가장 좋습니다. 가능하지 않다면 저장소 계정당 VM을 20개 이하로 계획하세요. 이 문서의 예제는 가상 컴퓨터 3대에 대해 만들어진 저장소 계정 3개를 보여 줍니다.
-
-1. **$saName** 값을 저장소 계정 이름으로 바꿉니다. 이름의 고유성을 테스트합니다. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    답이 **True**인 경우에는 제안한 이름이 고유한 것입니다.
-2. **$saType** 값을 저장소 계정 유형으로 바꾼 다음 변수를 만듭니다.  
-   
-        $saType = "storage account type"
-   
-    가능한 값은 Standard_LRS, Standard_GRS, Standard_RAGRS 또는 Premium_LRS입니다.
-3. 계정을 만듭니다.
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    다음 예제와 유사한 결과가 표시됩니다.
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. 예를 들어 1부터 4까지 단계를 반복하여 저장소 계정을 myst1, myst2, myst3와 같이 3개를 만듭니다.
-
 ### <a name="virtual-network"></a>가상 네트워크
 크기 집합의 가상 컴퓨터에 가상 네트워크가 필요합니다.
 
@@ -130,7 +91,7 @@ ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    이 예제는 3개의 가상 컴퓨터로 크기 집합을 만드는 방법을 보여줍니다. 크기 집합의 용량에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md) 를 참조하십시오. 이 단계에서는 집합에 있는 가상 컴퓨터의 크기(SkuName이라고 함)도 설정합니다. 요구 사항에 맞는 크기를 찾으려면 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+    이 예제는&3;개의 가상 컴퓨터로 크기 집합을 만드는 방법을 보여줍니다. 크기 집합의 용량에 대한 자세한 내용은 [가상 컴퓨터 크기 집합 개요](virtual-machine-scale-sets-overview.md) 를 참조하십시오. 이 단계에서는 집합에 있는 가상 컴퓨터의 크기(SkuName이라고 함)도 설정합니다. 요구 사항에 맞는 크기를 찾으려면 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 5. 크기 집합 구성에 네트워크 인터페이스 구성을 추가합니다.
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -173,12 +134,10 @@ ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
         $imageSku = "2012-R2-Datacenter"
    
     사용할 이미지에 대한 자세한 내용은 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-3. **$vhdContainer** 값을 가상 하드 디스크가 저장된 경로가 들어 있는 목록과 바꾼 다음(예: "https://mystorage.blob.core.windows.net/vhds") 변수를 만듭니다.
+
+3. 저장소 프로필을 만듭니다.
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. 저장소 프로필을 만듭니다.
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>가상 컴퓨터 크기 집합
 마지막으로 크기 집합을 만들 수 있습니다.
@@ -219,12 +178,7 @@ ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 ## <a name="next-steps"></a>다음 단계
 * 방금 [가상 컴퓨터 크기 집합의 가상 컴퓨터 관리](virtual-machine-scale-sets-windows-manage.md)
-*  [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)
-*  [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+* [자동 크기 조정 및 가상 컴퓨터 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)
+* [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
 

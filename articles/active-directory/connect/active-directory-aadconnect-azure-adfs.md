@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2016
+ms.date: 02/27/2017
 ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6cf809dd6d3c74d1459179f9b16ae9dbfec99757
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Azure에서 AD FS 배포
+# <a name="deloying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
 Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 같습니다.
 
@@ -209,7 +210,7 @@ DNS 서버로 이동하고 ILB에 대한 CNAME을 만듭니다. CNAME은 ILB의 
 ### <a name="7----configuring-the-web-application-proxy-server"></a>7.    웹 응용 프로그램 프록시 서버 구성
 **7.1.    AD FS 서버에 연결할 웹 응용 프로그램 프록시 서버 구성**
 
-웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있도록 하려면 ILB용 %systemroot%\system32\drivers\etc\hosts에 레코드를 만듭니다. DN(고유 이름)은 페더레이션 서비스 이름(예: fs.contoso.com)이 되도록 해야 합니다. 또한 IP 항목은 ILB의 IP 주소(이 예제에서와 같이 10.3.0.8)여야 합니다.
+웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있도록 하려면 ILB용 %systemroot%\system32\drivers\etc\hosts에 레코드를 만듭니다. DN(고유 이름)은 페더레이션 서비스 이름(예: fs.contoso.com)이 되도록 해야 합니다. 또한 IP 항목은 ILB의 IP 주소(이 예제에서와 같이&10;.3.0.8)여야 합니다.
 
 **7.2.    웹 응용 프로그램 프록시 역할 설치**
 
@@ -353,10 +354,5 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Azure AD Connect를 사용하여 AD FS 구성 및 관리](active-directory-aadconnectfed-whatis.md)
 * [Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "장치 등록, 장치 등록 사용, 장치 등록 및 MDM"
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -55,9 +56,9 @@ Azure Active Directory에서 관리자 포털을 사용하여 등록된 장치�
 > 
 > 
 
-기본적으로 2단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우 2단계 인증을 사용하는 것이 좋습니다.
+기본적으로&2;단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우&2;단계 인증을 사용하는 것이 좋습니다.
 
-* 이 서비스에 대해 2단계 인증을 요구하기 전에 Azure Active Directory에서 2단계 인증 공급자를 구성하고 Multi-Factor Authentication에 대해 사용자 계정을 구성해야 합니다. [Azure Active Directory에 Multi-Factor Authentication 추가](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)를 참조하세요.
+* 이 서비스에 대해&2;단계 인증을 요구하기 전에 Azure Active Directory에서&2;단계 인증 공급자를 구성하고 Multi-Factor Authentication에 대해 사용자 계정을 구성해야 합니다. [Azure Active Directory에 Multi-Factor Authentication 추가](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)를 참조하세요.
 * Windows Server 2012 R2에서 AD FS를 사용하는 경우 AD FS에서 2단계 인증 모듈을 구성해야 합니다. [Active Directory Federation Services로 Multi-Factor Authentication 사용](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)을 참조하세요.
 
 ## <a name="configure-azure-active-directory-device-registration-discovery"></a>Azure Active Directory Device Registration 검색 구성
@@ -65,7 +66,7 @@ Windows 7 및 Windows 8.1 장치는 사용자 계정 이름을 잘 알려진 장
 
 Azure Active Directory 장치 등록 서비스와 관련된 A 레코드를 가리키는 DNS CNAME 레코드를 만들어야 합니다. CNAME 레코드는 잘 알려진 접두사 enterpriseregistration과 조직에서 사용자 계정에 사용되는 UPN 접미사를 순서대로 사용해야 합니다. 조직에서 여러 UPN 접미사를 사용하는 경우 DNS에 여러 CNAME 레코드를 만들어야 합니다.
 
-예를 들어 조직에서 @contoso.com 및 @region.contoso.com,(이)라는 두 개의 UPN 접미사를 사용하는 경우 다음과 같은 DNS 레코드를 만듭니다.
+예를 들어 조직에서 @contoso.com 및 @region.contoso.com이라는 두 개의 UPN 접미사를 사용하는 경우 다음과 같은 DNS 레코드를 만듭니다.
 
 | 항목 | 형식 | 주소 |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ Azure AD 장치 등록을 사용하여 Windows 7 및 Windows 8.1 도메인 가�
 * [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

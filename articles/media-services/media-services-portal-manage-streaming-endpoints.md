@@ -19,6 +19,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -121,10 +122,5 @@ CDN 통합이 설정되면 **액세스 제어**, **사용자 지정 호스트 �
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

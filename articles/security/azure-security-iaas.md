@@ -17,6 +17,7 @@ ms.author: barclayn
 translationtype: Human Translation
 ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
 ms.openlocfilehash: 8416de09a4a3c2cdf9c73b9f79e8df9e292514ca
+ms.lasthandoff: 01/10/2017
 
 
 
@@ -243,9 +244,4 @@ OMS의 보안 및 규정 준수 기능을 사용하여 다음 네 가지 주요 
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft 보안 대응 센터](https://technet.microsoft.com/library/dn440717.aspx)
 * [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

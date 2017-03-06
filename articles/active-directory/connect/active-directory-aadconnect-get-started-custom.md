@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
-ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
+ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
+ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 | --- | --- |
 | 기존 SQL Server 사용 |SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용하려는 데이터베이스 서버가 이미 있는 경우 이 옵션을 선택합니다. SQL Server에서 찾아보기를 사용하도록 설정하지 않은 경우 **인스턴스 이름** 에 인스턴스 이름, 쉼표 및 포트 번호를 차례로 입력합니다. |
 | 기존 서비스 계정 사용 |기본적으로 Azure AD Connect에서는 사용할 동기화 서비스에 대한 로컬 서비스 계정을 만듭니다. 암호가 자동으로 생성되어 Azure AD Connect를 설치하는 사람이 암호를 알 수 없습니다. 원격 SQL Server를 사용하거나 인증이 필요한 프록시를 사용하는 경우 도메인에 서비스 계정이 필요하며 암호를 알고 있어야 합니다. 이러한 경우에 사용할 서비스 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다. [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
-| 사용자 지정 동기화 그룹 지정 |기본적으로 Azure AD Connect에서는 동기화 서비스를 설치할 때 서버에 로컬 그룹 4개를 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
+| 사용자 지정 동기화 그룹 지정 |기본적으로 Azure AD Connect에서는 동기화 서비스를 설치할 때 서버에 로컬 그룹&4;개를 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
 
 ### <a name="user-sign-in"></a>사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](active-directory-aadconnect-user-signin.md)을 참조하세요.
@@ -95,7 +96,10 @@ Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충
 
 ### <a name="domain-and-ou-filtering"></a>도메인 및 OU 필터링
 기본적으로 모든 도메인 및 OU가 동기화됩니다. Azure AD로 동기화하지 않으려는 일부 도메인 또는 OU가 있는 경우 이러한 도메인 및 OU의 선택을 취소할 수 있습니다.  
-![DomainOU 필터링](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) 마법사의 이 페이지에서는 도메인 기반 및 OU 기반 필터링을 구성합니다. 자세한 내용은 [도메인 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) 및 [OU 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)을 참조하세요. OU 기반 필터링을 사용하는 경우 나중에 추가된 새 OU가 기본적으로 동기화됩니다. 새 OU가 동기화되지 않아야 하는 동작을 원하는 경우 마법사가 [OU 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)으로 완료된 후에 구성할 수 있습니다.
+![DomainOU 필터링](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+마법사의 이 페이지에서는 도메인 기반 및 OU 기반 필터링을 구성합니다. 변경을 원하는 경우 변경하기 전에 [도메인 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) 및 [ou 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)을 참조하세요. 일부 OU는 기능에 필수적이므로 반드시 선택해야 합니다.
+
+OU 기반 필터링을 사용하는 경우 나중에 추가된 새 OU가 기본적으로 동기화됩니다. 새 OU가 동기화되지 않아야 하는 동작을 원하는 경우 마법사가 [OU 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)으로 완료된 후에 구성할 수 있습니다.
 
 [그룹 기반 필터링](#sync-filtering-based-on-groups)을 사용하려는 경우 그룹이 있는 OU가 포함되고 OU 필터링으로 필터링되지 않는지 확인합니다. OU 필터링은 그룹 기반 필터링 전에 평가됩니다.
 
@@ -174,8 +178,8 @@ Azure AD에서 조직이 추가한 사용자 지정 특성 또는 Active Directo
 ### <a name="enabling-single-sign-on-sso"></a>SSO(Single Sign-On) 사용하도록 설정
 암호 동기화 또는 통과 인증에 사용하기 위해 single sign-on을 구성하면 Azure AD에 동기화되는 각 포리스트에 대해 한 번만 완료하면 되므로 과정이 간단합니다. 구성은 다음과 같이 두 단계로 이루어집니다.
 
-1.  온-프레미스 Active Directory에 필요한 컴퓨터 계정을 만듭니다.
-2.  클라이언트 컴퓨터의 인트라넷 영역을 구성하여 single sign on을 지원합니다.
+1.    온-프레미스 Active Directory에 필요한 컴퓨터 계정을 만듭니다.
+2.    클라이언트 컴퓨터의 인트라넷 영역을 구성하여 single sign on을 지원합니다.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Active Directory에서 컴퓨터 계정 만들기
 Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관리자 자격 증명을 제공하여 각 포리스트에 컴퓨터 계정을 만들 수 있도록 해야 합니다. 자격 증명은 계정을 만드는 데만 사용되며 다른 작업에 저장되거나 사용되지 않습니다. 아래와 같이 Azure AD Connect 마법사의 **Single Sign-On을 사용하도록 설정** 페이지에서 자격 증명을 추가합니다.
@@ -189,20 +193,20 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 클라이언트가 인트라넷 영역에 자동으로 로그인되도록 하려면 URL이 인트라넷 영역에 포함되도록 해야 합니다. 이렇게 하면 도메인에 가입된 컴퓨터가 기업 네트워크에 연결될 때 Kerberos 티켓을 Azure AD로 자동으로 보냅니다.
 그룹 정책 관리 도구가 있는 컴퓨터에서 다음을 수행합니다.
 
-1.  그룹 정책 관리 도구를 엽니다.
-2.  모든 사용자에게 표시될 그룹 정책을 편집합니다. 예를 들어 기본 도메인 정책은 다음과 같습니다.
-3.  **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page**로 이동하고 아래 이미지에 따라 **영역에 대한 사이트 할당 목록**을 선택합니다.
-4.  정책을 사용하도록 설정하고 대화 상자에서 다음 두 항목을 입력합니다.
+1.    그룹 정책 관리 도구를 엽니다.
+2.    모든 사용자에게 표시될 그룹 정책을 편집합니다. 예를 들어 기본 도메인 정책은 다음과 같습니다.
+3.    **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page**로 이동하고 아래 이미지에 따라 **영역에 대한 사이트 할당 목록**을 선택합니다.
+4.    정책을 사용하도록 설정하고 대화 상자에서 다음 두 항목을 입력합니다.
 
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+        값: `https://autologon.microsoftazuread-sso.com`  
+        Data 1  
+        값: `https://aadg.windows.net.nsatc.net`  
+        Data 1
 
-5.  다음과 유사하게 나타납니다.  
+5.    다음과 유사하게 나타납니다.  
 ![인트라넷 영역](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.  **확인**을 두 번 클릭합니다.
+6.    **확인**을 두 번 클릭합니다.
 
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS로 페더레이션 구성
 Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클릭으로 간단합니다. 구성하기 전에 다음 사항이 필요합니다.
@@ -313,9 +317,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](active-directory-aadconnectsync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 31495f402b810c524bd7b906498774302500b732
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
 1. 계정에 로그인합니다.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
 2. 표시 이름, 응용 프로그램을 설명하는 URI, 응용 프로그램을 식별하는 URI, 응용 프로그램 ID에 대한 암호를 제공하여 새 Active Directory 응용 프로그램을 만듭니다.
@@ -152,7 +153,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.
 4. 이 계정이 서비스 주체임을 지정하고 자격 증명 개체를 제공하여 서비스 주체로 로그인합니다. 
    
    ```powershell
-   Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
    ```
    
      이제 사용자는 작성한 Active Directory 응용 프로그램에 대한 서비스 주체로 인증됩니다.
@@ -234,7 +235,7 @@ Windows 10 및 Windows Server 2016 Technical Preview에서 사용 가능한 Powe
 2. Azure 계정에 로그인합니다.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 3. 표시 이름, 응용 프로그램을 설명하는 URI, 응용 프로그램을 식별하는 URI, 응용 프로그램 ID에 대한 암호를 제공하여 새 Active Directory 응용 프로그램을 만듭니다.
    
@@ -304,7 +305,7 @@ $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 스크립트에서 인증하려면 계정이 서비스 주체인지를 지정하고 인증서 지문, 응용 프로그램 ID 및 테넌트 ID를 제공합니다. 스크립트를 자동화하려면 이러한 값을 환경 변수로 저장하고 실행 중에 검색하거나 스크립트에 포함할 수 있습니다.
 
 ```powershell
-Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 ```
 
 이제 사용자는 작성한 Active Directory 응용 프로그램에 대한 서비스 주체로 인증됩니다.
@@ -363,10 +364,5 @@ New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -
 * 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 * 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조하세요. 
 * Active Directory 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

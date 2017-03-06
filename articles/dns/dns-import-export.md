@@ -16,6 +16,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: f06bf515accd8507189ecd5f1759f14f4f06fd33
 ms.openlocfilehash: faac9909993895b3e8a27b2cbaa7b62b3e508933
+ms.lasthandoff: 01/05/2017
 
 ---
 
@@ -210,9 +211,4 @@ DNS 영역을 가져오는 Azure CLI 명령 형식은 다음과 같습니다.
     ```azurecli
     azure network dns zone export myresourcegroup contoso.com contoso.com.txt
     ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: c4fb98946a41ee37d8676eca52ff26f81d0ff56a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -245,10 +246,5 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

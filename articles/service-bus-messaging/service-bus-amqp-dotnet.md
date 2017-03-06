@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 220b0f6212268a44226edefa4afc5671306ff295
 ms.openlocfilehash: 9d2ff3ff50aebc3e25f553a86ca13d8a9fe7400c
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -129,9 +130,4 @@ AMQP를 사용 하는 경우 기본 프로토콜에 비해 서비스 버스 .NET
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

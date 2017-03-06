@@ -18,6 +18,7 @@ ms.author: bonova
 translationtype: Human Translation
 ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
 ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -197,10 +198,5 @@ ALTER TABLE dbo.WebsiteUserInfo
 ## <a name="next-steps"></a>다음 단계
 임시 테이블에서 자세한 내용은 [MSDN 설명서](https://msdn.microsoft.com/library/dn935015.aspx)를 확인합니다.
 Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

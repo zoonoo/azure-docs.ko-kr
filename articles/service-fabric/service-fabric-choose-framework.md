@@ -17,6 +17,7 @@ ms.author: seanmck
 translationtype: Human Translation
 ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
 ms.openlocfilehash: b56d75d49e0b95025dd1a0bae532f677958eac8d
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -45,10 +46,5 @@ Reliable Actors 자체는 Reliable Services에 구축된 응용 프로그램 프
 ## <a name="next-steps"></a>다음 단계
 [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md) 또는 [첫 번째 Reliable Actor 서비스를 작성](service-fabric-reliable-actors-get-started.md)하여 시작
 [Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](service-fabric-deploy-container.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

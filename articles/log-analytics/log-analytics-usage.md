@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -47,6 +48,12 @@ Log Analytics는 데이터를 수집하여 주기적으로 OMS 서비스에 보�
     - 데이터 수집 및 인덱싱 소요 시간
 - 쿼리 목록
 
+## <a name="understanding-nodes-for-oms-offers"></a>OMS 제품에 대한 노드 이해
+
+*노드당(OM)* 가격 책정 계층에 있는 경우 활성화한 노드 및 솔루션의 수에 따라 요금이 청구됩니다. 사용 대시보드의 *제품* 섹션에서 사용 중인 각 제품의 노드 수를 볼 수 있습니다.
+
+![사용량 대시보드](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>사용률 데이터를 작업하려면
 1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.
 2. **허브** 메뉴에서 **추가 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 클릭합니다.  
@@ -63,9 +70,4 @@ Log Analytics는 데이터를 수집하여 주기적으로 OMS 서비스에 보�
 
 ## <a name="next-steps"></a>다음 단계
 * 기능 및 솔루션에 따라 수집되어 OMS로 전송되는 상세 정보를 확인하려면 [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

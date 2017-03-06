@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
 ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -48,10 +49,5 @@ Azure Data Lake Store가 자동화된 복제본을 통해 데이터 복원력을
 ## <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

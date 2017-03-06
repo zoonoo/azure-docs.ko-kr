@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
 ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -98,10 +99,5 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 
 ## <a name="next-steps"></a>다음 단계
  연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

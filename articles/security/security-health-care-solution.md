@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
 ms.openlocfilehash: 34ded89eb7fe005be2341f96e5b883ec73d9e0a5
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -31,9 +32,4 @@ Azure로 전환할지를 고려하는 의료 업계 신생 기업, 시스템 통
 3. 솔루션에 대한 요구 사항이 정보 보안 관리 표준에 정렬되어 있는 솔루션 아키텍쳐 관점에서 내역을 표시하여 사례를 사용하는 핵심 원칙을 적용합니다.
 
 [보안 의료 솔루션을 설계하기 위한 실용적인 가이드](https://aka.ms/azureindustrysecurity) 를 활용하시고 질문이나 제안이 있다면 아래에 의견을 남겨 두어 알려주시기 바랍니다.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

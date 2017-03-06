@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
 ## <a name="video-walkthrough"></a>연습 동영상
 다음 동영상은 이 자습서의 단계를 설명합니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!비디오 https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +123,19 @@ ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
 
 클러스터 모드를 변경하면 개발 클러스터가 다시 설정되고 클러스터에서 프로비전되거나 실행 중인 모든 응용 프로그램이 제거됩니다.
 
+또는 PowerShell을 사용하여 클러스터 모드를 변경할 수 있습니다.
+
+1. 새 PowerShell 창을 관리자 권한으로 실행합니다.
+2. SDK 폴더에서 클러스터 설치 스크립트를 실행합니다.
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    클러스터 설치는 몇 분 정도 걸립니다. 설치가 완료된 후 다음과 같은 출력이 표시됩니다.
+   
+    ![클러스터 설정 출력][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>정리
 마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
 
@@ -150,9 +164,5 @@ ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 

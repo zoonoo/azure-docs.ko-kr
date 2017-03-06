@@ -5,7 +5,7 @@ keywords: "앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 
 services: app-service
 documentationcenter: 
 author: yochay
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ae74fc32-969e-4580-8d61-02c922f1f184
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/10/2016
+ms.date: 02/23/2017
 ms.author: yochayk
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
+ms.sourcegitcommit: edb3325414adf876548181243ddfa2d515aeb0b8
+ms.openlocfilehash: 2d830963d3d2adba71a6ca99f79eac0fc8cbfb12
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -25,8 +26,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 Azure App Service는 오늘날 엔지니어가 직면한 실제 문제를 해결하기 위해 설계된 클라우드 서비스입니다.
 App Service는 응용 프로그램을 클라우드 규모로 전달해야 하는 요구를 존중하면서 우수한 개발자 생산성을 제공하는 데 중점을 둡니다. 
 
-또한 App Service는 개발자가 가장 많이 사용하는 개발 언어(예: Microsoft .NET, Java, PHP, Node.js 및 Python)를 지원하면서 엔터프라이즈 LOB(기간 업무) 응용 프로그램을 만드는 데 필요한 기능 및 프레임워크를 제공합니다.
-개발자는 App Service를 사용하여 다음을 수행할 수 있습니다.
+App Service에는 엔터프라이즈 기간 업무 응용 프로그램을 만드는 데 필요한 프레임워크 및 기능도 제공됩니다. App Service를 사용하면 Java, PHP, Node.js, Python 및 Microsoft .NET 언어를 비롯한 가장 인기 있는 개발 언어로 앱을 개발할 수 있습니다. App Service를 통해 다음 작업을 수행할 수 있습니다.
 
 * 확장성이 뛰어난 웹앱을 빌드합니다.
 * Mobile Apps 백 엔드를 데이터 백 엔드, 사용자 인증 및 푸시 알림과 같은 사용하기 쉬운 모바일 기능 집합으로 신속하게 빌드합니다.
@@ -46,13 +46,26 @@ App Service는 응용 프로그램을 클라우드 규모로 전달해야 하는
 * **앱 크기 조정**. 트래픽 및 리소스 사용률에 따라 가로 및 세로 방향으로 자동으로 서비스를 확장하기 위해 여러 옵션 중 하나를 사용합니다. 앱 전용인 개인 환경을 구성합니다.   
 * **앱 유지 관리**. 다양한 디버깅 및 진단 기능을 활용하여 효율적으로 문제를 미리 알아차리고 실시간 해결하거나(자동 복구 및 라이브 디버깅 기능 사용) 로그 및 메모리 덤프를 분석하여 사실을 확인한 후 문제를 해결합니다.
 
-전체적으로 App Service 기능을 통해 개발자는 코드 작성에 집중할 수 있으므로 안정적이고 확장성이 뛰어난 프로덕션 상태를 신속하게 만들 수 있습니다. API Apps 및 Logic Apps 기능을 사용하여 개발자는 온-프레미스에서 클라우드까지의 통합뿐만 아니라 비즈니스 솔루션 간에 존재하는 장벽을 연결하는 실제 엔터프라이즈 응용 프로그램을 빌드할 수 있습니다.  
+전체적으로 App Service 기능을 통해 개발자는 코드 작성에 집중할 수 있으므로 안정적이고 확장성이 뛰어난 프로덕션 상태를 신속하게 만들 수 있습니다. API Apps 및 Logic Apps 기능을 사용하면 개발자는 온-프레미스에서 클라우드 통합 및 비즈니스 솔루션 간에 존재하는 장벽을 연결하는 실제 엔터프라이즈 응용 프로그램을 빌드할 수 있습니다. 
 
-[!INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
+## <a name="videos"></a>비디오
+* [Azure 앱 서비스 아키텍처](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/)
+
+## <a name="next-steps"></a>다음 단계
+
+App Service에 대한 자세한 내용은 다음 항목을 참조하세요.
+
+* [Azure 앱 서비스 정의](app-service-value-prop-what-is.md)
+  * [웹앱](../app-service-web/app-service-web-overview.md)
+  * [모바일 앱](../app-service-mobile/app-service-mobile-value-prop.md)
+  * [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md)
+* [Azure 앱 서비스 아키텍처(프레젠테이션)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
+* [Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교](../app-service-web/choose-web-site-cloud-service-vm.md)
+* [앱 서비스 계획 이해](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+* [앱 서비스 환경 소개](../app-service-web/app-service-app-service-environment-intro.md)
+  * [연습: 앱 서비스 환경 만들기](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Azure 앱 서비스 개발 스택 지원](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
 
 
-
-
-<!--HONumber=Dec16_HO2-->
 
 

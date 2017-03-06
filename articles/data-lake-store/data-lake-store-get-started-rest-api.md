@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 33574b0c1f023a8a5f83b1bf06f0523623891757
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -260,10 +261,5 @@ Data Lake 저장소 계정을 삭제하려면 다음 cURL 명령을 사용합니
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

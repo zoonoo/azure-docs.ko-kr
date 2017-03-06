@@ -17,6 +17,7 @@ ms.author: BernardoAMunoz
 translationtype: Human Translation
 ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
 ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -106,10 +107,5 @@ Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는
 
 ## <a name="feedback"></a>사용자 의견
 Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주시기 바랍니다. [Twitter](https://twitter.com/azuresupport)나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure)을 통해 참여하실 수도 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

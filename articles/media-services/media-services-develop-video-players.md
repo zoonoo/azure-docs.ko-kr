@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: b13861ce404b8c4215248a2498c5969fc19ad536
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -74,10 +75,5 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

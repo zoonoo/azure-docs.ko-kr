@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: a2efffa5e250e02fec1a1834c9256ffef79b9be3
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e4a3f3f3bca06e66f39f5acd8b4571b4a498ed83
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-cli"></a>Azure Batch CLI 시작
+# <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
+
 교차 플랫폼 Azure CLI(Azure 명령줄 인터페이스)를 사용하면 Linux, Mac 및 Windows 명령 셸에서 풀, 작업 및 태스크 등 배치 계정 및 리소스를 관리할 수 있습니다. Azure CLI을 사용하여 Batch API, Azure Portal, Azure PowerShell cmdlet으로 실행한 많은 동일한 작업을 수행하고 스크립트를 작성할 수 있습니다.
 
 이 문서는 Azure CLI 버전 0.10.5를 기반으로 합니다.
@@ -270,9 +273,4 @@ Batch CLI는 Batch 서비스에서 지원하는 세 개의 절을 모두 지원�
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -19,6 +19,7 @@ ms.author: stevelas
 translationtype: Human Translation
 ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
 ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="what-is-azure-container-registry"></a>Azure Container Registry란?
@@ -68,9 +69,4 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 * [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
 * Visual Studio Team Services, Azure Container Service 및 Azure Container Registry를 사용하여 연속 통합 및 배포 워크플로를 작성하려면 [이 자습서](../container-service/container-service-setup-ci-cd.md)를 참조하세요.
 * Azure에서 공용 끝점 없는 자체 Docker 개인 레지스트리를 설정하려면 [Azure에서 자체 개인 Docker 레지스트리 배포하기](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

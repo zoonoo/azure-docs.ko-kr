@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 040598d55939685e50a3fb7006e27e27097f9224
-ms.openlocfilehash: ee64f3bb764d19e60022b5fe9b3ffc75c9b51d77
+ms.sourcegitcommit: 9b18af35dc0a70c7335fd54477a6d8f57048b685
+ms.openlocfilehash: 5bf418af22746610e96712ed33fd389998e4fa46
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
@@ -71,7 +72,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **암스테르담** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **애틀랜타** |Equinix |
 | **부산** |LG CNS+, Sejong Telecom |
-| **첸나이** |SIFY, Tata Communications |
+| **첸나이** |Global CloudXchange(GCX), SIFY, Tata Communications |
 | **시카고** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **댈러스** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **더블린** |Colt, Telecity Group |
@@ -168,9 +169,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "위치 맵"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

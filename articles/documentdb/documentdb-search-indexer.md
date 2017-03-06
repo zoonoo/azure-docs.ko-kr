@@ -19,6 +19,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
 ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -290,10 +291,5 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
 
 * Azure DocumentDB에 대해 알아보려면 [DocumentDB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
 * Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

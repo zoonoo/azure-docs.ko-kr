@@ -16,6 +16,7 @@ ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: aaf5c442ef85edbc498aa2fd7815171f4701f960
 ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
+ms.lasthandoff: 01/25/2017
 
 ---
 
@@ -505,10 +506,5 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 ## <a name="next-steps"></a>다음 단계
 * 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
 * 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

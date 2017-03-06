@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 86228225275c4486852c17803a99a194458196b7
 ms.openlocfilehash: b2cf981e6a655f5c7f0d429714e0efb8e88e178c
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -126,10 +127,5 @@ SCC LifeCycle를 프로비전하는 사용자를 구성할 작업 항목이 없�
     ![예](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

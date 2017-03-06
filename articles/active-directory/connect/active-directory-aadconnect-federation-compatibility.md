@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: cb06c5bd74816777ec7c5836d362d509a265bd9c
 ms.openlocfilehash: 9e16fd3112b093f22ed99829c223a3a80e008f28
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -344,10 +345,5 @@ Sailpoint IdentityNow는 널리 사용되는 WS Federation/WS-Trust ID 표준을
 
 자세한 내용은 참조 [Sailpoint IdentityNow](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)를 참조하세요.
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

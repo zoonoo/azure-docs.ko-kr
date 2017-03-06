@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
 ms.openlocfilehash: c0349b5890a75c6ffaa6b7eca93baa3101912cf6
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -288,10 +289,5 @@ HDInsight 버전 3.5에서 Storm과 작동하는 jar 파일 버전은 [https://g
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [SCP 프로그래밍 가이드](hdinsight-storm-scp-programming-guide.md)
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기 | Microsoft Azure"
-description: "Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기"
+title: "Azure CLI 2.0을 사용하여 Linux VM 만들기 | Microsoft Azure"
+description: "Azure CLI 2.0을 사용하여 Linux VM을 만듭니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Azure CLI 2.0 미리 보기(az.py)를 사용하여 Linux VM 만들기
-이 문서에서는 Managed Disks 혹은 기본 저장소 계정의 디스크를 사용하는 Azure CLI 2.0(미리 보기)에서 [az vm create](/cli/azure/vm#create) 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다.
-
-> [!NOTE] 
-> Azure CLI 2.0 미리 보기는 차세대 다중 플랫폼 CLI입니다. [사용해 보세요!](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Azure CLI 2.0 미리 보기가 아니라 기존 Azure CLI 1.0을 사용하여 VM을 만들려면 [Azure CLI를 사용하여 VM 만들기](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Linux VM 만들기
+이 문서에서는 Managed Disks 혹은 기본 저장소 계정의 디스크를 사용하는 Azure CLI 2.0에서 [az vm create](/cli/azure/vm#create) 명령을 사용하여 Azure에서 Linux 가상 컴퓨터(VM)를 신속하게 배포하는 방법을 보여 줍니다. [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 VM을 만들려면 다음이 필요합니다. 
 
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI v. 2.0(미리 보기)](/cli/azure/install-az-cli2)가 설치됨
+* [Azure CLI 2.0](/cli/azure/install-az-cli2) 설치
 * Azure 계정에 로그인([az login](/cli/azure/#login) 입력)
 
 ([Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Linux VM을 배포할 수도 있습니다.)
@@ -119,7 +115,7 @@ Managed Disks를 사용하여 새 VM으로 할 수 있는 작업을 보려면 [�
 
 ## <a name="using-unmanaged-disks"></a>관리되지 않는 디스크 사용 
 
-관리되지 않는 저장소 디스크를 사용하는 VM에는 관리되지 않는 저장소 계정이 있으며, 우선 [az group create](/cli/azure/group#create)를 입력하여 배포된 리소스를 모두 포함할 리소스 그룹을 만듭니다.
+관리되지 않는 저장소 디스크를 사용하는 VM에는 관리되지 않는 저장소 계정이 있습니다. 먼저 [az group create](/cli/azure/group#create)를 입력하여 배포된 모든 리소스를 포함하는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -142,7 +138,7 @@ az group create --name nativedisks --location westus
 
 ### <a name="create-your-vm"></a>VM 만들기 
 
-이제 VM 및 해당 환경을 만들 수 있습니다. `--public-ip-address-dns-name` 값을 고유한 값으로 대체합니다. 아래 값은 이미 사용 중일 수 있습니다.
+이제 VM 및 해당 환경을 만들 수 있습니다. `--use-unmanaged-disk` 플래그를 사용하여 관리되지 않는 디스크와 VM을 만듭니다. 관리되지 않는 저장소 계정도 만들어집니다. `--public-ip-address-dns-name` 값을 고유한 값으로 대체합니다. 아래 값은 이미 사용 중일 수 있습니다.
 
 ```azurecli
 az vm create \
@@ -153,7 +149,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 출력은 다음과 같이 표시됩니다. VM으로 **ssh**할 `publicIpAddress` 또는 `fqdn` 값을 기록합니다.
@@ -202,10 +198,5 @@ bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  
 * [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 또한 [여러 명령과 함께 `docker-machine` Azure 드라이버를 사용하여 Linux VM을 신속하게 Docker host로 만들](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 수 있으며 Java를 사용하는 경우 [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine) 메서드를 시도합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

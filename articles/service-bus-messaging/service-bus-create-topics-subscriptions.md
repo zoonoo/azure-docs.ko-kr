@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
 ms.openlocfilehash: 799ef33c924a0067bb5e8da9d1b4e50091dbabf6
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -142,10 +143,5 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 ## <a name="next-steps"></a>다음 단계
 POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [Service Bus 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

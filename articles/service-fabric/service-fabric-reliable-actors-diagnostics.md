@@ -17,6 +17,7 @@ ms.author: abhisram
 translationtype: Human Translation
 ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
 ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -172,9 +173,4 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [샘플 코드](https://github.com/Azure/servicefabric-samples)
 * [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -17,6 +17,7 @@ ms.author: brjohnst
 translationtype: Human Translation
 ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -482,10 +483,5 @@ SDK 버전 1.1에서 이 문제를 해결했습니다. 이제 다음과 같이 �
 이러한 이유로 모델 클래스에는 Null을 허용하는 형식을 사용하는 것이 가장 좋습니다.
 
 이 버그 및 수정에 대한 자세한 내용은 [GitHub에서 해당 문제](https://github.com/Azure/azure-sdk-for-net/issues/1063)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [Microsoft 기술 보안 알림을 위해 TechCenter 페이지](https://technet.microsoft.com/security/dd252948)에 방문하고 보안 공지 알림을 구독하여 보안 인시던트가 발생하는 시기에 대한 알림을 받으시기 바랍니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

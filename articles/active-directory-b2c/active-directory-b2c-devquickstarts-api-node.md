@@ -17,6 +17,7 @@ ms.author: brandwe
 translationtype: Human Translation
 ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
 ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -760,9 +761,4 @@ Restify 및 OAuth를 사용하여 REST API를 구현했습니다. 이제 충분�
 이제 다음과 같이 좀 더 고급 항목으로 이동할 수 있습니다.
 
 [B2C로 iOS를 사용하여 Web API에 연결](active-directory-b2c-devquickstarts-ios.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

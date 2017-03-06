@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: 4e6c6571be85cd5fe374c7df644741ae017ccd19
 ms.openlocfilehash: 6db4cf048147cb9559ca1a2e6921c679fe6ec9e5
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -51,10 +52,5 @@ Azure RemoteApp에 호스트되는 응용 프로그램은 몇 가지 이유로 �
 일반 오류 메시지입니다. 조사할 수 있도록 Azure 지원에 문의하세요. 
 
 ![일반 Azure RemoteApp 메시지](./media/remoteapp-apptrouble/ra-apptrouble4.png) 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

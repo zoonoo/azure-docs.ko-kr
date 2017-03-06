@@ -4,7 +4,7 @@ description: "Node.js RESTful API를 만들어 Azure 앱 서비스의 API 앱에
 services: app-service\api
 documentationcenter: node
 author: bradygaster
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
-ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
+ms.sourcegitcommit: 9e62ed235d872738bc1a99ad33d977745c8b2d08
+ms.openlocfilehash: a3dacff719588be707418248ddc35c6f686b9b49
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -277,10 +278,5 @@ Azure 앱 서비스에서 Git 리포지토리에 커밋을 푸시하여 API 앱�
 
 ## <a name="next-steps"></a>다음 단계
 이제 API 앱을 만들고 거기에 Node.js API 코드를 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

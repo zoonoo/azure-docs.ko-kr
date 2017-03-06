@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob 저장소: 핫 및 쿨 저장소 계층
 ## <a name="overview"></a>개요
-Azure Storage에서 이제는 Blob 개체 저장소에 대해 두 가지 저장소 계층을 제공하므로 사용하는 방식에 따라 가장 비용 효율적으로 데이터를 저장할 수 있습니다. Azure **핫 저장소 계층** 은 자주 액세스하는 데이터 저장에 최적화되어 있습니다. Azure **쿨 저장소 계층** 은 드물게 액세스하는 오래 지속되는 데이터 저장에 최적화되어 있습니다. 쿨 저장소 계층의 데이터에는 약간 낮은 가용성을 허용할 수 있지만 높은 내구성과 핫 데이터와 비슷한 액세스 시간 및 처리량 특성이 필요합니다. 쿨 데이터의 경우 저장소 비용을 크게 낮추기 위해 가용성 SLA는 약간 낮고 액세스 비용은 다소 높아도 됩니다.
+Azure Storage는 Blob 개체 저장소에 두 가지 저장소 계층을 제공하므로 사용하는 방식에 따라 가장 비용 효율적으로 데이터를 저장할 수 있습니다. Azure **핫 저장소 계층** 은 자주 액세스하는 데이터 저장에 최적화되어 있습니다. Azure **쿨 저장소 계층** 은 드물게 액세스하는 오래 지속되는 데이터 저장에 최적화되어 있습니다. 쿨 저장소 계층의 데이터에는 약간 낮은 가용성을 허용할 수 있지만 높은 내구성과 핫 데이터와 비슷한 액세스 시간 및 처리량 특성이 필요합니다. 쿨 데이터의 경우 저장소 비용을 크게 낮추기 위해 가용성 SLA는 약간 낮고 액세스 비용은 다소 높아도 됩니다.
 
 오늘날 클라우드에 저장된 데이터는 기하급수적으로 증가하고 있습니다. 저장소 확장 요구에 대한 비용을 관리하려면 액세스 빈도 및 계획 보존 기간과 같은 속성을 기반으로 하여 데이터를 구성하는 것이 좋습니다. 클라우드에 저장되는 데이터는 수명 기간 동안 생성, 처리 및 액세스되는 방식이 서로 다를 수 있습니다. 일부 데이터는 수명 기간 전반에 걸쳐 활발하게 액세스되고 수정됩니다. 일부 데이터는 수명 기간 초반에는 빈번하게 액세스되지만 데이터가 오래될수록 액세스 빈도가 급격하게 떨어집니다. 일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다.
 
@@ -84,12 +85,12 @@ Blob 저장소 계정은 **액세스 계층** 속성을 표시하며, 이 속성
     <td><strong><center>쿨 저장소 계층</center></strong></td
 </tr>
 <tr>
-    <td><strong><center>Availability</center></strong></td>
+    <td><strong><center>가용성</center></strong></td>
     <td><center>99.9%</center></td>
     <td><center>99%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Availability<br>(RA-GRS 읽기)</center></strong></td>
+    <td><strong><center>가용성<br>(RA-GRS 읽기)</center></strong></td>
     <td><center>99.99%</center></td>
     <td><center>99.9%</center></td>
 </tr>
@@ -107,11 +108,11 @@ Blob 저장소 계정은 **액세스 계층** 속성을 표시하며, 이 속성
     <td colspan="2"><center>해당 없음</center></td>
 </tr>
 <tr>
-    <td><strong><center>대기 시간<br>(첫 번째 바이트까지의 시간)<center></strong></td>
+    <td><strong><center>대기 시간 <br>(첫 번째 바이트까지의 시간)<center></strong></td>
     <td colspan="2"><center>밀리초</center></td>
 </tr>
 <tr>
-    <td><strong><center>확장성 및 성능 대상<center></strong></td>
+    <td><strong><center>확장성 및 성능 목표<center></strong></td>
     <td colspan="2"><center>범용 저장소 계정과 동일</center></td>
 </tr>
 </tbody>
@@ -160,7 +161,7 @@ Blob 저장소 계정에서는 저장소 계층에 따라 Blob 저장소에 새 
     이를 선택하면 성능 계층은 표준으로 설정됩니다. 계층화된 저장소는 프리미엄 성능 계층과 함께 사용할 수 없습니다.
 6. 저장소 계정의 복제 옵션을 **LRS**, **GRS** 또는 **RA-GRS**로 선택합니다. 기본값은 **RA-GRS**입니다.
    
-    LRS = 로컬 중복 저장소; GRS = 지역 중복 저장소(2개 지역); RA-GRS는 읽기 액세스 지역 중복 저장소입니다(두 번째 저장소에 대한 읽기 액세스 권한이 있는 2개 지역).
+    LRS = 로컬 중복 저장소; GRS = 지역 중복 저장소(2개 지역); RA-GRS는 읽기 액세스 지역 중복 저장소입니다(두 번째 저장소에 대한 읽기 액세스 권한이 있는&2;개 지역).
    
     Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 확인하세요.
 7. 요구 사항에 적합한 저장소 계층을 선택합니다. 즉 **액세스 계층**을 **쿨** 또는 **핫**으로 설정합니다. 기본값은 **핫**입니다.
@@ -240,7 +241,7 @@ Blob 저장소 서비스에 대한 데이터 액세스 패턴을 모니터링하
 ##### <a name="transaction-costs"></a>트랜잭션 비용
 트랜잭션 메트릭 테이블에서 API에 대한 모든 항목에 대한 *'TotalBillableRequests'*의 합계는 특정 API에 대한 트랜잭션의 총 수를 나타냅니다. *예를 들어* 지정된 기간의 총 *'GetBlob'* 트랜잭션 수는 *'user;GetBlob'* 행 키가 있는 모든 항목에 대해 청구 가능한 요청의 총합으로 계산될 수 있습니다.
 
-트랜잭션은 서로 다른 가격이 책정되므로 Blob 저장소 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을 3개의 그룹으로 세분화해야 합니다.
+트랜잭션은 서로 다른 가격이 책정되므로 Blob 저장소 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을&3;개의 그룹으로 세분화해야 합니다.
 
 * *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* 및 *'CopyBlob'*과 같은 쓰기 트랜잭션
 * *'DeleteBlob'* 및 *'DeleteContainer'*와 같은 삭제 트랜잭션
@@ -253,7 +254,7 @@ Blob 저장소 서비스에 대한 데이터 액세스 패턴을 모니터링하
 트랜잭션 메트릭 테이블에서 API에 대한 모든 항목에 대한 *'TotalIngress'* 의 합계는 특정 API에 대한 수신 데이터의 총 크기를 바이트로 나타냅니다.
 마찬가지로 *'TotalEgress'* 의 합계는 송신 데이터의 총 크기를 바이트로 나타냅니다.
 
-Blob 저장소 계정에 대한 데이터 액세스 비용을 예상하려면 트랜잭션을 2개의 그룹으로 세분화해야 합니다.
+Blob 저장소 계정에 대한 데이터 액세스 비용을 예상하려면 트랜잭션을&2;개의 그룹으로 세분화해야 합니다.
 
 * 저장소 계정에서 검색되는 데이터 크기는 주로 *'GetBlob'* 및 *'CopyBlob'* 작업에 대한 *'TotalEgress'* 합계를 확인하여 예상할 수 있습니다.
 * 저장소 계정에 작성되는 데이터 크기는 주로 *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* 및 *'AppendBlock'* 작업에 대한 *'TotalIngress'* 합계를 확인하여 예상할 수 있습니다.
@@ -341,10 +342,5 @@ Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 
 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
 [저장소 계정 찾아보기 및 탐색](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

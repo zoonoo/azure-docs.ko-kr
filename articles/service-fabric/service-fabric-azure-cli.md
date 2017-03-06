@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
 ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -200,10 +201,5 @@ ssh 인증을 위한 키 사용(암호 아님)이 아직 지원되지 않으므�
 
 ## <a name="next-steps"></a>다음 단계
 개발 환경을 설정하고 Service Fabric 응용 프로그램을 Linux 클러스터에 배포합니다.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

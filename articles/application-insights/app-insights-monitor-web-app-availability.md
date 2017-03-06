@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
-ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -78,37 +79,20 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>오류가 표시되는 경우
 빨간 점을 클릭합니다.
 
-![빨간 점을 클릭 합니다.](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![빨간 점을 클릭 합니다.](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-또는, 아래로 스크롤하여 100% 성공보다 작은 테스트를 클릭합니다.
 
-![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+웹 테스트 결과를 통해 가능한 작업:
 
-해당 테스트의 결과 창이 열립니다.
+* 서버로부터 수신한 응답을 검사합니다.
+* 실패한 요청 인스턴스를 처리하는 동안 서버 앱에서 보낸 원격 분석을 엽니다.
+* Git 또는 VSTS에 문제 또는 작업 항목을 기록하고 문제를 추적합니다. 버그에는 이 이벤트에 대한 링크가 포함됩니다.
+* 웹 테스트 결과를 Visual Studio에서 엽니다.
 
-![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-여러 위치에서 테스트를 실행합니다. 결과가 100% 미만인 위치를 하나 선택합니다.
-
-![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-아래로 스크롤하여 **실패한 테스트** 로 이동하고 결과를 선택합니다.
-
-결과를 포털에서 평가하려면 클릭하고 실패한 이유를 참조하세요.
-
-![웹 테스트 실행 결과](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-또는 결과 파일을 다운로드하여 Visual Studio에서 검사할 수 있습니다.
 
 *정상으로 보이지만 실패로 보고되었습니까?* 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다.
 
-### <a name="open-the-server-request-and-exceptions"></a>서버 요청 및 예외 열기
-
-특정 테스트의 세부 속성에서 요청 및 예외와 같은 기타 이벤트에 대한 서버 쪽 보고서를 열 수 있습니다.
-
-![웹 테스트 실행 결과](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-관련 항목이 표시되지 않으면 [샘플링](app-insights-sampling.md)이 진행 중이기 때문일 수 있습니다.
+*관련 항목이 없나요?* [샘플링](app-insights-sampling.md)이 진행 중이기 때문일 수 있습니다.
 
 ## <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 예를 들어 판매 웹 사이트를 모니터링하는 경우 장바구니에 항목을 제대로 추가할 수 있는지 테스트할 수 있습니다.
@@ -291,9 +275,4 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

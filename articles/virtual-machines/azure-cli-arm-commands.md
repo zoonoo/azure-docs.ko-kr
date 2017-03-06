@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
-ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
 
 > [!NOTE]
-> 이 문서에서는 Azure CLI(또는 Azure CLI 1.0)에서의 Resource Manager 모드 명령을 보여줍니다. Resource Manager 모델에서 작업하기 위해 차세대 멀티 플랫폼 CLI인 [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2)을 사용해 볼 수 있습니다.
+> 이 문서에서는 Azure CLI(또는 Azure CLI 1.0)에서의 Resource Manager 모드 명령을 보여줍니다. Resource Manager 모델에서 작업하기 위해 차세대 멀티 플랫폼 CLI인 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 사용해 볼 수 있습니다.
 >[기존 및 새 Azure CLI](/cli/azure/old-and-new-clis)에 대해 자세히 알아보세요.
 >
 
@@ -1863,9 +1864,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

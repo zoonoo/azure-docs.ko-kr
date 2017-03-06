@@ -17,6 +17,7 @@ ms.author: roopalik;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
 ms.openlocfilehash: 6e0efe18c1170ef3b5a9b894888e926b31432e07
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -84,10 +85,5 @@ Machine Learning Studio에서 작업하는 동안 갤러리에서 동일한 사�
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

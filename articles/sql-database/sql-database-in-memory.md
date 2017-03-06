@@ -18,6 +18,7 @@ ms.author: jodebrui
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
+ms.lasthandoff: 01/12/2017
 
 ---
 
@@ -518,9 +519,4 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SSDT(SQL Server Data Tools)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

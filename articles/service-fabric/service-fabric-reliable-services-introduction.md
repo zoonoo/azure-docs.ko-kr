@@ -17,6 +17,7 @@ ms.author: masnider;
 translationtype: Human Translation
 ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
 ms.openlocfilehash: 0bf0755d1c3155ce0203e8070995c298f50bd4db
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -113,9 +114,4 @@ Reliable Services의 개요는 다음 Microsoft Virtual Academy 비디오를 시
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 * [신뢰할 수 있는 행위자 프로그래밍 모델](service-fabric-reliable-actors-introduction.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

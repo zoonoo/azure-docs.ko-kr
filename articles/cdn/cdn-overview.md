@@ -17,6 +17,7 @@ ms.author: rli
 translationtype: Human Translation
 ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
 ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -88,10 +89,5 @@ CDN을 시작하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조�
 [.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

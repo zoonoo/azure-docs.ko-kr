@@ -18,6 +18,7 @@ ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
 ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -53,10 +54,5 @@ Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스�
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

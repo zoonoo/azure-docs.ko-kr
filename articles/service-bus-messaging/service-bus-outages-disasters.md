@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
 ms.openlocfilehash: 6424d4dabe20514c0e41c6d755d644494afea302
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -98,9 +99,4 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
 [Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

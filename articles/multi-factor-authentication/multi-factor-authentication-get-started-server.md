@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
-ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
+ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
+ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -30,7 +31,7 @@ ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 두 방식 모두 Azure 포털을 통해 수행할 수 있습니다. 첫 번째는 Multi-Factor Auth 공급자를 직접 관리하여 수행합니다. 두 번째는 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자나 Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 필요합니다.
 
 > [!Important]
-> 이러한 두 옵션은 비슷해 보이지만 어떤 옵션을 사용할지 알아야 합니다. 사용자에게 MFA와 함께 제공되는 라이선스가 있는 경우 서버 다운로드를 시작하기 위해 Multi-Factor Auth 공급자를 만들지 마십시오. 대신 서비스 설정 페이지에서 서버를 다운로드하는 옵션 2를 사용합니다. 
+> 이러한 두 옵션은 비슷해 보이지만 어떤 옵션을 사용할지 알아야 합니다. 사용자에게 MFA(Azure MFA, Azure AD Premium 또는 Enterprise Mobility + Security)와 함께 제공되는 라이선스가 있는 경우 서버 다운로드를 시작하기 위해 Multi-Factor Auth 공급자를 만들지 마십시오. 대신 서비스 설정 페이지에서 서버를 다운로드하는 옵션 2를 사용합니다. 
 
 ### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>옵션 1: Azure 클래식 포털에서 Azure Multi-Factor Authentication 서버 다운로드
 
@@ -57,7 +58,7 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Enterprise Cloud Suite 라이
 5. **Multi-Factor Authentication** 섹션까지 아래로 스크롤하고 **서비스 설정 관리**를 선택합니다.
 6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. 새 페이지가 열립니다.
    ![다운로드](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-7.  **다운로드**
+7. **다운로드**
 8. **정품 인증 자격 증명 생성** 위의 **다운로드** 링크를 클릭합니다.
     ![다운로드](./media/multi-factor-authentication-get-started-server/download4.png)
 9. 다운로드 파일을 저장합니다.
@@ -116,11 +117,11 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Enterprise Cloud Suite 라이
 ![클라우드](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## <a name="send-users-an-email"></a>사용자에게 전자 메일 보내기
-이제 사용자를 MFA 서버에 가져왔으므로 2단계 인증에 등록되었음을 알리는 전자 메일을 보내는 것이 좋습니다.
+이제 사용자를 MFA 서버에 가져왔으므로&2;단계 인증에 등록되었음을 알리는 전자 메일을 보내는 것이 좋습니다.
 
-전자 메일을 보내는 작업은 2단계 인증에 사용자를 구성하는 방법으로 결정되어야 합니다. 예를 들어, 회사 디렉터리에서 사용자의 전화 번호를 가져올 수 있었던 경우 전자 메일에 기본 전화 번호를 포함하여 사용자가 원하는 정보를 알아야 합니다. 마찬가지로 사용자의 전화 번호를 가져오지 않았거나 사용자가 모바일 앱을 사용하도록 구성한 경우 메일을 보내서 Azure Multi-factor Authentication 사용자 포털에 대한 하이퍼링크를 통해 해당 계정 등록을 완료하도록 지시합니다.
+전자 메일을 보내는 작업은&2;단계 인증에 사용자를 구성하는 방법으로 결정되어야 합니다. 예를 들어, 회사 디렉터리에서 사용자의 전화 번호를 가져올 수 있었던 경우 전자 메일에 기본 전화 번호를 포함하여 사용자가 원하는 정보를 알아야 합니다. 마찬가지로 사용자의 전화 번호를 가져오지 않았거나 사용자가 모바일 앱을 사용하도록 구성한 경우 메일을 보내서 Azure Multi-factor Authentication 사용자 포털에 대한 하이퍼링크를 통해 해당 계정 등록을 완료하도록 지시합니다.
 
-또한 전자 메일의 내용은 사용자에 대해 설정된 인증 방법(전화 통화, SMS, 모바일 앱)에 따라 달라집니다.  예를 들어 사용자가 인증할 때 PIN을 사용해야하는 경우 전자 메일은 초기 PIN 설정 내용을 알려줍니다.  사용자는 처음 인증할 때 PIN을 변경해야 합니다.
+또한 전자 메일의 내용은 사용자에 대해 설정된 인증 방법(전화 통화, SMS, 모바일 앱)에 따라 달라집니다.  예를 들어 사용자가 인증할 때 PIN을 사용해야 하는 경우 전자 메일은 초기 PIN 설정 내용을 알려줍니다.  사용자는 처음 인증할 때 PIN을 변경해야 합니다.
 
 
 ### <a name="configure-email-and-email-templates"></a>전자 메일 및 전자 메일 템플릿 구성
@@ -128,12 +129,12 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Enterprise Cloud Suite 라이
 
 ![메일 설정](./media/multi-factor-authentication-get-started-server/email1.png)
 
-전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가 2단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
+전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가&2;단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
 
 ![메일 템플릿](./media/multi-factor-authentication-get-started-server/email2.png)
 
 ## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Azure Multi-Factor Authentication 서버에서 사용자 데이터를 처리하는 방법
-MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용자의 데이터가 온-프레미스 서버에 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
+MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용자의 데이터가 온-프레미스 서버에 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가&2;단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
 
 * 고유 ID - 사용자 이름 또는 내부 MFA 서버 ID 
 * 이름과 성(선택 사항)
@@ -163,9 +164,4 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 | [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md) |Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다. |
 | [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md) |Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다. |
 | [Azure Multi-Factor Authentication 및 타사 VPN을 사용한 고급 시나리오](multi-factor-authentication-advanced-vpn-configurations.md) | Cisco, Citrix 및 Juniper VPN 어플라이언스에 대한 단계별 구성 가이드입니다. |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
