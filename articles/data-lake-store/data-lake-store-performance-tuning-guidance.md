@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: af11866fc812cd8a375557b7bf9df5cdc9bba610
 ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -94,9 +95,4 @@ Azure Data Lake Store는 동시성이 더 큰 경우 성능에 가장 최적화�
 ## <a name="see-also"></a>참고 항목
 * [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 * [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

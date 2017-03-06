@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,11 +53,14 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 
    ![Azure 가상 컴퓨터 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. 사용 가능한 SQL Server 템플릿을 검토합니다.
-6. 각 템플릿은 SQL Server 버전 및 운영 체제를 식별합니다. 목록에서 이러한 이미지 중 하나를 선택합니다. 그런 다음 가상 컴퓨터 이미지에 대한 설명을 제공하는 세부 정보 블레이드를 검토하십시오.
+5. 사용 가능한 SQL Server 템플릿을 검토합니다. 각 템플릿은 SQL Server 버전 및 운영 체제를 식별합니다. 
+6. Windows Server 2016에서 SQL Server 2016 SP1 Developer용 템플릿을 선택합니다.
+
+   > [!TIP]
+   > Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다.
    
    > [!NOTE]
-   > SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다. BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이 옵션에 대한 자세한 내용은 [Azure Virtual Machines에서 SQL Server 시작](virtual-machines-windows-sql-server-iaas-overview.md)을 참조하세요.
+   > SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다(Developer 및 Express 버전 제외). SQL Server Developer는 개발/테스트(비 프로덕션)에 대해 무료이며 SQL Express는 간단한 작업(1GB 미만의 메모리, 10GB 미만의 저장소)에 대해 무료입니다. BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이 옵션에 대한 자세한 내용은 [Azure Virtual Machines에서 SQL Server 시작](virtual-machines-windows-sql-server-iaas-overview.md)을 참조하세요.
    > 
    > 
 7. **배포 모델 선택**에서 **리소스 관리자**가 선택되어 있는지 확인합니다. 리소스 관리자는 새로운 가상 컴퓨터에 권장되는 배포 모델입니다. **만들기**를 클릭합니다.
@@ -243,14 +247,10 @@ Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vau
 SQL Server 설정 구성을 마치면 **확인**을 클릭합니다.
 
 ### <a name="r-services"></a>R 서비스
-SQL Server 2016 Enterprise edition의 경우 [SQL Server R 서비스](https://msdn.microsoft.com/library/mt604845.aspx)를 사용하도록 설정하는 옵션이 있습니다. SQL Server 2016을 사용하여 고급 분석을 사용할 수 있습니다. **사용** on the **SQL Server Settings** 블레이드가 열립니다.
+[SQL Server R 서비스](https://msdn.microsoft.com/library/mt604845.aspx)를 사용하도록 설정하는 옵션이 있습니다. SQL Server 2016을 사용하여 고급 분석을 사용할 수 있습니다. **사용** on the **SQL Server Settings** 블레이드가 열립니다.
 
 ![SQL Server R 서비스 사용](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> 2016 Enterprise edition이 아닌 SQL Server 이미지의 경우 R 서비스를 사용하도록 설정하는 옵션을 비활성화했습니다.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. 요약 검토
 **요약** 블레이드에서 요약을 검토하고 **확인**을 클릭하여 이 VM에 대해 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
@@ -299,10 +299,5 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 Azure Virtual Machines의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

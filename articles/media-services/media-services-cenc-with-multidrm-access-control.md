@@ -17,6 +17,7 @@ ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
 ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -456,8 +457,3 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-

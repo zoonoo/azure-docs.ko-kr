@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Windows, Linux, Unix 또는 OS X에서 HDInsight(Hadoop)과 함께 SSH 사용
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Windows 10, Linux, Unix 또는 OS X의 Bash에서 HDInsight(Hadoop)와 함께 SSH 사용
 
 > [!div class="op_single_selector"]
 > * [PuTTY(Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -31,7 +32,7 @@ ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 ## <a name="what-is-ssh"></a>SSH 정의
 
-SSH는 비보안 네트워크를 통해 원격 서버와 완전하게 통신할 수 있는 암호화 네트워크 프로토콜입니다. SSH는 원격 서버에 대한 보안 명령줄 로그인을 제공하는 데 사용됩니다. 이 경우, HDInsight 클러스터의 헤드 노드 또는 가장자리 노드입니다.
+SSH는 비보안 네트워크를 통해 원격 서버와 완전하게 통신할 수 있는 암호화 네트워크 프로토콜입니다. SSH는 원격 서버에 보안 명령줄 로그인을 제공하는 데 사용됩니다. 이 경우, HDInsight 클러스터의 헤드 노드 또는 가장자리 노드입니다.
 
 SSH를 사용하여 네트워크 트래픽을 클라이언트에서 HDInsight 클러스터로 터널링할 수도 있습니다. 터널을 사용하여 인터넷에 직접 노출되지 않는 HDInsight 클러스터의 서비스에 액세스할 수 있습니다. HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
@@ -42,13 +43,11 @@ SSH를 사용하여 네트워크 트래픽을 클라이언트에서 HDInsight �
 * __ssh__: 원격 명령줄 세션을 수립하고 터널을 만드는 데 사용할 수 있는 일반 SSH 클라이언트
 * __scp__: SSH 프로토콜을 사용하여 로컬 및 원격 시스템 간에 파일을 복사하는 유틸리티.
 
-Windows 10 Anniversary Edition 이전에는 Windows에서 SSH 클라이언트를 제공하지 않았습니다.  이 Windows 버전에는 `ssh`, `scp` 및 기타 Linux 명령을 제공하는 개발자를 위한 Bash on Windows 10 기능이 포함되어 있습니다. Bash on Windows 10 사용에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
+Windows 10 1주년 버전에는 Bash가 개발자 기능으로 제공됩니다. 여기에는 `ssh`, `scp` 및 기타 Linux 명령이 제공됩니다. Bash on Windows 10 사용에 대한 자세한 내용은 [Ubuntu on Windows의 Bash](https://msdn.microsoft.com/commandline/wsl/about)를 참조하세요.
 
 Windows를 사용하며 Bash on Windows 10 액세스 권한이 없는 경우 다음과 같은 SSH 클라이언트를 사용할 수 있습니다.
 
 * [Git For Windows](https://git-for-windows.github.io/): `ssh` 및 `scp` 명령줄 유틸리티를 제공합니다.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): 그래픽 SSH 클라이언트를 제공합니다.
-* [MobaXterm](http://mobaxterm.mobatek.net/): 그래픽 SSH 클라이언트를 제공합니다.
 * [Cygwin](https://cygwin.com/): `ssh` 및 `scp` 명령줄 유틸리티를 제공합니다.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ Windows를 사용하며 Bash on Windows 10 액세스 권한이 없는 경우 다
 
 * **개인 키**는 신원을 확인하기 위해 SSH 클라이언트를 사용하여 로그인할 때 HDInsight 클러스터에 제시하는 항목입니다. 이 개인 키는 보호해야 하는 한편, 공유하면 안됩니다.
 
-    개인 키에 대한 암호를 만들어 추가적인 보안을 더할 수 있습니다. 키를 사용하려면 먼저 이 암호를 제공해야 합니다.
+    개인 키에 대한 암호를 만들어 추가적인 보안을 더할 수 있습니다. 암호를 사용하는 경우 SSH를 사용하여 인증할 때 암호를 입력해야 합니다.
 
 ### <a name="create-a-public-and-private-key"></a>공개 키 및 개인 키 만들기
 
@@ -91,7 +90,7 @@ Windows를 사용하며 Bash on Windows 10 액세스 권한이 없는 경우 다
 * __id\_rsa__: 이 파일에는 개인 키가 들어 있습니다.
 
     > [!WARNING]
-    > 공개 키로 보호되는 서비스에 대한 무단 액세스를 방지하기 위해 이 파일에 대한 액세스를 제한해야 합니다.
+    > 공개 키로 보호되는 서비스에 대한 무단 액세스를 방지하기 위해 이 파일에 대한 액세스를 제한합니다.
 
 * __id\_rsa.pub__: 이 파일에는 공개 키가 들어 있습니다. HDInsght 클러스터를 만들 때 이 파일을 사용합니다.
 
@@ -115,7 +114,7 @@ Linux 기반 HDInsight 클러스터를 만들 때는 _SSH 사용자 이름_과, 
 
 추가 SSH 사용자를 만든 후 클러스터에 추가할 수는 있지만 권장되는 방법은 아닙니다.
 
-* 수동으로 새 SSH 사용자를 클러스터의 노드 각각에 추가해야 합니다.
+* 새 SSH 사용자가 클러스터의 각 노드에 추가되어야 합니다.
 
 * 새 SSH 사용자는 기본 사용자와 동일한 HDInsight 액세스 권한을 같습니다. SSH 사용자 계정을 기반으로 HDInsight의 데이터나 작업에 대한 액세스를 제한할 방법은 없습니다.
 
@@ -147,7 +146,7 @@ HDInsight 클러스터의 모든 노드에서 SSH 서버를 실행하는 동안�
 
 ### <a name="connect-to-other-nodes"></a>다른 노드에 연결
 
-작업자 노드와 Zookeeper 노드는 클러스터 외부에서 직접 액세스할 수 없으며, 클러스터 헤드 노드 또는 가장자리 노드에서 액세스할 수 있습니다. 다음은 이 작업을 수행하기 위한 일반적인 단계입니다.
+작업자 노드와 Zookeeper 노드는 클러스터 외부에서 직접 액세스할 수 없으며, 클러스터 헤드 노드 또는 가장자리 노드에서 액세스할 수 있습니다. 다음은 다른 노드에 연결하는 일반적인 단계입니다.
 
 1. SSH를 사용하여 헤드 또는 가장자리 노드에 연결:
 
@@ -196,7 +195,7 @@ SSH 키를 사용하여 사용자 계정을 인증할 경우 로컬 환경이 SS
 
 [도메인에 가입된 HDInsight](hdinsight-domain-joined-introduction.md)는 HDInsight에서 Hadoop와 함께 Kerberos를 통합합니다. SSH 사용자는 Active Directory 도메인 사용자가 아니기 때문에 Active Directory로 인증될 때까지 Hadoop 명령을 실행할 수 없습니다. 다음 단계를 사용하여 Active Directory에 SSH 세션을 인증합니다.
 
-1. [HDInsight 연결](#connect) 섹션에서 설명한 대로 SSH를 사용하여 도메인 가입 HDInsight 클러스터에 연결합니다. 예를 들어 다음 명령은 이름이 __sshuser__인 SSH 계정을 사용하여 이름이 __myhdi__인 HDInsight 클러스터에 연결합니다.
+1. SSH를 사용하여 도메인에 가입된 HDInsight 클러스터에 연결합니다. 예를 들어 다음 명령은 이름이 __sshuser__인 SSH 계정을 사용하여 이름이 __myhdi__인 HDInsight 클러스터에 연결합니다.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -212,7 +211,7 @@ SSH 키를 사용하여 사용자 계정을 인증할 경우 로컬 환경이 SS
 
 ## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH 터널링
 
-SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다.
+SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수 있습니다. 요청이 클러스터에 전달된 다음 클러스터 내에서 해결됩니다.
 
 > [!IMPORTANT]
 > SSH 터널은 일부 Hadoop 서비스의 웹 UI에 액세스하기 위한 요구 사항입니다. 예를 들어 작업 기록 UI와 리소스 관리자 UI는 둘 다 SSH 터널을 사용해서만 액세스할 수 있습니다.
@@ -228,9 +227,4 @@ SSH 터널 만들기 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

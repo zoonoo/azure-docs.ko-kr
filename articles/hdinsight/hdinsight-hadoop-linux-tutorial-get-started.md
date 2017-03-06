@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e026008afcdb86fa80c80cb13c7ff4d94027d6ee
-ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
+ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
+ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -26,7 +27,6 @@ ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
 HDInsight에서 [Hadoop](http://hadoop.apache.org/) 클러스터를 만들고, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. [Apache Hive](https://hive.apache.org/) 는 Hadoop 에코시스템에서 가장 인기 있는 구성 요소입니다. 현재 HDInsight는 [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [대화형 Hive(미리 보기)](hdinsight-hadoop-use-interactive-hive.md) 및 [R server](hdinsight-hadoop-r-server-overview.md)와 같은&6;가지 유형의 클러스터가 제공됩니다.  각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 6가지 클러스터 유형 모두 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -59,7 +59,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
     일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다.
 
     * **위치**: 클러스터 및 종속 저장소 계정의 위치는 리소스 그룹과 동일한 위치를 사용합니다.
-    * **클러스터 버전**: 3.4
+    * **클러스터 버전**: 3.5
     * **OS 유형**: Linux
     * **작업자 노드 수**: 2
 
@@ -156,10 +156,5 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

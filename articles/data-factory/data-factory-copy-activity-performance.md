@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
 ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -408,9 +409,4 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 * Azure DocumentDB: [DocumentDB의 성능 수준](../documentdb/documentdb-performance-levels.md)
 * 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
 * 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

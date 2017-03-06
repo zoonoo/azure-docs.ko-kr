@@ -17,13 +17,14 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef415b7c0e7079da9930ecc6d8375dfc5a3c0a9
-ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
+ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
+ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
+ms.lasthandoff: 02/18/2017
 
 
 ---
-# <a name="sql-database-tutorial-aad-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>SQL Database 자습서: AAD 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙
-이 시작 자습서에서는 SQL Server Management Studio를 통해 Azure Active Directory 인증, 로그인, 사용자 및 데이터베이스 역할을 사용하여 Azure SQL Database 서버와 데이터베이스에 대한 액세스 및 권한을 부여하는 방법에 대해 알아봅니다. 이 문서에서 학습할 내용은 다음과 같습니다.
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Azure AD 인증, 액세스 및 데이터베이스 수준 방화벽 규칙
+이 자습서에서는 SQL Server Management Studio를 통해 Azure Active Directory 인증, 로그인, 사용자 및 데이터베이스 역할을 사용하여 Azure SQL Database 서버와 데이터베이스에 대한 액세스 및 권한을 부여하는 방법에 대해 알아봅니다. 이 문서에서 학습할 내용은 다음과 같습니다.
 
 - master 데이터베이스 및 사용자 데이터베이스에서 사용자 권한 보기
 - Azure Active Directory 인증에 기반한 로그인 및 사용자 만들기
@@ -36,17 +37,17 @@ ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. 
+* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
 
 * 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
 * [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started.md) 또는 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md)을 완료했습니다. 그렇지 않은 경우 이 필수 자습서를 완료하거나 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md) 끝에서 PowerShell 스크립트를 실행하여 계속합니다.
 
    > [!NOTE]
-   > SQL Server 인증 관련 자습서인 [SQL Database 자습서: SQL 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)의 완료는 선택 사항입니다. 그러나 여기서 반복되지 않는 자습서에서 다루는 개념들이 있습니다. 동일한 컴퓨터에서 동일한 IP 주소로 관련 자습서를 완료하는 경우 서버 수준 및 데이터베이스 수준의 방화벽과 관련된 이 자습서의 절차가 필요하지 않으며 이러한 이유로 선택 사항으로 표시됩니다. 또한 이 자습서의 스크린샷에서는 이 자습서를 완료했다고 가정합니다. 
+   > SQL Server 인증 관련 자습서인 [SQL 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)의 완료 여부는 선택 사항입니다. 그러나 본 자습서에서 다루지 않는 개념이 포함되어 있습니다. 동일한 컴퓨터에서 동일한 IP 주소로 관련 자습서를 완료하는 경우 서버 수준 및 데이터베이스 수준의 방화벽과 관련된 이 자습서의 절차가 필요하지 않으며 이러한 이유로 선택 사항으로 표시됩니다. 또한 이 자습서의 스크린샷에서는 이 자습서를 완료했다고 가정합니다. 
    >
 
-* Azure Active Directory를 만들고 채웁니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 사용자 지정 도메인 이름 추가](../active-directory/active-directory-add-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)(영문), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/active-directory-aadconnect-ports.md)를 참조하세요.
+* Azure Active Directory를 만들고 채웁니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory/active-directory-aadconnect.md), [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-add-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/active-directory-aadconnect-ports.md)를 참조하세요.
 
 > [!NOTE]
 > 이 자습서는 [SQL Database 액세스 및 제어](sql-database-control-access.md), [로그인, 사용자 및 데이터베이스 역할](sql-database-manage-logins.md), [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx), [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx), [SQL Database 방화벽 규칙](sql-database-firewall-configure.md) 및 [ Azure Active Directory 인증 ](sql-database-aad-authentication.md) 항목의 내용을 학습하는 데 도움을 줍니다. 
@@ -85,7 +86,7 @@ ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
    ![선택한 AAD 관리자 계정 저장](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> 이 서버의 연결 정보를 검토하려면 [서버 설정 보기 또는 업데이트](sql-database-view-update-server-settings.md)로 이동합니다. 이 자습서 시리즈의 경우 정규화된 서버 이름은 'sqldbtutorialserver.database.windows.net'입니다.
+> 이 서버의 연결 정보를 검토하려면 [서버 관리](sql-database-manage-servers-portal.md)로 이동합니다. 이 자습서 시리즈의 경우 정규화된 서버 이름은 'sqldbtutorialserver.database.windows.net'입니다.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 SQL 서버 연결
@@ -256,7 +257,7 @@ ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>AdventureWorksLT 데이터베이스 사용자를 위한 데이터베이스 수준 방화벽 규칙 만들기
 
 > [!NOTE]
-> SQL Server 인증 관련 자습서인 [SQL Database 자습서: SQL 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)에서 해당 절차를 완료한 경우 이 절차를 생략할 수 있으며, 동일한 IP 주소를 가진 동일한 컴퓨터를 사용하여 학습하게 됩니다.
+> SQL Server 인증에 대한 관련 자습서인 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)에서 해당 절차를 완료했으며 IP 주소가 같은 동일한 컴퓨터를 학습에 사용하는 경우 이 절차를 완료하지 않아도 됩니다.
 >
 
 자습서의 이 섹션에서는 다른 IP 주소를 가진 컴퓨터에서 새 사용자 계정을 사용하여 로그인하고, 서버 관리자로 데이터베이스 수준 방화벽 규칙을 만든 후 새로운 이 규칙을 사용하여 성공적으로 로그인하려고 시도합니다. 
@@ -313,10 +314,5 @@ ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
 - SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

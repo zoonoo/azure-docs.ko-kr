@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
 ms.openlocfilehash: 504a5723f025d7383dbec78cdd268b7c1b94a1e5
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -152,10 +153,5 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
     ![예](./media/active-directory-saas-rally-software-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

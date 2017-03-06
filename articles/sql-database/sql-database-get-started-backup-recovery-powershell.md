@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell을 사용하여 데이터 보호 및 복구를 위한 Azure SQL 데이터베이스의 백업 및 복원 시작 | Microsoft 문서"
+title: "PowerShell: Azure SQL 데이터베이스 백업 및 복원 | Microsoft Docs"
 description: "이 자습서에서는 자동화된 백업에서 특정 시점으로 복원, Azure Recovery Services 자격 증명 모음에 자동화된 백업 저장 및 PowerShell을 사용하여 Azure Recovery Services 자격 증명 복원을 수행하는 방법을 보여 줍니다."
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
@@ -17,16 +17,17 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
+ms.lasthandoff: 02/18/2017
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>PowerShell을 사용하여 데이터 보호 및 복구를 위한 백업 및 복원 시작
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>자습서: PowerShell을 사용하여 Azure SQL Database 백업 및 복원
 
-이 시작 자습서에서는 Azure PowerShell을 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure PowerShell을 다음에 사용하는 방법에 대해 알아봅니다.
 
 - 데이터베이스의 기존 백업 보기
 - 이전 시점으로 데이터베이스 복원
@@ -38,7 +39,7 @@ ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. 
+* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
 
 * 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure에 연결해야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
@@ -47,7 +48,7 @@ ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
 * [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started.md) 또는 이와 동등한 [PowerShell 버전](sql-database-get-started-powershell.md)을 완료했습니다. 완료하지 않았으면 계속하기 전에 이 필수 자습서를 완료하거나 [PowerShell 버전](sql-database-get-started-powershell.md) 끝에서 PowerShell 스크립트를 실행합니다.
 
 > [!TIP]
-> [Azure Portal](sql-database-get-started-backup-recovery.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행할 수 있습니다.
+> [Azure Portal](sql-database-get-started-backup-recovery-portal.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행할 수 있습니다.
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -55,9 +56,9 @@ ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
 
 자습서의 이 섹션에서는 데이터베이스의 [서비스에서 생성된 자동화된 백업](sql-database-automated-backups.md)에서 가장 오래된 복원 지점에 대한 정보를 봅니다. 
 
-가장 빠른 복원 지점과 사용 가능한 마지막 백업(현재 시간에서 6분 전) 사이의 모든 시점으로 데이터베이스를 복원할 수 있습니다. 
+가장 빠른 복원 지점과 사용 가능한 마지막 백업(현재 시간에서&6;분 전) 사이의 모든 시점으로 데이터베이스를 복원할 수 있습니다. 
 
-다음 코드 조각은 [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) cmdlet을 사용하여 복원할 데이터베이스의 가장 오래된 복원 지점을 가져옵니다. 시간은 UTC로 반환되지만 다음 코드 조각은 현지 시간으로 작업하는 방법을 보여 줍니다. 라이브 데이터베이스의 사용 가능한 마지막 복원 지점은 일반적으로 약 6분 전이므로 마지막 복원 지점은 현재 시간에서 6분을 뺀 값으로 간단히 설정합니다. 
+다음 코드 조각은 [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) cmdlet을 사용하여 복원할 데이터베이스의 가장 오래된 복원 지점을 가져옵니다. 시간은 UTC로 반환되지만 다음 코드 조각은 현지 시간으로 작업하는 방법을 보여 줍니다. 라이브 데이터베이스의 사용 가능한 마지막 복원 지점은 일반적으로 약&6;분 전이므로 마지막 복원 지점은 현재 시간에서&6;분을 뺀 값으로 간단히 설정합니다. 
 
 ```
 # Get available restore points
@@ -114,7 +115,7 @@ $restoredDb
 
 
 > [!TIP]
-> 장기 보존 백업을 삭제하려면 [장기 보존 백업 삭제](sql-database-long-term-retention-delete.md)를 참조하세요.
+> 장기 보존 백업을 삭제하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
 
 
 ### <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
@@ -183,7 +184,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 ```
 
 > [!IMPORTANT]
-> 구성되면 백업은 다음 7일 동안 자격 증명 모음에 표시됩니다. 백업이 자격 증명 모음에 표시된 후에 이 자습서를 계속합니다.
+> 구성되면 백업은 다음&7;일 동안 자격 증명 모음에 표시됩니다. 백업이 자격 증명 모음에 표시된 후에 이 자습서를 계속합니다.
 
 ## <a name="view-backup-info-and-backups-in-long-term-retention"></a>백업 정보 및 장기 보존 백업 보기
 
@@ -378,8 +379,4 @@ $restoredDbFromLtr
 - 서비스에서 생성된 자동 백업에 대해 알아보려면 [자동 백업](sql-database-automated-backups.md) 참조
 - 장기 백업 보존에 대해 알아보려면 [장기 백업 보존](sql-database-long-term-retention.md) 참조
 - 백업에서 복원에 대해 알아보려면 [백업에서 복원](sql-database-recovery-using-backups.md) 참조
-
-
-<!--HONumber=Dec16_HO4-->
-
 

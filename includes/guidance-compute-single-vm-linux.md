@@ -136,7 +136,7 @@ RBAC([역할 기반 액세스 제어][rbac])를 사용하여 배포하는 Azure 
 
 한 명의 사용자가 여러 역할에 할당될 수 있으며 좀 더 세분화된 권한의 사용자 지정 역할을 만들 수도 있습니다.
 
-> [!NOTE]
+d> [!NOTE]
 > RBAC는 VM에 로그온한 사용자가 수행할 수 있는 작업을 제한하지 않습니다. 이러한 사용 권한은 게스트 OS의 계정 유형에 따라 결정됩니다.   
 > 
 > 
@@ -146,8 +146,7 @@ RBAC([역할 기반 액세스 제어][rbac])를 사용하여 배포하는 Azure 
 OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure Disk Encryption][disk-encryption]을 고려하세요. 
 
 ## <a name="solution-deployment"></a>솔루션 배포
-
-이 참조 아키텍처에 대한 배포는 [GitHub][github-folder]에서 사용할 수 있습니다. VNet, NSG 및 단일 VM을 포함합니다. 아키텍처를 배포하려면 다음 단계를 따르세요. 
+m 이 참조 아키텍처에 대한 배포는 [GitHub][github-folder]에서 사용할 수 있습니다. VNet, NSG 및 단일 VM을 포함합니다. 아키텍처를 배포하려면 다음 단계를 따르세요. 
 
 1. 아래 단추를 마우스 오른쪽 단추로 클릭하고 "새 탭에서 링크 열기" 또는 "새 창에서 링크 열기"를 선택합니다.
    [![Azure에 배포](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
@@ -156,7 +155,7 @@ OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure Disk Encrypti
    * **리소스 그룹** 이름이 매개 변수 파일에 이미 정의되어 있으므로 **새로 만들기**를 선택하고 텍스트 상자에 `ra-single-vm-rg`를 입력합니다.
    * **위치** 드롭다운 상자에서 하위 지역을 선택합니다.
    * **템플릿 루트 Uri** 또는 **매개 변수 루트 Uri** 텍스트 상자를 편집하지 마세요.
-   * **OS 유형** 드롭다운 상자에서 **linux**를 선택합니다.
+을 참조하세요.   *OS 유형** 드롭다운 상자에서 *linux**를 선택합니다*.
    * 사용 약관을 검토한 후 **위에 명시된 사용 약관에 동의함** 확인란을 클릭합니다.
    * **구입** 단추를 클릭합니다.
 3. 배포가 완료될 때가지 기다립니다.
@@ -176,7 +175,7 @@ OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure Disk Encrypti
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
@@ -215,9 +214,4 @@ OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure Disk Encrypti
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Azure의 단일 Linux VM 아키텍처"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -3,7 +3,7 @@
     ![시작하기 전에](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. **타사 소프트웨어 라이선스**에서 **동의함**을 클릭하고 MySQL을 다운로드 및 설치합니다.
 
-    ![타사 소프트웨어](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![타사 소프트웨어](./media/site-recovery-add-configuration-server/combined-wiz2.png)
 4. **등록**에서 자격 증명 모음에서 다운로드한 등록 키를 선택합니다.
 
     ![등록](./media/site-recovery-add-configuration-server/combined-wiz3.png)
@@ -14,7 +14,7 @@
    * 기존 프록시에 인증이 필요하거나 공급자 연결에 대해 사용자 지정 프록시를 사용하려면 **사용자 지정 프록시 설정을 사용하여 연결**을 선택합니다.
 
      * 사용자 지정 프록시를 사용하는 경우 주소, 포트 및 자격 증명을 지정해야 합니다.
-     * 프록시를 사용하는 경우 [필수 조건](#configuration-server-prerequisites)에 설명된 URL을 이미 허용했어야 합니다.
+     * 프록시를 사용하는 경우 [필수 조건](#prerequisites)에 설명된 URL을 이미 허용했어야 합니다.
 
      ![방화벽](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. **필수 조건 확인**에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인**에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
@@ -40,8 +40,3 @@
     ![요약](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 등록이 완료되면 자격 증명 모음의 **설정** > **서버** 블레이드에 서버가 표시됩니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

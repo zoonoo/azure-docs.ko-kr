@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
+ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,14 +30,11 @@ Kubernetes, DC/OS 및 Docker Swarm 클러스터는 HTTP 끝점을 로컬로 제�
 
 DC/OS 및 Docker Swarm의 경우 내부 시스템에 대한 SSH(보안 셸) 터널을 만들어야 합니다. 터널이 설정되면 HTTP 끝점을 사용하는 명령을 실행하고 로컬 시스템에서 클러스터의 웹 인터페이스를 볼 수 있습니다. 
 
-> [!NOTE]
-> Azure Container Service의 Kubernetes 지원은 현재 미리 보기로 제공됩니다.
->
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure Container Service에 배포된](container-service-deployment.md) Kubernetes, DC/OS 또는 Swarm 클러스터
-* 배포 중에 클러스터에 추가된 공개 키에 해당하는 SSH 개인 키 파일 이러한 명령은 개인 SSH 키가 사용자의 컴퓨터의 `$HOME/.ssh/id_rsa`에 있다고 가정합니다. 자세한 내용은 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)에 대한 다음 지침을 참조하세요. SSH 연결이 작동하지 않는 경우 [SSH 키를 재설정](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)해야 합니다.
+* 배포 중에 클러스터에 추가된 공개 키에 해당하는 SSH RSA 개인 키 파일. 이러한 명령은 개인 SSH 키가 사용자의 컴퓨터의 `$HOME/.ssh/id_rsa`에 있다고 가정합니다. 자세한 내용은 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)에 대한 다음 지침을 참조하세요. SSH 연결이 작동하지 않는 경우 [SSH 키를 재설정](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)해야 합니다.
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 
@@ -47,7 +45,7 @@ DC/OS 및 Docker Swarm의 경우 내부 시스템에 대한 SSH(보안 셸) 터�
 > 
 
 ### <a name="install-kubectl"></a>kubectl 설치
-이 도구를 설치하는 방법은 `az acs kubernetes install-cli` Azure CLI 2.0(미리 보기) 명령을 사용하는 것입니다. 이 명령을 실행하려면 최신 Azure CLI 2.0(미리 보기)을 [설치](/cli/azure/install-az-cli2)하고 Azure 계정(`az login`)에 로그인했는지 확인합니다.
+이 도구를 설치하는 한 가지 방법은 `az acs kubernetes install-cli` Azure CLI 2.0 명령을 사용하는 것입니다. 이 명령을 실행하려면 최신 Azure CLI 2.0을 [설치](/cli/azure/install-az-cli2)하고 Azure 계정(`az login`)에 로그인해야 합니다.
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +55,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-또는 [릴리스 페이지](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146)에서 클라이언트를 직접 다운로드할 수 있습니다.
+또는 [Kubernetes 릴리스 페이지](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md)에서 최신 클라이언트를 직접 다운로드할 수 있습니다. 자세한 내용은 [kubectl 설치 및 설정](https://kubernetes.io/docs/user-guide/prereqs/)을 참조하세요.
 
 ### <a name="download-cluster-credentials"></a>클러스터 자격 증명 다운로드
 일단 `kubectl`을 설치하면 클러스터 자격 증명을 컴퓨터에 복사해야 합니다. 자격 증명을 가져오는 방법은 `az acs kubernetes get-credentials` 명령을 사용하는 것입니다. 리소스 그룹의 이름과 컨테이너 서비스 리소스의 이름을 전달합니다.
@@ -128,7 +126,7 @@ Linux 또는 OS X에서 SSH 터널을 만들 때 먼저 수행할 작업은 부�
     **PATH_TO_PRIVATE_KEY** [선택 사항]은 클러스터를 만들 때 제공한 공개 키에 해당하는 개인 키에 대한 경로입니다. `-i` 플래그와 함께 이 옵션을 사용합니다.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > SSH 연결 포트는 표준 포트 22가 아니라 2200입니다. 둘 이상의 마스터 VM을 포함한 클러스터에서 첫 번째 마스터 VM에 대한 연결 포트입니다.
@@ -217,10 +215,5 @@ Docker Swarm에 대한 터널을 구성한 후에 Windows 설정을 열고 `DOCK
 * [Azure Container Service 및 Kubernetes로 작업](container-service-kubernetes-ui.md)
 * [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md)
 * [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

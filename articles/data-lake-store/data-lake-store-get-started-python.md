@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -242,9 +243,4 @@ Azure Resource Group을 만들려면 다음 코드 조각을 사용합니다.
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

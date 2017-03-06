@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI를 사용하여 다중 NIC이 있는 VM 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 Azure Resource Manager를 통해 다중 NIC이 있는 VM을 만드는 방법에 대해 알아봅니다.."
+title: "다중 NIC가 있는 VM 만들기 - Azure CLI 2.0 | Microsoft Docs"
+description: "Azure CLI 2.0을 사용하여 다중 NIC가 있는 VM을 만드는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 8e906a4b-8583-4a97-9416-ee34cfa09a98
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
-ms.openlocfilehash: 903669b90e07cb1dddc5fd8b78828b2022394be0
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 624f179c481448eb6c556b8cd9d90ef06d807c60
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli"></a>Azure CLI를 사용하여 다중 NIC이 있는 VM 만들기
+# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 다중 NIC이 있는 VM 만들기
+
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
@@ -30,335 +33,152 @@ ms.openlocfilehash: 903669b90e07cb1dddc5fd8b78828b2022394be0
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](virtual-network-deploy-multinic-classic-cli.md) 대신 이 모델을 사용하도록 권장합니다.
 >
 
-[!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
+## <a name="a-namecreateacreate-the-vm"></a><a name="create"></a>VM 만들기
 
-다음 단계에서는 WEB 서버에 *IaaSStory*라는 리소스 그룹을, DB 서버에 *IaaSStory-BackEnd*라는 리소스 그룹을 사용합니다.
+Azure CLI 2.0(이 문서) 또는 [Azure CLI 1.0](virtual-network-deploy-multinic-cli-nodejs.md)을 사용하여 이 태스크를 완료할 수 있습니다. 다음 단계에서 변수에 대한 ""의 값은 시나리오의 설정을 사용하여 리소스를 만듭니다. 사용자 환경에 적절한 값으로 변경합니다.
 
-## <a name="prerequisites"></a>필수 조건
-DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스로 *IaaSStory* 리소스 그룹을 만들어야 합니다. 이러한 리소스를 만들려면 다음 단계를 완료합니다.
-
-1. [템플릿 페이지](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC)로 이동합니다.
-2. 템플릿 페이지에서 **Parent resource group(부모 리소스 그룹)** 오른쪽에 있는 **Azure에 배포**를 클릭합니다.
-3. 필요한 경우 매개 변수 값을 변경한 다음 Azure Preview 포털의 단계에 따라 리소스 그룹을 배포합니다.
-
-> [!IMPORTANT]
-> 저장소 계정 이름이 고유한지 확인합니다. Azure에서 중복된 저장소 계정 이름을 사용할 수 없습니다.
-> 
-
-[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
-
-## <a name="create-the-back-end-vms"></a>백 엔드 VM 만들기
-백 엔드 VM은 만드는 리소스에 따라 다음과 같이 다릅니다.
-
-* **데이터 디스크용 저장소 계정**. 성능 향상을 위해 데이터베이스 서버의 데이터 디스크는 SSD(반도체 드라이브) 기술을 사용하며, 이 기술에는 프리미엄 저장소 계정이 필요합니다. 배포할 Azure 위치에서 프리미엄 저장소가 지원되는지 확인하세요.
-* **NIC**. 각 VM에 데이터베이스 액세스용으로 하나, 그리고 관리용으로 하나씩, 두 개의 NIC가 사용됩니다.
-* **가용성 집합**. 모든 데이터베이스 서버가 단일 가용성 집합에 추가되어, 유지 관리 도중에 하나 이상의 VM이 실행 중이도록 합니다.
-
-### <a name="step-1---start-your-script"></a>1단계 - 스크립트 시작
-사용되는 전체 bash 스크립트를 [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh)에서 다운로드할 수 있습니다. 다음 단계에 따라 스크립트를 사용자 환경에서 작동하도록 변경합니다.
-
-1. 위의 [필수 조건](#Prerequisites)에서 배포한 기존 리소스 그룹을 기반으로 다음 변수 값을 변경합니다.
+1. [Azure CLI 2.0](/cli/azure/install-az-cli2)을 아직 설치하지 않은 경우 설치합니다.
+2. [Linux VM에 SSH 공용 및 개인 키 쌍 만들기](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 단계를 완료하여 Linux VM에 SSH 공용 및 개인 키 쌍을 만듭니다.
+3. 명령 셸에서 `az login` 명령을 사용하여 로그인합니다.
+4. Linux 또는 Mac 컴퓨터에서 다음에 나오는 스크립트를 실행하여 VM을 만듭니다. 스크립트는 리소스 그룹, 두 개의 서브넷이 있는 하나의 VNet(가상 네트워크), 두 개의 NIC 및 연결된 두 개의 NIC가 있는 VM을 만듭니다. NIC 중 하나는 하나의 서브넷에 연결되고 고정 공용 IP 주소 및 개인 IP 주소가 할당됩니다. 다른 NIC는 다른 서브넷에 연결되고 고정 개인 IP 주소가 할당되지만 공용 IP 주소는 할당되지 않습니다. NIC, 공용 IP 주소, 가상 네트워크 및 VM 리소스는 모두 동일한 위치 및 구독에 있어야 합니다. 리소스가 모두 동일한 리소스 그룹에 위치할 필요는 없습니다. 하지만 다음 스크립트에서는 모두 동일한 리소스 그룹에 위치합니다.
 
     ```azurecli
-    existingRGName="IaaSStory"
-    location="westus"
-    vnetName="WTestVNet"
-    backendSubnetName="BackEnd"
-    remoteAccessNSGName="NSG-RemoteAccess"
-    ```
-2. 백 엔드 배포에 사용하려는 값을 기반으로 다음 변수 값을 변경합니다.
+    #!/bin/sh
 
-    ```azurecli
-    backendRGName="IaaSStory-Backend"
-    prmStorageAccountName="wtestvnetstorageprm"
-    avSetName="ASDB"
-    vmSize="Standard_DS3"
-    diskSize=127
-    publisher="Canonical"
-    offer="UbuntuServer"
-    sku="14.04.2-LTS"
-    version="latest"
-    vmNamePrefix="DB"
-    osDiskName="osdiskdb"
-    dataDiskName="datadisk"
-    nicNamePrefix="NICDB"
-    ipAddressPrefix="192.168.2."
-    username='adminuser'
-    password='adminP@ssw0rd'
-    numberOfVMs=2
-    ```
+    RgName="Multi-NIC-VM"
+    Location="westus"
+    az group create --name $RgName --location $Location
 
-3. VM을 만들 `BackEnd` 서브넷의 ID를 검색합니다. 이 단계를 수행해야 하는 이유는 이 서브넷에 연결할 NIC이 다른 리소스 그룹에 속해 있기 때문입니다.
+    # Create a public IP address resource with a static IP address using the `--allocation-method Static` option.
+    # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
+    # resource from a pool of IP adresses unique to each Azure region. 
+    # Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists
+    # the ranges for each region.
 
-    ```azurecli
-    subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
-            --vnet-name $vnetName \
-            --name $backendSubnetName|grep Id)"
-    subnetId=${subnetId#*/}
-    ```
+    PipName="PIP-WEB"
 
-   > [!TIP]
-   > 위의 첫 번째 명령은 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 및 [문자열 조작](http://tldp.org/LDP/abs/html/string-manipulation.html)(구체적으로 말하면, 하위 문자열 제거)을 사용합니다.
-   >
+    az network public-ip create \
+    --name $PipName \
+    --resource-group $RgName \
+    --location $Location \
+    --allocation-method Static
 
-4. `NSG-RemoteAccess` NSG의 ID를 검색합니다. 이 단계를 수행해야 하는 이유는 이 NSG에 연결할 NIC이 다른 리소스 그룹에 속해 있기 때문입니다.
+    # Create a virtual network with one subnet
 
-    ```azurecli
-    nsgId="$(azure network nsg show --resource-group $existingRGName \
-        --name $remoteAccessNSGName|grep Id)"
-        nsgId=${nsgId#*/}
-    ```
+    VnetName="VNet1"
+    VnetPrefix="10.0.0.0/16"
+    VnetSubnet1Name="Front-End"
+    VnetSubnet1Prefix="10.0.0.0/24"
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>2단계 - VM에 필요한 리소스 만들기
+    az network vnet create \
+    --name $VnetName \
+    --resource-group $RgName \
+    --location $Location \
+    --address-prefix $VnetPrefix \
+    --subnet-name $VnetSubnet1Name \
+    --subnet-prefix $VnetSubnet1Prefix
 
-1. 모든 백 엔드 리소스를 위한 새 리소스 그룹을 만듭니다. 리소스 그룹 이름에 `$backendRGName` 변수가, Azure 지역에 대해서는 `$location`이 사용되었습니다.
+    # Create a second subnet within the VNet
 
-    ```azurecli
-    azure group create $backendRGName $location
-    ```
+    VnetSubnet2Name="Back-end"
+    VnetSubnet2Prefix="10.0.1.0/24"
 
-2. VM에서 사용할 OS 및 데이터 디스크에 대해 프리미엄 저장소 계정을 만듭니다.
+    az network vnet subnet create \
+    --vnet-name $VnetName \
+    --resource-group $RgName \
+    --name $VnetSubnet2Name \
+    --address-prefix $VnetSubnet2Prefix
 
-    ```azurecli
-    azure storage account create $prmStorageAccountName \
-        --resource-group $backendRGName \
-        --location $location \
-        --type PLRS
-    ```
+    # Create a network interface connected to one of the subnets. The NIC is assigned a single dynamic private and
+    # public IP address by default, but you can instead, assign static addresses, or no public IP address at all.
+    # You can also assign multiple private or public IP addresses to each NIC. To learn more about IP addressing
+    # options for NICs, enter the `az network nic create -h` command.
 
-3. VM의 가용성 집합을 만듭니다.
+    Nic1Name="NIC-FE"
+    PrivateIpAddress1="10.0.0.5"
 
-    ```azurecli
-    azure availset create --resource-group $backendRGName \
-        --location $location \
-        --name $avSetName
-    ```
+    az network nic create \
+    --name $Nic1Name \
+    --resource-group $RgName \
+    --location $Location \
+    --subnet $VnetSubnet1Name \
+    --vnet-name $VnetName \
+    --private-ip-address $PrivateIpAddress1 \
+    --public-ip-address $PipName
 
-### <a name="step-3---create-the-nics-and-back-end-vms"></a>3단계 - NIC 및 백 엔드 VM 만들기
+    # Create a second network interface and connect it to the other subnet. Though multiple NICs attached to the same
+    # VM can be connected to different subnets, the subnets must all be within the same VNet. Add additional NICs as necessary.
 
-1. `numberOfVMs` 변수를 기반으로 하여 여러 VM을 만드는 루프를 시작합니다.
+    Nic2Name="NIC-BE"
+    PrivateIpAddress2="10.0.1.5"
 
-    ```azurecli
-    for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-    do
-    ```
+    az network nic create \
+    --name $Nic2Name \
+    --resource-group $RgName \
+    --location $Location \
+    --subnet $VnetSubnet2Name \
+    --vnet-name $VnetName \
+    --private-ip-address $PrivateIpAddress2 \
 
-2. 각 VM에 대해 데이터베이스 액세스를 위한 NIC를 만듭니다.
+    # Create a VM and attach the two NICs.
 
-    ```azurecli
-    nic1Name=$nicNamePrefix$suffixNumber-DA
-    x=$((suffixNumber+3))
-    ipAddress1=$ipAddressPrefix$x
-    azure network nic create --name $nic1Name \
-        --resource-group $backendRGName \
-        --location $location \
-        --private-ip-address $ipAddress1 \
-        --subnet-id $subnetId
-    ```
+    VmName="WEB"
 
-3. 각 VM에 대해 원격 액세스를 위한 NIC를 만듭니다. NIC를 NSG에 연결하는 데 `--network-security-group` 매개 변수가 사용되었습니다.
+    # Replace the value for the following **VmSize** variable with a value from the
+    # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. Not all VM sizes support
+    # more than one NIC, so be sure to select a VM size that supports the number of NICs you want to attach to the VM.
+    # You must create the VM with at least two NICs if you want to add more after VM creation. If you create a VM with
+    # only one NIC, you can't add additional NICs to the VM after VM creation, regardless of how many NICs the VM supports.
+    # The VM size specified in the following variable supports two NICs.
 
-    ```azurecli
-    nic2Name=$nicNamePrefix$suffixNumber-RA
-    x=$((suffixNumber+53))
-    ipAddress2=$ipAddressPrefix$x
-    azure network nic create --name $nic2Name \
-        --resource-group $backendRGName \
-        --location $location \
-        --private-ip-address $ipAddress2 \
-        --subnet-id $subnetId $vnetName \
-        --network-security-group-id $nsgId
-    ```
+    VmSize="Standard_DS2"
 
-4. VM을 만듭니다.
+    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
+    # `az vm image list` command.
 
-    ```azurecli
-    azure vm create --resource-group $backendRGName \
-        --name $vmNamePrefix$suffixNumber \
-        --location $location \
-        --vm-size $vmSize \
-        --subnet-id $subnetId \
-        --availset-name $avSetName \
-        --nic-names $nic1Name,$nic2Name \
-        --os-type linux \
-        --image-urn $publisher:$offer:$sku:$version \
-        --storage-account-name $prmStorageAccountName \
-        --storage-account-container-name vhds \
-        --os-disk-vhd $osDiskName$suffixNumber.vhd \
-        --admin-username $username \
-        --admin-password $password
+    OsImage="credativ:Debian:8:latest"
+
+    Username="adminuser"
+
+    # Replace the following value with the path to your public key file.
+
+    SshKeyValue="~/.ssh/id_rsa.pub"
+
+    # Before executing the following command, add variable names of additional NICs you may have added to the script that
+    # you want to attach to the VM. If creating a Windows VM, remove the **ssh-key-value** line and you'll be prompted for
+    # the password you want to configure for the VM.
+
+    az vm create \
+    --name $VmName \
+    --resource-group $RgName \
+    --image $OsImage \
+    --location $Location \
+    --size $VmSize \
+    --nics $Nic1Name $Nic2Name \
+    --admin-username $Username \
+    --ssh-key-value $SshKeyValue
     ```
 
-5. 각 VM에 대해 두 개의 데이터 디스크를 만들고 `done` 명령을 사용하여 루프를 종료합니다.
+    스크립트는 두 개의 NIC를 가진 VM 외에도 다음 항목을 만듭니다.
+    - 기본적으로 단일 프리미엄이 디스크를 관리했지만 만들 수 있는 디스크 유형에 대한 다른 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+    - 두 개의 서브넷 및 하나의 공용 IP 주소를 가진 가상 네트워크입니다. 또는 *기존* 가상 네트워크, 서브넷, NIC 또는 공용 IP 주소 리소스를 사용할 수 있습니다. 추가 리소스를 만드는 것이 아니라 기존 네트워크 리소스를 사용하는 방법을 알아보려면 `az vm create -h`을 입력합니다.
 
-    ```azurecli
-    azure vm disk attach-new --resource-group $backendRGName \
-        --vm-name $vmNamePrefix$suffixNumber \
-        --storage-account-name $prmStorageAccountName \
-        --storage-account-container-name vhds \
-        --vhd-name $dataDiskName$suffixNumber-1.vhd \
-        --size-in-gb $diskSize \
-        --lun 0
+## <a name="a-name--validateavalidate-vm-creation-and-nics"></a><a name = "validate"></a>VM 생성 및 NIC 유효성 검사
 
-    azure vm disk attach-new --resource-group $backendRGName \
-        --vm-name $vmNamePrefix$suffixNumber \        
-        --storage-account-name $prmStorageAccountName \
-        --storage-account-container-name vhds \
-        --vhd-name $dataDiskName$suffixNumber-2.vhd \
-        --size-in-gb $diskSize \
-        --lun 1
-        done
-    ```
+1. `az resource list --resouce-group Multi-NIC-VM --output table` 명령을 입력하여 스크립트로 만든 리소스의 목록을 볼 수 있습니다. 반환된 출력에 두 개의 NIC, 하나의 디스크, 하나의 공용 IP 주소, 하나의 가상 네트워크 및 가상 컴퓨터와 같은&6;개의 리소스가 있어야 합니다.
+2. `az network public-ip show --name PIP-WEB --resource-group Multi-NIC-VM --output table` 명령을 입력합니다. 반환된 출력에서 **IpAddress** 값을 확인하고 **PublicIpAllocationMethod** 값이 *고정*인지 확인합니다.
+3. 다음 명령을 실행하기 전에 <>를 제거하고 *사용자 이름*을 스크립트의 **사용자 이름** 변수에 사용된 이름으로 바꾸고 *ipAddress*를 이전 단계의 **ipAddress**로 바꿉니다. `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>` 명령을 실행하여 VM에 연결합니다. 
+4. VM에 연결되면 `sudo ifconfig` 명령을 실행하여 *eth0* 및 *eth1* 인터페이스를 확인합니다. 각 NIC에는 Azure DHCP 서버에서 스크립트에 지정된 고정 개인 IP 주소가 할당되었습니다. NIC에 할당된 IP 및 MAC 주소는 VM이 삭제될 때까지 변경되지 않습니다. 컴퓨터에 대한 연결이 끊어질 수 있기 때문에 운영 체제 내에서 IP 주소 지정을 변경하지 않는 것이 좋습니다. Azure 인프라에서 개인 IP 주소 간에 변환되는 네트워크 주소인 공용 IP 주소는 운영 체제 내에서 표시되지 않습니다.
 
-### <a name="step-4---run-the-script"></a>4단계 - 스크립트 실행
-스크립트를 다운로드하여 요구에 맞게 변경했으므로, 이제 이 스크립트를 실행하여 여러 NIC를 사용하여 백 엔드 데이터베이스 VM을 만듭니다.
+## <a name="a-name-clean-uparemove-the-vm-and-associated-resources"></a><a name= "clean-up"></a>VM 및 관련된 리소스 제거
 
-1. 스크립트를 저장하고 **Bash** 터미널에서 실행합니다. 아래와 같이 초기 출력에 표시됩니다.
-   
-        info:    Executing command group create
-        info:    Getting resource group IaaSStory-Backend
-        info:    Creating resource group IaaSStory-Backend
-        info:    Created resource group IaaSStory-Backend
-        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
-        data:    Name:                IaaSStory-Backend
-        data:    Location:            westus
-        data:    Provisioning State:  Succeeded
-        data:    Tags: null
-        data:
-        info:    group create command OK
-        info:    Executing command storage account create
-        info:    Creating storage account
-        info:    storage account create command OK
-        info:    Executing command availset create
-        info:    Looking up the availability set "ASDB"
-        info:    Creating availability set "ASDB"
-        info:    availset create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB1-DA"
-        info:    Creating network interface "NICDB1-DA"
-        info:    Looking up the network interface "NICDB1-DA"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
-        data:    Name                            : NICDB1-DA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.4
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB1-RA"
-        info:    Creating network interface "NICDB1-RA"
-        info:    Looking up the network interface "NICDB1-RA"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
-        data:    Name                            : NICDB1-RA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.54
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command vm create
-        info:    Looking up the VM "DB1"
-        info:    Using the VM Size "Standard_DS3"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    Looking up the availability set "ASDB"
-        info:    Found an Availability set "ASDB"
-        info:    Looking up the NIC "NICDB1-DA"
-        info:    Looking up the NIC "NICDB1-RA"
-        info:    Creating VM "DB1"
-2. 몇 분 후에 실행이 종료되고 아래와 같이 출력의 나머지 부분이 표시됩니다.
-   
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB1"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-1.vhd
-        info:    Updating VM "DB1"
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB1"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-2.vhd
-        info:    Updating VM "DB1"
-        info:    vm disk attach-new command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB2-DA"
-        info:    Creating network interface "NICDB2-DA"
-        info:    Looking up the network interface "NICDB2-DA"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
-        data:    Name                            : NICDB2-DA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.5
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB2-RA"
-        info:    Creating network interface "NICDB2-RA"
-        info:    Looking up the network interface "NICDB2-RA"
-        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
-        data:    Name                            : NICDB2-RA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.55
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command vm create
-        info:    Looking up the VM "DB2"
-        info:    Using the VM Size "Standard_DS3"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    Looking up the availability set "ASDB"
-        info:    Found an Availability set "ASDB"
-        info:    Looking up the NIC "NICDB2-DA"
-        info:    Looking up the NIC "NICDB2-RA"
-        info:    Creating VM "DB2"
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB2"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-1.vhd
-        info:    Updating VM "DB2"
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB2"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
-        info:    Updating VM "DB2"
-        info:    vm disk attach-new command OK
+이 문서의 단계를 완료하기 위해서만 리소스 그룹을 만든 경우 `az group delete --name Multi-NIC-VM` 명령으로 리소스 그룹을 삭제하여 리소스를 모두 제거할 수 있습니다.
 
+>[!WARNING]
+>리소스 그룹을 삭제하기 전에 리소스 그룹에는 이 문서의 스크립트에서 만든 리소스 외에도 다른 리소스가 없는지 확인합니다. `az resource list --resource-group Multi-NIC-VM` 명령을 실행하여 리소스 그룹에서 리소스를 볼 수 있습니다.
 
+프로덕션에서 VM을 사용하지 않는 경우 리소스를 삭제하는 것이 좋습니다. VM, 공용 IP 주소 및 디스크 리소스를 프로비전하는 경우 요금이 발생합니다.
 
+## <a name="next-steps"></a>다음 단계
 
-<!--HONumber=Nov16_HO3-->
-
-
+이 문서에서 만든 VM 간에 네트워크 트래픽을 전달할 수 있습니다. 네트워크 인터페이스, 서브넷 각각 또는 둘 간에 전달할 수 있는 트래픽을 제한하는 NSG 내에서 인바운드 및 아웃바운드 규칙을 정의할 수 있습니다. NSG에 대해 자세히 알아보려면 [NSG 개요](virtual-networks-nsg.md) 문서를 읽어보세요.

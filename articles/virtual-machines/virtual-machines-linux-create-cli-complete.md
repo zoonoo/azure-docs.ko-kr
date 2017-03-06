@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0을 사용하여 Linux 환경 만들기 | Microsoft Docs"
-description: "Azure CLI 2.0미리 보기)을 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다."
+title: "Azure CLI 2.0에서 Linux 환경 만들기 | Microsoft Docs"
+description: "Azure CLI 2.0을 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
-ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: f07a326aa2fcd659f69265001293c9ed332bb842
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 완전한 Linux 환경 만들기
-이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-20"></a>Azure CLI 2.0에서 완전한 Linux 환경 만들기
+이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다. 이 문서에서는 Azure CLI 2.0에서 환경을 구축하는 방법을 자세히 설명합니다. [Azure CLI 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 그 과정에서 Resource Manager 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 이해하면 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 시스템을 훨씬 더 빠르게 다시 빌드할 수 있습니다. 또한 환경의 여러 부분이 서로 어떻게 연결되는지 파악하고 나면 이러한 환경 부분을 자동화하는 템플릿을 더 쉽게 만들 수 있습니다.
 
@@ -34,18 +35,12 @@ ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
 
 ![기본 환경 개요](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-- [Azure CLI 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#quick-commands) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
-
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에 VM을 업로드하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기](#detailed-walkthrough)서부터 문서 끝까지 참조하세요.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`이 포함됩니다.
 
-이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
+이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
 
 먼저 [az group create](/cli/azure/group#create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -53,7 +48,7 @@ ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
 az group create --name myResourceGroup --location westeurope
 ```
 
-이 다음 단계는 옵션입니다. Azure CLI 2.0(미리 보기)를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. 대신 관리되지 않는 디스크를 사용하려는 경우 [az storage account create](/cli/azure/storage/account#create)를 사용하여 저장소 계정을 만들어야 합니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다. 저장소 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
+이 다음 단계는 옵션입니다. Azure CLI 2.0을 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. 대신 관리되지 않는 디스크를 사용하려는 경우 [az storage account create](/cli/azure/storage/account#create)를 사용하여 저장소 계정을 만들어야 합니다. 다음 예제에서는 `mystorageaccount`라는 저장소 계정을 만듭니다. 저장소 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -226,7 +221,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 ## <a name="detailed-walkthrough"></a>자세한 연습
 다음에 나오는 자세한 단계는 작업 환경을 빌드할 때 각 명령이 수행하는 작업을 설명합니다. 이러한 개념은 개발 또는 프로덕션에 맞는 고유한 사용자 지정 환경을 빌드할 때 도움이 됩니다.
 
-최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`가 포함됩니다.
 
@@ -252,7 +247,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
-이 다음 단계는 옵션입니다. Azure CLI 2.0(미리 보기)를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. Azure Managed Disks를 사용하려는 경우 [가상 네트워크 및 서브넷 만들기](#create-a-virtual-network-and-subnet)로 건너뜁니다. 
+이 다음 단계는 옵션입니다. Azure CLI 2.0을 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks를 사용하는 것입니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. Azure Managed Disks를 사용하려는 경우 [가상 네트워크 및 서브넷 만들기](#create-a-virtual-network-and-subnet)로 건너뜁니다. 
 
 관리되지 않는 디스크를 사용하려는 경우 VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 저장소 계정을 만들어야 합니다.
 
@@ -1114,9 +1109,4 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>다음 단계
 이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0(미리 보기)로 기존 네트워크에 Linux VM 배포 | Microsoft Docs"
-description: "Azure CLI 2.0(미리 보기)를 사용하여 기존 가상 네트워크에 Linux 가상 컴퓨터를 배포하는 방법에 알아봅니다."
+title: "Azure CLI 2.0으로 기존 네트워크에 Linux VM 배포 | Microsoft Docs"
+description: "Azure CLI 2.0을 사용하여 기존 가상 네트워크에 Linux 가상 컴퓨터를 배포하는 방법에 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,31 +16,27 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 34e9b401444aeec233d846a6b52f4a452c54cdaf
-ms.openlocfilehash: 106571bf36454ab20e75cb4ee42b2aca787a9d5a
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: c56ad780a1d67102d23c84a18c712ae48cec1eb6
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-virtual-network-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)를 사용하여 기존 가상 네트워크에 Linux VM을 배포합니다.
+# <a name="deploy-a-linux-vm-into-an-existing-virtual-network"></a>기존 가상 네트워크에 Linux VM 배포
 
-이 문서에서는 Azure CLI 2.0(미리 보기)를 사용하여 기존 가상 네트워크에 VM(가상 컴퓨터)을 배포하는 방법을 보여줍니다. 요구 사항은 다음과 같습니다.
+이 문서에서는 Azure CLI 2.0을 사용하여 기존 가상 네트워크에 VM(가상 컴퓨터)을 배포하는 방법을 보여줍니다. 요구 사항은 다음과 같습니다.
 
 - [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-- [Azure CLI 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#quick-commands) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+[Azure CLI 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#detailed-walkthrough) 문서 끝까지 참조하세요.
 
-이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
+이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myVnet` 및 `myVM`이 포함됩니다.
 
@@ -62,7 +58,7 @@ az vm create \
 
 가상 네트워크 및 네트워크 보안 그룹과 같은 Azure 자산이 정적이고 거의 배포되지 않은 수명이 긴 리소스인 것이 좋습니다. 가상 네트워크를 배포하면 인프라에 어떤 부정적인 영향을 주지 않고 새 배포에서 다시 사용할 수 있습니다. 가상 네트워크를 기존 하드웨어 네트워크 스위치라고 생각하면 배포할 때마다 새로운 하드웨어 스위치를 구성하지 않아도 됩니다. 올바르게 구성된 가상 네트워크로 가상 네트워크에 반복하여 가상 네트워크의 수명 동안 필요한 변경 사항을 포함하는 새 VM을 계속 배포할 수 있습니다.
 
-이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
+이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myVnet` 및 `myVM`이 포함됩니다.
 
@@ -149,7 +145,7 @@ az network nic create \
 
 이제 가상 네트워크, 서브넷 및 네트워크 보안 그룹이 SSH에 대한 포트 22를 제외한 모든 인바운드 트래픽을 차단하여 서브넷을 보호하는 방화벽의 역할을 하게 됩니다. 이제 이 기존 네트워크 인프라 내에 VM을 배포할 수 있습니다.
 
-[az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 전체 VM을 배포하기 위해 Azure CLI 2.0(미리 보기)과 함께 사용하는 플래그에 대한 자세한 내용은 [Azure CLI를 사용하여 전체 Linux 환경 만들기](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+[az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 전체 VM을 배포하기 위해 Azure CLI 2.0과 함께 사용하는 플래그에 대한 자세한 내용은 [Azure CLI를 사용하여 전체 Linux 환경 만들기](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 다음 예제는 Azure Managed Disks를 사용하여 VM을 만듭니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. 관리되지 않는 디스크를 사용하려는 경우 아래의 추가 정보를 참조하세요.
 
@@ -178,9 +174,4 @@ Azure에서 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 �
 * [Azure Resource Manager 템플릿을 사용하여 특정 배포 만들기](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [템플릿을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

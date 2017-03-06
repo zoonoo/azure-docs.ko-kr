@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 01/21/2017
 
 
 
@@ -56,10 +57,5 @@ DocumentDB의 인덱싱은 다중 테넌트를 처리하고 저장소 효율성�
 * 2015년 8월 31일 - 9월 4일 사이에 41st Internal Conference on Very Large Databases에서 발표되는 ["Azure DocumentDB를 사용한 스키마 제약 없는 인덱싱"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 다운로드합니다.
 * [DocumentDB SQL을 사용한 쿼리](documentdb-sql-query.md)
 * [여기](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: limichel
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -210,9 +211,4 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 * [Traffic Manager 개요](traffic-manager-overview.md)
 * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
 * [Azure Load Balancer개요](../load-balancer/load-balancer-overview.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

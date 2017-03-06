@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -107,10 +108,5 @@ SnelStart의 즉각적인 목표는 만족을 주는 고객 기반을 지속적�
 * 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * Azure SQL 데이터 웨어하우스에 대한 자세한 내용은 [SQL 데이터 웨어하우스](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * SnelStart에 대해 자세히 알아보려면 [SnelStart](http://www.snelstart.nl)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

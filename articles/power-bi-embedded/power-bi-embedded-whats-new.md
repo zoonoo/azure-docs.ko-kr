@@ -18,6 +18,7 @@ ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
 ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -50,10 +51,5 @@ ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
 * Power BI Embedded는 Azure SDK, PowerShell 및 CLI에 대해 지원됩니다.
 * 사용자가 시각화 데이터를 **.csv**로 내보낼 수 있습니다.
 * 이제 동일한 모든 언어/로캘에서 Microsoft Azure로 Power BI Embedded가 지원됩니다. 자세한 내용은 [Azure - 언어](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

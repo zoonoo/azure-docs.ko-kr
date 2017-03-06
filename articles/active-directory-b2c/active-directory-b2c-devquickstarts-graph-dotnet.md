@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
 ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -360,10 +361,5 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 사용자 �
 * 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 대로 필수적인 몇 가지 속성이 있습니다.
 
 B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 이 문서 또는 파일에 GitHub 코드 샘플 리포지토리의 문제에 대한 의견을 남겨주세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -13,16 +13,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 02/24/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
-ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
+ms.sourcegitcommit: 6966befa56dc6a0feff4b8a821bde4e423a2b53a
+ms.openlocfilehash: 97853ce9f78078cc6bbccdfb5c5a06cae49e218c
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Azure 실행 계정으로 Runbook 인증
-이 항목에서는 Azure Resource Manager 또는 Azure Service Management에서 Runbook 관리 리소스를 인증하기 위해 실행 계정을 사용하여 Azure 포털의 자동화 계정을 구성하는 방법을 보여줍니다.
+이 항목에서는 Azure Resource Manager 또는 Azure 서비스 관리에서 Runbook 관리 리소스를 인증하기 위해 실행 계정을 사용하여 Azure 포털의 자동화 계정을 구성하는 방법을 보여줍니다.
 
 Azure 포털에서 새 자동화 계정을 만들 경우 다음을 자동으로 만듭니다.
 
@@ -38,27 +39,25 @@ Azure 포털에서 새 자동화 계정을 만들 경우 다음을 자동으로 
 
 > [!NOTE]
 > 자동화 글로벌 Runbook을 포함한 Azure [경고 통합 기능](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)에는 실행 및 클래식 실행 계정이 구성된 자동화 계정이 필요합니다. 정의된 실행 계정 및 클래식 실행 계정이 있는 자동화 계정을 선택하거나 새로 하나를 만들도록 선택할 수 있습니다.
-> 
-> 
+>  
 
-Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자동화 계정을 업데이트하고, Runbook에서 인증하는 방법을 보여줍니다.
+Azure Portal에서 Automation 계정을 만들고, PowerShell을 사용하여 Automation 계정을 업데이트하고, 계정 구성을 관리하고, Runbook에서 인증하는 방법을 보여줍니다.
 
 이를 수행하기 전에 먼저 이해하고 고려해야 하는 몇 가지 사항이 있습니다.
 
 1. 이 작업은 클래식 또는 리소스 관리자 배포 모델에서 이미 만든 기존 자동화 계정에는 영향을 주지 않습니다.  
 2. 이는 Azure 포털을 통해 만들어진 자동화 계정에만 적용됩니다.  클래식 포털에서 계정을 만들면 실행 계정 구성을 복제하지 않습니다.
-3. 클래식 리소스를 관리하기 위해 이전에 만든 Runbook과 자산(즉, 일정, 변수 등)이 현재 있고 이 Runbook에서 새 클래식 실행 계정으로 인증하려는 경우, 새 자동화 계정으로 마이그레이션하거나 아래 PowerShell 스크립트를 사용하여 기존 계정을 업데이트해야 합니다.  
+3. 클래식 리소스를 관리하기 위해 이전에 만든 Runbook과 자산(즉, 일정, 변수 등)이 현재 있고 이 Runbook에서 새 클래식 실행 계정으로 인증하려는 경우, 실행 계정 관리를 사용하여 클래식 실행 계정을 만들거나 아래 PowerShell 스크립트를 사용하여 기존 계정을 업데이트해야 합니다.  
 4. 새 실행 계정 및 클래식 실행 자동화 계정을 사용하여 인증하려면 아래 예제 코드를 사용하여 기존 Runbook을 수정해야 합니다.  **알아두십시오** .     
 
-## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Azure 포털에서 새 자동화 계정 만들기
+## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Azure Portal에서 새 Automation 계정 만들기
 이 섹션에서는 다음 단계를 수행하여 Azure 포털에서 새 Azure 자동화 계정을 만듭니다.  이 작업은 실행 및 클래식 실행 계정을 만드는 것입니다.  
 
 > [!NOTE]
-> 이 단계를 수행하는 사용자는 서비스 관리자 역할의 멤버이거나 사용자의 구독에 대한 액세스 권한을 부여하는 구독의 공동 관리자여야 합니다. 사용자는 또한 해당 구독 기본 Active Directory에 사용자로서 추가되어야 합니다. 그러나 계정이 권한 있는 역할에 할당될 필요는 없습니다. 구독의 Active Directory 멤버가 아닌 사용자는 구독의 공동 관리자 역할에 추가되기 전에 Active Directory에 게스트로 추가되며,  **Automation 계정 추가** 블레이드에서 "만들 수 있는 권한이 없습니다..."라는 경고 메시지가 표시됩니다. 공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. 이 상황은 Azure Portal의 **Azure Active Directory** 창에서 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택하여 확인할 수 있습니다.  사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.  
-> 
+> 이 단계를 수행하는 사용자는 서비스 관리자 역할의 멤버이거나 사용자의 구독에 대한 액세스 권한을 부여하는 구독의 공동 관리자여야 합니다. 사용자는 또한 해당 구독 기본 Active Directory에 사용자로서 추가되어야 합니다. 그러나 계정이 권한 있는 역할에 할당될 필요는 없습니다. 구독의 Active Directory 멤버가 아닌 사용자는 구독의 공동 관리자 역할에 추가되기 전에 Active Directory에 게스트로 추가되고, "만들 수 있는 권한이 없습니다..."라는 경고가 **Automation 계정 추가** 블레이드에 표시됩니다. 공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. 이 상황은 Azure Portal의 **Azure Active Directory** 창에서 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택하여 확인할 수 있습니다.  사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.  
 > 
 
-1. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 Azure 포털에 로그인합니다.
+1. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
 2. **자동화 계정**을 선택합니다.
 3. 자동화 계정 블레이드에서 **추가**를 클릭합니다.<br>![자동화 계정 추가](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
    
@@ -76,7 +75,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
    > ![자동화 계정 경고 추가](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
    > 서비스 주체가 만들어지지 않은 경우 참여자 역할은 할당되지 않습니다.
    > 
-   > 
+
 7. Azure에서 자동화 계정을 만드는 동안 메뉴의 **알림** 에서 진행률을 추적할 수 있습니다.
 
 ### <a name="resources-included"></a>포함된 리소스
@@ -84,7 +83,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 
 | 리소스 | 설명 |
 | --- | --- |
-| AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 PowerShell Runbook입니다. |
+| AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 그래픽 Runbook입니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 PowerShell Runbook입니다. |
 | AzureRunAsCertificate |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 인증서 자산입니다.  Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있도록 해줍니다.  이 인증서는 수명이&1;년입니다. |
 | AzureRunAsConnection |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 연결 자산입니다. |
@@ -93,15 +92,15 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 
 | 리소스 | 설명 |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook |클래식 실행 계정(인증서)를 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 출력하는 예제 Runbook입니다. |
-| AzureClassicAutomationTutorial Script Runbook |클래식 실행 계정(인증서)를 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 출력하는 예제 Runbook입니다. |
+| AzureClassicAutomationTutorial Runbook |클래식 실행 계정(인증서)을 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 출력하는 예제 그래픽 Runbook입니다. |
+| AzureClassicAutomationTutorial Script Runbook |클래식 실행 계정(인증서)을 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 출력하는 예제 PowerShell Runbook입니다. |
 | AzureClassicRunAsCertificate |Runbook의 Azure 클래식 리소스를 관리할 수 있도록 Azure를 통해 인증하는 데 사용되는 자동 생성 인증서 자산입니다.  이 인증서는 수명이&1;년입니다. |
 | AzureClassicRunAsConnection |Runbook의 Azure 클래식 리소스를 관리할 수 있도록 Azure를 통해 인증하는 데 사용되는 자동 생성 연결 자산입니다. |
 
 ## <a name="verify-run-as-authentication"></a>실행 인증 확인
 다음으로 작은 테스트를 수행하여 새 실행 계정을 사용하여 성공적으로 인증될 수 있는지 확인합니다.     
 
-1. Azure 포털에서 이전에 만든 자동화 계정을 엽니다.  
+1. Azure Portal에서 이전에 만든 Automation 계정을 엽니다.  
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **AzureAutomationTutorialScript** Runbook을 선택한 다음 **시작**을 클릭하여 Runbook을 시작합니다.  Runbook을 시작할지 확인하는 메시지가 나타납니다.
 4. [Runbook 작업](automation-runbook-execution.md) 이 만들어지고, 작업 블레이드가 표시되며, **작업 요약** 타일에 작업 상태가 표시됩니다.  
@@ -115,7 +114,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 ## <a name="verify-classic-run-as-authentication"></a>클래식 실행 인증 확인
 다음으로 작은 테스트를 수행하여 새 클래식 실행 계정을 사용하여 성공적으로 인증될 수 있는지 확인합니다.     
 
-1. Azure 포털에서 이전에 만든 자동화 계정을 엽니다.  
+1. Azure Portal에서 이전에 만든 Automation 계정을 엽니다.  
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **AzureClassicAutomationTutorialScript** Runbook을 선택한 다음 **시작**을 클릭하여 Runbook을 시작합니다.  Runbook을 시작할지 확인하는 메시지가 나타납니다.
 4. [Runbook 작업](automation-runbook-execution.md) 이 만들어지고, 작업 블레이드가 표시되며, **작업 요약** 타일에 작업 상태가 표시됩니다.  
@@ -126,21 +125,51 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
 9. **출력** 블레이드를 닫으면 **작업 요약** 블레이드로 돌아갑니다.
 10. **작업 요약**과 해당 **AzureClassicAutomationTutorialScript** Runbook 블레이드를 닫습니다.
 
+## <a name="managing-azure-run-as-account"></a>Azure 실행 계정 관리
+Automation 계정의 수명 기간 동안 인증서가 만료되기 전이나 계정이 손상되었다고 생각되는 경우에 인증서를 갱신해야 하며 실행 계정을 삭제하고 다시 만들 수 있습니다.  이 섹션에는 이러한 작업을 수행하는 방법에 대한 단계가 제공됩니다.  
+
+### <a name="certificate-renewal"></a>인증서 갱신
+Azure 실행 계정에 대해 생성된 인증서는 만료될 때(생성 날짜로부터&1;년)까지 언제든 갱신될 수 있습니다.  인증서를 갱신하면 큐에 대기하거나 활발하게 실행 중인 모든 runbook(실행 계정으로 인증되는)이 영향을 받지 않도록 하기 위해 유효한 지난 인증서가 보존됩니다.  인증서는 만료될 때까지 계속 존재합니다.     
+
+1. Azure Portal에서 Automation 계정을 엽니다.  
+2. Automation 계정 블레이드의 계정 속성 창에서 **계정 설정** 섹션 아래 있는 **실행 계정**을 선택합니다.<br><br> ![Automation 계정 속성 창](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)<br><br>
+3. **실행 계정** 속성 블레이드에서 인증서를 갱신할 실행 계정 또는 클래식 실행 계정을 선택하고 선택한 계정의 속성 블레이드에서 **인증서 갱신**을 클릭합니다.<br><br> ![실행 계정용 인증서 갱신](media/automation-sec-configure-azure-runas-account/automation-account-renew-runas-certificate.png)<br><br> 계속할지 묻는 메시지가 나타납니다.  
+4. 인증서가 갱신되는 동안 메뉴의 **알림**에서 진행률을 추적할 수 있습니다.
+
+### <a name="delete-run-as-account"></a>실행 계정 삭제
+다음 단계는 Azure 실행 계정 또는 클래식 실행 계정을 삭제하고 다시 만드는 방법을 설명합니다.  이 작업을 실행하는 경우 Automation 계정이 보존됩니다.  실행 계정 또는 클래식 실행 계정을 삭제한 후 포털에서 계정을 다시 만들 수 있습니다.  
+
+1. Azure Portal에서 Automation 계정을 엽니다.  
+2. Automation 계정 블레이드의 계정 속성 창에서 **계정 설정** 섹션 아래 있는 **실행 계정**을 선택합니다.
+3. **실행 계정** 속성 블레이드에서 삭제할 실행 계정 또는 클래식 실행 계정을 선택하고 선택한 계정의 속성 블레이드에서 **삭제**를 클릭합니다.<br><br> ![실행 계정 삭제](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  계속할지 묻는 메시지가 나타납니다.
+4. 계정이 삭제되는 동안 메뉴의 **알림** 에서 진행률을 추적할 수 있습니다.  삭제가 완료되면 **실행 계정** 속성 블레이드에서 만들기 옵션, **Azure 실행 계정**을 선택하여 계정을 다시 만들 수 있습니다.<br><br> ![Automation 실행 계정 다시 만들기](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+
+### <a name="misconfiguration"></a>잘못된 구성
+실행 계정 또는 클래식 실행 계정이 제대로 작동하는 데 필요한 다음과 같은 구성이 초기 설정 중에 삭제되거나 제대로 생성되지 않는 경우:
+
+* 인증서 자산 
+* 연결 자산 
+* 실행 계정이 참여자 역할에서 제거됨
+* Azure AD의 서비스 주체 또는 응용 프로그램
+
+Automation에서 이러한 변화를 감지하고 계정의 **실행 계정** 속성 블레이드에 **완료 안 됨** 상태로 알려줍니다.<br><br> ![완료되지 않은 실행 계정 구성 상태 메시지](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>실행 계정을 선택하면 계정의 속성 창에 다음 경고가 표시됩니다.<br><br> ![완료되지 않은 실행 계정 구성 경고 메시지](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
+실행 계정이 잘못 구성되면 실행 계정을 삭제하고 다시 만들어서 신속하게 해결할 수 있습니다.   
+
 ## <a name="update-an-automation-account-using-powershell"></a>PowerShell을 사용하여 자동화 계정 업데이트
 여기에서는 다음과 같은 경우에 기존 자동화 계정을 업데이트하기 위해 PowerShell을 사용하기 위한 옵션을 제공합니다.
 
 1. 자동화 계정을 만들었지만 실행 계정 만들기를 거부되었습니다.
-2. Resource Manager 리소스를 관리하기 위한 자동화 계정이 이미 있다면 Runbook 인증을 위한 실행 계정을 포함하도록 업데이트해야 합니다.
-3. 클래식 리소스를 관리하기 위한 자동화 계정이 이미 있다면 새 계정을 만들고 Runbook 및 자산을 마이그레이션하는 대신 클래식 계정을 사용하여 업데이트해야 합니다.   
+2. Automation 계정을 Azure Government 클라우드에서 만들어야 합니다.
+3. Resource Manager 리소스를 관리하기 위한 자동화 계정이 이미 있다면 Runbook 인증을 위한 실행 계정을 포함하도록 업데이트해야 합니다.
+4. 클래식 리소스를 관리하기 위한 자동화 계정이 이미 있다면 새 계정을 만들고 Runbook 및 자산을 마이그레이션하는 대신 클래식 계정을 사용하여 업데이트해야 합니다.   
 
 계속하기 전에 다음을 확인하세요.
 
-1. Windows 7을 실행하는 경우 [WMF(Windows 관리 프레임워크) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) 을 다운로드하고 설치했습니다.   
-    Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 및 Windows 7 SP1을 실행하는 경우 [Windows 관리 프레임워크 5.0](https://www.microsoft.com/download/details.aspx?id=50395) 을 설치에 사용할 수 있습니다.
-2. Azure PowerShell 1.0 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+1. 이 스크립트는 Azure Resource Manager 모듈 2.01 이상이 설치되어 있는 Windows 10 및Windows Server 2016에서만 실행을 지원합니다.  이전 버전의 Windows에서는 지원되지 않습니다.  
+2. Azure PowerShell 1.0 이상. 이 릴리스에 대한 정보 및 설치 방법은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 3. 자동화 계정을 만들었습니다.  이 계정은 아래 두 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
 
-스크립트에 대한 필수 매개 변수인 *SubscriptionID*, *ResourceGroup* 및 *AutomationAccountName*에 대한 값을 가져오려면, Azure 포털에서 **자동화 계정** 블레이드의 자동화 계정을 선택하고 **모든 설정**을 선택합니다.  **계정 설정** 아래에 있는 **모든 설정** 블레이드에서 **속성**을 선택합니다.  **속성** 블레이드에서 이들 값을 기록할 수 있습니다.<br> ![자동화 계정 속성](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+스크립트에 대한 필수 매개 변수인 *SubscriptionID*, *ResourceGroup* 및 *AutomationAccountName*에 대한 값을 가져오려면, Azure 포털에서 **자동화 계정** 블레이드의 자동화 계정을 선택하고 **모든 설정**을 선택합니다.  **계정 설정** 아래에 있는 **모든 설정** 블레이드에서 **속성**을 선택합니다.  **속성** 블레이드에서 이들 값을 기록할 수 있습니다.<br><br> ![자동화 계정 속성](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-run-as-account-powershell-script"></a>실행 계정 PowerShell 스크립트 만들기
 아래 PowerShell 스크립트는 다음을 구성합니다.
@@ -172,9 +201,18 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
    
         [Parameter(Mandatory=$false)]
         [int] $NoOfMonthsUntilExpired = 12
+
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
         )
    
-        Login-AzureRmAccount
+        #Check to see which cloud environment to sign into.
+        Switch ($Environment)
+        {
+          "AzureCloud" {Login-AzureRmAccount}
+          "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+        }
         Import-Module AzureRM.Resources
         Select-AzureRmSubscription -SubscriptionId $SubscriptionId
    
@@ -195,9 +233,9 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
         $KeyCredential.StartDate = $CurrentDate
         $KeyCredential.EndDate= $EndDate
         $KeyCredential.KeyId = $KeyId
-        $KeyCredential.Type = "AsymmetricX509Cert"
-        $KeyCredential.Usage = "Verify"
-        $KeyCredential.Value = $KeyValue
+        #$KeyCredential.Type = "AsymmetricX509Cert"
+        #$KeyCredential.Usage = "Verify"
+        $KeyCredential.CertValue = $KeyValue
    
         # Use Key credentials
         $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
@@ -229,8 +267,9 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
         Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
         $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
+
 2. 사용자 컴퓨터의 **시작** 화면에서 관리자 권한으로 **Windows PowerShell**을 시작합니다.
-3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
+3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, *-CertPlainPassword* 및 *-Environment* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
    
    > [!NOTE]
    > 스크립트를 실행한 후에 Azure 인증을 묻는 메시지가 나타납니다. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 로그인해야 합니다.
@@ -241,7 +280,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
         -AutomationAccountName <NameofAutomationAccount> `
         -ApplicationDisplayName <DisplayNameofAutomationAccount> `
         -SubscriptionId <SubscriptionId> `
-        -CertPlainPassword "<StrongPassword>"  
+        -CertPlainPassword "<StrongPassword>" -Environment <valid values are AzureCloud or AzureUSGovernment>  
    <br>
 
 스크립트가 성공적으로 완료되면 아래의 [샘플 코드](#sample-code-to-authenticate-with-resource-manager-resources) 를 참조하여 Resource Manager 리소스를 사용하여 인증하고 자격 증명 구성의 유효성을 검사합니다.
@@ -307,6 +346,7 @@ Azure 포털에서 자동화 계정을 만들고, PowerShell을 사용하여 자
         Write-Host -ForegroundColor red "Please upload the cert $CertPathCer to the Management store by following the steps below."
         Write-Host -ForegroundColor red "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates."
         Write-Host -ForegroundColor red "Then click Upload and upload the certificate $CertPathCer"
+
 2. 사용자 컴퓨터의 **시작** 화면에서 관리자 권한으로 **Windows PowerShell**을 시작합니다.  
 3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
    
@@ -333,7 +373,7 @@ Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용
        # Get the connection "AzureRunAsConnection "
        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
-       "Logging in to Azure..."
+       "Signing in to Azure..."
        Add-AzureRmAccount `
          -ServicePrincipal `
          -TenantId $servicePrincipalConnection.TenantId `
@@ -354,7 +394,7 @@ Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용
     }
 
 
-스크립트에는 여러 구독 간에 쉽게 작업할 수 있도록 구독 컨텍스트를 참조하기 위해 지원되는 두 개의 코드 줄이 추가로 포함됩니다. SubscriptionId라는 변수 자산은 구독 ID를 포함하고 Add-AzureRmAccount cmdlet 문 뒤에 있는 [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/library/mt619263.aspx) 은 매개 변수 집합 *-SubscriptionId*으로 지정됩니다. 변수 이름이 너무 일반적인 경우 변수의 이름을 수정하여 용도에 맞게 식별하기 쉽도록 접두사 또는 다른 명명 규칙을 포함할 수 있습니다. 또한 해당하는 변수 자산이 있는 -SubscriptionId 대신 set -SubscriptionName 매개 변수를 사용할 수 있습니다.  
+스크립트에는 여러 구독 간에 쉽게 작업할 수 있도록 구독 컨텍스트를 참조하기 위해 지원되는 두 개의 코드 줄이 추가로 포함됩니다. SubscriptionId라는 변수 자산은 구독 ID를 포함하고 Add-AzureRmAccount cmdlet 문 뒤에 있는 [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/library/mt619263.aspx) 은 매개 변수 집합 *-SubscriptionId*으로 지정됩니다. 변수 이름이 너무 일반적인 경우 변수의 이름을 수정하여 용도에 맞게 식별하기 쉽도록 접두사 또는 다른 명명 규칙을 포함할 수 있습니다. 또한 해당하는 변수 자산이 있는 -SubscriptionId 대신 set -SubscriptionName 매개 변수를 사용할 수 있습니다.    
 
 Runbook - **Add-AzureRmAccount**에서 인증에 사용 되는 cmdlet는 *ServicePrincipalCertificate* 매개 변수 집합을 사용합니다.  이것은 자격 증명이 아니라 서비스 주체 인증서를 사용하여 인증합니다.  
 
@@ -390,10 +430,5 @@ Runbook으로 클래식 리소스를 관리하는 클래식 실행 계정을 사
 * 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 * Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 * 인증서 및 Azure 서비스에 대한 자세한 내용은 [Azure 클라우드 서비스 인증서 개요](../cloud-services/cloud-services-certs-create.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

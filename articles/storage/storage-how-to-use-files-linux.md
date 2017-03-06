@@ -17,6 +17,7 @@ ms.author: renash
 translationtype: Human Translation
 ms.sourcegitcommit: e296e468309b53338231e283ac62e4d917e0834b
 ms.openlocfilehash: 8cb98eb721d5769125926a6c75f776a9d510376e
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -63,7 +64,7 @@ sudo apt-get install cifs-utils
 그런 다음 탑재 지점(mkdir mymountpoint)을 만들고 다음과 비슷한 탑재 명령을 실행해야 합니다.
 
 ```
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 ```
 
 또한 /etc/fstab에서 공유를 탑재하는 설정을 추가할 수도 있습니다.
@@ -73,7 +74,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpo
 또한 다시 부팅 후에 탑재된 파일 공유를 유지하기 위해 /etc/fstab에서 아래와 같은 설정을 추가할 수 있습니다.
 
 ```
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 ```
 
 예를 들어 Azure 이미지 갤러리에서 사용할 수 있는 Linux 이미지 Ubuntu Server 15.04를 사용하여 Azure VM을 만든 경우에는 다음과 같이 파일을 탑재할 수 있습니다.
@@ -81,7 +82,7 @@ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpo
 ```
 azureuser@azureconubuntu:~$ sudo apt-get install cifs-utils
 azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
-azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 azureuser@azureconubuntu:~$ df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -91,7 +92,7 @@ CentOS 7.1을 사용하는 경우 다음과 같이 파일을 탑재할 수 있�
 
 ```
 [azureuser@AzureconCent ~]$ sudo yum install samba-client samba-common cifs-utils
-[azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+[azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 [azureuser@AzureconCent ~]$ df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -102,7 +103,7 @@ Open SUSE 13.2를 사용하는 경우 다음과 같이 파일을 탑재할 수 �
 ```
 azureuser@AzureconSuse:~> sudo zypper install samba*  
 azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 azureuser@AzureconSuse:~> df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -113,7 +114,7 @@ RHEL 7.3을 사용하는 경우 다음과 같이 파일을 탑재할 수 있습�
 ```
 azureuser@AzureconRedhat:~> sudo yum install cifs-utils
 azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -159,9 +160,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

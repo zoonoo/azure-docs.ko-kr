@@ -18,6 +18,7 @@ ms.author: jparrel
 translationtype: Human Translation
 ms.sourcegitcommit: 8dc7a8c3f109861df70c7501b709a34196e9acbc
 ms.openlocfilehash: 5541dfa41f55a2841108fc8492338f0f291fe377
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -338,9 +339,4 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 * 부하 분산 장치는 응답하는 데&5;초 이상 필요하므로 응용 프로그램에서 클러스터를 인식하고 시간 제한을 더 늘려야 합니다. 앱 내 큐 및 쿼리 미들웨어와 같은 다른 아키텍처도 도움이 될 수 있습니다.
 * MySQL 튜닝을 통해 쓰기가 관리 가능한 속도로 수행되고 캐시가 가능한 한 자주 디스크로 플러시되어 메모리 손실을 최소화하도록 보장해야 합니다.
 * 쓰기 성능은 가상 스위치의 VM 상호 연결에 따라 달라집니다. 이는 DRBD에서 장치를 복제하는 데 사용하는 메커니즘이기 때문입니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

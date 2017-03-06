@@ -17,6 +17,7 @@ ms.author: robmcm;asirveda
 translationtype: Human Translation
 ms.sourcegitcommit: 0933eabf99ef94f2c4b425f1435530edfde65e3f
 ms.openlocfilehash: 9e55eb52797f1363cbb65050574e549c575ca5d8
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -131,9 +132,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Java 빌드 경로]: http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fref-properties-build-path.htm
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

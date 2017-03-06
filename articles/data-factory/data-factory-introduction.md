@@ -18,6 +18,7 @@ ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: 757e91c3c702a62fb143f45a3144069400c5a757
 ms.openlocfilehash: e2c2611d6f1094d2c1ba2bdb2398b0b17723af8a
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -84,9 +85,4 @@ Data Factory는 **미국 서부**, **미국 동부** 및 **북유럽** 지역에
 | [두 클라우드 데이터 저장소 간의 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob Storage에서 SQL Database로 **데이터를 이동** 합니다. |
 | [Hadoop 클러스터를 사용하여 데이터 변환](data-factory-build-your-first-pipeline.md) |이 자습서에서는 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 **데이터를 처리** 하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다. |
 | [데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) |이 자습서에서는 **온-프레미스** SQL Server 데이터베이스에서 Azure Blob으로 **데이터를 이동**하는 파이프라인이 포함된 데이터 팩터리를 구축합니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다. |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

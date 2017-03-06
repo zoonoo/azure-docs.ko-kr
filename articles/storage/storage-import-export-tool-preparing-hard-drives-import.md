@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
 ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -407,9 +408,4 @@ WAImportExport 도구는 배치 기준으로 파일을 읽고 쓰며, 배치 하
 **.xml** - WAImportExport 도구를 사용하여 준비하는 각 하드 드라이브의 경우 이 도구에서 "&lt;DriveID&gt;.xml" 이름의 단일 저널 파일을 만듭니다. 여기서 드라이브 ID는 도구에서 디스크로부터 읽어들이는 드라이브와 관련된 일련 번호입니다. Azure Portal에서 가져오기 작업을 만들려면 모든 드라이브의 저널 파일이 필요합니다. 도구가 중단되는 경우 이 저널 파일을 사용하여 드라이브 준비를 다시 시작할 수도 있습니다.
 
 **.jrn** - .jrn 접미사가 있는 저널 파일에는 하드 드라이브의 모든 복사 세션에 대한 상태가 포함됩니다. 가져오기 작업을 만드는 데 필요한 정보도 포함됩니다. WAImportExport 도구를 실행할 때 항상 저널 파일과 복사 세션 ID를 지정해야 합니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

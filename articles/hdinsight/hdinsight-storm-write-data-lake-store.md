@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 0342c13e48d3f3605dcc169523d7d8d2d7aedba8
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -259,10 +260,5 @@ SSH 세션에서 클러스터로 다음 명령을 사용합니다.
 ## <a name="next-steps"></a>다음 단계
 
 이제 Storm을 사용하여 Azure Data Lake 저장소에 작성하는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](hdinsight-storm-example-topology.md)를 검색합니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

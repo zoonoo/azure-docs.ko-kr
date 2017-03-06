@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
 ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -123,10 +124,5 @@ Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 DocumentDB 용량 계획에 대한 자세한 내용은 [DocumentDB Capacity Planner 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
 ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -166,9 +167,4 @@ Nancy와 그녀의 팀이 높은 가치의 데이터 원본을 쉽게 찾을 수
 * [데이터 원본 검색](data-catalog-get-started.md)
 * [데이터 원본에 주석 추가](data-catalog-get-started.md)
 * [메타데이터 크라우드소싱](data-catalog-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

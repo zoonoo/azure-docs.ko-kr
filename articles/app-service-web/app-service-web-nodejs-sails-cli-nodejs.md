@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 Node.js 응용 프로그램을 배포하
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 08b4cd3fe4a246bc62fb4a6cc596630968d7f9d7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,7 +40,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](app-service-web-nodejs-sails.md) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](app-service-web-nodejs-sails.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 ## <a name="prerequisites"></a>필수 조건
 * [Node.JS](https://nodejs.org/)
@@ -258,9 +259,4 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 ## <a name="more-resources"></a>추가 리소스
 * [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
 * [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

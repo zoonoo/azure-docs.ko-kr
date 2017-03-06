@@ -17,6 +17,7 @@ ms.author: toddabel
 translationtype: Human Translation
 ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
 ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -151,10 +152,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [서비스 패브릭 상태 심층 분석](service-fabric-health-introduction.md)
 * [서비스 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [응용 프로그램 상태를 보고하기 위한 REST API](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "클라우드의 배치 및 HPC 솔루션 | Microsoft 문서"
+title: "클라우드 – Azure의 Batch 및 HPC 솔루션 | Microsoft Docs"
 description: "Azure의 배치 및 고성능 컴퓨팅(HPC 및 Big Compute) 시나리오와 솔루션 옵션에 대해 알아보기"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Azure 클라우드의 배치 및 HPC 솔루션
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>대규모 컴퓨팅 워크로드를 위한 Batch 및 HPC 솔루션
+
 Azure는 효율적이고 확장성 있는 *Big Compute*로도 불리는 배치 및 HPC(고성능 컴퓨팅)용 클라우드 솔루션을 소개합니다. 큰 컴퓨팅 워크로드 및 이를 지원하기 위한 Azure 서비스를 알아보거나 이 문서의 뒷부분에 나오는 [솔루션 시나리오](#scenarios) 로 직접 이동합니다. 이 문서는 주로 기술 의사 결정자, IT 관리자 및 독립 소프트웨어 공급 업체용 이지만 다른 IT 전문가 및 개발자도 이 솔루션들을 익히기 위해 사용할 수 있습니다.
 
 조직에는 엔지니어링 디자인 및 분석, 이미지 렌더링, 복잡한 모델링, Monte Carlo 시뮬레이션, 재무 위험 계산 및 기타 대규모 컴퓨팅 문제가 있습니다. Azure는 조직에서 필요한 리소스, 규모 및 일정에 발생한 문제를 해결하도록 돕습니다. Azure를 활용하여 조직에서는 다음을 수행할 수 있습니다.
@@ -134,9 +137,4 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

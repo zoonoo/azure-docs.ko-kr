@@ -1,5 +1,5 @@
 ---
-title: "Service Bus 큐 시작 | Microsoft Docs"
+title: "Azure Service Bus 큐를 사용하는 프로그램 작성 | Microsoft Docs"
 description: "서비스 버스 메시징에 대한 C# 콘솔 응용 프로그램을 작성하는 방법"
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
-ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 83649bdad1d369cdfe4edf3c2bdaa67180db8668
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 4. 메시지를 수신하는 콘솔 응용 프로그램을 작성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-1. [Visual Studio 2013 또는 Visual Studio 2015](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용합니다.
+1. [Visual Studio 2015 이상](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용합니다.
 2. Azure 구독.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -175,9 +176,4 @@ Azure Service Bus 메시징의 더 많은 고급 기능 중 일부를 보여 주
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

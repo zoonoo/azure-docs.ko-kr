@@ -1,6 +1,6 @@
 ---
 title: "Azure CLI(az.py)를 사용하여 IoT Hub 만들기 | Microsoft Docs"
-description: "플랫폼 간 Azure CLI 2.0(미리 보기)(az.py)을 사용하여 Azure IoT Hub를 만드는 방법입니다."
+description: "플랫폼 간 Azure CLI 2.0(az.py)을 사용하여 Azure IoT hub를 만드는 방법"
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,31 +12,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 4f512601cebcfce7bfac47ed440c96fcb2c91b5f
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 IoT Hub 만들기
+# <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 IoT Hub 만들기
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>소개
 
-Azure CLI 2.0(미리 보기)(az.py)을 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리할 수 있습니다. 이 문서는 Azure CLI 2.0(미리 보기)(az.py)을 사용하여 IoT Hub를 만드는 방법을 보여 줍니다.
+Azure CLI 2.0(az.py)을 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리할 수 있습니다. 이 문서는 Azure CLI 2.0(az.py)을 사용하여 IoT Hub를 만드는 방법을 보여줍니다.
 
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 * [Azure CLI(azure.js)](iot-hub-create-using-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
-* Azure CLI 2.0(미리 보기)(az.py) - 이 문서에 설명된 대로 리소스 관리 배포 모델용 차세대 CLI입니다.
+* Azure CLI 2.0(az.py) - 이 문서에 설명된 대로 리소스 관리 배포 모델용 차세대 CLI입니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
-* [Azure CLI 2.0(미리 보기)][lnk-CLI-install].
+* [Azure CLI 2.0][lnk-CLI-install].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
@@ -62,16 +63,16 @@ Azure 계정에 로그인하고 IoT Hub 리소스로 작업할 Azure CLI를 구�
     az account set --subscription {your subscription name or id}
     ```
 
-3. IoT 리소스를 배포하기 전에 먼저 IoT 공급자를 등록해야 합니다. 다음 [IoT 공급자를 등록하는 명령][lnk-az-register-command]을 실행합니다.
-    
-    ```azurecli
-    az provider register -namespace "Microsoft.Devices"
-    ```
-
-4. Azure CLI _IoT 구성 요소_를 설치해야 할 수 있습니다. 다음 [IoT 구성 요소를 추가하는 명령][lnk-az-addcomponent-command]을 실행합니다.
+3. Azure CLI _IoT 구성 요소_를 설치합니다. 다음 [IoT 구성 요소를 추가하는 명령][lnk-az-addcomponent-command]을 실행합니다.
     
     ```azurecli
     az component update --add iot
+    ```
+
+4. IoT 리소스를 배포하기 전에 먼저 IoT 공급자를 등록합니다. 다음 [IoT 공급자를 등록하는 명령][lnk-az-register-command]을 실행합니다.
+    
+    ```azurecli
+    az provider register -namespace Microsoft.Devices
     ```
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
@@ -81,7 +82,7 @@ Azure CLI를 사용하여 리소스 그룹을 만든 다음 IoT Hub를 추가합
 1. IoT Hub는 리소스 그룹에서 만들어야 합니다. 기존 리소스 그룹을 사용하거나 다음 [리소스 그룹을 만드는 명령][lnk-az-resource-command]을 실행합니다.
     
     ```azurecli
-     az resource group create --name {your resource group name} --location westus
+     az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
@@ -113,11 +114,11 @@ az resource delete --name {your iot hub name} --resource-group {your resource gr
 리소스 그룹 및 모든 해당 리소스를 삭제하려면 다음 명령을 실행합니다.
 
 ```azurecli
-az resource group delete --name {your resource group name}
+az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>다음 단계
-IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
 
@@ -137,9 +138,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

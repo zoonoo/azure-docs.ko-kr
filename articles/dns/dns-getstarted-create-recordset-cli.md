@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI를 사용하여 DNS 레코드 만들기 | Microsoft Docs"
-description: "Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. CLI를 사용하여 레코드 집합 및 레코드를 설정합니다."
+title: "Azure CLI 2.0을 사용하여 DNS 레코드 만들기 | Microsoft Docs"
+description: "Azure DNS의 호스트 레코드를 만들고 Azure CLI 2.0을 사용하여 레코드 집합 및 레코드를 설정하는 방법"
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -10,21 +10,24 @@ ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/21/2016
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 18a21cdc0f9641356dfaf6f6d93edfcac11af210
-ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: ca713647a9f795d7803c32eac7fba9b5b6ac95cf
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="create-dns-records-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 레코드 만들기
+# <a name="how-to-create-dns-records-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 DNS 레코드를 만드는 방법
 
 > [!div class="op_single_selector"]
-> * [문제 해결](dns-getstarted-create-recordset-portal.md)
+> * [Azure 포털](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Azure CLI](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
 이 문서에서는 Azure CLI를 사용하여 레코드 및 레코드 집합을 만드는 과정을 안내합니다.
 
@@ -36,35 +39,42 @@ Azure DNS에 DNS 레코드를 만들기 전에 먼저 Azure DNS에서 DNS 레코
 
 Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코드](dns-zones-records.md)를 참조하세요.
 
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
+
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
+
+* [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI.
+* [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md) - 리소스 관리 배포 모델용 차세대 CLI.
+
 ## <a name="create-a-record-set-and-record"></a>레코드 집합 및 레코드 만들기
 
-이 섹션에서는 Azure DNS에서 DNS 레코드를 만드는 방법을 설명합니다. 예제에서는 이미 [Azure CLI를 설치했고, 로그인했고, DNS 영역을 만들었다](dns-getstarted-create-dnszone-cli.md)고 가정합니다.
+이 섹션에서는 Azure DNS에서 DNS 레코드를 만드는 방법을 설명합니다. 예제에서는 이미 [Azure CLI 2.0을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-getstarted-create-dnszone-cli.md)고 가정합니다.
 
-이 페이지에 나오는 모든 예제에서는 'A' DNS 레코드 유형을 사용합니다. 다른 레코드 유형과 DNS 레코드 및 레코드 집합을 관리하는 방법에 관한 자세한 내용은 [Azure CLI를 사용하여 DNS 레코드 및 레코드 집합을 관리하기](dns-operations-recordsets-cli.md)를 참조하세요.
+이 페이지에 나오는 모든 예제에서는 'A' DNS 레코드 유형을 사용합니다. 다른 레코드 유형과 DNS 레코드 및 레코드 집합을 관리하는 방법에 관한 자세한 내용은 [Azure CLI 2.0을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-DNS 레코드를 만들려면 `azure network dns record-set add-record` 명령을 사용합니다. 도움말을 보려면 `azure network dns record-set add-record -h`을 참조하세요.
+DNS 레코드를 만들려면 `az network dns record-set ? add` 명령(? 는 레코드 유형)을 사용합니다. 도움말을 보려면 `az network dns record-set --help`을 참조하세요.
 
 레코드를 만드는 경우 리소스 그룹 이름, 영역 이름, 레코드 집합 이름, 레코드 유형 및 만드는 레코드의 세부 정보를 지정해야 합니다.
 
 레코드 집합이 아직 없는 경우 이 명령은 자동으로 레코드 집합을 만듭니다. 레코드 집합이 이미 있는 경우 이 명령은 지정한 레코드를 기존 레코드 집합에 추가합니다. 
 
-새 레코드 집합이 만들어지면 3600의 기본 TTL(Time to Live)이 사용됩니다. 다른 TTL을 사용하는 방법에 대한 지침은 [Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 관리](dns-operations-recordsets-cli.md)를 참조하세요.
+새 레코드 집합이 만들어지면 3600의 기본 TTL(Time to Live)이 사용됩니다. 다른 TTL을 사용하는 방법에 대한 지침은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 관리](dns-operations-recordsets-cli.md)를 참조하세요.
 
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 *www*라는 A 레코드를 만듭니다. A 레코드의 IP 주소는 *1.2.3.4*입니다.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-영역(이 경우 "contoso.com")의 apex에 레코드 집합을 만들려면 따옴표를 포함한 "@", 레코드 이름을 사용합니다.
+영역의 루트(이 경우 "contoso.com")에 레코드 집합을 만들기 위해 따옴표를 포함한 "@"을 레코드 이름으로 사용합니다.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+az network dns record-set a --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
-레코드 데이터를 지정하는 데 사용되는 매개 변수는 레코드 유형에 따라 다릅니다. 예를 들어 "A" 유형의 레코드의 경우 `-a <IPv4 address>` 매개 변수로 IPv4 주소를 지정합니다. 다른 레코드 종류에 대한 매개 변수를 나열하려면 `azure network dns record-set add-record -h`을 참조하세요. 각 레코드 유형에 대한 예제는 [Azure CLI를 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
+레코드 데이터를 지정하는 데 사용되는 매개 변수는 레코드 유형에 따라 다릅니다. 예를 들어 "A" 유형의 레코드의 경우 `--ipv4-address <IPv4 address>` 매개 변수로 IPv4 주소를 지정합니다. 다른 레코드 종류에 대한 매개 변수를 나열하려면 `az network dns record --help`을 참조하세요. 각 레코드 유형에 대한 예제는 [Azure CLI 2.0을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
 
 
 ## <a name="verify-name-resolution"></a>이름 확인을 확인하기
@@ -90,13 +100,8 @@ Address:  1.2.3.4
 
 [Azure DNS 이름 서버에 도메인 이름을 위임](dns-domain-delegation.md)하는 방법을 알아봅니다.
 
-[Azure CLI를 사용하여 DNS 영역을 관리하는](dns-operations-dnszones-cli.md) 방법에 대해 알아봅니다.
+[Azure CLI 2.0을 사용하여 DNS 영역을 관리](dns-operations-dnszones-cli.md)하는 방법을 알아봅니다.
 
-[Azure CLI를 사용하여 DNS 레코드 및 레코드 집합을 관리하는](dns-operations-recordsets-cli.md) 방법에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+[Azure CLI 2.0을 사용하여 DNS 레코드 및 레코드 집합을 관리](dns-operations-recordsets-cli.md)하는 방법을 알아봅니다.
 
 

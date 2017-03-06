@@ -1,5 +1,5 @@
 ---
-title: "Azure Batch 서비스 개요 | Microsoft Docs"
+title: "Azure Batch는 클라우드에서 대규모 병렬 컴퓨팅 솔루션을 실행합니다. | Microsoft Docs"
 description: "대규모 병렬 및 HPC 워크로드의 경우 Azure 배치 서비스를 사용하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Azure 배치의 기본 사항
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Batch를 사용하여 본질적인 병렬 워크로드 실행
+
 Azure 배치는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure 배치는 가상 컴퓨터의 관리되는 컬렉션에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다.
 
 Azure 배치를 사용하면 Azure 계산 리소스를 쉽게 정의하여 응용 프로그램을 병렬로 규모에 맞게 실행할 수 있습니다. HPC 클러스터, 개별 가상 컴퓨터, 가상 네트워크 또는 복잡한 작업 및 태스크 예약 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다. Azure 배치는 이러한 태스크를 자동화하거나 단순화합니다.
@@ -156,9 +159,4 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

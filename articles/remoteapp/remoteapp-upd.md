@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: dd281ead7d2c06af98ea0baea31d897b5be0d9d7
 ms.openlocfilehash: 04d8031a4c5f06d56afc1d08d4a4fa5fb50f8a25
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -145,10 +146,5 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 
 이렇게 하면 New-PSDrive cmdlet에서  -Credential 매개 변수를 건너뛸 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

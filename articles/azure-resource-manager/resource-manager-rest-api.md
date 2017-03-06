@@ -17,6 +17,7 @@ ms.author: navale;tomfitz;
 translationtype: Human Translation
 ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
 ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -252,9 +253,4 @@ Content-Type: application/json
 ## <a name="next-steps"></a>다음 단계
 
 - 비동기 REST 작업 처리에 대해 알아보려면 [Azure 비동기 작업 추적](resource-manager-async-operations.md)을 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
 ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -69,9 +70,4 @@ MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService 및 MaxPerc
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

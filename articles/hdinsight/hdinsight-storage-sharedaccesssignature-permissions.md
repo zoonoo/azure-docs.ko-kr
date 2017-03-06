@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 6187106a9aa98107d89e65fe4c7a0e8a27befa87
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -254,9 +255,4 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -18,6 +18,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
 ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -76,10 +77,5 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 **6. 데이터 게시자가 되는 것에 대한 질문이 있거나 게시 중에 문제가 있는 경우 도움을 얻기 위해 문의해야 하는 사람은 누구인가요?**
 
 자세한 내용은 <mailto:datamarketbd@microsoft.com>에서 Azure Marketplace 팀에 문의하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

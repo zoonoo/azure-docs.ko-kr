@@ -17,6 +17,7 @@ ms.author: magoedte; bwren
 translationtype: Human Translation
 ms.sourcegitcommit: c86ec1d328d3cbf62c1a563766574a006299b232
 ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
+ms.lasthandoff: 01/14/2017
 
 ---
 
@@ -107,8 +108,3 @@ Automation 계정을 만들 때 기본적으로 **AzurServicePrincipal** 연결 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 검토하여 runbook의 논리 흐름을 지시하고 제어하는 방법을 이해합니다.  
 
 - Azure Automation에서 PowerShell 모듈을 사용하는 방법 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

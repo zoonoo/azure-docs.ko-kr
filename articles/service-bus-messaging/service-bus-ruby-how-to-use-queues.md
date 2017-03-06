@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
 ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -121,10 +122,5 @@ azure_service_bus_service.delete_queue_message(message)
 * GitHub에서 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
 
 이 문서에서 설명한 Azure Service Bus 큐와 [Ruby에서 큐 Storage를 사용하는 방법](../storage/storage-ruby-how-to-use-queue-storage.md) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

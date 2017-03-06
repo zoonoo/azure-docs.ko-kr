@@ -17,6 +17,7 @@ ms.author: bradsev;paulsh
 translationtype: Human Translation
 ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
 ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -530,9 +531,4 @@ Squirrel SQL을 사용하여 쿼리할 수도 있습니다. ***/usr/share/java/j
 Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요.
 
 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대한 설명은 [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md)을 참조하세요. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

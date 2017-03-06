@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,8 +40,6 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 > 현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다.
 > 
 > 
-
-Operations Management Suite에서 Log Analytics를 사용하여 수집한 로그를 시각화할 수 있습니다. 자세한 내용은 [Log Analytics의 Azure 주요 자격 증명 모음(미리 보기) 솔루션](../log-analytics/log-analytics-azure-key-vault.md)을 참조하세요.
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 | SecretList |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[암호 버전 나열](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Log Analytics 사용
+
+Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다. 설정 방법을 비롯한 자세한 내용은 [Log Analytics의 Azure Key Vault 솔루션](../log-analytics/log-analytics-azure-key-vault.md)을 참조하세요. 또한 이 문서는 먼저 Azure Storage 계정으로 로그를 라우팅하고 해당 위치에서 읽도록 Log Analytics를 구성한 Log Analytics 미리 보기 중 제공된 이전 Key Vault 솔루션에서 마이그레이션해야 할 경우 지침을 포함합니다.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
 웹 응용 프로그램에서 Azure Key Vault를 사용하는 자습서는 [웹 응용 프로그램에서 Azure Key Vault 사용](key-vault-use-from-web-application.md)을 참조하세요.
 
@@ -262,10 +265,5 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 Azure Key Vault의 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
 
 Azure Key Vault을 사용하는 키 회전 및 로그 감사에 대한 자습서는 [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](key-vault-key-rotation-log-monitoring.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

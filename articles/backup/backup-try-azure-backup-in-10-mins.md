@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager 배포 모델을 사용하여 Windows에서 Azure Backup이 있는 Azure로 파일 및 폴더 백업 | Microsoft 문서"
-description: "Resource Manager 배포에서 Windows 파일 및 폴더를 Azure로 백업하는 방법을 알아봅니다."
+title: "Azure(Resource Manager)에 Windows 파일 및 폴더 백업 | Microsoft Docs"
+description: "Resource Manager 배포를 통해 Windows 파일 및 폴더를 Azure로 백업하는 방법을 알아봅니다."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
 
 Azure 백업에 대해 자세히 알아보려면 이 [개요](backup-introduction-to-azure-backup.md)를 읽어보세요.
 
-Azure에 파일 및 폴더를 백업하려면 다음과 같은 작업이 필요합니다.
-
-![1단계](./media/backup-try-azure-backup-in-10-mins/step-1.png) 아직 Azure 구독이 없는 경우 만듭니다.<br>
-![2단계](./media/backup-try-azure-backup-in-10-mins/step-2.png) Recovery Services 자격 증명 모음을 만듭니다.<br>
-![3단계](./media/backup-try-azure-backup-in-10-mins/step-3.png) 필요한 파일을 다운로드합니다.<br>
-![4단계](./media/backup-try-azure-backup-in-10-mins/step-4.png) Recovery Services 에이전트를 설치 및 등록합니다.<br>
-![5단계](./media/backup-try-azure-backup-in-10-mins/step-5.png) 파일 및 폴더를 백업합니다.
-
-![Azure 백업을 사용하여 Windows 컴퓨터를 백업하는 방법](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Azure 구독 가져오기
 Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
@@ -70,6 +60,7 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
   리소스 그룹에 대한 전체 정보는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 7. **위치** 를 클릭하여 자격 증명 모음에 대한 지리적 지역을 선택합니다. 선택에 따라 백업 데이터가 전송되는 지역이 결정됩니다.
+
 8. Recovery Services 자격 증명 모음 블레이드의 하단에서 **만들기**를 클릭합니다.
 
     Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 복구 서비스 자격 증명 모음 목록에 나타납니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
@@ -229,9 +220,4 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 * [Windows 컴퓨터 백업](backup-configure-vault.md)에 대해 자세히 알아보세요.
 * 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 * 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

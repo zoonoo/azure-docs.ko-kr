@@ -16,6 +16,7 @@ ms.author: markgal;
 translationtype: Human Translation
 ms.sourcegitcommit: fa00142a9e89c5ad2630f688ea9771a1a542c052
 ms.openlocfilehash: e5f89f845302ecb890caa50dd8f86503b29f1154
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -93,9 +94,4 @@ Azure Backup Server는 System DPM(Center Data Protection Manager)과 비슷한 �
 어디서부터 시작해야 할지 모르는 경우 [클래식 배포 모델을 사용하여 Azure에 Windows 서버 또는 클라이언트 백업](../backup/backup-configure-vault-classic.md) 문서로 시작합니다. 이 자습서는 Windows Server 또는 컴퓨터에서 백업 프로젝트를 설정하는 단계를 안내합니다.
 
 Azure Backup을 사용할 수 있지만 비용을 알고 싶다면 [백업 가격 책정 페이지](http://azure.microsoft.com/pricing/details/backup/)를 참조하세요. 여기에는 유용한 정보를 제공할 수 있는 질문과 대답 목록이 있습니다. 또한 **지역** 드롭다운 메뉴에는 두 개의 Azure Government 지역이 있습니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

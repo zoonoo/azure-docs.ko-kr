@@ -17,6 +17,7 @@ ms.author: scottnap
 translationtype: Human Translation
 ms.sourcegitcommit: 5104c7996de9dc0597e65be31c28a9aaa1243a90
 ms.openlocfilehash: d324290caf5b5a085a2daf67e541c295dffda732
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -347,10 +348,5 @@ POC는 실제 호스트가 배포되는 네트워크로부터 격리된 자체 �
 4. 연결 블레이드에서 **데이터 입력** 및 **데이터 출력**에 대한 통계를 볼 수 있습니다. 다음 스크린샷에는 ping만으로 생성되기에는 큰 숫자가 있습니다. 이것은 파일 전송이 추가로 있었기 때문입니다. 일부&0;이 아닌 값을 볼 수 있습니다.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

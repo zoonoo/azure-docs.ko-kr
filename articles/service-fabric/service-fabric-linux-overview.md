@@ -12,11 +12,12 @@ ms.devlang: Java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 03/02/2017
 ms.author: SubramaR
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -46,10 +47,5 @@ Linux의 서비스 패브릭은 Windows의 서비스 패브릭과 개념적으�
 2. [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
 3. [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 4. [Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

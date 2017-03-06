@@ -17,6 +17,7 @@ ms.author: clemensv;jotaub;hillaryc;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
 ms.openlocfilehash: 72bfbc4c3cc4a3941d842f4fc688df5d6fb46ba8
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -310,9 +311,4 @@ AMQP에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

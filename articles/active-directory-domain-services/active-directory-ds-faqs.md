@@ -17,6 +17,7 @@ ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 5e6bab265b2b6eabd1a878492588c4eb39d1b332
 ms.openlocfilehash: 89dfabb8feafffee2ed8143c372b53d02033d582
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -79,9 +80,4 @@ Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된
 
 #### <a name="what-azure-regions-is-the-service-available-in"></a>어떤 Azure 지역에서 서비스를 사용할 수 있습니까?
 Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

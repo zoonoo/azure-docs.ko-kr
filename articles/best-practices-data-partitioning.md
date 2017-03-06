@@ -18,6 +18,7 @@ ms.author: masashin
 translationtype: Human Translation
 ms.sourcegitcommit: 5f62eef58c8a334013b000176f74cc8f7652f688
 ms.openlocfilehash: 312d1f417df612eee46bb078d784576a438ba0ab
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -573,9 +574,4 @@ Azure Redis Cache를 사용하여 데이터를 분할하는 방법을 결정할 
 [트랜잭션]: http://redis.io/topics/transactions
 [Azure 검색이란?]: search/search-what-is-azure-search.md
 [Azure SQL 데이터베이스 정의]: sql-database/sql-database-technical-overview.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

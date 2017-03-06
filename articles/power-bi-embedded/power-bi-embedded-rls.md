@@ -18,6 +18,7 @@ ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
 ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -113,10 +114,5 @@ to
 
 ## <a name="see-also"></a>참고 항목
 [Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

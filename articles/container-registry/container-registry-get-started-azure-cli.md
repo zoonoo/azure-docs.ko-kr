@@ -1,6 +1,6 @@
 ---
 title: "Azure 컨테이너 레지스트리 만들기 - CLI | Microsoft Docs"
-description: "Azure CLI 2.0 미리 보기를 사용하여 Azure 컨테이너 레지스트리 만들기 및 관리 시작"
+description: "Azure CLI 2.0을 사용하여 Azure 컨테이너 레지스트리 만들기 및 관리 시작"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,12 +17,13 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI를 사용하여 컨테이너 레지스트리 만들기
-[Azure CLI 2.0 미리 보기](https://github.com/Azure/azure-cli)의 명령을 사용하여 Linux, Mac 또는 Windows 컴퓨터에서 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure Portal](container-registry-get-started-portal.md)을 사용하여 또는 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)를 사용하여 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+[Azure CLI 2.0](https://github.com/Azure/azure-cli)의 명령을 사용하여 Linux, Mac 또는 Windows 컴퓨터에서 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure Portal](container-registry-get-started-portal.md)을 사용하여 또는 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)를 사용하여 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
 
 
 * 백그라운드 및 개념은 [Azure Container Registry란?](container-registry-intro.md)을 참조하세요.
@@ -34,9 +35,9 @@ ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure CLI 2.0 미리 보기** - CLI 2.0 미리 보기를 설치하고 시작하려면 [설치 지침](https://github.com/Azure/azure-cli/blob/master/README.rst)을 참조하세요. `az login`을 실행하여 Azure 구독에 로그인합니다.
-* **리소스 그룹** - 컨테이너 레지스트리를 만들기 전에 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹이 Container Registry 서비스를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) 위치에 있도록 해야 합니다. CLI 2.0 미리 보기를 사용하여 리소스 그룹을 만들려면 [CLI 2.0 미리 보기 샘플](https://github.com/Azure/azure-cli-samples/tree/master/arm)을 참조하세요. 
-* **저장소 계정**(선택 사항) - 동일한 위치의 컨테이너 레지스트리를 백업할 표준 Azure [저장소 계정](../storage/storage-introduction.md)을 만듭니다. `az acr create`를 사용하여 레지스트리를 만들 때 저장소 계정을 지정하지 않으면 명령에서 자동으로 생성됩니다. CLI 2.0 미리 보기를 사용하여 저장소 계정을 만들려면 [CLI 2.0 미리 보기 샘플](https://github.com/Azure/azure-cli-samples/tree/master/storage)을 참조하세요.
+* **Azure CLI 2.0** - CLI 2.0을 설치하고 시작하려면 [설치 지침](https://github.com/Azure/azure-cli/blob/master/README.rst)을 참조하세요. `az login`을 실행하여 Azure 구독에 로그인합니다.
+* **리소스 그룹** - 컨테이너 레지스트리를 만들기 전에 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹이 Container Registry 서비스를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) 위치에 있도록 해야 합니다. CLI 2.0을 사용하여 리소스 그룹을 만들려면 [CLI 2.0 샘플](https://github.com/Azure/azure-cli-samples/tree/master/arm)을 참조하세요. 
+* **저장소 계정**(선택 사항) - 동일한 위치의 컨테이너 레지스트리를 백업할 표준 Azure [저장소 계정](../storage/storage-introduction.md)을 만듭니다. `az acr create`를 사용하여 레지스트리를 만들 때 저장소 계정을 지정하지 않으면 명령에서 자동으로 생성됩니다. CLI 2.0을 사용하여 저장소 계정을 만들려면 [CLI 2.0 샘플](https://github.com/Azure/azure-cli-samples/tree/master/storage)을 참조하세요.
 * **서비스 주체**(선택 사항) - CLI를 사용하여 레지스트리를 만들 때 기본적으로 액세스가 가능하도록 설정되지 않습니다. 필요에 따라 레지스트리에 기존 Azure Active Directory 서비스 주체를 할당하거나(또는 새 주체를 만들어서 할당하거나) 레지스트리의 관리자 사용자 계정을 사용하도록 설정할 수 있습니다. 이 문서의 뒷부분에 나오는 섹션을 참조하세요. 레지스트리 액세스에 대한 자세한 내용은 [컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요. 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
@@ -66,7 +67,7 @@ az acr create -n myRegistry -g myResourceGroup -l southcentralus
 * `loginServer` - [레지스트리에 로그인](container-registry-authentication.md)하기 위해 지정하는 정규화된 이름입니다. 이 예제의 경우 해당 이름은 `myregistry-contoso.exp.azurecr.io`(모두 소문자)입니다.
 
 ## <a name="assign-a-service-principal"></a>서비스 주체 할당
-CLI 2.0 미리 보기 명령을 사용하여 Azure Active Directory 서비스 주체를 레지스트리에 할당합니다. 이 예제의 경우 서비스 주체에 소유자 역할이 할당되어 있지만 필요하면 [다른 역할](../active-directory/role-based-access-control-configure.md)을 할당할 수 있습니다.
+CLI 2.0 명령을 사용하여 Azure Active Directory 서비스 주체를 레지스트리에 할당합니다. 이 예제의 경우 서비스 주체에 소유자 역할이 할당되어 있지만 필요하면 [다른 역할](../active-directory/role-based-access-control-configure.md)을 할당할 수 있습니다.
 
 ### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>서비스 주체를 만들고 레지스트리에 대한 액세스 할당
 다음 명령에서는 새 서비스 주체에 `--scopes` 매개 변수를 통해 전달된 레지스트리 식별자에 대한 소유자 역할 액세스가 할당됩니다. `--password` 매개 변수를 통해 강력한 암호를 지정합니다.
@@ -127,10 +128,5 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 ## <a name="next-steps"></a>다음 단계
 * [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

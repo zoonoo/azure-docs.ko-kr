@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>가상 컴퓨터 규모 집합 개요
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure에서 말하는 가상 컴퓨터 크기 집합이란?
 가상 컴퓨터 규모 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM이 동일하게 설정되는 VM 규모 집합은 자동 크기 조정을 충실하게 지원하도록 설계되었습니다. VM 사전 프로비전이 필요하지 않으며, 큰 계산, 빅 데이터 및 컨테이너식 워크로드를 대상으로 하는 대규모 서비스를 쉽게 구축할 수 있도록 합니다.
 
 계산 리소스 크기를 조정해야 하는 응용 프로그램의 경우 크기 조정 작업은 장애 도메인 및 업데이트 도메인 간에 암시적으로 균형이 조정됩니다. VM 규모 집합에 대한 소개는 [Azure 블로그 공지](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)를 참조하세요.
@@ -127,9 +129,4 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 **Q.** VM 규모 집합은 Azure 가용성 집합과 작업이 가능합니까?
 
 **A.** 예. VM 규모 집합은 FD 5개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 100개 이상인 VM의 VM Scale Sets은 여러 가용성 집합에 해당하는 여러 '배치 그룹'으로 확장됩니다. VM의 가용성 집합은 동일한 VNET에서 VM의 크기 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 크기 집합에 데이터 노드를 배치하는 것입니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
 ms.openlocfilehash: 166524147c050512a84c1c0340de93960d8b7632
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -115,10 +116,5 @@ Sciforma를 프로비전하는 사용자를 구성할 작업 항목이 없습니
     ![예](./media/active-directory-saas-sciforma-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

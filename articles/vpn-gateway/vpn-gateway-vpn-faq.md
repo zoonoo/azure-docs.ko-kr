@@ -17,6 +17,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
 ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -170,8 +171,3 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 * VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * VPN Gateway 구성 설정에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
-
-
-<!--HONumber=Feb17_HO3-->
-
-

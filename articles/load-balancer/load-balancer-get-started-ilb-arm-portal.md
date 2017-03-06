@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -103,10 +104,5 @@ Azure Portal에서 내부 부하 분산 장치를 만들려면 다음 단계를 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

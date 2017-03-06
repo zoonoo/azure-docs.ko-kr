@@ -1,6 +1,6 @@
 ---
 title: "Azure Batch용 PowerShell 시작 | Microsoft Docs"
-description: "Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet에 대해 간략히 알아보세요."
+description: "Batch 리소스를 관리하는 데 사용할 수 있는 Azure PowerShell cmdlet에 대한 간략한 소개입니다."
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Azure 배치 PowerShell Cmdlet 시작
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
+
 Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure CLI(명령줄 인터페이스)에서 실행한 많은 동일한 작업을 수행하고 스크립트를 작성할 수 있습니다. 배치 계정을 관리하고 풀, 작업, 태스크 등의 배치 리소스 작업에 사용할 수 있는 cmdlet에 대해 간략히 소개합니다.
 
 배치 cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)에서 확인하세요.
@@ -236,10 +239,5 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 ## <a name="next-steps"></a>다음 단계
 * 자세한 cmdlet 구문 및 예제는 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)를 참조하세요.
 * 배치의 응용 프로그램과 응용 프로그램 패키지에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

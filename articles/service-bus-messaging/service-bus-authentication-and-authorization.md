@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 2c1a1f3b73466526b13bcfeb4580335390506c23
 ms.openlocfilehash: 14dfe58f6296a4ec516845bace456ffd59fa608a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -69,9 +70,4 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 SAS에 대한 자세한 내용은 [서비스 버스를 사용한 공유 액세스 서명 인증](service-bus-shared-access-signature-authentication.md) 을 계속 읽습니다.
 
 서비스 버스에서 SAS에 대한 높은 수준의 개요는 [공유 액세스 서명](service-bus-sas-overview.md)을 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
