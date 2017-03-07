@@ -32,8 +32,3 @@
 ## [샘플](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/powerbi)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

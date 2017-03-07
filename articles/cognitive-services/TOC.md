@@ -52,8 +52,3 @@
 ## [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
