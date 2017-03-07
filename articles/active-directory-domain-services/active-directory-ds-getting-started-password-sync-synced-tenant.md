@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,8 +31,8 @@ ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
 > [!div class="op_single_selector"]
 > * [클라우드 전용 Azure AD 테넌트](active-directory-ds-getting-started-password-sync.md)
 > * [동기화된 Azure AD 테넌트](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-> 
-> 
+>
+>
 
 <br>
 
@@ -47,8 +48,8 @@ ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
 
 > [!WARNING]
 > Azure AD 테넌트에 동기화할 레거시 암호 자격 증명(NTLM 및 Kerberos 인증에 필요)을 사용하도록 설정하려면 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. 이 기능은 Azure AD Connect의 이전 릴리스 또는 레거시 DirSync 도구에서 사용할 수 없습니다.
-> 
-> 
+>
+>
 
 Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/active-directory-aadconnect.md)
 
@@ -78,10 +79,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 * [Windows 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

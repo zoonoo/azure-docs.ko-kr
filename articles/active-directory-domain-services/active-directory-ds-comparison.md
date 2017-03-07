@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
@@ -110,8 +110,8 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 
 > [!NOTE]
 > 배포 사용 사례에 DIY 옵션이 더 적합한지 결정할 수 있습니다. [의견 공유](active-directory-ds-contact-us.md) 를 고려하여 나중에 Azure AD Domain Services를 선택하는 데 도움이 되는 기능을 이해할 수 있습니다. 이 피드백은 서비스를 배포 요구 사항 및 사용 사례에 적합하도록 발전시키는 데 도움이 됩니다.
-> 
-> 
+>
+>
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx) 을 게시하여 DIY 설치를 보다 쉽게 만들 수 있습니다.
 
@@ -119,5 +119,4 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 * [기능 - Azure AD Domain Services](active-directory-ds-features.md)
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
 

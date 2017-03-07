@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 553111d37543a0d5d6d3c89afab118b209704fec
 ms.openlocfilehash: b6ed4bd6898d54f6f9ef3206de38e2be6d2900be
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -41,9 +42,4 @@ One Identity Authentication Services를 통해 Unix, Linux 및 Mac OS X 시스�
 Red Hat Enterprise Linux는 오늘날 현대식 엔터프라이즈의 요구 사항을 충족하도록 구축된 세계 최고의 엔터프라이즈 Linux 플랫폼입니다. Red Hat Enterprise Linux는 Microsoft Azure의 엔터프라이즈 Linux 가상 컴퓨터(VM) 워크로드에 적합한 선택입니다. Red Hat Enterprise Linux는 데이터 센터에서 Azure 클라우드까지 Red Hat 및 Microsoft에서 긴밀하게 통합된 엔터프라이즈급 지원에 힘입어 비즈니스에 중요한 워크로드에 배포 유연성을 원하는 고객들을 위해 설계된 신뢰할 수 있는 안전한 개방형 플랫폼입니다.
 
 [Azure AD Domain Services에 RedHat Enterprise Linux 7.2 VM 조인](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

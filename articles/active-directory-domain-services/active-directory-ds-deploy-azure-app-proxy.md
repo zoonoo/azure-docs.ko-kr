@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
 ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -104,7 +105,7 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터에 대한 리소스 기반 Kerberos 제한 위임을 사용하도록 설정
-관리되는 도메인에서 사용자를 가장할 수 있도록 Azure 응용 프로그램 프록시 커넥터는 Kerberos 제한 위임(KCD)에 대해 구성되어야 합니다. Azure AD Domain Services 관리되는 도메인에서 도메인 관리자 권한이 없습니다. 따라서 **관리되는 도메인에 기존 계정 수준 KCD를 구성할 수 없습니다**. 
+관리되는 도메인에서 사용자를 가장할 수 있도록 Azure 응용 프로그램 프록시 커넥터는 Kerberos 제한 위임(KCD)에 대해 구성되어야 합니다. Azure AD Domain Services 관리되는 도메인에서 도메인 관리자 권한이 없습니다. 따라서 **관리되는 도메인에 기존 계정 수준 KCD를 구성할 수 없습니다**.
 
 이 [문서](active-directory-ds-enable-kcd.md)에 설명된 대로 리소스 기반 KCD를 사용합니다.
 
@@ -130,9 +131,4 @@ Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateTo
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [관리되는 도메인에서 Kerberos 제한 위임 구성](active-directory-ds-enable-kcd.md)
 * [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

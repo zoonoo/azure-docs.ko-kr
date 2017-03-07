@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -82,10 +83,4 @@ Azure RemoteApp을 통해 Contoso의 관리자는 도메인에 가입된 컬렉�
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
 이 배포 시나리오에 대한 자세한 내용은 원격 데스크톱 서비스 블로그 문서인 [Azure RemoteApp 및 Azure AD Domain Services로 워크로드 전환](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
