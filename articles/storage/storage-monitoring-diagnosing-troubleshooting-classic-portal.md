@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: f197d3070e4265ff1633d6d167412d242a366ccf
-ms.openlocfilehash: 26d670a66fb6a7d4a1f0d50de93bea233c35db6b
+ms.sourcegitcommit: 28dfc25fc58afda13732aa8608c42f7e42c649d6
+ms.openlocfilehash: e51c843a59e8a59de68ee5370cb33d9bef206c19
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -181,7 +182,7 @@ Azure 클래식 포털의 저장소 계정 **모니터** 페이지에서 해당 
 * 응용 프로그램에 오류가 발생합니다(사용자가 보고했거나 모니터링하는 오류 수 메트릭 중 하나의 값 증가로 인해 확인됨).
 * 개발 및 테스트 중에 로컬 저장소 에뮬레이터를 사용 중일 수 있습니다. 이 경우 저장소 에뮬레이터 사용과 관련된 일부 문제가 발생할 수 있습니다.
 
-다음 섹션에서는 이러한 각 4개 범주의 문제를 진단하고 해결하려면 따라야 하는 단계를 대략적으로 설명합니다. 이 가이드 뒷부분의 "[문제 해결 지침]" 섹션에서는 발생 가능한 몇 가지 일반적인 문제에 대해 자세히 설명합니다.
+다음 섹션에서는 이러한 각&4;개 범주의 문제를 진단하고 해결하려면 따라야 하는 단계를 대략적으로 설명합니다. 이 가이드 뒷부분의 "[문제 해결 지침]" 섹션에서는 발생 가능한 몇 가지 일반적인 문제에 대해 자세히 설명합니다.
 
 ### <a name="a-nameservice-health-issuesaservice-health-issues"></a><a name="service-health-issues"></a>서비스 상태 문제
 서비스 상태 문제는 대개 직접 해결할 수가 없습니다. Azure 클래식 포털에서는 저장소 서비스를 포함한 Azure 서비스에서 지속적으로 발생하는 문제와 관련된 정보를 제공합니다. 저장소 계정을 만들 때 읽기 권한 지역 중복 저장소를 신청한 경우 기본 위치에서 데이터를 사용할 수 없게 되면 응용 프로그램이 일시적으로 보조 위치의 읽기 전용 복사본을 사용하도록 전환할 수 있습니다. 이렇게 하려면 응용 프로그램이 기본 저장소 위치와 보조 저장소 위치 간을 전환할 수 있어야 하며 읽기 전용 데이터를 사용하여 기능 제한 모드에서도 작동할 수 있어야 합니다. Azure 저장소 클라이언트 라이브러리에서는 기본 저장소에서 읽기가 실패하는 경우 보조 저장소에서 읽을 수 있는 다시 시도 정책을 정의할 수 있습니다. 또한 응용 프로그램은 보조 위치의 데이터가 기본 위치와 일치함을 인식할 수 있어야 합니다. 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure 저장소 중복성 옵션 및 읽기 액세스 지역 중복 저장소</a> 블로그 게시물을 참조하세요.
@@ -236,7 +237,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 ## <a name="a-nameend-to-end-tracingaend-to-end-tracing"></a><a name="end-to-end-tracing"></a>종단 간 추적
 다양한 로그 파일을 사용하는 종단 간 추적은 잠재적 문제를 조사하는 데 유용한 기술입니다. 메트릭 데이터의 날짜/시간 정보를 통해 로그 파일에서 문제를 해결하는 데 도움이 되는 상세 정보 찾기를 시작할 위치를 파악할 수 있습니다.
 
-### <a name="a-namecorrelating-log-dataacorrelating-log-data"></a><a name="correlating-log-data"></a>로그 데이터 상관 관계 설정
+### <a name="a-namecorrelating-log-dataacorrelating-log-data"></a><a name="correlating-log-data"></a>로그 데이터 상관 관계 지정
 클라이언트 응용 프로그램의 로그, 네트워크 추적 및 서버 쪽 저장소 로깅을 확인할 때는 여러 로그 파일 간에 요청 상관 관계를 설정할 수 있어야 합니다. 로그 파일에는 상관 관계 식별자로 활용할 수 있는 여러 필드가 포함되어 있습니다. 서로 다른 로그의 항목 간 상관 관계를 설정하는 데 사용할 수 있는 가장 유용한 필드는 클라이언트 요청 ID입니다. 그러나 서버 요청 ID 또는 타임스탬프를 사용하면 유용한 경우도 있습니다. 다음 섹션에서는 이러한 옵션에 대해 자세히 설명합니다.
 
 ### <a name="a-nameclient-request-idaclient-request-id"></a><a name="client-request-id"></a>클라이언트 요청 ID
@@ -433,11 +434,11 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 > 
 
 #### <a name="a-namepermanent-increase-in-percentthrottlingerrorapermanent-increase-in-percentthrottlingerror-error"></a><a name="permanent-increase-in-PercentThrottlingError"></a>영구적인 PercentThrottlingError 증가
-트랜잭션 볼륨을 영구적으로 늘린 후나 처음으로 응용 프로그램 부하 테스트를 수행할 때 **PercentThrottlingError** 의 값이 계속 높게 표시되는 경우에는 응용 프로그램의 저장소 파티션 사용 방법과 저장소 계정의 확장성 목표 도달 여부를 평가해야 합니다. 예를 들어 파티션 하나로 계산되는 큐에서 제한 오류가 표시되는 경우 추가 큐를 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 합니다. 테이블에서 제한 오류가 표시되는 경우에는 다른 파티션 구성표를 통해 보다 광범위한 파티션 키 값을 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 할 수 있습니다. 이 문제의 일반적인 원인 중 하나는 날짜를 파티션 키로 선택하면 특정일의 모든 데이터가 파티션 하나에 기록되는 앞에 추가/추가 방지 패턴입니다.: 이 경우 부하가 생성되면 쓰기 병목 현상이 발생할 수 있습니다. 따라서 다른 파티션 디자인을 사용하거나 Blob Storage를 사용하는 것이 더 효율적인 해결 방법인지 평가해야 합니다. 또한 트래픽 급증으로 인해 제한이 발생하는지 확인하고 요청 패턴을 효율적으로 조정하는 방식을 조사해야 합니다.
+트랜잭션 볼륨을 영구적으로 늘린 후나 처음으로 응용 프로그램 부하 테스트를 수행할 때 **PercentThrottlingError** 의 값이 계속 높게 표시되는 경우에는 응용 프로그램의 저장소 파티션 사용 방법과 저장소 계정의 확장성 목표 도달 여부를 평가해야 합니다. 예를 들어 파티션 하나로 계산되는 큐에서 제한 오류가 표시되는 경우 추가 큐를 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 합니다. 테이블에서 제한 오류가 표시되는 경우에는 다른 파티션 구성표를 통해 보다 광범위한 파티션 키 값을 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 할 수 있습니다. 이 문제의 일반적인 원인 중 하나는 날짜를 파티션 키로 선택하면 특정일의 모든 데이터가 파티션 하나에 기록되는 앞에 추가/추가 방지 패턴입니다.: 이 경우 부하가 생성되면 쓰기 병목 현상이 발생할 수 있습니다. 따라서 다른 파티션 디자인을 사용하거나 Blob 저장소를 사용하는 것이 더 효율적인 해결 방법인지 평가해야 합니다. 또한 트래픽 급증으로 인해 제한이 발생하는지 확인하고 요청 패턴을 효율적으로 조정하는 방식을 조사해야 합니다.
 
 트랜잭션을 여러 파티션으로 분산시키는 경우에도 저장소 계정에 대해 설정된 확장성 제한을 파악해야 합니다. 예를 들어 각각 초당 1KB 메시지를 2,000개까지 처리하는 큐 10개를 사용한 경우 저장소 계정의 초당 전체 메시지 제한은 20,000개입니다. 이 경우 초당 20,000개보다 많은 엔터티를 처리해야 한다면 여러 저장소 계정을 사용해야 합니다. 요청과 엔터티의 크기 역시 저장소 서비스가 클라이언트를 제한하는 시기에 영향을 준다는 점도 기억해야 합니다.: 요청과 엔터티가 큰 경우에는 제한이 더 빨리 시작될 수 있습니다.
 
-쿼리 디자인이 비효율적인 경우에도 테이블 파티션의 확장성 제한에 도달할 수 있습니다. 예를 들어 파티션 내 엔터티 중 1%만 선택하고 모든 엔터티를 검사하는 필터가 포함된 쿼리는 각 엔터티에 액세스해야 합니다. 모든 엔터티 읽기는 해당 파티션의 총 트랜잭션 수 계산에 포함되므로 확장성 목표에 도달하기가 쉽습니다.
+쿼리 디자인이 비효율적인 경우에도 테이블 파티션의 확장성 제한에 도달할 수 있습니다. 예를 들어 파티션 내 엔터티 중&1;%만 선택하고 모든 엔터티를 검사하는 필터가 포함된 쿼리는 각 엔터티에 액세스해야 합니다. 모든 엔터티 읽기는 해당 파티션의 총 트랜잭션 수 계산에 포함되므로 확장성 목표에 도달하기가 쉽습니다.
 
 > [!NOTE]
 > 성능 테스트를 통해 응용 프로그램의 비효율적인 쿼리 디자인을 확인해야 합니다.
@@ -556,7 +557,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 이 예제에서 로그에는 클라이언트가 **CreateIfNotExists** 메서드(요청 ID e2d06d78…)의 요청을 **UploadFromStream** 메서드(de8b1c3c-...)의 요청과 인터리빙함이 표시됩니다. 이러한 현상이 발생하는 이유는 클라이언트 응용 프로그램이 이러한 메서드를 비동기식으로 호출하기 때문입니다. 클라이언트가 컨테이너의 Blob에 데이터 업로드를 시도하기 전에 해당 컨테이너를 만들도록 클라이언트에서 비동기 코드를 수정해야 합니다. 모든 컨테이너를 미리 만드는 것이 가장 좋습니다.
 
 #### <a name="a-namesas-authorization-issueaa-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>SAS(공유 액세스 서명) 권한 부여 문제
-클라이언트 응용 프로그램이 작업에 필요한 권한을 포함하지 않는 SAS 키를 사용하려고 하면 저장소 서비스는 HTTP 404(찾을 수 없음) 메시지를 클라이언트에 반환합니다. 그와 동시에 메트릭에서 **SASAuthorizationError** 에 대해 0이 아닌 값이 표시됩니다.
+클라이언트 응용 프로그램이 작업에 필요한 권한을 포함하지 않는 SAS 키를 사용하려고 하면 저장소 서비스는 HTTP 404(찾을 수 없음) 메시지를 클라이언트에 반환합니다. 그와 동시에 메트릭에서 **SASAuthorizationError** 에 대해&0;이 아닌 값이 표시됩니다.
 
 아래 표에는 저장소 로깅 로그 파일의 샘플 서버 쪽 로그 메시지가 나와 있습니다.
 
@@ -565,11 +566,11 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | 요청 시작 시간 | 2014-05-30T06:17:48.4473697Z |
 | 작업 유형     | GetBlobProperties            |
 | 요청 상태     | SASAuthorizationError        |
-| HTTP 상태 코드   | 404                          |
+| HTTP 상태 코드   | 404                            |
 | 인증 유형| Sas                          |
 | 서비스 유형       | Blob                         |
-| 요청 URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| 요청 URL         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | 요청 ID 헤더  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | 클라이언트 요청 ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -647,7 +648,7 @@ client.SetServiceProperties(sp);
 저장소 서비스에서 반환하는 공통 REST API 오류 코드의 목록은 <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">공통 REST API 오류 코드</a> 페이지에서 확인할 수 있습니다.
 
 ### <a name="a-namecapacity-metrics-show-an-unexpected-increaseacapacity-metrics-show-an-unexpected-increase-in-storage-capacity-usage"></a><a name="capacity-metrics-show-an-unexpected-increase"></a>용량 메트릭에 예기치 않은 저장소 용량 사용 증가가 표시됨
-저장소 계정에서 용량 사용량이 예기치 않게 갑자기 변경되는 경우 먼저 가용성 메트릭을 확인하여 원인을 조사할 수 있습니다. 예를 들어 삭제 요청 실패 수가 증가하면 Blob Storage 사용량도 증가할 수 있습니다. 공간 확보에 사용되는 SAS 토큰 만료 등의 이유로 인해 공간을 확보하기 위해 수행하는 응용 프로그램 관련 정리 작업이 예상대로 작동하지 않기 때문입니다.
+저장소 계정에서 용량 사용량이 예기치 않게 갑자기 변경되는 경우 먼저 가용성 메트릭을 확인하여 원인을 조사할 수 있습니다. 예를 들어 삭제 요청 실패 수가 증가하면 Blob 저장소 사용량도 증가할 수 있습니다. 공간 확보에 사용되는 SAS 토큰 만료 등의 이유로 인해 공간을 확보하기 위해 수행하는 응용 프로그램 관련 정리 작업이 예상대로 작동하지 않기 때문입니다.
 
 ### <a name="a-nameyou-are-experiencing-unexpected-rebootsayou-are-experiencing-unexpected-reboots-of-azure-virtual-machines-that-have-a-large-number-of-attached-vhds"></a><a name="you-are-experiencing-unexpected-reboots"></a>많은 수의 VHD가 연결된 가상 컴퓨터가 예기치 않게 다시 부팅됨
 Azure VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연결되어 있으면 개별 저장소 계정의 확장성 목표가 초과되어 VM에서 오류가 발생할 수 있습니다. 저장소 계정의 분 메트릭(**TotalRequests**/**TotalIngress**/**TotalEgress**)에서 저장소 계정의 확장성 목표를 초과하는 메트릭 값의 급증 현상을 확인해야 합니다. 저장소 계정에 대해 제한이 적용되었는지를 확인하는 데 도움이 필요하면 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]" 섹션을 참조하세요.
@@ -759,7 +760,7 @@ TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확�
 > 
 > 
 
-### <a name="a-nameappendix-3aappendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.
+### <a name="a-nameappendix-3aappendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>부록3: Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처
 Microsoft Message Analyzer를 사용하여 Fiddler와 비슷한 방식으로 HTTP 및 HTTPS 트래픽을 캡처할 수 있으며 Wireshark와 비슷한 방식으로 네트워크 트래픽을 캡처할 수 있습니다.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer를 사용하여 웹 추적 세션 구성
@@ -787,14 +788,14 @@ Microsoft Message Analyzer **웹 프록시** 추적을 사용하여 클라이언
 
 ![][9]
 
-Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이즈 양을 줄이기 위해 필터를 지정할 수 있습니다. 이렇게 하려면 추적을 정의하는 **캡처/추적** 페이지에서 **Microsoft-Windows-NDIS-PacketCapture** 옆의 **구성** 링크를 클릭합니다. 아래 스크린샷에는 3개 저장소 서비스의 IP 주소에 대한 TCP 트래픽을 필터링하는 구성이 나와 있습니다.
+Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이즈 양을 줄이기 위해 필터를 지정할 수 있습니다. 이렇게 하려면 추적을 정의하는 **캡처/추적** 페이지에서 **Microsoft-Windows-NDIS-PacketCapture** 옆의 **구성** 링크를 클릭합니다. 아래 스크린샷에는&3;개 저장소 서비스의 IP 주소에 대한 TCP 트래픽을 필터링하는 구성이 나와 있습니다.
 
 ![][10]
 
 Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 TechNet의 <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture 공급자</a>를 참조하세요.
 
 ### <a name="a-nameappendix-4aappendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>부록4: Excel을 사용하여 메트릭 및 로그 데이터 보기
-다양한 도구를 통해 Azure 테이블 저장소에서 저장소 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob Storage의 저장소 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">저장소 분석 로그 형식</a> 및 <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">저장소 분석 메트릭 테이블 스키마</a>의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
+다양한 도구를 통해 Azure 테이블 저장소에서 저장소 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob 저장소의 저장소 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">저장소 분석 로그 형식</a> 및 <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">저장소 분석 메트릭 테이블 스키마</a>의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
 
 Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져오려면 다음 단계를 수행합니다.
 
@@ -884,9 +885,4 @@ Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 02/12/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
-ms.openlocfilehash: 14cc104bb755a0893c00963636e210b656b270b5
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
+ms.openlocfilehash: 61909f588077f3bbdbaf368db1a9138a3b28b117
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -42,7 +42,7 @@ Site Recovery는 다음 운영 체제 중 하나를 실행하는 EC2 인스턴�
 
 이 배포에 대해 필요한 사항은 다음과 같습니다.
 
-* **구성 서버**: 구성 서버 역할로 배포된 Windows Server 2012 R2를 실행 중인 Amazon EC2 VM입니다. 기본적으로 다른 Azure Site Recovery 구성 요소(프로세스 서버와 마스터 대상 서버)는 구성 서버를 배포할 때 설치됩니다. 이 문서에서는 Azure Portal에서 마이그레이션하기 위한 단계를 설명하고 [자세한 정보](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure)의 지침을 기준으로 합니다.
+* **구성 서버**: 구성 서버 역할로 배포된 Windows Server 2012 R2를 실행 중인 Amazon EC2 VM입니다. 기본적으로 다른 Azure Site Recovery 구성 요소(프로세스 서버와 마스터 대상 서버)는 구성 서버를 배포할 때 설치됩니다. 이 문서에서는 Azure Portal에서 마이그레이션하기 위한 단계를 설명하고 [자세한 정보](site-recovery-components.md#vmware-replication-to-azure)의 지침을 기준으로 합니다.
 
 * **EC2 인스턴스**: 마이그레이션하려는 Amazon EC2 가상 컴퓨터 인스턴스입니다.
 

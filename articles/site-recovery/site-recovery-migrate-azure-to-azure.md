@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 501e5e8501c6106ba2e51b3523332fd224a5a142
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
+ms.openlocfilehash: 0019b64ba545d91cf32ed2945c5c0d4844e264e1
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -28,14 +28,14 @@ Azure Site Recovery에 오신 것을 환영합니다! Azure 지역 간에 Azure 
 * Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 Azure Resource Manager 배포 모델과 클래식 배포 모델이 있습니다. 또한 Azure에는 두 가지 포털이 있는데, 하나는 클래식 배포 모델을 지원하는 Azure 클래식 포털이고 다른 하나는 두 가지 배포 모델을 모두 지원하는 Azure 포털입니다. Resource Manager와 클래식 중에서 Site Recovery를 어떤 방식으로 구성하든 마이그레이션의 기본 단계는 동일합니다. 그러나 이 문서의 UI 지침과 스크린샷은 Azure 포털과 관련된 것입니다.
 * **현재 한 지역에서 다른 지역으로만 마이그레이션할 수 있습니다. 한 Azure 지역에서 다른 지역으로 VM을 장애 조치(failover)할 수 있으나 장애 복구(failback)할 수 없습니다.**
 * 이 문서의 마이그레이션 지침은 물리적 컴퓨터를 Azure에 복제하기 위한 지침을 기준으로 합니다. 여기에는 Azure 포털의 물리적 서버 복제 방법을 설명하는 [VMware VM 또는 물리적 서버를 Azure로 복제](site-recovery-vmware-to-azure.md)에 나오는 단계에 대한 링크가 포함됩니다.
-* 클래식 포털에서 Site Recovery를 설정하는 경우 [이 문서](site-recovery-vmware-to-azure-classic.md)의 자세한 지침을 따르세요. 
+* 클래식 포털에서 Site Recovery를 설정하는 경우 [이 문서](site-recovery-vmware-to-azure-classic.md)의 자세한 지침을 따르세요.
 
 이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 배포에 대해 필요한 사항은 다음과 같습니다.
 
-* **구성 서버**: 구성 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 온-프레미스 VM입니다. 이 VM에 다른 Site Recovery 구성 요소(프로세스 서버 및 마스터 대상 서버 포함)도 설치합니다. 자세한 내용은 [시나리오 아키텍처](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure) 및 [구성 서버 필수 구성 요소](site-recovery-vmware-to-azure.md#prerequisites)를 참조하세요.
+* **구성 서버**: 구성 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 온-프레미스 VM입니다. 이 VM에 다른 Site Recovery 구성 요소(프로세스 서버 및 마스터 대상 서버 포함)도 설치합니다. 자세한 내용은 [시나리오 아키텍처](site-recovery-components.md#vmware-replication-to-azure) 및 [구성 서버 필수 구성 요소](site-recovery-vmware-to-azure.md#prerequisites)를 참조하세요.
 * **IaaS 가상 컴퓨터**: 마이그레이션하려는 VM입니다. 이러한 VM을 실제 컴퓨터로 간주하여 마이그레이션합니다.
 
 ## <a name="deployment-steps"></a>배포 단계

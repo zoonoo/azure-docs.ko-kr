@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 03/03/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: ecc008469ba754af12583d350706f626ec6690b5
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -57,7 +58,6 @@ ms.openlocfilehash: ecc008469ba754af12583d350706f626ec6690b5
 ## <a name="polybase"></a>Polybase
 | 문제 | 해결 방법 |
 |:--- |:--- |
-| UTF-8 오류 |현재 PolyBase에서는 UTF-8로 인코딩된 데이터 파일의 로드만 지원합니다.  이 제한을 해결하는 방법에 대한 지침을 보려면 [PolyBase UTF-8 요구 사항 해결][Working around the PolyBase UTF-8 requirement]을 참조하세요. |
 | 대용량 행으로 인해 로드 실패 |현재 대용량 행 지원은 Polybase에서 사용할 수 없습니다.  즉, 테이블에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)가 포함되어 있으면 데이터를 로드하는 데 외부 테이블을 사용할 수 없습니다.  대용량 행의 로드는 현재 Azure 데이터 팩터리(BCP 포함), Azure 스트림 분석, SSIS, BCP 또는 .NET SQLBulkCopy 클래스를 통해서만 지원됩니다. 대용량 행에 대한 PolyBase 지원은 후속 릴리스에 추가될 예정입니다. |
 | MAX 데이터 형식을 갖는 테이블의 bcp 로드 실패 |일부 시나리오에서는 테이블의 끝에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)를 배치하도록 요구하는 알려진 문제가 있습니다.  MAX 열을 테이블 끝으로 이동해보세요. |
 
@@ -93,7 +93,7 @@ ms.openlocfilehash: ecc008469ba754af12583d350706f626ec6690b5
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
@@ -133,9 +133,4 @@ ms.openlocfilehash: ecc008469ba754af12583d350706f626ec6690b5
 [Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

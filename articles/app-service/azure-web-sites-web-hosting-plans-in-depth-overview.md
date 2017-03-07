@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ceaf35eed16fda272e4b3c501e3e9ab570855101
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 47f1a3e50639af80472c63cba30141a032f76443
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스�
 App Service 계획은 다음을 정의합니다.
 
 - 지역(미국 서부, 미국 동부 등)
-- 확장 개수(1, 2, 3개 인스턴스 등)
+- 확장 개수(1,&2;,&3;개 인스턴스 등)
 - 인스턴스 크기(소, 중, 대)
 - SKU(무료, 공유, 기본, 표준, 프리미엄)
 
@@ -40,7 +40,7 @@ App Service 계획은 다음을 정의합니다.
 
 App Service 계획이 **기본** SKU 이상으로 설정되면 VM **크기** 및 확장 개수를 제어할 수 있습니다.
 
-예를 들어 계획이 표준 서비스 계층의 "작은" 인스턴스 2개를 사용하도록 구성되어 있으면 해당 계획과 연결된 모든 앱이 두 인스턴스에서 실행됩니다. 앱은 표준 서비스 계층 기능에 액세스할 수도 있습니다. 앱을 실행 중인 계획 인스턴스는 완전히 관리되며 가용성이 높습니다. 
+예를 들어 계획이 표준 서비스 계층의 "작은" 인스턴스&2;개를 사용하도록 구성되어 있으면 해당 계획과 연결된 모든 앱이 두 인스턴스에서 실행됩니다. 앱은 표준 서비스 계층 기능에 액세스할 수도 있습니다. 앱을 실행 중인 계획 인스턴스는 완전히 관리되며 가용성이 높습니다. 
 
 App Service 계획의 **SKU** 및 **규모**에 따라 호스트되는 앱 수가 아닌 비용이 결정됩니다.
 

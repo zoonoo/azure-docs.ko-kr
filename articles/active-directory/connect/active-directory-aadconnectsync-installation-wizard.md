@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
-ms.lasthandoff: 01/27/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,8 +39,8 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 
 > [!IMPORTANT]
 > 설치 마법사가 열린 동안 동기화 엔진의 모든 작업이 일시 중단됩니다. 구성 변경을 완료하는 즉시 설치 마법사를 닫았는지 확인합니다.
-> 
-> 
+>
+>
 
 ## <a name="view-current-configuration"></a>현재 구성 보기
 이 옵션은 현재 구성된 옵션의 빠른 보기를 제공합니다.
@@ -82,7 +82,7 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 ## <a name="change-user-sign-in"></a>사용자 로그인 변경
 이 옵션을 사용하면 암호 동기화에서 페더레이션에 또는 그 반대로 변경할 수 있습니다. **구성하지 않음**으로 변경할 수 없습니다.
 
-이 옵션에 대한 자세한 내용은 [사용자 로그인](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method)을 참조하세요.
+이 옵션에 대한 자세한 내용은 [사용자 로그인](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 Azure AD Connect 동기화에서 사용되는 구성 모델에 대해 자세히 알아봅니다.
@@ -91,5 +91,4 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
 

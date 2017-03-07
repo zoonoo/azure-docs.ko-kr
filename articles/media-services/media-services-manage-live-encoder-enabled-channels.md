@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: ef9c1d5511889cf78421d24f9c5902bf188890c7
-ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -161,19 +162,8 @@ AMS(Azure 미디어 서비스)에서 **채널** 은 라이브 스트리밍 콘�
     * 모노, 스테레오
 * 권장되는 브로드캐스트 인코더는 다음과 같습니다.
   
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>단일 비트 전송률 RTMP
@@ -194,7 +184,6 @@ AMS(Azure 미디어 서비스)에서 **채널** 은 라이브 스트리밍 콘�
 * 권장되는 인코더는 다음과 같습니다.
 * Telestream Wirecast
 * Flash Media Live Encoder
-* Tricaster
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>단일 비트 전송률 조각화된 MP4(부드러운 스트리밍)
 일반적인 사용 사례:
@@ -346,7 +335,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 **보관 창** 길이를 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 또한 보관 창 길이는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
-각 프로그램은 스트리밍된 콘텐츠를 저장하는 자산과 연결됩니다. 자산은 Azure 저장소 계정의 블록 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 Blob으로 저장됩니다. 고객이 스트림을 볼 수 있도록 프로그램을 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
+각 프로그램은 스트리밍된 콘텐츠를 저장하는 자산과 연결됩니다. 자산은 Azure Storage 계정의 블록 BLOB 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 BLOB으로 저장됩니다. 고객이 스트림을 볼 수 있도록 프로그램을 게시하려면 연결된 자산에 대한 주문형 로케이터를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
 
 채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
 
@@ -428,10 +417,5 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 [Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
