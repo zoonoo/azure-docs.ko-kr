@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -51,7 +51,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 2. Azure AD 웹 응용 프로그램의 클라이언트 ID, 클라이언트 암호 및 토큰 끝점을 검색합니다.
 3. 만들고 있는 Java 응용 프로그램에서 액세스하려는 Data Lake Store 파일/폴더에서 Azure AD 웹 응용 프로그램에 대한 액세스를 구성합니다.
 
-이러한 단계를 수행하는 방법에 대한 지침은 [Active Directory 응용 프로그램 만들기](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application)를 참조하세요.
+이러한 단계를 수행하는 방법에 대한 지침은 [Active Directory 응용 프로그램 만들기](data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
 
 Azure Active Directory는 토큰을 검색할 뿐만 아니라 다른 옵션을 제공합니다. 다양한 시나리오에 맞게 다양한 인증 메커니즘을 선택할 수 있습니다(예: 브라우저에서 실행 중인 응용 프로그램, 데스크톱 응용 프로그램으로 배포된 응용 프로그램 또는 온-프레미스 또는 Azure 가상 컴퓨터에서 실행 중인 서버 응용 프로그램). 암호, 인증서, 2단계 인증과 같은 여러 유형의 자격 증명을 선택할 수 있습니다. 또한 Azure Active Directory를 사용하면 클라우드와 온-프레미스 Active Directory 사용자를 동기화할 수 있습니다. 자세한 내용은 [Azure Active directory 인증 시나리오](../active-directory/active-directory-authentication-scenarios.md)를 참조하세요. 
 

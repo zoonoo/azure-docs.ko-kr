@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
 ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -39,9 +40,4 @@ ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
 * **여러 Azure 지역에서 사용 가능:** Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
 * **고가용성:** Azure AD Domain Services는 도메인에 고가용성을 제공합니다. 이 기능은 향상된 서비스 가동 시간과 오류 복원을 보장합니다. 기본 제공 상태 모니터링은 새 인스턴스를 생성하여 실패한 인스턴스를 대체하고 도메인에 연속 서비스를 제공하는 방법으로 오류에 대한 자동 수정 기능을 제공합니다.
 * **익숙한 관리 도구 사용:** 관리되는 도메인을 관리하기 위해 Active Directory 관리 센터 또는 Active Directory PowerShell과 같은 익숙한 Windows Server Active Directory 관리 도구를 사용할 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

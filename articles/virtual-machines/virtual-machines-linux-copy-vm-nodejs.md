@@ -1,6 +1,6 @@
 ---
-title: "Azure Linux VM 복사본 만들기 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 Azure Linux 가상 컴퓨터의 복사본을 만드는 방법을 알아봅니다."
+title: "Azure CLI 1.0을 사용하여 Linux VM의 복사본 만들기 | Microsoft Docs"
+description: "Resource Manager 배포 모델에서 Azure CLI 1.0을 사용하여 Azure Linux 가상 컴퓨터의 복사본을 만드는 방법에 대해 알아보기"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: fc5d84768213f1c9358bfcffd77868c25b6c24a4
-ms.openlocfilehash: 9920e86a00793928bdfae5bc4e9dac161ed56ad0
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: e85094fbb63b5cf0c5f3b080e047dbc3b8561a26
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Azure에서 실행되는 Linux 가상 컴퓨터의 복사본 만들기
+# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Azure에서 실행되는 Linux 가상 컴퓨터의 복사본 만들기
 이 문서는 Resource Manager 배포 모델에서 Linux를 실행하는 Azure VM(가상 컴퓨터)의 복사본을 만드는 방법에 대해 설명합니다. 먼저 운영 체제와 데이터 디스크를 새 컨테이너로 복사한 다음 네트워크 리소스를 설정하고 새 가상 컴퓨터를 만듭니다.
 
 [사용자 지정 디스크 이미지에서 VM 업로드 및 만들](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)수도 있습니다.
@@ -29,7 +30,7 @@ ms.openlocfilehash: 9920e86a00793928bdfae5bc4e9dac161ed56ad0
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - Azure CLI 1.0 - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0(미리 보기)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 ## <a name="before-you-begin"></a>시작하기 전에
 다음 단계를 시작하기 전에 다음 필수 조건을 충족하는지 확인합니다.
@@ -112,10 +113,5 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 ## <a name="next-steps"></a>다음 단계
 Azure CLI를 사용하여 새 가상 컴퓨터를 관리하는 방법을 알아보려면 [Azure Resource Manager의 Azure CLI 명령](azure-cli-arm-commands.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Windows VM 배포 RM 문제 해결 | Microsoft Docs"
+title: "Azure에서 Windows VM 배포 문제 해결 | Microsoft Docs"
 description: "Azure에서 새 Windows 가상 컴퓨터 생성 시 Resource Manager 배포 문제 해결"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
-ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
+ms.sourcegitcommit: ec36172909398fbcae9ad39827307de758b855f0
+ms.openlocfilehash: 18767fe6bc08fd8ccb3670de686df39f58269e80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Azure에서 새 Windows 가상 컴퓨터 생성 관련 Resource Manager 배포 문제 해결
+# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -84,10 +86,5 @@ ms.openlocfilehash: 5b876185db505ec4bdbaff1d641b85c393e82559
 
 ## <a name="next-steps"></a>다음 단계
 중지된 Windows VM을 시작하거나 Azure에서 기존 Windows VM의 크기를 조정할 때 문제가 발생하면 [Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

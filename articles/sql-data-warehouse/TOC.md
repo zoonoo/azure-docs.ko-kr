@@ -3,6 +3,7 @@
 ## [SQL Data Warehouse란 무엇입니까?](sql-data-warehouse-overview-what-is.md)
 ## [데이터 웨어하우스 워크로드](sql-data-warehouse-overview-workload.md)
 ## [분선 데이터](sql-data-warehouse-distributed-data.md)
+## [질문과 대답](sql-data-warehouse-overview-faq.md)
 
 # 시작
 
@@ -10,6 +11,7 @@
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)
 ## [지원 받기](sql-data-warehouse-get-started-create-support-ticket.md)
+## [문제 해결](sql-data-warehouse-troubleshoot.md)
 
 # 방법
 
@@ -114,7 +116,6 @@
 ### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [쿼리](sql-data-warehouse-manage-monitor.md)
 ### [워크로드](sql-data-warehouse-develop-concurrency.md)
-### [문제 해결](sql-data-warehouse-troubleshoot.md)
 
 ## 보안
 

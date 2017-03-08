@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 03/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
-ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
+ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -24,16 +24,19 @@ ms.lasthandoff: 02/17/2017
 ## <a name="services-enabled-with-conditional-access"></a>조건부 액세스로 설정된 서비스
 조건부 액세스 규칙은 다양한 Azure AD 응용 프로그램 종류에서 지원됩니다. 이 목록에는 다음이 포함됩니다.
 
-* Azure AD 응용 프로그램 갤러리의 페더레이션 응용 프로그램
-* Azure AD 응용 프로그램 갤러리의 암호 SSO 응용 프로그램
+
 * Azure 응용 프로그램 프록시에 등록된 응용 프로그램
-* Azure AD에 등록된 개발 LOB(기간 업무) 및 다중 테넌트 응용 프로그램
-* Visual Studio Online
 * Azure 원격 앱
+* Azure AD에 등록된 개발 LOB(기간 업무) 및 다중 테넌트 응용 프로그램
 * Dynamics CRM
+* Azure AD 응용 프로그램 갤러리의 페더레이션 응용 프로그램
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 포함)
+* Microsoft Power BI 
+* Azure AD 응용 프로그램 갤러리의 암호 SSO 응용 프로그램
+* Visual Studio Online
+
 
 ## <a name="enable-access-rules"></a>액세스 규칙 사용
 각 규칙을 응용 프로그램 단위로 사용하거나 사용하지 않도록 설정할 수 있습니다. **설정** 인 경우 규칙을 사용할 수 있으며 응용 프로그램에 액세스하는 사용자에게 적용됩니다. **해제** 인 경우 규칙을 사용할 수 없으며 사용자 로그인 환경에 영향을 주지 않습니다.

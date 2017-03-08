@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열 장애 조치 방법에 대해 자세히 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
+ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
+ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 대한 재해 복구 및 장치 장애 조치(failover)
+# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Azure Portal을 통해 StorSimple 가상 배열에 대한 재해 복구 및 장치 장애 조치
 
 ## <a name="overview"></a>개요
 이 문서에서는 다른 가상 배열에 장애 조치하는 자세한 단계를 포함하여 Microsoft Azure StorSimple 가상 배열에 대한 재해 복구를 설명합니다. 장애 조치를 사용하면 데이터를 데이터 센터의 *원본* 장치에서 *대상* 장치로 이동할 수 있습니다. 대상 장치는 동일하거나 다른 지리적 위치에 있을 수 있습니다. 장치 장애 조치는 전체 장치를 대상으로 합니다. 장애 조치를 수행하는 동안 원본 장치의 클라우드 데이터는 대상 장치의 그것으로 소유권이 변경됩니다.
@@ -178,10 +180,5 @@ DR이 시작된 후와 장치 복원이 완료되기 전에 클라우드 연결�
 ## <a name="next-steps"></a>다음 단계
 
 [로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

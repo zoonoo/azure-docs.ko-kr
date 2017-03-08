@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
+ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -70,8 +71,8 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 
 | 쿼리 | 설명 |
 |:--- |:--- |
-| Type=IISLog |모든 IIS 로그 레코드 |
-| Type=IISLog EventLevelName=error |심각도가 오류인 모든 Windows 이벤트 |
+| Type=W3CIISLog |모든 IIS 로그 레코드 |
+| Type=W3CIISLog scStatus=500 |반환 상태가 500인 모든 IIS 로그 레코드입니다. |
 | Type=W3CIISLog &#124; Measure count() by cIP |클라이언트 IP 주소별 IIS 로그 항목 수 |
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |호스트 www.contoso.com의 URL별 IIS 로그 항목 수 |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |각 IIS 컴퓨터에서 받은 총 바이트 수 |
@@ -80,10 +81,5 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 * 분석을 위해 다른 [데이터 원본](log-analytics-data-sources.md) 을 수집하도록 Log Analytics를 구성합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
 * IIS 로그에서 발견된 중요한 조건을 사전에 알리도록 Log Analytics의 경고를 구성합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

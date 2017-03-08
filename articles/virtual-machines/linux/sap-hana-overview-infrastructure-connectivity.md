@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a3e99cf86cbe6ae18366b13047d8c2994ff398f4
-ms.openlocfilehash: 9adf67b706f866fbb41c2b82970eb0e44aada5c6
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 4b01305ea1fc033de64ed2e4fb7e4c9f3d16d394
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)의 SAP HANA에 대한 인프라 및 연결
+# <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure(큰 인스턴스)의 SAP HANA 인프라 및 연결 
 
 사용자와 Microsoft 엔터프라이즈 계정 팀 간에 Azure(큰 인스턴스)의 SAP HANA 구매를 최종적으로 마무리한 후에 다음과 같은 정보가 필요합니다.
 
@@ -193,10 +195,5 @@ VNet을 제거하면 제거될 IP 주소 공간 범위를 제공하는 Azure 지
 
 VNet도 제거하려면 위의 섹션에서 VNet 삭제에 대한 지침을 따릅니다.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

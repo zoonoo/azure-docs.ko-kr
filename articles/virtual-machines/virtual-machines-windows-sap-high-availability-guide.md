@@ -16,13 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: a868a0094e189ea77744bb9b956e4c1745279c8f
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: bcad35fe1df9da06e02eceae6a221c40a9d10bac
+ms.lasthandoff: 03/01/2017
+
 
 ---
 
-# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
+# <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -456,12 +459,12 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 이 문서에서는 배포 및 구성을 단순화하기 위해 SAP&3;계층 고가용성 Resource Manager 템플릿을 사용합니다. 이 템플릿은 고가용성 SAP 시스템에 필요한 전체 인프라의 배포를 자동화합니다. 또한 이러한 인프라는 SAP 시스템의 SAPS(SAP 응용 프로그램 성능 표준) 크기 조정도 지원합니다.
 
-## <a name="a-name217c5479-5595-4cd8-870d-15ab00d4f84ca-prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
+## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> 필수 조건
 시작하기 전에 다음 섹션에 설명된 필수 조건을 충족하는지 확인하세요. 또한 [리소스][sap-ha-guide-2] 섹션에서 나열하는 리소스도 모두 확인해야 합니다.
 
 이 문서에서는 [3계층 SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)에 대한 Azure Resource Manager 템플릿을 사용합니다. 유용한 템플릿 개요를 보려면 [SAP Azure Resource Manager 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)을 참조하세요.
 
-## <a name="a-name42b8f600-7ba3-4606-b8a5-53c4f026da08a-resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> 리소스
+## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> 리소스
 이 문서에서는 Azure의 SAP 배포에 대해 설명합니다.
 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]
@@ -487,17 +490,17 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 일반적인 기본 및 최대 제한 사항을 포함하여 [Azure 구독 제한][azure-subscription-service-limits-subscription]에 대해 자세히 알아보세요.
 
-## <a name="a-name42156640c6-01cf-45a9-b225-4baa678b24f1ahigh-availability-sap-with-azure-resource-manager-vs-the-azure-classic-deployment-model"></a><a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Azure Resource Manager 및 Azure 클래식 배포 모델의 고가용성 SAP
+## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Azure Resource Manager 및 Azure 클래식 배포 모델의 고가용성 SAP
 Azure Resource Manager와 Azure 클래식 배포 모델은 다음과 같은 영역에서 차이가 있습니다.
 
 - 리소스 그룹
 - Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 - SAP 다중 SID 지원 시나리오
 
-### <a name="a-namef76af273-1993-4d83-b12d-65deeae23686a-resource-groups"></a><a name="f76af273-1993-4d83-b12d-65deeae23686"></a> 리소스 그룹
+### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> 리소스 그룹
 Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 응용 프로그램 리소스를 관리할 수 있습니다. 통합 접근 방식의 리소스 그룹에서는 모든 리소스가 동일한 수명 주기를 갖습니다. 예를 들어 모든 리소스가 동시에 생성되고 동시에 삭제됩니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)에 대해 알아봅니다.
 
-### <a name="a-name3e85fbe0-84b1-4892-87af-d9b65ff91860a-azure-internal-load-balancer-dependency-on-the-azure-resource-group"></a><a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
+### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure 리소스 그룹에 대한 Azure 내부 부하 분산 장치 종속성
 
 Azure 클래식 배포 모델에는 Azure 내부 부하 분산 장치(Azure Load Balancer 서비스)와 클라우드 서비스 그룹 간의 종속성이 있습니다. 모든 내부 부하 분산 장치에는 하나의 클라우드 서비스 그룹이 필요합니다.
 
@@ -514,12 +517,12 @@ Azure 클래식 배포 모델을 사용하려면 [Azure의 SAP NetWeaver: SIOS D
 >
 >
 
-## <a name="a-name8ecf3ba0-67c0-4495-9c14-feec1a2255b7a-windows-server-failover-clustering"></a><a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a> Windows Server 장애 조치 클러스터링
+## <a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a> Windows Server 장애 조치 클러스터링
 Windows Server 장애 조치 클러스터링은 Windows에서 고가용성 SAP ASCS/SCS를 설치하고 DBMS를 사용하기 위한 기반이 됩니다.
 
 장애 조치 클러스터는 함께 작동하여 응용 프로그램 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치 클러스터링은 응용 프로그램 및 서비스를 제공하기 위해 정상 클러스터를 유지 관리하는 동안 발생할 수 있는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-### <a name="a-name1a3c5408-b168-46d6-99f5-4219ad1b1ff2a-quorum-modes"></a><a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a> 쿼럼 모드
+### <a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a> 쿼럼 모드
 Windows Server 장애 조치 클러스터링을 사용하는 경우 다음&4;개의 쿼럼 모드 중에서 선택할 수 있습니다.
 
 * **노드 과반수**. 각 클러스터 노드에서 투표할 수 있습니다. 클러스터는 투표 수의 과반수, 즉 절반 이상일 때만 작동합니다. 노드 수가 균일하지 않은 클러스터에 대해 이 옵션을 사용하는 것이 좋습니다. 예를 들어&7; 노드 클러스터 중에서&3;개의 노드에서 장애가 발생해도 클러스터는 과반수 조건이 충족되므로 계속 실행됩니다.  
@@ -528,7 +531,7 @@ Windows Server 장애 조치 클러스터링을 사용하는 경우 다음&4;개
 * **과반수 없음: 디스크만**. 하나의 노드를 사용할 수 있고 클러스터 Storage의 특정 디스크와 통신이 설정된 경우 클러스터에는 쿼럼이 하나 있습니다. 해당 디스크와도 통신하는 노드만 클러스터에 참여할 수 있습니다. 이 모드는 사용하지 않는 것이 좋습니다.
  
 
-## <a name="a-namefdfee875-6e66-483a-a343-14bbaee33275a-windows-server-failover-clustering-on-premises"></a><a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Windows Server 장애 조치 클러스터링 온-프레미스
+## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Windows Server 장애 조치 클러스터링 온-프레미스
 그림 1에서는 두 노드 클러스터를 보여 줍니다. 노드 간 네트워크 연결이 끊어지고 두 노드는 계속 작동될 경우 쿼럼 디스크 또는 파일 공유는 클러스터의 응용 프로그램 및 서비스를 계속 제공할 노드를 확인합니다. 쿼럼 디스크 또는 파일 공유에 액세스할 수 있는 노드는 서비스가 계속되도록 하는 노드입니다.
 
 이 예제에서는 두 노드 클러스터를 사용하므로 노드 및 파일 공유 과반수 쿼럼 모드를 사용합니다. 노드 및 디스크 과반수도 사용 가능한 옵션입니다. 프로덕션 환경에서는 쿼럼 디스크를 사용하는 것이 좋습니다. 네트워크 및 Storage 시스템 기술을 사용하여 항상 고가용성을 유지할 수 있습니다.
@@ -537,7 +540,7 @@ Windows Server 장애 조치 클러스터링을 사용하는 경우 다음&4;개
 
 _**그림 1:** Azure에서 SAP ASCS/SCS에 대한 Windows Server 장애 조치 클러스터링 구성 예제_
 
-### <a name="a-namebe21cf3e-fb01-402b-9955-54fbecf66592a-shared-storage"></a><a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a> 공유 Storage
+### <a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a> 공유 Storage
 그림 1에는 2 노드 공유 Storage 클러스터도 나와 있습니다. 온-프레미스 공유 Storage 클러스터에서 클러스터의 모든 노드는 공유 Storage를 검색합니다. 잠금 메커니즘을 통해 데이터가 손상으로부터 보호됩니다. 모든 노드는 다른 노드에 장애가 있는지 알 수 있습니다. 한 노드가 실패하면 나머지 하나가 Storage 리소스의 소유권을 가지며, 서비스의 가용성을 보장합니다.
 
 > [!NOTE]
@@ -545,7 +548,7 @@ _**그림 1:** Azure에서 SAP ASCS/SCS에 대한 Windows Server 장애 조치 �
 >
 >
 
-### <a name="a-nameff7a9a06-2bc5-4b20-860a-46cdb44669cda-networking-and-name-resolution"></a><a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a> 네트워킹 및 이름 확인
+### <a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a> 네트워킹 및 이름 확인
 클라이언트 컴퓨터는 DNS 서버에서 제공하는 가상 IP 주소 및 가상 호스트 이름을 통해 클러스터에 도달합니다. 온-프레미스 노드와 DNS 서버는 여러 개의 IP 주소를 처리할 수 있습니다.
 
 표준 설치에서는 다음 두 가지 이상의 네트워크 연결을 사용합니다.
@@ -554,7 +557,7 @@ _**그림 1:** Azure에서 SAP ASCS/SCS에 대한 Windows Server 장애 조치 �
 * 하트비트에 대한 클러스터 내부 네트워크 연결
 * 클라이언트에서 클러스터에 연결하는 데 사용하는 공용 네트워크
 
-## <a name="a-name2ddba413-a7f5-4e4e-9a51-87908879c10aa-windows-server-failover-clustering-in-azure"></a><a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a> Azure의 Windows Server 장애 조치 클러스터링
+## <a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a> Azure의 Windows Server 장애 조치 클러스터링
 운영 체제 미설치 또는 사설 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. 공유 클러스터 디스크를 만들려면 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
 
 이 문서에서는 Azure에서 SAP 고가용성 중앙 서비스 클러스터를 구축하는 데 필요한 핵심 개념 및 추가 단계에 대해 설명합니다. 타사 도구 SIOS DataKeeper를 설정하고 Azure 내부 부하 분산 장치를 구성하는 방법을 보여 줍니다. 이러한 도구와 Azure에서 파일 공유 감시를 사용하여 Windows 장애 조치 클러스터를 만들 수 있습니다.
@@ -563,7 +566,7 @@ _**그림 1:** Azure에서 SAP ASCS/SCS에 대한 Windows Server 장애 조치 �
 
 _**그림 2:** 공유 디스크를 사용하지 않는 Azure의 Windows Server 장애 조치 클러스터링 구성_
 
-### <a name="a-name1a464091-922b-48d7-9d08-7cecf757f341a-shared-disk-in-azure-with-sios-datakeeper"></a><a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> SIOS DataKeeper를 사용한 Azure의 공유 디스크
+### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> SIOS DataKeeper를 사용한 Azure의 공유 디스크
 고가용성 SAP ASCS/SCS 인스턴스를 위해서는 클러스터 공유 Storage가 필요합니다. 2016년 9월을 기준으로 Azure는 공유 Storage 클러스터를 만드는 데 사용할 수 있는 공유 Storage를 제공하지 않습니다. 타사 소프트웨어 SIOS DataKeeper Cluster Edition을 사용하여 클러스터 공유 Storage를 시뮬레이션하는 미러링된 Storage를 만들 수 있습니다. SIOS 솔루션은 실시간 동기 데이터 복제 기능을 제공합니다. 다음은 클러스터에 대한 공유 디스크 리소스를 만드는 방법입니다.
 
 1. Windows 클러스터 구성에 있는 각 VM(가상 컴퓨터)에 추가 Azure VHD(가상 하드 디스크)를 추가합니다.
@@ -581,13 +584,13 @@ _**그림 3:** SIOS DataKeeper를 사용하는 Azure의 Windows Server 장애 �
 >
 >
 
-### <a name="a-name44641e18-a94e-431f-95ff-303ab65e0bcba-name-resolution-in-azure"></a><a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a> Azure의 이름 확인
+### <a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a> Azure의 이름 확인
 Azure 클라우드 플랫폼은 부동 IP 주소와 같은 가상 IP 주소를 구성하는 옵션을 제공하지 않습니다. 클라우드의 클러스터 리소스에 연결하도록 가상 IP 주소를 설정하기 위한 대체 솔루션이 필요합니다.
 Azure의 Azure Load Balancer 서비스에는 내부 부하 분산 장치가 있습니다. 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다.
 클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포해야 합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다.
 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
-## <a name="a-name2e3fec50-241e-441b-8708-0b1864f66dfaa-sap-netweaver-high-availability-in-azure-infrastructure-as-a-service-iaas"></a><a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a> Azure IaaS(Infrastructure-as-a-Service)의 SAP NetWeaver 고가용성
+## <a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a> Azure IaaS(Infrastructure-as-a-Service)의 SAP NetWeaver 고가용성
 SAP 응용 프로그램 고가용성(예: SAP 소프트웨어 구성 요소)을 달성하려면 다음 구성 요소를 보호해야 합니다.
 
 * SAP 응용 프로그램 서버 인스턴스
@@ -596,7 +599,7 @@ SAP 응용 프로그램 고가용성(예: SAP 소프트웨어 구성 요소)을 
 
 고가용성 시나리오에서 SAP 구성 요소 보호에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide-11]을 참조하세요.
 
-### <a name="a-name93faa747-907e-440a-b00a-1ae0a89b1c0ea-high-availability-sap-application-server"></a><a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> 고가용성 SAP 응용 프로그램 서버
+### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> 고가용성 SAP 응용 프로그램 서버
 일반적으로 SAP 응용 프로그램 서버 및 대화 상자 인스턴스의 경우 특정 고가용성 솔루션이 필요하지 않습니다. 중복성으로 고가용성을 달성하고 다른 Azure Virtual Machines 인스턴스에서 여러 대화 상자 인스턴스를 구성합니다. 두 개의 Azure Virtual Machines 인스턴스에&2;개 이상의 SAP 응용 프로그램 인스턴스가 설치되어 있어야 합니다.
 
 ![그림 4: 고가용성 SAP 응용 프로그램 서버][sap-ha-guide-figure-2000]
@@ -612,21 +615,21 @@ SAP 응용 프로그램 서버 인스턴스를 호스트하는 모든 가상 컴
 
 Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 두 개 이상의 가상 컴퓨터가 배포될&2;개 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 컴퓨터의 디스크를 다른 저장소 계정에 배포합니다.
 
-### <a name="a-namef559c285-ee68-4eec-add1-f60fe7b978dba-high-availability-sap-ascsscs-instance"></a><a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> 고가용성 SAP ASCS/SCS 인스턴스
+### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> 고가용성 SAP ASCS/SCS 인스턴스
 그림 5는 고가용성 SAP ASCS/SCS 인스턴스의 예입니다.
 
 ![그림 5: 고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-2001]
 
 _**그림 5:** 고가용성 SAP ASCS/SCS 인스턴스_
 
-#### <a name="a-nameb5b1fd0b-1db4-4d49-9162-de07a0132a51a-sap-ascsscs-instance-high-availability-with-windows-server-failover-clustering-in-azure"></a><a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> Azure에서 Windows Server 장애 조치 클러스터링을 사용한 SAP ASCS/SCS 인스턴스 고가용성
+#### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> Azure에서 Windows Server 장애 조치 클러스터링을 사용한 SAP ASCS/SCS 인스턴스 고가용성
 운영 체제 미설치 또는 사설 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. Windows 장애 조치 클러스터를 구축하려면 SAP ASCS/SCS 인스턴스를 클러스터링하기 위한 공유 클러스터 디스크, 일부 IP 주소, 가상 호스트 이름 및 Azure 내부 부하 분산 장치가 필요합니다. 이 내용은 문서 뒷부분에서 좀 더 자세히 설명합니다.
 
 ![그림 6: SIOS DataKeeper를 사용하는 Azure의 SAP ASCS/SCS용 Windows Server 장애 조치 클러스터링 구성][sap-ha-guide-figure-1002]
 
 _**그림 6:** SIOS DataKeeper를 사용하는 Azure의 SAP ASCS/SCS용 Windows Server 장애 조치 클러스터링 구성_
 
-### <a name="a-nameddd878a0-9c2f-4b8e-8968-26ce60be1027ahigh-availability-dbms-instance"></a><a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a> 고가용성 DBMS 인스턴스
+### <a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a> 고가용성 DBMS 인스턴스
 DBMS는 SAP 시스템의 단일 연락 지점이기도 합니다. 따라서 고가용성 솔루션을 사용하여 보호해야 합니다. 그림 7에서는 Windows Server 장애 조치 클러스터링 및 Azure 내부 부하 분산 장치를 사용하여 Azure의 SQL Server Always On 고가용성 솔루션을 보여 줍니다. SQL Server Always On은 자체 DBMS 복제를 사용하여 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 전체 설정을 간소화하는 클러스터 공유 디스크가 필요하지 않습니다.
 
 ![그림 7: SQL Server Always On을 사용하는 고가용성 SAP DBMS 예제][sap-ha-guide-figure-2003]
@@ -638,7 +641,7 @@ Azure Resource Manager 배포 모델을 사용하는 Azure의 SQL Server 클러�
 * [Resource Manager를 사용하여 Azure Virtual Machines에서 수동으로 Always On 가용성 그룹 구성][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 * [Azure에서 Always On 가용성 그룹에 대한 Azure 내부 부하 분산 장치 구성][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-## <a name="a-name045252ed-0277-4fc8-8f46-c5a29694a816a-end-to-end-high-availability-deployment-scenarios"></a><a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> 종단간 고가용성 배포 시나리오
+## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> 종단간 고가용성 배포 시나리오
 
 ### <a name="deployment-scenario-using-architectural-template-1"></a>아키텍처 템플릿 1을 사용하여 배포 시나리오
 
@@ -676,7 +679,7 @@ _**그림 9:** SAP 고가용성 아키텍처 템플릿 2 - ASCS/SCS 전용 클�
 
 _**그림 10:** SAP 고가용성 아키텍처 템플릿 3 - 다른 ASCS/SCS 인스턴스 전용 클러스터_
 
-## <a name="a-name78092dbe-165b-454c-92f5-4972bdbef9bfa-prepare-the-infrastructure"></a><a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> 인프라 준비
+## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> 인프라 준비
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-1"></a>아키텍처 템플릿 1에 대한 인프라 준비
 SAP용 Azure Resource Manager 템플릿은 필요한 리소스의 배포를 간소화하도록 도와줍니다.
@@ -728,7 +731,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 >
 >
 
-### <a name="a-namec87a8d3f-b1dc-4d2f-b23c-da4b72977489a-deploy-virtual-machines-with-corporate-network-connectivity-cross-premises-to-use-in-production"></a><a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> 프로덕션 환경에서 사용하기 위해 회사 네트워크 연결(크로스-프레미스)을 사용하여 가상 컴퓨터 배포
+### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> 프로덕션 환경에서 사용하기 위해 회사 네트워크 연결(크로스-프레미스)을 사용하여 가상 컴퓨터 배포
 프로덕션 SAP 시스템의 경우 Azure 사이트 간 VPN 또는 Azure ExpressRoute를 사용하여 [회사 네트워크 연결(크로스-프레미스)][planning-guide-2.2]를 통해 Azure 가상 컴퓨터를 배포합니다.
 
 > [!NOTE]
@@ -757,7 +760,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
   ```
 
-### <a name="a-name7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310a-deploy-cloud-only-sap-instances-for-test-and-demo"></a><a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> 테스트 및 데모용 클라우드 전용 SAP 인스턴스 배포
+### <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> 테스트 및 데모용 클라우드 전용 SAP 인스턴스 배포
 클라우드 전용 배포 모델에서 고가용성 SAP 시스템을 배포할 수 있습니다. 기본적으로 이러한 종류의 배포는 데모 및 테스트 사용 사례에 사용할 수 있습니다. 프로덕션 사용 사례에는 적합하지 않습니다.
 
 - Azure Portal에서 **매개 변수** 블레이드의 **NEWOREXISTINGSUBNET** 상자에서 **신규**를 선택합니다. **SUBNETID** 필드는 비워둡니다.
@@ -793,7 +796,7 @@ _**그림 11:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 다음 섹션에는 템플릿에서 제공해야 하는 템플릿과 매개 변수에 대한 자세한 정보가 있습니다.
 
-#### <a name="a-nameascs-scs-templatea-ascsscs-template"></a><a name="ASCS-SCS-template"></a> ASCS/SCS 템플릿
+#### <a name="ASCS-SCS-template"></a> ASCS/SCS 템플릿
 
 ASCS/SCS 템플릿은 여러 ASCS/SCS 인스턴스를 호스팅하는 Windows 서버 장애 조치(Failover) 클러스터를 만드는 데 사용할 수 있는 두 개의 가상 컴퓨터를 배포합니다.
 
@@ -830,7 +833,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 - ASCS/SCS 내부 부하 분산 장치 프로브 포트: 620x0
 - ERS 내부 부하 분산 장치 프로브 포트(Linux 전용): 621x2
 
-#### <a name="a-namedatabase-templatea-database-template"></a><a name="database-template"></a> 데이터베이스 템플릿
+#### <a name="database-template"></a> 데이터베이스 템플릿
 
 데이터베이스 템플릿은 단일 SAP 시스템에 대한 관계형 데이터베이스 관리 시스템(RDBMS)을 설치하는 데 사용할 수 있는 하나 또는 두 개의 가상 컴퓨터를 배포합니다. 예를 들어&5;개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을&5;번 배포해야 합니다.
 
@@ -847,7 +850,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
   -  **관리자 사용자 이름 및 관리자 암호**. 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
   -  **서브넷 ID**. ASCS/SCS 템플릿 배포 중에 사용된 서브넷의 ID 또는 ASCS/SCS 템플릿 배포의 일부로 만든 서브넷의 ID를 입력합니다.
 
-#### <a name="a-nameapplication-servers-templatea-application-servers-template"></a><a name="application-servers-template"></a> 응용 프로그램 서버 템플릿
+#### <a name="application-servers-template"></a> 응용 프로그램 서버 템플릿
 
 응용 프로그램 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 응용 프로그램 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 컴퓨터를 배포합니다. 예를 들어&5;개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을&5;번 배포해야 합니다.
 
@@ -861,7 +864,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
   -  **서브넷 ID**. ASCS/SCS 템플릿 배포 중에 사용된 서브넷의 ID 또는 ASCS/SCS 템플릿 배포의 일부로 만든 서브넷의 ID를 입력합니다.
 
 
-### <a name="a-name47d5300a-a830-41d4-83dd-1a0d1ffdbe6aa-azure-virtual-network"></a><a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure 가상 네트워크
+### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure 가상 네트워크
 이 예제에서 Azure 가상 네트워크의 주소 공간은 10.0.0.0/16입니다. **Subnet**이라는 서브넷이 하나 있으며 주소 범위는 10.0.0.0/24입니다. 모든 가상 컴퓨터와 내부 부하 분산 장치는 이 가상 네트워크에 배포됩니다.
 
 > [!IMPORTANT]
@@ -869,7 +872,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 >
 >
 
-### <a name="a-nameb22d7b3b-4343-40ff-a319-097e13f62f9ea-dns-ip-addresses"></a><a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS IP 주소
+### <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS IP 주소
 
 필요한 DNS IP 주소를 설정하려면 다음 단계를 수행합니다.
 
@@ -895,7 +898,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 | 첫 번째 DNS 서버 |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | 두 번째 DNS 서버 |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
-### <a name="a-name9fbd43c0-5850-4965-9726-2a921d85d73fa-host-names-and-static-ip-addresses-for-the-sap-ascsscs-clustered-instance-and-dbms-clustered-instance"></a><a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> SAP ASCS/SCS 클러스터형 인스턴스 및 DBMS 클러스터형 인스턴스의 호스트 이름 및 고정 IP 주소
+### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> SAP ASCS/SCS 클러스터형 인스턴스 및 DBMS 클러스터형 인스턴스의 호스트 이름 및 고정 IP 주소
 
 온-프레미스 배포에 대해 다음의 예약된 호스트 이름 및 IP 주소가 필요합니다.
 
@@ -909,7 +912,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 DNS 서버에서 다른 두 가상 호스트 이름 **pr1 ascs sap** 및 **pr1 dbms sap**와 연결된 IP 주소는 수동으로 만들 수 있습니다. 클러스터형 SAP ASCS/SCS 인스턴스 및 클러스터형 DBMS 인스턴스는 이러한 리소스를 사용합니다. 이 작업을 수행하는 방법에 대한 정보는 [클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기][sap-ha-guide-9.1.1]를 참조하세요.
 
-### <a name="a-name84c019fe-8c58-4dac-9e54-173efd4b2c30a-set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> SAP 가상 컴퓨터에 대한 고정 IP 주소 설정
+### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> SAP 가상 컴퓨터에 대한 고정 IP 주소 설정
 클러스터에서 사용할 가상 컴퓨터를 배포한 후 모든 가상 컴퓨터에 대해 고정 IP 주소를 설정해야 합니다. 이 작업은 게스트 운영 체제가 아니라 Azure Virtual Network 구성에서 수행합니다.
 
 1.  Azure Portal에서 **리소스 그룹** > **네트워크 카드** > **설정** > **IP 주소**를 선택합니다.
@@ -939,7 +942,7 @@ DNS 서버에서 다른 두 가상 호스트 이름 **pr1 ascs sap** 및 **pr1 d
 | DBMS 인스턴스의 첫 번째 클러스터 노드 |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
 | DBMS 인스턴스의 두 번째 클러스터 노드 |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
-### <a name="a-name7a8f3e9b-0624-4051-9e41-b73fff816a9ea-set-a-static-ip-address-for-the-azure-internal-load-balancer"></a><a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Azure 내부 부하 분산 장치의 고정 IP 주소 설정
+### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Azure 내부 부하 분산 장치의 고정 IP 주소 설정
 
 SAP Azure Resource Manager 템플릿은 SAP ASCS/SCS 인스턴스 클러스터 및 DBMS 클러스터에 사용되는 Azure 내부 부하 분산 장치를 만듭니다.
 
@@ -967,7 +970,7 @@ Azure 내부 부하 분산 장치의 고정 IP 주소를 설정하려면:
 | SAP DBMS 내부 부하 분산 장치 |pr1-lb-dbms |10.0.0.33 |
 
 
-### <a name="a-namef19bd997-154d-4583-a46e-7f5a69d0153ca-default-ascsscs-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙
+### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙
 
 SAP Azure Resource Manager 템플릿은 다음에 대해 필요한 포트를 만듭니다.
 * 기본 인스턴스 번호가 **00**인 ABAP ASCS 인스턴스
@@ -1019,7 +1022,7 @@ _**그림 15:** Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분�
 
 부하 분산 장치 **pr1-lb-dbms**의 IP 주소를 DBMS 인스턴스의 가상 호스트 이름 IP 주소로 설정합니다.
 
-### <a name="a-namefe0bd8b5-2b43-45e3-8295-80bee5415716a-change-the-ascsscs-default-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경
 
 SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경우 해당 포트의 이름과 값을 기본 값에서 변경해야 합니다.
 
@@ -1038,7 +1041,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 
   _**그림 16:** Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 변경_
 
-### <a name="a-namee69e9a34-4601-47a3-a41c-d2e11c626c0ca-add-windows-virtual-machines-to-the-domain"></a><a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> 도메인에 Windows 가상 컴퓨터 추가
+### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> 도메인에 Windows 가상 컴퓨터 추가
 
 가상 컴퓨터에 고정 IP 주소를 할당한 후 가상 컴퓨터를 도메인에 추가합니다.
 
@@ -1046,7 +1049,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 
 _**그림 17:** 도메인에 가상 컴퓨터 추가_
 
-### <a name="a-name661035b2-4d0f-4d31-86f8-dc0a50d78158a-add-registry-entries-on-both-cluster-nodes-of-the-sap-ascsscs-instance"></a><a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> SAP ASCS/SCS 인스턴스의 클러스터 노드 둘 다에 대한 레지스트리 항목 추가
+### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> SAP ASCS/SCS 인스턴스의 클러스터 노드 둘 다에 대한 레지스트리 항목 추가
 
 Azure Load Balancer에는 설정된 시간(유휴 제한 시간) 동안 연결이 유휴 상태일 때 연결을 닫는 내부 부하 분산 장치가 있습니다. 대화 상자 인스턴스의 SAP 작업 프로세스는 첫 번째 큐에 넣지/큐에서 제거 요청이 전송되는 즉시 SAP 큐에 넣기 프로세스에 대한 연결을 엽니다. 이러한 연결은 일반적으로 작업 프로세스 또는 큐에 넣기 프로세스가 다시 시작될 때까지 설정 상태를 유지합니다. 그러나 연결이 설정 기간 동안 유휴 상태이면 Azure 내부 부하 분산 장치는 연결을 닫습니다. 그렇지만 연결이 더 이상 없는 경우 SAP 작업 프로세스는 큐에 넣기 프로세스에 대한 연결을 다시 설정하기 때문에 문제가 되지 않습니다. 이러한 활동은 SAP 프로세스의 개발자 추적에 설명되어 있지만 해당 추적에 많은 양의 추가 콘텐츠가 생성됩니다. 따라서 두 클러스터 노드에서 TCP/IP `KeepAliveTime` 및 `KeepAliveInterval`을 변경하는 것이 좋습니다. 이 문서 뒷부분에 설명된 것처럼 TCP/IP 매개 변수의 이러한 변경 내용을 SAP 프로필 매개 변수와 결합합니다.
 
@@ -1074,14 +1077,14 @@ _**표 4:** 두 번째 TCP/IP 매개 변수 변경_
 
 **변경 내용을 적용하려면 두 클러스터 노드를 모두 다시 시작합니다.**
 
-### <a name="a-name0d67f090-7928-43e0-8772-5ccbf8f59aaba-set-up-a-windows-server-failover-clustering-cluster-for-an-sap-ascsscs-instance"></a><a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> SAP ASCS/SCS 인스턴스에 대한 Windows Server 장애 조치 클러스터링 클러스터 설정
+### <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> SAP ASCS/SCS 인스턴스에 대한 Windows Server 장애 조치 클러스터링 클러스터 설정
 
 SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터링 클러스터 설정은 다음과 같은 작업을 포함합니다.
 
 - 클러스터 구성에서 클러스터 노드 수집
 - 클러스터 파일 공유 감시 구성
 
-#### <a name="a-name5eecb071-c703-4ccc-ba6d-fe9c6ded9d79a-collect-the-cluster-nodes-in-a-cluster-configuration"></a><a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> 클러스터 구성에서 클러스터 노드 수집
+#### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> 클러스터 구성에서 클러스터 노드 수집
 
 1.  역할 및 기능 추가 마법사에서 장애 조치 클러스터링을 두 클러스터 노드에 추가합니다.
 2.  장애 조치 클러스터 관리자를 사용하여 장애 조치 클러스터를 설정합니다. 장애 조치 클러스터 관리자에서 **클러스터 만들기**를 선택한 다음 첫 번째 클러스터 노드, 노드 A의 이름만 추가합니다. 두 번째 노드를 아직 추가하지 마십시오. 이후 단계에서 두 번째 노드를 추가합니다.
@@ -1160,14 +1163,14 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
   _**그림 29:** 디스크 쿼럼에 대한 경고 무시_
 
 
-#### <a name="a-namee49a4529-50c9-4dcf-bde7-15a0c21d21caa-configure-a-cluster-file-share-witness"></a><a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> 클러스터 파일 공유 감시 구성
+#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> 클러스터 파일 공유 감시 구성
 
 클러스터 파일 공유 감시 구성은 다음과 같은 작업을 포함합니다.
 
 - 파일 공유 만들기
 - 장애 조치 클러스터 관리자에서 파일 공유 감시 쿼럼 설정
 
-##### <a name="a-name06260b30-d697-4c4d-b1c9-d22c0bd64855a-create-a-file-share"></a><a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> 파일 공유 만들기
+##### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> 파일 공유 만들기
 
 1.  쿼럼 디스크 대신 파일 공유 감시를 선택합니다. SIOS DataKeeper는 이 옵션을 지원합니다.
 
@@ -1206,7 +1209,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
   _**그림 33:** 파일 공유 쿼럼의 클러스터 이름 개체에 대한 보안 특성 설정_
 
-##### <a name="a-name4c08c387-78a0-46b1-9d27-b497b08cac3da-set-the-file-share-witness-quorum-in-failover-cluster-manager"></a><a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> 장애 조치 클러스터 관리자에서 파일 공유 감시 쿼럼 설정
+##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> 장애 조치 클러스터 관리자에서 파일 공유 감시 쿼럼 설정
 
 1.  쿼럼 설정 구성 마법사를 엽니다.
 
@@ -1238,7 +1241,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
   _**그림 38:** 클러스터를 다시 구성했는지 확인_
 
-### <a name="a-name5c8e5482-841e-45e1-a89d-a05c0907c868a-install-sios-datakeeper-cluster-edition-for-the-sap-ascsscs-cluster-share-disk"></a><a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치
+### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치
 
 이제 Azure에서 Windows Server 장애 조치 클러스터링 구성이 완료되었습니다. 그렇지만 SAP ASCS/SCS 인스턴스를 설치하려면 공유 디스크 리소스가 필요합니다. Azure에서는 필요한 공유 디스크 리소스를 만들 수 없습니다. SIOS DataKeeper Cluster Edition은 공유 디스크 리소스를 만드는 데 사용할 수 있는 타사 솔루션입니다.
 
@@ -1248,7 +1251,7 @@ SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edi
 - SIOS DataKeeper 설치
 - SIOS DataKeeper 설정
 
-#### <a name="a-name1c2788c3-3648-4e82-9e0d-e058e475e2a3a-add-the-net-framework-35"></a><a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> .NET Framework 3.5 추가
+#### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> .NET Framework 3.5 추가
 Microsoft.NET Framework 3.5는 Windows Server 2012 R2에서 자동으로 활성화되거나 설치되지 않습니다. SIOS DataKeeper는 DataKeeper를 설치하는 모든 노드에 .NET Framework를 필요로 하므로 클러스터의 모든 가상 컴퓨터의 게스트 운영 체제에 .NET Framework 3.5를 설치해야 합니다.
 
 .NET Framework 3.5는 두 가지 방법으로 추가합니다.
@@ -1269,7 +1272,7 @@ Microsoft.NET Framework 3.5는 Windows Server 2012 R2에서 자동으로 활성�
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess
   ```
 
-#### <a name="a-namedd41d5a2-8083-415b-9878-839652812102a-install-sios-datakeeper"></a><a name="dd41d5a2-8083-415b-9878-839652812102"></a> SIOS DataKeeper 설치
+#### <a name="dd41d5a2-8083-415b-9878-839652812102"></a> SIOS DataKeeper 설치
 
 클러스터의 각 노드에 SIOS DataKeeper Cluster Edition을 설치합니다. SIOS DataKeeper를 사용하여 가상 공유 저장소를 만들려면 동기화된 미러를 만든 후 클러스터 공유 저장소를 시뮬레이션합니다.
 
@@ -1316,7 +1319,7 @@ SIOS DataKeeper를 설치하려면:
 
 6.  메시지가 표시되면 가상 컴퓨터를 다시 시작합니다.
 
-#### <a name="a-named9c1fc8e-8710-4dff-bec2-1f535db7b006a-set-up-sios-datakeeper"></a><a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> SIOS DataKeeper 설정
+#### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> SIOS DataKeeper 설정
 
 두 노드에 SIOS DataKeeper를 설치한 후 구성을 시작해야 합니다. 각 가상 컴퓨터에 연결된 추가 VHD 간에 동기식으로 데이터를 복제하기 위해 이러한 구성이 필요합니다.
 
@@ -1381,7 +1384,7 @@ SIOS DataKeeper를 설치하려면:
 
   _**그림 55:** 장애 조치 클러스터 관리자에서 표시하는 DataKeeper에서 복제한 디스크_
 
-## <a name="a-namea06f0b49-8a7a-42bf-8b0d-c12026c5746ba-install-the-sap-netweaver-system"></a><a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> SAP NetWeaver 시스템 설치
+## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> SAP NetWeaver 시스템 설치
 
 설정은 사용하는 DBMS 시스템에 따라 다르므로 DBMS 설정에 대해서는 설명하지 않습니다. 그러나 다른 DBMS 공급업체가 Azure에 대해 지원하는 기능으로 DBMS의 고가용성 문제가 해결된다고 가정합니다. 예로 SQL Server 및 Oracle 데이터베이스용 Oracle Data Guard에 대한 AlwaysOn 또는 데이터베이스 미러링을 들 수 있습니다. 이 문서에서 사용하는 시나리오에서는 DBMS에 대해 추가 보호를 적용하지 않았습니다.
 
@@ -1392,7 +1395,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 >
 >
 
-### <a name="a-name31c6bd4f-51df-4057-9fdf-3fcbc619c170a-install-sap-with-a-high-availability-ascsscs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> 고가용성 ASCS/SCS 인스턴스에 SAP 설치
+### <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> 고가용성 ASCS/SCS 인스턴스에 SAP 설치
 
 > [!IMPORTANT]
 > DataKeeper 미러된 볼륨에 페이지 파일을 배치하지 마세요. DataKeeper는 미러된 볼륨을 지원하지 않습니다. Azure Virtual Machines의 임시 드라이브 D에 페이지 파일을 둘 수 있습니다. 이것이 기본 설정입니다. Windows 페이지 파일을 Azure Virtual Machines의 D 드라이브로 이동하지 않은 경우 이동합니다.
@@ -1407,7 +1410,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 - 프로브 포트 추가
 - Windows 방화벽 프로브 포트 열기
 
-#### <a name="a-namea97ad604-9094-44fe-a364-f89cb39bf097a-create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a><a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> 클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기
+#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> 클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기
 
 1.  Windows DNS 관리자에서 ASCS/SCS 인스턴스의 가상 호스트 이름에 대한 DNS 항목을 만듭니다.
 
@@ -1428,7 +1431,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 
   _**그림 57:** SAP ASCS/SCS 클러스터 구성을 위한 새 가상 이름 및 TCP/IP 주소_
 
-#### <a name="a-nameeb5af918-b42f-4803-bb50-eff41f84b0b0a-install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> SAP 첫 번째 클러스터 노드 설치
+#### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> SAP 첫 번째 클러스터 노드 설치
 
 1.  클러스터 노드 A에서 첫 번째 클러스터 노드 옵션을 실행합니다(예: **pr1-ascs-0** 호스트).
 2.  Azure 내부 부하 분산 장치에 대한 기본 포트를 유지하려면 다음을 선택합니다.
@@ -1446,7 +1449,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 >
 >
 
-#### <a name="a-namee4caaab2-e90f-4f2c-bc84-2cd2e12a9556a-modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> ASCS/SCS 인스턴스의 SAP 프로필 수정
+#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> ASCS/SCS 인스턴스의 SAP 프로필 수정
 
 새 프로필 매개 변수를 추가해야 합니다. 이 프로필 매개 변수는 연결이 너무 오랫동안 유휴 상태일 때 SAP 작업 프로세스와 큐에 넣기 서버 사이의 연결이 닫히지 않도록 합니다. [SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대한 레지스트리 항목 추가][sap-ha-guide-8.11]에서 문제 시나리오를 설명했습니다. 이 섹션에서는 몇 가지 기본 TCP/IP 연결 매개 변수에 대한 두 가지 변경 내용도 설명되어 있습니다. 두 번째 단계에서는 연결이 Azure 부하 부산 장치의 유휴 임계값에 도달하지 않게 `keep_alive` 신호를 보내도록 큐에 추가 서버를 설정해야 합니다.
 
@@ -1467,7 +1470,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 2.  변경 내용을 적용하려면 SAP ASCS/SCS 인스턴스를 다시 시작합니다.
 
-#### <a name="a-name10822f4f-32e7-4871-b63a-9b86c76ce761a-add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> 프로브 포트 추가
+#### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> 프로브 포트 추가
 
 내부 부하 분산 장치의 프로브 기능을 사용하여 전체 클러스터 구성이 Azure Load Balancer에서 작동하도록 합니다. 일반적으로 Azure 내부 부하 분산 장치는 참여하는 가상 컴퓨터 간에 동일하게 들어오는 작업 부하를 분산합니다. 그러나 하나의 인스턴스만 활성 상태가 되므로 일부 클러스터 구성에서는 작동하지 않습니다. 다른 인스턴스는 수동 상태이므로 워크로드를 받아들일 수 없습니다. 검색 기능은 Azure 내부 부하 분산 장치가 활성 인스턴스에만 작업을 할당할 때 도움이 됩니다. 검색 기능을 사용하면 내부 부하 분산 장치는 활성 상태인 인스턴스를 감지한 후 해당 인스턴스만 워크로드 대상으로 지정할 수 있습니다.
 
@@ -1562,7 +1565,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
   _**그림 59:** 새 값을 설정한 후 클러스터 포트 검색_
 
-#### <a name="a-name4498c707-86c0-4cde-9c69-058a7ab8c3aca-open-the-windows-firewall-probe-port"></a><a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Windows 방화벽 프로브 포트 열기
+#### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Windows 방화벽 프로브 포트 열기
 
 두 클러스터 노드에서 Windows 방화벽 프로브 포트를 열어야 합니다. 다음 스크립트를 사용하여 Windows 방화벽 프로브 포트를 엽니다. 사용자 환경에 맞게 PowerShell 변수를 업데이트합니다.
 
@@ -1574,15 +1577,15 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 **ProbePort**가 **62000**으로 설정됩니다. 이제 **ascsha-dbas** 등의 다른 호스트에서 **\\\ascsha-clsap\sapmnt** 파일 공유에 액세스할 수 있습니다.
 
-### <a name="a-name85d78414-b21d-4097-92b6-34d8bcb724b7a-install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> 데이터베이스 인스턴스 설치
+### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> 데이터베이스 인스턴스 설치
 
 데이터베이스 인스턴스를 설치하려면 SAP 설치 설명서에 설명된 프로세스를 따릅니다.
 
-### <a name="a-name8a276e16-f507-4071-b829-cdc0a4d36748a-install-the-second-cluster-node"></a><a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> 두 번째 클러스터 노드 설치
+### <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> 두 번째 클러스터 노드 설치
 
 두 번째 클러스터 노드를 설치하려면 SAP 설치 가이드의 단계를 따릅니다.
 
-### <a name="a-name094bc895-31d4-4471-91cc-1513b64e406aa-change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> SAP ERS Windows 서비스 인스턴스의 시작 유형 변경
+### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> SAP ERS Windows 서비스 인스턴스의 시작 유형 변경
 
 두 클러스터 노드에서 SAP ERS Windows 서비스의 시작 유형을 **자동(지연된 시작)**으로 변경합니다.
 
@@ -1590,11 +1593,11 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 _**그림 60:** SAP ERS 인스턴스의 서비스 유형을 지연된 자동으로 변경_
 
-### <a name="a-name2477e58f-c5a7-4a5d-9ae3-7b91022cafb5a-install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> SAP 기본 응용 프로그램 서버 설치
+### <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> SAP 기본 응용 프로그램 서버 설치
 
 PAS(기본 응용 프로그램 서버)를 호스트하도록 지정한 가상 컴퓨터에 PAS 인스턴스 <*SID*>-di-0를 설치합니다. Azure 또는 DataKeeper 관련 설정과는 관련이 없습니다.
 
-### <a name="a-name0ba4a6c1-cc37-4bcf-a8dc-025de4263772a-install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP 추가 응용 프로그램 서버 설치
+### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP 추가 응용 프로그램 서버 설치
 
 SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모든 가상 컴퓨터에 SAP AAS(추가 응용 프로그램 서버)를 설치합니다. 예로 <*SID*>-di-1 ~ <*SID*>-di-&lt;n&gt;을 들 수 있습니다.
 
@@ -1603,10 +1606,10 @@ SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모�
 >
 
 
-## <a name="a-name18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9a-test-the-sap-ascsscs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트
 장애 조치 클러스터 관리자 및 SIOS DataKeeper 관리 및 구성 도구를 사용하여 SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 디스크 복제를 쉽게 테스트하고 모니터링할 수 있습니다.
 
-### <a name="a-name65fdef0f-9f94-41f9-b314-ea45bbfea445a-sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS 인스턴스가 클러스터 노드 A에서 실행되고 있습니다.
+### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS 인스턴스가 클러스터 노드 A에서 실행되고 있습니다.
 
 **SAP PR1** 클러스터 그룹이 클러스터 노드 A(예: **pr1-ascs-0**)에서 실행되고 있습니다. **SAP PR1** 클러스터 그룹에 속하고 ASCS/SCS 인스턴스에서 사용하는 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다.
 
@@ -1620,7 +1623,7 @@ SIOS DataKeeper 관리 및 구성 도구에서 공유 디스크 데이터가 클
 
 _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스터 노드 B에 로컬 볼륨 복제_
 
-### <a name="a-name5e959fa9-8fcd-49e5-a12c-37f6ba07b916a-failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> 노드 A에서 노드 B로 장애 조치
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> 노드 A에서 노드 B로 장애 조치
 
 1.  이러한 옵션 중 하나를 선택하여 클러스터 노드 A에서 클러스터 노드 B로 SAP <*SID*> 클러스터 그룹의 장애 조치를 시작합니다.
   - 장애 조치(failover) 클러스터 관리자 사용  
@@ -1648,8 +1651,3 @@ _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스�
   ![그림 64: SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제][sap-ha-guide-figure-5003]
 
   _**그림 64:** SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제_
-
-
-<!--HONumber=Jan17_HO2-->
-
-

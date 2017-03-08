@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d215fd31ca4652437783ad630aee532a17cda611
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -65,28 +66,28 @@ TechNet의 지침에 따라 Windows 클라이언트 가상 컴퓨터에 [원격 
 도메인에 가입된 가상 컴퓨터에 Active Directory 관리 도구를 설치하려면 다음 단계를 수행합니다. [원격 서버 관리 도구 설치 및 사용](https://technet.microsoft.com/library/hh831501.aspx)에 대한 자세한 내용은 TechNet을 참조하세요.
 
 1. Azure 클래식 포털에서 **가상 컴퓨터** 노드로 이동합니다. 작업 1에서 만든 가상 컴퓨터를 선택하고 창 아래쪽에 있는 명령 모음에서 **연결** 을 클릭합니다.
-   
+
     ![Windows 가상 컴퓨터에 연결](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. 클래식 포털에 가상 컴퓨터에 연결하는 데 사용되는 ‘.rdp’ 확장명을 가진 파일을 열거나 저장하라는 메시지가 표시됩니다. 다운로드가 완료되면 클릭하여 파일을 엽니다.
 3. 로그인 프롬프트에서 'AAD DC 관리자' 그룹에 속한 사용자의 자격 증명을 사용합니다. 예를 들어 여기서는 'bob@domainservicespreview.onmicrosoft.com'을 사용합니다.
 4. 시작 화면에서 **서버 관리자**를 엽니다. 서버 관리자 창의 가운데 창에서 **역할 및 기능 추가** 를 클릭합니다.
-   
+
     ![가상 컴퓨터에서 서버 관리자 시작](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. **역할 및 기능 추가 마법사**의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
-   
+
     ![시작하기 전에 페이지](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. **설치 유형** 페이지에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고 **다음**을 클릭합니다.
-   
+
     ![설치 유형 페이지](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. **서버 선택** 페이지에서 서버 풀의 현재 가상 컴퓨터를 선택하고 **다음**을 클릭합니다.
-   
+
     ![서버 선택 페이지](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. **서버 역할** 페이지에서 **다음**을 클릭합니다. 서버에 어떠한 역할도 설치하지 않으므로 이 페이지는 건너뜁니다.
 9. **기능** 페이지에서 **원격 서버 관리 도구** 노드를 클릭하여 확장한 후 **역할 관리 도구** 노드를 클릭하여 확장합니다. 역할 관리 도구 목록에서 **AD DS 및 AD LDS 도구** 기능을 선택합니다.
-   
+
     ![기능 페이지](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
 10. **확인** 페이지에서 **설치**를 클릭하여 가상 컴퓨터에 AD 및 AD LDS 도구 기능을 설치합니다. 기능 설치를 성공적으로 완료하면 **닫기**를 클릭하여 **역할 및 기능 추가** 마법사를 종료합니다.
-    
+
     ![확인 페이지](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 ## <a name="task-3---connect-to-and-explore-the-managed-domain"></a>작업 3 - 관리되는 도메인에 연결 및 탐색
@@ -94,23 +95,23 @@ TechNet의 지침에 따라 Windows 클라이언트 가상 컴퓨터에 [원격 
 
 > [!NOTE]
 > 관리되는 도메인을 관리하려면 'AAD DC 관리자' 그룹의 구성원이어야 합니다.
-> 
-> 
+>
+>
 
 1. 시작 화면에서 **관리 도구**를 클릭합니다. 가상 컴퓨터에 설치된 AD 관리 도구가 표시됩니다.
-   
+
     ![서버에 설치된 관리 도구](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. **Active Directory 관리 센터**를 클릭합니다.
-   
+
     ![Active Directory 관리 센터](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. 도메인을 탐색하려면 왼쪽 창에서 도메인 이름(예: 'contoso100.com')을 클릭합니다. 각각 'AADDC 컴퓨터' 및 'AADDC 사용자'라는 두 개의 컨테이너를 확인할 수 있습니다.
-   
+
     ![ADAC - 도메인 보기](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 4. **AADDC 사용자** 라는 컨테이너를 클릭하면 관리되는 도메인에 속하는 모든 사용자 및 그룹이 표시됩니다. 이 컨테이너에 표시되는 Azure AD 테넌트의 사용자 계정 및 그룹이 나타납니다. 이 예에서는 'bob'이라는 사용자에 대한 사용자 계정 및 'AAD DC 관리자'라는 그룹이 이 컨테이너에 제공되는 것을 알 수 있습니다.
-   
+
     ![ADAC - 도메인 사용자](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
 5. **AADDC 컴퓨터** 라는 컨테이너를 클릭하면 이 관리되는 도메인에 가입된 컴퓨터가 표시됩니다. 도메인에 가입된 현재 가상 컴퓨터에 대한 항목이 표시됩니다. Azure AD 도메인 서비스 관리되는 도메인에 가입된 모든 컴퓨터에 대한 컴퓨터 계정이 이 'AADDC 컴퓨터' 컨테이너에 저장됩니다.
-   
+
     ![ADAC - 도메인 가입 컴퓨터](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
 
 <br>
@@ -119,10 +120,4 @@ TechNet의 지침에 따라 Windows 클라이언트 가상 컴퓨터에 [원격 
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
 * [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [원격 서버 관리 도구 배포](https://technet.microsoft.com/library/hh831501.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
 ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
 > [!div class="op_single_selector"]
 > * [Azure 클래식 포털 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-> 
-> 
+>
+>
 
 <br>
 
@@ -39,24 +40,24 @@ Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에
 1. Azure 클래식 포털의 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
 2. **계산**에서 **가상 컴퓨터**를 클릭한 후 **갤러리에서**를 클릭합니다.
 3. 첫 번째 화면의 사용 가능한 이미지 목록에서 가상 컴퓨터의 **이미지를 선택** 할 수 있습니다. 적절한 이미지를 선택합니다.
-   
+
     ![이미지 선택](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 4. 두 번째 화면에서는 컴퓨터 이름, 크기 및 관리자 사용자 이름과 암호를 선택할 수 있습니다. 앱 또는 워크로드를 실행하는 데 필요한 계층과 크기를 사용합니다. 여기에서 선택할 사용자 이름은 컴퓨터에서 로컬 관리자 사용자입니다. 여기에 도메인 사용자 계정 자격 증명을 입력하지 마세요.
-   
+
     ![가상 컴퓨터 구성](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 5. 세 번째 화면에서는 네트워킹, 저장소 및 가용성에 대한 리소스를 구성할 수 있습니다. **지역/선호도 그룹/가상 네트워크** 드롭다운에서 Azure AD 도메인 서비스를 사용하도록 설정한 가상 네트워크를 선택해야 합니다. 필요에 따라 가상 컴퓨터에 대한 **클라우드 서비스 DNS 이름** 을 지정합니다.
-   
+
     ![가상 컴퓨터에 대한 가상 네트워크 선택](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
-   
+
    > [!WARNING]
    > Azure AD 도메인 서비스를 사용하도록 설정한 동일한 가상 네트워크에 가상 컴퓨터를 가입해야 합니다. 결과적으로 가상 컴퓨터에서 도메인을 '볼' 수 있으며 도메인 가입 등의 작업을 수행할 수 있습니다. 다른 가상 네트워크에 가상 컴퓨터를 만들도록 선택한 경우 가상 네트워크를 Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에 연결합니다.
-   > 
-   > 
+   >
+   >
 6. 네 번째 화면에서는 VM 에이전트를 설치하고 사용 가능한 확장 중 일부를 구성할 수 있습니다.
-   
+
     ![완료된](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
 7. 가상 컴퓨터가 만들어지면 클래식 포털의 **가상 컴퓨터** 노드 아래에 새 가상 컴퓨터가 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
-   
+
     ![가상 컴퓨터가 시작되어 실행 중](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
 
 ## <a name="step-2-connect-to-the-windows-server-virtual-machine-using-the-local-administrator-account"></a>2단계: 로컬 관리자 계정을 사용하여 Windows Server 가상 컴퓨터에 연결
@@ -65,7 +66,7 @@ Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에
 다음 단계를 수행하여 가상 컴퓨터에 연결합니다.
 
 1. 클래식 포털에서 **가상 컴퓨터** 노드로 이동합니다. 1단계에서 만든 가상 컴퓨터를 선택하고 창 아래쪽에 있는 명령 모음에서 **연결** 을 클릭합니다.
-   
+
     ![Windows 가상 컴퓨터에 연결](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. 클래식 포털에 가상 컴퓨터에 연결하는 데 사용되는 ‘.rdp’ 확장명을 가진 파일을 열거나 저장하라는 메시지가 표시됩니다. 다운로드가 완료되면 클릭하여 파일을 엽니다.
 3. 로그인 프롬프트에서 가상 컴퓨터를 만드는 동안 지정한 **로컬 관리자 자격 증명**을 입력합니다. 예를 들어 이 예에서 'localhost\mahesh'를 사용했습니다.
@@ -77,28 +78,28 @@ Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입하려
 
 1. 2단계에서와 같이 Windows Server에 연결합니다. 시작 화면에서 **서버 관리자**를 엽니다.
 2. 서버 관리자 창의 왼쪽 창에서 **로컬 서버** 를 클릭합니다.
-   
+
     ![가상 컴퓨터에서 서버 관리자 시작](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 3. **속성** 섹션 아래에서 **작업 그룹**을 클릭합니다. **시스템 속성** 속성 페이지에서 **변경**을 클릭하여 도메인에 가입합니다.
-   
+
     ![시스템 속성 페이지](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
 4. **도메인** 텍스트 상자에 Azure AD 도메인 서비스 관리되는 도메인의 도메인 이름을 지정하고 **확인**을 클릭합니다.
-   
+
     ![가입할 도메인 지정](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 5. 도메인에 가입하려면 자격 증명을 입력하라는 메시지가 표시됩니다. **'AAD DC 관리자' 그룹에 속한 사용자의 자격 증명을 지정** 해야 합니다. 이 그룹의 멤버만 관리되는 도메인에 컴퓨터를 가입할 수 있습니다.
-   
+
     ![도메인 가입에 자격 증명 지정](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. 다음 방법 중 하나로 자격 증명을 지정할 수 있습니다.
-   
+
    * UPN 형식: Azure AD에 구성된 대로 사용자 계정에 대한 UPN 접미사를 지정합니다. 이 예제에서 'bob' 사용자의 UPN 접미사는 'bob@domainservicespreview.onmicrosoft.com'입니다.
    * SAMAccountName 형식: SAMAccountName 형식으로 계정 이름을 지정할 수 있습니다. 이 예제에서 'bob' 사용자는 'CONTOSO100\bob'로 입력해야 합니다.
-     
+
      > [!NOTE]
      > **UPN 형식을 사용하여 자격 증명을 지정하는 것이 좋습니다.** 사용자의 UPN 접두사가 지나치게 긴 경우(예: 'joereallylongnameuser') SAMAccountName이 자동으로 생성될 수도 있습니다. Azure AD 테넌트에서 여러 사용자가 동일한 UPN 접미사(예: 'bob')를 사용하는 경우 SAMAccountName 형식이 시스템에서 자동으로 생성될 수 있습니다. 이러한 경우 UPN 형식을 사용하여 도메인에 안전하게 로그인할 수 있습니다.
-     > 
-     > 
+     >
+     >
 7. 도메인 가입에 성공한 후 도메인을 시작한다는 다음 메시지가 표시됩니다. 도메인 가입 작업을 완료하도록 가상 컴퓨터를 다시 시작합니다.
-   
+
     ![도메인 시작](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
 ## <a name="troubleshooting-domain-join"></a>도메인 가입 문제 해결
@@ -124,10 +125,4 @@ Windows Server 가상 컴퓨터를 AAD-DS 관리되는 도메인에 가입하려
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

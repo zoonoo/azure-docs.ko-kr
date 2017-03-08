@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ef700f9a27d27997d53143260603bda822aa104
 ms.openlocfilehash: b84853da989d18414a31cf5b178c6506abc56bbe
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -49,9 +50,4 @@ SharePoint 사용자 프로필 동기화에 사용되는 서비스 계정을 **A
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [기술 참조 - SharePoint Server 2013에서 프로필 동기화를 위해 Active Directory Domain Services 사용 권한 부여](https://technet.microsoft.com/library/hh296982.aspx)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

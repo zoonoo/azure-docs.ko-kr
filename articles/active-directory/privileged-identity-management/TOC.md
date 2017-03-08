@@ -25,8 +25,3 @@
 # 관련 항목
 ## [Azure Active Directory](/azure/active-directory/)
 ## [역할 기반 액세스 제어](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

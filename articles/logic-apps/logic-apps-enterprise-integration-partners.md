@@ -1,11 +1,11 @@
 ---
-title: "파트너 및 엔터프라이즈 통합 팩에 대해 알아보기 | Microsoft Docs"
-description: "엔터프라이즈 통합 팩 및 논리 앱에서 파트너를 사용하는 방법 알아보기"
+title: "B2B(기업 간) 메시지에 대해 파트너 만들기 - Azure Logic Apps | Microsoft Docs"
+description: "엔터프라이즈 통합 팩 및 Logic Apps와 통합 계정에 파트너를 추가하는 방법 알아보기"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: estfan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2549531d21c8e15e5bbb4321c4119e6aaac53e96
-ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 2a886d1eaf1253b55d8c95786139a2bbdc6f145e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="partners-in-b2b-scenarios"></a>B2B 시나리오의 파트너
+# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>워크플로에서 기업 간 규약에 파트너 추가 또는 업데이트
 
 파트너는 B2B(기업 간) 트랜잭션에 참여하고 서로 메시지를 교환하는 주체입니다. 사용자와 이러한 트랜잭션의 다른 조직을 나타내는 파트너를 만들려면 서로 전송한 메시지를 식별하고 유효성을 확인하는 정보를 공유해야 합니다. 이러한 세부 정보를 확인하고 비즈니스 관계를 시작할 준비가 되면 통합 계정에 쌍방을 나타내는 파트너를 만들 수 있습니다.
 
@@ -89,10 +91,5 @@ ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
 
 ## <a name="next-steps"></a>다음 단계
 * [규약에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-agreements.md "엔터프라이즈 통합 규약에 대해 알아보기")  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

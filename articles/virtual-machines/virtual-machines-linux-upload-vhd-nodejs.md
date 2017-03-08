@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 34123faec2efc85ff6e6686c79eadc04f7f08a52
-ms.openlocfilehash: aa8161e2ae96ce67a20e87fc1e4b27b6ff24d439
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: aa8161e2ae96ce67a20e87fc1e4b27b6ff24d439
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - [Azure CLI 1.0](#quick-commands) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0(미리 보기)](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 
 ## <a name="quick-commands"></a>빠른 명령
@@ -246,10 +247,5 @@ azure group deployment create --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../azure-resource-manager/resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 해야 합니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

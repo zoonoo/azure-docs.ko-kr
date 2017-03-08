@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
+ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
+ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -243,6 +244,8 @@ ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
+[가상 컴퓨터 규모 집합을 사용하여 자동 크기 조정 문제 해결](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+
 [자동 크기 조정에 대한 공통 메트릭](insights-autoscale-common-metrics.md)
 
 [Azure 자동 크기 조정에 대한 모범 사례](insights-autoscale-best-practices.md)
@@ -252,9 +255,4 @@ ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
 [CLI를 사용하여 자동 크기 조정 관리](insights-cli-samples.md#autoscale)
 
 [자동 크기 조정의 Webhook 및 메일 알림 구성](insights-autoscale-to-webhook-email.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

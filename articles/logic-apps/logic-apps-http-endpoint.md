@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
-ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 6964ff18532ccf4b67eecfe12122bc16819a7b4b
+ms.openlocfilehash: 9b2e0797317c6e0268e8ae90f4091fea96c78726
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/22/2017
 문서의 나머지 부분에서는 **request** 를 예로 사용하지만 모든 주체는 다른 두 가지 유형의 트리거에 동일하게 적용합니다.
 
 ## <a name="adding-a-trigger-to-your-definition"></a>정의에 트리거 추가
-첫 번째 단계는 들어오는 요청을 받을 수 있는 논리 앱 정의에 트리거를 추가하는 것입니다.  디자이너에서 "HTTP 요청"을 검색하여 트리거 카드를 추가할 수 있습니다. 요청 본문 JSON 스키마를 정의하면 디자이너는 사용자가 워크플로를 통해 manual 트리거의 데이터를 구분 분석하고 전달할 수 있도록 토큰을 생성합니다.  [jsonschema.net](http://jsonschema.net) 같은 도구를 사용하여 샘플 본문 페이로드의 JSON 스키마를 생성하는 것이 좋습니다.
+첫 번째 단계는 들어오는 요청을 받을 수 있는 논리 앱 정의에 트리거를 추가하는 것입니다.  디자이너에서 "HTTP 요청"을 검색하여 트리거 카드를 추가할 수 있습니다. 요청 본문 JSON 스키마를 정의하면 디자이너는 사용자가 워크플로를 통해 manual 트리거의 데이터를 구분 분석하고 전달할 수 있도록 토큰을 생성합니다. 스키마가 준비되지 않은 경우 `Use sample payload to generate schema`를 사용하여 샘플 페이로드에서 JSON 스키마를 생성합니다.
 
 ![요청 트리거 카드][2]
 
@@ -174,7 +174,7 @@ content-type이 `application/json`이면 요청 내에서 속성을 참조할 �
 | 기본 또는 OAuth 인증 구성 |API 관리를 통해 |
 | HTTP 메서드 구성 |API 관리를 통해 |
 | 상대 경로 구성 |API 관리를 통해 |
-| `@triggerOutputs().body.Content`를 통해 들어오는 본문 참조 |`@triggerOutputs().body` |
+| `@triggerOutputs().body.Content` |`@triggerOutputs().body` |
 | **HTTP 응답 보내기** 작업 |**HTTP 요청에 응답** 클릭(API 앱 필요 없음) |
 
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png

@@ -221,7 +221,8 @@ Windows 10 및 Windows Server 2016 Technical Preview에서 사용 가능한 Powe
      그런 다음 인증서를 생성합니다.
   
   ```powershell
-  $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
   ```
 
 인증서를 보유하면 AD 앱 만들기를 계속할 수 있습니다.

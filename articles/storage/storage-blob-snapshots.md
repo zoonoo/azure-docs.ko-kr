@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
-ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
+ms.sourcegitcommit: a8b570cfbab594e1a21417e081eaf6d34a4659d0
+ms.openlocfilehash: 40f10b1cb860ca0c018cc3589417c54588269b0c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,6 +37,10 @@ Blob 하나에 여러 스냅숏이 있을 수 있습니다. 스냅숏을 명시�
 Blob의 스냅숏을 만들면 blob의 시스템 속성이 같은 값으로 스냅숏에 복사됩니다. 만들 때 스냅숏에 대한 별도의 메타데이터를 지정하지 않으면 기본 Blob의 메타데이터가 스냅숏에 복사됩니다.
 
 기본 blob와 연결된 모든 임대는 스냅숏에 영향을 주지 않습니다. 스냅숏에 대해 임대를 가져올 수 없습니다.
+
+VM 디스크에 대한 현재 정보 및 상태를 저장하는 데 VHD 파일을 사용합니다. VM 내에서 디스크를 분리하거나 VM을 종료하고, 해당 VHD 파일의 스냅숏을 만들 수 있습니다. 해당 스냅숏 파일을 나중에 사용하여 해당 시점에 VHD 파일을 검색하여 VM을 다시 만들 수 있습니다.
+
+Blob이 있는 저장소 계정에 SSE(저장소 서비스 암호화)를 사용할 경우 해당 Blob의 스냅숏은 미사용 시 암호화됩니다.
 
 ## <a name="create-a-snapshot"></a>스냅숏 만들기
 다음 코드 예제에서는 .NET에서 스냅숏을 만드는 방법을 보여 줍니다. 이 예제에서는 만들 때 스냅숏에 대한 별도의 메타데이터를 지정합니다.
@@ -163,10 +168,5 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 ## <a name="next-steps"></a>다음 단계
 Blob 저장소를 사용하는 추가 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

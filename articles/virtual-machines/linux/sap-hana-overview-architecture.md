@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 42a2f5488bac192311cd0652286e45a2280032f2
-ms.openlocfilehash: 8bb2c8138d5f5ef76490e5439ba2427cbaf9b33d
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a412304c33d915be6e30c6b748c8431a9c7e9f34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA의 개요 및 아키텍처
+# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA 개요 및 아키텍처 
 Azure(큰 인스턴스)에서 새 SAP HANA에 SAP를 배포하는 데 도움이 되는 정보를 제공하는 다섯 부분으로 된 아키텍처 및 기술적 배포 가이드입니다. 포괄적인 내용은 다루지 않으며 SAP 솔루션 설정과 관련된 구체적인 정보는 제공하지 않습니다. 대신, 초기 배포 및 진행 중인 작업에 도움이 되는 유용한 정보를 제공합니다. SAP HANA 설치와 관련된 SAP 설명서(또는 해당 항목을 다루는 여러 SAP 지원 참고 사항) 대신 이 문서를 사용하지 마세요. 또한 Azure(큰 인스턴스)에서 SAP HANA를 설치하는 방법도 제공합니다.
 
 
@@ -358,10 +360,5 @@ Azure(큰 인스턴스)의 SAP HANA에 대한 두 가지 중요한 네트워크 
 > [!IMPORTANT] 
 > 여러 ExpressRoute 회로가 사용되는 경우 트래픽을 제대로 라우팅하기 위해서는 AS Path 앞에 추가 및 로컬 기본 BGP 설정을 사용해야 합니다.
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

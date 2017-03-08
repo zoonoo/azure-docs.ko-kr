@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
-ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
+ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -246,13 +246,15 @@ mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발
 ### <a name="solution"></a>해결 방법
 "/etc/fstab" 항목에서 **serverino**를 확인합니다.
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 명령 **sudo mount | grep cifs**를 실행하고 출력으로 찾아 해당 옵션이 사용되고 있는지 확인할 수도 있습니다.
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 **serverino** 옵션이 없으면 **serverino** 옵션이 선택된 상태에서 Azure Files를 탑재 해제하고 다시 탑재합니다.+
+
+성능 저하의 다른 원인은 캐싱이 해제되었기 때문일 수 있습니다. 캐시를 사용하도록 설정했는지를 확인하려면 "cache="를 찾아봅니다.  *cache=none*은 캐싱이 비활성화되었음을 나타냅니다. 기본 캐싱이나 "엄격한" 캐싱 모드를 활성화하는 명령을 탑재하기 위해 기본 탑재 명령을 사용하거나 명시적으로 **cache=strict** 옵션을 추가하여 공유를 다시 탑재하세요.
 
 <a id="error112"></a>
 ## <a name="error-112---timeout-error"></a>오류 112 - 시간 초과 오류
@@ -263,9 +265,10 @@ mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발
 
 이 오류는 Linux 다시 연결 문제 또는 네트워크 오류 등 다시 연결을 방해하는 기타 문제에 의해 발생할 수 있습니다. 하드 탑재를 지정하면 클라이언트는 연결될 때까지 또는 명시적으로 중단될 때까지 대기하게 되어 네트워크 시간 제한으로 인해 오류가 발생하지 않도록 할 수 있습니다. 하지만 사용자는 무한 대기할 수 있고 필요에 따라 연결을 중단해야 함을 알아야 합니다.
 
+
 ### <a name="workaround"></a>해결 방법
 
-Linux 문제가 수정되었지만 Linux 배포판으로는 아직 포팅되지 않았습니다. 이 문제가 Linux에서 다시 연결 문제로 인해 발생하는 경우 유휴 상태가 되지 않게 함으로써 이를 해결할 수 있습니다. 이를 위해 30초 이하 간격으로 작성하는 Azure File 공유에 파일을 보관합니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 연결을 트리거하지 않을 수 있습니다.
+Linux 문제가 수정되었지만 Linux 배포판으로는 아직 포팅되지 않았습니다. 이 문제가 Linux에서 다시 연결 문제로 인해 발생하는 경우 유휴 상태가 되지 않게 함으로써 이를 해결할 수 있습니다. 이를 위해 30초 이하 간격으로 작성하는 Azure File 공유에 파일을 보관합니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 연결을 트리거하지 않을 수 있습니다. 이 항목과 다른 다시 연결 수정이 있는 인기 Linux 커널의 목록입니다. 4.4.40+ 4.8.16+ 4.9.1+
 
 <a id="webjobs"></a>
 

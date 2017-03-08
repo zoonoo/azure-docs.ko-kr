@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
-ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
+ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
+ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>H 시리즈 및 계산 집약적인 A 시리즈 VM 정보
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Windows용 H 시리즈 및 계산 집약적인 A 시리즈 VM 정보
 여기에는 *계산 집약적* 인스턴스로 알려진 최신 Azure H 시리즈 및 이전 A8, A9, A10 및 A11 인스턴스 사용에 대한 일부 고려 사항과 배경 정보가 나와 있습니다. 이 문서는 Windows VM에 대해 이러한 인스턴스를 사용하는 것이 중점을 두고 있습니다. 이 문서는 [Linux VM](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에도 적용됩니다.
 
 기본 사양의 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
@@ -63,10 +65,5 @@ Windows Server에서 HPC 팩을 사용하여 계산 집약적 인스턴스를 �
 * 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * Windows에서 HPC 팩을 사용하여 계산 집약적 인스턴스의 배포 및 사용을 시작하려면 [MPI 응용 프로그램을 실행하기 위해 HPC 팩을 사용하여 Windows RDMA 클러스터 설정](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 * 계산 집약적 인스턴스를 사용하여 Azure Batch에서 MPI 응용 프로그램 실행에 대한 자세한 내용은 [다중 인스턴스 작업을 사용하여 Azure Batch에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행](../batch/batch-mpi.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

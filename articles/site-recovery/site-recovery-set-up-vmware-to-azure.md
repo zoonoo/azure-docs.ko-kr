@@ -17,6 +17,7 @@ ms.author: anoopkv
 translationtype: Human Translation
 ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
 ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.lasthandoff: 02/13/2017
 
 ---
 
@@ -34,7 +35,7 @@ ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
 - [자동 검색](./site-recovery-vmware-to-azure.md#vmware-account-permissions)에 사용할 수 있는 VMware vCenter의 전용 계정
 - 구성 서버를 설치할 가상 컴퓨터
 
-### <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
+## <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
 항상 사용 가능한 VMware 가상 컴퓨터에 구성 서버 소프트웨어를 배포해야 합니다. 다음 표에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -97,9 +98,4 @@ Azure Site Recovery가 온-프레미스 환경에서 실행 중인 가상 컴퓨
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 [대상 환경 설정](./site-recovery-prepare-target-vmware-to-azure.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

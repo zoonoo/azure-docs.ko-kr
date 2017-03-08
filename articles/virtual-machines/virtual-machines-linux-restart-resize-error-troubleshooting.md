@@ -1,5 +1,5 @@
 ---
-title: "VM 재시작 또는 크기 조정 문제 | Microsoft Docs"
+title: "Azure의 VM 재시작 또는 크기 조정 문제 | Microsoft Docs"
 description: "Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결"
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: 
@@ -15,18 +15,20 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 ms.author: delhan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: f237c5ffe9e95d538959e2d622bb643c9986f0d2
+ms.sourcegitcommit: 38930edfc470a5c40ef1ccd73f4fa2353f84b2bf
+ms.openlocfilehash: 663783fbdf1d59cc72babe87ba2a769706e7fd80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결
+# <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-linux-vm-in-azure"></a>Azure에서 기존 Linux VM 재시작 또는 크기 조정 관련 배포 문제 해결
 중지된 Azure 가상 컴퓨터(VM)를 시작하거나, 기존 Azure AM의 크기를 조정하려다 접하는 일반적인 오류는 할당 오류입니다. 이런 오류는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-activity-logs"></a>활동 로그 수집
+## <a name="collect-activity-logs"></a>활동 로그 선택
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
 [배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)
@@ -64,10 +66,5 @@ VM 크기를 조정하기 위한 요청은 클라우드 서비스를 호스트�
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 새 Linux VM을 만들 때 문제가 발생하면 [Azure에서 새 Linux 가상 컴퓨터 생성 관련 배포 문제 해결](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -28,20 +28,6 @@
 ### [마켓플레이스 앱](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# 일반적인 예
-## CLI 예제
-### [웹앱 만들기 및 GitHub에서 코드 배포](./scripts/app-service-cli-deploy-github.md)
-### [GitHub에서 연속 배포로 웹앱 만들기](./scripts/app-service-cli-continuous-deployment-github.md)
-### [웹앱 만들기 및 로컬 Git 리포지토리에서 코드 배포](./scripts/app-service-cli-deploy-local-git.md)
-### [웹앱 만들기 및 스테이징 환경에 코드 배포](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Docker 컨테이너에서 ASP.NET Core 웹앱 만들기](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [웹앱에 사용자 지정 도메인 매핑](./scripts/app-service-cli-configure-custom-domain.md)
-### [수동 웹앱 크기 조정](./scripts/app-service-cli-scale-manual.md)
-### [고가용성 아키텍처로 전 세계 웹앱 크기 조정](./scripts/app-service-cli-scale-high-availability.md)
-### [SQL 데이터베이스에 웹앱 연결](./scripts/app-service-cli-app-service-sql.md)
-### [저장소 계정에 웹앱 연결](./scripts/app-service-cli-app-service-storage.md)
-### [웹 서버 로그로 웹앱 모니터링](./scripts/app-service-cli-monitor.md)
-
 # 방법
 
 ## 계획 및 디자인

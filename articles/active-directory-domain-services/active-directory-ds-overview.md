@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -61,8 +62,8 @@ Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테�
 
 > [!NOTE]
 > **암호 동기화는 Azure AD 도메인 서비스를 사용하려는 하이브리드 조직에 필수입니다**. 이러한 요구 사항은 NTLM 또는 Kerberos 인증 방법을 통해 이러한 사용자를 인증하기 위해 Azure AD 도메인 서비스에서 제공하는 관리된 도메인에서 사용자의 자격 증명이 필요하기 때문입니다.
-> 
-> 
+>
+>
 
 ![Litware Corporation에 대한 Azure AD 도메인 서비스](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -82,10 +83,4 @@ Azure AD 도메인 서비스를 사용하여 다음과 같은 이점을 누릴 �
 * **통합됨** – Azure AD 도메인 서비스는 Azure AD 테넌트와 밀접하게 통합됩니다. 이제 최신 응용 프로그램 및 기존의 디렉터리 인식 응용 프로그램의 요구를 충족하는 통합된 클라우드 기반 엔터프라이즈 디렉터리로 Azure AD을 사용할 수 있습니다.
 * **호환 가능** – Azure AD 도메인 서비스는 Windows Server Active Directory의 입증된 엔터프라이즈 등급 인프라에서 빌드되었습니다. 따라서 응용 프로그램은 Windows Server Active Directory 기능과 높은 수준으로 호환될 수 있습니다. Windows Server AD에서 사용할 수 있는 모든 기능을 현재 Azure AD 도메인 서비스에서 사용할 수 있습니다. 그러나 사용할 수 있는 기능은 온-프레미스 인프라에 의존하는 해당 Windows Server AD 기능과 호환 가능합니다. LDAP, Kerberos, NTLM, 그룹 정책 및 도메인 가입 기능은 다양한 Windows Server 릴리스에 대해 테스트되고 구체화되는 완성도 높은 제품을 구성합니다.
 * **비용 효율적** – Azure AD 도메인 서비스를 사용하면 기존의 디렉터리 인식 응용 프로그램을 지원하기 위해 ID 인프라를 관리와 연관된 인프라 및 관리 부담을 방지할 수 있습니다. 이러한 응용 프로그램을 Azure 인프라 서비스로 이동할 수 있으며 운영 비용 절감의 이점을 얻을 수 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 038259ad4e1c7c6623426f9476ea96d02043fbf9
+ms.sourcegitcommit: 657a249af1840e7bf0711d5ebbe6169258f085b1
+ms.openlocfilehash: 91553d6d3dad76ed256efed7182f0855f0ad10e5
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-virtual-machine-scale-set-using-visual-studio"></a>Visual Studio를 사용하여 가상 컴퓨터 크기 집합 배포
+# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 가상 컴퓨터 크기 집합을 만드는 방법
 이 문서는 Visual Studio 리소스 그룹 배포를 사용하여 Azure 가상 컴퓨터 규모 집합을 배포하는 방법을 보여줍니다.
 
 [Azure 가상 컴퓨터 규모 집합](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) 은 자동 크기 조정 및 부하 분산을 위해 손쉽게 통합되는 옵션을 사용하여 유사한 가상 컴퓨터 컬렉션을 배포하고 관리하기 위한 Azure 계산 리소스입니다. [Azure 리소스 관리자(ARM) 템플릿](https://github.com/Azure/azure-quickstart-templates)을 사용하여 VM 규모 집합을 프로비전하고 배포할 수 있습니다. ARM 템플릿은 Azure CLI, PowerShell, REST를 사용하여 배포가 가능하고 Visual Studio에서 직접 배포할 수도 있습니다. Visual Studio는 Azure 리소스 그룹 배포 프로젝트의 일부로 배포될 수 있는 예제 템플릿 집합을 제공합니다.
@@ -95,9 +97,4 @@ Visual Studio를 통해 VM 규모 집합을 성공적으로 배포하고 나면 
 [edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

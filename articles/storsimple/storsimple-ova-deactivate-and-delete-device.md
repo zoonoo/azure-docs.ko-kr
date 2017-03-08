@@ -4,7 +4,7 @@ description: "먼저 StorSimple 장치를 비활성화한 후 삭제하여 서�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bf5ddb32-da4b-446f-ab91-215e9020e1c8
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87aa287acff47ae471830ef09bf674e2c97abddd
+ms.sourcegitcommit: d2008fa396405de99c527a84831a6544cdc0fc1d
+ms.openlocfilehash: d62b484150a6786f0a6abbff1ca2c172e1ad43db
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>StorSimple 가상 배열 비활성화 및 삭제
+# <a name="deactivate-and-delete-a-storsimple-virtual-array-via-storsimple-manager"></a>StorSimple Manager를 통해 StorSimple 가상 배열 비활성화 및 삭제
 ## <a name="overview"></a>개요
 StorSimple 가상 배열을 비활성화하면 장치 및 해당 StorSimple Manager 서비스 간의 연결이 끊깁니다. 비활성화는 영구 작업이며 실행 취소할 수 없습니다. 비활성화된 장치는 StorSimple Manager 서비스에 다시 등록할 수 없습니다.
 
@@ -85,10 +87,5 @@ StorSimple 가상 배열을 비활성화하면 장치 및 해당 StorSimple Mana
 
 ## <a name="next-steps"></a>다음 단계
 * StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-manager-service-administration.md)로 이동하세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

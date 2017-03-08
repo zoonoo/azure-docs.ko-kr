@@ -1,5 +1,5 @@
 ---
-title: "Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Docs"
+title: "Azure VM용 재해 복구 시나리오 | Microsoft Docs"
 description: "Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업을 알아본다."
 services: virtual-machines
 documentationcenter: 
@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>Azure 가상 컴퓨터에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Azure VM에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
 
 Microsoft는 작동 시간 및 연결에 대한 약정으로 해당 서비스에 대한 서비스 수준 약정(SLA)을 제공합니다. 개별 Azure 서비스에 대한 SLA는 [Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)에서 찾을 수 있습니다.
 
 Azure에는 항상 사용 가능한 응용 프로그램을 지원하는 많은 기본 제공 플랫폼 기능이 있습니다. 이러한 서비스에 대한 자세한 내용은 [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)을 참조하세요.
 
-이 문서에서는 주요 자연 재해 또는 광범위한 서비스 중단으로 인해 전체 지역에 중단이 발생할 때의 실제 재해 복구 시나리오를 다룹니다. 이러한 경우는 드물게 발생하지만 전체 지역의 중단이 발생될 가능성에 대해 준비해야 합니다. 전체 지역에 서비스 중단이 발생하는 경우 데이터의 로컬 중복 복사본을 일시적으로 사용할 수 없게 됩니다. 지역에서 복제를 사용하는 경우 Azure 저장소 Blob 및 테이블의 추가 사본 3개는 다른 지역에 저장됩니다. 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해의 경우 Azure는 지역 복제된 지역에 모든 DNS 항목을 다시 매핑합니다.
+이 문서에서는 주요 자연 재해 또는 광범위한 서비스 중단으로 인해 전체 지역에 중단이 발생할 때의 실제 재해 복구 시나리오를 다룹니다. 이러한 경우는 드물게 발생하지만 전체 지역의 중단이 발생될 가능성에 대해 준비해야 합니다. 전체 지역에 서비스 중단이 발생하는 경우 데이터의 로컬 중복 복사본을 일시적으로 사용할 수 없게 됩니다. 지역에서 복제를 사용하는 경우 Azure 저장소 Blob 및 테이블의 추가 사본&3;개는 다른 지역에 저장됩니다. 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해의 경우 Azure는 지역 복제된 지역에 모든 DNS 항목을 다시 매핑합니다.
 
 > [!NOTE]
 > 이 프로세스는 사용자가 제어할 수 없으며 지역 전체 서비스 중단에 대해서만 발생합니다. 이 때문에 가장 높은 수준의 가용성을 달성하기 위해 다른 응용 프로그램별 백업 전략에 의존해야 합니다. 자세한 내용은 [재해 복구를 위한 데이터 전략](../resiliency/resiliency-disaster-recovery-azure-applications.md#data-strategies-for-disaster-recovery)의 섹션을 참조하세요.
@@ -76,10 +78,5 @@ VM을 백업하는 방법을 알아보려면 [Azure 가상 컴퓨터 백업](../
 Azure 사이트 복구를 사용하여 VMware 및 Hyper-V Vm에서 실행되는 실제 (및 가상) Windows 및 Linux 컴퓨터 보호를 오케이스트레이션 및 자동화하는 방법을 알아보려면 [Azure 사이트 복구](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)를 참조하세요.
 
 지침이 명확하지 않거나 사용자를 대신해 Microsoft가 작업을 수행하도록 하고 싶은 경우 [고객 지원팀](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

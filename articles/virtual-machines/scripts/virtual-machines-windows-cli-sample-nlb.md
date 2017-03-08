@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 941e6885ac26184ee011a34968aec29b120ed7dd
-ms.openlocfilehash: 98339ecadfdd31754e422a3c42c5d9f3842b16cb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 4437ed8a1d32b1d56a48b88051189daab35f02ac
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 
 이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
 
-## <a name="create-vm-with-network-load-balancer"></a>네트워크 부하 분산 장치를 사용하여 VM 만들기
+## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nlb/create-windows-vm-nlb.sh "VM 빠른 생성")]
 

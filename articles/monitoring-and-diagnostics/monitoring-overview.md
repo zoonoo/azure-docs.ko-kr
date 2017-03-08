@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
-ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
+ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
+ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Azure 리소스 모니터링의 개념적 개요를 제공합니다. 특정 유형의 리소스 정보에 대한 포인터를 제공합니다.  비 Azure 관점에서의 응용 프로그램 모니터링에 대한 개략적인 정보는 [모니터링 및 진단 지침](../best-practices-monitoring.md)을 참조하세요.
 
-Azure 모니터의 동영상 연습에서 제공됩니다.  
-[Microsoft Azure 모니터링 및 진단을 탐색합니다](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Azure 모니터를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)에 있습니다.  
+Azure Monitor의 동영상 연습도 제공됩니다.  
+[Azure Monitor 시작](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) Azure Monitor를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)에 있습니다.  
 
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
@@ -55,7 +56,7 @@ Cloud Services, Virtual Machines 및 Service Fabric과 같은 일부 계산 리�
 ### <a name="resource---metrics-and-diagnostics-logs"></a>리소스 - 메트릭 및 진단 로그
 수집 가능한 메트릭은 리소스 종류에 따라 다릅니다. 예를 들어 Virtual Machines는 디스크 IO 및 % CPU에 대한 통계를 제공합니다. 하지만 이러한 통계는 큐 크기와 메시지 처리량과 같은 메트릭을 대신 제공하는 Service Bus 큐에 대해 존재하지 않습니다.
 
-계산 리소스의 경우 게스트 OS에 대한 메트릭과 Azure Diagnostics과 같은 진단 모듈에 대한 메트릭을 가져올 수 있습니다. Azure Diagnostics은 수집 진단 데이터를 수집하고 다른 위치(예: Azure Storage)로의 라우팅할 수 있게 합니다.
+계산 리소스의 경우 게스트 OS에 대한 메트릭과 Azure Diagnostics과 같은 진단 모듈에 대한 메트릭을 가져올 수 있습니다. Azure Diagnostics은 진단 데이터를 수집하고 다른 위치(예: Azure Storage)로의 라우팅할 수 있게 합니다.
 
 현재 수집 가능한 메트릭의 목록은 [지원되는 메트릭](monitoring-supported-metrics.md)에서 제공됩니다.
 
@@ -113,7 +114,7 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 * 타사 도구로 라우팅하여 실시간 분석을 수행할 수 있도록 Event Hubs로 보내기
 
 ### <a name="automate"></a>자동화
-모니터링 데이터를 사용하여 이벤트를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
+모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 데이터를 사용하여 응용 프로그램 부하에 따라 계산 인스턴스 크기를 자동으로 조정
 * 메트릭이 미리 결정된 임계값을 초과하는 경우 전자 메일 보내기
@@ -145,9 +146,4 @@ Azure에는 운영 체제 미설치 인프라부터 응용 프로그램 원격 �
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - 앱 서비스 웹앱에서 문제를 진단하려는 경우
 * [Azure Storage 문제 해결](../storage/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

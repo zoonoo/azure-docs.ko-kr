@@ -1,5 +1,5 @@
 ---
-title: "Windows VM을 만드는 다양한 방법 | Microsoft Docs"
+title: "Azure에서 Windows VM을 만드는 다양한 방법 | Microsoft Docs"
 description: "리소스 관리자로 Windows 가상 컴퓨터를 만드는 다양한 방법을 나열합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/27/2016
+ms.date: 03/02/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bc3921003bf3b91de88e70ff18b5c397687c288c
-ms.openlocfilehash: 6f4a825faac413652b1dc3880d899e0e40caedbc
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: d01b71257a4a95294aebcde8c1d056e3fc3ed1be
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="different-ways-to-create-a-windows-vm"></a>Windows VM을 만드는 다양한 방법
+# <a name="different-ways-to-create-a-windows-virtual-machine"></a>Windows 가상 컴퓨터를 만드는 다양한 방법
+
 가상 컴퓨터는 다양한 사용자와 목적에 맞게 조절 가능하기 때문에 Azure에서는 여러 방법으로 가상 컴퓨터를 만들 수 있습니다. 즉 가상 컴퓨터를 만드는 방법과 그에 대한 몇 가지 선택이 필요합니다. 이 문서에서는 이 선택 사항 및 지침에 대한 링크 요약을 제공합니다.
 
 ## <a name="azure-portal"></a>Azure 포털
@@ -43,10 +46,5 @@ Azure 포털의 사용은 특히 Azure로 시작한 경우 가상 컴퓨터를 �
 Visual Studio를 사용하여 Azure Tools for Visual Studio 및 Azure SDK로 VM을 빌드, 관리 및 배포할 수 있습니다.
 
 [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95a79ccb83d5a3ba386d5db2fd47f3887a03fa8a
-ms.openlocfilehash: 4abb2fa6591c0e014e8d9563f69f9586e081e7b2
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 01a19f1070c1096b41599705bba246bd0cc45d09
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,10 +28,10 @@ Azure의 Linux VM(가상 컴퓨터)은 SSH(보안 셸) 연결을 사용하여 �
 ## <a name="prerequisites"></a>필수 조건
 이 문서에는 Azure의 기존 Linux VM이 필요합니다. VM을 만들어야 하는 경우 다음 방법 중 하나를 사용합니다.
 
-- [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure CLI 2.0(미리 보기)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-최신 [Azure CLI 1.0](../xplat-cli-install.md) 또는 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)를 설치하고 [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)에 로그인해야 합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2) 또는 [Azure CLI 1.0](../xplat-cli-install.md)를 설치하고 [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)에 로그인해야 합니다.
 
 
 ## <a name="quick-commands"></a>빠른 명령
@@ -69,16 +70,7 @@ sudo service xrdp restart
 sudo passwd ops
 ```
 
-Linux VM에 대한 SSH 세션을 종료합니다. 로컬 컴퓨터에서 Azure CLI를 사용하여 원격 데스크톱 트래픽을 허용하는 네트워크 보안 그룹 규칙을 만듭니다. 다음 예제에서는 Azure CLI 1.0을 사용하여 `myNetworkSecurityGroup` 내에 tcp 포트 3389에서 트래픽을 허용하는 `myNetworkSecurityGroupRule`이라는 규칙을 만듭니다.
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-또는 Azure CLI 2.0(미리 보기)에서 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용합니다.
+Linux VM에 대한 SSH 세션을 종료합니다. 로컬 컴퓨터에서 Azure CLI를 사용하여 원격 데스크톱 트래픽을 허용하는 네트워크 보안 그룹 규칙을 만듭니다. Azure CLI 2.0에서 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용합니다. 다음 예제에서는 TCP 포트 3389의 트래픽을 허용하도록 `myNetworkSecurityGroup` 내에서 `myNetworkSecurityGroupRule`이라는 규칙을 만듭니다.
     
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -87,6 +79,15 @@ az network nsg rule create --resource-group myResourceGroup \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 3389 \
     --access allow
+```
+
+또는 Azure CLI 1.0을 사용합니다.
+
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
 ```
 
 선택한 원격 데스크톱 클라이언트를 사용하여 Linux VM에 연결합니다.
@@ -149,16 +150,7 @@ Linux VM에 도달하는 원격 데스크톱 트래픽을 허용하려면 포트
 
 다음 예제에서는 `tcp` 포트 `3389`에 대한 `allow` 트래픽에 `myNetworkSecurityGroupRule`이라는 네트워크 보안 그룹 규칙을 만듭니다.
 
-- Azure CLI 1.0을 사용합니다.
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
-
-- 또는 Azure CLI 2.0(미리 보기)에서 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용합니다.
+- Azure CLI 2.0에서 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용합니다.
     
     ```azurecli
     az network nsg rule create --resource-group myResourceGroup \
@@ -169,6 +161,14 @@ Linux VM에 도달하는 원격 데스크톱 트래픽을 허용하려면 포트
         --access allow
     ```
 
+- 또는 Azure CLI 1.0을 사용합니다.
+
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>원격 데스크톱 클라이언트와 Linux VM 연결
 로컬 원격 데스크톱 클라이언트를 열고 IP 주소 또는 Linux VM의 DNS 이름에 연결합니다. 사용자 계정의 사용자 이름 및 암호를 VM에 다음과 같이 입력합니다.
@@ -215,10 +215,5 @@ Red Hat Enterprise Linux 및 SUSE와 같은 기타 Linux 배포에는 검토할 
 Linux VM에서 SSH 키를 만들고 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux VM의 SSH 키 만들기](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 Windows에서 SSH를 사용하는 방법에 대한 자세한 내용은 [Windows에서 SSH 키를 사용하는 방법](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

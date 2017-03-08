@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc3f1fbe9ab03257d613e31f5890a63d1aeba1f
-ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
+ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
+ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Azure에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작
 [Compose](http://github.com/docker/compose)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 정의된 환경을 배포하도록 모든 작업을 수행하는 단일 명령으로 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 Ubuntu VM의 백 엔드 MariaDB SQL Database로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
 
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>1단계: Docker 호스트로 Linux VM 설정
@@ -29,28 +30,11 @@ ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
 
 Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정되고 Compose는 이미 설치되어 있습니다. 다음 CLI 버전 중 하나를 사용하여 VM을 만들고 Docker VM 확장을 사용할 수 있습니다.
 
+- [Azure CLI 2.0](#azure-cli-20) - 리소스 관리 배포 모델용 차세대 CLI
 - [Azure CLI 1.0](#azure-cli-10) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#azure-cli-20-preview) - 리소스 관리 배포 모델용 차세대 CLI
 
-
-### <a name="azure-cli-10"></a>Azure CLI 1.0
-최신 [Azure CLI 1.0](../xplat-cli-install.md)을 설치하고 Azure 계정에 로그인합니다. VM을 만드는 Resource Manager 모드에 있는지 확인합니다(`azure config mode arm`).
-
-다음 예제에서는 `West US` 지역에 `myResourceGroup`이라는 리소스 그룹을 만들고 Azure Docker VM 확장으로 VM을 배포합니다. [Github의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)은 환경을 배포하는 데 사용됩니다.
-
-```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
-```
-
-Azure CLI는 몇 초 후에 프롬프트를 다시 표시하지만, Docker 호스트가 아직 생성 및 구성되고 있습니다. 배포를 완료하려면 몇 분 정도 소요됩니다. `azure vm show` 명령을 사용하여 Docker 호스트 상태에 대한 자세한 정보를 볼 수 있습니다. 다음 예제는 `myResourceGroup`이라는 리소스 그룹에서 `myDockerVM`(템플릿의 기본 이름입니다. 이 이름을 변경하지 마세요.)이라는 VM의 상태를 확인합니다. 앞의 단계에서 만든 리소스 그룹의 이름을 입력합니다.
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myDockerVM
-```
-
-### <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
-최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
 
 먼저 [az group create](/cli/azure/group#create)를 사용하여 Docker 환경에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 `West US` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -80,8 +64,24 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 
 이 명령이 `Succeeded`를 반환하는 경우 배포가 완료되었으며 다음 단계에서 VM에 SSH를 사용할 수 있습니다.
 
+### <a name="azure-cli-10"></a>Azure CLI 1.0
+최신 [Azure CLI 1.0](../xplat-cli-install.md)을 설치하고 Azure 계정에 로그인합니다. VM을 만드는 Resource Manager 모드에 있는지 확인합니다(`azure config mode arm`).
+
+다음 예제에서는 `West US` 지역에 `myResourceGroup`이라는 리소스 그룹을 만들고 Azure Docker VM 확장으로 VM을 배포합니다. [Github의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)은 환경을 배포하는 데 사용됩니다.
+
+```azurecli
+azure group create --name myResourceGroup --location "West US" \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+Azure CLI는 몇 초 후에 프롬프트를 다시 표시하지만, Docker 호스트가 아직 생성 및 구성되고 있습니다. 배포를 완료하려면 몇 분 정도 소요됩니다. `azure vm show` 명령을 사용하여 Docker 호스트 상태에 대한 자세한 정보를 볼 수 있습니다. 다음 예제는 `myResourceGroup`이라는 리소스 그룹에서 `myDockerVM`(템플릿의 기본 이름입니다. 이 이름을 변경하지 마세요.)이라는 VM의 상태를 확인합니다. 앞의 단계에서 만든 리소스 그룹의 이름을 입력합니다.
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
 ## <a name="step-2-verify-that-compose-is-installed"></a>2 단계: Compose 설치 여부 확인
-배포가 완료되면 배포 중 입력한 DNS 이름을 사용하여 새 Docker 호스트에 SSH를 연결합니다. `azure vm show -g myResourceGroup -n myDockerVM`(Azure CLI 1.0) 또는 `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`(Azure CLI 2.0(미리 보기))를 사용하여 DNS 이름을 비롯한 VM의 세부 정보를 볼 수 있습니다.
+배포가 완료되면 배포 중 입력한 DNS 이름을 사용하여 새 Docker 호스트에 SSH를 연결합니다. `azure vm show -g myResourceGroup -n myDockerVM`(Azure CLI 1.0) 또는 `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`(Azure CLI 2.0)를 사용하여 DNS 이름을 비롯한 VM의 세부 정보를 볼 수 있습니다.
 
 Compose가 VM에 설치되어 있는지 확인하려면 다음 명령을 실행합니다.
 
@@ -170,9 +170,4 @@ ess_1              apache2-for ...                       /tcp
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -39,6 +39,8 @@ Next Hop은 Network Watcher의 기능으로 지정된 가상 컴퓨터를 기반
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="scenario"></a>시나리오
 
 이 문서에서 다루는 시나리오는 리소스에 대한 다음 홉 유형 및 IP 주소를 찾는 Network Watcher의 기능인 Next Hop을 사용합니다. Next Hop에 대한 자세한 내용을 보려면 [Next Hop 개요](network-watcher-next-hop-overview.md)를 방문하세요.

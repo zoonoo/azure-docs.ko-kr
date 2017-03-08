@@ -1,6 +1,6 @@
 ---
 title: "Azure Media Hyperlapse에서의 Hyperlapse 미디어 파일 | Microsoft 문서"
-description: "Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만듭니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다."
+description: "Azure 미디어 Hyperlapse는&1;인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만듭니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다."
 services: media-services
 documentationcenter: 
 author: asolanki
@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/02/2017
 ms.author: adsolank
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb99c9139c71221a75d5d4c7db0407a39a8fc39f
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
+ms.lasthandoff: 03/03/2017
 
 
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 미디어 파일 및 Azure 미디어 Hyperlapse
-Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다.  [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](http://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure 미디어 서비스용 Microsoft Hyperlapse는 Azure 미디어 서비스 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.
+Azure 미디어 Hyperlapse는&1;인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다.  [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](http://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure 미디어 서비스용 Microsoft Hyperlapse는 Azure 미디어 서비스 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse는 이동 카메라를 사용한 1인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다.  스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다.  Azure 미디어 서비스용 Microsoft Hyperlapse에 대해 자세히 알아보고 예제 비디오를 보려면 공개 미리 보기 상태인 [소개 블로그 게시물](http://aka.ms/azurehyperlapseblog) 을 확인하세요.
+> Microsoft Hyperlapse는 이동 카메라를 사용한&1;인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다.  스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다.  Azure 미디어 서비스용 Microsoft Hyperlapse에 대해 자세히 알아보고 예제 비디오를 보려면 공개 미리 보기 상태인 [소개 블로그 게시물](http://aka.ms/azurehyperlapseblog) 을 확인하세요.
 > 
 > 
 
@@ -85,23 +86,64 @@ Azure 미디어 Hyperlapse 작업은 MP4, MOV 또는 WMV 자산 파일 및 어�
 > 
 > 
 
-static bool RunHyperlapseJob(string input, string output, string hyperConfig) { // create asset with input file IAsset asset = context .Assets .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
+        static bool RunHyperlapseJob(string input, string output, string hyperConfig)
+        {
+            // create asset with input file
+            IAsset asset = context
+            .Assets
+            .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
 
-// grab instances of Azure Media Hyperlapse MP IMediaProcessor mp = context .MediaProcessors .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
+            // grab instances of Azure Media Hyperlapse MP
+            IMediaProcessor mp = context
+            .MediaProcessors
+            .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
 
-// create Job with Hyperlapse task IJob job = context .Jobs .Create(String.Format("Hyperlapse {0}", input));
+            // create Job with Hyperlapse task
+            IJob job = context
+            .Jobs
+            .Create(String.Format("Hyperlapse {0}", input));
 
-if (String.IsNullOrEmpty(hyperConfig)) { // config cannot be empty return false; }
+            if (String.IsNullOrEmpty(hyperConfig))
+            {
+            // config cannot be empty
+            return false;
+            }
 
-hyperConfig = File.ReadAllText(hyperConfig);
+            hyperConfig = File.ReadAllText(hyperConfig);
 
-ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task", mp, hyperConfig, TaskOptions.None); hyperlapseTask.InputAssets.Add(asset); hyperlapseTask.OutputAssets.AddNew("Hyperlapse output", AssetCreationOptions.None);
+            ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
+            mp,
+            hyperConfig,
+            TaskOptions.None);
+            hyperlapseTask.InputAssets.Add(asset);
+            hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
+            AssetCreationOptions.None);
 
-job.Submit();
+            job.Submit();
 
-// Create progress printing and querying tasks Task progressPrintTask = new Task(() => {
+            // Create progress printing and querying tasks
+            Task progressPrintTask = new Task(() =>
+            {
 
-IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\t{1}\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
+            IJob jobQuery = null;
+            do
+            {
+                var progressContext = context;
+                jobQuery = progressContext.Jobs
+                .Where(j => j.Id == job.Id)
+                .First();
+                Console.WriteLine(string.Format("{0}\t{1}\t{2}",
+                DateTime.Now,
+                jobQuery.State,
+                jobQuery.Tasks[0].Progress));
+                Thread.Sleep(10000);
+            }
+            while (jobQuery.State != JobState.Finished &&
+                                   jobQuery.State != JobState.Error &&
+                                   jobQuery.State != JobState.Canceled);
+                });
+                
+            progressPrintTask.Start();
 
             Task progressJobTask = job.GetExecutionProgressTask(
                                                  CancellationToken.None);
@@ -172,10 +214,5 @@ IJob jobQuery = null; do { var progressContext = context; jobQuery = progressCon
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

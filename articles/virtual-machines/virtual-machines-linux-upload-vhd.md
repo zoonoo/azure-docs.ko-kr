@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0(미리 보기)으로 사용자 지정 Linux 디스크 업로드 | Microsoft Docs"
-description: "Resource Manager 배포 모델 및 Azure CLI 2.0(미리 보기)을 사용하여 Azure에 VHD(가상 하드 디스크) 만들기 및 업로드"
+title: "Azure CLI 2.0을 사용하여 사용자 지정 Linux 디스크 업로드 | Microsoft Docs"
+description: "Resource Manager 배포 모델 및 Azure CLI 2.0을 사용하여 Azure에 VHD(가상 하드 디스크) 만들기 및 업로드"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,26 +16,19 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 25ca54a6514b281417ac71a89dac167c94137b18
-ms.openlocfilehash: bbb9a2cd2123a29507f21c11b536ae81368cf8a7
+ms.sourcegitcommit: 374b2601857b3983bcd7b2f2e11d22b187fe7105
+ms.openlocfilehash: 732ebaaf5bf16c02cfc2185d9e7138daf74c71dd
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-by-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기
-이 문서에서는 Resource Manager 배포 모델을 사용하여 VHD(가상 하드 디스크)를 Azure에 업로드하고 이 사용자 지정 디스크에서 Linux VM을 만드는 방법을 설명합니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 컴퓨터 (Vm)를 신속하게 만들 수 있습니다.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-- [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#quick-commands) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
-
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 사용자 지정 디스크에서 Linux VM 업로드 및 만들기
+이 문서에서는 Azure CLI 2.0을 사용하여 VHD(가상 하드 디스크)를 Azure에 업로드하고 이 사용자 지정 디스크에서 Linux VM을 만드는 방법을 설명합니다. [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다. 이 기능을 사용하면 Linux 배포판을 요구에 맞게 설치 및 구성하고 해당 VHD를 사용하여 Azure 가상 컴퓨터 (Vm)를 신속하게 만들 수 있습니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에 VHD를 업로드하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#requirements) 문서 끝까지 참조하세요.
 
-최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `mydisks`가 포함됩니다.
 
@@ -100,9 +93,9 @@ myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
+    --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크
@@ -112,7 +105,8 @@ az vm create --resource-group myResourceGroup --location westus \
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd
+    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd \
+    --use-unmanaged-disk
 ```
 
 대상 저장소 계정은 가상 디스크를 업로드한 곳과 같아야 합니다. 또한 가상 네트워크, 공용 IP 주소, 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다. [사용 가능한 CLI Resource Manager 매개 변수](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)에 대해 자세히 알아볼 수 있습니다.
@@ -133,7 +127,7 @@ az vm create --resource-group myResourceGroup --location westus \
   * 사용자 지정 디스크와 생성된 VM을 모두 저장할 저장소 계정 및 컨테이너 만들기
   * 모든 VM을 만든 후 디스크를 안전하게 삭제할 수 있습니다.
 
-최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `mydisks`가 포함됩니다.
 
@@ -221,9 +215,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-vm-from-custom-disk"></a>사용자 지정 디스크에서 VM 만들기
-다시 한 번 말씀 드리지만, Azure Managed Disks 또는 관리되지 않는 디스크를 사용하여 VM을 만들 수 있습니다. 두 유형 모두 VM을 만들 때 관리 또는 관리되지 않는 디스크에 URI를 지정합니다. 관리되지 않는 디스크의 경우 대상 저장소 계정이 사용자 지정 디스크 디스크가 저장된 저장소 계정과 일치하는지 확인합니다. Azure 2.0(미리 보기) 또는 Resource Manager JSON 템플릿을 사용하여 VM을 만들 수 있습니다.
+다시 한 번 말씀 드리지만, Azure Managed Disks 또는 관리되지 않는 디스크를 사용하여 VM을 만들 수 있습니다. 두 유형 모두 VM을 만들 때 관리 또는 관리되지 않는 디스크에 URI를 지정합니다. 관리되지 않는 디스크의 경우 대상 저장소 계정이 사용자 지정 디스크 디스크가 저장된 저장소 계정과 일치하는지 확인합니다. Azure 2.0 또는 Resource Manager JSON 템플릿을 사용하여 VM을 만들 수 있습니다.
 
-### <a name="azure-cli-20-preview---azure-managed-disks"></a>Azure CLI 2.0(미리 보기) - Azure Managed Disks
+### <a name="azure-cli-20---azure-managed-disks"></a>Azure CLI 2.0 - Azure Managed Disks
 VHD에서 VM을 만들려면 다음과 같이 먼저 [az disk create](/cli/azure/disk/create)를 사용하여 VHD를 관리 디스크로 변환합니다. 다음 예제에서는 다음과 같은 이름을 지정한 저장소 계정 및 컨테이너에 업로드한 VHD에서 `myManagedDisk`라는 관리 디스크를 만듭니다.
 
 ```azurecli
@@ -250,12 +244,12 @@ myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
+    --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
-### <a name="azure-20-preview---unmanaged-disks"></a>Azure 2.0(미리 보기) - 관리되지 않는 디스크
+### <a name="azure-20---unmanaged-disks"></a>Azure 2.0 - 관리되지 않는 디스크
 관리되지 않는 디스크로 VM을 만들려면 [az vm create](/cli/azure/vm#create)를 사용하여 디스크(`--image`)에 URI를 지정합니다. 다음 예제에서는 이전에 업로드한 가상 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
 
 [az vm create](/cli/azure/vm#create)를 사용하여 `--image` 매개 변수가 사용자 지정 디스크를 가리키도록 지정합니다. `--storage-account`가 사용자 지정 디스크가 저장된 저장소 계정과 일치하는지 확인합니다. 사용자 지정 디스크와 동일한 컨테이너를 사용하여 VM을 저장할 필요는 없습니다. 사용자 지정 디스크를 업로드하기 전에 이전 단계와 동일한 방식으로 모든 추가 컨테이너를 만들어야 합니다.
@@ -266,7 +260,8 @@ az vm create --resource-group myResourceGroup --location westus \
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd \
+    --use-unmanaged-disk
 ```
 
 또한 사용자 이름 및 SSH 키와 같은 **az vm create** 명령이 필요로 하는 모든 추가 매개 변수를 지정하거나 프롬프트에 응답할 수 있습니다.
@@ -312,10 +307,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>다음 단계
 사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../azure-resource-manager/resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 끝점 열기](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 해야 합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

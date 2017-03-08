@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
-ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -47,7 +48,7 @@ Managed Disks 또는 관리되지 않는 디스크를 사용하는지 여부에 
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Managed Disk를 사용하여 VM 만들기
 
-다음 예제에는 Azure CLI 2.0(미리 보기)이 필요합니다. [여기에서 설치]할 수 있습니다.
+다음 예제에는 Azure CLI 2.0이 필요합니다. [여기에서 설치]할 수 있습니다.
 
 먼저 리소스를 관리하는 리소스 그룹을 만듭니다.
 
@@ -238,10 +239,5 @@ SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정�
 
 ## <a name="storage-limits"></a>저장소 제한
 * [저장소 서비스 제한](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Windows용 가상 컴퓨터 확장 및 기능 | Microsoft Docs"
+title: "Azure에서 Windows용 가상 컴퓨터 확장 및 기능 | Microsoft Docs"
 description: "확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
-ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: 88ccd06cf3098c3df014422e5f4dc54ceb955d3c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 컴퓨터 확장 및 기능
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 컴퓨터 확장 및 기능 
 
 Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 및 Automation 작업을 제공하는 작은 응용 프로그램입니다. 예를 들어 가상 컴퓨터에서 소프트웨어가 설치되도록 요구하거나, 바이러스 백신 보호 또는 Docker 구성을 요구하는 경우 VM 확장을 사용하여 이러한 작업을 완료할 수 있습니다. Azure CLI, PowerShell, Azure Resource Manager 템플릿 및 Azure Portal을 사용하여 Azure VM 확장을 실행할 수 있습니다. 확장을 새 가상 컴퓨터 배포와 번들로 제공하거나 기존 시스템에 대해 실행할 수 있습니다.
 
@@ -285,9 +287,4 @@ Azure Portal을 사용하여 확장을 제거할 수도 있습니다. 이렇게 
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

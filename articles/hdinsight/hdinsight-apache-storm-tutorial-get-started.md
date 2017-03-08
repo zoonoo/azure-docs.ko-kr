@@ -14,15 +14,17 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 02/28/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 4b70f30bf8d5a0545bb85a791cb63f514be0ba74
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: e505d02895abd011661b3e4f66c7f4f7ea042358
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="apache-storm-tutorial-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm 자습서: Storm Starter 샘플을 사용하여 HDInsight에서 빅 데이터 분석 시작
+# <a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>HDInsight에서 Storm Starter 샘플을 사용하여 빅 데이터 분석 시작
+
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Microsoft Azure HDInsight의 Storm을 사용하여 실시간 빅 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다. 
 
 > [!IMPORTANT]
@@ -41,62 +43,60 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-storm-cluster"></a>Storm 클러스터 만들기
-HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에 제출된 토폴로지 및 로그 파일을 저장합니다. 다음 단계를 사용하여 클러스터에서 사용할 Azure 저장소 계정을 만들 수 있습니다.
 
-1. [Azure Portal][preview-portal]에 로그인합니다.
-2. **새로 만들기**를 선택하고 **데이터 분석**, **HDInsight**를 차례로 선택합니다.
+다음 단계를 사용하여 HDInsight 클러스터에 Storm을 만듭니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기**, **인텔리전스 + 분석**, **HDInsight**를 차례로 선택합니다.
    
-    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
-3. **클러스터 이름**을 입력합니다. 클러스터 이름을 사용할 수 있는 경우 해당 **클러스터 이름** 옆에 녹색 확인 표시가 나타납니다.
-4. 둘 이상의 구독이 있는 경우 **구독** 항목을 선택하여 클러스터에 사용할 Azure 구독을 선택합니다.
-5. **클러스터 유형 선택**을 사용하여 **Storm** 클러스터를 선택합니다. **운영 체제**에서 Windows를 선택합니다. **클러스터 계층**에서 표준을 선택합니다. 마지막으로 선택 단추를 사용하여 이러한 변경 내용을 저장합니다.
+    ![HDInsight 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started/create-hdinsight.png)
+
+2. **기본** 블레이드에서 다음 정보를 입력합니다.
+
+    * **클러스터 이름**: HDInsight 클러스터의 이름입니다.
+    * **구독**: 사용할 구독을 선택합니다.
+    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
+    * **SSH(secure Shell) 사용자 이름**: 이 필드를 기본값으로 유지합니다. Windows 기반 HDInsight 클러스터에는 사용되지 않습니다.
+    * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
+    * **위치**: 클러스터를 만들어 놓은 Azure 지역입니다.
    
-   ![클러스터 이름, 클러스터 유형 및 OS 유형](./media/hdinsight-apache-storm-tutorial-get-started/clustertype.png)
-6. **리소스 그룹**에서 드롭다운 목록을 사용하여 기존 리소스 그룹 목록을 확인한 다음 클러스터를 만들 리소스 그룹을 선택할 수 있습니다. 또는 **새로 만들기**를 선택한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
-7. **자격 증명**을 선택한 다음 **클러스터 로그인 사용자 이름과** 및 **클러스터 로그인 암호**를 입력합니다. 마지막으로 **선택**을 사용하여 자격 증명을 설정합니다. 이 문서에서는 원격 데스크톱을 사용하지 않으므로 사용 안함으로 둡니다.
+    ![구독 선택](./media/hdinsight-apache-storm-tutorial-get-started/hdinsight-basic-configuration.png)
+
+3. **클러스터 유형**을 선택한 다음 **클러스터 구성** 블레이드에서 다음 값을 설정합니다.
    
-    ![클러스터 자격 증명 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
-8. **데이터 원본**에서 항목을 선택하여 기존 데이터 원본을 선택하거나 새로 만듭니다.
-   
-    ![데이터 원본 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
-   
-    현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
-   
-   * **선택 방법**: **모든 구독에서**로 설정하면 구독에서 저장소 계정을 찾아볼 수 있습니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 **액세스 키**로 설정합니다.
-   * **새로 만들기**: 이 항목을 사용하면 새 저장소 계정을 만듭니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
-   * **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
-   * **위치**: 저장소 계정이 있거나 만들어질 지리적 하위 지역입니다.
+    * **클러스터 유형**: Storm
+
+    * **운영 체제**: Windows
+
+    * **버전**: Storm 0.10.0(HDI 3.3)
+
+        > [!NOTE]
+        > HDInsight 버전 3.4 이상은 Linux 운영 체제에서만 사용 가능합니다.
+
+    * **클러스터 계층**: 표준
      
-     > [!IMPORTANT]
-     > 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
-     > 
-     > 
-   * **선택**: 이 항목을 사용하면 데이터 원본 구성을 저장합니다.
-9. **노드 가격 책정 계층** 을 선택하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 기본적으로 작업자 노드 수는 **4**로 설정됩니다. 이 자습서에 충분하고 클러스터 비용을 낮추므로 이 항목을 **1**로 설정합니다. 클러스터의 예상 비용이 이 블레이드의 맨 아래에 표시됩니다.
+    마지막으로 **선택** 단추를 사용하여 이러한 설정을 저장합니다.
+     
+    ![클러스터 유형 선택](./media/hdinsight-apache-storm-tutorial-get-started/set-hdinsight-cluster-type.png)
+
+4. 클러스터 유형을 선택한 후 __선택__ 단추를 사용하여 클러스터 유형을 설정합니다. 그 다음, __다음__ 단추를 사용하여 기본 구성을 완료합니다.
+
+5. **저장소** 블레이드에서 저장소 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 이 블레이드의 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
+
+    ![HDInsight에 대한 저장소 계정 설정 지정](./media/hdinsight-apache-storm-tutorial-get-started/set-hdinsight-storage-account.png)
+
+6. **요약** 블레이드에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로 __만들기__ 단추를 사용하여 클러스터를 만듭니다.
    
-    ![노드 가격 책정 계층 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
+    ![클러스터 구성 요약](./media/hdinsight-apache-storm-tutorial-get-started/hdinsight-configuration-summary.png)
    
-    **선택**을 사용하여 **노드 가격 책정 계층** 정보를 저장합니다.
-10. **선택적 구성**을 선택합니다. 이 블레이드를 사용하면 클러스터 버전을 선택할 수 있을 뿐만 아니라 **Virtual Network**에 가입하는 등 기타 선택적 설정을 구성할 수 있습니다.
-    
-     ![선택적 구성 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
-11. **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 선택합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
-    
-    | 프로비전 중 | 프로비전 완료 |
-    | --- | --- |
-    | ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) |![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
-    
     > [!NOTE]
-    > 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인합니다.
-    > 
-    > 
+    > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight에서 Storm Starter 샘플 실행
 이 Apache Storm 자습서에서는 GitHub의 Storm Starter 샘플을 사용한 빅 데이터 분석을 소개합니다.
 
 각 HDInsight Storm 클러스터에는 클러스터에서 Storm 토폴로지를 업로드 및 실행하는 데 사용할 수 있는 Storm 대시보드가 제공됩니다. 또한 각 클러스터에는 Storm 대시보드에서 직접 실행할 수 있는 샘플 토폴로지가 제공됩니다.
 
-### <a name="a-idconnectaconnect-to-the-dashboard"></a><a id="connect"></a>대시보드에 연결
+### <a id="connect"></a>대시보드에 연결
 대시보드는 **https://&lt;clustername>.azurehdinsight.net//**에 있으며, 여기서 **clustername**은 클러스터의 이름입니다. 또한 시작 보드에서 클러스터를 선택하고 블레이드 위쪽의 **대시보드** 링크를 선택하면 대시보드에 대한 링크를 찾을 수 있습니다.
 
 ![Storm 대시보드 링크가 있는 Azure 포털](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
@@ -112,7 +112,7 @@ Storm 대시보드가 로드되면 **토폴로지 제출** 양식이 표시됩�
 
 **토폴로지 제출** 양식은 Storm 토폴로지가 포함된 .jar 파일을 업로드 및 실행하는 데 사용됩니다. 여기에는 클러스터와 함께 제공된 몇 가지 기본 샘플도 포함되어 있습니다.
 
-### <a name="a-idrunarun-the-word-count-sample-from-the-storm-starter-project-in-github"></a><a id="run"></a>GitHub의 Storm Starter 프로젝트에서 단어 개수 샘플 실행
+### <a id="run"></a>GitHub의 Storm Starter 프로젝트에서 단어 개수 샘플 실행
 클러스터와 함께 제공된 샘플에는 여러 변형의 단어 계산 토폴로지가 포함되어 있습니다. 이러한 샘플에는 문장을 임의로 내보내는 **spout** 및 각 문장을 개별 단어로 나눈 다음 각 단어가 발생한 횟수를 계산하는 **bolts**가 있습니다. 이러한 샘플은 Apache Storm의 일부인 [Storm Starter 샘플](https://github.com/apache/storm/tree/master/examples/storm-starter)에서 제공됩니다.
 
 Storm Starter 샘플을 실행하려면 다음 단계를 수행합니다.
@@ -132,7 +132,7 @@ Storm Starter 샘플을 실행하려면 다음 단계를 수행합니다.
    > 
    > 
 
-### <a name="a-idmonitoramonitor-the-topology"></a><a id="monitor"></a>토폴로지 모니터링
+### <a id="monitor"></a>토폴로지 모니터링
 Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 1. Storm 대시보드의 위쪽에서 **Storm UI** 를 선택합니다. 실행 중인 모든 토폴로지 및 클러스터에 대한 요약 정보가 표시됩니다.
@@ -204,7 +204,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 ## <a name="summary"></a>요약
 이 Apache Storm 자습서에서는 Storm Starter를 사용하여 HDInsight의 Storm 클러스터를 만드는 방법 및 Storm 대시보드를 사용하여 Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 알아보았습니다.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 * **Visual Studio용 HDInsight 도구** - HDInsight 도구를 사용하면 Visual Studio에서 위에 설명된 Storm 대시보드와 유사한 Storm 토폴로지를 제출, 모니터링 및 관리할 수 있습니다. 또한 HDInsight 도구는 C# Storm 토폴로지를 만드는 기능을 제공하며, 클러스터에서 배포 및 실행할 수 있는 샘플 토폴로지를 포함합니다.
   
     자세한 내용은 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
@@ -233,9 +233,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

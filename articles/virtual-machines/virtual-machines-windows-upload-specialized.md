@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: fc8cb82e952a05b161f00ef9ebfbd4852d3987d4
+ms.sourcegitcommit: c859b789b564ee79022823e8d796775f58eeeccd
+ms.openlocfilehash: 7acd58989da14ea49374e86edb0dba5762557d79
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="upload-a-specialized-vhd-to-azure-to-use-for-creating-a-new-vm"></a>Azure에 새 VM을 만드는 데 사용할 특수한 VHD 업로드
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>특수한 VHD를 업로드하여 Azure에서 VM을 만드는 방법
 
 특수한 VHD는 사용자 계정, 응용 프로그램 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 특수화된 VHD를 Azure에 업로드하고 Managed Disks 또는 관리되지 않는 저장소 계정을 사용하는 VM을 만드는 데 사용할 수 있습니다. [Managed Disks](../storage/storage-managed-disks-overview.md)를 사용하여 간소화된 관리 및 Managed Disks에서 제공하는 추가 기능을 활용하는 것이 좋습니다.
 
@@ -321,9 +323,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>다음 단계
 새 가상 컴퓨터에 로그인하려면 [포털](https://portal.azure.com)에서 VM으로 이동한 다음 **연결**을 클릭하고 원격 데스크톱 RDP 파일을 엽니다. 원본 가상 컴퓨터의 계정 자격 증명을 사용하여 새 가상 컴퓨터에 로그인합니다. 자세한 내용은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
