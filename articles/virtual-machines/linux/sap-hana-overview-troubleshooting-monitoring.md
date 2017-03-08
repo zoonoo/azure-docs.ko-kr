@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 195ee1537df6ed8c0afe245f414061a7af6fed73
-ms.openlocfilehash: 036dc46cd3a2944500b068038a3d15a2cccaaf40
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: da712db02fe91f7d075e5203b627a12f341fac78
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)의 SAP HANA 문제 해결 및 모니터링
+# <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA 문제를 해결하고 모니터링하는 방법
 
 
 ## <a name="monitoring-in-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)의 SAP HANA 모니터링
@@ -187,10 +189,5 @@ SAP HANA 인스턴스에 대한 일반적인 정보는 **HANA\_Configuration\_Ov
 SAP HANA 매개 변수를 확인하려면 **HANA\_Configuration\_Parameters\_Rev70+**.
 
 ![SAP HANA 매개 변수를 확인하려면 [HANA\_Configuration\_Parameters\_Rev70+].](./media/sap-hana-overview-troubleshooting-monitoring/image15-configuration-parameters.png)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

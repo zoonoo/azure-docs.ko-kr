@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ccde5cf9a45c79cfd441633722960007aad46088
-ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: bc2a8803bdc875e9f62d9263b16cdbb5cc70ecbf
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="migrate-from-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
-AW 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업로드하여 Managed Disks를 활용하는 VM을 만들 수 있습니다. Azure Managed Disks를 사용하면 Azure IaaS VM의 저장소 계정을 관리할 필요가 없습니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리합니다. 
+AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업로드하여 Managed Disks를 활용하는 VM을 만들 수 있습니다. Azure Managed Disks를 사용하면 Azure IaaS VM의 저장소 계정을 관리할 필요가 없습니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리합니다. 
 
 일반화된 VHD 및 특수한 VHD를 모두 업로드할 수 있습니다. 
 **일반화된 VHD** - 일반화된 VHD에는 Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
@@ -101,9 +103,4 @@ VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가
 ## <a name="next-steps"></a>다음 단계
 
 - Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rickstercdn
 translationtype: Human Translation
-ms.sourcegitcommit: 675d4fa48c5119a9b15a478d2b8105f8517bcac7
-ms.openlocfilehash: 4be594b87c0a94c33be7e417b2fb15bc94d649c6
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 0ec8c8437e283f49cef27f241fe3d2059fc33898
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 
 이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
 
-## <a name="create-vm-sample"></a>VM 샘플 만들기
+## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-quick/create-windows-vm-quick.sh "VM 빠른 생성")]
 

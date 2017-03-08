@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: squillace
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50f3c56daaa28b1f28e201ec0502a91804313e5f
-ms.openlocfilehash: 111a80548982a1dab529d9dd6fb46eb759b7f908
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: e46490a75b0b759e94ba8b090f394d0ba3366dc4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
@@ -36,7 +36,7 @@ Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(Standard 또는 Premium)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장/축소하더라도 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI 2.0(미리 보기)을 사용](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수 있습니다.
+Managed Disks는 백그라운드에서 Azure Storage 계정 만들기 및 관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(Standard 또는 Premium)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장/축소하더라도 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 새 VM을 만드는 경우 [Azure CLI 2.0을 사용](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하거나 Azure Portal을 사용하여 관리되는 OS 및 데이터 디스크로 VM을 만듭니다. 관리되지 않는 디스크가 있는 VM이 있는 경우 [Managed Disks로 지원되도록 VM을 변환](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수 있습니다.
  
 또한 Azure 지역당 하나의 저장소 계정에서 사용자 지정 이미지를 관리하고 동일한 구독에서 수백 개의 VM을 만드는 데 사용할 수도 있습니다. Managed Disks에 대한 자세한 내용은 [Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요.
  
@@ -80,29 +80,18 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 ## <a name="partners"></a>파트너
 Microsoft는 파트너와 긴밀히 협력하여 사용 가능한 이미지가 업데이트되고 Azure 런타임에 대해 최적화되도록 합니다.  파트너에 대한 자세한 내용은 아래의 해당 마켓플레이스 페이지를 확인하세요.
 
-Azure의 Linux - [보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-SUSE- [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-
-Redhat - [Azure 마켓플레이스 - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
-
-Canonical - [Azure 마켓플레이스 - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
-
-Debian - [Azure 마켓플레이스 - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-
-FreeBSD - [Azure 마켓플레이스 - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-
-CoreOS - [Azure 마켓플레이스 - CoreOS(Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
-
-RancherOS - [Azure 마켓플레이스 - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
-
-Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
-
-Mesosphere - [Azure 마켓플레이스 - Mesosphere DC/OS on Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
-
-Docker - [Azure 마켓플레이스 - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-
-Jenkins - [Azure 마켓플레이스 - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Azure의 Linux - [보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* SUSE- [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
+* Redhat - [Azure 마켓플레이스 - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Canonical - [Azure 마켓플레이스 - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Debian - [Azure 마켓플레이스 - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
+* FreeBSD - [Azure 마켓플레이스 - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* CoreOS - [Azure 마켓플레이스 - CoreOS(Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
+* RancherOS - [Azure 마켓플레이스 - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
+* Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
+* Mesosphere - [Azure 마켓플레이스 - Mesosphere DC/OS on Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
+* Docker - [Azure 마켓플레이스 - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
+* Jenkins - [Azure 마켓플레이스 - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
 ## <a name="getting-setup-on-azure"></a>Azure의 설정 가져오기
 Azure 사용을 시작하려면 Azure 계정, 설치된 Azure CLI, SSH 공용 및 개인 키 쌍이 필요합니다.
@@ -111,7 +100,7 @@ Azure 사용을 시작하려면 Azure 계정, 설치된 Azure CLI, SSH 공용 �
 Azure 클라우드를 사용하는 첫 번째 단계는 Azure 계정을 등록하는 것입니다.  시작하려면 [Azure 계정 등록](https://azure.microsoft.com/pricing/free-trial/) 페이지로 이동합니다.
 
 ### <a name="install-the-cli"></a>CLI 설치
-새 Azure 계정에 사용하여 웹 기반 관리 패널인 Azure 포털에서 즉시 시작할 수 있습니다.  명령줄을 통해 Azure 클라우드를 관리하려면 `azure-cli`를 설치합니다.  Mac 또는 Linux 워크스테이션에 [Azure CLI 2.0(미리 보기)](/cli/azure/install)을 설치합니다.
+새 Azure 계정에 사용하여 웹 기반 관리 패널인 Azure 포털에서 즉시 시작할 수 있습니다.  명령줄을 통해 Azure 클라우드를 관리하려면 `azure-cli`를 설치합니다.  Mac 또는 Linux 워크스테이션에 [Azure CLI 2.0](/cli/azure/install)을 설치합니다.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 이제 Azure 계정, Azure 웹 포털 및 Azure CLI가 있습니다.  다음 단계는 암호를 사용하지 않고 Linux에 대한 SSH에 사용되는 SSH 키 쌍을 만드는 것입니다.  [Linux 및 Mac에서 SSH 키를 만들어](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 암호 없는 로그인 및 향상된 보안을 사용하도록 설정합니다.

@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-a-3-node-deis-cluster"></a>3노드 Deis 클러스터 배포
+# <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>Azure에서 3노드 Deis 클러스터 배포 및 구성
 이 문서는 Azure에서 [Deis](http://deis.io/) 클러스터를 프로비전하는 과정을 단계별로 안내합니다. 새로 프로비전된 클러스터에서 배포 및 샘플 **이동** 응용 프로그램 확장에 필요한 인증서를 만드는 모든 단계를 다룹니다.
 
 다음 다이어그램에서는 배포된 시스템의 아키텍처를 보여줍니다. 시스템 관리자는 **deis** 및 **deisctl**과 같은 Deis 도구를 사용하여 클러스터를 관리합니다. 연결은 클러스터의 멤버 노드 중 하나에 연결을 전달하는 Azure 부하 분산 장치를 통해 설정됩니다. 클라이언트도 부하 분산 장치를 통해 배포된 응용 프로그램을 액세스합니다. 이 경우 부하 분산 장치는 트래픽을 Deis 라우터 메시에 전달합니다. 이렇게 하면 트래픽을 클러스터에서 호스트되는 해당 Docker 컨테이너에 추가로 라우트합니다.
@@ -80,7 +82,7 @@ ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
     
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
-11. 리소스 그룹이 프로비전되면 Azure 클래식 포털의 그룹에서 모든 리소스를 볼 수 있습니다. 다음 스크린샷에 표시된 것과 같이 리소스 그룹은 동일한 가용성 집합에 조인된 3개의 VM이 있는 가상 네트워크를 포함합니다. 또한 그룹은 관련 공용 IP가 있는 부하 분산 장치를 포함합니다.
+11. 리소스 그룹이 프로비전되면 Azure 클래식 포털의 그룹에서 모든 리소스를 볼 수 있습니다. 다음 스크린샷에 표시된 것과 같이 리소스 그룹은 동일한 가용성 집합에 조인된&3;개의 VM이 있는 가상 네트워크를 포함합니다. 또한 그룹은 관련 공용 IP가 있는 부하 분산 장치를 포함합니다.
     
     ![Azure 클래식 포털에서 프로비전된 리소스 그룹](media/virtual-machines-linux-deis-cluster/resource-group.png)
 
@@ -251,9 +253,4 @@ Deis 클러스터를 제어하려면 **deisctl** 이 필요합니다. deisctl은
 [azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

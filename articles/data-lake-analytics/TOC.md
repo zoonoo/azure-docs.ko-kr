@@ -53,8 +53,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

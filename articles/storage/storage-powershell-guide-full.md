@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 70a03b39eb49ed96b649e63f6f2c728147ebddec
+ms.sourcegitcommit: b046dcb32e6796f4e66009361783fa95936794b8
+ms.openlocfilehash: 662fbbdda2c6d4d7da2c7c94dabb984a6bfc7296
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -38,7 +39,7 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 **Microsoft Azure 구독 및 계정을 만든 후:**
 
-1. [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)를 다운로드하여 설치합니다.
+1. 최신 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest)을 다운로드하여 설치합니다.
 2. Windows PowerShell ISE(통합 스크립팅 환경)를 시작합니다. 로컬 컴퓨터에서 **시작** 메뉴로 이동합니다. **관리 도구**를 입력하고 클릭하여 관리 도구를 실행합니다. **관리 도구** 창에서 **Windows PowerShell ISE**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
 3. **Windows PowerShell ISE**에서 **파일** > **새로 만들기**를 클릭하여 새 스크립트 파일을 만듭니다.
 4. 이제 Azure 저장소에 액세스할 수 있는 기본 PowerShell 명령을 보여 주는 간단한 스크립트를 살펴보겠습니다. 이 스크립트는 먼저 로컬 PowerShell 환경에 Azure 계정을 추가하기 위해 Azure 계정 자격 증명을 묻습니다. 그런 다음 이 스크립트는 기본 Azure 구독을 설정하고 Azure에 새 저장소 계정을 만듭니다. 그런 다음 이 스크립트는 새 저장소 계정에 새 컨테이너를 만들고 해당 컨테이너에 기존 이미지 파일(Blob)을 업로드합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 새 대상 디렉터리를 만들고 이미지 파일을 다운로드합니다.
@@ -666,7 +667,7 @@ if ($Queue -ne $null) {
 ```
 
 #### <a name="how-to-de-queue-at-the-next-message"></a>다음 메시지에서 큐를 제거하는 방법
-다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 메서드를 호출하면 큐에서 다음 메시지를 가져옵니다. **GetMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 메서드도 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **DeleteMessage** 를 호출합니다.
+다음 코드는&2;단계를 거쳐 큐에서 메시지를 제거합니다. [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 메서드를 호출하면 큐에서 다음 메시지를 가져옵니다. **GetMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 메서드도 호출해야 합니다. 메시지를 제거하는 이&2;단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **DeleteMessage** 를 호출합니다.
 
 ```powershell
 # Define the storage account and context.
@@ -847,9 +848,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

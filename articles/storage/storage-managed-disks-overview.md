@@ -3,8 +3,8 @@ title: "Azure 프리미엄 및 표준 Managed Disks 개요 | Microsoft Docs"
 description: "Azure VM 사용 시 저장소 계정을 처리해주는 Azure Managed Disks에 대한 개요"
 services: storage
 documentationcenter: na
-author: ramankumarlive
-manager: tadb
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 58c395a45115c9db0027cffe96d20863c928a63d
-ms.openlocfilehash: 74ec73388af06dbf5682c5aa1c84b153dfc4a744
+ms.sourcegitcommit: 388e4c8f46662200a0e05db06d417f086ad41b11
+ms.openlocfilehash: b53feeb08d469363a52303cad4577b752a570900
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,7 +27,8 @@ ms.openlocfilehash: 74ec73388af06dbf5682c5aa1c84b153dfc4a744
 Azure Managed Disks는 VM 디스크와 연결된 [저장소 계정](storage-introduction.md)을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형([프리미엄](storage-premium-storage.md) 또는 [표준](storage-standard-storage.md))과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
 
 >[!NOTE]
-> Managed Disks는 포트 8443을 사용할 수 있어야 합니다. 이 포트를 차단하려면 관리되지 않는 디스크를 사용해야 합니다.
+>Managed Disks가 있는 VM은 설치된 [VM 확장](../virtual-machines/virtual-machines-windows-extensions-features.md) 상태를 Azure 플랫폼에 보고하기 위해 포트 8443에서 아웃바운드 트래픽이 필요합니다. 이 포트의 가용성 없이 확장을 사용하여 VM을 프로비전하면 실패합니다. 또한 실행 중인 VM에 설치된 경우 확장의 배포 상태는 알 수 없습니다. 포트 8443 차단을 해제할 수 없는 경우 관리되지 않는 디스크를 사용해야 합니다. 이 문제를 해결하기 위한 작업이 활발히 진행되고 있습니다. 자세한 내용은 [IaaS VM 디스크에 대한 FAQ](storage-faq-for-disks.md#managed-disks-and-port-8443)를 참조하세요. 
+>
 >
 
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
@@ -102,7 +104,7 @@ Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합�
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
 * [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [Azure CLI 2.0(미리 보기)를 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Azure CLI 2.0을 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>이미지 및 스냅숏
 
@@ -134,7 +136,7 @@ Managed Disks에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 * [PowerShell을 사용하여 관리 데이터 디스크를 Windows VM에 연결](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 
@@ -151,9 +153,4 @@ Managed Disks에 대한 자세한 내용은 다음 문서를 참조하세요.
 * [AWS 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 
 * [Azure VM을 Azure의 관리 디스크로 변환](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
-ms.openlocfilehash: a3bb9851d0f7e6f40f456f7989ae949fb38549e0
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 9a663a4e79c30b97e6390b7ff7f83deec131384a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="custom-tracking-schemas"></a>사용자 지정 추적 스키마
-기업 간(B2B) 트랜잭션을 모니터링하기 위해 Azure 통합 계정에서 사용자 지정 추적 스키마를 사용할 수 있습니다.
+# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>추적을 사용하도록 설정하여 종단 간, 전체 워크플로 모니터링
+기업 간 워크플로의 다양한 부분에 대해 사용할 수 있는 기본 제공 추적(예: AS2 또는 X12 메시지 추적)이 있습니다. 논리 앱, BizTalk Server, SQL Server 또는 다른 계층을 포함하는 워크플로를 만들 경우 워크플로의 시작부터 끝까지 이벤트를 기록하는 사용자 지정 추적을 사용하도록 설정할 수 있습니다. 
+
+이 항목에서는 논리 앱 외부의 계층에서 사용할 수 있는 사용자 지정 코드를 제공합니다. 
 
 ## <a name="custom-tracking-schema"></a>사용자 지정 추적 스키마
 ````java
@@ -84,9 +88,4 @@ ms.openlocfilehash: a3bb9851d0f7e6f40f456f7989ae949fb38549e0
 * [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.   
 * [Operations Management Suite에서 B2B 메시지 추적하기](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
 * [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

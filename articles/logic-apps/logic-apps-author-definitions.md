@@ -1,6 +1,6 @@
 ---
-title: "작성자 논리 앱 정의 | Microsoft Docs"
-description: "논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다."
+title: "JSON으로 워크플로 정의 - Azure Logic Apps | Microsoft Docs"
+description: "JSON에서 논리 앱용 워크플로 정의를 작성하는 방법"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,22 +12,27 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
+ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
+ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="author-logic-app-definitions"></a>작성자 논리 앱 정의
-이 항목에서는 간단하고 선언적인 JSON 언어인 [Azure Logic Apps](logic-apps-what-are-logic-apps.md) 정의를 사용하는 방법을 설명합니다. 아직 [새 논리 앱 만드는 방법](logic-apps-create-a-logic-app.md) 을 확인하지 않았다면 먼저 확인하십시오. [MSDN 정의 언어의 전체 참조 자료](http://aka.ms/logicappsdocs)를 읽을 수도 있습니다.
+# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>JSON을 사용하여 논리 앱용 워크플로 정의 만들기
 
-## <a name="several-steps-that-repeat-over-a-list"></a>목록에서 반복되는 여러 단계
-[foreach 형식](logic-apps-loops-and-scopes.md) 항목을 활용하여 최대 10,000개의 항목 배열을 반복하고 각각에 대해 작업을 수행할 수 있습니다.
+간단하고 선언적인 JSON 언어로 [Azure Logic Apps](logic-apps-what-are-logic-apps.md)에 대한 워크플로 정의를 만들 수 있습니다. 아직 없는 경우 [Logic App Designer에서 첫 번째 논리 앱을 만드는 방법](logic-apps-create-a-logic-app.md)을 먼저 검토하세요. 또한 [워크플로 정의 언어에 대한 전체 참조](http://aka.ms/logicappsdocs)도 참조하세요.
 
-## <a name="a-failure-handling-step-if-something-goes-wrong"></a>문제가 발생한 경우의 오류 처리 단계
-일반적으로 하나 이상의 호출이 실패한 *경우에 한해* 일부 논리를 실행하는 **재구성 단계**를 쓸 수 있기를 원합니다. 이 예제에서는 다양한 위치에서 데이터를 가져오지만 호출이 실패한 경우에는 나중에 오류를 추적할 수 있는 곳에 메시지를 게시하고자 합니다.  
+## <a name="repeat-steps-over-a-list"></a>목록에 대한 단계 반복
+
+최대 10,000개의 항목이 포함된 배열을 반복하고 각 항목에 대해 작업을 수행하고 [foreach 형식](logic-apps-loops-and-scopes.md)을 사용합니다.
+
+## <a name="handle-failures-if-something-goes-wrong"></a>문제가 발생한 경우의 오류 처리
+
+일반적으로 하나 이상의 호출이 실패한 *경우에 한해* 일부 논리를 실행하는 *재구성 단계*를 포함하기를 원합니다. 이 예제에서는 다양한 위치에서 데이터를 가져오지만 호출이 실패한 경우에는 나중에 오류를 추적할 수 있는 곳에 메시지를 게시하고자 합니다.  
 
 ```
 {
@@ -60,11 +65,12 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ```
 
-`runAfter` 속성을 이용하여 지정할 수 있으며, `postToErrorMessageQueue`는 `readData`가 **실패**한 이후에만 실행해야 합니다.  또한 이는 가능한 값의 목록이 될 수 있기 때문에 `runAfter`는 `["Succeeded", "Failed"]`가 될 수 있습니다.
+`readData`가 `Failed`한 후에만 `postToErrorMessageQueue`가 실행되도록 지정하려면 `runAfter` 속성을 사용합니다. 예를 들어 가능한 값 목록을 지정하려면 `runAfter`는 `["Succeeded", "Failed"]`일 수 있습니다.
 
-마지막으로, 이제 오류를 처리했으므로 더 이상 실행을 **실패**로 표시하지 않습니다. 여기서 볼 수 있듯이, 비록 하나의 단계가 실패했더라도 이 오류를 처리하는 단계를 작성했기 때문에 이 실행은 **성공** 했습니다.
+마지막으로, 이제 오류를 처리했으므로 더 이상 실행을 `Failed`로 표시하지 않습니다. 이 예제에서는 오류 처리를 위한 단계를 추가했으므로 한 단계가 `Failed`하더라도 실행은 `Succeeded`합니다.
 
-## <a name="two-or-more-steps-that-execute-in-parallel"></a>병렬로 실행하는 둘 이상의 단계
+## <a name="execute-two-or-more-steps-in-parallel"></a>둘 이상의 단계를 병렬로 실행
+
 여러 작업을 병렬로 실행하려면 `runAfter` 속성은 런타임 시 동일해야 합니다. 
 
 ```
@@ -104,14 +110,13 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ```
 
-모두 위의 예에서 볼 수 있듯이 `branch1` 및 `branch2`는 `readData` 이후 실행되도록 설정되어 있습니다. 결과적으로 이 분기들은 모두 병렬로 실행됩니다.
+이 예제에서는 `branch1` 및 `branch2` 모두 `readData` 후에 실행되도록 설정됩니다. 따라서 두 분기가 병렬로 실행됩니다. 두 분기에 대한 타임스탬프는 동일합니다.
 
 ![병렬](media/logic-apps-author-definitions/parallel.png)
 
-두 분기에 대한 타임 스탬프는 동일함을 볼 수 있습니다. 
-
 ## <a name="join-two-parallel-branches"></a>두 병렬 분기의 조인
-위와 유사한 `runAfter` 속성에 항목을 추가하여 병렬로 실행하도록 설정된 두 가지 작업을 조인할 수 있습니다.
+
+이전 예제에서처럼 `runAfter` 속성에 항목을 추가하여 병렬로 실행하도록 설정된 두 가지 작업을 조인할 수 있습니다.
 
 ```
 {
@@ -182,8 +187,9 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 
 ![병렬](media/logic-apps-author-definitions/join.png)
 
-## <a name="mapping-items-in-a-list-to-some-different-configuration"></a>일부 다른 구성에는 목록에서 항목 매핑
-다음으로 속성의 값에 따라 완전히 다른 콘텐츠를 가져오는 경우를 다루겠습니다. 매개 변수를 대상으로 하는 값의 맵을 만들 수 있습니다.  
+## <a name="map-list-items-to-a-different-configuration"></a>목록 항목을 다른 구성에 매핑
+
+다음으로 속성의 값을 기반으로 다른 콘텐츠를 가져오는 경우를 다루겠습니다. 매개 변수를 대상으로 하는 값의 맵을 만들 수 있습니다.  
 
 ```
 {
@@ -234,14 +240,19 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ```
 
-이 경우, 먼저 문서 목록을 가져온 후 매개 변수로 정의된 카테고리에 기반하여 두 번째 단계가 맵에서 콘텐츠를 가져 올 URL을 조회합니다. 
+이 경우 먼저 문서 목록을 가져옵니다. 매개 변수로 정의된 범주에 따라, 두 번째 단계에서는 콘텐츠를 가져오기 위한 URL을 조회하는 맵을 사용합니다.
 
-여기서는 다음 두 항목에 주의해야 합니다. [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 카테고리가 정의된 알려진 카테고리 중 하나에 일치하는지 확인하는 데 사용됩니다. 둘째로 일단 카테고리를 가져오면 대괄호를 사용하여 맵의 항목을 끌어올 수 있습니다: `parameters[...]` 
+경우에 따라 다음을 유의합니다. 
 
-## <a name="working-with-strings"></a>문자열을 사용한 작업
-문자열을 조작하는 데 사용할 수 있는 다양한 기능이 있습니다. 시스템에 전달하고자 하는 문자열이 있지만 문자 인코딩이 적절하게 처리될지 확신할 수 없는 경우를 예로 들어 봅니다. 하나의 옵션은 이 문자열을 base64 인코딩하는 것입니다. 그러나 URL에서 이스케이프를 방지하기 위해 몇 문자를 대체할 것입니다. 
+*    [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 해당 범주가 알려진 정의된 범주 중 하나와 일치하는지 여부를 확인합니다.
 
-또한 첫 5개 문자는 사용되지 않으므로 명령 이름의 하위 문자열을 원합니다.
+*    범주를 가져온 후에는 대괄호를 사용하여 맵에서 항목을 끌어올 수 있습니다. `parameters[...]`
+
+## <a name="process-strings"></a>문자열 처리
+
+문자열을 조작하기 위해 다양한 함수를 사용할 수 있습니다. 예를 들어 시스템으로 전달하고자 하는 문자열이 있지만 문자 인코딩을 위한 적절한 처리에 자신이 없다고 가정해 보겠습니다. 하나의 옵션은 이 문자열을 base64 인코딩하는 것입니다. 그러나 URL에서 이스케이프를 방지하기 위해 몇 문자를 대체할 것입니다. 
+
+또한 첫&5;자는 사용되지 않으므로 명령 이름의 하위 문자열을 원합니다.
 
 ```
 {
@@ -275,17 +286,23 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ```
 
-안팎을 뒤집어 작업하기:
+내부에서 외부로 작업:
 
-1. 명령자 이름의 [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)를 가져오면 전체 문자 수를 다시 반환합니다.
-2. (더 짧은 문자열을 원하므로) 5 빼기
-3. 실제로 [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) 을(를) 가져옵니다. 인덱스 `5` 에서 시작하여 문자열의 나머지로 이동합니다.
-4. 이 하위 문자열을 [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) 문자열로 변환
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 모든 `+` 문자를 `-`으로
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 모든 `/` 문자를 `_`로
+1. 명령자 이름의 [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)를 가져오므로 전체 문자 수를 다시 가져옵니다.
 
-## <a name="working-with-date-times"></a>날짜 시간을 사용한 작업
-날짜 시간은 자연스럽게 **트리거**를 지원하지 않는 데이터 소스에서 데이터를 가져오려고 할 때 특히 유용할 수 있습니다.  날짜 시간은 다양한 단계에 소용되는 시간을 파악하는 데에도 사용할 수 있습니다. 
+2. 더 짧은 문자열을 원하므로 5를 뺍니다.
+
+3. 실제로 [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring)을(를) 가져옵니다. 인덱스 `5` 에서 시작하여 문자열의 나머지로 이동합니다.
+
+4. 이 하위 문자열을 [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) 문자열로 변환합니다.
+
+5. 모든 `+` 문자를 `-` 문자로 [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)합니다.
+
+6. 모든 `/` 문자를 `_` 문자로 [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)합니다.
+
+## <a name="work-with-date-times"></a>날짜 시간을 사용한 작업
+
+날짜 시간은 자연스럽게 *트리거*를 지원하지 않는 데이터 원본에서 데이터를 가져오려고 할 때 특히 유용할 수 있습니다. 날짜 시간은 다양한 단계에 소요되는 시간을 파악하는 데에도 사용할 수 있습니다.
 
 ```
 {
@@ -337,16 +354,20 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ```
 
-이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그 후에 현재 시간 및&1;초를 뺀 시간을 가져옵니다: [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds)(`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있음) 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째보다 작은 경우에는 명령이 첫 번째 위치으면&1;초 이상의 시간이 경과되었음을 의미합니다. 
+이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그런 다음 현재 시간 가져오고&1;초를 뺍니다.
 
-문자열 포맷터를 사용하여 날짜를 포맷할 수 있음도 기억하십시오. 쿼리 스트링에서는 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)를 사용하여 RFC1123을 가져왔습니다. 전체 데이터 포맷은 [MSDN에 설명되어 있습니다](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-## <a name="using-deployment-time-parameters-for-different-environments"></a>다른 환경에 대해 배포 시 매개 변수 사용
-배포 환경, 스테이징 환경 및 프로덕션 환경을 가지는 배포 주기가 있는 것이 일반적입니다. 이 모두에서 예를 들어, 동일한 정의를 원하지만 다른 데이터베이스를 사용할 수 있습니다. 마찬가지로, 높은 가용성을 위해 많은 다양한 하위 지역에 걸쳐 동일한 정의를 사용하고자 하지만 해당 하위 지역의 데이터베이스와 통신하는 각각의 논리 앱 인스턴스를 원할 수 있습니다. 
+`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있습니다. 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째 값보다 작은 경우에는 명령이 처음으로 배치된 후&1;초 이상의 시간이 경과된 것입니다.
 
-이는 위와 같이 호출하여 사용해야 하는 `trigger()` 함수에 대해 *런타임*에 다른 매개 변수를 가져오는 것과는 다름을 기억하십시오. 
+날짜에 서식을 지정하려면 문자열 포맷터를 사용할 수 있습니다. 예를 들어 RFC1123을 얻으려면 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)를 사용합니다. 날짜 서식 지정에 대해 알아보려면 [워크플로 정의 언어](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)를 참조하세요.
 
-다음과 같은 매우 단순한 정의로 시작할 수 있습니다.
+## <a name="deployment-parameters-for-different-environments"></a>다른 환경에 대한 배포 매개 변수
+
+일반적으로 배포 주기는 배포 환경, 스테이징 환경 및 프로덕션 환경으로 구성됩니다. 예를 들어, 이러한 모든 환경에서 동일한 정의를 사용하지만 다른 데이터베이스를 사용할 수 있습니다. 마찬가지로, 높은 가용성을 위해 다양한 하위 지역에 걸쳐 동일한 정의를 사용하고자 하지만 해당 하위 지역의 데이터베이스와 통신하는 각각의 논리 앱 인스턴스를 원할 수 있습니다.
+이 시나리오는 대신 *런타임*에 매개 변수를 사용하는 것과 다르며 이전 예제와 같이 `trigger()` 함수를 사용해야 합니다.
+
+다음 예제와 같은 기본적인 정의로 시작할 수 있습니다.
 
 ```
 {
@@ -375,7 +396,7 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ```
 
-그 후 논리 앱에 대한 실제 `PUT` 요청에서 매개 변수 `uri`를 제공할 수 있습니다. 더 이상의 기본값이 없으면 이 매개 변수는 논리 앱 페이로드에 필요하다는 점을 기억하십시오.
+논리 앱에 대한 실제 `PUT` 요청에서 매개 변수 `uri`를 제공할 수 있습니다. 기본값이 더 이상 존재하지 않으므로 논리 앱 페이로드에 이 매개 변수가 필요합니다.
 
 ```
 {
@@ -393,13 +414,7 @@ ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
 }
 ``` 
 
-그러면 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 
+각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 
 
-논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/mt643787.aspx) 를 참조하십시오. 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+논리 앱 만들기 및 관리에 대해 포함할 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/mt643787.aspx)를 참조하세요. 
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/08/2016
+ms.date: 02/22/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: 22e2e2ff15daa390a952b465f937e890169b95a8
+ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
+ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -339,7 +340,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 샘플 Resource Manager 템플릿은 [GitHub의 Azure 빠른 시작 템플릿 갤러리][azure-quickstart-templates]에 제공됩니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
 
 ### <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
-이 가이드에서는 [5 노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype-wad] 예제 템플릿과 템플릿 매개 변수를 사용합니다. `azuredeploy.json`와 `azuredeploy.parameters.json`을 컴퓨터에 다운로드하고 선호하는 텍스트 편집기로 두 파일을 엽니다.
+이 가이드에서는 [5 노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype] 예제 템플릿과 템플릿 매개 변수를 사용합니다. `azuredeploy.json`와 `azuredeploy.parameters.json`을 컴퓨터에 다운로드하고 선호하는 텍스트 편집기로 두 파일을 엽니다.
 
 ### <a name="add-certificates"></a>인증서 추가
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 파일에 Key Vault 값을 두는 것이 좋습니다. 이렇게 하면 Resource Manager 템플릿을 계속 재사용할 수 있고 배포에 특정한 값이 없게 됩니다.
@@ -667,7 +668,7 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
-[service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
+[service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
@@ -679,9 +680,4 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

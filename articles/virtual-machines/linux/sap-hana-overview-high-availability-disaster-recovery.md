@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1a133d7710b1790241c0ff774c2fd40e86b64268
-ms.openlocfilehash: f0248ce46991d23c2f5bb0f1c8bf212207b7ad5f
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 661733edbabd61b42bfb44b4ed107b1e757c2e28
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)의 SAP HANA에 대한 고가용성 및 재해 복구
+# <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure(큰 인스턴스)의 SAP HANA 고가용성 및 재해 복구 
 
 Azure(큰 인스턴스) 서버에서 업무상 중요한 SAP HANA를 실행할 때 고가용성 및 재해 복구는 중요한 측면입니다. SAP, 시스템 통합업체 또는 Microsoft와 협의하여 적합한 고가용성/재해복구 전략을 설계하고 구현하는 것이 중요합니다. 사용자 환경에 지정된 복구 지점 목표와 복구 시간 목표를 고려하는 것도 중요합니다.
 
@@ -593,9 +595,4 @@ Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN
 HANA snapshot deletion successfully.
 ```
 스크립트가 HANA 스냅숏의 생성을 기록하는 방법을 이 샘플에서 볼 수 있습니다. 확장 사례의 경우 이 프로세스는 마스터 노드에서 시작됩니다. 마스터 노드는 각 작업자 노드에서 스냅숏을 동기적으로 생성하기 시작합니다. 그런 다음 저장소 스냅숏이 만들어집니다. 저장소 스냅숏을 성공적으로 실행한 후에 HANA 스냅숏이 삭제됩니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

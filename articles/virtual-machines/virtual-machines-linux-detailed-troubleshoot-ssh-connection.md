@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
 ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
+ms.lasthandoff: 11/30/2016
 
 
 ---
@@ -143,10 +144,5 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 ## <a name="additional-resources"></a>추가 리소스
 응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

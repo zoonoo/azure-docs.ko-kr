@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 9ef17544582e944fda2ab8ea8b8098bb83e2ab57
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 69a06ba68e9a92ab63fd7c86a80eb9c4718f6679
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 
 이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
 
-## <a name="create-vm-sample-with-a-network-security-group"></a>네트워크 보안 그룹을 사용하여 VM 샘플 만들기
+## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "NSG를 사용하여 VM 만들기")]
 

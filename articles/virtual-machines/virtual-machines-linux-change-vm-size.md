@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI 2.0(미리 보기)을 사용하여 Linux VM의 크기를 조정하는 방법 | Microsoft Docs"
+title: "Azure CLI 2.0을 사용하여 Linux VM의 크기를 조정하는 방법 | Microsoft Docs"
 description: "VM 크기를 변경하여 Linux 가상 컴퓨터의 규모를 확장하거나 축소하는 방법"
 services: virtual-machines-linux
 documentationcenter: na
@@ -15,23 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b95ab7b023dddc77231a59151b0c2d44cf968b6e
-ms.openlocfilehash: fb2adcfafca35c35d0b526c30d242927b3ef58fe
-
+ms.sourcegitcommit: 1a218c8b9a1119ed284bc55071eed2a082122802
+ms.openlocfilehash: 78efd3d80f066d6b182b142564dbd0a7a9e01431
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="how-to-resize-a-linux-vm"></a>Linux VM의 크기 조정 방법
-VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. VM을 호스트하는 하드웨어 클러스터에서 원하는 크기를 사용할 수 없는 경우 VM 할당을 취소해야 합니다. 이 문서에서는 Azure CLI 2.0(미리 보기)을 사용하여 Linux VM의 크기를 조정하는 방법을 자세히 설명합니다.
+
+# <a name="resize-a-linux-vm-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Linux VM의 크기 조정
+
+VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. VM을 호스트하는 하드웨어 클러스터에서 원하는 크기를 사용할 수 없는 경우 VM 할당을 취소해야 합니다. 
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
-- [Azure CLI 1.0](virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#resize-a-linux-vm) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+- [Azure CLI 1.0](#resize-a-linux-vm) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
+- [Azure CLI 2.0](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
-## <a name="resize-a-linux-vm"></a>Linux VM 크기 조정
-VM의 크기를 조정하려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
+
+
+VM의 크기를 조정하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 1. VM이 [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options)로 호스트된 하드웨어 클러스터에서 사용 가능한 VM 크기의 목록을 봅니다. 다음 예제에서는 리소스 그룹 `myResourceGroup` 지역의 VM `myVM`에 대한 VM 크기를 나열합니다.
    
@@ -65,9 +69,4 @@ VM의 크기를 조정하려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

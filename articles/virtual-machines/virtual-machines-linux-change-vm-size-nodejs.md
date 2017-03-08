@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e7ca3b709bf2f09227b1607e4956ce021eab414a
-ms.openlocfilehash: ab52f1a4f568a7ef3c281e16636f61a063cda519
-
+ms.sourcegitcommit: b93844d55cf1c41e1e388d7bbaa3fedf88113423
+ms.openlocfilehash: bf28993330619a25fcf0bc79055be0d7453c2be4
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="how-to-resize-a-linux-vm"></a>Linux VM의 크기 조정 방법
+# <a name="resize-a-linux-vm-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Linux VM의 크기 조정
+
 ## <a name="overview"></a>개요
 VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. 이는 VM을 호스트하는 하드웨어 클러스터에서 새 크기를 사용할 수 없는 경우에 발생할 수 있습니다.
 
@@ -33,7 +35,7 @@ VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하�
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - [Azure CLI 1.0](#resize-a-linux-vm) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0(미리 보기)](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 
 ## <a name="resize-a-linux-vm"></a>Linux VM 크기 조정
@@ -79,9 +81,4 @@ VM의 크기를 조정하려면 다음 단계를 수행합니다.
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 6c9e70c3de404a3a5af343570203d6724342e062
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: 2f2792c409b579ba721195e5749a38c6396f339d
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="correlate-events-over-time-with-storm-and-hbase-on-hdinsight"></a>HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정
+# <a name="correlate-events-that-arrive-at-differnet-times-using-storm-and-hbase"></a>Storm 및 HBase를 사용하여 다른 시간에 도착하는 이벤트의 상관 관계 지정
 
 Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시간에 도착하는 데이터 항목의 상관 관계를 지정할 수 있습니다. 예를 들어, 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 연결하여 세션이 얼마나 지속되었는지 계산할 수 있습니다.
 
@@ -217,10 +218,5 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 ## <a name="next-steps"></a>다음 단계
 
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

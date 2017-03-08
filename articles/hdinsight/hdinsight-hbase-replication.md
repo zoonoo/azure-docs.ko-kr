@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec82fb896bc6c7212660746445af940f52546ad9
-ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
+ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
+ms.openlocfilehash: 83aabe0e5161cd3f94caa996dec29bc020e5308b
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,15 +61,17 @@ ms.openlocfilehash: 62ded222bc72ded7c6ce51efe911dd84992c05b1
 
 ### <a name="configure-one-virtual-network"></a>1개 가상 네트워크 구성
 
-다음 이미지를 클릭하면 동일한 가상 네트워크에서 두 개의 HBase 클러스터를 만들 수 있습니다. 템플릿은 공용 Azure Blob 컨테이너에 저장됩니다.
+다음 이미지를 클릭하면 동일한 가상 네트워크에서 두 개의 HBase 클러스터를 만들 수 있습니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/)에 저장됩니다.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### <a name="configure-two-virtual-networks-in-the-same-region"></a>동일한 지역에&2;개 가상 네트워크 구성
 
-다음 이미지를 클릭하면 동일한 지역에 VNet 피어링과 두 개의 HBase 클러스터가 있는 두 개의 가상 네트워크를 만들 수 있습니다. 템플릿은 공용 Azure Blob 컨테이너에 저장됩니다.
+다음 이미지를 클릭하면 동일한 지역에 VNet 피어링과 두 개의 HBase 클러스터가 있는 두 개의 가상 네트워크를 만들 수 있습니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/)에 저장됩니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+
 
 이 시나리오에는 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)이 필요하며, 템플릿은 VNet 피어링을 사용하도록 설정합니다.   
 
@@ -250,9 +253,4 @@ VNet 간 시나리오의 경우 **hdi_enable_replication.sh** 스크립트 작�
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

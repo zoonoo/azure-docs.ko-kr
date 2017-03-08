@@ -3,8 +3,8 @@ title: "Azure IaaS VM 디스크에 대한 질문과 대답(FAQ) | Microsoft Docs
 description: "Azure IaaS VM 디스크 및 프리미엄 디스크(관리 및 관리되지 않는 디스크)에 대한 질문과 대답"
 services: storage
 documentationcenter: 
-author: ramankumarlive
-manager: aungoo-msft
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0746c954e669bd739b8ecfcddaf287cb5172877f
-ms.openlocfilehash: 95b627738726f3c108fff38bfeda413303b2c718
+ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
+ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -120,6 +121,48 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 Azure Managed Disks에서는 현재 로컬 중복 저장소(LRS)만 지원됩니다.
 
+## <a name="managed-disks-and-port-8443"></a>Managed Disks 및 포트 8443
+
+**고객이 Azure Managed Disks를 사용하는 VM의 포트 8443에서 아웃바운드 트래픽의 차단을 해제해야 하는 이유는 무엇인가요?**
+
+Azure VM 에이전트는 Azure 플랫폼에 각 VM 확장의 상태를 보고하기 위해 포트 8443을 사용합니다. 이 포트의 차단이 해제되지 않으면 VM 에이전트는 모든 VM 확장의 상태를 보고할 수 없습니다. VM 에이전트에 대한 자세한 내용은 [Azure Virtual Machine 에이전트 개요](../virtual-machines/virtual-machines-windows-agent-user-guide.md)를 참조하세요.
+
+**확장을 사용하여 VM을 배포하고 포트의 차단이 해제되지 않으면 어떻게 되나요?**
+
+배포하면 오류가 발생합니다. 
+
+**확장 없이 VM을 배포하고 포트의 차단이 해제되지 않으면 어떻게 되나요?**
+
+배포에 영향을 주지 않습니다. 
+
+**이미 프로비전되고 실행 중인 VM에 확장을 설치하고 VM이 포트 8443 차단을 해제하지 않으면 어떻게 되나요?**
+
+확장은 성공적으로 배포되지 않습니다. 확장의 상태를 알 수 없습니다. 
+
+**차단된 포트 8443이 있는 여러 VM(확장이 있는 첫 번째 VM 및 첫 번째 VM에 종속된 두 번째 VM)을 프로비전하는 데 ARM 템플릿을 사용하는 경우 어떻게 되나요?**
+
+확장이 성공적으로 배포되지 않았기 때문에 첫 번째 VM은 실패한 배포로 표시됩니다. 두 번째 VM은 배포되지 않습니다. 
+
+**차단이 해제된 포트의 이 요구 사항이 모든 VM 확장에 적용되나요?**
+
+예.
+
+**포트 8443의 인바운드 및 아웃바운드 연결 차단이 해제되어야 하나요?**
+
+아니요. 포트 8443의 아웃바운드 연결 차단만 해제되어야 합니다. 
+
+**VM의 전체 수명에 대해 포트 8443의 아웃바운드 연결의 차단이 해제되어야 하나요?**
+
+예.
+
+**포트 차단이 해제되면 VM의 성능에 영향을 주나요?**
+
+아니요.
+
+**더 이상 포트 8443의 차단을 해제하지 않아도 되도록 이 문제가 수정될 예상 날짜는 언제인가요?**
+
+예, 2017년 5월 말입니다.
+
 ## <a name="premium-disks--both-managed-and-unmanaged"></a>프리미엄 디스크 - 관리 및 관리되지 않는 디스크
 
 **VM에서 DSv2와 같이 Premium Storage를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
@@ -151,8 +194,3 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4000 
 질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다. 이 문서의 끝에서 주석이나 MSDN [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)에 질문을 게시하여 Azure Storage 팀 및 다른 커뮤니티 회원과 이 문서에 대해 논의할 수 있습니다.
 
 기능을 요청하려면 요청 내용과 아이디어를 [Azure Storage 피드백 포럼](https://feedback.azure.com/forums/217298-storage)으로 제출해 주세요.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

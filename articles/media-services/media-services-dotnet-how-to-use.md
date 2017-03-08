@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
 * 신규 또는 기존 Azure 구독의 미디어 서비스 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요.
 * 운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5.
-* Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express).
+* 있습니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 미디어 서비스 개발에 대해 설정하는 방법을 설명합니다.  이 경우 프로젝트는 C# Windows 콘솔 응용 프로그램이지만 미디어 서비스 응용 프로그램에 대해 생성할 수 있는 다른 프로젝트 유형에도 여기에 설명된 설정 방법이 그대로 적용됩니다(예: Windows Forms 응용 프로그램 또는 ASP.NET 웹 응용 프로그램).
@@ -40,7 +41,7 @@ ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
 
 또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 및 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 자동으로 모든 필수적인 종속을 다운로드 및 추출하려면 참고합니다.
 
-1. Visual Studio 2010 SP1 이상 VS 버전에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
+1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
 2. 솔루션을 빌드하십시오.
 3. 설치하려면 **NuGet**을 사용하고 **Azure Media Services .NET SDK 확장**을 추가합니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
@@ -91,10 +92,5 @@ ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

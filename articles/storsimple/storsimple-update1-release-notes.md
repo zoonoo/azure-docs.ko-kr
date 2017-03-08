@@ -4,7 +4,7 @@ description: "StorSimple 8000 시리즈 업데이트 1.2의 새로운 기능, �
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2cc83aec80acceff64774a10d9542183fb0308b9
+ms.sourcegitcommit: 148f3920b92892781ed09380644b05b5bef7c952
+ms.openlocfilehash: 325c688e4da81fd9e6b73bd350a739ac43a480c0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-8000-series-update-12-release-notes"></a>StorSimple 8000 시리즈 업데이트 1.2 릴리스 정보
+# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 업데이트 1.2 릴리스 정보
+
 ## <a name="overview"></a>개요
 다음 릴리스 정보는 새로운 기능에 대해 설명하고 StorSimple 8000 시리즈 업데이트 1.2에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어, 드라이버 및 디스크 펌웨어 업데이트 목록을 포함합니다. 
 
@@ -110,10 +113,5 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-steps"></a>다음 단계
 * [장치에 업데이트 1.2를 설치합니다](storsimple-install-update-1.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

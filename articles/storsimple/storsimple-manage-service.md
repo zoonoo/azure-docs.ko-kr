@@ -4,7 +4,7 @@ description: "Azure 클래식 포털에서 StorSimple 관리자 서비스를 만
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: byronr
+manager: timlt
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
-ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
+ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
+ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deploy-the-storsimple-manager-service"></a>StorSimple 관리자 서비스 배포
+# <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 StorSimple Manager 서비스 배포
+
 ## <a name="overview"></a>개요
 StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 서비스를 만든 후에 브라우저에서 실행되는 Microsoft Azure 클래식 포털에서 이러한 장치를 관리하는 데 사용할 수 있습니다. 하나의 중앙 위치에서 StorSimple 관리자 서비스에 연결된 모든 장치를 모닝터링하여 관리 부담을 최소화할 수 있습니다.
 
@@ -99,9 +102,4 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 * [StorSimple 배포 프로세스](storsimple-deployment-walkthrough-u2.md)에 대해 자세히 알아봅니다.
 * [StorSimple 저장소 계정 관리](storsimple-manage-storage-accounts.md)에 대해 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 45de2422e79215ecfbacf5bd15712eb780c49016
-ms.openlocfilehash: c0a99dadc1d588942ade14267bd45eff09080315
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: b28eec9a01c45468e0cc323514d9c2e91ec88bf5
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,14 +26,14 @@ Azure Virtual Network를 사용하면 SQL Server와 같은 온-프레미스 리�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure CLI 2.0 (미리 보기): 자세한 내용은 [CLI 2.0 설치 및 구성](https://docs.microsoft.com/cli/azure/install-az-cli2)을 참조하세요.
+* Azure CLI 2.0: 자세한 내용은 [CLI 2.0 설치 및 구성](https://docs.microsoft.com/cli/azure/install-az-cli2)을 참조하세요.
 
 * Azure PowerShell: 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 단계는 최신 버전의 Azure CLI 및 Azure PowerShell로 테스트되었습니다. 이전 버전을 사용하는 경우 명령이 달라질 수 있습니다. 최상의 결과를 위해 이전 링크를 사용하여 최신 버전을 설치합니다.
 
-## <a name="a-idwhatisawhat-is-azure-virtual-network"></a><a id="whatis"></a>Azure 가상 네트워크란?
+## <a id="whatis"></a>Azure 가상 네트워크란?
 
 [Azure 가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/) 에서는 솔루션에 필요한 리소스를 포함하는 안전한 영구 네트워크를 만들 수 있습니다. 가상 네트워크를 통해 다음을 수행할 수 있습니다.
 
@@ -257,7 +258,7 @@ __다른 모든 하위 지역__:
 
 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/virtual-networks-nsg.md)를 참조하세요. Azure 가상 네트워크에서 라우팅 제어에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 
-## <a name="a-idtasksatasks-and-information"></a><a id="tasks"></a>작업 및 정보
+## <a id="tasks"></a>작업 및 정보
 
 이 섹션에서는 일반적인 작업 정보 및 가상 네트워크에서 HDInsight를 사용할 때 필요한 정보를 알려줍니다.
 
@@ -354,7 +355,7 @@ SQL Server와 같은 일부 서비스는 들어오는 네트워크 연결을 제
 
 HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네트워크 액세스를 사용할 수 있는지 확인하려면 서비스에 대한 설명서를 참조하세요. 동일한 가상 네트워크에 Azure 가상 컴퓨터를 만들어 네트워크 액세스를 확인하고 클라이언트 유틸리티를 사용하여 가상 네트워크를 통해 가상 컴퓨터에서 서비스에 연결할 수 있는지 확인할 수도 있습니다.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 
 다음 예에서는 Azure 가상 네트워크에서 HDInsight를 사용하는 방법을 보여줍니다.
 
@@ -363,10 +364,5 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 * [HDInsight에서 Hadoop과 함께 Sqoop 사용](hdinsight-use-sqoop-mac-linux.md) - Sqoop을 사용하여 가상 네트워크를 통해 SQL Server로 데이터를 전송하는 방법에 대한 정보를 제공합니다.
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

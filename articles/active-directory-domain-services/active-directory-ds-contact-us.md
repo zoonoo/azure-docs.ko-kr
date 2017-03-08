@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -35,10 +36,4 @@ ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
 **[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/)**을 통한 Azure AD 도메인 서비스에 대한 여러분의 피드백을 환영합니다.
 
 문의하시려면 **'AADDS'**라는 단어로 질문 또는 피드백을 시작해 주세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

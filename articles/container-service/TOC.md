@@ -36,15 +36,8 @@
 ### [Docker Swarm 연속 통합](container-service-docker-swarm-setup-ci-cd.md)
 # 참조
 ## [Azure CLI 2.0](/cli/azure/acs)
-## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
-## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST (영문)](/rest/api/compute/containerservices)
 # 리소스
 ## [지역 가용성](https://azure.microsoft.com/regions/services/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/container-service/)
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

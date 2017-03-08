@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/01/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5b02054546ebf25766be6bb2837aebc502b67a67
-ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -43,9 +44,9 @@ ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
 
 ### <a name="receive-events"></a>이벤트 수신 
 
-[이벤트 프로세서 호스트를 사용하여 수신 시작](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver) 샘플은 [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램입니다. 
+[이벤트 프로세서 호스트를 사용하여 수신 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) 샘플은 [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램입니다. 
 
-## <a name="net-framework"></a>.NET Framework   
+## <a name="net-framework"></a>.NET Framework    
 
 이러한 샘플은 [.NET Framework 라이브러리](https://msdn.microsoft.com/library/w0x726c2.aspx)를 대상으로 하는 Azure Event Hubs의 기타 다양한 기능을 보여 줍니다.
  
@@ -81,8 +82,3 @@ Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 - [이벤트 허브 만들기](event-hubs-create.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

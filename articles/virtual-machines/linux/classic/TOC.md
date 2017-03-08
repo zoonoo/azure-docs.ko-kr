@@ -81,8 +81,3 @@
 ## [국가별 가용성](https://azure.microsoft.com/regions/services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -115,8 +115,3 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: d72a191cceaa90f9dae69b5c2698fae1a9fb95a7
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 69fbac5acdc812917d1e022d19768a8d72955783
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: d72a191cceaa90f9dae69b5c2698fae1a9fb95a7
 
 프리미엄 저장소에서 실행되는 작업은 성능이 매우 중요하므로 특별히 프리미엄 저장소에 대한 지침을 제공합니다. 적절한 예제를 제공합니다. 표준 저장소 디스크가 있는 IaaS VM에서 실행되는 응용 프로그램에 이러한 지침 중 일부를 적용할 수도 있습니다.
 
-시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage.md) 문서 및 [Azure Premium Storage 확장성 및 성능 목표](storage-scalability-targets.md#premium-storage-accounts)를 읽어 보세요.
+시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage.md) 및 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 문서를 읽어 보세요.
 
 ## <a name="application-performance-indicators"></a>응용 프로그램 성과 지표
 응용 프로그램이 사용자 요청을 얼마나 빨리 처리하는지, 응용 프로그램이 요청 당 얼마나 많은 데이터를 처리하는지, 응용 프로그램이 특정 기간 동안 얼마나 많은 요청을 처리하는지, 사용자가 요청을 제출한 후 응답을 받기까지 얼마나 오래 기다려야 하는지와 같은 성과 지표를 사용하여 응용 프로그램이 잘 수행하는지 여부를 평가합니다. 이러한 성과 지표에 대한 기술 용어는 IOPS, 처리량 또는 대역폭 및 대기 시간입니다.
@@ -593,9 +594,4 @@ SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문�
 
 * [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure 프리미엄 저장소는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
