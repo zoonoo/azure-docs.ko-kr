@@ -36,8 +36,6 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
-### [관련 리소스 연결](resource-group-link-resources.md)
-### [Azure 리소스 탐색기](resource-manager-resource-explorer.md)
 ## 액세스 제어
 ### [PowerShell에서 서비스 주체 만들기](resource-group-authenticate-service-principal.md)
 ### [Azure CLI에서 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)

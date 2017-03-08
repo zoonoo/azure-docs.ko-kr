@@ -24,7 +24,7 @@
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
 ## [PowerShell(클래식)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
-## [Azure CLI 2.0 미리 보기](/cli/azure/network/traffic-manager)
+## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
@@ -44,8 +44,3 @@
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

@@ -2,6 +2,7 @@
 # 개요
 ## [Cognitive Services란?](https://azure.microsoft.com/services/cognitive-services/)
 # 시작
+## [계정 만들기](cognitive-services-apis-create-account.md)
 ## [텍스트 분석 빠른 시작](cognitive-services-text-analytics-quick-start.md)
 ## [Recommendations 빠른 시작](cognitive-services-recommendations-quick-start.md)
 
