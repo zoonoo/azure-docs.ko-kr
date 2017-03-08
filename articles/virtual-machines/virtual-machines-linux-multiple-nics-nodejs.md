@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: db3d95cf7efd1caebb9e568ba729b9cbc30e5b78
-ms.openlocfilehash: 22001eec6402054239c9215a686512bd74d9bb9f
+ms.sourcegitcommit: e762497c67e04aa4186094a203796278355de36f
+ms.openlocfilehash: 5da58eebde8ea0d615514755af1c378d16f60bfc
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,8 +31,8 @@ Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가�
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
-- [Azure CLI 1.0](#create-supporting-resources) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+- [Azure CLI 1.0](#create-supporting-resources) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
+- [Azure CLI 2.0](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 
 ## <a name="create-supporting-resources"></a>지원 리소스 만들기
@@ -141,10 +142,5 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 여러 NIC를 사용하여 VM을 만들려고 할 때 [Linux VM 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 검토해야 합니다. 각 VM 크기가 지원하는 NIC의 최대 수에 유의합니다. 
 
 기존 VM에 NIC를 더 추가할 수 없으므로 VM을 배포할 때 모든 NIC를 만들어야 합니다. 배포를 계획할 때 처음부터 필요한 모든 네트워크 연결이 있는지 확인합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

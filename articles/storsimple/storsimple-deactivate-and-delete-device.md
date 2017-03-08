@@ -4,7 +4,7 @@ description: "먼저 StorSimple 장치를 비활성화한 후 삭제하여 서�
 services: storsimple
 documentationcenter: 
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 155cda38-c5ae-45dc-b7e8-6444494afc9e
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/27/2017
 ms.author: anbacker
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 014d4faeb478690168b44f88e7a0bda2b406cd4b
+ms.sourcegitcommit: 80fde4dfe7de89dffd39242d94fe46f68e41d611
+ms.openlocfilehash: 833dee54ef9de46c50e9e760594359baf4f89b5e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 장치 비활성화 및 삭제
+# <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>StorSimple Manager 서비스를 통해 StorSimple 8000 시리즈 장치 비활성화 및 삭제
 ## <a name="overview"></a>개요
 StorSimple 장치 서비스를 중단하고 싶을 수 있습니다(예: 장치를 교체 또는 업그레이드하거나 더 이상 StorSimple을 사용하지 않는 경우). 그런 경우 장치를 비활성화한 다음 삭제해야 합니다. 비활성화하면 장치 및 해당 StorSimple Manager 서비스 간의 연결이 끊깁니다. 이 자습서에서는 StorSimple 장치를 먼저 비활성화한 후 삭제하여 서비스에서 제거하는 방법에 대해 설명합니다. 
 
@@ -93,10 +95,5 @@ StorSimple 가상 컴퓨터에 대한 비활성화는 가상 장치의 할당을
 * 비활성화된 장치를 공장 기본 설정으로 복원하려면 [장치를 공장 기본 설정으로 초기화](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)로 이동합니다.
 * 기술 지원을 받으려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 * StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

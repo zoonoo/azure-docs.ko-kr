@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8b1fbc541b3123961d092c63441b804109865f60
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: fbb561f4bfda27c74ffdc08c1b07f4adb83286ab
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="how-to-delete-an-hdinsight-cluster"></a>HDInsight 클러스터를 삭제하는 방법
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제
 
 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. 이 문서에서는 Azure Portal, Azure PowerShell 및 Azure CLI를 사용하여 클러스터를 삭제하는 방법을 배웁니다.
 
@@ -52,10 +53,5 @@ PowerShell 프롬프트에서 다음 명령을 사용하여 클러스터를 삭�
     azure hdinsight cluster delete CLUSTERNAME
 
 **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

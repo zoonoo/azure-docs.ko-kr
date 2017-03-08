@@ -12,16 +12,17 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>HDInsight에 추가 Azure 저장소 계정 추가
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
 스크립트 동작을 사용하여 추가 Azure Storage 계정을 운영 체제로 Linux를 사용하는 기존 HDInsight 클러스터에 추가하는 방법에 대해 알아봅니다.
 
@@ -44,7 +45,7 @@ ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
 
 * 저장소 계정이 있고 키를 사용하여 액세스할 수 있는지 확인합니다.
 
-* 클러스터 자격 증명을 사용하여 키를 암호화합니다. 이렇게 하면 HDInsight 사용자가 Ambari의 저장소 계정 키를 쉽게 추출하여 사용할 수 없게 됩니다.
+* 클러스터 자격 증명을 사용하여 키를 암호화합니다.
 
 * core-site.xml 파일에 저장소 계정을 추가합니다.
 
@@ -76,7 +77,7 @@ Azure Portal, Azure PowerShell 및 Azure CLI를 통한 스크립트 동작 사�
 
 Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __저장소 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 저장소 계정이 표시되지 않습니다. Azure PowerShell 및 Azure CLI도 추가 저장소 계정을 표시하지 않습니다.
 
-이는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 발생합니다. 이 정보는 현재 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
+이 저장소 정보는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 표시되지 않습니다. 이 정보는 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
 
 이 스크립트를 사용하여 클러스터에 추가된 저장소 계정 정보를 보려면 Ambari REST API를 사용합니다. 다음 명령은 [cURL(http://curl.haxx.se/)](http://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 Ambari에서 JSON 데이터를 검색하고 구문 분석하는 방법을 보여 줍니다.
 
@@ -96,13 +97,11 @@ Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __저장�
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>키를 변경한 후 저장소에 액세스할 수 없음
 
-저장소 계정의 키를 변경하면 HDInsight에서 더 이상 저장소 계정에 액세스할 수 없게 됩니다.
+저장소 계정의 키를 변경하면 HDInsight에서 더 이상 저장소 계정에 액세스할 수 없습니다. HDInsight에서는 클러스터에 대한 core-site.xml에서 키의 캐시된 복사본을 사용합니다. 이 캐시된 복사본은 새 키와 일치하도록 업데이트해야 합니다.
 
-이는 클러스터의 core-site.xml에 저장된 키가 이전 키이기 때문에 발생합니다.
+스크립트 동작을 다시 실행하면 스크립트에서 저장소 계정에 대한 항목이 이미 있는지 확인하기 때문에 키를 업데이트하지 __않습니다__. 항목이 존재하는 경우 변경하지 않습니다.
 
-스크립트 동작을 다시 실행하면 스크립트에서 저장소 계정에 대한 항목이 이미 있는지 확인하기 때문에 키를 업데이트하지 __않습니다__. 그러면 변경하지 않습니다.
-
-이 문제를 해결하려면 저장소 계정에 대한 기존 항목을 제거해야 합니다. 다음 단계를 사용하여 이 작업을 수행할 수 있습니다.
+이 문제를 해결하려면 저장소 계정에 대한 기존 항목을 제거해야 합니다. 기존 항목을 제거하려면 다음 단계를 수행합니다.
 
 1. 웹 브라우저에서 HDInsight 클러스터에 대한 Ambari 웹 UI를 엽니다. URI는 https://CLUSTERNAME.azurehdinsight.net입니다. __CLUSTERNAME__ 을 클러스터의 이름으로 바꿉니다.
 
@@ -131,9 +130,4 @@ Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __저장�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 기존 HDInsight 클러스터에 추가 저장소 계정을 추가하는 방법을 살펴보았습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)를 참조하세요.
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+기존 HDInsight 클러스터에 추가 저장소 계정을 추가하는 방법을 살펴보았습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)를 참조하세요.

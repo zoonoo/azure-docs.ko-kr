@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Log Analytics에 Azure 가상 컴퓨터 연결
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Log Analytics 에이전트에서 Azure 가상 컴퓨터를 Log Analytics에 연결
+
 Windows 및 Linux 컴퓨터의 경우 로그 및 메트릭을 수집하는 좋은 방법은 Log Analytics로 에이전트를 설치하는 것입니다.
 
 Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치하는 가장 쉬운 방법은 Log Analytics VM 확장을 사용하는 것입니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
@@ -34,10 +37,10 @@ Linux 가상 컴퓨터에 대해 *OMS Agent For Linux* 가상 컴퓨터 확장�
 
 > [!IMPORTANT]
 > [Azure Diagnostics](log-analytics-azure-storage.md)를 사용하여 로그 데이터를 인덱싱하도록 Log Analytics를 구성했으며 동일한 로그를 수집하도록 에이전트를 구성하면 해당 로그가 두 번 수집됩니다. 두 데이터 원본 모두에 대해 청구됩니다. 에이전트를 설치한 경우 에이전트만을 사용하여 로그 데이터를 수집해야 합니다. Azure Diagnostics로부터 로그 데이터를 수집하도록 Log Analytics를 구성하지 않습니다.
-> 
-> 
+>
+>
 
-다음과 같은 3가지 방법으로 Log Analytics 가상 컴퓨터 확장을 사용하도록 설정할 수 있습니다.
+다음과 같은&3;가지 방법으로 Log Analytics 가상 컴퓨터 확장을 사용하도록 설정할 수 있습니다.
 
 * Azure Portal 사용
 * Azure PowerShell 사용
@@ -370,7 +373,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 2. 다음 절차를 통해 Microsoft Monitoring Agent 확장 하트 비트 작업이 실행되고 있는지 확인합니다.
    * 가상 컴퓨터에 로그인합니다.
    * 작업 스케줄러를 열고 `update_azureoperationalinsight_agent_heartbeat` 작업을 찾습니다.
-   * 작업이 활성화되었고 1분 간격으로 실행되는지 확인합니다.
+   * 작업이 활성화되었고&1;분 간격으로 실행되는지 확인합니다.
    * `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`에서 하트비트 로그 파일을 확인합니다.
 3. `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`에서 Microsoft Monitoring Agent VM 확장 로그 파일을 검토합니다.
 4. 가상 컴퓨터가 PowerShell 스크립트를 실행할 수 있는지 확인합니다.
@@ -400,10 +403,4 @@ Azure에 없는 컴퓨터의 경우, 다음 문서에 설명된 방법을 사용
 
 * [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)
 * [Log Analytics에 Linux 컴퓨터 연결](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

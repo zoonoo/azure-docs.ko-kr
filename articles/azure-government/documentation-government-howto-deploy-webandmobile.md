@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 01/03/2016
 ms.author: sdubeymsft
 translationtype: Human Translation
-ms.sourcegitcommit: 40e2eea5c1a11dadb232c6ac7c224ca5fc847c02
-ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 159c891dedb66dfaa238981b395b4bba074c5716
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
 
 ## <a name="prerequisites"></a>필수 조건
 * Visual Studio 2015 및 Azure SDK를 설치하고 구성하려면[Visual Studio 필수 조건](../app-service-api/app-service-api-dotnet-get-started.md#prerequisites)을 참조하세요.
-* [이 지침](documentation-government-manage-subscriptions.md#connecting-via-visual-studio)에 따라 Visual Studio를 Azure Government 계정에 연결합니다.
+* [이 지침](documentation-government-manage-subscriptions.md)에 따라 Visual Studio를 Azure Government 계정에 연결하도록 구성합니다.
 
 ## <a name="open-app-project-in-visual-studio"></a>Visual Studio에서 앱 프로젝트 열기
 * Visual Studio에서 기존 앱 솔루션\프로젝트를 열고 [이 지침](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application), or download sample app by following [these steps] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application)에 따라 프로젝트를 만듭니다.
@@ -42,9 +43,4 @@ ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
 
 ## <a name="next-steps"></a>다음 단계
 부가 정보 및 업데이트를 보려면 [Microsoft Azure Government 블로그](https://blogs.msdn.microsoft.com/azuregov/)를 구독하세요.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

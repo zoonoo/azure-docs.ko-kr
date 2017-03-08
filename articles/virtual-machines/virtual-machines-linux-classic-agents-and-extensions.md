@@ -1,6 +1,7 @@
+
 ---
 title: "Azure의 Linux VM 에이전트 및 확장 | Microsoft Docs"
-description: "에이전트 및 확장에 대한 개요와 클래식 배포 모델을 사용하여 에이전트 설치 방법을 제공합니다."
+description: "에이전트 및 확장에 대한 개요와 Linux VM에서 클래식 배포 모델을 사용하여 에이전트를 설치하는 방법을 제공합니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -13,23 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
+ms.date: 03/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 383e32eca05888c8bf08f80a413c0b64a9b4fb46
+ms.sourcegitcommit: 4e96285a093dffd43d78071f33cc28763be24804
+ms.openlocfilehash: 96a188344cd75d2e4a097fde9df09e9c302ea679
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-the-virtual-machine-agent-and-extensions"></a>가상 컴퓨터 에이전트 및 확장 정보
-> [!IMPORTANT] 
+# <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Linux용 가상 컴퓨터 에이전트 및 확장 정보
+> [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager를 사용하는 VM 에이전트 및 확장에 대한 정보는 [여기](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

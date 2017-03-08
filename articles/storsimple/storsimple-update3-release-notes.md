@@ -4,7 +4,7 @@ description: "StorSimple 8000 시리즈 업데이트 3의 새로운 기능, 문�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4d3609ae1ea5fba89a9c0222586f578fdaeea757
+ms.sourcegitcommit: 0e31079494eb709a3333d6c8735f47f8406fea05
+ms.openlocfilehash: 846ff5124be258580c060bfe64bab1a4ccd31202
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-8000-series-update-3-release-notes"></a>StorSimple 8000 시리즈 업데이트 3 릴리스 정보
+# <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 업데이트 3 릴리스 정보
+
 ## <a name="overview"></a>개요
 다음 릴리스 정보는 새로운 기능에 대해 설명하고 StorSimple 8000 시리즈 업데이트 3에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 업데이트 목록을 포함합니다. 
 
@@ -90,10 +93,5 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-step"></a>다음 단계
 StorSimple 장치에 [업데이트 3를 설치](storsimple-install-update-3.md) 하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

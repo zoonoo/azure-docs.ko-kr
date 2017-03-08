@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0(미리 보기)을 사용하여 Linux VM 캡처 | Microsoft Docs"
-description: "Azure CLI 2.0(미리 보기)으로 만든 관리되는 디스크를 사용하여 Linux 기반 Azure VM(가상 컴퓨터)의 이미지를 캡처하고 일반화하는 방법"
+title: "Azure CLI 2.0을 사용하여 Linux VM 캡처 | Microsoft Docs"
+description: "Azure CLI 2.0으로 만든 Managed Disks를 사용하여 Linux 기반 Azure VM(가상 컴퓨터)의 이미지를 캡처하고 일반화하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,29 +16,25 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 4620ace217e8e3d733129f69a793d3e2f9e989b2
-ms.openlocfilehash: 64b829de4389ba6aa46dc51afd0cff3f40265d68
+ms.sourcegitcommit: 93abc8b1b14f58b0d0be52517a2b63dfe2dc32fb
+ms.openlocfilehash: c72f576d992c9adfa83b9744672397045833c43f
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="how-to-generalize-and-capture-a-linux-virtual-machine-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법
-Azure에서 배포되고 구성된 VM(가상 컴퓨터)을 다시 사용하려면 VM의 이미지를 캡처합니다. 프로세스는 또한 이미지에서 새 VM을 배포하기 전에 개인 계정 정보를 제거하도록 VM 일반화를 포함합니다. 이 문서에서는 Azure Managed Disks를 사용하는 VM에 대해 Azure CLI 2.0(미리 보기)을 사용하여 VM 이미지를 캡처하는 방법을 자세히 설명합니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
+# <a name="how-to-generalize-and-capture-a-linux-virtual-machine"></a>Linux 가상 컴퓨터를 일반화하고 캡처하는 방법
+Azure에서 배포되고 구성된 VM(가상 컴퓨터)을 다시 사용하려면 VM의 이미지를 캡처합니다. 프로세스는 또한 이미지에서 새 VM을 배포하기 전에 개인 계정 정보를 제거하도록 VM 일반화를 포함합니다. 이 문서에서는 Azure Managed Disks를 사용하여 VM에 대한 Azure CLI 2.0에서 VM 이미지를 캡처하는 방법을 자세히 설명합니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 이 문서에서는 Azure CLI 2.0에서 Linux VM을 캡처하는 방법을 자세히 설명합니다. [Azure CLI 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 > [!TIP]
 > 백업 또는 디버깅용의 특수화된 상태로 기존 Linux VM의 복사본을 만들려면 [Azure에서 실행되는 Linux 가상 컴퓨터의 복사본 만들기](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 온-프레미스 VM으로부터 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.  
 
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-- [Azure CLI 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기) - Azure Managed Disks](#quick-commands) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
 
 ## <a name="before-you-begin"></a>시작하기 전에
 다음 필수 조건을 충족하는지 확인합니다.
 
 * **Azure VM이 Resource Manager 배포 모델에 생성됨** - Linux VM을 만들지 않은 경우, [포털](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Resource Manager 템플릿](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용할 수 있습니다. 필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), 업데이트를 적용하고, 응용 프로그램을 설치합니다. 
 
-또한 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
+또한 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에서 Linux VM의 이미지를 캡처하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기](#detailed-steps)서부터 문서 끝까지 참조하세요. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myVM` 및 `myImage`가 포함됩니다.
@@ -95,7 +91,7 @@ VM 일반화를 준비하려면 Azure VM 에이전트를 사용하여 파일 및
 4. 명령이 완료된 후 **exit**를 입력합니다. 이 단계는 SSH 클라이언트를 닫습니다.
 
 ## <a name="step-2-capture-the-vm"></a>2단계: VM 캡처
-Azure CLI 2.0(미리 보기)을 사용하여 VM을 일반화하고 캡처합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 **myResourceGroup**, **myVnet**, **myVM**이 포함됩니다.
+Azure CLI 2.0을 사용하여 VM을 일반화하고 캡처합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 **myResourceGroup**, **myVnet**, **myVM**이 포함됩니다.
 
 1. [az vm deallocate](/cli//azure/vm#deallocate)로 프로비전 해제한 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
    
@@ -153,14 +149,10 @@ az vm show --resource-group myResourceGroup --name myVM --show-details
 ## <a name="next-steps"></a>다음 단계
 원본 VM 이미지에서 여러 VM을 만들 수 있습니다. 이미지를 변경해야 하는 경우: 
 
-- 원본 VM 리소스의 전원을 켭니다.
+- 사용자 이미지에서 VM을 만듭니다.
 - 모든 업데이트 또는 구성 변경 내용을 확인합니다.
-- 단계에 따라 다시 프로비전 해제, 할당 취소, 일반화하고 VM을 캡처합니다. 
+- 단계에 따라 이미지를 다시 프로비전 해제, 할당 취소, 일반화하고 만듭니다.
+- 향후 배포에서 이 새로운 이미지를 사용합니다. 원하는 경우에 원본 이미지를 삭제합니다.
 
-CLI를 사용하여 VM 관리에 대한 자세한 내용은 [Azure CLI 2.0(미리 보기)](/cli/azure/overview)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+CLI를 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure CLI 2.0](/cli/azure/overview)을 참조하세요.
 

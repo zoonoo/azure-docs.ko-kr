@@ -1,6 +1,6 @@
 ---
-title: "SharePoint Server 팜 만들기 | Microsoft Docs"
-description: "Azure에 새 SharePoint 2013 팜 또는 2016 SharePoint 팜을 신속하게 만듭니다."
+title: "Azure에서 SharePoint Server 팜 만들기 | Microsoft Docs"
+description: "Azure Portal Marketplace를 사용하여 Azure에서 새 SharePoint 2013 또는 2016 SharePoint 팜을 신속하게 만듭니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: JoeDavies-MSFT
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: josephd
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 7c0746840dd45229dac491b03925349e6d9a44de
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: b668e32bf00ec32c7ffa77594bd1fb07440cf1ac
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-sharepoint-server-farms"></a>SharePoint 서버 팜 만들기
+# <a name="create-sharepoint-server-farms-using-the-azure-portal-marketplace"></a>Azure Portal Marketplace를 사용하여 SharePoint 서버 팜 만들기
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -33,7 +35,7 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 >
 >
 
-기본 SharePoint 팜은 다음 구성의 3가지 가상 컴퓨터로 구성됩니다.
+기본 SharePoint 팜은 다음 구성의&3;가지 가상 컴퓨터로 구성됩니다.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/Non-HAFarm.png)
 
@@ -46,7 +48,7 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 3. **SharePoint 2013 비 HA 팜** 창에서 **만들기**를 클릭합니다.
 4. **SharePoint 2013 비 HA 팜** 창의 단계에서 설정을 지정한 다음 **만들기**를 클릭합니다.
 
-고가용성 SharePoint 팜은 다음과 같은 구성으로 9개의 가상 컴퓨터로 구성됩니다.
+고가용성 SharePoint 팜은 다음과 같은 구성으로&9;개의 가상 컴퓨터로 구성됩니다.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
@@ -83,9 +85,4 @@ Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전�
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 인프라 서비스에서 추가 [SharePoint 구성](https://technet.microsoft.com/library/dn635309.aspx) 을 검색합니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

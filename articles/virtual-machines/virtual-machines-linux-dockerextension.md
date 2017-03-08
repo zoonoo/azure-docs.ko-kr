@@ -1,6 +1,6 @@
 ---
 title: "Azure Docker VM 확장 사용 | Microsoft Docs"
-description: "Docker VM 확장을 사용하여 Azure에서 Resource Manager 템플릿을 사용하여 Docker 환경을 빠르고 안전하게 배포하는 방법에 대해 알아보세요."
+description: "Docker VM 확장을 사용하여 Azure에서 Resource Manager 템플릿 및 Azure CLI 2.0을 사용하여 Docker 환경을 빠르고 안전하게 배포하는 방법에 대해 알아보기"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,114 +12,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/09/2017
+ms.date: 02/23/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e97981118cb8f2c4c2821ed9db50095f2385342c
+ms.sourcegitcommit: 508c8433620a1ba3feabc1b35ca2ad461680f37c
+ms.openlocfilehash: 0d1146b4e1d707f914fcb535210b71897efd0b29
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM 확장을 사용하여 Azure에서 Docker 환경 만들기
-Docker는 Linux(및 Windows)에서 컨테이너와 함께 빠르게 사용할 수 있는 인기 있는 컨테이너 관리 및 이미징 플랫폼입니다. Azure에는 필요에 맞게 Docker를 배포할 수 있는 다양한 방법이 있습니다. 이 문서는 Docker VM 확장 및 Azure Resource Manager 템플릿 사용에 중점을 두고 있습니다. 
-
-Docker Machine 및 Azure Container Service 사용을 비롯한 다른 배포 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-* 앱을 신속하게 프로토타이핑하려면 [Docker Machine](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 단일 Docker 호스트를 만듭니다.
-* 보다 크고 안정적인 환경을 위해 Azure Docker VM 확장을 사용할 수 있습니다. 일관된 컨테이너 배포를 생성하도록 [Docker Compose](https://docs.docker.com/compose/overview/)를 지원하기도 합니다. 이 문서는 Azure Docker VM 확장 사용을 자세히 설명합니다.
-* 추가 예약 및 관리 도구를 제공하는 프로덕션이 준비된 확장성 있는 환경을 구축하려면 [Azure Container Services에 Docker Swarm 클러스터](../container-service/container-service-deployment.md)를 배포합니다.
+Docker는 Linux에서 컨테이너와 함께 빠르게 사용할 수 있는 인기 있는 컨테이너 관리 및 이미징 플랫폼입니다. Azure에는 필요에 맞게 Docker를 배포할 수 있는 다양한 방법이 있습니다. 이 문서는 Azure CLI 2.0을 사용하여 Docker VM 확장 및 Azure Resource Manager 템플릿을 사용하는 방법에 중점을 두고 있습니다. [Azure CLI 1.0](virtual-machines-linux-dockerextension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 ## <a name="azure-docker-vm-extension-overview"></a>Azure Docker VM 확장 개요
 Azure Docker VM 확장은 Linux 가상 컴퓨터(VM)에 Docker 데몬, Docker 클라이언트 및 Docker Compose를 설치하고 구성합니다. Azure Docker VM 확장을 사용하면 직접 Docker 호스트를 만들거나 Docker Machine을 사용하는 것보다 더 많은 제어와 가능을 사용할 수 있습니다. [Docker Compose](https://docs.docker.com/compose/overview/)와 같은 이러한 추가 기능은 Azure Docker VM 확장을 보다 강력한 개발자 또는 프로덕션 환경에 적합하도록 만들어 줍니다.
 
-Azure Resource Manager 템플릿은 환경의 전체 구조를 정의합니다. 템플릿을 사용하면 Docker 호스트 VM, 저장소, RBAC(역할 기반 액세스 제어) 및 진단과 같은 리소스를 만들고 구성할 수 있습니다. 이러한 템플릿을 다시 사용하여 일관된 방식으로 추가 배포를 만들 수 있습니다. Azure Resource Manager 및 템플릿에 대한 자세한 내용은 [Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
+Docker Machine 및 Azure Container Service 사용을 비롯한 다른 배포 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+* 앱을 신속하게 프로토타이핑하려면 [Docker Machine](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 단일 Docker 호스트를 만듭니다.
+* 추가 예약 및 관리 도구를 제공하는 프로덕션이 준비된 확장성 있는 환경을 구축하려면 [Azure Container Services에 Docker Swarm 클러스터](../container-service/container-service-deployment.md)를 배포합니다.
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM 확장을 사용하여 템플릿 배포
-기존의 빠른 시작 템플릿을 사용하여 Docker 호스트를 설치 및 구성하기 위해 Azure Docker VM 확장을 사용하는 Ubuntu VM을 만들겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다. 
+기존의 빠른 시작 템플릿을 사용하여 Docker 호스트를 설치 및 구성하기 위해 Azure Docker VM 확장을 사용하는 Ubuntu VM을 만들겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다. 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
-[최신 Azure CLI](../xplat-cli-install.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
+먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `West US` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-azure config mode arm
+ az group create --name myResourceGroup --location westus
 ```
 
-Azure CLI를 사용하여 템플릿 URI를 지정하고 템플릿을 배포합니다. 다음 예제는 `WestUS` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 다음과 같이 자신만의 리소스 그룹 이름과 위치를 사용합니다.
+다음으로 [Github의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. 다음과 같이 `newStorageAccountName`, `adminUsername`, `adminPassword` 및 `dnsNameForPublicIP`에 대한 고유한 값을 제공합니다.
 
 ```azurecli
-azure group create --name myResourceGroup --location "West US" \
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
+    "adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-저장소 계정 이름을 묻는 프롬프트에 답하고 사용자 이름과 암호를 제공하고 DNS 이름을 제공합니다. 다음 예제와 유사하게 출력됩니다.
+배포를 완료하려면 몇 분 정도 소요됩니다. 배포가 완료되면 [다음 단계로 이동](#deploy-your-first-nginx-container)하여 VM에 SSH를 사용합니다. 
+
+필요에 따라 프롬프트에 대한 제어를 반환하고 백그라운드에서 배포를 계속하려면 `--no-wait` 플래그를 이전 명령에 추가합니다. 이 프로세스를 통해 배포가 몇 분 동안 계속되는 동안 CLI에서 다른 작업을 수행할 수 있습니다. [az vm show](/cli/azure/vm#show)를 사용하여 Docker 호스트 상태에 대한 자세한 정보를 볼 수 있습니다. 다음 예제는 `myResourceGroup`이라는 리소스 그룹에서 `myDockerVM`(템플릿의 기본 이름입니다. 이 이름을 변경하지 마세요.)이라는 VM의 상태를 확인합니다.
 
 ```azurecli
-info:    Executing command group create
-+ Getting resource group myResourceGroup
-+ Updating resource group myResourceGroup
-info:    Updated resource group myResourceGroup
-info:    Supply values for the following parameters
-newStorageAccountName: mystorageaccount
-adminUsername: ops
-adminPassword: P@ssword!
-dnsNameForPublicIP: mypublicip
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+az vm show --resource-group myResourceGroup --name myDockerVM \
+  --query [provisioningState] --output tsv
 ```
 
-Azure CLI는 몇 초 후에 프롬프트를 다시 표시하지만, Azure Docker VM 확장에 의해 Docker 호스트가 아직 생성 및 구성되고 있습니다. 배포를 완료하려면 몇 분 정도 소요됩니다. `azure vm show` 명령을 사용하여 Docker 호스트 상태에 대한 자세한 정보를 볼 수 있습니다.
-
-다음 예제는 `myResourceGroup`이라는 리소스 그룹에서 `myDockerVM`(템플릿의 기본 이름입니다. 이 이름을 변경하지 마세요.)이라는 VM의 상태를 확인합니다. 앞의 단계에서 만든 리소스 그룹의 이름을 입력합니다.
-
-```azurecli
-azure vm show -g myResourceGroup -n myDockerVM
-```
-
-`azure vm show` 명령의 출력은 다음 예제와 비슷합니다.
-
-```azurecli
-info:    Executing command vm show
-+ Looking up the VM "myDockerVM"
-+ Looking up the NIC "myVMNicD"
-+ Looking up the public ip "myPublicIPD"
-data:    Id                              :/subscriptions/guid/resourceGroups/myresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
-data:    ProvisioningState               :Succeeded
-data:    Name                            :MyDockerVM
-data:    Location                        :westus
-data:    Type                            :Microsoft.Compute/virtualMachines
-[...]
-data:
-data:    Network Profile:
-data:      Network Interfaces:
-data:        Network Interface #1:
-data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-33-D3-95
-data:          Provisioning State        :Succeeded
-data:          Name                      :myVMNicD
-data:          Location                  :westus
-data:            Public IP address       :13.91.107.235
-data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
-data:
-data:    Diagnostics Instance View:
-info:    vm show command OK
-```
-
-출력의 위쪽에 VM의 `ProvisioningState` 가 표시됩니다. 출력에 `Succeeded`가 표시되면 배포가 완료된 것이며 VM에 대해 SSH를 실행할 수 있습니다.
-
-출력의 끝 쪽으로 `FQDN`이 Docker 호스트의 정규화된 도메인 이름을 표시합니다. 이 FQDN은 나머지 단계에서 Docker 호스트에 대한 SSH를 수행하는 데 사용됩니다.
+이 명령이 `Succeeded`를 반환하는 경우 배포가 완료되었으며 다음 단계에서 VM에 SSH를 사용할 수 있습니다.
 
 ## <a name="deploy-your-first-nginx-container"></a>첫 번째 nginx 컨테이너 배포
-배포가 완료되면 로컬 컴퓨터에서 새 Docker 호스트에 SSH를 수행합니다. 다음과 같이 자신의 사용자 이름과 FQDN을 입력합니다.
+DNS 이름을 비롯한 VM의 세부 정보를 보려면 `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`을 사용합니다. 다음과 같이 로컬 컴퓨터에서 새 Docker 호스트에 SSH합니다.
 
 ```bash
-ssh ops@mypublicip.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
 Docker 호스트에 로그인되면 nginx 컨테이너를 실행하겠습니다.
@@ -155,7 +103,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
-작동되는 컨테이너를 보려면 웹 브라우저를 열고 Docker 호스트의 FQDN 이름을 입력합니다.
+작동되는 컨테이너를 보려면 웹 브라우저를 열고 Docker 호스트의 DNS 이름을 입력합니다.
 
 ![ngnix 컨테이너 실행](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
@@ -192,10 +140,5 @@ Azure의 추가적인 Docker 배포 옵션에 대한 자세한 내용을 읽어�
 * [Azure 드라이버로 Docker Machine 사용](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 * [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 컨테이너 서비스 클러스터 배포](../container-service/container-service-deployment.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

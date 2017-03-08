@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3827e74433a859e65071a1041c5ed6c8253db8df
-ms.openlocfilehash: be17b2de227ef6d93f8d326ff060c3c4788eb622
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 0d998b5347a9da6dd209b0ba106792ab5c34164d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 설치
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
 SAP HANA 설치를 사용자가 진행하며, Azure(큰 인스턴스) 서버에 새 SAP HANA가 제공된 직후에 이 작업을 수행할 수 있습니다. SAP 정책에 따라 SAP HANA의 설치는 SAP HANA 설치 인증 시험인 Certified SAP Technology Associate를 통과한 인증된 SAP HANA 설치 관리자 또는 SAP 인증 SI(시스템 통합업체)가 수행해야 합니다.
 
@@ -80,10 +82,5 @@ SAP은 SAP 시스템을 구성하는 다양한 구성 요소의 시간 차이에
 
 Azure(큰 인스턴스)에 있는 SAP HANA의 경우 Azure에서 수행되는 시간 동기화가 큰 인스턴스 스탬프의 계산 장치에 적용되지 않습니다. Azure는 시스템 시간이 제대로 동기화되도록 하므로 Azure(VM)에서 SAP 응용 프로그램을 실행하는 경우는 해당되지 않습니다. 결과적으로 Azure VM에서 실행되는 SAP 응용 프로그램 서버와 HANA 큰 인스턴스에서 실행되는 SAP HANA 데이터베이스 인스턴스에서 사용할 수 있는 별도의 시간 서버를 설정해야 합니다. 큰 인스턴스 스탬프의 저장소 인프라는 NTP 서버와 시간 동기화됩니다.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -1,7 +1,7 @@
 ---
-title: "Log Analytics에서 변경 내용 추적 솔루션 | Microsoft Docs"
-description: "Log Analytics의 구성 변경 내용 추적 솔루션을 사용하여 사용자 환경에서 발생하는 소프트웨어 및 Windows 서비스 변경 내용을 쉽게 식별할 수 있습니다. 이러한 구성 변경 내용을 식별하면 운영 문제를 쉽게 파악할 수 있습니다."
-services: operations-management-suite
+title: "Azure Log Analytics로 변경 추적 | Microsoft Docs"
+description: "Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경에서 발생하는 소프트웨어 및 Windows Services 변경 내용을 식별할 수 있습니다."
+services: log-analytics
 documentationcenter: 
 author: bandersmsft
 manager: carmonm
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
-ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="change-tracking-solution-in-log-analytics"></a>Log Analytics의 변경 내용 추적 솔루션
+# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
+
 이 문서를 통해 Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 파일, Windows 서비스 및 Linux 데몬의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
 설치된 에이전트의 유형을 업데이트하려면 이 솔루션을 설치합니다. 모니터링되는 서버에서 설치된 소프트웨어, Windows 서비스 및 Linux 데몬에 대한 변경 내용을 읽은 다음, 해당 데이터는 처리를 위해 클라우드의 Log Analytics 서비스로 보내집니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
@@ -90,9 +93,4 @@ ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

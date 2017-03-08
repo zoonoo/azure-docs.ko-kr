@@ -4,7 +4,7 @@ description: "Azure Active Directory로 인증하는 Azure App Service에서 ASP
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ad947bdb-4463-43ff-a5e3-91d9b2169b60
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85fcb08be0f1443232919ddfe5e69ff0ef1a47a2
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: a00e3c5ed41aff48a6845c2f07ea3e43580045ee
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 85fcb08be0f1443232919ddfe5e69ff0ef1a47a2
 앱 서비스 웹앱에서 다음 기능을 통해 작업 항목을 추적하는 간단한 기간 업무 CRUD(만들기-읽기-업데이트-삭제) 응용 프로그램을 빌드합니다.
 
 * Azure Active Directory에 대해 사용자 인증
-*  [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
+* [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
 * ASP.NET MVC *인증 없음* 템플릿 사용
 
 Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어)가 필요한 경우 [다음 단계](#next)를 참조하세요.
@@ -131,7 +132,7 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
     `~/.auth/me` URL 경로는 App Service 인증/권한 부여에 의해 관리되어 인증된 세션에 관련된 모든 정보를 제공합니다. 자세한 내용은 [Azure App Service에서 인증 및 권한 부여](../app-service/app-service-authentication-overview.md)를 참조하세요.
     
     > [!NOTE]
-    >  `access_token` 의 기간이 만료되었습니다. 그러나 App Service 인증/권한 부여는 `~/.auth/refresh`를 사용하여 토큰 새로 고침 기능을 제공합니다. 사용 방법에 대한 자세한 내용은 [App Service 토큰 저장소](https://cgillum.tech/2016/03/07/app-service-token-store/)를 참조하세요.
+    > `access_token` 의 기간이 만료되었습니다. 그러나 App Service 인증/권한 부여는 `~/.auth/refresh`를 사용하여 토큰 새로 고침 기능을 제공합니다. 사용 방법에 대한 자세한 내용은 [App Service 토큰 저장소](https://cgillum.tech/2016/03/07/app-service-token-store/)를 참조하세요.
     > 
     > 
 
@@ -328,10 +329,5 @@ LOB(기간 업무)가 온-프레미스 데이터에 대한 액세스 권한이 �
 * [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/AzureADSamples)
 * [Azure Active Directory 지원 토큰 및 클레임 유형](http://msdn.microsoft.com/library/azure/dn195587.aspx)
 
-[SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

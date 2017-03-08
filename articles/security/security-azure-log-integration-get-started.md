@@ -15,8 +15,9 @@ ums.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: aaa69e2e4fed314e8bc363f60e7538b12bb3a56d
-ms.openlocfilehash: ca7f05534113752f3607268c15a9fe3e0e2982e0
+ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
+ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -62,11 +63,9 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
        Replace the Cloud with any of the following
        AzureCloud
-       AzureChinaCloud
        AzureUSGovernment
-       AzureGermanCloud
 
-       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate.
+       Note that at this time, an Azlog integrator only supports integrating logs from a cloud that you choose to integrate.
 
 ## <a name="integrate-azure-vm-logs-from-your-azure-diagnostics-storage-accounts"></a>Azure 진단 저장소 계정의 Azure VM 로그 통합
 1. Azure 로그 통합을 계속하기 전에 WAD 저장소 계정에서 로그를 수집하도록 위에 설명된 필수 조건을 확인하세요. WAD 저장소 계정에서 로그를 수집하지 않는 경우에는 다음 단계를 수행하지 마세요.
@@ -99,7 +98,7 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 2. **azlog source add**명령에서 추가된 저장소 계정에 연결합니다.
 3. Microsoft Azure Storage Explorer에서 **WADWindowsEventLogsTable** 테이블을 찾아서 데이터가 있는지 확인합니다. 데이터가 없으면 VM에서 진단이 올바르게 구성되지 않은 것입니다.
 
-## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Azure 감사 로그 및 보안 센터 경고 통합
+## <a name="integrate-azure-activity-logs-and-security-center-alerts"></a>Azure 활동 로그 및 Security Center 경고 통합
 1. 명령 프롬프트를 열고 **c:\Program Files\Microsoft Azure Log Integration**으로 **cd**합니다.
 2. 명령 실행
 
@@ -128,7 +127,19 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
 6. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. 사용 중인 SIEM 제품에 따라 일부 필드 매핑이 필요할 수 있습니다.
 
-Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+## <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
+1. **c:\Program Files\Microsoft Azure Log Integration**으로 명령 프롬프트 및 **cd**를 엽니다.
+2. .\AZLOG.exe authorizedirectoryreader <TenantID> Sample - 
+
+.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999 명령을 실행합니다.
+
+3. 다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인하세요. 
+* **C:\Users\azlog\AzureActiveDirectoryJson**   
+* **C:\Users\azlog\AzureActiveDirectoryJsonLD**
+
+4. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. 사용 중인 SIEM 제품에 따라 일부 필드 매핑이 필요할 수 있습니다.
+
+설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)을 열고 '로그 통합'을 지원을 요청하는 서비스로 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure 로그 통합을 설치하고 Azure 저장소의 로그를 통합하는 방법을 알아보았습니다. 자세한 알아보려면 다음을 참조하세요.
@@ -139,9 +150,4 @@ Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mai
 * [Azure 로그 통합 FAQ(질문과 대답)](security-azure-log-integration-faq.md) - 이 FAQ는 Azure 로그 통합에 대한 질문에 답변합니다.
 * [보안 센터 경고를 Azure 로그 통합과 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) - 이 문서에서는 Azure 진단 및 Azure 감사 로그에 수집된 가상 컴퓨터 보안 이벤트와 함께 보안 센터 경고를 로그 분석 또는 SIEM 솔루션과 동기화하는 방법을 보여줍니다.
 * [Azure 진단 및 Azure 감사 로그를 위한 새 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

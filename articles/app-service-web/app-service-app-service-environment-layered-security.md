@@ -4,7 +4,7 @@ description: "앱 서비스 환경으로 계층화된 보안 아키텍처 구현
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 0fb02c13f99a8f4a46e0142c20da3b152c809b6b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
 ## <a name="overview"></a>개요
 앱 서비스 환경이 가상 네트워크에 배포된 격리된 런타임 환경을 제공하므로 개발자는 실제 응용 프로그램 계층 각각에 서로 다른 수준으로 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다.
 
-일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다.  [네트워크 보안 그룹(NSG)][NetworkSecurityGroups]는 App Service Environment를 포함하는 서브넷에서 사용되어 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
+일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다.  [네트워크 보안 그룹(NSG)][NetworkSecurityGroups]은 App Service 환경을 포함하는 서브넷에서 사용되어 API 응용 프로그램에 대한 공용 액세스를 제한할 수 있습니다.
 
-아래 다이어그램은 앱 서비스 환경에 배포된 Web API 기반 앱을 사용한 예제 아키텍처를 보여줍니다.  3개의 별도 앱 서비스 환경에 배포된 3개의 별도 웹앱 인스턴스는 동일한 Web API 앱에 백 엔드 호출을 수행합니다.
+아래 다이어그램은 앱 서비스 환경에 배포된 Web API 기반 앱을 사용한 예제 아키텍처를 보여줍니다.  3개의 별도 앱 서비스 환경에 배포된&3;개의 별도 웹앱 인스턴스는 동일한 Web API 앱에 백 엔드 호출을 수행합니다.
 
 ![개념적 아키텍처][ConceptualArchitecture] 
 
@@ -37,10 +38,10 @@ ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
 ## <a name="determining-the-network-behavior"></a>네트워크 동작 확인
 어떤 네트워크 보안 규칙이 필요한지 알기 위해 어떤 네트워크 클라이언트가 API 앱을 포함하는 앱 서비스 환경에 연결할 수 있고 어떤 클라이언트를 차단할지 결정해야 합니다.
 
-[네트워크 보안 그룹(NSG)][NetworkSecurityGroups]이 서브넷에 적용되고 App Service Environment가 서브넷에 배포되기 때문에 NSG에 포함된 규칙은 App Service Environment에서 실행하는 **모든** 앱에 적용됩니다.  네트워크 보안 그룹이 "apiase"를 포함하는 서브넷에 적용되면 이 문서에 대한 샘플 아키텍처를 사용하여 "apiase" 앱 서비스 환경에서 실행되는 모든 앱은 동일한 집합의 보안 규칙에 의해 보호됩니다. 
+[네트워크 보안 그룹(NSG)][NetworkSecurityGroups]이 서브넷에 적용되고 App Service 환경이 서브넷에 배포되기 때문에 NSG에 포함된 규칙은 App Service 환경에서 실행하는 **모든** 앱에 적용됩니다.  네트워크 보안 그룹이 "apiase"를 포함하는 서브넷에 적용되면 이 문서에 대한 샘플 아키텍처를 사용하여 "apiase" 앱 서비스 환경에서 실행되는 모든 앱은 동일한 집합의 보안 규칙에 의해 보호됩니다. 
 
-* **업스트림 호출자의 아웃 바운드 IP 주소 확인:** IP 주소 또는 업스트림 호출자의 주소는 무엇입니까?  이러한 주소는 NSG에서 명시적으로 액세스하도록 허용해야 합니다.  앱 서비스 환경 간의 호출이 "Internet" 호출을 고려하기 때문에 각 세 업스트림 응용 프로그램 서비스 환경에 할당된 아웃 바운드 IP 주소는 "apiase" 서브넷에 대한 NSG에서 액세스하도록 허용해야 한다는 것을 의미합니다.   App Service Environment에서 실행되는 앱에 대한 아웃 바운드 IP 주소를 확인하는 데 대한 자세한 내용은 [네트워크 아키텍처][NetworkArchitecture] 개요 문서를 참조하세요.
-* **백 엔드 API 앱 자체를 호출해야 합니까?**   때로는 간과되고 미묘한 점은 백 엔드 응용 프로그램이 자신을 호출해야 한다는 시나리오입니다.  또한 앱 서비스 환경에서 백 엔드 API 응용 프로그램이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다.  샘플 아키텍처에서는 "apiase" 앱 서비스 환경의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
+* **업스트림 호출자의 아웃 바운드 IP 주소 확인:** IP 주소 또는 업스트림 호출자의 주소는 무엇입니까?  이러한 주소는 NSG에서 명시적으로 액세스하도록 허용해야 합니다.  앱 서비스 환경 간의 호출이 "Internet" 호출을 고려하기 때문에 각 세 업스트림 응용 프로그램 서비스 환경에 할당된 아웃 바운드 IP 주소는 "apiase" 서브넷에 대한 NSG에서 액세스하도록 허용해야 한다는 것을 의미합니다.   App Service 환경에서 실행되는 앱에 대한 아웃 바운드 IP 주소를 확인하는 데 대한 자세한 내용은 [네트워크 아키텍처][NetworkArchitecture] 개요 문서를 참조하세요.
+* **백 엔드 API 앱 자체를 호출해야 합니까?**  때로는 간과되고 미묘한 점은 백 엔드 응용 프로그램이 자신을 호출해야 한다는 시나리오입니다.  또한 앱 서비스 환경에서 백 엔드 API 응용 프로그램이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다.  샘플 아키텍처에서는 "apiase" 앱 서비스 환경의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
 
 ## <a name="setting-up-the-network-security-group"></a>네트워크 보안 그룹 설치
 아웃 바운드 IP 주소 집합을 모두 알고 나면 다음 단계에서 네트워크 보안 그룹을 생성합니다.  클래식 가상 네트워크뿐만 아니라 가상 네트워크를 기반으로 하는 두 Resource Manager에 네트워크 보안 그룹을 만들 수 있습니다.  아래 예제에서는 Powershell을 사용하여 기존 가상 네트워크에 NSG를 만들고 구성하는 방법을 보여 줍니다.
@@ -49,7 +50,7 @@ ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-먼저 명시적 허용 규칙은 App Service Environment에 대한 [인바운드 트래픽][InboundTraffic] 문서에서 설명한 대로 Azure 관리 인프라에 추가됩니다.
+먼저 명시적 허용 규칙은App Service 환경에 대한 [인바운드 트래픽][InboundTraffic] 문서에서 설명한 대로 Azure 관리 인프라에 추가됩니다.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
@@ -87,16 +88,16 @@ ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-서브넷에 적용된 NSG를 사용하여 3개의 업스트림 앱 서비스 환경 및 API 백 엔드를 포함하는 앱 서비스 환경은 "apiase" 환경으로 호출하도록 합니다.
+서브넷에 적용된 NSG를 사용하여&3;개의 업스트림 앱 서비스 환경 및 API 백 엔드를 포함하는 앱 서비스 환경은 "apiase" 환경으로 호출하도록 합니다.
 
 ## <a name="additional-links-and-information"></a>추가 링크 및 정보
 앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대한 정보. 
 
-[아웃바운드 IP 주소][NetworkArchitecture] 및 App Service Environment 이해
+[아웃바운드 IP 주소][NetworkArchitecture] 및 App Service 환경 이해.
 
-App Service Environment에서 사용되는 [네트워크 포트][InboundTraffic]
+App Service 환경에서 사용되는 [네트워크 포트][InboundTraffic].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -110,9 +111,4 @@ App Service Environment에서 사용되는 [네트워크 포트][InboundTraffic]
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]:  ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

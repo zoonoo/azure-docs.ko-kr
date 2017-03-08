@@ -1,6 +1,6 @@
 ---
-title: "Azure에서 논리 앱 모니터링 | Microsoft Docs"
-description: "논리 앱의 기능을 확인하는 방법"
+title: "로깅 및 경고 사용, 실행 기록 확인, 입력 및 출력 추적 - Azure Logic Apps | Microsoft Docs"
+description: "로깅, 추적, 기록 및 진단 보기를 사용하여 논리 앱 워크플로 상태 모니터링"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: db3684fc5cc4ae7933454a02d8440d1eb4948828
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-your-logic-apps"></a>논리 앱 모니터링
-[논리 앱을 만든](../logic-apps/logic-apps-create-a-logic-app.md)후에 Azure 포털에서 전체 실행 기록을 확인할 수 있습니다.  Azure 진단 및 Azure Alerts와 같은 서비스를 설정하여 이벤트를 실시간으로 모니터링하고 "1시간 이내 5번 이상 실행에 실패할 때"와 같은 이벤트를 사용자에게 알릴 수도 있습니다.
+# <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>성능 확인, 논리 앱에서 워크플로의 진단 로깅 및 경고 시작
+[논리 앱을 만든](../logic-apps/logic-apps-create-a-logic-app.md)후에 Azure Portal에서 전체 실행 기록을 확인할 수 있습니다.  Azure 진단 및 Azure Alerts와 같은 서비스를 설정하여 이벤트를 실시간으로 모니터링하고 "1시간 이내 5번 이상 실행에 실패할 때"와 같은 이벤트를 사용자에게 알릴 수도 있습니다.
 
 ## <a name="monitor-in-the-azure-portal"></a>Azure 포털에서 모니터
 기록을 보려면 **찾아보기**를 선택하고 **논리 앱**을 선택합니다. 구독의 논리 앱 목록이 모두 표시됩니다.  모니터링하려는 논리 앱을 선택합니다.  이 논리 앱에 대해 발생한 모든 작업 및 트리거 목록이 표시됩니다.
@@ -137,10 +139,5 @@ Event Hub 또는 저장소에서 이 원격 분석을 [Operations Management Sui
 * [논리 앱에 대한 일반적인 예제 및 시나리오](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [논리 앱 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
 * [엔터프라이즈 통합 기능](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

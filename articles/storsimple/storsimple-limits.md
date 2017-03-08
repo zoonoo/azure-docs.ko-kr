@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/30/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d81b20ca17ddf723dcc11148f7b44e763dde100b
-ms.openlocfilehash: 1af0f36ce1161b35a2f75d74774ed145c8bc9328
-
+ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
+ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
+# <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 시리즈 시스템 제한이란?
 ## <a name="overview"></a>개요
 StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소를 제공합니다. 그러나 StorSimple 솔루션의 계획, 배포 및 작동 시 염두에 두어야 하는 일부 제한 사항이 있습니다. 다음 표에서 이러한 제한에 대해 설명하고 일부 권장 사항을 제공하므로 StorSimple 솔루션을 최대한 활용할 수 있습니다.
 
@@ -56,10 +57,5 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 시스템 요구 사항](storsimple-system-requirements.md)을 검토하십시오. 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

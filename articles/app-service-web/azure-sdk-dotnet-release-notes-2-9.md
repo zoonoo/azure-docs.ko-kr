@@ -14,8 +14,9 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
-ms.openlocfilehash: 4ba7d6c43a5e0893366669e7511d8e1cfe149b81
+ms.sourcegitcommit: 71c5a4f1b816fdcfe7ef267c20e6ed42e6cc51e6
+ms.openlocfilehash: 3c3fb275a7c980f71a3a30e6875b9515321bad99
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -42,6 +43,10 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 가상 컴퓨터
 
 - 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 컴퓨터에 클라우드 서비스를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들려면 선택하는 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
+
+#### <a name="known-issues"></a>알려진 문제
+
+- Azure .NET SDK 2.9.6에는 지원되지 않는 .NET framework(예: .NET 4.6)를 사용하여 프로젝트를 OS 제품군 5 미만으로 배포하는 것을 차단하는 제한 사항이 도입되었습니다. 해결 방법이 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
 
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
@@ -86,10 +91,5 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 ## <a name="see-also"></a>참고 항목
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

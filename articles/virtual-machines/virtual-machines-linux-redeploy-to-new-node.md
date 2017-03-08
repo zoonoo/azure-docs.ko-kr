@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
-ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: f421ebdc81ce413d69f62a3b86563ab4a09b747a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,10 +29,18 @@ Azure에서 SSH 문제 또는 Linux Azure VM(가상 컴퓨터)에 대한 응용 
 
 다음 옵션 중 하나를 사용하여 VM을 다시 배포할 수 있습니다. VM을 다시 배포하려면 하나의 옵션만을 선택해야 합니다.
 
+- [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
-- [Azure CLI 2.0(미리 보기)](#azure-cli-20-preview)
 - [Azure Portal](#using-azure-portal)
 
+## <a name="azure-cli-20"></a>Azure CLI 2.0
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+
+[az vm redeploy](/cli/azure/vm#redeploy)를 사용하여 VM을 다시 배포합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 배포합니다.
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
+```
 
 ## <a name="azure-cli-10"></a>Azure CLI 1.0
 [최신 Azure CLI 1.0](../xplat-cli-install.md)을 설치하고 Azure 계정에 로그인하고 리소스 관리자 모드에 있는지 확인합니다(`azure config mode arm`).
@@ -42,23 +51,9 @@ Azure에서 SSH 문제 또는 Linux Azure VM(가상 컴퓨터)에 대한 응용 
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
-최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
-
-[az vm redeploy](/cli/azure/vm#redeploy)를 사용하여 VM을 다시 배포합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 배포합니다.
-
-```azurecli
-az vm redeploy --resource-group myResourceGroup --name myVM 
-```
-
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [SSH 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [자세한 SSH 문제 해결 단계](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 특정 도움말을 찾을 수 있습니다. VM에서 실행 중인 응용 프로그램에 액세스할 수 없는 경우 [응용 프로그램 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 읽어볼 수도 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0(미리 보기)을 사용하여 다중 NIC가 있는 Linux VM 만들기 | Microsoft Docs"
-description: "Azure CLI 2.0(미리 보기) 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Linux VM을 만드는 방법을 알아봅니다."
+title: "Azure CLI 2.0을 사용하여 여러 NIC가 있는 Linux VM 만들기 | Microsoft Docs"
+description: "Azure CLI 2.0 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 있는 Linux VM을 만드는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,27 +15,23 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 368c79b001495e0fb000a4b280023b2299256435
-ms.openlocfilehash: a854a15a9119f289344a75638d1042ee6779bb46
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: e50f9ce362177a2aff8da5b1d516973c41d1149e
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-with-multiple-nics-using-the-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 여러 NIC가 있는 Linux VM 만들기
+# <a name="create-a-linux-vm-with-multiple-nics"></a>여러 NIC가 있는 Linux VM 만들기
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 컴퓨터)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 빠른 명령을 제공합니다. 자체 Bash 스크립트 내에서 여러 NIC를 만드는 방법을 비롯한 자세한 내용은 [다중 NIC VM 배포](../virtual-network/virtual-network-deploy-multinic-arm-cli.md)에 대해 자세히 읽어보세요. [VM 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
+
+이 문서에서는 Azure CLI 2.0을 사용하여 여러 NIC가 있는 VM을 만드는 방법을 설명합니다. [Azure CLI 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 > [!WARNING]
 > VM을 만들 때 여러 NIC를 연결해야 합니다. 기존 VM에 NIC를 추가할 수 없습니다. [가상 디스크에 따라 VM을 만들고](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM을 배포할 때 여러 NIC를 만들 수 있습니다.
 
 
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-- [Azure CLI 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#create-supporting-resources) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
-
-
 ## <a name="create-supporting-resources"></a>지원 리소스 만들기
-최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
+최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`가 포함됩니다.
 
@@ -120,10 +116,5 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 여러 NIC를 사용하여 VM을 만들려고 할 때 [Linux VM 크기](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 검토해야 합니다. 각 VM 크기가 지원하는 NIC의 최대 수에 유의합니다. 
 
 기존 VM에 NIC를 더 추가할 수 없으므로 VM을 배포할 때 모든 NIC를 만들어야 합니다. 배포를 계획할 때 처음부터 필요한 모든 네트워크 연결이 있는지 확인합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

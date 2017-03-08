@@ -4,7 +4,7 @@ description: "StorSimple 스냅숏 관리자 사용자 인터페이스와, 해�
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 88abde99af417f325c12aa2f8790d711fd7fd533
+ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
+ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-snapshot-manager-user-interface"></a>StorSimple 스냅숏 관리자 사용자 인터페이스
+# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>StorSimple Snapshot Manager 사용자 인터페이스를 사용하여 백업 작업 및 백업 카탈로그 관리
+
 ## <a name="overview"></a>개요
 StorSimple Snapshot Manager는 백업을 가져오고 관리하는 데 사용할 수 있는 직관적인 사용자 인터페이스입니다. 이 자습서는 사용자 인터페이스를 소개하고, 각 구성 요소의 사용 방법을 설명합니다. StorSimple 스냅숏 관리자에 대한 자세한 설명은 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)
 
@@ -29,7 +32,7 @@ StorSimple Snapshot Manager는 백업을 가져오고 관리하는 데 사용할
 
 ![StorSimple 스냅숏 관리자 창](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-콘솔 창에는 5개의 주요 요소가 있습니다. 각 요소의 전체 설명을 보려면 해당 링크를 클릭합니다.
+콘솔 창에는&5;개의 주요 요소가 있습니다. 각 요소의 전체 설명을 보려면 해당 링크를 클릭합니다.
 
 * [메뉴 모음](#menu-bar) 
 * [도구 모음](#tool-bar) 
@@ -110,7 +113,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 | 복제 |**백업 카탈로그**, **클라우드 스냅숏**을 확장하고 날짜가 지정된 백업을 클릭한 다음 **결과** 창에서 볼륨을 선택합니다. |**복제** 를 클릭하여 클라우드 스냅숏의 복사본을 만들고 사용자가 지정한 위치에 저장합니다. |
 | 장치 구성 |**장치** 노드를 마우스 오른쪽 단추로 클릭합니다. |**장치 구성** 을 클릭하여 Windows 호스트에 연결할 단일 장치 또는 여러 장치를 구성합니다. |
 | 백업 정책 만들기 |다음 중 하나를 수행합니다.<ul><li>**백업 정책**을 마우스 오른쪽 단추로 클릭합니다.</li><li>**볼륨 그룹**을 클릭하거나 확장한 다음 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li><li>**백업 카탈로그**를 클릭하거나 확장한 다음 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li></ul> |**백업 정책 만들기** 를 클릭하여 볼륨 그룹의 예약된 백업을 구성합니다. |
-| 볼륨 그룹 만들기 |다음 중 하나를 수행합니다.<ul><li>**볼륨** 노드를 클릭한 다음 **결과** 창의 볼륨을 마우스 오른쪽 단추로 클릭합니다.</li><li> **볼륨 그룹** 노드를 마우스 오른쪽 단추로 클릭합니다.</li></ul> |**볼륨 그룹 만들기** 를 클릭하여 볼륨 그룹에 볼륨을 지정합니다. |
+| 볼륨 그룹 만들기 |다음 중 하나를 수행합니다.<ul><li>**볼륨** 노드를 클릭한 다음 **결과** 창의 볼륨을 마우스 오른쪽 단추로 클릭합니다.</li><li>**볼륨 그룹** 노드를 마우스 오른쪽 단추로 클릭합니다.</li></ul> |**볼륨 그룹 만들기** 를 클릭하여 볼륨 그룹에 볼륨을 지정합니다. |
 | 삭제 |노드 또는 결과(여러 **작업** 메뉴 및 **작업** 창에 표시되는 항목)를 클릭합니다. |**삭제** 를 클릭하여 선택한 노드나 결과를 삭제합니다. 확인 대화 상자가 나타나면 삭제를 확인하거나 취소합니다. |
 | 세부 정보 |**장치** 노드를 클릭한 다음 **결과** 창의 장치를 마우스 오른쪽 단추로 클릭합니다. |**세부 정보** 를 클릭하여 장치의 구성 세부 정보를 확인합니다. |
 | 편집 |**백업 정책**을 클릭한 다음 **결과** 창에서 정책을 마우스 오른쪽 단추로 클릭합니다. |**편집** 을 클릭하여 볼륨 그룹의 백업 일정을 변경합니다. |
@@ -448,10 +451,5 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 * [StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법](storsimple-snapshot-manager-manage-devices.md)을 학습합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

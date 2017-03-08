@@ -4,7 +4,7 @@ description: "원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 923377aa-f451-4656-87de-5e95a34a6a2a
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
-ms.openlocfilehash: 63bdf5e5cecbb473a18965e311be06abc72cacc7
+ms.sourcegitcommit: 5760c4a381a10fd1619b0239dd38e41d88f495e5
+ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-remotely-to-your-storsimple-device"></a>StorSimple 장치에 원격으로 연결
+# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 원격으로 연결
+
 ## <a name="overview"></a>개요
 Windows PowerShell 원격을 사용하여 StorSimple 장치에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 장치의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다. 
 
@@ -233,10 +236,5 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 ## <a name="next-steps"></a>다음 단계
 * [Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법](storsimple-windows-powershell-administration.md)을 자세히 알아봅니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

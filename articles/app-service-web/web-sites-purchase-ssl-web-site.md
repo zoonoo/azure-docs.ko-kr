@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
-ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
+ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
+ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
 > 
 > 
 
-## <a name="a-namebkmkoverviewaoverview"></a><a name="bkmk_Overview"></a>개요
+## <a name="bkmk_Overview"></a>개요
 > [!NOTE]
 > 연결된 활성 신용 카드가 없는 구독을 사용하여 SSL 인증서를 구입하지 않도록 합니다. 구독을 사용할 수 없게 될 수 있습니다. 
 > 
@@ -47,7 +48,7 @@ contoso.com과 같은 사용자 지정 도메인에 대해 HTTPS를 사용하도
 
 SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도메인 이름을 결정해야 합니다. 받아야 하는 인증서 유형이 결정됩니다. contoso.com 또는 www.contoso.com과 같은 단일 도메인 이름의 보안을 설정해야 하는 경우 표준(기본) 인증서로 충분합니다. contoso.com, www.contoso.com 및 mail.contoso.com과 같은 여러 도메인 이름의 보안을 설정해야 하는 경우, **[와일드카드 인증서](http://en.wikipedia.org/wiki/Wildcard_certificate)**를 가져올 수 있습니다.
 
-## <a name="a-namebkmkpurchasecertastep-0-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>0단계: SSL 인증서 주문 입력
+## <a name="bkmk_purchasecert"></a>0단계: SSL 인증서 주문 입력
 이 단계에서는 사용자가 선택한 SSL 인증서에 대한 주문을 입력하는 방법을 배웁니다.
 
 1. **[Azure Portal](https://portal.azure.com/)**에서 찾아보기를 클릭하고 검색 표시줄에 "App Service Certificate"를 입력하고 결과에서 "App Service Certificate"를 선택한 후 추가를 클릭합니다. 
@@ -83,7 +84,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 > 
 > 
 
-## <a name="a-namebkmkstorekeyvaultastep-1-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>1단계: Azure 주요 자격 증명 모음에 인증서 저장
+## <a name="bkmk_StoreKeyVault"></a>1단계: Azure 주요 자격 증명 모음에 인증서 저장
 이 단계에서는 사용자가 선택한 Azure 키 자격 증명 모음에 구입한 SSL 인증서를 저장하는 방법을 배웁니다.
 
 1. SSL 인증서 구입을 완료했으면 다시 탐색하여 **앱 서비스 인증서** 리소스 블레이드를 수동으로 열어야 합니다(위의 1단계 참조).   
@@ -104,7 +105,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
    
     그러면 사용자가 선택한 Azure 키 자격 증명 모음으로 구입한 인증서를 저장하는 단계가 완료됩니다. 블레이드를 새로 고치면 이 단계에 대해서도 녹색 확인 표시가 표시됩니다.
 
-## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>2단계: 도메인 소유권 확인
+## <a name="bkmk_VerifyOwnership"></a>2단계: 도메인 소유권 확인
 이 단계에서는 방금 주문한 SSL 인증서에 대한 도메인 소유권 확인을 수행하는 방법을 배웁니다. 
 
 1. **"인증서 구성"** 블레이드에서 **"2단계: 확인"** 단계를 클릭합니다. App Service Certificate에서 지원하는 3가지 유형의 도메인 확인이 있습니다.
@@ -121,14 +122,23 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
      * 확인 전자 메일을 다시 전송해야 하는 경우 **"전자 메일 다시 보내기"** 단추를 클릭합니다.
    * **수동 확인**    
      
-      **DNS TXT 레코드 확인**
-        
-        * DNS 관리자를 사용하여 **‘DZC’** 하위 도메인에 값이 **도메인 확인 토큰**과 같은 TXT 레코드를 만듭니다.
+      **HTML 웹 페이지 확인(표준 인증서 SKU로만 작동)**
+
+        * **"starfield.html"**이라는 HTML 파일 만들기
+        * 이 파일의 내용은 도메인 확인 토큰의 이름과 정확히 같아야 합니다. (도메인 확인 상태 블레이드에서 토큰을 복사할 수 있습니다.)
+        * 이 파일을 도메인을 호스팅하는 웹 서버의 루트**/.well-known/pki-validation/starfield.html**로 업로드합니다.
         * 확인이 끝났으면 **"새로 고침"** 을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
           
-          예를 들어 호스트 이름 **\*.contosocertdemo.com** 또는 **\*.subdomain.contosocertdemo.com**, 도메인 확인 토큰 **cAGgQrKc**로 와일드카드 인증서에 대한 확인을 수행하려면 dzc.contosocertdemo.com에 값이 **cAGgQrKc**인 TXT 레코드를 만들어야 합니다.     
+          예를 들어 도메인 확인 토큰 **tgjgthq8d11ttaeah97s3fr2sh**로 **contosocertdemo.com**에 대한 표준 인증서를 구입하는 경우 **http://contosocertdemo.com/.well-known/pki-validation/starfield.html**에 대한 웹 요청은 **tgjgthq8d11ttaeah97s3fr2sh**를 반환해야 합니다.
 
-## <a name="a-namebkmkassigncertificateastep-3-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>3단계: 앱 서비스 앱에 인증서 할당
+      **DNS TXT 레코드 확인**
+        
+        * DNS 관리자를 사용하여 **‘@’** 하위 도메인에 값이 **도메인 확인 토큰**과 같은 TXT 레코드를 만듭니다.
+        * 확인이 끝났으면 **"새로 고침"** 을 클릭하여 인증서 상태를 업데이트합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+          
+          예를 들어 호스트 이름 **\*.contosocertdemo.com** 또는 **\*.subdomain.contosocertdemo.com** 및 도메인 확인 토큰 **tgjgthq8d11ttaeah97s3fr2sh**로 와일드카드 인증서에 대한 확인을 수행하려면 **contosocertdemo.com**에 값이 **tgjgthq8d11ttaeah97s3fr2sh**인 TXT 레코드를 만들어야 합니다.     
+
+## <a name="bkmk_AssignCertificate"></a>3단계: 앱 서비스 앱에 인증서 할당
 이 단계에서는 앱 서비스 앱에 새로 구입한 인증서를 할당하는 방법에 대해 알아봅니다. 
 
 > [!NOTE]
@@ -163,7 +173,7 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 1. 도메인 이름 등록 기관에서 제공한 도구를 사용하여 이전 단계의 IP 주소를 가리키도록 사용자 지정 도메인 이름에 대한 A 레코드를 수정합니다.
    이 시점에서 HTTP:// 대신 HTTPS://를 사용하여 앱에 방문하여 인증서가 올바르게 구성 되었는지 확인할 수 있습니다.
 
-## <a name="a-namebkmkrekeyarekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>인증서 키 다시 생성 및 동기화
+## <a name="bkmk_Rekey"></a>인증서 키 다시 생성 및 동기화
 1. 보안상의 이유로 인증서 키를 다시 생성하려면 **"인증서 속성"** 블레이드에서 **"키 다시 생성 및 동기화"** 옵션을 선택하면 됩니다. 
 2. 프로세스를 시작하려면 **"키 다시 생성"** 단추를 클릭합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다. 
    
@@ -185,10 +195,5 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

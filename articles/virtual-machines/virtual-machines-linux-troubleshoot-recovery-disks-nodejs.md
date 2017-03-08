@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2d29659a0964d2be1cd1f3c86be79de495fc25a9
-ms.openlocfilehash: c7d87bf21aaa1a8c4cd7114f607c025c63251834
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 214d968c95fec4695f22152cca53a369299b6e10
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +30,7 @@ Linux 가상 컴퓨터(VM)에 부팅 또는 디스크 오류가 발생하는 경
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - [Azure CLI 1.0](#recovery-process-overview) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0(미리 보기)](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 
 ## <a name="recovery-process-overview"></a>복구 프로세스 개요

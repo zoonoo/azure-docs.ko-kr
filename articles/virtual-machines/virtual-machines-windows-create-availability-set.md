@@ -16,13 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: f7562c2bb6ad354ece3aa3c51fdaabad8e878fa9
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: a221f3bc9e058a46e46edf8f7177d21151ae3595
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="create-an-availability-set"></a>가용성 집합 만들기
+# <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Azure 가용성 집합을 만들어 VM 가용성 향상 
 가용성 집합은 응용 프로그램에 중복성을 제공합니다. 둘 이상의 가상 컴퓨터를 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 자세한 내용은 [가상 컴퓨터에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요.
 
 > [!IMPORTANT]
@@ -94,10 +95,5 @@ VM에 사용자 고유의 저장소 계정을 사용하는 경우 다음을 입�
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 디스크](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 더 추가하여 VM에 저장소를 좀 더 추가합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

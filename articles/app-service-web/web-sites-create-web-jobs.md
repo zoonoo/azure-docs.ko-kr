@@ -4,7 +4,7 @@ description: "Azure 웹 앱에서 백그라운드 작업을 실행하는 방법�
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
-ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5d0d46447c3e0a3a1047e2bbedd44bbd46dd7f1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-nameacceptablefilesaacceptable-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>스크립트 또는 프로그램에 허용 가능한 파일 형식
+## <a name="acceptablefiles"></a>스크립트 또는 프로그램에 허용 가능한 파일 형식
 다음 파일 형식이 허용됩니다.
 
 * .cmd, .bat, .exe(windows cmd 사용)
@@ -43,7 +44,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 * .js(node 사용)
 * .jar(java 사용)
 
-## <a name="a-namecreateondemandacreate-an-on-demand-webjob-in-the-portal"></a><a name="CreateOnDemand"></a>포털에서 요청 시 웹 작업 만들기
+## <a name="CreateOnDemand"></a>포털에서 요청 시 웹 작업 만들기
 1. [Azure Portal](https://portal.azure.com)의 **웹앱** 블레이드에서 **모든 설정 > WebJobs**을 클릭하여 **WebJobs** 블레이드를 표시합니다.
    
     ![WebJob 블레이드](./media/web-sites-create-web-jobs/wjblade.png)
@@ -60,7 +61,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
    
     ![WebJob 실행](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="a-namecreatecontinuousacreate-a-continuously-running-webjob"></a><a name="CreateContinuous"></a>지속적으로 실행 중인 웹 작업 만들기
+## <a name="CreateContinuous"></a>지속적으로 실행 중인 웹 작업 만들기
 1. 지속적으로 실행하는 WebJob을 만들려면, 한 번 실행되는 WebJob을 만드는 단계를 그대로 따르고 **실행 방법** 상자에서 **연속**을 선택합니다.
 2. 지속적인 WebJob을 시작하거나 중지하려면 목록에서 WebJob을 마우스 오른쪽 단추로 클릭하고 **시작** 또는 **중지**를 클릭합니다.
 
@@ -71,7 +72,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 > 
 > 
 
-## <a name="a-namecreatescheduledcronacreate-a-scheduled-webjob-using-a-cron-expression"></a><a name="CreateScheduledCRON"></a>CRON 식을 사용하여 예정된 WebJob 만들기
+## <a name="CreateScheduledCRON"></a>CRON 식을 사용하여 예정된 WebJob 만들기
 이 기술은 기본, 표준 또는 프리미엄 모드에서 실행 중인 웹앱에 제공되며 앱에서 **Always On** 설정을 활성화해야 합니다.
 
 주문형 WebJob을 예정된 WebJob으로 설정하려면 WebJob zip 파일의 루트에 `settings.job` 파일을 포함하면 됩니다. 이 JSON 파일에는 아래 예제별로 [CRON 식](https://en.wikipedia.org/wiki/Cron)이 포함된 `schedule` 속성이 포함되어야 합니다.
@@ -95,7 +96,7 @@ CRON 식은 6개의 필드로 구성되어 있습니다. `{second} {minute} {hou
 
 **참고**: Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성이 '변경된 내용만 복사'로 표시되는지 확인합니다.
 
-## <a name="a-namecreatescheduledacreate-a-scheduled-webjob-using-the-azure-scheduler"></a><a name="CreateScheduled"></a>Azure 스케줄러를 사용하여 예정된 WebJob 만들기
+## <a name="CreateScheduled"></a>Azure 스케줄러를 사용하여 예정된 WebJob 만들기
 다음 대체 기술은 Azure 스케줄러를 사용합니다. 이 경우 WebJob에 일정의 직접적인 정보가 없습니다. 대신 Azure 스케줄러는 일정에서 WebJob을 트리거하도록 구성됩니다. 
 
 Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 포털](http://manage.windowsazure.com)을 사용하여 기능이 추가될 때까지 예약된 웹 작업을 만들 수 있습니다.
@@ -133,7 +134,7 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
     
     ![작업 목록][WebJobsListWithSeveralJobs]
 
-### <a name="a-nameschedulerascheduled-jobs-and-azure-scheduler"></a><a name="Scheduler"></a>예약된 작업 및 Azure 스케줄러
+### <a name="Scheduler"></a>예약된 작업 및 Azure 스케줄러
 [클래식 포털](http://manage.windowsazure.com)의 Azure 스케줄러 페이지에서 예약된 작업을 추가로 구성할 수 있습니다.
 
 1. Azure 스케줄러 포털 페이지로 이동하려면 WebJobs 페이지에서 작업의 **일정** 링크를 클릭합니다. 
@@ -146,7 +147,7 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
    
     ![스케줄러의 작업 동작 페이지][JobActionPageInScheduler]
 
-## <a name="a-nameviewjobhistoryaview-the-job-history"></a><a name="ViewJobHistory"></a>작업 기록 보기
+## <a name="ViewJobHistory"></a>작업 기록 보기
 1. WebJobs SDK로 만든 작업을 포함하여 작업 실행 기록을 보려면 WebJobs 블레이드의 **로그** 열에서 해당 링크를 클릭합니다. 원하는 경우 클립보드 아이콘을 사용하여 로그 파일 페이지의 URL을 클립보드로 복사할 수 있습니다.
    
     ![로그 링크](./media/web-sites-create-web-jobs/wjbladelogslink.png)
@@ -167,14 +168,14 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
    
     이러한 링크 중 하나를 클릭하면 선택한 작업의 WebJob Details 페이지로 이동합니다.
 
-## <a name="a-namewhpnotesanotes"></a><a name="WHPNotes"></a>참고 사항
+## <a name="WHPNotes"></a>참고 사항
 * 무료 모드의 웹앱은 SCM(배포) 사이트에 대한 요청이 없는 경우 20분 후 시간 초과되고 웹앱의 포털이 Azure에서 열리지 않을 수 있습니다. 실제 사이트에 대한 요청이 있어도 이는 다시 설정되지 않습니다.
 * 연속 작업을 위한 코드는 무한 반복으로 실행되도록 작성되어야 합니다.
 * 연속 작업은 웹 앱이 실행되고 있는 경우에만 계속 실행됩니다.
 * 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 웹 앱이 유휴 상태로 전환되지 않습니다.
 * 계속 실행되는 웹 작업만을 디버깅할 수 있습니다. 예약된 또는 주문형 웹 작업 디버깅이 지원되지 않습니다.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>다음 단계
+## <a name="NextSteps"></a>다음 단계
 자세한 내용은 [Azure WebJobs 권장 리소스][WebJobsRecommendedResources]를 참조하세요.
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
@@ -195,7 +196,7 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 [RunOnce]: ./media/web-sites-create-web-jobs/13RunOnce.png
 [WebJobsListWithSeveralJobs]: ./media/web-sites-create-web-jobs/13WebJobsListWithSeveralJobs.png
 [WebJobLogs]: ./media/web-sites-create-web-jobs/14WebJobLogs.png
-[WebJob 세부 정보]: ./media/web-sites-create-web-jobs/15WebJobDetails.png
+[WebJobDetails]: ./media/web-sites-create-web-jobs/15WebJobDetails.png
 [WebJobRunDetails]: ./media/web-sites-create-web-jobs/16WebJobRunDetails.png
 [DownloadLogOutput]: ./media/web-sites-create-web-jobs/17DownloadLogOutput.png
 [WebJobsLinkToDashboardList]: ./media/web-sites-create-web-jobs/18WebJobsLinkToDashboardList.png
@@ -203,10 +204,5 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 
