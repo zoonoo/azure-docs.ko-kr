@@ -4,7 +4,7 @@ description: "앱 서비스 환경의 네트워크 토폴로지의 아키텍처 
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.service: app-service
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a5fdbc73f5d30c8dacfb8f7039bf70a450ea251
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b2afe86d8774b449a257312d4e60b5f6125336ca
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>앱 서비스 환경의 네트워크 아키텍처 개요
 ## <a name="introduction"></a>소개
-App Service Environment는 [가상 네트워크][virtualnetwork]의 서브넷에서 항상 만들어지고, App Service Environment에서 실행되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 개인 끝점과 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 앱 서비스 환경에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.
+App Service 환경은 [가상 네트워크][virtualnetwork]의 서브넷에서 항상 만들어지고, App Service 환경에서 실행되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 개인 끝점과 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 앱 서비스 환경에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.
 
 ## <a name="general-network-flow"></a>일반 네트워크 흐름
-ASE(앱 서비스 환경)가 앱에 공용 VIP(가상 IP 주소)를 사용하는 경우 모든 인바운드 트래픽이 해당 공용 VIP에 도착합니다.  여기에는 FTP에 대한 다른 트래픽, 원격 디버깅 기능, Azure 관리 작업과 마찬가지로 앱의 HTTP와 HTTPS 트래픽이 포함됩니다.  공용 VIP에서 사용할 수 있는 특정 포트 (필수 및 선택적)의 전체 목록은 App Service Environment의 [인바운드 트래픽 제어][controllinginboundtraffic]문서를 참조하세요. 
+ASE(앱 서비스 환경)가 앱에 공용 VIP(가상 IP 주소)를 사용하는 경우 모든 인바운드 트래픽이 해당 공용 VIP에 도착합니다.  여기에는 FTP에 대한 다른 트래픽, 원격 디버깅 기능, Azure 관리 작업과 마찬가지로 앱의 HTTP와 HTTPS 트래픽이 포함됩니다.  공용 VIP에서 사용할 수 있는 특정 포트(필수 및 선택적)의 전체 목록은 App Service 환경의 [인바운드 트래픽 제어][controllinginboundtraffic] 문서를 참조하세요. 
 
 또한 앱 서비스 환경은 ILB(내부 부하 분산 장치) 주소라고도 하는 가상 네트워크 내부 주소에만 바인딩되는 앱 실행을 지원합니다.  ILB 지원 ASE에서 앱에 대한 HTTP 및 HTTPS 트래픽과 원격 디버깅 호출은 ILB 주소에 도착합니다.  가장 일반적인 ILB-ASE 구성에서는 FTP/FTPS 트래픽도 ILB 주소에 도착합니다.  그러나 Azure 관리 작업은 여전히 ILB 지원 ASE의 공용 VIP에 있는 포트 454/455로 이동합니다.
 
@@ -42,9 +43,9 @@ ASE(앱 서비스 환경)가 앱에 공용 VIP(가상 IP 주소)를 사용하는
 
 앱 서비스 환경 역시 관리 및 운영에 필요한 sql DB 및 Azure 저장소와 통신할 수 있습니다.  앱 서비스 환경과 통신하는 일부 SQL 및 저장소 리소스는 앱 서비스 환경과 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다.  결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 앱 서비스 환경에 필요 합니다. 
 
-서브넷에 배포된 앱 서비스 환경 때문에, 네트워크 보안 그룹은 서브넷에 인바운드 트래픽을 제어할 때 사용할 수 있습니다.  App Service Environment에 대한 인바운드 트래픽을 제어하는 방법에 대한 자세한 내용은 [문서][controllinginboundtraffic]를 참조하세요.
+서브넷에 배포된 앱 서비스 환경 때문에, 네트워크 보안 그룹은 서브넷에 인바운드 트래픽을 제어할 때 사용할 수 있습니다.  App Service 환경에 대한 인바운드 트래픽을 제어하는 방법에 대한 자세한 내용은 다음 [문서][controllinginboundtraffic]를 참조하세요.
 
-App Service Environment로부터 아웃바운드 인터넷 환경을 허용하는 방법에 대한 세부 정보는 [Express Route][ExpressRoute]와 작업하는 다음 경로를 참조하세요.  사이트와 사이트를 연결 및 강제 터널링을 사용할 때는 문서에 설명된 동일한 방법을 적용합니다.
+App Service 환경으로부터 아웃바운드 인터넷 연결을 허용하는 방법에 대한 세부 정보는 [Express 경로][ExpressRoute]로 작업하는 다음 문서를 참조하세요.  사이트와 사이트를 연결 및 강제 터널링을 사용할 때는 문서에 설명된 동일한 방법을 적용합니다.
 
 ## <a name="outbound-network-addresses"></a>아웃 바운드 네트워크 주소
 앱 서비스 환경이 아웃바운드를 호출하는 경우, IP 주소는 항상 아웃바운드 호출과 연관이 있습니다.  특정 IP 주소는 끝점 호출이 이 가상 네트워크 토폴로지 내에 있는지 혹은 밖에 있는지에 따라서 달라집니다.
@@ -82,9 +83,9 @@ App Service Environment로부터 아웃바운드 인터넷 환경을 허용하�
 ## <a name="additional-links-and-information"></a>추가 링크 및 정보
 앱 서비스 환경에 대한 모든 문서와 지침은 [응용 프로그램 서비스 환경의 추가 정보](../app-service/app-service-app-service-environments-readme.md)에 있습니다.
 
-App Service Environment에서 사용된 인바운드 포트의 세부 정보 및 인바운드 트래픽 제어를 위한 네트워크 보안 그룹 사용은 [여기][controllinginboundtraffic]에서 사용 가능합니다.
+App Service 환경에서 사용된 인바운드 포트의 세부 정보 및 인바운드 트래픽 제어를 위한 네트워크 보안 그룹 사용은 [여기][controllinginboundtraffic]에서 사용 가능합니다.
 
-App Service Environment에 아웃바운드 인터넷 액세스 권한을 부여하는 사용자 정의 경로 사용에 대한 자세한 세부 정보는 이 [문서][ExpressRoute]에서 사용 가능합니다. 
+App Service 환경에 아웃바운드 인터넷 액세스 권한을 부여하는 사용자 정의 경로 사용에 대한 자세한 세부 정보는 이 [문서][ExpressRoute]에서 사용 가능합니다. 
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
@@ -96,10 +97,5 @@ App Service Environment에 아웃바운드 인터넷 액세스 권한을 부여�
 [OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

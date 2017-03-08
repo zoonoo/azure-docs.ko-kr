@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -173,7 +174,7 @@ ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
 
 - REST API - [모든 리소스 공급자 나열](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- Azure CLI 2.0(미리 보기) - [az 공급자 표시](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
@@ -481,7 +482,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![확장 상태 가져오기](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 2.0(미리 보기) 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
+**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 2.0 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
 
 ## <a name="deployments"></a>배포
 
@@ -498,8 +499,3 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 - [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
 - [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 자신이 만든 VM을 관리하는 방법을 알아봅니다.
-
-
-<!--HONumber=Feb17_HO3-->
-
-

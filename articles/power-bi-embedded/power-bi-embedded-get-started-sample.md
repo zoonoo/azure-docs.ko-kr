@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 02/28/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 71476ae63d2394e7edefa10b8c71d15c04190290
-ms.openlocfilehash: 299e06bf6d4bd3af5d6dc7496ba9a947f42c19b7
+ms.sourcegitcommit: 02b905b12344f23e0eb3b8d0a1969bf7c491119e
+ms.openlocfilehash: 0f7412d9ed3cacb043a5cf3f21d6109eeeeb074c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 299e06bf6d4bd3af5d6dc7496ba9a947f42c19b7
 
 진행하기 전에 다음 리소스를 저장하려고 할 것입니다. 이렇게 하면 Power BI 보고서를 샘플 앱 및 사용자 앱에 통합할 때도 도움이 됩니다.
 
-* [샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [샘플 작업 영역 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI Embedded API 참조](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
 * [Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (NuGet을 통해 사용 가능)
 * [JavaScript Report Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo)
@@ -68,7 +69,7 @@ Checking import state... Succeeded
 이제 Power BI PBIX 보고서를 **작업 영역**에 가져왔습니다. 다음으로는 **Power BI Embedded** 시작 샘플 웹앱을 실행하는 방법을 살펴보겠습니다.
 
 ## <a name="run-the-sample-web-app"></a>샘플 웹앱 실행
-웹앱 샘플은 **작업 영역**으로 가져온 보고서를 렌더링하는 샘플 대시보드입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
+웹앱 샘플은 **작업 영역**으로 가져온 보고서를 렌더링하는 샘플 응용 프로그램입니다. 웹앱 샘플을 구성하는 방법은 다음과 같습니다.
 
 1. **PowerBI-embedded** Visual Studio 솔루션에서 **EmbedSample** 웹 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
 2. **web.config**의 **EmbedSample** 웹 응용 프로그램에서 **appSettings**, 즉 **AccessKey**, **WorkspaceCollection** 이름 및 **WorkspaceId**를 편집합니다.
@@ -93,7 +94,7 @@ Checking import state... Succeeded
 
 ## <a name="explore-the-sample-code"></a>샘플 코드 탐색
 
-**Microsoft Power BI Embedded** 샘플은 **Power BI** 보고서를 앱에 통합하는 방법을 보여주는 대시보드 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드 부분을 중점적으로 살펴봅니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 작업을 사용자 입력에 따라 모델, 보기 및 제어의 세 가지 별도 클래스로 구분합니다. MVC에 대한 알아보려면 [ASP.NET에 대해 알아보기](http://www.asp.net/mvc)를 참조하세요.
+**Microsoft Power BI Embedded** 샘플은 **Power BI** 보고서를 앱에 통합하는 방법을 보여주는 웹앱의 예입니다. MVC(Model-View-Controller) 디자인 패턴을 사용하여 모범 사례를 보여 줍니다. 이 섹션에서는 **PowerBI-embedded** 웹앱 솔루션 내에서 탐색할 수 있는 샘플 코드 부분을 중점적으로 살펴봅니다. MVC(Model-View-Controller) 패턴은 도메인의 모델링, 프레젠테이션 및 작업을 사용자 입력에 따라 모델, 보기 및 제어의 세 가지 별도 클래스로 구분합니다. MVC에 대한 알아보려면 [ASP.NET에 대해 알아보기](http://www.asp.net/mvc)를 참조하세요.
 
 **Microsoft Power BI Embedded** 샘플 코드는 다음과 같이 구분됩니다. 각 섹션에는 샘플 코드를 쉽게 찾을 수 있도록 PowerBI-embedded.sln 솔루션에 파일 이름이 포함되어 있습니다.
 
@@ -241,13 +242,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.  
 
 ## <a name="see-also"></a>참고 항목
-* [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
-* [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
 
+[일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)  
+[Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)  
 궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

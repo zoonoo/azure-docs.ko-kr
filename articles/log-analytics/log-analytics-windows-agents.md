@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics에 Windows 컴퓨터 연결 | Microsoft Docs"
-description: "이 문서는 사용자 지정 버전의 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라의 Windows 컴퓨터를 OMS에 직접 연결하는 단계를 보여줍니다."
+title: "Azure Log Analytics에 Windows 컴퓨터 연결 | Microsoft Docs"
+description: "이 문서에서는 사용자 지정 버전의 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라의 Windows 컴퓨터를 Log Analytics 서비스에 연결하는 단계를 보여 줍니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ca573f743325b29d43c4b1a0c3bc7001a54fcfae
-ms.openlocfilehash: f7d740c164df5fe2341a3a0dc3ca0149aed68386
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-windows-computers-to-log-analytics"></a>Log Analytics에 Windows 컴퓨터 연결
+# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
-이 문서는 사용자 지정 버전의 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라의 Windows 컴퓨터를 OMS 작업 영역에 직접 연결하는 단계를 보여줍니다. 에이전트에서 OMS로 데이터를 보내고 OMS 포털에서 해당 데이터를 보고 사용할 수 있도록 등록하려는 전체 컴퓨터에 대한 에이전트를 설치 및 연결해야 합니다. 각 에이전트는 여러 작업 영역에 보고할 수 있습니다.
+이 문서에서는 사용자 지정 버전의 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라의 Windows 컴퓨터를 OMS 작업 영역에 연결하는 단계를 보여 줍니다. 에이전트에서 Log Analytics 서비스에 데이터를 보내고 해당 데이터를 보고 사용할 수 있도록 등록하려는 전체 컴퓨터에 대한 에이전트를 설치 및 연결해야 합니다. 각 에이전트는 여러 작업 영역에 보고할 수 있습니다.
 
 Azure 자동화에서 설정, 명령줄 또는 DSC(필요한 상태 구성)를 사용하여 에이전트를 설치할 수 있습니다.  
 
@@ -107,10 +109,10 @@ $mma.ReloadConfiguration()
 이 절차 및 스크립트 예제는 기존 에이전트를 업그레이드하지 않습니다.
 
 1. [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 에서 Azure 자동화로 xPSDesiredStateConfiguration DSC 모듈을 가져옵니다.  
-2.  *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 OMS Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
-3.  아래 스크립트를 사용하여 MMAgent.ps1에 저장합니다.
-4.  다음 예제를 수정 및 사용하여 Azure 자동화에 DSC를 사용하여 에이전트를 설치합니다. Azure 자동화 인터페이스 또는 cmdlet을 사용하여 MMAgent.ps1을 Azure 자동화로 가져옵니다.
-5.  구성에 노드를 할당합니다. 15분 이내에 노드가 구성을 점검하고 MMA가 노드로 푸시됩니다.
+2.    *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 OMS Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
+3.    아래 스크립트를 사용하여 MMAgent.ps1에 저장합니다.
+4.    다음 예제를 수정 및 사용하여 Azure 자동화에 DSC를 사용하여 에이전트를 설치합니다. Azure 자동화 인터페이스 또는 cmdlet을 사용하여 MMAgent.ps1을 Azure 자동화로 가져옵니다.
+5.    구성에 노드를 할당합니다. 15분 이내에 노드가 구성을 점검하고 MMA가 노드로 푸시됩니다.
 
 ```
 Configuration MMAgent
@@ -199,17 +201,17 @@ foreach ($Application in $InstalledApplications)
 IT 인프라에서 Operations Manager를 사용할 경우 Operations Manager 에이전트로 MMA 에이전트를 사용할 수 있습니다.
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>MMA 에이전트에서 Operations Manager 관리 그룹으로 보고하도록 구성하려면
-1.  에이전트가 설치된 컴퓨터에서 **제어판**을 엽니다.  
-2.  **Microsoft Monitoring Agent**를 연 다음 **Operations Manager** 탭을 클릭합니다.  
+1.    에이전트가 설치된 컴퓨터에서 **제어판**을 엽니다.  
+2.    **Microsoft Monitoring Agent**를 연 다음 **Operations Manager** 탭을 클릭합니다.  
     ![Microsoft Monitoring Agent Operations Manager 탭](./media/log-analytics-windows-agents/om-mg01.png)
-3.  Operations Manager 서버가 Active Directory와 통합된 경우 **AD DS에서 관리 그룹 할당 자동 업데이트**를 클릭합니다.
-4.  **추가**를 클릭하여 **관리 그룹 추가** 대화 상자를 엽니다.  
+3.    Operations Manager 서버가 Active Directory와 통합된 경우 **AD DS에서 관리 그룹 할당 자동 업데이트**를 클릭합니다.
+4.    **추가**를 클릭하여 **관리 그룹 추가** 대화 상자를 엽니다.  
     ![Microsoft Monitoring Agent 관리 그룹 추가](./media/log-analytics-windows-agents/oms-mma-om02.png)
-5.  **관리 그룹 이름** 상자에 관리 그룹의 이름을 입력합니다.
-6.  **기본 관리 서버** 상자에 기본 관리 서버의 컴퓨터 이름을 입력합니다.
-7.  **관리 서버 포트** 상자에 TCP 포트 번호를 입력합니다.
-8.  **에이전트 작업 계정**에서 로컬 시스템 계정 또는 로컬 도메인 계정을 선택합니다.
-9.  **확인**을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인**을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
+5.    **관리 그룹 이름** 상자에 관리 그룹의 이름을 입력합니다.
+6.    **기본 관리 서버** 상자에 기본 관리 서버의 컴퓨터 이름을 입력합니다.
+7.    **관리 서버 포트** 상자에 TCP 포트 번호를 입력합니다.
+8.    **에이전트 작업 계정**에서 로컬 시스템 계정 또는 로컬 도메인 계정을 선택합니다.
+9.    **확인**을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인**을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
 
 ## <a name="optionally-configure-agents-to-use-the-oms-gateway"></a>또는 에이전트에서 OMS Gateway를 사용하도록 구성합니다.
 
@@ -226,9 +228,4 @@ IT 인프라에서 Operations Manager를 사용할 경우 Operations Manager 에
 
 - [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 - [Log Analytics에서 프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md) 합니다.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

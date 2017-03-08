@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
+
 1. [Azure Portal](https://portal.azure.com) > **Site Recovery**에 로그인합니다.
 2. **새로 만들기** > **관리** >를 클릭합니다.
 3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.

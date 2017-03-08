@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
-ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
+ms.sourcegitcommit: 801eef31e4a06fd1b89ddf504d643d9dcfcdcbdc
+ms.openlocfilehash: 99e6f4c1be6fa73db05fc4635fa5c34a579af588
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,6 +62,21 @@ Azure VM에 RDS를 배포하는 것은 템플릿을 배포/패치하는 것보�
 ### <a name="citrix-service-provider-program"></a>**Citrix 서비스 공급자 프로그램**
 Citrix 서비스 공급자 프로그램을 사용하면 서비스 공급자가 가상 클라우드 컴퓨팅의 단순성을 SMB에 제공하여 간편한 종량제 모델에서 원하는 서비스를 손쉽게 제공할 수 있습니다. Citrix 서비스 공급자는 모든 장치에서 어디서든 액세스 가능, 광범위한 응용 프로그램 지원, 풍부한 경험, 보안 강화 및 향상된 확장성을 통해 Microsoft SPLA 비즈니스를 성장시키고 RDS 플랫폼 투자를 확대합니다. 이에 따라 Citrix 서비스 공급자는 구독자를 더 많이 유치하며, 고객 만족도를 높이고, 운영 비용을 절감합니다. [자세한 정보](http://www.citrix.com/products/service-providers.html) 또는 [파트너 찾기](https://www.citrix.com/buy/partnerlocator.html)
 
+### <a name="frame"></a>프레임
+
+엔터프라이즈 및 정부의 IT 조직, 관리되는 서비스 공급자 및 소프트웨어 공급 업체는 프레임을 선택하여 클라우드에서 자신의 안전한 소프트웨어 정의 작업 영역을 만들고 관리합니다. 작은 조직에서 대규모 조직까지 프레임을 사용하면 사용자가 매우 쉽게 모든 장치의 모든 브라우저에서 Windows 응용 프로그램에 액세스할 수 있게 됩니다. 프레임 플랫폼은 Azure 인프라와 RDS 라이선스를 비롯하여 관리자가 클라우드에서 응용 프로그램을 배포하는 데 필요한 모든 항목을 포함합니다(사용자 고유의 Azure 계정 및 라이선스를 가져오는 것은 선택 사항임). 
+
+[Azure의 프레임](https://www.fra.me/ara)에 대해 자세히 알아봅니다. 
+
+기본 위치: 샌마티오, 캘리포니아, 미국
+
+작업 영역: 전 세계
+
+Microsoft 파트너: 예
+
+1-480-269-4668
+
+
 ### <a name="microsoft-hosted-service-provider"></a>**Microsoft 호스티드 서비스 공급자**
 호스팅 파트너는 일반적으로 완전히 관리되는 호스팅된 Windows 데스크톱 및 응용 프로그램 서비스를 제공합니다. 여기에는 Azure 리소스, 운영 체제, 응용 프로그램 및 기술 지원팀이 포함되며, Microsoft 및 기타 소프트웨어 공급자와 함께 파트너 라이선스 계약을 통해 SAL(Subscriber Access License)의 재판매를 허용하는 서비스 공급자 라이센스 계약을 체결해야 합니다. 다음 정보는 Azure RemoteApp 마이그레이션으로 고객을 지원하는 데 전문화된 일부 호스팅 업체의 세부 정보 및 연락처 정보를 제공합니다. IaaS 학습 경로 및 평가에서 RDS를 완료한 [호스티드 서비스 공급자의 현재 목록](http://aka.ms/rdsonazurecertified)을 확인하세요.  
 
@@ -86,7 +102,7 @@ Azure RemoteApp 마이그레이션 솔루션: 예, [자세한 정보](https://ww
 * 웹: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
 
 #### <a name="conexlink-platform-name-mycloudit"></a>**Conexlink(플랫폼 이름: MyCloudIT)**
-[MyCloudIT](http://www.mycloudit.com)는 IT 회사에서 Microsoft Azure Cloud의 원격 데스크톱, 원격 응용 프로그램 및 인프라에 대한 마이그레이션 및 배포를 단순화, 최적화 및 확장할 수 있도록 하는 자동화 플랫폼입니다. 
+[MyCloudIT](https://mycloudit.com)는 IT 회사에서 Microsoft Azure Cloud의 원격 데스크톱, 원격 응용 프로그램 및 인프라에 대한 마이그레이션 및 배포를 단순화, 최적화 및 확장할 수 있도록 하는 자동화 플랫폼입니다. 
 
 MyCloudIT 플랫폼을 사용하면 배포 시간을 95% 단축하며, Azure 비용을 30% 절감하고, 몇몇의 키 입력으로 고객의 전체 IT 인프라를 클라우드로 옮길 수 있습니다. 이제 파트너는 하나의 전역 대시보드에서 고객을 관리하고, 이전과는 완전히 다르게 전 세계의 최종 사용자에게 서비스를 제공하며, 추가 오버 헤드 또는 광범위한 Azure 교육을 추가하지 않고도 수익을 올릴 수 있습니다.  
 
@@ -208,10 +224,5 @@ Microsoft 클라우드 서비스 공급자: 예
 1. [arainfo@microsoft.com](mailto:arainfo@microsoft.com)으로 메일을 보내세요.
 2. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요. [Azure 지원 사례](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)를 열면서 시작합니다.
 3. 전화로 문의하세요. [해당 지역 영업 담당자 전화번호 찾기](https://azure.microsoft.com/overview/sales-number/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

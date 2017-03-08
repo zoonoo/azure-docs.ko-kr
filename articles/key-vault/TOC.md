@@ -46,8 +46,3 @@
 ## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

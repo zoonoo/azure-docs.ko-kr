@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: adegeo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
-ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+ms.sourcegitcommit: 3f1fdddcf382026e25ac6bca0b835e560152be9f
+ms.openlocfilehash: 98b302c26867d2fb2ade296e6983306266fa6f63
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>자동 크기 조정 및 가상 컴퓨터 규모 집합
+# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>자동 크기 조정 및 가상 컴퓨터 규모 집합 사용 방법
 크기 집합에서 수행되는 가상 컴퓨터 자동 크기 조정은 성능 요구 사항에 일치하기 위해 필요에 따라 집합에서 컴퓨터를 만들거나 삭제하는 것입니다. 작업량이 증가하면 작업을 효과적으로 수행할 수 있도록 응용 프로그램에 추가 리소스가 필요할 수 있습니다.
 
 자동 크기 조정은 관리 오버헤드를 줄이기 위해 자동화된 프로세스입니다. 오버헤드를 줄이면 지속적으로 시스템 성능을 모니터링하거나 리소스 관리 방법을 결정할 필요가 없습니다. 크기 조정은 탄력적인 프로세스입니다. 부하가 증가함에 따라 더 많은 리소스를 추가할 수 있으나 수요가 감소할 경우 비용을 최소화하고 성능 수준을 유지하기 위해 리소스를 제거할 수 있습니다.
@@ -161,7 +163,7 @@ autoScaleSettings 리소스는 크기 집합에 있는 가상 컴퓨터의 수�
 
 * **metricName** - 이 값은 진단 확장에 대한 wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 위의 예제에서는 스레드 수 카운터를 사용합니다.  
 * **metricResourceUri** - 이 값은 가상 컴퓨터 크기 집합의 리소스 식별자입니다. 이 식별자는 리소스 그룹 이름, 리소스 공급자 이름 및 크기 조정을 위한 규모 집합 이름을 포함합니다.
-* **timeGrain** – 이 값은 수집되는 메트릭의 세분성입니다. 위의 예제에서는 1분 간격으로 데이터를 수집합니다. 이 값은 timeWindow와 함께 사용됩니다.
+* **timeGrain** – 이 값은 수집되는 메트릭의 세분성입니다. 위의 예제에서는&1;분 간격으로 데이터를 수집합니다. 이 값은 timeWindow와 함께 사용됩니다.
 * **statistic** – 이 값은 자동 크기 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다.
 * **timeWindow** – 이 값은 인스턴스 데이터가 수집되는 시간 범위입니다. 5분에서 12시간 사이여야 합니다.
 * **timeAggregation** – 이 값은 시간이 지남에 따라 수집된 데이터가 결합되어야 하는 방법을 결정합니다. 기본값은 평균입니다. 가능한 값은 평균, 최소, 최대, 마지막, 합계, 개수입니다.
@@ -170,7 +172,7 @@ autoScaleSettings 리소스는 크기 집합에 있는 가상 컴퓨터의 수�
 * **direction** – 이 값은 임계값이 달성되었을 때 수행되는 동작을 결정합니다. 가능한 값은 증가 또는 감소입니다.
 * **type** – 이 값은 발생되어야 하는 동작의 유형이며 ChangeCount로 설정되어 있어야 합니다.
 * **value** – 이 값은 크기 집합에서 추가되거나 제거된 가상 컴퓨터의 수입니다. 이 값은 1 이상이어야 합니다.
-* **cooldown** – 이 값은 다음 작업이 발생하기 전에 마지막 크기 조정 작업 이후에 대기 시간입니다. 이 값은 1분에서 1주 사이여야 합니다.
+* **cooldown** – 이 값은 다음 작업이 발생하기 전에 마지막 크기 조정 작업 이후에 대기 시간입니다. 이 값은&1;분에서&1;주 사이여야 합니다.
 
 사용하는 성능 카운터에 따라 템플릿 구성에서 일부 요소가 다르게 사용됩니다. 다음 예제에서 성능 카운터는 Thread Count이며 규모 확장 작업에 대한 임계값은 650, 규모 축소 작업에 대한 임계값은 550입니다. %Processor Time과 같은 카운터를 사용할 경우 크기 조정 작업을 판단하는 CPU 사용 백분율을 임계값으로 설정합니다.
 
@@ -182,7 +184,7 @@ autoScaleSettings 리소스는 크기 집합에 있는 가상 컴퓨터의 수�
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
 
-집합의 용량을 1씩 증가시키는 규모 확장 작업을 트리거합니다.
+집합의 용량을&1;씩 증가시키는 규모 확장 작업을 트리거합니다.
 
     "sku": {
       "name": "Standard_A0",
@@ -220,10 +222,5 @@ Azure Portal을 사용하여 자동 크기 조정을 설정하는 예제를 보�
 * [크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림 보내기](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)에서 알림 기능에 대해 알아보세요.
 * [감사 로그를 사용하여 Azure Monitor에서 전자 메일 및 웹후크 경고 알림을 보내는](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) 방법에 대해 알아보세요.
 * [고급 자동 크기 조정 시나리오](virtual-machine-scale-sets-advanced-autoscale.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

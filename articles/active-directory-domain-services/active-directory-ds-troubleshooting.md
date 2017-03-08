@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
 ms.openlocfilehash: 30248b5f00aaf2d81db79b5a690760f816384723
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -155,9 +156,4 @@ Azure AD에서는 사용자 개체를 실수로 삭제하지 못하도록 보호
 
 ## <a name="contact-us"></a>문의처
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

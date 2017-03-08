@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 52fa2ceb13e6c14d0dd4ba72a76328a2a9356bab
-ms.openlocfilehash: 79acdf2c29c3520fc38adf6270bcae68e87aac18
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-b2b-messages"></a>B2B 메시지 모니터링
+# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>AS2, X12 및 EDIFACT 메시지의 로깅을 시작 또는 사용하여 성공, 오류 및 메시지 속성을 모니터링합니다.
 
-B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프로그램 간에 메시지 교환이 진행됩니다. 이러한 관계는 비즈니스 프로세스 간 계약을 정의합니다. 통신이 연결된 후 메시지 모니터링을 설정하여 통신이 예상대로 작동하는지 확인할 수 있습니다.
-다양한 세부 정보는 디버깅을 위해 통합 계정에 대한 진단을 설정할 수 있습니다.
+B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프로그램 간에 메시지 교환이 진행됩니다. 이러한 관계는 비즈니스 프로세스 간 계약을 정의합니다. 통신이 연결된 후 메시지 모니터링을 설정하여 통신이 예상대로 작동하는지 확인할 수 있습니다. 다양한 세부 정보는 디버깅을 위해 통합 계정에 대한 진단을 설정할 수 있습니다.
 
 메시지 추적은 AS2, X12 및 EDIFACT와 같은 B2B 프로토콜에 사용할 수 있습니다. 
 
@@ -94,10 +95,5 @@ Event Hub 또는 저장소에서 이 원격 분석을 [Azure Stream Analytics](h
 [OMS 포털에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md "B2B 메시지 추적")
 
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

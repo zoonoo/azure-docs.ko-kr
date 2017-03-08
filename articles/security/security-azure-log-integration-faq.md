@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
+ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
+ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,6 @@ ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
 소스를 추가 하는 동안 이름에 **subscriptionid** 를 추가합니다.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 이벤트 XML은 구독 id를 포함하여 아래와 같이 메타데이터를 포함하고 있습니다.
 
 ![이벤트 XML][1]
@@ -65,7 +65,7 @@ ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
 ### <a name="when-running-command-azlog-authorize-why-do-i-get-the-following-error"></a>**azlog authorize**명령을 실행할 때 다음 오류가 발생하는 이유는 무엇인가요?
 오류:
 
-  *역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 'fe9e03e4-4dad-4328-910f-fd24a9660bd2'인 janedo@microsoft.com' 클라이언트에는 '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 권한이 없습니다.*
+  *역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 'fe9e03e4-4dad-4328-910f-fd24a9660bd2'인 janedo@microsoft.com 클라이언트에는 '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 권한이 없습니다.*
 
 **Azlog authorize** 명령을 사용하면 제공되는 구독에 **Azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 "권한 부여 실패" 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 액세스 제어)가 필요합니다.
 
@@ -104,13 +104,9 @@ Windows Azure 진단 [(WAD)](../virtual-machines/virtual-machines-windows-ps-ext
 
 구성을 변경한 후에는 저장소 계정을 검사하여 올바른 이벤트가 수집되는지 확인합니다.
 
-Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)을 열고 '로그 통합'을 지원을 요청하는 서비스로 선택합니다.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

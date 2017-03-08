@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 673b979520b0e6fd4d0b0c00d2be26c41d112677
-ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 8bc6ac01f1592d371abbb2df3ff6ecf4ee2a993c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -24,12 +25,12 @@ ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
 
 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. <!--Add link to topic or blog post that explains managed disks. -->
 
-Azure Portal 또는 Azure CLI 2.0(미리 보기)을 사용하여 관리 디스크 스냅숏을 만듭니다.
+Azure Portal 또는 Azure CLI 2.0을 사용하여 Managed Disk 스냅숏을 만듭니다.
 
-## <a name="use-azure-cli-20-preview-to-take-a-snapshot"></a>Azure CLI 2.0(미리 보기)을 사용하여 스냅숏 만들기
+## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Azure CLI 2.0을 사용하여 스냅숏 만들기
 
 > [!NOTE] 
-> 다음 예제는 Azure CLI 2.0(미리 보기)을 설치하고 Azure 계정에 로그인해야 합니다.
+> 다음 예제는 Azure CLI 2.0을 설치하고 Azure 계정에 로그인해야 합니다.
 
 다음 단계에서는 `az snapshot create` 명령과 `--source-disk` 매개 변수를 사용하여 관리 OS 디스크의 스냅숏을 가져오고 만드는 방법을 보여줍니다. 다음 예제는 `myResourceGroup` 리소스 그룹의 관리 OS 디스크로 만든 `myVM`이라는 VM이 있는 것으로 가정합니다.
 
@@ -74,16 +75,11 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 4. 스냅숏의 **이름**을 입력합니다.
 5. 기존 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
 6. Azure 데이터 센터 위치를 선택합니다.  
-7. **원본 디스크**에서 스냅숏을 만들 관리 디스크를 선택합니다.
+7. **원본 디스크**에서 스냅숏을 만들 Managed Disk를 선택합니다.
 8. 스냅숏 저장에 사용할 **계정 유형**을 선택합니다. 고성능 디스크에 저장할 필요가 없다면 **Standard_LRS**를 권장합니다.
 9. **만들기**를 클릭합니다.
 
 스냅숏을 사용하여 관리 디스크를 만들고 고성능이 필요한 VM에 스냅숏을 연결하려는 경우 `--sku Premium_LRS` 매개 변수와 `az snapshot create` 명령을 사용합니다. 그러면 프리미엄 관리 디스크로 저장되는 스냅숏이 만들어집니다. 프리미엄 Managed Disks는 SSD(반도체 드라이브)이기 때문에 성능이 우수하지만 표준 디스크(HDD)보다 가격이 비쌉니다.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

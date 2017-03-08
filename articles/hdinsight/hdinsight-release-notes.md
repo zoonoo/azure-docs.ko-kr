@@ -13,19 +13,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/18/2017
+ms.date: 2/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e6167db5f9b6c8b2520b1f3c2d443c7497d44552
-ms.openlocfilehash: b3e625852648e15ccde427ec8c5bb8fe0393cb74
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
+ms.openlocfilehash: da5929df1e5db0acae41d757a7e7272014bf9dee
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)를 참조하세요.
+
+##<a name="notes-for-02282017-release-of-spark-21-on-hdinsight-36-preview"></a>HDInsight 3.6 Preview의 Spark 2.1 2017/02/28 릴리스 정보
+* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html)에서는 이전 버전에서 발생했던 수많은 안정성 및 유용성 문제가 개선되었습니다. 또한 Spark Core, SQL, ML 및 스트리밍 등 모든 Spark 워크로드 간에 새로운 기능을 적용할 수 있습니다.
+* 구조화된 스트리밍으로 이벤트 시간 워터마크 및 Kafka 0.10 커넥터 지원을 포함하며 확장성이 향상되었습니다.
+* 이제 Spark SQL 분할이 새로운 확장성 있는 파티션 처리 메커니즘을 사용하여 처리됩니다. 업그레이드 방법에 대한 자세한 내용은 [여기](http://spark.apache.org/releases/spark-release-2-1-0.html)를 참조하세요.
+* 현재 Azure HDInsight 3.6 Preview에서 Spark 2.1은 ODBC 드라이버를 사용한 BI 도구 연결을 지원하지 않습니다.
+* Spark 2.1 클러스터에서 Azure Data Lake Store 액세스는 이 미리 보기에서 지원되지 않습니다.
+
 
 ##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>HDInsight 3.5의 Spark 2.0.1 2016/11/18 릴리스 정보
 Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있습니다.

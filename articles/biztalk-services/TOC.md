@@ -29,8 +29,3 @@
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

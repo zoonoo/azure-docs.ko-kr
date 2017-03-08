@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
@@ -41,27 +41,27 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 
 > [!NOTE]
 > 'AAD DC 관리자' 그룹의 구성원에게만 사용자 지정 OU를 만드는 데 필요한 권한이 있습니다. 이 그룹에 속한 사용자로 다음 단계를 수행합니다.
-> 
-> 
+>
+>
 
 1. 시작 화면에서 **관리 도구**를 클릭합니다. 가상 컴퓨터에 설치된 AD 관리 도구가 표시됩니다.
-   
+
     ![서버에 설치된 관리 도구](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. **Active Directory 관리 센터**를 클릭합니다.
-   
+
     ![Active Directory 관리 센터](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. 도메인을 보려면 왼쪽 창에서 도메인 이름(예: 'contoso100.com')을 클릭합니다.
-   
+
     ![ADAC - 도메인 보기](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 4. 오른쪽 **태스크** 창의 도메인 이름 노드에서 **새로 만들기**를 클릭합니다. 이 예제에서는 오른쪽 **태스크** 창의 'contoso100(로컬)' 노드에서 **새로 만들기**를 클릭합니다.
-   
+
     ![ADAC - 새 OU](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 5. 조직 구성 단위 만들기에 대한 옵션이 표시됩니다. **조직 구성 단위**를 클릭하여 **조직 구성 단위 만들기** 대화 상자를 시작합니다.
 6. **조직 구성 단위 만들기** 대화 상자에서 새 OU의 **이름**을 지정합니다. OU에 대한 간략한 설명을 제공합니다. OU에 대한 **관리자** 필드를 설정할 수도 있습니다. 사용자 지정 OU를 만들려면 **확인**을 클릭합니다.
-   
+
     ![ADAC - OU 대화 상자 만들기](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 7. 이제 새로 만든 OU가 ADAC(AD 관리 센터)에 나타납니다.
-   
+
     ![ADAC - 만든 OU](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>새로 만든 OU에 대한 사용 권한/보안
@@ -74,13 +74,12 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 
 > [!WARNING]
 > 사용자 지정 OU에서 만든 사용자 계정, 그룹, 서비스 계정 및 컴퓨터 개체는 Azure AD 테넌트에서 사용할 수 없습니다. 즉, 이러한 개체는 Azure AD Graph API를 사용하여 또는 Azure AD UI에 표시되지 않습니다. Azure AD Domain Services 관리되는 도메인에서만 이러한 개체를 사용할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 * [관리되는 도메인에서 그룹 정책 구성](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Active Directory 관리 센터: 시작](https://technet.microsoft.com/library/dd560651.aspx)
 * [서비스 계정 단계별 가이드](https://technet.microsoft.com/library/dd548356.aspx)
-
 

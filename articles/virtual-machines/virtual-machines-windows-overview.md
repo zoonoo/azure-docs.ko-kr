@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -59,8 +59,8 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 | 방법 | 설명 |
 | --- | --- |
 | Azure 포털 |VM을 만들 때 목록에서 위치를 선택합니다. |
-| Azure PowerShell |[Get AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx) 명령을 사용합니다. |
-| REST API |[위치 나열](https://msdn.microsoft.com/library/dn790540.aspx) 작업을 사용합니다. |
+| Azure PowerShell |[Get AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) 명령을 사용합니다. |
+| REST API |[위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) 작업을 사용합니다. |
 
 ### <a name="vm-size"></a>VM 크기
 사용할 VM의 [크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 실행하려는 워크로드를 기준으로 결정됩니다. 그런 다음 선택하는 크기는 처리 성능, 메모리 및 저장소 용량 등의 요소를 결정합니다. Azure는 다양한 크기를 제공하여 다양한 유형의 사용을 지원합니다.
@@ -80,8 +80,8 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 | 방법 | 설명 |
 | --- | --- |
 | Azure 포털 |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "location" -Publisher "publisherName" -Offer "offerName" |
-| REST API |[이미지 게시자 나열](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[이미지 제안 나열](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[이미지 SKU 나열](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 
@@ -92,7 +92,7 @@ VM [확장](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtu
 
 * **사용자 지정 스크립트 실행** – [사용자 지정 스크립트 확장](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 VM을 프로비전할 때 스크립트를 실행하여 VM에 워크로드를 구성할 수 있습니다.
 * **구성 배포 및 관리** – [PowerShell DSC(필요한 상태 구성) 확장](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 구성과 환경을 관리하도록 VM에 DSC를 설정할 수 있습니다.
-* **진단 데이터 수집** – [Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 사용하면 응용 프로그램의 상태를 모니터링하는 데 사용할 수 있는 진단 데이터를 수집하도록 VM을 구성할 수 있습니다.
+* **진단 데이터 수집** – [Azure 진단 확장](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 응용 프로그램의 상태를 모니터링하는 데 사용할 수 있는 진단 데이터를 수집하도록 VM을 구성할 수 있습니다.
 
 ### <a name="related-resources"></a>관련 리소스
 이 표에 있는 리소스는 VM에서 사용하며, VM을 만들 때 이미 존재하거나 만들어야 합니다.
@@ -117,7 +117,7 @@ VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속�
 | 템플릿 |[리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[PowerShell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 클라이언트 SDK |[C#를 사용하여 Azure 리소스 배포](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| REST API |[VM 만들기 또는 업데이트](https://msdn.microsoft.com/library/mt163591.aspx) |
+| REST API |[VM 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 문제가 결코 발생하지 않기를 바라지만 때로는 몇몇 문제가 발생하기도 합니다. 이러한 상황이 발생하면 [Azure에서 Windows 가상 컴퓨터를 만들 때 발생하는 Resource Manager 배포 문제 해결](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 있는 정보를 확인하세요.
 
@@ -131,7 +131,7 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 | --- | --- |
 | Azure 포털 |허브 메뉴에서 **Virtual Machines**를 클릭하고 목록에서 VM을 선택합니다. VM에 대한 블레이드에서 개요 정보, 설정 값 및 모니터링 메트릭에 액세스할 수 있습니다. |
 | Azure PowerShell |PowerShell을 사용한 VM 관리에 대한 내용은 [Resource Manager 및 PowerShell을 사용하여 Azure Virtual Machines 관리](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
-| REST API |[VM 가져오기 정보](https://msdn.microsoft.com/library/mt163682.aspx) 작업을 사용하여 VM에 대한 정보를 가져옵니다. |
+| REST API |[VM 가져오기 정보](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) 작업을 사용하여 VM에 대한 정보를 가져옵니다. |
 | 클라이언트 SDK |C#를 사용한 VM 관리에 대한 내용은 [Azure Resource Manager 및 C#를 사용하여 Azure Virtual Machines 관리](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 
 ### <a name="log-on-to-the-vm"></a>VM에 로그인

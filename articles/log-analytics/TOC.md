@@ -16,7 +16,7 @@
 #### [Windows 에이전트](log-analytics-windows-agents.md)
 #### [Linux 에이전트](log-analytics-linux-agents.md)
 #### [Azure 가상 컴퓨터](log-analytics-azure-vm-extension.md)
-#### [Azure 저장소](log-analytics-azure-storage.md)
+#### [Azure 리소스](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [구성 관리자](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)

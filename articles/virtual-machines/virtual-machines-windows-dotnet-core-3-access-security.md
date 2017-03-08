@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 62d1a275252b17ae2b9870b281e1dd91239cae5f
-
+ms.sourcegitcommit: 8eeeef0bb33b5b8ed265532d160829c076190fc4
+ms.openlocfilehash: 91c4550f9caadc790d1b6aea8f037e2089ebec3c
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="access-and-security-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 액세스 및 보안
+# <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Windows VM용 Azure Resource Manager 템플릿의 액세스 및 보안
+
 Azure에 호스트되는 응용 프로그램은 인터넷 또는 Azure와의 VPN/Express 경로 연결을 통해 액세스되어야 할 수 있습니다. Music Store 응용 프로그램 샘플을 사용할 경우 공용 IP 주소를 통해 인터넷에서 해당 웹 사이트를 사용할 수 있습니다. 액세스가 설정되면 응용 프로그램에 대한 연결 및 가상 컴퓨터 리소스에 대한 액세스가 자체적으로 보호되어야 합니다. 이 액세스 보안은 네트워크 보안 그룹을 통해 제공됩니다. 
 
 이 문서에서는 샘플 Azure Resource Manager 템플릿에서 Music Store 응용 프로그램의 보안을 유지하는 방법을 자세히 설명합니다. 모든 종속성 및 고유한 구성이 강조 표시됩니다. 최상의 환경을 위해서는 솔루션 인스턴스를 Azure 구독에 미리 배포하고 Azure Resource Manager 템플릿을 따라 작업하는 것이 좋습니다. 전체 템플릿은 [Windows의 Music Store 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)에서 확인할 수 있습니다.
@@ -139,10 +141,5 @@ Azure Portal의 네트워크 보안 그룹은 다음과 같습니다. NSG는 서
 <hr>
 
 [3단계 - Azure Resource Manager 템플릿의 가용성 및 크기 조정](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -15,13 +15,14 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/10/2015
 ms.author: crwilcox
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e33a3314fc127673a8bf7659b72bd91e1a2d1712
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: ad53cb9bb58064aeed49cb05fdcb936e408346d2
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="jupyter-notebook-on-azure"></a>Azure의 Jupyter Notebook
+# <a name="creating-an-azure-vm-installing-jupyter-and-running-a-jupyter-notebook-on-azure"></a>Azure에서 Azure VM 만들기, Jupyter 설치 및 Jupyter Notebook 실행
 [IPython 프로젝트](http://ipython.org) 이전의 [Jupyter 프로젝트](http://jupyter.org)는 라이브 계산 문서의 생성을 사용하여 코드 실행을 결합하는 강력한 대화형 셸을 사용하여 과학적 계산용 도구의 컬렉션을 제공합니다. 이러한 노트북 파일에는 임의 텍스트, 수식, 입력 코드, 결과, 그래픽, 비디오를 비롯하여 최신 웹 브라우저에서 표시할 수 있는 기타 모든 미디어가 포함될 수 있습니다. Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려는 경우든, 병렬/기술 컴퓨팅에 대해 상당한 조예가 있는 경우든 Jupyter Notebook을 사용하면 많은 이점을 누릴 수 있습니다.
 
 ![스크린샷](./media/virtual-machines-linux-jupyter-notebook/ipy-notebook-spectral.png) SciPy 및 Matplotlib 패키지를 사용하여 소리 녹음의 구조를 분석합니다.
@@ -177,7 +178,7 @@ IPython 소스 코드 [리포지토리][repository]로 이동하면 Notebook 예
 ## <a name="conclusion"></a>결론
 Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으로 액세스할 수 있는 강력한 인터페이스를 제공합니다.  이 인터페이스는 간단한 Python 탐색 및 학습, 데이터 분석 및 시각화, 시뮬레이션, 병렬 컴퓨팅 등 다양한 사용 사례를 처리합니다. 결과적으로 생성된 Notebook 문서에는 작업을 수행한 후 다른 Jupyter 사용자와 공유할 수 있는 전체 컴퓨팅 레코드가 포함됩니다.  Jupyter Notebook은 로컬 응용 프로그램으로 사용할 수 있지만 Azure의 클라우드 배포에 이상적으로 적합합니다.
 
-또한 Jupyter의 핵심 기능은 [Python Tools for Visual Studio][Python Tools for Visual Studio](PTVS)를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
+또한 Jupyter의 핵심 기능은 PTVS([Python Tools for Visual Studio][Python Tools for Visual Studio])를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
@@ -185,9 +186,4 @@ Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,44 +16,38 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 translationtype: Human Translation
-ms.sourcegitcommit: c7f552825f3230a924da6e5e7285e8fa7fa42842
-ms.openlocfilehash: 541709ca17b96f8334e67dbdbbd9a10eefffa06b
+ms.sourcegitcommit: bb4f7c4977de290e6e148bbb1ae8b28791360f96
+ms.openlocfilehash: 1a385de3c00b9288d9e1245f04969a9099bf5b45
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-metadata-service---scheduled-events"></a>Azure Metadata Service - Scheduled Events
+# <a name="azure-metadata-service---scheduled-events-preview"></a>Azure 메타데이터 서비스 - 예정된 이벤트(미리 보기)
 
-Azure Metadata Service를 사용하면 Azure에서 호스팅되는 Virtual Machine에 대한 정보를 검색할 수 있습니다. 공개된 범주 중 하나인 Scheduled Events는 예정된 이벤트(예: 다시 부팅)에 대한 정보를 나타내므로 응용 프로그램에서 이벤트를 준비하고 중단을 제한할 수 있습니다. PaaS 및 IaaS를 포함한 모든 Azure Virtual Machine 유형에 사용할 수 있습니다. 이 서비스는 Virtual Machine에 예방 작업을 수행하고 이벤트의 영향을 최소화할 수 있는 시간을 제공합니다. 예를 들어 중단을 피하기 위해 인스턴스가 다시 부팅되도록 예약되어 있는지 관찰한 후 서비스에서 세션을 중단하고 새 선행지표를 선택하거나 데이터를 복사할 수 있습니다.
+> [!NOTE] 
+> 사용 약관에 동의하게 되면 미리 보기를 사용할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
 
+Azure 메타데이터 서비스의 하위 서비스 중 하나인 예정된 이벤트는 예정된 이벤트(예: 다시 부팅)에 대한 정보를 나타내므로 응용 프로그램에서 이벤트를 준비하고 중단을 제한할 수 있습니다. 이 기능은 PaaS 및 IaaS를 포함한 모든 Azure Virtual Machine 유형에 사용할 수 있습니다. 예정된 이벤트는 Virtual Machine에 예방 작업을 수행하고 이벤트의 영향을 최소화할 수 있는 시간을 제공합니다. 
 
 
 ## <a name="introduction---why-scheduled-events"></a>소개 - Scheduled Events가 필요한 이유
 
-Scheduled Events를 사용하면 Virtual Machine의 가용성에 영향을 줄 수 있는 예정된 이벤트를 파악(검색)하고 자동 관리 작업을 수행하여 서비스에 미치는 영향을 제한할 수 있습니다.
-복제 기술을 사용하여 상태를 유지 관리하는 다중 인스턴스 워크로드는 여러 인스턴스에서 자주 발생하는 중단에 취약할 수 있습니다. 이러한 중단으로 인해 비용이 많이 드는 작업(예: 인덱스 다시 빌드) 또는 복제본 손실이 발생할 수 있습니다.
-다른 많은 경우에서 정상 종료 시퀀스를 사용하면 전체 서비스 가용성이 향상됩니다. 예를 들어 메모리 내 트랜잭션을 완료(또는 취소)하고 다른 작업을 클러스터의 다른 VM에 다시 할당(수동 장애 조치)하고, 부하 분산 장치 풀에서 Virtual Machine을 제거합니다.
-예정된 이벤트에 대해 관리자에게 알리거나 그러한 이벤트를 로깅하는 것만으로도 클라우드에 호스팅된 응용 프로그램의 서비스 효율성을 개선하는 데 도움이 되는 경우가 있습니다.
-
-Azure Metadata Service는 다음 사용 사례에서 예정된 이벤트를 나타냅니다.
--   플랫폼에서 시작하는 '영향력이 강한' 유지 관리(예: 호스트 OS 롤아웃)
--   플랫폼에서 시작하는 '영향력이 없는' 유지 관리(예: 내부 VM 마이그레이션)
--   대화형 호출(예: 사용자에 의한 VM 다시 시작 또는 다시 배포)
-
+예정된 이벤트를 사용하여 사용자 서비스에 미치는 영향을 제한하는 단계를 수행할 수 있습니다. 복제 기술을 사용하여 상태를 유지 관리하는 다중 인스턴스 워크로드는 여러 인스턴스에서 자주 발생하는 중단에 취약할 수 있습니다. 이러한 중단으로 인해 비용이 많이 드는 작업(예: 인덱스 다시 빌드) 또는 복제본 손실이 발생할 수 있습니다. 다른 많은 경우에서 정상 종료 시퀀스를 사용하면 전체 서비스 가용성이 향상됩니다. 예를 들어 메모리 내 트랜잭션을 완료(또는 취소)하고 다른 작업을 클러스터의 다른 VM에 다시 할당(수동 장애 조치)하고, 부하 분산 장치 풀에서 Virtual Machine을 제거합니다. 예정된 이벤트에 대해 관리자에게 알리거나 그러한 이벤트를 로깅하는 것만으로도 클라우드에 호스팅된 응용 프로그램의 서비스 효율성을 개선하는 데 도움이 되는 경우가 있습니다.
+Azure 메타데이터 서비스는 다음 사용 사례에서 예정된 이벤트를 나타냅니다.
+-    플랫폼 시작 유지 관리(예: 호스트 OS 롤아웃)
+-    사용자 시작 호출(예: 사용자에 의한 VM 다시 시작 또는 다시 배포)
 
 
 ## <a name="scheduled-events---the-basics"></a>Scheduled Events - 기본 사항  
 
 Azure Metadata Service는 VM 내에서 REST 끝점을 사용하여 Virtual Machines 실행에 대한 정보를 공개합니다. 이 정보는 라우팅할 수 없는 IP를 통해 사용할 수 있으므로 VM 외부에 공개되지 않습니다.
 
-### <a name="scope"></a>범위 
-Scheduled Events는 클라우드 서비스의 모든 Virtual Machines 또는 가용성 집합의 모든 Virtual Machines에 나타납니다. 따라서 이벤트의 **리소스** 필드를 확인하여 영향을 받을 VM을 식별해야 합니다.
+### <a name="scope"></a>범위
+Scheduled Events는 클라우드 서비스의 모든 Virtual Machines 또는 가용성 집합의 모든 Virtual Machines에 나타납니다. 따라서 이벤트의 **리소스** 필드를 확인하여 영향을 받을 VM을 식별해야 합니다. 
 
 ### <a name="discover-the-endpoint"></a>끝점 검색
-Virtual Machine이 VNet(가상 네트워크) 내에 만들어지는 경우 라우팅할 수 없는 IP(169.254.169.254)에서 메타데이터 서비스를 사용할 수 있습니다.
-
-Virtual Machine이 클라우드 서비스(PaaS)에 사용되는 경우 레지스트리를 사용하여 메타데이터 서비스 끝점을 검색할 수 있습니다.
-
-    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+Virtual Machine을 VNet(Virtual Network) 내에서 만든 경우 메타데이터 서비스는 169.254.169.254라는 라우팅할 수 없는 IP에서 사용할 수 있습니다. 아니면 클라우드 서비스 및 클래식 VM에 대한 기본 사례에서 사용할 끝점을 검색하는 데 추가 논리가 필요합니다. 이 샘플을 참조하여 [호스트 끝점을 검색]하는 방법을 알아봅니다(https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>버전 관리 
 Metadata Service는 http://{ip}/metadata/{version}/scheduledevents 형식의 버전이 있는 API를 사용합니다. 서비스에서 http://{ip}/metadata/latest/scheduledevents에 있는 최신 버전을 사용하는 것이 좋습니다.
@@ -62,8 +56,11 @@ Metadata Service는 http://{ip}/metadata/{version}/scheduledevents 형식의 버
 Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니다. 
 
 ### <a name="enable-scheduled-events"></a>Scheduled Events 사용
-처음으로 예약된 이벤트를 호출하면 Azure는 Virtual Machine의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대&1;분의 첫 번째 호출에서 지연된 응답을 예상해야 합니다. 
+처음으로 예약된 이벤트를 호출하면 Azure는 Virtual Machine의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대&2;분인 첫 번째 호출에서 지연된 응답을 예상해야 합니다.
 
+### <a name="testing-your-logic-with-user-initiated-operations"></a>사용자 시작 작업을 사용하여 논리 테스트
+사용자 논리를 테스트하려면 Azure Portal, API, CLI 또는 PowerShell을 사용하여 예정된 이벤트가 발생하는 작업을 시작할 수 있습니다. 가상 컴퓨터를 다시 시작하면 다시 부팅과 같은 이벤트 형식으로 예정된 이벤트가 발생합니다. 가상 컴퓨터를 다시 배포하면 다시 배포와 같은 이벤트 형식으로 예정된 이벤트가 발생합니다.
+예정된 이벤트를 사용하면 정상적으로 응용 프로그램을 종료하는 데 더 많은 시간이 걸리기 때문에 두 경우 모두 사용자 시작 작업을 완료하는 데에도 더 많은 시간이 걸립니다. 
 
 ## <a name="using-the-api"></a>API 사용
 
@@ -76,10 +73,11 @@ Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니
 예약된 이벤트가 있는 경우 응답에 다음과 같은 이벤트의 배열이 포함됩니다. 
 
     {
+     "DocumentIncarnation":{IncarnationID},
      "Events":[
           {
                 "EventId":{eventID},
-                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "EventType":"Reboot" | "Redeploy" | "Freeze",
                 "ResourceType":"VirtualMachine",
                 "Resources":[{resourceName}],
                 "EventStatus":"Scheduled" | "Started",
@@ -89,7 +87,7 @@ Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니
     }
 
 EventType은 다음과 같이 Virtual Machine에 예상되는 영향을 캡처합니다.
-- 일시 중지: 몇 초 동안 Virtual Machine을 일시 중지하도록 예약됩니다. 메모리, 열려 있는 파일 또는 네트워크 연결에는 영향을 미치지 않습니다.
+- 중지: 몇 초 동안 Virtual Machine을 일시 중지하도록 예약합니다. 메모리, 열려 있는 파일 또는 네트워크 연결에는 영향을 미치지 않습니다.
 - 다시 부팅: Virtual Machine을 다시 부팅하도록 예약됩니다(메모리 초기화됨).
 - 다시 배포: Virtual Machine을 다른 노드로 이동하도록 예약됩니다(임시 디스크 손실됨). 
 
@@ -102,7 +100,7 @@ EventType은 다음과 같이 Virtual Machine에 예상되는 영향을 캡처�
 
 ## <a name="powershell-sample"></a>PowerShell 샘플 
 
-다음 샘플에서는 예약된 이벤트에 대한 메타데이터 서버를 읽고 승인하기 전에 응용 프로그램 이벤트 로그에 기록합니다.
+다음 샘플에서는 예정된 이벤트에 대한 메타데이터 서버를 읽고 승인하기 전에 응용 프로그램 이벤트 로그에 기록합니다.
 
 ```PowerShell
 $localHostIP = "169.254.169.254"
@@ -136,7 +134,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ## <a name="c-sample"></a>C\# 샘플 
-다음 코드는 Metadata Service와 통신하기 위한 클라이언트 쪽 API입니다
+다음 샘플은 메타데이터 서비스와 통신하기 위한 클라이언트 쪽 API입니다
 ```csharp
    public class ScheduledEventsClient
     {
@@ -304,9 +302,4 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>다음 단계 
 [Azure에서 가상 컴퓨터에 대한 계획된 유지 관리](./virtual-machines-linux-planned-maintenance.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

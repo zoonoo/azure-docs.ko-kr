@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: a2d0f959bfcae54367512db1f63e22c866c35671
-ms.openlocfilehash: ca26ad38722560054aef1a153b9b95296d8bb021
+ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
+ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -308,23 +309,25 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
+파일 공유에 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-from-file-share-to-blob"></a>파일 공유에서 Blob으로 복사
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
+파일 공유에서 Blob으로 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
-파일 저장소-페이지 Blob로의 비동기 복사는 지원되지 않습니다.
 
 ### <a name="copy-from-blob-to-file-share"></a>Blob에서 파일 공유로 복사
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
+Blob에서 파일 공유로 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="synchronously-copy-files"></a>동기적으로 파일 복사
-`/SyncCopy` 옵션을 지정하여 파일 저장소 간에, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다.
+`/SyncCopy` 옵션을 지정하여 파일 저장소 간에, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다. 표준 송신 비용이 적용됩니다.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
@@ -357,7 +360,7 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 여러 파일을 구분합니다. 볼륨 인덱스는 *파티션 키 범위 인덱스*와 *분할 파일 인덱스*의 두 부분으로 구성됩니다. 두 인덱스는 모두 0부터 시작됩니다.
+AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 여러 파일을 구분합니다. 볼륨 인덱스는 *파티션 키 범위 인덱스*와 *분할 파일 인덱스*의 두 부분으로 구성됩니다. 두 인덱스는 모두&0;부터 시작됩니다.
 
 사용자가 `/PKRS`옵션을 지정하지 않으면 파티션 키 범위 인덱스는 0이 됩니다.
 
@@ -767,7 +770,7 @@ Archive 특성 집합이 있는 파일만 업로드합니다.
 ### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 Blob 이름에서 가상 디렉터리를 구분하는 데 사용되는 구분 기호를 나타냅니다.
 
-기본적으로 AzCopy는 구분 문자로 /를 사용합니다. 그렇지만 AzCopy는 아무 일반 문자(예: @,, # 또는 %)를 구분 문자로 사용할 수 있게 지원합니다. 명령줄에 이러한 특수 문자 중 하나를 포함해야 하는 경우 파일 이름을 큰따옴표로 묶으세요.
+기본적으로 AzCopy는 구분 문자로 /를 사용합니다. 그렇지만 AzCopy는 아무 일반 문자(예: @, # 또는 %)를 구분 문자로 사용할 수 있게 지원합니다. 명령줄에 이러한 특수 문자 중 하나를 포함해야 하는 경우 파일 이름을 큰따옴표로 묶으세요.
 
 이 옵션은 Blob을 다운로드하는 데만 적용됩니다.
 
@@ -795,9 +798,9 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 ### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 테이블 데이터를 병렬로 내보낼 수 있도록 파티션 키 범위를 분할합니다. 그러면 내보내기 작업의 속도가 빨라집니다.
 
-이 옵션을 지정하지 않으면 AzCopy는 단일 스레드를 사용하여 테이블 엔터티를 내보냅니다. 예를 들어 사용자가 /PKRS:"aa#bb"를 지정하면 AzCopy는 3개 동시 작업을 시작합니다.
+이 옵션을 지정하지 않으면 AzCopy는 단일 스레드를 사용하여 테이블 엔터티를 내보냅니다. 예를 들어 사용자가 /PKRS:"aa#bb"를 지정하면 AzCopy는&3;개 동시 작업을 시작합니다.
 
-각 작업에서는 아래에 나와 있는 것처럼 3개 파티션 키 범위 중 하나를 내보냅니다.
+각 작업에서는 아래에 나와 있는 것처럼&3;개 파티션 키 범위 중 하나를 내보냅니다.
 
   [첫 번째 파티션 키, aa)
 
@@ -904,10 +907,5 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 * [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

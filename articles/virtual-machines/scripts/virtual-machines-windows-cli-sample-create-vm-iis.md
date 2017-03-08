@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 1c0d2de77acc4696cb0e274e14591a2925454dd6
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: ecf51ea9bf7e74c7847b4394803c2b95a3774446
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,37 +30,9 @@ ms.lasthandoff: 03/01/2017
 
 이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
 
-## <a name="create-vm-sample"></a>VM 샘플 만들기
+## <a name="sample-script"></a>샘플 스크립트
 
-```azurecli
-#!/bin/bash
-
-# Update for your admin password
-AdminPassword=ChangeYourAdminPassword1
-
-# Create a resource group.
-az group create --name myResourceGroup --location westeurope
-
-# Create a virtual machine. 
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password $AdminPassword
-
-# Open port 80 to allow web traffic to host.
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
-
-# Use CustomScript extension to install Apache.
-az vm extension set \
-  --publisher Microsoft.Compute \
-  --version 1.8 \
-  --name CustomScriptExtension \
-  --vm-name myVM \
-  --resource-group myResourceGroup \
-  --settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'
-```
+[!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "VM 빠른 생성")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

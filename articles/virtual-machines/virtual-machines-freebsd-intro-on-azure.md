@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 71ad04b10bc49500197db6fecdcc0305a1ea0dd2
-ms.openlocfilehash: ecb1c385de6c1b12674326afe7d5a0ebf6cd9ad0
+ms.sourcegitcommit: 8c96cacadb34a3d4eca1fe523d8a159c69a0ebe3
+ms.openlocfilehash: 01c855972d66d8ae2e975b206791ab8f9abcec41
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -83,16 +84,9 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 선택적으로 `sudo -s`를 사용하여 루트 셸을 얻을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-1. 현재 Hyper-V(및 Azure)의 FreeBSD 11.0에는 운영 체제가 `freebsd-update`를 사용하여 패치된 경우 VM이 부팅되지 않을 수 있는 문제가 있습니다. [권장 패치](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721)는 Azure Marketplace의 FreeBSD 이미지에 포함되어 있습니다. 그러나 FreeBSD 팀에서 업스트림으로 병합하지 않았기 때문에 `freebsd-update`를 실행하면 커널이 업데이트된 커널로 바뀝니다. Azure 사용자는 ERRATA로 게시될 때까지 FreeBSD 11.0에 대한 패치를 설치하지 않는 것이 좋습니다.
-
-2. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. Azure의 FreeBSD VM 사용자는 2.2.1 이하 버전을 사용하는 것이 좋습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3에서는 해결책이 확보될 것입니다. 
+1. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.
 * 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

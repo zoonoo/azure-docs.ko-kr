@@ -4,7 +4,7 @@ description: "새 StorSimple 장치를 켜고, 종료되었거나 전원이 손�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5943276236d239e8ee2eba302f52e9445203564d
+ms.sourcegitcommit: 6bfbb0b5eaae3fb3ce45d719ea1d3dec48ed0467
+ms.openlocfilehash: 359aaa1af6765270d9fe0f449007fcb4323b0ad4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="turn-your-storsimple-device-on-or-off"></a>StorSimple 장치 켜기 또는 끄기
+# <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 켜기 또는 끄기
 ## <a name="overview"></a>개요
 Microsoft Azure StorSimple 장치 종료는 정상적인 시스템 작업의 일환으로 필요하지 않습니다. 그러나 새 장치 또는 종료할 장치의 전원을 켜야 할 수도 있습니다. 일반적으로 오류가 발생한 하드웨어를 교체, 물리적으로 장치를 이동하거나 장치의 서비스를 중단해야 하는 경우 종료가 필요합니다. 이 자습서는 다양한 시나리오에서 StorSimple 장치를 켜고 종료하는데 필요한 절차에 대해 설명합니다.
 
@@ -144,7 +146,7 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 7. 녹색 LED가 ON인지 확인하여 EBOD 인클로저가 켜졌는지 확인합니다.
 8. 기본 인클로저를 켭니다.
 9. 컨트롤러 녹색 LED가 ON인지 확인하여 기본 인클로저가 켜졌는지 확인합니다.
-10. SAS 레인 LED(EBOD 컨트롤러당 4개)가 모두 ON인지 확인하여 EBOD 인클로저와 기본 인클로저의 연결이 양호한지 확인합니다.
+10. SAS 레인 LED(EBOD 컨트롤러당&4;개)가 모두 ON인지 확인하여 EBOD 인클로저와 기본 인클로저의 연결이 양호한지 확인합니다.
 
 > [!IMPORTANT]
 > SAS 케이블이 결함이 있거나 EBOD 인클로저와 기본 인클로저 간의 연결이 좋지 않은 경우 시스템을 켜면 복구 모드로 전환됩니다. 이 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md) 하십시오.
@@ -187,10 +189,5 @@ StorSimple용 Windows PowerShell 또는 Azure 클래식 포털에 액세스한 �
 
 ## <a name="next-steps"></a>다음 단계
 [Contact Microsoft Support](storsimple-contact-microsoft-support.md) 하십시오.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

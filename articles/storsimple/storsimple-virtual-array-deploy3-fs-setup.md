@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열 배포의 세 번째 자습서는 가상 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 16af5829053567b5c67c755e6a4ca50f966fbfdd
+ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
+ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>StorSimple 가상 배열 배포 - 파일 서버로 설정
+# <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>소개
@@ -207,10 +209,5 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 
 ## <a name="next-steps"></a>다음 단계
 로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

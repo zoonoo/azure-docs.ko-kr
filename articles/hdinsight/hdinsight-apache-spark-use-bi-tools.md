@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/27/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
-ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
+ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
+ms.openlocfilehash: 9ec5d45a38aefe24454f8673d5754d65b3800c17
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -30,6 +31,10 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용** Notebook을 실행합니다.
 
+> [!NOTE]
+> 이 문서에 설명된 BI 도구와의 연결은 Azure HDInsight 3.6 Preview의 Spark 2.1에서 지원되지 않습니다. Spark 버전 1.6 및 2.0(각각 HDInsight 3.4, 3.5)만 지원됩니다.
+>
+
 **필수 조건:**
 
 다음이 있어야 합니다.
@@ -39,7 +44,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 * Microsoft Spark ODBC 드라이버가 설치된 컴퓨터(Tableau 작업할 HDInsight에서 Spark 필요). [여기](http://go.microsoft.com/fwlink/?LinkId=616229)에서 드라이버를 설치할 수 있습니다.
 * BI 도구(예: [Power BI](http://www.powerbi.com/) 또는 [Tableau Desktop](http://www.tableau.com/products/desktop)). [http://www.powerbi.com/](http://www.powerbi.com/)에서 Power BI의 미리 보기 구독을 무료로 받을 수 있습니다.
 
-## <a name="a-namehivetableasave-raw-data-as-a-hive-table"></a><a name="hivetable"></a>하이브 테이블로 원시 데이터 저장
+## <a name="hivetable"></a>하이브 테이블로 원시 데이터 저장
 이 섹션에서는 HDInsight에서 Apache Spark 클러스터와 연결된 [Jupyter](https://jupyter.org) Notebook을 사용하여 원시 샘플 데이터를 처리하고 하이브 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
 
 데이터를 하이브 테이블로 저장한 후에는 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용하여 하이브 테이블에 연결합니다.
@@ -105,7 +110,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
         SELECT * FROM hvac LIMIT 10
 2. 이제 Notebook을 종료하여 리소스를 해제할 수 있습니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
-## <a name="a-namepowerbiause-power-bi-to-analyze-data-in-the-hive-table"></a><a name="powerbi"></a>Power BI를 사용하여 하이브 테이블의 데이터 분석
+## <a name="powerbi"></a>Power BI를 사용하여 하이브 테이블의 데이터 분석
 데이터를 하이브 테이블로 저장한 후에는 Power BI를 사용하여 데이터를 연결하고 시각화하여 보고서, 대시보드 등을 만들 수 있습니다.
 
 1. [Power BI](http://www.powerbi.com/)에 로그인합니다.
@@ -134,7 +139,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
    동일한 데이터 집합에 대해 시각화를 원하는 만큼 추가하고 대시보드에 고정하여 데이터에 대한 스냅숏을 얻을 수 있습니다. 또한 직접 연결을 통해 HDInsight의 Spark 클러스터는 Power BI에 연결됩니다. 따라서 Power BI는 클러스터로부터 항상 최신 상태를 유지하므로 데이터 집합에 대한 새로 고침을 예약하지 않아도 됩니다.
 
-## <a name="a-nametableauause-tableau-desktop-to-analyze-data-in-the-hive-table"></a><a name="tableau"></a>Tableau Desktop을 사용하여 하이브 테이블에서 데이터 분석
+## <a name="tableau"></a>Tableau Desktop을 사용하여 하이브 테이블에서 데이터 분석
 
 > [!NOTE]
 > 이 섹션은 Azure HDInsight에서 만든 Spark 1.5.2 클러스터에만 적용할 수 있습니다.
@@ -171,7 +176,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
     ![시각화](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "시각화")
 9. **저장** 을 클릭하여 워크시트를 저장합니다. 대시보드를 만들고 시트를 하나 이상 추가할 수도 있습니다.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -206,9 +211,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

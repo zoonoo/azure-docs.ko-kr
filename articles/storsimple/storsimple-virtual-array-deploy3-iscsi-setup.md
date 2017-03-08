@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 3eb5f21eed1c583587cf7642db4e70102c818348
+ms.sourcegitcommit: d72ff7449a87dfa9223b7c5e77446de23502eb84
+ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array--set-up-your-virtual-device-as-an-iscsi-server"></a>StorSimple 가상 배열 배포 – 가상 장치를 iSCSI 서버로 설정
+# <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
 ![iscsi 설정 프로세스 흐름](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
@@ -73,11 +74,11 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 5. 장치가 클라우드 저장소 서비스 공급자와 통신하려고 시도하거나 파일 서버로 구성된 경우 이름으로 장치를 확인하려고 시도하는 경우에 DNS 서버가 사용되기 때문에 DNS 서버가 필요합니다. **네트워크 설정** 페이지의 **DNS 서버** 아래에서:
    
    1. 기본 및 보조 DNS 서버는 자동으로 구성됩니다. 고정 IP 주소를 구성하도록 선택하면 DNS 서버를 지정할 수 있습니다. 고가용성을 위해 기본 및 보조 DNS 서버를 구성하는 것이 좋습니다.
-   2. **Apply**를 클릭합니다. 네트워크 설정이 적용되고 유효성 검사가 수행됩니다.
+   2. **적용**을 클릭합니다. 네트워크 설정이 적용되고 유효성 검사가 수행됩니다.
 6. **장치 설정** 페이지에서:
    
    1. 장치에 고유한 **이름** 을 할당합니다. 이름에는 1-15자를 사용할 수 있으며 문자, 숫자 및 하이픈을 포함할 수 있습니다.
-   2. 만드는 장치의 **유형**에 대해 **iSCSI 서버** 아이콘 ![iSCSI server icon](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png)을 클릭합니다. iSCSI 서버에서 블록 저장소를 프로비전할 수 있습니다.
+   2. 만드는 장치의 **유형**에 대해 **iSCSI 서버** 아이콘 ![iSCSI 서버 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png)을 클릭합니다. iSCSI 서버에서 블록 저장소를 프로비전할 수 있습니다.
    3. 이 장치를 도메인에 가입할지 지정합니다. 장치가 iSCSI 서버인 경우, 도메인 가입은 선택 사항입니다. iSCSI 서버를 도메인에 가입하지 않으려면, **적용**을 클릭하고 설정이 적용될 때까지 기다린 후에 다음 단계로 건너뜁니다.
       
        장치를 도메인에 가입하려면 **도메인 이름**을 입력하고 **적용**을 클릭합니다.
@@ -86,35 +87,35 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
       > iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
       > 
       > 
-   4. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png)에 설명된 대로 가상 장치를 프로비전하고 연결했습니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
+   4. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png)을 클릭합니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
       
        ![자격 증명](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. **Apply**를 클릭합니다. 장치 설정이 적용되고 유효성 검사가 수행됩니다.
-7. 선택적으로 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다.
+   5. **적용**을 클릭합니다. 장치 설정이 적용되고 유효성 검사가 수행됩니다.
+7. (선택 사항) 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다.
    
     ![웹 프록시 구성](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
    
     **웹 프록시** 페이지에서:
    
-   1. *http://*호스트 IP 주소 또는 FDQN*:포트 번호* 형식으로 **웹 프록시 URL**을 공급합니다. HTTPS URL은 지원되지 않습니다.
+   1. *http:// 호스트 IP 주소* 또는 *FDQN:포트 번호* 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
-   4. **Apply**를 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
-8. 선택적으로 장치에 대한 시간 설정(예: 표준 시간대 및 기본 및 보조 NTP 서버)을 구성합니다. 클라우드 서비스 공급자와 인증할 수 있도록 장치 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
+   4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
+8. (선택 사항) 장치에 대한 시간 설정(예: 표준 시간대 및 기본 및 보조 NTP 서버)을 구성합니다. 클라우드 서비스 공급자와 인증할 수 있도록 장치 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
    
     ![시간 설정](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
    
     **시간 설정** 페이지에서:
    
-   1. 드롭다운 목록에서 해당 장치가 배포되는 지리적 위치를 기반으로 **표준 시간대** 를 선택합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+   1. 드롭다운 목록에서 해당 장치가 배포되는 지리적 위치를 기반으로 **표준 시간대**를 선택합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
    2. 장치에 **기본 NTP 서버** 를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
-   3. 선택적으로 장치에 대한 **보조 NTP 서버** 를 지정합니다.
-   4. **Apply**를 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
+   3. 선택적으로 장치에 대한 **보조 NTP 서버**를 지정합니다.
+   4. **적용**을 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 9. 장치에 대한 클라우드 설정을 구성합니다. 이 단계에서는 로컬 장치 구성을 완료한 다음 StorSimple 장치 관리자 서비스에 장치를 등록합니다.
    
    1. [StorSimple 가상 배열 배포 - 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)에서 **2단계:서비스 등록 키 얻기**에서 얻은 **서비스 등록 키**를 입력합니다.
    2. 서비스에 장치를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple 장치 관리자 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 받기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 를 참조하세요.
-   3. **Register**를 클릭합니다. 장치가 다시 시작됩니다. 장치 등록이 완료되기까지 2-3분 정도 기다려야 할 수 있습니다. 장치가 다시 시작된 후 로그인 페이지가 열립니다.
+   3. **등록**을 클릭합니다. 장치가 다시 시작됩니다. 장치 등록이 완료되기까지 2-3분 정도 기다려야 할 수 있습니다. 장치가 다시 시작된 후 로그인 페이지가 열립니다.
       
       ![장치 등록](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Azure Portal로 돌아갑니다.
@@ -207,7 +208,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 10. 대화 상자에서 초기화하려는 디스크를 선택한 다음 **확인**을 클릭합니다.
     
     ![디스크 2 초기화](./media/storsimple-virtual-array-deploy3-iscsi-setup/image28.png)
-11. 단순 볼륨 만들기 마법사가 시작됩니다. 디스크 크기를 선택한 후 **다음**을 클릭합니다.
+11. 새 단순 볼륨 마법사가 시작됩니다. 디스크 크기를 선택한 후 **다음**을 클릭합니다.
     
     ![새 볼륨 마법사 1](./media/storsimple-virtual-array-deploy3-iscsi-setup/image29.png)
 12. 볼륨에 드라이브 문자를 할당한 후 **다음**을 클릭합니다.
@@ -220,19 +221,19 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     
     ![새 볼륨 마법사 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/image32.png)
     
-    이 볼륨은 **온라인** on the **디스크 관리** 페이지로 이동합니다.
+    이 볼륨은 **디스크 관리** 페이지에 **온라인**으로 표시됩니다.
     
     ![온라인 볼륨](./media/storsimple-virtual-array-deploy3-iscsi-setup/image33.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다](storsimple-ova-web-ui-admin.md).
+로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
 
 ## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>부록 A: Windows Server 호스트의 IQN 가져오기
 
 Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이름(IQN)을 가져오려면 다음 단계를 수행합니다.
 
-#### <a name="to-get-the-iqn-of-a-windows-host"></a>Windows Server 호스트의 IQN을 가져오려면
+#### <a name="to-get-the-iqn-of-a-windows-host"></a>Windows 호스트의 IQN을 가져오려면
 
 1. Windows 호스트에서 Microsoft iSCSI 초기자를 시작합니다.
 2. **iSCSI 초기자 속성** 창의 **구성** 탭에서 **초기자 이름** 필드의 문자열을 선택하고 복사합니다.
@@ -244,10 +245,5 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 
