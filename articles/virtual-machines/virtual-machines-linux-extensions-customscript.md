@@ -18,6 +18,7 @@ ms.author: nepeters
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 09c1ace33461eff30fbd4b277e1397934fe5a98a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -207,7 +208,7 @@ Azure 사용자 지정 스크립트 확장은 Resource Manager 템플릿을 사�
 Azure 스크립트 확장은 여기에서 찾을 수 있는 로그를 생성합니다.
 
 ```bash
-/var/log/azure/customscript/handler.log
+/var/log/azure/custom-script/handler.log
 ```
 
 사용자 지정 스크립트 확장의 실행 상태를 Azure CLI를 사용하여 검색할 수도 있습니다.
@@ -230,10 +231,5 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>다음 단계
 다른 VM 스크립트 확장에 대한 자세한 내용은 [Linux용 Azure 스크립트 확장 개요](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

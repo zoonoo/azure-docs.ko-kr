@@ -1,6 +1,6 @@
 ---
-title: "Azure Stack의 상태 및 경고 모니터링 | Microsoft Docs"
-description: "Azure Stack에서 상태 및 경고를 모니터링하는 방법을 알아봅니다."
+title: Monitor health and alerts in Azure Stack | Microsoft Docs
+description: Learn how to monitor health and alerts in Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: chasat-MS
@@ -12,59 +12,71 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: chasat
 translationtype: Human Translation
-ms.sourcegitcommit: a84441cfc41872e32b5ebd4a5d68d4b6919c33c0
-ms.openlocfilehash: 41b311a05615e67f568f8708a7c0029836531aba
+ms.sourcegitcommit: ad5b6ced5ab11c507baff56649ef744aafb45ff1
+ms.openlocfilehash: 61cca7900b52ea4493f0a7f7a30d268d8da0ec7d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack의 상태 및 경고 모니터링
-Microsoft Azure Stack Technical Preview 2에서는 여러분 같은 클라우드 관리자가 Azure Stack의 상태 및 경고를 볼 수 있는 새로운 인프라 모니터링 기능이 도입되었습니다.
+# <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitor health and alerts in Azure Stack
+Azure Stack includes infrastructure monitoring capabilities that enable a cloud administrator to view health and alerts for an Azure Stack region.
 
-이 Azure Stack 미리 보기 릴리스에서는 **지역 관리** 타일에 제공되는 지역 관리 기능 집합이 도입되었습니다. 기본적으로 관리 구독 멤버에 대해 고정되는 지역 관리 타일은 배포된 모든 Azure Stack 지역을 나열합니다. 또한 각 지역에 대한 활성 위험 및 경고 알림의 수를 계산합니다. 이 타일은 Azure Stack의 상태 및 경고 기능으로 들어가는 진입점입니다.
+This preview release of Azure Stack has a set of region management capabilities available in the **Region Management** tile. The Region Management tile, pinned by default in the administrator portal for the Default Provider Subscription, lists all the deployed regions of Azure Stack. It also shows the count of active critical and warning alerts for each region. This tile is your entry point into the health and alert functionality of Azure Stack.
 
- ![지역 관리 타일](media/azure-stack-monitor-health/image1.png)
+ ![The Region Management tile](media/azure-stack-monitor-health/image1.png)
 
- ## <a name="understand-health-in-azure-stack"></a>Azure Stack의 상태 이해
+ ## <a name="understand-health-in-azure-stack"></a>Understand health in Azure Stack
 
- 상태 및 경고는 Azure Stack에서 상태 리소스 공급자가 관리합니다. Azure Stack 구성 요소는 Azure Stack이 배포 및 구성되는 동안 상태 리소스 공급자에 등록합니다. 등록을 수행하는 목적은 상태 및 경고를 표시하기 위함입니다. Azure Stack의 상태는 간단한 개념입니다. 등록된 구성 요소 인스턴스가 있으면 해당 구성 요소의 상태에 최악의 활성 경고 심각도인 경고 또는 위험이 반영됩니다.
+ Health and alerts are managed in Azure Stack by the Health resource provider. Azure Stack infrastructure components register with the Health resource provider during Azure Stack deployment and configuration. This registration enables the display of health and alerts for each component. Health in Azure Stack is a simple concept. If alerts for a registered instance of a component exist, the health state of that component reflects the worst active alert severity; warning, or critical.
  
- Azure Stack 포털과 Rest API 및 PowerShell을 통해 구성 요소의 상태를 볼 수 있습니다. TP2 릴리스에서는 인프라 역할의 상태를 볼 수 있습니다. 그러나 경고 및 상태를 보고하는 인프라 역할은 상태 컨트롤러밖에 없습니다. 이후 릴리스에서는 다른 인프라 역할도 경고를 표시하고 상태를 보고할 것입니다.
-
-![인프라 역할 목록](media/azure-stack-monitor-health/image2.png)
+ ## <a name="view-and-manage-component-health-state"></a>View and manage component health state
  
-## <a name="view-alerts"></a>경고 보기
+ You can view the health state of components in both the Azure Stack administrator portal and through Rest API and PowerShell.
+ 
+To view the health state in the portal, click the region that you want to view in the **Region Management** tile. You can view the health state of infrastructure roles and of resource providers. However, in the TP3 release, not all infrastructure roles and resource providers report health state.
 
-각 Azure Stack 영역에 대한 활성 경고 목록은 지역 관리 블레이드에서 바로 사용할 수 있습니다.  기본 구성의 첫 번째 타일은 지역에 대한 위험 및 경고 요약 정보를 표시하는 경고 타일입니다. 이 블레이드의 다른 타일과 마찬가지로 경고 타일을 대시보드에 고정하면 신속하게 액세스할 수 있습니다.   
+![List of infrastructure roles](media/azure-stack-monitor-health/image2.png)
 
-![경고를 표시하는 경고 타일](media/azure-stack-monitor-health/image3.png)
+You can click a resource provider or infrastructure role to view more detailed information.
 
-**경고** 타일을 선택하면 지역에 대한 모든 활성 경고 목록으로 이동됩니다. 타일 내에서 **위험** 또는 **경고** 줄 항목을 선택하면 필터링된 경고 목록(위험 또는 경고)으로 이동됩니다. 
+New in TP3, you can restart or shut down an infrastructure role instance for troubleshooting purposes. To do this, click an infrastructure role, click the role instance, and then in the **Role Instance** blade, click **Restart**, **Shutdown**, or **Start**. (The available options depend on the current state.)
 
-![필터링된 경고 알림](media/azure-stack-monitor-health/image4.png)
+> [!WARNING]
+>In an Azure Stack Proof of Concept (POC) environment, there is only one role instance for each infrastructure role. Therefore, if you restart or shut down a role instance, the functionality that the role offers is unavailable until the role instance starts. If you restart or shut down the MAS-XRP01 role instance (associated with the Infrastructure management controller), you must use Hyper-V Manager to start the virtual machine.
+>
+>
+ 
+## <a name="view-alerts"></a>View alerts
+
+The list of active alerts for each Azure Stack region is available directly from the Region Management blade. The first tile in the default configuration is the Alerts tile, which displays a summary of the critical and warning alerts for the region. You can pin the Alerts tile, like any other tile on this blade, to the dashboard for quick access.   
+
+![Alerts tile that shows a warning](media/azure-stack-monitor-health/image3.png)
+
+By selecting the top portion of the **Alerts** tile, you navigate to the list of all active alerts for the region. If you select either the **Critical** or **Warning** line item within the tile, you navigate to a filtered list of alerts (Critical or Warning). 
+
+![Filtered warning alerts](media/azure-stack-monitor-health/image4.png)
   
-경고 블레이드는 상태(활성 또는 종결) 및 심각도(위험 또는 경고)를 기준으로 필터링하는 기능을 지원합니다. 기본 보기에는 모든 활성 경고가 표시됩니다. 모든 종결된 경고는&7;일 후 시스템에서 제거됩니다.
+The Alerts blade supports the ability to filter both on status (Active or Closed) and severity (Critical or Warning). The default view displays all Active alerts. All closed alerts are removed from the system after seven days.
 
-![위험 또는 경고 상태로 필터링하는 필터 창](media/azure-stack-monitor-health/image5.png)
+![Filter pane to filter by critical or warning status](media/azure-stack-monitor-health/image5.png)
 
-또한 경고 목록 블레이드에는 목록 보기를 생성하는 데 사용되는 Rest API를 표시하는 **보기 API**라는 작업이 표시됩니다. 이 작업은 기존 데이터 센터 모니터링, 보고 및 티켓팅 솔루션의 자동화 및 통합에 사용할 경고를 쿼리할 수 있는 Rest API를 빠르게 숙지하는 방법을 제공합니다. 
+The Alerts blade also exposes the **View API** action, which displays the Rest API that was used to generate the list view. This action provides a quick way to become familiar with the Rest API syntax that you can use to query alerts. You can use this API in automation or for integration with your existing datacenter monitoring, reporting, and ticketing solutions. 
 
-![Rest API를 보여주는 보기 API 옵션](media/azure-stack-monitor-health/image6.png)
+![The View API option that shows the Rest API](media/azure-stack-monitor-health/image6.png)
 
-경고 목록 블레이드에서 경고를 선택하여 **알림 세부 정보** 블레이드로 이동할 수 있습니다. 경고 세부 정보 블레이드는 경고와 관련된 모든 필드를 표시하며 영향을 받는 구성 요소 및 경고의 원본을 신속하게 탐색할 수 있습니다. 예를 들어 인프라 역할 인스턴스 중 하나가 오프라인이 되거나 액세스할 수 없게 되면 다음 경고가 발생합니다. 인프라 역할 인스턴스가 다시 온라인 상태가 되면 이 경고는 자동으로 종료됩니다. 
+From the Alerts blade, you can select an alert to navigate to the **Alert Details** blade. This blade displays all fields that are associated with the alert, and enables quick navigation to the affected component and source of the alert. For example, the following alert occurs if one of the infrastructure role instances goes offline or is not accessible.  
 
-![경고 세부 정보 블레이드](media/azure-stack-monitor-health/image7.png)
+![The Alert Details blade](media/azure-stack-monitor-health/image7.png)
 
-지금까지 Azure Stack의 상태 및 경고 보기에 대해 알아보았으며, 이제부터는 Azure Stack을 업데이트하는 방법을 자세히 알아보겠습니다.
+After the infrastructure role instance is back online, this alert automatically closes.
 
-## <a name="next-steps"></a>다음 단계
-[Azure Stack의 업데이트 관리](azure-stack-updates.md)
+Now that you know more about health and viewing alerts in Azure Stack, it’s time to learn more about how to update Azure Stack.
 
+## <a name="next-steps"></a>Next steps
+[Update management in Azure Stack](azure-stack-updates.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
+[Region management in Azure Stack](azure-stack-region-management.md)
 
