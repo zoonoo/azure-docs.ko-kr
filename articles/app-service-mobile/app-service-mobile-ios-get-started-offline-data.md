@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
 ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -30,7 +31,7 @@ Mobile Apps를 처음 사용하는 경우, 먼저 [iOS 앱 만들기]자습서�
 
 오프라인 동기화 기능에 대해 자세히 알아보려면 [Mobile Apps에서 오프라인 데이터 동기화]를 참조하세요.
 
-## <a name="a-namereview-syncareview-the-client-sync-code"></a><a name="review-sync"></a>클라이언트 동기화 코드 검토
+## <a name="review-sync"></a>클라이언트 동기화 코드 검토
 [iOS 앱 만들기] 자습서용으로 다운로드한 클라이언트 프로젝트는 로컬 핵심 데이터 기반 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이 섹션은 이미 자습서 코드에 포함된 내용에 대한 요약입니다. 기능의 개념적 개요는 [Mobile Apps에서 오프라인 데이터 동기화]를 참조하세요.
 
 Mobile Apps의 오프라인 데이터 동기화 기능을 사용하면 네트워크에 액세스할 수 없는 경우에도 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 `MSClient` 의 동기화 컨텍스트를 초기화하고 로컬 저장소를 참조합니다. 그런 다음 **MSSyncTable** 인터페이스를 통해 테이블을 참조합니다.
@@ -48,6 +49,7 @@ Mobile Apps의 오프라인 데이터 동기화 기능을 사용하면 네트워
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**. **ToDoTableViewController.viewDidLoad** 메서드:
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
@@ -135,7 +137,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 데이터가 수정될 때마다(Objective-C) 또는 앱이 시작될 때마다(Objective-C 및 Swift) 앱이 동기화되므로 앱은 사용자가 온라인 상태인 것으로 가정합니다. 나중에 나오는 섹션에서는 사용자가 오프라인 상태일 때도 편집할 수 있도록 앱을 업데이트합니다.
 
-## <a name="a-namereview-core-dataareview-the-core-data-model"></a><a name="review-core-data"></a>핵심 데이터 모델 검토
+## <a name="review-core-data"></a>핵심 데이터 모델 검토
 핵심 데이터 오프라인 저장소를 사용하는 경우 데이터 모델에서 특정 테이블 및 필드를 정의해야 합니다. 샘플 앱에는 이미 올바른 형식의 데이터 모델이 포함되어 있습니다. 이 섹션에서는 이러한 테이블을 살펴보고 사용 방법을 알아봅니다.
 
 **QSDataModel.xcdatamodeld**를 엽니다. SDK에 사용되는 테이블&3;개 및 할 일 항목 자체에 사용되는 테이블&1;개 등 테이블&4;개가 정의되어 있습니다.
@@ -202,7 +204,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 | updatedAt | Date | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
 | 버전 | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
-## <a name="a-namesetup-syncachange-the-sync-behavior-of-the-app"></a><a name="setup-sync"></a>앱의 동기화 동작 변경
+## <a name="setup-sync"></a>앱의 동기화 동작 변경
 이 섹션에서는 앱 시작 시 또는 항목을 삽입하거나 업데이트할 때 동기화하지 않도록 앱을 수정합니다. 새로 고침 제스처 단추를 누를 때만 동기화됩니다.
 
 **Objective-C**:
@@ -231,7 +233,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>앱 테스트
+## <a name="test-app"></a>앱 테스트
 이 섹션에서는 잘못된 URL에 연결하여 오프라인 시나리오를 시뮬레이션합니다. 데이터 항목을 추가하면 모바일 앱 백 엔드와 동기화되지 않고 로컬 핵심 데이터 저장소에 보관됩니다.
 
 1. **QSTodoService.m**의 모바일 앱 URL을 잘못된 URL로 변경하고 앱 다시 실행하기:
@@ -285,9 +287,4 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 [클라우드 커버: Azure Mobile Services에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

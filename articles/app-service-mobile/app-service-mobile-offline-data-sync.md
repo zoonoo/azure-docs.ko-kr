@@ -3,7 +3,7 @@ title: "Azure Mobile Apps에서 오프라인 데이터 동기화 | Microsoft Doc
 description: "Azure 모바일 앱에 대한 오프라인 데이터 동기화 기능의 개념 참조 및 개요"
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -62,7 +62,7 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 
 로컬 저장소는 [.NET 클라이언트 SDK]에서 `IMobileServicesSyncContext.InitializeAsync(localstore)`와 같은 초기화 메서드를 사용하여 동기화 컨텍스트와 연결됩니다.
 
-## <a name="a-namehow-sync-worksahow-offline-synchronization-works"></a><a name="how-sync-works"></a>오프라인 동기화 작동 방법
+## <a name="how-sync-works"></a>오프라인 동기화 작동 방법
 동기화 테이블을 사용할 경우 클라이언트 코드는 로컬 변경이 Azure 모바일 앱 백 엔드와 동기화하는 시기를 제어합니다. 로컬 변경을 *푸시*하는 호출이 있을 때까지 백 엔드에 아무 것도 보내지 않습니다. 마찬가지로 로컬 저장소는 데이터 *끌어오기* 호출이 있을 때 새 데이터로 채워집니다
 
 * **푸시**: 푸시는 동기화 컨텍스트에 관한 작업이며 마지막 푸시 이후로 모든 CUD 변경을 보냅니다. 그렇지 않으면 작업이 잘못된 순서로 전송되기 때문에 개별 테이블의 변경 내용만을 보낼 수 없습니다. 푸시는 Azure 모바일 앱 백 엔드에 일련의 REST 호출을 실행하여 차례로 서버 데이터베이스를 수정합니다.

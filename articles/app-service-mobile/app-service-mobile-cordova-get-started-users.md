@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 모바일 앱을 사용하여 Google, Fa
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
 ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -26,12 +27,12 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 ## <a name="summary"></a>요약
 이 자습서에서는 지원되는 ID 공급자를 사용하여 Apache Cordova의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [Mobile Apps 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
+## <a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 이제 백 엔드에 대한 익명 액세스가 비활성화되었는지 확인할 수 있습니다. Visual Studio에서
@@ -42,7 +43,7 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 
 다음으로 앱을 업데이트하여 모바일 앱 백 엔드에서 리소스를 요청하기 전에 사용자를 인증하도록 합니다.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>앱에 인증 추가
+## <a name="add-authentication"></a>앱에 인증 추가
 1. **Visual Studio**에서 프로젝트를 연 다음 편집을 위해 `www/index.html` 파일을 엽니다.
 2. 헤드 섹션에서 `Content-Security-Policy` META 태그를 찾습니다.  허용된 원본 목록에 OAuth 호스트를 추가합니다.
 
@@ -92,7 +93,7 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 4. 방금 추가한 코드에서 `SDK_Provider_Name` 를 로그인 공급자 이름으로 바꿉니다. 예를 들어 Azure Active Directory의 경우 `client.login('aad')`를 사용합니다.
 5. 프로젝트를 실행합니다.  프로젝트 초기화가 완료되면 응용 프로그램에서 선택한 인증 공급자에 대한 OAuth 로그인 페이지를 표시합니다.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * Azure 앱 서비스의 [인증 정보] 에 대해 자세히 알아봅니다.
 * [푸시 알림] 을 Apache Cordova 앱에 추가하여 자습서를 계속합니다.
 
@@ -110,9 +111,4 @@ SDK 사용 방법을 알아봅니다.
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

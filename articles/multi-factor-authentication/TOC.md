@@ -1,6 +1,7 @@
 # 개요
 ## [Azure Multi-Factor Authentication 정의](multi-factor-authentication.md)
 ## [작동 방법](multi-factor-authentication-how-it-works.md)
+## [Azure MFA를 가져오는 방법](multi-factor-authentication-versions-plans.md)
 
 # 시작
 ## [배포할 위치 선택](multi-factor-authentication-get-started.md)
@@ -20,6 +21,7 @@
 #### [고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows 인증](multi-factor-authentication-get-started-server-windows.md)
+#### [MFA 서버 업그레이드](multi-factor-authentication-server-upgrade.md)
 #### [PhoneFactor에서 업그레이드](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## 사용자 관리
@@ -45,8 +47,3 @@
 ## 문제 해결
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [질문하기](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

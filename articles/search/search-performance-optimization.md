@@ -17,6 +17,7 @@ ms.author: liamca
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 9024c47e7d483129d66105012e0d67cfa9700cb9
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -113,9 +114,4 @@ STA는 해당 Azure 검색 관점에서 대기 시간 속도를 이해하는 중
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

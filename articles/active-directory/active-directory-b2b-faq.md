@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -41,9 +41,6 @@ B2B 초대 API를 사용하여 거의 모든 초대자 프로세스를 사용자
 
 ### <a name="can-the-invited-external-user-leave-the-organization-to-which-he-was-invited"></a>초대된 외부 사용자가 자신을 초대한 조직을 떠날 수 있습니까?
 현재 이 공개 미리 보기 새로 고침에서는 사용할 수 없습니다.
-
-### <a name="can-i-use-my-microsoft-account-johncontosomicrosoftacctcom-to-sign-in-to-resources"></a>내 Microsoft 계정(John@contosomicrosoftacct.com)을 사용하여 리소스에 로그인할 수 있습니까?
-이 공개 미리 보기 새로 고침에서는 Microsoft 계정을 사용할 수 없습니다. 표준이 아닌 Microsoft 계정 접미사(예: @contoso.com),과 같은 회사 메일의 경우)를 사용하는 경우 Azure Active Directory 테넌트를 만들어 사용하면 됩니다.
 
 ### <a name="now-that-multi-factor-authentication-mfa-is-available-for-guest-users-can-they-also-reset-their-mfa-method"></a>이제 게스트 사용자가 MFA(Multi-Factor Authentication)를 사용할 수 있으므로 MFA 메서드도 다시 설정할 수 있습니까?
 예, 일반 사용자가 설정할 수 있는 방법과 동일합니다.
