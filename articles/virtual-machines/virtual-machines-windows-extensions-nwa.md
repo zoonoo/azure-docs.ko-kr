@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 translationtype: Human Translation
-ms.sourcegitcommit: 2de3e6d205dd126e1c3d9606ea1419669056d7f1
-ms.openlocfilehash: 51c6801fe99060b3f1f36dbf675b55b56d465e59
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: e6aedc1fae5d05d841e5af2f250fe17061ed6f0a
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -38,7 +38,7 @@ Windows용 Network Watcher 에이전트 확장은 Windows Server 2008 R2, 2012, 
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-일부 Network Watcher 에이전트 기능에서는 대상 가상 컴퓨터를 인터넷에 연결해야 합니다. 일부 Network Watcher 에이전트 기능에 나가는 연결을 설정하는 기능이 없는 경우 오작동하거나 사용할 수 없게 됩니다. 자세한 내용은 [Network Watcher 설명서](https://review.docs.microsoft.com/en-us/azure/network-watcher/)를 참조하세요.
+일부 Network Watcher 에이전트 기능에서는 대상 가상 컴퓨터를 인터넷에 연결해야 합니다. 일부 Network Watcher 에이전트 기능에 나가는 연결을 설정하는 기능이 없는 경우 오작동하거나 사용할 수 없게 됩니다. 자세한 내용은 [Network Watcher 설명서](../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 
