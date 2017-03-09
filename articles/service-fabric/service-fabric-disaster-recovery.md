@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/01/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 6dc2a6dbf4b26363f1ad714baec8d48045aa97b6
-ms.openlocfilehash: 81d818afb1a15db646a20b4001493d9df7e24d27
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 73f5413fb7dd0ca179bf5012478a453963e996a1
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -36,12 +37,12 @@ Azure에서 서비스 패브릭 클러스터를 만들 때 호스트될 지역�
 ![노드는 서비스 패브릭 탐색기에서 장애 도메인에 분산됩니다.][sfx-cluster-map]
 
 > [!NOTE]
-> 클러스터 맵의 른 축에서는 계획된 유지 관리 작업에 따라 노드를 논리적으로 그룹화하는 업그레이드 도메인을 보여줍니다. Azure의 서비스 패브릭 클러스터는 항상 5개의 업그레이드 도메인에 걸쳐 레이아웃됩니다.
+> 클러스터 맵의 른 축에서는 계획된 유지 관리 작업에 따라 노드를 논리적으로 그룹화하는 업그레이드 도메인을 보여줍니다. Azure의 서비스 패브릭 클러스터는 항상&5;개의 업그레이드 도메인에 걸쳐 레이아웃됩니다.
 > 
 > 
 
 ### <a name="geographic-distribution"></a>지리적 배포
-현재 [전 세계에 걸쳐 30개의 Azure 지역이 있으며][azure-regions] 추가로 여러 지역이 발표되었습니다. 개별 지역은 다른 요소 중에서 적합한 위치의 수요 및 가용성에 따라 하나 이상의 물리적 데이터 센터를 포함할 수 있습니다. 단, 여러 물리적 데이터 센터를 포함하는 지역이라도 클러스터의 VM이 해당하는 물리적 위치에 균일하게 분산된다는 보장은 없습니다. 실제로 현재 지정된 클러스터에 대한 모든 VM은 단일 물리적 사이트 내에서 프로비전됩니다.
+현재 [전 세계에 걸쳐&30;개의 Azure 지역이 있으며][azure-regions] 추가로 여러 지역이 발표되었습니다. 개별 지역은 다른 요소 중에서 적합한 위치의 수요 및 가용성에 따라 하나 이상의 물리적 데이터 센터를 포함할 수 있습니다. 단, 여러 물리적 데이터 센터를 포함하는 지역이라도 클러스터의 VM이 해당하는 물리적 위치에 균일하게 분산된다는 보장은 없습니다. 실제로 현재 지정된 클러스터에 대한 모든 VM은 단일 물리적 사이트 내에서 프로비전됩니다.
 
 ## <a name="dealing-with-failures"></a>오류 처리
 자체 해결 방법으로 각 클러스터에 영향을 줄 수 있는 오류의 몇 가지 유형이 있습니다. 해당 작업이 발생한 순서에 따라 살펴보도록 하겠습니다.
@@ -67,7 +68,7 @@ Azure에서 서비스 패브릭 클러스터를 만들 때 호스트될 지역�
 #### <a name="minimizing-the-risk-of-quorum-loss"></a>쿼럼 손실의 위험 최소화
 서비스에 대해 대상 복제본 세트 크기를 늘려 쿼럼 손실의 위험을 최소화할 수 있습니다. 한 번에 허용할 수 있는 사용할 수 있는 노드 수의 면에서 필요한 복제본의 수를 생각하는 것이 유용합니다. 나머지가 쓰기에 사용할 수 있는 반면 해당 응용 프로그램 또는 클러스터 업그레이드로 인해 하드웨어 오류 뿐만 아니라 노드를 일시적으로 사용할 수 없게 만들 수 있습니다.
 
-다음 예제에서는 프로덕션 서비스에 대한 최소 권장 수인 세 개의 MinReplicaSetSize를 서비스가 포함하도록 구성했다고 가정합니다. 세 개(한 개는 기본, 두 개는 보조)의 TargetReplicaSetSize를 사용하여 업그레이드 중에(두 개의 복제본 중지) 발생한 하드웨어 오류는 쿼럼 손실로 이어지고 서비스는 읽기 전용으로 설정됩니다. 또는 5개의 복제본이 있으면 나머지 두 개의 복제본이 여전히 최소 복제본 세트 내에서 쿼럼을 구성할 수 있기에 업그레이드 중에(세 개의 복제본 중지) 두 개의 오류가 발생해도 문제가 발생하지 않을 수 있습니다.
+다음 예제에서는 프로덕션 서비스에 대한 최소 권장 수인 세 개의 MinReplicaSetSize를 서비스가 포함하도록 구성했다고 가정합니다. 세 개(한 개는 기본, 두 개는 보조)의 TargetReplicaSetSize를 사용하여 업그레이드 중에(두 개의 복제본 중지) 발생한 하드웨어 오류는 쿼럼 손실로 이어지고 서비스는 읽기 전용으로 설정됩니다. 또는&5;개의 복제본이 있으면 나머지 두 개의 복제본이 여전히 최소 복제본 세트 내에서 쿼럼을 구성할 수 있기에 업그레이드 중에(세 개의 복제본 중지) 두 개의 오류가 발생해도 문제가 발생하지 않을 수 있습니다.
 
 ### <a name="data-center-outages-or-destruction"></a>데이터 센터 중단 또는 소멸
 드문 경우지만 실제 데이터 센터가 전원 또는 네트워크 연결의 손실로 인해 일시적으로 사용할 수 없게 될 수 있습니다. 이러한 경우에 서비스 패브릭 클러스터와 응용 프로그램은 마찬가지로 사용할 수 없게 되지만 데이터는 유지됩니다. Azure에서 실행 중인 클러스터의 경우 [Azure 상태 페이지][azure-status-dashboard]의 중단에 대한 업데이트를 확인할 수 있습니다.
@@ -94,6 +95,7 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
   * [가용성 검사 목록](../best-practices-availability-checklist.md)
   * [재해 복구 훈련 수행](../sql-database/sql-database-disaster-recovery-drills.md)
   * [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][dr-ha-guide]
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 <!-- External links -->
 
@@ -106,9 +108,4 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
