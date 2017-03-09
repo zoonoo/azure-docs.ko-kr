@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
+ms.date: 03/08/2017
 ms.author: chackdan
 translationtype: Human Translation
 ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
 ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -71,10 +72,5 @@ Azure에서 서비스 패브릭 클러스터를 실행하면 온-프레미스 �
 * Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 * Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

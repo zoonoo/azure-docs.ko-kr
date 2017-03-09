@@ -4,7 +4,7 @@ description: "Azure Mobile Apps에 v를 사용하는 방법"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/07/2017
 
 패키지는 범용 JavaScript 모듈로 배포되므로 전역, AMD 및 CommonJS 서식을 지원합니다.
 
-## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>설정 및 필수 조건
+## <a name="Setup"></a>설정 및 필수 조건
 이 가이드에서는 테이블과 함께 백 엔드를 만들었다고 가정합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다.
 
 `npm` 명령을 통해 Azure Mobile Apps JavaScript SDK를 설치할 수 있습니다.
@@ -57,14 +57,14 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>방법: 사용자 인증
+## <a name="auth"></a>방법: 사용자 인증
 Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하세요.
 
 두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 심도 깊은 통합이 가능합니다.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
+### <a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
 여러 가지 유형의 JavaScript 응용 프로그램은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  이러한 기능은 다음과 같습니다.
 
 * 로컬로 서비스 실행

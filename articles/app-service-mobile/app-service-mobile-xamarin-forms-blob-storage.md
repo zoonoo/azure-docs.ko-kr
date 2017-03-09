@@ -3,7 +3,7 @@ title: "Xamarin.Forms 앱에서 Azure 저장소에 연결"
 description: "Azure Blob 저장소에 연결하여 할 일 목록 Xamarin.Forms 모바일 앱에 이미지를 추가합니다."
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: bb1a1437-0a31-46bb-9237-1b692b0ede21
@@ -54,7 +54,7 @@ Azure 저장소의 SAS 토큰에 대한 요청에 응답하는 서버 프로젝�
 * [저장소 컨트롤러에서 등록된 경로](#routes-registered)
 * [클라이언트 및 서버 통신](#client-communication)
 
-### <a name="a-nameadd-controller-codeaadd-a-storage-controller-to-your-server-project"></a><a name="add-controller-code"></a>서버 프로젝트에 저장소 컨트롤러를 추가합니다.
+### <a name="add-controller-code"></a>서버 프로젝트에 저장소 컨트롤러를 추가합니다.
 1. Visual Studio에서 .NET 서버 프로젝트를 엽니다. NuGet 패키지 [Microsoft.Azure.Mobile.Server.Files]를 추가합니다. **시험판 포함**을 선택하도록 합니다.
 2. Visual Studio에서 .NET 서버 프로젝트를 엽니다. **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** -> **컨트롤러** -> **Web API 2 컨트롤러 - 비어 있음**을 선택합니다. 컨트롤러 이름을 `TodoItemStorageController`로 지정합니다.
 3. 다음 using 명령문을 추가합니다.
@@ -96,7 +96,7 @@ Azure 저장소의 SAS 토큰에 대한 요청에 응답하는 서버 프로젝�
         config.MapHttpAttributeRoutes();
 7. 서버 프로젝트를 모바일 앱 백 엔드에 게시합니다.
 
-### <a name="a-nameroutes-registeredaroutes-registered-by-the-storage-controller"></a><a name="routes-registered"></a>저장소 컨트롤러에서 등록된 경로
+### <a name="routes-registered"></a>저장소 컨트롤러에서 등록된 경로
 새 `TodoItemStorageController` 는 관리하는 레코드에서 두 개의 하위 리소스를 노출합니다.
 
 * StorageToken
@@ -113,7 +113,7 @@ Azure 저장소의 SAS 토큰에 대한 요청에 응답하는 서버 프로젝�
     
       `/tables/TodoItem/{id}/MobileServiceFiles/{fileid}`
 
-### <a name="a-nameclient-communicationaclient-and-server-communication"></a><a name="client-communication"></a>클라이언트 및 서버 통신
+### <a name="client-communication"></a>클라이언트 및 서버 통신
 `TodoItemStorageController` 에는 Blob을 업로드하거나 다운로드할 경로가 *없습니다* . 우선 SAS 토큰(공유 액세스 서명)을 안전하게 특정 Blob 또는 컨테이너에 액세스하도록 가져온 후에 모바일 클라이언트가 작업을 수행하기 위해 Blob 저장소와 *직접* 상호 작용하기 때문입니다. 그렇지 않으면 저장소에 대한 액세스는 모바일 백 엔드의 확장성 및 가용성에 의해 제한될 것이기에 중요한 아키텍처 설계입니다. 대신 직접 Azure 저장소에 연결하여 모바일 클라이언트가 자동 분할 및 지역 배포 등의 기능을 활용할 수 있습니다.
 
 공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. 자세한 내용은 [공유 액세스 서명 이해]를 참조하세요.
@@ -139,7 +139,7 @@ Visual Studio 또는 Xamarin Studio에서 Xamarin.Forms 빠른 시작 프로젝�
 > 
 > 
 
-### <a name="a-nameadd-nugetaadd-nuget-packages"></a><a name="add-nuget"></a>NuGet 패키지 추가
+### <a name="add-nuget"></a>NuGet 패키지 추가
 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리**를 선택합니다. 다음 NuGet 패키지를 솔루션의 **모든** 프로젝트에 추가합니다. **시험판 포함**을 선택하도록 합니다.
 
 * [Microsoft.Azure.Mobile.Client.Files]
@@ -150,7 +150,7 @@ Visual Studio 또는 Xamarin Studio에서 Xamarin.Forms 빠른 시작 프로젝�
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
-### <a name="a-nameadd-iplatformaadd-iplatform-interface"></a><a name="add-iplatform"></a>IPlatform 인터페이스 추가
+### <a name="add-iplatform"></a>IPlatform 인터페이스 추가
 기본 이식 가능한 라이브러리 프로젝트에 새 인터페이스 `IPlatform` 를 만듭니다. 이 작업은 [Xamarin.Forms DependencyService] 패턴을 수행하여 런타임 시 오른쪽 플랫폼 관련 클래스를 로드합니다. 나중에 각 클라이언트 프로젝트에 플랫폼 특정 구현을 추가합니다.
 
 1. 다음 using 명령문을 추가합니다.
@@ -171,7 +171,7 @@ Visual Studio 또는 Xamarin Studio에서 Xamarin.Forms 빠른 시작 프로젝�
             Task DownloadFileAsync<T>(IMobileServiceSyncTable<T> table, MobileServiceFile file, string filename);
         }
 
-### <a name="a-nameadd-filehelperaadd-filehelper-class"></a><a name="add-filehelper"></a>FileHelper 클래스 추가
+### <a name="add-filehelper"></a>FileHelper 클래스 추가
 1. 기본 이식 가능한 라이브러리 프로젝트에 새 클래스 `FileHelper` 를 만듭니다. 다음 using 명령문을 추가합니다.
    
         using System.IO;
@@ -227,7 +227,7 @@ Visual Studio 또는 Xamarin Studio에서 Xamarin.Forms 빠른 시작 프로젝�
             }
         }
 
-### <a name="a-namefile-sync-handlera-add-a-file-sync-handler"></a><a name="file-sync-handler"></a> 파일 동기화 처리기를 추가합니다.
+### <a name="file-sync-handler"></a> 파일 동기화 처리기를 추가합니다.
 기본 이식 가능한 라이브러리 프로젝트에 새 클래스 `TodoItemFileSyncHandler` 를 만듭니다. 이 클래스는 파일을 추가 또는 제거하는 경우 Azure SDK에서 콜백을 포함하여 코드에 알립니다.
 
 Azure 모바일 클라이언트 SDK는 실제로 파일 데이터를 저장하지 않습니다. 클라이언트 SDK는 파일이 로컬 장치에 저장되는지 여부 및 방법을 차례로 결정하는 `IFileSyncHandler`의 구현을 호출합니다.
@@ -267,7 +267,7 @@ Azure 모바일 클라이언트 SDK는 실제로 파일 데이터를 저장하�
             }
         }
 
-### <a name="a-nameupdate-todoitemmanageraupdate-todoitemmanager"></a><a name="update-todoitemmanager"></a>TodoItemManager 업데이트
+### <a name="update-todoitemmanager"></a>TodoItemManager 업데이트
 1. **TodoItemManager.cs**에서 `#define OFFLINE_SYNC_ENABLED` 줄의 주석 처리를 제거합니다.
 2. **TodoItemManager.cs**에서 다음 using 문을 추가합니다.
    
@@ -313,7 +313,7 @@ Azure 모바일 클라이언트 SDK는 실제로 파일 데이터를 저장하�
             return await this.todoTable.GetFilesAsync(todoItem);
         }
 
-### <a name="a-nameadd-details-viewaadd-a-details-view"></a><a name="add-details-view"></a>세부 정보 보기 추가
+### <a name="add-details-view"></a>세부 정보 보기 추가
 이 섹션에서는 할 일 항목에 대한 새로운 세부 정보 보기를 추가합니다. 사용자가 할 일 항목을 선택하고 항목에 추가될 새 이미지를 허용하는 경우에 뷰가 생성됩니다.
 
 1. 새 클래스 **TodoItemImage** 를 다음 구현으로 이식 가능한 라이브러리 프로젝트에 추가합니다.
@@ -439,7 +439,7 @@ Azure 모바일 클라이언트 SDK는 실제로 파일 데이터를 저장하�
             }
         }
 
-### <a name="a-nameupdate-main-viewaupdate-the-main-view"></a><a name="update-main-view"></a>기본 보기 업데이트
+### <a name="update-main-view"></a>기본 보기 업데이트
 할 일 항목을 선택할 때 기본 보기를 업데이트하여 세부 정보 보기를 엽니다.
 
 **TodoList.xaml.cs**에서 `OnSelected`의 구현을 다음으로 바꿉니다.
@@ -457,7 +457,7 @@ Azure 모바일 클라이언트 SDK는 실제로 파일 데이터를 저장하�
         todoList.SelectedItem = null;
     }
 
-### <a name="a-nameupdate-androidaupdate-the-android-project"></a><a name="update-android"></a>Android 프로젝트 업데이트
+### <a name="update-android"></a>Android 프로젝트 업데이트
 새 이미지를 캡처하도록 파일을 다운로드하고 카메라를 사용하기 위한 코드를 포함하여 Android 프로젝트에 플랫폼 특정 코드를 추가합니다. 
 
 이 코드는 Xamarin.Forms [DependencyService](https://developer.xamarin.com/guides/xamarin-forms/dependency-service/) 를 사용하여 런타임 시 오른쪽 플랫폼 관련 클래스를 로드합니다.
@@ -526,7 +526,7 @@ Azure 모바일 클라이언트 SDK는 실제로 파일 데이터를 저장하�
    
         App.UIContext = this;
 
-### <a name="a-nameupdate-iosaupdate-the-ios-project"></a><a name="update-ios"></a>iOS 프로젝트 업데이트
+### <a name="update-ios"></a>iOS 프로젝트 업데이트
 iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 
 1. 구성 요소 **Xamarin.Mobile** 을 iOS 프로젝트에 추가합니다.
@@ -586,7 +586,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
         }
 3. **AppDelegate.cs**를 편집하고 `SQLitePCL.CurrentPlatform.Init()`에 대한 호출의 주석 처리를 제거합니다.
 
-### <a name="a-nameupdate-windowsaupdate-the-windows-project"></a><a name="update-windows"></a>Windows 프로젝트 업데이트
+### <a name="update-windows"></a>Windows 프로젝트 업데이트
 1. Visual Studio 확장 [Windows 8.1용 SQLite](http://go.microsoft.com/fwlink/?LinkID=716919)를 설치합니다. 
    자세한 내용은 [Windows 앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)자습서를 참조하세요. 
 2. **Package.appxmanifest**를 편집하고 **웹캠** 기능을 확인합니다.

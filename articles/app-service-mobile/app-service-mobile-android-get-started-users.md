@@ -4,7 +4,7 @@ description: "Azure App Service 기능의 Mobile Apps를 사용하여 Google, Fa
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
 ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -26,10 +27,10 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 ## <a name="summary"></a>요약
 이 자습서에서는 지원되는 ID 공급자를 사용하여 Android의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [모바일 앱 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>인증을 위한 앱 등록 및 Azure App Service 구성
+## <a name="register"></a>인증을 위한 앱 등록 및 Azure App Service 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 * Android Studio에서 [모바일 앱 시작] 자습서를 완료한 프로젝트를 엽니다. **실행** 메뉴에서 **앱 실행**을 클릭하여 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
@@ -41,7 +42,7 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 ## <a name="add-authentication-to-the-app"></a>앱에 인증 추가
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="a-namecache-tokensacache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>클라이언트에 인증 토큰 캐시
+## <a name="cache-tokens"></a>클라이언트에 인증 토큰 캐시
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>다음 단계
@@ -63,9 +64,4 @@ ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 
 <!-- URLs. -->
 [모바일 앱 시작]: app-service-mobile-android-get-started.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

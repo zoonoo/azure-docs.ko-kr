@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
 ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -84,7 +85,7 @@ ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
 
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -109,9 +110,4 @@ ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
