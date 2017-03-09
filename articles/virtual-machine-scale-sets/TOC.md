@@ -4,6 +4,7 @@
 # 시작
 ## [포털에 크기 집합 만들기](virtual-machine-scale-sets-portal-create.md)
 ## [Azure CLI를 사용하여 크기 집합 만들기](virtual-machine-scale-sets-linux-create-cli.md)
+## [Resource Manager 템플릿을 사용하여 크기 집합 만들기](virtual-machine-scale-sets-mvss-start.md)
 
 # 방법
 ## 계획 및 디자인
@@ -46,8 +47,3 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

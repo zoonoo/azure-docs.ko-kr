@@ -81,9 +81,10 @@
 #### [타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
 #### [이벤트](service-fabric-reliable-actors-events.md)
 #### [상태 관리](service-fabric-reliable-actors-state-management.md)
-#### [상태 제공자 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [KvsActorStateProvider 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [통신 설정 구성](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [ReliableDictionaryActorStateProvider 구성](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Cloud Services에서 마이그레이션
 ### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio 및 Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [클러스터 네트워킹 패턴](service-fabric-patterns-networking.md)
 #### [노드 유형 및 VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [클러스터의 크기 조정](service-fabric-cluster-scale-up-down.md)
 #### [클러스터 업그레이드](service-fabric-cluster-upgrade.md)
