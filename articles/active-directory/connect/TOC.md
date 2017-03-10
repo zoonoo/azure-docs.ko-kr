@@ -60,7 +60,8 @@
 ## 문제 해결
 ### [연결](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [동기화 중 오류](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [개체가 동기화되지 않음](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [암호 동기화](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # 참조
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

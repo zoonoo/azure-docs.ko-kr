@@ -3,7 +3,7 @@ title: "Azure Mobile App을 사용하여 Apache Cordova 앱에 푸시 알림 추
 description: "Azure 모바일 앱을 사용하여 Apache Cordova 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: javascript
-manager: erikre
+manager: adrianha
 editor: 
 author: ysxu
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
 ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용][1]을 참조하세요.
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 자습서는 Visual Studio 2015 내에서 개발되고 Google Android 에뮬레이터, Android 장치, Windows 장치 및 iOS 장치에서 실행되는 Apache Cordova 응용 프로그램을 다룹니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -41,7 +42,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 * (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 장치(iOS 시뮬레이터는 푸시를 지원하지 않음)
 * (Windows)[Windows 스토어 개발자 계정][8] 및 Windows 10 장치
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-hub"></a>알림 허브 구성
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 [이 섹션의 단계를 보여 주는 비디오 시청][9]
@@ -49,7 +50,7 @@ ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
 ## <a name="update-the-server-project"></a>서버 프로젝트 업데이트
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="a-nameadd-push-to-appamodify-your-cordova-app"></a><a name="add-push-to-app"></a>Cordova 앱 수정
+## <a name="add-push-to-app"></a>Cordova 앱 수정
 Apache Cordova 앱 프로젝트가 Cordova 푸시 플러그 인 및 플랫폼별 푸시 서비스를 설치하여 푸시 알림을 처리할 준비가 되었는지 확인합니다.
 
 #### <a name="update-the-cordova-version-in-your-project"></a>프로젝트에서 Cordova 버전을 업데이트합니다.
@@ -160,12 +161,12 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(선택 사항) Android에서 앱 구성 및 실행
 이 섹션을 완료하여 Android에 대한 푸시 알림을 사용하도록 설정합니다.
 
-#### <a name="a-nameenable-gcmaenable-firebase-cloud-messaging"></a><a name="enable-gcm"></a>Firebase Cloud Messaging 사용
+#### <a name="enable-gcm"></a>Firebase Cloud Messaging 사용
 처음에는 Google Android 플랫폼을 대상으로 하므로 Firebase Cloud Messaging을 사용하도록 설정해야 합니다.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="a-nameconfigure-backendaconfigure-the-mobile-app-backend-to-send-push-requests-using-fcm"></a><a name="configure-backend"></a>FCM을 사용하여 푸시 요청을 보내도록 모바일 앱 백 엔드 구성
+#### <a name="configure-backend"></a>FCM을 사용하여 푸시 요청을 보내도록 모바일 앱 백 엔드 구성
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 #### <a name="configure-your-cordova-app-for-android"></a>Android용 Cordova 앱 구성
@@ -183,7 +184,7 @@ Index.js를 열고 숫자 프로젝트 ID를 사용하도록 코드를 업데이
             wns: {}
         });
 
-#### <a name="a-nameconfigure-deviceaconfigure-your-android-device-for-usb-debugging"></a><a name="configure-device"></a>USB 디버깅을 위해 Android 장치 구성
+#### <a name="configure-device"></a>USB 디버깅을 위해 Android 장치 구성
 Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을 사용하도록 설정해야 합니다.  Android 휴대폰에서 다음 단계를 수행합니다.
 
 1. **설정** > **전화 정보**로 이동한 다음 개발자 모드가 사용하도록 설정될 때까지 **빌드 번호**를 누릅니다(약 7회).
@@ -327,7 +328,7 @@ Visual Studio에서 Windows 플랫폼이 배포 대상(예: **Windows-x64** 또�
 
 항목이 추가될 때 알림을 받았는지 확인합니다.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * 푸시 알림에 대한 자세한 내용은 [Notification Hubs][17]를 참조하세요.
 * 아직 Apache Cordova 앱에 [인증을 추가][14]하지 않은 경우 추가하여 자습서를 계속합니다.
 
@@ -362,9 +363,4 @@ SDK 사용 방법을 알아봅니다.
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
 [21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

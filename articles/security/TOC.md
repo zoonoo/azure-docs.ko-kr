@@ -9,13 +9,13 @@
 ### [데이터 보안 및 암호화 모범 사례](azure-security-data-encryption-best-practices.md)
 ### [저장소 보안 지침](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [보안 계산](security-virtual-machines-overview.md)
+### [Azure VM에 대한 모범 사례](azure-security-best-practices-vms.md)
 ### [IaaS 워크로드에 대한 모범 사례 ](azure-security-iaas.md)
 ### [Microsoft 맬웨어 방지](azure-security-antimalware.md)
 ### [디스크 암호화](azure-security-disk-encryption.md)
 ### [Azure VM 암호화](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [보안 관리 및 모니터링](security-management-and-monitoring-overview.md)
 ### [보안 관리](azure-security-management.md)
-### [IaaS의 소프트웨어 업데이트 모범 사례](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Azure 로그 통합](security-azure-log-integration-overview.md)
 #### [시작](security-azure-log-integration-get-started.md)
@@ -63,8 +63,3 @@
 ###[유효성 검사 입력](azure-security-threat-modeling-tool-input-validation.md)
 ###[중요 데이터](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[세션 관리](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

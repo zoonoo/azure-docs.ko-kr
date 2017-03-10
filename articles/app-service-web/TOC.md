@@ -264,6 +264,7 @@
 
 # 관련 항목
 ## [Azure SDK for .NET 릴리스 정보](azure-sdk-dotnet-release-notes.md)
+### [3.0 릴리스](azure-sdk-dotnet-release-notes-3-0.md)
 ### [2.9 릴리스](azure-sdk-dotnet-release-notes-2-9.md)
 ### [2.8.X 릴리스](azure-sdk-dotnet-release-notes-2-8.md)
 ### [2.7.X 릴리스](azure-sdk-dotnet-release-notes-2-7.md)

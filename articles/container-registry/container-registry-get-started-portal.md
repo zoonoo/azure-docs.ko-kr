@@ -1,28 +1,7 @@
 ---
-title: "Azure 컨테이너 레지스트리 만들기 - 포털 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure 컨테이너 레지스트리 만들기 및 관리 시작"
-services: container-registry
-documentationcenter: 
-author: stevelas
-manager: balans
-editor: dlepow
-tags: 
-keywords: 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
-ms.service: container-registry
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2016
-ms.author: stevelas
-translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+title: Azure 컨테이너 레지스트리 만들기 - 포털 | Microsoft Docs description: Azure Portal 서비스를 사용하여 Azure 컨테이너 레지스트리를 만들고 관리하기 시작: container-registry documentationcenter: '' author: stevelas manager: balans editor: dlepow tags: ''keywords: ''
 
----
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 컨테이너 레지스트리 만들기
-Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure CLI 2.0 미리 보기 명령](container-registry-get-started-azure-cli.md)을 사용하여 또는 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)를 사용하여 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry ms.devlang: na ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: na ms.date: 11/14/2016 ms.author: stevelas ---#Azure Portal을 사용하여 컨테이너 레지스트리 만들기. Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 해당 설정을 관리합니다. [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md)을 사용하거나 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)에서 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
 
 백그라운드 및 개념은 [Azure Container Registry란?](container-registry-intro.md)을 참조하세요.
 
@@ -52,7 +31,9 @@ Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 설정을
    > [!IMPORTANT]
    > 관리 사용자 계정을 통해 액세스를 제공하는 것 외에, 컨테이너 레지스트리는 Azure Active Directory 서비스 주체에 의해 지원되는 인증을 지원합니다. 자세한 내용 및 고려 사항은 [컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
    
-    e. **저장소 계정** - 기본 설정을 사용하여 [저장소 계정](../storage/storage-introduction.md)을 만들거나 동일한 위치에서 기존 저장소 계정을 선택합니다. 프리미엄 및 기본 저장소 계정은 지원되지 않습니다.
+
+    e. **저장소 계정** - 기본 설정을 사용하여 [저장소 계정](../storage/storage-introduction.md)을 만들거나 동일한 위치에서 기존 저장소 계정을 선택합니다. Premium Storage는 현재 지원되지 않습니다.
+
 
 ## <a name="manage-registry-settings"></a>레지스트리 설정 관리
 레지스트리를 만든 후 포털의 **Container Registry** 블레이드를 시작하여 레지스트리 설정을 찾습니다. 예를 들어 레지스트리에 로그인하기 위해 설정이 필요하거나 관리 사용자를 사용하거나 사용하지 않도록 설정할 수 있습니다.
@@ -72,11 +53,5 @@ Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 설정을
 ## <a name="next-steps"></a>다음 단계
 * [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
 
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

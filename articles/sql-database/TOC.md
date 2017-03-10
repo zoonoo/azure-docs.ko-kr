@@ -58,33 +58,37 @@
 ## 데이터 마이그레이션 및 이동
 ### 유용한 정보
 #### [데이터베이스 마이그레이션](sql-database-cloud-migrate.md)
-#### [트랜잭션 복제](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [데이터베이스 내보내기](sql-database-export.md)
 #### [데이터 동기화](sql-database-get-started-sql-data-sync.md)
 #### [SQL 데이터베이스 복사](sql-database-copy.md)
 ## 방화벽 규칙, 인증 및 권한 부여
 ### 유용한 정보
 #### [액세스 제어](sql-database-control-access.md)
-#### [방화벽](sql-database-firewall-configure.md)
+#### [방화벽 규칙](sql-database-firewall-configure.md)
 #### [로그인 관리](sql-database-manage-logins.md)
+#### [Azure AD 인증](sql-database-aad-authentication.md)
+#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### 실행 사항
 #### [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)
 #### [Azure AD 인증 및 권한 부여](sql-database-control-access-aad-authentication-get-started.md)
 ## 데이터 보안 및 보호
 ### 유용한 정보
 #### 감사
-##### [감사](sql-database-auditing-get-started.md)
+##### [감사](sql-database-auditing.md)
 ##### [하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [위협 감지](sql-database-threat-detection-get-started.md)
+#### [위협 감지](sql-database-threat-detection.md)
 #### 데이터 암호화
-##### [Azure 키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md)
 ##### [투명한 데이터 암호화](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [열 암호화](https://msdn.microsoft.com/library/azure/ms179331)
 #### 데이터 마스킹
-##### 동적 데이터 마스킹
-###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+##### [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)
 ### 실행 사항
-#### [Azure Portal을 사용하여 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)
-##### [Windows 인증서 저장소를 사용하여 항상 암호화](sql-database-always-encrypted.md)
+#### [Azure Portal을 사용하여 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Azure Portal을 사용하여 감사 구성](sql-database-auditing-portal.md)
+#### [PowerShell을 사용하여 감사 구성](sql-database-auditing-powershell.md)
+#### [REST API를 사용하여 감사 구성](sql-database-auditing-rest.md)
+#### [Windows 인증서를 사용하여 항상 암호화](sql-database-always-encrypted.md)
+#### [Azure Key Vault를 사용하여 항상 암호화](sql-database-always-encrypted-azure-key-vault.md)
 ## 비즈니스 연속성
 ### 유용한 정보
 #### [개요](sql-database-business-continuity.md)
@@ -100,7 +104,7 @@
 #### [재해 복구 훈련 수행](sql-database-disaster-recovery-drills.md)
 #### [활성 지역 복제 개요](sql-database-geo-replication-overview.md)
 ### 실행 사항
-#### [Azure Portal: 백업 및 복원](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: 백업 및 복원](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: 백업 및 복원](sql-database-get-started-backup-recovery-powershell.md)
 ## 앱 개발
 ### 유용한 정보
@@ -157,67 +161,55 @@
 #### [Powershell을 사용하여 업그레이드](sql-database-upgrade-server-powershell.md)
 # 방법
 ## 만들기 및 관리
-### [Azure Portal을 사용하여 SQL Database 관리](sql-database-manage-portal.md)
-### [PowerShell을 사용하여 SQL Database 관리](sql-database-manage-powershell.md)
-### [SSMS를 사용하여 SQL Database 관리](sql-database-manage-azure-ssms.md)
+### [Azure Portal을 사용하여 관리](sql-database-manage-portal.md)
+### [Powershell을 사용하여 관리](sql-database-manage-powershell.md)
+### [SSMS를 사용하여 관리](sql-database-manage-azure-ssms.md)
 ### 서버
-#### [서버 만들기](sql-database-create-servers.md)
-#### [서버 설정 확인 또는 업데이트](sql-database-view-update-server-settings.md)
+#### [Azure Portal을 사용하여 관리](sql-database-manage-servers-portal.md)
+#### [Powershell을 사용하여 관리](sql-database-manage-servers-powershell.md)
 ### 단일 데이터베이스
-#### [단일 데이터베이스 만들기](sql-database-create-databases.md)
-#### [데이터베이스 설정 확인 또는 업데이트](sql-database-view-update-database-settings.md)
+#### [Azure Portal을 사용하여 관리](sql-database-manage-single-databases-portal.md)
+#### [Powershell을 사용하여 관리](sql-database-manage-single-databases-powershell.md)
+#### [Transact-SQL을 사용하여 관리](sql-database-manage-single-databases-tsql.md)
 ### 방화벽 규칙
-#### [Azure Portal을 사용하여 방화벽 규칙 만들기](sql-database-configure-firewall-settings.md)
-#### [PowerShell을 사용하여 방화벽 규칙 만들기](sql-database-configure-firewall-settings-powershell.md)
-#### [REST API를 사용하여 방화벽 규칙 만들기](sql-database-configure-firewall-settings-rest.md)
-#### [T-SQL을 사용하여 방화벽 규칙 만들기](sql-database-configure-firewall-settings-tsql.md)
+#### [Azure Portal을 사용하여 만들기](sql-database-configure-firewall-settings.md)
+#### [PowerShell을 사용하여 만들기](sql-database-configure-firewall-settings-powershell.md)
+#### [REST API를 사용하여 만들기](sql-database-configure-firewall-settings-rest.md)
+#### [T-SQL을 사용하여 만들기](sql-database-configure-firewall-settings-tsql.md)
 ### 여러 데이터베이스
 #### [클라이언트 응용 프로그램에서 클라이언트 라이브러리 업그레이드](sql-database-elastic-scale-upgrade-client-library.md)
 #### 분할된 데이터베이스
 ##### [보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md)
 ##### [분할된 데이터베이스 맵 문제 해결](sql-database-elastic-database-recovery-manager.md)
-##### [기존 확장된 데이터베이스를 분할된 데이터베이스로 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [분할된 데이터베이스로 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [분할된 맵 관리자에 대한 성능 카운터 만들기](sql-database-elastic-database-perf-counters.md)
 #### 탄력적 작업
-##### [탄력적 작업 서비스를 설치하려면 어떻게 해야 하나요?](sql-database-elastic-jobs-service-installation.md)
-##### [PowerShell을 사용하여 탄력적 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md) 
-##### [Azure Portal을 사용하여 탄력적 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)
-##### [탄력적 작업을 제거하려면 어떻게 해야 하나요?](sql-database-elastic-jobs-uninstall.md)
+##### [설치 방법](sql-database-elastic-jobs-service-installation.md)
+##### [Powershell을 사용하여 관리](sql-database-elastic-jobs-powershell.md) 
+##### [Azure Portal을 사용하여 관리](sql-database-elastic-jobs-create-and-manage.md)
+##### [제거 방법](sql-database-elastic-jobs-uninstall.md)
 #### 탄력적 풀
-##### [Azure Portal을 사용하여 만들기](sql-database-elastic-pool-create-portal.md)
-##### [PowerShell을 사용하여 만들기](sql-database-elastic-pool-create-powershell.md)
-##### [C#을 사용하여 만들기](sql-database-elastic-pool-create-csharp.md)
 ##### [Azure Portal을 사용하여 관리](sql-database-elastic-pool-manage-portal.md)
 ##### [Powershell을 사용하여 관리](sql-database-elastic-pool-manage-powershell.md)
 ##### [C#을 사용하여 관리](sql-database-elastic-pool-manage-csharp.md)
 ##### [T-SQL을 사용하여 관리](sql-database-elastic-pool-manage-tsql.md)
-##  인증 및 권한 부여
-### [Azure AD 인증](sql-database-aad-authentication.md)
-### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+## 인증 및 권한 부여
+### [Azure AD 인증 구성](sql-database-aad-authentication-configure.md)
+### [Multi-Factor Authentication 구성](sql-database-ssms-mfa-authentication-configure.md)
+## 위협 감지 구성
+### [Azure Portal을 사용하여 위협 감지 구성](sql-database-threat-detection-portal.md)
 ## 데이터 암호화
 ### [투명한 데이터 암호화](https://msdn.microsoft.com/library/azure/dn948096)
 ### [열 암호화](https://msdn.microsoft.com/library/azure/ms179331)
-## 데이터베이스 마이그레이션
-### 호환성 확인
-#### [SQL 패키지 유틸리티를 사용하여 호환성 확인](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [SSMS를 사용하여 호환성 확인](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### 호환성 문제 해결
-#### [SSDT를 사용하여 호환성 문제 해결](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [SSMS를 사용하여 호환성 문제 해결](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [SMW를 사용하여 호환성 문제 해결](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [SSMS 마이그레이션 마법사를 사용하여 마이그레이션](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## 모니터링 및 튜닝
 ### [Query Performance Insight](sql-database-query-performance.md)
 ### [SQL Database 관리자](sql-database-advisor-portal.md)
 ### [DMV](sql-database-monitoring-with-dmvs.md)
 ### [호환성 수준](sql-database-compatibility-level-query-performance-130.md)
 ### [성능 튜닝 팁](sql-database-troubleshoot-performance.md)
-### 서비스 계층 및 성능 수준 변경
-#### [Azure Portal을 사용하여 서비스 계층 변경](sql-database-scale-up.md)
-#### [PowerShell을 사용하여 서비스 계층 변경](sql-database-scale-up-powershell.md)
 ### [경고 만들기](sql-database-insights-alerts-portal.md)
-#### [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)
+### [메모리 내 OLTP 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md)
 ### 쿼리 저장소
 #### [쿼리 저장소를 사용한 성능 모니터링](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [쿼리 저장소 사용 시나리오](https://msdn.microsoft.com/library/mt614796.aspx)
@@ -231,31 +223,30 @@
 #### [PowerShell을 사용하여 복사](sql-database-copy-powershell.md)
 #### [T-SQL을 사용하여 복사](sql-database-copy-transact-sql.md)
 ### 데이터베이스를 BACPAC 파일로 내보내기
-#### [Azure Portal을 사용하여 내보내기](sql-database-export.md)
-#### [SSMS를 사용하여 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [SQL 패키지 유틸리티를 사용하여 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Azure Portal을 사용하여 내보내기](sql-database-export-portal.md)
+#### [SQL 패키지 유틸리티를 사용하여 내보내기](sql-database-export-sqlpackage.md)
 #### [PowerShell을 사용하여 내보내기](sql-database-export-powershell.md)
-### 데이터베이스를 BACPAC 파일에서 가져오기
-#### [Azure Portal을 사용하여 가져오기](sql-database-import.md)
-#### [PowerShell을 사용하여 가져오기](sql-database-import-powershell.md)
-#### [SSMS를 사용하여 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [SQL 패키지 유틸리티를 사용하여 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [SSMS를 사용하여 내보내기](sql-database-export-ssms.md)
+## 데이터 가져오기
+### [Azure Portal을 사용하여 가져오기](sql-database-import-portal.md)
+### [PowerShell을 사용하여 가져오기](sql-database-import-powershell.md)
+### [SQLPackage를 사용하여 가져오기](sql-database-import-sqlpackage.md)
 ### [BCP를 사용하여 CSV 파일에서 로드](sql-database-load-from-csv-with-bcp.md)
 ## 쿼리
 ### [SSMS를 사용하여 쿼리](sql-database-connect-query-ssms.md)
 ## 백업 및 복원
 ### 장기 백업 보존
-#### [장기 백업 보존 구성](sql-database-configure-long-term-retention.md)
-#### [Recovery Services 자격 증명 모음에서 백업 확인](sql-database-view-backups-in-vault.md)
-#### [장기 백업 보존에서 복원](sql-database-restore-from-long-term-retention.md)
-#### [장기 백업 보존 삭제](sql-database-long-term-retention-delete.md)
+#### [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-portal.md)
+#### [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)
 ### 삭제된 데이터베이스 복원
 #### [Azure Portal을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-portal.md)
 #### [PowerShell을 사용하여 삭제된 데이터베이스 복원](sql-database-restore-deleted-database-powershell.md)
-### 특정 시점 복원
-#### [지정 시간으로 복원](sql-database-point-in-time-restore.md)
-#### [가장 오래된 복원 지점 확인](sql-database-view-oldest-restore-point.md)
-### [지역 중복 백업에서 복원](sql-database-geo-restore.md)
+### 지정 시간 데이터베이스 복원
+#### [Azure Portal을 사용하여 특정 시점 복원](sql-database-point-in-time-restore-portal.md)
+#### [PowerShell을 사용하여 특정 시점 데이터베이스 복원](sql-database-point-in-time-restore-powershell.md)
+### 지역 중복 백업에서 복원
+### [Azure Portal을 사용한 지역 복원](sql-database-geo-restore-portal.md)
+### [PowerShell을 사용한 지역 복원](sql-database-geo-restore-powershell.md)
 ## 활성 지역 복제
 ### [Azure Portal을 사용한 구성](sql-database-geo-replication-portal.md)
 ### [PowerShell을 사용한 구성](sql-database-geo-replication-powershell.md)

@@ -4,7 +4,7 @@ description: "Azure 모바일 앱에 대한 인증/권한 부여 기능의 개�
 services: app-service\mobile
 documentationcenter: 
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
@@ -17,11 +17,12 @@ ms.author: mahender
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Azure 모바일 앱의 인증 및 권한 부여
-## <a name="what-is-app-service-authentication-authorization"></a>앱 서비스 인증/권한 부여란?
+## <a name="what-is-app-service-authentication--authorization"></a>앱 서비스 인증/권한 부여란?
 > [!NOTE]
 > 이 항목은 웹, 모바일 및 API 앱을 다루는 통합된 [앱 서비스 인증/권한 부여](../app-service/app-service-authentication-overview.md) 항목으로 마이그레이션됩니다.
 > 
@@ -106,9 +107,4 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 [Google 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-google-authentication.md
 [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

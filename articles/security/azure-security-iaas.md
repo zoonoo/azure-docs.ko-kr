@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 03/06/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
-ms.openlocfilehash: 8416de09a4a3c2cdf9c73b9f79e8df9e292514ca
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 774feff39bee6f34b1fb292f130d8240ec070c81
+ms.lasthandoff: 03/07/2017
 
 
 
@@ -194,8 +194,6 @@ Windows 10 1주년 업데이트 및 Windows Server 2016을 포함하여 지원�
 ![Azure 맬웨어 방지](./media/azure-security-iaas/azantimalware.png)
 
 **최신 보안 업데이트 설치** 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. 인터넷에 액세스할 수 있어야 하는 응용 프로그램 또는 서비스를 호스트하는 가상 컴퓨터를 Azure에 호스트하는 경우 패치 적용에 유의해야 합니다. 이 과정은 운영 체제를 패치하는 경우를 벗어납니다. 타사 응용 프로그램의 취약점을 패치하지 않을 경우 적절한 패치 관리가 진행되어도 쉽게 우회할 수 있는 문제가 야기될 수도 있습니다.
-
-Azure IaaS에서 패치를 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례](azure-security-best-practices-software-updates-iaas.md)를 참조하세요.
 
 **백업 솔루션 배포 및 테스트**
 
