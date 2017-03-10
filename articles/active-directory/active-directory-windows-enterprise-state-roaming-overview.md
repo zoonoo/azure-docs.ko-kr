@@ -4,7 +4,7 @@ description: "Windows 장치의 엔터프라이즈 상태 로밍 설정에 대�
 services: active-directory
 keywords: "엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0

@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/09/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
 ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -61,9 +62,4 @@ Azure AD ID 보호가 계정이 손상되었다고 식별하는 경우 사용자
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

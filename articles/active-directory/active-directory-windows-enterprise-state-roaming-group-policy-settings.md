@@ -5,7 +5,7 @@ description: "회사 소유의 장치에 사용해야 하는 그룹 정책 및 M
 services: active-directory
 keywords: "엔터프라이즈 상태 로밍에 대한 그룹 정책 및 MDM 설정이란, 엔터프라이즈 상태 로밍, windows 클라우드"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252

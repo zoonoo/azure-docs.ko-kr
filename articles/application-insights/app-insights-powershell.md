@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -191,9 +192,8 @@ ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
 앱 리소스와 동시에 메트릭 경고를 설정하려면 다음과 같이 코드를 템플릿 파일에 병합합니다.
 
 ```JSON
-
+{
     parameters: { ... // existing parameters ...
-       ,       
             "responseTime": {
               "type": "int",
               "defaultValue": 3,
@@ -203,12 +203,10 @@ ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
               }
     },
     variables: { ... // existing variables ...
-      ,
       // Alert names must be unique within resource group.
       "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
     }, 
     resources: { ... // existing resources ...
-     ,
      {
       //
       // Metric alert on response time
@@ -250,7 +248,7 @@ ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
         ]
       }
     }
-
+}
 ```
 
 템플릿을 호출할 때 선택적으로 이 매개 변수를 추가할 수 있습니다.
@@ -271,19 +269,16 @@ ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
 다음 코드를 앱을 만드는 템플릿 파일에 병합합니다.
 
 ```JSON
-
+{
     parameters: { ... // existing parameters here ...
-      ,
       "pingURL": { "type": "string" },
       "pingText": { "type": "string" , defaultValue: ""}
     },
     variables: { ... // existing variables here ...
-      ,
       "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
       "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
     },
     resources: { ... // existing resources here ...
-    ,  
     { //
       // Availability test: part 1 configures the test
       //
@@ -365,7 +360,7 @@ ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
         ]
       }
     }
-
+}
 ```
 
 다른 테스트 위치의 코드를 검색하거나 좀 더 복잡한 웹 테스트의 생성을 자동화하려면 수동으로 예제를 만든 다음 [Azure Resource Manager](https://resources.azure.com/)에서 코드를 매개 변수화합니다.
@@ -434,10 +429,5 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights에 Azure 진단 보내기](app-insights-powershell-azure-diagnostics.md)
 * [Github에서 Azure로 배포](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
