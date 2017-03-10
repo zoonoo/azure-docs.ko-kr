@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: 86df3e74cd0060652a3223cfbd1516643985275e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -140,7 +141,7 @@ Service Fabric 게시자 설정이 다음과 같이 나타납니다.
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-**인증서를 교체**하지 않으려면 새 인증서를 기본으로 지정한 다음 현재 인증서를 보조로 이동합니다. 이를 통해 하나의 배포 단계에서 현재 인증서가 새 인증서로 롤오버됩니다. 
+**인증서를 교체**하려면 새 인증서를 기본으로 지정한 다음 현재 인증서를 보조로 이동합니다. 이를 통해 하나의 배포 단계에서 현재 인증서가 새 인증서로 롤오버됩니다. 
 
 
 ```JSON
@@ -312,10 +313,5 @@ Get-ServiceFabricClusterHealth
 [Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
 [Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

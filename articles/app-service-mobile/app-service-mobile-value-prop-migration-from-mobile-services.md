@@ -4,7 +4,7 @@ description: "앱 서비스가 기존 모바일 서비스 프로젝트에 제공
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile

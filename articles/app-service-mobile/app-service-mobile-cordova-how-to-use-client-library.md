@@ -4,7 +4,7 @@ description: "Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/07/2017
 * Windows Phone 8.1
 * 범용 Windows 플랫폼
 
-## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>설정 및 필수 조건
+## <a name="Setup"></a>설정 및 필수 조건
 이 가이드에서는 테이블과 함께 백 엔드를 만들었다고 가정합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다. 또한 이 가이드는 사용자 코드에 Apache Cordova 플러그 인을 추가했다고 가정합니다.  아직 추가하지 않은 경우 명령줄에서 프로젝트에 Apache Cordova 플러그 인을 추가할 수 있습니다.
 
 ```
@@ -43,7 +43,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 [첫 번째 Apache Cordova 앱]을 만드는 방법에 대한 자세한 내용은 해당 설명서를 참조하세요.
 
-## <a name="a-nameionicasetting-up-an-ionic-v2-app"></a><a name="ionic"></a>Ionic v2 앱 설정
+## <a name="ionic"></a>Ionic v2 앱 설정
 
 Ionic v2 프로젝트를 올바르게 구성하려면 먼저 기본 앱을 만들고 Cordova 플러그 인을 추가합니다.
 
@@ -71,7 +71,7 @@ Azure Mobile Apps Cordova 플러그 인은 Ionic v1 및 v2 앱을 모두 지원�
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>방법: 사용자 인증
+## <a name="auth"></a>방법: 사용자 인증
 Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하세요.
 
 Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을 사용할 수 있어야 합니다.
@@ -83,7 +83,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
+### <a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
 여러 가지 유형의 Apache Cordova 응용 프로그램은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  기본적으로 인증 서비스만 사용자 서비스의 활용 방법을 알기 때문에 localhost의 OAuth UI 흐름에 문제가 발생합니다.  다음은 문제가 있는 OAuth UI 흐름의 예입니다.
 
 * Ripple 에뮬레이터.
@@ -123,7 +123,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 새 설정이 적용되는 데는 약 10~15초가 걸립니다.
 
-## <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>방법: 푸시 알림 등록
+## <a name="register-for-push"></a>방법: 푸시 알림 등록
 푸시 알림을 처리하기 위해 [phonegap-plugin-push]를 설치합니다.  이 플러그인은 명령줄에서 `cordova plugin add` 명령을 사용하거나 Visual Studio 내에서 Git 플러그 인 설치 관리자를 통해 쉽게 추가할 수 있습니다.  Apache Cordova 앱에서 다음 코드는 푸시 알림을 위해 장치를 등록합니다.
 
 ```

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 43197f7402795c37fa7ed43658bc3b8858a41080
-ms.openlocfilehash: 8568978a558b09220eff14a13ccefb3e60c18e87
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 9780fa4461e32a4518c1b6ef019161a01fffecb3
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -191,10 +191,10 @@ catch (Exception e) {
 ## <a name="next-steps"></a>다음 단계
 지금까지 Service Bus 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조하세요.
 
-자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 

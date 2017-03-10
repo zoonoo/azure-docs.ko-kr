@@ -4,8 +4,9 @@ description: "Windows 기반 HDInsight 클러스터에서 Linux 기반 HDInsight
 services: hdinsight
 documentationcenter: 
 author: bhanupr
+manager: asadk
 editor: bhanupr
-ms.assetid: 
+ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -16,6 +17,7 @@ ms.author: bhanupr
 translationtype: Human Translation
 ms.sourcegitcommit: 8c59375290e410c34ba25d4e5d8e8f9f8de0cafe
 ms.openlocfilehash: ceb5f5c639633d7118a057927b236b51b54f8fa7
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -40,21 +42,16 @@ HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습
 
 예상대로 작동하는 것이 확인되면 마이그레이션을 위해 가동 중지 시간을 예약합니다. 이 가동 중지 시간 동안 다음 작업을 수행합니다.
 
-1.  클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
-2.  기존 클러스터를 삭제합니다.
-3.  이전 클러스터에서 사용된 것과 동일한 기본 데이터 저장소를 사용하여 최신(또는 지원되는) HDI 버전과 동일한 VNET 서브넷에서 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
-4.  백업한 모든 임시 데이터를 가져옵니다.
-5.  새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
+1.    클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
+2.    기존 클러스터를 삭제합니다.
+3.    이전 클러스터에서 사용된 것과 동일한 기본 데이터 저장소를 사용하여 최신(또는 지원되는) HDI 버전과 동일한 VNET 서브넷에서 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
+4.    백업한 모든 임시 데이터를 가져옵니다.
+5.    새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
 * [Windows 클라이언트에서 SSH를 사용하여 Linux 기반 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md)
 * [Linux, Unix 또는 Mac 클라이언트에서 SSH를 사용하여 Linux 기반 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

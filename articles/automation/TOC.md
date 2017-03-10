@@ -1,12 +1,16 @@
 # 개요
 ## [Azure Automation이란?](automation-intro.md)
-## [Azure Automation의 보안](automation-security-overview.md)
 # 시작
 ## [Runbook 만들기](automation-first-runbook-graphical.md)
 ## [PowerShell Runbook 만들기](automation-first-runbook-textual-powershell.md)
 ## [PowerShell 워크플로 Runbook 만들기](automation-first-runbook-textual.md)
 ## [역할 기반 액세스 제어 관리](automation-role-based-access-control.md)
 # 방법
+## 인증 설정
+### [Azure Automation의 인증](automation-security-overview.md)
+### [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)
+### [Azure 서비스 관리 및 Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon 웹 서비스](automation-sec-configure-aws-account.md)
 ## Runbook 만들기
 ### [Runbook 유형](automation-runbook-types.md)
 ### [Runbook 만들기 및 가져오기](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Azure Automation 데이터 관리](automation-managing-data.md)
 ### [Log Analytics 경고에서 Azure Automation Runbook 호출](automation-invoke-runbook-from-omsla-alert.md)
 ## 배포 구성 관리(DSC)
-### [DSC(필요한 상태 구성)](automation-dsc-overview.md)
+### [DSC(필요한 상태 구성) 개요](automation-dsc-overview.md)
 ### [시작](automation-dsc-getting-started.md)
 ### [관리를 위한 컴퓨터 탑재](automation-dsc-onboarding.md)
 ### [DSC 구성 컴파일](automation-dsc-compile.md)
 ### [Chocolatey를 사용하여 연속 배포](automation-dsc-cd-chocolatey.md)
-## 인증 설정
-### [Azure 서비스 관리 및 Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon 웹 서비스](automation-sec-configure-aws-account.md)
-### [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)
 ## 자동화 자산 관리
 ### [인증서](automation-certificates.md)
 ### [연결](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Azure PowerShell 모듈 업데이트](automation-update-azure-modules.md)
 ## 자동화 시나리오
 ### [Runbook 갤러리](automation-runbook-gallery.md)
-### [가상 컴퓨터 시작/중지](automation-solution-startstopvm-graphical.md)
-### [PowerShell을 사용하여 가상 컴퓨터 시작/중지](automation-solution-startstopvm-psworkflow.md)
 ### [Amazon 웹 서비스 VM 만들기](automation-scenario-aws-deployment.md)
 ### [Azure VM 경고 수정](automation-azure-vm-alert-integration.md)
 ### [JSON 태그가 있는 VM 시작/중지](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -81,8 +79,3 @@
 ## [Azure Automation 교육](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Automation 소개 비디오](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

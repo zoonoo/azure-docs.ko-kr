@@ -8,9 +8,10 @@ tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
+ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/07/2017
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
 ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -143,8 +145,3 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
 - HDInsight에서 원격으로 이 도구 키트를 사용하여 Spark 응용 프로그램을 디버그하는 방법을 알아보려면 [HDInsight Spark Linux 클러스터에서 IntelliJ용 Azure 도구 키트의 HDInsight Tools를 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)를 참조하세요.
 - Eclipse용 HDInsight Tools를 사용하여 Spark 응용 프로그램을 만드는 방법을 알아보려면 [Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Spark 응용 프로그램 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)를 참조하세요.
 - Eclipse용 HDInsight Tools 관련 비디오를 시청하려면 [Eclipse용 HDInsight Tools를 사용하여 Spark 응용 프로그램 만들기](https://mix.office.com/watch/1rau2mopb6fha)를 참조하세요.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

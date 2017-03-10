@@ -34,15 +34,13 @@
 ##### [채택 전략](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [다음 단계](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## 사용자 관리
 ### 사용자 추가
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [클래식 포털](active-directory-create-users.md)
 
-### 다른 디렉터리에서 사용자 추가
-#### [Azure Portal](active-directory-users-create-external-azure-portal.md)
-#### [클래식 포털](active-directory-create-users-external.md)
-
+### [다른 디렉터리에서 사용자 추가(클래식 포털)](active-directory-create-users-external.md)
 ### [사용자 삭제](active-directory-users-delete-user-azure-portal.md)
 ### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
 ### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
@@ -68,33 +66,34 @@
 #### [클래식 포털](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [그룹 기반 라이선스](active-directory-licensing-whatis-azure-portal.md)
 #### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
-#### [그룹에 대한 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](active-directory-licensing-group-migration-azure-portal.md)
+#### [그룹의 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
 ### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
-## [작업 보고서 보기](active-directory-view-access-usage-reports.md)
-### [로그인](active-directory-reporting-activity-sign-ins.md)
-### [감사 로그](active-directory-reporting-activity-audit-logs.md)
+## [보고서 관리](active-directory-reporting-azure-portal.md)
+### [로그인 활동](active-directory-reporting-activity-sign-ins.md)
+### [감사 활동](active-directory-reporting-activity-audit-logs.md)
 ### [위험에 노출된 사용자](active-directory-reporting-security-user-at-risk.md)
 ### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
+### [위험 이벤트](active-directory-reporting-risk-events.md)
+### [명명된 네트워크](active-directory-known-networks-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### [보고서 마이그레이션](active-directory-reporting-migration.md)
-### [알려진 네트워크](active-directory-known-networks.md)
-
-### 클래식 포털
+### [보존](active-directory-reporting-retention.md)
+###    프로그래밍 방식 액세스
+#### [감사 참조](active-directory-reporting-api-audit-reference.md)
+#### [감사 샘플](active-directory-reporting-api-audit-samples.md)
+#### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
+#### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
+### [클래식 포털](active-directory-view-access-usage-reports.md)
 #### [Azure AD 보고](active-directory-reporting-getting-started.md)
 #### [보고 가이드](active-directory-reporting-guide.md)
-#### [미리 보기](active-directory-reporting-azure-portal.md)
+#### [알려진 네트워크](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
-##### [감사 참조](active-directory-reporting-api-audit-reference.md)
-##### [감사 샘플](active-directory-reporting-api-audit-samples.md)
-##### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
-##### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [감사 이벤트](active-directory-reporting-audit-events.md)
-#### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### 보고서 이해
@@ -108,6 +107,7 @@
 
 ## [암호 관리](active-directory-manage-passwords.md)
 ### [고유 암호 업데이트](active-directory-passwords-update-your-own-password.md)
+### [셀프 서비스 암호 재설정 설정하기](active-directory-passwords.md)
 ### [암호 관리 이해](active-directory-passwords-how-it-works.md)
 ### [정책 및 제한 사항 이해](active-directory-passwords-policy.md)
 ### 암호 재설정
@@ -117,7 +117,6 @@
 ### 암호 관리 사용
 #### [시작](active-directory-passwords-getting-started.md)
 #### [배포](active-directory-passwords-best-practices.md)
-#### [셀프 서비스 암호 재설정 설정하기](active-directory-passwords.md)
 #### [사용자 지정](active-directory-passwords-customize.md)
 #### [보고서 보기](active-directory-passwords-get-insights.md)
 #### [자세히 알아보기](active-directory-passwords-learn-more.md)
@@ -128,22 +127,19 @@
 ### [장치 등록](active-directory-conditional-access-device-registration-overview.md)
 #### [자동 등록 관리](active-directory-conditional-access-automatic-device-registration.md)
 #### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [장치 등록](active-directory-azureadjoin-personal-device.md)
-### [Windows 10 장치 등록](active-directory-azureadjoin-user-upgrade.md)
+#### [FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### 문제 해결
+##### [Windows 10 및 Windows Server 2016에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Windows 하위 수준 클라이언트에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD 조인](active-directory-azureadjoin-overview.md)
 #### [계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [장치 등록 설정](active-directory-azureadjoin-setup.md)
 #### [새 장치 등록](active-directory-azureadjoin-user-frx.md)
 #### [배포](active-directory-azureadjoin-devices-group-policy.md)
-#### [암호 없이 인증](active-directory-azureadjoin-passport.md)
-#### [비즈니스용 Windows Hello 사용](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Windows 10 통합 이해](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10 장치 사용](active-directory-azureadjoin-windows10-devices.md)
-#### [FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### 문제 해결
-##### [Windows 10 및 Windows Server 2016에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Windows 하위 수준 클라이언트에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [장치 연결](active-directory-azureadjoin-personal-device.md)
+#### [Windows 10 장치 연결](active-directory-azureadjoin-user-upgrade.md)
 
 ## 앱 관리
 ### [개요](active-directory-enable-sso-scenario.md)
@@ -237,6 +233,7 @@
 #### [초대 상환](active-directory-b2b-redemption-experience.md)
 #### [B2B 사용자 속성](active-directory-b2b-user-properties.md)
 #### [역할에 게스트 사용자 추가](active-directory-b2b-add-guest-to-role.md)
+#### [감사 및 보고서](active-directory-b2b-auditing-and-reporting.md)
 #### [API 및 사용자 지정](active-directory-b2b-api.md)
 #### [초대 위임](active-directory-b2b-delegate-invitations.md)
 #### [동적 그룹 및 B2B](active-directory-b2b-dynamic-groups.md)
@@ -284,6 +281,9 @@
 #### [FAQ](active-directory-conditional-faqs.md)
 #### [문제 해결](active-directory-conditional-access-device-remediation.md)
 #### [참조](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [암호 없이 인증](active-directory-azureadjoin-passport.md)
+#### [비즈니스용 Windows Hello 사용](active-directory-azureadjoin-passport-deployment.md)
 ### 인증서 기반 인증
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

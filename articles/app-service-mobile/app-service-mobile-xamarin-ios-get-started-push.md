@@ -4,7 +4,7 @@ description: "Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알�
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/17/2016
 
 이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>앱에서 푸시 알림 테스트
+## <a name="test"></a>앱에서 푸시 알림 테스트
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
    
    > [!NOTE]
