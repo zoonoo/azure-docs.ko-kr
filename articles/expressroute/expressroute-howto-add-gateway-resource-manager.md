@@ -16,15 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 6eac5dd04cf13e2b36034f07c45f607225b9a2e8
+ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
+ms.openlocfilehash: 80ffdd66a02f84b844b660e6c88586d4e99ff9e7
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>리소스 관리자 및 PowerShell을 사용하여 Express 경로에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
-> * [PowerShell - Resource Manager](expressroute-howto-add-gateway-resource-manager.md)
-> * [PowerShell - 클래식](expressroute-howto-add-gateway-classic.md)
+> * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+> * [클래식 - PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -41,10 +43,5 @@ ms.openlocfilehash: 6eac5dd04cf13e2b36034f07c45f607225b9a2e8
 
 ## <a name="next-steps"></a>다음 단계
 VNet 게이트웨이를 만든 후 VNet을 Express 경로 회로에 연결할 수 있습니다. [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

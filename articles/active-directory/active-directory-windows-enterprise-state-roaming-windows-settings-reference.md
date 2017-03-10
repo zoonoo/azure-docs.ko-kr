@@ -4,7 +4,7 @@ description: "Windows 10에서 로밍 또는 백업되는 모든 설정의 전�
 services: active-directory
 keywords: "엔터프라이즈 상태 로밍, windows 클라우드"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf

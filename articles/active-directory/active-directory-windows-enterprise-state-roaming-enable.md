@@ -5,7 +5,7 @@ description: "Windows 장치의 엔터프라이즈 상태 로밍 설정에 대�
 services: active-directory
 keywords: "엔터프라이즈 상태 로밍, windows 클라우드, 엔터프라이즈 상태 로밍을 활성화하는 방법"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4

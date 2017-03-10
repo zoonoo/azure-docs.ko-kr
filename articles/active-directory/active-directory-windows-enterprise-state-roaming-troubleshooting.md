@@ -4,7 +4,7 @@ description: "설정 및 앱 데이터 동기화에 대한 IT 관리자의 질�
 services: active-directory
 keywords: "엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: swadhwa
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
