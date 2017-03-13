@@ -1,6 +1,6 @@
 ---
 title: "Docker 컨테이너 클러스터 배포 - Azure CLI | Microsoft Docs"
-description: "Azure CLI 2.0을 사용하여 Azure Container Service 클러스터 배포"
+description: "Azure CLI 2.0을 사용하여 Azure Container Service에 Kubernetes, DC/OS 또는 Docker Swarm 솔루션 배포"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: a0cbf24c2e2f1e6f3a1d2097e6146c09b4eee4fe
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0을 사용하여 Azure Container Service 클러스터 만들기
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Docker 컨테이너 호스팅 솔루션 배포
 
 Azure CLI 2.0의 `az acs` 명령을 사용하여 Azure Container Service에서 클러스터를 만들고 관리합니다. [Azure Portal](container-service-deployment.md) 또는 Azure Container Service API를 사용하여 Azure Container Service 클러스터를 배포할 수도 있습니다.
 

@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
-ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,9 +29,9 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 응용 프로그램을 처음 만드는 과정을 안내합니다.
+서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio 2017 또는 Visual Studio 2015에서 응용 프로그램을 처음 만드는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다.
 
 ## <a name="video-walkthrough"></a>연습 동영상
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/16/2017
 3. 응용 프로그램 이름을 지정하고 **확인**을 클릭합니다.
    
     ![Visual Studio의 새 프로젝트 대화 상자][1]
-4. 다음 페이지에서 응용 프로그램에 포함할 첫 번째 서비스 형식으로 **상태 저장** 을 선택합니다. 이름을 지정하고 **확인**을 클릭합니다.
+4. 다음 페이지에서 응용 프로그램에 포함할 첫 번째 서비스 형식으로 **상태 저장**을 선택합니다. 이름을 지정하고 **확인**을 클릭합니다.
    
     ![Visual Studio의 새 서비스 대화 상자][2]
    
@@ -139,15 +139,15 @@ ms.lasthandoff: 02/16/2017
 ## <a name="cleaning-up"></a>정리
 마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
 
-1. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지** 를 클릭합니다.
-2. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거** 를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 클러스터를 삭제합니다.
+1. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
+2. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 클러스터를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 클러스터](service-fabric-cluster-creation-via-portal.md)를 만들거나 [Windows에서 독립 실행형 클러스터](service-fabric-cluster-creation-for-windows-server.md)를 만드는 방법을 알아봅니다.
 * [Reliable Services](service-fabric-reliable-services-quick-start.md) 또는 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용하여 서비스를 만들어 봅니다.
 * [게스트 실행 파일](service-fabric-deploy-existing-app.md)로 [Windows 컨테이너](service-fabric-deploy-container.md) 또는 기존 앱을 배포해 보세요.
 * [웹 서비스 프런트 엔드](service-fabric-add-a-web-frontend.md)를 사용하여 인터넷에 서비스를 노출하는 방법을 알아봅니다.
-* [실습 교육](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) 을 안내하고 상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행합니다.
+* [실습 교육](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx)을 안내하고 상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행합니다.
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 <!-- Image References -->

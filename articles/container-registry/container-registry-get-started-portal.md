@@ -1,9 +1,33 @@
 ---
-title: Azure 컨테이너 레지스트리 만들기 - 포털 | Microsoft Docs description: Azure Portal 서비스를 사용하여 Azure 컨테이너 레지스트리를 만들고 관리하기 시작: container-registry documentationcenter: '' author: stevelas manager: balans editor: dlepow tags: ''keywords: ''
+title: "개인 Docker 레지스트리 만들기 - Azure Portal | Microsoft Docs"
+description: "Azure Portal을 사용하여 개인 Docker 컨테이너 레지스트리 만들기 및 관리 시작"
+services: container-registry
+documentationcenter: 
+author: stevelas
+manager: balans
+editor: dlepow
+tags: 
+keywords: 
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
+ms.service: container-registry
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/14/2016
+ms.author: stevelas
+ms.custom: H1Hack27Feb2017
+translationtype: Human Translation
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 33944d34ce695e1729b761a7f762e24a6dce70a2
+ms.lasthandoff: 03/06/2017
 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry ms.devlang: na ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: na ms.date: 11/14/2016 ms.author: stevelas ---#Azure Portal을 사용하여 컨테이너 레지스트리 만들기. Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 해당 설정을 관리합니다. [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md)을 사용하거나 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)에서 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+---
 
-백그라운드 및 개념은 [Azure Container Registry란?](container-registry-intro.md)을 참조하세요.
+# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 개인 Docker 컨테이너 레지스트리 만들기
+Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md)을 사용하거나 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)에서 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+
+배경 지식 및 개념은 [개요](container-registry-intro.md)를 참조하세요.
 
 
 > [!NOTE]
@@ -20,19 +44,19 @@ ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry 
     ![컨테이너 레지스트리 설정](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. **Container Registry** 블레이드에서 다음 정보를 입력합니다. 완료하면 **만들기**를 클릭합니다.
    
-    a. **레지스트리 이름** - 특정 레지스트리에 대한 전역적으로 고유한 최상위 도메인 이름입니다. 이 예제의 경우 레지스트리 이름이 *myRegistry01*이지만 자신만의 고유한 이름으로 대체합니다. 이름은 문자와 숫자만 포함할 수 있습니다.
+    a. **레지스트리 이름**: 특정 레지스트리에 대한 전역적으로 고유한 최상위 도메인 이름입니다. 이 예제의 경우 레지스트리 이름이 *myRegistry01*이지만 자신만의 고유한 이름으로 대체합니다. 이름은 문자와 숫자만 포함할 수 있습니다.
    
-    b. **리소스 그룹** - 기존 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
+    b. **리소스 그룹**: 기존 [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
    
-    c. **위치** - **미국 중남부**와 같이 서비스를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) Azure 데이터 센터 위치를 선택합니다. 
+    c. **위치**: **미국 중남부**와 같이 서비스를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) Azure 데이터 센터 위치를 선택합니다. 
    
-    d. **관리 사용자** - 필요한 경우 관리 사용자가 레지스트리에 액세스할 수 있도록 설정합니다. 이 설정은 레지스트리를 만든 후에 변경할 수 있습니다.
+    d. **관리 사용자**: 필요한 경우 관리 사용자가 레지스트리에 액세스할 수 있도록 설정합니다. 이 설정은 레지스트리를 만든 후에 변경할 수 있습니다.
    
-   > [!IMPORTANT]
-   > 관리 사용자 계정을 통해 액세스를 제공하는 것 외에, 컨테이너 레지스트리는 Azure Active Directory 서비스 주체에 의해 지원되는 인증을 지원합니다. 자세한 내용 및 고려 사항은 [컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
-   
-
-    e. **저장소 계정** - 기본 설정을 사용하여 [저장소 계정](../storage/storage-introduction.md)을 만들거나 동일한 위치에서 기존 저장소 계정을 선택합니다. Premium Storage는 현재 지원되지 않습니다.
+    > [!IMPORTANT]
+    > 관리 사용자 계정을 통해 액세스를 제공하는 것 외에, 컨테이너 레지스트리는 Azure Active Directory 서비스 주체에 의해 지원되는 인증을 지원합니다. 자세한 내용 및 고려 사항은 [컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
+    >
+    
+    e. **저장소 계정**: 기본 설정을 사용하여 [저장소 계정](../storage/storage-introduction.md)을 만들거나 동일한 위치에서 기존 저장소 계정을 선택합니다. Premium Storage는 현재 지원되지 않습니다.
 
 
 ## <a name="manage-registry-settings"></a>레지스트리 설정 관리
@@ -52,6 +76,7 @@ ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry 
 
 ## <a name="next-steps"></a>다음 단계
 * [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
+
 
 
 

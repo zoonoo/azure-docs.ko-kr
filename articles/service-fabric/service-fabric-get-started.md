@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
-ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -47,8 +47,8 @@ ms.lasthandoff: 02/16/2017
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
-### <a name="to-use-visual-studio-2017-rc"></a>Visual Studio 2017 RC 사용
-Service Fabric 도구는 Visual Studio 2017 RC의 Azure 개발 및 관리 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
+### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017을 사용하려면 다음을 수행합니다.
+Service Fabric 도구는 Visual Studio 2017의 Azure 개발 및 관리 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
 또한 웹 플랫폼 설치 관리자를 사용하여 Microsoft Azure Service Fabric SDK를 설치해야 합니다.
 
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
