@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f20e8d3d5774eb57038e40fac6a4bac2e17909e
-ms.openlocfilehash: 569786c864d5f8ceb93422c65ae1ffb47f66a787
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 38fb1cd513823c39184508cc61e4928e2b8a76a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 
 이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
-## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Express 경로 연결 공급자
+## <a name="partners"></a>Express 경로 연결 공급자
 Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵에 Azure 지역 및 Express 경로 위치 목록을 제공합니다. Express 경로 위치는 Microsoft가 여러 서비스 공급자와 피어링하는 위치를 말합니다.
 
 ![위치 맵][0]
@@ -62,7 +62,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 지정학적 지역에 걸친 연결은 표준 Express 경로 SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 Express 경로 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
 
-## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>연결 공급자 위치
+## <a name="locations"></a>연결 공급자 위치
 
 다음 테이블에서는 서비스 공급자별 위치를 보여 줍니다. 위치별 사용 가능한 공급자를 보려는 경우 [위치별 서비스 공급자](expressroute-locations-providers.md#locations)를 참조하세요.
 
@@ -106,13 +106,13 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **Sejong Telecom** |지원됨 |지원됨 |부산, 서울 |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |지원됨 |지원됨 |첸나이 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |지원됨 |지원됨 |싱가포르 |
-| **Softbank** |지원됨 |지원됨 |오사카, 도쿄 |
+| **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |지원됨 |지원됨 |오사카, 도쿄 |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |지원됨 |지원됨 |암스테르담, 첸나이, 홍콩 특별행정구, 런던, 뭄바이, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |지원됨 |지원됨 |암스테르담, 더블린, 런던 |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |지원됨 |지원됨 |상파울루 |
 | **Telenor** |지원됨 |지원됨 |암스테르담, 런던 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |지원됨 |지원됨 |멜버른, 시드니 |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |지원됨 |지원됨 |암스테르담, 홍콩 특별행정구, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 홍콩 특별행정구, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원됨 |지원되지 않음 |런던 |
 | **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |지원됨 |지원됨 |시카고, 로스앤젤레스, 뉴욕, 실리콘밸리, 토론토, 워싱턴 DC |
 
@@ -145,7 +145,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **Interxion** |지원됨 |지원되지 않음 |프랑크푸르트 |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨  | 지원되지 않음 | 베를린 |
 
-## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
+## <a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
 연결 공급자가 이전 섹션에 없는 경우에도 연결을 설정할 수 있습니다.
 
 * 연결 공급자에게 문의하여 위의 표에 있는 Exchange 중 하나에 연결되어 있는지 확인합니다. Exchange 공급자가 제공하는 서비스에 대한 자세한 정보를 수집하려면 다음 링크를 확인할 수 있습니다. 여러 연결 공급자는 이미 이더넷 Exchange에 연결되어 있습니다.

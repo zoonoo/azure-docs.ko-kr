@@ -1,5 +1,5 @@
 ---
-title: "Azure 클라우드의 Docker 컨테이너 클러스터 | Microsoft Docs"
+title: "Azure 클라우드에서 Docker 컨테이너 호스트 | Microsoft Docs"
 description: "Azure 컨테이너 서비스는 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 컴퓨터의 클러스터를 간단히 만들고 구성하고 관리하는 방법을 제공합니다."
 services: container-service
 documentationcenter: 
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: a11b133794f7aedfa6740757fd8c1e89da665744
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 04fabadb1c713deb007b740369496b61bb5f424f
+ms.lasthandoff: 03/02/2017
+
 
 
 ---
-# <a name="azure-container-service-introduction"></a>Azure 컨테이너 서비스 소개
+# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Azure Container Service를 사용한 Docker 컨테이너 호스팅 소개 
 Azure 컨테이너 서비스를 사용하면 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 컴퓨터의 클러스터를 보다 간편하게 만들고 구성하고 관리할 수 있습니다. Azure 컨테이너 서비스는 일반적인 오픈 소스 예약 및 오케스트레이션 도구의 최적화된 구성을 사용합니다. 이를 통해 기존 기술을 사용하거나 크고 확장된 커뮤니티 전문 지식의 본문을 이용하여 Microsoft Azure의 컨테이너 기반 응용 프로그램을 배포하고 관리할 수 있습니다.
 
 ![Azure 컨테이너 서비스는 Azure의 여러 호스트에서 컨테이너화된 응용 프로그램을 관리하는 방법을 제공합니다.](./media/acs-intro/acs-cluster-new.png)

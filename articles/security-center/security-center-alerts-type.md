@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: b66128a2bb0c3237541ae991a98daa09deeff5d5
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/17/2017
 이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고를 이해할 수 있습니다. 경고를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 을 참고하세요.
 
 > [!NOTE]
-> 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 90일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 참조하세요.
+> 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/) 를 참조하세요.
 >
 >
 

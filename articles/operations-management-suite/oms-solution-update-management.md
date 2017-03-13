@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
-ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -48,12 +48,9 @@ OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터
    a.    다음 명령을 실행하여 최신 버전의 Linux용 OMS 에이전트를 설치합니다.  <Workspace ID>을 작업 영역 ID로 바꾸고 <Key>를 기본 또는 보조 키로 바꿉니다.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. 에이전트를 제거하려면 다음 명령을 실행합니다.
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. 에이전트를 제거하려면 [Linux용 OMS 에이전트 제거](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) 섹션에 설명된 프로세스를 사용하세요.  
 
 ## <a name="management-packs"></a>관리 팩
 System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 System Center Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다. 

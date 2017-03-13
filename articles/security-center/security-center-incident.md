@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 841257fe74dad05d6a25ec35a62e415d6c1917b4
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="handling-security-incident-in-azure-security-center"></a>Azure 보안 센터에서 보안 인시던트 처리
+# <a name="handling-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 처리
 보안 경고를 심사 및 조사하는 작업은 가장 숙련된 보안 분석가라도 많은 시간이 걸릴 수 있고 분석가 중 다수는 어떻게 시작할지도 알지 못할 수 있습니다. 보안 센터에서는 고유한 [보안 경고](security-center-managing-and-responding-alerts.md) 간에 정보를 연결하기 위해 [분석](security-center-detection-capabilities.md)을 사용하여 공격 캠페인의 단일 보기 및 모든 관련된 경고를 제공할 수 있습니다. 공격자가 사용한 작업 및 영향을 받는 리소스를 신속하게 이해할 수 있습니다.
 
 이 문서에서는 보안 센터에서 보안 경고 기능을 사용하여 보안 문제를 처리하는 데 도움이 되는 방법을 설명합니다.
@@ -61,9 +62,4 @@ ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
 * [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

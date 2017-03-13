@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: bf3aa51b4b1224840ae6897ff7df86cf3d2b3477
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 이 문서는 Azure 보안 센터를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 90일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+> 고급 감지를 사용하도록 설정하려면 Azure 보안 센터 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
 >
 >
 
@@ -91,9 +92,4 @@ ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 * [Azure 보안 센터 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
 * [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

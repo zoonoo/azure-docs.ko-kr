@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **�
 
 **예상 시간:** 약 15분. 계정 또는 서비스 등록이 필요할 시 더 길어질 수 있습니다. 
 
-이 [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)를 시작하고 약 3분 후에 나오는 이 자습서의 단계에 대한 6분짜리 데모 영상을 시청하셔도 됩니다.
+또는 [.NET에서 Azure Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 사용하여 증가시킵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)를 사용하는 것으로 가정합니다. 
+
+서비스를 즉시 프로비전하지 않으려는 경우 이 [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)를 시작하고 약 3분 후에 나오는 이 자습서의 단계에 대한 6분짜리 데모 영상을 시청하셔도 됩니다.
 
 ## <a name="find-your-service"></a>서비스 찾기
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -57,7 +59,7 @@ Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **�
 > ![인덱서 및 데이터 원본에 대한 타일][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> 인덱스 및 부하 데이터 만들기
+## <a name="create-index"></a> 인덱스 및 부하 데이터 만들기
 특정 검색 동작을 최적화하는 데 사용되는 검색 가능한 데이터, 메타데이터 및 구문을 포함하는 *인덱스* 에 검색 쿼리가 반복됩니다.
 
 이 작업을 계속 포털 기반으로 유지하기 위해 **데이터 가져오기** 마법사를 통해 인덱서를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 집합을 사용하겠습니다. 
@@ -100,7 +102,7 @@ Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **�
 
    ![인덱서 진행 메시지][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> 인덱스 쿼리
+## <a name="query-index"></a> 인덱스 쿼리
 이제 쿼리할 준비가 된 검색 인덱스가 있습니다. **검색 탐색기** 는 포털에 기본 제공되는 쿼리 도구입니다. 검색 결과가 예상과 일치하는지 확인할 수 있도록 검색 상자를 제공합니다. 
 
 > [!TIP]
