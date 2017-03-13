@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [MongoDB용 Node.js](documentdb-mongodb-samples.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>2단계: C++ 응용 프로그램 설정
+## <a id="SetupC++"></a>2단계: C++ 응용 프로그램 설정
 1. Visual Studio를 열고 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. 
 2. **새 프로젝트** 창의 **설치됨** 창에서 **Visual C++**를 확장하고 **Win32**, **Win32 콘솔 응용 프로그램**을 차례로 클릭합니다. 프로젝트 이름을 hellodocumentdb로 지정한 다음 **확인**을 클릭합니다. 
    
@@ -79,12 +81,12 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
    
     패키지가 프로젝트에 추가되면 코드 작성을 시작하는 설정이 완료됩니다.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>3단계: DocumentDB 데이터베이스에 대한 Azure Portal의 연결 세부 정보 복사
+## <a id="Config"></a>3단계: DocumentDB 데이터베이스에 대한 Azure Portal의 연결 세부 정보 복사
 [Azure Portal](https://portal.azure.com)을 불러와서, 만든 NoSQL (DocumentDB) 데이터베이스 계정에 트래버스합니다. 다음 단계에서는 C++ 코드 조각에서 연결을 설정하기 위해 Azure Portal의 URI 및 기본 키가 필요합니다. 
 
 ![Azure Portal에서 DocumentDB URI 및 키](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>4단계: DocumentDB 계정에 연결
+## <a id="Connect"></a>4단계: DocumentDB 계정에 연결
 1. `#include "stdafx.h"` 뒤의 소스 코드에 다음 헤더 및 네임스페이스를 추가합니다.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
    
     documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 함께 작동하는지 살펴보겠습니다.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>5단계: C++ 데이터베이스 및 컬렉션 만들기
+## <a id="CreateDBColl"></a>5단계: C++ 데이터베이스 및 컬렉션 만들기
 이 단계를 수행하기 전에 DocumentDB를 처음 접하는 경우 데이터베이스, 컬렉션 및 문서가 상호 작용하는 방법을 살펴보겠습니다. [데이터베이스](documentdb-resources.md#databases)는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다. [컬렉션](documentdb-resources.md#collections)은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. [DocumentDB 계층적 리소스 모델 및 개념](documentdb-resources.md)에서 DocumentDB 계층적 리소스 모델 및 개념에 대해 자세히 알아볼 수 있습니다.
 
 데이터베이스와 해당 컬렉션을 만들려면 main 함수 끝에 다음 코드를 추가합니다. 이전 단계에서 선언한 클라이언트 구성을 사용하여 'FamilyRegistry'라는 데이터베이스 및 'FamilyCollection'라는 컬렉션을 만듭니다.
@@ -115,7 +117,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>6단계: 문서 만들기
+## <a id="CreateDoc"></a>6단계: 문서 만들기
 [문서](documentdb-resources.md#documents)는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 DocumentDB 문서를 삽입할 수 있습니다. main 함수의 끝에 다음 코드를 복사하여 문서를 만들 수 있습니다. 
 
     try {
@@ -137,7 +139,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 ![C++ 자습서 - 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>7단계: DocumentDB 리소스 쿼리
+## <a id="QueryDB"></a>7단계: DocumentDB 리소스 쿼리
 DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md) 를 지원합니다. 다음 샘플 코드는 DocumentDB SQL 구문을 사용해서 만든 다양한 쿼리를 보여 줍니다. 이러한 쿼리는 이전 단계에서 만든 문서에 대해 실행할 수 있습니다.
 
 함수는 문서 클라이언트와 함께 데이터베이스 및 컬렉션에 대한 고유한 식별자 또는 리소스 ID를 인수로 사용합니다. main 함수 앞에 이 코드를 추가합니다.
@@ -168,7 +170,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>8단계: 문서 바꾸기
+## <a id="Replace"></a>8단계: 문서 바꾸기
 DocumentDB는 다음 코드에서와 같이 JSON 문서를 바꾸도록 지원합니다. executesimplequery 함수 뒤에 이 코드를 추가합니다.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ DocumentDB는 다음 코드에서와 같이 JSON 문서를 바꾸도록 지원�
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>9단계: 문서 삭제
+## <a id="Delete"></a>9단계: 문서 삭제
 DocumentDB는 JSON 문서를 삭제하도록 지원합니다. replacedocument 함수 뒤에 다음 코드를 복사하고 붙여 넣는 방법으로 수행할 수 있습니다. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ DocumentDB는 JSON 문서를 삭제하도록 지원합니다. replacedocument �
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>10단계: 데이터베이스 삭제
+## <a id="DeleteDB"></a>10단계: 데이터베이스 삭제
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다.
 
 deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고 붙여넣어서 데이터베이스와 모든 하위 리소스를 제거합니다.
@@ -216,7 +218,7 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>11단계: C# 응용 프로그램 모두 함께 실행
+## <a id="Run"></a>11단계: C# 응용 프로그램 모두 함께 실행
 이제 다른 DocumentDB 리소스를 만들기, 쿼리, 수정 및 삭제하는 코드를 추가했습니다.  이제 몇몇 진단 메시지와 함께 hellodocumentdb.cpp에서 main 함수의 이러한 다양한 기능에 대한 호출을 추가하여 마무리합니다.
 
 다음 코드로 응용 프로그램의 main 함수를 대체하여 수행할 수 있습니다. 3단계에서 코드에 복사한 account_configuration_uri 및 primary_key를 덮어 쓰기 때문에 해당 줄을 저장하거나 포털에서의 값을 다시 복사합니다. 
@@ -276,7 +278,7 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 
 축하합니다. C++ 자습서를 완료했으며 첫 번째 DocumentDB 콘솔 응용 프로그램이 있습니다.
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
+## <a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 
 * [DocumentDB 계정][documentdb-create-account].
@@ -289,10 +291,5 @@ deletedocument 함수 뒤에 다음 코드 조각(함수 정리)을 복사하고
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/03/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
-ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
+ms.lasthandoff: 03/06/2017
 
 
 ---
 
-# <a name="get-started-with-windows-containers-in-a-kubernetes-cluster"></a>Kubernetes 클러스터에서 Windows 컨테이너 시작
+# <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Container Service에서 Kubernetes 및 Windows 컨테이너 시작
 
 
 이 문서는 Windows 컨테이너를 실행하기 위해 Windows 노드를 포함하는 Azure Container Service에서 Kubernetes 클러스터를 만드는 방법을 보여줍니다. 
@@ -59,8 +60,14 @@ ms.lasthandoff: 02/23/2017
 Azure Portal을 사용하여 Windows 에이전트 노드가 있는 [Kubernetes 클러스터를 만들](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) 수 있습니다. 클러스터를 만드는 경우 다음 설정에 유의합니다.
 
 * **기본** 블레이드의 **Orchestrator**에서 **Kubernetes**를 선택합니다. 
-* **마스터 구성** 블레이드에서 Linux 마스터 노드에 대한 서비스 주체 자격 증명 및 사용자 자격 증명을 입력합니다.
+
+  ![Kubernetes Orchestrator 선택](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
+
+* **마스터 구성** 블레이드에서 Linux 마스터 노드에 대한 서비스 주체 자격 증명 및 사용자 자격 증명을 입력합니다. 1, 3 또는 5개의 마스터를 선택합니다.
+
 * **에이전트 구성** 블레이드의 **운영 체제**에서 **Windows(미리 보기)**를 선택합니다. Windows 에이전트 노드에 대한 관리자 자격 증명을 입력합니다.
+
+  ![Windows 에이전트 선택](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
 
 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
 

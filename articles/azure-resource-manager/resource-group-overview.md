@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,10 +93,10 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-또는 Azure CLI로 다음 명령을 사용하여 모든 리소스 공급자를 검색합니다.
+또는 Azure CLI 2.0으로 다음 명령을 사용하여 모든 리소스 공급자를 검색합니다.
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 사용해야 하는 리소스 공급자의 반환된 목록을 살펴볼 수 있습니다.
@@ -106,10 +107,10 @@ azure provider list
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-또는 Azure CLI로 다음 명령을 사용하여 Microsoft.Compute에 지원되는 리소스 유형, 위치 및 API 버전을 검색합니다.
+또는 Azure CLI 2.0으로 다음 명령을 사용하여 Microsoft.Compute에 지원되는 리소스 유형, 위치 및 API 버전을 검색합니다.
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 자세한 내용은 [Resource Manager 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
@@ -214,10 +215,10 @@ REQUEST BODY
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-또는 다음 Azure CLI 명령을 사용합니다.
+또는 다음 Azure CLI 2.0 명령을 사용합니다.
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 Azure Portal을 통해 태그가 지정된 리소스를 볼 수도 있습니다.
@@ -343,9 +344,4 @@ SDK에서 생성된 코드의 어떤 측면을 개선하려면, SDK를 만드는
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

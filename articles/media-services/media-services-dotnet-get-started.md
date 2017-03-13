@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -33,8 +33,8 @@ ms.lasthandoff: 01/13/2017
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
-* .NET Framework 4.0 이상
-* Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
+* .NET Framework 4.0 이상.
+* 있습니다.
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
@@ -81,7 +81,7 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1에서 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
+1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
 2. [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet 패키지를 사용하여 **Azure Media Services .NET SDK 확장**을 설치합니다.  미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 미디어 서비스를 사용하여 더욱 쉽게 개발할 수 있도록 지원하는 일련의 확장 메서드 및 도우미 함수입니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
 
     NuGet을 사용하여 참조를 추가하려면 Solution Explorer에서 마우스 오른쪽 단추로 프로젝트 이름을 클릭한 다음 **NuGet 패키지 관리**를 선택합니다. 그런 다음 **windowsazure.mediaservices.extensions**를 검색하고 **설치**를 클릭합니다.

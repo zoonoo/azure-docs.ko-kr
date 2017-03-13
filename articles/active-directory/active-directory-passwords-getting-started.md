@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ ms.lasthandoff: 02/24/2017
 
    ![][003]
 
-5. **구성** 탭에서 **사용자 암호 재설정 정책** 섹션으로 아래로 스크롤합니다.  지정된 디렉터리에 대한 사용자 암호 재설정 정책의 모든 측면을 구성하는 곳입니다. *구성 탭이 보이지 않으면 Azure Active Directory Premium 또는 Basic에 등록했는지 확인하고 **이 기능을 구성 중인 관리자 계정에** 라이선스를 할당했는지 확인합니다.*  
+5. **구성** 탭에서 **사용자 암호 재설정 정책** 섹션으로 아래로 스크롤합니다.  지정된 디렉터리에 대한 사용자 암호 재설정 정책의 모든 측면을 구성하는 곳입니다. *구성 탭이 보이지 않으면 Azure Active Directory Premium 또는 Basic에 등록했는지 확인하고 이 기능을 구성 중인 관리자 계정에 __라이선스를 할당했는지__ 확인합니다.*  
 
    > [!NOTE]
    > **사용자가 설정한 정책은 관리자가 아닌 조직의 최종 사용자에게만 적용됩니다**. 보안상의 이유로 Microsoft는 관리자에 대 한 암호 재설정 정책을 제어합니다. 관리자에 대한 현재 정책에는 휴대 전화 및 전자 메일 주소가 필요합니다.
-
-   >
-   >
 
    ![][004]
 6. 사용자 암호 재설정 정책을 구성하려면 **암호 재설정을 위해 사용할 수 있는 사용자** 토글을 **예**로 밀어 설정합니다.  디렉터리에서 이 기능의 작동 방식을 구성할 수 있는 여러 제어를 표시합니다.  필요에 따라 자유롭게 암호 재설정을 사용자 지정할 수 있습니다.  각 암호 재설정 정책 컨트롤이 수행하는 내용을 자세히 알려면, [사용자 지정: Azure AD 암호 관리](active-directory-passwords-customize.md)를 참조하세요.
@@ -264,13 +261,19 @@ ms.lasthandoff: 02/24/2017
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>3단계: 방화벽 구성
-비밀번호 쓰기 저장을 사용하도록 설정한 후에 Azure AD Connect를 실행하는 컴퓨터에서 비밀번호 쓰기 저장 요청을 수신하도록 Microsoft 클라우드 서비스에 연결할 수 있는지 확인해야 합니다. 이 단계에서는 Microsoft에서 소유한 특정 URL 및 특정 네트워크 포트를 통한 IP 주소에 대한 아웃바운드 연결을 허용하도록 네트워크 어플라이언스(프록시 서버, 방화벽 등)에서의 연결 규칙을 업데이트하는 것을 포함합니다. 이러한 변경은 Azure AD Connect 도구 버전에 따라 달라질 수도 있습니다. 자세한 컨텍스트는 [비밀번호 쓰기 저장의 작동 원리](active-directory-passwords-learn-more.md#how-password-writeback-works) 및 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)에서 자세히 알아볼 수 있습니다.
+비밀번호 쓰기 저장을 사용하도록 설정한 후에 Azure AD Connect를 실행하는 컴퓨터에서 비밀번호 쓰기 저장 요청을 수신하도록 Microsoft 클라우드 서비스에 연결할 수 있는지 확인해야 합니다. 이 단계에서는 [Microsoft에서 소유한 특정 URL 및 특정 네트워크 포트를 통한 IP 주소](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)에 대한 아웃바운드 연결을 허용하도록 네트워크 어플라이언스(프록시 서버, 방화벽 등)에서의 연결 규칙을 업데이트하는 것을 포함합니다. 이러한 변경은 Azure AD Connect 도구 버전에 따라 달라질 수도 있습니다. 자세한 컨텍스트는 [비밀번호 쓰기 저장의 작동 원리](active-directory-passwords-learn-more.md#how-password-writeback-works) 및 [비밀번호 쓰기 저장 보안 모델](active-directory-passwords-learn-more.md#password-writeback-security-model)에서 자세히 알아볼 수 있습니다.
 
 #### <a name="why-do-i-need-to-do-this"></a>이렇게 하는 것이 왜 필요한가요?
 
 비밀번호 쓰기 저장이 제대로 작동하려면, Azure AD Connect를 실행하는 컴퓨터가 [Microsoft Azure 데이터 센터 IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=41653)에 정의된 대로 **. servicebus.windows.net* 및 Azure에서 사용되는 특정 IP 주소에 대한 아웃바운드 HTTPS 연결을 설정할 수 있어야 합니다.
 
-Azure AD Connect의 경우 도구 버전 1.0.8667.0 이상:
+Azure AD Connect 도구의 경우 **1.1.439.0**(최신) 이상:
+
+- 최신 버전의 Azure AD Connect 도구에서 다음에 대한 **아웃바운드 HTTPS** 액세스가 필요합니다.
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Azure AD Connect의 경우 도구 버전 **1.0.8667.0** ~ **1.1.380.0**:
 
 - **옵션 1:** 포트 443 통해 모든 아웃바운드 HTTPS 연결을 허용합니다.(URL 또는 IP 주소 사용)
     - 이것을 사용해야 하는 경우:
@@ -298,6 +301,9 @@ Azure AD Connect의 경우 도구 버전 1.0.8667.0 이상:
 > Azure AD Connect 버전이 1.0.8667.0 이전이라면 구성을 쉽게 할 수 있도록 여러 비밀번호 쓰기 저장 네트워킹 기능을 향상시킨 [Azure AD Connect 최신 버전](https://www.microsoft.com/download/details.aspx?id=47594)으로 업그레이드하는 것이 좋습니다.
 
 네트워크 어플라이언스를 구성한 후 Azure AD Connect 도구를 실행하는 컴퓨터를 다시 부팅합니다.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Azure AD Connect의 유휴 연결(1.1.439.0 이상)
+Azure AD Connect 도구는 ServiceBus 끝점에 주기적인 ping/keepalive를 보내서 연결된 상태를 유지하는지 확인합니다. 도구가 너무 많은 연결이 끊기는 것을 감지하면 끝점에 대한 ping 빈도를 자동으로 높입니다. 최저 'ping 간격'은 60초마다 ping 1회로 떨어지지만 **적어도 2~3분간 유휴 연결이 지속되도록 프록시/방화벽을 허용하는 것이 좋습니다.** \*오래된 버전의 경우 4분 이상이 좋습니다.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4단계: 적절한 Active Directory 사용 권한 설정
 암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**를 제공하며 해당 포리스트에서 각 도메인의 루트 개체에 대한 권한을 확장합니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.  

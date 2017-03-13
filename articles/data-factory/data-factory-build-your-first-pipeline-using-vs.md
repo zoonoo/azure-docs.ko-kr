@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
-ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -78,7 +79,7 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 
 1. **솔루션 탐색기**에서 **연결된 서비스**를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. **주문형 HDInsight 연결된 서비스**를 선택하고 **추가**를 클릭합니다.
-3. **JSON** 을 다음으로 바꿉니다.
+3. **JSON**을 다음 JSON으로 바꿉니다.
 
     ```JSON
     {
@@ -98,11 +99,11 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
    | 속성 | 설명 |
-   | --- | --- |
-   |  버전 |생성되는 HDInsight 버전을 3.2로 지정합니다. |
-   |  ClusterSize |HDInsight 클러스터의 크기를 지정합니다. |
-   |  TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
-   |  linkedServiceName |HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. |
+   | -------- | ----------- |
+   | 버전 | 생성되는 HDInsight 버전을 3.2로 지정합니다. |
+   | ClusterSize |HDInsight 클러스터의 크기를 지정합니다. |
+   | TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
+   | linkedServiceName |HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. |
 
     다음 사항에 유의하세요.
 
@@ -110,7 +111,7 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
    * 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터** 를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 를 참조하세요.
    * HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 
-       많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
+       많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 4. **HDInsightOnDemandLinkedService1.json** 파일을 저장합니다.
@@ -121,9 +122,9 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 #### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Azure Blob**을 선택하고 파일의 이름을 **InputDataSet.json**로 변경한 다음 **추가**를 클릭합니다.
-3. 편집기에서 **JSON** 을 다음으로 바꿉니다.
+3. 편집기에서 **JSON**을 다음 JSON 조각으로 바꿉니다.
 
-    JSON 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput** 라는 데이터 집합을 만듭니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
+    JSON 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput** 라는 데이터 집합을 만듭니다. 또한 입력 데이터가 `adfgetstarted`라는 Blob 컨테이너 및 `inputdata` 폴더에 저장되도록 지정합니다.
 
     ```JSON
     {
@@ -151,7 +152,7 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
    | 속성 | 설명 |
-   |:--- |:--- |
+   | -------- | ----------- |
    | type |Azure blob 저장소에 데이터가 있기 때문에 형식 속성은 AzureBlob로 설정됩니다. |
    | linkedServiceName |이전에 만든 AzureStorageLinkedService1를 참조합니다. |
    | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 경우에 input.log만 처리됩니다. |
@@ -166,9 +167,9 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Azure Blob**을 선택하고 파일의 이름을 **OutputDataset.json**로 변경한 다음 **추가**를 클릭합니다.
-3. 편집기에서 **JSON** 을 다음으로 바꿉니다.
+3. 편집기에서 **JSON**을 다음 JSON으로 바꿉니다.
 
-    JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
+    JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성될 데이터의 구조를 지정합니다. 또한 결과가 `adfgetstarted`라는 Blob 컨테이너와 `partitioneddata` 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다.
 
     ```JSON
     {
@@ -252,7 +253,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
     ```
      JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 
-    Hive 스크립트 파일 **partitionweblogs.hql**은 Azure Storage 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정됨)과 **adfgetstarted** 컨테이너에 있는 **스크립트** 폴더에 저장됩니다.
+    Hive 스크립트 파일 **partitionweblogs.hql**은 Azure Storage 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정됨)과 `adfgetstarted`라는 컨테이너의 `script` 폴더에 저장됩니다.
 
     **defines** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:inputtable}, ${hiveconf:partitionedtable})으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
@@ -269,7 +270,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 1. **솔루션 탐색기** 창에서 **종속성**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **기존 항목**을 클릭합니다.  
 2. **C:\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
 
-다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 **adfgetstarted** Blob 컨테이너의 스크립트 폴더에 업로드됩니다.   
+다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 `adfgetstarted` Blob 컨테이너의 스크립트 폴더에 업로드됩니다.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>데이터 팩터리 엔터티 게시/배포
 1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
@@ -277,7 +278,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 3. 다음 대화 상자가 표시됩니다.
 
    ![게시 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. **데이터 팩터리 구성** 페이지에서 다음을 수행합니다.
+4. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
 
    1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
    2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예를 들어 **FirstDataFactoryUsingVS09152016**입니다. 이름은 전역적으로 고유해야 합니다.
@@ -310,7 +311,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
 ### <a name="monitor-pipeline-using-diagram-view"></a>다이어그램 보기를 사용하여 파이프라인 모니터링
-1. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 다음 단계를 수행합니다.
    1. **더 많은 서비스**를 클릭하고 **데이터 팩터리**를 클릭합니다.
        
         ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
@@ -331,7 +332,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
     ![파이프라인 보기 열기](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     이전 보기를 탐색하려면 맨 위에서 breadcrumb 메뉴의 **데이터 팩터리** 를 클릭합니다.
-6. **다이어그램 보기**에서 **AzureBlobInput** 데이터 집합을 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 준비 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 대기한 후에 표시되지 않는 경우 오른쪽 컨테이너(adfgetstarted) 및 폴더(inputdata)에 배치된 입력 파일(input.log)이 있는지 확인합니다.
+6. **다이어그램 보기**에서 **AzureBlobInput** 데이터 집합을 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 준비 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 대기한 후에 표시되지 않는 경우 오른쪽 컨테이너(`adfgetstarted`) 및 폴더(`inputdata`)에 배치된 입력 파일(input.log)이 있는지 확인합니다.
 
    ![준비 상태인 입력 조각](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. **X**를 닫아서 **AzureBlobInput** 블레이드를 닫습니다.
@@ -346,7 +347,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
    >
 
     ![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
-10. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
+10. 조각이 **준비** 상태이면 Blob Storage의 `adfgetstarted` 컨테이너에 있는 `partitioneddata` 폴더에서 출력 데이터를 확인합니다.  
 
     ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 11. 자세한 내용을 보려면 **데이터 조각** 블레이드에서 조각을 클릭합니다.
@@ -373,7 +374,7 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
     ![활동 창 세부 정보](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
-> 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 adfgetstarted 컨테이너의 inputdata 폴더에 입력 파일(input.log)을 업로드합니다.
+> 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 `adfgetstarted` 컨테이너의 `inputdata` 폴더에 입력 파일(input.log)을 업로드합니다.
 >
 >
 
@@ -387,7 +388,7 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
     ![데이터 팩터리 내보내기](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Visual Studio용 데이터 팩터리 도구 업데이트
-Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 수행합니다.
+Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음 단계를 수행합니다.
 
 1. 메뉴에서 **도구**를 클릭하고 **확장 및 업데이트**를 선택합니다.
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
@@ -523,9 +524,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 | [데이터 변환 활동](data-factory-data-transformation-activities.md) |이 문서에서는 Azure Data Factory에서 지원되는 데이터 변환 활동(예: 이 자습서에 사용된 HDInsight Hive 변환)의 목록을 제공합니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
-ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="connect-to-an-azure-container-service-cluster"></a>Azure 컨테이너 서비스 클러스터에 연결
+# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Kuburnetes, DC/OS 또는 Docker Swarm 클러스터에 원격 연결
 Azure Container Service 클러스터를 만든 후에 클러스터에 연결하여 워크로드를 배포하고 관리해야 합니다. 이 문서에서는 원격 컴퓨터에서 클러스터의 마스터 VM에 연결하는 방법을 설명합니다. 
 
 Kubernetes, DC/OS 및 Docker Swarm 클러스터는 HTTP 끝점을 로컬로 제공합니다. Kubernetes의 경우 이 끝점은 안전하게 인터넷에 노출되고 인터넷에 연결된 모든 컴퓨터에서 `kubectl` 명령줄 도구를 실행하여 액세스할 수 있습니다. 

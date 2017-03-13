@@ -16,14 +16,16 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
-ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 284bf43ceae0c42b88d6ea3fe8a2e68e7530e5fe
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="a-nametoc395783175abuild-a-nodejs-web-application-using-documentdb"></a><a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
+# <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [MongoDB용 .NET](documentdb-mongodb-application.md)
 > * [Node.JS](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -36,7 +38,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 자습서를 완료할 시간이 없고 전체 솔루션을 가져오려는 경우 [GitHub][GitHub]에서 전체 샘플 솔루션을 구할 수 있습니다. 앱을 실행하는 방법에 대한 지침은 [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) 파일을 참조하세요.
 
-## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>필수 조건
+## <a name="_Toc395783176"></a>필수 조건
 > [!TIP]
 > 이 Node.js 자습서에서는 Node.js 및 Azure 웹 사이트를 이전에 사용해본 경험이 있다고 가정합니다.
 > 
@@ -53,14 +55,14 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 * [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 * [Git][Git].
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
+## <a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
 먼저 DocumentDB 계정을 만듭니다. 계정이 있거나 이 자습서에 DocumentDB 에뮬레이터를 사용하고 있는 경우 [2단계: 새 Node.js 응용 프로그램 만들기](#_Toc395783178)로 건너뛸 수 있습니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램을 만드는 방법 알아보기
+## <a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램을 만드는 방법 알아보기
 이제 [Express](http://expressjs.com/) 프레임워크를 사용해서 기본적인 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.
 
 1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
@@ -81,7 +83,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
     그런 다음 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **y**를 클릭하여 배치 작업을 종료합니다.
 
-## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>3단계: 추가 모듈 설치
+## <a name="_Toc395783179"></a>3단계: 추가 모듈 설치
 **package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 나중에 이 응용 프로그램을 Azure 웹 사이트에 배포하는 경우 이 파일을 사용하여 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정합니다. 이 자습서를 위해 패키지 두 개를 더 설치해야 합니다.
 
 1. 다시 터미널에서 npm을 통해 **async** 모듈을 설치합니다.
@@ -114,7 +116,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
    
     이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
-## <a name="a-nametoc395783180astep-4-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
+## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
 초기 설정 및 구성이 모두 완료되었으므로 이제 Azure DocumentDB를 사용하여 일부 코드를 작성하겠습니다.
 
 ### <a name="create-the-model"></a>모델 만들기
@@ -428,7 +430,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 5. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다. 
 6. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
 
-## <a name="a-nametoc395783181astep-5-build-a-user-interface"></a><a name="_Toc395783181"></a>5단계: 사용자 인터페이스 작성
+## <a name="_Toc395783181"></a>5단계: 사용자 인터페이스 작성
 이제 사용자가 실제로 응용 프로그램을 조작할 수 있도록 사용자 인터페이스를 작성하겠습니다. 만든 Express 응용 프로그램은 **Jade** 를 뷰 엔진으로 사용합니다. Jade에 대한 자세한 내용은 [http://jade-lang.com/](http://jade-lang.com/)을 참조하세요.
 
 1. **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다. 
@@ -494,7 +496,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
    
     이 레이아웃에서 HTML 폼 두 개를 만들었습니다. 
     첫 번째 폼에는 데이터에 대한 테이블 및 컨트롤러의 **/completetask** 메서드에 게시하여 항목을 업데이트할 수 있게 해주는 단추 및 데이터 테이블이 포함됩니다.
-    두 번째 폼에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와 2개의 입력 필드가 포함됩니다.
+    두 번째 폼에는 컨트롤러의 **/addtask** 메서드에 게시하여 새 항목을 만들 수 있게 해주는 단추와&2;개의 입력 필드가 포함됩니다.
    
     응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 4. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
@@ -519,7 +521,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
    
     이 **style.css** 파일을 저장하고 닫습니다.
 
-## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>6단계: 로컬에서 응용 프로그램 실행
+## <a name="_Toc395783181"></a>6단계: 로컬에서 응용 프로그램 실행
 1. 로컬 컴퓨터에서 응용 프로그램을 테스트하려면 터미널에서 `npm start`를 실행하여 응용 프로그램을 시작한 다음 [http://localhost:3000](http://localhost:3000) 브라우저 페이지를 새로 고칩니다. 이제 페이지가 아래 이미지처럼 표시됩니다.
    
     ![브라우저 창에 표시된 MyTodo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image18.png)
@@ -535,7 +537,7 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
 5. 응용 프로그램을 중지하려면 터미널 창에서 Ctrl+C를 누른 다음 **Y**를 클릭하여 배치 작업을 종료합니다.
 
-## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
+## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
 1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. [Azure 앱 서비스에 로컬 Git 배포](../app-service-web/app-service-deploy-local-git.md) 항목에서 이 작업을 수행하는 방법에 대한 지침을 찾을 수 있습니다.
 2. Azure 웹 사이트를 git 원격으로 추가합니다.
    
@@ -549,9 +551,9 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 
     이 자습서의 참조 응용 프로그램 전체를 다운로드하거나 참조하려면 [GitHub][GitHub]에서 다운로드할 수 있습니다.
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>다음 단계
+## <a name="_Toc395637775"></a>다음 단계
 
-* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다.  [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
+* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
 * [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
 * [DocumentDB 설명서](https://docs.microsoft.com/en-us/azure/documentdb/)를 살펴봅니다.
@@ -559,10 +561,5 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

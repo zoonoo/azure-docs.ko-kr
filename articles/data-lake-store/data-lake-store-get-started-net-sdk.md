@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 
 ## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013 또는 2015**. 아래 지침에서는 Visual Studio 2015를 사용합니다.
+
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
 * **Azure Data Lake Store 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+
 * **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
@@ -58,9 +62,9 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
    2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
       
-      * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서에서는 v0.12.5-미리 보기를 사용합니다.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - 이 자습서에서는 v0.10.6-미리 보기를 사용합니다.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서에서는 v2.2.8-미리 보기를 사용합니다.
+      * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서는 v1.0.4를 사용합니다.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` - 이 자습서는 v1.0.1-미리 보기를 사용합니다.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.11을 사용합니다.
         
         ![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure Data Lake 계정 만들기")
    4. **NuGet 패키지 관리자**를 닫습니다.
@@ -71,7 +75,11 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. 아래와 같이 변수를 선언하고 이미 존재하는 Data Lake Store 이름과 리소스 그룹 이름에 대한 값을 제공합니다. 또한, 여기에 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재해야 합니다. 네임스페이스 선언 후에 다음 코드 조각을 추가합니다.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 인증, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다.
 
 ## <a name="authentication"></a>인증
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>최종 사용자 인증을 사용하는 경우(이 자습서에 권장됨)
-아래에 제공되는 기존 Azure AD "네이티브 클라이언트" 응용 프로그램과 함께 사용합니다. 이 자습서를 신속하게 완료하려면 이 방법을 사용하는 것이 좋습니다.
+
+이것을 Azure AD 네이티브 응용 프로그램에 사용하여 응용 프로그램을 **대화형으로** 인증합니다. 다시 말해 Azure 자격 증명을 입력하라는 메시지가 표시됩니다. 
+
+사용 편의성을 위해 아래 코드 조각은 모든 Azure 구독에서 작동하는 클라이언트 ID 및 리디렉션 URI에 대한 기본값을 사용합니다. 이 자습서를 신속하게 완료하려면 이 방법을 사용하는 것이 좋습니다. 아래 코드 조각에서 테넌트 ID에 대한 값만 제공합니다. 해당 값은 [Active Directory 응용 프로그램 만들기](data-lake-store-end-user-authenticate-using-active-directory.md)에 제공된 지침을 사용하여 검색할 수 있습니다.
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 위의 코드 조각에 대해 알아야 할 내용.
 
 * 자습서를 신속하게 완료할 수 있도록, 이 코드 조각은 기본적으로 모든 Azure 구독에서 사용할 수 있는 Azure AD 도메인 및 클라이언트 ID를 사용합니다. 따라서 **이 코드 조각을 응용 프로그램에서 있는 그대로 사용**할 수 있습니다.
-* 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 도메인, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Active Directory 응용 프로그램 만들기](data-lake-store-end-user-authenticate-using-active-directory.md) 를 참조하세요.
-
-> [!NOTE]
-> 위의 링크에서 지침은 Azure AD 웹 응용 프로그램용입니다. 그러나 대신 네이티브 클라이언트 응용 프로그램을 만들더라도 단계는 정확하게 동일합니다. 
-> 
-> 
+* 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 테넌트 ID, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Data Lake Store를 사용하여 최종 사용자 인증을 위한 Active Directory 응용 프로그램 만들기](data-lake-store-end-user-authenticate-using-active-directory.md)를 참조하세요.
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>클라이언트 암호로 서비스 간 인증을 사용하는 경우
-다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 암호/키를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 [Azure AD "Web App" 응용 프로그램](../azure-resource-manager/resource-group-create-service-principal-portal.md)과 함께 사용합니다.
+다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 비밀/키를 사용하여 **비대화형으로** 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다. Azure AD 웹 응용 프로그램을 만드는 방법 및 아래 코드 조각에 필요한 클라이언트 비밀 및 클라이언트 ID를 검색하는 방법에 대한 지침은 [Data Lake Store를 사용하여 서비스간 인증을 위한 Active Directory 응용 프로그램 만들기](data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>인증서로 서비스 간 인증을 사용하는 경우
-세 번째 옵션으로 다음 코드 조각은 응용 프로그램/서비스 보안 주체에 대한 인증서를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 [Azure AD "Web App" 응용 프로그램](../azure-resource-manager/resource-group-create-service-principal-portal.md)과 함께 사용합니다.
+세 번째 옵션으로 다음 코드 조각은 Azure Active Directory 응용 프로그램/서비스 주체에 대한 인증서를 사용하여 **비대화형으로** 응용 프로그램을 인증하는 데 사용될 수 있습니다. 이것은 [인증서에서 기존 Azure AD 응용 프로그램](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)과 함께 사용합니다.
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 * [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

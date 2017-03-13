@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -125,7 +126,7 @@ ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
     ![바인딩을 Azure Storage 테이블에 추가](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. **테이블 이름**으로 `TableItem`을, **테이블 매개 변수 이름**으로 `functionbindings`를 입력하고 **Storage 계정 연결**을 선택하거나 새로 만든 후 **저장**을 클릭합니다.
+2. **테이블 이름**으로 `functionbindings`을, **테이블 매개 변수 이름**으로 `myTable`를 입력하고 **Storage 계정 연결**을 선택하거나 새로 만든 후 **저장**을 클릭합니다.
 
     ![Storage 테이블 바인딩 구성](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>다음 단계
-Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
+Azure Functions에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Functions 개발자 참조](functions-reference.md)  
   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
@@ -190,10 +191,5 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
