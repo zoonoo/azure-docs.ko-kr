@@ -17,12 +17,12 @@ ms.date: 02/27/2017
 ms.author: anandy;billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
+ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="deloying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
+# <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
 Azure에서 AD FS를 배포하는 여러 가지 이점의 일부는 다음과 같습니다.
 

@@ -16,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="what-is-azure-container-registry"></a>Azure Container Registry란?
+# <a name="introduction-to-private-docker-container-registries"></a>개인 Docker 컨테이너 레지스트리 소개
 > [!NOTE]
 > Container Registry는 현재 미리 보기 상태입니다.
 

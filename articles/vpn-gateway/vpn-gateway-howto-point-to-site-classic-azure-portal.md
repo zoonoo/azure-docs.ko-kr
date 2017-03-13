@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: cf72197aba2c6e6c7a51f96d1161cf1fbe88a0c5
-ms.openlocfilehash: eb56c702224ab4503051cbee0c3678a7e8833d2b
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 0e55e0a3d7be1ceadf4f58517b3e2f996661791d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/18/2017
 다음 예제 설정을 사용할 수 있습니다.
 
 * **이름: VNet1**
-* **주소 공간: 192.168.0.0/16**
+* **주소 공간: 192.168.0.0/16**<br>이 예제에서는 하나의 주소 공간만 사용합니다. VNet에는 둘 이상의 주소 공간을 포함할 수 있습니다.
 * **서브넷 이름: FrontEnd**
 * **서브넷 주소 범위: 192.168.1.0/24**
 * **구독:** 구독이&2;개 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
@@ -71,8 +71,8 @@ ms.lasthandoff: 02/18/2017
 * **크기:** 사용할 게이트웨이 SKU를 선택합니다.
 * **라우팅 유형: 동적**
 
-## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>섹션 1 - 가상 네트워크 및 VPN 게이트웨이 만들기
-### <a name="a-namecreatevnetapart-1-create-a-virtual-network"></a><a name="createvnet"></a>1부: 가상 네트워크 만들기
+## <a name="vnetvpn"></a>섹션 1 - 가상 네트워크 및 VPN 게이트웨이 만들기
+### <a name="createvnet"></a>1부: 가상 네트워크 만들기
 가상 네트워크가 아직 없는 경우 만듭니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다. Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 사용하세요.
 
 1. 브라우저에서 [Azure 포털](http://portal.azure.com) 로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
@@ -98,7 +98,7 @@ ms.lasthandoff: 02/18/2017
 
 가상 네트워크가 만들어지면 Azure 클래식 포털의 네트워크 페이지에 있는 **상태**에 **생성됨**이 나타납니다.
 
-### <a name="a-namegatewayapart-2-create-gateway-subnet-and-a-dynamic-routing-gateway"></a><a name="gateway"></a>2부: 게이트웨이 서브넷 및 동적 라우팅 게이트웨이 만들기
+### <a name="gateway"></a>2부: 게이트웨이 서브넷 및 동적 라우팅 게이트웨이 만들기
 이 단계에서는 게이트웨이 서브넷 및 동적 라우팅 게이트웨이를 만듭니다. 클래식 배포 모델을 위한 Azure 포털에서 게이트웨이 서브넷 및 게이트웨이 만들기는 동일한 구성 블레이드를 통해 수행할 수 있습니다.
 
 1. 포털에서 게이트웨이를 만들려는 가상 네트워크로 이동합니다.
@@ -133,39 +133,45 @@ ms.lasthandoff: 02/18/2017
     ![라우팅 유형 구성](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 10. **새 VPN 연결** 블레이드의 하단에 **확인**을 클릭하여 가상 네트워크 게이트웨이 만들기를 시작합니다. 완료하려면 최대 45분이 걸릴 수 있습니다.
 
-## <a name="a-namegeneratecertsasection-2---generate-certificates"></a><a name="generatecerts"></a>섹션 2 - 인증서 생성
+## <a name="generatecerts"></a>섹션 2 - 인증서 생성
 인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하기 위해 Azure에 의해 사용됩니다. 엔터프라이즈 인증서 솔루션에 의해 생성된 루트 인증서 또는 자체 서명된 루트 인증서에서 Base-64로 인코딩된 X.509 .cer 파일로 공용 인증서 데이터(개인 키 아님)를 내보냅니다. 그런 다음 루트 인증서에서 Azure로 공용 인증서 데이터를 가져옵니다. 또한 클라이언트에 대한 루트 인증서에서 클라이언트 인증서를 생성해야 합니다. P2S 연결을 사용하여 가상 네트워크에 연결하려는 각 클라이언트에 루트 인증서에서 생성된 클라이언트 인증서가 설치되어 있어야 합니다.
 
-### <a name="a-namecerapart-1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1부: 루트 인증서용 .cer 파일 가져오기
-엔터프라이즈 솔루션을 사용하는 경우 기존 인증서 체인을 사용할 수 있습니다. 엔터프라이즈 CA 솔루션을 사용하지 않는 경우 자체 서명된 루트 인증서를 만들 수 있습니다. P2S를 연결하기 위해 자체 서명된 인증서를 만드는 권장 방법은 [makecert](vpn-gateway-certificates-point-to-site.md)입니다. PowerShell을 사용하여 자체 서명된 인증서를 만들 수 있지만, PowerShell을 사용하여 생성된 인증서는 P2S 연결에 필요한 필드를 포함하지 않습니다.
+### <a name="cer"></a>1부: 루트 인증서용 .cer 파일 가져오기
+ 
+엔터프라이즈 솔루션을 사용하는 경우 기존 인증서 체인을 사용할 수 있습니다. 사용할 루트 인증서용 .cer 파일을 가져옵니다.
 
-* 엔터프라이즈 인증서 솔루션을 사용하는 경우, 사용하려는 루트 인증서용 .cer 파일을 가져옵니다.
-* 엔터프라이즈 인증서 솔루션을 사용하지 않는 경우 [makecert를 사용하여 자체 서명된 루트 인증서를 생성](vpn-gateway-certificates-point-to-site.md)해야 합니다.
+엔터프라이즈 인증서 솔루션을 사용하지 않는 경우 자체 서명된 루트 인증서를 만들어야 합니다. P2S 인증에 필요한 필드가 포함된 자체 서명된 인증서를 만들려면 makecert를 사용합니다. [P2S 연결을 위해 자체 서명된 루트 인증서 만들기](vpn-gateway-certificates-point-to-site.md)에 자체 서명된 루트 인증서를 만드는 단계가 안내되어 있습니다. makecert가 현재 사용되지 않는다는 것을 알고 있지만 이 솔루션은 지원됩니다.
 
+>[!NOTE]
+>PowerShell을 사용하여 자체 서명된 인증서를 만들 수 있지만, PowerShell을 사용하여 생성된 인증서는 지점 및 사이트 간 인증에 필요한 필드를 포함하지 않습니다.
+>
+>
 
-1. 인증서에서 .cer 파일을 가져오려면 **certmgr.msc**를 열고 루트 인증서를 찾습니다. 자체 서명된 루트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 후 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다.
+#### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>자체 서명된 루트 인증서에서 .cer 파일을 가져오려면
+
+1. 자체 서명된 루트 인증서에서 .cer 파일을 가져오려면 **certmgr.msc**를 열고 직접 만든 루트 인증서를 찾습니다. 인증서는 일반적으로 'Certificates-Current User/ Personal/Certificates'에 있으며 인증서를 만들 때 선택한 이름이 지정되어 있습니다. 자체 서명된 루트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 후 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다.
 2. 마법사에서 **다음**을 클릭하고 **아니요, 개인 키를 내보내지 않습니다.**를 선택한 후 **다음**을 클릭합니다.
 3. **내보내기 파일 형식** 페이지에서 **Base&64;로 인코딩된 X.509(.CER)**를 선택합니다. 그런 후 **다음**을 클릭합니다.
 4. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **Next**를 클릭합니다.
 5. **마침** 을 클릭하여 인증서를 내보냅니다.
 
-### <a name="a-namegenclientcertapart-2-generate-a-client-certificate"></a><a name="genclientcert"></a>2부: 클라이언트 인증서 생성
+### <a name="genclientcert"></a>2부: 클라이언트 인증서 생성
 연결할 각 클라이언트의 고유한 인증서를 생성할 수도 있고 여러 클라이언트에서 동일한 인증서를 사용할 수도 있습니다. 고유한 클라이언트 인증서를 생성하면 필요할 경우 단일 인증서를 해지할 수 있는 장점이 있습니다. 그렇지 않은 경우 즉, 모든 구성원이 동일한 클라이언트 인증서를 사용하고 한 클라이언트에 대한 인증서를 해지해야 하는 경우, 인증서를 사용하는 모든 클라이언트에 대해 새 인증서를 생성하고 설치해야 합니다.
 
 ####<a name="enterprise-certificate"></a>엔터프라이즈 인증서
-- 엔터프라이즈 인증서 솔루션을 사용하는 경우, 'domain name\username' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com',으로 클라이언트 인증서를 생성합니다.
+- 엔터프라이즈 인증서 솔루션을 사용하는 경우, 'domain name\username' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com'으로 클라이언트 인증서를 생성합니다.
 - 발급한 클라이언트 인증서가 사용 목록의 첫 번째 항목으로 스마트 카드 로그온 등이 아닌 '클라이언트 인증'을 가지는 ‘사용자' 인증서 템플릿을 기준으로 하는지 확인합니다. 클라이언트 인증서를 두 번 클릭하고 **세부 정보 > 확장된 키 사용**을 확인하여 인증서를 확인할 수 있습니다.
 
 ####<a name="self-signed-certificate"></a>자체 서명된 인증서 
 자체 서명된 인증서를 사용하는 경우 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md) 을 참조하여 클라이언트 인증서를 생성합니다.
 
-### <a name="a-nameexportclientcertapart-3-export-the-client-certificate"></a><a name="exportclientcert"></a>3부 - 클라이언트 인증서 내보내기
+### <a name="exportclientcert"></a>3부 - 클라이언트 인증서 내보내기
 가상 네트워크에 연결하려는 각 컴퓨터에 클라이언트 인증서를 설치합니다. 인증하려면 클라이언트 인증서가 필요합니다. 클라이언트 인증서를 자동으로 설치하거나 수동으로 설치할 수 있습니다. 다음 단계에서는 클라이언트 인증서를 내보내어 수동으로 설치하는 방법을 안내합니다.
 
 1. 클라이언트 인증서를 내보내려면 *certmgr.msc*를 사용할 수 있습니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 다음 **내보내기**를 클릭합니다.
 2. 개인 키로 클라이언트 인증서를 내보냅니다. 이는 *.pfx* 파일입니다. 이 인증서에 대해 설정한 암호(키)를 기억 하거나 기록해야 합니다.
 
-## <a name="a-nameuploadasection-3---upload-the-root-certificate-cer-file"></a><a name="upload"></a>섹션 3 - 루트 인증서 .cer 파일 업로드
+## <a name="upload"></a>섹션 3 - 루트 인증서 .cer 파일 업로드
 게이트웨이가 생성되었으면 신뢰할 수 있는 루트 인증서에 대한 .cer 파일을 Azure에 업로드할 수 있습니다. 최대 20개의 루트 인증서에 대한 파일을 업로드할 수 있습니다. 루트 인증서에 대한 개인 키를 Azure에 업로드하지 않습니다. .cer 파일이 업로드되었으면 Azure에서는 이 파일을 사용하여 가상 네트워크에 연결할 클라이언트를 인증합니다.
 
 1. VNet에 대한 블레이드의 **VPN 연결** 섹션에서 **클라이언트** 그래픽을 클릭하여 **지점 및 사이트 간 VPN 연결** 블레이드를 엽니다.
@@ -181,7 +187,7 @@ ms.lasthandoff: 02/18/2017
 
     ![인증서 업로드](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)<br>
 
-## <a name="a-namevpnclientconfigasection-4---generate-the-vpn-client-configuration-package"></a><a name="vpnclientconfig"></a>섹션 4 - VPN 클라이언트 구성 패키지 생성
+## <a name="vpnclientconfig"></a>섹션 4 - VPN 클라이언트 구성 패키지 생성
 가상 네트워크에 연결하려면 VPN 클라이언트도 구성해야 합니다. 클라이언트 컴퓨터에 연결하기 위해 클라이언트 인증서와 적절한 VPN 클라이언트 구성 패키지가 모두 필요합니다.
 
 VPN 클라이언트 패키지는 Windows에 기본 제공되는 VPN 클라이언트 소프트웨어를 구성할 구성 정보를 포함합니다. 패키지는 추가 소프트웨어를 설치하지 않습니다. 설정은 연결하려는 가상 네트워크에 따라 다릅니다. 지원되는 클라이언트 운영 체제의 목록은 이 문서 끝의 [지점 및 사이트 간 연결 FAQ](#faq)를 참조하세요.
@@ -196,7 +202,7 @@ VPN 클라이언트 패키지는 Windows에 기본 제공되는 VPN 클라이언
      ![VPN 클라이언트 구성 패키지 다운로드](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)<br>
 3. Azure에서 가상 네트워크에 대한 VPN 클라이언트 구성 패키지를 생성한다는 메시지가 표시됩니다. 몇 분 후 패키지가 생성되고 로컬 컴퓨터에 패키지가 다운로드되었다는 메시지가 표시됩니다. 구성 패키지 파일을 저장합니다. P2S를 사용하여 가상 네트워크에 연결하려는 각 클라이언트 컴퓨터에 이 파일을 설치합니다.
 
-## <a name="a-nameclientconfigurationasection-5---configure-the-client-computer"></a><a name="clientconfiguration"></a>섹션 5 - 클라이언트 컴퓨터 구성
+## <a name="clientconfiguration"></a>섹션 5 - 클라이언트 컴퓨터 구성
 ### <a name="part-1-install-the-client-certificate"></a>1부 - 클라이언트 인증서 설치
 인증을 위해 각 클라이언트 컴퓨터에 클라이언트 인증서가 있어야 합니다. 클라이언트 인증서를 설치할 때는 클라이언트 인증서를 내보낼 때 만든 암호가 필요합니다.
 
@@ -206,13 +212,13 @@ VPN 클라이언트 패키지는 Windows에 기본 제공되는 VPN 클라이언
 ### <a name="part-2-install-the-vpn-client-configuration-package"></a>2부: VPN 클라이언트 구성 패키지 설치
 버전이 클라이언트에 대한 아키텍처와 일치하는 경우 각 클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다.
 
-1. 가상 네트워크에 연결할 컴퓨터에 구성 파일을 로컬로 복사하고 .exe 파일을 두 번 클릭합니다.
-2. 패키지가 설치되어 있다면 VPN 연결을 시작할 수 있습니다. 구성 패키지는 Microsoft에서 서명하지 않습니다. 조직의 서명 서비스를 사용하여 패키지에 서명하거나 [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327)을 사용하여 직접 서명합니다. 서명 없이 패키지를 사용해도 괜찮습니다. 그러나 패키지가 서명되지 않은 경우, 패키지를 설치할 때 경고가 표시됩니다.
+1. 구성 파일을 가상 네트워크에 연결할 컴퓨터에 로컬로 복사합니다. 
+2. .exe 파일을 두 번 클릭하여 클라이언트 컴퓨터에 패키지를 설치합니다. 구성 패키지를 직접 만들었으므로 서명되지 않았습니다. 다시 말해 경고가 표시될 수 있습니다. Windows SmartScreen 팝업이 나타나면 **자세한 정보**(왼쪽), **실행**을 차례로 클릭하여 패키지를 설치합니다.
 3. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 클릭합니다. 나열된 연결이 표시됩니다. 연결할 가상 네트워크의 이름이 다음과 비슷하게 표시됩니다.
 
     ![VPN 클라이언트](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vpn.png)
 
-## <a name="a-nameconnectasection-6---connect-to-azure"></a><a name="connect"></a>섹션 6 - Azure에 연결
+## <a name="connect"></a>섹션 6 - Azure에 연결
 ### <a name="connect-to-your-vnet"></a>VNet에 연결
 1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속** 을 클릭하여 상승된 권한을 사용합니다.
 2. **연결** 상태 페이지에서 **연결**을 클릭하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
@@ -244,7 +250,46 @@ VPN 클라이언트 패키지는 Windows에 기본 제공되는 VPN 클라이언
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
-## <a name="a-namefaqapoint-to-site-faq"></a><a name="faq"></a>지점 및 사이트 간 FAQ
+## <a name="add"></a>신뢰할 수 있는 루트 인증서 추가 또는 제거
+
+Azure에서 신뢰할 수 있는 루트 인증서를 추가 및 제거할 수 있습니다. 신뢰할 수 있는 인증서를 제거하면 루트 인증서에서 생성된 클라이언트 인증서는 더 이상 지점 및 사이트 간을 통해 Azure에 연결할 수 없습니다. 클라이언트를 연결하려는 경우 Azure에서 신뢰할 수 있는 인증서에서 생성된 새 클라이언트 인증서를 설치해야 합니다.
+
+### <a name="to-add-a-trusted-root-certificate"></a>신뢰할 수 있는 루트 인증서를 추가하려면
+
+Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 추가할 수 있습니다. 지침은 [섹션 3 - 루트 인증서 .cer 파일 업로드](#upload)를 참조하세요.
+
+### <a name="to-remove-a-trusted-root-certificate"></a>신뢰할 수 있는 루트 인증서를 제거하려면
+
+
+1. VNet에 대한 블레이드의 **VPN 연결** 섹션에서 **클라이언트** 그래픽을 클릭하여 **지점 및 사이트 간 VPN 연결** 블레이드를 엽니다.
+
+    ![클라이언트](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+2. **지점 및 사이트 간 연결** 블레이드에서 **인증서 관리**를 클릭하여 **인증서** 블레이드를 엽니다.<br>
+
+    ![인증서 블레이드](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
+3. **인증서** 블레이드에서 제거할 인증서 옆에 있는 줄임표를 클릭한 다음 **삭제**를 클릭합니다.
+
+     ![루트 인증서 삭제](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deleteroot.png)<br>
+
+
+## <a name="revokeclient"></a>클라이언트 인증서 해지
+클라이언트 인증서를 해지할 수 있습니다. 인증서 해지 목록에서 개별 클라이언트 인증서를 기반으로 하는 지점 및 사이트 간 연결을 선택적으로 거부할 수 있습니다. 이것은 신뢰할 수 있는 루트 인증서를 제거하는 것과 다릅니다. Azure에서 신뢰할 수 있는 루트 인증서 .cer를 제거하면, 해지된 루트 인증서로 생성/서명된 모든 클라이언트 인증서에 대한 액세스 권한도 해지됩니다. 루트 인증서가 아닌 클라이언트 인증서를 해지해야 루트 인증서로부터 생성된 다른 인증서를 지점 및 사이트 간 연결을 위한 인증에 계속 사용할 수 있습니다.
+
+해지된 클라이언트 인증서를 사용하는 동안 개별 사용자의 세분화된 액세스 제어를 위해 일반적으로 루트 인증서를 사용하여 팀 또는 조직 수준에서 액세스를 관리합니다.
+
+### <a name="to-revoke-a-client-certificate"></a>클라이언트 인증서를 해지하려면
+
+해지 목록에 지문을 추가하여 클라이언트 인증서를 해지할 수 있습니다.
+
+1. 클라이언트 인증서 지문을 검색합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695.aspx)을 참조하세요.
+2. 텍스트 편집기에 정보를 복사하고 연속 문자열이 되도록 공백을 모두 제거합니다.
+3. **'클래식 가상 네트워크 이름' > 지점 및 사이트 간 VPN 연결 > 인증서** 블레이드로 이동한 다음 **해지 목록**을 클릭하여 해지 목록 블레이드를 엽니다. 
+4. **해지 목록** 블레이드에서 **+인증서 추가**를 클릭하여 **해지 목록에 인증서 추가** 블레이드를 엽니다.
+5. **해지 목록에 인증서 추가** 블레이드에서 인증서 지문을 공백 없이 연속적인 텍스트 줄로 붙여 넣습니다. 블레이드 아래쪽에서 **확인**을 클릭합니다.
+6. 업데이트가 완료된 후에는 인증서를 더 이상 연결에 사용할 수 없습니다. 이 인증서를 사용하여 연결하려는 클라이언트에게는 인증서가 더 이상 유효하지 않다는 메시지가 표시됩니다.
+
+
+## <a name="faq"></a>지점 및 사이트 간 FAQ
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 

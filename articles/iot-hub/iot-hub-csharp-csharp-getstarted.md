@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 969e6bd55ca69e293f13b66f1a51f1d5fd1996b7
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-net"></a>Azure IoT Hub 시작(.NET)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>.NET을 사용하여 IoT Hub에 시뮬레이션된 장치 연결
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 이 자습서의 끝 부분에서 다음의 세 가지 .NET 콘솔 앱이 만들어집니다.
@@ -36,7 +38,7 @@ ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 또는 Visual Studio 2017.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -46,7 +48,7 @@ ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
 이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 .NET 콘솔 앱을 작성합니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **CreateDeviceIdentity**의 이름을 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 새 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **CreateDeviceIdentity**로 솔루션 이름을 **IoTHubGetStarted**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10]
 2. 솔루션 탐색기에서 **CreateDeviceIdentity** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
@@ -101,9 +103,9 @@ ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
 > 
 > 
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 현재 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
    
-    ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10]
+    ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10a]
 2. 솔루션 탐색기에서 **ReadDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 3. **NuGet 패키지 관리자** 창에서 **WindowsAzure.ServiceBus**를 검색하고 **설치**를 선택한 다음 사용 약관에 동의합니다. 이 프로시저에서는 모든 종속 항목과 함께 [Azure Service Bus][lnk-servicebus-nuget]에 대한 참조를 다운로드, 설치 및 추가합니다. 이 패키지를 사용하면 응용 프로그램을 IoT Hub의 이벤트 허브와 호환되는 끝점에 연결할 수 있습니다.
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
@@ -158,9 +160,9 @@ ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
 ## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
 이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 .NET 콘솔 앱을 작성합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **SimulatedDevice**의 이름을 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 현재 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **SimulatedDevice**의 이름을 지정합니다.
    
-    ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10]
+    ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10b]
 2. 솔루션 탐색기에서 **SimulatedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **Microsoft.Azure.Devices.Client**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices.Client** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 장치 SDK NuGet 패키지][lnk-device-nuget] 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
@@ -198,7 +200,7 @@ ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
             }
         }
    
-    이 메서드는 1초마다 새로운 장치-클라우드 메시지를 보냅니다. 메시지에는 장치 ID가 있는 JSON 직렬화된 개체와 풍속 센서를 시뮬레이션하기 위해 임의로 생성된 숫자가 있습니다.
+    이 메서드는&1;초마다 새로운 장치-클라우드 메시지를 보냅니다. 메시지에는 장치 ID가 있는 JSON 직렬화된 개체와 풍속 센서를 시뮬레이션하기 위해 임의로 생성된 숫자가 있습니다.
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
    
         Console.WriteLine("Simulated device\n");
@@ -245,6 +247,8 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
+[10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
+[10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
 [11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
@@ -267,9 +271,4 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

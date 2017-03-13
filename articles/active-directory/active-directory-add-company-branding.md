@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같은 테넌트 특정 URL로 서비스를 이용할 경우 브랜드가 지정된 로그인 페이지만이 나타납니다.
 
-비테넌트 특정 URL ( 예: https://mail.office365.com ) 을 사용하여 서비스에 방문하는 경우 브랜드가 지정되지 않은 로그인 페이지가 나타납니다. 이 경우에 사용자 ID를 입력하거나 사용자 타일을 선택하면 브랜딩이 나타납니다.
+비테넌트 특정 URL(예: https://mail.office365.com )을 사용하여 서비스에 방문하는 경우 브랜드가 지정되지 않은 로그인 페이지가 나타납니다. 이 경우에 사용자 ID를 입력하거나 사용자 타일을 선택하면 브랜딩이 나타납니다.
 
 > [!NOTE]
 > * 도메인 이름은 브랜딩을 구성한 Azure 클래식 포털의 **Active Directory** > **디렉터리** > **도메인** 섹션에 “활성”으로 나타나야 합니다.
@@ -133,6 +134,10 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 
 기술적으로 Azure AD에서 지원하는 다양한 각 언어 집합을 구성할 수 있지만 유지 관리 및 성능상의 이유로 변형 수를 낮게 유지하는 것이 좋습니다.
 
+> [!IMPORTANT]
+> Yammer는 사용자가 로그인할 때까지 Azure AD 브랜드 로그인 페이지를 표시되지 않습니다. 사용자에게 일반 Office 365 로그인 페이지가 먼저 표시된 후 브랜드 페이지가 표시됩니다.   
+ 
+ 
 **디렉터리에 회사 브랜딩을 추가하려면 다음 단계를 수행합니다.**
 
 1. 사용자 지정하려는 디렉터리의 관리자로 [Azure 클래식 포털](https://manage.windowsazure.com) 에 로그인합니다.
@@ -148,7 +153,7 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 
 1. 사용자 지정하려는 디렉터리의 관리자로 [Azure 클래식 포털](https://manage.windowsazure.com) 에 로그인합니다.
 2. 사용자 지정하려는 디렉터리를 선택합니다.
-3. 위쪽 도구 모음에서 **구성**을 클릭합니다.
+fs3. 위쪽 도구 모음에서 **구성**을 클릭합니다.
 4. **브랜딩 사용자 지정**을 클릭합니다.
 5. **특정 언어에 대한 브랜딩 추가**를 클릭합니다.
 6. 로고를 사용자 지정할 언어를 선택한 후 **다음**을 클릭합니다.
@@ -221,9 +226,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

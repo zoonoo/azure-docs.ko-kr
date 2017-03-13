@@ -25,7 +25,7 @@ ms.lasthandoff: 03/01/2017
 ## <a name="overview"></a>개요
 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹트래 픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. 앱 서비스 환경은 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
 
-+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>설정
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 앱 서비스 환경을 구성하여 WAF의 트래픽만이 앱 서비스 환경에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure 트래픽 관리자를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 아래와 비슷합니다.

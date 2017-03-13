@@ -17,6 +17,7 @@ ms.author: vidarmsft
 translationtype: Human Translation
 ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
 ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
+ms.lasthandoff: 12/23/2016
 
 ---
 
@@ -50,7 +51,7 @@ ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
         ActiveDirectoryKey 및 AppName의 값을 전달할 수 있습니다.
 
 
-2. 이 스크립트는 다음 값을 출력합니다. - 클라이언트 ID - 테넌트 ID - Active Directory 키(위에서 입력한 것과 동일함) - 구독 ID
+2. 이 스크립트는 다음 값을 출력합니다.      - 클라이언트 ID      - 테넌트 ID      - Active Directory 키(위에서 입력한 것과 동일함)      - 구독 ID
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
 
@@ -177,9 +178,4 @@ ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 데이터 관리자 UI를 사용하여 데이터를 변환합니다](storsimple-data-manager-ui.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

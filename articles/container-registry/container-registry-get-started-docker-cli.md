@@ -1,6 +1,6 @@
 ---
-title: "Azure 컨테이너 레지스트리의 Docker 이미지 | Microsoft Docs"
-description: "Docker CLI를 사용하여 Azure Container Registry로 Docker 이미지 밀어넣기 및 끌어오기"
+title: "Docker 이미지를 개인 Azure 레지스트리에 밀어넣기 | Microsoft Docs"
+description: "Docker CLI를 사용하여 Azure의 개인 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 개인 [Docker](http://hub.docker.com) 컨테이너 이미지를 저장하고 관리합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [밀어넣기](https://docs.docker.com/engine/reference/commandline/push/), [끌어오기](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다. 
 
-백그라운드 및 개념에 대한 자세한 내용은 [Azure Container Registry란?](container-registry-intro.md)을 참조하세요.
+자세한 배경 지식 및 개념은 [개요](container-registry-intro.md)를 참조하세요.
 
 
 > [!NOTE]
