@@ -1,6 +1,6 @@
 ---
-title: "작업 영역 관리 | Microsoft Docs"
-description: "사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 태스크를 사용하여 Azure Log Analytics에서 작업 영역을 관리합니다."
+title: "Azure Log Analytics 및 OMS 포털에서 작업 영역 관리 | Microsoft Docs"
+description: "사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 작업을 사용하여 Azure Log Analytics 및 OMS 포털에서 작업 영역을 관리할 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ OMS 계정과 연결된 사용자의 계정 역할을 변경할 수 있습니다
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Azure 구독에 기존 작업 영역 연결
 2016년 9월 26일 이후에 만들어진 모든 작업 영역은 만들 때 Azure 구독에 연결되어야 합니다. 이 날짜 이전에 만들어진 작업 영역은 다음 로그인할 때 작업 영역에 연결되어야 합니다. Azure Portal에서 작업 영역을 만들거나 작업 영역을 Azure 구독에 연결하면 Azure Active Directory가 조직 계정으로 연결됩니다.
 
-![Azure 구독 연결](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> 작업 영역을 연결하려면 Azure 계정에 연결하려는 작업 영역에 대한 액세스 권한이 이미 있어야 합니다.  즉, Azure Portal에 액세스하는 데 사용하는 계정은 작업 영역에 액세스하는 데 사용하는 계정과 **동일**해야 합니다. 그렇지 않은 경우 [기존 작업 영역에 사용자 추가](#add-a-user-to-an-existing-workspace)를 참조하십시오.
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>작업 영역을 OMS 포털의 Azure 구독에 연결하려면
-작업 영역을 OMS 포털의 Azure 구독에 연결하기 위해 로그인한 사용자는 유료 Azure 계정이 이미 있어야 합니다.
 
-1. OMS 포털에서 **설정** 타일을 클릭합니다.
-2. **계정** 탭을 클릭한 다음 **Azure 구독 및 데이터 계획** 탭을 클릭합니다.
-3. 사용하려는 데이터 계획을 클릭합니다.
-4. **Save**를 클릭합니다.  
-   ![구독 및 데이터 계획](./media/log-analytics-manage-access/subscription-tab.png)
+- OMS 포털에 로그인할 때 Azure 구독을 선택하라는 메시지가 표시됩니다. 작업 영역에 연결할 구독을 선택한 다음 **링크**를 클릭합니다.  
+    ![Azure 구독 연결](./media/log-analytics-manage-access/required-link.png)
 
-새 데이터 계획은 웹 페이지의 위쪽에 있는 OMS 포털 리본 메뉴에 표시됩니다.
+    > [!IMPORTANT]
+    > 작업 영역을 연결하려면 Azure 계정에 연결하려는 작업 영역에 대한 액세스 권한이 이미 있어야 합니다.  즉, Azure Portal에 액세스하는 데 사용하는 계정은 작업 영역에 액세스하는 데 사용하는 계정과 **동일**해야 합니다. 그렇지 않은 경우 [기존 작업 영역에 사용자 추가](#add-a-user-to-an-existing-workspace)를 참조하십시오.
 
-![OMS 리본 메뉴](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>작업 영역을 Azure Portal의 Azure 구독에 연결하려면
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
@@ -236,7 +227,7 @@ Azure 구독이 연결된 기업 등록에 대한 Azure 통화 커밋이 있는 
 
 작업 영역이 연결되어 있는 Azure 구독을 변경하려면, Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet을 사용합니다.  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>작업 영역을 유료 가격 책정 계층으로 변경
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Azure Portal에서 작업 영역을 유료 가격 책정 계층으로 변경
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
 2. **Log Analytics**를 찾아서 선택합니다.
 3. 기존 작업 영역 목록이 표시됩니다. 작업 영역을 선택합니다.  
@@ -250,6 +241,21 @@ Azure 구독이 연결된 기업 등록에 대한 Azure 통화 커밋이 있는 
 > 작업 영역이 자동화 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **자동화 및 제어** 솔루션을 삭제하고 자동화 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. 자동화 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 자동화 계정의 이름을 클릭합니다.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>OMS 포털에서 데이터 계획 변경
+
+OMS 포털을 사용하여 데이터 계획을 변경하려면 로그인한 사용자에게 Azure 계정이 이미 있어야 합니다.
+
+1. OMS 포털에서 **설정** 타일을 클릭합니다.
+2. **계정** 탭을 클릭한 다음 **Azure 구독 및 데이터 계획** 탭을 클릭합니다.
+3. 사용하려는 데이터 계획을 클릭합니다.
+4. **Save**를 클릭합니다.  
+   ![구독 및 데이터 계획](./media/log-analytics-manage-access/subscription-tab.png)
+
+새 데이터 계획은 웹 페이지의 위쪽에 있는 OMS 포털 리본 메뉴에 표시됩니다.
+
+![OMS 리본 메뉴](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics의 데이터 저장 기간 변경
 
@@ -266,8 +272,8 @@ Azure 구독이 연결된 기업 등록에 대한 Azure 통화 커밋이 있는 
 2. **Log Analytics**를 찾아서 선택합니다.
 3. 기존 작업 영역 목록이 표시됩니다. 작업 영역을 선택합니다.  
 4. 작업 영역 블레이드의 **일반**에서 **보존**을 클릭합니다.  
-5. 슬라이더를 사용하여 보존 일 수를 늘리거나 줄인 다음 **저장**
-![보존 변경](./media/log-analytics-manage-access/manage-access-change-retention01.png)을 클릭합니다.
+5. 슬라이더를 사용하여 보존 일 수를 늘리거나 줄인 다음 **저장**  
+    ![보존 변경](./media/log-analytics-manage-access/manage-access-change-retention01.png)을 클릭합니다.
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>작업 영역의 Azure Active Directory 조직 변경
 

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 
 지원된 파일 형식에 대한 자세한 내용은 [Machine Learning Studio로 학습 데이터 가져오기](machine-learning-data-science-import-data.md)를 참조하세요.
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
+#### <a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
 기계 학습 스튜디오의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계 값이 10GB입니다. Hive 또는 Azure SQL Database 쿼리를 사용하여 더 큰 데이터 집합을 샘플링하거나 수집하기 전에 Learning by Counts 전처리를 사용할 수 있습니다.  
 
 다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
@@ -101,7 +102,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 * 출력 데이터 크기가 입력 데이터 크기보다 클 수 있는 모듈(예: Join 또는 Feature Hashing)
 * Cross-validation, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>데이터 업로드에 대한 제한 사항은 무엇인가요?
+#### <a id="UploadLimit"></a>데이터 업로드에 대한 제한 사항은 무엇인가요?
 몇 GB보다 큰 데이터 집합의 경우 로컬 파일에서 직접 업로드하지 않고 Azure Storage 또는 Azure SQL Database에 데이터를 업로드하거나 Azure HDInsight를 사용합니다.
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
@@ -429,7 +430,11 @@ Resource Manager 기반 웹 서비스를 처음 배포할 때 기존 계획을 �
 
 **새 계획을 사용할 수 있는 지역은 어디인가요?**
 
-국가별 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
+새 청구 계획은 새 웹 서비스가 지원되는 다음 세 곳의 프로덕션 지역에서 사용할 수 있습니다.
+
+* 미국 중남부
+* 서유럽
+* 동남아시아
 
 **여러 지역에서 웹 서비스를 사용합니다. 모든 지역에 대한 계획이 필요한가요?**
 
@@ -464,7 +469,13 @@ BES 워크로드도 같은 방식으로 청구됩니다. 하지만 API 트랜잭
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning 무료 및 표준 계층
 **Azure 기계 학습 무료 계층에는 무엇이 포함되나요?**
 
-Azure 기계 학습 무료 계층은 Azure 기계 학습 스튜디오를 자세히 소개하기 위한 것입니다. Microsoft 계정을 등록하기만 하면 됩니다. 무료 계층에는 [Microsoft 계정](https://www.microsoft.com/account/default.aspx)당 하나의 Azure 기계 학습 스튜디오 작업 영역에 대한 무료 액세스 권한이 포함됩니다. 이 계층에서 최대 10GB의 저장소를 사용하고 스테이징 API로서 모델을 운영할 수 있습니다. 무료 계층 작업은 SLA의 적용을 받지 않으며 개발 및 개인 용도로만 사용할 수 있습니다. 무료 계층 워크로드는 SQL Server가 실행되는 온-프레미스 서버에 연결하여 데이터에 액세스할 수 없습니다.
+Azure 기계 학습 무료 계층은 Azure 기계 학습 스튜디오를 자세히 소개하기 위한 것입니다. Microsoft 계정을 등록하기만 하면 됩니다. 무료 계층에는 [Microsoft 계정](https://www.microsoft.com/account/default.aspx)당 하나의 Azure 기계 학습 스튜디오 작업 영역에 대한 무료 액세스 권한이 포함됩니다. 이 계층에서 최대 10GB의 저장소를 사용하고 스테이징 API로서 모델을 운영할 수 있습니다. 무료 계층 작업은 SLA의 적용을 받지 않으며 개발 및 개인 용도로만 사용할 수 있습니다. 
+
+무료 계층 작업 영역의 제한 사항:
+
+* 워크로드가 SQL Server가 실행되는 온-프레미스 서버에 연결하여 데이터에 액세스할 수 없습니다.
+* 새 리소스 관리자 기반 웹 서비스를 배포할 수 없습니다.
+
 
 **Azure 기계 학습 표준 계층 및 계획에는 무엇이 포함됩니까?**
 
@@ -546,9 +557,4 @@ Machine Learning 서비스는 다중 테넌트 서비스입니다. 백 엔드에
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -161,6 +162,9 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
 | 인도 남부 |12076분&51019;초 |
 | 인도 서부 |12076분&51018;초 |
 | 인도 중부 |12076분&51017;초 |
+| **한국** | |
+| 한국 남부 |12076:51028 |
+| 한국 중부 |12076:51029 |
 
 Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 태그되어야 합니다. 
 
@@ -212,10 +216,5 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
   * [클래식 배포 모델용 ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 또는 [Azure Resource Manager를 사용하여 ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
   * [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [Resource Manager 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
   * [ExpressRoute 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [ExpressRoute 회로에 Resource Manager VNet 연결](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

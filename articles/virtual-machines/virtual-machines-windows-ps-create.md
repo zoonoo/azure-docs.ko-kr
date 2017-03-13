@@ -1,6 +1,6 @@
 ---
 title: "PowerShell을 사용하여 Azure VM 만들기 | Microsoft Docs"
-description: "Azure PowerShell 및 Azure Resource Manager를 사용하여 Windows Server를 실행하는 VM을 손쉽게 만들 수 있습니다."
+description: "Azure PowerShell 및 Azure Resource Manager를 사용하여 Windows Server VM을 손쉽게 만들 수 있습니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Azure Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기
 
-이 문서에서는 [리소스 관리자](../azure-resource-manager/resource-group-overview.md) 및 Azure PowerShell을 사용하여 Windows Server를 실행하는 Azure Virtual Machine 및 필요한 리소스를 빠르게 만드는 방법을 보여 줍니다.  
+이 문서에서는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 및 Azure PowerShell을 사용하여 Windows Server를 실행하는 Azure Virtual Machine 및 필요한 리소스를 빠르게 만드는 방법을 보여 줍니다.  
 
-이 문서의 모든 단계는 가상 컴퓨터를 만드는 데 필요하며 단계를 수행하려면 약 30분 정도가 걸립니다. 명령 예제의 매개 변수 값을 사용자 환경에서 식별할 수 있는 이름으로 바꿉니다.
+이 문서의 모든 단계는 가상 컴퓨터를 만드는 데 필요하며 명령을 복사하고 붙여넣고 실행하려면 약 10분 정도가 걸립니다.
 
 ## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="step-4-create-a-virtual-network"></a>4단계: 가상 네트워크 만들기
 
-모든 가상 컴퓨터는 [가상 네트워크](../virtual-network/virtual-networks-overview.md)의 일부입니다.
+모든 가상 컴퓨터는 [가상 네트워크](virtual-machines-windows-network-overview.md)의 일부입니다.
 
 1. 가상 네트워크의 서브넷을 만듭니다. 이 명령은 주소 접두사로 10.0.0.0/24를 사용하는 **mySubnet**이라는 서브넷을 만듭니다.
    
