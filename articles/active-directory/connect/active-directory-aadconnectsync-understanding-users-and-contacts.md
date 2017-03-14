@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: d77e9309fa8823846f25c58276bfbaaf8d65717a
+ms.sourcegitcommit: c5b54c80d9a74d72b242f8d7dd55e2dcadbfa48e
+ms.openlocfilehash: 96d568b6d264fa484e09ee81cdbc779a6f65eb0d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -40,7 +41,7 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 
 예를 들어 GALSync 토폴로지에서 첫번째 포리스트를 가져올 때 두번째 포리스트의 모두를 위해 연락처 개체를 찾습니다. 그러면 AAD 커넥터에 새 연락처 개체를 준비합니다. 나중에 두번째 포리스트를 가져오고 동기화할 때 실제 사용자를 찾아서 기존 메타 버스 개체에 조인시킵니다. 그런 다음 AAD에서 연락처 개체를 삭제하고 대신 새 사용자 개체를 만듭니다.
 
-사용자들이 연락처로 나타나는 토폴로지의 경우에는 반드시 설치 가이드의 메일 특성에 대해 사용자를 일치시키도록 선택하십시오. 다른 옵션을 선택하면 주문에 종속된 구성이 만들어집니다. 연락처 개체는 항상 메일 특성에 조인되지만 설치 가이드에서 이 옵션을 선택한 경우에는 사용자 개체가 메일 특성에만 조인됩니다. 그러면 사용자 개체 전에 연락처 개체를 가져온 경우 메타 버스 내의&2;개의 다른 개체가 동일한 메일 특성을 갖게 될 수 있습니다. Azure AD로 내보내기 중 오류가 발생합니다. 이 동작은 디자인에 의한 것이며 잘못된 데이터 또는 설치 중에 토폴로지가 올바르게 식별되지 않았음을 나타냅니다.
+사용자가 연락처로 표시되는 토폴로지의 경우 반드시 설치 가이드의 메일 특성에 대해 사용자를 일치시키도록 선택해야 합니다. 다른 옵션을 선택하면 주문에 종속된 구성이 만들어집니다. 연락처 개체는 항상 메일 특성에 조인되지만 설치 가이드에서 이 옵션을 선택한 경우에는 사용자 개체가 메일 특성에만 조인됩니다. 그러면 사용자 개체 전에 연락처 개체를 가져온 경우 메타 버스 내의&2;개의 다른 개체가 동일한 메일 특성을 갖게 될 수 있습니다. Azure AD로 내보내기 중 오류가 발생합니다. 이 동작은 디자인에 의한 것이며 잘못된 데이터 또는 설치 중에 토폴로지가 올바르게 식별되지 않았음을 나타냅니다.
 
 ## <a name="disabled-accounts"></a>비활성화된 계정
 비활성화된 계정도 Azure AD에 동기화됩니다. 비활성화된 계정은 Exchange 내 리소스를 나타내는 것이 일반적입니다(예: 회의실). 예외는 앞서 언급한 것처럼 연결된 사서함이 있는 사용자이며, 이것은 Azure AD에 계정을 프로비전하지 않습니다.
@@ -53,10 +54,5 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

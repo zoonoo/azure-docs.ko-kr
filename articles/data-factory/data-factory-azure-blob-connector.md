@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: aa2aabee72d1ca381502f9332df7fb88cf2384a2
+ms.sourcegitcommit: 3ec7a230a4051d23e741360f3f714cccadf85902
+ms.openlocfilehash: 511021e43e7d5b3247744592cbeab67769758375
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: aa2aabee72d1ca381502f9332df7fb88cf2384a2
 ## <a name="supported-sources-and-sinks"></a>지원되는 원본 및 싱크
 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 이동할 수 있습니다.
 
-복사 작업은 범용 Azure Storage 계정 및 핫/쿨 Blob 저장소 간의 데이터 복사를 모두 지원합니다. 이 작업은 블록에서 읽기, 추가 또는 페이지 Blob를 지원하며 쓰기는 블록 Blob만 지원합니다.
+복사 작업은 범용 Azure Storage 계정 및 핫/쿨 Blob 저장소 간의 데이터 복사를 모두 지원합니다. 이 작업은 블록에서 읽기, 추가 또는 페이지 Blob를 지원하며 쓰기는 블록 Blob만 지원합니다. Azure Premium Storage를 해당 페이지 Blob 아래에 지정된 싱크로 지원하지 않습니다.
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
 다른 도구/API를 사용하여 Azure Blob Storage 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.  
@@ -521,9 +522,4 @@ Azure Blob Storage에서 데이터를 이동하는 경우 복사 작업의 원�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

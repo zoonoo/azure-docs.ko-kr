@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: da9da90e7ccd5d324b8f87a3585555ea5d5ed475
-ms.openlocfilehash: d587ff744fea5393a34d5a576e6af32cac5d2b44
+ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
+ms.openlocfilehash: 6b2473ef6336aea5c9a79aad78e02bcfc38b9018
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -52,6 +53,11 @@ public class MyClass
     public string Id { get; set; }
 }
 ```
+
+> [!TIP]
+>
+> HTTP 또는 WebHook 바인딩을 사용하려는 경우 [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)에서 이 모범 사례 문서를 읽는 것이 좋습니다.
+>
 
 ## <a name="logging"></a>로깅
 C#의 스트리밍 로그에 대한 출력을 기록하려면 `TraceWriter` 형식의 인수를 포함할 수 있습니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write` 는 피하는 것이 좋습니다.
@@ -314,10 +320,5 @@ public class Order
 * [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

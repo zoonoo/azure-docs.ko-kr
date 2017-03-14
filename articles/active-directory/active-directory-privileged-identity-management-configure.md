@@ -1,5 +1,5 @@
 ---
-title: Azure AD Privileged Identity Management | Microsoft Docs
+title: "Azure AD Privileged Identity Management 구성 | Microsoft Docs"
 description: "Azure AD Privileged Identity Management가 무엇이고 클라우드 보안을 개선하기 위한 PIM 사용 방법을 설명하는 항목입니다."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b52a475008c9d15912c0b363d76118df74112107
-ms.openlocfilehash: b289b9befc67d01689fa87db955b1a10c210a724
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 89174dad8fcd3bcceafd728feb2211926266720a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
+# <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 Azure Active Directory(AD) Privileged Identity Management를 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. Azure AD의 리소스 및 Office 365 또는 Microsoft Intune과 같은 다른 Microsoft 온라인 서비스에 대한 액세스를 포함합니다.  
 
 > [!NOTE]

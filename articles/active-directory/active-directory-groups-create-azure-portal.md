@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 미리 보기에서 새 그룹 만들기 | Microsoft Docs"
-description: "Azure Active Directory에서 그룹을 만들고 그룹에 사용자(멤버)를 추가하는 방법"
+title: "Azure Active Directory 미리 보기에서 사용자에 대한 그룹 만들기 | Microsoft Docs"
+description: "Azure Active Directory에서 그룹을 만들고 그룹에 멤버를 추가하는 방법"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
-ms.openlocfilehash: ab74ff51f6dd1af91c4ec4d5de570ca30fb963bd
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-new-group-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 새 그룹 만들기
+# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Azure Active Directory에서 그룹 만들기 및 멤버 추가
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-accessmanagement-manage-groups.md)
@@ -58,9 +60,4 @@ ms.openlocfilehash: ab74ff51f6dd1af91c4ec4d5de570ca30fb963bd
 * [그룹의 멤버 관리](active-directory-groups-members-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

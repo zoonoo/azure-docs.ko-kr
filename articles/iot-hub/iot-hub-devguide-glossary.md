@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
-ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,8 +30,8 @@ ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
 ## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](../xplat-cli-install.md)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 버전의 CLI는 Node.js를 사용하여 구현됩니다.
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)
-[Azure CLI 2.0(미리 보기)](https://docs.microsoft.com/cli/azure/install-az-cli2)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 미리 보기 버전은 Python을 사용하여 구현됩니다.
+## <a name="azure-cli-20"></a>Azure CLI 2.0
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)은 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 미리 보기 버전은 Python을 사용하여 구현됩니다.
 
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 장치 SDK
@@ -61,7 +62,7 @@ ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
 [IoT Hub](#iot-hub)의 컨텍스트에서 백 엔드 앱은 IoT Hub에서 서비스 지향 끝점 중 하나에 연결되는 앱입니다. 예를 들어 백 엔드 앱은 [장치-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행되지만 대부분의 자습서에 나오는 백 엔드 앱은 로컬 개발 환경에서 실행 중인 콘솔 앱입니다.
 
 ## <a name="built-in-endpoints"></a>기본 제공 끝점
-모든 IoT Hub에는 Event Hubs와 호환되는 기본 제공 [끝점](iot-hub-devguide-endpoints.md)이 있습니다. Event Hubs와 함께 작동하는 모든 메커니즘을 사용하여 이 끝점에서 장치-클라우드 메시지를 읽을 수 있습니다.
+모든 IoT Hub에는 Event Hub와 호환되는 기본 제공 [끝점](iot-hub-devguide-endpoints.md)이 있습니다. Event Hubs와 함께 작동하는 모든 메커니즘을 사용하여 이 끝점에서 장치-클라우드 메시지를 읽을 수 있습니다.
 
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 클라우드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. 클라우드 게이트웨이는 장치에 대해 로컬로 시행되는 [필드 게이트웨이](#field-gateway)와 달리, 클라우드에서 호스트됩니다. 클라우드 게이트웨이를 위한 일반 사용 사례는 장치에 대한 프로토콜 변환을 구현하는 것입니다.
@@ -256,8 +257,3 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 ## <a name="x509-client-certificate"></a>X.509 클라이언트 인증서
 장치는 X.509 인증서를 사용하여 [IoT Hub](#iot-hub)와 인증을 수행할 수 있습니다. [SAS 토큰](#shared-access-signature)을 사용하는 대신 X.509 인증서를 사용합니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/28/2016
+ms.date: 02/28/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 01c6d3c3fa8648ef9ecaefcf43191315380d13d4
+ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758
+ms.openlocfilehash: 3290a375963bc3e625cbdb05b5f9686e8cfb34f6
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory-ad"></a>Azure Active Directory (AD)에 대해 인증된 AppSource 가져오는 방법
-Azure AD에 대한 AppSource 인증을 받으려면 응용 프로그램은 OpenID Connect, OAuth 2.0 또는 SAML 2.0 프로토콜을 사용하여 Azure AD로 다중 테넌트 로그인 패턴을 구현해야 합니다. 
+Azure AD에 대한 AppSource 인증을 받으려면 응용 프로그램에서 OpenID Connect 또는 OAuth 2.0 프로토콜을 사용하여 Azure AD로 다중 테넌트 로그인 패턴을 구현해야 합니다.  
 
 Azure AD 로그인 또는 다중 테넌트 응용 프로그램 개발에 대해 잘 알지 못하는 경우 다음을 수행합니다.
 
@@ -57,10 +58,5 @@ Azure AD 로그인을 지원하는 응용 프로그램 빌드에 대한 자세�
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

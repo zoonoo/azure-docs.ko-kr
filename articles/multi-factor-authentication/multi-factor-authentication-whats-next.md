@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: c8a53cbbfdb0f3d5d5b4b3a1e70f2c08d50c6004
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
+ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 이 문서는 준비하고 실행 중인 Multi-Factor Authentication을 관리하는데 도움이 됩니다.  Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다.  모든 버전의 Azure Multi-Factor Authentication에서 이러한 모든 기능을 사용할 수는 없습니다.
 
-| 기능 | 설명 | |:--- |:--- || | [사기 행위 경고](#fraud-alert) |사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 보고할 수 있습니다. | | [일회성 바이패스](#one-time-bypass) |일회성 바이패스로 다단계 인증 "바이패스"하여 사용자가 단일 시간을 인증할 수 있습니다. | | [사용자 지정 음성 메시지](#custom-voice-messages) |사용자 지정 음성 메시지를 사용하면 다단계 인증으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. | | [캐싱](#caching-in-azure-multi-factor-authentication) |캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. | | [신뢰할 수 있는 IP](#trusted-ips) |관리되는 또는 페더레이션된 테넌트의 관리자는 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해&2;단계 인증을 바이패스하는 신뢰할 수 있는 IP를 사용할 수 있습니다. | | [앱 암호](#app-passwords) |앱 암호를 사용하면 MFA를 인식하지 않는 응용 프로그램은 다단계 인증을 바이패스하고 계속 작업할 수 있습니다. | | [기억된 장치 및 브라우저를 위해 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-users-trust) | 사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다. | | [선택 가능한 확인 방법](#selectable-verification-methods) |사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. |
+| 기능 | 설명 | |:--- |:--- || | [사기 행위 경고](#fraud-alert) |사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 보고할 수 있습니다. | | [일회성 바이패스](#one-time-bypass) |일회성 바이패스로 다단계 인증 "바이패스"하여 사용자가 단일 시간을 인증할 수 있습니다. | | [사용자 지정 음성 메시지](#custom-voice-messages) |사용자 지정 음성 메시지를 사용하면 다단계 인증으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. | | [캐싱](#caching-in-azure-multi-factor-authentication) |캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. | | [신뢰할 수 있는 IP](#trusted-ips) |관리되는 또는 페더레이션된 테넌트의 관리자는 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해&2;단계 인증을 바이패스하는 신뢰할 수 있는 IP를 사용할 수 있습니다. | | [앱 암호](#app-passwords) |앱 암호를 사용하면 MFA를 인식하지 않는 응용 프로그램은 다단계 인증을 바이패스하고 계속 작업할 수 있습니다. | | [기억된 장치 및 브라우저를 위해 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-that-users-trust) | 사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다. | | [선택 가능한 확인 방법](#selectable-verification-methods) |사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Azure MFA 관리 포털에 액세스
 
@@ -164,7 +164,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 <center>![클라우드](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
-신뢰할 수 있는 IP는 관리되는 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해&2;단계 인증을 바이패스하기 위해 사용할 수 있는 Azure MFA 기능입니다. 이 기능은 관리자용 무료 버전이 아닌 Azure Multi-Factor Authentication의 정식 버전에서 사용할 수 있습니다. Azure Multi-Factor Authentication의 정식 버전을 가져오는 방법에 대 한 자세한 내용은 [Azure Multi-Factor Authentication을 가져오는 방법](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication)을 참조하세요.
+신뢰할 수 있는 IP는 관리되는 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해&2;단계 인증을 바이패스하기 위해 사용할 수 있는 Azure MFA 기능입니다. 이 기능은 관리자용 무료 버전이 아닌 Azure Multi-Factor Authentication의 정식 버전에서 사용할 수 있습니다. Azure Multi-Factor Authentication의 정식 버전을 가져오는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication](multi-factor-authentication.md)을 참조하세요.
 
 | Azure AD 테넌트의 유형 | 사용 가능한 신뢰할 수 있는 IP 옵션 |
 |:--- |:--- |
@@ -260,13 +260,18 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>사용자가 신뢰하는 장치에 대한 Multi-Factor Authentication 기억
 사용자가 신뢰하는 장치 및 브라우저에 대한 Multi-Factor Authentication 기억은 모든 MFA 사용자에 대해 무료로 사용할 수 있는 기능입니다. 이를 통해 사용자에게 MFA를 사용하여 성공적으로 로그인한 후 설정된 일수 동안 MFA를 바이패스하는 옵션을 제공할 수 있습니다. 이는 사용자가 동일한 장치에서&2;단계 인증을 수행하는 횟수를 최소화함으로써 유용성을 향상시킬 수 있습니다.
 
+그러나 계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 MFA를 기억해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 장치를 분실 또는 도난당한 경우 [모든 장치에서 Multi-Factor Authentication을 복원](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다. 이 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하고 사용자는&2;단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 MFA를 복원하도록 지시할 수도 있습니다.
+
+### <a name="how-it-works"></a>작동 방법
+
+사용자가 로그인 시 "**X**일 동안 다시 묻지 않음" 상자를 선택한 경우 브라우저에서 영구 쿠키를 설정하여 Multi-Factor Authentication을 작동합니다. 쿠키가 만료될 때까지는 해당 브라우저에서 MFA를 다시 요청하는 메시지가 사용자에게 표시되지 않습니다. 사용자가 동일한 장치에서 다른 브라우저를 열거나 쿠키를 지우는 경우 다시 확인하라는 메시지가 표시됩니다. 
+
+"**X**일 동안 다시 묻지 않음" 확인란은 최신 인증의 지원 여부에 관계없이 비브라우저 앱에는 표시되지 않습니다. 이러한 앱에서는&1;시간마다 새로운 액세스 토큰을 제공하는 새로 고침 토큰을 사용합니다. 새로 고침 토큰의 유효성이 확인되면 Azure AD가&2;단계 인증을 수행한 마지막 시간이 구성된 일 수 내에 있는지 확인합니다. 
+
+따라서 신뢰할 수 있는 장치에서 MFA를 저장하면 웹앱에서 인증 수(일반적으로 1시간마다 표시)는 줄어들지만 최신 인증 클라이언트에 대한 인증 수(일반적으로 90일마다 표시)는 늘어납니다.
+
 > [!NOTE]
-> 이 기능은 브라우저 쿠키 캐시로 구현됩니다. 브라우저 쿠키를 사용할 수 없는 경우 작동하지 않습니다.
-
-그러나 계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 MFA를 기억해두는 것이 보안에 도움이 될 수 있습니다. 계정 보안을 위해 모든 장치에서 Multi-Factor Authentication을 복원하는 옵션이 있습니다. 이는 모든 장치가 신뢰할 수 있는 상태를 잃음을 의미하며, 이에 사용자는&2;단계 인증을 다시 수행해야 합니다. 다음과 같은 시나리오의 경우 장치에 대해 Multi-Factor Authentication을 복원해야 합니다.
-
-* 자신의 회사 계정이 손상될 경우
-* 기억된 장치를 분실하거나 도난당한 경우
+>이 기능은 사용자가 Azure MFA Server 또는 타사 MFA 솔루션을 통해 AD FS에 대해&2;단계 인증을 수행할 때 AD FS의 "로그인 유지" 기능과는 호환되지 않습니다. 사용자가 AD FS에서 "로그인 유지"를 선택하고 장치를 MFA에 대해 신뢰할 수 있는 것으로 표시한 경우 "MFA 기억" 일 수가 만료된 후에는 확인할 수 없습니다. Azure AD는 새로운&2;단계 인증을 요청하지만 AD FS는&2;단계 인증을 다시 수행하는 대신, 원본 MFA 클레임 및 날짜와 함께 토큰을 반환합니다. 그러면 Azure AD 및 AD FS 간의 확인 루프가 해제 설정됩니다. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Multi-Factor Authentication 기억 사용
 1. [Azure 클래식 포털](https://portal.azure.com/)에 로그인합니다.

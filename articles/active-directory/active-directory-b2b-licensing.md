@@ -16,8 +16,9 @@ ms.workload: identity
 ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 59a7fe2d1eea948f1452f21d2185e6bdf93dc41f
+ms.sourcegitcommit: 64af2509036d035c5802f4b1985c3f986b685545
+ms.openlocfilehash: 2b677e684021a873c0bc4db751d8e60d9eaa6f9d
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 59a7fe2d1eea948f1452f21d2185e6bdf93dc41f
 Azure AD(Azure Active Directory) B2B 공동 작업은 선택한 기존 Azure AD 기능 집합을 Azure AD 테넌트에 초대 받은 게스트 사용자에게로 확장합니다. 따라서 Azure AD B2B 공동 작업 게스트 사용자는 Azure AD 라이선스를 통해 사용이 허가되고 https://azure.microsoft.com/ko-kr/pricing/details/active-directory/ 사이트에 표시되는 것처럼 기존의 Free, Basic 및 Premium P1/P2 라이선스 계층에 맞춰 정렬됩니다.
 
 B2B 사용자를 초대한 후 Azure AD에서 응용 프로그램에 할당하는 과정은 무료입니다. 또한 게스트 사용자당 최대 10개 앱과 3개의 기본 보고서도 Azure AD '무료' 계층의 일부이므로 B2B 사용자에게 무료입니다.
-B2B 공동 작업 기능을 통해 B2B 사용자에게 확장되는 모든 유료 Azure AD 기능은 Azure AD 유료 라이선스(사용되는 기능에 따라 Basic, Premium P1 또는 Premium P2)로 사용이 허가되어야 합니다. 초대하는 테넌트는 각 Azure AD 유료 라이선스가 있는 5명의 B2B 사용자 권한을 얻습니다. 즉, 테넌트의 한 직원 사용자에게 권한을 제공하는 각 Azure AD 유료 라이선스는 이제 해당 테넌트에 초대된 5명의 B2B 사용자에 대한 권한도 포함합니다.
+B2B 공동 작업 기능을 통해 B2B 사용자에게 확장되는 모든 유료 Azure AD 기능은 Azure AD 유료 라이선스(사용되는 기능에 따라 Basic, Premium P1 또는 Premium P2)로 사용이 허가되어야 합니다. 초대하는 테넌트는 각 Azure AD 유료 라이선스가 있는 5명의 B2B 사용자 권한을 얻습니다. 즉, 테넌트의 한 사용자에게 Azure AD 유료 기능에 대한 권한을 제공하는 각 Azure AD 유료 라이선스는 이제 테넌트에 초대받은 추가 B2B 사용자 5명에게 동일한 Azure AD 유료 기능에 대한 권한을 제공합니다.
 
 ## <a name="licensing-examples"></a>라이선스 예제
 - 한 고객은 해당 Azure AD 테넌트에 100명의 B2B 사용자를 초대하려고 하며 모든 사용자에 대해 그룹 기반 액세스 관리 및 프로비저닝을 사용하지만 해당 사용자 중 50명은 MFA 및 조건부 액세스 권한을 요구합니다. 여기서 고객은 모든 해당 B2B 사용자를 제대로 처리하기 위해 10개의 Azure AD 기본 라이선스와 10개의 Azure AD Premium P1 라이선스를 구입해야 합니다. 마찬가지로 초대하는 테넌트가 B2B 사용자에게 ID 보호 기능을 사용하려는 경우 이러한 모든 B2B 사용자를 5:1 비율로 처리하기 위해 충분한 Azure AD Premium P2 라이선스가 있어야 합니다.
@@ -60,9 +61,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bc60476253fd3e646fbd08cd6749e06fb403959c
-ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 391943c6057081b48594d74898d798e5365509d3
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -44,7 +45,7 @@ AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 �
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다. 
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -308,6 +309,11 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 ### <a name="creating-a-amazon-web-services-aws-test-user"></a>AWS(Amazon Web Services) 테스트 사용자 만들기
 이 섹션에서는 AWS(Amazon Web Services)에서 Britta Simon이라는 사용자를 만듭니다.
 
+> [!NOTE]
+> AWS는 SAML로 적절한 사용자 프로비전을 지원합니다. 이는 기본적으로 활성화되었으므로 AWS에서 사용자를 프로비전할 필요가 없습니다.
+> 
+> 
+
 ### <a name="to-create-a-user-called-britta-simon-in-amazon-web-services-aws-perform-the-following-steps"></a>AWS(Amazon Web Services)에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.
 1. **AWS(Amazon Web Services)** 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -421,10 +427,5 @@ AWS(Amazon Web Services) 응용 프로그램에는 특정 형식의 SAML 어설�
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 02/22/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 2a04860ea7349798d5786e50dc1d564896341d60
-ms.openlocfilehash: 50f13ae0184e5b9609994d382acc126eb2868271
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
+ms.openlocfilehash: a2972c7c7fead727e6147212b211d102faf01a29
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -59,7 +59,8 @@ DocumentDB .NET Core SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md)�
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
 
-분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](documentdb-sql-query.md#Aggregates)을 참조하세요.
+* 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
 

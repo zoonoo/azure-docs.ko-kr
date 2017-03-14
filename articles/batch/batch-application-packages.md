@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/30/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
-ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 9c7073e55b98406fc8f9db9a40bf1a6ffc626f47
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="application-deployment-with-azure-batch-application-packages"></a>Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포
+# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>응용 프로그램을 배포하여 Batch 응용 프로그램 패키지에서 노드 계산
+
 Azure 배치의 응용 프로그램 패키지 기능은 풀의 계산 노드에 태스크 응용 프로그램 및 해당 배포를 간편하게 관리할 수 있는 방법을 제공합니다. 응용 프로그램 패키지를 사용하여 지원 파일을 비롯하여 태스크에서 실행하는 여러 응용 프로그램 버전을 업로드하고 관리할 수 있습니다. 풀의 계산 노드에 이러한 응용 프로그램을 하나 이상 자동으로 배포할 수 있습니다.
 
 이 문서에서는 Azure 포털을 사용하여 응용 프로그램 패키지를 업로드하고 관리하는 방법을 알아봅니다. [Batch .NET][api_net] 라이브러리를 사용하여 풀의 계산 노드에 설치하는 방법을 알아봅니다.
@@ -348,9 +351,4 @@ foreach (ApplicationSummary app in applications)
 [10]: ./media/batch-application-packages/app_pkg_10.png "포털에서 저장소 계정 블레이드 선택"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure 포털의 패키지 업데이트 블레이드"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 포털의 패키지 삭제 확인 대화 상자"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

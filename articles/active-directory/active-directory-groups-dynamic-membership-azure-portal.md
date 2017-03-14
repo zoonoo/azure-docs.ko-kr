@@ -1,5 +1,6 @@
 ---
-title: "Azure Active Directory 미리 보기에서 특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기 | Microsoft Docs"
+
+title: "Azure Active Directory 미리 보기에서 특성 기반 동적 그룹 멤버 자격 | Microsoft Docs"
 description: "지원되는 식 규칙 연산자 및 매개 변수를 포함하는 동적 그룹 멤버 자격에 대한 고급 규칙을 만드는 방법."
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
-ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 16dd02934d4bd18f87f6508dce6c6829fe6aa0ac
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기
-Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 미리 보기 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 이 문서는 규칙 특성 및 이러한 고급 규칙을 만드는 구문에 대해 자세히 설명합니다.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
+Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 미리 보기 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다. [미리 보기 상태에서의 기능](active-directory-preview-explainer.md) 
+
+이 문서는 특성 및 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
 
 ## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -38,7 +43,7 @@ Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azu
 
    ![동적 멤버 자격 규칙 추가](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 6. **동적 멤버 자격 규칙** 블레이드에서 **동적 멤버 자격 고급 규칙 추가** 상자에 규칙을 입력하고 Enter를 누른 다음 블레이드 맨 아래의 **만들기**를 선택합니다.
-7. **만들기** on the **그룹** 를 선택하여 그룹을 만듭니다.
+7. **만들기** on the **그룹**을 선택하여 그룹을 만듭니다.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>고급 규칙 본문 생성
 그룹의 동적 멤버 자격에 대해 만들 수 있는 고급 규칙은 기본적으로 세 부분으로 구성되며 true 또는 false 결과를 생성하는 이진 식입니다. 세 부분은 다음과 같습니다.
@@ -85,7 +90,7 @@ Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azu
 | --- | --- | --- |
 | 오류: 특성이 지원되지 않습니다. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>속성은 [지원되는 속성 목록](#supported-properties)를 선택합니다. |
 | 오류: 특성에서는 연산자가 지원되지 않습니다. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>속성은 부울 형식입니다. 위의 목록에서 부울 형식에 지원되는 연산자(-eq 또는 -ne)를 사용합니다. |
-| 오류: 쿼리 컴파일 오류입니다. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>논리 연산자는 위의 지원되는 속성 목록에 있는 논리 연산자와 일치해야 합니다(정규식에 있는 user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error). |
+| 오류: 쿼리 컴파일 오류입니다. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
 | 오류: 이진 식 형식이 올바르지 않습니다. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
 | 오류: 동적 멤버 자격을 설정하는 동안 알 수 없는 오류가 발생했습니다. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
 
@@ -203,9 +208,4 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

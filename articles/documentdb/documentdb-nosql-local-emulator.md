@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5f9783232e9b03ca3777a000ffc189863d0956ab
-ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
+ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
+ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -38,9 +39,9 @@ DocumentDB 에뮬레이터에는 다음과 같은 하드웨어 및 소프트웨�
 
 * 소프트웨어 요구 사항
   * Windows Server 2012 R2, Windows Server 2016 또는 Windows 10
-*   최소 하드웨어 요구 사항
-  * 2GB RAM
-  * 10GB의 하드 디스크 여유 공간
+*    최소 하드웨어 요구 사항
+  *    2GB RAM
+  *    10GB의 하드 디스크 여유 공간
 
 ## <a name="installing-the-documentdb-emulator"></a>DocumentDB 에뮬레이터 설치
 [Microsoft 다운로드 센터](https://aka.ms/documentdb-emulator)에서 DocumentDB 에뮬레이터를 다운로드하여 설치할 수 있습니다. 
@@ -57,7 +58,7 @@ DocumentDB 에뮬레이터에는 DocumentDB 내에 저장된 데이터를 찾아
 ## <a name="how-the-documentdb-emulator-works"></a>DocumentDB 에뮬레이터 작동 방식
 DocumentDB 에뮬레이터는 DocumentDB 서비스의 충실도 높은 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure DocumentDB으로 동일한 기능을 지원합니다. DocumentDB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 DocumentDB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
-실제 DocumentDB 서비스의 충실도 높은 로컬 에뮬레이션을 만들었지만 DocumentDB 에뮬레이터의 구현운 서비스의 구현과 다릅니다. 예를 들어 DocumentDB 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 일부 기능은 DocumentDB 에뮬레이터를 통해 사용할 수 없습니다.
+실제 DocumentDB 서비스의 충실도 높은 로컬 에뮬레이션을 만들었지만 DocumentDB 에뮬레이터의 구현은 서비스의 구현과 다릅니다. 예를 들어 DocumentDB 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 일부 기능은 DocumentDB 에뮬레이터를 통해 사용할 수 없습니다.
 
 
 ## <a name="authenticating-requests-against-the-documentdb-emulator"></a>DocumentDB 에뮬레이터에 대한 요청 인증
@@ -117,7 +118,7 @@ Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함�
 
 Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비활성화됩니다.
 
-## <a name="a-idcommand-lineadocumentdb-emulator-command-line-tool-reference"></a><a id="command-line"></a>DocumentDB 에뮬레이터 명령줄 도구 참조
+## <a id="command-line"></a>DocumentDB 에뮬레이터 명령줄 도구 참조
 설치 위치에서 명령줄을 사용하여 에뮬레이터를 시작 및 중지하고, 옵션을 구성하고, 다른 작업을 수행할 수 있습니다.
 
 ### <a name="command-line-syntax"></a>명령줄 구문
@@ -223,7 +224,7 @@ DocumentDB 에뮬레이터는 로컬 개발자 워크스테이션에서 실행�
 * DocumentDB 에뮬레이터는 Azure DocumentDB 서비스에서 사용할 수 있는 서비스 할당량 재정의(예: 문서 크기 제한, 향상된 분할된 컬렉션 저장소)를 지원하지 않습니다.
 * DocumentDB 에뮬레이터의 복사본은 최신 Azure DocumentDB 서비스가 포함된 가장 최근의 변경 사항이 적용된 최신 에뮬레이터가 아닐 수 있으므로 [DocumentDB Capacity Planner](https://www.documentdb.com/capacityplanner)를 실행하여 응용 프로그램에 요구되는 프로덕션 처리량(RU)을 정확하게 예측해야 합니다.
 
-## <a name="a-idset-partitioncountachange-the-number-of-collections"></a><a id="set-partitioncount"></a>컬렉션 수 변경
+## <a id="set-partitioncount"></a>컬렉션 수 변경
 
 기본적으로 DocumentDB 에뮬레이터를 사용하여 최대 25개의 단일 파티션의 컬렉션 또는 분할된 컬렉션 하나를 만들 수 있습니다. **PartitionCount** 값을 수정하여는 최대 250개의 단일 파티션 컬렉션 또는 10개의 분할된 컬렉션을 만들거나, 합쳐서 250개의 단일 파티션을 초과하지 않는 두 컬렉션 조합을 만들 수 있습니다(분할된 컬렉션 1개 = 단일 파티션 컬렉션 25개).
 
@@ -249,9 +250,11 @@ DocumentDB 에뮬레이터에서 사용할 수 있는 컬렉션의 수를 변경
 
 - DocumentDB 에뮬레이터가 충돌하는 경우 c:\Users\user_name\AppData\Local\CrashDumps 폴더에서 덤프 파일을 수집하고, 압축하고, 전자 메일에 첨부하여 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)으로 보냅니다.
 
+- DocumentDB.StartupEntryPoint.exe에서 충돌을 경험하는 경우 관리자 명령 프롬프트에서 다음 명령을 실행합니다. `lodctr /R` 
+
 - 연결 문제가 발생하는 경우 [추적 파일을 수집](#trace-files)하고, 압축하고, 전자 메일에 첨부하여 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)으로 보냅니다.
 
-### <a name="a-idtrace-filesacollect-trace-files"></a><a id="trace-files"></a>추적 파일 수집
+### <a id="trace-files"></a>추적 파일 수집
 
 디버깅 추적을 수집하려면 관리 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -268,9 +271,4 @@ DocumentDB 에뮬레이터에서 사용할 수 있는 컬렉션의 수를 변경
 ## <a name="next-steps"></a>다음 단계
 * DocumentDB에 대해 자세히 알아보려면 [Azure DocumentDB 소개](documentdb-introduction.md)를 참조하세요.
 * DocumentDB 에뮬레이터를 기반으로 개발을 시작하려면 [지원되는 DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 다운로드하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

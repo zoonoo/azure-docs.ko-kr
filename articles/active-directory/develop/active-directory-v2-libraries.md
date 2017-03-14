@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: f54dbdaa9e1eab9c7c050c2d8163322ee56f003e
+ms.sourcegitcommit: 9710381787cc1fe570443467b6980616879c503f
+ms.openlocfilehash: ab5576d09e5a51cd7ae602d57693558715e12d66
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure AD v2.0은 두 가지 유형의 라이브러리를 사용할 수 있습니
 * **서버 미들웨어 라이브러리** 웹앱은 사용자 로그인에 서버 미들웨어 라이브러리를 사용합니다. 웹 API는 서버 미들웨어 라이브러리를 사용하여 네이티브 클라이언트 또는 다른 서버에서 전송되는 토큰의 유효성을 검사합니다.
 
 ## <a name="library-support"></a>라이브러리 지원
-V 2.0 끝점을 사용하는 경우 모든 표준 호환 라이브러리를 선택할 수 있기 때문에 지원하려는 위치를 알아야 합니다. 라이브러리 코드에서 문제 및 기능 요청은 라이브러리 소유자에게 문의합니다. 서비스 측 프로토콜 구현에서 문제 및 기능 요청은 Microsoft로 문의합니다.
+V&2;.0 끝점을 사용하는 경우 모든 표준 호환 라이브러리를 선택할 수 있기 때문에 지원하려는 위치를 알아야 합니다. 라이브러리 코드에서 문제 및 기능 요청은 라이브러리 소유자에게 문의합니다. 서비스 측 프로토콜 구현에서 문제 및 기능 요청은 Microsoft로 문의합니다.
 
 라이브러리는 두 지원 범주로 제공됩니다.
 
@@ -71,9 +72,9 @@ v2.0 끝점을 사용하는 라이브러리 목록은 이 문서의 다음 섹�
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[네이티브 앱 샘플](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[네이티브 앱 샘플](active-directory-v2-devquickstarts-ios.md) |
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [버전 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | 서비스 예정 |
-| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |서비스 예정 |
+| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | PHP | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [버전 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | 서비스 예정 |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |서비스 예정 |
+| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[웹앱](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |서비스 예정 |
 
 <!--- REMOVING BRANDON'S FOR NOW
@@ -132,9 +133,4 @@ Azure AD v2.0 끝점에 대한 자세한 내용은 [Azure AD 앱 모델 v2.0 개
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
