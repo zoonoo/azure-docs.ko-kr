@@ -11,40 +11,34 @@ ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 02/22/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 3f9077733725174f1eed61d37d544e4f36822f6e
-ms.openlocfilehash: d935571ccd18bc15baa000fb8c07fed11b66ba6c
+ms.sourcegitcommit: a08d9f2ef29002f10473b0e041737c9c607f3ca0
+ms.openlocfilehash: 7d6de93c99141248ea970ea668fb0b2191267b62
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-sql-database-transact-sql-differences"></a>Azure SQL 데이터베이스 TRANSACT-SQL의 차이점   
 응용 프로그램에서 의존하는 TRANSACT-SQL 기능은 대부분 Microsoft SQL Server와 Azure SQL 데이터베이스 모두에서 지원됩니다. 예를 들어, 데이터 형식, 연산자, 문자열, 산술, 논리 및 커서 함수 등과 같은 핵심 SQL 구성 요소는 SQL Server에서 그대로 작동합니다.
 
-## <a name="why-some-transact-sql-is-not-supported"></a>일부 Transact-SQL이 지원되지 않는 이유
+# <a name="why-some-transact-sql-is-not-supported"></a>일부 Transact-SQL이 지원되지 않는 이유
 Azure SQL Database는 마스터 데이터베이스 및 운영 체제에 대한 종속성으로부터 기능을 격리하도록 만들어졌습니다. 따라서 많은 서버 수준 작업이 SQL Database에 적합하지 않습니다. Transact-SQL 문은 일반적으로 서버 수준 옵션 또는 운영 체제 구성 요소를 구성하거나 파일 시스템 구성을 지정하는 경우에 사용할 수 없습니다. 사용자 데이터베이스의 외부에 있는 기능이 필요한 경우 SQL Database 또는 다른 Azure 기능이나 서비스에서 다른 방법을 사용 가능하다는 점이 적절한 대안입니다. 
 
-예를 들어, Always On은 활성 지역 복제로 대체됩니다. 이런 이유로 가용성 그룹과 관련된 Transact-SQL 문은 SQL Database에서 지원되지 않으며 Always On에 관련된 동적 관리 뷰도 지원되지 않습니다.  
+예를 들어 Always On은 Azure SQL Database에 적용되지 않습니다. 이 서비스에는 고가용성이 내장되어 모든 데이터베이스의 가용성이 높기 때문입니다. 이런 이유로 가용성 그룹과 관련된 Transact-SQL 문은 SQL Database에서 지원되지 않으며 Always On에 관련된 동적 관리 뷰도 지원되지 않습니다.  
 
 SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 [Azure SQL Database 고려 사항, 지침 및 기능](sql-database-features.md)을 참조하세요.
 
-SQL Server에서 사용되지 않는 구문은 일반적으로 SQL Database에서 지원되지 않습니다.
 
 ## <a name="transact-sql-syntax-partially-supported-in-sql-database"></a>SQL Database에서 부분적으로 지원되는 Transact-SQL 구문
-SQL Database에서는 해당 SQL Server 2016 Transact-SQL 문에 있는 인수가 일부는 지원되고 일부는 지원되지 않습니다. 예를 들어 `CREATE PROCEDURE` 문은 사용할 수 있지만 `CREATE PROCEDURE`의 모든 옵션은 사용할 수 없습니다. 여기에서 전체 구문을 설명하는 것은 복잡하고 중복됩니다. 각 문의 지원되는 영역에 대한 자세한 내용은 연결된 구문 항목을 참조하세요.
+SQL Database에서는 데이터베이스 및 로그인 관리를 위해 해당 SQL Server 2016 Transact-SQL 문에 있는 인수가 일부는 지원되고 일부는 지원되지 않습니다. 예를 들어 `CREATE DATABASE` 문은 Azure SQL Database에서 사용할 수 있고 SQL Server에서 지원되는 일부 옵션은 Azure SQL Database에서 지원되지 않으며, 그 반대의 경우도 마찬가지입니다. 각 문의 지원되는 영역에 대한 자세한 내용은 연결된 구문 항목을 참조하세요.
 
-- 데이터베이스: [만들기](https://msdn.microsoft.com/library/dn268335.aspx)/[데이터베이스 변경](https://msdn.microsoft.com/library/ms174269.aspx)   
-- 함수: [만들기](https://msdn.microsoft.com/library/ms186755.aspx)/[함수 변경](https://msdn.microsoft.com/library/ms186967.aspx)   
+- 데이터베이스: [만들기](https://msdn.microsoft.com/library/dn268335.aspx)/[데이터베이스 변경](https://msdn.microsoft.com/library/mt574871.aspx)   
 - 로그인: [만들기](https://msdn.microsoft.com/library/ms189751.aspx)/[로그인 변경](https://msdn.microsoft.com/library/ms189828.aspx)   
-- 저장 프로시저: [만들기](https://msdn.microsoft.com/library/ms187926.aspx)/[프로시저 변경](https://msdn.microsoft.com/library/ms189762.aspx)   
-- 테이블: [만들기](https://msdn.microsoft.com/library/dn305849.aspx)/[테이블 변경](https://msdn.microsoft.com/library/ms190273.aspx)   
-- 형식(사용자 지정): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)   
-- 사용자: [만들기](https://msdn.microsoft.com/library/ms173463.aspx)/[사용자 변경](https://msdn.microsoft.com/library/ms176060.aspx)   
-- 보기: [만들기](https://msdn.microsoft.com/library/ms187956.aspx)/[보기 변경](https://msdn.microsoft.com/library/ms173846.aspx)   
 
 ## <a name="transact-sql-syntax-not-supported-in-sql-database"></a>SQL Database에서 지원되지 않는 Transact-SQL 구문   
 [Azure SQL Database 고려 사항, 지침 및 기능](sql-database-features.md)에서 설명한 지원되지 않는 기능과 관련된 Transact-SQL 문 외에도 다음 문 및 문 그룹이 지원되지 않습니다.
@@ -65,7 +59,7 @@ SQL Database에서는 해당 SQL Server 2016 Transact-SQL 문에 있는 인수�
 - 하드웨어 관련 서버 설정과 관련된 구문: 메모리, 작업자 스레드 수, CPU 선호도, 추적 플래그 등입니다. 대신 서비스 수준을 사용합니다.
 - `HAS_DBACCESS`
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT` 및 네 부분으로 된 이름
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` 및 네 부분으로 된 이름
 - .NET Framework [CLR과 SQL Server 통합](http://msdn.microsoft.com/library/ms254963.aspx)
 - 의미 체계 검색
 - 서버 자격 증명. 대신 데이터베이스 범위 자격 증명을 사용합니다.
@@ -87,12 +81,7 @@ SQL Database에서는 해당 SQL Server 2016 Transact-SQL 문에 있는 인수�
 TRANSACT-SQL 문법, 사용법 및 예제에 대한 자세한 내용은 SQL Server 온라인 설명서의 [TRANSACT-SQL 참조(데이터베이스 엔진)](https://msdn.microsoft.com/library/bb510741.aspx) 를 참조하세요. 
 
 ### <a name="about-the-applies-to-tags"></a>'적용 대상' 태그 정보
-Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 항목이 포함되어 있습니다. 항목 제목 밑에 있는 아이콘 모음에는 SQL Server 플랫폼 4개와 적용 가능 여부가 나타납니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다. [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 항목에는 이 문이 **SQL Server 2012**부터 적용된다고 나타납니다. SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse 또는 병렬 데이터 웨어하우스에는 이 문이 적용되지 않습니다.
+Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 항목이 포함되어 있습니다. 항목 제목 밑에 있는 아이콘 모음에는 SQL Server 플랫폼&4;개와 적용 가능 여부가 나타납니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다. [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 항목에는 이 문이 **SQL Server 2012**부터 적용된다고 나타납니다. SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse 또는 병렬 데이터 웨어하우스에는 이 문이 적용되지 않습니다.
 
 경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal 사용하여 고정 공용 IP가 있는 VM 만들기 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure Resource Manager를 통해 고정 공용 IP가 있는 VM을 만드는 방법에 대해 알아봅니다."
+title: "고정 공용 IP 주소를 사용하는 VM 만들기 - Azure Portal | Microsoft Docs"
+description: "Azure Portal을 사용하여 고정 공용 IP 주소를 사용하는 VM을 만드는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: c2d0230550249c5f8ca406b61225822b7e19db2e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 7740861cccfe0ba4e8ae0694f6d5c5fec3df47ef
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Azure Portal 사용하여 고정 공용 IP가 있는 VM 만들기
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
 > [!div class="op_single_selector"]
-- [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+- [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
 - [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 - [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 - [템플릿](virtual-network-deploy-static-pip-arm-template.md)
@@ -63,10 +65,5 @@ Azure Portal에 고정 공용 IP 주소가 있는 VM을 만들려면 다음 단�
 10. VM이 만들어지면 아래와 같이 **설정** 블레이드가 표시됩니다.
     
     ![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

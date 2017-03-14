@@ -1,6 +1,6 @@
 ---
-title: "새 스키마 버전 2015-08-01-preview"
-description: "최신 버전의 논리 앱에 대한 JSON 정의 작성 방법 알아보기"
+title: "2015년&8;월&1;일 스키마 업데이트 미리 보기 - Azure Logic Apps | Microsoft Docs"
+description: "스키마 버전 2015-08-01-preview로 Azure Logic Apps에 대한 JSON 정의 만들기"
 author: stepsic-microsoft-com
 manager: anneta
 editor: 
@@ -12,32 +12,37 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 061b68ec5fc9c14fd0c3f00cc0be9f09717fc1ad
-ms.openlocfilehash: 8f1e2680aff5c1d5c9b90654a334cae2245db5fb
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
+ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="new-schema-version-2015-08-01-preview"></a>새 스키마 버전 2015-08-01-preview
-Azure Logic Apps에 대한 새 스키마 및 API 버전에 Logic Apps의 안정성 및 사용 편의성을 개선하는 다양한 향상된 기능이 있습니다. 다음과 같은 네 가지 주요 차이점이 있습니다.
+# <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
 
-1. **APIApp** 동작 유형이 새로운 **APIConnection** 동작 유형으로 업데이트되었습니다.
-2. **Repeat**의 이름이 **Foreach**로 바뀌었습니다.
-3. **HTTP 수신기** API 앱은 더 이상 필요하지 않습니다.
-4. 하위 워크플로 호출에 새 스키마를 사용합니다.
+Azure Logic Apps에 대한 새 스키마 및 API 버전에 논리 앱의 안정성 및 사용 편의성을 개선하는 향상된 주요 기능이 포함됩니다.
 
-## <a name="1-moving-to-api-connections"></a>1. API 연결로 이동
-가장 큰 변화는 API를 사용하기 위해 API 앱을 Azure 구독에 더 이상 배포하지 않아도 된다는 점입니다. 2가지 방법으로 API를 사용할 수 있습니다.
+*    **APIApp** 작업 유형이 새로운 [**APIConnection**](#api-connections) 작업 유형으로 업데이트되었습니다.
+*    **Repeat**가 [**Foreach**](#foreach)로 이름이 변경되었습니다.
+*    [**HTTP 수신기** API 앱](#http-listener)은 더 이상 필요하지 않습니다.
+*    하위 워크플로 호출에 [새 스키마](#child-workflows)를 사용합니다.
+
+<a name="api-connections"></a>
+## <a name="move-to-api-connections"></a>API 연결로 이동
+
+가장 큰 변화는 API를 사용하기 위해 API Apps를 Azure 구독에 더 이상 배포하지 않아도 되므로 API를 사용할 수 있다는 점입니다. API를 사용하는 방법은 다음과 같습니다.
 
 * 관리되는 API
 * 사용자 지정 Web API
 
-이러한 각 방식은 관리 및 호스팅 모델이 다르므로 약간 다르게 처리됩니다. 이 모델의 장점은 사용자의 리소스 그룹에 배포되는 리소스로 더 이상 제약되지 않는다는 점입니다. 
+이러한 각 방식은 관리 및 호스팅 모델이 다르므로 약간 다르게 처리됩니다. 이 모델의 장점은 사용자의 Azure 리소스 그룹에 배포되는 리소스로 더 이상 제약되지 않는다는 점입니다. 
 
 ### <a name="managed-apis"></a>관리되는 API
+
 Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등의 몇 가지 API를 관리합니다. 관리되는 일부 API를 Bing Translate처럼 있는 그대로 사용할 수도 있지만 구성이 필요한 경우도 있습니다. 이 구성을 *연결*이라고 합니다.
 
 예를 들어 Office 365를 사용하는 경우 Office 365 로그인 토큰을 포함하는 연결을 만들어야 합니다. 이 토큰은 논리 앱에서 항상 Office 365 API를 호출할 수 있도록 안전하게 저장되어 새로 고침됩니다. 또는 SQL이나 FTP 서버에 연결하려는 경우 연결 문자열이 있는 연결을 만들어야 합니다. 
@@ -75,7 +80,7 @@ Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등�
 
 `api` 에는 관리 API가 호스팅되는 런타임 URL이 포함됩니다. `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`를 호출하여 사용 가능한 모든 관리 API를 볼 수 있습니다.
 
-API를 사용하는 경우 API에 **연결 매개 변수**가 정의되어 있거나 그렇지 않을 수 있습니다. 정의되지 않은 경우 **연결**이 필요하지 않습니다. 정의된 경우에는 연결을 만들어야 합니다. 해당 연결을 만들 때 사용자가 선택한 이름이 연결에 지정됩니다. 다음에 `host` 개체 내의 `connection` 개체에서 이 이름을 참조할 수 있습니다. 리소스 그룹에서 연결을 만들려면 다음을 호출합니다.
+API를 사용하는 경우 API에 *연결 매개 변수*가 정의되어 있거나 그렇지 않을 수 있습니다. 정의되지 않은 경우 *연결*이 필요하지 않습니다. API가 정의된 경우에는 연결을 만들어야 합니다. 만들어진 연결에는 사용자가 선택한 이름이 지정됩니다. 다음에 `host` 개체 내의 `connection` 개체에서 이 이름을 참조할 수 있습니다. 리소스 그룹에서 연결을 만들려면 다음을 호출합니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
@@ -97,7 +102,8 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-### <a name="deploying-managed-apis-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 관리 API 배포
+### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 관리 API 배포
+
 대화형 로그인이 필요하지 않다면 Azure Resource Manager 템플릿에서 전체 응용 프로그램을 만들 수 있습니다.
 로그인이 필요한 경우 Azure Resource Manager 템플릿을 사용하여 모든 항목을 설정할 수 있지만 포털에 방문하여 연결에 권한을 부여해야 합니다. 
 
@@ -192,7 +198,8 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 이 예제에서 해당 연결은 리소스 그룹에서 작동하는 리소스일 뿐임을 알 수 있습니다. 연결은 구독에서 사용할 수 있는 관리 API를 참조합니다.
 
 ### <a name="your-custom-web-apis"></a>사용자 지정 Web API
-사용자 고유의 API(특히, Microsoft 관리 항목)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 Swagger 끝점을 노출해야 합니다. 이 끝점에서는 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. Swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
+
+사용자 고유의 API(Microsoft 관리 항목 아님)를 사용하는 경우 기본 제공 **HTTP** 작업을 사용하여 호출해야 합니다. 이상적인 환경을 위해서는 API에 대한 Swagger 끝점을 노출해야 합니다. 이 끝점에서는 논리 앱 디자이너가 API에 대한 입력 및 출력을 렌더링할 수 있습니다. Swagger가 없는 경우 디자이너는 입력 및 출력을 불투명 JSON 개체로 표시할 수 있게 됩니다.
 
 다음은 새 `metadata.apiDefinitionUrl` 속성을 보여 주는 예입니다.
 
@@ -213,10 +220,11 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-**App Service**에서 Web API를 호스트하는 경우 Web API는 사용 가능한 작업 목록에 자동으로 표시됩니다. 그렇지 않으면 URL에 직접 붙여 넣어야 합니다. Swagger에서 지원되는 어떤 방법으로든 API 자체를 보호할 수 있지만 Swagger 끝점을 논리 앱 디자이너에서 사용할 수 있게 하려면 끝점을 인증하지 않아야 합니다.
+Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이너에서 사용 가능한 작업 목록에 자동으로 표시됩니다. 그렇지 않으면 URL에 직접 붙여 넣어야 합니다. Swagger에서 지원하는 어떤 방법으로든 API 자체를 보호할 수 있지만 Swagger 끝점을 논리 앱 디자이너에서 사용할 수 있게 하려면 끝점을 인증하지 않아야 합니다.
 
-### <a name="using-your-already-deployed-api-apps-with-2015-08-01-preview"></a>2015-08-01-preview와 함께 이미 배포된 API 앱 사용
-이전에 API 앱을 배포한 경우 **HTTP** 작업을 통해 호출할 수 있습니다.
+### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>2015-08-01-preview로 배포된 API 앱 호출
+
+이전에 API 앱을 배포한 경우 **HTTP** 작업을 통해 앱을 호출할 수 있습니다.
 
 예를 들어 Dropbox를 사용하여 파일을 나열하는 경우 **2014-12-01-preview** 스키마 버전 정의에 다음과 같을 수 있습니다.
 
@@ -259,7 +267,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 }
 ```
 
-아래와 같은 동등한 HTTP 작업을 생성할 수 있습니다(논리 앱 정의의 매개 변수 섹션은 변경되지 않고 유지됩니다).
+이 예제와 같은 동등한 HTTP 작업을 생성할 수 있으나 논리 앱 정의의 매개 변수 섹션은 변경되지 않고 유지됩니다.
 
 ```
 {
@@ -294,14 +302,15 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 | `metadata.apiDefinitionUrl` |논리 앱 디자이너에서 이 작업을 사용하려는 경우 다음에서 생성되는 메타데이터 끝점을 포함합니다. `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` |생성된 위치: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` |항상 `POST` |
-| `inputs.body` |api 앱 매개 변수와 동일 |
-| `inputs.authentication` |api 앱 인증과 동일 |
+| `inputs.body` |API App 매개 변수와 동일 |
+| `inputs.authentication` |API App 인증과 동일 |
 
-이 방법은 모든 API 앱 작업에 대해 작동합니다. 그러나 이러한 이전 API 앱은 더 이상 지원되지 않으며 위의 다른 두 옵션 중 하나로 전환해야 함을 유의하세요(관리 API 또는 사용자 지정 Web API 호스팅).
+이 방법은 모든 API App 작업에 대해 작동합니다. 하지만 이러한 이전 API Apps는 더 이상 지원되지 않습니다. 따라서 이전의 다른 두 옵션 중 하나로 전환해야 합니다(관리 API 또는 사용자 지정 Web API 호스팅).
 
-## <a name="2-repeat-renamed-to-foreach"></a>2. Repeat가 Foreach로 이름 변경됨
+<a name="foreach"></a>
+## <a name="renamed-repeat-to-foreach"></a>'repeat'가 'foreach'로 이름 변경됨
 
-이전 스키마 버전에서 **Repeat**가 혼동되고 **Repeat**가 실제로 for each loop인지 제대로 포착되지 않는다는 의견을 많이 받았습니다. 따라서 **Repeat**를 **Foreach**로 이름을 변경하였습니다. 예를 들어 이전에는 다음과 같이 작성해야 했습니다.
+이전 스키마 버전에서 **Repeat**가 혼동되고 **Repeat**가 실제로 for each loop인지 제대로 포착되지 않는다는 의견을 많이 받았습니다. 따라서 `repeat`에서 `foreach`로 이름을 변경하였습니다. 예를 들어 이전에는 다음과 같이 작성해야 했습니다.
 
 ```
 {
@@ -337,8 +346,9 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 
 이전에 함수 `@repeatItem()`은 반복되는 현재 항목을 참조하는 데 사용되었습니다. 이 함수가 이제 `@item()`으로 단순화되었습니다. 
 
-### <a name="referencing-the-outputs-of-the-foreach"></a>Foreach의 출력 참조
-더욱 간소화하기 위해 **Foreach** 작업의 출력은 **repeatItems**라는 개체에 래핑되지 않습니다. 이전에는 위의 repeat 출력이 다음과 같았습니다.
+### <a name="reference-outputs-from-foreach"></a>'foreach'의 참조 출력
+
+간소화하기 위해 `foreach` 작업의 출력은 `repeatItems`라는 개체에 래핑되지 않습니다. 한편 이전 `repeat` 예제의 출력은 다음과 같습니다.
 
 ```
 {
@@ -378,7 +388,7 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 ]
 ```
 
-이러한 출력을 참조할 때 작업 본문으로 이동하려면 다음을 수행해야 했습니다.
+이전에는 이러한 출력을 참조할 때 작업 본문을 얻으려면 다음을 수행했습니다.
 
 ```
 {
@@ -416,13 +426,17 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 
 이와 같이 변경되면서 함수 `@repeatItem()`, `@repeatBody()` 및 `@repeatOutputs()`가 제거되었습니다.
 
-## <a name="3-native-http-listener"></a>3. 네이티브 HTTP 수신기
-HTTP 수신기 기능은 기본 제공되므로 더 이상 HTTP 수신기 API 앱을 배포할 필요가 없습니다. [논리 앱 끝점을 호출 가능한 상태로 만드는 방법에 대한 자세한 내용은 여기](../logic-apps/logic-apps-http-endpoint.md)를 읽어 보세요. 
+<a name="http-listener"></a>
+## <a name="native-http-listener"></a>네이티브 HTTP 수신기
 
-이러한 변경으로 함수 `@accessKeys()`가 제거되고 끝점을 가져오기 위해 `@listCallbackURL()` 함수로 대체되었습니다(필요한 경우). 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `manual`, `apiConnectionWebhook` 또는 `httpWebhook` 트리거 중 하나를 포함해야 합니다.
+이제 HTTP 수신기 기능이 기본 제공됩니다. 따라서 HTTP 수신기 API App을 더 이상 배포할 필요가 없습니다. [논리 앱 끝점을 호출 가능한 상태로 만드는 방법에 대한 자세한 내용은 여기](../logic-apps/logic-apps-http-endpoint.md)를 참조하세요. 
 
-## <a name="4-calling-child-workflows"></a>4. 하위 워크플로 호출
-이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위를 호출하려는 논리 앱 정의에 붙여넣어야 했습니다. 새 스키마 버전을 사용할 경우 Logic Apps 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 암호도 붙여넣을 필요가 없습니다.  다음은 예제입니다.
+이러한 변경으로 함수 `@accessKeys()`가 제거되고 필요한 경우 끝점을 가져오기 위해 `@listCallbackURL()` 함수로 대체되었습니다. 또한 이제 논리 앱에서 트리거를 하나 이상 정의해야 합니다. 워크플로를 `/run`하려는 경우 `manual`, `apiConnectionWebhook` 또는 `httpWebhook` 트리거 중 하나를 포함해야 합니다.
+
+<a name="child-workflows"></a>
+## <a name="call-child-workflows"></a>하위 워크플로 호출
+
+이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위 워크플로를 호출하려는 논리 앱 정의에 토큰을 붙여넣어야 했습니다. 새 스키마를 사용할 경우 Logic Apps 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 비밀도 붙여넣을 필요가 없습니다. 다음은 예제입니다.
 
 ```
 "mynestedwf": {
@@ -450,16 +464,19 @@ HTTP 수신기 기능은 기본 제공되므로 더 이상 HTTP 수신기 API �
 
 두 번째 향상된 내용은 들어오는 요청에 대한 전체 액세스 권한을 하위 워크플로에 부여하는 것입니다. 따라서 *queries* 섹션 및 *headers* 개체에서 매개 변수를 전달할 수 있으며 전체 본문을 완전히 정의할 수 있습니다.
 
-마지막으로, 하위 워크플로에 필요한 변경 내용이 있습니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제는 상위에서 호출할 워크플로에 트리거 끝점을 정의해야 합니다. 일반적으로 **manual** 유형의 트리거를 추가한 후 상위 정의에 해당 트리거를 사용합니다. 특히 호출 중인 트리거를 항상 지정해야 하므로 `host` 속성은 `triggerName`을 포함합니다.
+마지막으로, 하위 워크플로에 필요한 변경 내용이 있습니다. 이전에는 하위 워크플로를 직접 호출할 수 있었지만 이제는 상위에서 호출할 워크플로에 트리거 끝점을 정의해야 합니다. 일반적으로 `manual` 유형의 트리거를 추가한 후 상위 정의에 해당 트리거를 사용합니다. 특히 호출 중인 트리거를 항상 지정해야 하므로 `host` 속성은 `triggerName`을 포함합니다.
 
 ## <a name="other-changes"></a>기타 변경 내용
-### <a name="new-queries-property"></a>새 쿼리 속성
-이제 모든 작업 유형에서 **queries**라는 새 입력을 지원합니다. 이 입력은 문자열을 직접 조합할 필요가 없는 구조화된 개체일 수 있습니다.
 
-### <a name="parse-function-renamed"></a>parse() 함수 이름 변경됨
+### <a name="new-queries-property"></a>새 'queries' 속성
+
+이제 모든 작업 유형에서 `queries`라는 새 입력을 지원합니다. 이 입력은 문자열을 직접 조합할 필요가 없는 구조화된 개체일 수 있습니다.
+
+### <a name="renamed-parse-function-to-json"></a>'parse()' 함수 이름이 'json()'으로 변경되었습니다.
+
 곧 더 많은 콘텐츠가 추가될 예정이므로 `parse()` 함수 이름을 `json()`으로 바꾸었습니다.
 
 ## <a name="coming-soon-enterprise-integration-apis"></a>서비스 예정: 엔터프라이즈 통합 API
-관리된 버전의 엔터프라이즈 통합 API가 아직 없습니다(예: AS2). [로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)에 나와 있는 대로 곧 서비스 예정입니다. 그 동안은 위의 "이미 배포된 API 앱 사용"에 설명된 대로 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다.
 
+관리된 버전의 엔터프라이즈 통합 API가 없습니다(예: AS2). 그 동안은 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용하면 됩니다. 자세한 내용은 [통합 로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)의 "이미 배포된 API 앱 사용"을 참조하세요. 
 

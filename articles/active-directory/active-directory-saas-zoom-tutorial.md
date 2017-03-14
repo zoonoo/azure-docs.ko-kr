@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
+ms.sourcegitcommit: f5640d84774898e1c51c5dcfa52aab781cddf044
+ms.openlocfilehash: eb4966d74ffc4360605f6c88570bfb7833abaef1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-zoom-tutorial/IC784693.png "Scenario")
+![시나리오](./media/active-directory-saas-zoom-tutorial/IC784693.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-zoom"></a>Zoom에 응용 프로그램 통합 사용
 이 섹션에서는 Zoom에 응용 프로그램 통합 사용 방법을 설명합니다.
@@ -47,19 +48,19 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-   ![응용 프로그램](./media/active-directory-saas-zoom-tutorial/IC700994.png "Applications")
+   ![응용 프로그램](./media/active-directory-saas-zoom-tutorial/IC700994.png "응용 프로그램")
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-   ![응용 프로그램 추가](./media/active-directory-saas-zoom-tutorial/IC749321.png "Add application")
+   ![응용 프로그램 추가](./media/active-directory-saas-zoom-tutorial/IC749321.png "응용 프로그램 추가")
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-zoom-tutorial/IC749322.png "Add an application from gallerry")
+   ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-zoom-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 6. **검색 상자**에 **Zoom**을 입력합니다.
    
-   ![응용 프로그램 갤러리](./media/active-directory-saas-zoom-tutorial/IC784694.png "Application Gallery")
+   ![응용 프로그램 갤러리](./media/active-directory-saas-zoom-tutorial/IC784694.png "응용 프로그램 갤러리")
 7. 결과 창에서 **Zoom**을 선택하고 **완료**를 눌러 응용 프로그램을 추가합니다.
    
-   ![Zoom](./media/active-directory-saas-zoom-tutorial/IC784695.png "Zoom")
+   ![확대/축소](./media/active-directory-saas-zoom-tutorial/IC784695.png "확대/축소")
 
 ## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
 이 섹션에서는 SAML 프로토콜 기반 페더레이션을 사용하여 사용자가 Azure AD 계정으로 Zoom에 인증하는 방법을 설명합니다.  
@@ -69,24 +70,24 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Zoom** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784696.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784696.png "Single Sign-On 구성")
 2. **Zoom에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784697.png "Single Sign-On 구성")
 3. **앱 URL 구성** 페이지의 **Zoom 로그인 URL** 텍스트 상자에 "*http://company.zoom.us*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-   ![앱 URL 구성](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configure App URL")
+   ![앱 URL 구성](./media/active-directory-saas-zoom-tutorial/IC784698.png "앱 URL 구성")
 4. **Zoom에서 Single Sign-On 구성** 페이지에서, **인증서 다운로드**를 클릭하여 컴퓨터에 인증서 파일을 저장합니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784699.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784699.png "Single Sign-On 구성")
 5. 다른 웹 브라우저 창에서 관리자 권한으로 Zoom 회사 사이트에 로그인 합니다.
 6. **Single Sign-On** 탭을 클릭합니다.
    
-   ![SSO(Single sign-on)](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single sign-on")
+   ![Single Sign-On](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single Sign-On")
 7. **보안 제어**를 클릭하고, **Single Sign-On** 설정으로 이동합니다.
 8. Single Sign-On 섹션에서 다음 단계를 수행 합니다.
    
-   ![SSO(Single sign-on)](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
+   ![Single Sign-On](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single Sign-On")
    
    1. Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하여, **로그인 페이지 URL** 텍스트 상자에 붙여 넣습니다.
    2. Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사하여 **로그아웃 페이지 URL** 텍스트 상자에 붙여 넣습니다.
@@ -96,12 +97,12 @@ ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
       > 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)
       > 
       > 
-   4. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.
+   4. Base&64;로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.
    5. Azure 클래식 포털의 **Zoom에서 Single Sign-On 설정** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자 URL** 텍스트 상자에 붙여넣습니다.
    6. **Save**를 클릭합니다.
 9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784702.png "Configure single sign-on")
+   ![Single Sign-On 구성](./media/active-directory-saas-zoom-tutorial/IC784702.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계정이 ZScaler로 프로비전되어야 합니다  
@@ -112,10 +113,10 @@ Zoom의 경우, 수동으로 프로비전합니다.
 2. **계정 관리** 탭을 클릭한 후 **사용자 관리**를 클릭합니다.
 3. 사용자 관리 섹션에서 **사용자 추가**를 클릭합니다.
    
-   ![사용자 관리](./media/active-directory-saas-zoom-tutorial/IC784703.png "User management")
+   ![사용자 관리](./media/active-directory-saas-zoom-tutorial/IC784703.png "사용자 관리")
 4. **사용자 추가** 페이지에서 다음 단계를 수행합니다.
    
-   ![사용자 추가](./media/active-directory-saas-zoom-tutorial/IC784704.png "Add users")
+   ![사용자 추가](./media/active-directory-saas-zoom-tutorial/IC784704.png "사용자 추가")
    
    1. **사용자 유형**으로 **기본**을 선택합니다.
    2. **이메일** 텍스트 상자에 프로비전 하려는 유효한 AAD 계정의 이메일 주소를 입력합니다.
@@ -133,16 +134,11 @@ Zoom의 경우, 수동으로 프로비전합니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Zoom** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-   ![사용자 할당](./media/active-directory-saas-zoom-tutorial/IC784705.png "Assign users")
+   ![사용자 할당](./media/active-directory-saas-zoom-tutorial/IC784705.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-   ![예](./media/active-directory-saas-zoom-tutorial/IC767830.png "Yes")
+   ![예](./media/active-directory-saas-zoom-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

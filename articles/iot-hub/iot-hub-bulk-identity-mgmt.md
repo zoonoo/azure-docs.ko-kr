@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 668f6ab0d5c09d53edd85b568cc8c9941b2f9135
+ms.sourcegitcommit: 79004e91c9e22b085b04e446999d4efe05426436
+ms.openlocfilehash: 512c4dc5f77d5f730720909628364c5c9d8b3174
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -41,6 +42,10 @@ ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
+
+> [!NOTE]
+> C# 코드에서 **RegistryManager** 클래스를 사용하려면 프로젝트에 **Microsoft.Azure.Devices** NuGet 패키지를 추가합니다. **RegistryManager** 클래스는 **Microsoft.Azure.Devices** 네임스페이스에 있습니다.
+
 
 이때 **RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업**의 상태를 쿼리할 수 있습니다.
 
@@ -355,9 +360,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

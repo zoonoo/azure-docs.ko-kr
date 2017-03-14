@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
-ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -46,7 +47,7 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 이 토픽을 시작하기 전에 다음이 있어야 합니다.
 
 * Azure 구독. 아직 가지고 있지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* [권장] Visual Studio 2013 또는 2015. 아직 이러한 버전이 설치되지 않은 경우 [여기](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)에서 무료 Community Edition을 다운로드할 수 있습니다. Visual Studio 섹션 아래에서 **Community 2015 다운로드** 단추를 클릭합니다. 
+* [권장] Visual Studio 2013 이상. 아직 이러한 버전이 설치되지 않은 경우 [Visual Studio Community](https://www.visualstudio.com/vs/community/)에서 무료로 다운로드할 수 있습니다.
 
 > [!NOTE]
 > Visual Studio 대신 Azure 포털을 사용하여 Azure Data Lake 쿼리를 제출할 수도 있습니다. Visual Studio 및 포털에서 이 작업을 수행하는 방법에 대한 지침은 **U-SQL로 데이터 처리**섹션에서 설명합니다. 
@@ -145,7 +146,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="a-nameingestadata-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
+### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data_{\*\}.csv**를 사용할 수 있습니다. 
 
     ///Read in Trip data
@@ -207,7 +208,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
 
  ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="a-namequalityadata-quality-checks"></a><a name="quality"></a>데이터 품질 검사
+### <a name="quality"></a>데이터 품질 검사
 Trip 및 fare 테이블을 읽은 후 다음과 같은 방식으로 데이터 품질 검사를 수행할 수 있습니다. 결과 CSV 파일은 Azure Blob 저장소 또는 Azure Data Lake 저장소에 출력할 수 있습니다. 
 
 medallion 수와 medallion의 고유 번호를 찾습니다.
@@ -279,7 +280,7 @@ pickup_longitude 조건으로 유효하지 않은 레코드를 찾습니다.
 
 
 
-### <a name="a-nameexploreadata-exploration"></a><a name="explore"></a>데이터 탐색
+### <a name="explore"></a>데이터 탐색
 데이터를 잘 이해하기 위해 몇 가지 데이터 탐색을 수행할 수 있습니다.
 
 왕복 및 비왕복 여정의 분포를 찾습니다.
@@ -346,7 +347,7 @@ pickup_longitude 조건으로 유효하지 않은 레코드를 찾습니다.
     USING Outputters.Csv(); 
 
 
-### <a name="a-namejoinajoin-trip-and-fare-tables"></a><a name="join"></a>trip 및 fare 테이블 조인
+### <a name="join"></a>trip 및 fare 테이블 조인
 medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인할 수 있습니다.
 
     //join trip and fare table
@@ -388,7 +389,7 @@ medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인�
     USING Outputters.Csv();
 
 
-### <a name="a-namesampleadata-sampling"></a><a name="sample"></a>데이터 샘플링
+### <a name="sample"></a>데이터 샘플링
 먼저 조인된 테이블에서 0.1%의 데이터를 임의로 선택합니다.
 
     //random select 1/1000 data for modeling purpose
@@ -428,7 +429,7 @@ medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인�
     USING Outputters.Csv(); 
 
 
-### <a name="a-namerunarun-u-sql-jobs"></a><a name="run"></a>U-SQL 작업 실행
+### <a name="run"></a>U-SQL 작업 실행
 U-SQL 스크립트 편집을 마치면 Azure Data Lake 분석 계정을 사용하여 서버에 제출할 수 있습니다. **Data Lake**, **작업 제출**을 클릭하고 **분석 계정**, **병렬 처리**를 선택하고 **제출** 단추를 클릭합니다.  
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
@@ -685,10 +686,5 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 * [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
 * [팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 * [Azure HDInsight에서 Spark를 사용하는 데이터 과학 프로세스 개요](machine-learning-data-science-spark-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

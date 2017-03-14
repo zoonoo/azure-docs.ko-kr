@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
+ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
+ms.openlocfilehash: e41f5d5e6c5e1da8763c73978d2be9c7e61b8fff
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,16 +29,35 @@ ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 * 솔루션이 장치 메타데이터를 관리하는 방법입니다.
 
 ## <a name="context"></a>Context
-미리 구성된 원격 모니터링 솔루션은 [Azure IoT Hub][lnk-iot-hub]를 사용하여 장치가 클라우드로 데이터를 보낼 수 있도록 합니다. IoT Hub는 [장치 ID 레지스트리][lnk-identity-registry]를 포함하여 IoT Hub에 액세스하도록 제어합니다. IoT Hub 장치 ID 레지스트리는 장치 정보 메타데이터를 저장하는 원격 모니터링 솔루션에 특정된 *장치 레지스트리* 와 분리되어 있습니다. 원격 모니터링 솔루션은 [DocumentDB][lnk-docdb] 데이터베이스를 사용하여 장치 정보 메타데이터를 저장하는 해당 장치 레지스트리를 구현합니다. [Microsoft Azure IoT 참조 아키텍처][lnk-ref-arch]는 일반적인 IoT 솔루션의 장치 레지스트리 역할을 설명합니다.
+미리 구성된 원격 모니터링 솔루션은 [Azure IoT Hub][lnk-iot-hub]를 사용하여 장치가 클라우드로 데이터를 보낼 수 있도록 합니다. 솔루션은 세 개의 서로 다른 위치에 장치에 대한 정보를 저장합니다.
+
+| 위치 | 저장된 정보 | 구현 |
+| -------- | ------------------ | -------------- |
+| ID 레지스트리 | 장치 ID, 인증 키, 사용 상태 | IoT Hub에 기본 제공 |
+| 장치 쌍 | 메타데이터: reported 속성, desired 속성, 태그 | IoT Hub에 기본 제공 |
+| DocumentDB | 명령 및 메서드 기록 | 솔루션에 대한 사용자 지정 |
+
+IoT Hub는 IoT Hub에 대한 액세스를 관리하는 [장치 ID 레지스트리][lnk-identity-registry]를 포함하고 [장치 쌍][lnk-device-twin]을 사용하여 장치 메타데이터를 관리합니다. 명령 및 메서드 기록을 저장하는 원격 모니터링 솔루션 특정 *장치 레지스트리*도 있습니다. 원격 모니터링 솔루션은 [DocumentDB][lnk-docdb] 데이터베이스를 사용하여 명령 및 메서드 기록에 대한 사용자 지정 저장소를 구현합니다.
 
 > [!NOTE]
-> 미리 구성된 원격 모니터링 솔루션은 장치 레지스트리와 동기화된 장치 ID 레지스트리를 유지합니다. 둘 다 동일한 장치 ID를 사용하여 IoT Hub에 연결된 각 장치를 고유하게 식별합니다.
+> 미리 구성된 원격 모니터링 솔루션은 DocumentDB 데이터베이스의 정보와 동기화된 장치 ID 레지스트리를 유지합니다. 둘 다 동일한 장치 ID를 사용하여 IoT Hub에 연결된 각 장치를 고유하게 식별합니다.
 > 
 > 
 
-[IoT Hub를 사용한 장치 관리][lnk-dm-preview]에서는 이 문서에 설명된 장치 정보 관리 기능과 유사한 기능을 IoT Hub에 추가합니다. 현재 원격 모니터링 솔루션은 IoT Hub에서 일반적으로 사용 가능한(GA) 기능만을 사용합니다.
+## <a name="device-metadata"></a>장치 메타데이터
+IoT Hub는 원격 모니터링 솔루션에 연결된 각 시뮬레이션된 장치 및 물리적 장치에 대한 [장치 쌍][lnk-device-twin]을 유지 관리합니다. 솔루션은 장치 쌍을 사용하여 장치와 연결된 메타데이터를 관리합니다. 장치 쌍은 IoT Hub에서 유지 관리하는 JSON 문서이며 솔루션은 IoT Hub API를 사용하여 장치 쌍과 상호 작용합니다.
 
-## <a name="device-information-metadata"></a>장치 정보 메타데이터
+장치 쌍은 세 가지 유형의 메타데이터를 저장합니다.
+
+- 장치에서 *Reported 속성*이 IoT Hub로 전송됩니다. 원격 모니터링 솔루션에서 시뮬레이션된 장치는 시작 시와 **장치 상태 변경** 명령 및 메서드에 대한 응답으로 reported 속성을 전송합니다. 솔루션 포털의 **장치 목록** 및 **장치 세부 정보**에서 reported 속성을 볼 수 있습니다. reported 속성은 읽기 전용입니다.
+- 장치에 의해 *desired 속성*이 IoT Hub에서 검색됩니다. 장치에 대한 모든 필요한 구성을 변경하는 것은 장치의 책임입니다. reported 속성으로 허브에 변경 내용을 보고하는 것도 장치의 책임입니다. 솔루션 포털을 통해 desired 속성 값을 설정할 수 있습니다.
+- *태그*는 장치 쌍에만 존재하며 장치와 동기화되지 않습니다. 솔루션 포털에서 태그 값을 설정하고 장치 목록을 필터링 할 때 사용할 수 있습니다. 또한 솔루션은 태그를 사용하여 솔루션 포털에서 장치에 대해 표시할 아이콘을 식별합니다.
+
+시뮬레이션된 장치의 예제 reported 속성은 제조업체, 모델 번호, 위도 및 경도를 포함합니다. 시뮬레이션된 장치는 reported 속성으로 지원되는 메서드의 목록도 반환합니다.
+
+> [!NOTE]
+> 시뮬레이션된 장치 코드는 **Desired.Config.TemperatureMeanValue** 및 **Desired.Config.TelemetryInterval** desired 속성만을 사용하여 IoT Hub로 다시 전송된 reported 속성을 업데이트합니다. 다른 모든 desired 속성 변경 요청은 무시됩니다.
+
 장치 레지스트리 DocumentDB 데이터베이스에 저장된 장치 정보 메타데이터 JSON 문서는 다음과 같은 구조입니다.
 
 ```
@@ -59,17 +79,6 @@ ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 }
 ```
 
-* **DeviceProperties**: 장치 자체는 이러한 속성을 작성하고 장치에는 이 데이터에 대한 권한이 있습니다. 기타 예제 장치 속성에는 제조업체, 모델 번호 및 일련 번호가 포함됩니다. 
-* **DeviceID**: 고유 장치 ID입니다. 이 값은 IoT Hub 장치 ID 레지스트리에서 동일합니다.
-* **HubEnabledState**: IoT Hub에서 장치의 상태입니다. 장치가 처음 연결될 때까지 이 값을 우선 **null** 로 설정합니다. 솔루션 포털에서 **null** 값은 "등록되었지만 표시되지 않는" 장치로 나타납니다.
-* **CreatedTime**: 장치가 만들어진 시간입니다.
-* **DeviceState**: 장치에서 보고한 상태입니다.
-* **UpdatedTime**: 장치가 솔루션 포털을 통해 마지막으로 업데이트된 시간입니다.
-* **SystemProperties**: 솔루션 포털은 시스템 속성을 작성하며 장치에는 이러한 속성에 대한 정보가 없습니다. 솔루션에 권한이 있고 SIM을 사용한 장치를 관리하는 서비스에 연결하는 경우 예제 시스템 속성은 **ICCID** 입니다.
-* **Commands**: 장치가 지원하는 명령 목록입니다. 장치는 솔루션에 이 정보를 제공합니다.
-* **CommandHistory**: 원격 모니터링 솔루션에서 장치 및 해당 명령의 상태에 보낸 명령 목록입니다.
-* **IsSimulatedDevice**: 장치를 시뮬레이션된 장치로 식별하는 플래그입니다.
-* **id**: 이 장치 문서에 대한 고유 DocumentDB 식별자입니다.
 
 > [!NOTE]
 > 장치 정보는 장치가 IoT Hub에 전송하는 원격 분석을 설명하는 메타데이터를 포함할 수도 있습니다. 원격 모니터링 솔루션은 원격 분석 메타데이터를 사용하여 대시보드가 [동적 원격 분석][lnk-dynamic-telemetry]을 표시하는 방법을 사용자 지정합니다.
@@ -77,190 +86,30 @@ ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 > 
 
 ## <a name="lifecycle"></a>수명 주기
-솔루션 포털에서 장치를 처음 만드는 경우 솔루션은 이전과 같이 장치 레지스트리에서 항목을 만듭니다. 대부분의 정보는 처음부터 지워져 있고 **HubEnabledState**는 **null**로 설정됩니다. 또한 이 시점에서 솔루션은 장치가 IoT Hub로 인증하는 데 사용할 키를 생성하는 장치 ID 레지스트리에서 장치에 대한 항목을 만듭니다.
+솔루션 포털에서 장치를 처음 만들 때 솔루션은 DocumentDB 데이터베이스에 항목을 만들어 명령 및 메서드 기록을 저장합니다. 또한 이 시점에서 솔루션은 장치가 IoT Hub로 인증하는 데 사용할 키를 생성하는 장치 ID 레지스트리에서 장치에 대한 항목을 만듭니다. 또한 장치 쌍을 만듭니다.
 
-먼저 장치가 솔루션에 연결되면 장치 정보 메시지를 보냅니다. 이 장치 정보 메시지에는 장치 제조업체, 모델 번호 및 일련 번호와 같은 장치 속성이 포함됩니다. 장치 정보 메시지에는 명령 매개 변수에 대한 정보를 비롯하여 장치에서 지원하는 명령 목록도 포함됩니다. 솔루션이 이 메시지를 받으면 장치 레지스트리의 장치 정보 메타데이터를 업데이트합니다.
+장치가 솔루션에 처음 연결되면 reported 속성 및 장치 정보 메시지를 보냅니다. reported 속성 값은 장치 쌍에 자동으로 저장됩니다. reported 속성은 장치 제조업체, 모델 번호, 일련 번호 및 지원되는 메서드의 목록을 포함합니다. 장치 정보 메시지는 명령 매개 변수에 대한 정보를 비롯하여 장치에서 지원하는 명령 목록을 포함합니다. 솔루션이 이 메시지를 받으면 DocumentDB 데이터베이스의 장치 정보를 업데이트합니다.
 
 ### <a name="view-and-edit-device-information-in-the-solution-portal"></a>솔루션 포털에서 장치 정보 보기 및 편집
-솔루션 포털의 장치 목록은 **상태**, **DeviceId**, **제조업체**, **모델 번호**, **일련 번호**, **펌웨어**, **플랫폼**, **프로세서**, **설치된 RAM** 등의 장치 속성을 열로 표시합니다. 장치 속성 **위도** 및 **경도**는 대시보드의 Bing 맵에서 위치를 결정합니다. 
+솔루션 포털의 장치 목록은 기본적으로 **상태**, **DeviceId**, **제조업체**, **모델 번호**, **일련 번호**, **펌웨어**, **플랫폼**, **프로세서**, **설치된 RAM** 등의 장치 속성을 열로 표시합니다. **열 편집기**를 클릭하여 열을 사용자 지정할 수 있습니다. 장치 속성 **위도** 및 **경도**는 대시보드의 Bing 맵에서 위치를 결정합니다.
 
-![장치 목록][img-device-list]
+![장치 목록의 열 편집기][img-device-list]
 
-솔루션 포털의 **장치 세부 정보** 창에서 **편집**을 클릭하면 이러한 속성을 모두 편집할 수 있습니다. 이러한 속성을 편집하면 DocumentDB 데이터베이스의 장치에 대한 레코드가 업데이트됩니다. 그러나 장치가 업데이트된 장치 정보 메시지를 보내면 솔루션 포털의 모든 변경 내용을 덮어씁니다. 이러한 속성에 대한 권한이 장치에만 있기 때문에 솔루션 포털에서 **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState**, **UpdatedTime** 속성을 편집할 수 없습니다.
+솔루션 포털의 **장치 세부 정보** 창에서 desired 속성 및 태그를 편집할 수 있습니다(reported 속성은 읽기 전용).
 
-![장치 편집][img-device-edit]
+![장치 세부 정보 창][img-device-edit]
 
-솔루션 포털을 사용하여 솔루션에서 장치를 제거할 수 있습니다. 장치를 제거하면 솔루션은 솔루션 장치 레지스트리에서 장치 정보 메타데이터를 제거하고 IoT Hub 장치 ID 레지스트리에서 장치 항목을 제거합니다. 장치를 사용하지 않도록 설정해야 제거할 수 있습니다.
+솔루션 포털을 사용하여 솔루션에서 장치를 제거할 수 있습니다. 장치를 제거하면 솔루션은 ID 레지스트리에서 장치 항목을 제거한 다음 장치 쌍을 삭제합니다. 또한 솔루션은 DocumentDB 데이터베이스에서 장치에 관련된 정보를 제거합니다. 장치를 사용하지 않도록 설정해야 제거할 수 있습니다.
 
 ![장치 제거][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>장치 정보 메시지 처리
-장치에서 보낸 장치 정보 메시지는 원격 분석 메시지와 구별됩니다. 장치 정보 메시지는 장치 속성, 장치가 응답할 수 있는 명령 및 명령 기록과 같은 정보를 포함합니다. IoT Hub 자체에는 장치 정보 메시지에 포함된 메타데이터의 정보가 없으며 장치-클라우드 메시지를 처리하는 것과 동일한 방식으로 메시지를 처리합니다. 원격 모니터링 솔루션에서 [Azure 스트림 분석][lnk-stream-analytics](ASA) 작업은 IoT Hub의 메시지를 읽습니다. **DeviceInfo** Stream Analytics 작업은 **"ObjectType": "DeviceInfo"**를 포함하는 메시지를 필터링하고 웹 작업에서 실행되는 **EventProcessorHost** 호스트 인스턴스에 전달합니다. **EventProcessorHost** 인스턴스의 논리는 장치 ID를 사용하여 특정 장치에 대한 DocumentDB 레코드를 찾고 레코드를 업데이트합니다. 이제 장치 레지스트리 레코드는 장치 속성, 명령 및 명령 기록 등의 정보를 포함합니다.
+장치에서 보낸 장치 정보 메시지는 원격 분석 메시지와 구별됩니다. 장치 정보 메시지는 장치가 응답할 수 있는 명령 및 모든 명령 기록을 포함합니다. IoT Hub 자체에는 장치 정보 메시지에 포함된 메타데이터의 정보가 없으며 장치-클라우드 메시지를 처리하는 것과 동일한 방식으로 메시지를 처리합니다. 원격 모니터링 솔루션에서 [Azure 스트림 분석][lnk-stream-analytics](ASA) 작업은 IoT Hub의 메시지를 읽습니다. **DeviceInfo** Stream Analytics 작업은 **"ObjectType": "DeviceInfo"**를 포함하는 메시지를 필터링하고 웹 작업에서 실행되는 **EventProcessorHost** 호스트 인스턴스에 전달합니다. **EventProcessorHost** 인스턴스의 논리는 장치 ID를 사용하여 특정 장치에 대한 DocumentDB 레코드를 찾고 레코드를 업데이트합니다.
 
 > [!NOTE]
 > 장치 정보 메시지는 표준 장치-클라우드 메시지입니다. 솔루션은 ASA 쿼리를 사용하여 장치 정보 메시지와 원격 분석 메시지를 구분합니다.
 > 
 > 
-
-## <a name="example-device-information-records"></a>예제 장치 정보 레코드
-미리 구성된 원격 모니터링 솔루션은 두 종류의 장치 정보 레코드를 사용합니다. 하나는 솔루션을 사용하여 배포된 시뮬레이션된 장치에 대한 레코드이며 다른 하나는 솔루션에 연결한 사용자 지정 장치에 대한 레코드입니다.
-
-### <a name="simulated-device"></a>시뮬레이션된 장치
-다음 예제에서는 시뮬레이션된 장치에 대한 JSON 장치 정보 레코드를 보여 줍니다. 이 레코드에는 장치가 IoT Hub에 **DeviceInfo** 메시지를 전송했음을 나타내는 **UpdatedTime**에 대한 값 집합이 있습니다. 레코드에는 몇 가지 일반적인 장치 속성이 포함되며, 시뮬레이션된 장치가 지원하는 6개의 명령을 정의하고 **1**로 설정된 **IsSimulatedDevice** 플래그가 있습니다.
-
-```
-{
-  "DeviceProperties": {
-    "DeviceID": "SampleDevice001_455",
-    "HubEnabledState": true,
-    "CreatedTime": "2016-01-26T19:02:01.4550695Z",
-    "DeviceState": "normal",
-    "UpdatedTime": "2016-06-01T15:28:41.8105157Z",
-    "Manufacturer": "Contoso Inc.",
-    "ModelNumber": "MD-369",
-    "SerialNumber": "SER9009",
-    "FirmwareVersion": "1.39",
-    "Platform": "Plat-34",
-    "Processor": "i3-2191",
-    "InstalledRAM": "3 MB",
-    "Latitude": 47.583582,
-    "Longitude": -122.130622
-  },
-  "Commands": [
-    {
-      "Name": "PingDevice",
-      "Parameters": null
-    },
-    {
-      "Name": "StartTelemetry",
-      "Parameters": null
-    },
-    {
-      "Name": "StopTelemetry",
-      "Parameters": null
-    },
-    {
-      "Name": "ChangeSetPointTemp",
-      "Parameters": [
-        {
-          "Name": "SetPointTemp",
-          "Type": "double"
-        }
-      ]
-    },
-    {
-      "Name": "DiagnosticTelemetry",
-      "Parameters": [
-        {
-          "Name": "Active",
-          "Type": "boolean"
-        }
-      ]
-    },
-    {
-      "Name": "ChangeDeviceState",
-      "Parameters": [
-        {
-          "Name": "DeviceState",
-          "Type": "string"
-        }
-      ]
-    }
-  ],
-  "CommandHistory": [],
-  "IsSimulatedDevice": 1,
-  "Version": "1.0",
-  "ObjectType": "DeviceInfo",
-  "IoTHub": {
-    "MessageId": null,
-    "CorrelationId": null,
-    "ConnectionDeviceId": "SampleDevice001_455",
-    "ConnectionDeviceGenerationId": "635894317219942540",
-    "EnqueuedTime": "0001-01-01T00:00:00",
-    "StreamId": null
-  },
-  "SystemProperties": {
-    "ICCID": null
-  },
-  "id": "7101c002-085f-4954-b9aa-7466980a2aaf"
-}
-```
-
-### <a name="custom-device"></a>사용자 지정 장치
-다음 예제에서는 사용자 지정 장치에 대한 JSON 장치 정보 레코드를 보여 주고 **0**으로 설정된 **IsSimulatedDevice** 플래그가 포함됩니다. 이 사용자 지정 장치가 두 개의 명령을 지원하고 솔루션 포털에서 장치에 **SetTemperature** 명령을 전송한 것을 확인할 수 있습니다.
-
-```
-{
-  "DeviceProperties": {
-    "DeviceID": "mydevice01",
-    "HubEnabledState": true,
-    "CreatedTime": "2016-03-28T21:05:06.6061104Z",
-    "DeviceState": "normal",
-    "UpdatedTime": "2016-06-07T22:05:34.2802549Z"
-  },
-  "SystemProperties": {
-    "ICCID": null
-  },
-  "Commands": [
-    {
-      "Name": "SetHumidity",
-      "Parameters": [
-        {
-          "Name": "humidity",
-          "Type": "int"
-        }
-      ]
-    },
-    {
-      "Name": "SetTemperature",
-      "Parameters": [
-        {
-          "Name": "temperature",
-          "Type": "int"
-        }
-      ]
-    }
-  ],
-  "CommandHistory": [
-    {
-      "Name": "SetTemperature",
-      "MessageId": "2a0cec61-5eca-4de7-92dc-9c0bc4211c46",
-      "CreatedTime": "2016-06-07T21:05:18.140796Z",
-      "Parameters": {
-        "temperature": 20
-      },
-      "UpdatedTime": "2016-06-07T21:05:18.716076Z",
-      "Result": "Expired"
-    }
-  ],
-  "IsSimulatedDevice": 0,
-  "id": "6184ae0f-2d94-4fbd-91cd-4b193aecc9d1",
-  "ObjectType": "DeviceInfo",
-  "Version": "1.0",
-  "IoTHub": {
-    "MessageId": null,
-    "CorrelationId": null,
-    "ConnectionDeviceId": "SampleCustom",
-    "ConnectionDeviceGenerationId": "635947959068246845",
-    "EnqueuedTime": "0001-01-01T00:00:00",
-    "StreamId": null
-  }
-}
-```
-
-다음 예제는 장치에서 장치 정보 메타데이터를 업데이트하도록 전송한 JSON **DeviceInfo** 메시지를 보여 줍니다.
-
-```
-{ "ObjectType":"DeviceInfo",
-  "Version":"1.0",
-  "IsSimulatedDevice":false,
-  "DeviceProperties": { "DeviceID":"mydevice01", "HubEnabledState":true },
-  "Commands": [
-    {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
-    {"Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
-  ]
-}
-```
 
 ## <a name="next-steps"></a>다음 단계
 지금까지 미리 구성된 솔루션은 사용자 지정하는 방법을 살펴보았으므로 IoT Suite의 미리 구성된 솔루션이 제공하는 기능 및 기타 특징에 대해 살펴보겠습니다.
@@ -276,18 +125,12 @@ ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
-[lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

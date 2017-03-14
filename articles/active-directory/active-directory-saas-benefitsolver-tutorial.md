@@ -11,27 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 8a13dd5ebd872f86247158379b28bc291a9c9d83
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>자습서: Benefitsolver와 Azure Active Directory 통합
 이 자습서는 Azure 및 Benefitsolver의 통합을 보여 주기 위한 것입니다.  
+
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* Benefitsolver Single Sign-on이 설정된 구독
+* Benefitsolver SSO(Single Sign-On)가 설정된 구독
 
 이 자습서를 완료한 후 Benefitsolver에 할당한 Azure AD 사용자가 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Benefitsolver에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
@@ -61,15 +63,18 @@ ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
    
    ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
    
-   ## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Benefitsolver에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
-Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다.  
+
+Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 
+
 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
 ![특성](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "특성")
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 **Benefitsolver** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Single Sign-On 구성")
@@ -88,11 +93,10 @@ Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예�
    ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Single Sign-On 구성")
 5. 다운로드한 메타데이터 파일을 Benefitsolver 지원팀에 보냅니다.
    
-   > [!NOTE]
-   > Benefitsolver 지원팀은 실제 SSO 구성을 수행해야 합니다.
-   > 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
-   > 
-   > 
+   >[!NOTE]
+   >Benefitsolver 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
+   >
+
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Single Sign-On 구성")
@@ -116,13 +120,13 @@ Benefitsolver 응용 프로그램은 특정 서식에서 SAML 어설션을 예�
    4. **완료**를 클릭합니다.
 9. **변경 내용 적용**을 클릭합니다.
 
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Benefitsolver로 프로비전되어야 합니다.  
+
 Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파일을 통해 주로 밤에 채워지는 응용 프로그램에 있습니다.  
 
-> [!NOTE]
-> 다른 Benefitsolver 사용자 계정 생성 도구 또는 Benefitsolver가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
-> 
+>[!NOTE]
+>다른 Benefitsolver 사용자 계정 생성 도구 또는 Benefitsolver가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다. 
 > 
 
 ## <a name="assigning-users"></a>사용자 할당
@@ -138,10 +142,5 @@ Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파�
    ![예](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

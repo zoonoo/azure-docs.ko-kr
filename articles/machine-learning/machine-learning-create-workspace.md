@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 647398c1a0994da04845672e89d9f82d5e8b6d21
+ms.sourcegitcommit: 613cf7e34d69afa21b1808ffe57af9a8b64944f5
+ms.openlocfilehash: 182a34822e71d63f4d7229548ae3f59d9f195337
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,86 +30,77 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="to-create-a-workspace"></a>작업 영역을 만들려면
-1. [Microsoft Azure 클래식 포털]에 로그인합니다.
+### <a name="to-create-a-workspace"></a>작업 영역을 만들려면
+1. [Azure 포털](https://portal.azure.com/)
 
-> [!NOTE]
-> 로그인하려면 Azure 구독 관리자여야 합니다. 기계 학습 작업 영역 소유자라고 해서 [Microsoft Azure 클래식 포털]에 대한 액세스가 제공되는 것은 아닙니다. 자세한 내용은 [Azure 구독 관리자 및 작업 영역 소유자의 권한](#subscriptionvsworkspace) 을 참조하세요.
-> 
-> 
+    > [!NOTE]
+    > 로그인하여 작업 영역을 만들려면 Azure 구독 관리자여야 합니다. 
+    >
+    > 
 
-1. Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
-   
-    ![기계 학습 서비스][1]
-2. 창 아래쪽에서 **+새로 만들기** 를 클릭합니다.
-3. **Data Services**, **Machine Learning**, **빠른 생성**을 차례로 클릭합니다.
-   
-    ![새 작업 영역의 빠른 생성][3]
-4. 작업 영역에 대한 **작업 영역 이름** 을 입력합니다.
-5. Azure **위치**를 지정하고 기존 Azure **Storage 계정**을 입력하거나 **새 저장소 계정 만들기**를 클릭하여 새 저장소 계정을 만듭니다.
-6. **기계 학습 작업 영역 만들기**를 클릭합니다.
+2. **+새로 만들기**를 클릭합니다.
 
-기계 학습 작업 영역이 만들어진 후에는 **기계 학습** 페이지에 나열됩니다.
+3. **인텔리전스 + 분석**을 선택하고 **Machine Learning 작업 영역**을 클릭한 후 **만들기**를 클릭합니다.
+
+4. 작업 영역 정보를 입력합니다.
+
+    - *작업 영역 이름*은 공백으로 끝나지 않고 최대 260자로 구성할 수 있습니다. 이름에는 다음과 같은 문자를 포함하지 않아야 합니다. `< > * % & : \ ? + /`
+    - 사용자가 선택하거나 만든 *웹 서비스 계획*은 사용자가 선택한 연결된 *가격 책정 계층*과 함께, 이 작업 영역에서 웹 서비스를 배포하는 경우 사용됩니다.
+
+    ![새 작업 영역 만들기](media/machine-learning-create-workspace/create-new-workspace.png)
+
+5. **만들기**
+
+작업 영역이 배포되면 Machine Learning Studio에서 열 수 있습니다.
+
+1. Machine Learning Studio([https://studio.azureml.net/](https://studio.azureml.net/))로 이동합니다.
+
+2. 오른쪽 위 모서리에서 작업 영역을 선택합니다.
+
+    ![작업 영역 선택](media/machine-learning-create-workspace/open-workspace.png)
+
+3. **내 실험**을 클릭합니다.
+
+    ![실험 열기](media/machine-learning-create-workspace/my-experiments.png)
+
+작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요.
+작업 영역을 만드는 데 문제가 발생한 경우 [문제 해결 가이드: Machine Learning 작업 영역 만들기 및 연결](machine-learning-troubleshooting-creating-ml-workspace.md)을 참조하세요.
+
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Azure 기계 학습 작업 영역 공유
-기계 학습 작업 영역이 만들어진 후에는 사용자를 작업 영역에 초대하고 작업 영역과 모든 실험에 대한 액세스를 공유할 수 있습니다. 두 개의 사용자 역할을 지원합니다.
+Machine Learning 작업 영역이 만들어진 후에는 사용자를 작업 영역에 초대하고 작업 영역과 모든 실험, 데이터 집합, Notebook 등에 대한 액세스를 공유할 수 있습니다. 이 두 역할 중 하나에 사용자를 추가할 수 있습니다.
 
-* **사용자** - 작업 영역 사용자는 작업 영역에서 데이터 집합, 실험 및 웹 서비스를 만들기, 열기, 수정 및 삭제할 수 있습니다.
-* **소유자** - 소유자는 사용자가 수행할 수 있는 작업 외에도 작업 영역에 대한 액세스와 함께 사용자를 초대, 제거 및 나열할 수 있습니다. Notebook에 대한 액세스 권한도 보유합니다.
-
-### <a name="to-share-a-workspace"></a>작업 영역을 공유하려면
-1.  [Azure 기계 학습 스튜디오]
-2. 기계 학습 스튜디오 패널에서 **설정**
-3. 창 아래쪽에서 **사용자**
-4. 창 아래쪽에서 **더 많은 사용자 초대**
-   
-    ![더 많은 사용자 초대][4]
-5. 하나 이상의 전자 메일 주소를 입력합니다. 사용자에게는 유효한 Microsoft 계정(예: name@outlook.com)) 또는 Azure Active Directory의 조직 계정만 필요합니다.
-6. 선택 단추를 클릭합니다.
-
-추가된 각 사용자는 공유 작업 영역에 로그인하는 명령으로 전자 메일을 받게 됩니다.
-
-작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure 기계 학습 작업 영역 관리]를 참조하세요.
-작업 영역을 만드는 데 문제가 발생한 경우 [문제 해결 가이드: 기계 학습 작업 영역 만들기 및 연결]을 참조하세요.
-
-## <a name="a-namesubscriptionvsworkspaceaprivileges-of-azure-subscription-administrator-and-of-workspace-owner"></a><a name="subscriptionvsworkspace"></a>Azure 구독 관리자 및 작업 영역 소유자의 권한
-다음은 Azure 구독 관리자와 작업 영역 소유자 간의 차이를 명확히 보여주는 테이블입니다.
-
-| 작업 | Azure 구독 관리자 | 작업 영역 소유자 |
-| --- |:---:|:---:|
-|  [Microsoft Azure 클래식 포털] |예 |아니요 |
-| 새 작업 영역 만들기 |예 |아니요 |
-| 작업 영역 삭제 |예 |아니요 |
-| 웹 서비스에 끝점 추가 |예 |아니요 |
-| 웹 서비스에서 끝점 삭제 |예 |아니요 |
-| 웹 서비스에 대한 동시성 변경 |예 |아니요 |
-|  [Azure 기계 학습 스튜디오] |아니요 * |예 |
+* **사용자** - 작업 영역 사용자는 작업 영역에서 실험, 데이터 집합 등을 만들기, 열기, 수정 및 삭제할 수 있습니다.
+* **소유자** - 소유자는 사용자가 수행할 수 있는 작업 외에도 작업 영역에 사용자를 초대 및 제거할 수 있습니다.
 
 > [!NOTE]
-> * Azure 구독 관리자는 작업 영역 소유자 권한으로 만든 작업 영역에 자동으로 추가됩니다. 그러나 단순히 Azure 구독 관리자가 되었다고 해서 해당 구독의 모든 작업 영역에 대한 액세스 권한이 부여되는 것은 아닙니다.
+> 작업 영역을 만든 관리자 계정은 작업 영역 소유자 권한으로 작업 영역에 자동으로 추가됩니다. 그러나 구독에 있는 다른 관리자 또는 사용자에게는 작업 영역에 대한 액세스 권한이 자동으로 부여되지 않으며 명시적으로 초대해야 합니다.
 > 
 > 
 
-<!-- ![List of Machine Learning workspaces][2] -->
+### <a name="to-share-a-workspace"></a>작업 영역을 공유하려면
 
-<!--Anchors-->
-[작업 영역을 만들려면]: #createworkspace
+1. Machine Learning Studio([https://studio.azureml.net/Home](https://studio.azureml.net/Home))에 로그인합니다.
 
-<!--Image references-->
-[1]: media/machine-learning-create-workspace/cw1.png
-[2]: media/machine-learning-create-workspace/cw2.png
-[3]: media/machine-learning-create-workspace/cw4.png
-[4]: media/machine-learning-create-workspace/cw5.png
+2. 왼쪽 패널에서 **설정**을 클릭합니다.
+
+3. **사용자** 탭을 클릭합니다.
+
+4. 페이지 맨 아래에 있는 **더 많은 사용자 초대**를 클릭합니다.
+
+    ![Studio 설정](media/machine-learning-create-workspace/settings.png)
+
+5. 하나 이상의 전자 메일 주소를 입력합니다. 사용자에게는 유효한 Microsoft 계정(Azure Active Directory에서) 또는 Azure Active Directory의 조직 계정만 필요합니다.
+
+6. 사용자를 소유자 또는 사용자로 추가할지 여부를 선택합니다.
+
+7. **확인** 확인 표시 단추를 클릭합니다.
+
+추가된 각 사용자는 공유 작업 영역에 로그인하는 방법에 대한 설명이 포함된 전자 메일을 받게 됩니다.
+
+> [!NOTE]
+> 이 작업 영역에서 웹 서비스를 배포 또는 관리할 수 있는 사용자인 경우 Azure 구독에서 참여자 또는 관리자여야 합니다. 
 
 
-<!--Link references-->
-[Azure 기계 학습 작업 영역 관리]: machine-learning-manage-workspace.md
-[문제 해결 가이드: 기계 학습 작업 영역 만들기 및 연결]: machine-learning-troubleshooting-creating-ml-workspace.md
-[Azure 기계 학습 스튜디오]: https://studio.azureml.net/  
-[Microsoft Azure 클래식 포털]: https://manage.windowsazure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

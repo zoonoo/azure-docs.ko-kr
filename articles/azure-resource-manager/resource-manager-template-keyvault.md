@@ -1,5 +1,5 @@
 ---
-title: "Key Vault에 대한 Resource Manager 템플릿 | Microsoft Docs"
+title: "키 자격 증명 모음에 대한 Resource Manager 템플릿 | Microsoft Docs"
 description: "템플릿을 통해 주요 자격 증명 모음을 배포하기 위한 리소스 관리자 스키마를 보여 줍니다."
 services: azure-resource-manager,key-vault
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 06/23/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
+ms.sourcegitcommit: f2d009477a614c3b2876ce98a355d3775abf772b
+ms.openlocfilehash: 04f2d5d8e501ebf41cf95ea925d238f64b096c1d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -66,7 +67,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
 | 이름 |문자열<br />필수<br />Azure에 고유한 이름입니다.<br /><br />만들려는 키 자격 증명 모음의 이름입니다. 아래의 예제에 표시된 대로 명명 규칙에 따라 [uniqueString](resource-group-template-functions.md#uniquestring) 함수를 사용하여 고유한 이름을 만드는 것이 좋습니다. |
 | 위치 |String<br />필수<br />키 자격 증명 모음의 유효한 하위 지역입니다. 유효한 영역을 확인하려면 [지원되는 지역](resource-manager-supported-services.md#supported-regions)을 참조하세요.<br /><br />키 자격 증명 모음을 호스트하는 하위 지역입니다. |
 | properties |Object<br />필수<br />[properties 개체](#properties)<br /><br />만들려는 키 자격 증명 모음의 유형을 지정하는 개체입니다. |
-| 리소스 |배열<br />옵션<br />허용된 값: [Key Vault 비밀 리소스](resource-manager-template-keyvault-secret.md)<br /><br />키 자격 증명 모음의 자식 리소스입니다. |
+| 리소스 |배열<br />옵션<br />허용된 값: [Key Vault 암호 리소스](resource-manager-template-keyvault-secret.md)<br /><br />키 자격 증명 모음의 자식 리소스입니다. |
 
 <a id="properties" />
 
@@ -75,7 +76,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
 | --- | --- |
 | enabledForDeployment |Boolean<br />옵션<br />**true** 또는 **false**<br /><br />가상 컴퓨터 또는 서비스 패브릭 배포에 자격 증명 모음을 사용할 수 있는지 지정합니다. |
 | enabledForTemplateDeployment |Boolean<br />옵션<br />**true** 또는 **false**<br /><br />Resource Manager 템플릿 배포에 자격 증명 모음을 사용할 수 있는지 지정합니다. 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption |Boolean<br />옵션<br />**true** 또는 **false**<br /><br />볼륨 암호화에 자격 증명 모음을 사용할 수 있는지 지정합니다. |
+| enabledForDiskEncryption |Boolean<br />옵션<br />**true** 또는 **false**<br /><br />볼륨 암호화에 자격 증명 모음을 사용할 수 있는지 지정합니다. |
 | tenantId |문자열<br />필수<br />**GUID(Globally Unique Identifier)**<br /><br />구독의 테넌트 식별자입니다. [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet 또는 **azure account show** Azure CLI 명령을 사용하여 검색할 수 있습니다. |
 | accessPolicies |배열<br />필수<br />[accessPolicies 개체](#accesspolicies)<br /><br />사용자 또는 서비스 주체에 대한 사용 권한을 지정하는 최대 16개 개체의 배열입니다. |
 | sku |Object<br />필수<br />[sku 개체](#sku)<br /><br />키 자격 증명 모음의 SKU입니다. |
@@ -169,7 +170,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -201,7 +202,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {
@@ -238,12 +239,7 @@ ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
 * [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 ## <a name="next-steps"></a>다음 단계
-* Key Vault에 대한 일반 정보는 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
+* 키 자격 증명 모음에 대한 일반 정보는 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
 * 템플릿을 배포할 때 키 자격 증명 모음 암호를 참조하는 예제는 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

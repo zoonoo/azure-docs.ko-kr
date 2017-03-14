@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 592fc838645dbc05b710b1bd83fd7c0135688844
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Scenario")
+![시나리오](./media/active-directory-saas-uservoice-tutorial/IC777514.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-uservoice"></a>UserVoice에 응용 프로그램 통합 사용
 이 섹션은 UserVoice에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-uservoice-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-uservoice-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-uservoice-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **UserVoice**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Application gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-uservoice-tutorial/IC777513.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **UserVoice**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -75,33 +76,33 @@ UserVoice에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbp
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **UserVoice** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Single Sign-On 구성")
 
 2. **UserVoice에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지의 **UserVoicer 로그인 URL** 텍스트 상자에 "*https://\<tenant-name\>.UserVoice.com*" 패턴을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-uservoice-tutorial/IC777517.png "앱 URL 구성")
 
 4. **UserVoice에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 **c:\\UserVoice.cer**에 로컬로 인증서 파일을 저장합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 UserVoice 회사 사이트에 관리자 권한으로 로그인합니다.
 
 6. 위쪽에 도구 모음에서 설정을 클릭하고 메뉴에서 웹 포털을 선택합니다.
    
-    ![설정](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![설정](./media/active-directory-saas-uservoice-tutorial/IC777519.png "설정")
 
 7. **웹 포털** 탭의 **사용자 인증** 섹션에서 **편집**을 클릭해 **사용자 인증 편집** 대화 상자 페이지를 엽니다.
    
-    ![웹 포털](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web portal")
+    ![웹 포털](./media/active-directory-saas-uservoice-tutorial/IC777520.png "웹 포털")
 
 8. **사용자 인증 편집** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![사용자 인증 편집](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Edit user authentication")
+    ![사용자 인증 편집](./media/active-directory-saas-uservoice-tutorial/IC777521.png "편집 사용자 인증")
    
     a. **SSO(Single Sign-On)**를 클릭합니다.
  
@@ -120,7 +121,7 @@ UserVoice에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbp
 
 9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 UserVoice에 로그인할 수 있도록 하려면 UserVoice로 프로비전되어야 합니다.  
@@ -131,21 +132,21 @@ UserVoice의 경우 프로비전은 수동 작업입니다.
 
 2. **설정**으로 이동합니다.
    
-    ![설정](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![설정](./media/active-directory-saas-uservoice-tutorial/IC777811.png "설정")
 
 3. **일반**을 클릭합니다.
 
 4. **에이전트 및 권한**을 클릭합니다.
    
-    ![에이전트 및 권한](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agents and permissions")
+    ![에이전트 및 권한](./media/active-directory-saas-uservoice-tutorial/IC777812.png "에이전트 및 권한")
 
 5. **관리자 추가**를 클릭합니다.
    
-    ![관리자 추가](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Add admins")
+    ![관리자 추가](./media/active-directory-saas-uservoice-tutorial/IC777813.png "관리자 추가")
 
 6. **관리자 초대** 대화 상자에서 다음 단계를 수행합니다.
    
-    ![관리자 초대](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
+    ![관리자 초대](./media/active-directory-saas-uservoice-tutorial/IC777814.png "관리자 초대")
    
     a. 이메일 텍스트 상자에서 프로비전하려는 계정의 이메일 주소를 입력하고 **추가**를 클릭합니다.
    
@@ -163,17 +164,12 @@ UserVoice의 경우 프로비전은 수동 작업입니다.
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **UserVoice** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-uservoice-tutorial/IC777523.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-uservoice-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

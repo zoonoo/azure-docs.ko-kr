@@ -1,10 +1,10 @@
 ---
-title: "VNet(가상 네트워크)에서 사용하는 DNS 서버 관리"
-description: "VNet(가상 네트워크)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
+title: "가상 네트워크(클래식)에서 사용하는 DNS 서버 관리 - Azure Portal(클래식) | Microsoft Docs"
+description: "Azure Portal(클래식)을 사용하여 가상 네트워크(클래식)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: b582be7d-dc78-4cfe-a766-185bd7e5dc68
 ms.service: virtual-network
@@ -14,22 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3416cf13180e124dab1c74b9c7254390ac5e49c4
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b765fb94f881453ae6a90ec0ae6b6f06843b3aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="manage-dns-servers-used-by-a-virtual-network-vnet"></a>VNet(가상 네트워크)에서 사용하는 DNS 서버 관리
-관리 포털 또는 네트워크 구성 파일에서 VNet에 사용된 DNS 서버 목록을 관리할 수 있습니다. 각 VNet에 대해 최대 12대의 DNS 서버를 추가할 수 있습니다. DNS 서버를 지정할 경우 사용자 환경에 대해 올바른 순서로 DNS 서버를 나열했는지 확인하는 것이 중요합니다. DNS 서버 목록은 라운드 로빈 방식으로 작동하지 않으며, 지정된 순서로 사용됩니다. 목록의 첫 번째 DNS 서버에 연결할 수 있는 경우 클라이언트는 DNS 서버가 적절하게 작동하는지 여부와 관계없이 해당 DNS 서버를 사용합니다. 가상 네트워크에 대한 DNS 서버 순서를 변경하려면 목록에서 DNS 서버를 제거하고 원하는 순서로 다시 추가합니다.
+# <a name="manage-dns-servers-used-by-a-virtual-network-classic-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 통해 가상 네트워크(클래식)에서 사용하는 DNS 서버 관리
+
+Azure Portal(클래식) 또는 네트워크 구성 파일을 통해 가상 네트워크(VNet)에서 사용되는 DNS 서버 목록을 관리할 수 있습니다. 각 VNet에 대해 최대 12대의 DNS 서버를 추가할 수 있습니다. DNS 서버를 지정할 경우 사용자 환경에 대해 올바른 순서로 DNS 서버를 나열했는지 확인하는 것이 중요합니다. DNS 서버 목록은 라운드 로빈 방식으로 작동하지 않으며, 지정된 순서로 사용됩니다. 목록의 첫 번째 DNS 서버에 연결할 수 있는 경우 클라이언트는 DNS 서버가 적절하게 작동하는지 여부와 관계없이 해당 DNS 서버를 사용합니다. 가상 네트워크에 대한 DNS 서버 순서를 변경하려면 목록에서 DNS 서버를 제거하고 원하는 순서로 다시 추가합니다.
 
 > [!WARNING]
 > DNS 목록을 업데이트한 후에는 새 DNS 서버 설정을 선택할 수 있도록 가상 네트워크에 있는 가상 컴퓨터를 다시 시작해야 합니다. 가상 컴퓨터는 다시 시작될 때까지 현재 구성을 계속 사용합니다.
 > 
 > 
 
-## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-management-portal"></a>관리 포털을 사용하여 가상 네트워크의 DNS 서버 목록 편집
-1. **관리 포털**에 로그온합니다.
+## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 가상 네트워크의 DNS 서버 목록 편집
+1. [Azure Portal(클래식)](https://manage.windowsazure.com)에 로그온합니다.
 2. 탐색 창에서 **Networks**를 클릭한 후 **이름** 열의 가상 네트워크 이름을 클릭합니다.
 3. **구성**을 클릭합니다.
 4. **DNS 서버**에서 다음을 구성할 수 있습니다.
@@ -43,16 +46,11 @@ ms.openlocfilehash: 3416cf13180e124dab1c74b9c7254390ac5e49c4
 6. 가상 네트워크에 있는 가상 컴퓨터에서 새로운 DNS 설정을 가져올 수 있도록 하려면 해당 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="edit-a-dns-server-list-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 DNS 서버 목록 편집
-네트워크 구성 파일을 사용하여 DNS 서버 목록을 편집하려면 먼저 관리 포털에서 구성 설정을 내보냅니다. 그런 다음 네트워크 구성 파일을 편집하고 관리 포털을 통해 다시 가져옵니다. 다음은 이 프로세스를 완료하기 위한 대략적인 단계 목록입니다.
+네트워크 구성 파일을 사용하여 DNS 서버 목록을 편집하려면 먼저 관리 포털에서 구성 설정을 내보냅니다. 그런 다음 네트워크 구성 파일을 편집하고 Azure Portal(클래식)을 통해 다시 가져옵니다. 다음은 이 프로세스를 완료하기 위한 대략적인 단계 목록입니다.
 
 1. 가상 네트워크 설정을 네트워크 구성 파일로 내보냅니다. 네트워크 구성 설정을 내보내는 단계에 대한 자세한 내용은 [가상 네트워크 설정을 네트워크 구성 파일로 내보내기](virtual-networks-using-network-configuration-file.md)를 참조하세요.
 2. 가상 네트워크에 대한 DNS 서버 정보를 지정합니다. DNS 서버를 지정하는 방법에 대한 자세한 내용은 [가상 네트워크 구성 파일에서 DNS 서버 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)을 참조하세요. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx) 및 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)을 참조하세요.
 3. 네트워크 구성 파일을 가져옵니다. 네트워크 구성 파일을 가져오는 단계에 대한 자세한 내용은 [네트워크 구성 파일 가져오기](virtual-networks-using-network-configuration-file.md)를 참조하세요.
 4. 가상 네트워크에 있는 가상 컴퓨터에서 새로운 DNS 설정을 가져올 수 있도록 하려면 해당 가상 컴퓨터를 다시 시작합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

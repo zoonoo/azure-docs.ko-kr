@@ -3,8 +3,8 @@ title: "SQL Server 및 Azure Site Recovery를 사용한 앱 복제 | Microsoft D
 description: "이 문서에서는 SQL Server 재해 기능의 Azure Site Recovery를 사용하여 SQL Server를 복제하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
-manager: jwhit
+author: prateek9us
+manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2017
-ms.author: raynew
+ms.date: 02/22/2017
+ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: f822756c0ce45c98b95a0cec2efd1353aff71561
-ms.openlocfilehash: f2d8a9221a989f9e79b6f4e17d9448303544ffd6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 9ea73dd91c9637692bbc3d6d2aa97fbed7ae500d
+ms.openlocfilehash: 79c110031a47f1bdb78f4acfcadd7bff1e909807
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -33,13 +33,13 @@ ms.lasthandoff: 02/22/2017
 다양한 작업은 SQL Server를 기반으로 사용하고 데이터 서비스를 구현하도록 SharePoint, Dynamics 및 SAP와 같은 앱으로 통합될 수 있습니다.  SQL Server는 다양한 방법으로 배포될 수 있습니다.
 
 * **독립 실행형 SQL Server**: SQL Server 및 모든 데이터베이스는 단일 컴퓨터(물리적 또는 가상)에서 호스트됩니다. 가상화된 경우 호스트 클러스터링은 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 구현되지 않습니다.
-* **SQL Server 장애 조치(Failover) 클러스터링 인스턴스(Always On FCI)**: 공유된 디스크와 함께 인스턴스화된 SQL Server를 실행하는 노드가&2;개 이상 Windows 장애 조치 클러스터에 구성됩니다. 노드가 다운되는 경우 클러스터는 다른 인스턴스로 SQL Server를 장애 조치할 수 있습니다. 이 설치 프로그램은 기본 사이트에 고가용성을 구현하는 데 일반적으로 사용됩니다. 이 배포는 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 공유 vhdx를 사용하여 구현할 수 있습니다.
-* **SQL Always ON 가용성 그룹**: 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서&2;개 이상의 노드를 설정합니다.
+* **SQL Server 장애 조치 클러스터링 인스턴스(AlwaysOn FCI)**: 공유된 디스크와 함께 인스턴스화된 SQL Server를 실행하는 노드가&2;개 이상 Windows 장애 조치 클러스터에 구성됩니다. 노드가 다운되는 경우 클러스터는 다른 인스턴스로 SQL Server를 장애 조치할 수 있습니다. 이 설치 프로그램은 기본 사이트에 고가용성을 구현하는 데 일반적으로 사용됩니다. 이 배포는 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 공유 vhdx를 사용하여 구현할 수 있습니다.
+* **SQL AlwaysOn 가용성 그룹**: 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서&2;개 이상의 노드를 설정합니다.
 
  이 문서에서는 원격 사이트에 대한 데이터베이스 복구에 다음과 같은 네이티브 SQL 재해 복구 기술을 활용합니다.
 
-* SQL Server 2012 또는 2014 Enterprise 버전용 재해 복구에 대해 제공하는 SQL Always On 가용성 그룹.
-* SQL Server Standard 버전(모든 버전) 또는 SQL Server 2008 R2에 대한 높은 보안 모드에서 SQL 데이터베이스 미러링.
+* SQL Server 2012 또는 2014 Enterprise 버전용 재해 복구에 대해 제공하는 SQL AlwaysOn 가용성 그룹
+* SQL Server Standard 버전(모든 버전) 또는 SQL Server 2008 R2에 대한 높은 보안 모드에서 SQL 데이터베이스 미러링
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
@@ -65,22 +65,24 @@ Site Recovery는 재해 복구 솔루션을 제공하기 위해 표에 요약된
 
 **기능** | **세부 정보** | **SQL Server** |
 --- | --- | ---
-**Always On 가용성 그룹** | SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치 클러스터에서 실행됩니다.<br/><br/>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.<br/><br/>기본 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다. | SQL Server 2014 및 2012 Enterprise 버전
+**AlwaysOn 가용성 그룹** | SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치 클러스터에서 실행됩니다.<br/><br/>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.<br/><br/>기본 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다. | SQL Server 2014 및 2012 Enterprise 버전
 **장애 조치 클러스터링(AlwaysOn FCI)** | SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치(failover) 클러스터링을 활용합니다.<br/><br/>공유 디스크를 사용하는 SQL Server 서버의 인스턴스를 실행하는 노드는 장애 조치 클러스터에서 구성됩니다. 인스턴스가 다운되는 경우 클러스터는 다른 것을 장애 조치합니다.<br/><br/>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 VHDX와 함께 구현할 수 있습니다. | SQL Server Enterprise 버전<br/><br/>SQL Server Standard 버전(노드가 두 개로 제한됨)
 **데이터베이스 미러링(높은 보안 모드)** | 하나의 보조 복사본으로 단일 데이터베이스를 보호합니다. 높은 보안(동기) 및 고성능(비동기) 복제 모드에서 모두 사용할 수 있습니다. 장애 조치 클러스터가 필요하지 않습니다. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 모든 버전
 **독립 실행형 SQL Server** | SQL Server 및 데이터베이스는 단일 서버(실제 또는 가상)에서 호스팅됩니다. 호스트 클러스터링은 가상 서버인 경우 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 없습니다. | Enterprise 또는 Standard 에디션
 
 ## <a name="deployment-recommendations"></a>배포 권장 사항
 
-**버전** | **배포웹사이트를** | **온-프레미스와 보조 간** | **온-프레미스와 Azure 간** |
---- | --- | --- | --- | --- |
-**SQL Server 2014/2012 Enterprise FCI** | 장애 조치 클러스터 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
-**SQL Server 2014/2012 AlwaysOn** | AlwaysOn 가용성 그룹 | AlwaysOn | AlwaysOn
-**SQL Server 2014/2012 Standard FCI** | 장애 조치 클러스터 | 로컬 미러를 사용하는 Site Recovery 복제 | 로컬 미러를 사용하는 Site Recovery 복제
-**SQL Server 2014/2012 Enterprise/Standard** | 독립 실행형 | Site Recovery 복제 | Site Recovery 복제
-**SQL Server 2008 R2 Enterprise/Standard** | FCI |로컬 미러를 사용하는 Site Recovery 복제 |로컬 미러를 사용하는 Site Recovery 복제 |
-**SQL Server 2008 R2 Enterprise/Standard** | 독립 실행형 |Site Recovery 복제 | Site Recovery 복제
-**SQL Server(모든 버전) Enterprise/Standard** |FCI - DTC 응용 프로그램 | Site Recovery 복제 |지원되지 않음
+이 표에서는 Site Recovery와 SQL Server BCDR 기술을 통합하기 위한 권장 사항을 요약합니다.
+
+| **버전** | **에디션** | **배포웹사이트를** | **온-프레미스에서 온-프레미스로** | **온-프레미스에서 Azure로** |
+| --- | --- | --- | --- | --- |
+| SQL Server 2014 또는 2012 |Enterprise |장애 조치 클러스터 인스턴스 |AlwaysOn 가용성 그룹 |AlwaysOn 가용성 그룹 |
+|| Enterprise |고가용성을 위한 AlwaysOn 가용성 그룹 |AlwaysOn 가용성 그룹 |AlwaysOn 가용성 그룹 | |
+|| 표준 |장애 조치 클러스터 인스턴스(FCI) |로컬 미러를 사용하는 Site Recovery 복제 |로컬 미러를 사용하는 Site Recovery 복제 | |
+|| Enterprise 또는 Standard |독립 실행형 |Site Recovery 복제 |Site Recovery 복제 | |
+| SQL Server 2008 R2 |Enterprise 또는 Standard |장애 조치 클러스터 인스턴스(FCI) |로컬 미러를 사용하는 Site Recovery 복제 |로컬 미러를 사용하는 Site Recovery 복제 |
+|| Enterprise 또는 Standard |독립 실행형 |Site Recovery 복제 |Site Recovery 복제 | |
+| SQL Server(모든 버전) |Enterprise 또는 Standard |장애 조치 클러스터 인스턴스 - DTC 응용 프로그램 |Site Recovery 복제 |지원되지 않음 |
 
 ## <a name="deployment-prerequisites"></a>배포 필수 조건
 
@@ -97,15 +99,16 @@ SQL Server를 제대로 실행하려면 보조 복구 사이트에서 Active Dir
 
 이 문서의 지침에서는 도메인 컨트롤러를 보조 위치에서 사용할 수 있다고 가정합니다. [자세히 알아보세요](site-recovery-active-directory.md) .
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Azure로 복제를 위해 SQL Server Always On과 통합(VMM/구성 서버와 클래식 포털)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Azure로 복제를 위해 SQL Server AlwaysOn과 통합(VMM/구성 서버와 클래식 포털)
 
 
 Site Recovery는 기본적으로 SQL AlwaysOn을 지원합니다. Azure 가상 컴퓨터를 보조 위치로 설정한 상태에서 SQL 가용성 그룹을 만든 경우 Site Recovery를 사용하여 가용성 그룹의 장애 조치(failover)를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 현재 미리 보기로 제공되고 있습니다. 주 사이트에 System Center VMM 클라우드에서 관리되는 Hyper-V 호스트 서버가 있거나 [VMware 복제](site-recovery-vmware-to-azure.md)를 설정한 경우 사용 가능합니다. 현재 새 Azure Portal에서는 기능을 사용할 수 없습니다. 지금은 새 Azure 포털에서 이 기능을 사용할 수 없습니다.
+> 이 기능은 현재 미리 보기로 제공되고 있습니다. 주 사이트에 System Center VMM 클라우드에서 관리되는 Hyper-V 호스트 서버가 있거나 [VMware 복제](site-recovery-vmware-to-azure.md)를 설정한 경우 사용 가능합니다. 현재 새 Azure Portal에서는 기능을 사용할 수 없습니다. 새 Azure Portal을 사용하는 경우 [이 섹션](site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server)의 단계를 수행하세요.
 >
 >
+
 
 #### <a name="before-you-start"></a>시작하기 전에
 
@@ -122,7 +125,7 @@ Site Recovery와 SQL AlwaysOn을 통합하려면 다음이 필요합니다.
 - VMware를 실행하는 경우 CSPSConfigtool.exe를 사용하여 구성 서버에 계정을 만들어야 합니다.
 * 온-프레미스 및 Azure VM에서 실행되는 SQL Server에 SQL PS 모듈을 설치해야 합니다.
 * Azure VM에 VM 에이전트를 설치해야 합니다.
-* NTAUTHORITY\시스템은 Azure VM에서 실행되는 SQL Server에 다음과 같은 권한이 있어야 합니다.
+* NTAUTHORITY\System은 Azure VM에서 실행되는 SQL Server에 다음과 같은 권한이 있어야 합니다.
   * ALTER AVAILABILITY GROUP - 권한 [여기](https://msdn.microsoft.com/library/hh231018.aspx) 및 [여기](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
   * ALTER DATABASE - 권한 [여기](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
@@ -169,7 +172,7 @@ SQL Server를 추가한 후 **SQL Server** 탭에 나타납니다.
 
 ![복구 계획 사용자 지정](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="fail-over"></a>장애 조치
+### <a name="failover"></a>장애 조치(Failover)
 
 가용성 그룹을 복구 계획에 추가하면 다른 장애 조치(failover) 옵션을 사용할 수 있습니다.
 
@@ -195,7 +198,7 @@ SQL Server를 추가한 후 **SQL Server** 탭에 나타납니다.
 >
 >
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Azure로 복제를 위해 SQL Server Always On과 통합(Azure Portal/VMM/구성 서버 없는 클래식 포털)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Azure(VMM/구성 서버가 없는 Azure Portal/클래식 포털)로의 복제를 위해 SQL Server AlwaysOn과 통합
 
 이러한 지침은 새 Azure Portal 또는 VMM 서버 또는 구성 서버를 사용하지 않는 경우 클래식 포털에서 SQL Server 가용성 그룹을 통합하는 경우에 관련됩니다. 이 시나리오에서 Azure Automation Runbook을 사용하여 SQL 가용성 그룹의 스크립팅된 장애 조치(failover)를 구성할 수 있습니다.
 
@@ -304,7 +307,7 @@ SQL Server를 추가한 후 **SQL Server** 탭에 나타납니다.
          }
      }``
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>복제를 위해 SQL Server Always On을 보조 온-프레미스 사이트로 통합
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-a-secondary-on-premises-site"></a>복제를 위해 SQL Server AlwaysOn을 보조 온-프레미스 사이트로 통합
 
 SQL Server가 고가용성을 위해 고가용성 그룹(또는 FCI)을 사용하는 경우, 복구 사이트에서도 고가용성 그룹을 사용하는 것이 좋습니다. 이는 분산된 트랜잭션을 사용하지 않는 앱에 적용됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics에 Linux 컴퓨터 연결 | Microsoft Docs"
+title: "Azure Log Analytics에 Linux 컴퓨터 연결 | Microsoft Docs"
 description: "Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 수집하고 그에 따른 조치를 취할 수 있습니다."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: fba4e68e78b8267ff2413f94d5ca5066325f9c76
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-linux-computers-to-log-analytics"></a>Log Analytics에 Linux 컴퓨터 연결
-Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 수집하고 그에 따른 조치를 취할 수 있습니다. Linux에서 수집된 데이터를 OMS에 추가하면 컴퓨터 위치에 상관없이(사실상 모든 곳에서), Linux 시스템 및 Docker 같은 컨테이너 솔루션을 관리할 수 있습니다. 그러한 데이터 원본은 물리적 서버로서 온-프레미스 데이터 센터, Amazon Web Services(AWS) 또는 Microsoft Azure 같은 클라우드 호스티드 서비스의 가상 컴퓨터, 또는 사용자 책상 위 노트북에도 상주할 수 있습니다. 뿐만 아니라 OMS는 Windows 컴퓨터에서도 유사하게 데이터를 수집하기 때문에 진정한 하이브리드 IT 환경을 지원합니다.
+# <a name="connect-your-linux-computers-to-log-analytics"></a>Log Analytics에 Linux 컴퓨터 연결
+Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 수집하고 그에 따른 조치를 취할 수 있습니다. Linux에서 수집된 데이터를 OMS에 추가하면 컴퓨터 위치에 상관없이(사실상 모든 곳에서), Linux 시스템 및 Docker 같은 컨테이너 솔루션을 관리할 수 있습니다. 데이터 원본은 물리적 서버로서 온-프레미스 데이터 센터, Amazon Web Services(AWS) 또는 Microsoft Azure 같은 클라우드 호스티드 서비스의 가상 컴퓨터나 사용자 책상 위 노트북에도 상주할 수 있습니다. 뿐만 아니라 OMS는 Windows 컴퓨터에서도 유사하게 데이터를 수집하기 때문에 진정한 하이브리드 IT 환경을 지원합니다.
 
 하나의 관리 포털을 통해 OMS의 Log Analytics에서 이 모든 소스의 데이터를 보고 관리할 수 있습니다. 이렇게 하면 많은 다양한 시스템을 사용하여 데이터를 모니터링할 필요가 줄어들고, 데이터를 사용하기가 쉬워지고, 원하는 데이터를 무엇이든 이미 보유하고 있는 비즈니스 분석 솔루션이나 시스템에 내보낼 수 있습니다.
 
@@ -96,9 +98,7 @@ Linux용 OMS 에이전트 패키지를 설치한 후에는 다음과 같은 시�
 ![작업 영역 정보](./media/log-analytics-linux-agents/oms-direct-agent-primary-key.png)
 
 ```
-wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.1.0-28/omsagent-1.1.0-28.universal.x64.sh
-sha256sum ./omsagent-1.1.0-28.universal.x64.sh
-sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
 ```
 
 에이전트를 설치하고 업그레이드하는 방법은 매우 다양합니다. 자세한 내용은 [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux)(Linux용 OMS 에이전트를 설치하는 단계)를 참조하세요.
@@ -108,7 +108,7 @@ sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID
 ## <a name="choose-your-linux-data-collection-method"></a>Linux 데이터 수집 방법 선택
 수집할 데이터 유형을 선택하는 방식은 OMS 포털을 사용할지 또는 자신의 Linux 클라이언트에서 다양한 구성 파일을 직접 편집할지에 따라 달라집니다. 포털을 사용하기로 선택하면, 구성은 사용자의 모든 Linux 클라이언트에 자동으로 보내집니다. 여러 Linux 클라이언트에 다른 구성이 필요하면, 클라이언트 파일을 개별적으로 편집하거나 PowerShell DSC, Chef, 또는 Puppet 같은 대안을 사용해야 합니다.
 
-Linux 컴퓨터의 구성 파일을 사용하여 수집할 성능 카운터와 syslog 이벤트를 지정할 수 있습니다. *에이전트 구성 파일을 편집하여 데이터 수집을 구성하기로 선택하면, 중앙 집중식 구성을 비활성화해야 합니다.*   에이전트 구성 파일에서 데이터 수집을 구성하는 것은 물론 Linux용 OMS 에이전트 또는 개별 컴퓨터에 대해 중앙 집중식 구성을 비활성화하는 지침이 아래에 제공됩니다.
+Linux 컴퓨터의 구성 파일을 사용하여 수집할 성능 카운터와 syslog 이벤트를 지정할 수 있습니다. *에이전트 구성 파일을 편집하여 데이터 수집을 구성하기로 선택하면, 중앙 집중식 구성을 비활성화해야 합니다.*  에이전트 구성 파일에서 데이터 수집을 구성하는 것은 물론 Linux용 OMS 에이전트 또는 개별 컴퓨터에 대해 중앙 집중식 구성을 비활성화하는 지침이 아래에 제공됩니다.
 
 ### <a name="disable-oms-management-for-an-individual-linux-computer"></a>개별 Linux 컴퓨터에 대한 OMS 관리 비활성화
 구성 데이터에 대한 중앙 집중식 데이터 수집은 OMS_MetaConfigHelper.py 스크립트를 통해 개별 Linux 컴퓨터에 대해 비활성화됩니다. 이것은 컴퓨터 하위 집합에 특별한 구성이 필요한 경우에 유용합니다.
@@ -782,9 +782,4 @@ Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다.
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [대시보드](log-analytics-dashboards.md) 를 사용하여 자신만의 사용자 지정 검색을 저장하고 표시합니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

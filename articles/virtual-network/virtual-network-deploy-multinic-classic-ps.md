@@ -1,10 +1,10 @@
 ---
-title: "PowerShell을 사용하여 다중 NIC이 있는 VM(클래식) 만들기 | Microsoft Docs"
-description: "PowerShell을 사용하여 클래식 배포 모델을 통해 다중 NIC이 있는 VM을 만드는 방법에 대해 알아봅니다."
+title: "다중 NIC이 있는 VM(클래식) 만들기 - Azure PowerShell | Microsoft Docs"
+description: "PowerShell을 사용하여 다중 NIC이 있는 VM(클래식)을 만드는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
-ms.openlocfilehash: 9243294318c3f6c4c7a3563444f0db0ebcf33f28
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: cd3e6c548fd1f7dccaf478d3324efc8d768e3064
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -113,7 +115,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 ### <a name="step-3---create-vms"></a>3단계: VM 만들기
 루프를 사용하여 VM을 원하는 개수만큼 만들고 루프 내에서 필요한 NIC와 VM을 만듭니다. NIC와 VM을 만들려면 다음 단계를 실행합니다.
 
-1. `$numberOfVMs` 변수 값을 기반으로 필요한 횟수만큼 VM 1개와 NIC 2개를 만드는 명령을 반복하는 `for` 루프를 시작합니다.
+1. `$numberOfVMs` 변수 값을 기반으로 필요한 횟수만큼 VM&1;개와 NIC&2;개를 만드는 명령을 반복하는 `for` 루프를 시작합니다.
 
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
@@ -140,8 +142,8 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 4. 기본 NIC를 설정하여 고정 IP 주소를 할당합니다.
 
     ```powershell
-    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. 각 VM에 두 번째 NIC를 추가합니다.
@@ -194,10 +196,5 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: abf65ccbf8806d6581135f41224ef46840715f85
-ms.openlocfilehash: 51e7188530574703a178c5927092d9bc9d15a45f
+ms.sourcegitcommit: d1ff26fd2d93881d028728bf86197c2dc9835ad7
+ms.openlocfilehash: 01f250b218e348a8bad046ac1ddb8c532aa8267f
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -91,9 +92,9 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     각 DocumentClient 인스턴스는 스레드로부터 안전하고 직접 모드에서 작동하는 경우 효율적인 연결 관리와 주소 캐싱을 수행합니다. DocumentClient에 의해 연결을 효율적으로 관리하고 성능을 개선하려면 응용 프로그램 수명 동안 AppDomain당 DocumentClient의 단일 인스턴스를 사용하는 것이 좋습니다.
 
    <a id="max-connection"></a>
-3. **호스트당 System.Net MaxConnections 늘리기**
+3. **Gateway 모드를 사용하는 경우 호스트당 System.Net MaxConnections 늘리기**
 
-    DocumentDB 요청이 기본적으로 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections을 더 높은 값(100-1000)으로 설정해야 합니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.  
+    DocumentDB 요청이 Gateway 모드를 사용할 때 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections을 더 높은 값(100-1000)으로 설정해야 합니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
 4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
      DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
@@ -135,7 +136,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     
 11. **64비트 호스트 처리 사용**
 
-    DocumentDB SDK는 32비트 호스트 프로세스에서 작동합니다. 하지만 파티션 간 쿼리를 사용하는 경우 성능 향상을 위해 64비트 호스트를 처리하는 것이 좋습니다. 다음과 같은 유형의 응용 프로그램에서는 32비트 호스트 프로세스를 기본값으로 사용하지만 64비트로 변경하려면 응용 프로그램 유형에 따라 다음 단계를 따르세요.
+    DocumentDB SDK는 DocumentDB .NET SDK 버전 1.11.4 이상을 사용하는 경우 32비트 호스트 프로세스에서 작동합니다. 하지만 파티션 간 쿼리를 사용하는 경우 성능 향상을 위해 64비트 호스트를 처리하는 것이 좋습니다. 다음과 같은 유형의 응용 프로그램에서는 32비트 호스트 프로세스를 기본값으로 사용하지만 64비트로 변경하려면 응용 프로그램 유형에 따라 다음 단계를 따르세요.
     
     - 실행 가능한 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 **32비트 선호** 옵션의 선택을 취소하면 됩니다. 
     
@@ -215,9 +216,4 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대한 DocumentDB를 평가하는 데 사용된 샘플 응용 프로그램은 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
 
 또는 확장성 및 고성능을 위한 응용 프로그램 설계에 대한 자세한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

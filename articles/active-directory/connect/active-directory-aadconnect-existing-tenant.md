@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: 기존 테넌트가 있는 경우 | Microsoft Docs"
+title: "Azure AD Connect: Azure AD가 이미 있는 경우 | Microsoft Docs"
 description: "이 문서에서는 기존 Azure AD 테넌트가 있을 때 Connect를 사용하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 160a3ae7190dab76eee4634bd6babb5b047cd5ac
+ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
+ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -26,7 +27,7 @@ Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Az
 ## <a name="the-basics"></a>기본 사항
 Azure AD의 개체는 클라우드(Azure AD) 또는 온-프레미스에서 마스터됩니다. 단일 개체의 경우 온-프레미스의 일부 특성과 Azure AD의 다른 일부 특성은 관리할 수 없습니다. 각 개체에는 해당 개체를 관리하는 위치를 나타내는 플래그가 있습니다.
 
-온-프레미스의 일부 사용자와 Azure AD의 다른 사용자는 관리할 수 있습니다. 이 구성의 일반적인 시나리오는 사무실 직원과 생산직 근로자가 혼합된 조직입니다. 사무실 직원은 온-프레미스 AD 계정을 가지고 있지만 생산직 근로자는 그렇지 않습니다. 온-프레미스의 일부 사용자와 Azure AD의 일부 사용자를 관리합니다.
+온-프레미스의 일부 사용자와 Azure AD의 다른 사용자는 관리할 수 있습니다. 이 구성의 일반적인 시나리오는 회계 직원과 판매 직원이 혼합된 조직입니다. 회계 직원은 온-프레미스 AD 계정을 갖는 반면 판매 직원은 그렇지 않습니다. 판매 직원은 Azure AD에서 계정을 갖습니다. 온-프레미스의 일부 사용자와 Azure AD의 일부 사용자를 관리합니다.
 
 Azure AD와 온-프레미스에 있는 사용자를 관리하기 시작했으며 나중에 Connect를 사용하려는 경우 고려해야 할 몇 가지 추가 사항이 있습니다.
 
@@ -60,9 +61,4 @@ Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

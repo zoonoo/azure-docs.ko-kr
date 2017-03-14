@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect 동기화: Synchronization Service Manager UI | Microsoft Docs"
+title: "Azure AD Connect Synchronization Service Manager 작업 | Microsoft Docs"
 description: "Azure AD Connect의 Synchronization Service Manager에 있는 작업 탭을 이해합니다."
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: fadb15a95edb3ec82b284faa594706963618b9eb
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Azure AD Connect 동기화: Synchronization Service Manager
+# <a name="using-the-sync-service-manager-operations-tab"></a>Sync Service Manager 작업 탭 사용
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
 작업 탭에서는 최근 작업의 결과를 보여 줍니다. 이 탭은 문제를 이해하고 해결하는 데 핵심적인 요소입니다.
 
 ## <a name="understand-the-information-visible-in-the-operations-tab"></a>작업 탭에 표시되는 정보를 이해합니다.
-위쪽 절반에 모든 실행이 연대별 순서로 표시됩니다. 기본적으로 작업 로그는 지난 7일에 대한 정보를 유지하지만 이 설정은 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)에 따라 변동될 수 있습니다. 성공 상태를 표시하지 않는 실행을 찾아보려고 합니다. 헤더를 클릭하여 정렬을 변경할 수 있습니다.
+위쪽 절반에 모든 실행이 연대별 순서로 표시됩니다. 기본적으로 작업 로그는 지난&7;일에 대한 정보를 유지하지만 이 설정은 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)에 따라 변동될 수 있습니다. 성공 상태를 표시하지 않는 실행을 찾아보려고 합니다. 헤더를 클릭하여 정렬을 변경할 수 있습니다.
 
 **상태** 열은 가장 중요한 정보이며 실행에 대해 가장 심각한 문제를 보여 줍니다. 다음은 조사할 우선 순위에 따른 가장 일반적인 상태에 대한 간단한 요약입니다(여기서 *는 여러 가능한 오류 문자열을 나타냄).
 
@@ -59,9 +60,4 @@ ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

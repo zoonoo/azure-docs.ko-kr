@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 0e49b7dded14ab6b76c7c73af714af5f5c854bbc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
+ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -104,11 +104,32 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  이 구성 서버에 확장 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)해야 합니다.
+  이 구성 서버에 확장 프로세스 서버가 연결된 경우 배포의 [모든 확장 프로세스 서버에서 프록시 설정을 수정](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server)해야 합니다.
+
+## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>동일한 Recovery Services 자격 증명 모음을 사용하여 구성 서버 등록
+  1. 구성 서버에 로그인합니다.
+  2. 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
+  3. **자격 증명 모음 등록** 탭을 클릭합니다.
+  4. 포털에서 새 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
+        ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
+  5. 프록시 서버 세부 정보를 제공하고 **등록** 단추를 클릭합니다.  
+  6. 관리자 PowerShell 명령 창을 엽니다.
+  7. 다음 명령을 실행합니다.
+
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
+
+  >[!WARNING]
+  확장 프로세스 서버가 이 구성 서버에 연결되어 있는 경우 배포에서 [모든 확장 프로세스 서버를 다시 등록](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server)해야 합니다.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>다른 Recovery Services 자격 증명 모음에 구성 서버 등록
 1. 구성 서버에 로그인합니다.
 2. 관리자 명령 프롬프트에서 명령 실행
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
@@ -152,11 +173,11 @@ net stop dra
 1. 관리자 권한으로 구성 서버에 로그온합니다.
 2. 제어판 > 프로그램 > 프로그램 제거 열기
 3. 다음 순서로 프로그램을 제거합니다.
+  * Microsoft Azure Recovery Services 에이전트
   * Microsoft Azure Site Recovery 모바일 서비스/마스터 대상 서버
+  * Microsoft Azure Site Recovery 공급자
   * Microsoft Azure Site Recovery 구성 서버/프로세스 서버
   * Microsoft Azure Site Recovery 구성 서버 종속성
-  * Microsoft Azure Recovery Services 에이전트
-  * Microsoft Azure Site Recovery 공급자
   * MySQL Server 5.5
 4. 관리자 명령 프롬프트에서 다음 명령을 실행합니다.
   ```

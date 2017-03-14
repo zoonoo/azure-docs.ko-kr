@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성 | Microsoft Docs"
+title: "응용 프로그램에 대한 Azure AD SSO 구성 | Microsoft Docs"
 description: "셀프 서비스가 SAML 및 암호 기반 SSO로 Azure Active Directory에 앱을 연결하는 방법을 알아봅니다."
 services: active-directory
 author: asmalser-msft
@@ -11,11 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
+ms.date: 02/27/2017
 ms.author: asmalser
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8274e47e99998b735e7252ce72bb3ac7c2ecc672
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,11 +29,11 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
 또한 [Azure Active Directory Premium](active-directory-editions.md) 라이선스가 있는 고객에게는 다음과 같은 기능이 제공됩니다
 
 * SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
-*  [암호 기반 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* [암호 기반 SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 * 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](active-directory-scim-provisioning.md))
 * [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
 
-사용하지만 아직된 Azure AD 응용 프로그램 갤러리에 등록되지 않은 SaaS 응용 프로그램 뿐만 아니라 조직이 클라우드 또는 온-프레미스에서 제어하는 서버에 배포된 타사 웹 응용 프로그램을 포함할 수 있습니다.
+사용하지만 아직 Azure AD 응용 프로그램 갤러리에 등록되지 않은 SaaS 응용 프로그램 뿐만 아니라 조직이 클라우드 또는 온-프레미스에서 제어하는 서버에 배포된 타사 웹 응용 프로그램을 포함할 수 있습니다.
 
 *앱 통합 템플릿*이라고도 하는 이러한 기능은 SAML, SCIM 또는 폼 기반 인증을 지원하는 앱에 대한 표준 기반 연결점을 제공하며, 다양한 응용 프로그램과의 호환성을 위해 유연한 옵션과 설정을 포함하고 있습니다. 
 
@@ -73,7 +75,7 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
 ```
 
 * **회신 URL** - 회신 URL은 응용 프로그램이 SAML 토큰을 수신해야 하는 위치입니다. 이 URL은 **ACS(Assertion Consumer Service) URL**이라고도 합니다. SAML 토큰 회신 URL 또는 ACS URL에 대한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인합니다.
-  이러한 내용을 입력한 후에 **다음** 을 클릭하여 다음 화면으로 진행합니다. 이 화면은  응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다. 
+  이러한 내용을 입력한 후에 **다음** 을 클릭하여 다음 화면으로 진행합니다. 이 화면은 응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다. 
 
 ![][5]
 
@@ -139,9 +141,4 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

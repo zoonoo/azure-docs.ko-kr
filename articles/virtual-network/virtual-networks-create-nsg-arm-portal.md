@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Docs"
-description: "Azure Portal을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
+title: "네트워크 보안 그룹 관리 - Azure Portal | Microsoft Docs"
+description: "Azure Portal을 사용하여 네트워크 보안 그룹을 관리하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: faee5ac8-f4c4-4f97-ade5-197a37aad496
@@ -15,20 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44233c124ec56d01f2fb8261fba0a7612ac23678
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: ecb4fb4608628f5a1bd54fac6af19fecfa4508f2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>Azure Portal을 사용하여 NSG 관리하는 방법
+# <a name="manage-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 관리
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md)수도 있습니다.
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md)수도 있습니다.
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -38,7 +41,7 @@ ms.openlocfilehash: 44233c124ec56d01f2fb8261fba0a7612ac23678
 위의 시나리오에 나온 것처럼 **NSG-FrontEnd** NSG를 만들려면 다음 단계를 따르세요.
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
-2. **찾아보기 >** > **네트워크 보안 그룹**을 클릭합니다.
+2. **찾아보기>** > **네트워크 보안 그룹**을 클릭합니다.
    
     ![Azure Portal - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 3. **네트워크 보안 그룹** 블레이드에서 **추가**를 클릭합니다.
@@ -81,7 +84,7 @@ Azure Portal의 기존 NSG에 규칙을 만들려면 다음 단계를 따릅니�
 ## <a name="create-the-nsg-backend-nsg"></a>NSG-BackEnd NSG 만들기
 **NSG-BackEnd** NSG를 만든 후 **BackEnd** 서브넷에 연결하려면 다음 단계를 따릅니다.
 
-1.  [NSG-FrontEnd NSG 만들기](#Create-the-NSG-FrontEnd-NSG) 의 단계를 반복하여 *NSG-BackEnd*
+1. [NSG-FrontEnd NSG 만들기](#Create-the-NSG-FrontEnd-NSG) 의 단계를 반복하여 *NSG-BackEnd*
 2. 아래 표에 있는 [인바운드](#Create-rules-in-an-existing-NSG) 규칙을 만들려면 **기존 NSG에서 규칙 만들기** 의 단계를 반복합니다.
    
    | 인바운드 규칙 | 아웃바운드 규칙 |
@@ -90,12 +93,7 @@ Azure Portal의 기존 NSG에 규칙을 만들려면 다음 단계를 따릅니�
 3. **NSG-Backend** NSG를 **BackEnd** 서브넷에 연결하려면 [FrontEnd 서브넷에 NSG 연결](#Associate-the-NSG-to-the-FrontEnd-subnet)의 단계를 반복합니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [기존 NSG 관리](virtual-network-manage-nsg-arm-portal.md)
-* [로깅을 사용합니다](virtual-network-nsg-manage-log.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [기존 NSG 관리](virtual-network-manage-nsg-arm-portal.md)
+* [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
 
 

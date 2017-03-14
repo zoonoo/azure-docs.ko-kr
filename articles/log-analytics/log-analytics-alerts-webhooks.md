@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics 경고 웹후크 샘플"
+title: "OMS Log Analytics에서 웹후크 경고 작업 샘플 | Microsoft Docs"
 description: "Log Analytics 경고에 응답하여 실행할 수 있는 작업 중 하나는 단일 HTTP 요청을 통해 외부 프로세스를 호출할 수 있는 *웹후크*입니다. 이 문서에서는 Slack을 사용하여 Log Analytics 경고에 웹후크 작업을 만드는 예제를 연습합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+ms.sourcegitcommit: c8e67f2dcd061e3cd92eec40d6e6bb3de5d73b67
+ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="webhooks-in-log-analytics-alerts"></a>Log Analytics 경고의 웹후크
-[Log Analytics 경고](log-analytics-alerts.md) 에 응답하여 실행할 수 있는 작업 중 하나는 단일 HTTP 요청을 통해 외부 프로세스를 호출할 수 있는 *웹후크*입니다.   [Log Analytics의 경고](log-analytics-alerts.md)
+
+# <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>OMS Log Analytics에서 Slack에 메시지를 보내는 경고 웹후크 작업 만들기
+[Log Analytics 경고](log-analytics-alerts.md) 에 응답하여 실행할 수 있는 작업 중 하나는 단일 HTTP 요청을 통해 외부 프로세스를 호출할 수 있는 *웹후크*입니다.  [Log Analytics의 경고](log-analytics-alerts.md)
 
 이 문서에서는 메시지 서비스인 Slack을 사용하여 Log Analytics 경고에 웹후크 작업을 만드는 예를 연습합니다.
 
@@ -36,7 +38,7 @@ ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
    
    ![Slack 채널](media/log-analytics-alerts-webhooks/oms-webhooks01.png)
 3. **앱 또는 사용자 지정 통합 추가** 를 클릭하여 앱 디렉터리를 엽니다.
-4. 검색 상자에 *웹후크* 를 입력하고 **들오오는 웹후크**를 선택합니다. <br>
+4. 검색 상자에 *웹후크* 를 입력하고 **들어오는 웹후크**를 선택합니다. <br>
    
    ![Slack 채널](media/log-analytics-alerts-webhooks/oms-webhooks02.png)
 5. 팀 이름 옆의 **설치** 를 클릭합니다.
@@ -109,12 +111,7 @@ Slack을 사용하여 인바운드 메시지를 광범위하게 사용자 지정
 이는 경고에 응답하여 만들 수 있는 작업의 한 예일 뿐입니다.  다른 외부 서비스를 호출하는 웹후크 작업, Azure 자동화에서 Runbook을 시작하는 Runbook 작업 또는 본인과 다른 받는 사람에게 메일을 보내는 전자 메일 작업을 만들 수 있습니다.   
 
 ## <a name="next-steps"></a>다음 단계
-* 다른 작업을 포함하여 [Log Analytics의 경고](log-analytics-alerts.md) 에 관하여 자세히 알아봅니다.
-* [Azure 자동화의 Runbook을 만들](../automation/automation-webhooks.md) 수 있습니다.
+* 다른 작업을 포함하여 [Log Analytics의 경고 작업](log-analytics-alerts-actions.md)에 관하여 알아봅니다.
 
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

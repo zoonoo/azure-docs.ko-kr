@@ -1,5 +1,5 @@
 ---
-title: "그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법 | Microsoft Docs"
+title: "GPO를 사용하여 IE에 대한 Azure 액세스 패널 확장 배포 | Microsoft Docs"
 description: "그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
 services: active-directory
 documentationcenter: 
@@ -11,11 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: af36f45e66b68e2e76651eb408682f36ee0cbb68
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -28,23 +30,23 @@ ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
 
 ## <a name="prerequisites"></a>필수 조건
 * [Active Directory 도메인 서비스](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
-* 그룹 정책 개체(GPO)를 편집하기 위해 "설정 편집" 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* 그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>1단계: 배포 지점 만들기
-먼저 확장을 원격 설치할 모든 컴퓨터에서 액세스 가능한 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
+먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. 관리자 권한으로 서버에 로그온합니다.
 2. **서버 관리자** 창에서 **파일 및 저장소 서비스**로 이동합니다.
    
     ![파일 및 저장소 서비스 열기](./media/active-directory-saas-ie-group-policy/files-services.png)
-3. **공유** 탭으로 이동합니다. 그런 다음 **작업** > **새 공유...**를 클릭합니다.
+3. **공유** 탭으로 이동합니다. 그런 다음 **태스크** > **새 공유...**를 클릭합니다.
    
     ![파일 및 저장소 서비스 열기](./media/active-directory-saas-ie-group-policy/shares.png)
 4. **새 공유 마법사** 를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다.](https://technet.microsoft.com/library/cc753175.aspx)
 5. Windows Installer 패키지(.msi 파일)[Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)를 다운로드합니다.
 6. 설치 관리자 패키지를 공유의 원하는 위치에 복사합니다.
    
-    ![.Msi 파일을 공유에 복사 ](./media/active-directory-saas-ie-group-policy/copy-package.png)
+    ![.msi 파일을 공유에 복사합니다.](./media/active-directory-saas-ie-group-policy/copy-package.png)
 7. 클라이언트 컴퓨터가 공유에서 설치 관리자 패키지에 액세스할 수 있는지 확인합니다. 
 
 ## <a name="step-2-create-the-group-policy-object"></a>2단계: 그룹 정책 개체 만들기
@@ -58,18 +60,18 @@ ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
    > 조직 단위(OU)를 만들거나 편집하려면 서버 관리자로 다시 전환하여 **도구** > **Active Directory 사용자 및 컴퓨터**로 이동합니다.
    > 
    > 
-4. OU를 선택한 후에는 해당 OU를 마우스 오른쪽 단추로 클릭하고 **이 도메인에서 GPO를 만들고 여기에 연결...**
+4. OU를 선택한 후에 마우스 오른쪽 단추로 클릭하고 **이 도메인에서 GPO를 만들고 여기에 연결...**을 선택합니다.
    
     ![새 GPO 만들기](./media/active-directory-saas-ie-group-policy/create-gpo.png)
 5. **새 GPO** 프롬프트에 새 그룹 정책 개체의 이름을 입력합니다.
    
     ![새 GPO 이름 지정 ](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. 방금 만든 그룹 정책 개체를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
+6. 만든 그룹 정책 개체를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
    
     ![새 GPO 편집](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
 ## <a name="step-3-assign-the-installation-package"></a>3단계: 설치 패키지를 할당합니다.
-1. 확장을 **컴퓨터 구성** 또는 **사용자 구성**을 기준으로 배포할지 결정합니다. [컴퓨터 구성](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx)을 사용할 경우 로그온한 사용자에 관계없이 해당 컴퓨터에 확장이 설치됩니다. 반면 [사용자 구성](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx)은 사용자가 로그온한 컴퓨터에 관계없이 사용자에게 확장이 설치됩니다.
+1. 확장을 **컴퓨터 구성** 또는 **사용자 구성**을 기준으로 배포할지 결정합니다. [컴퓨터 구성](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx)을 사용할 경우 사용자가 로그인했는지와 관계없이 컴퓨터에 확장이 설치됩니다. [사용자 구성](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx)의 경우 사용자가 로그온한 컴퓨터인지와 관계없이 사용자에게 확장이 설치됩니다.
 2. **그룹 정책 관리 편집기** 창의 왼쪽에서 선택한 구성의 유형에 따라 다음 폴더 경로 중 하나로 이동합니다.
    
    * `Computer Configuration/Policies/Software Settings/`
@@ -162,10 +164,5 @@ ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
 * [Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

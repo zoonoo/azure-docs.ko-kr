@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio 템플릿을 사용하여 배치 프로젝트 빠른 시작 - Azure | Microsoft Docs"
-description: "이러한 Visual Studio 프로젝트 템플릿을 통해 Azure 배치에서 계산 집약적인 워크로드를 어떻게 구현 및 실행할 수 있는지 알아봅니다."
+title: "Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션을 구축하기 시작 - Azure | Microsoft Docs"
+description: "Visual Studio 프로젝트 템플릿을 통해 Azure Batch에서 계산 집약적인 워크로드를 어떻게 구현하고 실행할 수 있는지 알아봅니다."
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Azure 배치용 Visual Studio 프로젝트 템플릿
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
+
 배치용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플릿**은 최소한의 노력으로 배치에서 계산 집약적 워크로드를 구현 및 실행하는 데 도움이 되는 코드를 제공합니다. 이 문서에서는 이러한 템플릿을 설명하고 템플릿을 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!IMPORTANT]
@@ -451,9 +454,4 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

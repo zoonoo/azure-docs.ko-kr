@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/05/2017
 ms.author: rayne
 translationtype: Human Translation
-ms.sourcegitcommit: 6521cada7adeacd98fae46e5119ceffa0351e9b5
-ms.openlocfilehash: a5c6759d9826084ae339dd291140f8383b55b6db
+ms.sourcegitcommit: 993449b7840f5077f23b3809439b89f27759e35d
+ms.openlocfilehash: 1a991d1e4ac20019695fb557310e1981b5b491ec
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,22 +27,7 @@ ms.openlocfilehash: a5c6759d9826084ae339dd291140f8383b55b6db
 
 ## <a name="how-do-i-start-capacity-planning"></a>용량 계획을 시작하려면 어떻게 해야 하나요?
 
-1. Azure Site Recovery Capacity Planner를 사용하여 복제 환경에 대한 정보를 모읍니다. 해당 정보에는 VM, VM 당 디스크 및 디스크 당 저장소에 대한 정보가 포함됩니다.
-2. 환경에서 복제된 데이터의 일일 변경(이탈률)을 예측합니다.
-
-
-## <a name="gather-information"></a>정보 수집
-
-1. [Capacity Planner(https://gallery.technet.microsoft.com/Azure-Recovery-Capacity-d01dc40e)]를 다운로드 및 실행합니다.
-2. 도구를 실행하는 [지침을 가져옵니다](site-recovery-capacity-planner.md).
-
-
-## <a name="estimate-the-daily-churn-rate"></a>일별 이탈률 예측
-
-Site Recovery Capacity Planner는 일일 평균 데이터 변경률을 백분율로 입력해야 합니다. 현재 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)를 사용하여 이 정보를 수집할 수 있습니다.
-
-도구에서 모든 원본 VM에 대한 vSphere 계획 도구를 가리키고 일일 변경 합계를 가져와서 백분율을 계산할 수 있습니다. 기본적으로 네트워크 트래픽입니다. 이 도구를 실행하는 방법에 대해 [자세히 알아보세요](https://blogs.vmware.com/vsphere/2014/04/vsphere-replication-capacity-planning-appliance.html) .
-
+[Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc)를 사용하여 복제 환경에 대한 정보를 수집합니다. 여기에는 호환 및 호환되지 않는 가상 컴퓨터 수, VM당 디스크, 디스크당 데이터 변동, 네트워크 대역폭 요구 사항 및 성공적인 복제와 테스트 장애 조치/장애 조치를 위한 필수적인 Azure 인프라 정보가 포함됩니다.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
@@ -93,7 +79,7 @@ Site Recovery Capacity Planner는 일일 평균 데이터 변경률을 백분율
 
 ## <a name="control-network-bandwidth"></a>네트워크 대역폭 제어
 
-Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)에 필요한 대역폭을 계산할 수 있습니다. 복제에 사용되는 대역폭 사용량을 제어하는 몇 가지 옵션이 있습니다.
+[Deployment Planner 도구](https://aka.ms/asr-deployment-planner-doc)를 사용하여 복제(초기 복제 및 그 후 델타)에 필요한 대역폭을 계산할 수 있습니다. 복제에 사용되는 대역폭 사용량을 제어하는 몇 가지 옵션이 있습니다.
 
 * **대역폭 제한**: Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과합니다. 프로세스 서버로 실행되는 컴퓨터에서 대역폭을 제한할 수 있습니다.
 * **대역폭 영향**: 몇 가지 레지스트리 키를 사용하면 복제에 사용되는 대역폭에 영향을 줄 수 있습니다.
@@ -158,10 +144,5 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

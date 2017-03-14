@@ -10,19 +10,21 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfb59158facd2a4f861fa3221f032fc65419bdc0
-ms.openlocfilehash: 909103172d0950df6f86be6fe932581e7e7fd663
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS의 DNS 레코드 관리
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -110,7 +112,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>단일 레코드가 포함된 MX 레코드 집합 만들기
 
-이 예제에서는 레코드 집합 이름을 '@'(으)로 사용하여 영역 구로에 MX 레코드를 만듭니다(이 경우 'contoso.com').
+이 예제에서는 레코드 집합 이름을 '@'로 사용하여 영역 구로에 MX 레코드를 만듭니다(이 경우 'contoso.com').
 
 
 ```powershell
@@ -133,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>단일 레코드가 포함된 SRV 레코드 집합 만들기
 
-[SRV 레코드 집합](dns-zones-records.md#srv-records)을 만들 경우 레코드 집합 이름에 *\_서비스* 및 *\_프로토콜*을 지정합니다. 영역 apex에 SRV 레코드 집합을 만드는 경우 레코드 집합 이름에서 '@'을 포함할 필요가 없습니다.
+[SRV 레코드 집합](dns-zones-records.md#srv-records)을 만들 경우 레코드 집합 이름에 *\_서비스* 및 *\_프로토콜*을 지정합니다. 영역 apex에 SRV 레코드 집합을 만드는 경우 레코드 집합 이름에서 '@'를 포함할 필요가 없습니다.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -384,9 +386,4 @@ Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -Resourc
 Azure DNS를 사용하는 경우 [영역 및 레코드를 보호](dns-protect-zones-recordsets.md)하는 방법에 대해 알아봅니다.
 <br>
 [Azure DNS PowerShell 참조 설명서](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)를 검토합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

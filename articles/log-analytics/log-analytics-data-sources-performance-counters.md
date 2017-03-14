@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics의 성능 카운터 수집 및 분석 | Microsoft Docs"
+title: "Azure Log Analytics의 성능 카운터 수집 및 분석 | Microsoft Docs"
 description: "성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Log Analytics에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, OMS 리포지토리에 저장하는 방식에 대한 자세한 내용과, OMS 포털에서 분석하는 방법을 설명합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
+ms.sourcegitcommit: 853177202e4724546242d4e8d1b41b456a444eeb
+ms.openlocfilehash: 2381b7e9ab4514d6668569c2a58d108af5008a7e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체�
 
 이 절차에 따라 수집할 새 Windows 성능 카운터를 추가합니다.
 
-1. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  *object\counter*를 지정하면 특정 카운터에 대한 모든 인스턴스를 반환할 수도 있습니다. 
+1. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  *object\counter*를 지정하면 특정 카운터에 대한 모든 인스턴스를 반환할 수도 있습니다.
 2. **+**를 클릭하거나 **Enter**를 눌러서 카운터를 목록에 추가합니다.
 3. 카운터를 추가할 때에는 해당 **샘플 간격**에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 저장소 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
 4. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
@@ -92,19 +93,9 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 
 ![축소된 메트릭 보기](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-선택한 시간 범위가 6시간 이하인 경우 그래프가 수초마다 업데이트됩니다.  라이브 데이터가 그래프 오른쪽에 옅은 파란색으로 표시됩니다.
-
-![라이브 데이터로 확장된 메트릭 보기](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
-
 로그 검색의 성능 데이터를 집계하려면 [OMS에서 온디맨드 메트릭 집계 및 가상화](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/)를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](log-analytics-powerbi.md) 로 내보냅니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
