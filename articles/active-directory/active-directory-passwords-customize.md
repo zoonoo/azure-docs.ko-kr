@@ -1,9 +1,9 @@
 ---
-title: "사용자 지정: Azure AD 암호 관리 | Microsoft Docs"
+title: "사용자 지정: Azure Active Directory 암호 관리 | Microsoft Docs"
 description: "요구 사항에 맞게 Azure AD에서 암호 관리의 모양과 느낌, 동작 및 알림을 사용자 지정하는 방법."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 88a1d39337a8aebf58b6b35841acc4348e1baeae
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>해당 조직의 요구에 맞게 사용자 지정 암호 관리
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-사용자에게 가능한 최상의 환경을 제공하려면, 사용자가 사용할 수 있는 모든 암호 관리 구성 옵션을 탐색하고 재생하는 것이 좋습니다. 실제로 **Azure 클래식 포털** 에 있는 [Active Directory 확장](https://manage.windowsazure.com)의 구성 탭으로 이동하여 이 작업을 지금 바로 시작할 수 있습니다. 이 항목에서는 다음을 포함하여 **Azure 클래식 포털** 내 디렉터리의 [구성](https://manage.windowsazure.com)내에서 관리자로 만들 수 있는 다른 암호 관리 사용자 지정을 모두 안내합니다.
+사용자에게 가능한 최상의 환경을 제공하려면, 사용자가 사용할 수 있는 모든 암호 관리 구성 옵션을 탐색하고 재생하는 것이 좋습니다. 실제로 **Azure 클래식 포털** 에 있는 [Active Directory 확장](https://manage.windowsazure.com)의 구성 탭으로 이동하여 이 작업을 지금 바로 시작할 수 있습니다. 이 항목에서는 다음을 포함하여 [Azure 클래식 포털](https://manage.windowsazure.com) 내 디렉터리의 **구성** 탭 내에서 관리자로 만들 수 있는 다른 암호 관리 사용자 지정을 모두 안내합니다.
 
 | 항목 |  |
 | --- | --- |
@@ -40,7 +41,7 @@ ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
 | 로그인 시 사용자가 등록하도록 강제 적용하려면 어떻게 해야 하나요? |[암호 재설정의 강제 적용 등록 기반 롤아웃](#require-users-to-register-when-signing-in) |
 | 사용자가 등록을 주기적으로 다시 확인하도록 강제 적용하려면 어떻게 해야 하나요? |[설정: 사용자가 해당 인증 데이터를 다시 확인해야 하기 전의 일 수](#number-of-days-before-users-must-confirm-their-contact-data) |
 | 사용자가 관리자와 연락하는 방법을 사용자 지정하려면 어떻게 해야 하나요? |[설정: "관리자에게 문의" 링크 사용자 지정](#customize-the-contact-your-administrator-link) |
-| 사용자가 암호를 재설정하지 않고 AD 계정의 잠금을 해제할 수 있도록 하려면 어떻게 해야 하나요? |[설정: 사용자가 암호를 재설정하지 않고 해당 AD 계정의 잠금을 해제하도록 설정](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| 사용자가 암호를 재설정하지 않고 온-프레미스 AD 계정의 잠금을 해제할 수 있도록 하려면 어떻게 해야 하나요? |[설정: 사용자가 암호를 재설정하지 않고 해당 AD 계정의 잠금을 해제하도록 설정](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | 사용자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? |[설정: 암호가 재설정된 경우 사용자에게 알림](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | 관리자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? |[설정: 관리자가 자신의 암호를 재설정하는 경우 다른 관리자에게 알림](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | 암호 재설정 모양과 느낌을 사용자 지정하려면 어떻게 해야 하나요? |[설정: 회사 이름, 브랜딩 및 로고 ](#password-management-look-and-feel) |
@@ -135,13 +136,13 @@ ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
             </tr>
           </tbody></table>
 
-## <a name="password-management-behavior"></a>암호 관리 동작 
+## <a name="password-management-behavior"></a>암호 관리 동작
 다음 테이블에서 각 컨트롤이 암호 재설정을 위해 등록하여 암호를 재설정하는 사용자의 경험에 미치는 영향을 설명합니다.  [Azure 관리 포털](https://manage.windowsazure.com) 내 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책** 섹션에서 이 옵션을 구성할 수 있습니다.
 
 > [!NOTE]
 > 사용 중인 관리자 계정에는 이 정책 제어를 참조하기 위해 할당된 AAD Premium 라이선스가 있어야 합니다.<br><br>이 정책 제어는 관리자가 아닌 암호를 재설정하는 최종 사용자에게만 적용됩니다.  **관리자에게는 대체 전자 메일 및/또는 휴대폰을 변경할 수 없는 Microsoft에서 지정한 기본 정책이 있습니다.**
-> 
-> 
+>
+>
 
 <table>
             <tbody><tr>
@@ -370,7 +371,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                 </div>
               </td>
               <td>
-                <p>보안 질문 옵션을 등록하는 경우 사용자가 답변해야하는 질문의 최소 수를 결정합니다.</p>
+                <p>보안 질문 옵션을 등록하는 경우 사용자가 답변해야 하는 질문의 최소 수를 결정합니다.</p>
                 <p>(<strong>보안 질문</strong> 확인란이 선택된 경우에만 표시됨).</p>
               </td>
               <td>
@@ -390,7 +391,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                 </p>
                 <ul>
                   <li class="unordered">
-사용자가 암호 재설정을 위해 완전하게 등록되었다고 고려되기 전에 사용자가 답변해야하는 질문의 최소 수를 결정합니다.<br><br></li>
+사용자가 암호 재설정을 위해 완전하게 등록되었다고 고려되기 전에 사용자가 답변해야 하는 질문의 최소 수를 결정합니다.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -401,7 +402,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                 </div>
               </td>
               <td>
-                <p>암호를 재설정할 때 사용자가 답변해야하는 질문의 최소 수를 결정합니다.</p>
+                <p>암호를 재설정할 때 사용자가 답변해야 하는 질문의 최소 수를 결정합니다.</p>
                 <p>
 
                 </p>
@@ -422,7 +423,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                 </p>
                 <ul>
                   <li class="unordered">
-사용자의 암호를 재설정할 때 사용자가 답변해야하는 질문의 최소 수를 결정합니다.<br><br></li>
+사용자의 암호를 재설정할 때 사용자가 답변해야 하는 질문의 최소 수를 결정합니다.<br><br></li>
                   <li class="unordered">
 암호 재설정 시 사용자가 등록한 질문의 전체 목록에서 이 질문 수가 임의로 선택됩니다.  예를 들어, 사용자가 5개의 질문을 등록한 경우 사용자가 암호를 재설정하기 위해 작업하면 5개 중 3개의 질문이 임의로 선택됩니다.  사용자가 이들 질문에 모두 올바르게 답변해야 암호를 재설정할 수 있습니다.<br><br></li>
                 </ul>
@@ -571,7 +572,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                   <li class="unordered">
 사용자가 액세스 패널의 프로필 탭에서 <strong>암호 재설정을 위해 등록</strong> 링크를 클릭하여 등록 포털에 접근할 수도 있습니다.<br><br></li>
                   <li class="unordered">
-취소 단추를 클릭하거나 창을 닫어 이 메서드를 통한 등록을 해제할 수 있지만 등록하지 않은 경우 로그인할 때마다 사용자에게 알려줍니다.<br><br></li>
+취소 단추를 클릭하거나 창을 닫아 이 메서드를 통한 등록을 해제할 수 있지만 등록하지 않은 경우 로그인할 때마다 사용자에게 알려줍니다.<br><br></li>
                 </ul>
                 <p>
                   <strong>등록 포털:</strong>
@@ -656,7 +657,7 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                     </ul>
                   </li>
                   <li class="unordered">
-예로 설정된 경우, 이 설정은 위의 강조표시된 링크의 동작을 사용자 지정하여, 사용자가 암호 재설정에 도움을 받기 위해 이동할 수 있는 사용자 지정 URL 또는 전자 메일 주소를 가리킵니다.<br><br></li>
+예로 설정된 경우, 이 설정은 위의 강조 표시된 링크의 동작을 사용자 지정하여, 사용자가 암호 재설정에 도움을 받기 위해 이동할 수 있는 사용자 지정 URL 또는 전자 메일 주소를 가리킵니다.<br><br></li>
                   <li class="unordered">
 URL을 지정하는 경우 새 탭에서 열립니다.<br><br></li>
                   <li class="unordered">
@@ -744,12 +745,12 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
                   <li class="unordered">
 스위치가 <strong>예</strong>로 설정된 경우, 쓰기 저장은 사용하도록 설정되며 페더레이션 및 암호 해시 동기화된 사용자는 암호를 재설정할 수 있습니다.<br><br></li>
                 </ul>
-              </td>
+              </td
             </tr>
              <tr>
               <td>
                 <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
-                  <p>사용자가 해당 암호를 재설정하지 않고 계정의 잠금을 해제할 수 있음</p>
+                  <p>사용자가 해당 암호를 재설정하지 않고 온-프레미스 Active Directory 계정의 잠금을 해제할 수 있음</p>
                 </div>
               </td>
               <td>
@@ -864,7 +865,7 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
@@ -877,9 +878,4 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

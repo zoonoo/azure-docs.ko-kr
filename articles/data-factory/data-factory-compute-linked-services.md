@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 080376a50e4cde3d3f9f801408e4a02b75bc72da
-ms.openlocfilehash: 40da274d0dcbf1efb22afc474a1c365f7770fdcb
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 789373189ff0ec1dd9c08bc1725bb781f8b7428b
+ms.openlocfilehash: df25e320e046355bc4a538f8acc4bb9e9cd98d8e
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,7 +52,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 * HDInsight 클러스터가 작업을 실행 중인 경우에 대해서만 청구됩니다.
 
 > [!IMPORTANT]
-> 일반적으로 **15분** 이 더 걸려서 필요한 Azure HDInsight 클러스터를 프로비전합니다.
+> 주문형 Azure HDInsight 클러스터를 프로비전하는 데 일반적으로 **20분** 이상이 걸립니다.
 > 
 > 
 
@@ -183,7 +183,9 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 
 * Azure HDInsight
 * Azure 배치
-* Azure 기계 학습입니다.
+* Azure 기계 학습
+* Azure 데이터 레이크 분석
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스
 Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다.
@@ -325,7 +327,7 @@ Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 �
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
-| Azure Active Directory에서 관리되지 않는 사용자 계정((@hotmail.com,, @live.com, 등) |12시간 |
+| Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후&14;일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
 이 오류를 방지/해결하려면 **토큰이 만료**될 때 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 sessionId 및 권한 부여 속성의 값을 생성할 수도 있습니다. 

@@ -1,9 +1,9 @@
 ---
-title: "Azure AD 앱에 그룹 할당 | Microsoft Docs"
+title: "Azure AD 앱에 그룹 할당 | Microsoft Docs&quot;"
 description: "Azure 응용 프로그램에 대해 그룹 할당을 구현하는 방법."
 services: active-directory
 documentationcenter: 
-author: IHenkel
+author: kgremban
 manager: femila
 editor: 
 ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: inhenk
+ms.date: 02/27/2017
+ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: 81b9b66bb16e183b8c3c206a4a49b2f4845bc201
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: f58c051bc25544d2811738b8ade483c82f3901b2
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-and-applications-assign-groups-to-an-application"></a>Azure AD 및 응용 프로그램: 응용 프로그램에 그룹 할당
+# <a name="assign-azure-active-directory-groups-to-an-application"></a>응용 프로그램에 Azure Active Directory 그룹 할당
 응용 프로그램에 사용자 및 그룹을 할당하기 전에 사용자 할당을 요구해야 합니다. 사용자 할당을 요구하는 방법에 대한 내용은 [사용자 할당 요구](active-directory-applications-guiding-developers-requiring-user-assignment.md) 문서를 참조하세요.
 
 이 문서에서는 이 응용 프로그램에 대해 사용하는 Active Directory에서 그룹을 이미 만들었다고 가정합니다.
@@ -39,9 +40,4 @@ ms.openlocfilehash: 81b9b66bb16e183b8c3c206a4a49b2f4845bc201
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

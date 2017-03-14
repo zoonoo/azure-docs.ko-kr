@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: af21253dadd5cd2f64149aa2738e459da9f8325a
+ms.sourcegitcommit: 690f820b3beb6b7d5d68732b94470602a92e9268
+ms.openlocfilehash: bf0d72f97a32771f86bdff62029fb43e279b6842
+ms.lasthandoff: 02/23/2017
 
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
@@ -512,7 +513,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 ## <a name="next-steps"></a>다음 단계
 * API 관리에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.
-* 백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md) 및 [VPN 또는 ExpressRoute를 통해 연결](api-management-howto-setup-vpn.md)을 참조하세요.
+* 백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](api-management-howto-mutual-certificates.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -562,9 +563,4 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

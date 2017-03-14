@@ -1,5 +1,5 @@
 ---
-title: "Internet Explorer용 액세스 패널 확장 문제 해결| Microsoft Azure"
+title: "IE에 대한 액세스 패널 확장 문제 해결| Microsoft Azure"
 description: "그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
+ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
+ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -50,7 +52,7 @@ ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
 ## <a name="check-that-the-access-panel-extension-is-enabled"></a>액세스 패널 확장을 사용할 수 있는지 확인
 액세스 패널 확장이 Internet Explorer에서 사용할 수 있는지 확인합니다.
 
-1. Internet Explorer에서 창 오른쪽 위 모퉁이에 있는 **기어 아이콘** 을 클릭합니다. 그런 다음 **인터넷 옵션**을 선택합니다.<br />이전 버전의 Internet Explorer에서는 **도구 > 인터넷 옵션** 아래에서 찾을 수 있습니다.
+1. Internet Explorer에서 창 오른쪽 위 모퉁이에 있는 **기어 아이콘**을 클릭합니다. 그런 다음 **인터넷 옵션**을 선택합니다.<br />이전 버전의 Internet Explorer에서는 **도구 > 인터넷 옵션** 아래에서 찾을 수 있습니다.
    
     ![도구 > 인터넷 옵션으로 이동](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 2. **프로그램** 탭을 클릭한 다음 **추가 기능 관리** 단추를 클릭합니다.
@@ -64,7 +66,7 @@ ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
 ## <a name="enable-extensions-for-inprivate-browsing"></a>InPrivate 브라우징에 확장 사용
 InPrivate 브라우징 모드를 사용 중인 경우:
 
-1. Internet Explorer에서 창 오른쪽 위 모퉁이에 있는 **기어 아이콘** 을 클릭합니다. 그런 다음 **인터넷 옵션**을 선택합니다.<br />이전 버전의 Internet Explorer에서는 **도구 > 인터넷 옵션** 아래에서 찾을 수 있습니다.
+1. Internet Explorer에서 창 오른쪽 위 모퉁이에 있는 **기어 아이콘**을 클릭합니다. 그런 다음 **인터넷 옵션**을 선택합니다.<br />이전 버전의 Internet Explorer에서는 **도구 > 인터넷 옵션** 아래에서 찾을 수 있습니다.
    
     ![진단 창 샘플](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 2. **개인정보** 탭으로 이동한 다음 이름이 **InPrivate 브라우징 시작 시 도구 모음 및 확장 프로그램 사용 안 함** 확인란을 **선택 취소**합니다.</p>
@@ -92,10 +94,5 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
 * [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

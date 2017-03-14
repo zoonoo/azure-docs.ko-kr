@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;jrj
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bd4b22355e0454245e261898c96b3e99057d707
+ms.sourcegitcommit: 3a9ea64c464a74c70e75634a3e5c1e49862a74e7
+ms.openlocfilehash: c6b44392c0b3a241d41ae55bd6bb3f544d867e9e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,22 +27,22 @@ ms.openlocfilehash: 0bd4b22355e0454245e261898c96b3e99057d707
 ## <a name="workload-management"></a>워크로드 관리
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| [DWU(데이터 웨어하우스 단위)][DWU(데이터 웨어하우스 단위)] |단일 SQL 데이터 웨어하우스에 대한 최대 DWU |6000 |
-| [DWU(데이터 웨어하우스 단위)][DWU(데이터 웨어하우스 단위)] |단일 SQL Server에 대한 최대 DWU |기본값 6000<br/><br/>  기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 45,000이 있으며 최대 6000DWU가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][지원 티켓을 만들고] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL 데이터 웨어하우스에 대한 최대 DWU |6000 |
+| [DWU(데이터 웨어하우스 단위)][Data Warehouse Units (DWU)] |단일 SQL Server에 대한 최대 DWU |기본값&6000;<br/><br/> 기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 45,000이 있으며 최대 6000DWU가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고][creating a support ticket] *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱합니다. 포털의 SQL Server 블레이드에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
 | 데이터베이스 연결 |열린 동시 세션 |1024<br/><br/>최대 1,024개의 활성 연결을 지원하며 각각에서 동시에 요청을 SQL 데이터 웨어하우스 데이터베이스에 제출할 수 있습니다. 실제로 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
-| [워크로드 관리][워크로드 관리] |최대 동시 쿼리 수 |32<br/><br/> 기본적으로 SQL Data Warehouse는 최대 32개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 보다 상위의 리소스 클래스에 할당되었거나 SQL Data Warehouse가 낮은 DWU로 구성된 경우 동시성 수준을 줄일 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다. |
-| [Tempdb][Tempdb] |Tempdb의 최대 크기 |DW100당 399GB입니다. 따라서 DWU1000 Tempdb의 크기는 3.99TB로 조정됩니다. |
+| [워크로드 관리][Workload management] |최대 동시 쿼리 수 |32<br/><br/> 기본적으로 SQL Data Warehouse는 최대 32개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 보다 상위의 리소스 클래스에 할당되었거나 SQL Data Warehouse가 낮은 DWU로 구성된 경우 동시성 수준을 줄일 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행할 수 있습니다. |
+| [Tempdb][Tempdb] |Tempdb의 최대 크기 |DW100당&399;GB입니다. 따라서 DWU1000 Tempdb의 크기는 3.99TB로 조정됩니다. |
 
 ## <a name="database-objects"></a>데이터베이스 개체
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| 데이터베이스 |최대 크기 |디스크에서 압축된 240TB<br/><br/>이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. |
-| 테이블 |최대 크기 |디스크에서 압축된 60TB |
+| 데이터베이스 |최대 크기 |디스크에서 압축된&240;TB<br/><br/>이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. |
+| 테이블 |최대 크기 |디스크에서 압축된&60;TB |
 | 테이블 |데이터베이스 당 테이블 |20억 |
 | 테이블 |테이블 당 열 |1024열 |
-| 테이블 |열 당 바이트 |열 [데이터 형식][데이터 형식]에 따라 다릅니다.  char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
-| 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열** 을 행 외부로 밀어 넣을 수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 MSDN 문서 [8KB를 초과하는 행 오버플로 데이터][8KB를 초과하는 행 오버플로 데이터]를 참조하세요. |
+| 테이블 |열 당 바이트 |열 [데이터 형식][data type]에 따라 다릅니다.  char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
+| 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열** 을 행 외부로 밀어 넣을 수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 MSDN 문서 [8KB를 초과하는 행 오버플로 데이터][Row-Overflow Data Exceeding 8 KB]를 참조하세요. |
 | 테이블 |테이블 당 파티션 |15,000<br/><br/>높은 성능을 위해서는 계속해서 비즈니스 요구사항을 지원하면서 파티션 수를 줄이는 것이 좋습니다. 파티션 수가 늘어나면 DDL(데이터 정의 언어) 및 DML(데이터 조작 언어) 작업에 대한 오버헤드가 증가하고 성능이 저하됩니다. |
 | 테이블 |파티션 경계 값 당 문자. |4000 |
 | 인덱스 |테이블 당 비클러스터형 인덱스. |999<br/><br/>rowstore 테이블에만 적용됩니다. |
@@ -57,7 +58,7 @@ ms.openlocfilehash: 0bd4b22355e0454245e261898c96b3e99057d707
 ## <a name="loads"></a>로드
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| Polybase 로드 |행 당 바이트  |32,768<br/><br/>PolyBase 부하는 32K보다 작고 VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)로 로드할 수 없는 행을 로드할 때만 사용됩니다.  현재는 이 제한이 유효하지만 곧 제거될 예정입니다.<br/><br/> |
+| Polybase 로드 |행당 MB |1<br/><br/>PolyBase 부하는 1MB보다 작고 VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)로 로드할 수 없는 행을 로드할 때만 사용됩니다.<br/><br/> |
 
 ## <a name="queries"></a>쿼리
 | Category | 설명 | 최대 |
@@ -72,7 +73,7 @@ ms.openlocfilehash: 0bd4b22355e0454245e261898c96b3e99057d707
 | SELECT |조인 당 열 |1024열<br/><br/>조인에는 1024개 이상의 열이 있어서는 안 됩니다. 항상 1024가 있다고 보장할 수 없습니다. 조인 계획에 조인 결과보다 많은 열을 가진 임시 테이블이 필요한 경우 1024 제한은 임시 테이블에 적용됩니다. |
 | SELECT |그룹화 기준 열 당 바이트. |8060<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
 | SELECT |정렬 기준 열 당 바이트 |8060 바이트.<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
-| 식별자 및 문 당 상수 |참조된 식별자 및 상수의 수. |65,535<br/><br/>SQL 데이터 웨어하우스는 쿼리의 단일 수식에 포함될 수 있는 식별자 및 상수의 수를 제한합니다. 이 제한은 65,535입니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다][내부 오류: 식 서비스 제한에 도달했습니다]를 참조하세요. |
+| 식별자 및 문 당 상수 |참조된 식별자 및 상수의 수. |65,535<br/><br/>SQL 데이터 웨어하우스는 쿼리의 단일 수식에 포함될 수 있는 식별자 및 상수의 수를 제한합니다. 이 제한은 65,535입니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.][Internal error: An expression services limit has been reached]를 참조하세요. |
 
 ## <a name="metadata"></a>Metadata
 | 시스템 뷰 | 최대 행 |
@@ -88,24 +89,19 @@ ms.openlocfilehash: 0bd4b22355e0454245e261898c96b3e99057d707
 | sys.dm_pdw_sql_requests |sys.dm_pdw_exec_requests에 저장된 가장 최근 1000 SQL 요청입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [SQL 데이터 웨어하우스 참조 개요][SQL 데이터 웨어하우스 참조 개요]를 참조하세요.
+자세한 참조 정보는 [SQL Data Warehouse 참조 개요][SQL Data Warehouse reference overview]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[DWU(데이터 웨어하우스 단위)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[SQL 데이터 웨어하우스 참조 개요]: ./sql-data-warehouse-overview-reference.md
-[워크로드 관리]: ./sql-data-warehouse-develop-concurrency.md
+[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
+[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
+[Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[지원 티켓을 만들고]: /sql-data-warehouse-get-started-create-support-ticket.md
+[data type]: ./sql-data-warehouse-tables-data-types.md
+[creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
-[8KB를 초과하는 행 오버플로 데이터]: https://msdn.microsoft.com/library/ms186981.aspx
-[내부 오류: 식 서비스 제한에 도달했습니다]: https://support.microsoft.com/kb/913050
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
+[Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
 

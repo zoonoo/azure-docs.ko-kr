@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI 2.0(미리 보기)에서 VM 이름 확인을 위해 내부 DNS 사용 | Microsoft Docs"
+title: "Azure CLI 2.0에서 VM 이름 확인을 위해 내부 DNS 사용 | Microsoft Docs"
 description: "가상 네트워크 인터페이스 카드를 만들고 Azure CLI 2.0을 사용하여 Azure에서 VM 이름 확인을 위해 내부 DNS를 사용하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,31 +16,23 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 8584606666fe93630f6486c16350a619787c8d14
-ms.openlocfilehash: 389416818df272cf09c1a35bd23ea882ecf3b0fc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 06554f939a6c4f2336f68676612df51c673afbb2
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
-이 문서에서는 가상 네트워크 인터페이스 카드(vNic) 및 DNS 레이블 이름을 사용하여 Linux VM에 대해 정적 내부 DNS 이름을 설정하는 방법을 보여 줍니다. 정적 DNS 이름은 이 문서에서 사용되는 Jenkins 빌드 서버 또는 Git 서버와 같은 영구 인프라 서비스에 사용됩니다.
+이 문서에서는 Azure CLI 2.0으로 가상 네트워크 인터페이스 카드(vNic) 및 DNS 레이블 이름을 사용하여 Linux VM의 정적 내부 DNS 이름을 설정하는 방법을 보여 줍니다. [Azure CLI 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다. 정적 DNS 이름은 이 문서에서 사용되는 Jenkins 빌드 서버 또는 Git 서버와 같은 영구 인프라 서비스에 사용됩니다.
 
 요구 사항은 다음과 같습니다.
 
 * [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 * [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-
-## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
-다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
-
-- [Azure CLI 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 클래식 및 리소스 관리 배포 모델용 CLI
-- [Azure CLI 2.0(미리 보기)](#quick-commands) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
-
-
 ## <a name="quick-commands"></a>빠른 명령
-태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#detailed-walkthrough) 문서 끝까지 참조하세요. 이러한 단계를 수행하려면 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
+태스크를 빠르게 완료해야 하는 경우 다음 섹션에서 필요한 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#detailed-walkthrough) 문서 끝까지 참조하세요. 이러한 단계를 수행하려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 사전 요구 사항: 리소스 그룹, 가상 네트워크 및 서브넷, SSH 인바운드가 있는 네트워크 보안 그룹.
 

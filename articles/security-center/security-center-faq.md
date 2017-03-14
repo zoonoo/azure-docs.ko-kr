@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
+ms.sourcegitcommit: f07cd15658f7d367bdf364ece449dd5d09b2f9d3
+ms.openlocfilehash: 38503e36f9c0ad981d0239d82a858dbe2c5263a4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -36,7 +37,7 @@ Azure 보안 센터는 Microsoft Azure 구독을 사용하도록 설정되어 �
 
 무료 계층에서는 보안 정책을 설정하고 필요한 컨트롤 구성 프로세스를 안내하는 보안 경고, 인시던트 및 권장 사항을 수신할 수 있습니다. 또한 무료 계층에서는 Azure 구독에 통합된 파트너 솔루션 및 Azure 리소스의 보안 상태도 모니터링할 수 있습니다.
 
-표준 계층에서는 무료 계층의 기능 외에 고급 검색 기능(위협 인텔리전스, 행동 분석, 충돌 분석, 변칙 검색)도 제공합니다. 표준 계층의 무료 90일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md#set-security-policies-for-subscriptions)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+표준 계층에서는 무료 계층의 기능 외에 고급 검색 기능(위협 인텔리전스, 행동 분석, 충돌 분석, 변칙 검색)도 제공합니다. 표준 계층은 처음 60일간 무료로 제공됩니다. 60일을 넘어 서비스를 계속 사용하는 경우 서비스 요금이 자동으로 청구되기 시작합니다. 업그레이드하려면 [보안 정책](security-center-policies.md#set-security-policies-for-subscriptions)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
 
 ## <a name="permissions"></a>권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 제공하는 [RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-configure.md)를 사용합니다.
@@ -161,9 +162,4 @@ Azure Security Center에서 데이터 수집을 사용하도록 설정한 후 �
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?
 데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

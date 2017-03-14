@@ -1,6 +1,6 @@
 ---
 
-title: "Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결 | Microsoft Docs"
+title: "Azure Active Directory에서 그룹에 대한 라이선스 문제 해결 | Microsoft Docs"
 description: "Azure Active Directory 그룹 기반 라이선스를 사용하여 라이선스 할당 문제를 식별하고 해결하는 방법"
 services: active-directory
 keywords: "Azure AD 라이선스"
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 9a434cf35d7934dc5eb759851fb65ad2a9f06eef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
+ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
+# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Azure Active Directory에서 그룹을 사용할 때 라이선스 할당 문제 식별 및 해결
 
 
 Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선스 오류 상태의 사용자에 대한 개념이 도입되었습니다. 이 문서에서는 사용자가 이 상태가 되는 이유를 설명합니다. 그룹 기반 라이선스를 사용하지 않고 라이선스가 개별 사용자에게 직접 할당되면 할당 작업이 실패할 수 있습니다. 예를 들어 관리자가 사용자에 대해 PowerShell cmdlet `Set-MsolUserLicense` cmdlet을 실행하면 라이선스 수 부족 또는 동시에 할당될 수 없는 두 개의 서비스 계획 간 충돌 등, 비즈니스 논리와 관련된 다양한 이유로 인해 이 cmdlet이 실패할 수 있습니다. 이 문제는 해당 명령을 실행하는 사용자에게 즉시 다시 보고됩니다.

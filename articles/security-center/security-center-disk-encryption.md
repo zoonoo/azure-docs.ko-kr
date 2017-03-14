@@ -1,23 +1,7 @@
----
-title: "Azure 가상 컴퓨터 암호화 | Microsoft Docs"
-description: "이 문서를 사용하면 Azure 보안 센터에서 경고를 받은 후에 Azure 가상 컴퓨터를 암호화할 수 있습니다."
-services: security, security-center
-documentationcenter: na
-author: TomShinder
-manager: swadhwa
-editor: 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
-ms.service: security
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/27/2016
-ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+le--- 제목: Azure 가상 컴퓨터 암호화 | Microsoft Docs 설명: 이 문서를 사용하면 Azure Security Center에서 경고를 받은 후에 Azure 가상 컴퓨터를 암호화할 수 있습니다.
+서비스: 보안, 보안 센터 documentationcenter: 해당 없음 작성자: TomShinder 관리자: swadhwa 편집자: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: 보안 ms.devlang: 해당 없음 ms.topic: hero-article ms.tgt_pltfrm: 해당 없음 ms.workload: 해당 없음 ms.date: 2016/05/27 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure 가상 컴퓨터 암호화
@@ -26,7 +10,7 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 ![디스크 암호화 권장 사항](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
+> 이 문서의 정보는 키 암호화 키(Azure Backup을 사용하여 가상 컴퓨터를 백업하는 데 필요한)를 사용하지 않고 가상 컴퓨터를 암호화하는 데 적용됩니다. 키 암호화 키를 사용하여 암호화된 Azure Virtual Machines에 Azure Backup을 지원하는 방법은 [Windows 및 Linux Azure Virtual Machines을 위한 Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) 문서를 참조하세요.
 >
 >
 
@@ -178,9 +162,3 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 * [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -15,20 +15,28 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
+ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API 관리 개발자 포털을 사용자 지정하는 방법
-Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용자 지정](api-management-customize-portal.md)하고 페이지 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정할 수 있도록 여러 사용자 지정 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
+
+Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
+
+* [페이지 레이아웃 요소 및 정적 페이지의 콘텐츠 편집][modify-content-layout]
+* [개발자 포털 전반의 페이지 요소에 사용된 스타일 업데이트][customize-styles]
+* [포털에서 생성한 페이지에 사용되는 템플릿 수정][portal-templates](이 가이드에서 설명함)
+
+템플릿은 시스템에서 생성된 개발자 포털 페이지(예: API 문서, 제품, 사용자 인증 등)의 콘텐츠를 사용자 지정하는 데 사용됩니다. [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
 
 ## <a name="developer-portal-templates-overview"></a>개발자 포털 템플릿 개요
-개발자 포털 템플릿은 API 관리 서비스 인스턴스의 관리자가 개발자 포털에서 관리합니다. 개발자 템플릿을 관리하려면 Azure Portal에서 API 관리 서비스 인스턴스로 이동하여 도구 모음에서 **개발자 포털**을 클릭합니다.
+관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 여기로 이동하려면 우선 Azure Portal을 열고 API Management 인스턴스의 서비스 도구 모음에서 **게시자 포털**을 클릭하세요.
 
-![개발자 포털][api-management-browse]
+![게시자 포털][api-management-management-console]
 
-게시자 포털에서는 **개발자 포털**을 클릭하여 개발자 포털에 액세스할 수 있습니다.
+그런 다음 오른쪽 상단의 **개발자 포털**을 클릭합니다. 
 
 ![개발자 포털 메뉴][api-management-developer-portal-menu]
 
@@ -181,6 +189,9 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 ## <a name="next-steps"></a>다음 단계
 개발자 포털 템플릿, 문자열 리소스, 아이콘 및 페이지 컨트롤에 대한 참조 정보는 [API 관리 개발자 포털 템플릿 참조](api-management-developer-portal-templates-reference.md)를 참조하세요.
 
+[modify-content-layout]: api-management-modify-content-layout.md
+[customize-styles]: api-management-customize-styles.md
+[portal-templates]: api-management-developer-portal-templates.md
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png
@@ -188,6 +199,7 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 [api-management-template]: ./media/api-management-developer-portal-templates/api-management-template.png
 [api-management-template-data]: ./media/api-management-developer-portal-templates/api-management-template-data.png
 [api-management-developer-portal-menu]: ./media/api-management-developer-portal-templates/api-management-developer-portal-menu.png
+[api-management-management-console]: ./media/api-management-developer-portal-templates/api-management-management-console.png
 [api-management-browse]: ./media/api-management-developer-portal-templates/api-management-browse.png
 [api-management-user-profile-templates]: ./media/api-management-developer-portal-templates/api-management-user-profile-templates.png
 [api-management-save-template]: ./media/api-management-developer-portal-templates/api-management-save-template.png
@@ -206,10 +218,5 @@ Azure API 관리는 관리자가 [개발자 포털의 모양과 느낌을 사용
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

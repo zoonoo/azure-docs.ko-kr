@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+wms.date: 02/21/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
+ms.sourcegitcommit: d830c43f860b70c6f47d94eaff5105b988158cdf
+ms.openlocfilehash: 4add7ad944e0b36e2eded5767b0123af74602e8e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
-[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준 즉, **기본**, **표준**, **프리미엄** 등의&3;가지 서비스 계층을 제공하여 여러 워크로드를 다룹니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스를 제공합니다. 가동 중지 시간 없이 [서비스 계층 및 성능 수준을 동적으로](sql-database-service-tiers.md) 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 
+
+[Azure SQL Database](sql-database-technical-overview.md)는 여러 성능 수준 즉, **기본**, **표준**, **프리미엄** 등의&3;가지 [서비스 계층](sql-database-service-tiers.md)을 제공하여 여러 워크로드를 다룹니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 증가된 리소스를 제공합니다. 가동 중지 시간 없이 서비스 계층 및 성능 수준을 동적으로 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 
 
 선택한 [성능 수준](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)에서 전용 리소스를 사용하여 단일 데이터베이스를 만들 수 있습니다. 또 데이터베이스 간에서 리소스를 공유하는 [탄력적 풀](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)에서 여러 데이터베이스를 관리할 수도 있습니다. 단일 데이터베이스에 사용할 수 있는 리소스는 DTU(데이터베이스 트랜잭션 단위)의 측면에서 표현되고 탄력적 풀에 사용할 수 있는 리소스는 탄력적인 DTU(eDTU)의 측면에서 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-dtu.md)을 참조하세요. 
 
@@ -48,7 +50,7 @@ ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
 최소 서비스 계층을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 표준 S2 및 S3 성능 수준이 좋은 시작점인 경우가 많습니다. 높은 CPU 또는 IO 요구 사항의 데이터베이스의 경우 프리미엄 성능 수준이 적합한 시작점입니다. 프리미엄은 더 많은 CPU를 제공하고 높은 표준 성능 수준에 비해 10배 이상의 IO에서 시작합니다.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>단일 데이터베이스 서비스 계층 및 성능 수준
-단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 규모를 확장 또는 축소해야 하는 경우는 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-service-tiers.md) 을 참조하세요.
+단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 
 
 호스팅된 데이터베이스 수에 관계 없이, 데이터베이스는 보장된 리소스 집합을 가져오며 데이터베이스의 예상되는 성능 특징은 영향을 받지 않습니다.
 
@@ -60,7 +62,7 @@ ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>단일 데이터베이스 확장 및 축소
 
-처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 
+처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 Azure Portal에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -96,9 +98,7 @@ ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
 * 데이터베이스당 최소 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로&5;분 이내에 완료됩니다.
 * 풀 크기를 변경하는 시간(eDTU)은 풀에 있는 모든 데이터베이스의 총 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스의 총 공간이 200GB일 경우, 풀당 풀 eDTU를 변경하는 예상 대기 시간은 3시간 이하입니다.
 
-> [!IMPORTANT]
-> 자세한 단계는 [Azure Portal을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-portal.md), [PowerShell을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-tsql.md) 또는 [C#을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)를 참조하세요.
->
+자세한 단계는 [Azure Portal을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-portal.md), [PowerShell을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-tsql.md) 또는 [C#을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -106,10 +106,5 @@ ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
 * [탄력적 풀을 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)하고 [단일 데이터베이스의 성능을 모니터링](sql-database-single-database-monitor.md)하는 방법에 대해 알아봅니다.
 * SQL Database 계층에 대해 알아 보았으면 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL Database를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요.
 * 마이그레이션 시나리오의 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/)를 사용하여 필요한 DTU의 수를 대략적으로 예상합니다. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

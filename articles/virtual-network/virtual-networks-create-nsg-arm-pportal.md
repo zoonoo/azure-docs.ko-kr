@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Docs"
-description: "Azure Portal을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
+title: "네트워크 보안 그룹 만들기 - Azure Portal | Microsoft Docs"
+description: "Azure Portal을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 5bc8fc2e-1e81-40e2-8231-0484cd5605cb
@@ -15,20 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c00b45be99d254c1967bff8a1150ad4c1eaab6d
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>Azure Portal을 사용하여 NSG 관리하는 방법
+# <a name="create-network-security-groups-using-the-azure-portal"></a>Azure Portal을 사용하여 네트워크 보안 그룹 만들기
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md)수도 있습니다.
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md)수도 있습니다.
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -92,10 +95,5 @@ Azure Portal의 기존 NSG에 규칙을 만들려면 다음 단계를 따릅니�
 ## <a name="next-steps"></a>다음 단계
 * [기존 NSG 관리](virtual-network-manage-nsg-arm-portal.md)
 * [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

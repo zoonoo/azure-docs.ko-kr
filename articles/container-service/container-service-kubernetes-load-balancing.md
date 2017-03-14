@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 545ec23bc720dc1a17ce3d084642e96c2397d482
-ms.openlocfilehash: e61638db3c6c3acdc58f374b94b28d855161cf59
+ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
+ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -127,9 +128,9 @@ YAML 또는 JSON [서비스 구성 파일](https://kubernetes.io/docs/user-guide
 
 컨테이너 웹앱으로 HTTP 또는 HTTPS 트래픽 부하를 분산하고 TLS(전송 계층 보안)에 대한 인증서를 관리하려면 Kubernetes [수신](https://kubernetes.io/docs/user-guide/ingress/) 리소스를 사용합니다. 수신은 인바운드 연결이 클러스터 서비스에 연결하도록 하는 규칙 컬렉션입니다. 수신 리소스가 작동하려면 Kubernetes 클러스터에서 [수신 컨트롤러](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers)가 실행되고 있어야 합니다.
 
-Azure Container Service는 Kubernetes 수신 컨트롤러를 자동으로 구현하지 않습니다. 여러 컨트롤러 구현을 사용할 수 있습니다. 현재 수신 규칙을 구성하고 HTTP 및 HTTPS 트래픽 부하를 분산하기 위해 [Nginx 수신 컨트롤러](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md)가 권장됩니다. 
+Azure Container Service는 Kubernetes 수신 컨트롤러를 자동으로 구현하지 않습니다. 여러 컨트롤러 구현을 사용할 수 있습니다. 현재 수신 규칙을 구성하고 HTTP 및 HTTPS 트래픽 부하를 분산하기 위해 [Nginx 수신 컨트롤러](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx)가 권장됩니다. 
 
-자세한 내용 및 예제를 보려면 [Nginx 수신 컨트롤러 설명서](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md)를 참조하세요.
+자세한 내용은 [Nginx 수신 컨트롤러 설명서](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure Container Service에서 Nginx 수신 컨트롤러를 사용하려면 `type: LoadBalancer`를 사용하여 컨트롤러 배포를 서비스로 노출해야 합니다. 이렇게 하면 Azure Load Balancer가 해당 컨트롤러로 트래픽을 라우팅하도록 구성됩니다. 자세한 내용은 이전 섹션을 참조하세요.
@@ -140,10 +141,5 @@ Azure Container Service는 Kubernetes 수신 컨트롤러를 자동으로 구현
 * [Kubernetes LoadBalancer 설명서](https://kubernetes.io/docs/user-guide/load-balancer/) 참조
 * [Kubernetes 송/수신 컨트롤러](https://kubernetes.io/docs/user-guide/ingress/)에 대해 자세히 알아보기
 * [Kubernetes 예제](https://github.com/kubernetes/kubernetes/tree/master/examples) 참조
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

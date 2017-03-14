@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/23/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 68f1088a7303b5eddecc9ff99f7330c0462baafc
-ms.openlocfilehash: 9fb517a08fb56a1adb9e23f820aa2e4aa20eacf6
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="augment-your-existing-authentication-infrastructure-with-the-nps-extension-for-azure-multi-factor-authentication---public-preview"></a>Azure Multi-Factor Authentication을 위한 NPS 확장을 사용하여 기존 인증 인프라 보강 - 공개 미리 보기
+# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합 - 공개 미리 보기
 
 Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용하면 새 서버를 설치, 구성 및 유지할 필요 없이 전화 통화, SMS 또는 휴대폰 앱 인증을 기존 인증 흐름에 추가할 수 있습니다. 
  
@@ -155,9 +156,4 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 ## <a name="next-steps"></a>다음 단계
 
 Azure MFA를 [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md) 및 [LDAP 인증](multi-factor-authentication-get-started-server-ldap.md)과 통합하는 방법을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

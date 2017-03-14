@@ -1,21 +1,22 @@
 ---
-title: "Application Insights의 응용 프로그램 맵 | Microsoft Docs"
+title: "Azure Application Insights의 응용 프로그램 맵 | Microsoft Docs"
 description: "앱 구성 요소 간 종속성의 시각적 프레젠테이션은 KPI 및 경고로 레이블이 지정되었습니다."
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
-manager: douge
+manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc2d3c3fee5abbab0eab16c106c88c8753e703cc
-ms.openlocfilehash: f7ee8a43c83b1bad53acdb71de7a66d8afaa09b2
+ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
+ms.openlocfilehash: 04a34eb24df356018590b1791ecc7719a550ab51
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,7 @@ SQL, HTTP 등 한 종류의 종속성이 많은 경우 그룹화되어 표시될
 ## <a name="spot-problems"></a>문제 발견
 각 노드에는 해당 구성 요소에 대한 부하, 성능 및 실패율과 같은 관련 성능 지표가 있습니다. 
 
-경고 아이콘은 발생 가능한 문제를 강조 표시합니다. 주황색 경고는 요청, 페이지 보기 또는 종속성 호출에서 오류가 발생했음을 의미합니다. 빨간색 경고는 5% 이상의 실패율을 의미합니다.
+경고 아이콘은 발생 가능한 문제를 강조 표시합니다. 주황색 경고는 요청, 페이지 보기 또는 종속성 호출에서 오류가 발생했음을 의미합니다. 빨간색 경고는 5% 이상의 실패율을 의미합니다. 이러한 임계값을 조정하려는 경우 옵션을 엽니다.
 
 ![오류 아이콘](./media/app-insights-app-map/04.png)
 
@@ -105,9 +106,6 @@ Azure에서 호스팅되는 구성 요소의 경우 옵션은 직접 링크를 �
 
 ![MapLink-1 이미지](./media/app-insights-app-map/13.png)
 
+## <a name="next-steps"></a>다음 단계
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
+* [Azure Portal](https://portal.azure.com)

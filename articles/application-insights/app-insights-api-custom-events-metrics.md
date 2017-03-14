@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08e2e0894810693696b326538a7449ddab30d2f8
-ms.openlocfilehash: 7b156e647bbf27fe31d9c89b764c6c1c363a8827
+ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
+ms.openlocfilehash: 6951a50050c5b0c8edb2deb1eb64aef44e94ff96
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -39,7 +40,7 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
-## <a name="a-nameprepabefore-you-start"></a><a name="prep"></a>시작하기 전에
+## <a name="prep"></a>시작하기 전에
 다음 작업을 아직 수행하지 않은 경우
 
 * 프로젝트에 Application Insights SDK 추가:
@@ -399,12 +400,12 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색][diagnostic]할 수도 있습니다.
 
-## <a name="a-namepropertiesafiltering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>속성을 사용하여 데이터를 필터링, 검색 및 세분화
+## <a name="properties"></a>속성을 사용하여 데이터를 필터링, 검색 및 세분화
 이벤트에(그리고 메트릭, 페이지 보기, 예외 및 기타 원격 분석 데이터에) 속성 및 측정을 연결할 수 있습니다.
 
 *속성*은 사용 현황 보고서에서 원격 분석을 필터링하는 데 사용할 수 있는 문자열 값입니다. 예를 들어 앱이 여러 게임을 제공하는 경우 각 이벤트에 게임 이름을 연결하여 인기가 더 많은 게임을 확인할 수 있습니다.
 
-문자열 길이는 약 1,000으로 제한됩니다. 많은 양의 데이터를 보내려면 메시지 매개 변수 [TrackTrace](#track-trace)를 사용하세요.
+문자열 길이는 8192로 제한됩니다. 많은 양의 데이터를 보내려면 메시지 매개 변수 [TrackTrace](#track-trace)를 사용하세요.
 
 *메트릭* 은 그래픽으로 표시할 수 있는 숫자 값입니다. 예를 들어 게이머의 획득 점수가 점진적으로 증가하는지 확인할 수 있습니다. 여러 게임에 대한 별도의 그래프 또는 누적 그래프를 볼 수 있도록 이벤트와 함께 전송된 속성을 사용하여 그래프를 분할할 수 있습니다.
 
@@ -516,7 +517,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 >
 >
 
-## <a name="a-nametimeda-timing-events"></a><a name="timed"></a> 타이밍 이벤트
+## <a name="timed"></a> 타이밍 이벤트
 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다. 이를 위해 측정 매개 변수를 사용할 수 있습니다.
 
 *C#*
@@ -539,7 +540,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 
 
-## <a name="a-namedefaultsadefault-properties-for-custom-telemetry"></a><a name="defaults"></a>사용자 지정 원격 분석에 대한 기본 속성
+## <a name="defaults"></a>사용자 지정 원격 분석에 대한 기본 속성
 작성하는 사용자 정의 이벤트의 일부에 대해 기본 속성 값을 설정하려는 경우 TelemetryClient 인스턴스에서 설정할 수 있습니다. 설정된 값은 해당 클라이언트에서 보낸 모든 원격 분석 항목에 연결됩니다.
 
 *C#*
@@ -604,7 +605,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 *선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config][config]에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
-## <a name="a-namedebugadeveloper-mode"></a><a name="debug"></a>개발자 모드
+## <a name="debug"></a>개발자 모드
 디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
 
 *C#*
@@ -616,7 +617,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
-## <a name="a-nameikeya-setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키 설정
+## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키 설정
 *C#*
 
     var telemetry = new TelemetryClient();
@@ -624,7 +625,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
     // ...
 
 
-## <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
+## <a name="dynamic-ikey"></a> 동적 계측 키
 개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
 
 구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
@@ -709,7 +710,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](app-insights-export-power-bi.md) 및 [연속 내보내기](app-insights-export-telemetry.md)가 있습니다.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
+## <a name="next"></a>다음 단계
 * [검색 이벤트 및 로그][diagnostic]
 
 * [샘플 및 연습](app-insights-code-samples.md)
@@ -729,9 +730,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

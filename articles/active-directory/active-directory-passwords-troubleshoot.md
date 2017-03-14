@@ -3,7 +3,7 @@ title: "문제 해결: Azure AD 암호 관리 | Microsoft Docs"
 description: "Azure AD 암호 관리를 위한 일반적인 문제 해결 단계는 재설정, 변경, 쓰기 저장, 등록 및 도움이 필요한 경우 포함할 정보를 포함합니다."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: e4a4e1968ec43b76bfa9bd938804ef23e37477e5
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="how-to-troubleshoot-password-management"></a>암호 관리 문제 해결 방법
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 암호 관리 문제가 발생하는 경우 도움을 드립니다. 직면할 문제 대부분은 아래에서 배포 문제를 해결하려고 읽을 수 있는 몇 가지 간단한 문제 해결 단계로 해결할 수 있습니다.
 
@@ -46,11 +47,11 @@ ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
 * **페이지** – 오류(URL 포함)가 나타나는 경우 페이지 정의
 * **날짜/시간/표준 시간대** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
 * **지원 코드** – 오류가 나타나는 경우 생성된 지원 코드 정의(오류를 찾으려면 오류를 재현한 후 화면 아래에서 코드 지원 링크를 클릭하고 지원 엔지니어에게 결과인 GUID를 보냄.)
-  
+
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 누르고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
-    
+
     ![][001]
-* **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)?)
+* **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)?
 * **사용자에 대한 정보** – 페더레이션된 사용자, 동기화된 암호 해시, 클라우드 정의  AAD Premium 또는 AAD 기본 라이선스가 할당된 사용자입니까?
 * **응용 프로그램 이벤트 로그** – 암호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 응용 프로그램 이벤트 로그의 복사본을 압축하고 요청과 함께 보내주십시오.
 
@@ -1455,7 +1456,7 @@ Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는
 2. 검색 상자에 **“services.msc”**를 입력하고 **Enter** 키를 누릅니다.
 3. **Microsoft Azure AD Connect** 항목을 찾습니다.
 4. 서비스 항목을 마우스 오른쪽 단추로 클릭하여 **다시 시작**을 클릭하고 작업이 완료되기를 기다립니다.
-   
+
    ![][002]
 
 이러한 단계는 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생한 중단이 해결할 수 있습니다.  동기화 서비스를 다시 시작해도 문제가 해결되지 않으면 다음 단계로 암호 쓰기 저장 기능을 비활성화 및 재활성화하는 것이 좋습니다.
@@ -1468,14 +1469,14 @@ Azure AD Connect 동기화 서비스를 다시 시작하면 연결 문제 또는
 3. **AD DS에 연결** 대화 상자에서 **AD 도메인 서비스 관리자 자격 증명**을 입력합니다
 4. **고유하게 식별하는 사용자** 대화 상자에서 **다음** 단추를 클릭합니다.
 5. **선택적 기능** 대화 상자에서 **암호 쓰기 저장** 확인란을 선택 취소합니다.
-   
+
    ![][003]
 6. **구성할 준비** 페이지에 도달할 때까지 아무것도 변경하지 않고 남은 대화 상자 페이지를 통해 **다음**을 클릭합니다.
 7. 구성 페이지가 **암호 쓰기 저장 옵션을 사용 안함으로** 표시하는지 확인하고 변경 내용을 적용하려면 녹색 **구성** 단추를 클릭합니다.
 8. **마침** 대화 상자에서 **지금 동기화** 옵션을 선택 취소한 다음 마법사를 닫기 위해 **마침**을 클릭합니다.
 9. **Azure AD Connect 구성 마법사**를 다시 엽니다.
 10. 서비스를 다시 활성화하는 **선택적 기능** 화면에서 **암호 쓰기 저장 옵션을 선택**했는지 확인한 후 **2~8단계를 반복**합니다.
-    
+
     ![][004]
 
 이러한 단계를 실행하여 클라우드 서비스를 사용하여 연결을 다시 설정하고 발생할 수 있는 중단이 해결될 수 있습니다.
@@ -1496,11 +1497,9 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 
 문제를 해결되지 않으면 [암호 쓰기 저장 문제 해결](#troubleshoot-password-writeback) 및 [Azure AD 암호 관리 FAQ](active-directory-passwords-faq.md)에서 문제를 논의했는지 확인하기 위해 살펴보는 것이 좋습니다
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
@@ -1516,9 +1515,4 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

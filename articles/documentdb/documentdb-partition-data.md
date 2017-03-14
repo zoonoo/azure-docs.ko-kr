@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/22/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 876e0fd12d045bba85d1e30d4abfcb8ce421213a
-ms.openlocfilehash: ed58e623ff74a21df25fc93346e571edec7b40da
+ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
+ms.openlocfilehash: 0a8b53f7860548a2a013bfc7813cdf798b6a4910
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -45,10 +46,18 @@ DocumentDB에서는 규모에 상관없이 밀리초 단위의 응답 시간 순
 
 직원 및 부서에 대한 데이터를 DocumentDB에 저장하는 응용 프로그램을 예로 들어 보겠습니다. 데이터를 부서별로 확장하기 위해 `"department"`를 파티션 키 속성으로 선택합니다. DocumentDB의 모든 문서는 필수 `"id"` 속성을 포함해야 합니다. 이 속성은 동일한 파티션 키 값을 가진 모든 문서에 대해 고유해야 합니다(예: `"Marketing`"). 컬렉션에 저장된 모든 문서에는 파티션 키와 ID의 고유한 조합이 있어야 합니다(예: `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }` 및 `{ "Department": "Sales", "id": "0001" }`). 즉, (파티션 키, id)의 복합 속성이 컬렉션의 기본 키입니다.
 
-## <a name="partition-keys"></a>파티션 키
-파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 광범위한 값을 가지고 균등하게 분산된 액세스 패턴이 있을 가능성이 높은 JSON 속성 이름을 선택해야 합니다. 파티션 키는 JSON 경로로 지정되며 예를 들어 `/department` 는 속성 부서를 나타냅니다. 
+DocumentDB는 저장소 크기 및 프로비전된 처리량에 따라 각 컬렉션 뒤에 적은 수의 실제 파티션을 만듭니다. 파티션 키로 정의하는 속성은 논리적 파티션입니다. 여러 파티션 키 값은 일반적으로 단일 실제 파티션을 공유하지만 단일 값은 파티션을 확장하지 않습니다. 값이 많은 파티션 키가 있는 경우 DocumentDB에서 데이터가 확대되거나 프로비전된 처리량을 증가할수록 더 나은 부하 분산을 수행할 수 있으므로 좋습니다.
 
-다음 표는 파티션 키 정의 및 각각에 해당하는 JSON 값의 예를 보여 줍니다.
+예를 들어 초당 처리량 25,000개의 요청으로 컬렉션을 만들고 DocumentDB는 단일 실제 파티션별 초당 10,000개의 요청을 지원할 수 있다고 가정해 봅니다. DocumentDB는 컬렉션에 대한 3개의 실제 파티션 P1, P2 및 P3을 만듭니다. 문서 삽입 또는 읽기 중에 DocumentDB 서비스는 해당 `Department` 값을 해시하여 세 개의 파티션 P1, P2 및 P3에 데이터를 매핑합니다. 따라서 예를 들어 "Marketing" 및 "Sales"가 1에 해시하는 경우 둘 다 P1에 저장됩니다. 그리고 P1이 가득 차면 DocumentDB는 P1을 두 개의 새 파티션 P4 및 P5로 나눕니다. 그런 다음 서비스는 분할 작업 후 “Marketing”을 P4로 "Sales"를 P5로 이동한 다음 P1을 삭제할 수 있습니다. 파티션 간 파티션 키의 이러한 이동은 응용 프로그램에 구애 받지 않으며 컬렉션의 가용성에는 아무런 영향이 없습니다.
+
+## <a name="partition-keys"></a>파티션 키
+파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 광범위한 값을 가지고 균등하게 분산된 액세스 패턴이 있을 가능성이 높은 JSON 속성 이름을 선택해야 합니다. 
+
+> [!NOTE]
+> 많은 수의 고유 값(최소한 수백-수천 개)을 가진 파티션 키를 갖는 것이 좋습니다. 많은 고객은 DocumentDB를 키 값 저장소로 효과적으로 사용하며 여기서 고유 "id"는 수백만 수십억 파티션 키의 파티션 키입니다.
+>
+
+다음 표는 파티션 키 정의 및 각각에 해당하는 JSON 값의 예를 보여 줍니다. 파티션 키는 JSON 경로로 지정되며 예를 들어 `/department` 는 속성 부서를 나타냅니다. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -157,21 +166,22 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
 
 이 샘플에서는 (a) 장치 수가 많고, 쓰기가 파티션 간에 균등하게 분산될 수 있으며, 대용량 데이터를 수집하도록 데이터베이스를 확장할 수 있으며, (b) 장치에 대한 최신 읽기 가져오기와 같은 요청이 대부분 단일 deviceId로 범위가 지정되고 단일 파티션에서 검색될 수 있음을 알고 있기 때문에 `deviceId` 를 선택했습니다.
 
-    DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
-    await client.CreateDatabaseAsync(new Database { Id = "db" });
+```csharp
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-    // Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
-    // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
-    // sorting against any number or string property.
-    DocumentCollection myCollection = new DocumentCollection();
-    myCollection.Id = "coll";
-    myCollection.PartitionKey.Paths.Add("/deviceId");
+// Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
+// spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
+// sorting against any number or string property.
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
 
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri("db"),
-        myCollection,
-        new RequestOptions { OfferThroughput = 20000 });
-
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 20000 });
+```
 
 > [!NOTE]
 > SDK를 사용하여 분할된 컬렉션을 만들려면 10,100RU/s 이상의 처리량 값 지정해야 합니다. 분할된 컬렉션에 대해 2,500 ~ 10,000의 처리량 값을 설정하려면 Azure Portal을 임시로 사용해야 하며, 낮게 설정한 이 새로운 값은 아직 SDK에서 사용할 수 없습니다.
@@ -183,92 +193,101 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
 ### <a name="reading-and-writing-documents"></a>문서 읽기 및 쓰기
 이제 DocumentDB에 데이터를 삽입해 보겠습니다. 다음은 장치 읽기 및 새 장치 읽기를 컬렉션에 삽입하는 CreateDocumentAsync 호출이 포함된 샘플 클래스입니다.
 
-    public class DeviceReading
+```csharp
+public class DeviceReading
+{
+    [JsonProperty("id")]
+    public string Id;
+
+    [JsonProperty("deviceId")]
+    public string DeviceId;
+
+    [JsonConverter(typeof(IsoDateTimeConverter))]
+    [JsonProperty("readingTime")]
+    public DateTime ReadingTime;
+
+    [JsonProperty("metricType")]
+    public string MetricType;
+
+    [JsonProperty("unit")]
+    public string Unit;
+
+    [JsonProperty("metricValue")]
+    public double MetricValue;
+  }
+
+// Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
+await client.CreateDocumentAsync(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"),
+    new DeviceReading
     {
-        [JsonProperty("id")]
-        public string Id;
-
-        [JsonProperty("deviceId")]
-        public string DeviceId;
-
-        [JsonConverter(typeof(IsoDateTimeConverter))]
-        [JsonProperty("readingTime")]
-        public DateTime ReadingTime;
-
-        [JsonProperty("metricType")]
-        public string MetricType;
-
-        [JsonProperty("unit")]
-        public string Unit;
-
-        [JsonProperty("metricValue")]
-        public double MetricValue;
-      }
-
-    // Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
-    await client.CreateDocumentAsync(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"),
-        new DeviceReading
-        {
-            Id = "XMS-001-FE24C",
-            DeviceId = "XMS-0001",
-            MetricType = "Temperature",
-            MetricValue = 105.00,
-            Unit = "Fahrenheit",
-            ReadingTime = DateTime.UtcNow
-        });
-
+        Id = "XMS-001-FE24C",
+        DeviceId = "XMS-0001",
+        MetricType = "Temperature",
+        MetricValue = 105.00,
+        Unit = "Fahrenheit",
+        ReadingTime = DateTime.UtcNow
+    });
+```
 
 파티션 키와 id로 문서를 읽고, 업데이트한 다음, 마지막 단계로 파티션 키와 id로 해당 문서를 삭제해 보겠습니다. 읽기에 PartitionKey 값(REST API의 `x-ms-documentdb-partitionkey` 요청 헤더에 해당)이 포함됩니다.
 
-    // Read document. Needs the partition key and the ID to be specified
-    Document result = await client.ReadDocumentAsync(
-      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
+```csharp
+// Read document. Needs the partition key and the ID to be specified
+Document result = await client.ReadDocumentAsync(
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
-    DeviceReading reading = (DeviceReading)(dynamic)result;
+DeviceReading reading = (DeviceReading)(dynamic)result;
 
-    // Update the document. Partition key is not required, again extracted from the document
-    reading.MetricValue = 104;
-    reading.ReadingTime = DateTime.UtcNow;
+// Update the document. Partition key is not required, again extracted from the document
+reading.MetricValue = 104;
+reading.ReadingTime = DateTime.UtcNow;
 
-    await client.ReplaceDocumentAsync(
-      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      reading);
+await client.ReplaceDocumentAsync(
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  reading);
 
-    // Delete document. Needs partition key
-    await client.DeleteDocumentAsync(
-      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
-
-
+// Delete document. Needs partition key
+await client.DeleteDocumentAsync(
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
+```
 
 ### <a name="querying-partitioned-collections"></a>분할된 컬렉션 쿼리
 분할된 컬렉션에서 데이터를 쿼리하면 DocumentDB에서 필터에 지정된 파티션 키 값(있는 경우)에 해당하는 파티션으로 쿼리를 자동으로 라우팅합니다. 예를 들어 이 쿼리는 파티션 키 "XMS-0001"이 포함된 파티션으로만 라우팅됩니다.
 
-    // Query using partition key
-    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"))
-        .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
-
+```csharp
+// Query using partition key
+IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"))
+    .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
+```
+    
 다음 쿼리는 파티션 키(DeviceId)에 대한 필터가 없으므로 파티션의 인덱스에 대해 실행되는 모든 파티션으로 팬아웃됩니다. SDK가 파티션에 걸쳐 쿼리를 실행하도록 EnableCrossPartitionQuery(REST API의`x-ms-documentdb-query-enablecrosspartition` )를 지정해야 합니다.
 
-    // Query across partition keys
-    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
-        new FeedOptions { EnableCrossPartitionQuery = true })
-        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+```csharp
+// Query across partition keys
+IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+    new FeedOptions { EnableCrossPartitionQuery = true })
+    .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+```
+
+DocumentDB는 SDK 1.12.0 이상으로 시작하는 SQL을 사용하여 분할된 컬렉션에 [집계 함수]([집계 함수](documentdb-sql-query.md#Aggregates)) `COUNT`, `MIN`, `MAX`, `SUM` 및 `AVG`를 지원합니다. 쿼리는 단일 집계 연산자를 포함해야 하고 프로젝션에 단일 값을 포함해야 합니다.
 
 ### <a name="parallel-query-execution"></a>병렬 쿼리 실행
 DocumentDB SDK 1.9.0 이상에서는 많은 수의 파티션에 연결해야 할 경우에도 분할된 컬렉션에 대해 대기 시간이 짧은 쿼리를 수행할 수 있도록 하는 병렬 쿼리 실행 옵션을 지원합니다. 예를 들어 다음 쿼리는 파티션에 걸쳐 병렬로 실행되도록 구성되어 있습니다.
 
-    // Cross-partition Order By Queries
-    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
-        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
-        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
-        .OrderBy(m => m.MetricValue);
-
+```csharp
+// Cross-partition Order By Queries
+IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+    new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+    .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+    .OrderBy(m => m.MetricValue);
+```
+    
 다음 매개 변수를 조정하여 병렬 쿼리 실행을 관리할 수 있습니다.
 
 * `MaxDegreeOfParallelism`을 설정하여 컬렉션의 파티션에 대한 최대 동시 네트워크 연결 수를 나타내는 병렬 처리 수준을 제어할 수 있습니다. 이 값을 -1로 설정하는 경우 병렬 처리 수준이 SDK에서 관리됩니다. `MaxDegreeOfParallelism` 값이 지정되지 않거나 기본값인 0으로 설정된 경우 컬렉션의 파티션에 단일 네트워크 연결이 생성됩니다.
@@ -279,11 +298,13 @@ DocumentDB SDK 1.9.0 이상에서는 많은 수의 파티션에 연결해야 할
 ### <a name="executing-stored-procedures"></a>저장된 프로시저 실행
 장치 ID가 동일한 문서에 대해 원자성 트랜잭션을 실행할 수도 있습니다(예: 장치의 최신 상태 또는 집계를 단일 문서에서 유지 관리하는 경우). 
 
-    await client.ExecuteStoredProcedureAsync<DeviceReading>(
-        UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
-        "XMS-001-FE24C");
-
+```csharp
+await client.ExecuteStoredProcedureAsync<DeviceReading>(
+    UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
+    new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
+    "XMS-001-FE24C");
+```
+    
 다음 섹션에서는 단일 파티션 컬렉션에서 분할된 컬렉션으로 이동하는 방법에 대해 살펴봅니다.
 
 <a name="migrating-from-single-partition"></a>
@@ -350,10 +371,5 @@ DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
 [3]: ./media/documentdb-partition-data/documentdb-migration-partitioned-collection.png  
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

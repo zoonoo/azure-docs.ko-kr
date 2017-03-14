@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
+ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
+ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법
 ## <a name="overview"></a>개요
-이 가이드에서는 하나 이상의 Azure Active Directory의 모든 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여줍니다. 또한 이 가이드에서는 Azure Active Directory의 사용자를 포함하는 외부 그룹을 추가하여 Azure Active Directory 사용자 그룹을 관리하는 방법을 보여줍니다.
+이 가이드에서는 Azure Active Directory의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여 줍니다. 또한 이 가이드에서는 Azure Active Directory의 사용자를 포함하는 외부 그룹을 추가하여 Azure Active Directory 사용자 그룹을 관리하는 방법을 보여줍니다.
 
 > 이 가이드의 단계를 완료하려면 먼저 응용 프로그램을 만들 Azure Active Directory가 있어야 합니다.
 > 
@@ -54,11 +55,11 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 **로그온 URL**에는 개발자 포털의 로그온 URL을 입력합니다. 이 예제에서 **로그온 URL**은 `https://aad03.portal.current.int-azure-api.net/signin`입니다. 
 
-**앱 ID URL**의 경우 Azure Active Directory에서 기본 도메인 또는 사용자 지정 도메인을 입력하고 고유 문자열을 추가합니다. 이 예제에서 **https://contoso5api.onmicrosoft.com**의 기본 도메인은 지정된 **/api** 접미사와 함께 사용됩니다.
+**앱 ID URL**의 경우 Azure Active Directory에서 기본 도메인 또는 사용자 지정 도메인을 입력하고 고유 문자열을 추가합니다. 이 예제에서 **https://contoso5api.onmicrosoft.com**이라는 기본 도메인은 지정된 **/api** 접미사와 함께 사용됩니다.
 
 ![새 Azure Active Directory 응용 프로그램 속성][api-management-new-aad-application-2]
 
-확인 단추를 클릭하여 새 응용 프로그램을 저장하여 만들고 **구성** 탭으로 전환하여 새 응용 프로그램을 구성합니다.
+확인 단추를 클릭하여 응용 프로그램을 저장하여 만들고 **구성** 탭으로 전환하여 새 응용 프로그램을 구성합니다.
 
 ![새 Azure Active Directory 응용 프로그램 만들어짐][api-management-new-aad-app-created]
 
@@ -90,7 +91,7 @@ ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
 
 ![클라이언트 ID][api-management-client-id]
 
-Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **기간 선택** 드롭다운 목록을 클릭하여 간격을 지정합니다. 이 예제에서는 **1년** 을 사용합니다.
+Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **기간 선택** 드롭다운 목록을 클릭하여 간격을 지정합니다. 이 예제에서는 **1년**을 사용합니다.
 
 ![키][api-management-aad-key-before-save]
 
@@ -110,19 +111,24 @@ Azure Active Directory 구성으로 다시 전환하고 **키** 섹션에서 **�
 
 ![허용된 테넌트][api-management-client-allowed-tenants]
 
-여러 도메인은 **허용된 테넌트** 섹션에서 지정할 수 있습니다. 사용자가 응용 프로그램이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 응용 프로그램에 권한을 부여해야 합니다. 권한을 부여하려면 전역 관리자가 응용 프로그램에 로그인하여 **수락**을 클릭해야 합니다. 다음 예제에서는 `miaoaad.onmicrosoft.com` 이(가) **허용된 테넌트** 에 추가되었으며 해당 도메인의 전역 관리자가 처음으로 로그인하고 있습니다.
+
+원하는 구성이 지정되면 **저장**을 클릭합니다.
+
+![저장][api-management-client-allowed-tenants-save]
+
+변경 내용이 저장되면 지정된 Azure Active Directory의 사용자는 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인][Log in to the Developer portal using an Azure Active Directory account]의 단계를 수행하여 개발자 포털에 로그인할 수 있습니다.
+
+여러 도메인은 **허용된 테넌트** 섹션에서 지정할 수 있습니다. 사용자가 응용 프로그램이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 응용 프로그램에 권한을 부여해야 합니다. 권한을 부여하려면 전역 관리자는 `https://<URL of your developer portal>/aadadminconsent`로 이동하고(예: https://contoso.portal.azure-api.net/aadadminconsent) 액세스를 지정하려는 Active Directory 테넌트의 도메인 이름을 입력하여 제출을 클릭합니다. 다음 예제에서 `miaoaad.onmicrosoft.com`의 전역 관리자는 이 특정 개발자 포털에 있는 사용 권한을 부여하려고 합니다. 
+
+![권한][api-management-aad-consent]
+
+다음 화면에서 전역 관리자에게는 사용 권한의 부여를 확인하는 메시지가 표시됩니다. 
 
 ![권한][api-management-permissions-form]
 
 > 전역 관리자에게 권한이 부여되기 전에 비 전역 관리자가 로그인을 시도하는 경우, 로그인 시도에 실패하며 오류 화면이 표시됩니다.
 > 
 > 
-
-원하는 구성이 지정되면 **저장**을 클릭합니다.
-
-![저장][api-management-client-allowed-tenants-save]
-
-변경 내용이 저장되면 [Azure Active Directory 계정을 사용하여 개발자 포털에 로그인][Log in to the Developer portal using an Azure Active Directory account]의 단계를 수행하여 지정된 Azure Active Directory의 사용자가 개발자 포털에 로그인할 수 있습니다.
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>외부 Azure Active Directory 그룹을 추가하는 방법
 Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Active Directory 그룹을 API 관리에 추가하여 원하는 제품이 있는 그룹에서 개발자와의 연계를 보다 쉽게 관리할 수 있습니다.
@@ -153,7 +159,7 @@ Azure Active Directory의 사용자가 액세스할 수 있게 되면 Azure Acti
 
 **저장** 을 클릭하여 새 그룹 선택 내용을 저장합니다.
 
-Azure Active Directory 그룹이 한 제품에서 구성되면 API 관리 서비스 인스턴스에 있는 다른 제품의 **표시 여부** 탭에서 확인할 수 있습니다.
+Azure Active Directory 그룹이 한 제품에서 구성되면 API Management 서비스 인스턴스에 있는 다른 제품의 **표시 여부** 탭에서 확인할 수 있습니다.
 
 추가된 외부 그룹의 속성을 검토 및 구성하려면 **그룹** 탭에서 그룹 이름을 클릭합니다.
 
@@ -204,6 +210,7 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 [api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
 [api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
+[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
 [api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
 [api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
 [api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
@@ -234,10 +241,5 @@ Azure Active Directory에서 사용자 중 하나의 자격 증명을 입력하�
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: a6d6db0e0e6b6fe8d8ccbd6cbd3858ae0df5cb2d
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: f62c0ca57bfd15a9ad1f767fa8fd59cc73b71c43
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -32,7 +33,7 @@ ms.openlocfilehash: a6d6db0e0e6b6fe8d8ccbd6cbd3858ae0df5cb2d
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 Azure Linux VM에 gcc 스택이 있다고 가정합니다.
-* Microsoft Visual Studio Express for Windows
+* Microsoft Visual Studio 또는 Visual Studio Community Edition
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="send-messages-to-event-hubs"></a>이벤트 허브에 메시지 보내기
@@ -167,9 +168,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -215,7 +215,7 @@ if __name__ == '__main__':
 
 목록 축약을 사용하여 컬렉션의 각 파일에 `upload_file_to_container` 함수를 호출하고 두 개의 [ResourceFile][py_resource_file] 컬렉션이 채워집니다. `upload_file_to_container` 함수가 다음과 같이 나타납니다.
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>8단계: 컨테이너 삭제
 Azure 저장소에 있는 데이터에 대한 요금이 부과되므로 배치 작업에 더 이상 필요 없는 모든 Blob을 제거하는 것이 좋습니다. *python_tutorial_client.py*에서 [BlockBlobService.delete_container][py_delete_container]를 세 번 호출하여 수행합니다.
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)

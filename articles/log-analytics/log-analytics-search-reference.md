@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics 검색 참조 | Microsoft Docs"
+title: "Azure Log Analytics 검색 참조 | Microsoft Docs"
 description: "Log Analytics 검색 참조는 검색 언어에 대해 설명하며 데이터를 검색하고 검색 결과를 좁히기 위한 식을 필터링할 때 사용할 수 있는 일반 쿼리 구문 옵션을 제공합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
-ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a294ef357ea3c656e4e6392e89ad1d90b829e2cb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -254,7 +256,7 @@ SampleValue:[0..2]
 ```
 
 ### <a name="regular-expressions"></a>정규식
-Regex 키워드를 사용하여 정규식을 포함한 필드에 대한 검색 조건을 지정할 수 있습니다.
+Regex 키워드를 사용하여 정규식을 포함한 필드에 대한 검색 조건을 지정할 수 있습니다.  정규식에 사용할 수 있는 구문에 대한 전체 설명을 보려면 [정규식을 사용하여 Log Analytics에서 로그 검색 필터링](log-analytics-log-searches-regex.md)을 참조하세요.
 
 **구문**
 
@@ -581,7 +583,29 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### <a name="in"></a>IN
-구문
+**IN** 키워드를 사용하여 값 목록에서 항목을 선택할 수 있습니다.  사용하는 구문에 따라 사용자가 제공한 간단한 값 목록이거나 집계 값 목록일 수 있습니다.
+
+구문 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+설명: 이 구문을 통해 간단한 목록에 모든 값을 포함할 수 있습니다
+
+
+
+예제:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+구문 2:
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
@@ -810,9 +834,4 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

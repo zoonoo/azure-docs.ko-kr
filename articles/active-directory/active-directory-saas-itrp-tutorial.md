@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
-ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
+ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
+ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scenario")
+![시나리오](./media/active-directory-saas-itrp-tutorial/IC775551.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-itrp"></a>ITRP에 응용 프로그램 통합 사용
 이 섹션에서는 ITRP에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.
@@ -49,19 +50,19 @@ ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-itrp-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-itrp-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-itrp-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-itrp-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-itrp-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-itrp-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **ITRP**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-itrp-tutorial/IC775565.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-itrp-tutorial/IC775565.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **ITRP**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -76,19 +77,19 @@ ITRP에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpri
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **ITRP** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC771709.png "Single Sign-On 구성")
 
 2. **ITRP에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC775567.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지의 **ITRP 로그인 URL** 텍스트 상자에 "*https://\<tenant-name\>.ITRP.com*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-itrp-tutorial/IC775568.png "앱 URL 구성")
 
 4. **ITRP에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 **c:\\ITRP.cer**에 로컬로 인증서 파일을 저장합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC775569.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 ITRP 회사 사이트에 관리자로 로그인합니다.
 
@@ -123,7 +124,7 @@ ITRP에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpri
 
 9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC775574.png "Single Sign-On 구성")
    
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
@@ -135,19 +136,19 @@ ITRP의 경우 프로비저닝 수동 작업입니다.
 
 2. 위쪽의 도구 모음에서 **레코드**를 클릭합니다.
    
-    ![관리자](./media/active-directory-saas-itrp-tutorial/IC775575.png "Admin")
+    ![관리자](./media/active-directory-saas-itrp-tutorial/IC775575.png "관리자")
 
 3. 팝업 메뉴에서 **사람**을 선택합니다.
    
-    ![사람](./media/active-directory-saas-itrp-tutorial/IC775587.png "People")
+    ![사람](./media/active-directory-saas-itrp-tutorial/IC775587.png "사람")
 
 4. **새 사람 추가** (“+”)를 클릭합니다.
    
-    ![관리자](./media/active-directory-saas-itrp-tutorial/IC775576.png "Admin")
+    ![관리자](./media/active-directory-saas-itrp-tutorial/IC775576.png "관리자")
 
 5. 새 사람 추가 대화 상자에서 다음 단계를 수행합니다.
    
-    ![사용자](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")
+    ![사용자](./media/active-directory-saas-itrp-tutorial/IC775577.png "사용자")
    
     a. 프로비전할 유효한 AAD 계정의 **이름**과 **전자 메일**을 입력합니다.
    
@@ -166,17 +167,12 @@ ITRP의 경우 프로비저닝 수동 작업입니다.
 
 2. **ITRP** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-itrp-tutorial/IC775588.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-itrp-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-itrp-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

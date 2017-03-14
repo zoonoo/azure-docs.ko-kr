@@ -13,16 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
-ms.openlocfilehash: 325e993138e34f5619e0d208b281b3b40caedb0f
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
+ms.lasthandoff: 02/28/2017
 
 ---
 
 
-# <a name="troubleshoot-application-proxy"></a>응용 프로그램 프록시 문제 해결
+# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>응용 프로그램 프록시 문제 및 오류 메시지 문제 해결
 게시된 응용 프로그램에 액세스할 때나 응용 프로그램을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 응용 프로그램 프록시가 올바르게 작동하는지 확인합니다.
 
 * Windows 서비스 콘솔을 열고 **Microsoft AAD 응용 프로그램 프록시 커넥터** 서비스가 활성화되어 있고 실행 중인지 확인합니다. 또한 다음 그림에 표시된 것처럼 응용 프로그램 프록시 서비스 속성 페이지에서 확인할 수도 있습니다.  
@@ -156,9 +158,4 @@ Azure AD 응용 프로그램 프록시에 이 문제 해결 가이드에 나열�
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

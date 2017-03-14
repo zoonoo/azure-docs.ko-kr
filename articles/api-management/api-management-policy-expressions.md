@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
@@ -35,12 +36,12 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 > -   이 비디오에 사용된 정책 문을 다운로드하려면 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github 리포지토리를 참조하세요.  
   
   
-##  <a name="a-namesyntaxa-syntax"></a><a name="Syntax"></a> 구문  
+##  <a name="Syntax"></a> 구문  
  단일 문 식은 `@(expression)`으로 묶으며 여기서 `expression`은 올바르게 구성된 C# 식입니다.  
   
  다중 문 식은 `@{expression}`으로 묶습니다. 다중 문 식 내에 모든 코드 경로는 `return` 문으로 끝나야 합니다.  
   
-##  <a name="a-namepolicyexpressionsexamplesa-examples"></a><a name="PolicyExpressionsExamples"></a> 예  
+##  <a name="PolicyExpressionsExamples"></a> 예  
   
 ```  
 @(true)  
@@ -51,7 +52,7 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -66,13 +67,13 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 }  
 ```  
   
-##  <a name="a-namepolicyexpressionsusagea-usage"></a><a name="PolicyExpressionsUsage"></a> 사용 방법  
+##  <a name="PolicyExpressionsUsage"></a> 사용 방법  
  정책 참조에서 다르게 지정하지 않는 한, 식은 어떤 API Management [정책](api-management-policies.md)에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다.  
   
 > [!IMPORTANT]
 >  정책 식을 사용하는 경우 정책을 정의할 때 정책 식에 대해 제한된 검증만 이루어집니다. 식은 게이트웨이에 의해 인바운드 또는 아웃바운드 파이프라인에서 런타임으로 실행되므로 정책 식에서 생성한 런타임 예외로 인해 API 호출에서 런타임 오류가 발생합니다.  
   
-##  <a name="a-nameclrtypesa-net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식  
+##  <a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식  
  다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.  
   
 |CLR 형식|지원되는 방식|  
@@ -166,12 +167,12 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 |System.Xml.Linq.XText|모든 메서드 지원됨|  
 |System.Xml.XmlNodeType|모두|  
   
-##  <a name="a-namecontextvariablesa-context-variable"></a><a name="ContextVariables"></a> 컨텍스트 변수  
+##  <a name="ContextVariables"></a> 컨텍스트 변수  
  `context`라는 변수는 모든 정책 [식](api-management-policy-expressions.md#Syntax)에서 암시적으로 사용할 수 있습니다. 해당 멤버는 `\request`와 관련된 정보를 제공합니다. 모든 `context` 멤버는 읽기 전용입니다.  
   
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> 배포<br /><br /> LastError<br /><br /> 작업<br /><br /> 제품<br /><br /> 요청<br /><br /> 응답<br /><br /> 구독<br /><br /> Tracing: bool<br /><br /> 사용자<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> 배포<br /><br /> LastError<br /><br /> 작업<br /><br /> 제품<br /><br /> 요청<br /><br /> RequestId: string<br /><br /> 응답<br /><br /> 구독<br /><br /> Tracing: bool<br /><br /> 사용자<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|  
@@ -201,8 +202,4 @@ ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-
-
-<!--HONumber=Jan17_HO2-->
-
 

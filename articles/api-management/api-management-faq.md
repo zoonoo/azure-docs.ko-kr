@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
-ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
+ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
+ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
@@ -44,7 +45,7 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 * [GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇입니까?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [API Management는 Azure ExpressRoute와 함께 작동합니까?](#does-api-management-work-with-azure-expressroute)
 * [구독 간에 API Management 서비스를 이동할 수 있습니까?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [내 API를 가져오는 데 제한 사항 또는 알려진 문제가 있나요?](#api-management-api-import-restrictions)
+* [내 API를 가져오는 데 제한 사항 또는 알려진 문제가 있나요?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Microsoft Azure API Management 팀에게 어떻게 질문할 수 있습니까?
 다음 옵션 중 하나를 사용하여 문의할 수 있습니다.
@@ -62,7 +63,7 @@ API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호�
 * HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [API 설정 구성](api-management-howto-create-apis.md#configure-api-settings)을 참조하세요.
 * [Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](api-management-howto-mutual-certificates.md)에 설명된 대로 SSL 상호 인증을 사용할 수 있습니다.
 * 백 엔드 서비스에서 IP 허용 목록을 사용할 수 있습니다. 표준 또는 프리미엄 계층 API Management 인스턴스를 사용하는 경우 게이트웨이의 IP 주소가 일관성 있게 유지됩니다. 이 IP 주소를 허용하도록 허용 목록을 구성할 수 있습니다. Azure Portal의 대시보드에서 API Management 인스턴스의 IP 주소를 가져올 수 있습니다.
-* API Management 인스턴스를 Azure Virtual Network에 연결합니다. 자세한 내용은 [Azure API Management에서 VPN 연결을 설정하는 방법](api-management-howto-setup-vpn.md)을 참조하세요.
+* API Management 인스턴스를 Azure Virtual Network에 연결합니다. 
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
 API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
@@ -149,9 +150,4 @@ Git 자격 증명 관리자를 사용하는 경우 또는 Visual Studio를 사�
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>내 API를 가져오는 데 제한 사항 또는 알려진 문제가 있나요?
 Open API(Swagger), WSDL 및 WADL 형식에 대해 [알려진 문제 및 제한 사항](api-management-api-import-restrictions.md)입니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

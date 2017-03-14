@@ -1,23 +1,11 @@
 ---
-title: "MongoDB 앱에서 사용할 DocumentDB 계정 만들기 | Microsoft 문서"
-description: "이 자습서를 사용하면 MongoDB에 대한 프로토콜을 지원하는 DocumentDB 계정을 만드는 방법에 대해 알아볼 수 있습니다. 현재 미리 보기만 지원됩니다."
-keywords: "mongodb 앱, mongodb 앱"
-services: documentdb
-author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 413f3ae1-a68e-43be-b0d7-fa2987644f3e
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/24/2016
-ms.author: anhoh
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-create-account
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 9b83a0878f45bf3a79d00ad77965308d95f33d28
-ms.openlocfilehash: 797ee3b1209e5abf545f0614c408d94391a29c8b
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: dbd15e0d2b1bc3b5f559d19961e3c45b5079e1c4
+ms.lasthandoff: 03/08/2017
+
 
 
 ---
@@ -25,7 +13,7 @@ ms.openlocfilehash: 797ee3b1209e5abf545f0614c408d94391a29c8b
 # <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>MongoDB 앱에서 사용할 DocumentDB 계정 만들기
 이제 DocumentDB 데이터베이스는 MongoDB에 대해 작성된 앱의 데이터 저장소로 사용될 수 있습니다. 이 기능을 사용하려면 Azure 계정과 DocumentDB 계정이 필요합니다. 이 자습서에서는 MongoDB 앱에서 사용할 DocumentDB 계정을 만드는 과정을 안내합니다. 
 
-Azure Portal 또는 Azure Resource Manager 템플릿 포함 Azure CLI를 사용하는 MongoDB 계정에 대한 지원으로 DocumentDB 계정을 만들 수 있습니다. 이 문서에서는 Azure Portal을 사용하는 MongoDB 계정에 대한 지원으로 DocumentDB를 만드는 방법을 보여 줍니다. Azure Resource Manager 포함 Azure CLI를 사용하는 계정을 만들려면 [MongoDB 계정 만들기에 대한 지원으로 DocumentDB 자동화](documentdb-automation-resource-manager-cli.md#quick-create-documentdb-with-mongodb-api-account)를 참조하세요.
+Azure Portal 또는 Azure Resource Manager 템플릿 포함 Azure CLI를 사용하는 MongoDB 계정에 대한 지원으로 DocumentDB 계정을 만들 수 있습니다. 이 문서에서는 Azure Portal을 사용하는 MongoDB 계정에 대한 지원으로 DocumentDB를 만드는 방법을 보여 줍니다. Azure Resource Manager 포함 Azure CLI를 사용하는 계정을 만들려면 [Azure CLI 2.0을 사용하여 Azure DocumentDB 계정 관리 자동화](documentdb-automation-resource-manager-cli.md)를 참조하세요.
 
 ## <a name="prerequisite"></a>필수 요소
 Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -71,9 +59,4 @@ Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azu
 
 ## <a name="next-steps"></a>다음 단계
 * MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 [연결하는](documentdb-connect-mongodb-account.md) 방법을 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

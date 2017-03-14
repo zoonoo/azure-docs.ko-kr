@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
+ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
+ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -139,6 +140,9 @@ namespaceManager.CreateTopic(td);
 
 손실되어서는 안 되는 중요 정보가 포함된 메시지를 명시적 엔터티로 보낼 경우 발신기는 [ForcePersistence][ForcePersistence] 속성을 **true**로 설정하여 Service Bus가 메시지를 안정적 저장소에 즉시 기록하여 유지하도록 할 수 있습니다.
 
+> [!NOTE]
+> Express 엔터티는 트랜잭션을 지원하지 않습니다.
+
 ## <a name="use-of-partitioned-queues-or-topics"></a>분할된 큐 또는 토픽 사용
 Service Bus는 내부적으로 동일한 노드와 메시징 저장소를 사용하여 메시징 엔터티(큐 또는 토픽)에 대한 모든 메시지를 처리 및 저장할 수 있습니다. 반면 분할된 큐 또는 토픽은 여러 노드와 메시징 저장소에 분산됩니다. 분할된 큐와 토픽은 일반 큐 및 토픽보다 높은 처리량뿐만 아니라 뛰어난 가용성을 제공합니다. 분할된 엔터티를 만들려면 다음 예제와 같이 [EnablePartitioning][EnablePartitioning] 속성을 **true**로 설정합니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
@@ -256,9 +260,4 @@ Service Bus 성능 최적화에 대한 자세한 내용은 [분할된 메시징 
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
 [TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
-ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>응용 프로그램 프록시를 사용하는 Single Sign-On
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공
 Single Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니다. 다음 단계를 통해 최상의 사용자 환경을 제공합니다.
 
 1. 사용자가 클라우드에 로그인합니다.  
@@ -110,7 +112,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 ### <a name="delegated-login-identity"></a>위임된 로그인 ID
 위임된 로그인 ID를 사용하면 다른 두 개의 로그인 시나리오를 처리할 수 있습니다.
 
-* 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름 형식의 사용자 ID((username@domain))를 가져오는 비Windows 응용 프로그램
+* 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져오는(username@domain) 비 Windows 응용 프로그램.
 * Azure AD의 UPN과 온-프레미스 Active Directory의 UPN이 다른 대체 로그인 구성.
 
 응용 프로그램 프록시를 사용하여 Kerberos 티켓을 얻기 위해 어떤 ID를 사용할지 선택할 수 있습니다. 이 설정은 응용 프로그램별입니다. 이러한 옵션 중 일부는 전자 메일 주소 형식을 받아들이지 않는 시스템에 적합한 반면 다른 것들은 대체 로그인을 위해 설계되었습니다.
@@ -124,7 +126,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 
 이 기능을 사용하면 다른 온-프레미스 및 클라우드 ID가 있는 여러 조직이 사용자에게 다른 사용자 이름 및 암호를 입력하도록 하지 않고 클라우드에서 온-프레미스 앱으로 SSO를 갖게 할 수 있습니다. 이 작업은 다음의 조직을 포함합니다.
 
-* 내부적으로 여러 도메인((joe@us.contoso.com,, joe@eu.contoso.com)) 및 클라우드의 단일 도메인((joe@contoso.com))이 있습니다.
+* 내부적으로 여러 도메인(joe@us.contoso.com, joe@eu.contoso.com)과 클라우드에서 단일 도메인(joe@contoso.com)이 있습니다.
 * 내부적으로 라우팅이 가능하지 않은 도메인 이름(joe@contoso.usa)과 클라우드에서 법적 도메인이 있습니다.
 * 내부적으로 도메인 이름을 사용하지 마십시오(joe).
 * 온-프레미스 및 클라우드에서 다른 별칭을 사용합니다. 예: joe-johns@contoso.com 및 joej@contoso.com  
@@ -159,9 +161,4 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

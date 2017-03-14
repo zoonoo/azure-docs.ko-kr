@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 84c9ac92ec08d1e7c1a163c2990c4fe3e14bf9e5
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aebd94edbad210f15bce5b39ebf73269ec67a209
+ms.openlocfilehash: 3bcba1123d3ec00c760d022d200609bf28c22362
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -129,10 +129,10 @@ Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Azure로 복제할 때 어떤 유형의 저장소 계정이 필요합니까?
 * **Azure 클래식 포털**: Azure 클래식 포털에서 Site Recovery를 배포하는 경우 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 있어야 합니다. 프리미엄 저장소는 현재 지원되지 않습니다. 계정은 Site Recovery 자격 증명 모음과 동일한 지역에 있어야 합니다.
-* **Azure Portal**: Azure Portal에서 Site Recovery를 배포하는 경우 LRS 또는 GRS 저장소 계정이 있어야 합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. Premium Storage는 VMware VM 또는 물리적 서버를 복제하는 경우에만 지원됩니다.
+* **Azure Portal**: Azure Portal에서 Site Recovery를 배포하는 경우 LRS 또는 GRS 저장소 계정이 있어야 합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 프리미엄 저장소는 이제 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다.
 
 ### <a name="how-often-can-i-replicate-data"></a>데이터를 얼마나 자주 복제할 수 있나요?
-* **Hyper-V:** Hyper-V VM을 30초, 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
+* **Hyper-V:** Hyper-V VM은 30초(프리미엄 저장소 제외), 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
 * **VMware 및 물리적 서버:** 복제 빈도는 이와 관련이 없습니다. 복제가 계속 됩니다.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>기존 복구 사이트에서&3;차 사이트로 복제를 확장할 수 있습니까?
@@ -142,7 +142,7 @@ Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>특정 디스크를 복제에서 제외할 수 있습니까?
-이는 Azure Portal을 사용하여 [VMware VM 및 물리적 서버를 Azure에 복제](site-recovery-exclude-disk.md) 하는 경우에만 지원됩니다.
+이는 Azure Portal을 사용하여 Azure에 [VMware VM 및 Hyper-V VM을 복제](site-recovery-exclude-disk.md)하는 경우에만 지원됩니다.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>동적 디스크를 사용하여 가상 컴퓨터를 복제할 수 있습니까?
 동적 디스크는 Hyper-V 가상 컴퓨터를 복제할 때 지원됩니다. 또한 VMware VM 및 물리적 컴퓨터를 Azure에 복제할 때도 지원됩니다. 운영 체제 디스크는 기본 디스크여야 합니다.

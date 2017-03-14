@@ -12,22 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user"></a>사용자 암호 다시 설정
+# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 사용자 암호 다시 설정
 > [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-users-reset-password-azure-portal.md)
+> * [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-create-users-reset-password.md)
 >
 >
 
-잠금 이후 암호 재설정을 요청하는 사용자에게 응답하든 또는 일상적인 보안 유지 관리에만 참석하든, 사용자 암호를 다시 설정해야 할 때가 있습니다. Azure AD(Azure Active Directory)를 사용하면 방법이 아주 간단합니다.
+Azure AD(Azure Active Directory)는 사용자가 암호를 잊은 경우 또는 일상적인 보안 유지 관리를 수행하는 동안 사용자 암호를 다시 설정하는 프로세스를 간소화합니다. 
 
 1. 디렉터리를 엽니다.
 2. **사용자** 탭을 선택하고 변경하려는 사용자의 표시 이름을 선택합니다.
@@ -40,9 +42,4 @@ ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
 * [Azure AD 관리](active-directory-administer.md)
 * [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
 * [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

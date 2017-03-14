@@ -1,10 +1,10 @@
 ---
-title: "템플릿을 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Docs"
-description: "템플릿을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
+title: "네트워크 보안 그룹 만들기 - Azure Resource Manager 템플릿| Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: f3e7385d-717c-44ff-be20-f9aa450aa99b
@@ -15,20 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 627dba0f3a0a65ad75ef2799b7e5df56e9d8bfcb
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-create-nsgs-using-a-template"></a>템플릿을 사용하여 NSG를 만드는 방법
+# <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네트워크 보안 그룹 만들기
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md)수도 있습니다.
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 NSG를 만들](virtual-networks-create-nsg-classic-ps.md)수도 있습니다.
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -187,10 +190,5 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
    * **-l (or --location)**. 리소스 그룹이 생성되는 Azure 지역입니다.
    * **-f (or --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
    * **-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions에서 Send Grid를 사용하는 방법 | Microsoft Docs"
-description: "Azure Functions에서 Send Grid를 사용하는 방법을 보여 줍니다."
+title: "Azure Functions에서 SendGrid를 사용하는 방법 | Microsoft Docs"
+description: "Azure Functions에서 SendGrid를 사용하는 방법을 보여 줍니다."
 services: functions
 documentationcenter: na
 author: rachelappel
@@ -13,9 +13,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 10ed52a218e542465e834acec7b6d165b1a4e36e
-ms.openlocfilehash: 78ef4c29bc88e05857bbe9e2a223b23db0f5a9e9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: b95fcfa1ed4ea4cf1051f4920b9c05bb40a19cab
+ms.openlocfilehash: 05c9f4e4a4351219da68af8b702c25f21d7d4d02
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -41,7 +41,7 @@ Azure Function Appls는 하나 이상의 Azure Functions에 대한 컨테이너�
 
 ## <a name="configure-sendgrid-for-use-in-an-azure-function-app"></a>Azure Function 앱에서 사용할 SendGrid 구성
 
-함수에서 사용할 수 있게 SendGrid API 키를 앱 설정으로 저장해야 합니다. ApiKey 필드는 실제 SendGrid API 키가 아니지만 정의하는 앱 설정은 실제 API 키를 나타냅니다. 이러한 방식으로 키를 저장하면 소스 코드 제어에 체크 인될 수 있는 코드 또는 파일에서 분리되므로 보안에 도움이 됩니다.
+함수에서 사용할 수 있게 SendGrid API 키를 앱 설정으로 저장해야 합니다. ApiKey 필드는 실제 SendGrid API 키가 아니지만 정의하는 앱 설정은 실제 API 키를 나타냅니다. 이러한 방식으로 키를 저장하면 소스 코드 제어에 체크인될 수 있는 코드 또는 파일에서 분리되므로 보안에 도움이 됩니다.
 
 - 함수 앱의 **응용 프로그램 설정**에서 **AppSettings**를 만듭니다.
 

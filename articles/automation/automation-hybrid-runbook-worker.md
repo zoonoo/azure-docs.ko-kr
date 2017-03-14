@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 02/28/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 4b7912b48ef37eac3148582d1d635d8a4c4a4b44
-ms.openlocfilehash: 8ee5dfea961984bd01a24815b9d3c94f486a57d7
-
+ms.sourcegitcommit: ca145339ab14ef29851b53deca9be9ad137317c9
+ms.openlocfilehash: 77d3a4114b23114c0b4bf97a461cee2356d66a4a
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="azure-automation-hybrid-runbook-workers"></a>Azure 자동화 Hybrid Runbook Worker
+
+# <a name="automate-resources-in-your-data-center-with-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터의 리소스 자동화
 Azure 자동화의 Runbook은 Azure 클라우드에서 실행되므로 로컬 데이터 센터의 리소스에 액세스할 수 없습니다.  Azure 자동화의 Hybrid Runbook Worker 기능을 사용하면 데이터 센터에 있는 컴퓨터에서 Runbook을 실행하여 로컬 리소스를 관리할 수 있습니다. Runbook은 Azure 자동화에서 저장되고 관리된 다음 하나 이상의 온-프레미스 컴퓨터에 전달됩니다.  
 
 이 기능은 다음 이미지에 나와 있습니다.<br>  
@@ -34,7 +35,7 @@ Hybrid Runbook Worker를 지원하기 위한 인바운드 방화벽 요구 사�
 > [!NOTE]
 > DSC(필요한 상태 구성)로 Hybrid Runbook Worker 역할을 지원하는 서버의 구성을 관리하려면 이들을 DSC 노드로 추가해야 합니다.  DSC를 통한 관리를 위한 온보드에 대한 정보는 [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.           
 ><br>
->현재 [업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 사용하도록 설정하면 이 솔루션의 일부인 Runbook을 지원하기 위해 OMS 작업 영역에 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  그러나 해당 솔루션은 Automation 계정에서 만든 모든 Hybrid Worker 그룹에 등록되지 않고 Hybrid Worker 그룹에 추가하여 고유한 Runbook을 실행할 수 없습니다.  Windows 컴퓨터를 이미 Hybrid Runbook Worker로 지정하고 OMS 작업 영역에 연결한 경우 Runbook이 예상대로 작동하지 않는 것을 방지하기 위해 솔루션을 추가하기 전에 OMS 작업 영역에서 제거해야 합니다.  
+>[관리 솔루션 업데이트](../operations-management-suite/oms-solution-update-management.md)를 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 OMS 작업 영역에 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  그러나 자동화 계정에서 이미 정의한 모든 Hybrid Worker 그룹에 등록되지 않았습니다.  솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 컴퓨터를 추가할 수 있습니다.  이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.  
 
 
 ## <a name="hybrid-runbook-worker-groups"></a>Hybrid Runbook Worker 그룹
@@ -56,7 +57,7 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 * 작업이 완료되면 작업 데이터가 Azure 자동화로 다시 전송되므로 자동화 계정 지역이나 그와 가까운 위치에 있는 컴퓨터를 사용하는 것이 좋습니다.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>프록시 및 방화벽 설정 구성
-온-프레미스 Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS) 서비스에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  또한 [Microsoft Monitoring Agent를 OMS에 연결하는 데 포트 및 URL](../log-analytics/log-analytics-proxy-firewall.md#configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent)이 필요합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
+온-프레미스 Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS) 서비스에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  또한 [Microsoft Monitoring Agent를 OMS에 연결하는 데 포트 및 URL](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent)이 필요합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
 
 아래 정보는 Hybrid Runbook Worker에서 자동화와 통신하는 데 필요한 포트 및 URL을 나열합니다.
 
@@ -248,9 +249,4 @@ Runbook이 정상적으로 완료되지 않고 작업 요약이 **일시 중단*
 ## <a name="next-steps"></a>다음 단계
 * Runbook을 시작하는 데 사용할 수 있는 여러 가지 방법에 대해 자세히 알아보려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.  
 * 텍스트 편집기를 사용하여 Azure 자동화에서 PowerShell 및 PowerShell 워크플로 Runbook을 작업하기 위한 여러 절차를 알아보려면 [Azure 자동화에서 Runbook 편집](automation-edit-textual-runbook.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

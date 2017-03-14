@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
 ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -100,7 +101,7 @@ VM을 플랫폼에서 만든 가상 네트워크에 마이그레이션하려면,
 
 Resource Manager 배포 모델에서 기존 가상 네트워크로 마이그레이션하려면, 다음 명령을 사용합니다.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 준비 작업이 완료되면 자세한 정보 출력을 확인하여 VM의 마이그레이션 상태를 가져오고 `Prepared` 상태인지 확인할 수 있습니다.
 
@@ -159,10 +160,5 @@ CLI 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구
 ## <a name="next-steps"></a>다음 단계
 * [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)
 * [클래식에서 Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

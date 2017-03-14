@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics에서 SQL 평가 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs"
-description: "Azure Log Analytics에서 SQL 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다."
+title: "Azure Log Analytics를 사용하여 SQL Server 환경 최적화 | Microsoft Docs"
+description: "Azure Log Analytics에서 SQL 평가 솔루션을 사용하여 일정한 간격으로 SQL Server 환경의 위험 및 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: fc8b2d74737bc334d5c4f27782d4e0d46adbcb18
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Log Analytics에서 SQL 평가 솔루션을 사용하여 사용자 환경 최적화
+# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Log Analytics에서 SQL 평가 솔루션을 사용하여 사용자 SQL Server 환경 최적화
+
 SQL 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션 설치를 도와줍니다.
 
 이 솔루션은 배포된 서버 인프라 관련 우선순위가 지정된 권장 사항 목록을 제공합니다. 권장 사항은 신속하게 위험을 이해하고 수정 조치를 취할 수 있도록 여섯 가지 주요 영역으로 분류되어 있습니다.

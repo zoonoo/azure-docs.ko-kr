@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
-ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
+ms.openlocfilehash: e41620d3192dbb77a26b79663494e441ccd96d40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다.  허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
 | client_id |필수 |Azure AD에 등록할 때 앱에 할당된 응용 프로그램 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. **Azure Active Directory**를 클릭하고 **앱 등록**을 클릭하고 응용 프로그램을 선택하여 응용 프로그램 페이지에서 응용 프로그램 ID를 찾습니다. |
-| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `code`와 같은 다른 response_types을 포함할 수도 있습니다. |
+| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `code`와 같은 다른 response_types를 포함할 수도 있습니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다.  OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다.  동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
 | nonce |필수 |결과 `id_token`에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다.  그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다.  값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열 또는 GUID입니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다.  URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
@@ -169,9 +169,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri |권장 |성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다.  포함되지 않은 경우 사용자에게 일반 메시지를 표시합니다. |
 
 ## <a name="single-sign-out"></a>Single Sign-Out
-Azure AD는 쿠키를 사용하여 사용자의 세션을 식별합니다. 웹 응용 프로그램은 응용 프로그램 내에서 세션을 관리하는 쿠키를 설정하기도 있습니다. 사용자는 먼저 응용 프로그램에 로그인하는 경우 Azure AD는 사용자의 브라우저에서 쿠키를 설정합니다. 사용자가 나중에 다른 응용 프로그램에 로그인할 때, Azure AD는 사용자를 다시 인증하는 대신 사용자가 Azure AD 끝점이 있는 유효한 로그온 세션을 가지고 있는지 판단하기 위해 쿠키를 먼저 확인합니다.
-
-마찬가지로, 사용자가 먼저 응용 프로그램에서 로그아웃한 경우, Azure AD는 브라우저에서 쿠키를 지웁니다. 하지만 사용자는 인증을 위해 Azure AD를 사용하는 다른 응용 프로그램에 여전히 로그인되어 있을 수 있습니다. 사용자가 모든 응용 프로그램에서 로그아웃되도록 하기 위해 Azure AD는 현재 사용자가 로그인된 모든 응용 프로그램의 `LogoutUrl`로 HTTP GET 요청을 보냅니다. 응용 프로그램은 사용자의 세션을 식별하는 모든 쿠키를 지움으로써 이 요청에 응답해야 합니다. Azure Portal에서 `LogoutUrl`을 설정할 수 있습니다.
+사용자를 `end_session_endpoint`에 리디렉션하는 경우 Azure AD는 브라우저에서 사용자의 세션을 지웁니다. 하지만 사용자는 인증을 위해 Azure AD를 사용하는 다른 응용 프로그램에 여전히 로그인되어 있을 수 있습니다. 사용자를 동시에 로그아웃하도록 해당 응용 프로그램을 활성화하려면 Azure AD는 현재 사용자가 로그인된 모든 응용 프로그램의 등록된 `LogoutUrl`로 HTTP GET 요청을 보냅니다. 응용 프로그램은 사용자를 식별하는 모든 세션을 지우고 `200` 요청을 반환하여 이 요청에 응답해야 합니다.  응용 프로그램에서 단일 로그아웃을 지원하려는 경우 응용 프로그램 코드에서 해당 `LogoutUrl`을 구현해야 합니다.  Azure Portal에서 `LogoutUrl`을 설정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 페이지의 오른쪽 위 모서리에 있는 사용자 계정을 클릭하여 Active Directory를 선택합니다.
