@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
-ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
+ms.sourcegitcommit: c2c9d84bc6699f4487e82b117d27b19f66313018
+ms.openlocfilehash: cde63b21e4bac8f635ef9125101735a07deb1bc2
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -55,6 +56,8 @@ Azure Storage Blob 트리거를 통해 저장소 컨테이너에서 새롭고 �
 
 * `path`에 대해서는 [Name patterns](#pattern)를 참조하여 Blob 이름 패턴을 형성하는 방법에 대해 알아보세요.
 * `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+
+소비 계획을 실행할 때 함수 앱이 유휴 상태가 되는 경우 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 함수 앱이 실행되면 Blob이 더 신속하게 처리됩니다. 이 초기 지연을 방지하려면 Always On을 활성화하여 App Service 계획을 사용하거나 다른 메커니즘을 사용하여 Blob 이름을 포함하는 큐 메시지처럼 Blob 처리를 트리거합니다. 
 
 또한 자세한 내용은 다음 부제목 중 하나를 참조하세요.
 
@@ -287,7 +290,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="incsharp"></a>
 
-### <a name="input-usage-in-c"></a>C에서입력 사용# #
+### <a name="input-usage-in-c"></a>C에서 입력 사용# #
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
@@ -368,10 +371,5 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
