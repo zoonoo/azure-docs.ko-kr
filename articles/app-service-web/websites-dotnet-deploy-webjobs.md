@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
@@ -48,7 +48,7 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
 
 * [Azure SDK for .NET(Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
 
-## <a name="a-idconvertaenable-webjobs-deployment-for-an-existing-console-application-project"></a><a id="convert"></a>기존 콘솔 응용 프로그램 프로젝트에 WebJob 배포 사용
+## <a id="convert"></a>기존 콘솔 응용 프로그램 프로젝트에 WebJob 배포 사용
 다음 두 가지 옵션을 사용할 수 있습니다.
 
 * [웹 프로젝트를 사용하여 자동 배포 사용](#convertlink).
@@ -58,7 +58,7 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
   
     기존 콘솔 응용 프로그램 프로젝트가 웹 프로젝트에 연결되지 않고 WebJob 자체로 배포되도록 구성합니다. 웹 앱에서 웹 응용 프로그램은 실행하지 않고 WebJob만 실행하려는 경우에 이 옵션을 사용합니다. 웹 응용 프로그램 리소스와는 별도로 WebJob 리소스를 확장하기 위해서도 이러한 방식을 원할 수 있습니다.
 
-### <a name="a-idconvertlinka-enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> 웹 프로젝트와 함께 자동 WebJob 배포 사용
+### <a id="convertlink"></a> 웹 프로젝트와 함께 자동 WebJob 배포 사용
 1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Existing Project as Azure WebJob(기존 프로젝트를 Azure WebJob으로)**을 클릭합니다.
    
     ![Existing Project as Azure WebJob(기존 프로젝트를 Azure WebJob으로)](./media/websites-dotnet-deploy-webjobs/eawj.png)
@@ -69,7 +69,7 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
     ![Add Azure WebJob(Azure WebJob 추가) 대화 상자에서 프로젝트 선택](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 3. [Add Azure WebJob(Azure WebJob 추가)](#configure) 대화 상자를 완료하고 **확인**을 클릭합니다. 
 
-### <a name="a-idconvertnolinka-enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> 웹 프로젝트를 제외한 WebJob 배포 사용
+### <a id="convertnolink"></a> 웹 프로젝트를 제외한 WebJob 배포 사용
 1. **솔루션 탐색기**에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Publish as Azure WebJob(Azure WebJob으로 게시)**을 클릭합니다. 
    
     ![Publish as Azure WebJob(Azure WebJob으로 게시)](./media/websites-dotnet-deploy-webjobs/paw.png)
@@ -79,7 +79,7 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
    
    **웹 게시** 마법사가 나타납니다.  바로 게시하지 않으려면 마법사를 닫습니다. 입력한 설정은 [프로젝트를 배포](#deploy)할 때 사용할 수 있게 저장됩니다.
 
-## <a name="a-idcreateacreate-a-new-webjobs-enabled-project"></a><a id="create"></a>새 WebJob 지원 프로젝트 만들기
+## <a id="create"></a>새 WebJob 지원 프로젝트 만들기
 새 WebJob 지원 프로젝트를 만들려면 [이전 섹션](#convert)에 설명된 대로 콘솔 응용 프로그램 프로젝트 템플릿을 사용하고 WebJob 배포를 사용하도록 설정할 수 있습니다. 또는 WebJob new-project 템플릿을 사용할 수도 있습니다.
 
 * [독립 WebJob을 위해 WebJob new-project 템플릿 사용](#createnolink)
@@ -94,13 +94,13 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
 > 
 > 
 
-### <a name="a-idcreatenolinka-use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
+### <a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
 1. **파일** > **새 프로젝트**를 클릭한 후 **새 프로젝트** 대화 상자에서 **클라우드** > **Microsoft Azure WebJob**을 클릭합니다.
    
     ![WebJob 템플릿을 표시하는 새 프로젝트 대화 상자](./media/websites-dotnet-deploy-webjobs/np.png)
 2. 앞에 표시된 지침에 따라 [콘솔 응용 프로그램 프로젝트를 독립 WebJob 프로젝트로 만듭니다](#convertnolink).
 
-### <a name="a-idcreatelinka-use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> 웹 프로젝트에 연결된 WebJob을 위해 WebJob new-project 템플릿 사용
+### <a id="createlink"></a> 웹 프로젝트에 연결된 WebJob을 위해 WebJob new-project 템플릿 사용
 1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **New Azure WebJob Project(새 Azure WebJob 프로젝트)**를 클릭합니다.
    
     ![New Azure WebJob Project(새 Azure WebJob 프로젝트) 메뉴 항목](./media/websites-dotnet-deploy-webjobs/nawj.png)
@@ -108,7 +108,7 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
     [Add Azure WebJob(Azure WebJob 추가)](#configure) 대화 상자가 나타납니다.
 2. [Add Azure WebJob(Azure WebJob 추가)](#configure) 대화 상자를 완료하고 **확인**을 클릭합니다.
 
-## <a name="a-idconfigureathe-add-azure-webjob-dialog"></a><a id="configure"></a>Azure WebJob 추가 대화 상자
+## <a id="configure"></a>Azure WebJob 추가 대화 상자
 **Add Azure WebJob(Azure WebJob 추가)** 대화 상자에서 WebJob 이름과 WebJob에 대한 일정 설정을 입력할 수 있습니다. 
 
 ![Add Azure WebJob(Azure WebJob 추가) 대화 상자](./media/websites-dotnet-deploy-webjobs/aaw2.png)
@@ -128,7 +128,7 @@ WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015�
 > 
 > 
 
-## <a name="a-idpublishsettingsawebjob-publish-settingsjson"></a><a id="publishsettings"></a>webjob-publish-settings.json
+## <a id="publishsettings"></a>webjob-publish-settings.json
 WebJob 배포를 위해 콘솔 응용 프로그램을 구성하는 경우, Visual Studio는 [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet 패키지를 설치하고 WebJob 프로젝트의 프로젝트 *Properties* 폴더에 있는 *webjob-publish-settings.json* 파일에 일정 정보를 저장합니다. 다음은 이 파일의 예입니다.
 
         {
@@ -148,7 +148,7 @@ WebJob 배포를 위해 콘솔 응용 프로그램을 구성하는 경우, Visua
 > 
 > 
 
-## <a name="a-idwebjobslistawebjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
+## <a id="webjobslist"></a>webjobs-list.json
 WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 WebJob 프로젝트의 이름을 웹 프로젝트의 *Properties* 폴더에 있는 *webjobs-list.json* 파일에 저장합니다. 이 목록에는 다음 예와 같이 여러 WebJob 프로젝트가 포함될 수 있습니다.
 
         {
@@ -165,7 +165,7 @@ WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 
 
 이 파일을 직접 편집할 수도 있고 Visual Studio에 제공되는 IntelliSense를 사용할 수도 있습니다. 파일 스키마는 [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) 에 저장되며 이 위치에서 볼 수 있습니다.
 
-## <a name="a-iddeployadeploy-a-webjobs-project"></a><a id="deploy"></a>WebJob 프로젝트 배포
+## <a id="deploy"></a>WebJob 프로젝트 배포
 웹 프로젝트에 연결한 WebJob 프로젝트는 웹 프로젝트와 함께 자동으로 배포됩니다. 웹 프로젝트 배포에 대한 자세한 내용은 [웹 앱에 배포하는 방법](web-sites-deploy.md)을 참조하세요.
 
 WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Publish as Azure WebJob(Azure WebJob으로 게시)**을 클릭합니다. 
@@ -174,7 +174,7 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 
 독립 WebJob의 경우 웹 프로젝트에 사용되는 것과 동일한 **웹 게시** 마법사가 나타나지만 변경할 수 있는 설정은 더 적습니다.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 이 문서는 Visual Studio를 사용하여 WebJobs를 배포하는 방법을 설명했습니다. Azure WebJobs를 배포하는 방법은 [Azure WebJobs - 권장 리소스 - 배포](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying)를 참조하세요.
 
 

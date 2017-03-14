@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
 ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
@@ -31,7 +31,7 @@ Visual Studio의 통합 도구를 사용하면 WebJob을 원활하게 만들고,
 
 Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하는 기능을 비롯하여 WebJob의 실행을 완전히 제어할 수 있는 강력한 관리 기능을 제공합니다. 또한 대시보드에는 런타임 함수 및 로깅 출력도 표시됩니다. 
 
-## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>WebJobs 및 WebJobs SDK 시작
+## <a name="getstarted"></a>WebJobs 및 WebJobs SDK 시작
 * [Azure WebJobs 소개](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [놀라운 기능의 Azure WebJobs를 지금 바로 사용해 보세요!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) Troy Hunt의 블로그 게시물입니다.
 * [Azure WebJobs 기능](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
@@ -54,7 +54,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 
 [WebJobs 배포](#deploy) 및 [WebJobs 테스트 및 디버깅](#debug)에 대한 다음 섹션도 참조하세요.
 
-## <a name="a-namedeployadeploying-webjobs"></a><a name="deploy"></a>WebJobs 배포
+## <a name="deploy"></a>WebJobs 배포
 * [Visual Studio를 사용하여 Azure WebJobs를 배포하는 방법](websites-dotnet-deploy-webjobs.md)
 * [Azure 포털을 사용하여 WebJobs를 배포하는 방법](web-sites-create-web-jobs.md)
 * [Azure WebJobs의 명령줄 또는 연속 배달 사용](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
@@ -65,14 +65,14 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
   * [WebJobs Tooling for Visual Studio 소개](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
   * [WebJobs Tooling 및 원격 디버깅](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescheduleascheduling-webjobs"></a><a name="schedule"></a>WebJobs 예약
+## <a name="schedule"></a>WebJobs 예약
 * [Azure WebJob 추가 대화 상자](websites-dotnet-deploy-webjobs.md#configure)
 * [Azure 포털에서 예약된 WebJob 만들기](web-sites-create-web-jobs.md#CreateScheduled)
 * [스케줄러 작업을 WebJob에 연결](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [cron 식을 사용하여 Azure WebJob 예약](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [WebJobs SDK TimerTrigger를 사용하여 개별 WebJob 기능 예약](websites-dotnet-webjobs-sdk.md#schedule)
 
-## <a name="a-namedebugatesting-and-debugging-webjobs"></a><a name="debug"></a>WebJob 테스트 및 디버깅
+## <a name="debug"></a>WebJob 테스트 및 디버깅
 * [Visual Studio의 Azure WebJobs에 대한 새로운 개발자 및 디버깅 기능](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
 * [WebJobs 대시보드 보기](websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [WebJobs SDK를 사용하여 로그를 작성하고 대시보드에서 보는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
@@ -84,13 +84,13 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * 비디오
   * [WebJobs Tooling 및 원격 디버깅](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescaleascaling-webjobs"></a><a name="scale"></a>WebJobs 크기 조정
+## <a name="scale"></a>WebJobs 크기 조정
 * [Azure 웹 사이트로 웹 응용 프로그램 크기 조정](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * [Azure 앱 서비스: 대규모 업무용 웹앱 보관](https://channel9.msdn.com/Events/Build/2014/3-626). WebJobs SDK를 비롯하여 WebJob을 사용한 웹앱 확장을 다룹니다.
 * 비디오
   * [WebJobs 크기 조정](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 
-## <a name="a-nameadditionalaadditional-webjobs-resources"></a><a name="additional"></a>추가 WebJobs 리소스
+## <a name="additional"></a>추가 WebJobs 리소스
 * [Magnus Mårtensson의 Azure WebJobs GA 블로그 게시물](http://magnusmartensson.com/azure-webjobs-ga)
 * [Azure 앱 서비스에서 Powershell 웹 작업 실행](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Azure에서 트리거한 WebJobs 완료 시 알림 받기](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
@@ -102,7 +102,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
   * [Magnus Mårtensson의 Azure WebJobs 비디오](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
   * [Channel 9의 Azure WebJobs 비디오 시리즈](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-nameadditionalsdkaadditional-webjobs-sdk-resources"></a><a name="additionalsdk"></a>추가 WebJobs SDK 리소스
+## <a name="additionalsdk"></a>추가 WebJobs SDK 리소스
 * [WebJobs SDK 릴리스 정보](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
 * [WebJobs SDK 소스 코드](https://github.com/Azure/azure-webjobs-sdk)
 * [WebJobs SDK 확장 소스 코드](https://github.com/Azure/azure-webjobs-sdk-extensions) 및 [확장성 모델에 대한 자세한 가이드](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)  
@@ -114,17 +114,17 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * 비디오
   * [Channel 9의 Azure WebJobs 비디오 시리즈](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-namesamplesasample-webjob-applications"></a><a name="samples"></a>WebJob 응용 프로그램 예제
+## <a name="samples"></a>WebJob 응용 프로그램 예제
 * [GitHub에 WebJobs 팀이 제공하는 응용 프로그램 예제](https://github.com/azure/azure-webjobs-sdk-samples)
 * [WebJobs SDK를 사용한 WebJobs 백 엔드의 간단한 Azure 웹앱](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)
 * [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). 예약된 WebJob 및 이벤트 기반 WebJob의 사용 방식을 보여 줍니다. 블로그 게시물 [Azure WebJobs SDK를 사용하여 SiteMonitR 재구축](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs)을 참조하세요.
 
-## <a name="a-nameblogsablogs"></a><a name="blogs"></a>블로그
+## <a name="blogs"></a>블로그
 * [Azure 블로그](/blog)
 * [Amit Apple의 블로그](http://blog.amitapple.com/). SDK가 아닌 WebJob에 중점을 둡니다.
 * [Magnus Mårtensson의 블로그](http://magnusmartensson.com/)
 
-## <a name="a-namegethelpagetting-help-with-webjobs"></a><a name="gethelp"></a>WebJobs 관련 도움말 보기
+## <a name="gethelp"></a>WebJobs 관련 도움말 보기
 * [WebJobs의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [WebJobs SDK의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Azure Functions의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-functions)

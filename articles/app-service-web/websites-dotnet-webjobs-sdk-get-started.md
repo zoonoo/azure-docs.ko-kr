@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/20/2017
 
 이 샘플 응용 프로그램은 [Azure 큐](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 및 [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)과 함께 작동합니다. 이 자습서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 및 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)에 응용 프로그램을 배포하는 방법을 보여줍니다.
 
-## <a name="a-idprerequisitesaprerequisites"></a><a id="prerequisites"></a>필수 조건
+## <a id="prerequisites"></a>필수 조건
 이 자습서에서는 Visual Studio에서 [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다.
 
 이 자습서는 Visual Studio 2013용으로 작성되었습니다. Visual Studio가 없는 경우 Azure SDK for .NET을 설치할 때 자동으로 설치됩니다.
@@ -49,7 +49,7 @@ Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로�
 >
 >
 
-## <a name="a-idlearnawhat-youll-learn"></a><a id="learn"></a>학습할 내용
+## <a id="learn"></a>학습할 내용
 이 자습서에서는 다음 작업의 수행 방법을 보여 줍니다.
 
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발합니다.
@@ -59,7 +59,7 @@ Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로�
 * 파일을 업로드하고 Azure Blob 서비스에 저장합니다.
 * Azure WebJob SDK를 사용하여 Azure 저장소 큐 및 Blob로 작업합니다.
 
-## <a name="a-idcontosoadsaapplication-architecture"></a><a id="contosoads"></a>응용 프로그램 아키텍처
+## <a id="contosoads"></a>응용 프로그램 아키텍처
 이 샘플 응용 프로그램에서는 [큐 중심 작업 패턴](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
 
 앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 미리 보기용으로 두 개의 URL을 저장합니다.
@@ -74,7 +74,7 @@ Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로�
 
 자습서 지침은 2.7.1.NET 이후에 Azure SDK를 적용합니다.
 
-## <a name="a-idstorageacreate-an-azure-storage-account"></a><a id="storage"></a>Azure 저장소 계정 만들기
+## <a id="storage"></a>Azure 저장소 계정 만들기
 Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 위한 리소스를 제공합니다. WebJob SDK에서 대시보드에 대한 로깅 데이터를 저장하기 위해서도 사용됩니다.
 
 실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 한 계정만 사용합니다.
@@ -100,7 +100,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
     ![새 저장소 계정](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
-## <a name="a-iddownloadadownload-the-application"></a><a id="download"></a>응용 프로그램 다운로드
+## <a id="download"></a>응용 프로그램 다운로드
 1. [완료된 솔루션](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)을 다운로드하고 압축 해제합니다.
 2. Visual Studio를 시작합니다.
 3. **파일** 메뉴에서 **열기 > 프로젝트/솔루션**을 선택하고 솔루션을 다운로드한 위치로 이동한 후 솔루션 파일을 엽니다.
@@ -109,7 +109,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     기본적으로 Visual Studio는 *.zip* 파일에 포함되지 않은 NuGet 패키지 콘텐츠를 자동으로 복원합니다. 패키지가 복원되지 않는 경우 **솔루션의 NuGet 패키지 관리** 대화 상자로 이동하고 오른쪽 위에서 **복원** 단추를 클릭하여 수동으로 설치합니다.
 5. **솔루션 탐색기**에서 시작 프로젝트로 **ContosoAdsWeb**이 선택되었는지 확인합니다.
 
-## <a name="a-idconfigurestorageaconfigure-the-application-to-use-your-storage-account"></a><a id="configurestorage"></a>저장소 계정을 사용하도록 응용 프로그램 구성
+## <a id="configurestorage"></a>저장소 계정을 사용하도록 응용 프로그램 구성
 1. ContosoAdsWeb 프로젝트에서 응용 프로그램 *Web.config* 파일을 엽니다.
 
     이 파일에는 Blob 및 큐 사용을 위한 SQL 연결 문자열과 Azure 저장소 연결 문자열이 포함되어 있습니다.
@@ -153,7 +153,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 7. 저장소 연결 문자열을 둘 다 앞에서 복사한 연결 문자열로 바꿉니다.
 8. 변경 내용을 저장합니다.
 
-## <a name="a-idrunarun-the-application-locally"></a><a id="run"></a>로컬에서 응용 프로그램 실행
+## <a id="run"></a>로컬에서 응용 프로그램 실행
 1. 응용 프로그램의 웹 프런트 엔드를 시작하려면 Ctrl+F5를 누릅니다.
 
     기본 브라우저는 홈 페이지로 열립니다. (웹 프로젝트를 시작 프로젝트로 만들었으므로 자동으로 실행됩니다.)
@@ -183,7 +183,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 로컬 컴퓨터에서 응용 프로그램을 실행하고 있으며, 해당 응용 프로그램은 컴퓨터에 있는 SQL Server 데이터베이스를 사용하고 있지만 클라우드의 큐 및 Blob을 사용하고 있습니다. 다음 섹션에서는 클라우드 데이터베이스와 클라우드 Blob 및 큐를 사용하여 클라우드에서 응용 프로그램을 실행합니다.  
 
-## <a name="a-idrunincloudarun-the-application-in-the-cloud"></a><a id="runincloud"></a>클라우드에서 응용 프로그램 실행
+## <a id="runincloud"></a>클라우드에서 응용 프로그램 실행
 클라우드에서 응용 프로그램을 실행하려면 다음 단계를 수행합니다.
 
 * 웹앱에 배포합니다. Visual Studio는 앱 서비스의 새 웹앱 및 SQL 데이터베이스 인스턴스를 자동으로 만듭니다.
@@ -308,7 +308,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 >
 >
 
-## <a name="a-idcreateacreate-the-application-from-scratch"></a><a id="create"></a>처음부터 응용 프로그램 만들기
+## <a id="create"></a>처음부터 응용 프로그램 만들기
 이 섹션에서는 다음 작업을 수행합니다.
 
 * 웹 프로젝트를 사용하여 Visual Studio 솔루션을 만듭니다.
@@ -407,7 +407,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 
 이제 자습서의 앞부분에 설명된 대로 응용 프로그램을 빌드, 실행 및 배포할 수 있습니다. 이 작업을 수행하기 전에 배포한 첫 번째 웹앱에서 여전히 실행되고 있는 WebJob을 중지합니다. 그렇지 않으면 모두가 동일한 저장소 계정을 사용하고 있으므로 해당 WebJob이 로컬로 만들어졌거나 새 웹앱에서 실행되고 있는 앱에 의해 만들어진 큐 메시지를 처리하게 됩니다.
 
-## <a name="a-idcodeareview-the-application-code"></a><a id="code"></a>응용 프로그램 코드 검토
+## <a id="code"></a>응용 프로그램 코드 검토
 다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob와 큐 작업과 관련된 코드에 대해 설명합니다.
 
 > [!NOTE]
@@ -636,7 +636,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
         <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
-### <a name="a-idprogramcsacontosoadswebjob---programcs"></a><a id="programcs"></a>ContosoAdsWebJob - Program.cs
+### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 WebJob이 시작되면 `Main` 메서드가 WebJob SDK `JobHost.RunAndBlock` 메서드를 호출하여 현재 스레드에서 트리거한 함수의 실행을 시작합니다.
 
         static void Main(string[] args)
@@ -645,7 +645,7 @@ WebJob이 시작되면 `Main` 메서드가 WebJob SDK `JobHost.RunAndBlock` 메�
             host.RunAndBlock();
         }
 
-### <a name="a-idgeneratethumbnailacontosoadswebjob---functionscs---generatethumbnail-method"></a><a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail 메서드
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail 메서드
 WebJob SDK는 큐 메시지가 수신될 때 이 메서드를 호출합니다. 이 메서드는 미리 보기를 만든 후 데이터베이스에 미리 보기 URL을 추가합니다.
 
         public static void GenerateThumbnail(
