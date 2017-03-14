@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
-ms.openlocfilehash: 350ba23dbc0e8557f9609f7fb3a15169d26c9b4a
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: de48da2c77c65f3e806474ae37ffd00772622b02
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -29,8 +29,7 @@ ms.lasthandoff: 02/23/2017
 
 포털에서 규칙은 유효, 서브넷, 네트워크 인터페이스 및 기본으로 나뉩니다. 가상 컴퓨터에 적용되는 규칙에 대한 간단한 보기를 제공합니다. CSV 파일에 있는 탭에 관계 없이 모든 보안 규칙을 쉽게 다운로드하는 다운로드 단추가 제공됩니다.
 
-> [!NOTE]
-> Network Watcher는 현재 미리 보기에서 제공됩니다. Network Watcher의 기능을 사용하려면 [기능을 등록해야 합니다](network-watcher-create.md#register-the-preview-capability).
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![보안 그룹 보기][1]
 

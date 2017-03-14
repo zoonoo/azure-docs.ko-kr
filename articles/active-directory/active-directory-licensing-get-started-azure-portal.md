@@ -1,6 +1,6 @@
 ---
 
-title: "Azure Portal에서 Azure Active Directory 라이선스 시작 | Microsoft Docs"
+title: "Azure Active Directory 미리 보기에서 라이선스 시작 | Microsoft Docs"
 description: "Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여 Azure Active Directory 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
 services: active-directory
 keywords: "Azure AD 라이선스"
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dbe9072cd561f550883cd514a6d25381d095ba8
-ms.openlocfilehash: 648b1d51a5e414e67bda475dcef1419ee1692868
+ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
+ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="get-started-with-azure-active-directory-licensing-in-the-azure-portal"></a>Azure Portal에서 Azure Active Directory 라이선스 시작
+# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 사용자 본인 및 사용자의 사용자 라이선스
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
@@ -152,9 +154,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 * [응용 프로그램에 그룹 할당](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
