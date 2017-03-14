@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 82abd4724200d71da9ad577a0b0a37b2e8db3481
-ms.openlocfilehash: 4e96a48080ff299172a5f50960dda92dee145ce4
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: faffd356191b7cca124f0a2cd147837078e4150f
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,13 +31,6 @@ ms.lasthandoff: 02/24/2017
 Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도록 별도의 관리자를 지정할 수 있습니다. 이러한 관리자는 역할에 따라 Azure 포털 또는 Azure 클래식 포털의 다양한 기능에 액세스할 수 있게 되며 사용자 만들기나 편집, 다른 사람에게 관리 역할 할당, 사용자 암호 다시 설정, 사용자 라이선스 관리, 도메인 관리 등을 수행할 수 있습니다. 관리자 역할이 할당되는 사용자는 Office 365 포털 또는 Azure 클래식 포털이나 Windows PowerShell용 Azure AD 모듈을 사용하여 이 역할을 할당하는지 여부에 상관없이 조직이 구독하는 모든 클라우드 서비스에서 동일한 권한을 가집니다.
 
 다음과 같은 관리자 역할을 사용할 수 있습니다.
-
-
-- **응용 프로그램 관리자**: 이 역할의 사용자는 모든 응용 프로그램을 만들고 관리하고, 라이선스 할당을 관리하고, 서비스 상태를 모니터링하고, 서비스 요청을 관리할 수 있습니다.
-
-- **응용 프로그램 개발자**: 이 역할의 사용자는 응용 프로그램을 만들 수 있습니다. 이 역할은 **UsersPermissionToCreateLOBAppsEnabled** 플래그(모든 사용자가 응용 프로그램을 만들 수 있도록 허용)가 false로 설정된 경우 일부 사용자만 응용 프로그램을 만들 수 있도록 허용하는 데 사용됩니다.
-
-- **응용 프로그램 프록시 서비스 관리자**: 이 역할의 사용자는 Azure AD에서 응용 프로그램 프록시 서비스의 모든 측면을 관리할 수 있는 권한이 있습니다.
 
 * **대금 청구 관리자**: 구입하고, 구독을 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링합니다.
 
