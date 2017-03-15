@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics에서 Active Directory 복제 상태 솔루션 | Microsoft Docs"
+title: "Azure Log Analytics를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs"
 description: "Active Directory 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
-ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="active-directory-replication-status-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 복제 상태 솔루션
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics를 사용하여 Active Directory 복제 상태 모니터링
+
 Active Directory는 엔터프라이즈 IT 환경의 핵심 구성 요소입니다. 고가용성 및 고성능을 보장하기 위해 각 도메인 컨트롤러에 Active Directory 데이터베이스의 자체 복사본이 있습니다. 도메인 컨트롤러는 변경 내용을 엔터프라이즈 전체에 전파하기 위해 서로 복제합니다. 이 복제 프로세스의 오류는 엔터프라이즈에서 다양한 문제를 발생시킬 수 있습니다.
 
 AD 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다.
@@ -150,9 +153,4 @@ OMS 또는 SCOM에 도메인 컨트롤러를 직접 연결하지 않으려면 [A
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

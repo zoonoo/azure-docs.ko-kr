@@ -7,7 +7,7 @@ author: wesmc7777
 manager: erikre
 editor: 
 tags: 
-keywords: "Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
+keywords: "Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"
 ms.assetid: a60263aa-3de9-4e1b-a2bb-0b52e70d559b
 ms.service: functions
 ms.devlang: multiple
@@ -15,14 +15,16 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/20/2016
-ms.author: wesmc
+ms.author: wesmc, glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 29fa4620885ec787f362966f732510fded600d53
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-twilio-output-binding"></a>Azure Functions Twilio 출력 바인딩
+# <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Twilio 출력 바인딩을 사용하여 Azure Functions에서 SMS 메시지 전송
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions와 함께 Twilio 바인딩을 구성하고 사용하는 방법을 설명합니다. 
@@ -31,7 +33,7 @@ ms.openlocfilehash: 29fa4620885ec787f362966f732510fded600d53
 
 Azure Functions는 함수에서 몇 줄의 코드와 [Twilio](https://www.twilio.com/) 계정으로 SMS 텍스트 메시지를 보낼 수 있도록 Twilio 출력 바인딩을 지원합니다. 
 
-## <a name="functionjson-for-azure-notification-hub-output-binding"></a>Azure 알림 허브 출력 바인딩에 대한 function.json
+## <a name="functionjson-for-the-twilio-output-binding"></a>Twilio 출력 바인딩에 대한 function.json
 function.json 파일은 다음 속성을 제공합니다.
 
 * `name` : Twilio SMS 텍스트 메시지에 대한 함수 코드에 사용되는 변수 이름입니다.
@@ -155,10 +157,5 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

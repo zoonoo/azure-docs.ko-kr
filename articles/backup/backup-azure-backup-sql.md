@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>DPM을 사용한 SQL Server 워크로드에 대한 Azure 백업
+# <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
 이 문서는 Azure Backup을 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
 
 SQL Server 데이터베이스를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -51,7 +52,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     ![데이터 보호 방법 - 단기 디스크 및 온라인 Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. **단기 목표 지정** 화면에서 필요한 입력을 포함하여 디스크에 백업 지점을 만듭니다.
 
-    여기서 **보존 범위**가 *5일*, **동기화 빈도**가 백업이 수행되는 빈도인 *15분*마다 한 번으로 설정된 것을 확인합니다. **빠른 전체 백업** 을 *오후 8시*로 설정합니다.
+    여기서 **보존 범위**가 *5일*, **동기화 빈도**가 백업이 수행되는 빈도인 *15분*마다 한 번으로 설정된 것을 확인합니다. **빠른 전체 백업** 을 *오후&8;시*로 설정합니다.
 
     ![단기 목표](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -60,7 +61,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
    >
    >
 
-8.  **다음**
+8. **다음**
 
     DPM에서는 사용 가능한 전체 저장소 공간 및 잠재적인 디스크 공간 사용률을 보여줍니다.
 
@@ -157,10 +158,5 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
     복구가 완료되면 복원된 데이터베이스는 응용 프로그램과 일치합니다.
 
 ### <a name="next-steps"></a>다음 단계:
-•   [Azure 백업 - FAQ](backup-azure-backup-faq.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+•   [Azure Backup FAQ](backup-azure-backup-faq.md)
 

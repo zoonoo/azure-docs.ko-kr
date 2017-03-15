@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
+ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [고객 소유의 보조 사이트에 복제](site-recovery-support-matrix-to-sec-site.md)
 
 
-이 문서에서는 Azure로 복제 및 복구할 때 Azure Site Recovery에 대해 지원되는 구성 및 구성 요소를 요약하여 설명합니다. Azure Site Recovery의 필수 구성 요소에 대한 자세한 내용은 [Site Recovery 모범 사례](site-recovery-best-practices.md)를 참조하세요.
+이 문서에서는 Azure로 복제 및 복구할 때 Azure Site Recovery에 대해 지원되는 구성 및 구성 요소를 요약하여 설명합니다. Azure Site Recovery 요구 사항에 대한 자세한 내용은 [필수 구성 요소](site-recovery-prereq.md)를 참조하세요.
 
 
 ## <a name="support-for-deployment-options"></a>배포 옵션에 대한 지원
@@ -64,7 +65,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
 
-Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 충족해야 합니다.
+Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
 다음은 Azure Site Recovery를 사용하는 경우 다양한 배포 시나리오에서 지원되는 복제된 운영 체제를 요약한 테이블입니다. 이 지원은 언급된 OS에서 실행되는 모든 워크로드에 적용됩니다.
 
  **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
@@ -147,7 +148,7 @@ RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음 | �
 
 **Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
 --- | --- | --- | ---
-LRS | 예 | 예 | 예 
+LRS | 예 | 예 | 예
 GRS | 예 | 예 | 예
 쿨 저장소 | 아니요 | 아니요 | 아니요
 핫 저장소| 아니요 | 아니요 | 아니요
@@ -206,10 +207,5 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 
 
 ## <a name="next-steps"></a>다음 단계
-[배포 준비](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[필수 구성 요소 확인](site-recovery-prereq.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure 자동화 webhook | Microsoft Docs"
+title: "웹후크를 사용하여 Azure Automation Runbook 시작 | Microsoft Docs"
 description: "클라이언트가 Azure 자동화에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다.  이 문서는 webhook를 만드는 방법 및 webhook를 호출하여 runbook을 시작하는 방법에 대해 설명합니다."
 services: automation
 documentationcenter: 
@@ -12,28 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 155d89ed6aed0afd2780a017c221bd807ca61ba2
+ms.sourcegitcommit: deb32f98bbfc0032ffbdcf168a2b4c42f1c4ae76
+ms.openlocfilehash: 4cf402877d5ddee8f4944a104163a55025013cc0
+ms.lasthandoff: 02/23/2017
 
 
 ---
-# <a name="azure-automation-webhooks"></a>Azure 자동화 Webhook
-*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
+# <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
+*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub, Microsoft Operations Management Suite Log Analytics 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
- [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
+[Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 
 ## <a name="details-of-a-webhook"></a>Webhook의 세부 정보
 다음 표에서는 Webhook에 대해 구성해야 하는 속성을 설명합니다.
 
 | 속성 | 설명 |
 |:--- |:--- |
-| 이름 |클라이언트에 노출되지 않으므로 원하는 Webhook 이름을 제공할 수 있습니다.  Azure 자동화에서 사용자가 runbook을 식별하는 용도로만 사용됩니다. <br>   가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
-| URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다.  webhook를 만들 때 자동으로 생성됩니다.  사용자 지정 URL은 지정할 수 없습니다. <br> <br>   URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다.  보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 두어야 합니다. |
-| 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다.  이 만료 날짜는 webhook가 생성된 후에는 변경할 수 없으며, 만료 날짜에 도달한 후에는 webhook를 다시 사용할 수도 없습니다.  이 경우 다른 webhook를 만들어 현재 webhook를 바꾸고 새 webhook를 사용하도록 클라이언트를 업데이트해야 합니다. |
+| 이름 |클라이언트에 노출되지 않으므로 원하는 Webhook 이름을 제공할 수 있습니다.  Azure 자동화에서 사용자가 runbook을 식별하는 용도로만 사용됩니다. <br>  가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
+| URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다.  webhook를 만들 때 자동으로 생성됩니다.  사용자 지정 URL은 지정할 수 없습니다. <br> <br>  URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다.  보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 두어야 합니다. |
+| 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다.  웹후크를 생성한 후에 이 만료 날짜를 수정할 수 있습니다. |
 | 사용 |webhook는 생성되었을 때 기본적으로 사용하도록 설정됩니다.  사용 안함으로 설정할 경우 클라이언트가 사용할 수 없게 됩니다.  **Enabled** 속성은 webhook를 만들 때 또는 webhook가 생성된 후 언제든지 설정할 수 있습니다. |
 
 ### <a name="parameters"></a>매개 변수
@@ -74,7 +75,6 @@ webhook를 만들 때 $WebhookData에 값을 지정 하면 클라이언트가 �
 > [!NOTE]
 > 모든 입력 매개 변수의 값은 runbook 작업에 기록됩니다.  webhook 요청에서 클라이언트에서 제공된 입력이 기록되고 자동화 작업에 액세스할 수 있는 모든 사용자가 사용할 수 있게 된다는 것을 의미합니다.  따라서 webhook 호출에 중요한 정보를 포함할 때는 주의해야 합니다.
 > 
-> 
 
 ## <a name="security"></a>보안
 webhook의 보안은 webhook의 호출에 사용되는 보안 토큰을 포함하는 URL의 개인 정보에 의존합니다. Azure 자동화는 올바른 URL로 설정되어 있는 경우에만 요청에 대한 인증을 수행합니다. 따라서 대체 유효성 검사 방법을 사용하지 않고 매우 중요한 기능을 수행하는 runbook에 webhook를 사용해서는 안 됩니다.
@@ -107,7 +107,7 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
 |:--- |:--- |:--- |
 | 202 |수락됨 |요청이 수락되었고 runbook에서 대기합니다. |
 | 400 |잘못된 요청 |다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook가 만료되었습니다.</li> <li>webhook가 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li>  </ul> |
-| 404 | 찾을 수 없음 |다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook를 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li>  </ul> |
+| 404 |찾을 수 없음 |다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook를 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li>  </ul> |
 | 500 |내부 서버 오류 |URL은 유효했지만 오류가 발생했습니다.  요청을 다시 제출하십시오. |
 
 요청이 성공했다고 가정하면 webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
@@ -264,13 +264,9 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 
 
 ## <a name="next-steps"></a>다음 단계
-* Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)
-* Runbook 작업의 상태 보기에 대한 내용은 [Azure 자동화에서 Runbook 실행](automation-runbook-execution.md)
-* Azure 자동화를 사용하여 Azure 경고에 대해 조치를 취하는 방법을 알아보려면 [자동화 Runbook으로 Azure VM 경고 수정](automation-azure-vm-alert-integration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
+* Runbook 작업의 상태 보기에 대한 내용은 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
+* Azure Automation을 사용하여 Azure 경고에 대해 조치를 취하는 방법을 알아보려면 [Automation Runbook으로 Azure VM 경고 수정](automation-azure-vm-alert-integration.md)을 참조하세요.
+* OMS Log Analytics 경고에서 Runbook을 호출하는 방법을 알아보려면 [Log Analytics 경고를 사용하는 Runbook 작업](../log-analytics/log-analytics-alerts.md#runbook-actions)을 참조하세요.
 
 

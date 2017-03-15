@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리 | Microsoft Docs"
+title: "Azure Active Directory에서 그룹을 사용하여 리소스에 대한 액세스 관리 | Microsoft Docs"
 description: "온-프레미스 및 클라우드 응용 프로그램 및 리소스에 대한 사용자 액세스 관리를 위해 Azure Active Directory의 그룹을 사용하는 방법입니다."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
-ms.openlocfilehash: 2518f368c7251d5d1b8ea0b46b99ac356fee29ab
+ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
+ms.openlocfilehash: 4cde8be3daed2f40b24218726ad8d76455d224ac
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="managing-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리
+# <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리
 Azure Active Directory(Azure AD)는 Office 365와 같은 Microsoft 온라인 서비스 및 수많은 비 Microsoft SaaS 응용 프로그램을 포함하여 온-프레미스와 클라우드 응용 프로그램 및 리소스에 대한 액세스를 관리하는 강력한 기능을 제공하는 포괄적인 ID 및 액세스 관리 솔루션입니다. 이 문서에서는 개요를 제공하지만 지금 바로 Azure AD 그룹 사용을 시작하려는 경우 [Azure AD에서 보안 그룹 관리](active-directory-accessmanagement-manage-groups.md)의 지침을 따릅니다. PowerShell을 사용하여 Azure Active directory에서 그룹을 관리하는 방법을 보려면 자세한 내용은 [그룹 관리를 위한 Azure Active Directory 미리 보기 cmdlet](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)를 참조하세요.
 
 > [!NOTE]
@@ -78,9 +80,4 @@ Azure AD의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 
 * [Azure AD에서 전용 그룹 설정](active-directory-accessmanagement-dedicated-groups.md)
 * [그룹에 대한 그래프 API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [그룹 설정을 구성하는 Azure Active Directory cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

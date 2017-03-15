@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
-ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -67,6 +68,9 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
 6. **실행**을 클릭합니다. 
 7. **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]**를 선택하여 웹 서비스를 배포합니다.
 
+> [!NOTE] 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
+
 이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대한 새 대상을 지정할 수 있습니다.
 
 ## <a name="more-information"></a>자세한 정보
@@ -84,10 +88,5 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Multi-Factor Authentication FAQ| Microsoft Docs
-description: "Azure multi-factor Authentication과 관련된 질문과 대답 목록을 제공합니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
+description: "Azure Multi-Factor Authentication과 관련된 질문과 대답입니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9617cd00ed4a5f8f867542238e5008a9a17663c9
-ms.openlocfilehash: 1e01bdc099af865e01eb2784cf367e482300ade8
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: dfbb5e2358cd857c2a16ded5d4d82c1f246cbe20
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-multi-factor-authentication-faq"></a>Azure Multi-Factor Authentication FAQ
+# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 이 FAQ에서는 청구 모델 및 유용성에 대한 질문을 포함하여 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다.
 
 ## <a name="general"></a>일반
@@ -62,7 +63,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 라이선스 모델을 사용하는 경우 Azure Multi-Factor Authentication 라이센스를 구입한 다음 Office 365 및 기타 구독 제품과 마찬가지로 사용자에게 할당합니다.
 
-[Azure Multi-factor Authentication 작동 방법](multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication)에서 옵션에 대해 자세히 알아보기
+[Azure Multi-factor Authentication 작동 방법](multi-factor-authentication-how-it-works.md)에서 옵션에 대해 자세히 알아보기
 
 **Q: 관리자용 Azure Multi-Factor Authentication의 무료 버전이 있나요?**
 
@@ -166,10 +167,5 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 * 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)에서 직접 원하는 질문을 할 수 있습니다.
 * 기존 PhoneFactor 고객이며 암호를 재설정에 대해 질문이 있거나 도움이 필요한 경우 [암호 재설정](mailto:phonefactorsupport@microsoft.com) 링크를 사용하여 지원 사례를 개설하세요.
 * [Azure Multi-Factor Authentication 서버(PhoneFactor) 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)을 통해 지원 전문가에게 문의하세요. 문의하는 경우 가능한 문제에 대한 많은 정보를 제공해주시면 도움이 됩니다. 오류를 발견한 페이지, 특정 오류 코드, 특정 세션 ID 및 오류를 발견한 사용자의 ID를 포함하는 정보를 제공해 주시면 됩니다.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

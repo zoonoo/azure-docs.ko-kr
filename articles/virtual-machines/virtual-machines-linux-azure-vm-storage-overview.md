@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
+ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -232,6 +232,13 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하�
 SSE(저장소 서비스 암호화)와 이 암호화 방법을 저장소 계정에 사용하도록 설정하는 방법을 알아보고, 이로 인해 블록 Blob, 페이지 Blob 및 추가 Blob을 Azure 저장소에 쓸 때 자동으로 암호화되는 과정을 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
 
 * [Azure Storage 보안 가이드](../storage/storage-security-guide.md)
+
+## <a name="temporary-disk"></a>임시 디스크
+각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) 또는 [VM을 다시 배포](virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지되어야 합니다.
+
+Linux 가상 컴퓨터에서 디스크는 일반적으로 **/dev/sdb**이며, Azure Linux 에이전트에 의해 **/mnt**로 포맷되고 마운트됩니다. 임시 디스크의 크기는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Linux 가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
+
+Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="cost-savings"></a>비용 절감
 * [저장소 비용](https://azure.microsoft.com/pricing/details/storage/)

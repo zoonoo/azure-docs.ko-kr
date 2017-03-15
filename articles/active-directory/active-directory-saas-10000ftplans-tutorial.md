@@ -1,5 +1,5 @@
 ---
-title: "자습서: Novatus와 Azure Active Directory 통합 | Microsoft Docs"
+title: "자습서: Azure Active Directory와 10,000ft Plans 통합 | Microsoft Docs"
 description: "Azure Active Directory 및 10,000ft Plans 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
-ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
+ms.sourcegitcommit: 2a1f3df856116e372518b2f88460b3c6905c4c9a
+ms.openlocfilehash: 584ddcfc53afee6a8ff11a03d662d8acf58e4820
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -44,7 +45,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -239,9 +240,4 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

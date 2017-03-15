@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
-ms.openlocfilehash: ac22518bb36cc9d4c7a581dab8aca22ffde986e5
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 4ef08fb592ff8558fa779d628945d14144dc09b7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: ac22518bb36cc9d4c7a581dab8aca22ffde986e5
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-zendesk-tutorial/IC773083.png "Scenario")
+![시나리오](./media/active-directory-saas-zendesk-tutorial/IC773083.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-zendesk"></a>Zendesk에 응용 프로그램 통합 사용
 이 섹션에서는 Zendesk에 응용 프로그램 통합을 사용하는 방법에 대해 간략하게 설명합니다.
@@ -49,19 +50,19 @@ ms.openlocfilehash: ac22518bb36cc9d4c7a581dab8aca22ffde986e5
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-zendesk-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-zendesk-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-zendesk-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-zendesk-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-zendesk-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에서 **Zendesk**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-zendesk-tutorial/IC773084.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-zendesk-tutorial/IC773084.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **Zendesk**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -75,15 +76,15 @@ Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure AD 포털의 **Zendesk** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성** 대화 상자를 엽니다.
    
-    ![SSO(Single sign-on)](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Single sign-on")
+    ![Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Single Sign-On")
 
 2. **Zendesk에 대한 사용자 로그온 방법** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택한 후, **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-zendesk-tutorial/IC773088.png "앱 URL 구성")
    
     a. **Zendesk 로그인 URL** 텍스트 상자에서 다음패턴 `https://<tenant-name>.zendesk.com`을 사용하여 URL을 입력합니다.
    
@@ -91,7 +92,7 @@ Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색
 
 4. **Zendesk에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 관리자 권한으로 Zendesk 회사 사이트에 로그인합니다.
 
@@ -99,7 +100,7 @@ Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색
 
 7. **설정**을 클릭하고 왼쪽 탐색 창에서 **보안**을 클릭합니다.
    
-    ![보안](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Security")
+    ![보안](./media/active-directory-saas-zendesk-tutorial/IC773089.png "보안")
 
 8. **보안** 페이지에서 **관리자 및 에이전트** 탭을 클릭합니다.
 
@@ -109,7 +110,7 @@ Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색
 
 11. Azure AD 포털의 **Zendesk에서 Single Sign-On 구성** 페이지에서 **원격 로그아웃 URL** 값을 복사하여 **원격 로그 아웃 URL** 텍스트 상자에 붙여넣습니다.
     
-    ![SSO(Single sign-on)](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single sign-on")
+    ![Single Sign-On](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single Sign-On")
 
 12. 내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여넣습니다.
     
@@ -122,7 +123,7 @@ Zendesk에 singl sign-on을 구성하려면 인증서에서 지문 값을 검색
 
 14. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용자 계정이 **Zendesk**에 프로비전되어야 합니다.  
@@ -135,10 +136,10 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
 
 3. **사용자** 탭을 선택하고 **추가**를 클릭합니다.
    
-    ![사용자 추가](./media/active-directory-saas-zendesk-tutorial/IC773632.png "Add user")
+    ![사용자 추가](./media/active-directory-saas-zendesk-tutorial/IC773632.png "사용자 추가")
 4. 프로비전 하려는 기존 Azure AD 계정의 이메일 주소를 입력하고, **저장**을 클릭합니다.
    
-    ![새 사용자](./media/active-directory-saas-zendesk-tutorial/IC773633.png "New user")
+    ![새 사용자](./media/active-directory-saas-zendesk-tutorial/IC773633.png "새 사용자")
 
 > [!NOTE]
 > 다른 Zendesk 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
@@ -153,17 +154,12 @@ Azure AD 사용자가 **Zendesk**에 로그인할 수 있도록 하려면 사용
 
 2. **Zendesk** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-zendesk-tutorial/IC773094.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-zendesk-tutorial/IC773094.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-zendesk-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

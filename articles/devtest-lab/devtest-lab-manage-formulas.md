@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
+ms.sourcegitcommit: 52590f0c47954d115f39cbe988e04a0ed3feb94d
+ms.openlocfilehash: cd3352ae30734cce116fda5a838f95e5e0b86a8a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -95,7 +96,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 7. **확인** 을 선택하여 수식을 만듭니다.
 
 ## <a name="use-a-formula-to-provision-a-vm"></a>수식을 사용하여 VM 프로비전
-수식을 만들면 해당 수식에 따라 VM을 만들 수 있습니다. [아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) 섹션에서 이 과정을 안내합니다.
+수식을 만들면 해당 수식에 따라 VM을 만들 수 있습니다. [아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md) 문서에서 이 과정을 안내합니다.
 
 ## <a name="modify-a-formula"></a>수식 수정
 수식을 수정하려면 다음 단계를 수행합니다.
@@ -133,10 +134,5 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 
 ## <a name="next-steps"></a>다음 단계
 VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

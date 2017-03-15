@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 29df0e2198be05a64b6a90f1adf30a0c3b218d93
-ms.openlocfilehash: b40fa2d511910668438ba33291d16202dec8c8a8
+ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
+ms.openlocfilehash: ce7534b9ff675e1ae0902ba936e1ea897d80d936
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -33,6 +34,11 @@ Azure Functions에서 제공하는 바인딩은 다음과 같습니다.
 - [HTTP 출력 바인딩](#output)을 사용하면 요청에 응답할 수 있습니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!TIP]
+>
+> [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)에서 이 모범 사례 문서를 읽는 것이 좋습니다.
+>
 
 <a name="httptrigger"></a>
 
@@ -435,10 +441,5 @@ module.exports = function (context, data) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

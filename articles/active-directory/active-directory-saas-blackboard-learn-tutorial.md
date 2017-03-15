@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9d32b156878ff963e6dac00663fc5f1f272d269b
-ms.openlocfilehash: f86b20d5cf20ff977901d481438292c7b38658da
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0247e7c8f3803e27b4304dae6af11f18432e76b0
+ms.openlocfilehash: 92ee9f08ff85a85a08a2d1e021cdb7afec0c6de7
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Blackboard Learn과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독
-* Blackboard Learn 클라우드 플랫폼 Single Sign-On이 설정된 구독
+* Blackboard Learn 클라우드 플랫폼 SSO(Single Sign-On)가 설정된 구독
 
 >[!NOTE]
 >이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다. 
@@ -45,7 +45,7 @@ Blackboard Learn과 Azure AD 통합을 구성하려면 다음 항목이 필요�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.

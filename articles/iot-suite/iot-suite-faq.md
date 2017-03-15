@@ -13,15 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
+ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
+ms.openlocfilehash: ab027e1f21e8c2c33829f833395a6872cb7bcdd8
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Suite에 대한 질문과 대답
+
+### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>어디에서 미리 구성된 솔루션의 소스 코드를 찾을 수 있습니까?
+소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
+* [미리 구성된 원격 모니터링 솔루션][lnk-remote-monitoring-github]
+* [예측 유지 관리 미리 구성된 솔루션][lnk-predictive-maintenance-github]
+
+### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IoT Hub 장치 관리 기능을 사용하는 미리 구성된 원격 모니터링 솔루션을 최신 버전으로 업데이트하려면 어떻게 해야 합니까?
+* https://www.azureiotsuite.com/ 사이트에서 미리 구성된 솔루션을 배포하는 경우 항상 최신 버전의 솔루션의 새 인스턴스를 배포합니다.
+* 명령줄을 사용하여 미리 구성된 솔루션을 배포하는 경우 새 코드와 함께 기존 배포를 업데이트할 수 있습니다. GitHub [리포지토리][lnk-remote-monitoring-github]에서 [클라우드 배포][lnk-cloud-deployment]를 참조하세요.
+
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션에 새 장치 메서드에 대한 지원을 어떻게 추가할 수 있습니까?
+[미리 구성된 솔루션 사용자 지정][lnk-customize] 문서에서 [시뮬레이터에 새 메서드에 대한 지원 추가][lnk-add-method] 섹션을 참조하세요.
+
+### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>시뮬레이션된 장치가 desired 속성 변경을 무시하고 있는 이유는 무엇입니까?
+미리 구성된 원격 모니터링 솔루션에서 시뮬레이션된 장치 코드는 **Desired.Config.TemperatureMeanValue** 및 **Desired.Config.TelemetryInterval** desired 속성만을 사용하여 reported 속성을 업데이트합니다. 다른 모든 desired 속성 변경 요청은 무시됩니다.
+
+### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>내 장치가 솔루션 대시보드의 장치 목록에 나타나지 않는 이유는 무엇입니까?
+솔루션 대시보드의 장치 목록은 쿼리를 사용하여 장치 목록을 반환합니다. 현재 쿼리는 10K 이상의 장치를 반환할 수 없습니다. 쿼리에 대한 검색 조건을 더 제한적으로 설정해 보세요.
+
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure 포털에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 미리 구성된 솔루션에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 * [azureiotsuite.com][lnk-azureiotsuite]에서 미리 구성된 솔루션을 삭제하면, 미리 구성된 솔루션을 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다. 
 * [Azure Portal][lnk-azure-portal]에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹에서 리소스만 삭제합니다. 또한 [Azure 클래식 포털][lnk-classic-portal]에 미리 구성된 솔루션과 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
@@ -77,9 +97,8 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
+[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance

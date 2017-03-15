@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure Active Directory 라이선스란? | Microsoft Docs"
+title: "Azure 클래식 포털에서 Azure Active Directory 사용자 라이선스 | Microsoft Docs"
 description: "Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여 Microsoft Azure Active Directory 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
 services: active-directory
 keywords: "Azure AD 라이선스"
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ae4961611195c1574f5b94edbca74e1f182b4361
-ms.openlocfilehash: eb0b428f84dc16abd5cfee73dc8e4191698ebdd6
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 7df8805139b6e3cc23041a8201b496fb7fce8063
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-is-microsoft-azure-active-directory-licensing"></a>Microsoft Azure Active Directory 라이선스란?
+# <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 Microsoft Azure Active Directory 라이선스란?
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
+> * [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-licensing-what-is.md)
 >
 >
@@ -158,9 +160,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 * [응용 프로그램에 그룹 할당](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

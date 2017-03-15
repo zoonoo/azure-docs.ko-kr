@@ -12,11 +12,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/28/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: ef3f31c633eeba92f343e2126626bd029aebbf64
-ms.openlocfilehash: 170657601a0ea6b0c0ebabfd34befdce290cebd8
+ms.sourcegitcommit: c0dd85570f052c4a9651faecbaeb3eaa181f9017
+ms.openlocfilehash: b00b2cf1d3a54bba716d7470643aa1a5e6a58633
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,13 +38,13 @@ Azure Analysis Services cmdlet은 [AzureRM.AnalysisServices](https://www.powersh
 
 |Cmdlet|설명| 
 |------------|-----------------| 
-|Get-AzureRmAnalysisServicesServer|서버 인스턴스에 대한 세부 정보를 가져옵니다.|  
-|New-AzureRmAnalysisServicesServer|새 서버 인스턴스를 만듭니다.|
-|Remove-AzureRmAnalysisServicesServer|서버 인스턴스를 제거합니다.|  
-|Suspend-AzureRmAnalysisServicesServe|서버 인스턴스를 일시 중단합니다.| 
-|Resume-AzureRmAnalysisServicesServer|서버 인스턴스를 다시 시작합니다.|  
-|Set-AzureRmAnalysisServicesServer|서버 인스턴스를 수정합니다.|   
-|Test-AzureRmAnalysisServicesServer|서버 인스턴스의 존재 여부를 테스트합니다.| 
+|[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/get-azurermanalysisservicesserver)|서버 인스턴스에 대한 세부 정보를 가져옵니다.|  
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/new-azurermanalysisservicesserver)|새 서버 인스턴스를 만듭니다.|
+|[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/remove-azurermanalysisservicesserver)|서버 인스턴스를 제거합니다.|  
+|[Suspend-AzureRmAnalysisServicesServe](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/suspend-azurermanalysisservicesserver)|서버 인스턴스를 일시 중단합니다.| 
+|[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/resume-azurermanalysisservicesserver)|서버 인스턴스를 다시 시작합니다.|  
+|[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/set-azurermanalysisservicesserver)|서버 인스턴스를 수정합니다.|   
+|[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|서버 인스턴스의 존재 여부를 테스트합니다.| 
 
 ## <a name="database-operations"></a>데이터베이스 작업
 Azure Analysis Services 데이터베이스 작업은 SQL Server Analysis Services와 동일한 [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) 모듈을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services 미리 보기에서 지원되는 것은 아닙니다. 
@@ -64,8 +65,3 @@ SQLASCMDLETS 모듈은 TMSL(테이블 형식 모델 스크립팅 언어) 쿼리 
 ## <a name="related-information"></a>관련 정보
 * [Analysis Services의 PowerShell 스크립팅](https://msdn.microsoft.com/library/hh213141.aspx)
 * [호환성 수준 1200에 대한 테이블 형식 모델 프로그래밍](https://msdn.microsoft.com/library/mt712541.aspx)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

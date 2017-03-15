@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
+ms.sourcegitcommit: bf5010537d222045b5bf13d85cab6c48c9659ed0
+ms.openlocfilehash: b055342d8e11e4d38688681b36ef9a1f717fdf15
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,9 +30,9 @@ ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
 Amazon S3에서 데이터를 복사하려면 다음과 같은 권한이 부여되어 있는지 확인합니다.
 
 * Amazon S3 개체 작업에 대한 **s3:GetObject** 및 **s3:GetObjectVersion**
-* Amazon S3 버킷 작업에 대한 **s3:ListBucket** 및 **s3:ListAllMyBuckets**(복사 마법사에서만 사용)
+* Amazon S3 버킷에 작업에 대한 **s3:ListBucket**입니다. 복사 마법사를 사용하는 경우 **s3:ListAllMyBuckets**이 필요합니다.
 
-[정책에서 권한 지정](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)에서 Amazon S3 권한의 전체 목록을 자세히 확인할 수 있습니다.
+[정책에서 사용 권한 지정](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)에서 Amazon S3 사용 권한의 전체 목록을 자세히 확인할 수 있습니다.
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
 Amazon S3에서 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
@@ -340,9 +341,4 @@ Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는
 다음 문서를 참조하세요.
 
 * [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

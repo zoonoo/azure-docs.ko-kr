@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
-ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
-ms.lasthandoff: 02/18/2017
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="create-an-access-change-history-report"></a>액세스 변경 기록 보고서 만들기
+# <a name="create-an-access-report-for-role-based-access-control"></a>역할 기반 액세스 제어에 대한 액세스 보고서 만들기
 언제든지 누군가가 구독 내부의 액세스를 부여하거나 취소하면 변경 내용이 Azure 이벤트에 기록됩니다. 지난 90일 동안 모든 변경 내용을 보려면 액세스 변경 기록 보고서를 만들 수 있습니다.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Azure PowerShell에서 보고서 만들기

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/17/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a47bf66c106c75565682a71f870aa561cd827
-ms.openlocfilehash: 61373e3cf9c1630747fc70ab289e125217f4af82
+ms.sourcegitcommit: df9772796796f7383aafc583b01f299a53679d88
+ms.openlocfilehash: 77e05bf2b7a4ab6c6e6d3d82773cc03628f5342c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 61373e3cf9c1630747fc70ab289e125217f4af82
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="create-a-c-sample-solution-on-windows"></a>Windows에서 C 샘플 솔루션 만들기
-다음 단계에서는 Visual Studio를 사용하여 미리 구성된 원격 모니터링 솔루션과 통신하는 C로 작성된 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다.
+다음 단계에서는 미리 구성된 원격 모니터링 솔루션과 통신하는 클라이언트 응용 프로그램을 만드는 방법을 보여 줍니다. 이 응용 프로그램은 C로 작성되었으며 Windows에서 작성 및 실행됩니다.
 
 Visual Studio 2015에서 시작 프로젝트를 만들고 IoT Hub 장치 클라이언트 NuGet 패키지를 추가합니다.
 
@@ -37,310 +38,48 @@ Visual Studio 2015에서 시작 프로젝트를 만들고 IoT Hub 장치 클라�
    
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient
-   * Microsoft.Azure.IoTHub.HttpTransport
+   * Microsoft.Azure.IoTHub.MqttTransport
 6. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭하여 프로젝트의 **속성 페이지** 대화 상자를 엽니다. 자세한 내용은 [Visual C++ 프로젝트 속성 설정][lnk-c-project-properties]을 참조하세요. 
 7. **Linker** 폴더를 클릭한 다음 **입력** 속성 페이지를 클릭합니다.
 8. **crypt32.lib**를 **추가 종속성** 속성에 추가합니다. **확인**을 한 번 클릭한 다음 다시 **확인**을 클릭하여 프로젝트 속성 값을 저장합니다.
 
-## <a name="specify-the-behavior-of-the-iot-hub-device"></a>IoT Hub 장치의 동작 지정
-IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메시지의 형식 및 장치에서 응답하는 IoT Hub의 명령을 지정하는 모델을 사용합니다.
+Parson JSON 라이브러리를 **RMDevice** 프로젝트에 추가하고 필수 `#include` 문을 추가합니다.
+
+1. 컴퓨터의 적합한 폴더에서 다음 명령을 사용하여 Parson GitHub 리포지토리를 복제합니다.
+
+    ```
+    git clone https://github.com/kgabis/parson.git
+    ```
+
+1. Parson 리포지토리의 로컬 복사본에서 parson.h 및 parson.c 파일을 **RMDevice** 프로젝트 폴더로 복사합니다.
+
+1. Visual Studio에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **추가**를 클릭하고 **기존 항목**을 클릭합니다.
+
+1. **기존 항목 추가** 대화 상자에서 **RMDevice** 프로젝트 폴더의 parson.h 및 parson.c 파일을 선택합니다. 그런 다음 **추가**를 클릭하여 프로젝트에 이러한 두 파일을 추가합니다.
 
 1. Visual Studio에서 RMDevice.c 파일을 엽니다. 기존 `#include` 문을 다음 코드로 바꿉니다.
    
     ```
-    #include "iothubtransporthttp.h"
+    #include "iothubtransportmqtt.h"
     #include "schemalib.h"
     #include "iothub_client.h"
-    #include "serializer.h"
+    #include "serializer_devicetwin.h"
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    ```
-2. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대한 값으로 바꿉니다. 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 **contoso**로 바꿉니다.
-   
-    ```
-    static const char* deviceId = "[Device Id]";
-    static const char* deviceKey = "[Device Key]";
-    static const char* hubName = "[IoTHub Name]";
-    static const char* hubSuffix = "azure-devices.net";
-    ```
-3. 다음 코드를 추가하여 장치에서 IoT Hub와 통신하도록 지원하는 모델을 정의합니다. 이 모델은 장치에서 온도, 외부 온도, 습도 및 장치 ID를 원격 분석으로 보내도록 지정합니다. 또한 장치는 지원하는 명령 목록을 포함하여 장치에 대한 메타데이터를 IoT Hub로 보냅니다. 이 장치는 **SetTemperature** 및 **SetHumidity**에 응답합니다.
-   
-    ```
-    // Define the Model
-    BEGIN_NAMESPACE(Contoso);
-   
-    DECLARE_STRUCT(SystemProperties,
-    ascii_char_ptr, DeviceID,
-    _Bool, Enabled
-    );
-   
-    DECLARE_STRUCT(DeviceProperties,
-    ascii_char_ptr, DeviceID,
-    _Bool, HubEnabledState
-    );
-   
-    DECLARE_MODEL(Thermostat,
-   
-    /* Event data (temperature, external temperature and humidity) */
-    WITH_DATA(int, Temperature),
-    WITH_DATA(int, ExternalTemperature),
-    WITH_DATA(int, Humidity),
-    WITH_DATA(ascii_char_ptr, DeviceId),
-   
-    /* Device Info - This is command metadata + some extra fields */
-    WITH_DATA(ascii_char_ptr, ObjectType),
-    WITH_DATA(_Bool, IsSimulatedDevice),
-    WITH_DATA(ascii_char_ptr, Version),
-    WITH_DATA(DeviceProperties, DeviceProperties),
-    WITH_DATA(ascii_char_ptr_no_quotes, Commands),
-   
-    /* Commands implemented by the device */
-    WITH_ACTION(SetTemperature, int, temperature),
-    WITH_ACTION(SetHumidity, int, humidity)
-    );
-   
-    END_NAMESPACE(Contoso);
+    #include "parson.h"
     ```
 
-## <a name="implement-the-behavior-of-the-device"></a>장치의 동작 구현
-이제 모델에 정의된 동작을 구현하는 코드를 추가합니다.
+    > [!NOTE]
+    > 이제 이를 빌드하여 프로젝트에 올바른 종속성 설정이 있는지 확인할 수 있습니다.
 
-1. 장치가 IoT Hub에서 **SetTemperature** 및 **SetHumidity** 명령을 받을 때 실행되는 다음 함수를 추가합니다.
-   
-    ```
-    EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
-    {
-      (void)printf("Received temperature %d\r\n", temperature);
-      thermostat->Temperature = temperature;
-      return EXECUTE_COMMAND_SUCCESS;
-    }
-   
-    EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
-    {
-      (void)printf("Received humidity %d\r\n", humidity);
-      thermostat->Humidity = humidity;
-      return EXECUTE_COMMAND_SUCCESS;
-    }
-    ```
-2. IoT Hub로 메시지를 보내는 다음 함수를 추가합니다.
-   
-    ```
-    static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
-    {
-      IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
-      if (messageHandle == NULL)
-      {
-        printf("unable to create a new IoTHubMessage\r\n");
-      }
-      else
-      {
-        if (IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, NULL, NULL) != IOTHUB_CLIENT_OK)
-        {
-          printf("failed to hand over the message to IoTHubClient");
-        }
-        else
-        {
-          printf("IoTHubClient accepted the message for delivery\r\n");
-        }
-   
-        IoTHubMessage_Destroy(messageHandle);
-      }
-    free((void*)buffer);
-    }
-    ```
-3. SDK의 serialization 라이브러리를 연결하는 다음 함수를 추가합니다.
-   
-    ```
-    static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
-    {
-      IOTHUBMESSAGE_DISPOSITION_RESULT result;
-      const unsigned char* buffer;
-      size_t size;
-      if (IoTHubMessage_GetByteArray(message, &buffer, &size) != IOTHUB_MESSAGE_OK)
-      {
-        printf("unable to IoTHubMessage_GetByteArray\r\n");
-        result = EXECUTE_COMMAND_ERROR;
-      }
-      else
-      {
-        /*buffer is not zero terminated*/
-        char* temp = malloc(size + 1);
-        if (temp == NULL)
-        {
-          printf("failed to malloc\r\n");
-          result = EXECUTE_COMMAND_ERROR;
-        }
-        else
-        {
-          memcpy(temp, buffer, size);
-          temp[size] = '\0';
-          EXECUTE_COMMAND_RESULT executeCommandResult = EXECUTE_COMMAND(userContextCallback, temp);
-          result =
-            (executeCommandResult == EXECUTE_COMMAND_ERROR) ? IOTHUBMESSAGE_ABANDONED :
-            (executeCommandResult == EXECUTE_COMMAND_SUCCESS) ? IOTHUBMESSAGE_ACCEPTED :
-            IOTHUBMESSAGE_REJECTED;
-          free(temp);
-        }
-      }
-      return result;
-    }
-    ```
-4. IoT Hub에 연결하고, 메시지를 보내고 받으며, 허브에서 연결을 해제하는 다음 함수를 추가합니다. 장치가 연결할 때 지원하는 명령을 포함하여 자체에 대한 메타데이터를 IoT Hub에 전송하는 방법을 확인합니다. 이 메타데이터를 사용하면 솔루션을 대시보드의 **실행**에 장치의 상태를 업데이트할 수 있습니다.
-   
-    ```
-    void remote_monitoring_run(void)
-    {
-      if (serializer_init(NULL) != SERIALIZER_OK)
-      {
-        printf("Failed on serializer_init\r\n");
-      }
-      else
-      {
-        IOTHUB_CLIENT_CONFIG config;
-        IOTHUB_CLIENT_HANDLE iotHubClientHandle;
-   
-        config.deviceId = deviceId;
-        config.deviceKey = deviceKey;
-        config.iotHubName = hubName;
-        config.iotHubSuffix = hubSuffix;
-        config.protocol = HTTP_Protocol;
-        config.deviceSasToken = NULL;
-        config.protocolGatewayHostName = NULL;
-        iotHubClientHandle = IoTHubClient_Create(&config);
-        if (iotHubClientHandle == NULL)
-        {
-          (void)printf("Failed on IoTHubClient_CreateFromConnectionString\r\n");
-        }
-        else
-        {
-          Thermostat* thermostat = CREATE_MODEL_INSTANCE(Contoso, Thermostat);
-          if (thermostat == NULL)
-          {
-            (void)printf("Failed on CREATE_MODEL_INSTANCE\r\n");
-          }
-          else
-          {
-            STRING_HANDLE commandsMetadata;
-   
-            if (IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, thermostat) != IOTHUB_CLIENT_OK)
-            {
-              printf("unable to IoTHubClient_SetMessageCallback\r\n");
-            }
-            else
-            {
-   
-              /* send the device info upon startup so that the cloud app knows
-              what commands are available and the fact that the device is up */
-              thermostat->ObjectType = "DeviceInfo";
-              thermostat->IsSimulatedDevice = false;
-              thermostat->Version = "1.0";
-              thermostat->DeviceProperties.HubEnabledState = true;
-              thermostat->DeviceProperties.DeviceID = (char*)deviceId;
-   
-              commandsMetadata = STRING_new();
-              if (commandsMetadata == NULL)
-              {
-                (void)printf("Failed on creating string for commands metadata\r\n");
-              }
-              else
-              {
-                /* Serialize the commands metadata as a JSON string before sending */
-                if (SchemaSerializer_SerializeCommandMetadata(GET_MODEL_HANDLE(Contoso, Thermostat), commandsMetadata) != SCHEMA_SERIALIZER_OK)
-                {
-                  (void)printf("Failed serializing commands metadata\r\n");
-                }
-                else
-                {
-                  unsigned char* buffer;
-                  size_t bufferSize;
-                  thermostat->Commands = (char*)STRING_c_str(commandsMetadata);
-   
-                  /* Here is the actual send of the Device Info */
-                  if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != CODEFIRST_OK)
-                  {
-                    (void)printf("Failed serializing\r\n");
-                  }
-                  else
-                  {
-                    sendMessage(iotHubClientHandle, buffer, bufferSize);
-                  }
-   
-                }
-   
-                STRING_delete(commandsMetadata);
-              }
-   
-              thermostat->Temperature = 50;
-              thermostat->ExternalTemperature = 55;
-              thermostat->Humidity = 50;
-              thermostat->DeviceId = (char*)deviceId;
-   
-              while (1)
-              {
-                unsigned char*buffer;
-                size_t bufferSize;
-   
-                (void)printf("Sending sensor value Temperature = %d, Humidity = %d\r\n", thermostat->Temperature, thermostat->Humidity);
-   
-                if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != CODEFIRST_OK)
-                {
-                  (void)printf("Failed sending sensor value\r\n");
-                }
-                else
-                {
-                  sendMessage(iotHubClientHandle, buffer, bufferSize);
-                }
-   
-                ThreadAPI_Sleep(1000);
-              }
-            }
-   
-            DESTROY_MODEL_INSTANCE(thermostat);
-          }
-          IoTHubClient_Destroy(iotHubClientHandle);
-        }
-        serializer_deinit();
-      }
-    }
-    ```
-   
-    참고로, 시작 시 IoT Hub로 전송되는 샘플 **장치 정보** 메시지는 다음과 같습니다.
-   
-    ```
-    {
-      "ObjectType":"DeviceInfo",
-      "Version":"1.0",
-      "IsSimulatedDevice":false,
-      "DeviceProperties":
-      {
-        "DeviceID":"mydevice01", "HubEnabledState":true
-      }, 
-      "Commands":
-      [
-        {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
-        { "Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
-      ]
-    }
-    ```
-   
-    참고로, IoT Hub로 전송되는 샘플 **원격 분석** 메시지는 다음과 같습니다.
-   
-    ```
-    {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
-    ```
-   
-    참고로, IoT Hub에서 수신되는 샘플 **명령** 은 다음과 같습니다.
-   
-    ```
-    {
-      "Name":"SetHumidity",
-      "MessageId":"2f3d3c75-3b77-4832-80ed-a5bb3e233391",
-      "CreatedTime":"2016-03-11T15:09:44.2231295Z",
-      "Parameters":{"humidity":23}
-    }
-    ```
-5. **remote_monitoring_run** 함수를 호출하려면 **main** 함수를 다음 코드로 바꿉니다.
+[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
+
+## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
+
+코드를 추가하여 **remote\_monitoring\_run** 함수를 호출한 다음 장치 응용 프로그램을 빌드하고 실행합니다.
+
+1. **remote\_monitoring\_run** 함수를 호출하려면 **main** 함수를 다음 코드로 바꿉니다.
    
     ```
     int main()
@@ -349,15 +88,12 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
       return 0;
     }
     ```
-6. **빌드**를 클릭한 다음 **솔루션 빌드**를 클릭하여 장치 응용 프로그램을 빌드합니다.
-7. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 클릭한 다음 **새 인스턴스 시작**을 클릭하여 샘플을 실행합니다. 응용 프로그램에서 샘플 원격 분석을 IoT Hub로 보내고 명령을 받을 때 나타나는 메시지가 콘솔에 표시됩니다.
+
+1. **빌드**를 클릭한 다음 **솔루션 빌드**를 클릭하여 장치 응용 프로그램을 빌드합니다.
+
+1. **솔루션 탐색기**에서 **RMDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 클릭한 다음 **새 인스턴스 시작**을 클릭하여 샘플을 실행합니다. 콘솔은 응용 프로그램이 미리 구성된 솔루션에 샘플 원격 분석을 보내고 솔루션 대시보드에 설정된 desired 속성 값을 수신하고 솔루션 대시보드에서 호출된 메서드에 응답함에 따라 메시지를 표시합니다.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

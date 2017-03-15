@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed1b4121e8e64b07abaeb1117f2b8a0cfd75406
-ms.openlocfilehash: 7b2380e45c62684ed29fe819db7e254b968d55d0
+ms.sourcegitcommit: cf8873a3cc5067717edf586da209b05cef3092ff
+ms.openlocfilehash: fc921785e5e4aae84982a348814c1760ddd6bb8c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -500,7 +501,7 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
 
-예를 들어 원본 파일(SearchLog.tsv)이 "contso_33" 저장소 계정의 "samples"라는 이름의 Blob 컨테이너에 저장되어 있는 경우 FROM 문의 경로는 다음과 같습니다.
+예를 들어 원본 파일(SearchLog.tsv)이 "contoso_33" 저장소 계정의 "samples"라는 이름의 BLOB 컨테이너에 저장되어 있는 경우 FROM 문의 경로는 다음과 같습니다.
 
     FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 
@@ -528,9 +529,4 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 
 * [Azure Portal을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
 * [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
 * [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

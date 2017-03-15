@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -163,6 +164,10 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>다중 테넌트 응용 프로그램및 액세스 토큰 캐시
 다중 테넌트 응용 프로그램은 또한 Azure AD로 보호되는 API를 호출하는 액세스 토큰을 가져올 수도 있습니다.  다중 테넌트 응용 프로그램과 함께 ADAL(Active Directory 인증 라이브러리)을 사용할 경우 일반적인 오류는 먼저 /common을 사용하여 사용자에 대한 토큰을 요청하고, 응답을 받은 후, 또 다시 /common을 사용하여 같은 사용자에 대한 후속 토큰을 요청하는 것입니다.  Azure AD에서 온 응답은 /common이 아닌 테넌트에서 오기 때문에, ADAL은 토큰을 테넌트로부터 온 것인양 캐시합니다. 사용자에 대한 액세스 토큰을 가져오기 위한 /common에 대한 후속 호출은 캐시 항목이 누락되어, 사용자에게 다시 로그인하라는 메시지가 표시됩니다.  캐시 누락을 방지하려면 이미 로그인한 사용자에 대한 후속 호출이 테넌트의 끝점에 대해 있었는지 확인합니다.
 
+## <a name="next-steps"></a>다음 단계
+이 문서에서는 모든 Azure Active Directory 테넌트에서 사용자를 로그인할 수 있는 응용 프로그램을 구축하는 방법을 알아보았습니다. 앱 및 Azure Active Directory 간에 Single Sign On을 사용하도록 설정하면 Office 365와 같은 Microsoft 리소스에 의해 노출되는 API에 액세스하도록 응용 프로그램을 업데이트할 수도 있습니다. 따라서 사용하는 응용 프로그램에 사용자에 맞는 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 것과 같은 개인 설정된 환경을 제공할 수 있습니다. Azure Active Directory 및 Exchange, SharePoint, OneDrive, OneNote, Planner, Excel 등과 같은 Office 365 서비스에 대한 API 호출 방법을 자세히 알아보려면 [Microsoft Graph API][MSFT-Graph-overview]를 방문하세요.
+
+
 ## <a name="related-content"></a>관련 콘텐츠
 * [다중 테넌트 응용 프로그램 샘플][AAD-Samples-MT]
 * [응용 프로그램에 대한 브랜딩 지침][AAD-App-Branding]
@@ -170,7 +175,7 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
 * [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
 * [동의 프레임워크 개요][AAD-Consent-Overview]
-* [Microsoft Graph API 권한 범위][MSFT-Graph-AAD](영문)
+* [Microsoft Graph API 권한 범위][MSFT-Graph-permision-scopes](영문)
 * [Azure AD Graph API 권한 범위][AAD-Graph-Perm-Scopes]
 
 아래의 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
@@ -189,7 +194,8 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -235,10 +241,5 @@ Azure AD는 /common 끝점에서 요청을 받을 때, 사용자를 로그인하
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

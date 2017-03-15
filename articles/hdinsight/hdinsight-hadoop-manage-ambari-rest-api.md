@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 509053c87e84a4dbff78eee503dcf3af149b6f1e
-ms.openlocfilehash: 81d2a746b5e1df2cfd5b8fc465045cb92af01358
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
+ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/16/2017
 
 Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 운영 체제를 사용하는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는 데 사용됩니다. 이 문서에서는 Ambari REST API를 사용하는 기본 사항을 알아봅니다.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>Ambari 정의
+## <a id="whatis"></a>Ambari 정의
 
 [Apache Ambari](http://ambari.apache.org)에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
@@ -207,7 +207,7 @@ HDInsight에서 작업할 때 클러스터 노드의 정규화된 도메인 이�
 >
 > HDInsight 및 가상 네트워크 작업에 대한 자세한 내용은 [사용자 지정 Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
-IP 주소를 획득하려면 먼저 호스트에 대한 FQDN을 알고 있어야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제에서는 먼저 Ambari를 쿼리하여 모든 호스트 노드의 FQDN을 알아낸 다음 다시 Ambari를 쿼리하여 각 호스트의 IP 주소를 알아냅니다.
+IP 주소를 획득하려면 호스트에 대한 FQDN을 알고 있어야 합니다. FQDN을 알고 있으므로 호스트의 IP 주소를 얻을 수 있습니다. 다음 예제에서는 먼저 Ambari를 쿼리하여 모든 호스트 노드의 FQDN을 알아낸 다음 다시 Ambari를 쿼리하여 각 호스트의 IP 주소를 알아냅니다.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -293,7 +293,55 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 > [!NOTE]
 > [Azure PowerShell](https://docs.microsoft.com/powershell/)에서 제공하는 `Get-AzureRmHDInsightCluster` cmdlet 또한 클러스터에 대한 저장소 정보를 반환합니다.
 
-## <a name="example-update-ambari-configuration"></a>예: Ambari 구성 업데이트
+
+## <a name="example-get-configuration"></a>예제: 구성 가져오기
+
+1. 클러스터에 사용할 수 있는 구성을 가져옵니다.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    ```
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+        -Credential $creds
+    ```
+
+    이 예제는 클러스터에 설치된 구성 요소에 대한 현재 구성이 포함된 JSON 문서(*tag* 값으로 식별됨)를 반환합니다. 다음 예제는 Spark 클러스터 형식에서 반환된 데이터에서 발췌한 것입니다.
+   
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
+
+2. 관심 있는 구성 요소에 대한 구성을 가져옵니다. 다음 예제에서는 이전 요청에서 반환된 태그 값으로 `INITIAL`을 바꿉니다.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
+        -Credential $creds
+    $resp.Content
+    ```
+
+    이 예제는 `core-site` 구성 요소에 대한 현재 구성을 포함하는 JSON 문서를 반환합니다.
+
+## <a name="example-update-configuration"></a>예제: 구성 업데이트
 
 1. Ambari에서 "필요한 구성"으로 저장하는 현재 구성을 가져옵니다.
 
@@ -354,7 +402,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
     * `href`, `version`, and `Config` 요소는 새 구성을 제출하는 데 필요하지 않으므로 삭제합니다.
 
-    * 값이 `version#################`인 새 `tag` 요소를 추가합니다. 숫자 부분은 현재 날짜를 기반으로 합니다. 각 구성에 고유한 태그가 있어야 합니다.
+    * 값이 `version#################`인 `tag` 요소를 추가합니다. 숫자 부분은 현재 날짜를 기반으로 합니다. 각 구성에 고유한 태그가 있어야 합니다.
      
     마지막으로 데이터가 `newconfig.json` 문서에 저장됩니다. 문서 구조는 다음 예제와 유사하게 표시되어야 합니다.
      

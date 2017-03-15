@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 01/31/2017
 학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](machine-learning-retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
 
 > [!IMPORTANT]
-> 예측 실험을 Azure Resource Manager(신규) 기반 Machine Learning 웹 서비스로 배포해야 합니다. 
-> 
-> 
+> 예측 실험을 Azure Resource Manager(신규) 기반 Machine Learning 웹 서비스로 배포해야 합니다. 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
+
+
 
 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 

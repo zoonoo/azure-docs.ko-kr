@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
-ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a4a770ec6f258c62864cd3fcc79b33b5cac38ace
+ms.openlocfilehash: 8f05957e8c40dee8ceb7fb1355d8d8776935cf5a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -76,7 +76,7 @@ VNet 피어링의 링크 각각에는 이전 속성 집합이 있습니다. 포�
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
-2. 이 예제에서 사용자A에는 구독A에 대한 관리 권한이 있으며 사용자B에는 구독B에 대한 관리 권한이 있습니다.
+2. 이 예제에서 사용자A에는 구독A에 대한 관리 권한이 있으며 사용자B에는 구독B에 대한 관리 권한이 있습니다. 두 구독은 동일한 Azure Active Directory 테넌트에 연결되어 있습니다. 서로 다른 Azure Active Directory 테넌트에 연결된 구독 간에는 피어링을 만들 수 없습니다.
 3. 포털에서 **찾아보기**를 클릭하고 **가상 네트워크**를 선택합니다. 피어링을 설정하려는 VNet을 클릭합니다.
 4. 선택한 VNet에 대한 블레이드에서 다음 그림에 표시된 것처럼 **액세스 제어**를 클릭한 다음 **추가**를 클릭합니다.
 

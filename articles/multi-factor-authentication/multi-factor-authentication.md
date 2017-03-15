@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 757a26ed6c39e6eb498a4f717a2eb5da3cb5c0a6
+ms.sourcegitcommit: e028130569a1e55834f68bde87f21f6f7505d41f
+ms.openlocfilehash: 7a47c0278d42d62cc273c6f0671f0613671db4f3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -51,82 +52,11 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 * **안정성** -Azure Multi-Factor Authentication의 99.9%의 가용성을 보장합니다. 2단계 인증 요청을 수신하거나 처리할 수 없는 경우 서비스는 사용할 수 없는 것으로 간주됩니다.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
->
->
 
-## <a name="how-azure-multi-factor-authentication-works"></a>Azure Multi-Factor Authentication 작동 방법
-2단계 인증의 보안은 계층화된 접근 방식을 기반으로 합니다. 다중 인증 방법을 손상시키는 일은 공격자에게 매우 어렵습니다. 공격자가 사용자의 암호를 알게 된 경우에도 신뢰할 수 있는 장치가 없다면 어찌할 수 없습니다. 사용자가 장치를 분실한 경우에도 습득한 사람이 암호를 모르면 장치를 사용할 수 없습니다.
-
-> [!VIDEO https://channel9.msdn.com/Events/TechEd/Europe/2014/EM-B313/player]
->
->
-
-## <a name="methods-available-for-multi-factor-authentication"></a>Multi-Factor Authentication에 사용할 수 있는 방법
-사용자가 로그인하면 사용자에게 추가 확인 요청이 전송됩니다. 이 두 번째 확인에 사용할 수 있는 방법의 목록은 다음과 같습니다.
-
-| 확인 방법 | 설명 |
-| --- | --- |
-| 전화 통화 |로그인을 확인하도록 요청하는 통화가 사용자의 전화기로 갑니다. # 키를 누르면 확인 프로세스가 완료됩니다. 이 옵션은 구성 가능하고 지정한 코드로 변경할 수 있습니다. |
-| 문자 메시지 |6자리 코드가 있는 문자 메시지가 사용자의 스마트폰으로 전송됩니다. 확인 프로세스를 완료하려면 이 코드를 입력합니다. |
-| 모바일 앱 알림 |모바일 앱에서 **확인** 을 선택하여 확인을 완료하라는 확인 요청이 사용자의 스마트폰에 전송됩니다. 앱 알림이 기본 확인 방법인 경우 발생합니다. 로그인하지 않았을 때 이 알림을 수신하는 경우 사기 행위로 보고할 수 있습니다. |
-| 모바일 앱을 통한 확인 코드 |사용자의 장치에서 모바일 앱은 확인 코드를 생성합니다. 기본 확인 방법으로 확인 코드를 선택한 경우 전송됩니다. |
-
-모바일 앱 확인 방법으로 Azure Multi-Factor Authentication은 스마트 폰용 타사 인증 앱을 사용합니다. 하지만 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)용으로 제공되는 Microsoft Authenticator 앱을 사용하는 것이 좋습니다.
-
-## <a name="available-versions-of-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 사용 가능한 버전
-세 가지 다른 버전으로 Azure Multi-Factor Authentication을 사용할 수 있습니다.
-
-| 버전 | 설명 |
-| --- | --- |
-| Office 365용 Multi-Factor Authentication |이 버전은 Office 365 응용프로그램에서만 작동되며 Office 365 포털에서 관리됩니다. 따라서 이제 관리자는 2단계 인증을 사용하여 Office 365 리소스의 보안을 유지할 수 있습니다. 이 버전은 Office 365 구독에 포함되어 있습니다. |
-| Azure 관리자를 위한 Multi-Factor Authentication |모든 Azure 관리자는 Office 365를 위한 동일한 2단계 인증 기능의 일부를 추가 비용 없이 사용할 수 있습니다. Azure 구독의 모든 관리 계정은 이 기능을 사용하여 추가 보호 기능을 얻을 수 있습니다. VM 또는 웹 사이트 만들기, 저장소 관리 또는 기타 Azure 서비스 사용을 위해 Azure 포털에 액세스하려는 관리자는 관리자 계정에 MFA를 추가할 수 있습니다. |
-| Azure Multi-Factor Authentication | "전체" 버전이라고도 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure 클래식 포털](https://manage.windowsazure.com), 고급 보고, 온-프레미스 범위에 대한 지원 및 클라우드 응용 프로그램을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 Azure Active Directory Premium 및 Enterprise Mobility Suite의 일부로 제공되며 클라우드 또는 온-프레미스에 배포할 수 있습니다. [Azure Multi-Factor Authentication을 획득하는 다른 방법](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication)은 아래를 참조하세요. |
-
-## <a name="feature-comparison-of-versions"></a>버전 기능 비교
-다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다.
-
-> [!NOTE]
-> 다음은 각 Multi-Factor Authentication에 포함된 기능을 비교하는 테이블입니다. 완전한 Azure Multi-Factor Authentication 서비스를 사용하는 경우 [클라우드 또는 온-프레미스에서 MFA를 사용하는지](multi-factor-authentication-get-started.md)에 따라 일부 기능을 사용할 수 없을 수도 있습니다.
-
-
-| 기능 | Office 365용 Multi-Factor Authentication | Azure 관리자를 위한 Multi-Factor Authentication | Azure Multi-Factor Authentication |
-| --- |:---:|:---:|:---:|
-| MFA를 사용하여 관리자 계정 보호 |● |● (Azure 관리자 계정에 대해서만 사용 가능) |● |
-| 두 번째 단계로 모바일 앱 |● |● |● |
-| 두 번째 단계로 전화 통화 |● |● |● |
-| 두 번째 단계로 SMS |● |● |● |
-| MFA를 지원하지 않는 클라이언트에 대한 앱 암호 |● |● |● |
-| 확인 방법에 대한 관리자 제어 |● |● |● |
-| PIN 모드 | | |● |
-| 사기 행위 경고 | | |● |
-| MFA 보고서 | | |● |
-| 일회성 바이패스 | | |● |
-| 전화 통화에 대한 사용자 지정 인사말 | | |● |
-| 전화 통화에 대한 사용자 지정 발신자 번호 | | |● |
-| 이벤트 확인 | | |● |
-| 신뢰할 수 있는 IP | | |● |
-| 신뢰할 수 있는 장치에 대한 MFA 기억 |● |● |● |
-| MFA SDK | | |● Multi-factor Auth 공급자 및 전체 Azure 구독 필요 |
-| 온-프레미스 응용 프로그램에 대한 MFA | | |● |
-
-## <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
-Azure Multi-Factor Authentication에서 제공하는 전체 기능을 사용하려는 경우 몇 가지 옵션이 있습니다.
-
-1. Azure Multi-Factor Authentication 라이선스를 구매하여 사용자에게 할당합니다.
-2. Azure Active Directory Premium, Enterprise Mobility Suite 또는 Enterprise Cloud Suite 등 Azure Multi-Factor Authentication이 함께 제공되는 라이선스를 구매하여 사용자에게 할당합니다.
-3. Azure 구독 내에서 Azure Multi-Factor Authentication 공급자를 만듭니다. Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다.  
-   * **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해&2;단계 인증을 사용하려는 기업에 적합합니다.  
-   * **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해&2;단계 인증을 사용하려는 기업에 적합합니다.  
-
-Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선택 가능한 확인 방법을 제공합니다. 즉, 전화 통화, 텍스트, 앱 알림, 앱 코드 중에서 사용자에게 제공할 방법을 선택할 수 있다는 의미입니다. 자세한 내용은 [선택 가능한 확인 방법](multi-factor-authentication-whats-next.md#selectable-verification-methods)을 참조하세요.
-
-가격 책정에 대한 자세한 내용은 [Azure MFA 가격 책정](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Multi-Factor Authentication을 시작하기 위한 첫 번째 단계는 [클라우드 또는 온-프레미스에서 MFA 중 선택](multi-factor-authentication-get-started.md)
 
+- [Azure Multi-Factor Authentication 작동 방법](multi-factor-authentication-how-it-works.md)에 대해 알아보기
 
-
-<!--HONumber=Jan17_HO5-->
-
+- 다른 [Azure Multi-Factor Authentication에 대한 다양한 버전 및 사용량 메서드](multi-factor-authentication-versions-plans.md)에 대해 알아보기
 

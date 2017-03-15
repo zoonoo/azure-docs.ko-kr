@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 1f4e0904c9025ce0b21d904acc7b959e823039ef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 0591b536a9be901085074f4b49fc65b097382835
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
+# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory에서 그룹 기반 라이선스 기본
 
 Office 365, Enterprise Mobility + Security, Dynamics CRM과 같은 Microsoft Clouds Services와 기타 유사한 제품을 사용하려면 이러한 서비스에 액세스해야 하는 각 사용자에게 라이선스가 할당되어야 합니다. 라이선스 관리는 관리 포털(Office, Azure) 및 PowerShell cmdlet 중 하나를 통해 관리자에게 노출됩니다. 라이선스 할당 상태는 모든 Microsoft Clouds Services에 대한 ID 관리를 지원하는 기본 인프라인 Azure Active Directory에 저장됩니다.
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/08/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 55c988bf74ff0f2e519e895a735dc68f3dc99855
 ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -327,9 +328,4 @@ Datetime 및 Datetimeoffset의 경우 사용자 지정 Datetime 문자열의 구
 다음 문서를 참조하세요.
 
 * [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

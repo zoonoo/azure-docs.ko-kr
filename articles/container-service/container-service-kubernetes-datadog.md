@@ -1,6 +1,6 @@
 ---
-title: "DataDog을 사용하여 Azure Kubernetes 클러스터 모니터링 | Microsoft Docs"
-description: "DataDog을 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링"
+title: "Datadog을 사용하여 Azure Kubernetes 클러스터 모니터링 | Microsoft Docs"
+description: "Datadog을 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링"
 services: container-service
 documentationcenter: 
 author: bburns
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2984a3811eba670b54fd253a8d7dc84acd8c8ec4
+ms.sourcegitcommit: f7377b3d0c0b89d7e196a31890173575688687cf
+ms.openlocfilehash: 901cbf5093c6a547f5dffa7ed6d71fe67caaadb9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,16 +56,12 @@ Datadog은 Azure 컨테이너 서비스 클러스터 내의 컨테이너에서 �
 
 먼저 [계정을 만들어야 합니다](https://www.datadoghq.com/lpg/).
 
-## <a name="installing-the-datadog-agent-with-a-daemonset"></a>DaemonSet에 DataDog 에이전트 설치
+## <a name="installing-the-datadog-agent-with-a-daemonset"></a>DaemonSet에 Datadog 에이전트 설치
 DaemonSet은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 단일 인스턴스를 실행하기 위해 사용합니다.
 모니터링 에이전트를 실행하는 데 완벽합니다.
 
-DataDog에 로그인한 후 [DataDog 지침](https://app.datadoghq.com/account/settings#agent/kubernetes)에 따라 DaemonSet를 사용하여 클러스터에 DataDog 에이전트를 설치할 수 있습니다.
+Datadog에 로그인한 후 [Datadog 지침](https://app.datadoghq.com/account/settings#agent/kubernetes)에 따라 DaemonSet를 사용하여 클러스터에 Datadog 에이전트를 설치할 수 있습니다.
 
 ## <a name="conclusion"></a>결론
 이것으로 끝입니다. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. 통합 [kubernetes 대시보드](https://app.datadoghq.com/screen/integration/kubernetes)를 방문하여 클러스터에 대한 요약을 볼 수 있습니다.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

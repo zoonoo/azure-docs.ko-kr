@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
+ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
+ms.openlocfilehash: 567917ee7c602a9971cf74367a1f6fcb96002e56
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-thousandeyes-tutorial/IC790059.png "Scenario")
+![시나리오](./media/active-directory-saas-thousandeyes-tutorial/IC790059.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-thousandeyes"></a>ThousandEyes에 응용 프로그램 통합 사용
 이 섹션은 ThousandEyes에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -48,19 +49,19 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-thousandeyes-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-thousandeyes-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-thousandeyes-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-thousandeyes-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **ThousandEyes**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-thousandeyes-tutorial/IC790060.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-thousandeyes-tutorial/IC790060.png "응용 프로그램 갤러리")
 7. 결과 창에서 **ThousandEyes**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
     ![ThousandEyes](./media/active-directory-saas-thousandeyes-tutorial/IC790061.png "ThousandEyes")
@@ -71,37 +72,37 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **ThousandEyes** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Configure Single SignOn")
+    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Single Sign-On 구성")
 
 1. **ThousandEyes에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configure Single SignOn")
+    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지의 **ThousandEyes 로그온 URL** 텍스트 상자에 ThousandEyes 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: "*https://app.thousandeyes.com/login/sso*")을 입력한 후 **다음**을 클릭합니다. 
    
-    ![앱 URL 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "앱 URL 구성")
 
 4. **ThousandEyes에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
    
-    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Configure Single SignOn")
+    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 **ThousandEyes** 회사 사이트에 관리자로 로그인합니다.
 
 6. 위쪽의 메뉴에서 **설정**을 클릭합니다.
    
-    ![설정](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
+    ![설정](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "설정")
 
 7. 페이지 맨 아래에 있는 **계정**
    
-    ![계정](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
+    ![계정](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "계정")
 
 8. **보안 및 인증** 탭을 클릭합니다.
    
-    ![보안 및 인증](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "Security & Authentication")
+    ![보안 및 인증](./media/active-directory-saas-thousandeyes-tutorial/IC790068.png "보안 및 인증")
 
 9. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
    
-    ![Single Sign-On 설정](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Setup Single Sign-On")
+    ![Single Sign-On 설정](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Single Sign-On 설정")
    
     a. **Single Sign-On 사용**을 선택합니다.
    
@@ -117,7 +118,7 @@ ms.openlocfilehash: e0f85965cb884022f665d3664bc2b824095ad0fe
 
 10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configure Single SignOn")
+    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 ThousandEyes에 로그인할 수 있도록 하려면 ThousandEyes로 프로비전되어야 합니다.  
@@ -128,19 +129,19 @@ ThousandEyes의 경우 프로비전은 수동 작업입니다.
 
 2. **설정**을 클릭합니다.
    
-    ![설정](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
+    ![설정](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "설정")
 
 3. **계정**을 클릭합니다.
    
-    ![계정](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
+    ![계정](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "계정")
 
 4. **계정 및 사용자** 탭을 클릭합니다.
    
-    ![계정 및 사용자](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Accounts & Users")
+    ![계정 및 사용자](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "계정 및 사용자")
 
 5. **사용자 및 계정 추가** 섹션에서 다음 단계를 수행합니다.
    
-    ![사용자 계정 추가](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Add User Accounts")
+    ![사용자 계정 추가](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "사용자 계정 추가")
    
     a. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **이름**, **메일** 및 기타 세부 정보를 입력합니다.
    
@@ -164,17 +165,12 @@ ThousandEyes의 경우 프로비전은 수동 작업입니다.
 
 2. **ThousandEyes** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

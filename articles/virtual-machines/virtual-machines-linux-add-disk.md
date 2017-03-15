@@ -32,8 +32,8 @@ ms.lasthandoff: 02/21/2017
 관리되는 디스크를 사용하려면:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 관리되지 않는 디스크를 사용하려면:
@@ -53,8 +53,8 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 VM에 새 디스크가 필요한 경우 `az vm disk attach` 명령을 사용할 수 있습니다.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>기존 디스크 연결 

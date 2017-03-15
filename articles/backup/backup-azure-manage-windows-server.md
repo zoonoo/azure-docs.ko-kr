@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 3/9/2017
 ms.author: markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
 ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
+ms.lasthandoff: 01/23/2017
 
 
 ---
@@ -320,9 +321,4 @@ A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 * Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)
 * [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

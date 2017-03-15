@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
-ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-computers-and-devices-to-oms-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 OMS에 컴퓨터 및 장치 연결
+# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 OMS에 컴퓨터 및 장치 연결
+
 이 문서는 OMS 관리 장치 및 SCOM(System Center Operations Manager) 모니터링 컴퓨터에서 OMS 서비스가 인터넷에 연결되어 있지 안을 때 OMS 서비스에 데이터를 보내는 방법을 설명합니다. OMS 게이트웨이는 OMS 서비스를 대신하여 데이터를 수집하여 OMS 서비스에 보낼 수 있습니다.
 
 게이트웨이는 HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시입니다. 게이트웨이는 Windows를 실행하는 4코어 CPU, 16GB 서버를 사용하는 경우 OMS 동시 연결 장치를 2000개까지 처리할 수 있습니다.
@@ -277,9 +280,4 @@ Azure Portal에 로그인되어 있으면 OMS 게이트웨이 또는 다른 Azur
 
 ## <a name="next-steps"></a>다음 단계
 * [데이터 원본을 추가](log-analytics-data-sources.md)하여 OMS 작업 영역의 연결된 원본에서 데이터를 수집하고 OMS 리포지토리에 저장합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

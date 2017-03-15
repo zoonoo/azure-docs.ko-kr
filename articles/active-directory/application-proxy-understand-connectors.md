@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 36e737ebc3451a190e99dc2bc91ef4242d2f573e
-ms.openlocfilehash: e9dfe8ad62dfa0eec810ecdeeddadbecc25b9163
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 41d6f678dba769cf7f949751da8cacf3df7f88c1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -26,8 +27,6 @@ ms.openlocfilehash: e9dfe8ad62dfa0eec810ecdeeddadbecc25b9163
 
 > [!NOTE]
 > 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-> 
-> 
 
 ## <a name="what-are-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터란?
 응용 프로그램 프록시는 네트워크에서 커넥터라는 Windows Server 서비스를 설치해야 작동합니다. 고가용성 및 확장성 요구에 따라 커넥터를 설치할 수 있습니다. 한 개의 커넥터로 시작하고 필요에 따라 더 추가합니다. 커넥터가 설치될 때마다 테넌트를 제공하는 커넥터 풀에 추가됩니다.
@@ -56,6 +55,8 @@ Azure AD 연결 문제를 해결하는 방법은 [Azure AD 응용 프로그램 �
 아웃바운드 트래픽만 포함하므로 커넥터 간의 부하 분산을 설정하거나 방화벽을 통과하는 인바운드 액세스를 구성할 필요가 없습니다.
 
 아웃바운드 방화벽 규칙 구성에 대한 자세한 내용은 [기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)을 참조하세요.
+
+[Azure AD 응용 프로그램 프록시 커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 사용하여 커넥터가 응용 프로그램 프록시 서비스에 연결할 수 있는지 확인합니다. 최소한 미국 중부 하위 지역 및 사용자에게 가까운 지역에는 모두 녹색 확인 표시가 있는지 확인합니다. 그 외의 항목에도 녹색 확인 표시가 있으면 복원력이 더 뛰어난 것입니다. 
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -114,7 +115,7 @@ Azure AD 연결 문제를 해결하는 방법은 [Azure AD 응용 프로그램 �
 * _백 엔드 응용 프로그램:_ 일부 경우 커넥터와 백 엔드 응용 프로그램 간에 추가 프록시가 있습니다. 커넥터 컴퓨터에서 브라우저를 열고 이러한 응용 프로그램에 액세스하여 문제를 해결하는 것이 쉽습니다. Azure에서 커넥터를 실행하고 응용 프로그램이 온-프레미스 상태이면 사용자가 기대한 환경이 아닐 수 있습니다.
 * _도메인 컨트롤러:_ 커넥터가 Kerberos 제한 위임(KCD)을 사용하여 SSO를 수행 중이면 백 엔드에 요청을 보내기 전에 도메인 컨트롤러에 연결합니다. 커넥터에는 Kerberos 티켓 캐시가 있지만 사용량이 많은 환경에서는 도메인 컨트롤러의 응답성으로 환경이 느려질 수 있습니다. Azure에서 실행되는 커넥터에 더 일반적이지만 도메인 컨트롤러는 온-프레미스 상태입니다.
 
-##<a name="automatic-updates-to-the-connector"></a>커넥터 자동 업데이트
+## <a name="automatic-updates-to-the-connector"></a>커넥터 자동 업데이트
 
 커넥터 업데이터 서비스를 통해 자동으로 최신 상태가 유지됩니다. 따라서 모든 새로운 기능, 보안 및 성능 개선을 지속적으로 활용할 수 있습니다.
 
@@ -152,13 +153,9 @@ Azure에서는 유용한 많은 도구를 제공합니다. 특히 커넥터의 �
 
 응용 프로그램 프록시 커넥터 오류 해결에 대한 자세한 내용은 [응용 프로그램 프록시 문제 해결](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot)을 참조하세요.
 
-##<a name="next-steps"></a>다음 단계
-[기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)<br>
+## <a name="next-steps"></a>다음 단계
+[기존 온-프레미스 프록시 서버 작업](application-proxy-working-with-proxy-servers.md)
+
 [Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법](active-directory-application-proxy-silent-installation.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

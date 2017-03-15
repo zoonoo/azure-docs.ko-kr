@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 968df0fde8b042cdea369e566ecdb62937a3b8ee
@@ -29,7 +29,7 @@ Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사�
 
 이 가이드에서는 저장소 계정 또는 [여러 저장소 계정을](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs) 가리키는[ 연결 문자열을 사용하여 Visual Studio에서 WebJob](websites-dotnet-webjobs-sdk-get-started.md) 프로젝트를 만드는 방법을 알고 있는 것으로 가정합니다.
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a><a id="trigger"></a> Blob가 만들어지거나 업데이트될 때 함수를 트리거하는 방법
+## <a id="trigger"></a> Blob가 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 이 섹션에서는 `BlobTrigger` 특성을 사용하는 방법을 보여 줍니다. 
 
 > [!NOTE]
@@ -82,7 +82,7 @@ Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사�
             output = input.ReadToEnd();
         }
 
-## <a name="a-idtypesa-types-that-you-can-bind-to-blobs"></a><a id="types"></a> Blob에 바인딩할 수 있는 유형
+## <a id="types"></a> Blob에 바인딩할 수 있는 유형
 다음 유형에서 `BlobTrigger` 특성을 사용할 수 있습니다.
 
 * `string`
@@ -101,7 +101,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
 
 예제는 [GitHub.com의 azure-webjobs-sdk 리포지토리에 있는 Blob 바인딩 코드](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs)를 참조하세요.
 
-## <a name="a-idstringa-getting-text-blob-content-by-binding-to-string"></a><a id="string"></a> 문자열에 바인딩하여 텍스트 Blob 콘텐츠 가져오기
+## <a id="string"></a> 문자열에 바인딩하여 텍스트 Blob 콘텐츠 가져오기
 텍스트 Blob이 필요한 경우 `BlobTrigger`를 `string` 매개 변수에 적용할 수 있습니다. 다음 코드 샘플은 텍스트 Blob을 `logMessage`라는 `string` 매개 변수에 바인딩합니다. 이 함수에서는 이 매개 변수를 사용하여 Blob의 콘텐츠를 WebJobs SDK 대시보드에 작성합니다. 
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
@@ -113,7 +113,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
              logger.WriteLine(logMessage);
         }
 
-## <a name="a-idicbsba-getting-serialized-blob-content-by-using-icloudblobstreambinder"></a><a id="icbsb"></a> ICloudBlobStreamBinder를 사용하여 serialize된 Blob 콘텐츠 가져오기
+## <a id="icbsb"></a> ICloudBlobStreamBinder를 사용하여 serialize된 Blob 콘텐츠 가져오기
 다음 코드 샘플은 `ICloudBlobStreamBinder`를 구현하여 `BlobTrigger` 특성을 사용하도록 설정하는 클래스를 사용하여 Blob을 `WebImage` 유형에 바인딩합니다.
 
         public static void WaterMark(
@@ -164,7 +164,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
         }
 
 
-## <a name="a-idpoisona-how-to-handle-poison-blobs"></a><a id="poison"></a> 포이즌 Blob를 처리하는 방법
+## <a id="poison"></a> 포이즌 Blob를 처리하는 방법
 `BlobTrigger` 함수가 일시적인 오류로 인해 실패한 경우 SDK는 이 함수를 다시 호출합니다. 그러나 Blob의 콘텐츠로 인해 실패한 경우에는 Blob을 처리하려고 할 때마다 함수가 실패합니다. 기본적으로 SDK는 지정된 Blob에 대해 함수를 최대 5번 호출합니다. 5번의 시도에 실패하면 *webjobs-blobtrigger-poison*이라는 큐에 메시지를 추가합니다.
 
 최대 다시 시도 횟수는 구성 가능합니다. 동일한 [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다. 
@@ -208,14 +208,14 @@ SDK는 JSON 메시지를 자동으로 deserialize합니다. 다음은 `PoisonBlo
             public string ETag { get; set; }
         }
 
-### <a name="a-idpollinga-blob-polling-algorithm"></a><a id="polling"></a> Blob 폴링 알고리즘
+### <a id="polling"></a> Blob 폴링 알고리즘
 WebJobs SDK는 응용 프로그램이 시작될 때 `BlobTrigger` 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 저장소 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob를 찾고 `BlobTrigger` 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
 
 응용 프로그램이 시작된 후 새 Blob 또는 변경된 Blob을 검색하기 위해 SDK는 Blob 저장소 로그를 주기적으로 읽습니다. Blob 로그는 버퍼되고 약 10분마다 실제로 작성되므로 Blob가 생성되거나 업데이트된 후 해당 `BlobTrigger` 함수가 실행되기 전에 지연이 발생할 수 있습니다. 
 
 `Blob` 특성을 사용하여 만드는 Blob에 대한 예외가 있습니다. WebJobs SDK는 새 Blob을 만든 경우 일치하는 모든 `BlobTrigger` 함수에 새 Blob을 즉시 전달합니다. 따라서 Blob 입력 및 출력 체인이 있는 경우 SDK는 이를 효율적으로 처리할 수 있습니다. 그러나 다른 방법으로 만들거나 업데이트한 Blob에 대해 Blob 처리 함수를 실행하는 데 소요되는 지연 시간을 줄이려면 `BlobTrigger`보다 `QueueTrigger`를 사용하는 것이 좋습니다.
 
-### <a name="a-idreceiptsa-blob-receipts"></a><a id="receipts"></a> Blob 수신 확인
+### <a id="receipts"></a> Blob 수신 확인
 WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 `BlobTrigger` 함수가 두 번 이상 호출되지 않도록 합니다. 이를 위해 *blob 수신 확인* 을 유지 관리하여 지정된 Blob 버전이 처리되었는지 확인합니다.
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
@@ -228,7 +228,7 @@ Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure �
 
 Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-queues-article"></a><a id="queues"></a>큐 문서에서 다루는 관련 항목
+## <a id="queues"></a>큐 문서에서 다루는 관련 항목
 큐 메시지에 의해 트리거되는 Blob을 처리하는 방법 또는 Blob 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요 
 
 이 문서에서 다루는 관련 항목은 다음과 같습니다.
@@ -243,7 +243,7 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 * 수동으로 함수 트리거
 * 로그 작성
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
+## <a id="nextsteps"></a> 다음 단계
 이 가이드에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
 

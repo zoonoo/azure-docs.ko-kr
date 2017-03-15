@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
-ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -62,6 +63,9 @@ Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스
 이제 예측 실험이 준비되었으므로 이를 새 Azure 웹 서비스로 배포할 수 있습니다. 웹 서비스를 사용하면 사용자가 모델에 데이터를 보낼 수 있으며, 이 경우 모델에서 해당 예측을 반환합니다.
 
 예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭합니다. 실험 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다.  Machine Learning 웹 서비스 포털의 배포 페이지가 열립니다.
+
+> [!NOTE] 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
 
 #### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Machine Learning 웹 서비스 포털 배포 실험 페이지
 실험 배포 페이지에서 웹 서비스의 이름을 입력합니다.
@@ -116,7 +120,7 @@ BES를 테스트하려면 **배치**를 클릭합니다. 배치 테스트 페이
 기계 학습 웹 서비스에 액세스하는 방법에 대한 자세한 내용은 [배포된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 #### <a name="manage-your-new-web-service"></a>새 웹 서비스 관리
-기존 웹 서비스 기계 학습 웹 서비스 포털을 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml-test.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 배치 작업을 모니터링하려면 **배치 요청 로그**를 클릭합니다.
+새 웹 서비스 Machine Learning 웹 서비스 포털을 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml-test.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 배치 작업을 모니터링하려면 **배치 요청 로그**를 클릭합니다.
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>예측 실험을 기존 웹 서비스로 배포
 
@@ -187,9 +191,4 @@ For more information on how to manage Azure Machine Learning web service endpoin
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

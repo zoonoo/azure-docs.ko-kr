@@ -11,19 +11,20 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/01/2017
+ms.date: 02/24/2017
 ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
-ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
+ms.sourcegitcommit: 1cac55acd88babc4ca4b04d2cafc6fa25f1393f0
+ms.openlocfilehash: 59f09d9529e8a97d8a0a4c7d9984a6fed850a57d
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="what-is-an-azure-sql-elastic-pool"></a>Azure SQL 탄력적 풀이란?
-SQL 탄력적인 풀에는 해당 서버에서 일정한 가격에 대한 일정한 개수의 eDTU가 제공되며 Azure 논리 서버에 있는 데이터베이스의 풀 간에 공유됩니다. SQL DB 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다.
+SQL 탄력적 풀에는 해당 서버에서 일정한 가격에 대한 일정한 개수의 eDTU가 제공되며 Azure 논리 서버에 있는 데이터베이스의 풀 간에 공유됩니다. SQL DB 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) 및 REST API를 사용하여 탄력적 풀을 만들고 관리할 수도 있습니다.
 
 > [!NOTE]
 > 탄력적 풀은 현재 미리 보기 상태인 인도 서부를 제외한 모든 Azure 지역에서 일반 공급(GA) 상태입니다.  이 영역에서 탄력적 풀의 GA는 가능한 한 빨리 수행될 예정입니다.
@@ -98,14 +99,12 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 ### <a name="active-geo-replication"></a>활성 지역 복제
 지역 복원에서 제공할 수 있는 것보다 까다로운 복구 요구 사항이 있는 응용 프로그램에 대해서는 [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) 또는 [Transact-SQL](sql-database-geo-replication-transact-sql.md)을 사용하여 활성 지역 복제를 구성합니다.
 
-## <a name="additional-resources"></a>추가 리소스
-* [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+## <a name="next-steps"></a>다음 단계
+
+* [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) 및 REST API를 사용하여 탄력적 풀을 만들고 관리할 수도 있습니다. 
+* 탄력적 풀을 사용할 때의 지침은 [탄력적 풀 지침](sql-database-elastic-pool-guidance.md)을 참조하세요.
+* 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

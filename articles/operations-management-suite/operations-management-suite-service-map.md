@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
-ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
+ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -138,7 +138,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 
 ## <a name="oms-performance-integration"></a>OMS 성능 통합
-컴퓨터 성능 패널에는 선택한 서버에 대한 표준 성능 메트릭이 표시됩니다.  이 메트릭에는 CPU Utilization, Memory Utilization, Network Bytes Sent 및 Network Bytes Received와 Network Bytes Sent 및 Network Bytes Received에 의한 상위 프로세스 목록이 포함됩니다.
+컴퓨터 성능 패널에는 선택한 서버에 대한 표준 성능 메트릭이 표시됩니다.  이 메트릭에는 CPU Utilization, Memory Utilization, Network Bytes Sent 및 Network Bytes Received와 Network Bytes Sent 및 Network Bytes Received에 의한 상위 프로세스 목록이 포함됩니다.  네트워크 성능 데이터를 가져오려면 OMS에서 실시간 데이터 2.0 솔루션을 사용하도록 설정해야 합니다.
 ![컴퓨터 변경 내용 추적 패널](media/oms-service-map/machine-performance.png)
 
 

@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 6a854486060c77d743cbdd42b7a341860ab77361
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
+ms.openlocfilehash: 830cc28cdd5ca523c43cf1fa9cdff5131727d71f
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -46,6 +46,13 @@ ms.lasthandoff: 02/17/2017
 다음 비디오와 같이 B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추가합니다.
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
+
+## <a name="admins-resending-invitations-to-guest-users"></a>게스트 사용자에게 초대를 다시 보내는 관리자
+B2B 공동 작업 사용자의 프로필 페이지로 이동하여 아직 상환하지 않은 게스트 사용자에게 초대를 다시 보낼 수 있습니다.
+
+![초대 다시 전송](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
+
+> ![NOTE] 원래 초대가 특정 앱 또는 그룹을 대상으로 하더라도 로그인한 사용자로부터 초대가 다시 전송되고, 사용자가 디렉터리로 초대됩니다.
 
 
 ## <a name="related-articles"></a>관련된 문서

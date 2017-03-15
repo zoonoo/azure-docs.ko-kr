@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
-ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
+ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,6 +57,9 @@ ms.lasthandoff: 01/14/2017
 1. 실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **예측 웹 서비스**를 선택합니다. 모델을 학습된 모델로 저장한 다음 웹 서비스 입력 및 출력 모듈을 추가합니다. 
 2. **실행**을 클릭합니다. 
 3. 실험 실행이 완료된 후 **웹 서비스 배포[기존]**을 클릭하고 **웹 서비스 배포[신규]**를 선택합니다.
+
+> [!NOTE] 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>학습 실험을 학습 웹 서비스로 배포
 학습된 모델을 다시 학습하려면 재학습 웹 서비스로 만든 학습 실험을 배포해야 합니다. 이 웹 서비스가 학습된 모델을 새로 생성할 수 있으려면 *웹 서비스 출력* 모듈이 *[학습 모델][train-model]* 모듈에 연결되어야 합니다.

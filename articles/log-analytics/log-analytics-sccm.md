@@ -12,31 +12,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
-ms.openlocfilehash: 18479c3680aa46113e59d25b6e034830f78a1859
+ms.sourcegitcommit: aca83d2de9247bedacce0fb03efe141d903d8605
+ms.openlocfilehash: f93d37ad5be4bf7fdc78d83ec68ba56a427b3e35
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
-System Center Configuration Manager를 OMS의 Log Analytics에 연결하여 장치 수집 데이터를 동기화할 수 있습니다. 이 경우 OMS에서 구성 관리자 배포의 데이터를 사용할 수 있습니다.
+System Center Configuration Manager를 OMS의 Log Analytics에 연결하여 장치 수집 데이터를 동기화할 수 있습니다. 이 경우 OMS에서 구성 관리자 계층 구조의 데이터를 사용할 수 있습니다.
 
-OMS에 구성 관리자를 연결하는 데 많은 단계가 필요하므로 여기서는 전체 프로세르를 간단히 요약하겠습니다.
+## <a name="prerequisites"></a>필수 조건
+
+Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 버전을 지원합니다.  
+
+## <a name="configuration-overview"></a>구성 개요
+다음 단계는 구성 관리자를 Log Analytics에 연결하는 과정을 요약하여 보여줍니다.  
 
 1. Azure Management Portal에서 구성 관리자를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 비밀 키가 있는지 확인합니다. 이 단계를 수행하는 방법은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
 2. Azure Management Portal에서 [구성 관리자(등록된 웹앱)에 OMS에 대한 액세스 권한을 제공](#provide-configuration-manager-with-permissions-to-oms)합니다.
 3. 구성 관리자에서 [DMS 연결 추가 마법사를 사용하여 연결을 추가](#add-an-oms-connection-to-configuration-manager)합니다.
-4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)할 수 있습니다.
+4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)합니다.
 5. OMS 포털의 정보를 사용하여 구성 관리자 서비스 연결 지점 사이트 시스템 역할을 실행하는 컴퓨터에서 [Microsoft Monitoring Agent를 다운로드 및 설치](#download-and-install-the-agent)합니다. 에이전트가 구성 관리자 데이터를 OMS로 전송합니다.
-6. OMS에서 컴퓨터 그룹으로 [구성 관리자의 컬렉션을 가져옵니다](#import-collections).
-7. OMS에서 [컴퓨터 그룹](log-analytics-computer-groups.md)으로 구성 관리자의 데이터를 봅니다.
+6. Log Analytics에서 컴퓨터 그룹으로 [구성 관리자의 컬렉션을 가져옵니다](#import-collections).
+7. Log Analytics에서 [컴퓨터 그룹](log-analytics-computer-groups.md)으로 구성 관리자에서 데이터를 봅니다.
 
 [Microsoft Operations Management Suite에 구성 관리자의 데이터 동기화](https://technet.microsoft.com/library/mt757374.aspx)에서 구성 관리자를 OMS에 연결하는 방법에 대해 자세히 읽을 수 있습니다.
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>구성 관리자에 OMS에 대한 사용 권한 제공
-다음 절차에서는 Azure Management Portal에 OMS에 대한 액세스 권한을 제공합니다. 특히 리소스 그룹 사용자에게 *참가자 역할*을 부여해야 합니다. 그러면 Azure Management Portal에서 구성 관리자를 OMS에 연결할 수 있습니다.
+다음 절차에서는 Azure Management Portal에 OMS에 대한 액세스 권한을 제공합니다. 특히, Azure 관리 포털에서 구성 관리자를 OMS에 연결할 수 있도록 하기 위해 리소스 그룹의 사용자에게 *참가자 역할*을 부여해야 합니다.
 
 > [!NOTE]
 > 구성 관리자의 OMS에 사용 권한을 지정해야 합니다. 그렇지 않고 구성 관리자에세 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
@@ -129,9 +135,4 @@ OMS에 구성 관리자를 연결한 후에는 컬렉션을 추가 또는 제거
 
 ## <a name="next-steps"></a>다음 단계
 * [로그 검색](log-analytics-log-searches.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

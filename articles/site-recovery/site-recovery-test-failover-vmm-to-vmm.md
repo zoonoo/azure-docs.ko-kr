@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 1c3a3a3e9381e20382bb537299b04993180ee729
-ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
+ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
+ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Site Recovery에서 테스트 장애 조치(failover)(VMM에서 VMM으로)
+> [!div class="op_single_selector"]
+> * [Azure로 테스트 장애 조치](./site-recovery-test-failover-to-azure.md)
+> * [VMM에서 VMM으로 테스트 장애 조치](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 이 문서는 VMM으로 관리되는 온-프레미스 사이트를 복구 사이트로 사용하여 Site Recovery로 보호되는 가상 컴퓨터 및 물리적 서버의 테스트 장애 조치(failover) 또는 재해 복구 훈련을 수행하기 위한 정보와 지침을 제공합니다. 
 
@@ -67,6 +72,8 @@ ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **가상 컴퓨터** 탭에서 단일 컴퓨터 또는 실제 서버에 대한 장애 조치를 실행할 수 있습니다.
 
+![테스트 장애 조치(Failover)](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Test 장애 조치(Failover)**에서 의견이나 질문을 게시합니다.
 1. **테스트 장애 조치** 블레이드에서 테스트 장애 조치(failover) 후에 가상 컴퓨터를 네트워크에 연결할 방법을 지정합니다. 자세한 내용은 [네트워크 옵션](#network-options-in-site-recovery)을 참조하세요.
 1. **작업** 탭에서 장애 조치 진행 상황을 추적합니다. 
@@ -74,7 +81,7 @@ ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
 1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치(failover) 중에 생성된 가상 컴퓨터 및 네트워크가 삭제됩니다. 
 
 
-## <a name="network-options-in-site-recovery"></a>사이트 복구의 네트워크 옵션
+## <a name="network-options-in-site-recovery"></a>Site Recovery의 네트워크 옵션
 
 테스트 장애 조치를 실행하면 테스트 복제 컴퓨터에 대한 네트워크 설정을 선택하라는 메시지가 나타납니다. 다양한 옵션이 있습니다.  
 
@@ -100,9 +107,4 @@ ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
 
 ## <a name="next-steps"></a>다음 단계
 테스트 장애 조치(failover)를 성공적으로 수행한 후에는 [장애 조치](site-recovery-failover.md)(failover)를 수행해도 됩니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

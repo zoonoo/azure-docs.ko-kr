@@ -1,5 +1,5 @@
 ---
-title: "풀의 Linux 계산 노드 프로비전 - Azure Batch | Microsoft Docs"
+title: "가상 컴퓨터 계산 노드에서 Linux 실행 - Azure Batch | Microsoft Docs"
 description: "Azure 배치의 Linux 가상 컴퓨터 풀에서 병렬 계산 워크로드를 처리하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: python
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 85aa18c7eab56c390dc9a9f7865a3468a43739f2
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4e0194f98ebcaffba2c5a89833a969112294e83a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="provision-linux-compute-nodes-in-azure-batch-pools"></a>Azure 배치 풀에서 Linux 계산 노드 프로비전
+# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 계산 노드 프로비전
+
 Azure 배치를 사용하여 Linux 및 Windows 가상 컴퓨터에서 병렬 계산 워크로드를 실행할 수 있습니다. 이 문서에서는 [Batch Python][py_batch_package] 및 [Batch .NET][api_net] 클라이언트 라이브러리를 모두 사용하여 Batch 서비스에서 Linux 계산 노드 풀을 만드는 방법에 대해 자세히 설명합니다.
 
 > [!NOTE]
@@ -348,9 +351,4 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
