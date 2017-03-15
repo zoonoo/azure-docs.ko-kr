@@ -1,6 +1,6 @@
 ---
-title: "Spark에서 만든 Machine Learning 모델 점수 매기기 | Microsoft Docs"
-description: "Azure Blob 저장소(WASB)에 저장된 학습 모델의 점수를 매기는 방법."
+title: "Spark에서 만든 Machine Learning 모델 운영 | Microsoft Docs"
+description: "Python을 사용하여 Azure Blob Storage(WASB)에 저장된 학습 모델을 로드하고 점수를 매기는 방법입니다."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,28 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/24/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
-ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
+ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="score-spark-built-machine-learning-models"></a>Spark에서 만든 기계 학습 모델 점수 매기기
+# <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-이 토픽에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 기계 학습(ML) 모델을 로드하는 방법 및 WASB에도 저장된 데이터 집합을 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
+이 항목에서는 HDInsight Spark 클러스터에서 Python을 사용하여 저장된 Machine Learning 모델(ML)을 운영하는 방법을 보여줍니다. 이 항목에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 Machine Learning 모델을 로드하는 방법 및 WASB에도 저장된 데이터 집합을 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
+
+## <a name="spark-clusters-and-jupyter-notebooks"></a>Spark 클러스터 및 Jupyter Notebook
+HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설정 단계 및 ML 모델을 운영하는 코드가 이 연습에 제공됩니다. 이러한 절차에 대한 코드가 Jupyter Notebook에도 제공됩니다.
+
+### <a name="notebook-for-spark-16"></a>Spark 1.6용 Notebook
+[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) Jupyter Notebook에서는 HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운영하는 방법을 보여 줍니다. 
+
+### <a name="notebook-for-spark-20"></a>Spark 2.0용 Notebook
+HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter Notebook을 수정하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 바꿉니다. 이 코드는 Spark 2.0에서 생성된 모델을 사용하는 방법을 보여 줍니다.
+
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6 또는 Spark 2.0 HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
-2. 또한 Spark 1.6 클러스터 또는 the Spark 2.0 Notebook에 대한 [Spark로 데이터 탐색 및 모델링](machine-learning-data-science-spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매길 Machine Learning 모델을 만들어야 합니다. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 집합인 인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 집합을 사용합니다. Notebook과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
-
-
-## <a name="setup-spark-clusters-and-notebooks"></a>설정: Spark 클러스터 및 Notebook
-설치 단계와 코드는 HDInsight Spark 1.6을 사용하는 이 연습에 제공됩니다. [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb): Notebook에서는 HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운영하는 방법을 보여 줍니다. HDInsight Spark 2.0 클러스터와 함께 사용하도록 이 Jupyter Notebook을 수정하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 바꿉니다.
+1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
+2. 또한 Spark 1.6 클러스터 또는 the Spark 2.0 Notebook에 대한 [Spark로 데이터 탐색 및 모델링](machine-learning-data-science-spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매길 Machine Learning 모델을 만들어야 합니다. 
+3. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 집합인 인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 집합을 사용합니다. Notebook과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -578,7 +585,7 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 코드 없는 클라이언트 환경을 선호하는 경우 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)를 사용하여 **Logic Apps Designer**에서 HTTP 작업을 정의하고 해당 매개 변수를 설정하여 Spark 배치 점수 매기기를 호출합니다. 
 
 * Azure Portal에서 **+새로 만들기** -> **웹 + 모바일** -> **논리 앱**을 선택하여 새 논리 앱을 만듭니다. 
-* **Logic Apps Designer**를 표시하려면 논리 앱 및 App Service 계획의 이름을 입력합니다.
+* **Logic Apps Designer**를 표시하려면 Logic App 및 App Service 계획의 이름을 입력합니다.
 * HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
 ![논리 앱 디자이너](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)

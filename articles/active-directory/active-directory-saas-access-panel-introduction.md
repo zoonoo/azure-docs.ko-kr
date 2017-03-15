@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 2dd9c96e1c15e424588869b61eb26501b1b66be3
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: ef589c768f60e9a68ac7bc952fa181758452b1bd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="introduction-to-the-access-panel"></a>액세스 패널 소개
+# <a name="what-is-the-access-panel"></a>액세스 패널이란
 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. Azure Active Directory 버전을 사용하는 최종 사용자인 경우 액세스 패널을 통해 셀프 서비스 그룹 관리 기능도 활용할 수 있습니다. <br>
- 액세스 패널은 Azure 관리 포털과 별개이며, 사용자가 Azure 구독을 하지 않아도 됩니다. 
+액세스 패널은 Azure 관리 포털과 별개이며, 사용자가 Azure 구독을 하지 않아도 됩니다. 
 
 ![액세스 패널][1] 
 
@@ -49,8 +51,8 @@ ms.openlocfilehash: 2dd9c96e1c15e424588869b61eb26501b1b66be3
 
 ## <a name="authentication"></a>인증
 액세스 패널에 도달하기 위해 사용자는 Azure AD에서 조직 계정을 사용해 인증되어야 합니다. <br>
- 사용자는 Azure AD에서 직접 인증을 받을 수 있습니다. <br>
- 또는 조직이 ADFS나 다른 기술을 사용하여 페더레이션을 구성한 경우 Windows Server Active Directory에서 인증을 받을 수도 있습니다.
+사용자는 Azure AD에서 직접 인증을 받을 수 있습니다. <br>
+또는 조직이 ADFS나 다른 기술을 사용하여 페더레이션을 구성한 경우 Windows Server Active Directory에서 인증을 받을 수도 있습니다.
 
 사용자가 Azure 또는 Office 365를 구독하고 Azure 관리 포털이나 Office 365 응용 프로그램을 사용하고 있으면 다시 로그인할 필요 없이 응용 프로그램의 목록이 나타납니다. 인증되지 않은 사용자는 Azure AD 계정에 대한 사용자 이름 및 암호를 사용하여 로그인할 것을 요청받습니다. 조직이 페더레이션을 구성한 경우 사용자 이름을 입력하면 충분합니다.
 
@@ -102,7 +104,7 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 사용자가 이 응용 프로그램에 대한 응용 프로그램 타일을 클릭한 경우 해당 응용 프로그램으로 리디렉션되고 자동 로그인됩니다.
 
 ### <a name="password-based-sso-without-identity-provisioning"></a>ID 프로비전 없는 암호 기반 SSO
-관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 Single Sign-On 모드로 추가한 응용 프로그램입니다. <br>  디렉터리의 모든 사용자가 이 모드에 구성된 모든 응용 프로그램을 볼 수 있습니다.
+관리자가 Azure 관리 포털의 Active Directory 섹션에 “*Password-based Single Sign-On*”으로 설정된 Single Sign-On 모드로 추가한 응용 프로그램입니다. <br> 디렉터리의 모든 사용자가 이 모드에 구성된 모든 응용 프로그램을 볼 수 있습니다.
 
 처음에 사용자가 이 응용 프로그램 중의 하나인 응용 프로그램 타일을 클릭하면 Internet Explorer 또는 Chrome에 대한 암호 SSO 플러그인 설치가 요청되며 웹 브라우저를 재시작해야 할 수도 있습니다. 액세스 패널로 돌아와 응용 프로그램 타일을 다시 클릭하면 응용 프로그램에 대한 사용자 이름 및 암호 요청 메시지가 보입니다. 사용자 이름 및 암호를 입력하면 이 자격 증명은 Azure AD에 보안 저장되며 Azure AD에 있는 계정에 연결되고, 액세스 패널은 이 자격 증명을 사용하여 응용 프로그램에 사용자 로그인을 자동화합니다.
 
@@ -118,7 +120,7 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 일부 응용 프로그램에서는 사용자가 처음으로 로그인할 때 암호 변경이 필요할 수 있습니다. 사용자의 자격 증명이 타사 응용 프로그램에서 변경된 경우 사용자는 Azure AD에 저장된 자격 증명 또한 업데이트해야 합니다. 자격 증명을 업데이트하려면 사용자는 응용 프로그램 타일의 오른쪽 아래에 있는 아이콘을 선택하고 “자격 증명 업데이트”를 클릭하여 응용 프로그램에 대한 사용자 이름과 암호를 재입력합니다.
 
 ### <a name="application-with-existing-sso-solutions"></a>기존 SSO 솔루션을 사용한 응용 프로그램
-응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure 관리 포털은 "기존 Single Sign-On”의 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들고 선택한 사용자에 대한 액세스 패널에 배치할 수 있습니다. 예를 들어 Active Directory Federation Services 2.0을 사용하여 사용자를 인증하도록 구성된 응용 프로그램이 있는 경우 관리자가 "기존 Single Sign-On" 옵션을 사용하여 액세스 패널에서 이에 대한 링크를 만들 수 있습니다. 사용자가 이 링크에 액세스하는 경우 Active Directory Federation Services 2.0을 사용하거나 응용 프로그램에서 제공하는 기존 Single Sign-On 솔루션을 사용하여 인증을 받습니다.
+응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure 관리 포털은 "기존 Single Sign-On”의 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들어 선택된 사용자의 액세스 패널에 배치할 수 있습니다.  예를 들어 Active Directory Federation Services 2.0을 사용하여 사용자를 인증하도록 구성된 응용 프로그램이 있는 경우, 관리자가 "기존 Single Sign-On" 옵션을 사용하여 액세스 패널에 이에 대한 링크를 만들 수 있습니다.  사용자가 이 링크에 액세스하는 경우 Active Directory Federation Services 2.0을 사용하거나 응용 프로그램에서 제공하는 기존 Single Sign-On 솔루션을 사용하여 인증을 받습니다.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
@@ -131,9 +133,4 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
-ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
+ms.sourcegitcommit: 3b9d269a780e9a4c61263208f26f440b1121c682
+ms.openlocfilehash: f437598b612a145c5dd8b46a1ba340d298a76981
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -62,7 +63,7 @@ vCenter 5.5 또는 6.0(5.5 기능만 지원)  <br/><br/> 최신 업데이트가 
 
 ### <a name="machines-replicate-to-azure"></a>컴퓨터(Azure에 복제)
 
-가상 컴퓨터는 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 충족해야 합니다.
+가상 컴퓨터는 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.
 
 **요구 사항** | **VMware/물리적 서버** | **Hyper-V(VMM 없음)** | **Hyper-V(VMM 포함)**
 --- | --- | --- | ---
@@ -163,17 +164,17 @@ RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음 | �
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 | 예 | 예
 저장소 공간 | 아니요 | 예 | 예
 디스크 핫 추가/제거 | 아니요 | 아니요 | 아니요
-디스크 제외 | 예 | 아니요 | 아니요
+디스크 제외 | 예 | 예 | 예
 다중 경로(MPIO) | 해당 없음 | 예 | 예
 
 **Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(VMM 없음)** | **Hyper-V(VMM 포함)**
 --- | --- | --- | ---
 LRS | 예 | 예 | 예
-GRS | 예 | 예 | 예
+GRS(표준 저장소에만 해당) | 예 | 예 | 예
 쿨 저장소 | 아니요 | 아니요 | 아니요
 핫 저장소| 아니요 | 아니요 | 아니요
 휴지 상태의 암호화 | 예 | 예 | 예
-Premium Storage | 예 | 아니요 | 아니요
+Premium Storage | 예 | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요 | 아니요
 
 
@@ -261,10 +262,5 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 
 
 ## <a name="next-steps"></a>다음 단계
-[배포 준비](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[필수 구성 요소](site-recovery-prereq.md) 확인
 

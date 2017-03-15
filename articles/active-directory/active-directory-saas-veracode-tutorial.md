@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 8c8ac0af8a39afdd9755040d21585185ceca890e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-veracode-tutorial/IC802903.png "Scenario")
+![시나리오](./media/active-directory-saas-veracode-tutorial/IC802903.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-veracode"></a>Veracode에 응용 프로그램 통합 사용
 이 섹션은 Veracode에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -48,19 +49,19 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-veracode-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-veracode-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-veracode-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-veracode-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-veracode-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-veracode-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **Veracode**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-veracode-tutorial/IC802904.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-veracode-tutorial/IC802904.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **Veracode**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -71,36 +72,36 @@ ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
 Veracode 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며 이는 **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가합니다.  
 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
-![특성](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+![특성](./media/active-directory-saas-veracode-tutorial/IC802906.png "특성")
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Veracode** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-veracode-tutorial/IC802907.png "Single Sign-On 구성")
 
 2. **Veracode에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-veracode-tutorial/IC802908.png "Single Sign-On 구성")
 
 3. **응용 프로그램 설정 구성** 페이지에서 **다음**을 클릭합니다.
    
-    ![앱 설정 구성](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configure App Settings")
+    ![앱 설정 구성](./media/active-directory-saas-veracode-tutorial/IC802909.png "앱 설정 구성")
 
 4. **Veracode에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-veracode-tutorial/IC802910.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 Veracode 회사 사이트에 관리자 권한으로 로그인합니다.
 
 6. 위쪽 메뉴에서 **설정**을 클릭한 다음 **관리자**를 클릭합니다.
    
-    ![관리](./media/active-directory-saas-veracode-tutorial/IC802911.png "Administration")
+    ![관리](./media/active-directory-saas-veracode-tutorial/IC802911.png "관리")
 
 7. **SAML** 탭을 클릭합니다.
 
 8. **조직 SAML 설정** 섹션에서 다음 단계를 수행합니다.
    
-    ![관리](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administration")
+    ![관리](./media/active-directory-saas-veracode-tutorial/IC802912.png "관리")
    
     a. Azure 클래식 포털의 **Veracode에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자 URL** 텍스트 상자에 붙여넣습니다.
    
@@ -110,7 +111,7 @@ Veracode 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하�
 
 9. **자체 등록 설정** 섹션에서 다음 단계를 수행하고 **저장**을 클릭합니다.
    
-    ![관리](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administration")
+    ![관리](./media/active-directory-saas-veracode-tutorial/IC802913.png "관리")
    
     a. **새 사용자 활성화**에 대해 **활성화 필요 없음**을 선택합니다.
    
@@ -130,15 +131,15 @@ Veracode 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하�
 
 10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
     
-    ![Single Sign-On 구성](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-veracode-tutorial/IC802914.png "Single Sign-On 구성")
 
 11. 위쪽 메뉴에서 **특성** to open the **SAML Token 특성** 대화 상자를 엽니다.
     
-    ![특성](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributes")
+    ![특성](./media/active-directory-saas-veracode-tutorial/IC795920.png "특성")
 
 12. 필요한 특성 매핑을 추가하려면 다음 단계를 수행합니다.
     
-    ![특성](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+    ![특성](./media/active-directory-saas-veracode-tutorial/IC802906.png "특성")
     
     | 특성 이름 | 특성 값 |
     |:--- |:--- |
@@ -176,17 +177,12 @@ Veracode의 경우 프로비전은 자동 작업입니다.
 
 2. **Veracode** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-veracode-tutorial/IC802915.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-veracode-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-veracode-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

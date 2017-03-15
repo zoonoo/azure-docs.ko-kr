@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
+ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
+ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,7 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 1. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다.
 
    ![Azure 메뉴][1]
-2. 처음으로 Security Center에 액세스하는 경우 **시작** 블레이드가 열립니다. **예!  Azure Security Center를 시작하겠습니다.**를 선택하여 **Security Center** 블레이드를 열고 데이터 수집을 사용하도록 설정합니다.
+2. 처음으로 Security Center에 액세스하는 경우 **시작** 블레이드가 열립니다. **예! Azure Security Center를 시작하겠습니다.**를 선택하여 **Security Center** 블레이드를 열고 데이터 수집을 사용하도록 설정합니다.
    ![시작 화면][10]
 3. 시작 블레이드에서 Security Center를 시작하거나 Microsoft Azure 메뉴에서 Security Center를 선택하면 **Security Center** 블레이드가 열립니다. 향후 **Security Center** 블레이드에 손쉽게 액세스하려면 오른쪽 위에 있는 **대시보드에 블레이드 고정** 옵션을 선택합니다.
    ![대시보드 옵션에 블레이드 고정][2]
@@ -109,7 +110,7 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 * Azure 구독의 보안 정책을 구성합니다. 자세한 내용은 [Azure Security Center의 보안 정책 설정](security-center-policies.md)을 참조하세요.
 * Security Center에서 권장 사항을 사용하여 Azure 리소스를 보호합니다. 자세한 내용은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 * 현재 보안 경고를 검토하고 관리합니다. 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
-* Security Center의 [표준 계층](security-center-pricing.md)과 함께 제공되는 [고급 위협 탐지 기능](security-center-detection-capabilities.md)에 대해 알아봅니다. 표준 계층의 90일 무료 평가판을 사용할 수 있습니다.
+* Security Center의 [표준 계층](security-center-pricing.md)과 함께 제공되는 [고급 위협 탐지 기능](security-center-detection-capabilities.md)에 대해 알아봅니다. 표준 계층은 처음 60일간 무료로 제공됩니다.
 * Security Center 사용에 대한 질문이 있으면 [Azure Security Center FAQ](security-center-faq.md)를 참조하세요.
 
 <!--Image references-->
@@ -123,9 +124,4 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/welcome.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

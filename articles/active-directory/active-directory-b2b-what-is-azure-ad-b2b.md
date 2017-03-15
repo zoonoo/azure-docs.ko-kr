@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
+ms.sourcegitcommit: 14028332ecc17478230d035206e8e00f6af67f7b
+ms.openlocfilehash: 8b6bf676dfa0df45d59763db70655d85fa08809a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ Azure AD B2B 공동 작업 기능을 사용하여 해당 규정 준수 및 거�
 
 B2B 공동 작업 사용자는 일반적으로 초대 + 충전 프로세스를 통해 온보드에 추가됩니다. 방법은 다음과 같습니다.
 
-1. WoodGrove의 John Doe는 gmail 주소 (gsamoogle@gmail.com)을 사용하여 Sam Oogle을 추가하려고 합니다.
+1. WoodGrove의 John Doe는 gmail 주소 gsamoogle@gmail.com을 사용하여 Sam Oogle을 추가하려고 합니다.
 
 2. John은 WoodGrove 포털(portal.azure.com) 또는 액세스 패널(myapps.microsoft.com)로 이동한 후 로그인하고 WoodGrove 디렉터리 또는 그룹이나 응용 프로그램에 사용자를 추가합니다.
 
@@ -93,10 +94,7 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
+
+* [B2B 공동 작업 사용자 감사 및 보고](active-directory-b2b-auditing-and-reporting.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

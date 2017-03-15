@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics로 Surface Hub 모니터링 | Microsoft Docs"
+title: "Azure Log Analytics로 Surface Hub 모니터링 | Microsoft Docs"
 description: "Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 9ba6b1b3fcdaf090eee696ba3cb33be5d94be039
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="monitor-surface-hubs-with-log-analytics"></a>Log Analytics로 Surface Hub 모니터링
+# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
+
 이 문서에서는 Log Analytics의 Surface Hub 솔루션을 사용하여 Microsoft OMS(Operations Management Suite)를 통해 Microsoft Surface Hub 장치를 모니터링하는 방법을 설명합니다. Log Analytics는 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악하는 데 도움이 됩니다.
 
 Surface Hub마다 Microsoft Monitoring Agent가 설치되어 있습니다. 에이전트를 통해야만 데이터를 Surface Hub에서 OMS로 보낼 수 있습니다. 로그 파일은 먼저 Surface Hub에서 읽은 다음 OMS 서비스로 전송됩니다. 오프라인 상태에 있는 서버, 동기화되지 않는 일정 또는 Skype에 로그인할 수 없는 장치 계정과 같은 문제들이 OMS의 Surface Hub 대시보드에 표시됩니다. 대시보드의 데이터를 통해 실행되지 않거나 다른 문제가 있는 장치를 확인하고, 잠재적으로는 발견된 문제에 대한 픽스도 적용할 수 있습니다.
@@ -84,9 +87,4 @@ OMS를 통한 Surface Hub 모니터링은 등록된 다른 장치 모니터링�
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 통한 자세한 Surface Hub 데이터 보기
 * Surface Hub 문제 발생 시 알리는 [경고](log-analytics-alerts.md) 만들기
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

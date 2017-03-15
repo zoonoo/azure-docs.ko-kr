@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
-ms.openlocfilehash: 856d75c58cd911c641ec74b78f5c6133e605b2ec
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
+ms.openlocfilehash: bf6ef38ba28d11d7894a30115174582903f84580
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
-Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하는 방법을 제공하지만 솔루션에 필요한 도구와 기술을 이용하기 위해서는 Linux 기반 클러스터가 필요합니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 일부는 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 또한 많은 책, 동영상 및 기타 교육 자료에서 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
+Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방법을 제공하지만 Linux 기반 클러스터로 마이그레이션해야 합니다. 예를 들어, 솔루션에 필요한 Linux 기반 도구 및 기술을 활요하는 것입니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 또한 많은 책, 동영상 및 기타 교육 자료에서 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
 
 이 문서는 Windows와 Linux에서의 HDInsight 차이점과 기존 작업에서 Linux 기반 클러스터로 마이그레이션하는 방법에 대한 세부 정보를 제공합니다.
 
@@ -36,14 +36,14 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 
 1. 기존의 워크플로, 작업 등을 Linux 기반 클러스터로 마이그레이션할 때 필요한 변경 사항을 파악하려면 이 문서의 각 섹션을 읽어보세요.
 2. 테스트/품질 보증 환경으로 Linux 기반 클러스터를 만듭니다. Linux 기반 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
-3. 기존의 작업, 데이터 원본 및 싱크를 새 환경으로 복사합니다. 자세한 내용은 테스트 환경 섹션에 데이터 복사를 참조하세요.
+3. 기존 작업, 데이터 원본 및 싱크를 새 환경으로 복사합니다.
 4. 작업이 새 클러스터에서 예상대로 작동하는지 확인하려면 유효성 검사 테스트를 수행합니다.
 
 예상대로 작동하는 것이 확인되면 마이그레이션을 위해 가동 중지 시간을 예약합니다. 이 가동 중지 시간에 다음 작업을 수행합니다.
 
 1. 클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
 2. Windows 기반 클러스터를 삭제합니다.
-3. Windows 기반 클러스터가 사용한 기본 데이터 저장소를 동일하게 사용하여 Linux 기반 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
+3. Windows 기반 클러스터가 사용한 기본 데이터 저장소를 동일하게 사용하여 Linux 기반 클러스터를 만듭니다. 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
 4. 백업한 모든 임시 데이터를 가져옵니다.
 5. 새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
@@ -51,9 +51,10 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 데이터 및 작업을 복사하는 방법은 여러 가지가 있지만, 이 섹션에서 설명하는 두 가지 방법이 파일을 테스트 클러스터로 직접 이동시키는 가장 간단한 방법입니다.
 
 #### <a name="hdfs-dfs-copy"></a>HDFS DFS 복사
-다음 단계에 따라 Hadoop HDFS 명령을 사용하여 기존 프로덕션 클러스터를 위한 저장소에서 새 테스트 클러스터를 위한 저장소로 데이터를 직접 복사할 수 있습니다.
 
-1. 기존 클러스터에 대한 저장소 계정 및 기본 컨테이너 정보를 찾습니다. 다음 Azure PowerShell 스크립트를 사용하여 이 작업을 수행할 수 있습니다.
+다음 단계를 사용하여 프로덕션 클러스터에서 테스트 클러스터로 데이터를 복사합니다. 이 단계에서는 HDInsight에 포함된 `hdfs dfs` 유틸리티를 사용합니다.
+
+1. 기존 클러스터에 대한 저장소 계정 및 기본 컨테이너 정보를 찾습니다. 다음 예제에서는 PowerShell을 사용하여 이 정보를 검색합니다.
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
@@ -64,12 +65,13 @@ Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하�
 
 2. 새 테스트 환경을 만들려면 HDInsight에서 Linux 기반 클러스터 만들기 문서에 나와 있는 단계를 따릅니다. 클러스터를 만들기 전에 **옵션 구성**을 선택합니다.
 3. 옵션 구성 블레이드에서 **연결된 저장소 계정**을 선택합니다.
-4. **저장소 키 추가**를 선택하고 메시지가 표시되면, 1단계의 PowerShell 스크립트에서 반환된 저장소 계정을 선택합니다. 각 블레이드에서 **선택** 을 클릭하고 이를 닫습니다. 마지막으로 클러스터를 만듭니다.
+4. **저장소 키 추가**를 선택하고 메시지가 표시되면, 1단계의 PowerShell 스크립트에서 반환된 저장소 계정을 선택합니다. 각 블레이드에서 **선택**을 클릭합니다. 마지막으로 클러스터를 만듭니다.
 5. 클러스터가 만들어지면 **SSH**를 사용하여 클러스터에 연결합니다. HDInsight에서 SSH를 사용하는 방법을 잘 모르는 경우 다음 문서 중 하나를 참조하세요.
 
-   * [Windows 클라이언트에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
-   * [Linux, Unix 및 Mac 클라이언트에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-6. SSH 세션에서 다음 명령을 사용하여 연결된 저장소 계정에서 새 기본 저장소 계정으로 파일을 복사합니다. CONTAINER와 ACCOUNT를 1단계의 PowerShell 스크립트에서 반환된 컨테이너 및 계정 정보로 바꿉니다. 데이터 경로를 데이터 파일 경로로 바꿉니다.
+   * [Windows 클라이언트에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Linux, Unix, OS X 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+6. SSH 세션에서 다음 명령을 사용하여 연결된 저장소 계정에서 새 기본 저장소 계정으로 파일을 복사합니다. CONTAINER를 PowerShell에서 반환하는 컨테이너 정보로 바꿉니다. __ACCOUNT__를 계정 이름으로 바꿉니다. 데이터 경로를 데이터 파일 경로로 바꿉니다.
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
@@ -139,7 +141,7 @@ Ambari에는 클러스터의 잠재적인 문제를 알려주는 경고 시스�
 >
 > 많은 경고는 서비스에서 간격 기반 쿼리로 구현되므로 특정 시간 프레임 내에서 응답을 기대합니다. 그러므로 경고가 발생했다고 해서 반드시 해당 서비스가 다운되었다는 것이 아니라 예상된 시간 프레임 내에 결과를 반환하지 않았다는 것을 의미합니다.
 
-일반적으로 사용자는 조치를 취하기 전에 경고가 오랜 시간 동안 발생했는지 또는 클러스터에 이전에 보고되었던 사용자 문제를 반영하는지 여부를 평가해야 합니다.
+일반적으로 사용자는 조치를 취하기 전에 경고가 오랜 시간 동안 발생했는지 또는 이전에 보고되었던 사용자 문제를 반영하는지 여부를 평가해야 합니다.
 
 ## <a name="file-system-locations"></a>파일 시스템 위치
 Linux 클러스터 파일 시스템은 Windows 기반 HDInsight 클러스터와는 다르게 배치됩니다. 다음 표를 사용하여 일반적으로 사용되는 파일을 찾습니다.
@@ -148,17 +150,18 @@ Linux 클러스터 파일 시스템은 Windows 기반 HDInsight 클러스터와�
 | --- | --- |
 | 구성 |`/etc`. 예: `/etc/hadoop/conf/core-site.xml` |
 | 로그 파일 |`/var/logs` |
-| HDP(Hortonworks Data Platform) |`/usr/hdp`.두 개의 디렉터리가 여기에 있으며 현재 HDP 버전(예: `2.2.9.1-1`) 및 `current`입니다. `current` 디렉터리에는 버전 번호 디렉터리에 있는 파일 및 디렉터리에 대한 기호화된 링크가 포함되어 있으며 HDP 버전이 업데이트될 때 버전 번호도 변하므로 HDP 파일에 액세스하기 위한 편리한 방법으로 이 디렉터리가 제공됩니다. |
+| HDP(Hortonworks Data Platform) |`/usr/hdp`.두 개의 디렉터리가 여기에 있으며 현재 HDP 버전 및 `current`입니다. `current` 디렉터리에는 버전 번호 디렉터리에 있는 파일 및 디렉터리에 대한 바로 가기 링크가 포함되어 있습니다. `current` 디렉터리는 HDP 버전의 업데이트에 따라 버전 번호가 변경되므로 HDP 파일에 액세스하는 편리한 방법으로 제공됩니다. |
 | hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 일반적으로 파일 이름을 알면 파일 경로를 찾을 때 SSH 세션에서 다음 명령을 사용할 수 있습니다.
 
     find / -name FILENAME 2>/dev/null
 
-파일 이름과 함께 와일드카드를 사용할 수도 있습니다. 예를 들어 `find / -name *streaming*.jar 2>/dev/null` 는 파일 이름 중 'streaming'이라는 단어를 포함하는 모든 jar 파일의 경로를 반환합니다.
+파일 이름과 함께 와일드카드를 사용할 수도 있습니다. 예를 들어 `find / -name *streaming*.jar 2>/dev/null`는 파일 이름 중 'streaming'이라는 단어를 포함하는 모든 jar 파일의 경로를 반환합니다.
 
 ## <a name="hive-pig-and-mapreduce"></a>Hive, Pig 및 MapReduce
-Linux 기반 클러스터에서 Pig 및 MapReduce 작업은 매우 유사하며 주요 차이점은 원격 데스크톱을 사용하여 Windows 기반 클러스터에 연결하고 작업을 수행하는 경우 Linux 기반 클러스터에서 SSH를 사용한다는 것입니다.
+
+Pig 및 MapReduce 워크로드는 Linux 기반 클러스터에서 매우 유사합니다. 유일한 차이점은 클러스터 헤드 노드에 연결하는 방법입니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [SSH와 함께 Pig 사용](hdinsight-hadoop-use-pig-ssh.md)
 * [SSH와 함께 MapReduce 사용](hdinsight-hadoop-use-mapreduce-ssh.md)
@@ -178,29 +181,29 @@ Linux 기반 클러스터에서 Pig 및 MapReduce 작업은 매우 유사하며 
 | --- | --- |
 | Storm 대시보드 |Storm 대시보드를 사용할 수 없습니다. 토폴로지를 제출하는 방법은 [Linux 기반 HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md) 를 참조하세요. |
 | Storm UI |Storm UI는 https://CLUSTERNAME.azurehdinsight.net/stormui에서 사용할 수 있습니다. |
-| C# 또는 하이브리드 토폴로지를 생성, 배포 및 관리하기 위한 Visual Studio |Visual Studio를 사용하여 2017년 10월 28일 이후 생성된 HDInsight 클러스터의 Linux 기반 Storm에서 C#(SCP.NET) 또는 하이브리드 토폴로지를 생성, 배포 및 관리할 수 있습니다. |
+| C# 또는 하이브리드 토폴로지를 생성, 배포 및 관리하기 위한 Visual Studio |Visual Studio를 사용하여 2016년 10월 28일 이후 생성된 HDInsight 클러스터의 Linux 기반 Storm에서 C#(SCP.NET) 또는 하이브리드 토폴로지를 생성, 배포 및 관리할 수 있습니다. |
 
 ## <a name="hbase"></a>HBase
-Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure`입니다. 기본 HBase Java API를 사용하는 모든 Java 클라이언트 응용 프로그램 구성에서 이를 설정해야 합니다.
+Linux 기반 클러스터에서 HBase에 대한 znode 상위는 `/hbase-unsecure`입니다. 기본 HBase Java API를 사용하는 모든 Java 클라이언트 응용 프로그램 구성에서 이 값을 설정합니다.
 
 이 값을 설정하는 예제 클라이언트에 대한 내용은 [Java 기반 HBase 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md) 를 참조하세요.
 
 ## <a name="spark"></a>Spark
-미리 보기 중 Windows 클러스터에서 Spark 클러스터를 사용할 수 있지만 릴리스의 경우 Spark는 Linux 기반 클러스터에서만 사용할 수 있습니다. Windows 기반 Spark 미리 보기 클러스터에서 릴리스 Linux 기반 Spark 클러스터까지의 마이그레이션 경로는 없습니다.
+Spark 클러스터는 미리 보기 중 Windows 클러스터에서 사용 가능했지만 Spark GA은 Linux 기반 클러스터에서만 사용 가능합니다. Windows 기반 Spark 미리 보기 클러스터에서 릴리스 Linux 기반 Spark 클러스터까지의 마이그레이션 경로는 없습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 ### <a name="azure-data-factory-custom-net-activities"></a>Azure Data Factory 사용자 지정 .NET 작업
 Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight 클러스터에서 지원되지 않습니다. 대신 ADF 파이프라인의 일부로 사용자 지정 작업을 구현하기 위해서는 다음 방법 중 하나를 사용해야 합니다.
 
 * Azure 배치 풀에서 .NET 작업을 실행합니다. [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/data-factory-use-custom-activities.md)
-* MapReduce 작업으로 작업을 구현합니다. 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출](../data-factory/data-factory-map-reduce.md) 을 참조하세요.
+* MapReduce 작업으로 작업을 구현합니다. 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출](../data-factory/data-factory-map-reduce.md)을 참조하세요.
 
 ### <a name="line-endings"></a>줄 끝
 일반적으로 Windows 기반 시스템에서는 줄 끝으로 CRLF를 사용하며, Linux 기반 시스템에서는 LF를 사용합니다. CRLF 줄 끝을 사용하여 데이터를 생성 또는 예상하는 경우, LF 줄 끝을 사용하여 작업하려면 공급자 또는 소비자를 수정해야 할 수 있습니다.
 
-예를 들어 Windows 기반 클러스터에서 Azure PowerShell을 사용하여 HDInsight를 쿼리하면 CRLF를 사용하여 데이터를 반환합니다. Linux 기반 클러스터의 동일한 쿼리는 LF를 반환합니다. 대부분의 경우 이는 데이터 소비자에게 문제가 되지 않지만 Linux 기반 클러스터로 마이그레이션하기 전에 조사해야 합니다.
+예를 들어 Windows 기반 클러스터에서 Azure PowerShell을 사용하여 HDInsight를 쿼리하면 CRLF를 사용하여 데이터를 반환합니다. Linux 기반 클러스터의 동일한 쿼리는 LF를 반환합니다. Linux 기반 클러스터로 마이그레이션하기 전에 테스트를 통해 이것이 솔루션에 문제를 유발하는지 확인해야 합니다.
 
-만약 Linux 클러스터 노드에서 직접 실행되는 스크립트(예: Hive 또는 MapReduce 작업에 사용되는 Python 스크립트)가 있다면 줄 끝으로 항상 LF를 사용해야 합니다. CRLF를 사용하는 경우 Linux 기반 클러스터에서 스크립트를 실행할 때 오류가 표시될 수 있습니다.
+Linux 클러스터 노드에서 직접 실행되는 스크립트가 있는 경우에는 항상 LF를 줄 끝으로 사용해야 합니다. CRLF를 사용하는 경우 Linux 기반 클러스터에서 스크립트를 실행할 때 오류가 표시될 수 있습니다.
 
 포함된 CR 문자가 있는 문자열이 스크립트에 없는 경우 다음 방법 중 하나를 사용하여 줄 끝을 대량 변경할 수 있습니다.
 

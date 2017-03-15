@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: b5dbb8c28bd6b2bdbb53939314348104bbbe4f34
-ms.openlocfilehash: f6ec7634a1d21c7205ac8ae7377a312ed386ee61
+ms.sourcegitcommit: 57383c11682342cb0a6446c79e603843a698fc8c
+ms.openlocfilehash: 835e1c494de59576fd8ac529240729cb33eaa50b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -55,13 +56,13 @@ Azure AD에서 사용자를 위한 로그인만 지원해야 하는 웹 응용 �
 Azure AD에서 인증이 작동하는 방식에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
 ### <a name="overview-of-the-consent-framework"></a>동의 프레임워크의 개요
-Azure AD의 동의 프레임워크는 클라이언트 응용 프로그램이 등록된 것과 다른 Azure AD 테넌트에서 보호하는 웹 API에 액세스해야 하는 다중 테넌트 웹 및 네이티브 클라이언트 응용 프로그램을 쉽게 개발할 수 있게 해줍니다. 이러한 웹 API에는 자신의 웹 API 이외에도 Graph API, Office 365 및 기타 Microsoft 서비스 사용자가 포함됩니다. 이 프레임워크는 응용프로그램을 자신의 디렉토리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 이 때 디렉토리 데이터 액세스가 필요할 수도 있습니다.
+Azure AD의 동의 프레임워크는 클라이언트 응용 프로그램이 등록된 것과 다른 Azure AD 테넌트에서 보호하는 웹 API에 액세스해야 하는 다중 테넌트 웹 및 네이티브 클라이언트 응용 프로그램을 쉽게 개발할 수 있게 해줍니다. 이러한 웹 API에는 사용자 고유의 웹 API 외에도 Microsoft Graph API(Azure Active Directory, Intune 및 Office 365의 서비스에 액세스하기 위해) 및 기타 Microsoft 서비스 API가 포함됩니다. 이 프레임워크는 응용프로그램을 자신의 디렉토리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 이 때 디렉토리 데이터 액세스가 필요할 수도 있습니다.
 
-예를 들어 웹 클라이언트 응용 프로그램이 사용자의 일정 정보를 읽기 위해 Office 365의 웹 API/리소스 응용 프로그램을 호출해야 하는 경우 해당 사용자가 클라이언트 응용 프로그램에 동의해야 합니다. 사용자가 동의해 주면 해당 클라이언트 응용 프로그램에서 사용자를 대신하여 Office 365 웹 API를 호출하고 필요한 대로 일정 정보를 사용할 수 있습니다.
+예를 들어, 웹 클라이언트 응용 프로그램이 Office 365에서 사용자에 대한 일정 정보를 읽어야 하는 경우 해당 사용자가 클라이언트 응용 프로그램에 동의해야 합니다. 사용자가 동의해 주면 해당 클라이언트 응용 프로그램에서 사용자를 대신하여 Microsoft Graph API를 호출하고 필요한 대로 일정 정보를 사용할 수 있습니다. [Microsoft Graph API](https://graph.microsoft.io)는 Azure AD의 사용자와 그룹 및 더 많은 Microsoft 클라우드 서비스의 기타 데이터 개체뿐만 아니라 Office 365(예: Exchange의 일정 및 메시지, SharePoint의 사이트 및 목록, OneDrive의 문서, OneNote의 노트북, Planner의 작업, Excel의 통합 문서 등)의 데이터에 대한 액세스를 제공합니다. 
 
 동의 프레임워크는 공용 또는 기밀 클라이언트를 사용하여 인증 코드 부여 및 클라이언트 자격 증명 부여와 같은 다양한 흐름 및 OAuth 2.0을 기반으로 작성됩니다. OAuth 2.0을 사용하여 Azure AD는 전화기, 태블릿, 서버 또는 웹 응용 프로그램과 같은 다양한 유형의 클라이언트 응용 프로그램을 작성하고 필요한 리소스에 액세스할 수 잇습니다.
 
-동의 프레임워크에 대한 자세한 내용은 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md) 및 [Office 365 API를 통한 인증 이해](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks)(Office 365 항목)를 참조하세요.
+동의 프레임워크에 대한 자세한 정보는 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하고, Microsoft Graph를 통해 Office 365에 대한 권한이 부여된 액세스 가져오기에 대한 정보는 [Microsoft Graph로 앱 인증](https://graph.microsoft.io/docs/authorization/auth_overview)을 참조하세요.
 
 #### <a name="example-of-the-consent-experience"></a>승인 환경 예
 다음 단계는 응용 프로그램 개발자와 사용자 모두에 대해 동의 경험이 어떻게 작동하는지를 보여줍니다.
@@ -88,10 +89,10 @@ Azure AD의 동의 프레임워크는 클라이언트 응용 프로그램이 등
 ### <a name="configuring-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 응용 프로그램 구성
 웹/기밀 클라이언트 응용 프로그램이 인증을 요구하고 액세스 토큰을 얻는 권한 부여 흐름에 참여하려면 보안 자격 증명을 설정해야 합니다. Azure Portal에서 지원하는 기본 인증 방법은 클라이언트 ID + 대칭 키입니다. 이 섹션에서는 비밀 키로 클라이언트의 자격 증명을 제공하는 데 필요한 구성 단계에 대해 설명합니다.
 
-또한 클라이언트가 리소스 응용 프로그램(예: Azure AD Graph API)에서 공개한 웹 API에 액세스하기 전에 동의 프레임워크는 클라이언트에서 요청된 권한에 기반하여 필요한 권한 부여를 얻도록 합니다. 기본적으로 모든 응용 프로그램은 Azure AD "로그인 사용 및 사용자 프로필 읽기" 권한이 기본적으로 선택된 상태로 Azure Active Directory(그래프 API) 및 Azure 서비스 관리 API에서 사용 권한을 선택할 수 있습니다. 클라이언트 응용 프로그램을 Office 365 Azure AD 테넌트에 등록하는 경우 SharePoint 및 Exchange Online의 웹 API 및 권한도 선택할 수 있습니다. 원하는 웹 API 옆에 있는 드롭다운 메뉴에서 다음 [두 가지 유형의 권한](active-directory-dev-glossary.md#permissions) 중에서 선택할 수 있습니다.
+또한 클라이언트가 리소스 응용 프로그램(예: Microsoft Graph API)에서 공개한 웹 API에 액세스하기 전에 동의 프레임워크는 클라이언트에서 요청된 권한에 기반하여 필요한 권한 부여를 얻도록 합니다. 기본적으로 모든 응용 프로그램은 Azure AD "로그인 사용 및 사용자 프로필 읽기" 권한이 기본적으로 선택된 상태로 Azure Active Directory(그래프 API) 및 Azure 서비스 관리 API에서 사용 권한을 선택할 수 있습니다. 클라이언트 응용 프로그램을 Office 365 Azure AD 테넌트에 등록하는 경우 SharePoint 및 Exchange Online의 웹 API 및 권한도 선택할 수 있습니다. 원하는 웹 API 옆에 있는 드롭다운 메뉴에서 다음 [두 가지 유형의 권한](active-directory-dev-glossary.md#permissions) 중에서 선택할 수 있습니다.
 
 * 응용 프로그램 권한: 클라이언트 응용 프로그램이 직접 웹 API에 액세스해야 합니다(사용자 컨텍스트 없음). 이 유형의 권한은 관리자의 동의가 필요하며 네이티브 클라이언트 응용 프로그램에 대해 사용할 수 없습니다.
-* 위임된 권한: 클라이언트 응용 프로그램이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 유형의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수있습니다. 
+* 위임된 권한: 클라이언트 응용 프로그램이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 유형의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수 있습니다. 
 
 > [!NOTE]
 > 위임된 권한을 응용 프로그램에 추가할 경우 Azure 클래식 포털에서 수행한 것처럼 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 Azure Portal의 응용 프로그램 페이지에 있는 **필요한 사용 권한** 섹션에서 **권한 부여** 단추를 클릭하지 않는다면, 사용자는 런타임에 추가된 위임 권한에 직접 동의해야 합니다. 
@@ -165,13 +166,10 @@ Azure AD의 동의 프레임워크는 클라이언트 응용 프로그램이 등
 
 일반적인 응용 프로그램 매니페스트 개념에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)를 참조하세요.
 
-### <a name="accessing-the-azure-ad-graph-and-office-365-apis"></a>Azure AD Graph 및 Office 365 API에 액세스
-앞서 설명한 대로 리소스 응용프로그램에서 API 노출/액세스 외에도 Microsoft 리소스에 의해 노출된 API에 액세스하기 위해 클라이언트 응용프로그램을 업데이트할 수도 있습니다.  다른 응용프로그램에 대한 사용 권한 목록 중에서 "Azure Active Directory"라고 하는 Azure AD Graph API는 Azure AD에 등록된 모든 응용프로그램에서 기본으로 사용할 수 있습니다. Office 365에서 프로비전된 Azure AD 테넌트의 클라이언트 응용프로그램을 등록하는 경우, API에 의해 다양한 Office 365 리소스에 노출된 모든 사용 권한을 액세스할 수 있습니다.
+### <a name="accessing-the-azure-ad-graph-and-office-365-via-microsoft-graph-apis"></a>Microsoft Graph API를 통해 Azure AD Graph 및 Office 365에 액세스  
+앞서 설명한 대로 리소스 응용프로그램에서 API 노출/액세스 외에도 Microsoft 리소스에 의해 노출된 API에 액세스하기 위해 클라이언트 응용프로그램을 업데이트할 수도 있습니다.  다른 응용프로그램에 대한 사용 권한 목록 중에서 "Microsoft Graph"라고 하는 Microsoft Graph API는 Azure AD에 등록된 모든 응용프로그램에서 사용할 수 있습니다. Office 365에서 프로비전된 Azure AD 테넌트의 클라이언트 응용 프로그램을 등록하는 경우, Microsoft Graph API에 의해 다양한 Office 365 리소스에 노출된 모든 사용 권한을 액세스할 수 있습니다.
 
-액세스 범위에 대한 자세한 내용  
-
-* Azure AD Graph API에서 공개하는 경우 [권한 범위 | Graph API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) 문서를 참조하세요.
-* Office 365 API에 의해 노출되는 경우 [공통 동의 프레임워크를 사용한 인증 및 권한 부여](https://msdn.microsoft.com/office/office365/howto/application-manifest) 문서를 참조하세요. Office 365 API와 통합되는 클라이언트 응용 프로그램을 작성하는 방법에 대한 개괄적인 설명은 [Office 365 개발 환경 설정](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) 을 참조하세요.
+Microsoft Graph API에 의해 노출된 액세스 범위에 대한 자세한 내용은 [사용 권한 범위 | Microsoft Graph API 개념](https://graph.microsoft.io/docs/authorization/permission_scopes) 문서를 참조하세요.
 
 > [!NOTE]
 > 현재 제한으로 인해 네이티브 클라이언트 응용 프로그램이 “조직의 디렉터리 액세스" 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다.  이 제한은 웹 응용 프로그램에는 적용되지 않습니다.
@@ -258,10 +256,5 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 * 앱 매니페스트에서 수행하는 역할에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)를 참조하세요.
 * 핵심 Azure AD(Active Directory) 개발자 개념 중 일부에 대한 정의는 [Azure Active Directory 개발자 용어집](active-directory-dev-glossary.md)을 참조하세요.
 * 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

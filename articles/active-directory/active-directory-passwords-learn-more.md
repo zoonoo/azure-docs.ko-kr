@@ -1,9 +1,9 @@
 ---
-title: "자세한 정보: Azure AD 암호 관리 | Microsoft Docs"
-description: "암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다."
+title: "자세한 정보: Azure Active Directory 암호 관리 | Microsoft Docs"
+description: "비밀번호 쓰기 저장의 작동 원리, 비밀번호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: d3be2912-76c8-40a0-9507-b7b1a7ce2f8f
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 8a9e412776acf4e08658517b714d9644b172f523
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -42,12 +43,12 @@ ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
 
 암호 쓰기 저장을 사용하면 암호를 온-프레미스 Active Directory에 쓸 수 있도록 클라우드 테넌트를 구성할 수 있습니다.  복잡한 온-프레미스 셀프 서비스 암호 재설정 솔루션을 설정 및 관리할 필요가 없으며 사용자가 어디에 있든 상관 없이 온-프레미스 암호를 재설정할 수 있는 편리한 클라우드 기반 방법을 제공합니다.  암호 쓰기 저장의 주요 기능 중 몇 가지가 나와 있으므로 잘 읽어보시기 바랍니다.
 
-* **지연 없는 피드백.**   암호 쓰기 저장은 동기식 작업입니다.  사용자의 암호가 정책에 맞지 않거나 어떤 이유로든 재설정 또는 변경할 수 없는 경우 즉시 사용자에게 알려줍니다.
-* **AD FS 또는 기타 페더레이션 기술을 사용하여 사용자의 암호 재설정 지원.**   페더레이션된 사용자 계정이 Azure AD 테넌트로 동기화되는 동안 암호 쓰기 저장을 사용하여 온-프레미스 AD 암호를 클라우드에서 관리할 수 있습니다.
-* **암호 해시 동기화를 사용하여 사용자의 암호 재설정 지원.**  암호 재설정 서비스에서 동기화된 사용자 계정을 암호 해시 동기화에 사용할 수 있음을 감지하면 이 계정의 온-프레미스 및 클라우드 암호를 동시에 재설정합니다.
-* **액세스 패널 및 Office 365에서 암호 변경 지원.**   페더레이션 또는 암호가 동기화된 사용자가 만료되었거나 만료되지 않은 암호를 변경하면 해당 암호를 로컬 AD 환경에 다시 씁니다.
+* **지연 없는 피드백.**  암호 쓰기 저장은 동기식 작업입니다.  사용자의 암호가 정책에 맞지 않거나 어떤 이유로든 재설정 또는 변경할 수 없는 경우 즉시 사용자에게 알려줍니다.
+* **AD FS 또는 기타 페더레이션 기술을 사용하여 사용자의 암호 재설정 지원.**  페더레이션된 사용자 계정이 Azure AD 테넌트로 동기화되는 동안 암호 쓰기 저장을 사용하여 온-프레미스 AD 암호를 클라우드에서 관리할 수 있습니다.
+* **암호 해시 동기화를 사용하여 사용자의 암호 재설정 지원.** 암호 재설정 서비스에서 동기화된 사용자 계정을 암호 해시 동기화에 사용할 수 있음을 감지하면 이 계정의 온-프레미스 및 클라우드 암호를 동시에 재설정합니다.
+* **액세스 패널 및 Office 365에서 암호 변경 지원.**  페더레이션 또는 암호가 동기화된 사용자가 만료되었거나 만료되지 않은 암호를 변경하면 해당 암호를 로컬 AD 환경에 다시 씁니다.
 * **관리자가 **Azure 관리 포털**에서** [암호를 재설정할 때 암호 쓰기 저장 지원.](https://manage.windowsazure.com)  사용자가 페더레이션 또는 암호가 동기화된 경우 관리자가 [Azure 관리 포털](https://manage.windowsazure.com)에서 해당 사용자의 암호를 재설정할 때마다 로컬 AD에서 관리자가 선택하는 암호도 설정합니다.  이 기능은 현재 Office 관리자 포털에서 지원되지 않습니다.
-* **온-프레미스 AD 암호 정책 적용.**   사용자가 자신의 암호를 재설정하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 AD 정책에 맞는지 확인합니다.  여기에는 기록, 복잡성, 나이, 암호 필터 및 로컬 AD에서 사용자가 정의한 기타 암호 제한 사항이 포함됩니다.
+* **온-프레미스 AD 암호 정책 적용.**  사용자가 자신의 암호를 재설정하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 AD 정책에 맞는지 확인합니다.  여기에는 기록, 복잡성, 나이, 암호 필터 및 로컬 AD에서 사용자가 정의한 기타 암호 제한 사항이 포함됩니다.
 * **인바운드 방화벽 규칙 불필요.**  암호 쓰기 저장 기능은 기본 통신 채널로 Azure 서비스 버스 릴레이를 사용합니다. 따라서 이 기능이 작동하기 위해 방화벽에서 인바운드 포트를 열 필요가 없습니다.
 * **온-프레미스 Active Directory의 보호된 그룹 내에 존재하는 사용자 계정에 대해서는 지원되지 않음.** 보호된 그룹에 대한 자세한 내용은 [Active Directory의 보호된 계정 및 그룹](https://technet.microsoft.com/library/dn535499.aspx).
 
@@ -121,7 +122,7 @@ ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
      * 쓰기 저장 기능이 배포되어 있지 않고 사용자의 암호가 온-프레미스로 관리되는 경우에는 암호를 재설정하려면 관리자에게 문의해야 한다고 사용자에게 알려줍니다.
 4. 사용자가 성공적으로 암호를 재설정할 수 있다고 판단되면 사용자가 재설정 프로세스를 계속 진행하도록 안내해줍니다.
 
-암호 쓰기 저장을 배포하는 방법에 대한 자세한 내용은 [시작: Azure AD 암호 관리](active-directory-passwords-getting-started.md)를 참조하세요.
+비밀번호 쓰기 저장을 배포하는 방법에 대한 자세한 내용은 [시작: Azure AD 암호 관리](active-directory-passwords-getting-started.md)를 참조하세요.
 
 ### <a name="what-data-is-used-by-password-reset"></a>암호 재설정에서 사용되는 데이터
 다음 테이블에는 암호 재설정 중에 이 데이터를 사용하는 위치와 방법이 나와 있으며 조직에 적합한 인증 옵션을 결정하는 데 도움이 되도록 설계되어 있습니다. 또한 이 테이블에서는 이 데이터의 유효성을 검사하지 않는 입력 경로에서 사용자를 대신하여 데이터를 제공하는 경우를 위한 형식 요구 사항도 보여줍니다.
@@ -390,11 +391,11 @@ Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -404,9 +405,4 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

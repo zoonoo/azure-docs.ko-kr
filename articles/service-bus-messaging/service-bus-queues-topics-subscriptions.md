@@ -1,5 +1,5 @@
 ---
-title: "Service Bus 큐, 토픽 및 구독 | Microsoft Docs"
+title: "Service Bus 메시지 큐, 토픽 및 구독 | Microsoft Docs"
 description: "서비스 버스 메시징 엔터티의 개요"
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 60a914e4706414891863c5d1d07846898936815b
-ms.openlocfilehash: cd3b8b73db87a6b15b5a408609417ff2d2ca0a86
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: b4c551e1d0511c868c8a54d1307529436c107945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -165,10 +166,5 @@ Service Bus 메시지 사용에 대한 자세한 내용 및 예제는 다음 고
 * [Service Bus 조정된 메시징 REST 자습서](service-bus-brokered-tutorial-rest.md)
 * [토픽 필터 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 * [조정된 메시징: 고급 필터 샘플](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

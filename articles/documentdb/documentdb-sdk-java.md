@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/22/2017
 ms.author: khdang
 translationtype: Human Translation
-ms.sourcegitcommit: 47a54e51fa7378336aabe3fa6f93794852152cfe
-ms.openlocfilehash: d61ed82cc7841e427d422d4e48f2b1a42cf97521
+ms.sourcegitcommit: 64858123a75686ba460de5e0f26b143c29f9f067
+ms.openlocfilehash: 7b7afa0ac55327b83e7ea8983a5e25782bda9f07
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -50,8 +51,12 @@ ms.openlocfilehash: d61ed82cc7841e427d422d4e48f2b1a42cf97521
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* 게이트웨이 모드에서 쿼리에 대한 예외를 일으킬 수 있는 쿼리 엔진 구성에서 버그를 수정했습니다.
+* 컬렉션을 만든 후 즉시 요청에 대한 "소유자 리소스를 찾을 수 없습니다." 예외를 일으킬 수 있는 세션 컨테이너에 몇 가지 버그가 수정되었습니다.
+
 ### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-* 집계 쿼리(AVG, COUNT, MIN, MAX 및 SUM)에 대한 지원이 추가되었습니다.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](documentdb-sql-query.md#Aggregates)을 참조하세요.
 * 변경 피드에 대한 지원이 추가되었습니다.
 * RequestOptions.setPopulateQuotaInfo를 통한 컬렉션 할당량 정보에 대한 지원이 추가되었습니다.
 * RequestOptions.setScriptLoggingEnabled를 통한 저장 프로시저 스크립트에 대한 지원이 추가되었습니다.
@@ -151,6 +156,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.9.6](#1.9.6) |2017년 2월 21일 |--- |
 | [1.9.5](#1.9.5) |2017년 1월 31일 |--- |
 | [1.9.4](#1.9.4) |2016년 11월 24일 |--- |
 | [1.9.3](#1.9.3) |2016년 10월 30일 |--- |
@@ -182,10 +188,5 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 ## <a name="see-also"></a>참고 항목
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

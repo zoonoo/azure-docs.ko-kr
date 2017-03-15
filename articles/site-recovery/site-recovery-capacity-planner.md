@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
+ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
+ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 2. 복제된 데이터에 대한 일일 변경(이탈)률을 식별합니다. 다음을 수행합니다.
 
    * Hyper-V VM을 복제하는 경우 [Hyper-V 용량 계획 도구](https://www.microsoft.com/download/details.aspx?id=39057)를 다운로드하여 변경률을 얻습니다. [자세히 알아보세요](site-recovery-capacity-planning-for-hyper-v-replication.md) . 평균을 캡처하기 위해 일주일 이상 이 도구를 실행하는 것이 좋습니다.
-   * VMware 가상 컴퓨터를 복제하는 경우 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) 를 사용하여 이탈률을 파악합니다.
+   * VMware 가상 컴퓨터를 복제하는 경우 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 변동률을 파악합니다.
    * 물리적 서버를 복제하는 경우 수동으로 예측해야 합니다.
 
 ## <a name="run-the-quick-planner"></a>Quick Planner 실행
@@ -49,7 +50,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 3. **Capacity Planner** 워크시트에서 필요한 정보를 입력합니다. 아래 스크린샷에 빨간색 원이 표시된 모든 필드를 입력해야 합니다.
 
    * **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
-   * **평균 일일 데이터 변경률(%)**에 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [vSphere 용량 계획 어플라이언스](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)를 사용하여 수집한 정보를 입력합니다.  
+   * **평균 일일 데이터 변경률(%)**에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.  
    * **압축** 은 VMware VM 또는 물리적 서버를 Azure에 복제할 때 제공되는 압축에만 적용됩니다. 30% 이상이 예상되지만 필요에 따라 설정을 수정할 수 있습니다. Hyper-V VM을 Azure 압축으로 복제하기 위해서는 Riverbed와 같은 타사 어플라이언스를 사용하면 됩니다.
    * **보존 입력**은 복제본을 보존해야 하는 기간을 지정합니다. VMware 또는 물리적 서버를 복제하는 경우 일 단위로 값을 입력합니다. Hyper-V를 복제하는 경우 시 단위의 시간을 지정합니다.
    * **가상 컴퓨터의 배치에 대한 초기 복제가 완료되어야 하는 시간** 및 **초기 복제 배치당 가상 컴퓨터 수**에서 초기 복제 요구 사항을 계산하는 데 사용된 설정을 입력합니다.  Site Recovery가 배포되면 초기 데이터 집합 전체가 업로드되어야 합니다.
@@ -119,16 +120,11 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
     > 표준 및 Premium Storage의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 가상 컴퓨터는 디스크당 최대 500개의 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 Premium Storage가 필요합니다. 그러나 디스크의 IOPS가 500개보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한(VM 크기, 디스크 수, 어댑터 수, CPU, 메모리) 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. 사용자는 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
 
 
-1. 모든 세부 정보가 올바르게 배치되었으면 **플래너 도구에 데이터 전송**을 클릭하여 강조 표시된 **Capacity Planner** 워크로드를 열고 보호에 적합한지 여부를 확인합니다.
+모든 세부 정보가 올바르게 배치되었으면 **플래너 도구에 데이터 전송**을 클릭하여 강조 표시된 **Capacity Planner** 워크로드를 열고 보호에 적합한지 여부를 확인합니다.
 
 ### <a name="submit-data-in-the-capacity-planner"></a>Capacity Planner에서 데이터를 제출합니다.
 1. **Capacity Planne** 워크시트를 열면 지정한 설정에 따라 워크시트가 채워집니다. **인프라 입력 소스** 셀에 'Workload'라는 단어가 나타나 입력 **Workload Qualification** 워크시트임을 나타냅니다.
 2. 변경하려면 **Workload Qualification** 워크시트를 수정하고 **플래너 도구에 데이터 전송**을 다시 클릭합니다.  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

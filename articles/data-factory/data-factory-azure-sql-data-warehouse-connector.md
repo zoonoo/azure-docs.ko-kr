@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
-ms.openlocfilehash: 98e06e683e6ee473a0747b423ed7cf6ae2b8cfed
+ms.sourcegitcommit: aada5b96eb9ee999c5b1f60b6e7b9840fd650fbe
+ms.openlocfilehash: 2831416bbb290905835396835db2eb6cb5e7b46f
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -559,7 +560,7 @@ Azure Data Factory에 대한 다음 예와 같이 `allowPolyBase` 속성을 **tr
 5. `columnMapping`은 연결된 복사 작업에서 사용되지 않습니다.
 
 ### <a name="staged-copy-using-polybase"></a>PolyBase를 사용하여 준비한 복사본
-원본 데이터가 이전 섹션에서 도입된 조건을 충족하지 않는 경우 일시적으로 스테이징한 Azure Blob Storage를 통해 데이터를 복사하도록 설정할 수 있습니다. 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 충족시키기 위해 데이터에 변환을 수행한 다음 데이터를 SQL Data Warehouse에 로드하기 위해 PolyBase를 사용합니다. 스테이징 Azure Blob을 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
+원본 데이터가 이전 섹션에서 도입된 조건을 충족하지 않는 경우 일시적으로 스테이징한 Azure Blob Storage를 통해 데이터를 복사하도록 설정할 수 있습니다(Premium Storage일 수 없음). 이 경우 Azure 데이터 팩터리는 PolyBase의 데이터 형식 요구 사항을 충족시키기 위해 데이터에 변환을 수행한 다음 데이터를 SQL Data Warehouse에 로드하기 위해 PolyBase를 사용합니다. 스테이징 Azure Blob을 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy)를 참조하세요.
 
 > [!NOTE]
 > PolyBase와 스테이징을 사용하여 온-프레미스 데이터 저장소에서 Azure SQL Data Warehouse로 데이터를 복사할 때 데이터 관리 게이트웨이 버전이 2.4 미만이면 원본 데이터를 적절한 형식으로 변환하는 데 사용되는 JRE(Java Runtime Environment)가 게이트웨이 컴퓨터에 필요합니다. 이러한 종속성을 방지하려면 게이트웨이를 최신으로 업그레이드하는 것이 좋습니다.
@@ -596,17 +597,13 @@ Azure Data Factory에 대한 다음 예와 같이 `allowPolyBase` 속성을 **tr
 ### <a name="required-database-permission"></a>필수 데이터베이스 권한
 PolyBase를 사용하려면 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 대상 데이터베이스에 대한 ["CONTROL" 권한](https://msdn.microsoft.com/library/ms191291.aspx)이 필요합니다. 이를 달성하기 위한 한 가지 방법으로 해당 사용자를 "db_owner" 역할의 구성원으로 추가합니다. 이를 수행하는 방법에 대해서는 [이 섹션](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)을 참조하세요.
 
-### <a name="row-size-limitation"></a>행 크기 제한
-Polybase는 32KB보다 큰 행의 크기를 지원하지 않습니다. 32KB보다 큰 행이 있는 테이블을 로드하려고 시도하면 다음과 같은 오류가 발생합니다.
+### <a name="row-size-and-data-type-limitation"></a>행 크기 및 데이터 형식 제한 사항
+Polybase 부하는 **1MB**보다 작고 VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)로 로드할 수 없는 행을 로드할 때만 사용됩니다. [여기](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)를 참조합니다.
 
-```
-Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
-```
-
-32KB보다 큰 크기의 행을 포함한 원본 데이터가 있는 경우 각 항목의 최대 행 크기가 제한을 초과하지 않는 정도의 작은 테이블로 원본 테이블을 수직으로 분할하는 것이 좋습니다. 작은 테이블은 PolyBase를 사용하여 로드될 수 있고 Azure SQL 데이터 웨어하우스에서 병합될 수 있습니다.
+1MB보다 큰 크기의 행을 포함한 원본 데이터가 있는 경우 각 항목의 최대 행 크기가 제한을 초과하지 않는 정도의 작은 테이블로 원본 테이블을 수직으로 분할하는 것이 좋습니다. 작은 테이블은 PolyBase를 사용하여 로드될 수 있고 Azure SQL 데이터 웨어하우스에서 병합될 수 있습니다.
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
-가능한 최상의 처리량을 달성하려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 더 큰 리소스 클래스를 할당하는 것이 좋습니다. [사용자 리소스 클래스 변경 예제](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.
+가능한 최상의 처리량을 달성하려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 데 사용되는 사용자에게 더 큰 리소스 클래스를 할당하는 것이 좋습니다. [사용자 리소스 클래스 변경 예제](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)에 따라 이 작업을 하는 방법을 알아보세요.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스의 tableName
 다음 테이블은 스키마와 테이블 이름의 다양한 조합에 대한 JSON 데이터 집합에서 **tableName** 속성을 지정하는 방법에 대한 예제를 제공합니다.
@@ -723,9 +720,4 @@ Azure SQL, SQL Server 및 Sybase 간에 데이터를 이동할 때는SQL 형식�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

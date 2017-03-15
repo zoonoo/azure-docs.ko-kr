@@ -3,7 +3,7 @@ title: "작동 방법: Azure AD 암호 관리 | Microsoft Docs"
 description: "사용자가 암호를 등록, 재설정 및 변경하는 위치, 관리자가 온-프레미스 Active Directory 암호의 관리를 구성, 보고 및 사용하도록 설정하는 위치를 포함하여 Azure AD 암호 관리의 다양 한 구성 요소에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
@@ -12,25 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83d4fb4e8dc53b8b7013b6178b2633f649887fd8
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 856d35c0a84ef0aa1f01996ae647b7bb6acc87c2
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="how-password-management-works"></a>암호 관리의 작동 원리
+# <a name="how-password-management-works-in-azure-active-directory"></a>Azure Active Directory에서 암호 관리의 작동 원리
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 구성 요소로 구성됩니다.  해당 구성 요소에 대한 자세한 내용을 보려면 각 링크를 클릭하세요.
+Azure AD(Azure Active Directory)에서 암호 관리는 아래에 설명된 여러 논리 구성 요소로 구성됩니다. 해당 구성 요소에 대한 자세한 내용을 보려면 링크를 선택합니다.
 
 * [**암호 관리 구성 포털**](#password-management-configuration-portal) – 관리자가 [Azure 관리 포털](https://manage.windowsazure.com)에서 해당 디렉터리의 구성 탭으로 이동하여 해당 테넌트에서 암호를 관리하는 방법의 다양한 측면을 제어할 수 있습니다.
 * [**사용자 등록 포털**](#user-registration-portal) – 사용자가 이 웹 포털을 통해 암호 재설정에 자동 등록할 수 있습니다.
-* [**사용자 암호 재설정 포털**](#user-password-reset-portal) – 사용자가 관리자 제어 암호 재설정 정책에 따라 여러 가지 챌린지를 사용하여 암호를 다시 설정할 수 있습니다.
+* [**사용자 암호 재설정 포털**](#user-password-reset-portal) – 사용자가 관리자 제어 암호 재설정 정책에 따라 다양한 챌린지를 사용하여 암호를 다시 설정할 수 있습니다.
 * [**사용자 암호 변경 포털**](#user-password-change-portal) – 사용자가 이 웹 포털을 사용하여 이전 암호를 입력하고 새 암호를 선택하면 언제든지 자신의 암호를 변경할 수 있습니다.
 * [**암호 관리 보고서**](#password-management-reports) – 관리자가 [Azure 관리 포털](https://manage.windowsazure.com)에서 해당 디렉터리의 "보고서" 탭의 "작업 보고서" 섹션으로 이동하여 해당 테넌트에서의 암호 재설정 및 등록 동작을 보고 분석할 수 있습니다.
 * [**Password Writeback Component of Azure AD Connect**](#password-writeback-component-of-azure-ad-connect) – 페더레이션 또는 암호가 동기화된 사용자 암호를 클라우드에서 관리할 수 있도록 Azure AD Connect를 설치하는 경우 관리자가 암호 쓰기 저장 기능을 선택적으로 사용할 수 있습니다.
@@ -39,7 +41,7 @@ Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 
 특정 디렉터리의 [구성](https://manage.windowsazure.com) 탭에 있는 **사용자 암호 재설정 정책** 섹션으로 이동하면 **Azure 관리 포털**을 사용하여 해당 디렉터리에 대한 암호 관리 정책을 구성할 수 있습니다.  이 구성 페이지에서 다음을 포함하여 조직이 암호를 관리하는 방법의 다양한 측면을 제어할 수 있습니다.
 
 * 디렉터리의 모든 사용자에 대해 암호 재설정 사용 여부 설정
-* 사용자가 암호를 다시 설정하기 위해 통과해야 하는 챌린지 횟수(1회 또는 2회) 설정
+* 사용자가 암호를 다시 설정하기 위해 통과해야 하는 챌린지 횟수(1회 또는&2;회) 설정
 * 아래 선택 항목 중 조직의 사용자에 대해 사용하려는 특정 챌린지 유형 설정
   * 휴대폰(문자 또는 음성 통화를 통한 확인 코드)
   * 사무실 전화(음성 통화)
@@ -51,7 +53,7 @@ Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 
 * 사용자가 암호를 재설정하기 위해 등록할 때 사용하려고 선택한 사용자 지정 보안 질문 정의(보안 질문을 사용하는 경우만 표시)
 * 사용자가 응용 프로그램 액세스 패널( [http://myapps.microsoft.com](http://myapps.microsoft.com))로 이동할 때 암호 재설정에 대한 등록 필요
 * 구성 가능한 일수가 경과한 후 이전에 등록한 데이터에 대한 사용자의 재확인 필요(강제 등록을 사용하는 경우에만 표시)
-* 사용자가 암호를 재설정하는 데 문제가 있는 경우 사용자에게 표시할 사용자 지정 기술 지원팀 전자 메일 또는 URL 제공
+* 사용자가 암호를 재설정하는 데 문제가 있는 경우 사용자에게 표시되는 사용자 지정 기술 지원팀 전자 메일 또는 URL 제공
 * 암호 쓰기 저장 기능 사용 여부 설정(AAD Connect를 사용하여 암호 쓰기 저장이 배포된 경우)
 * 암호 쓰기 저장 에이전트의 상태 보기(AAD Connect를 사용하여 암호 쓰기 저장이 배포된 경우)
 * 사용자가 암호를 다시 설정한 경우 사용자에게 전자 메일 알림 사용( **Azure 관리 포털** 의 [알림](https://manage.windowsazure.com)섹션에 있음)
@@ -63,7 +65,7 @@ Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 
 ## <a name="user-registration-portal"></a>사용자 등록 포털
 암호 재설정을 사용하려면 먼저 클라우드 사용자 계정을 올바른 인증 데이터로 업데이트하여 관리자가 적절하게 정의한 암호 재설정 챌린지 횟수를 통과할 수 있도록 해야 합니다.  또한 Azure 또는 Office 웹 포털, DirSync/Azure AD Connect, Windows PowerShell을 사용하면 관리자가 해당 사용자를 대신하여 이 인증 정보를 정의할 수 있습니다.
 
-그러나 사용자가 자신의 고유 데이터를 등록하려는 경우는 사용자가 이 정보를 제공하기 위해 이동할 수 있는 웹 페이지도 제공됩니다.  이 페이지에서 사용자는 해당 조직에 사용 설정된 암호 재설정 정책에 따라 인증 정보를 지정할 수 있습니다.  이 데이터가 확인되고 나면 클라우드 사용자 계정에 저장되므로 나중에 계정 복구에 사용할 수 있습니다. 등록 포털의 모양은 다음과 같습니다.
+그러나 사용자가 자신의 고유 데이터를 등록하려는 경우는 사용자가 이 정보를 채울 수 있도록 이동할 수 있는 웹 페이지도 제공됩니다.  이 페이지에서 사용자는 해당 조직에 사용 설정된 암호 재설정 정책에 따라 인증 정보를 지정할 수 있습니다.  이 데이터가 확인되고 나면 클라우드 사용자 계정에 저장되므로 나중에 계정 복구에 사용할 수 있습니다. 등록 포털의 모양은 다음과 같습니다.
 
   ![][001]
 
@@ -105,11 +107,8 @@ Azure Active Directory에서 암호 관리는 아래에 설명된 여러 논리 
 
 Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active-directory-aadconnect.md)를 참조하세요. 암호 쓰기 저장에 대한 자세한 내용은 [시작: Azure AD 암호 관리](active-directory-passwords-getting-started.md)를 참조하세요.
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
@@ -128,9 +127,4 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

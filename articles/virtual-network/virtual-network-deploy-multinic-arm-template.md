@@ -1,10 +1,10 @@
 ---
-title: "템플릿을 사용하여 다중 NIC이 있는 VM 만들기 | Microsoft Docs"
-description: "템플릿을 사용하여 Azure Resource Manager를 통해 다중 NIC이 있는 VM을 만듭니다."
+title: "다중 NIC이 있는 개인 VM 만들기 - Azure Resource Manager 템플릿 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 다중 NIC이 있는 개인 VM을 만듭니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 05a3d3e1c6c608b1dcfd0a4d4ed795cb1d22456b
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: aeee602495131ddd14f12716d4f79e702bbddce7
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -315,10 +317,5 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

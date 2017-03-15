@@ -1,6 +1,6 @@
 ---
-title: "EDIFACT와 엔터프라이즈 통합 | Microsoft Docs"
-description: "EDIFACT 규약을 사용하여 논리 앱을 만드는 방법 알아보기"
+title: "엔터프라이즈 통합에 대한 EDIFACT 메시지 - Azure Logic Apps | Microsoft Docs"
+description: "엔터프라이즈 통합에 대한 EDIFACT 메시지를 Azure Logic Apps과 교환"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,24 +12,28 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: jonfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 30c26d1fb2dfb7c458789e70f4f8d1a6c39cd0ca
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c5ed4f7413bf8a0b4fd188ca451d4a60b761e886
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="enterprise-integration-with-edifact"></a>EDIFACT와 엔터프라이즈 통합
+# <a name="exchange-edifact-messages-with-logic-apps"></a>EDIFACT 메시지를 Logic Apps와 교환
+
 > [!NOTE]
-> 이 페이지에서는 논리 앱의 EDIFACT 기능을 다룹니다. 자세한 내용은 [X12](logic-apps-enterprise-integration-x12.md)를 참조하세요.
-> 
-> 
+> 이 페이지에서는 Azure Logic Apps의 EDIFACT 기능을 설명합니다. 자세한 내용은 [X12](logic-apps-enterprise-integration-x12.md)를 참조하세요.
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기
 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 만들고 통합 계정에 저장해야 합니다. 다음 단계에서는 EDIFACT 규약을 만드는 프로세스를 안내합니다.
 
-### <a name="heres-what-you-need-before-you-get-started"></a>시작하기 전에 필요한 항목은 다음과 같습니다.
+### <a name="before-you-get-started"></a>시작하기 전에
+
+다음 항목이 필요합니다.
+
 * Azure 구독에 정의된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-accounts.md)  
 * 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)  
 
@@ -194,10 +198,5 @@ EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 만들고 통합 계�
 
 ## <a name="learn-more"></a>자세한 정보
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

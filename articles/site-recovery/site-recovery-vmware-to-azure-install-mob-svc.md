@@ -12,21 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: f3f9bc205cd038ae636face742292cb28654fd39
-ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
+ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
+ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="installing-mobility-service-vmwarephysical-to-azure"></a>모바일 서비스(VMware/Azure 물리적 서버) 설치
-모바일 서비스는 Azure에 복제하고자 하는 모든 컴퓨터(VMware VM 또는 물리적 서버)에 배포됩니다. 컴퓨터에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다.  보호해야 하는 서버에 다음과 같은 방법으로 모바일 서비스를 배포할 수 있습니다.
+모바일 서비스는 Azure에 복제하고자 하는 모든 컴퓨터(VMware VM 또는 물리적 서버)에 배포됩니다. 컴퓨터에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다. 보호해야 하는 서버에 다음과 같은 방법으로 모바일 서비스를 배포할 수 있습니다.
+
+
 1. [System Center Configuration Manager와 같은 소프트웨어 배포 도구를 사용하여 모바일 서비스 설치](site-recovery-install-mobility-service-using-sccm.md)
 2. [Azure Automation 및 DSC(필요한 상태 구성)를 사용하여 모바일 서비스 설치](site-recovery-automate-mobility-service-install.md)
 3. [GUI(그래픽 사용자 인터페이스)를 사용하여 수동으로 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-the-graphical-user-interface)
 4. [명령줄을 사용하여 수동으로 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-command-line)
 5. [Azure Site Recovery에서 강제 설치를 사용하여 모바일 서비스 설치](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-using-push-install-from-azure-site-recovery)
+
+
+>[!IMPORTANT]
+> 모바일 서비스 설치 관리자는 9.7.0.0 버전부터 Windows 가상 컴퓨터에 사용 가능한 최신 [Azure VM 에이전트](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent)도 설치합니다. 따라서 컴퓨터가 Azure로 장애 조치될 때 모든 VM 확장을 사용하는 데 필요한 이 필수 조건이 충족됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 서버에 모바일 서비스를 수동으로 설치하기 전에 이러한 필수 조건에 나와 있는 작업을 수행합니다.
@@ -77,9 +84,4 @@ Azure Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수�
 
 ## <a name="next-steps"></a>다음 단계
 모바일 서비스가 설치되면 Azure Portal에서 **+복제** 단추를 사용하여 이러한 VM에 대한 보호를 사용하도록 설정할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

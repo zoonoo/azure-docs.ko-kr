@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
-ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c979e6328f09618642aa7a432c873c7ce20c072b
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -46,6 +47,7 @@ ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
   | 9091 |커넥터 신뢰 인증서 자동 갱신을 사용하도록 설정합니다. |
   
     방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행되는 Windows 서비스에서 오는 트래픽에 대해 이러한 포트를 엽니다. 또한 NT Authority\System에 대해 포트 8080을 사용하도록 설정해야 합니다.
+* [Azure AD 응용 프로그램 프록시 커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 사용하여 커넥터가 응용 프로그램 프록시 서비스에 연결할 수 있는지 확인합니다. 최소한 미국 중부 하위 지역 및 사용자에게 가까운 지역에는 모두 녹색 확인 표시가 있는지 확인합니다. 그 외의 항목에도 녹색 확인 표시가 있으면 복원력이 더 뛰어난 것입니다. 
 * 조직에서 프록시 서버를 사용하여 인터넷에 연결하려면 구성하는 방법에 대한 세부 내용은 [기존 온-프레미스 프록시 서버로 작업](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) 블로그 게시물을 살펴보세요.
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>1단계: Azure AD에서 응용 프로그램 프록시를 사용하도록 설정
@@ -87,10 +89,5 @@ ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
 이제 [응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](active-directory-application-proxy-publish.md)할 준비가 되었습니다.
 
 별도 네트워크 또는 다른 위치에 응용 프로그램이 있는 경우 다른 커넥터 그룹을 사용하여 커넥터를 논리 단위로 구성할 수 있습니다. [응용 프로그램 프록시 커넥터 작업](active-directory-application-proxy-connectors.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

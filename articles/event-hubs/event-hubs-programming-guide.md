@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: b181c2e325621023753d420d0f005c71822db346
-ms.openlocfilehash: 81aee56a4a6e5759987108effe0f6abef0852852
+ms.sourcegitcommit: 2dfc38070e5c9bbdfc4c74e2465894a221657564
+ms.openlocfilehash: 1ee20b8f546c43d0351a2065b0628bb9d6b31736
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -112,13 +113,13 @@ var client = factory.CreateEventHubClient("MyEventHub");
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-단일 배치가 이벤트의 256KB 제한을 넘지않아야 한다는 것에 유의해야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다.
+단일 배치가 이벤트의 256KB 제한을 넘지 않아야 한다는 것에 유의해야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>비동기적으로 보내고 규모로 보내기
 또한 비동기적으로 이벤트 허브로 이벤트를 보낼 수 있습니다. 비동기적으로 보내기는 클라이언트가 이벤트를 보낼 수 있는 속도를 증가시킬 수 있습니다. [보내기](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) 및 [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) 메서드는 모두 [태스크](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 개체를 반환하는 비동기 버전에서 사용할 수 있습니다. 이 기술은 처리량을 늘릴 수 있는 반면 이벤트 허브 서비스에 의해 제한되는 동안 이벤트를 보내기 위해 클라이언트를 계속 발생시킬 수 있고 제대로 구현되지 않은 경우 클라이언트에 오류 또는 손실 메시지가 발생할 수 있습니다. 또한 클라이언트에서 [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) 속성을 사용하여 클라이언트 다시 시도 옵션을 제어할 수 있습니다.
 
 ## <a name="create-a-partition-sender"></a>파티션 발신자 만들기
-파티션 키로 이벤트 허브에 이벤트를 보내는 것이 가장 일반적이지만 어떤 경우에는 지정된 파티션에 직접 이벤트를 보낼 수 있습니다. 예:
+파티션 키 없이 이벤트 허브에 이벤트를 보내는 것이 가장 일반적이지만 어떤 경우에는 지정된 파티션에 직접 이벤트를 보낼 수 있습니다. 예:
 
 ```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -137,7 +138,7 @@ EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
 var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
 ```
 
-[CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) 메서드에는 생성되는 판독기에 대한 제어를 용이하게 하는 몇가지 오버로드가 있습니다. 이러한 메서드는 오프셋을 문자열 또는 타임 스탬프로 지정하는 것을 포함하거나 반환된 스트림에서 지정된 오프셋을 포함할지 아니면 이후 시작할지를 지정하는 기능을 포함합니다. 수신기를 만든 후 반환된 개체에 대한 이벤트 수신을 시작할 수 있습니다. [수신](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) 메서드는 배치 크기 및 대기 시간와 같은 수신 작업 매개 변수를 제어하는&4;개의 오버로드가 있습니다. 이러한 메서드의 비동기 버전을 사용하여 소비자의 처리량을 증가시킬 수 있습니다. 예:
+[CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) 메서드에는 생성되는 판독기에 대한 제어를 용이하게 하는 몇가지 오버로드가 있습니다. 이러한 메서드는 오프셋을 문자열 또는 타임 스탬프로 지정하는 것을 포함하거나 반환된 스트림에서 지정된 오프셋을 포함할지 아니면 이후 시작할지를 지정하는 기능을 포함합니다. 수신기를 만든 후 반환된 개체에 대한 이벤트 수신을 시작할 수 있습니다. [수신](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) 메서드는 배치 크기 및 대기 시간과 같은 수신 작업 매개 변수를 제어하는&4;개의 오버로드가 있습니다. 이러한 메서드의 비동기 버전을 사용하여 소비자의 처리량을 증가시킬 수 있습니다. 예:
 
 ```csharp
 bool receive = true;
@@ -178,7 +179,7 @@ while(receive)
 게시자 해지 및 게시자로 Event Hubs에 보내는 방법에 대한 자세한 내용은 [Event Hubs 대규모 보안 게시](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) 샘플을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이벤트 허브 시나리어에 대한 자세한 내용은 다음 링크를 방문하십시오.
+이벤트 허브 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
 * [이벤트 허브 API 개요](event-hubs-api-overview.md)
 * [Event Hubs의 정의](event-hubs-what-is-event-hubs.md)
@@ -190,9 +191,4 @@ while(receive)
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

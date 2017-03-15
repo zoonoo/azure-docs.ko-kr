@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
+ms.sourcegitcommit: 5046ec3f6a29fb4791cd6badc67c2111a9e3ab2c
+ms.openlocfilehash: 132ecec8aef2f166753214fce410237103583c08
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -186,9 +187,7 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 | --- | --- | --- |
 | type |형식 속성은 **웹** |예 |
 | Url |웹 원본에 대한 URL입니다. |예 |
-| authenticationType |익명 또는 기본입니다. |예 |
-| userName |기본 인증을 위한 사용자 이름입니다. |예(기본 인증의 경우) |
-| password |기본 인증을 위한 암호입니다. |예(기본 인증의 경우) |
+| authenticationType |익명 |예 |
 
 ### <a name="using-anonymous-authentication"></a>익명 인증 사용
 
@@ -202,25 +201,6 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
         {
             "authenticationType": "Anonymous",
             "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-### <a name="using-basic-authentication"></a>기본 인증 사용
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "http://myit.mycompany.com/",
-            "userName": "Administrator",
-            "password": "password"
         }
     }
 }
@@ -296,9 +276,4 @@ Excel 2013을 사용하는 경우 [Excel용 Microsoft 파워 쿼리](https://www
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

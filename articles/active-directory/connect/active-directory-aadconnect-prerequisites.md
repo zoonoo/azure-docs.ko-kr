@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 7174da908fda12fbb83a102921d9f223fc3ee17b
-ms.openlocfilehash: 2fb3dffb35a4798942f95df65a9af822dd2485cd
+ms.sourcegitcommit: fe0377fed432ac2c83f7a277ba41d9ffcc138ba7
+ms.openlocfilehash: 8d0533c81866dee7d24f3d5ccc5958b019d55a40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -52,7 +53,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * 별도의 SQL Server를 사용하는 경우 다음 요구 사항이 적용됩니다.
   * Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2016까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL 데이터베이스는 데이터베이스로 **지원되지 않습니다** .
   * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이 경우 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
-  * 데이터베이스 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. 데이터베이스 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다** .
+  * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
 ### <a name="accounts"></a>계정
 * 통합하려는 Azure AD 디렉터리에 대한 Azure AD 전역 관리자 계정 이 계정은 **학교 또는 조직 계정**이어야 하며 **Microsoft 계정**이 될 수 없습니다.
@@ -200,10 +201,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

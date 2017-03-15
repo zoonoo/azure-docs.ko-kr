@@ -3,7 +3,7 @@ title: "Azure Active Directory 미리 보기에 사용자 지정 도메인 이�
 description: "Azure Active Directory에 회사의 도메인 이름을 추가하는 방법 및 도메인 이름을 확인하는 방법."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: d97e57c6-578a-4929-8fb8-42e858a711c7
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
 > 
 > 
 
-조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. Azure AD(Azure Active Directory) 미리 보기를 사용하면 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 이렇게 하면 사용자에게 친숙한 ‘alice@contoso.com.’과 같은 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 다음과 같이 간단합니다.
+조직이 비즈니스를 수행하기 위해 사용하는 하나 이상의 도메인 이름이 있다면 조직의 사용자는 회사 도메인 이름을 사용하여 회사 네트워크에 로그인합니다. Azure AD(Azure Active Directory) 미리 보기를 사용하면 Azure AD에도 회사 도메인 이름을 추가할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 이렇게 하면 사용자에게 alice@contoso.com 같은 친숙한 사용자 이름을 디렉터리에 할당할 수 있습니다. 프로세스는 간단합니다.
 
 1. 디렉터리에 사용자 지정 도메인 이름 추가
 2. 도메인 이름 등록 기관의 도메인 이름에 대한 DNS 항목 추가
@@ -83,10 +84,5 @@ DNS 레코드가 전파된 후에 도메인 이름을 확인할 수 있습니다
 
 ## <a name="next-steps"></a>다음 단계
 [사용자 지정 도메인 이름 관리](active-directory-domains-manage-azure-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

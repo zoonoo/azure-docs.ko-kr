@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 6aeeaeef928d483c48f988c71ed8bc8367749229
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
+![시나리오](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-wikispaces"></a>Wikispaces에 응용 프로그램 통합 사용
 이 섹션은 Wikispaces에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -49,19 +50,19 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **Wikispaces**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Application Gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **Wikispaces**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -73,19 +74,19 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **Wikispaces** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Single Sign-On 구성")
 
 2. **Wikispaces에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지의 **Wikispaces 로그온 URL** 텍스트 상자에 "*http://company.wikispaces.net*" 패턴을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "앱 URL 구성")
 
 4. **Wikispaces에서 Single Sign-On 구성** 페이지에서 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
    
-   ![Single Sign-on 구성](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
+   ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Single Sign-On 구성")
 
 5. 메타데이터를 Wikispaces 지원팀에 보냅니다.
    
@@ -96,7 +97,7 @@ ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
+    ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Wikispaces로 프로비전되어야 합니다.  
@@ -107,15 +108,15 @@ Wikispaces의 경우 프로비전은 수동 작업입니다.
 
 2. **멤버**로 이동합니다.
    
-    ![멤버](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
+    ![구성원](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "구성원")
 
 3. **피플 초대**를 클릭합니다.
    
-    ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invite People")
+    ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "피플 초대")
 
 4. **피플 초대** 페이지에서 다음 단계를 수행합니다.
    
-    ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
+    ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "피플 초대")
    
     a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **사용자 이름 또는 이메일 주소** 를 입력합니다.
    
@@ -139,17 +140,12 @@ Wikispaces의 경우 프로비전은 수동 작업입니다.
 
 2. **Wikispaces** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

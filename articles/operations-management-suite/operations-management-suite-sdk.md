@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/22/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 5d1ace8c6dab1655b0c2b512376b69444434f1ad
-ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
+ms.sourcegitcommit: 47c897afd6321a59f540d1f0cb86602d4ea18ed1
+ms.openlocfilehash: 5aed4eb336d55c2954da563422972644e25d0140
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -37,6 +38,7 @@ ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
 
 ## <a name="log-analytics"></a>Log Analytics
 * [Log Analytics 설명서](http://azure.microsoft.com/documentation/services/log-analytics)
+* [Log Analytics REST API](/rest/api/loganalytics)
 * [Log Analytics HTTP 데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)
 * [Log Search API](../log-analytics/log-analytics-log-search-api.md)
 * [알림 API](../log-analytics/log-analytics-api-alerts.md)
@@ -55,10 +57,5 @@ ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
 ## <a name="next-steps"></a>다음 단계
 * [OMS 서비스와 통합](operations-management-suite-integration.md)하는 다양한 옵션에 대해 알아봅니다.
 * OMS(출시 예정)에서 사용자 지정 솔루션을 만듭니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

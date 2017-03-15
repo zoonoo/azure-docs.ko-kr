@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: de2b914ddb7238c9939066570d8fba78aa5c231e
-ms.openlocfilehash: 73e9c8491520d47bbc60b1556b97918977d29d7f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
+ms.openlocfilehash: c92a54c40c329e519832f2f8de71aa5d8e15a090
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -53,6 +53,7 @@ ms.lasthandoff: 02/16/2017
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](documentdb-sql-query.md#Aggregates)을 참조하세요.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
@@ -72,7 +73,7 @@ ms.lasthandoff: 02/16/2017
 * 높은 수준의 동시 요청이 개입되는 시나리오를 위한 SDK의 성능 픽스입니다.
 
 ### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
-* 컬랙션 내 문서의 [피드 변경](documentdb-change-feed.md) 프로세스에 대한 새 클래스 및 메서드 지원
+* 컬렉션 내 문서의 [피드 변경](documentdb-change-feed.md) 프로세스에 대한 새 클래스 및 메서드 지원
 * 파티션 간 쿼리 연속 및 파티션 간 쿼리에 대한 일부 성능 향상 지원
 * CreateDatabaseIfNotExistsAsync 및 CreateDocumentCollectionIfNotExistsAsync 메서드 추가
 * 시스템 함수에 대한 LINQ 지원: IsDefined, IsNull 및 IsPrimitive

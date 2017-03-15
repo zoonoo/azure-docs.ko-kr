@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 0b5bdb5036024cc0e05b3845e0073b2ea66a0a73
-ms.openlocfilehash: 9f615c3936cf3207ace787dd7293f94d2b760149
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: fa9e86552f61693b953f636bff3cd9d869feba23
+ms.openlocfilehash: 14c179d76664876695f2974de44e6bc000942184
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -45,7 +45,7 @@ Azure AD Connect 동기화에서 언제든지 필터링을 사용할 수 있습�
 
 실수로 많은 개체를 삭제하는 것을 방지하기 위해 “[실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)” 기능이 기본적으로 설정되어 있습니다. 필터링으로 인해 많은 개체를 삭제하는 경우(기본적으로&500;개) 이 문서의 단계를 따라 삭제 작업을 Azure AD에 진행해야 합니다.
 
-2015년 11월([1.0.9125](active-directory-aadconnect-version-history.md#1091250)) 전 빌드를 사용하고, 필터 구성을 변경하고, 암호 동기화를 사용하려면 구성을 완료한 다음 모든 암호를 전체 동기화 트리거해야 합니다. 암호 전체 동기화 트리거하는 방법에 대한 단계는 [모든 암호의 전체 동기화 트리거](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords)를 참조하세요. 빌드 1.0.9125 이상일 경우 정기적인 **전체 동기화** 작업이 암호가 동기화되어야 하는지, 이 추가 단계가 더 이상 필요하지 않은지도 계산합니다.
+2015년 11월([1.0.9125](active-directory-aadconnect-version-history.md#1091250)) 전 빌드를 사용하고, 필터 구성을 변경하고, 암호 동기화를 사용하려면 구성을 완료한 다음 모든 암호를 전체 동기화 트리거해야 합니다. 암호 전체 동기화 트리거하는 방법에 대한 단계는 [모든 암호의 전체 동기화 트리거](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords)를 참조하세요. 빌드 1.0.9125 이상일 경우 정기적인 **전체 동기화** 작업이 암호가 동기화되어야 하는지, 이 추가 단계가 더 이상 필요하지 않은지도 계산합니다.
 
 필터링 오류로 인해 **사용자** 개체가 Azure AD에서 의도치 않게 삭제된 경우에 필터링 구성을 제거하고 Azure AD에 사용자 개체를 다시 만들 수 있습니다. 그런 다음 디렉터리를 다시 동기화할 수 있습니다. 이 작업을 통해 사용자가 Azure AD의 휴지통에서 복원됩니다. 그러나 다른 개체 형식을 삭제 취소할 수 없습니다. 예를 들어 보안 그룹을 실수로 삭제하고 ACL에 리소스로 사용한 경우 그룹 및 해당 ACL은 복구할 수 없습니다.
 
@@ -200,7 +200,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 다음 샘플 및 단계에서 사용자 개체를 예로 사용하지만 모든 개체 형식에 대해서 사용할 수 있습니다.
 
-다음 샘플의 우선 순위 값이 500로 시작합니다. 이 값은 이러한 규칙이 기본 규칙(더 낮은 우선 순위, 더 높은 숫자 값) 이후에 평가되도록 합니다.
+다음 샘플에서 우선 순위 값은 50부터 시작합니다. 사용되지 않은 모든 숫자를 사용할 수 있지만 100보다는 작아야 합니다.
 
 #### <a name="negative-filtering-do-not-sync-these"></a>부정 필터링: "다음을 동기화 안 함"
 다음 예제에서는 **extensionAttribute15**가 **NoSync** 값을 가진 모든 사용자를 필터링(동기화 안 함)합니다.
@@ -208,7 +208,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. **시작** 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
 3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
-4. "*In from AD – User DoNotSyncFilter*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 500)을 입력한 후 **다음**을 클릭합니다.  
+4. "*In from AD – User DoNotSyncFilter*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 50)을 입력한 후 **다음**을 클릭합니다.  
    ![인바운드 1 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭합니다. **특성**에서 **ExtensionAttribute15**를 선택합니다. **연산자**가 **EQUAL**로 설정되어 있는지 확인하고 **값** 상자에 값 **NoSync**를 입력합니다. **다음**을 클릭합니다.  
    ![인바운드 2 범위](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
@@ -218,7 +218,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 8. 구성을 완료하려면 **전체 동기화**를 실행해야 합니다. [변경 사항 적용 및 확인](#apply-and-verify-changes) 섹션을 계속 읽습니다.
 
 #### <a name="positive-filtering-only-sync-these"></a>긍정 필터링: "다음만 동기화"
-긍정 필터링을 표현하는 것은 회의실과 같이 동기화가 명확하지 않은 개체도 고려해야 하므로 더 어려울 수 있습니다.
+긍정 필터링을 표현하는 것은 회의실과 같이 동기화가 명확하지 않은 개체도 고려해야 하므로 더 어려울 수 있습니다. 또한 기본 규칙 **AD에서 - 사용자 참가**의 기본 필터도 재정의됩니다. 사용자 지정 필터를 만들 때는 Azure AD Connect의 중요 한 시스템 개체, 복제 충돌 개체, 특별한 사서함 및 서비스 계정을 포함하지 않도록 해야 합니다.
 
 긍정 필터링 옵션에는 두 가지 동기화 규칙이 필요합니다. 동기화할 개체의 올바른 범위를 가진 규칙이 하나 이상 필요합니다. 아직 동기화해야 하는 개체로 식별되지 않은 모든 개체를 필터링하는 두 번째 포괄적인 동기화 규칙도 필요합니다.
 
@@ -227,7 +227,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. **시작** 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
 3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
-4. "*In from AD – User Sales sync*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 501)을 입력한 후 **다음**을 클릭합니다.  
+4. "*In from AD – User Sales sync*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 51)을 입력한 후 **다음**을 클릭합니다.  
    ![인바운드 4 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭합니다. **특성**에서 **부서**를 선택합니다. 연산자가 **EQUAL**로 설정되어 있는지 확인하고 **값** 상자에 값 **Sales**를 입력합니다. **다음**을 클릭합니다.  
    ![인바운드 5 범위](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
@@ -235,7 +235,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 7. **변환 추가**를 클릭하고 **FlowType**으로 **상수**를 선택하고 **대상 특성**으로 **cloudFiltered**를 선택합니다. **소스** 상자에 **False**를 입력합니다. **추가** 를 클릭하여 규칙을 저장합니다.  
    ![인바운드 6 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png)  
    이는 cloudFiltered를 명시적으로 **False**로 설정하는 특수한 경우입니다.
-8. 이제 범용 동기화 규칙을 만들어야 합니다. “*In from AD – User Catch-all filter*”와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 600)을 입력합니다. 이전 동기화 규칙보다 더 높은 우선 순위(더 낮은 우선 순위) 값을 선택했습니다. 하지만 추가 부서 동기화를 시작하려는 경우 더 많은 필터링 동기화 규칙을 나중에 추가할 수 있도록 약간의 공간도 남겨두었습니다. **다음**을 클릭합니다.  
+8. 이제 범용 동기화 규칙을 만들어야 합니다. “*In from AD – User Catch-all filter*”와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택하고, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **링크 형식**에서 **조인**을 선택합니다. **우선 순위**에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 99)을 입력합니다. 이전 동기화 규칙보다 더 높은 우선 순위(더 낮은 우선 순위) 값을 선택했습니다. 하지만 추가 부서 동기화를 시작하려는 경우 더 많은 필터링 동기화 규칙을 나중에 추가할 수 있도록 약간의 공간도 남겨두었습니다. **다음**을 클릭합니다.  
    ![인바운드 7 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)  
 9. **범위 지정 필터**를 비워 두고 **다음**을 클릭합니다. 빈 필터는 규칙이 모든 개체에 적용되어야 한다는 것을 나타냅니다.
 10. **조인**을 비워두고 **다음**을 클릭합니다.

@@ -1,5 +1,5 @@
 ---
-title: "작업 및 태스크의 출력 유지 - Azure Batch | Microsoft Docs"
+title: "Azure Storage에 작업 및 태스크 출력 유지 - Azure Batch | Microsoft Docs"
 description: "Azure Storage를 배치 태스크 및 작업 출력의 영구 저장소로 사용하고 이 보관된 출력을 Azure 포털에서 표시하도록 설정하는 방법을 알아봅니다."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 2c80f9d2bc788c60c5a7b3a5fd0d38cb86cbf838
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="persist-azure-batch-job-and-task-output"></a>Azure 배치 작업 및 태스크 출력 보관
+# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Azure Storage에 완료된 작업 및 태스크의 결과 유지
+
 배치에서 실행하는 태스크는 일반적으로 저장한 후 나중에 작업의 다른 태스크, 작업을 실행한 클라이언트 응용 프로그램 또는 둘 다에서 검색해야 하는 출력을 생성합니다. 이 출력은 입력 데이터 또는 태스크 실행과 관련된 로그 파일을 처리하여 생성되는 파일일 수 있습니다. 이 문서에서는 규칙 기반 기술을 사용하여 이러한 태스크 출력을 Azure Blob 저장소에 보관함으로써 풀, 작업 및 계산 노드를 삭제한 후에도 사용할 수 있도록 하는 .NET 클래스 라이브러리를 소개합니다.
 
 이 문서의 기술을 사용하면 [Azure Portal][portal]에서 **저장된 출력 파일** 및 **저장된 로그**에서 태스크 출력을 볼 수도 있습니다.
@@ -248,9 +251,4 @@ Azure Portal에서 태스크 출력 및 로그를 보려면 관심 있는 출력
 
 [1]: ./media/batch-task-output/task-output-01.png "포털의 저장된 출력 파일 및 저장된 로그 선택기"
 [2]: ./media/batch-task-output/task-output-02.png "Azure Portal의 태스크 출력 블레이드"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,8 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 319e22e2fb423e0fe1fabf95d0018d4fa3232e0b
-ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
+ms.sourcegitcommit: 5e01db2676e3515f41bf98d23595e6509c0d6805
+ms.openlocfilehash: c5f50213be9cd20c82acf8dd94463e7dce0a0195
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -49,6 +50,7 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
     ![새 샘플 데이터베이스 블레이드](./media/sql-database-get-started/new-sample-db-blade.png)
 
 ## <a name="change-the-service-tier-and-performance-level-of-a-single-database"></a>단일 데이터베이스의 서비스 계층 및 성능 수준 변경
+
 규모 확장 또는 축소할 데이터베이스에 대한 SQL 데이터베이스 블레이드를 엽니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **추가 서비스** > **SQL 데이터베이스**를 클릭합니다.
@@ -59,12 +61,11 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
 
 4. 새 계층을 선택하고 **선택**을 클릭합니다.
    
-   **선택**을 클릭하면 가격 책정 계층을 변경하기 위한 규모 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기 작업의 규모를 설정하는 데 다소 시간이 걸릴 수 있습니다(이 문서의 맨 위에 있는 정보 참조).
+   **선택**을 클릭하면 가격 책정 계층을 변경하기 위한 규모 요청을 제출합니다. 데이터베이스 크기에 따라 가져오기 작업의 규모를 설정하는 데 다소 시간이 걸릴 수 있습니다([서비스 계층](sql-database-service-tiers.md) 참조).
    
    > [!NOTE]
    > 데이터베이스 가격 책정 계층을 변경하는 경우 최대 데이터베이스 크기는 변경되지 않습니다. 데이터베이스 최대 크기를 변경하려면 [Transact-SQL(T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 또는 [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx)을 사용하세요.
-   > 
-   > 
+   >  
    
    ![가격 책정 계층 선택](./media/sql-database-manage-single-database-portal/choose-tier.png)
 5. 오른쪽 위에 있는 알림 아이콘(벨)을 클릭합니다.
@@ -80,9 +81,4 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
 * SQL Server Management Studio를 사용하여 관리 작업을 수행하는 방법을 보려면 [SQL Server Management Studio](sql-database-manage-azure-ssms.md)를 참조하세요.
 * SQL Database 서비스에 대한 정보는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 
 * Azure 데이터베이스 서버 및 데이터베이스 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

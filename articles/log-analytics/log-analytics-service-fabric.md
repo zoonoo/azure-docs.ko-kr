@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 응용 프로그램 및 마이크로 서비스 평가 | Microsoft Docs"
-description: "Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
+title: "PowerShell을 사용하여 Azure Log Analytics로 Service Fabric 응용 프로그램 평가 | Microsoft Docs"
+description: "PowerShell을 사용하여 Log Analytics의 Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
-ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
+ms.sourcegitcommit: 6d20dc322a2493b9dd9a3fd843512befc1e90100
+ms.openlocfilehash: a822e7eb85eca42cba85d191e1effd7240deb1af
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Log Analytics의 서비스 패브릭 데이터 솔루션
+# <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>PowerShell로 Azure Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 > [!div class="op_single_selector"]
 > * [리소스 관리자](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
@@ -636,9 +637,4 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Service Fabric 이벤트 데이터를 볼 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

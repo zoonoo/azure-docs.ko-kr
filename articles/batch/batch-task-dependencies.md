@@ -1,6 +1,6 @@
 ---
-title: "다른 태스크에 종속되는 태스크 구성 - Azure Batch | Microsoft Docs"
-description: "Azure 배치에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 태스크를 성공적으로 완료하는 데 종속된 태스크를 만듭니다."
+title: "작업 의존 관계를 사용하여 다른 작업의 완료에 따라 작업 실행 - Azure 배치 | Microsoft Docs"
+description: "Azure 배치에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 작업의 완료에 종속된 작업을 만듭니다."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 32293e15b6f610a3613d6b666bdd0eea0495b2b8
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: d7cca5d71d3db45599b47328755c53a023e9c4ae
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="task-dependencies-in-azure-batch"></a>Azure 배치의 태스크 종속성
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
+
 Azure 배치의 태스크 종속성은 다음을 처리하려는 경우에 솔루션이 될 수 있습니다.
 
 * 클라우드에서 MapReduce 스타일의 컴퓨팅 워크로드
@@ -166,9 +169,4 @@ new CloudTask("4", "cmd.exe /c echo 4")
 [1]: ./media/batch-task-dependency/01_one_to_one.png "다이어그램: 일대일 종속성"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "다이어그램: 일대다 종속성"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "다이어그램: 태스크 ID 범위 종속성"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

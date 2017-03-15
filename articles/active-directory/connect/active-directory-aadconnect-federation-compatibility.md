@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/01/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: cb06c5bd74816777ec7c5836d362d509a265bd9c
-ms.openlocfilehash: 9e16fd3112b093f22ed99829c223a3a80e008f28
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 1f004b499eb01009ae824ece74d06a03474c4d53
+ms.openlocfilehash: 93a159001fabad513295b0958cf7918b0ed2d1b7
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,7 +58,8 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
-* [Sailpoint IdentityNow](#sailpoint-identitynow) 
+* [Sailpoint IdentityNow](#sailpoint-identitynow)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
 > [!IMPORTANT]
 > 이러한 제품은 타사 제품이므로 Microsoft는 배포, 구성, 문제 해결, 모범 사례 등 이러한 ID 공급자에 관한 문제 및 질문에 대한 지원을 제공하지 않습니다. 이러한 ID 공급자에 관한 지원 및 질문은 타사 담당자에게 직접 문의하세요.
@@ -345,5 +346,17 @@ Sailpoint IdentityNow는 널리 사용되는 WS Federation/WS-Trust ID 표준을
 
 자세한 내용은 참조 [Sailpoint IdentityNow](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)를 참조하세요.
 
+## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
+NetIQ Access Manager는 널리 사용되는 WS Federation/WS-Trust ID 표준을 구현하여 Single Sign-On 및 특성 교환 프레임워크를 제공합니다.
+
+다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
+
+| 클라이언트 | 지원 | 예외 |
+| --- | --- | --- |
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 |지원됨 |없음|
+| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |없음|
+| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
+
+자세한 내용은 [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)를 참조하세요.
 
 

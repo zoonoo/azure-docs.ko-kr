@@ -3,7 +3,7 @@ title: "정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Docs"
 description: "이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 50255c1eabc5ac0f51fa8d45851fb632928070cc
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>암호 관리 보고서와 함께 Operational Insights를 얻는 방법
 > [!IMPORTANT]
 > **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 이 섹션에서는 Azure Active Directory의 암호 관리 보고서를 사용하여 조직에서 사용자 암호 재설정을 사용하여 변경하는 방법을 볼 수 있는 방법을 설명합니다.
 
@@ -34,7 +35,7 @@ ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
 * [**조직에서 암호 재설정 활동 보기**](#view-password-reset-activity)
 
 ## <a name="overview-of-password-management-reports"></a>암호 관리 보고서 개요
-암호 재설정을 배포하면 조직에서 가장 일반적인 다음 단계 중 하나는 조직에서 사용 중인 방법을 보는 것입니다.  예를 들어, 사용자가 암호 재설정을 위해 등록되는 방법 또는 지난 몇 일 내에 수행된 암호 재설정 횟수에 대한 정보를 얻을 수 있습니다.  다음은 현재 [Azure 관리 포털](https://manage.windowsazure.com) 에 있는 암호 관리 보고서로 답변할 수 있는 일반적인 질문들입니다.
+암호 재설정을 배포하면 조직에서 가장 일반적인 다음 단계 중 하나는 조직에서 사용 중인 방법을 보는 것입니다.  예를 들어, 사용자가 암호 재설정을 위해 등록되는 방법 또는 지난 몇 일 내에 수행된 암호 재설정 횟수에 대한 정보를 얻을 수 있습니다.  다음은 현재 [Azure 관리 포털](https://manage.windowsazure.com)에 있는 암호 관리 보고서로 답변할 수 있는 일반적인 질문들입니다.
 
 * 얼마나 많은 사람들이 암호 재설정을 위해 등록합니까?
 * 누가 암호 재설정을 위해 등록합니까?
@@ -48,12 +49,12 @@ ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
 ## <a name="how-to-view-password-management-reports"></a>암호 관리 보고서를 보는 방법
 암호 관리 보고서를 찾으려면 다음 단계를 따릅니다.
 
-1. **Azure 관리 포털** 의 [Active Directory](https://manage.windowsazure.com)확장을 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)의 **Active Directory** 확장을 클릭합니다.
 2. 포털에 표시되는 목록에서 디렉터리를 선택합니다.
 3. **보고서** 탭을 클릭합니다.
 4. **활동 로그** 섹션을 잠급니다.
 5. **암호 재설정 활동** 보고서 또는 **암호 재설정 등록 활동** 보고서 중 하나를 선택합니다.
-   
+
    ![][001]
 
 ## <a name="how-to-access-password-management-reports-from-an-api"></a>API에서 암호 관리 보고서에 액세스하는 방법
@@ -72,7 +73,7 @@ ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
 * **최대 시간 범위**: 1개월
 * **최대 행 수**: 무제한
 * **다운로드 가능**: 예, CSV 파일을 통해
-  
+
     ![][002]
 
 ### <a name="description-of-report-columns"></a>보고서 열 설명
@@ -96,7 +97,7 @@ ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
 * **최대 시간 범위**: 1개월
 * **최대 행 수**: 무제한
 * **다운로드 가능**: 예, CSV 파일을 통해
-  
+
     ![][003]
 
 ### <a name="description-of-report-columns"></a>보고서 열 설명
@@ -157,13 +158,13 @@ ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
 | 사용자의 온-프레미스 암호를 재설정하는 중에 문제가 발생했습니다. 동기화 컴퓨터의 이벤트 로그를 확인합니다. |Failed |
 | 이 사용자는 암호 재설정 사용자 그룹의 멤버가 아닙니다. 이를 해결하려면 해당 그룹에 이 사용자를 추가합니다. |Failed |
 | 암호 재설정은 이 테넌트에 대해 완전히 비활성화되었습니다. 이를 해결하려면 [여기](http://aka.ms/ssprtroubleshoot) 를 참조하세요. |Failed |
-| 사용자가 성공적으로 암호를 재설정함 |성공함 |
+| 사용자가 성공적으로 암호를 재설정함 |Succeeded |
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -174,9 +175,4 @@ ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

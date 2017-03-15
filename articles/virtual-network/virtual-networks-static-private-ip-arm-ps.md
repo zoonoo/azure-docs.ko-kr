@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 정적 개인 IP 주소 설정 및 관리 | Microsoft Docs"
-description: "PowerShell을 사용하여 정적 개인 IP 주소를 설정 및 관리하는 방법 알아보기 | Azure Resource Manager."
+title: "VM에 대한 개인 IP 주소 구성 - Azure PowerShell | Microsoft Docs"
+description: "PowerShell을 사용하여 가상 컴퓨터에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 75dbe164bf0fb4b3aff95954ce619781bbafaa5c
-ms.openlocfilehash: 3b966921bccb8e2bd29412c6e4aa200c606b4bf8
+ms.sourcegitcommit: b1eb8aa6bc822932b9f2abd1c448aca96069fefa
+ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="set-and-manage-a-static-private-ip-address-using-powershell"></a>PowerShell을 사용하여 정적 개인 IP 주소 설정 및 관리
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>PowerShell을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -32,7 +35,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 아래 샘플 PowerShell 명령에는 위의 시나리오를 기반으로 이미 만들어져 있는 단순한 환경이 필요합니다. 이 문서에 표시된 대로 명령을 실행하려는 경우 먼저 [vnet 만들기](virtual-networks-create-vnet-arm-ps.md)에 설명된 테스트 환경을 구축합니다.
 
-## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소 지정
+## <a name="create-a-vm-with-a-static-private-ip-address"></a>고정 개인 IP 주소를 사용하는 VM 만들기
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 따르세요.
 
 1. 사용할 저장소 계정, 위치, 리소스 그룹 및 자격 증명에 대한 변수를 설정합니다. VM에 대한 사용자 이름 및 암호를 입력해야 합니다. 저장소 계정 및 리소스 그룹이 이미 있어야 합니다.
@@ -92,7 +95,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
         RequestId           : [Id]
         StatusCode          : OK 
 
-## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보 검색
+## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>네트워크 인터페이스의 고정 개인 IP 주소 정보 검색
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 PowerShell 명령을 실행하고 *PrivateIpAddress* 및 *PrivateIpAllocationMethod*에 대한 값을 확인합니다.
 
 ```powershell
@@ -139,7 +142,7 @@ Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="remove-a-static-private-ip-address-from-a-vm"></a>VM에서 정적 개인 IP 주소 제거
+## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>네트워크 인터페이스에서 고정 개인 IP 주소 제거
 위의 스크립트에서 VM에 추가된 정적 개인 IP 주소를 제거하려면 다음 PowerShell 명령을 실행합니다.
 
 ```powershell
@@ -188,7 +191,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-to-an-existing-vm"></a>기존 VM에 정적 개인 IP 주소 추가
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>네트워크 인터페이스에 고정 개인 IP 주소 추가
 위의 스크립트를 사용하여 만든 VM에 정적 개인 IP 주소를 추가하려면 다음 명령을 실행합니다.
 
 ```powershell
@@ -197,15 +200,31 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경
+
+개인 IP 주소는 고정 또는 동적 할당 방법을 사용하여 NIC에 할당됩니다. 동적 IP 주소는 이전에 중지(할당 취소) 상태였던 VM을 시작한 후 변경할 수 있습니다. 이렇게 하면 VM이 동일한 IP 주소가 필요한 서비스를 호스팅하는 경우 중지(할당 취소) 상태에서 다시 시작하더라도 문제가 발생할 수 있습니다. 고정 IP 주소는 VM이 삭제될 때까지 유지됩니다. IP 주소 할당 방법을 변경하려면 할당 방법을 동적에서 고정으로 변경하는 다음 스크립트를 실행합니다. 현재 개인 IP 주소의 할당 방법이 고정이면 *고정*을 *동적*으로 변경한 후 스크립트를 실행합니다.
+
+```powershell
+$RG = "TestRG"
+$NIC_name = "testnic1"
+
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName $RG -Name $NIC_name
+$nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
+Set-AzureRmNetworkInterface -NetworkInterface $nic 
+$IP = $nic.IpConfigurations[0].PrivateIpAddress
+
+Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
+```
+
+NIC의 이름을 모르는 경우 다음 명령을 입력하여 리소스 그룹 내에서 NIC 목록을 볼 수 있습니다.
+
+```powershell
+Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
+```
 
 ## <a name="next-steps"></a>다음 단계
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

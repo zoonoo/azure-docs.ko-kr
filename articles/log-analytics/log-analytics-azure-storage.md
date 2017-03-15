@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics에서 Azure 서비스에 대한 로그 및 메트릭 수집 | Microsoft Docs"
+title: "Log Analytics에서 Azure 서비스 로그 및 메트릭 수집 | Microsoft Docs"
 description: "로그 및 메트릭을 Log Analytics에 쓰도록 Azure 리소스에 대한 진단을 구성합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
-ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 935680e33c1b32619b7acb8d50a61e48b6703402
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="collecting-logs-and-metrics-for-azure-services-in-log-analytics"></a>Log Analytics에서 Azure 서비스에 대한 로그 및 메트릭 수집
+# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
 
 Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다음 네 가지가 있습니다.
 
@@ -149,9 +151,4 @@ Azure 템플릿 갤러리에는 [Azure Automation을 사용하여](https://azure
 * [이벤트에 대해 IIS 및 테이블 저장소에 Blob Storage를 사용하여](log-analytics-azure-storage-iis-table.md) Table Storage에 진단을 기록하는 Azure 서비스나 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
 * [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
 * [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

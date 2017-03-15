@@ -1,5 +1,5 @@
 ---
-title: "Azure 함수 테스트 | Microsoft Docs"
+title: "Azure Functions 테스트 | Microsoft Docs"
 description: "Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다."
 services: functions
 documentationcenter: na
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 811d39a10cee3a602a43b6733d6743959cd02f45
-ms.openlocfilehash: 3795bfa395409fe3850f19cd351371cf07e42b58
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="testing-azure-functions"></a>Azure 함수 테스트
+# <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
 이 토픽에서는 다음과 같은 일반적인 방법을 사용하여 함수를 테스트하는 다양한 방법을 보여 줍니다.
 

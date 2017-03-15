@@ -13,15 +13,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 2/25/2017
 ms.author: ronitr; giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 2882c41ced74c35e28a9237f3f08b6e6f687b846
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: fb56545df42e997e5960eec73ae59e9334731392
+ms.openlocfilehash: 8c6fa92764cb720a0c71a24d839d3e73ce3ba447
+ms.lasthandoff: 03/02/2017
 
 
 ---
+
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Azure Portal에서 SQL Database 감사 구성 및 관리
 
 다음 섹션에서는 Azure Portal을 사용하여 감사를 구성 및 관리하는 방법을 설명합니다. PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell에서 감사 구성](sql-database-auditing-powershell.md)을 참조하세요. REST API를 사용하여 감사를 구성 및 관리하려면 [REST API에서 감사 구성](sql-database-auditing-rest.md)을 참조하세요.
@@ -45,7 +46,9 @@ ms.lasthandoff: 02/17/2017
     <a id="storage-screenshot"></a>
     ![탐색 창][4]
 6. 감사 이벤트를 사용자 지정하려면 [PowerShell](sql-database-auditing-powershell.md) 또는 [REST API](sql-database-auditing-rest.md)를 통해 다음 작업을 수행합니다.
-7. **Save**를 클릭합니다.
+7. 감사 설정을 구성했으면 새로운 위협 감지(미리 보기) 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지 기능을 사용하여 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지](sql-database-threat-detection.md)를 참조하세요.
+8. **Save**를 클릭합니다.
+
 
 ## <a name="table-auditing"></a>테이블 감사
 

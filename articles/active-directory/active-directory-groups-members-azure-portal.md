@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory 미리 보기에서 그룹의 멤버 관리 | Microsoft Docs"
-description: "Azure Active Directory에서 그룹의 멤버인 사용자 및 장치를 관리하는 방법"
+description: "Azure Active Directory의 그룹에서 사용자 및 장치를 추가 또는 제거하는 방법"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c0c411f6e2f51fa2d55d46ff92153dc8882bb38
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="manage-the-members-for-a-group-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 그룹의 멤버 관리
+# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리
 이 문서는 Azure Active Directory(Azure AD) 미리 보기에서 그룹의 멤버를 관리하는 방법을 설명합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>어떻게 멤버를 찾고 관리하나요?
@@ -53,9 +55,4 @@ ms.openlocfilehash: 7c0c411f6e2f51fa2d55d46ff92153dc8882bb38
 * [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
