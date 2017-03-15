@@ -12,23 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
+ms.sourcegitcommit: 80bede0dc3ad3934d63feabb946744aeb45f334d
+ms.openlocfilehash: f239a2a270df00cecbe263fa61b84af06af817db
+ms.lasthandoff: 12/15/2016
 
 
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Azure 기계 학습을 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
-이 토픽에서는 Azure Machine Learning Studio를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
+이 문서에서는 Azure Machine Learning을 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
 ### <a name="acknowledgements"></a>감사의 말
 이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure 기계 학습 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
-> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 기계 학습 모델을 작성하는 방법의 예제를 보려면 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco 이탈 모델 템플릿](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)을 참조하세요.
+> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [소매 이탈 모델 템플릿](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
 > 
 > 
 
@@ -93,7 +94,7 @@ ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
 
 모델링에 대한 기능 선택은 임의 포리스트 모듈을 사용하는 프로세스에 포함된 예측 변수 집합에 대한 사전 중요도 점수 매기기를 기반으로 합니다. 기계 학습 스튜디오에서 구현하기 위해 대표적인 기능에 대한 평균, 중앙값 및 범위를 계산했습니다. 예를 들어 사용자 활동에 대한 최소값 및 최대값 같은 정성 데이터에 대한 집계를 추가했습니다.    
 
-또한 최근 6개월 동안의 임시 정보를 캡처했습니다. 1년 동안의 데이터를 분석하고 통계상 중요한 추세라도 6개월 후에는 이탈에 대한 영향이 크게 감소하도록 설정했습니다.  
+또한 최근&6;개월 동안의 임시 정보를 캡처했습니다. 1년 동안의 데이터를 분석하고 통계상 중요한 추세라도&6;개월 후에는 이탈에 대한 영향이 크게 감소하도록 설정했습니다.  
 
 가장 중요한 사항은 ETL, 기능 선택, 모델링을 비롯한 전체 프로세스가 Microsoft Azure에서 데이터 원본을 사용하여 기계 학습 스튜디오에서 구현되었다는 점입니다.   
 
@@ -197,7 +198,7 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
   * **경쟁 및 비즈니스 데이터**. 고객에 대해 가능한 모든 정보를 얻습니다(예: 사용할 수 없거나 추적하기 어려운 정보).
 * 기능 선택의 기준으로는 중요도를 사용합니다. 이는 향상된 의사 결정 트리 모델이 항상 유망한 접근법임을 의미합니다.  
 
-이러한 네 가지 범주 사용은 이탈 위험이 있는 고객을 식별하는 데 있어 범주별로 타당한 요소에 대해 형성된 인덱스를 기반으로 하는 단순 *결정적* 접근법만으로 충분하다는 착각을 일으킵니다. 불행히도 이 생각은 타당한 것처럼 보이지만 잘못된 이해입니다. 이탈은 일시적 영향이고 일반적으로 이탈을 가져오는 요인은 과도 상태이기 때문입니다. 오늘 고객이 이탈을 고려하게 하는 요인은 내일은 달라질 수 있고 지금부터 6개월 후에는 확실히 달라집니다. 따라서 *확률적* 모델이 필요합니다.  
+이러한 네 가지 범주 사용은 이탈 위험이 있는 고객을 식별하는 데 있어 범주별로 타당한 요소에 대해 형성된 인덱스를 기반으로 하는 단순 *결정적* 접근법만으로 충분하다는 착각을 일으킵니다. 불행히도 이 생각은 타당한 것처럼 보이지만 잘못된 이해입니다. 이탈은 일시적 영향이고 일반적으로 이탈을 가져오는 요인은 과도 상태이기 때문입니다. 오늘 고객이 이탈을 고려하게 하는 요인은 내일은 달라질 수 있고 지금부터&6;개월 후에는 확실히 달라집니다. 따라서 *확률적* 모델이 필요합니다.  
 
 비즈니스 인텔리전스 지향 접근법이 주로 판매가 더 쉽고 직관적인 자동화를 허용하기 때문에 분석보다 이 접근법을 선호하는 비즈니스에서는 이 중요한 관찰 결과가 종종 간과됩니다.  
 
@@ -250,9 +251,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
