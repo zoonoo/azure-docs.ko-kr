@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/14/2017
 ms.author: fboylu
 translationtype: Human Translation
 ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
 ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -368,10 +369,5 @@ ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
 그림 8. 예측 유지 관리를 위한 솔루션 아키텍처 예
 
 아키텍처의 각 구성 요소에 대한 자세한 내용은 [Azure](https://azure.microsoft.com/) 설명서를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
