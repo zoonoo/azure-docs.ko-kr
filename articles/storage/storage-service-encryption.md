@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
-ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
+ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
 ms.lasthandoff: 03/01/2017
 
 
@@ -42,7 +42,8 @@ SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 
 SSE 파일 미리 보기에 참여하려면 ssediscussions@microsoft.com에 문의하세요.
 
 자세히 알아보려면 FAQ를 참조하세요.
-File Storage에 대한 File Storage 저장소 서비스 암호화는 현재 동아시아, 북유럽 및 미국 동부 2 지역에서 사용할 수 있습니다.
+### <a name="availability-for-file-storage"></a>File Storage에 대한 가용성
+File Storage에 대한 저장소 서비스 암호화는 현재 동아시아, 북유럽 및 미국 동부 2 지역에서 사용할 수 있습니다.
 
 
 저장소 계정에 대한 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정하려면 [Azure Portal](https://azure.portal.com) 에 로그인한 후 저장소 계정을 선택합니다. 설정 블레이드에서 이 스크린샷에 표시된 것처럼 Blob 서비스 섹션을 찾은 후 암호화를 클릭합니다.

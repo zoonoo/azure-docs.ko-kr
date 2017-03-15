@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
+ms.sourcegitcommit: 452b6a541309736ee4bd7e1dbbf5288289e70922
+ms.openlocfilehash: 6a48bae7cd5c394f7b400f6870dba4da7f0d19f2
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,7 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 
 * 인코딩 작업을 만듭니다.
 * 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
-* "H264 여러 비트 전송률 720p" 기본 설정을 사용하도록 지정합니다. [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)서 모든 기본 설정을 확인할 수 있습니다. [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 에서 이러한 사전 설정이 따라야 하는 스키마를 살펴볼 수도 있습니다.
+* [적응 스트리밍](media-services-autogen-bitrate-ladder-with-mes.md) 사전 설정을 사용하도록 지정합니다. 
 * 작업에 단일 인코딩을 추가합니다. 
 * 인코딩할 입력 자산을 지정합니다.
 * 인코딩된 자산을 포함할 출력 자산을 만듭니다.
@@ -73,10 +74,10 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
             // Specify the input asset to be encoded.
@@ -146,10 +147,5 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 ## <a name="see-also"></a>참고 항목
 [.NET과 함께 Media Encoder Standard를 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services 인코딩 개요](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

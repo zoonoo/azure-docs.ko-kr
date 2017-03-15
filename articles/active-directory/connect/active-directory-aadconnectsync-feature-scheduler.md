@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: fda7455320e1c043f1f5aa2a92b72329fc20e76a
-ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
+ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
+ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -40,7 +41,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 ## <a name="scheduler-configuration"></a>스케줄러 구성
 현재 구성 설정을 보려면 PowerShell로 이동하고 `Get-ADSyncScheduler`를 실행합니다. 아래 그림과 같이 표시됩니다.
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
 이 cmdlet을 실행했을 때 **사용할 수 없는 동기화 명령 또는 cmdlet** 이 나타나면 PowerShell 모듈이 로드되지 않은 것입니다. 기본 설정보다 PowerShell 제한 수준이 높은 도메인 컨트롤러 또는 서버에서 Azure AD Connect를 실행할 경우 이 문제가 발생할 수 있습니다. 이 오류가 나타나면 `Import-Module ADSync`을(를) 실행하여 cmdlet을 사용할 수 있게 합니다.
 
@@ -52,7 +53,8 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 * **PurgeRunHistoryInterval**. 작업 로그가 유지되어야 하는 시간입니다. 이러한 로그는 Synchronization Service Manager에서 검토할 수 있습니다. 기본값은 7일 동안 로그를 유지하는 것입니다.
 * **SyncCycleEnabled**. 스케줄러가 작업의 일부로 가져오기, 동기화 및 내보내기 프로세스를 실행 중인지 나타냅니다.
 * **MaintenanceEnabled**. 유지 관리 프로세스를 사용할 수 있는지 표시합니다. 인증서/키를 업데이트하고 작업 로그를 삭제합니다.
-* **IsStagingModeEnabled**. [스테이징 모드](active-directory-aadconnectsync-operations.md#staging-mode)를 사용할 수 있는지 표시합니다. 이 설정을 사용하는 경우 내보내기는 무시되지만 가져오기 및 동기화는 계속 실행합니다.
+* **StagingModeEnabled**. [스테이징 모드](active-directory-aadconnectsync-operations.md#staging-mode)를 사용할 수 있는지 표시합니다. 이 설정을 사용하는 경우 내보내기는 무시되지만 가져오기 및 동기화는 계속 실행합니다.
+* **SchedulerSuspended**. 업그레이드 중에 스케줄러 실행을 일시적으로 차단하기 위해 Connect에 의해 설정됩니다.
 
 `Set-ADSyncScheduler`(으)로 이러한 모든 설정 중 일부를 변경할 수 있습니다. 다음 매개 변수를 수정할 수 있습니다.
 
@@ -61,6 +63,8 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
+
+Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncScheduler에서 노출되었습니다. 이 속성을 설정하는 것은 **지원되지 않습니다**. 속성 **SchedulerSuspended**는 Connect에서만 수정되어야 합니다. PowerShell에서 직접 설정하는 것은 **지원되지 않습니다**.
 
 스케줄러 구성은 Azure AD에 저장됩니다. 스테이징 서버가 있는 경우 주 서버를 변경하면 스테이징 서버에도 영향을 줍니다(IsStagingModeEnabled 제외).
 
@@ -169,9 +173,4 @@ Get-ADSyncConnectorRunStatus
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

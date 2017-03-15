@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/18/2017
 ms.author: pajosh;markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: b6ddaf7dc26d0efac782752e55594262531e794a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: 5de5d42037aee5b0ef7745ea5d0cc748a7b5a60e
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="backup-and-restore-encrypted-vms-using-azure-backup"></a>Azure Backup으로 암호화된 VM 백업 및 복원
+# <a name="how-to-back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 컴퓨터를 백업 및 복원하는 방법
 이 문서에서는 Azure Backup을 사용하여 가상 컴퓨터를 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/07/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6f2db3b411069b31424627f50336f1ba9750a9f5
-ms.openlocfilehash: 060f684cee6a8f98e5e8fb4a49f0bab92bd4df9c
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9f513cfb976848960c2164165994dd5b9fcc4fc1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,7 +39,9 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure 포털](https://portal.azure.com)에서 "전역 관리자"입니다.
   >
   >
-* **규정 준수 관리자**:
+
+* **호환성 관리자**: 이 역할의 사용자는 Office 365 보안 및 준수 센터 및 Exchange 관리 센터 내 관리 권한이 있으며 Office 365 관리 센터에서 감사 로그를 읽을 수 있습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”를 참조하세요.
+
 * **CRM 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft CRM Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)를 참조하세요.
 * **고객 LockBox 액세스 승인자**: LockBox 서비스가 활성화된 경우 이 역할의 사용자는 회사 정보에 액세스하도록 Microsoft 엔지니어에 대한 요청을 승인할 수 있습니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)를 참조하세요.
 * **장치 관리자**: 이 역할의 사용자는 Azure Active Directory에 연결된 모든 Windows 10 장치의 관리자가 됩니다.
@@ -50,12 +52,16 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 * **Intune 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)를 참조하세요.
 * **비즈니스용 Skype 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft 비즈니스용 Skype 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)를 참조하세요. 이 역할은 이전에 **Lync 서비스 관리자** 역할이라고 했습니다.
 * **게스트 초대자**: 이 역할의 사용자는 게스트 초대를 관리할 수 있습니다. 다른 권한은 포함되지 않습니다.
+* **사서함 관리자**: 이 역할은 RIM Blackberry 장치에 대한 Exchange Online 전자 메일 지원을 위해서만 사용됩니다. 조직이 RIM Blackberry 장치에서 Exchange Online 전자 메일을 사용하지 않는 경우 이 역할을 사용하지 마십시오.
+* **파트너 계층 1 지원**: 사용하지 마십시오. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
+* **파트너 계층 2 지원**: 사용하지 마십시오. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
 * **암호 관리자/Helpdesk 관리자**: 암호를 재설정하고, 서비스 요청을 관리하고, 서비스 상태를 모니터링합니다. 암호 관리자는 사용자 및 다른 암호 관리자에 대해서만 암호를 다시 설정할 수 있습니다.
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "기술 지원팀 관리자"로 식별됩니다.
   >
   >
+
 * **Power BI 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Power BI 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Power BI를 보다 쉽게 관리하기](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/)를 참조합니다.
 * **권한 있는 역할 관리자**: 이 역할의 사용자는 Azure AD [권한 있는 ID 관리자](active-directory-privileged-identity-management-configure.md)를 관리하고 다른 사용자에 대한 역할을 업데이트할 수 있습니다.
 * **SharePoint 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)를 참조하세요.

@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
-ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
-##  <a name="a-nametransformationpoliciesa-transformation-policies"></a><a name="TransformationPolicies"></a> 변환 정책  
+##  <a name="TransformationPolicies"></a> 변환 정책  
   
 -   [XML로 JSON 변환](api-management-transformation-policies.md#ConvertJSONtoXML) - 요청 또는 응답 본문을 JSON에서 XML로 변환합니다.  
   
@@ -44,7 +45,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   [XSLT를 사용하여 XML 변환](api-management-transformation-policies.md#XSLTransform) - 요청 또는 응답 본문의 XML에 XSL 변환을 적용합니다.  
   
-##  <a name="a-nameconvertjsontoxmla-convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> XML로 JSON 변환  
+##  <a name="ConvertJSONtoXML"></a> XML로 JSON 변환  
  `json-to-xml` 정책은 요청 또는 응답 본문을 JSON에서 XML로 변환합니다.  
   
 ### <a name="policy-statement"></a>정책 문  
@@ -87,7 +88,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-nameconvertxmltojsona-convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> JSON으로 XML 변환  
+##  <a name="ConvertXMLtoJSON"></a> JSON으로 XML 변환  
  `xml-to-json` 정책은 요청 또는 응답 본문을 XML에서 JSON으로 변환합니다. 이 정책은 XML 전용 백 엔드 웹 서비스를 기반으로 하는 API를 최신 형식으로 변환하는 데 사용할 수 있습니다.  
   
 ### <a name="policy-statement"></a>정책 문  
@@ -131,7 +132,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namefindandreplacestringinbodya-find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> 본문 문자열 찾기 및 바꾸기  
+##  <a name="Findandreplacestringinbody"></a> 본문 문자열 찾기 및 바꾸기  
  `find-and-replace` 정책은 요청 또는 응답 하위 문자열을 찾고 다른 하위 문자열로 바꿉니다.  
   
 ### <a name="policy-statement"></a>정책 문  
@@ -166,7 +167,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namemaskurlscontenta-mask-urls-in-content"></a><a name="MaskURLSContent"></a> 콘텐츠의 URL 마스킹  
+##  <a name="MaskURLSContent"></a> 콘텐츠의 URL 마스킹  
  `redirect-content-urls` 정책은 응답 본문에 링크를 다시 작성(마스킹)하여 게이트웨이를 통해 동등한 링크를 가리키도록 합니다. outbound 섹션에서 응답 본문 링크를 다시 작성하여 게이트웨이를 가리키도록 합니다. 반대 효과를 가져오려면 inbound 섹션에 사용합니다.  
   
 > [!NOTE]
@@ -197,7 +198,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namesetbackendservicea-set-backend-service"></a><a name="SetBackendService"></a> 백 엔드 서비스 설정  
+##  <a name="SetBackendService"></a> 백 엔드 서비스 설정  
  `set-backend-service` 정책을 사용하여 들어오는 요청을 해당 작업의 API 설정에 지정된 것과 다른 백 엔드로 리디렉션합니다. 이 정책은 들어오는 요청의 백 엔드 서비스 기준 URL을 정책에 지정된 URL로 변경합니다.  
   
 ### <a name="policy-statement"></a>정책 문  
@@ -254,7 +255,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namesetbodya-set-body"></a><a name="SetBody"></a> 본문 설정  
+##  <a name="SetBody"></a> 본문 설정  
  `set-body` 정책을 사용하여 들어오고 나가는 요청의 메시지 본문을 설정합니다. 메시지 본문에 액세스하려면 정책이 inbound 또는 outbound 섹션에 있는지에 따라 `context.Request.Body` 또는 `context.Response.Body` 속성을 사용할 수 있습니다.  
   
 > [!IMPORTANT]
@@ -330,13 +331,71 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   </when>  
 </choose>  
 ```  
-  
+
+### <a name="using-liquid-templates-with-set-body"></a>본문이 설정된 Liquid 템플릿 사용 
+[Liquid](https://shopify.github.io/liquid/basics/introduction/) 템플릿 언어를 사용하여 요청 또는 응답의 본문을 변환하도록 `set-body` 정책을 구성할 수 있습니다. 이 방법은 메시지 형식을 완전히 바꾸어야 하는 경우에 매우 효과적일 수 있습니다.
+
+> [!IMPORTANT]
+> `set-body` 정책에 사용되는 Liquid 구현은 'C# 모드'로 구성됩니다. 이러한 방식은 필터링과 같은 작업을 수행하는 경우에 특히 중요합니다. 예를 들어 날짜 필터를 사용하려면 다음과 같이 파스칼식 대/소문자 및 C# 날짜 형식을 사용해야 합니다.
+>
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> Liquid 템플릿을 사용하여 XML 본문에 올바르게 바인딩하려면 `set-header` 정책을 사용하여 Content-Type을 application/xml, text/xml(또는 +xml로 끝나는 임의 형식)로 설정하세요. JSON 본문의 경우에는 application/json, text/json(또는 +json으로 끝나는 임의 형식)이어야 합니다.
+
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Liquid 템플릿을 사용하여 JSON을 SOAP으로 변환
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### <a name="tranform-json-using-a-liquid-template"></a>Liquid 템플릿을 사용하여 JSON 변환
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### <a name="elements"></a>요소  
   
 |이름|설명|필수|  
 |----------|-----------------|--------------|  
 |set-body|루트 요소입니다. 본문 텍스트 또는 본문을 반환하는 식을 포함합니다.|예|  
+
+### <a name="properties"></a>속성  
   
+|이름|설명|필수|기본값|  
+|----------|-----------------|--------------|-------------|  
+|template|본문 설정 정책이 실행될 템플릿 모드를 변경하는 데 사용됩니다. 현재 지원되는 유일한 값:<br /><br />- liquid - 본문 설정 정책은 liquid 템플릿 엔진을 사용합니다. |아니요|liquid|  
+
+요청 및 응답에 대한 정보에 액세스할 수 있도록 Liquid 템플릿은 다음 속성을 갖는 컨텍스트 개체에 바인딩할 수 있습니다. <br />
+<pre>context
+Request
+Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+Url.
+Scheme Host Port Path Query QueryString ToUri ToString
+
+OriginalUrl
+Scheme Host Port Path Query QueryString ToUri ToString
+</pre>
+
+
+
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
@@ -344,7 +403,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namesethttpheadera-set-http-header"></a><a name="SetHTTPheader"></a> HTTP 헤더 설정  
+##  <a name="SetHTTPheader"></a> HTTP 헤더 설정  
  `set-header` 정책은 기존 응답 및/또는 요청 헤더에 값을 할당하거나 새 응답 및/또는 요청 헤더를 추가합니다.  
   
  HTTP 헤더 목록을 HTTP 메시지에 삽입합니다. 이 정책을 인바운드 파이프라인에 지정하면 이 정책은 대상 서비스로 전달되는 요청의 HTTP 헤더를 설정합니다. 이 정책은 아웃바운드 파이프라인에 배치되는 경우 게이트웨이의 클라이언트로 보내는 응답의 HTTP 헤더를 설정합니다.  
@@ -401,7 +460,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namesetquerystringparametera-set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> 쿼리 문자열 매개 변수 설정  
+##  <a name="SetQueryStringParameter"></a> 쿼리 문자열 매개 변수 설정  
  `set-query-parameter` 정책은 요청 쿼리 문자열 매개 변수의 추가, 값 바꾸기 또는 삭제를 수행합니다. 백 엔드 서비스에 필요한 쿼리 매개 변수를 전달하는 데 사용하며, 이러한 매개 변수는 선택적이거나 요청에 절대로 존재하지 않습니다.  
   
 ### <a name="policy-statement"></a>정책 문  
@@ -461,7 +520,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** global, product, API, operation  
   
-##  <a name="a-namerewriteurla-rewrite-url"></a><a name="RewriteURL"></a> URL 다시 쓰기  
+##  <a name="RewriteURL"></a> URL 다시 쓰기  
  `rewrite-uri` 정책은 다음 예제와 같이 요청 URL을 공용 양식에서 웹 서비스에 필요한 양식으로 변환합니다.  
   
 -   공용 URL - `http://api.example.com/storenumber/ordernumber`  
@@ -539,7 +598,7 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 -   **정책 범위:** product, API, operation  
   
-##  <a name="a-namexsltransforma-transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> XSLT를 사용하여 XML 변환  
+##  <a name="XSLTransform"></a> XSLT를 사용하여 XML 변환  
  `Transform XML using an XSLT` 정책은 요청 또는 응답 본문의 XML에 XSL 변환을 적용합니다.  
   
 ### <a name="policy-statement"></a>정책 문  
@@ -605,9 +664,4 @@ ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
   
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 [API Management의 정책](api-management-howto-policies.md)을 참조하세요.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

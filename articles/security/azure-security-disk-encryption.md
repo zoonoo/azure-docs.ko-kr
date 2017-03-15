@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
-ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: b21867e41acb1e0658041bd931327047095bb159
+ms.openlocfilehash: b5ecba98fd5c3061f68f94f5004c7cf00d0dfb36
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -139,7 +139,7 @@ IaaS VM용 디스크 암호화를 사용하지 않도록 설정하려면 다음 
 > Azure Disk Encryption은 다음 Linux Server 버전: Ubuntu, CentOS, SUSE 및 SLES(SUSE Linux Enterprise Server)와 Red Hat Enterprise Linux에서 지원됩니다.
 
 > [!NOTE]
-> Linux OS 디스크 암호화는 현재 RHEL 7.2, CentOS 7.2n, Ubuntu 16.04의 Linux 배포판에서 지원됩니다.
+> Linux OS 디스크 암호화는 현재 RHEL 7.2, RHEL 7.3, CentOS 7.2n, Ubuntu 16.04의 Linux 배포판에서 지원됩니다.
 >
 > 모든 리소스(예: Key Vault, 저장소 계정, VM)는 같은 Azure 지역 및 구독에 속해야 합니다.
 

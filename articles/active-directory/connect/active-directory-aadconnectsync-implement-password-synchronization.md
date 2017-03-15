@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2eba5ecc41342b62601750c19e4bffd8b6e78b51
-ms.openlocfilehash: 7ff2d29b52848f21534b5d540fb3908710534f69
+ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
+ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -135,135 +136,9 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 보안 및 FIPS에 대한 자세한 내용은 [AAD 암호 동기화, 암호화 및 FIPS 준수](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
 ## <a name="troubleshooting-password-synchronization"></a>암호 동기화 문제 해결
-암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자 때문일 수 있습니다.
-
-* 개별 개체에 문제가 있으면 [암호를 동기화하지 않은 한 개체의 문제 해결](#troubleshoot-one-object-that-is-not-synchronizing-passwords)을 참조하세요.
-* 암호가 동기화되지 않는 문제가 있으면 [암호가 동기화되지 않은 위치의 문제 해결](#troubleshoot-issues-where-no-passwords-are-synchronized)을 참조하세요.
-
-### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>암호를 동기화하지 않은 한 개체의 문제 해결
-개체의 상태를 검토하여 암호 동기화 문제를 쉽게 해결할 수 있습니다.
-
-**Active Directory 사용자 및 컴퓨터**에서 시작합니다. 사용자를 찾고 **사용자가 다음 로그온 시 암호를 변경 해야 합니다** 를 선택했는지 확인합니다.
-
-![Active Directory 생산성 높은 암호](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-
-선택한 경우 사용자에게 요청하여 암호로 로그인하고 암호를 변경합니다. 임시 암호는 Azure AD에 동기화되지 않습니다.
-
-Active Directory에서 올바르게 보인다면 다음 단계에서는 동기화 엔진에서 사용자를 따릅니다. 온-프레미스 Active Directory에서 Azure AD까지 사용자를 따라 개체에 설명이 포함된 오류가 있는지 확인할 수 있습니다.
-
-1. **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**를 시작합니다.
-2. **커넥터**를 클릭합니다.
-3. 사용자가 있는 **Active Directory Connector** 를 선택합니다.
-4. **커넥터 공간 검색**을 선택합니다.
-5. 찾고자 하는 사용자를 찾습니다.
-6. **계보** 탭을 선택하여 최소한 하나 이상의 동기화 규칙에서 **암호 동기화**가 **True**로 표시되는지 확인합니다. 기본 구성에서 동기화 규칙의 이름은 **AD에서 들어오기 - 사용자 AccountEnabled**입니다.  
-    ![사용자에 대한 계보 정보](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. 그런 다음 메타버스를 통해 Azure AD 커넥터 공간으로 [사용자를 따릅니다](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) . 커넥터 공간 개체에 **Password Sync** 아웃바운드 규칙이 **True**로 설정되어 있어야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인**입니다.  
-    ![사용자의 커넥터 공간 속성](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. 지난 주에 대한 개체의 암호 동기화 세부 정보를 보려면 **로그...**를 클릭합니다.  
-    ![개체 로그 세부 정보](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
-    개체 로그가 비어 있으면 Active Directory에서 Azure AD Connect를 암호 해시에서 읽을 수 없습니다. EventLog에서 오류를 찾습니다.
-
-상태 열에는 다음과 같은 값을 포함할 수 있습니다.
-
-| 가동 상태 | 설명 |
-| --- | --- |
-| 성공 |암호가 성공적으로 동기화되었습니다. |
-| FilteredByTarget |**다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |
-| NoTargetConnection |메타버스에 또는 Azure AD 커넥터 공간에 개체가 없습니다. |
-| SourceConnectorNotPresent |개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |
-| TargetNotExportedToDirectory |Azure AD 커넥터 공간에 있는 개체가 아직 내보내지지 않았습니다. |
-| MigratedCheckDetailsForMoreInfo |로그 항목 1.0.9125.0 빌드 전에 만들어졌으며 레거시 상태로 표시됩니다. |
-
-### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>암호가 동기화되지 않은 위치의 문제 해결
-[암호 동기화 설정의 상태 가져오기](#get-the-status-of-password-sync-settings)섹션에서 스크립트를 실행하여 시작합니다. 암호 동기화 구성의 개요를 제공합니다.  
-![암호 동기화 설정에서 PowerShell 스크립트 출력](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-Azure AD에서 이 기능을 사용하지 않거나 동기화 채널 상태를 사용하지 않는 경우 연결 설치 마법사를 실행합니다. **동기화 사용자 지정 옵션**을 선택하고 암호 동기화의 선택을 취소합니다. 이 변경 내용은 기능을 일시적으로 비활성화합니다. 그런 다음 마법사를 다시 실행하고 암호 동기화를 다시 사용합니다. 스크립트를 다시 실행하여 구성이 올바른지 확인합니다.
-
-스크립트에서 하트비트가 없다는 것을 보여 주는 경우 [모든 암호의 전체 동기화 트리거](#trigger-a-full-sync-of-all-passwords)에서 스크립트를 실행합니다. 이 스크립트는 구성이 올바르지만 암호가 동기화되지 않은 다른 시나리오에서도 사용할 수 있습니다.
-
-사용자 지정된 설정으로 Azure AD Connect를 설치한 경우 AD Connector에서 사용하는 계정에 "모든 디렉터리 변경 내용 복제" 및 "디렉터리 변경 내용 복제" 사용 권한을 부여해야 합니다. 이 계정에서 필요한 모든 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요. 이러한 사용 권한이 없는 계정은 Active Directory에서 암호 해시를 읽을 수 있는 사용 권한이 없습니다.
-
-그렇다면 다음 응용 프로그램 이벤트 로그를 확인하세요. 암호 동기화에 전역 문제가 있고 이전 단계에서 확인한 대로 서비스가 작동하는 경우에는 더 상세한 내용과 함께 오류가 표시됩니다.
-
-#### <a name="get-the-status-of-password-sync-settings"></a>암호 동기화 설정의 상태 가져오기
-```
-Import-Module ADSync
-$connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
-$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-{
-    if ($aadConnectors.Count -eq 1)
-    {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-        Write-Host
-        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-        foreach ($adConnector in $adConnectors)
-        {
-            Write-Host
-            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            Write-Host
-            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-            Write-Host
-            $pingEvents =
-                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-                    Sort-Object { $_.Time } -Descending
-            if ($pingEvents -ne $null)
-            {
-                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-            }
-            else
-            {
-                Write-Warning "No ping event found within last 3 hours."
-            }
-            Write-Host
-            Write-Host "Password sync channel status END ------------------------------------------------------- "
-            Write-Host
-        }
-    }
-    else
-    {
-        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-    }
-}
-Write-Host
-if ($aadConnectors -eq $null)
-{
-    Write-Warning "No Azure AD Connector was found."
-}
-if ($adConnectors -eq $null)
-{
-    Write-Warning "No AD DS Connector was found."
-}
-Write-Host
-```
-
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>모든 암호의 전체 동기화 트리거
-다음 스크립트를 사용하여 모든 암호의 전체 동기화를 트리거할 수 있습니다.
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-```
-
+암호 동기화에 문제가 있으면 [암호 동기화 문제 해결](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
