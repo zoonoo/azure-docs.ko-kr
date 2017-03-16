@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: dd5ce9de46d4089d285268125f2b63f1117d48c7
+ms.sourcegitcommit: ac5dfa34c867ecf2f38ebe33d7f5cf6610c33472
+ms.openlocfilehash: 005d96d66843b50d9c7003ae5264896718c37151
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -113,6 +114,10 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 ![웹 서비스 구성][5]  
 
 ### <a name="deploy-as-a-new-web-service"></a>새 웹 서비스로 배포
+
+> [!NOTE] 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
+
 실험에서 파생된 새 웹 서비스를 배포하려면
 
 1. 캔버스 아래에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. Machine Learning Studio를 통해 Azure Machine Learning 웹 서비스 **배포 실험** 페이지로 이동합니다.
@@ -225,9 +230,4 @@ Machine Learning Studio 또는 Azure Machine Learning 웹 서비스 포털에서
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
-ms.author: sethm;jotaub
+ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 8e483b17e453dedf17a21c673d3b2231b9bfba3a
-ms.openlocfilehash: 3c04f0225ec36f700fff59d87c6d0939ab74355c
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/21/2017
 ## <a name="general"></a>일반
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>이벤트 허브 기본 및 표준 계층 간의 차이는 무엇입니까?
-이벤트 허브 표준 계층은 이벤트 허브 기본 및 일부 경쟁 시스템에서 제공할 수 있는 것보다 많은 기능을 제공합니다. 이러한 기능에는 24시간 이상 보존 기간, 단일 AMQP 연결을 사용하여 1초 미만의 대기 시간으로 여러 장치에 명령을 보내고 이러한 장치에서 이벤트 허브로 원격 분석을 보낼 수 기능이 포함됩니다. 기능 목록은 [이벤트 허브 가격 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
+이벤트 허브 표준 계층은 이벤트 허브 기본 및 일부 경쟁 시스템에서 제공할 수 있는 것보다 많은 기능을 제공합니다. 이러한 기능에는 24시간 이상 보존 기간, 단일 AMQP 연결을 사용하여 1초 미만의 대기 시간으로 여러 장치에 명령을 보내고 이러한 장치에서 이벤트 허브로 원격 분석을 보낼 수 기능이 포함됩니다. 또한 Standard는 [보관](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) 기능을 제공합니다. 기능 목록은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
 ### <a name="what-are-event-hubs-throughput-units"></a>이벤트 허브 처리량 단위는 무엇입니까?
 이벤트 허브 처리량 단위는 Azure 포털 또는 이벤트 허브 리소스 관리자 템플릿을 통해 명시적으로 선택합니다. 처리량 단위는 이벤트 허브 네임스페이스의 모든 이벤트 허브에 적용하고 각 처리량 단위로 네임 스페이스가 다음 기능을 수행합니다.
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/21/2017
 예, 모든 Event Hubs가 동일한 네임스페이스에 있는 경우 가능합니다.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>이벤트의 최대 보존 기간은 어떻게 되나요?
-이벤트 허브 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다.
+이벤트 허브 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다. 7일 이상 메시지 보존이 필요할 경우 이벤트 허브에서 [보관](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)을 사용 설정하면 이벤트 허브의 데이터가 선택한 저장소로 옮겨집니다. 보관을 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
 
 ### <a name="where-is-azure-event-hubs-available"></a>어디에서 Azure Event Hubs를 사용할 수 있나요?
 Azure 이벤트 허브는 지원되는 모든 Azure 지역에서 사용할 수 있습니다. 목록은 [Azure 지역](https://azure.microsoft.com/regions/)를 참조하세요.  
@@ -69,7 +69,7 @@ Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 
 이벤트 허브 가격 책정에 대한 전체 내용은 [이벤트 허브 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>24시간 이상 이벤트 허브 이벤트를 유지 하려면 비용이 청구됩니까?
-이벤트 허브 표준 계층은 최대 30일 동안 24시간 이상 메시지 보존을 허용합니다. 저장된 이벤트 수의 총 크기가 선택한 처리량 단위(처리량 단위당&84;GB)에 대한 저장소 허용 한도를 초과하면, 해당 허용 한도를 초과하는 크기는 게시된 Azure Blob 저장소 요금으로 청구됩니다. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
+이벤트 허브 표준 계층은 최대 7일 동안 24시간 이상 메시지 보존을 허용합니다. 저장된 이벤트 수의 총 크기가 선택한 처리량 단위(처리량 단위당&84;GB)에 대한 저장소 허용 한도를 초과하면, 해당 허용 한도를 초과하는 크기는 게시된 Azure Blob 저장소 요금으로 청구됩니다. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>이벤트 허브 저장소 크기가 계산 및 청구되는 방법
 모든 이벤트 허브의 디스크 저장소 구조 또는 이벤트 헤더의 내부 오버 헤드를 포함하여, 저장된 모든 이벤트의 총 크기는 하루 종일 측정됩니다. 하루가 끝날 때 최대 저장소 크기가 계산됩니다. 일일 저장소 허용 한도는 하루 동안 선택된 최소 처리량 단위 수를 기준으로 계산됩니다(각 처리량 단위는 84GB의 허용 한도를 제공함) . 총 크기가 계산된 일일 저장소 허용 한도를 초과하면, 초과 저장소는 Azure Blob 저장소 가격을 사용하여 청구됩니다( **로컬 중복 저장소** 속도로).
@@ -81,6 +81,13 @@ Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 이벤트 허브에 적용됩니까?
 AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 컨트롤 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Even Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
+
+### <a name="how-is-event-hubs-archive-billed"></a>Event Hubs 보관은 어떻게 청구되나요?
+보관은 네임스페이스의 모든 Event Hub에 보관 기능이 활성화되어 있을 때 사용 가능합니다. 보관은 구매한 처리량 단위에 따라 시간당 청구됩니다. 처리량 단위 수가 증가하거나 감소하면 Event Hubs 보관 청구 시 전체 증가 시간에 이러한 변경분이 적용됩니다.
+Event Hubs Archive 청구에 관한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
+
+### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-archive"></a>Event Hubs 보관을 위해 선택한 저장소 계정에 청구되나요?
+보관에서는 이벤트 허브에서 사용 설정 시 제공한 저장소 계정을 사용합니다. 이 계정은 사용자의 저장소 계정이므로 이 저장소 계정의 변경 사항은 Azure 구독으로 청구됩니다.
 
 ## <a name="quotas"></a>할당량
 

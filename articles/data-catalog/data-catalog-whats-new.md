@@ -13,16 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 03/03/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e507eaf0ffca75317f1fcf9c31d4d9e4b3977f3a
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: ef4517191084148ff3810226c927ee45a61b2c49
+ms.lasthandoff: 03/03/2017
 
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
-**Azure 데이터 카탈로그** 에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
+**Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
 
 ## <a name="whats-new-for-the-week-of-september-16-2016-release"></a>2016년 9월 16일 주 릴리스의 새로운 기능
 2016년 9월 16일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
@@ -51,7 +52,7 @@ ms.openlocfilehash: e507eaf0ffca75317f1fcf9c31d4d9e4b3977f3a
 2016년 7월 22일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
 * SQL Server 저장 프로시저에 대한 지원. 이제 사용자는 SQL Server 데이터 원본에서 저장 프로시저 개체를 등록하고 검색할 수 있습니다.
-* Azure Data Catalog 포털 및 데이터 원본 등록 도구에서 추가 언어를 지원하며, 지원되는 언어는 모두 18개입니다. Azure Data Catalog 사용자 환경이 Windows 또는 사용자의 웹 브라우저에 설정된 언어 기본 설정에 따라 지역화됩니다.
+* Azure Data Catalog 포털 및 데이터 원본 등록 도구에서 추가 언어를 지원하며, 지원되는 언어는 모두 18개입니다. Azure Data Catalog 사용자 환경이 Windows 또는 웹 브라우저에 설정된 언어 기본 설정에 따라 지역화됩니다.
 
 ## <a name="whats-new-for-the-week-of-july-8-2016-release"></a>2016년 7월 8일 주 릴리스의 새로운 기능
 2016년 7월 8일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
@@ -81,7 +82,7 @@ ms.openlocfilehash: e507eaf0ffca75317f1fcf9c31d4d9e4b3977f3a
 ## <a name="whats-new-for-the-week-of-may-6-2016-release"></a>2016년 5월 6일 주 릴리스의 새로운 기능
 2016년 5월 6일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-* 카탈로그 관리자가 일반적인 비즈니스 어휘를 생성하기 위해 비즈니스 용어 및 계층 구조를 정의할 수 있는 비즈니스 용어집. 사용자는 등록된 데이터 자산에 용어를 사용하여 태그를 지정할 수 있고, 카탈로그의 콘텐츠를 보다 쉽게 검색하고 이해할 수 있습니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요.  
+* 카탈로그 관리자가 일반적인 비즈니스 어휘를 생성하기 위해 비즈니스 용어 및 계층 구조를 정의할 수 있는 비즈니스 용어집. 사용자는 등록된 데이터 자산에 용어를 사용하여 태그를 지정할 수 있고, 카탈로그의 콘텐츠를 보다 쉽게 검색하고 이해할 수 있습니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)  
 
 > [!NOTE]
 > 비즈니스 용어집은 Azure Data Catalog 표준 버전에서만 사용할 수 있습니다. 무료 버전에는 관리 태그 지정 또는 비즈니스 용어집 기능이 제공되지 않습니다.
@@ -91,7 +92,7 @@ ms.openlocfilehash: e507eaf0ffca75317f1fcf9c31d4d9e4b3977f3a
 ## <a name="whats-new-for-the-week-of-march-11-2016-release"></a>2016년 3월 11일 주 릴리스의 새로운 기능
 2016년 3월 11일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-* Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 끝점. 기존 검색 API 끝점 및 카탈로그 API 끝점은 더 이상 사용되지 않으며 2016년 3월 21일에 중단될 예정입니다. API의 의미 체계는 달라지지 않으며 끝점 URI만 변경됩니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
+* Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 끝점. 이 검색 API 끝점 및 카탈로그 API 끝점은 더 이상 사용되지 않으며 2016년 3월 21일에 중단되었습니다. API의 의미 체계에 대한 변경 사항은 없습니다. 끝점 URI만 변경되었습니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
 
 ## <a name="whats-new-for-the-week-of-february-19-2016-release"></a>2016년 2월 19일 주 릴리스의 새로운 기능
 2016년 2월 19일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
@@ -179,15 +180,15 @@ ms.openlocfilehash: e507eaf0ffca75317f1fcf9c31d4d9e4b3977f3a
 
 | 쿼리 구문 | 목적 |
 | --- | --- |
-| has:previews |미리 보기를 포함하는 데이터 자산을 찾습니다. |
-| has:documentation |설명서에 제공된 데이터 자산을 찾습니다. |
-| has:tableDataProfiles |테이블 수준 데이터 프로필 정보를 사용하여 데이터 자산을 찾습니다. |
-| has:columnsDataProfiles |열 수준 데이터 프로필 정보를 사용하여 데이터 자산을 찾습니다. |
+| `has:previews` |미리 보기를 포함하는 데이터 자산을 찾습니다. |
+| `has:documentation` |설명서에 제공된 데이터 자산을 찾습니다. |
+| `has:tableDataProfiles` |테이블 수준 데이터 프로필 정보를 사용하여 데이터 자산을 찾습니다. |
+| `has:columnsDataProfiles` |열 수준 데이터 프로필 정보를 사용하여 데이터 자산을 찾습니다. |
 
 ## <a name="whats-new-for-the-week-of-october-30-2015-release"></a>2015년 10월 30일 주 릴리스의 새로운 기능
 2015년 10월 30일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-* 등록된 데이터 원본에 대한 데이터 미리 보기 및 데이터 프로필의 나머지에서 암호화가 지원됩니다. Azure 데이터 카탈로그가 서비스에 등록된 미리 보기 레코드 및 데이터 프로필 데이터 원본을 투명하게 암호화하므로 카탈로그 관리자가 키 관리를 수행할 필요가 없습니다.
+* 등록된 데이터 원본에 대한 데이터 미리 보기 및 데이터 프로필의 나머지에서 암호화가 지원됩니다. Azure Data Catalog가 서비스에 등록된 미리 보기 레코드 및 데이터 프로필 데이터 원본을 투명하게 암호화하므로 카탈로그 관리자가 키 관리를 수행할 필요가 없습니다.
 
 ## <a name="whats-new-for-the-week-of-october-23-2015-release"></a>2015년 10월 23일 주 릴리스의 새로운 기능
 2015년 10월 23일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
@@ -277,10 +278,5 @@ ms.openlocfilehash: e507eaf0ffca75317f1fcf9c31d4d9e4b3977f3a
 * 상단 탐색 모음에 새로운 “사용자” 단추 및 메뉴를 추가했습니다. 이 메뉴를 통해 사용자는 Azure Data Catalog에 로그온하는 데 사용된 계정을 볼 수 있고 원하는 경우 로그아웃하는 데 사용된 계정을 볼 수 있습니다. 이 메뉴는 Azure Data Catalog REST API를 사용하는 개발자에게 유용한 카탈로그 이름도 표시합니다.
 * 표준 버전에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 Azure Data Catalog에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 * Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

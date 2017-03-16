@@ -10,15 +10,9 @@
 | 구독당 예약된 IP |20 |100 |
 | 구독당 호스티드 서비스 인증서 |400 |400 |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |256 |256 |
-| [배치](https://azure.microsoft.com/services/batch/) 계정 |1 |50 |
 | 구독 당 경고 규칙 |250 |250 |
 
 <sup>1</sup>매우 작은 인스턴스는 부분 코어를 사용하더라도 코어 제한에 대해 하나의 코어로 계산됩니다.
 
 <sup>2</sup>표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure 저장소 팀이 비즈니스 사례를 검토하고 저장소 계정을 250개까지 승인할 수 있습니다. 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

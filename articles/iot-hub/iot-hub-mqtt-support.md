@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 03/01/2017
 ms.author: kdotchko
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 47e1d5172dabac18c1b355d8514ae492cd973d32
-ms.openlocfilehash: 5c362af149afd4a204c2705ae3d7f67361d8d528
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: c09caf68b4acf90b5a76d2d715e07fc3a522f18c
+ms.openlocfilehash: 7b9b7e558a95de88dedcb744e2a4b3c18cde35cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="iot-hub-mqtt-support"></a>IoT Hub MQTT 지원
+# <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 IoT Hub를 사용하면 장치는 포트 8883의 [MQTT v3.1.1][lnk-mqtt-org] 프로토콜을 사용하거나 포트 443의 WebSocket을 통한 MQTT v3.1.1 프로토콜을 사용하여 IoT Hub 장치 끝점과 통신할 수 있습니다. IoT Hub는 TLS/SSL을 사용하여 모든 장치 통신이 보호되어야 합니다. 따라서 IoT Hub는 포트 1883을 통한 비보안 연결을 지원하지 않습니다.
 
 ## <a name="connecting-to-iot-hub"></a>IoT Hub에 연결

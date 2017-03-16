@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5c26aaea6acfab8c4c60478968e0b68543086a9d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -101,6 +102,8 @@ ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 ## <a name="considerations"></a>고려 사항
 * 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 오랜 시간 채널을 실행해야 하는 경우 amslived@microsoft.com으로 문의하세요.
+* 다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+
 
 ## <a name="download-sample"></a>샘플 다운로드
 [여기](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)에서 샘플을 가져와서 실행합니다.
@@ -129,6 +132,7 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 
 
 ## <a name="code-example"></a>코드 예제
+
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -524,10 +528,5 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

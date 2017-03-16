@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: bea1012fcd63b15ebfb5137dcfbd7e868c4e060f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: d00235d788dbe1674eac219a7c708a8ecd53ccc5
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="manage-and-monitor-azure-virtual-machine-backups"></a>Azure 가상 컴퓨터 백업 관리 및 모니터링
+# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>클래식 포털에서 일반적인 Azure Backup 작업 및 트리거 경고 관리
 > [!div class="op_single_selector"]
 > * [Azure VM 백업 관리](backup-azure-manage-vms.md)
 > * [클래식 VM 백업 관리](backup-azure-manage-vms-classic.md)
@@ -239,7 +240,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 1. 백업 자격 증명 모음의 모든 가상 컴퓨터에서 경고를 유발합니다. 이에 사용자 지정으로 백업 자격 증명 모음에서 가상 컴퓨터의 특정 집합에 대한 경고를 가져올 수 없습니다.
 2. 이 기능은 미리 보기 상태입니다. [자세히 알아보기](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
-3. "alerts-noreply@mail.windowsazure.com"에서 경고를 받게 됩니다. 현재는 전자 메일 보낸 사람을 수정할 수 없습니다.
+3. “alerts-noreply@mail.windowsazure.com”에서 경고를 받게 됩니다. 현재는 전자 메일 보낸 사람을 수정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure VM 복원](backup-azure-restore-vms.md)

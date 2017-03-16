@@ -4,10 +4,4 @@
 * [게시 및 역할 기반 액세스 제어(RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
 ## <a name="videos"></a>비디오
-* [릴리스 관리에 대한 배포 워크플로 자동화](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+* [릴리스 관리에 대한 배포 워크플로 자동화](https://azure.microsoft.com/resources/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)

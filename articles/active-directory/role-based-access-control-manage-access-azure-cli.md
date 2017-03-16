@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: d9ef14d1d83d98de5c1d95b237a2e06ea2506766
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -25,8 +26,7 @@ ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
-> 
-> 
+
 
 Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager API를 사용하여 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
@@ -180,7 +180,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 범위에서 할당할 수 있는 역할을 나열하려면 `azure role list` 명령을 사용합니다.
 
-다음 예제에서는 선택한 구독에 할당할 수 있는 모든 역할을 나열합니다.
+다음 명령에서는 선택한 구독에 할당할 수 있는 모든 역할을 나열합니다.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
@@ -198,10 +198,5 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ## <a name="rbac-topics"></a>RBAC 항목
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
