@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 93ac6629df82b1a5b8d14a1ad289e1e462b49b17
-ms.openlocfilehash: 8883b2d15592ea5e0c286bd6e6fc7c38134326a7
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 310f2a2fe793601d22952bf516a812bf4867bbec
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>소프트웨어 배포 도구를 사용하여 모바일 서비스 설치 자동화
@@ -199,6 +199,30 @@ Mobility Service를 구성한 일정에 따라 Linux Server 장치 컬렉션에 
 * [명령줄을 사용한 수동 설치](http://aka.ms/mobsvcmanualinstallcli)
 * [구성 서버를 사용한 푸시 설치](http://aka.ms/pushinstall)
 * [Azure Automation 및 필요한 상태 구성을 사용한 자동화된 설치](http://aka.ms/mobsvcdscinstall)
+
+## <a name="uninstall-mobility-service"></a>모바일 서비스 제거
+설치와 마찬가지로 모바일 서비스를 제거하기 위해 SCCM 패키지를 만들 수 있습니다. 아래 스크립트를 사용하여 모바일 서비스를 제거합니다.
+
+```
+Time /t >> C:\logfile.log
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed no operation required ========
+REM ==== Else run uninstall command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\logfile.log
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
+:NOOPERATION
+                echo "No Operation Required." >> c:\logfile.log
+                GOTO :ENDSCRIPT
+:UNINSTALL
+                echo "Uninstall" >> C:\logfile.log
+                MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+:ENDSCRIPT
+
+```
 
 ## <a name="next-steps"></a>다음 단계
 이제 가상 컴퓨터의 [보호를 활성화](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications)할 준비가 되었습니다.
