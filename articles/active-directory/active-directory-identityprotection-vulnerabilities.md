@@ -6,18 +6,18 @@ keywords: "Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
 ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.
 
 
-![취약성](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
+![취약성](./media/active-directory-identityprotection-vulnerabilities/101.png "취약성")
 
 
 
@@ -60,10 +60,5 @@ Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 �
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

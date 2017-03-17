@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: d22f107be306ad47426b89adb99f07f9d1f6617c
 ms.openlocfilehash: 10292e19216e01034a597368e0f2570d49e71610
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -276,9 +277,4 @@ Autotask에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [203]: ./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
