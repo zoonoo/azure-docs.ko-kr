@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
-ms.openlocfilehash: cb94febf8f58eda3c56755d60fd49e3dd265d3c3
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 257138fddc75b39985ba974b1314e978a554b1e2
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,13 +43,18 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
   * Visual Studio 2015
 
+  * Visual Studio 2017
+
 * HDInsight 클러스터의 Hadoop - 클러스터를 만드는 단계는 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md) 을 참조하세요.
 
-* Visual Studio용 Hadoop 도구 도구 설치 및 구성에 대한 단계는 [Visual Studio용 HDInsight Hadoop 도구를 사용하여 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+* Visual Studio용 Hadoop 도구 또는 Visual Studio용 Data Lake 도구입니다. 도구 설치 및 구성에 대한 단계는 [Visual Studio용 HDInsight Hadoop 도구를 사용하여 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+
+    > [!NOTE]
+    > Data Lake 도구는 Visual Studio 2017에서 설치하는 동안 __Azure 개발__ 워크로드를 선택하면 설치됩니다.
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
-.NET 공용 언어 런타임(CLR) 및 프레임 워크는 Windows 기반 HDInsight 클러스터에 기본적으로 설치됩니다. 이렇게 하면 Hive 및 Pig 스트리밍과 함께 C# 응용 프로그램을 사용할 수 있습니다 (stdout/stdin을 통해 Hive/Pig 및 C# 응용 프로그램 간 데이터가 전달됨).
+.NET 공용 언어 런타임(CLR) 및 프레임 워크는 Windows 기반 HDInsight 클러스터에 기본적으로 설치됩니다. .NET CLR를 통해 Hive 및 Pig 스트리밍과 함께 C# 응용 프로그램을 사용할 수 있습니다 (stdout/stdin을 통해 Hive/Pig 및 C# 응용 프로그램 간 데이터가 전달됨).
 
 > [!NOTE]
 > 현재 Linux 기반 HDInsight 클러스터에서 .NET Framework UDF 실행에 대한 지원은 없습니다.
@@ -56,15 +62,15 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
 ## <a name="net-and-streaming"></a>.NET 및 스트리밍
 
-스트리밍은 stdout을 통해 외부 응용 프로그램에 데이터를 전달하고 stdin을 통해 결과를 받는 Hive 및 Pig 데이터를 포함합니다. C# 응용 프로그램의 경우, `Console.ReadLine()` 및 `Console.WriteLine()`을 통해 가장 쉽게 수행됩니다.
+스트리밍은 stdout을 통해 외부 응용 프로그램에 데이터를 전달하고 stdin을 통해 결과를 받는 Hive 및 Pig 데이터를 포함합니다. C# 응용 프로그램의 경우 `Console.ReadLine()` 및 `Console.WriteLine()`을 사용합니다.
 
-Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘솔 응용 프로그램** 템플릿은 C# 프로젝트에 대해 사용되어야 합니다.
+Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘솔 앱(.NET Framework)** 템플릿은 C# 프로젝트에 대해 사용되어야 합니다.
 
 ## <a name="hive-and-c35"></a>Hive 및 C&#35;
 
 ### <a name="create-the-c-project"></a>C# 프로젝트 만들기
 
-1. Visual Studio를 열고 새 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **HiveCSharp**로 지정합니다.
+1. Visual Studio를 열고 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 앱(.NET Framework)**을 선택하고 새 프로젝트의 이름을 **HiveCSharp**로 지정합니다.
 
 2. **Program.cs** 의 내용을 다음으로 바꿉니다.
 
@@ -131,7 +137,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
     ![클러스터에 대한 저장소 계정을 보여주는 서버 탐색기](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-5. 클러스터의 경우 **기본 컨테이너** 를 두 번 클릭합니다. 기본 컨테이너의 내용을 표시하는 새 창이 열립니다.
+5. 클러스터에 대해 **기본 컨테이너 선택**를 두 번 클릭하여 기본 컨테이너의 콘텐츠를 확인합니다.
 6. 업로드 아이콘을 클릭한 다음 **HiveCSharp** 프로젝트에 대한 **bin\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
 
     ![업로드 아이콘](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
@@ -146,7 +152,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 3. **HiveCSharp** 응용 프로그램을 배포한 클러스터를 마우스 오른쪽 단추로 클릭하고 **Hive 쿼리 작성**을 선택합니다.
 
-4. Hive 쿼리로 다음을 사용합니다.
+4. Hive 쿼리로 다음 텍스트를 사용합니다.
 
     ```hiveql
     add file wasbs:///HiveCSharp.exe;
@@ -158,7 +164,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
     ORDER BY clientid LIMIT 50;
     ```
 
-    `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이&3;개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasbs:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
+    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이&3;개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasbs:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
 
 5. **제출** 을 클릭하여 HDInsight 클러스터에 작업을 제출합니다. **Hive 작업 요약** 창이 열립니다.
 
@@ -168,9 +174,9 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 ### <a name="create-the-c-project"></a>C# 프로젝트 만들기
 
-1. Visual Studio를 열고 새 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **PigUDF**로 지정합니다.
+1. Visual Studio를 열고 솔루션을 만듭니다. 프로젝트 형식의 경우, **콘솔 응용 프로그램**을 선택하고 새 프로젝트의 이름을 **PigUDF**로 지정합니다.
 
-2. **Program.cs** 파일의 내용을 다음으로 바꿉니다.
+2. **Program.cs** 파일의 내용을 다음 코드로 바꿉니다.
 
     ```csharp
     using System;
@@ -220,9 +226,9 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
         cd %PIG_HOME%
         bin\pig
 
-    `grunt>` 프롬프트가 나타납니다.
+    `grunt>` 프롬프트가 표시됩니다.
     
-3. .NET Framework 응용 프로그램을 사용하여 간단한 Pig 작업을 실행하려면 다음을 입력합니다.
+3. .NET Framework 응용 프로그램을 사용하여 Pig 작업을 실행하려면 다음을 입력합니다.
 
         DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
         LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -235,7 +241,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
     > [!NOTE]
     > 스트리밍에 사용되는 응용 프로그램 이름은 별칭이 지정된 경우 \`(기호) 문자로 묶어야 하며 `SHIP`와 함께 사용된 경우 '(작은따옴표)로 묶어야 합니다.
 
-4. 마지막 줄을 입력하면 작업이 시작됩니다. 결국 다음과 유사한 출력이 반환됩니다.
+4. 마지막 줄을 입력하면 작업이 시작됩니다. 다음 텍스트와 비슷한 출력이 반환됩니다.
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -247,14 +253,9 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 이 문서에서는 HDInsight의 Hive 및 Pig에서 .NET Framework 응용 프로그램을 사용하는 방법에 대해 배웠습니다. Python을 Hive 및 Pig와 함께 사용하는 방법에 대해 알고 싶으면 [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)을 참조하세요.
 
-Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음을 참조하세요.
+Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

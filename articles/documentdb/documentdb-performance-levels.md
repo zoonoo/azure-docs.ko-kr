@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
-ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="performance-levels-in-documentdb"></a>DocumentDB의 성능 수준
+# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>DocumentDB에서 S1, S2 및 S3 성능 수준 사용 중지
 
 > [!IMPORTANT] 
 > 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 DocumentDB 컬렉션에서 더 이상 사용할 수 없습니다.

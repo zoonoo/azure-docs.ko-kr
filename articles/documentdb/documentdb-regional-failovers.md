@@ -1,5 +1,5 @@
 ---
-title: "Azure DocumentDB의 지역별 장애 조치 | Microsoft Docs"
+title: "Azure DocumentDB의 지역별 장애 조치 | Microsoft 문서"
 description: "Azure DocumentDB에서 수동 및 자동 장애 조치가 작동하는 방법에 대해 알아봅니다."
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
-ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="regional-failovers-in-azure-documentdb"></a>Azure DocumentDB의 지역별 장애 조치
+# <a name="automatic-regional-failovers-for-business-continuity-in-documentdb"></a>비즈니스 연속성을 위한 DocumentDB의 자동 지역별 장애 조치
 Azure DocumentDB는 일관성, 가용성, 성능을 적절히 보증하면서 서로 간에 명확히 절충하는 완전 관리형 [다중 지역 데이터베이스 계정](documentdb-distribute-data-globally.md)을 제공함으로써 글로벌 데이터 배포를 단순화합니다. DocumentDB 계정은 고가용성, 짧은 대기 시간(한 자릿수 ms), [잘 정의된 일관성 수준](documentdb-consistency-levels.md), 멀티 호밍(multi-homing) API를 사용한 투명한 지역별 장애 조치(failover) 및 전 세계적으로 처리량과 저장소를 탄력적으로 확장할 수 있는 기능을 제공합니다. 
 
 Azure DocumentDB는 명시적 장애 조치와 정책 기반 장애 조치를 모두 지원하므로 장애 발생시 종단 간 시스템 동작을 제어할 수 있습니다. 이 문서에서 다음을 살펴봅니다.
@@ -33,7 +35,7 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>다중 지역 응용 프로그램 구성
+## <a id="ConfigureMultiRegionApplications"></a>다중 지역 응용 프로그램 구성
 장애 조치 모드로 들어가기 전에 지역별 장애 조치에 직면하여 다중 지역 가용성을 활용하고 탄력적으로 대처할 수 있도록 응용 프로그램을 구성하는 방법을 살펴봅니다.
 
 * 먼저 여러 지역에 응용 프로그램을 배포합니다.
@@ -69,7 +71,7 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 
 이제 DocumentDB 서비스에서 자동 장애 조치를 통해 지역 장애를 처리하는 방법을 살펴보겠습니다. 
 
-## <a name="a-idautomaticfailoversaautomatic-failovers"></a><a id="AutomaticFailovers"></a>자동 장애 조치
+## <a id="AutomaticFailovers"></a>자동 장애 조치
 드물게 발생하는 Azure 지역 가동 중단의 경우 DocumentDB는 영향을 받은 지역에 있는 모든 DocumentDB 계정의 장애 조치가 자동으로 트리거합니다. 
 
 **읽기 지역에 가동 중단이 발생하면 어떻게 됩니까?**
@@ -96,7 +98,7 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 * 이 지역을 쿼리하여 현재 쓰기 지역에서 사용 가능한 데이터와 비교함으로써 가동 중단 중에 복제되지 않은 쓰기를 모두 계산할 수 있습니다. 응용 프로그램의 요구에 따라 병합 및/또는 충돌 해결을 수행하고 변경 내용의 최종 집합을 현재 쓰기 지역에 다시 쓸 수 있습니다. 
 * 변경 내용 병합을 완료하면 DocumentDB 계정에서 지역을 제거하고 읽음으로써 영향을 받은 지역을 다시 온라인으로 가져올 수 있습니다. 지역이 다시 추가되면 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 수동 장애 조치를 수행하여 쓰기 지역으로 다시 구성할 수 있습니다.
 
-## <a name="a-idmanualfailoversamanual-failovers"></a><a id="ManualFailovers"></a>수동 장애 조치
+## <a id="ManualFailovers"></a>수동 장애 조치
 
 자동 장애 조치 외에도 지정된 DocumentDB 계정의 현재 쓰기 지역을 기존 읽기 지역 중 하나로 수동으로 동적으로 변경할 수 있습니다. 수동 장애 조치는 Azure Portal을 통하거나 [프로그래밍 방식](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)으로 시작할 수 있습니다. 
 
@@ -114,15 +116,10 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 
 이 문서에서는 Azure DocumentDB에서 수동 및 자동 장애 조치가 작동하는 방법 및 전 세계적으로 사용할 수 있도록 DocumentDB 계정과 응용 프로그램을 구성하는 방법을 살펴보았습니다. Azure DocumentDB의 글로벌 복제 지원을 사용하면 종단 간 대기 시간을 향상시키고 지역 장애 발생 시에도 가용성을 높일 수 있습니다. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>다음 단계
+## <a id="NextSteps"></a>다음 단계
 * DocumentDB에서 [글로벌 배포](documentdb-distribute-data-globally.md)를 지원하는 방법에 대해 알아봅니다.
 * [DocumentDB를 통한 전역 일관성](documentdb-consistency-levels.md)에 대해 알아봅니다.
 * [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)를 사용하여 여러 지역으로 개발합니다.
 * Azure DocumentDB로 [다중 지역 기록기 아키텍처](documentdb-multi-region-writers.md)를 작성하는 방법에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

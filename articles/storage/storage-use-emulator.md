@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: e207c221a7294d1288e38c377d64327d889b29de
-ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fe1d7abf3585efab67a7dbc10afa7bf3c4d466e5
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
 Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐 및 테이블 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 저장소 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 저장소 서비스에 대해 응용 프로그램을 테스트할 수 있습니다. 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure 저장소 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
 > [!NOTE]
-> 저장소 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 관리자](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)를 사용하여 저장소 에뮬레이터를 설치할 수도 있습니다. 저장소 에뮬레이터를 구성하려면 컴퓨터에 대한 관리 권한이 있어야 합니다.
+> 저장소 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 관리자](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)를 사용하여 저장소 에뮬레이터를 설치할 수도 있습니다. 저장소 에뮬레이터를 설치하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다.
 >
 > 저장소 에뮬레이터는 현재 Windows에서만 실행됩니다.
 >
@@ -88,10 +89,10 @@ Azure 저장소 에뮬레이터를 시작하려면 시작 단추를 선택하거
 저장소 에뮬레이터는 기본적으로  C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator 디렉터리에 설치됩니다.
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
-저장소 에뮬레이터 명령줄 도구를 사용하여 기본 LocalDB 인스턴스가 아닌 SQL 데이터베이스 인스턴스를 가리키도록 저장소 에뮬레이터를 초기화할 수 있습니다. 저장소 에뮬레이터에 대한 백 엔드 데이터베이스를 초기화하려면 관리자 권한으로 명령줄 도구를 실행해야 합니다.
+저장소 에뮬레이터 명령줄 도구를 사용하여 기본 LocalDB 인스턴스가 아닌 SQL 데이터베이스 인스턴스를 가리키도록 저장소 에뮬레이터를 초기화할 수 있습니다.
 
 1. **시작** 단추를 클릭하거나 **Windows** 키를 누릅니다. `Azure Storage Emulator` 을 입력하기 시작하고 저장소 에뮬레이터 명령줄 도구를 불러올 때 표시되면 선택합니다.
-2. 명령 프롬프트 창에 다음 명령을 입력합니다. 여기서 `<SQLServerInstance>`은 SQL Server 인스턴스의 이름입니다. LocalDb를 사용하려면 SQL Server 인스턴스로 `(localdb)\v11.0`을 지정합니다.
+2. 명령 프롬프트 창에 다음 명령을 입력합니다. 여기서 `<SQLServerInstance>`은 SQL Server 인스턴스의 이름입니다. LocalDb를 사용하려면 SQL Server 인스턴스로 `(localdb)\MSSQLLocalDb`을 지정합니다.
 
         AzureStorageEmulator init /server <SQLServerInstance>
 
@@ -160,7 +161,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 | **중지** |저장소 에뮬레이터를 중지합니다. |`AzureStorageEmulator stop` | |
 | **상태** |저장소 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator status` | |
 | **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    ` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
-| **Init** |에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. |`AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` |*-server serverName\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 초기화를 수행하려면 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
+| **Init** |에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>저장소 에뮬레이터와 Azure 저장소의 차이점
 저장소 에뮬레이터는 로컬 SQL 인스턴스를 실행하는 에뮬레이트된 환경이기 때문에 클라우드에서 에뮬레이터와 Azure Storage 계정 간에 기능에 차이가 있습니다.
@@ -195,6 +196,18 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 에뮬레이터에서 큐 저장소에 특정 차이점이 있습니다.
 
 ## <a name="storage-emulator-release-notes"></a>저장소 에뮬레이터 릴리스 정보
+### <a name="version-51"></a>버전 5.1
+* 서비스가 `DataServiceVersion` 헤더를 반환하지 않았던 일부 응답에서 저장소 에뮬레이터가 이 헤더를 반환하는 버그를 수정했습니다.
+
+### <a name="version-50"></a>버전 5.0
+* 저장소 에뮬레이터 설치 관리자가 더 이상 기존 MSSQL 및 .NET Framework 설치를 확인하지 않습니다.
+* 저장소 에뮬레이터 설치 관리자가 더 이상 설치 시 데이터베이스를 만들지 않습니다.  필요한 경우 시작 시 데이터베이스가 만들어집니다.
+* 데이터베이스를 만들 때 더 이상 관리자 권한이 필요하지 않습니다.
+* 시작 시 더 이상 포트 예약이 필요하지 않습니다.
+* *init*에 -reserveports(관리자 권한 필요), -unreserveports(관리자 권한 필요), -skipcreate 옵션을 추가합니다.
+* 이제 시스템 트레이 아이콘에서 저장소 에뮬레이터 UI 옵션을 선택하면 명령줄 인터페이스가 시작됩니다.  이전 GUI는 더 이상 사용할 수 없습니다.
+* 일부 DLL이 제거되거나 이름이 바뀌었습니다.
+
 ### <a name="version-46"></a>버전 4.6
 * 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2016-05-31 버전의 저장소 서비스를 지원합니다.
 
@@ -231,9 +244,4 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 * Azure 저장소 에뮬레이터는 계산 에뮬레이터와 같은 패키지에 더 이상 제공되지 않습니다.
 * 저장소 에뮬레이터 그래픽 사용자 인터페이스는 더 이상 사용되지 않으며, 대신 스크립트 가능한 명령줄 인터페이스가 사용됩니다. 명령줄 인터페이스에 대한 자세한 내용은 저장소 에뮬레이터 명령줄 도구 참조를 참조하세요. 그래픽 인터페이스는 버전 3.0에 계속 있지만 시스템 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 저장소 에뮬레이터 UI 표시 보기를 선택하여 계산 에뮬레이터를 설치할 때에만 액세스 할 수 있습니다.
 * 이제 Azure 저장소 서비스의 2013-08-15 버전이 완벽 하게 지원됩니다. (이전에 이 버전은 저장소 에뮬레이터 버전 2.2.1 미리 보기에서만 지원되었습니다.)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

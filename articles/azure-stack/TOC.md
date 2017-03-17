@@ -55,6 +55,8 @@
 #### [시작하기 전에](azure-stack-app-service-before-you-get-started.md)
 #### [App Service 리소스 공급자 배포](azure-stack-app-service-deploy.md)
 #### [웹 작업자 역할 추가](azure-stack-app-service-add-worker-roles.md)
+#### [배포 소스 구성](azure-stack-app-service-configure-deployment-sources.md)
+#### [Azure Stack의 App Service에서 FTP를 사용하도록 설정](azure-stack-app-service-enable-ftp.md)
 ### Marketplace 채우기
 #### [마켓플레이스 개요](azure-stack-marketplace.md)
 #### [Marketplace 항목 다운로드](azure-stack-download-azure-marketplace-item.md)
@@ -110,6 +112,7 @@
 
 # 문제 해결
 ## [알려진 문제](azure-stack-troubleshooting.md)
+## [Azure Stack의 진단](azure-stack-diagnostics.md)
 
 # 리소스
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

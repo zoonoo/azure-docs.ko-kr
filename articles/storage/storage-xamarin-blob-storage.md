@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 5e531c6c23c510936fe7e4e844db2ec3afb170dc
-ms.openlocfilehash: 32d79cf050968738764c2239cbd79c73734ee855
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41be26b5dc3b7333521f02053ecb4b6ae1b17f73
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,7 +32,7 @@ Xamarin을 사용하면 개발자들이 공유된 C# 코드베이스를 사용�
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>새 Xamarin 응용 프로그램 만들기
-먼저 Android, iOS 및 Windows를 대상으로 하는 앱을 만듭니다. 이 앱은 단순히 컨테이너를 만들고 이 컨테이너에 blob을 업로드합니다. 이 작업을 시작하기 위해 Windows에서 Visual Studio를 사용하게 되지만 Mac OS에서 Xamarin Studio를 사용하여 앱을 만들 때도 동일한 방식을 적용할 수 있습니다.
+이 자습서에서는 Android, iOS 및 Windows를 대상으로 하는 앱을 만듭니다. 이 앱은 단순히 컨테이너를 만들고 이 컨테이너에 blob을 업로드합니다. Windows에서 Visual Studio를 사용하게 되지만 Mac OS에서 Xamarin Studio를 사용하여 앱을 만들 때도 동일한 방식을 적용할 수 있습니다.
 
 다음 단계에 따라 응용 프로그램을 만듭니다.
 
@@ -241,7 +242,7 @@ namespace XamarinApp.WinPhone
 앱을 일단 실행하면 저장소 계정에 컨테이너 `mycontainer` 가 만들어집니다. 여기에는 `Hello, world!` 텍스트를 포함하는 Blob `myblob`가 있어야 합니다. [Microsoft Azure Storage Explorer](http://storageexplorer.com/)를 사용하여 이 사실을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-작업 시작을 위해 Xamarin에서 Azure Storage를 사용하는 플랫폼 간 응용 프로그램을 만드는 방법을 배웠습니다. 이 과정은 Blob 저장소의 특정 시나리오를 집중적으로 활용했습니다. 그러나 Blob 저장소 뿐만 아니라 테이블, 파일 및 큐 저장소로도 많은 작업을 수행할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 자습서에서는 특히 Blob Storage에서 한 시나리오에 초점을 맞춰서 Xamarin에서 Azure Storage를 사용하는 플랫폼 간 응용 프로그램을 만드는 방법을 배웠습니다. 그러나 Blob Storage 뿐만 아니라 Table, File 및 Queue Storage로도 많은 작업을 수행할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
 * [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
@@ -249,10 +250,5 @@ namespace XamarinApp.WinPhone
 * [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

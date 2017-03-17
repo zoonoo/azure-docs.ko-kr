@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
 ms.openlocfilehash: 67b32b224d86e8d0ed06d8248c3a2c5f5569c5cb
+ms.lasthandoff: 12/23/2016
 
 
 ---
@@ -122,9 +123,4 @@ SQL 데이터베이스 위협 탐지는 감사를 기반으로 추가 보안 계
 - 모든 SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - SQL Database에서 액세스 제어 기능을 사용하는 방법에 대한 설명은 [액세스 제어](sql-database-control-access.md)를 참조하세요.
 - 사전 모니터링에 대한 설명은 [SQL Database 감사 시작](sql-database-auditing-get-started.md) 및 [SQL Database 위협 검색 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

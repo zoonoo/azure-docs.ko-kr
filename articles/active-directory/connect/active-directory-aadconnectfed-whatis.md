@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
-ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 39b0b15dba098c0ddc59e39a81bfb6809f8cb2eb
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,6 +39,7 @@ Azure AD Connect를 통해 온-프레미스 AD FS 및 Azure AD와 페더레이�
 | [새 AD FS 서버 추가](active-directory-aadconnect-federation-management.md#addadfsserver) |초기 설치 후 추가적인 AD FS 서버를 통한 AD FS 팜 확장 |
 | [새 AD FS WAP 서버 추가](active-directory-aadconnect-federation-management.md#addwapserver) |초기 설치 후 추가적인 WAP 서버를 통한 AD FS 팜 확장 |
 | [새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#addfeddomain) |Azure AD를 통해 페더레이션될 또 다른 도메인 추가 |
+| [SSL 인증서 업데이트](active-directory-aadconnectfed-ssl-update.md)| AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트|
 | **설치 후 작업** | |
 | [사용자 지정 회사 로고/일러스트레이션 추가](active-directory-aadconnect-federation-management.md#customlogo) |AD FS 로그인 페이지에 표시될 사용자 지정 로고를 지정하여 로그인 환경 수정 |
 | [로그인 설명 추가](active-directory-aadconnect-federation-management.md#addsignindescription) |AD FS 로그인 페이지의 로그인 설명 변경 |

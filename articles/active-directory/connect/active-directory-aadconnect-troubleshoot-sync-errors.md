@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
-ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -193,7 +194,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 4. Bob의 userPrincipalName이 업데이트되지 않아 "DataValidationFailed" 동기화 오류가 발생합니다.
 
 #### <a name="how-to-fix"></a>해결 방법
-사용자의 UserPrincipalName 접미사가 bob@**contoso.com**에서 bob@**fabrikam.com**으로 업데이트되었고 **contoso.com**과 **fabrikam.com**이 모두 **페더레이션된 도메인이면** 이러한 절차에 따라 동기화 오류를 수정합니다.
+사용자의 UserPrincipalName 접미사가 bob@**contoso.com**에서 bob@**fabrikam.com**으로 업데이트되었고 **contoso.com**과 **fabrikam.com**이 모두 **페더레이션된 도메인**이면 이러한 단계에 따라 동기화 오류를 수정합니다.
 
 1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
@@ -206,13 +207,15 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 한 특성이 Azure Active Directory 스키마에서 정한 허용된 크기 제한, 길이 제한 또는 수 제한을 초과할 경우 동기화 작업에서 **LargeObject** 또는 **ExceededAllowedLength** 동기화 오류가 발생합니다. 일반적으로 이 오류는 다음 특성에 대해 발생합니다.
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>가능한 시나리오
-1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 50개의 인증서이지만 25개 미만의 인증서가 권장됩니다.
-2. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
-3. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에&500;개가 넘는 ProxyAddresses가 할당되었습니다.
+1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다.
+2. Bob의 userSMIMECertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다.
+3. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
+4. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에&500;개가 넘는 ProxyAddresses가 할당되었습니다.
 
 ### <a name="how-to-fix"></a>해결 방법
 1. 오류를 초래하는 특성이 허용 범위 안에 있는지 확인합니다.
@@ -220,9 +223,4 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 ## <a name="related-links"></a>관련 링크
 * [Active Directory 관리 센터에서 Active Directory 개체 찾기](https://technet.microsoft.com/library/dd560661.aspx)
 * [Azure Active Directory PowerShell을 사용하여 개체에 대해 Azure Active Directory를 쿼리하는 방법](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

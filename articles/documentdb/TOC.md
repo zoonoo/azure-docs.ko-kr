@@ -4,6 +4,7 @@
 ## [DocumentDB 소개: MongoDB용 API?](documentdb-protocol-mongodb.md)
 ## [핵심 개념](documentdb-resources.md)
 ## [글로벌 분포](documentdb-distribute-data-globally.md)
+## [보안](documentdb-nosql-database-security.md)
 ## [NoSQL TCO 분석](https://aka.ms/documentdb-tco-paper)
 ## 시나리오
 ### [일반 사용 예](documentdb-use-cases.md)
@@ -36,32 +37,33 @@
 ### [비용 효율적인 읽기 및 쓰기](documentdb-key-value-store-cost.md)
 
 ## 관리
+### [요청 단위](documentdb-request-units.md)
 ### [데이터 가져오기](documentdb-import-data.md)
 ### [MongoDB용 API 가져오기](documentdb-mongodb-migrate.md)
 ### [MongoDB 계정에 연결](documentdb-connect-mongodb-account.md)
 ### [MongoChef 사용](documentdb-mongodb-mongochef.md)
 ### [Robomongo 사용](documentdb-mongodb-robomongo.md)
 ### [데이터 모델링](documentdb-modeling-data.md)
-### [지리 공간적 데이터 사용](documentdb-geospatial.md)
-### [여러 지역용으로 개발](documentdb-developing-with-multiple-regions.md)
-### [지역별 장애 조치](documentdb-regional-failovers.md)
 ### [자동으로 데이터 만료](documentdb-time-to-live.md)
-### [인덱스 사용자 지정](documentdb-indexing-policies.md)
-### [데이터에 안전하게 액세스](documentdb-secure-access-to-data.md)
 ### [백업 및 복원](documentdb-online-backup-and-restore.md)
+### [지역별 장애 조치](documentdb-regional-failovers.md)
+### 자동화
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: 계정 만들기](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: 지역 추가 또는 제거](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### 보안
+#### [데이터에 안전하게 액세스](documentdb-secure-access-to-data.md)
+#### [방화벽 지원](documentdb-firewall-support.md)
 ### [사용 중지 S1, S2, S3](documentdb-performance-levels.md)
-### [요청 단위](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [계정 만들기](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [영역 추가 또는 제거](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [방화벽 지원](documentdb-firewall-support.md)
 
 ## 개발
 ### [SQL query](documentdb-sql-query.md)
 ### [저장 프로시저, 트리거 및 UDF](documentdb-programming.md)
+### [인덱스 사용자 지정](documentdb-indexing-policies.md)
+### [다중 지역 개발](documentdb-developing-with-multiple-regions.md)
 ### [변경 피드로 변경 내용 추적](documentdb-change-feed.md)
+### [지리 공간적 데이터 사용](documentdb-geospatial.md)
 ### [성능 테스트](documentdb-performance-testing.md)
 ### [성능 팁](documentdb-performance-tips.md)
 ### 모범 사례

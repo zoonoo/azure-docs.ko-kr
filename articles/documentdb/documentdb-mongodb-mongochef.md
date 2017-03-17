@@ -1,6 +1,6 @@
 ---
 title: "Azure DocumentDB로 MongoDB에 MongoChef 사용 | Microsoft Docs"
-description: "MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef를 사용하는 방법을 알아봅니다. 현재 미리 보기를 지원합니다."
+description: "DocumentDB: MongoDB API 계정으로 MongoChef를 사용하는 방법을 알아보기"
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
@@ -13,30 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정으로 MongoChef 사용
-MongoChef를 사용하여 MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정에 연결하려면 다음을 수행해야 합니다.
+# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>DocumentDB: MongoDB API 계정으로 MongoChef 사용
+
+Azure DocumentDB: MongoDB API 계정에 연결하려면 다음을 수행해야 합니다.
 
 * [MongoChef](http://3t.io/mongochef)
-* MongoDB [연결 문자열](documentdb-connect-mongodb-account.md) 정보에 대한 프로토콜 지원을 사용하는 DocumentDB 계정이 필요합니다.
+* DocumentDB: MongoDB API 계정의 [연결 문자열](documentdb-connect-mongodb-account.md) 정보가 필요합니다.
 
 ## <a name="create-the-connection-in-mongochef"></a>MongoChef에서 연결을 만듭니다.
-MongoChef 연결 관리자에 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정을 추가하려면 다음 단계를 수행합니다.
+DocumentDB: MongoDB API 계정을 MongoChef 연결 관리자에 추가하려면 다음 단계를 수행합니다.
 
-1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 MongoDB 연결 정보에 대한 프로토콜 지원을 사용하는 DocumentDB를 검색합니다.
+1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 DocumentDB: MongoDB API 연결 정보를 검색합니다.
 
     ![연결 문자열 블레이드의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. **연결**을 클릭하여 연결 관리자를 열려고 **새 연결**을 클릭합니다.
 
     ![MongoChef 연결 관리자의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. **새 연결** 창의 **서버** 탭에서 MongoDB 및 포트에 대한 프로토콜 지원을 사용하는 DocumentDB 계정의 호스트(FQDN)을 입력합니다.
+3. **새 연결** 창의 **서버** 탭에서 DocumentDB: MongoDB API 계정의 호스트(FQDN)를 입력합니다.
 
     ![MongoChef 연결 관리자 서버 탭의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. **새 연결** 창의 **인증** 탭에서 인증 모드 **표준(MONGODB CR 또는 SCARM-SHA-1)**을 선택하고 사용자 이름 및 암호를 입력합니다.  기본 인증 DB(관리자)를 그대로 사용하거나 고유한 값을 지정합니다.
@@ -114,10 +116,5 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
     ![MongoChef 쿼리 결과의 스크린샷](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>다음 단계
-* MongoDB [샘플](documentdb-mongodb-samples.md)에 대한 프로토콜 지원을 사용하여 DocumentDB를 탐색합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* DocumentDB: MongoDB API [샘플](documentdb-mongodb-samples.md)을 살펴봅니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB에서 일관성 수준 | Microsoft Docs"
+title: "Azure DocumentDB의 일관성 수준 | Microsoft 문서"
 description: "DocumentDB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 네 가지 일관성 수준이 있습니다."
 keywords: "최종 일관성, Documentdb, Azure, Microsoft Azure"
 services: documentdb
@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>DocumentDB의 일관성 수준
-Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 99.99% 가용성 SLA와 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 DocumentDB는 4가지 일관성 수준(강력, 제한된 부실, 세션, 최종)을 제공합니다. DocumentDB는 다른 NoSQL 데이터베이스에서 흔히 제공하는 **강력**하고 **최종 일관성**있는 모델 외에도 두 가지 신중하게 변환된 조작 가능한 일관성 모델(**제한된 부실**과 **세션**)을 제공합니다. DocumentDB는 실제 사용 사례에서도 유용하다는 것이 입증되었습니다. 이 네 가지 일관성 수준을 통해 일관성, 가용성, 대기 시간 사이에서 타당하게 절충합니다. 
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>DocumentDB의 튜닝 가능한 데이터 일관성 수준
+Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 99.99% 가용성 SLA와 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 DocumentDB는&4;가지 일관성 수준(강력, 제한된 부실, 세션, 최종)을 제공합니다. DocumentDB는 다른 NoSQL 데이터베이스에서 흔히 제공하는 **강력**하고 **최종 일관성**있는 모델 외에도 두 가지 신중하게 변환된 조작 가능한 일관성 모델(**제한된 부실**과 **세션**)을 제공합니다. DocumentDB는 실제 사용 사례에서도 유용하다는 것이 입증되었습니다. 이 네 가지 일관성 수준을 통해 일관성, 가용성, 대기 시간 사이에서 타당하게 절충합니다. 
 
 ## <a name="scope-of-consistency"></a>일관성 범위
 일관성의 세분성은 단일 사용자 요청에 따라 범위가 지정됩니다. 쓰기 요청은 삽입, 바꾸기, 업데이트 및 삽입, 삭제 트랜잭션에 해당합니다(관련 사전 또는 사후 트리거 실행 포함/미포함). 또는, 쓰기 요청은 파티션 내의 여러 문서에서 작동하는 JavaScript 저장 절차를 트랜잭션 실행하는 것에 해당할 수 있습니다. 쓰기와 마찬가지로 읽기/쿼리 트랜잭션도 단일 사용자 요청에 대해 범위가 지정됩니다. 사용자는 여러 파티션에 걸친 대량의 결과 세트에 페이지를 매겨야 할 수 있지만, 각 읽기 트랜잭션은 단일 페이지에 따라 범위가 지정되고 단일 패턴 내에서 서비스가 제공됩니다.
 
 ## <a name="consistency-levels"></a>일관성 수준
-데이터베이스 계정 아래의 모든 컬렉션(모든 데이터베이스)에 적용되는 기본 일관성 수준을 데이터베이스 계정에 구성할 수 있습니다. 기본적으로 사용자 정의 리소스에 대해 실행되는 모든 읽기 및 쿼리는 데이터베이스 계정에 지정된 기본 일관성 수준을 사용합니다. 그러나 [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) 요청 헤더를 지정하여 특정 읽기/쿼리 요청의 일관성 수준을 낮출 수 있습니다. DocumentDB 복제 프로토콜에서 지원하는 일관성 수준은 4가지 형식이 있습니다. 이는 아래 설명한 바와 같이 특정 일관성 보증과 성능 간을 명확히 절충합니다.
+데이터베이스 계정 아래의 모든 컬렉션(모든 데이터베이스)에 적용되는 기본 일관성 수준을 데이터베이스 계정에 구성할 수 있습니다. 기본적으로 사용자 정의 리소스에 대해 실행되는 모든 읽기 및 쿼리는 데이터베이스 계정에 지정된 기본 일관성 수준을 사용합니다. 그러나 [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) 요청 헤더를 지정하여 특정 읽기/쿼리 요청의 일관성 수준을 낮출 수 있습니다. DocumentDB 복제 프로토콜에서 지원하는 일관성 수준은&4;가지 형식이 있습니다. 이는 아래 설명한 바와 같이 특정 일관성 보증과 성능 간을 명확히 절충합니다.
 
 ![DocumentDB는 선택 가능한 여러 개의 잘 정의된(관대한) 일관성 모델을 제공합니다.][1]
 
@@ -67,7 +69,7 @@ Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었�
 * 최종 일관성 수준의 읽기 작업 비용(사용한 RU 기준)은 모든 DocumentDB 일관성 수준에서 가장 낮습니다.
 
 ## <a name="consistency-guarantees"></a>일관성 보증
-다음 표는 4가지 일관성 수준에 대응하는 다양한 일관성 보증을 나타냅니다.
+다음 표는&4;가지 일관성 수준에 대응하는 다양한 일관성 보증을 나타냅니다.
 
 | 보증 | 강력 | 제한된 부실 | 세션 | 최종 |
 | --- | --- | --- | --- | --- |
@@ -116,9 +118,4 @@ Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었�
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

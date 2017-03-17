@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성"
+title: "PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성 | Microsoft 문서"
 description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 Always On 가용성 그룹을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 9504b2f74fa0161b6c4dfb6a510913256b99629a
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4d14b4f54957ae31e736211671cba816f8dea629
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -37,7 +38,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 * 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 * AD(Active Directory) 도메인을 포함한 도메인 컨트롤러
-* 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 SQL Server VM 2개
+* 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 SQL Server VM&2;개
 * 노드 과반수 쿼럼 모델을 포함하는 3-노드 WSFC 클러스터
 * 가용성 데이터베이스의 두 개의 동기 커밋 복제본이 포함된 가용성 그룹
 
@@ -174,7 +175,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 이제 DC 서버가 성공적으로 프로비전되었습니다. 다음으로 이 DC 서버에 Active Directory 도메인을 구성합니다. 로컬 컴퓨터에 PowerShell 창을 열어 둡니다. 이 창은 나중에 두 SQL Server VM을 만들 때 사용합니다.
 
 ## <a name="configure-the-domain-controller"></a>도메인 컨트롤러 구성
-1. 원격 데스크톱 파일을 실행하여 DC 서버에 연결합니다. 새 VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 AzureAdmin과 암호 **Contoso! 000**을 사용합니다.
+1. 원격 데스크톱 파일을 실행하여 DC 서버에 연결합니다. 새 VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 AzureAdmin과 암호 **Contoso!&000;**을 사용합니다.
 2. 관리자 모드에서 PowerShell 창을 엽니다.
 3. 다음 **DCPROMO.EXE** 명령을 실행하여 M 드라이브의 데이터 디렉터리로 **corp.contoso.com** 도메인을 설정합니다.
    
@@ -199,7 +200,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 5. 관리자 모드에서 PowerShell 창을 열고 다음 명령을 사용하여 Active Directory PowerShell 모듈을 가져옵니다.
    
         Import-Module ActiveDirectory
-6. 다음 명령을 실행하여 도메인에 3명의 사용자를 추가합니다.
+6. 다음 명령을 실행하여 도메인에&3;명의 사용자를 추가합니다.
    
         $pwd = ConvertTo-SecureString "Contoso!000" -AsPlainText -Force
         New-ADUser `
@@ -235,7 +236,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
    
     위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. WSFC 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. WSFC 클러스터를 만드는 데 필요한 권한에 대한 자세한 내용은 [장애 조치 클러스터 단계별 가이드: Active Directory의 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)을 참조하세요.
    
-    Active Directory 및 사용자 개체 구성을 완료하면 2개의 SQL Server VM이 만들어져 이 도메인에 연결됩니다.
+    Active Directory 및 사용자 개체 구성을 완료하면&2;개의 SQL Server VM이 만들어져 이 도메인에 연결됩니다.
 
 ## <a name="create-the-sql-server-vms"></a>SQL Server VM 만들기
 1. 로컬 컴퓨터에 PowerShell 창을 계속 열어 둡니다. 다음 추가 변수를 정의합니다.
@@ -349,7 +350,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
    * **Set-AzureSubnet** 은 백 서브넷에 VM을 배치합니다.
    * **Add-AzureEndpoint** 는 클라이언트 응용 프로그램이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있게 액세스 끝점을 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.
    * **New-AzureVM** 은 ContosoQuorum과 동일한 클라우드 서비스에 새 SQL Server VM을 만듭니다. VM을 동일한 가용성 집합에 포함하려면 동일한 클라우드 서비스에 VM을 배치해야 해야 합니다.
-4. 각 VM의 완전하게 프로비전될 때까지 기다린 다음 작업 디렉터리에 해당하는 원격 데스크톱 파일을 다운로드합니다. For 루프가 3개의 새 VM을 순환하고 각 VM에 대해 최상위 중괄호 안의 명령을 실행합니다.
+4. 각 VM의 완전하게 프로비전될 때까지 기다린 다음 작업 디렉터리에 해당하는 원격 데스크톱 파일을 다운로드합니다. For 루프가&3;개의 새 VM을 순환하고 각 VM에 대해 최상위 중괄호 안의 명령을 실행합니다.
    
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -372,7 +373,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
     SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL Server에 설치되었습니다.
 
 ## <a name="initialize-the-wsfc-cluster-vms"></a>WSFC 클러스터 VM 초기화
-이 섹션에서는 WSFC 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
+이 섹션에서는 WSFC 클러스터 및 SQL Server 설치에 사용할&3;개의 서버를 수정해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 * (모든 서버) **장애 조치 클러스터링** 기능을 설치해야 합니다.
 * (모든 서버) **CORP\Install**을 컴퓨터 **관리자**로 추가해야 합니다.
@@ -422,7 +423,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
    
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
-9. 위에서 설명한 3개의 권한이 있는 로그인으로 **NT AUTHORITY\System**을 추가합니다.
+9. 위에서 설명한&3;개의 권한이 있는 로그인으로 **NT AUTHORITY\System**을 추가합니다.
    
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
@@ -563,10 +564,5 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

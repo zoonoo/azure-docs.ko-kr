@@ -4,9 +4,9 @@ hide_bc: true
 title: "Microsoft Azure설명서 | Microsoft Docs"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 translationtype: Human Translation
-ms.sourcegitcommit: a2f5d05e9911e0ceb9a3815245fb92704b0619a7
-ms.openlocfilehash: 989b9a20705290ed6764f2e5857cc1485ced39dc
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 359cb51a6107d6556ba261d19bfb1b8b31405d34
+ms.lasthandoff: 03/14/2017
 
 ---
 <div id="main" class="v2">
@@ -2435,10 +2435,10 @@ ms.lasthandoff: 02/28/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">.NET SDK 가져오기</a>
+                                                    <a href="/dotnet/api">.NET SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api/">시작</a>
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">API 참조</a>
