@@ -12,25 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 0342c13e48d3f3605dcc169523d7d8d2d7aedba8
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 376415d34592d18de00513ee9142512eb716e426
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="use-azure-data-lake-store-with-apache-storm-with-hdinsight-java"></a>HDInsight에서 Apache Storm으로 Azure Data Lake Store 사용(Java)
 
-Azure 데이터 레이크 저장소는 데이터에 대한 높은 처리량, 가용성, 내구성 및 안정성을 제공하는 HDFS와 호환 가능한 클라우드 저장소 서비스입니다. 이 문서에서 [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 를 사용하여 Azure 데이터 레이크 저장소에 데이터를 작성하는 데 Java 기반 Storm 토폴로지를 사용하는 방법을 알아보고 이는 Apache Storm의 일부로 제공됩니다.
+Azure 데이터 레이크 저장소는 데이터에 대한 높은 처리량, 가용성, 내구성 및 안정성을 제공하는 HDFS와 호환 가능한 클라우드 저장소 서비스입니다. 이 문서에서는 Java 기반 Storm 토폴로지를 사용하여 Azure Data Lake Store에 데이터를 쓰는 방법을 알아봅니다. 이 문서에 나와 있는 단계는 Apache Storm의 일부로 제공되는 [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 사용합니다.
 
 > [!IMPORTANT]
 > 이 문서에 사용된 예제 토폴로지는 HDInsight 클러스터의 Storm에 포함되는 구성 요소에 의존하며 다른 Apache Storm 클러스터와 함께 사용될 때 Azure 데이터 레이크 저장소와 함께 작동하도록 수정이 필요할 수 있습니다.
 
 ## <a name="how-to-work-with-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 방법
 
-Data Lake Store는 HDFS 호환 파일 시스템으로 HDInsight에 나타나므로 Storm-HDFS Bolt를 사용하여 작성할 수 있습니다. 다음 코드는 `MYDATALAKE`라는 Data Lake Store 계정의 `/stormdata`라는 디렉터리에 Storm-HDFS Bolt를 사용하여 데이터를 작성하는 방법을 보여 줍니다.
+Data Lake Store는 HDFS 호환 파일 시스템으로 HDInsight에 나타나므로 Storm-HDFS Bolt를 사용하여 작성할 수 있습니다. HDInsight에서 Azure Data Lake로 작업할 경우 파일 스키마 `adl://`를 사용할 수 있습니다.
+
+* Data Lake Storage가 클러스터의 기본 저장소인 경우 `adl:///`를 사용합니다. 이것은 Azure Data Lake에서 클러스터 저장소의 루트입니다. 이것은 Data Lake Storage 계정에서 /clusters/CLUSTERNAME의 경로로 변환될 수 있습니다.
+* Data Lake Storage가 클러스터의 보조 저장소인 경우 `adl://DATALAKEACCOUNT.azuredatalakestore.net/`을 사용합니다. 이 URI는 데이터가 기록되는 Data Lake Storage 계정을 지정합니다. 데이터는 Data Lake Store의 루트부터 기록되기 시작합니다.
+
+    > [!NOTE]
+    > 또한 클러스터용 기본 저장소를 포함하는 Data Lake Store 계정에 데이터를 저장하려는 경우에도 이 URI 형식을 사용할 수 있습니다. 이 경우 HDInsight를 포함하는 디렉터리 경로 외부에 데이터를 저장할 수 있습니다.
+
+다음 Java 코드는 `MYDATALAKE`라는 Data Lake Store 계정의 `/stormdata`라는 디렉터리에 Storm-HDFS Bolt를 사용하여 데이터를 작성하는 방법을 보여 줍니다.
 
 ```java
 // 1. Create sync and rotation policies to control when data is synched
@@ -57,25 +65,76 @@ builder.setBolt("ADLStoreBolt", adlsBolt, 1)
     .globalGrouping("finalcount");
 ```
 
-> [!IMPORTANT]
-> HDInsight에서 Data Lake Store를 사용할 때 `adl://` URI 체계를 사용합니다.
+다음 YAML은 Flux 프레임워크의 Storm-HDFS Bolt 사용 방법을 보여 줍니다.
+
+```yaml
+components:
+  - id: "syncPolicy"
+    className: "org.apache.storm.hdfs.bolt.sync.CountSyncPolicy"
+    constructorArgs:
+      - 1000
+  - id: "rotationPolicy"
+    className: "org.apache.storm.hdfs.bolt.rotation.FileSizeRotationPolicy"
+    constructorArgs:
+      - 5
+      - KB
+
+  - id: "fileNameFormat"
+    className: "org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat"
+    configMethods:
+      - name: "withPath"
+        args: ["${hdfs.write.dir}"]
+      - name: "withExtension"
+        args: [".txt"]
+
+  - id: "recordFormat"
+    className: "org.apache.storm.hdfs.bolt.format.DelimitedRecordFormat"
+    configMethods:
+      - name: "withFieldDelimiter"
+        args: ["|"]
+
+  - id: "rotationAction"
+    className: "org.apache.storm.hdfs.common.rotation.MoveFileAction"
+    configMethods:
+      - name: "toDestination"
+        args: ["${hdfs.dest.dir}"]
+
+# bolt definitions
+bolts:
+  - id: "hdfs-bolt"
+    className: "org.apache.storm.hdfs.bolt.HdfsBolt"
+    configMethods:
+      - name: "withConfigKey"
+        args: ["hdfs.config"]
+      - name: "withFsUrl"
+        args: ["${hdfs.url}"]
+      - name: "withFileNameFormat"
+        args: [ref: "fileNameFormat"]
+      - name: "withRecordFormat"
+        args: [ref: "recordFormat"]
+      - name: "withRotationPolicy"
+        args: [ref: "rotationPolicy"]
+      - name: "withSyncPolicy"
+        args: [ref: "syncPolicy"]
+    parallelism: 1
+```
+
+> [!NOTE]
+> 이 문서의 예제에서는 Flux 프레임워크를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상
+* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상 HDInsight 3.5를 사용하려면 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
-* HDInsight 클러스터 버전 3.2의 Storm. HDInsight 클러스터에서 새 Storm을 만들려면 [Azure를 사용하는 Data Lake 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 따릅니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.  
-  
-  > [!IMPORTANT]
-  > HDInsight 클러스터를 만들 때 **Storm**을 클러스터 유형으로 선택하고 버전으로 **3.2**를 선택해야 합니다. OS는 Windows 또는 Linux일 수 있습니다.
+* HDInsight 클러스터 버전 3.5의 Storm. HDInsight 클러스터에서 새 Storm을 만들려면 [Azure를 사용하는 Data Lake 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 따릅니다.
 
 ### <a name="configure-environment-variables"></a>환경 변수 구성
 
 Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 환경 변수를 설정할 수 있습니다. 하지만 변수가 존재하며 시스템에 대한 올바른 값을 포함하는지 확인해야 합니다.
 
-* **JAVA_HOME** - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 Unix 또는 Linux 배포에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`과 유사한 값이어야 합니다.
+* **JAVA_HOME** - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 Unix 또는 Linux 배포에서는 `/usr/lib/jvm/java-8-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.8`과 유사한 값이어야 합니다.
 * **PATH** - 다음 경로를 포함해야 합니다.
   
   * **JAVA\_HOME** 또는 그와 동등한 경로
@@ -93,44 +152,6 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 이 토폴로지를 포함하는 프로젝트는 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 다운로드로 제공됩니다.
 
-### <a name="understanding-adlstorebolt"></a>ADLStoreBolt 이해
-
-ADLStoreBolt는 Azure 데이터 레이크를 작성하는 토폴로지에서 HdfsBolt 인스턴스에 사용되는 이름입니다. Microsoft에서 만든 HdfsBolt의 특별한 버전은 아닙니다. 그러나 데이터 레이크와의 통신에 Azure HDInsight와 함께 포함된 Hadoop 구성 요소 뿐만 아니라 핵심 사이트 구성 값에 의존합니다.
-
-특히 HDInsight 클러스터를 만들 때 Azure 데이터 레이크 저장소와 연결할 수 있습니다. 선택한 데이터 레이크 저장소에 대한 핵심 사이트에 항목을 작성하며 이는 hadoop 클라이언트 및 hadoop-hdfs와 같은 구성 요소가 데이터 레이크 저장소와 통신할 수 있도록 하는 데 사용됩니다.
-
-> [!NOTE]
-> Microsoft에는 Azure 데이터 레이크 저장소 및 Azure Blob 저장소와 통신할 수 있는 Apache Hadoop 및 Storm 프로젝트에 기여한 코드가 있지만 이 기능은 다른 Hadoop 및 Storm 배포에 기본적으로 포함될 수 없습니다.
-
-토폴로지의 HdfsBolt에 대한 구성은 다음과 같습니다.
-
-    // 1. Create sync and rotation policies to control when data is synched
-    //    (written) to the file system and when to roll over into a new file.
-    SyncPolicy syncPolicy = new CountSyncPolicy(1000);
-    FileRotationPolicy rotationPolicy = new FileSizeRotationPolicy(0.5f, Units.KB);
-    // 2. Set the format. In this case, comma delimited
-    RecordFormat recordFormat = new DelimitedRecordFormat().withFieldDelimiter(",");
-    // 3. Set the directory name. In this case, '/stormdata/'
-    FileNameFormat fileNameFormat = new DefaultFileNameFormat().withPath("/stormdata/");
-    // 4. Create the bolt using the previously created settings,
-    //    and also tell it the base URL to your Data Lake Store.
-    // NOTE! Replace 'MYDATALAKE' below with the name of your data lake store.
-    HdfsBolt adlsBolt = new HdfsBolt()
-        .withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")
-          .withRecordFormat(recordFormat)
-          .withFileNameFormat(fileNameFormat)
-          .withRotationPolicy(rotationPolicy)
-          .withSyncPolicy(syncPolicy);
-    // 4. Give it a name and wire it up to the bolt it accepts data
-    //    from. NOTE: The name used here is also used as part of the
-    //    file name for the files written to Data Lake Store.
-    builder.setBolt("ADLStoreBolt", adlsBolt, 1)
-      .globalGrouping("finalcount");
-
-HdfsBolt 사용에 익숙한 경우 URL을 제외하고 모두 표준 구성임을 확인할 수 있습니다. URL은 Azure 데이터 레이크 저장소의 루트에 대한 경로를 제공합니다.
-
-데이터 레이크 저장소에 대한 작성 작업은 HdfsBolt를 사용하고 URL 변경이기 때문에 HdfsBolt를 사용하여 HDFS 또는 WASB를 작성하는 기존 토폴로지를 가져와서 Azure 데이터 레이크 저장소를 사용하도록 쉽게 변경할 수 있습니다.
-
 ## <a name="build-and-package-the-topology"></a>토폴로지 빌드 및 패키지
 
 1. [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 에서 개발 환경에 예제 프로젝트를 다운로드합니다.
@@ -144,9 +165,7 @@ HdfsBolt 사용에 익숙한 경우 URL을 제외하고 모두 표준 구성임�
    
     빌드 및 패키징이 완료되면 `target`이라는 새 디렉터리가 있고 이는 `StormToDataLakeStore-1.0-SNAPSHOT.jar`라고 명명된 파일을 포함합니다. 컴파일된 토폴로지를 포함합니다.
 
-## <a name="deploy-and-run-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에 배포 및 실행
-
-HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계를 사용하여 토폴로지를 배포하고 실행합니다.
+## <a name="deploy-and-run-the-topology"></a>토폴로지 배포 및 실행
 
 1. 다음 명령을 사용하여 HDInsight 클러스터에 토폴로지를 복사합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME**은 클러스터 이름으로 바꿉니다.
    
@@ -166,70 +185,47 @@ HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계�
    > [!NOTE]
    > 개발을 위해 Windows 클라이언트를 사용하는 경우 PuTTY 클라이언트를 사용하여 클러스터에 연결하는 정보는 [Windows에서 SSH로 Linux 기반 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-windows.md) 에 있는 내용을 수행합니다.
 
-3. 연결되면 다음을 사용하여 토폴로지를 시작합니다.
-   
-        storm jar StormToDataLakeStore-1.0-SNAPSHOT.jar com.microsoft.example.StormToDataLakeStore datalakewriter
-   
-    토폴로지를 `datalakewriter`라는 친근한 이름으로 시작합니다.
+3. 연결되면 다음 명령을 사용하여 `dev.properties`라는 파일을 만듭니다.
 
-## <a name="deploy-and-run-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에 배포 및 실행
+        nano dev.properties
 
-1. 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. 여기서 **CLUSTERNAME**은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 이 계정에 사용한 관리 사용자 이름(`admin`) 및 암호를 제공합니다.
+4. `dev.properties` 파일의 내용으로 다음 텍스트를 사용합니다.
 
-2. Storm 대시보드의 **Jar 파일** 드롭다운에서 **찾아보기**를 선택한 다음 `target` 디렉터리에서 StormToDataLakeStore-1.0-SNAPSHOT.jar 파일을 선택합니다. 폼에서 다른 항목에 다음 값을 사용합니다.
+        hdfs.write.dir: /stormdata
+        hdfs.url: adl:///
+    
+    파일을 저장하려면 __Ctrl + X__를 사용한 다음 __Y__를 입력하고 마지막으로 __Enter__ 키를 누릅니다. 이 파일의 값은 데이터가 기록되는 Data Lake store URL 및 디렉터리 이름을 설정합니다.
+
+3. 다음 명령을 사용하여 토폴로지를 시작합니다.
    
-   * 클래스 이름: com.microsoft.example.StormToDataLakeStore
-   * 추가 매개 변수: datalakewriter
-     
-  ![Storm 대시보드의 이미지](./media/hdinsight-storm-write-data-lake-store/submit.png)
+        storm jar StormToDataLakeStore-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /datalakewriter.yaml --filter dev.properties
 
-3. **전송** 단추를 선택하여 토폴로지를 업로드하고 시작합니다. 토폴로지가 시작되면 아래 결과 필드에서 **전송** 단추는 다음과 유사한 정보를 표시해야 합니다.
-   
-        Process exit code: 0
-        Currently running topologies:
-        Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
-        -------------------------------------------------------------------
-        datalakewriter       ACTIVE     68         8            10        
+    이 명령은 Flux 프레임워크를 사용하여 토폴로지를 시작합니다. 토폴로지를 jar에 포함된 `datalakewriter.yaml` 파일에 의해 정의됩니다. `dev.properties` 파일은 필터로 전달되고 파일에 포함된 값은 토폴로지에서 읽힙니다.
 
 ## <a name="view-output-data"></a>출력 데이터 보기
 
-데이터를 보는 몇 가지 방법이 있습니다. 이 섹션에서는 Azure 포털 및 `hdfs` 명령을 사용하여 데이터를 볼 수 있습니다.
+데이터를 보려면 다음 명령을 사용합니다.
 
-> [!NOTE]
-> 토폴로지가 출력 데이터를 검사하기 전에 몇 분 동안 실행할 수 있도록 해야 합니다. 그러면 데이터가 Azure 데이터 레이크 저장소의 여러 파일에 동기화됩니다.
+    hdfs dfs -ls /stormdata/
 
+그러면 토폴로지에 의해 생성된 파일 목록이 표시됩니다.
 
-* **[Azure Portal](https://portal.azure.com)에서**: 포털에서 HDInsight와 함께 사용한 Azure Data Lake Store를 선택합니다.
-  
-  > [!NOTE]
-  > Azure Portal 대시보드에 Data Lake 저장소를 고정하지 않은 경우 왼쪽 목록 맨 아래에서 **찾아보기**를 선택한 다음 **Data Lake 저장소**를 선택한 후 마지막으로 저장소를 선택하여 찾을 수 있습니다.
-  
-    Data Lake 저장소의 맨 위에 있는 아이콘에서 **데이터 탐색기**를 선택합니다.
-  
-    ![데이터 탐색 아이콘](./media/hdinsight-storm-write-data-lake-store/dataexplorer.png)
-  
-    다음으로 **stormdata** 폴더를 선택합니다. 텍스트 파일의 목록을 표시해야 합니다.
-  
-    ![텍스트 파일](./media/hdinsight-storm-write-data-lake-store/stormoutput.png)
-  
-    파일의 내용 중 하나를 선택하여 내용을 봅니다.
+Data Lake Store가 클러스터의 기본 저장소가 아닌 경우 음 명령을 사용하여 데이터를 확인합니다.
 
-* **클러스터에서**: SSH(Linux 클러스터) 또는 원격 데스크톱 (Windows 클러스터)를 사용하여 HDInsight 클러스터에 연결한 경우 데이터를 보려면 다음을 사용할 수 있습니다. **DATALAKE** 를 Data Lake 저장소의 이름으로 바꾸기
-  
-        hdfs dfs -cat adl://DATALAKE.azuredatalakestore.net/stormdata/*.txt
-  
-    디렉터리에 저장된 텍스트 파일을 연결하고 다음과 유사한 정보를 표시합니다.
-  
-        406000000
-        407000000
-        408000000
-        409000000
-        410000000
-        411000000
-        412000000
-        413000000
-        414000000
-        415000000
+    hdfs dfs -ls adl://MYDATALAKE.azuredatalakestore.net/stormdata/
+
+이전 명령에서 __MYDATALAKE__를 Data Lake Store 계정으로 바꿉니다.
+
+다음 목록은 이전 명령에서 반환된 데이터 예제입니다.
+
+    Found 30 items
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-13-1488568412603.txt
+    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-14-1488568415055.txt
 
 ## <a name="stop-the-topology"></a>토폴로지 중지
 
@@ -240,18 +236,6 @@ Storm 토폴로지가 중지될 때까지 실행하거나 클러스터가 삭제
 SSH 세션에서 클러스터로 다음 명령을 사용합니다.
 
     storm kill datalakewriter
-
-**Windows 기반 HDInsight의 경우**:
-
-1. Storm 대시보드(https://CLUSTERNAME.azurehdinsight.net)에서 페이지의 위쪽에 있는 **Storm UI**를 선택합니다.
-
-2. Storm UI가 로드되면 **datalakewriter** 링크를 선택합니다.
-   
-    ![datalakewriter에 연결](./media/hdinsight-storm-write-data-lake-store/selecttopology.png)
-
-3. **토폴로지 동작** 섹션에서 **중단**을 선택한 다음 표시되는 대화 상자에서 확인을 선택합니다.
-   
-    ![토폴로지 동작](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
 ## <a name="delete-your-cluster"></a>클러스터 삭제
 

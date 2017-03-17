@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 6de7798f117f0362ac80a390b7e341c7f6fc01b8
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -141,10 +143,5 @@ Tez를 사용하여 실행하는 Hive 쿼리를 실행하기 위해 다음 단�
 이제 Tez 뷰를 사용하는 방법을 배웠으므로 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
 
 Tez에서 자세한 기술 정보는 [Hortonworks의 Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

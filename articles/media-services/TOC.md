@@ -45,6 +45,7 @@
 
 ## [콘텐츠 인코딩](media-services-encode-asset.md)
 ### [인코더 비교](media-services-compare-encoders.md)
+### [인코딩 속도 및 동시성 관리](media-services-manage-encoding-speed.md)
 ### MES(Media Encoder Standard)
 #### [Media Encoder Standard 형식 및 코덱](media-services-media-encoder-standard-formats.md)
 #### [MES를 사용하여 비트 전송률 사다리 자동 생성](media-services-autogen-bitrate-ladder-with-mes.md)
@@ -120,16 +121,16 @@
 ## [보호](media-services-content-protection-overview.md)
 ### [포털에서 콘텐츠 보호 구성](media-services-portal-protect-content.md)
 ### [스트림에 대해 AES-128 암호화되지 않은 키 구성](media-services-protect-with-aes128.md)
-### [AMS REST API를 사용하여 저장소 암호화로 콘텐츠 암호화](media-services-rest-storage-encryption.md)
+### [REST를 사용하여 저장소 암호화로 콘텐츠 암호화](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady 라이선스 템플릿 개요](media-services-playready-license-template-overview.md)
 ### [Widevine 라이선스 템플릿 개요](media-services-widevine-license-template-overview.md)
 ### [DRM 라이선스 배달](media-services-deliver-keys-and-licenses.md)
-### [파트너를 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
+### [파트너를 사용하여 Media Services에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
 ### [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
-### [Azure Media Services를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍](media-services-protect-hls-with-fairplay.md)
-### [다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현](media-services-cenc-with-multidrm-access-control.md)
-### [Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)
-### [castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공](media-services-castlabs-integration.md)
+### [Apple FairPlay로 보호되는 HLS 콘텐츠 스트림](media-services-protect-hls-with-fairplay.md)
+### [다중 DRM 및 액세스 제어가 포함된 CENC](media-services-cenc-with-multidrm-access-control.md)
+### [Axinom을 사용하여 Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)
+### [castLabs를 사용하여 Media Services에 Widevine 라이선스 제공](media-services-castlabs-integration.md)
 
 ### 자산 배달
 #### 자산 배달 정책 구성
@@ -191,7 +192,8 @@
 ### [Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스](media-services-sspk.md)
 
 ## 통합
-### [Azure 기능](https://github.com/azure-samples/media-services-dotnet-functions-integration)
+### [Media Services에서 Azure Functions 사용](media-services-dotnet-how-to-use-azure-functions.md)
+### [Media Services에서 사용하는 Azure Functions 예제](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## 모니터
 ### 작업 진행 상태 확인

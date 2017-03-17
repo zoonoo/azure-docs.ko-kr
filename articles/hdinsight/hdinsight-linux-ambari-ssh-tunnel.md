@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -51,9 +52,17 @@ Ambari의 여러 메뉴는 클러스터에서 실행되는 다른 Hadoop 서비�
   > [!NOTE]
   > `ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
 
-* SOCKS 프록시를 사용하도록 구성할 수 있는 웹 브라우저
+* SOCKS5 프록시를 사용하도록 구성할 수 있는 웹 브라우저입니다.
 
-## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>SSH 명령을 사용하여 터널 만들기
+    > [!WARNING]
+    > Windows에 기본 제공된 SOCKS 프록시 지원은 SOCKS5를 지원하지 않고 이 문서의 단계에서 작동하지 않습니다. 다음 브라우저는 Windows 프록시 설정에 의존하고 현재 이 문서의 단계에서 작동하지 않습니다.
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Google Chrome도 Windows 프록시 설정에 의존합니다. 그러나 SOCKS5를 지원하는 확장을 설치할 수 있습니다. [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp)를 권장합니다.
+
+## <a name="usessh"></a>SSH 명령을 사용하여 터널 만들기
 
 `ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. **USERNAME**을 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
@@ -76,7 +85,7 @@ SSH 키를 사용하여 클러스터를 구성한 경우에는 `-i` 매개 변�
 
 명령이 완료되면 로컬 컴퓨터에서 9876 포트로 전송되는 트래픽이 SSL(Secure Sockets Layer)을 통해 클러스터 헤드 노드에 라우팅되며 생성된 곳에 나타납니다.
 
-## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>PuTTY를 사용하여 터널 만들기
+## <a name="useputty"></a>PuTTY를 사용하여 터널 만들기
 
 PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니다.
 
@@ -100,8 +109,8 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 ## <a name="use-the-tunnel-from-your-browser"></a>브라우저에서 터널 사용
 
-> [!NOTE]
-> 이 섹션의 단계는 Linux, Unix, Macintosh OS X 및 Windows 시스템에 자유롭게 사용할 수 있으므로 FireFox 브라우저를 사용합니다. SOCKS 프록시 사용을 지원하는 기타 최신 브라우저도 작동합니다.
+> [!IMPORTANT]
+> 이 섹션의 단계에서는 Mozilla FireFox 브라우저를 사용합니다. 이 브라우저는 모든 플랫폼에서 동일한 프록시 설정을 제공하기 때문입니다. Google Chrome 등의 다른 최신 브라우저에는 터널에서 작동하기 위해 FoxyProxy 등의 확장이 필요할 수 있습니다.
 
 1. **localhost**와 **SOCKS v5** 프록시로 터널을 만들 때 사용한 포트를 사용하도록 브라우저를 구성합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
    
@@ -144,6 +153,7 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
    > 
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 SSH 터널을 만들고 사용하는 방법을 배웠으므로 Ambari를 사용하여 클러스터를 모니터링 및 관리하는 정보에 대해 다음을 참조하세요.
 
 * [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
@@ -152,10 +162,5 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

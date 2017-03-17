@@ -12,16 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: cab8a4de9d8d98d77094da5d73f29237829e743a
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 이벤트 허브가 있는 Event Hubs 네임스페이스 만들기 및 보관 파일 활성화
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 이벤트 허브가 있는 Event Hubs 네임스페이스를 만들고 해당 이벤트 허브에 대한 보관 파일을 활성화하는 방법을 설명합니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알아봅니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Event Hubs 형식 네임스페이스를 만들고 해당 이벤트 허브에 대한 보관 기능을 사용하도록 설정하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 템플릿 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][Authoring Azure Resource Manager templates]를 참조하세요.
 
@@ -73,7 +74,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-메시지가 이벤트 허브에 보관될 기간(일)입니다. 
+이벤트 허브에 메시지를 보관할 기간(일수)입니다. 
 
 ```json
 "messageRetentionInDays":{
@@ -88,7 +89,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-이벤트 허브에서 원하는 파티션 수입니다.
+이벤트 허브에서 만들 파티션 수입니다.
 
 ```json
 "partitionCount":{
@@ -133,7 +134,7 @@ Event Hub에서 Archive를 사용하도록 설정합니다.
 ```
 
 ### <a name="archivetime"></a>archiveTime
-Azure Blob 저장소에 데이터를 보관하기 시작하는 시간 간격입니다.
+Event Hubs 보관을 통해 Azure Blob Storage에 데이터를 보관하기 시작하는 시간 간격입니다.
 
 ```json
 "archiveTime":{
@@ -148,7 +149,7 @@ Azure Blob 저장소에 데이터를 보관하기 시작하는 시간 간격입�
 ```
 
 ### <a name="archivesize"></a>archiveSize
-Azure Blob 저장소에 데이터를 보관하기 시작하는 크기 간격입니다.
+보관 기능을 통해 Azure Blob Storage에 데이터를 보관하기 시작하는 크기 간격입니다.
 
 ```json
 "archiveSize":{
@@ -175,7 +176,7 @@ Azure Blob 저장소에 데이터를 보관하기 시작하는 크기 간격입�
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-이벤트 데이터가 보관될 Blob 컨테이너입니다.
+이벤트 데이터를 보관할 Blob 컨테이너입니다.
 
 ```json
  "blobContainerName":{
@@ -201,7 +202,7 @@ Azure Blob 저장소에 데이터를 보관하기 시작하는 크기 간격입�
 ```
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
-Event Hub가 있는 **EventHubs** 유형의 네임스페이스를 만들고 Archive도 사용하도록 설정합니다.
+하나의 이벤트 허브가 있는 **EventHubs** 형식 네임스페이스를 만들고 보관을 사용하도록 설정합니다.
 
 ```json
 "resources":[  
@@ -257,7 +258,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]
@@ -276,9 +277,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 [Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

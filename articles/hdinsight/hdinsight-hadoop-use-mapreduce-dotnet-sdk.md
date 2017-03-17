@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fcc47e3e054d88fe40c13a0fd9949c315dbfce9b
-ms.openlocfilehash: 1617aebffeec5b385b47a7425f6c849267da68a6
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03f3898182d405bced8ad41b281e2ce2037b8343
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -35,7 +36,7 @@ HDInsight .NET SDK를 사용하여 MapReduce 작업을 제출하는 방법을 �
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-use-sqoop.md#create-cluster-and-sql-database)을 참조하세요.
-* **Visual Studio 2012/2013/2015**.
+* **Visual Studio 2013/2015/2017**
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 제출
 HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 
@@ -142,10 +143,5 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 * HDInsight 클러스터 관리는 [HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조하세요.
 * HDInsight .NET SDK에 대한 내용은 [HDInsight .NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx)를 확인하세요.
 * Azure에 대한 비대화형 인증은 [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

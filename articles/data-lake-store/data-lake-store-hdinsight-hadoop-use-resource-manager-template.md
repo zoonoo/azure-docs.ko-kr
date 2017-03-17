@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 98f1c50774c2ee70afd18a1e036b6e3264518552
-ms.openlocfilehash: b67be76eab9b6c467f8ab9760f7ea481f1d6db90
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40a1d76cc4167858a9bebac9845230473cc71e3e
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -84,8 +84,7 @@ HDInsight 클러스터에서 업로드한 샘플 데이터에 액세스할 수 �
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>HDInsight 클러스터에서 테스트 작업을 실행하여 데이터 레이크 저장소 사용
 HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업을 실행하여 HDInsight 클러스터가 데이터 레이크 저장소에 액세스할 수 있는지 테스트할 수 있습니다. 이렇게 하려면 데이터 레이크 저장소에 이전에 업로드한 샘플 데이터를 사용하여 테이블을 만드는 샘플 Hive 작업을 실행합니다.
 
-### <a name="for-a-linux-cluster"></a>Linux 클러스터의 경우
-이 섹션에서 클러스터로 SSH하고 샘플 Hive 쿼리를 실행합니다. Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+이 섹션에서는 HDInsight Linux 클러스터로 SSH하고 샘플 Hive 쿼리를 실행합니다. Windows 클라이언트를 사용 중인 경우 **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용 ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
@@ -117,60 +116,11 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
    1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
    ```
 
-### <a name="for-a-windows-cluster"></a>Windows 클러스터의 경우
-다음 cmdlet을 사용하여 Hive 쿼리를 실행합니다. 이 쿼리에서 데이터 레이크 저장소의 데이터에서 테이블을 만든 다음 만든 테이블에서 select 쿼리를 실행합니다.
-
-```
-$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-
-$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
-
-$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
-
-Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
-```
-
-다음 출력이 표시됩니다. **ExitValue** 는 작업이 성공적으로 완료됨을 제안합니다.
-
-```
-Cluster         : hdiadlcluster.
-HttpEndpoint    : hdiadlcluster.azurehdinsight.net
-State           : SUCCEEDED
-JobId           : job_1445386885331_0012
-ParentId        :
-PercentComplete :
-ExitValue       : 0
-User            : admin
-Callback        :
-Completed       : done
-```
-
-다음 cmdlet을 사용하여 작업에서 출력을 검색합니다.
-
-```
-Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
-```
-
-작업 출력은 다음과 유사합니다.
-
-```
-1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
-```
 
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>HDFS 명령을 사용한 액세스 데이터 레이크 저장소
 데이터 레이크 저장소를 사용하도록 HDInsight 클러스터를 구성한 후 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
 
-### <a name="for-a-linux-cluster"></a>Linux 클러스터의 경우
-이 섹션에서 클러스터로 SSH하고 HDFS 명령을 실행합니다. Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
+이 섹션에서는 HDInsight Linux 클러스터로 SSH하고 HDFS 명령을 실행합니다. Windows 클라이언트를 사용 중인 경우 **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용 ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
@@ -190,29 +140,6 @@ Found 1 items
 
 `hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
-### <a name="for-a-windows-cluster"></a>Windows 클러스터의 경우
-1. 새로운 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **찾아보기**를 클릭하고 **HDInsight 클러스터**를 클릭한 다음 만든 HDInsight 클러스터를 클릭합니다.
-3. 클러스터 블레이드에서 **원격 데스크톱**을 클릭한 다음 **원격 데스크톱** 블레이드에서 **연결**을 클릭합니다.
-
-   ![HDI 클러스터로 원격](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png)
-
-   메시지가 표시되면 원격 데스크톱 사용자에 대해 제공된 자격 증명을 입력합니다.
-4. 원격 세션에서 Windows PowerShell을 시작하고 HDFS 파일 시스템 명령을 사용하여 Azure 데이터 레이크 저장소의 파일을 나열합니다.
-
-   ```
-   hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
-   ```
-
-   데이터 레이크 저장소에 이전에 업로드한 파일이 나열되어야 합니다.
-
-   ```
-   15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-   Found 1 items
-   -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
-   ```
-
-   `hdfs dfs -put` 명령을 사용하여 일부 파일을 데이터 레이크 저장소에 업로드한 다음 `hdfs dfs -ls`을(를) 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Storage Blob에서 Data Lake Store로 데이터 복사](data-lake-store-copy-data-wasb-distcp.md)

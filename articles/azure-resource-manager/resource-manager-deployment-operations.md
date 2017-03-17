@@ -16,8 +16,9 @@ ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c2f30eecb62ac578e8635346e1f67d441f29f189
-ms.openlocfilehash: e441e338a97c31b9131105ef08186c897d301ceb
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -121,7 +122,15 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
+4. Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 요청 콘텐츠는 배포하는 동안 Azure에 보낸 콘텐츠입니다(예: VM, OS 디스크 및 기타 리소스). 응답 콘텐츠는 Azure가 배포 요청에서 다시 보낸 콘텐츠입니다. 배포하는 동안 **DeploymentDebugLogLevel** 매개 변수를 사용하여 요청 및/또는 응답을 로그에 보존하도록 지정할 수 있습니다. 
 
+  로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -208,10 +217,5 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
 * 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 * 활동 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법에 대해 알아보려면 [활동 로그를 보고 Azure 리소스 관리](resource-group-audit.md)를 참조하세요.
 * 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

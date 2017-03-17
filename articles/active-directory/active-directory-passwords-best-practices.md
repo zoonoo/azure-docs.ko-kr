@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6c711fd3a843604d62d6589d0a742f03a049bc5c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>암호 관리 배포 및 사용자 교육
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -74,8 +74,8 @@ ms.lasthandoff: 02/24/2017
 2. **Azure 관리 포털** 의 [라이선스](https://manage.windowsazure.com)탭으로 이동하여 암호 재설정에 제공하려는 각 사용자에게 적절한 라이선스를 할당합니다.
 3. **암호 재설정에 대한 액세스 제한** 전환을 **예**로 설정하고 암호 재설정을 사용하도록 보안 그룹을 선택하여 느리게 시간에 따라 기능을 롤아웃하도록 선택적으로 암호 재설정을 사용자 그룹으로 제한합니다.
 4. 사용자에게 등록하도록 안내하는 전자 메일을 보내고, 액세스 패널에서 강제 등록을 사용하거나, DirSync, PowerShell 또는 [Azure 관리 포털](https://manage.windowsazure.com)을 통해 사용자 자신에 대해 적절한 인증 데이터를 업로드하여 암호 재설정을 사용하도록 사용자에게 알립니다.  이에 대한 자세한 내용은 아래에 제공됩니다.
-5. 시간이 지남에 따라 보고서 탭으로 이동하여 [**암호 재설정 등록 활동**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) 보고서를 보고 등록된 사용자를 검토합니다.
-6. 대부분의 사용자를 등록한 후, 보고서 탭으로 이동하고 [**암호 재설정 활동**](active-directory-passwords-get-insights.md#view-password-reset-activity) 보고서를 보고 암호 재설정을 사용합니다.
+5. 시간이 지남에 따라 보고서 탭으로 이동하여 [**암호 재설정 등록 활동**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal) 보고서를 보고 등록된 사용자를 검토합니다.
+6. 대부분의 사용자를 등록한 후, 보고서 탭으로 이동하고 [**암호 재설정 활동**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal) 보고서를 보고 암호 재설정을 사용합니다.
 
 여러가지 방법으로 조직에 등록하고 암호 재설정을 사용할 수 있음을 사용자에게 알립니다.  아래에서 자세히 설명합니다.
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 02/24/2017
 
   ![][001]
 
-[여기](http://1drv.ms/1xWFtQM)에서 전자 메일 템플릿을 다운로드할 수 있습니다.
+[여기](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow)에서 전자 메일 템플릿을 다운로드할 수 있습니다.
 
 ### <a name="creating-your-own-password-portal"></a>고유의 암호 포털 만들기
 암호 관리 기능을 배포하는 더 큰 고객에게 적합한 하나의 전략은 사용자가 한 위치에서 암호와 관련된 모든 것을 관리하는 데 사용할 수 있는 "암호 포털"를 생성하는 것입니다.  
@@ -144,7 +144,7 @@ PowerShell을 사용하여 이 데이터를 읽고 쓰는 방법은 [사용자�
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다

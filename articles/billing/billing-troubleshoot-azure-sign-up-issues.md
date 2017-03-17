@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f058194302949d1f5ba7d86e9a693ba229bdc9a2
-ms.openlocfilehash: b913fd0d944568e422ffcf86791910a746367add
-
+ms.sourcegitcommit: 459d0526961d03b564a35178f9ff4ff2e343e08c
+ms.openlocfilehash: 70a9d96e36f5e386e8b1c0036ef8e2f770924930
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="i-cant-sign-up-for-azure"></a>Azure에 등록할 수 없습니다.
+# <a name="troubleshoot-sign-up-issues-for-azure"></a>Azure의 등록 문제 해결
 Azure에 등록할 수 없는 경우 몇 가지를 확인하여 문제를 해결할 수 있습니다.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>진행 표시줄이 "카드로 ID 확인" 섹션에서 중지됩니다.
@@ -82,9 +83,4 @@ OSA 키가 없는 경우 [Microsoft Pinpoint](http://pinpoint.microsoft.com/)에
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -6,7 +6,7 @@ documentationcenter:
 author: shizn
 manager: timtl
 tags: 
-keywords: "intel edison 개발, azure iot 허브, 사물 인터넷 시작, 사물 인터넷 자습서, adafruit 사물 인터넷, intel edison arduino, arduino 시작"
+keywords: "intel edison 개발, azure iot hub, 사물 인터넷 시작, 사물 인터넷 자습서, adafruit 사물 인터넷, intel edison arduino, arduino 시작"
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
 ms.devlang: nodejs
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/7/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
-ms.openlocfilehash: 66748b2d59396689a5a20ac77f6d0cc5ad7b0b03
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 43b6efb64c24405ae3638f6d04da5d21e30a55e1
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-nodejs"></a>Intel Edison 시작(Node.js)
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-nodejs"></a>Node.js를 사용하여 IoT Hub에 Intel Edison 장치 연결
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

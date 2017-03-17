@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
-ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
    
    점진적으로 다운로드하려는 경우 자산의 MP4 파일의 이름을 가져옵니다.  
 4. 매니페스트 파일 또는 MP4 파일에 URL을 작성합니다. 
+
+
+>[!NOTE]
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
 ### <a name="use-media-services-net-sdk"></a>Media Services .NET SDK 사용
 스트리밍 URL 작성 
@@ -173,10 +178,5 @@ ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
 ## <a name="see-also"></a>참고 항목
 [자산 다운로드](media-services-deliver-asset-download.md)
 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

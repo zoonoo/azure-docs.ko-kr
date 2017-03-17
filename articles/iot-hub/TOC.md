@@ -96,7 +96,10 @@
 #### [문제 해결](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Arduino 사용
-### [Node.JS](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### 단원 1: 장치 구성
 ##### [장치 구성](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [도구 얻기(Windows 7 이상)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [예제 응용 프로그램을 실행하여 메시지 수신](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [선택 사항: LED 동작 변경](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [문제 해결](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## 게이트웨이 SDK 사용
 ### [Linux에서 시뮬레이션](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Azure 테이블 저장소에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [단원 5: 첫 번째 Azure IoT 게이트웨이 모듈 만들기](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [문제 해결](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [SensorTag 장치](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### 단원 4: Azure 테이블 저장소로 메시지 저장
 ##### [Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Azure 테이블 저장소에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [단원 5: 첫 번째 Azure IoT 게이트웨이 모듈 만들기](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,7 +227,7 @@
 ## 관리
 ### IoT Hub 만들기 
 #### [포털 사용](iot-hub-create-through-portal.md)
-#### [CLI 2.0 미리 보기 사용](iot-hub-create-using-cli.md)
+#### [CLI 2.0 사용](iot-hub-create-using-cli.md)
 #### [CLI 사용](iot-hub-create-using-cli-nodejs.md)
 #### [REST API 사용](iot-hub-rm-rest.md)
 #### [PowerShell 사용](iot-hub-rm-template-powershell.md)

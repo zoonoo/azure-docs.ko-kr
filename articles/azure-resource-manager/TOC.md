@@ -38,7 +38,8 @@
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
 ## 액세스 제어
 ### [PowerShell에서 서비스 주체 만들기](resource-group-authenticate-service-principal.md)
-### [Azure CLI에서 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)
+### [Azure CLI 2.0에서 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Azure CLI 1.0에서 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)
 ### [포털에서 서비스 주체 만들기](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)

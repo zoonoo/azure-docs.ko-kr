@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 053c04ed222eb9c9203a25153e45e31ba842b223
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -168,10 +169,5 @@ Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되�
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Windows VM의 가용성 관리 | Microsoft Docs"
+title: "Azure에서 Windows VM의 가용성 관리 | Microsoft Docs"
 description: "Azure에서 여러 가상 컴퓨터를 사용하여 Windows 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 569f67da5d91264a20927da64e560ec35a9a2d81
-ms.openlocfilehash: a12b91a794301d616a736fb0bac8b11f7cae9b95
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 105880c146135a9ecdc29cf5363a240d3550a6a9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="manage-the-availability-of-virtual-machines"></a>가상 컴퓨터의 가용성 관리
+# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 컴퓨터의 가용성 관리 
+
 Azure에서 여러 가상 컴퓨터를 설정하고 관리하여 Windows 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다. [Linux 가상 컴퓨터의 가용성을 관리](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수도 있습니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,10 +35,5 @@ Azure에서 여러 가상 컴퓨터를 설정하고 관리하여 Windows 응용 
 
 ## <a name="next-steps"></a>다음 단계
 가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

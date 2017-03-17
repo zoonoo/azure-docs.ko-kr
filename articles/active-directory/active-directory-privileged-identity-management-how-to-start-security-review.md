@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8c9bac62a92947ea888f1ccdbd300f5b40cb3e07
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -86,9 +87,4 @@ PIM 응용 프로그램 기본 페이지에서 액세스 검토를 시작하는 
 [2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

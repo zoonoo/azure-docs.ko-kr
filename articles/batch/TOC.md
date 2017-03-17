@@ -1,6 +1,7 @@
 # 개요
 ## [Azure Batch란?](batch-technical-overview.md)
 ## [기능 개요](batch-api-basics.md)
+## [API 및 도구](batch-apis-tools.md)
 ## [할당량 및 한도](batch-quota-limit.md)
 # 시작
 ## [배치 계정 만들기](batch-account-create-portal.md)
@@ -25,7 +26,8 @@
 ### [배치 진단 로그](batch-diagnostics.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -45,9 +47,4 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

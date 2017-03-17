@@ -169,7 +169,7 @@
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [리소스 관리자](/dotnet/api/microsoft.azure.management.storage)
-### [데이터 이동](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [데이터 이동](/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [Blob, 큐, 테이블 및 파일](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)

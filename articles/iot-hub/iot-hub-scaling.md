@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 7683a6c6afa3dbec3fccadc9f095480ed90aa039
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scaling-iot-hub"></a>IoT Hub 크기 조정
+# <a name="scale-your-iot-hub-solution"></a>IoT Hub 솔루션 크기 조정
 Azure IoT Hub는 동시에 최대 백만 개의 연결된 장치를 지원할 수 있습니다. 자세한 내용은 [IoT Hub 가격 책정][lnk-pricing]을 참조하세요. 각 IoT Hub 단위는 특정 개수의 일일 메시지를 허용합니다.
 
 솔루션의 규모를 적절히 조정하려면 IoT Hub의 특정 용도를 고려합니다. 특히 다음과 같은 범주의 작업에 필요한 최대 처리량을 고려해야 합니다.
@@ -61,9 +63,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

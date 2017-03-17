@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
-ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1e66ce0af4d3d33b584f9f3a881c34aa04e783b7
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,12 +40,12 @@ Data Lake Store 계정에 액세스할 수 있는 HDInsight 클러스터를 만�
 ## <a name="do-you-learn-fast-with-videos"></a>비디오로 빠르게 배우시겠습니까?
 [비디오를 보세요](https://mix.office.com/watch/1liuojvdx6sie) .
 
-## <a name="use-distcp-from-remote-desktop-windows-cluster-or-ssh-linux-cluster"></a>원격 데스크톱(Windows 클러스터) 또는 SSH(Linux 클러스터)에서 Distcp 사용
+## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>HDInsight Linux 클러스터에서 Distcp 사용
+
 HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 데이터를 복사하는 데 사용할 수 있는 Distcp 유틸리티와 함께 제공됩니다. 데이터 레이크 저장소를 추가 저장소로 사용하도록 HDInsight 클러스터를 구성한 경우 Distcp 유틸리티는 기본적으로 데이터 레이크 저장소 계정으로/에서 데이터를 복사할 수 있습니다. 이 섹션에서는 Distcp 유틸리티를 사용하는 방법에 대해 살펴봅니다.
 
-1. Windows 클러스터가 있으면 데이터 레이크 저장소 계정에 액세스할 수 있는 HDInsight 클러스터에 원격으로 연결합니다. 지침은 [RDP를 사용하여 클러스터에 연결](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)을 참조하세요. 클러스터 바탕 화면에서 Hadoop 명령줄을 엽니다.
+1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 
-    Linux 클러스터가 있는 경우 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 2. Azure 저장소 Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령을 실행합니다.
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -100,7 +101,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 ### <a name="copying-large-datasets"></a>큰 데이터 집합 복사
 
-이동해야 하는 데이터 집합의 크기가 매우 큰 경우(예: 1TB 초과) 또는 많은 다른 폴더가 포함된 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 특정 작업만 다시 시작하면 됩니다.
+이동해야 하는 데이터 집합의 크기가 매우 큰 경우(예:&1;TB 초과) 또는 많은 다른 폴더가 포함된 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 특정 작업만 다시 시작하면 됩니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -117,9 +118,4 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

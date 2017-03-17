@@ -15,9 +15,9 @@ ms.workload: azure-government
 ms.date: 02/13/2017
 ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
-ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 21c2a0faad87b84058093f02c831b374a644b4b6
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -31,7 +31,7 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 
 서비스의 최신 목록에 대해서는 [지역별 제품](https://azure.microsoft.com/regions/services/)을 참조하세요. 
 
-아래 테이블에서 Resource Manager로 지정된 서비스를 사용하면 리소스 공급자를 사용할 수 있고 PowerShell을 사용하여 관리할 수 있습니다. Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용은 [여기](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요. 포털에서 사용 가능하다고 지정된 서비스는 [Azure Government 포털](https://portal.azure.us/)에서 관리될 수 있습니다. 
+다음 표에서 Resource Manager로 지정된 서비스를 사용하면 리소스 공급자를 사용할 수 있고 PowerShell을 사용하여 관리할 수 있습니다. Resource Manager 공급자, API 버전 및 스키마에 대한 자세한 내용은 [여기](../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요. 포털에서 사용 가능하다고 지정된 서비스는 [Azure Government 포털](https://portal.azure.us/)에서 관리될 수 있습니다. 
 
 
 ## <a name="computedocumentation-government-computemd"></a>[계산](documentation-government-compute.md)
@@ -95,6 +95,12 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | 예 | 예 |
 
 
+## <a name="intelligence--analyticsdocumentation-government-services-intelligenceandanalyticsmd"></a>[인텔리전스 + 분석](documentation-government-services-intelligenceandanalytics.md)
+
+| 부여 | 리소스 관리자 사용 | 포털 |
+| --- | --- | --- |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | 예 | 예 |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | 아니요 | 아니요(Office 365 관리 포털) |
 
 
 ## <a name="internet-of-things-iot"></a>IoT(사물 인터넷)
@@ -122,7 +128,6 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 | Azure Active Directory | 예 | 예 |
 | [키 자격 증명 모음](documentation-government-services-securityandidentity.md#key-vault) | 예 | 아니요(포함 예정) |
 | Multi-Factory Authentication | 예 | 예 |
-| InTune | 예 | 아니요 |
 
 
 ## <a name="intelligence--analytics"></a>인텔리전스 + 분석
@@ -149,6 +154,6 @@ Azure Government는 제공되는 서비스를 지속적으로 확장하고 있�
 
 
 ## <a name="next-steps"></a>다음 단계
-추가 정보 및 업데이트는 [Microsoft Azure Government 블로그](https://blogs.msdn.microsoft.com/azuregov/)를 구독하세요.
+부가 정보 및 업데이트를 보려면 [Microsoft Azure Government 블로그](https://blogs.msdn.microsoft.com/azuregov/)를 구독하세요.
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 09bc875449ecdf48c2570f1029df68d28ae5e798
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6654b49658818a3dfd5297dc551a45de0f0968dc
+ms.openlocfilehash: 196a627b4c5cf921ddc99a0634f48f807593f8cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -79,7 +79,7 @@ Azure에서 응용 프로그램을 Azure SQL Server에 연결할 수 있게 하�
 첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/) 을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 이러한 방법과 Transact-SQL을 사용하여 만들고 관리 할 수 있습니다. 성능 향상을 위해 서버 수준 방화벽 규칙이 데이터베이스 수준에서 일시적으로 캐시됩니다. 캐시를 새로 고치려면 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)를 참조하세요. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 서버 방화벽 설정](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ## <a name="creating-database-level-firewall-rules"></a>데이터베이스 수준 방화벽 규칙 만들기.
-첫 번째 수준 방화벽을 구성한 후, 특정 데이터베이스에 대한 액세스를 제한하고 싶을 수도 있습니다. 서버 수준 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 방화벽 규칙을 가질 수 있습니다. 마스터 및 사용자 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙은 Transact-SQL을 통해 생성 및 관리됩니다. 데이터베이스 수준의 방화벽 규칙 구성에 대한 자세한 내용은 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
+ 첫 번째 수준 방화벽을 구성한 후, 특정 데이터베이스에 대한 액세스를 제한하고 싶을 수도 있습니다. 서버 수준 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 방화벽 규칙을 가질 수 있습니다. 마스터 및 사용자 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙은 Transact-SQL을 통해 생성 및 관리됩니다. 데이터베이스 수준의 방화벽 규칙 구성에 대한 자세한 내용은 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
 
 ## <a name="programmatically-managing-firewall-rules"></a>방화벽 규칙을 프로그래밍 방식으로 관리
 Azure 포털 외에도 Transact-SQL, REST API 및 Azure PowerShell을 사용하여 방화벽 규칙을 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 각 메서드에 사용 가능한 명령의 집합을 보여 줍니다.
@@ -112,8 +112,26 @@ Azure 포털 외에도 Transact-SQL, REST API 및 Azure PowerShell을 사용하�
 
 > [!NOTE]
 > 방화벽 설정의 변경 내용이 적용되기까지는&5;분 정도의 시간이 소요될 수 있습니다.
-> 
-> 
+ 
+ 
+### <a name="faq-when-should-you-use-a-server-level-firewall-rule-and-when-should-you-use-a-database-level-firewall-rule"></a>FAQ: 서버 수준 방화벽 규칙과 데이터베이스 수준 방화벽 규칙은 각각 어떤 경우에 사용해야 하나요?   
+Q. 한 데이터베이스의 사용자가 다른 데이터베이스에서 완전히 분리되어야 하나요?   
+  그렇다면 데이터베이스 수준 방화벽 규칙을 사용하여 액세스 권한을 부여하세요. 이렇게 하면 서버 수준 방화벽 규칙을 사용할 수 없게 되며, 방화벽을 통과해서 모든 데이터베이스에 액세스하도록 허용되므로 방어 수준이 약해집니다.   
+ 
+Q. 해당 IP 주소의 사용자가 모든 데이터베이스에 액세스할 수 있어야 하나요?   
+  서버 수준 방화벽 규칙을 사용하여 방화벽 규칙을 구성해야 하는 횟수를 줄이세요.   
+
+Q. 방화벽 규칙을 구성하는 개인이나 팀이 Azure Portal, PowerShell 또는 REST API를 통해서만 액세스하나요?   
+  서버 수준 방화벽 규칙을 사용해야 합니다. 데이터베이스 수준 방화벽 규칙은 Transact-SQL을 사용해야만 구성할 수 있습니다.  
+
+Q. 방화벽 규칙을 구성하는 개인이나 팀이 데이터베이스 수준에서 높은 수준의 권한을 가질 수 없도록 금지되나요?   
+  서버 수준 방화벽 규칙을 사용하세요. TRANSACT-SQL을 사용하여 데이터베이스 수준 방화벽 규칙을 구성하려면 적어도 데이터베이스 수준에서 `CONTROL DATABASE` 권한이 있어야 합니다.  
+
+Q. 방화벽 규칙을 구성하거나 감사하는 개인이나 팀이 많은(100개 정도) 데이터베이스에 대한 방화벽 규칙을 중앙에서 관히하고 있나요?   
+  이 선택은 사용자의 필요 및 환경에 따라 달라집니다. 서버 수준 방화벽 규칙이 구성하기 더 쉬울 수 있지만 스크립팅은 데이터베이스 수준에서 규칙을 구성할 수 있습니다. 또한 서버 수준 방화벽 규칙을 사용하더라도 데이터베이스에 대해 `CONTROL` 권한이 있는 사용자가 데이터베이스 수준 방화벽 규칙을 만들었는지 확인하기 위해서는 데이터베이스 방화벽 규칙을 감사해야 할 수 있습니다.   
+
+Q. 서버 수준 및 데이터베이스 수준 방화벽 규칙을 함께 사용할 수 있나요?   
+  예. 관리자와 같은 일부 사용자는 서버 수준 방화벽 규칙이 필요할 수 있습니다. 데이터베이스 응용 프로그램 사용자와 같은 경우는 데이터베이스 수준 방화벽 규칙이 필요할 수 있습니다.   
 
 ## <a name="troubleshooting-the-database-firewall"></a>데이터베이스 방화벽 문제 해결
 Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 작동되지 않는 경우 다음 사항을 고려하세요.
@@ -137,7 +155,8 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 
 데이터베이스를 만드는 방법에 대한 자습서는 [첫 Azure SQL Database](sql-database-get-started.md)를 참조하세요.
 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
-데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
+데이터베이스를 탐색하는 방법을 이해하려면 [데이터베이스 및 로그인 보안 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.   
+로그인, 사용자 및 방화벽을 만드는 방법에 대한 포괄적인 자습서를 보려면 [SQL Server 인증, 액세스 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [데이터베이스 보안 설정](sql-database-security-overview.md)

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
-ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -37,10 +38,10 @@ ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * 최신 버전의 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* Visual Studio 2015 또는 무료 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
+* Visual Studio 2017, 2015 또는 무료 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 * 컴퓨터에 대한 관리자 권한
-* Microsoft 다운로드 센터에서 [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) 다운로드
+* Microsoft 다운로드 센터에서 [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) 다운로드
 * 선택 사항: [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## <a name="scenario-introduction-hello-toll"></a>시나리오 소개: “Hello, Toll!”
@@ -135,7 +136,7 @@ Azure 계정이 없는 경우 [무료 평가판 버전을 요청](http://azure.m
 
 GitHub에 있는 TollApp 폴더의 Setup.ps1 스크립트를 사용하여 필요한 모든 리소스를 만들 수 있습니다. 시간 형편상 이를 실행하는 것이 좋습니다. Azure Portal에서 이러한 리소스를 구성하는 방법에 대해 자세히 알아보려면 "Azure Portal에서 자습서 리소스 구성" 부록을 참조하세요.
 
-[TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) 폴더 및 파일 지원을 다운로드하고 저장합니다.
+[TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) 폴더 및 파일 지원을 다운로드하고 저장합니다.
 
 **Microsoft Azure PowerShell** 창을 *관리자 권한으로*엽니다. Azure PowerShell이 아직 없는 경우 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 지침에 따라 설치합니다.
 
@@ -441,10 +442,5 @@ Azure Stream Analytics에 대한 자세한 내용을 알아보려면 [온라인 
    > 
    > 
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

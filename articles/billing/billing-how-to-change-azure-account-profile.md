@@ -1,6 +1,6 @@
 ---
-title: "Azure 계정의 프로필 정보를 변경하는 방법 | Microsoft Docs"
-description: "Azure 계정의 프로필을 변경하는 방법을 설명하고 Azure 계정 센터에서 국가 변경할 수 없는 이유와 같은 일반적인 질문에 대답합니다."
+title: "Azure 계정 프로필 정보 변경 | Microsoft Docs"
+description: "Azure 계정의 프로필을 변경하는 방법을 설명하고 Azure Account Center에서 국가 변경할 수 없는 이유와 같은 일반적인 질문에 대답합니다."
 services: 
 documentationcenter: 
 author: genlin
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8587b157886f2d0f5778573aeec55c072a50bf93
-ms.openlocfilehash: dd28c37bc63d1c457d7c8ffc60b1bad1f2831f31
-
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c4f76065996c7db43ec5503ff76fc7a1bbeb87ed
+ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="how-to-change-profile-information-of-your-azure-account-such-as-contact-email-address-and-phone-number"></a>연락처 메일, 주소 및 전화 번호와 같은 Azure 계정의 프로필 정보를 변경하는 방법
+# <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>연락처 메일, 주소 및 전화 번호와 같은 Azure 계정 프로필 정보 변경
 계정 관리자 프로필의 메일 주소는 Microsoft에서 구독에 대한 중요한 대금 청구 관련 업데이트를 알리는 데 사용됩니다. 정기적으로 확인하는 연락처 메일 주소를 지정하는 것이 좋습니다.
 
 ## <a name="how-to-change-your-profile-information"></a>프로필 정보를 변경하는 방법
@@ -51,10 +52,5 @@ ms.openlocfilehash: dd28c37bc63d1c457d7c8ffc60b1bad1f2831f31
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

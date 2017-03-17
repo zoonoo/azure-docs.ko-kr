@@ -17,8 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
 
 다음 목록에는 가져오기 프로세스 도중 최상의 성능을 위한 권장 사항을 포함합니다.
 
-* 전송 성능을 최대화하기 위한 예산 범위 내에서 가장 높은 서비스 수준 및 성능 계층을 선택합니다. 마이그레이션을 완료한 후 규모를 축소하여 비용을 절감할 수 있습니다. [Azure Portal을 사용하여 단일 데이터베이스의 서비스 계층 및 성능 수준 변경](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [PowerShell을 사용하여 단일 데이터베이스의 서비스 계층 및 성능 수준 변경](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database), [Transact-SQL를 사용하여 단일 데이터베이스의 서비스 계층 및 성능 수준 변경](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database)을 참조하세요.
+* 전송 성능을 최대화하기 위한 예산 범위 내에서 가장 높은 서비스 수준 및 성능 계층을 선택합니다. 마이그레이션을 완료한 후 규모를 축소하여 비용을 절감할 수 있습니다. 
 * .BACPAC 파일과 대상 데이터 센터 간의 거리를 최소화합니다.
 * 마이그레이션하는 동안 자동 통계 사용 안 함
 * 파티션 테이블 및 인덱스
@@ -119,10 +120,5 @@ ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
 * 마이그레이션 후 UTC 시간 연동에 대한 내용은 [현지 표준 시간대에 맞게 기본 표준 시간대 수정](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/)을 참조하세요.
 * 마이그레이션 후 데이터베이스의 기본 언어를 변경하는 방법에 대한 내용은 [Azure SQL Database의 기본 언어 변경 방법](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/)을 참조하세요.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

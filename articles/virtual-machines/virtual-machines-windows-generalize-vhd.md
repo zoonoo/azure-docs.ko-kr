@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: c70793c707252582d4ba77ac8b04c39521b245f8
-ms.openlocfilehash: a9b2cf638f52a6b7c371e443d9b5a104a57f910c
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: a0fca1e2a1d354be9ad34fb3a36714d0bdf393d2
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -40,13 +41,13 @@ ms.openlocfilehash: a9b2cf638f52a6b7c371e443d9b5a104a57f910c
     ![Sysprep 시작](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. 
 
+> [!IMPORTANT]
+> Azure에 VHD를 업로드하거나 VM에서 이미지를 만드는 작업을 완료할 때까지 VM을 다시 시작하지 않습니다. VM이 실수로 다시 시작되면 Sysprep을 실행하여 다시 일반화합니다.
+> 
+> 
+
 ## <a name="next-steps"></a>다음 단계
 * VM이 온-프레미스에 있는 경우 이제 [Azure에 VHD를 업로드](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수 있습니다.
 * VM이 Azure에 이미 있는 경우 이제 [일반화된 VM에서 이미지를 만들](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

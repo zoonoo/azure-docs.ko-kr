@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 760c248c92948af2c7e9ae54b0c42f396f0376f6
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-active-directory-password-reset-for-it-administrators"></a>IT 관리자에 대한 Azure Active Directory 암호 재설정
 > [!IMPORTANT]
-> Azure 또는 O365 암호를 재설정하려고 하나요?  그렇다면 [이 섹션으로 건너뛰십시오](#users-how-to-manage-your-own-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -118,8 +118,8 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 | 항목 |  |
 | --- | --- |
 | 암호 재설정 보고서를 보려면 어디로 가야 하나요? |[암호 관리 보고서 개요](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| 조직 내에서 사용자가 암호 재설정을 사용하는 방법을 어디서 확인할 수 있나요? |[암호 재설정 활동 보기](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| 등록하는 사용자가 얼마나 많은지 및 등록한 것이 무엇인지를 어디서 확인할 수 있나요? |[암호 재설정 등록 활동 보기](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| 조직 내에서 사용자가 암호 재설정을 사용하는 방법을 어디서 확인할 수 있나요? |[암호 재설정 활동 보기](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| 등록하는 사용자가 얼마나 많은지 및 등록한 것이 무엇인지를 어디서 확인할 수 있나요? |[암호 재설정 등록 활동 보기](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | API에서 암호 재설정 보고서는 어떻게 얻을 수 있나요? |[Azure AD 응용 프로그램을 만들어 보고 API에 액세스](active-directory-reporting-api-getting-started.md) |
 | API를 통해 어떤 종류의 암호 재설정 보고 정보를 사용할 수 있나요? |[보고 API에서 사용할 수 있는 암호 재설정 및 등록 이벤트](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -213,7 +213,7 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다

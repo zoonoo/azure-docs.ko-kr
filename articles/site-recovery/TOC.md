@@ -19,9 +19,10 @@
 ## 계획
 ### [배포 필수 조건](site-recovery-prereq.md)
 ### [네트워크 인프라 고려 사항](site-recovery-network-design.md)
-### [Hyper-V 복제를 위해 Site Recovery Capacity Planner 실행](site-recovery-capacity-planner.md)
 ### [용량을 계획하고 VMware 복제를 Azure에 확장](site-recovery-plan-capacity-vmware.md)
-### [Azure에 VMware를 복제하기 위해 Deployment Planner 실행](site-recovery-deployment-planner.md)
+### [Azure로 VMware 복제를 위한 Deployment Planner](site-recovery-deployment-planner.md)
+### [Hyper-V 복제를 위한 Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
+
 ## 구성
 ### [원본 환경 설정](site-recovery-set-up-vmware-to-azure.md)
 ### [대상 환경 설정](site-recovery-prepare-target-vmware-to-azure.md)
@@ -29,14 +30,14 @@
 ### [VMware 복제를 위해 모바일 서비스 배포](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [System Center Configuration Manager를 사용하여 모바일 서비스 배포](site-recovery-install-mobility-service-using-sccm.md)
 #### [Azure Automation DSC를 사용하여 모바일 서비스 배포](site-recovery-automate-mobility-service-install.md)
+### [복제 활성화](site-recovery-replicate-vmware-to-azure.md)
 ## 장애 조치 및 장애 복구
-### [사이트 복구에서 장애 조치](site-recovery-failover.md)
+### [보호된 컴퓨터 장애 조치](site-recovery-failover.md)
 ### [복구 계획 설정](site-recovery-create-recovery-plans.md)
 #### [Azure Runbook을 복구 계획에 추가](site-recovery-runbook-automation.md)
-### [Azure로 테스트 장애 조치(Failover) 실행](site-recovery-test-failover-to-azure.md)
-### [두 VMM 사이트 간 테스트 장애 조치(failover) 실행](site-recovery-test-failover-vmm-to-vmm.md)
-### [Azure에서 VMware VM/물리적 서버 장애 복구](site-recovery-how-to-failback-azure-to-vmware.md)
-### [Azure에서 Hyper-V VM 장애 복구](site-recovery-failback-from-azure-to-hyper-v.md)
+### [테스트 장애 조치 실행](site-recovery-test-failover-to-azure.md)
+### [장애 조치 후 컴퓨터 다시 보호](site-recovery-how-to-reprotect.md)
+### [Azure에서 장애 복구](site-recovery-failback-azure-to-vmware.md)
 
 ## 마이그레이션
 ### [Azure로 마이그레이션](site-recovery-migrate-to-azure.md)
@@ -56,9 +57,13 @@
 ### [Azure에 Hyper-V 복제 자동화(VMM 있음)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [보조 사이트에 Hyper-V 복제 자동화(VMM 있음)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## 관리
+### [복제 설정 편집](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
+### [Azure에서 프로세스 서버 관리](site-recovery-vmware-setup-azure-ps-resource-manager.md)
+### [구성 서버 관리](site-recovery-vmware-to-azure-manage-configuration-server.md)
+### [확장 프로세스 서버 관리](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [vCenter 서버 관리](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
-### [프로세스 서버 확장](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
-### [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
+## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)

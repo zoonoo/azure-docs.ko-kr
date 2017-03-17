@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 03/15/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
 ms.openlocfilehash: 01ef15db6e62443a2d34bae8bc133f21f4d874f0
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -181,9 +182,4 @@ ms.openlocfilehash: 01ef15db6e62443a2d34bae8bc133f21f4d874f0
 ### <a name="feature-additions"></a>기능 추가 사항
 * [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL 데이터 웨어하우스에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md) 문서에서 특히 [메커니즘 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) 및 [메커니즘 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) 섹션을 참조하세요.
 * 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -37,6 +37,8 @@
 ### [Resource Manager 템플릿을 사용하여 진단 설정 사용](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## REST API 사용
 ### [REST API를 사용하여 연습](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Azure 진단 사용
+### [Application Insights로 보내기](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
@@ -52,8 +54,3 @@
 ## [PowerShell 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Azure CLI 1.0 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [지원 메트릭 목록](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

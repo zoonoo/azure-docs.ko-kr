@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 3/01/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
 > [!div class="op_single_selector"]
 > * [사용자 또는 그룹에 따른 액세스 관리](role-based-access-control-manage-assignments.md)
 > * [리소스에 따른 액세스 관리](role-based-access-control-configure.md)
-> 
-> 
 
 Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 액세스 권한을 관리할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
 
@@ -57,13 +56,9 @@ Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제�
 2. **제거** 및 **예**를 차례로 선택하고 확인합니다.
     ![액세스 권한 할당 제거 - 스크린샷](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="related-topics"></a>관련된 항목
-*  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)
-*  [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
+## <a name="next-steps"></a>다음 단계
 
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)
+* [RBAC 기본 제공 역할](role-based-access-built-in-roles.md)
 
 

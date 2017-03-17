@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 08ebf8f6f5a2adab90c7de1084bfb5e4aed77fd3
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: a7d6cad6faa5fc3a64fe416b44a03ad3992c7862
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="identity-registry"></a>ID 레지스트리
+# <a name="understand-identity-registry-in-your-iot-hub"></a>IoT hub의 ID 레지스트리 이해
 ## <a name="overview"></a>개요
 모든 IoT Hub에는 IoT Hub에 연결이 허용된 장치에 대한 정보를 저장하는 ID 레지스트리가 있습니다. 장치를 IoT Hub에 연결할 수 있으려면 IoT Hub의 ID 레지스트리에 해당 장치에 대한 항목이 있어야 합니다. 또한 장치는 ID 레지스트리에 저장된 자격 증명에 따라 IoT Hub로 인증되어야 합니다.
 

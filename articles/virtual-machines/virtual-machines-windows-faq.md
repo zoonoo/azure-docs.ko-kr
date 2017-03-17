@@ -16,11 +16,13 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: cfc58b84ccd671b3a34a399bad11d15c9bc3b713
-ms.openlocfilehash: f338a124537090894773bb6fce1052fc7f590a33
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 5f6d8a5bb0209f1dbc0de682b185089e87a1574b
+ms.lasthandoff: 03/11/2017
 
 
 ---
+
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows 가상 컴퓨터에 대한 자주 묻는 질문과 대답
 이 문서에서는 Azure에서 리소스 관리자 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 대한 일부 일반적인 질문을 해결합니다. 이 항목의 Linux 버전에 대해서는 [Linux 가상 컴퓨터에 대한 자주 묻는 질문과 대답](virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -131,9 +133,4 @@ D: 드라이브 문자를 사용해야 하는 응용 프로그램이 있는 경�
         <td>iloveyou! </td>
     </tr>
 </table>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

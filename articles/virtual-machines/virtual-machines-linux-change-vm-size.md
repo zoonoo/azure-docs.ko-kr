@@ -17,15 +17,15 @@ ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1a218c8b9a1119ed284bc55071eed2a082122802
-ms.openlocfilehash: 78efd3d80f066d6b182b142564dbd0a7a9e01431
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d149e51441dbf440732b1930245d27a6ff144970
+ms.lasthandoff: 03/03/2017
+
 
 ---
+# <a name="resize-a-linux-virtual-machine-using-cli-20"></a>CLI 2.0을 사용하여 Linux 가상 컴퓨터 크기 조정
 
-# <a name="resize-a-linux-vm-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Linux VM의 크기 조정
-
-VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. VM을 호스트하는 하드웨어 클러스터에서 원하는 크기를 사용할 수 없는 경우 VM 할당을 취소해야 합니다. 
+VM(가상 컴퓨터)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. VM을 호스트하는 하드웨어 클러스터에서 원하는 크기를 사용할 수 없는 경우 VM 할당을 취소해야 합니다. 이 문서에서는 Azure CLI 2.0에서 Linux VM 크기를 조정하는 방법을 자세히 설명합니다. [Azure CLI 1.0](virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.

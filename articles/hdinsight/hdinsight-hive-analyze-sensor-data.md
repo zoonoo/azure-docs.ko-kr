@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 58881fd4608deddd8390cf4905b31a57f526e492
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -57,10 +59,5 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
    
     ![갤러리 이미지 시작하기](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

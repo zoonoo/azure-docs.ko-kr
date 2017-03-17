@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
-ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 12da8c9f7b55a8758d7f4bf743cd85e493fb24b9
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -137,7 +137,7 @@ SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/li
 다른 쿼리는 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)의 예를 참조하세요.
 
 ### <a name="sysresourcestats"></a>sys.resource_stats
-**마스터** 데이터베이스의 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰에는 특정 서비스 계층 및 성능 수준에서 SQL Database의 성능 수준을 모니터링할 수 있는 추가 정보가 포함되어 있습니다. 데이터는 5분마다 수집되어 약 35일 동안 보관됩니다. 이 뷰는 SQL Database가 리소스를 사용하는 방법에 대한 장기적인 기록 분석에 유용합니다.
+**마스터** 데이터베이스의 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰에는 특정 서비스 계층 및 성능 수준에서 SQL Database의 성능 수준을 모니터링할 수 있는 추가 정보가 포함되어 있습니다. 데이터는 5분마다 수집되어 약 14일 동안 보관됩니다. 이 뷰는 SQL Database가 리소스를 사용하는 방법에 대한 장기적인 기록 분석에 유용합니다.
 
 다음 그래프는 한 주 동안 각 시간당 P2 성능 수준의 Premium 데이터베이스에 대한 CPU 리소스 사용률을 보여 줍니다. 이 그래프는 월요일부터 5근무일과 응용 프로그램 사용량이 훨씬 적은 주말까지 표시되어 있습니다.
 

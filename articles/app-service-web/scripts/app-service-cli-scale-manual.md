@@ -16,9 +16,9 @@ ms.workload: web
 ms.date: 02/21/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: c23bab16ee8bf771f4af44abc94e958f512d5390
-ms.openlocfilehash: ddd4646bd900ad5766c2a41a1afa70cdbaa581b1
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 16e10ce51758f8d0d62457cac311b0449721ec34
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -34,13 +34,7 @@ ms.lasthandoff: 02/27/2017
 
 [!code-azurecli[기본](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "수동 크기 조정")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
-
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, App Service 앱 및 모든 관련된 리소스를 제거할 수 있습니다.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

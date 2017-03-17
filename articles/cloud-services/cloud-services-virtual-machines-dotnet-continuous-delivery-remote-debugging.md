@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: d9f325c515e0a8e2cdbcbde657c3f7d6b793a9da
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: bd0768b9d46c12c38ecd530ccef8397d1b595d8d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -25,7 +26,14 @@ ms.openlocfilehash: d9f325c515e0a8e2cdbcbde657c3f7d6b793a9da
 
 ## <a name="enabling-remote-debugging-for-cloud-services"></a>클라우드 서비스에 원격 디버깅 사용
 1. 빌드 에이전트에서 [Azure에 대한 명령줄 빌드](http://msdn.microsoft.com/library/hh535755.aspx)에 간략히 설명된 Azure에 대한 초기 환경을 설정합니다.
-2. 패키지에 원격 디버그 런타임(msvsmon.exe)이 필요하므로, [Visual Studio 2015용 원격 도구](http://www.microsoft.com/en-us/download/details.aspx?id=48155) (또는 Visual Studio 2013을 사용할 경우 [Microsoft Visual Studio 2013 업데이트 5용 원격 도구](https://www.microsoft.com/en-us/download/details.aspx?id=48156))를 설치합니다. 또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
+2. 패키지에 원격 디버그 런타임(msvsmon.exe)이 필요하므로, **Visual Studio용 원격 도구**를 설치합니다.
+
+    * [Visual Studio 2017용 원격 도구](https://go.microsoft.com/fwlink/?LinkId=746570)
+    * [Visual Studio 2015용 원격 도구](https://go.microsoft.com/fwlink/?LinkId=615470)
+    * [Visual Studio 2013용 원격 도구 업데이트 5](https://www.microsoft.com/download/details.aspx?id=48156)
+    
+    또는 Visual Studio를 설치한 시스템에서 원격 디버그 이진을 복사할 수 있습니다.
+
 3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md)에서 간략히 설명된 인증서를 만듭니다. .pfx 및 RDP 인증서 지문을 유지하고 대상 클라우드 서비스에 인증서를 업로드합니다.
 4. MSBuild 명령줄에 다음 옵션을 사용하여 원격 디버그를 사용하도록 설정한 상태로 빌드 및 패키지화합니다. (꺾쇠 괄호가 항목의 경우 시스템 및 프로젝트 파일에 대한 실제 경로를 대체합니다.)
    
@@ -44,39 +52,48 @@ ms.openlocfilehash: d9f325c515e0a8e2cdbcbde657c3f7d6b793a9da
 5. 다음 스크립트를 실행하여 RemoteDebug 확장을 사용합니다. 경로 및 개인 데이터를 사용자의 데이터(예: 구독 이름, 서비스 이름 및 지문)로 바꿉니다.
    
    > [!NOTE]
-   > 이 스크립트는 Visual Studio 2015에서 구성되었습니다. Visual Studio 2013을 사용하는 경우 아래 `$referenceName` 및 `$extensionName` 할당을 수정하여 `RemoteDebugVS2013`을(를) 사용합니다(`RemoteDebugVS2015` 대신).
-   > 
-   > 
-   
-    <pre>
+   > 이 스크립트는 Visual Studio 2015에서 구성되었습니다. Visual Studio 2013 또는 Visual Studio 2017을 사용할 경우 아래 `$referenceName` 및 `$extensionName` 할당을 `RemoteDebugVS2013` 또는 `RemoteDebugVS2017`으로 수정합니다.
+
+    ```powershell   
     Add-AzureAccount
-   
+
     Select-AzureSubscription "My Microsoft Subscription"
-   
+
     $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
-   
-    $endpoints = @(  ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}  ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}  )
-   
-    foreach($endpoint in $endpoints)  {  Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort  }
-   
-    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"  $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"  $extensionName = "RemoteDebugVS2015"  $version = "1.*"  $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
-   
-    $vm | Set-AzureVMExtension `
-    -ReferenceName $referenceName `
-    -Publisher $publisher `
-    -ExtensionName $extensionName `
-    -Version $version `  -PublicConfiguration $publicConfiguration
-   
-    foreach($extension in $vm.VM.ResourceExtensionReferences)  {  if(($extension.ReferenceName -eq $referenceName) `
-    -and ($extension.Publisher -eq $publisher) `
-    -and ($extension.Name -eq $extensionName) `  -and ($extension.Version -eq $version))  {  $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'  break  }  }
-   
-    $vm | Update-AzureVM  </pre>
-6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
+    $endpoints = @(
+                    ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
+                    ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
+                )
 
+    foreach($endpoint in $endpoints)
+    {
+        Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
+    }
 
+    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
+    $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
+    $extensionName = "RemoteDebugVS2015"
+    $version = "1.*"
+    $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
 
-<!--HONumber=Dec16_HO2-->
+    $vm | Set-AzureVMExtension -ReferenceName $referenceName -Publisher $publisher -ExtensionName $extensionName -Version $version -PublicConfiguration $publicConfiguration
+
+    foreach($extension in $vm.VM.ResourceExtensionReferences)
+    {
+        if(($extension.ReferenceName -eq $referenceName) `
+        -and ($extension.Publisher -eq $publisher) `
+        -and ($extension.Name -eq $extensionName) `
+        -and ($extension.Version -eq $version))
+        {
+            $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
+            break
+        }
+    }
+
+    $vm | Update-AzureVM
+    ```
+
+6. Visual Studio 및 Azure SDK for .NET&2;.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
 

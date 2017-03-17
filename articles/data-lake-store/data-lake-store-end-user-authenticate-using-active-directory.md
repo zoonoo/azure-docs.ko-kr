@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
-ms.openlocfilehash: a50fc687a1738a55c3d22eb3e12060397c162e06
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 0f6af54b351235390afa88f1ce156abd839a723f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -34,14 +35,16 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 
 이 두 옵션 모두 Azure Data Lake Store 또는 Azure Data Lake Analytics에 대해 만들어진 각 요청에 연결하는 OAuth 2.0 토큰과 함께 제공되는 응용 프로그램에서 발생합니다.
 
-이 문서는 최종 사용자 인증을 위한 Azure AD 웹 응용 프로그램을 만드는 방법에 대해 설명합니다. 서비스 간 인증을 위해 Azure AD 응용 프로그램 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+이 문서는 최종 사용자 인증을 위한 **Azure AD 네이티브 응용 프로그램**을 만드는 방법에 대해 설명합니다. 서비스 간 인증을 위해 Azure AD 응용 프로그램 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
 * 구독 ID. Azure Portal에서 검색할 수 있습니다. 예를 들어 Data Lake Store 계정 블레이드에서 사용할 수 있습니다.
   
     ![구독 ID 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
-* Azure AD 도메인 이름. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가서 검색할 수 있습니다. 아래 스크린샷에서 도메인 이름은 **contoso.microsoft.com**이며 괄호 안의 GUID는 테넌트 ID입니다. 
+
+* Azure AD 도메인 이름. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가서 검색할 수 있습니다. 아래 스크린샷에서 도메인 이름은 **contoso.onmicrosoft.com**이며 괄호 안의 GUID는 테넌트 ID입니다. 
   
     ![AAD 도메인 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
@@ -63,77 +66,59 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 
 ### <a name="what-do-i-need-to-use-this-approach"></a>이 방법을 사용하려면 무엇이 필요한가요?
 * Azure AD 도메인 이름. 이 이름은 이 문서의 필수 구성 요소에 이미 나열되어 있습니다.
-* Azure AD **웹 응용 프로그램**
-* Azure AD 웹 응용 프로그램에 대한 클라이언트 ID
-* Azure AD 웹 응용 프로그램의 회신 URI
+* Azure AD **네이티브 응용 프로그램**
+* Azure AD 네이티브 응용 프로그램에 대한 클라이언트 ID
+* Azure AD 네이티브 응용 프로그램에 대한 회신 URI
 * 위임된 권한 설정
 
-Azure AD 웹 응용 프로그램을 만들고 아래 나열된 요구 사항을 위해 구성하는 방법은 아래의 [Active Directory 응용 프로그램 만들기](#create-an-active-directory-application) 섹션을 참조하세요. 
 
-## <a name="create-an-active-directory-application"></a>Active Directory 응용 프로그램 만들기
-이 섹션에서는 Azure Active Directory를 사용하여 Azure Data Lake Store로 최종 사용자 인증을 위한 Azure AD 웹 응용 프로그램을 만들고 구성하는 방법에 대해 알아봅니다.
+## <a name="step-1-create-an-active-directory-web-application"></a>1단계: Active Directory 웹 응용 프로그램 만들기
 
-### <a name="step-1-create-an-azure-active-directory-application"></a>1단계: Azure Active Directory 응용 프로그램을 만듭니다
-> [!NOTE]
-> 아래 단계에서는 Azure Portal을 사용합니다. 또한 [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) 또는 [Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)를 사용하여 Azure AD 응용 프로그램을 만들 수 있습니다.
-> 
-> 
+Azure Active Directory를 사용하여 Azure Data Lake Store로 최종 사용자 인증을 위한 Azure AD 네이티브 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
 
-1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory** 를 선택합니다.
-   
-     ![Active Directory 선택](./media/data-lake-store-end-user-authenticate-using-active-directory/active-directory.png)
-3. 새 응용 프로그램을 만드는 데 사용할 Active Directory를 선택합니다. Active Directory가 두 개 이상인 경우에는 일반적으로 구독이 상주하는 디렉터리에 응용 프로그램을 만듭니다. 구독과 동일한 디렉터리에 있는 응용 프로그램의 구독 리소스에만 액세스 권한을 부여할 수 있습니다.  
-   
-     ![디렉터리 선택](./media/data-lake-store-end-user-authenticate-using-active-directory/active-directory-details.png)
-4. 디렉터리에서 응용 프로그램을 보려면 **응용 프로그램**을 클릭합니다.
-   
-     ![응용 프로그램 보기](./media/data-lake-store-end-user-authenticate-using-active-directory/view-applications.png)
-5. 해당 디렉터리에서 응용 프로그램을 만든 적이 없는 경우 다음과 비슷한 이미지가 표시됩니다. **응용 프로그램 추가**를 클릭합니다.
-   
-     ![응용 프로그램 추가](./media/data-lake-store-end-user-authenticate-using-active-directory/create-application.png)
-   
-     또는 아래쪽 창에서 **추가** 를 클릭합니다.
-   
-     ![추가](./media/data-lake-store-end-user-authenticate-using-active-directory/add-icon.png)
-6. 응용 프로그램의 이름을 입력하고 만들 응용 프로그램의 유형을 선택합니다. 이 자습서에서는 **웹 응용 프로그램 및/또는 웹 API** 를 만들기로 선택하고 다음 단추를 클릭합니다.
-   
-     ![응용 프로그램 이름 지정](./media/data-lake-store-end-user-authenticate-using-active-directory/tell-us-about-your-application.png)
-7. 앱에 대한 속성을 입력합니다. **로그온 URL**의 경우 응용 프로그램을 설명하는 웹 사이트에 대한 URI를 제공합니다. 웹 사이트의 존재 여부는 확인되지 않습니다. 
-   **앱 ID URI**의 경우 응용 프로그램을 식별하는 URI를 제공합니다.
-   
-     ![응용 프로그램 속성](./media/data-lake-store-end-user-authenticate-using-active-directory/app-properties.png)
-   
-    확인 표시를 클릭해 마법사를 완료하고 응용 프로그램을 만듭니다.
+위의 링크에 있는 지침을 수행하는 동안 아래 스크린샷과 같이 응용 프로그램 유형으로 **네이티브**를 선택해야 합니다.
 
-### <a name="step-2-get-client-id-reply-uri-and-set-delegated-permissions"></a>2단계: 클라이언트 ID, 회신 URI를 가져오고 위임된 권한을 설정합니다
-1. **구성** 탭을 클릭하여 응용 프로그램의 암호를 구성합니다.
-   
-     ![응용 프로그램 구성](./media/data-lake-store-end-user-authenticate-using-active-directory/application-configure.png)
-2. **클라이언트 ID**를 복사합니다.
-   
-     ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/client-id.png)
-3. **Single sign-on** 섹션에서 **회신 URI**를 복사합니다.
-   
-    ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-get-reply-uri.png)
-4. **다른 응용 프로그램에 대한 권한**에서 **응용 프로그램 추가**를 클릭합니다.
-   
+![웹앱 만들기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "네이티브 앱 만들기")
+
+## <a name="step-2-get-client-id-reply-uri-and-set-delegated-permissions"></a>2단계: 클라이언트 ID, 회신 URI를 가져오고 위임된 권한을 설정합니다
+
+Azure AD 네이티브 응용 프로그램의 클라이언트 ID(응용 프로그램 ID라고도 함)를 검색하려면 [클라이언트 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+
+리디렉션 URI를 검색하려면 다음 단계를 수행합니다.
+
+1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음 방금 만든 Azure AD 네이티브 응용 프로그램을 찾아서 클릭합니다.
+
+2. 응용 프로그램에 대한 **설정** 블레이드에서 **리디렉션 URI**를 클릭합니다.
+
+    ![리디렉션 URI 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
+
+3. 표시되는 값을 복사합니다.
+
+
+## <a name="step-3-set-permissions"></a>3단계: 사용 권한 설정
+
+1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음 방금 만든 Azure AD 네이티브 응용 프로그램을 찾아서 클릭합니다.
+
+2. 응용 프로그램에 대한 **설정** 블레이드에서 **필요한 사용 권한**을 클릭하고 **추가**를 클릭합니다.
+
     ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
-5. **다른 응용 프로그램에 대한 권한** 마법사에서 **Azure Data Lake** 및 **Windows** **Azure Service Management API**를 선택한 다음 확인 표시를 클릭합니다.
-6. 기본적으로 새로 추가된 서비스의 **위임된 권한**은&0;으로 설정됩니다. Azure Data Lake 및 Windows Azure Management Service의 **위임된 권한** 드롭다운을 클릭하고 사용 가능한 확인란을 선택해 값을 1로 설정합니다. 결과는 다음과 같습니다.
-   
-     ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
-7. **Save**를 클릭합니다.
 
+3. **API 액세스 추가** 블레이드에서 **API 선택**을 클릭하고 **Azure Data Lake**를 클릭한 후 **선택**을 클릭합니다.
+
+    ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+ 
+4.  **API 액세스 추가** 블레이드에서 **사용 권한 선택**을 클릭한 후 **Data Lake Store에 대한 모든 권한**을 부여하기 위한 확인란을 선택하고 **선택**을 클릭합니다.
+
+    ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+
+    **Done**을 클릭합니다.
+
+5. 마지막 두 단계를 반복하여 **Microsoft Azure Service Management API**에 대한 권한도 부여합니다.
+   
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure AD 웹 응용 프로그램을 만들고 .NET SDK, Java SDK 등을 사용하여 만든 클라이언트 응용 프로그램에 필요한 정보를 수집했습니다. 이제 다음 문서를 읽고 Azure AD 웹 응용 프로그램을 사용하여 Data Lake Store로 인증한 다음 저장소에서 다른 작업을 수행하는 방법에 대해 알아볼 수 있습니다.
 
 * [.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 * [Java SDK를 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-java-sdk.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

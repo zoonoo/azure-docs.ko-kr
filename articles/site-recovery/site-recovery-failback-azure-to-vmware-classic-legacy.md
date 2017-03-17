@@ -17,6 +17,7 @@ ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
 ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
 ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -354,9 +355,4 @@ VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 �
 
 ## <a name="next-steps"></a>다음 단계
 * [알아봅니다](site-recovery-vmware-to-azure-classic.md) .
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
