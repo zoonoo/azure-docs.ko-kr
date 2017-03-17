@@ -54,7 +54,6 @@
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
-#### [아키텍처](service-fabric-reliable-services-platform-architecture.md)
 #### [Reliable Services 수명 주기](service-fabric-reliable-services-lifecycle.md)
 #### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
 #### [신뢰할 수 있는 컬렉션 사용](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 #### [다형성](service-fabric-reliable-actors-polymorphism.md)
 #### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
+#### [이벤트](service-fabric-reliable-actors-events.md) 
 #### [타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
-#### [이벤트](service-fabric-reliable-actors-events.md)
 #### [상태 관리](service-fabric-reliable-actors-state-management.md)
 #### [KvsActorStateProvider 구성](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
-### [일반적인 문제 해결](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## 응용 프로그램 확장
 ### [Reliable Services 분할](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [제어된 비정상 상황 사용](service-fabric-controlled-chaos.md)
 #### [테스트 작업 사용](service-fabric-testability-actions.md)
 #### [워크로드 중](service-fabric-testability-workload-tests.md)
-#### [데이터 손실을 호출하여](service-fabric-use-data-loss-api.md)
 #### [테스트 시나리오 사용](service-fabric-testability-scenarios.md)
 #### [노드 전환 API 소개](service-fabric-node-transition-apis.md)
 ### [응용 프로그램 부하 테스트](service-fabric-vso-load-test.md)

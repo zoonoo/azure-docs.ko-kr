@@ -49,6 +49,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [템플릿](virtual-networks-create-vnetpeering-arm-template-click.md)
 
+### [네트워크 인터페이스](virtual-network-network-interface.md)
+
+### [공용 IP 주소](virtual-network-public-ip-address.md)
+
 ### 가상 컴퓨터
 
 #### 고정 공용 IP 주소
@@ -123,9 +127,9 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # 참조
-## [PowerShell(리소스 관리자)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell(클래식)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Azure CLI](/cli/azure/)
+## [PowerShell(리소스 관리자)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell(클래식)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj157182.aspx)
