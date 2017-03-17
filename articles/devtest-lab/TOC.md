@@ -5,17 +5,20 @@
 
 # 시작
 ## [랩 만들기](devtest-lab-create-lab.md)
+## [수식 만들기](devtest-lab-create-formulas.md)
 ## [VM 만들기](devtest-lab-add-vm.md)
+## [기본 랩 정책 관리](devtest-lab-get-started-with-lab-policies.md)
 ## [교육용 랩 만들기](devtest-lab-training-lab.md)
 ## [FAQ](devtest-lab-faq.md)
 
 # 방법
 ## 랩 관리
 ### [랩 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md)
-### [랩 정책 정의](devtest-lab-set-lab-policy.md)
+### [모든 랩 정책 관리](devtest-lab-set-lab-policy.md)
 ### [정책에 권한 부여](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [비용 관리 구성](devtest-lab-configure-cost-management.md)
 ### [가상 네트워크 구성](devtest-lab-configure-vnet.md)
+### [공유 IP 주소 이해](devtest-lab-shared-ip.md)
 
 ## 아티팩트 관리
 ### [아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [AzCopy를 사용하여 VHD 파일 업로드](devtest-lab-upload-vhd-using-azcopy.md)
 ### [PowerShell을 사용하여 VHD 업로드](devtest-lab-upload-vhd-using-powershell.md)
 ### [저장소 탐색기를 사용하여 VHD 파일 업로드](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)

@@ -53,6 +53,7 @@
 ### [저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR 및 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 메모리 내 처리에 Spark 사용
 ### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)

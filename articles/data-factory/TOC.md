@@ -62,12 +62,12 @@
 ### [HDInsight Pig 작업](data-factory-pig-activity.md)
 ### [HDInsight MapReduce 작업](data-factory-map-reduce.md)
 ### [HDInsight 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+### [HDInsight Spark 작업](data-factory-spark.md)
 ### [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
 ### [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 ### [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 ### [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
-### [Spark 프로그램 호출](data-factory-spark.md)
 ### [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## 개발
 ### [Azure Resource Manager 템플릿](data-factory-how-to-use-resource-manager-templates.md)
