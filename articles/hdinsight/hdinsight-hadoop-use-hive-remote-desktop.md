@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
 ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
@@ -32,16 +33,16 @@ ms.lasthandoff: 01/18/2017
 >
 > HDInsight 3.4 이상의 경우 명령줄에서, 클러스터에서 Hive 쿼리 직접 실행에 대한 자세한 내용은 [HDInsight 및 Beeline으로 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
+## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Windows 기반 HDInsight(HDInsight의 Hadoop) 클러스터
 * Windows 10, Window 8 또는 Windows 7을 실행하는 클라이언트 컴퓨터
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>원격 데스크톱을 사용하여 연결
+## <a id="connect"></a>원격 데스크톱을 사용하여 연결
 HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)의 지침에 따라 연결합니다.
 
-## <a name="a-idhiveause-the-hive-command"></a><a id="hive"></a>Hive 명령 사용
+## <a id="hive"></a>Hive 명령 사용
 HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 위해 다음 단계를 사용합니다.
 
 1. HDInsight 데스크톱에서 **Hadoop 명령줄**을 시작합니다.
@@ -96,10 +97,10 @@ HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 
 
      데이터 중 t4 열에 모두 **[ERROR]** 가 포함된&3;개 행이 반환되어야 합니다.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
+## <a id="summary"></a>요약
 여기에서 볼 수 있듯이 Hive 명령은 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
