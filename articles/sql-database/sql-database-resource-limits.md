@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/24/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
-ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8441a5318bfee3fc45482a61db13adaa034b824a
+ms.openlocfilehash: 7d50a2861e4dae06d4de09417a2208b453fa499b
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -63,7 +63,7 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 | --- | --- | --- |
 | 구독당 자동화된 내보내기를 사용하는 데이터베이스 |10 |자동화된 내보내기를 사용하면 SQL 데이터베이스 백업에 대한 사용자 지정 일정을 만들 수 있습니다. 이 기능의 미리 보기는 2017년 3월 1일에 종료됩니다.  |
 | 서버당 데이터베이스 |최대 5000 |V12 서버에서는 서버당 최대 5,000개의 데이터베이스를 허용합니다. |
-| 서버당 DTU |45000 |V12 서버에서는 데이터베이스, 탄력적 풀 및 데이터 웨어하우스를 프로비전하는 데 서버당&45;,000개의 DTU를 사용할 수 있습니다. |
+| 서버당 DTU |45000 |V12 서버에서는 독립 실행형 데이터베이스 및 탄력적 풀을 프로비전하는 데 서버당&45;,000개의 DTU가 허용됩니다. 서버당 허용되는 독립 실행형 데이터베이스 및 풀의 총 수는 서버 DTU 수에 의해서만 제한됩니다.  
 
 > [!IMPORTANT]
 > Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2017년 3월 1일에 사용이 중지됩니다. 2016년 12월 1일을 시작으로 모든 SQL Database에서 자동화된 내보내기를 더는 구성할 수 없습니다. 기존의 모든 자동화된 내보내기 작업은 2017년 3월 1일까지 계속 수행됩니다. 2016년 12월 1일 후에는 [장기 백업 보존](sql-database-long-term-retention.md) 또는 [Azure Automation](../automation/automation-intro.md)을 사용하여 선택한 일정에 따라 주기적으로 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플 스크립트의 경우, [Github에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. 

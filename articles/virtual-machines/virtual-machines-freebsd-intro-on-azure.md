@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 8c96cacadb34a3d4eca1fe523d8a159c69a0ebe3
-ms.openlocfilehash: 01c855972d66d8ae2e975b206791ab8f9abcec41
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 24410a07995d5ac813b2bf4cdeed320c72ce7e06
+ms.openlocfilehash: 7845b552bd1360927eae414f57fefbd74ac0b7f7
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,10 +38,47 @@ Microsoft Corporation은 Azure에서 사용 가능한 [Azure VM 게스트 에이
 FreeBSD 후속 버전에서는 제품을 최신 상태로 유지하고, FreeBSD 릴리스 엔지니어링 팀에서 게시한 후에 바로 해당 최신 릴리스를 사용할 수 있도록 하는 전략을 따릅니다.
 
 ## <a name="deploying-a-freebsd-virtual-machine"></a>FreeBSD 가상 컴퓨터 배포
-FreeBSD 가상 컴퓨터 배포 작업은 Azure Marketplace의 이미지를 사용하는 간단한 프로세스입니다.
+FreeBSD 가상 컴퓨터 배포 작업은 Azure Portal에서 Azure Marketplace의 이미지를 사용하는 간단한 프로세스입니다.
 
 - [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [Azure Marketplace의 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+
+### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>FreeBSD에서 Azure CLI 2.0을 통해 FreeBSD VM 만들기
+먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 설치해야 합니다.
+
+```bash 
+    curl -L https://aka.ms/InstallAzureCli | bash
+```
+
+bash가 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
+
+```
+    sudo pkg install bash
+```
+
+python이 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
+
+```
+    sudo pkg install python35
+    cd /usr/local/bin 
+    sudo rm /usr/local/bin/python 
+    sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+```
+
+설치하는 동안 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` 프롬프트가 표시됩니다. `y`로 답변하고 `a path to an rc file to update`로 `/etc/rc.conf`를 입력하면 문제 `ERROR: [Errno 13] Permission denied`가 발생할 수 있습니다. 이 문제를 해결하려면 현재 사용자에게 `etc/rc.conf` 파일에 대한 쓰기 권한을 부여해야 합니다.
+
+이제 Azure에 로그인한 후 FreeBSD VM을 만들 수 있습니다. 다음은 FreeBSD 11.0 VM을 만드는 예제입니다. 새로 만든 공용 IP의 정규화된 DNS 이름을 사용하여 `--public-ip-address-dns-name` 매개 변수를 추가할 수도 있습니다. 
+
+```azurecli
+    az login 
+    az group create -n myResourceGroup -l westus az vm create -n myFreeBSD11 -g myResourceGroup --image MicrosoftOSTC:FreeBSD:11.0:latest --admin-username azureuser --ssh-key-value /etc/ssh/ssh_host_rsa_key.pub 
+```
+
+그런 후 위 배포의 출력에 표시된 IP 주소를 통해 FreeBSD VM에 로그인할 수 있습니다. 
+
+```bash
+    ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
+```   
 
 ## <a name="vm-extensions-for-freebsd"></a>FreeBSD에 대한 VM 확장
 FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
@@ -68,7 +105,8 @@ FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 * 셸 및 Python 스크립트의 BOM을 자동으로 제거합니다.
 * CommandToExecute의 중요 데이터를 보호합니다.
 
-[!NOTE]FreeBSD VM은 현재 CustomScript 버전 1.x만 지원합니다.  
+> [!NOTE]
+> FreeBSD VM은 현재 CustomScript 버전 1.x만 지원합니다.  
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>인증: 사용자 이름, 암호 및 SSH 키
 Azure 포털을 사용하여 FreeBSD 가상 컴퓨터를 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
@@ -79,12 +117,14 @@ Azure에서 FreeBSD 가상 컴퓨터를 배포하기 위한 사용자 이름은 
 Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. sudo의 패키지는 게시된 FreeBSD 이미지에 설치되어 있습니다.
 이 사용자 계정을 통해 로그인하면 명령 구문을 사용하여 루트 권한으로 명령을 실행할 수 있습니다.
 
+```
     $ sudo <COMMAND>
+```
 
 선택적으로 `sudo -s`를 사용하여 루트 셸을 얻을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-1. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
+[Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.

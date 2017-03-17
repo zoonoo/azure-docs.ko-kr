@@ -15,9 +15,9 @@ ums.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
-ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 6ec3397f62cb2ae57cd9ce27a0a5022fd876e263
+ms.openlocfilehash: 39bac7d0cc6fee8a99949d167e3aa0c15cfaebc2
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -129,15 +129,22 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
 ## <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 1. **c:\Program Files\Microsoft Azure Log Integration**으로 명령 프롬프트 및 **cd**를 엽니다.
-2. .\AZLOG.exe authorizedirectoryreader <TenantID> Sample - 
+2. tenantID를 제공하는 명령을 실행합니다. 이 명령을 실행하려면 테넌트 관리자 역할의 구성원이어야 합니다.
 
-.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999 명령을 실행합니다.
+AZLOG.exe authorizedirectoryreader tenantId
+
+샘플 - 
+
+AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
 
 3. 다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인하세요. 
 * **C:\Users\azlog\AzureActiveDirectoryJson**   
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 4. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. 사용 중인 SIEM 제품에 따라 일부 필드 매핑이 필요할 수 있습니다.
+
+[Azure Active Directory에서 현재 감사 이벤트로 로깅된 이벤트 목록](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)을 열고 '로그 통합'을 지원을 요청하는 서비스로 선택합니다.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 02/28/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 296a842157e4ecae1b3700e1d22c56852ffc06a2
-ms.openlocfilehash: ad88d998302d264b2a0f607d8408cd12bf833a68
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 59d4e08d0e93096120cc74deb641385084cfd912
+ms.openlocfilehash: 8a4f3616ff314cb280e6673c71ebdcd5d9b3441c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,6 +52,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
     * [Redis 데이터 지속성](#redis-data-persistence)
     * [업데이트 예약](#schedule-updates)
     * [Virtual Network](#virtual-network)
+    * [방화벽](#firewall)
     * [속성](#properties)
     * [잠금](#locks)
     * [자동화 스크립트](#automation-script)
@@ -104,6 +105,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 * [Redis 데이터 지속성](#redis-data-persistence)
 * [업데이트 예약](#schedule-updates)
 * [Virtual Network](#virtual-network)
+* [방화벽](#firewall)
 * [속성](#properties)
 * [잠금](#locks)
 * [자동화 스크립트](#automation-script)
@@ -262,7 +264,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 
 
 
-## <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtual Network
 **Virtual Network** 섹션에서 캐시의 가상 네트워크 설정을 구성할 수 있습니다. VNET 지원을 통해 프리미엄 캐시를 만들고 설정을 업데이트하는 방법에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
 > [!IMPORTANT]
@@ -270,6 +272,20 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 > 
 > 
 
+### <a name="firewall"></a>방화벽
+
+**방화벽**을 클릭하여 프리미엄 Azure Redis Cache에 대한 방화벽 규칙을 보고 구성합니다.
+
+![방화벽](./media/cache-configure/redis-firewall-rules.png)
+
+시작 및 끝 IP 주소 범위를 사용하여 방화벽 규칙을 지정할 수 있습니다. 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 저장되면 잠시 지연되었다가 규칙이 적용됩니다. 이러한 지연 시간은 일반적으로&1;분 미만입니다.
+
+> [!IMPORTANT]
+> 방화벽 규칙이 구성된 경우에도 Azure Redis Cache 모니터링 시스템에서의 연결은 항상 허용됩니다.
+> 
+> 방화벽 규칙은 프리미엄 계층 캐시에만 사용할 수 있습니다.
+> 
+> 
 
 ### <a name="properties"></a>속성
 **속성** 을 클릭하여 캐시 끝점 및 포트를 포함하여 캐시에 대한 정보를 볼 수 있습니다.

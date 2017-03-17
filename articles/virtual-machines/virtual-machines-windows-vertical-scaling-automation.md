@@ -1,6 +1,6 @@
 ---
-title: "Azure Automation을 사용하여 Azure 가상 컴퓨터를 수직으로 확장 | Microsoft Docs"
-description: "Azure 자동화를 사용하여 모니터링 경고에 대한 응답으로 Windows 가상 컴퓨터를 수직으로 확장하는 방법"
+title: "Azure Automation을 사용하여 Windows 가상 컴퓨터를 수직으로 확장 | Microsoft Docs"
+description: "Azure Automation을 사용하여 모니터링 경고에 대한 응답으로 Windows 가상 컴퓨터를 수직으로 확장"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -17,13 +17,15 @@ ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0a888f945a39a8bb88a730a226af6ec21d133f44
-ms.openlocfilehash: 0075160ea9c0dae991fc2344c46d216a8203bec3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 861552da68c2268c42122b0da6633c7935bb3502
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="how-to-vertically-scale-virtual-machines-with-azure-automation"></a>Azure Automation을 사용하여 가상 컴퓨터를 수직으로 확장하는 방법
+
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Azure Automation을 사용하여 Windows VM 수직 확장
+
 수직 확장은 워크로드에 응답하여 컴퓨터의 리소스를 늘리거나 줄이는 프로세스입니다. Azure에서는 가상 컴퓨터의 크기를 변경하여 이를 수행할 수 있습니다. 이는 다음과 같은 시나리오에 유용합니다.
 
 * 가상 컴퓨터가 자주 사용되지 않는 경우 크기를 줄여 월별 비용을 절감할 수 있습니다.
@@ -84,7 +86,7 @@ Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거
 3. "경고 추가" 선택
 4. 경고를 실행할 메트릭 선택
 5. 충족된 경우 경고를 실행할 조건 선택
-6. 5단계의 조건을 충족하는  임계값 선택
+6. 5단계의 조건을 충족하는 임계값 선택
 7. 모니터링 서비스에서 5단계와 6단계의 조건 및 임계값을 확인할 기간 선택
 8. 이전 섹션에서 복사한 Webhook에 붙여넣기
 

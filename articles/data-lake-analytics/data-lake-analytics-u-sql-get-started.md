@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 96747e898b2d84cbce9251758a90941f85112dd0
-ms.openlocfilehash: 7aa3844b9bdc2c5372c6e54b05296dcde6b1c05f
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dc8c7beaf5b8e8d4f5467ffe22390c41f446d787
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +56,7 @@ U-SQL에 대한 자세한 내용은 [U-SQL 언어 참조](http://go.microsoft.co
 
 스크립트에서 다음과 같은 개념 및 키워드를 찾을 수 있습니다.
 
-* Rowset 변수: 행 집합을 생성하는 각 쿼리 식은 변수에 할당될 수 있습니다. U-SQL은 T-SQL 변수 이름 지정 패턴(예: 스크립트의 (@searchlog,)을 따릅니다.
+* Rowset 변수: 행 집합을 생성하는 각 쿼리 식은 변수에 할당될 수 있습니다. U-SQL은 스크립트의 T-SQL 변수 이름 지정 패턴(예: @searchlog)을 따릅니다.
 
  >[!NOTE]
  >할당은 실행을 강제 적용하지 않습니다. 더 복잡한 식을 작성할 수 있도록 식의 이름을 지정할 뿐입니다.
@@ -64,9 +65,9 @@ U-SQL에 대한 자세한 내용은 [U-SQL 언어 참조](http://go.microsoft.co
 
  >[!NOTE]
  >두 경로는 상대 경로입니다. 절대 경로를 사용할 수도 있습니다. 예:    
- >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+ >     adl://\<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
  >
- >연결된 저장소 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다.  연결된 Azure Storage 계정에 저장된 파일의 구문은 wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv입니다.
+ >연결된 저장소 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다.  연결된 Azure Storage 계정에 저장된 파일의 구문은 wasb://\<BlobContainerName>@\<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv입니다.
 
  >[!NOTE]
  >공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob Storage 컨테이너는 현재 지원되지 않습니다.
@@ -410,9 +411,4 @@ U-SQL에서는 데이터베이스 및 스키마의 컨텍스트에서 데이터�
 * [기능 요청 제출](http://aka.ms/adlafeedback)
 * [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 * [U-SQL에 대한 피드백 제공](http://aka.ms/usqldiscuss)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

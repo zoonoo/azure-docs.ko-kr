@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: bc0fe3341bc5b698032c56dec836b942ce7fa8be
-ms.openlocfilehash: 3ca6156369bf4ae530a91520e86166592181511a
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 75ddbacbd4dd14597b786d26f0730477f6c85811
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -116,9 +116,9 @@ ms.lasthandoff: 03/02/2017
 * 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure 앱 서비스 모범 사례에 대한 자세한 내용은 [모범 사례: Azure 앱 서비스 웹앱](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)을 참조하세요.
 * 앱 서비스 앱 크기 조정에 대한 비디오는 다음 리소스를 참조하세요.
   
-  * [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/en-us/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/en-us/resources/videos/auto-scaling-azure-web-sites/)
-  * [Azure 웹 사이트 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/en-us/resources/videos/how-azure-web-sites-scale/)
+  * [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
+  * [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
+  * [Azure 웹 사이트 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/

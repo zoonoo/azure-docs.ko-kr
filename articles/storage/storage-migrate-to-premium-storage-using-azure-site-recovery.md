@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2016
+ms.date: 3/1/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 0cf61b6bb9817bbf9508b10301b5e95b12ecea39
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 106e03a5a99134eb6e5744cbf29ba32efc31f0ba
+ms.openlocfilehash: d76aa3e62c691c4537684bc70d3a91a3dbb8b446
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/23/2017
 
 [Azure Premium Storage](storage-premium-storage.md)는 I/O 사용량이 많은 작업을 실행하는 VM(가상 컴퓨터)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 이 가이드의 목적은 사용자가 [Azure Site Recovery](../site-recovery/site-recovery-overview.md)를 사용하여 표준 저장소 계정의 VM 디스크를 프리미엄 저장소 계정으로 마이그레이션하도록 돕는 것입니다.
 
-Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 비즈니스 연속성 및 재해 복구 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치(failover)하여 응용 프로그램과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치(failover)를 제공합니다. 데이터 손상을 최소화하면서(복제 빈도에 따라) 예기치 않은 재해에 대해 계획되지 않은 장애 조치(failover)를 실행할 수 있습니다. Premium Storage로의 마이그레이션 시나리오에서 Azure Site Recovery의 [계획되지 않은 장애 조치(Failover)](../site-recovery/site-recovery-failover.md)를 사용하여 대상 디스크를 프리미엄 저장소 계정으로 마이그레이션할 수 있습니다.
+Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 비즈니스 연속성 및 재해 복구 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치(failover)하여 응용 프로그램과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치(failover)를 제공합니다. 데이터 손상을 최소화하면서(복제 빈도에 따라) 예기치 않은 재해에 대해 장애 조치(failover)를 실행할 수 있습니다. Premium Storage로의 마이그레이션 시나리오에서 Azure Site Recovery의 [Site Recovery에서 장애 조치(Failover)](../site-recovery/site-recovery-failover.md)를 사용하여 대상 디스크를 프리미엄 저장소 계정으로 마이그레이션할 수 있습니다.
 
 이 옵션은 최소한의 가동 중지 시간을 제공하고 디스크를 복사하고 새 VM을 만드는 수동 실행을 방지하기 때문에 Site Recovery를 사용하여 Premium Storage로 마이그레이션하는 것이 좋습니다. Site Recovery는 체계적으로 디스크를 복사하고 장애 조치(failover) 중 새 VM을 만듭니다. Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 없이 다양한 유형의 장애 조치(failover)를 지원합니다. 가동 중지 시간을 계획하고 데이터 손실을 예상하려면 Site Recovery에서 [장애 조치(failover) 유형](../site-recovery/site-recovery-failover.md) 테이블을 참조하세요. [장애 조치(failover) 후 Azure VM에 연결을 준비](../site-recovery/site-recovery-vmware-to-azure.md#prepare-vms-for-replication)하는 경우 장애 조치(failover) 후 RDP를 사용하여 Azure VM에 연결할 수 있어야 합니다.
 
@@ -60,7 +60,7 @@ Site Recovery는 온-프레미스 물리적 서버와 VM을 클라우드(Azure) 
 ## <a name="prerequisites"></a>필수 조건
 
 * 이전 섹션의 관련 마이그레이션 시나리오 구성 요소 이해
-* [Site Recovery에서 장애 조치(Failover)](../site-recovery/site-recovery-failover.md)에서 계획되지 않은 장애 조치(failover)에 대해 학습하여 작동 중단 시간 계획
+* [Site Recovery에서 장애 조치(Failover)](../site-recovery/site-recovery-failover.md)에 대해 학습하여 작동 중단 시간 계획
 
 ## <a name="setup-and-migration-steps"></a>설정 및 마이그레이션 단계
 
@@ -133,9 +133,9 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
   
   Azure Storage 환경을 디자인할 때 가용성 집합의 각 VM에 대해 별도의 저장소 계정을 사용하는 것이 좋습니다. [Windows](../virtual-machines/virtual-machines-windows-manage-availability.md#use-multiple-storage-accounts-for-each-availability-set) 및 [Linux](../virtual-machines/virtual-machines-linux-manage-availability.md#use-multiple-storage-accounts-for-each-availability-set) VM에 대한 저장소 계층의 모범 사례를 따르는 것이 좋습니다. 여러 저장소 계정에 VM 디스크를 배포하면 저장소의 가용성이 향상되고 Azure 저장소 인프라 전반에 걸쳐 I/O가 배포됩니다. VM이 모든 VM의 디스크를 하나의 저장소 계정으로 복제하는 대신 가용성 집합에 있는 경우 동일한 가용성 집합에 있는 VM이 단일 저장소 계정을 공유하지 않도록 여러 VM을 여러 번 마이그레이션하는 것이 좋습니다. **복제 활성화** 블레이드를 사용하여 한 번에 하나씩 각 VM에 대해 대상 저장소 계정을 설정합니다. 필요에 따라 장애 조치(failover) 후 배포 모델을 선택할 수 있습니다. 장애 조치(failover) 후 배포 모델로 RM(리소스 관리자)을 선택하는 경우 RM VM을 RM VM으로 장애 조치(failover)하거나 클래식 VM을 RM VM으로 장애 조치(failover)할 수 있습니다.
 
-8. **테스트 장애 조치(failover)를 실행합니다**. 복제가 완료되었는지 여부를 확인하려면 해당 Site Recovery를 클릭한 다음 **설정** > **복제된 항목**을 클릭합니다. 복제 프로세스의 상태 및 백분율이 표시됩니다. 초기 복제가 완료된 후 테스트 장애 조치(Failover)를 실행하여 복제 전략의 유효성을 검사합니다. 테스트 장애 조치(failover)의 자세한 단계는 [Site Recovery에서 테스트 장애 조치(failover) 실행](../site-recovery/site-recovery-vmware-to-azure.md#run-a-test-failover)을 참조하세요. **설정** > **작업** > **YOUR_FAILOVER_PLAN_NAME**에서 테스트 장애 조치(failover)의 상태를 볼 수 있습니다. 블레이드에 단계의 분석 및 성공/실패 결과가 표시됩니다. 어느 단계에서 테스트 장애 조치(failover)가 실패하는 경우 단계를 클릭하여 오류 메시지를 확인합니다. 계획되지 않은 장애 조치(failover)를 실행하기 전에 VM 및 복제 전략이 요구 사항을 충족해야 합니다.
+8. **테스트 장애 조치(failover)를 실행합니다**. 복제가 완료되었는지 여부를 확인하려면 해당 Site Recovery를 클릭한 다음 **설정** > **복제된 항목**을 클릭합니다. 복제 프로세스의 상태 및 백분율이 표시됩니다. 초기 복제가 완료된 후 테스트 장애 조치(Failover)를 실행하여 복제 전략의 유효성을 검사합니다. 테스트 장애 조치(failover)의 자세한 단계는 [Site Recovery에서 테스트 장애 조치(failover) 실행](../site-recovery/site-recovery-vmware-to-azure.md#run-a-test-failover)을 참조하세요. **설정** > **작업** > **YOUR_FAILOVER_PLAN_NAME**에서 테스트 장애 조치(failover)의 상태를 볼 수 있습니다. 블레이드에 단계의 분석 및 성공/실패 결과가 표시됩니다. 어느 단계에서 테스트 장애 조치(failover)가 실패하는 경우 단계를 클릭하여 오류 메시지를 확인합니다. 장애 조치(failover)를 실행하기 전에 VM 및 복제 전략이 요구 사항을 충족해야 합니다. 테스트 장애 조치(failover)에 대한 자세한 내용 및 지침을 보려면 [Azure Site Recovery로의 테스트 장애 조치(failover)](../site-recovery/site-recovery-test-failover-to-azure.md)를 읽어보세요.
 
-9. **계획되지 않은 장애 조치(failover)를 실행합니다**. 테스트 장애 조치(failover)가 완료되면 계획되지 않은 장애 조치(failover)를 실행하여 Premium Storage로 디스크를 마이그레이션하고 VM 인스턴스를 복제합니다. [Site Recovery에서 계획되지 않은 장애 조치(failover) 실행](../site-recovery/site-recovery-failover.md)에서 자세한 단계를 수행하세요. **VM 종료 및 최신 데이터 동기화**를 선택하여 Site Recovery가 보호된 VM을 종료하고 데이터를 동기화하여 최신 버전의 데이터가 장애 조치되도록 지정해야 합니다. 이 옵션을 선택하지 않거나 시도가 성공하지 못하면 장애 조치(failover)가 VM에 대해 사용 가능한 최신 복구 지점에서 시작됩니다. Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 유사한 VM 인스턴스를 만듭니다. [Windows Virtual Machines 가격](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) 또는 [Linux Virtual Machines 가격](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)으로 이동하여 다양한 VM 인스턴스의 성능 및 가격을 확인할 수 있습니다.
+9. **장애 조치(Failover) 실행**. 테스트 장애 조치(failover)가 완료되면 장애 조치(failover)를 실행하여 Premium Storage로 디스크를 마이그레이션하고 VM 인스턴스를 복제합니다. [장애 조치(Failover) 실행](../site-recovery/site-recovery-failover.md#run-a-failover)에 나와 있는 자세한 단계를 따르세요. **VM 종료 및 최신 데이터 동기화**를 선택하여 Site Recovery가 보호된 VM을 종료하고 데이터를 동기화하여 최신 버전의 데이터가 장애 조치되도록 지정해야 합니다. 이 옵션을 선택하지 않거나 시도가 성공하지 못하면 장애 조치(failover)가 VM에 대해 사용 가능한 최신 복구 지점에서 시작됩니다. Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 유사한 VM 인스턴스를 만듭니다. [Windows Virtual Machines 가격](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) 또는 [Linux Virtual Machines 가격](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)으로 이동하여 다양한 VM 인스턴스의 성능 및 가격을 확인할 수 있습니다.
 
 ## <a name="post-migration-steps"></a>마이그레이션 후 단계
 

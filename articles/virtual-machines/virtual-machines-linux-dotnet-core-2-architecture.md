@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
-ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 764ef15f631166bf720c846aa3b4f4b6936054d9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-architecture-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하는 응용 프로그램 아키텍처
+# <a name="application-architecture-with-azure-resource-manager-templates-for-linux-vms"></a>Linux VM용 Azure Resource Manager 템플릿을 사용하는 응용 프로그램 아키텍처
+
 Azure Resource Manager 배포를 개발할 때 계산 요구 사항을 Azure 리소스 및 서비스에 매핑해야 합니다. 응용 프로그램이 몇 개의 http 끝점, 데이터베이스 및 데이터 캐싱 서비스로 구성되면 이러한 각 데이터는 구성 요소를 호스트하는 Azure 리소스를 합리적으로 할당해야 합니다. 예를 들어 샘플 Music Store 응용 프로그램에는 가상 컴퓨터에 호스트되는 웹 응용 프로그램과 Azure SQL Database에 호스트되는 SQL Database가 포함됩니다. 
 
 이 문서에서는 샘플 Azure Resource Manager 템플릿에서 Music Store 계산 리소스를 구성하는 방법을 자세히 설명합니다. 모든 종속성 및 고유한 구성이 강조 표시됩니다. 최상의 환경을 위해서는 솔루션 인스턴스를 Azure 구독에 미리 배포하고 Azure Resource Manager 템플릿을 따라 작업하는 것이 좋습니다. 전체 템플릿은 [Ubuntu의 Music Store 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)에서 확인할 수 있습니다. 
@@ -270,10 +273,5 @@ Azure SQL Database 배포에 대한 자세한 내용은 [Azure SQL Database 설�
 <hr>
 
 [2단계 - Azure Resource Manager 템플릿의 액세스 및 보안](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

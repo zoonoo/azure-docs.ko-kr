@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8284fa063d8ffa0d9951b77eb06be14159fc2561
-ms.openlocfilehash: 5b40d5476d85a4eeba65f01320e0ea03ed4debaa
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3aeefecabb72b57c64fb47aeb5b6523b9ff3239b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화
+# <a name="automating-application-deployments-to-windows-virtual-machines"></a>Windows 가상 컴퓨터에 대한 응용 프로그램 배포 자동화
+
 네 부분으로 구성된 이 시리즈에서는 Azure Resource Manager 템플릿을 사용하여 Azure 리소스 및 응용 프로그램을 배포 및 구성하는 과정을 자세히 설명합니다. 이 시리즈에서는 샘플 템플릿이 배포되고 배포 템플릿이 검사됩니다. 이 시리즈의 목적은 Azure 리소스 간 관계를 익히고 완전히 통합된 Azure Resource Manager 템플릿을 배포하는 과정을 경험해보는 것입니다. 이 문서에서는 Azure Resource Manager에 대한 기본적인 지식이 있다고 가정하므로 이 자습서를 시작하기 전에 기본적인 Azure Resource Manager 개념을 숙지하시기 바랍니다.
 
 ## <a name="music-store-application"></a>Music Store 응용 프로그램

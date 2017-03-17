@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff27bb866bd9b1f2a24b5c0ff5d83dea2227f49
-ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8af22f98b5dfde35df441ba054875616ced9988a
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
 >
 >
 
-이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터를 보조 사이트에 복제하는 방법을 설명합니다. 이 [시나리오 아키텍처](site-recovery-components.md#replicate-hyper-v-vms-to-a-secondary-site)에 대해 자세히 알아봅니다.
+이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 온-프레미스 Hyper-V 가상 컴퓨터를 보조 사이트에 복제하는 방법을 설명합니다. 이 [시나리오 아키텍처](site-recovery-components.md#hyper-v-vm-replication-to-a-secondary-site)에 대해 자세히 알아봅니다.
 
 이 문서를 읽은 후에 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견을 게시합니다.
 
@@ -43,7 +44,7 @@ ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
 **Hyper-V** | Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 VM이 하나 이상 있어야 합니다.<br/><br/>  Hyper-V 호스트 서버는 기본 및 보조 VMM 클라우드의 호스트 그룹에 있어야 합니다.<br/><br/> Windows Server 2012 R2의 클러스터에서 Hyper-V를 실행하는 경우 [업데이트 2961977](https://support.microsoft.com/kb/2961977)을 설치합니다.<br/><br/> Windows Server 2012의 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성합니다. [자세히 알아보기](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Hyper-V 서버는 인터넷에 연결되어야 합니다.
 **URL** | VMM 서버 및 Hyper-V 호스트는 다음 URL에 연결할 수 있어야 합니다.<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-## <a name="steps"></a>단계
+## <a name="deployment-steps"></a>배포 단계
 
 다음 항목을 수행합니다.
 
@@ -64,7 +65,7 @@ ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
 
     - 원본 Hyper-V 호스트 서버의 VM이 VMM VM 네트워크에 연결되어야 합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
     복구에 사용할 보조 클라우드에 해당 VM 네트워크가 구성되어 있는지 확인합니다. 해당 VM 네트워크는 보조 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
-    
+
 3. 동일한 VMM 서버의 클라우드 간에 VM을 복제하려는 경우 [단일 서버 배포](#single-vmm-server-deployment)를 준비합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
@@ -173,7 +174,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 10. 네트워크를 통해 복제하는 경우 **초기 복제 방법**에서 초기 복제를 시작할지 또는 예약할지를 지정합니다. 네트워크 대역폭을 절약하려면 사용량이 많지 않은 시간에 예약하는 것이 좋습니다. 그런 후 **OK**를 클릭합니다.
 
      ![복제 정책](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
-11. 새 정책을 만들면 새 정책이 자동으로 VMM 클라우드에 연결됩니다. **복제 정책**에서 **확인**을 클릭합니다. **설정** > **복제** > 정책 이름 > **VMM 클라우드 연결**에서 추가 VMM 클라우드(및 그 안에 포함된 VM)를 이 복제 정책과 연결할 수 있습니다.
+11. 새 정책을 만들면 새 정책이 자동으로 VMM 클라우드에 연결됩니다. **복제 정책**에서 **확인**을 클릭합니다. **복제** > 정책 이름 > **VMM 클라우드 연결**에서 추가 VMM 클라우드(및 그 안에 포함된 VM)를 이 복제 정책과 연결할 수 있습니다.
 
      ![복제 정책](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
@@ -184,7 +185,7 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 - VMM 서버의 가상 컴퓨터가 VM 네트워크에 연결되어 있는지 확인합니다.
 
 
-1. **설정** > **Site Recovery 인프라** > **네트워크 매핑** > **네트워크 매핑**에서 **+네트워크 매핑**을 클릭합니다.
+1. **Site Recovery 인프라** > **네트워크 매핑** > **네트워크 매핑**에서 **+네트워크 매핑**을 클릭합니다.
 
     ![네트워크 매핑](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. **네트워크 매핑 추가** 탭에서 소스 및 대상 VMM 서버를 선택합니다. VMM 서버와 연결된 VM 네트워크가 검색됩니다.
@@ -224,12 +225,12 @@ VMM 서버에 Azure Site Recovery 공급자를 설치하고 서버를 검색하�
 
     ![가상 컴퓨터 보호 사용](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-**설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 동작의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료된 후에 가상 컴퓨터는 장애 조치(Failover)를 수행할 준비가 됩니다.
+**작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료된 후에 가상 컴퓨터는 장애 조치(Failover)를 수행할 준비가 됩니다.
 
 다음 사항에 유의하세요.
 
 - 또한 VMM 콘솔에서 가상 컴퓨터에 대해 보호를 사용하도록 설정할 수 있습니다. 가상 컴퓨터 속성의 **Azure Site Recovery** 탭에 있는 도구 모음에서 **보호 사용**을 클릭합니다.
-- 복제를 사용하도록 설정하면 **설정** > **복제된 항목**에서 VM에 대한 속성을 볼 수 있습니다. **Essentials** 대시보드에서 VM 및 해당 상태에 대한 복제 정책 정보를 볼 수 있습니다. 자세한 내용을 보려면 **속성** 을 클릭합니다.
+- 복제를 사용하도록 설정하면 **복제된 항목**에서 VM에 대한 속성을 볼 수 있습니다. **Essentials** 대시보드에서 VM 및 해당 상태에 대한 복제 정책 정보를 볼 수 있습니다. 자세한 내용을 보려면 **속성** 을 클릭합니다.
 
 ### <a name="onboard-existing-virtual-machines"></a>기존 가상 컴퓨터 등록
 Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM에 있는 경우 Azure Site Recovery 복제를 위해 다음과 같이 등록할 수 있습니다.
@@ -242,10 +243,6 @@ Hyper-V 복제본을 사용하여 복제 중인 기존 가상 컴퓨터가 VMM�
 
 배포를 테스트하기 위해 단일 가상 컴퓨터에 대한 [테스트 장애 조치(Failover)](site-recovery-test-failover-vmm-to-vmm.md)를 실행하거나 하나 이상의 가상 컴퓨터를 포함한 [복구 계획을 만들 수 있습니다](site-recovery-create-recovery-plans.md).
 
-
-## <a name="next-steps"></a>다음 단계
-
-배포를 테스트한 후 다른 유형의 [장애 조치](site-recovery-failover.md)에 대해 알아봅니다.
 
 
 ## <a name="prepare-for-offline-initial-replication"></a>오프라인 초기 복제 준비
@@ -444,8 +441,7 @@ VMM 클라우드가 예제 조직 및 클라우드와 연결된 논리 네트워
 | **네트워크 매핑** | 기본 데이터 센터에서 복구 데이터 센터로 네트워크 정보가 매핑됩니다. 복구 사이트에서 VM을 복구할 때 네트워크 매핑은 네트워크 연결을 설정하는 데 도움이 됩니다. |Site Recovery는 각 사이트(기본 사이트 및 데이터 센터)에 대한 논리적 네트워크의 메타데이터를 수집, 처리 및 전송합니다. |메타데이터는 네트워크 정보를 매핑할 수 있도록 네트워크 설정을 채우는 데 사용됩니다. | 이 기능은 서비스의 핵심 부분이며 해제할 수 없습니다. Site Recovery에 이 정보를 보내지 않으려는 경우 네트워크 매핑을 사용하지 마세요. |
 | **장애 조치(계획됨/계획되지 않음/테스트)** | 장애 조치(Failover)는 하나의 VMM 관리 데이터 센터에서 다른 데이터 센터로 VM을 장애 조치합니다. 장애 조치(Failover) 작업은 Azure 포털에서 수동으로 트리거됩니다. |VMM 서버의 공급자는 Site Recovery에서 장애 조치(Failover) 이벤트에 대한 알림을 받고 VMM 인터페이스를 통해 Hyper-V 호스트에서 장애 조치(Failover) 작업을 실행합니다. VM의 실제 장애 조치(Failover)는 한 Hyper-V 호스트에서 다른 호스트로 수행되고, Windows Server 2012 또는 Windows Server 2012 R2 Hyper-V 복제본에 의해 처리됩니다. Site Recovery는 전송된 정보를 사용하여 Azure Portal에 장애 조치(Failover) 작업 상태 정보를 채웁니다. | 이 기능은 서비스의 핵심 부분이며 해제할 수 없습니다. Site Recovery에 이 정보를 보내지 않으려는 경우 장애 조치(Failover)를 사용하지 마세요. |
 
+## <a name="next-steps"></a>다음 단계
 
-
-<!--HONumber=Feb17_HO2-->
-
+배포를 테스트한 후 다른 유형의 [장애 조치](site-recovery-failover.md)에 대해 알아봅니다.
 

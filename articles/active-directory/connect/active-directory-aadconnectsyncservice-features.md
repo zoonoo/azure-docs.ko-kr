@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: af5a8b4dd87d041282d6a857a505ad6c167caac0
-ms.openlocfilehash: ab1879cc1ef998f889a86ea7e2d4e7143e6c1cc4
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a439f421d726f58b2d21fb4a0e883e16db719364
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,7 +40,6 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 
 | DirSyncFeature | 주석 |
 | --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |내보내는 동안 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다. |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |개체가 기본 SMTP 주소뿐만 아니라 userPrincipalName에 대해 가입할 수 있습니다. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |관리되는/허가된(페더레이션되지 않은) 사용자에 대한 userPrincipalName 특성을 동기화 엔진이 업데이트할 수 있습니다. |
 
@@ -56,12 +56,13 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: 장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect 동기화: 디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md) |
+| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |내보내는 동안 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다. |
 | PasswordSync |[Azure AD Connect 동기화로 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | UnifiedGroupWriteback |[미리 보기: 그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |현재 지원되지 않습니다. |
 
 ## <a name="duplicate-attribute-resiliency"></a>중복 특성 복원력
-중복된 UPN/proxyAddresses를 가진 개체를 프로비전하는 데 실패하는 대신 중복된 특성은 "격리"되고 임시 값이 할당됩니다. 충돌이 해결되면 임시 UPN은 적절한 값으로 자동으로 변경됩니다. 이 동작은 UPN 및 proxyAddress에 대해 개별적으로 설정할 수 있습니다. 자세한 내용은 [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)을 참조하세요.
+중복된 UPN/proxyAddresses를 가진 개체를 프로비전하는 데 실패하는 대신 중복된 특성은 "격리"되고 임시 값이 할당됩니다. 충돌이 해결되면 임시 UPN은 적절한 값으로 자동으로 변경됩니다. 자세한 내용은 [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)을 참조하세요.
 
 ## <a name="userprincipalname-soft-match"></a>UserPrincipalName 소프트 일치
 이 기능을 사용하도록 설정하면 [기본 SMTP 주소](https://support.microsoft.com/kb/2641663)외에도 UPN에 소프트 일치를 사용하고 항상 사용하도록 설정됩니다. Azure AD의 기존 클라우드 사용자를 온-프레미스 사용자와 일치하는 데 소프트 일치를 사용합니다.
@@ -107,10 +108,5 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 ## <a name="see-also"></a>참고 항목
 * [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

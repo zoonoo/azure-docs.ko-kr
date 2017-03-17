@@ -1,6 +1,6 @@
 ---
-title: "Linux 가상 컴퓨터에 태그를 지정하는 방법 | Microsoft Docs"
-description: "리소스 관리자 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다."
+title: "Azure Linux 가상 컴퓨터에 태그를 지정하는 방법 | Microsoft Docs"
+description: "Resource Manager 배포 모델을 사용하여 만든 Azure Linux 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: mmccrory
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2016
+ms.date: 02/28/2017
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
+ms.sourcegitcommit: 2ec95674901130c9c24de331257e40311c88cb6a
+ms.openlocfilehash: 8fad89189ba6836c5748c656457ab25564147550
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,19 +28,21 @@ ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Azure CLI를 사용하여 태그 지정
-시작하려면 [Azure CLI를 설치 및 구성](../xplat-cli-azure-resource-manager.md)하고 Resource Manager 모드(`azure config mode arm`)에 있는지 확인합니다.
+먼저 최신 [Azure CLI 2.0(미리 보기)](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인해야 합니다.
+
+[Azure CLI 1.0](virtual-machines-linux-tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
 
 다음 명령을 사용하여 태그를 비롯한 지정된 가상 컴퓨터의 모든 속성을 볼 수 있습니다.
 
-        azure vm show -g MyResourceGroup -n MyTestVM
+        az vm show --resource-group MyResourceGroup --name MyTestVM
 
-Azure CLI를 통해 새 VM 태그를 추가하려면 태그 매개 변수 **-t**와 함께 `azure vm set` 명령을 사용할 수 있습니다.
+Azure CLI를 통해 새 VM 태그를 추가하려면 태그 매개 변수 **--set**과 함께 `azure vm update` 명령을 사용할 수 있습니다.
 
-        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 
-`azure vm set` 명령에 **–T** 매개 변수를 사용하여 모든 태그를 제거할 수 있습니다.
+`azure vm update` 명령에 **--remove** 매개 변수를 사용하여 태그를 제거할 수 있습니다.
 
-        azure vm set – g MyResourceGroup –n MyTestVM -T
+        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
 
 
 Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 사용량 세부 정보를 확인하여 청구 포털에서 태그를 살펴보겠습니다.
@@ -55,9 +58,4 @@ Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 
 [Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

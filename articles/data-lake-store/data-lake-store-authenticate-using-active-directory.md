@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
-ms.openlocfilehash: dac6c9f3be7b4535f8cb30a9ec0c1e398ca5ff28
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: ae2280f7bd7945f723d88dc6ce3f9a117074e93f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -34,78 +35,27 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 
 이 두 옵션 모두 Azure Data Lake Store 또는 Azure Data Lake Analytics에 대해 만들어진 각 요청에 연결하는 OAuth 2.0 토큰과 함께 제공되는 응용 프로그램에서 발생합니다.
 
-이 문서는 서비스 간 인증을 위한 Azure AD 웹 응용 프로그램을 만드는 방법에 대해 설명합니다. 최종 사용자 인증을 위해 Azure AD 응용 프로그램 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)을 참조하세요.
+이 문서는 **서비스 간 인증을 위한 Azure AD 웹 응용 프로그램을 만드는** 방법에 대해 설명합니다. 최종 사용자 인증을 위해 Azure AD 응용 프로그램 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="create-an-active-directory-application"></a>Active Directory 응용 프로그램 만들기
-이 섹션에서는 Azure Active Directory를 사용하여 Azure Data Lake Store로 서비스 간 인증을 위한 Azure AD 웹 응용 프로그램을 만들고 구성하는 방법에 대해 알아봅니다. "Active Directory 응용 프로그램”을 만들면 사용자에 대한 서비스 주체가 만들어지며 실제로 앱 또는 코드는 만들어지지 않습니다.
+## <a name="step-1-create-an-active-directory-web-application"></a>1단계: Active Directory 웹 응용 프로그램 만들기
 
-### <a name="step-1-create-an-azure-active-directory-application"></a>1단계: Azure Active Directory 응용 프로그램 만들기
-1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
-2. 왼쪽 창에서 **Active Directory** 를 선택합니다.
-   
-     ![Active Directory 선택](./media/data-lake-store-authenticate-using-active-directory/active-directory.png)
-3. 새 응용 프로그램을 만드는 데 사용할 Active Directory를 선택합니다. Active Directory가 두 개 이상인 경우에는 일반적으로 구독이 상주하는 디렉터리에 응용 프로그램을 만듭니다. 구독과 동일한 디렉터리에 있는 응용 프로그램의 구독 리소스에만 액세스 권한을 부여할 수 있습니다.  
-   
-     ![디렉터리 선택](./media/data-lake-store-authenticate-using-active-directory/active-directory-details.png)
-4. 디렉터리에서 응용 프로그램을 보려면 **응용 프로그램**을 클릭합니다.
-   
-     ![응용 프로그램 보기](./media/data-lake-store-authenticate-using-active-directory/view-applications.png)
-5. 해당 디렉터리에 응용 프로그램을 만든 적이 없는 경우 다음과 비슷한 이미지가 표시됩니다. **응용 프로그램 추가**를 클릭합니다.
-   
-     ![응용 프로그램 추가](./media/data-lake-store-authenticate-using-active-directory/create-application.png)
-   
-     또는 아래쪽 창에서 **추가** 를 클릭합니다.
-   
-     ![추가](./media/data-lake-store-authenticate-using-active-directory/add-icon.png)
-6. 응용 프로그램의 이름을 입력하고 만들 응용 프로그램의 유형을 선택합니다. 이 자습서에서는 **웹 응용 프로그램 및/또는 웹 API** 를 만들기로 선택하고 다음 단추를 클릭합니다.
-   
-     ![응용 프로그램 이름 지정](./media/data-lake-store-authenticate-using-active-directory/tell-us-about-your-application.png)
+Azure Active Directory를 사용하여 Azure Data Lake Store로 서비스 간 인증을 위한 Azure AD 웹 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
 
-    > [!TIP]
-    > 쉽게 검색할 수 있는 응용 프로그램 이름을 제공합니다. 이 자습서의 뒷부분에서 이 응용 프로그램을 검색하여 Data Lake Store 계정에 할당합니다.
-    > 
-    > 
+위의 링크에 있는 지침을 수행하는 동안 아래 스크린샷과 같이 응용 프로그램 유형으로 **웹앱/API**를 선택해야 합니다.
 
-7. 앱에 대한 속성을 입력합니다. **로그온 URL**의 경우 응용 프로그램을 설명하는 웹 사이트에 대한 URI를 제공합니다. 웹 사이트의 존재 여부는 확인되지 않습니다. 
-   **앱 ID URI**의 경우 응용 프로그램을 식별하는 URI를 제공합니다.
-   
-     ![응용 프로그램 속성](./media/data-lake-store-authenticate-using-active-directory/app-properties.png)
-   
-    확인 표시를 클릭해 마법사를 완료하고 응용 프로그램을 만듭니다.
+![웹앱 만들기](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "웹앱 만들기")
 
-### <a name="step-2-get-client-id-client-secret-and-token-endpoint"></a>2단계: 클라이언트 ID, 클라이언트 암호 및 토큰 끝점 가져오기
+## <a name="step-2-get-client-id-client-secret-and-tenant-id"></a>2단계: 클라이언트 ID, 클라이언트 암호 및 테넌트 ID 가져오기
 프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID가 필요합니다. 응용 프로그램이 자체 자격 증명에서 실행되는 경우 인증 키도 필요합니다.
 
-1. **구성** 탭을 클릭하여 응용 프로그램의 암호를 구성합니다.
-   
-     ![응용 프로그램 구성](./media/data-lake-store-authenticate-using-active-directory/application-configure.png)
-2. **클라이언트 ID**를 복사합니다.
-   
-     ![클라이언트 ID](./media/data-lake-store-authenticate-using-active-directory/client-id.png)
-3. 응용 프로그램이 자체 자격 증명에서 실행되는 경우 **키** 섹션까지 아래로 스크롤하여 암호가 유효한 기간을 선택합니다.
-   
-     ![키](./media/data-lake-store-authenticate-using-active-directory/create-key.png)
-4. **저장** 을 선택하여 키를 만듭니다.
-   
-    ![저장](./media/data-lake-store-authenticate-using-active-directory/save-icon.png)
-   
-    저장된 키가 표시되고 키를 복사할 수 있습니다. 나중에 키를 검색할 수 없으므로 지금 복사해야 합니다.
-   
-    ![공유 키](./media/data-lake-store-authenticate-using-active-directory/save-key.png)
-5. 아래와 같이 화면 아래쪽에서 **끝점 보기**를 선택하고 **OAuth 2.0 토큰 끝점** 필드의 값을 검색하여 토큰 끝점을 검색합니다.  
-   
-    ![테넌트 ID](./media/data-lake-store-authenticate-using-active-directory/save-tenant.png)
+* 응용 프로그램에 대한 클라이언트 ID 및 클라이언트 암호를 검색하는 방법에 대한 지침은 [응용 프로그램 ID 및 인증 키 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
 
-#### <a name="note-down-the-following-properties-that-you-will-need-for-the-next-steps"></a>다음 단계에 필요한 다음 속성을 적어두세요.
-1. 위의 1.6단계에서 만든 웹 응용 프로그램 ID의 이름
-2. 위의 2.2단계에서 검색한 클라이언트 ID
-3. 위의 2.4단계에서 만든 키
-4. 위의 2.5단계에서 검색한 테넌트 ID
+* 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
 
-### <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder-only-for-service-to-service-authentication"></a>3단계: Azure Data Lake Store 계정 파일 또는 폴더에 Azure AD 응용 프로그램 할당(서비스 간 인증에만 해당)
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder-only-for-service-to-service-authentication"></a>3단계: Azure Data Lake Store 계정 파일 또는 폴더에 Azure AD 응용 프로그램 할당(서비스 간 인증에만 해당)
 1. 새 [Azure Portal](https://portal.azure.com)에 로그온하여 이전에 만든 Azure Active Directory 응용 프로그램에 연결할 Azure Data Lake Store 계정을 엽니다.
 2. 데이터 레이크 저장소 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
    
@@ -139,10 +89,5 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 * [서비스 주체 인증에 인증서 인증 사용](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-certificate)
 * [Azure AD에 인증하는 다른 방법](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios)
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

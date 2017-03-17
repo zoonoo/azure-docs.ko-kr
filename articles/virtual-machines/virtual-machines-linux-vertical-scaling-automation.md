@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
 ms.author: singhkay
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2e2752a1bd7ee2f9c766d900f25adc8cdba6714
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 8f0bb8b221a36f081fd0db5a3de0cb698d6cfb95
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="vertically-scale-azure-virtual-machine-with-azure-automation"></a>Azure 자동화를 사용하여 Azure 가상 컴퓨터를 수직으로 확장
+# <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Azure Automation을 사용하여 Azure Linux 가상 컴퓨터를 수직으로 확장
 수직 확장은 워크로드에 응답하여 컴퓨터의 리소스를 늘리거나 줄이는 프로세스입니다. Azure에서는 가상 컴퓨터의 크기를 변경하여 이를 수행할 수 있습니다. 이는 다음과 같은 시나리오에 유용합니다.
 
 * 가상 컴퓨터가 자주 사용되지 않는 경우 크기를 줄여 월별 비용을 절감할 수 있습니다.
@@ -82,17 +84,12 @@ Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거
 3. "경고 추가" 선택
 4. 경고를 실행할 메트릭 선택
 5. 충족된 경우 경고를 실행할 조건 선택
-6. 5단계의 조건을 충족하는  임계값 선택
+6. 5단계의 조건을 충족하는 임계값 선택
 7. 모니터링 서비스에서 5단계와 6단계의 조건 및 임계값을 확인할 기간 선택
 8. 이전 섹션에서 복사한 Webhook에 붙여넣기
 
 ![가상 컴퓨터 1에 경고 추가](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![가상 컴퓨터 2에 경고 추가](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

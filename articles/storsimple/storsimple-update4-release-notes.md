@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/16/2017
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
-ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -75,6 +75,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 3 |지원 패키지 |이전 릴리스에서 System.OutOfMemory 예외를 초래할 수 있는 지원 패키지 또는 지원 패키지 만들기 실패를 가져오는 다른 오류와 관련된 문제가 있었습니다. 이러한 버그는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 4 |모니터링 |이전 릴리스에서 EB에서 소비가 표시되었던 로컬로 고정된 볼륨에 대한 모니터링 차트와 관련된 문제가 있었습니다. 이 버그는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 5 |마이그레이션 |이전 릴리스에서 5000-7000 시리즈에서 8000 시리즈 장치로 마이그레이션의 안정성과 관련된 몇 가지 문제가 있었습니다. 이러한 문제는 이 릴리스에서 해결되었습니다. |예 |예 |
+| 6 |업데이트 |이전 릴리스에서 업데이트 오류가 발생한 경우 컨트롤러가 복구 모드로 전환되므로 사용자는 업데이트를 계속할 수 없으며 Microsoft 지원에 문의해야 했습니다. <br> 이번 릴리스에서는 이 동작이 바뀌었습니다. 두 컨트롤러 모두 동일한 버전(업데이트 4)을 실행한 후에 업데이트가 실패하면 컨트롤러는 복구 모드로 전환되지 않습니다. 이 오류가 발생하는 경우 잠시 기다린 다음 업데이트를 다시 시도하는 것이 좋습니다. 다시 시도는 성공할 수 있습니다. 다시 시도가 실패하는 경우 Microsoft 지원에 문의해야 합니다. |예 |예 |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>이전 릴리스에서 업데이트 4의 알려진 문제

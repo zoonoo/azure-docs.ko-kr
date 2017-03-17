@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 672d1518e22c5ab5595fb5c7c708f584e80b68e9
-ms.openlocfilehash: c6117296c8bd12e3bb8f276709bc4d4c2aa81719
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -59,6 +59,9 @@ ms.lasthandoff: 02/27/2017
 
 ### <a name="access-policy"></a>액세스 정책
 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 는 자산에 대한 액세스 권한(예: 읽기, 쓰기 및 목록) 및 기간을 정의합니다. 일반적으로 자산에 포함된 파일에 액세스하는 데 사용되는 로케이터로 AccessPolicy 개체를 전달합니다.
+
+>[!NOTE]
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
 ### <a name="blob-container"></a>Blob 컨테이너
 Blob 컨테이너는 Blob 집합의 그룹화를 제공합니다. Blob 컨테이너는 미디어 서비스에서 액세스 제어의 경계 지점 및 자산에 대한 SAS(공유 액세스 서명)으로 사용됩니다. 한 Azure 저장소 계정에 포함될 수 있는 Blob 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.

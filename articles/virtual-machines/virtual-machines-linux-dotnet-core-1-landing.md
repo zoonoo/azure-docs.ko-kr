@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
-ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d9d65d8fb5fd7b1ff226e96fe33f8b0757d7a12e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화
+# <a name="automating-application-deployments-to-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 응용 프로그램 배포 자동화 
+
 네 부분으로 구성된 이 시리즈에서는 Azure Resource Manage 템플릿을 사용하여 Azure 리소스 및 응용 프로그램을 배포 및 구성하는 과정을 자세히 설명합니다. 이 시리즈에서는 샘플 템플릿이 배포되고 배포 템플릿이 검사됩니다. 이 시리즈의 목적은 Azure 리소스 간 관계를 익히고 완전히 통합된 Azure Resource Manager 템플릿을 배포하는 과정을 경험해보는 것입니다. 이 문서에서는 Azure Resource Manager에 대한 기본적인 지식이 있다고 가정하므로 이 자습서를 시작하기 전에 기본적인 Azure Resource Manager 개념을 숙지하시기 바랍니다. 
 
 ## <a name="music-store-application"></a>Music Store 응용 프로그램
@@ -69,10 +72,5 @@ Azure Resource Manager 템플릿에는 다음 매개 변수 값을 지정해야 
 [3단계 - Azure Resource Manager 템플릿의 가용성 및 크기 조정](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [4단계 - Azure Resource Manager 템플릿을 사용한 응용 프로그램 배포](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

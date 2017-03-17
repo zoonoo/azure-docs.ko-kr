@@ -1,6 +1,7 @@
 ---
-title: "Microsoft Azure 구독에 대한 청구 경고 설정 | Microsoft Docs"
+title: "Azure 구독에 대한 청구 또는 크레딧 경고 설정 | Microsoft Docs"
 description: "갑작스러운 청구에 당황하지 않도록 Azure 청구에 대한 경고를 설정하는 방법을 설명합니다."
+keywords: "크레딧 경고, 청구 경고"
 services: 
 documentationcenter: 
 author: vikdesai
@@ -13,15 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: vikdesai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 54fcf8f12ffe5ead398b2556eb4c94840c15f530
-ms.openlocfilehash: b318843c1d1081bb5817f3f2aef6962f7fc00136
-
+ms.sourcegitcommit: 32a2508997d7f50b0b2989d76d0574951d81a73f
+ms.openlocfilehash: a2eb813bc96cd58762ce077d2c0710ed4bc7bde6
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="set-up-billing-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure 구독에 대한 청구 경고 설정
+# <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure 구독에 대한 청구 또는 크레딧 경고 설정
 Azure 구독의 계정 관리자인 경우 Azure 청구 경고 서비스를 사용하여 Azure 계정에 대한 청구 활동을 모니터링하고 관리하는 데 도움이 되는 사용자 지정된 청구 경고를 만들 수 있습니다.
 
 이 서비스는 미리 보기이므로 먼저 미리 보기 기능 페이지에서 이 서비스를 사용하도록 설정해야 합니다.
@@ -59,9 +61,4 @@ EA 고객은 지출 할당량을 설정하여 등록 상태인 각 부서에 대
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

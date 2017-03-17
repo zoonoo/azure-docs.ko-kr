@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/02/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9d654904e06758bc8634efa9b18ea3bac2b64523
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -60,8 +60,8 @@ ms.lasthandoff: 02/16/2017
 7. **클라이언트 ID**를 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
 8. **키** 섹션에서 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다. (13단계에서 저장한 후 키를 복사합니다.)
 9. 아래로 스크롤하여 **응용 프로그램 추가**를 클릭합니다.
-10. **표시**를 **Microsoft 앱**으로 설정하고 **Microsoft Azure 서비스 관리**를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
-11. **위임된 권한** 드롭다운 목록에서 **Azure 서비스 관리** 액세스를 선택합니다.
+10. **표시**를 **Microsoft 앱**으로 설정하고 **Microsoft Azure Service Management API**를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
+11. **위임된 권한** 드롭다운 목록에서 **Azure 서비스 관리 액세스...**를 선택합니다.
 12. **저장**을 클릭합니다.
 13. 저장이 끝나면 **키** 섹션에서 키 값을 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
 

@@ -4,7 +4,7 @@ description: "Azure 앱 서비스와 Azure 알림 허브를 사용하여 Xamarin
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f8c46fa5fba1e69382a383ff94700de07db4ab
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 5c9dd6bd1f9e6338c297af07bfcd1c22f8d6405d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -34,25 +35,25 @@ ms.openlocfilehash: c9f8c46fa5fba1e69382a383ff94700de07db4ab
 * 활성 Google 계정. [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
 * [Google Cloud Messaging 클라이언트 구성 요소](http://components.xamarin.com/view/GCMClient/).
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>알림 허브 구성
+## <a name="configure-hub"></a>알림 허브 구성
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a name="a-idregisteraenable-firebase-cloud-messaging"></a><a id="register"></a>Firebase Cloud Messaging 사용
+## <a id="register"></a>Firebase Cloud Messaging 사용
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-azure-to-send-push-requests"></a>푸시 요청을 전송하도록 Azure 구성
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a name="a-idupdate-serveraupdate-the-server-project-to-send-push-notifications"></a><a id="update-server"></a>푸시 알림을 전송하도록 서버 프로젝트 업데이트
+## <a id="update-server"></a>푸시 알림을 전송하도록 서버 프로젝트 업데이트
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="a-idconfigure-appaconfigure-the-client-project-for-push-notifications"></a><a id="configure-app"></a>푸시 알림에 대한 클라이언트 프로젝트 구성
+## <a id="configure-app"></a>푸시 알림에 대한 클라이언트 프로젝트 구성
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a name="a-idadd-pushaadd-push-notifications-code-to-your-app"></a><a id="add-push"></a>앱에 푸시 알림 코드 추가
+## <a id="add-push"></a>앱에 푸시 알림 코드 추가
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>앱에서 푸시 알림 테스트
+## <a name="test"></a>앱에서 푸시 알림 테스트
 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다. 에뮬레이터에서 실행할 때 필요한 추가 구성 단계가 있습니다.
 
 1. 아래와 같이 AVD(Android 가상 장치) 관리자에서 대상으로 설정된 Google API가 있는 가상 장치에 배포하거나 해당 가상 장치에서 디버그해야 합니다.
@@ -66,12 +67,7 @@ ms.openlocfilehash: c9f8c46fa5fba1e69382a383ff94700de07db4ab
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 <!-- URLs. -->
-[Xamarin.Android 빠른 시작]: app-service-mobile-xamarin-android-get-started.md
-[Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
-[Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
+[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
