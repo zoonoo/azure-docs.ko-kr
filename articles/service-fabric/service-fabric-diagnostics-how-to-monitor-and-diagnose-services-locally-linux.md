@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 86ed3f25f0bdd6bb5d8a93f124a0d2bcd7e2b07a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,15 +36,15 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="debugging-service-fabric-java-applications"></a>Service Fabric Java 응용 프로그램 디버깅
 
-Java 응용 프로그램에 대해 [다중 로깅 프레임워크](http://en.wikipedia.org/wiki/Java_logging_framework) 를 사용할 수 있습니다. `java.util.logging` 이 JRE의 기본 옵션이므로 [GitHub의 코드 예제](http://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용됩니다.  다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다. 
- 
-java.util.logging을 사용하면 응용 프로그램 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 응용 프로그램에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다. 
+Java 응용 프로그램에 대해 [다중 로깅 프레임워크](http://en.wikipedia.org/wiki/Java_logging_framework) 를 사용할 수 있습니다. `java.util.logging` 이 JRE의 기본 옵션이므로 [GitHub의 코드 예제](http://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용됩니다.  다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
 
-다음 코드 조각은 예제 구성을 포함합니다. 
+java.util.logging을 사용하면 응용 프로그램 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 응용 프로그램에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다.
 
-```java 
+다음 코드 조각은 예제 구성을 포함합니다.
+
+```java
 handlers = java.util.logging.FileHandler
- 
+
 java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
@@ -54,13 +54,17 @@ java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 
 `app.properties` 파일이 가리키는 폴더가 반드시 존재해야 합니다. `app.properties` 파일이 생성된 후에는 `<applicationfolder>/<servicePkg>/Code/` 폴더의 진입점 스크립트 `entrypoint.sh`가 속성 `java.util.logging.config.file`을 `app.propertes` 파일로 설정하도록 수정도 해야 합니다. 항목은 다음 코드 조각과 같습니다.
 
-```sh 
+```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
- 
- 
-이 구성의 결과로 로그가 순환 방식으로 `/tmp/servicefabric/logs/`에 수집됩니다. **%u** 및 **%g**를 사용하면 mysfapp0.log, mysfapp1.log 등의 파일 이름으로 파일을 만들 수 있습니다. 기본적으로 핸들러가 명시적으로 구성되지 않으면 콘솔 핸들러가 등록됩니다. /var/log/syslog 아래 syslog에서 로그를 볼 수 있습니다.
- 
+
+
+이 구성의 결과로 로그가 순환 방식으로 `/tmp/servicefabric/logs/`에 수집됩니다. 이 경우의 로그 파일 이름은 mysfapp%u.%g.log입니다. 여기서,
+* **%u**는 동시 Java 프로세스 간에 충돌을 확인하기 위한 고유 번호입니다.
+* **%g**는 회전 로그를 구분하기 위한 세대 번호입니다.
+
+기본적으로 핸들러가 명시적으로 구성되지 않으면 콘솔 핸들러가 등록됩니다. /var/log/syslog 아래 syslog에서 로그를 볼 수 있습니다.
+
 자세한 내용은 [GitHub의 코드 예제](http://github.com/Azure-Samples/service-fabric-java-getting-started)를 참조하세요.  
 
 
@@ -78,7 +82,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 서비스 이벤트를 수신 대기하기 위해 사용자 지정 EventListener를 사용한 다음 적절하게 리디렉션하여 파일을 추적할 수 있습니다. 다음 코드 조각은 EventSource 및 사용자 지정 EventListener를 사용하여 로깅의 샘플 구현을 보여줍니다.
 
 
-```c#
+```csharp
 
  public class ServiceEventSource : EventSource
  {
@@ -93,7 +97,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
                 this.Message(finalMessage);
             }
         }
-        
+
         // TBD: Need to add method for sample event.
 
 }
@@ -101,7 +105,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 
-```
+```csharp
    internal class ServiceEventListener : EventListener
    {
 
@@ -112,7 +116,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        {  
+        { 
                  // report all event information               
           Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
@@ -130,11 +134,11 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 앞의 코드 조각은 로그를 `/tmp/MyServiceLog.txt`의 파일에 출력합니다. 이 파일 이름을 적절하게 업데이트해야 합니다. 콘솔로 기록을 리디렉션하려는 경우 사용자 지정된 EventListener 클래스에 다음 코드 조각을 사용합니다.
 
-```
+```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-[C# 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)의 샘플은 EventSource 및 사용자 지정 EventListener를 사용하여 이벤트를 파일에 기록합니다. 
+[C# 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)의 샘플은 EventSource 및 사용자 지정 EventListener를 사용하여 이벤트를 파일에 기록합니다.
 
 
 

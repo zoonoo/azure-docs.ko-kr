@@ -13,12 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -29,13 +29,10 @@ ms.lasthandoff: 01/13/2017
 이 기사의 코드를 다운로드하려면:
 
 * Visual Studio 2012 이상이 필요합니다. 
+* MSDN에서 [Elastic DB Tools for Azure SQL - Entity Framework Integration sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba)(Azure SQL의 탄력적 DB 도구 - Entity Framework 통합 샘플)을 다운로드합니다. 선택한 위치에 샘플의 압축을 풉니다.
 * Visual Studio를 시작합니다. 
-* Visual Studio에서 파일 -> 새 프로젝트를 선택합니다. 
-* '새 프로젝트' 대화 상자에서 **Visual C#용** **온라인 샘플**로 이동한 다음 오른쪽 위의 검색 상자에 "탄력적인 db"를 입력합니다.
-  
-    ![Entity Framework 및 탄력적 데이터베이스 샘플 응용 프로그램][1] 
-  
-    **Azure SQL의 탄력적 DB 도구 - Entity Framework 통합**이라는 샘플을 선택합니다. 라이선스를 수락한 후 샘플을 로드합니다. 
+* Visual Studio에서 [파일] -> [프로젝트/솔루션 열기]를 선택합니다. 
+* **프로젝트 열기** 대화 상자에서 다운로드한 샘플로 이동하고 **EntityFrameworkCodeFirst.sln**을 선택하여 샘플을 엽니다. 
 
 샘플을 실행하려면 Azure SQL 데이터베이스에서&3;개의 빈 데이터베이스를 만들어야 합니다.
 

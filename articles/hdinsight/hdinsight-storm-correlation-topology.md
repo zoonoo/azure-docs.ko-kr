@@ -13,31 +13,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: 2f2792c409b579ba721195e5749a38c6396f339d
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a16b3eee9ed52a197b5407dc7ebe71c0710d6fa1
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="correlate-events-that-arrive-at-differnet-times-using-storm-and-hbase"></a>Storm 및 HBase를 사용하여 다른 시간에 도착하는 이벤트의 상관 관계 지정
+# <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Storm 및 HBase를 사용하여 다른 시간에 도착하는 이벤트의 상관 관계 지정
 
 Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시간에 도착하는 데이터 항목의 상관 관계를 지정할 수 있습니다. 예를 들어, 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 연결하여 세션이 얼마나 지속되었는지 계산할 수 있습니다.
 
-이 문서에서는 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 추적하는 기본 C# Storm 토폴로지를 만드는 방법을 배우고 세션의 지속 시간을 계산합니다. 토폴로지는 영구 데이터 저장소로 HBase를 사용합니다. HBase는 또한 기록 데이터에 대해 배치 쿼리를 수행시켜서 특정 기간에 얼마나 많은 사용자 세션이 시작 또는 종료했는지와 같은 추가적인 통찰력을 생성해줍니다.
+이 문서에서는 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 추적하는 기본 C# Storm 토폴로지를 만드는 방법을 배우고 세션의 지속 시간을 계산합니다. 토폴로지는 영구 데이터 저장소로 HBase를 사용합니다. HBase는 또한 기록 데이터에 대해 배치 쿼리를 실행하여 추가적인 정보를 생성합니다. 예를 들면 특정 기간에 얼마나 많은 사용자 세션이 시작 또는 종료했는지와 같은 정보입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Visual Studio 및 HDInsight Tools for Visual Studio: 설치 정보는 [HDInsight Tools for Visual Studio 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md) 을 참조하세요.
+* Visual Studio 및 Visual Studio용 HDInsight 도구 자세한 내용은 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-* HDInsight 클러스터의 Apache Storm(Windows 기반). 들어오는 데이터를 처리하고 HBase에 저장하는 Storm 토폴로지를 실행합니다.
+* HDInsight 클러스터의 Apache Storm(Windows 기반).
   
   > [!IMPORTANT]
   > 2016년 10월 28일 이후 생성된 Linux 기반 Storm 클러스터에서는 SCP.NET 토폴로지가 지원되지만 2016년 10월 28일 기준으로 사용 가능한 HBase SDK for .NET 패키지는 Linux에서 제대로 작동하지 않습니다.
 
-* HDInsight 클러스터에서 Apache HBase(Linux 또는 Windows 기반) 이 예제의 데이터 저장소입니다.
+* HDInsight 클러스터에서 Apache HBase(Linux 또는 Windows 기반)
 
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
@@ -106,7 +106,7 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 * 버전: 'cf' 패밀리는 각 행의 5가지 버전을 유지하도록 설정됩니다.
   
   > [!NOTE]
-  > 버전은 특정 행의 키에 대해 저장된 이전 값의 로그입니다. 기본적으로 HBase는 행의 가장 최근 버전에 대한 값만 반환합니다. 이 경우 같은 행은 모든 이벤트(START, END)에 대해 사용됩니다. 행의 각 버전은 타임 스탬프 값에 의해 식별됩니다. 이렇게 하면 특정 ID에 대해 기록된 이벤트의 기록 보기가 제공됩니다.
+  > 버전은 특정 행의 키에 대해 저장된 이전 값의 로그입니다. 기본적으로 HBase는 행의 가장 최근 버전에 대한 값만 반환합니다. 이 경우 같은 행은 모든 이벤트(START, END)에 대해 사용됩니다. 행의 각 버전은 타임 스탬프 값에 의해 식별됩니다. 버전은 특정 ID에 대해 기록된 이벤트의 기록 보기를 제공합니다.
 
 ## <a name="download-the-project"></a>프로젝트를 다운로드합니다.
 
@@ -146,9 +146,9 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 
 1. Visual Studio에서 **CorrelationTopology** 솔루션을 엽니다.
 
-2. **솔루션 탐색기**에서 **CorrelationTopology** 프로젝트를 마우스 오른쪽 단추로 클릭하고 속성을 선택합니다.
+2. **솔루션 탐색기**에서 **CorrelationTopology** 프로젝트를 마우스 오른쪽 단추로 클릭하고 [속성]을 선택합니다.
 
-3. 속성 창에서 **설정** 을 선택하고 다음 정보를 제공합니다. 처음 5개는 **SessionInfo** 프로젝트에서 사용되는 동일한 값이어야 합니다.
+3. [속성] 창에서 **설정**을 선택하고 이 프로젝트에 대한 구성 값을 입력합니다. 처음 5개는 **SessionInfo** 프로젝트에서 사용되는 동일한 값입니다.
    
    * HBaseClusterURL: HBase 클러스터에 대한 URL입니다. 예를 들어 https://myhbasecluster.azurehdinsight.net입니다.
 
@@ -156,9 +156,9 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 
    * HBaseClusterPassword: 관리자/HTTP 사용자 계정의 암호입니다.
 
-   * HBaseTableName: 이 예제와 함께 사용하기 위한 테이블 이름. 여기에는 SessionInfo 프로젝트에 사용된 것과 동일한 테이블 이름이 포함되어야 합니다.
+   * HBaseTableName: 이 예제와 함께 사용하기 위한 테이블 이름. 이 값은 SessionInfo 프로젝트에서 사용되는 동일한 테이블 이름입니다.
 
-   * HBaseTableColumnFamily: 열 제품군 이름. 여기에는 SessionInfo 프로젝트에 사용된 것과 동일한 열 패밀리 이름이 포함되어야 합니다.
+   * HBaseTableColumnFamily: 열 제품군 이름. 이 값은 SessionInfo 프로젝트에서 사용되는 동일한 열 패밀리 이름입니다.
    
    > [!IMPORTANT]
    > 기본값이 **SessionInfo** 에서 데이터 검색에 사용되는 이름이므로 HBaseTableColumnNames를 변경하지 마십시오.
@@ -174,7 +174,7 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
    > [!NOTE]
    > 처음으로 토폴로지를 제출하면 HDInsight 클러스터의 이름을 검색하는 데 몇 초가 걸릴 수도 있습니다.
 
-7. 토폴로지가 업로드되고 클러스터에 제출되면 **Storm 토폴로지 보기**가 열리고 실행 중인 토폴로지를 표시합니다. **CorrelationTopology** 를 선택하고 페이지의 상단 오른쪽에 있는 새로 고침 단추를 사용하여 토폴로지 정보를 새로 고칩니다.
+7. 토폴로지가 업로드되고 클러스터에 제출되면 **Storm 토폴로지 보기**가 열리고 실행 중인 토폴로지를 표시합니다. 데이터를 새로 고치려면 **CorrelationTopology**를 선택하고 페이지의 오른쪽 위에 있는 [새로 고침] 단추를 사용합니다.
    
    ![토폴로지 보기 이미지](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
@@ -184,7 +184,7 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
    > **Storm 토폴로지 보기** 가 자동으로 열리지 않으면 다음 단계를 이용하여 여십시오.
    > 
    > 1. **솔루션 탐색기**에서 **Azure**를 확장하고 **HDInsight**를 확장합니다.
-   > 2. 토폴로지가 실행되는 Storm 클러스터를 마우스 오른쪽 단추로 클릭한 다음 **Storm 토폴로지 보기**
+   > 2. 토폴로지가 실행되는 Storm 클러스터를 마우스 오른쪽 단추로 클릭한 다음 **Storm 토폴로지 보기**를 선택합니다.
 
 ## <a name="query-the-data"></a>데이터 쿼리
 
@@ -196,11 +196,11 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
    
     시작 및 종료 시간 입력 시 다음 형식을 사용합니다. HH:MM 및 'am' 또는 'pm'. 예: 11:20pm.
    
-    토폴로지가 방금 시작되었으므로 배포되기 전의 시작 시간과 현재의 종료 시간을 사용합니다. 시작 시 생성되었던 START 이벤트의 대부분이 캡처되어야 합니다. 쿼리를 실행할 때 다음과 유사한 항목의 목록이 표시됩니다.
+    기록된 이벤트를 반환하려면 Storm 토폴로지가 배포되기 전의 시작 시간과 현재의 종료 시간을 사용합니다. 반환 데이터에는 다음 텍스트와 유사한 항목이 포함됩니다.
    
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
-END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합니다. 하지만, END 이벤트는 START 이벤트 후 1분과 5분 사이에 임의로 생성됩니다. 따라서 END 이벤트를 찾기 위해서는 범위를 몇 차례 시도해야 할 수 있습니다. 또한 END 이벤트에는 START 이벤트 시간과 END 이벤트 시간 사이의 차이인 세션의 소요 시간도 포함됩니다. 다음은 END 이벤트에 대한 데이터 예제입니다.
+END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합니다. 하지만, END 이벤트는 START 이벤트 후 1분과 5분 사이에 임의로 생성됩니다. END 이벤트를 찾으려면 시간 범위를 몇 차례 시도해야 할 수 있습니다. 또한 END 이벤트에는 START 이벤트 시간과 END 이벤트 시간 사이의 차이인 세션의 소요 시간도 포함됩니다. 다음은 END 이벤트에 대한 데이터 예제입니다.
 
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 

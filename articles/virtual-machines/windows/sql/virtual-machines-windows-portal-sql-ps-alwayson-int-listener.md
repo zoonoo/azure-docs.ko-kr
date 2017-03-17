@@ -1,5 +1,5 @@
 ---
-title: "Always On 가용성 그룹 수신기 구성 | Microsoft Azure"
+title: "Always On 가용성 그룹 수신기 구성 - Microsoft Azure | Microsoft 문서"
 description: "하나 이상의 IP 주소를 갖는 내부 부하 분산 장치를 사용하여 Azure Resource Manager 모델에서 가용성 그룹 수신기를 구성합니다."
 services: virtual-machines
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 12/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: dd6eb530f715d98c39ab8730ee33922887d5f9cc
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1430807db46326779866f57bca3982e5f9448951
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -98,7 +99,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="a-nameadd-ipa-example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> 예제 스크립트: PowerShell을 사용하여 기존 부하 분산 장치에 IP 주소 추가
+## <a name="Add-IP"></a> 예제 스크립트: PowerShell을 사용하여 기존 부하 분산 장치에 IP 주소 추가
 둘 이상의 가용성 그룹을 사용하려면 추가 IP 주소를 부하 분산 장치에 추가합니다. 각 IP 주소에는 자체 부하 분산 규칙, 프로브 포트 및 프런트 엔드 포트가 필요합니다.
 
 프런트 엔드 포트는 응용 프로그램이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
@@ -300,9 +301,4 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 788a1b9ef6a470c8f696228fd8fe51052c4f7007
-ms.openlocfilehash: 15c5a8be1097253e88af3a9f36b9067f0e2fbba3
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d6292567bbf7afd71b21be3b236537c609c63644
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="multi-master-database-architectures-with-azure-documentdb"></a>Azure DocumentDB를 사용하는 다중 마스터 데이터베이스 아키텍처
+# <a name="multi-master-globally-replicated-database-architectures-with-documentdb"></a>DocumentDB를 사용하는 다중 마스터 전역 복제 데이터베이스 아키텍처
 DocumentDB는 턴키 [전역 복제](documentdb-distribute-data-globally.md)를 지원하므로 워크로드 어디서나 여러 지역에 데이터를 분산할 수 있으며 액세스 대기 시간이 짧습니다. 이 모델은 한 지역에 기록기가 있고 다른 (읽기) 지역에 지리적으로 분산된 판독기가 있는 게시자/소비자 워크로드에 주로 사용됩니다. 
 
 DocumentDB의 글로벌 복제 지원을 사용하여 기록기 및 판독기가 전역에 분산되는 응용 프로그램을 빌드할 할 수도 있습니다. 이 문서에서는 Azure DocumentDB를 사용하여 분산된 작성기에 대한 로컬 쓰기 및 로컬 읽기 액세스를 가능하게 하는 패턴을 개략적으로 설명합니다.
 
-## <a name="a-idexamplescenarioacontent-publishing---an-example-scenario"></a><a id="ExampleScenario"></a>콘텐츠 게시 - 예제 시나리오
+## <a id="ExampleScenario"></a>콘텐츠 게시 - 예제 시나리오
 DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 패턴을 사용하는 방법을 설명하는 실제 시나리오를 살펴보겠습니다. DocumentDB를 기반으로 하는 콘텐츠 게시 플랫폼이 있다고 가정합시다. 이 플랫폼이 게시자와 소비자 모두에게 훌륭한 사용자 환경을 제공하기 위해 충족해야 하는 몇 가지 요구 사항이 있습니다.
 
 * 작성자와 구독자 모두 전 세계에 분산되어 있습니다. 
@@ -39,7 +41,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
 
 분할 및 파티션 키에 대한 자세한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
-## <a name="a-idmodelingnotificationsamodeling-notifications"></a><a id="ModelingNotifications"></a>알림 모델링
+## <a id="ModelingNotifications"></a>알림 모델링
 알림은 사용자에게 한정된 데이터 피드입니다. 따라서 알림 문서의 액세스 패턴은 항상 단일 사용자의 컨텍스트와 관련이 있습니다. 예를 들어 "사용자에게 알림을 게시"하거나 "지정된 사용자에 대한 모든 알림을 가져올" 수 있습니다. 따라서 이 유형에 선택할 수 있는 최적의 분할 키는 `UserId`입니다.
 
     class Notification 
@@ -66,7 +68,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         public string ArticleId { get; set; } 
     }
 
-## <a name="a-idmodelingsubscriptionsamodeling-subscriptions"></a><a id="ModelingSubscriptions"></a>구독 모델링
+## <a id="ModelingSubscriptions"></a>구독 모델링
 관심 있는 문서의 특정 범주나 특정 게시자처럼 다양한 조건에 대한 구독을 만들 수 있습니다. 따라서 파티션 키에 좋은 선택은 `SubscriptionFilter`입니다.
 
     class Subscriptions 
@@ -89,7 +91,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         } 
     }
 
-## <a name="a-idmodelingarticlesamodeling-articles"></a><a id="ModelingArticles"></a>문서 모델링
+## <a id="ModelingArticles"></a>문서 모델링
 알림을 통해 문서가 식별되면 후속 쿼리는 일반적으로 `ArticleId`를 기반으로 합니다. 따라서 파티션 키로 `ArticleID`를 선택하면 DocumentDB 컬렉션 내에 문서를 저장하기에 가장 적합하게 분산됩니다. 
 
     class Article 
@@ -118,7 +120,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         //... 
     }
 
-## <a name="a-idmodelingreviewsamodeling-reviews"></a><a id="ModelingReviews"></a>리뷰 모델링
+## <a id="ModelingReviews"></a>리뷰 모델링
 리뷰 역시 문서와 마찬가지로 주로 문서의 컨텍스트에서 쓰고 읽힙니다. 파티션 키로 `ArticleId`를 선택하면 가장 적절하게 분산될 뿐 아니라 문서와 연결된 리뷰를 효율적으로 액세스할 수 있습니다. 
 
     class Review 
@@ -144,7 +146,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         public int Rating { get; set; } }
     }
 
-## <a name="a-iddataaccessmethodsadata-access-layer-methods"></a><a id="DataAccessMethods"></a>데이터 액세스 계층 메서드
+## <a id="DataAccessMethods"></a>데이터 액세스 계층 메서드
 이번에는 우리가 구현해야 하는 기본 데이터 액세스 메서드를 살펴보겠습니다. 다음은 `ContentPublishDatabase`에 필요한 메서드 목록입니다.
 
     class ContentPublishDatabase 
@@ -160,7 +162,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a name="a-idarchitectureadocumentdb-account-configuration"></a><a id="Architecture"></a>DocumentDB 계정 구성
+## <a id="Architecture"></a>DocumentDB 계정 구성
 로컬 읽기 및 쓰기를 보장하려면 파티션 키뿐 아니라 지리적 액세스 패턴을 기반으로 데이터를 여러 지역으로 분할해야 합니다. 이 모델은 각 지역에 지리적으로 복제된 Azure DocumentDB 데이터베이스 계정을 사용합니다. 예를 들어 지역이 두 개라면 다중 지역 쓰기에 대한 설정은 다음과 같습니다.
 
 | 계정 이름 | 쓰기 지역 | 읽기 지역 |
@@ -200,7 +202,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
-## <a name="a-iddataaccessimplementationadata-access-layer-implementation"></a><a id="DataAccessImplementation"></a>데이터 액세스 계층 구현
+## <a id="DataAccessImplementation"></a>데이터 액세스 계층 구현
 이번에는 쓰기 가능한 지역이 두 개인 응용 프로그램의 DAL(데이터 액세스 계층) 구현을 살펴보겠습니다. DAL은 다음 단계를 구현해야 합니다.
 
 * 각 계정에 대해 여러 `DocumentClient` 인스턴스를 만듭니다. 지역이 두 개이므로 각 DAL 인스턴스는 `writeClient` 하나와 `readClient` 하나를 갖습니다. 
@@ -309,15 +311,10 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
 
 따라서 적절한 분할 키와 정적 계정 기반 분할을 선택하면 Azure DocumentDB를 사용하여 다중 지역 로컬 쓰기 및 읽기를 구현할 수 있습니다.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>다음 단계
+## <a id="NextSteps"></a>다음 단계
 이 문서에서는 콘텐츠 게시를 샘플 시나리오로 사용하여 전 세계에 분산된 다중 지역 읽기 쓰기 패턴을 DocumentDB와 함께 사용하는 방법을 설명했습니다.
 
 * DocumentDB가 [전역 배포](documentdb-distribute-data-globally.md)를 지원하는 방법 알아보기
 * [Azure DocumentDB의 자동 및 수동 장애 조치(failover)](documentdb-regional-failovers.md) 알아보기
 * [DocumentDB를 통한 전역 일관성](documentdb-consistency-levels.md) 알아보기
 * [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)를 사용하여 여러 지역으로 개발
-
-
-<!--HONumber=Jan17_HO4-->
-
-

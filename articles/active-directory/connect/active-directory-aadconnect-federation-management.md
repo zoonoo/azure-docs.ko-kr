@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: 4ed22092621949d53da5b8c961a080270dde1db7
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: da3b8a375d380a0e2f1c2e243a475f2f3ff94bfc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,6 +32,7 @@ ms.openlocfilehash: 4ed22092621949d53da5b8c961a080270dde1db7
 | [AD FS 서버 추가](#addadfsserver) |추가 AD FS 서버를 사용하여 AD FS 팜 확장 |
 | [AD FS 웹 응용 프로그램 프록시 서버 추가](#addwapserver) |추가 WAP 서버를 사용하여 AD FS 팜 확장 |
 | [페더레이션된 도메인을 추가합니다.](#addfeddomain) |페더레이션된 도메인 추가 |
+| [SSL 인증서 업데이트](active-directory-aadconnectfed-ssl-update.md)| AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트|
 | **AD FS 사용자 지정** | |
 | [사용자 지정 회사 로고 또는 일러스트레이션 추가](#customlogo) |회사 로고와 일러스트레이션을 사용하여 AD FS 로그인 페이지 사용자 지정 |
 | [로그인 설명 추가](#addsignindescription) |로그인 페이지 설명 추가 |
@@ -39,7 +41,7 @@ ms.openlocfilehash: 4ed22092621949d53da5b8c961a080270dde1db7
 ## <a name="ad-fs-management"></a>AD FS 관리
 Azure AD Connect는 Azure AD Connect 마법사를 사용하여 최소한의 사용자의 개입만으로 수행할 수 있는 다양한 AD FS 관련 작업을 제공합니다. 마법사를 실행하여 Azure AD Connect 설치를 완료한 후 다시 마법사를 실행하여 추가 작업을 수행할 수 있습니다.
 
-### <a name="repair-the-trust-a-namerepairthetrusta"></a>트러스트 복구 <a name=repairthetrust></a>
+## 트러스트 복구 <a name=repairthetrust></a>
 Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상태를 확인하고 적절한 조치를 취하여 트러스트를 복구할 수 있습니다. 이러한 단계에 따라 Azure AD 및 AD FS 트러스트를 복구합니다.
 
 1. 추가 작업 목록에서 **AAD 및 ADFS 트러스트 복구** 를 선택합니다.
@@ -63,7 +65,8 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
 >
 >
 
-### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>AD FS 서버 추가 <a name=addadfsserver></a>
+## AD FS 서버 추가 <a name=addadfsserver></a>
+
 > [!NOTE]
 > Azure AD Connect는 AD FS 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 >
@@ -86,7 +89,8 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
 
     ![설치 완료](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>AD FS 웹 응용 프로그램 프록시 서버 추가 <a name=addwapserver></a>
+## AD FS 웹 응용 프로그램 프록시 서버 추가 <a name=addwapserver></a>
+
 > [!NOTE]
 > Azure AD Connect는 웹 응용 프로그램 프록시 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 >
@@ -109,7 +113,8 @@ Azure AD Connect는 AD FS와 Azure Active Directory 트러스트의 현재 상�
 7. **설치** 를 클릭하여 구성을 완료합니다. 구성이 완료되면 마법사에서 서버에 대한 연결을 확인하는 옵션을 제공합니다. **확인** 을 클릭하여 연결을 확인합니다.
    ![설치 완료](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
-### <a name="add-a-federated-domain-a-nameaddfeddomaina"></a>페더레이션된 도메인을 추가합니다. <a name=addfeddomain></a>
+## 페더레이션된 도메인을 추가합니다. <a name=addfeddomain></a>
+
 Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽게 추가할 수 있습니다. Azure AD Connect는 페더레이션에 대한 도메인을 추가하고 Azure AD와 페더레이션된 여러 도메인이 있는 경우 발급자를 올바르게 반영하기 위해 클레임 규칙을 수정합니다.
 
 1. 페더레이션된 도메인을 추가하려면 작업 **추가 Azure AD 도메인 추가**를 선택합니다.
@@ -128,11 +133,11 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 ## <a name="ad-fs-customization"></a>AD FS 사용자 지정
 다음 섹션에서는 AD FS 로그인 페이지를 사용자 지정하는 데 수행해야 할 수 있는 일반적인 작업 중 일부에 대해 자세히 설명합니다.
 
-### <a name="add-a-custom-company-logo-or-illustration-a-namecustomlogoa"></a>사용자 지정 회사 로고 또는 일러스트레이션 추가 <a name=customlogo></a>
+## 사용자 지정 회사 로고 또는 일러스트레이션 추가 <a name=customlogo></a>
 **로그인** 페이지에 표시되는 회사의 로고를 변경하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
 > [!NOTE]
-> 로고의 권장 크기는 파일 크기가 10KB 이하인 @96dpi에서 260x35입니다.
+> 로고의 권장 크기는 파일 크기가 10KB 이하인 96dpi에서 260x35입니다.
 >
 >
 
@@ -143,17 +148,17 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 >
 >
 
-### <a name="add-a-sign-in-description-a-nameaddsignindescriptiona"></a>로그인 설명 추가 <a name=addsignindescription></a>
+## 로그인 설명 추가 <a name=addsignindescription></a>
 **로그인 페이지**에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### <a name="modify-ad-fs-claim-rules-a-namemodclaimsa"></a>AD FS 클레임 규칙 수정 <a name=modclaims></a>
+## AD FS 클레임 규칙 수정 <a name=modclaims></a>
 AD FS는 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는 다양한 클레임 언어를 지원합니다. 자세한 내용은 [클레임 규칙 언어의 역할](https://technet.microsoft.com/library/dd807118.aspx)을 참조하세요.
 
 다음 섹션에서는 Azure AD 및 AD FS 페더레이션에 관련된 몇 가지 시나리오에 대한 사용자 지정 규칙을 작성할 수 있는 방법에 대해 자세히 설명합니다.
 
-#### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>특성에 나타나는 값에서 변경이 불가능한 ID 조건부
+### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>특성에 나타나는 값에서 변경이 불가능한 ID 조건부
 Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 앵커로 사용할 특성을 지정할 수 있습니다. 사용자 지정 특성의 값이 비어 있지 않은 경우 변경이 불가능한 ID 클레임을 발급하는 것이 좋습니다. 예를 들어 원본 앵커의 특성으로 **ms-ds-consistencyguid**를 선택했고 특성이 해당 항목에 대한 값을 갖는 경우 **ms-ds-consistencyguid**로 **ImmutableID**를 발급하려고 할 것입니다. 특성에 대한 값이 없는 경우 변경이 불가능한 ID로 **objectGuid** 를 발급합니다.  다음 섹션에 설명된 대로 사용자 지정 클레임 규칙의 집합을 생성할 수 있습니다.
 
 **규칙 1: 쿼리 특성**
@@ -192,7 +197,7 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 >
 >
 
-#### <a name="sso-with-a-subdomain-upn"></a>하위 도메인 UPN을 사용한 SSO
+### <a name="sso-with-a-subdomain-upn"></a>하위 도메인 UPN을 사용한 SSO
 [새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#addfeddomain)에 설명된 대로 Azure AD Connect를 사용하여 페더레이션될 도메인을 둘 이상 추가할 수 있습니다. 페더레이션된 루트 도메인이 자식도 포함하기 때문에 발급자 ID는 하위 도메인이 아닌 루트 도메인과 일치해야 하므로 UPN 클레임을 수정해야 합니다.
 
 기본적으로 발급자 ID에 대한 클레임 규칙은 다음과 같이 설정됩니다.
@@ -221,9 +226,4 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 
 ## <a name="next-steps"></a>다음 단계
 [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)에 대해 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

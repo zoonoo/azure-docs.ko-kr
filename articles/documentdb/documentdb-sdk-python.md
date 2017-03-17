@@ -1,5 +1,5 @@
 ---
-title: "Azure DocumentDB용 Python API 및 SDK 리소스 | Microsoft Docs"
+title: "Azure DocumentDB Python API, SDK 및 리소스 | Microsoft 문서"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB Python SDK의 각 버전 간의 변경 내용을 포함하는 Python API 및 SDK에 대한 모든 것을 알아봅니다."
 services: documentdb
 documentationcenter: python
@@ -14,13 +14,15 @@ ms.devlang: python
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4c83bcbf3e5849afd15060947ef5f0faab17ce19
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>DocumentDB API 및 SDK
+# <a name="documentdb-python-sdk-release-notes-and-resources"></a>DocumentDB Python SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -33,7 +35,6 @@ ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 > 
 > 
 
-## <a name="documentdb-python-api-and-sdk"></a>DocumentDB Python API 및 SDK
 <table>
 
 <tr><td>**SDK 다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
@@ -138,10 +139,5 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 ## <a name="see-also"></a>참고 항목
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/07/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
-ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 930b3da630b88eecdec56e86d621daee53070257
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ Azure 이벤트 허브 보안 모델은 다음 요구 사항을 만족합니다.
 * Rogue 장치는 이벤트 허브로 데이터를 보내지 못하도록 차단할 수 있습니다.
 
 ## <a name="device-authentication"></a>장치 인증
-Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) 토큰 및 *이벤트 게시자*의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
+Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messaging/service-bus-sas.md) 토큰 및 *이벤트 게시자*의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
 
 일반적으로 이벤트 허브에서는 장치 당 하나의 게시자를 사용합니다. 이벤트 허브의 게시자에게 전달되는 모든 메시지는 해당 이벤트 허브 내에서 큐에 삽입합니다. 게시자는 세분화된 액세스 제어 및 제한을 사용하도록 설정합니다.
 
@@ -103,16 +104,11 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 이벤트 허브에 대한 자세한 내용은 다음 항목을 방문하세요.
 
 * [이벤트 허브 개요]
-* [SAS 개요]
-* [Event Hubs를 사용하는 응용 프로그램 예제] 전체
+* [공유 액세스 서명 개요]
+* [Event Hubs를 사용하는 샘플 응용 프로그램]
 
-[이벤트 허브 개요]: event-hubs-overview.md
-[Event Hubs를 사용하는 응용 프로그램 예제]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[SAS 개요]: ../service-bus-messaging/service-bus-sas-overview.md
-
-
-
-
-<!--HONumber=Feb17_HO3-->
+[이벤트 허브 개요]: event-hubs-what-is-event-hubs.md
+[Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples(Event Hubs를 사용하는 샘플 응용 프로그램)
+[공유 액세스 서명 개요]: ../service-bus-messaging/service-bus-sas.md
 
 
