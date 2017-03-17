@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c2c9d84bc6699f4487e82b117d27b19f66313018
-ms.openlocfilehash: cde63b21e4bac8f635ef9125101735a07deb1bc2
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -238,7 +238,7 @@ C# 함수에서 `<T> <name>`같은 함수 시그니처의 명명된 매개 변�
 Blob을 다음 중 원하는 형식으로 deserialize할 수 있습니다.
 
 * 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화된 Blob 데이터에 유용 합니다.
-  사용자 지정 입력 형식을 선언하는 경우(예: `FooType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
+  사용자 지정 입력 형식을 선언하는 경우(예: `InputType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
 * 문자열은 텍스트 Blob 데이터에 유용합니다.
 
 C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Functions 런타임이 해당 형식을 사용하여 Blob 데이터를 deserialize하려고 시도하게 됩니다.
@@ -350,7 +350,7 @@ C# 함수에서 `out <T> <name>`같은 함수 시그니처의 명명된 `out` �
 다음 형식 중 하나를 사용하여 출력 Blob을 작성할 수 있습니다.
 
 * 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화에 유용합니다.
-  사용자 지정 출력 형식을 선언하는 경우(예: `out FooType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
+  사용자 지정 출력 형식을 선언하는 경우(예: `out OutputType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
 * 문자열(`out string paramName`)은 텍스트 Blob 데이터에 유용합니다. Functions 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 Blob을 생성합니다.
 
 C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
@@ -361,8 +361,6 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>`(여러 blob 출력)
-* `IAsyncCollector<T>`(비동기 버전의 `ICollector<T>`)
 
 <a name="outputsample"></a>
 

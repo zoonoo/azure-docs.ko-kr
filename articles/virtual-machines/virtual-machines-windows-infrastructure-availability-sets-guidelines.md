@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c3aca63e0810e97cee58d145423d6b3f5edabeb4
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="azure-availability-sets-guidelines"></a>Azure 가용성 집합 지침
+# <a name="azure-availability-sets-guidelines-for-windows-vms"></a>Windows VM에 대한 Azure 가용성 집합 지침
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 계획된 이벤트 또는 계획되지 않은 이벤트 동안 응용 프로그램에 계속 액세스할 수 있도록 하기 위해 가용성 집합에 대한 필수 계획 단계를 이해하는 데 주안점을 둡니다.
@@ -42,7 +45,9 @@ Azure에서 VM(가상 컴퓨터)은 가용성 집합이라는 논리적 그룹�
 
 모범 사례로 응용 프로그램은 단일 VM에만 상주하지 않는 것이 좋습니다. 단일 VM을 포함하는 가용성 집합의 경우 Azure 플랫폼 내의 계획되거나 계획되지 않은 이벤트에서 보호 효과를 얻지 못합니다. 기본 인프라 내에서 VM을 분산할 수 있도록 하기 위해 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) 은 가용성 집합 내에서 두 개 이상의 VM을 요구합니다.
 
-Azure의 기본 인프라는 도메인 및 장애 도메인을 업데이트하기 위해 분할됩니다. 이러한 도메인은 공통 업데이트 주기를 공유하거나 전력 및 네트워킹과 같은 비슷한 실제 인프라를 공유하는 호스트에 의해 정의됩니다. Azure는 가용성 및 내결함성을 유지하기 위해 가용성 집합 내의 VM을 도메인 간에 자동으로 분산합니다. 가용성 집합 내의 응용 프로그램 크기와 VM 수에 따라, 사용하려는 도메인 수를 조정할 수 있습니다. [업데이트 및 장애 도메인의 가용성 및 사용 관리](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 읽어보세요.
+Azure의 기본 인프라는 여러 하드웨어 클러스터로 분할됩니다. 각 하드웨어 클러스터는 다양한 VM 크기를 지원할 수 있습니다. 가용성 집합은 언제든지 특정 시점에 단일 하드웨어 클러스터에만 호스트될 수 있습니다. 따라서 단일 가용성 집합에 존재할 수 있는 VM 크기 범위는 하드웨어 클러스터에서 지원하는 VM 크기 범위로 제한됩니다. 가용성 집합에 대한 하드웨어 클러스터는 가용성 집합의 첫 번째 VM이 배포되거나 모든 VM이 현재 중지-할당 해제 상태에 있는 가용성 집합에서 첫 번째 VM을 시작할 때 선택됩니다. PowerShell 명령 "Get-AzureRmVMSize -ResourceGroupName \<string\> -AvailabilitySetName \<string\>"을 사용하여 가용성 집합에 사용할 수 있는 VM 크기 범위를 확인할 수 있습니다.
+
+각 하드웨어 클러스터는 여러 개의 업데이트 도메인 및 장애 도메인을 구분됩니다. 이러한 도메인은 공통 업데이트 주기를 공유하거나 전력 및 네트워킹과 같은 비슷한 실제 인프라를 공유하는 호스트에 의해 정의됩니다. Azure는 가용성 및 내결함성을 유지하기 위해 가용성 집합 내의 VM을 도메인 간에 자동으로 분산합니다. 가용성 집합 내의 응용 프로그램 크기와 VM 수에 따라, 사용하려는 도메인 수를 조정할 수 있습니다. [업데이트 및 장애 도메인의 가용성 및 사용 관리](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 읽어보세요.
 
 또한 응용 프로그램 인프라를 디자인할 때 사용할 응용 프로그램 계층을 계획합니다. 동일한 목적의 VM을 가용성 집합으로 그룹화합니다(예: IIS를 실행하는 프런트 엔드 VM에 대한 가용성 집합). SQL Server를 실행하는 백 엔드 VM에 대한 별도의 가용성 집합을 만듭니다. 응용 프로그램의 각 구성 요소를 가용성 집합을 통해 보호하고 항상 하나 이상의 인스턴스가 실행 상태를 유지하도록 하는 것이 그 목표입니다.
 
@@ -52,10 +57,5 @@ Azure의 기본 인프라는 도메인 및 장애 도메인을 업데이트하�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

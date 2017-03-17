@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/7/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
-ms.openlocfilehash: 90b7486d8a5997db16419a85e79f1c181de98b95
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 248bc4c309ed61ae00ef144ebdb4c820f285783d
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-c"></a>Intel Edison(C) 시작
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-c"></a>C를 사용하여 IoT Hub에 Intel Edison 장치 연결
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 [receive-cloud-to-device-messages]:iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

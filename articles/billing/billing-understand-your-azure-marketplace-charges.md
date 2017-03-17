@@ -13,26 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: adpick
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2f6f560b1a0994e99d7a029541ba73e1c8186ff2
-ms.openlocfilehash: 68df4e35c4f1ff744053d87273c7d07daca89b41
-
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e74bdd1faf268f33fdbbcc428b4b32212508c39
+ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="understand-your-azure-external-service-charges"></a>Azure 외부 서비스 요금의 이해
-이 문서에서는 Azure에서 외부 서비스의 요금 청구를 설명합니다. 외부 서비스는 마켓플레이스 주문으로 불렸습니다. 외부 서비스는 독립 서비스 공급 업체에 의해 제공되지만 Azure 에코시스템 내에서 완전히 통합됩니다. 방법 배우기:
+# <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure 외부 서비스 요금 청구의 이해
+외부 서비스는 Azure Marketplace로 불렸습니다. 일반적으로 Azure에 대해 사용 가능한 제&3;자에 의해 게시되었으나 Azure 내에 완전하게 통합된 서비스입니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
 
-* 외부 서비스 식별
-* 요금 청구가 다른 Azure 리소스와 어떻게 다른지 이해
-* 외부 서비스의 사용에서 축적한 모든 비용 확인 및 추적
-* 외부 서비스 주문 및 지불 방법 관리
-
-## <a name="what-are-azure-external-services"></a>Azure 외부 서비스는 무엇입니까?
-외부 서비스는 Azure Marketplace로 불렸습니다. 일반적으로 Azure에 대해 사용 가능한 제&3;자에 의해 게시된 서비스입니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
-
-### <a name="identify-external-services"></a>외부 서비스 식별
 새 외부 서비스 또는 리소스를 프로비전하면 다음 경고가 표시됩니다.
 
 ![마켓플레이스 구매 경고](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
@@ -42,14 +34,11 @@ ms.openlocfilehash: 68df4e35c4f1ff744053d87273c7d07daca89b41
 > 
 > 
 
-### <a name="external-services-are-billed-separately"></a>외부 서비스는 별도로 청구됩니다.
-외부 서비스는 Azure 구독 내에서 개별 주문으로 처리됩니다. 각 서비스에 대한 청구 기간은 서비스를 구입할 때 설정됩니다. 구매한 구독의 청구 기간과 혼동되지 않습니다. 또한 별도의 청구를 받으며 신용 카드는 별도로 청구됩니다.
+## <a name="how-external-services-are-billed"></a>외부 서비스에 요금이 청구되는 방식
+- 외부 서비스는 별도로 청구됩니다. 이러한 서비스는 Azure 구독 내에서 개별 주문으로 처리됩니다. 각 서비스에 대한 청구 기간은 서비스를 구입할 때 설정됩니다. 구매한 구독의 청구 기간과 혼동되지 않습니다. 또한 별도의 청구를 받으며 신용 카드는 별도로 청구됩니다.
+- 각 외부 서비스에는 다른 청구 모델이 있습니다. 일부 서비스는 종량제 방식으로 청구되는 반면 다른 서비스는 월별 기반 지불 모델을 사용합니다. Azure 외부 서비스에 대한 신용 카드가 필요하며 청구서 지불로 외부 서비스를 구입할 수 없습니다.
+- 외부 서비스에 대한 월별 무료 크레딧을 사용할 수 없습니다. [무료 크레딧](https://azure.microsoft.com/pricing/spending-limits/)을 포함하는 Azure 구독을 사용하는 경우 외부 서비스 청구에 적용될 수 없습니다. 신용 카드를 사용하여 외부 서비스를 구입합니다.
 
-### <a name="each-external-service-has-a-different-billing-model"></a>각 외부 서비스에는 다른 청구 모델이 있습니다.
-일부 서비스는 종량제 방식으로 청구되는 반면 다른 서비스는 월별 기반 지불 모델을 사용합니다. Azure 외부 서비스에 대한 신용 카드가 필요하며 청구서 지불로 외부 서비스를 구입할 수 없습니다.
-
-### <a name="you-cant-use-monthly-free-credits-for-external-services"></a>외부 서비스에 대한 월별 무료 크레딧을 사용할 수 없습니다.
-[무료 크레딧](https://azure.microsoft.com/pricing/spending-limits/)을 포함하는 Azure 구독을 사용하는 경우 외부 서비스 청구에 적용될 수 없습니다. 신용 카드를 사용하여 외부 서비스를 구입합니다.
 
 ## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Azure Portal에서 외부 서비스 지출 및 기록 보기
 [Azure 포털](https://portal.azure.com/) 내에서 각 구독에 있는 외부 서비스의 목록을 볼 수 있습니다. 
@@ -93,16 +82,11 @@ EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로�
     ![정보 편집 선택](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
 
 ## <a name="cancel-an-external-service-order"></a>외부 서비스 주문 취소
-외부 서비스 주문을 취소하려는 경우 [Azure 포털](https://portal.azure.com)에서 리소스를 삭제해야 합니다.
+외부 서비스 주문을 취소하려는 경우 [Azure Portal](https://portal.azure.com)에서 리소스를 삭제합니다.
 
 ![리소스 삭제](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 

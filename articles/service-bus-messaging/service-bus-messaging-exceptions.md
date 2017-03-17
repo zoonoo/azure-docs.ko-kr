@@ -1,5 +1,5 @@
 ---
-title: "Service Bus 메시징 예외 | Microsoft Docs"
+title: "Azure Service Bus 메시징 예외 | Microsoft Docs"
 description: "서비스 버스 메시징 예외 및 제안 조치의 목록입니다."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 03/03/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: e872848a91834cf19cd6ebdd4db637c54120c33b
-ms.openlocfilehash: 5321a465a0fab9dac4c4c0755da3e3ca4c8d7369
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ ms.openlocfilehash: 5321a465a0fab9dac4c4c0755da3e3ca4c8d7369
 | [SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception) |이 세션에 연결된 잠금이 손실되었습니다. |[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체를 중단합니다. |재시도로 해결되지 않습니다. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |다음 상황에 발생할 수 있는 일반 메시징 예외:<br /> 다른 엔터티 형식에 속하는(예: topic) 이름이나 경로를 사용하여 [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient)를 만들려고 시도합니다.<br />  256KB보다 큰 메시지를 전송하려고 시도합니다. 서버 또는 서비스가 요청을 처리하는 동안 오류가 발생했습니다. 자세한 내용은 예외 메시지를 참조하세요. 보통은 일시적인 예외입니다. |코드를 확인하고 메시지 본문에서 직렬화 가능 개체(또는 사용자 지정 직렬 변환기 사용)만 사용하는지 확인합니다. 설명서에서 지원되는 속성 값 유형을 확인하고 지원되는 유형만 사용합니다. [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) 속성을 확인합니다. 이 값이 **true**이면 작업을 다시 시도할 수 있습니다. |재시도 동작이 정의되지 않았으면 도움이 되지 않습니다. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |해당 서비스 네임스페이스에서 이미 다른 엔터티가 사용하는 이름으로 엔터티를 만들려고 합니다. |기존 엔터티를 삭제하거나 만들려는 엔터티에 다른 이름을 선택합니다. |재시도로 해결되지 않습니다. |
-| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)을 참조하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
+| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티가 최대 허용 크기에 도달했거나 네임스페이스에 대한 최대 연결 수를 초과했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)을 참조하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |잘못된 규칙 작업을 만들려고 시도하면 서비스 버스가 이 예외를 반환합니다. 메시지에 대한 규칙 작업 처리 중에 오류가 발생하면 서비스 버스가 이 예외를 전달 실패 메시지에 연결합니다. |규칙 작업이 정확한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) |잘못된 필터를 만들려고 시도하면 서비스 버스가 이 예외를 반환합니다. 메시지에 대한 필터 처리 중에 오류가 발생하면 서비스 버스가 이 예외를 전달 실패 메시지에 연결합니다. |필터가 정확한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [SessionCannotBeLockedException](/dotnet/api/microsoft.servicebus.messaging.sessioncannotbelockedexception) |특정 세션 ID를 갖는 세션을 수락하려 하나 해당 세션이 현재 다른 클라이언트에 잠겨 있습니다. |해당 세션이 다른 클라이언트에서 잠금 해제되었는지 확인합니다. |그 사이에 세션이 릴리스된 경우 다시 시도하면 문제가 해결될 수 있습니다. |
@@ -74,6 +75,17 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 ```
 
 메시지는 토픽이 해당 크기 제한을 초과했음을 알려 줍니다. 이 경우 1GB입니다(기본 크기 제한). 
+
+### <a name="namespaces"></a>네임스페이스
+
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception)은 응용 프로그램이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예:
+
+```
+Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
+<tracking-id-guid>_G12 ---> 
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
+ConnectionsQuotaExceeded for namespace xxx.
+```
 
 #### <a name="common-causes"></a>일반적인 원인
 이 오류에 대한 두 가지 일반적인 원인은 배달 못 한 편지 큐와 정상적으로 작동하지 않는 메시지 수신기입니다.
@@ -115,10 +127,5 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 * [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 * [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [서비스 버스 아키텍처](service-bus-architecture.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
+ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
+ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -119,7 +120,7 @@ ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
 | [의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [의사 결정 정글 ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |적은 메모리 공간 |
 | [신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |선택된 2클래스 메서드의 속성을 참조하세요. |
+| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |선택된&2;클래스 메서드의 속성을 참조하세요. |
 | **회귀** | | | | | |
 | [선형](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [베이지언 선형](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
@@ -152,9 +153,9 @@ ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
 ### <a name="logistic-regression"></a>로지스틱 회귀
 이름에 혼동을 줄 수 있는 '회귀'가 포함되어 있지만, 로지스틱 회귀 분석은 실제로 [2클래스](https://msdn.microsoft.com/library/azure/dn905994.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905853.aspx) 분류를 위한 강력한 도구입니다. 빠르고 단순합니다. 직선 대신 'S' 모양 곡선을 사용한다는 사실 때문에 데이터를 그룹으로 나누는 데 적합합니다. 로지스틱 회귀는 선형 클래스 경계를 제공하므로 이를 사용할 때는 선형 근사값이 수락할 수 있는 것인지 확인해야 합니다.
 
-![하나의 기능을 포함하는 2클래스 데이터에 대한 로지스틱 회귀][4]
+![하나의 기능을 포함하는&2;클래스 데이터에 대한 로지스틱 회귀][4]
 
-***한 가지 기능만 있는 2클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
+***한 가지 기능만 있는&2;클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
 
 ### <a name="trees-forests-and-jungles"></a>트리, 포리스트 및 정글
 의사 결정 포리스트([회귀](https://msdn.microsoft.com/library/azure/dn905862.aspx), [2클래스](https://msdn.microsoft.com/library/azure/dn906008.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn906015.aspx)), 의사 결정 정글([2클래스](https://msdn.microsoft.com/library/azure/dn905976.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905963.aspx)) 및 향상된 의사 결정 트리([회귀](https://msdn.microsoft.com/library/azure/dn905801.aspx) 및 [2클래스](https://msdn.microsoft.com/library/azure/dn906025.aspx))는 모두 의사 결정 트리, 기본적인 Machine Learning 개념을 기반으로 합니다. 의사 결정 트리에는 다양한 변형이 있지만 수행하는 작업은 동일합니다. 기능 공간을 대부분 같은 레이블을 포함하는 하위 지역으로 세분화합니다. 분류 또는 회귀를 수행 중인지 여부에 따라 일관된 범주 또는 상수 값의 하위 지역일 수 있습니다.
@@ -175,7 +176,7 @@ ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
 하지만 이러한 높은 성능을 위해서는 대가가 따릅니다. 신경망은 학습 시간이 길며 특히 많은 기능을 포함하는 큰 데이터 집합인 경우 시간이 오래 걸릴 수 있습니다. 또한 대부분의 알고리즘보다 더 많은 매개 변수를 포함하므로 매개 변수 스위핑으로 학습 시간은 엄청나게 길어집니다.
 [자신의 고유한 네트워크 구조를 지정](http://go.microsoft.com/fwlink/?LinkId=402867)하고 싶어하는 과잉 성취자에게 가능성은 무궁무진합니다.
 
-## <a name="boundaries-learned-by-neural-networks6"></a>![신경망으로 학습된 경계][6]
+![신경망으로 학습된 경계][6]
 ***신경망으로 학습하는 경계는 복잡하고 불규칙할 수 있습니다.***
 
 [2클래스 평균 퍼셉트론](https://msdn.microsoft.com/library/azure/dn906036.aspx) 은 급증하는 학습 시간에 대한 신경망의 해답입니다. 2클래스 평균 퍼셉트론은 선형 클래스 경계를 제공하는 네트워크 구조를 사용합니다. 오늘날의 기준으로 거의 원형에 가깝지만 오랫동안 견고하게 작동해왔으며 작기 때문에 신속한 학습이 가능합니다.
@@ -209,15 +210,22 @@ Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 �
 
 ***K-means를 사용하여 데이터 집합을 5개 클러스터로 그룹화합니다.***
 
-또한 N-클래스 분류 문제를 N-1 2클래스 분류 문제로 나누는 앙상블 [one-v-all 다중 클래스 분류자](https://msdn.microsoft.com/library/azure/dn905887.aspx)도 있습니다. 정확도, 학습 시간 및 선형성 속성은 사용된 2클래스 분류자에 의해 결정됩니다.
+또한 N-클래스 분류 문제를 N-1&2;클래스 분류 문제로 나누는 앙상블 [one-v-all 다중 클래스 분류자](https://msdn.microsoft.com/library/azure/dn905887.aspx)도 있습니다. 정확도, 학습 시간 및 선형성 속성은 사용된&2;클래스 분류자에 의해 결정됩니다.
 
-![2클래스 분류자를 결합하여 3클래스 분류자 형성][10]
+![2클래스 분류자를 결합하여&3;클래스 분류자 형성][10]
 
-***2클래스 분류자 쌍을 결합하여 3클래스 분류자를 형성합니다.***
+***2클래스 분류자 쌍을 결합하여&3;클래스 분류자를 형성합니다.***
 
 Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf)이라는 제목의 강력한 기계 학습 프레임워크에 대한 액세스도 포함됩니다.
 VW는 분류 및 회귀를 모두 학습할 수 있으며 부분적으로 레이블이 지정되지 않은 데이터에서도 학습이 가능하므로 여기에서 분류를 거부합니다. 다양한 학습 알고리즘, 손실 함수 및 최적화 알고리즘 중 하나를 사용하도록 구성할 수 있습니다. 기초부터 효율적, 병렬, 초고속 형태로 설계되었습니다. 적은 작업으로 엄청나게 큰 기능 집합을 처리합니다.
 Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 알고리즘 분야에서 포뮬러 원(Formula One) 엔트리입니다. 모든 문제가 VW에 적합하지는 않지만 해당하는 경우 인터페이스에 대한 학습 곡선을 따른다면 도움이 될 수 있습니다. 또한 여러 언어로 된 [독립 실행형 오픈 소스 코드](https://github.com/JohnLangford/vowpal_wabbit) 도 제공됩니다.
+
+## <a name="more-help-with-algorithms"></a>알고리즘에 대한 자세한 도움말
+* 알고리즘을 설명하고 예제를 제공하는 다운로드 가능한 인포그래픽은 [다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 Machine Learning 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md)을 참조하세요.
+* Azure Machine Learning Studio에서 사용할 수 있는 모든 Machine Learning 알고리즘의 범주별 목록은 [Machine Learning 스튜디오 Algorithm 및 모듈 도움말]에서 [초기화 모델][initialize-model]을 참조하세요.
+* Azure Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록][a-z-list]을 참조하세요.
+* Azure Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
+
 
 <!-- Media -->
 
@@ -231,9 +239,4 @@ Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 �
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

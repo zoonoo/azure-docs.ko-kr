@@ -54,6 +54,9 @@
 ### [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 ### [GitHub Enterprise와 소스 제어 통합](automation-scenario-source-control-integration-with-github-ent.md)
 ### [VSTS와 소스 제어 통합](automation-scenario-source-control-integration-with-VSTS.md)
+## 솔루션
+### [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
+### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
 ## 모니터
 ### [Log Analytics에 Azure Automation 작업 데이터 전달](automation-manage-send-joblogs-log-analytics.md)
 ### [Log Analytics에서 Azure Automation 계정 연결 해제](automation-unlink-from-log-analytics.md)

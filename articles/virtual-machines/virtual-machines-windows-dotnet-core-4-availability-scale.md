@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: e714a7e941b25dfb0926934a3dff387363f306d8
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b321683b2080e5af3a112791eae416e03dee0080
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 가용성 및 크기 조정
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-windows-vms"></a>Windows VM용 Azure Resource Manager 템플릿의 가용성 및 크기 조정
+
 가용성 및 크기 조정은 가동 시간 및 요구를 충족하는 능력을 나타냅니다. 응용 프로그램의 가동 시간이 99.9% 이상이어야 하면 여러 개의 동시 계산 리소스를 허용하는 아키텍처가 필요합니다. 예를 들어 단일 웹 사이트를 유지하지 않고, 가용성 수준이 좀 더 높은 구성에 동일한 사이트의 여러 인스턴스를 포함하고 부하 분산 기술을 사용합니다. 이 구성에서 응용 프로그램의 인스턴스 하나를 유지 관리에 사용하고 나머지는 계속 작동되도록 할 수 있습니다. 크기 조정은 요구를 처리하는 응용 프로그램의 능력을 나타냅니다. 부하 분산된 응용 프로그램을 사용하여 풀에서 인스턴스를 추가하거나 제거하면 수요에 맞게 크기를 응용 프로그램 규모를 조정할 수 있습니다.
 
 이 문서에서는 가용성 및 크기 조정을 위해 Music Store 샘플 배포를 구성하는 방법을 자세히 설명합니다. 모든 종속성 및 고유한 구성이 강조 표시됩니다. 최상의 환경을 위해서는 솔루션 인스턴스를 Azure 구독에 미리 배포하고 Azure Resource Manager 템플릿을 따라 작업하는 것이 좋습니다. 전체 템플릿은 [Windows의 Music Store 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)에서 확인할 수 있습니다.
@@ -249,10 +252,5 @@ copy 함수에 대한 자세한 내용은 [Azure Resource Manager에서 리소�
 <hr>
 
 [4단계 - Azure Resource Manager 템플릿을 사용한 응용 프로그램 배포](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -13,12 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/02/2017
 ms.author: bprakash
 translationtype: Human Translation
-ms.sourcegitcommit: 0371c6ba2434c315db1bdbacab8639fd40d5c999
-ms.openlocfilehash: 1986a4f19d89f1451ca47a94511ff998705ed785
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: d9c85736e9578ff4f821a118a25055e360e33ae9
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,7 +39,7 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premi
 | --- | --- |
 | 도메인에 가입된 HDInsight 클러스터 |엔터프라이즈 수준의 보안을 위해 Azure Active Directory(AAD) 도메인에 HDInsight 클러스터를 연결합니다. 이제 HDInsight 클러스터에 로그온하기 위해 Azure Active Directory를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 관리자는 또한 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 사용하여 Hive 보안용 역할 기반 액세스 제어를 구성할 수 있게 되어 필요한 만큼 데이터에 대한 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있게 되어 회사 리소스를 고도로 관리할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](hdinsight-domain-joined-configure.md)을 참조하세요. |
 
-### <a name="cluster-types-supported-for-premium"></a>Premium용으로 지원되는 클러스터 유형
+### <a name="cluster-types-supported-for-hdinsight-premium"></a>HDInsight Premium용으로 지원되는 클러스터 유형
 다음 표에는 HDInsight 클러스터 유형 및 Premium 지원 행렬이 나와 있습니다.
 
 | 클러스터 유형 | Standard | Premium |
@@ -48,10 +48,17 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premi
 | Spark |예 |아니요 |
 | HBase |예 |아니요 |
 | Storm |예 |아니요 |
+| R 서버  |예 |아니요 |
 | 대화형 Hive(미리 보기) |예 |아니요 |
-| R Server(미리 보기) |예 |아니요 |
+| Kafka(미리 보기)|예|아니요| 
 
 이 표는 HDInsight Premium에 추가 클러스터 유형이 포함되면 업데이트될 예정입니다.
+
+### <a name="features-not-supported-for-hdinsight-premium"></a>HDInsight Premium용으로 지원되지 않는 기능
+
+다음 기능은 현재 HDInsight Premium 클러스터에 대해 지원되지 않습니다.
+
+* **Azure Data Lake Store가 기본 저장소로 지원되지 않습니다**. HDInsight Premium 클러스터와 함께 Azure Data Lake Store를 추가 기능 저장소로 계속 사용할 수 있습니다.
 
 ### <a name="pricing-and-sla"></a>가격 및 SLA
 HDInsight Premium의 가격 및 SLA에 대한 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
@@ -66,8 +73,21 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
 
 | 구성 요소 | HDInsight 버전 3.5(기본값) | HDInsight 버전 3.4 | HDInsight 버전 3.3 | HDInsight 버전 3.2 | HDInsight 버전 3.1 | HDInsight 버전 3.0 |
-
-| --- | --- | --- | --- | --- | --- | --- | | Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 | | Apache Hadoop & YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 | | Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 | | | Apache Pig |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 | | Apache Hive & HCatalog |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 | | Apache HBase |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 | | | Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 | | Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 | | Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 | | Apache Storm |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 | | | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 | | | Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 | | | Apache Spark |1.6.2 + 2.0(Linux 전용) |1.6.0(Linux 전용) |1.5.2 (Linux 전용/실험적 빌드) |1.3.1 (Windows 전용) | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Apache Hadoop & YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Pig |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
+| Apache Hive & HCatalog |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| Apache HBase |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
+| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Storm |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
+| Apache Spark |1.6.2 + 2.0(Linux만 해당) |1.6.0(Linux만 해당) |1.5.2(Linux만 해당/ 실험적 빌드) |1.3.1(Windows만 해당) |-|-|
+| Apache Kafka | 0.10.0 | 0.9.0 |-|-|-|-|
 
 **현재 구성 요소 버전 정보 가져오기**
 

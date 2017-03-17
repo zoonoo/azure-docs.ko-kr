@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 0868eb2269b3675a132e106cd66740b0ce52b00a
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -76,7 +76,7 @@ Windows 컴퓨터를 OMS에 연결하려면 간단한 3단계를 수행하기만
 8. 완료되면 **제어판**에 **Microsoft Monitoring Agent**가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Operational Insights(OMS)에 연결되었는지 확인합니다. OMS에 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.
 
 ## <a name="install-the-agent-using-the-command-line"></a>명령줄을 사용하여 에이전트 설치
-- 명령줄을 사용하여 에이전트를 설치하려면 다음 예제를 수정한 다음 사용합니다.
+- 명령줄을 사용하여 에이전트를 설치하려면 다음 예제를 수정한 다음 사용합니다. 예제에서는 완전 자동 설치를 수행합니다.
 
     >[!NOTE]
     에이전트를 업그레이드하려는 경우 Log Analytics 스크립팅 API를 사용해야 합니다. 에이전트를 업그레이드하려면 다음 섹션을 참조하세요.
@@ -84,6 +84,8 @@ Windows 컴퓨터를 OMS에 연결하려면 간단한 3단계를 수행하기만
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
+
+에이전트는 `/c`를 통해 IExpress를 자동 압축 풀기 프로그램으로 사용합니다. [IExpress 소프트웨어 업데이트 패키지의 명령줄 스위치](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages)의 명령줄 스위치를 사용하여 필요에 맞게 예제를 업데이트할 수 있습니다.
 
 ## <a name="upgrade-the-agent-and-add-a-workspace-using-a-script"></a>스크립트를 사용하여 에이전트 업그레이드 및 작업 영역 추가
 다음 PowerShell 예처럼 Log Analytics 스크립팅 API를 사용하여 에이전트를 업그레이드하고 작업 영역을 추가할 수 있습니다.

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
-ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 30faf4b99414e5f7b5131c231b4dccf3a7272d25
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -49,7 +49,10 @@ Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤�
 
 <br>
 
-## <a name="step-3-set-your-subscription-and-sign-up-for-migration"></a>3단계: 구독 설정 및 마이그레이션에 등록
+## <a name="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-portal"></a>3단계: Azure 클래식 포털에서 구독에 대한 공동 관리자인지 확인
+이 마이그레이션을 수행하려면 [Azure 클래식 포털](https://manage.windowsazure.com/)에 구독에 대한 공동 관리자로 추가되어야 합니다. [Azure Portal](https://portal.azure.com)에서 소유자로 이미 추가된 경우에도 이 작업이 필요합니다. 구독에 대한 공동 관리자인지 확인하려면 [Azure 클래식 포털에서 구독에 대한 공동 관리자를 추가](../billing/billing-add-change-azure-subscription-administrator.md)해 보세요. 공동 관리자를 추가할 수 없으면 구독에 대한 서비스 관리자 또는 공동 관리자에게 추가해줄 것을 요청합니다.   
+
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>4단계: 구독 설정 및 마이그레이션에 등록
 먼저, PowerShell 프롬프트를 시작합니다. 마이그레이션의 경우 클래식 및 Resource Manager에 대한 환경을 설정해야 합니다.
 
 Resource Manager 모델에 대한 계정으로 로그인합니다.
@@ -111,7 +114,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 
 <br>
 
-## <a name="step-4-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>4단계: 현재 배포의 Azure 지역 또는 VNET에 Azure Resource Manager 가상 컴퓨터 코어가 충분한지 확인
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>5단계: 현재 배포의 Azure 지역 또는 VNET에 Azure Resource Manager 가상 컴퓨터 코어가 충분한지 확인
 다음 powershell 명령을 사용하여 Azure Resource Manager에 있는 현재 코어 수를 확인할 수 있습니다. 코어 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)를 참조하세요. 
 
 이 예제에서는 **미국 서부** 지역의 사용 가능 여부를 확인합니다. 예제 지역 이름을 사용자 고유의 이름으로 바꿉니다. 
@@ -120,7 +123,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 Get-AzureRmVMUsage -Location "West US"
 ```
 
-## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>5단계: IaaS 리소스를 마이그레이션하는 명령 실행
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>6단계: IaaS 리소스를 마이그레이션하는 명령 실행
 > [!NOTE]
 > 여기에 설명된 모든 작업은 idempotent 방식입니다. 지원되지 않는 기능 또는 구성 오류 이외의 문제가 발생하는 경우 준비, 중단 또는 커밋 작업을 다시 시도하는 것이 좋습니다. 그러면 플랫폼이 해당 작업을 다시 시도합니다.
 > 

@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: e32d21ca410d4107f68f8b72353ca400a26c4523
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -37,7 +38,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
-* Visual Studio 2012, 2013 또는 2015
+* Visual Studio 2012, 2013, 2015 또는 2017.
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
 
@@ -47,30 +48,17 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 2. 새 프로젝트에서 다음 값을 입력하거나 선택합니다.
    
-    <table>
-    <tr>
-    <th>속성</th>
-    <th>값</th>
-    </tr>
-    <tr>
-    <th>Category</th>
-    <th>Templates/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Template</th>
-    <th>콘솔 응용 프로그램</th>
-    </tr>
-    <tr>
-    <th>이름</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
+   | 속성 | 값 |
+   | ------ | ------ |
+   | Category | Templates/Visual C#/Windows |
+   | Template | 콘솔 응용 프로그램 |
+   | 이름 | SubmitPigJob |
 
 3. **확인** 을 클릭하여 프로젝트를 만듭니다.
 
 4. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **Nuget 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
 
-5. 콘솔에서 다음 명령을 실행하여 .NET SDK 패키지를 설치합니다.
+5. .NET SDK 패키지를 설치하려면 다음 명령을 사용합니다.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
@@ -129,9 +117,9 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
     }
     ```
     
-7. **F5** 키를 눌러 응용 프로그램을 시작합니다.
+7. 응용 프로그램을 시작하려면 **F5** 키를 누릅니다.
 
-8. **Enter** 키를 눌러 응용 프로그램을 종료합니다.
+8. 응용 프로그램을 종료하려면 **ENTER** 키를 누릅니다.
 
 ## <a name="summary"></a>요약
 
@@ -139,19 +127,12 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight에서 Pig에 대한 일반 정보.
+HDInsight의 Pig에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)을 참조하세요.
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-
-HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니다.
+HDInsight에서 Hadoop을 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

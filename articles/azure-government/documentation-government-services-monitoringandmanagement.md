@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/13/2017
+ms.date: 2/28/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
-ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: a04b2f26c8ab34fdbfc7412d47292a560466eb44
+ms.openlocfilehash: c33d50a900be53a3161ad60bc34e2e819fe62947
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -84,7 +84,6 @@ Log Analytics는 일반적으로 Azure Government에서 사용할 수 있습니�
   * Azure Automation 분석 솔루션
   * Key Vault 분석 솔루션
 * 다음은 온-프레미스 소프트웨어 업데이트가 필요한 솔루션 및 기능입니다.
-  * Integration with System Center Operations Manager 2016(이전 버전의 Operations Manager는 지원됨)
   * System Center Configuration Manager의 컴퓨터 그룹
   * Surface Hub 솔루션
 * 다음은 공용 Azure에서 미리 보기로 제공되는 기능입니다.
@@ -104,12 +103,18 @@ Azure Government에서 Log Analytics의 URL은 서로 다릅니다.
 
 다음 Log Analytics 기능은 Azure Government에서 다르게 작동합니다.
 
-* Azure Government의 [Log Analytics 포털](https://oms.microsoft.us)에서 Windows 에이전트를 다운로드해야 합니다.
 * System Center Operations Manager 관리 서버를 Log Analytics에 연결하려면 업데이트된 관리 팩을 다운로드하고 가져와야 합니다.
-  1. [업데이트된 관리 팩](http://go.microsoft.com/fwlink/?LinkId=828749)을 다운로드하고 저장합니다.
-  2. 다운로드한 파일의 압축을 풉니다.
-  3. 관리 팩을 Operations Manager로 가져옵니다. 디스크에서 관리 팩을 가져오는 방법에 대한 정보는 Microsoft TechNet 웹 사이트의 [Operations Manager 관리 팩을 가져오는 방법](http://technet.microsoft.com/library/hh212691.aspx) 토픽을 참조하세요.
-  4. Operations Manager를 Log Analytics에 연결하려면 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)의 단계를 따릅니다.
+  + System Center Operations Manager 2016
+    1. [System Center Operations Manager 2016용 업데이트 롤업 2](https://support.microsoft.com/help/3209591)를 설치합니다.
+    2. 업데이트 롤업 2의 일부로 포함된 관리 팩을 Operations Manager로 가져옵니다. 디스크에서 관리 팩을 가져오는 방법에 대한 정보는 Microsoft TechNet 웹 사이트의 [Operations Manager 관리 팩을 가져오는 방법](http://technet.microsoft.com/library/hh212691.aspx) 토픽을 참조하세요.
+    3. Operations Manager를 Log Analytics에 연결하려면 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)의 단계를 따릅니다.
+  + System Center Operations Manager 2012 R2 UR3(이상)/Operations Manager 2012 SP1 UR7(이상)
+    1. [업데이트된 관리 팩](http://go.microsoft.com/fwlink/?LinkId=828749)을 다운로드하고 저장합니다.
+    2. 다운로드한 파일의 압축을 풉니다.
+    3. 관리 팩을 Operations Manager로 가져옵니다. 디스크에서 관리 팩을 가져오는 방법에 대한 정보는 Microsoft TechNet 웹 사이트의 [Operations Manager 관리 팩을 가져오는 방법](http://technet.microsoft.com/library/hh212691.aspx) 토픽을 참조하세요.
+    4. Operations Manager를 Log Analytics에 연결하려면 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)의 단계를 따릅니다.
+  
+
 
 ### <a name="frequently-asked-questions"></a>질문과 대답
 * Microsoft Azure의 Log Analytics에서 Azure Government로 데이터를 마이그레이션할 수 있습니까?

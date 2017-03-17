@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 010219c4da683b1e4b96d688a12e0f75c930a546
-ms.openlocfilehash: 8afaf239717c32ca9c81b2da033faf585348e6f2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -565,9 +565,9 @@ System Center Configuration Manager 같은 소프트웨어 배포 시스템을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자동 장치 등록 FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
-* [Windows 10 및 Windows Server 2016에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-* [Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결 - 비-Windows 10](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+* [자동 장치 등록 FAQ](active-directory-device-registration-faq.md)
+* [Windows 10 및 Windows Server 2016에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](active-directory-device-registration-troubleshoot-windows.md)
+* [Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결 - 비-Windows 10](active-directory-device-registration-troubleshoot-windows-legacy.md)
 * [Azure Active Directory 조건부 액세스](active-directory-conditional-access-azure-portal.md)
 
 

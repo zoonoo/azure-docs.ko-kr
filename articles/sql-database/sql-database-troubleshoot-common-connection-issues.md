@@ -13,12 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/03/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
-ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 7e48069b84c1048617a86fbc334a04462b52deda
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -47,12 +47,26 @@ Azure SQL 데이터베이스에 대한 연결이 실패하면 [오류 메시지]
 특정 연결 오류가 발생하면 문제를 빠르게 식별하고 해결하는 데 도움이 되는 [이 도구](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)를 사용해보세요.
 
 ## <a name="troubleshoot-transient-errors"></a>일시적인 오류 문제 해결
-응용 프로그램에 일시적인 오류가 발생하는 경우 다음 항목에서 이러한 오류를 해결하고 빈도를 줄이는 방법에 대한 팁을 검토합니다.
 
-* [&lt;y&gt; 서버의 &lt;x&gt; 데이터베이스을 현재 사용할 수 없습니다(오류: 40613) 문제 해결](sql-database-troubleshoot-connection.md)
-* [SQL 연결 오류와 일시적 SQL 데이터베이스 오류의 문제 해결, 진단 및 예방](sql-database-connectivity-issues.md)
+응용 프로그램이 Azure SQL Database에 연결할 때 다음 오류 메시지가 표시됩니다.
 
-<a id="troubleshoot-the-persistent-errors" name="troubleshoot-the-persistent-errors"></a>
+```
+Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
+```
+
+> [!NOTE]
+> 이 오류 메시지는 대개 일시적으로 나타납니다.
+> 
+> 
+
+Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL데이터베이스에 대한 응용 프로그램의 연결이 끊기면 이 오류가 발생합니다. SQL Database 다시 구성 이벤트는 계획된 이벤트(예: 소프트웨어 업그레이드) 또는 계획되지 않은 이벤트(예: 프로세스 충돌 또는 부하 분산) 때문에 발생합니다. 대부분의 다시 구성 이벤트는 보통 일시적으로 발생하며 최대 60초 이내에 완료됩니다. 그러나 큰 트랜잭션으로 인해 복구가 오래 실행되는 등 이러한 이벤트가 완료되는 데 시간이 더 오래 걸리는 경우도 있습니다.
+
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>일시적인 연결 문제를 해결하는 단계
+
+1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status) 에서 응용 프로그램이 오류를 보고한 시간 동안 발생한 알려진 서비스 중단을 확인합니다.
+2. Azure SQL Database와 같이 클라우드 서비스에 연결하는 응용 프로그램에서는 주기적으로 다시 구성 이벤트가 발생하므로, 이러한 이벤트를 사용자에게 응용 프로그램 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다. 자세한 내용과 일반적인 다시 시도 전략을 확인하려면 [일시적인 오류](sql-database-connectivity-issues.md) 섹션과 [SQL Database 개발 개요](sql-database-develop-overview.md)에서 모범 사례 및 설계 지침을 검토하세요. 그런 다음 세부 사항은 [SQL Database 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md) 에서 코드 샘플을 참조하세요.
+3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [성능 문제 해결](sql-database-troubleshoot-performance.md)을 참조하세요.
+4. 연결 문제가 계속 발생하거나 응용 프로그램에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options) 를 선택하여 Azure 지원 요청을 접수합니다.
 
 ## <a name="troubleshoot-persistent-errors-non-transient-errors"></a>영구적인 오류(일시적이지 않은 오류) 문제 해결
 응용 프로그램이 Azure SQL 데이터베이스 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.

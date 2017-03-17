@@ -1,7 +1,26 @@
-i---제목: multi-factor authentication - Azure SQL 구성 | Microsoft Docs 설명: SQL Database 및 SQL Data Warehouse 용 SSMS로 Multi-Factored 인증을 사용합니다.
-서비스: sql 데이터베이스 documentationcenter: ' 작성자: BYHAM 관리자: jhubbard 편집기: ' 태그: '
+---
+title: "Multi-Factor Authentication 구성 - Azure SQL | Microsoft Docs"
+description: "SQL 데이터베이스 및 SQL 데이터 웨어하우스용 SSMS에서 Multi-Factor Authentication 사용"
+services: sql-database
+documentationcenter: 
+author: BYHAM
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 
+ms.service: sql-database
+ms.custom: authentication and authorization
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 01/23/2017
+ms.author: rickbyh
+translationtype: Human Translation
+ms.sourcegitcommit: b134999d407195aaf44babb3e4862b96cc1dc1ed
+ms.openlocfilehash: b36f0cf8cbf0dfb310d6dd534906ee5391ce4cd5
+ms.lasthandoff: 03/02/2017
 
-ms.assetid: ms.service: sql-database ms.custom: authentication and authorization ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: data-management ms.date: 01/23/2017 ms.author: rickbyh
 
 ---
 # <a name="configure-azure-sql-database-multi-factor-authentication-for-sql-server-management-studio"></a>SQL Server Management Studio에 대한 Azure SQL Database Multi-Factor Authentication 구성
@@ -56,4 +75,5 @@ Azure SQL Database Multi-Factor Authentication의 개요는 [SQL Server Manageme
 [3]: ./media/sql-database-ssms-mfa-auth/3mfa-setup.png
 [4]: ./media/sql-database-ssms-mfa-auth/4mfa-verify-1.png
 [5]: ./media/sql-database-ssms-mfa-auth/5mfa-verify-2.png
+
 

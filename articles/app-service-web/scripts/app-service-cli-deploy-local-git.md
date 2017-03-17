@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 09851d3f2b3cf33015e508aec6cdae613a747038
-ms.openlocfilehash: b10da867c4ab43053019313956b09635917781e4
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 20ea69ea285fc97bbcf755ea1c40447745ff4be0
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -33,13 +33,7 @@ ms.lasthandoff: 02/27/2017
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "웹앱 만들기 및 로컬 Git 리포지토리의 코드 배포")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
-
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, App Service 앱 및 모든 관련된 리소스를 제거할 수 있습니다.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

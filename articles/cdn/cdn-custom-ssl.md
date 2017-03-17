@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: aea6f0fedb447e953b9db40342e5091bd35486af
-ms.openlocfilehash: 9b80ae8c247480e69025b86fac322166a4d5cb4c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b334ba6bbec1d0a7e23a514174bffae01c7fff05
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -59,7 +60,13 @@ HTTPS 기능의 주요 특성 몇 가지는 다음과 같습니다.
 >[!IMPORTANT] 
 >사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 업무일 기준 6일 이내 도메인이 승인되지 않으면 요청이 취소됩니다.  
 
-사용자 지정 도메인에서 HTTPS를 사용하도록 설정한 후에는, HTTPS 인증서 공급자 DigiCert가 도메인 등록자에게 연락하여 전자 메일(기본값) 또는 전화로 WHOIS 등록자 정보를 토대로 도메인 소유권의 유효성을 확인합니다. WHOIS 등록자 정보가 비공개인 경우 DigiCert가 확인 메일을 **admin@*<your-domain-name.com>***으로 보냅니다.
+사용자 지정 도메인에서 HTTPS를 사용하도록 설정한 후에는, HTTPS 인증서 공급자 DigiCert가 도메인 등록자에게 연락하여 전자 메일(기본값) 또는 전화로 WHOIS 등록자 정보를 토대로 도메인 소유권의 유효성을 확인합니다. 또한 DigiCert는 아래 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 개인인 경우 이러한 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
+
+>admin@<your-domain-name.com> administrator@<your-domain-name.com>  
+>webmaster@<your-domain-name.com>  
+>hostmaster@<your-domain-name.com>  
+>postmaster@<your-domain-name.com>
+
 
 전자 메일을 받으면 두 가지 확인 옵션이 제공됩니다.
 
@@ -104,10 +111,5 @@ HTTPS 기능의 주요 특성 몇 가지는 다음과 같습니다.
 
 - [Azure CDN 끝점에서 사용자 지정 도메인을 사용하도록 설정](./cdn-map-content-to-custom-domain.md)하는 방법을 알아봅니다.
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

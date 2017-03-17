@@ -12,24 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 522496ddcd3cc21501f2390e8cdc158798b6289d
-ms.openlocfilehash: 35d33625badeb0b32079f0487b8bf2a3dd97e141
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 7680aafcefbe6f1e6e3b55137da2e46b42df5a9b
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Azure 보안 센터에서 OS 취약성 해결
-Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석하여 VM을 공격에 더 취약하게 만들 수 있는 구성을 찾고 이러한 취약성을 해결하기 위한 구성 변경을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 구성 규칙 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) 을 참조하세요. Security Center는 VM의 OS 구성이 권장 구성 규칙과 일치하지 않는 경우 취약성 해결을 권장합니다.
+Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석하여 VM을 공격에 더 취약하게 만들 수 있는 구성을 찾고 이러한 취약성을 해결하기 위한 구성 변경을 권장합니다. Security Center는 VM의 OS 구성이 권장 구성 규칙과 일치하지 않는 경우 취약성 해결을 권장합니다.
+
+> [!NOTE]
+> 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 구성 규칙 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) 을 참조하세요. 현재는 Windows Server 2016이 완전히 지원되지 않습니다.
+>
+>
+
+## <a name="implement-the-recommendation"></a>권장 사항 구현
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
 >
 >
 
-## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **OS 취약성 해결**을 선택합니다.
    ![OS 취약성 해결][1]
 

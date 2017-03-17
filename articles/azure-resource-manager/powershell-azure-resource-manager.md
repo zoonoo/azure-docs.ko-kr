@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: d1f4b7806f72dc2632ba981781097b19e89d07f3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -56,10 +57,10 @@ Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ## <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인합니다.
 솔루션에서 작업하기 전에 자신의 계정으로 로그인해야 합니다.
 
-자신의 Azure 계정에 로그인하려면 **Add-AzureRmAccount** cmdlet을 사용합니다.
+Azure 계정에 로그인하려면 **Login-AzureRmAccount** Cmdlet을 사용합니다.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
@@ -273,10 +274,5 @@ Resource Manager 템플릿을 내보내는 옵션과 시나리오는 많이 있�
 * 템플릿 배포에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 * 기존 리소스를 새 리소스 그룹으로 이동할 수 있습니다. 예제를 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

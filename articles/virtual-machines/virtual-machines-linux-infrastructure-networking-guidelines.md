@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 84b64fd79da641987d5346d90bb77bde154b58c4
-ms.openlocfilehash: a519c101e24a340078adcfde3e5733db71630aea
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1faab292ec93c2138eed2efd977a0bdecbb4574b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-networking-infrastructure-guidelines"></a>Azure 네트워킹 인프라 지침
+# <a name="azure-networking-infrastructure-guidelines-for-linux-vms"></a>Linux VM에 대한 Azure 네트워킹 인프라 지침
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 Azure 내의 가상 네트워킹 및 기존 온-프레미스 환경 간 연결에 필요한 계획 단계를 집중적으로 살펴봅니다.
@@ -102,10 +105,5 @@ ms.openlocfilehash: a519c101e24a340078adcfde3e5733db71630aea
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

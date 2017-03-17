@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,11 @@ ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
    > [!TIP]
    > 여러 자산 목록을 작성할 수 있도록 하는 텍스트를 입력한 후에 더 많은 **경로** 텍스트 상자가 표시됩니다.  목록에서 줄임표(...) 단추를 클릭하여 자산을 삭제할 수 있습니다.
    > 
-   > 경로는 다음 [정규식](https://msdn.microsoft.com/library/az24scfc.aspx)에 맞는 상대 URL이어야 합니다. `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`  각 자산에는 자체 경로가 있어야 합니다.  미리 로드한 자산에 대한 와일드카드 기능은 없습니다.
+   > 경로는 다음 [정규식](https://msdn.microsoft.com/library/az24scfc.aspx)에 맞는 상대 URL이어야 합니다.  
+   > >단일 파일 경로 `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`를 업로드합니다.  
+   > >쿼리 문자열 `@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`을 사용하여 단일 파일을 로드합니다.  
+   > 
+   > 각 자산에는 자체 경로가 있어야 합니다.  미리 로드한 자산에 대한 와일드카드 기능은 없습니다.
    > 
    > 
    
@@ -66,10 +71,5 @@ ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
 ## <a name="see-also"></a>참고 항목
 * [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
 * [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

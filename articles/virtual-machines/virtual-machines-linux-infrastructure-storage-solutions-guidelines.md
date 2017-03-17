@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 61bd36ff8b3bff0acb262f6d181ffe69e6b92d27
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 2aba475cd93e4d3ec37d2eb70f7ba06bc317c222
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-storage-infrastructure-guidelines"></a>Azure Storage 인프라 지침
+# <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>Linux VM에 대한 Azure Storage 인프라 지침
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 최적의 VM(가상 컴퓨터) 성능을 위한 저장소 요구 사항 및 디자인 고려 사항을 이해하는 데 주안점을 둡니다.
@@ -84,10 +87,5 @@ Azure Storage 환경을 디자인할 때 배포하는 VM 수가 증가할 경우
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
-ms.openlocfilehash: 4f597fad719637e66d64143c302334b1c62e226e
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: a78bd696ead85138331d00d3543fdc88ac01d39b
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 4f597fad719637e66d64143c302334b1c62e226e
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* Visual Studio 2013 또는 2015
+* Visual Studio 2013, Visual Studio 2015 또는 Visual Studio 2017
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -248,9 +249,4 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
     Write-host "Default Storage Account Name: $defaultStorageAccountName"
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

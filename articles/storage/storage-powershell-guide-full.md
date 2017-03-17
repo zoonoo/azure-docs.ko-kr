@@ -11,12 +11,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b046dcb32e6796f4e66009361783fa95936794b8
-ms.openlocfilehash: 662fbbdda2c6d4d7da2c7c94dabb984a6bfc7296
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8b9e174523b3d08be20a4d30cc83c11f5bc93cd5
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -693,8 +693,7 @@ Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 응용 프로�
 Azure File Storage에 대한 자세한 내용은 [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md) 및 [파일 서비스 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)를 참조하세요.
 
 ## <a name="how-to-set-and-query-storage-analytics"></a>저장소 분석을 설정 및 쿼리하는 방법
-[Azure 저장소 분석](storage-analytics.md) 을 통해 Azure 저장소 계정에서 메트릭(저장소 메트릭)을 수집하고 저장소 계정에 전송된 요청에 대한 데이터(저장소 로깅)를 기록할 수 있습니다. 저장소 메트릭을 사용하여 저장소 계정의 상태를 모니터링하고, 저장소 로깅을 사용하여 저장소 계정에 대한 문제를 진단 및 해결할 수 있습니다.
-기본적으로 저장소 메트릭은 저장소 서비스에 대해 사용되지 않습니다. Azure Portal 또는 Windows PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다. 저장소 로깅은 서버 쪽에서 발생하며, 이를 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다.
+[Azure 저장소 분석](storage-analytics.md) 을 통해 Azure 저장소 계정에서 메트릭(저장소 메트릭)을 수집하고 저장소 계정에 전송된 요청에 대한 데이터(저장소 로깅)를 기록할 수 있습니다. 저장소 메트릭을 사용하여 저장소 계정의 상태를 모니터링하고, 저장소 로깅을 사용하여 저장소 계정에 대한 문제를 진단 및 해결할 수 있습니다. Azure Portal 또는 Windows PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 모니터링을 구성할 수 있습니다. 저장소 로깅은 서버 쪽에서 발생하며, 이를 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다.
 
 PowerShell을 사용하여 저장소 메트릭 데이터를 사용하도록 설정하고 확인하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 메트릭을 사용하도록 설정하는 방법](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell)을 참조하세요.
 

@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
@@ -32,13 +33,13 @@ ms.lasthandoff: 01/18/2017
 >
 > HDInsight 3.4 이상의 경우 웹 브라우저에서 Hive 쿼리 실행에 대한 자세한 내용은 [Ambari Hive 보기에서 Hive 쿼리 실행](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
+## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * Windows 기반 HDInsight Hadoop 클러스터
 * 최신 웹 브라우저
 
-## <a name="a-idruna-run-hive-queries-using-the-query-console"></a><a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
+## <a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
 1. 웹 브라우저를 열고 **https://CLUSTERNAME.azurehdinsight.net**으로 이동합니다. 여기서 **CLUSTERNAME**은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
 2. 페이지 위쪽에 있는 링크 중 **Hive 편집기**를 선택합니다. HDInsight 클러스터에서 실행하려는 HiveQL 문을 입력하는 데 사용할 수 있는 양식이 표시됩니다.
    
@@ -71,12 +72,12 @@ ms.lasthandoff: 01/18/2017
 3. **Submit**를 클릭합니다. 페이지 아래쪽의 **작업 세션** 에는 작업에 대한 세부 정보가 표시됩니다.
 4. **상태** 필드가 **완료**로 변경되면 작업에 대한 **세부 정보 보기**를 선택합니다. 세부 정보 페이지의 **작업 출력**에는 `[ERROR]    3`이 포함됩니다. 이 필드 아래의 **다운로드** 단추를 사용하여 작업의 출력을 포함하는 파일을 다운로드할 수 있습니다.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
+## <a id="summary"></a>요약
 여기에서 볼 수 있듯이 Query 콘솔은 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
 Hive 쿼리 콘솔을 사용하여 Hive 작업을 실행하는 방법에 대한 자세한 내용을 보려면 쿼리 콘솔의 위쪽에서 **시작** 을 선택한 다음 제공되는 샘플을 사용합니다. 각 샘플은 샘플에 사용된 HiveQL 문의 설명을 포함하여 Hive를 사용하여 데이터를 분석하는 프로세스를 안내합니다.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)

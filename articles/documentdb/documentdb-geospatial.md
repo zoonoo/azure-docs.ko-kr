@@ -1,5 +1,5 @@
 ---
-title: "Azure DocumentDB에서 지리 공간 데이터 작업 | Microsoft Docs"
+title: "Azure DocumentDB에서 지리 공간 데이터 작업 | Microsoft 문서"
 description: "Azure DocumentDB를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다."
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: f78c0fc1959f72164508af9d8945744b67fac68b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="working-with-geospatial-data-in-azure-documentdb"></a>Azure DocumentDB에서 지리 공간 데이터 작업
+# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>DocumentDB에서 지리 공간 및 GeoJSON 위치 데이터 작업
 이 문서에서는 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
 
 * Azure DocumentDB에 공간 데이터를 저장하려면 어떻게 해야 하나요?
@@ -384,13 +386,8 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
 DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
 
 * [Github의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)을 사용하여 코딩 시작
-*  [DocumentDB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)
-*  [DocumentDB 쿼리](documentdb-sql-query.md)
-*  [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [DocumentDB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)
+* [DocumentDB 쿼리](documentdb-sql-query.md)
+* [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)
 
 

@@ -1,6 +1,7 @@
 ---
 title: "무료 Azure 구독을 종량제로 업그레이드 | Microsoft Docs"
-description: "무료 구독을 종량제로 업그레이드하기 위한 프로세스와 요구 사항을 설명합니다."
+description: "무료 구독에서 종량제로의 업그레이드를 수행하는 방법 및 요구 사항에 대해 설명합니다."
+keywords: "종량제 업그레이드"
 services: 
 documentationcenter: 
 author: adpick
@@ -13,30 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: jlian
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: 9d58a61521fe4e9171bf570e386e54ca79c7a26d
-
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3ffb5d9828c167953c6553ff34e2d0dcdfe701b0
+ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="upgrade-your-free-azure-subscription-to-pay-as-you-go"></a>무료 Azure 구독을 종량제로 업그레이드
-Azure Account Portal에서 [무료 평가판](https://azure.microsoft.com/free/)이나 [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) 구독을 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다. 
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>무료 평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드
+Azure Account Portal에서 [무료 평가판](https://azure.microsoft.com/free/)이나 [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) 구독을 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드합니다. 
 
 1. [Azure Account Portal](https://account.windowsazure.com/subscriptions)에 로그인하고 **구독** 탭으로 이동합니다.
 2. 구독 상태 섹션에서 **지금 업그레이드** 배너를 선택합니다.
    
-    ![무료 평가판에서 종량제로 업그레이드에 대해 알림](./media/billing-upgrade-azure-subscription/billpage.png)
+    ![무료 평가판에서 종량제로 업그레이드하기 위해 클릭할 위치를 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/billpage.png)
 3. 업그레이드를 확인합니다.
    
-    ![구독 업그레이드에 대한 확인](./media/billing-upgrade-azure-subscription/Upgrade.png)
+    ![구독을 업그레이드할 것인지 확인하기 위해 선택할 항목을 보여 스크린샷](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-무료 평가판을 종량제로 업그레이드할 경우, 30일 한정 또는 200달러 포인트 등과 같은 무료 평가판 혜택은 둘 중 하나가 만료되는 시점까지 그대로 유지됩니다. 구독 업그레이드는 이후에 발생합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+30일 제한 또는 200달러 크레딧과 같은 무료 평가판에서 남은 혜택을 사용합니다. 모든 혜택을 사용한 후에 구독이 업그레이드됩니다.
 
 

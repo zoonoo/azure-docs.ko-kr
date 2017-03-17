@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f76277ab93c58098648ee65ea5aba0757495da68
-ms.openlocfilehash: 1222a670a1bf530871a19c79b7da441c03f8df51
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 353677bc7eb7fe791d23bcfdb79f3a0df6366c6f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -44,6 +44,13 @@ ms.lasthandoff: 02/22/2017
 
 ## <a id="rest_version_history"></a>REST API 버전 기록
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
+
+## <a name="march-2017-release"></a>2017년 3월 릴리스
+
+이제 Azure Media Standard를 사용하여 인코딩 작업을 만들 때 "적응 스트리밍" 사전 설정 문자열을 지정하여 [비트 전송률 단계를 자동으로 생성](media-services-autogen-bitrate-ladder-with-mes.md)할 수 있습니다. Media Services로 스트리밍을 위해 비디오를 인코딩하려면 "적응 스트리밍" 사전 설정을 사용하는 것이 좋습니다. 특정 시나리오에 대한 인코딩 기본 설정을 사용자 지정해야 할 경우 [이러한](media-services-mes-presets-overview.md) 사전 설정에서 시작할 수 있습니다.
+
+이제 Azure Media Standard 또는 미디어 인코더 프리미엄 워크플로를 사용하여 [fMP4 청크를 생성하는 인코딩 작업을 만들](media-services-generate-fmp4-chunks.md) 수 있습니다. 
+
 
 ## <a name="febuary-2017-release"></a>2017년 2월 릴리스
 

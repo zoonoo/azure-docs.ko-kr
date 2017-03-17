@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4feb0eb81823835e8e0b701463d85b27f5598019
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,9 @@ Microsoft Azure 미디어 서비스에 액세스할 때는 Azure 액세스 제�
         Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
    
     https://wamsbayclus001rest-hs.cloudapp.net/api/에 후속 API 호출을 게시해야 합니다.
+
+    >[!NOTE]
+    >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
 ## <a name="access-control-address"></a>액세스 제어 주소
 Media Services 액세스 제어 주소는 중국 북부 지역을 제외하고 https://wamsprodglobal001acs.accesscontrol.windows.net입니다. 중국 북부 지역은 https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn입니다.
@@ -182,10 +186,5 @@ Note 루트 자산 파일 업로드 및 다운로드에 대 한 URI 인지 https
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

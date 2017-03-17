@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
+ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
+ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -147,6 +148,7 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
 * 재해 복구를 위해 백업 및 복원 기능을 사용하는 것이 좋습니다.
 * 격리 수준이 다르기 때문에 동일한 트랜잭션 내에서 단일 엔터티 작업 및 다중 엔터티 작업을 혼합하지 마세요(예: `GetCountAsync`, `CreateEnumerableAsync`).
+* InvalidOperationException을 처리합니다. 여러 가지 이유로 시스템에서 사용자 트랜잭션이 중단될 수 있습니다. 예를 들어 신뢰할 수 있는 상태 관리자가 해당 역할을 기본 역할에서 다른 역할로 변경하거나 장기 실행 트랜잭션이 트랜잭션 로그 잘림을 차단하는 경우가 여기에 해당합니다. 이러한 경우 트랜잭션이 이미 종료되었다는 InvalidOperationException이 표시될 수 있습니다. 트랜잭션의 종료를 사용자가 요청하지 않다고 가정할 경우 이 예외를 처리하는 가장 좋은 방법은 트랜잭션을 삭제하고, 취소 토큰이 신호로 제공되었는지(또는 복제본의 역할이 변경) 확인하고, 그러한 경우에는 새 트랜잭션을 만든 후 다시 시도하는 것입니다.  
 
 이때
 
@@ -167,10 +169,5 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 * [서비스 패브릭 Web API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

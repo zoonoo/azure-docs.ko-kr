@@ -1,6 +1,6 @@
 ---
 title: "Azure Container Service 클러스터 규모 조정 | Microsoft 문서"
-description: "Azure CLI 또는 Azure Portal을 사용하여 Azure Container Service 클러스터의 규모를 조정하는 방법입니다."
+description: "Azure CLI 또는 Azure Portal을 사용하여 Azure Container Service에서 DC/OS, Docker Swarm 또는 Kubernetes 클러스터의 에이전트 노드 수를 변경하는 방법입니다."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 022e34811de9d2023d113c43d6f85842812dfee3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Azure Container Service 클러스터 규모 조정
+# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Container Service 클러스터의 에이전트 노드 수 변경
 [Azure Container Service 클러스터를 배포](container-service-deployment.md)한 후 에이전트 노드의 수를 변경해야 할 수 있습니다. 예를 들어 더 많은 컨테이너 응용 프로그램 또는 인스턴스를 실행하기 위해 더 많은 에이전트가 필요할 수 있습니다. 
 
-Azure Portal 또는 Azure CLI 2.0을 사용하여 DC/OS, Docker Swarm 또는 Kubernetes 클러스터의 에이전트 노드 수를 변경할 수 있습니다. Azure CLI 2.0은 Resource Manager 배포 모델을 위한 [차세대 CLI](/cli/azure/old-and-new-clis)입니다.
+Azure Portal 또는 Azure CLI 2.0을 사용하여 DC/OS, Docker Swarm 또는 Kubernetes 클러스터의 에이전트 노드 수를 변경할 수 있습니다. 
 
 ## <a name="scale-with-the-azure-portal"></a>Azure Portal을 사용하여 규모 조정
 

@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c9e736f7ce5330823f3890c669da40e2bb1ecf43
-ms.openlocfilehash: 13b69118c6732ed872bec11e880737db3b8fa3c5
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -53,7 +54,7 @@ DocumentDB 입력 바인딩은 DocumentDB 문서를 검색하고 함수의 명�
 다음 사항에 유의하세요.
 
 * `id`는 `{queueTrigger}`와 유사한 바인딩을 지원하며 이는 큐 메시지의 문자열 값을 문서 ID로 사용합니다.
-* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성]()해야 합니다. 
+* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)해야 합니다. 
 * 지정된 문서가 없는 경우 함수에 대해 명명된 입력 매개 변수가 `null`로 설정됩니다. 
 
 ## <a name="input-usage"></a>입력 사용
@@ -132,7 +133,7 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="a-iddocdboutputadocumentdb-output-binding"></a><a id="docdboutput"></a>DocumentDB 출력 바인딩
+## <a id="docdboutput"></a>DocumentDB 출력 바인딩
 DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스에 새 문서를 작성할 수 있습니다. 
 
 출력 바인딩은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다. 
@@ -157,7 +158,10 @@ DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스�
 ## <a name="output-usage"></a>출력 사용
 이 섹션에서는 함수 코드에서 DocumentDB 출력 바인딩을 사용하는 방법을 보여 줍니다.
 
-함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 해당 ID의 문서가 이미 있는 경우 출력 문서는 이를 덮어씁니다. 
+함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 
+
+>[!Note]  
+>기존 문서의 ID를 지정하면 새 출력 문서에 의해 덮어쓰여집니다. 
 
 다음 형식 중 하나를 사용하여 출력에 작성할 수 있습니다.
 
@@ -306,9 +310,4 @@ module.exports = function (context) {
   context.done();
 };
 ```
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

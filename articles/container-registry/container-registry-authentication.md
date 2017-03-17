@@ -16,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: acb04a648115c6de0b5699d404ebbf24a2edeb08
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="authenticate-with-a-container-registry"></a>컨테이너 레지스트리로 인증
+# <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 Azure 컨테이너 레지스트리에서 컨테이너 이미지를 사용하려면 `docker login` 명령을 사용하여 로그인합니다. **[Azure Active Directory 서비스 주체](../active-directory/active-directory-application-objects.md)** 또는 레지스트리 특정 **관리자 계정**을 사용하여 로그인할 수 있습니다. 이 문서에서는 이러한 ID에 대해 자세히 설명합니다. 
 
 

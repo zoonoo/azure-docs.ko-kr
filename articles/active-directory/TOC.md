@@ -79,9 +79,12 @@
 ### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
 ### [위험 이벤트](active-directory-reporting-risk-events.md)
 ### [명명된 네트워크](active-directory-known-networks-azure-portal.md)
-### [FAQ](active-directory-reporting-faq.md)
 ### [보고서 마이그레이션](active-directory-reporting-migration.md)
 ### [보존](active-directory-reporting-retention.md)
+### [FAQ](active-directory-reporting-faq.md)
+### 문제 해결
+#### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    프로그래밍 방식 액세스
 #### [감사 참조](active-directory-reporting-api-audit-reference.md)
 #### [감사 샘플](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [문제 해결](active-directory-passwords-troubleshoot.md)
 
 ## 장치 관리
-### [장치 등록](active-directory-conditional-access-device-registration-overview.md)
-#### [자동 등록 관리](active-directory-conditional-access-automatic-device-registration.md)
+### [장치 등록](active-directory-device-registration-overview.md)
+#### [자동 등록 관리](active-directory-device-registration.md)
 #### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
+#### [FAQ](active-directory-device-registration-faq.md)
 #### 문제 해결
-##### [Windows 10 및 Windows Server 2016에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Windows 하위 수준 클라이언트에 대한 문제 해결](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Windows 10 및 Windows Server 2016에 대한 문제 해결](active-directory-device-registration-troubleshoot-windows.md)
+##### [Windows 하위 수준 클라이언트에 대한 문제 해결](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD 조인](active-directory-azureadjoin-overview.md)
 #### [계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [장치 등록 설정](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
 #### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
-#### [온-프레미스 배포](active-directory-conditional-access-on-premises-setup.md)
 #### [FAQ](active-directory-conditional-faqs.md)
 #### [문제 해결](active-directory-conditional-access-device-remediation.md)
 #### [참조](active-directory-conditional-access-technical-reference.md)

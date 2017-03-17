@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 581ddd7ac3d612007614ca4f582364dfa16d30f6
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3406deb7e55143e6ee0596235c1632d126e3cd8c
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="using-sap-on-azure-virtual-machines-vms"></a>Azure 가상 컴퓨터(VM)에서 SAP 사용
+# <a name="using-sap-on-azure-windows-virtual-machines-vms"></a>Azure Windows VM(가상 컴퓨터)에서 SAP 사용
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -355,7 +356,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>계획 및 구현
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>계획 및 구현
 제목: Azure VM(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드
 
 요약: Azure 가상 컴퓨터에서 SAP NetWeaver를 실행하는 것을 고려하는 경우 시작하기 위한 문서입니다. 이 계획 및 구현 가이드를 사용하면 기존 또는 계획된 SAP NetWeaver 기반 시스템을 Azure 가상 컴퓨터 환경에 배포할 수 있는지 여부를 평가할 수 있습니다. 여러 SAP NetWeaver 배포 시나리오를 다루며 Azure에 고유한 SAP 구성을 포함합니다. 문서는 SAP/Azure 측면에서 하이브리드 SAP 환경을 실행하는 데 필요한 모든 구성 정보를 나열하고 설명합니다. IaaS에서 SAP NetWeaver 기반 시스템의 고가용성을 보장하기 위해 수행할 수 있는 측정값에 대해서도 다룹니다.
@@ -364,7 +365,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.][planning-guide]
 
-## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>배포
+## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>배포
 제목: Azure VM(Virtual Machines)에서 SAP NetWeaver - 배포 가이드
 
 요약: 이 문서에서는 Azure의 가상 컴퓨터에 SAP NetWeaver 소프트웨어를 배포하기 위한 절차 지침을 제공합니다. 이 문서에서는 SAP용 Azure 모니터링 확장에 대한 권장 문제 해결 방법을 비롯한 SAP용 Azure 모니터링 확장 사용을 중점적으로 세 가지 특정 배포 시나리오에 중점을 둡니다. 이 문서에서는 계획 및 구현 가이드를 읽은 것을 가정합니다.
@@ -373,7 +374,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.][deployment-guide]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS 배포 가이드
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS 배포 가이드
 제목: Azure VM(Virtual Machines)에서 SAP NetWeaver - DBMS 배포 가이드
 
 요약: 이 문서에서는 SAP와 함께 실행해야 하는 DBMS 시스템에 대한 계획 및 구현 고려 사항을 살펴봅니다. 첫 번째 부분에서는 일반적인 고려 사항이 나열되고 표시됩니다. 문서의 다음 부분은 SAP에서 지원되는 Azure의 여러 DBMS 배포와 관련되어 있습니다. 제공되는 DBMS은 SQL Server, SAP ASE 및 Oracle입니다. 해당 특정 부분 고려 사항에서 설명된 DBMS와 함께 Azure에서 SAP를 실행 중인 경우에 대해 설명해야 합니다. Azure의 각 DMS에서 지원되는 백업 및 고가용성 방법과 같은 주제가 SAP 응용 프로그램과 함께 사용하기 위해 표시됩니다.
@@ -382,7 +383,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.][dbms-guide]
 
-## <a name="a-name63dab028-2c4f-4636-8f99-90bbb264eabaahigh-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>고가용성 배포 가이드
+## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>고가용성 배포 가이드
 제목: Azure VM(Virtual Machines)에서 SAP NetWeaver - 고가용성 배포 가이드
 
 요약: 이 문서에서는 Azure에서 SAP ASCS/SCS 및 DBMS와 같은 SAP 단일 실패 지점 구성 요소를 보호하는 방법을 설명합니다. SAP ASCS/SCS, DBMS 및 응용 프로그램 서버의 구성 요소는 SAP NetWeaver 시스템(예: SAP NetWeaver ABAP, SAP NetWeaver Java, SAP NetWeaver ABAP+Java 시스템)의 기능에 필수적입니다. 따라서 고가용성 기능은 해당 구성 요소가 운영 체제 미설치 및 Hyper-V 환경에 대한 Windows 클러스터 구성으로 실행된 것처럼 서버 또는 VM에 오류가 발생해도 지탱할 수 있도록 하는 데 필요합니다.

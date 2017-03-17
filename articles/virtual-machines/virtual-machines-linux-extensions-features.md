@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 31c6cb19827279995502c68ed6d86d23ef9eacd0
-ms.openlocfilehash: 5d98f086b4ccee300b18c8271f940272f618e93e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 - Docker VM 확장을 사용하여 Azure Virtual Machine에서 Docker 호스트를 구성합니다. 자세한 내용은 [Docker VM 확장](virtual-machines-linux-dockerextension.md)을 참조하세요.
 
-프로세스 관련 확장 외에도 Windows 및 Linux 가상 컴퓨터에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 가상 컴퓨터에서 실행할 수 있습니다. 이 확장은 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](virtual-machines-linux-extensions-customscript.md)을 참조하세요.
+프로세스 관련 확장 외에도 Windows 및 Linux 가상 컴퓨터에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 가상 컴퓨터에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](virtual-machines-linux-extensions-customscript.md)을 참조하세요.
 
 VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살펴보려면 [Azure Virtual Machine에 대한 응용 프로그램 배포 자동화](virtual-machines-linux-dotnet-core-1-landing.md)를 참조하세요.
 
@@ -60,7 +61,7 @@ azure vm extension-image list westus
 
 ## <a name="run-vm-extensions"></a>VM 확장 실행
 
-Azure Virtual Machines 확장은 기존 가상 컴퓨터에서 실행할 수 있습니다. 이러한 기능은 이미 배포한 VM의 구성을 변경하거나 연결을 복구해야 할 때 유용합니다. 또한 VM 확장을 Azure Resource Manager 템플릿 배포와 번들로 묶을 수도 있습니다. Resource Manager 템플릿에서 확장을 사용하면 Azure Virtual Machine을 배포하고, 배포 후 개입 없이 구성할 수 있습니다.
+Azure 가상 컴퓨터 확장은 기존 가상 컴퓨터에서 실행할 수 있습니다. 이러한 기능은 이미 배포한 VM의 구성을 변경하거나 연결을 복구해야 할 때 유용합니다. 또한 VM 확장을 Azure Resource Manager 템플릿 배포와 번들로 묶을 수도 있습니다. Resource Manager 템플릿에서 확장을 사용하면 Azure Virtual Machine을 배포하고, 배포 후 개입 없이 구성할 수 있습니다.
 
 다음 방법을 사용하여 기존 가상 컴퓨터에 대해 확장을 실행할 수 있습니다.
 
@@ -74,7 +75,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
   --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-다음 텍스트와 비슷한 출력이 제공됩니다.
+이 스크립트는 다음 텍스트와 유사한 출력을 생성합니다.
 
 ```azurecli
 info:    Executing command vm extension set
@@ -85,15 +86,15 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Azure 포털
 
-Azure Portal을 통해 기존 가상 컴퓨터에 VM 확장을 적용할 수 있습니다. 이렇게 하려면 가상 컴퓨터를 선택하고 **확장**을 선택한 후 **추가**를 클릭합니다. 그러면 사용 가능한 확장 목록이 제공됩니다. 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
+Azure Portal을 통해 기존 가상 컴퓨터에 VM 확장을 적용할 수 있습니다. 이렇게 하려면 가상 컴퓨터를 선택하고 **확장**을 선택한 후 **추가**를 클릭합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
 다음 이미지는 Azure Portal에서 Linux 사용자 지정 스크립트 확장을 설치하는 경우를 보여 줍니다.
 
-![사용자 지정 스크립트 확장](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Install custom script extension](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 가상 컴퓨터 집합 및 Azure SQL Database를 배포한 후 각 VM에 .NET Core 응용 프로그램을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 Resource Manager 템플릿에서 가져옵니다. 이 템플릿은 부하 분산된 가상 컴퓨터 집합 및 Azure SQL Database를 배포한 후 각 VM에 .NET Core 응용 프로그램을 설치합니다. VM 확장은 소프트웨어 설치를 관리합니다.
 
 자세한 내용은 전체 [Resource Manager 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)을 참조하세요.
 
@@ -222,7 +223,7 @@ Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의
 
 ### <a name="rerun-a-vm-extension"></a>VM 확장 다시 실행
 
-가상 컴퓨터 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 이를 위해 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 Azure CLI를 사용하여 다음 명령을 실행합니다. 매개 변수 이름을 고유한 값으로 바꿉니다.
+가상 컴퓨터 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 Azure CLI를 사용하여 다음 명령을 실행합니다. 매개 변수 이름을 고유한 값으로 바꿉니다.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
@@ -243,9 +244,4 @@ Azure Portal에서 다음 단계에 사용하여 확장을 제거할 수 있습�
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

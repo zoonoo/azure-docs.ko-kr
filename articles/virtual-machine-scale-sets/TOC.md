@@ -2,13 +2,16 @@
 ## [가상 컴퓨터 크기 집합이란?](virtual-machine-scale-sets-overview.md)
 
 # 시작
-## [포털에 크기 집합 만들기](virtual-machine-scale-sets-portal-create.md)
-## [Azure CLI를 사용하여 크기 집합 만들기](virtual-machine-scale-sets-linux-create-cli.md)
-## [Resource Manager 템플릿을 사용하여 크기 집합 만들기](virtual-machine-scale-sets-mvss-start.md)
+## [포털에서 크기 집합 배포](virtual-machine-scale-sets-portal-create.md)
+## [Azure CLI를 사용하여 크기 집합 배포](virtual-machine-scale-sets-linux-create-cli.md)
+## [Resource Manager 템플릿을 사용하여 간단한 크기 집합 배포](virtual-machine-scale-sets-mvss-start.md)
 
 # 방법
 ## 계획 및 디자인
 ### [디자인 고려 사항](virtual-machine-scale-sets-design-overview.md)
+## 크기 집합 템플릿 작성
+### [간단한 크기 집합 배포](virtual-machine-scale-sets-mvss-start.md)
+### [기존 가상 네트워크에 크기 집합 배포](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## 배포
 ### [포털을 사용하는 크기 집합](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## 문제 해결
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
+
+## FAQ
+### [크기 집합 FAQ](virtual-machine-scale-sets-faq.md)
 
 # 참조
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: cf163b2809f50daf0273398d6fec50dfc6fd69a2
-ms.openlocfilehash: 96dbc1f5a84f52ab39a3515511c7851bba5fa9a9
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4e5d915d474d7ea161f467def931e3013255f843
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -100,6 +100,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 |[사우스 플로리다 코드 캠프: Azure DocumentDB를 사용하여 10분 이내에 .NET 개발자용 NoSQL](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|2017년 3월 11일|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[올랜도 코드 캠프: Azure DocumentDB를 사용하여 10분 이내에 .NET 개발자용 NoSQL](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|2017년 4월 8일|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Global Azure Bootcamp: Azure Functions 및 DocumentDB를 사용하여 Azure에서 서버 없이 컴퓨팅](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|애틀랜타, GA|2017년 4월 22일|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
+|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)(NDC Olso 2017: Azure DocumentDB - 아마도 아직 사용하고 있지 않을 최고의 NoSQL 데이터베이스)|[Josh Lane](https://twitter.com/jplane)|노르웨어 오슬로|2017년 6월 14|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 

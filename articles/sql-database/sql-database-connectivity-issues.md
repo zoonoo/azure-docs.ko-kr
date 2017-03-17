@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
+ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -118,7 +118,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
-클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL 데이터베이스에 연결되면 .NET 4.6.1 이상을 사용해야 하므로 해당 연결 다시 시도 기능을 활용할 수 있습니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
+클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**를 사용하여 Azure SQL 데이터베이스에 연결되면 .NET 4.6.1 이상((또는 .NET Core)을 사용해야 하므로 해당 연결 다시 시도 기능을 활용할 수 있습니다. 기능의 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?linkid=393996)에 있습니다.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.

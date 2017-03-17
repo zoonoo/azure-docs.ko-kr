@@ -39,9 +39,10 @@
 ## [PowerShell을 사용하여 Azure VPN Gateway에 대한 BGP 구성](vpn-gateway-bgp-resource-manager-ps.md)
 ## [항상 사용 가능한 활성-활성 연결 구성](vpn-gateway-activeactive-rm-powershell.md)
 ## [PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정](vpn-gateway-modify-local-network-gateway.md)
-## [게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
-## [Azure VPN Gateway 재설정](vpn-gateway-resetgw-classic.md)
-## [지점 및 사이트 간 연결에 대한 자체 서명된 인증서를 작업하는 방법](vpn-gateway-certificates-point-to-site.md)
+## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
+## [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)
+## [VPN 게이트웨이 삭제](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [P2S 연결을 위한 자체 서명된 루트 인증서 만들기](vpn-gateway-certificates-point-to-site.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # 참조
@@ -64,8 +65,3 @@
 ## [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

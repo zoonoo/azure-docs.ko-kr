@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>뷰 디자이너를 사용하여 Log Analytics에서 사용자 지정 보기 만들기
-[Log Analytics]()에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터를 여러 방법으로 시각화하는 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
+[Log Analytics](log-analytics-overview.md)에서 뷰 디자이너를 사용하면 OMS 리포지토리에 있는 데이터를 여러 방법으로 시각화하는 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 포함되어 있습니다.
 
 뷰 디자이너에 적용할 수 있는 다른 문서는 다음과 같습니다.
 
@@ -95,10 +96,5 @@ ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정 보기에 [타일](log-analytics-view-designer-tiles.md) 추가
 * 사용자 지정 보기에 [시각화 요소](log-analytics-view-designer-parts.md) 추가
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

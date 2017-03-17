@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0a4ddfa550913df1c987d1782bcd4bc3c41eb048
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 44a82f3eaafa231c22429968fcac63872b74c75b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-subscription-and-accounts-guidelines"></a>Azure 구독 및 계정 지침
+# <a name="azure-subscription-and-accounts-guidelines-for-linux-vms"></a>Linux VM에 대한 Azure 구독 및 계정 지침
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 환경 및 사용자 기반이 커질 때 구독 및 계정 관리에 접근하는 방식을 이해하는 데 주안점을 둡니다.
@@ -65,10 +68,5 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

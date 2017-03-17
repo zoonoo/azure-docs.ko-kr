@@ -15,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2017
 ms.author: tvoellm
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 224897c09073fe36c7d4f9f8c965212c25297271
-ms.openlocfilehash: 3f89e192052bb633190610a4dffbefb930dbc01c
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 5f2fd8810041d47be2ef0b21e1487426a643d541
+ms.lasthandoff: 03/07/2017
 
 
 ---
 
-# <a name="export-the-documentdb-emulator-certificates"></a>DocumentDB 에뮬레이터 인증서 내보내기
+# <a name="export-the-documentdb-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 DocumentDB 에뮬레이터 인증서 내보내기
 
 [**에뮬레이터 다운로드**](https://aka.ms/documentdb-emulator)
 
@@ -89,9 +91,4 @@ X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 
 ## <a name="next-steps"></a>다음 단계
 * DocumentDB에 대해 자세히 알아보려면 [Azure DocumentDB 소개](documentdb-introduction.md)를 참조하세요.
 * DocumentDB 에뮬레이터를 기반으로 개발을 시작하려면 [지원되는 DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 다운로드하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

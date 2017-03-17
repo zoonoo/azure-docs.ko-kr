@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 9eb2d7f4b431c01983620cb0cfcffd63a9f4d4e2
-ms.openlocfilehash: f7251dffc3dd922a6abeba0faca90843de64430f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: dc533f46d71ec1bbe49b3e19821e4fc6009773fc
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/22/2017
 
 이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
-## <a name="steps"></a>단계
+## <a name="deployment-summary"></a>배포 요약
 
 수행해야 할 사항:
 
@@ -103,6 +103,7 @@ ms.lasthandoff: 02/22/2017
     - CLI에서 Windows의 레지스트리 항목을 추가하려면 다음을 입력합니다:   ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - Linux에서 계정은 원본 Linux 서버의 루트여야 합니다.
 
+## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -110,11 +111,11 @@ ms.lasthandoff: 02/22/2017
 
 복제할 대상과 복제할 위치를 선택합니다.
 
-1. **Recovery Services 자격 증명 모음** > 자격 증명 모음을 클릭합니다.
-2. 리소스 메뉴에서 **Site Recovery** > **1단계: 인프라 준비** > **보호 목표**를 클릭합니다.
+1. **Recovery Services 자격 증명 모음** > <vault name>을 클릭합니다.
+2. **시작**에서 **Site Recovery** > **1단계: 인프라 준비** > **보호 목표**를 차례로 클릭합니다.
 
     ![목표 선택](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. **보호 목표**에서 **Azure에**를 선택하고 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다.
+3. **컴퓨터를 복제할 위치를 선택하세요.**에서 **Azure**를 선택하고 **컴퓨터가 가상화되어 있습니까?**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다.
 
     ![목표 선택](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -122,16 +123,16 @@ ms.lasthandoff: 02/22/2017
 
 구성 서버를 설정하고 자격 증명 모음에 등록한 후 VM을 검색합니다.
 
-1. **Site Recovery** > **1단계: 인프라 준비** > **원본**을 클릭합니다.
+1. **1단계: 인프라 준비**에서 **원본**을 클릭합니다.
 2. 구성 서버가 없는 경우 **+구성 서버**를 클릭합니다.
 
     ![원본 설정](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
-4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
+4. **Microsoft Azure Site Recovery 통합 설치 프로그램** 설치 파일을 다운로드합니다.
 5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터&5;일간 유효합니다.
 
    ![원본 설정](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. 구성 서버 VM에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화되었는지 확인하고 통합 설치 프로그램을 실행하여 구성 서버, 프로세스 서버 및 마스터 대상 서버를 설치합니다.
+6. 구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time)와 동기화되었는지 확인하고 통합 설치 프로그램을 실행하여 구성 서버, 프로세스 서버 및 마스터 대상 서버를 설치합니다.
 
 ## <a name="run-site-recovery-unified-setup"></a>Site Recovery 통합 설치 프로그램 실행
 
@@ -147,7 +148,7 @@ ms.lasthandoff: 02/22/2017
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수 있습니다. 자세한 내용은 [명령줄 도구를 사용하여 구성 서버 설치](http://aka.ms/installconfigsrv)를 참조하세요.
+> 명령줄을 통해 구성 서버를 설치할 수 있습니다. [자세히 알아보기](http://aka.ms/installconfigsrv).
 
 ### <a name="add-the-account-for-automatic-discovery"></a>자동 검색에 사용할 계정 추가
 
@@ -257,7 +258,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
     * 워크로드를 미러링하도록 VM 및 물리적 서버를 함께 수집하는 것이 좋습니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있습니다. 컴퓨터가 동일한 워크로드를 실행하고 일관성이 필요한 경우에만 사용해야 합니다.
 
     ![복제 활성화](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+13. **복제 사용**을 클릭합니다. **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 복제를 활성화한 후 푸시 설치를 설정하는 경우 모바일 서비스가 설치됩니다. VM에서 모바일 서비스의 푸시 설치를 수행한 후 보호 작업이 시작되고 실패합니다. 실패 후 각 컴퓨터를 수동으로 다시 시작해야 합니다. 그러면, 보호 작업이 다시 시작되고 초기 복제가 발생합니다.
 
@@ -291,15 +292,15 @@ VM 속성을 확인하고 필요한 사항을 변경하는 것이 좋습니다.
 모든 항목을 설정한 후 모든 것이 예상대로 작동하는지 확인할 수 있도록 테스트 장애 조치를 실행합니다.
 
 
-1. 단일 컴퓨터를 장애 조치(failover)하려면 **설정** > **복제된 항목**에서 VM > **+테스트 장애 조치(failover)** 아이콘을 클릭합니다.
+1. 단일 컴퓨터를 장애 조치(failover)하려면 **복제된 항목**에서 VM > **+테스트 장애 조치(failover)** 아이콘을 클릭합니다.
 
-    ![테스트 장애 조치(Failover)](./media/site-recovery-vmware-to-azure/TestFailover.png)
+    ![테스트 장애 조치](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. 복구 계획을 장애 조치(Failover)하려면 **설정** > **복구 계획**에서 계획을 마우스 오른쪽 버튼으로 클릭하고 **테스트 장애 조치(Failover)**를 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).  
+1. 복구 계획을 장애 조치(Failover)하려면 **복구 계획**에서 계획 > **테스트 장애 조치(Failover)**를 마우스 오른쪽 버튼으로 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).  
 
 1. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
 
-1. **확인** 을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **Site Recovery 작업**의 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
+1. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > > **작업** > **Site Recovery 작업**에서 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
 
 1. 또한 장애 조치(failover)가 완료된 후 Azure 포털 > **Virtual Machines**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. VM의 크기가 적당하고, 올바른 네트워크에 연결되었고, 실행 중인지 확인해야 합니다.
 

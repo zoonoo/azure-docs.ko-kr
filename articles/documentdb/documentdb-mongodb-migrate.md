@@ -1,6 +1,6 @@
 ---
 title: "Azure DocumentDB로 mongoimport 및 mongorestore 사용 | Microsoft Docs"
-description: "mongoimport 및 mongorestore를 사용하여 MongoDB에 대한 프로토콜 지원을 통해 DocumentDB 계정으로 데이터를 가져오는 방법을 알아봅니다. 현재 미리 보기를 사용할 수 있습니다."
+description: "mongoimport 및 mongorestore를 사용하여 DocumentDB: MongoDB API 계정으로 데이터를 가져오는 방법을 알아봅니다."
 keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
@@ -13,16 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2af8691326550c631e6668890cb0d6b893fa7740
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="migrate-data-to-documentdb-by-using-mongoimport-and-mongorestore"></a>Mongoimport 및 mongorestore를 사용하여 DocumentDB로 데이터 마이그레이션
-MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정으로 데이터를 마이그레이션하려면 다음을 수행해야 합니다.
+> [!div class="op_single_selector"]
+> * [DocumentDB로 가져오기](documentdb-import-data.md)
+> * [MongoDB API로 가져오기](documentdb-mongodb-migrate.md)
+>
+>
+
+Azure DocumentDB: MongoDB API 계정으로 데이터를 마이그레이션하려면 다음을 수행해야 합니다.
 
 * [MongoDB Download Center](https://www.mongodb.com/download-center)에서 *mongoimport.exe* 또는 *mongorestore.exe*를 다운로드합니다.
 * [MongoDB 연결 문자열에 대한 DocumentDB 지원](documentdb-connect-mongodb-account.md)을 받으세요.
@@ -42,7 +49,7 @@ MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정으
 
     !["연결 문자열" 블레이드](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongoimport"></a>mongoimport를 사용하여 MongoDB에 대한 프로토콜 지원을 통해 DocumentDB로 데이터 가져오기
+## <a name="import-data-to-api-for-mongodb-with-mongoimport"></a>mongoimport를 사용하여 MongoDB API로 데이터 가져오기
 
 데이터를 DocumentDB 계정으로 가져오려면 다음 템플릿을 사용하여 가져오기를 실행합니다. *호스트*, *사용자 이름* 및 *암호*를 계정과 관련된 값으로 채웁니다.  
 
@@ -54,7 +61,7 @@ MongoDB에 대한 프로토콜 지원을 사용하는 Azure DocumentDB 계정으
 
     mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
 
-## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongorestore"></a>mongorestore를 사용하여 MongoDB에 대한 프로토콜 지원을 통해 DocumentDB로 데이터 가져오기
+## <a name="import-data-to-api-for-mongodb-with-mongorestore"></a>mongorestore를 사용하여 MongoDB API로 데이터 가져오기
 
 DocumentDB 계정으로 데이터를 복원하려면 다음 템플릿을 사용하여 가져오기를 실행합니다. *호스트*, *사용자 이름* 및 *암호*를 계정과 관련된 값으로 채웁니다.
 
@@ -67,10 +74,5 @@ DocumentDB 계정으로 데이터를 복원하려면 다음 템플릿을 사용�
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## <a name="next-steps"></a>다음 단계
-* 자세한 내용을 보려면 [MongoDB 샘플에 대한 DocumentDB 프로토콜 지원](documentdb-mongodb-samples.md)을 탐색합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* 자세한 내용은 [DocumentDB: MongoDB API 샘플](documentdb-mongodb-samples.md)을 참조하세요.
 

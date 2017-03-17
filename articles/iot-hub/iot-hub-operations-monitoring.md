@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
-ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 796bf9b1219b7f0e2c68688c5f5b51163ef4b49b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -165,6 +165,26 @@ IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
         "details": "ExternalEndpointDisabled"
     }
 
+## <a name="view-events"></a>이벤트 보기
+
+*iothub-explorer* 도구를 사용하여 IoT Hub가 모니터링 이벤트를 생성하는지 빠르게 테스트할 수 있습니다. 도구를 설치하려면 [iothub-explorer][lnk-iothub-explorer] GitHub 리포지토리의 지침을 참조하세요.
+
+1. 포털에서 **연결** 모니터링 범주가 **자세한 정보 표시**로 설정되어 있는지 확인합니다.
+
+1. 명령 프롬프트에서 다음 명령을 실행하여 모니터링 끝점에서 읽습니다.
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. 또 다른 명령 프롬프트에서 다음 명령을 실행하여 장치-클라우드 메시지를 보내는 장치를 시뮬레이트합니다.
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. 첫 번째 명령 프롬프트에는 시뮬레이트된 장치가 IoT Hub에 연결될 때 모니터링 이벤트가 표시됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
@@ -182,4 +202,5 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 
