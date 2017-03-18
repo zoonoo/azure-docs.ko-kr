@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: kgremban
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
 ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
-
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>사용자에게 Azure MFA, Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스 할당
@@ -41,8 +42,3 @@ Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있
 ## <a name="next-steps"></a>다음 단계
 
 - 자세한 내용은 [Microsoft Azure Active Directory 라이선스란?](../active-directory/active-directory-licensing-what-is.md)을 참조하세요.
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -17,6 +17,7 @@ ms.author: aelnably
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -46,7 +47,7 @@ New-AzureRmWebApp 명령을 사용하여 미국 중북부 지역에서 새 웹�
 
 연결된 모든 배포 슬롯을 포함하여 기존 웹앱을 복제하려면 사용자는 IncludeSourceWebAppSlots 매개 변수를 사용해야 합니다. 다음 PowerShell 명령은 New-AzureRmWebApp 명령으로 해당 매개 변수를 사용하는 방법을 보여 줍니다.
 
-    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots $true
+    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 
 동일한 지역 내에서 기존 웹앱을 복제하려면 사용자는 새 리소스 그룹 및 동일한 지역의 새 앱 서비스 계획을 만들고 다음 PowerShell 명령을 사용하여 웹앱을 복제해야 합니다.
 
@@ -112,10 +113,5 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 * [Azure Traffic Manager에 대한 Azure Resource Manager 지원 미리 보기](../traffic-manager/traffic-manager-powershell-arm.md)
 * [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
