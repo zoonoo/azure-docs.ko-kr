@@ -17,6 +17,7 @@ ms.author: vturecek
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -671,10 +672,5 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 ## <a name="next-steps"></a>다음 단계
 [Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그](service-fabric-debugging-your-application.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
