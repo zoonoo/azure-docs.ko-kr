@@ -1,5 +1,5 @@
 ---
-title: "Azure VM에서 SQL Server에 대한 Azure 키 자격 증명 모음 통합 구성(클래식)"
+title: "SQL VM용 Azure Key Vault의 자동화된 구성(클래식) | Microsoft 문서"
 description: "Azure 키 자격 증명 모음과 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure 주요 자격 증명 모음 통합을 클래식 배포 모델에서 만든 SQL Server 가상 컴퓨터와 함께 사용하는 방법에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a5724d4291a0b1878d528a59f693c046ba960f9
-ms.openlocfilehash: d7133180f4fc9263894c522fcaacaeea4a985847
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 763b8b57c5914e7be39256d58de1b6769dbbaf9d
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-classic"></a>Azure VM에서 SQL Server에 대한 Azure 키 자격 증명 모음 통합 구성(클래식)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-ps-sql-keyvault.md)
 > * [클래식](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -78,10 +79,5 @@ PowerShell을 사용하여 Azure 키 자격 증명 모음 통합을 구성합니
 SQL IaaS 에이전트 확장에서 이 새로운 구성을 사용하여 SQL VM을 업데이트할 것입니다.
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

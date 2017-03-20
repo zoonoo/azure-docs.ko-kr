@@ -1,5 +1,5 @@
 ---
-title: "Azure 리소스 그룹 Visual Studio 프로젝트 | Microsoft Docs"
+title: "Visual Studio Azure 리소스 그룹 프로젝트 | Microsoft Docs"
 description: "Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
-ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -25,9 +26,9 @@ Visual Studio 및 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용�
 
 Azure 리소스 그룹 프로젝트는 Azure에 배포한 리소스를 정의하는 Azure Resource Manager JSON 템플릿을 포함합니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. Visual Studio는 이러한 템플릿을 편집할 수 있도록 하고 템플릿으로 작업을 간소화하는 도구를 제공합니다.
 
-이 항목에서는 웹앱 및 SQL Database를 배포합니다. 그러나 모든 종류의 리소스에 대해서도 거의 동일한 단계를 거칩니다. 가상 컴퓨터와 관련된 리소스를 손쉽게 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다.
+이 문서에서는 웹앱 및 SQL Database를 배포합니다. 그러나 모든 종류의 리소스에 대해서도 거의 동일한 단계를 거칩니다. 가상 컴퓨터와 관련된 리소스를 손쉽게 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다.
 
-이 문서는 Visual Studio 2015 업데이트 2와 .NET 2.9용 Microsoft Azure SDK를 보여 줍니다. Azure SDK 2.9와 함께 Visual Studio 2013을 사용하면 환경이 대부분 동일합니다. Azure SDK 2.6 이상의 버전을 사용할 수 있지만 사용자 인터페이스 환경이 이 문서에 표시된 것과 다를 수 있습니다. 이 단계를 시작하기 전에 최신 버전의 [Azure SDK](https://azure.microsoft.com/downloads/) 를 설치하는 것이 좋습니다. 
+이 문서에서는 Visual Studio 2017을 보여 줍니다. Visual Studio 2015 업데이트 2 및 Microsoft Azure SDK for .NET 2.9 또는 Azure SDK 2.9와 함께 Visual Studio 2013을 사용하는 경우 환경은 대부분 동일합니다. Azure SDK 2.6 이상의 버전을 사용할 수 있지만 사용자 인터페이스 환경이 이 문서에 표시된 것과 다를 수 있습니다. 이 단계를 시작하기 전에 최신 버전의 [Azure SDK](https://azure.microsoft.com/downloads/) 를 설치하는 것이 좋습니다. 
 
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
 이 절차에서 **웹앱 + SQL** 템플릿으로 Azure 리소스 그룹 프로젝트를 만듭니다.
@@ -35,7 +36,7 @@ Azure 리소스 그룹 프로젝트는 Azure에 배포한 리소스를 정의하
 1. Visual Studio에서 **파일**, **새 프로젝트**를 선택하고 **C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드**, **Azure 리소스 그룹** 프로젝트를 차례로 선택합니다.
    
     ![Cloud Deployment 프로젝트](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Azure 리소스 관리자에 배포하려는 템플릿을 선택합니다. 배포하려는 프로젝트의 유형에 따라 다양한 옵션이 있습니다. 이 항목의 경우 **웹앱 + SQL** 템플릿을 선택합니다.
+2. Azure 리소스 관리자에 배포하려는 템플릿을 선택합니다. 배포하려는 프로젝트의 유형에 따라 다양한 옵션이 있습니다. 이 문서의 경우 **웹앱 + SQL** 템플릿을 선택합니다.
    
     ![템플릿 선택](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -47,7 +48,7 @@ Azure 리소스 그룹 프로젝트는 Azure에 배포한 리소스를 정의하
    > 
    
     Visual Studio는 웹앱 및 SQL 데이터베이스에 대한 리소스 그룹 배포 프로젝트를 만듭니다.
-3. 만든 항목을 보려면 배포 프로젝트에서 노드를 확장합니다.
+3. 만든 항목을 보려면 배포 프로젝트에서 노드를 봅니다.
    
     ![노드 표시](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
@@ -113,7 +114,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Azure에 리소스 그룹 프로젝트 배포
 이제 프로젝트를 배포할 준비가 되었습니다. Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 배포합니다. 리소스 그룹은 공통 수명 주기를 공유하는 리소스의 논리적 그룹화입니다.
 
-1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포** > **New 배포ment**를 참조하세요.
+1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포** > **새 배포**를 선택합니다.
    
     ![배포, 새 배포 메뉴 항목](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
@@ -141,7 +142,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
     **databaseName** 은 만들 데이터베이스의 이름을 지정합니다. 
    
     ![매개 변수 편집 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. Visual Studio 인스턴스의 외부에서 PowerShell 콘솔이 열립니다. 메시지가 표시되면 PowerShell 콘솔에 SQL Server 관리자 암호를 입력합니다. **PowerShell 콘솔은 다른 항목 뒤에 숨겨지거나 작업 표시줄에서 최소화될 수 있습니다.**  이 콘솔을 찾아서 암호를 제공합니다.
+5. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. Visual Studio 인스턴스의 외부에서 PowerShell 콘솔이 열립니다. 메시지가 표시되면 PowerShell 콘솔에 SQL Server 관리자 암호를 입력합니다. **PowerShell 콘솔은 다른 항목 뒤에 숨겨지거나 작업 표시줄에서 최소화될 수 있습니다.** 이 콘솔을 찾아서 암호를 제공합니다.
    
    > [!NOTE]
    > Visual Studio에서는 Azure PowerShell cmdlet을 설치하도록 요청할 수 있습니다. 리소스 그룹을 성공적으로 배포하려면 Azure PowerShell cmdlet이 필요합니다. 메시지가 표시되면 설치합니다.
@@ -150,7 +151,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 6. 배포는 몇 분 정도가 걸릴 수 있습니다. **출력** 창에 배포의 상태가 표시됩니다. 배포가 완료되면 마지막 메시지는 다음과 유사한 내용으로 성공적인 배포를 나타냅니다.
    
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 7. 브라우저에서 [Azure Portal](https://portal.azure.com/) 을 열고 계정에 로그인합니다. 리소스 그룹을 보려면 **리소스 그룹** 및 배포한 리소스 그룹을 선택합니다.
    
     ![그룹 선택](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
@@ -162,7 +163,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
     ![배포된 Azure 리소스 그룹](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>인프라를 사용하여 코드 배포
-이 시점에서 앱에 대한 인프라를 배포했지만 프로젝트와 함께 배포된 실제 코드가 없습니다. 이 항목에서는 배포하는 동안 웹앱 및 SQL Database 테이블을 배포하는 방법을 보여 줍니다. 웹앱 대신 가상 컴퓨터를 배포하는 경우 배포의 일부로 컴퓨터에 일부 코드를 실행하려고 합니다. 웹앱에 대한 코드 배포 또는 가상 컴퓨터 설정을 위한 절차는 거의 동일합니다.
+이 시점에서 앱에 대한 인프라를 배포했지만 프로젝트와 함께 배포된 실제 코드가 없습니다. 이 문서에서는 배포하는 동안 웹앱 및 SQL Database 테이블을 배포하는 방법을 보여 줍니다. 웹앱 대신 가상 컴퓨터를 배포하는 경우 배포의 일부로 컴퓨터에 일부 코드를 실행하려고 합니다. 웹앱에 대한 코드 배포 또는 가상 컴퓨터 설정을 위한 절차는 거의 동일합니다.
 
 1. Visual Studio 솔루션에 프로젝트를 추가합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
    
@@ -170,7 +171,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 2. **ASP.NET 웹 응용 프로그램**을 추가합니다. 
    
     ![웹앱 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. 리소스 그룹 프로젝트는 해당 작업을 수행하므로 **MVC**를 선택하고 **클라우드에서 호스트**에 대한 필드를 선택 취소합니다.
+3. **MVC**를 선택합니다.
    
     ![MVC 선택](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
 4. Visual Studio에서 웹앱을 만든 후에 솔루션에 두 프로젝트가 모두 표시됩니다.
@@ -194,7 +195,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
    * **빌드;패키지** 의 기본값을 통해 배포는 웹 배포 패키지(package.zip)를 빌드하고 만들 수 있습니다.  
      
      배포는 패키지를 만드는 속성에서 필요한 정보를 얻게 되므로 게시 프로필이 필요하지 않습니다.
-7. 템플릿에 리소스를 추가합니다.
+7. WebSiteSQLDatabase.json으로 돌아와서 템플릿에 리소스를 추가합니다.
    
     ![리소스 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. 이번에는 **Web Apps에 대한 웹 배포**를 선택합니다. 
@@ -215,10 +216,5 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 ## <a name="next-steps"></a>다음 단계
 * 포털을 통한 리소스 관리에 대한 내용은 [Azure Portal을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 * 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

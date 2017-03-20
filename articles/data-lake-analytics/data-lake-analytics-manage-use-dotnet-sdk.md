@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/3/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cf8873a3cc5067717edf586da209b05cef3092ff
-ms.openlocfilehash: fc921785e5e4aae84982a348814c1760ddd6bb8c
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: bed6fa355f3b32bb53aee002e34ca61f2ea2aa5b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -26,247 +26,197 @@ ms.lasthandoff: 02/23/2017
 
 Azure .NET SDK를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
-**필수 구성 요소**
+## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
+* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
+* **.NET 버전 2.5 이상용 Microsoft Azure SDK**.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
+* **필요한 Nuget 패키지**
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+### <a name="install-nuget-packages"></a>Nuget 패키지 설치
+   
+   1. Visual Studio의 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+   2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
 
-### <a name="create-an-azure-resource-group"></a>Azure 리소스 그룹 만들기
-아직 만들지 않은 경우에는 반드시 Azure 리소스 그룹을 만들어 Data Lake Analytics 구성 요소를 만들어야 합니다. 다음 코드는 리소스 그룹을 만드는 방법을 보여 줍니다.
+   3. 다음 NuGet 패키지를 검색하고 설치합니다.
 
-    public static async Task<ResourceGroup> CreateResourceGroupAsync(
-        ServiceClientCredentials credential,
-        string groupName,
-        string subscriptionId,
-        string location)
-    {
+    - Microsoft.Rest.ClientRuntime.Azure.Authentication - 이 자습서에서는 V2.2.12 사용
+    - Microsoft.Azure.Management.DataLake.Analytics - 이 자습서에서는 V2.1.0 미리 보기를 사용함
+    - Microsoft.Azure.Management.DataLake.Store - 이 자습서에서는 V2.1.0 미리 보기 사용
 
-        Console.WriteLine("Creating the resource group...");
-        var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-        var resourceGroup = new ResourceGroup { Location = location };
-        return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
-    }
+   4. **NuGet 패키지 관리자**를 닫습니다.
 
-자세한 내용은 [Azure 리소스 그룹 및 Data Lake Analytics](## Azure Resource Groups and Data Lake Analytics)를 참조하세요.
+## <a name="client-management-objects"></a>클라이언트 관리 개체
+Azure Data Lake Analytics 및 Azure Data Lake Store API에는 대부분의 프로그래밍 작업이 수행되는 클라이언트 관리 개체 집합이 있습니다. 이러한 개체가 있는 두 개의 네임스페이스는 다음과 같습니다.
+* Microsoft.Azure.Management.DataLake.Analytics
+* Microsoft.Azure.Management.DataLake.Store
 
+다음 표는 클라이언트 관리 개체와 이 문서의 해당 코드 예제에 사용된 변수를 보여 줍니다.
 
-## <a name="connect-to-azure-data-lake"></a>Azure Data Lake에 연결
-다음 NuGet 패키지를 설치해야 합니다.
-
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Common
-    Install-Package Microsoft.Azure.Common.Dependencies
-    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
-    Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
-    Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
-    Install-Package Microsoft.WindowsAzure.Common
-    Install-Package Microsoft.WindowsAzure.Common.Dependencies
-
-
-다음 코드 샘플의 Main 메서드에서는 Azure에 연결하고 Analytics 계정 및 Store 계정의 Data Lake 클라이언트 관리 개체를 초기화하는 방법을 보여 줍니다.
-
-    using System;
-    using System.Collections.Generic;
-    using System.Threading;
-
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure.Authentication;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.DataLake.Analytics;
-    using Microsoft.Azure.Management.DataLake.Analytics.Models;
-    using Microsoft.Azure.Management.DataLake.Store;
-    using Microsoft.Azure.Management.DataLake.Store.Models;
-    using Microsoft.Azure.Management.DataLake.StoreUploader;
-
-    namespace ConsoleAcplication1
-    {
-        class Program
-        {
-
-            private const string _SubID = "<Specify your Azure subscription ID>"; 
-            private const string _ClientID = "1950a258-227b-4e31-a9cf-717495945fc2"; // An ID made availble for developers
-            private const string _resourceGroupName ="<Specify your resource group name>";
-            private static string _location = "East US 2"; // Specify your location
-
-            // Replace 'common' with user's Azure Active Directory tenant ID or domain name, if needed.
-            private const string _Domain = "common"; 
-
-            // Data Lake client management objects
-            private static DataLakeAnalyticsAccountManagementClient _adlaClient;
-            private static DataLakeStoreAccountManagementClient _adlsClient;
-            private static DataLakeAnalyticsAccountManagementClient _adlaClient;
-            private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-            private static DataLakeAnalyticsCatalogManagementClient _adlaCatalogClient;
-            private static DataLakeAnalyticsJobManagementClient _adlaJobsClient;
-
-            private static void Main(string[] args)
-            {
-
-                // Call logon method
-                var creds = AuthenticateAzure(_Domain, _ClientID);
-
-                // Initialize Data Lake management client objects, using
-                // your credentials (creds). Initialize others as needed.
-                _adlsClient = new DataLakeStoreAccountManagementClient(creds);
-                _adlsClient.SubscriptionId = _SubID;
-                
-                _adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
-                _adlaClient.SubscriptionId = _SubID; 
-
-
-                // Methods to create and manage Data Lake accounts and resources
-                . . .
-
-            }
-
-            // Interactive logon
-            public static ServiceClientCredentials AuthenticateAzure(string domainName, string nativeClientAppCLIENTID)
-            {
-                // User login via interactive popup
-                SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-
-                // Use the client ID of an existing AAD "Native Client" application.
-                var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientAppCLIENTID, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-                
-                return UserTokenProvider.LoginWithPromptAsync(domainName, activeDirectoryClientSettings).Result;
-            }
-        }
-    }
-
-## <a name="data-lake-client-management-objects"></a>Data Lake 클라이언트 관리 개체
-Azure Data Lake SDK에는 대부분의 프로그래밍 작업이 수행되고 다음 두 네임스페이스에 속한 클라이언트 관리 개체 집합이 있습니다.
-* Mirosoft.Azure.Management.DataLake.Analytics
-* Microsot.Azure.Management.DataLake.Store
-
-다음 표에서는 이 문서 전체의 예제에서 사용하는 이러한 개체 및 해당 변수를 나열하고 있습니다.
-
-| 클라이언트 관리 개체                  | 코드 변수         |
-| ----------------------------------------- | --------------------- |
-| DataLakeStoreAccountManagementClient      | _adlsClient           |
-| DataLakeAnalyticsAccountManagementClient  | _adlaClient           |
-| DataLakeStoreFileSystemManagementClient   | _adlsFileSystemClient |
-| DataLakeAnalyticsCatalogManagementClient  | _adlaCatalogClient    |
-| DataLakeAnalyticsJobManagementClient      | _adlaJobsClient       |
+| 클라이언트 관리 개체                  | 코드 변수        |
+| ----------------------------------------- | -------------------- |
+| DataLakeStoreAccountManagementClient      | adlsClient           |
+| DataLakeAnalyticsAccountManagementClient  | adlaClient           |
+| DataLakeStoreFileSystemManagementClient   | adlsFileSystemClient |
+| DataLakeAnalyticsCatalogManagementClient  | adlaCatalogClient    |
+| DataLakeAnalyticsJobManagementClient      | adlaJobClient        |
 
 ### <a name="data-lake-store-management-client-objects"></a>Data Lake Store 관리 클라이언트 개체
-* DataLakeStoreAccountManagementClient - Data Lake Store를 만들고 관리하는 데 사용합니다.
+* DataLakeStoreAccountManagementClient - Data Lake Store 계정을 만들고 관리하는 데 사용합니다.
 * DataLakeFileSystemAccountManagementClient - 폴더와 파일을 만들고, 파일을 업로드하고 나열하며, ACL 및 자격 증명에 액세스하고, Azure Storage Blob에 대한 링크를 추가하는 것과 같은 파일 시스템 작업에 사용합니다.
 
 Data Lake에서 Azure Storage에 대한 링크를 만들 수는 있지만 콘텐츠에 액세스할 수는 없습니다. 이렇게 하려면 Azure Storage SDK API를 사용해야 하지만 Azure Storage Blob에서 U-SQL 스크립트를 실행할 수 있습니다.
 
 ### <a name="data-lake-analytics-management-client-objects"></a>Data Lake Analytics 관리 클라이언트 개체
-* DataLakeAnaylyticsAccountManagementClient - Data Lake Analytics 계정을 만들고 관리하는 데 사용합니다.
-* DataLakeAnalyticsCatalogManagementClient - 목록 스키마를 포함하여 SQL 데이터베이스를 구성하는 데 사용합니다.
-* DataLakeAnalyticsJobManagementClient - U-SQL 작업을 만들고 관리하는 데 사용합니다.
+* DataLakeAnalyticsAccountManagementClient - Data Lake Analytics 계정을 만들고 관리하는 데 사용합니다.
+* DataLakeAnalyticsCatalogManagementClient - Data Lake Analytics에서 카탈로그 항목을 탐색하는 데 사용합니다.
+* DataLakeAnalyticsJobManagementClient - Data Lake Analytics에서 작업을 제출하고 관리합니다.
+
+### <a name="example"></a>예
+
+이 문서의 다음 부분에 설명된 기본 인증 방법을 통해 얻은 자격 증명(creds)을 사용하여 클라이언트 관리 개체를 초기화합니다. 
+
+    // Only the Data Lake Analytics and Data Lake Store  
+    // objects need a subscription ID.
+    adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    adlsClient.SubscriptionId = <Subscription-ID>;
+
+    adlaClient = new DataLakeAnalyticsAccountManagementClient(creds);
+    adlaClient.SubscriptionId = <Subscription-ID>;
+
+    adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(creds);
+    adlaJobClient = new DataLakeAnalyticsJobManagementClient(creds);
+
+
+    // Methods to create and manage Data Lake Analytics
+    . . .
+
+## <a name="authenticate-and-connect-to-azure-data-lake-analytics"></a>인증 및 Azure Data Lake Analytics에 연결
+Azure Data Lake Analytics에 로그온하는 옵션은 여러 가지가 있습니다.
+
+### <a name="interactive-with-provided-credentials"></a>제공된 자격 증명을 사용하여 대화형으로
+다음 코드 조각은 사용자가 사용자 이름 및 암호 또는 PIN 번호 등의 자격 증명을 제공하는 가장 쉬운 인증을 보여 줍니다.
+
+    // User login via interactive popup
+    // Use the client ID of an existing AAD "native nlient" application.
+    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    var tenantId = "<Tenant ID>"; // Replace this string with the user's Azure Active Directory tenant ID.
+    var clientId = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+    var creds = UserTokenProvider.LoginWithPromptAsync(_tenantId, activeDirectoryClientSettings).Result;
+
+Azure Active Directory 테넌트에서 고유한 응용 프로그램 및 서비스 주체를 만든 다음 여기에 사용된 샘플 ID가 아니라 해당 응용 프로그램의 클라이언트 ID를 사용하는 것이 좋습니다.
+
+### <a name="non-interactive-with-a-client-secret"></a>클라이언트 암호를 사용하여 비대화형으로
+다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 암호/키를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 이 인증 옵션은 기존 [Azure AD "웹앱" 응용 프로그램](../azure-resource-manager/resource-group-create-service-principal-portal.md)과 함께 사용합니다.
+
+    // Service principal / application authentication with client secret / key
+    // Use the client ID and certificate of an existing AAD "Web App" application.
+    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    var tenantId = "<Azure tenant ID>";
+    var webApp_clientId = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
+    var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
+    var creds = ApplicationTokenProvider.LoginSilentAsync(tenantId, clientCredential).Result;
+
+### <a name="non-interactive-with-a-service-principal"></a>서비스 주체를 사용하여 비대화형으로
+세 번째 옵션으로 다음 코드 조각은 응용 프로그램/서비스 보안 주체에 대한 인증서를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 이 인증 옵션은 기존 [Azure AD "웹앱" 응용 프로그램](../azure-resource-manager/resource-group-create-service-principal-portal.md)과 함께 사용합니다.
+
+    // Service principal / application authentication with certificate
+    // Use the client ID and certificate of an existing AAD "Web App" application.
+    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    var tenantId = "<Azure tenant ID>";
+    var webApp_clientId = "<AAD-application-clientid>";
+    System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
+    var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
+    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(tenantId, clientAssertionCertificate).Result;
 
 ## <a name="create-accounts"></a>계정 만들기
-데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다.  작업이 실행되는 시간에 대해서만 비용을 지불합니다.  자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. 또한 Data Lake Analytics 계정에는 Data Lake Store 계정이 하나 이상 필요합니다. 자세한 내용은 [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-또한 Data Lake Analytics 계정에는 Data Lake Store 계정이 하나 이상 필요합니다.
-  
+### <a name="create-an-azure-resource-group"></a>Azure 리소스 그룹 만들기
+아직 만들지 않은 경우에는 반드시 Azure 리소스 그룹을 만들어 Data Lake Analytics 구성 요소를 만들어야 합니다. 인증 자격 증명, 구독 ID 및 위치가 필요합니다. 다음 코드는 리소스 그룹을 만드는 방법을 보여 줍니다.
+
+    string rgName == "<value>"; // specify name for the new resrouce group
+    var resourceManagementClient = new ResourceManagementClient(credential) { SubscriptionId = subscriptionId };
+    var resourceGroup = new ResourceGroup { Location = location };
+    resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rgName);
+
+자세한 내용은 [Azure 리소스 그룹 및 Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics)를 참조하세요.
+
+
 ### <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
 다음 코드에서는 Data Lake Store 계정을 만드는 방법을 보여 줍니다. Create 메서드를 사용하려면 먼저 위치를 지정하여 매개 변수를 정의해야 합니다.
 
     var adlsParameters = new DataLakeStoreAccount(location: _location);
-    _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
+    adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
 ### <a name="create-a-data-lake-analytics-account"></a>Data Lake 분석 계정 만들기
-다음 코드에서는 Data Lake Analytics 계정을 만드는 방법을 보여 줍니다. DataLakeAnalyticsAccountManagementClient 개체의 Create 메서드는 해당 매개 변수 중 하나에 대해 Data Lake Store 계정의 컬렉션을 사용합니다. 이 컬렉션은 DataLakeStoreAccountInfo 개체의 인스턴스로 채워져야 합니다. 이 예제에서 이러한 DataLakeStoreAccountInfo 개체는 도우미 메서드(AdlaFromAdlsStoreAccounts)에서 가져옵니다. 또한 구독에 있는 모든 Data Lake Store 계정이 반드시 단일 Data Lake Analytics 계정에 있어야 하는 것은 아니므로 다음 코드에서는 승인된 목록에서 이름을 확인합니다.
+다음 코드는 비동기 메서드를 사용하여 Data Lake Analytics 계정을 만드는 방법을 보여 줍니다. CreateAsync 메서드는 해당 매개 변수 중 하나로 Data Lake Store 계정 컬렉션을 사용합니다. 이 컬렉션은 DataLakeStoreAccountInfo 개체의 인스턴스로 채워져야 합니다. 이 예제에서 이러한 DataLakeStoreAccountInfo 개체는 도우미 메서드(AdlaFromAdlsStoreAccounts)에서 가져옵니다.
 
-        // create analytics account
-        public void CreateAnalyticsAccount(string acctname)
+모든 Data Lake Analytics 계정에 대해 필요한 분석을 수행하는 데 사용해야 하는 Data Lake Store 계정만 포함하면 됩니다. 이러한 Data Lake Store 계정 중 하나는 기본 Data Lake Store 계정이어야 합니다.
+
+    try
+    {
+        var adlaAccount = new DataLakeAnalyticsAccount()
         {
-            IEnumerable<DataLakeStoreAccountInfo> dlaInfos = AdlaFromAdlsStoreAccounts();
-
-            var dlInfo = new DataLakeAnalyticsAccount()
-            {
-                DefaultDataLakeStoreAccount = _adlsAccountName,
-                Location = _location,
-                DataLakeStoreAccounts = dlaInfos.ToList<DataLakeStoreAccountInfo>()
-            };
-
-            _adlaClient.Account.Create(_resourceGroupName, acctname, dlInfo);
-        }
-
-        // A helper method to collect Data Lake Store account information to create an  
-        // an analytics account, and also validates accounts before including.
-        public IEnumerable<DataLakeStoreAccountInfo> AdlaFromAdlsStoreAccounts()
-        {
-            List<DataLakeStoreAccount> adlsAccounts = _adlsClient.Account.List().ToList();
-
-            // Create a collection for approved accounts
-            List<DataLakeStoreAccount> approvedAccounts = new List<DataLakeStoreAccount>();
-
-            foreach (DataLakeStoreAccount dlsa in adlsAccounts)
-            {
-                // The IsApprovedDataStore method (not shown) 
-                // evaluates a Data Lake store name.
-                if (IsApprovedDataStore(dlsa.Name))
-                {
-                    approvedAccounts.Add(dlsa);
-                }
+            DefaultDataLakeStoreAccount = “Accounting”,
+            Location = _location,
+            DataLakeStoreAccounts = new DataLakeStoreAccountInfo[]{
+                new DataLakeStoreAccountInfo(“Expenditures”),
+                new DataLakeStoreAccountInfo(“Accounting”)
             }
-
-            return approvedAccounts.Select(element => new DataLakeStoreAccountInfo(element.Name));
-        }
+        };
+        adlaClient.Account.Create(_resourceGroupName, newAccountName, adlaAccount);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 
 ## <a name="manage-accounts"></a>계정 관리
 
-### <a name="list-data-lake-store-and-analytic-accounts"></a>Data Lake Store 및 분석 계정 나열
-다음 코드에서는 구독에서 Data Lake Store 계정을 나열합니다. 목록 작업은 언제나 개체의 모든 속성을 제공하지는 않으며 어떤 경우에는 개체에 대해 Get 작업을 수행해야 합니다.
-            
-    var adlsAccounts = _adlsClient.Account.List().ToList();
-    Console.WriteLine($"You have {adlsAccounts.Count} Data Lake Store accounts.");
-    for (int i = 0; i < adlsAccounts.Count; i++)
+### <a name="list-data-lake-store-and-data-lake-analytics-accounts"></a>Data Lake Store 및 Data Lake Analytics 계정 나열
+다음 코드는 구독에 Data Lake Store 계정을 나열합니다. 목록 작업은 언제나 개체의 모든 속성을 제공하지는 않으며 어떤 경우에는 개체에 대해 Get 작업을 수행해야 합니다.
+
+    var adlsAccounts = adlsClient.Account.List().ToList();
+    foreach (var adls in adlsAccounts)
     {
-        Console.WriteLine($"\t{adlsAccounts[i].Name}");
+        Console.WriteLine($"\t{adls.Name});
+
     }
 
-    var adlaAccounts = _adlaClient.Account.List().ToList();
-    Console.WriteLine($"\nYou have {adlaAccounts.Count} Data Lake Analytic accounts.");
-    for (int j = 0; j < adlaAccounts.Count; j++)
+    var adlaAccounts = adlaClient.Account.List().ToList();
+    for (var adla in AdlaAccounts)
     {
-        Console.WriteLine($"\t{adlaAccounts[j].Name}");
+        Console.WriteLine($"\t{adla.Name}");
     }
-        
 
-        
+
+
 ### <a name="get-an-account"></a>계정 가져오기
-다음 코드에서는 Data Lake Analytics 계정이 있는 경우 DataLakeAnalyticsAccountManagementClient를 사용하여 해당 계정을 반환합니다. 
+다음 코드에서는 DataLakeAnalyticsAccountManagementClient를 사용하여 Data Lake Analytics 계정을 가져옵니다. 먼저 계정이 있는지 확인합니다.
 
-    public DataLakeAnalyticsAccount GetDlaAccount(string strName)
+    DataLakeAnalyticsAccount adlaGet;
+    if (adlaClient.Account.Exists(_resourceGroupName, accountName))
     {
-        DataLakeAnalyticsAccount dlaGet;
-        if (_adlaClient.Account.Exists(_resourceGroupName, strName))
-        {
-            dlaGet = _adlaClient.Account.Get(_resourceGroupName, strName);
-            Console.WriteLine($"{dlaGet.Name}\tCreated: {dlaGet.CreationTime}");
-            return dlaGet;
-        }
-        else
-        {
-            return null;
-        }
+        adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
+        Console.WriteLine($"{adlaGet.Name}\tCreated: {adlaGet.CreationTime}");
+    }
 
-마찬가지로 동일한 방법으로 DataLakeStoreAccountManagementClient(_adlsClient)를 사용하여 Data Lake Store 계정을 가져올 수 있습니다.        
+마찬가지로 동일한 방법으로 DataLakeStoreAccountManagementClient(adlsClient)를 사용하여 Data Lake Store 계정을 가져올 수 있습니다.
+
 ### <a name="delete-an-account"></a>계정 삭제
-다음 코드에서는 Data Lake Analytics 계정이 있는 경우 해당 계정을 삭제합니다. 
+다음 코드에서는 Data Lake Analytics 계정이 있는 경우 해당 계정을 삭제합니다.
 
-    public void DeleteAnalyticsAccount(string strName)
+    if (adlaClient.Account.Exists(_resourceGroupName, accountName))
     {
-        if (_adlaClient.Account.Exists(_resourceGroupName, strName))
-        {
-            _adlaClient.Account.Delete(_resourceGroupName, strName);
-            Console.WriteLine($"{strName} Deleted");
-        }
-        else
-        {
-            Console.WriteLine($"{strName} does not exist.");
-        }
-
+        adlaClient.Account.Delete(_resourceGroupName, accountName);
+        Console.WriteLine($"{accountName} Deleted");
+    }
+    else
+    {
+        Console.WriteLine($"{accountName} does not exist.");
     }
 
 또한 동일한 방법으로 DataLakeStoreAccountManagementClient를 사용하여 Data Lake Store 계정을 삭제할 수 있습니다.
@@ -274,46 +224,42 @@ Data Lake에서 Azure Storage에 대한 링크를 만들 수는 있지만 콘텐
 ### <a name="get-the-default-data-lake-store-account"></a>기본 Data Lake Store 계정 가져오기
 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 필요합니다. 다음 코드를 사용하여 Analytics 계정의 기본 Store 계정을 결정합니다.
 
-    public void GetDefaultDLStoreAccount(string DLAaccountName)
+    if (adlaClient.Account.Exists(_resourceGroupName, accountName))
     {
-        if (_adlaClient.Account.Exists(_resourceGroupName, DLAaccountName))
-        {
-            DataLakeAnalyticsAccount dlaGet = _adlaClient.Account.Get(_resourceGroupName, DLAaccountName);
-            Console.WriteLine($"{dlaGet.Name} default DL store account: {dlaGet.DefaultDataLakeStoreAccount}");
-        }
+        DataLakeAnalyticsAccount adlaGet = adlaClient.Account.Get(_resourceGroupName, accountName);
+        Console.WriteLine($"{adlaGet.Name} default DL store account: {adlaGet.DefaultDataLakeStoreAccount}");
     }
+
 
 ## <a name="manage-data-sources"></a>데이터 원본 관리
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
 * [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
-* [Azure 저장소](../storage/storage-introduction.md)
+* [Azure Storage 계정](../storage/storage-introduction.md)
 
-분석 계정을 만들 때 Azure 데이터 레이크 저장소 계정이 기본 저장소 계정이 되도록 지정해야 합니다. 기본 데이터 레이크 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. Analytics 계정을 만든 후에는 추가 Data Lake Storage를 추가하고 Azure Storage 계정에 연결할 수 있습니다. 
+Analytics 계정을 만들 때 Azure Data Lake Store 계정이 기본 Data Lake Store 계정이 되도록 지정해야 합니다. 기본 데이터 레이크 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. Analytics 계정을 만든 후에는 추가 Data Lake Store를 추가하고 Azure Storage(BLOB) 계정에 연결할 수 있습니다.
 
-### <a name="include-a-link-to-azure-storage-in-data-lake"></a>Data Lake에 Azure Storage에 대한 링크 포함
-Data Lake 환경에서 Azure Storage 블로그에 대한 링크를 만들 수 있습니다. 
+### <a name="link-to-an-azure-storage-account-from-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에서 Azure Storage 계정에 연결
+Azure Storage 계정에 대한 링크를 만들 수 있습니다.
 
-    string storageKey = "<paste the key value here>";
+    AddStorageAccountParameters addParams = new AddStorageAccountParameters(<storage key value>);            
+    adlaClient.StorageAccounts.Add(_resourceGroupName, _adlaAccountName, "<Azure Storage Account Name>", addParams);
 
-    AddStorageAccountParameters addParams = new AddStorageAccountParameters(storageKey);            
-    _adlaClient.StorageAccounts.Add(_resourceGroupName, _adlaAccountName, "<Azure Storage Account Name>", addParams);
+### <a name="list-data-lake-store-data-sources"></a>Data Lake Store 데이터 원본 나열
+다음 코드는 지정한 Data Lake Analytics 계정에 사용되는 Data Lake Store 계정 및 Azure Storage 계정을 나열합니다.
 
-### <a name="list-data-lake-data-sources"></a>Data Lake 데이터 원본 나열
-다음 코드에서는 Data Lake Store 계정 및 지정한 Data Lake Analytics 계정의 Data Lake Storage 계정(Azure Storage용)을 나열합니다.
-
-    var sAccnts = _adlaClient.StorageAccounts.ListByAccount(_resourceGroupName, acctName);
+    var sAccnts = adlaClient.StorageAccounts.ListByAccount(_resourceGroupName, acctName);
 
     if (sAccnts != null)
     {
-        Console.WriteLine("Storage accounts:");
+        Console.WriteLine("Azure Storage accounts:");
         foreach (var a in sAccnts)
         {
             Console.WriteLine($"\t{a.Name}");
         }
     }
 
-    var stores = _adlsClient.Account.List();
+    var stores = adlsClient.Account.List();
     if (stores != null)
     {
         Console.WriteLine("\nData stores:");
@@ -323,93 +269,72 @@ Data Lake 환경에서 Azure Storage 블로그에 대한 링크를 만들 수 �
         }
     }
 
-### <a name="upload-a-file-to-a-data-lake-store-account"></a>Data Lake Store 계정에 파일 업로드
-다음 코드에서는 DataLakeStoreFileSystemManagementClient를 사용하여 Data Lake Store 계정에 로컬 파일을 업로드합니다.
+### <a name="upload-and-download-folders-and-files"></a>폴더 및 파일 업로드 및 다운로드
+Data Lake Store 파일 시스템 클라이언트 관리 개체를 사용하여 다음 메서드를 통해 Azure에서 로컬 컴퓨터로 개별 파일 또는 폴더를 업로드하고 다운로드할 수 있습니다.
 
-    bool force = true;
-    string adlsAccnt = "Accounting";
-    string srcFilePath = @"c:\DataLakeTemp\localData.csv";
-    string dstFilePath = "/Reports/FY2016/2016data.csv";
-    var parameters = new UploadParameters(srcFilePath, dstFilePath, adlsAccnt, isOverwrite: force);
-    var frontend = new DataLakeStoreFrontEndAdapter(adlsAccnt, _adlsFileSystemClient);
-    var uploader = new DataLakeStoreUploader(parameters, frontend);
-    uploader.Execute();
+- UploadFolder
+- UploadFile
+- DownloadFolder
+- DownloadFile
 
-### <a name="create-a-file-in-a-data-lake-store-account"></a>Data Lake Store 계정에 파일 만들기
-파일 업로드 외에도 분석을 위해 Data Lake Store 계정에 파일을 프로그래밍 방식으로 쉽게 만들 수 있습니다. 다음 코드에서는 100개 임의 바이트 배열 중 처음 4개 값을 .csv 파일에 씁니다.
+이러한 메서드의 첫 번째 매개 변수는 원본 경로 및 대상 경로 매개 변수가 뒤에 나오는 Data Lake Store 계정 이름입니다.
 
-        MemoryStream azMem = new MemoryStream();
-        StreamWriter sw = new StreamWriter(azMem, UTF8Encoding.UTF8);
+다음 예제는 Data Lake Store에서 폴더를 다운로드하는 방법을 보여 줍니다.
 
-        for (int i = 0; i < 100; i++)
-        {
-            byte[] gA = Guid.NewGuid().ToByteArray();
-            string dataLine = string.Format($"{gA[0].ToString()},{gA[1].ToString()},{gA[2].ToString()},{gA[3].ToString()},{gA[4].ToString()}");
-            sw.WriteLine(dataLine);
-        }
-        sw.Flush();
-        azMem.Position = 0;
 
-        _adlsFileSystemClient.FileSystem.Create(adlsAccoutName, "/Samples/Output/randombytes.csv", azMem);
-
-        sw.Dispose();
-        azMem.Dispose();
-
-### <a name="copy-files-from-a-data-lake-store-account"></a>Data Lake Store 계정에서 파일 복사
-다음 코드에서는 DataLakeFileSystemAccountManagementClient 개체를 사용하는 파일 시스템 작업을 보여 줍니다. Samples/Data/AmbulanceData 디렉터리의 스프레드시트(.csv) 파일을 컴퓨터의 로컬 디렉터리에 복사합니다.
-
-    // This method takes the name of a Data Lake Store account,
-    // and the the path to a directory in the account. In this
-
-    public void CopyCSVFiles(string accnt, string fPath)
+    try
     {
-        try
+        if (adlsFileSystemClient.FileSystem.PathExists(account, sourcePath))
         {
-            if (_adlsFileSystemClient.FileSystem.PathExists(accnt,fPath))
-            {
-                var fStatus = _adlsFileSystemClient.FileSystem.ListFileStatus(accnt, fPath);
-                foreach (var fs in fStatus.FileStatuses.FileStatus)
-                {
-                    string localF = string.Empty;
-                    if (fs.Type == Microsoft.Azure.Management.DataLake.Store.Models.FileType.FILE &&
-                        fs.PathSuffix.Contains("csv"))
-                    {
-                        Stream fStream = _adlsFileSystemClient.FileSystem.Open(accnt, fPath + "/" + fs.PathSuffix);
-                        localF = @"c:\DataLakeTemp\" + fs.PathSuffix;
-                        FileStream localStream = new FileStream(localF, FileMode.Create);
-                        fStream.CopyTo(localStream);
-
-                    }
-                    Console.WriteLine($"Copied {localF}.");
-                }
-            }
-            else
-            {
-                Console.WriteLine($"File path {fPath} does not exist.");
-            }
+            adlsFileSystemClient.FileSystem.DownloadFolder(account, sourcePath, destinationPath);
         }
-        catch (Exception ex)
+        else
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("Path does not exist");
         }
     }
+    catch (IOException ioex)
+    {
+        Console.WriteLine(ioex.Message);
+    }
 
-### <a name="list-azure-storage-containers"></a>Azure Storage 컨테이너 나열
+
+### <a name="create-a-file-in-a-data-lake-store-account"></a>Data Lake Store 계정에 파일 만들기
+.NET Framework IO 작업을 사용하여 Data Lake Store에 파일 콘텐츠를 만들 수 있습니다. 다음 코드에서는 100개 임의 바이트 배열 중 처음 4개 값을 .csv 파일에 씁니다.
+
+    MemoryStream azMem = new MemoryStream();
+    StreamWriter sw = new StreamWriter(azMem, UTF8Encoding.UTF8);
+
+    for (int i = 0; i < 100; i++)
+    {
+        byte[] gA = Guid.NewGuid().ToByteArray();
+        string dataLine = string.Format($"{gA[0].ToString()},{gA[1].ToString()},{gA[2].ToString()},{gA[3].ToString()},{gA[4].ToString()}");
+        sw.WriteLine(dataLine);
+    }
+    sw.Flush();
+    azMem.Position = 0;
+
+    adlsFileSystemClient.FileSystem.Create(adlsAccoutName, "/Samples/Output/randombytes.csv", azMem);
+
+    sw.Dispose();
+    azMem.Dispose();
+
+### <a name="list-blob-containers-of-an-azure-storage-account"></a>Azure Storage 계정의 BLOB 컨테이너 나열
 다음 코드에서는 지정한 Azure Storage 계정의 컨테이너를 나열합니다.
 
-    string DLAName = "<specify Data Lake Analytics account name>";
+    string ADLAName = "<specify Data Lake Analytics account name>";
     string azStorageName = "<specify Azure Storage account name>";
-    var containers = _adlaClient.StorageAccounts.ListStorageContainers(_resourceGroupName, DLAName, azStorageName);
+    var containers = adlaClient.StorageAccounts.ListStorageContainers(_resourceGroupName, ADLAName, azStorageName);
     foreach (var c in containers)
     {
        Console.WriteLine(c.Name);
     }
 
 ### <a name="verify-azure-storage-account-paths"></a>Azure Storage 계정 경로 확인
-다음 코드에서는 Azure Storage 계정(storageAccntName)이 Data Lake Analytics 계정(analyticsAccountName)에 있는지 및 컨테이너(containerName)가 Azure Storage 계정에 있는지를 확인합니다. 
+다음 코드에서는 Azure Storage 계정(storageAccntName)이 Data Lake Analytics 계정(analyticsAccountName)에 있는지 및 컨테이너(containerName)가 Azure Storage 계정에 있는지를 확인합니다.
 
-    bool accountExists = _adlaClient.Account.StorageAccountExists(_resourceGroupName, analyticsAccountName, storageAccntName));
-    bool containerExists = _adlaClient.Account.StorageContainerExists(_resourceGroupName, analyticsAccountName, storageAccntName, containerName));
+    bool accountExists = adlaClient.Account.StorageAccountExists(_resourceGroupName, analyticsAccountName, storageAccntName));
+    bool containerExists = adlaClient.Account.StorageContainerExists(_resourceGroupName, analyticsAccountName, storageAccntName, containerName));
 
 ## <a name="manage-catalog-and-jobs"></a>카탈로그 및 작업 관리
 DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 제공된 SQL 데이터베이스를 관리하는 메서드를 제공합니다. DataLakeAnalyticsJobManagementClient는 U-SQL 스크립트를 사용하여 데이터베이스에서 실행되는 작업을 제출하고 관리하는 메서드를 제공합니다.
@@ -417,18 +342,15 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 
 ### <a name="list-databases-and-schemas"></a>데이터베이스 및 스키마 나열
 나열할 수 있는 항목들 중에서 가장 일반적인 항목이 데이터베이스와 해당 스키마입니다. 다음 코드에서는 데이터베이스 컬렉션을 가져온 다음 각 데이터베이스에 대한 스키마를 열거합니다.
 
-    private void ListCatalogItems(string dlaAccountName)
+    var databases = adlaCatalogClient.Catalog.ListDatabases(adlaAccountName);
+    foreach (var db in databases)
     {
-        var databases = _adlaCatalogClient.Catalog.ListDatabases(dlaAccountName);
-        foreach (var db in databases)
+        Console.WriteLine($"Database: {db.Name}");
+        Console.WriteLine(" - Schemas:");
+        var schemas = adlaCatalogClient.Catalog.ListSchemas(dlaAccountName, db.Name);
+        foreach (var schm in schemas)
         {
-            Console.WriteLine($"Database: {db.Name}");
-            Console.WriteLine(" - Schemas:");
-            var schemas = _adlaCatalogClient.Catalog.ListSchemas(dlaAccountName, db.Name);
-            foreach (var schm in schemas)
-            {
-                Console.WriteLine($"\t{schm.Name}");
-            }
+            Console.WriteLine($"\t{schm.Name}");
         }
     }
 
@@ -444,13 +366,13 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 
 ### <a name="list-table-columns"></a>테이블 열 나열
 다음 코드에서는 Data Lake Analytics 카탈로그 관리 클라이언트를 통해 데이터베이스에 액세스하여 지정한 테이블의 열을 나열하는 방법을 보여 줍니다.
 
-    var tbl = _adlaCatalogClient.Catalog.GetTable(_adlaAnalyticsAccountTest, "master", "dbo", "MyTableName");
+    var tbl = adlaCatalogClient.Catalog.GetTable(_adlaAnalyticsAccountTest, "master", "dbo", "MyTableName");
     IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
     foreach (USqlTableColumn utc in columns)
     {
         string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
-        Stream scriptStrm = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
+        Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
         string scriptTxt = string.Empty;
         using (StreamReader sr = new StreamReader(scriptStrm))
         {
@@ -461,7 +383,7 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 
         var jobId = Guid.NewGuid();
         var properties = new USqlJobProperties(scriptTxt);
         var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1, degreeOfParallelism: 1, jobId: jobId);
-        var jobInfo = _adlaJobsClient.Job.Create(_adlaAnalyticsAccountTest, jobId, parameters);
+        var jobInfo = adlaJobClient.Job.Create(_adlaAnalyticsAccountTest, jobId, parameters);
         Console.WriteLine($"Job {jobName} submitted.");
 
     }
@@ -474,55 +396,13 @@ DataLakeAnalyticsCatalogManagementClient 개체는 각 Azure Data Lake Store에 
 ### <a name="list-failed-jobs"></a>실패한 작업 나열
 다음 코드에서는 실패한 작업에 대한 정보를 나열합니다.
 
-    var jobs = _adlaJobsClient.Job.List(_adlaAnalyticsAccountName);
-
+    var jobs = adlaJobClient.Job.List(adlaClient,
+        new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" });
     foreach (var j in jobs)
     {
-        if (j.Result == JobResult.Failed)
-        {
-            Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
-        }
+        Console.WriteLine($"{j.Name}\t{j.JobId}\t{j.Type}\t{j.StartTime}\t{j.EndTime}");
     }
-### <a name="reference-azure-storage-in-u-sql-scripts"></a>U-SQL 스크립트의 Azure Storage 참조
-다음 코드는 U-SQL 스크립트의 시작 부분입니다. 이 스크립트는 Data Lake Store 계정의 파일("/Samples/Data/SearchLog.tsv")에서 데이터를 읽도록 지정하고 있습니다.
 
-    @searchlog =
-    EXTRACT UserId          int,
-            Start           DateTime,
-            Region          string,
-            Query           string,
-            Duration        int?,
-            Urls            string,
-            ClickedUrls     string
-    FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
-
-연결된 Azure Storage 계정의 Blob에서 데이터를 읽으려면 Blob에 대한 전체 URL을 다음 형식으로 사용해야 합니다.
-
-    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
-
-예를 들어 원본 파일(SearchLog.tsv)이 "contoso_33" 저장소 계정의 "samples"라는 이름의 BLOB 컨테이너에 저장되어 있는 경우 FROM 문의 경로는 다음과 같습니다.
-
-    FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
-
-## <a name="azure-resource-groups-and-data-lake-analytics"></a>Azure 리소스 그룹 및 Data Lake Analytics
-응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. Azure Resource Manager를 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
-
-데이터 레이크 분석 서비스는 다음 구성 요소를 포함할 수 있습니다.
-
-* Azure 데이터 레이크 분석 계정
-* 필수 기본 Azure 데이터 레이크 저장소 계정
-* 하나 이상의 Azure Data Lake Analytics 계정
-* 하나 이상의 Azure Data Lake Store 계정(적어도 하나는 필요)
-* 추가 연결된 Azure Data Lake Storage 계정
-* 추가 Azure 저장소 계정
-
-이러한 모든 구성을 쉽게 관리할 수 있도록 하나의 리소스 관리 그룹 아래 만들 수 있습니다.
-
-![Azure 데이터 레이크 분석 계정 및 저장소](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
-
-데이터 레이크 분석 계정 및 종속 저장소 계정은 동일한 Azure 데이터 센터에 있어야 합니다.
-그러나 리소스 관리 그룹은 다른 데이터 센터에 있을 수 있습니다.  
 
 ## <a name="see-also"></a>참고 항목
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)

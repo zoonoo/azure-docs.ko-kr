@@ -16,15 +16,15 @@ ms.workload: big-data
 ms.date: 03/03/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 576d8663f61d344628a38a98bf9902f4194949d0
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 214bd6ca8abb3adc9447536215f28f478959be07
+ms.lasthandoff: 03/07/2017
 
 ---
 
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
-실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 분석을 위한 감정 분석 솔루션을 구축하는 방법을 알아봅니다. 데이터를 분석하는 Azure Stream Analytics 쿼리를 작성합니다. 다음 자세히 확인하기 위해 결과를 저장하거나 대시보드 및 [Power BI](https://powerbi.com/)를 사용하여 실시간으로 통찰력을 제공할 수 있습니다.
+실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 분석을 위한 감정 분석 솔루션을 구축하는 방법을 알아봅니다. 데이터를 분석하기 위해 Azure Stream Analytics 쿼리를 작성합니다. 다음 자세히 확인하기 위해 결과를 저장하거나 대시보드 및 [Power BI](https://powerbi.com/)를 사용하여 실시간으로 통찰력을 제공할 수 있습니다.
 
 소셜 미디어 분석 도구는 조직이 소셜 미디어에서 대량의 게시물을 사용하여 추세 항목, 의미 있는 주제 및 자세를 이해하도록 돕습니다. *의견 마이닝*이라는 감정 분석은 소셜 미디어 분석 도구를 사용하여 제품, 아이디어 등에 대한 자세를 결정합니다. 실시간 Twitter 추세 분석은 아주 좋은 예입니다. 특정 키워드를 수신하고 피드에 대한 감정 분석을 개발할 수 있는 해시 태그 구독 모델을 사용하기 때문입니다.
 

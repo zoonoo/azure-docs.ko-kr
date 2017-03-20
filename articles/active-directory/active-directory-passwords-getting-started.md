@@ -13,35 +13,168 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>암호 관리 시작
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
 사용자가 자신의 클라우드 Azure Active Directory 또는 온-프레미스 Active Directory 암호를 사용하려면 간단한 몇 단계를 거치면 됩니다. 몇 가지 간단한 필수 구성 요소를 충족한 후, 전체 조직에 대해 암호 변경 및 재설정을 사용할 수 있도록 설정해야 합니다. 이 문서는 다음 개념을 설명합니다.
 
+* [**시작하기 전에 읽을 고객의 최고의 팁**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**최고의 팁: 설명서 탐색** - 목차 및 브라우저의 찾기 기능을 사용하여 답변 찾기](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+ * [**팁 1: 라이선스** - 라이선스 요구 사항 이해](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**팁 2: 테스트** - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**팁 3: 배포** - 등록할 필요가 없도록 사용자에 대한 데이터 미리 채우기](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**팁 4: 배포** - 암호 재설정을 사용하여 임시 암호 통신의 필요성 제거](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**팁 5: 쓰기 저장** - AAD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 검토하여 비밀번호 쓰기 저장 문제 해결](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**팁 6: 쓰기 저장** - 올바른 권한, 방화벽 규칙 및 비밀번호 쓰기 저장에 대한 연결 설정 활성화](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**팁 7: 보고** - Azure AD SSPR 감사 로그로 암호를 등록 또는 재설정하는 사용자 확인](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**팁 8: 문제 해결** - 문제 해결 가이드 및 FAQ를 참조하여 다수의 문제 해결](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**팁 9: 문제 해결** - 여전히 도움이 필요한 경우 사용자를 지원할 충분한 정보 포함](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**사용자가 Azure Active Directory 암호를 재설정할 수 있도록 하는 방법**](#enable-users-to-reset-their-azure-ad-passwords)
-  * [셀프 서비스 암호 재설정 사전 요구 사항](#prerequisites)
-  * [1단계: 암호 재설정 정책 구성](#step-1-configure-password-reset-policy)
-  * [2단계: 테스트 사용자에 대한 연락처 데이터 추가](#step-2-add-contact-data-for-your-test-user)
-  * [3단계: 사용자로 암호 재설정](#step-3-reset-your-azure-ad-password-as-a-user)
+ * [셀프 서비스 암호 재설정 사전 요구 사항](#prerequisites)
+ * [1단계: 암호 재설정 정책 구성](#step-1-configure-password-reset-policy)
+ * [2단계: 테스트 사용자에 대한 연락처 데이터 추가](#step-2-add-contact-data-for-your-test-user)
+ * [3단계: 사용자로 암호 재설정](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**사용자가 온-프레미스 Active Directory 암호를 재설정하거나 변경할 수 있도록 하는 방법**](#enable-users-to-reset-or-change-their-ad-passwords)
-  * [암호 쓰기 저장 필수 구성 요소](#writeback-prerequisites)
-  * [1단계: 최신 버전의 Azure AD Connect 다운로드](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [2단계: UI 또는 PowerShell을 통해 Azure AD Connect에서 비밀번호 쓰기 저장을 사용하도록 설정](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [3단계: 방화벽 구성](#step-3-configure-your-firewall)
-  * [4단계: 적절한 사용 권한 설정](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [5단계: 사용자로 AD 암호 재설정 및 확인](#step-5-reset-your-ad-password-as-a-user)
+ * [암호 쓰기 저장 필수 구성 요소](#writeback-prerequisites)
+ * [1단계: 최신 버전의 Azure AD Connect 다운로드](#step-1-download-the-latest-version-of-azure-ad-connect)
+ * [2단계: UI 또는 PowerShell을 통해 Azure AD Connect에서 비밀번호 쓰기 저장을 사용하도록 설정](#step-2-enable-password-writeback-in-azure-ad-connect)
+ * [3단계: 방화벽 구성](#step-3-configure-your-firewall)
+ * [4단계: 적절한 사용 권한 설정](#step-4-set-up-the-appropriate-active-directory-permissions)
+ * [5단계: 사용자로 AD 암호 재설정 및 확인](#step-5-reset-your-ad-password-as-a-user)
+
+## <a name="top-tips-from-our-customers-to-read-before-you-begin"></a>시작하기 전에 읽을 고객의 최고의 팁
+아래는 조직에서 암호 관리를 배포하는 고객에게 유용한 일부 최고의 팁입니다.
+
+* [**최고의 팁: 설명서 탐색** - 목차 및 브라우저의 찾기 기능을 사용하여 답변 찾기](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+* [**팁 1: 라이선스** - 라이선스 요구 사항 이해](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**팁 2: 테스트** - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**팁 3: 배포** - 등록할 필요가 없도록 사용자에 대한 데이터 미리 채우기](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**팁 4: 배포** - 암호 재설정을 사용하여 임시 암호 통신의 필요성 제거](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**팁 5: 쓰기 저장** - AAD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 검토하여 비밀번호 쓰기 저장 문제 해결](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**팁 6: 쓰기 저장** - 올바른 권한, 방화벽 규칙 및 비밀번호 쓰기 저장에 대한 연결 설정 활성화](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**팁 7: 보고** - Azure AD SSPR 감사 로그로 암호를 등록 또는 재설정하는 사용자 확인](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**팁 8: 문제 해결** - 문제 해결 가이드 및 FAQ를 참조하여 다수의 문제 해결](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**팁 9: 문제 해결** - 여전히 도움이 필요한 경우 사용자를 지원할 충분한 정보 포함](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>최고의 팁: 설명서 탐색 - 목차 및 브라우저의 찾기 기능을 사용하여 답변 찾기
+설명서 중 하나를 사용하는 경우 관리자가 목차에서 학습하도록 모든 흥미로운 위치에 대한 빠른 링크를 제공하기 위해 노력해 왔습니다. 
+
+아래 목차를 확인해 보세요. 
+* [Azure AD 암호 재설정: 설명서 목차](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
+
+### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>팁 1: 라이선스 - 라이선스 요구 사항 이해
+Azure AD 암호 재설정의 기능을 작동하려면 조직에서 할당된 하나 이상의 라이선스가 있어야 합니다. 암호 재설정 환경 자체에 사용자당 라이선스를 적용하지 않지만 사용자에게 할당된 라이선스 없이 기능을 사용하는 경우 Microsoft 라이선스 규약 준수에서 벗어나 있는 것으로 간주되고 해당 사용자에게 라이선스를 할당해야 합니다.
+
+다음은 암호 재설정에 필요한 라이선스를 이해하는 데 유용한 몇 가지 문서입니다.
+* [일반적인 암호 재설정 라이선스 정보]()
+* [기능별 암호 재설정 라이선스 정보]()
+* [암호 쓰기 저장에 지원되는 시나리오]()
+
+### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>팁 2: 테스트 - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿
+관리자로 테스트하는 경우 아래에 정의되어 있는 관리자 암호 재설정 정책을 적용합니다.  즉, 최종 사용자에 대해 구성한 정책의 예상된 결과가 표시되지 않습니다.
+
+관리 UX에서 구성된 정책은 관리자가 아닌 최종 사용자에게만 적용됩니다. Microsoft는 관리자에 대해 강력한 기본 암호 재설정 정책을 적용하며 이는 조직의 보안을 유지하기 위해 최종 사용자에 대해 설정하는 정책과 다를 수 있습니다.
+
+#### <a name="administrator-password-reset-policy"></a>관리자 암호 재설정 정책
+* **적용 대상** - 모든 관리자 역할(전역 관리자, 기술 지원팀 관리자, 암호 관리자 등)
+* **한 개의 게이트 정책이 적용됩니다.**
+ * ...평가판이 만들어지기 시작한 후 처음 30일 동안 **또는**
+ * ...베니티 도메인이 없는 경우 **및** Azure AD Connect가 ID를 동기화하지 않는 경우
+ * **_필수_**: 값이 있는 인증 전자 메일, 대체 전자 메일, 인증 전화, 휴대폰 또는 사무실 전화 중 **하나**
+* **두 개의 게이트 정책이 적용됩니다.** 
+ * ...평가판의 처음 30일이 경과된 후 **또는**
+ * ....베니티 도메인이 있는 경우 **또는** 
+ * ...온-프레미스 환경에서 ID를 동기화하도록 Azure AD Connect를 활성화한 경우
+ * _**필수**_: 값이 있는 인증 전자 메일, 대체 전자 메일, 인증 전화, 휴대폰 또는 사무실 전화 중 **두 개**
+
+### <a name="tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register"></a>팁 3: 배포 - 등록할 필요가 없도록 사용자에 대한 데이터 미리 채우기
+대다수의 사람들은 사용자가 기능을 사용하기 위해 암호 재설정을 등록할 필요가 없는 것을 잘 알지 못합니다.  사용자를 위해 전화 또는 전자 메일 속성을 미리 설정하여 **사용자에게 작업 수행을 요구하지 않고** 전체 조직에 암호 재설정을 즉시 롤아웃할 수 있습니다.
+
+API, PowerShell 또는 Azure AD Connect를 사용하여 이를 수행하는 방법을 알아보려면 아래 설명서를 읽어보세요.
+* [사용자가 등록할 필요 없이 암호 재설정 배포](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [암호 재설정에서 사용되는 데이터](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords"></a>팁 4: 배포 - 암호 재설정을 사용하여 임시 암호 통신의 필요성 제거
+이는 팁 3에 대한 덧붙임입니다. 암호 재설정을 위해 사용자를 미리 구성한 후 직원이 처음으로 회사에 조인하는 시나리오를 생각해보십시오. 직원에게 임시 암호로 통신하는 대신 이제 직원이 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)로 이동하여 직원의 암호를 재설정하도록 할 수 있습니다.
+
+사용자가 [Windows 10 Azure AD 도메인에 가입된 장치](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)를 사용하고 있는 경우 아무런 수고 없이 새 PC에 대한 액세스 권한을 갖도록 허용하여 Windows 10 기본 로그인 화면에서 바로 이를 수행할 수 있습니다.
+
+API, PowerShell 또는 Azure AD Connect를 사용하여 이를 수행하는 방법을 알아보려면 아래 설명서를 읽어보세요. 이 데이터를 미리 채우면 사용자가 자신의 암호를 다시 설정하도록 보내고 사용자는 즉시 자신의 계정에 액세스할 수 있습니다.
+* [사용자가 등록할 필요 없이 암호 재설정 배포](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [암호 재설정에서 사용되는 데이터](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback"></a>팁 5: 쓰기 저장 - AAD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 검토하여 비밀번호 쓰기 저장 문제 해결
+Azure AD Connect 응용 프로그램 이벤트 로그에는 실시간으로 비밀번호 쓰기 저장 서비스와 함께 발생하는 대부분의 문제를 설명하는 다양한 로깅 정보 집합이 포함되어 있습니다. 이 로그에 대한 액세스를 가져오려면 다음 단계를 수행합니다.
+
+1. **Azure AD Connect** 컴퓨터에 로그인
+2. **시작** 키를 누르고 **"이벤트 뷰어"**를 입력하여 **Windows 이벤트 뷰어** 열기
+3. **응용 프로그램** 이벤트 로그 열기
+4. 다음 원본 **PasswordResetService** 또는 **ADSync**에서 이벤트를 찾아 발생할 수 있는 문제에 대해 알아보기
+
+이 로그에 나타날 수 있는 전체 이벤트 목록 및 비밀번호 쓰기 저장에 대한 자세한 문제 해결 지침은 다음을 참조하세요.
+* [문제 해결: 비밀번호 쓰기 저장](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [쓰기 저장 이벤트 로그 오류 코드](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [문제 해결: 비밀번호 쓰기 저장 연결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [쓰기 저장 배포 - 3단계: 방화벽 구성](#step-3-configure-your-firewall)
+* [쓰기 저장 배포 - 4단계: 적절한 사용 권한 설정](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback"></a>팁 6: 쓰기 저장 - 올바른 권한, 방화벽 규칙 및 비밀번호 쓰기 저장에 대한 연결 설정 활성화
+쓰기 저장이 제대로 작동하려면 다음을 확인해야 합니다.
+
+1. AD에서 자신의 암호 및 계정 잠금해제 플래그를 수정하는 권한을 갖는 비밀번호 쓰기 저장 기능을 사용하는 사용자에 대해 적절한 **Active Directory 사용 권한**이 설정되었습니다.
+2. 비밀번호 쓰기 저장 서비스가 아웃바운드 연결을 사용하는 외부 세계와 안전하게 통신하도록 허용하는 적절한 **방화벽 포트**가 공개되었습니다.
+3. Service Bus와 같은 키 암호 재설정 서비스 URL에 대해 적절한 **방화벽 예외**가 만들어졌습니다.
+4. **프록시 및 방화벽이 유휴 아웃바운드 연결을 중단하지 않습니다**. 10분 이상이 좋습니다.
+
+문제 해결 지침의 전체 목록 및 비밀번호 쓰기 저장에 대한 사용 권한 및 방화벽 규칙 구성에 대한 특정 지침은 다음을 참조하세요.
+* [문제 해결: 비밀번호 쓰기 저장](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [쓰기 저장 이벤트 로그 오류 코드](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [문제 해결: 비밀번호 쓰기 저장 연결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [쓰기 저장 배포 - 3단계: 방화벽 구성](#step-3-configure-your-firewall)
+* [쓰기 저장 배포 - 4단계: 적절한 사용 권한 설정](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>팁 7: 보고 - Azure AD SSPR 감사 로그로 암호를 등록 또는 재설정하는 사용자 확인 
+암호 재설정이 배포되고 작동하면 다음 논리적 단계는 작동하는 것을 확인하고 여전히 등록이 필요한 사용자, 재설정 시 사용자가 직면하는 일반적인 문제 및 기능에 대한 투자 수익을 분석하는 것입니다.
+
+Azure AD 암호 재설정 감사 로그를 사용하여 Azure Portal, PowerBI, Azure AD 보고 이벤트 API, PowerShell에서 이 작업 등을 수행할 수 있습니다.  이 보고 기능을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+* [암호 관리 보고서 개요](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#overview-of-password-management-reports)
+* [Azure Portal에서 암호 관리 보고서를 보는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports)
+* [Azure Portal의 셀프 서비스 암호 관리 활동 유형](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#self-service-password-management-activity-types-in-the-new-azure-portal)
+* [Azure AD 보고서 및 이벤트 API에서 암호 관리 이벤트를 검색하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
+* [PowerShell을 사용하여 암호 재설정 등록 이벤트를 빠르게 다운로드하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell)
+
+### <a name="tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues"></a>팁 8: 문제 해결 - 문제 해결 가이드 및 FAQ를 참조하여 다수의 문제 해결
+해당 암호 재설정에 다양한 문제 해결 지침 및 FAQ가 있는 것을 알고 계십니까? 질문이 있는 경우 아래 링크에서 이에 대한 답변을 찾을 수 있습니다.
+
+이외에도 [Azure Portal](https://portal.azure.com)에서 **"지원 및 문제 해결"** 블레이드를 사용하여 탐색 창 왼쪽의 **Azure Active Directory** -> **사용자 및 그룹** -> **암호 재설정** -> **지원 및 문제 해결** 아래에서 찾을 수 있는 암호 관리 관리자 환경에서 다양한 문제 해결 정보를 가져올 수도 있습니다.
+
+암호 재설정 문제 해결 지침 및 FAQ에 대한 링크:
+* [암호 관리 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot)
+* [암호 관리 FAQ](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq)
+
+### <a name="tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you"></a>팁 9: 문제 해결 - 여전히 도움이 필요한 경우 사용자를 지원할 충분한 정보 포함
+문제 해결에 여전히 도움이 필요한 경우 도움을 드리겠습니다. 지원 사례를 열거나 계정 관리 팀에 연락하여 직접 접촉할 수도 있습니다. 많은 의견 부탁드립니다.
+
+하지만 연락하기 전에 신속하게 도울 수 있도록 **아래 요청한 모든 정보를 수집했는지** 확인하세요.
+* [도움이 필요한 경우 포함할 정보](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### <a name="ways-to-provide-password-reset-feedback"></a>암호 재설정 피드백을 제공하는 방법
+* [기능 요청 또는 문제 해결 - Azure AD MSDN 포럼에 게시](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [기능 요청 또는 문제 해결 - StackOverflow에 게시](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [기능 요청 또는 문제 해결 - 트윗 @azuread!](https://twitter.com/azuread)
+* [기능 요청 - UserVoice에 메모 남기기](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>사용자가 Azure AD 암호를 재설정할 수 있도록 설정
 이 섹션에서는 AAD 클라우드 디렉터리에 대한 셀프 서비스 암호 재설정 사용, 셀프 서비스 암호 재설정을 위한 사용자 등록 및 마지막으로 사용자로 테스트 셀프 서비스 암호 재설정 수행을 안내합니다.
@@ -138,7 +271,7 @@ ms.lasthandoff: 03/06/2017
 2. **계정에 액세스할 수 없습니까?**를 클릭하면, 암호를 재설정할 **사용자 ID**를 묻는 새 페이지로 이동합니다.  테스트 **사용자 ID**를 여기에 입력하고 captcha를 전달하고 **다음**을 클릭합니다.
 
    ![][012]
-3. 사용자가 **사무실 전화**, **휴대폰** 및 **대체 전자 메일**을 지정했으므로 이 경우에 첫번째 인증을 통과하기 위해 제공한 모든 옵션을 표시합니다.
+3. 사용자가 **사무실 전화**, **휴대폰** 및 **대체 전자 메일**을 지정했으므로 이 경우에 첫 번째 인증을 통과하기 위해 제공한 모든 옵션을 표시합니다.
 
    ![][013]
 4. 이 경우, 먼저 **사무실 전화**로 **통화**를 선택합니다.  전화 기반 방법을 선택하는 경우 사용자가 **전화번호 확인** 을 완료해야 암호를 재설정할 수 있습니다.  이렇게 하면 악의적인 사람이 사용자 조직에서 사용자의 전화번호를 스팸 발송하지 못합니다.
@@ -267,11 +400,11 @@ ms.lasthandoff: 03/06/2017
 
 비밀번호 쓰기 저장이 제대로 작동하려면, Azure AD Connect를 실행하는 컴퓨터가 [Microsoft Azure 데이터 센터 IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=41653)에 정의된 대로 **. servicebus.windows.net* 및 Azure에서 사용되는 특정 IP 주소에 대한 아웃바운드 HTTPS 연결을 설정할 수 있어야 합니다.
 
-Azure AD Connect 도구의 경우 **1.1.439.0**(최신) 이상:
+Azure AD Connect 도구의 경우 **1.1.443.0**(최신) 이상:
 
 - 최신 버전의 Azure AD Connect 도구에서 다음에 대한 **아웃바운드 HTTPS** 액세스가 필요합니다.
     - *passwordreset.microsoftonline.com*
-    - *servicbus.windows.net*
+    - *servicebus.windows.net*
 
 Azure AD Connect의 경우 도구 버전 **1.0.8667.0** ~ **1.1.380.0**:
 
@@ -302,11 +435,11 @@ Azure AD Connect의 경우 도구 버전 **1.0.8667.0** ~ **1.1.380.0**:
 
 네트워크 어플라이언스를 구성한 후 Azure AD Connect 도구를 실행하는 컴퓨터를 다시 부팅합니다.
 
-#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Azure AD Connect의 유휴 연결(1.1.439.0 이상)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Azure AD Connect의 유휴 연결(1.1.443.0 이상)
 Azure AD Connect 도구는 ServiceBus 끝점에 주기적인 ping/keepalive를 보내서 연결된 상태를 유지하는지 확인합니다. 도구가 너무 많은 연결이 끊기는 것을 감지하면 끝점에 대한 ping 빈도를 자동으로 높입니다. 최저 'ping 간격'은 60초마다 ping 1회로 떨어지지만 **적어도 2~3분간 유휴 연결이 지속되도록 프록시/방화벽을 허용하는 것이 좋습니다.** \*오래된 버전의 경우 4분 이상이 좋습니다.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4단계: 적절한 Active Directory 사용 권한 설정
-암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**를 제공하며 해당 포리스트에서 각 도메인의 루트 개체에 대한 권한을 확장합니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.  
+암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**을 제공하며 해당 포리스트에서 각 도메인의 루트 개체 또는 SSPR용 범위에 두려는 사용자 OU에 대한 권한을 확장합니다.  특정 사용자 개체의 집합에만 재설정 사용 권한을 지정하려는 경우 후자의 옵션을 사용할 수 있습니다. 도메인 루트에 대해 이렇게 하는 경우 도메인은 허용되지 않습니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.  
 
 위에서 참조되는 계정을 모르는 경우, Azure Active Directory Connect 구성 UI를 열고 **솔루션 검토** 옵션을 클릭합니다.  권한을 추가해야 하는 계정은 아래 스크린샷에서 빨간색 밑줄이 그어집니다.
 
@@ -361,7 +494,7 @@ Azure AD Connect 도구는 ServiceBus 끝점에 주기적인 ping/keepalive를 �
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.

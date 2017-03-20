@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded 시작
+
 **Power BI Embedded** 는 응용 프로그램 개발자가 자신의 응용 프로그램에 대화형 Power BI 보고서를 추가할 수 있는 Azure 서비스입니다. **Power BI Embedded** 는 사용자가 로그인하는 방식을 다시 디자인하거나 변경하지 않고 기존 응용 프로그램을 사용합니다.
 
 **Microsoft Power BI Embedded** 의 리소스는 [Azure ARM API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전하는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
@@ -30,6 +30,7 @@ ms.lasthandoff: 02/22/2017
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>작업 영역 컬렉션 만들기
+
 **작업 영역 컬렉션** 은 응용 프로그램에 포함될 콘텐츠에 대한 최상위 Azure 리소스 및 컨테이너입니다. **작업 영역 컬렉션** 은 두 가지 방법으로 만들 수 있습니다.
 
 * 수동으로 Azure 포털 사용
@@ -56,6 +57,7 @@ Azure 포털을 사용하여 **작업 영역 컬렉션** 을 빌드하는 단계
 <a name="view-access-keys"/>
 
 ## <a name="view-power-bi-api-access-keys"></a>Power BI API 액세스 키 보기
+
 Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부분 중 하나는 **선택키**입니다. API 요청을 인증하는 데 사용되는 **앱 토큰** 을 생성하는 데 사용됩니다. **선택키**를 보려면 **설정 블레이드**에서 **선택키**를 클릭합니다. **앱 토큰**에 대한 자세한 내용은 [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)를 참조하세요.
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,8 +76,9 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 작업 영역 컬렉션을 만든 후에는 보고서 및 데이터 집합을 보관할 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx)를 사용해야 합니다.
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
-이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI Desktop**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI Desktop을 사용하여 앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
+
+이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
 > [!NOTE]
 > **Power BI Desktop**을 사용하는 방법에 대해 알아보려면 [Power BI Desktop 시작](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
@@ -95,20 +98,25 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 > [!NOTE]
 > **Power BI Embedded** 에는 데이터 집합이 가리키는 서버 및 데이터베이스를 변경하고 데이터 집합에서 데이터베이스에 연결하는 데 사용할 서비스 계정 자격 증명을 설정하기 위한 추가 API가 있습니다. [SetAllConnections 게시](https://msdn.microsoft.com/library/mt711505.aspx) 및 [게이트웨이 데이터 원본 패치](https://msdn.microsoft.com/library/mt711498.aspx)를 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-이전 단계에서 작업 영역 컬렉션과 첫 번째 보고서 및 데이터 집합을 만들었습니다. 이제 **Power BI Embedded**에 대한 코드를 작성하는 방법을 알아볼 시간입니다. 시작을 도와주기 위해 샘플 웹앱을 만들었습니다. [샘플 시작](power-bi-embedded-get-started-sample.md). 샘플에서는 다음 작업 방법을 보여 줍니다.
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>API를 사용하여 Power BI 데이터 집합 및 보고서 만들기
 
-* 콘텐츠 프로비전
-  * 작업 영역 만들기
-  * PBIX 파일 가져오기
-  * 연결 문자열을 업데이트하고 데이터 집합에 대한 자격 증명을 설정합니다.
-* 보고서를 안전하게 포함
+### <a name="datsets"></a>데이터 집합
+
+REST API를 사용하여 Power BI Embedded 내에 데이터 집합을 만들 수 있습니다. 그런 다음 데이터를 데이터 집합에 푸시할 수 있습니다. 이렇게 하면 Power BI Desktop 없이도 데이터 작업을 수행할 수 있습니다. 자세한 내용은 [데이터 집합 게시](https://msdn.microsoft.com/library/azure/mt778875.aspx)를 참조하세요.
+
+### <a name="reports"></a>보고서
+
+JavaScript API를 사용하여 데이터 집합으로부터 응용 프로그램에 직접 보고서를 만들 수 있습니다. 자세한 내용은 [Power BI Embedded의 데이터 집합에서 새 보고서 만들기](power-bi-embedded-create-report-from-dataset.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [샘플 시작](power-bi-embedded-get-started-sample.md)
-* [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)
-* [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[샘플 시작](power-bi-embedded-get-started-sample.md)  
+[Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)  
+[보고서 포함](power-bi-embedded-embed-report.md)  
+[Power BI Embedded의 데이터 집합에서 새 보고서 만들기](power-bi-embedded-create-report-from-dataset.md)
+[보고서 저장](power-bi-embedded-save-reports.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
 
 

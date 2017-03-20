@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 13b77c10dfe42d39ad3802f0be1b3f6fe75788e5
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -42,6 +42,8 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 참조된 콘텐츠를 포함하도록 경로를 변경하지만, 여전히 사용자가 경로에서 더 깊은 링크로 이동해야 하는 경우, [Azure AD 액세스 패널과 Office 365 앱 시작 관리자에서 응용 프로그램 프록시 응용 프로그램에 대한 올바른 링크 설정](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)블로그 게시물을 참조하세요.
 
 ## <a name="connector-errors"></a>커넥터 오류
+
+[Azure AD 응용 프로그램 프록시 커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 사용하여 커넥터가 응용 프로그램 프록시 서비스에 연결할 수 있는지 확인합니다. 최소한 미국 중부 하위 지역 및 사용자에게 가까운 지역에는 모두 녹색 확인 표시가 있는지 확인합니다. 그 외의 항목에도 녹색 확인 표시가 있으면 복원력이 더 뛰어난 것입니다. 
 
 커넥터 마법사를 설치하는 동안 등록에 실패하는 경우 실패한 이유를 확인하는 두 가지 방법이 있습니다. **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**에서 이벤트 로그를 확인하거나 다음 Windows PowerShell 명령을 실행합니다.
 

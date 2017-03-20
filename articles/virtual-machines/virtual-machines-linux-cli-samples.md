@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: ea2124e01753b914ebd1691e5d89091ac5cd5859
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ea9ee62b28069f87404b665151a51c5b73edf353
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,8 +39,6 @@ ms.lasthandoff: 03/04/2017
 | [가상 컴퓨터 간의 네트워크 트래픽 보안](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 두 개의 가상 컴퓨터, 모든 관련된 리소스 및 내부 및 외부 NSG(네트워크 보안 그룹)를 만듭니다. |
 |**가상 컴퓨터 모니터링**||
 | [Operations Management Suite를 사용하여 VM 모니터링](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 가상 컴퓨터를 만들고 Operations Management Suite 에이전트를 설치하고 OMS 작업 영역에서 VM을 등록합니다.  |
-|**가상 컴퓨터 다시 시작**||
-| [VM 다시 시작](./scripts/virtual-machines-linux-cli-sample-restart-by-tag.md) | VM을 만들고 다시 시작합니다. |
 |**가상 컴퓨터 문제 해결**||
 | [VM 운영 체제 디스크 문제 해결](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 두 번째 VM의 데이터 디스크처럼 첫 번째 VM에서 운영 체제 디스크를 탑재합니다. |
 | | |

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -26,6 +26,9 @@ ms.lasthandoff: 02/23/2017
 가상 컴퓨터와 물리적 서버를 마이그레이션하기 위해 Azure Site Recovery 서비스를 사용하는 방법에 대한 개요는 이 문서를 참고하세요.
 
 Site Recovery는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터 센터에 복제하는 작업을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. [사이트 복구란?](site-recovery-overview.md) Site Recovery를 사용하여 기존 온-프레미스 워크로드를 Azure로 마이그레이션하여 클라우드 과정을 신속하게 처리하고 Azure에서 제공하는 다양한 기능을 사용할 수도 있습니다.
+
+마이그레이션을 수행하는 방법에 대한 간략한 개요를 보려면 다음 비디오를 참조하세요.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)의 배포에 대해 설명합니다. [Azure 클래식 포털](https://manage.windowsazure.com/)은 기존 Site Recovery 자격 증명을 유지하는 데 사용할 수 있지만 새 자격 증명 모음을 만들 수는 없습니다.
 

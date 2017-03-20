@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c8cd6efc9af5b0022ed5fed315a63395477e1c34
-ms.openlocfilehash: 7b132387468a97b2fb149576092f7867edc43e6e
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -100,7 +100,7 @@ Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 
 
 ## <a name="images"></a>이미지
 
-Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합니다. 저장소 계정의 사용자 지정 VHD에서 이미지를 만들거나 실행 중인 VM에서 직접 만들 수 있습니다. OS와 데이터 디스크를 모두 포함하여 실행 중인 VM과 연결된 모든 관리 디스크를 하나의 이미지에 캡처합니다. 이렇게 하면 저장소 계정을 복사하거나 관리할 필요 없이 사용자 지정 이미지를 사용하여 수백 개의 VM을 만들 수 있습니다.
+Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합니다. 저장소 계정의 사용자 지정 VHD에서 이미지를 만들거나 일반화된(시스템에서 준비된) VM에서 직접 만들 수 있습니다. OS와 데이터 디스크를 모두 포함하여 VM과 연결된 모든 Managed Disks를 하나의 이미지에 캡처합니다. 이렇게 하면 저장소 계정을 복사하거나 관리할 필요 없이 사용자 지정 이미지를 사용하여 수백 개의 VM을 만들 수 있습니다.
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
 * [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
@@ -112,7 +112,7 @@ Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합�
 
 스냅숏은 스냅숏 생성 시점의 디스크 복사본입니다. 이것은 하나의 디스크에만 해당됩니다. VM의 디스크가 하나(OS)뿐인 경우 이 VM의 스냅숏 또는 이미지를 만들고 이 스냅숏 또는 이미지로부터 VM을 만들 수 있습니다.
 
-VM의 디스크가&5;개이고 스트라이프된 경우는 어떨까요? 각 디스크의 스냅숏을 만들 수 있지만 VM 내에서 디스크의 상태가 인식되지는 못하며 스냅숏은 해당되는 하나의 디스크에 대해서만 인식합니다. 이런 경우 스냅숏이 서로 조정될 필요가 있지만 현재 이 기능은 지원되지 않습니다. 따라서 이런 경우 VM 복사본을 만들려면 이미지를 만드는 것이 좋습니다. 기본적으로 이미지에는 모든&5;개 디스크의 조정된 복사본이 포함됩니다.
+VM의 디스크가&5;개이고 스트라이프된 경우는 어떨까요? 각 디스크의 스냅숏을 만들 수 있지만 VM 내에서 디스크의 상태가 인식되지는 못하며 스냅숏은 해당되는 하나의 디스크에 대해서만 인식합니다. 이런 경우 스냅숏이 서로 조정될 필요가 있지만 현재 이 기능은 지원되지 않습니다.
 
 ## <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원 
 

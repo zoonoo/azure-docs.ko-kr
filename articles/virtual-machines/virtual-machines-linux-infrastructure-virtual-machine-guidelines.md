@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
 ms.openlocfilehash: 80044c0b16a16a214b4d8879a2d7f38012608ba0
+ms.lasthandoff: 12/17/2016
 
 
 ---
@@ -55,10 +56,5 @@ VM과 같은 구성 요소는 손쉬운 관리 및 유지 관리를 위해 [Azur
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

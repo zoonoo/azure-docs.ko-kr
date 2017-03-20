@@ -13,18 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: e11d42322d8deda57678f82f3c8a402f0e69c9af
-ms.openlocfilehash: 7d3f49770629a4cb37e20a9074408055a6304321
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-워크플로를 정의하고 HDInsight에서 워크플로를 실행하기 위해 Apache Oozie를 사용하는 방법을 알아보세요. Oozie 코디네이터에 대해 알아보려면 [HDInsight에서 시간 기준의 Oozie 코디네이터 사용][hdinsight-oozie-coordinator-time]을 참조하세요. Azure Data Factory에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
+워크플로를 정의하고 HDInsight에서 워크플로를 실행하기 위해 Apache Oozie를 사용하는 방법을 알아보세요. Oozie 코디네이터에 대해 알아보려면 [HDInsight에서 시간 기반 Hadoop Oozie 코디네이터 사용][hdinsight-oozie-coordinator-time]을 참조하세요. Azure Data Factory를 알아보려면 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
 
 Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시스템입니다. Hadoop 스택과 통합되며 Apache MapReduce, Apache Pig, Apache Hive, Apache Sqoop에 Hadoop 작업을 지원합니다. 또한 Java 프로그램이나 셸 스크립트와 같이 시스템에 고유한 작업을 예약하는 데 사용할 수 있습니다.
 
@@ -48,11 +50,11 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
         [TRACE] 816
         [WARN]  4
    
-    Hive에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight-use-hive]을 참조하세요.
+    Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
 2. HiveQL 출력을 Azure SQL 데이터베이스의 테이블에 내보내는 Sqoop 작업. Sqoop에 대한 자세한 내용은 [HDInsight에서 Hadoop Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
 > [!NOTE]
-> HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
+> HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 > 
 > 
 
@@ -123,7 +125,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         <end name="end"/>
     </workflow-app>
 
-워크플로에 2가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
+워크플로에&2;가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
 
 RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출할 때 이러한 값을 전달합니다.
 
@@ -148,7 +150,7 @@ RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사�
 <tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더를 지정합니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
 </table>
 
-Oozie 워크플로 및 워크플로 동작 사용에 대한 자세한 내용은 HDInsight 버전 3.0의 경우 [Apache Oozie 4.0 설명서][apache-oozie-400] 또는 HDInsight 버전 2.1의 경우 [Apache Oozie 3.3.2 설명서][apache-oozie-332]를 참조하세요.
+Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 버전 2.1의 경우)를 참조하세요.
 
 워크플로의 Hive 작업은 HiveQL 스크립트 파일을 호출합니다. 이 스크립트 파일에는 세 개의 HiveQL 문이 포함되어 있습니다.
 
@@ -160,7 +162,7 @@ Oozie 워크플로 및 워크플로 동작 사용에 대한 자세한 내용은 
 2. **CREATE TABLE 문** 은 log4j 로그 파일 위치를 가리키는 log4j Hive 외부 테이블을 만듭니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\n"입니다. Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하는 데 Hive 외부 테이블이 사용됩니다.
 3. **INSERT OVERWRITE 문** 은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure 저장소의 blob에 저장합니다.
 
-스크립트에서 사용되는 3개의 변수가 있습니다.
+스크립트에서 사용되는&3;개의 변수가 있습니다.
 
 * ${hiveTableName}
 * ${hiveDataFolder}
@@ -171,7 +173,7 @@ Oozie 워크플로 및 워크플로 동작 사용에 대한 자세한 내용은 
 워크플로 파일과 HiveQL 파일은 모두 Blob 컨테이너에 저장되어 있습니다.  이 자습서의 뒷부분에서 사용할 PowerShell 스크립트는 이 두 파일을 기본 저장소 계정에 복사합니다. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>PowerShell을 사용하여 Oozie 작업 제출
-Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제공하지 않습니다. **Invoke-RestMethod** cmdlet을 사용하여 Oozie 웹 서비스를 불러올 수 있습니다. Oozie 웹 서비스 API는 HTTP REST JSON API입니다. Oozie 웹 서비스 API에 대한 자세한 내용은 HDInsight 클러스터 버전 3.0의 경우 [Apache Oozie 4.0 설명서][apache-oozie-400] 또는 HDInsight 버전 2.1의 경우 [Apache Oozie 3.3.2 설명서][apache-oozie-332]를 참조하세요.
+Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제공하지 않습니다. **Invoke-RestMethod** cmdlet을 사용하여 Oozie 웹 서비스를 불러올 수 있습니다. Oozie 웹 서비스 API는 HTTP REST JSON API입니다. Oozie 웹 서비스 API에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 버전 3.0용) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 버전 2.1용)를 참조하세요.
 
 이 섹션의 PowerShell 스크립트는 다음 단계를 수행합니다.
 
@@ -618,7 +620,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Oozie 워크플로를 정의하는 방법 및 PowerShell을 사용하여 Oozie 작업을 실행하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 시간 기준 Oozie 코디네이터 사용][hdinsight-oozie-coordinator-time]
+* [HDInsight에서 시간 기준의 Oozie 코디네이터 사용][hdinsight-oozie-coordinator-time]
 * [휴대폰 사용을 분석하기 위해 HDInsight에서 Hive와 함께 Hadoop 사용 시작][hdinsight-get-started]
 * [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]
 * [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]
@@ -663,7 +665,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 
@@ -674,9 +676,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 5c2054800d2234653c60c35f9c009499e231fd31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -37,9 +37,11 @@ PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩�
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="scenario"></a>시나리오
 
-이 시나리오에서는 IP 확인 흐름을 사용하여 가상 컴퓨터가 포트 443을 통해 다른 컴퓨터와 통신할 수 있는지 확인합니다. 트래픽이 거부된 경우 해당 트래픽을 거부하는 보안 규칙을 반환합니다. IP 흐름 확인에 대한 자세한 내용을 보려면 [IP 흐름 확인 개요](network-watcher-ip-flow-verify-overview.md)를 방문하세요.
+이 시나리오에서는 IP 흐름 확인을 사용하여 가상 컴퓨터가 포트 443을 통해 다른 컴퓨터와 통신할 수 있는지 확인합니다. 트래픽이 거부된 경우 해당 트래픽을 거부하는 보안 규칙을 반환합니다. IP 흐름 확인에 대한 자세한 내용을 보려면 [IP 흐름 확인 개요](network-watcher-ip-flow-verify-overview.md)를 방문하세요.
 
 이 시나리오에서는 다음을 수행합니다.
 

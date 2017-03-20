@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 437bbb47a490ecc66c5820eccfc8db8ec28d76be
-ms.openlocfilehash: 0a5aaf64f22e6c116165a63b77618b535dfd3797
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -26,6 +26,8 @@ ms.lasthandoff: 02/24/2017
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹의 송/수신 IP 트래픽을 이해하는 데 사용할 수 있는 정보를 제공합니다. 이러한 흐름 로그는 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
 
 이러한 흐름 로그는 수동으로 구문 분석하여 통찰력을 얻기 어려울 수 있습니다. 그러나 이 데이터를 시각화하는 데 도움이 되는 오픈 소스 도구가 몇 가지 있습니다. 이 문서에서는 Kibana 대시보드에서 흐름 로그를 신속하게 인덱싱하고 시각화할 수 있는 탄력적인 스택을 사용하여 이러한 로그를 시각화하는 솔루션을 제공합니다.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>시나리오
 
@@ -156,7 +158,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Azure Blob Storage를 위한 Logstash 입력 플러그 인 설치
 
-이 Logstash 플러그 인을 사용하면 지정된 저장소 계정에서 흐름 로그에 직접 액세스할 수 있습니다. 이 플러그 인을 설치하려면 다음 명령을 실행합니다.
+이 Logstash 플러그 인을 사용하면 지정된 저장소 계정에서 흐름 로그에 직접 액세스할 수 있습니다. 이 플러그 인을 설치하려면 기본 Logstash 설치 디렉터리(이 경우 /usr/share/logstash/bin)에서 다음 명령을 실행합니다.
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -230,7 +232,7 @@ sudo /etc/init.d/logstash start
 1. Flow Tuples - 이 표에서는 각 흐름 튜플 내에 포함된 정보와 해당하는 NGS 및 규칙을 보여줍니다.
 
   ![figure7][7]
-  
+
 대시보드 맨 위에 있는 쿼리 표시줄을 사용하여 구독 ID, 리소스 그룹, 규칙 또는 원하는 다른 변수 같은 흐름의 모든 매개 변수를 기준으로 대시보드를 필터링할 수 있습니다. Kibana의 쿼리 및 필터에 대한 자세한 내용을 보려면 [공식 설명서](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)를 참조하세요.
 
 ## <a name="conclusion"></a>결론
@@ -239,7 +241,7 @@ sudo /etc/init.d/logstash start
 
 ## <a name="next-steps"></a>다음 단계
 
-[Power BI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)를 방문하여 Power BI로 NSG 흐름 로그를 시각화하는 방법 알아보기
+[PowerBI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI로 NSG 흐름 로그를 시각화하는 방법에 대해 알아보세요.
 
 
 <!--Image references-->
@@ -252,5 +254,4 @@ sudo /etc/init.d/logstash start
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-
 

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
-ms.openlocfilehash: 0a8b53f7860548a2a013bfc7813cdf798b6a4910
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1f5f0b1aca581900b94f0f87563c5c7e720f46c8
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="partitioning-and-scaling-in-azure-documentdb"></a>Azure DocumentDB의 분할 및 크기 조정
+# <a name="partitioning-partition-keys-and-scaling-in-documentdb"></a>파티션, 파티션 키 및 DocumentDB의 크기 조정
+
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 는 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 확장이 가능하도록 설계되었습니다. 이 문서에서는 DocumentDB에서 분할이 작동하는 방식을 개괄적으로 살펴보고, 응용 프로그램을 효과적으로 확장하도록 DocumentDB 컬렉션을 구성하는 방법을 설명합니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.   

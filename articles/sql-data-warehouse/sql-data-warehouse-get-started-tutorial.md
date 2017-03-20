@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -76,7 +76,7 @@ SQL Data Warehouse는 방대한 병렬 처리를 위해 설계된 데이터베�
 
     **원본**: 빈 데이터베이스
 
-    **서버**: [Prerequisites]에서 만든 서버를 선택합니다.
+    **서버**: [필수 조건]에서 만든 서버를 선택합니다.
 
     **데이터 정렬**: 기본 데이터 정렬(SQL_Latin1_General_CP1_CI_AS)을 그대로 둡니다.
 
@@ -94,7 +94,7 @@ SQL Data Warehouse는 방대한 병렬 처리를 위해 설계된 데이터베�
 
 ### <a name="get-connection-information"></a>연결 정보 가져오기
 
-SQL Data Warehouse에 연결하려면 [Prerequisites]에서 만든 논리 SQL Server를 통해 연결해야 합니다.
+데이터 웨어하우스에 연결하려면 [필수 조건]에서 만든 논리 SQL Server를 통해 연결해야 합니다.
 
 1. 대시보드에서 데이터 웨어하우스를 선택하거나 리소스에서 검색합니다.
 
@@ -104,7 +104,7 @@ SQL Data Warehouse에 연결하려면 [Prerequisites]에서 만든 논리 SQL Se
 
     ![서버 이름 선택](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. SSMS를 열고 개체 탐색기를 사용하여 [Prerequisites]에서 만든 서버 관리 자격 증명을 사용하여 이 서버에 연결합니다.
+3. SSMS를 열고 개체 탐색기를 사용하여 [필수 조건]에서 만든 서버 관리 자격 증명을 사용하여 이 서버에 연결합니다.
 
     ![SSMS로 연결](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
@@ -415,13 +415,13 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Azure Blob Storage에서 데이터를 가져옵니다.
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+SQL Data Warehouse는 CTAS(CREATE TABLE AS SELECT)라는 핵심 문을 지원합니다. 이 문은 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다.  Azure Blob Storage에서 SQL Data Warehouse로 데이터를 가져오는 효과적인 방법입니다.
 
-1. Run this script to import your data.
+1. 이 스크립트를 실행하여 데이터를 가져옵니다.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +496,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. 로드되는 데이터를 봅니다.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   몇 GB의 데이터를 로드하고 고성능 클러스터형 columnstore 인덱스에 압축합니다. DMV(동적 관리 보기)를 사용하는 다음과 같은 쿼리를 실행하여 로드 상태를 봅니다. 쿼리를 시작한 후 SQL Data Warehouse에서 몇 가지 주요 작업을 수행하는 동안 커피 또는 스낵을 즐기세요.
     
     ```sql
     SELECT
@@ -528,62 +528,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. 모든 시스템 쿼리를 표시합니다.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Azure SQL Data Warehouse에 로드된 데이터를 즐깁니다.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![로드된 데이터 보기](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>쿼리 성능 향상
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성능을 달성하기 위한 여러 가지 방법이 있습니다.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>쿼리 성능에 대한 크기 조정 효과 참조 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+쿼리 성능을 개선하는 한 가지 방법은 데이터 웨어하우스에 대한 DWU 서비스 수준을 변경하여 리소스의 크기를 조정하는 것입니다. 각 서비스 수준은 더 많은 비용을 소요하지만 언제든지 리소스를 축소하거나 일시 중지할 수 있습니다. 
 
-In this step, you compare performance at two different DWU settings.
+이 단계에서는 두 가지 서로 다른 DWU 설정에서 성능을 비교합니다.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+먼저, 작업을 100DWU로 축소하여 하나의 계산 노드에서 자체적으로 수행할 수 있는 방법에 대한 아이디어를 얻을 수 있도록 하겠습니다.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. 포털로 이동하여 SQL Data Warehouse를 선택합니다.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. SQL Data Warehouse 블레이드에서 [크기 조정]을 선택합니다. 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![포털에서 DW 크기 조정](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. 성능 막대를 100DWU로 낮추고 [저장]을 누릅니다.
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![크기 조정 및 저장](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. 크기 조정 작업이 끝날 때까지 기다립니다.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > 크기를 조정하는 동안에는 쿼리를 실행할 수 없습니다. 크기 조정 시 현재 실행 중인 쿼리를 **종료**합니다. 작업이 완료되면 다시 시작할 수 있습니다.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. 모든 열에 대해 상위&1;백만 개 항목을 선택하여 여행 데이터에서 스캔 작업을 수행합니다. 신속하게 넘어가려면 더 적은 수의 열을 선택합니다. 이 작업을 실행하는 데 걸린 시간을 기록해 둡니다.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. 데이터 웨어하우스를 400DWU로 다시 조정합니다. 각각의 100DWU는 Azure SQL Data Warehouse에 또 다른 계산 노드를 추가한다는 것을 기억하세요.
 
-7. Run the query again! You should notice a significant difference. 
+7. 쿼리를 다시 실행합니다. 상당한 차이에 주목해야 합니다. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> SQL Data Warehouse는 대규모 병렬 처리를 사용하기 때문입니다. 수백만 개의 행에서 검색 또는 분석 기능을 수행하는 쿼리를 통해 Azure SQL Data Warehouse의 진정한 능력을 경험할 수 있습니다.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>쿼리 성능에 대한 통계 효과 참조
 
-1. Run a query that joins the Date table with the Trip table
+1. Date 테이블과 Trip 테이블을 조인하는 쿼리를 실행합니다.
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    SQL Data Warehouse는 조인을 수행하기 전에 데이터 순서를 섞어야 하므로 이 쿼리는 다소 시간이 소요됩니다. 배포된 방식과 같게 데이터를 조인하도록 설계된 경우에는 조인 시 데이터를 섞지 않아도 됩니다. 이는 보다 심층적인 주제입니다. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. 통계를 통해 차이를 확인할 수 있습니다. 
+3. 이 문을 실행하여 조인 열에 통계를 만듭니다.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +625,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > SQL DW에서는 통계를 자동으로 관리하지 않습니다. 통계는 쿼리 성능에 중요하며, 통계를 만들고 업데이트하는 것이 좋습니다.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **조인에 포함된 열, WHERE 절에 사용된 열 및 GROUP BY에 있는 열에서 통계를 유지하면 가장 많은 이득을 획득할 수 있습니다.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. 필수 조건에서 쿼리를 다시 실행하고 성능 차이를 관찰합니다. 쿼리 성능의 차이는 확장하는 만큼 급격한 것은 아니지만 속도 향상에 주목해야 합니다. 
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-You're now ready to query and explore. Check out our best practices or tips.
+이제 쿼리하고 탐색할 준비가 되었습니다. 모범 사례 또는 팁을 확인합니다.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+하루 종일 탐색하는 경우 인스턴스를 일시 중지합니다. 프로덕션 환경에서는 비즈니스 요구에 맞게 일시 중지 및 크기 조정하여 상당한 비용을 절감할 수 있습니다.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![일시 중지](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>유용한 정보
 
-[Concurrency and Workload Management][]
+[동시성 및 워크로드 관리][]
 
-[Best practices for Azure SQL Data Warehouse][]
+[Azure SQL 데이터 웨어하우스에 대한 모범 사례][]
 
-[Query Monitoring][]
+[쿼리 모니터링][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[대규모 관계형 데이터 웨어하우스를 구축하기 위한 상위 10가지 모범 사례][](영문)
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Azure SQL Data Warehouse로 데이터 마이그레이션][](영문)
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[동시성 및 워크로드 관리]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Azure SQL 데이터 웨어하우스에 대한 모범 사례]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[쿼리 모니터링]: sql-data-warehouse-manage-monitor.md
+[대규모 관계형 데이터 웨어하우스를 구축하기 위한 상위 10가지 모범 사례]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/(영문)
+[Azure SQL Data Warehouse로 데이터 마이그레이션]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/(영문)
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[필수 조건]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

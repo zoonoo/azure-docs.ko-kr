@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ zip 파일을 도구를 실행하려는 Windows Server에 복사합니다. 네�
 Zip 폴더의 압축을 풉니다. 그러면 여러 개의 파일과 하위 폴더를 볼 수 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
 
 예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ASR Deployment Planner-Preview_v1.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>기능
 명령줄 도구(ASRDeploymentPlanner.exe)는 다음 세 가지 모드 중 하나에서 실행할 수 있습니다.
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>예제 2: 프로파일링된 데이터가 원격 서버에 있는 경우 보고서 생성 - 사용자는 원격 디렉터리에서 읽기/쓰기 액세스 권한을 가지고 있어야 합니다.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>예제 3: 지정된 시간 내에 IR을 완료하기 위한 특정 대역폭 및 목표로 보고서 생성
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Azure Site Recovery 복제를 위해 xMbps 이상의 대역폭을 프로비전�
 
 **배치할 가상 컴퓨터**: 최적의 성능과 활용을 위해 지정된 Azure Storage 계정에 배치해야 하는 가상 컴퓨터를 모두 나열합니다.
 
-##<a name="compatible-vms"></a>호환되는 VM
+## <a name="compatible-vms"></a>호환되는 VM
 ![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM 이름**: 보고서 생성 시 VMListFile에서 사용되는 가상 컴퓨터 이름 또는 IP 주소입니다. 또한 이 열에서는 가상 컴퓨터에 연결된 디스크(VMDK)를 나열합니다.
+**VM 이름**: 보고서 생성 시 VMListFile에서 사용되는 가상 컴퓨터 이름 또는 IP 주소입니다. 또한 이 열에서는 가상 컴퓨터에 연결된 디스크(VMDK)를 나열합니다. 중복된 이름 또는 IP 주소가 있는 vCenter의 가상 컴퓨터는 각 가상 컴퓨터를 구분하기 위해 ESXi 호스트 이름으로 언급됩니다. 나열된 ESXi 호스트는 프로파일링 기간 동안 도구에서 호스트를 처음 발견한 가상 컴퓨터가 배치된 호스트입니다.
 
 **VM 호환성**: 예/아니요의 두 가지 값이 있습니다*. 예*는 가상 컴퓨터가 P20 또는 P30 범주의 프로파일링된 높은 변동/IOPS 디스크 맞춤을 사용하는 [프리미엄 Azure Storage](https://aka.ms/premium-storage-workload)에 적합한 경우를 위한 것이지만, 디스크의 크기로 인해 P10 또는 P20에 매핑됩니다. Azure Storage는 디스크 크기에 따라 디스크를 매핑할 프리미엄 저장소 디스크 유형을 결정합니다. 예를 들어 128GB 미만은 P10이고, 128-512GB는 P20이며, 512-1,023GB는 P30입니다. 따라서 디스크의 워크로드 특성에서 P20 또는 P30에 배치하지만 더 작은 프리미엄 저장소 디스크 유형으로 매핑되는 경우, 도구는 해당 가상 컴퓨터를 예*로 표시하고 원본 디스크 크기를 변경하여 권장되는 프리미엄 저장소 디스크 유형으로 제대로 맞추거나 장애 조치 후 대상 디스크 유형을 변경하도록 권장합니다.
 저장소 유형은 표준 또는 프리미엄입니다.
@@ -439,7 +439,7 @@ Azure Site Recovery 복제를 위해 xMbps 이상의 대역폭을 프로비전�
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM 이름**: 보고서 생성 시 VMListFile에서 사용되는 가상 컴퓨터 이름 또는 IP 주소입니다. 또한 이 열에서는 가상 컴퓨터에 연결된 디스크(VMDK)를 나열합니다.
+**VM 이름**: 보고서 생성 시 VMListFile에서 사용되는 가상 컴퓨터 이름 또는 IP 주소입니다. 또한 이 열에서는 가상 컴퓨터에 연결된 디스크(VMDK)를 나열합니다. 중복된 이름 또는 IP 주소가 있는 vCenter의 가상 컴퓨터는 각 가상 컴퓨터를 구분하기 위해 ESXi 호스트 이름으로 언급됩니다. 나열된 ESXi 호스트는 프로파일링 기간 동안 도구에서 호스트를 처음 발견한 가상 컴퓨터가 배치된 호스트입니다.
 
 **VM 호환성**: 지정된 가상 컴퓨터를 Azure Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 가상 컴퓨터의 호환되지 않는 디스크별로 요약되며, 게시된 Azure Storage [제한](https://aka.ms/azure-storage-scalbility-performance)에 따라 다음 이유 중 하나일 수 있습니다.
 
@@ -483,7 +483,24 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당&168;GB
 
 위에 게시된 제한은 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라집니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 항상 테스트 장애 조치를 통해 광범위한 응용 프로그램 테스트를 수행하여 진정한 성능 상황을 이해하는 것이 좋습니다.
 
-##<a name="release-notes"></a>릴리스 정보
+## <a name="how-to-update-the-deployment-planner"></a>Deployment Planner를 업데이트하려면 어떻게 하나요?
+최신 버전의 Azure Site Recovery Deployment Planner를 [다운로드](site-recovery-deployment-planner.md#download)합니다. zip 파일을 실행하려는 서버에 복사합니다. zip 파일의 압축을 풉니다.
+이전 버전의 Deployment Planner가 이미 있고 프로파일링 중인 경우 새 버전에 프로파일링 수정이 없다면 프로파일링을 중지하지 않아도 됩니다. 릴리스에 프로파일링 구성 요소의 수정 사항이 포함된 경우 이전 버전을 사용하는 프로파일링을 중지하고 새 버전을 사용하여 프로파일링을 다시 시작하는 것이 좋습니다. 새 버전을 사용하여 프로파일링을 시작하는 경우 동일한 출력 디렉터리 경로를 전달하여 도구가 프로필 데이터를 기존 파일에 추가하고 보고서 생성 시 프로파일링된 전체 데이터 집합을 사용하도록 해야 합니다. 다른 출력 디렉터리를 전달하는 경우 새 파일이 생성되고 이전의 프로파일링된 데이터는 보고서 생성 시 사용할 수 없습니다.<br> 모든 업데이트는 zip 파일을 포함한 누적 업데이트입니다. 새 버전 파일을 사용할 이전 버전 폴더에 복사하지 않아도 됩니다. 새 폴더를 사용할 수 있습니다.
+
+
+##<a name="version-history"></a>버전 기록
+### <a name="11"></a>1.1
+업데이트한 날짜: 2017년 3월 09일 <br>
+
+다음 문제가 수정됨<br>
+
+* 여러 ESXi 호스트에서 동일한 이름/IP 주소를 가진 둘 이상의 가상 컴퓨터가 vCenter에 있는 경우 가상 컴퓨터를 프로파일링할 수 없습니다.<br>
+* 호환되는 VM 및 호환되지 않는 VM 시트에서 복사 및 검색을 사용할 수 없었습니다.
+
+
+### <a name="10"></a>1.0 
+업데이트한 날짜: 2017년 2월 23일 
+
 Azure Site Recovery Deployment Planner 공개 미리 보기 1.0에는 향후 업데이트에서 해결할 다음과 같은 알려진 문제가 있습니다.
 
 * 도구는 Hyper-V에서 Azure로의 배포가 아닌 VMware에서 Azure로의 시나리오에 대해서만 작동합니다. Hyper-V에서 Azure로의 시나리오에 대해서는 [Hyper-V Capacity Planner 도구](./site-recovery-capacity-planning-for-hyper-v-replication.md)를 사용합니다.

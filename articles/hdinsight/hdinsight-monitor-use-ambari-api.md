@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 82e359621b18f6fd2f90b34799212006426cbc94
-ms.openlocfilehash: acd226c2eee8216843b68e322f6880de45a26b9a
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 6d36976712ba1ea5d51f203fc532d7f89c3b0871
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -39,7 +40,7 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
-* (선택 사항) [cURL][curl]를 참조하세요. 설치하려면 [cURL 릴리스 및 다운로드][curl-download]를 참조하세요.
+* (선택 사항)[cURL][curl]. 설치하려면 [cURL 릴리스 및 다운로드][curl-download]를 참조하세요.
   
   > [!NOTE]
   > Windows에서 cURL 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
@@ -159,7 +160,7 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
@@ -170,9 +171,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

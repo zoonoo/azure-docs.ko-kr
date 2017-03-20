@@ -12,117 +12,140 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
-ms.author: jotaub
+ms.date: 03/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 8f0870c98f625a56cfddacd91b401206293122f1
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7506430f4ec5522165274f05a2fd5b77e3d6252d
+ms.lasthandoff: 03/06/2017
 
 ---
 
-# <a name="get-started-receiving-messages-with-the-eventprocessorhost-in-net-standard"></a>.NET Standard에서 EventProcessorHost를 사용하여 메시지 수신 시작
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작
 
 > [!NOTE]
-> 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver)에서 사용할 수 있습니다.
+> 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver)에서 사용할 수 있습니다.
 
-## <a name="what-will-be-accomplished"></a>수행될 작업
-
-이 자습서에서는 기존 솔루션 **SampleEphReceiver**(이 폴더에 포함)을 만드는 방법을 보여 줍니다. `EhConnectionString`, `EhEntityPath` 및 `StorageAccount` 문자열을 이벤트 허브 및 저장소 계정 값으로 바꾸어 이 솔루션을 있는 그대로 실행하거나 이 자습서를 참조하여 직접 만들 수도 있습니다.
-
-이 자습서에서는 **EventProcessorHost**를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램을 작성합니다.
+이 자습서에서는 **EventProcessorHost**를 사용하여 이벤트 허브의 메시지를 수신하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. 문자열을 이벤트 허브 및 저장소 계정 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) 솔루션을 있는 그대로 실행할 수도 있고 이 자습서의 단계를 참조하여 직접 만들 수도 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com).
-
+1. [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용하지만 Visual Studio 2017도 지원됩니다.
 2. [.NET Core Visual Studio 2015 또는 2017 도구](http://www.microsoft.com/net/core).
-
 3. Azure 구독.
-
 4. Event Hubs 네임스페이스
+5. Azure 저장소 계정.
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기  
+  
+첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.  
+
+## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기  
+
+1. [Azure 포털](https://portal.azure.com)에 로그온합니다.  
+2. 포털의 왼쪽 탐색 창에서 **새로 만들기**, **저장소**, **저장소 계정**을 차례로 클릭합니다.  
+3. 저장소 계정 블레이드에서 필드를 완성한 후 **만들기**를 클릭합니다.
+  
+    ![][1]
+
+4. **배포 성공** 메시지가 나타나면 새 저장소 계정의 이름을 클릭하고 **Essentials** 블레이드에서 **Blob**을 클릭합니다. **Blob service** 블레이드가 열리면 맨 위의 **+ 컨테이너**를 클릭합니다. 컨테이너 이름을 지정한 다음 **Blob service** 블레이드를 닫습니다.  
+5. 왼쪽 블레이드에서 **선택키**를 클릭하고 저장소 컨테이너 이름, 저장소 계정 및 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.  
     
-## <a name="receive-messages-from-the-event-hub"></a>이벤트 허브에서 메시지 받기
+## <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
-### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
+1. Visual Studio를 시작합니다. [파일] 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. .NET Core 콘솔 응용 프로그램을 만듭니다.
 
-1. Visual Studio를 시작하고 새 .NET Core 콘솔 응용 프로그램을 만듭니다.
+    ![][2]
 
-### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
+2. 솔루션 탐색기에서 **project.json** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+3. `"frameworks`" 섹션에서 `"imports"` 선언에 `"portable-net45+win8"` 문자열을 추가합니다. 이제 해당 섹션이 다음과 같이 표시됩니다. 이 문자열은 OData에 대한 Azure Storage 종속성 때문에 필요합니다.
+
+    ```json
+    "frameworks": {
+      "netcoreapp1.0": {
+        "imports": [
+          "dnxcore50",
+          "portable-net45+win8"
+        ]
+      }
+    }
+    ```
+
+4. [파일] 메뉴에서 **모두 저장**을 클릭합니다.
+
+이 자습서에서는 .NET Core 응용 프로그램을 만드는 방법을 보여 줍니다. 전체 .NET Framework를 대상으로 하려면 `"frameworks"` 섹션에서 project.json 파일에 다음 코드 줄을 추가합니다.
+
+```json
+"net451": {
+},
+``` 
+
+## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
 * 다음 NuGet 패키지를 프로젝트에 추가합니다.
   * [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
   * [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
 
-### <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor 인터페이스 구현
+## <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor 인터페이스 구현
 
-1. 'SimpleEventProcessor'라는 새 클래스를 만듭니다.
+1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **SimpleEventProcessor**로 지정합니다.
 
-2. SimpleEventProcessor.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
+2. SimpleEventProcessor.cs 파일을 열고 다음 `using` 문을 파일의 맨 위에 추가합니다.
 
-    ```cs
+    ```csharp
+    using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
     ```
 
-3. `IEventProcessor` 인터페이스를 구현합니다. 이 클래스는 다음과 같이 표시되어야 합니다.
+3. `IEventProcessor` 인터페이스를 구현합니다. `SimpleEventProcessor` 클래스의 전체 내용을 다음 코드로 바꿉니다.
 
-    ```cs
-    namespace SampleEphReceiver
+    ```csharp
+    public class SimpleEventProcessor : IEventProcessor
     {
-        using System;
-        using System.Collections.Generic;
-        using System.Text;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
-    
-        public class SimpleEventProcessor : IEventProcessor
+        public Task CloseAsync(PartitionContext context, CloseReason reason)
         {
-            public Task CloseAsync(PartitionContext context, CloseReason reason)
+            Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
+            return Task.CompletedTask;
+        }
+    
+        public Task OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
+            return Task.CompletedTask;
+        }
+    
+        public Task ProcessErrorAsync(PartitionContext context, Exception error)
+        {
+            Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
+            return Task.CompletedTask;
+        }
+    
+        public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (var eventData in messages)
             {
-                Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
-                return Task.CompletedTask;
+                var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+                Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
             }
     
-            public Task OpenAsync(PartitionContext context)
-            {
-                Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
-                return Task.CompletedTask;
-            }
-    
-            public Task ProcessErrorAsync(PartitionContext context, Exception error)
-            {
-                Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
-                return Task.CompletedTask;
-            }
-    
-            public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-            {
-                foreach (var eventData in messages)
-                {
-                    var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
-                    Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
-                }
-    
-                return context.CheckpointAsync();
-            }
+            return context.CheckpointAsync();
         }
     }
     ```
 
-### <a name="write-a-main-console-method-that-uses-simpleeventprocessor-to-receive-messages-from-an-event-hub"></a>`SimpleEventProcessor`를 사용하여 이벤트 허브에서 메시지를 수신하는 기본 콘솔 메서드 작성
+## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>SimpleEventProcessor 클래스를 사용하여 메시지를 수신하는 기본 콘솔 메서드 작성
 
 1. Program.cs 파일 위에 다음 `using` 문을 추가합니다.
   
-    ```cs
+    ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
     ```
 
-2. Event Hubs 연결 문자열, 이벤트 허브 경로, 저장소 컨테이너 이름, 저장소 계정 이름 및 저장소 계정 키에 대한 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꿉니다.
+2. Event Hubs 연결 문자열, 이벤트 허브 이름, 저장소 컨테이너 이름, 저장소 계정 이름 및 저장소 계정 키에 대한 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.
 
-    ```cs
+    ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
     private const string EhEntityPath = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
@@ -132,8 +155,9 @@ ms.lasthandoff: 03/01/2017
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. 다음과 같이 `MainAsync`이라는 새 메서드를 `Program` 클래스에 추가합니다.
-    ```cs
+3. 다음과 같이 `MainAsync`라는 새 메서드를 `Program` 클래스에 추가합니다.
+
+    ```csharp
     private static async Task MainAsync(string[] args)
     {
         Console.WriteLine("Registering EventProcessor...");
@@ -148,7 +172,7 @@ ms.lasthandoff: 03/01/2017
         // Registers the Event Processor Host and starts receiving messages
         await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-        Console.WriteLine("Receiving. Press enter key to stop worker.");
+        Console.WriteLine("Receiving. Press ENTER to stop worker.");
         Console.ReadLine();
 
         // Disposes of the Event Processor Host
@@ -158,19 +182,15 @@ ms.lasthandoff: 03/01/2017
 
 3. `Main` 메서드에 다음 코드 줄을 추가합니다.
 
-    ```cs
+    ```csharp
     MainAsync(args).GetAwaiter().GetResult();
     ```
 
     Program.cs 파일은 다음과 같아야 합니다.
 
-    ```cs
+    ```csharp
     namespace SampleEphReceiver
     {
-        using System;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
     
         public class Program
         {
@@ -201,7 +221,7 @@ ms.lasthandoff: 03/01/2017
                 // Registers the Event Processor Host and starts receiving messages
                 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
     
-                Console.WriteLine("Receiving. Press enter key to stop worker.");
+                Console.WriteLine("Receiving. Press ENTER to stop worker.");
                 Console.ReadLine();
     
                 // Disposes of the Event Processor Host
@@ -213,7 +233,7 @@ ms.lasthandoff: 03/01/2017
   
 4. 프로그램을 실행하고 오류가 없는지 확인합니다.
   
-축하합니다. 이제 이벤트 허브에서 메시지를 받았습니다.
+축하합니다. 이제 이벤트 프로세서 호스트를 사용하여 이벤트 허브의 메시지를 받았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
@@ -221,3 +241,6 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
+
+[1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png

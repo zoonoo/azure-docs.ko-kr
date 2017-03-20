@@ -1,608 +1,93 @@
 ---
-title: "Powershell: Azure SQL Database 시작 | Microsoft Docs"
-description: "Powershell을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법에 대해 알아봅니다. PowerShell을 사용하여 데이터베이스를 쿼리하는 방법에 대해서도 알아봅니다."
-keywords: "새 sql 데이터베이스 만들기, 데이터베이스 설치"
+title: "Azure PowerShell: 단일 SQL Database 만들기 | Microsoft Docs"
+description: "Azure Portal에서 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터베이스를 만드는 방법을 알아봅니다."
+keywords: "SQL 데이터베이스 자습서, SQL 데이터베이스 만들기"
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
+editor: 
+ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: powershell
+ms.custom: quick start
 ms.workload: data-management
-ms.date: 02/23/2016
-ms.author: sstein
+ms.tgt_pltfrm: na
+ms.devlang: PowerShell
+ms.topic: hero-article
+ms.date: 03/13/2017
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 78d9194f50bcdc4b0db7871f2480f59b26cfa8f6
-ms.openlocfilehash: 7b7273edfa33f297cb5dc30ef380b6a737787b33
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: fe527f7de573b87fbc644cb6d71ae13816bc284b
+ms.lasthandoff: 03/15/2017
 
 ---
 
-# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>자습서: PowerShell을 사용하여 Azure SQL Database 제공 및 액세스
+# <a name="create-a-single-azure-sql-database-using-powershell"></a>PowerShell을 사용하여 단일 Azure SQL Database 만들기
 
-이 시작 자습서에서는 다음을 수행하기 위해 PowerShell을 사용하는 방법에 대해 알아봅니다.
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 PowerShell이 사용됩니다. 이 가이드에서는 PowerShell을 사용하여 SQL Database 논리 서버의 Azure 리소스 그룹에 Azure SQL Database를 배포하는 방법에 대해 자세히 설명합니다.
 
-* 새 Azure 리소스 그룹 만들기
-* Azure SQL 논리 서버 만들기
-* Azure SQL 서버 속성 보기
-* 서버 수준 방화벽 규칙 만들기
-* AdventureWorksLT 샘플 데이터베이스를 단일 데이터베이스로 만들기
-* AdventureWorksLT 샘플 데이터베이스 속성 보기
-* 빈 단일 데이터베이스 만들기
+시작하기 전에, 최신 버전의 PowerShell을 설치했는지 확인합니다. Azure CLI가 설치되어 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 
 
-이 자습서에서는 다음을 수행합니다.
+## <a name="log-in-to-azure"></a>Azure에 로그인
 
-* 논리 서버 및 해당 master 데이터베이스 연결
-* master 데이터베이스 속성 보기
-* 샘플 데이터베이스 연결
-* 사용자 데이터베이스 속성 보기
+[Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
-이 자습서를 완료하면 샘플 데이터베이스와 빈 데이터베이스가 Azure 리소스 그룹에서 실행되며 논리 서버에 연결됩니다. 또한 서버 수준 보안 주체가 지정된 IP 주소(또는 IP 주소 범위)에서 서버에 로그인할 수 있도록 구성된 서버 수준 방화벽 규칙을 갖게 됩니다. 
-
-**예상 시간**: 이 자습서의 경우 약 30분 소요됩니다(이미 필수 조건을 충족한다고 가정).
-
-
-> [!TIP]
-> [Azure Portal](sql-database-get-started.md)을 사용하여 시작 자습서에서 이와 동일한 작업을 수행할 수 있습니다.
->
-
-
-## <a name="prerequisites"></a>필수 조건
-
-* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
-
-* 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 로그인해야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
-
-[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
-
-
-## <a name="create-a-new-logical-sql-server-using-azure-powershell"></a>Azure PowerShell을 사용하여 새 논리 SQL 서버 만들기
-
-서버를 포함하는 리소스 그룹이 필요하므로 첫 번째 단계는 새 리소스 그룹 및 서버를 만들거나([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)) 기존 리소스 그룹 및 서버에 대한 참조를 가져오는 것입니다([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
-
-
-다음은 리소스 그룹 및 Azure SQL 서버가 없는 경우 새로 만드는 코드 조각입니다.
-
-올바른 Azure 위치 및 문자열 형식 목록은 아래의 [도우미 코드 조각](#helper-snippets) 섹션을 참조하세요.
-```
-# Create new, or get existing resource group
-############################################
-
-$resourceGroupName = "{resource-group-name}"
-$resourceGroupLocation = "{resource-group-location}"
-
-$myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
-
-if(!$myResourceGroup)
-{
-   Write-Output "Creating resource group: $resourceGroupName"
-   $myResourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else
-{
-   Write-Output "Resource group $resourceGroupName already exists:"
-}
-$myResourceGroup
-
-
-
-# Create a new, or get existing server
-######################################
-
-$serverName = "{server-name}"
-$serverVersion = "12.0"
-$serverLocation = $resourceGroupLocation
-$serverResourceGroupName = $resourceGroupName
-
-$serverAdmin = "{server-admin}"
-$serverAdminPassword = "{server-admin-password}"
-
-$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
-$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-if(!$myServer)
-{
-   Write-Output "Creating SQL server: $serverName"
-   $myServer = New-AzureRmSqlServer -ResourceGroupName $serverResourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
-}
-else
-{
-   Write-Output "SQL server $serverName already exists:"
-}
-$myServer
-
-```
-
-
-## <a name="view-the-logical-sql-server-properties-using-azure-powershell"></a>Azure PowerShell을 사용하여 논리 SQL Server 속성 보기
-
-```
-#$serverResourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-
-Write-Host "Server name: " $myServer.ServerName
-Write-Host "Fully qualified server name: $serverName.database.windows.net"
-Write-Host "Server location: " $myServer.Location
-Write-Host "Server version: " $myServer.ServerVersion
-Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
-```
-
-
-## <a name="create-a-server-level-firewall-rule-using-azure-powershell"></a>Azure PowerShell을 사용하여 서버 수준 방화벽 규칙 만들기
-
-방화벽 규칙을 설정하려면 공용 IP 주소를 알아야 합니다. 사용자가 선택한 브라우저를 사용하여 IP 주소를 가져올 수 있습니다(질문 "내 IP 주소”). 자세한 내용은 [방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
-
-다음은 [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule) 및 [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlet을 사용하여 참조를 가져오거나 새 규칙을 만듭니다. 이 코드 조각의 경우 규칙이 이미 있는 경우 참조만을 가져오고 시작 및 끝 IP 주소를 업데이트하지 않습니다. 만들기 또는 업데이트 기능에 대해 [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule)을 사용하도록 **else** 절을 항상 수정할 수 있습니다.
-
-> [!NOTE] 
-> 서버의 SQL Database 방화벽을 단일 IP 주소 또는 전체 주소 범위로 열 수 있습니다. 방화벽을 열면 SQL 관리자와 사용자가 유효한 자격 증명이 있는 서버의 데이터베이스에 로그인할 수 있습니다.
->
-
-```
-#$serverName = "{server-name}"
-#$serverResourceGroupName = "{resource-group-name}"
-$serverFirewallRuleName = "{server-firewall-rule-name}"
-$serverFirewallStartIp = "{server-firewall-rule-startIp}"
-$serverFirewallEndIp = "{server-firewall-rule-endIp}"
-
-$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName"
-   $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
-}
-$myFirewallRule
-
-# Allow Azure services to access the server
-$serverFirewallRuleName2 = "allowAzureServices"
-$serverFirewallStartIp2 = "0.0.0.0"
-$serverFirewallEndIp2 = "0.0.0.0"
-
-$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule2)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
-   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
-}
-$myFirewallRule2
-
-```
-
-
-## <a name="connect-to-sql-server-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL 서버 에 연결
-
-master 데이터베이스에 대해 빠른 쿼리를 실행하여 서버에 연결할 수 있는지 확인합니다. 다음 코드 조각은 [SQL Server용 .NET Framework 공급자(System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)를 사용하여 서버의 master 데이터베이스를 연결 및 쿼리합니다. 이전 코드 조각에 사용되는 변수를 기반으로 연결 문자열을 작성합니다. 자리 표시자를 이전 단계에서 서버를 만드는 데 사용한 SQL 서버 관리자 및 암호로 바꿉니다.
-
-
-```
-#$serverName = "{server-name}"
-#$serverAdmin = "{server-admin}"
-#$serverAdminPassword = "{server-admin-password}"
-$databaseName = "master"
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-```
-
-
-## <a name="create-new-adventureworkslt-sample-database-using-azure-powershell"></a>Azure PowerShell을 사용하여 새 AdventureWorksLT 샘플 데이터베이스 만들기
-
-다음 코드 조각은 [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet을 사용하여 AdventureWorksLT 샘플 데이터베이스의 bacpac를 가져옵니다. bacpac은 공용 읽기 전용 Azure blob 저장소 계정에 있습니다. 가져오기 cmdlet을 실행한 후 [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet을 사용하여 가져오기 작업의 진행률을 모니터링할 수 있습니다.
-
-
-```
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-
-$databaseName = "AdventureWorksLT"
-$databaseEdition = "Basic"
-$databaseServiceLevel = "Basic"
-
-$storageKeyType = "SharedAccessKey"
-$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
-$storageKey = "?"
-
-$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
-
-
-Do {
-     $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-     Write-host "Importing database..." $importStatus.StatusMessage
-     Start-Sleep -Seconds 30
-     $importStatus.Status
-   }
-   until ($importStatus.Status -eq "Succeeded")
-$importStatus
-```
-
-
-
-## <a name="view-database-properties-using-azure-powershell"></a>Azure PowerShell을 사용하여 데이터베이스 속성 보기
-
-데이터베이스를 만든 후 속성 중 일부를 봅니다.
-
-```
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-#$databaseName = "{database-name}"
-
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
-
-
-Write-Host "Database name: " $myDatabase.DatabaseName
-Write-Host "Server name: " $myDatabase.ServerName
-Write-Host "Creation date: " $myDatabase.CreationDate
-Write-Host "Database edition: " $myDatabase.Edition
-Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveName
-Write-Host "Database status: " $myDatabase.Status
-```
-
-## <a name="connect-and-query-the-sample-database-using-azure-powershell"></a>Azure PowerShell을 사용하여 샘플 데이터베이스 연결 및 쿼리
-
-AdventureWorksLT 데이터베이스에 대해 빠른 쿼리를 실행하여 연결할 수 있는지 확인합니다. 다음 코드 조각은 [SQL Server용 .NET Framework 공급자(System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)를 사용하여 데이터베이스를 연결 및 쿼리합니다. 이전 코드 조각에 사용되는 변수를 기반으로 연결 문자열을 작성합니다. 자리 표시자를 SQL 서버 관리자 암호로 바꿉니다.
-
-```
-#$serverName = {server-name}
-#$serverAdmin = "{server-admin}"
-#$serverAdminPassword = "{server-admin-password}"
-#$databaseName = {database-name}
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-```
-
-## <a name="create-a-new-blank-database-using-azure-powershell"></a>Azure PowerShell을 사용하여 비어 있는 새 데이터베이스 만들기
-
-```
-#$resourceGroupName = {resource-group-name}
-#$serverName = {server-name}
-
-$blankDatabaseName = "blankdb"
-$blankDatabaseEdition = "Basic"
-$blankDatabaseServiceLevel = "Basic"
-
-
-$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
-$myBlankDatabase
-```
-
-
-## <a name="complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database"></a>Azure PowerShell 스크립트를 완료하여 서버, 방화벽 규칙 및 데이터베이스 만들기
-
-
-
-```
-# Sign in to Azure and set the subscription to work with
-########################################################
-
-$SubscriptionId = "{subscription-id}"
-
+```powershell
 Add-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $SubscriptionId
-
-# User variables
-################
-
-$myResourceGroupName = "{resource-group-name}"
-$myResourceGroupLocation = "{resource-group-location}"
-
-$myServerName = "{server-name}"
-$myServerVersion = "12.0"
-$myServerLocation = $myResourceGroupLocation
-$myServerResourceGroupName = $myResourceGroupName
-$myServerAdmin = "{server-admin}"
-$myServerAdminPassword = "{server-admin-password}" 
-
-$myServerFirewallRuleName = "{server-firewall-rule-name}"
-$myServerFirewallStartIp = "{start-ip}"
-$myServerFirewallEndIp = "{end-ip}"
-
-$myDatabaseName = "AdventureWorksLT"
-$myDatabaseEdition = "Basic"
-$myDatabaseServiceLevel = "Basic"
-
-
-# Storage account details for locating
-# and accessing the sample .bacpac 
-# Do Not Edit for this tutorial
-$myStorageKeyType = "SharedAccessKey"
-$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
-$myStorageKey = "?"
-
-
-
-# Create new, or get existing resource group
-############################################
-
-$resourceGroupName = $myResourceGroupName
-$resourceGroupLocation = $myResourceGroupLocation
-
-$myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
-
-if(!$myResourceGroup)
-{
-   Write-host "Creating resource group: $resourceGroupName"
-   $myResourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else
-{
-   Write-host "Resource group $resourceGroupName already exists:"
-}
-$myResourceGroup
-
-
-# Create a new, or get existing server
-######################################
-
-$serverName = $myServerName
-$serverVersion = $myServerVersion
-$serverLocation = $myServerLocation
-$serverResourceGroupName = $myServerResourceGroupName
-
-$serverAdmin = $myServerAdmin
-$serverAdminPassword = $myServerAdminPassword
-
-$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
-$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-if(!$myServer)
-{
-   Write-host "Creating SQL server: $serverName"
-   $myServer = New-AzureRmSqlServer -ResourceGroupName $serverResourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
-}
-else
-{
-   Write-host "SQL server $serverName already exists:"
-}
-$myServer
-
-
-# View server properties
-##########################
-
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-
-Write-Host "Server name: " $myServer.ServerName
-Write-Host "Fully qualified server name: $serverName.database.windows.net"
-Write-Host "Server location: " $myServer.Location
-Write-Host "Server version: " $myServer.ServerVersion
-Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
-
-# Create or update server firewall rules
-########################################
-
-$serverFirewallRuleName = $myServerFirewallRuleName
-$serverFirewallStartIp = $myServerFirewallStartIp
-$serverFirewallEndIp = $myServerFirewallEndIp
-
-$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName"
-   $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
-}
-$myFirewallRule
-
-# Allows Azure services to access the server
-$serverFirewallRuleName2 = "allowAzureServices"
-$serverFirewallStartIp2 = "0.0.0.0"
-$serverFirewallEndIp2 = "0.0.0.0"
-
-$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule2)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
-   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
-}
-$myFirewallRule2
-
-
-# Connect to the server and master database
-###########################################
-$databaseName = "master"
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-
-
-# Create the AdventureWorksLT database from a bacpac
-####################################################
-
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-
-$databaseName = $myDatabaseName
-$databaseEdition = $myDatabaseEdition
-$databaseServiceLevel = $myDatabaseServiceLevel
-
-$storageKeyType = $myStorageKeyType
-$storageUri = $myStorageUri
-$storageKey = $myStorageKey
-
-$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
-
-Do {
-     $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-     Write-host "Importing database..." $importStatus.StatusMessage
-     Start-Sleep -Seconds 30
-     $importStatus.Status
-   }
-   until ($importStatus.Status -eq "Succeeded")
-$importStatus
-
-
-# View database properties
-##########################
-
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-$databaseName = $myDatabaseName
-
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
-
-Write-Host "Database name: " $myDatabase.DatabaseName
-Write-Host "Server name: " $myDatabase.ServerName
-Write-Host "Creation date: " $myDatabase.CreationDate
-Write-Host "Database edition: " $myDatabase.Edition
-Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveName
-Write-Host "Database status: " $myDatabase.Status
-
-
-# Query the database
-####################
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-
-
-# Create a blank database
-#########################
-
-$blankDatabaseName = "blankdb"
-$blankDatabaseEdition = "Basic"
-$blankDatabaseServiceLevel = "Basic"
-
-
-$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
-$myBlankDatabase
 ```
 
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
+[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
-> [!TIP]
-> 사용하지 않는 데이터베이스를 삭제하여 일부 학습 비용을 절약할 수 있습니다. 기본 버전의 데이터베이스인 경우 7일 이내에 복원할 수 있습니다. 그러나 서버는 삭제하지 마세요. 서버를 삭제하면 서버 또는 이 서버의 삭제된 데이터베이스를 복구할 수 없기 때문입니다.
-
-## <a name="helper-snippets"></a>도우미 코드 조각
-
+```powershell
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
-# Get a list of Azure regions where you can create SQL resources
+## <a name="create-a-logical-server"></a>논리 서버 만들기
 
-$sqlRegions = (Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" })
-foreach ($region in $sqlRegions)
-{
-   $region.Location
-}
+[New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) 명령으로 SQL Database 논리 서버를 만듭니다. 다음 예제에서는 관리자 로그인 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
 
-# Clean up
-# Delete a resource group (and all contained resources)
-Remove-AzureRmResourceGroup -Name {resource-group-name}
+```powershell
+$servername = "server-$(Get-Random)"
+New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -Location "westeurope" `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
 ```
 
-> [!TIP]
-> 사용하지 않는 데이터베이스를 삭제하여 일부 학습 비용을 절약할 수 있습니다. 기본 버전의 데이터베이스인 경우&7;일 이내에 복원할 수 있습니다. 그러나 서버는 삭제하지 마세요. 서버를 삭제하면 서버 또는 이 서버의 삭제된 데이터베이스를 복구할 수 없기 때문입니다.
->
+## <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
+
+[New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule) 명령으로 SQL Database 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 응용 프로그램(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Database 서비스 방화벽을 통해 SQL Database에 연결되도록 할 수 있습니다. 다음 예제에서는 미리 정의된 주소 범위(이 예제에서는 전체 가능한 IP 주소 범위)에 대해 방화벽 규칙을 만듭니다. 이러한 미리 정의된 값은 외부 IP 주소 또는 IP 주소 범위 값으로 바꿉니다. 
+
+```powershell
+New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "255.255.255.255"
+```
+
+## <a name="create-a-blank-database"></a>빈 데이터베이스 만들기
+
+[New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase) 명령으로 서버에 S0 성능 수준인 비어 있는 SQL Database를 만듭니다. 다음 예제에서는 `mySampleDatabase`라는 데이터베이스를 만듭니다. 이 미리 정의된 값은 필요에 따라 바꿉니다.
+
+```powershell
+New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -DatabaseName "MySampleDatabase" `
+    -RequestedServiceObjectiveName "S0"
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 만든 모든 리소스를 제거하려면 다음 명령을 실행합니다.
+
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+```
 
 ## <a name="next-steps"></a>다음 단계
-이제 이 첫 번째 시작 자습서를 완료하고 일부 샘플 데이터로 데이터베이스를 만들었으므로 이 자습서에서 학습한 내용을 빌드하기 위해 탐색할 수 있는 추가 자습서가 다음과 같이 다양하게 준비되어 있습니다. 
 
-- SQL Server 인증 자습서를 시작하려면 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)를 참조하세요.
-- Azure Active Directory 인증 자습서를 시작하려면 [Azure AD 인증 및 권한 부여](sql-database-control-access-aad-authentication-get-started.md)를 참조하세요.
-* Azure Portal에서 샘플 데이터베이스를 쿼리하려는 경우 [공개 미리 보기: SQL 데이터베이스에 대한 대화형 쿼리 경험](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)을 참조하세요.
-* Excel을 알고 있는 경우 [Azure에서 Excel로 SQL Database에 연결](sql-database-connect-excel.md)하는 방법에 대해 알아보세요.
-* 코딩을 시작할 준비가 되었다면 [SQL Database 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)에서 프로그래밍 언어를 선택합니다.
-* 온-프레미스 SQL Server 데이터베이스를 Azure로 이동하려면 [SQL Database로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
-* BCP 명령줄 도구를 사용하여 CSV 파일에서 새 테이블로 일부 데이터를 로드하려는 경우 [BCP를 사용하여 CSV 파일에서 SQL Database로 데이터 로드](sql-database-load-from-csv-with-bcp.md)를 참조하세요.
-* 테이블 및 다른 개체를 만들려면 [테이블 만들기](https://msdn.microsoft.com/library/ms365315.aspx)에서 "테이블을 만들려면" 항목을 참조하세요.
-
-## <a name="additional-resources"></a>추가 리소스
-[SQL Database 정의](sql-database-technical-overview.md)
+- SQL Server Management Studio를 사용하여 연결 및 쿼리하려면 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
+- Visual Studio를 사용하여 연결하려면 [Visual Studio를 사용하여 연결 및 쿼리](sql-database-connect-query.md)를 참조하세요.
+* SQL Database에 대한 기술적 개요는 [SQL Database 서비스 정보](sql-database-technical-overview.md)를 참조하세요.
 

@@ -17,6 +17,7 @@ ms.author: nisoneji
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -197,9 +198,4 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트&1;부터 업�
 
 ## <a name="next-steps"></a>다음 단계
 문의 사항이 있으시다면 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

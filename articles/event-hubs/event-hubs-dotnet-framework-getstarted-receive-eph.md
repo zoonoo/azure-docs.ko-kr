@@ -12,20 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
-ms.author: jotaub
+ms.date: 03/08/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 4a3656d09f216e5c895bac5d7d680b44d76f4df8
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="get-started-with-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Event Hubs 시작
+# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신
 
-## <a name="receive-messages-with-eventprocessorhost"></a>EventProcessorHost를 사용하여 메시지 수신
-[EventProcessorHost][EventProcessorHost]는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost][EventProcessorHost]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost][EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][Scale out Event Processing with Event Hubs] 샘플에서는 여러 수신기에서 [EventProcessorHost][EventProcessorHost]를 사용하는 방법을 보여 줍니다.
+## <a name="introduction"></a>소개
+이벤트 허브는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. 이벤트 허브에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
 
-[EventProcessorHost][EventProcessorHost]를 사용하려면 [Azure Storage 계정][Azure Storage account]이 있어야 합니다.
+이 자습서에서는 **[이벤트 프로세서 호스트][EventProcessorHost]**를 사용하여 Event Hub에서 메시지를 수신하는 .NET Framework 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. .NET Framework를 사용하여 이벤트를 전송하려면 [.NET Framework를 사용하여 Azure Event Hubs로 이벤트 전송](event-hubs-dotnet-framework-getstarted-send.md) 문서를 참조하거나 목차 왼쪽에서 해당하는 전송 언어를 클릭합니다.
+
+[이벤트 프로세서 호스트][EventProcessorHost]는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. [이벤트 프로세서 호스트][Event Processor Host]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [이벤트 프로세서 호스트][EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][Scale out Event Processing with Event Hubs] 샘플에서는 여러 수신기에서 [이벤트 프로세서 호스트][EventProcessorHost]를 사용하는 방법을 보여 줍니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+이 자습서를 완료하려면 다음이 필요합니다.
+
+* [Microsoft Visual Studio 2015 이상](http://visualstudio.com). 이 자습서의 스크린샷에서는 Visual Studio 2017을 사용합니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/free/)을 참조하세요.
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 Event Hub 만들기
+
+첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 Event Hub를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.
+
+## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+
+[이벤트 프로세서 호스트][EventProcessorHost]를 사용하려면 [Azure Storage 계정][Azure Storage account]이 있어야 합니다.
 
 1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **저장소**를 클릭한 다음 **저장소 계정**을 클릭합니다.
@@ -41,8 +59,8 @@ ms.openlocfilehash: 4a3656d09f216e5c895bac5d7d680b44d76f4df8
 6. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-7. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
-8. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. 프로젝트 이름(**수신기**)이 **버전** 상자에 지정되는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+7. 솔루션 탐색기에서 **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
+8. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
@@ -113,7 +131,7 @@ ms.openlocfilehash: 4a3656d09f216e5c895bac5d7d680b44d76f4df8
      ```csharp
      static void Main(string[] args)
      {
-       string eventHubConnectionString = "{Event Hub connection string}";
+       string eventHubConnectionString = "{Event Hubs namespace connection string}";
        string eventHubName = "{Event Hub name}";
        string storageAccountName = "{storage account name}";
        string storageAccountKey = "{storage account key}";
@@ -132,6 +150,11 @@ ms.openlocfilehash: 4a3656d09f216e5c895bac5d7d680b44d76f4df8
      }
      ```
 
+12. 프로그램을 실행하고 오류가 없는지 확인합니다.
+  
+축하합니다. 이제 이벤트 프로세서 호스트를 사용하여 Event Hub에서 메시지를 받았습니다.
+
+
 > [!NOTE]
 > 이 자습서에서는 [EventProcessorHost][EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][EventProcessorHost]의 여러 인스턴스를 실행하는 것이 좋습니다. [확장된 이벤트 처리][확장된 이벤트 처리] 샘플을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs Overview] 및 [Event Hubs 프로그래밍 가이드][Event Hubs Programming Guide] 항목을 참조하세요.
 > 
@@ -141,7 +164,7 @@ ms.openlocfilehash: 4a3656d09f216e5c895bac5d7d680b44d76f4df8
 [Event Hubs Overview]: event-hubs-overview.md
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
-[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>다음 단계
@@ -158,11 +181,6 @@ ms.openlocfilehash: 4a3656d09f216e5c895bac5d7d680b44d76f4df8
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
-
-<!--HONumber=Feb17_HO1-->
-
-

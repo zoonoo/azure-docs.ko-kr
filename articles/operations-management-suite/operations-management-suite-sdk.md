@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 47c897afd6321a59f540d1f0cb86602d4ea18ed1
-ms.openlocfilehash: 5aed4eb336d55c2954da563422972644e25d0140
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,13 +40,14 @@ ms.lasthandoff: 02/23/2017
 * [Log Analytics 설명서](http://azure.microsoft.com/documentation/services/log-analytics)
 * [Log Analytics REST API](/rest/api/loganalytics)
 * [Log Analytics HTTP 데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)
-* [Log Search API](../log-analytics/log-analytics-log-search-api.md)
-* [알림 API](../log-analytics/log-analytics-api-alerts.md)
+* [로그 검색 REST API](../log-analytics/log-analytics-log-search-api.md)
+* [경고 REST API](../log-analytics/log-analytics-api-alerts.md)
 * [Log Analytics PowerShell Cmdlet](https://msdn.microsoft.com/library/mt188224.aspx)
 * [Log Analytics .NET 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview)
 
 ## <a name="service-map"></a>서비스 맵
 * [서비스 맵 설명서](operations-management-suite-service-map.md)
+* [서비스 맵 REST API](https://docs.microsoft.com/rest/api/servicemap/)
 
 ## <a name="site-recovery"></a>사이트 복구
 * [Site Recovery PowerShell cmdlet](https://msdn.microsoft.com/library/mt637930.aspx)
@@ -56,6 +57,6 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [OMS 서비스와 통합](operations-management-suite-integration.md)하는 다양한 옵션에 대해 알아봅니다.
-* OMS(출시 예정)에서 사용자 지정 솔루션을 만듭니다.
+* [OMS에서 사용자 지정 솔루션](operations-management-suite-solutions-creating.md)을 만듭니다.
 
 

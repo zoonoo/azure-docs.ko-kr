@@ -1,5 +1,5 @@
 ---
-title: "Node.js API 및 SDK 리소스 - Azure DocumentDB | Microsoft Docs"
+title: "Azure DocumentDB Node.js API, SDK 및 리소스 | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB Node.js SDK의 각 버전 간의 변경 내용을 포함한 Node.js API 및 SDK에 대해 모두 알아봅니다."
 services: documentdb
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8ffbf7807bdd3d0f9147dcd0237a999386553c37
-ms.openlocfilehash: b84597fb44b28f827a14a1c1b319a766b8a0b4dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>DocumentDB API 및 SDK
+# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>DocumentDB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/23/2017
 > 
 > 
 
-## <a name="documentdb-nodejs-api-and-sdk"></a>DocumentDB Node.js API 및 SDK
 <table>
 
 <tr><td>**SDK 다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>

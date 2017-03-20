@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
 ms.openlocfilehash: 513edca959a3a9a8d6a8bf7d7620da9ad8a7d879
+ms.lasthandoff: 12/17/2016
 
 
 ---
@@ -55,10 +56,5 @@ VM과 같은 구성 요소는 손쉬운 관리 및 유지 관리를 위해 [Azur
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

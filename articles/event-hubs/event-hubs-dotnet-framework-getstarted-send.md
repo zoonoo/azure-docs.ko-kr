@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
-ms.author: jotaub
+ms.date: 03/08/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: c52f7055897ba8e851add431e5ab9c0defdb5bfc
-ms.openlocfilehash: 29523e308e038904773582c73c1688f57e3c31e3
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -29,17 +30,21 @@ ms.openlocfilehash: 29523e308e038904773582c73c1688f57e3c31e3
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Microsoft Visual Studio](http://visualstudio.com)
+* [Microsoft Visual Studio 2015 이상](http://visualstudio.com). 이 자습서의 스크린샷에서는 Visual Studio 2017을 사용합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
 
-## <a name="send-messages-to-event-hubs"></a>이벤트 허브에 메시지 보내기
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 Event Hub 만들기
+
+첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 Event Hub를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.
+
+## <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 이 섹션에서는 이벤트 허브로 이벤트를 보내는 Windows 콘솔 앱을 작성합니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **Sender**로 지정합니다.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다. 
-3. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. 프로젝트 이름(**보낸 사람**)이 **버전** 상자에 지정되는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다. 
+2. 솔루션 탐색기에서 **Sender** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다. 
+3. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -91,6 +96,9 @@ ms.openlocfilehash: 29523e308e038904773582c73c1688f57e3c31e3
     Console.ReadLine();
     SendingRandomMessages();
     ```
+8. 프로그램을 실행하고 오류가 없는지 확인합니다.
+  
+축하합니다. 이제 이벤트 허브에 메시지를 보냈습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 이벤트 허브를 만들고 데이터를 보내는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
@@ -104,14 +112,5 @@ ms.openlocfilehash: 29523e308e038904773582c73c1688f57e3c31e3
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
-
-<!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
