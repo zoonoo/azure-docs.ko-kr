@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 67d446263c7a884cd8d22e88e6fb607b1399d9aa
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -62,6 +62,10 @@ ms.lasthandoff: 01/13/2017
 >[!NOTE]
 >콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태에 있는지 확인합니다. 
     
+    
+>[!NOTE]
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+
 라이브 인코더 구성 방법에 대한 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)를 참조하세요.
 
     using System;

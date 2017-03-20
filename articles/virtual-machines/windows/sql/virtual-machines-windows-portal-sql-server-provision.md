@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
-ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -53,8 +53,8 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 
    ![Azure 가상 컴퓨터 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. 사용 가능한 SQL Server 템플릿을 검토합니다. 각 템플릿은 SQL Server 버전 및 운영 체제를 식별합니다. 
-6. Windows Server 2016에서 SQL Server 2016 SP1 Developer용 템플릿을 선택합니다.
+5. 사용 가능한 SQL Server 이미지를 검토합니다. 각 이미지는 SQL Server 버전 및 운영 체제를 식별합니다. 
+6. Windows Server 2016에서 SQL Server 2016 SP1 Developer용 이미지를 선택합니다.
 
    > [!TIP]
    > Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다.
@@ -97,7 +97,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한&5;개의 블레이드가 있�
     ![SQL 기본 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. 가상 컴퓨터 크기 선택
-**크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 템플릿을 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다. VM 실행에 소요되는 월간 비용을 예측합니다.
+**크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다. VM 실행에 소요되는 월간 비용을 예측합니다.
 
 ![SQL VM 크기 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 

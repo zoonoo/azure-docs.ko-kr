@@ -15,9 +15,9 @@ ms.workload: Identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b6ec60f9e15e459f70127448eb7d9c03e4b118e8
-ms.openlocfilehash: 3bd1ca8e0bb9f17b76dda68a6cb2f9f64a5d05dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,15 +40,15 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 > 새 Azure AD Connect 서버를 사용하여 변경 내용을 Azure AD에 동기화하기 시작하면 DirSync 또는 Azure AD Sync를 사용하도록 롤백하지 않아야 합니다. Azure AD Connect에서 DirSync 및 Azure AD Sync를 포함하여 레거시 클라이언트로 다운그레이드하는 기능은 지원되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
 
 ## <a name="in-place-upgrade"></a>전체 업그레이드
-전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 이동하는 경우에 작동합니다. Forefront Identity Manager(FIM) + Azure AD 커넥터를 사용하는 솔루션이거나 DirSync에서 전환하는 경우에는 작동하지 않습니다.
+전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 이동하는 경우에 작동합니다. FIM(Forefront Identity Manager) + Azure AD 커넥터를 사용하는 솔루션이거나 DirSync에서 이동하는 경우에는 작동하지 않습니다.
 
-이 방법은 단일 서버가 있고 개체 수가 100,000개 미만인 경우에 사용하는 것이 좋습니다. 기본 동기화 규칙이 변경된 경우, 업그레이드 후에 전체 가져오기 및 전체 동기화가 발생합니다. 이를 통해 시스템의 모든 기존 개체에 새 구성이 적용됩니다. 이 작업은 동기화 엔진 범위에 속하는 개체 수에 따라 몇 시간이 걸릴 수 있습니다. 기본적으로 30분마다 동기화되는 일반 델타 동기화 스케줄러는 일시 중단되지만 암호 동기화는 계속됩니다. 따라서 주말 동안 전체 업그레이드를 수행하는 것이 좋습니다. 새 Azure AD Connect 릴리스를 포함한 기본 구성이 변경되지 않은 경우 대신 일반 델타 가져오기/동기화가 시작됩니다.  
+이 방법은 단일 서버가 있고 개체 수가 100,000개 미만인 경우에 사용하는 것이 좋습니다. 기본 동기화 규칙이 변경된 경우, 업그레이드 후에 전체 가져오기 및 전체 동기화가 발생합니다. 이 방법을 통해 시스템의 모든 기존 개체에 새 구성이 적용됩니다. 이 실행은 동기화 엔진 범위에 속하는 개체 수에 따라 몇 시간이 걸릴 수 있습니다. 기본적으로 30분마다 동기화되는 일반 델타 동기화 스케줄러는 일시 중단되지만 암호 동기화는 계속됩니다. 따라서 주말 동안 전체 업그레이드를 수행하는 것이 좋습니다. 새 Azure AD Connect 릴리스를 포함한 기본 구성이 변경되지 않은 경우 대신 일반 델타 가져오기/동기화가 시작됩니다.  
 ![전체 업그레이드](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
-기본 동기화 규칙을 변경한 경우 업그레이드 시 기본 구성으로 다시 설정됩니다. 업그레이드 간에 구성을 유지하려면 [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)에 설명된 대로 변경해야 합니다.
+기본 동기화 규칙을 변경한 경우 업그레이드 시 해당 규칙이 기본 구성으로 다시 설정됩니다. 업그레이드 간에 구성을 유지하려면 [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)에 설명된 대로 변경해야 합니다.
 
 ## <a name="swing-migration"></a>스윙 마이그레이션
-배포가 복잡하거나 개체가 많은 경우에는 라이브 시스템에서 전체 업그레이드를 수행하는 것이 적절하지 않을 수 있습니다. 일부 고객의 경우 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않을 수 있습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.
+배포가 복잡하거나 개체가 많은 경우에는 라이브 시스템에서 전체 업그레이드를 수행하는 것이 적절하지 않을 수 있습니다. 일부 고객의 경우 처리하는 데 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.
 
 이 시나리오에서 권장되는 방법은 스윙 마이그레이션을 사용하는 것입니다. 활성 서버 하나와 스테이징 서버 하나, (적어도) 두 개의 서버가 필요합니다. 활성 서버(아래 그림에 파란색 실선으로 표시됨)는 활성 프로덕션 부하를 담당합니다. 스테이징 서버(자주색 파선으로 표시됨)는 새 릴리스 또는 구성으로 준비됩니다. 완벽하게 준비되면 이 서버가 활성 상태가 됩니다. 이제 이전 버전 또는 구성이 설치된 이전 활성 서버가 스테이징 서버가 되며 업그레이드됩니다.
 
@@ -70,9 +70,9 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 7. Azure AD Connect를 업그레이드하는 경우 이제 준비 모드의 서버를 최신 릴리스로 업그레이드합니다. 이전과 동일한 단계에 따라 데이터 및 구성을 업그레이드합니다. Azure AD Sync에서 업그레이드 한 경우, 이제 이전 서버를 끄고 서비스 해제를 할 수 있습니다.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>활성 서버에서 스테이징 서버로 사용자 지정 구성 이동
-활성 서버에 대한 구성을 변경한 경우 해당 변경 내용을 스테이징 서버에 적용해야 합니다.
+활성 서버에 대한 구성을 변경한 경우 해당 변경 내용을 스테이징 서버에 적용해야 합니다. 이러한 이동에 도움이 되도록 [Azure AD Connect 구성 구조 분석](https://github.com/Microsoft/AADConnectConfigDocumenter)을 사용할 수 있습니다.
 
-PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할 수 있습니다. 두 시스템 모두에서 동일한 방식으로 다른 변경 내용을 적용해야 하고, 변경 내용은 마이그레이션할 수 없습니다.
+PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할 수 있습니다. 두 시스템 모두에서 동일한 방식으로 다른 변경 내용을 적용해야 하고, 변경 내용은 마이그레이션할 수 없습니다. [구성 분석](https://github.com/Microsoft/AADConnectConfigDocumenter)은 두 시스템을 비교하여 동일한지 확인하는 데 도움이 될 수 있습니다. 이 도구는 이 섹션에 나와 있는 단계를 자동화하는 데에도 도움이 될 수 있습니다.
 
 두 서버에서 다음과 같은 항목을 동일한 방식으로 구성해야 합니다.
 

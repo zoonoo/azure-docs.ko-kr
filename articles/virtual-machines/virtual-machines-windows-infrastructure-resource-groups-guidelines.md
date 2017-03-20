@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: ec2392cb926df7c375c1c7c58766ef3b6ca2ff2d
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d0576b965bd2e96f377aeb33765e71fa20140d7d
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-resource-group-guidelines"></a>Azure 리소스 그룹 지침
+# <a name="azure-resource-group-guidelines-for-windows-vms"></a>Windows VM에 대한 Azure 리소스 그룹 지침
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 작업 환경을 논리적으로 구축하고 리소스 그룹의 모든 구성 요소를 함께 그룹화하는 방법을 집중적으로 설명합니다.
@@ -53,10 +56,5 @@ Azure에서 저장소 계정, 가상 네트워크 및 가상 컴퓨터(VM)와 �
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

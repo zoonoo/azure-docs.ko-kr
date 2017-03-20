@@ -17,9 +17,9 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
-ms.openlocfilehash: 444954fa2152fbd8b7e25b9787a13fa4a62ec77f
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 797d91b21fcd71672890c6c77bc81eadd73b47ff
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,11 +39,15 @@ ms.lasthandoff: 02/18/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
+* **Azure 계정**. Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
 
-* 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+* **Azure는 사용 권한을 만듭니다**. 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
-* [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started.md) 또는 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md)을 완료했습니다. 계속하기 전에 이 필수 자습서를 완료하거나 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md) 끝에서 PowerShell 스크립트를 실행하지 않은 경우
+* **SQL Server Management Studio**. [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 SSMS(SQL Server Management Studio) 최신 버전을 다운로드하여 설치할 수 있습니다. 새로운 기능이 지속적으로 출시되고 있으므로 Azure SQL Database에 연결할 때에는 항상 최신 버전의 SSMS를 사용하세요.
+
+* **기본 서버 및 데이터베이스** 이 자습서에 사용된 서버와 두 데이터베이스를 설치 및 구성하려면 **Azure에 배포** 단추를 클릭합니다. 단추를 클릭하면 **템플릿에서 배포** 블레이드가 열리고 새 리소스 그룹이 생성되고 생성할 새 서버에 대한 **관리자 로그인 암호**를 제공합니다.
+
+   [![다운로드](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 > [!NOTE]

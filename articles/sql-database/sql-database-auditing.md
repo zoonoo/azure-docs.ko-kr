@@ -3,7 +3,7 @@ title: "Azure SQL Database 감사 시작 | Microsoft Docs"
 description: "SQL 데이터베이스 감사 시작"
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: giladm
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
@@ -13,12 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 7/3/2017
+ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 506fd7b5cbf11dd4d9348962db5e06077953bd51
-ms.openlocfilehash: 185c6aaa2db0820421c8ea3523865bc90a1475f7
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -76,7 +76,8 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
     <a id="storage-screenshot"></a>
     ![탐색 창][4]
 6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다. 자세한 내용은 [Automation(PowerShell/REST API)](#subheading-7) 섹션을 참조하세요.
-7. **Save**를 클릭합니다.
+7. 감사 설정을 구성했으면 새로운 **위협 감지**(미리 보기) 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지 기능을 사용하여 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md) 을 참조하세요.
+8. **Save**를 클릭합니다.
 
 ### <a id="subheading-2-2">테이블 감사</a>
 
@@ -282,3 +283,4 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 [105]: https://msdn.microsoft.com/library/azure/mt603531(v=azure.200).aspx
 [106]: https://msdn.microsoft.com/library/azure/mt603794(v=azure.200).aspx
 [107]: https://msdn.microsoft.com/library/azure/mt619353(v=azure.200).aspx
+

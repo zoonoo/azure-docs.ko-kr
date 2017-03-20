@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB .NET Core API 및 SDK | Microsoft 문서"
+title: "Azure DocumentDB .NET Core API, SDK 및 리소스 | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET Core SDK의 각 버전 간 변경 내용을 포함하여 .NET Core API 및 SDK에 대한 모든 것을 알아봅니다."
 services: documentdb
 documentationcenter: .net
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
-ms.openlocfilehash: a2972c7c7fead727e6147212b211d102faf01a29
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: f6e788ed734ce68f4eb9da35bf676f3980e07e62
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>DocumentDB API 및 SDK
+# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>DocumentDB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/22/2017
 > 
 > 
 
-## <a name="documentdb-net-core-api-and-sdk"></a>DocumentDB .NET Core API 및 SDK
 <table>
 
 <tr><td>**SDK 다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>

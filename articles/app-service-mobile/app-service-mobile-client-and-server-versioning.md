@@ -4,7 +4,7 @@ description: "모바일 서비스와 Azure 모바일 앱에 대한 클라이언�
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d1ef7821eee67f4b9ace01af7e41bd7fdd28b5e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,12 +64,12 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="a-name100amobile-services-client-and-server"></a><a name="1.0.0"></a>모바일 서비스 클라이언트 및 서버
+## <a name="1.0.0"></a>모바일 서비스 클라이언트 및 서버
 아래 테이블의 클라이언트 SDK는 **모바일 서비스**와 호환됩니다.
 
 참고: 모바일 서비스 클라이언트 SDK는 `ZUMO-API-VERSION`에 헤더 값을 보내지 *않습니다*. 서비스가 헤더 또는 쿼리 문자열 값을 수신하는 경우 위에서 설명한 대로 명시적으로 건너뛰지 않으면 오류가 반환됩니다.
 
-### <a name="a-namemobileservicesclientsa-mobile-services-client-sdks"></a><a name="MobileServicesClients"></a> 모바일 *서비스* 클라이언트 SDK
+### <a name="MobileServicesClients"></a> 모바일 *서비스* 클라이언트 SDK
 | 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
 | --- | --- | --- |
 | 관리된 클라이언트(Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |해당 없음 |
@@ -91,8 +92,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 어떤 값 |True |200 - 확인 |
 | 어떤 값 |False/지정되지 않음 |400 - 잘못된 요청 |
 
-## <a name="a-name200aazure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Azure 모바일 앱 클라이언트 및 서버
-### <a name="a-namemobileappsclientsa-mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> 모바일 *앱* 클라이언트 SDK
+## <a name="2.0.0"></a>Azure 모바일 앱 클라이언트 및 서버
+### <a name="MobileAppsClients"></a> 모바일 *앱* 클라이언트 SDK
 버전 확인은 **Azure 모바일 앱**에 대한 클라이언트 SDK의 다음 버전부터 도입됩니다.
 
 | 클라이언트 플랫폼 | 버전 | 버전 헤더 값 |
@@ -127,12 +128,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [모바일 앱 클라이언트]: #MobileAppsClients
 
 
-[모바일 앱 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

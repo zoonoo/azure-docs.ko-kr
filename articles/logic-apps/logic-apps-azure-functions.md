@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions를 사용하여 논리 앱에 사용자 지정 코드 추가 | Microsoft Docs"
-description: "Azure Functions를 사용하여 Azure Logic Apps에 대한 사용자 지정 코드 만들기"
+title: "Azure Functions를 사용한 Azure Logic Apps에 대한 사용자 지정 코드 | Microsoft Docs"
+description: "Azure Functions를 사용하여 Azure Logic Apps에 대한 사용자 지정 코드 만들기 및 실행"
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,25 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c63dde728eaaf8237970e05cc524c6220b69a074
-ms.openlocfilehash: 8b68f017a2c7a17603508438b0d4bd760bec4f78
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
+ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="add-custom-code-to-azure-logic-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Logic Apps에 사용자 지정 코드 추가
 
-논리 앱에서 Azure Functions를 사용하여 C# 또는 node.js의 사용자 지정 코드 조각을 실행할 수 있습니다. 
+# <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Azure Functions를 통해 Logic Apps에 대한 사용자 지정 코드 추가 및 실행
+
+Logic Apps에서 C# 또는 node.js의 사용자 지정 코드 조각을 실행하려면 Azure Functions를 통해 사용자 지정 함수를 만들 수 있습니다. 
 [Azure Functions](../azure-functions/functions-overview.md)는 Microsoft Azure에서 서버 없는 계산을 제공하고 다음과 같은 태스크를 수행하는 데 유용합니다.
 
 * 고급 서식 지정 또는 논리 앱에서 필드 계산
 * 워크플로에서 계산을 수행합니다.
 * C# 또는 node.js에서 지원되는 함수를 사용하여 논리 앱 기능 확장
 
-## <a name="create-functions-for-logic-apps"></a>논리 앱용 함수 만들기
+## <a name="create-custom-functions-for-your-logic-apps"></a>Logic Apps에 대한 사용자 지정 함수 만들기
 
 **일반 WebHook - 노드** 또는 **일반 WebHook - C#** 템플릿의 Azure Functions 포털에서 함수를 만드는 것이 좋습니다. 결과적으로 논리 앱에서 `application/json`을 수락하는 템플릿이 자동으로 채워집니다. 이러한 템플릿에서 만든 함수는 **내 지역의 Azure Functions** 아래의 Logic App Designer에서 자동으로 감지되고 표시됩니다.
 

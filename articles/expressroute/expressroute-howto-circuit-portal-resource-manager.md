@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/02/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
-ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 46b4e1b149a3e9427e1384abc0d95eb616002ab6
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -122,7 +123,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 ![Express 경로 회로의 상태](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Express 경로 회로 수정
-연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다. 현재는 Azure 포털을 사용하여 Express 경로 회로 속성을 수정할 수 없습니다. 하지만, PowerShell을 사용하여 회로 속성을 수정할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Express 경로 회로 수정](expressroute-howto-circuit-arm.md#modify)섹션을 참조하세요.
+연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
 
 가동 중지 시간 없이 다음을 수행할 수 있습니다.
 
@@ -132,6 +133,19 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 * **Allow Classic Operations**을 활성화하거나 비활성화할 수 있습니다.
 
 제한 및 제한 사항에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
+
+ExpressRoute 회로를 수정하려면 아래 그림과 같이 **구성**을 클릭합니다.
+
+![회로 수정](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+구성 블레이드 내에서 대역폭, SKU, 요금 청구 모델을 수정하고 기존 작업을 허용할 수 있습니다.
+
+> [!IMPORTANT]
+> 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭을 다운그레이드하려면 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
+> 
+> 표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 프리미엄 추가 기능 작업을 사용하지 않도록 설정할 수 없습니다.
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Express 경로 회로 프로비전 해제 및 삭제
 **삭제** 아이콘을 선택하여 Express 경로 회로를 삭제할 수 있습니다. 다음 사항에 유의하세요.
@@ -145,10 +159,5 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-portal-resource-manager.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

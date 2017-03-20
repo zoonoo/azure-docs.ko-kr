@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -25,6 +26,9 @@ ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
 
 * 조작 가능한 웹 서비스로 배포한 학습 실험 및 예측 실험이 있습니다.
 * 예측 웹 서비스가 점수 매기기를 수행하도록 하기 위해 사용할 새 데이터가 있습니다.
+
+> [!NOTE] 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
 
 기존 웹 서비스 및 실험을 시작으로 다음 단계를 수행해야 합니다.
 
@@ -190,9 +194,4 @@ Azure Storage 정보를 업데이트하려면 Azure 클래식 포털에서 저�
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 3c3c7924655f5b932be2a3d947a4df786fc0630d
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## <a name="overview"></a>개요
-기본적으로 저장소 메트릭은 저장소 서비스에 대해 사용되지 않습니다. [Azure 클래식 포털](https://manage.windowsazure.com)이나 Windows PowerShell을 사용하여 또는 저장소 API를 통해 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다.
+새 저장소 계정을 만들 때 기본적으로 저장소 메트릭을 사용하도록 설정되어 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com)이나 Windows PowerShell을 사용하여 또는 저장소 API를 통해 프로그래밍 방식으로 모니터링을 구성할 수 있습니다.
 
 저장소 메트릭을 사용하도록 설정할 때는데이터 보존 기간을 선택해야 합니다. 이 기간에 따라 저장소 서비스에서 메트릭을 보관하는 기간이 결정되며, 해당 메트릭을 저장하는 데 필요한 저장소에 대해 요금이 청구됩니다. 일반적으로는 시간 메트릭보다 분 메트릭에 더 짧은 보존 기간을 사용해야 합니다. 분 메트릭의 경우 추가 공간이 상당히 많이 필요하기 때문입니다. 데이터를 분석하고 오프라인 분석용 또는 보고용으로 보관할 메트릭을 다운로드할 시간이 충분하도록 보존 기간을 선택해야 합니다. 저장소 계정에서 메트릭 데이터를 다운로드할 때도 요금이 청구됩니다.
 
@@ -46,7 +47,7 @@ Azure 클래식 포털에서는 현재 저장소 계정에서 분 메트릭을 �
 * ServiceType: 사용 가능한 값은 Blob, Queue, Table입니다.
 * MetricsLevel 사용 가능한 값은 None(Azure 클래식 포털에서 해제를 선택하는 경우와 같음), Service(Azure 클래식 포털에서 최소를 선택하는 경우와 같음), ServiceAndApi(Azure 클래식 포털에서 자세한 정보 표시를 선택하는 경우와 같음)입니다.
 
-예를 들어 다음 명령은 보존 기간을 5일로 설정하여 기본 저장소 계정의 Blob 서비스에 대해 분 메트릭을 설정합니다.
+예를 들어 다음 명령은 보존 기간을&5;일로 설정하여 기본 저장소 계정의 Blob 서비스에 대해 분 메트릭을 설정합니다.
 
 ```powershell
 Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5
@@ -190,8 +191,3 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 
 ## <a name="next-steps"></a>다음 단계:
 [저장소 분석 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/dn782840.aspx)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

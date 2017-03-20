@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 * Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
 * 키 자격 증명 모음 로그에 대한 Azure의 충분한 저장소.
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>구독에 연결
+## <a id="connect"></a>구독에 연결
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
     Login-AzureRmAccount
@@ -65,9 +65,14 @@ Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정�
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
+> [!NOTE]
+> 이 과정은 중요한 단계이며 사용자 계정에 여러 구독이 연결된 경우 특히 유용합니다. 이 단계를 건너뛰면 Microsoft.Insights를 등록하는 데 오류가 발생할 수 있습니다. 
+>   
+>
+
 Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
-## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>로그에 대한 새 저장소 계정 만들기
+## <a id="storage"></a>로그에 대한 새 저장소 계정 만들기
 로그에 대해 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 새 저장소 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 **sa**라는 변수로 정보를 저장합니다.
 
 추가적인 관리 편이성을 위해 키 자격 증명 모음을 포함하는 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹은 **ContosoResourceGroup** 이며 동아시아 위치를 계속해서 사용합니다. 이 값을 적절하게 사용자 고유 값으로 대체합니다.
@@ -80,13 +85,13 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 > 
 > 
 
-## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>로그에 대한 주요 자격 증명 모음 식별
+## <a id="identify"></a>로그에 대한 주요 자격 증명 모음 식별
 시작 자습서에서 주요 자격 증명 모음 이름은 **ContosoKeyVault**이었으므로 해당 이름을 계속해서 사용하고 **kv**라는 변수에 세부 정보를 저장합니다.
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a name="a-idenableaenable-logging"></a><a id="enable"></a>로깅 사용
+## <a id="enable"></a>로깅 사용
 키 자격 증명 모음에 대한 로깅을 사용하려면 새 저장소 계정 및 키 자격 증명 모음용으로 만든 변수와 함께 Set-AzureRmDiagnosticSetting cmdlet을 사용합니다. **-Enabled** 플래그를 **$true**로 설정하고 범주를 AuditEvent(Key Vault 로깅에 대한 유일한 범주)로 설정합니다.
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -117,11 +122,16 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 * 이러한 키 또는 암호 만들기, 수정 또는 삭제를 포함하는 키 자격 증명 모음의 키 및 암호에 대한 작업, 키 서명, 확인, 암호화, 해독, 래핑 및 래핑 해제, 암호 가져오기, 키, 암호 및 버전 나열과 같은 작업.
 * 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나 형식이 잘못되거나 만료되거나 토큰이 잘못된 요청이 해당합니다.  
 
-## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>로그에 액세스
+## <a id="access"></a>로그에 액세스
 주요 자격 증명 모음 로그는 사용자가 제공한 저장소 계정의 **insights-logs-auditevent** 컨테이너에 저장됩니다. 이 컨테이너에 있는 모든 Blob을 나열하려면 다음을 입력합니다.
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+먼저, 컨테이너 이름에 대한 변수를 만듭니다. 이 이름은 연습의 나머지 전체에서 사용됩니다.
 
+    $container = 'insights-logs-auditevent'
+
+이 컨테이너에 있는 모든 Blob을 나열하려면 다음을 입력합니다.
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 출력은 다음과 유사합니다.
 
 **Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
@@ -172,7 +182,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 * 주요 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * 주요 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Key Vault 로그 해석
+## <a id="interpret"></a>Key Vault 로그 해석
 개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 다음은 `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`을 실행하는 예제 로그 항목입니다.
 
     {
@@ -253,11 +263,11 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 | SecretList |[자격 증명 모음에 암호 나열](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[암호 버전 나열](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Log Analytics 사용
+## <a id="loganalytics"></a>Log Analytics 사용
 
 Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다. 설정 방법을 비롯한 자세한 내용은 [Log Analytics의 Azure Key Vault 솔루션](../log-analytics/log-analytics-azure-key-vault.md)을 참조하세요. 또한 이 문서는 먼저 Azure Storage 계정으로 로그를 라우팅하고 해당 위치에서 읽도록 Log Analytics를 구성한 Log Analytics 미리 보기 중 제공된 이전 Key Vault 솔루션에서 마이그레이션해야 할 경우 지침을 포함합니다.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 웹 응용 프로그램에서 Azure Key Vault를 사용하는 자습서는 [웹 응용 프로그램에서 Azure Key Vault 사용](key-vault-use-from-web-application.md)을 참조하세요.
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.

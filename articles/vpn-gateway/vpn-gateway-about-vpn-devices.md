@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보
-VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 호환 VPN 장치 및 구성 매개 변수를 설명합니다.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 장치 및 IPsec/IKE 매개 변수 정보
+
+VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 호환 VPN 장치 및 구성 매개 변수를 설명합니다. 이 문서는 Azure VPN 게이트웨이에 대한 IPsec/IKE 매개 변수 목록 및 Azure VPN 게이트웨이에 연결하는 유효성이 검사된 VPN 장치 목록을 제공합니다.
 
 
 > [!IMPORTANT]
-> 온-프레미스 VPN 장치와 Azure VPN 게이트웨이 간에 연결 문제가 발생하는 경우 [알려진 장치 호환성 문제](#known)를 참조하세요.
-> 
-> 
+> 온-프레미스 VPN 장치와 Azure VPN 게이트웨이 간에 연결 문제가 발생하는 경우 [알려진 장치 호환성 문제](#known)를 참조하세요. 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>테이블 확인 시 주의 사항:
 
-* 정적 및 동적 라우팅에 대한 용어가 변경되었습니다. 두 용어를 모두 사용할 수 있습니다. 기능은 변경되지 않고 이름만 변경됩니다.
+* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 두 용어를 모두 사용할 수 있습니다. 기능은 변경되지 않고 이름만 변경됩니다.
   * 정적 라우팅 = 정책 기반
   * 동적 라우팅 = 경로 기반
 * 고성능 VPN Gateway 및 경로 기반 VPN Gateway에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN Gateway와 호환되는 확인된 VPN 장치는 Azure 고성능 VPN Gateway와도 호환됩니다.
 
 > [!NOTE]
 > 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>확인된 VPN 장치
@@ -102,58 +99,80 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | &lt;SP_AzureGatewayIpAddress&gt; |이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
 | &lt;SP_PresharedKey&gt; |이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
 
-## <a name="IPSec"></a>IPsec 매개 변수
+## <a name="IPSec"></a>IPsec/IKE 매개 변수
 > [!NOTE]
-> 다음 테이블에 나열된 값이 Azure VPN 게이트웨이에서 지원되더라도 현재 Azure VPN 게이트웨이에서 특정 조합을 지정하거나 선택할 방법이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다. 또한 MSS를 1350에 고정해야 합니다.
->
->
+> 다음 테이블에 나열된 값이 Azure VPN Gateway에서 지원되더라도 현재 Azure VPN Gateway에서 특정 알고리즘 또는 매개 변수의 조합을 지정하거나 선택할 메커니즘이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다.
+> 
+> 또한 **MSS**를 **1350**에 고정해야 합니다.
 
-### <a name="ike-phase-1-setup"></a>IKE 1단계 설정
-| **속성** | **정책 기반** | **경로 기반 및 표준 또는 고성능 VPN Gateway** |
-| --- | --- | --- |
-| IKE 버전 |IKEv1 |IKEv2 |
-| Diffie-Hellman 그룹 |그룹 2(1024비트) |그룹 2(1024비트) |
-| 인증 방법 |미리 공유한 키 |미리 공유한 키 |
-| 암호화 알고리즘 |AES256 AES128 3DES |AES256 (3DES) |
-| 해시 알고리즘 |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| 1단계 SA(보안 연결) 수명(시간) |28,800초 |10,800초 |
+아래 표에:
 
-### <a name="ike-phase-2-setup"></a>IKE 2단계 설정
-| **속성** | **정책 기반** | **경로 기반 및 표준 또는 고성능 VPN Gateway** |
-| --- | --- | --- |
-| IKE 버전 |IKEv1 |IKEv2 |
-| 해시 알고리즘 |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| 2단계 SA(보안 연결) 수명(시간) |3,600초 |3,600초 |
-| 2단계 SA(보안 연결) 수명(처리량) |102,400,000 KB |- |
-| IPsec SA 암호화 및 인증 제안(기본 설정 순서) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 |‘경로 기반 게이트웨이 IPsec SA(보안 연결) 제안’(아래) 참조 |
-| PFS(Perfect Forward Secrecy) |아니오 |아니요(*) |
-| 작동하지 않는 피어 검색 |지원되지 않음 |지원됨 |
+* SA = 보안 연결
+* IKE 1단계는 "주 모드"라고도 합니다.
+* IKE 2단계는 "빠른 모드"라고도 합니다.
 
-(*)IKE 응답자인 Azure 게이트웨이는 PFS DH 그룹 1, 2, 5, 14, 24를 수용할 수 있습니다.
+### <a name="ike-phase-1-main-mode-parameters"></a>IKE 1단계(주 모드) 매개 변수
+| **속성**          |**정책 기반**    | **경로 기반**    |
+| ---                   | ---               | ---               |
+| IKE 버전           |IKEv1              |IKEv2              |
+| Diffie-Hellman 그룹  |그룹 2(1024비트) |그룹 2(1024비트) |
+| 인증 방법 |미리 공유한 키     |미리 공유한 키     |
+| 암호화 및 해싱 알고리즘 |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| SA 수명           |28,800초     |10,800초     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>경로 기반 게이트웨이 IPsec SA(보안 연결) 제안 참조
-아래 테이블에는 IPsec SA 암호화 및 인증 제품이 나열되어 있습니다. 제안이 제시되거나 수락되는 기본 설정 순서대로 제안이 나열되어 있습니다.
+### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 2단계(빠른 모드) 매개 변수
+| **속성**                  |**정책 기반**| **경로 기반**                              |
+| ---                           | ---           | ---                                         |
+| IKE 버전                   |IKEv1          |IKEv2                                        |
+| 암호화 및 해싱 알고리즘 |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA 제품](#RouteBasedOffers) |
+| SA 수명(시간)            |3,600초  |3,600초                                |
+| SA 수명(바이트)           |102,400,000 KB | -                                           |
+| PFS(Perfect Forward Secrecy) |아니요             |[RouteBased QM SA 제품](#RouteBasedOffers) |
+| 작동하지 않는 피어 검색(DPD)     |지원되지 않음  |지원됨                                    |
 
-| **IPsec SA 암호화 및 인증 제안** | **Azure 게이트웨이(초기자)** | **Azure 게이트웨이(응답자)** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1(ESP AES_128, null HMAC 사용) |
-| 5 |AH SHA1(ESP AES_256, null HMAC 사용) |AH SHA1(ESP 3_DES, null HMAC 사용) |
-| 6 |AH SHA1(ESP AES_128, null HMAC 사용) |AH MD5(ESP 3_DES, null HMAC 사용), 제안된 수명 없음 |
-| 7 |AH SHA1(ESP 3_DES, null HMAC 사용) |AH SHA1(ESP 3_DES SHA1 사용), 수명 없음 |
-| 8 |AH MD5(ESP 3_DES, null HMAC 사용), 제안된 수명 없음 |AH MD5(ESP 3_DES MD5 사용), 수명 없음 |
-| 9 |AH SHA1(ESP 3_DES SHA1 사용), 수명 없음 |ESP DES MD5 |
-| 10 |AH MD5(ESP 3_DES MD5 사용), 수명 없음 |ESP DES SHA1, 수명 없음 |
-| 11 |ESP DES MD5 |AH SHA1(ESP DES null HMAC 사용), 제안된 수명 없음 |
-| 12 |ESP DES SHA1, 수명 없음 |AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 |
-| 13 |AH SHA1(ESP DES null HMAC 사용), 제안된 수명 없음 |AH SHA1(ESP DES SHA1 사용), 수명 없음 |
-| 14 |AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 |AH MD5(ESP DES MD5 사용), 수명 없음 |
-| 15 |AH SHA1(ESP DES SHA1 사용), 수명 없음 |ESP SHA, 수명 없음 |
-| 16 |AH MD5(ESP DES MD5 사용), 수명 없음 |ESP MD5, 수명 없음 |
-| 17 |- |AH SHA, 수명 없음 |
-| 18 |- |AH MD5, 수명 없음 |
+
+### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 보안 연결(IKE 빠른 모드 SA) 제품
+다음 표는 IPsec SA(IKE 빠른 모드) 제품을 나열합니다. 제안이 제시되거나 수락되는 기본 설정 순서대로 제안이 나열되어 있습니다.
+
+#### <a name="azure-gateway-as-initiator"></a>Azure 게이트웨이(초기자)
+|-  |**암호화**|**인증**|**PFS 그룹**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM(AES256)      |없음         |
+| 2 |AES256        |SHA1              |없음         |
+| 3 |3DES          |SHA1              |없음         |
+| 4 |AES256        |SHA256            |없음         |
+| 5 |AES128        |SHA1              |없음         |
+| 6 |3DES          |SHA256            |없음         |
+
+#### <a name="azure-gateway-as-responder"></a>Azure 게이트웨이(응답자)
+|-  |**암호화**|**인증**|**PFS 그룹**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM(AES256)      |없음         |
+| 2 |AES256        |SHA1              |없음         |
+| 3 |3DES          |SHA1              |없음         |
+| 4 |AES256        |SHA256            |없음         |
+| 5 |AES128        |SHA1              |없음         |
+| 6 |3DES          |SHA256            |없음         |
+| 7 |DES           |SHA1              |없음         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |없음         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * 경로 기반 및 고성능 VPN Gateway를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다.  클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
 * 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 테이블에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN Gateway 설정을 사용하세요.

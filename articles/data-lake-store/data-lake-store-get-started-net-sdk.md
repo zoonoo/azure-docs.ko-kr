@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 1886f806d0c1bdbf5e24720ff84cd00ce2c6d77a
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/03/2017
 [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2013 또는 2015**. 아래 지침에서는 Visual Studio 2015를 사용합니다.
+* **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2015 업데이트 2를 사용합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -71,6 +71,7 @@ ms.lasthandoff: 03/03/2017
 6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
    
         using System;
+        using System.IO;
         using System.Threading;
    
         using Microsoft.Rest.Azure.Authentication;
@@ -102,9 +103,9 @@ ms.lasthandoff: 03/03/2017
                     _subId = "<SUBSCRIPTION-ID>";
 
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
+                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = remoteFolderPath + "file.txt";
+                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
                 }
             }
         }
@@ -239,9 +240,10 @@ ms.lasthandoff: 03/03/2017
     // Append to file
     public static void AppendToFile(string path, string content)
     {
-        var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
-
-        _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        {
+            _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+        }
     }
 
 ## <a name="download-a-file"></a>파일 다운로드
@@ -250,12 +252,11 @@ ms.lasthandoff: 03/03/2017
     // Download file
     public static void DownloadFile(string srcPath, string destPath)
     {
-        var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
-        var fileStream = new FileStream(destPath, FileMode.Create);
-
-        stream.CopyTo(fileStream);
-        fileStream.Close();
-        stream.Close();
+        using (var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath))
+        using (var fileStream = new FileStream(destPath, FileMode.Create))
+        {
+            stream.CopyTo(fileStream);
+        }
     }
 
 ## <a name="next-steps"></a>다음 단계

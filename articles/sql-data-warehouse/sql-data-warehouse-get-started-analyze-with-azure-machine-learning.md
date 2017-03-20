@@ -4,7 +4,7 @@ description: "Azure 기계 학습을 사용하여 Azure SQL 데이터 웨어하�
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
-manager: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
+ms.date: 03/02/2017
+ms.author: kevin
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: db402a9d8bdccf0db9783450fa4cb60a2c047ece
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: a5befbf1dc1862b3b0803eb4940341d246ec036c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: db402a9d8bdccf0db9783450fa4cb60a2c047ece
 
 * AdventureWorksDW 샘플 데이터로 미리 로드된 SQL 데이터 웨어하우스. 프로비전하려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][load sample data manually]할 수 있습니다.
 
-## <a name="1-get-data"></a>1. 데이터 가져오기
+## <a name="1-get-the-data"></a>1. 데이터 가져오기
 데이터는 AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에 있습니다. 이 데이터를 읽으려면:
 
 1. [Azure Machine Learning 스튜디오][Azure Machine Learning studio]에 로그인하고 내 실험을 클릭합니다.
@@ -146,9 +147,4 @@ FROM [dbo].[vTargetMail]
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -107,7 +107,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > HDInsight의 이전 버전에서 토폴로지의 클래스 이름은 `org.apache.storm.starter.WordCountTopology`가 아닌 `storm.starter.WordCountTopology`입니다.
@@ -199,7 +199,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 
 Apache Storm 자습서에서는 HDInsight에서 Storm으로 작업하는 기본 사항을 알아보았습니다. 다음으로 [Maven을 사용하여 Java 기반 토폴로지를 개발하는 방법](hdinsight-storm-develop-java-topology.md)에 대해 알아봅니다.
 

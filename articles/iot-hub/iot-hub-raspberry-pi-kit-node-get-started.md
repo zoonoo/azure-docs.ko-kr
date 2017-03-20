@@ -17,13 +17,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 358a2a4fd448660c3a8ef0d11d7d373dd7d9a569
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 8d283531fc7905e9691feccca25fffd27499e2bb
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Raspberry Pi 3 시작(Node.js)
+# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-nodejs"></a>Node.js를 사용하여 IoT Hub에 Raspberry Pi 3 장치 연결
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -130,10 +132,5 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 
 ## <a name="troubleshooting"></a>문제 해결
 단원을 진행하는 동안 문제가 있으면 [문제 해결](iot-hub-raspberry-pi-kit-node-troubleshooting.md) 문서를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

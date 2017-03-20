@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: aa3f2bc04fe33466ca44abd7331a4b3aa7be26fc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -60,8 +60,8 @@ ms.lasthandoff: 02/16/2017
 7. **클라이언트 ID**를 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
 8. **키** 섹션에서 **기간 선택** 드롭다운 목록에서 **1년**을 선택합니다. (13단계에서 저장한 후 키를 복사합니다.)
 9. 아래로 스크롤하여 **응용 프로그램 추가**를 클릭합니다.
-10. **표시**를 **Microsoft 앱**으로 설정하고 **Microsoft Azure 서비스 관리**를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
-11. **위임된 권한** 드롭다운 목록에서 **Azure 서비스 관리** 액세스를 선택합니다.
+10. **표시**를 **Microsoft 앱**으로 설정하고 **Microsoft Azure Service Management API**를 선택합니다. 계속하려면 확인 표시를 클릭합니다.
+11. **위임된 권한** 드롭다운 목록에서 **Azure 서비스 관리 액세스...**를 선택합니다.
 12. **저장**을 클릭합니다.
 13. 저장이 끝나면 **키** 섹션에서 키 값을 복사합니다. (코드에서 나중에 이 값이 필요합니다.)
 
@@ -192,9 +192,8 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 > 
 > 
 
-1. Visual Studio를 열고 새 C# 콘솔 응용 프로그램을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
+1. Visual Studio를 열고 새 C# **콘솔 응용 프로그램**(Visual Studio 2015 이전) 또는 **콘솔 앱(.NET Framework)**(Visual Studio 2017 이상)을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
 2. 프로젝트 이름을 **AlwaysEncryptedConsoleAKVApp**으로 지정하고 **확인**을 클릭합니다.
-   ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
 3. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**로 이동하여 다음 NuGet 패키지를 설치합니다.
 
 패키지 관리자 콘솔에서 코드의 다음 두 줄을 실행합니다.

@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
-ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
 
 #### <a name="recovery"></a>복구
 * DR 지역의 응용 프로그램 구성이 완전히 액세스 가능한 새로운 주 데이터베이스가 될 이전의 보조 데이터베이스를 가리키는지 확인합니다.
-* [계획된 장애 조치(failover)](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) 를 수행하여 보조 데이터베이스를 새로운 주 데이터베이스로 지정합니다.
+* [계획된 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) 를 수행하여 보조 데이터베이스를 새로운 주 데이터베이스로 지정합니다.
 * [복구 후 데이터베이스 구성](sql-database-disaster-recovery.md) 가이드에 따라 복구를 완료합니다.
 
 #### <a name="validation"></a>유효성 검사
@@ -64,9 +65,4 @@ ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
 * Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
 * 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

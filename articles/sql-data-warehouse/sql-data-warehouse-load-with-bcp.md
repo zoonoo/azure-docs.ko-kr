@@ -17,6 +17,7 @@ ms.author: mausher;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -43,7 +44,7 @@ bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 * bcp in 명령을 사용하여 테이블로 데이터 가져오기
 * bcp out 명령을 사용하여 테이블에서 데이터 내보내기
 
-> [!비디오 https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
@@ -202,9 +203,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

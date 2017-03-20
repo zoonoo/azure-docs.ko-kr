@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 9e64fc5425db5ffde6af493e961edfcac527b6df
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="using-sap-on-azure-virtual-machines-vms"></a>Azure 가상 컴퓨터(VM)에서 SAP 사용
+# <a name="using-sap-on-azure-linux-virtual-machines-vms"></a>Azure Linux VM(가상 컴퓨터)에서 SAP 사용
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -77,7 +78,7 @@ ms.lasthandoff: 01/26/2017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
 
-[dbms-guide]:virtual-machines-linux-sap-dbms-guide.md(Linux VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드) [dbms-guide-2.1]:virtual-machines-linux-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f(VM 및 VHD용 캐싱) [dbms-guide-2.2]:virtual-machines-linux-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91(소프트웨어 RAID) [dbms-guide-2.3]:virtual-machines-linux-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152(Microsoft Azure Storage) [dbms-guide-2]:virtual-machines-linux-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64(RDBMS 배포의 구조) [dbms-guide-3]:virtual-machines-linux-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3(Azure VM에서 고가용성 및 재해 복구) [dbms-guide-5.5.1]:virtual-machines-linux-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268(SQL Server 2012 SP1 CU4 이상) [dbms-guide-5.5.2]:virtual-machines-linux-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b(SQL Server 2012 SP1 CU3 및 이전 릴리스) [dbms-guide-5.6]:virtual-machines-linux-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8(Microsoft Azure Marketplace에서 SQL Server 이미지 사용) [dbms-guide-5.8]:virtual-machines-linux-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30(Azure의 SAP용 일반 SQL Server 요약) [dbms-guide-5]:virtual-machines-linux-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737(SQL Server RDBMS에 대한 고유 정보) [dbms-guide-8.4.1]:virtual-machines-linux-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573(저장소 구성) [dbms-guide-8.4.2]:virtual-machines-linux-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d(백업 및 복원) [dbms-guide-8.4.3]:virtual-machines-linux-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c(백업 및 복원에 대한 성능 고려 사항) [dbms-guide-8.4.4]:virtual-machines-linux-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818(기타) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-linux-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:virtual-machines-linux-sap-dbms-guide.md(Linux VM(가상 컴퓨터)에서 SAP NetWeaver - DBMS 배포 가이드) [dbms-guide-2.1]:virtual-machines-linux-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f(VM 및 VHD에 대한 캐싱) [dbms-guide-2.2]:virtual-machines-linux-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91(소프트웨어 RAID) [dbms-guide-2.3]:virtual-machines-linux-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152(Microsoft Azure Storage) [dbms-guide-2]:virtual-machines-linux-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64(RDBMS 배포 구조) [dbms-guide-3]:virtual-machines-linux-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3(Azure VM을 사용한 고가용성 및 재해 복구) [dbms-guide-5.5.1]:virtual-machines-linux-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268(SQL Server 2012 SP1 CU4 이상) [dbms-guide-5.5.2]:virtual-machines-linux-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b(SQL Server 2012 SP1 CU3 및 이전 릴리스) [dbms-guide-5.6]:virtual-machines-linux-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8(Microsoft Azure Marketplace에서 SQL Server 이미지 사용) [dbms-guide-5.8]:virtual-machines-linux-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30(Azure의 SAP용 SQL Server에 대한 일반적 요약) [dbms-guide-5]:virtual-machines-linux-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737(SQL Server RDBMS에 대한 고유 정보) [dbms-guide-8.4.1]:virtual-machines-linux-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573(저장소 구성) [dbms-guide-8.4.2]:virtual-machines-linux-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d(백업 및 복원) [dbms-guide-8.4.3]:virtual-machines-linux-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c(백업 및 복원에 대한 성능 고려 사항) [dbms-guide-8.4.4]:virtual-machines-linux-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818(기타) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-linux-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -330,7 +331,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>계획 및 구현
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>계획 및 구현
 제목: Linux VM(가상 컴퓨터)에서 SAP NetWeaver - 계획 및 구현 가이드
 
 요약: Azure 가상 컴퓨터에서 SAP NetWeaver를 실행하는 것을 고려하는 경우 시작하기 위한 문서입니다. 이 계획 및 구현 가이드를 사용하면 기존 또는 계획된 SAP NetWeaver 기반 시스템을 Azure 가상 컴퓨터 환경에 배포할 수 있는지 여부를 평가할 수 있습니다. 여러 SAP NetWeaver 배포 시나리오를 다루며 Azure에 고유한 SAP 구성을 포함합니다. 문서는 SAP/Azure 측면에서 하이브리드 SAP 환경을 실행하는 데 필요한 모든 구성 정보를 나열하고 설명합니다. IaaS에서 SAP NetWeaver 기반 시스템의 고가용성을 보장하기 위해 수행할 수 있는 측정값에 대해서도 다룹니다.
@@ -339,7 +340,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.][planning-guide]
 
-## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>배포
+## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>배포
 제목: Linux VM(가상 컴퓨터)에서 SAP NetWeaver - 배포 가이드
 
 요약: 이 문서에서는 Azure의 가상 컴퓨터에 SAP NetWeaver 소프트웨어를 배포하기 위한 절차 지침을 제공합니다. 이 문서에서는 SAP용 Azure 모니터링 확장에 대한 권장 문제 해결 방법을 비롯한 SAP용 Azure 모니터링 확장 사용을 중점적으로 세 가지 특정 배포 시나리오에 중점을 둡니다. 이 문서에서는 계획 및 구현 가이드를 읽은 것을 가정합니다.
@@ -348,7 +349,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 
 [이 가이드는 여기서 확인할 수 있습니다.][deployment-guide]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS 배포 가이드
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS 배포 가이드
 제목: Linux VM(가상 컴퓨터)에서 SAP NetWeaver – DBMS 배포 가이드
 
 요약: 이 문서에서는 SAP와 함께 실행해야 하는 DBMS 시스템에 대한 계획 및 구현 고려 사항을 살펴봅니다. 첫 번째 부분에서는 일반적인 고려 사항이 나열되고 표시됩니다. 문서의 다음 부분은 SAP에서 지원되는 Azure의 여러 DBMS 배포와 관련되어 있습니다. 제공되는 DBMS은 SQL Server, SAP ASE 및 Oracle입니다. 해당 특정 부분 고려 사항에서 설명된 DBMS와 함께 Azure에서 SAP를 실행 중인 경우에 대해 설명해야 합니다. Azure의 각 DMS에서 지원되는 백업 및 고가용성 방법과 같은 주제가 SAP 응용 프로그램과 함께 사용하기 위해 표시됩니다.

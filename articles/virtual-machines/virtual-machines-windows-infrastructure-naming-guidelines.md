@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
-ms.openlocfilehash: 866265bfa2eb7bcfebd8c73e14d3344a150aaf09
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: a59b8178fb011b837a402207ca86dd2db4505f74
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-infrastructure-naming-guidelines"></a>Azure 인프라 명명 지침
+# <a name="azure-infrastructure-naming-guidelines-for-windows-vms"></a>Windows VM에 대한 Azure 인프라 명명 지침
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 이 문서에서는 작업 환경 전반에 걸쳐 논리적이며 쉽게 식별할 수 있는 리소스 집합을 작성할 수 있도록 다양한 Azure 리소스 전체에 명명 규칙을 적용하는 방식을 중점적으로 설명합니다.
@@ -103,10 +106,5 @@ Azure VM 이름은 기본 운영 체제 컴퓨터 이름과 동일하게 지정�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

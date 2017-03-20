@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -42,7 +43,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 또는 Visual Studio 2017.
 * 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
 
 [Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
@@ -129,7 +130,7 @@ Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내�
 ## <a name="read-from-the-queue-endpoint"></a>큐 끝점에서 읽기
 이 섹션에서는 큐 끝점에서 메시지를 읽습니다.
 
-1. 최신 Visual Studio 솔루션에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. **ReadCriticalQueue** 프로젝트의 이름을 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 현재 솔루션에 추가합니다. **ReadCriticalQueue** 프로젝트의 이름을 지정합니다.
 
 2. [솔루션 탐색기]에서 **ReadCriticalQueue** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다. 이 작업을 수행하면 **Nuget 패키지 관리자** 창이 표시됩니다.
 
@@ -225,9 +226,4 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

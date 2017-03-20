@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: a2892343432f7dced535efb3917d915736580dfb
-ms.openlocfilehash: cf8eba0f68e1e803026079f02b91f1bbaec189da
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -30,20 +30,7 @@ Stream Analytics는 지역 쌍의 작업이 별도의 일괄 처리로 업데이
 
 Stream Analytics 업데이트 배포는 지역 쌍 집합에서 동시에 발생하지 않습니다. 단, 인도 남부가 지역 쌍이지만 Stream Analytics 상태가 없는 _인도 중부는 예외_입니다. **동일한 그룹에 속하는** 여러 지역에서는 배포가 **동시에** 발생할 수 있습니다.
 
-다음 차트에서 쌍 그룹 목록을 참조하세요.
+쌍을 이루는 지역에 대한 최신 정보는 **[가용성 및 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)**에 대한 문서에 있습니다.
 
-그룹 A 지역 |  | 그룹 B 지역
-------- | ------- | -------
-일본 동부 | 지역 쌍 | 일본 서부
-북유럽 |  | 서유럽
-미국 중부 |  | 미국 동부2
-동아시아 |  | 동남아시아
-미국 중북부 |  | 미국 중남부
-오스트레일리아 동부 |  | 오스트레일리아 동남부
-미국 동부 |  | 미국 서부
-브라질 남부 |  | 미국 중남부
-중국 북부 |  | 중국 동부
-독일 북동부 |  | 독일 중부
-
-고객은 두 지역 쌍 모두에 동일한 작업을 배포하는 것이 좋습니다. 또한 고객은 Stream Analytics의 내부 모니터링 외에도 작업이 **둘 다** 프로덕션 작업인 것처럼 모니터링하는 것이 좋습니다. 중단이 발생한 이유가 Stream Analytics 서비스 업데이트 때문이라면 적절히 에스컬레이션하고 다운스트림 소비자를 정상 작업 출력으로 장애 조치(failover)합니다. 지원으로 에스컬레이션하면 지역 쌍이 새 배포의 영향을 받지 않게 되고 지역 쌍의 무결성이 유지됩니다.
+고객은 두 지역 쌍 모두에 동일한 작업을 배포하는 것이 좋습니다. 또한 고객은 Stream Analytics의 내부 모니터링 기능 외에도 작업이 **둘 다** 프로덕션 작업인 것처럼 모니터링하는 것이 좋습니다. 중단이 발생한 이유가 Stream Analytics 서비스 업데이트 때문이라면 적절히 에스컬레이션하고 다운스트림 소비자를 정상 작업 출력으로 장애 조치(failover)합니다. 지원으로 에스컬레이션하면 지역 쌍이 새 배포의 영향을 받지 않게 되고 지역 쌍의 무결성이 유지됩니다.
 

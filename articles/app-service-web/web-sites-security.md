@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,7 +55,7 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 
 사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://security-forms.azure.com/penetration-testing/terms) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> 고객과 보안 통신
+## <a name="https"></a> 고객과 보안 통신
 앱 서비스 앱에 대해 만든 **\*.azurewebsites.net** 도메인 이름을 사용하는 경우 모든 **\*.azurewebsites.net** 도메인 이름에 대해 SSL 인증서가 제공되므로 HTTPS를 즉시 사용할 수 있습니다. 사이트에서 [사용자 지정 도메인 이름](web-sites-custom-domain-name.md)을 사용하는 경우 SSL 인증서를 업로드하여 해당 사용자 지정 도메인에 대해 [HTTPS를 사용하도록 설정](web-sites-configure-ssl-certificate.md)할 수 있습니다.
 
 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 를 사용하도록 설정하면 앱과 사용자 간의 통신에서 MITM 공격으로부터 보호할 수 있습니다.
@@ -65,7 +65,7 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 
 ClearDB와 같은 타사 데이터베이스 공급자를 사용하는 경우 보안 모범 사례에 대한 공급자 설명서를 직접 참조해야 합니다.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> 개발 및 배포 보안
+## <a name="develop"></a> 개발 및 배포 보안
 ### <a name="publishing-profiles-and-publish-settings"></a>게시 프로필 및 게시 설정
 **Visual Studio**, **Web Matrix**, **Azure PowerShell** 또는 **Azure CLI(Azure 명령줄 인터페이스)**와 같은 유틸리티를 사용하여 응용 프로그램을 개발하거나, 관리 작업을 수행하거나, 작업을 자동화할 경우 *게시 설정* 파일 또는 *게시 프로필*을 사용할 수 있습니다. 두 파일 형식 모두 Azure로 사용자를 인증하고 무단 액세스를 방지하도록 보호합니다.
 

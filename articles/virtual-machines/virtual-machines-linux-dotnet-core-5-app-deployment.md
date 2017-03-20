@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b4ddeb091c2c6d2fdfd32d0094567f9e9d8914a7
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 031943c4d7b7736d249b507e2e59f0cc9896a54e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-deployment-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용한 응용 프로그램 배포
+# <a name="application-deployment-with-azure-resource-manager-templates-for-linux-vms"></a>Linux VM용 Azure Resource Manager 템플릿을 사용하는 응용 프로그램 배포
+
 모든 Azure 인프라 요구 사항을 파악하고 배포 템플릿으로 변환한 후에는 실제 응용 프로그램 배포를 해결해야 합니다. 여기서 진행되는 응용 프로그램 배포에서는 Azure 리소스에 실제 응용 프로그램 이진 파일이 설치됩니다. Music Store 샘플의 경우 .Net Core, NGINX 및 Supervisor를 각 가상 컴퓨터에서 설치 및 구성해야 합니다. Music Store 이진 파일을 가상 컴퓨터에 설치해야 하며 Music Store 데이터베이스를 미리 생성해야 합니다.
 
 이 문서는 가상 컴퓨터 확장이 Azure 가상 컴퓨터에 대한 응용 프로그램 배포 및 구성을 자동화하는 방법을 자세히 설명합니다. 모든 종속성 및 고유한 구성이 강조 표시됩니다. 최상의 환경을 위해서는 솔루션 인스턴스를 Azure 구독에 미리 배포하고 Azure Resource Manager 템플릿을 따라 작업하는 것이 좋습니다. 전체 템플릿은 [Ubuntu의 Music Store 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)에서 확인할 수 있습니다.
@@ -119,10 +122,5 @@ GitHub에서 JSON 아래에 이 스크립트가 저장되어 있습니다. 이 �
 <hr>
 
 [추가 Azure Resource Manager 템플릿 살펴보기](https://github.com/Azure/azure-quickstart-templates)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

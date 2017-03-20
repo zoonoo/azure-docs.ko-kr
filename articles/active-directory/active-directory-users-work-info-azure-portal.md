@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -43,9 +44,4 @@ ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
 * [Azure Active Directory 미리 보기에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
 * [Azure Active Directory 미리 보기에서 사용자에 대한 프로필 정보 추가 또는 변경](active-directory-users-profile-azure-portal.md)
 * [Azure Active Directory 미리 보기의 디렉터리에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

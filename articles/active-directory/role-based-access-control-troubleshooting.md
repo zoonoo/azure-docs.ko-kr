@@ -1,5 +1,5 @@
 ---
-title: "역할 기반 액세스 제어 문제 해결 | Microsoft Docs"
+title: "Azure RBAC 문제 해결 | Microsoft Docs"
 description: "역할 기반 액세스 제어 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다."
 services: azure-portal
 documentationcenter: na
@@ -12,19 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a6fd242b89e6a7cd61be6ceadf15852e9ef61a8a
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>역할 기반 액세스 제어 문제 해결
-## <a name="introduction"></a>소개
-[역할 기반 액세스 제어](role-based-access-control-configure.md) 는 Azure의 리소스에 대해 세분화된 액세스 권한을 위임하는 데 사용할 수 있는 유용한 기능입니다. 이 기능을 통해 특정 사용자에게 필요한 리소스에 대한 권한만을 정확하게 부여할 수 있습니다. 그러나 Azure 리소스의 리소스 모델이 복잡하여 권한 부여 대상을 정확하게 파악하기가 어려운 경우도 있습니다.
 
-이 문서에서는 Azure 포털의 몇 가지 역할을 사용하는 경우의 결과를 소개합니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
+이 문서에서는 역할과 함께 부여되는 특정 액세스 권한에 대한 일반적인 질문에 대한 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
 
 * 소유자  
 * 참여자  
@@ -95,10 +94,5 @@ ms.openlocfilehash: a6fd242b89e6a7cd61be6ceadf15852e9ef61a8a
 * [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

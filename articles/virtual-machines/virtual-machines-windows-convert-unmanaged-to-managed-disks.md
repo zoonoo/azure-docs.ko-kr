@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
-ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
+ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -48,17 +48,6 @@ ms.lasthandoff: 02/27/2017
 2.    SSE가 한 번도 설정되지 않은 저장소 계정에 OS VHD를 복사합니다. 다른 저장소 계정에 디스크를 복사하려면 [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`을 사용합니다.
 3.    관리 디스크를 사용하는 VM을 만들고 생성되는 동안 해당 VHD 파일을 OS 디스크로 연결합니다.
 
-
-## <a name="before-you-begin"></a>시작하기 전에
-PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
-
-
-
 ## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a>가용성 집합의 VM을 관리 가용성 집합의 관리 디스크로 변환
 
 관리 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리 가용성 집합으로 변환해야 합니다.
@@ -87,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>기존 Azure VM을 같은 저장소 유형의 관리 디스크로 변환
 
 > [!IMPORTANT]
-> 다음 절차를 수행하면 기본/vhds 컨테이너에 블록 Blob 하나가 남습니다. 이 파일의 이름은 “VMName.xxxxxxx.status”입니다. 남아 있는 이 상태 개체를 삭제하지 마세요. 향후 조치를 통해 이 문제를 해결할 것입니다.
+> 다음 절차를 수행하면 기본 /vhds 컨테이너에 Blob 하나가 남습니다. 이 파일의 이름은 “VMName.xxxxxxx.status”입니다. 이 파일은 VM에 [VM 확장](virtual-machines-windows-classic-agents-and-extensions.md)을 설치한 경우에만 Azure에 의해 만들어집니다. 남아 있는 이 상태 개체를 삭제하지 마세요. 향후 조치를 통해 이 문제를 해결할 것입니다.
 
 이 섹션에서는 같은 저장소 유형을 사용할 때 기존 Azure VM을 저장소 계정의 비관리 디스크에서 관리 디스크로 변환하는 방법을 다룹니다. 이 프로세스를 사용하여 프리미엄(SSD) 비관리 디스크에서 프리미엄 관리 디스크로 또는 표준(HDD) 비관리 디스크에서 표준 관리 디스크로 변환할 수 있습니다. 
 
@@ -149,7 +138,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 1. VM을 중지(할당 취소)합니다.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  모든 디스크를 Premium Storage로 업그레이드합니다.
 
@@ -168,7 +157,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 1. VM을 시작합니다.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 표준 저장소와 Premium Storage를 혼합해서 사용할 수도 있습니다.

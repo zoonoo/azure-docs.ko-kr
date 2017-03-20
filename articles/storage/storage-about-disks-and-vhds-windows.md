@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 794f87c3d4b8378d7aeca63791a8fbfd03e44ceb
-ms.openlocfilehash: c226d43e8cc24af7c86ae13b3752bfd6fb53b1c8
+ms.sourcegitcommit: e34a2bfbf5f1ae544a729c994d91c485d48bb440
+ms.openlocfilehash: 1027f9c73a45b7d148643f5ec217683f71c4e899
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,15 +36,12 @@ VM에서 디스크를 사용하는 방법에 대해 살펴보겠습니다.
 모든 가상 컴퓨터는 하나의 연결된 운영 체제 디스크를 갖습니다. 이 디스크는 SATA 드라이브로 등록되며 기본적으로 C 드라이브로 레이블이 지정됩니다. 이 디스크의 최대 용량은 1023기가바이트(GB)입니다. 
 
 ### <a name="temporary-disk"></a>임시 디스크
-임시 디스크는 자동으로 만들어집니다. 이 디스크는 일시적으로 D: 드라이브로 레이블이 지정되며 pagefile.sys를 저장하는 데 사용됩니다. 
+각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) 또는 [VM을 다시 배포](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지되어야 합니다.
 
-임시 디스크의 크기는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요.
-
-> [!WARNING]
-> 데이터를 임시 디스크에 저장하지 마세요. 이는 응용 프로그램 및 프로세스에 대한 임시 디스크를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 이 디스크를 다른 드라이브 문자로 다시 매핑하려면 [Windows 임시 디스크의 드라이브 문자 변경](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
-> 
+이 디스크는 일시적으로 D: 드라이브로 레이블이 지정되며 pagefile.sys를 저장하는 데 사용됩니다. 이 디스크를 다른 드라이브 문자로 다시 매핑하려면 [Windows 임시 디스크의 드라이브 문자 변경](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요. 임시 디스크의 크기는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요.
 
 Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+
 
 ### <a name="data-disk"></a>데이터 디스크 
 데이터 디스크는 응용 프로그램 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 컴퓨터에 연결된 VHD입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 1023GB입니다. 가상 컴퓨터의 크기에 따라 사용자가 해당 가상 컴퓨터에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
@@ -80,10 +78,5 @@ fsutil behavior set DisableDeleteNotify 0
 * [디스크를 연결](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 하여 VM에 다른 저장소를 추가합니다.
 * [Windows VM 이미지를 Azure에 업로드](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 합니다.
 * [Windows 임시 디스크의 드라이브 문자 변경](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

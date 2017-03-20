@@ -15,16 +15,16 @@ ms.workload: azure-government
 ms.date: 12/06/2016
 ms.author: MeganYount
 translationtype: Human Translation
-ms.sourcegitcommit: 14fb62669e15873770ef9b8470e34db70f1ca2ca
-ms.openlocfilehash: 2b89d78e20cccee81c9581e762e4c61bacd84fd4
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0233aa66bc4f4f135456ec15bd09756e63192b14
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="azure-government-intelligence--analytics"></a>Azure Government 인텔리전스 + 분석
 이 문서에서는 Azure Government 환경의 인텔리전스 및 분석 서비스, 서비스 변형과 고려 사항을 개략적으로 설명합니다.
 
-## <a name="azure-hdinsight"></a>Azure HDInsight
+## <a name="hdinsight"></a>HDInsight
 Linux Standard의 HDInsight는 일반적으로 Azure Government에서 사용할 수 있습니다. <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>여기</a>에서 HDInsight를 사용하여 Azure Government에서 데이터 중심 솔루션을 구축하는 방법에 대한 데모를 볼 수 있습니다.
 
 Linux Premium의 HDInsight가 곧 제공됩니다.
@@ -41,7 +41,7 @@ Azure Government에서 Log Analytics의 URL은 서로 다릅니다.
 | --- | --- | --- |
 | HDInsight 클러스터 | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
-자세한 내용은 [Azure HDInsight 공개 문서](../hdinsight/hdinsight-hadoop-introduction.md)를 참조하세요.
+자세한 내용은 [HDInsight 공개 문서](../hdinsight/hdinsight-hadoop-introduction.md)를 참조하세요.
 
 ## <a name="power-bi"></a>Power BI
 Power BI US Government는 Office 365 US Government 커뮤니티 구독의 일부로 일반적으로 사용할 수 있습니다. <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>여기</a>에서 Power BI US Government에 대해 알아볼 수 있습니다. <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>여기</a>에서 Power BI를 사용하여 Azure Government에서 데이터 중심 솔루션을 구축하는 방법에 대한 데모를 볼 수 있습니다.
@@ -57,5 +57,5 @@ Power BI에 대한 URL은 US Government에서 다릅니다.
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
 ## <a name="next-steps"></a>다음 단계
-부가 정보 및 업데이트를 보려면 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
+추가 정보 및 업데이트는 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
 

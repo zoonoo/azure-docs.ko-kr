@@ -12,30 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
-ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>Azure Site Recovery 작동 방식
 
-[Azure Site Recovery](site-recovery-overview.md) 서비스의 기본 아키텍처와 이를 작동하게 하는 구성 요소에 대해서는 이 문서를 읽어보세요.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스의 기본 아키텍처와 이를 작동하게 하는 구성 요소에 대해 설명합니다.
 
 이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견을 게시합니다.
 
 
-## <a name="replication-to-azure"></a>Azure로 복제
+## <a name="replicate-to-azure"></a>Azure에 복제
 
 다음 사항을 Azure로 복제할 수 있습니다.
+
 - **VMware**: [지원되는 호스트](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에서 실행되는 온-프레미스 VMware VM. [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)에서 실행되는 VMware VM을 복제할 수 있습니다.
 - **Hyper-V**: [지원되는 호스트](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에서 실행되는 온-프레미스 Hyper-V VM.
 - **물리적 컴퓨터**: [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)에서 Windows 또는 Linux를 실행하는 온-프레미스 물리적 서버. [Hyper-V 및 Azure에서 지원하는](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) 게스트 운영 체제를 실행하는 Hyper-V VM을 복제할 수 있습니다.
 
-## <a name="vmware-replication-to-azure"></a>Azure로 VMware 복제
+## <a name="vmware-to-azure"></a>VMware에서 Azure로
+
+VMware VM을 Azure에 복제하는 데 필요한 사항은 다음과 같습니다.
 
 영역 | 구성 요소 | 세부 정보
 --- | --- | ---
@@ -85,14 +88,16 @@ ms.lasthandoff: 03/02/2017
 
 ![장애 복구](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-server-replication-to-azure"></a>Azure에 실제 서버 복제
+## <a name="physical-to-azure"></a>물리적 서버에서 Azure로
 
-이 복제 시나리오도 [VMware에서 Azure](#vmware-replication-to-azure)와 동일한 구성 요소와 프로세스를 사용합니다. 단, 다음과 같은 차이점이 있습니다.
+물리적 온-프레미스 서버를 Azure에 복제할 때 [VMware에서 Azure](#vmware-replication-to-azure)와 동일한 구성 요소와 프로세스를 사용합니다. 단, 다음과 같은 차이점이 있습니다.
 
 - VMware VM 대신 구성 서버에 대한 물리적 서버를 사용할 수 있습니다.
 - 장애 복구를 위해 온-프레미스 VMware 인프라가 필요합니다. 실제 컴퓨터로 장애 복구를 수행할 수 없습니다.
 
-## <a name="hyper-v-replication-to-azure"></a>Azure로 Hyper-V 복제
+## <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로
+
+Hyper-V VM을 Azure에 복제하는 데 필요한 사항은 다음과 같습니다.
 
 **영역** | **구성 요소** | **세부 정보**
 --- | --- | ---
@@ -130,7 +135,7 @@ ms.lasthandoff: 03/02/2017
 ![구성 요소](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replication-to-a-secondary-site"></a>보조 사이트로 복제
+## <a name="replicate-to-a-secondary-site"></a>보조 사이트에 복제
 
 다음 사항을 보조 사이트로 복제할 수 있습니다.
 
@@ -139,13 +144,15 @@ ms.lasthandoff: 03/02/2017
 - **Hyper-V**: VMM 클라우드에서 관리되는 [지원되는 Hyper-V 호스트](site-recovery-support-matrix-to-sec-site.md#on-premises-servers)에서 실행되는 온-프레미스 Hyper-V VM. [지원되는 호스트](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). [Hyper-V 및 Azure에서 지원하는](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) 게스트 운영 체제를 실행하는 Hyper-V VM을 복제할 수 있습니다.
 
 
-## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>보조 사이트에 VMware VM/물리적 서버 복제
+## <a name="vmwarephysical-to-a-secondary-site"></a>VMware/물리적 서버에서 보조 사이트로
+
+InMage Scout을 사용하여 VMware VM 또는 물리적 서버에서 보조 사이트로 복제합니다.
 
 ### <a name="components"></a>구성 요소
 
 **영역** | **구성 요소** | **세부 정보**
 --- | --- | ---
-**Azure** | InMage Scout를 사용하여 이 시나리오를 배포합니다. | InMage Scout를 얻으려면 Azure 구독이 필요합니다.<br/><br/> Recovery Services 자격 증명 모음을 만든 후에 InMage Scout를 다운로드하고 최신 업데이트를 설치하여 배포를 설정합니다.
+**Azure** | InMage Scout. | InMage Scout를 얻으려면 Azure 구독이 필요합니다.<br/><br/> Recovery Services 자격 증명 모음을 만든 후에 InMage Scout를 다운로드하고 최신 업데이트를 설치하여 배포를 설정합니다.
 **프로세스 서버** | 기본 사이트에 있음 | 프로세스 서버를 배포하여 캐시, 압축 및 데이터 최적화를 처리합니다.<br/><br/> 또한 보호하려는 컴퓨터에 대해 통합 에이전트의 푸시 설치를 처리합니다.
 **구성 서버** | 보조 사이트에 있음 | 구성 서버는 관리 웹 사이트나 vContinuum 콘솔을 사용하여 배포를 관리, 구성 및 모니터링합니다.
 **vContinuum 서버** | 선택 사항입니다. 구성 서버와 동일한 위치에 설치됩니다. | 보호되는 환경을 관리 및 모니터링하기 위한 콘솔을 제공합니다.
@@ -166,7 +173,9 @@ ms.lasthandoff: 03/02/2017
 
 
 
-## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM 복제
+## <a name="hyper-v-to-a-secondary-site"></a>Hyper-V에서 보조 사이트로
+
+Hyper-V VM을 보조 사이트에 복제하는 데 필요한 사항은 다음과 같습니다.
 
 
 **영역** | **구성 요소** | **세부 정보**
@@ -202,25 +211,8 @@ ms.lasthandoff: 03/02/2017
 7. 기본 사이트를 활성 위치로 다시 만들려면 다른 역방향 복제 후에 보조 사이트에서 기본 사이트로 계획된 장애 조치를 시작합니다.
 
 
-## <a name="hyper-v-replication-workflow"></a>Hyper-V 복제 워크플로
-
-**워크플로 단계** | **작업**
---- | ---
-1. **보호 사용** | Hyper-V VM에 보호를 사용하도록 설정한 후에 컴퓨터 필수 구성 요소를 준수하는지 확인하기 위해 **보호 사용** 작업이 시작됩니다. 이 작업은 다음과 같은 두 메서드를 호출합니다.<br/><br/> 구성한 설정을 사용하여 복제를 설정하는 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx)입니다.<br/><br/> 전체 VM 복제를 초기화하는 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx)입니다.
-2. **초기 복제** |  모두 보조 위치에 복제될 때까지 가상 컴퓨터 스냅숏을 만들고 가상 하드 디스크를 하나씩 복제합니다.<br/><br/> 이 작업의 완료 시간은 VM 크기 및 네트워크 대역폭 및 초기 복제 방법에 따라 결정됩니다.<br/><br/> 초기 복제 진행 중에 디스크가 변경될 경우, 디스크와 동일한 폴더에 있는 Hyper-V 복제 로그(.hrl)를 통해 Hyper-V Replica Replication Tracker가 이러한 변경 내용을 추적합니다.<br/><br/> 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다.<br/><br/> 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다. 초기 복제가 완료되면 VM 스냅숏이 삭제되고 로그의 델타 디스크 변경 내용이 동기화 및 병합됩니다.
-3. **보호 완료** | 초기 복제를 완료한 후에 **보호 완료** 작업에서 가상 컴퓨터를 보호하도록 네트워크 및 기타 복제 후 설정을 구성합니다.<br/><br/> Azure에 복제할 경우 장애 조치를 위해 가상 컴퓨터에 대한 설정을 조정해야 할 수 있습니다.<br/><br/> 이 시점에서 테스트 장애 조치(Failover)를 실행하여 모든 것이 예상대로 작동하는지 확인할 수 있습니다.
-4. **복제** | 초기 복제 후에는 복제 설정에 따라 델타 동기화가 시작됩니다.<br/><br/> **복제 실패**: 델타 복제에 실패했고 전체 복제에는 대역폭이나 시간이 많이 소모될 경우 다시 동기화가 발생합니다. 예를 들어 .hrl 파일이 디스크 크기에 50%에 달한다면 VM이 다시 동기화되도록 표시됩니다. 다시 동기화는 원본 및 대상 가상 컴퓨터 디스크의 체크섬을 계산하고 델타만 전송하므로 보내는 데이터 크기가 최소화됩니다. 다시 동기화가 완료되면 델타 복제가 다시 시작됩니다. 기본적으로 다시 동기화는 업무 시간 이외에 실행되도록 예약되나 수동으로 가상 컴퓨터를 다시 동기화할 수 있습니다.<br/><br/> **복제 오류**: 복제 오류가 발생한 경우 기본 제공 재시도가 있습니다. 복구할 수 없는 오류(예: 인증 또는 권한 오류)가 발생했거나 복제 컴퓨터가 잘못된 상태인 경우 재시도를 수행하지 않습니다. 복구할 수 없는 오류(예: 네트워크 오류, 디스크 용량/메모리 부족)의 경우 재시도 간의 간격을 늘려가며 재시도를 수행합니다(예: 1, 2, 4, 8, 10분 후 30분마다).
-5. **계획된/계획되지 않은 장애 조치** | 필요한 경우 계획된 또는 계획되지 않은 장애 조치를 실행할 수 있습니다.<br/><br/> 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.<br/><br/> 복제본 VM이 만들어진 후에는 커밋 대기 중 상태에 배치됩니다. 원본 VM을 커밋하여 장애 조치를 완료해야 합니다.<br/><br/> 기본 사이트가 실행된 후에 사용 가능한 경우 기본 사이트에 다시 장애 복구할 수 있습니다.
-
-
-**그림 8: Hyper-V 워크플로**
-
-![워크플로](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## <a name="next-steps"></a>다음 단계
 
-[필수 구성 요소 확인](site-recovery-prereq.md)
+- Hyper-V 복제 워크플로에 대해 [자세히 알아보세요](site-recovery-hyper-v-azure-architecture.md).
+- [필수 구성 요소 확인](site-recovery-prereq.md)
 

@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f1b8c68639fd2b778e7e56a6826e91d5bffd4ae8
-ms.openlocfilehash: c6f843e452353edc7c4c7e9bacf653c555145afe
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 이 자습서에서는 AMS(Azure 미디어 서비스) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 응용 프로그램을 구현하는 단계를 안내합니다.
 
@@ -52,6 +51,9 @@ ms.lasthandoff: 01/13/2017
 5. REST API를 통해 자산을 게시하고 스트리밍 기능 및 URL 점진적 다운로드를 사용합니다.
 6. 콘텐츠를 재생합니다.
 
+>[!NOTE]
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+
 
 이 항목에 사용된 AMS REST 엔터티에 대한 자세한 내용은 [Azure Media Services REST API 참조](/rest/api/media/services/azure-media-services-rest-api-reference)를 참조하세요. 참고 항목: [Azure Media Services 개념](media-services-concepts.md)
 
@@ -73,7 +75,7 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 4. 시작 아이콘을 클릭합니다.
 5. 저장 단추를 클릭하여 변경 내용을 저장합니다.
 
-## <a name="a-idconnectaconnect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>REST API를 통해 미디어 서비스 계정에 연결합니다.
+## <a id="connect"></a>REST API를 통해 미디어 서비스 계정에 연결합니다.
 Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. Azure 액세스 제어 서비스(ACS)에서 제공하는 액세스 토큰과 미디어 서비스 자체 URI입니다. 미디어 서비스를 호출할 때 올바른 헤더 값을 지정하고 액세스 토큰을 올바르게 통과하면 이 요청을 할 때 사용자가 원하는 방법을 사용할 수 있습니다.
 
 다음 단계는 미디어 서비스 REST API를 사용하여 미디어 서비스에 연결할 때 가장 일반적인 워크플로를 설명합니다.
@@ -217,7 +219,7 @@ Media Services 계정에 대한 AccountKey는 액세스 토큰 요청에서 clie
 >
 >
 
-## <a name="a-iduploadacreate-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>REST API를 통해 새 자산을 만들고 비디오를 업로드합니다.
+## <a id="upload"></a>REST API를 통해 새 자산을 만들고 비디오를 업로드합니다.
 
 미디어 서비스에서 자산에 디지털 파일을 업로드합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
@@ -541,7 +543,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
     HTTP/1.1 204 No Content
     ...
 
-## <a name="a-idencodeaencode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
+## <a id="encode"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
 
 미디어 서비스에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](/rest/api/media/services/job), [태스크](/rest/api/media/services/task) 설명 참조).
 
@@ -830,7 +832,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
 
 
 
-## <a name="a-idpublishgeturlsapublish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>REST API를 통해 자산을 게시하고 스트리밍 기능 및 URL 점진적 다운로드를 사용
+## <a id="publish_get_urls"></a>REST API를 통해 자산을 게시하고 스트리밍 기능 및 URL 점진적 다운로드를 사용
 
 자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. 미디어 서비스는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다. SAS 로케이터에 대한 자세한 내용은 [이 블로그](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)를 참조하세요.
 
@@ -1053,7 +1055,7 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a name="a-idplayaplay-your-content"></a><a id="play"></a>콘텐츠 재생
+## <a id="play"></a>콘텐츠 재생
 비디오를 스트리밍하려면 [Azure 미디어 서비스 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
 
 점진적 다운로드를 테스트하려면 IE, Chrome, Safari 등의 브라우저에 URL을 붙여 넣습니다.

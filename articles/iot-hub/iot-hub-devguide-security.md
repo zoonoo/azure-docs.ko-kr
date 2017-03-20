@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c93d0d47721546f25e72d97f4e019886ef801eba
-ms.openlocfilehash: a7ffc5e2547ca7ac52a56ec82b493b14acd7aaaa
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0644efd8753c33c0404b45f567759c0be666bcef
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,10 +42,10 @@ IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. �
 * **IoT hub 수준 공유 액세스 정책**. 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure portal][lnk-management-portal]에서 또는 프로그래밍 방식으로 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
   
   * **iothubowner**: 모든 사용 권한이 있는 정책입니다.
-  * **서비스**: ServiceConnect 사용 권한이 있는 정책입니다.
-  * **장치**: DeviceConnect 사용 권한이 있는 정책입니다.
-  * **registryRead**: RegistryRead 사용 권한이 있는 정책입니다.
-  * **registryReadWrite**: RegistryRead 및 RegistryWrite 사용 권한이 있는 정책입니다.
+  * **service**: **ServiceConnect** 사용 권한이 있는 정책입니다.
+  * **device**: **DeviceConnect** 권한이 있는 정책입니다.
+  * **registryRead**: **RegistryRead** 권한이 있는 정책입니다.
+  * **registryReadWrite**: **RegistryRead** 및 RegistryWrite 권한이 있는 정책입니다.
   * **장치 단위 보안 자격 증명**. 각 IoT Hub는 [ID 레지스트리][lnk-identity-registry]를 포함합니다. 이 ID 레지스트리의 각 장치의 경우 해당 장치 끝점으로 범위가 지정된 **DeviceConnect** 사용 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
 
 예를 들어 일반적인 IoT 솔루션에서는 다음이 적용됩니다.
@@ -54,6 +54,9 @@ IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. �
 * 이벤트 프로세서 구성 요소는 *서비스* 정책을 사용합니다.
 * 런타임 장치 비즈니스 논리 구성 요소는 *서비스* 정책을 사용합니다.
 * 개별 장치는 IoT Hub의 ID 레지스트리에 저장된 자격 증명을 사용하여 연결합니다.
+
+> [!NOTE]
+> 자세한 내용은 [사용 권한](#iot-hub-permissions)을 참조하세요.
 
 ## <a name="authentication"></a>인증
 Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 증명에 대한 토큰을 확인하여 끝점에 대한 액세스를 부여합니다.
@@ -370,10 +373,10 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 
 | 사용 권한 | 참고 사항 |
 | --- | --- |
-| **RegistryRead** |ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리][lnk-identity-registry]를 참조하세요. |
-| **RegistryReadWrite** |ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리][lnk-identity-registry]를 참조하세요. |
-| **ServiceConnect** |클라우드 서비스 지향 통신 및 모니터링 중인 끝점에 대한 액세스를 부여합니다. 예를 들어 장치-클라우드 메시지를 받고 클라우드-장치 메시지를 보내며 해당 전달 승인을 검색할 수 있는 권한을 백 엔드 클라우드 서비스에 부여합니다. |
-| **DeviceConnect** |장치 지향 끝점에 대한 액세스를 부여합니다. 예를 들어 장치-클라우드 메시지를 보내고 클라우드-장치 메시지를 받을 수 있는 권한을 클라우드에 부여합니다. 이 권한은 장치에서 사용됩니다. |
+| **RegistryRead** |ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리][lnk-identity-registry]를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
+| **RegistryReadWrite** |ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리][lnk-identity-registry]를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
+| **ServiceConnect** |클라우드 서비스 지향 통신 및 모니터링 중인 끝점에 대한 액세스를 부여합니다. <br/>장치-클라우드 메시지를 받고 클라우드-장치 메시지를 보내며 해당 전달 승인을 검색할 권한을 부여합니다. <br/>파일 업로드에 대한 전달 승인을 검색할 권한을 부여합니다. <br/>태그 및 원하는 속성을 업데이트하고, 보고된 속성을 검색하고, 쿼리를 실행하기 위해 장치 쌍에 액세스할 권한을 부여합니다. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
+| **DeviceConnect** |장치 지향 끝점에 대한 액세스를 부여합니다. <br/>장치-클라우드 메시지를 보내고 클라우드-장치 메시지를 받을 권한을 부여합니다. <br/>장치에서 파일 업로드를 수행할 권한을 부여합니다. <br/>장치 쌍의 원하는 속성 알림을 받고 장치 쌍의 보고된 속성을 업데이트할 권한을 부여합니다. <br/>파일 업로드를 수행할 권한을 부여합니다. <br/>이 권한은 장치에서 사용됩니다. |
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 이 IoT Hub 개발자 가이드의 다른 참조 자료:

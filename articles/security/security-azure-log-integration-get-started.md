@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/07/2017
+ms.date: 03/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
-ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f5f5597e09128236fd659b68c70d587d87a0832a
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="get-started-with-azure-log-integration-preview"></a>Azure 로그 통합(미리 보기) 시작
+# <a name="get-started-with-azure-log-integration"></a>Azure 로그 통합 시작
 Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해줍니다. 이 통합은 응용 프로그램과 관련된 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공합니다.
 
 이 자습서에서는 Azure 로그 통합을 설치하고 Azure 저장소, Azure 감사 로그 및 Azure 보안 센터 경고의 로그를 통합하는 방법을 안내합니다. 이 자습서를 완료하기 위한 예상 시간은&1;시간입니다.
@@ -129,15 +129,22 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
 ## <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 1. **c:\Program Files\Microsoft Azure Log Integration**으로 명령 프롬프트 및 **cd**를 엽니다.
-2. .\AZLOG.exe authorizedirectoryreader <TenantID> Sample - 
+2. tenantID를 제공하는 명령을 실행합니다. 이 명령을 실행하려면 테넌트 관리자 역할의 구성원이어야 합니다.
 
-.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999 명령을 실행합니다.
+AZLOG.exe authorizedirectoryreader tenantId
 
-3. 다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인하세요. 
-* **C:\Users\azlog\AzureActiveDirectoryJson**   
+샘플 -
+
+AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
+
+3. 다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인하세요.
+* **C:\Users\azlog\AzureActiveDirectoryJson**  
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 4. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. 사용 중인 SIEM 제품에 따라 일부 필드 매핑이 필요할 수 있습니다.
+
+[Azure Active Directory에서 현재 감사 이벤트로 로깅된 이벤트 목록](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)을 열고 '로그 통합'을 지원을 요청하는 서비스로 선택합니다.
 

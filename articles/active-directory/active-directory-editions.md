@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -144,7 +145,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 **자세한 내용:**
 
-* [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)
+* [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)
 **유형:** 일반 기능
@@ -241,7 +242,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 ## <a name="premium-features"></a>Premium 기능
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>셀프 서비스 그룹 및 응용 프로그램 관리/셀프 서비스 응용 프로그램 추가/동적 그룹
+#### <a name="self-service-group"></a>셀프 서비스 그룹 및 응용 프로그램 관리/셀프 서비스 응용 프로그램 추가/동적 그룹
 **유형:** Premium 기능
 
 **가용성:**
@@ -273,7 +274,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 * [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>MIM CAL + MIM 서버
+#### <a name="mim-cal-mim-server"></a>MIM CAL + MIM 서버
 Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라이선스(모든 버전)와 함께 부여됩니다. Microsoft Identity Manager는 Windows Server 운영 체제에서 실행되기 때문에 서버가 Windows Server의 유효하고 라이선스가 부여된 복사본을 실행하는 한 Microsoft Identity Manager를 해당 서버에 설치하고 사용할 수 있습니다. Microsoft Identity Manager 서버에는 별도의 다른 라이선스가 필요하지 않습니다.
 
 **유형:** Premium 기능
@@ -344,7 +345,7 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 | ![확인][12] |![확인][12] |![확인][12] |![확인][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>MDM 자동 등록, 셀프 서비스 Bitlocker 복구, Azure AD 조인을 통해 Windows 10 장치에 로컬 관리자 추가
+#### <a name="mdm-auto-enrollment"></a>MDM 자동 등록, 셀프 서비스 Bitlocker 복구, Azure AD 조인을 통해 Windows 10 장치에 로컬 관리자 추가
 **유형:** Azure Active Directory 조인 – Windows 10 전용 관련 기능
 
 **가용성:**
@@ -384,9 +385,4 @@ Azure AD는 Free, Basic 및 Premium(P1 및 P2) 버전의 일반 기능 외에도
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

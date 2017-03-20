@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: cf0cd5202288a9da55e0f8409a51ea904eeb2d55
-ms.openlocfilehash: 775ef958846ad2a780abb761d1c3934e671d5f1c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -49,6 +49,8 @@ Azure Portal에서 작업 영역을 관리하려면:
 
 > [!NOTE]
 > 새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine Learning 작업 영역에 다른 사용자를 초대하는 경우 구독에 대한 참여자 또는 관리자 역할을 할당해야 해당 사용자가 웹 서비스를 배포하거나 관리할 수 있습니다. 
+> 
+>액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기](../active-directory/role-based-access-control-manage-assignments.md)를 참조하세요.
 
 ## <a name="use-the-azure-classic-portal"></a>Azure 클래식 포털 사용
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
-ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -27,8 +28,8 @@ Visual Studio용 데이터 레이크 도구를 설치하는 방법과 Visual Stu
 
 U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 분석하기 위한 확장성이 탁월한 언어입니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
-* **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio 2017은 현재 지원되지 않습니다.**
+## <a name="prerequisites"></a>필수 조건
+* **Visual Studio 2015 업데이트 3, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012 Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio 2017은 현재 지원되지 않습니다.**
 * **Microsoft Azure SDK for .NET 버전 2.7.1 이상**.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **[Visual Studio용 Data Lake 도구](http://aka.ms/adltoolsvs)**.
 
@@ -349,9 +350,4 @@ Visual Studio용 Azure Data Lake 도구에 대해 알아보려면 [Visual Studio
     Write-Host "List the source data ..."  -ForegroundColor Green
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d04f073ebf846955fde81434fd015ee4b943f695
-ms.openlocfilehash: 179abb91438fb20cd6b6adebfedb8a25e0127ad7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
+ms.openlocfilehash: 930be4397a56dc0af0fd13305e0e4171929cb2cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="direct-methods"></a>직접 메서드
+# <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 ## <a name="overview"></a>개요
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: b21867e41acb1e0658041bd931327047095bb159
-ms.openlocfilehash: b5ecba98fd5c3061f68f94f5004c7cf00d0dfb36
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -537,7 +537,7 @@ CLI 명령을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows 
  ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-in-azure"></a>Azure에서 기존 또는 실행 중인 IaaS Linux VM에서 암호화 사용
-[Resource Manager 템플릿](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm)을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Linux VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
+[Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Linux VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
 
 1. Azure 빠른 시작 템플릿에서 **Azure에 배포**를 클릭하고 **매개 변수** 블레이드에 암호화 구성을 입력하고 **확인**을 클릭합니다.
 

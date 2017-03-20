@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/24/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 691e2e9156a825e64890f035b23cb2526d502107
-ms.openlocfilehash: c7d8cea9a15ec79356c89f628ef9d8e8ccbaaec3
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41b75cf3059cd3758f1bce149ad8fcad4e5644ac
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,15 +28,10 @@ Azure DocumentDB에서 Azure 포털을 사용하여 데이터의 글로벌 가�
 
 글로벌 데이터베이스 복제가 DocumentDB에서 작동하는 방법에 대한 자세한 내용은 [DocumentDB를 사용하여 전역적으로 데이터 배포](documentdb-distribute-data-globally.md)를 참조하세요. 프로그램 방식으로 글로벌 데이터베이스 복제 수행에 대한 자세한 내용은 [다중 하위 지역 DocumentDB 계정을 사용하여 개발](documentdb-developing-with-multiple-regions.md)을 참조하세요.
 
-> [!NOTE]
-> DocumentDB 데이터베이스의 전역 배포는 일반적으로 사용 가능하며, 새로 만든 DocumentDB 계정에 대해 자동으로 사용되도록 설정됩니다. 현재, 모든 기존 계정에 대해 전역 배포를 사용하도록 설정하기 위해 작업 중이지만 계정에 대해 전역 배포를 일시적으로 사용하도록 설정하려면 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. Microsoft에서 처리해 드리겠습니다.
-> 
-> 
-
-## <a name="a-idaddregionaadd-global-database-regions"></a><a id="addregion"></a>글로벌 데이터베이스 지역 추가
+## <a id="addregion"></a>글로벌 데이터베이스 지역 추가
 DocumentDB는 대부분 [Azure 지역][azureregions]에서 사용할 수 있습니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 이동 표시줄에서 **NoSQL(DocumentDB)**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **NoSQL(DocumentDB)**을 클릭합니다.
 2. **NoSQL(DocumentDB)** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 3. 계정 블레이드의 메뉴에서 **전역으로 데이터 복제**를 클릭합니다.
 4. **전역으로 데이터 복제** 블레이드에서 추가 또는 제거할 지역을 선택하고 **저장**을 클릭합니다. 지역을 추가하는 비용에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/) 또는 [DocumentDB를 사용하여 전역적으로 데이터 배포](documentdb-distribute-data-globally.md) 문서를 참조하세요.
@@ -65,7 +61,7 @@ While all regions associated with your DocumentDB database account can serve rea
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 [DocumentDB의 일관성 수준](documentdb-consistency-levels.md)을 참조하여 전역적으로 복제한 계정의 일관성을 관리하는 방법을 알아봅니다.
 
 글로벌 데이터베이스 복제가 DocumentDB에서 작동하는 방법에 대한 자세한 내용은 [DocumentDB를 사용하여 전역적으로 데이터 배포](documentdb-distribute-data-globally.md)를 참조하세요. 프로그램 방식으로 여러 하위 지역의 데이터 복제에 대한 자세한 내용은 [다중 지역 DocumentDB 계정을 사용하여 개발](documentdb-developing-with-multiple-regions.md)을 참조하세요.
@@ -80,9 +76,4 @@ While all regions associated with your DocumentDB database account can serve rea
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/en-us/regions/#services
 [offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

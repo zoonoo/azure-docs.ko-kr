@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 3c9b3a9509493e8c6900d90b5ab6519de7a0721f
+ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
+ms.openlocfilehash: e0f03adefe1c04b4d7b8cc2dea18f15eb3f05397
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="device-twins"></a>장치 쌍
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 ## <a name="overview"></a>개요
 *장치 쌍*은 장치 상태 정보(메타데이터, 구성 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT Hub에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다. 이 문서는 다음을 설명합니다.
 
@@ -286,7 +288,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 > 
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
-IoT Hub 개발자 가이드의 다른 참조 항목은 다음과 같습니다.
+이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
 * [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
@@ -332,9 +334,4 @@ IoT Hub 개발자 가이드의 다른 참조 항목은 다음과 같습니다.
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

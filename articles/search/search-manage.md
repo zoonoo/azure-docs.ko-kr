@@ -13,11 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 03/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -41,13 +42,10 @@ Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 
 
 *쿼리 성능* 역시 이 문서에서 다루지 않습니다. 자세한 내용은 [사용 및 쿼리 메트릭 모니터링](search-monitor-usage.md) 및 [성능 및 최적화](search-performance-optimization.md)를 참조합니다.
 
-Azure Search는 정전이 발생한 경우 다른 클러스터와 데이터 센터에 대한 장애 조치를 수행하지만, 인덱스 또는 서비스가 악의적으로 또는 실수로 삭제된 경우 수동 백업 및 복원 작업용 기본 제공 솔루션을 제공하지 않습니다. 개체와 데이터를 해당 서비스에 푸시하는 고객이 실수로 인덱스를 삭제한 경우 인덱스를 만들고 채우는 소스 코드는 사실상 복원 옵션입니다. 
-
-Azure Search는 서비스의 인덱스의 지역에서 복제를 제공하지 않습니다. 솔루션이 전역에 도달하는 경우 모든 응용 프로그램 구성 요소가 한 곳에서 호스팅되도록 다른 지역 데이터 센터의 추가 서비스를 통해 중복성을 추가합니다. 자세한 내용은 [Azure Search에서 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
 
 <a id="admin-rights"></a>
 
-## <a name="administrator-rights-in-azure-search"></a>Azure Search에서 관리자 권한
+## <a name="administrator-rights"></a>관리자 권한
 Azure 구독 관리자 또는 공동 관리자는 서비스 자체를 프로비전 또는 프로비전 해제할 수 있습니다.
 
 서비스 내에서, 서비스 URL 및 관리 api-key에 액세스할 권한이 있는 모든 사람은 [RBAC 정의된 권한](#rbac)을 통해 구현된 대로 서비스에 대한 읽기-쓰기 권한과 함께, api-key, 인덱스, 인덱서, 데이터 원본, 일정, 역할 할당 등의 서버 개체를 추가, 삭제 또는 수정하는 기능을 보유합니다.
@@ -56,7 +54,21 @@ Azure Search와 상호 작용하는 모든 사용자는 서비스에 대한 읽�
 
 <a id="sys-info"></a>
 
-## <a name="logging-in-azure-search-and-system-information"></a>Azure Search 및 시스템 정보에서 로깅
+## <a name="set-rbac-roles-for-administrative-access"></a>관리 액세스에 대한 RBAC 역할 설정
+Azure에서는 포털 또는 Resource Manager API를 통해 관리되는 모든 서비스에 대해 [전역 역할 기반 권한 부여 모델](../active-directory/role-based-access-control-configure.md) 을 제공합니다. 소유자, 참가자 및 읽기 권한자 역할은 Active Directory 사용자, 그룹 및 각 역할에 할당하는 보안 주체에 대한 서비스 관리 수준을 결정합니다. 
+
+Azure Search에서는 RBAC 권한에 따라 다음 관리 작업이 결정됩니다.
+
+| 역할 | 작업 |
+| --- | --- |
+| 소유자 |api-key, 인덱스, 인덱서, 인덱서 데이터 원본 및 인덱서 일정 등 서비스 또는 해당 서비스의 개체를 만들거나 삭제합니다.<p>개수 및 저장소 크기를 포함하여 서비스 상태를 봅니다.<p>역할 멤버 자격을 추가하거나 삭제합니다(소유자만 역할 멤버 자격을 관리할 수 있음).<p>구독 관리자 및 서비스 소유자는 소유자 역할의 자동 멤버 자격을 갖습니다. |
+| 참여자 |RBAC 역할 관리를 제외하고 소유자와 같은 수준의 액세스 권한입니다. 예를 들어, 참여자는 `api-key`를 보고 다시 생성할 수 있지만 역할 멤버 자격을 수정할 수 없습니다. |
+| 리더 |서비스 상태와 쿼리 키를 봅니다. 이 역할의 멤버는 서비스 구성을 변경할 수 없고 관리 키도 볼 수 없습니다. |
+
+역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 검색 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
+
+<a id="secure-keys"></a>
+## <a name="logging-and-system-information"></a>로깅 및 시스템 정보
 Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 통해 개별 서비스에 대한 로그 파일을 노출하지 않습니다. 기본 계층 이상에서 Microsoft는 Service Level Agreement(서비스 수준 약정)당 99.9% 가용성에 대해 모든 Azure Search 서비스를 모니터링합니다. 서비스 속도가 느리거나 요청 처리량이 SLA 임계값 미만으로 떨어질 경우 지원 팀은 사용할 수 있는 로그 파일을 검토하고 문제를 해결합니다.
 
 서비스에 대한 일반 정보를 기준으로 다음과 같은 방법으로 정보를 얻을 수 있습니다.
@@ -67,7 +79,7 @@ Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 �
 
 <a id="manage-keys"></a>
 
-## <a name="manage-the-api-keys"></a>api-key 관리
+## <a name="manage-api-keys"></a>api-key 관리
 검색 서비스에 대한 모든 요청에는 해당 서비스용으로 특별히 생성된 api-key가 필요합니다. 이 api-key는 검색 서비스 끝점에 액세스하는 유일한 방법입니다. 
 
 api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. 서비스에 의해 단독으로 생성됩니다. [RBAC 권한](#rbac)을 통해 키를 삭제 또는 읽을 수 있지만 생성된 키를 사용자 정의 문자열로 재정의할 수 없습니다(특히, 정기적으로 사용하는 암호가 있는 경우 api-key를 사용자 정의 암호로 대체할 수 없음). 
@@ -87,22 +99,7 @@ api-key를 가져오거나 다시 생성하려면 서비스 대시보드를 엽�
 
 <a id="rbac"></a>
 
-## <a name="set-rbac-roles-on-administrative-access-for-azure-search"></a>Azure Search의 관리자 액세스 권한에 대한 RBAC 역할 설정
-Azure에서는 포털 또는 Resource Manager API를 통해 관리되는 모든 서비스에 대해 [전역 역할 기반 권한 부여 모델](../active-directory/role-based-access-control-configure.md) 을 제공합니다. 소유자, 참가자 및 읽기 권한자 역할은 Active Directory 사용자, 그룹 및 각 역할에 할당하는 보안 주체에 대한 서비스 관리 수준을 결정합니다. 
-
-Azure Search에서는 RBAC 권한에 따라 다음 관리 작업이 결정됩니다.
-
-| 역할 | 작업 |
-| --- | --- |
-| 소유자 |api-key, 인덱스, 인덱서, 인덱서 데이터 원본 및 인덱서 일정 등 서비스 또는 해당 서비스의 개체를 만들거나 삭제합니다.<p>개수 및 저장소 크기를 포함하여 서비스 상태를 봅니다.<p>역할 멤버 자격을 추가하거나 삭제합니다(소유자만 역할 멤버 자격을 관리할 수 있음).<p>구독 관리자 및 서비스 소유자는 소유자 역할의 자동 멤버 자격을 갖습니다. |
-| 참여자 |RBAC 역할 관리를 제외하고 소유자와 같은 수준의 액세스 권한입니다. 예를 들어, 참여자는 `api-key`를 보고 다시 생성할 수 있지만 역할 멤버 자격을 수정할 수 없습니다. |
-| 리더 |서비스 상태와 쿼리 키를 봅니다. 이 역할의 멤버는 서비스 구성을 변경할 수 없고 관리 키도 볼 수 없습니다. |
-
-역할은 서비스 끝점에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 검색 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)에서 "관리 및 데이터 작업에 대한 권한 부여"를 참조하세요.
-
-<a id="secure-keys"></a>
-
-## <a name="secure-the-api-keys"></a>api-key 보안
+## <a name="secure-api-keys"></a>api-key 보안
 키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
 
 1. 서비스 대시보드에서 액세스 아이콘을 클릭하여 사용자 블레이드를 엽니다.
@@ -126,6 +123,21 @@ Azure Search에서는 RBAC 권한에 따라 다음 관리 작업이 결정됩니
 > 캐싱 동작 때문에 한도가 일시적으로 과장될 수 있습니다. 예를 들어 공유 서비스를 사용하는 경우 문서 수가 문서 10,000개 고정 한도보다 높게 표시될 수도 있습니다. 과장은 일시적이며 다음 한도 적용 확인 시 검색됩니다. 
 > 
 > 
+
+## <a name="disaster-recovery-and-service-outages"></a>재해 복구 및 서비스 중단
+
+데이터를 복원할 수 있지만 Azure Search는 클러스터 또는 데이터 센터 수준에서 작동이 중단될 경우 서비스의 즉각적인 장애 조치(failover)를 제공하지 않습니다. 데이터 센터에서 클러스터가 실패하면 운영 팀에서는 서비스를 검색하고 복원하기 위해 작업합니다. 서비스를 복원하는 동안 가동 중지가 발생할 수 있습니다. [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에 따라 서비스 사용 불가 상황을 보장하기 위해 서비스 크레딧을 요청할 수 있습니다. 
+
+Microsoft에서 통제할 수 없는 재해에 따른 장애 문제의 경우를 비롯하여 지속적인 서비스를 보장하려면 다른 하위 지역에서 [추가 서비스를 프로비전](search-create-service-portal.md)하고 지역에서 복제 전략을 구현하여 인덱스가 모든 서비스에서 완전히 중복되도록 해야 합니다.
+
+인덱서를 사용하여 인덱스를 채우고 새로 고치는 고객은 동일한 데이터 원본을 활용하여 지역별 인덱서를 통해 재해 복구를 처리합니다. 인덱서 대신, 응용 프로그램 코드를 사용하여 개체 및 데이터를 여러 서비스에 동시에 푸시합니다. 자세한 내용은 [Azure Search에서 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
+
+## <a name="backup-and-restore"></a>백업 및 복원
+
+Azure Search는 기본 데이터 저장소 솔루션이 아니므로 셀프 서비스 백업 및 복원에 대한 공식적인 메커니즘을 제공하지 않습니다. 인덱스를 만들고 채우는 데 사용되는 응용 프로그램 코드는 인덱스를 실수로 삭제하는 경우에 사실상 복원 옵션으로 사용됩니다. 
+
+인덱스를 다시 작성하려면 삭제(있다고 가정)하고, 서비스에서 인덱스를 다시 만들고, 기본 데이터 저장소에서 데이터를 검색하여 다시 로드합니다. 또는 지역 가동 중단이 발생하는 경우 [고객 지원]() 서비스에 문의하여 색인을 복원할 수 있습니다.
+
 
 <a id="scale"></a>
 
@@ -162,7 +174,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-video"></a>규모 및 배포에 대한 모범 사례(비디오)
+## <a name="best-practices-on-scale-and-deployment"></a>규모 및 배포에 대한 모범 사례
 이 30분 분량의 비디오는 지역으로 분산된 워크로드를 포함한 고급 배포 시나리오에 대한 모범 사례를 검토합니다. 동일한 내용을 다루는 도움말 페이지는 [Azure Search에서 성능 및 최적화](search-performance-optimization.md) 를 참조할 수도 있습니다.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -186,10 +198,5 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

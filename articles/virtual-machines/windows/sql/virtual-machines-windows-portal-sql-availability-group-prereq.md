@@ -19,6 +19,7 @@ ms.author: mikeray
 translationtype: Human Translation
 ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
 ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다. 
-2. ** + **를 클릭하여 포털에서 새 개체를 만듭니다.
+2. **+**를 클릭하여 포털에서 새 개체를 만듭니다.
 
    ![새로 만들기](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -296,7 +297,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 
 서버가 구성 변경 내용을 완료한 후 서버를 다시 시작합니다. 
 
-### <a name="a-namedomainaccountsa-configure-domain-accounts"></a><a name=DomainAccounts></a> 도메인 계정 구성
+### <a name=DomainAccounts></a> 도메인 계정 구성
 
 다음 단계에서는 AD(Active Directory) 계정을 구성합니다. 다음 표에서 이러한 계정을 보여줍니다.
 
@@ -344,7 +345,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로&2;개의 SQL 
 | 적절한 갤러리 항목 선택 |**Windows Server 2016 Datacenter** |**Windows Server 2016의 SQL Server 2016 SP1 Enterprise** |**Windows Server 2016의 SQL Server 2016 SP1 Enterprise** |
 | 가상 컴퓨터 구성 **기본 사항** |**이름** = cluster-fsw<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-0<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-1<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |
 | 가상 컴퓨터 구성 **크기** |DS1\_V2(1 코어, 3.5GB) |**크기** = DS2\_V2(2 코어, 7GB) |**크기** = DS2\_V2(2 코어, 7GB) |
-| 가상 컴퓨터 구성 **설정** |**Storage** = Premium(SSD)<br/>**네트워크 서브넷** = autoHAVNET<br/>** 계정** = 자동으로 생성된 Storage 계정 사용<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소** = 없음<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**Storage** = Premium(SSD)<br/>**네트워크 서브넷** = autoHAVNET<br/>** 계정** = 자동으로 생성된 Storage 계정 사용<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소** = 없음<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**Storage** = Premium(SSD)<br/>**네트워크 서브넷** = autoHAVNET<br/>** 계정** = 자동으로 생성된 Storage 계정 사용<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소** = 없음<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |
+| 가상 컴퓨터 구성 **설정** |**Storage** = Premium(SSD)<br/>**네트워크 서브넷** = autoHAVNET<br/>**계정** = 자동으로 생성된 Storage 계정 사용<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소** = 없음<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**Storage** = Premium(SSD)<br/>**네트워크 서브넷** = autoHAVNET<br/>**계정** = 자동으로 생성된 Storage 계정 사용<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소** = 없음<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**Storage** = Premium(SSD)<br/>**네트워크 서브넷** = autoHAVNET<br/>**계정** = 자동으로 생성된 Storage 계정 사용<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소** = 없음<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |
 | 가상 컴퓨터 구성 **SQL Server 설정** |해당 없음 |**SQL 연결** = 개인(가상 네트워크 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure 주요 자격 증명 모음 통합** = 사용 안 함 |**SQL 연결** = 개인(가상 네트워크 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure 주요 자격 증명 모음 통합** = 사용 안 함 |
 
 <br/>
@@ -377,7 +378,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로&2;개의 SQL 
 
 모든 서버에 이 단계를 반복합니다.
 
-### <a name="a-namejoindomainajoin-the-servers-to-the-domain"></a><a name="joinDomain"></a>도메인에 서버를 조인합니다.
+### <a name="joinDomain"></a>도메인에 서버를 조인합니다.
 
 이제 VM을 **corp.contoso.com**에 연결할 수 있습니다. 두 SQL Server 및 파일 공유 감시 서버에 대해 다음을 수행합니다. 
 
@@ -408,7 +409,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로&2;개의 SQL 
 7. **확인**을 클릭하여 **Administrator 속성** 대화 상자를 닫습니다.
 8. **sqlserver-1** 및 **cluster-fsw**에서 위의 단계를 반복합니다.
 
-### <a name="a-namesetserviceaccountaset-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>SQL Server 서비스 계정 설정
+### <a name="setServiceAccount"></a>SQL Server 서비스 계정 설정
 
 각 SQL Server에서 SQL Server 서비스 계정을 설정합니다. [도메인 계정을 구성](#DomainAccounts)할 때 만든 계정을 사용합니다.
 
@@ -506,9 +507,4 @@ SQL Server 가용성 그룹의 경우 각 SQL Server는 도메인 계정으로 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 만들기](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
