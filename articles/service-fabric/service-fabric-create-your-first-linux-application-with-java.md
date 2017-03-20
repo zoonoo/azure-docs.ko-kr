@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: dc9234760b0dfb5d109fc86ac47a89c8fcf7d991
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -101,40 +102,22 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
 
 3. 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 이 작업은 로컬 클러스터에서 다섯 개의 노드 중 하나를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다. 이 작업을 수행하면 테스트 클라이언트에서 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
 
-## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon 플러그 인으로 응용 프로그램 빌드 및 배포
+## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon 플러그 인으로 응용 프로그램 만들기 및 배포
 
-Eclipse Neon용 [Service Fabric 플러그 인](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional)을 설치한 경우 Java로 Service Fabric 응용 프로그램을 만들고 빌드하고 배포하는 데 사용할 수 있습니다.  Eclipse를 설치할 때 **Java 개발자를 위한 Eclipse IDE**를 선택합니다.
-
-### <a name="create-the-application"></a>응용 프로그램 만들기
-
-Service Fabric 플러그 인은 Eclipse 확장성을 통해 사용할 수 있습니다.
-
-1. Eclipse에서 **파일 > 기타 > Service Fabric**을 선택합니다. [행위자] 및 [컨테이너]를 비롯한 옵션 집합이 표시됩니다.
-
-    ![Eclipse의 Service Fabric 템플릿][sf-eclipse-templates]
-
-2. 이 경우에 [상태 비저장 서비스]를 선택합니다.
-
-3. Service Fabric 관점을 사용할지를 확인하는 메시지가 표시되며 Service Fabric 프로젝트와 함께 사용할 Eclipse를 최적화합니다. '예'를 선택합니다.
-
-### <a name="deploy-the-application"></a>응용 프로그램 배포
-Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프로그램을 빌드하고 배포하기 위한 Gradle 태스크 집합을 포함합니다.
-
-1. **실행 > 구성 실행**을 선택합니다.
-2. **로컬** 또는 **클라우드**를 지정합니다. 기본 설치는 **로컬**입니다. 원격 클러스터에 배포하는 경우 **클라우드**를 선택합니다.
-3. `local.json` 또는 `cloud.json`를 적절하게 편집하여 적절한 정보를 게시 프로필에 채우도록 합니다.
-4. **실행**을 클릭합니다.
-
-몇 분 내로 앱을 빌드하고 배포합니다. Service Fabric Explorer에서 해당 상태를 모니터링할 수 있습니다.
+Service Fabric은 Eclipse를 사용하여 Service Fabric Java 응용 프로그램을 만들고, 빌드하며 배포하는 프로비전도 제공합니다. Eclipse를 설치할 때 **Java 개발자를 위한 Eclipse IDE**를 선택합니다. 또한 Service Fabric은 현재 Eclipse **Neon**용 플러그 인을 지원합니다. 다음 자세한 설명서를 참조하세요. [Linux에서 Eclipse용 Service Fabric 플러그 인을 사용하여 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
 
 ## <a name="adding-more-services-to-an-existing-application"></a>기존 응용 프로그램에 더 많은 서비스 추가
 
+### <a name="using-command-line-utility"></a>명령줄 유틸리티 사용
 `yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
 1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfjava:AddService`을 실행합니다.
+2. `yo azuresfjava:AddService` 실행
 
+### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Linux에서 Java용 Service Fabric Eclipse 플러그 인 사용
+Service Fabric용 Eclipse 플러그 인을 사용하여 만든 기존 응용 프로그램에 서비스를 추가하려면 [여기](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application) 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+* [Linux에서 Eclipse용 Service Fabric 플러그 인을 사용하여 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
 * [Azure CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-azure-cli.md)
 * [배포 문제 해결](service-fabric-azure-cli.md#troubleshooting)
@@ -144,9 +127,4 @@ Service Fabric 템플릿은 Eclipse를 통해 트리거할 수 있는 응용 프
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

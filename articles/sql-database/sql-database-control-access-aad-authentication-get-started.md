@@ -17,9 +17,9 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
-ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,11 +37,15 @@ ms.lasthandoff: 02/18/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
+* **Azure 계정**. Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://azure.microsoft.com/free/) 또는 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)할 수 있습니다. 
 
-* 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
+* **Azure는 사용 권한을 만듭니다**. 구독 소유자 또는 참가자 역할의 구성원인 계정을 사용하여 Azure Portal에 연결할 수 있어야 합니다. RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../active-directory/role-based-access-control-what-is.md)을 참조하세요.
 
-* [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started.md) 또는 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md)을 완료했습니다. 그렇지 않은 경우 이 필수 자습서를 완료하거나 이 자습서의 [PowerShell 버전](sql-database-get-started-powershell.md) 끝에서 PowerShell 스크립트를 실행하여 계속합니다.
+* **SQL Server Management Studio**. [SQL Server Management Studio 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 SSMS(SQL Server Management Studio) 최신 버전을 다운로드하여 설치할 수 있습니다. 새로운 기능이 지속적으로 출시되고 있으므로 Azure SQL Database에 연결할 때에는 항상 최신 버전의 SSMS를 사용하세요.
+
+* **기본 서버 및 데이터베이스** 이 자습서에 사용된 서버와 두 데이터베이스를 설치 및 구성하려면 **Azure에 배포** 단추를 클릭합니다. 단추를 클릭하면 **템플릿에서 배포** 블레이드가 열리고 새 리소스 그룹이 생성되고 생성할 새 서버에 대한 **관리자 로그인 암호**를 제공합니다.
+
+   [![다운로드](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
    > SQL Server 인증 관련 자습서인 [SQL 인증, 로그인/사용자 계정, 데이터베이스 역할, 권한, 서버 수준 방화벽 규칙 및 데이터베이스 수준 방화벽 규칙](sql-database-control-access-sql-authentication-get-started.md)의 완료 여부는 선택 사항입니다. 그러나 본 자습서에서 다루지 않는 개념이 포함되어 있습니다. 동일한 컴퓨터에서 동일한 IP 주소로 관련 자습서를 완료하는 경우 서버 수준 및 데이터베이스 수준의 방화벽과 관련된 이 자습서의 절차가 필요하지 않으며 이러한 이유로 선택 사항으로 표시됩니다. 또한 이 자습서의 스크린샷에서는 이 자습서를 완료했다고 가정합니다. 

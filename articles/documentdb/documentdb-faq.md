@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: cf8db132c7f541017744505bf0fca9393db8b3f9
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -59,7 +59,7 @@ DocumentDB의 처리량 측정값은 [요청 단위](documentdb-request-units.md
 충분히 많은 파티션 키 간에 워크로드가 균등하게 분산될 수 있는 경우 하나의 컬렉션이 DocumentDB에 저장할 수 있는 총 데이터 양에 대한 한도는 없습니다.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Microsoft Azure DocumentDB 비용은 얼마인가요?
-자세한 내용은 [DocumentDB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/documentdb/) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 소비된 저장소 및 각 컬렉션의 프로비전된 처리량에 따라 결정됩니다.
+자세한 내용은 [DocumentDB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/documentdb/) 페이지를 참조하세요. DocumentDB 사용 요금은 프로비전된 컬렉션 수, 컬렉션이 온라인이었던 시간 및 각 컬렉션의 프로비전된 처리량에 따라 결정됩니다.
 
 ### <a name="is-there-a-free-account-available"></a>무료 계정을 사용할 수 있나요?
 Azure를 처음 사용하는 경우 [Azure 무료 계정](https://azure.microsoft.com/free/)에 등록하면 30일간 제공된 $200로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.  

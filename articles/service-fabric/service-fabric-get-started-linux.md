@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ apt-get을 통해 SDK 및 관련된 런타임 패키지를 설치하려면 먼�
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. APT 키링에 새 GPG 키를 추가합니다.
+3. dotnet 리포지토리를 원본 목록에 추가합니다.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. APT 키링에 새 GPG 키를 추가합니다.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. 새로 추가된 리포지토리에 따라 패키지 목록을 새로 고칩니다.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. 새로 추가된 리포지토리에 따라 패키지 목록을 새로 고칩니다.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>SDK 설치 및 설정 방법
 원본을 업데이트하면 SDK를 설치할 수 있습니다.
 
@@ -136,16 +145,19 @@ Java SDK에서는 Java를 사용하여 Service Fabric 서비스를 빌드하는 
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-Neon Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 수 있습니다.
+**Java 개발자를 위한 Eclipse IDE** 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 수 있습니다.
 
-1. Eclipse에서 Buildship 버전 1.0.17 이상을 설치하도록 합니다. **도움말 > 설치 세부 정보**를 선택하여 설치된 구성 요소의 버전을 확인할 수 있습니다. [여기][buildship-update]에 있는 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서, 최신 Eclipse **Neon** 및 Buildship 버전(1.0.17 이상)을 설치하도록 합니다. **도움말 > 설치 세부 정보**를 선택하여 설치된 구성 요소의 버전을 확인할 수 있습니다. [여기][buildship-update]에 있는 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 2. Service Fabric 플러그 인을 설치하려면 **도움말 > 새 소프트웨어 설치...**를 선택합니다.
 3. "사용" 텍스트 상자에 http://dl.windowsazure.com/eclipse/servicefabric을 입력합니다.
 4. 추가를 클릭합니다.
-
     ![Eclipse 플러그 인][sf-eclipse-plugin]
 5. Service Fabric 플러그 인을 선택하고 [다음]을 클릭합니다.
 6. 설치를 계속하고 최종 사용자 라이선스 규약에 동의합니다.
+
+Service Fabric Eclipse 플러그 인이 이미 설치된 경우 최신 버전인지 확인합니다. ``Help => Installation Details``에서 추가로 업데이트할 수 있는지 확인할 수 있습니다. 그런 다음 설치된 플러그 인 목록에서 서비스 패브릭을 검색하고 업데이트를 클릭합니다. 보류 중인 업데이트가 있으면 가져와 설치합니다.
+
+Service Fabric Eclipse 플러그 인을 사용하여 Service Fabric java 응용 프로그램을 만들고 빌드, 배포, 업그레이드하는 방법에 대한 자세한 내용은 상세 가이드 [eclipse에서 서비스 패브릭 시작](service-fabric-get-started-eclipse.md)을 참조하세요.
 
 ## <a name="install-the-net-core-sdk-optional"></a>.NET Core SDK 설치(선택 사항)
 .NET Core SDK에서는 플랫폼 간 .NET Core를 사용하여 Service Fabric 서비스를 빌드하는 데 필요한 라이브러리 및 템플릿을 제공합니다.
@@ -174,7 +186,8 @@ Neon Eclipse IDE 내에서 Service Fabric용 Eclipse 플러그 인을 설치할 
 CLI를 업데이트하는 경우 CLI를 복제한 디렉터리로 이동하고 업데이트할 `git pull`을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Linux에서 첫 번째 Java 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-java.md)
+* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
+* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Linux에서 첫 번째 CSharp 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 * [Azure CLI를 사용하여 Service Fabric 응용 프로그램 관리](service-fabric-azure-cli.md)
@@ -189,9 +202,4 @@ CLI를 업데이트하는 경우 CLI를 복제한 디렉터리로 이동하고 �
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 9a17b749a50c0f75890fa71b4ae00391aa63876a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -105,7 +105,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
   * 작업자 역할과 마찬가지로, *OS 버전*에 대해 `*`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전을 선택하는 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 응용 프로그램 호환성을 유지하는 것입니다. 유효성이 검사되면 풀의 *OS 버전*을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크는 모두 중단되고 다시 큐에 대기됩니다.
 * **노드 크기**
 
-    **클라우드 서비스 구성** 계산 노드 크기는 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. 배치는 `ExtraSmall`을 제외한 모든 클라우드 서비스 크기를 지원합니다.
+    **클라우드 서비스 구성** 계산 노드 크기는 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. 배치는 `ExtraSmall`, `STANDARD_A1_V2` 및 `STANDARD_A2_V2`를 제외한 모든 클라우드 서비스 크기를 지원합니다.
 
     **가상 컴퓨터 구성** 계산 노드 크기는 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-linux-sizes.md)(Linux) 및 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-windows-sizes.md)(Windows)에 나열되어 있습니다. 배치는 `STANDARD_A0`및 프리미엄 저장소(`STANDARD_GS`, `STANDARD_DS` 및 `STANDARD_DSV2` 시리즈) 크기를 제외한 모든 Azure VM 크기를 지원합니다.
 
@@ -160,7 +160,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 * 클라이언트 응용 프로그램이 작업에 태스크를 추가할 수 있습니다. 또는 [작업 관리자 태스크](#job-manager-task)를 지정할 수 있습니다. 작업 관리자 태스크는 풀의 계산 노드 중 하나에서 작업 관리자 태스크를 실행하여 작업에 필요한 태스크를 만드는 데 필요한 정보를 포함합니다. 작업 관리자 태스크는 배치에서 특별히 처리되며, 작업이 생성되는 즉시 큐에 대기되고 실패할 경우 다시 시작됩니다. 작업 관리자 태스크는 작업이 인스턴스화되기 전에 태스크를 정의할 수 있는 유일한 방법이기 때문에 *작업 일정*에서 만든 작업에 [필요](#scheduled-jobs)합니다.
 * 작업 내의 모든 태스크가 완료되면 작업은 기본적으로 활성 상태로 유지됩니다. 작업에서 모든 태스크가 완료되면 작업이 자동으로 종료되도록 이 동작을 변경할 수 있습니다. 작업의 **onAllTasksComplete** 속성(배치 .NET의 [OnAllTasksComplete][net_onalltaskscomplete])을 *terminatejob*으로 설정하여 태스크가 모두 완료 상태인 경우 작업을 자동으로 종료합니다.
 
-    배치 서비스는 태그크가 *없는* 작업을 모든 태스크를 완료한 것으로 간주합니다. 따라서 이 옵션은 [작업 관리자 태스크](#job-manager-task)와 함께 가장 일반적으로 사용됩니다. 작업 관리자 없이 작업 자동 종료를 사용하려는 경우 처음부터 새 작업의 **onAllTasksComplete** 속성을 *noaction*으로 설정한 다음 작업에 태스크의 추가를 완료한 후에 *terminatejob*으로 설정해야 합니다.
+    배치 서비스는 태스크가 *없는* 작업을 모든 태스크를 완료한 것으로 간주합니다. 따라서 이 옵션은 [작업 관리자 태스크](#job-manager-task)와 함께 가장 일반적으로 사용됩니다. 작업 관리자 없이 작업 자동 종료를 사용하려는 경우 처음부터 새 작업의 **onAllTasksComplete** 속성을 *noaction*으로 설정한 다음 작업에 태스크의 추가를 완료한 후에 *terminatejob*으로 설정해야 합니다.
 
 ### <a name="job-priority"></a>작업 우선 순위
 배치에서 만드는 작업에 우선 순위를 할당할 수 있습니다. 배치 서비스는 작업의 우선 순위 값을 사용하여 계정 내의 작업 예약 순서를 결정합니다( [예약된 작업](#scheduled-jobs)과 혼동하지 않아야 합니다). 우선 순위 값의 범위는 -1000에서 1000까지이며 -1000이 가장 낮은 우선 순위를, 1000이 가장 높은 우선 순위를 나타냅니다. 작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트][rest_update_job] 작업(배치 REST)을 사용하거나 [CloudJob.Priority][net_cloudjob_priority] 속성(배치 .NET)을 수정합니다.

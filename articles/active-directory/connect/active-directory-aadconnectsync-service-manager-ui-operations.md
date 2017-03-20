@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/02/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: fadb15a95edb3ec82b284faa594706963618b9eb
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7f50ce0d4842bde809664c392ebee5425a70e6f0
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Sync Service Manager 작업 탭 사용
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/28/2017
 작업 탭에서는 최근 작업의 결과를 보여 줍니다. 이 탭은 문제를 이해하고 해결하는 데 핵심적인 요소입니다.
 
 ## <a name="understand-the-information-visible-in-the-operations-tab"></a>작업 탭에 표시되는 정보를 이해합니다.
-위쪽 절반에 모든 실행이 연대별 순서로 표시됩니다. 기본적으로 작업 로그는 지난&7;일에 대한 정보를 유지하지만 이 설정은 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)에 따라 변동될 수 있습니다. 성공 상태를 표시하지 않는 실행을 찾아보려고 합니다. 헤더를 클릭하여 정렬을 변경할 수 있습니다.
+위쪽 절반에서 모든 실행이 시간순으로 표시됩니다. 기본적으로 작업 로그는 지난&7;일에 대한 정보를 유지하지만 이 설정은 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)에 따라 변동될 수 있습니다. 성공 상태를 표시하지 않는 실행을 찾아보려고 합니다. 헤더를 클릭하여 정렬을 변경할 수 있습니다.
 
 **상태** 열은 가장 중요한 정보이며 실행에 대해 가장 심각한 문제를 보여 줍니다. 다음은 조사할 우선 순위에 따른 가장 일반적인 상태에 대한 간단한 요약입니다(여기서 *는 여러 가능한 오류 문자열을 나타냄).
 
@@ -42,19 +42,7 @@ ms.lasthandoff: 02/28/2017
 
 행을 선택하면 해당 실행의 세부 정보가 표시되도록 아래쪽이 업데이트됩니다. 아래 맨 왼쪽에 **#단계**라는 목록이 있을 수 있습니다. 이 목록은 각 도메인을 단계로 나타내는 포리스트에 여러 도메인이 있는 경우에만 표시됩니다. 도메인 이름은 **파티션**머리글 아래에서 찾을 수 있습니다. **동기화 통계**아래에서 처리된 변경 내용의 수에 대한 자세한 정보를 찾을 수 있습니다. 링크를 클릭하여 변경된 개체의 목록을 가져올 수 있습니다. 오류가 있는 개체가 있으면 해당 오류는 **동기화 오류**아래에 표시됩니다.
 
-## <a name="troubleshoot-errors-in-operations-tab"></a>작업 탭에서 오류 문제 해결
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png)  
-오류가 발생하는 경우 오류 개체 및 오류 자체가 모두 자세한 정보를 제공하는 링크입니다.
-
-오류 문자열(그림의**sync-rule-error-function-triggered** )을 클릭하여 시작합니다. 먼저 개체의 개요가 나타납니다. 실제 오류를 확인하려면 **스택 추적**단추를 클릭합니다. 이 추적은 오류에 대한 디버그 수준 정보를 제공합니다.
-
-**팁:** **호출 스택 정보** 상자에서 마우스 오른쪽 단추를 클릭하고 **모두 선택**, **복사**를 차례로 선택합니다. 그런 다음 스택을 복사하고 메모장 등 즐겨 사용하는 편집기에서 오류를 볼 수 있습니다.
-
-* 오류가 **SyncRulesEngine**에서 발생한 경우 호출 스택 정보가 개체에 대한 모든 특성의 목록을 먼저 제공합니다. **InnerException =>** 머리글이 표시될 때까지 아래로 스크롤합니다.  
-  ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
-  다음 줄에서는 오류를 보여 줍니다. 위의 그림에서 오류는 생성된 사용자 지정 동기화 규칙 Fabrikam에서 발생했습니다.
-
-오류 자체가 충분한 정보를 제공하지 않는 경우 이제 데이터 자체에 대해 살펴봅니다. 개체 식별자가 포함된 링크를 클릭하고 [시스템을 통해 개체 및 해당 데이터를 따릅니다](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
+자세한 내용은 [동기화되지 않는 개체 문제 해결](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.

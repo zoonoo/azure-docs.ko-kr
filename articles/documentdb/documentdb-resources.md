@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 계층적 리소스 모델 및 개념 | Microsoft Docs"
+title: "Azure DocumentDB 리소스 모델 및 개념 | Microsoft 문서"
 description: "데이터베이스, 컬렉션, UDF(사용자 정의 함수), 문서, 리소스 관리 권한 등으로 구성된 DocumentDB의 계층적 모델에 대해 알아봅니다."
 keywords: "계층적 모델, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
-ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>DocumentDB 계층적 리소스 모델 및 개념
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>DocumentDB 계층적 리소스 모델 및 핵심 개념
 DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라고 합니다. 각 리소스는 논리적 URI를 통해 고유하게 식별됩니다. 표준 HTTP 동사, request/response 헤더 및 상태 코드를 사용해서 리소스를 사용할 수 있습니다. 
 
 이 문서를 읽어 보면 다음을 알게 됩니다.

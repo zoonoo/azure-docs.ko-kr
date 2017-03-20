@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 064c8f7c312aaac94f20224e99b9e29c641e0349
-ms.openlocfilehash: 7099081e7294c64c1b9076b58a2c87f4f7ca7e44
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bdaf5afff8466a189afe96517135b1b347b85550
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -25,13 +25,15 @@ ms.lasthandoff: 03/01/2017
 
 Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. 시나리오 수준 모니터링을 사용하면 종단 간 네트워크 수준 보기에서 문제를 진단할 수 있습니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="register-the-preview-capability"></a>미리 보기 기능 등록
 
 Network Watcher는 현재 미리 보기에서 제공됩니다. Network Watcher의 기능을 사용하려면 기능을 등록해야 합니다. 이 작업을 수행하려면 다음 PowerShell 샘플을 실행합니다.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 등록이 성공했는지 확인하려면 다음 Powershell 샘플을 실행합니다.
@@ -48,14 +50,15 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-####<a name="instructions-for-cli"></a>CLI에 대한 지침
+### <a name="instructions-for-cli"></a>CLI에 대한 지침
 
 등록하려면
 
 ```CLI
-azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
+azure provider register Microsoft.Network
 ```
+
 등록이 성공했는지 확인하려면 다음 CLI 명령을 실행합니다.
 
 ```CLI
@@ -63,6 +66,7 @@ azure feature show Microsoft.Network AllowNetworkWatcher
 ```
 
 기능이 올바르게 등록된 경우 출력은 다음과 일치해야 합니다.
+
 ```CLI
 info:    Executing command feature show
 data:    Feature Name:       AllowNetworkWatcher

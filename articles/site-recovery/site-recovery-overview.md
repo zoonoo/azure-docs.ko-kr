@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
-ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>사이트 복구란?
 
-Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 서비스의 개요와 추가 정보에 대한 링크를 제공합니다.
+Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 서비스에 대한 빠른 개요를 제공합니다.
 
-비즈니스 중단은 자연 현상 및 작업 오류로 인해 발생합니다. 조직에서는 계획되거나 계획되지 않은 중단 중에 데이터를 안전하게 유지하고 앱을 사용 가능하게 유지하며, 가능한 한 빨리 정상 작업 상태로 복구하기 위해 BCDR(비즈니스 연속성 및 재해 복구) 전략이 필요합니다.
+중단은 자연 현상 및 작업 오류로 인해 발생합니다. 조직에서는 계획되거나 계획되지 않은 중단 중에 데이터를 안전하게 유지하고 앱을 사용 가능하게 유지하는 BCDR(비즈니스 연속성 및 재해 복구) 전략이 필요하며, 비즈니스를 가능한 한 빨리 정상 작업 상태로 복구해야 합니다.
 
-Azure Recovery Services는 BCDR 전략에 기여합니다. [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/)을 사용하여 데이터를 안전하고 복구 가능하게 유지합니다. Site Recovery는 워크로드를 복제, 장애 조치 및 복구하여 장애가 발생하는 경우에도 계속 사용할 수 있습니다.
+Azure Recovery Services는 BCDR 전략에 기여합니다. [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) 서비스를 사용하여 데이터를 안전하고 복구 가능하게 유지합니다. Site Recovery는 워크로드를 복제, 장애 조치 및 복구하여 장애가 발생하는 경우에도 계속 사용할 수 있습니다.
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery의 기능은 무엇입니까?
 
@@ -47,12 +47,6 @@ Azure Recovery Services는 BCDR 전략에 기여합니다. [Azure Backup](https:
 * **자동화 라이브러리와의 통합** - 다양한 Azure Automation 라이브러리는 Site Recovery와 함께 다운로드하고 통합할 수 있는 프로덕션 지원 응용 프로그램별 스크립트를 제공합니다.
 * **간단한 네트워크 관리** - Site Recovery 및 Azure의 고급 네트워크 관리는 효율적인 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 또는 Azure Traffic Manager의 통합을 포함하는 응용 프로그램 네트워크 요구 사항을 단순화합니다.
 
-## <a name="which-azure-portal"></a>어떤 Azure Portal입니까?
-
-* Site Recovery는 최신 [Azure Portal](https://portal.azure.com)과 [Azure 클래식 포털](https://manage.windowsazure.com/) 모두에서 배포할 수 있습니다.
-* Azure 클래식 포털에서 기존 서비스 관리 모델을 사용하여 Site Recovery를 지원할 수 있습니다.
-* Azure Portal에서는 클래식 모델 또는 최신 [Resource Manager 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md)을 지원할 수 있습니다.
-- 클래식 포털은 기존 Site Recovery 배포를 유지하는 데에만 사용해야 합니다. 클래식 포털에서는 새 자격 증명 모음을 만들 수 없습니다.
 
 ## <a name="whats-supported"></a>지원되는 내용은 무엇입니까?
 
@@ -64,6 +58,14 @@ Azure Recovery Services는 BCDR 전략에 기여합니다. [Azure Backup](https:
 **어떤 위치에 복제할 수 있습니까?** | Azure Storage 또는 보조 데이터 센터<br/><br/> Hyper-V의 경우 System Center VMM 클라우드에서 관리되는 Hyper-V 호스트의 VM만 보조 데이터 센터로 복제할 수 있습니다.
 **어떤 VMware 서버/호스트가 필요합니까?** | 복제하려는 VMware VM은 [지원되는 vSphere 호스트/vCenter 서버](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에서 관리할 수 있습니다.
 **어떤 워크로드를 복제할 수 있습니까?** | 지원되는 복제 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
+
+
+## <a name="which-azure-portal"></a>어떤 Azure Portal입니까?
+
+* Site Recovery는 최신 [Azure Portal](https://portal.azure.com)과 [Azure 클래식 포털](https://manage.windowsazure.com/) 모두에서 배포할 수 있습니다.
+* Azure 클래식 포털에서 기존 서비스 관리 모델을 사용하여 Site Recovery를 지원할 수 있습니다.
+* Azure Portal에서는 클래식 모델 또는 최신 [Resource Manager 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md)을 지원할 수 있습니다.
+- 클래식 포털은 기존 Site Recovery 배포를 유지하는 데에만 사용해야 합니다. 클래식 포털에서는 새 자격 증명 모음을 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [워크로드 지원](site-recovery-workload.md)에 대해 자세히 알아보세요.

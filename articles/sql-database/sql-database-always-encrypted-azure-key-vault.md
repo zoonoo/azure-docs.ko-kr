@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9d654904e06758bc8634efa9b18ea3bac2b64523
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: aa3f2bc04fe33466ca44abd7331a4b3aa7be26fc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -192,9 +192,8 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 > 
 > 
 
-1. Visual Studio를 열고 새 C# 콘솔 응용 프로그램을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
+1. Visual Studio를 열고 새 C# **콘솔 응용 프로그램**(Visual Studio 2015 이전) 또는 **콘솔 앱(.NET Framework)**(Visual Studio 2017 이상)을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
 2. 프로젝트 이름을 **AlwaysEncryptedConsoleAKVApp**으로 지정하고 **확인**을 클릭합니다.
-   ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
 3. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**로 이동하여 다음 NuGet 패키지를 설치합니다.
 
 패키지 관리자 콘솔에서 코드의 다음 두 줄을 실행합니다.

@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 03/07/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
-ms.openlocfilehash: 6bf9136e1d95d4abd98010a1debbe875dc152e3f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 624f5947e31f08f689ceb6c48bc572447acd64ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -58,22 +58,21 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 2. **App** 클래스 안에 중첩 클래스로 다음과 같은 **MessageCallback** 클래스를 추가합니다. 장치가 IoT Hub에서 메시지를 받을 때 **execute** 메서드가 호출됩니다. 이 예제에서 장치는 항상 IoT Hub에 메시지를 완료했음을 알립니다.
    
     ```
-    private static class MessageCallback implements
-    com.microsoft.azure.iothub.MessageCallback {
+    private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-   
+    
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
-3. 다음과 같이 클라이언트를 열기 전에 **main** 메서드를 수정하여 **MessageCallback** 인스턴스를 만들고 **setMessageCallback** 메서드를 호출합니다.
+3. 다음과 같이 클라이언트를 열기 전에 **main** 메서드를 수정하여 **AppMessageCallback** 인스턴스를 만들고 **setMessageCallback** 메서드를 호출합니다.
    
     ```
     client = new DeviceClient(connString, protocol);
    
-    MessageCallback callback = new MessageCallback();
+    MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
@@ -96,17 +95,21 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.11</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.0.15</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > [Maven 검색][lnk-maven-service-search]을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
+
 4. pom.xml 파일을 저장하고 닫습니다.
 5. 텍스트 편집기를 사용하여 send-c2d-messages\src\main\java\com\mycompany\app\App.java 파일을 엽니다.
 6. 파일에 다음 **import** 문을 추가합니다.
    
     ```
-    import com.microsoft.azure.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.sdk.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -193,4 +196,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

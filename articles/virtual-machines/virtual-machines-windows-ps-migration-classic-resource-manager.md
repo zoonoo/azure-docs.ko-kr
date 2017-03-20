@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 30faf4b99414e5f7b5131c231b4dccf3a7272d25
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: bd67cb868e57be0d6cb9c3ea37f67de6dca4e307
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -250,6 +250,34 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터�
 
 ### <a name="migrate-a-storage-account"></a>저장소 계정 마이그레이션
 가상 컴퓨터 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
+
+저장소 계정을 마이그레이션하기 전에 이전의 필수 요소 검사를 수행하세요.
+
+* **클래식 VM 디스크가 저장소 계정에 저장되었는지 확인**
+
+    다음 명령을 사용하여 저장소 계정에서 VM에 연결된 클래식 VM 디스크를 찾습니다. 
+
+    ```powershell
+     $storageAccountName = 'yourStorageAccountName'
+      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+      DiskName | Format-List -Property RoleName, DiskName 
+
+    ```
+    위의 명령은 저장소 계정에서 모든 클래식 VM 디스크의 RoleName 및 DiskName 속성을 반환합니다. RoleName은 디스크가 연결된 가상 컴퓨터의 이름입니다. 위의 명령이 디스크를 반환하면 저장소 계정을 마이그레이션하기 전에 디스크가 연결된 가상 컴퓨터를 마이그레이션해야 합니다.
+
+    다음 명령을 사용하여 저장소 계정에서 연결되지 않은 클래식 VM 디스크를 찾습니다. 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    위의 명령이 디스크를 반환하면 다음 명령을 사용하여 다음과 같은 디스크를 삭제합니다.
+
+    ```powershell
+       Remove-AzureDisk -DiskName 'yourDiskName'
+    ```
+     
 
 다음 명령을 사용하여 마이그레이션을 위한 각 저장소 계정을 준비합니다. 이 예제에서 저장소 계정 이름은 **myStorageAccount**입니다. 예제 이름을 사용자 고유의 저장소 계정 이름으로 바꿉니다. 
 

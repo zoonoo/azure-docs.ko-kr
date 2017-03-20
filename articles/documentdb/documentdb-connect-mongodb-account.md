@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
-ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,18 +36,18 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure DocumentDB 계정�
 - Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 - DocumentDB 계정 - 자세한 내용은 [MongoDB 앱에서 사용할 DocumentDB 계정 만들기](documentdb-create-mongodb-account.md)를 참조하세요.
 
-## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>빠른 시작을 사용하여 MongoDB 연결 문자열 가져오기
+## <a id="QuickStartConnection"></a>빠른 시작을 사용하여 MongoDB 연결 문자열 가져오기
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **NoSQL(DocumentDB)** 블레이드에서 MongoDB에 대한 프로토콜을 지원하는 DocumentDB 계정을 선택합니다. 
+2. **NoSQL(DocumentDB)** 블레이드에서 DocumentDB: MongoDB API 계정을 선택합니다. 
 3. 계정 블레이드의 **왼쪽 탐색** 막대에서 **빠른 시작**을 클릭합니다. 
 4. 플랫폼(*.NET 드라이버*, *Node.js 드라이버*, *MongoDB 셸*, *Java 드라이버*, *Python 드라이버*)을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에서 보려는 내용에 대해 의견을 보내고 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#GetCustomConnection)를 참조하세요.
 5. 코드 조각을 복사하여 MongoDB 앱에 붙여넣으면 계속 진행할 준비가 된 것입니다.
 
     ![빠른 시작 블레이드의 스크린샷](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
 
-## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> 사용자 지정할 MongoDB 연결 문자열 가져오기
+## <a id="GetCustomConnection"></a> 사용자 지정할 MongoDB 연결 문자열 가져오기
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **NoSQL(DocumentDB)** 블레이드에서 MongoDB에 대한 프로토콜을 지원하는 DocumentDB 계정을 선택합니다. 
+2. **NoSQL(DocumentDB)** 블레이드에서 DocumentDB: MongoDB API 계정을 선택합니다. 
 3. 계정 블레이드의 **왼쪽 탐색** 막대에서 **연결 문자열**을 클릭합니다. 
 4. 미리 구성된 연결 문자열을 포함하는 MongoDB에 드라이버를 사용하여 계정에 연결하는 데 필요한 모든 정보를 가진 **연결 문자열 정보** 블레이드가 열립니다.
 
@@ -82,6 +82,6 @@ DocumentDB가 두 가지 특정 요구 사항을 포함한 표준 MongoDB 연결
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>다음 단계
-* MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB 계정이 있는 [MongoChef를 사용](documentdb-mongodb-mongochef.md) 하는 방법을 알아봅니다.
-* MongoDB [샘플](documentdb-mongodb-samples.md)에 대한 프로토콜 지원을 사용하여 DocumentDB를 탐색합니다.
+* DocumentDB: MongoDB API 계정으로 [MongoChef를 사용](documentdb-mongodb-mongochef.md)하는 방법을 알아봅니다.
+* DocumentDB: MongoDB API [샘플](documentdb-mongodb-samples.md)을 살펴봅니다.
 

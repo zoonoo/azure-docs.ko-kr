@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 212b4481affc345cff3e8abd2475c838926f5eda
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/03/2017
 * [Windows 8.1 또는 Windows Server 2012 R2에서 Azure File Storage에 액세스할 때 성능이 저하됨](#windowsslow)
 * [Azure 파일 공유를 탑재할 때 오류 53 발생](#error53)
 * [오류 87 Azure File Share를 마운트하려고 시도하는 중 매개 변수가 올바르지 않음](#error87)
-* [Net use에 성공했지만 Windows Explorer에 탑재된 Azure 파일 공유가 표시되지 않음](#netuse)
+* [Net use에 성공했지만 Windows Explorer에 탑재된 Azure 파일 공유 또는 드라이브 문자가 표시되지 않음](#netuse)
 * [내 저장소 계정에 "/"가 포함되고 net use 명령이 실패함](#slashfails)
 * [내 응용 프로그램/서비스가 탑재된 Azure Files 드라이브에 액세스할 수 없음.](#accessfiledrive)
 * [성능 최적화를 위한 추가 권장 사항](#additional)
@@ -48,10 +48,6 @@ ms.lasthandoff: 03/03/2017
 * [Linux VM에 Azure Files를 탑재할 때 탑재 오류 115 발생](#error15)
 * [Linux VM에 탑재된 Azure 파일 공유의 성능이 느려짐](#delayproblem)
 
-
-**다른 응용 프로그램에서 액세스**
-
-* [Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -221,9 +217,11 @@ Bitlocker로 암호화된 파일을 Azure Files로 복사할 수 있습니다. �
 
 ## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>기존 파일 공유에서 “호스트가 중단됨(오류 112)” 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨
 ### <a name="cause"></a>원인
-Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 이 오류가 발생합니다. 이 오류가 발생하면 클라이언트 연결이 끊어지고 클라이언트 연결 시간이 초과됩니다. 또한 이 오류는 기본값인 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정되지 않는 통신 오류를 나타낼 수 있습니다.
+Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 이 오류가 발생합니다. 클라이언트가 오랫 동안 유휴 상태일 경우 클라이언트 연결이 끊어지고 연결 시간이 초과됩니다. 
 
-이 오류는 이전 커널의 알려진 일부 버그 또는 네트워크 오류와 같이 재연결을 막는 기타 문제로 인해 야기될 수 있는 Linux 재연결 문제를 나타낼 수 있습니다. 
+연결은 다양한 이유로 인해 유휴 상태가 될 수 있습니다. 기본값인 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정하지 않는 네트워크 통신 오류가 발생합니다.
+
+또 다른 이유는 오래된 커널에 표시되지 않는 일부 재연결 수정 사항 때문입니다.
 
 ### <a name="solution"></a>해결 방법
 
@@ -239,7 +237,8 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경 집합의 일
 
 * [CIFS: 재연결 동안 가능한 뮤텍스 이중 잠금 해결 - 커널 v4.9 이상](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) 
 
-그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 이를 포함하는 재연결 수정 프로그램이 있는 잘 알려진 Linux 커널 목록은 4.4.40+ 4.8.16+ 4.9.1+입니다. 최신 수정 프로그램을 선택하기 위해 위의 권장 커널 버전으로 전환할 수 있습니다.
+그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 이 항목과 다른 재연결 수정 사항이 있는 인기 Linux 커널의 알려진 목록입니다. 4.4.40+ 4.8.16+ 4.9.1+
+최신 수정 사항을 선택하기 위해 권장되는 커널 버전 이상으로 전환할 수 있습니다.
 
 ### <a name="workaround"></a>해결 방법
 최신 커널 버전으로 전환할 수 없는 경우 30초보다 짧은 간격으로 쓰는 Azure 파일 공유에 파일을 보관하여 이 문제를 해결할 수 있습니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 재연결을 트리거하지 않을 수 있습니다. 
@@ -272,11 +271,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 cache=strict 또는 serverino 옵션이 없는 경우 [설명서](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share)의 mount 명령을 실행하여 은 Azure 파일을 분리했다가 탑재한 다음 "/etc/fstab" 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
-<a id="webjobs"></a>
-
-## <a name="accessing-from-other-applications"></a>다른 응용 프로그램에서 액세스
-### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?
-앱 서비스 샌드박스에서 SMB 공유를 탑재할 수 없습니다. 해결 방법으로 매핑된 드라이브로 Azure 파일 공유를 매핑할 수 있으며 응용 프로그램이 Azure 파일 공유를 드라이브 문자로서 액세스할 수 있도록 할 수 있습니다.
 ## <a name="learn-more"></a>자세한 정보
 * [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md)
 * [Linux에서 Azure File Storage 시작](storage-how-to-use-files-linux.md)

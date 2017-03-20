@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
-ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 7e82ac74a8aef4e3cc8aff4dea3c572dcb9d9c40
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -82,6 +82,30 @@ Azure Site Recovery를 사용하여 모바일 서비스의 강제 설치를 수�
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## <a name="next-steps"></a>다음 단계
+> [!NOTE]
 모바일 서비스가 설치되면 Azure Portal에서 **+복제** 단추를 사용하여 이러한 VM에 대한 보호를 사용하도록 설정할 수 있습니다.
+
+## <a name="uninstall-mobility-service-on-windows-servers"></a>Windows 서버에서 모바일 서비스 제거
+두 가지 방법으로 Windows 서버에서 모바일 서비스를 제거할 수 있습니다.
+
+### <a name="uninstall-using-graphical-user-interface"></a>그래픽 사용자 인터페이스를 사용하여 제거
+1. 제어판 > 프로그램을 엽니다.
+2. **Microsoft Azure Site Recovery 이동성 서비스/마스터 대상 서버**를 선택하고 [제거]를 클릭합니다.
+
+### <a name="uninstall-using-command-line"></a>명령줄을 사용하여 제거
+1. 관리자 명령 프롬프트를 엽니다.
+2. 다음 명령을 실행하여 모바일 서비스를 제거합니다.
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## <a name="uninstall-mobility-service-on-linux-computers"></a>Linux 컴퓨터에서 모바일 서비스 제거
+1. Linux 서버에서 **ROOT**로 로그인합니다.
+2. **터미널**에서 /user/local/ASR로 이동합니다.
+3. 다음 명령을 실행하여 모바일 서비스를 제거합니다.
+
+```
+uninstall.sh -Y
+```
 

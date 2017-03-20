@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a13850cf09424f7e4402204d97d1f6755d691550
-ms.openlocfilehash: 0d3f6dc80141d26cace60f177b35d527fd294261
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,8 +30,8 @@ ms.lasthandoff: 02/22/2017
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
-* .NET Framework 4.0 이상
-* Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상 버전.
+* .NET Framework 4.0 이상.
+* 있습니다.
 * [Azure Functions를 사용하는 방법](../azure-functions/functions-overview.md)을 이해합니다. 또한 [Azure Functions HTTP 및 WebHook 바인딩](../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
 
 이 항목에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/22/2017
     
 * 인코딩 태스크에 Webhook을 추가하고 Webhook URL 및 이 Webhook이 응답하는 암호 키를 지정합니다. 여기에 표시된 예제에서 인코딩 태스크를 만드는 코드는 콘솔 앱입니다.
 
-## <a name="getting-webhook-notifications"></a>Webhook 알림 가져오기
+## <a name="setting-up-webhook-notification-azure-functions"></a>“웹후크 알림" Azure 기능 설정
 
 이 섹션의 코드는 Webhook에서 Azure Function의 구현을 보여 줍니다. 이 샘플에서 함수는 Media Services 알림의 Webhook 호출을 수신 대기하고 작업이 완료되면 출력 자산을 게시합니다.
 
@@ -56,7 +56,20 @@ Webhook은 알림 끝점을 구성하는 경우에 전달되는 것과 일치하
 
 다음 Media Services .NET Azure Function의 정의를 [여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function)에서 찾을 수 있습니다.
 
-나열된 다음 코드는 Azure Function과 관련된 function.json, project.json 및 run.csx라는 세 개의 파일의 정의를 보여 줍니다.
+다음 코드 목록은 Azure 함수 매개 변수 및 Azure 함수와 관련된 function.json, project.json 및 run.csx라는 세 개 파일의 정의를 보여 줍니다.
+
+### <a name="application-settings"></a>응용 프로그램 설정 
+
+다음 표에는 이 섹션에 정의된 Azure 함수에 사용되는 매개 변수가 나와 있습니다. 
+
+|이름|정의|예| 
+|---|---|---|
+|AMSAccount|AMS 계정 이름입니다. |juliakomediaservices|
+|AMSKey |AMS 계정 키입니다. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |AMS 계정과 연결된 저장소 계정의 이름입니다.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |AMS 계정과 연결된 저장소 계정의 키입니다.|
+|SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | 웹후크 끝점 주소입니다. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>function.json
 
@@ -410,7 +423,6 @@ project.json 파일은 종속성을 포함합니다.
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.None);
-
 
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(newAsset);
