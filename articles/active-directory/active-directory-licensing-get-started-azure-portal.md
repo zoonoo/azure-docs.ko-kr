@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
-ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -59,7 +59,9 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또�
 
 유료 기능을 구성하기 위해서는 구독을 얻기만 하면 되는 반면, Azure AD 유료 기능을 사용하려면 적절한 개인에게 라이선스를 배포해야 합니다. 일반적으로 액세스 권한이 있어야 하거나 Azure AD 유료 기능을 통해 관리되는 모든 사용자에게 라이선스가 할당되어야 합니다. 라이선스 할당은 Azure AD Premium, Basic 또는 Enterprise Mobility Suite 등의 구매한 서비스와 사용자 간의 매핑입니다.
 
-디렉터리의 어떤 사용자에게 라이선스가 있어야 하는지 관리하는 것은 간단합니다. Azure Portal에서 그룹에 라이선스를 할당하거나 포털, PowerShell 또는 API를 통해 적절한 개인에게 직접 라이선스를 할당하여 수행할 수 있습니다. 라이선스를 그룹에 할당하면 라이선스가 모든 그룹 구성원에게 할당됩니다. 사용자를 그룹에 추가하거나 그룹에서 제거하면 적절한 라이선스가 추가 또는 제거됩니다. 그룹 할당에는 사용자가 사용 가능한 모든 그룹 관리를 이용할 수 있으며 응용 프로그램에 대한 그룹 기반 할당과 일치합니다. 이 방법을 사용하면 디렉터리의 모든 사용자가 자동으로 할당되도록 규칙을 설정하거나 적절한 직책을 가진 모든 사람에게 라이선스가 있는지 확인하거나 조직의 다른 관리자에게 의사 결정을 위임할 수도 있습니다. 고급 시나리오 및 Office 365 라이선스 시나리오 등 그룹에 라이선스 할당에 대한 자세한 내용은 다음 문서를 참조하세요.
+디렉터리의 어떤 사용자에게 라이선스가 있어야 하는지 관리하는 것은 간단합니다. Azure Portal에서 그룹에 라이선스를 할당하거나 포털, PowerShell 또는 API를 통해 적절한 개인에게 직접 라이선스를 할당하여 수행할 수 있습니다. 라이선스를 그룹에 할당하면 라이선스가 모든 그룹 구성원에게 할당됩니다. 사용자를 그룹에 추가하거나 그룹에서 제거하면 적절한 라이선스가 추가 또는 제거됩니다. 그룹 할당에는 사용자가 사용 가능한 모든 그룹 관리를 이용할 수 있으며 응용 프로그램에 대한 그룹 기반 할당과 일치합니다. 이 방법을 사용하면 디렉터리의 모든 사용자가 자동으로 할당되도록 규칙을 설정하거나 적절한 직책을 가진 모든 사람에게 라이선스가 있는지 확인하거나 조직의 다른 관리자에게 의사 결정을 위임할 수도 있습니다. 
+
+고급 시나리오 및 Office 365 라이선스 시나리오 등 그룹에 라이선스 할당에 대한 자세한 내용은 [다음 문서](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal)를 참조하세요.
 
 ## <a name="getting-started-with-azure-ad-licensing"></a>Azure AD 라이선스 시작
 
@@ -152,6 +154,7 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 * [셀프 서비스 그룹 관리](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect 상태](active-directory-aadconnect-health.md)
 * [응용 프로그램에 그룹 할당](active-directory-manage-groups.md)
+* [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
-ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,7 +92,7 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
    ![Azure Security Center의 보안 경고][7]
 
    > [!NOTE]
-   > Security Center의 표준 계층을 사용하도록 설정된 경우에만 보안 경고를 제공합니다. 표준 계층의 90일 무료 평가판을 사용할 수 있습니다. 표준 계층을 가져오는 방법에 대한 내용은 [다음 단계](#next-steps)를 참조하세요.
+   > Security Center의 표준 계층을 사용하도록 설정된 경우에만 보안 경고를 제공합니다. 표준 계층을 60일 무료 평가판으로 사용할 수 있습니다. 표준 계층을 가져오는 방법에 대한 내용은 [다음 단계](#next-steps)를 참조하세요.
    >
    >
 2. 경고를 선택하여 추가적인 정보를 표시합니다. 이 예에서는 **수정된 시스템 이진 파일 검색**을 선택합니다. 이렇게 하면 해당 경고에 대한 세부 정보를 추가로 제공하는 블레이드가 열립니다.

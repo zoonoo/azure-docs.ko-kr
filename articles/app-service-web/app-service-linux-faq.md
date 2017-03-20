@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 842eb16768fd5064bd57a0c3672e7ae57885720e
-ms.openlocfilehash: 6ed0f07268715102be197bb8a6654fb05b52b0c4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -61,6 +61,10 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 **Q:** 컴파일되지 않은 .NET Core 앱을 지원하나요?
 
 **A:** 아니요. 모든 종속성이 있는 컴파일된 .NET Core 앱을 배포해야 합니다. 향후 릴리스에서 전체 배포 및 빌드 환경을 계획하고 있습니다.
+
+**Q:** 작성기를 PHP 앱의 종속성 관리자로 지원하나요?
+
+**A:** 아니요. 모든 종속성이 있는 PHP 앱을 배포해야 합니다. 향후 릴리스에서 전체 배포 환경을 계획하고 있습니다.
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: ea2124e01753b914ebd1691e5d89091ac5cd5859
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6d4287d391fee55419cf8bd17f4b48a0e5bbfb81
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,6 +35,7 @@ ms.lasthandoff: 03/04/2017
 | [Docker가 활성화된 VM 만들기](./scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 가상 컴퓨터를 만들고 이 VM을 Docker 호스트로 구성하고 NGINX 컨테이너를 실행합니다. |
 | [VM 만들기 및 구성 스크립트 실행](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 가상 컴퓨터를 만들고 Azure 사용자 지정 스크립트 확장을 사용하여 NGINX를 설치합니다. |
 | [WordPress가 설치된 VM 만들기](./scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 가상 컴퓨터를 만들고 Azure 사용자 지정 스크립트 확장을 사용하여 WordPress를 설치합니다. |
+| [가상 하드 디스크를 사용하여 VM 만들기](./scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 저장소 계정에 가상 하드 디스크를 업로드하고 이를 사용하여 가상 컴퓨터를 만듭니다. |
 |**네트워크 가상 컴퓨터**||
 | [가상 컴퓨터 간의 네트워크 트래픽 보안](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 두 개의 가상 컴퓨터, 모든 관련된 리소스 및 내부 및 외부 NSG(네트워크 보안 그룹)를 만듭니다. |
 |**가상 컴퓨터 모니터링**||

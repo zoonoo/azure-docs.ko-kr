@@ -15,9 +15,9 @@ ms.date: 02/15/2017
 ms.author: heidist
 experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
-ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8f4947ba2641bc8a39a71945ff2a6818d1ff7830
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>Azure 검색이란?
@@ -49,7 +49,7 @@ Azure Search는 Microsoft의 관리되는 서비스로서 클라우드에서 실
 
 여러 클라우드 서비스 공급자는 사용자 지정 앱에서 검색 창을 지원하는 기능을 갖춘 사용자 지정 검색 엔진을 제공합니다. 일부 공급자는 전체 텍스트 검색, 지리적 검색 및 특정 수준의 검색 입력 모호성을 처리하는 기능을 비롯하여 비슷한 기준 기능을 제공합니다. 일반적으로 이러한 기능은 [특수 기능](#feature-drilldown) 또는 자동 맞춤을 결정하는 API, 도구 및 관리의 전반적인 편리성 및 간편성을 나타냅니다.
 
-다른 검색 솔루션과 비교할 때, Azure Search는 정보 검색 및 콘텐츠 탐색 작업을 주로 검색 기능에 의존하는 앱에 필요한 추가적인 기능 계층을 갖추고 있으며, Azure의 콘텐츠 저장소 및 데이터베이스에 대한 전체 텍스트 검색 워크로드에 가장 강력합니다. 
+다른 검색 솔루션과 비교할 때, Azure Search는 정보 검색 및 콘텐츠 탐색 작업을 주로 검색 기능에 의존하는 앱에 필요한 추가적인 기능 계층을 갖추고 있으며, Azure의 콘텐츠 저장소 및 데이터베이스에 대한 전체 텍스트 검색 워크로드에 가장 강력합니다. 주요 장점은 다음과 같습니다.
 
 + 인덱싱 계층에서의 Azure 데이터 통합(크롤러)
 + 중앙 관리를 위한 Azure Portal
