@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
-ms.openlocfilehash: 03dbde64aefc12145a589d8b741c67865162b9b5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -35,6 +35,8 @@ ms.lasthandoff: 02/23/2017
 ## <a name="network-watcher"></a>Network Watcher
 
 Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나리오 수준 상태를 모니터링하고 진단할 수 있게 하는 지역 서비스입니다. Network Watcher에서 제공하는 네트워크 진단 및 시각화 도구를 사용하면 Azure에서 네트워크를 파악하고, 진단하고, 정보를 얻을 수 있습니다.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 
@@ -74,7 +76,7 @@ Network Watcher는 [Azure RBAC(역할 기반 액세스 제어) 모델 ](../activ
 
 ### <a name="network-subscription-limits"></a>네트워크 구독 제한
 
-네트워크 구독 제한은 사용 가능한 최대 리소스 수와 개별 지역에 속한 개별 구독의 각 네트워크 리소스의 사용량을 대조한 세부 정보를 제공합니다.
+네트워크 구독 제한은 사용 가능한 최대 리소스 수와 개별 지역에 속한 개별 구독의 각 네트워크 리소스 사용량을 대조한 세부 정보를 제공합니다.
 
 ![네트워크 구독 제한][nsl]
 

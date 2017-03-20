@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1c740ac1f98a07b08bdf922dde99ce54bac23ee5
-ms.openlocfilehash: e41e246b081efbdf5edf70ee5de86cd2a68043b2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f4d589382fe337549f117e7c03af6fd5e237491f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -49,6 +49,12 @@ Azure Functions에는 소비 계획 및 App Service 계획이라는 두 가지 �
 소비 계획은 함수 앱에 있는 함수의 런타임 요구에 따라 추가 처리 인스턴스를 추가하여 CPU 및 메모리 리소스를 자동으로 조정합니다. 모든 함수 앱 처리 인스턴스에는 최대 1.5GB의 메모리 리소스가 할당됩니다.
 
 소비 계획을 실행할 때 함수 앱이 유휴 상태가 되는 경우 새 BLOB 처리에 하루 최대 10분이 걸릴 수 있습니다. 함수 앱이 실행되면 BLOB이 더 신속하게 처리됩니다. 이 초기 지연을 방지하려면 Always On을 활성화하여 App Service 계획을 사용하거나 다른 메커니즘을 사용하여 BLOB 이름을 포함하는 큐 메시지처럼 BLOB 처리를 트리거합니다. 
+
+함수 앱을 만들 때 Blob, 큐 및 Table storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 내부적으로 Azure Functions는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Azure Storage를 사용합니다. blob 전용 저장소 계정(프리미엄 저장소 포함) 및 범용 저장소 계정(ZRS 복제 사용)과 같은 일부 저장소 계정은 큐 및 같은 테이블을 지원하지 않습니다. 이러한 계정은 새 함수 앱을 만들 때 저장소 계정 블레이드에서 필터링됩니다.
+
+소비 호스팅 계획을 사용할 경우 함수 앱 콘텐츠(예: 함수 코드 파일 및 바인딩 구성)는 주 저장소 계정의 Azure 파일 공유에 저장됩니다. 기본 저장소 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
+
+저장소 계정 유형에 대한 자세한 내용은 [Azure Storage 서비스 소개](../storage/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요.
 
 ### <a name="runtime-scaling"></a>런타임 크기 조정
 

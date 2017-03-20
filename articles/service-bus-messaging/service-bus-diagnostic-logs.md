@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Bus 진단 로그 | Microsoft Docs"
-description: "Microsoft Azure에서 Service Bus의 진단 로그를 분석하는 방법을 알아봅니다."
+description: "Azure에서 Service Bus에 대한 진단 로그를 설정하는 방법을 알아봅니다."
 keywords: 
 documentationcenter: 
 services: service-bus-messaging
@@ -16,64 +16,71 @@ ms.workload: data-services
 ms.date: 02/17/2017
 ms.author: babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 90321171586110a3b60c3df5b749003ebbf70ec9
-ms.openlocfilehash: 70205b33e9d52e41f5c1a637fee4da192e2a971a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
+ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
-## <a name="introduction"></a>소개
-Service Bus에서는 두 가지 유형의 로그를 제공합니다. 
-* [활동 로그:](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) 항상 사용되며 작업(job)에 대해 수행한 작업(operation)에 대한 정보를 제공합니다.
-* [진단 로그:](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 사용자 구성 가능하며 작업이 실행되어 삭제될 때까지 생성, 업데이트된 작업의 작업 시작과 함께 발생한 모든 항목에 대한 풍부한 정보를 제공합니다.
+Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
+* **[활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
-## <a name="how-to-enable-diagnostic-logs"></a>진단 로그를 사용하도록 설정하는 방법
-진단 로그는 기본적으로 **해제**됩니다. 사용하도록 설정하려면 다음 단계를 따르세요.
+## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
+진단 로그는 기본적으로 **해제**되어 있습니다. 진단 로그를 설정하려면
 
-Azure Portal에 로그인하고 스트리밍 작업 블레이드로 이동하고 "모니터링" 아래에서 "진단 로그" 블레이드를 사용합니다.
+1.    Azure Portal에서 스트리밍 작업 블레이드로 이동합니다.
 
-![진단 로그에 대한 블레이드 탐색](./media/service-bus-diagnostic-logs/image1.png)  
+2.    **모니터링** 아래의 **진단 로그** 블레이드로 이동합니다.
 
-그런 다음 "진단 사용" 링크를 클릭합니다.
+    ![진단 로그에 대한 블레이드 탐색](./media/service-bus-diagnostic-logs/image1.png)  
 
-![진단 로그 사용](./media/service-bus-diagnostic-logs/image2.png)
+3.    **진단 켜기**를 선택합니다.
 
-열린 진단에서 상태를 "On(켜기)"으로 변경합니다.
+    ![진단 로그 사용](./media/service-bus-diagnostic-logs/image2.png)
 
-![진단 로그 상태 변경](./media/service-bus-diagnostic-logs/image3.png)
+4.    **상태**로 **켜기**를 선택합니다.
 
-원하는 보관 대상(저장소 계정, 이벤트 허브, Log Analytics)을 구성하고 수집할 로그의 범주(실행, 작성)를 선택합니다. 그런 다음 새 진단 구성을 저장합니다.
+    ![진단 로그 상태 변경](./media/service-bus-diagnostic-logs/image3.png)
 
-저장하면 구성이 10분 후에 적용되고 그 후 로그가 구성된 보관 대상에 나타납니다("진단 로그" 블레이드에서 확인 가능).
+5.    예를 들어 원하는 보관 대상, 저장소 계정, 이벤트 허브 또는 Azure Log Analytics를 설정합니다.
 
-진단 구성에 대한 자세한 내용은 [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 페이지에서 확인할 수 있습니다.
+6.    수집할 로그의 범주(예: **실행** 또는 **제작**)를 선택합니다.
+
+7.    새 진단 설정을 저장합니다.
+
+새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 블레이드에 로그가 나타납니다.
+
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
 
-모든 로그는 JSON 형식으로 저장되며 각 항목에는 아래 형식의 문자열 필드가 있습니다.
+모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 예제에 설명된 형식을 사용하는 문자열 필드가 있습니다.
 
-### <a name="operation-logs"></a>작업 로그
+## <a name="operation-logs-example"></a>작업 로그 예제
 
-OperationalLogs는 Service Bus 작업 중에 발생하는 결과, 특히 큐 만들기, 사용된 리소스 및 작업 상태와 같은 작업 유형을 캡처합니다.
+**OperationalLogs** 범주의 로그는 Service Bus 작업 중 발생하는 일을 캡처합니다. 특히 이러한 로그는 큐 만들기, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
+
+작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
 이름 | 설명
 ------- | -------
-ActivityId | 추적 용도의 내부 ID
+ActivityId | 추적에 사용되는 내부 ID
 EventName | 작업 이름             
-resourceId | ARM 리소스 ID
+resourceId | Azure Resource Manager 리소스 ID
 SubscriptionId | 구독 ID
 EventTimeString | 작업 시간
 EventProperties | 작업 속성
 가동 상태 | 작업 상태
-Caller | 작업 호출자(포털 또는 관리 클라이언트)
+Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)
 카테고리 | OperationalLogs
 
-#### <a name="example-operation-log"></a>예제 작업 로그
+작업 로그 JSON 문자열 예제는 다음과 같습니다.
 
 ```json
-Example: 
+Example:
 {
      "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
      "EventName": "Create Queue",

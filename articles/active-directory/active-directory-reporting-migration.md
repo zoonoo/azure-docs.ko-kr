@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: afd48a77faeeab6d5a8730934345cb7000a59831
-ms.openlocfilehash: e72e49140aaad55a6e66a9f331ce7fde20b8577c
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 35323a56297c9aaf4939febd32140d6d101ee4e5
+ms.openlocfilehash: 9cb98ad710d82bade25f99d171f49433aea1204c
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -110,10 +110,27 @@ Azure Portal의 컨텍스트 기반 보고 방식으로 전환하면서 기존 �
 
 ### <a name="security-reports"></a>보안 보고서
 
-Azure Active Directory에서 검색하고 보고할 수 있는 모든 보안 관련 위험 이벤트 보기의 전체 개요를 제공하도록 보안 보고서가 통합되었습니다. 전체 개요는 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요.  
-이 항목에서는 [Azure AD 비정상 활동 보고서](active-directory-identity-protection-risk-events.md#azure-ad-anomalous-activity-reports) 섹션에서 Azure Active Directory 비정상 활동 보고서가 Azure AD의 위험 이벤트에 매핑되는 방법에 대한 개요를 확인할 수 있습니다.
+Azure 클래식 포털의 **Azure AD 비정상 작업** 보안 보고서가 통합되어 Azure Active Directory에서 검색하고 보고할 수 있는 모든 보안 관련 위험 이벤트를 중앙에서 볼 수 있습니다. 
 
-Azure Portal에서 **Azure Active Directory** 블레이드의 **보안** 섹션에서 검색된 위험 이벤트에 대한 보고서에 액세스할 수 있습니다. 검색된 위험 이벤트는 다음과 같은 보고서 내에서 추적됩니다.   
+아래 테이블에는 Azure Portal의 다양한 **Azure AD 비정상 작업** 보안 보고서 및 해당하는 위험 이벤트 형식이 나열되어 있습니다. 
+
+| Azure AD 비정상 작업 보고서 |  ID 보호 위험 이벤트 유형|
+| :--- | :--- |
+| 자격 증명이 손실된 사용자 | 유출된 자격 증명 |
+| 비정상적인 로그인 작업 | 비정상적 위치로 불가능한 이동 |
+| 감염 가능성이 있는 장치에서 로그인 | 감염된 장치에서 로그인|
+| 알 수 없는 원본에서 로그인 | 익명 IP 주소에서 로그인 |
+| 의심스러운 작업이 있는 IP 주소에서 로그인 | 의심스러운 작업이 있는 IP 주소에서 로그인 |
+| - | 잘 모르는 위치에서 로그인 |
+
+다음 Azure AD 비정상 작업 보안 보고서는 Azure AD에 위험 이벤트로 포함되지 않습니다. 이러한 보고서는 Azure 클래식 포털에서 계속 사용할 수 있습니다. 그러나 향후 특정 시점부터는 사용되지 않을 예정입니다.
+
+* 여러 번의 실패 후 로그인
+* 여러 지역에서의 로그인
+
+전체 개요는 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요.  
+
+Azure Portal의 **Azure Active Directory** 블레이드 **보안** 섹션에서 검색된 위험 이벤트에 대한 보고서에 액세스할 수 있습니다. 검색된 위험 이벤트는 다음과 같은 보고서 내에서 추적됩니다.   
 
 - 위험에 노출된 사용자
 - 위험한 로그인 

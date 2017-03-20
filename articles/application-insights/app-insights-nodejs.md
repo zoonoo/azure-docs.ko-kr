@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
-ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,7 +34,7 @@ SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모�
 
 * [Microsoft Azure](http://azure.com)구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Application Insights 리소스 만들기
+## <a name="add"></a>Application Insights 리소스 만들기
 [Azure Portal][portal]에 로그인하여 새 Application Insights 리소스를 만듭니다. Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소스는 사용자에게 분석 및 제공되는 앱의 원격 분석을 하는 곳입니다.
 
 ![새로 만들기, Application Insights 클릭](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ SDK는 들어오는 HTTP 요청 속도와 응답, 성능 카운터(CPU, 메모�
 
 ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> 응용 프로그램에 SDK 설치
+## <a name="sdk"></a> 응용 프로그램에 SDK 설치
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ appInsights.setup("<instrumentation_key>").start();
 
 원격 분석을 전송하지 않고 SDK를 사용해 볼 수 있습니다. 계측 키를 비어 있지 않은 문자열로 설정합니다.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> 프로젝트 실행
+## <a name="run"></a> 프로젝트 실행
 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> 원격 분석 보기
+## <a name="monitor"></a> 원격 분석 보기
 [Azure 포털](https://portal.azure.com) 로 돌아가서 Application Insights 리소스를 찾습니다.
 
 개요 페이지에서 데이터를 찾습니다. 처음에는 요소가&1;~2개만 표시됩니다. 예:
@@ -86,10 +86,7 @@ appInsights.setup("<instrumentation_key>").start();
 이제 응용 프로그램을 IIS 또는o Azure에 배포하고 누적되는 데이터를 관찰합니다.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>서버에 게시한 후 데이터가 없나요?
-서버 방화벽에서 나가는 트래픽에 대해 다음 포트를 엽니다.
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+[필요한 방화벽 포트가 열려 있는지](app-insights-ip-addresses.md) 확인합니다.
 
 #### <a name="trouble-on-your-build-server"></a>빌드 서버에 문제가 있나요?
 [이 문제 해결 항목](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)을 참조하세요.
