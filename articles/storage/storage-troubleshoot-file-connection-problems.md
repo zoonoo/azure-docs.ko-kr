@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -48,10 +48,6 @@ ms.lasthandoff: 03/08/2017
 * [Linux VM에 Azure Files를 탑재할 때 탑재 오류 115 발생](#error15)
 * [Linux VM에 탑재된 Azure 파일 공유의 성능이 느려짐](#delayproblem)
 
-
-**다른 응용 프로그램에서 액세스**
-
-* [Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -275,11 +271,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 cache=strict 또는 serverino 옵션이 없는 경우 [설명서](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share)의 mount 명령을 실행하여 은 Azure 파일을 분리했다가 탑재한 다음 "/etc/fstab" 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
-<a id="webjobs"></a>
-
-## <a name="accessing-from-other-applications"></a>다른 응용 프로그램에서 액세스
-### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Webjob을 통해 응용 프로그램용 Azure 파일 공유를 참조할 수 있습니까?
-앱 서비스 샌드박스에서 SMB 공유를 탑재할 수 없습니다. 해결 방법으로 매핑된 드라이브로 Azure 파일 공유를 매핑할 수 있으며 응용 프로그램이 Azure 파일 공유를 드라이브 문자로서 액세스할 수 있도록 할 수 있습니다.
 ## <a name="learn-more"></a>자세한 정보
 * [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md)
 * [Linux에서 Azure File Storage 시작](storage-how-to-use-files-linux.md)
