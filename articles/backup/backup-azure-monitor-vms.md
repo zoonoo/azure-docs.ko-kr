@@ -71,8 +71,7 @@ ms.lasthandoff: 02/17/2017
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 백업에 사용할 수 있는 경고 유형은 무엇입니까?
    | 경고 수준 | 전송되는 경고 |
    | --- | --- |
-   | 중요 |백업 실패, 복구 실패
- |
+   | 중요 |백업 실패, 복구 실패 |
    | Warning |없음 |
    | 정보 제공 |없음 |
 

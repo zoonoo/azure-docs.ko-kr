@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 42c00632fee16b61f502b5a8ac15825788403ab8
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -31,10 +32,5 @@ ms.openlocfilehash: 42c00632fee16b61f502b5a8ac15825788403ab8
 * Azure AD B2C 테넌트가 테넌트 목록에 표시되었지만 오류 메시지("B2C 테넌트 'contosob2c' 만들기를 완료하지 못했습니다. 자세한 지침은 이 [링크](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409)를 방문하세요.)가 수신되는 경우가 있습니다. 방금 만든 테넌트를 삭제하고 다시 시도하세요.
 * 기존 B2C 테넌트를 삭제하고 동일한 도메인 이름으로 다시 만들어야 하는 경우 알려진 문제가 발생합니다. 다른 도메인 이름으로 B2C 테넌트를 만들어야 합니다.
 * 이러한 해결 방법이 작동하지 않으면 지원에 문의하세요. [Azure AD B2C의 파일 지원 요청 방법](active-directory-b2c-support.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
