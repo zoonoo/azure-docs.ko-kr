@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 214bd6ca8abb3adc9447536215f28f478959be07
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 09860b34bf4b1664e8d82af0e049cfd1a2d8defa
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -172,7 +172,7 @@ Stream Analytics 작업에서 **작업 토폴로지**의 **출력**을 클릭한
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## <a name="another-query-of-interest--in-this-scenario"></a>이 시나리오의 또 다른 관심 쿼리
+## <a name="another-query-of-interest-in-this-scenario"></a>이 시나리오의 또 다른 관심 쿼리
 
 이 시나리오에 대해 만든 또 다른 관심 쿼리는 [슬라이딩 윈도우](https://msdn.microsoft.com/library/azure/dn835051.aspx)에 기반합니다. 인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다. 이 자습서에서는 마지막 5초 이내에 20번 넘게 멘션된 항목을 확인합니다.
 
@@ -182,6 +182,19 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY SLIDINGWINDOW(s, 5), topic
 HAVING COUNT(*) > 20
 ```
+
+## <a name="table-of-the-field-headers"></a>필드 헤더의 테이블
+
+완전한 공개를 위해 이 연습에서 사용할 수 있는 필드 레이블은 이 테이블에 나열됩니다. 쿼리 편집기에서 마음껏 테스트하세요.
+
+JSON 속성 | 정의
+--- | ---
+CreatedAt | 트윗을 만든 시간
+항목 | 지정된 키워드와 일치하는 항목
+SentimentScore | Sentiment140의 관심도
+작성자 | 트윗을 보낸 Twitter 핸들
+텍스트 | 트윗의 전체 본문
+
 
 ## <a name="get-support"></a>지원 받기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.

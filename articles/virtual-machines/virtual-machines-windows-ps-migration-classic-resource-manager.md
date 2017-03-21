@@ -1,9 +1,9 @@
 ---
 title: "PowerShell을 사용하여 Resource Manager로 마이그레이션 | Microsoft Docs"
-description: "이 문서에서는 플랫폼 지원 방식의 Azure PowerShell 명령을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스를 마이그레이션하는 과정을 안내합니다."
+description: "이 문서에서는 Azure PowerShell 명령을 사용하여 VM(가상 컴퓨터), VNET(가상 네트워크), 저장소 계정 등의 IaaS 리소스를 플랫폼 지원 방식으로 클래식에서 ARM(Azure Resource Manager)으로 마이그레이션하는 과정을 안내합니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: cynthn
+ms.date: 03/14/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: bd67cb868e57be0d6cb9c3ea37f67de6dca4e307
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -211,7 +211,9 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
 ```
 
 ### <a name="migrate-virtual-machines-in-a-virtual-network"></a>가상 네트워크에서 가상 컴퓨터 마이그레이션
-가상 네트워크에서 가상 컴퓨터를 마이그레이션하려면 네트워크를 마이그레이션합니다. 가상 컴퓨터는 네트워크와 함께 자동으로 마이그레이션됩니다. 마이그레이션할 가상 네트워크를 선택합니다. 
+가상 네트워크에서 가상 컴퓨터를 마이그레이션하려면 가상 네트워크를 마이그레이션합니다. 가상 컴퓨터는 가상 네트워크와 함께 자동으로 마이그레이션됩니다. 마이그레이션할 가상 네트워크를 선택합니다. 
+> [!NOTE]
+> 가상 컴퓨터의 VHD(OS 및 데이터) 파일을 사용하여 Managed Disks를 사용하는 새로운 Resource Manager 가상 컴퓨터를 만들어서 [단일 클래식 가상 컴퓨터를 마이그레이션](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md)합니다. 
 
 이 예제에서는 가상 네트워크 이름을 **myVnet**으로 설정합니다. 예제 가상 네트워크 이름을 사용자 고유의 이름으로 바꿉니다. 
 
@@ -253,18 +255,17 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터�
 
 저장소 계정을 마이그레이션하기 전에 이전의 필수 요소 검사를 수행하세요.
 
-* **클래식 VM 디스크가 저장소 계정에 저장되었는지 확인**
+* **디스크가 저장소 계정에 저장되는 클래식 가상 컴퓨터 마이그레이션**
 
-    다음 명령을 사용하여 저장소 계정에서 VM에 연결된 클래식 VM 디스크를 찾습니다. 
-
+    이전 명령은 저장소 계정에서 모든 클래식 VM 디스크의 RoleName 및 DiskName 속성을 반환합니다. RoleName은 디스크가 연결된 가상 컴퓨터의 이름입니다. 이전 명령이 디스크를 반환하면 저장소 계정을 마이그레이션하기 전에 디스크가 연결된 가상 컴퓨터를 마이그레이션해야 합니다.
     ```powershell
      $storageAccountName = 'yourStorageAccountName'
       Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
       DiskName | Format-List -Property RoleName, DiskName 
 
     ```
-    위의 명령은 저장소 계정에서 모든 클래식 VM 디스크의 RoleName 및 DiskName 속성을 반환합니다. RoleName은 디스크가 연결된 가상 컴퓨터의 이름입니다. 위의 명령이 디스크를 반환하면 저장소 계정을 마이그레이션하기 전에 디스크가 연결된 가상 컴퓨터를 마이그레이션해야 합니다.
-
+* **저장소 계정에서 연결되지 않은 클래식 VM 디스크 삭제**
+ 
     다음 명령을 사용하여 저장소 계정에서 연결되지 않은 클래식 VM 디스크를 찾습니다. 
 
     ```powershell
@@ -277,8 +278,25 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터�
     ```powershell
        Remove-AzureDisk -DiskName 'yourDiskName'
     ```
-     
+* **저장소 계정에 저장된 VM 이미지 삭제**
 
+    이전 명령은 저장소 계정에 저장된 이미지 중 OS 디스크가 포함된 모든 VM 이미지를 반환합니다.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     이전 명령은 저장소 계정에 저장된 이미지 중 데이터가 포함된 모든 VM 이미지를 반환합니다.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    이전 명령을 사용하여 위의 명령을 통해 반환된 모든 VM 이미지를 삭제합니다.
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 다음 명령을 사용하여 마이그레이션을 위한 각 저장소 계정을 준비합니다. 이 예제에서 저장소 계정 이름은 **myStorageAccount**입니다. 예제 이름을 사용자 고유의 저장소 계정 이름으로 바꿉니다. 
 
 ```powershell

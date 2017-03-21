@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: cf8db132c7f541017744505bf0fca9393db8b3f9
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8ebc1aa663f298d1f3f495523d85bda8777d5d29
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -122,6 +122,26 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 
 ### <a name="is-a-local-instance-of-documentdb-available"></a>DocumentDB의 로컬 인스턴스를 사용할 수 있나요?
 예. [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)는 신뢰도 있는 DocumentDB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure DocumentDB으로 동일한 기능을 지원합니다. DocumentDB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 DocumentDB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
+
+## <a name="database-questions-about-developing-against-api-for-mongodb"></a>MongoDB용 API 개발과 관련된 데이터베이스 질문
+### <a name="what-is-documentdbs-api-for-mongodb"></a>DocumentDB의 MongoDB용 API는 무엇입니까?
+Microsoft Azure DocumentDB의 MongoDB용 API는 응용 프로그램에서 기존의 커뮤니티 지원 Apache MongoDB API 및 드라이버를 사용하여 네이티브 DocumentDB 데이터베이스 엔진과 간편하고 투명하게 통신할 수 있도록 도와주는 호환성 계층입니다. 이제 개발자는 기존 MongoDB 도구 체인과 기술을 사용하여 자동 인덱싱, 백업 유지 관리, 재정적으로 지원되는 Service Level Agreement(서비스 수준 약정) 등 DocumentDB를 활용하는 애플리케이션을 빌드하고 DocumentDB의 고유한 기능을 이용할 수 있습니다.
+
+### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>MongoDB 데이터베이스용 API에 연결하려면 어떻게 해야 하나요?
+MongoDB용 DocumentDB API에 연결하는 가장 빠른 방법은 [Azure Portal](https://portal.azure.com)로 가는 것입니다. 사용자 계정으로 이동합니다. 계정의 *왼쪽 탐색*에서 *빠른 시작*을 클릭합니다. *빠른 시작*은 데이터베이스에 연결하는 코드 조각을 얻는 가장 좋은 방법입니다. 
+
+DocumentDB에는 엄격한 보안 요구 사항과 표준이 적용됩니다. DocumentDB 계정에는 *SSL*을 통한 인증 및 보안 통신이 필요하므로 TLSv1.2를 사용하세요.
+
+자세한 내용은 [MongoDB 데이터베이스용 API에 연결](documentdb-connect-mongodb-account.md)을 참조하세요.
+
+### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>MongoDB 데이터베이스용 API에 대한 추가 오류 코드가 있나요?
+MongoDB용 API는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 오류 코드를 갖고 있습니다.
+
+
+| 오류               | 코드  | 설명  | 해결 방법  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컬렉션의 처리량을 늘리거나 다시 시도해 보세요. |
+| ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br>*예:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
