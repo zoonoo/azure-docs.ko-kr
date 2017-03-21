@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: afba457134ba0fbc4ed35040828bb3745364ef78
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 389c01234acff068dc90f3cdfdc4916a9d76d244
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -97,7 +97,7 @@ OMS에서 SCOM 및 서비스 맵 솔루션 간의 통신에 대한 모든 경고
 ![SCOM 작업 영역 편집](media/oms-service-map/scom-edit-workspace.png)
 
 ## <a name="configuring-rules-and-overrides"></a>규칙 및 재정의 구성:
-**_Microsoft.SystemCenter.ServiceMap.Import.Rule** 규칙은 서비스 맵에서 주기적으로 정보를 가져오기 위해 생성됩니다.  사용자는 이 규칙의 재정의를 구성하여 동기화 시간을 변경할 수 있습니다.
+**_Microsoft.SystemCenter.ServiceMapImport.Rule** 규칙은 서비스 맵에서 주기적으로 정보를 가져오기 위해 생성됩니다.  사용자는 이 규칙의 재정의를 구성하여 동기화 시간을 변경할 수 있습니다.
 작성 창 --> 규칙 --> Microsoft.SystemCenter.ServiceMapImport.Rule
 
 ![SCOM 재정의](media/oms-service-map/scom-overrides.png)

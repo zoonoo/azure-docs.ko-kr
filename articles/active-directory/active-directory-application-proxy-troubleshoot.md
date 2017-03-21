@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 13b77c10dfe42d39ad3802f0be1b3f6fe75788e5
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/03/2017
 * 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그** > **Microsoft** > **AadApplicationProxy** > **커넥터** > **관리**에서 응용 프로그램 프록시 커넥터 이벤트를 찾습니다.
 * 필요한 경우 분석 및 디버깅 로그를 켜고 응용 프로그램 프록시 커넥터 세션 로그를 켜면 더 자세한 로그를 볼 수 있습니다.
 
-Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워킹 필수 구성 요소의 유효성을 검사하는 문제 해결 도구}(https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites)를 참조하세요.
+Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워킹 필수 조건을 검사하는 문제 해결 도구](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites)를 참조하세요.
 
 ## <a name="the-page-is-not-rendered-correctly"></a>페이지가 제대로 렌더링되지 않습니다.
 특정 오류 메시지를 수신하지 않고도 응용 프로그램 렌더링 또는 기능이 제대로 이뤄지지 않는 문제가 있을 수 있습니다. 문서 경로를 게시했지만 응용 프로그램에 해당 경로 밖에 있는 콘텐츠가 필요한 경우에 이 문제가 발생할 수 있습니다.
