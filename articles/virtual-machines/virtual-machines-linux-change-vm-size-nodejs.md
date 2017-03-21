@@ -80,7 +80,7 @@ VM의 크기를 조정하려면 다음 단계를 수행합니다.
 
 <!-- links -->
 
-[azure-cli]: ../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md
