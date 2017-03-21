@@ -76,7 +76,7 @@ Bonus.ly에 대한 SSO를 구성하려면 인증서의 지문 값을 검색해�
 2. **Bonus.ly에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-bonus-tutorial/IC773683.png "Single Sign-On 구성")
-*3. **앱 URL 구성** 페이지의 **Bonus.ly 테넌트 URL** 텍스트 상자에 다음 패턴 **https://\<tenant-name\>.Bonus.ly**을 사용하여 URL을 입력한 후 **다음*을 클릭합니다*. 
+*3. **앱 URL 구성** 페이지의 **Bonus.ly 테넌트 URL** 텍스트 상자에 다음 패턴 **https://\<tenant-name\>.Bonus.ly** 을 사용하여 URL을 입력한 후 **다음** 을 클릭합니다. 
    
    ![앱 URL 구성](./media/active-directory-saas-bonus-tutorial/IC773684.png "앱 URL 구성")
 4. **Bonus.ly에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 **c:\\Bonusly.cer**에 로컬로 인증서 파일을 저장합니다.

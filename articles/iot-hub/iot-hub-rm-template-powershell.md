@@ -2,7 +2,7 @@
 title: "템플릿을 사용하여 Azure IoT Hub 만들기(PowerShell) | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 PowerShell로 IoT Hub를 만드는 방법입니다."
 services: iot-hub
-documentationcenter: .net
+documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 

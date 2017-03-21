@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
 ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -171,9 +172,4 @@ ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
