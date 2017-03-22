@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 2116e2c2ef5808145b56e63c1e2b91f20e639a3d
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -86,9 +87,4 @@ IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Storage에 유지되는 메시지를 읽습니다](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -159,8 +160,3 @@ SensorTag와 Intel NUC 간의 연결을 성공적으로 설정하고 SensorTag�
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

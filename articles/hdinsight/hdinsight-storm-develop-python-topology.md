@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -183,10 +184,5 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
 
 * [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](hdinsight-hadoop-streaming-python.md)
 * [Pig 및 Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](hdinsight-python.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

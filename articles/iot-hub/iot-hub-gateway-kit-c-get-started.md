@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,8 +108,3 @@ Azure Resource Manager 템플릿을 사용하여 Azure 함수 앱 및 Azure Stor
 
 ## <a name="explore-more"></a>자세히 살펴보기
 자세한 내용은 [Intel IoT Gateway Kit 개발자 영역](http://software.intel.com/iot/microsoft-azure)을 참조하세요.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: d53efc7d25714427e25d4f88279f3b0d4f61c150
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -81,9 +82,4 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/wi
 ## <a name="next-steps"></a>다음 단계
 
 [깜박임 응용 프로그램 만들기 및 배포](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
