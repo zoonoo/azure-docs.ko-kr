@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 402a5dac4e77f64576acb968b67df92167f54f27
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,10 +74,5 @@ IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저
 
 ## <a name="next-steps"></a>다음 단계
 [샘플 응용 프로그램을 실행하여 장치-클라우드 메시지 보내기](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

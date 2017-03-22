@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: c1c999e40ecc92a1018067822be66f14b61a8c36
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -104,9 +105,4 @@ LED가&2;초간 켜졌다가 다음&2;초간 꺼지는 것을 볼 수 있습니�
 
 ### <a name="summary"></a>요약
 이 선택적인 섹션은 샘플 응용 프로그램이 다른 방식으로 LED를 켜고 끄는 동작을 제어할 수 있도록 메시지를 사용자 지정하는 방법을 보여줍니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

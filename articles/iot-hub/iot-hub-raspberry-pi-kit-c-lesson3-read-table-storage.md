@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 41e89f524bf9ae67489ab3a0eb09ceda6b211f15
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -70,10 +71,5 @@ Pi를 클라우드의 IoT Hub에 성공적으로 연결했고 깜빡이는 샘�
 
 ## <a name="next-steps"></a>다음 단계
 [샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
