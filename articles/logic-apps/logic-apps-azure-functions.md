@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
-ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 7d21ab1180fcd6df39a5dcc5c095c9521c00f6fd
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -37,7 +37,7 @@ Logic Apps에서 C# 또는 node.js의 사용자 지정 코드 조각을 실행�
 
 Azure Portal의 함수에 대한 **통합** 창에서 템플릿은 **모드**를 **WebHook**로 설정하고 **WebHook 유형**을 **일반 JSON**로 설정하여 표시해야 합니다. 
 
-WebHook 함수는 요청을 수락하고 `data` 변수를 통해 메서드를 제공합니다. `data.foo`와 같은 점 표기법을 사용하여 페이로드 속성에 액세스할 수 있습니다. 예를 들어 DateTime 값을 날짜 문자열로 변환하는 간단한 JavaScript 함수는 다음 예와 같습니다.
+WebHook 함수는 요청을 수락하고 `data` 변수를 통해 메서드를 제공합니다. `data.function-name`와 같은 점 표기법을 사용하여 페이로드 속성에 액세스할 수 있습니다. 예를 들어 DateTime 값을 날짜 문자열로 변환하는 간단한 JavaScript 함수는 다음 예와 같습니다.
 
 ```
 function start(req, res){

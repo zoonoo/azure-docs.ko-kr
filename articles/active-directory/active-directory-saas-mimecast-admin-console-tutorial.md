@@ -78,7 +78,7 @@ ms.lasthandoff: 02/17/2017
 2. **Mimecast 관리 콘솔에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795012.png "Single Sign-On 구성")
-3. **앱 URL 구성** 페이지의 **Mimecast 관리자 콘솔 로그온 URL** 텍스트 상자에서 Mimecast 관리 콘솔 응용 프로그램에 로그인하기 위해 사용자가 사용한 URL(예: "https://webmail-uk.mimecast.com" 또는 "https://webmail-us.mimecast.com")을 입력하고 **다음**을 클릭합니다.
+3. **앱 URL 구성** 페이지의 **Mimecast 관리자 콘솔 로그온 URL** 텍스트 상자에서 Mimecast 관리 콘솔 응용 프로그램에 로그인하기 위해 사용자가 사용한 URL(예: "https://webmail-uk.mimecast.com" 또는  " https://webmail-us.mimecast.com ")을 입력하고 **다음**을 클릭합니다.
    
    >[!NOTE]
    >로그인 URL은 특정 영역입니다. 

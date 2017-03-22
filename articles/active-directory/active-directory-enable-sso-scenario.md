@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -111,10 +112,5 @@ Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA�
 
 ## <a name="see-also"></a>참고 항목
 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

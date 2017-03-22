@@ -15,11 +15,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: add684549056a824e5534d071a5d0215e27f7a0e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -101,10 +102,5 @@ IoT Hub를 만들고 IoT Hub에 장치 ID로 Pi를 등록했습니다. Pi에서 
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub 메시지를 처리하고 저장하기 위해 Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 6414a4f37367d8acc0bab9356b8a09aadf13bfc9
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -121,9 +122,4 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/li
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub 만들기 및 장치 등록](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

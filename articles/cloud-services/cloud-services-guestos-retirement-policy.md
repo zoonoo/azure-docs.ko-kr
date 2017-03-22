@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2016
+ms.date: 3/21/2017
 ms.author: raiye
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: a7fde12e9ead0b64a99c93a3839fe2b5a0de93cd
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -79,10 +80,5 @@ Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기�
 
 ## <a name="next-steps"></a>다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

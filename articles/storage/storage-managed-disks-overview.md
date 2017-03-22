@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -47,7 +47,7 @@ Managed Disks는 단일 실패 지점을 피할 만큼 가용성 집합의 VM �
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
-[Azure 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-what-is.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 디스크에 대한 다양한 작업(읽기, 쓰기(만들기/업데이트), 삭제하기, 내보내기, [SAS(공유 액세스 서명) URI](storage-dotnet-shared-access-signature-part-1.md) 검색하기)을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+[Azure 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-what-is.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구 
 
