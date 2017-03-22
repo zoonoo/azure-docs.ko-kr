@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -36,10 +37,5 @@ ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>조건부 액세스 정책은 서비스 계정을 적용됩니까?
 **A:** 조건부 액세스 정책은 모든 사용자 계정을 적용됩니다. 여기에는 서비스 계정으로 사용되는 사용자 계정을 포함합니다. 대부분의 경우, 무인으로 실행되는 서비스 계정은 정책을 충족하지 못합니다. MFA가 필요할 경우 이 경우가 예에 해당되는 사례입니다. 이 경우, 조건부 액세스 정책 관리 설정을 사용하여 서비스 계정을 정책에서 제외할 수 있습니다. 여기에서 사용자에게 정책 적용에 대해 알아보세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

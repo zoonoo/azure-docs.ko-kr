@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1f5f0b1aca581900b94f0f87563c5c7e720f46c8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -52,6 +52,10 @@ DocumentDB는 저장소 크기 및 프로비전된 처리량에 따라 각 컬�
 
 예를 들어 초당 처리량 25,000개의 요청으로 컬렉션을 만들고 DocumentDB는 단일 실제 파티션별 초당 10,000개의 요청을 지원할 수 있다고 가정해 봅니다. DocumentDB는 컬렉션에 대한 3개의 실제 파티션 P1, P2 및 P3을 만듭니다. 문서 삽입 또는 읽기 중에 DocumentDB 서비스는 해당 `Department` 값을 해시하여 세 개의 파티션 P1, P2 및 P3에 데이터를 매핑합니다. 따라서 예를 들어 "Marketing" 및 "Sales"가 1에 해시하는 경우 둘 다 P1에 저장됩니다. 그리고 P1이 가득 차면 DocumentDB는 P1을 두 개의 새 파티션 P4 및 P5로 나눕니다. 그런 다음 서비스는 분할 작업 후 “Marketing”을 P4로 "Sales"를 P5로 이동한 다음 P1을 삭제할 수 있습니다. 파티션 간 파티션 키의 이러한 이동은 응용 프로그램에 구애 받지 않으며 컬렉션의 가용성에는 아무런 영향이 없습니다.
 
+## <a name="sharding-in-api-for-mongodb"></a>MongoDB용 API의 분할
+MongoDB용 API의 분할된(Sharded) 컬렉션은 DocumentDB의 분할된(partitioned) 컬렉션과 동일한 인프라를 사용합니다. 분할된(partitioned) 컬렉션과 마찬가지로, 분할된(sharded) 컬렉션이 포함할 수 있는 분할 수에는 제한이 없으며 각 분할에는 고정된 양의 SSD 지원 저장소가 연결됩니다. 분할된(sharded) 컬렉션의 저장소 및 처리량은 사실상 무제한입니다. MongoDB용 API의 분할 키는 DocumentDB의 파티션 키에 해당하며, 분할 키를 결정할 때 [파티션 키](#partition-keys) 및 [분할 디자인](#designing-for-partitioning) 섹션을 꼭 읽어보시기 바랍니다.
+
+<a name="partition-keys"></a>
 ## <a name="partition-keys"></a>파티션 키
 파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 광범위한 값을 가지고 균등하게 분산된 액세스 패턴이 있을 가능성이 높은 JSON 속성 이름을 선택해야 합니다. 
 
@@ -160,7 +164,7 @@ DocumentDB에서는 단일 파티션과 분할된 컬렉션을 모두 만들 수
     </tbody>
 </table>
 
-## <a name="working-with-the-sdks"></a>SDK 사용
+## <a name="working-with-the-documentdb-sdks"></a>DocumentDB SDK 작업
 Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx)을 사용한 자동 분할에 대한 지원이 추가되었습니다. 분할된 컬렉션을 만들려면 지원되는 SDK 플랫폼(.NET, Node.js, Java, Python) 중 하나에서 SDK 버전 1.6.0 이상을 다운로드해야 합니다. 
 
 ### <a name="creating-partitioned-collections"></a>분할된 컬렉션 만들기
@@ -276,7 +280,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-DocumentDB는 SDK 1.12.0 이상으로 시작하는 SQL을 사용하여 분할된 컬렉션에 [집계 함수]([집계 함수](documentdb-sql-query.md#Aggregates)) `COUNT`, `MIN`, `MAX`, `SUM` 및 `AVG`를 지원합니다. 쿼리는 단일 집계 연산자를 포함해야 하고 프로젝션에 단일 값을 포함해야 합니다.
+DocumentDB는 SDK 1.12.0 이상으로 시작하는 SQL을 사용하여 분할된 컬렉션에 [집계 함수](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` 및 `AVG`를 지원합니다. 쿼리는 단일 집계 연산자를 포함해야 하고 프로젝션에 단일 값을 포함해야 합니다.
 
 ### <a name="parallel-query-execution"></a>병렬 쿼리 실행
 DocumentDB SDK 1.9.0 이상에서는 많은 수의 파티션에 연결해야 할 경우에도 분할된 컬렉션에 대해 대기 시간이 짧은 쿼리를 수행할 수 있도록 하는 병렬 쿼리 실행 옵션을 지원합니다. 예를 들어 다음 쿼리는 파티션에 걸쳐 병렬로 실행되도록 구성되어 있습니다.
@@ -309,9 +313,34 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     
 다음 섹션에서는 단일 파티션 컬렉션에서 분할된 컬렉션으로 이동하는 방법에 대해 살펴봅니다.
 
+## <a name="creating-an-api-for-mongodb-sharded-collection"></a>MongoDB 분할된 컬렉션을 위한 API 만들기
+MongoDB 분할된 컬렉션을 위한 API를 만드는 가장 간단한 방법은 본인이 선호하는 도구, 드라이버 또는 SDK를 사용하는 것입니다. 이 예에서는 Mongo Shell을 사용하여 컬렉션을 만들겠습니다.
+
+Mongo Shell에서:
+
+```
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
+    
+결과:
+
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
+
 <a name="migrating-from-single-partition"></a>
 
-## <a name="migrating-from-single-partition-to-partitioned-collections"></a>단일 파티션에서 분할된 컬렉션으로 마이그레이션
+## <a name="migrating-from-single-partition-to-partitioned-collections-in-documentdb"></a>단일 파티션에서 DocumentDB의 분할된 컬렉션으로 마이그레이션
+
+> [!IMPORTANT]
+> MongoDB용 API를 가져오는 경우 다음 [지침](documentdb-mongodb-migrate.md)을 따릅니다.
+> 
+> 
+
 단일 파티션 컬렉션을 사용하는 응용 프로그램에 더 높은 처리량(>10,000RU/s) 또는 더 큰 데이터 저장소(>10GB)가 필요한 경우 [DocumentDB 데이터 마이그레이션 도구](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)를 사용하여 단일 파티션 컬렉션에서 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 
 
 단일 파티션 컬렉션에서 분할된 컬렉션으로 마이그레이션하려면
@@ -328,6 +357,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 
 이제 기본 사항을 완료했으므로 DocumentDB에서 파티션 키로 작업할 때 고려해야 하는 몇 가지 중요한 디자인 사항을 살펴보겠습니다.
 
+<a name="designing-for-partitioning"></a>
 ## <a name="designing-for-partitioning"></a>분할 디자인
 파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 이 섹션에서는 컬렉션에 대한 파티션 키를 선택할 때의 일부 장단점을 설명합니다.
 

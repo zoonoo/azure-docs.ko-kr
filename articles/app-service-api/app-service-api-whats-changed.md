@@ -29,7 +29,7 @@ API 앱의 주요 기능(인증, CORS 및 API 메타데이터)이 앱 서비스�
 
 ![API 앱 개요](./media/app-service-api-whats-changed/api-apps-overview.png)
 
-API 앱 업데이트의 핵심 디자인 원칙은 선택한 언어의 API를 있는 그대로 가져올 수 있도록 하는 것입니다.  API가 웹 앱 또는 모바일 앱으로 이미 배포된 경우* 앱을 다시 배포하지 않아도 새 기능을 활용할 수 있습니다. 현재 API 앱 미리 보기를 사용하는 경우 자세한 내용은 아래의 마이그레이션 지침을 참조하세요.
+API 앱 업데이트의 핵심 디자인 원칙은 선택한 언어의 API를 있는 그대로 가져올 수 있도록 하는 것입니다.  API가 웹 앱 또는 모바일 앱으로 이미 배포된 경우 앱을 다시 배포하지 않아도 새 기능을 활용할 수 있습니다. 현재 API 앱 미리 보기를 사용하는 경우 자세한 내용은 아래의 마이그레이션 지침을 참조하세요.
 
 ### <a name="authentication"></a>인증
 기존 턴키 API 앱, 모바일 서비스/앱 및 웹앱 인증 기능이 통합되었으며 관리 포털의 단일 Azure 앱 서비스 인증 블레이드에서 사용할 수 있습니다. 앱 서비스의 인증 서비스에 대한 소개는 [앱 서비스 인증/권한 부여 확장](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)을 참조하세요.

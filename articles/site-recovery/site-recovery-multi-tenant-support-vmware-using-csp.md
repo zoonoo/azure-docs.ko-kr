@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/21/2017
 ms.author: manayar
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -29,9 +30,9 @@ Azure Site Recovery는 테넌트 구독을 위해 다중 테넌트 환경을 지
 ## <a name="multi-tenant-environments"></a>다중 테넌트 환경
 세 가지 주요 다중 테넌트 모델이 있습니다.
 
-1.  **HSP(공유 호스팅 서비스 공급자)** – 여기서 파트너는 물리적 인프라를 소유하고 공유 리소스(vCenter, 데이터 센터, 물리적 저장소 등)를 사용하여 동일한 인프라에서 다중 테넌트의 VM을 호스팅합니다. DR 관리는 파트너가 관리형 서비스로서 제공하거나 테넌트가 셀프 서비스 DR 솔루션으로서 소유할 수 있습니다.
-2.  **전용 호스팅 서비스 공급자** – 여기서 파트너는 물리적 인프라를 소유하지만 전용 리소스(여러 vCenter, 실제 데이터 저장소 등)를 사용하여 별도의 인프라에서 각 테넌트의 VM을 호스팅합니다. DR 관리도 파트너가 관리하거나 테넌트가 셀프 서비스할 수 있습니다.
-3.  **MSP(관리형 서비스 공급자)** – 여기서 고객은 VM을 호스팅하는 실제 인프라를 소유하고 파트너는 DR을 사용하고 관리합니다.
+1.    **HSP(공유 호스팅 서비스 공급자)** – 여기서 파트너는 물리적 인프라를 소유하고 공유 리소스(vCenter, 데이터 센터, 물리적 저장소 등)를 사용하여 동일한 인프라에서 다중 테넌트의 VM을 호스팅합니다. DR 관리는 파트너가 관리형 서비스로서 제공하거나 테넌트가 셀프 서비스 DR 솔루션으로서 소유할 수 있습니다.
+2.    **전용 호스팅 서비스 공급자** – 여기서 파트너는 물리적 인프라를 소유하지만 전용 리소스(여러 vCenter, 실제 데이터 저장소 등)를 사용하여 별도의 인프라에서 각 테넌트의 VM을 호스팅합니다. DR 관리도 파트너가 관리하거나 테넌트가 셀프 서비스할 수 있습니다.
+3.    **MSP(관리형 서비스 공급자)** – 여기서 고객은 VM을 호스팅하는 실제 인프라를 소유하고 파트너는 DR을 사용하고 관리합니다.
 
 ## <a name="shared-hosting-multi-tenant-guidance"></a>공유 호스팅 다중 테넌트 지침
 이 지침에서는 공유 호스팅 시나리오를 자세히 다룹니다. 다른 두 가지 시나리오는 공유 호스팅 시나리오의 하위 집합이며 동일한 원칙을 사용합니다. 차이점은 공유 호스팅 지침의 끝에 설명되어 있습니다.
@@ -63,21 +64,21 @@ Azure Site Recovery는 테넌트 구독을 위해 다중 테넌트 환경을 지
 
 vCenter 계정 액세스 절차는 다음과 같습니다.
 
-1.  미리 정의된 '읽기 전용' 역할을 복제하여 새 역할을 만들고 편리한 이름을 부여합니다(예: 이 예제에서 사용된 Azure_Site_Recovery).
-2.  이 역할에 다음 권한을 할당합니다.
- *  데이터 저장소 -> 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 컴퓨터 파일 업데이트
- *  네트워크 -> 네트워크 할당
- *  리소스 -> 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션
- *  태스크 -> 만들기 태스크, 업데이트 태스크
- *  가상 컴퓨터 -> 구성
- *  가상 컴퓨터 -> 상호 작용 -> 질문 응답, 장치 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
- *  가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소
- *  가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용
- *  가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거
+1.    미리 정의된 '읽기 전용' 역할을 복제하여 새 역할을 만들고 편리한 이름을 부여합니다(예: 이 예제에서 사용된 Azure_Site_Recovery).
+2.    이 역할에 다음 권한을 할당합니다.
+ *    데이터 저장소 -> 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 컴퓨터 파일 업데이트
+ *    네트워크 -> 네트워크 할당
+ *    리소스 -> 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션
+ *    태스크 -> 만들기 태스크, 업데이트 태스크
+ *    가상 컴퓨터 -> 구성
+ *    가상 컴퓨터 -> 상호 작용 -> 질문 응답, 장치 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
+ *    가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소
+ *    가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용
+ *    가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거
 
     ![역할 사용 권한](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
-3.  다음과 같이 서로 다른 개체에 대해 vCenter 계정(CS 테넌트에 사용)에 액세스 수준을 할당합니다.
+3.    다음과 같이 서로 다른 개체에 대해 vCenter 계정(CS 테넌트에 사용)에 액세스 수준을 할당합니다.
 
 | **Object** | **역할** | **주의** |
 | --- | --- | --- |
@@ -127,52 +128,52 @@ VM 필수 구성 요소는 Azure Site Recovery [설명서](site-recovery-vmware-
 
 ### <a name="step-1-create-tenant-account"></a>1단계: 계정 테넌트 만들기
 
-1.  [파트너 센터](https://partnercenter.microsoft.com/)를 통해 CSP 계정에 로그인합니다. 왼쪽에 있는 대시보드 메뉴에서 '고객' 옵션을 선택합니다.
+1.    [파트너 센터](https://partnercenter.microsoft.com/)를 통해 CSP 계정에 로그인합니다. 왼쪽에 있는 대시보드 메뉴에서 '고객' 옵션을 선택합니다.
 
     ![csp 대시보드](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
 
-2.  열린 페이지에서 '고객 추가' 단추를 클릭합니다.
+2.    열린 페이지에서 '고객 추가' 단추를 클릭합니다.
 
     ![고객 추가](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-3.  새 고객 페이지에서 테넌트에 대한 계정 세부 정보를 모두 입력하고 '다음: 구독'을 클릭합니다.
+3.    새 고객 페이지에서 테넌트에 대한 계정 세부 정보를 모두 입력하고 '다음: 구독'을 클릭합니다.
 
     ![세부 정보 채우기](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
-4.  구독 선택 페이지에서 아래로 스크롤하여 'Microsoft Azure' 구독을 추가합니다. 기타 구독들은 지금 또는 나중에 추가할 수 있습니다.
+4.    구독 선택 페이지에서 아래로 스크롤하여 'Microsoft Azure' 구독을 추가합니다. 기타 구독들은 지금 또는 나중에 추가할 수 있습니다.
 
     ![구독 추가](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-5.  앞으로 진행하고 페이지에서 테넌트에 입력한 모든 세부 정보를 검토하고 제출 단추를 클릭합니다.
+5.    앞으로 진행하고 페이지에서 테넌트에 입력한 모든 세부 정보를 검토하고 제출 단추를 클릭합니다.
 
     ![고객-요약](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)
 
-6.  고객이 만들어지면 해당 구독에 대한 기본 계정 및 암호의 세부 정보가 있는 확인 페이지가 나타납니다. 정보를 저장하고 나중에 필요하면 Azure Portal에 로그인하여 암호를 변경합니다. 이 정보는 테넌트와 함께 있는 그대로 공유하거나 필요에 따라 별도 계정을 만들어 공유할 수 있습니다.
+6.    고객이 만들어지면 해당 구독에 대한 기본 계정 및 암호의 세부 정보가 있는 확인 페이지가 나타납니다. 정보를 저장하고 나중에 필요하면 Azure Portal에 로그인하여 암호를 변경합니다. 이 정보는 테넌트와 함께 있는 그대로 공유하거나 필요에 따라 별도 계정을 만들어 공유할 수 있습니다.
 
 ### <a name="step-2-access-tenant-account"></a>2단계: 액세스 테넌트 계정
 
-1.  1단계에서 설명된 대로 대시보드를 통해 '고객' 페이지에서 테넌트의 구독에 액세스할 수 있습니다. 여기로 이동하고 방금 만든 테넌트 계정 이름을 클릭합니다.
-2.  그러면 테넌트 계정의 구독 섹션이 열리고 여기에서 계정에 대한 기존 구독을 모니터링하고 필요에 따라 구독을 더 추가할 수 있습니다. 테넌트의 DR 작업을 관리하려면 페이지의 오른쪽에 있는 '모든 리소스(Azure Portal)' 옵션을 선택합니다.
+1.    1단계에서 설명된 대로 대시보드를 통해 '고객' 페이지에서 테넌트의 구독에 액세스할 수 있습니다. 여기로 이동하고 방금 만든 테넌트 계정 이름을 클릭합니다.
+2.    그러면 테넌트 계정의 구독 섹션이 열리고 여기에서 계정에 대한 기존 구독을 모니터링하고 필요에 따라 구독을 더 추가할 수 있습니다. 테넌트의 DR 작업을 관리하려면 페이지의 오른쪽에 있는 '모든 리소스(Azure Portal)' 옵션을 선택합니다.
 
     ![모든 리소스](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.  '모두 리소스' 단추를 클릭하면 테넌트의 Azure 구독에 액세스를 허용하고 Azure Portal의 오른쪽 위 구석에 표시되는 AAD를 클릭하여 동일한지 확인할 수 있습니다.
+3.    '모두 리소스' 단추를 클릭하면 테넌트의 Azure 구독에 액세스를 허용하고 Azure Portal의 오른쪽 위 구석에 표시되는 AAD를 클릭하여 동일한지 확인할 수 있습니다.
 
     ![AAD 관리자](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
 이제 Azure Portal을 통해 테넌트에 대한 모든 Site Recovery 작업을 수행하고 DR 작업을 관리할 수 있습니다. 관리형 DR용 CSP를 통해 테넌트 구독에 액세스할 때마다 위에서 자세히 설명된 프로세스를 따라야 합니다.
 
 ### <a name="step-3-deploy-resources-to-tenant-subscription"></a>3단계: 리소스를 테넌트 구독에 배포
-1.  Azure Portal에서 리소스 그룹을 만들고 일반 프로세스에 대한 Recovery Services 자격 증명 모음을 배포합니다. 자격 증명 모음 등록 키를 다운로드합니다.
-2.  자격 증명 모음 등록 키를 사용하여 테넌트용 CS를 등록합니다.
-3.  두 가지 액세스 계정 즉, vCenter 액세스 계정과 VM 액세스 계정에 대한 자격 증명을 입력합니다.
+1.    Azure Portal에서 리소스 그룹을 만들고 일반 프로세스에 대한 Recovery Services 자격 증명 모음을 배포합니다. 자격 증명 모음 등록 키를 다운로드합니다.
+2.    자격 증명 모음 등록 키를 사용하여 테넌트용 CS를 등록합니다.
+3.    두 가지 액세스 계정 즉, vCenter 액세스 계정과 VM 액세스 계정에 대한 자격 증명을 입력합니다.
 
     ![구성-계정](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
 ### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>4단계: 사이트 복구 인프라를 Recovery Services 자격 증명 모음에 등록
-1.  Azure Portal을 열고 앞에서 만든 자격 증명 모음에서 vCenter 서버를 이전 단계에서 등록된 CS에 등록합니다. 이를 위해 vCenter 액세스 계정을 사용합니다.
-2.  일반 프로세스에 대한 Site Recovery를 위해 '준비 인프라' 프로세스를 완료합니다.
-3.  이제 VM을 복제할 준비가 되었습니다. 복제 옵션 아래에 있는 VM 선택 블레이드에 테넌트의 VM만 표시되는지 확인합니다.
+1.    Azure Portal을 열고 앞에서 만든 자격 증명 모음에서 vCenter 서버를 이전 단계에서 등록된 CS에 등록합니다. 이를 위해 vCenter 액세스 계정을 사용합니다.
+2.    일반 프로세스에 대한 Site Recovery를 위해 '준비 인프라' 프로세스를 완료합니다.
+3.    이제 VM을 복제할 준비가 되었습니다. 복제 옵션 아래에 있는 VM 선택 블레이드에 테넌트의 VM만 표시되는지 확인합니다.
 
     ![테넌트 VM](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
 
@@ -182,20 +183,15 @@ VM 필수 구성 요소는 Azure Site Recovery [설명서](site-recovery-vmware-
 
 파트너는 CSP 포털을 통해 새 사용자를 테넌트 구독에 다음과 같이 추가할 수도 있습니다.
 
-1.  특정 테넌트의 CSP 구독 페이지로 이동하고 '사용자 및 라이선스' 옵션을 선택합니다.
+1.    특정 테넌트의 CSP 구독 페이지로 이동하고 '사용자 및 라이선스' 옵션을 선택합니다.
 
     ![사용자 라이선스](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
     이제 관련 세부 정보를 입력하거나 권한을 선택하거나 사용자 목록을 CSV 파일로 업로드하여 새 사용자를 만들 수 있습니다.
-2.  사용자를 만든 후 Azure Portal로 돌아가 구독 블레이드 아래에서 관련 구독을 선택합니다.
-3.  열리는 새 블레이드에서 액세스 제어(IAM)를 선택하고 +추가를 클릭하여 관련 액세스 수준을 가진 사용자를 추가합니다. CSP 포털을 통해 만들어진 사용자는 액세스 수준을 클릭하면 열리는 블레이드에 자동으로 표시됩니다.
+2.    사용자를 만든 후 Azure Portal로 돌아가 구독 블레이드 아래에서 관련 구독을 선택합니다.
+3.    열리는 새 블레이드에서 액세스 제어(IAM)를 선택하고 +추가를 클릭하여 관련 액세스 수준을 가진 사용자를 추가합니다. CSP 포털을 통해 만들어진 사용자는 액세스 수준을 클릭하면 열리는 블레이드에 자동으로 표시됩니다.
 
     ![사용자 구독](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     대부분의 관리 작업은 참가자 역할로 충분합니다. 이 액세스 수준을 가진 사용자는 액세스 수준 변경(소유자 수준 액세스가 필요)을 제외하고 구독에 관한 모든 작업을 수행할 수 있습니다. 또한 필요에 따라 액세스 수준을 미세 조정할 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

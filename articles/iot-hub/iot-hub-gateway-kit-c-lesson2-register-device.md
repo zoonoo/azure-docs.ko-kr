@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a895f18b4cefc01f12613e701c71bd471bb369c3
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -106,8 +107,3 @@ IoT Hub를 만들고 IoT Hub에 장치 ID로 논리적 장치를 등록했습니
 
 ## <a name="next-steps"></a>다음 단계
 [BLE 샘플 앱 구성 및 실행](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-
