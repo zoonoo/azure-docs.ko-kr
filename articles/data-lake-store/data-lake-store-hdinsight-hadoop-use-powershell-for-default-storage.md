@@ -48,8 +48,9 @@ PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구�
 * **Windows SDK(소프트웨어 개발 키트)**: Windows SDK를 설치하려면 [Windows 10용 도구 다운로드](https://dev.windows.com/en-us/downloads)로 이동합니다. Windows SDK를 사용하여 보안 인증서를 만듭니다.
 * **Azure Active Directory 서비스 주체**: 이 자습서에서는 Azure AD(Azure Active Directory)에서 서비스 주체를 만드는 방법을 설명합니다. 그러나 서비스 주체를 만들려면 Azure AD 관리자여야 합니다. 관리자인 경우 이 필수 요소를 건너뛰고 자습서를 진행할 수 있습니다.
 
- >[!NOTE]
- >Azure AD 관리자인 경우에만 서비스 주체를 만들 수 있습니다. Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. [인증서를 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)에 설명된 대로 인증서를 사용하여 서비스 주체를 만들어야 합니다.
+    >[!NOTE]
+    >Azure AD 관리자인 경우에만 서비스 주체를 만들 수 있습니다. Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. [인증서를 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)에 설명된 대로 인증서를 사용하여 서비스 주체를 만들어야 합니다.
+    >
 
 ## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
 Data Lake Store 계정을 만들려면 다음을 수행합니다.
@@ -68,8 +69,9 @@ Data Lake Store 계정을 만들려면 다음을 수행합니다.
         # Register for Data Lake Store
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
- > [!NOTE]
- > Data Lake Store 리소스 공급자를 등록하고 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`과 유사한 오류가 발생하는 경우 구독을 Data Lake Store에 대한 허용 목록에 추가할 수 없습니다. Data Lake Store 공개 미리 보기에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
+    > [!NOTE]
+    > Data Lake Store 리소스 공급자를 등록하고 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`과 유사한 오류가 발생하는 경우 구독을 Data Lake Store에 대한 허용 목록에 추가할 수 없습니다. Data Lake Store 공개 미리 보기에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
+    > 
 
 2. 로그인하라는 메시지가 표시되면 구독 관리자 또는 소유자 중 하나로 로그인합니다.
 3. Data Lake Store 계정은 Azure 리소스 그룹과 연결됩니다. 리소스 그룹을 만들기 시작합니다.
@@ -217,7 +219,8 @@ HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data
     SSH 콘솔에서 쿼리 결과가 나타나야 합니다.
 
     >[!NOTE]
-       >앞의 CREATE TABLE 명령에서 샘플 데이터에 대한 경로는 `adl:///example/data/`이고 여기서 `adl:///`는 클러스터 루트입니다. 이 자습서에서 지정한 클러스터 루트에 따르면 명령은 `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`입니다. 짧은 대체 루트를 사용하거나 클러스터 루트에 전체 경로를 제공할 수 있습니다.
+    >앞의 CREATE TABLE 명령에서 샘플 데이터에 대한 경로는 `adl:///example/data/`이고 여기서 `adl:///`는 클러스터 루트입니다. 이 자습서에서 지정한 클러스터 루트에 따르면 명령은 `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`입니다. 짧은 대체 루트를 사용하거나 클러스터 루트에 전체 경로를 제공할 수 있습니다.
+    >
 
 ## <a name="access-data-lake-store-by-using-hdfs-commands"></a>HDFS 명령을 사용하여 Data Lake Store에 액세스
 Data Lake Store를 사용하도록 HDInsight 클러스터를 구성한 후에 HDFS(Hadoop 분산 파일 시스템) 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.

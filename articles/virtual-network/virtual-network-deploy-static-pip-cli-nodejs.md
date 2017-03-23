@@ -26,12 +26,12 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 고정 공용 IP 주소가 있는 VM 만들기
 
 > [!div class="op_single_selector"]
-- [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
-- [템플릿](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
+> * [Azure 포털](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [템플릿](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2017
 
 Azure CLI 1.0(이 문서) 또는 [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)을 사용하여 이 태스크를 완료할 수 있습니다. 
 
-## <a name="a-name--createastep-1---start-your-script"></a><a name = "create"></a>1단계 - 스크립트 시작
+## <a name = "create"></a>1단계 - 스크립트 시작
 사용되는 전체 bash 스크립트를 [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh)에서 다운로드할 수 있습니다. 다음 단계에 완료하여 스크립트가 사용자 환경에서 작동하도록 변경합니다.
 
 배포에 사용하려는 값을 기반으로 아래 변수 값을 변경합니다. 다음 값은 이 문서에 사용되는 시나리오에 매핑됩니다.
