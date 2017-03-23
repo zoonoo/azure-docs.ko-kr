@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 1738899a271045e37cdcedaaf862553f29ec92f1
 ms.openlocfilehash: b1c06135cf8628197fb9601affd6a7131b41d0ca
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -32,10 +33,5 @@ ms.openlocfilehash: b1c06135cf8628197fb9601affd6a7131b41d0ca
 4. **확인** 확인 표시를 클릭합니다.
 
 저장이 완료되면 작업 영역의 모든 실험에서 데이터 집합을 사용할 수 있습니다. 모듈 팔레트의 **저장된 데이터 집합** 목록에서 찾을 수 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
