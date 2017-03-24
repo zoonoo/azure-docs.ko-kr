@@ -2,8 +2,7 @@
 title: "Azure .NET SDK 정의"
 description: "Azure .NET SDK에 포함된 항목에 대해 알아봅니다."
 documentationcenter: .net
-author: juliako
-manager: wpickett
+author: chrissfanos
 editor: mollybos
 services: 
 ms.assetid: f70279ac-7c56-4d6a-9882-352a8b644a4b

@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -18,6 +19,7 @@ ms.author: rashimg;jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -37,10 +39,5 @@ ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
 * [HDInsight의 Linux 기반 Hadoop에서 YARN 응용 프로그램 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보](hdinsight-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
