@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 26a4d4e8-2623-4fae-a0ca-17792b7a5713
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: f3be777497d842f019c1904ec1990bd1f1213ba2
 ms.openlocfilehash: 166ff7f3586932494984e87fc0df7d3d3d914c82
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -357,10 +359,5 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 * [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

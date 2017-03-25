@@ -17,9 +17,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e8ee93cacba552bc7a6ec559dd8aa1fb773fadc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/27/2017
 
 ![기본 환경 개요](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-이러한 사용자 지정 환경을 만들려면 Resource Manager 모드(`azure config mode arm`)의 최신 [Azure CLI 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)이 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
+이러한 사용자 지정 환경을 만들려면 Resource Manager 모드(`azure config mode arm`)의 최신 [Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)이 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/27/2017
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에 VM을 업로드하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기](#detailed-walkthrough)서부터 문서 끝까지 참조하세요.
 
-[Azure CLI 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
+[Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm
@@ -273,7 +273,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>자세한 연습
 다음에 나오는 자세한 단계는 작업 환경을 빌드할 때 각 명령이 수행하는 작업을 설명합니다. 이러한 개념은 개발 또는 프로덕션에 맞는 고유한 사용자 지정 환경을 빌드할 때 도움이 됩니다.
 
-[Azure CLI 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
+[Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm

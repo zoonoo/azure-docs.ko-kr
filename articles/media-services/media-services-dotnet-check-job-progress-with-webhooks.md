@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 357a707724266acfef016add97e19d4b1abb41e3
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c3a7c0196b3ff1a7bd939f4224cb109ce71872f2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,8 +30,6 @@ ms.lasthandoff: 03/14/2017
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
-* .NET Framework 4.0 이상.
-* 있습니다.
 * [Azure Functions를 사용하는 방법](../azure-functions/functions-overview.md)을 이해합니다. 또한 [Azure Functions HTTP 및 WebHook 바인딩](../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
 
 이 항목에서는 다음을 수행하는 방법을 보여 줍니다.

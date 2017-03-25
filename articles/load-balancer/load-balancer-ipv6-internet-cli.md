@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 6edfe8ee8011200e208117f5e03eac8fa741a548
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d009cf50be1f597c266fd565c9ff4799c9df6dbb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -62,7 +63,7 @@ Azure 부하 분산 장치는 계층&4;(TCP, UDP) 부하 분산 장치입니다.
 
 이 예제의 경우 PowerShell 명령 창에서 CLI 도구를 실행하고 있습니다. Azure PowerShell cmdlet는 사용하지 않지만 가독성 및 재사용을 개선하기 위해 PowerShell의 스크립팅 기능은 사용합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
 
     ```azurecli
@@ -342,9 +343,4 @@ VM을 만들려면 저장소 계정이 있어야 합니다. 부하 분산을 하
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

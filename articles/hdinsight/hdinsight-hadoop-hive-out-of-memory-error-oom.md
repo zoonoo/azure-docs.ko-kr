@@ -9,15 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/22/2017
 ms.author: rashimg;jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: bf0ff13a2d5ffc5bf0b07b80f482fc4144b0cd0f
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -123,10 +125,5 @@ D12 컴퓨터에 28GB 메모리가 있으므로 10GB(10240MB)의 컨테이너 �
 
 ## <a name="conclusion-oom-errors-and-container-size"></a>결론: OOM 오류 및 컨테이너 크기
 OOM 오류가 발생했다고 해서 반드시 컨테이너 크기가 너무 작은 것은 아닙니다. 대신, 힙 크기가 컨테이너 메모리 크기의 80% 이상이 되도록 늘려서 메모리 설정을 구성해야 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

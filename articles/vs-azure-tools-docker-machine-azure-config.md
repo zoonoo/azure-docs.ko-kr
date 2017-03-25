@@ -15,9 +15,9 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
-ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/12/2017
 ## <a name="create-vms-with-docker-machine"></a>Docker Machine으로 VM 만들기
 `azure` 드라이버를 사용한 `docker-machine create` 명령으로 Azure에서 Docker 호스트를 만듭니다. 
 
-Azure 드라이버에는 구독 ID가 필요합니다. [Azure CLI](xplat-cli-install.md) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 구독을 검색할 수 있습니다. 
+Azure 드라이버에는 구독 ID가 필요합니다. [Azure CLI](cli-install-nodejs.md) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 구독을 검색할 수 있습니다. 
 
 **Azure 포털 사용**
 

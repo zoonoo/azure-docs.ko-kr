@@ -9,6 +9,7 @@ author: mumian
 documentationcenter: 
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
 ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -143,183 +145,183 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 이러한 오류 메시지 중 일부는 Azure 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 
 
-### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **설명**: Hive 및 Oozie 메타스토어에 사용자 지정 설정을 사용하려면 하나 이상의 구성 요소에 대한 Azure SQL 데이터베이스 세부 정보를 제공하세요.
 * **해결 방법**: 사용자가 올바른 SQL Azure 메타스토어를 제공하고 요청을 다시 시도해야 합니다.  
 
-### <a name="a-idazureregionnotsupportedaazureregionnotsupported"></a><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
+### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **설명**: *nameOfYourRegion*지역에서 클러스터를 만들 수 없습니다. 올바른 HDInsight 지역을 사용하여 요청을 다시 시도하세요.
 * **해결 방법**: 고객이 현재 지원되는 클러스터 지역(동남아시아, 서유럽, 북유럽, 미국 동부 또는 미국 서부)을 만들어야 합니다.  
 
-### <a name="a-idclustercontainerrecordnotfoundaclustercontainerrecordnotfound"></a><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
+### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **설명**: 서버에서 요청된 클러스터 기록을 찾을 수 없습니다.  
 * **해결 방법**: 작업을 다시 시도하세요.
 
-### <a name="a-idclusterdnsnameinvalidreservedwordaclusterdnsnameinvalidreservedword"></a><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
+### <a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord
 * **설명**: *yourDnsName* 클러스터 DNS 이름이 잘못되었습니다. 이름이 영숫자로 시작하고 끝나는지 확인하세요. 이름에는 '-' 특수 문자만 포함할 수 있습니다.  
 * **해결 방법**: 클러스터에 이름의 시작과 끝이 영숫자이고 대시('-') 이외의 특수 문자가 포함되지 않은 올바른 DNS 이름을 사용했는지 확인한 후 작업을 다시 시도하세요.
 
-### <a name="a-idclusternameunavailableaclusternameunavailable"></a><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
+### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 * **설명**: *yourClusterName* 클러스터 이름을 사용할 수 없습니다. 다른 이름을 선택하세요.  
 * **해결 방법**: 사용자가 고유하며 기존에 존재하지 않던 클러스터 이름을 지정한 후 다시 시도해야 합니다. 사용자가 포털을 사용하는 경우 클러스터 이름을 만드는 단계에서 이미 사용 중인 이름을 선택하면 UI에서 이를 알려 줍니다.
 
-### <a name="a-idclusterpasswordinvalidaclusterpasswordinvalid"></a><a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
+### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
 * **설명**: 클러스터 암호가 잘못되었습니다. 암호는 길이가 10자 이상이어야 하고, 숫자, 대문자, 소문자 및 특수 문자를 적어도 하나씩 포함해야 하고, 공백이 없어야 하며, 사용자 이름을 포함하지 않아야 합니다.  
 * **해결 방법**: 올바른 클러스터 암호를 지정한 후 작업을 다시 시도하세요.
 
-### <a name="a-idclusterusernameinvalidaclusterusernameinvalid"></a><a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
+### <a id="ClusterUserNameInvalid"></a>ClusterUserNameInvalid
 * **설명**: 클러스터 사용자 이름이 잘못되었습니다. 사용자 이름에 특수 문자 또는 공백이 포함되지 않았는지 확인하세요.  
 * **해결 방법**: 올바른 클러스터 사용자 이름을 지정한 후 작업을 다시 시도하세요.
 
-### <a name="a-idclusterusernameinvalidreservedwordaclusterusernameinvalidreservedword"></a><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
+### <a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord
 * **설명**: *yourDnsClusterName* 클러스터 DNS 이름이 잘못되었습니다. 이름이 영숫자로 시작하고 끝나는지 확인하세요. 이름에는 '-' 특수 문자만 포함할 수 있습니다.  
 * **해결 방법**: 올바른 DNS 클러스터 사용자 이름을 지정한 후 작업을 다시 시도하세요.
 
-### <a name="a-idcontainernamemismatchwithdnsnameacontainernamemismatchwithdnsname"></a><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
+### <a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName
 * **설명**: 요청 본문의 *yourcontainerURI* URI 및 *yourDnsName* DNS 이름의 컨테이너 이름이 동일해야 합니다.  
 * **해결 방법**: 컨테이너 이름과 DNS 이름이 동일한지 확인하고 작업을 다시 시도하세요.
 
-### <a name="a-iddatanodedefinitionnotfoundadatanodedefinitionnotfound"></a><a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
+### <a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound
 * **설명**: 클러스터 구성이 잘못되었습니다. 노드 크기에서 데이터 노드 정의를 찾을 수 없습니다.  
 * **해결 방법**: 작업을 다시 시도하세요.
 
-### <a name="a-iddeploymentdeletionfailureadeploymentdeletionfailure"></a><a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
+### <a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure
 * **설명**: 클러스터에서 배포를 삭제하지 못했습니다.  
 * **해결 방법**: 삭제 작업을 다시 시도하세요.
 
-### <a name="a-iddnsmappingnotfoundadnsmappingnotfound"></a><a id="DnsMappingNotFound"></a>DnsMappingNotFound
+### <a id="DnsMappingNotFound"></a>DnsMappingNotFound
 * **설명**: 서비스 구성 오류입니다. 필수 DNS 매핑 정보를 찾지 못했습니다.  
 * **해결 방법**: 클러스터를 삭제하고 새 클러스터를 만드세요.
 
-### <a name="a-idduplicateclustercontainerrequestaduplicateclustercontainerrequest"></a><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
+### <a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest
 * **설명**: 클러스터 컨테이너 만들기 시도가 중복되었습니다. *컨테이너이름* 의 레코드가 존재하지만 Etags가 일치하지 않습니다.
 * **해결 방법**: 컨테이너에 고유한 이름을 지정한 후 만들기 작업을 다시 시도하세요.
 
-### <a name="a-idduplicateclusterinhostedserviceaduplicateclusterinhostedservice"></a><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
+### <a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService
 * **설명**: 호스티드 서비스 *nameOfYourHostedService* 에 이미 클러스터가 포함되어 있습니다. 호스티드 서비스에는 여러 클러스터를 포함할 수 없습니다.  
 * **해결 방법**: 클러스터를 다른 호스티드 서비스에서 호스트하세요.
 
-### <a name="a-idfailuretoupdatedeploymentstatusafailuretoupdatedeploymentstatus"></a><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
+### <a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus
 * **설명**: 서버에서 클러스터 배포 상태를 업데이트할 수 없습니다.  
 * **해결 방법**: 작업을 다시 시도하세요. 이 오류가 여러 번 발생하는 경우 CSS에 문의하세요.
 
-### <a name="a-idhdirestoreclusteralteredahdirestoreclusteraltered"></a><a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
+### <a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered
 * **설명**: *yourClusterName* 클러스터가 유지 관리 과정에서 삭제되었습니다. 클러스터를 다시 만드세요.
 * **해결 방법**: 클러스터를 다시 만드세요.
 
-### <a name="a-idheadnodeconfignotfoundaheadnodeconfignotfound"></a><a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
+### <a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound
 * **설명**: 클러스터 구성이 잘못되었습니다. 노드 크기에서 필수 헤드 노드 구성을 찾을 수 없습니다.
 * **해결 방법**: 작업을 다시 시도하세요.
 
-### <a name="a-idhostedservicecreationfailureahostedservicecreationfailure"></a><a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
+### <a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure
 * **설명**: 호스티드 서비스 *nameOfYourHostedService*을(를) 만들 수 없습니다. 요청을 다시 시도하세요.  
 * **해결 방법**: 요청을 다시 시도하세요.
 
-### <a name="a-idhostedservicehasproductiondeploymentahostedservicehasproductiondeployment"></a><a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
+### <a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment
 * **설명**: 호스티드 서비스 *nameOfYourHostedService* 에 이미 프로덕션 배포가 있습니다. 호스티드 서비스에는 여러 프로덕션 배포를 포함할 수 없습니다. 다른 클러스터 이름으로 요청을 다시 시도하십시오.
 * **해결 방법**: 다른 클러스터 이름을 사용하여 요청을 다시 시도하세요.
 
-### <a name="a-idhostedservicenotfoundahostedservicenotfound"></a><a id="HostedServiceNotFound"></a>HostedServiceNotFound
+### <a id="HostedServiceNotFound"></a>HostedServiceNotFound
 * **설명**: 클러스터의 호스티드 서비스인 *nameOfYourHostedService* 을(를) 찾을 수 없습니다.  
 * **해결 방법**: 클러스터가 오류 상태인 경우 클러스터를 삭제한 후 다시 시도하세요.
 
-### <a name="a-idhostedservicewithnodeploymentahostedservicewithnodeployment"></a><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
+### <a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment
 * **설명**: *nameOfYourHostedService* 호스티드 서비스에 연결된 배포가 없습니다.  
 * **해결 방법**: 클러스터가 오류 상태인 경우 클러스터를 삭제한 후 다시 시도하세요.
 
-### <a name="a-idinsufficientresourcescoresainsufficientresourcescores"></a><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
+### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
 * **설명**: *yourSubscriptionId* SubscriptionId에 *yourClusterName* 클러스터를 만드는 데 필요한 코어가 남아 있지 않습니다. 필수: *resourcesRequired*, 사용 가능: *resourcesAvailable*.  
 * **해결 방법**: 구독에서 리소스를 해제하거나 구독에서 사용할 수 있는 리소스를 늘린 후 클러스터를 다시 만들어 보세요.
 
-### <a name="a-idinsufficientresourceshostedservicesainsufficientresourceshostedservices"></a><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
+### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
 * **설명**: *yourSubscriptionId* 구독 ID에 *yourClusterName* 클러스터를 만들기 위해 새 HostedService에 필요한 할당량이 없습니다.  
 * **해결 방법**: 구독에서 리소스를 해제하거나 구독에서 사용할 수 있는 리소스를 늘린 후 클러스터를 다시 만들어 보세요.
 
-### <a name="a-idinternalerrorretryrequestainternalerrorretryrequest"></a><a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
+### <a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest
 * **설명**: 서버에 내부 오류가 발생했습니다. 요청을 다시 시도하세요.  
 * **해결 방법**: 요청을 다시 시도하세요.
 
-### <a name="a-idinvalidazurestoragelocationainvalidazurestoragelocation"></a><a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
+### <a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation
 * **설명**: Azure 저장소 위치인 *dataRegionName* 이(가) 올바른 위치가 아닙니다. 지역이 올바른지 확인하고 요청을 다시 시도하세요.
 * **해결 방법**: HDInsight를 지원하는 저장소 위치를 선택하고 클러스터가 공동 배치되었는지 확인한 후 작업을 다시 시도하세요.
 
-### <a name="a-idinvalidnodesizefordatanodeainvalidnodesizefordatanode"></a><a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
+### <a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode
 * **설명**: 데이터 노드의 VM 크기가 잘못되었습니다. '모든 데이터 노드에서 큰 VM' 크기만 지원됩니다.  
 * **해결 방법Mitigation**: 데이터 노드에서 지원되는 노드 크기를 지정한 후 작업을 다시 시도하세요.
 
-### <a name="a-idinvalidnodesizeforheadnodeainvalidnodesizeforheadnode"></a><a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
+### <a id="InvalidNodeSizeForHeadNode"></a>InvalidNodeSizeForHeadNode
 * **설명**: 헤드 노드의 VM 크기가 잘못되었습니다. 헤드 노드에서는 '매우 큰 VM' 크기만 지원됩니다.  
 * **해결 방법**: 헤드 노드에서 지원되는 노드 크기를 지정하고 작업을 다시 시도하세요.
 
-### <a name="a-idinvalidrightsfordeploymentdeletionainvalidrightsfordeploymentdeletion"></a><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
+### <a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion
 * **설명**: 사용 중인 *yourSubscriptionId* 구독 ID에 *yourClusterName* 클러스터에 대한 삭제 작업을 실행할 수 있는 충분한 권한이 없습니다.  
 * **해결 방법**: 클러스터가 오류 상태인 경우 클러스터를 삭제한 후 다시 시도하세요.  
 
-### <a name="a-idinvalidstorageaccountblobcontainernameainvalidstorageaccountblobcontainername"></a><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
+### <a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName
 * **설명**: 외부 저장소 계정 blob 컨테이너 이름 *yourContainerName* 이(가) 잘못되었습니다. 이름이 문자로 시작되며 이름에 소문자, 숫자 및 대시만 포함되어 있는지 확인하세요.  
 * **해결 방법**: 올바른 저장소 계정 blob 컨테이너 이름을 지정한 후 작업을 다시 시도하세요.
 
-### <a name="a-idinvalidstorageaccountconfigurationsecretkeyainvalidstorageaccountconfigurationsecretkey"></a><a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
+### <a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey
 * **설명**: 외부 저장소 계정 *yourStorageAccountName* 의 구성에서 비밀 키 세부 정보가 설정되어 있어야 합니다.  
 * **해결 방법**: 저장소 계정에 올바른 비밀 키를 지정한 후 작업을 다시 시도하세요.
 
-### <a name="a-idinvalidversionheaderformatainvalidversionheaderformat"></a><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
+### <a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat
 * **설명**: 버전 헤더 *yourVersionHeader* 이(가) 올바른 형식(yyyy-mm-dd)이 아닙니다.  
 * **해결 방법**: 버전 헤더에 올바른 형식을 지정한 후 요청을 다시 시도하세요.
 
-### <a name="a-idmorethanoneheadnodeamorethanoneheadnode"></a><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
+### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **설명**: 클러스터 구성이 잘못되었습니다. 헤드 노드 구성이 두 개 이상 검색되었습니다.  
 * **해결 방법**: 하나의 헤드 노드만 지정하도록 구성을 편집하세요.
 
-### <a name="a-idoperationtimedoutretryrequestaoperationtimedoutretryrequest"></a><a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
+### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **설명**: 허용된 시간 또는 가능한 최대 재시도 횟수 내에 작업을 완료할 수 없습니다. 요청을 다시 시도하세요.  
 * **해결 방법**: 요청을 다시 시도하세요.
 
-### <a name="a-idparameternulloremptyaparameternullorempty"></a><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
+### <a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty
 * **설명**: *yourParameterName* 매개 변수는 Null이거나 비워 둘 수 없습니다.  
 * **해결 방법**: 매개 변수에 올바른 값을 지정하세요.
 
-### <a name="a-idpreclustercreationvalidationfailureapreclustercreationvalidationfailure"></a><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
+### <a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure
 * **설명**: 하나 이상의 클러스터 만들기 요청 입력이 잘못되었습니다. 입력 값이 올바른지 확인하고 요청을 다시 시도하세요.  
 * **해결 방법**: 입력 값이 올바른지 확인하고 요청을 다시 시도하세요.
 
-### <a name="a-idregioncapabilitynotavailablearegioncapabilitynotavailable"></a><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
+### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
 * **설명**: *yourRegionName* 지역 및 *yourSubscriptionId* 구독 ID에서 사용할 수 없는 지역 정보 값입니다.  
 * **해결 방법**: HDInsight 클러스터를 지원하는 지역을 지정하세요. 공식적으로 지정되는 지역은 동남아시아, 서유럽, 북유럽, 미국 동부 또는 미국 서부입니다.
 
-### <a name="a-idstorageaccountnotcolocatedastorageaccountnotcolocated"></a><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
+### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 * **설명**: *yourStorageAccountName* 저장소 계정이 *currentRegionName* 지역에 있습니다. 지역은 클러스터 지역인 *클러스터지역이름*과(와) 동일해야 합니다.  
 * **해결 방법**: 클러스터가 있는 지역과 동일한 지역에서 저장소 계정을 지정하거나, 사용 중인 데이터가 저장소 계정에 이미 존재하는 경우 기존 저장소 계정과 동일한 지역에서 새 클러스터를 만드세요. 포털을 사용하는 경우 UI에서 이 문제에 대해 사전에 알려 줍니다.
 
-### <a name="a-idsubscriptionidnotactiveasubscriptionidnotactive"></a><a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
+### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 * **설명**: 지정된 구독 ID *yourSubscriptionId* 이(가) 활성이 아닙니다.  
 * **해결 방법**: 구독을 다시 활성화하거나 올바른 새 구독을 가져오세요.
 
-### <a name="a-idsubscriptionidnotfoundasubscriptionidnotfound"></a><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
+### <a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound
 * **설명**: 구독 ID인 *yourSubscriptionId* 을(를) 찾을 수 없습니다.  
 * **해결 방법**: 구독 ID가 올바른지 확인한 후 작업을 다시 시도하세요.
 
-### <a name="a-idunabletoresolvednsaunabletoresolvedns"></a><a id="UnableToResolveDNS"></a>UnableToResolveDNS
+### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
 * **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://*로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
-### <a name="a-idunabletoverifylocationofresourceaunabletoverifylocationofresource"></a><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
+### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 * **설명**: *yourDnsUrl*리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
 * **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://*로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
-### <a name="a-idversioncapabilitynotavailableaversioncapabilitynotavailable"></a><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
+### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 * **설명**: *specifiedVersion* 버전 및 *yourSubscriptionId* 구독 ID에서 사용할 수 없는 버전 정보 값입니다.  
 * **해결 방법**: 사용할 수 있는 버전을 선택한 후 작업을 다시 시도하세요.
 
-### <a name="a-idversionnotsupportedaversionnotsupported"></a><a id="VersionNotSupported"></a>VersionNotSupported
+### <a id="VersionNotSupported"></a>VersionNotSupported
 * **설명**: *specifiedVersion* 버전은 지원되지 않습니다.
 * **해결 방법**: 지원되는 버전을 선택한 후 작업을 다시 시도하세요.
 
-### <a name="a-idversionnotsupportedinregionaversionnotsupportedinregion"></a><a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
+### <a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion
 * **설명**: *specifiedVersion* 버전은 *specifiedRegion* Azure 지역에서 사용할 수 없습니다.  
 * **해결 방법**: 지정된 지역에서 지원되는 버전을 선택한 후 작업을 다시 시도하세요.
 
-### <a name="a-idwasbaccountconfignotfoundawasbaccountconfignotfound"></a><a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
+### <a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound
 * **설명**: 클러스터 구성이 잘못되었습니다. 필수 WASB 계정 구성을 외부 계정에서 찾을 수 없습니다.  
 * **해결 방법**: 계정이 존재하며 구성에서 올바르게 지정되었는지 확인한 후 작업을 다시 시도하세요.
 
@@ -327,10 +329,5 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 * [HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md)
 * [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

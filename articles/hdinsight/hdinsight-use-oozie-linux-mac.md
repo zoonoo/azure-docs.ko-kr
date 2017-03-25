@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 9d20050dada974c0c2a54399e2db7b9a289f7e89
-ms.openlocfilehash: 48cc9c7181d83d2fe851b454eaf887b0483d3a01
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dc22bfee0471da2d61d1d3d720e26d5fc785f832
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure CLI**: [Azure CLI 설치 및 구성](../xplat-cli-install.md)
+* **Azure CLI**: [Azure CLI 설치 및 구성](../cli-install-nodejs.md)
 
 * **HDInsight 클러스터**: [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 

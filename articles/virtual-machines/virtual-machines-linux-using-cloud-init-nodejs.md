@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 7d804c93933fd53b0a74696391e3ade228e66560
-ms.openlocfilehash: 4895bd1a47a918df8029ef0d2e0343d9b0da0903
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdd446dbacb531c3778d232446231bfae08c74ac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 이 문서에서는 cloud-init 스크립트를 사용하여 호스트 이름 설정, 설치된 패키지 업데이트, 사용자 계정 관리를 수행하는 방법을 설명합니다.  VM을 만드는 중에 Azure CLI에서 cloud-init 스크립트를 호출합니다.  이 문서의 내용을 실행하기 위해 필요한 사항:
 
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* `azure login`으로 로그인된 [Azure CLI](../xplat-cli-install.md)
+* `azure login`으로 로그인된 [Azure CLI](../cli-install-nodejs.md)
 * Azure Resource Manager 모드 `azure config mode arm`으로 *있어야 하는* Azure CLI
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 88e8ead2b22bf53510c9c6008e34647272326690
-ms.openlocfilehash: 32d93f1ff6cf4ae78051b7208e38b6915509210f
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,7 +81,7 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 ![Azure 포털 - 알림 허브](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli-install.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
+> [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../cli-install-nodejs.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
 > 
 > 
 

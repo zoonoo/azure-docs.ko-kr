@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: df489d70-7788-4efa-a089-e5e5006421e2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: a5494f16e3398be507080dd4fac591144f69d9fc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -159,7 +161,7 @@ Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark
     ![Livy 인터프리터 다시 시작](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Zeppelin 인터프리터 다시 시작")
 3. 기존 Zeppelin Notebook에서 코드 셀을 실행합니다. 이렇게 하면 HDInsight 클러스터에 새로운 Livy 세션이 만들어집니다.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -199,10 +201,5 @@ Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/19/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: b42bd57c8a7dde854208c65f4477327fbf1108a4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 333db54fe01aad42cfcd050995b64f3725b31ae9
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,14 +28,10 @@ ms.openlocfilehash: b42bd57c8a7dde854208c65f4477327fbf1108a4
 > 
 > 
 
-### <a name="requiring-authentication-to-access-controllers"></a>컨트롤러에 액세스하려면 인증 필요
+## <a name="requiring-authentication-to-access-controllers"></a>컨트롤러에 액세스하려면 인증 필요
 프로젝트의 모든 컨트롤러는 **Authorize** 특성으로 표시되었습니다. 이 특성으로 인해 사용자가 인증해야만 이러한 컨트롤러에서 정의한 API에 액세스할 수 있습니다. 컨트롤러에 익명으로 액세스할 수 있도록 하려면 컨트롤러에서 이 특성을 제거하세요. 더 세부적인 수준에서 권한을 설정하려면 특성을 컨트롤러 클래스에 적용하는 대신 인증이 필요한 각 메서드에 적용하세요.
 
+## <a name="next-steps"></a>다음 단계
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

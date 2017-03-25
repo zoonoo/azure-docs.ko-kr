@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 9ebf15e5f2ca21f3ec39af9be93253694a97cdf8
-ms.openlocfilehash: ba2f9d965528e69ce2d1fce62e5b16e738263c87
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4725f4200446434bfcb8754aac9bf0d99f8a7526
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/27/2017
 DocumentDB 데이터베이스 계정은 현재 Resource Manager 템플릿 및 Azure CLI 1.0을 사용하여 만들 수 있는 유일한 DocumentDB 리소스입니다.
 
 ## <a name="getting-ready"></a>준비
-Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 버전 및 Azure 계정이 있어야 합니다. Azure CLI 1.0이 없으면 [설치](../xplat-cli-install.md)하세요.
+Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 버전 및 Azure 계정이 있어야 합니다. Azure CLI 1.0이 없으면 [설치](../cli-install-nodejs.md)하세요.
 
 ### <a name="update-your-azure-cli-10-version"></a>Azure CLI 1.0 버전 업데이트
 명령 프롬프트에서 `azure --version`을 입력하면 0.10.4 이상을 이미 설치했는지 여부를 확인할 수 있습니다. 이 단계에서 Microsoft Azure CLI 데이터 수집에 참여하라는 메시지가 표시될 수 있습니다. 그러면 y를 선택하여 옵트인하거나 n을 선택하여 옵트아웃할 수 있습니다.
@@ -42,7 +42,7 @@ Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 버전 �
     azure --version
     0.10.4 (node: 4.2.4)
 
-버전이 0.10.4 미만인 경우 기본 설치 관리자 중 하나를 사용하여 [Azure CLI 1.0을 설치](../xplat-cli-install.md) 또는 업데이트하거나 **npm**을 통해 `npm update -g azure-cli`을 입력하여 업데이트하거나 `npm install -g azure-cli`를 입력하여 설치해야 합니다.
+버전이 0.10.4 미만인 경우 기본 설치 관리자 중 하나를 사용하여 [Azure CLI 1.0을 설치](../cli-install-nodejs.md) 또는 업데이트하거나 **npm**을 통해 `npm update -g azure-cli`을 입력하여 업데이트하거나 `npm install -g azure-cli`를 입력하여 설치해야 합니다.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Azure 계정 및 구독 설정
 Azure 구독이 아직 없지만 Visual Studio 구독이 있는 경우 [Visual Studio 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
@@ -64,7 +64,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
 
 브라우저에서 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 을 열고 명령 출력에 제공된 코드를 입력합니다.
 
-![Microsoft Azure CLI 1.0에 대한 장치 로그인 화면을 보여 주는 스크린 샷](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
+![Microsoft Azure CLI 1.0에 대한 장치 로그인 화면을 보여 주는 스크린샷](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
 
 코드를 입력한 후 브라우저에서 사용할 ID를 선택하고 사용자 이름 및 필요한 경우 암호를 제공합니다.
 
@@ -137,10 +137,10 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
 Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 
-## <a name="a-idquick-create-documentdb-accountatask-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>태스크: 단일 지역 DocumentDB 계정 만들기
+## <a id="quick-create-documentdb-account"></a>태스크: 단일 지역 DocumentDB 계정 만들기
 이 섹션의 지침을 사용하여 단일 지역 DocumentDB 계정을 만들 수 있습니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a name="a-idcreate-single-documentdb-account-cli-arma-create-a-single-region-documentdb-account-using-azure-cli-10-without-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 단일 지역 DocumentDB 계정 만들기
+### <a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 단일 지역 DocumentDB 계정 만들기
 명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 DocumentDB 계정을 만듭니다.
 
 > [!TIP]
@@ -180,7 +180,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
 
 명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-### <a name="a-idcreate-single-documentdb-account-cli-arma-create-a-single-region-documentdb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 단일 지역 DocumentDB 계정 만들기
+### <a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 단일 지역 DocumentDB 계정 만들기
 이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 DocumentDB 계정을 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
 다음 내용이 포함된 로컬 템플릿 파일을 만듭니다. 파일 이름을 azuredeploy.json으로 지정합니다.
@@ -292,10 +292,10 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-## <a name="a-idquick-create-documentdb-with-mongodb-api-accountatask-create-a-single-region-documentdb-api-for-mongodb-account"></a><a id="quick-create-documentdb-with-mongodb-api-account"></a>태스크: 단일 지역 DocumentDB 만들기: MongoDB 계정에 대한 API
+## <a id="quick-create-documentdb-with-mongodb-api-account"></a>태스크: 단일 지역 DocumentDB 만들기: MongoDB 계정에 대한 API
 이 섹션의 지침을 사용하여 MongoDB 계정의 단일 지역 API를 만듭니다. Resource Manager 템플릿으로 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a name="a-idcreate-single-documentdb-with-mongodb-api-account-cli-arma-create-a-single-region-mongodb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Resource Manager 템플릿에서 Azure CLI 1.0을 사용하여 단일 지역 MongoDB 계정 만들기
+### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Resource Manager 템플릿에서 Azure CLI 1.0을 사용하여 단일 지역 MongoDB 계정 만들기
 이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 MongoDB 계정에 대한 API를 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
 다음 내용이 포함된 로컬 템플릿 파일을 만듭니다. 파일 이름을 azuredeploy.json으로 지정합니다.
@@ -410,10 +410,10 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-## <a name="a-idcreate-multi-documentdb-accountatask-create-a-multi-region-documentdb-account"></a><a id="create-multi-documentdb-account"></a>작업: 다중 지역 DocumentDB 계정 만들기
+## <a id="create-multi-documentdb-account"></a>작업: 다중 지역 DocumentDB 계정 만들기
 DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. DocumentDB 계정을 만들 때 원하는 서비스 존재 지역을 지정할 수 있습니다. 이 섹션의 지침을 사용하여 다중 지역 DocumentDB 계정을 만들 수 있습니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a name="a-idcreate-multi-documentdb-account-clia-create-a-multi-region-documentdb-account-using-azure-cli-10-without-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli"></a> Resource Manager 템플릿 없이 Azure CLI 1.0을 사용하여 다중 지역 DocumentDB 계정 만들기
+### <a id="create-multi-documentdb-account-cli"></a> Resource Manager 템플릿 없이 Azure CLI 1.0을 사용하여 다중 지역 DocumentDB 계정 만들기
 명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 DocumentDB 계정을 만듭니다.
 
 > [!TIP]
@@ -453,7 +453,7 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
 명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-### <a name="a-idcreate-multi-documentdb-account-cli-arma-create-a-multi-region-documentdb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli-arm"></a> Resource Manager 템플릿에서 Azure CLI 1.0을 사용하여 다중 지역 DocumentDB 계정 만들기
+### <a id="create-multi-documentdb-account-cli-arm"></a> Resource Manager 템플릿에서 Azure CLI 1.0을 사용하여 다중 지역 DocumentDB 계정 만들기
 이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 DocumentDB 계정을 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
 다음 내용이 포함된 로컬 템플릿 파일을 만듭니다. 파일 이름을 azuredeploy.json으로 지정합니다.

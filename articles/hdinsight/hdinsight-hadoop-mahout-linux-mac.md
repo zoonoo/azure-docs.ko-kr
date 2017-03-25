@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -41,7 +42,7 @@ Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Maho
 
 HDInsight 클러스터의 Mahout 버전에 대한 자세한 내용은 [HDInsight 버전 및 Hadoop 구성 요소](hdinsight-component-versioning.md)를 참조하세요.
 
-## <a name="a-namerecommendationsaunderstanding-recommendations"></a><a name="recommendations"></a>이해 권장 사항
+## <a name="recommendations"></a>이해 권장 사항
 
 Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔진은 `userID`, `itemId` 및 `prefValue`(항목에 대한 선호도) 형식의 데이터를 허용합니다. 그런 다음 Mahout에서 동시 발생 분석을 수행하여 *특정 항목에 대한 선호도를 가진 사용자가 다른 항목에 대한 선호도도 갖고 있는지*확인할 수 있습니다. Mahout은 좋아하는 항목 선호도를 가진 사용자를 확인하며, 이 선호도는 추천하는 데 사용할 수 있습니다.
 

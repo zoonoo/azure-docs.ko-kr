@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 80630ec6762ccd00e1e199460703a128f96c1c37
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/31/2017
 * [Azure 클래식 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="set-up"></a>설정
-* [Azure 명령줄 인터페이스(Azure CLI) 설치](../xplat-cli-install.md)
+* [Azure 명령줄 인터페이스(Azure CLI) 설치](../cli-install-nodejs.md)
 
 ## <a name="tutorials"></a>자습서
 * [Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

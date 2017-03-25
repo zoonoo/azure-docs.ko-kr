@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ba75d58b6e0ce6a75173c6d38ea27e7917a054c8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 88351f0c3333fb06b1949a8ab9f63deea7259a41
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -61,9 +61,9 @@ Azure는 최소한 2048비트, **ssh-rsa** 형식 공개 및 개인 키 서식�
 
 다음은 배포 시나리오 및 각각에 사용되는 파일 형식입니다.
 
-1. **ssh-rsa** 키는 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포 및 [Azure CLI](../xplat-cli-install.md)를 사용하는 Resource Manager 배포에 필요합니다.
+1. **ssh-rsa** 키는 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포 및 [Azure CLI](../cli-install-nodejs.md)를 사용하는 Resource Manager 배포에 필요합니다.
    * 대개 이러한 키는 대부분의 모든 사용자에게 필요한 것입니다.
-2. `.pem` 파일은 클래식 배포를 사용하여 VM을 만드는 데 필요합니다. 이러한 키는 [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서 지원됩니다.
+2. `.pem` 파일은 클래식 배포를 사용하여 VM을 만드는 데 필요합니다. 이러한 키는 [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](../cli-install-nodejs.md)를 사용하는 클래식 배포에서 지원됩니다.
    * 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 경우 이러한 추가 키와 인증서를 만들기만 하면 됩니다.
 
 ## <a name="install-git-for-windows"></a>Windows용 Git 설치

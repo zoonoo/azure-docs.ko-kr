@@ -17,20 +17,20 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 0aa12ea5fd7df7bee57aa7bcacd4c1fe4d6542b8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
 > [!div class="op_single_selector"]
-- [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-- [템플릿](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+> * [템플릿](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -171,7 +171,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 템플릿 배포
 Azure CLI를 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. Azure CLI를 사용한 적이 없는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)의 지침을 따라 이를 설치하고 구성합니다.
+1. Azure CLI를 사용한 적이 없는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)의 지침을 따라 이를 설치하고 구성합니다.
 2. 아래와 같이 `azure config mode` 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
     ```azurecli

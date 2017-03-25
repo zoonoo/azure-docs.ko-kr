@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
-ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하�
 이 가이드는 저장소 계정을 만들기 위한 권장 방법인 리소스 관리자 모델을 중점적으로 설명합니다. 전체 구독에 대한 액세스를 허용하지 않고 Resource Manager 저장소 계정을 사용하면 RBAC(역할 기반 액세스 제어)를 사용하여 관리 평면에 대해 보다 명확히 한정된 수준으로 액세스를 제어할 수 있습니다.
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안을 유지하는 방법
-RBAC의 기능과 사용 방법에 대해 살펴보겠습니다. 각 Azure 구독에는 Azure Active Directory가 있습니다. 해당 디렉터리의 사용자, 그룹 및 응용 프로그램에 리소스 관리자 배포 모델을 사용하는 Azure 구독에서 리소스를 관리할 수 있는 권한을 부여할 수 있습니다. 이것을 RBAC(역할 기반 액세스 제어)라고 합니다. 이 액세스를 관리하기 위해 [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)를 사용할 수 있습니다.
+RBAC의 기능과 사용 방법에 대해 살펴보겠습니다. 각 Azure 구독에는 Azure Active Directory가 있습니다. 해당 디렉터리의 사용자, 그룹 및 응용 프로그램에 리소스 관리자 배포 모델을 사용하는 Azure 구독에서 리소스를 관리할 수 있는 권한을 부여할 수 있습니다. 이것을 RBAC(역할 기반 액세스 제어)라고 합니다. 이 액세스를 관리하기 위해 [Azure Portal](https://portal.azure.com/), [Azure CLI 도구](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)를 사용할 수 있습니다.
 
 리소스 관리자 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 저장소 계정을 추가하고 해당 특정 저장소 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 저장소 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 저장소 계정에 대한 정보는 볼 수 있지만 저장소 계정 키에는 액세스하지 못하게 할 수 있습니다.
 
@@ -334,7 +334,7 @@ Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 I
 이 솔루션은 Microsoft Azure에서 사용되도록 설정될 경우 IaaS VM에 대해 다음 시나리오를 지원합니다.
 
 * Azure 주요 자격 증명 모음과 통합
-* 표준 계층 VM - [A, D, DS, G, GS 등 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* 표준 계층 VM: [A, D, DS, G, GS 등 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Windows 및 Linux IaaS VM에서 암호화 사용
 * Windows IaaS VM에 대한 OS 및 데이터 드라이브에서 암호화 사용 안 함
 * Linux IaaS VM에 대한 데이터 드라이브에서 암호화 사용 안 함

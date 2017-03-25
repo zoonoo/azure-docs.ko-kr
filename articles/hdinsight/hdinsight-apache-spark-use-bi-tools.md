@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,15 +17,15 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ba238a5d18dd83e4adb9e5ba737ec0cff135d34e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 36b7aaf99db48efa1b56b84ac0616cf9ee2830ac
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="use-bi-tools-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 BI 도구 사용
 
-Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집합을 분석한 다음 BI 도구를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight Spark 클러스터와 함께 Power BI 및 Tableau와 같은 BI 도구를 사용하는 방법을 보여 줍니다. 
+Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집합을 분석한 다음 BI 도구를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight Spark 클러스터와 함께 Power BI 및 Tableau와 같은 BI 도구를 사용하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이 문서에 설명된 BI 도구와의 연결은 Azure HDInsight 3.6 Preview의 Spark 2.1에서 지원되지 않습니다. Spark 버전 1.6 및 2.0(각각 HDInsight 3.4, 3.5)만 지원됩니다.
@@ -86,7 +87,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집�
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%sql` 매직을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels)을 참조하세요.
+7. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%sql` 매직을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
         %%sql
         SHOW TABLES
@@ -160,7 +161,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집�
 >
 >
 
-1. 이 자습서를 실행 중인 컴퓨터에 [Tableau Desktop](http://www.tableau.com/products/desktop)을 설치합니다. 
+1. 이 자습서를 실행 중인 컴퓨터에 [Tableau Desktop](http://www.tableau.com/products/desktop)을 설치합니다.
 
 2. 또한 Microsoft Spark ODBC 드라이버가 컴퓨터에 설치되어 있는지 확인합니다. [여기](http://go.microsoft.com/fwlink/?LinkId=616229)에서 드라이버를 설치할 수 있습니다.
 

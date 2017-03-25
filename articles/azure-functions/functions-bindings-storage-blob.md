@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -100,7 +100,7 @@ Azure Storage Blob 트리거를 통해 저장소 컨테이너에서 새롭고 �
 
 이 경로에는 *images* 컨테이너에 *{20140101}-soundfile.mp3*라는 Blob이 있으며 함수 코드에 있는 `name` 변수 값은 *soundfile.mp3*입니다. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Blob 수신 확인
 Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 이를 위해 *Blob 수신 확인*을 유지 관리하여 지정된 Blob 버전이 처리되었는지 확인합니다.

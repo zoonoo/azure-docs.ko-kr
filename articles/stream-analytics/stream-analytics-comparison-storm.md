@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,6 +28,7 @@ Apache Storm과 Azure Stream Analytics 비교를 사용하여 클라우드 분�
 두 분석 플랫폼 모두 PaaS 솔루션의 이점을 제공하지만, 서로 구분되는 몇 가지 고유한 기능이 있습니다. 목표를 달성하는 데 필요한 솔루션을 올바르게 선택할 수 있도록 아래에 이러한 서비스의 기능과 제한 사항이 설명되어 있습니다.
 
 ## <a name="storm-comparison-to-stream-analytics-general-features"></a>Storm과 Stream Analytics 비교: 일반 기능
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -137,7 +139,9 @@ HDInsight의 Apache Storm의 경우 구매 단위는 클러스터 기반이며 �
         </tr>
     </tbody>
 </table>
-## 각 분석 플랫폼에서 작성 ##
+
+## <a name="authoring-on-each-analytics-platform"></a>각 분석 플랫폼에서 작성 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -261,7 +265,9 @@ Stream Analytics에 확장 가능한 코드에 대한 지원은 없습니다.
         </tr>
     </tbody>
 </table>
-## 데이터 원본 및 출력 ##
+
+## <a name="data-sources-and-outputs"></a>데이터 원본 및 출력 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -350,7 +356,9 @@ Stream Analytics에는 UTF-8 데이터 형식 을 사용해야 합니다.
         </tr>
     </tbody>
 </table>
-## 관리 및 운영 ##
+
+## <a name="management-and-operations"></a>관리 및 운영 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -509,7 +517,9 @@ SLA 가동 시간 99.9% </p>
         </tr>
     </tbody>
 </table>
-## 고급 기능 ##
+
+## <a name="advanced-features"></a>고급 기능 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -585,9 +595,4 @@ Storm Bolt를 통해 사용할 수 있습니다.
         </tr>
     </tbody>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

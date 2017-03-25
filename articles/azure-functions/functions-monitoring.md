@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -78,7 +79,7 @@ Azure CLI(Command Line Interface) 또는 PowerShell을 사용하여 로그 파�
 
 ### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Azure CLI로 함수 앱 로그 파일 모니터링
 
-시작하려면 [Azure CLI를 설치](../xplat-cli-install.md)합니다.
+시작하려면 [Azure CLI를 설치](../cli-install-nodejs.md)합니다.
 
 다음 명령 또는 [Azure CLI에서 Azure에 로그인](../xplat-cli-connect.md)에 나오는 다른 옵션을 사용하여 Azure 계정에 로그인합니다.
 
@@ -124,10 +125,5 @@ Azure CLI(Command Line Interface) 또는 PowerShell을 사용하여 로그 파�
 
 * [기능 테스트](functions-test-a-function.md)
 * [기능 크기 조정](functions-scale.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

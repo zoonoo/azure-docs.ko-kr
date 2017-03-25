@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2af5d275bb331101b370e4a12043e27b6cdf5b68
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8be5e1525a7c481de5cb02edd26da305af2d4798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -140,10 +140,7 @@ SparkJob2
 > [!IMPORTANT]
 > 변환 작업으로 파이프라인을 만드는 전체 연습 과정은 [데이터를 변환하기 위해 파이프라인 생성](data-factory-build-your-first-pipeline-using-editor.md) 문서를 참조하세요. 
 
-## <a name="spark-sample-on-github"></a>GitHub의 Spark 샘플
-Spark 작업이 지원되기 전에 Data Factory 파이프라인에서 Spark 프로그램을 실행하기 위한 해결 방법은 MapReduce 작업을 사용하는 것이었습니다. Data Factory 파이프라인에서 [MapReduce 작업](data-factory-map-reduce.md)을 계속 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. MapReduce 작업 대신 Spark 작업을 사용하는 것이 좋습니다. 
 
-[Spark - GitHub의 Data Factory 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) 에서는 MapReduce 작업을 사용하여 Spark 프로그램을 호출하는 방법을 보여 줍니다. Spark 프로그램은 단순히 Azure Blob 컨테이너에서 다른 컨테이너로 데이터를 복사합니다. 
 
 ## <a name="see-also"></a>참고 항목
 * [Hive 작업](data-factory-hive-activity.md)

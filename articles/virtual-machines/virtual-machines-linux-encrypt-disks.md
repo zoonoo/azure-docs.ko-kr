@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c6acdf97ee5e947ac48866c003480e393dd4bf35
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/31/2017
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 VM에서 가상 디스크를 암호화하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#overview-of-disk-encryption) 문서 끝까지 참조하세요.
 
-[최신 Azure CLI](../xplat-cli-install.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
+[최신 Azure CLI](../cli-install-nodejs.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
 
 ```azurecli
 azure config mode arm
@@ -157,7 +157,7 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 * 이미 암호화된 Linux VM에서 암호화 키 업데이트.
 
 ## <a name="create-the-azure-key-vault-and-keys"></a>Azure Key Vault 및 키 만들기
-이 가이드의 나머지 부분을 완료하려면 [최신 Azure CLI](../xplat-cli-install.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
+이 가이드의 나머지 부분을 완료하려면 [최신 Azure CLI](../cli-install-nodejs.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
 
 ```azurecli
 azure config mode arm

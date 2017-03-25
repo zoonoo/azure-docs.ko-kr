@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
-ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 408dfd655db7a4a5fa33920e0c8bc8b7a065e886
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/01/2017
 [AMQP(고급 메시지 큐 프로토콜)](https://www.amqp.org/)는 [IoT Hub](#iot-hub)에서 장치와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](../xplat-cli-install.md)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 버전의 CLI는 Node.js를 사용하여 구현됩니다.
+[Azure CLI](../cli-install-nodejs.md)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 버전의 CLI는 Node.js를 사용하여 구현됩니다.
 
 ## <a name="azure-cli-20"></a>Azure CLI 2.0
 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)은 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 미리 보기 버전은 Python을 사용하여 구현됩니다.

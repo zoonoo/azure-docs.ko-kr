@@ -10,6 +10,7 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +20,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 1618ed7971ffef0eae55b73b4bdd04f3f14195ba
 ms.openlocfilehash: a070df78bf95173aa48da60d24d14d08d9be8d9a
+ms.lasthandoff: 01/07/2017
 
 
 ---
@@ -83,10 +85,5 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 컴퓨터에서 Hor
 * [Hortonworks Sandbox와 Visual Studio를 사용하는 방법 알아보기](hdinsight-hadoop-emulator-visual-studio.md)
 * [Hortonworks Sandbox의 방법 알아보기](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop 자습서 - HDP 시작](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

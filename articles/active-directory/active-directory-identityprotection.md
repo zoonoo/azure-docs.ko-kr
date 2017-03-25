@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
-ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -39,7 +40,7 @@ Microsoft는&10;년 넘게 클라우드 기반 ID를 보호하고 있습니다. 
 
 이에 따라 다음을 수행해야 합니다.
 
-- 해당 권한 수준에 관계 없이 모든 ID 보호 
+- 해당 권한 수준에 관계 없이 모든 ID 보호
 
 - 손상된 ID가 남용되지 않도록 사전에 방지
 
@@ -74,12 +75,12 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 
 ### <a name="vulnerabilities"></a>취약점
 
-Azure Active Directory ID 보호는 구성을 분석하고 사용자의 ID에 영향을 줄 수 있는 취약점을 검색합니다. 자세한 내용은 [Azure Active Directory ID 보호에서 검색되는 취약성](active-directory-identityprotection-vulnerabilities.md)을 참조하세요. 
+Azure Active Directory ID 보호는 구성을 분석하고 사용자의 ID에 영향을 줄 수 있는 취약점을 검색합니다. 자세한 내용은 [Azure Active Directory ID 보호에서 검색되는 취약성](active-directory-identityprotection-vulnerabilities.md)을 참조하세요.
 
 ### <a name="risk-events"></a>위험 이벤트
 
 Azure Active Directory는 적응 Machine Learning 알고리즘 및 추론을 사용하여 사용자의 ID와 관련된 의심스러운 작업을 검색합니다. 시스템은 검색된 각 의심스러운 작업에 대한 레코드를 만듭니다. 이러한 레코드를 위험 이벤트라고도 합니다.  
-자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요. 
+자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요.
 
 
 ## <a name="investigation"></a>조사
@@ -101,11 +102,11 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 
-Aure Active Directory는 일부 [위험 이벤트 유형](active-directory-identity-protection-risk-events.md#risk-event-types)을 실시간으로 검색합니다. 사용자의 로그인 주에 검색된 모든 실시간 위험 이벤트는 *위험한 로그인*이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다. 위험한 로그인의 수명 주기는 사용자가 로그아웃하면 끝납니다.
+Aure Active Directory는 일부 [위험 이벤트 유형](active-directory-reporting-risk-events.md#risk-event-types)을 실시간으로 검색합니다. 사용자의 로그인 주에 검색된 모든 실시간 위험 이벤트는 *위험한 로그인*이라는 논리적 개념을 파생시킵니다. 위험한 로그인은 사용자 계정의 정당한 소유자가 수행하지 않았을 수 있는 로그인 시도에 대한 지표입니다. 위험한 로그인의 수명 주기는 사용자가 로그아웃하면 끝납니다.
 
 ### <a name="sign-in-risk-level"></a>로그인 위험 수준
 
-로그인 위험 수준은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성에 대한 지표입니다(높음, 중간 또는 낮음). 
+로그인 위험 수준은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성에 대한 지표입니다(높음, 중간 또는 낮음).
 
 ### <a name="mitigating-sign-in-risk-events"></a>로그인 위험 이벤트 완화
 
@@ -395,9 +396,4 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
 * [Azure Active Directory ID 보호 - 사용자를 차단 해제하는 방법](active-directory-identityprotection-unblock-howto.md)
 
 * [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

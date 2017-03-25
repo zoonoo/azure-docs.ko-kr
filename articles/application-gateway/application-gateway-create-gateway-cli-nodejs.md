@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: edc6b5f7a90babaa1f50b14f40eaed1e8582cd2e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입�
 
 ## <a name="prerequisite-install-the-azure-cli"></a>필수 조건: Azure CLI 설치
 
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](../xplat-cli-install.md)하고 [Azure에 로그온](../xplat-cli-connect.md)해야 합니다. 
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](../cli-install-nodejs.md)하고 [Azure에 로그온](../xplat-cli-connect.md)해야 합니다. 
 
 > [!NOTE]
 > Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../active-directory/sign-up-organization.md)에 등록합니다.

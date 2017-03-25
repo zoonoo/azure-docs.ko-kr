@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 116344308a1173994ec85bcb8a7112ce158f4f60
-ms.openlocfilehash: 3d42453f5bbe84dbb1e8902279da6ac43c683478
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 1d3336e7e2e3ec84ab85a8f494717a75f77982b3
+ms.lasthandoff: 03/17/2017
 
 
 
@@ -39,21 +39,21 @@ ms.lasthandoff: 02/24/2017
 ### <a name="spark-16-notebooks"></a>Spark 1.6 노트북
 이러한 Notebook은 Jupyter Notebook 서버의 pySpark 커널에서 실행됩니다.
 
-- [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): 데이터 탐색, 모델링, 그리고 몇 가지 알고리즘으로 점수 매기기 등을 수행하는 방법에 대한 정보를 제공합니다.
-- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 노트북 #1의 토픽과 하이퍼 매개 변수 조정 및 교차 유효성 검사를 사용하는 모델 개발을 포함합니다.
-- [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb): HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운용하는 방법을 보여줍니다.
+- [pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): 데이터 탐색, 모델링, 그리고 몇 가지 알고리즘으로 점수 매기기 등을 수행하는 방법에 대한 정보를 제공합니다.
+- [pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 노트북 #1의 토픽과 하이퍼 매개 변수 조정 및 교차 유효성 검사를 사용하는 모델 개발을 포함합니다.
+- [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb): HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운용하는 방법을 보여줍니다.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0 노트북
 이러한 Notebook은 Jupyter Notebook 서버의 pySpark3 커널에서 실행됩니다.
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 NYC Taxi Trip 및 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data) 설명된 데이터 집합을 사용하여 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 점수 매기기를 수행하는 방법에 대한 정보를 제공합니다. 이 Notebook은 Spark 2.0에 대해 제공했던 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. NYC Taxi 데이터를 분석하는 Notebook 상세 정보는 이 목록에서 다음 Notebook을 참조하세요. 이러한 Notebook을 비교하는 목록 다음의 참고 사항을 확인하세요. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb):이 파일은 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 그리고 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)에 설명된 NYC 택시 여정 및 요금 데이터 집합을 사용한 점수 매기기 등을 수행하는 방법을 보여줍니다.
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): 이 파일은 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 그리고 2011년 및 2012년의 유명 항공사 정시 출발 데이터 집합을 사용한 점수 매기기 등을 수행하는 방법을 보여줍니다. 우리는 날씨 요소를 모델에 포함시킬 수 있도록 항공사 데이터 집합과 공항 날씨 데이터(예: 풍속, 온도, 고도 등)를 통합하였습니다.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 NYC Taxi Trip 및 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data) 설명된 데이터 집합을 사용하여 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 점수 매기기를 수행하는 방법에 대한 정보를 제공합니다. 이 Notebook은 Spark 2.0에 대해 제공했던 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. NYC Taxi 데이터를 분석하는 Notebook 상세 정보는 이 목록에서 다음 Notebook을 참조하세요. 이러한 Notebook을 비교하는 목록 다음의 참고 사항을 확인하세요. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): 이 파일은 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)에 설명된 NYC 택시 여정 및 요금 데이터 집합을 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다.
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): 이 파일은 2011년 및 2012년의 유명 항공사 정시 출발 데이터 집합을 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다. 날씨 요소를 모델에 포함시킬 수 있도록 모델링하기 전에 항공사 데이터 집합과 공항 날씨 데이터(예: 풍속, 온도, 고도 등)를 통합하였습니다.
 
 <!-- -->
 
 > [!NOTE]
-> 항공사 데이터 집합은 분류 알고리즘의 사용 이해를 돕기 위해 Spark 2.0 노트북에 추가되었습니다. 항공사 정시 출발 데이터 집합 및 날씨 데이터 집합에 대한 내용은 다음 링크를 참조하세요.
+> 항공사 데이터 집합은 분류 알고리즘의 사용 이해를 돕기 위해 Spark 2.0 Notebook에 추가되었습니다. 항공사 정시 출발 데이터 집합 및 날씨 데이터 집합에 대한 내용은 다음 링크를 참조하세요.
 
 >- 항공사 정시 출발 데이터: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
@@ -66,11 +66,11 @@ ms.lasthandoff: 02/24/2017
 <!-- -->
 
 > [!NOTE]
-NYC taxi의 Spark 2.0 Notebook 및 항공사 비행 지연 데이터 집합은 실행하는 데 10분 이상이 소요될 수 있습니다(HDI 클러스터의 크기에 따라 다름). 위 목록에서 첫 번째 Notebook은 샘플 수를 줄인 NYC 데이터 집합으로 실행 시간을 줄인 Notebook에서 데이터 탐색, 시각화 및 ML 모델 학습의 다양한 측면을 보여 줍니다. 여기서는 택시 및 요금 파일을 사전에 조인했습니다. [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 이 Notebook은 완료하는 데 훨씬 짧은 시간(2-3분)이 소요되며 Spark 2.0에 대해 제공된 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. 
+NYC taxi의 Spark 2.0 Notebook 및 항공사 비행 지연 데이터 집합은 실행하는 데 10분 이상이 소요될 수 있습니다(HDI 클러스터의 크기에 따라 다름). 위 목록에서 첫 번째 Notebook은 샘플 수를 줄인 NYC 데이터 집합으로 실행 시간을 줄인 Notebook에서 데이터 탐색, 시각화 및 ML 모델 학습의 다양한 측면을 보여 줍니다. 여기서는 택시 및 요금 파일을 사전에 조인했습니다. [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 이 Notebook은 완료하는 데 훨씬 짧은 시간(2-3분)이 소요되며 Spark 2.0에 대해 제공된 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. 
 
 <!-- -->
 
-점수 매기기를 위한 Spark 2.0 모델 및 모델 사용량의 운용에 대한 지침은 [사용량에 관한 Spark 1.6 문서](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)에서 해당 단계를 설명하는 예제를 참조하세요. Spark 2.0에서 이를 사용하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 대체합니다.
+점수 매기기를 위한 Spark 2.0 모델 및 모델 사용량의 운용에 대한 지침은 [사용량에 관한 Spark 1.6 문서](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)에서 해당 단계를 설명하는 예제를 참조하세요. Spark 2.0에서 이를 사용하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 대체합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 다음 절차는 Spark 1.6에 대한 내용입니다. Spark 2.0 버전의 경우 이전에 설명 및 링크된 Notebook을 사용합니다. 
