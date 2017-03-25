@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -47,7 +47,16 @@ ms.lasthandoff: 01/13/2017
 * 공유 풀을 사용 중이어서 예약 단위가 없는 경우에는 인코딩 작업의 성능이 S1 RU와 동일해집니다. 그러나 작업이 대기된 상태로 유지될 수 있는 시간의 상한은 없으며 언제든지 작업은 최대 하나만 실행됩니다.
 * 브라질 남부와 인도 서부 데이터 센터는 **S2** 예약 단위 형식을 제공하지 않습니다.
 * 인도 서부 데이터 센터는 **S3** 예약 단위 형식을 제공하지 않습니다.
-* 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다.
+
+## <a name="billing"></a>결제
+
+미디어 예약 단위의 실제 사용 시간(분)을 기준으로 요금이 청구됩니다. 자세한 예를 살펴보겠습니다. Joe는 0개의 미디어 RU(예약 단위)로 시작하여 같은 날 오전 10시에 2개의 S1 RU를 사용하도록 계정을 설정한다고 가정합니다. 오후에 동영상이 추가로 들어오므로 오후 1시 15분에 Joe는 4개의 S3 RU를 사용하도록 계정을 변경합니다. 모든 동영상이 오후 4시까지 처리된 후 Joe는 계정에서 RU를 해제합니다(RU 수를 0으로 설정). Joe의 사용량은 다음과 같이 계산됩니다.
+
+S1 미디어 예약 단위: 2개 단위 x 3.25시간(오전 10시 ~ 오후 1시 15분) x $0.02/hr = $0.13 S3 미디어 예약 단위: 4개 단위 x 2.75시간(오후 1시 15분 ~ 오후 4시) x $0.08/hr = $0.88
+
+따라서 Joe의 해당 일 미디어 예단 단위 사용의 총 비용은 $0.13 + $0.88 = $1.01입니다.미디어 예약 단위와 달리 스트리밍 단위는 각 날짜에 프로비전된 가장 높은 수의 스트리밍 단위(상위 워터마크)를 기준으로 요금이 부과됩니다.
+
+자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 페이지를 참조하세요. FAQ 섹션에는 세부 설명이 있습니다.  
 
 ## <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.

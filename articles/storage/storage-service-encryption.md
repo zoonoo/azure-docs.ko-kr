@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
-ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,8 +42,9 @@ SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 
 SSE 파일 미리 보기에 참여하려면 ssediscussions@microsoft.com에 문의하세요.
 
 자세히 알아보려면 FAQ를 참조하세요.
+
 ### <a name="availability-for-file-storage"></a>File Storage에 대한 가용성
-File Storage에 대한 저장소 서비스 암호화는 현재 동아시아, 북유럽 및 미국 동부 2 지역에서 사용할 수 있습니다.
+File Storage를 위한 저장소 서비스 암호화는 현재 미국 동부, 미국 동부&2;, 미국 중부, 미국 중북부, 미국 중남부, 미국 중서부, 미국 서부, 미국 서부&2;, 동아시아, 북유럽, 서유럽, 오스트레일리아 동부 및 오스트레일리아 남동부 지역에서 사용할 수 있습니다.
 
 
 저장소 계정에 대한 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정하려면 [Azure Portal](https://azure.portal.com) 에 로그인한 후 저장소 계정을 선택합니다. 설정 블레이드에서 이 스크린샷에 표시된 것처럼 Blob 서비스 섹션을 찾은 후 암호화를 클릭합니다.
@@ -174,7 +175,7 @@ A: 현재는 없습니다. 키는 전적으로 Microsoft에서 관리합니다.
 
 A: SSE는 기본적으로 사용되지 않습니다. Azure 포털로 사용하도록 설정할 수 있습니다. 또한 프로그래밍 방식으로 저장소 리소스 공급자 REST API를 사용하여 이 기능을 사용하도록 설정할 수 있습니다.
 
-**Q: Azure 드라이브 암호화와 어떻게 다른가요?**
+**Q: Azure Disk Encryption과 어떻게 다른가요?**
 
 A: 이 기능은 Azure Blob 저장소에서 데이터를 암호화하는 데 사용합니다. Azure 디스크 암호화는 OS 및 IaaS VM에서 데이터 디스크를 암호화하는 데 사용합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
 

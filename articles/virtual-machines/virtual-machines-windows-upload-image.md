@@ -13,17 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 28a6858729adbef439625864abc2fd7aa77fab35
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>온-프레미스 VM에서 Azure로 Windows VHD 업로드
 이 문서에서는 Azure VM 만들기에 사용될 Windows VHD(가상 하드 디스크)를 만들고 업로드하는 방법을 보여 줍니다. 일반화된 VM 또는 특수한 VM에서 VHD를 업로드할 수 있습니다. 
+
+Managed Disks를 사용하여 새 VM을 준비, 업로드 및 만드는 방법에 대한 전체 연습을 보려면 [Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기](virtual-machines-windows-upload-generalized-managed.md) 또는 [Azure에서 특수화된 VHD를 업로드하여 VM 만들기](virtual-machines-windows-upload-specialized.md)를 참조하세요.
 
 Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 

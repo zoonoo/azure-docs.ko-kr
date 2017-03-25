@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a5b078ea62d783f8841e51a86135a10a3dcbcaf6
-ms.openlocfilehash: dee631a528852d6d4637eb7859044bd13e26b987
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: eb2fff3b72646e63c53054a246a47c18df414c60
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -59,6 +59,9 @@ Bash 세션을 완료하면 Azure CLI 도구를 사용하여 미리 로드되기
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI 스크립트 샘플](./virtual-machines-linux-cli-samples.md)
+[Azure Virtual Machines에 대한 CLI 샘플](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+[Azure Web Apps에 대한 CLI 샘플](../app-service-web/app-service-cli-samples.md)
+
+[Azure SQL에 대한 CLI 샘플](../sql-database/sql-database-cli-samples.md)
 

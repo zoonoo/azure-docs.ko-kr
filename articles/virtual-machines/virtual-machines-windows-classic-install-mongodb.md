@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 015b152b2e807de6ad92d141d3c8bad6bb8d8eba
-ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8245ff39ce191e741fdc54fee0ca039e8571ba8e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/12/2017
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 배포 모델을 사용하여 MongoDB를 설치하고 구성하려면 [이 문서](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-[MongoDB][MongoDB]는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서에서는[Azure 클래식 포털][AzurePortal]을 사용하여 Windows Server VM(가상 컴퓨터)을 만드는 과정을 안내합니다. 그런 다음 MongoDB를 설치하고 구성하기 전에 데이터 디스크를 만든 후 VM에 연결합니다. Azure에 사용하려는 기존 VM이 있는 경우 [MongoDB 설치 및 구성](#install-and-run-mongodb-on-the-virtual-machine)단계로 바로 건너뛸 수 있습니다.
+[MongoDB][MongoDB]는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서에서는[Azure Portal][AzurePortal]을 사용하여 Windows Server VM(가상 컴퓨터)을 만드는 과정을 안내합니다. 그런 다음 MongoDB를 설치하고 구성하기 전에 데이터 디스크를 만든 후 VM에 연결합니다. Azure에 사용하려는 기존 VM이 있는 경우 [MongoDB 설치 및 구성](#install-and-run-mongodb-on-the-virtual-machine)단계로 바로 건너뛸 수 있습니다.
 
 ## <a name="create-a-virtual-machine-running-windows-server"></a>Windows Server를 실행하는 가상 컴퓨터 만들기
 가상 컴퓨터를 만들려면 다음 지침을 따르십시오.
@@ -35,8 +35,8 @@ ms.lasthandoff: 01/12/2017
 
 > [!NOTE]
 > 가상 컴퓨터를 만드는 동안 MongoDB의 끝점을 추가하고 다음과 같이 구성할 수 있습니다. 이름을 **Mongo**로 지정하고 **TCP**를 프로토콜로 사용하고 공용 및 개인 포트를 모두 **27017**로 설정합니다.
-> 
-> 
+>
+>
 
 ## <a name="attach-a-data-disk"></a>데이터 디스크 연결
 가상 컴퓨터에 대한 저장소를 제공하려면 데이터 디스크를 연결한 다음 Windows에서 사용할 수 있도록 초기화합니다. 데이터 디스크가 이미 있는 경우 해당 기존 디스크를 연결할 수도 있고 빈 디스크를 연결할 수도 있습니다.
@@ -53,5 +53,8 @@ ms.lasthandoff: 01/12/2017
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: https://portal.azure.com/
+
+<!-- Classic portal. Removed 03/07/2017 -->
+<!-- [AzurePortal]: http://manage.windowsazure.com  -->
 

@@ -16,15 +16,15 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ffcf0f0aa80f0a6b65cbef65e361e4830fcca3ff
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
 # <a name="create-and-manage-an-elastic-pool-with-powershell"></a>PowerShell을 사용하여 탄력적 풀 만들기 및 관리
-이 항목에서는 PowerShell을 사용하여 확장 가능한 [탄력적 풀](sql-database-elastic-pool.md)을 만들고 관리하는 방법을 보여 줍니다.  [Azure Portal](https://portal.azure.com/), REST API 또는 [C#][C#을 사용하여 탄력적 풀 만들기 및 관리](sql-database-elastic-pool-manage-csharp.md)을 사용하여 Azure 탄력적 풀을 만들고 관리할 수도 있습니다. [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)을 사용하여 탄력적 풀을 만들고 여기에 데이터베이스를 넣거나 뺄 수도 있습니다.
+이 항목에서는 PowerShell을 사용하여 확장 가능한 [탄력적 풀](sql-database-elastic-pool.md)을 만들고 관리하는 방법을 보여 줍니다.  [Azure Portal](https://portal.azure.com/), REST API 또는 [C#](sql-database-elastic-pool-manage-csharp.md)을 사용하여 Azure 탄력적 풀을 만들고 관리할 수도 있습니다. [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)을 사용하여 탄력적 풀을 만들고 여기에 데이터베이스를 넣거나 뺄 수도 있습니다.
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 

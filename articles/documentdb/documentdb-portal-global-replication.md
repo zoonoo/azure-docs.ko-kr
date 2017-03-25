@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/14/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 41b75cf3059cd3758f1bce149ad8fcad4e5644ac
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cc393967fec1a98a4dd596a156c7a12e88959b04
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="how-to-perform-documentdb-global-database-replication-using-the-azure-portal"></a>Azure 포털을 사용하여 DocumentDB 글로벌 데이터베이스 복제를 수행하는 방법
+# <a name="how-to-perform-global-database-replication-using-the-azure-portal"></a>Azure Portal을 사용하여 글로벌 데이터베이스 복제를 수행하는 방법
 
-Azure DocumentDB에서 Azure 포털을 사용하여 데이터의 글로벌 가용성을 위해 여러 지역의 데이터를 복제하는 방법을 알아봅니다.
+Azure DocumentDB 및 MongoDB API에서 Azure Portal을 사용하여 데이터의 글로벌 가용성을 위해 여러 지역에 데이터를 복제하는 방법을 알아봅니다.
 
 글로벌 데이터베이스 복제가 DocumentDB에서 작동하는 방법에 대한 자세한 내용은 [DocumentDB를 사용하여 전역적으로 데이터 배포](documentdb-distribute-data-globally.md)를 참조하세요. 프로그램 방식으로 글로벌 데이터베이스 복제 수행에 대한 자세한 내용은 [다중 하위 지역 DocumentDB 계정을 사용하여 개발](documentdb-developing-with-multiple-regions.md)을 참조하세요.
 
@@ -60,6 +60,41 @@ While all regions associated with your DocumentDB database account can serve rea
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
+
+### <a name="verifying-your-regional-setup-in-api-for-mongodb"></a>MongoDB API에서 지역별 설정 확인
+MongoDB API 내에서 글로벌 구성을 이중 확인하는 가장 간단한 방법은 Mongo Shell에서 *isMaster()* 명령을 실행하는 것입니다.
+
+Mongo Shell에서 다음을 수행합니다.
+
+   ```
+      db.isMaster()
+   ```
+   
+결과 예:
+
+   ```JSON
+      {
+         "_t": "IsMasterResponse",
+         "ok": 1,
+         "ismaster": true,
+         "maxMessageSizeBytes": 4194304,
+         "maxWriteBatchSize": 1000,
+         "minWireVersion": 0,
+         "maxWireVersion": 2,
+         "tags": {
+            "region": "South India"
+         },
+         "hosts": [
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         ],
+         "setName": "globaldb",
+         "setVersion": 1,
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+      }
+   ```
 
 ## <a id="next"></a>다음 단계
 [DocumentDB의 일관성 수준](documentdb-consistency-levels.md)을 참조하여 전역적으로 복제한 계정의 일관성을 관리하는 방법을 알아봅니다.

@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/06/2017
+ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 20183f482b7c7ec10c2b1f2d759b160434c9174c
-ms.openlocfilehash: 208a38aea6b4673f93c4c1fe4252c788e1f3425b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ef58f595ff58b9156df813cf92e2306654a8b3ed
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,4 +119,9 @@ Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니�
 ## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>주 데이터베이스와 지역 보조 데이터베이스 간의 복제 지연을 모니터링할 수 있는 도구는 무엇인가요?
 DMV를 통해 주 데이터베이스와 지역 보조 데이터베이스 간의 실시간 복제 지연을 표시합니다. 자세한 내용은 [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx)를 참조하세요.
 
+## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>동일한 구독의 다른 서버에 데이터베이스를 이동하려면
+* [Azure Portal](https://portal.azure.com)에서 **SQL Database**를 클릭하고 목록에서 데이터베이스를 선택한 후 **복사**를 클릭합니다. 자세한 내용은 [Azure SQL Database 복사](sql-database-copy.md) 를 참조하세요.
+
+## <a name="to-move-a-database-between-subscriptions"></a>구독 간에 데이터베이스를 이동하려면
+* [Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
 

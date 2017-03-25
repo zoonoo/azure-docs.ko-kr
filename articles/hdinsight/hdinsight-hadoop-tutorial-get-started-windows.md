@@ -17,8 +17,9 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 8a925c38a561d11f1c0e394b8c993f739e912f54
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -157,8 +158,8 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 2. **파워 쿼리** 메뉴를 클릭하고, **다른 원본에서**을 클릭한 다음 **Azure HDInsight에서**를 클릭합니다.
    
     ![Azure HDInsight에 대해 열린 Excel 파워 쿼리 가져오기 메뉴.][image-hdi-gettingstarted-powerquery-importdata]
-3. 클러스터와 연결된 Azure Blob Storage 계정의 **계정 이름**을 입력하고 **확인**을 클릭합니다. (이 계정은 자습서의 앞부분에서 만든 저장소 계정입니다.)
-4. Azure Blob Storage 계정의 **계정 키**를 입력한 다음 **저장**을 클릭합니다.
+3. 클러스터와 연결된 Azure Storage 계정의 **계정 이름**을 입력한 다음 **확인**을 클릭합니다. (이 계정은 자습서의 앞부분에서 만든 저장소 계정입니다.)
+4. Azure Storage 계정의 **계정 키**를 입력한 다음 **저장**을 클릭합니다.
 5. 오른쪽 창에서 blob 이름을 두 번 클릭합니다. 기본적으로 blob 이름은 클러스터 이름과 동일합니다.
 6. **이름** 열에서 **stdout**를 찾습니다. 해당 **폴더 경로** 열의 GUID가 이전에 적어둔 GUID와 일치하는지 확인합니다. 두 GUID가 일치하는 경우 출력 데이터가 제출한 작업에 해당하는 것입니다. **stdout** 왼쪽의 열에서 **이진**을 클릭합니다.
    
@@ -190,7 +191,7 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 
 * [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]
 * [HDInsight Emulator 시작][hdinsight-emulator]
-* [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]
+* [HDInsight에서 Azure Storage 사용][hdinsight-storage]
 * [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]
@@ -252,10 +253,5 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
