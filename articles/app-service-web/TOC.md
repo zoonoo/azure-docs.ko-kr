@@ -82,7 +82,6 @@
 
 ### [IIS에서 마이그레이션](web-sites-migration-from-iis-server.md)
 ### [프로덕션에서 테스트](app-service-web-test-in-production-get-start.md)
-### [성능 테스트 실행](app-service-web-app-performance-test.md) 
 
 ## DB/리소스에 연결        
 

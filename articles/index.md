@@ -4,9 +4,9 @@ hide_bc: true
 title: "Microsoft Azure설명서 | Microsoft Docs"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 359cb51a6107d6556ba261d19bfb1b8b31405d34
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dc4b5b0613a76a90c566dedf3ff41be1f68f744
+ms.lasthandoff: 03/22/2017
 
 ---
 <div id="main" class="v2">
@@ -49,17 +49,17 @@ ms.lasthandoff: 03/14/2017
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/get-started/">
+                <a href="https://azure.microsoft.com/en-us/community/training/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>5분 시작 비디오</h3>
+                                    <h3>Azure용 무료 PluralSight 동영상 교육</h3>
                                 </div>
                             </div>
                         </div>
@@ -605,12 +605,6 @@ ms.lasthandoff: 03/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Biztalk Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Service Bus</p>
@@ -638,6 +632,12 @@ ms.lasthandoff: 03/14/2017
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>데이터 팩터리</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
+                                                <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1820,25 +1820,6 @@ ms.lasthandoff: 03/14/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Biztalk Services</h3>
-                                                    <p>엔터프라이즈 및 클라우드의 원활한 통합</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1927,6 +1908,25 @@ ms.lasthandoff: 03/14/2017
                                                 <div class="cardText">
                                                     <h3>데이터 팩터리</h3>
                                                     <p>데이터 변환과 이동 오케스트레이션 및 관리</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/biztalk-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/BizTalkServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Biztalk Services</h3>
+                                                    <p>엔터프라이즈 및 클라우드의 원활한 통합</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2724,7 +2724,7 @@ ms.lasthandoff: 03/14/2017
                                                     <a href="https://github.com/Microsoft/DockerToolsDocs">Docker 도구</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">시작</a>
+                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Visual Studio 다운로드</a>

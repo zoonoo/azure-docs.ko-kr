@@ -161,6 +161,7 @@
 
 ### 문제 해결
 #### [배포 문제](storsimple-troubleshoot-deployment.md)
+#### [진단 도구 사용](storsimple-8000-diagnostics.md)
 #### [운영 문제](storsimple-troubleshoot-operational-device.md)
 #### [하드웨어 교체](storsimple-hardware-component-replacement.md)
 ##### [장치 컨트롤러 교체](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [StorSimple 데이터 관리자 사용](storsimple-data-manager-ui.md)
 
 ## 방법
-### [.NET을 사용하여 데이터 변환](storsimple-data-manager-dotnet-jobs.md)
+### [.NET을 사용하여 작업 시작](storsimple-data-manager-dotnet-jobs.md)
+### [Automation을 사용하여 작업 시작](storsimple-data-manager-job-using-automation.md)
+### [기본 Blob 경로 변경](storsimple-data-manager-change-default-blob-path.md)
 
 # 파트너용 StorSimple
 ## 개요

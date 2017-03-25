@@ -159,6 +159,7 @@
 #### [Excel 사용](machine-learning-consuming-from-excel.md)
 #### [Excel 추가 기능 사용](machine-learning-excel-add-in-for-web-services.md)
 #### [웹앱 템플릿 사용](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Batch 풀 사용](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## 예
 ### [샘플 실험](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
