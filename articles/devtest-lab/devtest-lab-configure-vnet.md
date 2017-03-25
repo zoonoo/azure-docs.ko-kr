@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1821aa2a3d6428ca98cad14b0bf5e8b37ec6cb9c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,25 +40,27 @@ ms.openlocfilehash: 1821aa2a3d6428ca98cad14b0bf5e8b37ec6cb9c
    
     ![기존 가상 네트워크 선택](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 9. **가상 네트워크 선택** 블레이드에서 원하는 가상 네트워크를 선택합니다. 블레이드에는 구독의 동일 지역에 속하는 모든 가상 네트워크가 랩으로 표시됩니다.  
-10. 가상 네트워크를 선택하면 **가상 네트워크** 블레이드로 되돌아가며, 몇 개의 필드가 사용 가능하게 설정됩니다.  
+10. 가상 네트워크를 선택하면 **가상 네트워크**로 되돌아가며, 블레이드 하단에 있는 목록에서 서브넷을 클릭합니다.
+
+    ![서브넷 목록](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-     ![기존 가상 네트워크 선택](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
-11. 가상 네트워크 / 랩 조합에 대한 설명을 지정합니다.
-12. 서브넷이 랩 VM 생성에 사용되도록 하려면 **VM을 만들 때 사용**을 선택합니다.
-13. 서브넷에서 공용 IP 주소를 허용하려면 **공용 IP 허용**을 선택합니다.
-14. **사용자당 최대 가상 컴퓨터** 필드에서 각 서브넷에 대한 사용자당 최대 VM 지정합니다. VM 수에 제한을 두지 않으려면 이 필드는 공백으로 둡니다.
-15. **저장**을 선택합니다.
-16. 이제 가상 네트워크를 구성했으므로 VM을 만들 때 선택할 수 있습니다. 
+    랩 서브넷 블레이드가 표시됩니다.
+
+    ![랩 서브넷 블레이드](./media/devtest-lab-configure-vnet/lab-subnet.png)
+
+11. **랩 서브넷 이름**을 지정합니다.
+12. 서브넷이 랩 VM 생성에 사용되도록 하려면 **가상 컴퓨터를 만들 때 사용**을 선택합니다.
+13. [shared public IP address](devtest-lab-shared-ip.md)(공유 공용 IP 주소)를 사용하도록 설정하려면 **Enable shared public IP**(공유 공용 IP 사용)를 선택합니다.
+14. 서브넷에서 공용 IP 주소를 허용하려면 **Allow public IP creation(공용 IP 생성 허용)**을 선택합니다.
+15. **사용자당 최대 가상 컴퓨터** 필드에서 각 서브넷에 대한 사용자당 최대 VM을 지정합니다. VM 수에 제한을 두지 않으려면 이 필드는 공백으로 둡니다.
+16. **확인**을 선택하여 랩 서브넷 블레이드를 닫습니다.
+17. **저장**을 선택하여 가상 네트워크 블레이드를 닫습니다.
+18. 이제 가상 네트워크를 구성했으므로 VM을 만들 때 선택할 수 있습니다. 
     VM을 만들고 가상 네트워크를 지정하는 방법을 확인하려면 [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md)문서를 참조하세요. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>다음 단계
 랩에 원하는 가상 네트워크를 추가한 후에는 [랩에 VM을 추가](devtest-lab-add-vm-with-artifacts.md)해야 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

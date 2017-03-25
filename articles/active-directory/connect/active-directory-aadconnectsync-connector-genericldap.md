@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -172,7 +173,7 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 
 **스키마에서 작업 특성 포함** 확인란을 선택하여 서버에서 만든 특성을 포함합니다. 여기에는 개체를 만든 시점과 마지막 업데이트 시간 등의 특성을 포함합니다.
 
-확장 가능한 개체(RFC4512/4.3)를 사용하고 이 옵션을 사용하여 모든 개체에 사용될 수 있는 모든 특성을 허용하는 경우 **스키마에 확장 가능한 특성 포함** 을 선택합니다. 이 옵션을 선택하면 스키마가 매우 커지므로 연결된 디렉터리가 이 기능을 사용하지 않는 한 옵션을 선택하지 않는 것이 좋습니다.
+확장 가능한 개체(RFC4512/4.3)를 사용하고 이 옵션을 사용하여 모든 개체에 사용될 수 있는 모든 특성을 허용하는 경우 **스키마에 확장 가능한 특성 포함**을 선택합니다. 이 옵션을 선택하면 스키마가 매우 커지므로 연결된 디렉터리가 이 기능을 사용하지 않는 한 옵션을 선택하지 않는 것이 좋습니다.
 
 ### <a name="global-parameters"></a>글로벌 매개 변수
 글로벌 매개 변수 페이지에서 델타 변경 로그 및 추가 LDAP 기능에 DN을 구성합니다. 페이지는 LDAP 서버에서 제공하는 정보로 미리 채워집니다.
@@ -220,7 +221,7 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 프로비전 계층 구조를 구성하여 필요할 때 자동으로 구조를 만들기 위해 커넥터를 구성할 수 있습니다. 예를 들어 네임스페이스 dc=contoso,dc=com 및 새 개체 cn=Joe, ou=시애틀, c=미국, dc=contoso, dc=com을 프로비전한 경우 해당 사항이 디렉터리에 나타나지 않으면 커넥터는 미국이라는 유형 국가 및 시애틀이라는 organizationalUnit으로 개체를 만들 수 있습니다.
 
 ### <a name="configure-partitions-and-hierarchies"></a>파티션 및 계층 구조 구성
-파티션 및 계층 구조 페이지에서 가져오기 및 내보내기하려는 개체를 사용하여 모든 네임스페이스를 선택합니다.
+파티션 및 계층 구조 페이지에서 가져오기 및 내보내려는 개체를 사용하여 모든 네임스페이스를 선택합니다.
 
 ![파티션](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
 
@@ -228,10 +229,18 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 
 커넥터를 가져오고 내보낼 컨테이너 및 OU를 선택하는 것도 가능합니다.
 
+이 작업은 검색을 수행할 때 파티션의 모든 컨테이너에서 수행됩니다. 이 동작은 컨테이너가 많은 경우 성능 저하로 이어집니다.
+
+>[!NOTE]
+2017년 3월 업데이트부터 일반 LDAP 커넥터 검색은 선택한 컨테이너 범위로만 제한할 수 있습니다. 이 작업은 아래 이미지에 나와 있는 것처럼 '선택한 컨테이너에서만 검색' 확인란을 선택하여 수행할 수 있습니다.
+
+![선택한 컨테이너에서만 검색](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>앵커 구성
 이 페이지는 미리 구성된 값이 있으며 변경될 수 없습니다. 서버 공급업체가 식별된 경우 앵커는 변경할 수 없는 특성(예: 개체에 대한 GUID)으로 채워질 수 있습니다. 감지되지 않거나 변경할 수 없는 특성이 없다고 알려져 있다면 커넥터는 dn(고유 이름)을 앵커로 사용합니다.
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 다음은 사용되는 LDAP 서버 목록 및 앵커입니다.
 
@@ -261,9 +270,4 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 탐지하지
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

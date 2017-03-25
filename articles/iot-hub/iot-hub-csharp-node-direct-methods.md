@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/10/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-direct-methods-netnode"></a>직접 메서드 사용(.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-이 자습서의 끝 부분에 .NET 및 Node.js 콘솔 앱이 제공됩니다.
+이 자습서에서는 .NET 및 Node.js 콘솔 앱을 개발하겠습니다.
 
 * **CallMethodOnDevice.js**: .NET 백엔드 앱으로 시뮬레이션된 장치 앱에서 메서드를 호출하고 응답을 표시합니다.
-* **SimulatedDevice.js** - 앞에서 만든 장치 ID로 IoT Hub에 연결하고 클라우드에서 호출하는 메서드에 응답하는 장치를 시뮬레이션하는 Node.js 앱입니다.
+* **SimulatedDevice.js**: 앞에서 만든 장치 ID로 IoT Hub에 연결하고 클라우드에서 호출하는 메서드에 응답하는 장치를 시뮬레이션하는 Node.js 앱입니다.
 
 > [!NOTE]
 > [Azure IoT SDKs][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보를 제공합니다.
@@ -35,7 +36,7 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 또는 Visual Studio 2017.
 * Node.js 버전 0.10.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
@@ -56,7 +57,7 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. 텍스트 편집기를 사용하여 **simulateddevice** 폴더에 새 **SimulatedDevice.js** 파일을 만듭니다.
+3. 텍스트 편집기를 사용하여 **simulateddevice** 폴더에 새 파일을 만들고 이름을 **SimulatedDevice.js**으로 지정합니다.
 4. **SimulatedDevice.js** 파일 앞에 다음 `require` 문을 추가합니다.
    
     ```
@@ -111,7 +112,7 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **CallMethodOnDevice**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][10]
-2. [솔루션 Explorer]에서 **CallMethodOnDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
+2. [솔루션 Explorer]에서 **CallMethodOnDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...**를 클릭합니다.
 3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
    
     ![NuGet 패키지 관리자 창][11]
@@ -148,17 +149,18 @@ ms.openlocfilehash: bd2ae99b4e66085590230028ae649502327db50a
 ## <a name="run-the-applications"></a>응용 프로그램 실행
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub의 메서드 호출에 대한 대기를 시작합니다.
+1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...**을 클릭합니다. **단일 시작 프로젝트**를 선택한 다음 드롭다운 메뉴에서 **CallMethodOnDevice** 프로젝트를 선택합니다.
+
+2. **simulateddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub의 메서드 호출에 대한 대기를 시작합니다.
    
     ```
     node SimulatedDevice.js
     ```
-   
-    ![][7]
-2. 이제 장치가 연결되어 메서드 호출을 기다리고 있으므로 **CallMethodOnDevice** .NET 앱을 실행하여 시뮬레이션된 장치 응용 프로그램에서 메서드를 호출합니다. 콘솔에 작성된 장치 응답을 볼 수 있습니다.
+   열려는 시뮬레이션된 장치를 기다립니다.  ![][7]
+3. 이제 장치가 연결되어 메서드 호출을 기다리고 있으므로 **CallMethodOnDevice** .NET 앱을 실행하여 시뮬레이션된 장치 응용 프로그램에서 메서드를 호출합니다. 콘솔에 작성된 장치 응답을 볼 수 있습니다.
    
     ![][8]
-3. 장치가 메시지를 출력하여 메서드에 반응하는 것과 메서드를 호출한 응용 프로그램이 장치의 응답을 표시하는 것을 볼 수 있습니다.
+4. 장치는 다음 메시지를 표시하여 메서드에 반응합니다.
    
     ![][9]
 
@@ -177,8 +179,8 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 [8]: ./media/iot-hub-csharp-node-direct-methods/netserviceapp.png
 [9]: ./media/iot-hub-csharp-node-direct-methods/methods-output.png
 
-[10]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp1.png
-[11]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp2.png
+[10]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp1.png
+[11]: ./media/iot-hub-csharp-node-direct-methods/direct-methods-csharp2.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
@@ -198,9 +200,4 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [IoT Hub 시작]: iot-hub-node-node-getstarted.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

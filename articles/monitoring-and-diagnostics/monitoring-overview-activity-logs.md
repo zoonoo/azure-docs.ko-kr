@@ -12,47 +12,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
-ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Azure 활동 로그 개요
-**Azure 활동 로그** 는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하므로 이전에 "감사 로그" 또는 "작업 로그"로 알려져 있습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 Classic/"RDFE" 모델을 사용하는 리소스에 대한 읽기(GET) 작업이 포함되지 않습니다.
+**Azure 활동 로그** 는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하므로 이전에 "감사 로그" 또는 "작업 로그"로 알려져 있습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 Classic/"RDFE" 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
 
-활동 로그는 리소스에서 내보낸 모든 로그를 나타내는 [진단 로그](monitoring-overview-of-diagnostic-logs.md)와 다릅니다. 이러한 로그는 해당 리소스에 대한 작업보다는 해당 리소스의 작업에 대한 데이터를 제공합니다.
+![활동 로그 및 다른 종류의 로그 ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+
+그림 1: 활동 로그 및 다른 종류의 로그
+
+활동 로그는 [진단 로그](monitoring-overview-of-diagnostic-logs.md)와 다릅니다. 활동 로그는 외부에서 리소스의 작업에 대한 데이터를 제공합니다. 진단 로그는 리소스에 의해 발생하고 해당 리소스의 작업에 대한 정보를 제공합니다.
 
 Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다.
 
-[활동 로그를 소개하는 이 비디오](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz)를 보세요.  
 
 > [!WARNING]
-> Azure 활동 로그는 주로 Azure Resource Manager에서 발생하는 활동을 대상으로 하며 Classic/RDFE 모델을 사용하는 활동에는 사용하지 않습니다. 일부 Classic 리소스 유형(예: Microsoft.ClassicCompute)에는 Azure Resource Manager의  프록시 리소스 공급자가 있습니다. 사용자가 이러한 프록시 리소스 공급자를 사용하는 Azure Resource Manager를 통해 Classic 리소스 유형과 상호 작용하면 작업이 활동 로그에 표시됩니다. 사용자가 클래식 포털의 Classic 리소스 유형이나 Azure Resource Manager 프록시 외부의 Classic 리소스 유형과 상호 작용할 경우 사용자 작업은 클래식 포털에서만 액세스할 수 있는 작업 로그에만 기록됩니다.
+> Azure 활동 로그는 주로 Azure Resource Manager에서 발생하는 활동을 대상으로 합니다. 클래식/RDFE 모델을 사용하여 리소스를 추적하지 않습니다. 일부 클래식 리소스 유형(예: Microsoft.ClassicCompute)에는 Azure Resource Manager의 프록시 리소스 공급자가 있습니다. 이러한 프록시 리소스 공급자를 사용하는 Azure Resource Manager를 통해 클래식 리소스 유형과 상호 작용하면 작업이 활동 로그에 표시됩니다. 클래식 포털의 클래식 리소스 유형이나 Azure Resource Manager 프록시 외부의 클래식 리소스 유형과 상호 작용할 경우 사용자 작업은 작업 로그에만 기록됩니다. 작업 로그는 클래식 포털에서만 액세스될 수 있습니다.
 >
 >
+
+활동 로그를 소개하는 다음 동영상을 봅니다.
+[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>활동 로그에서 수행할 수 있는 작업
 활동 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-* **Azure 포털**에서 쿼리하고 봅니다.
-* REST API, PowerShell Cmdlet 또는 CLI를 통해 쿼리합니다.
-* [활동 로그 이벤트를 트리거 해제하는 전자 메일 또는 웹후크 경고를 만듭니다.](insights-auditlog-to-webhook-email.md)
-* [보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다](monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-* [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
-* [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hub**](monitoring-stream-activity-logs-event-hubs.md)로 스트림합니다.
+![Azure 활동 로그](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
-설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정 또는 이벤트 허브 네임스페이스는 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
+
+* [활동 로그 이벤트를 트리거 해제하는 전자 메일 또는 웹후크 경고를 만듭니다.](insights-auditlog-to-webhook-email.md)
+* [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hub**](monitoring-stream-activity-logs-event-hubs.md)로 스트림합니다.
+* [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
+* [보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다](monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+* **Azure 포털**에서 쿼리하고 봅니다.
+* PowerShell Cmdlet, CLI 또는 REST API를 통해 쿼리합니다.
+
+
+로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hub 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 ## <a name="export-the-activity-log-with-log-profiles"></a>로그 프로필과 함께 활동 로그 내보내기
 **로그 프로필** 은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.
 
 * 활동 로그를 보낼 위치(저장소 계정 또는 이벤트 허브)
-* 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 컨텍스트에서 "카테고리"의 의미는 활동 로그 이벤트에서 "카테고리" 속성 의미와 다릅니다. 로그 프로필의 "카테고리"는 작업 유형(쓰기, 삭제, 작업)을 나타내는 반면 활동 로그 이벤트의 "카테고리" 속성은 이벤트(관리, ServiceHealth, 경고 등)의 원본 또는 형식을 나타냅니다.*
+* 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 및 활동 로그 이벤트에서 "범주"의 의미는 다릅니다. 로그 프로필에서 "범주"는 작업 유형(쓰기, 삭제 작업)을 나타냅니다. 활동 로그 이벤트에서 "범주" 속성은 원본 또는 이벤트의 유형(예: 관리, ServiceHealth, 경고 등)을 나타냅니다.*
 * 내보낼 하위 지역(위치)
-* 저장소 계정에 활동 로그를 보존할 기간 -&0;일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
+* 활동 로그를 저장소 계정에 유지해야 하는 기간
+    - 보존이&0;일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+    - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+    - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
@@ -60,18 +74,18 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 활동 로그를 이벤트 허브로 스트림하거나 Azure 포털의 "내보내기" 옵션을 사용하여 저장소 계정에 저장할 수 있습니다.
 
 1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그** 블레이드로 이동합니다.
-   
+
     ![포털에서 활동 로그로 이동](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
-   
+
     ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. 표시되는 블레이드에서 다음을 선택할 수 있습니다.  
-   
+
    * 이벤트를 내보내려는 지역
    * 이벤트를 저장하려는 저장소 계정
    * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
    * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
-     
+
      ![활동 로그 내보내기 블레이드](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. **저장** 을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
 
@@ -240,10 +254,4 @@ azure insights logprofile delete --name my_log_profile
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../azure-resource-manager/resource-group-audit.md)
 * [Azure 활동 로그를 이벤트 허브로 스트림](monitoring-stream-activity-logs-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

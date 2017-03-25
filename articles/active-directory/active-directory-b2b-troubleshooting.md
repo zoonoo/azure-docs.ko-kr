@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: f85c6bcc2abbd14c7879462f7013a97f550fdca5
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,6 +35,11 @@ Azure AD(Azure Active Directory) B2B 공동 작업과 관련된 일반적인 문
 
 외부 사용자가 목록에 채워지지 않은 경우 개체를 복제하는 데 몇 분이 걸릴 수 있습니다.
 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B 게스트 사용자가 SharePoint Online/OneDrive 사용자 선택에 표시되지 않습니다. 
+ 
+SharePoint Online 사용자 선택에서 기존 게스트 사용자를 검색하는 기능은 기존 동작과의 일치를 위해 기본적으로 꺼져 있습니다.
+이 기능은 테넌트 및 사이트 모음 수준에서 설정 'ShowPeoplePickerSuggestionsForGuestUsers'를 통해 사용하도록 설정할 수 있습니다. 또한 멤버가 디렉터리에서 모든 기존 게스트 사용자를 검색할 수 있도록 허용하는 Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 설정할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SPO 사이트에 영향을 주지 않습니다.
+
 ## <a name="invitations-have-been-disabled-for-directory"></a>디렉터리에 대한 초대가 사용하도록 설정되지 않았습니다.
 
 사용자를 초대할 수 있는 권한이 없다는 오류 메시지가 나타나면 사용자 계정이 외부 사용자를 초대할 권한이 있는지 확인합니다. 이 작업은 다음과 같이 [사용자 설정] 아래에서 수행할 수 있습니다.
@@ -48,7 +54,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업과 관련된 일반적인 문
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>초대 대상자의 관리자가 테넌트에 EmailVerified 사용자를 만들지 못하도록 했습니다.
 
-특정 사용자의 계정이 없는 Azure Active Directory를 사용하는 조직의 사용자(AAD contoso.com에 존재하지 않는 사용자)를 초대하는 경우 contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 외부 사용자는 자신이 허용되는지 확인하려면 관리자를 통해 확인해야 하며, 외부 사용자의 관리자는 도메인에서 전자 메일 확인 사용자를 허용해야 할 수 있습니다(EmailVerified 사용자 허용에 대해 [이 문서](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters) 참조).
+Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나 특정 사용자의 계정이 없는(예: Azure AD contoso.com에 존재하지 않는 사용자) 경우입니다. contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 사용자는 외부 사용자가 허용된 경우인지 해당 관리자에게 확인해야 합니다. 외부 사용자의 관리자가 자체 도메인의 전자 메일 확인 사용자를 허용해야 할 수도 있습니다(전자 메일 확인 사용자 허용은 이 [문서](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters)를 확인).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -58,7 +64,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업과 관련된 일반적인 문
 
 이 문제를 해결하려면 외부 사용자의 관리자가 사용자 계정을 Azure Active Directory와 동기화해야 합니다.
 
-## <a name="how-does--which-is-normally-an-invalid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 '\#'은 Azure AD와 어떻게 동기화됩니까?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 ‘\#’은 Azure AD와 어떻게 동기화됩니까?
 
 "\#"은 Azure AD B2B 공동 작업 또는 외부 사용자를 위한 UPN의 예약된 문자이므로(즉 &lt;user@contoso.com&gt;이 초대되면 &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;이 되므로) 온-프레미스에서 나온 UPN의 \#은 Azure Portal에 로그인할 수 없습니다.
 
@@ -89,9 +95,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

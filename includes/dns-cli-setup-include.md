@@ -5,7 +5,7 @@
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
 * Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* Windows, Linux 또는 MAC용 최신 버전의 Azure CLI를 설치합니다. 자세한 내용은 [Azure CLI 설치](../articles/xplat-cli-install.md)를 참조하세요.
+* Windows, Linux 또는 MAC용 최신 버전의 Azure CLI를 설치합니다. 자세한 내용은 [Azure CLI 설치](../articles/cli-install-nodejs.md)를 참조하세요.
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
@@ -54,9 +54,4 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

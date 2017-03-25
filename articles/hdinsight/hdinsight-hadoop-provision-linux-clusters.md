@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
-ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -156,29 +157,29 @@ HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같�
   >
 
 ### <a name="data-source"></a>데이터 원본
-기존의 Hadoop 분산 파일 시스템(HDFS)은 클러스터에 있는 많은 로컬 디스크를 사용합니다. HDInsight는 데이터 저장소로 Azure Blob Storage를 사용합니다. Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDFS 인터페이스를 통해 HDInsight의 전체 구성 요소 집합을 Blob 저장소에서 구조적 또는 비구조적 데이터에 대해 직접 작동할 수 있습니다. Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-구성 중에 Azure 저장소 계정과 해당 Azure 저장소 계정의 Azure Blob 저장소 컨테이너를 지정해야 합니다. 일부 생성 프로세스는 Azure Storage 계정 및 Blob 저장소 컨테이너를 미리 만들어 두어야 합니다. Blob 저장소 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소)을 지정할 수 있습니다. 클러스터는 전체 공용 읽기 액세스 또는 Blob 전용 공용 읽기 액세스로 구성된 모든 Blob Storage 컨테이너에 액세스할 수도 있습니다.  자세한 내용은 [Azure Storage 리소스에 대한 액세스 관리](../storage/storage-manage-access-to-resources.md)를 참조하세요.
+기존의 Hadoop 분산 파일 시스템(HDFS)은 클러스터에 있는 많은 로컬 디스크를 사용합니다. HDInsight는 Azure Storage의 Blob을 사용합니다. Azure Storage는 HDInsight와 완벽하게 통합되는 강력한 범용 저장소 솔루션입니다. HDInsight의 모든 구성 요소 집합은 HDFS 인터페이스를 통해 Blob에 저장된 구조적 또는 비구조적 데이터에서 직접 작동할 수 있습니다. Azure Storage에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용되는 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+
+> [!WARNING]
+> HDInsight는 __범용__ Azure Storage 계정만 지원합니다. 현재 __Blob 저장소__ 계정 유형은 지원하지 않습니다.
+
+구성 중에 Azure Storage 계정과 해당 Azure Storage 계정의 Blob 컨테이너를 지정해야 합니다. 일부 생성 프로세스에서는 Azure Storage 계정 및 Blob 컨테이너를 미리 만들어야 합니다. Blob 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소)을 지정할 수 있습니다. 또한 클러스터는 전체 공용 읽기 액세스 또는 Blob 전용 공용 읽기 액세스로 구성된 모든 Blob 컨테이너에 액세스할 수도 있습니다.  자세한 내용은 [Azure Storage 리소스에 대한 액세스 관리](../storage/storage-manage-access-to-resources.md)를 참조하세요.
 
 ![HDInsight 저장소](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
 > [!NOTE]
-> Blob Storage 컨테이너는 다음 이미지에 나온 것처럼 Blob 집합 그룹화를 제공합니다.
->
->
+> Blob 컨테이너는 다음 이미지와 같이 Blob 집합 그룹화를 제공합니다.
 
-![Azure Blob Storage](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![Azure Blob](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-기본 Blob Storage 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 저장소 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob Storage 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
+기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 저장소 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
 > [!WARNING]
-> 여러 클러스터에 대해 단일 Blob Storage 컨테이너를 공유하는 것은 지원되지 않습니다.
->
->
+> 여러 클러스터에 대해 하나의 Blob 컨테이너를 공유하는 것은 지원되지 않습니다.
 
-보조 Blob Storage 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
+보조 Azure Storage 계정 사용에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
-Azure Blob Storage 외에, [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)를 HDInsight의 HBase 클러스터에 대한 기본 저장소 계정 및 네 개의 전체 HDInsight 클러스터 형식에 대한 연결된 저장소로 사용할 수도 있습니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+Azure Storage 외에도 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)를 HDInsight의 HBase 클러스터에 대한 기본 저장소 계정으로 사용하고, 네 개의 모든 HDInsight 클러스터 유형에 대한 연결된 저장소로 사용할 수 있습니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
 ### <a name="location-region"></a>위치(영역)
 HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 위치에 있어야 합니다.
@@ -250,7 +251,7 @@ HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 위치�
 
 HDInsight 클러스터를 만들 때 또는 클러스터를 만든 후에 저장소 계정을 추가할 수 있습니다.  [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-보조 Blob Storage에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 보조 Data Lake Storage에 대한 자세한 내용은 [Azure Portal을 사용하는 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+보조 Azure Storage에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 보조 Data Lake Storage에 대한 자세한 내용은 [Azure Portal을 사용하는 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
 ## <a name="use-hiveoozie-metastore"></a>Hive/Oozie Metastore 사용
 HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우 사용자 지정 metastore를 사용하는 것이 좋습니다. 해당 metastore를 다른 HDInsight 클러스터에 연결할 수 있습니다.
@@ -314,7 +315,7 @@ Windows 기반 클러스터는 클래식 배포 모델에서 만든 가상 네�
 ## <a name="customize-clusters-using-script-action"></a>스크립트 작업을 사용하여 클러스터 사용자 지정
 만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)(영문)을 참조하세요.
 
-Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR(Java Archive) 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Blob Storage에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
+Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR(Java Archive) 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Storage에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요.
 
 > [!NOTE]
 > HDInsight 클러스터에 JAR 파일을 배포하거나 HDInsight 클러스터에서 JAR 파일을 호출하는 데 문제가 있는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)으로 문의하세요.

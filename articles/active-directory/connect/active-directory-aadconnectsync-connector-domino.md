@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da949459f734ea08527fe2380ab2a6a06e6976e7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -147,6 +148,11 @@ Domino 서버 속성은 서버 이름에 대한 다음 두 가지 형식을 지�
 
 동기화 서비스가 마지막 두 가져오기 간의 변경 내용을 확인 수 있기 때문에 이 구성 옵션은 **델타 가져오기** 작업을 지원하는 데 요구됩니다.
 
+>[!Note]
+2017년 3월 업데이트부터 글로벌 매개 변수 화면에 사용자가 삭제하는 동안 사용자의 메일 데이터베이스의 삭제 옵션이 포함됩니다.
+
+![사용자 사서함 삭제](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
+
 #### <a name="import-settings-method"></a>설정 가져오기 메서드
 **다음으로 전체 가져오기 수행** 에는 다음과 같은 옵션이 있습니다.
 
@@ -185,7 +191,7 @@ Domino에서 **FullName** 특성에 여러 값이 있는 경우 참조를 해결
 **참조를 업데이트하기 위해 AdminP 사용** 옵션을 선택하지 않으면 멤버와 같은 참조 특성의 내보내기는 직접 호출이 되고 AdminP 프로세스를 사용하지 않습니다. AdminP이 참조 무결성을 유지하도록 구성되지 않는 경우에만 이 옵션을 사용합니다.
 
 #### <a name="routing-information"></a>라우팅 정보
-Domino에서 참조 특성에 DN에 접미사로 포함된 라우팅 정보가 있을 수 있습니다. 예를 들어 그룹의 멤버 특성은 **CN=example/organization@ABC**을(를) 포함합니다. 접미사 @ABC은(는) 라우팅 정보입니다. 라우팅 정보는 Domino에서 사용되어 다른 조직에 있는 시스템일 수 있는 올바른 Domino 시스템에 메일을 보냅니다. 라우팅 정보 필드에서는 커넥터의 범위에 있는 조직 내에서 사용된 라우팅 접미사를 지정할 수 있습니다. 다음의 값 중 하나가 참조 특성에서 접미사에 있으면 라우팅 정보는 참조에서 제거됩니다. 참조 값의 라우팅 접미사가 지정된 해당 값 중 하나와 일치될 수 없으면 \_Contact 개체가 생성됩니다. 이러한 \_Contact 개체는 DN에 삽입된 **RO=@<RoutingSuffix>**을(를) 사용하여 만들어집니다. 이러한 \_Contact 개체의 경우 필요에 따라 \_routingName, \_contactName, \_displayName 및 UniversalID 특성이 실제 개체에 연결되도록 추가됩니다.
+Domino에서 참조 특성에 DN에 접미사로 포함된 라우팅 정보가 있을 수 있습니다. 예를 들어 그룹의 멤버 특성은 **CN=example/organization@ABC**를 포함할 수 있습니다. 접미사 @ABC은(는) 라우팅 정보입니다. 라우팅 정보는 Domino에서 사용되어 다른 조직에 있는 시스템일 수 있는 올바른 Domino 시스템에 메일을 보냅니다. 라우팅 정보 필드에서는 커넥터의 범위에 있는 조직 내에서 사용된 라우팅 접미사를 지정할 수 있습니다. 다음의 값 중 하나가 참조 특성에서 접미사에 있으면 라우팅 정보는 참조에서 제거됩니다. 참조 값의 라우팅 접미사가 지정된 해당 값 중 하나와 일치될 수 없으면 \_Contact 개체가 생성됩니다. 이러한 \_Contact 개체는 DN에 삽입된 **RO=@<RoutingSuffix>**를 사용하여 만들어집니다. 이러한 \_Contact 개체의 경우 필요에 따라 \_routingName, \_contactName, \_displayName 및 UniversalID 특성이 실제 개체에 연결되도록 추가됩니다.
 
 #### <a name="additional-address-books"></a>추가 주소록
 보조 주소록의 이름을 제공하는 **디렉터리 지원** 이 설치되지 않은 경우 이러한 주소록을 수동으로 입력할 수 있습니다.
@@ -248,7 +254,7 @@ Lotus Domino의 많은 특성은 다중값입니다. 해당하는 메타버스 �
 #### <a name="certifiers"></a>인증자
 커넥터에 의해 모든 조직/조직 단위가 나열됩니다. 기본 주소록에 사용자 개체를 내보낼 수 있으려면 암호가 있는 인증자가 필요합니다.
 
-모든 인증자가 동일한 암호를 갖는 경우 **모든 인증자에 대한 암호** 를 사용할 수 있습니다. 그런 다음 여기에 암호를 입력하고 인증자 파일을 지정할 수 있습니다.
+모든 인증자가 동일한 암호를 갖는 경우 **모든 인증자에 대한 암호**를 사용할 수 있습니다. 그런 다음 여기에 암호를 입력하고 인증자 파일을 지정할 수 있습니다.
 
 가져오기만 하는 경우 인증자를 지정할 필요가 없습니다.
 
@@ -320,7 +326,7 @@ Lotus Domino 커넥터를 구성할 때 이 대화 상자 페이지를 건너뜁
 ### <a name="mail-in-databases"></a>메일 내 데이터베이스
 메일 내 데이터베이스는 메일을 수신하도록 설계된 데이터베이스입니다. 특정 Lotus Domino 사용자 계정과 연결되지 않은 Lotus Domino 사서함입니다(즉, 고유한 파일 ID 및 암호 없음). 메일 내 데이터베이스는 자신 및 전자 메일 주소와 연관된 고유한 사용자 ID("짧은 이름")입니다.
 
-여러 사용자들 간에 공유할 수 있는 고유한 전자 메일 주소를 사용하는 개별 사서함을 필요로 하지 않는 경우(예: group@contoso.com),) 메일 내 데이터베이스를 만듭니다. 이 사서함에 대한 액세스는 해당 Access Control 목록(ACL)을 통해 제어되며 이는 사서함을 열수 있는 Notes 사용자의 이름을 포함합니다.
+여러 사용자들 간에 공유할 수 있는 고유한 전자 메일 주소를 사용하는 개별 사서함을 필요로 하지 않는 경우(예: group@contoso.com) 메일 내 데이터베이스를 만듭니다. 이 사서함에 대한 액세스는 해당 Access Control 목록(ACL)을 통해 제어되며 이는 사서함을 열수 있는 Notes 사용자의 이름을 포함합니다.
 
 필수 특성 목록의 경우 이 문서의 뒷부분에 나오는 [필수 특성](#mandatory-attributes) 이라는 섹션을 참조하세요.
 
@@ -489,9 +495,4 @@ Domino에서 스키마를 확장하는 몇 가지 방법이 있으므로 커넥�
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

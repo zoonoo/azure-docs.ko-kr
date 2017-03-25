@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 625f4cc08ba023309ac4a9a8b7834d9ab4f4c116
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -45,7 +46,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 ## <a name="enable-the-extension"></a>확장 사용
 [Azure 포털](https://portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
 
-Azure Portal에서 시스템 및 성능 데이터를 직접 보고 구성하려면 [Azure 블로그의 다음 단계](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/)를 수행합니다.
+Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [Azure 블로그의 단계](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)를 따르세요.
 
 이 문서는 Azure CLI 명령을 사용하여 확장을 사용하도록 설정하고 구성하는 방법에 중점을 두고 있습니다. 이렇게 하면 저장소 테이블에서 직접 데이터를 읽고 볼 수 있습니다.
 
@@ -147,10 +148,5 @@ Azure Portal에서 시스템 및 성능 데이터를 직접 보고 구성하려�
 
 ## <a name="known-issues"></a>알려진 문제
 * Linux 진단 확장 버전&2;.3의 경우 Rsyslog 정보 및 고객이 지정한 로그 파일은 스크립팅을 통해서만 액세스할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -16,9 +16,9 @@ ms.date: 01/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: a7d6cad6faa5fc3a64fe416b44a03ad3992c7862
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 64a7bfeefd8282f854aa5b143a1708dfbe02ff42
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -110,7 +110,7 @@ IoT 솔루션에서 장치가 연결되어 있는지 확인해야 할 경우(런
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 길이 128자)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 장치를 구분하는 데 사용됩니다. |
-| etag |필요한 경우 읽기 전용 |[RFC7232][lnk-rfc7232]에 따라 장치 ID에 대해 약한 etag를 나타내는 문자열입니다. |
+| etag |필요한 경우 읽기 전용 |[RFC7232][lnk-rfc7232]에 따라 장치 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
 | status |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 장치를 연결할 수 있습니다. **사용 안 함**이면 이 장치는 장치 연결 끝점에 액세스할 수 없습니다. |

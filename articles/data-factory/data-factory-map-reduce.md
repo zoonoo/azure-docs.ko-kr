@@ -15,22 +15,24 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc30c4283a96f3202e7010828e178895d3613b6
-ms.openlocfilehash: 08245a850e3c78ce893ef18030ee09e701241d1b
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: afa8c08fc89103a14cc393c62e7f2c9d985426c2
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>데이터 팩터리에서 MapReduce 프로그램 호출
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md) 
-> * [저장 프로시저](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
-> * [.NET 사용자 지정](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive 작업](data-factory-hive-activity.md) 
+> * [Pig 작업](data-factory-pig-activity.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+> * [Spark 작업](data-factory-spark.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight MapReduce 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 

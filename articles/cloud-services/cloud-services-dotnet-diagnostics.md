@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: c3540d86a12935cea100248f7f6669df34ae2209
-ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 81f814ebb977f0f192d450b9c75aab84d2e1c069
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,10 +28,10 @@ Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md)를 참�
 이 연습에서는 .NET EventSource 클래스를 사용하여 원격 분석 데이터를 내보내는 Azure 작업자 역할을 구현하는 방법에 대해 설명합니다. Azure 진단은 원격 분석 데이터를 수집하고 이를 Azure Storage 계정에 저장하는 데 사용됩니다. Visual Studio 작업자 역할을 만드는 경우 Azure .NET SDK 2.4 이상 버전에서 진단 1.0을 솔루션의 일부로 자동으로 사용하도록 설정합니다. 다음 지침에서는 작업자 역할을 만들고, 솔루션에서 진단 1.0을 사용하지 않도록 설정하고, 진단 1.2 또는 1.3을 작업자 역할에 배포하기 위한 프로세스에 대해 설명합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-이 문서에서는 Azure 구독이 있으며 Visual Studio 2013과 Azure SDK를 함께 사용 중인 것으로 가정합니다. Azure 구독이 없는 경우 [무료 평가판][Free Trial]에 등록할 수 있습니다. [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성][Install and configure Azure PowerShell version 0.8.7 or later]해야 합니다.
+이 문서에서는 Azure 구독이 있으며 Visual Studio와 Azure SDK를 함께 사용 중인 것으로 가정합니다. Azure 구독이 없는 경우 [무료 평가판][Free Trial]에 등록할 수 있습니다. [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성][Install and configure Azure PowerShell version 0.8.7 or later]해야 합니다.
 
 ### <a name="step-1-create-a-worker-role"></a>1단계: 작업자 역할 만들기
-1. **Visual Studio 2013**을 실행합니다.
+1. **Visual Studio**를 시작합니다.
 2. .NET Framework 4.5를 대상으로 하는 **Cloud** 템플릿에서 새 **Azure 클라우드 서비스** 프로젝트를 만듭니다.  프로젝트의 이름을 "WadExample"로 지정하고 확인을 클릭합니다.
 3. **작업자 역할**을 선택하고 확인을 클릭합니다. 프로젝트가 만들어집니다.
 4. **솔루션 Explorer**에서 **WorkerRole1** 속성 파일을 두 번 클릭합니다.
@@ -173,7 +174,7 @@ namespace WorkerRole1
 웹 또는 작업자 역할에서 진단을 관리하는 데 사용되는 PowerShell cmdlet은 Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension 및 Remove-AzureServiceDiagnosticsExtension입니다.
 
 1. Azure PowerShell을 엽니다.
-2. 작업자 역할에 진단을 설치하기 위한 스크립트를 실행합니다(*StorageAccountKey* 를 wadexample 저장소 계정의 저장소 계정 키로 바꿈).
+2. 작업자 역할에 진단을 설치하기 위한 스크립트를 실행합니다(*StorageAccountKey*를 wadexample 저장소 계정의 저장소 계정 키로 바꾸고 *config_path*를 *WadExample.xml* 파일에 대한 경로로 바꿈).
 
 ```powershell
 $storage_name = "wadexample"
@@ -204,9 +205,4 @@ Visual Studio **서버 Explorer**에서 wadexample 저장소 계정으로 이동
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: b74fbba254f73c1df388b2b0ff9134cc7b8a31e8
-ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14bdbe593d8c6ec5297ce37ce57b759deb533cec
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -149,7 +150,10 @@ ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
 
 ### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>일부 저장소 계정에서 AMS 계정의 새 자산으로 Blob 복사
 
-다음 코드는 저장소 계정에서 Media Services 자산으로 Blob을 복사하는 데 사용됩니다. 
+다음 코드는 저장소 계정에서 Media Services 자산으로 Blob을 복사합니다. 
+
+>[!NOTE]
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
     using System;
     using System.Configuration;
@@ -289,10 +293,5 @@ ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

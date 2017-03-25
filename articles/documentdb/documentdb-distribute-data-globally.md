@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72d9c639a6747b0600c5ce3a1276f3c1d2da64b2
-ms.openlocfilehash: 8c3ced706c26e09d709d7cfb4d81534c362e1628
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -91,8 +91,31 @@ DocumentDB는 하나 이상의 지역에서 가동 중단이 발생하는 경우
 ### <a id="GranularFailover"></a>다양한 세분성의 장애 조치(Failover) 설계
 현재 자동 및 수동 장애 조치(Failover) 기능은 데이터베이스 계정의 세분성 수준에서 노출됩니다. 내부적으로 DocumentDB는 더욱 세밀한 데이터베이스, 컬렉션 또는 (키의 범위를 소유하는 컬렉션의) 파티션 수준에서 *자동* 장애 조치(Failover)를 제공하도록 설계되었습니다. 
 
-### <a id="MultiHomingAPIs"></a>멀티 호밍 API
+### <a id="MultiHomingAPIs"></a>DocumentDB에서 멀티 호밍 API
 DocumentDB는 논리적(지역에 관계 없음) 또는 물리적(지역에 한정) 끝점을 사용하여 데이터베이스와 상호 작용할 수 있습니다. 논리적 끝점을 사용하면 장애 조치(Failover) 시 응용 프로그램을 투명하게 멀티 호밍할 수 있습니다. 물리적 끝점은 읽기와 쓰기를 특정 지역에 리디렉션할 수 있는 세분화된 응용 프로그램 제어 기능을 제공합니다.
+
+### <a id="ReadPreferencesAPIforMongoDB"></a> MongoDB API에서 구성 가능한 읽기 기본 설정
+MongoDB API를 통해 전역적으로 분산된 데이터베이스에 대해 컬렉션의 읽기 기본 설정을 지정할 수 있습니다. 짧은 대기 시간 읽기 및 글로벌 고가용성을 위해 컬렉션의 읽기 기본 설정을 *nearest*(최근접)로 설정하는 것이 좋습니다. *nearest*(최근접)의 읽기 기본 설정은 가장 가까운 지역에서 읽도록 구성됩니다.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
+```
+
+주 읽기/쓰기 지역 및 재해 복구(DR) 시나리오를 위한 보조 지역이 있는 응용 프로그램에는 컬렉션의 읽기 기본 설정을 *secondary preferred*(보조 기본 설정)로 설정하는 것이 좋습니다. *secondary preferred*(보조 기본 설정)의 읽기 기본 설정은 주 지역의 데이터를 사용할 수 없는 경우 보조 지역에서 읽도록 구성됩니다.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
+```
+
+마지막으로 읽기 지역을 수동으로 지정하려고 합니다. 읽기 기본 설정 내에서 지역 태그를 설정할 수 있습니다.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+var tag = new Tag("region", "Southeast Asia");
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
+```
 
 ### <a id="TransparentSchemaMigration"></a>투명하고 일관적인 데이터베이스 스키마 및 인덱스 마이그레이션 
 DocumentDB는 [스키마에 구애 받지 않습니다](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). 고유한 디자인의 데이터베이스 엔진은 사용자에게 스키마 또는 모조 인덱스를 요청하지 않고도 수집하는 모든 데이터를 자동으로 그리고 동적으로 인덱싱할 수 있습니다. 따라서 데이터베이스 스키마 및 인덱스 마이그레이션에 대해 걱정하거나 스키마 변경의 다단계 응용 프로그램 출시를 조정하는 일 없이 전역에 분산된 응용 프로그램을 신속하게 반복할 수 있습니다. DocumentDB는 사용자가 명시적으로 수행한 인덱싱 정책 변경이 성능 또는 가용성 저하로 이어지지 않도록 보장합니다.  
@@ -237,3 +260,4 @@ DocumentDB는 처리량, 대기 시간, 일관성 및 가용성 메트릭을 투
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
 9. Azure DocumentDB SLA(마지막 업데이트: 2016년 12월)
+

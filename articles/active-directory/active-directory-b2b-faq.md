@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -72,8 +72,6 @@ B2B 공동 작업 사용자는 제한된 관리자 또는 전역 관리자 역�
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
-  이 비디오가 포함된 것으로 표시되지 않으면 [여기](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user)서 연결할 수 있습니다.
-
 ### <a name="what-is-the-timeline-by-which-azure-ad-b2b-collaboration-will-start-support-for-mfa-and-consumer-email-accounts"></a>Azure AD B2B 공동 작업이 MFA 및 소비자 전자 메일 계정에 대한 지원을 시작할 일정은 어떻게 됩니까?
 이 공개 미리 보기 새로 고침에서는 현재 MFA 및 고객 전자 메일 계정이 모두 지원됩니다.
 
@@ -89,8 +87,16 @@ B2B 공동 작업 사용자는 제한된 관리자 또는 전역 관리자 역�
 ### <a name="does-microsoft-crm-provide-online-support-to-azure-ad-b2b-collaboration"></a>Microsoft CRM에서 Azure AD B2B 공동 작업에 대한 온라인 지원을 제공합니까?
 Azure AD B2B 공동 작업이 일반적으로 사용할 수 있게 되면 CRM에서 지원을 제공할 예정입니다.
 
+### <a name="are-b2b-collaboration-guest-users-visible-in-sharepoint-onlineonedrive-people-picker"></a>B2B 공동 작업 게스트 사용자가 SharePoint Online/OneDrive 사용자 선택에 표시됩니까?
+ 
+예! 그러나 SharePoint Online 사용자 선택에서 기존 게스트 사용자를 검색하는 기능은 기존 동작과의 일치를 위해 기본적으로 꺼져 있습니다. 이 기능은 테넌트 및 사이트 모음 수준에서 설정 'ShowPeoplePickerSuggestionsForGuestUsers'를 통해 사용하도록 설정할 수 있습니다. 또한 멤버가 디렉터리에서 모든 기존 게스트 사용자를 검색할 수 있도록 허용하는 Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 설정할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SharePoint Online 사이트에 영향을 주지 않습니다.
+
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>새로 만든 B2B 공동 작업 사용자의 초기 암호 수명은 어떻게 됩니까?
 Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적용되는 고정된 문자 집합, 암호 강도 및 계정 잠금 요구 사항이 있습니다. 클라우드 사용자 계정은 Microsoft 계정, Facebook, ADFS 또는 다른 클라우드 테넌트(B2B 공동 작업의 경우)와 같은 다른 ID 공급자와 페더레이션 되지 않는 계정입니다. 페더레이션 계정의 경우 암호 정책은 온-프레미스 테넌트의 정책과 사용자의 Microsoft 계정 설정에 따라 다릅니다.
+
+### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>응용 프로그램에서 테넌트 사용자와 게스트 사용자 간 환경을 차별화하고자 합니다. 이에 대한 표준 지침이 있습니까? ID 공급자 클레임의 현재 상태가 이에 대한 모델이 맞습니까?
+ 
+게스트 사용자는 [B2B 공동 작업 사용자의 속성](active-directory-b2b-user-properties.md)에서 논의한 대로 ID 공급자를 사용하여 인증할 수 있습니다. 따라서 UserType은 이를 확인하기 위한 속성이 맞습니다. UserType 클레임은 현재 토큰에 현재 포함되지 않습니다. 응용 프로그램은 Graph API를 사용하여 사용자 및 사용자의 UserType 가져오기에 대한 디렉터리를 쿼리해야 합니다.
 
 ### <a name="next-steps"></a>다음 단계
 

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 858d6115ed3a96e3b6a3362ff8f5c1fc4c279bd2
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: edfdba3105aba1079d3c707e7320770c4a999a32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark�
 **Azure HDInsight에서 Apache Spark를 시작하나요?** [빠른 시작: HDInsight에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 샘플 응용 프로그램 실행](hdinsight-apache-spark-jupyter-spark-sql.md)을 참조하세요.
 
 > [!NOTE]
-> 현재 릴리스의 알려진 문제 및 제한 목록은 [Azure HDInsight에서 알려진 Apache Spark 문제](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+> 현재 릴리스의 알려진 문제 및 제한 목록은 [Azure HDInsight에서 알려진 Apache Spark 문제](hdinsight-apache-spark-known-issues.md)를 참조하세요.
 > 
 > 
 

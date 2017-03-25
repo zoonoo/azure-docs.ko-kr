@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 2714bfbf2bf35b11ca1ba6ab8b7e4e6bf5431f45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 36c245b98868682c24a87bba6628de492e620012
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -51,10 +52,11 @@ Data Factory 파이프라인에서 HDInsight Pig 작업은 사용자 고유 또�
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce 작업
 Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 작업에 대한 자세한 내용은 [MapReduce 작업](data-factory-map-reduce.md) 문서를 참조하세요.
 
-MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md)을 참조하세요.
-
 ## <a name="hdinsight-streaming-activity"></a>HDInsight 스트리밍 작업
 Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다. 이 작업에 대한 자세한 내용은 [HDInsight 스트리밍 작업](data-factory-hadoop-streaming-activity.md)을 참조하세요.
+
+## <a name="hdinsight-spark-activity"></a>HDInsight Spark 작업
+Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) 을 참조하세요. 
 
 ## <a name="machine-learning-activities"></a>Machine Learning 작업
 Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [배치 실행 작업](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity)을 사용하여 Machine Learning 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다.
@@ -95,10 +97,5 @@ Azure Data Factory는 작업에 대한 다음 데이터 변환 작업 및 컴퓨
 | [저장 프로시저](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL 데이터 웨어하우스 또는 SQL Server |
 | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |Azure 데이터 레이크 분석 |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

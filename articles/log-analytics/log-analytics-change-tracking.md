@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/13/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/28/2017
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
 * 변경 내용을 모니터링할 각 컴퓨터에 [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) 또는 [Linux](log-analytics-linux-agents.md) 에이전트가 있어야 합니다.
-* [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 변경 내용 추적 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 [변경 내용 추적] 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
 ### <a name="configure-windows-files-to-track"></a>추적할 Windows 파일 구성
 다음 단계를 사용하여 Windows 컴퓨터에서 추적할 파일을 구성합니다.
@@ -66,7 +66,21 @@ ms.lasthandoff: 02/28/2017
 
 | 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Linux 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows 및 Linux |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![아니요](./media/log-analytics-change-tracking/oms-bullet-red.png) |![아니요](./media/log-analytics-change-tracking/oms-bullet-red.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) | 변경 유형에 따라 15분부터 1시간 |
+| Windows 및 Linux |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) |![아니요](./media/log-analytics-change-tracking/oms-bullet-red.png) |![아니요](./media/log-analytics-change-tracking/oms-bullet-red.png) |![예](./media/log-analytics-change-tracking/oms-bullet-green.png) | 변경 유형에 따라 5분부터 50분 자세한 내용은 아래를 참조하세요. |
+
+
+다음 테이블에서는 변경 형식에 대한 데이터 컬렉션 빈도를 보여 줍니다.
+
+| **change type** | **frequency** | **에이전트****가** **차이를 발견한 경우 전송하나요?** |
+| --- | --- | --- |
+| Windows 레지스트리 | 50분 | no |
+| Windows 파일 | 30분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
+| Linux 파일 | 15분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
+| Windows 서비스 | 30분 | 예, 변경 내용이 발견되는 경우 30분마다 전송됩니다. 변경에 관계없이 24시간마다 스냅숏이 전송됩니다. 따라서 변경 사항이 없는 경우에도 스냅숏이 전송됩니다. |
+| Linux 데몬 | 5분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
+| Windows 소프트웨어 | 30분 | 예, 변경 내용이 발견되는 경우 30분마다 전송됩니다. 변경에 관계없이 24시간마다 스냅숏이 전송됩니다. 따라서 변경 사항이 없는 경우에도 스냅숏이 전송됩니다. |
+| Linux 소프트웨어 | 5분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
+
 
 ## <a name="use-change-tracking"></a>변경 내용 추적 사용
 솔루션을 설치한 후, OMS의 **개요** 페이지에 있는 **변경 내용 추적** 타일을 사용하여 모니터링되는 서버에 대한 변경 내용 요약을 볼 수 있습니다.

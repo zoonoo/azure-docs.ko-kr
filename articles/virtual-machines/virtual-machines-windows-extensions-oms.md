@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 140dd5f165b88a1b0d0771b0360769a340d082cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9ce257eac44e51b7303016d993bc8d71e270629e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,7 +41,50 @@ Windows용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 �
 ```json
 {
     "type": "extensions",
-    "name": "Microsoft.EnterpriseCloud.Monitoring",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
+### <a name="property-values"></a>속성 값
+
+| 이름 | 값/예제 |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
+| typeHandlerVersion | 1.0 |
+| workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+## <a name="template-deployment"></a>템플릿 배포
+
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 OMS 에이전트 확장을 실행할 수 있습니다. OMS 에이전트 VM 확장을 포함하는 샘플 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)에서 찾을 수 있습니다. 
+
+가상 컴퓨터 확장에 대한 JSON은 가상 컴퓨터 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../azure-resource-manager/resource-manager-template-child-resource.md)을 참조하세요. 
+
+다음 예제에서는 OMS 확장이 가상 컴퓨터 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 컴퓨터의 `"resources": []` 개체에 배치됩니다.
+
+
+```json
+{
+    "type": "extensions",
+    "name": "OMSExtension",
     "apiVersion": "[variables('apiVersion')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -62,20 +105,31 @@ Windows용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 �
 }
 ```
 
-### <a name="property-values"></a>속성 값
+템플릿의 루트에 JSON 확장을 배치하면 리소스 이름에 부모 가상 컴퓨터에 대한 참조가 포함되며 형식은 중첩된 구성을 반영합니다. 
 
-| 이름 | 값/예제 |
-| ---- | ---- |
-| apiVersion | 2015-06-15 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
-| workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
-
-## <a name="template-deployment"></a>템플릿 배포
-
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 OMS 에이전트 확장을 실행할 수 있습니다. OMS 에이전트 VM 확장을 포함하는 샘플 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)에서 찾을 수 있습니다. 
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "<parentVmResource>/OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 

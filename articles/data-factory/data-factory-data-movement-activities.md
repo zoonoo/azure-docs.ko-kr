@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/15/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: da98bc3e4dda1a05cba38701c0042f1c023c419a
-ms.openlocfilehash: 40b172356b3171557d6309a6bb2984fba34f485d
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 91a2ac08f6daac8cba195454e09bb07afe265046
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -73,7 +74,7 @@ Azure Blob, Azure Data Lake Store, Amazon S3, FTP, 파일 시스템 및 HDFS와 
 * 온-프레미스 SQL Server에서 데이터를 복사하여 ORC 형식으로 Azure Data Lake Store에 씁니다.
 * 온-프레미스 파일 시스템에서 압축된 파일을 복사하고 압축을 푼 다음 Azure Data Lake Store에 씁니다.
 
-## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>전역적으로 사용 가능한 데이터 이동
+## <a name="global"></a>전역적으로 사용 가능한 데이터 이동
 Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만 사용할 수 있습니다. 그러나 복사 작업을 지원하는 서비스는 다음과 같은 지역 및 지리에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 지역별 Data Factory 및 데이터 이동 기능 사용 가능 여부는 [지역별 서비스](https://azure.microsoft.com/regions/#services) 를 참조하세요.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>클라우드 데이터 저장소 간의 데이터 복사
@@ -104,7 +105,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | 을 참조하세요. | 인도 서부 | 인도 중부 |
 | 을 참조하세요. | 인도 남부 | 인도 중부 |
 
-또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `executionLocation`을 "North Europe"으로 지정하여 북유럽을 통해 라우팅되도록 할 수 있습니다.
+또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "North Europe"`을 지정하여 북유럽을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
 
 > [!NOTE]
 > 대상 데이터 저장소의 지역이 위의 목록에 없거나 검색 가능하지 않을 경우 `executionLocation`을 지정하지 않을 경우 기본적으로 복사 작업이 대체 지역을 거치지 않고 실패합니다. 지원되는 지역 목록은 시간이 지남에 따라 확장됩니다.
@@ -124,7 +125,7 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
 
 이름, 설명, 입력/출력 테이블, 정책 등의 JSON 속성은 모든 형식의 활동에 사용할 수 있습니다. 활동의 `typeProperties` 섹션에서 사용 가능한 속성은 각 활동 형식에 따라 다릅니다.
 
-복사 활동의 경우 `typeProperties` 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 해당 데이터 저장소에 대한 복사 활동에서 지원하는 형식 속성에 대해 알아보려면 [지원되는 소스 및 싱크](#supported-data-stores) 섹션에서 소스/싱크를 클릭하세요.   
+복사 활동의 경우 `typeProperties` 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 해당 데이터 저장소에 대한 복사 활동에서 지원하는 형식 속성에 대해 알아보려면 [지원되는 소스 및 싱크](#supported-data-stores-and-formats) 섹션에서 소스/싱크를 클릭하세요.
 
 샘플 JSON 정의는 다음과 같습니다.
 
@@ -152,10 +153,9 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
             "type": "BlobSource"
           },
           "sink": {
-            "type": "SqlSink",
-            "writeBatchSize": 10000,
-            "writeBatchTimeout": "60:00:00"
-          }
+            "type": "SqlSink"
+          },
+          "executionLocation": "North Europe"          
         },
         "Policy": {
           "concurrency": 1,
@@ -191,9 +191,4 @@ Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 
 ## <a name="next-steps"></a>다음 단계
 * 복사 작업에 대해 자세히 알아보려면 [Azure Blob 저장소에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 이동하는 방법에 대해 알아보려면 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

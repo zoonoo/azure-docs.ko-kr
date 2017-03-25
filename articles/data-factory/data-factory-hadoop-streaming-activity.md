@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
-ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2748838279462a493983c397454cbcf13b2a82e6
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md) 
-> * [저장 프로시저](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
-> * [.NET 사용자 지정](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive 작업](data-factory-hive-activity.md) 
+> * [Pig 작업](data-factory-pig-activity.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+> * [Spark 작업](data-factory-spark.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 HDInsightStreamingActivity 작업을 사용하여 Azure Data Factory 파이프라인에서 Hadoop 스트리밍 작업을 호출할 수 있습니다. 다음 JSON 조각은 파이프라인 JSON 파일에서 HDInsightStreamingActivity를 사용하기 위한 구문을 보여 줍니다. 
 
@@ -90,7 +93,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 2. activity의 type을 **HDInsightStreaming**으로 설정합니다.
 3. **mapper** 속성에는 매퍼 실행 파일의 이름을 지정합니다. 예제에서는 cat.exe가 매퍼 실행 파일입니다.
 4. **reducer** 속성에는 리듀서 실행 파일의 이름을 지정합니다. 예제에서는 wc.exe가 리듀서 실행 파일입니다.
-5. **input** 유형 속성에는 매퍼의 입력 파일(위치 포함)을 지정합니다. 예제의 "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"에서 adfsample은 Blob 컨테이너이고, example/data/Gutenberg는 폴더이며, davinci.txt는 Blob입니다.
+5. **input** 유형 속성에는 매퍼의 입력 파일(위치 포함)을 지정합니다. 예제의 "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"에서 adfsample은 BLOB 컨테이너이고 example/data/Gutenberg는 폴더이며 davinci.txt는 BOLB입니다.
 6. **output** 유형 속성에는 리듀서의 출력 파일(위치 포함)을 지정합니다. Hadoop 스트리밍 작업의 출력이 이 속성에 지정된 위치에 기록됩니다.
 7. **filePaths** 섹션에서 매퍼 및 리듀서 실행 파일의 경로를 지정합니다. "adfsample/example/apps/wc.exe" 예에서 adfsample은 Blob 컨테이너, example/apps는 폴더, wc.exe는 실행 파일입니다.
 8. **fileLinkedService** 속성에는 filePaths 섹션에 지정된 파일이 포함된 Azure 저장소를 나타내는 Azure 저장소 연결된 서비스를 지정합니다.
@@ -220,10 +223,5 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 * [MapReduce 작업](data-factory-map-reduce.md)
 * [Spark 프로그램 호출](data-factory-spark.md)
 * [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
-ms.openlocfilehash: 0e5f420833276d23565ae0aa83f79bbbe47faf67
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: e9185862bd1f15adacf7fd407a6f5165b2b337f5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,16 +34,16 @@ ms.lasthandoff: 02/09/2017
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 또는 Visual Studio 2017.
 * 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 * [Azure PowerShell 1.0][lnk-powershell-install] 이상.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Visual Studio 프로젝트 준비
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 만듭니다. 프로젝트 이름을 **CreateIoTHubREST**로 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕 화면 프로젝트를 만듭니다. 프로젝트 이름을 **CreateIoTHubREST**로 지정합니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
-3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **Microsoft.Azure.Management.ResourceManager**를 검색합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
+3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **찾아보기** 페이지에서 **Microsoft.Azure.Management.ResourceManager**를 검색합니다. 패키지를 선택하고 **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
 4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다.  **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
 5. Program.cs에서 기존 **using** 문을 다음 코드로 바꿉니다.
    

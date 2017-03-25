@@ -1,6 +1,6 @@
 ---
-title: "Azure Logic Apps에서 X12 메시지 디코딩| Microsoft Docs"
-description: "엔터프라이즈 통합 팩 및 Logic Apps에 포함된 X12 디코더를 사용하는 방법"
+title: "X12 메시지 디코딩 - Azure Logic Apps | Microsoft Docs"
+description: "Azure Logic Apps의 엔터프라이즈 통합 팩에서 X12 메시지 디코더를 사용하여 트랜잭션 집합에 대한 EDI 유효성 검사 및 XML 생성"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,48 +15,61 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 2fa435d5a52ee7a9c18926912a7212ee862b3832
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 717069dbe211ea9cc04925875e0f28c85ef25ac2
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-decode-x12-messages"></a>X12 메시지 디코딩 시작
-EDI 및 파트너 관련 속성의 유효성을 검사하고 각 트랜잭션 집합의 XML 문서를 생성하며 처리된 트랜잭션에 대한 승인을 생성합니다.
+# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 X12 메시지 디코딩
 
-## <a name="prereqs"></a>선행 조건
+X12 메시지 디코딩 커넥터를 사용하여 EDI 및 파트너별 속성의 유효성을 검사하고, 각 트랜잭션 집합의 XML 문서를 생성하며, 처리된 트랜잭션에 대한 승인을 생성할 수 있습니다. 이 커넥터를 사용하려면 논리 앱에서 기존 트리거에 커넥터를 추가해야 합니다.
+
+## <a name="before-you-start"></a>시작하기 전에
+
+필요한 항목은 다음과 같습니다.
+
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
-* 통합 계정은 X12 메시지 디코딩 커넥터를 사용해야 합니다. [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [파트너](../logic-apps/logic-apps-enterprise-integration-partners.md) 및 [X12 규약](../logic-apps/logic-apps-enterprise-integration-x12.md)을 만드는 방법에 대한 세부 사항을 확인합니다.
+* [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)이 이미 정의되고 Azure 구독과 연결되었습니다. X12 메시지 디코딩 커넥터를 사용하는 통합 계정이 있어야 합니다.
+* 통합 계정에 이미 정의된 둘 이상의 [파트너](logic-apps-enterprise-integration-partners.md)
+* 통합 계정에 이미 정의된 [X12 규약](logic-apps-enterprise-integration-x12.md)
 
 ## <a name="decode-x12-messages"></a>X12 디코딩 메시지
 
-1. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)에서 예제를 제공하고 있습니다.
-2. 이 연결에는 트리거가 필요하지 않습니다. 다른 트리거를 사용하여 요청 트리거와 같은 논리 앱을 시작합니다.  논리 앱 디자이너에서 트리거를 추가하고 작업을 추가합니다.  드롭다운 목록에서 Microsoft 관리되는 API 표시를 선택한 다음 검색 상자에 "x12"를 입력합니다.  [X12 - X12 메시지 디코딩]을 선택합니다.
+1. [논리 앱 만들기](logic-apps-create-a-logic-app.md)
+
+2. X12 메시지 디코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
+
+3.    검색 상자에서 필터에 "x12"를 입력합니다. **X12 - X12 메시지 디코딩**을 선택합니다.
    
-    ![x12 검색](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
-3. 이전에 통합 계정에 대한 연결을 만들지 않은 경우 다음과 같이 연결 세부 정보를 요구하는 메시지가 표시됩니다.
+    !["x12" 검색](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+
+3. 이전에 통합 계정에 연결을 만들지 않은 경우 이제 해당 연결을 만들라는 메시지가 나타납니다. 연결의 이름을 지정하고 연결하려는 통합 계정을 선택합니다. 
+
+    ![통합 계정 연결 세부 사항 제공](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
+
+    별표가 있는 속성은 필수 사항입니다.
+
+    | 속성 | 세부 정보 |
+    | --- | --- |
+    | 연결 이름 * |연결의 이름을 입력합니다. |
+    | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
+
+5.    완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기**를 선택합니다.
    
-    ![통합 계정 연결](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)     
-4. 통합 계정 세부 정보를 입력합니다.  다음과 같이 별표가 있는 속성은 필수 항목입니다.
-   
-   | 속성 | 세부 정보 |
-   | --- | --- |
-   | 연결 이름 * |연결의 이름을 입력합니다. |
-   | 통합 계정 * |통합 계정 이름을 입력합니다. 통합 계정 및 논리 앱은 동일한 Azure 위치에 있어야 합니다. |
-   
-    완료되면 연결 정보가 다음과 비슷하게 표시됩니다.
-   
-    ![통합 계정 연결 생성](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
-5. **만들기**를 선택합니다.
-6. 연결이 만들어졌는지 확인합니다.
-   
-    ![통합 계정 연결 세부 사항](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
-7. 디코딩할 X12 플랫 파일 메시지를 선택합니다.
-   
-    ![필수 필드 제공](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+    ![통합 계정 연결 세부 사항](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+
+6. 이 예제와 같이 연결을 만든 후에 디코딩할 X12 플랫 파일 메시지를 선택합니다.
+
+    ![통합 계정 연결 생성](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
+
+    예:
+
+    ![디코딩할 X12 플랫 파일 메시지를 선택합니다.](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
 ## <a name="x12-decode-details"></a>X12 디코딩 세부 정보
 
-X12 디코딩 커넥터는 다음을 수행합니다.
+X12 디코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 
 * 거래 업체 규약에 대한 봉투의 유효성 검사
 * 각 트랜잭션 집합에 대한 XML 문서를 생성합니다.
@@ -81,10 +94,5 @@ X12 디코딩 커넥터는 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

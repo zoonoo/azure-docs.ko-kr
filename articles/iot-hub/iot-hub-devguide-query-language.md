@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
-ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -421,7 +421,7 @@ GROUP BY에 대한 형식 구문:
 | ABS(x) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
 | EXP(x) | 지정한 숫자 식(e^x)의 지수 값을 반환합니다. |
 | POWER(x,y) | 지정한 식의 값을 지정한 거듭제곱(x^y)으로 반환합니다.|
-| SQUARE(x) | 지정한 숫자 값의 제곱을 반환합니다. |
+| SQUARE(x)    | 지정한 숫자 값의 제곱을 반환합니다. |
 | CEILING(x) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
 | FLOOR(x) | 지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다. |
 | SIGN(x) | 지정한 숫자 식의 양수(+1),&0;(0) 또는 음수(-1) 부호를 반환합니다.|

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 03/08/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
-ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -42,6 +43,16 @@ OS 업데이트 문제는 일반적으로 컴퓨터를 재부팅해야 하며 �
 향후에는 완전 자동화되고 업데이트 도메인 간에 조정되는 OS 업데이트 정책을 지원하여 재부팅하거나 다른 예기치 않은 오류가 발생해도 가용성이 유지되도록 할 것입니다.
 
 그 동안에는 클러스터 관리자가 수동으로 각 노드의 패치를 안전한 방식으로 시작할 수 있는 [스크립트를 제공](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/)합니다.
+
+### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>SF 클러스터 내에서 큰 가상 크기 집합을 사용할 수 있나요? 
+
+**간단한 대답** - 아니요 
+
+**자세한 대답** - VMSS(큰 가상 크기 집합)은 최대 1000개 VM 인스턴스까지 VMSS를 확장하도록 허용하지만 PG(배치 그룹)을 사용하여 이 작업을 수행합니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 호환되므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1이 토폴로지 FD=0을 갖고 PG2의 VM9가 토폴로지 FD=4를 갖는 경우 VM1 및 VM2가&2;개의 다른 하드웨어 랙에 있다는 것을 의미하지는 않으므로 SF는 이 경우 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
+
+현재 큰 VMSS에서는 수준&4; 부하 분산 지원 부족과 같은 기타 문제가 나타납니다. [큰 VMSS 대한 세부 정보](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
+
+
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 클러스터의 최소 크기는 어떻게 되나요? 작으면 안되는 이유는 무엇인가요?
 
@@ -118,9 +129,4 @@ GitHub에서 Reliable Services 및 Reliable Actors 프레임워크에 대한 오
 ## <a name="next-steps"></a>다음 단계
 
 - [핵심 Service Fabric 개념 및 모범 사례에 대해 알아보기](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d5caa7a6c1b1a36a4ad08e1b28c7f9157a2c6349
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -43,7 +43,7 @@ Active Directory 평가 솔루션을 사용하여 일정한 간격으로 서버 
 
 * 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다.
 * Active Directory 평가 솔루션을 사용하려면 OMS 에이전트가 있는 각 컴퓨터에 지원되는 버전의 .NET Framework 4(4.5.2 이상)를 설치해야 합니다.
-* [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 Active Directory 평가 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 Active Directory 평가 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
   > [!NOTE]
   > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 OMS 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.

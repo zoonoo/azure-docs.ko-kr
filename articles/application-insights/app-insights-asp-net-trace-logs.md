@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f2de2b3f4deb702f6cdc4e36b988ef6ea2697787
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -137,9 +138,9 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 ### <a name="no-log-adapter-option-in-the-configuration-tool"></a>구성 도구에 로그 어댑터 옵션이 없습니다.
 * 먼저 로깅 프레임워크를 설치해야 합니다.
 * System.Diagnostics.Trace를 사용하는 경우 [`web.config`에서 구성](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx)했는지 확인합니다.
-* 최신 버전의 Application Insights 도구가 있으신가요? Visual Studio **도구** 메뉴에서 **확장 및 업데이트**를 선택하고 **업데이트** 탭을 엽니다. Application Insights 도구가 있으면 클릭하여 업데이트합니다.
+* 최신 버전의 Application Insights가 있으신가요? Visual Studio **도구** 메뉴에서 **확장 및 업데이트**를 선택하고 **업데이트** 탭을 엽니다. 개발자 분석 도구가 있으면 클릭하여 업데이트합니다.
 
-### <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
+### <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 설치한 것 같습니다.
 
 솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다. 이 경우 문제가 해결된 것입니다.
@@ -147,13 +148,13 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 ### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>진단 검색에 추적은 보이지만 다른 이벤트가 보이지 않습니다.
 모든 이벤트와 요청이 파이프라인을 통과할 때까지 다소 시간이 걸릴 수 있습니다.
 
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>얼마나 많은 데이터가 보존되나요?
+### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
 각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는&7;일 동안 보존됩니다.
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>예상되는 로그 항목의 일부가 표시되지 않습니다.
 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>다음 단계
+## <a name="add"></a>다음 단계
 * [가용성 및 응답성 테스트 설정][availability]
 * [문제 해결][qna]
 
@@ -165,9 +166,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
