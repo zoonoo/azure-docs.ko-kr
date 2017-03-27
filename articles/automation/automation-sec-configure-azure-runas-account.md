@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/15/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Azure 실행 계정으로 Runbook 인증
-이 항목에서는 Azure Resource Manager 또는 Azure 서비스 관리에서 Runbook 관리 리소스를 인증하기 위해 실행 계정을 사용하여 Azure Portal의 Automation 계정을 구성하는 방법을 보여 줍니다.
+이 항목에서는 Azure Resource Manager 또는 Azure 서비스 관리에서 Runbook 관리 리소스를 인증하기 위해 실행 계정을 사용하여 Azure 포털의 자동화 계정을 구성하는 방법을 보여줍니다.
 
-Azure Portal에서 Automation 계정을 만들 경우 다음을 자동으로 만듭니다.
+Azure 포털에서 새 자동화 계정을 만들 경우 다음을 자동으로 만듭니다.
 
-* Azure Active Directory에서 서비스 주체, 인증서를 만들고 runbook을 사용하여 Resource Manager 리소스를 관리하는 데 사용되는 참여자 역할 기반 액세스 제어(RBAC)를 할당하는 실행 계정.   
-* runbook을 사용하여 Azure 서비스 관리 또는 클래식 리소스를 관리하는 데 사용되는 관리 인증서를 업로드하는 클래식 실행 계정.  
+* Azure Active Directory에서 새 서비스 주체, 인증서를 만들고 Runbook을 사용하여 Resource Manager 리소스를 관리하는 데 사용될 참여자 역할 기반 액세스 제어(RBAC)를 할당하는 실행 계정.   
+* Runbook을 사용하여 Azure 서비스 관리 또는 클래식 리소스를 관리하는 데 사용될 관리 인증서를 업로드하는 클래식 실행 계정.  
 
 이를 통해 처리를 간편하게 만들고 자동화 요구를 지원하는 Runbook의 구축 및 배포를 신속하게 시작할 수 있습니다.      
 
@@ -41,17 +41,14 @@ Azure Portal에서 Automation 계정을 만들 경우 다음을 자동으로 만
 > 자동화 글로벌 Runbook을 포함한 Azure [경고 통합 기능](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)에는 실행 및 클래식 실행 계정이 구성된 자동화 계정이 필요합니다. 정의된 실행 계정 및 클래식 실행 계정이 있는 자동화 계정을 선택하거나 새로 하나를 만들도록 선택할 수 있습니다.
 >  
 
-Azure Portal에서 Automation 계정을 만들고, PowerShell을 사용하여 Automation 계정을 업데이트하고, 계정 구성을 관리하고, Runbook에서 인증하는 방법을 보여 줍니다.
+Azure Portal에서 Automation 계정을 만들고, PowerShell을 사용하여 Automation 계정을 업데이트하고, 계정 구성을 관리하고, Runbook에서 인증하는 방법을 보여줍니다.
 
 이를 수행하기 전에 먼저 이해하고 고려해야 하는 몇 가지 사항이 있습니다.
 
 1. 이 작업은 클래식 또는 리소스 관리자 배포 모델에서 이미 만든 기존 자동화 계정에는 영향을 주지 않습니다.  
 2. 이는 Azure 포털을 통해 만들어진 자동화 계정에만 적용됩니다.  클래식 포털에서 계정을 만들면 실행 계정 구성을 복제하지 않습니다.
 3. 클래식 리소스를 관리하기 위해 이전에 만든 Runbook과 자산(즉, 일정, 변수 등)이 현재 있고 이 Runbook에서 새 클래식 실행 계정으로 인증하려는 경우, 실행 계정 관리를 사용하여 클래식 실행 계정을 만들거나 아래 PowerShell 스크립트를 사용하여 기존 계정을 업데이트해야 합니다.  
-4. 새 실행 계정 및 클래식 실행 Automation 계정을 사용하여 인증하려면 [인증 코드 예제](#authentication-code-examples) 섹션에서 제공된 예제 코드를 사용하여 기존 Runbook을 수정해야 합니다.  
-   
-    >[!NOTE] 
-    >실행 계정은 인증서 기반 서비스 주체를 사용하여 Resource Manager 리소스에 대한 인증을 위한 것이고, 클래식 실행 계정은 관리 인증서로 서비스 관리 리소스에 대한 인증을 위한 것입니다.     
+4. 새 실행 계정 및 클래식 실행 자동화 계정을 사용하여 인증하려면 아래 예제 코드를 사용하여 기존 Runbook을 수정해야 합니다.  **알아두십시오** .     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Azure Portal에서 새 Automation 계정 만들기
 이 섹션에서는 다음 단계를 수행하여 Azure 포털에서 새 Azure 자동화 계정을 만듭니다.  이 작업은 실행 및 클래식 실행 계정을 만드는 것입니다.  
@@ -88,7 +85,7 @@ Azure Portal에서 Automation 계정을 만들고, PowerShell을 사용하여 Au
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 그래픽 Runbook입니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 PowerShell Runbook입니다. |
-| AzureRunAsCertificate |Automation 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 인증서 자산입니다.  Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있도록 해줍니다.  이 인증서는 수명이&1;년입니다. |
+| AzureRunAsCertificate |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 인증서 자산입니다.  Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있도록 해줍니다.  이 인증서는 수명이&1;년입니다. |
 | AzureRunAsConnection |자동화 계정을 만드는 동안 또는 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 연결 자산입니다. |
 
 다음 표에는 클래식 실행 계정에 대한 리소스가 요약되어 있습니다.<br>
@@ -392,15 +389,9 @@ Automation에서 이러한 변화를 감지하고 계정의 **실행 계정** �
     > 
     > 
 
-스크립트가 성공적으로 완료된 후 클래식 실행 계정을 만든 경우 단계를 따라 Azure 클래식 포털에 [관리 API 인증서를 업로드](../azure-api-management-certs.md)합니다.  자체 서명된 공개 인증서(.cer 형식)를 사용하여 클래식 실행 계정을 만든 경우 PowerShell 세션(*%USERPROFILE%\AppData\Local\Temp*)을 실행하는 데 사용된 사용자 프로필의 컴퓨터에서 임시 파일 폴더에 만든 인증서의 복사본을 찾을 수 있습니다.  그렇지 않으면 엔터프라이즈 CA(.cer 형식)에서 생성한 인증서를 사용하도록 클래식 실행 계정을 구성한 경우 이 인증서를 사용해야 합니다.  인증서가 업로드된 후 [샘플 코드](#sample-code-to-authenticate-with-service-management-resources)를 참조하여 서비스 관리 리소스와 함께 자격 증명 구성의 유효성을 검사합니다.  
+스크립트가 성공적으로 완료된 후에 자체 서명된 공용 인증서(.cer 형식)를 사용하여 클래식 실행 계정을 만든 경우 스크립트에서는 이 항목을 만들고 PowerShell 세션을 실행하는 데 사용된 사용자 프로필에서 컴퓨터의 임시 파일 폴더(*%USERPROFILE%\AppData\Local\Temp*)에 저장합니다. 또는 엔터프라이즈 공용 인증서(.cer 형식)를 사용하여 클래식 실행 계정을 만든 경우 이 인증서를 사용해야 합니다.  Azure 클래식 포털에 [관리 API 인증서 업로드](../azure-api-management-certs.md)하는 단계를 수행한 다음 [샘플 코드](#sample-code-to-authenticate-with-service-management-resources)를 참조하여 Service Management 리소스를 통해 자격 증명 구성의 유효성을 검사합니다.  클래식 실행 계정을 만들지 않은 경우 아래 [샘플 코드](#sample-code-to-authenticate-with-resource-manager-resources)를 참조하여 Resource Manager 리소스를 사용하여 인증하고 자격 증명 구성의 유효성을 검사합니다.
 
-클래식 실행 계정을 만들지 않은 경우 아래 [샘플 코드](#sample-code-to-authenticate-with-resource-manager-resources)를 참조하여 Resource Manager 리소스를 사용하여 인증하고 자격 증명 구성의 유효성을 검사합니다.   
-
-##  <a name="authentication-code-examples"></a>인증 코드 예제
-
-다음 예제에서는 실행 계정을 사용하여 리소스 관리자 또는 클래식 리소스에 대해 runbook을 인증하는 방법을 보여 줍니다.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Resource Manager 리소스를 사용하여 인증
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Resource Manager 리소스를 사용하여 인증하는 샘플 코드
 Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용하여 인증하기 위해 **AzureAutomationTutorialScript** 예제 Runbook에서 가져온 아래 업데이트된 샘플 코드를 사용할 수 있습니다.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +426,7 @@ Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용
 
 Runbook - **Add-AzureRmAccount**에서 인증에 사용 되는 cmdlet는 *ServicePrincipalCertificate* 매개 변수 집합을 사용합니다.  이것은 자격 증명이 아니라 서비스 주체 인증서를 사용하여 인증합니다.  
 
-### <a name="authenticate-with-service-management-resources"></a>서비스 관리 리소스를 사용하여 인증
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Service Management 리소스를 사용하여 인증하는 샘플 코드
 Runbook으로 클래식 리소스를 관리하는 클래식 실행 계정을 사용하여 인증하기 위해 **AzureClassicAutomationTutorialScript** 예제 Runbook에서 가져온 아래 업데이트된 샘플 코드를 사용할 수 있습니다.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

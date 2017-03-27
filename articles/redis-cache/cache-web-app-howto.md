@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
-ms.lasthandoff: 01/28/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/28/2017
 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 * [Azure 계정](#azure-account)
-* [.NET용 Azure SDK 포함 Visual Studio 2015](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [.NET용 Azure SDK 포함 Visual Studio 2017](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Azure 계정
 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. 다음을 수행할 수 있습니다.
@@ -54,22 +54,23 @@ ms.lasthandoff: 01/28/2017
 * [Azure 계정을 무료로 개설할 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
 * [Visual Studio 구독자 혜택 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>.NET용 Azure SDK 포함 Visual Studio 2015
-자습서는 [Azure SDK for.NET](../dotnet-sdk.md) 2.8.2 이상이 포함된 Visual Studio 2015를 기준으로 작성되었습니다. [여기서 Visual Studio 2015용 최신 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?linkid=518003)합니다. SDK가 없는 경우 Visual Studio는 SDK와 함께 자동으로 설치됩니다.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>.NET용 Azure SDK 포함 Visual Studio 2017
+자습서는 [Azure SDK for.NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools)이 포함된 Visual Studio 2017을 기준으로 작성되었습니다. Azure SDK 2.9.5에는 Visual Studio 설치 관리자가 포함되어 있습니다.
+
+Visual Studio 2015가 설치된 경우 [Azure SDK for.NET](../dotnet-sdk.md) 2.8.2 이상을 포함한 자습서를 따를 수 있습니다. [여기서 Visual Studio 2015용 최신 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?linkid=518003)합니다. SDK가 없는 경우 Visual Studio는 SDK와 함께 자동으로 설치됩니다. 일부 화면이 이 자습서에 표시된 그림과 다르게 보일 수 있습니다.
 
 Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?LinkID=324322)할 수 있습니다. 일부 화면이 이 자습서에 표시된 그림과 다르게 보일 수 있습니다.
-
-> [!NOTE]
-> 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서&30;분 또는 그 이상이 될 수 있습니다.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 1. Visual Studio를 열고 **파일**, **새로 만들기**, **프로젝트**를 클릭합니다.
 2. **템플릿** 목록에서 **Visual C#** 노드를 확장하고 **클라우드**를 선택한 다음 **ASP.NET 웹 응용 프로그램**을 클릭합니다. **.NET Framework 4.5.2** 이상이 선택되었는지 확인합니다.  **이름** 텍스트 상자에 **ContosoTeamStats**를 입력하고 **확인**을 클릭합니다.
    
     ![프로젝트 만들기][cache-create-project]
-3. 프로젝트 유형으로 **MVC** 를 선택합니다. **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service-web/web-sites-dotnet-get-started.md)를 참조하세요.
+3. 프로젝트 유형으로 **MVC** 를 선택합니다. 
+
+    **인증** 설정에 **인증 없음**을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본값을 설정할 수 있습니다. 변경하려면 **인증 변경**을 클릭하고 **인증 없음**을 선택합니다.
+
+    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service-web/web-sites-dotnet-get-started.md)를 참조하세요.
    
     ![프로젝트 템플릿 선택][cache-select-template]
 4. **확인** 을 클릭하여 프로젝트를 만듭니다.
@@ -77,9 +78,21 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 ## <a name="create-the-aspnet-mvc-application"></a>ASP.NET MVC 응용 프로그램 만들기
 자습서의 이 섹션에서는 데이터베이스에서 팀 통계를 읽고 표시하는 기본 응용 프로그램을 만듭니다.
 
+* [Entity Framework NuGet 패키지 추가](#add-the-entity-framework-nuget-package)
 * [모델 추가](#add-the-model)
 * [컨트롤러 추가](#add-the-controller)
 * [보기 구성](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Entity Framework NuGet 패키지 추가
+
+1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+2. `Package Manager Console` 창에서 다음 명령을 실행합니다.
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+이 패키지에 대한 자세한 내용은 [EntityFramework](https://www.nuget.org/packages/EntityFramework/) NuGet 페이지를 참조하세요.
 
 ### <a name="add-the-model"></a>모델 추가
 1. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 선택합니다. 
@@ -173,21 +186,27 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 1. **솔루션 탐색기**에서 **web.config**를 두 번 클릭하여 엽니다.
    
     ![Web.config][cache-web-config]
-2. 다음 연결 문자열을 `connectionStrings` 섹션에 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    이 문자열을 추가한 후 `connectionStrings` 섹션은 다음 예제와 같아야 합니다.
+2. 다음 `connectionStrings` 섹션을 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    새 `connectionStrings` 섹션을 추가하여 다음 예제와 같이 `configSections` 뒤에 오도록 할 수 있습니다.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>컨트롤러 추가
 1. **F6** 을 눌러 프로젝트를 빌드합니다. 
@@ -262,14 +281,14 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 * [캐시로 작업하도록 팀 인덱스 보기 업데이트](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>StackExchange.Redis를 사용하도록 응용 프로그램 구성
-1. StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 
+1. StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 클릭합니다.
+2. `Package Manager Console` 창에서 다음 명령을 실행합니다.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![NuGet 패키지 관리][redis-cache-manage-nuget-menu]
-2. 검색 텍스트 상자에 **StackExchange.Redis**를 입력하고 결과에서 원하는 버전을 선택한 다음 **설치**를 클릭합니다.
-   
-    ![StackExchange.Redis NuGet 패키지][redis-cache-stack-exchange-nuget]
-   
-    NuGet 패키지는 클라이언트 응용 프로그램이 StackExchange.Redis 캐시 클라이언트를 사용하여 Azure Redis 캐시에 액세스하는 는 데 필요한 어셈블리 참조를 다운로드하고 추가합니다. 강력한 이름의 **StackExchange.Redis** 클라이언트 라이브러리 버전을 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
+    NuGet 패키지는 클라이언트 응용 프로그램이 StackExchange.Redis 캐시 클라이언트를 사용하여 Azure Redis 캐시에 액세스하는 는 데 필요한 어셈블리 참조를 다운로드하고 추가합니다. 강력한 이름의 `StackExchange.Redis` 클라이언트 라이브러리 버전을 사용하려는 경우 `StackExchange.Redis.StrongName` 패키지를 설치합니다.
 3. **솔루션 탐색기**에서 **컨트롤러** 폴더를 확장하고 **TeamsController.cs**를 두 번 클릭하여 엽니다.
    
     ![팀 컨트롤러][cache-teamscontroller]
@@ -671,7 +690,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    이 행은 이전 단계에서 작업 링크 중 하나를 클릭할 때 설정된 현재 작업에 관한 상태 보고서가 포함된 `ViewBag.Msg` 의 값을 표시합니다.   
+    이 행은 현재 작업에 대한 상태 보고서를 포함하는 `ViewBag.Msg` 값을 표시합니다. `ViewBag.Msg`은 이전 단계에서 작업 링크를 클릭할 때 설정됩니다.   
    
     ![상태 메시지][cache-status-message]
 2. **F6** 을 눌러 프로젝트를 빌드합니다.
@@ -699,7 +718,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
 1. **기본 사항** 섹션에서 사용할 Azure 구독을 선택하고 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 리소스 그룹 위치를 지정합니다.
-2. **설정** 섹션에서 관리자 계정 이름(**ADMINISTRATORLOGIN** - **admin**은 사용 안 함), 관리자 로그인 암호(**ADMINISTRATORLOGINPASSWORD**) 및 데이터베이스 이름(**DATABASENAME**)을 지정합니다. 다른 매개 변수는 무료 앱 서비스 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL 데이터베이스 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
+2. **설정** 섹션에서 **관리자 로그인**(**admin** 사용 안 함), **관리자 로그인 암호** 및 **데이터베이스 이름**을 지정합니다. 다른 매개 변수는 무료 앱 서비스 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL Database 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
 
     ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
@@ -727,17 +746,13 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 1. Visual Studio에서 **ContosoTeamStats** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
    
     ![게시][cache-publish-app]
-2. **Microsoft Azure 앱 서비스**를 클릭합니다.
+2. **Microsoft Azure App Service**를 클릭하고 **기존 항목 선택**을 선택한 다음 **게시**를 클릭합니다.
    
     ![게시][cache-publish-to-app-service]
-3. Azure 리소스를 만들 때 사용한 구독을 선택하고 리소스가 포함된 리소스 그룹을 확장하고 원하는 웹앱을 선택하고 **확인**을 클릭합니다. **Azure에 배포** 단추를 사용한 경우 Web App 이름은 **webSite**로 시작하고 그 다음에 일부 추가 문자를 덧붙입니다.
+3. Azure 리소스를 만들 때 사용한 구독을 선택하고 리소스가 포함된 리소스 그룹을 확장하고 원하는 Web App을 선택합니다. **Azure에 배포** 단추를 사용한 경우 Web App 이름은 **webSite**로 시작하고 그 다음에 일부 추가 문자를 덧붙입니다.
    
     ![웹앱 선택][cache-select-web-app]
-4. **연결 유효성 검사**를 클릭하여 설정을 확인한 다음 **게시**를 클릭합니다.
-   
-    ![게시][cache-publish]
-   
-    잠시 후 게시 프로세스가 완료되며 실행 중인 샘플 응용 프로그램과 함께 브라우저가 시작됩니다. 유효성 검사 또는 게시를 수행할 때 DNS 오류가 발생하고 응용 프로그램에 대한 Azure 리소스의 프로비저 프로세스가 최근에 완료된 경우 잠시 기다렸다가 다시 시도하세요.
+4. **확인**을 클릭하여 게시 프로세스를 시작합니다. 잠시 후 게시 프로세스가 완료되며 실행 중인 샘플 응용 프로그램과 함께 브라우저가 시작됩니다. 유효성 검사 또는 게시를 수행할 때 DNS 오류가 발생하고 응용 프로그램에 대한 Azure 리소스의 프로비저 프로세스가 최근에 완료된 경우 잠시 기다렸다가 다시 시도하세요.
    
     ![캐시 추가됨][cache-added-to-application]
 
@@ -799,7 +814,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 1. **Ctrl+F5** 를 눌러 응용 프로그램을 실행합니다.
 
 > [!NOTE]
-> 참고로 데이터베이스를 비롯한 응용 프로그램은 로컬로 실행되고 Redis Cache는 Azure에서 호스트되므로 캐시가 데이터베이스를 더 낮게 수행하는 것처럼 나타날 수 있습니다. 최상의 성능을 위해 클라이언트 응용 프로그램 및 Azure Redis Cache 인스턴스가 동일한 위치에 있어야 합니다. 
+> 데이터베이스를 비롯한 응용 프로그램이 로컬로 실행되고 Redis Cache가 Azure에서 호스트되기 때문에 캐시는 데이터베이스의 성능을 저하시키는 것처럼 나타날 수 있습니다. 최상의 성능을 위해 클라이언트 응용 프로그램 및 Azure Redis Cache 인스턴스가 동일한 위치에 있어야 합니다. 
 > 
 > 
 

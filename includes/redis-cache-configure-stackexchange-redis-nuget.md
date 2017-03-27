@@ -25,8 +25,8 @@ NuGet 패키지는 클라이언트 응용 프로그램이 StackExchange.Redis �
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+**도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 클릭하고 `Package Manager Console` 창에서 다음 명령을 실행하여 StackExchange.Redis NuGet 패키지를 설치할 수도 있습니다.
+    
+```
+Install-Package StackExchange.Redis
+```

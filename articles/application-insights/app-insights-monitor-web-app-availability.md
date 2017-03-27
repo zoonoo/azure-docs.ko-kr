@@ -4,19 +4,19 @@ description: "Application Insights에서 웹 테스트를 설정합니다. 웹 �
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/15/2017
 
 응용 프로그램 리소스당 최대 10개의 웹 테스트를 만들 수 있습니다.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. 테스트 보고서에 대한 리소스 만들기
+## <a name="create"></a>1. 테스트 보고서에 대한 리소스 만들기
 이 응용 프로그램에 대한 [Application Insights 리소스를 이미 설정][start]했고 동일한 위치에서 가용성 보고서를 확인하려는 경우 이 단계를 건너뜁니다.
 
 [Microsoft Azure](http://azure.com)에 등록하고 [Azure 포털](https://portal.azure.com)로 이동한 후 Application Insights 리소스를 만듭니다.
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/15/2017
 
 **모든 리소스** 를 클릭하여 새 리소스에 대한 개요 블레이드를 엽니다.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. URL ping 테스트 만들기
+## <a name="setup"></a>2. URL ping 테스트 만들기
 Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을 클릭하여 응용 프로그램에 대한 웹 테스트 블레이드를 열고 웹 테스트를 추가합니다.
 
 ![웹 사이트의 최소 URL 채우기](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -67,7 +67,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 ### <a name="test-more-urls"></a>더 많은 URL 테스트
 테스트를 더 추가 합니다. 예를 들어 홈페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. 웹 테스트 결과를 참조하세요.
+## <a name="monitor"></a>3. 웹 테스트 결과를 참조하세요.
 1-2분 후에 결과가 웹 테스트 블레이드에 표시됩니다.
 
 ![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -76,7 +76,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 이 차트들은 이 응용 프로그램의 웹테스트에 대해나 결과들의 합입니다.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>오류가 표시되는 경우
+## <a name="failures"></a>오류가 표시되는 경우
 빨간 점을 클릭합니다.
 
 ![빨간 점을 클릭 합니다.](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -101,7 +101,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 > 다단계 웹 테스트에 대한 요금이 청구됩니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-다단계 테스트를 만들려면 Visual Studio를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
+다단계 테스트를 만들려면 Visual Studio Enterprise를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
 
 코딩된 함수는 테스트에 사용할 수 없습니다. 시나리오 단계를 .webtest 파일에 스크립트로 포함해야 합니다.
 
@@ -110,7 +110,10 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 1. 웹 성능 테스트 프로젝트를 만듭니다.
 
-    ![Visual Studio에서 웹 성능 및 부하 테스트 템플릿으로 프로젝트를 만듭니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Visual Studio Enterprise 버전에서 웹 성능 및 부하 테스트 템플릿으로 프로젝트를 만듭니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *웹 성능 및 부하 테스트 템플릿이 보이지 않으십니까?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
+
 2. .webtest 파일을 열고 기록을 시작합니다.
 
     ![.webtest 파일을 열고 레코드를 클릭합니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -208,7 +211,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 * 토큰을 매개 변수화하고 토큰이 인증자에서 반환되면 매개 변수를 설정하고 사이트에 대한 쿼리에서 사용합니다.
   (Visual Studio는 테스트를 매개 변수화하려고 하지만 올바르게 토큰을 매개 변수화하지 않습니다.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> 테스트 편집 또는 사용 안 함
+## <a name="edit"></a> 테스트 편집 또는 사용 안 함
 개별 테스트를 열어서 편집하거나 사용하지 않도록 설정합니다.
 
 ![웹 테스트 편집 또는 사용 안 함](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -257,12 +260,12 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
     죄송합니다만, 지원되지 않습니다.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>동영상
+## <a name="video"></a>동영상
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
+## <a name="next"></a>다음 단계
 [진단 로그 검색][diagnostic]
 
 [문제 해결][qna]
