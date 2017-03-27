@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: aa055ead3dc039745f48f268fe456ae5dab5bf36
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -107,11 +108,7 @@ NuGet 패키지 참조가 제거되고 파일이 제거 및 백업되었습니�
 ### <a name="your-azure-active-directory-app-was-updated"></a>Azure Active Directory 앱이 업데이트됨
 Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함하도록 업데이트되었으며, 추가 키가 생성되어 `web.config` 파일에서 *ida:Password*로 사용되었습니다.
 
-[Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+## <a name="next-steps"></a>다음 단계
+- [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
 

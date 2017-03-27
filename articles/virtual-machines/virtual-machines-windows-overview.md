@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ VM [확장](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtu
 | [저장소 계정](../storage/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
 | [가상 네트워크](../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
-| [네트워크 인터페이스](../virtual-network/virtual-network-network-interface-overview.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
+| [네트워크 인터페이스](../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
 | [데이터 디스크](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법

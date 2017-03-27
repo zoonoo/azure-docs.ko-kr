@@ -1,6 +1,6 @@
 Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사용하여 Azure 리소스 및 워크로드를 배포하려면 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 
-이미 Azure CLI를 설치하여 구독에 연결하지 않은 경우, [Azure CLI 설치](../articles/xplat-cli-install.md)를 참조하고, `azure config mode arm`를 사용해 모드를 `arm`에 설정하고, `azure login` 명령을 사용하여 Azure에 연결합니다.
+이미 Azure CLI를 설치하여 구독에 연결하지 않은 경우, [Azure CLI 설치](../articles/cli-install-nodejs.md)를 참조하고, `azure config mode arm`를 사용해 모드를 `arm`에 설정하고, `azure login` 명령을 사용하여 Azure에 연결합니다.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Azure CLI의 기본 Azure Resource Manager 명령
 이 문서는 Azure CLI와 함께 사용하여 Azure 구독에서 ARM 리소스(기본적으로 VM)를 관리하고 상호 작용할 수 있는 기본 명령에 대해 설명합니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 `azure <command> <subcommand> --help` 또는 `azure help <command> <subcommand>`를 입력하여 온라인 명령 도움말 및 옵션을 사용할 수 있습니다.
@@ -36,9 +36,4 @@ Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사
 
 ## <a name="next-steps"></a>다음 단계
 * 기본 VM 관리 이상의 CLI 명령에 대한 다른 예는 [Azure Resource Manager에서 Azure CLI 사용](../articles/virtual-machines/azure-cli-arm-commands.md)을 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

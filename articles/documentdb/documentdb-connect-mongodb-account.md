@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 6d376b9db07a46c467bd772959de3f7acf9c123d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>MongoDB 연결 문자열을 사용하여 MongoDB 앱을 DocumentDB 계정에 연결
+# <a name="connect-an-application-to-documentdb-api-for-mongodb"></a>DocumentDB: MongoDB API에 응용 프로그램 연결
 MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure DocumentDB 계정에 연결하는 방법에 대해 알아봅니다. MongoDB 앱을 Azure DocumentDB 데이터베이스에 연결하면 MongoDB 앱의 데이터 저장소로 DocumentDB 데이터베이스를 사용할 수 있습니다. 
 
 이 자습서에서는 연결 문자열 정보를 검색하는 다음 두 가지 방법을 제공합니다.
 
-- [빠른 시작 방법](#QuickStartConnection) - .NET, Node.js, MongoDB Shell, Java 및 Python 드라이버와 함께 사용
+- [빠른 시작 방법](#QuickstartConnection) - .NET, Node.js, MongoDB Shell, Java 및 Python 드라이버와 함께 사용
 - [사용자 지정 연결 문자열 방법](#GetCustomConnection) - 다른 드라이버와 함께 사용
 
 ## <a name="prerequisites"></a>필수 조건
@@ -36,7 +36,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure DocumentDB 계정�
 - Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 - DocumentDB 계정 - 자세한 내용은 [MongoDB 앱에서 사용할 DocumentDB 계정 만들기](documentdb-create-mongodb-account.md)를 참조하세요.
 
-## <a id="QuickStartConnection"></a>빠른 시작을 사용하여 MongoDB 연결 문자열 가져오기
+## <a id="QuickstartConnection"></a>빠른 시작을 사용하여 MongoDB 연결 문자열 가져오기
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **NoSQL(DocumentDB)** 블레이드에서 DocumentDB: MongoDB API 계정을 선택합니다. 
 3. 계정 블레이드의 **왼쪽 탐색** 막대에서 **빠른 시작**을 클릭합니다. 

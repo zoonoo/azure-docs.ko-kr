@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
-ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -231,7 +232,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 가동 중지 시간 없이 다음을 수행할 수 있습니다.
 
 * Express 경로 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
-* Express 경로 회로의 대역폭 증대 회로 대역폭 다운그레이드는 지원되지 않습니다.
+* 포트에 사용 가능한 용량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킵니다. 회로 대역폭 다운그레이드는 지원되지 않습니다. 
 * 요금제를 데이터 요금에서 무제한 데이터 요금으로 변경합니다. 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
 * *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.
 
@@ -285,7 +286,9 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md) 를 확인하세요. 물리적 포트(회로가 생성되어 있는)에 허용되는 한 기존 회로보다 크다면 어떤 크기든 선택할 수 있습니다.
 
 > [!IMPORTANT]
-> 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭 다운그레이드에서는 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
+> 기존 포트에 적절한 용량이 없는 경우 ExpressRoute 회로를 다시 만들어야 할 수 있습니다. 해당 위치에서 사용 가능한 추가 용량이 없는 경우 해당 회로를 업그레이드할 수 없습니다.
+>
+> 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭을 다운그레이드하려면 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
 > 
 > 
 
@@ -338,10 +341,5 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

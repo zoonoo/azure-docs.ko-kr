@@ -3,7 +3,7 @@ title: "Azure의 Linux VM 개요 | Microsoft Docs"
 description: "Linux 가상 컴퓨터를 사용하여 Azure 계산, 저장소 및 네트워킹 서비스를 설명합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: rickstercdn
 manager: timlt
 editor: 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
-ms.author: squillace
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
-ms.openlocfilehash: e46490a75b0b759e94ba8b090f394d0ba3366dc4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: dbafa7ab292d634d7bd2427803e5a7f78963d7ff
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 및 Linux
@@ -27,12 +27,12 @@ Microsoft Azure는 솔루션을 호스팅하는 데 적합한 분석, 가상 컴
 Amazon의 AWS의 다양한 기능에 익숙한 경우 Azure과 AWS 비교 [정의 매핑 문서](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)를 검토할 수 있습니다.
 
 ## <a name="regions"></a>영역
-Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산됩니다.  "지역"은 동일한 지리적 지역에서 여러 데이터 센터를 나타냅니다.  2016년 1월 1일을 기준으로 아메리카 8곳, 유럽 2곳, 아시아 태평양 6곳, 중국 본토 2곳, 인도 3곳이 포함됩니다.  Azure 지역 모두의 전체 목록을 원하는 경우 기존 및 새로 발표된 지역의 목록이 있습니다.
+Microsoft Azure 리소스는 전 세계 여러 지리적 지역에 걸쳐 분산됩니다.  "지역"은 동일한 지리적 지역에서 여러 데이터 센터를 나타냅니다.  일반적으로 전 세계에서 추가로 발표된 4개 지역을 포함하여 34개 지역을 사용할 수 있습니다. 전 세계로 범위를 계속 확대하고 있기 때문에 기존 지역 및 새로 발표된 지역의 업데이트 목록을 유지합니다.
 
 * [Azure 지역](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Availability
-배포가 99.95 VM 서비스 수준 계약에 적합하도록 하기 위해 가용성 집합 내부에서 워크로드를 실행하는 두 개 이상의 VM을 배포해야 합니다. 이렇게 하면 VM이 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) 는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다. 
+모든 디스크에 프리미엄 저장소를 사용하여 VM을 배포하는 경우 업계 최고의 99.9% 단일 인스턴스 가상 컴퓨터 Service Level Agreement(서비스 수준 약정)를 발표했습니다.  배포에서 표준 99.95% VM 서비스 수준 약정을 충족하려면 가용성 집합 내부에서 워크로드를 실행하는 VM을 둘 이상 계속 배포해야 합니다. 이렇게 하면 VM이 데이터 센터에서 여러 오류 도메인 간에 분산될 뿐만 아니라 다양한 유지 관리 창이 있는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) 는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다. 
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -73,7 +73,7 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 * [Azure Linux VM에서 cloud-init 사용](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quotas"></a>할당량
-각 Azure 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다.  할당량 제한은 제한 증가를 요구하는 지원 티켓을 제출하여 증가될 수 있습니다.  할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
+각 Azure 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다.  제한 증가를 요구하는 지원 티켓을 제출하면 할당량 제한을 빠르고 쉽게 늘릴 수 있습니다.  할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)
 
@@ -104,7 +104,6 @@ Azure 클라우드를 사용하는 첫 번째 단계는 Azure 계정을 등록�
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 이제 Azure 계정, Azure 웹 포털 및 Azure CLI가 있습니다.  다음 단계는 암호를 사용하지 않고 Linux에 대한 SSH에 사용되는 SSH 키 쌍을 만드는 것입니다.  [Linux 및 Mac에서 SSH 키를 만들어](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 암호 없는 로그인 및 향상된 보안을 사용하도록 설정합니다.
-
 
 ### <a name="create-a-vm-using-the-cli"></a>CLI를 사용하여 VM 만들기
 CLI에서 Linux VM을 만들 경우 작업 중인 터미널을 빠져 나가지 않고 VM을 빠르게 배포할 수 있습니다.  웹 포털에서 지정할 수 있는 모든 사항은 명령줄 플래그 또는 스위치를 통해 사용할 수 있습니다.  
@@ -141,6 +140,5 @@ VM은 현재 Azure에서 실행되고 있으며 로그인할 수 있습니다.  
 ## <a name="next-steps"></a>다음 단계
 이제 Azure의 Linux를 대략적으로 이해하게 되었을 것입니다.  다음 단계로는 좀 더 깊이 들어가서 몇 개의 VM을 만들어 보겠습니다.
 
-* [포털을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [CLI를 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI를 통해 일반 작업을 위한 샘플 스크립트 확장 목록 탐색](virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

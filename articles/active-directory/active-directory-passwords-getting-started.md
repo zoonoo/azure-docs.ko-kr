@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/15/2017
 * [**시작하기 전에 읽을 고객의 최고의 팁**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**최고의 팁: 설명서 탐색** - 목차 및 브라우저의 찾기 기능을 사용하여 답변 찾기](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**팁 1: 라이선스** - 라이선스 요구 사항 이해](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**팁 2: 테스트** - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**팁 2: 테스트** - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**팁 3: 배포** - 등록할 필요가 없도록 사용자에 대한 데이터 미리 채우기](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**팁 4: 배포** - 암호 재설정을 사용하여 임시 암호 통신의 필요성 제거](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**팁 5: 쓰기 저장** - AAD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 검토하여 비밀번호 쓰기 저장 문제 해결](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/15/2017
 
 * [**최고의 팁: 설명서 탐색** - 목차 및 브라우저의 찾기 기능을 사용하여 답변 찾기](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**팁 1: 라이선스** - 라이선스 요구 사항 이해](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**팁 2: 테스트** - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**팁 2: 테스트** - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**팁 3: 배포** - 등록할 필요가 없도록 사용자에 대한 데이터 미리 채우기](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**팁 4: 배포** - 암호 재설정을 사용하여 임시 암호 통신의 필요성 제거](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**팁 5: 쓰기 저장** - AAD Connect 컴퓨터의 응용 프로그램 이벤트 로그를 검토하여 비밀번호 쓰기 저장 문제 해결](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ ms.lasthandoff: 03/15/2017
 Azure AD 암호 재설정의 기능을 작동하려면 조직에서 할당된 하나 이상의 라이선스가 있어야 합니다. 암호 재설정 환경 자체에 사용자당 라이선스를 적용하지 않지만 사용자에게 할당된 라이선스 없이 기능을 사용하는 경우 Microsoft 라이선스 규약 준수에서 벗어나 있는 것으로 간주되고 해당 사용자에게 라이선스를 할당해야 합니다.
 
 다음은 암호 재설정에 필요한 라이선스를 이해하는 데 유용한 몇 가지 문서입니다.
-* [일반적인 암호 재설정 라이선스 정보]()
-* [기능별 암호 재설정 라이선스 정보]()
-* [암호 쓰기 저장에 지원되는 시나리오]()
+* [일반적인 암호 재설정 라이선스 정보](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [기능별 암호 재설정 라이선스 정보](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [암호 쓰기 저장에 지원되는 시나리오](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>팁 2: 테스트 - 관리자가 아닌 최종 사용자로 테스트, 작은 사용자 집합으로 파일럿
 관리자로 테스트하는 경우 아래에 정의되어 있는 관리자 암호 재설정 정책을 적용합니다.  즉, 최종 사용자에 대해 구성한 정책의 예상된 결과가 표시되지 않습니다.
@@ -310,6 +310,7 @@ Azure AD 암호 재설정 감사 로그를 사용하여 Azure Portal, PowerBI, A
 암호 쓰기 저장을 사용하도록 설정하고 사용하기 전에, 다음 필수 조건을 완료해야 합니다.
 
 * Azure AD Premium을 사용하도록 설정한 Azure AD 테넌트가 있습니다.  자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+* 비밀번호 쓰기 저장이 작동하려면 Azure AD Connect를 주 도메인 컨트롤러 에뮬레이터에 연결해야 합니다.  필요한 경우 Active Directory 동기화 커넥터의 **속성**을 마우스 오른쪽 단추로 클릭하고 **디렉터리 파티션 구성**을 선택하여 주 도메인 컨트롤러를 사용하도록 Azure AD Connect를 구성할 수 있습니다. 여기에서 **도메인 컨트롤러 연결 설정** 섹션을 찾고 **기본 설정 도메인 컨트롤러만 사용**이라는 상자를 선택합니다.  참고: 기본 설정된 DC가 PDC 에뮬레이터가 아닌 경우 Azure AD Connect는 비밀번호 쓰기 저장의 PDC에 연결됩니다.
 * 암호 재설정이 구성되고 테넌트에서 사용하도록 설정합니다.  자세한 내용은 [사용자가 Azure AD 암호를 재설정할 수 있도록 설정](#enable-users-to-reset-their-azure-ad-passwords)
 * 하나 이상의 관리자 계정이 있고 이 기능을 테스트하는데 사용할 수 있는 Azure AD Premium 라이선스가 있는 테스트 사용자 계정이 하나 있습니다.  자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 

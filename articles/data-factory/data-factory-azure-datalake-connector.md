@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
-ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -424,7 +425,7 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 서비스 주체 인증을 사용하려면 AAD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여해야 합니다. 그런 다음 해당 응용 프로그램 ID, 응용 프로그램 키 및 테넌트 정보로 Azure Data Factory에서 아래 속성을 지정하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다. 필요한 정보를 설정하고 검색하는 방법은 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 복사 마법사를 사용하는 경우 폴더들 사이에서 성공적으로 탐색하도록 하려면 서비스 주체에게 ADLS 루트("/")에 대해 최소한의 읽기 권한 또는 ADLS 계정에 대한 읽기 역할을 부여하세요. 그렇지 않으면 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)" 오류가 표시될 수 있습니다.
+> 복사 마법사를 사용하여 작성하는 경우 폴더들 사이에서 성공적으로 탐색하도록 하려면, 서비스 주체에게 ADLS 루트("/") 및 자식에 대해 최소한의 읽기+실행 권한 및 ADLS 계정에 대한 액세스 제어(IAM)에서 최소한의 읽기 역할을 부여해야 합니다. 그렇지 않으면 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)" 오류가 표시될 수 있습니다.
 >
 > AAD에서 서비스 주체를 새로 만들면/업데이트하면 실제로 적용하는 데 몇 분이 소요될 수 있습니다. 먼저 서비스 주체와 ADLS ACL 구성을 다시 확인하고, 여전히 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)"라는 오류가 나타나는 경우 잠시 기다린 후 다시 시도하세요.
 >
@@ -483,7 +484,7 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
-| Azure Active Directory (@hotmail.com, @live.com, 등에서 관리되지 않는 사용자 계정 |12시간 |
+| Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후&14;일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
 토큰 만료 시간 전에 암호를 변경하면, 토큰이 즉시 만료되고 이 섹션에 나와 있는 오류가 표시됩니다.
@@ -526,7 +527,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | folderPath |Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. |예 |
-| fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 집합에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름은 다음 형식을 사용합니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 집합에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름은 다음 형식을 사용합니다. Data<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용](#using-partitionedby-property) 섹션을 참조하세요. |아니요 |
 | format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](#specifying-textformat), [Json 형식](#specifying-jsonformat), [Avro 형식](#specifying-avroformat), [Orc 형식](#specifying-orcformat) 및 [Parquet 형식](#specifying-parquetformat) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [압축 지정](#specifying-compression) 섹션을 참조하세요. |아니요 |
@@ -593,9 +594,4 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 초기 데이터 이동이 큰 볼륨의 기록 데이터나 증분 프로덕션 데이터 로드로 계획되었는지 여부에 따라, Azure 데이터 팩터리에는 이러한 작업의 성능을 향상시키는 옵션이 있습니다. 동시성 매개 변수는 **복사 작업**의 일부이며 여러 다른 활동 창이 병렬로 처리됩니다. **parallelCopies** 매개 변수는 단일 작업 실행에 대한 병렬 처리를 정의합니다. 최상의 처리량을 달성하기 위해 Azure 데이터 팩터리를 사용하여 데이터 이동 파이프라인을 디자인할 때 이러한 매개 변수를 사용하는 것이 중요합니다.
 
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

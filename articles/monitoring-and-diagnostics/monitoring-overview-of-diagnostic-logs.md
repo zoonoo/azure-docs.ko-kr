@@ -12,35 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/12/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="overview-of-azure-diagnostic-logs"></a>Azure 진단 로그 개요
-**Azure 진단 로그** 는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보낸 로그입니다. 이러한 로그의 내용은 리소스 형식(예를 들어, Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주이며 Blob, 테이블 및 큐 로그는 저장소 계정에 대한 진단 로그의 범주임)에 따라 다르며 구독에 있는 리소스에 대해 수행된 작업에 대한 정보를 제공하는 [활동 로그(이전에 감사 로그 또는 작업 로그로 알려져 있음)](monitoring-overview-activity-logs.md)와 다릅니다. 일부 리소스만 여기서 설명하는 새로운 형식의 진단 로그를 지원합니다. 아래 지원되는 서비스 목록은 새 진단 로그를 지원하는 리소스 형식을 보여 줍니다.
+# <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Azure 리소스에서 진단 데이터 수집 및 소비
 
-![진단 로그의 논리적 배치](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+## <a name="what-are-azure-diagnostic-logs"></a>Azure 진단 로그란?
+**Azure 진단 로그** 는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보낸 로그입니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 예를 들어, Windows 이벤트 시스템 로그는 VM 및 Blob에 대한 진단 로그의 범주이고 테이블 및 큐 로그는 저장소 계정에 대한 진단 로그의 범주입니다.
+
+진단 로그는 [활동 로그(이전의 감사 로그 또는 작업 로그)](monitoring-overview-activity-logs.md)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
+
+일부 리소스만 여기서 설명하는 새로운 형식의 진단 로그를 지원합니다. 이 문서는 리소스 유형에서 새로운 진단 로그에 지원하는 나열된 섹션을 포함합니다.
+
+![진단 로그 및 다른 종류의 로그 ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+
+그림 1: 진단 로그 및 다른 종류의 로그
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>진단 로그로 수행할 수 있는 작업
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
+
+![진단 로그의 논리적 배치](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * 감사 또는 수동 검사를 위해 [**저장소 계정**](monitoring-archive-diagnostic-logs.md)에 저장합니다. **진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hubs**로 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
 * [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정 또는 이벤트 허브 네임스페이스는 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
+로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hub 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 ## <a name="diagnostic-settings"></a>진단 설정
 진단 설정을 사용하여 비-계산 리소스에 대한 진단 로그를 구성합니다. **진단 설정** :
 
 * 진단 로그를 보낼 위치(저장소 계정, 이벤트 허브 및/또는 OMS Log Analytics).
 * 보낼 로그 범주.
-* 저장소 계정에 각 로그 범주를 보존할 기간 -&0;일의 보존 기간은 로그를 영원히 보관하는 것을 의미합니다. 그렇지 않으면 이 값은 1에서 2147483647 사이입니다. 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 이벤트 허브 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다. 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
+* 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
+    - 보존이&0;일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+    - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+    - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 이러한 설정은 Azure 포털에서 리소스에 대한 진단 블레이드를 통해, Azure PowerShell 및 CLI 명령을 통하거나 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 통해 쉽게 구성합니다.
 
@@ -141,13 +155,13 @@ Azure CLI를 통해 진단 로그를 사용하도록 설정하려면 다음 명�
 Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문서](https://msdn.microsoft.com/library/azure/dn931931.aspx)를 참조하세요.
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>포털에서 진단 설정 관리
-진단 설정을 통해 모든 리소스가 정확하게 설정되었는지 확인하기 위해 포털의 **모니터링** 블레이드로 이동하여 **진단 로그** 블레이드를 열 수 있습니다.
+리소스를 모두 진단 설정으로 설정했는지 확인합니다. 포털에서 **모니터링** 블레이드로 이동하고 **진단 로그** 블레이드를 엽니다.
 
 ![포털의 진단 로그 블레이드](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 모니터링 블레이드를 찾기 위해 “더 많은 서비스"를 클릭해야 할 수 있습니다.
 
-이 블레이드에서는 진단 로그를 지원하는 모든 리소스를 확인 및 필터링하여 진단이 활성화되었는지 확인하고, 해당 로그를 전달할 저장소 계정, 이벤트 허브 및/또는 Log Analytics 작업 영역을 파악할 수 있습니다.
+이 블레이드에서 진단 로그를 지원하는 모든 리소스를 보고 필터링하여 진단을 사용하도록 설정했는지 확인할 수 있습니다. 해당 로그가 흐르는 저장소 계정, Event Hub 및/또는 Log Analytics 작업 영역을 확인할 수도 있습니다.
 
 ![포털의 진단 로그 블레이드 결과](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
@@ -163,11 +177,11 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 **진단 설정**에 대한 링크를 클릭하면 진단 설정 블레이드가 표시되고 여기에서 선택한 리소스에 대한 진단 설정을 활성화, 비활성화 또는 수정할 수 있습니다.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>진단 로그에 대한 지원되는 서비스 및 스키마
-진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다. 다음은 지원되는 서비스 및 해당 스키마입니다.
+진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다.   
 
 | 부여 | 스키마 및 문서 |
 | --- | --- |
-| 부하 분산 장치 |[Azure 부하 분산 장치에 대한 로그 분석(미리보기)](../load-balancer/load-balancer-monitor-log.md) |
+| 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
 | 응용 프로그램 게이트웨이 |[응용 프로그램 게이트웨이에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | 키 자격 증명 모음 |[Azure 키 자격 증명 모음 로깅](../key-vault/key-vault-logging.md) |
@@ -211,7 +225,8 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|
 
 ## <a name="next-steps"></a>다음 단계
+
 * [**Event Hubs**로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 진단 설정 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [OMS Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
+* [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../log-analytics/log-analytics-azure-storage.md)
 

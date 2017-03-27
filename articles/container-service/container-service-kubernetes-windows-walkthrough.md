@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,6 +32,7 @@ ms.lasthandoff: 03/06/2017
 
 > [!NOTE]
 > Azure Container Service에서 Kubernetes를 통한 Windows 컨테이너에 대한 지원은 미리 보기 상태입니다. Azure Portal 또는 Resource Manager 템플릿을 사용하여 Windows 노드가 있는 Kubernetes 클러스터를 만듭니다. 이 기능은 현재 Azure CLI 2.0에서 지원되지 않습니다.
+>
 
 
 
@@ -81,13 +82,13 @@ Azure Portal을 사용하여 Windows 에이전트 노드가 있는 [Kubernetes �
 
 1. 노드 목록을 보려면 `kubectl get nodes`를 입력합니다. 노드의 전체 정보를 원하는 경우 다음을 입력합니다.  
 
-  ```
-  kubectl get nodes -o yaml
-  ```
+    ```
+    kubectl get nodes -o yaml
+    ```
 
 2. `simpleweb.yaml`라는 파일을 만들고 다음을 복사합니다. 이 파일은 [Docker 허브](https://hub.docker.com/r/microsoft/windowsservercore/)의 Windows Server 2016 서버 코어 기본 OS 이미지를 사용하여 웹앱을 설정합니다.  
 
-  ```yaml
+```yaml
   apiVersion: v1
   kind: Service
   metadata:
@@ -123,40 +124,44 @@ Azure Portal을 사용하여 Windows 에이전트 노드가 있는 [Kubernetes �
           command:
           - powershell.exe
           - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$ip = (Get-NetIPAddress | where {$$_.IPAddress -Like '*.*.*.*'})[0].IPAddress ; $$url = 'http://'+$$ip+':80/' ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add($$url) ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at {0}...' -f $$url) ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
+          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
         nodeSelector:
           beta.kubernetes.io/os: windows
   ```
 
-3. 응용 프로그램을 시작하려면 다음을 입력합니다.
+      
+> [!NOTE] 
+> 구성에 `type: LoadBalancer`가 포함됩니다. 이 설정으로 인해 서비스가 Azure Load Balancer를 통해 인터넷에 노출됩니다. 자세한 내용은 [Azure Container Service의 Kubernetes 클러스터에서 컨테이너 부하 분산](container-service-kubernetes-load-balancing.md)을 참조하세요.
+>
 
-  ```
-  kubectl apply -f simpleweb.yaml
-  ```
+## <a name="start-the-application"></a>응용 프로그램 시작
+
+1. 응용 프로그램을 시작하려면 다음을 입력합니다.  
+
+    ```
+    kubectl apply -f simpleweb.yaml
+    ```  
   
-  > [!NOTE] 
-  > 구성에 `type: LoadBalancer`가 포함됩니다. 이 설정으로 인해 서비스가 Azure Load Balancer를 통해 인터넷에 노출됩니다. 자세한 내용은 [Azure Container Service의 Kubernetes 클러스터에서 컨테이너 부하 분산](container-service-kubernetes-load-balancing.md)을 참조하세요.
   
-4. 서비스 배포(약 30초 소요됨)를 확인하려면 다음을 입력합니다.
+2. 서비스 배포(약 30초 소요됨)를 확인하려면 다음을 입력합니다.  
 
-  ```
-  kubectl get pods
-  ```
+    ```
+    kubectl get pods
+    ```
 
-5. 서비스가 실행된 후 서비스의 내부 및 외부 IP 주소를 보려면 다음을 입력합니다.
+3. 서비스가 실행된 후 서비스의 내부 및 외부 IP 주소를 보려면 다음을 입력합니다.
 
-  ```
-  kubectl get svc
-  ``` 
+    ```
+    kubectl get svc
+    ``` 
+  
+    ![Windows 서비스의 IP 주소](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
 
-  ![Windows 서비스의 IP 주소](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
+    외부 IP 주소 추가에는 몇 분이 소요됩니다. 부하 분산 장치가 외부 주소를 구성하기 전에는 `<pending>`으로 표시됩니다.
 
-  외부 IP 주소 추가에는 몇 분이 소요됩니다. 부하 분산 장치가 외부 주소를 구성하기 전에는 `<pending>`으로 표시됩니다.
+4. 외부 IP 주소를 사용할 수 있게 되면 서비스를 웹 브라우저에서 열 수 있습니다.
 
-
-6. 외부 IP 주소를 사용할 수 있게 되면 서비스를 웹 브라우저에서 열 수 있습니다.
-
-  ![브라우저의 Windows 서버 앱](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+    ![브라우저의 Windows 서버 앱](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
 
 
 ## <a name="access-the-windows-nodes"></a>Windows 노드 액세스
@@ -170,37 +175,31 @@ Windows에서 SSH 터널을 만드는 방법은 여러 가지가 있습니다. �
 
 3. 클러스터 관리 사용자 이름 및 클러스터에서 첫 번째 마스터의 공용 DNS 이름으로 구성된 호스트 이름을 입력합니다. **호스트 이름**은 `adminuser@PublicDNSName`과 유사합니다. **포트**에 22를 입력합니다.
 
-    ![PuTTY 구성 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
+  ![PuTTY 구성 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
 
 4. **SSH > 인증**을 선택합니다. 인증을 위한 개인 키 파일(.ppk 형식)에 경로를 추가합니다. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)과 같은 도구를 사용하여 클러스터를 만드는 데 사용되는 SSH 키에서 이 파일을 생성할 수 있습니다.
 
-    ![PuTTY 구성 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
+  ![PuTTY 구성 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
 
 5. **SSH > 터널**을 선택하고 전달된 포트를 구성합니다. 로컬 Windows 컴퓨터에서 포트 3389를 이미 사용 중이기 때문에 다음 설정을 사용하여 Windows 노드 0 및 Windows 노드 1에 도달하는 것이 좋습니다. (추가 Windows 노드에 대해 이런 패턴을 반복합니다.)
 
-  **Windows 노드 0**
+    **Windows 노드 0**
 
-  * **원본 포트:** 3390
-  * **대상:** 10.240.245.5:3389
+    * **원본 포트:** 3390
+    * **대상:** 10.240.245.5:3389
 
-  **Windows 노드 1**
+    **Windows 노드 1**
 
-  * **원본 포트:** 3391
-  * **대상:** 10.240.245.6:3389
+    * **원본 포트:** 3391
+    * **대상:** 10.240.245.6:3389
 
-  ![Windows RDP 터널 이미지](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
+    ![Windows RDP 터널 이미지](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
 6. 완료하면 **세션 > 저장**을 클릭하여 연결 구성을 저장합니다.
 
 7. PuTTY 세션에 연결하려면 **열기**를 클릭합니다. 마스터 노드에 대한 연결을 완료합니다.
 
 8. 원격 데스크톱 연결을 시작합니다. 첫 번째 Windows 노드에 연결하려면, **컴퓨터**에 대해 `localhost:3390`을 지정하고 **연결**을 클릭합니다. (두 번째 노드에 연결하려면 `localhost:3390`을 지정하고 나머지를 수행합니다.) 연결을 완료하려면 배포 중 구성한 로컬 Windows 관리자 암호를 제공합니다.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>다음 단계

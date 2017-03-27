@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: rashimg
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 5054865a4321bb5d2c188e485b033b16f49cb525
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -199,7 +201,7 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 * **조인 최적화:** 조인의 효율성을 높이고 사용자 힌트에 대한 필요성을 줄이는 Hive의 쿼리 실행 계획 최적화입니다. 자세한 내용은 [조인 최적화](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)를 참조하세요.
 * **리듀서 증가**
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
+## <a id="nextsteps"></a> 다음 단계
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
@@ -212,9 +214,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

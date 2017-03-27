@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/07/2017
 ms.author: vturecek;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 7a79b19bf51c89e19ad67421978dacccddeb5119
-ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6167f3edd3e99522a8997382d6569c82ea387d5c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>로컬 서비스 패브릭 응용 프로그램 디버깅
-로컬 컴퓨터 개발 클러스터에서 Azure 서비스 패브릭 응용 프로그램을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio는 로컬 클러스터에 응용 프로그램을 배포하고 응용 프로그램의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다.
+로컬 컴퓨터 개발 클러스터에서 Azure 서비스 패브릭 응용 프로그램을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio 2017 또는 Visual Studio 2015는 로컬 클러스터에 응용 프로그램을 배포하고 응용 프로그램의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다.
 
 1. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)의 단계를 따라 로컬 개발 클러스터를 시작합니다.
 2. **F5** 키를 누르거나 **디버그** > **디버깅 시작**을 클릭합니다.
@@ -159,9 +160,4 @@ Azure의 서비스 패브릭 클러스터에서 서비스 패브릭 응용 프�
 [viewingstreamingtraces]: ./media/service-fabric-debugging-your-application/viewingstreamingtraces.png
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

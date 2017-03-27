@@ -17,9 +17,9 @@ ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e692e87899e49f6ad681de8e682492ec69e47eac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/01/2017
 이 문서에서는 Azure 템플릿을 사용하여 Azure에서 Linux 가상 컴퓨터를 신속하게 배포하는 방법을 보여 줍니다.  이 문서의 내용을 실행하기 위해 필요한 사항:
 
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* `azure login`으로 로그인된 [Azure CLI](../xplat-cli-install.md)
+* `azure login`으로 로그인된 [Azure CLI](../cli-install-nodejs.md)
 * Azure Resource Manager 모드 `azure config mode arm`으로 *있어야 하는* Azure CLI
 
 [Azure 포털](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Linux VM을 신속히 배포할 수도 있습니다.

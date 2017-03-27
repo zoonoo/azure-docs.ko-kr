@@ -17,13 +17,13 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 03467542669d9719d2634d20d4c0e7bba265ac6f
-ms.openlocfilehash: dff2c67f5e529d40d31e9bad1af00938ddf547b8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="scenario-exception-handling-and-logging-errors-for-logic-apps"></a>시나리오: Logic Apps에 대한 예외 처리 및 오류 로깅
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
 이 시나리오에서는 논리 앱을 확장하여 예외 처리를 더 잘 지원할 수 있는 방법에 대해 설명합니다. 실제 사용 사례를 사용하여 "논리 앱이 예외 및 오류 처리를 지원하나요?"라는 질문에 대해 답변을 제공하고 있습니다.
 
@@ -429,9 +429,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 #### <a name="logic-apps-exception-management-api"></a>논리 앱 예외 관리 API
 
-오픈 소스 Azure Logic Apps 예외 관리 API 앱은 다음 기능을 제공했습니다.
-
-두 개의 컨트롤러가 있습니다.
+오픈 소스 Azure Logic Apps 예외 관리 API 앱은 여기에서 설명한 기능을 제공합니다. 두 개의 컨트롤러가 있습니다.
 
 * **ErrorController** 는 DocumentDB 컬렉션에 오류 기록(문서)을 삽입합니다.
 * **LogController** 는 DocumentDB 컬렉션에 로그 기록(문서)을 삽입합니다.

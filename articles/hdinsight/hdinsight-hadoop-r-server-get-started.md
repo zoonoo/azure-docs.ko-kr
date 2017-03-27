@@ -8,16 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
+ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: c4315f75ff8e2b822aeab14a8211bb45ddbdb5b1
-ms.openlocfilehash: 5f9db46e5ab8fd6216e0386f96a011b2bb24dae9
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 383a325bfd2620f6c4fd25ce2f3a66522131efef
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
 > [!NOTE]
-> 이 문서의 단계에서는 기본 구성 정보를 사용하여 HDInsight 클러스터에서 R Server를 만드는 방법을 안내합니다. 기타 클러스터 구성 설정(예: 저장소 계정 추가, Azure 가상 네트워크 사용 또는 Hive용 Metastore 만들기)에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+> 이 문서의 단계에서는 기본 구성 정보를 사용하여 HDInsight 클러스터에서 R Server를 만드는 방법을 안내합니다. 기타 클러스터 구성 설정(예: 저장소 계정 추가, Azure 가상 네트워크 사용 또는 Hive용 Metastore 만들기)에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Azure 리소스 관리 템플릿을 사용하여 R 서버를 만들려면 [R 서버 HDInsight 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)를 참조하세요.
 >
 > 
 
@@ -58,7 +59,7 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
 
    * **클러스터 유형**: R Server
    * **버전**: 클러스터에 설치할 R Server의 버전을 선택합니다. 최신 기능의 최신 버전을 선택합니다. 호환성을 위해 필요한 경우 다른 버전을 사용할 수 있습니다. 사용 가능한 각 버전의 릴리스 정보는 [여기](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes)서 제공됩니다.
-   * **R Server용 R Studio Community Edition**: 이 브라우저 기반 IDE는 기본적으로 에지 노드에 설치됩니다.  설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 찾습니다..
+   * **R Server용 R Studio Community Edition**: 이 브라우저 기반 IDE는 기본적으로 에지 노드에 설치됩니다.  설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 찾습니다.
 
    다른 옵션은 기본값으로 남겨 두고 **선택** 단추를 사용하여 클러스터 유형을 저장합니다.
    
@@ -84,7 +85,7 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
    
    ![SSH 디렉터리](./media/hdinsight-getting-started-with-r/dir.png)
 
-   * 그러면 HDI 클러스터 자격 증명을 할당할 때 공개 키 파일(*.pub)을 지정하고 리소스 그룹 및 지역을 마지막으로 확인한 후 **다음**을 선택합니다.
+   * 그러면 HDI 클러스터 자격 증명을 할당할 때 공개 키 파일(*.pub)을 지정하고 리소스 그룹 및 지역을 마지막으로 확인한 후**다음**을 선택합니다.
    
    ![자격 증명 블레이드](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
    
@@ -230,7 +231,7 @@ WASB 스타일 주소 지정을 사용할 수도 있습니다.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
-클러스터에 액세스하기 위한 공개/개인 키 쌍 사용과 관련하여 위의 섹션에서 데스크톱 또는 랩톱 컴퓨터 상에 실행되는 Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다(온라인 [RevoScaleR Hadoop Spark 시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)의 [Spark용 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조).  이렇게 하려면 랩톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript와 같은 옵션을 지정해야 합니다. 예:
+클러스터에 액세스하기 위한 공개/개인 키 쌍 사용과 관련하여 위의 섹션에서 데스크톱 또는 랩톱 컴퓨터 상에 실행되는 Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다(온라인 [RevoScaleR Hadoop Spark 시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)의 [Spark용 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조).  이렇게 하려면 랩톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다. 예:
 
 ```
     myNameNode <- "default"

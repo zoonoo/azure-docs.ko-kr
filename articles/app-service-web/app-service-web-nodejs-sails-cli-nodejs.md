@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1818f48b94754589a2dc5d89c2ba24d2ff2681bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -46,7 +46,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]

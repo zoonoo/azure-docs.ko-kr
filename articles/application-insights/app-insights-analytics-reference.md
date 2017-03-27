@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
-ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,9 +32,9 @@ ms.lasthandoff: 02/21/2017
  
 
 ## <a name="index"></a>인덱스
-**사용** [사용](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**쿼리 및 연산자** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**쿼리 및 연산자** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **집계** [모든](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [최대](#max) | [min](#min) | [백분위 수](#percentile) | [백분위 수](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [차이](#variance)
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/21/2017
     | summarize count() by bin(timestamp, 1h) 
     | project count_, pacificTime=us_date(timestamp-8h)
 
-Let 절은 테이블 형식 결과, 스칼라 값 또는 함수에 [name](#names) 을 바인딩합니다. 이 절은 쿼리에 대한 접두사이며 바인딩 범위는 해당 쿼리입니다. (Let은 세션에서 나중에 사용할 사항의 이름을 지정하는 방법을 제공하지 않습니다.)
+Let 절은 테이블 형식 결과, 스칼라 값 또는 함수에 [name](#names)을 바인딩합니다. 이 절은 쿼리에 대한 접두사이며 바인딩 범위는 해당 쿼리입니다. (Let은 세션에서 나중에 사용할 사항의 이름을 지정하는 방법을 제공하지 않습니다.)
 
 **구문**
 
@@ -108,17 +108,74 @@ requests
 | summarize count() by client_City;
 ```
 
-Self-join:
+### <a name="materialize"></a>구체화
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+materialize()를 사용하여 let 절의 결과가 한 번 이상의 다운스트림에 사용되는 성능을 개선합니다. materialize()는 쿼리가 두 번 이상 실행되지 않도록 하기 위해 쿼리 실행 시 테이블 형식 let 절을 계산 및 캐시합니다.
 
+**구문**
+
+    materialize(expression)
+
+**인수**
+
+* `expresion`: 쿼리 실행 시 계산 및 캐시할 테이블 형식의 식입니다.
+
+**팁**
+
+* 피연산자가 한 번 실행할 수 있는 상호 하위 쿼리를 갖는 조인/유니언이 있는 경우 구체화를 사용합니다.
+* 또한 시나리오에서 분기 기간을 조인/유니언해야 할 때 유용합니다.
+* 구체화는 캐시된 결과에 이름을 부여함으로써 let 문에서만 사용하도록 허용되어 있습니다.
+* 구체화의 캐시 크기 제한이 5GB입니다. 이 제한은 클러스터 노드당이며 모든 쿼리에 대해 상호적입니다.
+
+**예제: 셀프 조인**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+캐시되지 않은 버전은 결과 `scope`을 두 번 사용합니다.
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## <a name="queries-and-operators"></a>쿼리 및 연산자
 원격 분석에 대한 쿼리는 소스 스트림에 대한 참조 및 그 뒤의 필터 파이프라인으로 이루어져 있습니다. 예:
@@ -149,6 +206,30 @@ requests // The request table starts this pipeline.
 > `T` 은(는) 앞에 붙는 파이프라인 또는 원본 테이블을 나타내기 위해 사용됩니다.
 > 
 > 
+
+### <a name="as-operator"></a>as 연산자
+
+이름을 입력 테이블 형식 식으로 일시적으로 바인딩합니다.
+
+**구문**
+
+    T | as name
+
+**인수**
+
+* *name:* 테이블에 사용할 임시 이름
+
+**참고 사항**
+
+* 해당 이름을 향후 하위식에서 사용하려는 경우 *as* 대신 [let](#let-clause)을 사용합니다.
+* *as*를 사용하여 테이블 이름을 지정하면 [union](#union-operator), [find](#find-operator) 또는 [search](#search-operator) 결과에 표시됩니다.
+
+**예제**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
 
 ### <a name="count-operator"></a>count 연산자
 `count` 연산자는 입력 레코드 집합의 레코드(행) 수를 반환합니다.
@@ -464,7 +545,7 @@ traces
 
 기본적으로 출력 테이블에는 다음이 포함됩니다.
 
-* `source_` - 각 행의 원본 테이블을 나타내는 표시입니다.
+* `source_` - 각 행의 원본 테이블을 나타내는 표시입니다. 이 열에 표시되는 이름을 지정하려면 각 테이블 식의 끝에 [as](#as-operator)를 사용합니다.
 * 조건자에서 명시적으로 언급된 열
 * 모든 입력 테이블에 공통되는 비어 있지 않은 열
 * `pack_` - 다른 열에서 데이터를 포함하는 속성 모음입니다.
@@ -505,7 +586,19 @@ traces
 * 시간 기반 조건을 `where` 조건자에 추가합니다.
 * 인라인으로 쿼리를 작성하지 않고 `let` 절을 사용합니다.
 
+### <a name="getschema-operator"></a>getschema 연산자
 
+   T | getschema
+   
+입력된 테이블의 열 이름 및 형식을 보여 주는 테이블이 산출됩니다.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![getschema의 결과](./media/app-insights-analytics-reference/getschema.png)
 
 ### <a name="join-operator"></a>join 연산자
     Table1 | join (Table2) on CommonColumn
@@ -593,6 +686,37 @@ traces
 `Take` 은(는) 대화형으로 작업하는 경우 결과의 샘플을 참조하는 간단하고 효율적인 방법입니다. 특정 행을 생성하거나 행을 특정 순서로 생성한다는 보장이 없다는 데 유의하십시오.
 
 `take`을(를) 사용하지 않더라도 클라이언트에 반환되는 행 수에 대한 암시적 제한이 있습니다. 이 제한을 올리려면 `notruncation` 클라이언트 요청 옵션을 사용합니다.
+
+### <a name="make-series-operator"></a>make-series 연산자
+
+집계를 수행합니다. [summarize](#summarize-operator)와 달리 각 그룹의 출력 행이 하나 있습니다. 결과 열에서 각 그룹의 값은 배열로 압축됩니다. 
+
+**구문**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**인수**
+
+* *Column:* 결과 열에 대한 선택적 이름입니다. 기본적으로 식에서 파생된 이름입니다.
+* *DefaultValue:* 행에 AxisColumn 및 GroupExpression의 특정 값이 없는 경우 결과에서 배열의 해당 요소가 DefaultValue로 할당됩니다. 
+* *Aggregation:* [집계 함수](#aggregations)를 사용하는 숫자 식입니다. 
+* *AxisColumn:* 시리즈가 정렬되는 열입니다. 타임 라인으로 간주할 수 있지만 모든 숫자 형식이 허용 됩니다.
+*start, stop, step:* 모든 행에 대한 AxisColumn의 값 목록을 정의합니다. 다른 모든 결과 집계 열은 길이가 같은 배열을 갖습니다. 
+* *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. GroupExpression의 각 값에 대한 출력에 행이 하나씩 있습니다. 일반적으로 이미 제한된 값 집합을 제공하는 열 이름입니다. 
+
+**팁**
+
+결과 배열은 해당 요약 작업과 동일한 방식으로 분석 차트에 렌더링됩니다.
+
+**예제**
+
+requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+
+![make-series의 결과](./media/app-insights-analytics-reference/make-series.png)
 
 ### <a name="mvexpand-operator"></a>mvexpand 연산자
     T | mvexpand listColumn 
@@ -691,11 +815,11 @@ traces
 
 `with` 절의 요소는 원본 텍스트에 대해 차례로 일치합니다. 각 요소는 소스 텍스트의 청크를 분할합니다. 
 
-* 리터럴 문자열 또는 정규식은 일치 항목의 길이 만큼 일치 커서를 이동합니다.
+* 리터럴 문자열 또는 정규식은 일치 항목의 길이만큼 일치 커서를 이동합니다.
 * regex 구문 분석 시 정규식은 최소화 연산자 '?'를 사용하여 다음 일치 항목으로 가능한 한 빨리 이동합니다.
 * 형식이 있는 열 이름은 텍스트를 지정된 형식으로 구문 분석합니다. kind=relaxed가 아니면 실패한 구문 분석은 전체 패턴과 일치 항목을 무효화합니다.
 * 형식이 없거나 'string' 형식이 있는 열 이름은 다음 일치 항목에 가져올 최소 수의 문자를 복사합니다.
-* ' * ' 다음 일치 항목에 가져올 최소 수의 문자를 건너뜁니다. 패턴의 시작과 끝, 문자열이 아닌 형식 뒤 또는 문자열 일치 항목 중간에 '*'를 사용할 수 있습니다.
+* ' *' 다음 일치 항목에 가져올 최소 수의 문자를 건너뜁니다. 패턴의 시작과 끝, 문자열이 아닌 형식 뒤 또는 문자열 일치 항목 중간에 '*'를 사용할 수 있습니다.
 
 구문 분석 패턴의 모든 요소가 바르게 일치해야 하며 그렇지 않으면 결과가 생성되지 않습니다. 이 규칙의 예외로, kind=relaxed일 때 형식화된 변수의 구문 분석에 실패하면 나머지 구문 분석이 진행됩니다.
 
@@ -888,7 +1012,8 @@ range timestamp from ago(4h) to now() step 1m
 **인수**
 
 * *ColumnName:* 검사할 열입니다. 문자열 형식이어야 합니다.
-* *Threshold:* 범위 {0..1}의 값입니다. 기본값은 0.001입니다. 큰 입력의 경우 임계값이 작아야 합니다. 
+* <seg>
+  *Threshold:* 범위 {0..1}의 값입니다.</seg> 기본값은 0.001입니다. 큰 입력의 경우 임계값이 작아야 합니다. 
 
 **반환**
 
@@ -961,6 +1086,45 @@ let 문에 sample-distinct를 추가하여 모집단을 샘플링하고 나중�
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
 requests | where OperationName in (sampleops) | summarize total=count() by OperationName
 ```
+### <a name="search-operator"></a>search 연산자
+
+여러 테이블 및 열에서 문자열을 검색합니다.
+
+**구문**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+모든 테이블의 모든 열에서 지정된 토큰 문자열의 발생을 찾습니다.
+ 
+* *TableName* 전역적으로(요청, 예외 등) 또는 [let 절](#let-clause)에 의해 정의된 테이블의 이름입니다. r*과 같은 와일드카드를 사용할 수 있습니다.
+* *SearchToken:* 단어 단위로 일치해야 하는 토큰 문자열입니다. 후행 와일드 카드를 사용할 수 있습니다. "Amster *"는 "Amsterdam"과 일치하지만 "Amster"와는 일치하지 않습니다.
+* *SearchPredicate:* 테이블의 열에 대한 부울 식입니다. 열 이름에 "*"을 와일드 카드로 사용할 수 있습니다.
+
+**예**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
 
 ### <a name="sort-operator"></a>sort 연산자
     T | sort by country asc, price desc
@@ -1027,6 +1191,32 @@ Traces
 > [!NOTE]
 > 집계와 그룹화 식에 대해 모두 임의 식을 제공할 수 있지만 단순 열 이름을 사용하거나 `bin()`을(를) 숫자 열에 적용하는 것이 더 효율적입니다.
 
+### <a name="table-operator"></a>table 연산자
+
+    table('pageViews')
+
+인수 문자열에 지정된 테이블입니다.
+
+**구문**
+
+    table(tableName)
+
+**인수**
+
+* *tableName:* 문자열입니다. 정적이거나 let 절 결과일 수 있는 테이블의 이름입니다.
+
+**예**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
+
 ### <a name="take-operator"></a>take 연산자
 [limit](#limit-operator)의 별칭
 
@@ -1089,7 +1279,7 @@ Traces
 * `kind`: 
   * `inner` - 결과에는 모든 입력 테이블에 공통인 열의 하위 집합이 있습니다.
   * `outer` - 결과에는 입력에서 발생하는 모든 열이 있습니다. 입력 행에 의해 정의되지 않은 셀은 `null`(으)로 설정됩니다.
-* `withsource=`*ColumnName:* 지정된 경우 출력은 값이 각 행에 기여한 원본 테이블을 나타내는 *ColumnName*이라는 열을 포함합니다.
+* `withsource=`*ColumnName:* 지정된 경우 출력은 값이 각 행에 기여한 원본 테이블을 나타내는 *ColumnName*이라는 열을 포함합니다. 이 열에 표시되는 이름을 지정하려면 각 테이블 식의 끝에 [as](#as-operator)를 사용합니다.
 
 **반환**
 
@@ -1097,38 +1287,28 @@ Traces
 
 행에 순서대로 표시된다고 보장할 수 없습니다.
 
-**예제**
-
-이름이 "tt"로 시작하는 모든 테이블의 합집합입니다.
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **예제**
 
-전날에 `exceptions` 이벤트 또는 `traces` 이벤트를 생성한 고유 사용자 수입니다. 결과에서 'SourceTable' 열은 "쿼리" 또는 "명령"을 나타냅니다.
+과거 12시간 동안 `exceptions` 이벤트 또는 `traces` 이벤트를 생성한 고유 사용자의 수입니다. 결과에서 'SourceTable' 열은 "exceptions" 또는 "traces"을 나타냅니다.
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 더 효율적인 이 버전은 동일한 결과를 생성합니다. 합집합을 생성하기 전에 각 테이블을 필터링합니다.
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+[as](#as-operator)를 사용하여 원본 열에 표시할 이름을 지정합니다.
 
 #### <a name="forcing-an-order-of-results"></a>강제로 결과 순서 지정
 
@@ -1416,7 +1596,7 @@ traces
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-반대 함수는 [`mvexpand` 연산자](#mvexpand-operator) 를 참조하세요.
+반대 함수는 [`mvexpand` 연산자](#mvexpand-operator)를 참조하세요.
 
 ### <a name="max-min"></a>max, min
     max(Expr)
@@ -1484,7 +1664,7 @@ traces
 #### <a name="weighted-percentiles"></a>가중치가 적용된 백분위 수입니다.
 데이터가 사전 집계된 경우 가중치가 적용된 백분위 수 함수를 사용합니다. 
 
-예를 들어, 앱이 초당 수천 개의 연산을 실행할 경우 대기 시간을 알고 싶을 것입니다. 이 단순한 솔루션은 각 연산에 대해 Application Insights 요청이나 사용자 지정 이멘트를 생성합니다. 적응 샘플링이 트래픽을 줄일 수는 있지만, 여전히 많은 트래픽이 발생합니다. 그러나 이보다 나은 솔루션을 구현하려면 Application Insights에 전송하기 전에 데이터를 집계하는 코드를 앱에서 작성할 것입니다. 집계된 요약은 일정한 간격으로 전송되므로 최대 분당 몇 포인트 정도까지 데이터 속도를 낮출 수 있습니다.
+예를 들어, 앱이 초당 수천 개의 연산을 실행할 경우 대기 시간을 알고 싶을 것입니다. 이 단순한 솔루션은 각 연산에 대해 Application Insights 요청이나 사용자 지정 이벤트를 생성합니다. 적응 샘플링이 트래픽을 줄일 수는 있지만, 여전히 많은 트래픽이 발생합니다. 그러나 이보다 나은 솔루션을 구현하려면 Application Insights에 전송하기 전에 데이터를 집계하는 코드를 앱에서 작성할 것입니다. 집계된 요약은 일정한 간격으로 전송되므로 최대 분당 몇 포인트 정도까지 데이터 속도를 낮출 수 있습니다.
 
 이 코드는 밀리초 단위로 대기 스트림을 측정합니다. 예:
 

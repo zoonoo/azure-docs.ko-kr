@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -43,7 +44,7 @@ Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout�
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md) 을 참조하세요.
 
-## <a name="a-namerecommendationsagenerate-recommendations-by-using-azure-powershell"></a><a name="recommendations"></a>Azure PowerShell을 사용하여 추천 생성
+## <a name="recommendations"></a>Azure PowerShell을 사용하여 추천 생성
 
 > [!NOTE]
 > 이 섹션에 사용된 작업은 지금은 Azure PowerShell에서 작동하지만 Mahout과 함께 제공되는 클래스 중 다수가 Azure PowerShell에서 현재 작동하지 않으며 Hadoop 명령줄을 사용하여 실행해야 합니다. Azure PowerShell에서 작동하지 않는 클래스의 목록은 [문제 해결](#troubleshooting) 섹션을 참조하세요.
@@ -313,7 +314,7 @@ $recommendations | format-table $recommendationFormat
     Donnie Brasco (1997)                     4.6792455
     Lone Star (1996)                         4.7099237
 
-## <a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>문제 해결
+## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="cannot-overwrite-files"></a>파일을 덮어쓸 수 없음
 
@@ -364,7 +365,7 @@ foreach($blob in $blobs)
 }
 ```
 
-### <a name="a-namenopowershellaclasses-that-do-not-work-with-azure-powershell"></a><a name="nopowershell"></a>Azure PowerShell에서 작동하지 않는 클래스
+### <a name="nopowershell"></a>Azure PowerShell에서 작동하지 않는 클래스
 
 Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Mahout 작업은 다양한 오류 메시지를 반환합니다.
 

@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
-ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d9c56697a022fac2ad84b7688445cad3e489658
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,33 +64,13 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 ## <a name="create-a-backup-vault-for-a-vm"></a>VM에 대한 백업 자격 증명 모음 만들기
 백업 자격 증명 모음은 모든 백업과 시간에 따라 생성된 복구 지점을 저장하는 엔터티입니다. 백업 자격 증명 모음에는 백업 중인 가상 컴퓨터에 적용할 백업 정책도 포함됩니다.
 
+> [!IMPORTANT]
+> 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다. 기존 백업 자격 증명 모음은 계속 지원되고 [Azure PowerShell을 사용하여 백업 자격 증명 모음을 만들](./backup-client-automation-classic.md#create-a-backup-vault) 수 있습니다. 하지만 향후 향상되는 기능이 Recovery Services 자격 증명 모음에만 적용되므로 Microsoft에서는 모든 배포에 Recovery Services 자격 증명 모음을 만들도록 권장합니다.
+
+
 이 그림은 여러 Azure Backup 엔터티 간의 관계를 보여 줍니다.     ![Azure Backup 엔터티 및 관계](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
-백업 자격 증명 모음을 만들려면:
 
-1. [Azure 포털](http://manage.windowsazure.com/)에 로그인합니다.
-2. Azure Portal에서 **새로 만들기** > **하이브리드 통합** > **백업**을 클릭합니다. **백업**을 클릭할 때 클래식 포털로 자동으로 전환됩니다(참고 뒤에 표시).
-
-    ![Ibiza 포털](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
-
-   > [!NOTE]
-   > 사용자의 구독이 클래식 포털에서 마지막으로 사용된 경우 구독이 클래식 포털에서 열립니다. 이때 백업 자격 증명 모음을 만들려면 **새로 만들기** > **데이터 서비스** > **복구 서비스** > **백업 자격 증명 모음** > **빨리 만들기**(아래 이미지 참조)를 클릭합니다.
-   >
-   >
-
-    ![백업 자격 증명 모음 만들기](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
-3. **이름**에는 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-4. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 보호하려는 가상 컴퓨터와 동일한 지역에 있어야 합니다. 가상 컴퓨터가 여러 지역에 있으면 각 지역에 백업 자격 증명 모음을 만들어야 합니다. 백업 데이터를 저장하기 위해 저장소 계정을 지정할 필요는 없습니다. 백업 자격 증명 모음 및 Azure 백업 서비스가 자동으로 처리합니다.
-5. **구독** 에서 백업 자격 증명 모음과 연결할 구독을 선택합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
-6. **자격 증명 모음 만들기**를 클릭합니다. 백업 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 맨 아래에서 상태 알림을 모니터링합니다.
-
-    ![자격 증명 모음 알림 메시지 만들기](./media/backup-azure-vms-prepare/creating-vault.png)
-7. 자격 증명 모음이 성공적으로 만들어졌다는 메시지가 표시되고 **Recovery Services** 페이지에서 **활성**으로 표시됩니다. 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#create-a-recovery-services-vault)에 대해 자세히 알아보세요.
-
-    ![백업 자격 증명 모음 목록](./media/backup-azure-vms-prepare/backup_vaultslist.png)
-8. 백업 자격 증명 모음을 클릭하면 **빠른 시작** 페이지로 이동하며, Azure 가상 컴퓨터의 백업 지침이 표시됩니다.
-
-    ![대시보드 페이지의 가상 컴퓨터 백업 지침](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 ## <a name="network-connectivity"></a>네트워크 연결
 VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대한 연결이 필요합니다. 올바른 인터넷 연결이 없으면, 가상 컴퓨터의 HTTP 요청 시간이 초과되고 백업 작업이 실패합니다. 배포에 액세스 제한이 있다면(예: 네트워크 보안 그룹(NSG)을 통해), 백업 트래픽에 대해 명확한 경로를 제공하기 위해 이 옵션 중 하나를 선택합니다.

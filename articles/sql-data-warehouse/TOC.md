@@ -102,7 +102,7 @@
 ### [데이터 마이그레이션](sql-data-warehouse-migrate-data.md)
 ### [프리미엄 저장소로 마이그레이션](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## 일시 중지 및 확장
+## 관리 계산
 
 ### [개요](sql-data-warehouse-manage-compute-overview.md)
 ### [쉬운 테이블](sql-data-warehouse-manage-compute-portal.md)

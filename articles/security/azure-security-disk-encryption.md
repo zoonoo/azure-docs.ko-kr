@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -177,7 +177,7 @@ IaaS VM용 디스크 암호화를 사용하지 않도록 설정하려면 다음 
   > Azure Disk Encryption은 [Azure PowerShell SDK 버전 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016)에서 지원되지 않습니다. Azure PowerShell 1.1.0을 사용하는 경우 관련된 오류가 나타나면 [Azure PowerShell 1.1.0과 관련된 Azure Disk Encryption 오류](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx)를 참조하세요.
 
 * Azure CLI 명령을 실행하고 Azure 구독에 연결하려면 먼저 Azure CLI를 설치해야 합니다.
-  * Azure CLI를 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
+  * Azure CLI를 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../cli-install-nodejs.md)을 참조하세요.
   * Azure Resource Manager와 함께 Mac, Linux 및 Windows용 Azure CLI를 사용하려면 [Resource Manager 모드에서 Azure CLI 명령](../virtual-machines/azure-cli-arm-commands.md)을 참조하세요.
 * Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. VM이 가입된 도메인인 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 마십시오. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://technet.microsoft.com/library/ee706521)를 참조하세요.
 * Azure AD 응용 프로그램을 만들고 Key Vault를 만들거나 기존 Key Vault를 설정하고 암호화를 사용하려면 [Azure Disk Encryption 필수 요소 PowerShell 스크립트](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)를 참조하세요.
@@ -338,7 +338,7 @@ Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액
 | ARM | Azure 리소스 관리자 |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx)는 Windows IaaS VM에서 디스크 암호화를 설정하는 데 사용되는 업계에서 공인된 Windows 볼륨 암호화 기술입니다. |
 | BEK | BitLocker 암호화 키는 OS 부팅 볼륨 및 데이터 볼륨을 암호화하는 데 사용됩니다. BitLocker 키는 Key Vault에서 비밀 보안 수단입니다. |
-| CLI | [Azure 명령줄 인터페이스](../xplat-cli-install.md)을 참조하세요. |
+| CLI | [Azure 명령줄 인터페이스](../cli-install-nodejs.md)을 참조하세요. |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)는 Linux IaaS VM에서 디스크 암호화를 설정하는 데 사용되는 Linux 기반의 투명한 디스크 암호화 하위 시스템입니다. |
 | KEK | 주요 암호화 키는 비밀을 보호하거나 래핑하는 데 사용할 수 있는 비대칭 키(RSA 2048)입니다. HSM(하드웨어 보안 모듈) 보호 키 또는 소프트웨어 보호 키를 제공할 수 있습니다. 자세한 내용은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 설명서를 참조하세요. |
 | PS cmdlet | [Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs)을 참조하세요. |
@@ -560,7 +560,7 @@ CLI 명령을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows 
 > _KeyEncryptionKeyURL_은 선택적 매개 변수입니다. Key Vault에서 데이터 암호화 키(암호 비밀)에 대한 보안을 강화하기 위해 고유한 KEK를 만들 수 있습니다.
 
 #### <a name="cli-commands"></a>CLI 명령
-[CLI 명령](../xplat-cli-install.md)을 설치 및 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다. CLI 명령을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Linux VM에서 암호화를 사용하도록 설정하려면 다음을 수행하세요.
+[CLI 명령](../cli-install-nodejs.md)을 설치 및 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다. CLI 명령을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Linux VM에서 암호화를 사용하도록 설정하려면 다음을 수행하세요.
 
 1. Key Vault에서 액세스 정책 설정
 

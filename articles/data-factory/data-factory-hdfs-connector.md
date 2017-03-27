@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: c7f27fe2560c1800f05c205a73fe738cc609d642
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8a6050fc52407ab6b974a9698d970248062665c1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.openlocfilehash: c7f27fe2560c1800f05c205a73fe738cc609d642
 
 ## <a name="enabling-connectivity"></a>연결 사용
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 HDFS에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. Azure IaaS VM에서 호스팅되는 경우 HDFS에 연결하려면 게이트웨이를 사용합니다.
+
+> [!NOTE]
+> 데이터 관리 게이트웨이에서 Hadoop 클러스터의 **모든** [이름 노드 서버]:[이름 노드 포트] 및 [데이터 노드 서버]:[데이터 노드 포트]에 액세스할 수 있는지 확인합니다. 기본 [이름 노드 포트]는 50070이며 기본 [데이터 노드 포트]는 50075입니다.
+>
 
 동일한 온-프레미스 컴퓨터 또는 HDFS로 Azure VM에 게이트웨이 설치할 수 있지만 별도 컴퓨터/Azure IaaS VM에 게이트웨이를 설치하는 것이 좋습니다. 별도의 컴퓨터에 게이트웨이가 있으면 리소스 경합이 줄어들고 성능이 향상됩니다. 별도 컴퓨터에 게이트웨이를 설치하는 경우 컴퓨터는 HDFS를 사용하여 컴퓨터에 액세스할 수 있어야 합니다.
 
@@ -267,7 +272,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 * 옵션 1: [게이트웨이 컴퓨터가 Kerberos 영역에 가입하도록 함](#kerberos-join-realm)
 * 옵션 2: [Windows 도메인과 Kerberos 영역 사이에 상호 트러스트를 사용하도록 설정](#kerberos-mutual-trust)
 
-### <a name="a-namekerberos-join-realmaoption-1-make-gateway-machine-join-kerberos-realm"></a><a name="kerberos-join-realm"></a>옵션 1: 게이트웨이 컴퓨터가 Kerberos 영역에 가입하도록 함
+### <a name="kerberos-join-realm"></a>옵션 1: 게이트웨이 컴퓨터가 Kerberos 영역에 가입하도록 함
 
 #### <a name="requirement"></a>요구 사항:
 
@@ -277,7 +282,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 **게이트웨이 컴퓨터에서:**
 
-1.  **Ksetup** 유틸리티를 실행하여 Kerberos KDC 서버 및 영역을 구성합니다.
+1.    **Ksetup** 유틸리티를 실행하여 Kerberos KDC 서버 및 영역을 구성합니다.
 
     Kerberos 영역은 Windows 도메인과 다르기 때문에 컴퓨터를 작업 그룹의 구성원으로 구성해야 합니다. 그러려면 다음과 같이 Kerberos 영역을 설정하고 KDC 서버를 추가합니다. *REALM.COM*은 고유한 각 영역으로 필요에 맞게 바꿉니다.
 
@@ -286,7 +291,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
     이러한 2개 명령을 실행한 후 컴퓨터를 **다시 시작**합니다.
 
-2.  **Ksetup** 명령을 사용하여 구성을 확인합니다. 아래와 같이 출력되어야 합니다.
+2.    **Ksetup** 명령을 사용하여 구성을 확인합니다. 아래와 같이 출력되어야 합니다.
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -297,11 +302,11 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 * HDFS 데이터 원본에 연결하는 Kerberos 주체 이름 및 암호와 **Windows 인증**을 함께 사용하여 HDFS 커넥터를 구성합니다. 구성 세부 정보에서 [HDFS 연결된 서비스 속성](#hdfs-linked-service-properties)을 확인합니다.
 
-### <a name="a-namekerberos-mutual-trustaoption-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>옵션 2: Windows 도메인과 Kerberos 영역 사이에 상호 트러스트를 사용하도록 설정
+### <a name="kerberos-mutual-trust"></a>옵션 2: Windows 도메인과 Kerberos 영역 사이에 상호 트러스트를 사용하도록 설정
 
 #### <a name="requirement"></a>요구 사항:
-*   게이트웨이 컴퓨터가 Windows 도메인에 가입해야 합니다.
-*   도메인 컨트롤러의 설정을 업데이트하는 권한이 있어야 합니다.
+*    게이트웨이 컴퓨터가 Windows 도메인에 가입해야 합니다.
+*    도메인 컨트롤러의 설정을 업데이트하는 권한이 있어야 합니다.
 
 #### <a name="how-to-configure"></a>구성 방법:
 
@@ -310,7 +315,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 **KDC 서버에서:**
 
-1.  아래의 구성 템플릿을 참조하여 **krb5.conf** 파일에서 KDC가 Windows 도메인을 신뢰하도록 KDC 구성을 편집합니다. 기본적으로 이 구성은 **/etc/krb5.conf**에 있습니다.
+1.    아래의 구성 템플릿을 참조하여 **krb5.conf** 파일에서 KDC가 Windows 도메인을 신뢰하도록 KDC 구성을 편집합니다. 기본적으로 이 구성은 **/etc/krb5.conf**에 있습니다.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -346,26 +351,26 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
               REALM.COM = .
              }
 
-        **Restart** the KDC service after configuration.
+        구성 후 KDC 서비스를 **다시 시작**합니다.
 
-2.  다음 명령을 사용하여 KDC 서버의 **krbtgt/REALM.COM@AD.COM**이라는 주체를 준비합니다.
+2.    다음 명령을 사용하여 KDC 서버의 **krbtgt/REALM.COM@AD.COM**이라는 주체를 준비합니다.
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.  **hadoop.security.auth_to_local** HDFS 서비스 구성 파일에서 `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`를 추가합니다.
+3.    **hadoop.security.auth_to_local** HDFS 서비스 구성 파일에서 `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`를 추가합니다.
 
 **도메인 컨트롤러에서:**
 
-1.  아래의 **Ksetup** 명령을 실행하여 영역 항목을 추가합니다.
+1.    아래의 **Ksetup** 명령을 실행하여 영역 항목을 추가합니다.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 **krbtgt/REALM.COM@AD.COM** 주체의 암호입니다.
+2.    Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 **krbtgt/REALM.COM@AD.COM** 주체의 암호입니다.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.  Kerberos에서 사용되는 암호화 알고리즘을 선택합니다.
+3.    Kerberos에서 사용되는 암호화 알고리즘을 선택합니다.
 
     1. 서버 관리자 > 그룹 정책 관리 > 도메인 > 그룹 정책 개체 > 기본 또는 활성 도메인 정책으로 이동하고 편집을 클릭합니다.
 
@@ -379,7 +384,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  Windows 도메인에서 Kerberos 주체를 사용하려면 도메인 계정 및 Kerberos 주체 간의 매핑을 만듭니다.
+4.    Windows 도메인에서 Kerberos 주체를 사용하려면 도메인 계정 및 Kerberos 주체 간의 매핑을 만듭니다.
 
     1. 관리 도구 > **Active Directory 사용자 및 컴퓨터**를 시작합니다.
 
@@ -411,7 +416,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |파일의 경로입니다. 예: `myfolder`<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예: 폴더\하위 폴더의 경우 폴더\\\\하위 폴더를 지정하고 d:\samplefolder의 경우 d:\\\\samplefolder를 지정합니다.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 집합에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 집합에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>Data<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대해 매개 변수화됩니다. |아니요 |
 | format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](#specifying-textformat), [Json 형식](#specifying-jsonformat), [Avro 형식](#specifying-avroformat), [Orc 형식](#specifying-orcformat) 및 [Parquet 형식](#specifying-parquetformat) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [압축 지정](#specifying-compression) 섹션을 참조하세요. |아니요 |
@@ -475,9 +480,4 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,13 +12,13 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cae5694bc8189c525c8ae593eda3e51f5636c439
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/02/2017
 IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 데 필요한 IoT Hub 호스트 이름 및 IoT Hub 연결 문자열을 갖게 되었습니다.
 
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
-이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 Node.js 콘솔 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **ID 레지스트리** 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
+이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 Node.js 콘솔 앱을 만듭니다. ID 레지스트리에 항목이 있는 경우에만 장치를 IoT Hub에 연결할 수 있습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **ID 레지스트리** 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
 1. **createdeviceidentity**라는 새 빈 폴더를 만듭니다. **createdeviceidentity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    

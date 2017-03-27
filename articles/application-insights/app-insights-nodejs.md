@@ -1,5 +1,5 @@
 ---
-title: "Application Insights SDK를 사용하여 Node.js 앱 모니터링 | Microsoft Docs"
+title: "Application Insights를 사용하여 Node.js 앱 모니터링 | Microsoft Docs"
 description: "Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: 
@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/23/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b4e2ca39cf13b25ee02afec3867a57ab4b665cbd
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -181,6 +181,10 @@ server.on("listening", () => {
     appInsights.client.trackMetric("StartupTime", duration);
 });
 ```
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
 * [포털에서 원격 분석 모니터링](app-insights-dashboards.md)

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 97b5e4c3bda8d66297a43b4e430fec92d9588686
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/27/2017
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에 VM을 업로드하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기서부터](#requirements) 문서 끝까지 참조하세요.
 
-[Azure CLI 1.0](../xplat-cli-install.md)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
+[Azure CLI 1.0](../cli-install-nodejs.md)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm
@@ -102,7 +102,7 @@ azure vm create myVM -l "WestUS" --resource-group myResourceGroup \
   * 사용자 지정 이미지와 생성된 VM을 모두 저장할 저장소 계정 및 컨테이너 만들기
   * 모든 VM을 만든 후 이미지를 안전하게 삭제할 수 있습니다.
 
-[Azure CLI 1.0](../xplat-cli-install.md)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
+[Azure CLI 1.0](../cli-install-nodejs.md)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm

@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ Azure Active Directory 관리자 계정도 가질 수 있습니다. 여기에는
 
 - SQL Data Warehouse는 리소스 클래스라고 하는 미리 정의된 데이터베이스 역할을 사용하여 서로 다른 양의 메모리, CPU 리소스, 동시성 슬롯을 사용자에게 할당합니다. 각 사용자는 소형, 중형, 대형 또는 초대형 리소스 클래스에 속할 수 있습니다. 사용자의 리소스 클래스는 사용자가 쿼리를 실행하고 작업을 로드해야 하는 리소스를 결정합니다.
 
-- 데이터 압축을 최적화하기 위해 사용자는 일반적으로 대형 또는 초대형 리소스 할당을 사용하여 로드해야 합니다. 리소스 클래스에 대한 자세한 내용은 [여기](./sql-data-warehouse-develop-concurrency.md#resource-classes)를 참조하세요.
+- 데이터 압축을 최적화하기 위해 사용자는 대형 또는 초대형 리소스 할당을 사용하여 로드해야 합니다. 리소스 클래스에 대한 자세한 내용은 [여기](./sql-data-warehouse-develop-concurrency.md#resource-classes)를 참조하세요.
 
 ### <a name="create-an-account-that-can-control-a-database"></a>데이터베이스를 제어할 수 있는 계정 만들기
 

@@ -4,7 +4,7 @@ description: "Application Insights를 사용하여 웹 및 작업자 역할을 �
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.workload: tbd
-ms.date: 11/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 42e4fe54eec414549f09b93a3e12ea130eeee68f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,7 +55,7 @@ Application Insights가 Azure에서 두 작업자 역할이 호스팅되는 클�
 동일한 방식으로 사용자 자신의 클라우드 서비스 프로젝트를 조정하는 방법을 알려줍니다.
 
 ## <a name="plan-resources-and-resource-groups"></a>리소스 및 리소스 그룹 계획
-앱의 원격 분석는 Application Insights 형식의 Azure 리소스에 저장, 분석 및 표시됩니다. 
+앱의 원격 분석은 Application Insights 형식의 Azure 리소스에 저장, 분석 및 표시됩니다. 
 
 각 리소스는 리소스 그룹에 속합니다. 리소스 그룹은 비용을 관리하고, 팀 구성원에게 액세스 권한을 부여하고, 조정된 단일 트랜잭션에서 업데이트를 배포하는 데 사용됩니다. 예를 들어 한 번의 작업으로 Azure 클라우드 서비스와 해당 Application Insights 모니터링 리소스에 [배포할 스크립트를 작성](../azure-resource-manager/resource-group-template-deploy.md)할 수 있습니다.
 
@@ -98,19 +99,19 @@ Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 
 
 Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [.cscfg 파일을 직접 편집](app-insights-azure-diagnostics.md)할 수 있습니다.
 
-## <a name="a-namesdkainstall-the-sdk-in-each-project"></a><a name="sdk"></a>각 프로젝트에 SDK 설치
+## <a name="sdk"></a>각 프로젝트에 SDK 설치
 이 옵션은 응용 프로그램의 사용 방식 및 성능에 대한 보다 세밀한 분석을 위해 사용자 지정 비즈니스 원격 분석을 역할에 추가하는 기능을 추가합니다.
 
-Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SDK를 추가합니다.
+Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SDK를 구성합니다.
 
-1. 프로젝트의 NuGet 패키지를 편집합니다.
+1. **웹 역할**: 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성** 또는 **추가 > Application Insights 원격 분석**을 선택합니다.
    
-    ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-cloudservices/03-nuget.png)
-2. **웹 역할**: [웹용 Application Insights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)를 추가합니다. 이 버전의 HTTP 요청 데이터를 수집하고 SDK는 역할 정보와 같은 서버 컨텍스트를 추가하는 모듈을 포함합니다.
-   
-    **작업자 역할**: [Windows Server용 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)를 추가합니다.
+2. **작업자 역할**: 
+ * 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다.
+ * [Windows 서버용 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)를 추가합니다.
    
     !["Application Insights" 검색](./media/app-insights-cloudservices/04-ai-nuget.png)
+
 3. Application Insights 리소스에 데이터를 보내도록 SDK를 구성합니다.
    
     적합한 시작 함수에서 .cscfg 파일의 구성 설정에서 계측 키를 설정합니다.
@@ -125,7 +126,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
    * [웹 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
    * [작업자 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
    * [웹 페이지](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
-4. 항상 출력 디렉토리에 복사되도록 ApplicationInsights.config 파일을 설정합니다. 
+4. 항상 출력 디렉터리에 복사되도록 ApplicationInsights.config 파일을 설정합니다. 
    
     .config 파일에서 해당 위치에 계측 키를 배치할지 묻는 메시지가 표시됩니다. 그러나 클라우드 응용 프로그램의 경우에는 .cscfg 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
@@ -245,9 +246,4 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

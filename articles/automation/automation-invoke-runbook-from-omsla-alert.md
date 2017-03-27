@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
-ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -35,7 +36,7 @@ ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>웹후크를 사용하여 Runbook 호출
 
-웹후크를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다.  [Log Analytics 경고](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule)를 구성하여 경고 작업으로서 웹후크를 사용하여 Runbook을 호출하기 전에 먼저 이 방법을 사용하여 호출되는 Runbook에 대한 웹후크를 만들어야 합니다.  [웹후크 만들기](automation-webhooks.md#creating-a-webhook) 문서의 단계를 검토하여 따르고 경고 규칙을 구성하는 동안 참조할 수 있도록 웹후크 URL을 기록하기 위해 기억해둡니다.   
+웹후크를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다.  [Log Analytics 경고](../log-analytics/log-analytics-alerts.md#creating-alert-rules)를 구성하여 경고 작업으로서 웹후크를 사용하여 Runbook을 호출하기 전에 먼저 이 방법을 사용하여 호출되는 Runbook에 대한 웹후크를 만들어야 합니다.  [웹후크 만들기](automation-webhooks.md#creating-a-webhook) 문서의 단계를 검토하여 따르고 경고 규칙을 구성하는 동안 참조할 수 있도록 웹후크 URL을 기록하기 위해 기억해둡니다.   
 
 ## <a name="calling-a-runbook-directly"></a>Runbook 직접 호출
 
@@ -52,23 +53,23 @@ Log Analytics 경고에서 Runbook을 호출하기 위한 두 가지 방법에�
           [Parameter (Mandatory=$true)]  
           [object] $WebhookData  
          )
-  
+
 *  WebhookData를 PowerShell 개체로 변환하는 코드가 있어야 합니다.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
     *$SearchResults*는 개체 배열이며, 각 개체는 하나의 검색 결과의 값을 가진 필드를 포함합니다.
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>웹후크 옵션과 Runbook 옵션 간의 WebhookData 불일치 
+### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>웹후크 옵션과 Runbook 옵션 간의 WebhookData 불일치
 
 * 웹후크를 호출하는 경고를 구성할 때 Runbook에 대해 만든 웹후크 URL을 입력하고 **웹후크 테스트** 단추를 클릭합니다.  Runbook으로 보낸 결과 WebhookData에는 *.SearchResult* 또는 *.SearchResults*가 포함되지 않습니다.
 
 *  해당 경고를 저장한 경우 경고가 웹후크를 트리거하고 호출하면 Runbook으로 보낸 WebhookData는 *.SearchResult*를 포함합니다.
 * 경고를 만들고 Runbook(웹후크도 만듦)을 호출하도록 구성한 경우 경고가 트리거될 때 *.SearchResults*가 포함된 Runbook으로 WebhookData를 보냅니다.
 
-따라서 위의 코드 예제에서는 경고가 웹후크를 호출한 경우 *.SearchResult*를 가져오고 경고가 Runbook을 직접 호출한 경우 * SearchResults*를 가져와야 합니다.
+따라서 위의 코드 예제에서는 경고가 웹후크를 호출한 경우 *.SearchResult*를 가져오고 경고가 Runbook을 직접 호출한 경우 *SearchResults*를 가져와야 합니다.
 
-## <a name="example-walkthrough"></a>연습 예 
+## <a name="example-walkthrough"></a>연습 예
 
 Windows 서비스를 시작하는 다음 예제 그래픽 Runbook을 사용하여 이것이 어떻게 작동하는지에 대해 설명합니다.<br><br> ![Windows 서비스 그래픽 Runbook 시작](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
@@ -90,9 +91,4 @@ Runbook 코드 활동 **LA에서 서비스 이름 가져오기**는 JSON 형식 
 * Log Analytics의 경고와 생성 방법에 대한 자세한 내용은 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)를 참조하세요.
 
 * 웹후크를 사용하여 Runbook을 트리거하는 방법을 이해하려면 [Azure Automation 웹후크](automation-webhooks.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

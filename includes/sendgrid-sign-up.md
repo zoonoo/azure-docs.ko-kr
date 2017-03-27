@@ -59,7 +59,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
     ![key][key]
 2. 암호는 설치 시 선택한 암호입니다. **암호 변경** 또는 **암호 재설정**을 선택하여 암호를 변경할 수 있습니다.
 
-전자 메일 배달 설정을 관리하려면 **관리** 단추를 클릭합니다. 그러면 [SendGrid 대시보드][SendGrid dashboard]로 리디렉션됩니다.
+전자 메일 배달 설정을 관리하려면 **관리** 단추를 클릭합니다. 그러면 SendGrid 대시보드로 리디렉션됩니다.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

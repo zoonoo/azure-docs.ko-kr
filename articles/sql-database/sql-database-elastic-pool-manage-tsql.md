@@ -16,14 +16,14 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
-ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a3acd5f4ec63061254b550737ae9fb4d39b343c6
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="monitor-and-manage-an-elastic-pool-with-transact-sql"></a>Transact-SQL로 탄력적 풀 모니터링 및 관리
-이 항목에서는 Transact-SQL을 사용하여 확장 가능한 [탄력적 풀](sql-database-elastic-pool.md)을 관리하는 방법을 보여 줍니다.  [Azure Portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), REST API 또는 [C#][C#을 사용하여 탄력적 풀 만들기 및 관리](sql-database-elastic-pool-manage-csharp.md)을 사용하여 Azure 탄력적 풀을 만들고 관리할 수도 있습니다. [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)을 사용하여 탄력적 풀을 만들고 여기에 데이터베이스를 넣거나 뺄 수도 있습니다.
+이 항목에서는 Transact-SQL을 사용하여 확장 가능한 [탄력적 풀](sql-database-elastic-pool.md)을 관리하는 방법을 보여 줍니다.  [Azure Portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), REST API 또는 [C#](sql-database-elastic-pool-manage-csharp.md)을 사용하여 Azure 탄력적 풀을 만들고 관리할 수도 있습니다. [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)을 사용하여 탄력적 풀을 만들고 여기에 데이터베이스를 넣거나 뺄 수도 있습니다.
 
 
 [데이터베이스 만들기(Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) 및 [데이터베이스 변경(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) 명령을 사용하여 데이터베이스를 만들고 탄력적 풀의 내부 및 외부로 이동시킵니다. 탄력적 풀은 이러한 명령을 사용하기 전에 있어야 합니다. 이러한 명령은 데이터베이스에만 적용됩니다. 새 풀 만들기 및 풀 속성(예: 최소 및 최대 eDTU)의 설정은 T-SQL 명령으로 변경될 수 없습니다.

@@ -1,21 +1,22 @@
 ---
-title: "JavaScript 웹앱 Application Insights | Microsoft Docs"
+title: "JavaScript 웹앱용 Azure Application Insights | Microsoft Docs"
 description: "페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>앱 실행
+## <a name="run"></a>앱 실행
 웹앱을 실행하고, 잠깐 사용하여 원격 분석을 생성하고, 잠시 기다립니다. 개발 컴퓨터에서 **F5** 키를 사용하여 실행하거나 사용자가 실행할 수 있도록 게시할 수 있습니다.
 
 웹앱에서 Application Insights로 보내는 원격 분석을 확인하려면 브라우저의 디버깅 도구(대부분의 브라우저는**F12** 키)를 사용합니다. 데이터가 dc.services.visualstudio.com으로 전송됩니다.
@@ -107,7 +108,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/app-insights-javascript/03.png)
 
-*아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
+*아직 아무 데이터도 없나요? 페이지 위쪽에서**새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
 
 브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원** 을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 
@@ -167,6 +168,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Ajax 호출에 대한 전체 원격 분석을 하려면 `...` 을(를) 클릭합니다.
 
 ### <a name="no-ajax-calls-reported"></a>Ajax 호출이 보고되지 않았습니까?
@@ -180,6 +182,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 보고된 브라우저 예외가 없는 경우, 코드 조각이 `disableExceptionTracking` [매개 변수](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config)를 설정하지 않았는지 확인합니다.
 
 ## <a name="inspect-individual-page-view-events"></a>개별 페이지 보기 이벤트 검사
+
 일반적으로 페이지 보기 원격 분석은 Application Insights에서 분석하며 모든 사용자에 대해 계산된 평균이 포함된 누적 보고서만 표시됩니다. 그러나 디버깅을 위해 개별 페이지 보기 이벤트를 확인할 수도 있습니다.
 
 진단 검색 블레이드에서 필터를 페이지 보기로 설정합니다.
@@ -217,19 +220,16 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 * [사용 추적에 대해 알아보기](app-insights-web-track-usage.md)
 * [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> 비디오: 사용 현황 추적
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a>동영상
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> 다음 단계
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> 다음 단계
 * [사용 현황 추적](app-insights-web-track-usage.md)
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
 * [빌드 - 측정 - 학습](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

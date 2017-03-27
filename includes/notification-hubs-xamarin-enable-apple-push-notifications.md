@@ -28,17 +28,17 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
    
    * **Name**: **App ID Description** 섹션의 **Name** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
    * **번들 식별자**: **명시적 앱 ID** 섹션에 [앱 배포 가이드](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 또한 앱용 XCode, Xamarin 또는 Cordova 프로젝트에서 사용된 것과 일치해야 합니다.
-   * **푸시 알림**: **App Services** 섹션에서 **푸시 알림** 옵션을 선택합니다.
+   * **Push Notifications**: **App Services** 섹션에서 **Push Notifications** 옵션을 선택합니다.
      
      ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
-3. 앱 ID 확인 화면에서 설정을 검토하고 확인한 후 **Submit**
-4. 새 앱 ID를 제출하면 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
+3. 앱 ID 확인 화면에서 설정을 검토하고 확인한 후 **Register**를 클릭합니다.
+4. 새 앱 ID를 제출한 후 **Registration complete** 화면이 표시됩니다. **Done**을 클릭합니다.
 5. 개발자 센터의 앱 ID에서 방금 만든 앱 ID를 찾아 해당 행을 클릭합니다. 앱 ID 행을 클릭하면 앱 세부 정보가 표시됩니다. 아래쪽에 있는 **Edit** 단추를 클릭합니다.
 6. 화면 아래로 스크롤하여 **Development Push SSL Certificate** 섹션에서 **Create Certificate...** 단추를 클릭합니다.
    
        ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-       This will display the "Add iOS Certificate" assistant.
+       This displays the "Add iOS Certificate" assistant.
    
    > [!NOTE]
    > 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
@@ -69,7 +69,7 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
    > 
 10. Keychain Access에서는 **Certificates** 범주에서 방금 만든 새 푸시 인증서를 Ctrl+클릭합니다. **내보내기**를 클릭하고 파일의 이름을 지정한 후 **.p12** 형식을 선택하고 **저장**을 클릭합니다.
     
-    내보낸 .p12 푸시 인증서의 파일 이름과 위치를 기억합니다. Azure 클래식 포털에서 업로드하여 APNS에서 인증할 수 있도록 하는 데 사용됩니다.
+    내보낸 .p12 푸시 인증서의 파일 이름과 위치를 기억합니다. Azure 클래식 포털에서 업로드하여 APNS에서 인증할 수 있도록 하는 데 사용됩니다. **.p12** 형식 옵션을 사용할 수 없는 경우 Keychain Access를 다시 시작해야 할 수 있습니다.
 
 #### <a name="create-a-provisioning-profile-for-the-app"></a>앱용 프로비저닝 프로필 만들기
 1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가서 **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 실행됩니다.
@@ -82,15 +82,11 @@ Apple 응용 프로그램에 대한 새 명시적 앱 ID를 만들고 또한 푸
 4. **Select certificates** 화면에서 코드 서명에 사용되는 개발 인증서를 선택하고 **Continue**를 클릭합니다. 이 인증서는 방금 만든 푸시 인증서가 아닌 서명 인증서입니다.
    
        ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+       
 5. 테스트에 사용할 **Devices**를 선택하고 **Continue**를 클릭합니다.
    
        ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 6. 마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**를 클릭합니다.
    
        ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

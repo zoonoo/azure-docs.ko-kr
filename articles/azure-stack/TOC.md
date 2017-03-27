@@ -32,6 +32,7 @@
 ### [상태 및 경고 모니터링](azure-stack-monitor-health.md)
 ### [네트워크 리소스 관리](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [저장소 리소스 관리](azure-stack-manage-storage-accounts.md)
+### [Windows Azure 팩 VM 관리](azure-stack-manage-windows-azure-pack.md)
 
 # 보안 및 규정 준수
 ## 방법
@@ -86,7 +87,6 @@
 #### [포털로 관리](azure-stack-kv-manage-portal.md)
 #### [PowerShell로 관리](azure-stack-kv-manage-powershell.md)
 ### 방법
-#### [암호를 사용하여 VM 배포](azure-stack-kv-deploy-vm-with-secret.md)
 #### [인증서를 사용하여 VM 만들기](azure-stack-kv-push-secret-into-vm.md)
 #### [Key Vault 샘플 앱](azure-stack-kv-sample-app.md)
 

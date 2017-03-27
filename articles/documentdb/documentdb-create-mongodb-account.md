@@ -2,15 +2,15 @@
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-create-account
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: dbd15e0d2b1bc3b5f559d19961e3c45b5079e1c4
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 21a388894278c9086b40812e5cfa7dc9b662a5ef
+ms.lasthandoff: 03/10/2017
 
 
 
 ---
 
-# <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>MongoDB 앱에서 사용할 DocumentDB 계정 만들기
+# <a name="create-a-documentdb-account-with-mongodb-api"></a>MongoDB API로 DocumentDB 계정 만들기
 이제 DocumentDB 데이터베이스는 MongoDB에 대해 작성된 앱의 데이터 저장소로 사용될 수 있습니다. 이 기능을 사용하려면 Azure 계정과 DocumentDB 계정이 필요합니다. 이 자습서에서는 MongoDB 앱에서 사용할 DocumentDB 계정을 만드는 과정을 안내합니다. 
 
 Azure Portal 또는 Azure Resource Manager 템플릿 포함 Azure CLI를 사용하는 MongoDB 계정에 대한 지원으로 DocumentDB 계정을 만들 수 있습니다. 이 문서에서는 Azure Portal을 사용하는 MongoDB 계정에 대한 지원으로 DocumentDB를 만드는 방법을 보여 줍니다. Azure Resource Manager 포함 Azure CLI를 사용하는 계정을 만들려면 [Azure CLI 2.0을 사용하여 Azure DocumentDB 계정 관리 자동화](documentdb-automation-resource-manager-cli.md)를 참조하세요.

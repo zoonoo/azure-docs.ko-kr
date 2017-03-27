@@ -4,18 +4,19 @@ description: "개발의 여러 단계에서 응용 프로그램의 성능 및 �
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 43fb1e764c929be14d42c3d214b051aeb5367d77
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
 
 먼저, 질문을 살펴보겠습니다. 응용 프로그램에서 받은 데이터는 Microsoft Azure *리소스*의 Application Insights에 의해 저장되고 처리됩니다. 각 리소스는 해당 *계측 키* (iKey)로 식별됩니다. 응용 프로그램에서 올바른 리소스를 수집하는 데이터를 보낼 수 있도록 키 Application Insights SDK를 제공합니다. 코드 또는 ApplicationInsights.config에서 키를 제공 받을 수 있습니다. SDK에 있는 키를 변경하여 데이터를 다른 리소스로 디렉트할 수 있습니다. 
 
-단순한 경우에 새 응용 프로그램에 대한 코드를 만들 경우 Application Insights에서 새 리소스를 만들 수도 있습니다. Visual Studio에서 *새 프로젝트* 대화 상자가 이 작업을 수행합니다.
+단순한 경우에 Application Insights를 이용하여 응용 프로그램을 등록하는 경우 Application Insights에서 새 리소스를 만들 수 있습니다. 이 작업은 Visual Studio에서 *Application Insights 구성* 또는 *Application Insights 추가* 대화 상자에서 수행할 수 있습니다.
 
 고용량 웹 사이트인 경우 둘 이상의 서버 인스턴스에 배포될 수 있습니다.
 
@@ -38,7 +39,7 @@ ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
   * 별도 구성 요소에서 별도 메트릭을 쉽게 읽을 수 있습니다.
   * 저용량 원격 분석을 고용량과 분리되도록 유지하여 스트림에서 제한, 할당량 및 샘플링이 기타 항목에 영향을 주지 않도록 합니다.
   * 경고, 내보내기 및 작업 항목 구성 구분합니다.
-  * 원격 분석 할당량, 제한 및 웹 테스트 수와 같은 [제한](app-insights-pricing.md#limits-summary) 을 분산합니다.
+  * 원격 분석 할당량, 제한 및 웹 테스트 수와 같은 [제한](app-insights-pricing.md#limits-summary)을 분산합니다.
   * 개발 및 테스트에 있는 코드는 프로덕션 스탬프와 다른 별도 iKey에 보내야 합니다.  
 
 많은 Application Insights 포털 환경이 이 지침을 염두에 두고 설계되었습니다. 예를 들어 서버 인스턴스의 서버 보기 세그먼트의 경우 논리 구성 요소에 대한 원격 분석을 여러 서버 인스턴스에서 가져올 수 있다고 가정합니다.
@@ -46,22 +47,22 @@ ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
 ## <a name="single-ikey"></a>단일 iKey
 여러 구성 요소에서 단일 iKey에 원격 분석을 보내는 경우:
 
-* 구성 요소 ID에 대한 세그먼트와 필터를 허용하는 모든 원격 분석에 속성을 추가합니다. 서버 역할 인스턴스에서 역할 ID가 원격 분석에 자동으로 추가되지만 다른 경우에 [원격 분석 이니셜라이저](app-insights-api-filtering-sampling.md#add-properties) 를 사용하여 속성을 추가할 수 있습니다.
+* 구성 요소 ID에 대한 세그먼트와 필터를 허용하는 모든 원격 분석에 속성을 추가합니다. 서버 역할 인스턴스에서 역할 ID가 원격 분석에 자동으로 추가되지만 다른 경우에 [원격 분석 이니셜라이저](app-insights-api-filtering-sampling.md#add-properties)를 사용하여 속성을 추가할 수 있습니다.
 * 동시에 여러 구성 요소에서 Application Insights SDK를 업데이트합니다. 하나의 iKey에 대한 원격 분석은 동일한 버전의 SDK에서 시작해야 합니다.
 
 ## <a name="separate-ikeys"></a>별도 iKey
 다른 응용 프로그램 구성 요소에 iKey가 여러 개 있는 경우:
 
-* 논리 응용 프로그램에서 키 원격 분석의 보기에 [대시보드](app-insights-dashboards.md) 를 만들어서 여러 응용 프로그램 구성 요소에서 결합합니다. 단일 논리 시스템 보기를 다른 팀에서 사용할 수 있도록 대시보드를 공유할 수 있습니다.
-* 팀 수준에서 [리소스 그룹](app-insights-resources-roles-access-control.md) 을 구성합니다. 액세스 권한은 리소스 그룹에서 할당되고 여기에 경고를 설정하는 권한을 포함합니다. 
-* [Azure Resource Manager 템플릿 및 Powershell](app-insights-powershell.md) 을 사용하여 경고 규칙 및 웹 테스트 등 아티팩트를 관리할 수 있습니다.
+* 논리 응용 프로그램에서 키 원격 분석의 보기에 [대시보드](app-insights-dashboards.md)를 만들어서 여러 응용 프로그램 구성 요소에서 결합합니다. 단일 논리 시스템 보기를 다른 팀에서 사용할 수 있도록 대시보드를 공유할 수 있습니다.
+* 팀 수준에서 [리소스 그룹](app-insights-resources-roles-access-control.md)을 구성합니다. 액세스 권한은 리소스 그룹에서 할당되고 여기에 경고를 설정하는 권한을 포함합니다. 
+* [Azure Resource Manager 템플릿 및 Powershell](app-insights-powershell.md)을 사용하여 경고 규칙 및 웹 테스트 등 아티팩트를 관리할 수 있습니다.
 
 ## <a name="separate-ikeys-for-devtest-and-production"></a>개발/테스트 및 프로덕션을 위한 별도 iKeys
 앱이 릴리스될 경우 자동으로 키를 변경하기 쉽게 하려면 ApplicationInsights.config 대신 코드에서 iKey를 설정합니다.
 
 시스템이 Azure 클라우드 서비스인 경우 [별도의 ikey를 설정하는 다른 방법](app-insights-cloudservices.md)이 있습니다.
 
-### <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
+### <a name="dynamic-ikey"></a> 동적 계측 키
 ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
 *C#*
@@ -115,10 +116,5 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 ![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/app-insights-separate-resources/02-props.png)
 
 사용자의 앱이 데이터를 보낼 모든 리소스의 계측 키가 필요합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: mahender
 translationtype: Human Translation
 ms.sourcegitcommit: 060fbb885f254c0de02fe422460e8e8d659ac848
 ms.openlocfilehash: 503f17a629527e8c9a3bfe6cde1da31dcf1f18ef
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -68,7 +69,7 @@ Azure App Service와 Azure Functions는 개방형 API 문서를 만들고, 호�
     다음 섹션에서 사용할 각 정의와 관련된 자격 증명을 수집합니다. PowerApps에서 기본적으로 지원하고 각 자격 증명에서 요구하는 ID 공급자 목록은 [PowerApps에 사용자 지정 API 등록] 및 [Microsoft Flow에 사용자 지정 API 등록]을 참조하세요.
  
 > [!NOTE]
-> Azure Active Directory 인증을 사용하는 경우 API 및 회신 URL _https://msmanaged-na.consent.azure-apim.net/redirect_에 대한 액세스를 위임한 새 AAD 앱 등록이 필요합니다. Azure Resource Manager의 API를 교체하는 방법에 대한 자세한 내용은 [이 예제](
+> Azure Active Directory 인증을 사용하는 경우 API 및 회신 URL _https://msmanaged-na.consent.azure-apim.net/redirect_ 에 대한 액세스를 위임한 새 AAD 앱 등록이 필요합니다. Azure Resource Manager의 API를 교체하는 방법에 대한 자세한 내용은 [이 예제](
 https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/)를 참조하세요.
 >
 > 다른 직원이 PowerApps로 API 정의를 가져오는 경우 API 정의 파일 외에도 **새 등록의** 클라이언트 ID 및 클라이언트 비밀과 API의 리소스 URL을 제공합니다. 이러한 비밀은 안전하게 관리해야 합니다. **API 보안 자격 증명 자체를 공유하지 마세요.**
@@ -106,9 +107,4 @@ https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutor
 
 [PowerApps에 사용자 지정 API 등록]: https://powerapps.microsoft.com/tutorials/register-custom-api/
 [Microsoft Flow에 사용자 지정 API 등록]: https://flow.microsoft.com/documentation/register-custom-api/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

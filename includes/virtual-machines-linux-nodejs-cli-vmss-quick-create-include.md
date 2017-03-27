@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>필수 조건
 
-아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받고 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI 1.0](../articles/xplat-cli-install.md)을 받을 수 있습니다. 다음과 같이 Azure CLI가 리소스 관리자 모드인지 확인합니다.
+아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 받고 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI 1.0](../articles/cli-install-nodejs.md)을 받을 수 있습니다. 다음과 같이 Azure CLI가 리소스 관리자 모드인지 확인합니다.
 
 ```azurecli
 azure config mode arm

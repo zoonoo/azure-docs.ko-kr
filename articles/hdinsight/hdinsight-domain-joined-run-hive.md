@@ -10,14 +10,15 @@ tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 9ddeaea93af8d5a4356d49da76cb64f5e43657db
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -90,7 +91,7 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
     Hive 서버 유형|<strong>Hive 서버 2</strong> 선택
     메커니즘|<strong>Azure HDInsight Service</strong> 선택
     HTTP 경로|비워 둠
-    사용자 이름|다른 경우 hiveuser1@contoso158.onmicrosoft.com. 도메인 이름 업데이트를 입력합니다.
+    사용자 이름|hiveuser1@contoso158.onmicrosoft.com을 입력합니다. 사용자 이름이 다른 경우 도메인 이름을 업데이트합니다.
     암호|hiveuser1의 암호를 입력합니다.
     </table>
 
@@ -143,9 +144,4 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
 * Hive JDBC를 사용하여 Hive를 연결하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요.
 * Hive ODBC를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [Microsoft Hive ODBC 드라이브와 함께 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 * 파워 쿼리를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [파워 쿼리를 사용하여 Hadoop에 Excel 연결](hdinsight-connect-excel-power-query.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

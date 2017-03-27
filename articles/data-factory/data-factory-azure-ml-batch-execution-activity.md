@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
-ms.openlocfilehash: 1c8cd0a998d7224caf5dcc70061d288a8e3043ed
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9686a4c7b6a71df20e15653837363e6b69418cc9
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md)
-> * [저장 프로시저](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
-> * [.NET 사용자 지정](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive 작업](data-factory-hive-activity.md) 
+> * [Pig 작업](data-factory-pig-activity.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+> * [Spark 작업](data-factory-spark.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>소개
 

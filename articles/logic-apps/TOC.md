@@ -78,8 +78,8 @@
 ### [사용량 계량](logic-apps-pricing.md)
 
 # 참조
-## [워크플로 정의 언어](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [워크플로 작업 및 트리거](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [워크플로 정의 언어](logic-apps-workflow-definition-language.md)
+## [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## 스키마 기록

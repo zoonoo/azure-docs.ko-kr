@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ VM을 만들기 전에 VNet을 만들거나 VM을 만들 때 VNet을 만들 수 
 
 ## <a name="network-interfaces"></a>네트워크 인터페이스
 
-[NIC(네트워크 인터페이스)](../virtual-network/virtual-network-network-interface-overview.md)는 VM과 VNet 간의 상호 연결입니다. VM마다 NIC가 하나 이상 있어야 하지만, 만드는 VM의 크기에 따라 NIC가 둘 이상 있을 수 있습니다. [Azure의 가상 컴퓨터 크기](virtual-machines-windows-sizes.md)에서 각 VM 크기가 지원하는 NIC 수에 대해 알아봅니다. 
+[NIC(네트워크 인터페이스)](../virtual-network/virtual-network-network-interface.md)는 VM과 VNet 간의 상호 연결입니다. VM마다 NIC가 하나 이상 있어야 하지만, 만드는 VM의 크기에 따라 NIC가 둘 이상 있을 수 있습니다. [Azure의 가상 컴퓨터 크기](virtual-machines-windows-sizes.md)에서 각 VM 크기가 지원하는 NIC 수에 대해 알아봅니다. 
 
 NIC가 둘 이상 있는 VM을 만들려면 VM을 둘 이상 만들어야 합니다.  VM을 만든 후에 VM 크기에서 지원하는 수만큼 추가 NIC를 추가할 수 있지만, 하나만 만든 VM에는 VM 크기에서 지원하는 NIC 수에 관계없이 추가 NIC를 추가할 수 없습니다. 
 
@@ -180,3 +180,4 @@ VM을 만들고 나중에 해당 VM을 VNet으로 마이그레이션하려는 �
 - [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 구성하는 방법에 대해 알아봅니다. 
 - [VNet 간 연결](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 구성하는 방법에 대해 알아봅니다.
 - [경로 문제 해결](../virtual-network/virtual-network-routes-troubleshoot-portal.md) 방법에 대해 알아봅니다.
+

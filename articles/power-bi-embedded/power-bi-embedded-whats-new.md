@@ -13,17 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
-ms.lasthandoff: 01/07/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 07c53a5d6b1881a4c207a2aefed9fcede0fa069e
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Power BI Embedded의 새로운 기능
+
 **Power BI Embedded** 에 대한 업데이트는 정기적으로 릴리스됩니다. 그러나 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 여기에서 새 사용자용 기능을 강조 표시합니다. 자주 확인해야 합니다.
+
+## <a name="march-2017"></a>2017년 3월
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ibuN4DzCl5c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+**셀프 서비스 기능**
+
+* [새 보고서 만들기](power-bi-embedded-create-report-from-dataset.md)
+* [다른 이름으로 보고서 저장](power-bi-embedded-save-reports.md)
+* 읽기/편집/새로 만들기 모드에서 보고서 포함 
+* [편집/읽기 모드 간 보고서 전환](power-bi-embedded-toggle-mode.md)
+
+**REST API를 사용한 데이터 연결**
+
+* [데이터 집합 만들기](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* 데이터 푸시 
+
+**관리 API**
+
+* 보고서 및 데이터 집합 복제
+* 다른 데이터 집합에 보고서 바인딩
+
+**샘플**
+
+* 업데이트된 [JavaScript Report Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>2016년 12월
 

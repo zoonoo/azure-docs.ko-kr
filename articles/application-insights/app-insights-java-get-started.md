@@ -4,18 +4,18 @@ description: "Application Insights를 사용하여 Java 웹앱에 대한 응용 
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
 
 
 ---
@@ -76,7 +76,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 ```
 
 * *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `<version>1.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
-* *새 SDK로 업데이트해야 하는 경우*  프로젝트의 종속성을 새로 고칩니다.
+* *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
 #### <a name="if-youre-using-gradle"></a>Gradle을 사용하는 경우...
 빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드를 build.gradle 파일에 병합합니다.
@@ -95,9 +95,9 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
     }
 ```
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다*`version:'1.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)구독.*
 * *새 SDK로 업데이트하려면*
-  *  프로젝트의 종속성을 새로 고칩니다.
+  * 프로젝트의 종속성을 새로 고칩니다.
 
 #### <a name="otherwise-"></a>기타...
 수동으로 SDK 추가:
@@ -375,6 +375,10 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 ## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
 [Java 문제 해결](app-insights-java-troubleshoot.md)
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>다음 단계
 * [종속성 호출 모니터링](app-insights-java-agent.md)
 * [Unix 성능 카운터 모니터링](app-insights-java-collectd.md)
@@ -394,9 +398,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -17,6 +17,7 @@ ms.author: magoedte;bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,7 +69,7 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 다음 예제는 매개 변수로 자식 runbook를 시작한 다음 Start-AzureRmAutomationRunbook -wait 매개 변수를 사용하여 완료되기를 기다립니다. 완료되면 자식 runbook에서 해당 출력을 수집합니다.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>자식 runbook을 호출하기 위한 방법 비교
@@ -86,10 +87,5 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 ## <a name="next-steps"></a>다음 단계
 * [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 * [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

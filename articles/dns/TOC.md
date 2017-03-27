@@ -4,13 +4,11 @@
 
 # 시작
 
-## [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-
-## [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Azure CLI](dns-getstarted-create-recordset-cli.md)
+## DNS 영역 및 레코드 만들기
+### [포털](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
+### [Azure CLI 2.0](dns-getstarted-cli.md)
 
 ## [Azure DNS에 도메인 위임](dns-domain-delegation.md)
 ## [웹앱에 대한 사용자 지정 DNS 레코드 만들기](dns-web-sites-custom-domain.md)

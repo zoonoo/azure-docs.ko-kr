@@ -13,13 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
-ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
+ms.lasthandoff: 03/18/2017
 
 ---
 
-#<a name="iot-hub-documentation"></a>IoT Hub 설명서
+# <a name="iot-hub-documentation"></a>IoT Hub 설명서
 
 IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API 참조, 비디오 및 기타 설명서를 통해 IoT 장치와 솔루션 백 엔드 간의 안정적인 양방향 통신을 배포할 수 있습니다. 
 
@@ -142,8 +142,8 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET(장치)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">.NET(서비스)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java(장치)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">노드(서비스)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">노드(장치)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">노드(서비스)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">노드(장치)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>

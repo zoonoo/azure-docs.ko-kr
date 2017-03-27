@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: fff43da07603be1e54cb9948dfd442491bb8f35a
-ms.openlocfilehash: 8103c85cf27c46acf2a46d87d73ecc7227723479
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ API를 Azure API Management로 가능한 완벽하고 문제 없이 가져올 �
 
 * **호스트 이름** 호스트 이름 특성이 필요합니다.
 * **기본 경로** 기본 경로 특성이 필요합니다.
-* **스키마** 스키마 배열이 필요합니다.
+* **스키마** 스키마 배열이 필요합니다. 
 
 ## <a name="wsdl"> </a>WSDL
 SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API의 백 엔드로 사용됩니다.
@@ -38,6 +39,7 @@ SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API
 * **여러 부분으로 된 메시지**는 현재 지원되지 않습니다.
 * **WCF wsHttpBinding** Windows Communication Foundation으로 생성된 SOAP 서비스는 basicHttpBinding - wsHttpBinding을 사용해야 합니다.
 * **MTOM** MTOM을 사용한 서비스는 <em>작동할 수 있습니다</em>. 현재는 공식적으로 지원되지 않습니다.
+* 재귀적으로 정의된(예: 자체의 배열을 참조) **재귀** 형식은 지원되지 않습니다.
 
 ## <a name="wadl"> </a>WADL
 현재는 알려진 WADL 가져오기 문제가 없습니다.
@@ -79,9 +81,4 @@ SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

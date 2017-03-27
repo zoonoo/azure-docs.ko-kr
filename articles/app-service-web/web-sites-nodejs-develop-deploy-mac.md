@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4b8eb863a1fcb65c307870619ea9d8942c57a906
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 335c6fc1bab097367f2d380466d19ea70c7660c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -187,7 +187,7 @@ Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코�
 
 응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 앱 서비스에서 Node.js 응용 프로그램을 디버그하는 방법](web-sites-nodejs-debug.md) 에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
-이 문서에서는 Azure 포털을 사용하여 웹앱을 만듭니다. 또한 [Azure 명령줄 인터페이스](../xplat-cli-install.md) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 동일한 작업을 수행할 수 있습니다.
+이 문서에서는 Azure 포털을 사용하여 웹앱을 만듭니다. 또한 [Azure 명령줄 인터페이스](../cli-install-nodejs.md) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 동일한 작업을 수행할 수 있습니다.
 
 Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 

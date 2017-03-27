@@ -16,9 +16,9 @@ ms.date: 10/10/2016
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 844f7d6fa4191a54d14010adf974401d3a94ba69
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -64,6 +64,12 @@ Log Analytics용 에이전트를 설치하고 [Azure Portal](https://portal.azur
    ![연결됨](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>PowerShell을 통해 VM 확장 사용
+PowerShell을 사용하여 가상 컴퓨터를 구성할 때 **workspaceId** 및 **workspaceKey**를 제공해야 합니다. json 구성의 속성 이름은 **대/소문자를 구분**합니다.
+
+OMS 포털의 **설정** 페이지나 앞 예제처럼 PowerShell을 사용하여 ID와 키를 찾을 수 있습니다.
+
+![작업 영역 ID 및 기본 키](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
+
 Azure 클래식 가상 컴퓨터와 Resource Manager 가상 컴퓨터에 대한 명령이 서로 다릅니다.  다음은 클래식 및 Resource Manager 가상 컴퓨터의 예제입니다.
 
 클래식 가상 컴퓨터의 경우 다음 PowerShell 예제를 사용합니다.
@@ -115,9 +121,6 @@ $location = $vm.Location
 
 
 ```
-PowerShell을 사용하여 가상 컴퓨터를 구성할 때 **작업 영역 ID** 및 **기본 키**를 제공해야 합니다. OMS 포털의 **설정** 페이지나 앞 예제처럼 PowerShell을 사용하여 ID와 키를 찾을 수 있습니다.
-
-![작업 영역 ID 및 기본 키](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## <a name="deploy-the-vm-extension-using-a-template"></a>템플릿을 사용하여 VM 확장 배포
 Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의하는 간단한 템플릿을(JSON 형식으로) 만들 수 있습니다. 이 템플릿은 리소스 관리자 템플릿이며 배포를 정의하는 선언적 방법을 제공합니다. 템플릿을 사용하여 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
@@ -363,7 +366,20 @@ Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하�
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
-## <a name="troubleshooting-windows-virtual-machines"></a>Windows Virtual Machines 문제 해결
+## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 문제 해결
+일반적으로 Azure Portal 또는 Azure PowerShell 중 하나에서 무엇인가 작동하지 않을 경우 메시지가 표시됩니다.
+
+1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+2. VM을 찾아서 VM 세부 정보를 엽니다.
+3. **확장**을 클릭하여 OMS 확장을 사용하는지 여부를 확인합니다.
+
+   ![VM 확장 보기](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
+
+4. *MicrosoftMonitoringAgent*(Windows) 또는 *OmsAgentForLinux*(Linux) 확장을 클릭하고 세부 정보를 봅니다. 
+
+   ![VM 확장 세부 정보](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
+
+### <a name="troubleshooting-windows-virtual-machines"></a>Windows Virtual Machines 문제 해결
 *Microsoft Monitoring Agent* VM 에이전트 확장이 설치되지 않거나 문제를 보고할 경우 다음 절차를 수행하여 문제를 해결할 수 있습니다.
 
 1. [KB 2965986](https://support.microsoft.com/kb/2965986#mt1)의 절차를 통해 Azure VM 에이전트가 올바르게 설치되어 작동하는지 확인합니다.
@@ -383,7 +399,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 자세한 내용은 [Windows 확장 문제 해결](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-## <a name="troubleshooting-linux-virtual-machines"></a>Linux Virtual Machines 문제 해결
+### <a name="troubleshooting-linux-virtual-machines"></a>Linux Virtual Machines 문제 해결
 *OMS Agent for Linux* VM 에이전트 확장이 설치되지 않거나 문제를 보고할 경우 다음 절차를 수행하여 문제를 해결할 수 있습니다.
 
 1. 확장 상태가 *알 수 없음*이면 VM 에이전트 로그 파일 `/var/log/waagent.log`를 검토하여 Azure VM 에이전트가 올바르게 설치되어 작동하고 있는지 확인합니다. 

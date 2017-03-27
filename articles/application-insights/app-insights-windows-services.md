@@ -1,5 +1,5 @@
 ---
-title: "Windows 서비스 및 작업자 역할용 Application Insights | Microsoft Docs"
+title: "Windows 서비스 및 작업자 역할용 Azure Application Insights | Microsoft Docs"
 description: "ASP.NET 응용 프로그램에 Application Insights SDK를 수동으로 추가하여 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 * [Microsoft Azure](http://azure.com)구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 * Visual Studio 2013 이상.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Application Insights 리소스 만들기
+## <a name="add"></a>1. Application Insights 리소스 만들기
 [Azure 포털](https://portal.azure.com/)에 로그인한 다음 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.
 
 ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ Azure에서 [리소스](app-insights-resources-roles-access-control.md) 는 서�
 
 새 리소스르 만들기 위해 방금 수행한 단계는 모든 응용 프로그램을 모니터링하는 좋은 방법입니다. 이제 데이터를 보낼 수 있습니다.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. 응용 프로그램에 SDK 설치
+## <a name="sdk"></a>2. 응용 프로그램에 SDK 설치
 Application Insights SDK의 설치 및 구성은 작업하는 플랫폼에 따라 달라 집니다. ASP.NET 앱의 경우, 쉽습니다.
 
 1. Visual Studio에서 웹앱 프로젝트의 NuGet 패키지를 편집합니다.
@@ -84,17 +85,17 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
 [다양한 빌드 구성을 위해 키를 전환](app-insights-separate-resources.md)하려면 계측 키를 코드로 설정하는 것이 유용합니다. 키를 코드로 설정하면 `.config` 파일에서 설정할 필요가 없습니다.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> 프로젝트 실행
+## <a name="run"></a> 프로젝트 실행
 **F5** 키를 사용하여 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 
 Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ![Visual Studio에서 이벤트 수](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> 원격 분석 보기
+## <a name="monitor"></a> 원격 분석 보기
 [Azure 포털](https://portal.azure.com/) 로 돌아가서 Application Insights 리소스를 찾습니다.
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가&1;~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-windows-services/12-first-perf.png)
 
@@ -128,12 +129,11 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 > 
 > 
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>다음 단계
 * [원격 분석 더 추가](app-insights-asp-net-more.md) 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

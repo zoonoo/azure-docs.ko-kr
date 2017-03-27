@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
-ms.openlocfilehash: f421ebdc81ce413d69f62a3b86563ab4a09b747a
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 76769a10177457d46a280d931b273958fecb142a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -43,7 +43,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="azure-cli-10"></a>Azure CLI 1.0
-[최신 Azure CLI 1.0](../xplat-cli-install.md)을 설치하고 Azure 계정에 로그인하고 리소스 관리자 모드에 있는지 확인합니다(`azure config mode arm`).
+[최신 Azure CLI 1.0](../cli-install-nodejs.md)을 설치하고 Azure 계정에 로그인하고 리소스 관리자 모드에 있는지 확인합니다(`azure config mode arm`).
 
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 배포합니다.
 

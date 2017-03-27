@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -30,7 +31,7 @@ ms.lasthandoff: 02/16/2017
 > [!NOTE]
 > Beeline은 JDBC를 사용하여 Hive에 연결합니다. Hive로 JDBC를 사용하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
+## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
@@ -40,7 +41,7 @@ ms.lasthandoff: 02/16/2017
 
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
+## <a id="ssh"></a>SSH를 사용하여 연결
 SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인 이름)에 연결합니다. FQDN은 지정한 클러스터 이름과 그 뒤에 오는 **.azurehdinsight.net**으로 구성됩니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -58,7 +59,7 @@ Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
-## <a name="a-idbeelineause-the-beeline-command"></a><a id="beeline"></a>Beeline 명령 사용
+## <a id="beeline"></a>Beeline 명령 사용
 1. 연결되면 다음을 사용하여 Beeline을 시작합니다.
    
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -148,7 +149,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
      ```
 5. Beeline을 종료하려면 `!quit`을 사용합니다.
 
-## <a name="a-idfilearun-a-hiveql-file"></a><a id="file"></a>HiveQL 파일 실행
+## <a id="file"></a>HiveQL 파일 실행
 또한 Beeline은 HiveQL 문을 포함하는 파일을 실행하는 데 사용할 수 있습니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
 1. 다음 명령을 사용하여 **query.hql**이라는 새 파일을 만듭니다.
@@ -204,7 +205,7 @@ Beeline이 설치되어 있는 클러스터에 에지 노드가 있는 경우 �
 
 매개 변수/URI가 헤드 노드에서 직접 실행하거나 클러스터 내 에지 노드에서 실행하는 경우와 다르니 유의하세요. 이것은 인터넷에서 클러스터에 연결하는 경우 443 포트를 통해 트래픽을 라우팅하는 공용 게이트웨이를 사용하기 때문입니다. 또한, 몇 가지 다른 서비스가 443 포트에서 공용 게이트웨이를 통해 노출되기 때문에 URI가 직접 연결하는 경우와 다릅니다. 인터넷에서 연결하는 경우 암호를 제공하여 세션도 인증해야 합니다.
 
-## <a name="a-idsummaryaa-idnextstepsanext-steps"></a><a id="summary"></a><a id="nextsteps"></a>다음 단계
+## <a id="summary"></a><a id="nextsteps"></a>다음 단계
 여기에서 볼 수 있듯이 Beeline 명령을 사용하면 쉽게 HDInsight 클러스터에서 대화형으로 Hive 쿼리를 실행할 수 있습니다.
 
 HDInsight의 Hive에 대한 일반적인 정보:

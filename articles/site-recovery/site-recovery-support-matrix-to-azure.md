@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
-ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/22/2017
 **Hyper-V(Virtual Machine Manager 있음)** | System Center Virtual Machine Manager 2016 및 System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > Windows Server 2016 및 2012 R2 호스트가 혼합된 System Center Virtual Machine Manager 2016 클라우드는 현재 지원되지 않습니다.
+  > Windows Server 2016 및 2012 R2 호스트가 혼합된 System Center Virtual Machine Manager 2016 클라우드는 현재 지원되지 않습니다. 
 
 ### <a name="host-servers"></a>호스트 서버
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/22/2017
 **Hyper-V(Virtual Machine Manager 있음)** | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2<br/><br/> Windows Server 2016 호스트는 System Center Virtual Machine Manager 2016에서 관리되어야 합니다.
 
   >[!Note]
-  >Windows Server 2016 및 2012 R2를 실행하는 호스트가 혼합된 Hyper-V 사이트는 현재 지원되지 않습니다.
+  >Windows Server 2016 및 2012 R2를 실행하는 호스트가 혼합된 Hyper-V 사이트는 현재 지원되지 않습니다. Windows Server 2016 호스트에서 VM에 대한 대체 위치로 복구하는 방식은 현재 지원되지 않습니다.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
 

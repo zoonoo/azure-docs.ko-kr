@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7ad5eb2e53e846e7f19e9f136249e4ae280bf996
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -73,6 +74,9 @@ IoT Hub는 다양한 기능에 대해 다른 한도를 적용합니다.
 | 추가 끝점 | 유료 SKU 허브에는 10개, 무료 SKU 허브에는 하나의 추가 끝점이 있을 수 있습니다. |
 | 메시지 라우팅 규칙 | 유료 SKU 허브에는 100개, 무료 SKU 허브에는&5;개의 라우팅 규칙이 있을 수 있습니다. |
 
+> [!NOTE]
+> 현재 단일 IoT hub에 연결할 수는 장치의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/en-us/support/options/)에 문의하세요.
+
 ## <a name="next-steps"></a>다음 단계
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
@@ -87,9 +91,4 @@ IoT Hub는 다양한 기능에 대해 다른 한도를 적용합니다.
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

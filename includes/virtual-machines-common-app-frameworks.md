@@ -53,7 +53,7 @@ URL을 Azure 포털에 전송하면 Azure 포털을 사용하여 템플릿을 �
 **New-AzureRmResourceGroupDeployment** 명령을 실행하면 템플릿의 매개 변수 값을 입력하라는 메시지가 표시됩니다. 템플릿에 따라 Azure의 리소스 배포에 다소 시간이 걸릴 수 있습니다.
 
 ## <a name="azure-cli"></a>Azure CLI
-[Azure CLI를 설치](../articles/xplat-cli-install.md)하고 로그인한 다음 리소스 관리자 명령을 사용하도록 설정해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요.
+[Azure CLI를 설치](../articles/cli-install-nodejs.md)하고 로그인한 다음 리소스 관리자 명령을 사용하도록 설정해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 대괄호 안의 텍스트를 리소스 그룹 이름, 위치, 배포 이름 및 템플릿 이름으로 바꾼 후 다음 명령을 실행하여 리소스 그룹 및 배포를 만듭니다.
 
@@ -66,9 +66,4 @@ URL을 Azure 포털에 전송하면 Azure 포털을 사용하여 템플릿을 �
 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 모든 템플릿을 검색할 수 있습니다.
 
 [Azure 리소스 관리자](../articles/resource-group-template-deploy.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

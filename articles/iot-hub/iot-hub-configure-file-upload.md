@@ -17,10 +17,14 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
 ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
+ms.lasthandoff: 12/07/2016
 
 
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 파일 업로드 구성
+
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
+
 ## <a name="file-upload"></a>파일 업로드
 [IoT Hub에서 파일 업로드 기능][lnk-upload]을 사용하려면 먼저 Azure Storage 계정을 허브에 연결해야 합니다. **파일 업로드** 설정을 선택하여 수정하려는 IoT hub에 대한 파일 업로드 속성 목록을 표시합니다.
 
@@ -68,9 +72,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

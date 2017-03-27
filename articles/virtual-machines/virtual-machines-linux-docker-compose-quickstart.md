@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
-ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +65,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 이 명령이 `Succeeded`를 반환하는 경우 배포가 완료되었으며 다음 단계에서 VM에 SSH를 사용할 수 있습니다.
 
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
-최신 [Azure CLI 1.0](../xplat-cli-install.md)을 설치하고 Azure 계정에 로그인합니다. VM을 만드는 Resource Manager 모드에 있는지 확인합니다(`azure config mode arm`).
+최신 [Azure CLI 1.0](../cli-install-nodejs.md)을 설치하고 Azure 계정에 로그인합니다. VM을 만드는 Resource Manager 모드에 있는지 확인합니다(`azure config mode arm`).
 
 다음 예제에서는 `West US` 지역에 `myResourceGroup`이라는 리소스 그룹을 만들고 Azure Docker VM 확장으로 VM을 배포합니다. [Github의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)은 환경을 배포하는 데 사용됩니다.
 

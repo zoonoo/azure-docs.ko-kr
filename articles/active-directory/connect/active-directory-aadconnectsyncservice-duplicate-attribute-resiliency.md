@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 1209acfb13d53288b1ff0ed232c44c3fdcd3a9f4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>중복 특성 복원력으로 동작
 중복 특성으로 개체 프로비전 또는 업데이트에 완전히 실패하는 대신 Azure Active Directory는 고유성 제약 조건을 위반하는 중복 특성을 “격리합니다”. 이 특성이 UserPrincipalName과 같은 프로비전에 필요한 경우 서비스는 자리 표시자 값을 할당합니다. 이러한 임시 값의 형식은  
-"***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***"입니다.  
+“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
 **ProxyAddress**와 같은 특성이 필요하지 않은 경우 Azure Active Directory는 단순히 충돌 특성을 격리하고 개체 생성 또는 업데이트를 진행합니다.
 
 특성을 격리 시 충돌에 대한 정보는 이전 동작에 사용된 동일한 오류 보고서 전자 메일에 전송됩니다. 그러나 격리가 발생할 때 이 정보는 오류 보고서에 한 번만 표시되며 이후 메일에 계속해서 기록되지 않습니다. 또한 이 개체에 대한 내보내기가 성공했으므로 동기화 클라이언트는 오류를 기록하지 않고 후속 동기화 주기 시 만들기 / 업데이트 작업을 시도하지 않습니다.
@@ -50,7 +51,8 @@ ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
 ### <a name="enabling-duplicate-attribute-resiliency"></a>중복 특성 복원력 활성화
 중복 특성 복원력은 모든 Azure Active Directory 테넌트의 새로운 기본 동작입니다. 2016년 8월 22일 또는 그 이후에 동기화를 처음으로 사용하는 모든 테넌트에 기본적으로 설정됩니다. 이 날짜 이전에 동기화를 사용하도록 설정한 테넌트에는 이 기능이 일괄적으로 사용하도록 설정됩니다. 이 출시는 2016년 9월에 시작되며 기능이 사용되는 특정 날짜와 함께 각 테넌트의 기술 알림 담당자에게 전자 메일 알림이 전송됩니다.
 
-중복 특성 복원력이 설정된 후에는 해제할 수 없습니다.
+> [!NOTE]
+> 중복 특성 복원력이 설정된 후에는 해제할 수 없습니다.
 
 이 기능이 테넌트에 사용되는지 확인하려면 Azure Active Directory PowerShell 모듈의 최신 버전을 다운로드하여 다음을 실행하면 됩니다.
 
@@ -58,11 +60,8 @@ ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
 
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
-이 기능이 테넌트에 설정되기 전에 사전에 사용하도록 설정하려면 Azure Active Directory PowerShell 모듈의 최신 버전을 다운로드하여 다음을 실행하면 됩니다.
-
-`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
-
-`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
+> [!NOTE]
+> 이제는 중복 특성 복원력 기능을 사용자 테넌트에서 켜기 전에 사전에 활성화하는 데 Set-MsolDirSyncFeature cmdlet을 사용할 수 없습니다. 기능을 테스트하려면 새로운 Azure Active Directory 테넌트를 만들어야 합니다.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>DirSyncProvisioningErrors로 개체 식별
 중복 속성 충돌로 인해 이러한 오류가 있는 개체를 식별하는 방법은 현재 PowerShell Azure Active Directory 및 Office 365 관리자 포털로 두 가지 메서드가 있습니다. 향후 보고에 기반한 추가 포털로 확장할 계획이 있습니다.
@@ -71,9 +70,9 @@ ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
 이 항목에서 PowerShell cmdlet의 경우 다음은 true입니다.
 
 * 다음 cmdlet은 모두 대/소문자 구분입니다.
-* **–ErrorCategory PropertyConflict** 는 항상 포함되어야 합니다. 현재 다른 종류의 **ErrorCategory**는 없지만 나중에 확장될 수 있습니다.
+* **–ErrorCategory PropertyConflict**는 항상 포함되어야 합니다. 현재 다른 종류의 **ErrorCategory**는 없지만 나중에 확장될 수 있습니다.
 
-먼저 **Connect-MsolService** 를 실행하고 테넌트 관리자에 대한 자격 증명을 입력하여 시작합니다.
+먼저 **Connect-MsolService**를 실행하고 테넌트 관리자에 대한 자격 증명을 입력하여 시작합니다.
 
 그런 다음 다양한 방법으로 오류를 보려면 다음 cmdlet 및 연산자를 사용합니다.
 
@@ -174,10 +173,5 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 * [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 * [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

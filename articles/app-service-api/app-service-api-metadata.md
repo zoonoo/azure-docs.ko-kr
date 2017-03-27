@@ -3,7 +3,7 @@ title: "API 검색 및 코드 생성에 대한 App Service API 앱 메타데이�
 description: "Azure 앱 서비스에서 API 앱이 Swagger 메타데이터를 사용하여 API 검색 및 코드 생성을 용이하게 하는 방법을 알아봅니다."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 92057ef0c40bfc79a66265d2d369d7abf72adc8e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -35,7 +35,7 @@ API 앱의 속성에서 API 앱에 Swagger 2.0 JSON 메타데이터를 제공하
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Azure 리소스 관리자 속성
-또한 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../xplat-cli-install.md) 등 명령줄 도구의 [리소스 탐색기](https://resources.azure.com/) 또는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다. 
+또한 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../cli-install-nodejs.md) 등 명령줄 도구의 [리소스 탐색기](https://resources.azure.com/) 또는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다. 
 
 **리소스 탐색기**에서 **구독 > {your subscription} > resourceGroups > {your resource group} > 공급자 > Microsoft.Web > 사이트 > {your site} > 구성 > 웹**으로 이동하면 `apiDefinition` 속성이 표시됩니다.
 

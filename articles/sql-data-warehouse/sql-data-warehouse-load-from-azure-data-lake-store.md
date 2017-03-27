@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 3aa72480898e00cab8ee48e646ea63ade01f347f
-ms.openlocfilehash: 31c7337bdf9dd302ea2f7c5dd0af9d668b23acb2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ ms.lasthandoff: 02/22/2017
 >[!NOTE] 
 > SQL Data Warehouse에서 Azure Data Lake에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다.
 
-* SQL Server Management Studio 또는 SQL Server Data Tools, SSMS를 다운로드하고 연결하려면 [SSMS 쿼리](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms.md)를 참조하세요.
+* SQL Server Management Studio 또는 SQL Server Data Tools, SSMS를 다운로드하고 연결하려면 [SSMS 쿼리](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)를 참조하세요.
 
 * Azure SQL Data Warehouse, 만들려면 https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision을 따릅니다.
 
@@ -56,7 +57,7 @@ PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 �
 ###  <a name="create-a-credential"></a>자격 증명 만들기
 Azure Data Lake Store에 액세스하려면 다음 단계에서 사용되는 자격 증명 암호를 암호화하는 데이터베이스 마스터 키를 만들어야 합니다.
 그런 다음 AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Windows Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
-Azure Data Lake Store에 연결하려면 데이터베이스 범위 자격 증명을 만들기 전에 Azure Active Directory 응용 프로그램을 만들어야 합니다.
+Azure Data Lake Store에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Azure Data Lake 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 이러한 단계를 수행하기 위한 지침은 [여기](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)에 있습니다.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -72,7 +73,7 @@ CREATE MASTER KEY;
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADL_User
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
@@ -95,7 +96,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
     LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
-    CREDENTIAL = AzureStorageCredential
+    CREDENTIAL = ADLCredential
 );
 ```
 

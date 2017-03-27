@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/28/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 02b905b12344f23e0eb3b8d0a1969bf7c491119e
-ms.openlocfilehash: 0f7412d9ed3cacb043a5cf3f21d6109eeeeb074c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4f60937f9a9dd0e7d9939f85d1a9d442a4b7f266
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -245,5 +245,9 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)  
 [Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)  
+[보고서 포함](power-bi-embedded-embed-report.md)  
+[데이터 집합에서 새 보고서 만들기](power-bi-embedded-create-report-from-dataset.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 6a000e84f38e7e2b56f1d79d5c88f1704b6789a0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-namewhatisdiagaweb-server-diagnostics-and-application-diagnostics"></a><a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
+## <a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
 앱 서비스 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 **웹 서버 진단** 및 **응용 프로그램 진단**으로 구분됩니다.
 
 ### <a name="web-server-diagnostics"></a>웹 서버 진단
@@ -48,7 +48,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 웹앱에 콘텐츠를 게시하는 경우 앱 서비스 웹앱은 배포 정보도 로깅합니다. 이는 자동으로 수행되며 배포 로깅에 대한 구성 설정은 없습니다. 배포 로깅을 사용하면 배포가 실패한 이유를 확인할 수 있습니다. 예를 들어 사용자 지정 배포 스크립트를 사용하는 경우 스크립트가 실패한 이유를 확인하는 데 배포 로깅을 사용할 수 있습니다.
 
-## <a name="a-nameenablediagahow-to-enable-diagnostics"></a><a name="enablediag"></a>진단을 사용하도록 설정하는 방법
+## <a name="enablediag"></a>진단을 사용하도록 설정하는 방법
 [Azure Portal](https://portal.azure.com)에서 진단을 사용하려면, 웹앱의 블레이드에서 **설정>진단 로그**를 차례로 클릭합니다.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
@@ -90,7 +90,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 >
 >
 
-## <a name="a-namedownloada-how-to-download-logs"></a><a name="download"></a> 방법: 로그 다운로드
+## <a name="download"></a> 방법: 로그 다운로드
 웹 앱 파일 시스템에 저장된 진단 정보는 FTP를 사용하여 직접 액세스할 수 있습니다. 또한 Azure PowerShell 또는 Azure 명령줄 인터페이스를 사용하여 Zip 보관 파일로 다운로드할 수도 있습니다.
 
 로그가 저장되는 디렉터리 구조는 다음과 같습니다.
@@ -129,7 +129,7 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 이 명령을 실행하면 'webappname'이라는 웹 앱의 로그가 현재 디렉터리의 **diagnostics.zip** 이라는 파일에 저장됩니다.
 
 > [!NOTE]
-> Azure CLI(Azure Command-Line Interface)를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure CLI 사용 방법](../xplat-cli-install.md)을 참조하세요.
+> Azure CLI(Azure Command-Line Interface)를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure CLI 사용 방법](../cli-install-nodejs.md)을 참조하세요.
 >
 >
 
@@ -145,7 +145,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 [Application Insights로 추적되는 성능에 대해 알아보기](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="a-namestreamlogsa-how-to-stream-logs"></a><a name="streamlogs"></a> 방법: 스트림 로그
+## <a name="streamlogs"></a> 방법: 스트림 로그
 응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. 이는 Azure PowerShell 또는 Azure 명령줄 인터페이스 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍하도록 하면 가능합니다.
 
 > [!NOTE]
@@ -194,11 +194,11 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
     azure site log tail webappname --path http
 
 > [!NOTE]
-> Azure Command-Line Interface를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure Command-Line Interface 사용 방법](../xplat-cli-install.md)을 참조하세요.
+> Azure Command-Line Interface를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure Command-Line Interface 사용 방법](../cli-install-nodejs.md)을 참조하세요.
 >
 >
 
-## <a name="a-nameunderstandlogsa-how-to-understand-diagnostics-logs"></a><a name="understandlogs"></a> 방법: 진단 로그 이해
+## <a name="understandlogs"></a> 방법: 진단 로그 이해
 ### <a name="application-diagnostics-logs"></a>응용 프로그램 진단 로그
 응용 프로그램 진단은 로그가 파일 시스템, 테이블 저장소 또는 Blob 저장소 중 어디에 저장되는지에 따라 .NET 응용 프로그램 관련 형식으로 정보를 저장합니다. 이벤트가 발생한 날짜 및 시간, 이벤트가 생성된 프로세스 ID, 이벤트 유형(정보, 경고, 오류), 이벤트 메시지 등 저장된 데이터의 기본 집합은 모든 세 저장소 유형 전체에서 동일합니다.
 
@@ -274,7 +274,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 >
 >
 
-## <a name="a-namenextstepsa-next-steps"></a><a name="nextsteps"></a> 다음 단계
+## <a name="nextsteps"></a> 다음 단계
 * [웹앱을 모니터링하는 방법](/manage/services/web-sites/how-to-monitor-websites/)
 * [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

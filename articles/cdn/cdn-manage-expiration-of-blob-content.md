@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7c6ca3789e9a5dcde799d9ef40b58bd2f3c8966c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -98,7 +99,7 @@ class Program
 > 
 
 ## <a name="other-methods"></a>다른 방법
-* [Azure 명령줄 인터페이스](../xplat-cli-install.md)
+* [Azure 명령줄 인터페이스](../cli-install-nodejs.md)
   
     Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다.  이 예제에서는 TTL을&1;시간(3600초)으로 설정합니다.
   
@@ -118,10 +119,5 @@ Blob의 TTL을 쉽게 확인할 수 있습니다.  브라우저 [개발자 도�
 ## <a name="next-steps"></a>다음 단계
 * [*캐시 제어* 헤더에 대해 참고하기](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법을 알아봅니다.](cdn-manage-expiration-of-cloud-service-content.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

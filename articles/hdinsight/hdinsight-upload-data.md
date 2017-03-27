@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -64,7 +65,7 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../xplat-cli-install.md)
+1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../cli-install-nodejs.md)
 2. 명령 프롬프트, bash 또는 다른 셸을 열고 다음을 사용하여 Azure 구독을 인증합니다.
 
         azure login
@@ -302,7 +303,7 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[azurecli]: ../xplat-cli-install.md
+[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
