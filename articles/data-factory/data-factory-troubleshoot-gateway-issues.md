@@ -2,7 +2,6 @@
 title: "데이터 관리 게이트웨이 문제 해결 | Microsoft Docs"
 description: "데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다."
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
@@ -91,10 +91,12 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 ![게이트웨이 키가 잘못되었거나 비어 있음](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>원인
-게이트웨이 키가 다시 생성되었거나 게이트웨이가 포털에서 삭제되었습니다.
+게이트웨이 키가 다시 생성되었거나 게이트웨이가 Azure Portal에서 삭제되었습니다. 데이터 관리 게이트웨이 설치가 최신이 아닌 경우에도 발생할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
-게이트웨이가 여전히 존재하면 포털에서 게이트웨이 키를 생성하고 복사 단추를 사용하여 전체 키를 복사합니다. 게이트웨이를 등록하려면 이 창에 붙여넣습니다. 그렇지 않은 경우 게이트웨이를 다시 만들고 처음부터 다시 시작합니다.
+데이터 관리 게이트웨이 설치가 최신 버전인지 확인하고 Microsoft [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkId=271260)에서 최신 버전을 찾을 수 있습니다.
+
+설치가 최신이고 게이트웨이가 포털에 여전히 존재하는 경우 Azure Portal에서 게이트웨이 키를 생성하고 복사 단추를 사용하여 전체 키를 복사한 다음 이 창에 붙여넣어 게이트웨이를 등록합니다. 그렇지 않은 경우 게이트웨이를 다시 만들고 처음부터 다시 시작합니다.
 
 ### <a name="6-problem"></a>6. 문제
 게이트웨이 등록할 때 다음 오류 메시지가 표시될 수 있습니다.
@@ -250,7 +252,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
     ![데이터 관리 게이트웨이 - 로그 보내기](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
 3. (선택 사항) **로그 보기**를 클릭하여 이벤트 뷰어에서 로그를 검토합니다.
 4. (선택 사항) **개인 정보 취급 방침**을 클릭하여 Microsoft 웹 서비스 개인 정보 취급 방침을 검토합니다.
-5. 업로드할 항목에 만족하면 **로그 보내기**를 클릭하여 문제를 해결하기 위해 지난 7일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
+5. 업로드할 항목에 만족하면 **로그 보내기**를 클릭하여 문제를 해결하기 위해 지난&7;일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기 상태](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. 작업이 완료되면 다음 스크린샷과 같은 대화 상자가 표시됩니다.
@@ -284,9 +286,4 @@ Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인
  게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.
 
 ![데이터 관리 게이트웨이 - 이벤트 뷰어의 로그](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

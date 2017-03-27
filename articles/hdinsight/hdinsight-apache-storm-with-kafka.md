@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -158,7 +159,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     Storm 클러스터에서 토폴로지를 시작할 때 이러한 값을 사용하므로 이 명령에서 반환된 값을 저장합니다.
 
     > [!NOTE]
-    > 이전 명령은 Ambari에 직접 연결되는 __http://headnodehost:8080/__을 사용합니다. 이 정보를 클러스터 외부에서 인터넷을 통해 검색해야 하는 경우 __https://kafka-BASENAME/__을 대신으로 사용해야 합니다.
+    > 이전 명령은 Ambari에 직접 연결되는 __http://headnodehost:8080/__ 을 사용합니다. 이 정보를 클러스터 외부에서 인터넷을 통해 검색해야 하는 경우 __https://kafka-BASENAME/__ 을 대신으로 사용해야 합니다.
 
 3. 다음 명령을 사용하여 Kafka에 토픽을 만듭니다.
    
@@ -318,10 +319,5 @@ Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 Stor
 HDInsight의 Storm에서 사용할 수 있는 더 많은 예제 토폴로지는 [예제 Storm 토폴로지 및 구성 요소](hdinsight-storm-example-topology.md)를 참조하세요.
 
 Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

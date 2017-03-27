@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 7c32d69f3d6d2cc60f830db96b6aea47ce8712ca
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ DocumentDB의 각 컬렉션은 처리량으로 예약되고 요청 단위를 기
 * 컬렉션의 요청 단위 용량을 초과하면 어떻게 되나요?
 
 ## <a name="request-units-and-request-charges"></a>요청 단위 및 요청 요금
-DocumentDB는 응용 프로그램의 처리량 수요를 충족하도록 리소스를 *예약* 하여 신속하고 예측 가능한 성능을 제공합니다.  시간이 지나면 응용 프로그램 로드 및 액세스 패턴이 변하는데, DocumentDB를 사용하면 응용 프로그램에 제공되는 예약된 처리량을 간편하게 늘리거나 줄일 수 있습니다.
+DocumentDB 및 MongoDB API는 응용 프로그램의 처리량 수요를 충족하도록 리소스를 *예약* 하여 신속하고 예측 가능한 성능을 제공합니다.  시간이 지나면 응용 프로그램 로드 및 액세스 패턴이 변하는데, DocumentDB를 사용하면 응용 프로그램에 제공되는 예약된 처리량을 간편하게 늘리거나 줄일 수 있습니다.
 
 DocumentDB에서는 예약된 처리량이 초당 처리하는 요청 단위로 지정됩니다.  요청 단위란 응용 프로그램에 보장되는 초당 요청 단위의 양을 *예약* 할 수 있는 처리량 통화라고 생각하시면 됩니다.  문서 작성, 쿼리 수행, 문서 업데이트 등 DocumentDB의 각 작업에서는 CPU, 메모리 및 IOPS를 사용합니다.  즉, 각 작업이 *요청 요금*을 발생시키고, 요청 요금은 *요청 단위*로 표시됩니다.  응용 프로그램의 처리량 요구 사항과 함께 요청 단위 요금에 영향을 주는 요소를 이해하면 응용 프로그램을 최대한 경제적으로 실행할 수 있습니다. 
 
@@ -51,7 +51,7 @@ Aravind Ramachandran이 DocumentDB의 요청 단위 및 예측 가능한 성능�
 > 
 > 
 
-## <a name="specifying-request-unit-capacity"></a>요청 단위 용량 지정
+## <a name="specifying-request-unit-capacity-in-documentdb"></a>DocumentDB에서 요청 단위 용량 지정
 DocumentDB 컬렉션을 만들 때 컬렉션에 대해 예약하려는 초당 요청 단위 수(초당 RU)를 지정합니다. 프로비전된 처리량에 따라 DocumentDB는 컬렉션을 호스트하는 실제 파티션을 할당하고 커짐에 따라 파티션에서 데이터를 분할/균형 조정합니다.
 
 DocumentDB는 컬렉션이 10,000 요청 단위 이상으로 프로비전될 때 지정될 파티션 키가 필요합니다. 나중에 10,000 요청 단위를 초과하는 컬렉션의 처리량을 크기 조정하는 데 파티션 키도 필요합니다. 따라서 초기 처리량에 관계 없이 컬렉션을 만들 때 [파티션 키](documentdb-partition-data.md)를 구성하는 것이 좋습니다. 데이터는 여러 파티션에 분할되어야 하므로 컬렉션 및 요청이 DocumentDB에서 균일하게 확장될 수 있도록 카디널리티가 높은(수백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 
@@ -61,7 +61,7 @@ DocumentDB는 컬렉션이 10,000 요청 단위 이상으로 프로비전될 때
 
 .NET SDK를 사용하여 초당 3,000 요청 단위로 컬렉션을 만들기 위한 코드 조각은 다음과 같습니다.
 
-```C#
+```csharp
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
@@ -76,7 +76,7 @@ DocumentDB는 처리량의 예약 모델에서 작동합니다. 즉, 능동적�
 
 각 컬렉션은 컬렉션의 프로비전된 처리량에 대한 메타데이터가 있는 DocumentDB의 `Offer` 리소스에 매핑됩니다. 컬렉션에 대해 해당하는 제품 리소스를 조회한 다음 새 처리량 값으로 업데이트하여 할당된 처리량을 변경할 수 있습니다. 다음 코드 조각에서는 .NET SDK를 사용하여 컬렉션 처리량을 5,000RU/s로 변경합니다.
 
-```C#
+```csharp
 // Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -89,6 +89,13 @@ offer = new OfferV2(offer, 5000);
 // Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
+
+처리량을 변경할 때 컬렉션의 가용성에는 영향을 주지 않습니다. 일반적으로 새로 예약된 처리량은 새 처리량의 응용 프로그램에서 몇 초 이내에 유효합니다.
+
+## <a name="specifying-request-unit-capacity-in-api-for-mongodb"></a>MongoDB API에서 요청 단위 용량 지정
+MongoDB API를 통해 컬렉션에 대해 예약하려는 초당 요청 단위 수(초당 RU)를 지정할 수 있습니다.
+
+MongoDB API는 DocumentDB와 동일한 처리량 기반 예약 모델에서 작동합니다. 즉, 능동적으로 *사용된* 처리량이 얼마가 됐든, 해당 컬렉션에 대해 *예약된* 처리량에 따라 요금이 청구됩니다. 응용 프로그램의 부하, 데이터 및 사용 패턴이 변하면 그에 따라 [Azure Portal](https://portal.azure.com)을 통해 예약된 RU 양을 쉽게 늘리거나 줄일 수 있습니다.
 
 처리량을 변경할 때 컬렉션의 가용성에는 영향을 주지 않습니다. 일반적으로 새로 예약된 처리량은 새 처리량의 응용 프로그램에서 몇 초 이내에 유효합니다.
 
@@ -125,37 +132,37 @@ DocumentDB 컬렉션에 대해 예약할 요청 단위 수를 예상할 때 다�
             <td valign="top"><p>1KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1,000RU/s</p></td>
+            <td valign="top"><p>(500 *1) + (100* 5) = 1,000RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 5) + (100 * 5) = 3,000RU/s</p></td>
+            <td valign="top"><p>(500 *5) + (100* 5) = 3,000RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1,350RU/s</p></td>
+            <td valign="top"><p>(500 *1.3) + (100* 7) = 1,350RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4,150RU/s</p></td>
+            <td valign="top"><p>(500 *1.3) + (500* 7) = 4,150RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 10) + (100 * 48) = 9,800RU/s</p></td>
+            <td valign="top"><p>(500 *10) + (100* 48) = 9,800RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 10) + (500 * 48) = 29,000RU/s</p></td>
+            <td valign="top"><p>(500 *10) + (500* 48) = 29,000RU/s</p></td>
         </tr>
     </tbody>
 </table>
@@ -209,10 +216,42 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 5. 응용 프로그램에서 활용하는 모든 사용자 지정 스크립트(저장된 프로시저, 트리거, 사용자 정의 함수)의 요청 단위 요금을 기록합니다.
 6. 예상되는 초당 작업 수를 고려하여 필요한 요청 단위를 계산합니다.
 
+### <a id="GetLastRequestStatistics"></a>MongoDB API의 GetLastRequestStatistics 명령 사용
+MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사용자 지정 명령인 *getLastRequestStatistics*를 지원합니다.
+
+예를 들어 Mongo Shell에서 요청 비용을 확인할 작업을 실행합니다.
+```
+> db.sample.find()
+```
+
+다음으로 *getLastRequestStatistics* 명령을 실행합니다.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+이 점을 염두에 두고, 응용 프로그램에 필요한 예약된 처리량을 예측하는 한 가지 방법은 응용 프로그램에서 사용하는 대표적인 문서에 대해 실행되는 일반 작업과 연결된 요청 단위 요금을 기록한 다음, 예상되는 초당 수행 작업 수를 추정하는 것입니다.
+
+> [!NOTE]
+> 인덱싱된 속성과 크기 및 수가 많이 다른 문서 유형이 있는 경우에는 일반 문서의 각 *유형* 과 연결된 적용 가능한 작업 요청 단위 요금을 기록합니다.
+> 
+> 
+
+## <a name="use-api-for-mongodbs-portal-metrics"></a>MongoDB API 포털 메트릭 사용
+MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
+
+![MongoDB API 포털 메트릭][6]
+
 ## <a name="a-request-unit-estimation-example"></a>요청 단위 추정 예제
 다음과 같은 ~1KB 문서를 가정하겠습니다.
 
-```JSON
+```json
 {
  "id": "08259",
   "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
@@ -301,7 +340,7 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
 
-## <a id="RequestRateTooLarge"></a> 예약된 처리량 제한 초과
+## <a id="RequestRateTooLarge"></a> DocumentDB에서 예약된 처리량 제한 초과
 요청 단위 소비는 초당 비율로 평가된다고 했습니다. 컬렉션에서 프로비전된 요청 단위 속도를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 해당 컬렉션에 대한 요청이 제한됩니다. 제한이 발생하면 서버에서 RequestRateTooLargeException(HTTP 상태 코드 429)를 사용하여 선제적으로 요청을 종료하고, 사용자가 요청을 다시 시도할 수 있을 때까지 기다려야 하는 시간을 밀리초 단위로 표시하는 x-ms-retry-after-ms 헤더를 반환합니다.
 
     HTTP Status 429
@@ -311,6 +350,9 @@ DocumentDB 서비스의 모든 응답은 요청에 사용된 요청 단위가 �
 .NET 클라이언트 SDK 및 LINQ 쿼리를 사용하는 경우에는 거의 대부분 이 예외를 처리할 필요가 없습니다. .NET 클라이언트 SDK 최신 버전이 이 응답을 암시적으로 catch하고, 서버에서 지정한 retry-after 헤더를 준수하고, 요청을 다시 시도하기 때문입니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
 
 여러 클라이언트가 누적적으로 요청 속도를 초과하여 작동하는 경우에는 기본 재시도 동작으로 충분하지 않을 수 있으며, 클라이언트가 응용 프로그램에 상태 코드 429와 함께 DocumentClientException을 throw합니다. 이 경우 응용 프로그램의 오류 처리 루틴에서 재시도 동작 및 논리를 처리하는 방법 또는 컬렉션에 대해 예약된 처리량을 늘리는 방법을 고려해 볼 수 있습니다.
+
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
+컬렉션에서 프로비전된 요청 단위를 초과하는 응용 프로그램의 경우 비율이 예약된 수준 이하로 떨어질 때까지 제한됩니다. 제한이 발생하면 백 엔드는 *16500* 오류 코드 - *너무 많은 요청*으로 요청을 먼저 종료합니다. 기본적으로 MongoDB API는 *너무 많은 요청* 오류 코드를 반환되기까지 최대 10번 자동으로 재시도합니다. *너무 많은 요청* 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 동작을 추가하거나 [컬렉션에 대해 예약된 처리량을 늘리는 방법](documentdb-set-throughput.md)을 고려해 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure DocumentDB 데이터베이스의 예약된 처리량에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
@@ -328,4 +370,5 @@ DocumentDB를 사용하여 규모 및 성능 테스트를 시작하려면 [Azure
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png
 

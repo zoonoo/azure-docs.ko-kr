@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/08/2017
 
 ![](./media/app-insights-metrics-explorer/01-overview.png)
 
-Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대부분의 경우 사용자 지정할 수 있으며 블레이드에 차트를 더 추가할 수 있습니다. 개요 블레이드에서 "서버 응답" 같은 제목이 있는 더 자세한 차트를 클릭하거나 **메트릭 탐색기**를 클릭하여 사용자 지정 차트를 만들 수 있는 새 블레이드를 엽니다.
+Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대부분의 경우 사용자 지정할 수 있으며 블레이드에 차트를 더 추가할 수 있습니다. 개요 블레이드에서 더 자세한 차트("Servers"와 같은 타일이 있음)를 클릭하거나 **메트릭 탐색기**를 클릭하여 사용자 지정 차트를 만들 수 있는 새 블레이드를 엽니다.
 
 ## <a name="time-range"></a>시간 범위
 모든 블레이드의 차트 또는 표에서 다루는 시간 범위를 변경할 수 있습니다.
@@ -175,16 +175,6 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 [경고에 대해 알아봅니다][alerts].
 
-## <a name="export-to-excel"></a>Excel로 내보내기
-메트릭 탐색기에 표시된 메트릭 데이터를 Excel 파일로 내보낼 수 있습니다. 내보낸 데이터에는 포털에서 볼 수 있는 모든 차트와 테이블의 데이터가 포함되어 있습니다.
-
-![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/app-insights-metrics-explorer/31-export.png)
-
-각 차트 또는 테이블에 대한 데이터는 Excel 파일의 별도 시트에 내보내집니다.
-
-표시된 내용이 내보내지는 내용입니다. 내보내는 데이터의 범위를 변경하려면 시간 범위 또는 필터를 변경합니다. 테이블의 경우, **추가 로드** 명령이 표시되어 있으면 내보내기를 클릭하기 전에 이 명령을 클릭하여 내보낼 데이터를 더 지정할 수 있습니다.
-
-*내보내기는 현재 Internet Explorer 및 Chrome에 대해서만 작동합니다. 우리는 다른 브라우저에 대한 지원 추가에 관하여 연구 중입니다.*
 
 ## <a name="continuous-export"></a>연속 내보내기
 데이터를 외부에서 처리할 수 있도록 지속적으로 내보내려면 [연속 내보내기](app-insights-export-telemetry.md)를 사용하는 것이 좋습니다.
@@ -193,7 +183,9 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI를 내보낼](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)수 있습니다.
 
 ## <a name="analytics"></a>분석
-[분석](app-insights-analytics.md) 은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 더욱 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 반면, 대시보드의 차트와 경고를 자동으로 새로 고치려는 경우에는 메트릭 탐색기를 사용합니다.
+[분석](app-insights-analytics.md) 은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 더욱 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 
+
+메트릭 차트에서 분석 아이콘을 클릭하여 해당하는 분석 쿼리를 직접 가져올 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 *차트에 데이터가 표시되지 않습니다.*

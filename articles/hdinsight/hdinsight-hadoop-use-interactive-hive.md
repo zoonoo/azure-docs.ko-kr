@@ -10,6 +10,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +20,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 6971e123b388eab689e02a5c67809509c2ad29c6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -63,10 +65,5 @@ Hive 쿼리를 실행하는 방식에 대한 다양한 옵션이 있습니다.
 * [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md): HDInsight에서 대화형 Hive 클러스터를 만드는 방법을 알아봅니다.
 * [Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md): Beeline을 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다.
 * [Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md): Excel을 Hive에 연결하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

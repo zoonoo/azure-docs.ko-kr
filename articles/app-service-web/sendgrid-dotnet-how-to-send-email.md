@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 10f07b5eb649739ff1288ebb2703186fd75930cc
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 534397378a4d83414bfe62f2dd2c57678f09c429
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,7 +50,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 응용 프로그램에서 SendGrid NuGet 패키지를 설치하려면 다음을 수행합니다.
 
-1. **새 프로젝트**를 만들고 **템플릿**을 선택합니다.
+1. **새 프로젝트**를 클릭하고 **템플릿**을 선택합니다.
 
    ![새 프로젝트 만들기][create-new-project]
 2. **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
@@ -83,9 +83,9 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
 
     var recipients = new List<EmailAddress>
     {
-        new EmailAddress(){ "jeff@example.com", "Jeff Smith" },
-        new EmailAddress(){ "anna@example.com", "Anna Lidman" },
-        new EmailAddress(){ "peter@example.com", "Peter Saddow" }
+        new EmailAddress("jeff@example.com", "Jeff Smith"),
+        new EmailAddress("anna@example.com", "Anna Lidman"),
+        new EmailAddress("peter@example.com", "Peter Saddow")
     };
     msg.AddTos(recipients);
 

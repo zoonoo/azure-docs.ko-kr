@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: d8ea4fb54db5c114aa886a6267b18eba6563d231
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 05e8c264376b976bcdc8f3e1f03ed79cb712991e
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -240,7 +242,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 
 - - -
 
-## <a name="a-idappendix-aaappendix-a---upload-flight-delay-data-to-azure-blob-storage"></a><a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
+## <a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
 데이터 파일과 HiveQL 스크립트 파일을 업로드하려면( [부록 B](#appendix-b)참조) 약간의 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 만들고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 * **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure 저장소 계정을 사용합니다.** HDInsight 클러스터에는 저장소 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
@@ -360,7 +362,7 @@ tutorials/flightdelay/data 경로는 파일을 업로드했을 때 만든 가상
 
 - - -
 
-## <a name="a-idappendix-baappendix-b---create-and-upload-a-hiveql-script"></a><a id="appendix-b"></a>부록 B - HiveQL 스크립트 만들기 및 업로드
+## <a id="appendix-b"></a>부록 B - HiveQL 스크립트 만들기 및 업로드
 Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키지할 수 있습니다. 이 섹션에서는 HiveQL 스크립트를 만든 다음 Azure PowerShell을 사용하여 Azure Blob 저장소에 업로드하는 방법을 보여 줍니다. Hive에서는 HiveQL 스크립트를 Azure Blob 저장소에 저장해야 합니다.
 
 HiveQL 스크립트는 다음을 수행합니다.
@@ -559,7 +561,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
    * **$srcDataFolder** 및 **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"
 
 - - -
-## <a name="a-idappendix-caappendix-c---prepare-an-azure-sql-database-for-the-sqoop-job-output"></a><a id="appendix-c"></a>부록 C - Azure SQL 데이터베이스에서 Sqoop 작업 출력 준비
+## <a id="appendix-c"></a>부록 C - Azure SQL 데이터베이스에서 Sqoop 작업 출력 준비
 **SQL 데이터베이스를 준비하려면(이 작업을 Sqoop 스크립트와 통합)**
 
 1. 매개 변수를 준비합니다.
@@ -709,7 +711,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 4. **F5** 키를 눌러 스크립트를 실행합니다.
 5. 스크립트 출력의 유효성을 검사합니다. 스크립트가 정상적으로 실행되었는지 확인합니다.
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
+## <a id="nextsteps"></a> 다음 단계
 이제 파일을 Azure Blob 저장소로 업로드하는 방법, Azure Blob 저장소의 데이터를 사용하여 Hive 테이블을 채우는 방법, Hive 쿼리를 실행하는 방법, Sqoop을 사용하여 HDFS의 데이터를 Azure SQL 데이터베이스로 내보내는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작][hdinsight-get-started]
@@ -744,9 +746,4 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

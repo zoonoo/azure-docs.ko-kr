@@ -12,7 +12,7 @@
 * [데이터 디스크 연결](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>준비
-Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 Azure 계정이 있어야 합니다. Azure CLI가 없으면 [설치](../articles/xplat-cli-install.md)하세요.
+Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 Azure 계정이 있어야 합니다. Azure CLI가 없으면 [설치](../articles/cli-install-nodejs.md)하세요.
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>0.9.0 이상으로 Azure CLI 버전 업데이트
 0.9.0 버전 이상을 이미 설치했는지 확인하려면 `azure --version` 을 입력합니다.
@@ -80,7 +80,7 @@ azure config mode arm
 
 Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../articles/resource-group-authoring-templates.md)을 참조하세요.
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>작업: Azure에서 VM 빠르게 만들기
+## <a id="quick-create-a-vm-in-azure"></a>작업: Azure에서 VM 빠르게 만들기
 경우에 따라 필요한 이미지를 알고 있고 해당 이미지로 만든 VM이 당장 필요할 수 있지만 인프라에 대해서는 너무 염려하지 않아도 됩니다. 새 VM에서 테스트할 수도 있습니다. 이때 `azure vm quick-create` 명령을 사용하고 VM 및 해당 인프라를 만드는 데 필요한 인수를 전달하면 됩니다.
 
 먼저 리소스 그룹을 만듭니다.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 이제 새 VM으로 전환하면 됩니다.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>작업: 템플릿에서 Azure의 VM 배포
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>작업: 템플릿에서 Azure의 VM 배포
 Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러한 섹션의 지침을 사용하세요. 이 템플릿에서는 단일 서브넷을 사용하는 새 가상 네트워크에 단일 가상 컴퓨터를 만들고 `azure vm quick-create`와 달리 원하는 항목을 정확하게 설명하고 오류 없이 반복할 수 있도록 합니다. 다음은 이 템플릿에서 만드는 항목입니다.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>작업: 사용자 지정 VM 이미지 만들기
+## <a id="create-a-custom-vm-image"></a>작업: 사용자 지정 VM 이미지 만들기
 위에서 템플릿의 기본 사용법을 확인했으므로 이제 유사한 지침을 사용하여 Azure의 특정 .vhd 파일에서 Azure CLI를 통해 템플릿을 사용하여 사용자 지정 VM을 만들 수 있습니다. 여기서 차이점은 이 템플릿의 경우 특정 VHD(가상 하드 디스크)에서 단일 가상 컴퓨터를 만든다는 점입니다.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>1단계: JSON 파일에서 템플릿 검사
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>작업: 가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 VM 응용 프로그램 배포
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>작업: 가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 VM 응용 프로그램 배포
 이 템플릿에서는 하나의 부하 분산 장치 아래에 2개의 가상 컴퓨터를 만들고 포트 80에서 부하 분산 규칙을 구성할 수 있습니다. 또한 이 템플릿에서는 저장소 계정, 가상 네트워크, 공용 IP 주소, 가용성 집합 및 네트워크 인터페이스를 배포합니다.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 이 템플릿은 Windows Server 이미지를 배포하지만 Linux 이미지로 간단하게 대체할 수 있습니다. 여러 swarm 관리자로 Docker Cluster를 만들려고 하시나요? [가능합니다](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>작업: 리소스 그룹 제거
+## <a id="remove-a-resource-group"></a>작업: 리소스 그룹 제거
 리소스 그룹에 다시 배포할 수 있습니다. 그러나 사용을 마친 경우에는 `azure group delete <group name>`을 사용하여 삭제합니다.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>작업: 리소스 그룹 배포에 대한 로그 표시
+## <a id="show-the-log-for-a-resource-group-deployment"></a>작업: 리소스 그룹 배포에 대한 로그 표시
 템플릿을 만들거나 사용할 때 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. (배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md)을 참조하세요.)
 
 예를 들어 특정 오류를 대상으로 지정하려면 **jq** 와 같은 도구를 사용하여 해결해야 하는 개별 오류와 같은 항목을 좀더 정확하게 쿼리할 수 있습니다. 다음 예제에서는 **jq**를 사용하여 **lbgroup**에 대한 배포 로그를 구문 분석하고 오류를 찾습니다.
@@ -1191,7 +1191,7 @@ azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Fail
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>작업: 가상 컴퓨터에 대한 정보 표시
+## <a id="display-information-about-a-virtual-machine"></a>작업: 가상 컴퓨터에 대한 정보 표시
 `azure vm show <groupname> <vmname>` 명령을 사용하여 리소스 그룹의 특정 VM에 대한 정보를 확인할 수 있습니다. 그룹에 VM이 둘 이상 있는 경우 `azure vm list <groupname>`을 사용하여 한 그룹의 VM을 먼저 나열해야 할 수 있습니다.
 
 ```azurecli
@@ -1263,10 +1263,10 @@ info:    vm show command OK
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>작업: Linux 기반 가상 컴퓨터에 로그온
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>작업: Linux 기반 가상 컴퓨터에 로그온
 일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>작업: VM 중지
+## <a id="stop-a-virtual-machine"></a>작업: VM 중지
 다음 명령을 실행합니다.
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>작업: VM 시작
+## <a id="start-a-virtual-machine"></a>작업: VM 시작
 다음 명령을 실행합니다.
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>작업: 데이터 디스크 연결
+## <a id="attach-a-data-disk"></a>작업: 데이터 디스크 연결
 또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
 
 새 디스크를 연결하려면 다음 명령을 실행합니다.
@@ -1306,8 +1306,3 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 **arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리자에 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

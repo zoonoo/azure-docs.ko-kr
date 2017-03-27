@@ -2,8 +2,7 @@
 title: "Azure .NET SDK 정의"
 description: "Azure .NET SDK에 포함된 항목에 대해 알아봅니다."
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: chrissfanos
 editor: mollybos
 services: 
 ms.assetid: f70279ac-7c56-4d6a-9882-352a8b644a4b
@@ -13,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
 ms.openlocfilehash: 5f61a5422fc36b2468585e601823f292680142ec
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -26,7 +26,7 @@ Azure SDK for .NET은 Azure에서 실행되는 앱을 개발, 테스트 및 배�
 
 Azure SDK for .NET은 또한 [Azure 서비스를 사용하기 위한 클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkId=510472)로 구성됩니다. 해당 라이브러리는 NuGet을 사용하여 별도로 설치됩니다.
 
-## <a name="a-idincludedawhats-included-in-the-azure-sdk-for-net"></a><a id="included"></a>Azure SDK for .NET에 포함된 항목
+## <a id="included"></a>Azure SDK for .NET에 포함된 항목
 Azure SDK for .NET은 다음 제품을 설치합니다.
 
 * [Visual Studio Community Edition 2015](#vwd)
@@ -42,41 +42,41 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 * [Visual Studio용 Microsoft ASP.NET 및 웹 도구](#wte)
 * [Visual Studio용 Microsoft Azure Data Lake 도구](#datalake)
 
-### <a name="a-idvwdavisual-studio-community-edition-2015"></a><a id="vwd"></a>Visual Studio Community Edition 2015
+### <a id="vwd"></a>Visual Studio Community Edition 2015
 컴퓨터에 Visual Studio가 없는 경우 SDK에서 [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs)를 설치합니다.
 
-### <a name="a-idstgemulatoramicrosoft-azure-storage-emulator"></a><a id="stgemulator"></a>Microsoft Azure 저장소 에뮬레이터
+### <a id="stgemulator"></a>Microsoft Azure 저장소 에뮬레이터
 [Azure 저장소 에뮬레이터](http://msdn.microsoft.com/library/hh403989.aspx) 는 로컬에서 테스트할 수 있도록 SQL Server 인스턴스 및 로컬 파일 시스템을 사용하여 Azure 저장소(큐, 테이블, blob)를 시뮬레이트합니다.
 
-### <a name="a-idstgtoolsamicrosoft-azure-storage-tools"></a><a id="stgtools"></a>Microsoft Azure 저장소 도구
+### <a id="stgtools"></a>Microsoft Azure 저장소 도구
 이 제품은 Azure 저장소 계정으로 데이터를 전송하거나 계정에서 데이터를 전송하는 데 사용할 수 있는 명령줄 도구인 [AzCopy](http://aka.ms/AzCopy)를 설치합니다.
 
-### <a name="a-idauthamicrosoft-azure-authoring-tools"></a><a id="auth"></a>Microsoft Azure 작성 도구
+### <a id="auth"></a>Microsoft Azure 작성 도구
 이 제품에는 다음이 포함됩니다.
 
 * 배포 패키지를 만들기 위한 [CSPack 명령줄 도구](http://msdn.microsoft.com/library/gg432988.aspx)
 * 원격 데스크톱 연결을 통해 클라우드 서비스 역할 인스턴스에 액세스하는 데 사용되는 암호를 암호화하기 위한 [CSEncrypt 명령줄 도구](http://msdn.microsoft.com/library/hh404001.aspx)
 * 클라우드 서비스 프로젝트가 런타임 환경과 통신하고 진단하는 데 필요한 런타임 이진. NuGet 패키지에서는 해당 이진을 사용할 수 없습니다.
 
-### <a name="a-idemulatoramicrosoft-azure-emulator"></a><a id="emulator"></a>Microsoft Azure 에뮬레이터
+### <a id="emulator"></a>Microsoft Azure 에뮬레이터
 [Azure 에뮬레이터](http://msdn.microsoft.com/library/dn339018.aspx) 는 Azure에 배포하기 전에 사용자 컴퓨터에서 클라우드 서비스 프로젝트를 로컬로 테스트할 수 있도록 클라우드 서비스 환경을 시뮬레이트합니다.
 
-### <a name="a-idhdinsightahdinsight-tools-for-visual-studio-and-microsoft-hive-odbc-driver"></a><a id="hdinsight"></a>HDInsight Tools for Visual Studio 및 Microsoft Hive ODBC 드라이버
+### <a id="hdinsight"></a>HDInsight Tools for Visual Studio 및 Microsoft Hive ODBC 드라이버
 서버 탐색기의 HDInsight 도구를 사용하여 Hive 데이터베이스와 HDInsight 클러스터에 대해 연결된 저장소 계정을 탐색하고 테이블을 만들고 Hive 쿼리를 생성 및 전송할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-### <a name="a-idlibrariesamicrosoft-azure-libraries-for-net"></a><a id="libraries"></a>.NET용 Microsoft Azure 라이브러리
+### <a id="libraries"></a>.NET용 Microsoft Azure 라이브러리
 이 제품에는 다음이 포함됩니다.
 
 * Visual Studio가 오프라인 상태에서 새 클라우드 서비스 프로젝트를 만들 수 있도록 사용자 컴퓨터에 저장되는 Azure 저장소, 서비스 버스 및 캐싱용 NuGet 패키지입니다.
 * [In-Role Cache](http://msdn.microsoft.com/library/dn386103.aspx) 프로젝트가 Visual Studio에서 로컬로 실행될 수 있도록 하는 Visual Studio 플러그 인입니다.
 
-### <a name="a-idmobileamicrosoft-azure-mobile-app-sdk"></a><a id="mobile"></a>Microsoft Azure Mobile App SDK
+### <a id="mobile"></a>Microsoft Azure Mobile App SDK
 [Azure 앱 서비스 모바일 앱](app-service-mobile/app-service-mobile-value-prop.md)으로 작업하기 위한 도구
 
-### <a name="a-idpsamicrosoft-azure-powershell"></a><a id="ps"></a>Microsoft Azure PowerShell
+### <a id="ps"></a>Microsoft Azure PowerShell
 Azure PowerShell을 사용하면 [Azure 환경 만들기 및 배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)할 수 있습니다.
 
-### <a name="a-idtoolsamicrosoft-azure-tools-for-microsoft-visual-studio"></a><a id="tools"></a>Microsoft Visual Studio용 Microsoft Azure 도구
+### <a id="tools"></a>Microsoft Visual Studio용 Microsoft Azure 도구
 이 제품을 사용하면 Azure 리소스, 주로 클라우드 서비스 및 가상 컴퓨터에서 다음 작업을 수행할 수 있습니다.
 
 * [클라우드 서비스 프로젝트 만들기, 열기 및 게시](cloud-services/cloud-services-dotnet-get-started.md)
@@ -88,7 +88,7 @@ Azure PowerShell을 사용하면 [Azure 환경 만들기 및 배포를 자동화
 * [클라우드 서비스 및 가상 컴퓨터에 대해 원격으로 디버그 모드에서 실행](http://msdn.microsoft.com/library/ff683670.aspx)
 * [Azure 리소스 그룹 배포 프로젝트를 사용하여 리소스 프로비저닝 자동화](https://msdn.microsoft.com/library/dn872471.aspx)
 
-### <a name="a-idwteamicrosoft-app-service-tools-for-visual-studio"></a><a id="wte"></a>Visual Studio용 Microsoft 앱 서비스 도구
+### <a id="wte"></a>Visual Studio용 Microsoft 앱 서비스 도구
 이 제품을 사용하면 Azure 웹 사이트에서 다음 작업을 수행할 수 있습니다.
 
 * [Azure 웹 사이트에 웹 프로젝트 게시](app-service-web/web-sites-dotnet-get-started.md)
@@ -103,10 +103,10 @@ Azure PowerShell을 사용하면 [Azure 환경 만들기 및 배포를 자동화
 > 
 > 
 
-## <a name="a-iddatalakeamicrosoft-azure-data-lake-tools-for-visual-studio"></a><a id="datalake"></a>Visual Studio용 Microsoft Azure Data Lake 도구
+## <a id="datalake"></a>Visual Studio용 Microsoft Azure Data Lake 도구
 자세한 내용은 [자습서: Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 
-## <a name="a-idnotincludedawhats-not-included-when-you-install-the-azure-sdk-for-net"></a><a id="notincluded"></a>Azure SDK for .NET을 설치할 때 포함되지 않는 항목
+## <a id="notincluded"></a>Azure SDK for .NET을 설치할 때 포함되지 않는 항목
 SDK를 설치할 때 포함되지 않지만 Azure 개발에 유용할 수 있는 몇 가지 항목이 있습니다. 가장 중요한 항목은 다음과 같습니다.
 
 * [클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkId=510472)
@@ -120,7 +120,7 @@ SDK를 설치할 때 포함되지 않지만 Azure 개발에 유용할 수 있는
   
     Mobile Apps 템플릿은 Visual Studio 2013 업데이트 2 이상에서만 사용할 수 있습니다. Visual Studio 2012 이전 버전과 Visual Studio 2013 업데이트 1 이전에서는 Azure SDK for .NET을 설치한 경우에도 사용할 수 없습니다.
 
-## <a name="a-idfaqafrequently-asked-questions"></a><a id="faq"></a>질문과 대답
+## <a id="faq"></a>질문과 대답
 * [많은 Azure 기능은 Visual Studio에 이미 있습니다. Azure SDK for .NET을 설치해야 하나요?](#azinvs)
 * [클라이언트 라이브러리를 사용하려고 합니다. 클라이언트 라이브러리를 사용하려면 Azure SDK for .NET을 설치해야 하나요?](#clientlib)
 * [이전 버전의 Azure SDK for .NET은 어디서 찾을 수 있나요?](#olderversions)
@@ -128,26 +128,26 @@ SDK를 설치할 때 포함되지 않지만 Azure 개발에 유용할 수 있는
 * [Azure SDK for .NET과 호환되는 게스트 OS 버전은 무엇인가요?](#guestos)
 * [Azure SDK for .NET은 어떻게 제거해야 하나요?](#uninstall)
 
-### <a name="a-idazinvsamany-azure-features-are-already-in-visual-studio-do-i-need-to-install-the-azure-sdk-for-net"></a><a id="azinvs"></a>많은 Azure 기능은 Visual Studio에 이미 있습니다. Azure SDK for .NET을 설치해야 하나요?
+### <a id="azinvs"></a>많은 Azure 기능은 Visual Studio에 이미 있습니다. Azure SDK for .NET을 설치해야 하나요?
 최신 도구를 사용하여 Azure에 대해 개발하려면 SDK를 설치하는 것이 좋습니다. SDK를 설치하지 않으려는 경우 다음 조건이 true이면 설치하지 않아도 됩니다.
 
 * 최신 [Visual Studio 업데이트](http://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5)를 설치했습니다.
 * Azure 웹 사이트 또는 모바일 서비스에 대해서만 개발하고 클라우드 서비스 또는 가상 컴퓨터에 대해 개발하지 않습니다.
 * 응용 프로그램이 저장소를 사용하지 않거나 저장소를 사용하지만 저장소 에뮬레이터 또는 AzCopy 도구가 필요 없습니다.
 
-### <a name="a-idclientlibai-want-a-client-library-do-i-have-to-install-the-azure-sdk-for-net-to-get-it"></a><a id="clientlib"></a>클라이언트 라이브러리를 사용하려고 합니다. 클라이언트 라이브러리를 사용하려면 Azure SDK for .NET을 설치해야 하나요?
+### <a id="clientlib"></a>클라이언트 라이브러리를 사용하려고 합니다. 클라이언트 라이브러리를 사용하려면 Azure SDK for .NET을 설치해야 하나요?
 SDK는 인터넷에 연결되지 않은 경우에도 클라우드 서비스 프로젝트를 만들 수 있도록 하기 위해서만 클라이언트 라이브러리를 설치합니다. [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472)의 NuGet 패키지에서 최신 클라이언트 라이브러리를 사용할 수 있습니다. 자세한 내용은 이 문서의 앞부분에 있는 [Azure SDK for .NET을 설치할 때 포함되지 않는 항목](#notincluded) 을 참조하세요.
 
-### <a name="a-idolderversionsawhere-can-i-find-older-versions-of-the-azure-sdk-for-net"></a><a id="olderversions"></a>이전 버전의 Azure SDK for .NET은 어디서 찾을 수 있나요?
+### <a id="olderversions"></a>이전 버전의 Azure SDK for .NET은 어디서 찾을 수 있나요?
 이전 버전의 경우 [Azure SDK for .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) 다운로드 페이지를 참조하세요.
 
-### <a name="a-idlifecycleawhats-the-lifecycle-policy-for-versions-of-the-azure-sdk-for-net"></a><a id="lifecycle"></a>Azure SDK for .NET 버전에 대한 수명 주기 정책은 무엇인가요?
+### <a id="lifecycle"></a>Azure SDK for .NET 버전에 대한 수명 주기 정책은 무엇인가요?
 [Microsoft Azure 클라우드 서비스 지원 수명 주기 정책](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)을 참조하세요.
 
-### <a name="a-idguestosawhich-guest-os-versions-is-the-azure-sdk-for-net-compatible-with"></a><a id="guestos"></a>Azure SDK for .NET과 호환되는 게스트 OS 버전은 무엇인가요?
+### <a id="guestos"></a>Azure SDK for .NET과 호환되는 게스트 OS 버전은 무엇인가요?
 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](http://msdn.microsoft.com/library/ee924680.aspx)를 참조하세요.
 
-### <a name="a-iduninstallahow-do-i-uninstall-the-azure-sdk-for-net"></a><a id="uninstall"></a>Azure SDK for .NET은 어떻게 제거해야 하나요?
+### <a id="uninstall"></a>Azure SDK for .NET은 어떻게 제거해야 하나요?
 이 문서의 [Azure SDK for .NET에 포함된 항목](#included) 아래에 있는 각 항목은 Windows 제어판 **프로그램 및 기능**에 설치되어 있는 프로그램 목록에 있는 별도의 프로그램입니다.  이들을 그룹으로 제거할 방법은 없습니다. 각 프로그램을 개별적으로 제거해야 합니다.
 
 이미 Azure SDK for .NET이 설치되어 있고 새로운 버전을 설치하는 경우에는 일반적으로 기존 버전을 제거하지 않아도 됩니다. 대부분의 경우 SDK를 설치하면 새로운 프로그램을 추가하고 기존의 프로그램을 없애는 것이 아니라 기존 프로그램을 업데이트합니다.
@@ -162,19 +162,14 @@ SDK는 인터넷에 연결되지 않은 경우에도 클라우드 서비스 프�
 > 
 > 
 
-## <a name="a-idversionsaversions"></a><a id="versions"></a>버전
+## <a id="versions"></a>버전
 어떤 버전이 최신인지 확인하고 기존 버전을 다운로드하려면 [Azure SDK for .NET 버전 기록](https://azure.microsoft.com/downloads/archive-net-downloads/) 페이지를 참조하십시오.
 
-## <a name="a-idresourcesaresources"></a><a id="resources"></a>리소스
+## <a id="resources"></a>리소스
 Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려면 [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)를 참조하세요.
 
 클라이언트 라이브러리를 비롯한 Azure SDK for .NET 소스 코드는 [GitHub.com/Azure](https://github.com/azure/)를 참조하세요.
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](https://azure.microsoft.com/documentation/api/)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 1: 도구 다운로드(Ubuntu) | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 2: 도구 다운로드(Ubuntu) | Microsoft Docs"
 description: "macOS에 Python 및 Azure 명령줄 인터페이스(Azure CLI)를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 9b680e8e7fe9d6b12f050914dffd34c87462daea
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 455e5a28f54fb0af4e7d4601ecef666b74950169
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -74,10 +75,5 @@ Azure CLI를 설치했습니다. 다음 작업은 Azure CLI를 사용하여 Azur
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub 만들기 및 Raspberry Pi 3 등록](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

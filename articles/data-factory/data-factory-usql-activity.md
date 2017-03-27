@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
-ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md) 
-> * [저장 프로시저](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
-> * [.NET 사용자 지정](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive 작업](data-factory-hive-activity.md) 
+> * [Pig 작업](data-factory-pig-activity.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+> * [Spark 작업](data-factory-spark.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서는 **Azure Data Lake Analytics** 계산 연결된 서비스에서 **U-SQL** 스크립트를 실행하는 **Data Lake Analytics U-SQL 작업**에 대해 설명합니다. 
 
@@ -78,7 +81,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
-| Azure Active Directory에서 관리되지 않는 사용자 계정((@hotmail.com,, @live.com, 등) |12시간 |
+| Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후&14;일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
 이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다. 
@@ -299,10 +302,5 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 ```
 
 이 경우 입력 파일은 여전히 /datalake/input 폴더에서 가져오며 출력 파일은 /datalake/output 폴더에 생성됩니다. 파일 이름은 조각 시작 시간에 따라 동적입니다.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

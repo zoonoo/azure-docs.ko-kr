@@ -13,15 +13,25 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b7084081381aa9c4211f8bc0d0685541246a5ddb
-ms.openlocfilehash: 7adb6fcb0c9a673523feaad494e6bc8af5c7fe77
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e982e07b6279c1338398980aa07d46ce08ede11c
+ms.lasthandoff: 03/22/2017
 
 ---
 
 # <a name="sql-database-documentation"></a>SQL Database 설명서
 
+<div class="introHolder">
+    <div class="intro">
 클라우드에서 Microsoft SQL Server 엔진에 빌드된 관계형 DaaS(database-as-a-service)인 SQL Database를 사용하는 방법을 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 SQL Database를 설정, 연결 및 관리하는 방법을 보여 줍니다.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />무료 PluralSight 동영상 교육 - Microsoft Azure를 사용하여 인프라 관리</a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -128,6 +138,7 @@ ms.lasthandoff: 03/01/2017
                         <h3>명령줄</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell(탄력적 DB)</a></p>
+                        <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

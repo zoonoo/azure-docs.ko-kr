@@ -15,36 +15,40 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 88a1d39337a8aebf58b6b35841acc4348e1baeae
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b6794425e233508ae72cb3b541738e56044453c1
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>해당 조직의 요구에 맞게 사용자 지정 암호 관리
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
-사용자에게 가능한 최상의 환경을 제공하려면, 사용자가 사용할 수 있는 모든 암호 관리 구성 옵션을 탐색하고 재생하는 것이 좋습니다. 실제로 **Azure 클래식 포털** 에 있는 [Active Directory 확장](https://manage.windowsazure.com)의 구성 탭으로 이동하여 이 작업을 지금 바로 시작할 수 있습니다. 이 항목에서는 다음을 포함하여 [Azure 클래식 포털](https://manage.windowsazure.com) 내 디렉터리의 **구성** 탭 내에서 관리자로 만들 수 있는 다른 암호 관리 사용자 지정을 모두 안내합니다.
+사용자에게 가능한 최상의 환경을 제공하려면, 사용자가 사용할 수 있는 모든 암호 관리 구성 옵션을 탐색하고 재생하는 것이 좋습니다. 실제로 **Azure 클래식 포털** 에 있는 [Active Directory 확장](https://manage.windowsazure.com)의 구성 탭으로 이동하여 이 작업을 지금 바로 시작할 수 있습니다. 이 문서에서는 [Azure 클래식 포털](https://manage.windowsazure.com)에 있는 디렉터리의 **구성** 탭에서 관리자로 만들 수 있는 다양한 암호 관리 사용자 지정을 모두 안내합니다.
 
-| 항목 |  |
-| --- | --- |
-| 암호 재설정을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요? |[설정: 암호 재설정을 위해 사용할 수 있는 사용자](#users-enabled-for-password-reset) |
-| 암호 재설정을 특정 사용자 집합으로 범위를 지정하려면 어떻게 해야 하나요? |[암호 재설정을 특정 사용자로 제한](#restrict-access-to-password-reset) |
-| 지원되는 인증 방법을 변경하려면 어떻게 해야 하나요? |[설정: 사용자에게 제공하는 인증 방법](#authentication-methods-available-to-users) |
-| 필수 인증 방법의 수를 변경하려면 어떻게 해야 하나요? |[설정: 필수 인증 방법의 수](#number-of-authentication-methods-required) |
-| 사용자 지정 보안 질문을 설정하려면 어떻게 해야 하나요? |[설정: 사용자 지정 보안 질문](#custom-security-questions) |
-| 미리 만든 보안 질문을 지역화하여 설정하려면 어떻게 해야 하나요? |[설정: 지식 기반 보안 질문](#knowledge-based-security-questions) |
-| 필요한 보안 질문 수를 변경하려면 어떻게 해야 하나요? |[설정: 등록 또는 재설정을 위한 보안 질문 수](#number-of-questions-required-to-register) |
-| 로그인 시 사용자가 등록하도록 강제 적용하려면 어떻게 해야 하나요? |[암호 재설정의 강제 적용 등록 기반 롤아웃](#require-users-to-register-when-signing-in) |
-| 사용자가 등록을 주기적으로 다시 확인하도록 강제 적용하려면 어떻게 해야 하나요? |[설정: 사용자가 해당 인증 데이터를 다시 확인해야 하기 전의 일 수](#number-of-days-before-users-must-confirm-their-contact-data) |
-| 사용자가 관리자와 연락하는 방법을 사용자 지정하려면 어떻게 해야 하나요? |[설정: "관리자에게 문의" 링크 사용자 지정](#customize-the-contact-your-administrator-link) |
-| 사용자가 암호를 재설정하지 않고 온-프레미스 AD 계정의 잠금을 해제할 수 있도록 하려면 어떻게 해야 하나요? |[설정: 사용자가 암호를 재설정하지 않고 해당 AD 계정의 잠금을 해제하도록 설정](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| 사용자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? |[설정: 암호가 재설정된 경우 사용자에게 알림](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| 관리자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? |[설정: 관리자가 자신의 암호를 재설정하는 경우 다른 관리자에게 알림](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| 암호 재설정 모양과 느낌을 사용자 지정하려면 어떻게 해야 하나요? |[설정: 회사 이름, 브랜딩 및 로고 ](#password-management-look-and-feel) |
+## <a name="what-customization-options-are-available"></a>어떤 사용자 지정 옵션을 사용할 수 있습니까?
+아래 표에서는 Azure Active Directory 암호 다시 설정과 함께 사용할 수 있는 사용자 지정 옵션을 모두 설명하고 있습니다.
+
+| 항목 | 설정 | 필요한 라이선스 |
+| --- | --- | --- |
+| 암호 재설정을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요? |[설정: 암호 재설정이 설정된 사용자](#users-enabled-for-password-reset) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 암호 재설정을 특정 사용자 집합으로 범위를 지정하려면 어떻게 해야 하나요? |[암호 재설정을 특정 사용자로 제한](#restrict-access-to-password-reset) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 지원되는 인증 방법을 변경하려면 어떻게 해야 하나요? |[설정: 사용자에게 제공하는 인증 방법](#authentication-methods-available-to-users) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 필수 인증 방법의 수를 변경하려면 어떻게 해야 하나요? |[설정: 필수 인증 방법의 수](#number-of-authentication-methods-required) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 사용자 지정 보안 질문을 설정하려면 어떻게 해야 하나요? |[설정: 사용자 지정 보안 질문](#custom-security-questions) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 미리 만든 보안 질문을 지역화하여 설정하려면 어떻게 해야 하나요? |[설정: 지식 기반 보안 질문](#knowledge-based-security-questions) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 필요한 보안 질문 수를 변경하려면 어떻게 해야 하나요? |[설정: 등록 또는 재설정을 위한 보안 질문 수](#number-of-questions-required-to-register) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 로그인 시 사용자가 등록하도록 강제 적용하려면 어떻게 해야 하나요? |[암호 재설정의 강제 적용 등록 기반 롤아웃](#require-users-to-register-when-signing-in) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 사용자가 등록을 주기적으로 다시 확인하도록 강제 적용하려면 어떻게 해야 하나요? |[설정: 사용자가 해당 인증 데이터를 다시 확인해야 하기 전의 일 수](#number-of-days-before-users-must-confirm-their-contact-data) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 사용자가 관리자와 연락하는 방법을 사용자 지정하려면 어떻게 해야 하나요? |[설정: "관리자에게 문의" 링크 사용자 지정](#customize-the-contact-your-administrator-link) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 클라우드 관리자 환경에서 비밀번호 쓰기 저장 기능을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요? |[설정: 비밀번호 쓰기 저장 사용 또는 사용 안 함](#write-back-passwords-to-on-premises-directory) | <ul><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 사용자가 암호를 재설정하지 않고 온-프레미스 AD 계정의 잠금을 해제할 수 있도록 하려면 어떻게 해야 하나요? |[설정: 사용자가 암호를 재설정하지 않고 해당 AD 계정의 잠금을 해제하도록 설정](#allow-users-to-unlock-accounts-without-resetting-their-password) | <ul><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 사용자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? |[설정: 암호가 재설정된 경우 사용자에게 알림](#notify-users-and-admins-when-their-own-password-has-been-reset) |  <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 관리자에 대한 암호 재설정 알림을 사용하려면 어떻게 해야 하나요? |[설정: 관리자가 자신의 암호를 재설정하는 경우 다른 관리자에게 알림](#notify-admins-when-other-admins-reset-their-own-passwords) | <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
+| 암호 재설정 모양과 느낌을 사용자 지정하려면 어떻게 해야 하나요? |[설정: 회사 이름, 브랜딩 및 로고 ](#password-management-look-and-feel) |  <ul><li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li><li>Azure AD Basic[클라우드 사용자만 해당]</li><li>Azure AD Premium P1 또는 P2[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Mobility Suite[클라우드 또는 온-프레미스 사용자]</li><li>Enterprise Cloud Suite[클라우드 또는 온-프레미스 사용자]</li></ul> |
 
 ## <a name="password-management-look-and-feel"></a>암호 관리의 모양 및 느낌
 다음 테이블에서 각 컨트롤이 암호 재설정을 위해 등록하여 암호를 재설정하는 사용자의 경험에 미치는 영향을 설명합니다.  [Azure 관리 포털](https://manage.windowsazure.com) 내 사용자의 **구성** 탭의 **디렉터리 속성** 섹션에서 이 옵션을 구성할 수 있습니다.
@@ -75,6 +79,15 @@ ms.lasthandoff: 02/24/2017
               </td>
               <td>
                 <p>조직 이름 사용자 또는 관리자가 암호 재설정 전자 메일 통신에서 확인할 수 있는 내용을 결정합니다.</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -103,10 +116,16 @@ ms.lasthandoff: 02/24/2017
               </td>
               <td>
                 <p>암호 재설정 페이지를 방문하는 사용자가 Microsoft 로고 또는 사용자 고유의 사용자 지정 로고를 참조하는 경우를 결정합니다.  이 구성 항목은 사용자 브랜드를 액세스 패널 및 로그인 페이지에도 추가합니다.</p>
-                <p>
-
-                </p>
                 <p><a href="https://technet.microsoft.com/library/dn532270.aspx">회사 브랜드를 사용자 로그인 및 액세스 패널 페이지에 추가</a>에서 테넌트 브랜드 및 사용자 지정 기능에 대해 자세히 알아볼 수 있습니다.</p>
+                                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -114,9 +133,10 @@ ms.lasthandoff: 02/24/2017
                 </p>
                 <ul>
                   <li class="unordered">
-기본 Microsoft 로고 대신 암호 재설정 포털의 위쪽에 사용자의 로고를 표시할지 여부를 결정합니다.<br><br></li>
-                  <li class="unordered">
-                    <strong>참고:</strong> 직접 암호 재설정 페이지에 제공하는 경우 암호 재설정 포털의 첫 페이지에 로고가 보이지 않을 수도 있습니다.  사용자가 자신의 사용자 ID를 입력하고 다음을 클릭하면 로고가 표시됩니다.  다음과 같이 whr 매개 변수를 암호 재설정 페이지로 전달하여 페이지 로드 시 로고를 강제로 나타나게 할 수 있습니다. <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a><br><br></li>
+기본 Microsoft 로고 대신 암호 재설정 포털의 위쪽에 사용자의 로고를 표시할지 여부를 결정합니다.<br><br>
+                    <strong>참고:</strong> 직접 암호 재설정 페이지에 제공하는 경우 암호 재설정 포털의 첫 페이지에 로고가 보이지 않을 수도 있습니다. 사용자가 자신의 사용자 이름을 입력하고 다음을 클릭하면 로고가 표시됩니다.<br><br>
+다음과 같이 <code>whr</code> 매개 변수를 암호 다시 설정 페이지에 전달하여 페이지 로드 시 로고가 표시되도록 할 수 있습니다. <code><a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a></code><br><br>
+<code>username</code> 매개 변수를 전달하여 사용자 이름 필드를 미리 채우는 링크를 생성할 수 있습니다. 또한 다음은 조직 로고(구성된 경우)도 로드합니다. <code><a href="https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com">https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com</a></code></li>
                 </ul>
                 <p>
                   <strong>"관리자에게 문의" 전자 메일:</strong>
@@ -170,6 +190,15 @@ ms.lasthandoff: 02/24/2017
               </td>
               <td>
                 <p>이 디렉터리의 사용자에 대한 암호 재설정을 사용할 수 있는지를 결정합니다. </p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -204,6 +233,15 @@ yes로 설정된 경우, 사용자는 <a href="http://passwordreset.microsoftonl
               </td>
               <td>
                 <p>특정 사용자 그룹만 암호 재설정을 사용하도록 허용되는지 여부를 결정합니다. (<strong>사용자 암호 재설정 활성화됨</strong>이 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -233,10 +271,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>암호 재설정을 사용할 수 있는 최종 사용자의 그룹을 결정합니다. </p>
-                <p>
-
-                </p>
                 <p>(<strong>암호 재설정에 대한 액세스 제한</strong>이 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -273,10 +317,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>사용자가 자신의 암호를 재설정 하는데 사용할 수 있는 챌린지를 결정합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>사용자 암호 재설정 활성화됨</strong>이 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -333,10 +383,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>사용자가 자신의 암호를 다시 설정하기 위해 통과해야 사용 가능한 인증 방법의 최소 수를 결정합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>사용자 암호 재설정 활성화됨</strong>이 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -373,6 +429,15 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               <td>
                 <p>보안 질문 옵션을 등록하는 경우 사용자가 답변해야 하는 질문의 최소 수를 결정합니다.</p>
                 <p>(<strong>보안 질문</strong> 확인란이 선택된 경우에만 표시됨).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -403,10 +468,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>암호를 재설정할 때 사용자가 답변해야 하는 질문의 최소 수를 결정합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>보안 질문</strong> 확인란이 선택된 경우에만 표시됨).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -437,10 +508,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>암호 재설정을 위해 등록할 때와 암호를 재설정할 때 사용자가 선택할 수 있는 미리 만든 보안 질문을 정의합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>보안 질문</strong> 확인란이 선택된 경우에만 표시됨).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -488,10 +565,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>암호 재설정을 위해 등록할 때와 암호를 재설정할 때 사용자가 선택할 수 있는 보안 질문을 정의합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>보안 질문</strong> 확인란이 선택된 경우에만 표시됨).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -538,31 +621,25 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
                 <div id="require-users-to-register-when-signing-in">
                   <p>로그인 시 사용자가 등록해야 하나요?</p>
                 </div>
-                <p>
-
-                </p>
               </td>
               <td>
                 <p>다음에 로그인할 때 사용자가 암호 재설정을 위해 연락처 데이터를 등록해야 하는 경우를 결정합니다.  
                 </p>
                 <p>이 기능은 회사 또는 학교 계정을 사용하는 모든 로그인 페이지에서 작동합니다.  이러한 페이지에는 모든 Office 365, Azure 관리 포털, 액세스 패널 및 로그인에 Azure AD를 사용하는 모든 페더레이션 또는 사용자 지정 개발 응용 프로그램이 포함됩니다.
                 </p>
-                <p>
-
-                </p>
                 <p>강제 적용 등록은 암호 재설정을 사용할 수 있는 사용자에게만 적용됩니다. 따라서 "암호 재설정에 대한 액세스 제한" 기능 및 특정 사용자 그룹으로 범위가 지정된 암호 재설정을 사용한 경우 로그인 시 해당 그룹 사용자만 암호 재설정을 등록해야 합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>사용자 암호 재설정 활성화됨</strong>이 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>참고:</strong>
                 </p>
@@ -591,18 +668,18 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p><strong>사용자가 로그인 시 등록하도록 요구</strong>가 꺼져 있으면, 이 설정은 사용자가 데이터를 다시 확인해야 하기 전에 경과할 수 있는 기간을 결정합니다. </p>
-                <p>
-
-                </p>
                 <p>(<strong>사용자가 액세스 패널에 로그인할 때 등록</strong>이 <strong>예</strong>로 설정된 경우에만 표시됨).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>참고: </strong>
                 </p>
@@ -627,10 +704,16 @@ no로 설정된 경우, 사용자 디렉터리의 모든 최종 사용자는 암
               </td>
               <td>
                 <p>사용자가 사용자 지정 URL 또는 전자 메일 주소에 대한 작업 지점에 너무 오래 대기하거나 오류가 발생한 경우, 암호 재설정 포털에 관리자가 링크하는(왼쪽에 표시된) 연락처를 표시할 지 여부를 제어합니다.</p>
-                <p>
-
-                </p>
                 <p>(<strong>사용자 암호 재설정 활성화됨</strong>이 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -673,10 +756,16 @@ URL을 지정하는 경우 새 탭에서 열립니다.<br><br></li>
               </td>
               <td>
                 <p><strong>관리자에게 문의</strong> 링크가 가리키는 전자 메일 주소 또는 URL을 제어합니다. </p>
-                <p>
-
-                </p>
                 <p>(<strong>관리자에게 문의 링크 사용자 지정 여부</strong>가 <strong>예</strong>로 설정된 경우에만 표시).</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -707,15 +796,16 @@ URL을 제공하는 경우, 해당 링크는 새 탭에서 열리는 해당 URL�
               </td>
               <td>
                 <p>이 디렉터리에 대해 암호 쓰기 저장을 사용할 것인 지 여부를 제어하고, 쓰기 저장이 켜 있는 경우 온-프레미스 쓰기 저장 서비스의 상태를 나타냅니다.</p>
-                <p>
-
-                </p>
                 <p>이 설정은 Azure AD 연결을 다시 구성하지 않고 서비스를 일시적으로 사용하지 않도록 설정하려는 경우에 유용합니다.</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
                 <p>
                   <strong>참고:</strong>
                 </p>
@@ -754,13 +844,16 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
                 </div>
               </td>
               <td>
-
               <p>암호 재설정 포털을 방문하는 사용자에게 해당 암호를 재설정하지 않고 온-프레미스 Active Directory 계정의 잠금을 해제할 수 있는 옵션을 제공해야 하는지 여부를 지정합니다. 기본적으로 Azure AD는 암호 재설정을 수행할 때 항상 계정의 잠금을 해제하며 이 설정을 통해 이러한 두 작업을 분리할 수 있습니다.</p>
-
               <p>"예"로 설정하면 사용자에게 암호를 재설정하고 계정의 잠금을 해제하거나, 암호를 재설정하지 않고 잠금을 해제할 수 있는 옵션이 제공됩니다. </p>
-
               <p>“아니요”로 설정하면 사용자가 암호 재설정 및 계정 잠금 해제가 결합된 작업만 수행할 수 있습니다.</p>
-
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -769,7 +862,6 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
                 <ul>
                   <li class="unordered">
 이 기능을 사용하려면 Azure AD Connect의 2015년 8월 이상 릴리스(v. 1.0.8667.0 이상)를 설치해야 합니다.<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다</a>.</li>
-
                   <li class="unordered">
                     <strong>참고:</strong> 이 기능을 테스트하려면 비밀번호 쓰기 저장을 사용하도록 설정해야 하며 온-프레미스 기반(예: 페더레이션 또는 암호 동기화된 사용자) 및 잠긴 계정이 있는 계정을 사용합니다.  온-프레미스 기반이 아니고 잠긴 계정이 없는 사용자에게는 해당 계정의 잠금을 해제할 수 있는 옵션이 표시되지 않습니다.</li>
                 </ul>
@@ -813,6 +905,15 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
               </td>
               <td>
                 <p>모든 종류의 다른 관리자가 자신의 암호를 다시 설정하는 경우, 모든 전역 관리자가 자신의 기본 전자 메일 주소로 전자 메일을 통해 알림을 받을 지 여부를 결정합니다.</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -843,6 +944,15 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
               </td>
               <td>
                 <p>자신의 암호를 다시 설정한 최종 사용자나 관리자가 자신의 암호를 재설정했다는 전자 메일 알림을 받게 됩니다.</p>
+                <br>
+                <p><b><u>다음 라이선스 중 하나가 필요합니다. <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">자세한 정보</a></u></b></p>
+                 <ul>
+                   <li>O365(모든 유료 SKU)[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Basic[클라우드 사용자만 해당]</li>
+                   <li>Azure AD Premium P1 또는 P2[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Mobility Suite[클라우드 및 온-프레미스 사용자]</li>
+                   <li>Enterprise Cloud Suite[클라우드 및 온-프레미스 사용자]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -868,7 +978,7 @@ Azure AD Connect의 최신 버전을 다운로드 하고 <strong>선택적 기�
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.

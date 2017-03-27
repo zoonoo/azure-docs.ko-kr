@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2d32e8bb650d682684be0e093a9f5dfd9d536a8f
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -52,31 +53,19 @@ Azure 백업 서버를 작동하고 실행하는 첫 번째 단계는 Windows Se
 >
 >
 
-특정 시점에 이 서버를 도메인에 가입시키려는 경우 Azure 백업 서버를 설치하기 전에 도메인 가입 작업을 수행하는 것이 좋습니다. 배포 후 기존 Azure 백업 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
+Azure Backup Server를 도메인에 조인하려는 경우 Azure Backup Server 소프트웨어를 설치하기 전에 물리적 서버 또는 가상 컴퓨터를 도메인에 조인하는 것이 좋습니다. 배포 후 Azure Backup Server를 새 도메인으로 이동하도록 *지원하지 않습니다*.
 
 ## <a name="2-backup-vault"></a>2. 백업 자격 증명 모음
 ![2단계](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없이 소프트웨어는 Azure에 연결되어야 합니다. 더 구체적으로 설명하자면 Azure 백업 서버 컴퓨터를 백업 자격 증명 모음에 등록해야 합니다.
+백업 데이터를 Azure에 전송하거나 로컬로 유지하는 경우 Azure Backup Server를 자격 증명 모음에 등록해야 합니다.
 
-백업 자격 증명 모음을 만들려면:
+> [!IMPORTANT]
+> 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다. 기존 백업 자격 증명 모음은 계속 지원되고 [Azure PowerShell을 사용하여 백업 자격 증명 모음을 만들](./backup-client-automation-classic.md#create-a-backup-vault) 수 있습니다. 하지만 향후 향상되는 기능이 Recovery Services 자격 증명 모음에만 적용되므로 Microsoft에서는 모든 배포에 Recovery Services 자격 증명 모음을 만들도록 권장합니다.
+>
+>
 
-1. [관리 포털](http://manage.windowsazure.com/)에 로그인합니다.
-2. **새로 만들기** > **Data Services** > **Recovery Services** > **백업 자격 증명 모음** > **빨리 만들기**를 클릭합니다. 조직 계정과 연결된 구독이 여러 개인 경우 백업 자격 증명 모음과 연결할 올바른 계정을 선택합니다.
-3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이는 각 구독에 대해 고유해야 합니다.
-4. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 일반적으로 자격 증명 모음의 지역은 데이터 주권 또는 네트워크 대기 시간 제약 조건에 따라 선택됩니다.
 
-    ![백업 자격 증명 모음 만들기](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
-5. **자격 증명 모음 만들기**를 클릭합니다. 백업 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 맨 아래에서 상태 알림을 모니터링합니다.
-
-    ![자격 증명 모음 알림 메시지 만들기](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
-6. 자격 증명 모음이 성공적으로 만들어졌으며 복구 서비스 페이지에 활성 상태로 나열됨을 확인하는 메시지가 나타납니다.
-    ![백업 자격 증명 모음 목록](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-
-   > [!IMPORTANT]
-   > 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. 이 [개요](../storage/storage-redundancy.md)의 [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 옵션에 대해 자세히 알아봅니다.
-   >
-   >
 
 ## <a name="3-software-package"></a>3. 소프트웨어 패키지
 ![3단계](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -124,6 +113,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
    > Azure 백업 서버는 원격 SQL Server 인스턴스에서 작동하지 않습니다. Azure 백업 서버에서 사용되는 인스턴스는 로컬이어야 합니다.
    >
    >
+
 4. Microsoft Azure 백업 서버 파일을 설치할 위치를 입력하고 **다음**을 클릭합니다.
 
     ![Microsoft Azure 백업 PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
@@ -209,9 +199,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 * [SQL Server 백업](backup-azure-backup-sql.md)
 * [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 * [대체 서버 백업](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

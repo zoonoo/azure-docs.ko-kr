@@ -13,23 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2016
+ms.date: 03/23/2017
 ms.author: igalf
 translationtype: Human Translation
 ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
 ms.openlocfilehash: 3c2ed5d8921df70dda2d43be599d018af81d4f64
+ms.lasthandoff: 01/26/2017
 
 
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Azure VM에 계획된 유지 관리 예약 방법
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델에서 계획된 유지 관리에 대한 정보는 [여기](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

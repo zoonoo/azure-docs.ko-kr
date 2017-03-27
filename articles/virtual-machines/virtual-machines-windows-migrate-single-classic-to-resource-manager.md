@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: a46db1815b84f0ecf93c805f3ea36e4e3d4282ac
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 42d9e68c3c18d04c02ab818d84a653ece811fc52
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,14 +27,6 @@ ms.lasthandoff: 02/11/2017
 
 
 이 섹션을 통해 Resource Manager 배포 모델에서는 기존 Azure VM을 클래식 배포 모델에서 [Managed Disks](../storage/storage-managed-disks-overview.md)로 마이그레이션할 수 있습니다.
-
-## <a name="before-you-begin"></a>시작하기 전에
-PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
 
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Managed Disks로 마이그레이션 계획 수립

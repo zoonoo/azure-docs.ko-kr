@@ -9,6 +9,7 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c4003809decfb83c08e808f4bd7a14c1ecf05a55
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -211,12 +212,12 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 이 문서에서는 Azure HDInsight가 Hadoop에 고가용성을 제공하는 방법에 대해 알아보았습니다. 이 문서에 언급된 항목에 대한 자세한 내용을 보려면 다음을 사용하세요.
 
 * [Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Azure CLI 설치 및 구성](../xplat-cli-install.md)
+* [Azure CLI 설치 및 구성](../cli-install-nodejs.md)
 * [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)
 * [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
 * [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs
-[azure-cli]: ../xplat-cli-install.md
+[azure-cli]: ../cli-install-nodejs.md
 

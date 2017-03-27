@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
 ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -61,7 +63,7 @@ Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 
 
 새 테이블이 이 문서의 단계를 통해 추가되면 데이터베이스 탐색기의 오른쪽 위 모서리에서 새로 고침 아이콘을 사용하여 목록을 새로 고칠 수 있습니다.
 
-## <a name="a-namehivequeryaquery-editor"></a><a name="hivequery"></a>쿼리 편집기
+## <a name="hivequery"></a>쿼리 편집기
 
 Hive 보기에서 다음 단계를 사용하여 Hive 쿼리를 실행합니다.
 
@@ -224,7 +226,7 @@ HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 �
 * [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)
 * [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
@@ -233,10 +235,5 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

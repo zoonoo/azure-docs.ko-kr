@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
-ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7ad7dce6fc7025a6a6e7935d74b3b71a7bfee097
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -130,7 +131,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 2. **정책 편집 프로필**을 클릭합니다.
 3. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 4. **이름** 은 응용 프로그램에서 사용하는 프로필 편집 정책 이름을 결정합니다. 예를 들어 "SiPe"을 입력합니다.
-5. **ID 공급자** 를 클릭하고 "메일 주소"를 선택합니다. 또한 필요에 따라 이미 구성되어 있는 소셜 ID 공급자를 선택할 수 있습니다. **확인**을 클릭합니다.
+5. **ID 공급자**를 클릭하고 "로컬 계정 로그인"을 선택합니다. 또한 필요에 따라 이미 구성되어 있는 소셜 ID 공급자를 선택할 수 있습니다. **확인**을 클릭합니다.
 6. **프로필 특성**을 클릭합니다. 여기서 소비자가 보고 편집할 수 있는 특성을 선택합니다. 예를 들어 "국가/지역", "표시 이름" 및 "우편 번호"를 선택합니다. **확인**을 클릭합니다.
 7. **응용 프로그램 클레임**을 클릭합니다. 여기서 성공적인 프로필 편집 환경 이후에 응용 프로그램으로 다시 전송된 토큰에서 반환하려는 클레임을 선택합니다. 예를 들어 "표시 이름" 및 "우편 번호"를 선택합니다.
 8. **만들기**를 클릭합니다. 방금 만든 정책이 **프로필 편집 정책** 블레이드에서 "**B2C_1_SiPe**"(**B2C\_1\_** 조각이 자동으로 추가됨)로 표시됩니다.
@@ -168,10 +169,5 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 ## <a name="additional-resources"></a>추가 리소스
 * [토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)
 * [소비자를 등록하는 동안 전자 메일 확인 사용 안 함](active-directory-b2c-reference-disable-ev.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

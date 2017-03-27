@@ -65,7 +65,7 @@ IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT H
     </dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.1.15</version>
+      <version>1.2.16</version>
     </dependency>
     ```
     
@@ -289,7 +289,7 @@ IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT H
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.21</version>
+      <version>1.1.22</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

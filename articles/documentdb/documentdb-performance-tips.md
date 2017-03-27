@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: d1ff26fd2d93881d028728bf86197c2dc9835ad7
-ms.openlocfilehash: 01f250b218e348a8bad046ac1ddb8c532aa8267f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3124185a486335d978634281b63d2475981e57f8
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -97,7 +97,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     DocumentDB 요청이 Gateway 모드를 사용할 때 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections을 더 높은 값(100-1000)으로 설정해야 합니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
 4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
-     DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
+     DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-documentdb-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
 
     (a) ***MaxDegreeOfParallelism 튜닝\:***
     여러 파티션을 병렬로 쿼리하여 병렬 쿼리가 작동합니다. 그러나 개별 분할된 수집의 데이터는 쿼리와 관련하여 순차적으로 가져옵니다. 따라서 MaxDegreeOfParallelism을 파티션 수로 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 MaxDegreeOfParallelism을 높게 설정할 수 있습니다. 그러면 시스템은 MaxDegreeOfParallelism의 최소값(사용자가 제공한 입력인 파티션 수)을 선택합니다.
@@ -133,17 +133,17 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 10. **스레드/작업의 수 늘리기**
 
     네트워킹 섹션의 [스레드/작업의 수 늘리기](#increase-threads)를 참조하세요.
-    
+
 11. **64비트 호스트 처리 사용**
 
     DocumentDB SDK는 DocumentDB .NET SDK 버전 1.11.4 이상을 사용하는 경우 32비트 호스트 프로세스에서 작동합니다. 하지만 파티션 간 쿼리를 사용하는 경우 성능 향상을 위해 64비트 호스트를 처리하는 것이 좋습니다. 다음과 같은 유형의 응용 프로그램에서는 32비트 호스트 프로세스를 기본값으로 사용하지만 64비트로 변경하려면 응용 프로그램 유형에 따라 다음 단계를 따르세요.
-    
-    - 실행 가능한 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 **32비트 선호** 옵션의 선택을 취소하면 됩니다. 
-    
+
+    - 실행 가능한 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 **32비트 선호** 옵션의 선택을 취소하면 됩니다.
+
     - VSTest 기반 테스트 프로젝트의 경우 **Visual Studio 테스트** 메뉴 옵션에서 **테스트**->**테스트 설정**->**기본 프로세서 아키텍처 X64**를 선택하면 됩니다.
-    
+
     - 로컬로 배포된 ASP.NET 웹 응용 프로그램의 경우 **도구**->**옵션**->**프로젝트 및 솔루션**->**웹 프로세스**에서 **웹 사이트 및 프로젝트에 64비트 버전의 IIS Express 사용**을 선택하면 됩니다.
-    
+
     - Azure에 배포된 ASP.NET 웹 응용 프로그램에서는 Azure Portal의 **응용 프로그램 설정**에서 **64비트 플랫폼**을 선택하면 됩니다.
 
 ## <a name="indexing-policy"></a>인덱싱 정책

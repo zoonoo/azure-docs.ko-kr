@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a42dbefe6805cff5fb2df604265f0e62e2c25f69
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7faa27220bcc07fff0bb2a77e7b90c386cc5ae1e
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
-
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md)
-> * [저장 프로시저](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
-> * [.NET 사용자 지정](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive 작업](data-factory-hive-activity.md) 
+> * [Pig 작업](data-factory-pig-activity.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+> * [Spark 작업](data-factory-spark.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능한, 통찰력 있는 정보로 만듭니다. 저장 프로시저 작업은 Data Factory에서 지원하는 변환 작업 중 하나입니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 

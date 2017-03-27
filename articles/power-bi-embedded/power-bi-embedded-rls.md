@@ -13,16 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
-ms.lasthandoff: 01/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1cde5b9ee4c716af07d427d4d0eb3f0775d456ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Power BI Embedded를 사용하는 행 수준 보안
+
 보고서 또는 데이터 집합 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. 이제 Power BI Embedded에서 RLS로 구성된 데이터 집합을 지원합니다.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
@@ -36,6 +37,7 @@ RLS를 활용하기 위해서는 사용자, 역할 및 규칙이라는 세 가�
 **규칙** – 역할에는 규칙이 있고 해당 규칙은 데이터에 적용할 실제 필터입니다. "Country = USA"처럼 간단하거나 훨씬 동적일 수 있습니다.
 
 ### <a name="example"></a>예
+
 이 문서의 나머지 부분에서는 RLS를 작성하는 예를 제공한 후 포함된 응용 프로그램 내에서 이를 사용하는 것을 보여 줍니다. 이 예에서는 [소매 분석 샘플](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX 파일을 사용합니다.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
@@ -82,7 +84,8 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**참고** 데이터에 대해 DirectQuery 모드를 사용 중인 경우 다음 두 옵션을 선택하여 양방향 교차 필터링을 활성화해야 합니다.
+> [!NOTE]
+> 데이터에 대해 DirectQuery 모드를 사용 중인 경우 다음 두 옵션을 선택하여 양방향 교차 필터링을 활성화해야 합니다.
 
 1. **파일** -> **옵션 및 설정** -> **미리 보기 기능** -> **DirectQuery에 대해 양방향 교차 필터링 활성화**.
 2. **파일** -> **옵션 및 설정** -> **DirectQuery** -> **DirectQuery 모드에서 무제한 측정값 허용**.
@@ -113,6 +116,11 @@ to
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>참고 항목
-[Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
+
+[Power를 사용하는 RLS(행 수준 보안)](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
+[Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
 
 

@@ -12,29 +12,29 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/12/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: dc533f46d71ec1bbe49b3e19821e4fc6009773fc
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: d811cdabe35f28ab8f2496b08c959107c10ef1be
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 복제
+# <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 복제
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmware-to-azure.md)
+> * [Azure 포털](site-recovery-vmware-to-azure.md)
 > * [Azure 클래식](site-recovery-vmware-to-azure-classic.md)
 
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 VMware 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다.
 
- VMware VM을 Azure에 마이그레이션하려는 의도인 경우 계속 진행하기 전에 [이 문서](site-recovery-migrate-to-azure.md)를 참조하여 더 자세히 알아봅니다.
+VMware VM을 Azure에 마이그레이션하려는 경우(장애 조치만 해당) [이 문서](site-recovery-migrate-to-azure.md)를 참조하세요.
 
 이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
-## <a name="deployment-summary"></a>배포 요약
+## <a name="deployment-steps"></a>배포 단계
 
 수행해야 할 사항:
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 03/06/2017
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>자동 검색 및 푸시 설치를 위한 준비
 
-- **자동 검색용 계정 준비**: Site Recovery 프로세스 서버는 VM을 자동으로 검색합니다. 이를 위해 Site Recovery는 vCenter 서버/vSphere ESXi 호스트에 액세스할 수 있는 자격 증명이 필요합니다.
+- **자동 검색용 계정 준비**: Site Recovery 프로세스 서버는 VM을 자동으로 검색합니다. 이를 위해 Site Recovery는 vCenter 서버 및 vSphere ESXi 호스트에 액세스할 수 있는 자격 증명이 필요합니다.
 
     1. 전용 계정을 사용하려면 역할을 만듭니다(vCenter 수준에서, 해당 [권한](#vmware-account-permissions) 포함). 이름을 **Azure_Site_Recovery**와 같이 지정합니다.
     2. 그 다음, vSphere 호스트/vCenter 서버에 사용자를 만들고 이 사용자에게 역할을 할당합니다. Site Recovery를 배포하는 동안 이 사용자 계정을 지정합니다.
@@ -111,11 +111,11 @@ ms.lasthandoff: 03/06/2017
 
 복제할 대상과 복제할 위치를 선택합니다.
 
-1. **Recovery Services 자격 증명 모음** > <vault name>을 클릭합니다.
-2. **시작**에서 **Site Recovery** > **1단계: 인프라 준비** > **보호 목표**를 차례로 클릭합니다.
+1. **Recovery Services 자격 증명 모음** > 자격 증명 모음을 클릭합니다.
+2. 리소스 메뉴에서 **Site Recovery** > **1단계: 인프라 준비** > **보호 목표**를 클릭합니다.
 
     ![목표 선택](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. **컴퓨터를 복제할 위치를 선택하세요.**에서 **Azure**를 선택하고 **컴퓨터가 가상화되어 있습니까?**에서 **예, VMware vSphere 하이퍼바이저 사용**을 선택합니다.
+3. **보호 목표**에서 **Azure에** > **예, VMware vSphere 하이퍼바이저 사용**을 차례로 선택합니다.
 
     ![목표 선택](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -123,32 +123,35 @@ ms.lasthandoff: 03/06/2017
 
 구성 서버를 설정하고 자격 증명 모음에 등록한 후 VM을 검색합니다.
 
-1. **1단계: 인프라 준비**에서 **원본**을 클릭합니다.
+1. **Site Recovery** > **1단계: 인프라 준비** > **원본**을 클릭합니다.
 2. 구성 서버가 없는 경우 **+구성 서버**를 클릭합니다.
 
     ![원본 설정](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
-4. **Microsoft Azure Site Recovery 통합 설치 프로그램** 설치 파일을 다운로드합니다.
+4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
 5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터&5;일간 유효합니다.
 
    ![원본 설정](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. 구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time)와 동기화되었는지 확인하고 통합 설치 프로그램을 실행하여 구성 서버, 프로세스 서버 및 마스터 대상 서버를 설치합니다.
+
 
 ## <a name="run-site-recovery-unified-setup"></a>Site Recovery 통합 설치 프로그램 실행
 
-시작하기 전에 다음을 수행합니다.
+다음을 수행하여 시작하기 전에 통합 설치 프로그램을 실행하여 구성 서버, 프로세스 서버 및 마스터 대상 서버를 설치합니다.
+    - 간단한 동영상 개요 보기
 
-- VM의 시간이 현지 표준 시간대의 시간과 같은지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
-- 구성 서버 VM에서 로컬 관리자로 설치 프로그램을 실행합니다.
-- TLS 1.0이 VM에서 활성화되어 있는지 확인합니다.
+        > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video1-Source-Infrastructure-Setup/player]
 
-그 다음, 구성 서버에서 통합 설치 프로그램 설치 파일을 실행합니다.
+    - 구성 서버 VM에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
+    - 구성 서버 VM에서 로컬 관리자로 설치 프로그램을 실행합니다.
+    - TLS 1.0이 VM에서 활성화되어 있는지 확인합니다.
 
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수 있습니다. [자세히 알아보기](http://aka.ms/installconfigsrv).
+> [명령줄](http://aka.ms/installconfigsrv)을 통해 구성 서버를 설치할 수도 있습니다.
+
+
 
 ### <a name="add-the-account-for-automatic-discovery"></a>자동 검색에 사용할 계정 추가
 
@@ -160,7 +163,7 @@ vSphere ESXi 호스트 또는 vCenter 서버에 연결하여 VMware VM을 검색
 
 - 서버에 관리자 권한이 없는 계정으로 vCenter 서버 또는 vSphere 호스트를 추가하는 경우 계정에서
     - 데이터 센터, 데이터 저장소, 폴더, 호스트, 네트워크, 리소스, 가상 컴퓨터, vSphere 분산 스위치 등의 권한을 사용할 수 있도록 설정해야 합니다.
-    - vCenter 서버에는 저장소 보기 권한이 필요합니다.
+    - vCenter 서버에는 Storage 보기 권한이 필요합니다.
 - VMware 서버를 추가하는 경우 포털에 나타나려면 15분 이상 걸릴 수 있습니다.
 Azure Site Recovery가 온-프레미스 환경에서 실행 중인 가상 컴퓨터를 검색할 수 있게 하려면 Site Recovery와 VMware vCenter 서버 또는 vSphere ESXi 호스트를 연결해야 합니다.
 
@@ -183,6 +186,9 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 ## <a name="set-up-replication-settings"></a>복제 설정 지정
 
+시작하기 전에 간단한 동영상 개요를 보세요.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video2-vCenter-Server-Discovery-and-Replication-Policy/player]
+
 1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** > **+복제 정책**을 클릭합니다.
 2. **복제 정책 만들기**에서 정책 이름을 지정합니다.
 3. **RPO 임계값**에서 RPO 제한을 지정합니다. 이 값은 데이터 복구 지점 생성 횟수를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
@@ -191,6 +197,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
     ![복제 정책](./media/site-recovery-vmware-to-azure/gs-replication2.png)
 8. 새 정책을 만들면 새 정책이 자동으로 구성 서버에 연결됩니다. 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책은 **rep-policy-failback**이 됩니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.  
+
 
 
 ## <a name="plan-capacity"></a>용량 계획
@@ -203,7 +210,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 ## <a name="prepare-vms-for-replication"></a>복제용 VM 준비
 
-복제하려는 모든 컴퓨터에는 모바일 서비스가 설치되어 있어야 합니다. 다양한 방법으로 모바일 서비스를 설치할 수 있습니다.
+복제하려는 모든 VMware VM에 모바일 서비스가 설치되어야 합니다. 다양한 방법으로 모바일 서비스를 설치할 수 있습니다.
 
 1. 프로세스 서버에서 푸시 설치를 사용하여 설치합니다. 이 방법을 사용하려면 VM을 준비해야 합니다.
 2. System Center Configuration Manager 또는 Azure Automation DSC와 같은 배포 도구를 사용하여 설치합니다.
@@ -227,6 +234,10 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 기본적으로 컴퓨터의 모든 디스크가 복제됩니다. 디스크를 복제에서 제외할 수 있습니다. 예를 들어 임시 데이터 또는 컴퓨터나 응용 프로그램이 다시 시작할 때마다 새로 고쳐지는 데이터(예: pagefile.sys 또는 SQL Server tempdb)가 포함된 디스크를 복제하고 싶지 않을 수 있습니다.
 
 ### <a name="replicate-vms"></a>VM 복제
+
+시작하기 전에 간단한 동영상 개요를 보세요.
+
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
 
 1. **2단계: 응용 프로그램 복제** > **원본**을 클릭합니다.
 2. **원본**에서 구성 서버를 선택합니다.
@@ -258,9 +269,10 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
     * 워크로드를 미러링하도록 VM 및 물리적 서버를 함께 수집하는 것이 좋습니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있습니다. 컴퓨터가 동일한 워크로드를 실행하고 일관성이 필요한 경우에만 사용해야 합니다.
 
     ![복제 활성화](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. **복제 사용**을 클릭합니다. **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+13. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 복제를 활성화한 후 푸시 설치를 설정하는 경우 모바일 서비스가 설치됩니다. VM에서 모바일 서비스의 푸시 설치를 수행한 후 보호 작업이 시작되고 실패합니다. 실패 후 각 컴퓨터를 수동으로 다시 시작해야 합니다. 그러면, 보호 작업이 다시 시작되고 초기 복제가 발생합니다.
+
 
 
 ### <a name="view-and-manage-vm-properties"></a>VM 속성 보기 및 관리
@@ -289,26 +301,30 @@ VM 속성을 확인하고 필요한 사항을 변경하는 것이 좋습니다.
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
-모든 항목을 설정한 후 모든 것이 예상대로 작동하는지 확인할 수 있도록 테스트 장애 조치를 실행합니다.
+
+모든 항목을 설정한 후 모든 것이 예상대로 작동하는지 확인할 수 있도록 테스트 장애 조치를 실행합니다. 시작하기 전에 간단한 동영상 개요 보기
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
-1. 단일 컴퓨터를 장애 조치(failover)하려면 **복제된 항목**에서 VM > **+테스트 장애 조치(failover)** 아이콘을 클릭합니다.
+1. 단일 컴퓨터를 장애 조치(failover)하려면 **설정** > **복제된 항목**에서 VM > **+테스트 장애 조치(failover)** 아이콘을 클릭합니다.
 
-    ![테스트 장애 조치](./media/site-recovery-vmware-to-azure/TestFailover.png)
+    ![테스트 장애 조치(Failover)](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. 복구 계획을 장애 조치(Failover)하려면 **복구 계획**에서 계획 > **테스트 장애 조치(Failover)**를 마우스 오른쪽 버튼으로 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).  
+1. 복구 계획을 장애 조치(Failover)하려면 **설정** > **복구 계획**에서 계획을 마우스 오른쪽 버튼으로 클릭하고 **테스트 장애 조치(Failover)**를 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).  
 
 1. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
 
-1. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > > **작업** > **Site Recovery 작업**에서 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
+1. **확인** 을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **Site Recovery 작업**의 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
 
 1. 또한 장애 조치(failover)가 완료된 후 Azure 포털 > **Virtual Machines**에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다. VM의 크기가 적당하고, 올바른 네트워크에 연결되었고, 실행 중인지 확인해야 합니다.
 
 1. [장애 조치(failover) 후 연결을 준비](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)하는 경우 Azure VM에 연결할 수 있어야 합니다.
 
-1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 가상 컴퓨터가 삭제됩니다.
+1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 VM이 삭제됩니다.
 
-자세한 내용은 [Azure에 대한 테스트 장애 조치](site-recovery-test-failover-to-azure.md) 문서를 참조하세요.
+테스트 장애 조치(failover)에 대해 [자세히 알아보세요](site-recovery-test-failover-to-azure.md).
+
+
 ## <a name="vmware-account-permissions"></a>VMware 계정 권한
 
 Site Recovery는 VM 자동 검색 및 VM의 장애 조치와 장애 복구를 위해 프로세스 서버의 VMware에 대한 액세스 권한이 필요합니다.

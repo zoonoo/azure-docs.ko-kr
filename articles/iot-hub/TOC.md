@@ -227,10 +227,11 @@
 ## 관리
 ### IoT Hub 만들기 
 #### [포털 사용](iot-hub-create-through-portal.md)
+#### [PowerShell 사용](iot-hub-create-using-powershell.md)
 #### [CLI 2.0 사용](iot-hub-create-using-cli.md)
 #### [CLI 사용](iot-hub-create-using-cli-nodejs.md)
 #### [REST API 사용](iot-hub-rm-rest.md)
-#### [PowerShell 사용](iot-hub-rm-template-powershell.md)
+#### [PowerShell의 템플릿 사용](iot-hub-rm-template-powershell.md)
 #### [.NET의 템플릿 사용](iot-hub-rm-template.md)
 ### [파일 업로드 구성](iot-hub-configure-file-upload.md)
 ### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)

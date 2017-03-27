@@ -17,7 +17,7 @@
 | 배포당 개인 VIP(ILB) |1 |1 |
 | 끝점 ACL(액세스 제어 목록) |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다.
 
 | 리소스 | 기본 제한 | 최대 제한 |
@@ -26,6 +26,7 @@
 | 가상 네트워크당 서브넷 |1,000 |지원에 문의 |
 | 가상 네트워크당 DNS 서버 |9 |25 |
 | 가상 네트워크당 개인 IP 주소 |4096 |4096 |
+| 네트워크 인터페이스당 개인 IP 주소 |50 |지원에 문의 |
 | 가상 컴퓨터 또는 역할 인스턴스용 동시 TCP 연결 |500K |500K |
 | 네트워크 인터페이스(NIC) |300 |10000 |
 | 네트워크 보안 그룹(NSG) |100 |400 |
@@ -40,11 +41,7 @@
 | 부하 분산 장치당 개인 프런트 엔드 IP |10 |지원에 문의 |
 | 가상 네트워크당 VNet 피어링 수 |10 |50 |
 | VPN Gateway당 지점 및 사이트 간 루트 인증서 |20 |20 |
+| 가상 네트워크당 보조 IP 구성 |1000 |지원에 문의 |
 
 제한을 기본값에서 늘려야 하는 경우 지원에 문의하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b246d8813a41d353a9c0fa31fe838e025fc93046
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2017
 
 Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure 포털](https://portal.azure.com) 에 있는 동일한 기능을 대부분 제공합니다.
 
-이 가이드에서는 Azure Storage에서 [Azure CLI(명령줄 인터페이스 Azure)](../xplat-cli-install.md)를 사용하여 다양한 개발 및 관리 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
+이 가이드에서는 Azure Storage에서 [Azure CLI(명령줄 인터페이스 Azure)](../cli-install-nodejs.md)를 사용하여 다양한 개발 및 관리 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
 이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
@@ -47,7 +47,7 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 **Microsoft Azure 구독 및 계정을 만든 후:**
 
-1. [Azure CLI 설치](../xplat-cli-install.md)에 설명된 지침에 따라 Azure CLI를 다운로드하여 설치합니다.
+1. [Azure CLI 설치](../cli-install-nodejs.md)에 설명된 지침에 따라 Azure CLI를 다운로드하여 설치합니다.
 2. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 azure 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. _azure_ 명령을 입력하면 다음 출력이 표시되어야 합니다.
 
     ![Azure 명령 출력][Image1]
@@ -239,7 +239,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 여기 있는 저장소 리소스와 함께 사용할 수 있는 Azure CLI 1.0 명령 참조를 찾을 수 있습니다.
 
 * [Resource Manager 모드에서 Azure CLI 명령](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Azure 서비스 관리 모드의 Azure CLI 명령](../xplat-cli-install.md)
+* [Azure 서비스 관리 모드의 Azure CLI 명령](../cli-install-nodejs.md)
 
 Resource Manager 배포 모델과 함께 사용할 수 있도록 Python으로 작성된 차세대 CLI인 [Azure CLI 2.0](storage-azure-cli.md)도 사용해 볼 수 있습니다.
 

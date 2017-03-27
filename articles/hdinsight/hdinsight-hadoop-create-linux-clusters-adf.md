@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d6a9be6c5c681cba04fa8ba216c89234ae35b846
-ms.openlocfilehash: 8e554fc73906a912c426cabf6f6dffdc10002c9b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -277,7 +277,7 @@ dataFactoryName은 템플릿을 배포할 때 지정하는 데이터 팩터리�
 * [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Azure 저장소 연결된 서비스
-Azure Storage 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 동일한 저장소 계정이 기본 HDInsight 저장소 계정, 입력 데이터 저장소 및 출력 데이터 저장소로 사용됩니다. 따라서 Azure Storage 연결된 서비스 하나만 정의합니다. 연결된 서비스 정의에서 Azure Storage 계정의 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
+Azure Storage 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. 이 자습서에서는 기본 HDInsight 저장소 계정, 입력 데이터 저장소 및 출력 데이터 저장소로 동일한 저장소 계정이 사용됩니다. 따라서 Azure Storage 연결된 서비스 하나만 정의합니다. 연결된 서비스 정의에서 Azure Storage 계정의 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
 
 ```json
 {

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1d2d3d9d6c8dee02f2eb96ba20894e1d52541102
-ms.openlocfilehash: 584af73f3f2d428f7551de0b12b498b1a118e5dc
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 207eb60a359be1d9d9b68a92ac0c8255e7217a97
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -51,13 +51,13 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-**PASSWORD**는 관리 계정의 암호로 바꾸고 **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 그러면 클러스터의 호스트 목록이 포함된 JSON 문서를 반환한 다음 jq에서 클러스터의 각 호스트에 대한 `host_name` 요소 값을 추출합니다.
+**PASSWORD**는 관리 계정의 암호로 바꾸고 **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 이 명령은 클러스터의 호스트 목록이 포함된 JSON 문서를 반환한 다음 jq에서 클러스터의 각 호스트에 대한 `host_name` 요소 값을 추출합니다.
 
-특정 서비스에 대한 노드의 이름을 찾으려면 해당 구성 요소에 대해 Ambari를 쿼리하면 됩니다. 예를 들어 HDFS 이름 노드에 대한 호스트를 찾으려면 다음을 사용합니다.
+특정 서비스에 대한 노드의 이름을 찾으려면 해당 구성 요소에 대해 Ambari를 쿼리하면 됩니다. 예를 들어 HDFS 이름 노드에 대한 호스트를 찾으려면 다음 명령을 사용합니다.
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-이 요청은 서비스를 설명하는 JSON 문서를 반환한 다음 jq에서 호스트에 대한 `host_name` 값만 추출합니다.
+이 명령은 서비스를 설명하는 JSON 문서를 반환한 다음 jq에서 호스트에 대한 `host_name` 값만 추출합니다.
 
 ## <a name="remote-access-to-services"></a>서비스에 대한 원격 액세스
 
@@ -68,7 +68,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
     인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
     > [!IMPORTANT]
-    > 인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 이 이름은 공용이 아닌 내부 도메인 이름이므로 인터넷을 통해 일부 기능에 액세스하려고 하면 "서버를 찾을 수 없음" 오류가 표시될 수 있습니다.
+    > 인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 내부 도메인 이름에 공개적으로 액세스할 수 없으므로 인터넷을 통해 일부 기능에 액세스하려고 하면 "서버를 찾을 수 없음" 오류가 표시될 수 있습니다.
     >
     > Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -96,25 +96,25 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
 * **2.2.4.9-1**: 이 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform 버전에 따라 지정되므로 사용 중인 클러스터의 번호가 여기서 나열된 번호와 다를 수 있습니다.
-* **current**: 이 디렉터리는 **2.2.4.9-1** 디렉터리 아래의 디렉터리에 대한 링크를 포함하며 파일에 액세스할 때마다 버전 번호(변경될 수 있음)를 입력하지 않아도 됩니다.
+* **current**: **2.2.4.9-1** 디렉터리 아래의 하위 디렉터리에 대한 링크를 포함하고 있습니다. 파일에 액세스할 때마다 변경될 수 있는 버전 번호를 입력하지 않도록 하기 위해 이 디렉터리가 존재합니다.
 
-예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템) 또는 Azure Blob 저장소에서 찾을 수 있습니다.
+예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
-## <a name="hdfs-blob-storage-and-data-lake-store"></a>HDFS, Blob Storage 및 Data Lake Store
+## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage 및 Data Lake Store
 
-대부분의 Hadoop 배포판에서 HDFS는 클러스터의 컴퓨터에서 로컬 저장소에 의해 되돌아갑니다. 효율적이지만 계산 리소스에 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션에 대한 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 HDFS는 클러스터의 컴퓨터에서 로컬 저장소에 의해 되돌아갑니다. 로컬 저장소를 사용하는 것이 효율적이지만, 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 비용이 많이 들 수 있습니다.
 
-HDInsight는 Azure Blob 저장소 또는 Azure Data Lake Store를 기본 저장소로 사용합니다. 이렇게 하면 다음과 같은 이점을 제공합니다.
+HDInsight는 Azure Storage 또는 Azure Data Lake Store의 Blob을 기본 저장소로 사용합니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
 * 저렴한 장기 저장소
 * 웹 사이트, 파일 업로드/다운로드 유틸리티, 다양한 언어 SDK 및 웹 브라우저와 같은 외부 서비스에 액세스할 수 있음
 
-> [!IMPORTANT]
-> Blob 저장소는 최대 4.75TB까지 저장할 수 있지만 개별 Blob(또는 HDInsight 관점 기준 파일)은 최대 195GB까지만 저장할 수 있습니다. Azure Data Lake Store는 페타바이트 이상의 개별 파일을 수조 개 포함하도록 동적으로 확장할 수 있습니다.
->
-> 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)를 참조하세요.
+> [!WARNING]
+> HDInsight는 __범용__ Azure Storage 계정만 지원합니다. 현재 __Blob 저장소__ 계정 유형은 지원하지 않습니다.
 
-Azure Storage 또는 Data Lake Store 중 하나를 사용하는 경우 일반적으로 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Blob 저장소 또는 Data Lake Store 중 어느 것에 저장되어 있든지 간에 `/example/data` 폴더에 있는 파일을 나열합니다.
+Azure Storage 계정은 최대 4.75TB까지 저장할 수 있지만 개별 Blob(또는 HDInsight 관점 기준 파일)은 최대 195GB까지만 저장할 수 있습니다. Azure Data Lake Store는 페타바이트 이상의 개별 파일을 수조 개 포함하도록 동적으로 확장할 수 있습니다. 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)를 참조하세요.
+
+Azure Storage 또는 Data Lake Store를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 Azure Storage 또는 Data Lake Store 중 어느 것에 저장되어 있든지 다음 명령은 `/example/data` 폴더에 있는 파일을 나열합니다.
 
     hdfs dfs -ls /example/data
 
@@ -122,7 +122,7 @@ Azure Storage 또는 Data Lake Store 중 하나를 사용하는 경우 일반적
 
 일부 명령에서는 파일에 액세스할 때 URI의 일부로 구성표를 지정해야 할 수도 있습니다. 예를 들어 Storm-HDFS 구성 요소를 사용하려면 구성표를 지정해야 합니다. 기본값이 아닌 저장소(클러스터에 "추가" 저장소로 추가된 저장소)를 사용할 때는 항상 URI의 일부로 구성표를 사용해야 합니다.
 
-__Blob 저장소__를 사용하는 경우 구성표는 다음 중 하나일 수 있습니다.
+__Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
 
 * `wasb:///`: 암호화되지 않은 통신을 사용하여 기본 저장소에 액세스합니다.
 
@@ -130,7 +130,7 @@ __Blob 저장소__를 사용하는 경우 구성표는 다음 중 하나일 수 
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 저장소 계정과 통신할 때 사용됩니다. 예를 들어 추가 저장소 계정이 있거나 공개적으로 액세스할 수 있는 저장소 계정에 저장된 데이터에 액세스하는 경우입니다.
 
-__Data Lake Store__를 사용하는 경우 구성표는 다음 중 하나일 수 있습니다.
+__Data Lake Store__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
 
 * `adl:///`: 클러스터의 기본 Data Lake Store에 액세스합니다.
 
@@ -150,7 +150,7 @@ Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색�
 > [!NOTE]
 > 이렇게 하면 해당 정보가 있는 서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
 
-여기서는 다음과 비슷한 값을 반환합니다.
+이 명령은 다음과 비슷한 값을 반환합니다.
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net` - Azure Storage 계정을 사용하는 경우
 
@@ -160,23 +160,23 @@ Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색�
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
-    여기서는 `<data-lake-store-account-name>.azuredatalakestore.net` 호스트 이름을 반환합니다.
+    이 명령은 `<data-lake-store-account-name>.azuredatalakestore.net` 호스트 이름을 반환합니다.
 
     저장소 내에서 HDInsight의 루트 디렉터리를 가져오려면 다음 REST 호출을 사용합니다.
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
-    여기서는 `/clusters/<hdinsight-cluster-name>/`과 비슷한 경로가 반환합니다.
+    이 명령은 `/clusters/<hdinsight-cluster-name>/`과 비슷한 경로를 반환합니다.
 
 또한 다음 단계를 사용하여 Azure Portal에서 저장소 정보를 찾을 수도 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
 
 2. **속성** 섹션에서 **저장소 계정**을 선택합니다. 클러스터에 대한 저장소 정보가 표시됩니다.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>HDInsight 외부에서 파일에 액세스하는 방법
 
-다양한 방법으로 HDInsight 클러스터 외부에서 데이터에 액세스할 수 있습니다. 다음은 데이터 작업에 사용할 수 있는 유틸리티 및 SDK에 대한 몇 가지 링크입니다.
+HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방법이 있습니다. 다음은 데이터 작업에 사용할 수 있는 유틸리티 및 SDK에 대한 몇 가지 링크입니다.
 
 __Azure Storage__를 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
@@ -203,7 +203,7 @@ __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 �
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
-## <a name="a-namescalingascaling-your-cluster"></a><a name="scaling"></a>클러스터 크기 조정
+## <a name="scaling"></a>클러스터 크기 조정
 
 클러스터 크기 조정 기능을 사용하면 클러스터를 삭제한 다음 다시 만들 필요 없이 클러스터에서 사용하는 데이터 노드 수를 변경할 수 있습니다. 클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.
 
@@ -240,15 +240,15 @@ __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 �
 
 HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
-HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 노드가 자동으로 소멸되고 다시 프로비전됩니다. 이 때문에 클러스터 노드에 프로그램을 수동으로 직접 설치하는 것은 좋지 않습니다. 대신 다음을 설치해야 하는 경우 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster.md) 을 사용합니다.
+HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 문제를 발견하면 실패한 노드를 삭제하고 이 노드를 대체할 노드를 만들 수 있습니다. 클러스터에 Hue(또는 다른 Hadoop 구성 요소)를 수동으로 설치하는 경우 이 작업이 수행될 때 유지되지 않습니다. 대신 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster.md)을 사용합니다. 스크립트 동작을 사용하여 다음과 같이 변경할 수 있습니다.
 
-* Spark 또는 Hue와 같은 서비스 또는 웹 사이트입니다.
-* 클러스터의 여러 노드에 대해 구성 변경을 필요로 하는 구성 요소입니다. 예를 들어 필수 환경 변수, 로깅 디렉터리 만들기 또는 구성 파일 만들기입니다.
+* Spark 또는 Hue와 같은 서비스 또는 웹 사이트를 설치하고 구성합니다.
+* 클러스터의 여러 노드에 대한 구성을 변경할 필요가 있는 구성 요소를 설치하고 구성합니다. 예를 들어 필수 환경 변수, 로깅 디렉터리 만들기 또는 구성 파일 만들기입니다.
 
 스크립트 동작은 클러스터를 프로비전하는 동안 실행되는 Bash 스크립트이며, 클러스터에 추가 구성 요소를 설치 및 구성하는 데 사용할 수 있습니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
 
@@ -269,9 +269,9 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
-> 이렇게 하면 일치하는 모든 jar 파일의 경로를 반환합니다.
+> 이 명령은 일치하는 jar 파일의 경로를 모두 반환합니다.
 
-클러스터가 구성 요소의 버전을 독립 실행형 jar 파일로 제공하지만 다른 버전을 사용하려는 경우 클러스터에 새 버전의 구성 요소를 업로드하고 작업에 사용해 볼 수 있습니다.
+클러스터와 함께 제공되는 버전과 다른 버전을 사용하려는 경우 구성 요소의 새 버전을 업로드하여 작업에 사용합니다.
 
 > [!WARNING]
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원되며 Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.

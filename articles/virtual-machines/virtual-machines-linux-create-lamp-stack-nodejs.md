@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 2/21/2017
 ms.author: juluk
 translationtype: Human Translation
-ms.sourcegitcommit: 59af3469a5b2d5cca68bf18dca1aa1e3ab684adb
-ms.openlocfilehash: 0675b6471e37e89e426df85e2fb696fcff2927fd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c216b573e91894f2b9e17bf870c03b7d2a0f7161
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 LAMP 스택 배포
-이 문서에서는 Azure에서 Apache 웹 서버, MySQL 및 PHP(LAMP 스택)를 배포하는 방법을 설명합니다. Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)) 및 [Azure 계정에 연결된](../xplat-cli-connect.md) [Azure CLI](../xplat-cli-install.md)가 필요합니다.
+이 문서에서는 Azure에서 Apache 웹 서버, MySQL 및 PHP(LAMP 스택)를 배포하는 방법을 설명합니다. Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)) 및 [Azure 계정에 연결된](../xplat-cli-connect.md) [Azure CLI](../cli-install-nodejs.md)가 필요합니다.
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.

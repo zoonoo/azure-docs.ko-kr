@@ -40,7 +40,7 @@ Azure에는 현재 Azure SQL server 작업 부하를 호스팅하기 위한 두 
 ## <a id="ODBC"></a>데이터 액세스 기술: ODBC 및 OLE DB
 Azure SQL DB에 연결하는 것은 다르지 않고 데이터베이스에 연결하는 방법에는 ODBC(Open Database connectivity) 및 OLE DB(개체 연결 및 포함 데이터베이스)의 두 가지가 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다. 
 
-## <a id="Create">1단계: Azure SQL Database 만들기</a>
+## <a id="Create"></a>1단계: Azure SQL Database 만들기
 샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md) 를 참조하세요.  또는 [짧은&2;분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
 
 ## <a id="ConnectionString"></a>2단계: 연결 문자열 가져오기

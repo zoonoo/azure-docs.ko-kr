@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f79f6fb82a74d6195491f243dc79db0c6753a894
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ Azure에서 Docker를 사용하는 전체 프로세스는 간단합니다.
 * 로컬 Docker 명령을 사용하여 Azure의 Docker VM에서 Docker 컨테이너를 관리합니다.
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI) 설치
-Azure CLI를 설치하고 구성하려면, [Azure 명령줄 인터페이스를 설치하는 방법](../xplat-cli-install.md)을 참조하세요. 설치를 확인하려면 명령줄에 `azure`를 입력합니다. 잠시 후에 사용 가능한 기본 명령을 나열하는 Azure CLI ASCII 아트가 표시됩니다. 설치가 제대로 작동한 경우 `azure help vm`을 입력하면 나열된 명령 중 하나가 "docker"임을 확인할 수 있습니다.
+Azure CLI를 설치하고 구성하려면, [Azure 명령줄 인터페이스를 설치하는 방법](../cli-install-nodejs.md)을 참조하세요. 설치를 확인하려면 명령줄에 `azure`를 입력합니다. 잠시 후에 사용 가능한 기본 명령을 나열하는 Azure CLI ASCII 아트가 표시됩니다. 설치가 제대로 작동한 경우 `azure help vm`을 입력하면 나열된 명령 중 하나가 "docker"임을 확인할 수 있습니다.
 
 > [!NOTE]
 > Docker에 Windows용 도구, [Docker Machine](https://docs.docker.com/installation/windows/)이 있으며, docker 호스트로 Azure VM과 작업에 사용할 수 있는 docker 클라이언트 작성을 자동화할 수도 있습니다.
@@ -181,9 +182,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
 
 [Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작]:virtual-machines-linux-docker-compose-quickstart.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

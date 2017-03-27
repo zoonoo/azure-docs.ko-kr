@@ -7,9 +7,6 @@
 ## IP 주소
 ### [리소스 관리자](virtual-network-ip-addresses-overview-arm.md)
 ### [클래식](virtual-network-ip-addresses-overview-classic.md)
-## 가상 컴퓨터
-### [네트워크 인터페이스](virtual-network-network-interface-overview.md)
-### [이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # 시작
 ## [첫 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### 액세스 제어 목록
 #### [클래식 포털](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## 관리
 ### 네트워크 보안 그룹

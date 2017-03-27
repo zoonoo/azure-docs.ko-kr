@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bcb4fa81971ee1276cb8e7b0b249e970423bd630
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/31/2017
 ![시스템 아키텍처](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> 이 항목에서는 [Azure CLI](../xplat-cli-install.md) 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용할 수 있는 명령에 대한 참조가 필요하면 [Azure CLI 명령 참조](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요. 또한 [인증에 사용할 SSH 키를 만들고] pem 파일 위치를 적어 두어야 합니다.
+> 이 항목에서는 [Azure CLI](../cli-install-nodejs.md) 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용할 수 있는 명령에 대한 참조가 필요하면 [Azure CLI 명령 참조](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요. 또한 [인증에 사용할 SSH 키를 만들고] pem 파일 위치를 적어 두어야 합니다.
 >
 >
 

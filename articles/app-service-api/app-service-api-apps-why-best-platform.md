@@ -3,7 +3,7 @@ title: "API Apps 소개 | Microsoft Docs"
 description: "Azure 앱 서비스로 RESTful API를 개발, 호스팅, 소비하는 방법에 대해 알아보세요."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323

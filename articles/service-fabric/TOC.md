@@ -109,11 +109,11 @@
 #### [클러스터 네트워킹 패턴](service-fabric-patterns-networking.md)
 #### [노드 유형 및 VM Scale Sets](service-fabric-cluster-nodetypes.md)
 #### [클러스터의 크기 조정](service-fabric-cluster-scale-up-down.md)
+#### [프로그래밍 방식으로 클러스터 크기 조정](service-fabric-cluster-programmatic-scaling.md)
 #### [클러스터 업그레이드](service-fabric-cluster-upgrade.md)
 #### [클러스터 삭제](service-fabric-cluster-delete.md)
 #### [액세스 제어](service-fabric-cluster-security-roles.md)
 #### [클러스터 구성](service-fabric-cluster-fabric-settings.md)
-#### [인증서를 사용하여 클러스터 보안](service-fabric-windows-cluster-x509-security.md)
 #### [클러스터 인증서 추가 또는 롤오버](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Party 클러스터 무료 체험](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## 응용 프로그램 수명 주기 관리
 ### [개요](service-fabric-application-lifecycle.md)
-### [연속 통합 설정](service-fabric-set-up-continuous-integration.md)
+### [VSTS를 사용하여 연속 통합 설정](service-fabric-set-up-continuous-integration.md)
+### [Jenkins를 사용하여 Linux Java 앱 배포](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [ImageStoreConnectionString 설정 이해](service-fabric-image-store-connection-string.md)
 ### 응용 프로그램 배포 또는 제거
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

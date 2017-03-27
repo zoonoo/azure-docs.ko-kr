@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2b427d37a144b947d8d905e8f310ea35785ddf61
-ms.openlocfilehash: f397266afa269831d3791c625342454054b86ff2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -61,7 +61,19 @@ ms.lasthandoff: 02/23/2017
 
 ### <a name="configure-agents"></a>에이전트 구성
 
-가상 트랜잭션에 대해 ICMP 프로토콜을 사용하려는 경우 에이전트를 구성할 필요가 없습니다. 그러면 솔루션 구성을 시작할 수 있습니다. 하지만 TCP 프로토콜을 사용하려면 에이전트가 통신할 수 있도록 해당 컴퓨터의 방화벽 포트를 열어야 합니다. 관리자 권한으로 PowerShell 창에서 [EnableRules.ps1 PowerShell 스크립트](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634)를 다운로드하고 매개 변수 없이 실행해야 합니다.
+가상 트랜잭션에 ICMP 프로토콜을 사용하려는 경우 ICMP를 안정적으로 활용하기 위해 다음 방화벽 규칙을 사용하도록 설정해야 합니다.
+
+```
+netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow
+```
+
+
+TCP 프로토콜을 사용하려면 에이전트가 통신할 수 있도록 해당 컴퓨터의 방화벽 포트를 열어야 합니다. 관리자 권한으로 PowerShell 창에서 [EnableRules.ps1 PowerShell 스크립트](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634)를 다운로드하고 매개 변수 없이 실행해야 합니다.
 
 이 스크립트는 네트워크 성능 모니터에 필요한 레지스트리 키를 만들며 에이전트가 상호 TCP 연결을 만들 수 있도록 하는 Windows 방화벽 규칙을 만듭니다. 또한 이 스크립트로 생성된 레지스트리 키는 디버그 로그와 로그 파일의 패스를 로깅해야 하는지 여부를 지정하며 통신에 사용되는 에이전트 TCP 포트도 정의합니다. 이러한 키 값은 스크립트에서 자동으로 설정하므로 해당 키를 수동으로 변경하지 않아야 합니다.
 
@@ -76,7 +88,10 @@ ms.lasthandoff: 02/23/2017
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
 1. 네트워크 성능 모니터 솔루션은 MMA(Microsoft Monitoring Agent)와 요구 사항이 동일한 Windows Server 2008 SP 1 및 이후 버전 또는 Windows 7 SP1 이후 버전을 실행하는 컴퓨터에서 데이터를 가져옵니다. NPM 에이전트 또한 Windows 데스크톱/클라이언트 운영 체제(Windows 10, Windows 8.1, Windows 8 및 Windows 7)에서 실행할 수 있습니다.
-2. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 절차에 따라 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다.  
+    >[!NOTE]
+    >Windows Server 운영 체제용 에이전트는 가상 트랜잭션에 대한 프로토콜로써 TCP 및 ICMP를 모두 지원합니다. 그러나 Windows 클라이언트 운영 체제용 에이전트는 가상 트랜잭션에 대한 프로토콜로써 ICMP만을 지원합니다.
+
+2. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 절차에 따라 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다.  
    ![네트워크 성능 모니터 기호](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. OMS 포털에는 *Solution requires additional configuration*이라는 메시지가 포함된 **네트워크 성능 모니터** 타일이 새로 추가된 것을 확인할 수 있습니다. 에이전트에서 검색한 서브네트워크 및 노드를 기준으로 네트워크를 추가하기 위해 솔루션을 구성해야 합니다. 기본 네트워크 구성을 시작하려면 **네트워크 성능 모니터**를 클릭합니다.  
    ![solution requires additional configuration](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -290,6 +305,11 @@ PowerShell 스크립트를 사용하여 Windows를 실행하는 컴퓨터에서 
 
    아래 이미지에서 빨간색으로 표시된 패스와 홉을 확인하여 문제 영역의 근본 원인이 네트워크의 특정 섹션에 있는 것을 확인할 수 있습니다. 토폴로지 맵에서 노드를 클릭하면 FQDN, IP 주소 등의 노드 속성이 표시됩니다. 홉을 클릭하면 홉의 IP 주소가 표시됩니다.  
    ![비정상 토폴로지 - 패스 세부 정보 예](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+
+## <a name="provide-feedback"></a>피드백 제공
+
+- **UserVoice** - 사용하려는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)를 방문하세요.
+- **코호트 조인** - 코호트에 조인하는 새 고객을 항상 환영합니다. 그 일환으로 새로운 기능에 대한 초기 액세스 권한을 통해 네트워크 성능 모니터를 개선하는 데 참여하실 수 있습니다. 조인에 관심이 있을 경우 이 [빠른 설문 조사](https://aka.ms/npmcohort)에 참여하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](log-analytics-log-searches.md)을 수행합니다.

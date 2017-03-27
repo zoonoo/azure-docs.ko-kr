@@ -26,6 +26,7 @@
 ### [아티팩트 관리](devtest-lab-add-vm-with-artifacts.md)
 
 ## VM 기본 항목 및 템플릿 관리
+### [클레임할 수 있는 VM 만들기](devtest-lab-add-claimable-vm.md)
 ### [Azure Resource Manager 템플릿으로 다중 VM 환경 만들기](devtest-lab-create-environment-from-arm.md)
 ### [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md)
 ### [수식 및 이미지 비교](devtest-lab-comparing-vm-base-image-types.md)

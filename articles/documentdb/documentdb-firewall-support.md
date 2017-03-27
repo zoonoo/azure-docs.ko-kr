@@ -14,11 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/10/2017
 ms.author: ankshah
 translationtype: Human Translation
-ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
-ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7acbdda2e8179219c21370d20d30a94feb405fce
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -47,25 +48,32 @@ Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 �
 ## <a name="connections-from-the-internet"></a>인터넷에서 연결
 인터넷에 있는 컴퓨터에서 DocumentDB 데이터베이스 계정에 액세스하려면 컴퓨터의 클라이언트 IP 주소 또는 IP 주소 범위를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 목록에 추가해야 합니다. 
 
-## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
-`ipRangeFilter` 속성을 업데이트하여 [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 IP 액세스 제어 정책을 프로그래밍 방식으로 설정할 수 있습니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 예: "13.91.6.132,13.91.6.1/24". 이러한 메서드를 통해 데이터베이스 계정을 업데이트할 때에는 기본 설정으로 다시 설정되지 않도록 모든 속성을 채워야 합니다.
+## <a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
+Azure Portal에서나, [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md)을 통해 프로그래밍 방식으로 또는 `ipRangeFilter` 속성을 업데이트하여 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 IP 액세스 제어 정책을 설정할 수 있습니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 예: "13.91.6.132,13.91.6.1/24". 이러한 메서드를 통해 데이터베이스 계정을 업데이트할 때에는 기본 설정으로 다시 설정되지 않도록 모든 속성을 채워야 합니다.
 
 > [!NOTE]
 > DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다.
 
+개발을 간소화하기 위해 Azure Portal에서는 클라이언트 컴퓨터의 IP를 식별하여 허용된 목록에 추가하여 컴퓨터에서 실행되는 앱이 DocumentDB 계정에 액세스할 수 있도록 합니다. 포털에서 볼 수 있듯이 여기서 클라이언트 IP 주소가 검색됩니다. 이것은 컴퓨터의 클라이언트 IP 주소일 수 있지만 네트워크 게이트웨이의 IP 주소일 수도 있습니다. 프로덕션으로 이동하기 전에 반드시 제거하세요.
+
+Azure Portal에서 IP 액세스 제어 정책을 설정하려면 DocumentDB 계정 블레이드로 이동하고 탐색 메뉴에서 **방화벽**을 클릭한 후 **켜기**를 클릭합니다. 
+
+![Azure Portal에서 방화벽 블레이드를 여는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
+
+새 창에서 Azure Portal에서 계정에 액세스할 수 있는지 여부를 지정하고 다른 주소 및 범위를 적절히 추가한 후 **저장**을 클릭합니다.  
+
+![Azure Portal에서 방화벽 설정을 구성하는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
+
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>IP 액세스 제어 정책 문제 해결
 ### <a name="portal-operations"></a>포털 작업
-DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다. 
+DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 따라서 컬렉션 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하려면 포털의 **방화벽** 블레이드를 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다. 
+
+![Azure Portal에 대한 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-access-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK 및 Rest API
 보안상의 이유로 허용 목록에 없는 컴퓨터에서 SDK 또는 REST API를 통해 액세스를 시도하면 추가 정보 없이 일반적인 404 찾을 수 없음 응답이 반환됩니다. DocumentDB 데이터베이스 계정에 대해 구성된 허용 IP 목록을 확인하여 DocumentDB 데이터베이스 계정에 올바른 정책 구성이 적용되고 있는지 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 네트워크 관련 성능 팁에 대한 정보는 [성능 팁](documentdb-performance-tips.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

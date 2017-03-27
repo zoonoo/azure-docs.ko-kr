@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
 ms.lasthandoff: 03/15/2017
 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자가 대규모 병렬 계산 솔루션을 구축하는 데 사용할 수 있는 기본 서비스 기능 및 리소스를 설명합니다.
 
-분산된 컴퓨팅 응용 프로그램 또는 [REST API][batch_rest_api] 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-technical-overview.md#batch-development-apis) 중 하나를 사용하는 경우 이 문서에서 설명할 다양한 리소스 및 기능을 사용하게 됩니다.
+분산된 컴퓨팅 응용 프로그램 또는 [REST API][batch_rest_api] 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#batch-development-apis) 중 하나를 사용하는 경우 이 문서에서 설명할 다양한 리소스 및 기능을 사용하게 됩니다.
 
 > [!TIP]
 > 배치 서비스에 대한 고급 소개는 [Azure 배치의 기본 사항](batch-technical-overview.md)을 참조하세요.
@@ -427,6 +427,7 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
 >
 
 ## <a name="next-steps"></a>다음 단계
+* Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
 * [.NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)에서 샘플 배치 응용 프로그램을 단계별로 안내합니다. 또한 Linux 계산 노드에서 워크로드를 실행하는 [Python 버전](batch-python-tutorial.md) 자습서가 있습니다.
 * 배치 솔루션을 개발하는 동안 사용할 [Batch Explorer][github_batchexplorer] 샘플 프로젝트를 다운로드하여 빌드합니다. Batch Explorer를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 

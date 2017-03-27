@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 0842cbcceb7ac96d4283efdd6c178b08dd728254
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a8058d8a2af2836b9e1ac611b272408b10804f24
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,14 +34,14 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 > Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
+## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Hadoop
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
-## <a name="a-idcurlarun-hive-queries-by-using-curl"></a><a id="curl"></a>Curl을 사용하여 Hive 쿼리 실행
+## <a id="curl"></a>Curl을 사용하여 Hive 쿼리 실행
 > [!NOTE]
 > WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
 > 
@@ -121,7 +123,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
    > 
 4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 **wasbs:///example/curl**)가 포함됩니다. 이 주소는 HDInsight 클러스터에서 사용하는 기본 저장소 컨테이너의 **example/curl** 디렉터리에 작업의 출력을 저장합니다.
    
-    [Azure CLI](../xplat-cli-install.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
+    [Azure CLI](../cli-install-nodejs.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
    
         azure storage blob list <container-name> example/curl
    
@@ -151,13 +153,13 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
 6. 작업 상태를 확인하려면 반환된 작업 ID를 사용합니다. 작업이 성공하면 이전에 설명한 대로 Azure CLI를 사용하여 결과를 다운로드하고 볼 수 있습니다. 결과는 **[ERROR]**를 포함하여 모두&3;줄이어야 합니다.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
+## <a id="summary"></a>요약
 
 이 문서에서 볼 수 있듯이, 실행, 모니터링 및 HDInsight 클러스터의 Hive 작업의 결과 확인하려면 원시 HTTP 요청을 사용할 수 있습니다.
 
 이 문서에 사용된 REST 인터페이스에 대한 자세한 내용은 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat 참조</a>를 참조하세요.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 
 HDInsight Hive에 대한 일반적인 내용입니다.
 
@@ -197,10 +199,5 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

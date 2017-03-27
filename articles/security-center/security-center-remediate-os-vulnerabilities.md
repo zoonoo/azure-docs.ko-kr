@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7680aafcefbe6f1e6e3b55137da2e46b42df5a9b
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c88dc19cdacc94b9b81adcdbf69f22aac8f6eabe
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -70,7 +70,7 @@ Azure 보안 센터는 매일 가상 컴퓨터(VM) 운영 체제(OS)를 분석�
   - 평가 결과 –- 분석 결과: 통과, 실패
 
 ## <a name="see-also"></a>참고 항목
-이 문서에서는 보안 센터 권장 사항 "OS 취약성 해결"을 구현하는 방법을 보여 주었습니다. [여기](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)서 구성 규칙 집합을 검토할 수 있습니다. 보안 센터는 일반 구성 열거형(CCE)을 사용하여 구성 규칙에 대한 고유 ID를 할당합니다. 자세한 내용은 [CCE](http://cce.mitre.org) 사이트를 방문하세요.
+이 문서에서는 보안 센터 권장 사항 "OS 취약성 해결"을 구현하는 방법을 보여 주었습니다. [여기](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)서 구성 규칙 집합을 검토할 수 있습니다. 보안 센터는 일반 구성 열거형(CCE)을 사용하여 구성 규칙에 대한 고유 ID를 할당합니다. 자세한 내용은 [CCE](https://nvd.nist.gov/cce/index.cfm) 사이트를 방문하세요.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

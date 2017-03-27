@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 115a1937a4c88ba2b986a40c84b1b759ed5e03b5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>프런트 엔드 서브넷에 대한 NSG를 만드는 방법
 위의 시나리오에 따라 **NSG-FrontEnd** 라는 NSG를 만들려면 다음 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **`azure config mode`** 명령을 실행하여 클래식 모드로 전환합니다.
    
         azure config mode asm
@@ -234,10 +235,5 @@ ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
         info:    Looking up network configuration
         info:    Creating a network security group "NSG-BackEndX"
         info:    network nsg subnet add command OK
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

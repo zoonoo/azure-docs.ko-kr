@@ -12,22 +12,24 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/05/2016
+ms.date: 03/27/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
-ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
 > [!div class="op_single_selector"]
-> * [Azure 포털](site-recovery-failback-azure-to-vmware.md)
-> * [Azure 클래식 포털](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Azure 클래식 포털(레거시)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Azure의 VMware/물리적 컴퓨터](site-recovery-failback-azure-to-vmware.md)
+> * [Azure의 Hyper-V VM](site-recovery-failback-from-azure-to-hyper-v.md)
 
-이 문서에서는 Azure 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 장애 복구하는 방법에 대해 설명합니다. 이 [자습서](site-recovery-vmware-to-azure-classic.md)를 사용하여 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 온-프레미스 사이트에서 Azure로 장애 조치한 후 장애 복구할 준비가 되면 여기서의 지침을 따릅니다.
+이 문서에서는 Azure 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 장애 복구하는 방법에 대해 설명합니다. 이 [참조](site-recovery-how-to-reprotect.md)를 사용하여 컴퓨터를 다시 보호한 후에는 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구할 준비가 될 때 여기에 나온 지침을 따릅니다.
+
+>[!NOTE]
+>클래식 Azure Portal을 사용하는 경우 VMware에서 Azure로 아키텍처를 강화하기 위해서는 [여기](site-recovery-failback-azure-to-vmware-classic.md)의 지침을 따르고, 기존 아키텍처를 사용하려면 [여기](site-recovery-failback-azure-to-vmware-classic-legacy.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
 이 섹션의 다이어그램에서는 이 시나리오의 장애 복구 아키텍처를 보여 줍니다.

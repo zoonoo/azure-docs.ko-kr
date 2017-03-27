@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 37b20ab17cc2b241e0d8a7d73dcd4433317cc0d8
 ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
+ms.lasthandoff: 11/29/2016
 
 
 ---
@@ -69,10 +70,5 @@ Windows 번호는 Windows Server에서 [SPECint 2006](https://www.spec.org/cpu20
 
 ## <a name="next-steps"></a>다음 단계
 * 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

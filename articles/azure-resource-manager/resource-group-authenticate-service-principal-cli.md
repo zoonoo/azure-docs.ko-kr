@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a99b55c98f29356fb78e053434f6f3fc5c9d0efc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
 * 책임이 변경되면 앱의 자격 증명을 변경할 필요가 없습니다. 
 * 무인 스크립트를 실행할 때 인증서를 사용하여 인증을 자동화할 수 있습니다.
 
-이 항목에서는 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하도록 설정하는 방법을 보여 줍니다.
+이 항목에서는 [Mac, Linux 및 Windows용 Azure CLI](../cli-install-nodejs.md)를 사용하여 응용 프로그램을 자체 자격 증명 및 ID로 실행하도록 설정하는 방법을 보여 줍니다.
 
 Azure CLI를 사용하는 경우 AD 응용 프로그램을 인증하기 위한 다음&2;가지 옵션이 있습니다.
 
@@ -372,10 +373,5 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 ## <a name="next-steps"></a>다음 단계
 * 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 * 인증서 및 Azure CLI 사용에 대한 자세한 내용은 [Linux 명령줄에서 Azure 서비스 보안 주체로 인증서 기반 인증](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)을 참조하세요. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

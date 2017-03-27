@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -145,10 +145,25 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 **DN이 앵커**를 사용하는 경우 참조하는 것과 동일한 개체 형식을 사용해야 합니다. 다른 개체 형식을 참조할 수 없습니다.
 
+>[!NOTE]
+2017년 3월 업데이트부터 "*"에 대한 옵션이 추가됩니다. 이 옵션을 선택하면 모든 가능한 멤버 유형을 가져옵니다.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+가져온 후 아래 이미지와 유사한 화면이 표시됩니다.
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### <a name="global-parameters"></a>글로벌 매개 변수
 글로벌 매개 변수 페이지는 델타 가져오기, 날짜/시간 형식 및 암호 메서드를 구성하는 데 사용됩니다.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ "*" 즉,* *모든 옵션**은 내보내기/삭제 작업 중에 사용할 수 없습니다.
 
 일반 SQL 커넥터는 델타 가져오기에 대한 다음 메서드를 지원합니다.
 
@@ -270,7 +285,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 * **SP 이름 추가**: 개체가 해당 테이블에서 삽입하려는 커넥터에 제공되는 경우 이 SP가 실행됩니다.
 * **SP 이름 업데이트**: 개체가 해당 테이블에서 업데이트하려는 커넥터에 제공되는 경우 이 SP가 실행됩니다.
 * **SP 이름 삭제**: 개체가 해당 테이블에서 삭제하려는 커넥터에 제공되는 경우 이 SP가 실행됩니다.
-* 저장 프로시저에 매개 변수 값으로 사용되는 스키마에서 선택된 특성입니다. 예를 들어, `EmployeeName: INPUT: @EmployeeName` (EmployeeName를 커넥터 스키마에서 선택하고 내보내기를 수행하는 동안 커넥터가 해당 값을 바꿉니다.)
+* 저장 프로시저에 매개 변수 값으로 사용되는 스키마에서 선택된 특성입니다. 예를 들어, `EmployeeName: INPUT: @EmployeeName` (EmployeeName을 커넥터 스키마에서 선택하고 내보내기를 수행하는 동안 커넥터가 해당 값을 바꿉니다.)
 * 매개 변수가 있는 저장 프로시저를 실행하려면 매개 변수를 `[Name]:[Direction]:[Value]` 형식으로 제공합니다. 별도 줄에 각 매개 변수를 입력합니다.(Ctrl + Enter를 사용하여 새 줄 가져옴)
 
 **SQL query**  

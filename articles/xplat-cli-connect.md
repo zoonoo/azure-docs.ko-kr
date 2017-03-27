@@ -17,9 +17,9 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Azure CLI는 Azure 리소스 작업을 위한 플랫폼 간 공개 소스 명령
 * `azure login` CLI 명령을 실행하여 Azure Active Directory를 통해 인증을 받습니다. 이 방법을 사용하면 두 [명령 모드](#cli-command-modes)에서 CLI 명령에 액세스할 수 있습니다. 추가 옵션 없이 명령을 실행하면 `azure login`에서 웹 포털을 통해 대화형으로 계속 로그인할지 묻습니다. 추가 `azure login` 명령 옵션에 대해서는 이 문서의 시나리오를 참조하거나 `azure login --help`를 입력하세요.
 * Azure 서비스 관리 모드 CLI 명령만 사용해야 하는 경우(대부분의 새로운 배포에서는 권장되지 않음) 컴퓨터에 게시 설정 파일을 다운로드하고 설치할 수 있습니다.
 
-이미 CLI를 설치하지 않은 경우 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요. Azure 구독이 없는 경우 몇 분 만에 [무료 계정](http://azure.microsoft.com/free/) 을 만들 수 있습니다.
+이미 CLI를 설치하지 않은 경우 [Azure CLI 설치](cli-install-nodejs.md)를 참조하세요. Azure 구독이 없는 경우 몇 분 만에 [무료 계정](http://azure.microsoft.com/free/) 을 만들 수 있습니다.
 
 다른 계정 ID 및 Azure 구독에 대한 배경 정보는 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 

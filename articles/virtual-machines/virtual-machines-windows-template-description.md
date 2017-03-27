@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
-ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ea363667db5a4ef0dd6c3f06a13f3f8f6c192714
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,10 +31,10 @@ ms.lasthandoff: 02/27/2017
 
 이 예제에서는 지정된 수의 VM을 만들기 위한 템플릿의 일반적인 리소스 섹션을 보여 줍니다.
 
-```
+```json
 "resources": [
   { 
-    "apiVersion": "2016-03-30", 
+    "apiVersion": "2016-04-30-preview", 
     "type": "Microsoft.Compute/virtualMachines", 
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
@@ -63,10 +63,6 @@ ms.lasthandoff: 02/27/2017
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -75,10 +71,6 @@ ms.lasthandoff: 02/27/2017
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -165,7 +157,7 @@ ms.lasthandoff: 02/27/2017
 템플릿을 사용하여 리소스를 배포할 때 사용할 API의 버전을 지정해야 합니다. 예제에서는 이 apiVersion 요소를 사용하여 가상 컴퓨터 리소스를 보여 줍니다.
 
 ```
-"apiVersion": "2016-03-30",
+"apiVersion": "2016-04-30-preview",
 ```
 
 템플릿에서 지정하는 API의 버전은 템플릿에서 정의할 수 있는 속성에 영향을 줍니다. 일반적으로 템플릿을 만들 때 최신 버전의 API를 선택해야 합니다. 기존 템플릿의 경우 이전 API 버전을 계속 사용할지 아니면 새 기능을 이용하도록 최신 버전에 맞게 템플릿을 업데이트할지 여하를 결정할 수 있습니다.
@@ -236,15 +228,20 @@ ms.lasthandoff: 02/27/2017
 },
 ```
 
-또한 예제에서 루프 인덱스는 리소스에 대한 일부 값을 지정할 때 사용됩니다. 예를 들어&3;의 인스턴스 수를 입력한 경우 디스크의 vhd 결과에 대한 정의는 myOSDisk1, myOSDisk2 및 myOSDisk3이 됩니다.
+또한 예제에서 루프 인덱스는 리소스에 대한 일부 값을 지정할 때 사용됩니다. 예를 들어&3;의 인스턴스 수를 입력한 경우 운영 체제 디스크의 이름은 myOSDisk1, myOSDisk2 및 myOSDisk3입니다.
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.windows.net/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>이 예제에서는 가상 컴퓨터에 대해 Managed Disks를 사용합니다.
+>
+>
 
 템플릿에서 한 리소스에 대한 루프 만들기는 다른 리소스를 만들거나 액세스할 때 루프를 사용해야 한다는 점을 염두에 두십시오. 예를 들어 여러 VM은 동일한 네트워크 인터페이스를 사용할 수 없으므로 템플릿이 세 개의 VM 만들기를 통해 반복하는 경우 세 개의 네트워크 인터페이스 만들기를 통해 반복해야 합니다. VM에 네트워크 인터페이스를 할당할 때 루프 인덱스는 이를 식별하는 데 사용됩니다.
 
@@ -278,23 +275,7 @@ ms.lasthandoff: 02/27/2017
 }
 ```
 
-이 속성을 설정하려면 네트워크 인터페이스가 있어야 합니다. 따라서 종속성이 필요합니다. 또한 하나의 리소스(자식)가 다른 리소스(부모) 내에서 정의될 때에도 종속성을 설정해야 합니다. 예를 들어 진단 설정 및 사용자 지정 스크립트 확장 모두는 가상 컴퓨터의 자식 리소스로 정의됩니다. 가상 컴퓨터가 있을 때까지 만들 수 없습니다. 따라서 두 리소스는 가상 컴퓨터에 따라 표시됩니다. 
-
-가상 컴퓨터 리소스가 저장소 계정에 종속성을 갖지 않는 이유가 궁금할 수 있습니다. 가상 컴퓨터에는 저장소 계정을 가리키는 요소가 있습니다.
-
-```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
-```
-
-이 경우 저장소 계정이 이미 있다고 간주합니다. 저장소 계정이 동일한 템플릿에 배포되는 경우 저장소 계정에 대한 종속성을 설정해야 합니다.
+이 속성을 설정하려면 네트워크 인터페이스가 있어야 합니다. 따라서 종속성이 필요합니다. 또한 하나의 리소스(자식)가 다른 리소스(부모) 내에서 정의될 때에도 종속성을 설정해야 합니다. 예를 들어 진단 설정 및 사용자 지정 스크립트 확장 모두는 가상 컴퓨터의 자식 리소스로 정의됩니다. 가상 컴퓨터가 있을 때까지 만들 수 없습니다. 따라서 두 리소스는 가상 컴퓨터에 따라 표시됩니다.
 
 ## <a name="profiles"></a>프로필
 
@@ -334,83 +315,64 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 },
 ```
 
-디스크에 대한 구성 설정은 osDisk 요소와 함께 할당됩니다. 예제는 디스크의 저장소에서의 위치, 디스크의 캐싱 모드 및 디스크가 [플랫폼 이미지](virtual-machines-windows-cli-ps-findimage.md)에서 만들어지고 있는 것을 정의합니다.
+운영 체제 디스크에 대한 구성 설정은 osDisk 요소와 함께 할당됩니다. 이 예제에서는 캐싱 모드가 **ReadWrite**로 설정된 새 관리되는 디스크를 정의하며 해당 디스크는 [플랫폼 이미지](virtual-machines-windows-cli-ps-findimage.md)에서 만들어집니다.
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-existing-disks"></a>기존 디스크에서 새 가상 컴퓨터 만들기
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>기존 Managed Disks에서 새 가상 컴퓨터 만들기
 
 기존 디스크에서 가상 컴퓨터를 만들려는 경우 imageReference 및 osProfile 요소를 제거하고 이러한 디스크 설정을 정의합니다.
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-이 예제에서 uri는 새 파일에 대한 위치 대신 기존 vhd 파일을 가리킵니다. 기존 디스크를 연결하도록 createOption이 설정됩니다.
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>관리되는 이미지에서 새 가상 컴퓨터 만들기
 
-### <a name="create-new-virtual-machines-from-a-custom-image"></a>사용자 지정 이미지에서 새 가상 컴퓨터 만들기
-
-[사용자 지정 이미지](virtual-machines-windows-upload-image.md)에서 가상 컴퓨터를 만들려는 경우 imageReference 요소를 제거하고 이러한 디스크 설정을 정의합니다.
+관리되는 이미지에서 가상 컴퓨터를 만들려는 경우 imageReference 요소를 변경하고 다음과 같은 디스크 설정을 정의합니다.
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.windows.net/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-이 예제에서 vhd uri는 새 디스크가 저장되는 위치를 가리키고 이미지 uri는 사용할 사용자 지정 이미지를 가리킵니다.
-
 ### <a name="attach-data-disks"></a>데이터 디스크 연결
 
-필요에 따라 VM에 데이터 디스크를 추가할 수 있습니다. [디스크 수](virtual-machines-windows-sizes.md)는 사용하는 운영 체제 디스크의 크기에 따라 달라집니다. Standard_DS1_v2로 설정된 VM의 크기를 사용하면 추가될 수 있는 데이터 디스크의 최대 수는&2;입니다. 예제에서 하나의 데이터 디스크는 각 VM에 추가되고 있습니다.
+필요에 따라 VM에 데이터 디스크를 추가할 수 있습니다. [디스크 수](virtual-machines-windows-sizes.md)는 사용하는 운영 체제 디스크의 크기에 따라 달라집니다. Standard_DS1_v2로 설정된 VM의 크기를 사용하면 추가될 수 있는 데이터 디스크의 최대 수는&2;입니다. 이 예제에서는 하나의 관리되는 데이터 디스크를 각 VM에 추가합니다.
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-이 예제에서 vhd는 디스크에 대해 만들어지는 새 파일입니다. 기존 vhd에 uri를 설정하고 createOption을 **연결**로 설정할 수 있습니다.
 
 ## <a name="extensions"></a>확장
 

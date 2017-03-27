@@ -7,14 +7,13 @@
 
 # 시작
 ## [템플릿 내보내기](resource-manager-export-template.md)
-## [템플릿 연습](resource-manager-template-walkthrough.md)
+## [첫 번째 템플릿 만들기](resource-manager-create-first-template.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Resource Manager와 VS 코드](resource-manager-vs-code.md)
 
 # 방법
 ## 템플릿 만들기
 ### [템플릿 모범 사례](resource-manager-template-best-practices.md)
-### [템플릿 작성](resource-group-authoring-templates.md)
+### [템플릿 섹션](resource-group-authoring-templates.md)
 ### [템플릿 함수](resource-group-template-functions.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [리소스 이름 및 유형을 자식 설정](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)
+## [템플릿 형식](/azure/templates/)
 ## [REST (영문)](/rest/api/resources/)
 
 # 리소스

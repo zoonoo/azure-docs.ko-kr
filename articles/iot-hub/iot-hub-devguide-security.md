@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 0644efd8753c33c0404b45f567759c0be666bcef
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -329,7 +329,7 @@ await registryManager.AddDeviceAsync(device);
 [.NET용 Azure IoT 장치 SDK][lnk-client-sdk](버전 1.0.11+)는 X.509 인증서의 사용을 지원합니다.
 
 ### <a name="c-support"></a>C\# 지원
-클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 인증서를 사용하여  **DeviceClient** 인스턴스를 만들도록 지원합니다.
+클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 인증서를 사용하여  **DeviceClient** 인스턴스를 만들도록 지원합니다. X.509 인증서는 개인 키를 포함하는 PFX(PKCS #12라고도 함) 형식이어야 합니다. 
 
 다음은 샘플 코드 조각입니다.
 

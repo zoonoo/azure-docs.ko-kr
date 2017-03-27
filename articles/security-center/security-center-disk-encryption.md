@@ -1,7 +1,24 @@
-le--- 제목: Azure 가상 컴퓨터 암호화 | Microsoft Docs 설명: 이 문서를 사용하면 Azure Security Center에서 경고를 받은 후에 Azure 가상 컴퓨터를 암호화할 수 있습니다.
-서비스: 보안, 보안 센터 documentationcenter: 해당 없음 작성자: TomShinder 관리자: swadhwa 편집자: ''
+---
+title: "Azure 가상 컴퓨터 암호화 | Microsoft Docs"
+description: "이 문서를 사용하면 Azure 보안 센터에서 경고를 받은 후에 Azure 가상 컴퓨터를 암호화할 수 있습니다."
+services: security, security-center
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
+ms.service: security
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/15/2017
+ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: 보안 ms.devlang: 해당 없음 ms.topic: hero-article ms.tgt_pltfrm: 해당 없음 ms.workload: 해당 없음 ms.date: 2016/05/27 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure 가상 컴퓨터 암호화
@@ -162,3 +179,4 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 * [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
+

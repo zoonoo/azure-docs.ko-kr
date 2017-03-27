@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
 ms.openlocfilehash: 777168c5d48cc589c54a12265bd54e87c4b64274
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -132,10 +134,5 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 * [HDInsight에서 Storm용 Java 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

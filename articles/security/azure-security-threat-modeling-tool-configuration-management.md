@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 translationtype: Human Translation
-ms.sourcegitcommit: e0c0d40cc0c198000264623476c05473d9d24eaf
-ms.openlocfilehash: 34c29cb8a6289ab4dcb489e6cb83e7f16a748177
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 66465e74298c08d64b37ab0ede86f3d187068555
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/15/2017
 | Azure 저장소 | <ul><li>[Azure 저장소 액세스 키의 보안 관리 확인](#secure-keys)</li><li>[Azure 저장소에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-storage)</li></ul> |
 | WCF | <ul><li>[WCF의 서비스 제한 기능을 사용하도록 설정](#throttling)</li><li>[WCF - 메타데이터를 통한 정보 공개](#info-metadata)</li></ul> | 
 
-## <a name="a-idcsp-jsaimplement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>CSP(콘텐츠 보안 정책)를 구현하고 인라인 JavaScript를 사용하지 않도록 설정
+## <a id="csp-js"></a>CSP(콘텐츠 보안 정책)를 구현하고 인라인 JavaScript를 사용하지 않도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -67,7 +67,7 @@ javascript:alert(1);
 Example: var str="alert(1)"; eval(str);
 ```
 
-## <a name="a-idxss-filteraenable-browsers-xss-filter"></a><a id="xss-filter"></a>브라우저의 XSS 필터를 사용하도록 설정
+## <a id="xss-filter"></a>브라우저의 XSS 필터를 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -78,7 +78,7 @@ Example: var str="alert(1)"; eval(str);
 | 참조              | [XSS 보호 필터](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection)(영문) |
 | 단계 | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled` - XSS 공격이 감지되면 브라우저에서 페이지를 삭제하는 대신 페이지의 렌더링을 방해합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled` - 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주됩니다.</p>|
 
-## <a name="a-idtrace-deployaaspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET 응용 프로그램에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정
+## <a id="trace-deploy"></a>ASP.NET 응용 프로그램에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -89,7 +89,7 @@ Example: var str="alert(1)"; eval(str);
 | 참조              | [ASP.NET 디버깅 개요](http://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET 추적 개요](http://msdn2.microsoft.com/library/bb386420.aspx), [방법: ASP.NET 응용 프로그램에 대한 추적 활성화](http://msdn2.microsoft.com/library/0x5wc973.aspx), [방법: ASP.NET 응용 프로그램에 디버깅 사용](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | 단계 | 페이지에 대한 추적이 사용되는 경우 해당 페이지를 요청하는 모든 브라우저에서 내부 서버 상태 및 워크플로에 대한 데이터가 포함된 추적 정보를 얻습니다. 이 정보는 보안에 중요할 수 있습니다. 페이지에 대한 디버깅이 사용되는 경우 서버에서 발생하는 오류로 인해 전체 스택 추적 데이터가 브라우저에 표시됩니다. 이 데이터는 서버의 워크플로 보안에 중요한 정보를 노출할 수 있습니다. |
 
-## <a name="a-idjs-trustedaaccess-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>신뢰할 수 있는 원본에서만 타사 JavaScript에 액세스
+## <a id="js-trusted"></a>신뢰할 수 있는 원본에서만 타사 JavaScript에 액세스
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -100,7 +100,7 @@ Example: var str="alert(1)"; eval(str);
 | 참조              | 해당 없음  |
 | 단계 | 타사 JavaScript는 신뢰할 수 있는 원본에서만 참조해야 합니다. 참조 끝점은 항상 SSL에 있어야 합니다. |
 
-## <a name="a-idui-defensesaensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-clickjacking-defenses"></a><a id="ui-defenses"></a>인증된 ASP.NET 페이지에 UI 변조(UI Redressing) 또는 클릭재킹(clickjacking) 방어 기능이 통합되어 있는지 확인
+## <a id="ui-defenses"></a>인증된 ASP.NET 페이지에 UI 변조(UI Redressing) 또는 클릭재킹(clickjacking) 방어 기능이 통합되어 있는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -135,19 +135,19 @@ X-FRAME-OPTIONS 헤더는 IIS web.config를 통해 설정할 수 있습니다. �
     </system.webServer>
 ```
 
-## <a name="a-idcors-aspnetaensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-applications"></a><a id="cors-aspnet"></a>ASP.NET 웹 응용 프로그램에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인
+## <a id="cors-aspnet"></a>ASP.NET 웹 응용 프로그램에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
 | 구성 요소               | 웹 응용 프로그램 | 
 | SDL 단계               | 빌드 |  
-| 적용 가능한 기술 | Web Forms, MVC5 |
+| 적용 가능한 기술 | 웹 양식, MVC5 |
 | 특성              | 해당 없음  |
 | 참조              | 해당 없음  |
 | 단계 | <p>브라우저 보안은 웹 페이지에서 다른 도메인으로 AJAX 요청을 수행하지 못하도록 방지합니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다. CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다.</p><p>CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다. 근본적으로 CORS를 사용하도록 설정하면 몇 가지 HTTP 응답 헤더(Access-Control-*)를 웹 응용 프로그램에 추가할 수 있습니다. 이는 몇 가지 방법으로 수행할 수 있습니다.</p>|
 
-### <a name="example"></a>예제
-Web.config에 액세스할 수 있는 경우 다음 노드를 통해 CORS를 추가할 수 있습니다. 
+### <a name="example"></a>예
+Web.config에 액세스할 수 있는 경우 다음 코드를 통해 CORS를 추가할 수 있습니다. 
 ```XML
 <system.webServer>
     <httpProtocol>
@@ -166,13 +166,13 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 "Access-Control-Allow-Origin" 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 집합으로 설정되어 있는지 확인해야 합니다. 이를 부적절하게 구성하지 못하면(예: 값으로 '*' 설정) 악성 사이트에서 아무런 제한 없이 웹 응용 프로그램에 대한 원본 간 요청을 트리거할 수 있으므로 응용 프로그램이 CSRF 공격에 취약하게 됩니다. 
 
-## <a name="a-idvalidate-aspnetaenable-validaterequest-attribute-on-aspnet-pages"></a><a id="validate-aspnet"></a>ASP.NET 페이지에서 ValidateRequest 특성을 사용하도록 설정
+## <a id="validate-aspnet"></a>ASP.NET 페이지에서 ValidateRequest 특성을 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
 | 구성 요소               | 웹 응용 프로그램 | 
 | SDL 단계               | 빌드 |  
-| 적용 가능한 기술 | Web Forms, MVC5 |
+| 적용 가능한 기술 | 웹 양식, MVC5 |
 | 특성              | 해당 없음  |
 | 참조              | [요청 유효성 검사 - 스크립트 공격 방지](http://www.asp.net/whitepapers/request-validation) |
 | 단계 | <p>버전 1.1부터 ASP.NET 기능 중 하나인 요청 유효성 검사는 서버에서 인코딩되지 않은 HTML을 포함한 콘텐츠를 허용하지 않도록 방지합니다. 이 기능은 클라이언트 스크립트 코드 또는 HTML을 무의식적으로 서버에 제출하고 저장한 다음 다른 사용자에게 제공할 수 있는 스크립트 삽입 공격을 방지하도록 설계되었습니다. 모든 입력 데이터의 유효성을 검사하고 적절한 경우 HTML로 인코딩하는 것이 좋습니다.</p><p>요청 유효성 검사는 모든 입력 데이터를 잠재적으로 위험한 값의 목록과 비교함으로써 수행됩니다. 일치하는 경우 ASP.NET에서 `HttpRequestValidationException`을 발생시킵니다. 요청 유효성 검사 기능은 기본적으로 사용하도록 설정됩니다.</p>|
@@ -192,7 +192,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 ```
 요청 유효성 검사 기능은 지원되지 않으며 MVC6 파이프라인의 일부가 아닙니다. 
 
-## <a name="a-idlocal-jsause-locally-hosted-latest-versions-of-javascript-libraries"></a><a id="local-js"></a>로컬로 호스팅되는 최신 버전의 JavaScript 라이브러리 사용
+## <a id="local-js"></a>로컬로 호스팅되는 최신 버전의 JavaScript 라이브러리 사용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -203,7 +203,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 | 참조              | 해당 없음  |
 | 단계 | <p>JQuery와 같은 표준 JavaScript 라이브러리를 사용하는 개발자는 알려진 보안 결함이 없는 일반적인 JavaScript 라이브러리의 승인된 버전을 사용해야 합니다. 이전 버전의 알려진 취약성에 대한 보안 픽스가 포함되어 있으므로 최신 버전의 라이브러리를 사용하는 것이 좋습니다.</p><p>호환성 문제로 인해 최신 릴리스를 사용할 수 없는 경우 다음과 같은 최소 버전을 사용해야 합니다.</p><p>허용 가능한 최소 버전:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery Validate 1.9</li><li>JQuery Mobile 1.0.1</li><li>JQuery Cycle 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**Ajax Control Toolkit**<ul><li>Ajax Control Toolkit 40412</li></ul></li><li>**ASP.NET Web Forms and Ajax**<ul><li>ASP.NET Web Forms and Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>공용 CDN과 같이 외부 사이트의 JavaScript 라이브러리를 로드하면 안됩니다.</p>|
 
-## <a name="a-idmime-sniffadisable-automatic-mime-sniffing"></a><a id="mime-sniff"></a>자동 MIME 스니핑을 사용하지 않도록 설정
+## <a id="mime-sniff"></a>자동 MIME 스니핑을 사용하지 않도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -268,7 +268,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
-## <a name="a-idstandard-fingeraremove-standard-server-headers-on-windows-azure-web-sites-to-avoid-fingerprinting"></a><a id="standard-finger"></a>지문 인식을 방지하기 위해 Microsoft Azure 웹 사이트에서 표준 서버 헤더 제거
+## <a id="standard-finger"></a>지문 인식을 방지하기 위해 Microsoft Azure 웹 사이트에서 표준 서버 헤더 제거
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -279,7 +279,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | 참조              | [Microsoft Azure 웹 사이트에서 표준 서버 헤더 제거](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)(영문) |
 | 단계 | Server, X-Powered-By, X-AspNet-Version과 같은 헤더는 서버 및 기본 기술에 대한 정보를 표시합니다. 이러한 헤더를 숨겨 응용 프로그램의 지문 인식을 방지하는 것이 좋습니다 |
 
-## <a name="a-idfirewall-dbaconfigure-a-windows-firewall-for-database-engine-access"></a><a id="firewall-db"></a>데이터베이스 엔진 액세스를 위한 Windows 방화벽 구성
+## <a id="firewall-db"></a>데이터베이스 엔진 액세스를 위한 Windows 방화벽 구성
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -290,7 +290,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | 참조              | [Azure SQL Database 방화벽을 구성하는 방법](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [데이터베이스 엔진 액세스에 대한 Windows 방화벽 구성](https://msdn.microsoft.com/library/ms175043) |
 | 단계 | 방화벽 시스템은 컴퓨터 리소스에 대한 무단 액세스를 방지합니다. 방화벽을 통해 SQL Server 데이터베이스 엔진의 인스턴스에 액세스하려면 SQL Server를 실행하는 컴퓨터의 방화벽에서 액세스를 허용하도록 구성해야 합니다. |
 
-## <a name="a-idcors-apiaensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>ASP.NET Web API에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인
+## <a id="cors-api"></a>ASP.NET Web API에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -478,7 +478,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
     }
 ```
 
-## <a name="a-idconfig-sensitiveaencrypt-sections-of-web-apis-configuration-files-that-contain-sensitive-data"></a><a id="config-sensitive"></a>중요한 데이터가 포함된 Web API 구성 파일의 섹션 암호화
+## <a id="config-sensitive"></a>중요한 데이터가 포함된 Web API 구성 파일의 섹션 암호화
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -486,10 +486,10 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | SDL 단계               | 배포 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
-| 참조              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx)(영문), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 응용 프로그램 비밀 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/)(영문) |
-| 단계 | Web.config, appsettings.json과 같은 구성 파일은 사용자 이름, 암호, 데이터베이스 연결 문자열 및 암호화 키를 포함하여 중요한 정보를 저장하는 데 자주 사용됩니다. 이러한 정보를 보호하지 않으면 응용 프로그램이 공격자 또는 악의적인 사용자가 계정 사용자 이름과 암호, 데이터베이스 이름과 서버 이름 등과 같은 중요한 정보를 얻는 데 취약합니다. 배포 유형(azure/on-prem)에 따라 DPAPI 또는 Azure Key Vault와 같은 서비스를 사용하여 구성 파일의 중요한 섹션을 암호화합니다. |
+| 참조              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 응용 프로그램 암호 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| 단계 | Web.config, appsettings.json과 같은 구성 파일은 사용자 이름, 암호, 데이터베이스 연결 문자열 및 암호화 키를 포함하여 중요한 정보를 저장하는 데 자주 사용됩니다. 이러한 정보를 보호하지 않으면 응용 프로그램은 계정 사용자 이름과 암호, 데이터베이스 이름과 서버 이름 등과 같은 중요한 정보를 얻는 공격자 또는 악의적인 사용자에 대해 취약해집니다. 배포 유형(azure/on-prem)에 따라 DPAPI 또는 Azure Key Vault와 같은 서비스를 사용하여 구성 파일의 중요한 섹션을 암호화합니다. |
 
-## <a name="a-idadmin-strongaensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>모든 관리 인터페이스를 강력한 자격 증명으로 보호하는지 확인
+## <a id="admin-strong"></a>모든 관리 인터페이스를 강력한 자격 증명으로 보호하는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -500,7 +500,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | 해당 없음  |
 | 단계 | 장치 또는 필드 게이트웨이에서 노출하는 모든 관리 인터페이스는 강력한 자격 증명을 사용하여 보호해야 합니다. 또한 WiFi, SSH, 파일 공유, FTP와 같이 공개된 다른 인터페이스도 모두 강력한 자격 증명으로 보호해야 합니다. 기본적인 약한 암호는 사용하면 안됩니다. |
 
-## <a name="a-idunknown-exeaensure-that-unknown-code-cannot-execute-on-devices"></a><a id="unknown-exe"></a>장치에서 알 수 없는 코드를 실행할 수 없는지 확인
+## <a id="unknown-exe"></a>장치에서 알 수 없는 코드를 실행할 수 없는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -511,7 +511,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | [Windows 10 IoT Core에서 보안 부팅 및 BitLocker 장치 암호화 사용](https://developer.microsoft.com/windows/iot/win10/sb_bl)(영문) |
 | 단계 | UEFI 보안 부팅은 시스템에서 지정된 권한으로 서명된 바이너리만 실행할 수 있도록 제한합니다. 이 기능은 플랫폼에서 알 수 없는 코드가 실행되고 잠재적으로 플랫폼의 보안 상태가 약화되지 않도록 방지합니다. UEFI 보안 부팅을 사용하도록 설정하고 서명 코드에 대해 신뢰할 수 있는 인증 기관 목록을 제한합니다. 신뢰할 수 있는 기관 중 하나를 사용하여 장치에 배포된 모든 코드에 서명합니다. |
 
-## <a name="a-idpartition-iotaencrypt-os-and-additional-partitions-of-iot-device-with-bitlocker"></a><a id="partition-iot"></a>Bitlocker를 사용하여 OS 및 IoT 장치의 추가 파티션 암호화
+## <a id="partition-iot"></a>Bitlocker를 사용하여 OS 및 IoT 장치의 추가 파티션 암호화
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -522,7 +522,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | 해당 없음  |
 | 단계 | Windows 10 IoT Core는 필요한 측정을 수행하는 UEFI의 필수 preOS 프로토콜을 포함하여 플랫폼에서 TPM의 존재에 강하게 종속되는 경량 버전의 BitLocker 장치 암호화를 구현합니다. 이러한 preOS 측정을 통해 나중에 OS를 시작한 방식에 대한 명확한 기록이 OS에 있는지 확인할 수 있습니다. 중요한 데이터를 저장할 경우 Bitlocker 및 추가 파티션을 사용하여 OS 파티션을 암호화합니다. |
 
-## <a name="a-idmin-enableaensure-that-only-the-minimum-servicesfeatures-are-enabled-on-devices"></a><a id="min-enable"></a>장치에서 최소 서비스/기능만 사용하도록 설정되어 있는지 확인
+## <a id="min-enable"></a>장치에서 최소 서비스/기능만 사용하도록 설정되어 있는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -533,7 +533,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | 해당 없음  |
 | 단계 | 솔루션의 작동에 필요하지 않은 OS의 기능 또는 서비스를 사용하도록 설정하거나 해제하면 안됩니다. 예를 들어 장치에 UI를 배포할 필요가 없는 경우 Windows IoT Core를 헤드리스 모드로 설치합니다. |
 
-## <a name="a-idfield-bitlockeraencrypt-os-and-additional-partitions-of-iot-field-gateway-with-bitlocker"></a><a id="field-bitlocker"></a>Bitlocker를 사용하여 OS 및 IoT 필드 게이트웨이의 추가 파티션 암호화
+## <a id="field-bitlocker"></a>Bitlocker를 사용하여 OS 및 IoT 필드 게이트웨이의 추가 파티션 암호화
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -544,7 +544,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | 해당 없음  |
 | 단계 | Windows 10 IoT Core는 필요한 측정을 수행하는 UEFI의 필수 preOS 프로토콜을 포함하여 플랫폼에서 TPM의 존재에 강하게 종속되는 경량 버전의 BitLocker 장치 암호화를 구현합니다. 이러한 preOS 측정을 통해 나중에 OS를 시작한 방식에 대한 명확한 기록이 OS에 있는지 확인할 수 있습니다. 중요한 데이터를 저장할 경우 Bitlocker 및 추가 파티션을 사용하여 OS 파티션을 암호화합니다. |
 
-## <a name="a-iddefault-changeaensure-that-the-default-login-credentials-of-the-field-gateway-are-changed-during-installation"></a><a id="default-change"></a>설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인
+## <a id="default-change"></a>설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -555,7 +555,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | 해당 없음  |
 | 단계 | 설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인합니다. |
 
-## <a name="a-idcloud-firmwareaensure-that-the-cloud-gateway-implements-a-process-to-keep-the-connected-devices-firmware-up-to-date"></a><a id="cloud-firmware"></a>클라우드 게이트웨이에서 연결된 장치 펌웨어를 최신 상태로 유지하는 프로세스를 구현하는지 확인
+## <a id="cloud-firmware"></a>클라우드 게이트웨이에서 연결된 장치 펌웨어를 최신 상태로 유지하는 프로세스를 구현하는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -566,7 +566,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | [IoT Hub 장치 관리 개요](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [장치 펌웨어를 업데이트하는 방법](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
 | 단계 | LWM2M은 IoT 장치 관리를 위한 Open Mobile Alliance의 프로토콜입니다. Azure IoT 장치 관리를 통해 장치 작업을 사용하여 물리적 장치와 상호 작용할 수 있습니다. 클라우드 게이트웨이에서 Azure IoT Hub 장치 관리를 사용하여 정기적으로 장치 및 기타 구성 데이터를 최신 상태로 유지하는 프로세스를 구현하는지 확인합니다. |
 
-## <a name="a-idcontrols-policiesaensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>장치에서 조직 정책에 따라 구성된 끝점 보안 제어를 사용하는지 확인
+## <a id="controls-policies"></a>장치에서 조직 정책에 따라 구성된 끝점 보안 제어를 사용하는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -577,7 +577,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | 해당 없음  |
 | 단계 | 장치에 디스크 수준 암호화를 위한 BitLocker, 업데이트된 서명이 있는 바이러스 백신, 호스트 기반 방화벽, OS 업그레이드, 그룹 정책 등과 같은 끝점 보안 제어 기능이 조직의 보안 정책에 따라 구성되어 있는지 확인합니다. |
 
-## <a name="a-idsecure-keysaensure-secure-management-of-azure-storage-access-keys"></a><a id="secure-keys"></a>Azure 저장소 액세스 키의 보안 관리 확인
+## <a id="secure-keys"></a>Azure 저장소 액세스 키의 보안 관리 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -588,7 +588,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | [Azure Storage 보안 가이드 - 저장소 계정 키 관리](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
 | 단계 | <p>키 저장소: Azure Key Vault의 Azure Storage 액세스 키를 비밀로 저장하고, 응용 프로그램에서 키 자격 증명 모음의 키를 검색하도록 하는 것이 좋습니다. 이는 다음과 같은 이유로 권장됩니다.</p><ul><li>응용 프로그램에서 저장소 키를 구성 파일에 하드 코딩하지 않습니다. 이렇게 하면 누군가가 특정 권한이 없이 키에 액세스할 수 있는 여지를 제거합니다.</li><li>Azure Active Directory를 사용하여 키에 대한 액세스를 제어할 수 있습니다. 즉 계정 소유자가 Azure Key Vault에서 키를 검색해야 하는 몇 가지 응용 프로그램에 대한 액세스 권한을 부여할 수 있습니다. 다른 응용 프로그램은 키에 대한 특별한 권한을 부여하지 않고는 해당 키에 액세스할 수 없습니다.</li><li>키 다시 생성: 보안상의 이유로 Azure 저장소 액세스 키를 다시 생성하는 프로세스를 갖추는 것이 좋습니다. 키를 다시 생성하는 이유와 계획하는 방법에 대한 자세한 내용은 Azure Storage 보안 가이드 참조 문서에서 설명하고 있습니다.</li></ul>|
 
-## <a name="a-idcors-storageaensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>Azure 저장소에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인
+## <a id="cors-storage"></a>Azure 저장소에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -599,7 +599,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | 참조              | [Azure Storage 서비스에 대한 CORS 지원](https://msdn.microsoft.com/library/azure/dn535601.aspx)(영문) |
 | 단계 | Azure 저장소를 사용하면 CORS(크로스 원본 자원 공유)를 사용하도록 설정할 수 있습니다. 각 저장소 계정에 대해 해당 저장소 계정의 리소스에 액세스할 수 있는 도메인을 지정할 수 있습니다. 기본적으로 CORS는 모든 서비스에서 사용되지 않도록 설정되어 있습니다. REST API 또는 저장소 클라이언트 라이브러리를 사용하여 서비스 정책을 설정하는 방법 중 하나를 호출하도록 CORS를 설정할 수 있습니다. |
 
-## <a name="a-idthrottlingaenable-wcfs-service-throttling-feature"></a><a id="throttling"></a>WCF의 서비스 제한 기능을 사용하도록 설정
+## <a id="throttling"></a>WCF의 서비스 제한 기능을 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -622,7 +622,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 </system.serviceModel> 
 ```
 
-## <a name="a-idinfo-metadataawcf-information-disclosure-through-metadata"></a><a id="info-metadata"></a>WCF - 메타데이터를 통한 정보 공개
+## <a id="info-metadata"></a>WCF - 메타데이터를 통한 정보 공개
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -651,3 +651,4 @@ smb.HttpGetEnabled = false;
 smb.HttpGetUrl = new Uri(EndPointAddress); 
 Host.Description.Behaviors.Add(smb);
 ```
+

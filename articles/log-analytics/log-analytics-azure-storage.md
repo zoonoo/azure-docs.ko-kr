@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 935680e33c1b32619b7acb8d50a61e48b6703402
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,14 +48,16 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 | 부하 분산 장치          | Microsoft.Network/loadBalancers         | 진단 |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | 진단 | 진단 | |
 | 네트워크 보안 그룹 | Microsoft.Network/networksecuritygroups | 진단 |             | [Azure 네트워크 보안 그룹 분석](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| 복구 자격 증명         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services 분석(미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Search 서비스         | Microsoft.Search/searchServices         | 진단 | 진단 | |
-| 서비스 버스 네임스페이스   | Microsoft.ServiceBus/namespaces         | 진단 | 진단 | |
+| 서비스 버스 네임스페이스   | Microsoft.ServiceBus/namespaces         | 진단 | 진단 | [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | 저장소     |             | [Service Fabric 분석(미리 보기)](log-analytics-service-fabric.md) |
-| SQL(v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | 진단 | |
+| SQL(v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | 진단 | [Azure SQL Analytics(미리 보기)](log-analytics-azure-sql.md) |
+| 저장소                 |                                         |             | 스크립트      | [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | 가상 컴퓨터        | Microsoft.Compute/virtualMachines       | 내선 번호   | 내선 번호 <br> 진단  | |
 | 가상 컴퓨터 크기 집합 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 진단 | |
 | 웹 서버 팜        | Microsoft.Web/serverfarms               |             | 진단 | |
-| 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [자세한 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring) |
+| 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [Azure Web Apps 분석(미리 보기)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
 
 
 > [!NOTE]

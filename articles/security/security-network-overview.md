@@ -1,6 +1,6 @@
 ---
 title: "Azure의 네트워크 보안 개념 및 요구 사항 | Microsoft Docs"
-description: " 이 문서를 통해 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 훨씬 쉽게 이해할 수 있습니다. Azure에서 이러한 각 영역에서 제공해야 하는 사항에 대한 정보는 물론, 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공합니다.. "
+description: " 이 문서를 통해 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 훨씬 쉽게 이해할 수 있습니다. Azure에서 이러한 각 영역에서 제공해야 하는 사항에 대한 정보는 물론, 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공합니다. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/13/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -203,7 +204,7 @@ Azure Load Balancer를 사용하여 Azure에서 네트워크 수준 부하 분�
 ## <a name="logging"></a>로깅
 네트워크 수준에서 로깅은 네트워크 보안 시나리오의 핵심 기능입니다. Azure에서는 네트워크 보안 그룹에 대해 획득한 정보를 로깅하여 네트워크 수준 로깅 정보를 얻을 수 있습니다. NSG 로깅을 사용하여 다음에서 정보를 얻습니다.
 
-* 감사 로그 – Azure 구독에 제출된 모든 작업을 확인하는 데 사용됩니다. 이러한 로그는 기본적으로 사용 설정되며 Azure 포털 내에서 사용할 수 있습니다.
+* [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – Azure 구독에 제출된 모든 작업을 확인하는 데 사용됩니다. 이러한 로그는 기본적으로 사용 설정되며 Azure 포털 내에서 사용할 수 있습니다. 이전에는 이러한 로그를 "감사 로그" 또는 "작업 로그"라고도 했습니다.
 * 이벤트 로그 – 어떤 NSG 규칙이 적용 되었는지에 대한 정보를 제공합니다.
 * 카운터 로그 – 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수를 알 수 있습니다.
 
@@ -267,9 +268,4 @@ Azure 보안 센터는 다음과 같은 방법을 통해 네트워크 보안을 
 자세한 정보:
 
 * [Azure 보안 센터 소개](../security-center/security-center-intro.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

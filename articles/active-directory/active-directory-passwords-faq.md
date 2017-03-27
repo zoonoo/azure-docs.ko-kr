@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 138560f4bc8e400f7b3ca2d5a1b80ea0c25ec4da
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cdf233c2b141f4c73abcabc199b5fc583f14962c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 02/24/2017
 
 * [**암호 재설정 등록에 대한 질문**](#password-reset-registration)
 * [**암호 재설정에 대한 질문**](#password-reset)
+* [**암호 변경에 대한 질문**](#password-change)
 * [**암호 관리 보고서에 대한 질문**](#password-management-reports)
 * [**비밀번호 쓰기 저장에 대한 질문**](#password-writeback)
 
@@ -169,6 +170,18 @@ ms.lasthandoff: 02/24/2017
   >
   >
 
+## <a name="password-change"></a>암호 변경
+* **Q: 내 사용자는 어디서 자신의 암호를 변경해야 합니까?**
+
+  > **A:** 사용자는 자신의 [Office 365](https://portal.office.com) 또는 [액세스 패널](https://myapps.microsoft.com) 환경의 오른쪽 위 모서리와 같이 프로필 사진이나 아이콘이 표시된 곳이면 어디서나 자신의 암호를 변경할 수 있습니다. 사용자는 [액세스 패널 프로필 페이지](https://account.activedirectory.windowsazure.com/r#/profile)에서 자신의 암호를 변경할 수 있습니다. 또한 암호가 만료된 경우 사용자는 Azure AD 로그인 화면에서 자신의 암호를 변경하도록 자동으로 요청받을 수 있습니다. 마지막으로 자신의 암호를 변경하려는 경우 사용자는 [Azure AD 암호 변경 포털](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)로 직접 이동할 수 있습니다.
+  >
+  >
+* **Q: 온-프레미스 암호가 만료되는 경우 Office 포털에서 내 사용자에게 알릴 수 있습니까?**
+
+  > **A:** [ADFS로 암호 정책 클레임 보내기](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396)에 나와 있는 지침에 따라 ADFS를 사용하는 경우 가능합니다. 암호 해시 동기화를 사용하는 경우에는 불가능합니다. 이는 온-프레미스의 암호 정책을 동기화하지 않기 때문이며, 이에 따라 만료 알림을 클라우드 환경에 게시할 수 없습니다. 두 경우 모두 [PowerShell을 사용하여 암호가 만료될 사용자에게 알림](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx)(영문)을 보낼 수도 있습니다.
+  >
+  >
+  
 ## <a name="password-management-reports"></a>암호 관리 보고서
 * **Q: 데이터가 암호 관리 보고서를 표시하는 데 시간이 얼마나 소요됩니까?**
 
@@ -184,7 +197,7 @@ ms.lasthandoff: 02/24/2017
   ![][002]
 * **Q: 암호 관리 보고서에 저장되는 최대 이벤트 수는 무엇입니까?**
 
-  > **A:** 최대 1,000개의 암호 재설정 또는 암호 재설정 등록 이벤트가 암호 관리 보고서에 저장됩니다.  이 번호를 확장하여 더 많은 이벤트를 포함하도록 노력하고 있습니다.
+  > **A:** 최대 75,000개의 암호 다시 설정 또는 암호 다시 설정 등록 이벤트가 암호 관리 보고서에 저장되며, 최대 30 일 동안 백업됩니다.  이 번호를 확장하여 더 많은 이벤트를 포함하도록 노력하고 있습니다.
   >
   >
 * **Q: 암호 관리 보고서는 어디까지 표시할 수 있습니까?**
@@ -194,7 +207,7 @@ ms.lasthandoff: 02/24/2017
   >
 * **Q: 암호 관리 보고서에 최대 몇 행을 표시할 수 있습니까?**
 
-  > **A:** 예, 최대 1,000행이 암호 관리 보고서에 표시될 수 있으며, UI에 표시되거나 다운로드됩니다. 이 제한을 늘리는 방법을 현재 조사 중입니다.
+  > **A:** 예, UI에 표시되거나 다운로드되는지 여부에 관계 없이 최대 75,000개 행이 암호 관리 보고서에 표시될 수 있습니다. 이 제한을 늘리는 방법을 현재 조사 중입니다.
   >
   >
 * **Q: 암호 재설정 또는 등록 보고 데이터에 액세스하는 API가 있습니까?**
@@ -233,7 +246,7 @@ ms.lasthandoff: 02/24/2017
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다

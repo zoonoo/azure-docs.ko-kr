@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: f5bc2d4d52e10af6b8393e78a53c4bd983596cda
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9ed502efadbc27ca507fa5be455f32c3bd1b9eee
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="introduction-to-app-service-on-linux"></a>Linux의 App Service 소개
-Linux의 Azure App Service는 현재 공개 미리 보기이 제공되며 Linux에서 웹앱을 실행하도록 지원합니다.
+Linux의 Azure App Service는 현재 공개 미리 보기가 제공되며 Linux에서 웹앱을 실행하도록 지원합니다.
 
 ## <a name="overview"></a>개요
 고객은 지원되는 응용 프로그램 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다. 
@@ -32,9 +32,18 @@ Linux의 Azure App Service는 현재 공개 미리 보기이 제공되며 Linux�
 Linux의 App Service는 현재 다음과 같은 응용 프로그램 스택을 지원합니다.
 
 * Node.js
+    * 4.5.0
+    * 4.4.7
+    * 6.2.2
+    * 6.6.0
+    * 6.9.3
 * PHP
+    * 5.6.23
+    * 7.0.6
 * .NET Core
+    * 1.0
 * Ruby
+    * 2.3
 
 고객은 다음을 사용하여 해당 응용 프로그램을 배포할 수 있습니다.
 

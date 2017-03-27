@@ -15,14 +15,18 @@ ms.workload: azure-government
 ms.date: 10/20/2016
 ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: f245bf964664a0817ba26580aea9990b1767da82
-ms.openlocfilehash: 9b2fee2e98c11ef0468cef3f2bdc81e15698a6fe
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: e2d82497c2ceaa9a6c0a1592b5785449f095f85c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-government-marketplace-images"></a>Azure Government Marketplace 이미지
 ## <a name="overview"></a>개요
 Microsoft Azure Government Marketplace는 공용 Azure Portal과 유사한 환경입니다.  고객은 Microsoft와 파트너가 미리 작성한 이미지를 배포하거나 자신의 VHD를 업로드하도록 선택할 수 있습니다.  따라서 필요한 경우 사용자 고유의 표준화된 이미지를 배포할 수 있는 유연성이 제공됩니다.
+
+## <a name="variations"></a>변형
+* Marketplace 이미지는 현재 DoD에서 지원되지 않습니다.
 
 다음은 Azure Government Marketplace 내에서 사용할 수 있는 이미지 목록입니다.  일부 미리 작성된 이미지에는 특정 소프트웨어에 대한 종량제 라이선스가 포함되어 있습니다.  자세한 지침은 <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">가상 컴퓨터 가격 책정</a> 페이지를 검토하고, Azure Government와 관련된 가격은 Microsoft 계정 팀 또는 대리점에 문의하세요.
 
@@ -251,9 +255,4 @@ Azure 빠른 시작 템플릿 GitHub 리포지토리로 이동하고 아래 솔�
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

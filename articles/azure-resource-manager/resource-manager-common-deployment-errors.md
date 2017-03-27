@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
-ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,6 +49,7 @@ ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
 * [권한 부여 실패](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -122,6 +124,40 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
   ```
 
 해당 위치 또는 대체 위치에서 비즈니스 요구를 충족하는 적합한 SKU를 찾을 수 없는 경우 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하세요.
+
+### <a name="disallowedoperation"></a>DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+이 오류가 발생하는 경우 Azure Active Directory 이외의 모든 Azure 서비스에 대한 액세스가 허용되지 않은 구독을 사용하고 있는 것입니다. 클래식 포털에 액세스해야 하지만 리소스를 배포하도록 허용되지 않는 경우 이러한 유형의 구독을 보유하고 있는 것일 수 있습니다. 이 문제를 해결하려면 리소스를 배포할 수 있는 권한이 있는 구독을 사용해야 합니다.  
+
+PowerShell을 통해 사용할 수 있는 구독을 보려면 다음을 사용합니다.
+
+```powershell
+Get-AzureRmSubscription
+```
+
+또한 현재 구독 설정을 설정하려면 다음을 사용합니다.
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+Azure CLI 2.0을 통해 사용할 수 있는 구독을 보려면 다음을 사용합니다.
+
+```azurecli
+az account list
+```
+
+또한 현재 구독 설정을 설정하려면 다음을 사용합니다.
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 이 오류로 인해 별도의 몇 가지 유형의 오류가 발생할 수 있습니다.
@@ -387,19 +423,19 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 공급자가 등록되어 있는지 확인하려면 `azure provider list` 명령을 사용합니다.
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 리소스 공급자를 등록하려면 `azure provider register` 명령을 사용하고 등록할 *네임스페이스* 를 지정합니다.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-리소스 공급자에 대해 지원되는 위치 및 API 버전을 보려면 다음을 사용합니다.
+리소스 유형에 대해 지원되는 위치 및 API 버전을 보려면 다음을 사용합니다.
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -410,18 +446,23 @@ azure provider show -n Microsoft.Compute --json > compute.json
 코어에 대한 구독 할당량을 검사하려면 Azure CLI의 `azure vm list-usage` 명령을 사용할 수 있습니다. 다음 예제에서는 무료 평가판 계정에 대한 코어 할당량이 4개임을 보여 줍니다.
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 반환하는 내용은 다음과 같습니다.
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 미국 서부 지역의 코어를&5;개 이상 만드는 템플릿을 배포하는 경우에 다음과 같은 배포 오류 메시지가 표시됩니다.
@@ -479,13 +520,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 **PowerShell**에서 해당 정책 식별자를 **Id** 매개 변수로 제공하여 배포를 차단한 정책에 대한 정보를 검색합니다.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-**Azure CLI**에서 정책 정의 이름을 제공합니다.
+**Azure CLI 2.0**에서 정책 정의 이름을 제공합니다.
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 정책에 대한 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
@@ -522,21 +563,13 @@ azure policy definition show regionPolicyDefinition --json
 
    이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
 
-- Azure CLI
+- Azure CLI 2.0
 
-   Azure CLI에서 **--debug-setting** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   다음 명령을 사용하여 기록된 요청 및 응답 내용을 검토합니다.
+   다음 명령을 사용하여 배포 작업을 검토합니다.
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
 
 - 중첩된 템플릿
 
@@ -662,7 +695,7 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 | 자동화 |[Azure 자동화의 일반 오류에 대한 문제 해결 팁](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure 스택 |[Microsoft Azure 스택 문제 해결](../azure-stack/azure-stack-troubleshooting.md) |
 | 데이터 팩터리 |[데이터 팩터리 문제 해결](../data-factory/data-factory-troubleshoot.md) |
-| 서비스 패브릭 |[Azure 서비스 패브릭에서 서비스 배포 시 일반적인 문제 해결](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Service Fabric |[Azure Service Fabric 응용 프로그램 모니터링 및 진단](../service-fabric/service-fabric-diagnostics-overview.md) |
 | 사이트 복구 |[가상 컴퓨터 및 물리적 서버를 위한 보호 모니터링 및 문제 해결](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | 저장소 |[Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[StorSimple 장치 배포 문제 해결](../storsimple/storsimple-troubleshoot-deployment.md) |
@@ -672,9 +705,4 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 ## <a name="next-steps"></a>다음 단계
 * 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
 * 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

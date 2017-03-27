@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fe38c16f94faa3e7a5a2622ff4eb8a1ae93fba20
-ms.openlocfilehash: 1bf1e323798a702029663953d3a30de174aefc4c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -65,6 +65,7 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 **Q. Application Gateway의 수명 중에 IP 또는 DNS가 변경되나요?**
 
 게이트웨이가 고객에 의해 중지 및 시작된 경우 VIP를 변경할 수 있습니다. Application Gateway와 연결된 DNS는 게이트웨이 수명 중에 변경되지 않습니다. 이러한 이유로 CNAME 별칭을 사용하고 Application Gateway의 DNS 주소를 가리키도록 하는 것이 좋습니다.
+
 
 **Q. Application Gateway에서 고정 IP를 지원하나요?**
 
@@ -123,6 +124,10 @@ Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지�
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 
 호스트 필드는 프로브를 보낼 이름을 지정합니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다르며 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\> 형식입니다. 
+
+**Q. Application Gateway는 다중 테넌트 백 엔드도 지원하나요?**
+
+아니요, 현재 Application Gateway는 수신 호스트 헤더를 유지하고 백 엔드에 동일한 헤더를 전송합니다. 백 엔드에 다른 헤더가 필요한 경우 이 기능은 작동하지 않습니다. 마찬가지로 백 엔드가 다중 테넌트이고 종단 간 SSL을 사용하는 경우 백 엔드는 SNI 확장인 서버 이름을 예상합니다. 현재 Application Gateway는 종단 간 SSL 시나리오의 백 엔드 요청에서 SNI 헤더를 보내지 않습니다. 그러면 프로브 및 데이터 경로 문제가 발생합니다. 
 
 ## <a name="performance"></a>성능
 
@@ -283,3 +288,4 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 ## <a name="next-steps"></a>다음 단계
 
 Application Gateway에 대한 자세한 내용은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+

@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Service Fabric 응용 프로그램 관리 자동화 | Microsoft Docs"
+title: "Azure Service Fabric 응용 프로그램 관리 자동화 | Microsoft Docs"
 description: "PowerShell을 사용하여 서비스 패브릭 응용 프로그램 배포, 업그레이드, 테스트 및 제거"
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/14/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: d4a08f7eec5f57b06d87d13abe46942ddc24b482
-ms.openlocfilehash: d1909225a950b961491d3fe426f1e0d6aa5bdd53
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 59133d11d2d66daa44f28ef5b9aa3aae92e56a1e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -113,7 +113,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 잠시 후에 [Get-ServiceFabricApplicationUpgrade](/powershell/servicefabric/vlatest/get-servicefabricapplicationupgrade) cmdlet을 실행하면 모든 업그레이드 도메인이 업그레이드되었으며 작업이 완료되었음이 표시됩니다.
 
 ## <a name="task-test-a-service-fabric-application"></a>작업: 서비스 패브릭 응용 프로그램 테스트
-고품질 서비스를 작성하려면 개발자는 불안정한 인프라 결함을 유도하여 서비스의 안정성을 테스트할 수 있어야 합니다. 서비스 패브릭은 비정상 및 장애 조치(failover) 테스트 시나리오를 사용하여 개발자에게 오류가 있는 상황에서 서비스를 테스트할 수 있도록 오류 작업을 유도하는 기능을 제공합니다.  자세한 내용은 [테스트 용이성 개요](service-fabric-testability-overview.md) 를 읽어보세요.
+고품질 서비스를 작성하려면 개발자는 불안정한 인프라 결함을 유도하여 서비스의 안정성을 테스트할 수 있어야 합니다. 서비스 패브릭은 비정상 및 장애 조치(failover) 테스트 시나리오를 사용하여 개발자에게 오류가 있는 상황에서 서비스를 테스트할 수 있도록 오류 작업을 유도하는 기능을 제공합니다.  자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md)를 참조하세요.
 
 ### <a name="step-1-run-the-chaos-test-scenario"></a>1단계: 비정상 상황 테스트 시나리오 실행
 비정상 상황 테스트 시나리오는 전체 서비스 패브릭 클러스터에서 오류를 생성합니다. 이 시나리오에서는 일반적으로 수개월 또는 수년 후에 발견되는 오류를 수 시간으로 압축합니다. 인터리브 오류를 높은 오류 비율과 결합하면 놓치기 쉬운 특이한 사례를 발견할 수 있습니다. 다음 예제에서는 60분 동안 비정상 상황 테스트 시나리오를 실행합니다.

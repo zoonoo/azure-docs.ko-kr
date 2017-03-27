@@ -1,5 +1,5 @@
 ---
-title: "Azure 배포용 관련 템플릿 연결 | Microsoft Docs"
+title: "Azure 배포용 템플릿 연결 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a6c3e0150a60777d9f824cb1e0768bd44a8c981e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
 주 템플릿의 매개 변수를 연결된 템플릿에 전달할 수 있으며 이러한 매개 변수는 호출하는 템플릿이 노출하는 매개 변수 또는 변수에 직접 매핑될 수 있습니다. 또한 연결된 템플릿은 원본 템플릿에 출력 변수를 다시 전달할 수 있으므로 템플릿 간에 양방향 데이터 교환이 가능해집니다.
 
 ## <a name="linking-to-a-template"></a>템플릿에 연결
-연결된 템플릿을 가리키는 주 템플릿 내에 배포 리소스를 추가하여 두 템플릿 간에 링크를 만듭니다. **templateLink** 속성을 연결된 템플릿의 URI로 설정합니다. 템플릿에 직접 값을 지정하거나 매개 변수 파일에 연결하여 매개 변수 값을 연결된 템플릿에 제공할 수 있습니다. 다음 예제에서는 **parameters** 속성을 사용하여 매개 변수 값을 직접 지정합니다.
+연결된 템플릿을 가리키는 주 템플릿 내에 배포 리소스를 추가하여 두 템플릿 간에 링크를 만듭니다. **templateLink** 속성을 연결된 템플릿의 URI로 설정합니다. 템플릿 또는 매개 변수 파일에서 직접 연결된 템플릿의 매개 변수 값을 제공할 수 있습니다. 다음 예제에서는 **parameters** 속성을 사용하여 매개 변수 값을 직접 지정합니다.
 
 ```json
 "resources": [ 
@@ -87,7 +88,7 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
 ],
 ```
 
-토큰이 보안 문자열로 전달되었지만 SAS 토큰을 포함한 링크된 템플릿 URI가 해당 리소스 그룹의 배포 작업에 로그됩니다. 노출을 최소화하려면 토큰에 만료 날짜를 설정합니다.
+토큰이 보안 문자열로 전달되었지만 SAS 토큰을 포함한 링크된 템플릿 URI가 배포 작업에 로그됩니다. 노출을 최소화하려면 토큰에 만료 날짜를 설정합니다.
 
 Resource Manager는 연결된 각 템플릿을 별도 배포로 처리합니다. 리소스 그룹에 대한 배포 기록에 부모 및 중첩된 템플릿에 대한 별도 배포가 표시됩니다.
 
@@ -308,26 +309,36 @@ PowerShell에서는 컨테이너용 토큰을 얻고 다음을 사용하여 템�
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Azure CLI에서는 컨테이너용 토큰을 얻고 다음 코드를 사용하여 템플릿을 배포합니다. 현재는 SAS 토큰을 포함한 템플릿 URI를 사용할 때 배포에 이름을 지정해야 합니다.  
+Azure CLI 2.0에서는 컨테이너용 토큰을 얻고 다음 코드를 사용하여 템플릿을 배포합니다.
 
+```azurecli
+seconds='@'$(( $(date +%s) + 1800 ))
+expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name storagecontosotemplates \
+    --query connectionString)
+token=$(az storage container generate-sas \
+    --name templates \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name parent.json \
+    --output tsv \
+    --connection-string $connection)
+parameter='{"containerSasToken":{"value":"?'$token'"}}'
+az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
-expiretime=$(date -I'minutes' --date "+30 minutes")  
-azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
-azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
-```
-
-SAS 토큰을 매개 변수로 제공하라는 메시지가 나타납니다. **?**로 토큰을 삽입해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)
 * 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

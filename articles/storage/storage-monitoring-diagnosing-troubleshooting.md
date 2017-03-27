@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 2e2978f6e81b3f584eb73ce10fb373b62f7b85ff
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -305,7 +305,7 @@ catch (StorageException storageException)
 
 **문제 해결 결정 트리**
 
-- - -
+---
 문제가 저장소 서비스 중 하나의 성능과 관련된 경우
 
 * [메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]
@@ -313,39 +313,39 @@ catch (StorageException storageException)
 * [메트릭에서 AverageServerLatency가 높게 표시됨]
 * [큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함]
 
-- - -
+---
 문제가 저장소 서비스 중 하나의 가용성과 관련된 경우
 
 * [메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]
 * [메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]
 * [메트릭에서 PercentNetworkError가 증가하는 것으로 표시됨]
 
-- - -
-클라이언트 응용 프로그램이 저장소 서비스에서 HTTP 4XX(예: 404) 응답을 받는 경우
+---
+ 클라이언트 응용 프로그램이 저장소 서비스에서 HTTP 4XX(예: 404) 응답을 받는 경우
 
 * [클라이언트에 HTTP 403(사용할 수 없음) 메시지가 표시됨]
 * [클라이언트에 HTTP 404(찾을 수 없음) 메시지가 표시됨]
 * [클라이언트에 HTTP 409(충돌) 메시지가 표시됨]
 
-- - -
-[메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]
+---
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [용량 메트릭에 예기치 않은 저장소 용량 사용 증가가 표시됨]
 
-- - -
-[많은 수의 VHD가 연결된 가상 컴퓨터가 예기치 않게 다시 부팅됨]
+---
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [개발 또는 테스트용으로 저장소 에뮬레이터 사용 시 문제가 발생함]
 
-- - -
-[Azure SDK for .NET 설치 시 문제가 발생함]
+---
+[You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [저장소 서비스에서 다른 문제가 발생함]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨
 아래에 나와 있는 [Azure Portal](https://portal.azure.com) 모니터링 도구 그림은 **AverageE2ELatency**가 **AverageServerLatency**보다 크게 높은 경우의 예를 보여 줍니다.
 
@@ -475,9 +475,9 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 에 대한 동기 요청을 시작하는 중입니다. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음.. |
+| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음.. |
+| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환 했습니다: (403) 사용할 수 없음... |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |위치 모드에 따라 다음 위치가 Primary로 설정되었습니다. |
 | Microsoft.WindowsAzure.Storage |오류 |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 원격서버에서 작업이 실패했습니다:(403) 사용할 수 없음 |
@@ -538,7 +538,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | de8b1c3c-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt에 대한 동기 요청을 시작하는 중입니다. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |요청 데이터 쓰기를 준비하는 중입니다. |
-| e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음.. |
+| e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
 | e2d06d78-... |응답을 받았습니다. 상태 코드 = 404, 요청 ID = 353ae3bc-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | e2d06d78-... |응답 본문을 다운로드하는 중입니다. |
@@ -548,14 +548,14 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | e2d06d78-... |응답을 기다리는 중입니다. |
 | de8b1c3c-... |요청 데이터를 쓰는 중입니다. |
 | de8b1c3c-... |응답을 기다리는 중입니다. |
-| e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (409) 충돌.. |
+| e2d06d78-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (409) 충돌. |
 | e2d06d78-... |응답을 받았습니다. 상태 코드 = 409, 요청 ID = c27da20e-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |오류 응답 본문을 다운로드하는 중입니다. |
-| de8b1c3c-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음.. |
+| de8b1c3c-... |응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
 | de8b1c3c-... |응답을 받았습니다. 상태 코드 = 404, 요청 ID = 0eaeab3e-..., Content-MD5 = , ETag = . |
-| de8b1c3c-... |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음.. |
-| de8b1c3c-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다: (404) 찾을 수 없음.. |
-| e2d06d78-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다: (409) 충돌.. |
+| de8b1c3c-... |작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (404) 찾을 수 없음. |
+| de8b1c3c-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다: (404) 찾을 수 없음. |
+| e2d06d78-... |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다: (409) 충돌. |
 
 이 예제에서 로그에는 클라이언트가 **CreateIfNotExists** 메서드(요청 ID e2d06d78…)의 요청을 **UploadFromStream** 메서드(de8b1c3c-...)의 요청과 인터리빙함이 표시됩니다. 이러한 현상이 발생하는 이유는 클라이언트 응용 프로그램이 이러한 메서드를 비동기식으로 호출하기 때문입니다. 클라이언트가 컨테이너의 Blob에 데이터 업로드를 시도하기 전에 해당 컨테이너를 만들도록 클라이언트에서 비동기 코드를 수정해야 합니다. 모든 컨테이너를 미리 만드는 것이 가장 좋습니다.
 

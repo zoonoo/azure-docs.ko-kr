@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL 데이터베이스 정의 SQL 데이터베이스 소개
 SQL Database는 시장을 선도하는 Microsoft SQL Server 엔진을 기반으로 하고 중요한 업무용 워크로드를 처리할 수 있는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. SQL Database는 여러 서비스 수준에서 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 기본 제공 비즈니스 연속성 및 데이터 보호 기능을 제공하며 관리할 필요가 거의 없습니다. 이러한 기능을 사용하면 가상 컴퓨터와 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) 엔진을 기반으로 하므로 기존 SQL Server 도구, 라이브러리 및 API를 지원합니다. 결과적으로 새로운 솔루션을 개발하고 기존 SQL Server 솔루션을 이전하며 새로운 기술을 배우지 않고도 기존 SQL Server 솔루션을 Microsoft 클라우드로 확장하는 것이 쉽습니다.
 
-이 문서에서는 세부 정보를 찾는 링크를 통해 성능, 확장성 및 관리 효율성과 관련된 SQL 데이터베이스의 핵심 개념과 기능을 소개합니다. 실습 자습서로 이동할 준비가 되면 [첫 번째 SQL Database 만들기](sql-database-get-started.md) 또는 [탄력적 풀 만들기](sql-database-elastic-pool-manage-portal.md)로 이동합니다. 짧은 비디오 데모를 보려면 다음 비디오를 시청해 보세요.
+이 문서에서는 세부 정보를 찾는 링크를 통해 성능, 확장성 및 관리 효율성과 관련된 SQL 데이터베이스의 핵심 개념과 기능을 소개합니다. 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
+ - [Azure Portal에서 SQL Database 만들기](sql-database-get-started-portal.md)  
+ - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-get-started-cli.md)
+ - [PowerShell을 사용하여 SQL Database 만들기](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+일련의 Azure CLI 및 PowerShell 샘플은 다음을 참조하세요.
+ - [Azure SQL Database에 대한 Azure CLI 샘플](sql-database-cli-samples.md)
+ - [Azure SQL Database에 대한 Azure PowerShell 샘플](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>가동 중지 시간 없이 성능 및 규모 조정
 SQL Database 서비스는 세 가지 서비스 계층, 즉 Basic, Standard, Premium을 제공합니다. 각 서비스 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 [다양한 수준의 성능 및 기능](sql-database-service-tiers.md) 을 제공합니다. 한 달에 몇 달러의 작은 데이터베이스에 첫 번째 앱을 빌드한 다음 언제든지 수동 또는 프로그래밍 방식으로 [서비스 계층을 변경](sql-database-service-tiers.md)하여 솔루션의 요구 사항을 충족시킬 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 이를 수행할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 503cf4afba4575492984891a681c187a8683a553
-ms.openlocfilehash: 9d8fd7ec594671e1ea7bf06459494f1c3a1adbdf
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 0184e95ca56e4bc4ffbe860da2b7a5cae9b5a043
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -33,7 +33,7 @@ Log Analytics에 대해 제공되는 다른 도구처럼 Azure SQL 모니터링 
 
 ## <a name="connected-sources"></a>연결된 소스
 
-대부분의 다른 Log Analytics 솔루션과 달리 Azure SQL 모니터링 솔루션은 Log Analytics 서비스에 연결하는 데 에이전트를 사용하지 않습니다.
+Azure SQL 모니터링 솔루션은 Log Analytics 서비스에 연결하는 데 에이전트를 사용하지 않습니다.
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
@@ -42,7 +42,8 @@ Log Analytics에 대해 제공되는 다른 도구처럼 Azure SQL 모니터링 
 | [Windows 에이전트](log-analytics-windows-agents.md) | 아니요 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 예 | Azure 메트릭 데이터는 저장소 계정을 사용하여 Log Analytics에 전송됩니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
+| [Azure 진단](log-analytics-azure-storage.md) | 예 | Azure 메트릭 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +55,7 @@ Log Analytics에 대해 제공되는 다른 도구처럼 Azure SQL 모니터링 
 
 Azure SQL 모니터링 솔루션을 작업 영역에 추가하려면 다음 단계를 수행합니다.
 
-1. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 절차를 통해 작업 영역에 Azure SQL 모니터링 솔루션을 추가합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 작업 영역에 Azure SQL 분석 솔루션을 추가합니다.
 2. Azure Portal에서 **새로 만들기**(+ 기호)를 클릭한 후 리소스 목록에서 **모니터링 + 관리**를 선택합니다.  
     ![모니터링 + 관리](./media/log-analytics-azure-sql/monitoring-management.png)
 3. **모니터링 + 관리** 목록에서 **모두 표시**를 클릭합니다.

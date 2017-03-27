@@ -13,13 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 90d760207ee6b6e0d8c15ff597bf53512f071ef0
-ms.openlocfilehash: ace8475bd9a75eb92a3b5c084ee27b9813f13bfb
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 91c81cdba745be375ea6cbdb689d5b6f46e53f98
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
 
+<div class="introHolder">
+    <div class="intro">
 Windows 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서를 통해 클라우드에서 가상 컴퓨터 컴퓨팅 환경을 계획, 배포 및 관리할 수 있습니다.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />무료 PluralSight 동영상 교육 - Microsoft Azure를 사용하여 인프라 관리</a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,10 +171,5 @@ Windows 가상 컴퓨터를 만드는 방법에 대해 알아봅니다. 자습�
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

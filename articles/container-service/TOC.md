@@ -15,6 +15,7 @@
 ### [DC/OS 공용 액세스 사용](container-service-enable-public-access.md)
 ### [DC/OS 컨테이너 부하 분산](container-service-load-balancing.md)
 ### [DC/OS의 앱/사용자별 Orchestrator](container-service-application-specific-marathon.md)
+### [파일 공유 추가](container-service-dcos-fileshare.md)
 ### DC/OS 모니터링
 #### [ELK로 모니터링](container-service-monitoring-elk.md)
 #### [OMS로 모니터링](container-service-monitoring-oms.md)

@@ -3,7 +3,7 @@ title: "Azure App Service의 API 앱에 대한 인증 및 권한 부여 | Micros
 description: "Azure 앱 서비스에서 API 앱에 대해 제공하는 인증 및 권한 부여 서비스에 대해 알아보세요."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
@@ -77,7 +77,7 @@ Azure App Service는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구현�
 
 인증 공급자 구성 블레이드를 구성하는 방법을 설명하는 자세한 지침은 [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. 이 문서는 모바일 앱 뿐만 아니라 API 앱에 적용되고 다른 인증 공급자에 대한 다른 문서에 연결합니다.
 
-## <a name="a-idinternala-service-account-authentication"></a><a id="internal"></a> 서비스 계정 인증
+## <a id="internal"></a> 서비스 계정 인증
 앱 서비스 인증은 한 API 앱에서 다른 API 앱을 호출하는 경우와 같은 내부 시나리오에 대해 작동합니다. 이 시나리오에서는 최종 사용자 자격 증명 대신, 서비스 계정에 대한 자격 증명을 사용하여 토큰을 가져옵니다. Azure Active Directory에서 서비스 계정은 *서비스 주체* 라고도 하며, 이러한 계정을 사용하는 인증을 서비스 간 시나리오라고도 합니다. 
 
 서비스 간 시나리오의 경우 Azure Active Directory를 사용하여 호출된 API 앱을 보호하고 API 앱을 호출할 때 AAD 서비스 주체 권한 부여 토큰을 제공합니다. AAD 응용 프로그램에서 클라이언트 ID 및 클라이언트 암호를 제공하여 토큰을 가져옵니다. 모바일 서비스 Zumo 토큰을 처리하는 데 사용되는 것과 같은 특수한 Azure 전용 코드는 필요 없습니다. ASP.NET API 앱을 사용한 이 시나리오의 예는 [API 앱에 대한 서비스 주체 인증](app-service-api-dotnet-service-principal-auth.md)자습서에서 설명합니다.

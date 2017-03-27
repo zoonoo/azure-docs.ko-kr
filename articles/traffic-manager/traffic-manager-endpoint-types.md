@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -89,49 +90,11 @@ Traffic Manager에서 끝점 비활성화는 유지 관리 모드이거나 다�
 
 프로필의 모든 끝점이 비활성화되거나 프로필 자체가 비활성화된 경우 Traffic Manager은 'NXDOMAIN' 응답을 새 DNS 쿼리에 보냅니다.
 
-## <a name="faq"></a>FAQ
-
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>여러 구독에서 끝점으로 Traffic Manager를 사용할 수 있습니까?
-
-Azure Web Apps의 경우 여러 구독에서 끝점을 사용하는 것은 가능하지 않습니다. Azure Web Apps은 Web Apps와 함께 사용되는 모든 사용자 지정 도메인 이름을 단일 구독 내에서만 사용할 것을 요구합니다. 여러 구독에서 동일한 도메인 이름을 가지고 Web Apps를 사용하는 것은 불가능합니다.
-
-다른 끝점 유형의 경우 Traffic Manager를 둘 이상의 구독에서 끝점과 함께 사용할 수 있습니다. Traffic Manager를 구성하는 방법은 클래식 배포 모델 또는 리소스 관리자 환경을 사용하는지에 따라 달라집니다.
-
-* 리소스 관리자에서 모든 구독의 끝점은 Traffic Manager 프로필을 구성하는 사용자가 끝점에 대한 읽기 액세스가 있는 한 Traffic Manager에 추가될 수 있습니다. 이러한 권한은 [Azure Resource Manager 역할 기반 액세스 제어(RBAC)](../active-directory/role-based-access-control-configure.md)를 사용하여 부여될 수 있습니다.
-* 클래식 배포 모델 인터페이스에서 Traffic Manager는 Traffic Manager 프로필과 동일한 구독에 있는 Azure 끝점으로 구성된 Cloud Services 또는 Web Apps가 필요합니다. 다른 구독의 클라우드 서비스 끝점은 '외부' 끝점으로 Traffic Manager에 추가될 수 있습니다. 이러한 외부 끝점은 외부 비율이 아닌 Azure 끝점 비율로 청구됩니다.
-
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>클라우드 서비스 '스테이징' 슬롯으로 Traffic Manager를 사용할 수 있습니까?
-
-예. 클라우드 서비스 '스테이징' 슬롯은 외부 끝점으로 Traffic Manager에서 구성될 수 있습니다. 상태 검사는 여전히 Azure 끝점 비율로 요금이 청구됩니다. 외부 끝점 유형을 사용 중이므로 기본 서비스에 대한 변경 내용은 자동으로 선택되지 않습니다. 외부 끝점인 경우 Traffic Manager는 클라우드 서비스가 중지되거나 삭제될 때 감지할 수 없습니다. 따라서 Traffic Manager는 끝점이 비활성화되거나 삭제될 때까지 상태 검사에 대한 요금 청구를 계속합니다.
-
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Traffic Manager는 IPv6 끝점을 지원하나요?
-
-Traffic Manager는 현재 IPv6으로 주소 지정이 가능한 이름 서버를 제공하지 않습니다. 하지만 IPv6 클라이언트를 IPv6 끝점에 연결하여 Traffic Manager를 여전히 사용할 수 있습니다. 클라이언트는 Traffic Manager에 직접 DNS 요청을 만들지 않습니다. 대신 클라이언트는 재귀 DNS 서비스를 사용합니다. IPv6 전용 클라이언트는 IPv6를 통해 재귀 DNS 서비스에 요청을 보냅니다. 그런 다음 재귀 서비스는 IPv4를 사용하여 Traffic Manager 이름 서버에 연결할 수 있어야 합니다.
-
-Traffic Manager는 끝점의 DNS 이름으로 응답합니다. IPv6 끝점을 지원하기 위해 끝점 DNS 이름이 IPv6 주소를 가리키게 하는 DNS AAAA 레코드가 존재해야 합니다. Traffic Manager 상태 검사는 IPv4 주소만 지원합니다. 서비스는 IPv4 끝점을 동일한 DNS 이름에 노출해야 합니다.
-
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>동일한 지역에서 둘 이상의 웹앱에 Traffic Manager를 사용할 수 있습니까?
-
-일반적으로 Traffic Manager는 다른 지역에 배포된 응용 프로그램에 트래픽을 보내는 데 사용됩니다. 그러나 응용 프로그램이 동일한 지역에 둘 이상의 배포를 가지는 곳에 사용될 수도 있습니다. Traffic Manager Azure 끝점은 동일한 Traffic Manager 프로필에 추가되는 동일한 Azure 지역에서 둘 이상의 웹앱 끝점을 허용하지 않습니다.
-
-다음 단계는 이 제약 조건에 대한 해결 방법을 제공합니다.
-
-1. 끝점이 다른 웹앱 '배율 단위'에 있는지 확인합니다. 도메인 이름은 지정된 배율 단위의 단일 사이트로 매핑되어야 합니다. 따라서 동일한 배율 단위의 두 Web Apps는 Traffic Manager 프로필을 공유할 수 없습니다.
-2. 각 웹앱에 사용자 지정 호스트 이름으로 베니티 도메인 이름을 추가합니다. 각 웹앱은 다른 배율 단위에 있어야 합니다. 모든 Web Apps는 동일한 구독에 속해야 합니다.
-3. 하나(및 하나만)의 웹앱 끝점을 Azure 끝점으로 Traffic Manager 프로필에 추가합니다.
-4. 외부 끝점으로 Traffic Manager 프로필에 각 추가 웹앱 끝점을 추가합니다. 외부 끝점은 리소스 관리자 배포 모델을 사용해서만 추가할 수 있습니다.
-5. Traffic Manager 프로필 DNS 이름(<…>.trafficmanager.net)을 가리키는 베니티 도메인에 DNS CNAME 레코드를 만듭니다.
-6. Traffic Manager 프로필 DNS 이름이 아닌 베니티 도메인 이름을 통해 사이트에 액세스합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)에 대해 알아봅니다.
 * Traffic Manager [끝점 모니터링 및 자동 장애 조치(failover)](traffic-manager-monitoring.md)에 대해 알아봅니다.
 * Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

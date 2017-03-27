@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
-ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 6cf48883d397a4b04e707111306d4596cd7af683
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -35,8 +35,8 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 지침을 사용하여 Azure Key Vault 솔루션을 설치 및 구성합니다.
 
-1. 포털 또는 PowerShell을 사용하여 모니터링할 Key Vault 리소스에 대한 진단 로깅을 사용하도록 설정합니다. 
-2. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Key Vault 솔루션을 사용하도록 설정합니다. 
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Key Vault 솔루션을 사용하도록 설정합니다. 
+2. [포털](#enable-key-vault-diagnostics-in-the-portal) 또는 [PowerShell](#enable-key-vault-diagnostics-using-powershell)을 사용하여 모니터링할 Key Vault 리소스에 대한 진단 로깅을 사용하도록 설정합니다. 
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>포털에서 Key Vault 진단 사용 설정
 
@@ -76,7 +76,7 @@ Azure Blob Storage에 로그를 작성할 필요가 없으며 데이터를 수�
 | Azure |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![예](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![아니요](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | 도착 시 |
 
 ## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
-솔루션을 설치한 후 Log Analytics의 **개요** 페이지에서 **Azure Key Vault** 타일을 클릭하여 Key Vault 데이터를 봅니다.
+[솔루션을 설치](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)한 후 Log Analytics의 **개요** 페이지에서 **Azure Key Vault** 타일을 클릭하여 Key Vault 데이터를 봅니다.
 
 ![Azure Key Vault 타일 이미지](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 

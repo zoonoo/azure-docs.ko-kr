@@ -17,9 +17,9 @@ ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/01/2017
 
 * 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com/)에서 무료 평가판을 얻을 수 있습니다.
 * Azure 리소스 그룹을 사용할 회사 또는 학교 ID. 개인 계정이 있고 Microsoft ID로 로그인하는 경우 [개인 계정에서 회사 ID를 만들어야](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다.
-* 클라이언트 운영 체제에 따라 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
+* 클라이언트 운영 체제에 따라 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Mac, Linux 및 Windows용 Azure CLI](../cli-install-nodejs.md)
 * [OpenSSL](https://www.openssl.org/). OpenSSL은 필요한 인증서를 생성하는 데 사용됩니다.
 * [Git Bash](https://git-scm.com/)와 같은 Git 클라이언트
 * 샘플 응용 프로그램을 테스트하려면 DNS 서버도 필요합니다. 모든 DNS 서버 또는 와일드 카드 A 레코드를 지원하는 서비스를 사용할 수 있습니다.
@@ -250,7 +250,7 @@ Deis 클러스터를 제어하려면 **deisctl** 이 필요합니다. deisctl은
 [Azure CLI를 사용하는 방법][azure-command-line-tools]  
 [Azure Resource Manager로 Azure PowerShell 사용][powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 

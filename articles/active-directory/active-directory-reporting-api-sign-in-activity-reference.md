@@ -17,6 +17,7 @@ ms.author: dhanyahk;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -180,10 +181,5 @@ loginStatus에는 0 - 성공, 1 - 오류라는 두 개의 옵션이 있습니다
 ## <a name="next-steps"></a>다음 단계
 * 필터링된 로그인 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 로그인 활동 보고서 API 샘플](active-directory-reporting-api-sign-in-activity-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

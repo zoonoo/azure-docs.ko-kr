@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: d7df8f3271c6c92df427a840d73fdb9a0c6b54a1
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 555f43d6fca2ac6ba53eae94bff22426d667c444
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -94,7 +94,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 5. 각각의 VM에 두 번째 IP 구성을 추가합니다. [가상 컴퓨터에 여러 IP 주소 할당](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) 문서의 지침을 따릅니다. 다음 구성 설정을 사용합니다.
 
     ```powershell
-    $NicName = "VM1-NIC"
+    $NicName = "VM1-NIC2"
     $RgName = "contosofabrikam"
     $NicLocation = "West Central US"
     $IPConfigName4 = "VM1-ipconfig2"
@@ -150,11 +150,11 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
     Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
-12. 아래 명령은 NIC를 가져온 다음 각 NIC의 IP 구성 두 개를 부하 분산 장치의 백 엔드 주소 풀에 추가합니다.
+12. 아래 명령은 NIC를 가져온 다음 보조 NIC 각각의 IP 구성 두 개를 부하 분산 장치의 백 엔드 주소 풀에 추가합니다.
 
     ```powershell
-    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC" -ResourceGroupName "MyResourcegroup";
-    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC" -ResourceGroupName "MyResourcegroup";
+    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
+    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC2" -ResourceGroupName "MyResourcegroup";
 
     $nic1.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
     $nic1.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);

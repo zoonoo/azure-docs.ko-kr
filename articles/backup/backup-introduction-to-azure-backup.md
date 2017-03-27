@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -92,7 +92,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | Azure Backup(MARS) 에이전트 |아니요(Windows 기반 에이전트만) |
 | System Center DPM |Hyper-V에 파일 일치 백업만<br/> (Azure VM에는 사용할 수 없음) |
 | Azure Backup 서버 |Hyper-V에 파일 일치 백업만<br/> (Azure VM에는 사용할 수 없음) |
-| Azure IaaS VM 백업 |예 |
+| Azure IaaS VM 백업 |예([사전 스크립트 및 사후 스크립트 프레임워크](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)를 사용하여 응용 프로그램 일치 백업) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage VM 사용
 Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 저장소이며, VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.

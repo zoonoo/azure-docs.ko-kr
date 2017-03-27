@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
-ms.openlocfilehash: 3f5a5f908106adab72f7e8ba5a15af58f8e1175d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5574f726d90ff804ae40852ee20850150a179a00
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 이 문서는 VMAccess VM 확장을 사용하여 디스크를 검사 또는 복구하거나, 사용자 액세스를 다시 설정하거나, 사용자 계정을 관리하거나, Linux의 SSHD 구성을 다시 설정하는 방법을 설명합니다. 이 문서의 내용을 실행하기 위해 필요한 사항:
 
 * Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))
-* `azure login`으로 로그인된 [Azure CLI](../xplat-cli-install.md)
+* `azure login`으로 로그인된 [Azure CLI](../cli-install-nodejs.md)
 * Azure Resource Manager 모드 `azure config mode arm`으로 *있어야 하는* Azure CLI
 
 

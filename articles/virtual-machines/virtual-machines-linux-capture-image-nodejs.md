@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 18d70fc1dc85efe699e6ec498e024a0b8d3525f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4505bb5f572add13c21df06fc7997358eaae6352
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Resource Manager 배포 모델에서 Azure Linux 가상 컴퓨터(VM)을 일반�
 * **Azure VM이 Resource Manager 배포 모델에 생성됨** - Linux VM을 만들지 않은 경우, [포털](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Resource Manager 템플릿](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용할 수 있습니다. 
   
     필요에 따라 VM을 구성합니다. 예를 들어 [데이터 디스크를 추가하고](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), 업데이트를 적용하고, 응용 프로그램을 설치합니다. 
-* **Azure CLI** - 로컬 컴퓨터에 [Azure CLI](../xplat-cli-install.md)를 설치합니다.
+* **Azure CLI** - 로컬 컴퓨터에 [Azure CLI](../cli-install-nodejs.md)를 설치합니다.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>1단계: Azure Linux 에이전트를 제거합니다.
 우선 Linux VM에서 **deprovision** 매개 변수와 함께 **waagent** 명령을 실행합니다. 이 명령은 VM이 가상화 준비가 되도록 파일과 데이터를 삭제합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.

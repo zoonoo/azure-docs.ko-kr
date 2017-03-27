@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,13 +27,13 @@ ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
 
 WestUS 및 EastAsia 지역에 웹 사이트 인스턴스가 있습니다. 인스턴스 중 하나가 트래픽 관리자 프로브에 대한 상태 검사를 실패합니다. 응용 프로그램 트래픽은 정상 지역으로 전송됩니다. 이 장애 조치는 예상되는 동작이지만 성능은 이제 멀리 떨어진 지역으로 이동하는 트래픽의 대기 시간에 따라 문제가 될 수 있습니다.
 
-## <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
+## <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
 
 Traffic Manager가 웹 사이트에 미칠 수 있는 유일한 성능 영향은 초기 DNS 조회입니다. Traffic Manager 프로필의 이름에 대한 DNS 요청은 trafficmanager.net 영역을 호스팅하는 Microsoft DNS 루트 서버에서 처리됩니다. Traffic Manager는 Traffic Manager 정책 및 검색 결과에 기반하여 Microsoft DNS 루트 서버에 정보를 표시하고 정기적으로 업데이트합니다. 따라서 초기 DNS 조회 중에도 DNS 쿼리가 Traffic Manager에 전송되지 않습니다.
 
 Traffic Manager는 DNS 이름 서버, API 서비스, 저장소 계층 및 서비스를 모니터링 하는 끝점 등 여러 구성 요소로 이루어져 있습니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 끝점 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
 
-DNS 이름 확인은 신속하고 결과는 캐시됩니다. 초기 DNS 조회 속도는 클라이언트가 이름 확인을 위해 사용하는 DNS 서버에 따라 다릅니다. 일반적으로 클라이언트는 50ms 이내에 DNS 조회를 완료할 수 있습니다. 조회 결과는 DNS TTL(Time-to-Live)기간 동안 캐시됩니다. Traffic Manager에 대한 기본 TTL은 300 초입니다.
+DNS 이름 확인은 신속하고 결과는 캐시됩니다. 초기 DNS 조회 속도는 클라이언트가 이름 확인을 위해 사용하는 DNS 서버에 따라 다릅니다. 일반적으로 클라이언트는&50;ms 이내에 DNS 조회를 완료할 수 있습니다. 조회 결과는 DNS TTL(Time-to-Live)기간 동안 캐시됩니다. Traffic Manager에 대한 기본 TTL은 300 초입니다.
 
 트래픽은 Traffic Manager를 통해 전달되지 않습니다. DNS 조회가 완료되면 클라이언트는 웹 사이트 인스턴스에 대한 IP 주소를 갖습니다. 클라이언트는 해당 주소에 직접 연결하고 Traffic Manager를 통해 전달하지 않습니다. 사용자가 선택한 Traffic Manager 정책은 DNS 성능에 아무런 영향도 미치지 않습니다. 그러나 성능 라우팅 방법은 응용 프로그램 환경에 부정적인 영향을 미칠 수 있습니다. 예를 들어 사용자의 정책에 따라 트래픽을 북아메리카로부터 아시아에 호스트된 인스턴스로 리디렉션하는 경우 해당 세션에 대한 네트워크 대기 시간이 성능 문제가 될 수도 있습니다.
 
@@ -85,10 +86,5 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 [Traffic Manager 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

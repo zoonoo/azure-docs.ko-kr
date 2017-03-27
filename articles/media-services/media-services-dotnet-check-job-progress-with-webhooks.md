@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c3a7c0196b3ff1a7bd939f4224cb109ce71872f2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,8 +30,6 @@ ms.lasthandoff: 03/07/2017
 
 * Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 미디어 서비스 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
-* .NET Framework 4.0 이상.
-* 있습니다.
 * [Azure Functions를 사용하는 방법](../azure-functions/functions-overview.md)을 이해합니다. 또한 [Azure Functions HTTP 및 WebHook 바인딩](../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
 
 이 항목에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -54,9 +52,9 @@ Webhook은 알림 끝점을 구성하는 경우에 전달되는 것과 일치하
 
 다음 코드에서 **VerifyWebHookRequestSignature** 메서드는 알림 메시지에 대한 검증을 수행합니다. 이 유효성 검사는 메시지가 Azure Media Services에서 전송되었는지, 손상되지 않았는지 확인하기 위해 수행됩니다. 전송 계층 보안(TLS)에서 쿼리 매개 변수로 **코드** 값을 보유하는 것처럼 서명도 Azure Functions에 대해 선택적입니다. 
 
-다음 Media Services .NET Azure Function의 정의를 [여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function)에서 찾을 수 있습니다.
+[여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)에서는 이 항목에 나와 있는 항목을 포함하여 다양한 Media Services .NET Azure Functions의 정의를 찾을 수 있습니다.
 
-다음 코드 목록은 Azure 함수 매개 변수 및 Azure 함수와 관련된 function.json, project.json 및 run.csx라는 세 개 파일의 정의를 보여 줍니다.
+다음 코드 목록은 Azure Function 매개 변수 및 Azure Function과 관련된 function.json, project.json, run.csx라는 세 개 파일의 정의를 보여 줍니다.
 
 ### <a name="application-settings"></a>응용 프로그램 설정 
 
@@ -115,6 +113,10 @@ project.json 파일은 종속성을 포함합니다.
 ### <a name="runcsx"></a>run.csx
 
 다음 C# 코드는 Webhook인 Azure Function의 정의를 보여 줍니다. 함수는 Media Services 알림의 Webhook 호출을 수신 대기하고 작업이 완료되면 출력 자산을 게시합니다. 
+
+
+>[!NOTE]
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
