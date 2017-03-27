@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 214d968c95fec4695f22152cca53a369299b6e10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5dba93fdf9b0f0ca73b47743aa0188dd47094a3f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Linux 가상 컴퓨터(VM)에 부팅 또는 디스크 오류가 발생하는 경
 4. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
 5. 원래 가상 하드 디스크를 사용하여 VM을 만듭니다.
 
-[최신 Azure CLI 1.0](../xplat-cli-install.md)이 설치되어 있고 Resource Manager 모드를 사용하여 로그인했는지 확인합니다.
+[최신 Azure CLI 1.0](../cli-install-nodejs.md)이 설치되어 있고 Resource Manager 모드를 사용하여 로그인했는지 확인합니다.
 
 ```azurecli
 azure config mode arm

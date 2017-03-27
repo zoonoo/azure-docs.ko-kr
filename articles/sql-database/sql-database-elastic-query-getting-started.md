@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
-ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -122,15 +122,12 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 다른 분할된 데이터베이스에 저장된 **Customers** 테이블의 모든 행으로 Excel 시트를 채웁니다.
 
-## <a name="next-steps"></a>다음 단계
 이제 Excel의 강력한 데이터 시각화 함수를 사용할 수 있습니다. 탄력적 쿼리 데이터 베이스의 데이터 통합 도구 및 BI과 연결하기 위해 서버 이름, 데이터베이스 이름, 자격 증명과 연결 문자열을 사용할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 탄력적 쿼리 데이터베이스 및 기타 SQL Server 데이터베이스와 마찬가지로 외부 테이블 및 도구와 연결할 수 있는 SQL Server 테이블을 참조할 수 있습니다.
 
 ### <a name="cost"></a>비용
 탄력적 데이터베이스 쿼리 기능을 사용 하는 것은 무료입니다.
 
 가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
-
-## <a name="next-steps"></a>다음 단계
 
 ## <a name="next-steps"></a>다음 단계
 

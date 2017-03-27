@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 981056249213c53bb8198fd792b815c5d9b091f5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="azure-monitor-cross-platform-cli-quick-start-samples"></a>Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플
+# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 > [!NOTE]
@@ -29,7 +30,7 @@ ms.openlocfilehash: 981056249213c53bb8198fd792b815c5d9b091f5
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-이미 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요. Azure CLI를 잘 모르는 경우 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
+이미 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](../cli-install-nodejs.md)를 참조하세요. Azure CLI를 잘 모르는 경우 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 Windows의 경우 [Node.js 웹 사이트](https://nodejs.org/)에서 npm을 설치합니다. 설치를 완료한 후 관리자 권한으로 실행 권한으로 CMD.exe를 사용하여 npm이 설치된 폴더에서 다음을 실행합니다.
 
@@ -206,9 +207,4 @@ azure insights autoscale setting list montest2 -n setting2
 ```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

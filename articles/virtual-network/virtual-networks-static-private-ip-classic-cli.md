@@ -17,9 +17,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 0d0b896e64dfba0081e2ec23f2181e07226faebe
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 위의 시나리오를 기반으로 *TestService*라는 새 클라우드 서비스에 *DNS01*이라는 VM을 만들려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. **azure service create** 명령을 실행하여 클라우드 서비스를 만듭니다.
    
         azure service create TestService --location uscentral

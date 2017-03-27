@@ -17,22 +17,23 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 6abc5c10f6116886ac5d6cbc11f251f083ee2b29
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="storing-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
-여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 전체 데이터베이스 자동 백업을 7-35일 넘게 보존하도록 요구합니다.
+여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 전체 데이터베이스 자동 백업을 7-35일 넘게 보존하도록 요구합니다. **장기 백업 보존** 기능을 사용하면 최대 10년 동안 Azure Recovery Services 자격 증명 모음에서 Azure SQL Database 백업을 저장할 수 있습니다. 자격 증명 모음 당 최대 1000개의 데이터베이스를 저장할 수 있습니다. 자격 증명 모음에서 백업을 선택하여 새 데이터베이스로 복원할 수 있습니다.
 
-**장기 백업 보존** 기능을 사용하면 최대 10년 동안 Azure Recovery Services 자격 증명 모음에서 Azure SQL Database 백업을 저장할 수 있습니다. 자격 증명 모음 당 최대 1000개의 데이터베이스를 저장할 수 있습니다. 자격 증명 모음에서 백업을 선택하여 새 데이터베이스로 복원할 수 있습니다.
+> [!IMPORTANT]
+> 장기 백업 보존 기간은 현재 미리 보기로 제공되며 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 인도 중부, 인도 남부, 일본 동부, 일본 서부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 서유럽 및 미국 서부에서 사용할 수 있습니다.
+>
 
 > [!NOTE]
 > 24시간 동안 자격 증명 모음 당 최대 200개의 데이터베이스를 사용할 수 있습니다. 따라서 이 제한의 영향을 최소화하려면 각 서버에 별도 자격 증명 모음을 사용하는 것이 좋습니다. 
 > 
 > 
-
 ## <a name="how-does-sql-database-long-term-backup-retention-work"></a>SQL Database 장기 백업 보존은 어떻게 작동하나요?
 
 백업의 장기 백업 보존을 사용하면 Azure Recovery Services 자격 증명 모음과 Azure SQL Database 서버를 연결할 수 있습니다. 
@@ -40,7 +41,6 @@ ms.lasthandoff: 02/16/2017
 * SQL Server를 만든 동일한 Azure 구독에서 동일한 지역 및 리소스 그룹에 자격 증명 모음을 만들어야 합니다. 
 * 그런 다음 데이터베이스에 대한 보존 정책을 구성합니다. 정책으로 인해 전체 주간 데이터베이스 백업이 Recovery Services 자격 증명 모음에 복사되고 지정된 보존 기간(최대 10년) 동안 유지됩니다. 
 * 그러면 이러한 백업에서 구독의 모든 서버에 있는 새 데이터베이스로 복원할 수 있습니다. 복사는 기존 백업의 Azure Storage에서 수행되고 기존 데이터베이스의 성능에 영향을 주지 않습니다.
-
 
 > [!TIP]
 > 자습서는 [Azure Portal을 사용하여 데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery-portal.md) 또는 [PowerShell을 사용하여 데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery-powershell.md)을 참조하세요.

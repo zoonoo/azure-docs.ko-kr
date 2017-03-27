@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/25/2017
-ms.author: ronitr; giladm
+ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: fb56545df42e997e5960eec73ae59e9334731392
-ms.openlocfilehash: 8c6fa92764cb720a0c71a24d839d3e73ce3ba447
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Azure Portal에서 SQL Database 감사 구성 및 관리
 
-다음 섹션에서는 Azure Portal을 사용하여 감사를 구성 및 관리하는 방법을 설명합니다. PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell에서 감사 구성](sql-database-auditing-powershell.md)을 참조하세요. REST API를 사용하여 감사를 구성 및 관리하려면 [REST API에서 감사 구성](sql-database-auditing-rest.md)을 참조하세요.
+다음 섹션에서는 Azure Portal을 사용하여 감사를 구성 및 관리하는 방법을 설명합니다. PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell에서 감사 구성](sql-database-auditing-powershell.md)을 참조하세요. 
 
 감사의 개요는 [SQL Database 감사](sql-database-auditing.md)를 참조하세요.
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 03/02/2017
 4. 서버 수준 감사에 추가로 또는 서버 수준 감사 대신 데이터베이스 수준에서 Blob 감사를 사용하려면 **서버의 감사 설정 상속** 옵션을 **선택 취소**하고, 감사를 **켜고**, **Blob** 감사 유형을 선택합니다.
 
     ![탐색 창][3]
-5. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. **팁:** 감사 보고서 서식 파일을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
+5. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure Storage 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택한 다음 하단에서 **확인**을 클릭합니다. **팁:** 감사 보고서 서식 파일을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다.
 
     <a id="storage-screenshot"></a>
     ![탐색 창][4]
-6. 감사 이벤트를 사용자 지정하려면 [PowerShell](sql-database-auditing-powershell.md) 또는 [REST API](sql-database-auditing-rest.md)를 통해 다음 작업을 수행합니다.
+6. 감사 이벤트를 사용자 지정하려면 PowerShell 또는 REST API를 통해 다음 작업을 수행합니다.
 7. 감사 설정을 구성했으면 새로운 위협 감지(미리 보기) 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지 기능을 사용하여 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지](sql-database-threat-detection.md)를 참조하세요.
 8. **Save**를 클릭합니다.
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/02/2017
 4. 서버의 감사 설정을 상속하지 않으려면 **서버의 감사 설정 상속** 옵션을 **선택 취소**하고, 감사를 **켜고**, **테이블** 감사 유형을 선택합니다.
 
     ![탐색 창][3-tbl]
-5. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure 저장소 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택합니다. **팁:** 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다(*[Blob 감사 섹션의 스크린샷 참조](#storage-screenshot)*).
+5. **저장소 세부 정보**를 선택하여 감사 로그 저장소 블레이드를 엽니다. 로그가 저장되는 Azure Storage 계정을 선택하고, 이 기간 후 오래된 로그가 삭제되는 보존 기간을 선택합니다. **팁:** 감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 대해 동일한 저장소 계정을 사용합니다(*[Blob 감사 섹션의 스크린샷 참조](#storage-screenshot)*).
 6. **감사된 이벤트** 를 클릭하여 감사할 이벤트를 사용자 지정할 수 있습니다. 이벤트별 로깅 블레이드에서 **성공** 및 **실패**를 클릭하여 모든 이벤트를 기록하거나 개별 이벤트 범주를 선택합니다.
 
     ![탐색 창][5]
@@ -116,7 +116,7 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 
        여러 파일(또는 위에서 설명한 대로 하루 전체)을 다운로드한 후에는 다음과 같이 여러 파일을 로컬에 병합할 수 있습니다.
 
-       ** SSMS 열기 -> 파일 -> 열기 -> 확장 이벤트 병합 -> 병합할 모든 파일 선택**
+       **SSMS 열기 -> 파일 -> 열기 -> 확장 이벤트 병합 -> 병합할 모든 파일 선택**
    * 프로그래밍 방식:
 
      * [확장 이벤트 판독기 C# 라이브러리](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/)
@@ -189,7 +189,6 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell을 사용하여 데이터베이스 감사 구성](sql-database-auditing-powershell.md)을 참조하세요.
-* REST API를 사용하여 감사를 구성 및 관리하려면 [REST API를 사용하여 데이터베이스 감사 구성](sql-database-auditing-rest.md)을 참조하세요.
 * 감사의 개요는 [데이터베이스 감사](sql-database-auditing.md)를 참조하세요.
 
 

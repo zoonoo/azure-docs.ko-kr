@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
 
 
-코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버로 호스팅되는 경우 상태 모니터를 설치합니다. 또는 앱이 Azure 웹앱이거나 Azure VM에서 실행되는 경우 Application Insights 확장을 설치할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](http://azure.com) 구독이 필요합니다.
+코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버에서 호스트되는 경우 상태 모니터를 설치합니다. Azure 웹앱이거나 Azure VM에서 실행되는 경우 Azure 제어판의 Application Insights 모니터링에서 전환할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](http://azure.com) 구독이 필요합니다.
 
 ![예제 차트](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -65,7 +65,7 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 IIS 서버에서 앱이 호스트되는 경우 상태 모니터를 사용하여 Application Insights를 사용하도록 설정합니다.
 
 1. IIS 웹 서버에서 관리자 자격 증명으로 로그인합니다.
-2. Application Insights 상태 모니터가 설치되어 있지 않으면 [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하여 실행합니다.
+2. Application Insights 상태 모니터가 설치되어 있지 않으면 [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.(또는 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)를 실행하고 Application Insights 상태 모니터를 검색합니다.)
 3. 상태 모니터에서 모니터링할 설치된 웹 응용 프로그램 또는 웹 사이트를 선택합니다. Azure 자격 증명으로 로그인합니다.
 
     Application Insights 포털에서 결과를 표시할 리소스를 구성합니다. (일반적으로 새 리소스를 만드는 것이 좋습니다. 이 앱에 대해 [웹 테스트][availability] 또는 [클라이언트 모니터링][client]이 이미 있으면 기존 리소스를 선택합니다.) 
@@ -98,7 +98,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 ### <a name="cant-connect-no-telemetry"></a>연결할 수 없나요? 원격 분석이 없나요?
 
-* 상태 모니터가 작동할 수 있도록 서버 방화벽에서 [일부 나가는 포트](app-insights-ip-addresses.md#outgoing-ports) 를 열어야 합니다.
+* 상태 모니터가 작동할 수 있도록 서버 방화벽에서 [필요한 송신 포트](app-insights-ip-addresses.md#outgoing-ports)를 엽니다.
 
 * 상태 모니터를 열고 왼쪽 창에서 응용 프로그램을 선택합니다. "구성 알림" 섹션에 이 응용 프로그램에 대한 진단 메시지가 있는지 확인합니다.
 
@@ -106,7 +106,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
   * IIS 관리자에서 응용 프로그램 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
   * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
-* 서버에 MMA/SCOM이 설치된 경우 일부 버전이 충돌할 수 있습니다. SCOm과 상태 모니터를 제거한 다음 최신 버전을 다시 설치하세요.
+* 서버에 MMA/SCOM(Systems Center Operations Manager)이 설치된 경우 일부 버전이 충돌할 수 있습니다. SCOm과 상태 모니터를 제거한 다음 최신 버전을 다시 설치하세요.
 * [문제 해결][qna]을 참조하세요.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
@@ -151,7 +151,7 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 * `-InstrumentationKey` 결과를 표시하려는 Application Insights 리소스의 ikey입니다.
 * 이 cmdlet은 아직 계측되지 않은 앱에만 영향을 줍니다. 즉, SdkState==NotInstrumented입니다.
 
-    cmdlet은 빌드 시 코드에 SDK를 추가하거나 런타임 시 사전에 이 cmdlet을 사용하여 이미 계측된 앱에 영향을 주지 않습니다.
+    cmdlet은 이미 계측된 앱에 영향을 주지 않습니다. 앱이 빌드 시 코드에 SDK를 추가하거나 런타임 시 이전에 이 cmdlet을 사용하여 계측되었는지 여부는 중요하지 않습니다.
 
     앱을 계측하는 데 사용한 SDK 버전은 가장 최근에 이 서버에 다운로드된 버전입니다.
 
@@ -184,7 +184,11 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 
 * 서버에 최신 Application Insights SDK를 다운로드합니다.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>다음 단계
 
 원격 분석 보기:
 

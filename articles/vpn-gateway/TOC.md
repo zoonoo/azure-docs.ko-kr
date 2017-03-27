@@ -14,12 +14,12 @@
 ## 사이트 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [클래식 포털(클래식)](vpn-gateway-site-to-site-create.md)
 ## 지점 및 사이트 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [클래식 포털(클래식)](vpn-gateway-point-to-site-create.md)
 ## VNet 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정](vpn-gateway-modify-local-network-gateway.md)
 ## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)
-## [VPN 게이트웨이 삭제](vpn-gateway-delete-vnet-gateway-powershell.md)
+## VPN Gateway 삭제
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [P2S 연결을 위한 자체 서명된 루트 인증서 만들기](vpn-gateway-certificates-point-to-site.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
 

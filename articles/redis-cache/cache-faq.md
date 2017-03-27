@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 256d215deb2224dca188e373a1bf2cf7fc55be1f
-ms.openlocfilehash: 9089a14f1f0b1fa5265f616e0bd9f0f30aff0c60
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 705e64d52d796ae861465f71de397d11bf14086e
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -59,6 +59,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 * [어떻게 Redis 명령을 실행할 수 있나요?](#how-can-i-run-redis-commands)
 * [다른 일부 Azure 서비스와 달리 Azure Redis Cache에는 왜 MSDN 클래스 라이브러리 참조가 없나요?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [Azure Redis Cache를 PHP 세션 캐시로 사용할 수 있나요?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [Redis 데이터베이스란?](#what-are-redis-databases)
 
 ## <a name="security-faqs"></a>보안 FAQ
 * [언제 비 SSL 포트를 사용하여 Redis에 연결할 수 있도록 해야 하나요?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
@@ -263,6 +264,16 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 >
 
 PhpRedis 클라이언트에서 Redis Cache를 PHP 세션 캐시로 사용하는 방법에 대한 자세한 내용은 [PHP 세션 처리기](https://github.com/phpredis/phpredis#php-session-handler)를 참조하세요.
+
+### <a name="what-are-redis-databases"></a>Redis 데이터베이스란?
+
+Redis 데이터베이스는 동일한 Redis 인스턴스 내에 있는 데이터를 논리적으로 분리한 단위입니다. 캐시 메모리는 모든 데이터베이스와 해당 데이터베이스에 저장된 키/값에 따라 지정된 데이터베이스의 실제 메모리 소비 간에 공유됩니다. 예를 들어 C6 캐시에는 53GB의 메모리가 있습니다. 하나의 데이터베이스에 53GB를 모두 사용하거나 여러 데이터베이스 간에 분할할 수 있습니다. 
+
+> [!NOTE]
+> 클러스터링을 활성화하여 프리미엄 Azure Redis Cache를 사용하는 경우 데이터베이스 0만 사용할 수 있습니다. 이 제한은 내재된 Redis 제한이며 Azure Redis Cache에 한정되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 응용 프로그램을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 
+> 
+
 
 <a name="cache-ssl"></a>
 

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -32,7 +34,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요. 
 
-## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>데이터 표시
+## <a name="data"></a>데이터 표시
 응용 프로그램 빌드를 시작하기 전에 데이터 구조 및 데이터에 대해 수행할 분석 종류를 알려주세요. 
 
 이 문서에서는 HDInsight 클러스터와 연결되는 Azure Storage 계정에서 사용할 수 있는 **HVAC.csv** 데이터 파일을 샘플로 사용합니다. 이 파일은 저장소 계정에서 **\HdiSamples\HdiSamples\SensorSampleData\hvac**에 있습니다. CSV 파일을 다운로드하고 열어서 데이터의 스냅숏을 가져옵니다.  
@@ -43,7 +45,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측하기 위해 이 데이터를 사용합니다.
 
-## <a name="a-nameappawrite-a-machine-learning-application-using-spark-mllib"></a><a name="app"></a>Spark MLlib를 사용하여 기계 학습 응용 프로그램 작성
+## <a name="app"></a>Spark MLlib를 사용하여 기계 학습 응용 프로그램 작성
 이 응용 프로그램에서 문서 분류를 수행하는 데 Spark ML 파이프라인을 사용합니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고 단어를 숫자 기능 벡터로 변환하며 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 응용 프로그램을 만듭니다.
 
 1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
@@ -193,10 +195,10 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
    예측의 첫 번째 행에서 ID는 20이고 25년이라는 시스템 연수를 가진 HVAC 시스템의 경우 건물이 덥습니다(**prediction=1.0**). DenseVector(0.49999)의 첫 번째 값은 prediction 0.0에 해당하고, 두 번째 값(0.5001)은 prediction 1.0에 해당합니다. 출력에서 두 번째 값이 약간만 높더라도 모델은 **prediction=1.0**을 보여 줍니다.
 4. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
-## <a name="a-nameanacondaause-anaconda-scikit-learn-library-for-machine-learning"></a><a name="anaconda"></a>기계 학습에 대한 Anaconda scikit-learn 라이브러리 사용
+## <a name="anaconda"></a>기계 학습에 대한 Anaconda scikit-learn 라이브러리 사용
 HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. 기계 학습에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -233,9 +235,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

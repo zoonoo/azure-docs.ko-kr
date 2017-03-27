@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +46,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 ## <a name="enable-the-extension"></a>확장 사용
 [Azure 포털](https://portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
 
-Azure Portal에서 시스템 및 성능 데이터를 직접 보고 구성하려면 [Azure 블로그의 다음 단계](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/)를 수행합니다.
+Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [Azure 블로그의 단계](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)를 따르세요.
 
 이 문서는 Azure CLI 명령을 사용하여 확장을 사용하도록 설정하고 구성하는 방법에 중점을 두고 있습니다. 이렇게 하면 저장소 테이블에서 직접 데이터를 읽고 볼 수 있습니다.
 
@@ -54,7 +55,7 @@ Azure Portal에서 시스템 및 성능 데이터를 직접 보고 구성하려�
 ## <a name="prerequisites"></a>필수 조건
 * **Azure Linux 에이전트 버전 2.0.6 이상**.
   대부분의 Azure VM Linux 갤러리 이미지에는 2.0.6 이후 버전이 포함되어 있습니다. **WAAgent -version** 을 실행하여 VM에 설치된 버전을 확인할 수 있습니다. VM 2.0.6보다 이전 버전을 실행하는 경우 다음 [GitHub의 이러한 지침](https://github.com/Azure/WALinuxAgent "지침") 을 따라 이를 업데이트할 수 있습니다.
-* **Azure CLI**. [CLI 설치 지침](../xplat-cli-install.md) 을 따라 컴퓨터에 Azure CLI 환경을 설정합니다. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예:
+* **Azure CLI**. [CLI 설치 지침](../cli-install-nodejs.md) 을 따라 컴퓨터에 Azure CLI 환경을 설정합니다. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예:
   
   * 자세한 도움말 정보는 **azure vm extension set –help** 를 실행합니다.
   * Azure에 로그인하려면 **azure login** 을 실행합니다.
@@ -147,10 +148,5 @@ Azure Portal에서 시스템 및 성능 데이터를 직접 보고 구성하려�
 
 ## <a name="known-issues"></a>알려진 문제
 * Linux 진단 확장 버전&2;.3의 경우 Rsyslog 정보 및 고객이 지정한 로그 파일은 스크립팅을 통해서만 액세스할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

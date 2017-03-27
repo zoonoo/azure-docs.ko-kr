@@ -4,7 +4,7 @@ description: "변수 자산은 Azure 자동화의 모든 runbook과 DSC 구성�
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 03/10/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 299b419c0271bbe7355a491cddf32dc922090621
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 4c0c4f8c0d6c7cdc98406559f1cd36c87d33bf47
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -28,9 +29,9 @@ ms.openlocfilehash: 299b419c0271bbe7355a491cddf32dc922090621
 
 - 동일한 runbook의 여러 작업 또는 DSC 구성 간에 값을 공유합니다.
 
-- 포털에서 값을 관리하거나 runbook 또는 DSC 구성에 사용되는 Windows PowerShell 명령줄에서 값을 관리합니다(예: 특정 VM 이름 목록, 특정 리소스 그룹, AD 도메인 이름 등과 같은 공통 구성 항목 집합).  
+- 포털에서 값을 관리하거나 runbook 또는 DSC 구성에 사용되는 Windows PowerShell 명령줄에서 값을 관리합니다(예: 특정 VM 이름 목록, 특정 리소스 그룹, AD 도메인 이름과 같은 공통 구성 항목 집합).  
 
-runbook 또는 DSC 구성이 실패할지라도 계속 사용 가능할 수 있도록 자동화 변수는 유지됩니다.  값은 또 다른 runbook에 의해 사용되었던 runbook 또는 동일한 runbook에 사용되거나 다음에 실행되는 DSC 구성에 의해 설정됩니다.
+runbook 또는 DSC 구성이 실패할지라도 계속 사용 가능할 수 있도록 자동화 변수는 유지됩니다.  값은 또 다른 runbook에 의해 사용되었던 runbook 또는 동일한 runbook에 사용되거나 다음에 실행되는 DSC 구성에 의해 설정됩니다.     
 
 변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다.  변수를 암호화하면 Azure 자동화에 안전하게 저장되며 Azure PowerShell 모듈의 일부로 제공되는 [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet에서 해당 값을 검색할 수 없습니다.  오직 runbook 또는 DSC 구성의 **Get-AutomationVariable** 에서만 암호화 된 값을 검색할 수 있습니다.
 
@@ -51,9 +52,12 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 * Boolean
 * Null
 
+>[!NOTE]
+>변수 자산은 1024자로 제한됩니다. 
+
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet 및 워크플로 활동
 
-다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 자동화 변수를 만들고 관리하는 데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs) 의 일부로 전송됩니다.
+다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 자동화 변수를 만들고 관리하는 데 사용됩니다. Automation Runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs)의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
@@ -72,27 +76,19 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 > [!NOTE] 
 > **Get-AutomationVariable**의 Name 매개변수에서는 변수를 사용하면 안 됩니다. runbook 또는 DSC 구성과 design time의 자격 증명 간에 종속성이 발견되어 복잡해질 수 있기 때문입니다.
 
-## <a name="creating-a-new-automation-variable"></a>새 자동화 변수 만들기
+## <a name="creating-an-automation-variable"></a>Automation 변수 만들기
 
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Azure 포털을 사용하여 새 자격 증명을 만들려면
+### <a name="to-create-a-variable-with-the-azure-portal"></a>Azure Portal을 사용하여 새 변수를 만들려면
 
-1. 자동화 계정에서 창의 위쪽에 있는 **자산** 을 클릭합니다.
-1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
-1. **변수 추가**를 클릭합니다.
-1. 마법사를 완료하고 새 변수를 저장하는 확인란을 클릭합니다.
-
-
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Azure 포털을 사용하여 새 자격 증명을 만들려면
-
-1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
-1. **변수** 파트를 클릭하여 **변수** 블레이드를 엽니다.
-1. 블레이드의 위쪽에서 **변수 추가** 를 클릭합니다.
+1. Automation 계정에서 **자산** 타일을 클릭하여 **자산** 블레이드를 엽니다.
+1. **변수** 타일을 클릭하여 **변수** 블레이드를 엽니다.
+1. 블레이드의 위쪽에서 **변수 추가**를 선택합니다.
 1. 양식을 완료하고 **만들기** 를 클릭하여 새 변수를 저장합니다.
 
 
-### <a name="to-create-a-new-variable-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 변수를 만들려면
+### <a name="to-create-a-variable-with-windows-powershell"></a>Windows PowerShell을 사용하여 변수를 만들려면
 
-[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet은 새 변수를 만들고 해당 초기 값을 설정합니다. [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)을 사용하여 값을 검색할 수 있습니다. 값이 단순한 형식이면 동일한 해당 형식이 반환되고, 복잡한 형식이면 **PSCustomObject**가 반환됩니다.
+[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet은 변수를 만들고 해당 초기 값을 설정합니다. [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)을 사용하여 값을 검색할 수 있습니다. 값이 단순한 형식이면 동일한 해당 형식이 반환되고, 복잡한 형식이면 **PSCustomObject**가 반환됩니다.
 
 다음 명령 예제에서는 문자열 형식의 변수를 만들고 해당 값을 반환하는 방법을 보여 줍니다.
 
@@ -113,10 +109,9 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
     $vmIpAddress = $vmValue.IpAddress
 
 
-
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 변수 사용
 
-**Set-AutomationVariable** 활동을 사용하여 runbook 및 DSC 구성의 자동화 변수의 값을 설정하고, **Get-AutomationVariable**를 사용하여 검색합니다.  워크플로 활동보다 효율이 떨어지기 때문에 **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet을 runbook 및 DSC 구성에서 사용해서는 안됩니다  또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다.  Runbook 또는 DSC 구성 내에서 새 변수를 만들 수는 유일한 방법은 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet을 사용하는 것입니다.
+**Set-AutomationVariable** 활동을 사용하여 runbook 및 DSC 구성의 자동화 변수의 값을 설정하고, **Get-AutomationVariable**를 사용하여 검색합니다.  워크플로 활동보다 효율이 떨어지기 때문에 **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet을 runbook 및 DSC 구성에서 사용해서는 안됩니다  또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다.  Runbook 또는 DSC 구성 내에서 변수를 만들 수 있는 유일한 방법은 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet을 사용하는 것입니다.
 
 
 ### <a name="textual-runbook-samples"></a>텍스트 Runbook 샘플
@@ -169,6 +164,32 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
        }
     }
 
+#### <a name="setting-and-retrieving-a-secure-string"></a>보안 문자열 설정 및 검색
+
+보안 문자열 또는 자격 증명을 전달해야 하는 경우 먼저 이 자산을 자격 증명 또는 보안 변수로 만들어야 합니다. 
+
+    $securecredential = get-credential
+
+    New-AzureRmAutomationCredential -ResourceGroupName contoso `
+    -AutomationAccountName contosoaccount -Name ContosoCredentialAsset -Value $securecredential
+
+그런 다음 Runbook에 이 자산의 이름을 매개 변수로 전달하고 작업에서 기본 제공을 사용하여 다음 샘플 코드와 같이 스크립트에서 검색하고 사용할 수 있습니다.  
+
+    ExampleScript
+    Param
+
+      (
+         $ContosoCredentialAssetName
+      )
+
+    $ContosoCred = Get-AutomationPSCredential -Name $ContosoCredentialAssetName
+
+다음 예제에서는 Runbook을 호출하는 방법을 보여 줍니다.  
+
+    $RunbookParams = @{"ContosoCredentialAssetName"="ContosoCredentialAsset"}
+
+    Start-AzureRMAutomationRunbook -ResourceGroupName contoso `
+    -AutomationAccountName contosoaccount -Name ExampleScript -Parameters $RunbookParams
 
 ### <a name="graphical-runbook-samples"></a>그래픽 Runbook 샘플
 
@@ -185,10 +206,5 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 * 그래픽 작성에서 모든 연결 활동에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

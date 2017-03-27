@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
 translationtype: Human Translation
-ms.sourcegitcommit: c2ce603e80243584fdc302c545e520b4503f5555
-ms.openlocfilehash: ca2d8d4b277f48ec46156293f73b18b6c2967c51
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3749d5aac5da83b43d5c6d6b7bd971eac7f07548
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -156,10 +157,5 @@ PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방
 PowerShell DSC로 관리할 수 있는 추가 기능을 찾으려면 추가 DSC 리소스는 [PowerShell 갤러리에서 찾아보세요](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) .
 
 중요한 매개 변수를 구성에 전달하는 세부 정보는 [DSC 확장 처리기로 안전하게 자격 증명 관리](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

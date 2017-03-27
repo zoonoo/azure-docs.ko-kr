@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: deb32f98bbfc0032ffbdcf168a2b4c42f1c4ae76
-ms.openlocfilehash: 4cf402877d5ddee8f4944a104163a55025013cc0
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -74,7 +74,7 @@ webhook를 만들 때 $WebhookData에 값을 지정 하면 클라이언트가 �
 
 > [!NOTE]
 > 모든 입력 매개 변수의 값은 runbook 작업에 기록됩니다.  webhook 요청에서 클라이언트에서 제공된 입력이 기록되고 자동화 작업에 액세스할 수 있는 모든 사용자가 사용할 수 있게 된다는 것을 의미합니다.  따라서 webhook 호출에 중요한 정보를 포함할 때는 주의해야 합니다.
-> 
+>
 
 ## <a name="security"></a>보안
 webhook의 보안은 webhook의 호출에 사용되는 보안 토큰을 포함하는 URL의 개인 정보에 의존합니다. Azure 자동화는 올바른 URL로 설정되어 있는 경우에만 요청에 대한 인증을 수행합니다. 따라서 대체 유효성 검사 방법을 사용하지 않고 매우 중요한 기능을 수행하는 runbook에 webhook를 사용해서는 안 됩니다.
@@ -267,6 +267,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * Runbook 작업의 상태 보기에 대한 내용은 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
 * Azure Automation을 사용하여 Azure 경고에 대해 조치를 취하는 방법을 알아보려면 [Automation Runbook으로 Azure VM 경고 수정](automation-azure-vm-alert-integration.md)을 참조하세요.
-* OMS Log Analytics 경고에서 Runbook을 호출하는 방법을 알아보려면 [Log Analytics 경고를 사용하는 Runbook 작업](../log-analytics/log-analytics-alerts.md#runbook-actions)을 참조하세요.
-
 

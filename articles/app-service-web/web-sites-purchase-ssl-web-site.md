@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
-ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: edcb6d37eb4d82ff5928ee33cf456c3795eb8131
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2017
 > 
 > 
 
-기본적으로 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 웹앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나 *[모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 이제 Azure 앱 서비스는 Azure 포털에서 포털을 종료하지 않고 SSL 인증서를 구입 및 관리하는 매우 간단한 방법을 제공합니다.  
+기본적으로 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 웹앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나*[모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 이제 Azure 앱 서비스는 Azure 포털에서 포털을 종료하지 않고 SSL 인증서를 구입 및 관리하는 매우 간단한 방법을 제공합니다.  
 이 문서에서는 간단한 3단계로 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구입 및 구성하는 방법을 설명합니다. 
 
 > [!NOTE]
@@ -170,8 +170,11 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
   
     이 IP 주소는 이전에 도메인에 대한 A 레코드를 구성하는 데 사용된 가상 IP 주소와 다릅니다. SNI 기반 SSL을 사용하도록 구성되었거나 SSL을 사용하도록 구성되지 않은 경우에는 이 항목에 대한 주소가 표시되지 않습니다.
 
-1. 도메인 이름 등록 기관에서 제공한 도구를 사용하여 이전 단계의 IP 주소를 가리키도록 사용자 지정 도메인 이름에 대한 A 레코드를 수정합니다.
+* 도메인 이름 등록 기관에서 제공한 도구를 사용하여 이전 단계의 IP 주소를 가리키도록 사용자 지정 도메인 이름에 대한 A 레코드를 수정합니다.
    이 시점에서 HTTP:// 대신 HTTPS://를 사용하여 앱에 방문하여 인증서가 올바르게 구성 되었는지 확인할 수 있습니다.
+
+## <a name="bkmk_Rekey"></a>App Service Certificate 내보내기
+다른 Azure 서비스와 함께 사용할 수 있도록 App Service Certificate의 로컬 PFX 복사본을 만들 수 있습니다. 자세한 내용은 **[이 블로그 게시물을 읽으세요](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**.
 
 ## <a name="bkmk_Rekey"></a>인증서 키 다시 생성 및 동기화
 1. 보안상의 이유로 인증서 키를 다시 생성하려면 **"인증서 속성"** 블레이드에서 **"키 다시 생성 및 동기화"** 옵션을 선택하면 됩니다. 

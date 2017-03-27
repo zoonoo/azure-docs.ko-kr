@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
-ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
-ms.lasthandoff: 01/07/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -64,6 +64,10 @@ MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService 및 MaxPerc
 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
 [Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+
+[Linux에서 Azure CLI를 사용하여 응용 프로그램 업그레이드](service-fabric-azure-cli.md#upgrading-your-application)에서는 Azure CLI를 사용하여 응용 프로그램 업그레이드를 진행하는 과정을 안내합니다.
+
+[Service Fabric Eclipse 플러그 인을 사용하여 응용 프로그램 업그레이드](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 

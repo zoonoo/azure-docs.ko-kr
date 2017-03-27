@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/09/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -54,19 +54,19 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 
 > [!NOTE]
-> 시작 지점으로 사용하거나 필요할 때 사용할 수 있는 샘플 템플릿 및 매개 변수를 찾으려는 경우 이 [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 다운로드합니다. 
+> 시작 지점으로 사용하거나 필요할 때 사용할 수 있는 샘플 템플릿 및 매개 변수를 찾으려는 경우 이 [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 다운로드합니다. 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Resource Manager 템플릿 편집
 
-편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 사용할 수 있습니다.
+편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 사용할 수 있습니다.
 
 **모든 단계를 수행해야 합니다.**
 
-**1단계:** 클러스터를 배포하는 데 사용한 Resource Manager 템플릿을 엽니다.  위의 리포지토리에서 샘플을 다운로드한 경우 5-VM-1-NodeTypes-Secure_Step1.JSON을 사용하여 보안 클러스터를 배포한 다음 해당 템플릿을 엽니다.
+**1단계:** 클러스터를 배포하는 데 사용한 Resource Manager 템플릿을 엽니다. 위의 리포지토리에서 샘플을 다운로드한 경우 5-VM-1-NodeTypes-Secure_Step1.JSON을 사용하여 보안 클러스터를 배포한 다음 해당 템플릿을 엽니다.
 
-**2단계:** **유형이 "string"인 두 매개 변수 ** "secCertificateThumbprint"와 "secCertificateUrlValue"를 템플릿의 매개 변수 섹션에 추가합니다. 다음 코드 조각을 복사하여 템플릿에 추가할 수 있습니다. 템플릿 원본에 따라 이미 이 항목을 정의했을 수 있습니다. 이 경우 다음 단계를 진행합니다. 
+**2단계:** **유형이 "string"인 두 매개 변수** "secCertificateThumbprint"와 "secCertificateUrlValue"를 템플릿의 매개 변수 섹션에 추가합니다. 다음 코드 조각을 복사하여 템플릿에 추가할 수 있습니다. 템플릿 원본에 따라 이미 이 항목을 정의했을 수 있습니다. 이 경우 다음 단계를 진행합니다. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -108,7 +108,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
      }
 ``` 
 
-**인증서를 교체**하려면 새 인증서를 기본으로 지정한 다음 현재 인증서를 보조로 이동합니다.  그러면 한 배포 단계에서 현재 기본 인증서가 새 인증서로 교체됩니다.
+**인증서를 교체**하려면 새 인증서를 기본으로 지정한 다음 현재 인증서를 보조로 이동합니다. 그러면 한 배포 단계에서 현재 기본 인증서가 새 인증서로 교체됩니다.
 
 ```JSON
       "properties": {
@@ -120,7 +120,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 ``` 
 
 
-**4단계:** **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "virtualMachineProfile" 아래 "publisher": "Microsoft.Azure.ServiceFabric"으로 스크롤합니다.
+**4단계:** **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의 변경 - Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "virtualMachineProfile" 아래 "publisher": "Microsoft.Azure.ServiceFabric"으로 스크롤합니다.
 
 Service Fabric 게시자 설정이 다음과 같이 나타납니다.
 

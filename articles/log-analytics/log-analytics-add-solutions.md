@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecb848efd8516ae43d07f8c6ebbf3868b8e20757
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -38,6 +38,12 @@ Log Analytics 관리 솔루션은 특정 문제 영역을 중심으로 피벗된
 이 문서에서는 Azure Portal Marketplace를 사용하여 작업 영역에 관리 솔루션을 추가합니다. 솔루션을 추가한 후에는 데이터가 사용자 인프라의 서버에서 수집되고 OMS 서비스로 전송됩니다. OMS 서비스에서 처리는 일반적으로 몇 분 정도에서 한 시간이 소요됩니다. 서비스에서 데이터를 처리한 후에는 OMS에서 볼 수 있습니다.
 
 관리 솔루션이 더 이상 필요 없으면 손쉽게 제거할 수 있습니다. 관리 솔루션을 제거하면 해당 데이터가 OMS로 전송되지 않습니다. 무료 가격 책정 계층에 있는 경우 솔루션을 제거하면 사용되는 데이터 양을 줄여 일일 데이터 할당량 미만으로 유지하는 데 도움이 됩니다.
+
+## <a name="view-available-management-solutions"></a>사용할 수 있는 관리 솔루션 보기
+
+Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) 목록을 포함합니다.
+
+각 솔루션의 맨 아래에서 **지금 신청** 링크를 클릭하여 Azure Marketplace에서 관리 솔루션을 설치할 수 있습니다.
 
 ## <a name="add-a-management-solution"></a>관리 솔루션 추가
 1. [Azure Portal](https://portal.azure.com)에 아직 로그인하지 않은 경우 Azure 구독을 사용하여 로그인합니다.

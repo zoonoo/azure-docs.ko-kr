@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -30,7 +31,7 @@ ms.lasthandoff: 01/18/2017
 
 이 항목에서 사용된 샘플 스크립트로는 특정 구성의 Solr 클러스터가 만들어집니다. 서로 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 그에 따라 이 스크립트와 Solr 바이너리를 수정해야 합니다.
 
-## <a name="a-namewhatisawhat-is-solr"></a><a name="whatis"></a>Solr이란?
+## <a name="whatis"></a>Solr이란?
 [Apache Solr](http://lucene.apache.org/solr/features.html) 은 데이터에 대한 강력한 전체 텍스트 검색을 가능하게 해주는 엔터프라이즈 검색 플랫폼입니다. Hadoop는 막대한 양의 데이터를 저장 및 관리할 수 있도록 해주고 Apache Solr은 이 데이터를 신속하게 검색할 수 있는 검색 기능을 제공합니다. 이 항목에서는 HDInsight 클러스터를 사용자 지정하여 Solr을 설치하는 방법에 대한 지침을 제공합니다.
 
 > [!WARNING]
@@ -48,7 +49,7 @@ ms.lasthandoff: 01/18/2017
 * **solruser**을 `/usr/hdp/current/solr`의 소유자로 설정합니다.
 * 클러스터 노드를 다시 시작하는 경우 Solr를 시작하는 [Upstart](http://upstart.ubuntu.com/) 구성을 추가합니다. 설치 후에 클러스터 노드에서 Solr을 자동으로 시작합니다.
 
-## <a name="a-nameinstallainstall-solr-using-script-actions"></a><a name="install"></a>스크립트 동작을 사용하여 Solr 설치
+## <a name="install"></a>스크립트 동작을 사용하여 Solr 설치
 HDInsight 클러스터에서 Solr을 설치하는 샘플 스크립트는 다음 위치에서 사용할 수 있습니다.
 
     https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -72,7 +73,7 @@ HDInsight 클러스터에서 Solr을 설치하는 샘플 스크립트는 다음 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 4. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터를 계속 프로비전합니다.
 
-## <a name="a-nameusesolrahow-do-i-use-solr-in-hdinsight"></a><a name="usesolr"></a>HDInsight에서 Solr을 사용하는 방법
+## <a name="usesolr"></a>HDInsight에서 Solr을 사용하는 방법
 ### <a name="indexing-data"></a>인덱싱 데이터
 데이터 파일로 Solr을 인덱싱하는 것부터 시작해야 합니다. 그런 다음 인덱싱한 데이터에 대해 Solr을 사용하여 검색 쿼리를 실행할 수 있습니다. 다음 단계를 사용하여 일부 예제 데이터를 Solr에 추가하고 쿼리할 수 있습니다.
 

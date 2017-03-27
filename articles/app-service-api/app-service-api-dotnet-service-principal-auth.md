@@ -3,7 +3,7 @@ title: "Azure App Service의 API 앱에 대한 서비스 주체 인증 | Microso
 description: "서비스 간 시나리오에 대해 Azure 앱 서비스에서 API 앱을 보호하는 방법에 알아봅니다."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/20/2017
 * [Azure 앱 서비스에서 서비스 주체 인증을 구성하는 방법](#authconfig) 섹션에서는 API 앱에 인증을 구성하는 방법 및 보호된 API 앱을 사용하는 방법을 일반적으로 설명합니다. 이 섹션은 .NET, Node.js 및 Java를 포함하여 앱 서비스에서 지원되는 모든 프레임워크에 동일하게 적용됩니다.
 * [.NET 시작 자습서 계속](#tutorialstart) 으로 시작하는 자습서는 앱 서비스에서 실행되는 .NET 샘플 응용 프로그램에 대해 "내부 액세스" 시나리오를 구성하는 과정을 안내합니다. 
 
-## <a name="a-idauthconfiga-how-to-configure-service-principal-authentication-in-azure-app-service"></a><a id="authconfig"></a> Azure 앱 서비스에서 서비스 주체 인증을 구성하는 방법
+## <a id="authconfig"></a> Azure 앱 서비스에서 서비스 주체 인증을 구성하는 방법
 이 섹션에서는 모든 API 앱에 적용되는 일반적인 지침을 제공합니다. 수행 목록 .NET 샘플 응용 프로그램에 특정한 단계는 [.NET API 앱 자습서 시리즈 계속](#tutorialstart)으로 이동합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 보호할 API 앱의 **설정** 블레이드로 이동한 후 **기능** 섹션을 찾고 **인증/권한 부여**를 클릭합니다.
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/20/2017
 ### <a name="how-to-protect-the-api-app-from-browser-access"></a>브라우저 액세스로부터 API 앱을 보호하는 방법
 보호된 API 앱의 코드에서 클레임의 유효성을 검사하지 않은 경우 및 보호된 API 앱에 별도의 Azure AD 응용 프로그램을 사용하는 경우 Azure AD 응용 프로그램의 회신 URL이 API 앱의 기본 URL과 동일하지 않도록 해야 합니다. 회신 URL이 직접 보호된 API 앱을 가리키는 경우 동일한 Azure AD 테넌트의 사용자는 API 앱을 찾고 로그온한 다음 성공적으로 API를 호출할 수 있습니다.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorial-series"></a><a id="tutorialstart"></a> .NET API 앱 자습서 시리즈 계속
+## <a id="tutorialstart"></a> .NET API 앱 자습서 시리즈 계속
 API 앱에 Node.js 또는 Java 자습서 시리즈를 수행 중인 경우 [다음 단계](#next-steps) 섹션으로 건너뜁니다. 
 
 이 문서의 나머지 부분에서는 API 앱에 .NET API 앱 자습서 시리즈를 계속하며 [사용자 인증 자습서](app-service-api-dotnet-user-principal-auth.md) 를 완료하고 사용자 인증을 사용하여 Azure에서 실행하는 샘플 응용 프로그램이 있다고 가정합니다.

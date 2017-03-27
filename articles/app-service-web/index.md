@@ -13,14 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9075b2da7a4caa88328ef7220c4d543ff7cdebdf
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 71c2d5cff0a2deb1f44127a3483b696d1a695898
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="azure-web-apps-documentation"></a>Azure Web Apps 설명서
 
+<div class="introHolder">
+    <div class="intro">
 App Service Web Apps을 사용하여 웹 사이트 및 웹 응용 프로그램을 빌드하고 호스트하는 방법에 대해 알아봅니다. 자습서, 비디오, API 참조 및 기타 설명서에서는 완벽하게 관리되는 계산 플랫폼을 개발하는 방법을 보여 줍니다.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />무료 PluralSight 동영상 교육 - Microsoft Azure에서 .NET을 사용하여 개발</a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>

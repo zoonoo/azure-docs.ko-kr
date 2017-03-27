@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: d9ef14d1d83d98de5c1d95b237a2e06ea2506766
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3c8ee4a51d69b7511445d441e28a1014200bdc4a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,7 +32,7 @@ Azure 포털의 RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager 
 
 Azure CLI(명령줄 인터페이스)를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
-* Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
+* Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../cli-install-nodejs.md)을 참조하세요.
 * Azure CLI에서 Azure Resource Manager입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 으로 이동합니다.
 
 ## <a name="list-roles"></a>역할 나열

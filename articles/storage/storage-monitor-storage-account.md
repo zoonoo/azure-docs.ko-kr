@@ -1,9 +1,9 @@
 ---
-title: "저장소 계정을 모니터링하는 방법 | Microsoft Docs"
+title: "Azure Storage 계정을 모니터링하는 방법 | Microsoft Docs"
 description: "Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다."
 services: storage
 documentationcenter: 
-author: robinsh
+author: mmacy
 manager: timlt
 editor: tysonn
 ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
@@ -12,130 +12,151 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 03/14/2017
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0506fd6745c9ab04f10b60936315901ed35edbc
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8dc33077a955052a99b415b1299004cf8a4f217e
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
-## <a name="overview"></a>개요
-[Azure 포털](https://portal.azure.com)에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx) 을 사용하여 사용자의 계정에 대한 메트릭을 추적하고 요청 데이터를 기록합니다.
+
+[Azure 저장소 분석](storage-analytics.md)은 모든 저장소 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다.
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com)에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하세요. <br />
-> 
-> Azure 파일 저장소는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다. [Azure 포털](https://portal.azure.com)을 통해 Azure 파일 저장소의 메트릭을 사용하도록 설정할 수 있습니다.
-> 
-> 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다. 
+> Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 내용은 [저장소 분석 및 청구](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing)를 참조하세요.
+>
+> Azure 파일 저장소는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
+>
+> 현재 ZRS(영역 중복 저장소) 복제 유형의 저장소 계정에는 메트릭 또는 로깅 기능을 사용하도록 설정할 수 없습니다.
 > 
 > 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
-> 
-> 
+>
 
-## <a name="how-to-configure-monitoring-for-a-storage-account"></a>방법: 저장소 계정에 대한 모니터링 구성
-1. [Azure 포털](https://portal.azure.com)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
-2. **구성**을 클릭하고 Blob, 테이블 및 큐 서비스의 **모니터링** 설정이 표시될 때까지 아래로 스크롤합니다.
-   
-    ![모니터링 옵션](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
-3. **모니터링**에서 다음과 같이 각 서비스의 모니터링 수준 및 데이터 보존 정책을 설정합니다.
-   
-   * 모니터링 수준을 설정하려면 다음 중 하나를 선택합니다.
-     
-     **최소** - 수신/송신, 가용성, 대기 시간, 성공 비율 등 Blob, 테이블 및 큐 서비스에 대해 집계되는 메트릭을 수집합니다.
-     
-     **세부 정보 표시** - 최소 메트릭뿐 아니라 Azure 저장소 서비스 API의 각 저장소 작업에 대한 동일한 메트릭 집합을 수집합니다. 세부 정보 표시 메트릭을 사용하면 응용 프로그램 작업 중 발생하는 문제를 더 면밀하게 분석할 수 있습니다.
-     
-     **해제** - 모니터링을 해제합니다. 기존 모니터링 데이터는 보존 기간의 끝까지 저장됩니다.
+## <a name="configure-monitoring-for-a-storage-account"></a>저장소 계정에 대한 모니터링 구성
 
-* 데이터 보존 정책을 설정하려면 **보존(일)**에 1 - 365일 중 보존할 데이터 기간(일수)을 입력합니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다. 오래되고 사용하지 않는 분석 데이터를 비용 부담 없이 시스템에서 삭제할 수 있도록 계정의 저장소 분석 데이터를 보존하려는 기간에 따라 보존 정책을 설정하는 것이 좋습니다.
+1. [Azure Portal](https://portal.azure.com)에서 **저장소 계정**, 저장소 계정 이름을 차례로 선택하여 계정 대시보드를 엽니다.
+1. 메뉴 블레이드의 **모니터링** 섹션에서 **진단**을 선택합니다.
 
-1. 모니터링 구성을 완료한 경우 **저장**을 클릭합니다.
+    ![모니터링 옵션](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
 
-대략 한 시간 이후부터 대시보드 및 **모니터** 페이지에서 모니터링 데이터를 볼 수 있습니다.
+1. 모니터링하려는 각 **서비스**에 대한 메트릭 데이터 **유형**과 데이터에 대한 **보존 정책**을 선택합니다. 또한 **상태**를 **해제**(Off)로 설정하여 모니터링을 사용하지 않도록 설정할 수 있습니다.
 
-저장소 계정에 대한 모니터링을 구성할 때까지 모니터링 데이터가 수집되지 않으며 대시보드의 메트릭 차트 및 **모니터** 페이지는 비어 있습니다.
+    ![모니터링 옵션](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
 
-모니터링 수준 및 보존 정책을 설정한 후 [Azure 포털](https://portal.azure.com)에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가** 를 사용하여 메트릭 목록에 메트릭을 추가하거나 제거할 수 있습니다.
+   각 서비스에 사용할 수 있는 메트릭에는 다음 두 가지 유형이 있으며, 둘 다 기본적으로 새 저장소 계정에 사용할 수 있습니다.
 
-메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 [저장소 분석 메트릭 정보](http://msdn.microsoft.com/library/azure/hh343258.aspx)(영문)를 참조하십시오.
+   * **집계**: 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 수집합니다. 이러한 메트릭은 Blob, 큐, 테이블 및 파일 서비스에 대해 집계됩니다.
+   * **API당** - 집계 메트릭 외에도 Azure Storage 서비스 API에서 각 저장소 작업에 대해 동일한 메트릭 집합을 수집합니다.
 
-## <a name="how-to-customize-the-dashboard-for-monitoring"></a>방법: 모니터링을 위한 대시보드 사용자 지정
-대시보드에서 사용 가능한 9개의 메트릭 중 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 각 서비스(Blob, 테이블 및 큐)에 대해 가용성, 성공 비율 및 총 요청 메트릭을 사용할 수 있습니다. 대시보드에서 최소 또는 세부 정보 표시 모니터링에 대해 사용할 수 있는 메트릭은 동일합니다.
+   데이터 보존 정책을 설정하려면 1-365일 중에서 **보존(일)** 슬라이더를 이동하거나 데이터 보존 기간(일)을 입력합니다. 새 저장소 계정의 기본값은&7;일입니다. 보존 정책을 설정하지 않으려면&0;을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
-2. 차트에 넣을 메트릭을 변경하려면 다음 작업 중 하나를 수행합니다.
-   
-   * 차트에 새 메트릭을 추가하려면 차트 아래 테이블의 메트릭 헤더 옆에 있는 색이 지정된 확인란을 클릭합니다.
-   * 차트에 그려진 메트릭을 숨기려면 메트릭 헤더 옆에 있는 색이 지정된 확인란의 선택을 취소합니다.
-     
-       ![모니터링_n자세히](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
-3. 기본적으로 차트는 추세를 보여 주며, 각 메트릭의 현재 값(차트 맨 위의 **상대값** 옵션)만 표시합니다. 절대값을 볼 수 있도록 Y축을 표시하려면 **절대값**을 선택합니다.
-4. 메트릭 차트가 표시되는 시간 범위를 변경하려면 차트 맨 위에서 6시간, 24시간 또는 7일을 선택합니다.
+   > [!WARNING]
+   > 메트릭 데이터를 수동으로 삭제하는 경우 요금이 부과되지만, 오래된 분석 데이터(보존 정책보다 오래된 데이터)는 무료로 시스템에서 삭제됩니다. 따라서 계정에 대한 저장소 분석 데이터를 보존할 기간에 따라 보존 정책을 설정하는 것이 좋습니다. 자세한 내용은 [저장소 메트릭 사용 시 발생하는 요금](storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics)을 참조하세요.
+   >
 
-## <a name="how-to-customize-the-monitor-page"></a>방법: 모니터 페이지 사용자 지정
-**모니터** 페이지에서 저장소 계정의 전체 메트릭 집합을 볼 수 있습니다.
+1. 모니터링 구성을 완료하면 **저장**을 선택합니다.
 
-* 저장소 계정에 대해 최소 모니터링을 구성한 경우 수신/송신, 가용성, 대기 시간, 성공 비율 등의 메트릭을 Blob, 테이블 및 큐 서비스에서 수집합니다.
-* 저장소 계정에 대해 세부 정보 표시 모니터링을 구성한 경우 서비스 수준 집계뿐 아니라 개별 저장소 작업의 세부적인 확인 수준에서 메트릭을 사용할 수 있습니다.
+기본 메트릭 집합은 개별 서비스 블레이드(Blob, 큐, 테이블 및 파일)뿐만 아니라 저장소 계정 블레이드의 차트에도 표시됩니다. 서비스에 대한 메트릭을 사용하도록 설정하면 차트에 데이터를 표시하는 데 최대&1;시간이 걸릴 수 있습니다. 메트릭 차트에서 **편집**을 선택하여 차트에 표시되는 [메트릭을 구성](#how-to-customize-metrics-charts)할 수 있습니다.
 
-메트릭 차트에서 검토할 저장소 메트릭과 **모니터** 페이지에 표시할 테이블을 선택하려면 다음 절차를 사용하십시오. 이러한 설정은 저장소 계정에서 모니터링 데이터의 컬렉션, 집계 및 저장소에 영향을 주지 않습니다.
+**상태**를 **해제**로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
-## <a name="how-to-add-metrics-to-the-metrics-table"></a>방법: 메트릭 테이블에 메트릭 추가
-1. [Azure 포털](https://portal.azure.com)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
-2. **모니터**를 클릭합니다.
-   
-    **모니터** 페이지가 열립니다. 기본적으로 메트릭 테이블에는 모니터링에 사용할 수 있는 메트릭의 하위 집합이 표시됩니다. 다음 그림은 세 가지 서비스 모두에 대해 세부 정보 표시 모니터링을 구성한 저장소 계정의 기본 모니터 화면을 보여 줍니다. 사용 가능한 모든 메트릭에서 모니터링할 메트릭을 선택하려면 **메트릭 추가** 를 사용합니다.
-   
-    ![모니터링_세부 정보 표시 화면](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
-   
-   > [!NOTE]
-   > 메트릭을 선택할 때 비용을 고려하세요. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/library/azure/hh360997.aspx)를 참조하세요.
-   > 
-   > 
-3. **메트릭 추가**를 클릭합니다.
-   
-    최소 모니터링에서 사용할 수 있는 집계 메트릭은 목록의 맨 위에 있습니다. 확인란을 선택하면 해당 메트릭이 메트릭 목록에 표시됩니다.
-   
-    ![메트릭 추가 초기 화면](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
-4. 대화 상자의 오른쪽을 마우스로 가리키면 스크롤 막대가 표시됩니다. 이 스크롤 막대를 끌어서 스크롤하면 추가 메트릭을 볼 수 있습니다.
-   
-    ![메트릭 추가 스크롤 막대](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
-5. 메트릭 옆에 있는 아래쪽 화살표를 클릭하여 작업 목록을 확장해 메트릭을 자세히 살펴봅니다. [Azure 포털](https://portal.azure.com)의 메트릭 테이블에서 검토하려는 각 작업을 선택합니다.
-   
-    다음 그림은 AUTHORIZATION ERROR PERCENTAGE 메트릭이 확장된 예입니다.
-   
-    ![확장/축소](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
-6. 모든 서비스에 대해 메트릭을 선택한 후 예(확인 표시)를 클릭하여 모니터링 구성을 업데이트합니다. 선택한 메트릭이 메트릭 테이블에 추가됩니다.
-7. 테이블에서 메트릭을 삭제하려면 메트릭을 클릭하여 선택한 다음 **메트릭 삭제**를 클릭합니다.
-   
-    ![메트릭 삭제](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
+> [!NOTE]
+> Azure Storage는 [테이블 저장소](storage-introduction.md#table-storage)를 사용하여 저장소 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은  [메트릭 저장 방법](storage-analytics.md#how-metrics-are-stored)을 참조하세요.
+>
 
-## <a name="how-to-customize-the-metrics-chart-on-the-monitor-page"></a>방법: 모니터 페이지의 메트릭 차트 사용자 지정
-1. 저장소 계정의 **모니터** 페이지에 있는 메트릭 테이블에서 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 메트릭을 선택하려면 왼쪽에 있는 확인란을 클릭합니다. 차트에서 메트릭을 제거하려면 확인란의 선택을 취소합니다.
-2. 상대값(최종값만 표시됨)과 절대값(Y축이 표시됨) 간에 차트를 전환하려면 차트 맨 위에서 **상대값** 또는 **절대값**을 선택합니다.
-3. 메트릭 차트가 표시되는 시간 범위를 변경하려면 차트 맨 위에서 **6시간**, **24시간** 또는 **7일**을 선택합니다.
+## <a name="customize-metrics-charts"></a>메트릭 차트 사용자 지정
 
-## <a name="how-to-configure-logging"></a>방법: 로깅 구성
-저장소 계정(Blob, 테이블 및 큐)에서 사용 가능한 각 저장소 서비스에 대해 읽기 요청, 쓰기 요청 및/또는 삭제 요청의 진단 로그를 저장할 수 있으며 각 서비스의 데이터 보존 정책을 설정할 수 있습니다.
+다음 절차를 사용하여 메트릭 차트에 표시할 저장소 메트릭을 선택합니다. 
 
-1. [Azure 포털](https://portal.azure.com)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
-2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **로깅**이 표시될 때까지 아래로 스크롤합니다.
-   
-    ![저장소 로깅](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
-3. 각 서비스(Blob, 테이블 및 큐)에 대해 다음을 구성합니다.
-   
-   * 기록할 요청 유형: 읽기 요청, 쓰기 요청 및 삭제 요청
-   * 로깅한 데이터의 보존 기간(일수). 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책을 설정하지 않은 경우 언제든 로그를 삭제할 수 있습니다.
-4. **저장**을 클릭합니다.
+1. Azure Portal에서 저장소 메트릭 차트를 표시하여 시작합니다. 차트는 **저장소 계정 블레이드** 및 개별 서비스(Blob, 큐, 테이블, 파일)의 **메트릭** 블레이드에서 찾을 수 있습니다.
 
-진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
+   여기서는 **저장소 계정 블레이드**에 나타나는 다음과 같은 차트를 사용합니다.
 
+   ![Azure Portal에서 차트 선택](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
+1. 다음으로 차트의 아무 곳이나 클릭하여 **메트릭** 블레이드를 엽니다. **차트 편집**을 선택하여 **차트 편집** 블레이드를 엽니다.
 
+   ![차트 블레이드의 차트 편집 단추](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
 
-<!--HONumber=Nov16_HO3-->
+1. **차트 편집** 블레이드에서 차트에 표시할 메트릭의 **시간 범위**와 표시하려는 메트릭의 **서비스**(Blob, 큐, 테이블, 파일)를 선택합니다. 여기서는 다음과 같이 Blob 서비스에 대한 지난 주의 메트릭을 표시하도록 선택했습니다.
 
+   ![차트 편집 블레이드의 시간 범위 및 서비스 선택](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
+
+1. 차트에 표시하려는 개별 **메트릭**을 선택한 다음 **확인**을 클릭합니다. 예를 들어 여기서는 *ContainerCount* 및 *ObjectCount* 메트릭을 표시하도록 선택했습니다.
+
+   ![차트 편집 블레이드의 개별 메트릭 선택](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
+
+차트 설정은 저장소 계정의 모니터링 데이터 수집, 집계 또는 저장에 영향을 주지 않고 메트릭 데이터만 표시합니다.
+
+### <a name="metrics-availability-in-charts"></a>차트의 메트릭 가용성
+
+사용 가능한 메트릭 목록은 드롭다운에서 선택한 서비스와 편집 중인 차트의 단위 유형에 따라 달라집니다. 예를 들어 단위를 백분율로 표시하는 차트를 편집하는 경우에만 *PercentNetworkError* 및 *PercentThrottlingError*와 같은 백분율 메트릭을 선택할 수 있습니다.
+
+![Azure Portal에서 오류 백분율 차트 요청](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
+
+### <a name="metrics-resolution"></a>메트릭 해상도
+
+진단에서 선택한 메트릭에 따라 계정에서 사용할 수 있는 메트릭의 해상도가 결정됩니다.
+
+* **집계** 모니터링은 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 제공합니다. 이러한 메트릭은 Blob, 테이블, 파일 및 큐 서비스에서 집계됩니다.
+* **API당**은 서비스 수준 집계 외에도 개별 저장소 작업에 사용할 수 있는 메트릭과 함께 보다 세밀한 해상도를 제공합니다.
+
+## <a name="configure-metrics-alerts"></a>메트릭 경고 구성
+
+저장소 리소스 메트릭의 임계값에 도달하면 사용자에게 알리도록 경고를 만들 수 있습니다.
+
+1. **경고 규칙 블레이드**를 열려면 **메뉴 블레이드**의 **모니터링** 섹션으로 스크롤하여 **경고 규칙**을 선택합니다.
+1. **경고 추가**를 선택하여 **경고 규칙 추가** 블레이드를 엽니다.
+1. 드롭다운에서 **리소스**(Blob, 파일, 큐, 테이블)를 선택하고 새 경고 규칙에 대한 **이름** 및 **설명**을 입력합니다.
+1. 경고, 경고 **조건** 및 **임계값**을 추가하려는 **메트릭**을 선택합니다. 임계값 단위 유형은 선택한 메트릭에 따라 달라집니다. 예를 들어 "개수"는 *ContainerCount*의 단위 유형이지만, "백분율"은 *PercentNetworkError* 메트릭의 단위 유형입니다.
+1. **기간**을 선택합니다. 해당 기간 내에 임계값에 도달하거나 초과하는 메트릭은 경고를 트리거합니다.
+1. (선택 사항) **전자 메일** 및 **웹후크** 알림을 구성합니다. 웹후크에 대한 자세한 내용은 [Azure 메트릭 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)을 참조하세요. 전자 메일 또는 웹후크 알림을 구성하지 않으면 경고가 Azure Portal에서만 표시됩니다.
+
+![Azure Portal에서 '경고 규칙 추가' 블레이드 추가](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
+
+## <a name="add-metrics-charts-to-the-portal-dashboard"></a>포털 대시보드에 메트릭 차트 추가
+
+저장소 계정에 대한 Azure Storage 메트릭 차트를 포털 대시보드에 추가할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 대시보드를 보면서 **대시보드 편집**을 클릭합니다.
+1. **타일 갤러리**에서 **타일 찾기 기준** > **유형**을 차례로 선택합니다.
+1. **유형** > **저장소 계정**을 차례로 선택합니다.
+1. **리소스**에서 대시보드에 추가하려는 메트릭의 저장소 계정을 선택합니다.
+1. **범주** > **모니터링**을 차례로 선택합니다.
+1. 표시하려는 메트릭에 대한 차트 타일을 대시보드로 끌어서 놓습니다. 대시보드에 표시하려는 모든 메트릭에 대해 반복합니다. 다음 이미지에서는 한 예로 "Blob - 총 요청 수" 차트를 강조 표시했지만 모든 차트를 대시보드에 배치할 수 있습니다.
+
+   ![Azure Portal의 타일 갤러리](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+1. 차트 추가를 완료했으면 대시보드 위쪽의 **사용자 지정 완료**를 선택합니다.
+
+대시보드에 차트를 추가하면 [메트릭 차트 사용자 지정](#how-to-customize-metrics-charts)에서 설명한 대로 차트를 추가로 사용자 지정할 수 있습니다.
+
+## <a name="configure-logging"></a>로깅 구성
+
+Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 및 삭제 요청에 대한 진단 로그를 저장하도록 지시할 수 있습니다. 설정한 데이터 보존 정책도 이러한 로그에 적용됩니다.
+
+> [!NOTE]
+> Azure 파일 저장소는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
+>
+
+1. [Azure Portal](https://portal.azure.com)에서 **저장소 계정**, 저장소 계정 이름을 차례로 선택하여 저장소 계정 블레이드를 엽니다.
+1. 메뉴 블레이드의 **모니터링** 섹션에서 **진단**을 선택합니다.
+
+    ![Azure Portal에서 모니터링 아래의 진단 메뉴 항목](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    
+1. **상태**가 **사용**(On)으로 설정되어 있는지 확인하고, 로깅을 사용하도록 설정하려는 **서비스**를 선택합니다.
+
+    ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
+1. **Save**를 클릭합니다.
+
+진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. [Microsoft 저장소 탐색기](http://storageexplorer.com)와 같은 저장소 탐색기를 사용하거나 저장소 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
+
+$logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 저장소 분석의 [메트릭, 로깅 및 청구](storage-analytics.md)에 대해 자세히 알아봅니다.
+* PowerShell 및 프로그래밍 방식으로 C#을 사용하여 [Azure Storage 메트릭 사용 및 메트릭 데이터 보기](storage-enable-and-view-metrics.md)를 수행합니다.
 

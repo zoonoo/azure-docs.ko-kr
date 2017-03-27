@@ -1,5 +1,5 @@
 ---
-title: "Azure의 Windows VM에서 Key Vault를 SQL Server에 통합 | Microsoft Docs"
+title: "Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(Resource Manager) | Microsoft Docs"
 description: "Azure 키 자격 증명 모음과 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure 주요 자격 증명 모음 통합을 리소스 관리자로 만든 SQL Server 가상 컴퓨터와 함께 사용하는 방법에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/25/2016
+ms.date: 03/14/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7a285920888bdfb46922d8708cf778229efff0a3
-ms.openlocfilehash: 3a10beb423ee0068508ddb06262aeba5e575bf94
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f42e1934ce163e26c1a3f526b4589fb175aac446
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Azure VM에서 SQL Server에 대한 Azure 주요 자격 증명 모음 통합 구성(리소스 관리자)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-ps-sql-keyvault.md)
 > * [클래식](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -64,10 +65,5 @@ ms.openlocfilehash: 3a10beb423ee0068508ddb06262aeba5e575bf94
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

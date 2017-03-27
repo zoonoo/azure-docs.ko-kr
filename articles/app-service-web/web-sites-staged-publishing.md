@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 10b1998789feafaf0c28155bc8a96a28ff78cf02
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 51aabf4938714c597ae0cfb2ec524f326b6e355a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -233,7 +233,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>배포 슬롯에 대한 Azure CLI(Azure 명령줄 인터페이스) 명령
 Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Service 배포 슬롯을 관리하는 기능을 지원합니다.
 
-* Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+* Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
 * Azure CLI에서 Azure 앱 서비스에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
 
 > [!NOTE] 

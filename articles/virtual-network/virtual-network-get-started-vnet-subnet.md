@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 071ef9c0784bdb24c7d29f49c36aee2271f4b524
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -160,7 +160,7 @@ VNet 하나와 VM 둘을 만들었지만 Azure Portal은 MyRG 리소스 그룹�
 
     ![리소스 그룹 콘텐츠](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-VM, 디스크 및 저장소 계정에 대해 자세히 알아보려면 [가상 컴퓨터](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [디스크](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [저장소 계정](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 개요 문서를 참조하세요. 두 개의 기본 NSG가 포털에서 만들어진 것을 볼 수 있습니다. 포털에 두 개의 NIC(네트워크 인터페이스) 리소스가 만들어진 것도 볼 수 있습니다. NIC는 VM이 VNet을 통해 다른 리소스에 연결할 수 있도록 합니다. NIC에 대해 자세히 알아보려면 [NIC](virtual-network-network-interface-overview.md) 문서를 참조하세요. 포털에 공용 IP 주소 리소스도 하나 생성되었습니다. 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
+VM, 디스크 및 저장소 계정에 대해 자세히 알아보려면 [가상 컴퓨터](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [디스크](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [저장소 계정](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 개요 문서를 참조하세요. 두 개의 기본 NSG가 포털에서 만들어진 것을 볼 수 있습니다. 포털에 두 개의 NIC(네트워크 인터페이스) 리소스가 만들어진 것도 볼 수 있습니다. NIC는 VM이 VNet을 통해 다른 리소스에 연결할 수 있도록 합니다. NIC에 대해 자세히 알아보려면 [NIC](virtual-network-network-interface.md) 문서를 참조하세요. 포털에 공용 IP 주소 리소스도 하나 생성되었습니다. 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
 
 ## <a name="connect-to-from-vms"></a>VM에 연결
 
@@ -250,7 +250,7 @@ VM의 모든 아웃바운드 연결이 기본적으로 허용되기 때문에 VM
 
 - [가상 네트워크](virtual-networks-overview.md)
 - [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [네트워크 인터페이스](virtual-network-network-interface-overview.md)
+- [네트워크 인터페이스](virtual-network-network-interface.md)
 - [네트워크 보안 그룹](virtual-networks-nsg.md)
 - [가상 컴퓨터](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

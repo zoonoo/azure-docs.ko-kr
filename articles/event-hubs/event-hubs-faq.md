@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7bae4ae6d41e6dc6515a3fcdf574ffd193ae1aa3
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -26,7 +26,13 @@ ms.lasthandoff: 03/03/2017
 ## <a name="general"></a>일반
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>이벤트 허브 기본 및 표준 계층 간의 차이는 무엇입니까?
-이벤트 허브 표준 계층은 이벤트 허브 기본 및 일부 경쟁 시스템에서 제공할 수 있는 것보다 많은 기능을 제공합니다. 이러한 기능에는 24시간 이상 보존 기간, 단일 AMQP 연결을 사용하여 1초 미만의 대기 시간으로 여러 장치에 명령을 보내고 이러한 장치에서 이벤트 허브로 원격 분석을 보낼 수 기능이 포함됩니다. 또한 Standard는 [보관](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) 기능을 제공합니다. 기능 목록은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
+Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 것보다 많은 기능을 제공합니다. 다음 기능이 표준에 포함됩니다.
+* 더 길어진 이벤트 보존 기간
+* 추가 조정된 연결, 포함된 수보다 많은 경우 초과분 요금 있음
+* 단일 소비자 그룹 이상
+* [보관](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+
+전용 Event Hubs를 비롯한 가격 책정 계층에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
 ### <a name="what-are-event-hubs-throughput-units"></a>이벤트 허브 처리량 단위는 무엇입니까?
 이벤트 허브 처리량 단위는 Azure 포털 또는 이벤트 허브 리소스 관리자 템플릿을 통해 명시적으로 선택합니다. 처리량 단위는 이벤트 허브 네임스페이스의 모든 이벤트 허브에 적용하고 각 처리량 단위로 네임 스페이스가 다음 기능을 수행합니다.

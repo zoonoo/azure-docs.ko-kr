@@ -224,8 +224,8 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
+[mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 59af05a7-2bd9-44b0-b55f-2438d294198b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -105,7 +107,7 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
    
     ![Spark 기록 서버 시작](./media/hdinsight-apache-spark-job-debugging/view-completed-applications.png)
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -129,10 +131,5 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

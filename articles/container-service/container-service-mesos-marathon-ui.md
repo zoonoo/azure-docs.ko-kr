@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ SSH(Secure Shell) 터널이 [설정된](container-service-connect.md) 상태에�
 ![DC/OS UI](./media/dcos/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Marathon UI 탐색
-Marathon UI를 보려면 http://localhost/Marathon으로 이동합니다. 이 화면에서는 Azure 컨테이너 서비스 DC/OS 클러스터에 새 컨테이너 또는 다른 응용 프로그램을 시작할 수 있습니다. 컨테이너 및 응용 프로그램을 실행하는 방법에 대한 정보를 볼 수 있습니다.  
+Marathon UI를 보려면 http://localhost/marathon으로 이동합니다. 이 화면에서는 Azure 컨테이너 서비스 DC/OS 클러스터에 새 컨테이너 또는 다른 응용 프로그램을 시작할 수 있습니다. 컨테이너 및 응용 프로그램을 실행하는 방법에 대한 정보를 볼 수 있습니다.  
 
 ![Marathon UI](./media/dcos/dcos3.png)
 
@@ -110,9 +111,4 @@ DC/OS 웹 UI(http://localhost/)로 다시 전환하면 이 경우 Docker로 포�
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 3c00742d9686b986841d676872cc93b58827a8e8
-ms.openlocfilehash: b87b507118244f0f275f54cd65cea13a92cdaec6
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fefd6f08d3150a28f73d7733fb397f7db38aef95
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/09/2017
 
 Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
-이 자습서의 단계를 시작하기 전에 [Azure CLI를 설치합니다](../xplat-cli-install.md).
+이 자습서의 단계를 시작하기 전에 [Azure CLI를 설치합니다](../cli-install-nodejs.md).
 
 ## <a name="step-1-create-a-resource-group-and-a-storage-account"></a>1단계: 리소스 그룹 및 저장소 계정 만들기
 

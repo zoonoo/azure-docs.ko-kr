@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/20/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8b07ac76ebf40cd9bcf428711c2c0f3f3d917388
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,34 +33,13 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | **최대 용량** |30TB |64TB |
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리) |Standard_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** |사전 업데이트 2 이상을 실행하는 버전 |업데이트 2 이상을 실행하는 버전 |
-| **지역 가용성** |모든 Azure 지역 |프리미엄 저장소를 지원하는 Azure 지역<br></br>하위 지역 목록은 [8020에 대해 지원되는 하위 지역](#supported-regions-for-8020) |
+| **지역 가용성** |모든 Azure 지역 |Premium Storage를 지원하는 모든 Azure 지역<br></br>[지역별 Azure 서비스](https://azure.microsoft.com/en-us/regions/services) 목록에서 Premium Storage 지역을 찾을 수 있습니다. VM 시리즈 DS, DSV2, F 및 GS를 사용할 수 있는 지역을 식별합니다. |
 | **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는](../storage/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/storage-premium-storage.md) 방법 알아보기 |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드  <br></br>재해 복구용 보조 장치 |
 
 <sup>1</sup> *이전에 1100로 알려짐*.
 
 <sup>2</sup> *8010와 8020은 모두 클라우드 계층에 Azure 표준 저장소를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
-
-#### <a name="supported-regions-for-8020"></a>8020에 대해 지원되는 하위 지역
-8020에 대해 현재 지원되는 프리미엄 저장소 하위 지역은 아래 표로 정리되어 있습니다. 더 많은 하위 지역에서 프리미엄 저장소가 제공됨에 따라 이 목록은 계속해서 업데이트됩니다.
-
-| S. 번호 | 하위 지역에서 현재 지원됨 |
-| --- | --- |
-| 1 |미국 중부 |
-| 2 |미국 동부 |
-| 3 |미국 동부 2 |
-| 4 |미국 서부 |
-| 5 |북유럽 |
-| 6 |서유럽 |
-| 7 |동남아시아 |
-| 8 |일본 동부 |
-| 9 |일본 서부 |
-| 10 |오스트레일리아 동부 |
-| 11 |오스트레일리아 남동부* |
-| 12 |동아시아* |
-| 13 |미국 중남부* |
-
-*프리미엄 저장소가 최근에 해당 지역에서 출시되었습니다.
 
 이 문서는 Azure에서 StorSimple 가상 장치를 배포하는 단계별 프로세스를 설명합니다. 이 문서를 읽고 나면:
 
@@ -89,7 +69,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 #### <a name="azure-requirements"></a>Azure 요구 사항
 가상 장치를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
 
-* 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 프리미엄 저장소를 사용하는 경우 프리미엄 저장소를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. 자세한 내용은 [현재 8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요.
+* 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 프리미엄 저장소를 사용하는 경우 프리미엄 저장소를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. [지역별 Azure 서비스](https://azure.microsoft.com/en-us/regions/services) 목록에서 Premium Storage 지역을 찾을 수 있습니다. VM 시리즈 DS, DSV2, F 및 GS를 사용할 수 있는 지역을 식별합니다.
 * 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 가상 장치 만들기에 실패합니다.
 * 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
 * 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.                             
@@ -256,9 +236,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple Manager 서비스를 사용하여 가상 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 * [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

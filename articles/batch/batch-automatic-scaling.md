@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: b8cad4541d4e17f98a35289c6c031b9331ab4a8b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -331,7 +331,7 @@ $TargetDedicated = min(400, $totalNodes)
 ```
 
 ## <a name="create-an-autoscale-enabled-pool"></a>자동 크기 조정 가능한 풀 만들기
-자동 크기 조정 가능한 풀을 새로 만들려면 다음 방법 중 하나를 사용할 수 있습니다..
+자동 크기 조정 가능한 풀을 새로 만들려면 다음 방법 중 하나를 사용할 수 있습니다.
 
 **Batch .NET**
 
@@ -355,7 +355,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-배치 REST API 및 .NET SDK 외에도 [배치 SDK](batch-technical-overview.md#batch-development-apis), [배치 PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 및 [배치 CLI](batch-cli-get-started.md) 중 하나를 통해 자동 크기 조정을 사용할 수 있습니다.
+배치 REST API 및 .NET SDK 외에도 [배치 SDK](batch-apis-tools.md#batch-development-apis), [배치 PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 및 [배치 CLI](batch-cli-get-started.md) 중 하나를 통해 자동 크기 조정을 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 자동 크기 조정 가능한 풀을 만들 때 `targetDedicated` 매개 변수는 지정하지 **않아야** 합니다. 또한 자동 크기 조정 사용 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]을 사용하여) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 다음 풀의 크기를 조정해야 합니다.

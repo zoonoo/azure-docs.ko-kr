@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
-ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 756c9fa079782f8f0cb194ca07c637d083f9ebd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -69,7 +70,7 @@ ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
 2. 프로젝트 구조 대화 상자가 나타나면 다음을 수행합니다.
 
    a. **프로젝트 설정** 목록에서 **아티팩트**를 클릭합니다.
-   b. **이름** 상자에서 아티팩트 이름에 공백 또는 특수 문자가 포함되도록 이름을 변경합니다. 이 작업은 해당 이름이 URI(Uniform Resource Identifier)에 사용되기 때문에 필요합니다.
+   b. **이름** 상자에서 아티팩트 이름에 공백 또는 특수 문자가 포함되지 않도록 이름을 변경합니다. 이 작업은 해당 이름이 URI(Uniform Resource Identifier)에 사용되기 때문에 필요합니다.
    c. **형식**을 **웹 응용 프로그램: 보관**으로 변경합니다.
    d. **확인**을 클릭하여 프로젝트 구조 대화 상자를 닫습니다.
 
@@ -254,9 +255,4 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 [16]: ./media/app-service-web-intellij-create-hello-world-web-app/16-Progress-Indicator.png
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

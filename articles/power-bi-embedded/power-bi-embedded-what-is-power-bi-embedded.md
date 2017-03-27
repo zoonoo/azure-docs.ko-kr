@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 81215430b5731a53d4f4700499c1d9af963e712c
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1fb7b268e83da66a4bb9fe6d3e053b7a673d3555
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -33,6 +33,7 @@ Power BI Embedded는 ISV(독립 소프트웨어 공급업체) 및 앱 개발자�
 **Microsoft Power BI Embedded** 사용 모델에서 Power BI 라이선스에 대한 책임이 최종 사용자에게 있지 않습니다.  대신 시각적 개체를 사용하는 앱의 개발자가 **세션**을 구매하고 해당 리소스를 소유하는 구독에 요금이 부과됩니다. 자세한 정보는 가격 책정 페이지(https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/)에서 확인할 수 있습니다.
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Microsoft Power BI Embedded 개념적 모델
+
 ![](media/powerbi-embedded-whats-is/model.png)
 
 Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure Resource Manager API](https://msdn.microsoft.com/library/mt712306.aspx)를 통해 프로비전됩니다. 이 경우에 프로비전하는 리소스는 **Power BI 작업 영역 컬렉션**입니다.
@@ -45,13 +46,13 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure Res
 * **지역** – **작업 영역 컬렉션** 프로비전의 일부이며 프로비전할 지역을 선택할 수 있습니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
 ## <a name="workspace"></a>작업 영역
-**작업 영역** 은 데이터 집합, 보고서 및 대시보드를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. 미리 보기 중에 Power BI Desktop을 사용하여 모든 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다.
+**작업 영역** 은 데이터 집합 및 보고서를 포함할 수 있는 Power BI 콘텐츠의 컨테이너입니다. **작업 영역** 은 처음 만들 때 비어 있습니다. Power BI Desktop을 사용하여 콘텐츠를 작성하고 [Power BI REST API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배치합니다. 또한 Power BI Desktop을 사용하는 대신 프로그래밍 방식으로 데이터 집합을 만든 다음 응용 프로그램 내에서 보고서를 만들 수 있습니다.
 
 ## <a name="using-workspace-collections-and-workspaces"></a>작업 영역 컬렉션 및 작업 영역 사용
 **작업 영역 컬렉션** 및 **작업 영역**은 빌드할 응용 프로그램의 디자인에 가장 적합한 방법으로 사용되거나 구성되는 콘텐츠의 컨테이너입니다. 컨테이너 내에서 콘텐츠를 정렬할 수 있는 다양한 방법이 있습니다. 하나의 작업 영역 내에 모든 콘텐츠를 배치한 다음 나중에 앱 토큰을 사용하여 고객 간 콘텐츠를 더 세분화하는 방법을 선택할 수 있습니다. 또한 고객이 어느 정도 구분이 되도록 모든 고객을 분할된 작업 영역에 배치하는 방법을 선택할 수 있습니다. 또는 고객이 아닌 지역으로 사용자를 구성하는 방법을 선택할 수 있습니다. 이 유연한 디자인을 사용하면 콘텐츠를 구성할 가장 좋은 방법을 선택할 수 있습니다.
 
 ## <a name="cached-datasets"></a>캐시된 데이터 집합
-캐시된 데이터 집합은 미리 보기에서 사용할 수 있습니다.  그러나 캐시된 데이터가 **Microsoft Power BI Embedded**에 로드되면 새로 고칠 수 없습니다.
+캐시된 데이터 집합을 사용할 수 있습니다.  그러나 캐시된 데이터가 **Microsoft Power BI Embedded**에 로드되면 새로 고칠 수 없습니다. 캐시된 데이터 집합은 DirectQuery를 사용하는 대신 Power BI Desktop으로 데이터를 가져왔다는 것을 의미합니다.
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>앱 토큰으로 인증 및 권한 부여
 **Microsoft Power BI Embedded** 는 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 응용 프로그램은 **Microsoft Power BI Embedded** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)**을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
@@ -66,7 +67,19 @@ Azure의 다른 서비스와 같이 Power BI Embedded의 리소스는 [Azure Res
 
 이러한 토큰은 **Microsoft Power BI Embedded**와 상호 작용하는 여러 단계에 사용됩니다.  앱에서 Power BI로 사용 권한을 위임할 수 있도록 토큰을 디자인합니다. 자세한 내용은 [앱 토큰 흐름](power-bi-embedded-app-token-flow.md)을 참조하세요.
 
+## <a name="create-or-edit-reports-within-your-application"></a>응용 프로그램 내에서 보고서 만들기 또는 편집
+
+이제 Power BI Desktop을 사용하지 않고도 응용 프로그램에서 직접 기존 보고서를 편집하거나 새 보고서를 만들 수 있습니다. 이렇게 하려면 작업 영역 내에 데이터 집합이 있어야 합니다.
+
 ## <a name="see-also"></a>참고 항목
-* [일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)
-* [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
+
+[일반적인 Microsoft Power BI Embedded 시나리오](power-bi-embedded-scenarios.md)  
+[Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)  
+[샘플 시작](power-bi-embedded-get-started-sample.md)  
+[보고서 포함](power-bi-embedded-embed-report.md)  
+[Power BI Embedded에서 인증 및 권한 부여](power-bi-embedded-app-token-flow.md)  
+[JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+[PowerBI-CSharp Git 리포지토리](https://github.com/Microsoft/PowerBI-CSharp)  
+[PowerBI-Node Git 리포지토리](https://github.com/Microsoft/PowerBI-Node)  
+궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
 

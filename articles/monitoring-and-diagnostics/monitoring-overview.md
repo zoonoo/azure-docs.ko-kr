@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
-ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,13 +32,13 @@ Azure Monitor의 동영상 연습도 제공됩니다.
 
 다음 다이어그램에서는 수집할 수 있는 유형의 로그 및 해당 데이터로 수행할 수 있는 작업 Azure 모니터링의 개념 보기를 보여 줍니다.   
 
-![비 계산 리소스의 모니터링 및 진단에 대한 논리 모델](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 그림 1: 비 계산 리소스의 모니터링 및 진단에 개념 모델
 
 <br/>
 
-![계산 리소스의 모니터링 및 진단에 대한 논리 모델](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
 그림 2: 계산 리소스의 모니터링 및 진단을 위한 개념 모델
 
@@ -114,7 +114,8 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 * 타사 도구로 라우팅하여 실시간 분석을 수행할 수 있도록 Event Hubs로 보내기
 
 ### <a name="automate"></a>자동화
-모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
+모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다.
+예를 들면 다음과 같습니다.
 
 * 데이터를 사용하여 응용 프로그램 부하에 따라 계산 인스턴스 크기를 자동으로 조정
 * 메트릭이 미리 결정된 임계값을 초과하는 경우 전자 메일 보내기

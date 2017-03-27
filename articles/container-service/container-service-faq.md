@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -105,7 +105,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 3. **배포 기록** 블레이드에서 이름이 **microsoft-acs**로 시작하고 배포 날짜가 다음에 나오는 배포를 클릭합니다. 예: microsoft-acs-201701310000.  
 
-4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크(<provided></provided>)가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
+4. **요약** 페이지의 **출력** 아래에 여러 개의 클러스터 링크가 제공됩니다. **SSHMaster0**은 컨테이너 서비스 클러스터의 첫 번째 마스트에 SSH 연결 문자열을 제공합니다. 
 
 이전에 언급했듯이 Azure 도구를 사용하여 마스터의 FQDN을 찾을 수도 있습니다. 마스터의 FQDN 및 클러스터를 만들 때 지정한 사용자 이름을 사용하여 마스터에 SSH 연결을 만듭니다. 예:
 
@@ -122,3 +122,4 @@ ssh userName@masterFQDN –A –p 22
 
 * Azure Container Service에 대해 [자세히 알아보세요](container-service-intro.md).
 * [포털](container-service-deployment.md) 또는 [Azure CLI 2.0](container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터 배포.
+

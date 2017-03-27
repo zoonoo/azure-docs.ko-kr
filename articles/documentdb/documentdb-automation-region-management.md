@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 70614f7d97466fb7e8a2f325d744f5e1632640a6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ DocumentDB 데이터베이스 계정은 현재 [Azure Resource Manager 템플릿
 
 ## <a name="getting-ready"></a>준비
 
-Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 Azure CLI 1.0 버전 및 Azure 계정이 있어야 합니다. Azure CLI 1.0이 없으면 [설치](../xplat-cli-install.md)하세요.
+Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 Azure CLI 1.0 버전 및 Azure 계정이 있어야 합니다. Azure CLI 1.0이 없으면 [설치](../cli-install-nodejs.md)하세요.
 
 ### <a name="update-your-azure-cli-10-version"></a>Azure CLI 1.0 버전 업데이트
 
@@ -39,7 +39,7 @@ Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 Azure CL
     azure --version
     0.10.4 (node: 4.2.4)
 
-버전이 0.10.4 미만인 경우 기본 설치 관리자 중 하나를 사용하여 [Azure CLI 1.0을 설치](../xplat-cli-install.md) 또는 업데이트하거나 **npm**을 통해 `npm update -g azure-cli`을 입력하여 업데이트하거나 `npm install -g azure-cli`를 입력하여 설치해야 합니다.
+버전이 0.10.4 미만인 경우 기본 설치 관리자 중 하나를 사용하여 [Azure CLI 1.0을 설치](../cli-install-nodejs.md) 또는 업데이트하거나 **npm**을 통해 `npm update -g azure-cli`을 입력하여 업데이트하거나 `npm install -g azure-cli`를 입력하여 설치해야 합니다.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Azure 계정 및 구독 설정
 

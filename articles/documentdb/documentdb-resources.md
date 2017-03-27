@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -161,7 +161,7 @@ DocumentDB 데이터베이스는 다음 다이어그램에 표시된 것처럼 �
 ![데이터베이스 계정 및 컬렉션 계층적 모델][2]  
 **데이터베이스는 사용자 및 컬렉션의 논리적 컨테이너입니다.**
 
-데이터베이스에는 컬렉션으로 분할된 문서 저장소가 거의 무제한으로 포함될 수 있으며, 컬렉션은 포함된 문서에 대한 트랜잭션 도메인을 형성합니다. 
+한 데이터베이스에는 컬렉션 내에서 분할된 거의 무제한의 문서 저장소를 포함할 수 있습니다.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>DocumentDB 데이터베이스의 탄력적인 확장
 DocumentDB 데이터베이스는 기본적으로 탄력적이며 SSD 지원 문서 저장소 및 프로비전된 처리량이 몇 GB에서 페타바이트 범위까지 다양합니다. 
@@ -175,7 +175,7 @@ DocumentDB 데이터베이스는 사용자 컨테이너이기도 합니다. 다�
 DocumentDB 리소스 모델의 다른 리소스와 마찬가지로, [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 데이터베이스를 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. DocumentDB는 데이터베이스 리소스의 메타데이터 읽기 또는 쿼리에 대해 강력한 일관성을 보장합니다. 데이터베이스를 삭제하면 자동으로 컬렉션 또는 컬렉션 내에 포함된 사용자에 액세스할 수 없게 됩니다.   
 
 ## <a name="collections"></a>컬렉션
-DocumentDB 컬렉션은 JSON 문서의 컨테이너입니다. 컬렉션은 배율, 트랜잭션 및 쿼리 단위이기도 합니다. 
+DocumentDB 컬렉션은 JSON 문서의 컨테이너입니다. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>탄력적 SSD 지원 문서 저장소
 컬렉션은 본질적으로 탄력적입니다. 문서를 추가하거나 제거하면 자동으로 확장 및 축소됩니다. 컬렉션은 하나 이상의 물리적 파티션 또는 서버에 걸쳐 있을 수 있는 논리적 리소스입니다. 컬렉션 내의 파티션 수는 컬렉션의 프로비전된 처리량 및 저장소 크기에 따라 DocumentDB에 의해 결정됩니다. DocumentDB의 모든 파티션은 고정된 양의 SSD 지원 저장소에 연결되며, 고가용성을 위해 복제됩니다. 파티션 관리는 Azure DocumentDB에 의해 완전히 관리되므로 복잡한 코드를 작성하거나 파티션을 관리할 필요가 없습니다. DocumentDB 컬렉션은 저장소 및 처리량이 **거의 무제한** 입니다. 
@@ -206,7 +206,7 @@ DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이
 > 
 > 
 
-### <a name="multi-document-transactions"></a>다중 문서 트랜잭션
+## <a name="multi-document-transactions"></a>다중 문서 트랜잭션
 데이터베이스 트랜잭션은 데이터 동시 변경을 처리하기 위한 안전하고 예측 가능한 프로그래밍 모델을 제공합니다. RDBMS에서 비즈니스 논리를 작성하는 기존 방법은 **저장 프로시저** 및/또는 **트리거**를 작성하고 트랜잭션 실행을 위해 데이터베이스 서버에 전달하는 것입니다. RDBMS에서는 응용 프로그램 프로그래머가 다음 두 가지 프로그래밍 언어를 처리해야 합니다. 
 
 * (비트랜잭션) 응용 프로그램 프로그래밍 언어(예: JavaScript, Python, C#, Java 등)

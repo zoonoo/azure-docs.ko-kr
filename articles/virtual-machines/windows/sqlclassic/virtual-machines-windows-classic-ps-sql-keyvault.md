@@ -1,5 +1,5 @@
 ---
-title: "SQL VM용 Azure Key Vault의 자동화된 구성(클래식) | Microsoft 문서"
+title: "Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(클래식) | Microsoft Docs"
 description: "Azure 키 자격 증명 모음과 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure 주요 자격 증명 모음 통합을 클래식 배포 모델에서 만든 SQL Server 가상 컴퓨터와 함께 사용하는 방법에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,9 +17,9 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 763b8b57c5914e7be39256d58de1b6769dbbaf9d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: e0950a5c2c7d40751664c0c5a60facef68a79b2a
+ms.lasthandoff: 03/15/2017
 
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)

@@ -1,108 +1,87 @@
 ---
-title: "Azure Portal을 사용하여 Linux VM 만들기 | Microsoft Docs"
-description: "Azure 포털을 사용하여 Linux VM을 만듭니다."
+title: "Azure 빠른 시작 - VM 만들기 포털 | Microsoft Docs"
+description: "Azure 빠른 시작 - VM 만들기 포털"
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: cc5dc395-dc54-4402-8804-2bb15aba8ea2
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/17/2017
-ms.author: iainfou
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/21/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
-ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bcfd830a5e2f39f36460990cae7e84b04d9a5fbb
+ms.lasthandoff: 03/22/2017
 
 ---
-# <a name="create-a-linux-vm-on-azure-using-the-portal"></a>포털을 사용하여 Azure에서 Linux VM 만들기
-이 문서에서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Linux 가상 컴퓨터를 만드는 방법을 보여 줍니다.
 
-요구 사항은 다음과 같습니다.
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 Linux 가상 컴퓨터 만들기
 
-* [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
-* [SSH 공용 및 개인 키 파일](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Azure Portal을 통해 Azure Virtual Machines를 만들 수 있습니다. 이 메서드는 가상 컴퓨터 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작은 Azure Portal을 사용하여 가상 컴퓨터를 만드는 과정을 설명합니다. 
 
-## <a name="sign-in"></a>로그인
-Azure 계정 ID로 Azure Portal에 로그인합니다. 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
-![Azure 리소스 만들기](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
+## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
-## <a name="choose-vm"></a>VM 선택
-**Marketplace**에서 **Compute**를 클릭한 다음 **추천 앱** 이미지 목록에서 **Ubuntu Server 16.04 LTS**를 클릭합니다.  맨 아래에서 배포 모델이 `Resource Manager` 인지 확인하고 **만들기**를 클릭합니다.
+이 빠른 시작을 완료하려면 SSH 키 쌍이 필요합니다. 기존 SSH 키 쌍을 사용하는 경우 이 단계를 건너뛸 수 있습니다. Windows 컴퓨터를 사용하는 경우 [여기](./virtual-machines-linux-ssh-from-windows.md)에서 찾은 지침을 따릅니다. 
 
-![Azure Marketplace에서 가상 컴퓨터 이미지 선택](./media/virtual-machines-linux-quick-create-portal/create_new_vm.png)
+Bash 셸에서 이 명령을 실행하고 화면에 나타나는 지시를 따릅니다. 명령 출력은 공개 키 파일의 파일 이름을 포함합니다. 이 파일의 내용은 가상 컴퓨터를 만들 때 필요합니다.
 
-## <a name="enter-vm-options"></a>VM 옵션 입력
-**기본** 페이지에서 다음을 입력합니다.
-
-* VM의 이름
-* VM 디스크 유형(기본적으로 SSD 또는 HDD)
-* 관리 사용자의 사용자 이름
-* **인증 유형**을 **SSH 공개 키**로 설정
-* SSH 공개 키 문자열(`~/.ssh/` 디렉터리에 있음)
-* 리소스 그룹 이름 또는 기존 리소스 그룹 선택
-
-**확인**을 클릭하여 계속합니다. 블레이드가 다음 화면과 유사하게 표시됩니다.
-
-![기본 Azure VM 옵션 입력](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
-
-## <a name="choose-vm-size"></a>VM 크기 선택
-VM 크기를 선택합니다. 다음 예제에서는 Premium SSD에 Ubuntu를 설치하는 **DS1_V2 Standard**를 선택합니다. VM 크기의 **S**는 SSD 지원을 나타냅니다. **선택**을 클릭하여 설정을 구성합니다.
-
-![Azure VM 크기 선택](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
-
-## <a name="storage-and-network"></a>저장소 및 네트워크
-**설정** 블레이드에서 Azure Managed Disks를 VM으로 사용하도록 선택할 수 있습니다. 현재 기본 설정은 관리되지 않는 디스크를 사용하기 위한 설정입니다. Azure Managed Disks는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../storage/storage-managed-disks-overview.md)를 참조하세요. 관리되지 않는 디스크의 경우 가상 하드 디스크에 대한 저장소 계정을 만들거나 선택해야 합니다.
-
-![Managed Disks가 아닌 디스크에 대한 저장소 계정 선택](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
-
-Azure Managed Disks를 사용하기로 선택하는 경우에는 아래 예제에 표시된 것과 같이 추가로 구성할 저장소 옵션이 없습니다.
-
-![포털에서 Azure Managed Disks 옵션 선택](./media/virtual-machines-linux-quick-create-portal/select_managed_disks.png)
-
-나머지 네트워크 설정을 기본 설정대로 유지합니다.
-
-## <a name="confirm-vm-settings-and-launch"></a>VM 설정 확인 및 시작
-새로운 Ubuntu VM에 대한 설정을 확인하고 **확인**을 클릭합니다.
-
-![Azure VM 설정 검토 및 VM 만들기](./media/virtual-machines-linux-quick-create-portal/review_final_vm_settings.png)
-
-## <a name="select-the-vm-resource"></a>VM 리소스 선택
-포털 홈 페이지의 왼쪽 위 모서리에 있는 메뉴에서 **리소스 그룹**을 선택합니다. 필요한 경우 메뉴 맨 위의 막대 세 개를 클릭하여 다음과 같이 목록을 확장합니다.
-
-![리소스 그룹 목록 열기](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
-
-리소스 그룹을 선택한 다음 새 VM을 클릭합니다.
-
-![Azure VM NIC 설정 찾기](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
-
-## <a name="find-the-public-ip"></a>공용 IP 찾기
-VM에 할당된 **공용 IP 주소**를 살펴봅니다.
-
-![Azure VM의 공용 IP 주소 가져오기](./media/virtual-machines-linux-quick-create-portal/view_public_ip_address.png)
-
-## <a name="ssh-to-the-vm"></a>VM에 SSH
-SSH 공개 키를 사용하여 공용 IP로 SSH합니다.  Mac 또는 Linux 워크스테이션에서 터미널에서 직접 SSH할 수 있습니다. Windows 워크스테이션에 있으면 PuTTY, MobaXTerm 또는 Cygwin을 사용하여 Linux에 SSH해야 합니다.  아직 없는 경우 Linux에 SSH하도록 Windows 워크스테이션을 준비하는 문서는 다음과 같습니다.
-
-[Azure에서 Windows를 통해 SSH 키를 사용하는 방법](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+```bash
+ssh-keygen -t rsa -b 2048
 ```
-ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
+
+## <a name="log-in-to-azure"></a>Azure에 로그인 
+
+Azure Portal(http://portal.azure.com)에 로그인합니다.
+
+## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+
+1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
+
+2. **새로 만들기** 블레이드에서 **Compute**를 선택하고 **Compute** 블레이드에서 **Ubuntu Server 16.04 LTS**를 선택한 후 **만들기** 단추를 클릭합니다.
+
+3. 가상 컴퓨터 **기본 사항** 양식을 채웁니다. **인증 유형**으로 **SSH**를 선택합니다. **SSH 공용 키**를 붙여 넣을 때 선행 또는 후행 공백을 모두 제거해야 합니다. **리소스 그룹**에 대해 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 만들어지고 전체적으로 관리되는 논리적 컨테이너입니다. 완료되면 **확인**을 클릭합니다.
+
+    ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
+
+4. VM의 크기를 선택하고 **선택**을 클릭합니다. 
+
+    ![포털 블레이드에서 VM에 대한 크기 선택](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
+
+5. 설정 블레이드의 **Managed Disks 사용**에서 **예**를 선택하고 나머지 설정에 대해 기본값을 그대로 적용한 후 **확인**을 클릭합니다.
+
+6. 요약 페이지에서 **확인**을 클릭하여 가상 컴퓨터 배포를 시작합니다.
+
+7. 배포 상태를 모니터링하려면 가상 컴퓨터를 클릭합니다. Azure Portal 대시보드에서 또는 왼쪽 메뉴에 있는 **가상 컴퓨터**를 선택하여 VM을 찾을 수 있습니다. VM을 만들면 상태가 **배포 중**에서 **실행 중**으로 변경됩니다.
+
+## <a name="connect-to-virtual-machine"></a>가상 컴퓨터에 연결
+
+배포가 완료된 후 가상 컴퓨터에 대한 SSH 연결을 만듭니다.
+
+1. 가상 컴퓨터 블레이드에서 **연결** 단추를 클릭합니다. 연결 단추를 클릭하면 가상 컴퓨터에 연결하는 데 사용할 수 있는 SSH 연결 문자열이 표시됩니다.
+
+    ![포털 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
+
+2. 다음 명령을 실행하여 SSH 세션을 만듭니다. 이 연결 문자열을 Azure Portal에서 복사한 것으로 바꿉니다.
+
+```bash 
+ssh <replace with IP address>
 ```
+## <a name="delete-virtual-machine"></a>가상 컴퓨터 삭제
+
+더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터 블레이드에서 해당 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 Linux VM을 신속하게 만들었으므로 테스트 또는 데모를 위해 사용합니다. 이러한 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 만들 수 있습니다.
 
-* [템플릿을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[고가용성 가상 컴퓨터 만들기 자습서](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+[VM 배포 CLI 샘플 탐색](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

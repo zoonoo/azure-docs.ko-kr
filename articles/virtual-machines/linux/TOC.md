@@ -94,6 +94,7 @@
 ### 디스크 연결
 #### [Azure CLI](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure 포털](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [디스크 분리](../virtual-machines-linux-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [OS 디스크 확장](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LVM 구성](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

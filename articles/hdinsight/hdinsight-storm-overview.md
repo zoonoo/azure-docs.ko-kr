@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 354292f51d07bff00e7a6811e4d1d7beb7844920
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,7 +68,7 @@ Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]�
 새 HDInsight Storm 클러스터를 몇 분 내에 프로비전할 수 있습니다. 클러스터 이름, 크기, 관리자 계정 및 저장소 계정을 지정합니다. Azure에서 샘플 토폴로지 및 웹 관리 대시보드가 포함된 클러스터를 만듭니다.
 
 > [!NOTE]
-> [Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
+> [Azure CLI](../cli-install-nodejs.md) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
 
 요청을 제출한 후 15분 이내에 새 Storm 클러스터가 실행되고 첫 번째 실시간 분석 파이프라인에 사용할 수 있는 준비가 완료됩니다.
 

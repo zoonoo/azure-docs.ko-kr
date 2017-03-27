@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: garbrad
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,8 +58,8 @@ DNS 서버에서 호스트 이름을 만들고 유지 관리하기 위해 DHCP �
               nsupdate $nsupdatecmds
         fi
 
-        #done
-        exit 0;
+        
+        
 
 보안 동적 DNS 업데이트를 수행하는 데 *nsupdate* 명령도 사용할 수 있습니다. 예를 들어 Bind DNS 서버를 사용하는 경우 공개-개인 키 쌍이 [생성](http://linux.yyz.us/nsupdate/)됩니다.  요청된 서명을 확인할 수 있도록 DNS 서버는 키의 공개 부분으로 [구성](http://linux.yyz.us/dns/ddns-server.html) 됩니다. 동적 DNS 업데이트 요청이 서명되도록 하기 위해 *nsupdate*에 키-쌍을 제공하는 데 *-k* 옵션을 사용해야 합니다.
 
@@ -67,10 +68,5 @@ Windows DNS 서버를 사용하는 경우 Kerberos 인증은 *nsupdate*의 *-g* 
 필요한 경우 DNS 검색 접미사를 VM에 추가할 수 있습니다. DNS 접미사는 */etc/resolv.conf* 파일에 지정됩니다. 대부분의 Linux 배포판은 자동으로 이 파일의 콘텐츠를 관리하므로 일반적으로 편집할 수 없습니다. 그러나 DHCP 클라이언트의 *supersede* 명령을 사용하여 접미사를 재정의할 수 있습니다. 이렇게 하려면 */etc/dhcp/dhclient.conf*에서 추가합니다.
 
         supersede domain-name <required-dns-suffix>;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

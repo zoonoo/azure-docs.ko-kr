@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 503cf4afba4575492984891a681c187a8683a553
-ms.openlocfilehash: dc76f22214ab8467705b6420e8362a419a468bd6
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 45b07f5dd29b7e920ac2abe6765020e0337ecf95
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/23/2017
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-[솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명하는 프로세스를 사용하여 OMS 작업 영역에 컨테이너 솔루션을 추가합니다.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 컨테이너 솔루션을 추가합니다.
 
 다음 몇 가지 방법으로 OMS에서 Docker를 설치 및 사용할 수 있습니다.
 

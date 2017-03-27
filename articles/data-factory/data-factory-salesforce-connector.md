@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 03/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 9e70638af1ecdd0bf89244b2a83cd7a51d527037
-ms.openlocfilehash: 98b841e300d5b704d134bcfab0968523f3b9c3f0
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c5daac3b8374927c094e79299ce52031181ea24d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,7 +34,11 @@ ms.lasthandoff: 01/05/2017
 * Salesforce에서 온-프레미스 데이터 저장소로 데이터를 복사하려면 온-프레미스 환경에 데이터 관리 게이트웨이 2.0이 설치되어 있어야 합니다.
 
 ## <a name="salesforce-request-limits"></a>Salesforce 요청 제한
-Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이 있습니다. 자세한 내용은 [Salesforce 개발자 제한](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 “API 요청 제한” 섹션을 참조하세요. 동시 요청 수가 한도를 초과하면 제한이 발생하고 임의 오류가 표시됩니다. 요청의 총 수가 한도를 초과하면 24시간 동안 Salesforce 계정이 차단됩니다. 두 시나리오 모두 "REQUEST_LIMIT_EXCEEDED" 오류가 발생할 수도 있습니다.
+Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이 있습니다. 다음 사항에 유의하세요.
+* 동시 요청 수가 이 제한을 초과하면 제한이 발생하며 임의 오류가 표시됩니다.
+* 총 요청 수가 이 제한을 초과하면 Salesforce 계정은 24시간 동안 차단됩니다.
+
+두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류가 나타날 수도 있습니다. 자세한 내용은 [Salesforce 개발자 제한](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) 문서의 “API 요청 제한” 섹션을 참조하세요.
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
 Salesforce의 데이터를 지원되는 싱크 데이터 저장소 중 하나에 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
@@ -251,8 +255,10 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>DateTime 열에서 where 절을 사용하여 데이터 검색
 SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예:
 
-* **SOQL 샘플**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
-* **SQL 샘플**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **SOQL 샘플**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **SQL 샘플**:
+    * **복사 마법사를 사용하여 쿼리 지정:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **JSON 편집을 사용하여 쿼리 지정(적절하게 문자 이스케이프):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Salesforce 보고서에서 데이터 검색
 `{call "<report name>"}`(예: `"query": "{call \"TestReport\"}"`)(으)로 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있습니다.
@@ -260,8 +266,8 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Salesforce 휴지통에서 삭제된 레코드 검색
 임시 삭제된 쿼리를 Salesforce 휴지통에서 쿼리하려면 쿼리에 **"IsDeleted = 1"**을 지정하면 됩니다. 예를 들면 다음과 같습니다.
 
-* 삭제된 레코드만 쿼리하려면 "select * from MyTable__c **where IsDeleted= 1**"를 지정합니다.
-* 기존 레코드와 삭제된 레코드를 포함하여 모든 레코드를 쿼리하려면 "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"를 지정합니다.
+* 삭제된 레코드만 쿼리하려면 "select *from MyTable__c**where IsDeleted= 1**"를 지정합니다.
+* 기존 레코드와 삭제된 레코드를 포함하여 모든 레코드를 쿼리하려면 "select *from MyTable__c**where IsDeleted = 0 or IsDeleted = 1**"를 지정합니다.
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

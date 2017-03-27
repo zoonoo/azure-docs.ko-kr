@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 >[기존 및 새 Azure CLI](/cli/azure/old-and-new-clis)에 대해 자세히 알아보세요.
 >
 
-시작하려면 먼저 [Azure CLI](../xplat-cli-install.md)를 설치하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
+시작하려면 먼저 [Azure CLI](../cli-install-nodejs.md)를 설치하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
 리소스 관리자 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 

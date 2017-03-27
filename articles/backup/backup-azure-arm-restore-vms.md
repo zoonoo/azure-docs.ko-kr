@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/26/2017
+ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: 6f55bdbb97ead96edf7ca41562b1c4b5a712d6e8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b64978da0513ac5daf8e7c4699cf6e3501d63fd9
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -29,14 +29,21 @@ ms.lasthandoff: 02/17/2017
 >
 >
 
-정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 복구 서비스 자격 증명 모음에 저장됩니다. VM을 복구하거나 다시 빌드해야 하는 경우 또는 그 때에 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원하면 복구 지점을 만들 때의 상태로 VM을 반환하거나 되돌립니다. 이 문서에서는 VM을 복구하는 방법을 설명합니다.
+정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 복구 서비스 자격 증명 모음에 저장됩니다. VM을 복구하거나 다시 빌드해야 하는 경우 또는 그 때에 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원하면 백업 VM의 특정 시점을 나타내는 새 VM을 만들거나 복원된 VM의 사용자 지정 또는 개별 파일 복구와 함께 제공되는 디스크를 복원하고 템플릿을 사용할 수 있습니다. 이 문서에서는 새 VM에 VM을 복원하거나 모든 백업된 디스크를 복원하는 방법을 설명합니다. 개별 파일 복구는 [Azure VM 백업에서 파일 복구](backup-azure-restore-files-from-vm.md)를 참조하세요.
+
+![3-ways-restore-from-vm-backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
 >
 >
 
-## <a name="restore-a-recovery-point"></a>복구 지점 복원
+VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 같은 두 가지 단계를 포함합니다.
+
+1. 복원을 위해 복원 지점 선택
+2. 복원 유형 선택 - 새 VM을 만들거나 디스크를 복원하고 필수 매개 변수를 지정합니다. 
+
+## <a name="select-restore-point-for-restore"></a>복원을 위해 복원 지점 선택
 1. [Azure 포털](http://portal.azure.com/)
 2. Azure 메뉴에서 **찾아보기**를 클릭하고 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **복구 서비스 자격 증명 모음**이 표시되면 이를 선택합니다.
 
@@ -85,46 +92,48 @@ ms.lasthandoff: 02/17/2017
     ![복원 지점이 설정됨](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
 9. **복원** 블레이드에, 복원 지점이 설정된 후에 **복원 구성**이 자동으로 열립니다.
 
-    ![복원 구성 마법사가 설정됨](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
-
 ## <a name="choosing-a-vm-restore-configuration"></a>VM 복원 구성 선택
 복원 지점을 선택했으니, 복원 VM에 대한 구성을 선택합니다. 복원 VM을 구성하기 위해 Azure 포털 또는 PowerShell을 사용하도록 선택합니다.
 
-> [!NOTE]
-> 포털은 복원된 VM에 대해 빨리 만들기 옵션을 제공합니다. 복원될 VM의 VM 구성을 사용자 지정하려면, PowerShell 또는 포털을 사용하여 백업된 디스크를 복원하고 PowerShell 명령을 사용하여 선택한 VM 구성에 연결합니다. [특수 네트워크 구성을 가진 VM 복원](#restoring-vms-with-special-network-configurations)을 참조하세요.
->
->
+1. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. [복원 지점](#select-restore-point-for-restore)을 선택하고 **복원 구성**을 클릭하여 **복구 구성** 블레이드를 엽니다.
 
-1. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. **복원 지점**을 선택하고 **복원 구성**을 클릭하여 **복구 구성** 블레이드를 엽니다.
-
-    ![복구 구성 마법사가 설정됩니다](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
+    ![복구 구성 마법사가 설정됩니다](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. **복원 구성** 블레이드에는 다음 두 가지 옵션이 있습니다.
-
    * 전체 가상 컴퓨터 복원
    * 백업된 디스크 복원
 
-   ### <a name="restore-full-virtual-machine"></a>전체 가상 컴퓨터 복원
-   **복원 구성** 블레이드에서 다음 필드에 대해 값을 입력하거나 선택합니다.
+포털은 복원된 VM에 대해 빨리 만들기 옵션을 제공합니다. 새 VM을 만드는 작업의 일부로 생성된 VM 구성 또는 리소스의 이름을 사용자 지정하려는 경우 PowerShell 또는 포털을 사용하여 백업된 디스크를 복원하고 PowerShell 명령을 사용하여 선택한 VM 구성에 연결하거나 복원 디스크와 함께 제공되는 템플릿을 사용하여 복원된 VM을 사용자 지정합니다. 여러 NIC가 있는 VM을 복원하는 방법 또는 부하 분산 장치에 대한 자세한 내용은 [특수한 네트워크 구성을 사용하여 VM 복원](#restoring-vms-with-special-network-configurations)을 참조하세요. 
+ 
+## <a name="create-a-new-vm-from-restore-point"></a>복원 지점에서 새 VM 만들기
+아직 수행하지 않은 경우 복원 지점에서 새 VM을 만들기 전에 [복원 지점을 선택합니다](#restoring-vms-with-special-network-configurations). 복원 지점을 선택하면 **복원 구성** 블레이드에서 다음 필드에 대해 값을 입력하거나 선택합니다.
 
-   * **복원 유형** - 가상 컴퓨터를 만듭니다.
-   * **가상 컴퓨터 이름** - VM의 이름을 제공합니다. 이름은 리소스 그룹(Resource Manager 배포 VM의 경우) 또는 클라우드 서비스(클래식 VM의 경우)에 대해 고유해야 합니다. 구독에 이미 있는 경우 가상 컴퓨터를 교체할 수 없습니다.
-   * **리소스 그룹** – 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 클래식 VM을 복원하는 경우 이 필드를 사용하여 새 클라우드 서비스의 이름을 지정합니다. 새 리소스 그룹/클라우드 서비스를 만들 경우 이름은 전역적으로 고유해야 합니다. 일반적으로 클라우드 서비스 이름은 공용 URL(예: [cloudservice].cloudapp.net)과 연결됩니다. 이미 사용되는 클라우드 리소스 그룹/클라우드 서비스에 대한 이름을 사용하려는 경우 Azure는 리소스 그룹/클라우드 서비스에 VM과 동일한 이름을 할당합니다. Azure는 선호도 그룹에 연결되지 않은 리소스 그룹/클라우드 서비스 및 VM을 표시합니다. 자세한 내용은 [선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
-   * **가상 네트워크** - VM을 만들 때 VNET(가상 네트워크)을 선택합니다. 필드는 구독과 연결된 모든 VNET을 제공합니다. VM의 리소스 그룹이 괄호 안에 표시됩니다.
-   * **서브넷** - VNET에 서브넷이 있는 경우 첫 번째 서브넷이 기본적으로 선택됩니다. 추가 서브넷이 있으면 원하는 서브넷을 선택합니다.
-   * **저장소 계정** - 이 메뉴는 복구 서비스 자격 증명 모음과 동일한 위치의 저장소 계정을 나열합니다. 저장소 계정을 선택할 경우 복구 서비스 자격 증명 모음과 동일한 위치를 공유하는 계정을 선택합니다. 영역이 중복된 저장소 계정은 지원되지 않습니다. 복구 서비스 자격 증명 모음과 동일한 위치에 있는 저장소 계정이 없는 경우 복원 작업을 시작하기 전에 계정을 만들어야 합니다. 저장소 계정의 복제 유형이 괄호 안에 언급됩니다.
+* **복원 유형** - 가상 컴퓨터를 만듭니다.
+* **가상 컴퓨터 이름** - VM의 이름을 제공합니다. 이름은 리소스 그룹(Resource Manager 배포 VM의 경우) 또는 클라우드 서비스(클래식 VM의 경우)에 대해 고유해야 합니다. 구독에 이미 있는 경우 가상 컴퓨터를 교체할 수 없습니다.
+* **리소스 그룹** – 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 클래식 VM을 복원하는 경우 이 필드를 사용하여 새 클라우드 서비스의 이름을 지정합니다. 새 리소스 그룹/클라우드 서비스를 만들 경우 이름은 전역적으로 고유해야 합니다. 일반적으로 클라우드 서비스 이름은 공용 URL(예: [cloudservice].cloudapp.net)과 연결됩니다. 이미 사용되는 클라우드 리소스 그룹/클라우드 서비스에 대한 이름을 사용하려는 경우 Azure는 리소스 그룹/클라우드 서비스에 VM과 동일한 이름을 할당합니다. Azure는 선호도 그룹에 연결되지 않은 리소스 그룹/클라우드 서비스 및 VM을 표시합니다. 자세한 내용은 [선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
+* **가상 네트워크** - VM을 만들 때 VNET(가상 네트워크)을 선택합니다. 필드는 구독과 연결된 모든 VNET을 제공합니다. VM의 리소스 그룹이 괄호 안에 표시됩니다.
+* **서브넷** - VNET에 서브넷이 있는 경우 첫 번째 서브넷이 기본적으로 선택됩니다. 추가 서브넷이 있으면 원하는 서브넷을 선택합니다.
+* **저장소 계정** - 이 메뉴는 복구 서비스 자격 증명 모음과 동일한 위치의 저장소 계정을 나열합니다. 영역이 중복된 저장소 계정은 지원되지 않습니다. 복구 서비스 자격 증명 모음과 동일한 위치에 있는 저장소 계정이 없는 경우 복원 작업을 시작하기 전에 계정을 만들어야 합니다. 저장소 계정의 복제 유형이 괄호 안에 언급됩니다.
 
-     > [!NOTE]
-     > Resource Manager 배포 VM을 복원하는 경우 VNET(가상 네트워크)을 식별해야 합니다. 클래식 VM의 경우 VNET(가상 네트워크)은 선택 사항입니다.
-     >
-     >
+![복원 구성 마법사가 설정됨](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-   ### <a name="restore-backed-up-disks"></a>백업된 디스크 복원
-   만들려는 가상 컴퓨터를 복원 구성 블레이드가 아닌 백업된 디스크에서 사용자 지정하려면 **복원 유형**의 값으로 **디스크 복원**을 선택합니다. 이 항목을 선택하면 백업된 디스크를 복사할 저장소 계정(전체 가상 컴퓨터 복원 저장소 계정 선택과 동일한 제한 사항 적용)을 묻습니다. [복원된 디스크를 사용하여 기존 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)하거나 [복원된 디스크에서 새 가상 컴퓨터 만들기](./backup-azure-vms-automation.md#restore-an-azure-vm)가 가능합니다.
+> [!NOTE]
+> Resource Manager 배포 VM을 복원하는 경우 VNET(가상 네트워크)을 식별해야 합니다. 클래식 VM의 경우 VNET(가상 네트워크)은 선택 사항입니다.
+>
+>
 
-3. **복원 구성** 블레이드에서 **확인**을 클릭하여 복원 구성을 완료합니다.
-4. **복원** 블레이드에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
+**복원 구성** 블레이드에서 **확인**을 클릭하여 복원 구성을 완료합니다. **복원** 블레이드에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
 
-    ![복구 구성 완료](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
+## <a name="restore-backed-up-disks"></a>백업된 디스크 복원
+만들려는 가상 컴퓨터를 복원 구성 블레이드가 아닌 백업된 디스크에서 사용자 지정하려면 **복원 유형**의 값으로 **디스크 복원**을 선택합니다. 이렇게 선택하면 백업 디스크를 복사할 저장소 계정을 요청합니다. 저장소 계정을 선택할 경우 복구 서비스 자격 증명 모음과 동일한 위치를 공유하는 계정을 선택합니다. 영역이 중복된 저장소 계정은 지원되지 않습니다. 복구 서비스 자격 증명 모음과 동일한 위치에 있는 저장소 계정이 없는 경우 복원 작업을 시작하기 전에 계정을 만들어야 합니다. 저장소 계정의 복제 유형이 괄호 안에 언급됩니다.
+
+복원 작업이 완료된 후에 다음을 수행할 수 있습니다.
+* [템플릿을 사용하여 복원된 VM 사용자 지정](#use-templates-to-customize-restore-vm)
+* [복원된 디스크를 사용하여 기존 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
+* [PowerShell을 사용하여 복원된 디스크에서 새 가상 컴퓨터를 만듭니다.](./backup-azure-vms-automation.md#restore-an-azure-vm)
+
+**복원 구성** 블레이드에서 **확인**을 클릭하여 복원 구성을 완료합니다. **복원** 블레이드에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
+
+![복구 구성 완료](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
 ## <a name="track-the-restore-operation"></a>복원 작업 추적
 복원 작업을 트리거하면 백업 서비스는 복원 작업을 추적하기 위한 작업을 만듭니다. 백업 서비스는 알림을 만들고 포털의 알림 영역에 일시적으로 표시합니다. 알림이 표시되지 않으면 언제든 알림 아이콘을 클릭하여 알림을 볼 수 있습니다.
@@ -148,12 +157,43 @@ ms.lasthandoff: 02/17/2017
     **백업 작업** 블레이드가 열리고 작업 목록이 표시됩니다.
 
     ![자격 증명 모음의 VM 목록](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
+    
+## <a name="use-templates-to-customize-restore-vm"></a>템플릿을 사용하여 복원된 VM 사용자 지정
+[디스크 복원 작업이 완료되면](#Track-the-restore-operation) 복원 작업의 일부로 생성된 템플릿을 사용하여 백업 구성에서 다른 구성으로 새 VM을 만들거나 복원 지점에서 새 VM을 만들 때 생성된 리소스의 이름을 사용자 지정할 수 있습니다. 
+
+> [!NOTE]
+> 템플릿은 2017년 3월 1일 이후에 만든 복구 지점에 디스크 복원의 일부로 추가됩니다. 암호화되지 않고 관리되지 않는 디스크 VM에 해당합니다. 암호화된 VM 및 Managed Disk VM에 대한 지원은 곧 출시될 릴리스에서 제공됩니다. 
+>
+>
+
+디스크 복원 옵션의 일부로 생성된 템플릿을 가져오려면
+
+1. 작업에 해당하는 복원 작업 세부 정보로 이동합니다. 
+2. 그러면 템플릿을 다운로드할 수 있는 템플릿 URI를 나열합니다. 값에서 컨테이너 이름을 적어둡니다. 
+
+     ![복원 작업 드릴 다운](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
+     
+3. 값에서 대상 저장소 계정 이름, 컨테이너 이름, 템플릿 Blob URI를 적어둡니다. *대상 저장소 계정 > Blob 선택 > 컨테이너*로 이동하고 파일로 이동하여 *azuredeploy* 이름으로 시작하는 파일을 다운로드합니다.
+
+    ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
+    
+   또는 [Azure Storage Explorer](http://storageexplorer.com/)를 해당하는 구독 > 대상 저장소 계정 > Blob 컨테이너로 이동하고 위의 단계에서 적어둔 컨테이너 이름을 선택합니다. 컨테이너 내의 파일을 보여 주는 오른쪽 창에서 *azuredeploy* 이름으로 시작하는 파일을 다운로드합니다. 
+   
+   ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
+     
+템플릿을 다운로드하면 템플릿 배포를 사용하여 [템플릿을 편집하고 배포](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)하거나 배포하기 전에 [템플릿을 작성](../azure-resource-manager/resource-group-authoring-templates.md)하여 사용자 지정을 추가합니다. 파일 로드 옵션을 사용하여 위에서 다운로드한 템플릿을 배포할 수 있습니다. 
+
+   ![템플릿 배포 로딩](./media/backup-azure-arm-restore-vms/loading-template.png)
+   
+필수 값을 입력한 후에 *약관*에 동의하고 **구매**를 클릭합니다.
+
+   ![템플릿 배포 제출](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>복원 후 단계
 * Ubuntu와 같은 클라우드 초기화 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/virtual-machines-linux-classic-reset-access.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
 * 백업 구성 중에 나타나는 확장을 설치하지만 사용할 수 없습니다. 문제가 있는 경우 확장을 다시 설치하세요. 
 * 백업 VM에 고정 IP, post 복원이 있는 경우 복원된 VM을 만들 때 충돌을 방지하기 위해 복원된 VM는 동적 IP를 갖습니다. [복원된 VM에 고정 IP를 추가](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)할 수 있는 방법에 대한 자세한 내용
-* 복원된 VM에는 가용성 값 집합이 없습니다. 복원된 디스크를 사용하여 PowerShell에서 VM을 만드는 경우 복원 디스크 옵션을 사용하고 [가용성 집합을 추가](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set)하는 것이 좋습니다. 
+* 복원된 VM에는 가용성 값 집합이 없습니다. 복원된 디스크를 사용하여 PowerShell 또는 템플릿에서 VM을 만드는 경우 복원 디스크 옵션을 사용하고 [가용성 집합을 추가](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set)하는 것이 좋습니다. 
 
 ## <a name="backup-for-restored-vms"></a>복원된 VM에 대한 백업
 원래 백업한 VM과 같은 이름으로 같은 리소스 그룹에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 리소스 그룹에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.

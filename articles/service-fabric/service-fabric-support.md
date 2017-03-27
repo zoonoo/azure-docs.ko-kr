@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 03/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 05e433b028762016759637b2afa8c741b04f31ff
-ms.openlocfilehash: a31a297f909ffb1c6da748623b0050415c43486b
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -81,7 +81,7 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 | --- | --- |
 | 5.3.121 이전의 모든 클러스터 버전 |2017년 1월 20일 |
 | 5.3.* |2017년 2월 24일 |
-| 5.4.* |2017년 4월 17일     |
+| 5.4.* |2017년 5월 10일     |
 | 5.5.* |현재 버전 및 종료 날짜
 
 

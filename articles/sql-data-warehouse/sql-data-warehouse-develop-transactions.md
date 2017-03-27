@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dde5397405b64d394cdff9c69c05a565c5427f56
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +52,7 @@ SQL 데이터 웨어하우스는 ACID 트랜잭션을 구현합니다. 그러나
 
 트랜잭션 또는 작업 기준으로 트랜잭션 크기 제한이 적용되며 모든 동시 트랜잭션에서 적용되지는 않습니다. 따라서 각 트랜잭션은 이 크기의 데이터를 로그에 쓰도록 허용됩니다. 
 
-로그에 기록된 데이터의 양을 최적화하고 최소화하려면 [트랜잭션 모범 사례][트랜잭션 모범 사례] 문서를 참조하세요.
+로그에 기록된 데이터의 양을 최적화하고 최소화하려면 [트랜잭션 모범 사례][Transactions best practices] 문서를 참조하세요.
 
 > [!WARNING]
 > 최대 트랜잭션 크기는 데이터가 균일하게 분산되는 HASH 또는 ROUND_ROBIN 분산 테이블에 대해서만 도달할 수 있습니다. 트랜잭션이 균일하지 않은 분산 방식으로 데이터를 쓰는 경우 최대 트랜잭션 크기에 도달하기 전에 제한에 도달할 가능성이 높습니다.
@@ -175,23 +176,18 @@ SQL 데이터 웨어하우스에는 트랜잭션과 관련된 몇 가지 기타 
 * 사용자 정의 트랜잭션 내에 `CREATE TABLE` 과 같은 DDL 지원은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례][트랜잭션 모범 사례]를 참조하세요.  기타 SQL Data Warehouse 모범 사례에 대해 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
+트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례][Transactions best practices]를 참조하세요.  기타 SQL Data Warehouse 모범 사례에 대해 자세히 알아보려면 [SQL Data Warehouse 모범 사례][SQL Data Warehouse best practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[개발 개요]: ./sql-data-warehouse-overview-develop.md
-[트랜잭션 모범 사례]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

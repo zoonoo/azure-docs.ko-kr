@@ -18,9 +18,9 @@ ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: bcad35fe1df9da06e02eceae6a221c40a9d10bac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 69bce31b59ba3a70b69ab17f91272b45a4f05afc
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/01/2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -441,7 +441,7 @@ ms.lasthandoff: 03/01/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
@@ -1241,6 +1241,12 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
   _**그림 38:** 클러스터를 다시 구성했는지 확인_
 
+Windows 장애 조치(Failover) 클러스터를 성공적으로 설치한 후 장애 조치(Failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 블로그에 설명되어 있습니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는&2;개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
+- SameSubNetDelay = 2
+- SameSubNetThreshold = 15
+
+이러한 설정은 고객과 함께 테스트되었으며 어떤 면에서는 충분히 복원력이 있는 좋은 타협안을 제공했으나 다른 측면에서는 SAP 소프트웨어 또는 노드/VM 장애의 실제 오류 상태에서 충분히 빠른 장애 조치(Failover)를 제공했습니다. 
+
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> SAP ASCS/SCS 클러스터 공유 디스크에 대한 SIOS DataKeeper Cluster Edition 설치
 
 이제 Azure에서 Windows Server 장애 조치 클러스터링 구성이 완료되었습니다. 그렇지만 SAP ASCS/SCS 인스턴스를 설치하려면 공유 디스크 리소스가 필요합니다. Azure에서는 필요한 공유 디스크 리소스를 만들 수 없습니다. SIOS DataKeeper Cluster Edition은 공유 디스크 리소스를 만드는 데 사용할 수 있는 타사 솔루션입니다.
@@ -1551,7 +1557,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
   }
   ```
 
-  **SAP <*SID*>** 클러스터 역할을 온라인으로 전환한 후에 **ProbePort**가 새 값으로 설정되었는지 확인합니다.
+  **SAP <*SID*>**클러스터 역할을 온라인으로 전환한 후에**ProbePort**가 새 값으로 설정되었는지 확인합니다.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1651,3 +1657,4 @@ _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스�
   ![그림 64: SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제][sap-ha-guide-figure-5003]
 
   _**그림 64:** SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제_
+

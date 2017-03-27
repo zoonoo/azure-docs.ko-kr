@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -59,7 +59,6 @@ Azure DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 이 자습서�
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
     * 또는 이 자습서에 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용할 수 있습니다.
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
-* .NET Framework 4.6
 
 ## <a name="step-1-create-a-documentdb-account"></a>1단계: DocumentDB 계정 만들기
 DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [Visual Studio 솔루션 설치](#SetupVS)로 건너뛸 수 있습니다. DocumentDB 에뮬레이터를 사용할 경우 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
@@ -106,15 +105,15 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     public class Program
     {
         // ADD THIS PART TO YOUR CODE
-        private const string EndpointUri = "<your endpoint URI>";
-        private const string PrimaryKey = "<your key>";
+        private const string EndpointUrl = "<your endpoint URL>";
+        private const string PrimaryKey = "<your primary key>";
         private DocumentClient client;
 
-다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 URI와 기본 키를 검색합니다. DocumentDB URI 및 기본 키는 응용 프로그램에서 연결할 곳을 이해하고 DocumentDB에서 응용 프로그램 연결을 신뢰하는 데 필요합니다.
+다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 끝점 URL과 기본 키를 검색합니다. 끝점 URL 및 기본 키는 응용 프로그램에서 연결할 곳을 이해하고 DocumentDB에서 응용 프로그램 연결을 신뢰하는 데 필요합니다.
 
 Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합니다.
 
-포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URI>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your key>`에 붙여 넣습니다.
+포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URL>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your primary key>`에 붙여 넣습니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure 포털의 스크린샷 DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 줌][keys]
 
@@ -129,7 +128,7 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
     // ADD THIS PART TO YOUR CODE
     private async Task GetStartedDemo()
     {
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+        this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
 
 다음 코드를 추가하여 **Main** 메서드에서 비동기 작업을 실행합니다. **Main** 메서드가 예외를 catch하여 콘솔에 기록합니다.
@@ -175,42 +174,16 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
             Console.ReadKey();
     }
 
-**DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드를 사용하여 DocumentDB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
-
-**CreateDatabaseIfNotExists** 메서드를 복사하여 **WriteToConsoleAndPromptToContinue** 메서드 다음에 붙여넣습니다.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDatabaseIfNotExists(string databaseName)
-    {
-            // Check to verify a database with the id=FamilyDB does not exist
-            try
-            {
-                    await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
-                    this.WriteToConsoleAndPromptToContinue("Found {0}", databaseName);
-            }
-            catch (DocumentClientException de)
-            {
-                    // If the database does not exist, create a new database
-                    if (de.StatusCode == HttpStatusCode.NotFound)
-                    {
-                            await this.client.CreateDatabaseAsync(new Database { Id = databaseName });
-                            this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
-                    }
-                    else
-                    {
-                            throw;
-                    }
-            }
-    }
+**DocumentClient** 클래스의 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 메서드를 사용하여 DocumentDB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
 
 클라이언트를 만든 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다. *FamilyDB*라는 데이터베이스가 생성됩니다.
 
     private async Task GetStartedDemo()
     {
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
+        this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -218,56 +191,20 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
 
 ## <a id="CreateColl"></a>5단계: 컬렉션 만들기
 > [!WARNING]
-> **CreateDocumentCollectionAsync** 는 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
+> **CreateDocumentCollectionIfNotExistsAsync**는 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
 > 
 > 
 
-**DocumentClient** 클래스의 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
+**DocumentClient** 클래스의 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
 
-**CreateDocumentCollectionIfNotExists** 메서드를 복사하여 **CreateDatabaseIfNotExists** 메서드 다음에 붙여넣습니다.
+데이터베이스를 만든 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다. *FamilyCollection*이라는 문서 컬렉션이 생성됩니다.
 
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
-    {
-        try
-        {
-            await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
-            this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
-        }
-        catch (DocumentClientException de)
-        {
-            // If the document collection does not exist, create a new collection
-            if (de.StatusCode == HttpStatusCode.NotFound)
-            {
-                DocumentCollection collectionInfo = new DocumentCollection();
-                collectionInfo.Id = collectionName;
+        this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
-                // Configure collections for maximum query flexibility including string range queries.
-                collectionInfo.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-
-                // Here we create a collection with 400 RU/s.
-                await this.client.CreateDocumentCollectionAsync(
-                    UriFactory.CreateDatabaseUri(databaseName),
-                    collectionInfo,
-                    new RequestOptions { OfferThroughput = 400 });
-
-                this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
-            }
-            else
-            {
-                throw;
-            }
-        }
-    }
-
-데이터베이스를 만든 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다. *FamilyCollection_oa*라는 문서 컬렉션이 생성됩니다.
-
-        this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
-
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+         await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -299,7 +236,7 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
         public bool IsRegistered { get; set; }
         public override string ToString()
         {
-                return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this);
         }
     }
 
@@ -330,7 +267,7 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
         public string City { get; set; }
     }
 
-**CreateFamilyDocumentIfNotExists** 메서드를 복사하여 **CreateDocumentCollectionIfNotExists** 메서드 다음에 붙여넣습니다.
+**Address** 클래스 아래에 **CreateFamilyDocumentIfNotExists** 메서드를 복사하여 붙여넣습니다.
 
     // ADD THIS PART TO YOUR CODE
     private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -358,9 +295,10 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
 
 문서 컬렉션을 만든 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
+    
+    await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     Family andersenFamily = new Family
@@ -389,7 +327,7 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
             IsRegistered = true
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
@@ -426,7 +364,7 @@ Azure 포털에서 DocumentDB 계정으로 이동한 다음 **키**를 클릭합
             IsRegistered = false
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -475,12 +413,10 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리
 
 두 번째 문서를 만든 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
-
-응용 프로그램을 실행하기 전에 **프로젝트** 메뉴에서 *프로젝트 이름* **속성...** 을 클릭한 다음 **빌드** 를 클릭합니다. 32비트 프로세스에서 실행할 때 쿼리에서 파티션 라우팅 정보를 추출할 수 없으므로 **32비트 선호** 상자를 선택 취소합니다.
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -500,30 +436,23 @@ DocumentDB는 JSON 문서 바꾸기를 지원합니다.
     // ADD THIS PART TO YOUR CODE
     private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
     {
-        try
-        {
-            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-            this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-        }
-        catch (DocumentClientException de)
-        {
-            throw;
-        }
+         await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+         this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
     }
 
 메서드 끝에서 쿼리를 실행한 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다. 문서를 바꾼 후에, 변경된 문서를 표시하도록 같은 쿼리가 다시 실행됩니다.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
     // ADD THIS PART TO YOUR CODE
     // Update the Grade of the Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -537,25 +466,18 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
     // ADD THIS PART TO YOUR CODE
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
     {
-        try
-        {
-            await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-            Console.WriteLine("Deleted Family {0}", documentName);
-        }
-        catch (DocumentClientException de)
-        {
-            throw;
-        }
+         await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+         Console.WriteLine("Deleted Family {0}", documentName);
     }
 
 메서드 끝에서 두 번째 쿼리를 실행한 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣습니다.
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
-
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
-
+    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    
     // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -566,13 +488,13 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 문서를 삭제한 후 다음 코드를 복사하여 **GetStartedDemo** 메서드에 붙여넣어 전체 데이터베이스 및 모든 자식 리소스를 삭제합니다.
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
 
     // ADD THIS PART TO CODE
     // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -583,9 +505,9 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 시작한 앱의 출력이 표시됩니다. 출력은 추가한 쿼리 결과를 보여 주며, 아래 예제 텍스트와 일치해야 합니다.
 
-    Created FamilyDB_oa
+    Created FamilyDB
     Press any key to continue ...
-    Created FamilyCollection_oa
+    Created FamilyCollection
     Press any key to continue ...
     Created Family Andersen.1
     Press any key to continue ...
@@ -604,7 +526,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-축하합니다. 이 NoSQL 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 셩겼습니다.
+축하합니다. 이 NoSQL 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 생겼습니다.
 
 ## <a id="GetSolution"></a> 전체 NoSQL 자습서 솔루션 다운로드
 이 자습서의 단계를 완료할 시간이 없거나 코드 샘플을 다운로드하려는 경우 [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)에서 가져올 수 있습니다. 
@@ -616,8 +538,6 @@ GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 * GitHub에서 제공하는 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) 솔루션
 
 Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔루션 탐색기에서 **GetStarted** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 복원 사용**을 클릭합니다. 다음으로, App.config 파일에서 EndpointUrl 및 AuthorizationKey 값을 [DocumentDB 계정에 연결](#Connect)에 설명된 대로 업데이트합니다.
-
-응용 프로그램을 실행하기 전에 **프로젝트** 메뉴에서 *프로젝트 이름* **속성...** 을 클릭한 다음 **빌드** 를 클릭합니다. **32비트 선호** 상자를 선택 취소합니다.
 
 정말 간단하죠? 빌드하고 원하는 대로 진행하세요!
 

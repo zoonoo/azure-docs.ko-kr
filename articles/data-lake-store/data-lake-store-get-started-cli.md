@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -46,7 +47,7 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하세요. CLI를 설치한 후 컴퓨터를 다시 부팅해야 합니다.
+* **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하세요. CLI를 설치한 후 컴퓨터를 다시 부팅해야 합니다.
 
 ## <a name="authentication"></a>인증
 이 문서는 최종 사용자로 로그인하는 Data Lake Store에 보다 간단한 인증 방식을 사용합니다. Data Lake Store 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준을 따릅니다. 하지만 Data Lake Store에 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증**도 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
@@ -178,10 +179,5 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[azure-command-line-tools]: ../xplat-cli-install.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[azure-command-line-tools]: ../cli-install-nodejs.md
 

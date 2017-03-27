@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 6fe3bd55b23432a8fddb1ffeeed33bc113b8bd73
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f63649cc3b6c4acad6e39356f0210d3726548b17
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,7 +41,7 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 
 설치 명령은 Ubuntu를 가정하지만 지원되는 Linux 배포한에 대한 설치를 조정할 수 있습니다.
 
-script-vm VM에는 Azure CLI가 설치되어 있어야 하며 Azure에 대한 정상적인 연결이 설정되어 있어야 합니다. 도움이 필요하면 [Azure 명령줄 인터페이스 설치 및 구성](../xplat-cli-install.md)을 참조하세요
+script-vm VM에는 Azure CLI가 설치되어 있어야 하며 Azure에 대한 정상적인 연결이 설정되어 있어야 합니다. 도움이 필요하면 [Azure 명령줄 인터페이스 설치 및 구성](../cli-install-nodejs.md)을 참조하세요
 
 ## <a name="upload-a-script"></a>스크립트 업로드
 CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 스택을 설치하고 PHP 페이지를 만듭니다. 어디서나 스크립트에 액세스할 수 있도록 Azure Blob으로 스크립트를 업로드합니다.
@@ -105,10 +106,5 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 [Azure Linux 확장(GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

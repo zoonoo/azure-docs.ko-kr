@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -49,8 +50,8 @@ ARP 테이블의 예:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 다음 섹션은 ExpressRoute 에지 라우터가 나타내는 ARP 테이블을 보는 방법을 알려줍니다. 
@@ -83,8 +84,8 @@ ARP 테이블의 예:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-azure-public-peering"></a>Azure 공용 피어링용 ARP 테이블
@@ -105,8 +106,8 @@ ARP 테이블의 예:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           64.0.0.1   ffff.eeee.dddd
+          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Microsoft 피어링용 ARP 테이블
@@ -127,8 +128,8 @@ ARP 테이블의 예:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
 ## <a name="how-to-use-this-information"></a>이 정보를 사용하는 방법
@@ -142,19 +143,29 @@ ARP 테이블의 예:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
-* ARP 테이블에 항목이 하나만 표시됩니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
+온-프레미스 또는 연결 공급자에 문제가 있는 경우 ARP 테이블에 한 개의 항목만 나타나거나 온-프레미스 MAC 주소가 불완전하게 표시됩니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
+또는
+       
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------   
+         0 On-Prem           65.0.0.1   Incomplete
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 > [!NOTE]
-> 이 문제를 디버그하려면 연결 공급자로 지원 요청을 엽니다. 
+> 이 문제를 디버그하려면 연결 공급자로 지원 요청을 엽니다. ARP 테이블에 MAC 주소에 매핑된 인터페이스의 IP 주소가 없으면 다음 정보를 검토합니다.
 > 
+> 1. MSEE-PR과 MSEE 사이의 링크에 할당된 /30 서브넷의 첫 번째 IP 주소가 MSEE-PR의 인터페이스에서 사용되는 경우 Azure에서 항상 두 번째 IP 주소를 MSEE에 사용합니다.
+> 2. 고객(C-Tag) 및 서비스(S-Tag) VLAN 태그가 MSEE-PR 및 MSEE 쌍 모두와 일치하는지 확인합니다.
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Microsoft 측에 문제가 있을 때 ARP 테이블
@@ -167,10 +178,5 @@ ARP 테이블의 예:
   * 라우트 테이블에서 ExpressRoute에 어떤 접두사가 보급되었는지 확인
 * 바이트 입출력으로 데이터 전송의 유효성 검사
 * 여전히 문제가 해결되지 않을 경우 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 으로 지원 티켓을 엽니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

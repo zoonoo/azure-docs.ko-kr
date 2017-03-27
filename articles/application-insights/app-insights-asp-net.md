@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
-ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/01/2017
 * [런타임 시 웹앱 계측](app-insights-monitor-performance-live-website-now.md)
 * [Azure 클라우드 서비스](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> 1단계: Application Insights SDK 추가
+## <a name="ide"></a> 1단계: Application Insights SDK 추가
 
 솔루션 탐색기에서 웹앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **Application Insights 원격 분석...** 또는 **Application Insights 구성**을 선택합니다.
 
@@ -53,7 +53,7 @@ Application Insights 구성 페이지로 계속 진행:
 5. 아니면 앱에 Application Insights SDK만 추가할 수 있습니다. 이런 경우 원격 분석을 Visual Studio에서 디버깅하는 동안 볼 수 있습니다. 나중에 이 구성 페이지로 돌아오거나 앱을 배포할 때까지 기다려서 [런타임에 원격 분석으로 전환할 수 있습니다](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> 2단계: 앱 실행
+## <a name="run"></a> 2단계: 앱 실행
 F5를 사용하여 앱을 실행합니다. 다른 페이지를 열어서 일부 원격 분석을 생성합니다.
 
 Visual Studio에 로그된 이벤트 수가 표시됩니다.
@@ -124,7 +124,7 @@ IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트�
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> Application Insights 추가 명령의 기능은 무엇인가요?
+## <a name="land"></a> Application Insights 추가 명령의 기능은 무엇인가요?
 Application Insights는 앱에서 Application Insights 포털(Azure에서 호스팅됨)에 원격 분석을 보냅니다.
 
 ![원격 분석의 이동 다이어그램](./media/app-insights-asp-net/01-scheme.png)
@@ -197,6 +197,10 @@ IIS 서버 컴퓨터 각각에 [상태 모니터를 설치](http://go.microsoft.
 Visual Studio Team Services를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
 
 ![차트의 샘플 릴리스 주석 스크린샷](./media/app-insights-asp-net/release-annotation.png)
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
 **[Visual Studio Online에서 Application Insights로 작업](app-insights-visual-studio.md)**<br/>원격 분석, 진단 검색 및 코드 드릴스루를 통한 디버깅에 대한 정보가 포함되어 있습니다.

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0e919171-03e6-4f5a-ab4e-3eec3e34c347
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -30,7 +32,7 @@ ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
 > Hive 명령을 HDInsight 클러스터에서 사용할 수 있지만 Beeline을 사용하는 것이 좋습니다. Beeline은 하이브를 사용하기 위한 최신 클라이언트이고 HDInsight 클러스터에 포함됩니다. 사용에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>필수 조건
+## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
@@ -40,7 +42,7 @@ ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
 
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>SSH를 사용하여 연결
+## <a id="ssh"></a>SSH를 사용하여 연결
 SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인 이름)에 연결합니다. FQDN은 지정한 클러스터 이름과 그 뒤에 오는 **.azurehdinsight.net**으로 구성됩니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -58,7 +60,7 @@ Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
-## <a name="a-idhiveause-the-hive-command"></a><a id="hive"></a>Hive 명령 사용
+## <a id="hive"></a>Hive 명령 사용
 1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
    
         hive
@@ -107,10 +109,10 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
      > 
      > 
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>요약
+## <a id="summary"></a>요약
 여기에서 볼 수 있듯이 Hive 명령을 사용하면 쉽게 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고 출력을 검색할 수 있습니다.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
@@ -153,10 +155,5 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

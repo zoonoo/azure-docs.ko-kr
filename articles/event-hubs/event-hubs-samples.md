@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 03/07/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: f3c8f6e52b8713bcdb58d55e8bbc2301a7c316e4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 03/03/2017
 
 ### <a name="send-events"></a>이벤트 전송 
 
-[전송 시작](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender) 샘플은 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다.
+[전송 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) 샘플은 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다.
 
 ### <a name="receive-events"></a>이벤트 수신 
 
-[이벤트 프로세서 호스트를 사용하여 수신 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) 샘플은 [이벤트 프로세서 호스트](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)를 사용하여 이벤트 허브에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램입니다. 
+[이벤트 프로세서 호스트를 사용하여 수신 시작](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) 샘플은 `Event Processor Host`를 사용하여 Event Hub에서 메시지를 수신하는 .NET Core 콘솔 응용 프로그램입니다.
 
 ## <a name="net-framework"></a>.NET Framework    
 

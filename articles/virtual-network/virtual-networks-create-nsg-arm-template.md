@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 627dba0f3a0a65ad75ef2799b7e5df56e9d8bfcb
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -152,7 +152,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 ARM 템플릿 배포
 Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
     ```azurecli

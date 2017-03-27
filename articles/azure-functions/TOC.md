@@ -22,13 +22,15 @@
 #### [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)
 #### [Notification Hub 출력 바인딩](functions-bindings-notification-hubs.md)
 #### [큐 및 항목에 대한 Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)
+#### [SendGrid 바인딩](functions-bindings-sendgrid.md)
 #### 저장소 바인딩
 ##### [Blob 바인딩](functions-bindings-storage-blob.md)
 ##### [큐 바인딩](functions-bindings-storage-queue.md)
 ##### [테이블 바인딩](functions-bindings-storage-table.md)
+##### [SendGrid 바인딩](functions-bindings-sendgrid.md)
 #### [타이머 트리거](functions-bindings-timer.md)
 #### [Twilio 출력 바인딩](functions-bindings-twilio.md)
-### [Azure Portal에서 함수 만들기](functions-create-first-azure-function-azure-portal.md) 
+### [Azure Portal에서 함수 앱 만들기](functions-create-function-app-portal.md) 
 ### [Azure Functions 테스트](functions-test-a-function.md)
 ### [로컬에서 개발 및 디버깅](functions-run-local.md)
 ### [Azure Functions에 대한 모범 사례](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Azure Functions GitHub 리포지토리](https://github.com/Azure/Azure-Functions/) 
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

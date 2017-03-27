@@ -1,5 +1,5 @@
 ---
-title: "IPv6를 사용하는 인터넷 연결 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs"
+title: "IPv6를 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿 | Microsoft Docs"
 description: "Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법."
 services: load-balancer
 documentationcenter: na
@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -132,9 +133,4 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 | lbName |부하 분산 장치의 이름을 지정합니다. 이 이름은 포털에 표시되거나 CLI 또는 PowerShell 명령을 사용하여 참조할 때 사용됩니다. |
 
 템플릿의 나머지 변수는 Azure가 리소스를 만들 때 할당되는 파생 값을 포함합니다. 이러한 변수를 변경하지 마십시오.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

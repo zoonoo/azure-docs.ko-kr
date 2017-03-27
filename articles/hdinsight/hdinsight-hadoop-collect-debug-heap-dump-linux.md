@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,7 +33,7 @@ ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 > [!IMPORTANT]
 > 이 문서의 단계는 Linux를 사용하는 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
-## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
+## <a name="whichServices"></a>Services
 다음 서비스에 힙 덤프를 사용할 수 있습니다.
 
 * **hcatalog** - tempelton
@@ -42,7 +44,7 @@ ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용할 수도 있습니다.
 
-## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>힙 덤프 구성 이해
+## <a name="configuration"></a>힙 덤프 구성 이해
 힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 Hadoop 서비스는 서비스를 시작하는 데 사용되는 셸 스크립트를 수정하여 이 작업을 수행할 수 있습니다.
 
 각 스크립트에는 JVM으로 전달되는 옵션이 포함된 **\*\_OPTS**에 대한 내보내기가 있습니다. 예를 들어 **hadoop-env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
@@ -130,10 +132,5 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
    > 
    > 
 8. 서비스가 다시 시작되면 **Service Actions** 단추를 사용하여 **Turn Off Maintenance Mode**를 지정합니다. 그러면 Ambari에서 서비스에 대한 경고 모니터링을 재개합니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

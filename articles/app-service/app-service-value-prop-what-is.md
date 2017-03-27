@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
-ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 다음은 앱 서비스의 몇 가지 주요 기능입니다.
 
 * **여러 언어 및 프레임워크** - 앱 서비스에서는 ASP.NET, Node.js, Java, PHP 및 Python을 최고 수준으로 지원합니다. 앱 서비스 VM에서 [Windows PowerShell 및 기타 스크립트 또는 실행 파일](../app-service-web/web-sites-create-web-jobs.md) 을 실행할 수도 있습니다.
-* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 App Service에서 앱을 관리합니다.
+* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../cli-install-nodejs.md)를 사용하여 App Service에서 앱을 관리합니다.
 * **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](../app-service-web/web-sites-scale.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 앱 서비스 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook 및 Twitter) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md) 에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - 앱 서비스는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다.
@@ -90,10 +91,5 @@ App Service 계획의 **SKU** 및 **규모**에 따라 호스트되는 앱 수�
 * [자습서: 모바일 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [자습서: API 앱 만들기](../app-service-api/app-service-api-dotnet-get-started.md)
 * [자습서: 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

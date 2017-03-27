@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,7 +39,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 업데이트 4에는 다음과 같은 주요 향상 기능 및 버그 수정이 포함되어 있습니다.
 
-* **우수한 자동화된 공간 재사용 알고리즘** - 업데이트 4에서 자동화된 공간 재사용 알고리즘은 클라우드에서 사용 가능한 예상된 회수된 공간에 따라 공간 재사용 주기를 조정하도록 향상되었습니다. 
+* **우수한 자동화된 공간 재사용 알고리즘** - 업데이트 4에서 자동화된 공간 재사용 알고리즘은 클라우드에서 사용 가능한 예상 회수 공간에 따라 공간 재사용 주기를 조정하도록 향상되었습니다. 
 
 * **로컬로 고정된 볼륨에 대한 성능 향상** - 업데이트 4에서는 높은 데이터 수집(볼륨 크기와 비교할 수 있는 데이터)이 있는 시나리오에서 로컬로 고정된 볼륨의 성능이 향상되었습니다.
 
@@ -57,9 +57,9 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 * **FIPS 관련 변경 사항** - 이 릴리스부터 Microsoft Azure Government 및 Azure 공용 클라우드 계정에 대한 모든 StorSimple 8000 시리즈 장치에는 기본적으로 FIPS가 활성화됩니다.
 
-* **업데이트 변경 사항** - 이 릴리스부터 Microsoft Azure Government 및 Azure 공용 클라우드 계정에 대한 모든 StorSimple 8000 시리즈 장치에는 기본적으로 FIPS가 활성화됩니다.
+* **업데이트 변경 내용** - 이 릴리스에서는 업데이트 실패와 관련된 버그가 수정되었습니다.
 
-* **디스크 오류에 대한 경고** - 임박한 디스크 오류를 사용자에게 경고하는 새로운 경고가 이 릴리스에서 추가됩니다.
+* **디스크 오류에 대한 경고** - 임박한 디스크 오류를 사용자에게 경고하는 새로운 경고가 이 릴리스에서 추가됩니다. 이 경고가 발생하는 경우 Microsoft 지원에 문의하여 대체 디스크를 보내주세요.
 
 * **컨트롤러 교체 변경 사항** - 사용자가 컨트롤러 교체 프로세스의 상태를 쿼리할 수 있도록 하는 cmdlet이 이 릴리스에서 추가됩니다. 자세한 내용은 [컨트롤러 교체 상태를 쿼리하는 cmdlet](https://technet.microsoft.com/library/dn688168.aspx)으로 이동합니다.
 

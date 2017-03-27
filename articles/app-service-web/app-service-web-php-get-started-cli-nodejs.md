@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 7877662f43b83d6d60c3ef836d14b291245d8d42
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fe1143a2c6966a547caab6b9bd35d78a91446e34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -49,7 +49,7 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
 ## <a name="prerequisites"></a>필수 조건
 * [PHP 5.6.29](http://php.net/downloads.php)
 * [Composer](https://getcomposer.org/download/)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Git](http://www.git-scm.com/downloads)
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
@@ -80,7 +80,7 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
         cd <app_name>
         php artisan serve
    
-    이제 브라우저의 http://localhost:8000 으로 이동하고 Laravel 시작 화면을 참조할 수 있어야 합니다.
+    이제 브라우저의 http://localhost:8000으로 이동하고 Laravel 시작 화면을 참조할 수 있어야 합니다.
    
     ![Azure에 배포하기 전에 로컬로 PHP(Laravel) 앱 테스트](./media/app-service-web-php-get-started/laravel-splash-screen.png)
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c232e334e60f9205076ba09d9f561c9fb1b42a4c
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -59,7 +59,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 문제 해결
 
-연결을 진단하려면 Azure PowerShell에 연결하고 `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet을 시작합니다. Virtual Network 게이트웨이 및 연결 문제 해결 - PowerShell에서 이 cmdlet 사용에 대한 세부 정보를 찾을 수 있습니다. 이 cmdlet을 완료하는 데는 몇 분 정도 걸릴 수 있습니다. 
+연결을 진단하려면 Azure PowerShell에 연결하고 `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet을 시작합니다. [Virtual Network 게이트웨이 및 연결 문제 해결 - PowerShell](network-watcher-troubleshoot-manage-powershell.md)에서 이 cmdlet 사용에 대한 세부 정보를 찾을 수 있습니다. 이 cmdlet을 완료하는 데는 몇 분 정도 걸릴 수 있습니다. 
 
 cmdlet이 완료되면 cmdlet에 지정된 저장소 위치로 이동하여 문제 및 로그에 대한 자세한 정보를 확인할 수 있습니다. Azure Network Watcher는 다음 로그 파일을 포함하는 zip 폴더를 만듭니다.
 
@@ -116,3 +116,4 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 [Azure Network Watcher 문제 해결을 사용하여 VPN 게이트웨이 모니터링](network-watcher-monitor-with-azure-automation.md)을 방문하여 PowerShell 및 Azure Automation으로 VPN Gateway 연결 확인에 대해 알아보기
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
+

@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: e762497c67e04aa4186094a203796278355de36f
-ms.openlocfilehash: 5da58eebde8ea0d615514755af1c378d16f60bfc
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 51edde1be97885b92fe48f65d3f477c73cd19338
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가�
 
 
 ## <a name="create-supporting-resources"></a>지원 리소스 만들기
-[Azure CLI](../xplat-cli-install.md)에 로그인되어 있고 리소스 관리자 모드를 사용 중인지 확인합니다.
+[Azure CLI](../cli-install-nodejs.md)에 로그인되어 있고 리소스 관리자 모드를 사용 중인지 확인합니다.
 
 ```azurecli
 azure config mode arm

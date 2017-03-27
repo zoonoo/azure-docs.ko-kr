@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/21/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 74460492c5eb6edfcc67015f8f6894267cb9edc8
-ms.openlocfilehash: 5a219219cd5e34713cd6a1c54a98d6bd15310e05
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9f1fd20c77b085a66487c83d8dcd902e8cc83e6d
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -154,7 +154,7 @@ Azure Portal에서 관련된 활동을 감사하기 위한 세 가지 범주가 
 
 ![감사](./media/active-directory-reporting-activity-audit-logs/628.png "Auditing")
 
-**그룹**을 **활동 유형**으로 선택한 경우 다음 **활동 원본**에 따라 필터링할 수 있는 추가 필터 옵션을 사용할 수 있습니다.
+**그룹**을 **활동 리소스 유형**으로 선택한 경우 다음 **활동 원본**에 따라 필터링할 수 있는 추가 필터 옵션을 사용할 수 있습니다.
 
 - Azure AD
 

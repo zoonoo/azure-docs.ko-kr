@@ -25,9 +25,9 @@
 #### [PhoneFactor에서 업그레이드](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## 사용자 관리
-### [라이선스 할당](multi-factor-authentication-get-started-assign-licenses.md)
 ### [MFA 사용 또는 사용하지 않도록 설정](multi-factor-authentication-get-started-user-states.md)
 ### [사용자 및 장치 설정](multi-factor-authentication-manage-users-and-devices.md)
+### [MFA 사용자 가이드](./end-user/multi-factor-authentication-end-user.md)
 
 ## 통합
 ### [페더레이션 서비스](multi-factor-authentication-get-started-adfs.md)

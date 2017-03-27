@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -142,7 +142,7 @@ Kubernetes 웹 인터페이스를 보려면 다음을 사용할 수 있습니다
 ```console
 kubectl proxy
 ```
-이렇게 하면 [Kubernetes 웹 UI](http://localhost:8001/ui)를 보는 데 사용할 수 있는 localhost에서 간단한 인증된 프록시가 실행됩니다. 자세한 내용은 [Azure Container Service에서 Kubernetes 웹 UI 사용](container-service-kubernetes-ui.md)을 참조하세요.
+그러면 [http://localhost:8001/ui](http://localhost:8001/ui)에서 실행 중인 Kubernetes 웹 UI를 보는 데 사용할 수 있는 localhost에서 간단한 인증된 프록시를 실행합니다. 자세한 내용은 [Azure Container Service에서 Kubernetes 웹 UI 사용](container-service-kubernetes-ui.md)을 참조하세요.
 
 ![Kubernetes 대시보드 이미지](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -157,13 +157,13 @@ kubectl get pods
 pod 이름을 사용하여 pod에서 원격 명령을 실행할 수 있습니다.  예:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 `-it` 플래그를 사용하여 완전한 대화형 세션을 가져올 수도 있습니다.
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![컨테이너 내 원격 세션](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

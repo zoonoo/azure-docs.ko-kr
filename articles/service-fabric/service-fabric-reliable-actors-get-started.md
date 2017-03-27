@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 25b24e6d267ac14147f426fce46d609954b7dfc9
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 41f9742befcc034f46f166b1f3f3d81ef67f83e7
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +52,7 @@ Reliable Actors를 시작하려면 몇 가지 기본 개념만 이해하면 됩�
 * 제네릭 인터페이스는 지원되지 않습니다.
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio에서 새 프로젝트 만들기
-Visual Studio용 서비스 패브릭 도구를 설치한 후에 새 프로젝트 형식을 만들 수 있습니다. 새 프로젝트 형식은 **새 프로젝트** 대화 상자의 **클라우드** 범주에 표시됩니다.
+관리자 권한으로 Visual Studio 2015 또는 Visual Studio 2017을 시작하고 새로운 Service Fabric 응용 프로그램 프로젝트를 만듭니다.
 
 ![Visual Studio용 서비스 패브릭 도구 - 새 프로젝트][1]
 
@@ -152,9 +153,4 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -11,6 +11,7 @@
 ## 개발
 ### [응용 프로그램 패키지](batch-application-packages.md)
 ### [자동 크기 조정 컴퓨터 노드](batch-automatic-scaling.md)
+### [Azure AD 인증](batch-aad-auth.md)
 ### [동시 노드 작업](batch-parallel-node-tasks.md)
 ### [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 ### [작업 준비 및 완료 작업](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
 

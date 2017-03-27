@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
-ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0df7bba472daf2c499f3ccff1296b8a9ee8ab89d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,9 +27,6 @@ Express 경로는 온-프레미스 또는 공동 장소 환경의 Microsoft 데�
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Express 경로 및 개인 네트워크 연결을 사용할 경우 이점은 무엇인가요?
 ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 대기 시간이 짧고 일관적인 일관된 속도를 제공하며 보안성이 높습니다. 경우에 따라 온-프레미스 장치와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수 있습니다.
-
-### <a name="what-microsoft-cloud-services-are-supported-over-expressroute"></a>Express 경로를 통해 지원되는 Microsoft 클라우드 서비스는 무엇인가요?
-Express 경로는 Office 365를 포함한 현재 대부분의 Microsoft Azure 서비스를 지원합니다.  일반 가용성에 관한 업데이트를 찾아보세요.
 
 ### <a name="where-is-the-service-available"></a>서비스를 사용할 수 있는 곳은 어디인가요?
 서비스 위치 및 가용성은 [Express 경로 파트너 및 위치](expressroute-locations.md)페이지를 참조하세요.
@@ -99,7 +96,7 @@ Microsoft 피어링
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>내 Express 경로 링크 중 하나가 실패하면 연결이 끊어지나요?
 교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 중복 연결은 네트워크의 로드를 지원하기 위해 사용할 수 있습니다. 오류 복구를 수행할 다른 피어링 위치에 여러 회로를 추가로 만들 수 있습니다.
 
-### <a name="a-nameonep2plinkaif-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
+### <a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 아니요, 서비스 공급자가 실제 연결을 통해 두 개의 이더넷 가상 회로를 설정할 수 있는 경우 하나의 실제 연결만 필요합니다. 실제 연결(예: 광 파이버)은 레이어 1(L1) 장치에서 종료됩니다(아래 이미지 참조). 두 개의 이더넷 가상 회로는 서로 다른 VLAN ID로 태그 처리되는데 하나는 기본 회로용이고 하나는 보조 회로용입니다. 해당 VLAN ID는 외부 802.1Q 이더넷 헤더에 있습니다. 내부 802.1Q 이더넷 헤더(표시되지 않음)는 특정 [Express 경로 라우팅 도메인](expressroute-circuit-peerings.md)에 매핑됩니다. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -111,7 +108,10 @@ Microsoft 피어링
 예. 사용자 구독에 둘 이상의 Express 경로 회로가 있을 수 있습니다. 전용 회로의 수에 대한 기본 제한은 10으로 설정됩니다 필요한 경우 제한을 늘리려면 Microsoft 지원에 문의할 수 있습니다.
 
 ### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>다른 서비스 공급자의 Express 경로 회로를 사용할 수 있나요?
-예. 여러 서비스 공급자의 Express 경로 회로가 있을 수 있습니다. 각 Express 경로 회로는 하나의 서비스 공급자화만 연결됩니다.
+예. 여러 서비스 공급자의 Express 경로 회로가 있을 수 있습니다. 각 Express 경로 회로는 하나의 서비스 공급자화만 연결됩니다. 
+
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>같은 위치에 여러 ExpressRoute 회로를 포함할 수 있나요?
+예. 같은 위치에서, 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 하지만 동일한 Virtual Network에 두 개 이상의 ExpressRoute 회로를 연결하는 것은 불가능합니다.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결하려면 어떻게 해야 하나요?
 기본 단계는 다음과 같습니다.
@@ -126,7 +126,7 @@ Microsoft 피어링
 예. [Express 경로 파트너 및 위치](expressroute-locations.md) 페이지에서 Express 경로 회로에 대한 연결 경계를 간략하게 설명합니다. ExpressRoute 회로에 대한 연결은 단일 지역으로 제한됩니다. 연결은 Express 경로 프리미엄 기능을 사용하여 지역을 교차하도록 확장할 수 있습니다.
 
 ### <a name="can-i-link-to-more-than-one-virtual-network-to-an-expressroute-circuit"></a>둘 이상의 가상 네트워크를 Express 경로 회로에 연결할 수 있나요?
-예. 최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다.
+예. 표준 ExpressRoute 회로에는 가상 네트워크 연결을 최대 10개, [프리미엄 ExpressRoute 회로](#expressroute-premium)에는 최대 100개를 포함할 수 있습니다. 
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>가상 네트워크를 포함하는 여러 Azure 구독을 가지고 있습니다. 개별 구독에 속한 가상 네트워크를 단일 Express 경로 회로에 연결할 수 있나요?
 예. 단일 Express 경로 회로를 사용하여 다른 Azure 구독을 최대 10개까지 권한을 부여할 수 있습니다. Express 경로 프리미엄 기능을 사용하여 이 한도를 늘릴 수 있습니다.
@@ -154,6 +154,9 @@ Microsoft 피어링
 ### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>Express 경로를 사용하여 사이트 간 / 지점과 사이트 간 구성에서 가상 네트워크를 이동할 수 있나요?
 예. 가상 네트워크 내에 Express 경로 게이트웨이를 만들어야 합니다. 프로세스와 연관되어 잠시 가동 중지됩니다.
 
+### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>가상 네트워크에서 ExpressRoute 게이트웨이와 연결된 공용 IP 주소가 있는 이유는 무엇인가요?
+내부 관리용으로만 사용됩니다. 이 공용 IP 주소는 인터넷에 노출되지 않으며 가상 네트워크의 보안 노출을 구성하지 않습니다.
+
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>Express 경로를 통해 Azure 저장소에 연결해야 하나요?
 Express 경로 회로를 설정하고 공용 피어링에 대한 경로를 구성해야 합니다.
 
@@ -179,7 +182,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
    * NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Express 경로 회로의 대역폭을 변경할 수 있나요?
-예. 종료하지 않고 Express 경로 회로의 대역폭을 늘릴 수 있습니다. 연결 공급자는 네트워크 내 스로틀을 업데이트하여 대역폭 증가를 지원하도록 후속 작업해야 합니다. 그러나 Express 경로 회로의 대역폭을 줄일 수 없습니다. 대역폭을 낮춰야 한다는 것은 Express 경로 회로의 삭제 및 재생성을 의미합니다.
+예, Azure Portal에서 또는 PowerShell을 사용하여 ExpressRoute 회로의 대역폭을 늘릴 수 있습니다. 회로가 생성된 물리적 포트에 사용 가능한 용량이 있는 경우 변경에 성공합니다. 변경에 실패하면 현재 포트에 남아 있는 용량이 부족하며 보다 높은 대역폭으로 새로운 ExpressRoute 회로를 만들어야 합니다. 그렇지 않으면 해당 위치에 추가 용량이 없으며 이 경우 대역폭을 늘릴 수 없습니다. 또한 연결 공급자는 네트워크 내 제한을 업데이트하여 대역폭 증가를 지원하도록 후속 작업해야 합니다. 하지만 ExpressRoute 회로의 대역폭은 줄일 수 없습니다. 낮은 대역폭으로 새 ExpressRoute 회로를 만들고 이전 회로를 삭제해야 합니다.
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Express 경로 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
 업데이트 전용 회로 API 및 PowerShell cmdlet을 사용하여 Express 경로 회로의 대역폭을 업데이트할 수 있습니다.
@@ -190,7 +193,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
 * 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
 * Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
-* Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서 만든 VNet을 연결할 수 있습니다.
+* Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서 만든 VNet을 연결할 수 있습니다. **기타 예제:** 공용 피어링에서 다른 지리적 위치의 접두사는, 예를 들어 실리콘밸리의 회로에서 유럽 서부의 SQL Azure에 연결할 수 있음을 보급합니다.
 * Office 365 서비스 및 CRM Online에 대한 연결
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>Express 경로 프리미엄을 사용하는 경우, 얼마나 많은 VNet를 Express 경로 회로에 연결할 수 있나요?

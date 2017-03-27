@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
-ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,10 +55,26 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 기본적으로 서비스 맵 맵은 최근 10분 간의 종속성 정보를 표시합니다.  왼쪽 상단에 있는 시간 컨트롤을 사용하여 맵에서 과거 시간 범위를&1;시간까지 쿼리하여 과거에 종속성이 어땠는지(예: 인시던트 중 또는 변경되기 전) 쿼리할 수 있습니다.    서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
 
-## <a name="status-badges"></a>상태 배지
+## <a name="status-badges-and-border-coloring"></a>상태 배지 및 경계 색 지정
 맵의 각 서버 하단에는 서버에 대한 상태 정보를 전달하는 상태 배지 목록이 있을 수 있습니다.  이러한 배지가 있으면 OMS 솔루션 통합 중 하나에서 제공된 서버 관련 정보가 있는 것입니다.  배지를 클릭하면 오른쪽 창의 상태 세부 정보로 직접 이동됩니다.  현재 사용 가능한 상태 배지에는 경고, 변경, 보안 및 업데이트가 포함됩니다.
 
-![실패한 연결](media/oms-service-map/status-badges.png)
+상태 배지의 심각도에 따라 컴퓨터 노드 경계는 빨간색(위험), 노란색(경고) 또는 파란색(정보)으로 지정될 수 있습니다.  색은 상태 배지 중 가장 심각한 상태를 나타냅니다.  회색 경계는 현재 상태 표시기가 없는 노드를 나타냅니다.
+
+![상태 배지](media/oms-service-map/status-badges.png)
+
+## <a name="role-icons"></a>역할 아이콘
+특정 프로세스는 컴퓨터에서 웹 서버, 응용 프로그램 서버, 데이터베이스와 같은 특정 역할을 담당합니다.  서비스 맵은 역할 아이콘이 있는 프로세스 및 컴퓨터 상자에 주석을 달아서 한 눈에 프로세스나 서버가 맡은 역할을 식별할 수 있습니다.
+
+| 역할 아이콘 | 설명 |
+|:--|:--|
+| ![웹 서버](media/oms-service-map/role-web-server.png) | 웹 서버 |
+| ![앱 서버](media/oms-service-map/role-application-server.png) | 응용 프로그램 서버 |
+| ![데이터베이스 서버](media/oms-service-map/role-database.png) | 데이터베이스 서버 |
+| ![LDAP 서버](media/oms-service-map/role-ldap.png) | LDAP 서버 |
+| ![SMB 서버](media/oms-service-map/role-smb.png) | SMB 서버 |
+
+![역할 아이콘](media/oms-service-map/role-icons.png)
+
 
 ## <a name="failed-connections"></a>실패한 연결
 실패한 연결은 프로세스 및 컴퓨터에 대한 서비스 맵 맵에 표시됩니다. 이때 클라이언트 시스템이 프로세스 또는 포트에 도달할 수 없는 경우 빨간색 점선으로 표시됩니다.  실패한 연결은 시스템에서 실패한 연결을 시도하는 경우 서비스 맵 에이전트가 배포된 모든 시스템에서 보고됩니다.  서비스 맵은 연결 설정에 실패한 TCP 소켓을 관찰하여 이를 측정합니다.  이것은 방화벽, 클라이언트 또는 서버에서 구성 오류 또는 원격 서비스를 사용할 수 없기 때문일 수 있습니다.

@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 722c867f00628731f4001b050c5f4df0f2f21db7
-ms.openlocfilehash: bdbd2323b1fda2b4e4b4d3ce6755b04cec03085b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a6230ae2e9b22655988cd25e5f3660bf1bc214d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,7 +44,7 @@ Azure Resource Manager 템플릿은 환경의 전체 구조를 정의합니다. 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM 확장을 사용하여 템플릿 배포
 기존의 빠른 시작 템플릿을 사용하여 Docker 호스트를 설치 및 구성하기 위해 Azure Docker VM 확장을 사용하는 Ubuntu VM을 만들겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다. 
 
-[최신 Azure CLI](../xplat-cli-install.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
+[최신 Azure CLI](../cli-install-nodejs.md)가 설치되어 있고 다음과 같이 Resource Manager 모드를 사용하여 로그인되어 있어야 합니다.
 
 ```azurecli
 azure config mode arm

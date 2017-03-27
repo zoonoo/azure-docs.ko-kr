@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
-ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설정 단계 및 ML 모델을 운영하는 코드가 이 연습에 제공됩니다. 이러한 절차에 대한 코드가 Jupyter Notebook에도 제공됩니다.
 
 ### <a name="notebook-for-spark-16"></a>Spark 1.6용 Notebook
-[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) Jupyter Notebook에서는 HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운영하는 방법을 보여 줍니다. 
+[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) Jupyter Notebook에서는 HDInsight 클러스터에서 Python을 사용하여 저장된 모델을 운영하는 방법을 보여 줍니다. 
 
 ### <a name="notebook-for-spark-20"></a>Spark 2.0용 Notebook
 HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter Notebook을 수정하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 바꿉니다. 이 코드는 Spark 2.0에서 생성된 모델을 사용하는 방법을 보여 줍니다.

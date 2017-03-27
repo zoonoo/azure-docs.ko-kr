@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 612b58db48e160cb1b4cfef1f8f4c2b203061064
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/03/2017
 
 이 항목에서는.NET을 사용하여 미디어 서비스 응용 프로그램 개발을 시작하는 방법을 설명합니다.
 
-**Azure 미디어 서비스 .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 미디어 서비스를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure 미디어 서비스 .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리의 확장 방법 및 도움 함수는.NET 코드를 단순화 하는 집합을 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
+**Azure 미디어 서비스 .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 미디어 서비스를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure 미디어 서비스 .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 신규 또는 기존 Azure 구독의 미디어 서비스 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 토픽을 참조하세요.
@@ -35,18 +35,18 @@ ms.lasthandoff: 03/03/2017
 * 있습니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
-이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 미디어 서비스 개발에 대해 설정하는 방법을 설명합니다.  이 경우 프로젝트는 C# Windows 콘솔 응용 프로그램이지만 미디어 서비스 응용 프로그램에 대해 생성할 수 있는 다른 프로젝트 유형에도 여기에 설명된 설정 방법이 그대로 적용됩니다(예: Windows Forms 응용 프로그램 또는 ASP.NET 웹 응용 프로그램).
+이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 미디어 서비스 개발에 대해 설정하는 방법을 설명합니다.  이 경우에 프로젝트는 C# Windows 콘솔 응용 프로그램이지만 여기에 설명된 설정 방법은 Media Services 응용 프로그램에 생성할 수 있는 다른 프로젝트 유형에도 그대로 적용됩니다(예: Windows Forms 응용 프로그램 또는 ASP.NET 웹 응용 프로그램).
 
 이 섹션에서는 미디어 서비스 .NET SDK 추가를 위한 **NuGet** 을 사용하는 방법과 기타 종속된 라이브러리를 보여줍니다.
 
-또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 및 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 자동으로 모든 필수적인 종속을 다운로드 및 추출하려면 참고합니다.
+또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 또는 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)) 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 필요한 종속성은 모두 자동으로 다운로드되고 추출됩니다.
 
 1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
 2. 솔루션을 빌드하십시오.
 3. 설치하려면 **NuGet**을 사용하고 **Azure Media Services .NET SDK 확장**을 추가합니다. 이 패키지를 설치하면 **미디어 서비스 .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
     최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](http://nuget.codeplex.com/)을 참조하세요.
-4. 솔루션 탐색기에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 NuGet 패키지 관리...를 선택합니다.
+4. 솔루션 Explorer에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 [NuGet 패키지 관리]를 선택합니다.
    
     NuGet 패키지 관리 대화 상자가 나타납니다.
 5. 온라인 갤러리에서 Azure 미디어 서비스 확장에 대한 검색하여 Azure 미디어 서비스 .NET SDK 확장을 선택한 다음 설치 단추를 클릭합니다.
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/03/2017
 9. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다.     
    Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다.
    
-    이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값을 시스템 클립보드에 복사합니다.
+    이름 및 키 값을 찾으려면 Azure Portal로 이동하여 계정을 선택합니다. 설정 창이 오른쪽에 나타납니다. 설정 창에서 키를 선택합니다. 각 텍스트 상자 옆에 있는 아이콘을 클릭하면 값이 시스템 클립보드에 복사됩니다.
 
         <configuration>
         ...

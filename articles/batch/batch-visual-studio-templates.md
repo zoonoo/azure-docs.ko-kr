@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="prerequisites"></a>필수 조건
 Batch 템플릿을 사용하려면 다음이 필요합니다.
 
-* Visual Studio 2015 이상이 이미 설치되어 있는 컴퓨터
+* Visual Studio 2015 이상이 설치되어 있는 컴퓨터
 * [Visual Studio 갤러리][vs_gallery]에서 Visual Studio 확장으로 제공되는 Batch 템플릿. 템플릿을 얻는 방법은 두 가지입니다.
   
   * Visual Studio에서 **확장 및 업데이트** 대화 상자를 사용하여 템플릿을 설치합니다(자세한 내용은 [Visual Studio 확장 찾기 및 사용][vs_find_use_ext] 참조). **확장 및 업데이트** 대화 상자에서 다음 두 확장을 검색하여 다운로드합니다.
@@ -68,7 +68,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 ## <a name="preparation"></a>준비
 작업 관리자 및 태스크 프로세서 프로그램 간에 코드를 쉽게 공유할 수 있으므로 작업 관리자 및 태스크 프로세서를 포함할 수 있는 솔루션을 만드는 것이 좋습니다. 이 솔루션을 만들려면 다음 단계를 따르세요.
 
-1. Visual Studio 2015를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+1. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿** 아래에서 **기타 프로젝트 형식**을 확장하고 **Visual Studio 솔루션**을 클릭한 후 **빈 솔루션**을 선택합니다.
 3. 응용 프로그램 및 이 솔루션의 용도를 설명하는 이름을 입력합니다(예: "LitwareBatchTaskPrograms").
 4. 새 솔루션을 만들려면 **확인**을 클릭합니다.
@@ -87,7 +87,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 ### <a name="create-a-job-manager-using-the-template"></a>템플릿을 사용하여 작업 관리자 만들기
 이전에 만든 솔루션에 작업 관리자를 추가하려면 다음 단계를 수행합니다.
 
-1. Visual Studio 2015에서 기존 솔루션을 엽니다.
+1. Visual Studio에서 기존 솔루션을 엽니다.
 2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 클릭합니다.
 3. **Visual C#** 아래에서 **클라우드**를 클릭한 후 **Azure 배치 작업 관리자 및 작업 분할자**를 클릭합니다.
 4. 응용 프로그램을 설명하고 이 프로젝트를 작업 관리자로 식별하는 이름을 입력합니다(예: "LitwareJobManager").
@@ -256,7 +256,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ### <a name="create-a-task-processor-using-the-template"></a>템플릿을 사용하여 태스크 프로세서 만들기
 이전에 만든 솔루션에 태스크 프로세서를 추가하려면 다음 단계를 수행합니다.
 
-1. Visual Studio 2015에서 기존 솔루션을 엽니다.
+1. Visual Studio에서 기존 솔루션을 엽니다.
 2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **새 프로젝트**를 클릭합니다.
 3. **Visual C#** 아래에서 **클라우드**를 클릭한 후 **Azure 배치 태스크 프로세서**를 클릭합니다.
 4. 응용 프로그램을 설명하고 이 프로젝트를 태스크 프로세서로 식별하는 이름을 입력합니다(예: "LitwareTaskProcessor").
