@@ -65,7 +65,7 @@ Recovery Services 자격 증명 모음을 만드는 사용자는 모든 보안 �
    보안 기능의 일부로 Azure Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가되고, 유효한 Azure 자격 증명이 있으며 또 다른 장치에서 인증을 받은 허가된 사용자만 Azure Portal에 액세스하고 이러한 중요한 작업을 수행할 수 있습니다.
 6. 설정/해제 단추를 사용하여 **사용**을 클릭하고 그림과 같이 위쪽의 **저장** 단추를 클릭하여 보안 설정을 저장합니다. “Azure Multi-factor Authentication을 구성했습니까?” 드롭다운에서 값을 선택한 후에만 **사용**을 선택할 수 있습니다.
 
-    ![보안 설정 사용](./media/backup-azure-security-feature/enable-security-settings.png)
+    ![보안 설정 사용](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recovering-deleted-backup-data"></a>삭제된 백업 데이터 복구
 보안 조치로, Azure Backup은 추가로 14일 동안 삭제된 백업 데이터를 유지하고, 백업 데이터 삭제 작업으로 백업 중지를 수행한 경우에도 백업 데이터를 즉시 삭제하지 않습니다. 14일 동안 이 데이터를 복원하려면 다음 단계를 사용합니다.

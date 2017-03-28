@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/03/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 6859f2f0c627c9c23703875d04b4893b58775a26
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 434961f7d25195eee3310461a3a97e03ffdd8917
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ Azure 로그 통합, 주요 기능 및 작동 원리에 대해 알아봅니다.
 ## <a name="overview"></a>개요
 Azure에 호스트된 PaaS(Platform as a Service)와 IaaS(Infrastructure as a Service)는 보안 로그에 많은 양의 데이터를 생성합니다. 이러한 로그에는 정책 위반, 내부 및 외부 위협, 규정 준수 문제, 네트워크, 호스트 및 사용자 작업에서 잘못된 부분에 대한 인텔리전스 및 강력한 통찰력을 제공할 수 있는 중요 정보가 포함되어 있습니다.
 
-Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해줍니다. Azure 로그 통합은 Windows *(WAD)* 가상 컴퓨터, Azure 활동 로그, Azure Security Center 경고 및 Azure 리소스 공급자 로그에서 Azure 진단을 수집합니다. 이 통합은 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공합니다.
+Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해주는 무료 솔루션입니다. Azure 로그 통합은 Windows *(WAD)* 가상 컴퓨터, Azure 활동 로그, Azure Security Center 경고 및 Azure 리소스 공급자 로그에서 Azure 진단을 수집합니다. 이 통합은 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공합니다.
 
 ![Azure 로그 통합][1]
 
@@ -50,6 +50,7 @@ Azure 로그 통합 기능은 현재 Azure 활동 로그, Azure 구독의 Window
 | 진단 로그(리소스 로그) | 예 | 최종 사용자는 FlexConnector JSON 파서 파일을 만들어야 합니다. 이 작업을 수행하는 방법은 ArcSight 설명서를 참조하세요. | 로그 원본 확장을 만들어야 합니다. 자세한 내용은 QRadar 설명서를 참조하세요. |
 | VM 로그 | 예(JSON이 아닌 전달 이벤트를 통해) | 예(전달 이벤트를 통해) | 예(전달 이벤트를 통해) |
 
+Azure 로그 통합은 무료 솔루션이므로 Azure 로그 통합 바이너리에 대한 요금을 지불하지 않아도 됩니다. 그러나 로그 파일 정보에 필요한 Azure Storage 관련 비용은 소요됩니다.
 
 Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 

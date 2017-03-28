@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 682f6d0919df20cd3643abf04e1d5192be116399
-ms.openlocfilehash: f20c2c2c37692d439ca8e023cf9d5a48cd42c973
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 707bb2b7cd9796e0e05234aa08002bbc1820f871
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -70,11 +70,11 @@ Microsoft는 이 실행 예제의 모든 소스 코드를 GitHub의 MIT 라이�
 
       * **로그온 URL** 은 앱의 기본 URL입니다.  샘플 코드의 기본 URL은 `https://localhost:8080`입니다.
 
-      * **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
-
 6. 등록 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 이 값을 복사해 둡니다.
 
-7. **설정** 페이지에서 응용 프로그램의 **키**를 만들고 편한 위치에 복사해 둡니다. 곧 이 키가 필요합니다.
+7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
+
+8. **설정** 페이지에서 응용 프로그램의 **키**를 만들고 편한 위치에 복사해 둡니다. 곧 이 키가 필요합니다.
 
 ## <a name="step-3-download-nodejs-for-your-platform"></a>3단계: 사용자 플랫폼을 위한 Node.js 다운로드
 이 샘플을 사용하려면 작동하는 Node.js 설치가 있어야 합니다.

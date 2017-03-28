@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2461f706f8fc1150e69312098640c0676206a531
-ms.openlocfilehash: 4edd728fe4798450106a4991b353b9dac9de0d88
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/17/2017
 
 * 내보내기 작업에서 트랜잭션이 일치하도록 내보내기 중에나 Azure SQL Database의 [트랜잭션 일치 복사본](sql-database-copy.md)에서 내보내는 중에는 쓰기 활동이 발생하지 않도록 해야 합니다.
 * Blob Storage로 내보내는 경우 BACPAC 파일의 최대 크기는 200GB입니다. 더 큰 BACPAC 파일을 보관하려면 로컬 저장소로 내보냅니다.
-* 이 문서에서 설명하는 방법을 사용하여 Azure 프리미엄 저장소에서 BACPAC 파일을 내보낼 수는 없습니다.
+* 이 문서에서 설명하는 방법을 사용하여 Azure Premium Storage에서 BACPAC 파일을 내보낼 수는 없습니다.
 * Azure SQL Database에서 내보내기 작업이 20시간을 초과하면 취소될 수 있습니다. 내보내는 중에 성능을 향상시키기 위해 다음을 수행할 수 있습니다.
   * 서비스 수준을 일시적으로 높이기
   * 내보내기 중에 모든 읽기 및 쓰기 작업 중단

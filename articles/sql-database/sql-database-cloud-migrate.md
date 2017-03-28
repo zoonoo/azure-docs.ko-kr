@@ -17,16 +17,16 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
 이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 두 가지 주요 방법에 대해 배웁니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
 
-두 경우 모두 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12를 사용하는 경우 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근할 것입니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 응용 프로그램을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
+두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12는 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근합니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 응용 프로그램을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
 
 > [!NOTE]
 > Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)를 참조하세요.

@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: e2d464c1c70be0bd7d5551c7f76f02b10c20b9ed
-ms.openlocfilehash: e5c42a574b22278586500048efd5b813d64dd4b7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: dcb259f04f2b0b1aeec10699b4e7b739ac0926ba
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/23/2017
 
 
 > [!TIP]
-> Site Recovery는 가상 컴퓨터의 **계산 및 네트워크** 설정에서 제공한 것과 동일한 IP를 사용하여 동일한 이름의 서브넷에 테스트 가상 컴퓨터를 만들려고 시도합니다. 테스트 장애 조치에 제공된 Azure 가상 네트워크에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 컴퓨터가 만들어집니다. 서브넷에서 동일한 IP를 사용할 수 없는 경우 가상 컴퓨터는 서브넷에서 사용할 수 있는 다른 IP 주소를 얻습니다. 
+> Site Recovery는 가상 컴퓨터의 **계산 및 네트워크** 설정에서 제공한 것과 동일한 IP를 사용하여 동일한 이름의 서브넷에 테스트 가상 컴퓨터를 만들려고 시도합니다. 테스트 장애 조치에 제공된 Azure 가상 네트워크에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 컴퓨터가 만들어집니다. 대상 IP가 선택한 서브넷에 포함되는 경우 Site Recovery는 대상 IP를 사용하여 테스트 장애 조치(failover) 가상 컴퓨터를 만들려고 시도합니다. 대상 IP가 선택한 서브넷에 포함되지 않는 경우 선택한 서브넷에서 사용 가능한 임의의 IP를 사용하여 테스트 장애 조치(failover) 가상 컴퓨터가 생성됩니다. 
 >
 >
 

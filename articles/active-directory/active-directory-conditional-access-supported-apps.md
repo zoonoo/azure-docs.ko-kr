@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 03/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
-ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6dea1af021599eb530a4feb3257238e088191d5f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,9 +46,9 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 | Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조) |
 | Office 365 SharePoint Online |iOS, Android |Office 모바일 앱 |
 | Office 365 SharePoint Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정) |
-| Office 365 Yammer |Windows 10, iOS 및 Android |Office Yammer 앱 |
+| Office 365 Yammer |Windows 10, iOS(Android는 향후 지원 예정) |Office Yammer 앱 |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS 및 Android |Dynamics CRM 앱 |
-| PowerBI 서비스 |Windows 10, Windows 8.1, Windows 7, iOS 및 Android |PowerBI 앱 |
+| PowerBI 서비스 |Windows 10, Windows 8.1, Windows 7 및 iOS|PowerBI 앱(Andoird 앱은 지원되지 않음) |
 | Azure 원격 앱 서비스 |Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X |Azure 원격 앱 |
 | 모든 My Apps 앱 서비스 |Android 및 iOS |모든 My Apps 앱 서비스 |
 
@@ -108,9 +109,4 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

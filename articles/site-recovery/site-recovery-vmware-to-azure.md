@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: d811cdabe35f28ab8f2496b08c959107c10ef1be
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 복제
+# <a name="replicate-vmware-virtual-machines-to-azure-with-site-recovery"></a>Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 복제
 
 > [!div class="op_single_selector"]
 > * [Azure 포털](site-recovery-vmware-to-azure.md)
@@ -129,7 +129,7 @@ VMware VM을 Azure에 마이그레이션하려는 경우(장애 조치만 해당
     ![원본 설정](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. **서버 추가**에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
 4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
-5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터&5;일간 유효합니다.
+5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치를 실행할 때 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
    ![원본 설정](./media/site-recovery-vmware-to-azure/set-source2.png)
 
@@ -294,7 +294,7 @@ VM 속성을 확인하고 필요한 사항을 변경하는 것이 좋습니다.
 
      - 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일하게 됩니다.
      - 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
-     - 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가&4;를 지원하는 경우, 대상 컴퓨터에는&2;개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는&1;개의 어댑터만 있어야 합니다.     
+     - 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.     
    - 가상 컴퓨터에 네트워크 어댑터가 여러 개 있으면 모두 동일한 네트워크에 연결됩니다.
    - 가상 컴퓨터에 네트워크 어댑터가 여러 개 있으면 목록에서 첫 번째 어댑터가 Azure 가상 컴퓨터에서 *기본* 네트워크 어댑터가 됩니다.
 5. **디스크**에서 복제될 VM 운영 체제 및 데이터 디스크를 볼 수 있습니다.

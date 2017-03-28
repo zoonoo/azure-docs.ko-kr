@@ -1,5 +1,5 @@
 ---
-title: "인증서를 사용하여 Windows에서 클러스터 보호 | Microsoft Docs"
+title: "인증서를 사용하여 Windows에서 Azure Service Fabric 클러스터 보안 유지 | Microsoft Docs"
 description: "이 문서에서는 클라이언트와 클러스터 사이 뿐만 아니라 독립 실행형 클러스터 또는 개인 클러스터 내에서 통신을 보호하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 03/15/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2bca90f45e994752ddc3569635ea053f9ef1adaf
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,47 +29,49 @@ ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 ## <a name="which-certificates-will-you-need"></a>어떤 인증서가 필요한가요?
 처음에 클러스터의 노드 중 하나에 [독립 실행형 클러스터 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) 합니다. 다운로드한 패키지에서 **ClusterConfig.X509.MultiMachine.json** 파일을 찾을 수 있습니다. 파일을 열고 **속성** 섹션의 **보안**을 위한 섹션을 검토합니다.
 
-    "security": {
-        "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
-        "ClusterCredentialType": "X509",
-        "ServerCredentialType": "X509",
-        "CertificateInformation": {
-            "ClusterCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ServerCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ClientCertificateThumbprints": [
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": false
-                }, 
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ],
-            "ClientCertificateCommonNames": [
-                {
-                    "CertificateCommonName": "[CertificateCommonName]",
-                    "CertificateIssuerThumbprint" : "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ]
-            "ReverseProxyCertificate":{
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
+```JSON
+"security": {
+    "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
+    "ClusterCredentialType": "X509",
+    "ServerCredentialType": "X509",
+    "CertificateInformation": {
+        "ClusterCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ClientCertificateThumbprints": [
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": false
+            }, 
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": true
             }
+        ],
+        "ClientCertificateCommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "IsAdmin": true
+            }
+        ]
+        "ReverseProxyCertificate":{
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
         }
     }
+}
+```
 
-이 섹션에서는 독립 실행형 Windows 클러스터를 보호하기 위한 인증서를 설명합니다. 클러스터 인증서를 지정하는 경우 **ClusterCredentialType** 값을 _ **X509**_로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하려면 **ServerCredentialType**을 _**X509**_로 설정합니다. 필수는 아니지만 적절히 보안된 클러스터에 대해 이 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509*로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric이 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_만 지정하려고 할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_을 _X509_로 설정할 필요가 없습니다.
+이 섹션에서는 독립 실행형 Windows 클러스터를 보호하기 위한 인증서를 설명합니다. 클러스터 인증서를 지정하는 경우 **ClusterCredentialType** 값을 _**X509**_로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하려면 **ServerCredentialType**을 _**X509**_로 설정합니다. 필수는 아니지만 적절히 보안된 클러스터에 대해 이 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509*로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric이 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_만 지정하려고 할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_을 _X509_로 설정할 필요가 없습니다.
 
 
 > [!NOTE]
@@ -88,7 +91,7 @@ ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 
 다음은 클러스터, 서버 및 클라이언트 인증서가 제공된 예제 클러스터 구성입니다.
 
- ```
+ ```JSON
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
@@ -190,14 +193,14 @@ ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
 
 이제 암호로 보호된 PFX 파일에 인증서를 내보냅니다. 먼저 인증서의 지문을 가져옵니다. *시작* 메뉴에서 *컴퓨터 인증서 관리*를 실행합니다. **로컬 컴퓨터/개인** 폴더로 이동하고 방금 만든 인증서를 찾습니다. 인증서를 두 번 클릭하여 열고 *세부 정보* 탭을 선택하고 *지문* 필드로 스크롤합니다. 공백을 제거한 후 아래 PowerShell 명령에 지문 값을 복사합니다.  `String` 값을 적절한 보안 암호로 변경하여 보호하고 PowerShell에서 다음을 실행합니다.
 
-```   
+```powershell   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
 Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
 ```
 
 컴퓨터에 설치된 인증서의 세부 정보를 보기 위해 다음 PowerShell 명령을 실행할 수 있습니다.
 
-```
+```powershell
 $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
@@ -210,14 +213,14 @@ Write-Host $cert.ToString($true)
 1. .pfx 파일을 노드에 복사합니다.
 2. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 입력합니다. *$pswd* 를 이 인증서를 만드는 데 사용한 암호로 바꿉니다. *$PfxFilePath* 를 이 노드에 복사된 .pfx의 전체 경로로 바꿉니다.
    
-    ```
+    ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. 이제 네트워크 서비스 계정에서 실행되는 Service Fabric 프로세스가 다음 스크립트를 실행하여 사용할 수 있도록 이 인증서에 액세스 제어를 설정해야 합니다. 서비스 계정에 대해 인증서의 지문 및 "NETWORK SERVICE"를 제공합니다. *시작* > *컴퓨터 인증서 관리*에서 인증서를 열고 *모든 작업* > *개인 키 관리*를 보고 인증서의 ACL이 올바른지 확인할 수 있습니다.
    
-    ```
+    ```powershell
     param
     (
     [Parameter(Position=1, Mandatory=$true)]
@@ -257,23 +260,23 @@ Write-Host $cert.ToString($true)
 ## <a name="create-the-secure-cluster"></a>보안 클러스터 만들기
 **ClusterConfig.X509.MultiMachine.json** 파일의 **보안** 섹션을 구성한 후에 [클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md#createcluster) 섹션을 진행하여 노드를 구성하고 독립 실행형 클러스터를 만들 수 있습니다. 클러스터를 만드는 동안 **ClusterConfig.X509.MultiMachine.json** 파일을 사용하도록 합니다. 예를 들어, 명령은 다음과 같을 수 있습니다.
 
-```
+```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 보안 독립 실행형 Windows 클러스터를 성공적으로 실행하고 여기에 연결할 인증된 클라이언트를 설정했다면 [PowerShell을 사용하여 보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) 섹션을 따라 연결합니다. 예:
 
-```
+```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 `Get-ServiceFabricNode`은 이 보안 클러스터의 노드 목록을 보여 줍니다.
+그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](/powershell/servicefabric/vlatest/get-servicefabricnode.md)는 이 보안 클러스터의 노드 목록을 보여 줍니다.
 
 
 클러스터를 제거하려면 Service Fabric 패키지를 다운로드한 클러스터의 노드에 연결하고 명령줄을 열고 패키지 폴더로 이동합니다. 이제 다음 명령을 실행합니다.
 
-```
+```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
@@ -281,10 +284,5 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 인증서 구성이 잘못되면 배포 도중 클러스터가 나타나지 않을 수 있습니다. 보안 문제를 자체 진단하려면 이벤트 뷰어 그룹 *응용 프로그램 및 서비스 로그* > *Microsoft-Service Fabric*에서 확인하세요.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

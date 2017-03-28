@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 7/3/2017
 ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: fdb80e3379adfa9d65d6e5891cb701cee86eb1b9
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -42,8 +42,8 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 두 가지 **감사 방법**이 있습니다.
 
-* **Blob 감사** - Azure Blob Storage에 로그가 기록됩니다. 이 방법은 **고성능**을 제공하고, **보다 세밀한 개체 수준 감사**를 지원하고, **보다 비용 효율적**인 새로운 감사 방법입니다.
-* **테이블 감사** - Azure Table Storage에 로그가 기록됩니다.
+* **Blob 감사** - Azure Blob Storage에 로그가 기록됩니다. 이 방법은 **고성능**을 제공하고, **보다 세밀한 개체 수준 감사**를 지원하고, **보다 비용 효율적**인 새로운 감사 방법입니다. Blob 감사는 테이블 감사를 대체합니다.
+* **테이블 감사(사용되지 않음)** - Azure Table Storage에 로그가 기록됩니다.
 
 > [!IMPORTANT]
 > 새 Blob 감사의 도입은 데이터베이스에서 상속되는 서버 감사 정책 방식에 주요 변경 사항을 제공합니다. 자세한 내용은 [서버 감사 정책 상속의 Blob/테이블 차이점](#subheading-8) 섹션을 참조하세요.
@@ -79,7 +79,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 7. 감사 설정을 구성했으면 새로운 **위협 감지**(미리 보기) 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지 기능을 사용하여 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md) 을 참조하세요.
 8. **Save**를 클릭합니다.
 
-### <a id="subheading-2-2">테이블 감사</a>
+### <a id="subheading-2-2">테이블 감사</a>(사용되지 않음)
 
 > **테이블 감사**를 설정하기 전에 ["하위 클라이언트"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)를 사용 중인지 확인합니다. 또한 엄격한 방화벽 설정이 있으면 테이블 감사를 사용하도록 설정할 때 [데이터베이스의 IP 끝점이 변경됩니다](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
@@ -119,7 +119,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
     > <br><br>
     > 그렇지 않으면 **서버 수준 Blob 감사만 활성화하도록 권장**하며 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지합니다.
 
-###<a name="atable-auditinga"></a><a>테이블 감사</a>
+###<a name="atable-auditinga-deprecated"></a><a>테이블 감사</a>(사용되지 않음)
 
 **서버 수준 테이블 감사가 활성화**된 경우 데이터베이스 블레이드의 "서버에서 상속 설정" 확인란이 선택된 경우에만 데이터베이스에 적용됩니다(모든 기존 및 새로 만든 데이터베이스에 대해서는 기본적으로 선택됨).
 
@@ -161,7 +161,7 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 
        여러 파일(또는 위에서 설명한 대로 하루 전체)을 다운로드한 후에는 다음과 같이 여러 파일을 로컬에 병합할 수 있습니다.
 
-       ** SSMS 열기 -> 파일 -> 열기 -> 확장 이벤트 병합 -> 병합할 모든 파일 선택**
+       **SSMS 열기 -> 파일 -> 열기 -> 확장 이벤트 병합 -> 병합할 모든 파일 선택**
    * 프로그래밍 방식:
 
      * 확장 이벤트 판독기 **C# 라이브러리**([자세한 정보는 여기](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
@@ -169,7 +169,7 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 
 3. Azure에서 실행되고 OMS 공용 API를 활용하여 OMS 대시보드를 통해 소비에 대한 OMS로 SQL 감사 로그를 밀어 넣는 **샘플 응용 프로그램**을 만들었습니다([여기에서 더 많은 정보](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-### <a id="subheading-3-2">테이블 감사</a>
+### <a id="subheading-3-2">테이블 감사</a>(사용되지 않음)
 테이블 감사 로그는 **SQLDBAuditLogs** 접두사가 붙은 Azure Storage 테이블 컬렉션으로 저장됩니다.
 
 테이블 감사 로그 형식에 대한 자세한 내용은 [테이블 감사 로그 형식 참조(doc 파일 다운로드)](http://go.microsoft.com/fwlink/?LinkId=506733)를 참조하세요.
@@ -245,7 +245,7 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
    * [데이터베이스 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt695938.aspx)
    * [서버 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt771860.aspx)
    * [서버 Blob 감사 작업 결과 가져오기](https://msdn.microsoft.com/library/azure/mt771862.aspx)
-3. **REST API - 테이블 감사**
+3. **REST API - 테이블 감사(사용되지 않음)**
 
    * [데이터베이스 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt604471.aspx)
    * [서버 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt604383.aspx)

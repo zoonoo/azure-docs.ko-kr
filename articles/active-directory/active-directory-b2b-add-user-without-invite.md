@@ -1,7 +1,7 @@
 ---
 
 title: "초대 없이 Azure Active Directory에 B2B 공동 작업 사용자 추가 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업을 사용하면 정보 근로자는 조직의 사용자를 Azure AD에 추가하여 회사 응용 프로그램에 액세스할 수 있도록 합니다."
+description: "게스트 사용자가 Azure Active Directory B2B 공동 작업에서 초대를 사용하지 않고 Azure AD에 다른 게스트 사용자를 추가하도록 할 수 있습니다."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -14,22 +14,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0eef684115f9c21ea61502a10576f74cac0ace8e
-ms.openlocfilehash: 8fa8ba169ca85c33e52eee4a7cd5b84aa4012673
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 91b9477cdb679851e7d8d2942c06999a05f64e46
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
-# <a name="add-b2b-collaboration-users-without-an-invitation"></a>초대 없이 B2B 공동 작업 사용자 추가
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>초대 없이 B2B 공동 작업 게스트 사용자 추가
 
-초대자가 사용자를 추가하게 되는 파트너 조직 디렉터리에 열거 권한이 있는 역할에 속할 경우 초대된 사용자는 초대 없이도 초대하는 조직에 추가됩니다.
+파트너 담당자와 같은 사용자가 초대를 사용하지 않고 파트너의 사용자를 조직에 추가하도록 허용할 수 있습니다. 파트너 조직에 사용 중인 디렉터리에서 해당 사용자에게 열거형 권한을 부여하기만 하면 됩니다. 
 
-이러한 기능이 가장 유용한 시나리오는 다음과 같습니다.
+다음과 같은 경우에 이러한 권한을 부여합니다.
 
-1. 호스트 조직(예: WoodGrove)의 한 사용자가 파트너 조직(예: Sam@litware.com))의 한 사용자를 게스트로 초대합니다.
+1. 호스트 조직(예: WoodGrove)의 한 사용자가 파트너 조직(예: Sam@litware.com)의 한 사용자를 게스트로 초대합니다.
 2. 호스트 조직의 관리자는 Sam이 파트너 조직(Litware)의 다른 사용자를 식별하고 추가할 수 있도록 하는 정책을 설정합니다.
 3. 이제 Sam은 초대를 돌려받지 않아도 Litware의 다른 사용자를 WoodGrove 디렉터리, 그룹 또는 응용 프로그램에 추가할 수 있습니다. Sam에게 Litware의 적절한 열거 권한이 있으면 이러한 작업이 자동으로 수행됩니다.
 
@@ -48,9 +49,3 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
 * [B2B 공동 작업 사용자에 대한 Multi-Factor Authentication](active-directory-b2b-mfa-instructions.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
