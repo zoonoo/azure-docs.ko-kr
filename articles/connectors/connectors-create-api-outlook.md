@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 409e1a104fa73d911ea508cbff311cb48fc20f9f
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -547,14 +548,11 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 | 원본 |string |아니요 |
 | 참조 |string |아니요 |
 | Bcc |string |아니요 |
-| 제목
- |string |예 |
+| 제목 |string |예 |
 | 본문 |string |예 |
-| 중요도
- |string |아니요 |
+| 중요도 |string |아니요 |
 | IsHtml |부울 |아니요 |
-| 받는 사람
- |string |예 |
+| 받는 사람 |string |예 |
 
 ### <a name="sendattachment"></a>SendAttachment
 | 속성 이름 | 데이터 형식 | 필수 |
@@ -574,14 +572,11 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 | 원본 |string |아니요 |
 | 참조 |string |아니요 |
 | Bcc |string |아니요 |
-| 제목
- |string |예 |
+| 제목 |string |예 |
 | 본문 |string |예 |
-| 중요도
- |string |아니요 |
+| 중요도 |string |아니요 |
 | IsHtml |부울 |아니요 |
-| 받는 사람
- |string |예 |
+| 받는 사람 |string |예 |
 
 ### <a name="receiveattachment"></a>ReceiveAttachment
 | 속성 이름 | 데이터 형식 | 필수 |
@@ -595,15 +590,12 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 ### <a name="digestmessage"></a>DigestMessage
 | 속성 이름 | 데이터 형식 | 필수 |
 | --- | --- | --- |
-| 제목
- |string |예 |
+| 제목 |string |예 |
 | 본문 |string |아니요 |
-| 중요도
- |string |아니요 |
+| 중요도 |string |아니요 |
 | Digest |array |예 |
 | 첨부 파일 |array |아니요 |
-| 받는 사람
- |string |예 |
+| 받는 사람 |string |예 |
 
 ### <a name="triggerbatchresponsereceivemessage"></a>TriggerBatchResponse[ReceiveMessage]
 | 속성 이름 | 데이터 형식 | 필수 |
@@ -671,15 +663,12 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 ### <a name="messagewithoptions"></a>MessageWithOptions
 | 속성 이름 | 데이터 형식 | 필수 |
 | --- | --- | --- |
-| 제목
- |string |예 |
+| 제목 |string |예 |
 | 옵션 |string |예 |
 | 본문 |string |아니요 |
-| 중요도
- |string |아니요 |
+| 중요도 |string |아니요 |
 | 첨부 파일 |array |아니요 |
-| 받는 사람
- |string |예 |
+| 받는 사람 |string |예 |
 
 ### <a name="subscriptionresponse"></a>SubscriptionResponse
 | 속성 이름 | 데이터 형식 | 필수 |
@@ -698,15 +687,12 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 ### <a name="approvalmessage"></a>ApprovalMessage
 | 속성 이름 | 데이터 형식 | 필수 |
 | --- | --- | --- |
-| 제목
- |string |예 |
+| 제목 |string |예 |
 | 옵션 |string |예 |
 | 본문 |string |아니요 |
-| 중요도
- |string |아니요 |
+| 중요도 |string |아니요 |
 | 첨부 파일 |array |아니요 |
-| 받는 사람
- |string |예 |
+| 받는 사람 |string |예 |
 
 ### <a name="approvalemailresponse"></a>ApprovalEmailResponse
 | 속성 이름 | 데이터 형식 | 필수 |
@@ -762,9 +748,4 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
