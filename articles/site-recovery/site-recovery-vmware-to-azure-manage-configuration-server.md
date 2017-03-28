@@ -1,5 +1,5 @@
 ---
-title: " Azure Site Recovery에서 구성 서버 관리 | Microsoft Docs"
+title: " Azure Site Recovery에서 구성 서버 관리 | Microsoft Doc"
 description: "이 문서에서는 구성 서버를 설정 및 관리하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
-ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3a02171d52b6d963a93a654d2506269e29f1be8e
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -128,7 +128,7 @@ ProxyPassword="Password"
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>다른 Recovery Services 자격 증명 모음에 구성 서버 등록
 1. 구성 서버에 로그인합니다.
-2. 관리자 명령 프롬프트에서 명령 실행
+2. 관리자 명령 프롬프트에서 명령을 실행합니다.
 
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
@@ -185,7 +185,7 @@ net stop dra
   ```
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>구성 서버 SSL(Secure Socket Layer) 인증서 갱신
-구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 구성 서버에 연결된 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 구성 서버의 웹 서버는 SSL 인증서를 사용하여 해당 클라이언트를 인증합니다. 이 인증서의 만료 기간은&3;년이며 다음 방법을 사용하여 언제든지 갱신할 수 있습니다.
+구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 구성 서버에 연결된 모바일 서비스, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 구성 서버의 웹 서버는 SSL 인증서를 사용하여 해당 클라이언트를 인증합니다. 이 인증서의 만료 기간은 3년이며 다음 방법을 사용하여 언제든지 갱신할 수 있습니다.
 
 > [!WARNING]
 인증서 만료는 버전 9.4.XXXX.X 이상에서만 수행할 수 있습니다. 인증서 갱신 워크플로를 시작하기 전에 모든 Azure Site Recovery 구성 요소(구성 서버, 프로세스 서버, 마스터 대상 서버, 모바일 서비스)를 업그레이드합니다.
@@ -202,7 +202,7 @@ net stop dra
 > [!NOTE]
 2016년 5월 이전에 발생한 모든 설치에 대한 SSL 인증서의 유효 기간은 1년으로 설정되었습니다. Azure Portal에 인증서 만료 알림이 표시되기 시작했을 것입니다.
 
-1. 구성 서버의 SSL 인증서가 향후&2;개월 내에 만료 예정인 경우 Azure Portal 및 전자 메일을 통해 사용자에게 알림이 제공되기 시작합니다(Azure Site Recovery 알림을 구독해야 함). 자격 증명 모음 리소스 페이지에 알림 배너가 표시되기 시작합니다.
+1. 구성 서버의 SSL 인증서가 향후 2개월 내에 만료 예정인 경우 Azure Portal 및 전자 메일을 통해 사용자에게 알림이 제공되기 시작합니다(Azure Site Recovery 알림을 구독해야 함). 자격 증명 모음 리소스 페이지에 알림 배너가 표시되기 시작합니다.
 
   ![certificate-notification](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-renew-notification.png)
 2. 이 배너를 클릭하면 인증서 만료에 대한 추가 정보를 얻을 수 있습니다.

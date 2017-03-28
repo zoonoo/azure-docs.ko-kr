@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3021ebbe88705b0c5a1691a45ed0ba400af6dd34
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Service Fabric은 표준 가상 컴퓨터 크기 집합에서 실행됩니다. �
 
 Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 SFRP(Service Fabric 리소스 공급자)를 사용하여 노드 및 응용 프로그램에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 끝점에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 끝점을 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
 
-Service Fabric 리소스 공급자에서 포트 190980에 액세스할 수 없으면 포털에 *노드를 찾을 수 없음* 메시지가 표시되고 노드 및 응용 프로그램 목록이 빈 상태로 나타납니다. Azure Portal에서 클러스터를 보려는 경우 부하 분산 장치가 공용 IP 주소를 노출해야 하고 네트워크 보안 그룹은 들어오는 포트 19080 트래픽을 허용해야 합니다. 설정이 이러한 요구 사항을 충족하지 않는 경우 Azure Portal에 클러스터의 상태가 표시되지 않습니다.
+Service Fabric 리소스 공급자에서 포트 19080에 액세스할 수 없으면 포털에 *노드를 찾을 수 없음* 메시지가 표시되고 노드 및 응용 프로그램 목록이 빈 상태로 나타납니다. Azure Portal에서 클러스터를 보려는 경우 부하 분산 장치가 공용 IP 주소를 노출해야 하고 네트워크 보안 그룹은 들어오는 포트 19080 트래픽을 허용해야 합니다. 설정이 이러한 요구 사항을 충족하지 않는 경우 Azure Portal에 클러스터의 상태가 표시되지 않습니다.
 
 ## <a name="templates"></a>템플릿
 

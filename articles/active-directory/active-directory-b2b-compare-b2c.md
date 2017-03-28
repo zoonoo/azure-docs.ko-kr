@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72e7e57185d882a5f3243e2705aed54ee8347798
-ms.openlocfilehash: 5d157a936317bbf66cfc3634d4d08ea3483d137b
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,10 +31,10 @@ Azure Active Directory(Azure AD) B2B 공동 작업 및 Azure AD B2C 모두를 �
 
 B2B 공동 작업 기능 |     Azure AD B2C 독립 실행형 제품
 -------- | --------
-용도: 조직이 선택한 ID를 사용하여 다른 조직의 사용자에게 회사 데이터, 리소스 및 응용 프로그램에 대한 액세스를 제공하려는 경우입니다. | 용도: 고객이 선택한 ID를 사용하여 사용자의 고객(직원이나 외부 공동 작업자가 아닌 개인, 시민 및 기업 또는 조직의 고객)을 대상으로 하는 모바일 및 웹앱을 연결하는 경우입니다.
+대상: ID 공급자에 관계없이 파트너 조직의 사용자를 인증할 수 있기를 원하는 조직 | 대상: 개인이든, 기관이든, 조직이든 상관없이 모바일 및 웹앱 고객을 Azure AD에 초대하려는 사용자
 지원되는 ID: 회사 또는 학교 계정이 있는 직원, 회사 또는 학교 계정이 있는 파트너 또는 모든 전자 메일 주소입니다. 직접 페더레이션 기능을 곧 지원합니다.  | 지원되는 ID: 로컬 응용 프로그램 계정(모든 전자 메일 주소 또는 사용자 이름)이 있는 소비자 사용자 또는 직접 페더레이션이 포함된 지원되는 소셜 ID입니다.
-파트너 사용자가 위치한 디렉터리: 외부 조직의 파트너 사용자는 직원과 같은 디렉터리에서 관리되지만 특별하게 주석 처리됩니다. 이러한 외부 사용자를 직원과 같은 방식으로 관리하고 동일한 그룹에 추가할 수 있습니다.  | 고객 사용자 엔터티가 위치한 디렉터리: 응용 프로그램 디렉터리에 있습니다. 조직의 직원 및 파트너 디렉터리(있는 경우)에서 별도로 관리됩니다.
-모든 Azure AD 연결 앱(온-프레미스 앱 포함) 및 다른 Microsoft 및 타사 SaaS 앱(예: Salesforce, Box, Workday 등)에 대한 SSO(Single Sign-On)이 지원됩니다(예: Office 365).  |  Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Office 365 또는 다른 Microsoft 앱 및 타사 SaaS 앱에 대한 SSO가 지원되지 않습니다.
+파트너 사용자가 위치한 디렉터리: 외부 조직의 파트너 사용자는 직원과 같은 디렉터리에서 관리되지만 특별하게 주석 처리됩니다. 이들은 직원과 같은 방식으로 관리하고 동일한 그룹에 추가할 수 있습니다.  | 고객 사용자 엔터티가 위치한 디렉터리: 응용 프로그램 디렉터리에 있습니다. 조직의 직원 및 파트너 디렉터리(있는 경우)에서 별도로 관리됩니다.
+모든 Azure AD 연결 앱에 대한 SSO(Single Sign-On)가 지원됩니다. 예를 들어 Office 365 또는 온-프레미스 앱 및 다른 SaaS 앱(예: Salesforce 또는 Workday)에 대한 액세스를 제공할 수 있습니다.  |  Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Office 365 또는 다른 Microsoft 앱 및 타사 SaaS 앱에 대한 SSO가 지원되지 않습니다.
 파트너 수명 주기: 호스트/초대한 조직에 의해 관리됩니다.  | 고객 수명 주기: 셀프 서비스 또는 응용 프로그램에 의해 관리됩니다.
 보안 정책 및 규정 준수: 호스트/초대한 조직에 의해 관리됩니다.  | 보안 정책 및 규정 준수: 응용 프로그램에 의해 관리됩니다.
 브랜딩: 호스트/초대한 조직의 브랜드가 사용됩니다.  |    브랜딩: 응용 프로그램에 의해 관리됩니다. 일반적으로 조직의 존재가 희미해지고 제품 브랜드가 되는 경향이 있습니다.
@@ -55,9 +56,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 * [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
 * [B2B 공동 작업에 대한 지원 받기](active-directory-b2b-support.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

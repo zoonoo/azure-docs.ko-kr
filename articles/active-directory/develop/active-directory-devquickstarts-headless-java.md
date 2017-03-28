@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 51913b5e0d43514f50f2d51500f2149438d87045
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃
 5. 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
   * 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
   * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 `http://localhost:8080/adal4jsample/`입니다.
-  * **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다.  규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)을 사용하는 것입니다.
 6. 등록을 완료하면 AAD는 앱에 고유한 응용 프로그램 ID를 할당합니다.  이 값은 다음 섹션에서 필요하므로 응용 프로그램 탭에서 복사해 둡니다.
+7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다.  규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)을 사용하는 것입니다.
 
 앱 포털에서 응용 프로그램의 **설정** 페이지에서 **키**를 만들고 복사해 둡니다.  곧 필요합니다.
 
@@ -267,10 +268,5 @@ public class PublicClient {
 참조를 위해 완료된 샘플(사용자 구성 값 제외)이 [여기에 .zip으로 제공](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

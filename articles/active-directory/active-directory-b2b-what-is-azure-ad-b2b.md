@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 1f6ce516629fd32b5efabce8682b45a3e575eaab
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4bfd76a00ba694096ef0b045b14beb757ba0809f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -89,6 +89,12 @@ Azure Portal이 열립니다.
 * B2B 공동 작업에 대한 PowerShell 지원을 제공합니다.
 
 * 감사 및 보고 기능을 제공합니다.
+
+## <a name="help-us-shape-your-features"></a>기능 형성 지원
+ 
+B2B 공동 작업 개선 방법에 대한 의견을 지속적으로 수렴하고 있습니다. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참가하여 Azure AD B2B 공동 작업에 대한 사용자 시나리오, 모범 사례 및 원하는 사항을 공유해 보세요.
+ 
+[B2B 공동 작업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) 사이트에서 아이디어를 제출하고 향후 기능에 대해 투표할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

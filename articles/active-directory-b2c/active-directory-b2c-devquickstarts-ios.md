@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeeda
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 84f5ba5b3836f8524aafd9ca5e30978cc2702c1f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 992bbf513ac87b0d955f9dc4b27984ef03050b83
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -40,7 +40,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 ## <a name="create-an-application"></a>응용 프로그램 만들기
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱 등록은 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 모바일 앱을 만들려면 [이러한 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-* 응용 프로그램에서 **모바일 장치** 를 포함합니다.
+* 응용 프로그램에 **네이티브 클라이언트**를 포함합니다.
 * 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 이 가이드는 나중에 필요합니다.
 * 사용자 지정 스키마를 사용하는 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 URI는 나중에 필요합니다.
 
@@ -49,9 +49,9 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 ## <a name="create-your-policies"></a>정책 만들기
 Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 결합된 로그인 및 등록의 하나의 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)에서 설명한 대로 이 정책을 만들어야 합니다. 정책을 만들 때 다음을 확인합니다.
 
-* 정책에서 **표시 이름** 및 등록 특성을 선택합니다.
-* 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-* 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  정책 이름은 나중에 필요합니다.
+* **등록 특성** 아래에서 **표시 이름** 특성을 선택합니다.  다른 특성도 선택할 수 있습니다.
+* **응용 프로그램 클레임** 아래에서 **표시 이름** 및 **사용자의 개체 ID** 클레임을 선택합니다. 다른 클레임도 선택할 수 있습니다.
+* 각 정책을 만든 후에 **이름**을 복사합니다. 정책을 저장하면 `b2c_1_`이 정책 이름의 접두사로 지정됩니다.  정책 이름은 나중에 필요합니다.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -128,12 +128,13 @@ appDelegate.currentAuthorizationFlow =
 
 사용자 지정 스키마를 사용하는 URI에 대한 리디렉션을 처리하도록 응용 프로그램을 설정하려면 사용자의 Info.pList에서 'URL 스키마' 목록을 업데이트해야 합니다.
 * Info.pList를 엽니다.
-* '번들 작성자 OS 유형 코드'와 같은 행 위로 마우스를 가져가서 \+ 기호를 클릭합니다.
+* '번들 OS 유형 코드'와 같은 행 위로 마우스를 가져가서 \+ 기호를 클릭합니다.
 * 새 행 'URL 형식'의 이름을 변경합니다.
-* 'URL 형식'의 왼쪽에 있는 화살표를 클릭합니다.
-* 항목 0에 있는 값을 'URL 스키마'로 이름을 변경합니다.
-* 'URL 스키마' 아래에 '항목 0'의 값을 편집하고 해당 값을 응용 프로그램의 고유한 스키마로 설정합니다.  OIDAuthorizationRequest 개체를 만들 때 redirectURL의 스키마와 일치해야 합니다.
-* 이 샘플에서는 스키마 'com.onmicrosoft.fabrikamb2c.exampleapp'을 사용했습니다.
+* 'URL 형식'의 왼쪽에 있는 화살표를 클릭하여 트리를 엽니다.
+* '항목 0'의 왼쪽에 있는 화살표를 클릭하여 트리를 엽니다.
+* 항목 0 아래의 첫 번째 항목 이름을 'URL Schemes'로 바꿉니다.
+* 'URL Schemes'의 왼쪽에 있는 화살표를 클릭하여 트리를 엽니다.
+* '값' 열에서 'URL Schemes' 아래의 '항목 0' 왼쪽 필드가 비어 있습니다.  이 값을 응용 프로그램의 고유한 스키마로 설정합니다.  OIDAuthorizationRequest 개체를 만들 때 redirectURL에 사용된 스키마와 일치해야 합니다.  이 샘플에서는 스키마 'com.onmicrosoft.fabrikamb2c.exampleapp'을 사용했습니다.
 
 프로세스의 나머지 단계를 완료하는 방법은 [AppAuth 가이드](https://openid.github.io/AppAuth-iOS/)를 참조하세요. 작업 중인 앱으로 빠르게 시작해야 하는 경우에는 [샘플](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c)을 확인하세요. [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md)에 나온 단계에 따라 사용자 고유의 Azure AD B2C 구성을 입력합니다.
 

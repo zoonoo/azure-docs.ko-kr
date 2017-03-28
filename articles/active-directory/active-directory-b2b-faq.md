@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 995f185f99c80809a5c4c2925b8d594b1d5568ff
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -97,6 +97,13 @@ Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적
 ### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>응용 프로그램에서 테넌트 사용자와 게스트 사용자 간 환경을 차별화하고자 합니다. 이에 대한 표준 지침이 있습니까? ID 공급자 클레임의 현재 상태가 이에 대한 모델이 맞습니까?
  
 게스트 사용자는 [B2B 공동 작업 사용자의 속성](active-directory-b2b-user-properties.md)에서 논의한 대로 ID 공급자를 사용하여 인증할 수 있습니다. 따라서 UserType은 이를 확인하기 위한 속성이 맞습니다. UserType 클레임은 현재 토큰에 현재 포함되지 않습니다. 응용 프로그램은 Graph API를 사용하여 사용자 및 사용자의 UserType 가져오기에 대한 디렉터리를 쿼리해야 합니다.
+
+### <a name="where-can-find-a-b2b-collaboration-community-to-share-solutions-and-submit-ideas"></a>솔루션을 공유하고 아이디어를 제출하는 B2B 공동 작업 커뮤니티를 어디에서 찾을 수 있습니까?
+
+B2B 공동 작업 개선 방법에 대한 의견을 지속적으로 수렴하고 있습니다. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참가하여 Azure AD B2B 공동 작업에 대한 사용자 시나리오, 모범 사례 및 원하는 사항을 공유해 보세요.
+ 
+[B2B 공동 작업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) 사이트에서 아이디어를 제출하고 향후 기능에 대해 투표할 수도 있습니다.
+
 
 ### <a name="next-steps"></a>다음 단계
 

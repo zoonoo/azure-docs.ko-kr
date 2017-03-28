@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a75863878a97c1202e9b9946b0bff19261952c21
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ JSON 편집기가 유용하면 템플릿 만드는 태스크를 간소화할 수
 템플릿의 섹션에 대해서는 이 항목의 뒷부분에서 더 자세히 설명합니다.
 
 ## <a name="expressions-and-functions"></a>식 및 함수
-템플릿의 기본 구문은 JSON이지만, 식 및 함수를 사용하면 템플릿에서 사용할 수 있는 JSON을 확장할 수 있습니다. 식에는 엄격한 리터럴 값이 아닌 값을 만들 수 있습니다. 식은 대괄호(`[` 및 `]`) 안에 들어 있고 템플릿을 배포할 때 평가됩니다. 식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 항상 다른 JSON 값을 반환합니다. 대괄호(`[`)로 시작하는 리터럴 문자열을 사용해야 하는 경우 대괄호를 두 개(`[[`) 사용해야 합니다.
+템플릿의 기본 구문은 JSON이지만, 식 및 함수를 사용하면 템플릿에서 사용할 수 있는 JSON 값을 확장할 수 있습니다.  식은 JSON 문자열 리터럴 내에서 작성되며, 첫 번째 및 마지막 문자가 각각 대괄호 `[` 및 `]`입니다. 식의 값은 템플릿을 배포할 때 평가됩니다.   문자열 리터럴로 작성되지만 식의 평가 결과는 실제 식에 따라 다른 JSON 형식(예: 배열 또는 정수)일 수 있습니다.  리터럴 문자열을 대괄호 `[`로 시작하되,식으로 해석하려면 `[[`로 시작하도록 추가 대괄호를 추가합니다.
 
 일반적으로 배포를 구성하기 위한 작업을 수행하는 함수를 식과 함께 사용합니다. JavaScript에서와 마찬가지로 함수 호출은 **functionName(arg1,arg2,arg3)**으로 형식이 지정됩니다. 점과 [인덱스] 연산자를 사용하여 속성을 참조할 수 있습니다.
 
@@ -431,9 +432,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 * 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 이 시나리오에서는 일반적으로 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업합니다. 자세한 내용은 [resourceId 함수](resource-group-template-functions.md#resourceid)를 참조하세요.
 
 [deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

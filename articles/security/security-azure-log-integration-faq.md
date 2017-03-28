@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
-ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="azure-log-integration-frequently-asked-questions-faq"></a>Azure 로그 통합 FAQ(질문과 대답)
 이 FAQ는 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해주는 서비스인 Azure 로그 통합에 대한 질문에 답변합니다. 이 통합은 응용 프로그램과 관련된 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공합니다.
+
+## <a name="is-the-azure-log-integration-software-free"></a>Azure 로그 통합 소프트웨어는 무료입니까?
+예. Azure 로그 통합 소프트웨어는 무료입니다. 
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 저장소 계정을 어떻게 볼 수 있습니까?
 **azlog source list**명령을 실행합니다.

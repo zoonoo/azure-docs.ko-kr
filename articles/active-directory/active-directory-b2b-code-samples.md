@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 51c0f98e3d3ad09e3e6675b2692bc2a8888db9a7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 공동 작업 코드 및 PowerShell 샘플
 
 ## <a name="code-sample"></a>코드 샘플
-이 샘플에서는 "앱 전용" 모드로 초대 API를 호출하여 B2B 사용자를 초대하는 리소스에 대한 상환 URL을 가져오는 방법을 보여 줍니다. 목표는 사용자 지정 초대 전자 메일을 보내는 것입니다. 어떻게 HTTP 클라이언트를 통해 전자 메일을 작성하여 Graph API를 통해 표시되고 전송되는 방식을 사용자 지정할 수 있는지 살펴보세요.
+여기에서는 "앱 전용" 모드로 초대 API를 호출하여 B2B 사용자를 초대하는 리소스에 대한 상환 URL을 가져오는 방법을 보여 줍니다. 목표는 사용자 지정 초대 전자 메일을 보내는 것입니다. HTTP 클라이언트를 통해 전자 메일을 작성하여 Graph API를 통해 표시되고 전송되는 방식을 사용자 지정할 수 있습니다.
 
 ```
 namespace SampleInviteApp
@@ -162,9 +163,9 @@ namespace SampleInviteApp
 ```
 
 ## <a name="powershell-example"></a>PowerShell 예제
-다음 예제에서는 .CSV 파일로 저장했을 수 있는 전자 메일 주소로부터 외부 사용자를 대량으로 조직에 초대하는 방법을 안내합니다.
+.CSV 파일로 저장한 전자 메일 주소에서 외부 사용자를 대량으로 조직에 초대할 수 있습니다.
 
-1. .CSV 파일 준비. 즉 새 CSV 파일을 만들고 invitations.csv라고 지정합니다. 이 예제에서 이 파일은 C:\data에 저장됩니다. CSV 파일은 다음과 같아야 합니다.
+1. .CSV 파일 준비. 즉 새 CSV 파일을 만들고 invitations.csv라고 지정합니다. 이 예제에서 이 파일은 C:\data에 저장됩니다. CSV 파일은 다음과 유사합니다.
 
   ```
     InvitedUserEmailAddress
@@ -189,7 +190,10 @@ namespace SampleInviteApp
     foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
-이렇게 하면 invitations.csv의 전자 메일 주소로 초대가 전송됩니다. 이 cmdlet의 추가 기능에는 전자 메일 메시지에 사용자 지정된 텍스트 포함, 초대된 사용자에 대한 이름 포함, CC에 메시지 전송 또는 전자 메일 메시지 표시 억제 등이 포함됩니다.
+이 cmdlet은 invitations.csv의 전자 메일 주소로 초대를 전송합니다. 이 cmdlet의 추가 기능은 다음과 같습니다.
+- 전자 메일 메시지의 사용자 지정된 텍스트
+- 초대한 사용자의 표시 이름 포함
+- CC로 메시지를 보내거나 전자 메일 메시지를 완전히 숨김
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -205,9 +209,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자 클레임 매핑](active-directory-b2b-claims-mapping.md)
 * [Office 365 외부 공유](active-directory-b2b-o365-external-user.md)
 * [B2B 공동 작업 현재 제한](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: aaf5c442ef85edbc498aa2fd7815171f4701f960
-ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
+ms.lasthandoff: 03/22/2017
+
 
 ---
 
-# <a name="log-analytics-saved-searches-and-alerts-in-oms-solutions-preview"></a>OMS 솔루션의 Log Analytics 저장된 검색 및 경고(미리 보기)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>OMS 관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
 > [!NOTE]
 > 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
@@ -36,7 +38,7 @@ ms.lasthandoff: 01/25/2017
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions.md#oms-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 작업 영역 이름은 각 Log Analytics 리소스의 이름을 사용합니다.  이 작업은 다음 저장된 검색 리소스 예제와 같이 **workspace** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -91,7 +93,7 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 저장된 검색은 하나 이상의 일정을 가질 수 있으며 각 일정은 별도의 경고 규칙을 나타냅니다. 일정은 검색이 실행되는 빈도 및 데이터가 검색되는 시간 간격을 정의합니다.  일정 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` 형식을 가지며 구조는 다음과 같습니다. 
 
     {
-      "name": "<name-of-schedule>",
+      "name": "<name-of-schedule-resource>",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
       "apiVersion": "<api-version-of-resource>",
       "dependsOn": [
@@ -101,7 +103,7 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
         "etag": "*",               
         "interval": <schedule-interval-in-minutes>,
         "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-interval-in-minutes>       
+        "enabled": <schedule-enabled>       
       }
     }
 
@@ -258,7 +260,7 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 
 
 
-### <a name="sample"></a>샘플
+## <a name="sample"></a>샘플
 
 다음은 다음 리소스를 포함하는 솔루션의 샘플입니다.
 
@@ -267,7 +269,7 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 - 경고 작업
 - 웹후크 작업
 
-이 샘플에서는 리소스 정의의 값을 하드 코딩하는 대신 솔루션에 일반적으로 사용되는 [표준 솔루션 매개 변수](operations-management-suite-solutions-creating.md#parameters) 변수를 사용합니다.
+이 샘플에서는 리소스 정의의 값을 하드 코딩하는 대신 솔루션에 일반적으로 사용되는 [표준 솔루션 매개 변수](operations-management-suite-solutions-solution-file.md#parameters) 변수를 사용합니다.
 
     {
         "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
