@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 03/20/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1fb7b268e83da66a4bb9fe6d3e053b7a673d3555
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/14/2017
 Power BI Embedded는 ISV(독립 소프트웨어 공급업체) 및 앱 개발자가 응용 프로그램 내에서 Power BI 데이터 환경을 표시할 수 있도록 하는 **Azure 서비스** 입니다. 개발자가 응용 프로그램을 구축한 경우 이러한 응용 프로그램에는 고유한 사용자 및 고유한 기능 집합이 있습니다. 이러한 앱에는 이제 Microsoft Power BI Embedded를 통해 강력한 기능을 가질 수 있는 차트 및 보고서와 같은 일부 기본 제공 데이터 요소가 있을 수도 있습니다. 앱을 사용하기 위한 Power BI 계정이 필요 없습니다. 이전처럼 응용 프로그램에 계속 로그인할 수 있으며 추가 라이선스를 요구하지 않고 Power BI 보고 환경을 보고 조작할 수 있습니다.
 
 ## <a name="licensing-for-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded 라이선스
-**Microsoft Power BI Embedded** 사용 모델에서 Power BI 라이선스에 대한 책임이 최종 사용자에게 있지 않습니다.  대신 시각적 개체를 사용하는 앱의 개발자가 **세션**을 구매하고 해당 리소스를 소유하는 구독에 요금이 부과됩니다. 자세한 정보는 가격 책정 페이지(https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/)에서 확인할 수 있습니다.
+**Microsoft Power BI Embedded** 사용 모델에서 Power BI 라이선스에 대한 책임이 최종 사용자에게 있지 않습니다.  대신 시각적 개체를 사용하는 앱의 개발자가 **세션**을 구매하고 해당 리소스를 소유하는 구독에 요금이 부과됩니다. 추가 정보는 [가격 책정](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/) 페이지에서 확인할 수 있습니다.
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Microsoft Power BI Embedded 개념적 모델
 

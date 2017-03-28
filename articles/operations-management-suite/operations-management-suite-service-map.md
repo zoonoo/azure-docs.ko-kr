@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -53,7 +53,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 선택한 시간 범위 동안 활성 네트워크 연결을 통해 실행 중인 프로세스를 표시 하도록 맵에서 컴퓨터를 확장할 수 있습니다.  서비스 맵 에이전트가 있는 원격 컴퓨터가 프로세스 세부 정보를 표시하도록 확장되면 중심 컴퓨터와 통신 중인 프로세스만 표시됩니다.  중심 컴퓨터에 연결 중인 에이전트가 없는 프런트 엔드 컴퓨터 수는 연결되는 프로세스 왼쪽에 표시됩니다.  포커스 컴퓨터가 에이전트 없이 백 엔드 시스템에 대한 연결을 설정하는 경우 해당 백 엔드 서버는 동일한 포트 번호에 대한 다른 연결과 함께 서버 포트 그룹에 포함됩니다.
 
-기본적으로 서비스 맵 맵은 최근 10분 간의 종속성 정보를 표시합니다.  왼쪽 상단에 있는 시간 컨트롤을 사용하여 맵에서 과거 시간 범위를&1;시간까지 쿼리하여 과거에 종속성이 어땠는지(예: 인시던트 중 또는 변경되기 전) 쿼리할 수 있습니다.    서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
+기본적으로 서비스 맵 맵은 최근 10분 간의 종속성 정보를 표시합니다.  왼쪽 상단에 있는 시간 컨트롤을 사용하여 맵에서 과거 시간 범위를 1시간까지 쿼리하여 과거에 종속성이 어땠는지(예: 인시던트 중 또는 변경되기 전) 쿼리할 수 있습니다.    서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
 
 ## <a name="status-badges-and-border-coloring"></a>상태 배지 및 경계 색 지정
 맵의 각 서버 하단에는 서버에 대한 상태 정보를 전달하는 상태 배지 목록이 있을 수 있습니다.  이러한 배지가 있으면 OMS 솔루션 통합 중 하나에서 제공된 서버 관련 정보가 있는 것입니다.  배지를 클릭하면 오른쪽 창의 상태 세부 정보로 직접 이동됩니다.  현재 사용 가능한 상태 배지에는 경고, 변경, 보안 및 업데이트가 포함됩니다.
@@ -271,7 +271,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>REST API
-서비스 맵의 모든 서버, 프로세스 및 종속성 데이터는 [서비스 맵 REST API](https://docs.microsoft.com/en-us/rest/api/servicemap/)를 통해 사용할 수 있습니다.
+서비스 맵의 모든 서버, 프로세스 및 종속성 데이터는 [서비스 맵 REST API](https://docs.microsoft.com/rest/api/servicemap/)를 통해 사용할 수 있습니다.
 
 
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용 현황 데이터
@@ -282,6 +282,10 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 맵이 수집한 데이터를 검색하기 위한 Log Analytics의 [로그 검색](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
+
+
+## <a name="troubleshooting"></a>문제 해결
+- [서비스 맵 구성 문서의 문제 해결 섹션](operations-management-suite-service-map-configure.md#troubleshooting)을 참조하세요.
 
 
 ## <a name="feedback"></a>사용자 의견

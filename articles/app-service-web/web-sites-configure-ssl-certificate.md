@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/20/2017
 
 이 문서에서는 사용자 지정 도메인 이름을 사용하는 웹앱, 모바일 앱 백 엔드 또는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md) 의 API 앱에 HTTPS를 사용하도록 설정하는 방법을 보여 줍니다. 여기서는 서버 전용 인증을 다룹니다. 상호 인증(클라이언트 인증 포함)이 필요한 경우 [앱 서비스에 대한 TLS 상호 인증을 구성하는 방법](app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
 
-HTTPS를 사용하여 사용자 지정 도메인 이름이 있는 앱의 보안을 유지하려면 해당 도메인 이름에 대한 인증서를 추가합니다. 기본적으로 Azure는 단일 SSL 인증서를 사용하여 **\*.azurewebsites.net** 와일드카드 도메인의 보안을 유지하므로 클라이언트는 이미 **https://*&lt;appname>*.azurewebsites.net**에서 앱에 액세스할 수 있습니다. 그러나 **contoso.com**, **www.contoso.com** 및 **\*.contoso.com**과 같은 사용자 지정 도메인을 사용하려는 경우에는 기본 인증서로 보안을 유지할 수 없습니다. 또한 모든 [와일드카드 인증서](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)와 마찬가지로 기본 인증서는 사용자 지정 도메인과 해당 도메인용 인증서를 사용하는 것보다 안전하지 않습니다.   
+HTTPS를 사용하여 사용자 지정 도메인 이름이 있는 앱의 보안을 유지하려면 해당 도메인 이름에 대한 인증서를 추가합니다. 기본적으로 Azure는 단일 SSL 인증서를 사용하여 **\*.azurewebsites.net** 와일드카드 도메인의 보안을 유지하므로 클라이언트는 이미 **https://*&lt;appname>*.azurewebsites.net**에서 앱에 액세스할 수 있습니다. 그러나**contoso.com**, **www.contoso.com**및**\*.contoso.com**과 같은 사용자 지정 도메인을 사용하려는 경우에는 기본 인증서로 보안을 유지할 수 없습니다. 또한 모든 [와일드카드 인증서](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)와 마찬가지로 기본 인증서는 사용자 지정 도메인과 해당 도메인용 인증서를 사용하는 것보다 안전하지 않습니다.   
 
 > [!NOTE]
 > 언제든지 [Azure 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가의 도움을 받을 수 있습니다. 보다 개별화된 지원을 원하는 경우 [Azure 지원](https://azure.microsoft.com/support/options/) 으로 이동하여 **지원 받기**를 클릭합니다.
@@ -439,8 +439,12 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
    
     ![SSL 바인딩 이미지 삽입](./media/web-sites-configure-ssl-certificate/sslbindings.png)
    
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+    > [!NOTE] 
+    > **IP 기반 SSL**은 서버의 전용 공용 IP 주소를 도메인 이름에 매핑하여 인증서를 도메인 이름과 연결합니다. 이렇게 하려면 서비스와 연결된 각 도메인 이름(contoso.com, fabricam.com 등)에 전용 IP 주소가 있어야 합니다. 이 방법은 SSL 인증서를 웹 서버와 연결하는 일반적인 방법입니다.  
+    >
+    > **SNI 기반 SSL**은 SSL 및 TLS(**[전송 계층 보안](http://en.wikipedia.org/wiki/Transport_Layer_Security)**)에 대한 확장으로, 각 도메인에 별도의 보안 인증서를 사용하여 여러 도메인이 동일한 IP 주소를 공유할 수 있게 해 줍니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원하지만 이전 브라우저는 SNI를 지원하지 않을 수도 있습니다. SNI에 대한 자세한 내용은 Wikipedia의 **[서버 이름 표시](http://en.wikipedia.org/wiki/Server_Name_Indication)** 문서를 참조하세요.
+    > 
+
 9. **바인딩 추가** 를 클릭하여 변경 내용을 저장하고 SSL을 사용하도록 설정합니다.
 
 ## <a name="step-3-change-your-domain-name-mapping-ip-based-ssl-only"></a>3단계. 도메인 이름 매핑 변경(IP 기반 SSL에만 해당)
@@ -458,7 +462,7 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
   바인딩이 완료되면 *&lt;appname>*.azurewebsites.net 도메인 이름이 새 IP 주소를 가리킵니다. 
   따라서 **SNI SSL**에서 보안을 유지하는 도메인을 포함하여 [사용자 지정 도메인에서 *&lt;appname>*.azurewebsites.net까지 기존 CNAME 매핑](web-sites-custom-domain-name.md#cname)도 **IP 기반 SSL** 전용으로 생성된 새 주소에서 트래픽을 받습니다. 이 시나리오에서는 다음 단계에 따라 원래 공유 IP 주소로 **SNI SSL** 트래픽을 다시 보내야 합니다.
   
-  1. [SNI SSL](web-sites-custom-domain-name.md#cname) 바인딩이 있는 앱에 대한 모든 **사용자 지정 도메인 CNAME 매핑** 을 확인합니다.
+  1. **SNI SSL** 바인딩이 있는 앱에 대한 모든 [사용자 지정 도메인 CNAME 매핑](web-sites-custom-domain-name.md#cname) 을 확인합니다.
   2. 각 CNAME 레코드를 &lt;appname>.azurewebsites.net 대신 **sni.**&lt;appname>.azurewebsites.net에 다시 매핑합니다.
 
 ## <a name="step-4-test-https-for-your-custom-domain"></a>4단계. 사용자 지정 도메인에 대한 HTTPS 테스트

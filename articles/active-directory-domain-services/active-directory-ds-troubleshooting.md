@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 30248b5f00aaf2d81db79b5a690760f816384723
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -129,7 +129,7 @@ if ($sp -ne $null)
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>사용자는 Azure AD 도메인 서비스 관리된 도메인에 로그인할 수 없습니다.
 Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되는 도메인에 로그인할 수 없는 경우 다음 문제 해결 단계를 수행합니다.
 
-* **UPN 형식을 사용한 로그인:** SAMAccountName 형식('CONTOSO \ joeuser') 대신 UPN 형식(예: 'joeuser@contoso.com'))을 사용하여 로그인합니다. UPN 접두사가 너무 길거나 관리되는 도메인의 다른 사용자와 동일한 사용자에 대해 SAMAccountName이 자동으로 생성될 수 있습니다. UPN 형식은 Azure AD 테넌트 내에서 고유하도록 보장됩니다.
+* **UPN 형식을 사용한 로그인:** SAMAccountName 형식('CONTOSO \ joeuser') 대신 UPN 형식(예: 'joeuser@contoso.com')을 사용하여 로그인합니다. UPN 접두사가 너무 길거나 관리되는 도메인의 다른 사용자와 동일한 사용자에 대해 SAMAccountName이 자동으로 생성될 수 있습니다. UPN 형식은 Azure AD 테넌트 내에서 고유하도록 보장됩니다.
 
 > [!NOTE]
 > Azure AD Domain Services 관리되는 도메인에 로그인하는 데 UPN 형식을 사용하는 것이 좋습니다.
@@ -137,7 +137,7 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
 >
 
 * 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md) 했는지 확인합니다.
-* **외부 계정:** 영향을 받는 사용자 계정이 Azure AD 테넌트에서 외부 계정이 아닌지 확인합니다. 외부 계정의 예는 Microsoft 계정(예: 'joe@live.com')) 또는 외부 Azure AD 디렉터리에서 사용자 계정을 포함합니다. Azure AD 도메인 서비스에는 이러한 사용자 계정에 대한 자격 증명이 없으므로 이러한 사용자는 관리된 도메인에 로그인할 수 없습니다.
+* **외부 계정:** 영향을 받는 사용자 계정이 Azure AD 테넌트에서 외부 계정이 아닌지 확인합니다. 외부 계정의 예는 Microsoft 계정(예: 'joe@live.com') 또는 외부 Azure AD 디렉터리에서 사용자 계정을 포함합니다. Azure AD 도메인 서비스에는 이러한 사용자 계정에 대한 자격 증명이 없으므로 이러한 사용자는 관리된 도메인에 로그인할 수 없습니다.
 * **동기화된 계정:** 영향을 받는 사용자 계정이 온-프레미스 디렉터리에서 동기화되는 경우 다음을 확인합니다.
 
   * [Azure AD Connect의 최신 권장 사항](https://www.microsoft.com/en-us/download/details.aspx?id=47594)으로 배포하거나 업데이트했습니다.
@@ -151,6 +151,8 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Azure AD 테넌트에서는 제거되지만 관리되는 도메인에서는 제거되지 않는 사용자
 Azure AD에서는 사용자 개체를 실수로 삭제하지 못하도록 보호합니다. Azure AD 테넌트에서 사용자 계정을 삭제하면 해당 사용자 개체가 휴지통으로 이동합니다. 이 삭제 작업이 관리되는 도메인과 동기화하면 해당 사용자 계정을 사용할 수 없는 것으로 표시됩니다. 이 기능을 사용하면 나중에 사용자 계정을 복구하거나 삭제를 취소할 수 있습니다.
+
+Azure AD 디렉터리에서 동일한 UPN을 사용하여 사용자 계정을 다시 만든 경우에도 사용자 계정은 관리되는 도메인에서 사용할 수 없는 상태로 유지됩니다. 관리되는 도메인에서 사용자 계정을 제거하려면 Azure AD 테넌트에서 사용자를 강제로 삭제해야 합니다.
 
 관리되는 도메인에서 사용자 계정을 완전히 제거하려면 Azure AD 테넌트에서 사용자를 영구적으로 삭제합니다. 이 [MSDN 문서](https://msdn.microsoft.com/library/azure/dn194132.aspx)에서 설명한 대로 '-RemoveFromRecycleBin' 옵션을 포함한 Remove-MsolUser PowerShell cmdlet을 사용합니다.
 

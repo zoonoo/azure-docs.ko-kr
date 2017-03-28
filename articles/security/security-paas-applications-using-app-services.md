@@ -1,9 +1,9 @@
 ---
 title: "Azure App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안 | Microsoft Docs"
-description: " PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure App Services 보안 모범 사례에 대해 알아봅니다.. "
+description: " PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure App Services 보안 모범 사례에 대해 알아봅니다. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 50421a70ede62250a0ab17a38200995c90fdcd55
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 41528ad70598907759cdf149777195007296fe98
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -43,9 +44,4 @@ App Services를 사용하는 경우 다음 모범 사례를 따릅니다.
 
 - [PaaS 배포 보안](security-paas-deployments.md)
 - [Azure SQL Database 및 SQL Data Warehouse를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-sql.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

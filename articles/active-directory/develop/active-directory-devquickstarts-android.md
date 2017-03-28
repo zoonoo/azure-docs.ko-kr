@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: f9809095128d0069d076d18486cae05b65498fa8
-ms.openlocfilehash: bde8ef9c4f51c38f8e5b41857be02ade43260824
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -62,8 +63,9 @@ Active Directory는 두 가지 유형의 응용 프로그램 추가를 지원합
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 친숙한 응용 프로그램 이름(예:**TodoListService**)을 입력하고 **웹 응용 프로그램 및/또는 Web API**를 선택한 후 **다음**을 클릭합니다.
 6. 로그온 URL에 대해서는 샘플의 기준 URL을 입력합니다. 기본적으로 `https://localhost:8080`입니다.
-7. 앱 ID URI에는 `https://<your_tenant_name>/TodoListService`를 입력합니다. `<your_tenant_name>`을 Azure AD 테넌트의 이름으로 바꿉니다. 등록을 완료하려면 **확인**을 클릭합니다.
+7. 등록을 완료하려면 **확인**을 클릭합니다.
 8. Azure Portal에 있는 상태에서 응용 프로그램 페이지로 이동한 후 응용 프로그램 ID 값을 찾아 복사합니다. 나중에 이 응용 프로그램을 구성하는 경우에 필요합니다.
+9. **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다(`https://<your_tenant_name>/TodoListService` 입력). `<your_tenant_name>`을 Azure AD 테넌트의 이름으로 바꿉니다.
 
 ## <a name="step-3-register-the-sample-android-native-client-application"></a>3단계: 샘플 Android 네이티브 클라이언트 응용 프로그램 등록
 이 샘플에서는 웹 응용 프로그램을 등록해야 합니다. 이렇게 하면 응용 프로그램이 방금 등록한 Web API와 통신할 수 있습니다. 등록되지 않은 응용 프로그램의 경우 로그인을 요청하더라도 Azure AD에서 거부합니다. 이것은 모델 보안의 한 부분입니다.
@@ -384,9 +386,4 @@ ADAL 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 [ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정하는 방법](active-directory-sso-android.md)을 알아봅니다.  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

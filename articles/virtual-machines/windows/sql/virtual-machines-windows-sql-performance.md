@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 609f2a06b1091a61cd95c54ea9f62888e11f16c1
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -82,12 +83,12 @@ D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 �
 Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈)의 경우 읽기 캐싱을 사용하도록 설정된 Premium Storage를 지원하는 디스크에 TempDB를 저장하는 것이 좋습니다. 이 권장 사항에 대한 한 가지 예외가 있습니다. TempDB가 주로 쓰기에 사용되는 경우 이러한 컴퓨터 크기에서 SSD 기반이기도 한, 로컬 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 실현할 수 있습니다.
 
 ### <a name="data-disks"></a>데이터 디스크
-* **데이터 및 로그 파일에 데이터 디스크 사용**: 최소 2개의 프리미엄 저장소 [P30 디스크](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 파일 및 TempDB용 1개).
-* **디스크 스트라이프**: 더 많은 처리량이 필요한 경우 추가 데이터 디스크를 추가하고 디스크 스트라이프를 사용할 수 있습니다. 데이터 디스크 수를 결정하려면 데이터 및 로그 디스크에 사용할 수 있는 IOPS 수를 분석해야 합니다. 자세한 내용은 [디스크용 프리미엄 저장소 사용](../../../storage/storage-premium-storage.md) 문서의 [VM 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 디스크 크기당 IOPS에 관한 표를 참조하세요. 다음 지침을 사용하세요.
+* **데이터 및 로그 파일에 데이터 디스크 사용**: 최소 2개의 Premium Storage [P30 디스크](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, 데이터 및 TempDB 파일용 1개). 각 Premium Storage 디스크는 [디스크에 Premium Storage 사용](../../../storage/storage-premium-storage.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOPs 및 대역폭(MB/s)을 제공합니다. 
+* **디스크 스트라이프**: 더 많은 처리량이 필요한 경우 추가 데이터 디스크를 추가하고 디스크 스트라이프를 사용할 수 있습니다. 데이터 디스크 수를 확인하려면 로그 파일과 데이터 및 TempDB 파일에 필요한 IOPS 및 대역폭 수를 분석해야 합니다. VM 크기에 따라 IOPs 및 대역폭 수에 대한 제한이 다릅니다. [VM 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)별 IOPS에 대한 표를 참조하세요. 다음 지침을 사용하세요.
 
   * Windows 8/Windows Server 2012 이상의 경우 [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용합니다. 파티션 잘못 맞춤으로 인해 성능에 영향을 주지 않으려면 OLTP 작업에는 64KB, 데이터 웨어하우징 작업에는 256KB로 스트라이프 크기를 설정합니다. 또한 열 수를 실제 디스크 수로 설정합니다. 9개 이상의 디스크로 저장소 공간을 구성하려면 PowerShell(서버 관리자 UI 아님)을 사용하여 열 수를 디스크 수와 일치하도록 명시적으로 설정합니다. [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 구성하는 방법에 대한 자세한 내용은 [Windows PowerShell의 저장소 공간 Cmdlet](https://technet.microsoft.com/library/jj851254.aspx)을 참조하세요.
   * Windows 2008 R2 또는 이전 버전에서는 동적 디스크(OS 스트라이프 볼륨)를 사용할 수 있으며 스트라이프 크기는 항상 64KB입니다. 이 옵션은 Windows 8/Windows Server 2012부터 사용되지 않습니다. 자세한 내용은 [가상 디스크 서비스가 Windows 저장소 관리 API로 전환](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx)에 있는 지원 설명을 참조하세요.
-  * 작업에 로그가 많지 않고 전용 IOPS를 필요로 하지 않으면&1;개의 저장소 풀만 구성할 수 있습니다. 그렇지 않은 경우&2;개의 저장소 풀(로그 파일용&1;개, 데이터 파일 및 TempDB용&1;개)을 만듭니다. 예상되는 부하에 따라 각 저장소 풀에 연결되는 디스크 수를 결정합니다. VM 크기가 다르면 연결된 데이터 디스크 수도 다를 수 있다는 점에 유의하세요. 자세한 내용은 [가상 컴퓨터의 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+  * 작업에 로그가 많지 않고 전용 IOPS를 필요로 하지 않으면 1개의 저장소 풀만 구성할 수 있습니다. 그렇지 않은 경우 2개의 저장소 풀(로그 파일용 1개, 데이터 파일 및 TempDB용 1개)을 만듭니다. 예상되는 부하에 따라 각 저장소 풀에 연결되는 디스크 수를 결정합니다. VM 크기가 다르면 연결된 데이터 디스크 수도 다를 수 있다는 점에 유의하세요. 자세한 내용은 [가상 컴퓨터의 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
   * 프리미엄 저장소를 사용하지 않는 경우(개발/테스트 시나리오) 해당 [VM 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)로 지원되는 최대 수의 데이터 디스크를 추가하고 디스크 스트라이프를 사용하는 것이 좋습니다.
 * **캐싱 정책**: 프리미엄 저장소 데이터 디스크의 경우 데이터 파일 및 TempDB만 호스트하는 데이터 디스크에서 읽기 캐싱을 사용하도록 설정합니다. 프리미엄 저장소를 사용하지 않는 경우 모든 데이터 디스크에서 모든 캐싱을 사용하도록 설정하지 마세요. 디스크 캐싱 구성에 대한 지침은 [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 및 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx) 항목을 참조하세요.
 
@@ -134,9 +135,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 보안 모범 사례는 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-sql-security.md)을 참조하세요.
 
 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

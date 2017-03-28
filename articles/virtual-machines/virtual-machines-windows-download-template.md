@@ -1,6 +1,6 @@
 ---
-title: "Azure VM에서 VM 이미지 만들기 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 만든 기존 Azure VM에서 일반화된 VM 이미지를 만드는 방법을 알아봅니다"
+title: "Azure VM에 대한 템플릿 다운로드 | Microsoft Docs"
+description: "VM에 대한 템플릿을 다운로드하면 Resource Manager 배포 모델에서 배포를 자동화할 수 있습니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
-ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 63d9d9ea257ece3af710e25dcf7cfa3c6e2fb8d5
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -50,10 +51,5 @@ template.json 파일은 템플릿입니다.
 
 ## <a name="next-steps"></a>다음 단계
 템플릿을 사용하여 리소스를 배포하는 방법에 대해 알아보려면 [Resource Manager 템플릿 연습](../resource-manager-template-walkthrough.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

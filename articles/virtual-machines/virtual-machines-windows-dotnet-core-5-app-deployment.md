@@ -17,9 +17,9 @@ ms.date: 11/21/2016
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 495ee4a14e779099f828db0c08068bc3772cd7d4
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 2d60af167b8d7805e6f01264de84fb1351d85f98
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -120,6 +120,46 @@ GitHub에서 JSON 아래에 이 스크립트가 저장되어 있습니다. 이 �
   }
 }
 ```
+
+위에서 설명한 대로 Azure Blob Storage에 사용자 지정 스크립트를 저장할 수도 있습니다. Blob Storage에 스크립트 리소스를 저장하는 두 가지 옵션이 있습니다. 컨테이너/스크립트를 공용으로 지정하고 위와 동일한 방법을 따르거나, CustomScriptExtension 리소스 정의에 storageAccountName 및 storageAccountKey를 제공해야 사설 Blob Storage에 저장할 수도 있습니다.
+
+아래 예제에서는 한 단계 더 발전한 방법을 보여 줍니다. 배포하는 동안 저장소 계정 이름 및 키를 매개 변수 또는 변수로 제공할 수 있지만 Resource Manager 템플릿에서는 저장소 계정 키를 프로그래밍 방식으로 가져와 배포 시 템플릿에 삽입할 수 있는 `listKeys` 함수를 제공합니다.
+
+아래의 CustomScriptExtension 리소스 정의 예제에서는 사용자 지정 스크립트가 `mysa999rgname`이라는 다른 리소스 그룹에 있는 `mystorageaccount9999`라는 Azure Storage 계정에 이미 업로드되어 있습니다. 이 리소스가 포함된 템플릿을 배포하면 `listKeys` 함수가 `mysa999rgname` 리소스 그룹의 `mystorageaccount9999` 저장소 계정에 대한 저장소 계정 키를 가져와 템플릿에 자동으로 삽입합니다.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://mystorageaccount9999.blob.core.windows.net/container/configure-music-app.ps1"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]",
+      "storageAccountName": "mystorageaccount9999",
+      "storageAccountKey": "[listKeys(resourceId('mysa999rgname','Microsoft.Storage/storageAccounts', mystorageaccount9999), '2015-06-15').key1]"
+    }
+  }
+}
+```
+
+이 방법의 주요 이점은 저장소 계정 키가 변경된 경우 템플릿 또는 배포 매개 변수를 변경할 필요가 없다는 점입니다.
 
 사용자 지정 스크립트 확장 사용에 대한 자세한 내용은 [Resource Manager 템플릿을 사용한 사용자 지정 스크립트 확장](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 

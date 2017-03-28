@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/14/2017
 * 진단 로그를 보낼 위치(저장소 계정, 이벤트 허브 및/또는 OMS Log Analytics).
 * 보낼 로그 범주.
 * 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
-    - 보존이&0;일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
     - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
     - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
@@ -167,7 +167,7 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 
 리소스를 클릭하면 저장소 계정에 저장된 모든 로그가 표시되며 진단 설정을 끄거나 수정할 수 있는 옵션이 제공됩니다. 다운로드 아이콘을 클릭하면 특정 기간의 로그를 다운로드할 수 있습니다.
 
-![진단 로그 브레이드&1; 리소스](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+![진단 로그 브레이드 1 리소스](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
 
 > [!NOTE]
 > 진단 로그는 이 보기에만 표시되며 저장소 계정에 로그를 저장하기 위한 진단 설정을 구성한 경우 다운로드할 수 있습니다.
@@ -199,8 +199,10 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 |리소스 종류|Category|범주 표시 이름|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 게이트웨이 관련 로그|
 |Microsoft.Automation/automationAccounts|JobLogs|작업 로그|
 |Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|디스크 노드 상태|
 |Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
 |Microsoft.DataLakeAnalytics/accounts|감사|감사 로그|
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
@@ -208,16 +210,19 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
 |Microsoft.EventHub/namespaces|ArchiveLogs|보관 로그|
 |Microsoft.EventHub/namespaces|OperationalLogs|작업 로그|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|자동 크기 조정 로그|
 |Microsoft.KeyVault/vaults|AuditEvent|감사 로그|
 |Microsoft.Logic/workflows|WorkflowRuntime|워크플로 런타임 진단 이벤트|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 카운터 테이블|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
 |Microsoft.ServerManagement/nodes|RequestLogs|요청 로그|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6f487e2e8f368240339ef5e0015c85591522e49a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -75,28 +76,29 @@ ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
 API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 
 ### <a name="app--user-mode"></a>앱 + 사용자 모드
-이 모드에서 API를 사용하는 사용자는 B2B 초대를 만들기 위한 권한이 있어야 합니다.
+이 모드에서 API를 사용하는 모든 사용자에게 B2B 초대를 만들기 위한 권한이 있어야 합니다.
 
 ### <a name="app-only-mode"></a>앱 전용 모드
 앱 전용 컨텍스트에서 앱은 성공적인 초대를 위해 User.ReadWrite.All 또는 Directory.ReadWrite.All 범위를 지정해야 합니다.
-자세한 내용은 https://graph.microsoft.io/en-us/docs/authorization/permission_scopes를 참조하세요.
+
+자세한 내용은 https://graph.microsoft.io/docs/authorization/permission_scopes를 참조하세요.
 
 
 ## <a name="powershell"></a>PowerShell
-이제 PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 새 초대 만들기
+이제 PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 초대 만들기
 
 ```
 New-AzureADMSInvitation
 ```
 
-사용 옵션
+다음 옵션을 사용할 수 있습니다.
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-[https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)의 초대 API 참조에 따라 설명을 지정합니다.
+[https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)에서 초대 API 참조를 확인할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -113,9 +115,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 * [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
 * [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

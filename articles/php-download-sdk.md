@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7bd6eddcdb20e3ea49cd29d46bb4f98d73ee9cc8
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,10 +42,10 @@ PHP용 Azure SDK에는 Azure용 PHP 응용 프로그램을 개발, 배포 및 �
 ## <a name="php-client-libraries-for-azure"></a>Azure용 PHP 클라이언트 라이브러리
 Azure용 PHP 클라이언트 라이브러리는 운영 체제에서 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다. 이러한 라이브러리는 작성기를 통해 설치할 수 있습니다.
 
-Azure용 PHP 클라이언트 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Blob Service 사용 방법][blob-service], [Table Service 사용 방법][table-service] 및 [Queue Service 사용 방법][queue-service]을 참조하세요.
+Azure용 PHP 클라이언트 라이브러리를 사용하는 방법에 대한 내용은 [Blob Service 사용 방법][blob-service], [Table Service 사용 방법][table-service] 및 [큐 서비스 사용 방법][queue-service]을 참조하세요.
 
 ### <a name="install-via-composer"></a>작성기를 통해 설치
-1. [Git 설치][install-git].
+1. [Git를 설치합니다][install-git].
 
     > [AZURE.NOTE] Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
 
@@ -65,10 +66,10 @@ Azure PowerShell는 Azure 서비스(예: 클라우드 서비스 및 가상 컴�
 
 Azure PowerShell 및 Azure 에뮬레이터는 [Microsoft 웹 플랫폼 설치 관리자][download-wpi]를 사용하여 설치하는 것이 좋습니다. PHP, SQL Server, PHP용 Microsoft Drivers for SQL Server, WebMatrix와 같은 다른 개발 구성 요소를 설치하도록 선택할 수도 있습니다.
 
-Azure PowerShell 사용 방법에 대한 자세한 내용은 [Azure PowerShell 사용 방법][powershell-tools]을 참조하세요.
+Azure PowerShell 사용 방법에 대한 내용은 [Azure PowerShell 사용 방법][powershell-tools]을 참조하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
-Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
+Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](cli-install-nodejs.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
@@ -87,9 +88,4 @@ Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서�
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

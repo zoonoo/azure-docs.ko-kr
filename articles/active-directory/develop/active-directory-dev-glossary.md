@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 03/20/2017
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
-ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d65d5292d51c58b92f68dd469bf1eb0ccdc47ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -94,7 +95,7 @@ Azure AD 응용 프로그램 통합의 경우 Azure AD는 예를 들어 [Microso
 자세한 내용은 [Azure AD 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
 
 ## <a name="multi-tenant-application"></a>다중 테넌트 응용 프로그램
-클라이언트를 등록한 테넌트 이외의 테넌트를 포함하여 Azure AD [테넌트](#tenant)에 프로비전된 사용자가 로그인하고 [동의](#consent)할 수 있도록 하는 [클라이언트 응용 프로그램](#client-application)의 한 종류. 반면 단일 테넌트로 등록된 응용 프로그램은 응용 프로그램이 등록된 동일한 테넌트에서 프로비전된 사용자 계정에서만 로그인하는 것을 허용합니다. [네이티브 클라이언트](#native-client) 응용 프로그램은 기본적으로 다중 테넌트인 반면 [웹 클라이언트](#web-client) 응용 프로그램은 단일 테넌트와 다중 테넌트 중에서 선택하는 기능이 있습니다.
+클라이언트를 등록한 테넌트 이외의 테넌트를 포함하여 Azure AD [테넌트](#tenant)에 프로비전된 사용자가 로그인하고 [동의](#consent)할 수 있도록 하는 응용 프로그램의 한 종류. [네이티브 클라이언트](#native-client) 응용 프로그램은 기본적으로 다중 테넌트인 반면 [웹 클라이언트](#web-client) 및 [웹 리소스/API](#resource-server) 응용 프로그램은 단일 테넌트와 다중 테넌트 중에서 선택하는 기능이 있습니다. 반면 단일 테넌트로 등록된 웹 응용 프로그램은 응용 프로그램이 등록된 동일한 테넌트에서 프로비전된 사용자 계정에서만 로그인하는 것을 허용합니다.
 
 자세한 내용은 [다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure AD 사용자를 로그인하는 방법][AAD-Multi-Tenant-Overview]을 참조하세요.
 
@@ -104,12 +105,12 @@ Azure AD 응용 프로그램 통합의 경우 Azure AD는 예를 들어 [Microso
 ## <a name="permissions"></a>권한
 [클라이언트 응용 프로그램](#client-application)은 권한 요청을 선언하여 [리소스 서버](#resource-server)에 대한 액세스 권한을 얻습니다. 두 가지 유형이 있습니다.
 
-* 하나는 "위임된" 권한으로서 로그인된 [리소스 소유자](#resource-owner)로부터 위임된 권한 부여에 따라 [범위 기반](#scopes) 액세스를 요청하며, 런타임 시 클라이언트의 [액세스 토큰](#access-token)에서 ["scp" 클레임](#claim)으로 리소스에 제공됩니다.
-* 또 하나는 "응용 프로그램" 권한으로서 클라이언트 응용 프로그램의 자격 증명/ID에 따라 [역할 기반](#roles) 액세스를 요청하며, 런타임 시 클라이언트의 액세스 토큰에서 ["역할" 클레임](#claim)으로 리소스에 제공됩니다.
+* 하나는 "위임된" 권한으로서 로그인된 [리소스 소유자](#resource-owner)로부터 위임된 권한 부여를 사용하여 [범위 기반](#scopes) 액세스를 지정하며, 런타임 시 클라이언트의 [액세스 토큰](#access-token)에서 ["scp" 클레임](#claim)으로 리소스에 제공됩니다.
+* 또 하나는 "응용 프로그램" 권한으로서 클라이언트 응용 프로그램의 자격 증명/ID를 사용하여 [역할 기반](#roles) 액세스를 지정하며, 런타임 시 클라이언트의 액세스 토큰에서 ["역할" 클레임](#claim)으로 리소스에 제공됩니다.
 
 또한 [동의](#consent) 프로세스 동안 표면화되어 관리자 또는 리소스 소유자에게 자신의 테넌트에 있는 리소스에 대한 클라이언트 액세스를 허용/거부할 기회를 제공합니다.
 
-사용 권한 요청은 [Azure Portal][AZURE-portal]의 "응용 프로그램" / "설정" 탭에서 원하는 "위임된 권한" 및 "응용 프로그램 사용 권한"(후자는 전역 관리자 역할 필요)을 선택하여 "필요한 사용 권한" 아래에 구성됩니다. [공용 클라이언트](#client-application)는 자격 증명을 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 응용 프로그램 권한을 모두 요청할 수 있습니다. 클라이언트의 [응용 프로그램 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][AAD-Graph-App-Entity]에 저장할 수 있습니다.
+사용 권한 요청은 [Azure Portal][AZURE-portal]의 "응용 프로그램" / "설정" 탭에서 원하는 "위임된 권한" 및 "응용 프로그램 사용 권한"(후자는 전역 관리자 역할 필요)을 선택하여 "필요한 사용 권한" 아래에 구성됩니다. [공용 클라이언트](#client-application)는 자격 증명을 안전하게 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 응용 프로그램 권한을 모두 요청할 수 있습니다. 클라이언트의 [응용 프로그램 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][AAD-Graph-App-Entity]에 저장할 수 있습니다.
 
 ## <a name="resource-owner"></a>리소스 소유자
 [OAuth2 권한 부여 프레임워크][OAuth2-Role-Def]에 정의된 대로, 보호된 리소스에 대한 액세스 부여할 수 있는 엔터티입니다. 리소스 소유자가 개인인 경우 최종 사용자라고 합니다. 예를 들어, [클라이언트 응용 프로그램](#client-application)이 [Microsoft Graph API][Microsoft-Graph]를 통해 사용자 사서함에 액세스하려 한다면 사서함의 리소스 소유자로부터 사용 권한 허가가 필요합니다.
@@ -175,7 +176,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 ## <a name="next-steps"></a>다음 단계
 [Azure AD 개발자 가이드][AAD-Dev-Guide]는 [응용 프로그램 통합][AAD-How-To-Integrate] 개요 및 [Azure AD 인증 및 지원되는 인증 시나리오][AAD-Auth-Scenarios]의 기본을 포함하는 Azure AD 개발 관련 모든 항목에 대해 사용하는 포털입니다.
 
-다음 DISQUS 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+다음 설명 섹션을 사용하여 피드백을 제공하고 새 정의 및 기존 정의 업데이트 요청을 포함하여 콘텐츠를 구체화하고 형성하는 데 도움을 주시기 바랍니다.
 
 <!--Image references-->
 
@@ -208,9 +209,4 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

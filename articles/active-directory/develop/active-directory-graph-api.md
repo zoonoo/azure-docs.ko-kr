@@ -15,14 +15,15 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 6d40b998316652b7144e641c468e14a965c78a30
-ms.openlocfilehash: 84fc25424f2ca656a089e5f2cdf54e61d5c5868e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9a5e7a4e25ce5e7f63fe5a09fafeb6b4a8166ad
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
-> Azure AD Graph API 기능은 다른 Microsoft 서비스(예: Outlook, OneDrive, OneNote, Planner 및 Office Graph)의 API가 포함된 통합 API인 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용할 수 있으며, 단일 끝점과 단일 액세스 토큰을 통해 액세스할 수 있습니다.
+> Azure Active Directory 리소스에 액세스하려면 Azure AD Graph API 대신 [Microsoft Graph](https://graph.microsoft.io/)를 사용하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API가 적절할 수 있는 시나리오는 매우 제한적입니다. 자세한 내용은 Office 개발자 센터에서 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물을 참조하세요.
 > 
 > 
 
@@ -65,10 +66,5 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 [AD Graph REST 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
