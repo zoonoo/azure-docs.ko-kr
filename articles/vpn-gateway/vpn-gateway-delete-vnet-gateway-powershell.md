@@ -1,5 +1,5 @@
 ---
-title: "가상 네트워크 게이트웨이를 삭제하는 방법: PowerShell: Azure Resource Manager | Microsoft Docs"
+title: "가상 네트워크 게이트웨이 삭제: PowerShell: Azure Resource Manager | Microsoft Docs"
 description: "Resource Manager 배포 모델에서 PowerShell을 사용하여 가상 네트워크 게이트웨이를 삭제합니다."
 services: vpn-gateway
 documentationcenter: na
@@ -13,16 +13,21 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 523166a2dc509f13f62aef0e83799849a04d7efb
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3032b09d06a103f9cd915e3803355199243488f9
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 삭제
+> [!div class="op_single_selector"]
+> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [클래식 - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+>
+>
 
 VPN 게이트웨이 구성에 대한 가상 네트워크 게이트웨이 삭제하려는 경우에 몇 가지 다른 접근 방법을 사용할 수 있습니다.
 
@@ -48,8 +53,6 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-
-
 ##<a name="S2S"></a>사이트 간 VPN 게이트웨이 삭제
 
 S2S 구성에 대한 가상 네트워크 게이트웨이를 삭제하려면 먼저 가상 네트워크 게이트웨이와 관련된 각 리소스를 삭제해야 합니다. 리소스는 종속성으로 인해 특정 순서로 삭제해야 합니다. 아래 예제를 사용할 경우 일부 값은 구체적으로 호출해야 하지만 일부 값은 출력 결과에 해당합니다. 데모를 위해 예제에 다음과 같은 특정 값을 사용합니다.
@@ -58,6 +61,7 @@ VNet 이름: VNet1<br>
 리소스 그룹 이름: RG1<br>
 가상 네트워크 게이트웨이 이름: GW1<br>
 
+다음 단계는 Resource Manager 배포 모델에 적용됩니다.
 
 ###<a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. 삭제하려는 가상 네트워크 게이트웨이를 가져옵니다.
 
@@ -85,6 +89,11 @@ VNet 이름: VNet1<br>
 ###<a name="6-delete-the-virtual-network-gateway"></a>6. 가상 네트워크 게이트웨이를 삭제합니다.
 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
+>[!NOTE]
+> 이 VNet에 S2S 구성 외에 P2S 구성이 있는 경우 가상 네트워크 게이트웨이를 삭제하면 경고 없이 모든 P2S 클라이언트의 연결이 자동으로 끊어집니다.
+>
+>
+
     Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 ###<a name="7-get-the-ip-configurations-of-the-virtual-network-gateway"></a>7. 가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
@@ -100,7 +109,7 @@ VNet 이름: VNet1<br>
 
     $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 
-###<a name="10-delete-the-gateway-subnet"></a>10. 게이트웨이 서브넷을 삭제합니다.
+###<a name="10-delete-the-gateway-subnet-and-set-the-configuration"></a>10. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
 
     $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
     Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
@@ -113,6 +122,7 @@ VNet 이름: VNet1<br>
 리소스 그룹 이름: RG1<br>
 가상 네트워크 게이트웨이 이름: GW1<br>
 
+다음 단계는 Resource Manager 배포 모델에 적용됩니다.
 
 ###<a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. 삭제하려는 가상 네트워크 게이트웨이를 가져옵니다.
 
@@ -141,15 +151,19 @@ VNet 간 구성이기 때문에 양방향 연결 목록이 필요합니다.
     $ConnsL | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
     $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 
-
 ###<a name="5-delete-the-virtual-network-gateway"></a>5. 가상 네트워크 게이트웨이를 삭제합니다.
 가상 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+
+>[!NOTE]
+> VNet에 V2V 구성 외에 P2S 구성이 있는 경우 가상 네트워크 게이트웨이를 삭제하면 경고 없이 모든 P2S 클라이언트의 연결이 자동으로 끊어집니다.
+>
+>
 
     Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 ###<a name="6-get-the-ip-configurations-of-the-virtual-network-gateway"></a>6. 가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
 
-    $GWIpConfigs = $GW.IpConfigurations
+    $GWIpConfigs = $Gateway.IpConfigurations
 
 ###<a name="7-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>7. 이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 목록을 가져옵니다. 
 가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
@@ -161,16 +175,60 @@ VNet 간 구성이기 때문에 양방향 연결 목록이 필요합니다.
 
     $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 
-###<a name="9-delete-the-gateway-subnet"></a>9. 게이트웨이 서브넷을 삭제합니다.
+###<a name="9-delete-the-gateway-subnet-and-set-the-configuration"></a>9. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
  
     $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
     Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
+##<a name="deletep2s"></a>지점 및 사이트 간 VPN Gateway 삭제
+
+P2S 구성에 대한 가상 네트워크 게이트웨이를 삭제하려면 먼저 가상 네트워크 게이트웨이와 관련된 각 리소스를 삭제해야 합니다. 리소스는 종속성으로 인해 특정 순서로 삭제해야 합니다. 아래 예제를 사용할 경우 일부 값은 구체적으로 호출해야 하지만 일부 값은 출력 결과에 해당합니다. 데모를 위해 예제에 다음과 같은 특정 값을 사용합니다.
+
+VNet 이름: VNet1<br>
+리소스 그룹 이름: RG1<br>
+가상 네트워크 게이트웨이 이름: GW1<br>
+
+다음 단계는 Resource Manager 배포 모델에 적용됩니다.
+
+
+>[!NOTE]
+> VPN Gateway를 삭제하면 경고 없이 VNet에서 연결된 모든 클라이언트의 연결이 끊어집니다.
+>
+>
+
+###<a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. 삭제하려는 가상 네트워크 게이트웨이를 가져옵니다.
+
+    $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+
+###<a name="2-delete-the-virtual-network-gateway"></a>2. 가상 네트워크 게이트웨이를 삭제합니다.
+가상 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+
+    Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+
+###<a name="3-get-the-ip-configurations-of-the-virtual-network-gateway"></a>3. 가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
+
+    $GWIpConfigs = $Gateway.IpConfigurations
+
+###<a name="4-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>4. 이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 목록을 가져옵니다. 
+가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
+
+    $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+
+###<a name="5-delete-the-public-ips"></a>5. 공용 IP를 삭제합니다.
+공용 IP의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+
+    $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+
+###<a name="6-delete-the-gateway-subnet-and-set-the-configuration"></a>6. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
+ 
+    $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+    Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
 ##<a name="delete"></a>리소스 그룹을 삭제하여 VPN 게이트웨이 삭제
 
 리소스를 유지하지 않아도 되며 새로 시작하려는 경우 전체 리소스 그룹을 삭제할 수 있습니다. 모든 항목을 제거하는 빠른 방법입니다. 전체 리소스 그룹을 삭제하면 삭제하려는 리소스를 선택할 수 없습니다. 따라서 이 예제를 실행하기 전에 이 작업을 진정으로 원하는지 확인해야 합니다.
 
+다음 단계는 Resource Manager 배포 모델에 적용됩니다.
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. 구독 중인 모든 리소스 그룹 목록을 가져옵니다.
 
@@ -182,7 +240,6 @@ VNet 간 구성이기 때문에 양방향 연결 목록이 필요합니다.
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. 목록의 리소스를 확인합니다.
 목록이 반환되면 리소스 그룹의 모든 리소스와 리소스 그룹 자체를 삭제할 것인지도 확인합니다. 
-
 
 ### <a name="4-delete-the-resource-group-and-resources"></a>4. 리소스 그룹 및 리소스를 삭제합니다.
 리소스 그룹 및 리소스 그룹에 포함된 모든 리소스를 삭제하려면 예제를 수정하고 실행합니다.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 3d78af41bbe13bcec9336452110a857d114ad006
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,7 +119,7 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 3. API 범위
 4. 작업 범위
 
-정책 범위 내의 문은 `base` 요소(있는 경우)의 위치에 따라 평가됩니다.
+정책 범위 내의 문은 `base` 요소(있는 경우)의 위치에 따라 평가됩니다. 글로벌 정책에는 부모 정책이 없으며 해당 정책 안의 `<base>` 요소를 사용해도 아무 효과가 없습니다.
 
 예를 들어 글로벌 수준의 정책 및 API에 대해 구성된 정책이 있는 경우 특정 API가 사용될 때마다 두 정책이 모두 적용됩니다. API 관리는 기본 요소를 통해 결합된 정책 명령문의 결정적인 순서를 허용합니다. 
 
@@ -133,11 +133,9 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 </policies>
 ```
 
-위의 정책 정의 예제에서는 상위 정책 전에 `cross-domain` 문이 실행된 다음 `find-and-replace` 정책이 실행됩니다.
+위의 정책 정의 예제에서는 상위 정책 전에 `cross-domain` 문이 실행된 다음 `find-and-replace` 정책이 실행됩니다. 
 
-동일한 정책이 정책 문에 두 번 표시되는 경우 가장 최근에 평가된 정책이 적용됩니다. 이를 통해 상위 범위에서 정의된 정책을 재정의할 수 있습니다. 정책 편집기에서 현재 범위의 정책을 보려면 **Recalculate effective policy for selected scope**(선택한 범위에 대한 실제 정책 다시 계산)을 클릭합니다.
-
-글로벌 정책에는 부모 정책이 없으며 해당 정책 안의 `<base>` 요소를 사용해도 아무 효과가 없습니다. 
+정책 편집기에서 현재 범위의 정책을 보려면 **Recalculate effective policy for selected scope**(선택한 범위에 대한 실제 정책 다시 계산)을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음과 같은 정책 식 관련 비디오를 확인하세요.

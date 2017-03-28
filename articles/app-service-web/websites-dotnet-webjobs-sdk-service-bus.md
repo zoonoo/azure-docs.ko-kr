@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e44199dec6de1e89545f3d122481aa81e97d75ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -155,7 +155,7 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 * `MessageProcessor` 전략 패턴을 통해 큐/토픽별로 프로세서를 지정할 수 있습니다.
 * 메시지 처리 동시성이 기본적으로 지원됩니다. 
 * `ServiceBusConfiguration.MessageOptions`를 통해 `OnMessageOptions`를 쉽게 사용자 지정할 수 있습니다.
-* 관리 권한이 없을 수 있는 시나리오에 대해 `ServiceBusTriggerAttribute`/`ServiceBusAttribute`에서 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)를 지정하는 것을 허용합니다. 
+* 관리 권한이 없을 수 있는 시나리오에 대해 `ServiceBusTriggerAttribute`/`ServiceBusAttribute`에서 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)를 지정하는 것을 허용합니다. 관리 AccessRights가 없으면 Azure Webjob에서 존재하지 않는 큐 및 토픽을 자동으로 프로비전할 수 없습니다.
 
 ## <a id="queues"></a>저장소 큐 방법 문서에서 다루는 관련 항목
 서비스 버스에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요. 
