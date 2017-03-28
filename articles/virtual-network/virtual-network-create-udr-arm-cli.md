@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 317c05f9f8faa335cdd3588c3b50a89948066d11
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 USR(사용자 정의 경로) 만들기
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [템플릿](virtual-network-create-udr-arm-template.md)
-- [PowerShell(클래식 배포)](virtual-network-create-udr-classic-ps.md)
-- [CLI(클래식 배포)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [템플릿](virtual-network-create-udr-arm-template.md)
+> * [PowerShell(클래식 배포)](virtual-network-create-udr-classic-ps.md)
+> * [CLI(클래식 배포)](virtual-network-create-udr-classic-cli.md)
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전 
 
@@ -60,9 +60,9 @@ ms.lasthandoff: 03/15/2017
     --location centralus \
     --name UDR-FrontEnd
     ```
-    
+
     출력:
-    
+
     ```json
     {
     "etag": "W/\"<guid>\"",
@@ -104,9 +104,8 @@ ms.lasthandoff: 03/15/2017
     "resourceGroup": "testrg"
     }
     ```
-    
     매개 변수:
-    
+
     * **--route-table-name**. 경로가 추가될 경로 테이블의 이름입니다. 이 시나리오에서는 *UDR-FrontEnd*입니다.
     * **--address-prefix**. 패킷을 보내는 서브넷에 대한 주소 접두사입니다. 이 시나리오에서는 *192.168.2.0/24*입니다.
     * **--next-hop-type**. 전송할 개체 트래픽 유형입니다. 가능한 값은 *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* 또는 *None*입니다.
@@ -116,10 +115,10 @@ ms.lasthandoff: 03/15/2017
 
     ```azurecli
     az network vnet subnet update \
-    > --resource-group testrg \
-    > --vnet-name testvnet \
-    > --name FrontEnd \
-    > --route-table UDR-FrontEnd
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name FrontEnd \
+    --route-table UDR-FrontEnd
     ```
 
     출력:
@@ -149,7 +148,7 @@ ms.lasthandoff: 03/15/2017
         }
     }
     ```
-    
+
     매개 변수:
     
     * **--vnet-name**. 서브넷이 위치한 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
@@ -160,35 +159,34 @@ ms.lasthandoff: 03/15/2017
 
 1. 다음 명령을 실행하여 백 엔드 서브넷에 대한 경로 테이블을 만듭니다.
 
-        ```azurecli
-        az network route-table create \
-        --resource-group testrg \
-        --name UDR-BackEnd \
-        --location centralus
-        ```
+    ```azurecli
+    az network route-table create \
+    --resource-group testrg \
+    --name UDR-BackEnd \
+    --location centralus
+    ```
 
 2. 다음 명령을 실행하여 경로 테이블에 경로를 만들고 프런트 엔드 서브넷(192.168.1.0/24)으로 보내진 모든 트래픽을 **FW1** VM(192.168.0.4)으로 보냅니다.
 
-        ```azurecli
-        az network route-table route create \
-        --resource-group testrg \
-        --name RouteToFrontEnd \
-        --route-table-name UDR-BackEnd \
-        --address-prefix 192.168.1.0/24 \
-        --next-hop-type VirtualAppliance \
-        --next-hop-ip-address 192.168.0.4
-        ```
+    ```azurecli
+    az network route-table route create \
+    --resource-group testrg \
+    --name RouteToFrontEnd \
+    --route-table-name UDR-BackEnd \
+    --address-prefix 192.168.1.0/24 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 192.168.0.4
+    ```
 
 3. 다음 명령을 실행하여 경로 테이블을 **BackEnd** 서브넷에 연결합니다.
 
-        ```azurecli
-        az network vnet subnet update \
-        --resource-group testrg \
-        --vnet-name testvnet \
-        --name BackEnd \
-        --route-table UDR-BackEnd
-        ```
-
+    ```azurecli
+    az network vnet subnet update \
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name BackEnd \
+    --route-table UDR-BackEnd
+    ```
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>FW1에서 IP 전달을 사용하도록 설정
 
@@ -196,42 +194,38 @@ ms.lasthandoff: 03/15/2017
 
 1. JMESPATH 필터와 함께 [az network nic show](/cli/az/network/nic#show) 명령을 실행하여 **IP 전달 사용**에 대한 현재 **enable-ip-forwarding** 값을 표시합니다. *false*로 설정해야 합니다.
 
-        ```azurecli
-        az network nic show \
-        --resource-group testrg \
-        --nname nicfw1 \
-        --query 'enableIpForwarding' -o tsv
-        ```
+    ```azurecli
+    az network nic show \
+    --resource-group testrg \
+    --nname nicfw1 \
+    --query 'enableIpForwarding' -o tsv
+    ```
 
-        Output:
+    출력
 
-        ```bash
         false
-        ```
 
 2. 다음 명령을 실행하여 IP 전달을 사용하도록 설정합니다.
 
-        ```azurecli
-        az network nic update \
-        > --resource-group testrg \
-        > --name nicfw1 \
-        > --ip-forwarding true
-        ```
+    ```azurecli
+    az network nic update \
+    --resource-group testrg \
+    --name nicfw1 \
+    --ip-forwarding true
+    ```
 
     콘솔로 스트리밍되는 출력을 검사하거나 특정 **enableIpForwarding** 값만 다시 테스트할 수 있습니다.
 
-        ```azurecli
-        az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
-        ```
+    ```azurecli
+    az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
+    ```
 
     출력:
 
-        ```bash
         true
-        ```
-    
-    매개 변수:
-    
-    * **--ip-forwarding**. *true* 또는 *false*.
+
+    매개 변수
+
+    **--ip-forwarding**: *true* 또는 *false*.
 
 

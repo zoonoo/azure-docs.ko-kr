@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,10 +34,10 @@ ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
 
 위의 다이어그램은 다음을 보여 줍니다.
 
-- WSFC(Windows Server 장애 조치(Failover) 클러스터)에 있는 두 개의 Azure 가상 컴퓨터. 가상 컴퓨터가 WSFC에 있을 때 *클러스터 노드* 또는 *노드*라고도 합니다.
+- Windows 장애 조치(Failover) 클러스터에 있는 두 개의 Azure Virtual Machines 가상 컴퓨터가 장애 조치 클러스터에 있는 경우 *클러스터 노드* 또는 *노드*라고도 합니다.
 - 각 가상 컴퓨터에는 두 개 이상의 데이터 디스크가 있습니다.
 - S2D는 데이터 디스크의 데이터를 동기화하고 저장소 풀로 동기화된 저장소를 제공합니다. 
-- 저장소 풀은 WSFC에 CSV(클러스터 공유 볼륨)를 제공합니다.
+- 저장소 풀은 장애 조치 클러스터에 CSV(클러스터 공유 볼륨)를 제공합니다.
 - SQL Server FCI 클러스터 역할은 데이터 드라이브에 CSV를 사용합니다. 
 - SQL Server FCI에 대한 IP 주소를 저장하는 Azure 부하 분산 장치.
 - Azure 가용성 집합은 모든 리소스를 보유합니다.
@@ -76,11 +77,11 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
 - Azure 가상 컴퓨터에 개체를 만들 수 있는 권한이 있는 계정
 - 다음 구성 요소에 대한 충분한 IP 주소 공간이 있는 Azure 가상 네트워크 및 서브넷
    - 두 가상 컴퓨터
-   - WSFC IP 주소
+   - 장애 조치 클러스터 IP 주소
    - 각 FCI에 대한 IP 주소
 - 도메인 컨트롤러를 가리키는 Azure 네트워크에 구성된 DNS 
 
-이러한 필수 구성 요소가 준비되면 WSFC 빌드를 진행할 수 있습니다. 첫 번째 단계는 가상 컴퓨터를 만드는 것입니다. 
+이러한 필수 구성 요소가 준비되면 장애 조치 클러스터 빌드를 진행할 수 있습니다. 첫 번째 단계는 가상 컴퓨터를 만드는 것입니다. 
 
 ## <a name="step-1-create-virtual-machines"></a>1단계: 가상 컴퓨터 만들기
 
@@ -135,9 +136,9 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
       - **{BYOL} Windows Server Datacenter 2016의 SQL Server 2016 Standard** 
    
    >[!IMPORTANT]
-   >가상 컴퓨터를 만든 후에 사전 설치된 독립 실행형 SQL Server 인스턴스를 제거합니다. WSFC 및 S2D를 구성한 후 사전 설치된 SQL Server 미디어를 사용하여 SQL Server FCI를 만듭니다. 
+   >가상 컴퓨터를 만든 후에 사전 설치된 독립 실행형 SQL Server 인스턴스를 제거합니다. 장애 조치 클러스터 및 S2D를 구성한 후 사전 설치된 SQL Server 미디어를 사용하여 SQL Server FCI를 만듭니다. 
 
-   또는 운영 체제와 함께 Azure Marketplace 이미지를 사용할 수 있습니다. **Windows Server 2016 Datacenter** 이미지를 선택하고 WSFC와 S2D를 구성한 후 SQL Server FCI를 설치합니다. 이 이미지는 SQL Server 설치 이미지를 포함하지 않습니다. 각 서버에 대한 SQL Server 설치를 실행할 수 있는 위치에 설치 미디어를 배치합니다.
+   또는 운영 체제와 함께 Azure Marketplace 이미지를 사용할 수 있습니다. **Windows Server 2016 Datacenter** 이미지를 선택하고 장애 조치 클러스터와 S2D를 구성한 후 SQL Server FCI를 설치합니다. 이 이미지는 SQL Server 설치 이미지를 포함하지 않습니다. 각 서버에 대한 SQL Server 설치를 실행할 수 있는 위치에 설치 미디어를 배치합니다.
 
 1. Azure에서 가상 컴퓨터를 만든 후에 RDP로 각 가상 컴퓨터에 연결합니다. 
 
@@ -179,15 +180,15 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
 
 1. [기존 도메인에 가상 컴퓨터를 추가합니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-가상 컴퓨터를 만들고 구성한 후에 WSFC를 구성할 수 있습니다.
+가상 컴퓨터를 만들고 구성한 후에 장애 조치 클러스터를 구성할 수 있습니다.
 
-## <a name="step-2-configure-the-windows-server-failover-cluster-wsfc-with-s2d"></a>2단계: S2D로 WSFC(Windows Server 장애 조치(Failover) 클러스터) 구성
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>2단계: S2D로 Windows 장애 조치(Failover) 클러스터 구성
 
-다음 단계는 S2D로 WSFC를 구성하는 것입니다. 이 단계에서는 다음 하위 단계를 수행합니다.
+다음 단계는 S2D로 장애 조치 클러스터를 구성하는 것입니다. 이 단계에서는 다음 하위 단계를 수행합니다.
 
 1. Windows 장애 조치(Failover) 클러스터링 기능 추가
 1. 클러스터 유효성 검사
-1. WSFC 만들기
+1. 장애 조치 클러스터 만들기
 1. 클라우드 감시 만들기
 1. 저장소 추가
 
@@ -240,34 +241,34 @@ PowerShell로 클러스터의 유효성을 검사하려면 가상 컴퓨터 중 
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-클러스터의 유효성을 검사한 후에 WSFC를 만듭니다.
+클러스터의 유효성을 검사한 후에 장애 조치 클러스터를 만듭니다.
 
-### <a name="create-the-wsfc"></a>WSFC 만들기
+### <a name="create-the-failover-cluster"></a>장애 조치 클러스터 만들기
 
-이 가이드에서는 [WSFC 만들기](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)를 설명합니다.
+이 가이드에서는 [장애 조치 클러스터 만들기](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)를 설명합니다.
 
-WSFC를 만들려면 다음이 필요합니다. 
+장애 조치 클러스터를 만들려면 다음이 필요합니다. 
 - 클러스터 노드가 되는 가상 컴퓨터의 이름. 
-- WSFC에 대한 이름. 올바른 이름 사용 
-- WSFC에 대한 IP 주소. 클러스터 노드와 동일한 Azure 가상 네트워크 및 서브넷에 사용되지 않는 IP 주소를 사용할 수 있습니다. 
+- 장애 조치 클러스터의 이름
+- 장애 조치 클러스터의 IP 주소 클러스터 노드와 동일한 Azure 가상 네트워크 및 서브넷에 사용되지 않는 IP 주소를 사용할 수 있습니다. 
 
-다음 PowerShell은 WSFC를 만듭니다. 스크립트를 노드의 이름(가상 컴퓨터 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다. 
+다음 PowerShell은 장애 조치 클러스터를 만듭니다. 스크립트를 노드의 이름(가상 컴퓨터 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다. 
 
 ```PowerShell
-New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
 ### <a name="create-a-cloud-witness"></a>클라우드 감시 만들기
 
 클라우드 감시는 Azure Storage Blob에 저장된 새로운 유형의 클러스터 쿼럼 감시입니다. 감시 공유를 호스트하는 별도 VM의 필요성을 제거합니다.
 
-1. [WSFC에 대한 클라우드 감시를 만듭니다](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+1. [장애 조치 클러스터에 대한 클라우드 감시를 만듭니다](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
 1. Blob 컨테이너를 만듭니다. 
 
 1. 액세스 키 및 컨테이너 URL을 저장합니다.
 
-1. WSFC 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
+1. 장애 조치 클러스터에 대한 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
 
 ### <a name="add-storage"></a>저장소 추가
 
@@ -297,13 +298,13 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-wsfc-failover"></a>3단계: WSFC 장애 조치(failover) 테스트
+## <a name="step-3-test-failover-cluster-failover"></a>3단계: 장애 조치 클러스터의 장애 조치 테스트
 
-장애 조치(Failover) 클러스터 관리자에서 저장소 리소스를 다른 클러스터 노드로 이동할 수 있는지 확인합니다. **장애 조치(Failover) 클러스터 관리자**를 사용하여 WSFC에 연결하고 한 노드에서 다른 노드로 저장소를 이동할 수 있는 경우 이제 FCI를 구성할 준비가 되었습니다. 
+장애 조치(Failover) 클러스터 관리자에서 저장소 리소스를 다른 클러스터 노드로 이동할 수 있는지 확인합니다. **장애 조치(Failover) 클러스터 관리자**를 사용하여 장애 조치 클러스터에 연결하고 한 노드에서 다른 노드로 저장소를 이동할 수 있는 경우 이제 FCI를 구성할 준비가 되었습니다. 
 
 ## <a name="step-4-create-sql-server-fci"></a>4단계: SQL Server FCI 만들기
 
-WSFC 및 저장소를 포함한 모든 클러스터 구성 요소를 구성한 후 SQL Server FCI를 만들 수 있습니다. 
+장애 조치 클러스터 및 저장소를 포함한 모든 클러스터 구성 요소를 구성한 후 SQL Server FCI를 만들 수 있습니다. 
 
 1. RDP를 사용하여 첫 번째 가상 컴퓨터에 연결합니다. 
 
@@ -473,10 +474,5 @@ Azure 가상 컴퓨터에서 RPC 포트는 부하 분산 장치에서 지원되�
 [저장소 공간 다이렉트 개요](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [S2D에 대한 SQL Server 지원](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

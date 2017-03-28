@@ -1,10 +1,10 @@
 ---
-title: "PowerShell을 사용한 인스턴스 수준 공용 IP(클래식) | Microsoft Docs"
-description: "PowerShell을 사용한 ILPIP(PIP) 및 관리 방법 이해."
+title: "Azure 인스턴스 수준 공용 IP(클래식) 주소 | Microsoft Docs"
+description: "ILPIP(인스턴스 수준 공용 IP) 주소 및 PowerShell을 사용하여 이를 관리하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -15,16 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: f1919d84cf912e184d87a5eeb462355e8ee3da07
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c233439b78fb01beaa3183b79ab633aeb9357ef0
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>인스턴스 수준 공용 Ip(클래식) 개요
-ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 역할 인스턴스에 직접 할당할 수 있는 공용 IP 주소입니다. 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
+ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 Cloud Services 역할 인스턴스에 직접 할당할 수 있는 공용 IP 주소입니다. ILPIP는 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자를 사용하는 것이 좋습니다. Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md) 가 어떻게 작동하는지 이해해야 합니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Resource Manager를 통해 VM을 만드는 것이 좋습니다. Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md) 가 어떻게 작동하는지 이해해야 합니다.
 
 ![ILPIP 및 VIP 간의 차이](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -36,22 +37,25 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 * contosoweb\_IN_1.contosoadservice.cloudapp.net 
 
 > [!NOTE]
-> 각 VM 또는 역할 인스턴스에 대해 하나의 ILPIP를 할당할 수 있습니다. 구독 당 최대 5개의 ILPIP를 사용할 수 있습니다. 이때 ILPIP는 다중 NIC VM에 대해 지원되지 않습니다.
+> 각 VM 또는 역할 인스턴스에 대해 하나의 ILPIP를 할당할 수 있습니다. 구독당 최대 5개의 ILPIP를 사용할 수 있습니다. 다중 NIC VM에는 ILPIP가 지원되지 않습니다.
 > 
 > 
 
-## <a name="why-should-i-request-an-ilpip"></a>ILPIP를 요청해야 하는 이유
+## <a name="why-would-i-request-an-ilpip"></a>ILPIP를 요청하는 이유
 클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면 VM 또는 역할 인스턴스에 대한 ILPIP를 요청합니다.
 
-* **수동 FTP** - VM에 ILPIP를 지정하여 모든 포트에서 트래픽을 받을 수 있으며 트래픽을 수신할 끝점을 열지 않아도 됩니다. 이 포트를 동적으로 선택한 수동 FTP와 같은 시나리오를 통해 사용됩니다.
-* **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP와 함께 보내지며 외부 엔터티에 대한 VM을 고유하게 식별합니다.
+* **수동 FTP** - VM에 ILPIP를 할당하면 거의 모든 포트에서 트래픽을 수신할 수 있습니다. 끝점이 없어도 VM에서 트래픽을 수신할 수 있습니다. ILPIP는 포트가 동적으로 선택되는 수동 FTP와 같은 시나리오를 지원합니다.
+* **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP와 함께 보내지며 ILPIP는 외부 엔터티에 대한 VM을 고유하게 식별합니다.
 
 > [!NOTE]
-> 과거에는 ILPIP를 PIP라고 했으며 공용 IP를 나타냅니다.
+> 과거에는 ILPIP 주소를 PIP(공용 IP) 주소라고 했습니다.
 > 
 
-## <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>PowerShell을 사용하여 VM 생성 중 ILPIP를 요청하는 방법
-아래의 PowerShell 스크립트는 *FTPService*라는 새 클라우드 서비스를 만든 다음, Azure에서 이미지를 검색 하고 검색된 이미지를 사용하여 *FTPInstance*라는 VM을 만들고, ILPIP를 사용하도록 VM을 설정하고 VM을 새 서비스에 추가합니다.
+## <a name="manage-an-ilpip-for-a-vm"></a>VM에 대한 ILPIP 관리
+다음 작업을 통해 VM에서 ILPIP를 생성, 할당 및 제거할 수 있습니다.
+
+### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>PowerShell을 사용하여 VM 생성 중 ILPIP를 요청하는 방법
+다음 PowerShell 스크립트는 *FTPService*라는 클라우드 서비스를 만들고, Azure에서 이미지를 검색하고, 검색된 이미지를 사용하여 *FTPInstance*라는 VM을 만들고, ILPIP를 사용하도록 VM을 설정하고, VM을 새 서비스에 추가합니다.
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
@@ -62,7 +66,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
-## <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>VM에 대한 ILPIP 정보를 검색하는 방법
+### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>VM에 대한 ILPIP 정보를 검색하는 방법
 위의 스크립트를 사용하여 만든 VM에 대한 ILPIP 정보를 보려면, 다음 PowerShell 명령을 실행하고 *PublicIPAddress* 및 *PublicIPName*의 값을 확인합니다.
 
 ```powershell
@@ -88,7 +92,7 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
     AvailabilitySetName         : 
     DNSName                     : http://ftpservice888.cloudapp.net/
     Status                      : ReadyRole
-    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    GuestAgentStatus            :     Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
     ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
     PublicIPAddress             : 104.43.142.188
     PublicIPName                : ftpip
@@ -98,54 +102,50 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
     OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
     OperationStatus             : OK
 
-## <a name="how-to-remove-an-ilpip-from-a-vm"></a>VM에서 ILPIP를 제거하는 방법
+### <a name="how-to-remove-an-ilpip-from-a-vm"></a>VM에서 ILPIP를 제거하는 방법
 위의 스크립트에서 VM에 추가된 ILPIP를 제거하려면 다음 PowerShell 명령을 실행합니다.
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
 ```
 
-## <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>기존 VM에 ILPIP를 추가하는 방법
+### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>기존 VM에 ILPIP를 추가하는 방법
 위의 스크립트를 사용하여 만든 VM에 ILPIP를 추가하려면 다음 명령을 실행합니다.
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## <a name="how-to-associate-an-ilpip-to-a-vm-by-using-a-service-configuration-file"></a>서비스 구성 파일을 사용하여 VM에 ILPIP를 연결하는 방법
-서비스 구성(CSCFG) 파일을 사용하여 VM에 ILPIP를 연결할 수도 있습니다. 아래 샘플 xml에서는 *MyPublicIP* 라는 ILPIP를 역할 인스턴스로 사용하도록 클라우드 서비스를 구성하는 방법을 보여 줍니다. 
+## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Cloud Services 역할 인스턴스에 대한 ILPIP 관리
 
+Cloud Services 역할 인스턴스에 ILPIP를 추가하려면 다음 단계를 완료합니다.
+
+1. [Cloud Services를 구성하는 방법](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) 문서의 단계를 완료하여 클라우드 서비스에 대한 .cscfg 파일을 다운로드합니다.
+2. `InstanceAddress` 요소를 추가하여 .cscfg 파일을 업데이트합니다. 다음 샘플에서는 *WebRole1* 역할 인스턴스에 *MyPublicIP*라는 ILPIP를 추가합니다. 
+
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
+    <ServiceConfiguration serviceName="ILPIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
       <Role name="WebRole1">
         <Instances count="1" />
-        <ConfigurationSettings>
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-        </ConfigurationSettings>
+          <ConfigurationSettings>
+        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+          </ConfigurationSettings>
       </Role>
       <NetworkConfiguration>
-        <VirtualNetworkSite name="VNet"/>
         <AddressAssignments>
-          <InstanceAddress roleName="VMRolePersisted">
-            <Subnets>
-              <Subnet name="Subnet1"/>
-              <Subnet name="Subnet2"/>
-            </Subnets>
-            <PublicIPs>
-              <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <InstanceAddress roleName="WebRole1">
+        <PublicIPs>
+          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
       </NetworkConfiguration>
     </ServiceConfiguration>
+    ```
+3. [Cloud Services를 구성하는 방법](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) 문서의 단계를 완료하여 클라우드 서비스에 대한 .cscfg 파일을 업로드합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 클래식 배포 모델에서 [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md) 이 어떻게 작동하는지 이해합니다.
 * [예약된 IP](virtual-networks-reserved-public-ip.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

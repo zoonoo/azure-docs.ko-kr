@@ -1,5 +1,5 @@
 ---
-title: "Windows VM에서 데이터 디스크 분리 | Microsoft Docs"
+title: "Windows VM에서 데이터 디스크 분리 - Azure| Microsoft Docs"
 description: "Resource Manager 배포 모델을 사용하여 Azure의 가상 컴퓨터에서 데이터 디스크를 분리하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 7274a86ada8115e86156592cf034d0350f59ebab
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,12 +34,14 @@ ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 1. 포털 허브에서 **가상 컴퓨터**를 선택합니다.
-2. 분리할 데이터 디스크가 있는 가상 컴퓨터를 선택하고 **모든 설정**을 클릭합니다.
-3. **설정** 블레이드에서 **디스크**를 선택합니다.
-4. **디스크** 블레이드에서 분리하려는 데이터 디스크를 선택합니다.
-5. 데이터 디스크에 대한 블레이드에서 **분리**를 클릭합니다.
+2. 분리할 데이터 디스크가 있는 가상 컴퓨터를 선택하고 **중지**를 클릭하여 VM을 할당 취소합니다.
+3. 가상 컴퓨터 블레이드에서 **디스크**를 선택합니다.
+4. **디스크** 블레이드 상단에서 **편집**을 선택합니다.
+5. **디스크** 블레이드에서 분리할 데이터 디스크의 맨 오른쪽에 있는 ![분리 단추 이미지](./media/virtual-machines-common-detach-disk/detach.png) 분리 단추를 클릭합니다.
+5. 디스크를 제거한 후 블레이드 상단에서 저장을 클릭합니다.
+6. 가상 컴퓨터 블레이드에서 **개요**를 클릭한 다음 블레이드 상단에서 **시작** 단추를 클릭하여 VM을 다시 시작합니다.
 
-    ![분리 단추를 표시하는 스크린샷](./media/virtual-machines-windows-detach-disk/detach-disk.png)
+
 
 디스크가 저장소에 유지되지만 더 이상 가상 컴퓨터에 연결되어 있지 않습니다.
 
@@ -55,15 +58,9 @@ Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-
-자세한 내용은 [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx)
+자세한 내용은 [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

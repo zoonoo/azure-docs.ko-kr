@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 4094759caba015b9d609b616d5099a6e109bf1d4
-ms.openlocfilehash: 6ac0c3b2893b96f93bf2aeadd61b263654957477
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)는 몇 개의 코드 줄만으로 단일 로그
 * [앱 기본 사항](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)을 다운로드하거나 [완성된 샘플](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip)을 다운로드하세요.
 * 앱을 등록할 Azure AD 테넌트도 필요합니다. Azure AD 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
 
-준비가 완료되면 다음&4;가지 섹션의 절차를 수행합니다.
+준비가 완료되면 다음 4가지 섹션의 절차를 수행합니다.
 
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>1단계: Azure AD에 새 앱 등록
 사용자를 인증하도록 앱을 설정하려면 먼저 다음을 수행하여 앱을 테넌트에 등록합니다.
@@ -46,8 +46,8 @@ Azure AD(Azure Active Directory)는 몇 개의 코드 줄만으로 단일 로그
 5. 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
   * **이름**은 사용자에게 앱에 대해 설명합니다.
   * **로그온 URL**은 앱의 기본 URL입니다. 기본 사항의 기본 URL은 http://localhost:44320/입니다.
-  * **앱 ID URI**는 앱의 고유 식별자입니다. 명명 규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)입니다.
 6. 등록이 완료되면 Azure AD가 앱에 고유한 응용 프로그램 ID를 할당합니다. 다음 섹션에서 사용할 수 있도록 앱 페이지의 값을 복사합니다.
+7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI**는 앱의 고유 식별자입니다. 명명 규칙은 `https://<tenant-domain>/<app-name>`(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)입니다.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2단계: OWIN 인증 파이프라인을 사용하도록 앱 설정
 이 단계에서 OpenID Connect 인증 프로토콜을 사용하도록 OWIN 미들웨어를 구성합니다. OWIN을 사용하여 로그인 및 로그아웃 요청을 실행하고, 사용자 세션을 관리하고, 사용자 정보를 가져오는 등의 작업을 수행할 수 있습니다.

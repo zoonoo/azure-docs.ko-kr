@@ -1,9 +1,9 @@
 ---
 title: "SQL Database 및 SQL Data Warehouse를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안 | Microsoft Docs"
-description: " PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례에 대해 자세히 알아봅니다.. "
+description: " PaaS 웹 및 모바일 응용 프로그램 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례에 대해 자세히 알아봅니다. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 39f841c0f3c8bed1bd640dfd644a58a764422aff
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -91,9 +92,4 @@ TDE는 데이터와 로그 파일을 의미하는 미사용 데이터를 보호�
 
 - [PaaS 배포 보안](security-paas-deployments.md)
 - [Azure App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

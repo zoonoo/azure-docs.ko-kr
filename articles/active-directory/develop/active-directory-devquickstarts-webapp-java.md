@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: ade6b7d9fa195ebea8f8587b01e4cc0ba71a0a83
-ms.openlocfilehash: fa5c367d7b8f46349b4bdc1de2af35050329a650
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -37,20 +37,20 @@ Azure AD(Azure Active Directory)는 몇 개의 코드 줄만으로 단일 로그
 * [앱 기본 사항](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip)을 다운로드하거나 [완성된 샘플](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip)을 다운로드하세요.
 * 또한 앱을 등록할 Azure AD 테넌트도 필요합니다. Azure AD 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
 
-준비가 완료되면 다음&9;가지 섹션의 절차를 수행합니다.
+준비가 완료되면 다음 9가지 섹션의 절차를 수행합니다.
 
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>1단계: Azure AD에 새 앱 등록
 사용자를 인증하도록 앱을 설정하려면 먼저 다음을 수행하여 앱을 테넌트에 등록합니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 위쪽 막대에서 계정 이름을 클릭합니다. **디렉터리** 목록에서 앱을 등록할 Active Directory 테넌트를 선택합니다.
+2. 위쪽 모음에서 계정 이름을 클릭합니다. **디렉터리** 목록에서 앱을 등록할 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
 5. 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI**를 만듭니다.
   * **이름**은 사용자에게 앱에 대해 설명합니다.
   * **로그온 URL**은 앱의 기본 URL입니다. 기본 사항의 기본 URL은 http://localhost:8080/adal4jsample/입니다.
-  * **앱 ID URI**: 앱의 고유 식별자 명명 규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)입니다.
 6. 등록이 완료되면 Azure AD가 앱에 고유한 응용 프로그램 ID를 할당합니다. 다음 섹션에서 사용할 수 있도록 앱 페이지의 값을 복사합니다.
+7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI**는 앱의 고유 식별자입니다. 명명 규칙은 `https://<tenant-domain>/<app-name>`(예: `http://localhost:8080/adal4jsample/`)입니다.
 
 앱용 포털에 있는 경우 **설정** 페이지에서 앱용 키를 만든 후 복사합니다. 이 키는 바로 필요합니다.
 

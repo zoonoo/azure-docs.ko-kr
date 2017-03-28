@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
-ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,8 +28,8 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 > [!NOTE]
 > Azure API Management는 클래식 및 Azure Resource Manager Vnet을 모두 지원합니다.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>VNET 연결 사용
 > [!NOTE]
@@ -59,20 +59,20 @@ VNET 연결을 사용하려면 Azure Portal 포털에서 API Management 서비�
 
 > [!IMPORTANT]
 > Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스이 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
-> 
-> 
+>
+>
 
 ![VPN 선택][api-management-setup-vpn-select]
 
-화면 위쪽에서 **저장**을 클릭합니다. 
+화면 위쪽에서 **저장**을 클릭합니다.
 
 > [!NOTE]
 > API Management 인스턴스의 VIP 주소는 VNET이 활성화되거나 비활성화될 때마다 변경됩니다.  
 > VIP 주소는 API Management를 **외부**에서 **내부**로 또는 그 반대로 이동할 때도 변경됩니다.
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > VNET에서 API Management를 제거하거나 배포된 것을 변경할 경우 이전에 사용한 VNET는 최대 4시간 동안 잠긴 상태를 유지할 수 있습니다. 이 기간에는 VNET를 삭제하거나 새 리소스를 배포할 수 없게 됩니다.
 
 ## <a name="enable-vnet-powershell"> </a>PowerShell cmdlet을 사용하여 VNET 연결 사용
@@ -94,7 +94,7 @@ API 관리 서비스가 VNET에 연결된 후에는 공용 서비스에 액세�
 
 > [!IMPORTANT]
 > VNET에 사용자 지정 DNS 서버를 사용하고 있는 경우에는 API Management 서비스를 배포하기 **전에** 설정해야 합니다. 또는 새 DNS 서버 설정을 선택하기 위해 서비스를 호스팅하는 CloudService를 다시 시작해야 합니다.
-> 
+>
 
 * **API Management에 필요한 포트**: API Management가 배포된 인바운드 및 아웃바운드 트래픽은 [네트워크 보안 그룹][Network Security Group]을 사용하여 제어할 수 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API Management를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
 
@@ -134,7 +134,7 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 
 
 ## <a name="related-content"> </a>관련 콘텐츠
-* [VPN 게이트웨이를 사용하여 가상 네트워크를 백 엔드에 연결][Different topologies to connect to Vpn Gateway]
+* [VPN Gateway를 사용하여 가상 네트워크를 백 엔드에 연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [다양한 배포 모델에서 가상 네트워크 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
 
@@ -149,7 +149,6 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 

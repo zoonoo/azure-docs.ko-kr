@@ -1,6 +1,6 @@
 ---
 title: "기존 NPS 서버를 사용하여 Azure MFA 기능 제공 | Microsoft Docs"
-description: "Azure Multi-Factor Authentication용 NPS(네트워크 정책 서버) 확장은 기존 인증 인프라에 클라우드 기반&2;단계 인증 기능을 추가하는 간단한 솔루션입니다."
+description: "Azure Multi-Factor Authentication용 NPS(네트워크 정책 서버) 확장은 기존 인증 인프라에 클라우드 기반 2단계 인증 기능을 추가하는 간단한 솔루션입니다."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 804e811c0db5f72b6764b3cb120eb5ec8898baac
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합 - 공개 미리 보기
@@ -88,7 +88,7 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 ### <a name="configurations-limitations"></a>구성 제한 사항
 
-- NPS 확장은 기존 배포에서 사용하는 것이며 새로운 배포에는 사용되지 않습니다. 이러한 이유로 Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다.
+- NPS 확장은 새 배포에 사용되며 기존 배포에는 사용되지 않습니다. 이러한 이유로 Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다.
 
 - NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 AD 필드와 같은 다른 식별자를 사용하도록 구성될 수 없습니다.  
 

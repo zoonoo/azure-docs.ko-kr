@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 0a711ee4118973b21d47f1c3e63301f0dfac879d
-ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dd817c9b3160c47463a3a88380d550d127d898e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,11 +35,8 @@ ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
 ## <a name="dont-see-the-live-chat-icon"></a>라이브 채팅 아이콘이 보이지 않으세요?
 기계 학습 팀의 구성원이 실시간 채팅 참여합니다. 라이브 채팅 아이콘이 보이지 않는 경우는 참여할 수 있는 팀이 없기 때문입니다. 예를 들어 정규 근무 시간이 아닐 수 있습니다. 
 
+Machine Learning 팀의 구성원과 기타 데이터 과학자 및 개발자가 볼 수 있는 [Machine Learning 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)에 언제든지 질문을 게시할 수 있습니다.
+
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

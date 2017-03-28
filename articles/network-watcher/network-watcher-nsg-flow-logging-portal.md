@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
-ms.openlocfilehash: 18227576b14fdf4bb8aa11a673f33075c3a380a8
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -66,7 +66,7 @@ Network Watcher 인스턴스로 이동하고 **흐름 로그**를 선택합니�
 
 ### <a name="step-1"></a>1단계
 
-흐름 로그를 다운로드하려면 **구성된 저장소 계정에서 흐름 로그를 다운로드합니다**를 클릭합니다.  그러면 저장소 계정 보기가 표시되며 여기에서 다운로드할 로그에 이동할 수 있습니다.
+흐름 로그를 다운로드하려면 **구성된 저장소 계정에서 흐름 로그를 다운로드할 수 있습니다**를 클릭합니다.  그러면 저장소 계정 보기가 표시되며 여기에서 다운로드할 로그에 이동할 수 있습니다.
 
 ![흐름 로그 설정][4]
 
@@ -95,3 +95,4 @@ Network Watcher 인스턴스로 이동하고 **흐름 로그**를 선택합니�
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
+

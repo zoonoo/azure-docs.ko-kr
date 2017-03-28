@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
-ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -119,6 +119,8 @@ ms.lasthandoff: 02/27/2017
 > [!NOTE] 
 > 게이트웨이가 일시적으로 제거될 때까지 VPN Gateway를 포함하는 Virtual Network를 현재 이동할 수 없습니다. 제거되면 Virtual Network를 성공적으로 이동할 수 있고 게이트웨이를 만들 수 있습니다.
 >
+> 현재 피어링된 Virtual Network는 VNet 피어링을 사용하지 않도록 설정할 때까지 이동할 수 없습니다. 사용하지 않도록 설정되면 Virtual Network를 성공적으로 이동할 수 있고 VNet 피어링을 사용할 수 있습니다.
+>
  
 ## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
@@ -134,6 +136,7 @@ ms.lasthandoff: 02/27/2017
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 보안
 * Key Vault에 저장된 인증서를 사용하는 가상 컴퓨터
+* Managed Disks를 포함하는 가상 컴퓨터
 * 가상 컴퓨터 크기 집합
 * 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * VPN 게이트웨이

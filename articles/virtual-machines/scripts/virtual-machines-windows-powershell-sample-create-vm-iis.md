@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 68b3d858bc268eb8b93e4968d9fb1e587ebaa1e6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5269bd54e2dc9604c855cc9ff061cca26db1bf44
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-an-iis-vm-with-powershell"></a>PowerShell을 사용하여 IIS VM 만들기
 
-이 스크립트는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. 스크립트를 실행하면 데모 웹 사이트는 가상 컴퓨터의 공용 IP 주소를 사용할 수 있습니다.
+이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. 스크립트를 실행하면 가상 컴퓨터의 공용 IP 주소에서 기본 IIS 웹 사이트에 액세스할 수 있습니다.
 
-이 스크립트를 실행하기 전에 `Login-AzureRmAccount` 명령을 사용하여 Azure와의 연결이 생성되었는지 확인합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

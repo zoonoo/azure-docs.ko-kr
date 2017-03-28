@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
-ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: fb61a2d622b0d829a134b6ce5dfef6e9fb44fa1e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +47,7 @@ OfficeSpace Software와의 Azure AD 통합을 구성하려면 다음 항목이 �
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -148,43 +148,31 @@ OfficeSpace Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
     
     d. **확인**을 클릭합니다.
 
-6. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
-
-    ![Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
-
-7. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 **만료 날짜**를 선택합니다. 그런 후 **저장** 단추를 클릭합니다.
-
-    ![Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. **SAML 서명 인증서** 섹션에서 **새 인증서 활성화**를 선택한 후 **저장** 단추를 클릭합니다.
-
-    ![Single Sign-on 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. 팝업 **롤오버 인증서** 창에서 **확인**을 클릭합니다.
-
-    ![Single Sign-on 구성](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. **SAML 서명 인증서** 섹션에서 **인증서(base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+6. **SAML 서명 인증서** 섹션에서 **인증서(base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. **OfficeSpace Software 구성** 섹션에서 **OfficeSpace Software 구성**을 클릭하여 **로그온 구성** 창을 엽니다.
+7. **Save**를 클릭합니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. **OfficeSpace Software 구성** 섹션에서 **OfficeSpace Software 구성**을 클릭하여 **로그온 구성** 창을 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
     ![Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. 다른 웹 브라우저 창에서 OfficeSpace Software 테넌트에 관리자로 로그인합니다.
+9. 다른 웹 브라우저 창에서 OfficeSpace Software 테넌트에 관리자로 로그인합니다.
 
-13. **설정**으로 이동한 후 **커넥터**를 클릭합니다.
+10. **설정**으로 이동한 후 **커넥터**를 클릭합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. **SAML 권한 부여**를 클릭합니다.
+11. **SAML 인정**을 클릭합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. **SAML 권한 부여** 섹션에서 다음 단계를 수행합니다.
+12. **SAML Authentication** 섹션에서 다음 단계를 수행합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 

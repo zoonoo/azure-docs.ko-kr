@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
-ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 23f4813b3ba587784f5b31cfa633cdf27373843d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -89,9 +90,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 | 계산 |연결되지 않은 가상 컴퓨터 디스크 |
 | 계산 |가상 컴퓨터 이미지 |
 | 네트워크 |끝점 ACL. |
-| 네트워크 |가상 네트워크 게이트웨이(Azure ExpressRoute 게이트웨이, Application Gateway) |
+| 네트워크 |ExpressRoute Gateway, Application Gateway(VPN Gateway 지원) |
 | 네트워크 |VNet 피어링을 사용하는 가상 네트워크 (VNet을 ARM으로, 다시 피어로 마이그레이션) [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)에 대해 자세히 알아봅니다. |
-| 네트워크 |트래픽 관리자 프로필 |
 
 ### <a name="unsupported-configurations"></a>지원되지 않는 구성
 현재 지원되지 않는 구성은 다음과 같습니다.
@@ -110,6 +110,8 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 | Azure HDInsight |HDInsight Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Microsoft Dynamics Lifecycle Services |Dynamics Lifecycle Services에서 관리하는 가상 컴퓨터가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure AD Domain Services |Azure AD Domain Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
+| Azure RemoteApp |Azure RemoteApp 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
+| Azure API 관리 |Azure API Management 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. IaaS VNET을 마이그레이션하려면 가동 중지 시간이 없는 API Management 배포의 VNET을 변경하세요. |
 | Compute |온-프레미스 DNS 서버에서 전송 연결 중인 VPN Gateway 또는 ExpressRoute 게이트웨이가 있는 VNET을 포함하는 Azure Security Center 확장 |Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 가상 컴퓨터에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. ExpressRoute 게이트웨이 마이그레이션은 현재 지원되지 않고 전송 연결된 VPN Gateway는 온-프레미스 액세스를 상실합니다. ExpressRoute 게이트웨이를 삭제하거나 전송 연결된 VPN Gateway를 마이그레이션하면 마이그레이션을 커밋하도록 진행하는 경우 VM 저장소 계정에 대한 인터넷 액세스를 상실합니다. 게스트 에이전트 상태 blob을 채울 수 없어서 이 문제가 발생하는 경우에는 마이그레이션이 진행되지 않습니다. 마이그레이션을 계속하기 3시간 전에, 구독에서 Azure Security Center 정책을 사용하지 않도록 설정하는 것이 좋습니다. |
 
 ## <a name="the-migration-experience"></a>마이그레이션 환경
@@ -150,7 +152,16 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 그런 다음 Azure 플랫폼이 마이그레션하는 리소스에 대해 클래식에서Resource Manager로 메타데이터 마이그레이션을 시작합니다.
 
-준비 작업이 완료되면 리소스를 클래식 및 Resource Manager에서 볼 수 있는 옵션이 표시됩니다. 클래식 배포 모델의 모든 클라우드 서비스에 대해 Azure Platform에서 `cloud-service-name>-migrated`패턴의 리소스 그룹 이름을 만듭니다.
+준비 작업이 완료되면 리소스를 클래식 및 Resource Manager에서 볼 수 있는 옵션이 표시됩니다. 클래식 배포 모델의 모든 클라우드 서비스에 대해 Azure Platform에서 `cloud-service-name>-Migrated`패턴의 리소스 그룹 이름을 만듭니다.
+
+> [!NOTE]
+> 마이그레이션된 리소스에 대해 만든 리소스 그룹의 이름(예: "-Migrated")을 선택할 수 없지만 마이그레이션이 완료된 후 Azure Resource Manager 이동 기능을 사용하여 원하는 리소스 그룹으로 리소스를 이동할 수는 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../resource-group-move-resources.md)을 참조하세요.
+
+다음은 성공적인 준비 작업 후의 결과를 보여 주는 두 화면입니다. 첫 번째 화면에서는 원래 클라우드 서비스를 포함하는 리소스 그룹을 보여 줍니다. 두 번째 화면에서는 동일한 Azure Resource Manager 리소스를 포함하는 새 "-Migrated" 리소스 그룹을 보여 줍니다.
+
+![포털 클래식 클라우드 서비스를 보여 주는 스크린샷](./media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
+
+![준비 중인 포털 ARM 리소스를 보여 주는 스크린샷](./media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > 기존 가상 네트워크에 없는 가상 컴퓨터는 이 마이그레이션 단계에서 할당 취소된 상태로 중지됩니다.
@@ -183,6 +194,11 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 > 이 작업은 멱등원 작업입니다. 이 작업이 실패하면 작업을 다시 시도하는 것이 좋습니다. 계속 실패할 경우 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)에서 ClassicIaaSMigration 태그를 사용하여 포럼 게시물을 작성할 수 있습니다.
 >
 >
+<br>
+다음은 마이그레이션 프로세스가 진행되는 동안의 단계 순서도입니다.
+
+![마이그레이션 단계를 보여 주는 스크린샷](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 **이 마이그레이션 계획이 Azure 가상 컴퓨터에서 실행되는 기존 서비스 또는 응용 프로그램에 영향을 미치나요?**
@@ -199,7 +215,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **관리 평면 가동 중지 시간은 얼마나 되나요?**
 
-마이그레이션하는 리소스의 수에 따라 달라집니다. 소규모 배포(몇 십 대의 VM)의 경우 전체 마이그레이션은&1;시간 미만이 소요됩니다. 대규모 배포(수백 대의 VM)의 경우 마이그레이션에 몇 시간이 걸릴 수 있습니다.
+마이그레이션하는 리소스의 수에 따라 달라집니다. 소규모 배포(몇 십 대의 VM)의 경우 전체 마이그레이션은 1시간 미만이 소요됩니다. 대규모 배포(수백 대의 VM)의 경우 마이그레이션에 몇 시간이 걸릴 수 있습니다.
 
 **Resource Manager에서 마이그레이션 리소스를 커밋한 다음 롤백할 수 있나요?**
 
@@ -239,7 +255,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 **메시지를 받았습니다.*"VM은 전반적인 에이전트 상태를 준비되지 않음으로 보고합니다. 따라서 VM은 마이그레이션할 수 없습니다. VM 에이전트가 전반적인 에이전트 상태를 준비된 상태"*로 보고하고 있는지 또는 *"VM에서 보고되지 않은 상태의 확장이 VM에 포함되어 있는지 확인합니다. 따라서 이 VM은 마이그레이션할 수 없습니다."***
 
-VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure 저장소 계정에 연결해&5;분 마다 에이전트 상태를 업데이트합니다.
+VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지가 수신됩니다. VM 에이전트는 아웃 바운드 연결을 사용하여 Azure 저장소 계정에 연결해 5분 마다 에이전트 상태를 업데이트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 클래식 IaaS 리소스를 Resource Manager로 마이그레이션하는 작업을 이해했으므로 리소스 마이그레이션을 시작할 수 있습니다.
@@ -249,9 +265,4 @@ VM이 인터넷에 아웃바운드 연결하지 못하는 경우 이 메시지�
 * [CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [커뮤니티 PowerShell 스크립트를 사용하여 클래식 가상 컴퓨터를 Azure Resource Manager로 복제](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [가장 일반적인 마이그레이션 오류 검토](virtual-machines-migration-errors.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

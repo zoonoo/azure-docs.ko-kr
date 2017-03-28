@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API 관리 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
   
-##  <a name="a-nameadvancedpoliciesa-advanced-policies"></a><a name="AdvancedPolicies"></a> 고급 정책  
+##  <a name="AdvancedPolicies"></a> 고급 정책  
   
 -   [흐름 제어](api-management-advanced-policies.md#choose) - 부울 [식](api-management-policy-expressions.md)의 평가 결과에 따라 정책 문을 조건부로 적용합니다.  
   
 -   [요청 전달](#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.  
   
--   [이벤트 허브에 기록](#log-to-eventhub) - 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다.  
+-   [이벤트 허브에 기록](#log-to-eventhub) - 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다. 
+
+-   [모의 응답](#mock-response) - 파이프라인 실행을 중단하고 호출자에게 직접 모의 응답을 반환합니다.
   
 -   [다시 시도](#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 재시도 횟수까지 반복됩니다.  
   
@@ -48,10 +51,10 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   [대기](#Wait) - 계속하기 전에 완료할 포함된 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey) 또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책 등을 기다립니다.  
   
-##  <a name="a-namechoosea-control-flow"></a><a name="choose"></a> 흐름 제어  
+##  <a name="choose"></a> 흐름 제어  
  `choose` 정책은 프로그래밍 언어의 if-then-else 또는 switch 생성과 마찬가지로 Boolean 식의 평가 결과에 따라 포함된 정책 문을 적용합니다.  
   
-###  <a name="a-namechoosepolicystatementa-policy-statement"></a><a name="ChoosePolicyStatement"></a> 정책 문  
+###  <a name="ChoosePolicyStatement"></a> 정책 문  
   
 ```xml  
 <choose>   
@@ -71,7 +74,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 ### <a name="examples"></a>예  
   
-####  <a name="a-namechooseexamplea-example"></a><a name="ChooseExample"></a> 예  
+####  <a name="ChooseExample"></a> 예  
  다음 예에서는 [set-variable](api-management-advanced-policies.md#set-variable) 정책과 두 개의 제어 흐름 정책을 보여 줍니다.  
   
  변수 설정 정책은 인바운드 섹션에 있으며 `User-Agent` 요청 헤더에 `iPad` 또는 `iPhone` 텍스트가 포함되는 경우 true로 설정되는 `isMobile` 부울 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수를 생성합니다.  
@@ -110,7 +113,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 ```  
   
 #### <a name="example"></a>예  
- 이 예에서는 `Starter` 제품을 사용할 때 백 엔드 서비스에서 수신한 응답에서 데이터 요소를 제거하여 콘텐츠 필터링을 수행하는 방법을 보여 줍니다. 이 정책 구성 및 사용에 대한 데모는 [클라우드 표지 에피소드 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 34:30 지점으로 빨리 감기하면서 참조하세요. 31분 50초 재생 시점에서 시작하는 [Dark Sky Forecast API](https://developer.forecast.io/)(영문) 개요를 확인하세요.  
+ 이 예에서는 `Starter` 제품을 사용할 때 백 엔드 서비스에서 수신한 응답에서 데이터 요소를 제거하여 콘텐츠 필터링을 수행하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 34분 30초 재생 시점까지 빨리 진행하면서 참조하세요. 31분 50초 재생 시점에서 시작하는 [Dark Sky Forecast API](https://developer.forecast.io/)(영문) 개요를 확인하세요.  
   
 ```xml  
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->  
@@ -142,14 +145,14 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|포함하는 `when` 정책 문이 평가될 때 평가할 Boolean 식 또는 상수입니다.|예|  
   
-###  <a name="a-namechooseusagea-usage"></a><a name="ChooseUsage"></a> 사용 방법  
+###  <a name="ChooseUsage"></a> 사용 방법  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound, outbound, backend, on-error  
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-nameforwardrequesta-forward-request"></a><a name="ForwardRequest"></a> 요청 전달  
+##  <a name="ForwardRequest"></a> 요청 전달  
  `forward-request` 정책은 들어오는 요청을 요청 [컨텍스트](api-management-policy-expressions.md#ContextVariables)에 지정된 백 엔드 서비스에 전달합니다. 백 엔드 서비스 URL이 API [설정](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings)에 지정되고 [백 엔드 서비스 설정](api-management-transformation-policies.md) 정책을 사용하여 변경할 수 있습니다.  
   
 > [!NOTE]
@@ -260,7 +263,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-namelog-to-eventhuba-log-to-event-hub"></a><a name="log-to-eventhub"></a> 이벤트 허브에 기록  
+##  <a name="log-to-eventhub"></a> 이벤트 허브에 기록  
  `log-to-eventhub` 정책은 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다. 이름에서 알 수 있듯이 이 정책은 온라인 또는 오프라인 분석을 위해 선택한 요청 또는 응답 컨텍스트 정보를 저장하는 데 사용됩니다.  
   
 > [!NOTE]
@@ -310,8 +313,50 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 -   **정책 섹션:** inbound, outbound, backend, on-error  
   
 -   **정책 범위:** 모든 범위  
+
+##  <a name="mock-response"></a> 모의 응답  
+이름에서 알 수 있듯이 `mock-response`는 모의 API 및 작업에 사용됩니다. 정상적인 파이프라인 실행을 중단하고 호출자에게 모의 응답을 반환합니다. 정책에서 항상 최고 충실도의 응답을 반환하려고 시도합니다. 가능한 경우 응답 콘텐츠 예제를 선호합니다. 스키마가 제공되고 예제가 제공되지 않은 경우 스키마에서 샘플 응답을 생성합니다. 예제와 스키마가 둘 다 없는 경우 콘텐츠가 없는 응답이 반환됩니다.
   
-##  <a name="a-nameretrya-retry"></a><a name="Retry"></a> 다시 시도  
+### <a name="policy-statement"></a>정책 문  
+  
+```xml  
+<mock-response status-code="code" content-type="media type"/>  
+  
+```  
+  
+### <a name="examples"></a>예  
+  
+```xml  
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<mock-response/>
+
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code and media type. If no example or schema found, the content is empty. -->
+<mock-response status-code='200' content-type='application/json'/>  
+```  
+  
+### <a name="elements"></a>요소  
+  
+|요소|설명|필수|  
+|-------------|-----------------|--------------|  
+|mock-response|루트 요소입니다.|예|  
+  
+### <a name="attributes"></a>특성  
+  
+|특성|설명|필수|기본값|  
+|---------------|-----------------|--------------|--------------|  
+|status-code|응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니요|200|  
+|content-type|`Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.|아니요|없음|  
+  
+### <a name="usage"></a>사용 현황  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+  
+-   **정책 섹션:** inbound, outbound, on-error  
+  
+-   **정책 범위:** 모든 범위
+
+##  <a name="Retry"></a> 다시 시도  
  `retry` 정책은 하위 정책을 한 번 실행한 후 재시도 `condition`이 `false`가 되거나 재시도 `count`를 모두 사용할 때까지 실행을 다시 시도합니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -331,7 +376,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 ```  
   
 ### <a name="example"></a>예  
- 다음 예에서는 지수 재시도 알고리즘을 사용하여 요청 전달을 최대&10;회까지 다시 시도합니다. `first-fast-retry`가 false로 설정되므로 모든 재시도 횟수에는 지수 재시도 알고리즘이 적용됩니다.  
+ 다음 예에서는 지수 재시도 알고리즘을 사용하여 요청 전달을 최대 10회까지 다시 시도합니다. `first-fast-retry`가 false로 설정되므로 모든 재시도 횟수에는 지수 재시도 알고리즘이 적용됩니다.  
   
 ```xml  
   
@@ -376,7 +421,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-namereturnresponsea-return-response"></a><a name="ReturnResponse"></a> 반환 응답  
+##  <a name="ReturnResponse"></a> 반환 응답  
  `return-response` 정책은 파이프라인 실행을 중단하고 호출자에게 기본 또는 사용자 지정된 응답을 반환합니다. 기본 응답은 본문 없는 `200 OK`입니다. 컨텍스트 변수나 정책 문을 통해 사용자 지정 응답을 지정할 수 있습니다. 둘 다 제공되는 경우 컨텍스트 변수 내에 포함된 응답은 호출자로 반환하기 전에 정책 문으로 수정합니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -424,7 +469,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-namesendonewayrequesta-send-one-way-request"></a><a name="SendOneWayRequest"></a> 단방향 요청 전송  
+##  <a name="SendOneWayRequest"></a> 단방향 요청 전송  
  `send-one-way-request` 정책은 지정된 URL에 대한 제공된 응답을 기다리지 않고 요청을 보냅니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -484,7 +529,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니요|새로 만들기|  
 |name|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
-|exists-action|헤더가 이미 지정된 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -   override - 기존 헤더 값을 바꿉니다.<br />-   skip - 기존 헤더 값을 바꾸지 않습니다.<br />-   append - 기존 헤더 값에 값을 추가합니다.<br />-   delete - 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정된 경우 동일한 이름으로 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정됩니다. 나열된 값만 설정됩니다.|아니요|재정의|  
+|exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|재정의|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -493,7 +538,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-namesendrequesta-send-request"></a><a name="SendRequest"></a> 요청 전송  
+##  <a name="SendRequest"></a> 요청 전송  
  `send-request` 정책은 지정된 URL에 대한 제공된 응답을 설정된 시간 초과 값 이상으로 기다리지 않고 요청을 보냅니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -566,7 +611,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 |timeout="integer"|URL 호출이 실패하는 시간 초과 간격(초)입니다.|아니요|60|  
 |ignore-error|true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -   response-variable-name이 지정된 경우 null 값을 포함합니다.<br />-   response-variable-name이 지정되지 않은 경우 context.Request가 업데이트되지 않습니다.|아니요|false|  
 |name|설정할 헤더의 이름을 지정합니다.|예|해당 없음|  
-|exists-action|헤더가 이미 지정된 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -   override - 기존 헤더 값을 바꿉니다.<br />-   skip - 기존 헤더 값을 바꾸지 않습니다.<br />-   append - 기존 헤더 값에 값을 추가합니다.<br />-   delete - 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정된 경우 동일한 이름으로 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정됩니다. 나열된 값만 설정됩니다.|아니요|재정의|  
+|exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|재정의|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -575,16 +620,16 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-nameset-variablea-set-variable"></a><a name="set-variable"></a> 변수 설정  
+##  <a name="set-variable"></a> 변수 설정  
  `set-variable` 정책은 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수를 선언하고 [식](api-management-policy-expressions.md) 또는 문자열 리터럴을 통해 지정된 값을 할당합니다. 식에 리터럴이 포함된 경우 리터럴은 문자열로 변환되고 값 형식은 `System.String`이 됩니다.  
   
-###  <a name="a-nameset-variablepolicystatementa-policy-statement"></a><a name="set-variablePolicyStatement"></a> 정책 문  
+###  <a name="set-variablePolicyStatement"></a> 정책 문  
   
 ```xml  
 <set-variable name="variable name" value="Expression | String literal" />  
 ```  
   
-###  <a name="a-nameset-variableexamplea-example"></a><a name="set-variableExample"></a> 예  
+###  <a name="set-variableExample"></a> 예  
  다음 예는 인바운드 섹션에 변수 설정 정책이 있는 것을 보여 줍니다. 이 변수 설정 정책은 `User-Agent` 요청 헤더에 `iPad` 또는 `iPhone` 텍스트가 포함되는 경우 true로 설정되는 `isMobile` 부울 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수를 생성합니다.  
   
 ```xml  
@@ -611,7 +656,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-###  <a name="a-nameset-variableallowedtypesa-allowed-types"></a><a name="set-variableAllowedTypes"></a> 허용 형식  
+###  <a name="set-variableAllowedTypes"></a> 허용 형식  
  `set-variable` 정책에 사용된 식은 다음 기본 형식 중 하나를 반환해야 합니다.  
   
 -   System.Boolean  
@@ -676,7 +721,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   System.DateTime?  
   
-##  <a name="a-namesetrequestmethoda-set-request-method"></a><a name="SetRequestMethod"></a> 요청 메서드 설정  
+##  <a name="SetRequestMethod"></a> 요청 메서드 설정  
  `set-method` 정책을 통해 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -728,7 +773,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-namesetstatusa-set-status-code"></a><a name="SetStatus"></a> 상태 코드 설정  
+##  <a name="SetStatus"></a> 상태 코드 설정  
  `set-status` 정책은 HTTP 상태 코드를 지정된 값으로 설정합니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -775,7 +820,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-nametracea-trace"></a><a name="Trace"></a> 추적  
+##  <a name="Trace"></a> 추적  
  `trace` 정책은 [API 검사기](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다. 이 정책은 추적이 트리거된 경우에만 실행됩니다(즉, `Ocp-Apim-Trace` 요청 헤더가 있고 `true`로 설정된 경우 및 `Ocp-Apim-Subscription-Key` 요청 헤더가 있고 관리자 계정에 연결된 유효한 키를 보유하는 경우).  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -807,7 +852,7 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
   
 -   **정책 범위:** 모든 범위  
   
-##  <a name="a-namewaita-wait"></a><a name="Wait"></a> 대기  
+##  <a name="Wait"></a> 대기  
  `wait` 정책은 직계 자식 정책을 병렬로 실행하고 정책이 완료되기 전에 직계 자식 정책 전체 또는 하나가 완료될 때까지 대기합니다. 대기 정책은 직계 자식 정책으로 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey), [제어 흐름](api-management-advanced-policies.md#choose) 정책을 포함할 수 있습니다.  
   
 ### <a name="policy-statement"></a>정책 문:  
@@ -878,9 +923,4 @@ ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 -    [API 관리의 정책](api-management-howto-policies.md) 
 -    [정책 식](api-management-policy-expressions.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

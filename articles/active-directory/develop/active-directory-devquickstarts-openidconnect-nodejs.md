@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 7950cc1df19ddf0a5d12ff8cba8615bb920e58ba
-ms.openlocfilehash: 37666c8c2e1214f8754375efab1f8e6020dbb2e8
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 27f9c5a18b85c0cc2f918ccefeb063f58cc967c6
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -56,9 +57,8 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 
   * **로그온 URL** 은 앱의 기본 URL입니다.  기본값은 ‘http://localhost:3000/auth/openid/return’입니다.
 
-  * **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>` 형식(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
-
 6. 등록 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
+7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>` 형식(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>2단계: 필수 구성 요소를 디렉터리에 추가
 1. 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
@@ -417,9 +417,4 @@ Your app is now properly configured to communicate with the endpoint by using th
 [Azure AD를 사용하여 Web API 보안 유지](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
