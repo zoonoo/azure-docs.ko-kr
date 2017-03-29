@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e9ee2dba57b153d28c80c2d123d41c3048157ba1
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 0de0590c1cf5c71a7174fdcca84847b378aa40f8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -103,7 +103,7 @@ ms.lasthandoff: 03/10/2017
 4. 제출을 클릭하면 쓰기 저장 설정 과정에서 만든 대칭 키로 일반 텍스트 암호를 암호화합니다.
 5. 암호를 암호화한 후 HTTPS 채널을 통해 테넌트별 서비스 버스 릴레이(쓰기 저장 설정 과정 중에 설정될 수도 있음)로 전송되는 페이로드에 해당 암호를 포함시킵니다.  이 릴레이는 온-프레미스 설치만 알고 있는 임의로 생성된 암호에 의해 보호됩니다.
 6. 메시지가 서비스 버스에 도달하면 암호 재설정 끝점이 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
-7. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다.  이 조회가 성공하기 위해서는 사용자 개체가 AD 커넥터 공간에 있고 해당 MV 개체에 연결되고 해당 AAD 커넥터 개체에 연결되어야 합니다. 마지막으로, 동기화에서 이 사용자 계정을 찾기 위해서는 AD 커넥터 개체에서 MV로의 링크에 `Microsoft.InfromADUserAccountEnabled.xxx` 동기화 규칙이 있어야 합니다.  클라우드에서 호출이 들어오면 동기화 엔진이 cloudAnchor 특성을 사용하여 AAD 커넥터 공간 개체를 조회한 후 MV 개체로 링크를 다시 따라간 다음 AD 개체로 다시 링크를 따라가기 때문에 이 규칙이 필요합니다. 동일한 사용자에 대해 여러 AD 개체(다중 포리스트)가 있을 수 있기 때문에 동기화 엔진은 `Microsoft.InfromADUserAccountEnabled.xxx` 링크에 의존하여 정확한 개체를 선택합니다.
+7. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다.  이 조회가 성공하기 위해서는 사용자 개체가 AD 커넥터 공간에 있고 해당 MV 개체에 연결되고 해당 AAD 커넥터 개체에 연결되어야 합니다. 마지막으로, 동기화에서 이 사용자 계정을 찾기 위해서는 AD 커넥터 개체에서 MV로의 링크에 `Microsoft.InfromADUserAccountEnabled.xxx` 동기화 규칙이 있어야 합니다.  클라우드에서 호출이 들어오면 동기화 엔진이 cloudAnchor 특성을 사용하여 AAD 커넥터 공간 개체를 조회한 후 MV 개체로 링크를 다시 따라간 다음 AD 개체로 다시 링크를 따라가기 때문에 이 규칙이 필요합니다. 동일한 사용자에 대해 여러 AD 개체(다중 포리스트)가 있을 수 있기 때문에 동기화 엔진은 `Microsoft.InfromADUserAccountEnabled.xxx` 링크에 의존하여 정확한 개체를 선택합니다. 이 논리의 결과로, 암호 쓰기 저장이 작동하려면 Azure AD Connect를 주 도메인 컨트롤러에 연결해야 합니다.  이 경우 Active Directory 동기화 커넥터의 **속성**을 마우스 오른쪽 단추로 클릭하고 **디렉터리 파티션 구성**을 선택하여 주 도메인 컨트롤러 에뮬레이터를 사용하도록 Azure AD Connect를 구성할 수 있습니다. 여기에서 **도메인 컨트롤러 연결 설정** 섹션을 찾고 **기본 설정 도메인 컨트롤러만 사용**이라는 상자를 선택합니다. 참고: 기본 설정된 DC가 PDC 에뮬레이터가 아닌 경우 Azure AD Connect는 비밀번호 쓰기 저장의 PDC에 연결됩니다.
 8. 사용자 계정을 찾은 후에는 적절한 AD 포리스트에서 직접 암호를 재설정합니다.
 9. 암호 설정 작업에 성공한 경우 사용자에게 암호가 수정되었으므로 작업을 계속 진행해도 된다고 알려줍니다.
 10. 암호 설정 작업에 실패한 경우는 사용자에게 오류를 반환하고 다시 시도하라고 알려줍니다.  서비스가 다운되었거나, 선택한 암호가 조직의 정책과 맞지 않거나, 로컬 AD에서 해당 사용자를 찾을 수 없거나, 또는 기타 여러 가지 이유로 인해 작업에 실패할 수 있습니다.  이러한 경우를 위한 특정 메시지가 있어서 문제를 해결하기 위해 어떤 작업을 수행할 수 있는지 사용자에게 알려줍니다.
@@ -630,7 +630,7 @@ Not possible in PowerShell V2
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
 * **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.

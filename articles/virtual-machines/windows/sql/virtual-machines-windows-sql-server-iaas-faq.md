@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/07/2017
+ms.date: 03/17/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6df28527f502fe2191ee0127a3f9d467ca53c5b5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 498291fbf49e8bc119d93bb2dd4118e62ebdc71c
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 FAQ(질문과 대답)
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/07/2017
 
 7. **SQL Server FCI(장애 조치 클러스터 인스턴스)는 Azure VM에서 지원되나요?**
 
-   예. Windows Server 2016에서 [\(WSFC\)Windows Server 장애 조치 클러스터를 만들고](virtual-machines-windows-portal-sql-create-failover-cluster.md) 클러스터 저장소에 대한 S2D(저장소 공간 다이렉트)를 사용할 수 있습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)에 설명된 대로 타사 클러스터링 또는 저장소 솔루션을 사용할 수 있습니다.
+   예. [Windows Server 2016에서 Windows 장애 조치 클러스터를 만들고](virtual-machines-windows-portal-sql-create-failover-cluster.md) 클러스터 저장소에 대한 S2D(저장소 공간 다이렉트)를 사용할 수 있습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)에 설명된 대로 타사 클러스터링 또는 저장소 솔루션을 사용할 수 있습니다.
 
 7. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
    

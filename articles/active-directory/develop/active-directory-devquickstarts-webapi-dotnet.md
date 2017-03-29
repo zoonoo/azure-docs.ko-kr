@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: e2e1c68b83e9b9ec5a3865e89a98b80cf59cdfad
-ms.openlocfilehash: 038b862a355310d264dacb4c619fb6558a0edffc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -54,9 +54,10 @@ To Do List API를 빌드하려면 다음을 먼저 수행해야 합니다.
 5. 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 Web API**를 만듭니다.
   * **이름**은 사용자에게 응용 프로그램을 설명합니다. **To Do List Service**를 입력합니다.
   * **리디렉션 Uri**는 Azure AD가 앱이 요청한 토큰을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 이 값으로 `https://localhost:44321/` 을 입력합니다.
-  * **AppID URI**의 경우 테넌트 특정 식별자를 입력합니다. 예를 들어 `https://contoso.onmicrosoft.com/TodoListService`을 입력합니다.
-  
-6. 구성을 저장합니다. 잠시 후에 클라이언트 응용 프로그램을 등록해야 하므로 포털을 열어둡니다.
+
+6. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. 테넌트별 식별자를 입력합니다. 예를 들어 `https://contoso.onmicrosoft.com/TodoListService`을 입력합니다.
+
+7. 구성을 저장합니다. 잠시 후에 클라이언트 응용 프로그램을 등록해야 하므로 포털을 열어둡니다.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2단계: OWIN 인증 파이프라인을 사용하도록 앱 설정
 들어오는 요청 및 토큰 유효성을 검사하려면 Azure AD와 통신하도록 응용 프로그램을 설정해야 합니다.

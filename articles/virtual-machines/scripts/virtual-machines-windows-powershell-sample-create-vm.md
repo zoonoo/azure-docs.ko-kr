@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fc02a169bf38de911401a390c3157e400ec74578
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b62637150773bdfb48ff654675af5c4ffdd67919
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>PowerShell로 완벽히 구성된 가상 컴퓨터 만들기
 
-이 스크립트는 Windows 운영 체제 및 관련 네트워킹 리소스에서 Azure Virtual Machine을 만듭니다. 스크립트가 성공적으로 실행되면 SSH를 통해 가상 컴퓨터에 액세스할 수 있습니다. 
+이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만듭니다. 스크립트를 실행하면 SSH를 통해 가상 컴퓨터에 액세스할 수 있습니다.
 
-이 스크립트를 실행하기 전에 `Login-AzureRmAccount` 명령을 사용하여 Azure와의 연결이 생성되었는지 확인합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

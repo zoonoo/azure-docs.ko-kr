@@ -14,12 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
-ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -334,11 +334,11 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
      ![Corp 사용자 권한](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/33-addpermissions.png)
 12. **확인**을 클릭한 후 **확인**을 한 번 더 클릭합니다. corp 속성 창을 닫습니다.
 
-Active Directory 및 사용자 개체 구성을 완료했으므로&2;개의 SQL Server VM과&1;개의 감시 서버 VM을 만듭니다. 그런 다음 세 개의 VM을 도메인에 연결합니다.
+Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL Server VM과 1개의 감시 서버 VM을 만듭니다. 그런 다음 세 개의 VM을 도메인에 연결합니다.
 
 ## <a name="create-sql-servers"></a>SQL Server를 만듭니다.
 ### <a name="create-and-configure-the-sql-server-vms"></a>SQL Server VM 만들기 및 구성
-다음으로 WSFC 클러스터 노드&1;개와 SQL Server VM&2;개를 포함하는 VM을&3;개 만듭니다. 각 VM을 만들려면 **SQL-HA-RG** 리소스 그룹으로 돌아가서 **추가**를 클릭하고 적합한 갤러리 항목, **가상 컴퓨터** 및 **갤러리에서**를 차례로 검색합니다. 아래 표의 정보를 사용하면 VM을 만드는 데 도움이 됩니다.
+다음으로 추가 클러스터 노드의 VM 1개와 SQL Server VM 2개를 포함하는 VM을 3개 만듭니다. 각 VM을 만들려면 **SQL-HA-RG** 리소스 그룹으로 돌아가서 **추가**를 클릭하고 적합한 갤러리 항목, **가상 컴퓨터** 및 **갤러리에서**를 차례로 검색합니다. 아래 표의 정보를 사용하면 VM을 만드는 데 도움이 됩니다.
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |

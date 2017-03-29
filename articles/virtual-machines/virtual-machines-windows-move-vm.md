@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
-ms.openlocfilehash: cccbddd6993e3011e3e76bc84ffc212f3f8b1d55
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 2aaf9bfaade060817fa7e42299ad20a2e8f78eaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>다른 Azure 구독 또는 리소스 그룹으로 Windows VM 이동
 이 문서에서는 리소스 그룹 또는 구독 간에 Windows VM을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들고 회사 구독으로 이동한 후 작업을 계속하려는 경우에 구독 간의 이동이 편리할 수 있습니다.
 
-> [!NOTE]
-> 새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동하면 새 리소스 ID를 사용하도록 도구 및 스크립트를 업데이트해야 합니다. 
+> [!IMPORTANT]
+>지금은 Managed Disks를 이동할 수 없습니다. 
+>
+>새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동하면 새 리소스 ID를 사용하도록 도구 및 스크립트를 업데이트해야 합니다. 
 > 
 > 
 
@@ -62,10 +65,5 @@ VM을 이동하려면 여러 리소스를 이동해야 합니다. 지금 막 각
 
 ## <a name="next-steps"></a>다음 단계
 리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

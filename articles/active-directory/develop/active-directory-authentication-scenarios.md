@@ -1,6 +1,6 @@
 ---
 title: "Azure AD의 인증 시나리오 | Microsoft Docs"
-description: "AAD(Azure Active Directory)에 대한&5;개의 가장 일반적인 인증 시나리오 개요"
+description: "AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -17,6 +17,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: f67e96618ea25e4463a4fdf83ea20f238498fac0
 ms.openlocfilehash: 838a19ef05adad59e0317fb62e2acec8a40d7a64
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -83,8 +84,7 @@ Azure AD에서 발급된 보안 토큰에는 인증된 주체에 대한 클레�
 | 개체 ID |Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 |사용자에게 부여된 Azure AD 응용 프로그램 역할의 이름을 포함합니다. |
 | 범위 |클라이언트 응용 프로그램에 부여된 권한을 나타냅니다. |
-| 제목
- |토큰에서 어설션하는 정보의 주체를 나타냅니다. |
+| 제목 |토큰에서 어설션하는 정보의 주체를 나타냅니다. |
 | 테넌트 ID |토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 토큰 수명 |토큰이 유효한 시간 간격을 정의합니다. |
 | 사용자 계정 이름 |주체의 사용자 계정 이름을 포함합니다. |
@@ -295,10 +295,5 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)
 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

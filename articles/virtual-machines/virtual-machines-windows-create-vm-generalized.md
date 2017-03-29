@@ -1,6 +1,6 @@
 ---
 title: "일반화된 VHD에서 VM 만들기 | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 Azure PowerShell을 사용하여 일반화된 VHD 이미지에서 Windows 가상 컴퓨터를 만드는 방법을 알아봅니다."
+description: "Azure PowerShell을 사용하여 저장소 계정의 일반화된 VHD 이미지에서 Windows 가상 컴퓨터를 만드는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 12832620d94226b6cfe391471c22fad2d1e3cf7e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-vhd-image"></a>일반화된 VHD 이미지에서 VM 만들기
-일반화된 VHD 이미지에는 [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 온-프레미스 VM에서 Sysprep을 실행한 후 [VHD를 Azure에 업로드](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하거나 기존 Azure VM에서 Sysprep을 실행한 후 [VHD를 복사](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 일반화된 VHD를 만들 수 있습니다.
+# <a name="create-a-vm-from-a-generalized-vhd-image-in-a-storage-account"></a>저장소 계정의 일반화된 VHD 이미지에서 VM 만들기 
 
-전문화된 VHD에서 VM을 만들려는 경우 [전문화된 VHD에서 VM 만들기](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이 항목에서는 저장소 계정에 있는 일반화된 비관리 디스크에서 VM을 만듭니다. 일반화된 VHD 이미지에는 [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 온-프레미스 VM에서 Sysprep을 실행한 후 [VHD를 Azure에 업로드](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하거나 기존 Azure VM에서 Sysprep을 실행한 후 [VHD를 복사](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 일반화된 VHD를 만들 수 있습니다.
 
-일반화된 VHD에서 VM을 만드는 가장 빠른 방법은 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)을 사용하는 것입니다. 
+저장소 계정의 전문화된 VHD에서 VM을 만들려는 경우 [전문화된 VHD에서 VM 만들기](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+
+저장소 계정의 디스크 대신 Managed Disks를 사용하는 방법에 대한 자세한 내용은 [관리되는 VM 이미지 만들기](virtual-machines-windows-capture-image-resource.md) 및 [관리되는 이미지에서 VM 만들기](virtual-machines-windows-create-vm-generalized-managed.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 Hyper-V를 사용하여 만든 것처럼 온-프레미스 VM에서 업로드한 VHD를 사용하려는 경우 [Azure에 업로드할 Windows VHD 준비](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침을 따라야 합니다. 
@@ -34,6 +36,7 @@ Hyper-V를 사용하여 만든 것처럼 온-프레미스 VM에서 업로드한 
 이 방법을 사용하여 VM을 만들려면 먼저 업로드된 VHD와 기존 Azure VM VHD를 일반화해야 합니다. 자세한 내용은 [Sysprep을 사용하여 Windows 가상 컴퓨터 일반화](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 
 ## <a name="set-the-uri-of-the-vhd"></a>VHD의 URI 설정
+
 VHD에 대한 URI는 형식: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. 이 예에서는 **myVHD**로 명명된 VHD가 **mycontainer** 컨테이너의 **mystorageaccount** 저장소 계정에 있습니다.
 
 ```powershell
@@ -171,10 +174,5 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## <a name="next-steps"></a>다음 단계
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

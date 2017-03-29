@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: e24bd626cd950f6e6d9474d1bd5f97c3ea4fb925
 ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -147,7 +148,7 @@ Picturepark의 경우 프로비전은 수동 작업입니다.
 **Picturepark에 사용자를 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
-2. **Picturepark **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2. **Picturepark** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
    ![사용자 할당](./media/active-directory-saas-picturepark-tutorial/IC795070.png "사용자 할당")
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
@@ -155,10 +156,5 @@ Picturepark의 경우 프로비전은 수동 작업입니다.
    ![예](./media/active-directory-saas-picturepark-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

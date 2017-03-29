@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API
 
 * **WSDL:Import** 현재 이 특성을 사용한 API는 지원하지 않습니다. 고객은 가져온 요소를 문서 하나로 병합해야 합니다.
 * **여러 부분으로 된 메시지**는 현재 지원되지 않습니다.
-* **WCF wsHttpBinding** Windows Communication Foundation으로 생성된 SOAP 서비스는 basicHttpBinding - wsHttpBinding을 사용해야 합니다.
+* **WCF wsHttpBinding** Windows Communication Foundation으로 생성된 SOAP 서비스는 basicHttpBinding을 사용해야 합니다. wsHttpBinding은 지원되지 않습니다.
 * **MTOM** MTOM을 사용한 서비스는 <em>작동할 수 있습니다</em>. 현재는 공식적으로 지원되지 않습니다.
 * 재귀적으로 정의된(예: 자체의 배열을 참조) **재귀** 형식은 지원되지 않습니다.
 

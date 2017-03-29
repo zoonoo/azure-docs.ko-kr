@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b084c722b75152b8a2b867f21d546abd04a96f04
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 71b73c6a7b86c4ba3a890d15811958d35ac9a359
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/15/2017
       --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
   ```
 
-  배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 완료되면 다음과 비슷한 메시지가 표시됩니다.
+  배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 메시지가 표시됩니다.
 
   ```azurecli
   "provisioningState": "Succeeded",
@@ -120,7 +120,7 @@ SAS 토큰으로 배포 중에 저장소 계정에 템플릿을 추가하고 이
 > 
 
 ### <a name="add-private-template-to-storage-account"></a>저장소 계정에 개인 템플릿 추가
-다음 명령은 개인 저장소 계정 컨테이너를 설정하고 템플릿을 업로드합니다.
+다음 예제에서는 개인 저장소 계정 컨테이너를 설정하고 템플릿을 업로드합니다.
    
 ```azurecli
 az group create --name "ManageGroup" --location "South Central US"
@@ -182,12 +182,136 @@ az group deployment operation list --resource-group ExampleGroup --name vmlinux 
 
 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
+## <a name="complete-deployment-script"></a>전체 배포 스크립트
+
+다음 예제에서는 [템플릿 내보내기](resource-manager-export-template.md) 기능을 통해 생성된 템플릿을 배포하는 Azure CLI 2.0 스크립트를 보여 줍니다.
+
+```azurecli
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# -e: immediately exit if any command has a non-zero exit status
+# -o: prevents errors in a pipeline from being masked
+# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
+
+usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
+
+declare subscriptionId=""
+declare resourceGroupName=""
+declare deploymentName=""
+declare resourceGroupLocation=""
+
+# Initialize parameters specified from command line
+while getopts ":i:g:n:l:" arg; do
+    case "${arg}" in
+        i)
+            subscriptionId=${OPTARG}
+            ;;
+        g)
+            resourceGroupName=${OPTARG}
+            ;;
+        n)
+            deploymentName=${OPTARG}
+            ;;
+        l)
+            resourceGroupLocation=${OPTARG}
+            ;;
+        esac
+done
+shift $((OPTIND-1))
+
+#Prompt for parameters is some required parameters are missing
+if [[ -z "$subscriptionId" ]]; then
+    echo "Subscription Id:"
+    read subscriptionId
+    [[ "${subscriptionId:?}" ]]
+fi
+
+if [[ -z "$resourceGroupName" ]]; then
+    echo "ResourceGroupName:"
+    read resourceGroupName
+    [[ "${resourceGroupName:?}" ]]
+fi
+
+if [[ -z "$deploymentName" ]]; then
+    echo "DeploymentName:"
+    read deploymentName
+fi
+
+if [[ -z "$resourceGroupLocation" ]]; then
+    echo "Enter a location below to create a new resource group else skip this"
+    echo "ResourceGroupLocation:"
+    read resourceGroupLocation
+fi
+
+#templateFile Path - template file to be used
+templateFilePath="template.json"
+
+if [ ! -f "$templateFilePath" ]; then
+    echo "$templateFilePath not found"
+    exit 1
+fi
+
+#parameter file path
+parametersFilePath="parameters.json"
+
+if [ ! -f "$parametersFilePath" ]; then
+    echo "$parametersFilePath not found"
+    exit 1
+fi
+
+if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
+    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
+    usage
+fi
+
+#login to azure using your credentials
+az account show 1> /dev/null
+
+if [ $? != 0 ];
+then
+    az login
+fi
+
+#set the default subscription id
+az account set --name $subscriptionId
+
+set +e
+
+#Check for existing RG
+az group show $resourceGroupName 1> /dev/null
+
+if [ $? != 0 ]; then
+    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
+    set -e
+    (
+        set -x
+        az resource group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
+    )
+    else
+    echo "Using existing resource group..."
+fi
+
+#Start deployment
+echo "Starting deployment..."
+(
+    set -x
+    az resource group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
+)
+
+if [ $?  == 0 ];
+ then
+    echo "Template has been successfully deployed"
+fi
+```
+
 ## <a name="next-steps"></a>다음 단계
 * .NET 클라이언트 라이브러리를 통한 리소스 배포의 예제를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * 템플릿에서 매개 변수를 정의하려면 [템플릿 작성](resource-group-authoring-templates.md#parameters)을 참조하세요.
 * 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 * 보안 값을 전달하기 위한 KeyVault 참조를 사용하는 방법에 관한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-* 배포 자동화에 대한&4;가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
+* 배포 자동화에 대한 4가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
 
 

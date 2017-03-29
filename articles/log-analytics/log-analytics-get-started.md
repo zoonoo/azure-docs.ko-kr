@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Azure Log Analytics를 신속하게 시작하고 실행할 수 있으며 IT 인�
 이 문서는 서비스 사용을 시작할 수 있도록 간략한 자습서를 사용하여 Azure의 최소 배포 단계를 안내하는 Log Analytics에 대한 소개 자료입니다. Azure에서 관리 데이터가 저장되는 논리 컨테이너를 작업 영역이라고 합니다. 이 정보를 검토하고 자체 평가를 완료한 후에는 평가 작업 영역을 제거할 수 있습니다. 이 문서는 자습서이기 때문에 비즈니스 요구 사항, 계획 또는 아키텍처 지침이 언급되지 않습니다.
 
 >[!NOTE]
->Microsoft Azure Government 클라우드를 사용하는 경우 [Azure Government 모니터링 및 관리 설명서](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics)를 대신 사용하세요.
+>Microsoft Azure Government 클라우드를 사용하는 경우 [Azure Government 모니터링 및 관리 설명서](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics)를 대신 사용하세요.
 
 시작에 사용되는 프로세스에 대한 간략한 정보는 다음과 같습니다.
 

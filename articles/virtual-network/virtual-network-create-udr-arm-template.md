@@ -1,5 +1,5 @@
 ---
-title: "템플릿을 사용하여 라우팅 및 가상 어플라이언스 제어 | Microsoft Docs"
+title: "Azure에서 라우팅 및 가상 어플라이언스 제어 - 템플릿 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 라우팅 및 가상 어플라이언스 제어 방법 알아보기"
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>템플릿을 사용하여 사용자 정의 경로(UDR) 만들기
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [템플릿](virtual-network-create-udr-arm-template.md)
-- [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
-- [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [템플릿](virtual-network-create-udr-arm-template.md)
+> * [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
+> * [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Azure 리소스로 작업하기 전에 Azure에는 현재 Azure Resource Manager와 클래식 모드의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](../azure-resource-manager/resource-manager-deployment-model.md) 를 이해해야 합니다. 이 문서의 윗부분에 있는 탭을 클릭하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. 
@@ -45,7 +46,7 @@ ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"   
+      "displayName": "UDR - FrontEnd"    
     },
     "properties": {
       "routes": [
@@ -175,7 +176,7 @@ ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
 
 Azure CLI를 사용하여 ARM 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 다음 명령을 실행하여 Resource Manager 모드로 전환합니다.
 
     ```azurecli
@@ -406,9 +407,4 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 다음 단계를 완�
 > [!TIP]
 > 일부 리소스가 표시되지 않으면 `azure group deployment show` 명령을 실행하여 배포의 프로비전 상태가 *성공*인지 확인합니다.
 > 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

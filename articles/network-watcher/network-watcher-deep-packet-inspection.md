@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
-ms.openlocfilehash: f7e4f1832a8edd029fcef08e295b6c79c033b664
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ Network Watcher의 패킷 캡처 기능을 사용하여 포털, PowerShell, CLI,
 
 이 시나리오에서는 두 끝점 사이에 발생하는 TCP(전송 제어 프로토콜) 대화의 초기 RTT(왕복 시간)를 확인하는 방법을 보여 줍니다.
 
-TCP 연결이 설정되면 연결에 전송된 처음&3;개 패킷은 일반적으로 세 방향 핸드셰이크라고 하는 패턴을 따릅니다. 이 핸드셰이크에 전송된 처음 두 패킷과 클라이언트로부터의 초기 요청 및 서버에서의 응답을 검사하여 연결이 설정되었을 때의 대기 시간을 계산할 수 있습니다. 이 대기 시간을 RTT(왕복 시간)라고 합니다. TCP 프로토콜 및 세 방향 핸드셰이크에 대한 자세한 내용은 다음 리소스를 참조하세요. https://support.microsoft.com/ko-kr/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+TCP 연결이 설정되면 연결에 전송된 처음 3개 패킷은 일반적으로 세 방향 핸드셰이크라고 하는 패턴을 따릅니다. 이 핸드셰이크에 전송된 처음 두 패킷과 클라이언트로부터의 초기 요청 및 서버에서의 응답을 검사하여 연결이 설정되었을 때의 대기 시간을 계산할 수 있습니다. 이 대기 시간을 RTT(왕복 시간)라고 합니다. TCP 프로토콜 및 세 방향 핸드셰이크에 대한 자세한 내용은 다음 리소스를 참조하세요. https://support.microsoft.com/ko-kr/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>1단계
 
@@ -55,7 +55,7 @@ WireShark를 시작합니다.
 
 ### <a name="step-3"></a>3단계
 
-TCP 대화에서 초기 RTT(왕복 시간)를 보려면 TCP 핸드셰이크에 관련된 처음 두 패킷만 확인합니다. 세 방향 핸드셰이크에서 처음 두 패킷([SYN], [SYN, ACK] 패킷)을 사용할 것입니다. TCP 헤더에 설정된 플래그에 따라 이름이 지정되었습니다. 핸드셰이크에서 마지막 패킷인 [ACK] 패킷은 이 시나리오에서는 사용하지 않습니다. 클라이언트에 의해 [SYN] 패킷이 전송됩니다. 이 패킷이 수신되면 서버는 클라이언트로부터 SYN을 수신했다는 승인으로 [ACK] 패킷을 보냅니다. 서버의 응답에는 오버헤드가 거의 필요하지 않다는 사실에 따라 [SYN, ACK] 패킷이 클라이언트에 수신된 시간을 뺀 값을 클라이언트가 [SYN] 패킷을 전송한 시간에 더하여 RTT를 계산합니다.
+TCP 대화에서 초기 RTT(왕복 시간)를 보려면 TCP 핸드셰이크에 관련된 처음 두 패킷만 확인합니다. 세 방향 핸드셰이크에서 처음 두 패킷([SYN], [SYN, ACK] 패킷)을 사용할 것입니다. TCP 헤더에 설정된 플래그에 따라 이름이 지정되었습니다. 핸드셰이크에서 마지막 패킷인 [ACK] 패킷은 이 시나리오에서는 사용하지 않습니다. 클라이언트에 의해 [SYN] 패킷이 전송됩니다. 이 패킷이 수신되면 서버는 클라이언트로부터 SYN을 수신했다는 승인으로 [ACK] 패킷을 보냅니다. 서버의 응답에는 오버헤드가 거의 필요하지 않다는 사실에 따라 [SYN, ACK] 패킷이 클라이언트에 수신된 시간에서 클라이언트가 [SYN] 패킷을 전송한 시간을 뺀 값으로 RTT를 계산합니다.
 
 WireShark를 사용하여 이 값을 계산합니다.
 

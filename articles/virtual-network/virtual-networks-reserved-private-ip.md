@@ -1,10 +1,10 @@
 ---
-title: "고정 내부 개인 IP를 설정하는 방법"
+title: "고정 내부 개인 IP - Azure VM - 클래식"
 description: "고정 내부 개인 IP(DIP) 및 관리 방법 이해"
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 41b98df79b9ab9ee179ab8984d14c9e9c15fa646
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -107,10 +108,5 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
 [인스턴스 수준 공용 IP(ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
 ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
 > 
 > 
 
-## <a name="a-idinsertadsintomediaainserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>미디어에 광고 삽입
+## <a id="insert_ads_into_media"></a>미디어에 광고 삽입
 Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 장치에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어 목록에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
 
 * **선형** -기본 비디오를 일시 중지하는 전체 프레임 광고
@@ -154,7 +155,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </Creative>
 
 
-<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <** StaticResouce **>, <**IFrameResource**> 또는 <**HTMLResouce**>일 수 있습니다. <**StaticResource**>는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
+<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResouce**>, <**IFrameResource**> 또는 <**HTMLResouce**>일 수 있습니다. <**StaticResource**> 는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
 
 Image/gif, image/jpeg, image/png – 리소스가 HTML <**img**> 태그에 표시됩니다.
 
@@ -791,10 +792,5 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 ## <a name="see-also"></a>참고 항목
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

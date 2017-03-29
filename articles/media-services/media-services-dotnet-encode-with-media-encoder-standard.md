@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/21/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 452b6a541309736ee4bd7e1dbbf5288289e70922
-ms.openlocfilehash: 6a48bae7cd5c394f7b400f6870dba4da7f0d19f2
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9acb23c679e4a8279c944a384d142b1cccf0f4d2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -51,7 +51,7 @@ MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 
 두 메타데이터 파일 중 하나를 검사하려는 경우 SAS 로케이터를 만들고 로컬 컴퓨터에 파일을 다운로드할 수 있습니다. SAS 로케이터를 만들고 미디어 서비스 .NET SDK 확장을 사용하여 파일을 다운로드하는 방법에 대한 예제를 찾을 수 있습니다.
 
 ## <a name="download-sample"></a>샘플 다운로드
-[여기](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 샘플을 가져와서 실행합니다.
+MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)에서 가져와 실행할 수 있습니다.
 
 ## <a name="example"></a>예
 다음 코드 예제에서는 미디어 서비스 .NET SDK를 사용하여 다음 작업을 수행합니다.

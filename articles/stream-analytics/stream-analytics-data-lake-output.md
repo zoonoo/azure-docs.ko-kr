@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
 ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -87,10 +88,5 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 이 문제를 해결하려면 실행 중인 작업을 중지하고 Data Lake 저장소 출력으로 이동합니다. "권한 부여 갱신" 링크를 클릭하면 "권한 부여로 리디렉션..."을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 성공하면 "권한 부여를 성공적으로 갱신했습니다"가 표시됩니다. 페이지의 맨 아래에서 "저장"을 클릭해야 하고 데이터 손실을 방지하도록 마지막 중지 시간에서 작업을 다시 시작하여 진행할 수 있습니다.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

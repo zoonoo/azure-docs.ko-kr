@@ -17,6 +17,7 @@ ms.author: jejiang
 translationtype: Human Translation
 ms.sourcegitcommit: e79513590bb37570764f398e716182a11c74612a
 ms.openlocfilehash: 59cc35bc740625ed0582c1557fac9a04bf0cb8bc
+ms.lasthandoff: 12/01/2016
 
 ---
 
@@ -72,12 +73,12 @@ Data Lake Tools는 VSCode에서 지원하는 플랫폼(Windows, Linux 및 MacOS 
 
 **Data Lake Tools 설치**
 
-1. Visual Studio Code를 사용하여 ASP.NET 5 API 앱을 만드는 방법을 보여줍니다.
+1. **Visual Studio Code**를 사용하여 ASP.NET 5 API 앱을 만드는 방법을 보여줍니다.
 2. **Ctrl+P**를 누르고 다음을 입력합니다.
 
         ext install usql-vscode-ext
     Visual Studio 코드 확장 목록을 볼 수 있습니다. 그 중 하나는 **Azure Data Lake Tool(미리 보기)**입니다.
-3. **Azure Data Lake Tool(미리 보기)** 옆에 있는 ** 설치 **를 클릭합니다. 몇 초 후에 [설치] 단추가 [다시 로드]로 변경됩니다.
+3. **Azure Data Lake Tool(미리 보기)** 옆에 있는 **설치**를 클릭합니다. 몇 초 후에 [설치] 단추가 [다시 로드]로 변경됩니다.
 4. **다시 로드**를 클릭하여 확장을 활성화합니다.
 5. **확인** 을 클릭하여 확인합니다. [확장] 창에서 Azure Data Lake Tools를 볼 수 있습니다.
 
@@ -273,10 +274,5 @@ Data Lake Tools for VSCode에서 지원하는 기능은 다음과 같습니다.
 - 어셈블리를 개발에 대한 정보는 [Azure Data Lake Analytics 작업에 U-SQL 어셈블리 개발](data-lake-analytics-u-sql-develop-assemblies.md)을 참조하세요.
 
 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

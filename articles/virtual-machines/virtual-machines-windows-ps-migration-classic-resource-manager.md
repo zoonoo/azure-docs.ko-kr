@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 3f7a33f947913bf4b5ce9db20cacf746e4f7f169
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,6 +30,11 @@ ms.lasthandoff: 03/10/2017
 * 지원되는 마이그레이션 시나리오에 대한 배경 정보를 보려면 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](virtual-machines-windows-migration-classic-resource-manager.md)을 참조하세요. 
 * 자세한 지침 및 마이그레이션 연습에 대해서는 [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)를 참조하세요.
 * [가장 일반적인 마이그레이션 오류 검토](virtual-machines-migration-errors.md)
+
+<br>
+다음은 마이그레이션 프로세스 중에 단계를 실행해야 하는 순서를 나타내는 순서도입니다.
+
+![마이그레이션 단계를 보여 주는 스크린샷](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-plan-for-migration"></a>1단계: 마이그레이션 계획
 클래식에서 Resource Manager로 IaaS 리소스 마이그레이션을 평가하는 몇 가지 모범 사례가 있습니다.
@@ -86,7 +91,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-등록이 완료될 때까지&5;분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다.
+등록이 완료될 때까지 5분 정도 기다려 주세요. 다음 명령을 사용하여 승인 상태를 확인할 수 있습니다.
 
 ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
@@ -129,7 +134,7 @@ Get-AzureRmVMUsage -Location "West US"
 > 
 > 
 
-### <a name="migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>클라우드 서비스에서(가상 네트워크가 아닌) 가상 컴퓨터 마이그레이션
+## <a name="step-61-migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>6.1단계 클라우드 서비스(가상 네트워크가 아님)에서 가상 컴퓨터 마이그레이션
 다음 명령을 사용하여 클라우드 서비스 목록을 가져와서 마이그레이션할 클라우드 서비스를 선택합니다. 클라우드 서비스의 VM이 가상 네트워크에 있거나 웹 또는 작업자 역할을 포함하는 경우 명령을 오류 메시지를 반환합니다.
 
 ```powershell
@@ -210,7 +215,7 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="migrate-virtual-machines-in-a-virtual-network"></a>가상 네트워크에서 가상 컴퓨터 마이그레이션
+## <a name="step-62-migrate-virtual-machines-in-a-virtual-network"></a>6.2단계 가상 네트워크에서 가상 컴퓨터 마이그레이션
 가상 네트워크에서 가상 컴퓨터를 마이그레이션하려면 가상 네트워크를 마이그레이션합니다. 가상 컴퓨터는 가상 네트워크와 함께 자동으로 마이그레이션됩니다. 마이그레이션할 가상 네트워크를 선택합니다. 
 > [!NOTE]
 > 가상 컴퓨터의 VHD(OS 및 데이터) 파일을 사용하여 Managed Disks를 사용하는 새로운 Resource Manager 가상 컴퓨터를 만들어서 [단일 클래식 가상 컴퓨터를 마이그레이션](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md)합니다. 
@@ -250,7 +255,7 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 컴퓨터�
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="migrate-a-storage-account"></a>저장소 계정 마이그레이션
+## <a name="step-63-migrate-a-storage-account"></a>6.3단계 저장소 계정 마이그레이션
 가상 컴퓨터 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
 
 저장소 계정을 마이그레이션하기 전에 이전의 필수 요소 검사를 수행하세요.
