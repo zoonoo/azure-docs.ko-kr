@@ -17,6 +17,7 @@ ms.author: mfussell
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -172,7 +173,7 @@ PowerShell 파일에서 다음을 추가하여 시스템 환경 변수를 설정
 ## <a name="use-console-redirection-for-local-debugging"></a>로컬 디버깅에 대한 콘솔 리디렉션 사용
 디버깅 목적으로 스크립트를 실행하여 콘솔 출력을 확인하는 것이 유용할 때가 있습니다. 이 작업을 수행하기 위해 파일에 출력을 기록하는 콘솔 리디렉션 정책을 설정할 수 있습니다. 파일 출력은 응용 프로그램이 배포되고 실행되는 노드에 **log**라는 응용 프로그램 폴더에 기록됩니다. (앞의 예제에서 이를 찾을 수 있는 위치 참조)
 
-> [!NOTE]
+> [!WARNING]
 > 절대 프로덕션에 배포된 응용 프로그램의 콘솔 리디렉션 정책은 사용하지 마세요. 응용 프로그램 장애 조치(failover)에 영향을 줄 수 있기 때문입니다. 로컬 개발 및 디버깅 목적으로*만* 사용하세요.  
 > 
 > 
@@ -379,9 +380,4 @@ Echo "Test console redirection which writes to the application log folder on the
 * [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

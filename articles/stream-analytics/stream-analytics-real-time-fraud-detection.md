@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 18156086ca3eaf3ee99dfeb61096bc1eee49458b
 ms.openlocfilehash: 3d32518bed64ebe3dd1790bb511949624b5dcac1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -228,10 +229,5 @@ Blob Storage의 컨테이너가 없는 경우 아래 단계에 따라 만듭니�
 * [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
