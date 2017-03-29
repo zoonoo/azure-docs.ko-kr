@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 03/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0d284e122704ba01676c4b0028e196fe47bca8
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -127,7 +127,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 
 ## <a name="create-a-kafka-topic"></a>Kafka 토픽 만들기
 
-1. SSH를 사용하여 Kafka 클러스터에 연결합니다. **USERNAME**은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
+1. SSH를 사용하여 Kafka 클러스터에 연결합니다. `USERNAME`은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. `BASENAME`은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
    
         ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
    
@@ -139,36 +139,62 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 
     * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. SSH 연결에서 Kafka 클러스터로 다음 명령을 사용하여 Ambari에서 Zookeeper 노드를 가져옵니다.
+2. SSH 연결에서 Kafka 클러스터로 다음 명령을 사용하여 HTTP 로그인 및 클러스터 이름에 대한 변수를 설정합니다. 이 섹션의 다른 단계에서 이러한 값을 사용합니다.
 
-        # Install JQ to make working with JSON easier
-        sudo apt -y install jq
-        # Query Ambari for 
-        KAFKAZKHOSTS=`curl -u admin:PASSWORD -G "http://headnodehost:8080/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
-    
-    __PASSWORD__는 클러스터를 만들 때 사용한 관리자 암호로 바꿉니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
+  ```bash
+  ADMIN='admin' #replace with the name of the admin account for the cluster
+  PASSWORD='password' #replace with the password for the admin account
+  ```
 
-    이 명령은 Ambari에서 Zookeeper 호스트의 값을 읽어 KAFKAZKHOSTS 변수에 저장합니다. 이러한 값을 보려면 다음을 사용합니다.
+3. 다음 명령을 사용하여 `jq` 유틸리티를 설치하고 클러스터 이름을 검색하고 `KAFKAZKHOSTS` 변수를 설정합니다.
 
-        echo $KAFKAZKHOSTS
-    
+  ```bash
+  sudo apt -y install jq
+  CLUSTERNAME=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name'`
+  KAFKAZKHOSTS=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+  ```
+
+    다음 명령을 사용하여 클러스터 이름을 검색합니다.
+
+  ```bash
+  echo $CLUSTERNAME
+  ```
+
     이 명령의 출력은 다음 예제와 비슷합니다.
 
-        zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
+  ```bash
+  kafka-myhdi
+  ```
 
-    Storm 클러스터에서 토폴로지를 시작할 때 이러한 값을 사용하므로 이 명령에서 반환된 값을 저장합니다.
+    다음 명령을 사용하여 `KAFKAZKHOSTS`이 올바로 설정되어 있는지 확인합니다.
+
+  ```bash
+  echo $KAFKAZKHOSTS
+  ```
+
+    이 명령의 출력은 다음 예제와 비슷합니다.
+
+  ```bash
+  zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
+  ```
+
+    Storm 클러스터에서 토폴로지를 시작할 때 이러한 값이 사용되므로 Kafka 클러스터 이름 및 Zookeeper 호스트 정보를 저장합니다.
 
     > [!NOTE]
-    > 이전 명령은 Ambari에 직접 연결되는 __http://headnodehost:8080/__ 을 사용합니다. 이 정보를 클러스터 외부에서 인터넷을 통해 검색해야 하는 경우 __https://kafka-BASENAME/__ 을 대신으로 사용해야 합니다.
+    > 이전 명령은 Ambari에 직접 연결되는 __http://headnodehost:8080/__ 을 사용합니다. 이 정보를 클러스터 외부에서 인터넷을 통해 검색해야 하는 경우 __https://kafka-BASENAME.azurehdinsight.net/__을 대신으로 사용해야 합니다.
 
-3. 다음 명령을 사용하여 Kafka에 토픽을 만듭니다.
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
-   
+4. 다음 명령을 사용하여 Kafka에 토픽을 만듭니다.
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
+  ```
+
     이 명령은 `$KAFKAZKHOSTS`에 저장된 호스트 정보를 사용하여 Zookeeper에 연결한 다음 **stormtest**라는 Kafka 토픽을 만듭니다. 토픽을 나열하는 다음 명령을 사용하면 해당 토픽이 만들어졌는지 확인할 수 있습니다.
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
-   
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
+  ```
+
     이 명령의 출력에서 Kafka 토픽을 나열하는데, 새로운 **stormtest** 토픽이 포함되어 있어야 합니다.
 
 Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를 토픽에 쓰는지 확인하는 데 사용할 수 있으므로 활성 상태로 유지합니다.
@@ -176,45 +202,55 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
 ## <a name="download-and-compile-the-project"></a>프로젝트 다운로드 및 컴파일
 
 1. 개발 환경에서 [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)로부터 프로젝트를 다운로드하고, 명령줄을 열어 다운로드한 위치로 디렉터리를 변경합니다.
-   
+
     잠시 시간을 내어 코드를 살펴보고 프로젝트의 작동 방식을 이해합니다.
 
 2. **hdinsight-storm-java-kafka** 디렉터리에서 다음 명령을 사용하여 프로젝트를 컴파일하고 배포할 패키지를 만듭니다.
-   
-        mvn clean package
-   
+
+  ```bash
+  mvn clean package
+  ```
+
     패키지 프로세스는 `target` 디렉터리에 `KafkaTopology-1.0-SNAPSHOT.jar`라는 파일을 만듭니다.
 
 3. 다음 명령을 사용하여 HDInsight 클러스터의 Storm에 패키지를 복사합니다. **USERNAME**은 클러스터의 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
-   
-        scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-   
+
+  ```bash
+  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+  ```
+
     메시지가 표시되면 클러스터를 만들 때 사용한 암호를 입력합니다.
 
 4. 다음 명령을 사용하여 프로젝트의 `scripts` 디렉터리에서 Storm 클러스터로 `set-env-variables.sh` 파일을 복사합니다.
 
-        scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
-    
+  ```bash
+  scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
+  ```
+
     이 스크립트는 Storm 토폴로지에서 Kafka 클러스터와 통신하는 데 사용하는 환경 변수를 설정하는 데 사용됩니다.
 
 ## <a name="start-the-writer"></a>기록기 시작
 
 1. 다음을 사용하여 SSH를 사용하는 Storm 클러스터에 연결합니다. **USERNAME**은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
-   
-        ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
-   
+
+  ```bash
+  ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
+  ```
+
     메시지가 표시되면 클러스터를 만들 때 사용한 암호를 입력합니다.
-   
+
     HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-   
+
     * [Linux, Unix, Mac OS 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Storm 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 `set-env-variables.sh` 스크립트를 실행합니다.
 
-        chmod +x set-env-variables.sh
-        . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
+  ```bash
+  chmod +x set-env-variables.sh
+  . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
+  ```
 
     __KAFKACLUSTERNAME__은 Kafka 클러스터의 이름으로 바꿉니다. __PASSWORD__는 Kafka 클러스터의 관리자 로그인 암호로 바꿉니다.
 
@@ -229,25 +265,27 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
         $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181
 
 3. Storm 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 기록기 토폴로지를 시작합니다.
-   
+
         storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml -e
-   
+
     이 명령에서 사용된 매개 변수는 다음과 같습니다.
-   
-    * **org.apache.storm.flux.Flux**: Flux를 사용하여 이 토폴로지를 구성하고 실행합니다.
-   
-    * **--remote**: Nimbus에 토폴로지를 제출합니다. 토폴로지가 클러스터의 작업자 노드에 분산됩니다.
-   
-    * **-R /writer.yaml**: **writer.yaml**을 사용하여 토폴로지를 구성합니다. `-R`은 이 리소스가 jar 파일에 포함되어 있는지를 나타내며, jar의 루트에 있으므로 `/writer.yaml`이 그 경로입니다.
-   
-    * **-e**: 환경 변수 대체를 사용합니다. Flux는 이전에 설정한 $KAFKABROKERS 및 $KAFKATOPIC 값을 선택하고 `${ENV-KAFKABROKER}` 및 `${ENV-KAFKATOPIC}` 항목 대신 reader.yaml 파일에서 이 값을 사용합니다.
+
+    * `org.apache.storm.flux.Flux`: Flux를 사용하여 이 토폴로지를 구성하고 실행합니다.
+
+    * `--remote`: Nimbus에 토폴로지를 제출합니다. 토폴로지가 클러스터의 작업자 노드에 분산됩니다.
+
+    * `-R /writer.yaml`: `writer.yaml` 파일을 사용하여 토폴로지를 구성합니다. `-R`은 이 리소스가 jar 파일에 포함되어 있는지를 나타내며, jar의 루트에 있으므로 `/writer.yaml`이 그 경로입니다.
+
+    * `-e`: 환경 변수 대체를 사용합니다. Flux는 이전에 설정한 $KAFKABROKERS 및 $KAFKATOPIC 값을 선택하고 `${ENV-KAFKABROKER}` 및 `${ENV-KAFKATOPIC}` 항목 대신 reader.yaml 파일에서 이 값을 사용합니다.
 
 5. 토폴로지가 시작되면 Kafka 클러스터에 대한 SSH 연결로 전환하고, 다음 명령을 사용하여 **stormtest** 토픽에 기록된 메시지를 봅니다.
-   
-         /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
-   
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
+  ```
+
     이 명령은 Kafka에서 제공하는 스크립트를 사용하여 토픽를 모니터링합니다. 잠시 후에 토픽에 기록된 임의의 문장을 반환하기 시작합니다. 다음 예제와 유사하게 출력됩니다.
-   
+
         i am at two with nature             
         an apple a day keeps the doctor away
         snow white and the seven dwarfs     
@@ -262,14 +300,16 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
         snow white and the seven dwarfs     
         i am at two with nature             
         an apple a day keeps the doctor away
-   
+
     Ctrl+C를 사용하여 스크립트를 중지합니다.
 
 ## <a name="start-the-reader"></a>판독기 시작
 
 1. Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 판독기 토폴로지를 시작합니다.
-   
-        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+
+  ```bash
+  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+  ```
 
 2. 토폴로지가 시작되면 Storm UI를 엽니다. 이 웹 UI는 https://storm-BASENAME.azurehdinsight.net/stormui에 있습니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다. 
 
@@ -305,8 +345,10 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
 
 Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 Storm 토폴로지를 중지합니다.
 
-    storm kill kafka-writer
-    storm kill kafka-reader
+  ```bash
+  storm kill kafka-writer
+  storm kill kafka-reader
+  ```
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

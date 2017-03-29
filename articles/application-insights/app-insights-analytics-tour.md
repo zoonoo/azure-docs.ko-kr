@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ca96cd4ddf1be5ab70475d40fa65e73d248fd67b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 132576ca394fe475000449ea58871726c36d078f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -689,7 +689,9 @@ Application Insights 에이전트가 설치되지 않은 경우 서버 쪽 종�
 ### <a name="traces-table"></a>추적 테이블
 Tracktrace()를 사용하여 앱에서 보낸 원격 분석 데이터나 [다른 로깅 프레임워크](app-insights-asp-net-trace-logs.md)가 포함됩니다.
 
-
+## <a name="video"></a>비디오 
+ 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="next-steps"></a>다음 단계
 * [분석 언어 참조](app-insights-analytics-reference.md)

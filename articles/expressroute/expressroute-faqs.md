@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0df7bba472daf2c499f3ccff1296b8a9ee8ab89d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31a267963199518ed6db4610830062099ed0dde4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +41,7 @@ ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 �
 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입할 Express 경로 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-required"></a>지정된 대역폭의 Express 경로 회로에 대 한 비용을 지불하는 경우, 필요하다면 더 높은 속도까지 버스트할 수 있나요?
-예. Express 경로 회로는 추가 비용 없이 확보된 대역폭 제한의 최대&2;배까지 버스트할 수 있는 경우를 지원하도록 구성됩니다. 이 기능을 지원하는 경우 해당 서비스 공급자를 확인하세요.
+예. Express 경로 회로는 추가 비용 없이 확보된 대역폭 제한의 최대 2배까지 버스트할 수 있는 경우를 지원하도록 구성됩니다. 이 기능을 지원하는 경우 해당 서비스 공급자를 확인하세요.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>동시에 가상 네트워크 및 다른 Azure 서비스와 동일한 개인 네트워크 연결을 사용할 수 있나요?
 예. ExpressRoute 회로를 일단 설정하면 동시에 가상 네트워크 내 서비스 및 기타 Azure 서비스에 액세스할 수 있습니다. 공용 피어링 경로를 통해 가상 네트워크에 연결하고 공용 피어링 경로를 통해 기타 서비스에 연결합니다.
@@ -52,27 +52,25 @@ ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 �
 ## <a name="supported-services"></a>지원되는 서비스
 ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 도메인](expressroute-circuit-peerings.md)을 지원합니다.
 
-개인 피어링
+### <a name="private-peering"></a>개인 피어링
 * 모든 가상 컴퓨터 및 클라우드 서비스를 포함한 Virtual Networks
 
-공용 피어링
-* 아래의 몇 가지 예외를 제외하고 대부분의 Azure 서비스
+### <a name="public-peering"></a>공용 피어링
 * Power BI
 * Dynamics 365 for Operations(이전의 Dynamics AX Online)
+* 아래의 몇 가지 예외를 제외하고 대부분의 Azure 서비스
+  * CDN
+  * Visual Studio Team Services 부하 테스트
+  * Multi-Factor 인증
+  * 트래픽 관리자
 
-Microsoft 피어링
+### <a name="microsoft-peering"></a>Microsoft 피어링
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * 대부분의 Dynamics 365 서비스(이전의 CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
-
-다음 Azure 서비스는 ExpressRoute에서 지원되지 않습니다.
-* CDN
-* Visual Studio Team Services 부하 테스트
-* Multi-Factor 인증
-* 트래픽 관리자
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 ### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute"></a>Express 경로를 사용하여 전송할 수 있는 데이터의 양에 제한이 있나요?
@@ -177,9 +175,10 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 
 1. Express 경로 회로에 공용 피어링을 설정합니다.
 2. DNS 조회를 수행하고 **kms.core.windows.net**
-3. 다음 두 항목 중 하나를 수행하면 키 관리 서비스가 Azure에서 해당 정품 인증 요청을 인식하고 요청을 인증합니다.
+3. 다음 세 항목 중 하나를 수행하면 키 관리 서비스가 Azure에서 정품 인증 요청을 인식하고 요청을 인증합니다.
    * 온-프레미스 네트워크에서 공용 피어링을 통해 Azure에 다시 IP 주소(2단계에서 얻은)를 대상으로 하는 트래픽을 라우팅합니다.
    * NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다.
+   * 인터넷을 다음 홉으로 보유한 해당 IP가 가리키는 사용자 정의 경로를 만들고 이러한 가상 컴퓨터가 위치한 서브넷에 적용합니다.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Express 경로 회로의 대역폭을 변경할 수 있나요?
 예, Azure Portal에서 또는 PowerShell을 사용하여 ExpressRoute 회로의 대역폭을 늘릴 수 있습니다. 회로가 생성된 물리적 포트에 사용 가능한 용량이 있는 경우 변경에 성공합니다. 변경에 실패하면 현재 포트에 남아 있는 용량이 부족하며 보다 높은 대역폭으로 새로운 ExpressRoute 회로를 만들어야 합니다. 그렇지 않으면 해당 위치에 추가 용량이 없으며 이 경우 대역폭을 늘릴 수 없습니다. 또한 연결 공급자는 네트워크 내 제한을 업데이트하여 대역폭 증가를 지원하도록 후속 작업해야 합니다. 하지만 ExpressRoute 회로의 대역폭은 줄일 수 없습니다. 낮은 대역폭으로 새 ExpressRoute 회로를 만들고 이전 회로를 삭제해야 합니다.

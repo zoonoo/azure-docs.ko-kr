@@ -18,13 +18,13 @@ ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 3ffb5d9828c167953c6553ff34e2d0dcdfe701b0
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>무료 평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드
-Azure Account Portal에서 [무료 평가판](https://azure.microsoft.com/free/)이나 [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) 구독을 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드합니다. 
+Azure Account Portal에서 [무료 평가판](https://azure.microsoft.com/free/)이나 [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) 구독을 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드합니다. 업그레이드 자체만으로는 비용이 들지 않으며 사용하는 서비스에 대해서만 비용이 청구됩니다.
 
 1. [Azure Account Portal](https://account.windowsazure.com/subscriptions)에 로그인하고 **구독** 탭으로 이동합니다.
 2. 구독 상태 섹션에서 **지금 업그레이드** 배너를 선택합니다.

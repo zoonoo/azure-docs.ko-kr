@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 90b4cde25330bf7c9e45142ba54ff000651de9f4
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ec3407f54c3affc21bde4e2e6fa76a174a46159c
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 로컬 Git 리포지토리에서 웹앱 코드를 배포합니다.
 
-이 스크립트를 실행하기 전에 `Login-AzureRmAccount` cmdlet을 사용하여 Azure와의 연결이 생성되었는지 확인하고 응용 프로그램 코드가 로컬 Git 리포지토리에 커밋되었는지 확인합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`을 실행하여 Azure와 연결합니다. 또한 응용 프로그램 코드는 로컬 Git 리포지토리로 커밋될 수 있어야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

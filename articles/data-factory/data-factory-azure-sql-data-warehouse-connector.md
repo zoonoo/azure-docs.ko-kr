@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: aada5b96eb9ee999c5b1f60b6e7b9840fd650fbe
-ms.openlocfilehash: 2831416bbb290905835396835db2eb6cb5e7b46f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e7d2d0063b1555e098c43b95272c78eaf4678af9
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,8 +32,7 @@ ms.lasthandoff: 02/24/2017
 Azure SQL 데이터 웨어하우스 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용한 파이프라인 작성에 대한 연습은 [자습서: 데이터 팩터리를 통해 SQL Data Warehouse에 데이터 로드](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md)를 참조하세요.
 
 > [!TIP]
-> SQL Server 또는 Azure SQL Database에서 Azure SQL Data Warehouse로 데이터를 복사할 때 테이블이 대상 저장소에 없을 경우 Data Factory는 원본의 스키마를 사용하여 자동 테이블 만들기를 지원합니다. 복사 마법사를 사용해 보고 [자동 테이블 만들기](#auto-table-creation)에서 자세히 알아 보십시오.
->
+> SQL Server 또는 Azure SQL Database에서 Azure SQL Data Warehouse로 데이터를 복사할 때 대상 저장소에 테이블이 없으면 Data Factory가 소스 데이터 저장소에 있는 테이블의 스키마를 사용하여SQL Data Warehouse에 테이블을 자동으로 만들 수 있습니다. 자세한 내용은 [자동 테이블 만들기](#auto-table-creation)를 참조하세요. 
 
 다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure SQL 데이터 웨어하우스 및 Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
@@ -507,7 +506,7 @@ GO
 **PolyBase** 를 사용하는 것은 처리량이 높은 많은 양의 데이터를 Azure SQL 데이터 웨어하우스에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다. 자세히 비교하려면 [복사 성능 참조 번호](data-factory-copy-activity-performance.md#performance-reference)를 참조하세요.
 
 * 원본 데이터 형식이 PolyBase와 호환되면 PolyBase를 사용하여 원본 데이터 저장소에서 Azure SQL Data Warehouse로 직접 복사할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-using-polybase)**를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure Data Factory를 통해 Azure SQL Data Warehouse에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
-* 원본 데이터 형식이 PolyBase에서 원래 지원하지 않는 경우 **[PolyBase를 통한 준비된 복사](#staged-copy-using-polybase)**를 활용할 수 있으며, 먼저 데이터를 자동으로 PolyBase 호환 형식으로 변환하고 Azure Blob 저장소에 저장한 다음 SQL Data Warehouse에 로드하여 더 나은 처리량을 제공합니다.
+* 원본 데이터 형식이 PolyBase에서 원래 지원되지 않는 경우 **[PolyBase를 사용하여 준비한 복사본](#staged-copy-using-polybase)** 기능을 대신 사용할 수 있습니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환하고 Azure Blob Storage에 저장하여 향상된 처리량을 제공하기도 합니다. 그런 다음 SQL Data Warehouse에 데이터를 로드합니다.
 
 Azure Data Factory에 대한 다음 예와 같이 `allowPolyBase` 속성을 **true**로 설정하여 Azure SQL Data Warehouse로 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 `polyBaseSettings` 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 [SqlDWSink](#SqlDWSink) 섹션을 참조하세요.
 
@@ -630,9 +629,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 NULL 값은 특별한 형태의 기본값입니다. 열이 null을 허용하면 해당 열에 대한 입력 데이터(Blob)는 비어 있을 수 있습니다(입력 데이터 집합에서 누락될 수 없음). PolyBase는 Azure SQL Data Warehouse의 해당 항목에 NULL을 삽입합니다.  
 
 ## <a name="auto-table-creation"></a>자동 테이블 만들기
-SQL Server 또는 Azure SQL Database에서 Azure SQL Data Warehouse로 데이터를 복사할 때 테이블이 대상 저장소에 없을 경우 Data Factory는 복사 마법사를 사용하여 작성 시 원본의 스키마를 사용하여 자동 테이블 만들기를 지원합니다.
+복사 마법사를 사용하여 SQL Server 또는 Azure SQL Database에서 Azure SQL Data Warehouse로 데이터를 복사하는 경우 원본 테이블에 해당하는 테이블이 대상 저장소에 없으면 Data Factory는 원본 테이블 스키마를 사용하여 데이터 웨어하우스에 테이블을 자동으로 만들 수 있습니다. 
 
-Data Factory는 원본과 같은 이름을 사용하여 대상에 테이블을 만들고 아래 매핑으로 열 데이터 형식을 만들며 라운드 로빈 테이블 배포를 사용합니다. 원본과 대상 저장소 간의 비호환성을 해결할 필요성이 있으면 적절한 데이터 형식 변환이 발생할 수 있습니다.
+Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 대상 저장소에 테이블을 만듭니다. 열에 대한 데이터 형식은 다음 형식 매핑을 기반으로 선택됩니다. 필요한 경우 원본과 대상 저장소 사이의 비호환성을 해결하기 위해 형식 변환을 수행합니다. 라운드 로빈 테이블 배포를 사용하기도 합니다. 
 
 | 원본 SQL Database 열 형식 | 대상 SQL DW 열 유형(크기 제한) |
 | --- | --- |

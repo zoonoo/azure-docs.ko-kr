@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b58a8f7f87a231bd44c9224e3c889c31336ee0b1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,17 +31,22 @@ ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
 
 각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 -GatewayType Vpn을 사용하는 하나의 가상 네트워크 게이트웨이와 -GatewayType Express 경로를 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 ExpressRoute 가상 네트워크 게이트웨이를 중점적으로 다룹니다.
 
-## <a name="a-namegwskuagateway-skus"></a><a name="gwsku"></a>게이트웨이 SKU
+## <a name="gwsku"></a>게이트웨이 SKU
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 게이트웨이를 보다 강력한 게이트웨이 SKU로 업그레이드하려면 대부분의 경우 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet을 사용할 수 있습니다. 표준 및 고성능 SKU로 업그레이드하는 경우에 가능합니다. 하지만 초고성능 SKU로 업그레이드하려면 게이트웨이를 다시 만들어야 합니다.
 
-### <a name="a-nameaggthroughputaestimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>게이트웨이 SKU에 의해 예상된 총 처리량
+### <a name="aggthroughput"></a>게이트웨이 SKU에 의해 예상된 총 처리량
 다음 테이블에서는 게이트웨이 형식과 예상 총 처리량을 보여 줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-## <a name="a-nameresourcesarest-apis-and-powershell-cmdlets"></a><a name="resources"></a>REST API 및 PowerShell cmdlet
+> [!IMPORTANT]
+> 응용 프로그램 처리량은 종단 간 대기 시간 및 응용 프로그램을 여는 트래픽 흐름 수와 같은 여러 요인에 따라 달라집니다. 테이블의 숫자는 이상적인 환경에서 응용 프로그램이 이론상 수행할 수 있는 상한값을 나타냅니다. 
+> 
+>
+
+## <a name="resources"></a>REST API 및 PowerShell cmdlet
 가상 네트워크 게이트웨이 구성을 위해 REST API와 PowerShell cmdlet을 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.
 
 | **클래식** | **리소스 관리자** |
@@ -50,10 +56,5 @@ ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 연결 구성에 대한 자세한 내용은 [ExpressRoute 개요](expressroute-introduction.md) 를 참조하세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c81b83143afaab3acf625dc98269b35973185d77
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,9 +38,14 @@ ms.lasthandoff: 03/08/2017
 랩은 VM(Virtual Machines)과 같은 리소스 그룹을 포함하는 인프라로서, 이를 통해 한도 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다.
 
 ## <a name="virtual-machine"></a>가상 컴퓨터
-Azure VM은 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) 중 하나입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. 하지만 VM에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 특정 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
+Azure VM은 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) 중 하나입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. 하지만 VM에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 특정 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
-[Azure에서의 Windows 가상 컴퓨터 개요](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-overview)에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법을 설명합니다.
+[Azure에서의 Windows 가상 컴퓨터 개요](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법을 설명합니다.
+
+## <a name="claimable-vm"></a>클레임할 수 있는 VM
+Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 있는 가상 컴퓨터입니다. 랩 관리자가 특정한 기본 이미지와 아티팩트를 사용하여 VM을 준비하고 공유 풀에 저장할 수 있습니다. 그런 다음 랩 사용자가 특정 구성이 포함된 VM이 필요할 때 풀에서 작동하는 VM을 클레임할 수 있습니다.
+
+클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 컴퓨터"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 컴퓨터” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
 
 ## <a name="environment"></a>Environment
 DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 블로그 게시물](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
@@ -89,7 +94,7 @@ DevTest Lab에서 사용자 지정 역할을 만드는 방법을 보려면 [특�
 ## <a name="arm-templates"></a>ARM 템플릿
 이 문서에서 설명한 모든 개념은 ARM(Azure Resource Manager) 템플릿을 사용해서 구성할 수 있습니다. ARM 템플릿을 사용하여 Azure 솔루션의 인프라/구성을 정의하고 솔루션을 일관된 상태로 반복적으로 배포할 수 있습니다.
 
-[ARM 템플릿](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.
+[ARM 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

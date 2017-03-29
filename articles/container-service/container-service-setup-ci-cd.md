@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -288,6 +288,7 @@ VSTS에서 빌드 정의를 열면 다음과 유사한 결과가 나타납니다
     ```
 
     * 레이블 값에 대해 ACS 에이전트의 FQDN(정규화된 도메인 이름) 또는 사용자 지정 도메인(예: app.contoso.com)의 URL을 지정할 수 있습니다. ACS 에이전트의 FQDN을 찾으려면 명령 `az acs list`를 실행하고 `agentPoolProfiles.fqdn`에 대한 속성을 확인합니다. 예: `myacsagents.westus.cloudapp.azure.com`
+    * 샘플 앱은 기본적으로 포트 80에서 수신 대기하며 다른 포트(예: `port 8080` 또는 `443`)에서 수신 대기하는 Docker 응용 프로그램의 경우 포트 번호를 FQDN에 연결합니다. 예: `myacsagents.westus.cloudapp.azure.com:8080` 하지만 외부에서 응용 프로그램에 액세스하려는 경우 포트 80에 쿼리해야 합니다.
     * 파일 이름 규칙 docker-compose.env.*environment-name*.yml에 따라, 이러한 설정은 명명된 환경에만 영향을 줍니다(이 경우에 *프로덕션* 환경). VSTS의 릴리스 정의를 살펴보면 각 환경 배포 작업은 이 규칙의 이름을 딴 docker-compose 파일에서 읽어오도록 설정되어 있습니다.
 
 1. 파일을 커밋하고 마스터 소스 리포지토리에 푸시하여 다른 빌드를 시작합니다.
@@ -331,7 +332,7 @@ ACS 클러스터 삭제:
 
 Azure Container Registry 삭제: Azure Portal에서 Azure Container Registry를 검색한 후 삭제합니다. 
 
-[Visual Studio Team Services 계정은 처음&5;명의 사용자에게 무료 기본 액세스 수준을 제공하지만](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/) 빌드 및 릴리스 정의를 삭제할 수 있습니다.
+[Visual Studio Team Services 계정은 처음 5명의 사용자에게 무료 기본 액세스 수준을 제공하지만](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/) 빌드 및 릴리스 정의를 삭제할 수 있습니다.
 
 VSTS 빌드 정의 삭제:
         

@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/21/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 3b9dfffe17272296ef10a78b3cf25570109679c7
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 183425e296f91bba47094c9b35be67fb6299c569
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="use-maven-to-develop-a-java-based-word-count-topology-for-storm-on-hdinsight"></a>Maven을 사용하여 HDInsight의 Storm에 대한 Java 기반 단어 개수 토폴로지 개발
@@ -557,7 +557,7 @@ Log4j에 대한 로깅 구성과 관련된 자세한 내용은 [http://logging.a
 
 WordCount Bolt가 내보낸 로깅을 보면 'and'를 113번 내보낸 것을 알 수 있습니다. Spout가 계속해서 동일한 문장을 내보내기 때문에 토폴로지를 실행하면 개수는 계속 증가합니다.
 
-단어 내보내기와 개수 사이에는 5초의 간격이 있습니다. 이는 틱 튜플이 도달할 때 정보를 내보내도록 **WordCount** 구성 요소를 구성하며 이러한 튜플이 기본적으로&5;초마다 배달되도록 요청합니다.
+단어 내보내기와 개수 사이에는 5초의 간격이 있습니다. 이는 틱 튜플이 도달할 때 정보를 내보내도록 **WordCount** 구성 요소를 구성하며 이러한 튜플이 기본적으로 5초마다 배달되도록 요청합니다.
 
 ## <a name="convert-the-topology-to-flux"></a>토폴로지를 Flux로 변환
 
@@ -565,63 +565,47 @@ Flux는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크
 
 YAML 파일은 토폴로지에 사용할 구성 요소, 구성 요소 간의 데이터 흐름 방식 및 구성 요소를 초기화할 때 사용할 값을 정의합니다. jar 파일의 일부로 YAML 파일을 포함하거나 외부 YAML 파일을 사용할 수 있습니다.
 
+> [!WARNING]
+> Storm 1.0.1의 [버그(https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)로 인해 [Storm 개발 환경](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)을 설치하여 Flux 토폴로지를 로컬로 실행해야 합니다.
+
 1. `WordCountTopology.java` 파일을 프로젝트에서 제외합니다. 이전에 이 파일은 토폴로지를 정의했지만 Flux에는 필요하지 않습니다.
 
 2. `resources` 디렉터리에서 `topology.yaml`라는 파일을 만듭니다. 이 파일의 내용으로 다음 텍스트를 사용합니다.
-    
-    ```yaml
-    # topology definition
 
-    # name to be used when submitting. This is what shows up...
-    # in the Storm UI/storm command line tool as the topology name
-    # when submitted to Storm
-    name: "wordcount"
-
-    # Topology configuration
-    config:
-    # Hint for the number of workers to create
-    topology.workers: 1
-
-    # Spout definitions
-    spouts:
-    - id: "sentence-spout"
-        className: "com.microsoft.example.RandomSentenceSpout"
-        # parallelism hint
-        parallelism: 1
-
-    # Bolt definitions
-    bolts:
-    - id: "splitter-bolt"
-        className: "com.microsoft.example.SplitSentence"
-        parallelism: 1
-
-    - id: "counter-bolt"
-        className: "com.microsoft.example.WordCount"
-        constructorArgs:
-        - 10
-        parallelism: 1
-
-    # Stream definitions
-    streams:
-    - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-        # The stream emitter
-        from: "sentence-spout"
-        # The stream consumer
-        to: "splitter-bolt"
-        # Grouping type
-        grouping:
-        type: SHUFFLE
-
-    - name: "Splitter -> Counter"
-        from: "splitter-bolt"
-        to: "counter-bolt"
-        grouping:
-        type: FIELDS
-        # field(s) to group on
-        args: ["word"]
-    ```
-
-    **WordCountTopology.java** 파일에서 각 섹션의 용도 및 Java 기반 정의에 관련된 방법을 읽고 이해합니다.
+        name: "wordcount"       # friendly name for the topology
+        
+        config:                 # Topology configuration
+        topology.workers: 1     # Hint for the number of workers to create
+        
+        spouts:                 # Spout definitions
+        - id: "sentence-spout"
+            className: "com.microsoft.example.RandomSentenceSpout"
+            parallelism: 1      # parallelism hint
+        
+        bolts:                  # Bolt definitions
+        - id: "splitter-bolt"
+            className: "com.microsoft.example.SplitSentence"
+            parallelism: 1
+         
+        - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+                - 10
+            parallelism: 1
+        
+        streams:                # Stream definitions
+            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            from: "sentence-spout"       # The stream emitter
+            to: "splitter-bolt"          # The stream consumer
+            grouping:                    # Grouping type
+                type: SHUFFLE
+          
+            - name: "Splitter -> Counter"
+            from: "splitter-bolt"
+            to: "counter-bolt"
+            grouping:
+            type: FIELDS
+                args: ["word"]           # field(s) to group on
 
 3. `pom.xml` 파일을 다음과 같이 변경합니다.
    
@@ -693,8 +677,11 @@ YAML 파일은 토폴로지에 사용할 구성 요소, 구성 요소 간의 데
     PowerShell을 사용하는 경우 다음 명령을 대신 사용합니다.
    
         mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
+
+    > [!WARNING]
+    > 토폴로지가 Storm 1.0.1 비트를 사용하는 경우 이 명령은 실패합니다. 이 문제는 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055)로 인해 발생합니다. 대신, [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)하고 다음 정보를 사용합니다.
    
-    Linux/Unix/OS X 시스템에서 [개발 환경에 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)한 경우 다음 명령을 대신 사용할 수 있습니다.
+    [개발 환경에서 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)한 경우 다음 명령을 대신 사용할 수 있습니다.
    
         mvn compile package
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
@@ -724,7 +711,7 @@ YAML 파일은 토폴로지에 사용할 구성 요소, 구성 요소 간의 데
    
         mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
    
-    또는 Linux/Unix/OS X 개발 환경에 Storm이 있는 경우:
+    또는 개발 환경에서 Storm을 설치한 경우:
    
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
    

@@ -1,5 +1,5 @@
 ---
-title: "클라우드의 배치 및 HPC 워크로드에 대한 리소스 | Microsoft Docs"
+title: "Azure Cloud의 HPC 및 배치에 대한 리소스 | Microsoft Docs"
 description: "Azure에서 대규모 병렬, 배치 및 HPC(고성능 컴퓨팅) 워크로드를 실행하는 데 도움을 주는 기술 리소스를 나열합니다."
 services: batch, cloud-services, virtual-machines
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 03/17/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
-ms.openlocfilehash: edcf34610e7517f9ca16f8c239e4080c475933f4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5e605c8c509c93feb822781257ad979a0dea00aa
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -58,7 +59,15 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 
 * [SLURM 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/slurm/) 및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 * [토크 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [PBS Professional을 사용한 계산 그리드 템플릿](https://github.com/xpillons/azure-hpc/tree/master/Compute-Grid-Infra)
+
+## <a name="hpc-storage"></a>HPC 저장소
+* [Azure의 HPC 저장소를 위한 병렬 파일 시스템](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
 * [Lustre 소프트웨어용 Intel 클라우드 버전 - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
+* [CentOS 7.2 템플릿의 BeeGFS](https://github.com/smith1511/hpc/tree/master/beegfs-shared-on-centos7.2)
+
+
+
 
 ## <a name="microsoft-mpi"></a>Microsoft MPI
 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI)는 Microsoft가 구현한 메시지 전달 인터페이스 표준으로서, Windows 플랫폼에서 병렬 응용 프로그램을 개발 및 실행하는 데 사용됩니다.
@@ -68,14 +77,17 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 * [MPI 포럼](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## <a name="compute-intensive-instances"></a>계산 집약적 인스턴스
-Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 [계산 집약적 H 시리즈](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 인스턴스를 비롯하여 [다양한 VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 제공합니다.
+Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 [계산 집약적 H 시리즈](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 인스턴스를 비롯하여 [다양한 VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 제공합니다. 
 
 * [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [MPI 응용 프로그램을 실행하기 위해 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터 설정](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
+GPU가 많이 사용되는 워크로드의 경우 [NC 및 NV 크기](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/)를 참조하세요.
+
 ## <a name="samples-and-demos"></a>샘플 및 데모
 * [Azure 배치 C# 및 Python 코드 샘플](https://github.com/Azure/azure-batch-samples)
 * 배치 스타일 Dockerized 워크로드를 Azure Batch로 간편하게 배포하기 위한 [Batch Shipyard](https://azure.github.io/batch-shipyard/) 도구 키트
+* Azure Batch를 기반으로 구축된 [doAzureParallel](http://www.github.com/Azure/doAzureParallel) R 패키지
 * [HPC용 SUSE Linux Enterprise Server 시험 사용](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 ## <a name="related-azure-services"></a>관련 Azure 서비스
@@ -110,10 +122,5 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 ## <a name="next-steps"></a>다음 단계
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

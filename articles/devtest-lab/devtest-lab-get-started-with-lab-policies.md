@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 3f2be48ce3276ea6ee2d08ce904a8620a7351f35
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e5b622be66c3e009c67a00dd380efd87b013c920
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 기본 정책 관리
 
-Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 관리하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 컴퓨터) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) 문서를 참조하세요.  
+Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 제어하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 가장 중요한 두 가지 정책을 설정하여 단일 사용자가 클레임하거나 생성할 수 있는 VM(가상 컴퓨터) 수를 제한하고 자동 종료를 구성하는 방법을 확인하여 정책을 시작합니다. 모든 랩 정책을 설정하는 방법을 보려면 [Azure DevTest Labs에서 랩 정책 정의](devtest-lab-set-lab-policy.md) 문서를 참조하세요.  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩 정책에 액세스
 다음 단계에서는 Azure DevTest Labs에서 랩에 대한 정책을 설정하는 과정을 안내합니다.

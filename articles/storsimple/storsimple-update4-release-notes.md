@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a545925bdade693f4db7db45228188dae7e5ff38
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/10/2017
 StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 포함된 정보를 검토하십시오.
 
 > [!IMPORTANT]
-> * 업데이트 4는 장치 소프트웨어, USM 펌웨어, LSI 드라이버 및 펌웨어, 디스크 펌웨어, Storport 및 Spaceport, 보안 및 기타 OS 업데이트를 포함합니다. 이 업데이트를 설치하는 데는 4시간 정도 걸립니다. 장치를 최신 상태로 유지하도록 이 업데이트를 적용하는 것이 좋습니다. 
+> * 업데이트 4는 장치 소프트웨어, USM 펌웨어, LSI 드라이버 및 펌웨어, 디스크 펌웨어, Storport 및 Spaceport, 보안 및 기타 OS 업데이트를 포함합니다. 이 업데이트를 설치하는 데는 4시간 정도 걸립니다. 디스크 펌웨어 업데이트는 중단 업데이트이며 사용자 장치에 대한 가동 중지 시간이 발생합니다. 장치를 최신 상태로 유지하려면 업데이트 4를 적용하는 것이 좋습니다. 
 > * 새 릴리스의 경우, 업데이트의 단계적 롤아웃을 수행하기 때문에 즉시 업데이트를 볼 수는 없습니다. 업데이트가 곧 제공될 예정이니 몇 일 후에 업데이트를 다시 검색하세요.
 
 ## <a name="whats-new-in-update-4"></a>업데이트 4의 새로운 기능
@@ -49,7 +49,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
     모든 복원은 이제 열 지도 기반 복원입니다. 열 지도 기반 복원 및 리하이드레이션 작업을 쿼리 및 취소하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)로 이동합니다.
 
-* **StorSimple 진단 도구** – 업데이트 4에서 StorSimple 진단 도구는 시스템, 네트워크, 성능 및 하드웨어 구성 요소 상태와 관련된 문제를 쉽게 진단 및 해결할 수 있도록 릴리스되었습니다. 이 도구는 StorSimple용 Windows PowerShell을 통해 실행됩니다. 
+* **StorSimple 진단 도구** – 업데이트 4에서 StorSimple 진단 도구는 시스템, 네트워크, 성능 및 하드웨어 구성 요소 상태와 관련된 문제를 쉽게 진단 및 해결할 수 있도록 릴리스되었습니다. 이 도구는 StorSimple용 Windows PowerShell을 통해 실행됩니다. 자세한 정보는 [StorSimple 진단 도구를 사용한 문제 해결](storsimple-8000-diagnostics.md)을 참조하세요.
 
 * **UI 기반 StorSimple 마이그레이션 도구** - 이 릴리스 전에 5000-7000 시리즈에서 데이터 마이그레이션에는 사용자가 Azure PowerShell 인터페이스를 사용하여 마이그레이션 워크플로의 일부를 실행해야 했습니다. 이 릴리스에서 사용하기 쉬운 UI 기반 StorSimple 마이그레이션 도구는 동일한 마이그레이션 워크플로를 용이하게 하는 지원에 사용 가능합니다. 이 도구는 복구 버킷의 통합도 허용합니다. 
 
@@ -59,7 +59,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 * **업데이트 변경 내용** - 이 릴리스에서는 업데이트 실패와 관련된 버그가 수정되었습니다.
 
-* **디스크 오류에 대한 경고** - 임박한 디스크 오류를 사용자에게 경고하는 새로운 경고가 이 릴리스에서 추가됩니다. 이 경고가 발생하는 경우 Microsoft 지원에 문의하여 대체 디스크를 보내주세요.
+* **디스크 오류에 대한 경고** - 임박한 디스크 오류를 사용자에게 경고하는 새로운 경고가 이 릴리스에서 추가됩니다. 이 경고가 발생하는 경우 Microsoft 지원에 문의하여 대체 디스크를 보내주세요. 자세한 정보는 [StorSimple 장치에서 하드웨어 경고](storsimple-manage-alerts.md#hardware-alerts)를 참조하세요.
 
 * **컨트롤러 교체 변경 사항** - 사용자가 컨트롤러 교체 프로세스의 상태를 쿼리할 수 있도록 하는 cmdlet이 이 릴리스에서 추가됩니다. 자세한 내용은 [컨트롤러 교체 상태를 쿼리하는 cmdlet](https://technet.microsoft.com/library/dn688168.aspx)으로 이동합니다.
 

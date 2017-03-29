@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e7a2fef8860984c2e4e3749202868940b836ca9f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 ## <a name="requirements"></a>요구 사항
 * [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상
 * [Maven](http://maven.apache.org/)
-* [Windows 기반 HDInsight 클러스터 및 HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* Windows 기반 HDInsight 클러스터 및 HBase
 
     > [!NOTE] 
     > 이 문서의 단계는 HDInsight 클러스터 버전 3.2 및 3.3으로 테스트되었습니다. 예제에 제공되는 기본값은 HDInsight 3.3 클러스터에 대한 것입니다.
@@ -616,10 +618,5 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Start-HBaseExample을 사용할 경우 결과가 없거나 예기치 않은 결과가 표시됨
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

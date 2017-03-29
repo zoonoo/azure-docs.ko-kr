@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c187467e8af7503ea22c5953417d8282be97856c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -91,6 +91,7 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 | [컨테이너](log-analytics-containers.md)                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | HDInsight HBase 모니터링 <br>(미리 보기)                                                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | [Key Vault 분석](log-analytics-azure-key-vault.md)                      | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
+| Logic Apps B2B                      | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | [맬웨어 평가](log-analytics-malware.md)                                             | <ul><li>보안 및 규정 준수</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                               | |
 | [네트워크 성능 모니터](log-analytics-network-performance-monitor.md) <br>(미리 보기)    | <ul><li>Insight and Analytics</li></ul>                                     | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | |
 | Office 365 Analytics <br>(미리 보기)                                                        | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
@@ -103,7 +104,8 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 | [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | [System Center Operations Manager 평가](log-analytics-scom-assessment.md) <br>(미리 보기) | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul>         | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | 업데이트 관리                                                                               | <ul><li>자동화 및 제어</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
-| [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(미리 보기)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용 |
+| [업데이트 규정 준수](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(미리 보기)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용 |
+| [업그레이드 준비](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용 |
 | [VMware 모니터링](log-analytics-vmware.md) <br>(미리 보기)                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | 실시간 데이터 2.0<br>(미리 보기)                                                                   | <ul><li>Insight and Analytics</li></ul>                                      | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | 미국 동부 및 유럽 서부에서 사용 가능 |
 
@@ -263,7 +265,7 @@ Log Analytics Windows 에이전트 및 System Center Operations Manager 에이�
 * 설문 조사, 전화 또는 전자 메일을 사용하여 피드백에 관해 연락을 드릴 수 있습니다.
 * 기능이 항상 올바르게 작동하지는 않습니다.
 * 참여에 대한 비밀 유지 계약(NDA)을 요구하거나 기밀 콘텐츠를 포함할 수 있습니다.
-  * 블로그, 트윗 또는 제&3;자와 소통하기 전에 미리 보기에 대한 프로그램 관리자 책임을 확인하여 공개에 대한 제한을 이해하세요.
+  * 블로그, 트윗 또는 제 3자와 소통하기 전에 미리 보기에 대한 프로그램 관리자 책임을 확인하여 공개에 대한 제한을 이해하세요.
 * 프로덕션/중요 시스템에서 실행하지 마십시오.
 
 ### <a name="how-do-i-get-access-to-private-preview-features-and-solutions"></a>비공개 미리 보기 기능 및 솔루션에 대한 액세스를 어떻게 받습니까?

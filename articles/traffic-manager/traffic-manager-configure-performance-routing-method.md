@@ -1,59 +1,55 @@
 ---
-title: "성능 트래픽 라우팅 방법 구성 | Microsoft Docs"
-description: "이 문서는 트래픽 관리자에서 성능 트래픽 라우팅 방법을 구성하는 데 도움이 됩니다."
+title: "Azure Traffic Manager를 사용한 성능 트래픽 라우팅 방법 구성 | Microsoft Docs"
+description: "이 문서에서는 가장 낮은 대기 시간으로 트래픽을 끝점으로 라우팅하도록 Traffic Manager를 구성하는 방법에 설명합니다."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
 manager: timlt
-editor: tysonn
-ms.assetid: 6dd23b8e-0ed5-4ea4-b5ae-018f42e72688
+editor: 
+ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 03/20/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 51a3f970059f4b83240cb61411dbf612209d9293
-
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
+ms.lasthandoff: 03/22/2017
 
 ---
-<!-- repub for nofollow -->
 
-# <a name="configure-performance-traffic-routing-method"></a>성능 트래픽 라우팅 방법 구성
-전 세계 여러 데이터 센터(지역이라고도 함)에 있는 클라우드 서비스와 웹 사이트에 대한 트래픽을 라우팅하기 위해 들어오는 트래픽을 요청하는 클라이언트에서 대기 시간이 가장 짧은 끝점으로 보낼 수 있습니다. 일반적으로 대기 시간이 가장 짧은 데이터 센터는 지리적 거리가 가장 가까운 데이터 센터에 해당합니다. 성능 트래픽 라우팅 방법을 사용하면 가장 짧은 대기 시간을 기준으로 분산할 수 있지만 네트워크 구성이나 부하에서 발생하는 실시간 변경 내용은 고려할 수 없습니다. Azure 트래픽 관리자가 제공하는 다양한 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)를 참조하세요.
+# <a name="configure-the-performance-traffic-routing-method"></a>성능 트래픽 라우팅 방법 구성
 
-## <a name="route-traffic-based-on-lowest-latency-across-a-set-of-endpoints"></a>가장 짧은 대기 시간을 기준으로 일련의 끝점에 트래픽 라우팅:
-1. Azure 클래식 포털의 왼쪽 창에서 **트래픽 관리자** 아이콘을 클릭하여 트래픽 관리자 창을 엽니다. 트래픽 관리자 프로필을 아직 만들지 않은 경우 기본 트래픽 관리자 프로필을 만드는 단계는 [트래픽 관리자 프로필 관리](traffic-manager-manage-profiles.md) 를 참조하세요.
-2. Azure 클래식 포털의 트래픽 관리자 창에서 수정할 설정이 포함된 트래픽 관리자 프로필을 찾은 다음 프로필 이름 옆에 있는 화살표를 클릭합니다. 프로필에 대한 설정 페이지가 열립니다.
-3. 프로필 페이지에서 페이지 맨 위의 **끝점** 을 클릭하고 구성에 포함할 서비스 끝점이 있는지 확인합니다. 프로필에서 끝점을 추가하거나 제거하는 단계는 [트래픽 관리자에서 끝점 관리](traffic-manager-endpoints.md)를 참조하세요.
-4. 프로필 페이지에서 맨 위의 **구성** 을 클릭하여 구성 페이지를 엽니다.
-5. **트래픽 라우팅 방법 설정**에서 트래픽 라우팅 방법이 **성능*인지 확인합니다. 아닌 경우 드롭다운 목록에서 **성능**을 클릭합니다.
-6. **모니터링 설정** 이 적절하게 구성되었는지 확인합니다. 모니터링은 오프라인 상태인 끝점으로 트래픽이 전송되지 않도록 합니다. 끝점을 모니터링하려면 경로와 파일 이름을 지정해야 합니다. 슬래시 "/"는 상대 경로에 유효한 입력이며 파일이 루트 디렉터리(기본값)에 있음을 나타냅니다. 모니터링에 대한 자세한 내용은 [트래픽 관리자 모니터링 정보](traffic-manager-monitoring.md)를 참조하세요.
-7. 구성 변경을 완료한 후 페이지 맨 아래에서 **저장** 을 클릭합니다.
-8. 구성 변경 내용을 테스트합니다. 자세한 내용은 [트래픽 관리자 설정 테스트](traffic-manager-testing-settings.md)를 참조하세요.
-9. 트래픽 관리자 프로필이 설정되어 작동하면 회사 도메인 이름이 트래픽 관리자 도메인 이름을 가리키도록 권한 있는 DNS 서버의 DNS 레코드를 편집합니다. 작업 방법에 대한 자세한 내용은 [회사 인터넷 도메인에서 트래픽 관리자 도메인 가리키기](traffic-manager-point-internet-domain.md)를 참조하세요.
+성능 트래픽 라우팅 방법을 통해 클라이언트 네트워크에서 대기 시간이 가장 짧은 끝점으로 트래픽을 전송할 수 있습니다. 일반적으로 대기 시간이 가장 짧은 데이터 센터는 지리적 거리가 가장 가까운 데이터 센터입니다. 이 트래픽 라우팅 방법은 네트워크 구성이나 로드의 실시간 변경 내용을 고려할 수 없습니다.
+
+##  <a name="to-configure-performance-routing-method"></a>성능 라우팅 방법을 구성하려면 다음을 수행합니다.
+
+1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다. 
+2. 포털의 검색 창에서 **Traffic Manager 프로필**을 검색한 다음, 라우팅 방법을 구성하려는 프로필 이름을 클릭합니다.
+3. **Traffic Manager 프로필** 블레이드에서 사용자 구성에 포함할 클라우드 서비스 및 웹 사이트가 모두 있는지 확인합니다.
+4. **설정** 섹션에서 **구성**을 클릭하고 **구성** 블레이드에서 다음과 같이 완료합니다.
+    1. **트래픽 라우팅 방법 설정**의 경우 **라우팅 방법**에서 **성능**을 선택합니다.
+    2. **끝점 모니터 설정**을 다음과 같이 이 프로필 내의 모든 끝점과 동일하게 설정합니다.
+        1. 적절한 **프로토콜**을 선택하고 **포트** 번호를 지정합니다. 
+        2. **경로**에서 슬래시 */*를 입력합니다. 끝점을 모니터링하려면 경로와 파일 이름을 지정해야 합니다. 슬래시 "/"는 상대 경로에 유효한 입력이며 파일이 루트 디렉터리(기본값)에 있음을 나타냅니다.
+        3. 페이지 위쪽에서 **저장**을 클릭합니다.
+5.  다음과 같이 사용자 구성의 변경 내용을 테스트합니다.
+    1.    포털의 검색 창에서 Traffic Manager 프로필 이름을 검색하고 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
+    2.    **Traffic Manager** 프로필 블레이드에서 **개요**를 클릭합니다.
+    3.    **Traffic Manager 프로필** 블레이드에 사용자의 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다. 이는 라우팅 형식에서 결정된 대로 올바른 끝점으로 라우팅되도록 모든 클라이언트가 사용할 수 있습니다(예를 들어 웹 브라우저를 사용하여 이동). 이 경우 모든 요청은 클라이언트의 네트워크에서 가장 낮은 대기 시간으로 끝점으로 라우팅됩니다.
+6. Traffic Manager 프로필이 작동하면 회사 도메인 이름이 Traffic Manager 도메인 이름을 가리키도록 권한 있는 DNS 서버의 DNS 레코드를 편집합니다.
+
+![Traffic Manager를 사용한 성능 트래픽 라우팅 방법 구성][1]
 
 ## <a name="next-steps"></a>다음 단계
-[회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정](traffic-manager-point-internet-domain.md)
 
-[트래픽 관리자 라우팅 방법](traffic-manager-routing-methods.md)
+- [가중치 적용 트래픽 라우팅 방법](traffic-manager-configure-weighted-routing-method.md)에 대해 알아보세요.
+- [우선 순위 라우팅 방법](traffic-manager-configure-priority-routing-method.md)에 대해 알아보세요.
+- [지리적 라우팅 방법](traffic-manager-configure-geographic-routing-method.md)에 대해 알아보세요.
+- [Traffic Manager 설정 테스트](traffic-manager-testing-settings.md)에 대해 알아보세요.
 
-[장애 조치(Failover) 라우팅 방법 구성](traffic-manager-configure-failover-routing-method.md)
-
-[라운드 로빈 라우팅 방법 구성](traffic-manager-configure-round-robin-routing-method.md)
-
-[트래픽 관리자 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
-
-[트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
-
-[트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+<!--Image references-->
+[1]: ./media/traffic-manager-performance-routing-method/traffic-manager-performance-routing-method.png

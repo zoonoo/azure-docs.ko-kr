@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1345af54729f278229c98e596d0d213331c2faaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -293,7 +293,7 @@ X.509 인증서를 사용하여 IoT Hub에서 장치를 인증할 수 있습니�
 
 * **기존 X.509 인증서**. 장치에 X.509 인증서가 이미 연결되어 있을 수 있습니다. 장치는 이 인증서를 사용하여 IoT Hub에서 인증을 받을 수 있습니다.
 * **자체 생성 및 자체 서명 X-509 인증서**. 장치 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 장치에 해당 개인 키(및 인증서)를 저장할 수 있습니다. 이 목적을 위해 [OpenSSL][lnk-openssl] 및 [Windows SelfSignedCertificate][lnk-selfsigned] 유틸리티와 같은 도구를 사용할 수 있습니다.
-* **CA 서명 X.509 인증서**. 또한 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용하여 장치를 식별하고 IoT Hub에서 장치 인증을 받을 수도 있습니다.
+* **CA 서명 X.509 인증서**. 또한 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용하여 장치를 식별하고 IoT Hub에서 장치 인증을 받을 수도 있습니다. IoTHub는 표시된 지문이 구성된 지문과 일치하는지만 확인합니다. IotHub는 인증서 체인을 확인하지 않습니다.
 
 장치는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 

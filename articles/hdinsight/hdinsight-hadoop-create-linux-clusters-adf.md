@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 121be952ea49a8ff47f7e2528adbc87e05359a15
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -75,13 +75,13 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 ### <a name="prepare-storage-account"></a>저장소 계정 준비
-이 시나리오에서는 최대&3;개의 저장소 계정을 사용할 수 있습니다.
+이 시나리오에서는 최대 3개의 저장소 계정을 사용할 수 있습니다.
 
 - HDInsight 클러스터에 대한 기본 저장소 계정
 - 입력 데이터에 대한 저장소 계정
 - 출력 데이터에 대한 저장소 계정
 
-자습서를 간단하게 만들기 위해&1;개의 저장소 계정을&3;가지 용도로 사용합니다. 이 섹션에 있는 Azure PowerShell 샘플 스크립트는 다음 작업을 수행합니다.
+자습서를 간단하게 만들기 위해 1개의 저장소 계정을 3가지 용도로 사용합니다. 이 섹션에 있는 Azure PowerShell 샘플 스크립트는 다음 작업을 수행합니다.
 
 1. Azure에 로그인합니다.
 2. Azure 리소스 그룹 만들기
@@ -221,7 +221,7 @@ PowerShell 스크립트에 대해 도움이 필요한 경우 [Azure Storage에�
 
     ![Azure Data Factory HDInsight 주문형 hive 작업 파이프라인 출력](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    목록을 드릴다운하면&1;월,&2;월 및&3;월에 대한&3;개 폴더가 표시됩니다. 각 월에 대한 로그가 있습니다.
+    목록을 드릴다운하면 1월, 2월 및 3월에 대한 3개 폴더가 표시됩니다. 각 월에 대한 로그가 있습니다.
 
     ![Azure Data Factory HDInsight 주문형 hive 작업 파이프라인 출력](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 

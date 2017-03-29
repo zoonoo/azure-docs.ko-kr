@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
-ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 32045a9b6be130dca4680b1990808d2b22be4432
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Windows용 H 시리즈 및 계산 집약적인 A 시리즈 VM 정보
-여기에는 *계산 집약적* 인스턴스로 알려진 최신 Azure H 시리즈 및 이전 A8, A9, A10 및 A11 인스턴스 사용에 대한 일부 고려 사항과 배경 정보가 나와 있습니다. 이 문서는 Windows VM에 대해 이러한 인스턴스를 사용하는 것이 중점을 두고 있습니다. 이 문서는 [Linux VM](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에도 적용됩니다.
+여기에는 *계산 집약적* 인스턴스로 알려진 최신 Azure H 시리즈 및 이전 A8, A9, A10 및 A11 인스턴스 사용에 대한 일부 고려 사항과 배경 정보가 나와 있습니다. 이 문서는 Windows VM에 대해 이러한 인스턴스를 사용하는 것이 중점을 두고 있습니다. [Linux VM](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서도 사용할 수 있습니다.
 
 기본 사양의 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
@@ -37,22 +37,23 @@ Windows MPI 트래픽 Azure RDMA 네트워크에 액세스하려면 RDMA 지원 
   
   * **가상 컴퓨터** - Windows Server 2012 R2, Windows Server 2012
   * **클라우드 서비스** - Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 게스트 OS 제품군
+
+    > [!NOTE]
+    > 현재 Windows Server 2016은 Azure에서 RDMA 연결을 지원하지 않습니다.
+    >
+    
 * **MPI** - Microsoft MPI(MS-MPI) 2012 R2 이상, Intel MPI Library 5.x
 
   지원되는 MPI 구현은 Microsoft Network Direct 인터페이스를 사용하여 인스턴스 간에 통신합니다. 
-* **HpcVmDrivers VM 확장** - RDMA 지원 VM에서는 RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. (일부 A8 및 A9 인스턴스 배포에서는 HpcVmDrivers 확장이 자동으로 추가됩니다.) VM에 VM 확장을 추가해야 하는 경우 Azure 리소스 관리자 용 [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlet을 사용할 수 있습니다.
+* **HpcVmDrivers VM 확장** - RDMA 지원 VM에서는 RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. (특정 A8 및 A9 인스턴스 배포에서는 HpcVmDrivers 확장이 자동으로 추가됩니다.) VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlet을 사용할 수 있습니다. 
 
-  최신 HpcVmDrivers 확장에 대한 정보 가져오기
+  
+  예를 들어, Resource Manager 배포 모델에서 myVM이라는 기존 RDMA 호환 VM에 최신 버전 1.1 HpcVMDrivers 확장을 설치하려면:
 
-  ```PowerShell
-  Get-AzureVMAvailableExtension -ExtensionName  "HpcVmDrivers"
-  ```
-
-  이름이 myVM인 기존 RDMA 지원 VM에 최신 버전 1.1 HpcVMDrivers 확장을 설치하기
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  자세한 내용은 [VM 확장 관리](virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요. 또한 [클래식 배포 모델](virtual-machines-windows-classic-manage-extensions.md)에서 VM에 대한 확장 작업을 할 수 있습니다.
+  자세한 내용은 [가상 컴퓨터 확장 및 기능](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 또한 [클래식 배포 모델](virtual-machines-windows-classic-manage-extensions.md)에서 배포된 VM의 확장으로 작업할 수 있습니다.
 
 
 ## <a name="considerations-for-hpc-pack-and-windows"></a>HPC 팩 및 Windows에 대한 고려 사항

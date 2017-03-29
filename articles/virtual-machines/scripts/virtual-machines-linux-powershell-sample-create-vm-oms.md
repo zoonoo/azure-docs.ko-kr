@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 91b5b68152627bd4c31b87c317a4f7b1d97c9e76
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 399f69255c729b9d004d617ed195a172ffe481b9
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/10/2017
 
 이 스크립트는 Azure Virtual Machine을 만들고 OMS(Operations Management Suite) 에이전트를 설치하고 OMS 작업 영역을 사용하여 시스템을 등록합니다. 스크립트를 실행하면 가상 컴퓨터가 OMS 콘솔에 표시됩니다.
 
-이 스크립트를 실행하기 전에 `Login-AzureRmAccount` 명령을 사용하여 Azure와의 연결이 생성되었는지 확인합니다. 또한 `id_rsa.pub`라는 이름의 SSH 공개 키는 프로필의 .ssh 디렉터리에 저장되어야 합니다. 마지막으로 OMS 작업 영역 ID와 작업 영역 키를 스크립트에서 업데이트해야 합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다. 또한 `id_rsa.pub`라는 이름의 SSH 공개 키가 사용자 프로필의 .ssh 디렉터리에 있어야 합니다. 마지막으로 OMS 작업 영역 ID와 작업 영역 키를 업데이트해야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

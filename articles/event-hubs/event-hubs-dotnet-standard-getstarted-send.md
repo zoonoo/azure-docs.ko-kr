@@ -15,37 +15,37 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 6a6fe5e2e706fd8ab4ee6c51cde5b54fa703688b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 98de5528d8c74630153bf6908c590b3e0a89d870
+ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="get-started-sending-messages-to-event-hubs-in-net-standard"></a>.NET Standard를 사용하여 Event Hubs로 메시지 전송 시작
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender)에서 사용할 수 있습니다.
 
-이 자습서에서는 이벤트 허브로 일련의 메시지를 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. `EhConnectionString` 및 `EhEntityPath` 문자열을 이벤트 허브 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) 솔루션을 있는 그대로 실행할 수도 있고 이 자습서의 단계를 참조하여 직접 만들 수도 있습니다.
+이 자습서에서는 이벤트 허브로 일련의 메시지를 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. `EhConnectionString` 및 `EhEntityPath` 문자열을 Event Hub 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) 솔루션을 있는 그대로 실행할 수 있습니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용하지만 Visual Studio 2017도 지원됩니다.
-2. [.NET Core Visual Studio 2015 또는 2017 도구](http://www.microsoft.com/net/core).
-3. Azure 구독.
-4. Event Hubs 네임스페이스
+* [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용하지만 Visual Studio 2017도 지원됩니다.
+* [.NET Core Visual Studio 2015 또는 2017 도구](http://www.microsoft.com/net/core).
+* Azure 구독.
+* Event Hubs 네임스페이스
 
-이벤트 허브에 메시지를 전송하려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
+Event Hub에 메시지를 전송하려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 Event Hub 만들기
 
-첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.
+첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 Event Hub를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.
 
 ## <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
-Visual Studio를 시작합니다. [파일] 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. .NET Core 콘솔 응용 프로그램을 만듭니다.
+Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. .NET Core 콘솔 응용 프로그램을 만듭니다.
 
-![][1]
+![새 프로젝트][1]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
@@ -73,8 +73,8 @@ Visual Studio를 시작합니다. [파일] 메뉴에서 **새로 만들기**를 
     ```csharp
     private static async Task MainAsync(string[] args)
     {
-        // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
-        // Typically the connection string should have the Entity Path in it, but for the sake of this simple scenario
+        // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
+        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
         // we are using the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
@@ -91,7 +91,7 @@ Visual Studio를 시작합니다. [파일] 메뉴에서 **새로 만들기**를 
         Console.ReadLine();
     }
     ```
-    
+
 4. 다음과 같이 `SendMessagesToEventHub`이라는 새 메서드를 `Program` 클래스에 추가합니다.
 
     ```csharp
@@ -133,38 +133,38 @@ Visual Studio를 시작합니다. [파일] 메뉴에서 **새로 만들기**를 
         using System.Text;
         using System.Threading.Tasks;
         using Microsoft.Azure.EventHubs;
-       
+
         public class Program
         {
             private static EventHubClient eventHubClient;
             private const string EhConnectionString = "{Event Hubs connection string}";
             private const string EhEntityPath = "{Event Hub path/name}";
-        
+
             public static void Main(string[] args)
             {
                 MainAsync(args).GetAwaiter().GetResult();
             }
-        
+
             private static async Task MainAsync(string[] args)
             {
-                // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
-                // Typically the connection string should have the Entity Path in it, but for the sake of this simple scenario
+                // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
+                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
                 // we are using the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
                 };
-        
+
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-        
+
                 await SendMessagesToEventHub(100);
-        
+
                 await eventHubClient.CloseAsync();
-        
+
                 Console.WriteLine("Press ENTER to exit.");
                 Console.ReadLine();
             }
-        
+
             // Creates an Event Hub client and sends 100 messages to the event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
@@ -180,18 +180,18 @@ Visual Studio를 시작합니다. [파일] 메뉴에서 **새로 만들기**를 
                     {
                         Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
                     }
-        
+
                     await Task.Delay(10);
                 }
-        
+
                 Console.WriteLine($"{numMessagesToSend} messages sent.");
             }
         }
     }
     ```
-  
+
 6. 프로그램을 실행하고 오류가 없는지 확인합니다.
-  
+
 축하합니다. 이제 이벤트 허브에 메시지를 보냈습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -203,3 +203,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+

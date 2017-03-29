@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/16/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b4ae6b16880e4a5e53c8f94dc814e25254c20d73
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 905357b9e2262b86cde31874287cc0b89eef4815
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -27,7 +27,7 @@ Azure DevTest Labs에서 공유 IP 주소를 사용하여 개별 랩 VM에 액�
 
 ## <a name="shared-ip-setting"></a>공유 IP 설정
 
-랩을 만들면 가상 네트워크의 서브넷에 상주합니다.  기본적으로 이 서브넷은 **Enable shared public IP**(공유 공용 IP 사용)을 *예*로 설정하면 생성됩니다.  이 구성은 전체 서브넷에 하나의 공용 IP 주소를 만듭니다.  [이 문서의 단계에 따라](devtest-lab-configure-vnet.md) 랩을 생성된 후 해제할 수 있습니다.
+랩을 만들면 가상 네트워크의 서브넷에 상주합니다.  기본적으로 이 서브넷은 **Enable shared public IP**(공유 공용 IP 사용)을 *예*로 설정하면 생성됩니다.  이 구성은 전체 서브넷에 하나의 공용 IP 주소를 만듭니다.  가상 네트워크 및 서브넷 구성에 대한 자세한 내용은 [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)을 참조하세요.
 
 ![새 랩 서브넷](media/devtest-lab-shared-ip/lab-subnet.png)
 

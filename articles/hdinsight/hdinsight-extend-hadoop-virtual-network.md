@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: afd43fb536278d6aa76acaf7c9d18714bc5acd2b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -154,6 +155,12 @@ __다른 모든 하위 지역__:
 > 인바운드 트래픽을 광범위하게 차단하는 사용자 지정 규칙(예: **모두 거부** 규칙)이 있는 경우 이 예제에서 우선 순위 값을 조정해야 합니다. 예제의 규칙은 액세스를 차단하는 규칙 이전에 발생해야 합니다. 그렇지 않으면 **모두 거부** 규칙이 먼저 테스트되며, 이 예제의 규칙은 절대로 적용되지 않습니다. 또한 Azure Virtual Network의 기본 규칙을 차단해서는 안 됩니다. 예를 들어 우선 순위가 65000인 기본 **Vnet 인바운드 허용** 규칙보다 먼저 적용되는 **모두 거부** 규칙을 만들면 안됩니다.
 > 
 > 네트워크 보안 그룹 규칙에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+
+**Azure 리소스 관리 템플릿 사용**
+
+다음과 같은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)의 리소스 관리 템플릿을 사용하여 보안 네트워크 구성으로 VNet에서 HDInsight 클러스터를 만듭니다.
+
+[VNet 내에서 보안 유지된 Azure VNet 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 **Azure PowerShell 사용**
 

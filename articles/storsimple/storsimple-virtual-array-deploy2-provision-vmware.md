@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f0ccf2706b5ce514613712fb866dc2d0120b0ad3
-ms.openlocfilehash: fe420fc0d4e5e2b7c625bf3a3d87005fdbcff200
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
@@ -166,7 +166,7 @@ VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 가상 장치를 �
 30. **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
+31. **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
