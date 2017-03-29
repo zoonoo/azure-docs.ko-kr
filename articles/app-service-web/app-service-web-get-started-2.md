@@ -43,7 +43,7 @@ ms.lasthandoff: 02/17/2017
 1. 방금 연 앱의 포털 블레이드에서 **설정** > **인증/권한 부여**를 클릭합니다.  
     ![인증 - 설정 블레이드](./media/app-service-web-get-started/aad-login-settings.png)
 2. **켜기** 를 클릭하여 인증을 켭니다.  
-3. **인증 공급자**에서** Azure Active Directory**를 클릭합니다.  
+3. **인증 공급자**에서**Azure Active Directory**를 클릭합니다.  
     ![인증 - Azure AD 선택](./media/app-service-web-get-started/aad-login-config.png)
 4. **Azure Active Directory 설정** 블레이드에서 **Express**를 클릭한 다음 **확인**을 클릭합니다. 기본 설정에 따라 기본 디렉터리에 새 Azure AD 응용 프로그램이 생성됩니다.  
     ![인증 - express 구성](./media/app-service-web-get-started/aad-login-express.png)
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/17/2017
 
 축하합니다. 이제 경고가 생겼습니다.
 
-이 경고 설정은&5;분마다 CPU 사용률을 확인합니다. 사용률이 90%를 초과하면 권한이 있는 사용자와 함께 전자 메일 경고를 받게 됩니다. 경고를 받을 권한이 있는 모든 사용자를 보려면 앱의 포털 블레이드로 돌아가서 **액세스** 단추를 클릭합니다.  
+이 경고 설정은 5분마다 CPU 사용률을 확인합니다. 사용률이 90%를 초과하면 권한이 있는 사용자와 함께 전자 메일 경고를 받게 됩니다. 경고를 받을 권한이 있는 모든 사용자를 보려면 앱의 포털 블레이드로 돌아가서 **액세스** 단추를 클릭합니다.  
 ![경고를 받는 사람 확인](./media/app-service-web-get-started/alert-rbac.png)
 
 **구독 관리자**는 이미 앱의 **소유자**임을 확인할 수 있습니다. Azure 구독(예: 평가판 구독)의 계정 관리자인 경우도 이 그룹에 포함됩니다. Azure 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
