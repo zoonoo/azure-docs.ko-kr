@@ -64,7 +64,7 @@ ms.lasthandoff: 03/01/2017
 
 | 속성 | 형식 | 설명 |
 | --- | --- | --- |
-| sourceType |   | 실행 원본의 유형입니다. 허용되는 값은** Microsoft.Logic/workflows** 및 **custom**입니다. (필수) |
+| sourceType |   | 실행 원본의 유형입니다. 허용되는 값은**Microsoft.Logic/workflows** 및 **custom**입니다. (필수) |
 | 원본 |   | 소스 형식이 **Microsoft.Logic/workflows**이면 소스 정보는 이 스키마를 따라야 합니다. 소스 형식이 **custom**이면 스키마는 JToken입니다. (필수) |
 | systemId | 문자열 | 논리 앱 시스템 ID입니다. (필수) |
 | runId | string | 논리 앱 실행 ID입니다. (필수) |
