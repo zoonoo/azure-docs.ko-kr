@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -313,7 +314,7 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
 1. **Azure PowerShell** 을 시작하고 다음 명령을 실행합니다.
    * 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
     ```PowerShell
@@ -408,7 +409,7 @@ dataFactoryName은 다음과 같이 정의됩니다.
 connectionString은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStroageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
 #### <a name="azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스
-이 섹션에서 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)를 참조하세요.  
+이 섹션에서 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.  
 
 ```json
 {
@@ -431,7 +432,7 @@ connectionString은 storageAccountName 및 storageAccountKey 매개 변수를 �
 connectionString은 sqlServerName, databaseName, sqlServerUserName, sqlServerPassword 매개 변수를 사용하며 해당 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에서 azureSqlLinkedServiceName, dataFactoryName 변수를 사용합니다.
 
 #### <a name="azure-blob-dataset"></a>Azure Blob 데이터 집합
-입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정할 수 있습니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)을 참조하세요. 
+입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정할 수 있습니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요. 
 
 ```json
 {
@@ -473,7 +474,7 @@ connectionString은 sqlServerName, databaseName, sqlServerUserName, sqlServerPas
 ```
 
 #### <a name="azure-sql-dataset"></a>Azure SQL 데이터 집합
-Azure Blob 저장소에서 복사된 데이터를 보유하는 Azure SQL Database의 테이블 이름을 지정합니다. Azure SQL 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties)을 참조하세요. 
+Azure Blob 저장소에서 복사된 데이터를 보유하는 Azure SQL Database의 테이블 이름을 지정합니다. Azure SQL 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-sql-connector.md#dataset-properties)을 참조하세요. 
 
 ```json
 {
@@ -591,8 +592,3 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory에서 파이프라인 및 작업을 이해하는 데 도움이 됩니다. |
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

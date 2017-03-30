@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
 ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
 1. Azure AD Connect를 설치한 컴퓨터에서 관리자 모드로 PowerShell을 시작합니다.
 2. Active Directory PowerShell 모듈이 설치되지 않은 경우 다음 명령을 사용하여 설치합니다.
    
-   `Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
+   `Add-WindowsFeature RSAT-AD-PowerShell`
 3. Azure Active Directory PowerShell 모듈이 설치되지 않은 경우 [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다. 이 구성 요소는 Azure AD Connect 설치된 로그인 도우미에서 종속성을 갖습니다.
 4. 엔터프라이즈 관리자 자격 증명으로 다음 명령을 실행하고 PowerShell을 끝냅니다.
    
@@ -138,10 +139,5 @@ Active Directory의 구성 확인:
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

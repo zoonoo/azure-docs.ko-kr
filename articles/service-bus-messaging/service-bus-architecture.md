@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 3df12cd8700a75c1288967e86cd92e6ed4886d59
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
 
 * **게이트웨이 노드 집합.** 게이트웨이 노드는 들어오는 요청을 인증하고 릴레이 요청을 처리합니다. 각 게이트웨이 노드에는 공용 IP 주소가 있습니다.
 * **메시징 브로커 노드 집합.** 메시징 브로커 노드는 메시징 엔터티에 관한 요청을 처리합니다.
-* **게이트웨이 저장소&1;개.** 게이트웨이 저장소는 이 배율 단위로 정의된 모든 엔터티에 대한 데이터를 저장합니다. 게이트웨이 저장소는 SQL Azure 데이터베이스 위에 구현됩니다.
+* **게이트웨이 저장소 1개.** 게이트웨이 저장소는 이 배율 단위로 정의된 모든 엔터티에 대한 데이터를 저장합니다. 게이트웨이 저장소는 SQL Azure 데이터베이스 위에 구현됩니다.
 * **여러 메시징 저장소.** 메시징 저장소는 이 배율 단위로 정의된 모든 큐, 토픽 및 구독 메시지를 저장합니다. 또한 모든 구독 데이터를 포함합니다. [메시징 엔터티 분할](service-bus-partitioning.md)을 사용하지 않으면 큐 또는 토픽이 하나의 메시징 저장소에 매핑됩니다. 구독은 해당 상위 토픽과 동일한 메시징 저장소에 저장됩니다. Service Bus [프리미엄 메시징](service-bus-premium-messaging.md)을 제외하고, 메시징 저장소는 SQL Azure 데이터베이스 위에 구현됩니다.
 
 ## <a name="containers"></a>컨테이너
@@ -52,12 +53,9 @@ ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
 Service Bus 아키텍처의 개요를 읽었으므로 자세한 내용은 다음 링크를 참조하세요.
 
 * [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
+* [Azure Relay 개요](../service-bus-relay/relay-what-is-it.md)
 * [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐를 사용하는 큐 메시징 솔루션](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/08/2017
+ms.date: 3/17/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8d0adfb995ecfb56ff33814e462a88f3d1102d58
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 850459a79c723de0eb3249cfe9ea19bc988ca318
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -467,7 +467,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/를 참조하세요. 
  
   
-### <a name="what-is-the-resourceguid-property-on-a-nic-for-its-not-documented-here"></a>NIC에 대한 resourceGuid 속성은 무엇입니까? 여기서는 설명하지 않습니다.
+### <a name="what-is-the-resourceguid-property-on-a-nic-for"></a>NIC에 대한 resourceGuid 속성은 무엇입니까?
 
 고유 ID입니다. 하위 계층에서 나중에 이 ID를 기록할 것입니다. 
  
@@ -481,6 +481,9 @@ IP는 사용자가 지정한 서브넷에서 선택됩니다.
 
 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet을 참조하세요. 
 
+### <a name="how-do-i-add-a-scale-sets-first-vms-ip-address-to-the-output-of-a-template"></a>크기 집합의 첫 번째 VM IP 주소를 템플릿의 출력에 추가하려면 어떻게 해야 하나요?
+
+참조: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
 
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 03/21/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
-ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 946f135e832667ad6e32743be2b07b4f86cd1cae
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -67,10 +67,29 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 암호 동기화는 현재 로그온한 사용자에게 아무런 영향도 미치지 않습니다.
 클라우드 서비스에 로그온해 있는 동안, 동기화된 암호가 변경되더라도 현재 클라우드 세션이 즉시 영향을 받지는 않습니다. 하지만, 클라우드 서비스에서 다시 인증을 요구하면 새 암호를 제공해야 합니다.
 
+한 가지 주의할 점으로 사용자는 회사 네트워크에 로그인되어 있는지 여부에 관계없이 Azure AD에 인증하려면 회사 자격 증명을 다시 입력해야 합니다. 하지만 사용자가 로그인 시 "로그인 유지"(KMSI) 확인란을 선택하면 이러한 패턴을 최소화할 수 있습니다. 이 확인란을 선택하면 짧은 기간 동안 인증을 우회하는 세션 쿠키가 설정됩니다. KMSI 동작은 Azure Active Directory 관리자가 설정 또는 해제할 수 있습니다.
+
 > [!NOTE]
 > 암호 동기화는 Active Directory의 개체 형식 사용자에만 지원됩니다. iNetOrgPerson 개체 형식에 대해 지원되지 않습니다.
->
->
+
+### <a name="detailed-description-of-how-password-synchronization-works"></a>암호 동기화가 작동하는 방법에 대한 자세한 설명
+다음은 Active Directory와 Azure Active Directory 간에 암호 동기화가 작동하는 방식에 대한 구체적인 설명입니다.
+
+![자세한 암호 흐름](./media/active-directory-aadconnectsync-implement-password-synchronization/arch3.png)
+
+
+1. 2분마다 AD Connect 서버의 암호 동기화 에이전트는 DC 간 데이터 동기화에 사용되는 표준 [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) 복제 프로토콜을 통해 DC에서 저장된 암호 해시(unicodePwd 특성)를 요청합니다. 암호 해시를 얻으려면 서비스 계정에 디렉터리 변경 내용 복제 및 모든 디렉터리 변경 내용 복제 AD 권한(설치 시 기본적으로 부여)이 있어야 합니다.
+2. DC는 RPC 세션 키의 [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) 해시인 키와 솔트를 사용하여 MD4 암호 대시를 암호화한 후 전송합니다. 그런 다음 RPC를 통해 암호 동기화 에이전트에 결과를 전송합니다. 또한 DC는 DC 복제 프로토콜을 사용하여 동기화 에이전트에 솔트를 전달하고, 따라서 에이전트는 봉투(Envelope)를 해독할 수 있게 됩니다.
+3.    암호 동기화 에이전트는 봉투(Envelope)를 암호화한 후 [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx)와 솔트를 사용하여 수신한 데이터를 원래 MD4 형식으로 해독하는 키를 생성합니다. 암호 동기화 에이전트에는 어떤 경우에도 일반 텍스트 암호에 액세스할 수 없습니다. 암호 동기화 에이전트의 MD5 사용은 DC와의 복제 프로토콜 호환성으로 그 용도가 엄격하게 제한되며 DC와 암호 동기화 에이전트 간의 온-프레미스에서만 사용됩니다.
+4.    암호 동기화 에이전트는 해시를 32바이트 16진수 문자열로 변환한 후 UTF-16 인코딩을 사용하여 이 문자열을 다시 이진으로 변환하는 방법으로 16바이트 이진 암호 해시를 64바이트로 확장합니다.
+5.    암호 동기화 에이전트는 10바이트 길이 솔트로 구성된 솔트를 64비트 이진 파일에 추가하여 원래 해시의 보안을 강화합니다.
+6.    그런 다음 암호 동기화 에이전트는 [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) 키 지정 해시 알고리즘을 1000번 반복하여 MD4 해시와 솔트를 결합하고 [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) 함수에 입력합니다.
+Azure AD 
+7.    암호 동기화 에이전트는 결과 32바이트 해시를 가져오고, 솔트와 SHA256 반복 횟수를 해시에 연결하고(Azure AD가 사용할 수 있도록), SSL을 통해 AD Connect에서 Azure AD로 문자열을 전송합니다.</br> 
+8.    사용자가 Azure AD에 로그인을 시도하고 자신의 암호를 입력하면 암호가 동일한 MD4+salt+PBKDF2+HMAC-SHA256 프로세스를 통해 실행됩니다. 결과 해시가 Azure AD에 저장된 해시와 일치하고 사용자가 올바른 암호를 입력하면 해당 사용자가 인증됩니다. 
+
+>[!Note] 
+>원래 MD4 해시는 Azure AD로 전송되지 않습니다. 대신 원래 MD4 해시의 SHA256 해시가 전송됩니다. 결과적으로 Azure AD에 저장된 해시를 습득하더라도 온-프레미스 pass-the-hash 공격에 사용할 수 없습니다.
 
 ### <a name="how-password-synchronization-works-with-azure-ad-domain-services"></a>Azure AD 도메인 서비스와 함께 암호를 동기화하는 방법
 암호 동기화 기능을 사용하여 온-프레미스 암호를 [Azure AD 도메인 서비스](../../active-directory-domain-services/active-directory-ds-overview.md)에 동기화 하는 할 수도 있습니다. 이 시나리오를 사용하면 Azure AD 도메인 서비스가 온-프레미스 AD에서 사용할 수 있는 모든 방법으로 클라우드의 사용자를 인증할 수 있습니다. 이 시나리오의 환경은 온-프레미스 환경에서 ADMT(Active Directory 마이그레이션 도구)를 사용하는 것과 비슷합니다.
@@ -78,7 +97,11 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 ### <a name="security-considerations"></a>보안 고려 사항
 암호를 동기화 할 때, 사용자 암호의 일반 텍스트 버전은 암호 동기화 기능, Azure AD 혹은 다른 어떤 관련 서비스에 노출되지 않습니다.
 
-또한 역암호화 형식으로 암호를 저장하는 온-프레미스 Active Directory에는 요구사항이 없습니다. Active Directory 암호 해시의 다이제스트는 온-프레미스 AD와 Azure Active Directory간의 전송에 사용됩니다. 암호 해시의 다이제스트는 고객의 온-프레미스 환경의 리소스에 액세스할 때 사용할 수 없습니다.
+사용자 인증은 조직의 고유한 Active Directory가 아닌 Azure AD에 대해 이루어집니다. 암호 데이터가 어떤 형태로든 프레미스를 떠난다는 점이 걱정스러운 조직은 Azure AD에 저장된 SHA256 암호 데이터, 즉 원래 MD4 해시의 해시가 Active Directory에 저장된 것보다 훨씬 안전하다는 사실을 고려해 보세요. 뿐만 아니라 이 SHA256 해시는 해독이 불가능하기 때문에 조직의 Active Directory 환경으로 가져와서 pass-the-hash 공격에서 유효한 사용자 암호로 표시할 수 없습니다.
+
+
+
+
 
 ### <a name="password-policy-considerations"></a>암호 정책 고려 사항
 암호 동기화를 사용하여 영향을 받는 두 가지 정책이 있습니다.
@@ -91,12 +114,13 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 > [!NOTE]
 > 클라우드에서 직접 만든 사용자의 암호는 클라우드 내에서 정의된 암호 정책을 계속 따릅니다.
->
->
 
 **Password expiration policy**  
 사용자가 암호 동기화 범위 내에 있을 경우 클라우드 계정 암호는 "*사용 기간 제한 없음*"으로 설정됩니다.
+
 온-프레미스 환경에서 만료된 동기화된 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다. 클라우드 암호는 온-프레미스 환경에서 다음에 암호를 변경할 때 업데이트됩니다.
+
+**계정 만료** 조직에서 사용자 계정 관리를 위해 accountExpires 특성을 사용하는 경우 이 특성이 Azure AD와 동기화되지 않는다는 점에 주의해야 합니다. 결과적으로 암호 동기화를 위해 구성된 환경의 만료된 AD 계정은 Azure AD에서 계속 활성 상태입니다. 계정이 만료되면 워크플로 작업에서 사용자의 Azure AD 계정을 비활성화하는 PowerShell 스크립트를 트리거하는 것이 좋습니다. 반대로 계정이 활성화되면 Azure AD가 활성화되어야 합니다.
 
 ### <a name="overwriting-synchronized-passwords"></a>동기화된 암호 덮어쓰기
 관리자는 Windows PowerShell을 사용하여 사용자의 암호를 수동으로 재설정할 수 있습니다.
@@ -104,6 +128,24 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 이런 경우, 새 암호는 사용자의 동기화된 암호를 재정의하고 클라우드 내에 정의된 모든 암호 정책이 새 암호에 적용됩니다.
 
 사용자가 온-프레미스 암호를 다시 변경하면, 새 암호는 클라우드에 동기화되며, 수동으로 업데이트한 암호를 재정의합니다.
+
+암호 동기화는 현재 로그온한 Azure 사용자에게 아무런 영향도 미치지 않습니다. 클라우드 서비스에 로그온해 있는 동안, 동기화된 암호가 변경되더라도 현재 클라우드 세션이 즉시 영향을 받지는 않습니다. KMSI는 이 차이가 나는 기간을 연장합니다. 클라우드 서비스에서 다시 인증을 요구하면 새 암호를 제공해야 합니다.
+
+### <a name="additional-advantages"></a>추가적인 이점
+
+- 일반적으로 암호 동기화는 페더레이션 서비스보다 구현에 더 가깝습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다. 
+- 또한 페더레이션 서비스 중단이 발생하는 경우 대체 시스템으로 사용할 수 있도록 페더레이션 외에도 암호 동기화를 활성화할 수 있습니다.
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="enabling-password-synchronization"></a>암호 동기화를 사용하도록 설정
 **Express 설정**을 사용하여 Azure AD Connect를 설치할 경우 암호 동기화를 사용하도록 자동으로 설정됩니다. 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](active-directory-aadconnect-get-started-express.md)을 참조하세요.

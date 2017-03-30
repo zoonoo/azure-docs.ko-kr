@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 6ba7dacb9a8828495c9ec15b46020a493d406096
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ade2f6e4c5d151dbe0da8578cce03d6f754b8926
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/11/2017
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 GitHub 리포지토리의 연속 배포를 설정합니다. 연속 배포를 사용하지 않는 GitHub 배포는 [웹앱 만들기 및 GitHub의 코드 배포](app-service-cli-deploy-github.md)를 참조하세요.
 
-이 스크립트를 실행하기 전에 다음을 확인합니다.
+필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치합니다. 또한 다음 사항을 확인합니다.
 
 - `az login` 명령을 사용하여 Azure와 연결했습니다.
 - 응용 프로그램 코드는 사용자가 소유한 공용 또는 개인 GitHub 리포지토리에 있습니다.

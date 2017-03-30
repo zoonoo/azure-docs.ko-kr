@@ -16,56 +16,28 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 4c90cf910af142e8d0cd73a4e6f502a4fb78be9b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: fef0d6007aa3f9357d7288033220a7d5d6eb5a49
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>여러 IP 구성의 부하 분산
 
 > [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-multiple-ip.md)
+> * [포털](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
->
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-이 문서에서는 보조 NIC(네트워크 인터페이스)에 여러 IP 주소가 있는 Azure Load Balancer를 사용하는 방법을 설명합니다. NIC의 여러 IP 주소에 대한 지원은 현재 미리 보기 릴리스에 포함된 기능입니다. 자세한 내용은 이 문서의 [제한 사항](#limitations) 섹션을 참조하세요. 다음 시나리오는 이 기능이 Load Balancer와 작동하는 방식을 보여줍니다.
-
-이 시나리오에는 Windows를 실행하는 VM이 둘 있고 각각 기본 및 보조 NIC가 있습니다. 보조 NIC에는 각각 두 가지 IP 구성이 있습니다. 각 VM은 contoso.com 및 fabrikam.com 사이트를 둘 다 호스트합니다. 각 웹 사이트는 보조 NIC의 IP 구성 중 하나에 바인딩됩니다. Azure Load Balancer를 사용하여 웹 사이트의 각 IP 구성에 트래픽을 분산하기 위해 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출합니다. 이 시나리오는 양 쪽 프런트 엔드는 물론 양쪽 백 엔드 풀 IP 주소에 동일한 포트 번호를 사용합니다.
+이 문서에서는 보조 NIC(네트워크 인터페이스)에 여러 IP 주소가 있는 Azure Load Balancer를 사용하는 방법을 설명합니다. 이 시나리오에는 Windows를 실행하는 VM이 둘 있고 각각 기본 및 보조 NIC가 있습니다. 보조 NIC에는 각각 두 가지 IP 구성이 있습니다. 각 VM은 contoso.com 및 fabrikam.com 웹 사이트를 둘 다 호스트합니다. 각 웹 사이트는 보조 NIC의 IP 구성 중 하나에 바인딩됩니다. Azure Load Balancer를 사용하여 웹 사이트의 각 IP 구성에 트래픽을 분산하기 위해 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출합니다. 이 시나리오는 양 쪽 프런트 엔드는 물론 양쪽 백 엔드 풀 IP 주소에 동일한 포트 번호를 사용합니다.
 
 ![LB 시나리오 이미지](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
-
-## <a name="limitations"></a>제한 사항
-
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
-로그인하고 적절한 구독을 선택한 후에 PowerShell에서 다음 명령을 실행하여 미리 보기에 등록합니다.
-
-```
-Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-```Get-AzureRmProviderFeature``` 명령을 실행하면 다음과 같은 출력이 표시될 때까지 나머지 단계를 완료하지 마세요.
-        
-```powershell
-FeatureName                            ProviderName      RegistrationState
------------                            ------------      -----------------      
-AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-```
-        
->[!NOTE] 
->몇 분이 걸릴 수 있습니다.
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>여러 IP 구성의 부하를 분산하는 단계
 
 아래 단계에 따라 이 문서에 설명된 시나리오를 수행합니다.
 
-1. 연결된 문서를 참조하여 [Azure CLI를 설치 및 구성](../xplat-cli-install.md)하고 Azure 계정에 로그인합니다.
+1. 연결된 문서를 참조하여 [Azure CLI를 설치 및 구성](../cli-install-nodejs.md)하고 Azure 계정에 로그인합니다.
 2. 위의 설명에 따라 *contosofabrikam*이라는 [리소스 그룹을 만듭니다](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations).
 
     ```azurecli
@@ -154,4 +126,8 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
     ```
 
 13. 마지막으로 DNS 리소스 레코드가 부하 분산 장치의 각 프런트 엔드 IP 주소를 가리키도록 구성해야 합니다. 도메인을 Azure DNS에 호스트할 수 있습니다. Load Balancer와 Azure DNS를 사용하는 방법에 대한 자세한 내용은 [다른 Azure 서비스와 함께 Azure DNS 사용](../dns/dns-for-azure-services.md)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+- Azure에서 부하 분산 서비스를 결합하는 방법에 대한 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
+- [Azure Load Balancer에 대한 로그 분석](../load-balancer/load-balancer-monitor-log.md)을 통해 Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용하는 방법에 대해 알아보세요.
 

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
-ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -163,6 +163,8 @@ module.exports = function(context) {
     var matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
+
+노드는 함수가 캐시된 패키지를 공유할 수 있도록 함수 앱의 루트에 `package.json`을 포함해야 합니다. 버전 충돌이 있는 경우 함수 수준에서 `package.json`을 추가할 수 있습니다. 그러나 성능상의 이유로 이렇게 구현하지 않아야 합니다. 
 
 ## <a name="environment-variables"></a>환경 변수
 환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `process.env`를 사용합니다.

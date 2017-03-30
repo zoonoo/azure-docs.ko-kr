@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: db34a785cfe32f5b871af115aa621e34bf7ac60b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 383929ee41e7d174b4534f988554ba28bb41b9bb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +39,7 @@ https://azclisamples.blob.core.windows.net/vhds/sample.vhd에서 사용한 VHD�
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```azurecli
 az group delete -n az-cli-vhd

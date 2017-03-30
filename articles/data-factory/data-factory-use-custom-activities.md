@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b4b0a8139b69a31e4af40e1f8231d4d7772fee0b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -395,9 +395,9 @@ public IDictionary<string, string> Execute(
 test custom activity Microsoft test custom activity Microsoft
 ```
 
-입력 폴더는 폴더에&2;개 이상의 파일이 포함된 경우에도 Azure Data Factory의 조각에 해당합니다. 각 조각이 파이프라인으로 처리될 때 사용자 지정 작업은 해당 조각에 대한 입력 폴더에서 모든 BLOB를 반복합니다.
+입력 폴더는 폴더에 2개 이상의 파일이 포함된 경우에도 Azure Data Factory의 조각에 해당합니다. 각 조각이 파이프라인으로 처리될 때 사용자 지정 작업은 해당 조각에 대한 입력 폴더에서 모든 BLOB를 반복합니다.
 
-adftutorial\customactivityoutput 폴더에&1;개 이상의 줄(입력 폴더에서 Blob 수와 동일)이 포함된 하나의 출력 파일이 표시됩니다.
+adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에서 Blob 수와 동일)이 포함된 하나의 출력 파일이 표시됩니다.
 
 ```
 2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
@@ -498,7 +498,7 @@ adftutorial\customactivityoutput 폴더에&1;개 이상의 줄(입력 폴더에�
     }
     ```
 
-   이 연습에서는 시작 시간: 2016-11-16T00:00:00Z 및 종료 시간: 2016-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약되어 있어&5;개의 입/출력 조각이 있습니다(**00**:00:00 -> **05**:00:00 범위).
+   이 연습에서는 시작 시간: 2016-11-16T00:00:00Z 및 종료 시간: 2016-11-16T05:00:00Z로 나중에 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약되어 있어 5개의 입/출력 조각이 있습니다(**00**:00:00 -> **05**:00:00 범위).
 
    입력 데이터 집합의 **빈도** 및 **간격**은 **Hour** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다. 이 샘플에서는 intputfolder에서와 동일한 파일(file.txt)입니다.
 
@@ -612,7 +612,7 @@ adftutorial\customactivityoutput 폴더에&1;개 이상의 줄(입력 폴더에�
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset**을 사용합니다.
    * 사용자 지정 활동의 linkedServiceName 속성은 **AzureBatchLinkedService**를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure 배치 VM에서 실행해야 함을 알려줍니다.
    * **isPaused** 속성은 기본적으로 **false**로 설정합니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다.
-   * **start** 시간과 **end** 시간은 **5**시간 차이이며 파이프라인이 작동하면서 매시간&5;개 조각이 생성됩니다.
+   * **start** 시간과 **end** 시간은 **5**시간 차이이며 파이프라인이 작동하면서 매시간 5개 조각이 생성됩니다.
 3. 파이프라인을 배포하려면 명령 모음에서 **배포**를 클릭합니다.
 
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
@@ -644,7 +644,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름�
 
 ![Azure Data Factory - 배치 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된&5;개 조각이 있는 경우 이 작업(job)에&5;개 작업(task)이 만들어집니다. Batch 풀에 여러 계산 노드가 있는 경우 두 개 이상의 조각을 병렬로 실행할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
+조각의 각 작업 실행에 대한 작업(task)이 만들어집니다. 처리를 위해 준비된 5개 조각이 있는 경우 이 작업(job)에 5개 작업(task)이 만들어집니다. Batch 풀에 여러 계산 노드가 있는 경우 두 개 이상의 조각을 병렬로 실행할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우에도 동일한 계산에 실행 중인 두 개 이상의 조각을 포함할 수 있습니다.
 
 ![Azure Data Factory - 배치 작업 태스크](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
@@ -742,7 +742,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 **자동 크기 조정** 기능으로 Azure 배치 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 0 전용 VM 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다.
 
-한 번에 보류 중인 작업당 하나의 VM(예: 보류 중인&5;개의 작업 ->&5;개의 VM)
+한 번에 보류 중인 작업당 하나의 VM(예: 보류 중인 5개의 작업 -> 5개의 VM)
 
 ```
 pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);

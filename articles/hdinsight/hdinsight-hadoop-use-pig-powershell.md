@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2017
+ms.date: 03/21/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: a795f7a8dbb02ad29c517dca6ab06575a8d48bf9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: b4f2f1195887d8b64599e82334ab36b21eef1d1d
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Azure PowerShell을 사용하여 HDInsight에서 Pig 작업 실행
@@ -57,60 +57,14 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
 1. 편집기를 사용하여 다음 코드를 **pigjob.ps1**로 저장합니다.
-   
-        # Login to your Azure subscription
-        # Is there an active Azure subscription?
-        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-        if(-not($sub))
-        {
-            Add-AzureRmAccount
-        }
 
-        # Get cluster info
-        $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-        $creds=Get-Credential -Message "Enter the login for the cluster"
-
-        #Store the Pig Latin into $QueryString
-        $QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-        "LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-        "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-        "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-        "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-        "RESULT = order FREQUENCIES by COUNT desc;" +
-        "DUMP RESULT;"
-
-        #Create a new HDInsight Pig Job definition
-        $pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
-            -Query $QueryString `
-            -Arguments "-w"
-
-        # Start the Pig job on the HDInsight cluster
-        Write-Host "Start the Pig job ..." -ForegroundColor Green
-        $pigJob = Start-AzureRmHDInsightJob `
-            -ClusterName $clusterName `
-            -JobDefinition $pigJobDefinition `
-            -HttpCredential $creds
-
-        # Wait for the Pig job to complete
-        Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-        Wait-AzureRmHDInsightJob `
-            -ClusterName $clusterName `
-            -JobId $pigJob.JobId `
-            -HttpCredential $creds
-
-        # Display the output of the Pig job.
-        Write-Host "Display the standard output ..." -ForegroundColor Green
-        Get-AzureRmHDInsightJobOutput `
-            -ClusterName $clusterName `
-            -JobId $pigJob.JobId `
-            -HttpCredential $creds
-
+    [!code-powershell[기본](../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
 1. 새 Windows PowerShell 명령 프롬프트를 엽니다. **pigjob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
    
         .\pigjob.ps1
    
-    먼저 Azure 구독에 로그인하라는 메시지가 표시될 수 있습니다. 그런 다음 HTTPs/관리자 계정 이름과 HDInsight 클러스터 암호를 묻는 메시지가 표시됩니다.
+    Azure 구독에 로그인하라는 메시지가 표시됩니다. 그런 다음 HTTPs/관리자 계정 이름과 HDInsight 클러스터 암호를 묻는 메시지가 표시됩니다.
 
 2. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
    

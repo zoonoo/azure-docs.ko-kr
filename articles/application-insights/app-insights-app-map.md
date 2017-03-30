@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
-ms.openlocfilehash: 04a34eb24df356018590b1791ecc7719a550ab51
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 9fc7a41dcca3d9e51b8c67b86ef61443945b6bad
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -100,11 +100,15 @@ Azure에서 호스팅되는 구성 요소의 경우 옵션은 직접 링크를 �
 > [!NOTE] 
 > 종단 간 시스템 앱 맵은 미리 보기 상태입니다. SDK의 특수 버전으로 구성 요소를 계측해야 하며 특수 URL을 사용하여 앱 맵을 확인해야 합니다. [종단 간 시스템 앱 맵을 설정하는 방법을 알아봅니다](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>사용자 의견
 [포털 사용자 의견 옵션을 통해 피드백을 제공](app-insights-get-dev-support.md)해주세요.
 
 ![MapLink-1 이미지](./media/app-insights-app-map/13.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 

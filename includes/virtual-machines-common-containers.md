@@ -146,8 +146,8 @@ Microsoft Azure의 Docker:
 
 * [Azure의 Linux용 Docker VM 확장](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Docker VM 확장 프로그램 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-* [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Azure 포털에서 Docker VM 확장 사용](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure 포털에서 Docker VM 확장 사용](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Azure에서 docker-machine을 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure에서 swarm과 함께 Docker를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 가상 컴퓨터에서 Docker 및 Compose 시작](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -193,8 +193,3 @@ Linux 배포 도구 및 Azure 예시:
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
-
-
-<!--HONumber=Feb17_HO3-->
-
-

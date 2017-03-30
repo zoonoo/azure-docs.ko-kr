@@ -1,21 +1,22 @@
 ---
-title: "Application Insights 포털의 대시보드 및 탐색 | Microsoft Docs"
+title: "Azure Application Insights의 대시보드 및 탐색 | Microsoft Docs"
 description: "키 APM 차트 및 쿼리의 뷰를 만듭니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -148,15 +149,15 @@ ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 * **지원 요청** - 유료 구독이 필요합니다. [도움말 보기](app-insights-get-dev-support.md)도 참조하세요.
 
-## <a name="whats-next"></a>다음 작업
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="next-steps"></a>다음 단계
+
 |  |  |
 | --- | --- |
 | [메트릭 탐색기](app-insights-metrics-explorer.md)<br/>필터 및 세그먼트 메트릭 |![검색 예제](./media/app-insights-dashboards/64.png) |
 | [진단 검색](app-insights-diagnostic-search.md)<br/>이벤트 찾기 및 검사, 관련 이벤트, 버그 만들기 |![검색 예제](./media/app-insights-dashboards/61.png) |
 | [분석](app-insights-analytics.md)<br/>강력한 쿼리 언어 |![검색 예제](./media/app-insights-dashboards/63.png) |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

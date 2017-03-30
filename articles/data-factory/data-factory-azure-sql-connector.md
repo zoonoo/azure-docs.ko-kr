@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8144b0a65c18fb98cb410cfd83ad9812c6ed2a
-ms.openlocfilehash: 5cb04849a3346777a124fc3c0d3464843efaca52
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 90f8a2c0a30c9cce411215e1b98954de0ed9b787
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -350,7 +351,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 
 **Azure SQL 출력 데이터 집합**
 
-샘플은 Azure SQL의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL의 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
+샘플은 Azure SQL의 "MyOutputTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL의 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
 ```JSON
 {
@@ -512,7 +513,7 @@ GO
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/>  예: “00:30:00”(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
@@ -666,9 +667,4 @@ Azure SQL, SQL Server 및 Sybase 간에 데이터를 이동할 때는SQL 형식�
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

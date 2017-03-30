@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: d64ca980b82e279e446d2ea279124ae3f54b0f49
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -95,7 +96,7 @@ Azure 포털에서 복구 서비스 자격 증명 모음 대시보드는 다음�
    * 가상 컴퓨터 보호 중지 <br\>
    * 가상 컴퓨터 보호 재개 <br\>
    * 백업 데이터(또는 복구 지점) 삭제 <br\>
-   * [백업(또는 복구 지점) 복원](backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br\>
+   * [백업 디스크 복원](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
 다음 절차의 경우 시작점은 자격 증명 모음 항목 대시보드입니다.
 
@@ -220,9 +221,4 @@ Azure 포털에서 복구 서비스 자격 증명 모음 대시보드는 다음�
 
 ## <a name="next-steps"></a>다음 단계
 복구 지점에서 가상 컴퓨터를 다시 만드는 방법에 대한 내용은 [Azure VM 복원](backup-azure-restore-vms.md)을 확인하세요. 가상 컴퓨터를 보호하는 방법에 대한 정보가 필요한 경우 [먼저 보기: 복구 서비스 자격 증명 모음에 VM 백업](backup-azure-vms-first-look-arm.md)을 참조하세요. 이벤트 모니터링에 대한 자세한 내용은 [Azure 가상 컴퓨터 백업에 대한 경고 모니터링](backup-azure-monitor-vms.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

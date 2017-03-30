@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9192ed7b69e52c59efe33981e1e557b634679196
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 86471fe29bbc9076624d96b83f7001d8755363bc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -32,7 +32,6 @@ ms.lasthandoff: 03/21/2017
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
-- [DB 만들기 - PowerShell](sql-database-get-started-powershell.md) 
 
 시작하기 전에 최신 버전의 [Visual Studio Code](https://code.visualstudio.com/Download)를 설치하고 했는지 [mssql 확장](https://aka.ms/mssql-marketplace)을 로드했는지 확인합니다. mssql 확장에 대한 설치 지침은 [VS Code 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code)를 참조하세요. 
 
@@ -164,3 +163,4 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 - Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/docs)를 참조하세요.
 - SQL Server Management Studio를 사용하여 데이터를 쿼리 및 편집하는 방법에 대한 정보는 [SSMS](https://msdn.microsoft.com/library/ms174173.aspx)를 참조하세요.
+

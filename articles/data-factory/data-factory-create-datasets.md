@@ -18,6 +18,7 @@ ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
 ms.openlocfilehash: 2ed6b838608f0f2249ef16b62ff2fb0159fc6e7f
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -134,10 +135,10 @@ AzureSqlLinkedService는 다음과 같이 정의됩니다.
 >
 >
 
-## <a name="a-nametypea-dataset-type"></a><a name="Type"></a> 데이터 집합 형식
+## <a name="Type"></a> 데이터 집합 형식
 지원되는 데이터 원본 및 데이터 집합 형식을 정렬합니다. 데이터 집합의 유형 및 구성에 대한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서에서 항목을 참조하세요. 예를 들어 Azure SQL 데이터베이스의 데이터를 사용하는 경우 자세한 내용을 보려면 지원되는 데이터 저장소 목록에서 Azure SQL 데이터베이스를 클릭합니다.  
 
-## <a name="a-namestructureadataset-structure"></a><a name="Structure"></a>데이터 집합 구조
+## <a name="Structure"></a>데이터 집합 구조
 **구조** 섹션은 데이터 집합의 스키마를 정의합니다. 이름 및 데이터 형식 열의 컬렉션을 포함합니다.  다음 예제에서는 데이터 집합에 3개의 열 slicetimestamp, projectname 및 pageviews가 있으며 형식은 각각 문자열, 문자열 및 10진수입니다.
 
 ```json
@@ -149,7 +150,7 @@ structure:
 ]
 ```
 
-## <a name="a-nameavailabilitya-dataset-availability"></a><a name="Availability"></a> 데이터 집합 가용성
+## <a name="Availability"></a> 데이터 집합 가용성
 데이터 집합의 **availability** 섹션은 데이터 집합에 대한 처리 주기(매시, 매일, 매주 등) 또는 조각화 모델을 정의합니다. 데이터 집합 조각화 및 종속성 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요.
 
 다음 availability 섹션에서는 출력 데이터 집합을 시간마다 생성하거나 (또는) 입력 데이터 집합을 시간마다 사용할 수 있도록 지정합니다.
@@ -220,7 +221,7 @@ structure:
 }
 ```
 
-## <a name="a-namepolicyadataset-policy"></a><a name="Policy"></a>데이터 집합 정책
+## <a name="Policy"></a>데이터 집합 정책
 데이터 집합 정의의 **정책** 섹션에서 데이터 집합 조각이 충족해야 하는 기준 또는 조건을 정의합니다.
 
 ### <a name="validation-policies"></a>정책 유효성 검사
@@ -262,7 +263,7 @@ structure:
 
 | name | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 확인을 지연하는 시간입니다. 예를 들어 데이터가 매시간 사용 가능해야 하는 경우 외부 데이터가 사용 가능하며 해당 조각이 준비되어 있는지 보기 위한 확인은 현재에만 적용되는 dataDelay.<br/><br/>를 사용하여 지연할 수 있습니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이 설정은 과거의 조각(조각 종료 시간 + dataDelay < Now를 사용한 조각)에는 영향을 주지 않아 아무런 지연 없이 처리됩니다.<br/><br/> 23:59보다 큰 시간은 day.hours:minutes:seconds 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
+| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 확인을 지연하는 시간입니다. 예를 들어 데이터가 매시간 사용 가능해야 하는 경우 외부 데이터가 사용 가능하며 해당 조각이 준비되어 있는지 보기 위한 확인은 현재에만 적용되는 dataDelay.<br/><br/>를 사용하여 지연할 수 있습니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이 설정은 과거의 조각(조각 종료 시간 + dataDelay < Now를 사용한 조각)에는 영향을 주지 않아 아무런 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 day.hours:minutes:seconds 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
 | retryInterval |오류 발생과 다음 다시 시도 사이의 대기 시간입니다. 현재 시간에 적용됩니다. 이전 시도가 실패한 경우 마지막 시도 후에 이 정도를 대기합니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 기간이 1분이며 작업이 실패한 경우 다음 재시도는 1시 + 1분(기간) + 1분(재시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니요 |00:01:00 (1분) |
 | retryTimeout |각 재시도에 대한 제한 시간입니다.<br/><br/>이 속성이 10분으로 설정한 경우 유효성 검사를 10분 내에 완료해야 합니다. 유효성 검사를 수행하는 데 10분 보다 오래 걸리는 경우 재시도는 제한 시간을 초과합니다.<br/><br/>유효성 검사에 대한 모든 시도의 시간이 초과되면 조각에 TimedOut이 표시됩니다. |아니요 |00:10:00 (10분) |
 | maximumRetry |외부 데이터의 가용성을 검사한 횟수입니다. 허용되는 최대값은 10입니다. |아니요 |3 |
@@ -271,7 +272,7 @@ structure:
 **datasets** 속성을 사용하여 파이프라인으로 범위가 지정되는 데이터 집합을 만들 수 있습니다. 이러한 데이터 집합은 다른 파이프라인이 아닌 이 파이프라인 내의 작업에서만 사용할 수 있습니다. 다음 예제에서는 파이프라인 내에서 사용될 두 개의 데이터 집합(InputDataset rdc 및 OutputDataset-rdc)을 사용하는 파이프라인을 정의합니다.  
 
 > [!IMPORTANT]
-> 범위가 지정된 데이터 집합은 일회성 파이프라인(** pipelineMode **가 ** OneTime **으로 설정된 경우)에서만 지원됩니다. 자세한 내용은 [일회성 파이프라인](data-factory-scheduling-and-execution.md#onetime-pipeline) 을 참조하세요.
+> 범위가 지정된 데이터 집합은 일회성 파이프라인( **pipelineMode** 가 **OneTime**으로 설정된 경우)에서만 지원됩니다. 자세한 내용은 [일회성 파이프라인](data-factory-scheduling-and-execution.md#onetime-pipeline) 을 참조하세요.
 >
 >
 
@@ -365,9 +366,4 @@ structure:
     }
 }
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

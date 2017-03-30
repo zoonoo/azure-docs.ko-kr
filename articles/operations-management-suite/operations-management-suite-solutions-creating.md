@@ -1,5 +1,5 @@
 ---
-title: "OMS(Operations Management Suite)의 관리 솔루션 만들기 | Microsoft Docs"
+title: "OMS에서 관리 솔루션 만들기 | Microsoft Docs"
 description: "관리 솔루션은 고객이 OMS 작업 영역에 추가할 수 있는 패키지 관리 시나리오를 제공하여 OMS(Operations Management Suite)의 기능을 확장합니다.  이 문서에서는 자체 환경에 사용할 관리 솔루션 또는 고객에게 제공할 관리 솔루션을 만드는 방법에 대해 자세히 설명합니다."
 services: operations-management-suite
 documentationcenter: 
@@ -12,263 +12,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
-ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="creating-management-solutions-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)(Preview)의 관리 솔루션 만들기
+# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)에서 관리 솔루션 설계 및 만들기(미리 보기)
 > [!NOTE]
-> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.  
->
->
+> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   j
 
-관리 솔루션은 고객이 OMS 작업 영역에 추가할 수 있는 패키지 관리 시나리오를 제공하여 OMS(Operations Management Suite)의 기능을 확장합니다.  이 문서에서는 자체 환경에 사용할 수 있는 자체 관리 솔루션 또는 커뮤니티를 통해 고객에게 제공할 수 있는 관리 솔루션을 만드는 방법에 대해 자세히 설명합니다.
+[관리 솔루션](operations-management-suite-solutions.md)은 고객이 OMS 작업 영역에 추가할 수 있는 패키지 관리 시나리오를 제공하여 OMS(Operations Management Suite)의 기능을 확장합니다.  이 문서에서는 가장 일반적인 요구 사항에 적합한 관리 솔루션을 설계하고 만들기 위한 기본 프로세스를 제공합니다.  관리 솔루션을 처음 만드는 경우 이 프로세스를 시작 지점으로 사용한 다음, 요구 사항이 진화함에 따라 더 복잡한 솔루션에 대한 개념을 활용할 수 있습니다.
 
-## <a name="planning-your-management-solution"></a>관리 솔루션 계획
-OMS의 관리 솔루션에는 특정 관리 시나리오를 지원하는 여러 리소스가 포함됩니다.  솔루션을 계획할 때 달성하려는 시나리오 및 관리 시나리오를 지원하는 데 필요한 모든 리소스에 중점을 두어야 합니다.  하나 이상의 리소스를 다른 솔루션에서도 정의하더라도 각 솔루션은 필요한 각 리소스를 자체적으로 포함하고 정의해야 합니다.  관리 솔루션이 설치되면 이미 있는 리소스를 제외한 각 리소스가 생성되고, 사용자는 솔루션이 제거될 때 리소스에 발생하는 일을 정의할 수 있습니다.  
+## <a name="what-is-a-management-solution"></a>관리 솔루션이란?
 
-예를 들어 [일정](../automation/automation-schedules.md) 및 [보기](../log-analytics/log-analytics-view-designer.md)를 사용하여 Log Analytics 리포지토리에 데이터를 수집하고 수집된 데이터의 다양한 시각화를 제공하는 [Azure Automation runbook](../automation/automation-intro.md)이 관리 솔루션에 포함될 수 있습니다.  똑같은 일정이 다른 솔루션에서 사용될 수 있습니다.  개발자는 관리 솔루션 작성자로서 세 리소스를 모두 정의하지만 솔루션이 제거되면 runbook과 보기가 자동으로 제거되도록 지정해야 합니다.    또한 일정을 정의하지만 다른 솔루션에서 여전히 똑같은 일정을 사용하는 경우를 대비하여 솔루션이 제거되어도 일정이 계속 작동하도록 지정해야 합니다.
+관리 솔루션에는 특정 모니터링 시나리오를 달성하기 위해 함께 작동하는 OMS 및 Azure 리소스가 포함되어 있습니다.  이 솔루션은 설치할 때 포함된 리소스를 설치하고 구성하는 방법에 대한 세부 정보가 포함된 [리소스 관리 템플릿](../azure-resource-manager/resource-manager-template-walkthrough.md)으로 구현됩니다.
 
-## <a name="management-solution-files"></a>관리 솔루션 파일
-관리 솔루션은 [리소스 관리 템플릿](../azure-resource-manager/resource-manager-template-walkthrough.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 정의하는 방법을 설명합니다.
-
-관리 솔루션 파일의 기본 구조는 다음과 같은 [리소스 관리자 템플릿](../azure-resource-manager/resource-group-authoring-templates.md#template-format)과 같습니다.  이어지는 각 섹션에서는 솔루션의 최상위 수준 요소와 그 콘텐츠에 대해 설명합니다.  
-
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
-       "parameters": {  },
-       "variables": {  },
-       "resources": [  ],
-       "outputs": {  }
-    }
-
-## <a name="parameters"></a>parameters
-[매개 변수](../azure-resource-manager/resource-group-authoring-templates.md#parameters)는 사용자가 관리 솔루션을 설치할 때 사용자에게 요구할 값입니다.  모든 솔루션에 포함될 표준 매개 변수가 있고, 특정 솔루션에 필요한 다른 매개 변수를 추가할 수 있습니다.  사용자가 솔루션을 설치할 때 매개 변수 값을 제공하는 방법은 솔루션 설치 방법과 특정 매개 변수에 따라 다릅니다.
-
-사용자가 [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) 또는 [Azure 빠른 시작 템플릿](operations-management-suite-solutions.md#finding-and-installing-management-solutions)을 통해 관리 솔루션을 설치할 경우에는 [OMS 작업 영역 및 Automation 계정](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account)을 선택하라는 메시지가 표시됩니다.  이러한 템플릿은 각 표준 매개 변수의 값을 채우는 데 사용됩니다.  사용자에게는 표준 매개 변수의 값을 직접 제공하라는 메시지가 표시되지 않고 추가 매개 변수의 값을 제공하라는 메시지가 표시됩니다.
-
-사용자가 솔루션을 [다른 방법](operations-management-suite-solutions.md#finding-and-installing-management-solutions)으로 설치할 경우에는 모든 표준 매개 변수와 모든 추가 매개 변수의 값을 제공해야 합니다.
-
-샘플 매개 변수는 다음과 같습니다.
-
-    "Daily Start Time": {
-        "type": "string",
-        "metadata": {
-            "description": "Enter time for starting VMs by resource group.",
-            "control": "datetime",
-            "category": "Schedule"
-        }
-
-다음 표에서는 매개 변수의 특성을 설명합니다.
-
-| 특성 | 설명 |
-|:--- |:--- |
-| type |매개 변수의 데이터 형식입니다. 사용자에게 표시되는 입력 컨트롤은 데이터 형식에 따라 다릅니다.<br><br>bool - 드롭다운 상자<br>string - 텍스트 상자<br>int - 텍스트 상자<br>securestring - 암호 필드<br> |
-| 카테고리 |매개 변수의 선택적 범주입니다.  같은 범주의 매개 변수는 함께 그룹화됩니다. |
-| control |string 매개 변수의 추가 기능입니다.<br><br>datetime - Datetime 컨트롤이 표시됩니다.<br>guid - Guid 값이 자동으로 생성되고 매개 변수가 표시되지 않습니다. |
-| 설명 |매개 변수에 대한 선택적 설명입니다.  매개 변수 옆에 정보 풍선으로 표시됩니다. |
-
-### <a name="standard-parameters"></a>표준 매개 변수
-다음 표에는 모든 관리 솔루션에 대한 표준 매개 변수가 나열됩니다.  솔루션이 Azure Marketplace 또는 빠른 시작 템플릿에서 설치될 경우 매개 변수에 대한 메시지가 표시되지 않고 이러한 값이 자동으로 채워집니다.  솔루션이 다른 방법으로 설치될 경우 사용자가 값을 입력해야 합니다.
-
-> [!NOTE]
-> Azure Marketplace 및 빠른 시작 템플릿의 사용자 인터페이스에는 테이블의 매개 변수 이름을 사용해야 합니다.  다른 매개 변수 이름을 사용하면 사용자에게 매개 변수에 대한 메시지가 표시되고 매개 변수가 자동으로 채워지지 않습니다.
->
->
-
-| 매개 변수 | 형식 | 설명 |
-|:--- |:--- |:--- |
-| accountName |string |Azure Automation 계정 이름입니다. |
-| pricingTier |string |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
-| regionId |string |Azure Automation 계정의 지역입니다. |
-| solutionName |string |솔루션의 이름입니다. |
-| workspaceName |string |Log Analytics 작업 영역 이름입니다. |
-| workspaceRegionId |string |Log Analytics 작업 영역의 지역입니다. |
-
-### <a name="sample"></a>샘플
-솔루션에 대한 샘플 매개 변수 엔터티는 다음과 같습니다.  여기에는 모든 표준 매개 변수와 같은 범주에 있는 두 개의 추가 매개 변수가 포함됩니다.
-
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "A valid Log Analytics workspace name"
-            }
-        },
-        "accountName": {
-               "type": "string",
-               "metadata": {
-                   "description": "A valid Azure Automation account name"
-               }
-        },
-        "workspaceRegionId": {
-               "type": "string",
-               "metadata": {
-                   "description": "Region of the Log Analytics workspace"
-            }
-        },
-        "regionId": {
-            "type": "string",
-            "metadata": {
-                "description": "Region of the Azure Automation account"
-            }
-        },
-        "pricingTier": {
-            "type": "string",
-            "metadata": {
-                "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
-        }
+기본 전략은 Azure 환경에서 개별 구성 요소를 작성하여 관리 솔루션을 시작하는 것입니다.  기능이 제대로 작동하면 [관리 솔루션 파일](operations-management-suite-solutions-solution-file.md)에 패키징할 수 있습니다. 
 
 
-**parameters('매개 변수 이름')** 구문을 사용하여 솔루션의 다른 요소에 있는 매개 변수 값을 참조할 수 있습니다.  예를 들어 작업 영역 이름에 액세스하려면 **parameters('workspaceName')**을 사용합니다.
+## <a name="design-your-solution"></a>솔루션 디자인
+관리 솔루션에 대한 가장 일반적인 패턴은 다음 다이어그램에서 보여 줍니다.  이 패턴의 다른 구성 요소에 대해서는 아래에서 설명합니다.
 
-## <a name="variables"></a>변수
-**Variables** 요소는 관리 솔루션의 나머지 부분에 사용할 값을 포함합니다.  이러한 값은 솔루션을 설치하는 사용자에게 노출되지 않습니다.  작성자가 솔루션을 만드는 동안 여러 번 사용할지도 모르는 값을 관리할 수 있는 단일 위치를 제공하는 것이 이러한 값의 목적입니다. 솔루션 관련 값을 **resources** 요소로 하드 코드하지 않고 해당 값을 변수에 포함해야 합니다.  이렇게 하면 코드를 더 쉽게 읽을 수 있고 이후 버전에서 이들 값을 쉽게 변경할 수 있습니다.
-
-다음은 솔루션에 일반적인 매개 변수를 사용한 **variables** 요소의 예입니다.
-
-    "variables": {
-        "SolutionVersion": "1.1",
-        "SolutionPublisher": "Contoso",
-        "SolutionName": "My Solution",
-        "LogAnalyticsApiVersion": "2015-11-01-preview",
-        "AutomationApiVersion": "2015-10-31"
-    },
-
-**variables('변수 이름')** 구문을 사용하여 솔루션 전체의 변수 값을 참조할 수 있습니다.  예를 들어 SolutionName 변수에 액세스하려면 **variables('solutionName')**을 사용합니다.
-
-## <a name="resources"></a>리소스
-**resources** 요소는 관리 솔루션에 포함된 여러 리소스를 정의합니다.  이번 파트가 아마도 템플릿에서 가장 크고 복잡한 내용일 것입니다.  리소스는 다음과 같은 구조를 사용하여 정의됩니다.  
-
-    "resources": [
-        {
-            "name": "<name-of-the-resource>",            
-            "apiVersion": "<api-version-of-resource>",
-            "type": "<resource-provider-namespace/resource-type-name>",        
-            "location": "<location-of-resource>",
-            "tags": "<name-value-pairs-for-resource-tagging>",
-            "comments": "<your-reference-notes>",
-            "dependsOn": [
-                "<array-of-related-resource-names>"
-            ],
-            "properties": "<unique-settings-for-the-resource>",
-            "resources": [
-                "<array-of-child-resources>"
-            ]
-        }
-    ]
-
-### <a name="dependencies"></a>종속성
-**dependsOn** 요소는 다른 리소스에 대한 [종속성](../azure-resource-manager/resource-group-define-dependencies.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](operations-management-suite-solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](operations-management-suite-solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
-
-### <a name="oms-workspace-and-automation-account"></a>OMS 작업 영역 및 Automation 계정
-관리 솔루션은 뷰를 포함하는 [OMS 작업 영역](../log-analytics/log-analytics-manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [Automation 계정](../automation/automation-security-overview.md#automation-account-overview)이 필요합니다.  이러한 항목은 솔루션의 리소스가 만들어지기 전에 제공되어야 하며 솔루션 자체에 정의될 수 없습니다.  사용자는 솔루션을 배포할 때 [작업 영역과 계정을 지정](operations-management-suite-solutions.md#oms-workspace-and-automation-account)하지만, 작성자는 다음 사항을 고려해야 합니다.
-
-## <a name="solution-resource"></a>솔루션 리소스
-각 솔루션은 솔루션 자체를 정의하는 요소인 **resources** 요소에 리소스 항목이 필요합니다.  이 항목의 형식은 **Microsoft.OperationsManagement/solutions**가 됩니다.  솔루션 리소스의 예는 다음과 같습니다.  아래 섹션에는 여러 가지 요소가 설명되어 있습니다.
-
-    "name": "[concat(variables('SolutionName'), '[ ' ,parameters('workspacename'), ' ]')]",
-    "location": "[parameters('workspaceRegionId')]",
-    "tags": { },
-    "type": "Microsoft.OperationsManagement/solutions",
-    "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-    "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]",
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-    ]
-    "properties": {
-        "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-        "referencedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]"
-        ],
-        "containedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-        ]
-    },
-    "plan": {
-        "name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
-        "Version": "[variables('SolutionVersion')]",
-        "product": "AzureSQLAnalyticSolution",
-        "publisher": "[variables('SolutionPublisher')]",
-        "promotionCode": ""
-    }
-
-### <a name="solution-name"></a>솔루션 이름
-솔루션 이름은 Azure 구독에서 고유해야 합니다. 권장 사용 값은 다음과 같습니다.  이 요소는 기본 이름에 대한 **SolutionName** 변수와 이름이 고유한지 확인하기 위한 **workspaceName** 매개 변수를 사용합니다.
-
-    [concat(variables('SolutionName'), ' [' ,parameters('workspaceName'), ']')]
-
-이 요소는 다음과 같이 이름을 확인합니다.
-
-    My Solution Name [MyWorkspace]
+![OMS 솔루션 개요](media/operations-management-suite-solutions/solution-overview.png)
 
 
-### <a name="dependencies"></a>종속성
-솔루션이 만들어지기 전에 솔루션 리소스가 있어야 하므로 솔루션 리소스는 솔루션의 모든 다른 리소스에 대해 [종속성](../azure-resource-manager/resource-group-define-dependencies.md)을 가져야 합니다.  **dependsOn** 요소에서 각 리소스의 항목을 추가하면 됩니다.
+### <a name="data-sources"></a>데이터 원본
+솔루션 설계의 첫 번째 단계는 Log Analytics 리포지토리에서 필요한 데이터를 결정하는 것입니다.  이 데이터는 [데이터 원본](../log-analytics/log-analytics-data-sources.md) 또는 [다른 솔루션](operations-management-suite-solutions.md)에서 수집할 수 있거나, 솔루션에서 수집할 수 있는 프로세스를 제공해야 할 수도 있습니다.
 
-### <a name="properties"></a>속성
-솔루션 리소스는 테이블의 속성을 가집니다.  여기에는 솔루션 설치 후 리소스 관리 방식을 정의하는 솔루션에서 참조 및 포함하는 리소스가 포함됩니다.  솔루션의 각 리소스는 **referencedResources** 또는 **containedResources** 속성에 나열되어야 합니다.
+[Log Analytics의 데이터 원본](../log-analytics/log-analytics-data-sources.md)에서 설명한 대로 데이터 원본은 Log Analytics 리포지토리에서 다양한 방법으로 수집할 수 있습니다.  여기에는 Windows 및 Linux 클라이언트의 성능 카운터 외에도 Windows 이벤트 로그의 이벤트 또는 Syslog로 생성된 이벤트가 포함됩니다.  또한 Azure Monitor에서 수집한 Azure 리소스에서도 데이터를 수집할 수 있습니다.  
 
-| 속성 | 설명 |
-|:--- |:--- |
-| workspaceResourceId |OMS 작업 영역의 ID이며 *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<작업 영역 이름\>*형식입니다. |
-| referencedResources |솔루션을 제거해도 함께 제거되면 안 되는 솔루션의 리소스 목록입니다. |
-| containedResources |솔루션을 제거하면 함께 제거되어야 하는 솔루션의 리소스 목록입니다. |
+사용 가능한 데이터 원본 중 하나를 통해 액세스할 수 없는 데이터가 필요한 경우, REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics 리포지토리에 데이터를 쓸 수 있는 [HTTP 데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)를 사용할 수 있습니다 .  관리 솔루션의 가장 일반적인 사용자 지정 데이터 수집 방법은 Azure 또는 외부 리소스에서 필요한 데이터를 수집하고 데이터 수집기 API를 사용하여 리포지토리에 쓰는 [Azure Automation Runbook](../automation/automation-runbook-types.md)을 만드는 것입니다.  
 
-위의 예제는 runbook, 일정, 보기가 포함된 솔루션과 관련됩니다.  일정 및 runbook은 **properties** 요소에서 *참조*되므로 솔루션이 제거될 때 제거되지 않습니다.  보기는 *포함*되어 있으므로 솔루션을 제거하면 함께 제거됩니다.
+### <a name="log-searches"></a>로그 검색
+[로그 검색](../log-analytics/log-analytics-log-searches.md)은 Log Analytics 리포지토리에서 데이터를 추출하고 분석하는 데 사용됩니다.  사용자가 리포지토리에서 데이터의 임시 분석을 수행할 수 있는 것 외에도 보기 및 경고에서 사용합니다.  
 
-### <a name="plan"></a>계획
-솔루션 리소스의 **plan** 엔터티는 테이블의 속성을 가집니다.
+모든 보기 또는 경고에서 사용하지 않더라도 사용자에게 도움이 되는 것으로 판단되는 쿼리를 정의해야 합니다.  이러한 쿼리는 포털에서 [저장된 검색]으로 사용할 수 있으며, 사용자 지정 보기의 [쿼리 목록 시각화 요소](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)에도 포함할 수 있습니다.
 
-| 속성 | 설명 |
-|:--- |:--- |
-| name |솔루션의 이름입니다. |
-| 버전 |솔루션 버전은 작성자가 결정합니다. |
-| product |솔루션을 식별하는 고유 문자열입니다. |
-| publisher |솔루션의 게시자입니다. |
+### <a name="alerts"></a>경고
+[Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)는 리포지토리의 데이터에 대한 [로그 검색](#log-searches)을 통해 로그를 통해 문제를 식별합니다.  사용자에게 알리거나 응답에서 작업을 자동으로 실행합니다. 응용 프로그램에 대한 다양한 경고 조건을 식별하고, 해당 경고 규칙을 솔루션 파일에 포함해야 합니다.
 
-## <a name="other-resources"></a>기타 리소스
-관리 솔루션에 공통적으로 적용되는 리소스의 세부 정보 및 샘플은 다음 문서에서 얻을 수 있습니다.
+잠재적으로 자동화된 프로세스로 문제를 해결할 수 있는 경우 일반적으로 Azure Automation에서 Runbook을 만들어 이 수정 작업을 수행합니다.  대부분의 Azure 서비스는 Runbook에서 이러한 기능을 수행하는 데 활용하는 [cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)으로 관리될 수 있습니다.
 
-* [보기 및 대시보드](operations-management-suite-solutions-resources-views.md)
-* [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
+경고에 대한 응답으로 외부 기능이 솔루션에 필요한 경우 [웹후크 응답](../log-analytics/log-analytics-alerts-actions.md)을 사용할 수 있습니다.  이렇게 하면 경고에서 정보를 보내는 외부 웹 서비스를 호출할 수 있습니다.
 
-## <a name="testing-a-management-solution"></a>관리 솔루션 테스트
-관리 솔루션을 배포하기 전에 [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy)를 사용하여 테스트하는 것이 좋습니다.  솔루션을 배포하기 전에 솔루션 파일의 유효성을 검사하고 문제를 식별할 수 있습니다.
+### <a name="views"></a>뷰
+Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각화하는 데 사용됩니다.  각 솔루션에는 일반적으로 사용자의 주 대시보드에 표시되는 [타일](../log-analytics/log-analytics-view-designer-tiles.md)이 있는 단일 보기가 포함됩니다.  보기에는 사용자에게 수집된 데이터의 다양한 시각화를 제공하기 위해 많은 [시각화 요소](../log-analytics/log-analytics-view-designer-parts.md)가 포함될 수 있습니다.
+
+[뷰 디자이너를 사용하여 사용자 지정 보기를 만들면](../log-analytics/log-analytics-view-designer.md) 나중에 솔루션 파일에 포함하여 내보낼 수 있습니다.  
+
+
+## <a name="create-solution-file"></a>솔루션 파일 만들기
+솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다](operations-management-suite-solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스](operations-management-suite-solutions-solution-file.md#solution-resource)를 포함하는 [Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)에 솔루션 구성 요소를 구현합니다.  
+
+
+## <a name="test-your-solution"></a>솔루션 테스트
+솔루션을 개발하는 동안 작업 영역에서 솔루션을 설치하고 테스트해야 합니다.  [Resource Manager 템플릿을 테스트하고 설치](../azure-resource-manager/resource-group-template-deploy.md)하는 데 사용할 수 있는 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
+
+## <a name="publish-your-solution"></a>솔루션 게시
+솔루션을 완료하고 테스트한 후에는 다음 원본을 통해 고객이 솔루션을 사용할 수 있도록 할 수 있습니다.
+
+- **Azure 퀵 스타트 템플릿** -  [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)은 GitHub를 통해 커뮤니티에서 제공한 Resource Manager 템플릿 집합입니다.  [참여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)(영문)의 정보에 따라 솔루션을 사용할 수 있게 만들 수 있습니다.
+- **Azure Marketplace** -  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 사용하면 다른 개발자, ISV 및 IT 전문가에게 솔루션을 배포하고 판매할 수 있습니다.  [Azure Marketplace에 제품을 게시하고 관리하는 방법](../marketplace-publishing/marketplace-publishing-getting-started.md)에서 솔루션을 Azure Marketplace에 게시하는 방법에 대해 자세히 알아볼 수 있습니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
-* 관리 솔루션에 [저장된 검색 및 경고를 추가](operations-management-suite-solutions-resources-searches-alerts.md)합니다.
-* 관리 솔루션에 대한 [보기를 추가](operations-management-suite-solutions-resources-views.md)합니다.
-* 관리 솔루션에 [Automation runbook 및 기타 리소스를 추가](operations-management-suite-solutions-resources-automation.md)합니다.
+* 관리 솔루션의 [솔루션 파일을 만드는 방법](operations-management-suite-solutions-solution-file.md)에 대해 알아봅니다.
 * [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: 5d68b7f1f57da07685c27d592620c1785269f9d8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -44,6 +44,7 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 * 시나리오를 선택하고, 백업 정책을 정의하고, 보호할 항목을 정의합니다.
 * 가상 컴퓨터에서 VM 에이전트 설치를 확인합니다.
 * 네트워크 연결 확인
+* Linux VM의 경우 응용 프로그램 일치 백업을 위해 백업 환경을 사용자 지정하려는 경우 [사전 스냅숏 및 사후 스냅숏 스크립트를 구성하는 단계](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)를 따르세요.
 
 사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 문서 백업](backup-azure-vms.md)을 진행합니다. 필수 구성 요소를 하나라도 설정하거나 확인해야 하는 경우에는, 이 문서를 참고하여 해당 필수 구성 요소를 준비하는 단계를 수행합니다.
 

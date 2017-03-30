@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
 translationtype: Human Translation
-ms.sourcegitcommit: 4860c818c5eba800ea9eaedc4c109ebd459a8c16
-ms.openlocfilehash: 2fa745672fe1b6aec9a2144774eb32fa029073e1
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d3ac737604e9483c313b4c1fcb522cb449dd84d8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/27/2017
 
 이전에 Caffe를 설치했다면 이 프레임워크를 설치하는 것이 약간 어렵다는 것을 알 수 있습니다. 이 블로그에서는 먼저 HDInsight 클러스터용 [Spark에서 Caffe](https://github.com/yahoo/CaffeOnSpark)를 설치하는 방법을 설명한 후 기본 제공 MNIST 데모를 통해 CPU에서 HDInsight Spark를 사용하여 분산 심층 학습을 사용하는 방법을 보여 줍니다.
 
-HDInsight에서 작업을 위해서는&4;가지 주요 단계가 있습니다.
+HDInsight에서 작업을 위해서는 4가지 주요 단계가 있습니다.
 
 1. 모든 노드에 필요한 종속성 설치
 2. 헤드 노드에서 HDInsight용 Spark에 Caffe 빌드

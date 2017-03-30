@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기
+# <a name="get-started"></a>PowerShell을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
 > * [포털](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 2. 백 엔드 구성을 변수로 로드합니다.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. 이미 만든 네트워크 인터페이스를 변수로 로드합니다. 변수 이름은 **$nic**입니다. 네트워크 인터페이스 이름은 이전 예제와 같습니다.
@@ -282,7 +283,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 1. 이전 예제에서 부하 분산 장치를 사용하여, `Get-AzureLoadBalancer`를 통해 부하 분산 장치 개체를 변수 **$slb**로 할당합니다.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. 다음 예제에서는 프런트 엔드에 있는 포트 81과 백 엔드 풀의 포트 8181을 사용하여 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가합니다.
@@ -302,7 +303,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 `Remove-AzureLoadBalancer` 명령을 사용하여 **NRP-RG**라는 리소스 그룹에서 이전에 생성한 **NRP-LB**라는 부하 분산 장치를 삭제합니다.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

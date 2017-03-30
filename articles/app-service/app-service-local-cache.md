@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e00d453e9ae34cafb5ce753f63c253e954d6b09a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -64,6 +65,7 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -73,7 +75,8 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -91,7 +94,7 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 * 값이 `Always`인 *고정* 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`을 **프로덕션** 슬롯에 추가합니다. `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용하는 경우 이것도 프로덕션 슬롯에 고정 설정으로 추가합니다.
 * **스테이징** 슬롯을 만들고 사용자의 스테이징 슬롯에 게시합니다. 스테이징 슬롯은 프로덕션 슬롯에 대한 로컬 캐시의 이점을 활용하지만 일반적으로 스테이징 중 원활한 빌드-배포-테스트 수명 주기를 지원하기 위해 로컬 캐시를 사용하지는 않습니다.
 * 스테이징 슬롯에 대해 사이트를 테스트합니다.  
-* 준비가 되면 스테이징 슬롯과 프로덕션 슬롯 간의 [교환 작업](../app-service-web/web-sites-staged-publishing.md#Swap) 을 실행합니다.  
+* 준비가 되면 스테이징 슬롯과 프로덕션 슬롯 간의 [교환 작업](../app-service-web/web-sites-staged-publishing.md#Swap)을 실행합니다.  
 * 고정 설정은 이름 순이며, 슬롯에 고정됩니다. 스테이징 슬롯이 프로덕션으로 교환되면 로컬 캐시 앱 설정을 상속합니다. 새로 교환된 프로덕션 슬롯은 몇 분 후 로컬 캐시에 대해 실행되며, 교환 후 슬롯 준비의 일부로 준비됩니다. 따라서 슬롯 교환이 완료되면 프로덕션 슬롯이 로컬 캐시에 대해 실행됩니다.
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
@@ -110,8 +113,6 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 ### <a name="i-have-local-cache-enabled-but-my-web-app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>로컬 캐시를 사용하도록 설정했지만 웹앱이 여전히 다시 시작됩니다. 그 이유는 무엇입니까? 로컬 캐시는 빈번한 앱 다시 시작에 도움이 된다고 생각했습니다.
 로컬 캐시는 저장소 관련 웹앱 다시 시작을 방지하는 데 도움이 됩니다. 그러나 VM의 계획된 인프라 업그레이드 중에는 웹앱이 여전히 다시 시작될 수 있습니다. 로컬 캐시를 사용하는 경우에 발생하는 전체 앱 다시 시작은 횟수가 줄어야 합니다.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>로컬 캐시는 더 빠른 로컬 드라이브로 복사할 대상에서 디렉터리를 제외합니까?
+저장소 콘텐츠를 복사하는 단계의 일부로 리포지토리로 이름이 지정된 모든 폴더가 제외됩니다. 이는 사용자 사이트 콘텐츠에 웹앱의 일상적인 작업에 불필요할 수도 있는 소스 제어 리포지토리가 포함될 수 있는 시나리오에 유용합니다. 
 

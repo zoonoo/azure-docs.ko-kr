@@ -1,6 +1,6 @@
 ---
-title: "Traffic Manager 설정 테스트 | Microsoft Docs"
-description: "이 문서는 Traffic Manager 설정을 테스트 하는 데 도움이 됩니다."
+title: "Azure Traffic Manager 설정 확인 | Microsoft Docs"
+description: "이 문서는 Traffic Manager 설정을 확인하는 데 도움이 됩니다."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="test-your-traffic-manager-settings"></a>Traffic Manager 설정 테스트
+# <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인
 
 Traffic Manager 설정을 테스트 하려면 여러 클라이언트가 테스트를 실행할 수 있는 다양한 위치에 있어야 합니다. 그런 다음 Traffic Manager 프로필에 있는 끝점을 한 번에 하나씩 종료합니다.
 
@@ -74,9 +75,4 @@ DNS 이름이 사용자 프로필에서 끝점의 IP 주소로 확인되는지 �
 * [Traffic Manager 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)
 * [Traffic Manager 성능 고려 사항](traffic-manager-performance-considerations.md)
 * [Traffic Manager 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

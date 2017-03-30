@@ -65,7 +65,7 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 
 ![권한 추가][api-management-aad-permissions]
 
-새로 추가된 **Windows** **Azure Service Management API** 응용 프로그램 확인란 옆의 **위임된 권한**을 클릭하고 ** Azure 서비스 관리 액세스(미리 보기)**의 상자를 선택하고 **저장**을 클릭합니다.
+새로 추가된 **Windows** **Azure Service Management API** 응용 프로그램 확인란 옆의 **위임된 권한**을 클릭하고 **Azure 서비스 관리 액세스(미리 보기)**의 상자를 선택하고 **저장**을 클릭합니다.
 
 ![권한 추가][api-management-aad-delegated-permissions]
 

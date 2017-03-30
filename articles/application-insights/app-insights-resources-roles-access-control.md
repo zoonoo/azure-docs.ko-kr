@@ -1,22 +1,22 @@
 ---
-title: "Application Insights에서 리소스, 역할 및 액세스 제어"
+title: "Azure Application Insights에서 리소스, 역할 및 액세스 제어 | Microsoft Docs"
 description: "조직 Insights의 소유자, 참여자 및 읽기 권한자입니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2016
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 89e3cb3a7e9185d4a2944c1aa9aaf5aee4bd2b24
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 50a3cb726646c46d1f46767b51428eb751e6d3fe
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,9 +33,9 @@ ms.lasthandoff: 03/15/2017
 
 * **리소스** - Microsoft Azure 서비스의 인스턴스입니다. Application Insights는 응용 프로그램에서 보낸 원격 분석 데이터를 수집, 분석 및 표시합니다.  다른 유형의 Azure 리소스로는 웹 앱, 데이터베이스 및 VM이 있습니다.
   
-    모든 리소스를 보려면 [Azure Portal][portal]로 이동하여 로그인하고 찾아보기를 클릭합니다.
+    리소스를 보려면 [Azure Portal][portal]을 열고 로그인한 다음 모든 리소스를 클릭합니다. 리소스를 찾으려면 필터 필드에 리소스 이름의 일부를 입력합니다.
   
-    ![찾아보기를 선택한 다음 모두 또는 Application Insights로 필터링을 선택합니다.](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![Azure 리소스 목록](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
@@ -86,12 +86,12 @@ ms.lasthandoff: 03/15/2017
 * 연속 내보내기
 
 #### <a name="select-the-user"></a>사용자 선택
-![새 사용자의 전자 메일 주소를 입력합니다. 사용자 선택](./media/app-insights-resources-roles-access-control/04-user.png)
 
 원하는 사용자가 디렉터리에 없는 경우 Microsoft 계정이 있는 사람을 초대할 수 있습니다.
 Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 Microsoft 계정을 갖고 있습니다.
 
-## <a name="users-and-roles"></a>사용자 및 역할
+## <a name="related-content"></a>관련 콘텐츠
+
 * [Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
 <!--Link references-->

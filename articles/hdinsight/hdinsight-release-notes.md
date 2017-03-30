@@ -9,6 +9,7 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 2/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
-ms.openlocfilehash: da5929df1e5db0acae41d757a7e7272014bf9dee
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7a9e23e8d06bc73855058242cdebd315c9d4d243
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -75,7 +76,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 * R Server 8.0.5 – 주로 버그 수정 릴리스입니다. 자세한 정보는 [R Server 릴리스 정보](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes)를 참조하세요.
 * 에지 노드에 대한 AzureML 패키지 – [이 R 패키지](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)를 통해 R 모델을 게시하고 Azure ML 웹 서비스로 사용할 수 있습니다.  자세한 정보는 ["HDInsight의 R 서버 개요"](hdinsight-hadoop-r-server-overview.md) 문서의 ["모델 운영"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) 섹션을 참조하세요.
 * [상위 100개 가장 인기 있는 R 패키지](https://github.com/metacran/cranlogs)의 Linux 종속성 - 해당 Linux 패키지 종속성은 사전 설치되어 있습니다.
-* R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션입니다. 자세한 정보는 ["HDInsight에서 R 서버 사용 시작"](hdinsight-hadoop-r-server-get-started.md) 문서의 ["R 패키지 설치"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) 섹션을 참조하세요.
+* R 패키지를 데이터 노드에 추가할 때 CRAN 리포지토리를 사용하는 옵션입니다. 자세한 내용은 ["HDInsight에서 R Server 사용 시작"](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
 * 클러스터가 만들어질 때 R 서버 프로비저닝의 안정성이 개선되었습니다.
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>HDInsight의 2016/08/01 릴리스 정보
@@ -759,7 +760,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 </tr>
 <tr>
 <td>클러스터를 프로비전하는 동안 원격 데스크톱 자격 증명을 사용하도록 설정하는 기능</td>
-<td>클러스터를 만들 때 원격 데스크톱 자격 증명을 사용하도록 설정하는 기능을 프로그래밍 방식으로 지원합니다. 이는 클러스터를 프로비전한 다음 원격 데스크톱을 사용하도록 설정하는&2;단계 프로세스를 제거합니다.</td>
+<td>클러스터를 만들 때 원격 데스크톱 자격 증명을 사용하도록 설정하는 기능을 프로그래밍 방식으로 지원합니다. 이는 클러스터를 프로비전한 다음 원격 데스크톱을 사용하도록 설정하는 2단계 프로세스를 제거합니다.</td>
 <td>SDK)</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1021,7 +1022,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 </tr>
 <tr>
 <td>Twitter 추세 분석 및 Mahout 기반 동영상 권장 사항 샘플</td>
-<td><p>이 릴리스에서는 다음과 같이 HDInsight 쿼리 콘솔에&2;개의 추가 샘플이 있습니다.</p>
+<td><p>이 릴리스에서는 다음과 같이 HDInsight 쿼리 콘솔에 2개의 추가 샘플이 있습니다.</p>
 
 <p><b>Twitter 추세 분석</b><br>
 Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에서는 Hive를 사용하여 특정 단어를 포함하는 대부분의 트윗을 보낸 Twitter 사용자 목록을 가져오는 방법에 대해 알아봅니다. </p>
@@ -1156,7 +1157,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 </tr>
 <tr>
 <td>IHdInsightClient.DeleteCluster에서 지역 이름을 지정하는 기능 </td>
-<td>Azure HDInsight SDK에서 **DeleteCluster**를 사용할 때 지역 이름을 지정하는 기능을 제공합니다. 이 기능을 통해 서로 다른 지역에서 같은 이름을 가진&2;개의 리소스가 있고 둘 중 하나를 삭제할 수 없었던 고객의 차단을 취소할 수 있습니다.</td>
+<td>Azure HDInsight SDK에서 **DeleteCluster**를 사용할 때 지역 이름을 지정하는 기능을 제공합니다. 이 기능을 통해 서로 다른 지역에서 같은 이름을 가진 2개의 리소스가 있고 둘 중 하나를 삭제할 수 없었던 고객의 차단을 취소할 수 있습니다.</td>
 <td>SDK)</td>
 <td>모두</td>
 <td>해당 없음</td>
@@ -1317,7 +1318,7 @@ Azure PowerShell 또는 HDInsight SDK와 클러스터 간의 버전 차이로 �
 HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet][nuget-link]에서 액세스할 수 있습니다. Azure PowerShell 도구는 [Microsoft 웹 플랫폼 설치 관리자][webpi-link]를 사용하여 액세스할 수 있습니다.
 
 ## <a name="notes-for-7282014-release"></a>2014/7/28 릴리스 정보
-* **새로운 지역에서 사용 가능한 HDInsight**: HDInsight 제공 지역을&3;개 지역으로 확장했습니다. HDInsight 고객은 다음 지역에서 클러스터를 만들 수 있습니다.
+* **새로운 지역에서 사용 가능한 HDInsight**: HDInsight 제공 지역을 3개 지역으로 확장했습니다. HDInsight 고객은 다음 지역에서 클러스터를 만들 수 있습니다.
   * 동아시아
   * 미국 중북부
   * 미국 중남부

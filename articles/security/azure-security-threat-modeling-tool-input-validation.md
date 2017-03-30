@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 translationtype: Human Translation
-ms.sourcegitcommit: 8251f44200c11d3efcec04b7ac99857232b2f9ed
-ms.openlocfilehash: 6fd76f305536a7b5682eb4d9c3f87b82c2e1b405
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 19b03b14dc3b04472cd2ae59d38422edce47ef35
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -43,6 +43,7 @@ ms.lasthandoff: 02/15/2017
 | 단계 | XSLT는 `<msxml:script>` 요소를 사용하여 스타일시트 내에서 스크립팅을 지원합니다. 이렇게 하면 사용자 지정 함수를 XSLT 변환에 사용할 수 있습니다. 스크립트는 변환을 수행하는 프로세스의 컨텍스트에서 실행됩니다. 신뢰할 수 없는 코드가 신뢰할 수 없는 환경에서 실행되지 않도록 하려면 XSLT 스크립트를 사용하지 않도록 설정해야 합니다. *.NET을 사용하는 경우:* XSLT 스크립팅은 기본적으로 비활성화됩니다. 그러나 `XsltSettings.EnableScript` 속성을 통해 명시적으로 사용하지 않도록 설정되지 않았는지 확인해야 합니다.|
 
 ### <a name="example"></a>예제 
+
 ```C#
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
@@ -50,12 +51,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 
 ### <a name="example"></a>예제
 MSXML 6.0을 사용하는 경우 XSLT 스크립팅은 기본적으로 비활성화됩니다. 그러나 AllowXsltScript XML DOM 개체 속성을 통해 명시적으로 사용하지 않도록 설정되지 않았는지 확인해야 합니다. 
+
 ```C#
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>예제
 MSXML 5 이하를 사용하는 경우 XSLT 스크립팅은 기본적으로 활성화되며, 명시적으로 사용하지 않도록 설정해야 합니다. AllowXsltScript XML DOM 개체 속성을 false로 설정합니다. 
+
 ```C#
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
@@ -68,13 +71,14 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
-| 참조              | [IE8 보안&5;부 - 포괄적 보호](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)(영문)  |
+| 참조              | [IE8 보안 5부 - 포괄적 보호](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)(영문)  |
 | 단계 | <p>사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 각 페이지에 대해 `X-Content-Type-Options:nosniff` HTTP 헤더를 사용해야 합니다. 이 요구 사항을 준수하려면 사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 페이지에 대해서만 페이지별로 필수 헤더를 설정하거나 응용 프로그램의 모든 페이지에 대해 전역으로 필수 헤더를 설정할 수 있습니다.</p><p>웹 서버에서 제공되는 파일의 각 형식에는 콘텐츠의 특성(즉 이미지, 텍스트, 응용 프로그램 등)을 설명하는 [MIME 형식](http://en.wikipedia.org/wiki/Mime_type)(*콘텐츠 형식*이라고도 함)이 연결되어 있습니다.</p><p>X-Content-Type-Options 헤더는 개발자가 콘텐츠를 MIME 스니핑하지 않아야 한다고 지정할 수 있는 HTTP 헤더입니다. 이 헤더는 MIME 스니핑 공격을 완화하도록 설계되었습니다. IE8(Internet Explorer 8)에는 이 헤더에 대한 지원이 추가되었습니다.</p><p>IE8 사용자만 X-Content-Type-Options의 이점을 얻을 수 있습니다. 이전 버전의 Internet Explorer에서는 현재 X-Content-Type-Options 헤더를 사용하지 않습니다.</p><p>Internet Explorer 8 이상은 MIME 스니핑 옵트아웃 기능을 구현하는 유일한 주요 브라우저입니다. 다른 주요 브라우저(Firefox, Safari, Chrome)에서 비슷한 기능을 구현하는 경우 이 권장 사항은 해당 브라우저의 구문도 포함하도록 업데이트됩니다.</p>|
 
 ### <a name="example"></a>예제
 응용 프로그램의 모든 페이지에 대해 필수 헤더를 전역으로 사용하도록 설정하려면 다음 중 하나를 수행할 수 있습니다. 
 
 * IIS(인터넷 정보 서비스) 7에서 응용 프로그램을 호스팅하는 경우 web.config 파일에 헤더를 추가합니다. 
+
 ```
 <system.webServer> 
   <httpProtocol> 
@@ -86,6 +90,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 ```
 
 * 전역 Application\_BeginRequest를 통해 헤더를 추가합니다. 
+
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
 {
@@ -94,6 +99,7 @@ void Application_BeginRequest(object sender, EventArgs e)
 ```
 
 * 사용자 지정 HTTP 모듈을 구현합니다. 
+
 ``` 
 public class XContentTypeOptionsModule : IHttpModule 
   {
@@ -121,6 +127,7 @@ public class XContentTypeOptionsModule : IHttpModule
 ``` 
 
 * 개별 응답에 추가하여 특정 페이지에 대해서만 필수 헤더를 사용하도록 설정할 수 있습니다. 
+
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
 ``` 
@@ -138,6 +145,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 
 ### <a name="example"></a>예제
 .NET Framework 코드의 경우 다음 방법을 사용할 수 있습니다.
+
 ```C#
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
@@ -155,6 +163,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 
 ### <a name="example"></a>예제
 XmlDocuments에 대한 엔터티 확인을 사용하지 않도록 설정하려면, Load 메서드의 `XmlDocument.Load(XmlReader)` 오버로드를 사용하고 다음 코드와 같이 XmlReader 인수에 적절한 속성을 설정하여 확인을 사용하지 않도록 설정합니다. 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
@@ -165,6 +174,7 @@ doc.Load(reader);
 
 ### <a name="example"></a>예제
 응용 프로그램에서 엔터티 확인을 사용하지 않도록 설정할 수 없는 경우 응용 프로그램의 필요에 따라 XmlReaderSettings.MaxCharactersFromEntities 속성을 적절한 값으로 설정합니다. 이 속성은 잠재적인 지수 확장 DoS 공격의 영향을 제한합니다. 다음 코드에서는 이 방법의 예제를 제공합니다. 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -174,6 +184,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 
 ### <a name="example"></a>예제
 인라인 엔터티는 확인해야 하지만 외부 엔터티는 확인할 필요가 없는 경우 XmlReaderSettings.XmlResolver 속성을 null로 설정합니다. 예: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -207,6 +218,7 @@ MSXML6에서 ProhibitDTD는 기본적으로 true(DTD 처리 비활성화)로 설
 
 ### <a name="example"></a>예제
 파일 형식 서명 유효성 검사와 관련된 마지막 지점에 대한 자세한 내용은 아래 클래스를 참조하세요. 
+
 ```C#
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
@@ -322,6 +334,7 @@ MSXML6에서 ProhibitDTD는 기본적으로 true(DTD 처리 비활성화)로 설
 
 ### <a name="example"></a>예제 
 다음 코드에서는 저장 프로시저를 호출할 때 형식이 안전한 매개 변수를 SqlParameterCollection에 사용하는 방법을 보여 줍니다. 
+
 ```C#
 using System.Data;
 using System.Data.SqlClient;
@@ -361,6 +374,7 @@ myCommand.Fill(userDataset);
 | 단계 | 사이트 간 스크립팅(약어로 XSS)은 온라인 서비스 또는 웹에서 입력을 사용하는 응용 프로그램/구성 요소에 대한 공격 벡터입니다. XSS 취약성으로 인해 공격자가 취약한 웹 응용 프로그램을 통해 다른 사용자의 컴퓨터에서 스크립트를 실행할 수 있습니다. 악성 스크립트는 쿠키를 도용하거나 그렇지 않으면 JavaScript를 통해 공격 대상의 컴퓨터에 손상을 입히는 데 사용할 수 있습니다. XSS는 사용자 입력의 유효성을 검사하고 웹 페이지에 렌더링하기 전에 형식과 인코딩이 올바른지 확인함으로써 방지됩니다. 입력 유효성 검사 및 출력 인코딩은 Web Protection Library를 사용하여 수행할 수 있습니다. 관리 코드(C\#, VB.net 등)의 경우 사용자 입력이 매니페스트되는 컨텍스트에 따라 Web Protection (Anti-XSS) Library에서 적절한 인코딩 메서드를 하나 이상 사용합니다.| 
 
 ### <a name="example"></a>예제
+
 ```C#
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
@@ -408,6 +422,7 @@ myCommand.Fill(userDataset);
 
 ### <a name="example"></a>예제
 다음은 안전하지 않은 예제입니다. 
+
 ```
 document.getElementByID("div1").innerHtml = value;
 $("#userName").html(res.Name);
@@ -451,6 +466,7 @@ $('body').append(resHTML);
 
 ### <a name="example"></a>예제
 예를 들어 다음 구성에서 처리하는 데 5초 이상 걸리는 경우 RegexMatchTimeoutException이 발생합니다. 
+
 ```C#
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
@@ -464,10 +480,11 @@ $('body').append(resHTML);
 | 적용 가능한 기술 | MVC5, MVC6 |
 | 특성              | 해당 없음  |
 | 참조              | 해당 없음  |
-| 단계 | ASP.Net WebPages(Razor)는 자동 HTML 인코딩을 수행합니다. 포함된 코드 너깃((@ 블록)으로 인쇄된 모든 문자열은 자동으로 HTML로 인코딩됩니다. 그러나 `HtmlHelper.Raw` 메서드가 호출되면 HTML로 인코딩되지 않은 태그를 반환합니다. `Html.Raw()` 도우미 메서드를 사용하면 Razor에서 제공하는 자동 인코딩 보호를 무시합니다.|
+| 단계 | ASP.Net WebPages(Razor)는 자동 HTML 인코딩을 수행합니다. 포함된 코드 너깃(@ 블록)으로 인쇄된 모든 문자열은 자동으로 HTML로 인코딩됩니다. 그러나 `HtmlHelper.Raw` 메서드가 호출되면 HTML로 인코딩되지 않은 태그를 반환합니다. `Html.Raw()` 도우미 메서드를 사용하면 Razor에서 제공하는 자동 인코딩 보호를 무시합니다.|
 
 ### <a name="example"></a>예제
 다음은 안전하지 않은 예제입니다. 
+
 ```C#
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
@@ -492,6 +509,7 @@ $('body').append(resHTML);
 
 ### <a name="example"></a>예제
 다음은 안전하지 않은 동적 저장 프로시저의 예제입니다. 
+
 ```C#
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
@@ -551,6 +569,7 @@ AS
 
 ### <a name="example"></a>예제
 다음 코드에서는 이러한 작업을 보여 줍니다. 
+
 ```C#
 using System.ComponentModel.DataAnnotations;
 
@@ -567,9 +586,11 @@ namespace MyApi.Models
         public double Weight { get; set; }
     }
 }
+```
 
-### Example
-In the action method of the API controllers, validity of the model has to be explicitly checked as shown below: 
+### <a name="example"></a>예
+API 컨트롤러의 작업 메서드에서 모델의 유효성은 아래와 같이 명시적으로 검사되어야 합니다. 
+
 ```C#
 namespace MyApi.Controllers
 {
@@ -616,6 +637,7 @@ namespace MyApi.Controllers
 
 ### <a name="example"></a>예제
 다음 코드에서는 저장 프로시저를 호출할 때 형식이 안전한 매개 변수를 SqlParameterCollection에 사용하는 방법을 보여 줍니다. 
+
 ```C#
 using System.Data;
 using System.Data.SqlClient;
@@ -636,7 +658,7 @@ myCommand.Fill(userDataset);
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| 구성 요소               | Azure DocumentDB | 
+| 구성 요소               | Azure Document DB | 
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
@@ -649,7 +671,7 @@ myCommand.Fill(userDataset);
 | ----------------------- | ------------ |
 | 구성 요소               | WCF | 
 | SDL 단계               | 빌드 |  
-| 적용 가능한 기술 | 일반, NET Framework 3 |
+| 적용 가능한 기술 | 일반, .NET Framework 3 |
 | 특성              | 해당 없음  |
 | 참조              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
 | 단계 | <p>유효성 검사가 부족하면 다양한 형식 삽입 공격이 발생합니다.</p><p>메시지 유효성 검사는 WCF 응용 프로그램을 보호하기 위한 하나의 방어선을 나타냅니다. 이 방법에서는 스키마를 통해 메시지의 유효성을 검사하여 악의적인 클라이언트의 공격으로부터 WCF 서비스 작업을 보호합니다. 악성 서비스에 의한 공격으로부터 클라이언트를 보호하기 위해 클라이언트에서 받은 모든 메시지의 유효성을 검사합니다. 메시지 유효성 검사를 통해 작업에서 메시지 계약이나 데이터 계약을 소비할 때 메시지의 유효성을 검사할 수 있으며, 매개 변수 유효성 검사로는 이러한 작업을 수행할 수 없습니다. 메시지 유효성 검사를 사용하면 스키마 내에 유효성 검사 논리를 만들어 유연성을 높이고 개발 시간을 줄일 수 있습니다. 스키마는 조직 내의 여러 응용 프로그램 간에 다시 사용하여 데이터 표현을 위한 표준을 만들 수 있습니다. 또한 메시지 유효성 검사를 사용하면 비즈니스 논리를 나타내는 계약과 관련된 보다 복잡한 데이터 형식을 사용할 때 작업을 보호할 수 있습니다.</p><p>메시지 유효성 검사를 수행하려면 먼저 서비스 작업과 해당 작업에서 사용하는 데이터 형식을 나타내는 스키마를 빌드합니다. 그런 다음 사용자 지정 클라이언트 메시지 검사기와 사용자 지정 디스패처 메시지 검사기를 구현하는 .NET 클래스를 만들어 서비스와 보내고 받는 메시지의 유효성을 검사합니다. 다음으로 사용자 지정 끝점 동작을 구현하여 클라이언트와 서비스 모두에서 메시지 유효성 검사를 사용하도록 설정합니다. 마지막으로 확장된 사용자 지정 끝점 동작을 서비스 또는 클라이언트의 구성 파일에 노출할 수 있도록 하는 클래스에 사용자 지정 구성 요소를 구현합니다.</p>|
@@ -660,7 +682,8 @@ myCommand.Fill(userDataset);
 | ----------------------- | ------------ |
 | 구성 요소               | WCF | 
 | SDL 단계               | 빌드 |  
-| 적용 가능한 기술 | 일반, NET Framework 3 |
+| 적용 가능한 기술 | 일반, .NET Framework 3 |
 | 특성              | 해당 없음  |
 | 참조              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
 | 단계 | <p>입력 및 데이터 유효성 검사는 WCF 응용 프로그램을 보호하기 위한 하나의 중요한 방어선을 나타냅니다. 악성 클라이언트의 공격으로부터 서비스를 보호하기 위해 WCF 서비스 작업에 노출된 모든 매개 변수의 유효성을 검사해야 합니다. 반대로 악성 서비스에 의한 공격으로부터 클라이언트를 보호하기 위해 클라이언트에서 받은 모든 반환 값의 유효성도 검사해야 합니다.</p><p>WCF는 사용자 지정 확장을 만들어 WCF 런타임 동작을 사용자 지정할 수 있는 다양한 확장성 지점을 제공합니다. 메시지 검사기와 매개 변수 검사기는 클라이언트와 서비스 간에 전달되는 데이터를 보다 효율적으로 제어하는 데 사용되는 두 가지 확장성 메커니즘입니다. 입력 유효성 검사에 매개 변수 검사기를 사용해야 하며, 서비스에서 들어오고 나가는 전체 메시지를 검사해야 하는 경우에만 메시지 검사기를 사용해야 합니다.</p><p>입력 유효성 검사를 수행하려면 .NET 클래스를 빌드하고, 서비스의 작업에 대한 매개 변수의 유효성을 검사하기 위해 사용자 지정 매개 변수 검사기를 구현합니다. 그런 다음 사용자 지정 끝점 동작을 구현하여 클라이언트와 서비스 모두에서 유효성 검사를 사용하도록 설정합니다. 마지막으로 확장된 사용자 지정 끝점 동작을 서비스 또는 클라이언트의 구성 파일에 노출할 수 있도록 하는 클래스에 사용자 지정 구성 요소를 구현합니다.</p>|
+

@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a49021d7887ee91da902e5c3dea8cbc6cb3de29d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -219,6 +219,27 @@ Azure 검색에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 이러한 Machine Learning 시나리오를 달성하려면 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)를 사용하여 다양 한 원본에서 정보를 수집하고 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/)을 사용하여 정보를 처리하고 Azure Machine Learning에서 처리할 수 있는 출력을 생성할 수 있습니다.
 
 또 다른 사용 가능한 옵션은 [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services)를 사용하여 사용자의 콘텐츠를 분석하는 것입니다. 이를 통해 보다 잘 이해할 수 있을 뿐만 아니라([Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)로 작성한 것을 분석하여) 원치 않거나 성숙한 콘텐츠를 검색하고 [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)를 사용하여 그에 따라 동작할 수 있습니다. Cognitive Services는 사용하기 위해 Machine Learning의 지식이 필요하지 않은 많은 기본 제공 솔루션을 포함합니다.
+
+## <a name="a-planet-scale-social-experience"></a>전 세계적인 규모의 소셜 환경
+마지막으로 해결해야 하는 중요한 사항은 **확장성**입니다. 아키텍처를 디자인하는 경우 더 많은 데이터를 처리해야 하거나 더 큰 지역 적용 범위가 필요하기 때문에(또는 두 가지 이유 모두로 인해) 각 구성 요소를 자체적으로 확장할 수 하는지가 중요합니다. 다행스럽게도 DocumentDB를 사용하여 **완성 인도 환경**에서 복잡한 태스크를 수행합니다.
+
+DocumentDB는 기본적으로 지정된 **파티션 키**(문서의 속성 중 하나로 정의됨)를 기반으로 하는 파티션을 자동으로 만들어서 [동적 분할](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)을 지원합니다. 디자인 과정에서 올바른 파티션 키를 정의해야 합니다. 또한 [모범 사례](documentdb-partition-data.md#designing-for-partitioning) 사용할 수 있다는 점을 기억하세요. 소셜 환경의 경우에 쿼리(동일한 파티션 내의 읽기는 바람직함) 및 작성(여러 파티션에 쓰기를 분산하여 "핫 스폿" 방지)하는 방법으로 분할 전략을 정렬해야 합니다. 일부 옵션은 다음과 같습니다. 콘텐츠 범주별, 지리적 지역별, 사용자별 임시 키(일/월/주)에 기반한 파티션은 데이터를 쿼리하는 방법에 따라 다르고 소셜 환경에서 표시됩니다. 
+
+흥미로운 점은 DocumentDB가 모든 파티션에 투명하게 쿼리([집계](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/) 포함)를 실행한다는 점입니다. 데이터의 증가에 따라 논리를 추가할 필요가 없습니다.
+
+시간이 지나면 결국 트래픽이 증가하고 리소스 사용([RU](documentdb-request-units.md) 또는 요청 단위)도 증가합니다. userbase가 증가하면 더 자주 읽고 쓰게 되고 더 많은 콘텐츠를 만들고 읽기 시작합니다. **처리량 크기 조정** 기능이 매우 중요합니다. RU를 증가시키는 것은 매우 쉽습니다. Azure Portal에서 몇 번 클릭하거나 [API를 통해 명령을 실행](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer)하여 수행할 수 있습니다.
+
+![파티션 키 확장 및 정의](./media/documentdb-social-media-apps/social-media-apps-scaling.png)
+
+기능이 점점 확장되고 다른 지역, 국가 또는 대륙의 사용자가 당신의 플랫폼을 알고 사용하기 시작한다면 놀라운 일이 벌어집니다.
+
+하지만 플랫폼에서 해당 환경이 최적화되지 않음을 알게 됩니다. 당신의 운영 지역에서 멀리 떨어져 있으므로 대기 시간이 엄청나지만 포기할 수는 없습니다. **글로벌 도달률을 확장**하는 쉬운 방법이 있다면 얼마나 좋을까요. 방법이 있습니다!
+
+DocumentDB를 사용하면 몇 번의 클릭으로 [데이터를 전역적으로 투명하게 복제](documentdb-portal-global-replication.md)하고 [클라이언트 코드](documentdb-developing-with-multiple-regions.md)의 사용 가능한 지역 중에서 자동으로 선택할 수 있습니다. 즉, [여러 장애 조치 지역](documentdb-regional-failovers.md)을 사용할 수 있습니다. 
+
+전역적으로 데이터를 복제하는 경우 클라이언트에서 활용할 수 있는지 확인합니다. 웹 프런트 엔드를 사용하거나 모바일 클라이언트의 API에 액세스하는 경우 확장된 글로벌 범위를 지원하는 [성능 구성](../app-service-web/web-sites-traffic-manager.md)을 사용하여 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 배포하고 원하는 모든 지역에서 Azure App Service를 복제할 수 있습니다. 클라이언트가 프런트 엔드 또는 API에 액세스하는 경우 가장 가까운 App Service에 라우팅되고 따라서 로컬 DocumentDB 복제본에 연결됩니다.
+
+![소셜 플랫폼에 전역적 적용 범위 추가](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>결론
 이 문서에서는 완전히 Azure에서 저렴한 서비스를 사용하여 소셜 네트워크를 만들고, 다중 계층 저장소 솔루션 및 “사다리”라는 데이터 분산을 사용하도록 권장하여 뛰어난 결과를 제공하는 대안에 대해 살펴보았습니다.

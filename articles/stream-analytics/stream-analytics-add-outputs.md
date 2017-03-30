@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: aebad3dc5b6fda757713b53edfe9a6d474b7f4cb
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -67,10 +68,5 @@ Stream Analytics 작업에 출력을 추가하려면
 * [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
