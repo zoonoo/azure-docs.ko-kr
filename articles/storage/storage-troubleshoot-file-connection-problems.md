@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/14/2017
 * [일시적인 IO 오류 - 기존 파일 공유에서 “호스트가 중단됨(오류 112)”오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨](#errorhold)
 * [Linux VM에 Azure Files를 탑재할 때 탑재 오류 115 발생](#error15)
 * [Linux VM에 탑재된 Azure 파일 공유의 성능이 느려짐](#delayproblem)
-
+* [탑재 오류(11): Ubuntu 4.8 이상 커널에 탑재하는 경우 일시적으로 사용할 수 없는 리소스](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
@@ -74,7 +74,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Windows 또는 Linux에서 File Storage에 액세스할 때 성능이 저하됨
 * 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MB를 사용하는 것이 좋습니다.
-* 쓰기를 통해 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에&0;이 포함될 때 소프트웨어에 호환성 문제가 없다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
+* 쓰기를 통해 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 없다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
 * copy 메서드를 다음과 같이 올바르게 사용합니다.
       * 두 파일 공유 간의 전송에는 AZCopy를 사용합니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy)을 참조하세요.
       * 온-프레미스 컴퓨터와 파일 공유 간에는 Robocopy를 사용합니다. 자세한 내용은 [빠른 복사를 위한 다중 스레드 robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/)(영문)를 참조하세요.
@@ -217,7 +217,7 @@ Bitlocker로 암호화된 파일을 Azure Files로 복사할 수 있습니다. �
 
 ## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>기존 파일 공유에서 “호스트가 중단됨(오류 112)” 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨
 ### <a name="cause"></a>원인
-Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 이 오류가 발생합니다. 클라이언트가 오랫 동안 유휴 상태일 경우 클라이언트 연결이 끊어지고 연결 시간이 초과됩니다. 
+Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 이 오류가 발생합니다. 클라이언트가 오랫동안 유휴 상태일 경우 클라이언트 연결이 끊어지고 연결 시간이 초과됩니다. 
 
 연결은 다양한 이유로 인해 유휴 상태가 될 수 있습니다. 기본값인 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정하지 않는 네트워크 통신 오류가 발생합니다.
 
@@ -229,7 +229,7 @@ Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우
 
 Linux 커널의 이러한 재연결 문제는 현재 다음 변경 집합의 일부로 수정되었습니다.
 
-* [소켓 재연결 후에 오랫 동안 smb3 세션 재연결이 지연되지 않도록 재연결 수정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+* [소켓 재연결 후에 오랫동안 smb3 세션 재연결이 지연되지 않도록 재연결 수정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 
 * [소켓 재연결 직후 에코 서비스 호출](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
 
@@ -271,6 +271,14 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 cache=strict 또는 serverino 옵션이 없는 경우 [설명서](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share)의 mount 명령을 실행하여 은 Azure 파일을 분리했다가 탑재한 다음 "/etc/fstab" 항목에 올바른 옵션이 있는지 다시 확인합니다.
 
+<a id="ubuntumounterror"></a>
+## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>탑재 오류(11): Ubuntu 4.8 이상 커널에 탑재하는 경우 일시적으로 사용할 수 없는 리소스
+
+### <a name="cause"></a>원인
+클라이언트가 암호화 지원을 요청하지만 지원되지 않는 Ubuntu 16.10 커널(v.4.8)의 알려진 문제입니다. 
+
+### <a name="solution"></a>해결 방법
+Ubuntu 16.10이 수정될 때까지 “vers=2.1” 탑재 옵션을 지정하거나 Ubuntu 16.04를 사용합니다.
 ## <a name="learn-more"></a>자세한 정보
 * [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md)
 * [Linux에서 Azure File Storage 시작](storage-how-to-use-files-linux.md)

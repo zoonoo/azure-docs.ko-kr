@@ -48,7 +48,7 @@ Windows 트레이에서 실행 중인 DocumentDB 에뮬레이터에서 아래와
 
     ![DocumentDB 로컬 에뮬레이터 내보내기 2단계](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-export-step-2.png)
 
-3. **파일에 복사... **를 클릭합니다.
+3. **파일에 복사...**를 클릭합니다.
 
     ![DocumentDB 로컬 에뮬레이터 내보내기 3단계](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-export-step-3.png)
 
@@ -74,7 +74,7 @@ Windows 트레이에서 실행 중인 DocumentDB 에뮬레이터에서 아래와
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Java에서 인증서를 사용하는 방법
 
-Java 클라이언트를 사용하는 Java 응용 프로그램 또는 MongoDB 응용 프로그램을 실행하는 경우 "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" 플래그를 전달하는 것보다 Java 기본 인증서 저장소에 인증서를 설치하는 것이 더 쉽습니다.. 예를 들어 포함된 [Java Demo 응용 프로그램](https://localhost:8081/_explorer/index.html)은 기본 인증서 저장소에 따라 다릅니다.
+Java 클라이언트를 사용하는 Java 응용 프로그램 또는 MongoDB 응용 프로그램을 실행하는 경우 "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" 플래그를 전달하는 것보다 Java 기본 인증서 저장소에 인증서를 설치하는 것이 더 쉽습니다. 예를 들어 포함된 [Java Demo 응용 프로그램](https://localhost:8081/_explorer/index.html)은 기본 인증서 저장소에 따라 다릅니다.
 
 X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store)의 지침을 따릅니다. keytool을 실행할 때는 %JAVA_HOME% 디렉터리에서 작업하게 됩니다.
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c18b0eefb2d8bb43416e15c5b91cf10827f90089
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 4f9f86c2cc106aa96f27293a43cd784e2fb6fe76
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -68,7 +68,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
     * **고급 설정** - **고급** 블레이드를 선택하여 열고 다음 설정을 구성합니다.
         * **가상 네트워크** - 원하는 가상 네트워크를 선택합니다.
         * **서브넷** - 원하는 서브넷을 지정합니다.    
-        * **IP 주소 구성** - 공용, 개인 또는 공유 IP 주소를 원하는 경우 지정합니다. 공유 IP 주소에 대한 자세한 내용은 Azure DevTest Labs에서 공유 IP 주소 이해를 참조하세요.
+        * **IP 주소 구성** - 공용, 개인 또는 공유 IP 주소를 원하는 경우 지정합니다. 공유 IP 주소에 대한 자세한 내용은 [Azure DevTest Labs에서 공유 IP 주소 이해](./devtest-lab-shared-ip.md)를 참조하세요.
         * **Make this machine claimable**(이 컴퓨터를 클레임 가능하도록 지정) - 컴퓨터를 "클레임 가능"하도록 지정하는 것은 생성 시 소유권을 할당하지 않는다는 것을 의미합니다. 대신 랩 사용자가 랩의 블레이드에서 컴퓨터에 대한 소유권("클레임")을 가질 수 있습니다.     
     * **이미지** - 이 필드는 이전 블레이드에서 선택한 기본 이미지의 이름을 표시합니다. 
      

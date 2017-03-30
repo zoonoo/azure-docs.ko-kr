@@ -16,29 +16,37 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
-ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>가상 컴퓨터 크기 집합에 앱 배포
 VM 크기 집합에서 실행되는 응용 프로그램은 일반적으로 다음 세 가지 방법 중 하나로 배포됩니다.
 
-* 배포 시 플랫폼 이미지에 새 소프트웨어 설치 이 컨텍스트의 플랫폼 이미지는 Azure 마켓플레이스의 운영 체제 이미지(Ubuntu 16.04, Windows Server 2012 R2 등)과 같은 운영 체제 이미지입니다.
+* 배포 시 플랫폼 이미지에 새 소프트웨어 설치
+* 단일 VHD에 OS 및 응용 프로그램을 둘 다 포함하는 사용자 지정 VM 이미지 만들기
+* 컨테이너 호스트인 플랫폼 또는 사용자 지정 이미지 및 하나 이상의 컨테이너인 앱 배포
 
-[VM 확장](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 플랫폼 이미지에 새 소프트웨어를 설치할 수 있습니다. VM 확장은 VM이 배포될 때 실행되는 소프트웨어입니다. 사용자 지정 스크립트 확장을 사용하여 배포 시에 원하는 모든 코드를 실행할 수 있습니다. [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) 에는 Apache 및 PHP를 설치하기 위한 Linux 사용자 지정 스크립트 확장과 Azure 자동 크기 조정에서 사용되는 성능 데이터를 내보내기 위한 진단 확장의 두 가지 VM 확장을 포함하는 Azure Resource Manager 템플릿 예제가 나와 있습니다.
+## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>배포 시 플랫폼 이미지에 새 소프트웨어 설치
+이 컨텍스트의 플랫폼 이미지는 Azure 마켓플레이스의 운영 체제 이미지(Ubuntu 16.04, Windows Server 2012 R2 등)과 같은 운영 체제 이미지입니다.
+
+[VM 확장](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 플랫폼 이미지에 새 소프트웨어를 설치할 수 있습니다. VM 확장은 VM이 배포될 때 실행되는 소프트웨어입니다. 사용자 지정 스크립트 확장을 사용하여 배포 시에 원하는 모든 코드를 실행할 수 있습니다. Azure 자동 크기 조정과 통합된 IIS 및 .NET MVC 응용 프로그램을 설치하기 위해 [Azure DSC(필요한 상태 구성) 확장](virtual-machine-scale-sets-dsc.md)을 사용하는 Azure Resource Manager 템플릿 예제는 [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)에 있습니다.
 
 이 방법의 장점은 응용 프로그램 코드와 OS 간에 분리 수준이 형성되고 응용 프로그램을 별도로 유지할 수 있다는 것입니다. 물론 이동하는 부분도 있습니다. 다운로드하고 구성할 스크립트가 많이 있으면 VM 배포 시간이 더 오래 걸릴 수 있습니다.
 
-**사용자 지정 스크립트 확장 명령에 중요한 정보(예: 암호)를 전달할 때는 `settings` 특성 대신, 사용자 지정 스크립트 확장의 `protectedSettings` 특성에 `commandToExecute`를 지정해야 합니다.**
+>[!NOTE]
+>사용자 지정 스크립트 확장 명령에 중요한 정보(예: 암호)를 전달할 때는 `settings` 특성 대신, 사용자 지정 스크립트 확장의 `protectedSettings` 특성에 `commandToExecute`를 지정해야 합니다.
 
-* 단일 VHD에 OS 및 응용 프로그램을 둘 다 포함하는 사용자 지정 VM 이미지를 만듭니다. 크기 집합은 사용자가 만든 이미지에서 복사된 VM 집합으로 구성되며, 사용자가 관리해야 합니다. 이 방법을 사용할 때는 VM 배포 시에 추가 구성이 필요하지 않습니다. 그러나 `2016-03-30` 버전(및 이전 버전)의 VM 크기 집합에서 크기 집합에 포함된 VM에 대한 OS 디스크는 단일 저장소 계정으로 제한됩니다. 따라서 플랫폼 이미지에 대한 크기 집합당 100VM 제한과 달리, 한 크기 집합에 최대 40개의 VM을 유지할 수 있습니다. 자세한 내용은 [크기 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 참조하세요.
+## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>단일 VHD에 OS 및 응용 프로그램을 둘 다 포함하는 사용자 지정 VM 이미지 만들기 
+크기 집합은 사용자가 만든 이미지에서 복사된 VM 집합으로 구성되며, 사용자가 관리해야 합니다. 이 방법을 사용할 때는 VM 배포 시에 추가 구성이 필요하지 않습니다. 그러나 `2016-03-30` 버전(및 이전 버전)의 VM 크기 집합에서 크기 집합에 포함된 VM에 대한 OS 디스크는 단일 저장소 계정으로 제한됩니다. 따라서 플랫폼 이미지에 대한 크기 집합당 100VM 제한과 달리, 한 크기 집합에 최대 40개의 VM을 유지할 수 있습니다. 자세한 내용은 [크기 집합 디자인 개요](virtual-machine-scale-sets-design-overview.md)를 참조하세요.
 
-    >[!NOTE]
-    >VM Scale Sets API 버전 `2016-04-30-preview`는 운영 체제 디스크 및 모든 추가 데이터 디스크에 대한 Azure Managed Disks 사용을 지원합니다. 자세한 내용은 [Managed Disks 개요](../storage/storage-managed-disks-overview.md) 및 [연결된 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)을 참조하세요. 
+>[!NOTE]
+>VM Scale Sets API 버전 `2016-04-30-preview`는 운영 체제 디스크 및 모든 추가 데이터 디스크에 대한 Azure Managed Disks 사용을 지원합니다. 자세한 내용은 [Managed Disks 개요](../storage/storage-managed-disks-overview.md) 및 [연결된 데이터 디스크 사용](virtual-machine-scale-sets-attached-disks.md)을 참조하세요. 
 
-* 기본적으로 컨테이너 호스트에 해당하는 플랫폼 또는 사용자 지정 이미지를 배포하고, orchestrator 또는 구성 관리 도구로 관리하는 하나 이상의 컨테이너로 응용 프로그램을 설치합니다. 이 방법의 장점은 응용 프로그램 계층에서 클라우드 인프라를 추상화하고 별도로 유지할 수 있다는 것입니다.
+## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>컨테이너 호스트인 플랫폼 또는 사용자 지정 이미지 및 하나 이상의 컨테이너인 앱 배포
+플랫폼 또는 사용자 지정 이미지는 기본적으로 컨테이너 호스트이므로 응용 프로그램을 하나 이상의 컨테이너로 설치할 수 있습니다.  Orchestrator 또는 구성 관리 도구를 사용하여 응용 프로그램 컨테이너를 관리할 수 있습니다. 이 방법의 장점은 응용 프로그램 계층에서 클라우드 인프라를 추상화하고 별도로 유지할 수 있다는 것입니다.
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>VM 크기 집합이 확장되면 어떻게 되나요?
 수동으로 또는 자동 크기 조정을 통해 용량을 늘림으로써 크기 집합에 하나 이상의 VM을 추가하면 응용 프로그램이 자동으로 설치됩니다. 예를 들어 크기 집합에 확장이 정의되면 VM이 만들어질 때마다 새 VM에서 해당 확장이 실행됩니다. 크기 집합이 사용자 지정 이미지를 기준으로 할 경우 새 VM은 원본 사용자 지정 이미지의 복사본이 됩니다. 크기 집합 VM이 컨테이너 호스트인 경우 사용자 지정 스크립트 확장에 컨테이너를 로드하는 시작 코드를 유지하거나, 클러스터 orchestrator에 등록되는 에이전트가 확장을 통해 설치될 수 있습니다(예: Azure Container Service).

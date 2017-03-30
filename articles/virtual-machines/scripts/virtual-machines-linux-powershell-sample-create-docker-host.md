@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b3979468d7fdb04a7efd33f35dcea173afe85b3a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 23dd4df078da0b93d1924442cf2e6b7542b12f9a
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-docker-host-with-powershell"></a>PowerShell을 사용하여 Docker 호스트 만들기
 
-이 샘플 스크립트는 가상 컴퓨터를 만들고 Azure Docker VM 확장을 사용하여 Docker 호스트를 구성합니다. 그러면 Docker VM 확장은 NGINX를 실행하는 컨테이너를 만듭니다. 마지막으로 스크립트는 포트 80에서 모든 인바운드 트래픽에 Azure 네트워크 보안 그룹을 구성합니다. 스크립트가 성공적으로 실행되면 Azure Virtual Machine의 FQDN을 통해 NGINX 웹 서버에 액세스할 수 있습니다. 
+이 스크립트는 Docker를 사용하는 가상 컴퓨터를 만들고 컨테이너에서 NGINX를 실행하기 시작합니다. 스크립트를 실행한 후에 Azure Virtual Machine의 FQDN을 통해 NGINX 웹 서버에 액세스할 수 있습니다. 
 
-이 스크립트를 실행하기 전에 `Login-AzureRmAccount` 명령을 사용하여 Azure와의 연결이 생성되었는지 확인합니다. 또한 `id_rsa.pub`라는 이름의 SSH 공개 키는 프로필의 .ssh 디렉터리에 저장되어야 합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다. 또한 `id_rsa.pub`라는 이름의 SSH 공개 키가 사용자 프로필의 .ssh 디렉터리에 있어야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
-스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

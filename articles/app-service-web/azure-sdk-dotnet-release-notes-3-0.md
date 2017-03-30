@@ -14,9 +14,9 @@ ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: a3780d296548f4e00841563c65a99fb88ce047fe
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: dea4a174aaf3727d66e9d69d32d433ff24e0d06d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/08/2017
 
 릴리스 날짜: 03/07/2017
  
-Azure SDK 3.0의 새로운 변경 내용은 이번 릴리스에 도입되지 않았습니다. 기존 클라우드 서비스 프로젝트에서 이 SDK를 활용하는 데 필요한 업그레이드 프로세스도 없습니다.
+Azure SDK 3.0의 새로운 변경 내용은 이번 릴리스에 도입되지 않았습니다. 기존 클라우드 서비스 프로젝트에서 이 SDK를 활용하는 데 필요한 업그레이드 프로세스도 없습니다. 업그레이드 프로세스를 요구하지 않고 Azure SDK 3.0의 사용을 허용하려면 Azure SDK 3.0은 Azure SDK 2.9와 같은 디렉터리에 설치합니다. 대부분의 구성 요소는 2.9에서 주 버전을 변경하지 않았지만 대신 빌드 번호로 업데이트했습니다.
 
 ## <a name="visual-studio-2017-rtw"></a>Visual Studio 2017 RTW
 

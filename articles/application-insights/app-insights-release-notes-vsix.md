@@ -4,23 +4,121 @@ description: "개발자 분석용 Visual Studio Tools의 최신 업데이트."
 services: application-insights
 documentationcenter: 
 author: acearun
-manager: douge
+manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2016
+ms.date: 03/20/2017
 ms.author: aruna
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 73e9c2bdc8e7851f8de8bcddb0babeb732d8ce15
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>개발자 분석 도구에 대한 릴리스 정보
-새로운 기능: Visual Studio에서 Application Insights 및 HockeyApp 분석
+
+## <a name="version-718-visual-studio-2015"></a>버전 7.18(Visual Studio 2015)
+
+* 새로 디자인된 알림 메시지.
+* Application Insights Search의 이벤트 세부 정보 보기에 "Not" 필터 추가.
+* 버그 수정
+
+## <a name="version-86-visual-studio-2017-rtw-and-rc4-and-version-717-visual-studio-2015"></a>버전 8.6(Visual Studio 2017 RTW 및 RC4) 및 버전 7.17(Visual Studio 2015)
+
+* 개발자가 Visual Studio에서 앱을 게시하는 시기를 표시하는 주석을 이제는 Azure Portal의 메트릭 탐색기 데이터에도 사용할 수 있음
+* 코드 파일의 스크롤 막대에 마커가 추가되었으며, Application Insights의 빨간색 및 노란색 CodeLens 경고에 해당
+* 구성 창의 가격 책정 정보 업데이트
+* 버그 수정
+
+[자세한 내용은 여기 참조](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
+
+## <a name="version-716-visual-studio-2015"></a>버전 7.16(Visual Studio 2015)
+
+* 버그 수정
+
+## <a name="version-85-visual-studio-2017-rc3-and-version-715-visual-studio-2015"></a>버전 8.5(Visual Studio 2017 RC3) 및 버전 7.15(Visual Studio 2015)
+
+* 이제 CodeLens는 Application Insights 리소스로 데이터를 전송하는 디버그 및 실시간 원격 분석 데이터를 프로젝트에 표시
+* 이제 Application Insights 가격 책정 정보가 구성 창에 표시
+* 이제 요청 및 예외에 대한 CodeLens는 Visual Basic으로 작성된 ASP.NET 프로젝트를 지원
+* 이제 Application Insights Search는 샘플링된 이벤트의 샘플링되지 않은 이벤트 수를 표시
+* 버그 수정
+
+## <a name="version-714-visual-studio-2015"></a>버전 7.14(Visual Studio 2015)
+
+* 가용성(웹 테스트) 및 페이지 보기 이벤트에 대한 검색 지원
+* 가용성(웹 테스트) 및 페이지 보기 이벤트에 대한 추세 지원
+* SDK 적응 샘플링에 대한 진단 도구 및 이벤트 세부 정보 레이블
+* 버그 수정
+
+## <a name="version-712-visual-studio-2015"></a>버전 7.12(Visual Studio 2015)
+
+* 새로운 게시 알림 형식
+* 버그 수정
+
+## <a name="version-84-visual-studio-2017-rc2-and-version-711-visual-studio-2015"></a>버전 8.4(Visual Studio 2017 RC2) 및 버전 7.11(Visual Studio 2015)
+
+* CodeLens가 Application Insights SDK를 사용하는 프로젝트의 로컬 디버그 세션에 대한 요청을 표시
+* 사용자 영향을 확인할 수 있도록 CodeLens가 개발자를 Application Analytics로 직접 이동 가능
+* 페이지 보기를 수집하는 JavaScript 삽입
+* 버그 수정
+
+## <a name="version-710-visual-studio-2015"></a>버전 7.10(Visual Studio 2015)
+
+* Application Insights 구성 창을 새롭게 디자인
+* 버그 수정
+
+## <a name="version-79-visual-studio-2015"></a>버전 7.9(Visual Studio 2015)
+
+* CodeLens가 Application Insights SDK를 사용하는 프로젝트의 로컬 디버그 세션 중에 발생한 예외를 표시
+* 버그 수정
+
+## <a name="version-83-visual-studio-2017-rc-and-version-78-visual-studio-2015"></a>버전 8.3(Visual Studio 2017 RC) 및 버전 7.8(Visual Studio 2015)
+
+* 구성 창에서 Application Insights를 추가할 수 있는 새로운 환경
+* 버그 수정
+
+## <a name="version-77-visual-studio-2015"></a>버전 7.7(Visual Studio 2015)
+
+* 사용자 지정 ASP.NET 라우팅을 사용하여 원격 분석 이벤트에서 메서드로 보다 정확하게 매핑
+* 버그 수정
+
+## <a name="version-76-visual-studio-2015"></a>버전 7.6(Visual Studio 2015)
+
+* 검색 도구의 이벤트에 대한 새 추적 작업 탭의 작업과 관련된 이벤트 분석
+* 버그 수정
+
+## <a name="version-75-visual-studio-2015"></a>버전 7.5(Visual Studio 2015)
+
+* 진단 도구의 요청에 대한 프로덕션 원격 분석 정보 표시
+* 검색 도구의 관련 항목에서 작업 항목 생성
+* 버그 수정
+
+## <a name="version-74-visual-studio-2015"></a>버전 7.4(Visual Studio 2015)
+
+* 이제 추세에서 필터 창의 크기 조정 가능
+* 버그 수정
+
+## <a name="version-73-visual-studio-2015"></a>버전 7.3(Visual Studio 2015)
+
+* CodeLens에서 요청
+* 구성 창
+* HockeyApp SDK를 v4.2.2로 업데이트
+* 버그 수정
+
+## <a name="version-72-visual-studio-2015"></a>버전 7.2(Visual Studio 2015)
+
+* 버그 수정
+
+## <a name="version-71-visual-studio-2015"></a>버전 7.1(Visual Studio 2015)
+
+* Application Insights Trends의 원격 분석 준비 상태 표시기
+* 버그 수정
 
 ## <a name="version-70"></a>버전 7.0
 ### <a name="azure-application-insights-trends"></a>Azure Application Insights 추세
@@ -197,10 +295,4 @@ Visual Studio 진단 도구 페이지에서 다른 디버깅 데이터 외에도
 HockeyApp은 iOS, Android, Windows 또는 Xamarin, Cordova, Unity와 같은 플랫폼 간 솔루션 등 빌드를 위해 선택한 플랫폼에 관계 없이 모든 플랫폼 상의 앱을 지원합니다.
 
 향후 Application Insights 확장 릴리스에서는 HockeyApp과 Visual Studio 간에 보다 통합된 환경을 도입할 예정입니다. 지금은 NuGet 참조를 추가하기만 하면 HockeyApp을 시작할 수 있습니다. 자세한 내용은 [문서](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) 를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
-ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 1ada403a502972ee0d8cd96af2d62d923d43f6cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -30,13 +30,13 @@ Azure VM은 이제 [Azure Storage 계정](../storage/storage-introduction.md)을
 
 - 자동 확장성 지원. Azure는 디스크를 만들고 기본 저장소를 관리하여 구독당 최대 10,000개의 디스크를 지원합니다.
 - 가용성 집합으로 향상된 안정성. Azure는 가용성 집합 내에서 자동으로 VM 디스크를 서로 분리합니다.
-- 향상된 액세스 제어. Managed Disks는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)로 제어되는 다양한 작업을 노출합니다. 
+- 향상된 액세스 제어. Managed Disks는 [Azure RBAC(역할 기반 액세스 제어)](../active-directory/role-based-access-control-what-is.md)로 제어되는 다양한 작업을 노출합니다.
 
-Managed Disks의 가격 책정은 관리되지 않는 디스크의 가격 책정과 다릅니다. 해당 정보는 [Managed Disks에 대한 가격 책정 및 요금 청구](../storage/storage-managed-disks-overview.md#pricing-and-billing)를 참조하세요. 
+Managed Disks의 가격 책정은 관리되지 않는 디스크의 가격 책정과 다릅니다. 해당 정보는 [Managed Disks에 대한 가격 책정 및 요금 청구](../storage/storage-managed-disks-overview.md#pricing-and-billing)를 참조하세요.
 
 관리되지 않는 디스크를 사용하는 기존 VM을 [az vm convert](/cli/azure/vm#convert)로 관리되는 디스크를 사용하도록 변환할 수 있습니다. 자세한 내용은 [Linux VM을 관리되지 않는 디스크에서 Azure Managed Disks로 변환하는 방법](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 현재 또는 이전에 [Azure SSE(Storage Service Encryption)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 암호화된 저장소 계정에 관리되지 않는 디스크가 있는 경우 관리되지 않는 디스크를 관리되는 디스크로 변환할 수 없습니다. 다음은 현재 암호화되었거나 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크를 변환하는 자세한 단계입니다.
 
-- [az storage blob copy start](/cli/azure/storage/blob/copy#start)를 사용하여 Azure Storage Service Encryption을 사용하도록 설정되지 않은 저장소 계정으로 [VHD(가상 하드 디스크)를 복사](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks)합니다.
+- [az storage blob copy start](/cli/azure/storage/blob/copy#start)를 사용하여 Azure Storage 서비스 암호화를 사용하도록 설정되지 않은 저장소 계정으로 VHD(가상 하드 디스크)를 복사합니다.
 - 관리되는 디스크를 사용하는 VM을 만들고 [az vm create](/cli/azure/vm#create)로 생성되는 동안 해당 VHD 파일을 지정합니다. 또는
 - [az vm disk attach](/cli/azure/vm/disk#attach)로 복사된 VHD를 관리되는 디스크가 있는 실행 중인 VM에 연결합니다.
 
@@ -62,7 +62,7 @@ az group create --location westus --name myResourceGroup
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -76,7 +76,7 @@ az vm create \
 --storage-sku Premium_LRS
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -125,7 +125,7 @@ Premium Storage 기능은 다음과 같습니다.
 
 * Premium Storage 디스크: Azure Premium Storage는DS, DSv2 또는 GS 시리즈 Azure VM에 연결할 수 있는 VM 디스크를 지원합니다.
 * 프리미엄 페이지 Blob: Premium Storage는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다.
-* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본&3;개를 유지합니다.
+* 프리미엄 로컬 중복 저장소: Premium Storage 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다.
 * [Premium Storage](../storage/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>프리미엄 저장소 지원 VM
@@ -176,10 +176,10 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 * RA-GRS(읽기 액세스 지역 중복 저장소)
 
 ### <a name="locally-redundant-storage"></a>로컬 중복 저장소
-로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한&3;개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
+로컬 중복 저장소(LRS)는 저장소 계정을 만든 지역 내의 데이터를 복제합니다. 지속성을 최대화하려면 저장소 계정의 데이터에 대해 작성된 모든 요청에는 세 번 복제됩니다. 이러한 3개의 복제본은 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.  3개의 복제본 모두에 쓰여진 경우에만 요청은 성공적으로 반환합니다.
 
 ### <a name="zone-redundant-storage"></a>영역 중복 저장소
-영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐&2;~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
+영역 중복 저장소(ZRS)가 LRS보다 더 나은 경우, 단일 지역 내 또는 두 개 지역에 걸쳐 2~3개 시설에서 데이터를 복제하며 높은 영속성을 제공합니다. 저장소 계정에서 ZRS를 사용하도록 설정된 경우, 데이터가 시설 중 하나에서 장애가 발생 하더라도 지속됩니다.
 
 ### <a name="geo-redundant-storage"></a>지역 중복 저장소
 지역 중복 저장소(GRS)는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터를 복제합니다. 저장소 계정에서 GRS를 활성화하면, 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해이더라도 데이터는 지속됩니다.
@@ -246,5 +246,4 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 ## <a name="storage-limits"></a>저장소 제한
 * [저장소 서비스 제한](../azure-subscription-service-limits.md#storage-limits)
-
 

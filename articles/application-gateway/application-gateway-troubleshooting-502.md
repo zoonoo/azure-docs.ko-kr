@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,6 +34,9 @@ Azure 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있�
 * 백 엔드 VM 또는 VM 크기 조정 설정의 인스턴스는 기본 상태 프로브에 응답하지 않습니다.
 * 사용자 지정 상태 프로브의 구성이 잘못되었거나 부적절합니다.
 * 사용자 요청과 관련된 요청 시간 초과 또는 연결 문제입니다.
+
+> [!note]
+> Application Gateway는 수신 호스트 헤더를 유지하고 백 엔드에 동일한 헤더를 전송합니다. 백 엔드에 다른 헤더가 필요한 경우 이 기능은 작동하지 않습니다. 마찬가지로 백 엔드가 다중 테넌트이고 종단 간 SSL을 사용하는 경우 백 엔드는 SNI 확장인 서버 이름을 예상합니다. 현재 Application Gateway는 종단 간 SSL 시나리오의 백 엔드 요청에서 SNI 헤더를 보내지 않습니다. 그러면 프로브 및 데이터 경로 문제가 발생합니다.
 
 ## <a name="empty-backendaddresspool"></a>비어 있는 BackendAddressPool
 
@@ -150,10 +154,5 @@ Application Gateway를 사용하면 사용자가 다른 풀에 적용할 수 있
 ## <a name="next-steps"></a>다음 단계
 
 앞의 단계에서 문제가 해결되지 않으면 [지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

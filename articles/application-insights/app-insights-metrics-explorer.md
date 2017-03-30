@@ -1,5 +1,5 @@
 ---
-title: "Application Insights에서 메트릭 탐색 | Microsoft Docs"
+title: "Azure Application Insights에서 메트릭 탐색 | Microsoft Docs"
 description: "메트릭 탐색기에 차트를 해석하는 방법 및 메트릭 탐색기 블레이드를 사용자 지정하는 방법입니다."
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -117,7 +117,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 ![모든 메트릭의 선택을 취소하여 기본값 표시](./media/app-insights-metrics-explorer/06-total.png)
 
 ## <a name="pin-y-axis"></a>Y축 고정 
-기본적으로 차트는 값 퀀텀을 시각적으로 나타내기 위해&0;부터 시작해서 데이터 범위의 최대값까지 Y축 값을 표시합니다. 그렇지만 경우에 따라 값의 경미한 변화를 시각적으로 확인하기 위해 컨텀 이상에 관심이 있을 수 있습니다. 이와 같은 사용자 지정을 위해서는 Y축 범위 편집 기능을 사용하여 Y축 최소값 또는 최대값을 원하는 위치에 고정합니다.
+기본적으로 차트는 값 퀀텀을 시각적으로 나타내기 위해 0부터 시작해서 데이터 범위의 최대값까지 Y축 값을 표시합니다. 그렇지만 경우에 따라 값의 경미한 변화를 시각적으로 확인하기 위해 컨텀 이상에 관심이 있을 수 있습니다. 이와 같은 사용자 지정을 위해서는 Y축 범위 편집 기능을 사용하여 Y축 최소값 또는 최대값을 원하는 위치에 고정합니다.
 "고급 설정" 확인란을 클릭하여 Y축 범위 설정 표시
 
 ![고급 설정을 클릭하고, 사용자 지정 범위를 선택한 후 최소값 및 최대값 지정](./media/app-insights-metrics-explorer/y-axis-range.png)
@@ -195,6 +195,10 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
     여러 차트에서 서로 다른 필터를 설정하려면 해당 차트를 서로 다른 블레이드를 만들어 별도의 즐겨찾기로 저장합니다. 필요한 경우 대시보드에 고정하여 서로 나란히 볼 수 있습니다.
 * 메트릭에 정의되지 않은 속성으로 차트를 그룹화한 경우 차트에 아무 것도 표시되지 않습니다. '그룹화 기준'을 지우거나 다른 그룹화 속성을 선택하세요.
 * 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure Cloud Services](app-insights-azure.md)에 사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>다음 단계
 * [Application Insights를 사용하여 사용량 모니터링](app-insights-overview-usage.md)

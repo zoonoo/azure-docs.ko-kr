@@ -4,18 +4,19 @@ description: "요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처�
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -49,31 +50,25 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 *예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
 
 예외 보고서를 클릭하여 해당 스택 추적을 표시합니다.
+스택 추적에서 라인 참조를 클릭하여 관련 코드 파일을 엽니다.  
 
-![예외를 통해 클릭합니다.](./media/app-insights-asp-net-exceptions/35.png)
+코드를 보면 CodeLens가 예외에 대한 데이터를 표시합니다.
 
-스택 추적에서 참조를 클릭하여 관련 파일을 엽니다.  
+![CodeLens 예외 알림.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Azure 포털을 사용하여 오류 진단
 앱의 Application Insights 개요에서 실패 타일은 가장 많은 실패를 유발하는 요청 URL 목록과 함께 예외 및 실패한 HTTP 요청에 대한 차트를 보여 줍니다.
 
 ![설정 선택, 오류](./media/app-insights-asp-net-exceptions/012-start.png)
 
-목록의 실패한 요청 유형 중 하나를 클릭하면 개별 실패 항목이 표시됩니다. 여기서 해당 항목에 관련된 예외 또는 모든 추적 데이터를 찾아갑니다.
+목록에서 실패한 예외 형식 중 하나를 클릭하여 개별 예외 항목으로 이동합니다. 여기서 세부 정보 및 스택 추적을 볼 수 있습니다.
 
 ![실패한 요청 인스턴트를 선택하고, 예외 세부 정보 아래에서 예외 인스턴스로 이동합니다.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-**또는** 더 아래에 있는 실패 블레이드의 예외 목록에서 시작할 수 있습니다. 개별 예외에 도달할 때까지 계속 클릭합니다.
-
-![드릴스루](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
+**또는** 요청 목록에서 시작하여 관련 예외를 찾을 수 있습니다.
 
 *예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
 
-여기서 스택 추적 및 각 예외의 자세한 속성을 살펴보고 관련 로그 추적 또는 기타 이벤트를 찾을 수 있습니다.
-
-![드릴스루](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
-
-[진단 검색에 대해 자세히 알아보세요](app-insights-diagnostic-search.md).
 
 ## <a name="custom-tracing-and-log-data"></a>사용자 지정 추적 및 로그 데이터
 진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 요청, 페이지 보기 및 기타 자동으로 수집된 데이터와 함께 진단 검색에 표시됩니다.
@@ -103,7 +98,7 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 
 ![드릴스루](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="a-nameexceptionsa-capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
+## <a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
 처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](app-insights-javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
 
 다음을 수행할 수 있습니다.
@@ -437,13 +432,12 @@ WebApiConfig에서 서비스에 추가합니다.
 
 TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 '예외' 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+
 ## <a name="next-steps"></a>다음 단계
 * [REST, SQL 및 기타 종속성 호출 모니터링](app-insights-asp-net-dependencies.md)
 * [페이지 로드 시간, 브라우저 예외 및 AJAX 호출 모니터링](app-insights-javascript.md)
 * [성능 카운터 모니터링](app-insights-performance-counters.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

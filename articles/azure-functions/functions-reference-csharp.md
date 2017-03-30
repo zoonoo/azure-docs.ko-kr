@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: 6b2473ef6336aea5c9a79aad78e02bcfc38b9018
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 38546a1cc3ae1696dbb37d4dd47d2d540ecd08fa
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -172,6 +172,8 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 .NET Framework 4.6만 지원되므로 *project.json* 파일이 다음과 같이 `net46`을 지정하도록 합니다.
 
 *project.json* 파일을 업로드하는 경우 런타임은 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. 필요한 `using` 문을 *run.csx* 파일에 추가하기만 하면 NuGet 패키지에 정의된 형식을 사용할 수 있습니다.
+
+함수 런타임에서 NuGet 복원은 `project.json` 및 `project.lock.json`를 비교하여 작동합니다. 파일의 날짜와 타임스탬프가 일치하지 않으면 NuGet에서는 복원을 실행하고 업데이트된 패키지를 다운로드합니다. 그러나 파일의 날짜 및 타임스탬프가 일치하는 경우 NuGet은 복원을 수행하지 않습니다. 따라서 이로 인해 NuGet을 복원하는 과정을 건너뛰고 기능에 필수 패키지가 없으므로 `project.lock.json`은 배포되지 않아야 합니다. 잠금 파일의 배포를 방지하려면 `project.lock.json`을 `.gitignore` 파일에 추가합니다.
 
 ### <a name="how-to-upload-a-projectjson-file"></a>project.json 파일을 업로드하는 방법
 1. 함수 앱을 실행하여 시작하며 이는 Azure 포털에서 함수를 열어 수행할 수 있습니다. 

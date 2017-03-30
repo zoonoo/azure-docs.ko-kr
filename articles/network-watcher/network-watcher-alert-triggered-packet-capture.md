@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7a0402a913c836f3248fa6f2f9b27cbf2b0d04
-ms.openlocfilehash: a23d569451d2cc776b2e8fc84ec4d01259f74c63
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5f31b24a0d46b9d557a55b3c9d0cd7748ecb9c33
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,11 +40,11 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 이 프로세스를 자동화하려면, 인시던트가 발생할 때 VM에서 트리거할 경고를 만들고 연결하며 Network Watcher를 호출할 Azure Function을 만들고 연결합니다.
 
-이 시나리오에서는 다음을 수행합니다.
+이 시나리오의 경우
 
-* 패킷 캡처를 시작하는 Azure Function을 만듭니다.
-* 가상 컴퓨터에서 경고 규칙을 만듭니다.
-* Azure Function을 호출할 경고 규칙을 구성합니다.
+* 패킷 캡처를 시작하는 Azure 함수를 만듭니다.
+* 가상 컴퓨터에 경고 규칙을 만듭니다.
+* Azure 함수를 호출할 경고 규칙을 구성합니다.
 
 ## <a name="creating-an-azure-function-and-overview"></a>Azure Function 만들기 및 개요
 
@@ -58,10 +58,160 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 1. 패킷 캡처는 VM에서 실행되고 트래픽을 수집합니다. 
 1. 이 캡처 파일은 검토 및 진단을 위해 저장소 계정에 업로드됩니다. 
 
-Azure Function 만들기는 [첫 번째 Azure Function 만들기](../azure-functions/functions-create-first-azure-function.md)에 따라 포털에서 수행할 수 있습니다. 이 예에서는 HttpTrigger-CSharp 형식 함수를 선택했습니다. 
+Azure Function 만들기는 [첫 번째 Azure Function 만들기](../azure-functions/functions-create-first-azure-function.md)에 따라 포털에서 수행할 수 있습니다. 이 예제에서는 HttpTrigger-PowerShell 형식 함수를 선택했습니다. 이 예제에는 사용자 지정이 필요하며 다음 단계에서 설명합니다.
+
+![함수 예제][functions1]
 
 > [!NOTE]
-> Azure Functions에 다른 언어가 제공되지만 실험 상태이며 PowerShell 및 Python처럼 완전하게 지원하지 않을 수 있습니다.
+> PowerShell 템플릿은 실험적이며 완전한 지원을 제공하지 않습니다.
+
+## <a name="adding-modules"></a>모듈 추가
+
+Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을 함수 앱에 업로드해야 합니다.
+
+1. 최신 Azure PowerShell 모듈이 설치된 로컬 컴퓨터에서 다음 PowerShell 명령을 실행합니다.
+
+    ```powershell
+    (Get-Module AzureRM.Network).Path
+    ```
+
+    이렇게 하면 Azure PowerShell 모듈의 로컬 경로가 제공됩니다. 이러한 폴더는 이후 단계에서 사용됩니다. 이 시나리오에서 사용되는 모듈은 다음과 같습니다.
+
+    * AzureRM.Network
+
+    * AzureRM.Profile
+
+    * AzureRM.Resources
+
+    ![PowerShell 폴더][functions5]
+
+1. **함수 앱 설정** > **App Service 편집기로 이동**으로 차례로 이동합니다.
+
+    ![Kudu 함수][functions2]
+
+1. AlertPacketCapturePowershell 폴더를 마우스 오른쪽 단추로 클릭하고 **azuremodules**라는 폴더를 만듭니다. 필요한 각 모듈에 대한 하위 폴더를 계속 만듭니다.
+
+    ![Kudu 함수][functions3]
+
+    * AzureRM.Network
+
+    * AzureRM.Profile
+
+    * AzureRM.Resources
+
+1. **AzureRM.Network** 하위 폴더를 마우스 오른쪽 단추로 클릭하고 **파일 업로드**를 클릭합니다. Azure 모듈이 설치된 위치로 이동하고 로컬 AzureRM.Network 폴더에서 폴더의 모든 파일을 선택하고 **확인**을 클릭합니다.  AzureRM.Profile 및 AzureRM.Resources에 대해 이러한 단계를 반복합니다.
+
+    ![파일 업로드][functions6]
+
+1. 완료되면 로컬 컴퓨터의 각 폴더에 PowerShell 모듈 파일이 있어야 합니다.
+
+    ![PowerShell 파일][functions7]
+
+## <a name="authentication"></a>인증
+
+PowerShell cmdlet을 사용하려면 인증해야 합니다. 함수 앱에서 인증을 구성해야 합니다. 이렇게 하려면 환경 변수를 구성하고 암호화된 키 파일을 함수 앱에 업로드해야 합니다.
+
+> [!note]
+> 이 시나리오에서는 Azure Functions를 사용하여 인증을 구현하는 방법에 대한 하나의 예제를 제공하며, 이를 수행하는 다른 방법들이 있습니다.
+
+### <a name="encrypted-credentials"></a>암호화된 자격 증명
+
+다음 PowerShell 스크립트는 **PassEncryptKey.key**라는 키 파일을 만들고, 제공된 암호의 암호화된 버전을 제공합니다.  이 암호는 인증에 사용되는 Azure AD 응용 프로그램에 대해 정의된 것과 동일한 암호입니다.
+
+```powershell
+#variables
+$keypath = "C:\temp\PassEncryptKey.key"
+$AESKey = New-Object Byte[] 32
+$Password = "<insert a password here>"
+
+#keys
+[Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
+Set-Content $keypath $AESKey
+
+#get encrypted password
+$secPw = ConvertTo-SecureString -AsPlainText $Password -Force
+$AESKey = Get-content $KeyPath
+$Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
+$Encryptedpassword
+```
+
+함수 앱의 App Service 편집기에서 **AlertPacketCapturePowerShell** 아래에 **keys**라는 폴더를 만들고, 이전의 PowerShell 샘플로 만든 **PassEncryptKey.key** 파일을 업로드합니다.
+
+![키 함수][functions8]
+
+### <a name="retrieving-values-for-environment-variables"></a>환경 변수 값 검색
+
+필요한 최종 구성은 인증에 대한 값에 액세스하는 데 필요한 환경 변수를 설정하는 것입니다. 다음은 만드는 환경 변수의 목록입니다.
+
+* AzureClientID
+
+* AzureTenant
+
+* AzureCredPassword
+
+
+#### <a name="azureclientid"></a>AzureClientID
+
+클라이언트 ID는 Azure Active Directory에 있는 응용 프로그램의 응용 프로그램 ID입니다.
+
+1. 사용할 응용 프로그램이 아직 없으면 다음 예제를 실행하여 응용 프로그램을 만듭니다.
+
+    ```powershell
+    $app = New-AzureRmADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
+    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    Start-Sleep 15
+    New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+    ```
+
+   > [!NOTE]
+   > 응용 프로그램을 만들 때 사용되는 암호는 이전에 키 파일을 저장할 때 만든 암호와 동일해야 합니다.
+
+1. Azure Portal에서 **구독** > 사용할 구독 선택 > **액세스 제어(IAM)**로 차례로 이동합니다.
+
+    ![IAM 함수][functions9]
+
+1. 사용할 계정을 선택하고 [속성]을 클릭합니다. 응용 프로그램 ID를 복사합니다.
+
+    ![응용 프로그램 ID 함수][functions10]
+
+#### <a name="azuretenant"></a>AzureTenant
+
+다음 PowerShell 샘플을 실행하여 테넌트 ID를 얻습니다.
+
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
+```
+
+#### <a name="azurecredpassword"></a>AzureCredPassword
+
+AzureCredPassword 환경 변수의 값은 다음 PowerShell 샘플을 실행하여 얻는 값입니다. 이 예제는 이전의 **암호화된 자격 증명** 섹션에서 보여 준 것과 동일한 예제입니다. 필요한 값은 `$Encryptedpassword` 변수의 출력입니다.  이 암호는 PowerShell 스크립트를 사용하여 암호화한 서비스 주체 암호입니다.
+
+```powershell
+#variables
+$keypath = "C:\temp\PassEncryptKey.key"
+$AESKey = New-Object Byte[] 32
+$Password = "<insert a password here>"
+
+#keys
+[Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
+Set-Content $keypath $AESKey
+
+#get encrypted password
+$secPw = ConvertTo-SecureString -AsPlainText $Password -Force
+$AESKey = Get-content $KeyPath
+$Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
+$Encryptedpassword
+```
+
+### <a name="storing-the-environment-variables"></a>환경 변수 저장
+
+1. 함수 앱으로 이동하여 **함수 앱 설정** > **앱 설정 구성**을 차례로 클릭합니다.
+
+    ![앱 설정 구성][functions11]
+
+1. 환경 변수와 해당 값을 앱 설정에 추가하고 **저장**을 클릭합니다.
+
+    ![앱 설정][functions12]
 
 ## <a name="processing-the-alert-and-starting-a-packet-capture-session"></a>경고 처리 및 패킷 캡처 세션 시작
 
@@ -73,244 +223,76 @@ Azure Function 만들기는 [첫 번째 Azure Function 만들기](../azure-funct
 4. 완료될 때까지 패킷 캡처를 주기적으로 폴링
 5. 사용자에게 패킷 캡처 세션이 완료됨을 알림
 
-다음 예제는 Azure Function에서 사용할 수 있는 C#입니다. 구독, 클라이언트 ID, 테넌트 ID 및 클라이언트 암호에 대해 대체해야 하는 값이 있습니다.
+다음 예제는 Azure 함수에서 사용할 수 있는 PowerShell입니다. subscriptionId, resourceGroupName 및 storageAccountName에 대해 바꿔야 하는 값이 있습니다.
 
-```CSharp
-using System.Net;
-using Newtonsoft;
-using Newtonsoft.Json;
-using Microsoft.Rest.Azure.Authentication;
-using Microsoft.Azure.Management.ResourceManager;
-using Microsoft.Azure.Management.ResourceManager.Models;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```powershell
+#Import Azure PowerShell modules required to make calls to Network Watcher
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
 
-public static TraceWriter log;
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter twlog)
+#Process Alert Request Body
+$requestBody = Get-Content $req -Raw | ConvertFrom-Json
+
+#Storage Account Id to save captures in
+$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+
+#Packet Capture Vars
+$packetcapturename = "PSAzureFunction"
+$packetCaptureLimit = 10
+$packetCaptureDuration = 10
+
+#Credentials
+$tenant = $env:AzureTenant
+$pw = $env:AzureCredPassword
+$clientid = $env:AzureClientId
+$keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
+
+#Authentication
+$secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
+$credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
+Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+
+
+#Get the VM that fired the Alert
+if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 {
-    log = twlog;
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
+    Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
+    Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
+    Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-    HttpContent requestContent = req.Content;
-    string jsonContent = requestContent.ReadAsStringAsync().Result;
-    
-    //Deserialize json input
-    WebhookInputParameters inParams = JsonConvert.DeserializeObject<WebhookInputParameters>(jsonContent);
+    #Get the Network Watcher in the VM's Region
+    $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+    $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-    log.Info($@"subscriptionId: {inParams.subscriptionId}  
-                networkWatcherResourceGroup: {inParams.networkWatcherResourceGroup} 
-                networkWatcherName: {inParams.networkWatcherName} 
-                packetCaptureName: {inParams.packetCaptureName} 
-                storageID: {inParams.storageID} 
-                timeLimit: {inParams.timeLimit} 
-                targetVM: {inParams.targetVM}");
+    #Get existing packetCaptures
+    $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-    //Get JWT Token
-    string token = GetAuthorizationToken();
-    
-    //Create URI and Delete existing Packet Capture if it exists
-    string endpoint = @"https://management.azure.com";
-    string PacketCaptureRequestURI = $@"{endpoint}/subscriptions/{inParams.subscriptionId}/resourceGroups/{inParams.networkWatcherResourceGroup}/providers/Microsoft.Network/networkWatchers/{inParams.networkWatcherName}/packetCaptures/{inParams.packetCaptureName}?api-version=2016-03-30";
+    #Remove existing packet capture created by the function if it exists
+    $packetCaptures | %{if($_.Name -eq $packetCaptureName)
+    { 
+        Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+    }}
 
-    //Delete Packet Capture
-    HttpWebRequest packetCaptureDelete = Request(PacketCaptureRequestURI, token, "Delete");
-    //Errors from delete (404 not found) indicate that the packet capture does not exist already
-    HttpWebResponse pcDeleteResponse = getHttpResponse(packetCaptureDelete);
-
-    //Create Packet Capture Request Body
-    PacketCaptureRequestBody pcrb = new PacketCaptureRequestBody();
-    pcrb.properties.timeLimitInSeconds = inParams.timeLimit;
-    pcrb.properties.target = inParams.targetVM;
-    pcrb.properties.storageLocation.storageId = inParams.storageID;
-
-    //serialize PacketCaptureRequestBody
-    var jSetting = new JsonSerializerSettings();
-    jSetting.NullValueHandling = NullValueHandling.Ignore;
-    jSetting.Formatting = Formatting.Indented;
-    string pcRequestBody = JsonConvert.SerializeObject(pcrb, jSetting);
-    
-    //Create Packet Capture via PUT 
-    HttpWebRequest packetCaptureCreate = Request(PacketCaptureRequestURI, token, "Put", pcRequestBody);
-    HttpWebResponse pcPostResponse = getHttpResponse(packetCaptureCreate);
-    
-    //if packet capture creation successful return to user created storagePath
-    if (!(pcPostResponse == null) && pcPostResponse.StatusCode == HttpStatusCode.Created)
-    {
-        string pcPostResponseLocation = getHeaderContent(pcPostResponse, "Location") ?? "Header null";
-        string pcPostResponseContent = httpWebResponseContent(pcPostResponse) ?? "Response Content null";
-
-        //Deserialize response body into object
-        PacketCaptureResponseBody pcrbObj = JsonConvert.DeserializeObject<PacketCaptureResponseBody>(pcPostResponseContent);
-        return req.CreateResponse(HttpStatusCode.OK, $"Packet Capture successfully created and will upload to StoragePath: {pcrbObj.properties.storageLocation.storagePath}");
+    #Initiate Packet Capture on the VM that fired the alert
+    if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+        echo "Initiating Packet Capture"
+        New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+        Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
     }
-    return req.CreateResponse(HttpStatusCode.OK, "Error creating packet capture");
-}
-
-// Creates and returns the HTTPWebRequest
-public static HttpWebRequest Request(string requestURI, string token, string requestType, string requestContent = null)
-{
-    
-    var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestURI);
-    httpWebRequest.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
-    httpWebRequest.ContentType = "application/json";
-    httpWebRequest.Method = requestType;
-    if (requestContent != null)
-    {
-        httpWebRequest.ContentLength = (requestContent != null) ? requestContent.Length : 0;
-    }
-    log.Info("Sending Request: " + requestURI + (requestContent ?? ""));
-
-    //ensure requestType is in uppercase
-    requestType = requestType.ToUpper();
-    if (requestType.Equals("PUT") || requestType.Equals("POST"))
-    {
-        using (var requestStream = new StreamWriter(httpWebRequest.GetRequestStream()))
-        {
-            requestStream.Write(requestContent);
-        }
-    }
-    log.Info("Request Sent");
-    return httpWebRequest;
-}
-
-public static HttpWebResponse getHttpResponse(HttpWebRequest httpWebRequest)
-{
-    HttpWebResponse httpWebResponse = null;
-    try
-    {
-        httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-    }
-    catch (Exception ex)
-    {
-        log.Info("Error from " + ex.Message, "HttpWebResponsexeption");
-    }
-    return httpWebResponse;
-}
-
-public static string httpWebResponseContent(HttpWebResponse httpWebResponse)
-{
-    string content = null;
-    using (StreamReader reader = new StreamReader(httpWebResponse.GetResponseStream()))
-    {
-        content = reader.ReadToEnd();
-    }
-    return content;
-}
-
-public static string getHeaderContent(HttpWebResponse httpWebResponse, string param)
-{
-    log.Info((int)httpWebResponse.StatusCode + "\tStatus Description: " + httpWebResponse.StatusDescription + "\r\n Headers: " + httpWebResponse.Headers);
-    return httpWebResponse.Headers.Get(param);
-}
-
-//Gets the JWT Token to be able to make REST calls
-public static string GetAuthorizationToken()
-{
-    var tenantId = "<insert tenant id>"; 
-    var clientId = "<insert client id>"; 
-    var secret = "<insert client secret>";
-    var subscriptionId = "<insert subscription id>"; 
-
-    string authContextURL = "https://login.windows.net/" + tenantId;
-    var authenticationContext = new AuthenticationContext(authContextURL);
-    var credential = new ClientCredential(clientId, secret);
-    var result = authenticationContext.AcquireToken(resource: "https://management.azure.com/", clientCredential: credential);
-    if (result == null)
-    {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
-    }
-    return result.AccessToken;
-}
-
-public class WebhookInputParameters
-{
-    public string subscriptionId { get; set; }
-    public string networkWatcherResourceGroup { get; set; }
-    public string networkWatcherName { get; set; }
-    public string packetCaptureName { get; set; }
-    public string storageID { get; set; }
-    public int timeLimit { get; set; }
-    public string targetVM { get; set; }
-}
-
-public class PacketCaptureRequestBody
-{
-    public PacketCaptureRequestBody()
-    {
-        properties = new Properties();
-    }
-    public Properties properties { get; set; }
-}
-
-public class StorageLocation
-{
-    public string storageId { get; set; }
-    public string storagePath { get; set; }
-    public string filePath { get; set; }
-}
-
-public class Filter
-{
-    public string protocol { get; set; }
-    public string localIP { get; set; }
-    public string localPort { get; set; }
-    public string remoteIP { get; set; }
-    public string remotePort { get; set; }
-}
-
-public class Properties
-{
-    public Properties()
-    {
-        filters = new List<Filter>();
-        storageLocation = new StorageLocation();
-    }
-
-    public string target { get; set; }
-    public int bytestToCapturePerPacket { get; set; }
-    public int totalBytesPerSession { get; set; }
-    public int timeLimitInSeconds { get; set; }
-
-    public StorageLocation storageLocation { get; set; }
-    public List<Filter> filters { get; set; }
-}
-
-public class PacketCaptureResponseBody
-{
-    public PacketCaptureResponseBody()
-    {
-        properties = new PacketCaptureResponseProperties();
-    }
-    public string name { get; set; }
-    public string id { get; set; }
-    public string etag { get; set; }
-    public PacketCaptureResponseProperties properties { get; set; }
-}
-
-public class PacketCaptureResponseProperties
-{
-    public PacketCaptureResponseProperties()
-    {
-        filters = new List<Filter>();
-        storageLocation = new StorageLocation();
-    }
-    public string provisioningState { get; set; }
-    public string target { get; set; }
-    public int bytesToCapturePerPacket { get; set; }
-    public int totalBytesPerSession { get; set; }
-    public int timeLimitInSeconds { get; set; }
-    public StorageLocation storageLocation { get; set; }
-    public List<Filter> filters { get; set; }
-    public string captureStartTime { get; set; }
-    public string packetCaptureStatus { get; set; }
-    public List<object> packetCaptureError { get; set; }
-}
+} 
 ``` 
 
-함수를 만들었으면 함수와 연결된 URL을 호출하는 경고를 구성해야 합니다. 이 값을 가져오려면 함수 앱에서 함수 URL을 복사합니다.
+함수를 만들었으면 함수와 연결된 URL을 호출하는 경고를 구성해야 합니다. 이 값을 얻으려면 **</> 함수 URL 가져오기**를 클릭합니다. 
 
-![함수 URL 찾기][2]
+![함수 URL 1 찾기][functions13]
 
-웹후크 POST 요청의 페이로드에서 사용자 지정 속성이 필요한 경우 [Azure 활동 메트릭 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)을 참조하세요.
+함수 앱의 함수 URL을 복사합니다.
+
+![함수 URL 2 찾기][2]
+
+웹후크 POST 요청의 페이로드에 사용자 지정 속성이 필요한 경우 [Azure 메트릭 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)을 참조하세요.
 
 ## <a name="configure-an-alert-on-a-vm"></a>VM에서 경고 구성
 
@@ -347,4 +329,16 @@ Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침�
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
 [2]: ./media/network-watcher-alert-triggered-packet-capture/figure2.png
 [3]: ./media/network-watcher-alert-triggered-packet-capture/figure3.png
-
+[functions1]:./media/network-watcher-alert-triggered-packet-capture/functions1.png
+[functions2]:./media/network-watcher-alert-triggered-packet-capture/functions2.png
+[functions3]:./media/network-watcher-alert-triggered-packet-capture/functions3.png
+[functions4]:./media/network-watcher-alert-triggered-packet-capture/functions4.png
+[functions5]:./media/network-watcher-alert-triggered-packet-capture/functions5.png
+[functions6]:./media/network-watcher-alert-triggered-packet-capture/functions6.png
+[functions7]:./media/network-watcher-alert-triggered-packet-capture/functions7.png
+[functions8]:./media/network-watcher-alert-triggered-packet-capture/functions8.png
+[functions9]:./media/network-watcher-alert-triggered-packet-capture/functions9.png
+[functions10]:./media/network-watcher-alert-triggered-packet-capture/functions10.png
+[functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
+[functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
+[functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png

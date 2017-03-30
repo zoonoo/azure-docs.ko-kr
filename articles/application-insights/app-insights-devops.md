@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -106,7 +106,7 @@ Real Madrid는 Power BI 모듈을 사용하여 원격 분석을 확인합니다.
 Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 하면서 리소스 한도까지 올라가서 시간 초과를 발생시키는 축소된 데이터베이스를 발견했습니다. 이 문제를 분류하는 즉시 사전 감지 경고가 나왔습니다. 제품 광고에 나왔던 대로 거의 실시간에 가까운 속도였습니다. 이 경고는 Azure 플랫폼 경고와 더불어 문제를 즉시 해결하도록 도와주었습니다. 총 가동 중지 시간은 10분 미만이었습니다."
 
 ## <a name="live-metrics-stream"></a>라이브 메트릭 스트림
-최신 빌드를 배포하는 작업은 많은 걱정을 수반하는 경험일 수 있습니다. 어떤 문제가 있을 경우 즉시 알아내어 필요 시 취소할 수 있어야 할 것입니다. 라이브 메트릭 스트림은 약&1;초의 대기 시간으로 주요 메트릭을 제공합니다.
+최신 빌드를 배포하는 작업은 많은 걱정을 수반하는 경험일 수 있습니다. 어떤 문제가 있을 경우 즉시 알아내어 필요 시 취소할 수 있어야 할 것입니다. 라이브 메트릭 스트림은 약 1초의 대기 시간으로 주요 메트릭을 제공합니다.
 
 ![라이브 메트릭](./media/app-insights-devops/040.png)
 
@@ -164,6 +164,10 @@ Visual Studio Team Services를 사용하여 앱을 빌드하고 배포한다면 
 * 성능 - 성능에 미치는 영향이 매우 낮습니다. 원격 분석은 일괄 처리됩니다.
 * [지원](app-insights-get-dev-support.md) - Azure 지원 프로그램을 활용할 수 있습니다. 개발자로부터 답변을 받을 수 있는 실시간 포럼이 있습니다. 그리고 마지막 수단으로 개별 도움말을 제공할 수 있습니다.
 * [가격 책정](app-insights-pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:

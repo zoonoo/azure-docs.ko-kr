@@ -13,23 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 1b738d952685fe71e5a1eecd809afae1c9904267
-ms.openlocfilehash: 8f32c2c85d2f6c2265048e58d5c2b0256fa020bd
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: af53cea83d2e348b2c73e56cf4b6ce5a875bce18
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="getting-started-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리 시작
+# <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지
 
-Azure에 등록하면 몇 가지 방법을 통해 경비를 보다 명확히 파악할 수 있습니다. Azure Portal에서 현재 비용 분석 및 진행 속도를 확인할 수 있습니다. 과거 청구서 및 자세한 사용 현황 파일도 다운로드할 수 있습니다. 여러 다른 프로젝트 또는 팀에 사용되는 리소스에 대한 비용을 그룹화하려는 경우 리소스 태그를 살펴봅니다. 선호하는 보고 시스템이 조직에 있는 경우 청구 API를 확인하세요. 
+Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파악할 수 있습니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택할 때 현재 비용 분석 및 진행 속도가 표시됩니다. [과거 송장 및 자세한 사용 현황 파일도 다운로드](billing-download-azure-invoice-daily-usage-date.md)할 수 있습니다. 여러 다른 프로젝트 또는 팀에 사용되는 리소스에 대한 비용을 그룹화하려는 경우 [리소스 태그](../azure-resource-manager/resource-group-using-tags.md)를 살펴봅니다. 선호하는 보고 시스템이 조직에 있는 경우 [청구 API](billing-usage-rate-card-overview.md)를 확인하세요. 
 
-EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서쉽 고객에게는 이 문서의 많은 기능이 적용되지 않습니다. 대신 비용 관리를 위해 다른 도구 집합을 사용할 수 있습니다. 자세한 내용은 [EA, CSP 및 스폰쉽에 대한 추가 리소스](#other-offers)를 참조하세요.
+일간 사용 현황에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
 
-무료 평가판인 [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), AIO(Azure in Open) 또는 BizSpark 고객은 서비스 중단을 피하려면 [지출 한도](#spending-limit)에 대해 자세히 알아보세요. 
+EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서쉽을 통한 구독인 경우 이 문서의 많은 기능이 적용되지 않습니다. 대신 비용 관리에 사용할 수 있는 다른 도구 집합이 있습니다. See [EA, CSP 및 스폰서쉽에 대한 추가 리소스](#other-offers)를 참조하세요.
 
-## <a name="before-you-add-azure-services"></a>Azure 서비스를 추가하기 전에
+구독이 무료 평가판, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open(AIO) 또는 BizSpark인 경우 예상치 않게 구독이 비활성화되는 것을 피하려면 [지출 한도](#spending-limit)에 대해 자세히 알아보세요. 
+
+## <a name="day-0-before-you-add-azure-services"></a>0일차: Azure 서비스를 추가하기 전에
 
 ### <a name="estimate-cost-online-using-the-pricing-calculator"></a>가격 계산기를 사용하여 온라인으로 비용 예측
 
@@ -51,7 +54,7 @@ EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서�
 
 계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 할 경우 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 
 
-### <a name="a-namespending-limita-check-if-you-have-a-spending-limit-on"></a><a name="spending-limit"></a> 지출 한도가 설정되어 있는지 확인
+### <a name="spending-limit"></a> 지출 한도가 설정되어 있는지 확인
 
 크레딧을 사용하는 구독이 있는 경우 기본적으로 지출 한도가 켜져 있습니다. 이러한 방식으로 모든 크레딧을 지출하면 신용 카드에 요금이 청구되지 않습니다. [전체 Azure 제품 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요.
 
@@ -76,9 +79,9 @@ EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서�
 
 ### <a name="understand-limits-and-quotas-for-your-subscription"></a>구독에 대한 한도 및 할당량 이해
 
-CPU 코어 수, IP 주소 등과 같이 각 구독에 대한 기본 한도가 있습니다. 이러한 한도에 주의해야 합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. [지원 센터에 연락](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 이 한도 또는 할당량을 늘리도록 요청할 수 있습니다.
+CPU 코어 수 및 IP 주소 등과 같이 각 구독에 대한 기본 한도가 있습니다. 이러한 한도에 주의해야 합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요. [지원 센터에 연락](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 이 한도 또는 할당량을 늘리도록 요청할 수 있습니다.
 
-## <a name="as-you-add-services"></a>서비스 추가 시
+## <a name="day-1-as-you-add-services"></a>1일차: 서비스 추가 시
 
 ### <a name="review-the-estimated-cost-in-the-portal"></a>포털의 예상 비용 검토
 
@@ -86,7 +89,7 @@ CPU 코어 수, IP 주소 등과 같이 각 구독에 대한 기본 한도가 �
 
 ![예제: A1 Windows VM의 월별 비용이 $66.96 USD로 예측됨](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="a-nametagsa-add-tags-to-your-resources-to-group-your-billing-data"></a><a name="tags"></a> 리소스에 태그를 추가하여 청구 데이터 그룹화
+### <a name="tags"></a> 리소스에 태그를 추가하여 청구 데이터 그룹화
 
 태그를 사용하여 지원되는 서비스에 대한 청구 데이터를 그룹화할 수 있습니다. 예를 들어 여러 다른 팀에 대한 여러 VM을 실행하는 경우 태그를 사용하여 비용 센터(HR, 마케팅, 재무) 또는 환경(프로덕션, 프로덕션 전 테스트)별로 비용을 분류할 수 있습니다. 
 
@@ -104,11 +107,11 @@ CPU 코어 수, IP 주소 등과 같이 각 구독에 대한 기본 한도가 �
 
 자동 종료는 전원 옵션을 사용하여 VM 내에서 종료할 때와는 다릅니다. 자동 종료는 VM을 중지한 후 할당 취소하여 추가 요금 부과를 중지합니다. 자세한 내용은 VM 상태에 대한 [Linux VM](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)의 가격 책정 FAQ를 참조하세요.
 
-개발 테스트 환경에 대한 추가 비용 절감에 기능에 대해서는 [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/)를 확인하세요.
+개발 및 테스트 환경에 대한 추가 비용 절감에 기능에 대해서는 [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/)를 확인하세요.
 
-## <a name="a-namecost-reportinga-after-using-services-view-usage"></a><a name="cost-reporting"></a> 서비스를 사용한 후 사용 현황 보기
+## <a name="cost-reporting"></a> 2일차 이후: 서비스를 사용한 후 사용 현황 보기
 
-### <a name="a-namecostsa-regularly-check-the-portal-for-cost-breakdown-and-burn-rate"></a><a name="costs"></a> 포털에서 정기적으로 비용 분석 및 진행 속도 확인
+### <a name="costs"></a> 포털에서 정기적으로 비용 분석 및 진행 속도 확인
 
 서비스가 실행 중일 때 부과되는 요금을 정기적으로 확인합니다. Azure Portal에서 현재 사용량 및 진행 속도를 확인할 수 있습니다. 
 
@@ -138,7 +141,7 @@ CPU 코어 수, IP 주소 등과 같이 각 구독에 대한 기본 한도가 �
 
 #### <a name="view-costs-for-all-your-subscriptions-in-the-billing-blade"></a>결제 블레이드에서 모든 구독에 대한 비용 보기
 
-여러 구독을 관리하는 계정 관리하는 [결제 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade)에서 모든 구독의 집계 청구 금액 및 분석을 확인할 수 있습니다. 
+계정 관리자로 여러 구독을 관리하는 경우 [청구 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade)에서 모든 구독에 대한 집계 청구 금액 및 분석을 확인할 수 있습니다. 
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -154,7 +157,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 자세한 내용은 [Advisor 비용 권장 사항](../advisor/advisor-cost-recommendations.md)을 참조하세요.
 
-### <a name="a-nameinvoice-and-usagea-get-your-invoice-and-detail-usage-after-your-first-billing-period"></a><a name="invoice-and-usage"></a> 첫 번째 청구 기간 후 청구서 및 세부 사용 현황 받기
+### <a name="invoice-and-usage"></a> 첫 번째 청구 기간 후 청구서 및 세부 사용 현황 받기
 
 첫 번째 청구 기간이 지난 후 Portable Document Format(.pdf) 송장 및 쉼표로 구분된 값(.csv) 사용 현황 세부 정보를 다운로드할 수 있습니다. 또한 청구서를 전자 메일로 받도록 옵트인할 수 있습니다. 이러한 파일은 세금 공제 후 금액, 할인 및 크레딧에 최종적으로 청구되는 금액을 이해하는 데 도움이 됩니다. 구독에 연결된 지불 방법이 없는 경우 이러한 파일을 사용할 수 없습니다. 자세한 내용은 [Azure 청구서 및 일간 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md) 및 [Microsoft Azure 요금 청구 방식](billing-understand-your-bill.md)을 참조하세요.
 
@@ -168,7 +171,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 청구 API를 사용하여 프로그래밍 방식으로 사용 현황 데이터를 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하세요.
 
-## <a name="a-nameother-offersa-additional-resources-for-ea-csp-and-sponsorship"></a><a name="other-offers"></a> EA, CSP 및 스폰서쉽에 대한 추가 리소스
+## <a name="other-offers"></a> EA, CSP 및 스폰서쉽에 대한 추가 리소스
 
 계정 관리자 또는 Azure 파트너에 시작하도록 알립니다.
 
@@ -180,8 +183,6 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스 캐폴드](../azure-resource-manager/resource-manager-subscription-governance.md) 및 [엔터프라이즈 IT 백서](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
 
+## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

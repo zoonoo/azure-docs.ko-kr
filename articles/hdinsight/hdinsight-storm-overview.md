@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ HDInsight의 Apache Storm는 다음과 같은 주요 이점을 제공합니다.
 * 생성 도중이나 이후에 클러스터에 대해 스크립트를 실행하여 간편하게 사용자 지정합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 * 사용자가 선택한 언어 사용: **Java**, **C#** 및 **Python** 등 다양한 언어로 Storm 구성 요소를 작성할 수 있습니다.
-  
+
   * C# 토폴로지의 개발, 관리 및 모니터링을 위한 HDInsight와 Visual Studio를 통합합니다. 자세한 내용은 [Visual Studio용 HDInsight를 사용하여 C# Storm 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
   * **Trident** Java 인터페이스를 지원합니다. 이 인터페이스를 사용하면 "정확히 한 번"의 메시지 처리, "트랜잭션" 데이터 저장소 지속성 및 일반 스트림 분석 작업 집합을 지원하는 Storm 토폴로지를 만들 수 있습니다.
@@ -50,13 +51,13 @@ HDInsight의 Apache Storm는 다음과 같은 주요 이점을 제공합니다.
 * 클러스터의 확장 및 축소 용이: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거합니다.
 
 * 다음 Azure 서비스와의 통합:
-  
+
     * Event Hubs
     * Virtual Network
     * SQL 데이터베이스
     * Azure 저장소
     * 저장됩니다.
-  
+
   * Azure Virtual Network를 사용하여 안전하게 여러 HDInsight 클러스터의 기능 결합: HDInsight, HBase 또는 Hadoop 클러스터를 사용하는 분석 파이프라인을 만듭니다.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)를 참조하세요.
@@ -80,7 +81,7 @@ Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]�
 
 * __웹 연결__: HDInsight 클러스터는 Ambari 웹 UI를 제공합니다. 그러면 Ambari 웹 UI를 통해 클러스터에서 서비스를 쉽게 모니터링, 구성 및 관리할 수 있습니다. 또한 HDInsight의 Storm은 브라우저에서 실행 중인 Storm 토폴로지를 모니터링하고 관리할 수 있는 Storm UI를 제공합니다.
 
-  자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md) 및 [Storm UI를 사용하여 모니터링 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui)를 참조하세요.
+  자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md) 및 [Storm UI를 사용하여 모니터링 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)를 참조하세요.
 
 * __Azure PowerShell 및 CLI__: Azure PowerShell 및 Azure CLI는 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 
@@ -152,7 +153,7 @@ Apache Storm에서는 HDInsight 또는 Hadoop에서 친숙한 MapReduce 작업 �
 * **스트림**: 바인딩되지 않은 **튜플** 컬렉션입니다. 스트림은 **spouts** 및 **bolts**에 의해 생성되며 **bolts**에서 사용됩니다.
 * **튜플**: 동적으로 형식이 지정되는 값의 명명된 목록입니다.
 * **Spout**: 데이터 원본의 데이터를 사용하며 **스트림**을 하나 이상 내보냅니다.
-  
+
   > [!NOTE]
   > 대개는 Kafka 또는 Azure Event Hubs와 같은 큐에서 데이터를 읽습니다. 가동 중지 시에도 큐가 사용되므로 데이터가 유지됩니다.
 

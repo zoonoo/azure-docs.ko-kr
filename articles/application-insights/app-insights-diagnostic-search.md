@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -87,7 +87,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ### <a name="narrow-your-search"></a>검색 범위 좁히기
 필터 값의 오른쪽에 있는 수는 현재 필터링된 집합에서 발생한 수를 보여줍니다. 
 
-이 예제에서는 'Rpt/Employees' 요청이&500;개의 오류 중 대부분을 초래함이 명확합니다.
+이 예제에서는 'Rpt/Employees' 요청이 500개의 오류 중 대부분을 초래함이 명확합니다.
 
 ![속성 확장 및 값 선택](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -167,15 +167,19 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
 [Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](app-insights-search-diagnostic-logs.md).
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>질문 및 답변
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>얼마나 많은 데이터가 보존되나요?
+## <a name="questions"></a>질문 및 답변
+### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
 
 [제한 요약](app-insights-pricing.md#limits-summary)을 참조하세요.
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>내 서버 요청에서 게시 데이터를 어떻게 볼 수 있나요?
 게시 데이터를 자동으로 기록하지는 않지만 [TrackTrace 또는 로그 호출](app-insights-search-diagnostic-logs.md)을 사용할 수 있습니다. 메시지 매개 변수에 게시 데이터를 넣습니다. 속성을 필터링할 수 있는 동일한 방법으로 메시지에서 필터링할 수는 없지만 크기 제안은 더 깁니다.
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>다음 단계
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="add"></a>다음 단계
 * [분석에서 복잡한 쿼리 작성](app-insights-analytics-tour.md)
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](app-insights-search-diagnostic-logs.md)
 * [가용성 및 응답성 테스트 설정](app-insights-monitor-web-app-availability.md)

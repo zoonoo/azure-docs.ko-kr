@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 17de66693661e56e9b456581c97a47cfb91cd886
-ms.openlocfilehash: bf08cc7ebb56aaf77c1718545ed4374f47933975
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2dc56240894666b2fa24baf4902c3097e97d656e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ Azure에서 [H 시리즈 또는 계산 집약적 A 시리즈 VM](virtual-machine
 ## <a name="cluster-deployment-options"></a>클러스터 배포 옵션
 다음은 작업 스케줄러의 유무에 관계 없이 Linux RDMA 클러스터를 만드는 데 사용할 수 있는 방법입니다.
 
-* **Azure CLI 스크립트** - 이 문서의 뒷부분에서 볼 수 있듯이 [Azure CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 RDMA 지원 VM의 클러스터 배포를 스크립팅합니다. 서비스 관리 모드의 CLI는 클래식 배포 모델에서 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 몇 분 정도 걸릴 수 있습니다. 클래식 배포 모델을 사용하는 경우 RDMA 네트워크 연결을 사용하도록 설정하려면 동일한 클라우드 서비스의 VM을 배포합니다.
+* **Azure CLI 스크립트** - 이 문서의 뒷부분에서 볼 수 있듯이 [Azure CLI(명령줄 인터페이스)](../cli-install-nodejs.md)를 사용하여 RDMA 지원 VM의 클러스터 배포를 스크립팅합니다. 서비스 관리 모드의 CLI는 클래식 배포 모델에서 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 몇 분 정도 걸릴 수 있습니다. 클래식 배포 모델을 사용하는 경우 RDMA 네트워크 연결을 사용하도록 설정하려면 동일한 클라우드 서비스의 VM을 배포합니다.
 * **Azure Resource Manager 템플릿** - Resource Manager 배포 모델을 사용하여 RDMA 네트워크에 연결하는 RDMA 지원 VM 클러스터를 배포할 수도 있습니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿을 사용하면 빠르고 안정적으로 Linux 클러스터를 배포할 수 있습니다. Resource Manager 배포 모델을 사용하는 경우 RDMA 네트워크 연결을 사용하도록 설정하려면 동일한 가용성 집합의 VM을 배포합니다.
 * **HPC Pack** - Azure에서 Microsoft HPC 팩 클러스터를 만들고, 지원되는 Linux 배포판을 실행하는 RDMA 지원 계산 노드를 추가하여 RDMA 네트워크에 액세스합니다. 자세한 내용은 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
@@ -38,7 +39,7 @@ Azure에서 [H 시리즈 또는 계산 집약적 A 시리즈 VM](virtual-machine
 다음 단계에서는 Azure CLI를 사용하여 Azure 마켓플레이스에서 SLES(SUSE Linux Enterprise Server) 12 SP1 HPC VM을 배포하고, 사용자 지정하고, 사용자 지정 VM 이미지를 만드는 방법을 보여 줍니다. 그런 다음 이 이미지를 사용하여 RDMA 지원 VM 클러스터 배포를 스크립팅할 수 있습니다.
 
 > [!TIP]
-> 비슷한 단계를 사용하여 Azure 마켓플레이스의 지원되는 다른 HPC 이미지에 따라 RDMA 지원 VM의 클러스터를 배포합니다. 일부 단계는 언급한 대로 약간 다를 수 있습니다. 예를 들어 Intel MPI는 이러한 이미지 중 일부에만 포함되고 구성됩니다. 또한 SLES 12 SP1 HPC VM 대신 SLES 12 HPC VM을 배포하는 경우 RDMA 드라이버를 업데이트해야 합니다. 자세한 내용은 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12)를 참조하세요.
+> 비슷한 단계를 사용하여 Azure Marketplace에서 CentOS 기반 HPC 이미지에 따라 RDMA 호환 VM의 클러스터를 배포합니다. 일부 단계가 약간 다를 수 있습니다. 
 >
 >
 
@@ -47,7 +48,7 @@ Azure에서 [H 시리즈 또는 계산 집약적 A 시리즈 VM](virtual-machine
 * **Azure 구독** - 구독이 없는 경우 몇 분 내에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 * **VM 크기 가용성** - H16r, H16mr, A8 및 A9 인스턴스 크기가 RDMA를 지원할 수 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 에서 Azure 지역의 가용성을 확인하세요.
 * **코어 할당량** - 계산 집약적 VM 클러스터를 배포하려면 코어 할당량을 늘려야 할 수도 있습니다. 예를 들어 이 문서에 설명된 것처럼 8대의 A9 VM을 배포하려는 경우 적어도 128개의 코어가 필요합니다. 구독에 따라서도 H 시리즈를 포함하여 특정 VM 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량 증가를 요청하려면 무료로 [온라인 고객 지원 요청을 개설](../azure-supportability/how-to-create-azure-support-request.md) 합니다.
-* **Azure CLI** - Azure CLI를 [설치](../xplat-cli-install.md)하고 클라이언트 컴퓨터에서 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
+* **Azure CLI** - Azure CLI를 [설치](../cli-install-nodejs.md)하고 클라이언트 컴퓨터에서 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>SLES 12 SP1 HPC VM 프로비전
 Azure CLI에서 Azure에 로그인한 후 `azure config list`를 실행하여 출력에 서비스 관리 모드가 표시되는지 확인합니다. 그렇지 않으면 다음 명령을 실행하여 모드를 설정합니다.
@@ -74,7 +75,7 @@ Azure에서 공개적으로 사용할 수 있는 SLES 12 SP1 HPC 이미지를 �
 여기서,
 
 * 해당 크기(이 예제의 경우 A9)는 RDMA 지원 VM 크기 중 하나입니다.
-* 외부 SSH 포트 번호(이 예제의 경우 SSH 기본인&22;)는 유효한 모든 포트 번호입니다. 내부 SSH 포트 번호는 22로 설정됩니다.
+* 외부 SSH 포트 번호(이 예제의 경우 SSH 기본인 22)는 유효한 모든 포트 번호입니다. 내부 SSH 포트 번호는 22로 설정됩니다.
 * 새 클라우드 서비스는 해당 위치로 지정된 Azure 지역에 만들어집니다. 선택한 VM 크기를 사용할 수 있는 위치를 지정합니다.
 * SUSE 우선 순위 지원(추가 요금 발생)의 경우 SLES 12 SP1 이미지 이름은 현재 다음 두 옵션 중 하나일 수 있습니다. 
 
@@ -122,7 +123,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-    ~/.ssh 디렉터리에서 구성 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다(이 예에서는&10;.32.0.0/16).
+    ~/.ssh 디렉터리에서 구성 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다(이 예에서는 10.32.0.0/16).
 
         host 10.32.0.*
         StrictHostKeyChecking no
@@ -163,7 +164,7 @@ azure vm capture -t <vm-name> <image-name>
 이러한 명령을 실행하면 VM 이미지가 캡처되고 VM이 삭제됩니다. 이제 사용자 지정 이미지를 사용하여 클러스터를 배포할 수 있습니다.
 
 ### <a name="deploy-a-cluster-with-the-image"></a>이미지를 사용하여 클러스터 배포
-다음 Bash 스크립트를 환경에 적절한 값으로 수정하고 클라이언트 컴퓨터에서 실행합니다. Azure는 클래식 배포 모델에서 VM을 순차적으로 배포하기 때문에 이 스크립트에 제안된&8;개의 A9 VM을 배포하는 데 몇 분 정도 걸립니다.
+다음 Bash 스크립트를 환경에 적절한 값으로 수정하고 클라이언트 컴퓨터에서 실행합니다. Azure는 클래식 배포 모델에서 VM을 순차적으로 배포하기 때문에 이 스크립트에 제안된 8개의 A9 VM을 배포하는 데 몇 분 정도 걸립니다.
 
 ```
 #!/bin/bash -x
@@ -274,7 +275,7 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 10.32.0.2:16
 ```
 
-## <a name="run-mpi-on-a-basic-two-node-cluster"></a>기본&2; 노드 클러스터에서 MPI 실행
+## <a name="run-mpi-on-a-basic-two-node-cluster"></a>기본 2 노드 클러스터에서 MPI 실행
 아직 그렇게 하지 않은 경우 먼저 Intel MPI에 대한 환경을 설정합니다.
 
 ```
@@ -379,9 +380,4 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 * Linux 클러스터에 Linux MPI 응용 프로그램을 배포하고 실행합니다.
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) 를 참조하세요.
 * CentOS 기반 HPC 이미지를 사용하여 Intel Lustre 클러스터를 만들기 위해 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) 을 사용해 봅니다. 자세한 내용은 [Microsoft Azure에서 Intel Cloud Edition for Lustre 배포](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/)(영문)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

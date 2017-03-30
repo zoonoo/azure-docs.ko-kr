@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fee6c375f93e1e669c031d8ca63470f7f48fadf2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -65,16 +65,17 @@ ms.lasthandoff: 03/08/2017
 * [VM 생성 도중 아티팩트가 실패했습니다. 어떻게 해결합니까?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [기존 가상 네트워크가 제대로 저장되지 않는 이유는 무엇입니까?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [PowerShell에서 프로비전할 때 "부모 리소스를 찾을 수 없음" 오류가 표시되는 이유는 무엇인가요?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [VM 배포에 실패한 경우 오류 정보를 어디에서 더 찾을 수 있나요?](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
-질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다.
+질문이 여기에 나열되어 있지 않은 경우 답변을 찾는 데 도움을 드릴 수 있도록 알려주세요.
 
 * 이 FAQ의 끝에 있는 [Disqus 스레드](#comments) 에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원들과 이 문서에 대해 정보를 교환할 수 있습니다.
 * 더 많은 사용자와 의견을 교환하려는 경우에는 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하여 Azure DevTest Labs 팀 및 커뮤니티의 다른 구성원들과 토론을 할 수 있습니다.
 * 기능을 요청하려면 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
 
 ### <a name="why-should-i-use-azure-devtest-labs"></a>Azure DevTest Labs를 사용해야 하는 이유는 무엇인가요?
-Azure DevTest Labs를 통해 팀 시간과 비용을 절약할 수 있습니다. 개발자는 다양한 자료를 사용하여 자신의 환경을 만들고 아티팩트를 사용하여 응용 프로그램을 신속하게 배포하고 구성할 수 있습니다. 사용자 지정 이미지 및 수식을 사용하여 가상 컴퓨터는 템플릿으로 저장되어 쉽게 재현될 수 있습니다. 또한 랩은 랩 관리자가 낭비를 줄이고 팀의 환경을 관리하도록 허용하는 몇 가지 구성 가능한 정책을 제공합니다. 이러한 정책에는 자동 종료, 비용 임계값, 사용자당 최대 VM 및 최대 VM 크기가 포함됩니다. Azure DevTest Labs의 자세한 설명은 [개요](devtest-lab-overview.md)를 읽거나 [소개 비디오](/documentation/videos/videos/what-is-azure-devtest-labs)를 확인하세요.
+Azure DevTest Labs를 통해 팀 시간과 비용을 절약할 수 있습니다. 개발자는 다양한 자료를 사용하여 자신의 환경을 만들고 아티팩트를 사용하여 응용 프로그램을 신속하게 배포하고 구성할 수 있습니다. 사용자 지정 이미지 및 수식을 사용하여 가상 컴퓨터는 템플릿으로 저장되어 쉽게 재현될 수 있습니다. 또한 랩은 랩 관리자가 낭비를 줄이고 팀의 환경을 관리하도록 허용하는 몇 가지 구성 가능한 정책을 제공합니다. 이러한 정책에는 자동 종료, 비용 임계값, 사용자당 최대 VM 및 최대 VM 크기가 포함됩니다. Azure DevTest Labs에 대한 자세한 설명은 [개요](devtest-lab-overview.md)를 읽거나 [소개 비디오](/documentation/videos/videos/what-is-azure-devtest-labs)를 시청하세요.
 
 ### <a name="what-does-worry-free-self-service-mean"></a>"걱정 없는 무료, 셀프 서비스"는 무슨 의미인가요?
 "걱정 없는 무료, 셀프 서비스"는 개발자 및 테스터가 필요에 따라 자신의 환경을 만들 수 있으며 관리자가 Azure DevTest Labs를 통해 낭비를 최소화하고 비용을 제어한다는 인식의 보안을 갖는 것을 의미합니다. 관리자는 허용되는 VM 크기, VM의 최대 수 및 VM의 시작 및 종료 시기를 지정할 수 있습니다. 또한 랩에서 리소스가 사용되는 방식을 인식하기 위해 Azure DevTest Labs를 통해 쉽게 비용을 모니터링하고 경고를 설정합니다.
@@ -157,7 +158,12 @@ VM을 Azure DevTest Labs로 직접 이동하는 솔루션을 설계했지만 현
 VM에 여러 디스크 연결이 지원됩니다.  
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>테스트에 Windows OS 이미지를 사용하려면 MSDN 구독을 구매해야 하나요?
-예. 테스트에 클라이언트 OS 이미지(Windows 7 이상)를 사용해야 할 경우 [MSDN 구독을 구매](https://www.visualstudio.com/products/how-to-buy-vs)해야 합니다. [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)에서 각 MSDN 제공에 대한 Azure 크레딧 및 세부 정보를 확인할 수 있습니다.
+Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미지(Windows 7 이상)를 사용해야 하는 경우 다음 중 하나를 수행해야 합니다.
+
+- [MSDN 구독을 구입하세요](https://www.visualstudio.com/products/how-to-buy-vs). 
+- 기업 계약이 있는 경우 [Enterprise 개발/테스트 제품](https://azure.microsoft.com/en-us/offers/ms-azr-0148p)을 사용하여 Azure 구독을 만드세요.
+
+각 MSDN 제품의 Azure 크레딧에 대한 자세한 내용은 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 ### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>사용자 지정 이미지를 만들도록 VHD 파일 업로드 과정을 어떻게 자동화합니까?
 두 가지 옵션이 있습니다.
@@ -176,7 +182,7 @@ VM에 여러 디스크 연결이 지원됩니다.
 7. AzCopy 명령에서 대상으로 **URL** 을 사용합니다.
 
 ### <a name="how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>어떻게 하면 랩에 있는 모든 VM을 삭제하는 프로세스를 자동화할 수 있을까요?
-Azure 포털에 있는 내 랩에서 VM을 삭제하는 것 외에도 PowerShell 스크립트를 사용하여 랩에서 모든 VM을 삭제할 수 있습니다. 다음 예제에서 **변경할 값** 설명대로 매개 변수 값을 간단히 수정합니다. Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 `labName` 값을 검색할 수 있습니다.
+Azure Portal에 있는 내 랩에서 VM을 삭제하는 것 외에도 PowerShell 스크립트를 사용하여 랩에서 모든 VM을 삭제할 수 있습니다. 다음 예제에서 **변경할 값** 설명 아래 매개 변수 값을 수정하세요. Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 `labName` 값을 검색할 수 있습니다.
 
     # Delete all the VMs in a lab
 
@@ -225,18 +231,18 @@ Azure 포털에 있는 내 랩에서 VM을 삭제하는 것 외에도 PowerShell
 랩당 만들 수 있는 VM의 수에는 특정 제한이 없지만 현재 랩은 표준 저장소에서 동시에 실행되는 약 40개의 VM 및 프리미엄 저장소에서 동시에 실행되는 25개의 VM을 지원합니다. 현재 이러한 제한을 늘리도록 작업 중입니다.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>랩에 대한 직접 링크를 공유하려면 어떻게 합니까?
-랩 사용자에게 직접 링크를 공유하려면 다음 절차를 수행할 수 있습니다.
+랩 사용자에게 직접 링크를 공유하려면 다음 절차를 수행하세요.
 
 1. Azure 포털에서 랩으로 이동합니다.
 2. 브라우저에서 랩 URL을 복사하여 랩 사용자와 공유합니다.
 
 > [!NOTE]
-> 랩 사용자가 [MSA 계정](#what-is-a-microsoft-account) 을 가진 외부 사용자이고 회사의 Active directory에 속하지 않는 경우 제공된 링크로 이동할 때 오류가 발생할 수 있습니다. 오류가 발생하면 Azure 포털의 오른쪽 위 모서리에 있는 자신의 이름을 클릭하고 메뉴의 **디렉터리** 섹션에서 랩이 존재하는 디렉터리를 선택합니다.
+> 랩 사용자가 [Microsoft 계정](#what-is-a-microsoft-account)이 있는 외부 사용자이고 회사의 Active Directory에 속하지 않는 경우 제공된 링크로 이동할 때 오류가 발생할 수 있습니다. 오류가 발생하면 Azure 포털의 오른쪽 위 모서리에 있는 자신의 이름을 클릭하고 메뉴의 **디렉터리** 섹션에서 랩이 존재하는 디렉터리를 선택합니다.
 >
 >
 
 ### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란?
-Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의 모든 것에 대해 사용하는 계정입니다. Skype, Outlook.com, OneDrive, Windows Phone 및 Xbox LIVE 에 로그인하는 데 사용하는 전자 메일 주소 및 암호입니다. 이는 사용자가 어느 장치로 가든 파일, 사진, 연락처 및 설정이 따라 갈 수 있음을 의미합니다.
+Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의 모든 것에 대해 사용하는 계정입니다. Skype, Outlook.com, OneDrive, Windows Phone 및 Xbox LIVE에 로그인하는 데 사용하는 전자 메일 주소 및 암호입니다. 다시 말해 사용자의 파일, 사진, 연락처 및 설정을 모든 장치에서 사용할 수 있습니다.
 
 > [!NOTE]
 > Microsoft 계정을 "Windows Live ID"라 한 적이 있습니다.
@@ -244,7 +250,7 @@ Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의
 >
 
 ### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>VM 생성 도중 아티팩트가 실패했습니다. 어떻게 해결합니까?
-실패한 아티팩트에 대한 로그를 얻는 방법을 알아보려면 MVP 중 한 명이 작성한 블로그 게시물 [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법)를 참조하세요.
+실패한 아티팩트에 대한 로그를 얻는 방법을 알아보려면 MVP 중 한 명이 작성한 블로그 게시물 [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)(AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법)를 참조하세요.
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>기존 가상 네트워크가 제대로 저장되지 않는 이유는 무엇입니까?
 한 가지 가능성은 가상 네트워크 이름에 기간이 포함되어 있는 것입니다. 그렇다면 기간을 제거하거나 하이픈으로 바꾼 다음 가상 네트워크를 다시 저장합니다.
@@ -252,5 +258,10 @@ Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>PowerShell에서 VM을 프로비전할 때 "부모 리소스를 찾을 수 없음" 오류가 표시되는 이유는 무엇인가요?
 한 리소스가 다른 리소스의 부모이면 부모 리소스는 자식 리소스를 만들기 전에 존재해야 합니다. 부모 리소스가 없는 경우 **ParentResourceNotFound** 오류가 표시됩니다. 부모 리소스에 대한 종속성을 지정하지 않으면 자식 리소스는 부모보다 먼저 배포될 수 있습니다.
 
-리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 통해 배포하는 데 ARM 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 문제 해결 ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound)를 참조하세요.
+리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 통해 배포하는 데 Azure Resource 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 오류 문제 해결](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound)을 참조하세요.
+
+### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>VM 배포에 실패하면 오류 정보를 어디에서 더 찾을 수 있나요?
+VM 배포 오류는 활동 로그에 캡처됩니다. 랩 VM 활동 로그는 랩의 VM 블레이드(블레이드는 **내 가상 컴퓨터** 목록에서 VM을 선택한 후에 표시됨)에 있는 리소스 메뉴에서 **감사 로그** 또는 **가상 컴퓨터 진단**을 통해 찾을 수 있습니다. 
+
+VM 배포가 시작되기 전에 배포 오류가 발생하는 경우(예: VM을 사용하여 만든 리소스에 대한 구독 제한이 초과된 경우)도 있습니다. 이런 경우 오류 세부 정보가 랩 수준 **활동 로그**에 캡처되며 **구성 및 정책** 설정의 하단에서 찾을 수 있습니다. Azure에서 활동 로그를 사용하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 

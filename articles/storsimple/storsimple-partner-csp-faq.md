@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 30f56224a00957127497b6a05a809453294ea94e
-ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -79,7 +80,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>고객을 위해 독립 실행형 StorSimple 구독을 프로비전했습니다. 장치를 관리하려면 Azure Portal을 사용해야 합니까? 
 예. 
 
-### <a name="is-the-microsoft-field-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Microsoft 필드는 CSP를 통해 StorSimple의 판매 결과로 보정됩니까?
+### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Microsoft 계정 팀은 CSP를 통해 StorSimple의 판매 결과로 보정됩니까?
 예. 파트너 영업 담당자 및 최종 고객에 대한 고객 계정 팀은 CSP 판매에 대해 보정됩니다. 파트너는 자신의 차별화된 값 및 제품 판매에 주도적 역할을 할 것으로 예상됩니다.
 
 ## <a name="support-for-storsimple-and-csp"></a>StorSimple 및 CSP에 대한 지원
@@ -98,9 +99,4 @@ CSP용 StorSimple에 대한 자세한 내용은 다음으로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 StorSimple을 배포할 준비가 되면 [CSP에서 StorSimple 배포](storsimple-partner-csp-deploy.md)로 이동합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

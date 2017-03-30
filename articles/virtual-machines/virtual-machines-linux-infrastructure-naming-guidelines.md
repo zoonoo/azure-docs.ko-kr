@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: b86bfcbd8b49dfcf383c48d57f237f2433bf20d6
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 997a5e5db9abdd92c3717d9eb10ff01b2bb40a9f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -98,7 +98,7 @@ Azure에서 VM(가상 컴퓨터)을 만들 때는 리소스 이름에 사용되�
 Azure VM 이름은 기본 운영 체제 컴퓨터 이름과 동일하게 지정하는 것이 좋습니다.
 
 ## <a name="storage-account-names"></a>저장소 계정 이름
-저장소 계정에는 해당 이름을 제어하는 특별한 규칙이 있습니다. 소문자와 숫자만 사용할 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요. 또한 core.windows.net이 포함된 저장소 계정 이름은 전역적으로 유효하고 고유한 DNS 이름이어야 합니다. 예를 들어 저장소 계정이 mystorageaccount인 경우 결과로 생성된 다음 DNS 이름이 고유해야 합니다.
+별도의 저장소 계정을 만들지 않으므로 이 섹션은 [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 적용되지 않습니다. 관리되지 않는 디스크의 경우 저장소 계정 이름에 적용되는 특별한 규칙이 있습니다. 소문자와 숫자만 사용할 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요. 또한 core.windows.net이 포함된 저장소 계정 이름은 전역적으로 유효하고 고유한 DNS 이름이어야 합니다. 예를 들어 저장소 계정이 mystorageaccount인 경우 결과로 생성된 다음 DNS 이름이 고유해야 합니다.
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
