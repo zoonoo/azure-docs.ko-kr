@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1390a0caf4e9cfe2af8bd6171a4d07f58da4bc43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 0d58355bf4d9cef0a84a6a192dbf019ee5238904
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Azure VM의 Always On 가용성 그룹 구성(클래식)
 > [!div class="op_single_selector"]
-> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [클래식: UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [클래식: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 > [!IMPORTANT] 
@@ -387,7 +387,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 7. **초기 데이터 동기화 선택** 페이지에서 **조인만**을 선택하고 **다음**을 클릭합니다. **ContosoSQL1**에서 전체 및 트랜잭션 백업을 수행하고 이를 **ContosoSQL2**에서 복원할 때 이미 데이터 동기화를 수동으로 수행했습니다. 대신, 데이터베이스에서 백업 및 복원 작업을 수행하지 않고 **전체** 를 선택하여 새 가용성 그룹 마법사가 데이터 동기화를 자동으로 수행하도록 할 수 있습니다. 그러나 일부 기업에서 사용하는 대형 데이터베이스의 경우에는 이 방법을 수행하지 않는 것이 좋습니다.
    
     ![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
-8. **유효성 검사** 페이지에서 **다음**을 클릭합니다. 이 페이지는 다음과 유사하게 표시되어야 합니다. 가용성 그룹 수신기가 구성되어 있지 않으므로 수신기 구성에 대한 경고가 표시됩니다. 이 자습서에서는 수신기를 구성하지 않으므로 이 경고를 무시해도 됩니다. 이 자습서를 완료한 후 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹을 위해 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+8. **유효성 검사** 페이지에서 **다음**을 클릭합니다. 이 페이지는 다음과 유사하게 표시되어야 합니다. 가용성 그룹 수신기가 구성되어 있지 않으므로 수신기 구성에 대한 경고가 표시됩니다. 이 자습서에서는 수신기를 구성하지 않으므로 이 경고를 무시해도 됩니다. 이 자습서를 완료한 후 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹을 위해 ILB 수신기 구성](../classic/ps-sql-int-listener.md)을 참조하세요.
    
     ![새 AG 마법사, 유효성 검사](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 9. **요약** 페이지에서 **마침**을 클릭한 후 마법사에서 새 가용성 그룹을 구성하는 동안 기다립니다. **진행률** 페이지에서 **자세한 내용**을 클릭하여 자세한 진행 상태를 확인할 수 있습니다. 마법사가 완료되면 아래와 같이 **결과** 페이지를 검토하여 가용성 그룹이 올바르게 만들어졌는지 확인한 후 **닫기**를 클릭하여 마법사를 종료합니다.
@@ -410,7 +410,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 > 
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](../classic/ps-sql-int-listener.md)을 참조하세요.
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 

@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: e6a3e91e5821e761af0ff710da2a817eb7c185bb
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 32e86b0c3e7c0091b1a0510aa682419d2d030dd8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -40,10 +40,8 @@ Sqoop을 사용하여 HDInsight 클러스터와 Azure SQL Database 또는 SQL �
 ## <a name="install-freetds"></a>FreeTDS 설치
 1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 연결 시 사용할 주소는 `CLUSTERNAME-ssh.azurehdinsight.net`이며 포트는 `22`입니다.
 
-    SSH를 사용한 HDInsight 연결에 대한 자세한 내용은 다음 문서를 참조합니다.
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-   * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * **Windows 클라이언트**: [Windows로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md)
 2. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e801d966e7461be7ec6101941c7b70912ad8c403
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 62e9f34216f25bc1feab3bc76f78a9c1ab07ab9c
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -59,7 +59,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 3. Windows 기반 SKU를 사용할 경우 제안된 링크를 따라 Windows Server의 승인된 버전을 습득하세요.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Azure 호환 VHD 만들기(Linux 기반)
-이 섹션에서는 Azure 마켓플레이스에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 설명서를 참조하세요.
+이 섹션에서는 Azure 마켓플레이스에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 설명서를 참조하세요.
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Azure 호환 VHD 만들기(Windows 기반)
 이 섹션에서는 Azure 마켓플레이스에 대해 Windows Server 기반 SKU를 만드는 단계를 중심으로 다룹니다.
@@ -175,7 +175,7 @@ Azure 마켓플레이스의 모든 이미지는 일반적으로 다시 사용할
 
         sysprep.exe /generalize /oobe /shutdown
 
-  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)의 단계를 참조하세요.
+  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)의 단계를 참조하세요.
 
 ## <a name="4-deploy-a-vm-from-your-vhds"></a>4. VHD에서 VM 배포
 VHD(일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD)가 Azure 저장소 계정에 업로드된 후에는 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.

@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: b036296a4b4ce8ba3e6707226642a928381bcf31
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -77,7 +78,7 @@ ms.openlocfilehash: b036296a4b4ce8ba3e6707226642a928381bcf31
    * **끝점** **원격 데스크톱** 및 **PowerShell** 끝점을 그대로 유지한 다음 사용자 환경에 따라 HTTP 또는 HTTPS 끝점을 추가합니다.
      
      * **HTTP**: 기본 공용 포트 및 개인 포트가 **80**입니다. 80 이외의 개인 포트를 사용하는 경우 HTTP 스크립트에서 **$HTTPport = 80** 을 수정합니다.
-     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
+     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
    * 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치** 를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다.  VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 9. 완료를 클릭합니다. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -607,10 +608,5 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Azure VM의 SQL Server에 대한 기타 리소스 링크
 [Azure 가상 컴퓨터의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

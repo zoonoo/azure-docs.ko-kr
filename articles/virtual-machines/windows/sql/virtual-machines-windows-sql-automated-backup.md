@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1b9401d7c2f756081d585b9432ceef412ab1f807
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 백업(Resource Manager)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-automated-backup.md)
-> * [클래식](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md)
+> * [클래식](../classic/sql-automated-backup.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
+이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)](../classic/sql-automated-backup.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 자동화된 백업을 사용하려면 다음 필수 조건을 고려하세요.
@@ -149,10 +150,5 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

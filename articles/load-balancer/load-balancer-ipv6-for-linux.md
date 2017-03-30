@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: f14a0473ebcf21e04759cb8eb77eb684c4d9a9cb
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c591e7f1838c86ca74caea9dd3a5e8f874fd8a7
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -44,7 +45,9 @@ Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적
    * **Ubuntu 12.04 and 14.04**에서 `/etc/network/interfaces.d/eth0.cfg` 파일을 편집합니다.
    * **Ubuntu 16.04**에서 `/etc/network/interfaces.d/50-cloud-init.cfg` 파일을 편집합니다.
 
-        iface eth0 inet6 auto        up sleep 5        up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+         iface eth0 inet6 auto
+             up sleep 5
+             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
 3. IPv6 주소를 갱신합니다.
 
@@ -146,9 +149,4 @@ Azure의 최근 CoreOS 이미지는 DHCPv6를 사용해 미리 구성되었습�
     ```bash
     sudo systemctl restart systemd-networkd
     ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

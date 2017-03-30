@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 808343035c2554a3cd01cf3fe0ef6ebba2c54e23
-ms.openlocfilehash: 5b4443a8746bc8c88e2c5b58068c200aafc4beea
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 53e053fe12ea6753b6a47443ab91948c9a753a17
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -34,7 +35,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 우선 가상 컴퓨터에 데이터 디스크를 연결해야 합니다. 
 
 * 포털을 사용하려면 [Azure Portal에서 데이터 디스크를 연결하는 방법](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-* 클래식 포털을 사용하려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 
+* 클래식 포털을 사용하려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>pagefile.sys를 C 드라이브로 임시 이동
 1. 가상 컴퓨터에 연결합니다. 
@@ -69,10 +70,5 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 ## <a name="next-steps"></a>다음 단계
 * [추가 데이터 디스크를 연결](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 가상 컴퓨터에서 사용할 수 있는 저장소를 늘릴 수 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

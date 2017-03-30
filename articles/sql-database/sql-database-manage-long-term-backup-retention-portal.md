@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 12/22/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: d055e40305b277338ae85e8d6c53d3d76a78d235
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fa4cf56c10f885a2fd4b62e08a369a51d1280ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,10 +91,6 @@ ms.lasthandoff: 02/16/2017
 14. **저장**을 클릭하여 구성한 Azure Recovery Services 자격 증명 모음에 이 새 정책을 사용하는 장기 백업 보존을 활성화합니다.
 
    ![보존 정책 정의](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
-
-14. 장기 백업 보존을 활성화한 후에 **복구 서비스 자격 증명 모음** 블레이드를 엽니다(**모든 리소스**로 이동하고 구독에 대한 리소스 목록에서 선택).
-
-   ![복구 서비스 자격 증명 모음 보기](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
 
 ## <a name="restore-from-long-term-backup-retention-using-the-azure-portal"></a>Azure 포털을 사용하여 장기 백업 보존에서 복원
