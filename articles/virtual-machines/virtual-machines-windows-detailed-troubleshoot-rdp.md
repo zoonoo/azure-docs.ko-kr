@@ -7,8 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: >
-  cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
+keywords: "원격 데스크탑에 연결할 수 없습니다, 원격 데스크톱 문제 해결, 원격 데스크톱을 연결할 수 없습니다, 원격 데스크톱 오류, 원격 데스크톱 문제 해결, 원격 데스크톱 문제"
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -18,8 +17,9 @@ ms.topic: support-article
 ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
-ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 35dbfaa1cdc274fb2c1fcb3afc68547ffefe80ab
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -108,7 +108,7 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 * 대상 VM에서 원격 데스크톱 트래픽에 대한 끝점 구성: 끝점의 개인 TCP 포트는 VM의 원격 데스크톱 서비스가 수신 대기하는 TCP 포트와 일치해야 합니다(기본값 3389).
 * 대상 VM에서 원격 데스크톱 트래픽 끝점에 대한 ACL: ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](../virtual-network/virtual-networks-acl.md)
 
-끝점이 문제의 발생지인지 확인하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+끝점이 문제의 발생지인지 확인하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="source-4-network-security-groups"></a>소스 4: 네트워크 보안 그룹
 네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 살펴보고 인터넷에서 들어오는 원격 데스크톱 트래픽이 허용되어 있는지 확인하세요.
@@ -125,7 +125,7 @@ ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 ## <a name="source-5-windows-based-azure-vm"></a>발생지 5: Windows 기반 Azure VM
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-[Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) 를 사용하여 오류가 Azure 가상 컴퓨터 자체 때문인지 확인합니다. 이 진단 패키지로 **Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제를 해결할 수 없는 경우 [이 문서](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침을 따릅니다. 이 문서는 가상 컴퓨터에서 원격 데스크톱 서비스를 다시 설정합니다.
+[이 문서](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침에 따르세요. 이 문서는 가상 컴퓨터에서 원격 데스크톱 서비스를 다시 설정합니다.
 
 * "원격 데스크톱" Windows 방화벽 기본 규칙(TCP 포트 3389)이 활성화됩니다.
 * HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
@@ -167,7 +167,7 @@ Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 �
 이 프롬프트의 첫 번째 부분은 대상 VM을 포함하는 클라우드 서비스 이름으로, "cloudservice4testing.cloudapp.net"과 다를 수 있습니다. 이제 이 클라우드 서비스에 대해 Azure PowerShell 명령을 실행하여 언급된 문제를 조사하고 구성을 수정할 수 있습니다.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>TCP 포트에서 수신 대기하는 원격 데스크톱 서비스를 수동으로 수정하려면
-[Azure VM에 대한 RDP 연결(다시 부팅 필요)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) 문제로 인해 **Azure IaaS(Windows) 진단 패키지** 를 실행할 수 없는 경우 원격 Azure PowerShell 세션 프롬프트에서 이 명령을 실행합니다.
+원격 Azure PowerShell 세션 프롬프트에서 이 명령을 사용합니다.
 
     Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
@@ -186,8 +186,6 @@ PortNumber 속성은 현재 포트 번호를 보여줍니다. 필요한 경우 �
 Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포트로 사용하고 있는지 확인합니다. Azure VM을 다시 시작한 후 원격 데스크톱 연결을 다시 시도합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-[Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
-
 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
@@ -195,10 +193,5 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
-ms.openlocfilehash: b2dcf4e0e5cc8e2c594357495635889a2e3645bd
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: dae5491962b22453c517da35539ce09463d8802d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -53,7 +54,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 1. Auzre Import/Export 서비스에 사용할 요구 사항을 충족하는 하드 디스크를 확보합니다.
 2. 하드 디스크가 Azure 데이터 센터에 제공된 후에 데이터를 복사할 Azure Storage 계정을 확인합니다.
 3. [Azure Import/Export 도구](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) 명령줄 유틸리티를 사용합니다. 이 도구를 사용하는 방법을 보여 주는 샘플 코드 조각은 다음과 같습니다.
-   
+
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
@@ -187,7 +188,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
     }
 }
 ````
-자세한 내용은 [Azure Data Factory를 사용하여 Azure Storage Blob에서 Azure Data Lake Store로 데이터 이동](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)을 참조하세요.
+자세한 내용은 [Azure Data Factory를 사용하여 Azure Storage Blob에서 Azure Data Lake Store로 데이터 이동](../data-factory/data-factory-azure-datalake-connector.md#example-copy-data-from-azure-blob-to-azure-data-lake-store)을 참조하세요.
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Azure Data Lake Store에서 데이터 파일 다시 생성
 319GB의 파일로 시작하고 작은 크기의 파일로 분할하여 Azure Import/Export 서비스를 사용하여 파일을 전송할 수 있었습니다. 이제 데이터가 Azure Data Lake Store에 있으므로 파일을 원래 크기로 다시 생성할 수 있습니다. 다음 Azure PowerShell cmdlet을 사용하여 이 작업을 수행할 수 있습니다.
@@ -211,10 +212,4 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

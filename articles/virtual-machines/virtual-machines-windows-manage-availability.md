@@ -17,9 +17,9 @@ ms.date: 03/21/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 105880c146135a9ecdc29cf5363a240d3550a6a9
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b1b2188811325e9002570734a738f417cfe4027e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -29,7 +29,7 @@ Azure에서 여러 가상 컴퓨터를 설정하고 관리하여 Windows 응용 
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-클래식 배포 모델을 사용할 때 가용성 집합을 만들고 사용하기 위한 지침을 보려면 [가용성 집합 구성 방법](virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+클래식 배포 모델을 사용할 때 가용성 집합을 만들고 사용하기 위한 지침을 보려면 [가용성 집합 구성 방법](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 

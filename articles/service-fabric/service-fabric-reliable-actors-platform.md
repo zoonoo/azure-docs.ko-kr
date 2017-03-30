@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: c2e8f2d2f26bb93af5c2858242392b3dc207beb4
-ms.openlocfilehash: 2a3a5647f506d61e853f465f241d66fbe8c4ced0
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: ba07b1bf1b49ebb24a7d5cfbaad71f5f17c49192
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/08/2017
 이러한 구성 요소는 Reliable Actor 프레임워크를 함께 구성합니다. 
 
 ## <a name="service-layering"></a>서비스 계층
-행위자 서비스 자체가 Reliable Service이므로 Reliable Services의 [응용 프로그램 모델](service-fabric-application-model.md), 수명 주기, [패키징](service-fabric-application-model.md#package-an-application), [배포](service-fabric-deploy-remove-applications.md), 업그레이드 및 개념 확장은 모두 행위자 서비스에 동일한 방식으로 적용됩니다. 
+행위자 서비스 자체가 Reliable Service이므로 Reliable Services의 [응용 프로그램 모델](service-fabric-application-model.md), 수명 주기, [패키징](service-fabric-package-apps.md), [배포](service-fabric-deploy-remove-applications.md), 업그레이드 및 개념 확장은 모두 행위자 서비스에 동일한 방식으로 적용됩니다. 
 
 ![행위자 서비스 계층][1]
 

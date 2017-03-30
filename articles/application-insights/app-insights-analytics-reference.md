@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -714,7 +714,12 @@ requests
 
 **예제**
 
-requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
 
 ![make-series의 결과](./media/app-insights-analytics-reference/make-series.png)
 
@@ -923,7 +928,7 @@ range x from 1 to 1 step 1
 
 **예제**
 
-다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력 테이블 `T`에는 `int` 형식의 열로 `A`, `B`, `C`의&3;개가 있습니다. 
+다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여 줍니다. 입력 테이블 `T`에는 `int` 형식의 열로 `A`, `B`, `C`의 3개가 있습니다. 
 
 ```AIQL
 T
@@ -981,7 +986,7 @@ range Steps from 1 to 8 step 3
 
     range LastWeek from bin(ago(7d),1d) to now() step 1d
 
-지난&7;일 자정에 대한 테이블입니다. bin(floor) 함수는 각 시간을 날짜의 시작으로 줄입니다.
+지난 7일 자정에 대한 테이블입니다. bin(floor) 함수는 각 시간을 날짜의 시작으로 줄입니다.
 
 **예제**  
 
@@ -996,7 +1001,7 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-`range` 연산자를 사용하여 작은 임시 차원 테이블을 생성할 수 있는 방법을 보여 주며 이 테이블은 원본 데이터에 값이 없는 경우&0;을 도입하기 위해 사용됩니다.
+`range` 연산자를 사용하여 작은 임시 차원 테이블을 생성할 수 있는 방법을 보여 주며 이 테이블은 원본 데이터에 값이 없는 경우 0을 도입하기 위해 사용됩니다.
 
 ### <a name="reduce-operator"></a>reduce 연산자
     exceptions | reduce by outerMessage
@@ -1705,7 +1710,7 @@ Analytics에서 다음과 같은 이벤트 그룹이 표시됩니다.
 몇 가지 중요 사항: 
 
 * 추정 오류의 범위는 요청한 백분위수의 값에 따라 달라집니다. 최고의 정확도는 [0 ~ 100] 눈금의 끝에서 얻어지며, 백분위수 0 및 100은 분포의 최소값 및 최대값과 똑같습니다. 정확도는 눈금의 중앙으로 갈수록 서서히 감소합니다. 중앙값에서 최악이 되고 1%에서 최고가 됩니다. 
-* 오류 범위는 값이 아닌 순위에서 관찰됩니다.. 백분위수(X, 50)가 Xm의 값을 반환한다고 가정합니다. 추정치는 X의 값 중 최소 49%와 최대 51%는 Xm보다 작다는 것을 보장합니다. Xm과 X의 실제 중간값 사이에 이론적 제한은 없습니다.
+* 오류 범위는 값이 아닌 순위에서 관찰됩니다. 백분위수(X, 50)가 Xm의 값을 반환한다고 가정합니다. 추정치는 X의 값 중 최소 49%와 최대 51%는 Xm보다 작다는 것을 보장합니다. Xm과 X의 실제 중간값 사이에 이론적 제한은 없습니다.
 
 ### <a name="stdev"></a>stdev
      stdev(Expr)
@@ -2570,7 +2575,7 @@ range x from 1 to 5 step 1
 
 * *source*: 지정된 구분 기호에 따라 분할될 소스 문자열입니다.
 * *delimiter*: 소스 문자열을 분할하기 위해 사용될 구분 기호입니다.
-* *requestedIndex*: 선택적&0;부터 시작하는 인덱스 `int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
+* *requestedIndex*: 선택적 0부터 시작하는 인덱스 `int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
 
 **반환**
 
@@ -2611,7 +2616,7 @@ split("aabbcc", "bb")         // ["aa","cc"]
 **인수**
 
 * *source:* 소스 문자열을 가져올 소스 문자열입니다.
-* *startingIndex:* 요청된 부분 문자열의&0;부터 시작하는 시작 문자 위치입니다.
+* *startingIndex:* 요청된 부분 문자열의 0부터 시작하는 시작 문자 위치입니다.
 * *length:* 부분 문자열에서 요청된 문자 수를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다. 
 
 **반환**

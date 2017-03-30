@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1e66ce0af4d3d33b584f9f3a881c34aa04e783b7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 12aea210308636677ba2905887ddd24dc5c35238
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,7 +44,7 @@ Data Lake Store 계정에 액세스할 수 있는 HDInsight 클러스터를 만�
 
 HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 데이터를 복사하는 데 사용할 수 있는 Distcp 유틸리티와 함께 제공됩니다. 데이터 레이크 저장소를 추가 저장소로 사용하도록 HDInsight 클러스터를 구성한 경우 Distcp 유틸리티는 기본적으로 데이터 레이크 저장소 계정으로/에서 데이터를 복사할 수 있습니다. 이 섹션에서는 Distcp 유틸리티를 사용하는 방법에 대해 살펴봅니다.
 
-1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
+1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 
 2. Azure 저장소 Blob(WASB)에 액세스할 수 있는지 여부를 확인합니다. 다음 명령을 실행합니다.
 
@@ -101,7 +101,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 ### <a name="copying-large-datasets"></a>큰 데이터 집합 복사
 
-이동해야 하는 데이터 집합의 크기가 매우 큰 경우(예:&1;TB 초과) 또는 많은 다른 폴더가 포함된 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 특정 작업만 다시 시작하면 됩니다.
+이동해야 하는 데이터 집합의 크기가 매우 큰 경우(예: 1TB 초과) 또는 많은 다른 폴더가 포함된 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 특정 작업만 다시 시작하면 됩니다.
 
 ### <a name="limitations"></a>제한 사항
 

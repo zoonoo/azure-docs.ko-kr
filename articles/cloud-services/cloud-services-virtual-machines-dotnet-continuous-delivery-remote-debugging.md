@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: bd0768b9d46c12c38ecd530ccef8397d1b595d8d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d011223dbb1ad7b5752875e94a4822be1b6cbe6e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/07/2017
 6. Visual Studio 및 Azure SDK for .NET이 설치된 컴퓨터로 인증서(.pfx 파일)를 가져옵니다. `CurrentUser\My` 인증서 저장소로 로 가져와야 합니다. 그렇지 않은 경우 Visual Studio의 디버거에 연결는 데 실패합니다.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>가상 컴퓨터에 원격 디버깅 사용
-1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Visual Studio에서 Azure Virtual Machine 만들기 및 관리](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Visual Studio에서 Azure Virtual Machine 만들기 및 관리](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 2. [Azure 클래식 포털 페이지](http://go.microsoft.com/fwlink/p/?LinkID=269851)에서, 가상 컴퓨터 대시보드를 보고 가상 컴퓨터의 **RDP 인증서 지문**을 확인합니다. 이 값은 확장 구성에서 `ServerThumbprint` 값에 사용됩니다.
 3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md) 에서 간략히 설명한 대로 클라이언트 인증서를 만듭니다(.pfx 및 RDP 인증서 지문 유지).
 4. Azure PowerShell(0.7.4 이후 버전)을 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)에 간략히 설명한 대로 설치합니다.
@@ -94,6 +94,6 @@ ms.lasthandoff: 03/07/2017
     $vm | Update-AzureVM
     ```
 
-6. Visual Studio 및 Azure SDK for .NET&2;.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
+6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
 

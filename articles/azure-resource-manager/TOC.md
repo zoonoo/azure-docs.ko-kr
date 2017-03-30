@@ -14,11 +14,11 @@
 ## 템플릿 만들기
 ### [템플릿 모범 사례](resource-manager-template-best-practices.md)
 ### [템플릿 섹션](resource-group-authoring-templates.md)
-### [템플릿 함수](resource-group-template-functions.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
+### [위치 설정](resource-manager-template-location.md)
+### [태그 할당](resource-manager-template-tags.md)
 ### [리소스 이름 및 유형을 자식 설정](resource-manager-template-child-resource.md)
 ### [리소스 유형의 여러 인스턴스 만들기](resource-group-create-multiple.md)
-### [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
 ### [연결된 템플릿 간 상태 공유](best-practices-resource-manager-state.md)
 ### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [포털](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)
 ## 관리
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [배포 작업 보기](resource-manager-deployment-operations.md)
 
 # 참조
+## [템플릿 함수](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

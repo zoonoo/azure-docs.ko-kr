@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/01/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 8e59988f24748a82d4e143295bab9bdaa65cf8e4
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d09d2b869606995d227aa485a85acd67c18ee4e5
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성
 > [!div class="op_single_selector"]
-> * [내부 수신기](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [내부 수신기](../classic/ps-sql-int-listener.md)
+> * [외부 수신기](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -37,18 +37,18 @@ ms.lasthandoff: 01/11/2017
 
 Resource Manager 모델에서 Always On 가용성 그룹에 대한 ILB 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 내부 부하 분산 장치 구성](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 
-가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
+가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](../classic/portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
 ## <a name="guidelines-and-limitations-for-internal-listeners"></a>내부 수신기에 대한 지침 및 제한 사항
 ILB를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같은 지침이 적용됩니다.
 
 * 가용성 그룹 수신기는 Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2에서 지원됩니다.
-* 수신기는 ILB로 구성되고 ILB는 클라우드 서비스당 하나만 있기 때문에 하나의 내부 가용성 그룹 수신기만 지원됩니다. 그러나 외부 수신기는 여러 개를 만들 수 있습니다. 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성](virtual-machines-windows-classic-ps-sql-ext-listener.md)을 참조하세요.
+* 수신기는 ILB로 구성되고 ILB는 클라우드 서비스당 하나만 있기 때문에 하나의 내부 가용성 그룹 수신기만 지원됩니다. 그러나 외부 수신기는 여러 개를 만들 수 있습니다. 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성](../classic/ps-sql-ext-listener.md)을 참조하세요.
 
 ## <a name="determine-the-accessibility-of-the-listener"></a>수신기의 액세스 가능 여부 확인
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-이 문서에서는 **ILB(내부 부하 분산 장치)**를 사용하는 수신기를 만드는 데 중점을 둡니다. 공용/외부 수신기가 필요한 경우 [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 설정 단계를 제공하는 이 문서의 다른 버전을 참조하세요.
+이 문서에서는 **ILB(내부 부하 분산 장치)**를 사용하는 수신기를 만드는 데 중점을 둡니다. 공용/외부 수신기가 필요한 경우 [외부 수신기](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 설정 단계를 제공하는 이 문서의 다른 버전을 참조하세요.
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
 ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작업은 아래 스크립트로 수행됩니다.
