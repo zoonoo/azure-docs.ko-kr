@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 9b6429027a0d9f95ddced8b6616693ac2959a014
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b6b82aa6f129a008091e4abc1798b9b5d402c28e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 03/10/2017
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 GitHub 리포지토리의 연속 배포를 설정합니다. 연속 배포를 사용하지 않는 GitHub 배포는 [웹앱 만들기 및 GitHub의 코드 배포](app-service-powershell-deploy-github.md)를 참조하세요.
 
-이 스크립트를 실행하기 전에 다음을 확인합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다. 또한 다음 사항을 확인합니다.
 
-- `Login-AzureRmAccount` cmdlet을 사용하여 Azure와 연결했습니다.
+- `az login` 명령을 사용하여 Azure와 연결했습니다.
 - 응용 프로그램 코드는 사용자가 소유한 공용 또는 개인 GitHub 리포지토리에 있습니다.
 - [GitHub 계정에서 액세스 토큰을 만들](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)었습니다.
 

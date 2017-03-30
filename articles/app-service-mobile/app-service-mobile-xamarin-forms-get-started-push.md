@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: f6989f65f80027be7803a889c0a87f6afbae150d
-ms.openlocfilehash: 703ab64e96894df6c974fd441b737568fb905004
-ms.lasthandoff: 12/13/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f1fe97c6b3e2d28b7e17d035bc7e3ecced8a0d0f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -185,7 +185,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
             }
         }
 
-        Note that this code uses the `messageParam` parameter in the template registration.
+    이 코드는 템플릿 등록에서 `messageParam` 매개 변수를 사용한다는 점에 유의하세요.
 12. **OnMessage**를 구현하는 다음 코드를 추가합니다.
 
         protected override void OnMessage(Context context, Intent intent)
@@ -401,7 +401,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
                 .RegisterAsync(channel.Uri, templates);
         }
 
-    이 메서드는 푸시 알림 채널을 가져오고 알림 허브에서 템플릿 알림을 수신하기 위해 템플릿을 등록합니다. *messageParam* 을 지원하는 템플릿 알림이 이 클라이언트에 전달됩니다.
+    이 메서드는 푸시 알림 채널을 가져오고 알림 허브에서 템플릿 알림을 수신하기 위해 템플릿을 등록합니다. *messageParam*을 지원하는 템플릿 알림이 이 클라이언트에 전달됩니다.
 3. App.xaml.cs에서 `async` 한정자를 추가하여 **OnLaunched** 이벤트 처리기 메서드 정의를 업데이트합니다. 그런 후 다음 코드 줄을 메서드의 끝에 추가합니다.
 
         await InitNotificationsAsync();

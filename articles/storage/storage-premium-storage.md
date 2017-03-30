@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 26e78f559fa9a82183a26034580148e39331a214
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ Azure VM은 여러 개의 프리미엄 저장소 디스크 연결을 지원하�
 Azure는 Premium Storage를 통해 Dynamics AX, Dynamics CRM, Exchange Server, SharePoint Farms 및 SAP Business Suite 등의 까다로운 엔터프라이즈 응용 프로그램을 클라우드로 완벽하게 리프트 앤 시프트하는 기능을 제공합니다. 일관된 고성능 및 짧은 대기 시간을 필요로 하는 SQL Server, Oracle, MongoDB, MySQL, Redis 등 다양한 성능 집약적 데이터베이스 워크로드를 Premium Storage에서 실행할 수 있습니다.
 
 > [!NOTE]
-> 응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 컴퓨터 디스크를 Premium Storage로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 컴퓨터 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 표준 저장소를 사용하여 비용을 절약할 수 있습니다.
+> 응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 컴퓨터 디스크를 Premium Storage로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 컴퓨터 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저장하는 표준 저장소를 사용하여 비용을 절약할 수 있습니다.
 > 
 
 Azure VM에 프리미엄 디스크를 만드는 방법은 두 가지입니다.
@@ -59,7 +59,7 @@ Premium Storage 기능 중 일부를 살펴보겠습니다.
 
 **Premium Storage 계정**: Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)을 사용하려는 경우 "프리미엄" 성능 계층 및 "LRS(로컬 중복 저장소)"를 복제 옵션으로 지정하여 프리미엄 저장소 계정을 만들 수 있습니다. 또한 [Storage REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) 버전 2014-02-14 이상, [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [Azure Storage 리소스 공급자 REST API 참조](/rest/api/storagerp)(Resource Manager 배포) 및 [Azure PowerShell](../powershell-install-configure.md) 버전 0.8.10 이상을 사용하여 유형을 “Premium_LRS”로 지정하고 프리미엄 저장소 계정을 만들 수도 있습니다. [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets.md)에 대한 다음 섹션에서 프리미엄 저장소 계정 제한에 대해 자세히 알아보세요.
 
-**프리미엄 로컬 중복 저장소**: 프리미엄 저장소 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며 즉, 단일 지역 내에 데이터 복사본&3;개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob) 를 참조하세요.
+**프리미엄 로컬 중복 저장소**: 프리미엄 저장소 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며 즉, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 
 
 Azure는 저장소 계정을 관리되지 않는 디스크의 컨테이너로 사용합니다. 관리되지 않는 디스크로 Azure DS, DSv2, GS 또는 Fs VM을 만들고 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
 
@@ -74,7 +74,7 @@ Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈 및 Fs 시리즈 V
 
 **운영 체제 디스크**: Premium Storage에서 실행될 수 있는 VM은 프리미엄 또는 표준 운영 체제(OS) 디스크를 사용하도록 구성할 수 있습니다. 최상의 환경을 위해 Premium Storage 기반 OS 디스크를 사용하는 것이 좋습니다.
 
-**데이터 디스크**: Premium Storage에서 실행되는 동일한 VM에 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. Premium Storage를 사용하면 VM을 프로비전하고 VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다.
+**데이터 디스크**: Premium Storage에서 실행되는 동일한 VM에 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. Premium Storage를 사용하면 VM을 프로비전하고 VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑할 수 있습니다.
 
 > [!NOTE]
 > [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자 사용자 인터페이스(UI)를 사용하면 최대 8개의 디스크를 열로 설정할 수 있습니다. 디스크가 9개 이상인 경우, PowerShell을 사용하여 볼륨을 만들고 열 수를 수동으로 지정해야 합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 사용하여 계속합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정해야 합니다. *New-VirtualDisk* PowerShell cmdlet의 [NumberOfColumns](http://technet.microsoft.com/library/hh848643.aspx) 매개 변수를 사용하여 가상 디스크에서 사용되는 열 수를 지정할 수 있습니다. 자세한 내용은 [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 질문과 대답](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)을 참조하세요.
@@ -261,9 +261,9 @@ Premium Storage에 대한 가격 책정, Premium Storage 지원 VM 및 Managed D
 
 ## <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원 
 
-관리되지 않는 디스크가 포함된 가상 컴퓨터는 Azure Backup을 사용하여 백업할 수 있습니다. [자세한 내용](../backup/backup-azure-vms-first-look-arm.md).
+지역적 재해 복구를 위해 [Azure Backup 서비스](../backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다.
 
-Azure Backup 서비스를 Managed Disks와 함께 사용하면 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수도 있습니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요. 
+Azure Backup 서비스를 관리되지 않는 디스크 및 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책의 백업 작업을 만듭니다. [Managed Disks와 함께 VM용 Azure Backup 서비스 사용](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) 및 [관리되지 않는 디스크와 함께 VM용 Azure Backup 서비스 사용](../backup/backup-azure-vms-first-look-arm.md)에서 이에 관해 자세히 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -278,3 +278,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 ### <a name="blog-posts"></a>블로그 게시물
 * [일반적으로 제공되는 Azure 프리미엄 저장소](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [GS 시리즈 발표: 공용 클라우드의 최대 VM에 프리미엄 저장소 지원 추가](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+

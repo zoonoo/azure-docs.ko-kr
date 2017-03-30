@@ -1,5 +1,5 @@
 ---
-title: "Application Insights의 스마트 감지 | Microsoft Docs"
+title: "Azure Application Insights의 스마트 감지 | Microsoft Docs"
 description: "Application Insights는 앱 원격 분석의 자동 심층 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다."
 services: application-insights
 documentationcenter: windows
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: fe2596a7fed52118425c612ebf50c01134928bf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -47,6 +48,10 @@ ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
 
 (각 알림에서 도움말 링크를 통해 관련 문서로 이동할 수 있습니다.)
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
@@ -58,10 +63,5 @@ ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
 
 * [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
 * [가용성 웹 테스트](app-insights-monitor-web-app-availability.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

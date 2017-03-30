@@ -1,21 +1,22 @@
 ---
-title: "Application Insights에서 종속성 추적"
+title: "Azure Application Insights의 종속성 추적 | Microsoft Docs"
 description: "Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -33,6 +34,8 @@ ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
   * Azure DocumentDb, 테이블, Blob 저장소 및 큐
 * 웹 페이지
   * AJAX 호출
+
+모니터링은 선택한 방법과 관련된 [바이트 코드 계측](https://msdn.microsoft.com/library/z9z62c29.aspx)을 사용하여 작동합니다. 성능 오버 헤드가 최소화됩니다.
 
 [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency)를 사용하여 클라이언트 및 서버 코드 모두에서 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수도 있습니다.
 
@@ -81,7 +84,7 @@ ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
 ## <a name="ajax-calls"></a>AJAX 호출
 브라우저 블레이드에는 [웹 페이지의 JavaScript](app-insights-javascript.md)에서 실행한 AJAX 호출의 기간 및 실패율이 표시됩니다. 이는 종속성으로 표시됩니다.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> 느린 요청 진단
+## <a name="diagnosis"></a> 느린 요청 진단
 각 요청 이벤트는 종속성 호출, 예외 및 기타 앱에서 요청을 처리하는 동안 추적된 이벤트와 연결됩니다. 따라서 일부 요청이 잘못 수행되는 경우 종속성의 느린 응답 때문인지 여부를 확인할 수 있습니다.
 
 이에 대한 예제를 살펴보겠습니다.
@@ -202,13 +205,12 @@ ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
   * IIS 호스트: 호스트 서버에 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)를 설치합니다.
   * Azure 웹앱: 웹앱 제어판에서 Application Insights 탭을 열고 Application Insights를 설치합니다.
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>다음 단계
 * [예외](app-insights-asp-net-exceptions.md)
 * [사용자 및 페이지 데이터](app-insights-javascript.md)
 * [Availability](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

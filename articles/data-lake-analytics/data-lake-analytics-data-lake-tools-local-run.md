@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ffa31e7eee7642c29a846658b999828434347316
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,13 +81,35 @@ Data Lake Tools 설치 관리자는 기본 데이터 루트 폴더로 사용할 
 
     ![Data Lake Tools for Visual Studio의 로컬 실행 작업 제출](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### <a name="debug-scripts-and-c-assemblies-locally"></a>로컬에서 스크립트 및 C# 어셈블리 디버그
+
+Azure Data Lake Analytics 서비스에 C# 어셈블리를 제출하고 등록하지 않아도 C# 어셈블리를 디버그할 수 있습니다. 코드 숨김 파일 및 참조된 C# 프로젝트 양쪽 모두에 중단점을 설정할 수 있습니다.
+
+#### <a name="to-debug-local-code-in-code-behind-file"></a>코드 숨김 파일의 로컬 코드를 디버그하려면
+
+1. 코드 숨김 파일에 중단점을 설정합니다.
+2. F5 키를 눌러서 스크립트를 로컬에서 디버그합니다.
+
+> [!NOTE]
+   > 다음 프로시저는 Visual Studio 2015에만 해당됩니다. 이전 버전의 Visual Studio에서는 pdb 파일을 수동으로 추가해야 합니다.  
+   >
+   >
+
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>참조된 C# 프로젝트의 로컬 코드를 디버그하려면
+
+1. C# 어셈블리 프로젝트를 만들고 빌드하여 출력 dll을 생성합니다.
+2. U-SQL 문을 사용하여 dll을 등록합니다.
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. C# 코드에 중단점을 설정합니다.
+4. F5 키를 눌러서 C# dll을 로컬에서 참조하는 스크립트를 디버그합니다.
+
 ## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Data Lake U-SQL SDK에서 로컬 실행 사용
 
 Visual Studio를 사용하여 U-SQL 스크립트를 로컬로 실행하는 것 외에도 Azure Data Lake U-SQL SDK를 사용하여 명령줄 및 프로그래밍 인터페이스로 U-SQL 스크립트를 로컬로 실행할 수 있습니다. 이를 통해 U-SQL 로컬 테스트를 확장할 수 있습니다.
 
 [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md)에 대해 자세히 알아보세요.
-
-
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 17eadb8e502c0836b38661caf2a275af0e90bdfe
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -90,6 +90,10 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
     [검색을 사용자 지정](app-insights-diagnostic-search.md)할 수 있습니다.
 
 원격 분석을 통해 좀더 강력하게 검색하려면 [분석 쿼리 언어](app-insights-analytics-tour.md)를 사용합니다.
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단을 사용](app-insights-azure-diagnostics.md) 하여 Application Insights에 보냅니다.

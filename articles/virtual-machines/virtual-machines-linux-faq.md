@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 03/14/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 78b476b31f030fba4034dc1f499b020d244e8288
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bfbd08b40e7d16efd5784497512f9063eb17d808
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +48,7 @@ Virtual Machine에 로그온하려면 SSH(보안 셸)를 사용하여 원격 연
 캐나다 중부 및 캐나다 동부의 새로운 두 지역은 기존의 Azure 구독에 대한 가상 컴퓨터 만들기에 자동으로 등록되지 않습니다. 가상 컴퓨터가 Azure 포털을 통해 Azure Resource Manager를 사용하는 다른 지역에 배포될 때 자동으로 등록됩니다. 가상 컴퓨터가 다른 Azure 지역에 배포된 후 새로운 지역은 다음 가상 컴퓨터에 대해 사용할 수 있어야 합니다.
 
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>VM을 만든 후에 NIC를 추가할 수 있나요?
-아니요. NIC를 추가하는 작업은 생성 시에만 수행할 수 있습니다.
+예, 이제 가능합니다. 먼저 VM에 대한 할당 취소를 중지해야 합니다. 그런 다음 NIC를 추가하거나 제거할 수 있습니다(VM에 있는 마지막 NIC가 아닌 경우). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>컴퓨터 이름 요구 사항이 있나요?
 예. 컴퓨터 이름은 64자까지 지정할 수 있습니다. 리소스 명명과 관련된 자세한 내용은 [인프라 명명 지침](virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 참조하세요.
@@ -111,9 +112,4 @@ Virtual Machine에 로그온하려면 SSH(보안 셸)를 사용하여 원격 연
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

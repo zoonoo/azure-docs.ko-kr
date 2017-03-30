@@ -1,21 +1,22 @@
 ---
-title: "Analytics 사용 - Application Insights의 강력한 검색 도구 | Microsoft Docs"
+title: "Analytics 사용 - Azure Application Insights의 강력한 검색 도구 | Microsoft Docs"
 description: "Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다. "
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
-ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -130,10 +131,10 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 
 즉, 웹 서비스의 성능 또는 사용 현황을 모니터링하기 위해 대시보드를 함께 사용하는 경우 매우 복잡한 분석을 기타 메트릭과 함께 포함할 수 있습니다. 
 
-테이블에 열이 네 개 이하인 경우 대시보드에 고정할 수 있습니다. 상위&7;개의 행만 표시됩니다.
+테이블에 열이 네 개 이하인 경우 대시보드에 고정할 수 있습니다. 상위 7개의 행만 표시됩니다.
 
 ### <a name="dashboard-refresh"></a>대시보드 새로 고침
-약&2;시간마다 쿼리를 다시 실행하면 대시보드에 고정된 차트가 자동으로 새로 고침됩니다.
+약 2시간마다 쿼리를 다시 실행하면 대시보드에 고정된 차트가 자동으로 새로 고침됩니다.
 
 ### <a name="automatic-simplifications"></a>자동 단순화
 
@@ -222,13 +223,10 @@ CSV 파일에서 데이터를 가져올 수 있습니다. 일반적인 용도는
 
 [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)를 사용하는 경우 Analytics를 사용하여 로그를 쿼리할 수 있습니다. [Analytics로 데이터를 파이프하는 플러그 인](https://github.com/Microsoft/logstash-output-application-insights)을 사용합니다. 
 
+## <a name="video"></a>비디오
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

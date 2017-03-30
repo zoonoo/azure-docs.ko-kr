@@ -33,8 +33,8 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
 Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 컴퓨터와 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
 
-* Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
-* Windows 지침에 대한 내용은 [Windows Server VHD를 만들어 Azure에 업로드](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+* Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
+* Windows 지침에 대한 내용은 [Windows Server VHD를 만들어 Azure에 업로드](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>이 가상 컴퓨터들은 HYPER-V 가상 컴퓨터들과 동일합니까?
 많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.
@@ -51,7 +51,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 ## <a name="how-can-i-access--my-virtual-machine"></a>나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
 Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온 하기 위해서는 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
-* [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
+* [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
 원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장을 설치 및 사용하세요.
@@ -60,7 +60,7 @@ Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
 * Azure 클래식 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정** 을 클릭합니다.
 * [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
-* Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+* Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 
@@ -68,7 +68,7 @@ Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습�
 데이터를 저장하는 데 임시 디스크(기본적으로 Windows의 경우 D: 드라이브 또는 Linux의 경우 /dev/sdb1)를 사용할 수 없습니다. 해당 드라이브는 임시 저장소일 뿐이므로 복구할 수 없는 데이터가 손실될 위험이 있습니다. 이는 가상 컴퓨터를 다른 호스트로 이동할 때 발생할 수 있습니다. 가상 컴퓨터 크기를 조정하고, 호스트를 업데이트 하거나, 호스트의 하드웨어가 실패하는 경우가, 가상 컴퓨터가 이동할 수 있는 몇 가지 이유가 됩니다.
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>임시 디스크의 드라이브 문자 변경을 어떻게 합니까?
-Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](../articles/virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="how-can-i-upgrade-the-guest-operating-system"></a>게스트 운영 체제를 업그레이드 하려면 어떻게 해야합니까?
 용어 업그레이드가 일반적으로 의미하는 것은 동일한 하드웨어를 그대로 사용하면서 사용중인 운영 체제의 최신 릴리스로 이동하는 것을 의미합니다. Azure VM의 경우, 보다 최신 릴리스로의 이동은 Linux 및 Windows에 따라 달라집니다.
@@ -128,9 +128,4 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 [Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

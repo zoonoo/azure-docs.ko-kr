@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8209eb8df45d8c7c42e303ab3377dbde3255154a
-ms.openlocfilehash: 924b3621e03b678e158cd1240864a903db6c8510
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
@@ -117,7 +117,7 @@ ms.lasthandoff: 03/01/2017
 11. 최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 4개의 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에서 호스트 시스템을 선택합니다. **가상 컴퓨터** 목록의 오른쪽 창에서 방금 만든 가상 컴퓨터를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수** 를 4(또는 그 이상)로 설정합니다. **Apply**를 클릭합니다.
+12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수**를 4(또는 그 이상)로 설정합니다. **Apply**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. 최소 요구 사항을 충족하려면 가상 데이터 디스크를 500GB 추가해야 합니다. **설정** 페이지에서:
@@ -139,7 +139,7 @@ ms.lasthandoff: 03/01/2017
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **Next**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. **Next**를 클릭합니다.
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.

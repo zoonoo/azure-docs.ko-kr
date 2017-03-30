@@ -17,6 +17,7 @@ ms.author: toddabel
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
 **서비스 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우 `RunAsync` 구현을 검색하기만 하면 됩니다.
 
 1. `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 응용 프로그램 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
-2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 ** 메서드에서 오버로드를 확인할 수 있습니다.
+2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는** 메서드에서 오버로드를 확인할 수 있습니다.
 
 **행위자 템플릿** (상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
 
@@ -66,10 +67,5 @@ ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
 
 * [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
 * [서비스 프로세스에서 직접 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

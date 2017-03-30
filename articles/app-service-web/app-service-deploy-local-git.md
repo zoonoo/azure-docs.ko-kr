@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/20/2017
 > 
 > 
 
-## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>1단계: 로컬 리포지토리 만들기
+## <a name="Step1"></a>1단계: 로컬 리포지토리 만들기
 다음 작업을 수행하여 새 Git 리포지토리를 만드세요.
 
 1. **GitBash** (Windows) 또는 **Bash** (Unix Shell)와 같은 명령줄 도구를 시작합니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/20/2017
    
         git init
 
-## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>2단계: 콘텐츠 커밋
+## <a name="Step2"></a>2단계: 콘텐츠 커밋
 앱 서비스는 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다. 
 
 1. 리포지토리에 콘텐츠가 이미 포함된 경우 이 항목을 건너뛰고 아래의 항목 2로 이동합니다. 리포지토리에 콘텐츠가 포함되어 있지 않은 경우 다음과 같이 정적 .html 파일로 채웁니다. 
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/20/2017
    
         git commit -m "Hello Azure App Service"
 
-## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>3단계: App Service 앱 리포지토리 사용
+## <a name="Step3"></a>3단계: App Service 앱 리포지토리 사용
 앱 서비스 앱에서 Git 리포지토리를 사용할 수 있도록 하려면 다음 단계를 수행합니다.
 
 1. [로컬 Git]에 로그인합니다.
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/20/2017
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>4단계: 프로젝트 배포
+## <a name="Step4"></a>4단계: 프로젝트 배포
 로컬 Git를 사용하여 앱을 앱 서비스에 게시하려면 다음 단계를 사용합니다.
 
 1. Azure Portal의 앱 블레이드에서 **Git URL**에 대한 **설정 > 속성**을 클릭합니다.
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/20/2017
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. 앱 블레이드의 위쪽에서 **찾아보기** 단추를 클릭하여 콘텐츠가 배포되었는지 확인합니다. 
 
-## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>문제 해결
+## <a name="Step5"></a>문제 해결
 다음은 Git를 사용하여 Azure에서 앱 서비스 앱을 게시할 때 주로 발생하는 문제 또는 오류입니다.
 
 - - -
@@ -133,6 +133,15 @@ ms.lasthandoff: 01/20/2017
     git push azure master
 
 - - -
+**증상**: RPC 실패; 결과=22, HTTP 코드 = 502.
+
+**원인**: 이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.
+
+**해결 방법**: 더 큰 postBuffer를 만들도록 로컬 컴퓨터에서 git 구성을 변경합니다.
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **증상**: 오류 - 변경 내용이 원격 리포지토리에 커밋되었으나 웹앱이 업데이트되지 않음
 
 **원인**: 이 오류는 추가 필수 모듈을 지정하는 package.json 파일이 포함된 Node.js 앱을 배포하는 경우에 발생할 수 있습니다.
@@ -152,7 +161,7 @@ ms.lasthandoff: 01/20/2017
 * [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
 * [Azure 앱 서비스에 연속 배포](app-service-continuous-deployment.md)
 * [Azure용 PowerShell 사용 방법](/powershell/azureps-cmdlets-docs)
-* [Azure 명령줄 인터페이스를 사용하는 방법](../xplat-cli-install.md)
+* [Azure 명령줄 인터페이스를 사용하는 방법](../cli-install-nodejs.md)
 
 [Azure 앱 서비스]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

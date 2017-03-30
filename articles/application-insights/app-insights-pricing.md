@@ -1,22 +1,22 @@
 ---
-title: "Application Insights의 가격 및 데이터 볼륨 관리 | Microsoft Docs"
+title: "Azure Application Insights의 가격 책정 및 데이터 볼륨 관리 | Microsoft Docs"
 description: "Application Insights에서 원격 분석을 관리하고 비용을 모니터링합니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
-ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/18/2017
 
 Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있으면 [포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights)에 질문을 게시해 주세요. 
 
-## <a name="the-pricing-plans"></a>가격 책정 계획
+## <a name="the-price-plans"></a>가격 계획
 
 해당 통화의 현재 가격은 [Application Insights 가격 책정 페이지][pricing]를 참조하세요.
 
@@ -63,7 +63,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 |:---------------------------------------|:----------------:|
 | 1개 응용 프로그램에서 3개 Azure App Service 인스턴스 및 1개 가상 서버를 사용합니다. | 4 |
 | 2개 VM에서 실행되는 3개 응용 프로그램 및 이러한 응용 프로그램의 Application Insights 리소스는 동일한 구독 및 엔터프라이즈 계획에 있습니다. | 2 | 
-| Applications Insights 리소스가 동일한 구독에 속한&4;개 응용 프로그램이 있습니다. 각 응용 프로그램마다 16 비최대 사용 시간 동안 2개 인스턴스를 실행하고, 8 최대 사용 시간 동안 4개 인스턴스를 실행합니다. | 13.33 | 
+| Applications Insights 리소스가 동일한 구독에 속한 4개 응용 프로그램이 있습니다. 각 응용 프로그램마다 16 비최대 사용 시간 동안 2개 인스턴스를 실행하고, 8 최대 사용 시간 동안 4개 인스턴스를 실행합니다. | 13.33 | 
 | 1개 작업자 역할 및 1개 웹 역할이 부여된 클라우드 서비스에서 각 역할마다 2개 인스턴스를 실행합니다. | 4 | 
 | 50개 마이크로 서비스를 실행하는 5개 노드 Service Fabric 클러스터에서 각 마이크로 서비스마다 3개 인스턴스를 실행합니다. | 5|
 
@@ -106,7 +106,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 *내 앱에서 제한 속도를 초과하면 어떻게 되나요?*
 
-* 앱에 보내는 데이터의 양은&1;분마다 평가됩니다. 해당 분에 대한 평균 초당 속도를 초과하면 서버는 일부 요청을 거부합니다. SDK는 데이터를 버퍼링하고, 재전송을 시도하여 몇 분 동안 서지를 분산시킵니다. 앱이 제한율 이상으로 일관되게 데이터를 보내는 경우 일부 데이터가 삭제됩니다. (ASP.NET, Java 및 JavaScript SDK는 이러한 방식으로 재전송을 시도합니다. SDK는 제한된 데이터를 제거하기만 합니다.)
+* 앱에 보내는 데이터의 양은 1분마다 평가됩니다. 해당 분에 대한 평균 초당 속도를 초과하면 서버는 일부 요청을 거부합니다. SDK는 데이터를 버퍼링하고, 재전송을 시도하여 몇 분 동안 서지를 분산시킵니다. 앱이 제한율 이상으로 일관되게 데이터를 보내는 경우 일부 데이터가 삭제됩니다. (ASP.NET, Java 및 JavaScript SDK는 이러한 방식으로 재전송을 시도합니다. SDK는 제한된 데이터를 제거하기만 합니다.)
 
 제한이 발생하는 경우 이를 경고하는 알림이 표시됩니다.
 
@@ -157,10 +157,9 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 보존된 각 레코드에서 `itemCount` 은 나타내는 원래 레코드 수를 나타내며 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 
 
-## <a name="transition-from-the-old-pricing-tiers"></a>이전 가격 책정 계층에서 전환
+## <a name="automation"></a>자동화
 
-기존 응용 프로그램은 2017년 2월까지 이전 가격 책정 계층을 계속해서 사용할 수 있습니다. 이때쯤이면 대부분의 응용 프로그램이 자동으로 기본 계획으로 이동됩니다. 연속 내보내기 또는 OMS Log Analytics용 커넥터를 사용하는 응용 프로그램은 엔터프라이즈 계획으로 이동됩니다.
-
+Azure Resource Management를 사용하여 가격 계획을 설정하는 스크립트를 작성할 수 있습니다. [방법을 알아보세요](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>제한 요약
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

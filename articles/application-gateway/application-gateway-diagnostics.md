@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
-ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2017
 
 Azure는 로깅 및 메트릭을 사용하여 리소스를 모니터링할 수 있는 기능을 제공합니다. Application Gateway는 백 엔드 상태, 로깅 및 메트릭을 통해 이러한 기능을 제공합니다.
 
-[**백 엔드 상태** ](#backend-health) - Application Gateway는 포털 및 powershell을 통해 백 엔드 풀의 서버 상태를 모니터링하는 기능을 제공합니다. 성능 진단 로그를 통해 백 엔드 풀의 상태를 확인할 수도 있습니다.
+[**백 엔드 상태**](#backend-health) - Application Gateway는 포털 및 powershell을 통해 백 엔드 풀의 서버 상태를 모니터링하는 기능을 제공합니다. 성능 진단 로그를 통해 백 엔드 풀의 상태를 확인할 수도 있습니다.
 
 [**로깅**](#enable-logging-with-powershell) - 모니터링을 목적으로 리소스의 성능, 액세스 및 기타 로그를 저장하거나 사용할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure는 로깅 및 메트릭을 사용하여 리소스를 모니터링할 수 �
 Application Gateway는 포털, PowerShell 및 CLI를 통해 백 엔드 풀의 개별 구성원 상태를 모니터링하는 기능을 제공합니다. 성능 진단 로그를 통해 백 엔드 풀의 집계된 상태 요약을 확인할 수도 있습니다. 백 엔드 상태 보고서는 Application Gateway 상태 검색 결과를 백 엔드 인스턴스에 반영합니다. 검색이 성공하고 백 엔드에 트래픽이 제공될 수 있으면 정상으로 간주되고, 그렇지 않으면 비정상으로 간주됩니다.
 
 > [!important]
-> Application Gateway 서브넷에 NSG가 있는 경우 Application Gateway 인스턴스에 포트 범위 65503-65534가 열려야 합니다.
+> Application Gateway 서브넷에 NSG가 있는 경우 백 엔드 풀 구성원에 대한 Application Gateway 서브넷에 포트 범위 65503-65534가 열려야 합니다. 이러한 포트는 백 엔드 상태가 제대로 작동하기 위해 필요합니다.
 
 ### <a name="view-backend-health-through-the-portal"></a>포털을 통해 백 엔드 상태 보기
 
@@ -316,3 +316,4 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
+

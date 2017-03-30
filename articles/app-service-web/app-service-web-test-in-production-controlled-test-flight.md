@@ -26,7 +26,7 @@ ms.lasthandoff: 01/20/2017
 
 *Flighting* 은 제한된 수의 실제 고객으로 새로운 기능 또는 변경의 유효성을 검사하는 배포 프로세스이며 프로덕션 시나리오의 주요 테스트입니다. 베타 테스트와 유사하며 때로 "통제된 테스트 비행"이라고도 합니다. 웹 서비스를 제공하는 많은 대기업이 이 방법을 사용하여 [민첩한 개발](https://en.wikipedia.org/wiki/Agile_software_development)이라는 해당 연습에서 앱 업데이트의 초기 유효성 검사를 가져옵니다. Azure 앱 서비스를 사용하면 동일한 DevOps 시나리오를 구현하기 위해 연속 게시 및 Application Insights를 사용하여 프로덕션에서 테스트를 통합할 수 있습니다. 이 방법의 이점은 다음과 같습니다.
 
-* *업데이트가 프로덕션에 릴리스되기 *전에* 실제 피드백 얻기*** - 릴리스하는 즉시 피드백을 얻는 것보다 릴리스하기 전에 피드백을 얻는 것이 좋습니다. 제품 수명 주기에서 원하는 만큼 빠르게 실제 사용자 트래픽 및 동작을 사용하여 업데이트를 테스트할 수 있습니다.
+* **업데이트가 프로덕션에 릴리스되기전에*실제* 피드백 얻기** - 릴리스하는 즉시 피드백을 얻는 것보다 릴리스하기 전에 피드백을 얻는 것이 좋습니다. 제품 수명 주기에서 원하는 만큼 빠르게 실제 사용자 트래픽 및 동작을 사용하여 업데이트를 테스트할 수 있습니다.
 * **[연속 테스트 기반 개발(CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development) 향상** - Application Insights를 사용하여 연속 통합 및 계측으로 프로덕션에서 테스트를 통합하여 사용자 유효성 검사가 제품 수명 주기에서 초기에 자동으로 발생합니다. 수동 테스트 실행에 시간 투자를 줄일 수 있습니다.
 * **테스트 워크플로 최적화** -연속 모니터링 계측으로 프로덕션에서 테스트를 자동화하여 단일 프로세스에서 [통합](https://en.wikipedia.org/wiki/Integration_testing), [회귀](https://en.wikipedia.org/wiki/Regression_testing), [유용성](https://en.wikipedia.org/wiki/Usability_testing), 접근성, 지역화, [성능](https://en.wikipedia.org/wiki/Software_performance_testing), [보안](https://en.wikipedia.org/wiki/Security_testing) 및 [수용](https://en.wikipedia.org/wiki/Acceptance_testing)과 같은 다양한 테스트의 목표를 잠재적으로 수행할 수 있습니다.
 
@@ -299,7 +299,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 이제 베타 슬롯에서 실행한 변경 사양이 있으므로 Flighting 배포를 수행할 준비가 되었습니다.
 
 ## <a name="validate-route-traffic-to-the-beta-app"></a>유효성 검사: 베타 앱에 트래픽 라우팅
-이 섹션에서는 베타 앱에 트래픽을 라우팅합니다. 데모의 명확성을 위해 베타 앱에 사용자 트래픽의 상당 부분을 라우팅합니다. 실제로 라우팅하려는 트래픽 양은 특정 상황에 따라 달라집니다. 예를 들어 사이트가 microsoft.com의 규모인 경우 유용한 데이터를 얻으려면 총 트래픽이&1;% 미만이어야 합니다.
+이 섹션에서는 베타 앱에 트래픽을 라우팅합니다. 데모의 명확성을 위해 베타 앱에 사용자 트래픽의 상당 부분을 라우팅합니다. 실제로 라우팅하려는 트래픽 양은 특정 상황에 따라 달라집니다. 예를 들어 사이트가 microsoft.com의 규모인 경우 유용한 데이터를 얻으려면 총 트래픽이 1% 미만이어야 합니다.
 
 1. Git 셸 세션에서 다음 명령을 실행하여 베타 슬롯에 프로덕션 트래픽의 절반을 라우팅합니다.
 
@@ -311,7 +311,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
         Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
    `ReroutePercentage=50` 속성은 프로덕션 트래픽의 50%가 베타 앱의 URL로 라우팅되도록 지정합니다.(`ActionHostName` 속성에서 지정)
-2. 이제 http://ToDoApp*&lt;your_suffix>*.azurewebsites.net으로 이동합니다. 이제는 트래픽의&50;%는 베타 슬롯으로 리디렉션되어야 합니다.
+2. 이제 http://ToDoApp*&lt;your_suffix>*.azurewebsites.net으로 이동합니다. 이제는 트래픽의 50%는 베타 슬롯으로 리디렉션되어야 합니다.
 3. Application Insights 리소스에서 환경="베타"를 사용하여 메트릭을 필터링합니다.
 
    > [!NOTE]

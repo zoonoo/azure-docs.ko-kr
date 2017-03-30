@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
-ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
-ms.lasthandoff: 12/19/2016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 720822c4a6a2b236ca772016c647827050e27d44
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/19/2016
 
 이 치트 시트는 Azure 기계 학습 스튜디오에서 시작할 알고리즘을 선택하려는 재학생 수준의 기계 학습 지식을 지닌 초급 데이터 과학자라는 매우 구체적인 대상을 염두에 두고 작성되었습니다. 따라서 일반화되고 지나치게 단순화되었을 수 있으나 안전한 방향으로 사용자를 안내합니다. 여기에 나와 있는 것 외에도 수많은 알고리즘이 있습니다. Azure 기계 학습이 보다 완전하게 제공되는 방법을 더 포함하도록 확장됨에 따라 알고리즘을 더 추가할 예정입니다.
 
-이러한 권장 사항은 수많은 데이터 과학자 및 기계 학습 전문가로부터 수집한 피드백 및 팁입니다. 우리는 모든 내용에 동의한 것은 아니지만 부분적으로나마 합의에 도달하기 위해 의견을 조율하는 데 노력해왔습니다. 대부분의 의견 충돌은 "상황에 따라 다릅니다…"라는 문구로 시작됩니다.
+이러한 권장 사항은 많은 데이터 과학자 및 기계 학습 전문가로부터 수집한 피드백 및 팁입니다. 우리는 모든 내용에 동의한 것은 아니지만 부분적으로나마 합의에 도달하기 위해 의견을 조율하는 데 노력해왔습니다. 대부분의 의견 충돌은 "상황에 따라 다릅니다…"라는 문구로 시작됩니다.
 
 ### <a name="how-to-use-the-cheat-sheet"></a>치트 시트를 사용하는 방법
 "*&lt;경로 레이블&gt;*의 경우 *&lt;알고리즘&gt;*을 사용하세요."대로 차트에 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "*속도*의 경우 *두 개의 클래스 로지스틱 회귀*를 사용하세요."와 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다.
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/19/2016
 ### <a name="supervised"></a>감독
 감독 학습 알고리즘은 예제 집합을 토대로 예측합니다. 예를 들어 향후 주가 가격에 대한 위험 추측에 주가 기록을 사용할 수 있습니다. 학습에 사용된 각 예제는 관련 값으로 레이블(이 경우, 주가)이 표시됩니다. 감독 학습 알고리즘은 이러한 값 레이블에서 패턴을 찾습니다. 요일, 계절, 회사의 재무 데이터, 업종, 문제가 되는 지정학적 사건의 유무 등 관련될 수 있는 모든 정보를 사용할 수 있으며 각 알고리즘은 다양한 유형의 패턴을 찾습니다. 알고리즘이 가능한 최적의 패턴을 찾은 후에는 이러한 패턴을 사용하여 레이블이 지정되지 않은 테스트 데이터(오늘 가격)에 대해 예측을 합니다.
 
-이는 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외하고, Azure 기계 학습의 모든 모듈은 감독 학습 알고리즘입니다. Azure 기계 학습 내에서는 분류, 회귀 및 이상 감지의 여러 특정 유형의 감독 학습이 표시됩니다.
+감독 학습은 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외하고, Azure Machine Learning의 모든 모듈은 감독 학습 알고리즘입니다. Azure 기계 학습 내에서는 분류, 회귀 및 이상 감지의 여러 특정 유형의 감독 학습이 표시됩니다.
 
 * **분류**. 범주를 예측하는 데 데이터를 사용하는 감독 학습을 분류라고도 합니다. '고양이' 또는 '개' 그림으로 이미지를 할당하는 경우가 해당합니다. 선택 항목이 두 가지뿐인 경우 **2클래스** 또는 **이항 분류**라고 합니다. NCAA March Madness(미국 대학농구 토너먼트전) 대회의 승자를 예측하는 경우처럼 더 많은 범주가 있는 경우 이 문제를 **다중 클래스 분류**라고 합니다.
 * **회귀** 주가와 같은 값을 예측하는 경우 감독 학습을 회귀라고 합니다.
@@ -120,7 +120,7 @@ ms.lasthandoff: 12/19/2016
 | [의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [의사 결정 정글 ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |적은 메모리 공간 |
 | [신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |선택된&2;클래스 메서드의 속성을 참조하세요. |
+| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |선택된 2클래스 메서드의 속성을 참조하세요. |
 | **회귀** | | | | | |
 | [선형](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [베이지언 선형](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
@@ -132,7 +132,7 @@ ms.lasthandoff: 12/19/2016
 | [서수](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |순위 순서를 예측하는 경우 |
 | **이상 감지** | | | | | |
 | [지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |특히 큰 기능 집합의 적합 |
-| [PCA 기반 이상 감지 ](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
+| [PCA 기반 이상 감지](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
 | [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |클러스터링 알고리즘 |
 
 **알고리즘 속성:**
@@ -153,9 +153,9 @@ ms.lasthandoff: 12/19/2016
 ### <a name="logistic-regression"></a>로지스틱 회귀
 이름에 혼동을 줄 수 있는 '회귀'가 포함되어 있지만, 로지스틱 회귀 분석은 실제로 [2클래스](https://msdn.microsoft.com/library/azure/dn905994.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905853.aspx) 분류를 위한 강력한 도구입니다. 빠르고 단순합니다. 직선 대신 'S' 모양 곡선을 사용한다는 사실 때문에 데이터를 그룹으로 나누는 데 적합합니다. 로지스틱 회귀는 선형 클래스 경계를 제공하므로 이를 사용할 때는 선형 근사값이 수락할 수 있는 것인지 확인해야 합니다.
 
-![하나의 기능을 포함하는&2;클래스 데이터에 대한 로지스틱 회귀][4]
+![하나의 기능을 포함하는 2클래스 데이터에 대한 로지스틱 회귀][4]
 
-***한 가지 기능만 있는&2;클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
+***한 가지 기능만 있는 2클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
 
 ### <a name="trees-forests-and-jungles"></a>트리, 포리스트 및 정글
 의사 결정 포리스트([회귀](https://msdn.microsoft.com/library/azure/dn905862.aspx), [2클래스](https://msdn.microsoft.com/library/azure/dn906008.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn906015.aspx)), 의사 결정 정글([2클래스](https://msdn.microsoft.com/library/azure/dn905976.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905963.aspx)) 및 향상된 의사 결정 트리([회귀](https://msdn.microsoft.com/library/azure/dn905801.aspx) 및 [2클래스](https://msdn.microsoft.com/library/azure/dn906025.aspx))는 모두 의사 결정 트리, 기본적인 Machine Learning 개념을 기반으로 합니다. 의사 결정 트리에는 다양한 변형이 있지만 수행하는 작업은 동일합니다. 기능 공간을 대부분 같은 레이블을 포함하는 하위 지역으로 세분화합니다. 분류 또는 회귀를 수행 중인지 여부에 따라 일관된 범주 또는 상수 값의 하위 지역일 수 있습니다.
@@ -164,7 +164,7 @@ ms.lasthandoff: 12/19/2016
 
 ***의사 결정 트리는 기능 공간을 대략적으로 균일한 값의 하위 지역으로 세분화함***
 
-기능 공간은 임의의 작은 하위 지역으로 세분화할 수 있으므로 극단적인 과잉 맞춤의 예로 하위 지역당 하나의 데이터 요소를 포함할 만큼 미세하게 분할하는 것을 구상하기 쉽습니다. 이 문제를 방지하기 위해 트리가 상호 관련되지 않은 특수한 수치 연산을 고려하여 큰 트리 집합을 생성합니다. 이 "의사 결정 포리스트"의 평균이 과잉 맞춤을 피하는 트리입니다. 의사 결정 포리스트는 많은 양의 메모리를 사용할 수 있습니다. 의사 결정 정글은 약간 긴 학습 시간 대신 메모리 사용량이 적은 변형된 형태입니다.
+기능 공간은 임의의 작은 하위 지역으로 세분화할 수 있으므로 하위 지역당 하나의 데이터 요소를 포함할 만큼 미세하게 분할하는 것을 구상하기 쉽습니다. 이는 극단적인 과잉 맞춤의 예입니다. 이 문제를 방지하기 위해 트리가 상호 관련되지 않은 특수한 수치 연산을 고려하여 큰 트리 집합을 생성합니다. 이 "의사 결정 포리스트"의 평균이 과잉 맞춤을 피하는 트리입니다. 의사 결정 포리스트는 많은 양의 메모리를 사용할 수 있습니다. 의사 결정 정글은 약간 긴 학습 시간 대신 메모리 사용량이 적은 변형된 형태입니다.
 
 향상된 의사 결정 트리는 세분화할 수 있는 횟수 및 각 하위 지역에 허용되는 데이터 요소 수를 제한하여 과잉 맞춤을 피합니다. 알고리즘은 트리 시퀀스를 생성하며 각각은 이전 트리가 남긴 오류에 대한 보정을 학습합니다. 그 결과 많은 양의 메모리를 사용하는 경향이 있는 매우 정확한 학습자가 나타납니다. 자세한 기술적인 설명은 [Friedman의 원본 문서](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf)를 참조하세요.
 
@@ -199,8 +199,12 @@ Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 �
 역사를 거슬러 보면, Bayes 지점 컴퓨터는 Microsoft Research에서 개발되었습니다. 그 이면에는 매우 뛰어난 이론적인 작업을 포함하고 있습니다. 관심이 있는 학생은 [JMLR의 원본 문서](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf)와 [Chris Bishop의 유용한 블로그](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx)를 확인하세요.
 
 ### <a name="specialized-algorithms"></a>특수화된 알고리즘
-매우 구체적인 목표가 있다면 운이 좋을 수 있습니다. Azure Machine Learning 컬렉션 내에는 순위 예측([서수 회귀](https://msdn.microsoft.com/library/azure/dn906029.aspx)), 개수 예측([포아송 회귀](https://msdn.microsoft.com/library/azure/dn905988.aspx)) 및 이상 감지(하나는 [주체 구성 요소 분석](https://msdn.microsoft.com/library/azure/dn913102.aspx)을 기반으로 하고 하나는 [지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx)를 기반으로 함)에 특수화된 알고리즘이 있습니다.
-그리고 단독의 클러스터링 알고리즘도 있습니다([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+매우 구체적인 목표가 있다면 운이 좋을 수 있습니다. Azure Machine Learning 컬렉션 내에서 다음으로 특수화된 알고리즘이 있습니다.
+
+- 순위 예측([서수 회귀](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
+- 수 예측([포아송 회귀](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
+- 변칙 검색([주요 구성 요소 분석](https://msdn.microsoft.com/library/azure/dn913102.aspx) 기준 및 [지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx) 기준)
+- 클러스터링([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![PCA 기반 이상 감지][8]
 
@@ -210,11 +214,11 @@ Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 �
 
 ***K-means를 사용하여 데이터 집합을 5개 클러스터로 그룹화합니다.***
 
-또한 N-클래스 분류 문제를 N-1&2;클래스 분류 문제로 나누는 앙상블 [one-v-all 다중 클래스 분류자](https://msdn.microsoft.com/library/azure/dn905887.aspx)도 있습니다. 정확도, 학습 시간 및 선형성 속성은 사용된&2;클래스 분류자에 의해 결정됩니다.
+또한 N-클래스 분류 문제를 N-1 2클래스 분류 문제로 나누는 앙상블 [one-v-all 다중 클래스 분류자](https://msdn.microsoft.com/library/azure/dn905887.aspx)도 있습니다. 정확도, 학습 시간 및 선형성 속성은 사용된 2클래스 분류자에 의해 결정됩니다.
 
-![2클래스 분류자를 결합하여&3;클래스 분류자 형성][10]
+![2클래스 분류자를 결합하여 3클래스 분류자 형성][10]
 
-***2클래스 분류자 쌍을 결합하여&3;클래스 분류자를 형성합니다.***
+***2클래스 분류자 쌍을 결합하여 3클래스 분류자를 형성합니다.***
 
 Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf)이라는 제목의 강력한 기계 학습 프레임워크에 대한 액세스도 포함됩니다.
 VW는 분류 및 회귀를 모두 학습할 수 있으며 부분적으로 레이블이 지정되지 않은 데이터에서도 학습이 가능하므로 여기에서 분류를 거부합니다. 다양한 학습 알고리즘, 손실 함수 및 최적화 알고리즘 중 하나를 사용하도록 구성할 수 있습니다. 기초부터 효율적, 병렬, 초고속 형태로 설계되었습니다. 적은 작업으로 엄청나게 큰 기능 집합을 처리합니다.

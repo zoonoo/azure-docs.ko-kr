@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 582cb9dee06c6ec4b030ded866a0f92a575b93ed
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -417,24 +417,23 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **AzureDataLakeStore** | 예 |
-| dataLakeStoreUri | Azure 데이터 레이크 저장소 계정에 대한 정보를 지정합니다. **https://[accountname].azuredatalakestore.net/webhdfs/v1** 또는 **adl://[accountname].azuredatalakestore.net/** 형식입니다. | 예 |
+| dataLakeStoreUri | Azure 데이터 레이크 저장소 계정에 대한 정보를 지정합니다. 형식 예: `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/`. | 예 |
 | subscriptionId | Data Lake Store가 속하는 Azure 구독 ID입니다. | 싱크에 필요 |
 | resourceGroupName | Data Lake Store가 속하는 Azure 리소스 그룹 이름입니다. | 싱크에 필요 |
 
 ### <a name="using-service-principal-authentication-recommended"></a>서비스 주체 인증 사용(권장)
-서비스 주체 인증을 사용하려면 AAD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여해야 합니다. 그런 다음 해당 응용 프로그램 ID, 응용 프로그램 키 및 테넌트 정보로 Azure Data Factory에서 아래 속성을 지정하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다. 필요한 정보를 설정하고 검색하는 방법은 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+서비스 주체 인증을 사용하려면 AAD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 다음 값을 적어둡니다. **응용 프로그램 ID**, **응용 프로그램 키** 및 **테넌트 ID**. 이 정보는 연결된 서비스를 정의하는 데 사용합니다. 
 
 > [!IMPORTANT]
-> 복사 마법사를 사용하여 작성하는 경우 폴더들 사이에서 성공적으로 탐색하도록 하려면, 서비스 주체에게 ADLS 루트("/") 및 자식에 대해 최소한의 읽기+실행 권한 및 ADLS 계정에 대한 액세스 제어(IAM)에서 최소한의 읽기 역할을 부여해야 합니다. 그렇지 않으면 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)" 오류가 표시될 수 있습니다.
+> 복사 마법사를 사용하여 데이터 파이프라인을 작성하는 경우 Data Lake Store 계정에 대한 액세스 제어(IAM)의 독자 역할 이상 및 Data Lake Store 루트("/") 및 그 하위 항목에 대한 읽기+실행 권한 이상에 서비스 주체를 부여해야 합니다. 그렇지 않으면 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)" 오류가 표시될 수 있습니다.
 >
-> AAD에서 서비스 주체를 새로 만들면/업데이트하면 실제로 적용하는 데 몇 분이 소요될 수 있습니다. 먼저 서비스 주체와 ADLS ACL 구성을 다시 확인하고, 여전히 "The credentials provided are invalid(제공된 자격 증명이 유효하지 않습니다)"라는 오류가 나타나는 경우 잠시 기다린 후 다시 시도하세요.
->
+> AAD에서 서비스 주체를 만든/업데이트한 후 변경 내용이 실제 적용되는 데 몇 분이 소요될 수 있습니다. 먼저 서비스 주체 및 Data Lake Store ACL 구성을 다시 확인합니다. "제공된 자격 증명이 잘못되었습니다."라는 오류가 계속 표시되면 잠시 기다린 후 다시 시도합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 응용 프로그램의 키를 지정합니다. | 예 |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가서 검색할 수 있습니다. | 예 |
+| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
 
 **예제: 서비스 주체 인증 사용**
 ```json
@@ -455,7 +454,7 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 ```
 
 ### <a name="using-user-credential-authentication"></a>사용자 자격 증명 인증 사용
-또는 아래 속성을 지정하여 사용자 자격 증명 인증을 통해 사용하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다.
+또는 아래 속성을 지정하여 사용자 자격 증명 인증을 사용하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -480,12 +479,16 @@ Azure Data Lake Store 간에 데이터를 복사하는 파이프라인을 만드
 ```
 
 #### <a name="token-expiration"></a>토큰 만료
-**권한 부여** 단추를 사용하여 생성한 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z".
+**권한 부여** 단추를 사용하여 생성한 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되면 다음 오류 메시지가 표시됩니다.
+ 
+```
+"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+```
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
 | Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
-| AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후&14;일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
+| AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
 토큰 만료 시간 전에 암호를 변경하면, 토큰이 즉시 만료되고 이 섹션에 나와 있는 오류가 표시됩니다.
 
@@ -530,7 +533,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 | fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 집합에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름은 다음 형식을 사용합니다. Data<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용](#using-partitionedby-property) 섹션을 참조하세요. |아니요 |
 | format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](#specifying-textformat), [Json 형식](#specifying-jsonformat), [Avro 형식](#specifying-avroformat), [Orc 형식](#specifying-orcformat) 및 [Parquet 형식](#specifying-parquetformat) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [압축 지정](#specifying-compression) 섹션을 참조하세요. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [압축 지정](#specifying-compression) 섹션을 참조하세요. |아니요 |
 
 ### <a name="using-partitionedby-property"></a>partitionedBy 속성 사용
 **partitionedBy** 섹션, Data Factory 매크로 및 시스템 변수를 사용하여 동적 folderPath 및 시계열 데이터와 파일 이름을 지정할 수 있습니다. 지정된 데이터 조각에 대한 시작 및 종료 시간을 나타내는 SliceStart 및 SliceEnd입니다.
@@ -569,7 +572,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ## <a name="azure-data-lake-copy-activity-type-properties"></a>Azure 데이터 레이크 복사 작업 형식 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 작업의 경우 원본 및 싱크의 형식에 따라 달라집니다.
+반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다. 복사 작업의 경우 원본 및 싱크의 형식에 따라 달라집니다.
 
 **AzureDataLakeStoreSource**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
@@ -581,7 +584,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| copyBehavior |복사 동작을 지정합니다. |**PreserveHierarchy:** 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
+| copyBehavior |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -590,8 +593,5 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
-
-초기 데이터 이동이 큰 볼륨의 기록 데이터나 증분 프로덕션 데이터 로드로 계획되었는지 여부에 따라, Azure 데이터 팩터리에는 이러한 작업의 성능을 향상시키는 옵션이 있습니다. 동시성 매개 변수는 **복사 작업**의 일부이며 여러 다른 활동 창이 병렬로 처리됩니다. **parallelCopies** 매개 변수는 단일 작업 실행에 대한 병렬 처리를 정의합니다. 최상의 처리량을 달성하기 위해 Azure 데이터 팩터리를 사용하여 데이터 이동 파이프라인을 디자인할 때 이러한 매개 변수를 사용하는 것이 중요합니다.
-
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 

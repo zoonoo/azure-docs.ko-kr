@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: f355ea88f4d14e48d9523a0ac7aff965171bed4b
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ba0fc8849a7131a2dee8c9e7db546ca1a22e05df
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -26,8 +26,10 @@ Linux 데이터 과학 가상 컴퓨터는 다양한 도구가 미리 설치되�
 
 * Microsoft R Server Developer Edition
 * 널리 사용되는 데이터 분석 라이브러리를 포함한 Anaconda Python 배포(버전 2.7 및 3.5)
-* JupyterHub - R, Python, Julia 커널을 지원하는 다중 사용자 Jupyter Notebook 서버
-* Azure 저장소 탐색기
+* JuliaPro - 인기 있는 과학 및 데이터 분석 라이브러리와 함께 Julia 언어의 큐레이트 배포
+* 독립 실행형 Spark 인스턴스 및 단일 노드 Hadoop(HDFS, Yarn)
+* JupyterHub - R, Python, PySpark, Julia 커널을 지원하는 다중 사용자 Jupyter Notebook 서버
+* Azure Storage 탐색기
 * Azure 리소스 관리를 위한 Azure CLI(명령줄 인터페이스)
 * PostgresSQL 데이터베이스
 * 기계 학습 도구
@@ -37,7 +39,8 @@ Linux 데이터 과학 가상 컴퓨터는 다양한 도구가 미리 설치되�
   * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): GUI 기반 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
 * Azure 기계 학습 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
-* 개발 도구 및 편집기(Eclipse, Emacs, gedit, vi)
+* 개발 도구 및 편집자(RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
+
 
 데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
 
@@ -117,32 +120,38 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
 X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터에 설치된 도구
-### <a name="microsoft-r-open"></a>Microsoft R Open
-R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중 하나입니다. 분석에 R을 사용하려는 경우 VM에서 MKL(Math Kernel Library)이 포함된 MRO(Microsoft R Open)를 사용합니다. MKL은 분석 알고리즘에 공통되는 수학 연산을 최적화합니다. MRO는 CRAN-R과 완벽하게 호환되며 CRAN에 게시된 모든 R 라이브러리를 MRO에 설치할 수 있습니다. vi, Emacs, gedit 등의 기본 편집기 중 하나에서 R 프로그램을 편집할 수 있습니다. 또한 [RStudio](http://www.rstudio.com)등의 기타 IDE를 다운로드하여 사용할 수도 있습니다. 사용자의 편의를 위해 **/dsvm/tools** 디렉터리에 RStudio를 설치하는 간단한 스크립트(installRStudio.sh)가 제공됩니다. Emacs 편집기를 사용 중인 경우 Emacs 편집기 내에서 R 파일 작업을 간편하게 수행할 수 있는 Emacs 패키지 ESS(Emacs Speaks Statistics)가 미리 설치되어 있습니다.
+### <a name="microsoft-r-server"></a>Microsoft R 서버
+R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중 하나입니다. 분석에 R을 사용하려는 경우 VM에서 MRO(Microsoft R Open) 및 MKL(Math Kernel Library)이 포함된 MRS(Microsoft R Server)를 사용합니다. MKL은 분석 알고리즘에 공통되는 수학 연산을 최적화합니다. MRO는 CRAN-R과 완벽하게 호환되며 CRAN에 게시된 모든 R 라이브러리를 MRO에 설치할 수 있습니다. MRS는 R 모델의 크기 조정 및 운영을 웹 서비스에 제공합니다. RStudio, vi, Emacs, gedit 등의 기본 편집기 중 하나에서 R 프로그램을 편집할 수 있습니다. Emacs 편집기를 사용 중인 경우 Emacs 편집기 내에서 R 파일 작업을 간편하게 수행할 수 있는 Emacs 패키지 ESS(Emacs Speaks Statistics)가 미리 설치되어 있습니다.
 
-R을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게 하면 대화형 환경으로 이동됩니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi, gedit 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 설치하면 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
+R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게 하면 대화형 환경으로 이동됩니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi, gedit 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
 
 또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
 ### <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
 
-Python은 2.7 및 3.5 버전이 있으므로 현재 세션에서 작업하려는 Python 버전을 활성화해야 합니다. 활성화 프로세스는 PATH 변수를 원하는 Python 버전으로 설정합니다.
+Python은 2.7 및 3.5 버전이 있으므로 현재 세션에서 작업하려는 Python 버전(conda 환경)을 활성화해야 합니다. 활성화 프로세스는 PATH 변수를 원하는 Python 버전으로 설정합니다.
 
-Python 2.7을 활성화하려면 셸에서 다음을 실행합니다.
+Python 2.7 conda 환경을 활성화하려면 셸에서 다음을 실행합니다.
 
     source /anaconda/bin/activate root
 
 Python 2.7은 */anaconda/bin*에 설치됩니다.
 
-Python 3.5를 활성화하려면 셸에서 다음을 실행합니다.
+Python 3.5 conda 환경을 활성화하려면 셸에서 다음을 실행합니다.
 
     source /anaconda/bin/activate py35
 
 
 Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
 
-Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **spyder** 를 입력하면 Python IDE를 시작할 수 있습니다.
+Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다.
+
+추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ````pip```` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예:
+
+    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter Notebook도 제공됩니다. JupyterHub을 통해 Jupyter Notebook에 액세스합니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 로그인합니다.
@@ -163,12 +172,31 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 
 Python과 R로 각각 작성된 샘플 노트북이 패키지로 제공됩니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 Jupyter Notebook에 인증하고 나면 노트북 홈페이지에서 샘플 링크를 확인할 수 있습니다. **새로 만들기**를 선택하고 적절한 언어 커널을 선택하여 새 Notebook을 만들 수 있습니다. **새로 만들기** 단추가 표시되지 않으면 왼쪽 위에서 **Jupyter** 아이콘을 클릭하여 Notebook 서버의 홈페이지로 이동합니다.
 
+### <a name="apache-spark-standalone"></a>Apache Spark 독립 실행형 
+Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 응용 프로그램을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 "New" 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 응용 프로그램을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
+
+샘플 PySpark Notebook은 Jupyter($HOME/notebooks/SparkML/pySpark)의 홈 디렉터리에 있는 "SparkML" 디렉터리에서 찾을 수 있는 Jupyter에서 제공됩니다. 
+
+Spark용 R에서 프로그래밍하는 경우 Microsoft R Server, SparkR 또는 sparklyr을 사용할 수 있습니다. 
+
+Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일 노드 Hadoop HDFS 및 Yarn 인스턴스를 사용하도록 설정하려면 일회성 설정 단계를 수행해야 합니다. 기본적으로 Hadoop 서비스는 설치되지만 DSVM에서 사용하지 않도록 설정됩니다. 활성화하기 위해 처음으로 루트로 다음 명령을 실행해야 합니다.
+
+    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+    chmod 0600 ~hadoop/.ssh/authorized_keys
+    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+
+필요하지 않을 때 ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
+
 ### <a name="ides-and-editors"></a>IDE 및 편집기
-여러 코드 편집기 중에서 선택할 수 있습니다. 편집기 종류로는 Vi/VIM, Emacs, gEdit 및 Eclipse가 있습니다. gEdit 및 Eclipse는 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 응용 프로그램 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
+여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, gEdit, PyCharm, RStudio,Eclipse 및 IntelliJ를 포함합니다. gEdit, Eclipse, IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 응용 프로그램 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
 **VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
 
-**Eclipse** 는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 Eclipse 환경을 확장할 수 있습니다. 또한 **Eclipse용 Azure 도구 키트**라는 Eclipse에 플러그 인을 설치했습니다. Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 응용 프로그램을 만들고 개발, 테스트 및 배포할 수 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK** 도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../azure-toolkit-for-eclipse.md)를 참조하세요.
+**Eclipse** 는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 환경을 확장할 수 있습니다. 또한 **Eclipse용 Azure 도구 키트**라는 Eclipse에 플러그 인을 설치했습니다. Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 응용 프로그램을 만들고 개발, 테스트 및 배포할 수 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK** 도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../azure-toolkit-for-eclipse.md)를 참조하세요.
 
 **LaTex** 는 texlive 패키지를 통해 Emacs 추가 기능 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 패키지와 함께 설치되며 Emacs 내에서의 LaTex 문서 작성을 단순화합니다.  
 
@@ -234,7 +262,7 @@ Azure Machine Learning Studio에 로그인하고 나면 Machine Learning 알고�
 
 VM에서 R 또는 Python으로 모델을 빌드한 다음 Azure Machine Learning에서 프로덕션 환경으로 배포할 수도 있습니다. R 및 Python에는 이 기능을 사용하는 데 필요한 라이브러리(각각 **AzureML**과 **azureml**)가 설치되어 있습니다.
 
-R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터에서 수행할 수 있는&10;가지 작업](machine-learning-data-science-vm-do-ten-things.md) , 특히 "R 또는 Python을 사용하여 모델을 빌드하고 Azure Machine Learning을 사용하여 운용 가능하도록 설정" 섹션을 참조하세요.
+R 및 Python으로 작성된 모델을 Azure Machine Learning에 배포하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터에서 수행할 수 있는 10가지 작업](machine-learning-data-science-vm-do-ten-things.md) , 특히 "R 또는 Python을 사용하여 모델을 빌드하고 Azure Machine Learning을 사용하여 운용 가능하도록 설정" 섹션을 참조하세요.
 
 > [!NOTE]
 > 이러한 지침은 데이터 과학 VM의 Windows 버전에 대해 작성되었습니다. 하지만 Azure Machine Learning에 모델을 배포하는 방법에 대해 제공되는 정보는 Linux VM에도 적용할 수 있습니다.
@@ -252,19 +280,15 @@ VM에는 로컬에서 미리 컴파일되어 미리 설치된 몇 가지 기계 
   
         install.packages(<lib name>)
 
-아래에서는 목록의 처음&3;개 기계 학습 도구에 대해 추가로 설명합니다.
+아래에서는 목록의 처음 3개 기계 학습 도구에 대해 추가로 설명합니다.
 
 #### <a name="cntk"></a>CNTK
 오픈 소스 심화 학습 도구 키트입니다. 명령줄 도구(cntk)이며 PATH에 이미 포함되어 있습니다.
 
 기본 샘플을 실행하려면 셸에서 다음 명령을 실행합니다.
 
-    # Copy samples to your home directory and execute cntk
-    cp -r /dsvm/tools/CNTK-2016-02-08-Linux-64bit-CPU-Only/Examples/Other/Simple2d cntkdemo
-    cd cntkdemo/Data
-    cntk configFile=../Config/Simple.cntk
-
-모델 출력은 *~/cntkdemo/Output/Models*에 있습니다.
+    cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
+    cntk configFile=lr_bs.cntk makeMode=false command=Train
 
 자세한 내용은 [GitHub](https://github.com/Microsoft/CNTK)의 CNTK 섹션과 [CNTK 위키](https://github.com/Microsoft/CNTK/wiki)를 참조하세요.
 

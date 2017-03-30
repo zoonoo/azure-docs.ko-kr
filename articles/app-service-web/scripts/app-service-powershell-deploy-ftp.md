@@ -12,26 +12,20 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 5f3bf8087fa6601ae410d6db907471fd6faa2742
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f4729e9daf788220358e7cca2508c820a1f2006a
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="upload-files-to-a-web-app-using-ftp"></a>FTP를 사용하여 웹앱에 파일 업로드
 
-이 샘플 스크립트는 Azure PowerShell을 사용하여 다음을 수행합니다. 
+이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 FTP([WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)을 통해)를 사용하여 웹앱 코드를 배포합니다.
 
-* 서유럽 Azure 지역의 Azure App Service에서 웹앱을 만듭니다.
-* 웹앱에서 FTP 연결 정보 가져오기
-* FTP를 사용하여 [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)을 통해 웹앱 코드를 배포합니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-* `Login-AzureRmAccount`을 실행하여 Azure에 로그인합니다.
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`을 실행하여 Azure와 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
