@@ -64,8 +64,8 @@ HTTPS를 사용하여 사용자 지정 도메인 이름의 보안을 유지하�
 <a name="bkmk_getcert"></a>
 
 ## <a name="step-1-get-an-ssl-certificate"></a>1단계. SSL 인증서 가져오기
-CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 구입할 SSL 인증서 유형을 결정해야 합니다. 단일 도메인 이름(**www.contoso.com**)의 보안을 유지하려면 기본 인증서만 있으면 됩니다. 여러 도메인 이름(**contoso.com** *, * **www.contoso.com** 
-* 및* **mail.contoso.com**)의 보안을 유지하려면 [와일드카드 인증서](http://en.wikipedia.org/wiki/Wildcard_certificate) 또는 [주체 대체 이름](http://en.wikipedia.org/wiki/SubjectAltName)(`subjectAltName`)이 포함된 인증서가 필요합니다.
+CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 구입할 SSL 인증서 유형을 결정해야 합니다. 단일 도메인 이름(**www.contoso.com**)의 보안을 유지하려면 기본 인증서만 있으면 됩니다. 여러 도메인 이름(**contoso.com** *,* **www.contoso.com** 
+*및* **mail.contoso.com**)의 보안을 유지하려면 [와일드카드 인증서](http://en.wikipedia.org/wiki/Wildcard_certificate) 또는 [주체 대체 이름](http://en.wikipedia.org/wiki/SubjectAltName) (`subjectAltName`)이 포함된 인증서가 필요합니다.
 
 구입할 SSL 인증서를 알았으면 CA에 CSR(인증서 서명 요청)을 제출합니다. CA에서 요청한 인증서를 다시 가져온 경우 인증서에서 .pfx 파일을 생성합니다. 선택한 도구를 사용하여 이러한 단계를 수행할 수 있습니다. 다음은 일반적인 도구에 대한 지침입니다.
 
