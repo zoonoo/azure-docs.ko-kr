@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: bd70596bcc34684a6f751076e71cb3d0aa3877dd
-ms.openlocfilehash: 4c40fd95f42f4e89e86d829c8a32583a0398c74e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 24a01d243cda0d04b6b179ab3f87f1d5fcdce61b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -163,11 +163,11 @@ PowerShell 또는 CLI를 사용하여 SUSE 이미지를 찾는 방법을 알아�
 * [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure에서 Linux VM에 LVM 구성](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-테스트 환경에서 다음 스크린샷과 같이&2;개 Azure 표준 저장소 디스크가 SAP 앱 서버 VM에 연결되었습니다. 한 디스크에는 설치를 위한 모든 SAP 소프트웨어(즉, NetWeaver 7.5, SAP GUI, SAP HANA 등)를 저장했습니다. 다른 한 디스크에는 추가 요구 사항(예: 백업 및 테스트 데이터) 및 동일한 SAP 환경에 속한 모든 VM 간에 공유할 /sapmnt 디렉터리에 사용할 수 있을 만큼 충분한 여유 공간을 확보하도록 했습니다.
+테스트 환경에서 다음 스크린샷과 같이 2개 Azure 표준 저장소 디스크가 SAP 앱 서버 VM에 연결되었습니다. 한 디스크에는 설치를 위한 모든 SAP 소프트웨어(즉, NetWeaver 7.5, SAP GUI, SAP HANA 등)를 저장했습니다. 다른 한 디스크에는 추가 요구 사항(예: 백업 및 테스트 데이터) 및 동일한 SAP 환경에 속한 모든 VM 간에 공유할 /sapmnt 디렉터리에 사용할 수 있을 만큼 충분한 여유 공간을 확보하도록 했습니다.
 
 ![2개 데이터 디스크와 해당 크기를 표시하는 SAP HANA 앱 서버 디스크 창](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
-앱 서버 VM 시나리오와 달리 다음 스크린샷과 같이&4;개 디스크가 SAP HANA 서버 VM에 연결되었습니다. 2개 디스크는 SAP 소프트웨어를 저장하는 데 사용되었으며(NFS를 사용하여 SAP 소프트웨어 디스크를 공유할 수도 있음) 사용 가능한 여유 공간(예: 백업용)을 확보했습니다. 2개 추가 디스크는 SAP HANA 데이터와 로그 파일 및 /usr/sap 디렉터리를 저장하는 Azure 프리미엄 저장소 디스크였습니다.
+앱 서버 VM 시나리오와 달리 다음 스크린샷과 같이 4개 디스크가 SAP HANA 서버 VM에 연결되었습니다. 2개 디스크는 SAP 소프트웨어를 저장하는 데 사용되었으며(NFS를 사용하여 SAP 소프트웨어 디스크를 공유할 수도 있음) 사용 가능한 여유 공간(예: 백업용)을 확보했습니다. 2개 추가 디스크는 SAP HANA 데이터와 로그 파일 및 /usr/sap 디렉터리를 저장하는 Azure 프리미엄 저장소 디스크였습니다.
 
 ![4개 데이터 디스크와 해당 크기를 표시하는 SAP HANA 앱 서버 디스크 창](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg)
 
@@ -196,11 +196,11 @@ SAP HANA 커널을 영구적으로 설정하려면 SLES 12에서 grub2를 사용
 ![YaST 부팅 로더의 커널 매개 변수 설정 탭](./media/virtual-machines-linux-sap-hana-get-started/image007.jpg)
 
 ### <a name="file-systems"></a>파일 시스템
-다음 스크린샷에서는&2;개 Azure 표준 저장소 디스크에 연결된 SAP 앱 서버 VM에 만들어진&2;개 파일 시스템을 보여 줍니다. 두 파일 시스템은 모두 XFS 형식이며 /sapdata 및 /sapsoftware에 탑재됩니다.
+다음 스크린샷에서는 2개 Azure 표준 저장소 디스크에 연결된 SAP 앱 서버 VM에 만들어진 2개 파일 시스템을 보여 줍니다. 두 파일 시스템은 모두 XFS 형식이며 /sapdata 및 /sapsoftware에 탑재됩니다.
 
 파일 시스템을 반드시 이 방식으로 구조화하는 것은 아닙니다. 디스크 공간을 구조화하기 위한 다른 옵션이 있습니다. 가장 중요한 고려 사항은 루트 파일 시스템의 여유 공간이 부족하지 않도록 하는 것입니다.
 
-![SAP 앱 서버 VM에 만든&2;개 파일 시스템](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
+![SAP 앱 서버 VM에 만든 2개 파일 시스템](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
 
 SAP HANA DB VM과 관련하여 데이터베이스 설치 중에 SAPinst(SWPM) 및 간단한 "일반" 설치 옵션을 사용할 때는 기본적으로 /hana 및 /usr/sap 아래에 모든 항목을 설치한다는 것을 알고 있어야 합니다. SAP HANA 로그 백업의 기본 설정은 /usr/sap 아래에 있습니다. 즉 루트 파일 시스템의 저장소 공간이 부족하지 않도록 하는 것이 중요하기 때문에 SWPM을 사용하여 SAP HANA를 설치하기 전에 /hana 및 /usr/sap 아래에 충분한 여유 공간이 있는지 확인합니다.
 
@@ -402,7 +402,7 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 SAP HANA Studio에�
 
 ## <a name="about-sap-azure-certifications-and-running-sap-hana-on-azure"></a>SAP Azure 인증 및 Azure에서 SAP HANA 실행 정보
 자세한 내용은 다음 설명서를 참조하세요.
-* [Azure의 Windows 가상 컴퓨터에서 SAP 사용](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) - 클래식 모드에서 Windows OS를 사용하여 Azure에서 SAP를 실행하는 방법에 대한 SAP Azure 일반 정보
+* [Azure의 Windows 가상 컴퓨터에서 SAP 사용](windows/classic/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) - 클래식 모드에서 Windows OS를 사용하여 Azure에서 SAP를 실행하는 방법에 대한 SAP Azure 일반 정보
 * [SAP용 Azure 빠른 시작 템플릿](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) - 고객이 사용할 수 있는 기존 SAP 템플릿에 대한 정보
 * [Linux VM(가상 컴퓨터)에서 SAP 사용](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - Azure Resource Manager 모델에서 Linux OS를 사용하여 Azure에서 SAP를 실행하는 방법에 대한 SAP Azure 일반 정보
 * [공인 SAP HANA® 하드웨어 디렉터리](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)(영문) - 프로덕션을 위해 지원되는 Azure VM 유형을 나열하고 있는 공인 SAP HANA 하드웨어 디렉터리
