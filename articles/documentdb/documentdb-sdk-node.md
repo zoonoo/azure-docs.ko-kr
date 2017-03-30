@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/16/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: dd6e6184dd755ea356cae1c4d50a2b7ba39da9fb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -55,6 +55,14 @@ ms.lasthandoff: 03/07/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="1.11.0"/>1.11.0</a>
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
+* 파티션 간 쿼리에 대한 병렬 처리 수준을 제어하기 위한 옵션을 추가했습니다.
+* DocumentDB 에뮬레이터에 대해 실행하는 경우 SSL 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
+* 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
+* 단일 파티션 컬렉션(github #107)에 대한 연속 토큰 버그를 수정했습니다.
+* 단일 매개 변수(github #155)인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * SDK 버전을 포함하도록 수정된 사용자 에이전트 헤더입니다.
@@ -150,6 +158,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |2017년 3월 16일 |--- |
 | [1.10.2](#1.10.2) |2017년 1월 27일 |--- |
 | [1.10.1](#1.10.1) |2016년 12월 22일 |--- |
 | [1.10.0](#1.10.0) |2016년 10월 3일 |--- |

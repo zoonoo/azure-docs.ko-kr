@@ -26,11 +26,11 @@
 ## 연결
 
 ### [개요](sql-data-warehouse-connect-overview.md)
-### [연결 문자열](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio 설치](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [연결 문자열](sql-data-warehouse-connection-strings.md)
 
 ## 생성
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)

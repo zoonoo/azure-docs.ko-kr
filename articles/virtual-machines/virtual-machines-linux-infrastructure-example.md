@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 37e1783e10bf1cf84431a8d40b1e3d81b47188d2
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c84b1838a5503344411deda167714560aeca8da2
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -48,7 +48,7 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 
 * Azure 구독 및 계정
 * 단일 리소스 그룹
-* 저장소 계정
+* Azure Managed Disks
 * 두 서브넷을 사용하는 가상 네트워크
 * 역할이 비슷한 VM에 대한 가용성 집합
 * 가상 컴퓨터
@@ -57,8 +57,6 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 
 * Adventure Works Cycles는 **[IT 작업]-[위치]-[Azure 리소스]** 를 접두사로 사용합니다.
   * 이 예제에서 "**azos**"(Azure 온라인 저장소)는 IT 워크로드 이름이고 "**use**"(미국 동부 2)는 위치입니다.
-* 저장소 계정은 adventureazosusesa**[설명]**을 사용합니다.
-  * 고유성을 부여하기 위해 'adventure'가 접두사에 추가되었으며 저장소 계정 이름에는 하이픈을 사용할 수 없습니다.
 * 가상 네트워크는 AZOS-USE-VN**[숫자]**를 사용합니다.
 * 가용성 집합은 azos-use-as-**[역할]**을 사용합니다.
 * 가상 컴퓨터 이름은 azos-use-vm-**[VM 이름]**을 사용합니다.
@@ -66,11 +64,11 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 ## <a name="azure-subscriptions-and-accounts"></a>Azure 구독 및 계정
 Adventure Works Cycles는 이 IT 작업에 대한 청구를 제공하기 위해 Adventure Works Enterprise Subscription이라는 엔터프라이즈 구독을 사용합니다.
 
-## <a name="storage-accounts"></a>저장소 계정
-Adventure Works Cycles는 다음과 같은 두 개의 저장소 계정이 필요하다고 결정했습니다.
+## <a name="storage"></a>저장소
+Adventure Works Cycles에서는 Azure Managed Disks를 사용해야 한다고 결정했습니다. VM을 만들 때 사용 가능한 두 저장소 계층이 모두 사용됩니다.
 
-* **adventureazosusesawebapp** 
-* **adventureazosusesadbclust** 
+* **표준 저장소** - 웹 서버, 응용 프로그램 서버 및 도메인 컨트롤러와 해당 데이터 디스크의 경우
+* **Premium storage** - MongoDB가 분할된 클러스터 서버 및 해당 데이터 디스크의 경우
 
 ## <a name="virtual-network-and-subnets"></a>가상 네트워크 및 서브넷
 가상 네트워크는 Adventure Work Cycles 온-프레미스 네트워크에 지속적인 연결이 필요하지 않기 때문에 클라우드 전용 가상 네트워크로 결정했습니다.
@@ -114,7 +112,7 @@ Adventure Works Cycles는 Azure VM에 대해 다음 이름을 결정했습니다
 이 구성은 다음을 통합합니다.
 
 * 두 서브넷을 사용하는 클라우드 전용 가상 네트워크(프런트 엔드 및 백 엔드)
-* 두 저장소 계정
+* 표준 디스크와 프리미엄 디스크를 모두 사용하는 Azure Managed Disks
 * 네 개의 가용성 집합, 온라인 스토어의 각 계층마다 한 개
 * 네 계층에 대한 가상 컴퓨터
 * 인터넷에서 웹 서버 간 HTTPS 기반 웹 트래픽에 대한 외부 부하 분산 집합

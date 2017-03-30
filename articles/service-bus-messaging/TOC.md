@@ -1,6 +1,7 @@
 # 개요
 ## [Service Bus 메시징이란?](service-bus-messaging-overview.md)
 ## [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+## [서비스 버스 아키텍처](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
 # 시작

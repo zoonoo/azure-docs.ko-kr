@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -95,7 +96,7 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 
 이 시나리오의 경우 백 엔드 풀의 모든 VM에 네트워크 인터페이스가 3개 있습니다.
 
-* DIP: VM과 연결된 Virtual NIC(Azure의 NIC 리소스)
+* DIP: VM과 연결된 Virtual NIC(Azure NIC 리소스의 IP 구성)
 * VIP1: VIP1의 IP 주소로 구성된 게스트 OS 내의루프백 인터페이스
 * VIP2: VIP2의 IP 주소로 구성된 게스트 OS 내의루프백 인터페이스
 
@@ -135,9 +136,4 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 VIP 전반
 * 부동 IP 규칙을 사용할 경우 응용 프로그램은 아웃바운드 흐름에 대해 DIP를 사용해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성된 VIP 주소에 바인딩하는 경우 아웃바운드 흐름을 재작성하기 위해 SNAT을 사용할 수 없어 흐름이 실패합니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

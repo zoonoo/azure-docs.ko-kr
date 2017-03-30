@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 70f77fd155627ef1d06cf466d19768a0eaad6856
-ms.openlocfilehash: 4d3393b935d2ebd24bccd0fe040f1948402f6e5b
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 4fbd80f7e9775fe3c12a54302be4a162d2102e2f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 4d3393b935d2ebd24bccd0fe040f1948402f6e5b
 * **[소개 비디오 보기](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**
 * 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, **[시뮬레이션된 데이터에 대한 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
 * **[SQL 사용자 치트 시트](https://aka.ms/sql-analytics)**에서는 가장 일반적인 코드를 변환합니다.
-* **[언어 참조](app-insights-analytics-reference.md) ** 분석 쿼리 언어의 모든 강력한 기능을 사용하는 방법을 알아봅니다.
+* **[언어 참조](app-insights-analytics-reference.md)** 분석 쿼리 언어의 모든 강력한 기능을 사용하는 방법을 알아봅니다.
 
 ## <a name="queries-in-analytics"></a>분석의 쿼리
 일반적인 쿼리는 *원본* 테이블이며 그 뒤에 `|`로 구분된 일련의 *연산자*가 있습니다. 
@@ -71,16 +72,15 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 ![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics/001.png)
 
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
+
 
 ## <a name="next-steps"></a>다음 단계
 * [언어 둘러보기](app-insights-analytics-tour.md)를 시작하는 것이 좋습니다.
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

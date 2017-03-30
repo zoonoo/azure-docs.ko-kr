@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal에서 함수 만들기 | Microsoft Docs"
-description: "2분 이내에 서버가 없는 응용 프로그램인 첫 번째 Azure Function을 작성합니다."
+title: "Azure Portal에서 첫 번째 함수 만들기 | Microsoft Docs"
+description: "Azure를 시작합니다. Azure Portal에서 첫 번째 Azure Function을 만듭니다."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,54 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 03/15/2017
 ms.author: glenga
+ms.custom: welcome-email
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 4ee741cbec8db6b6400ff9f27daa2a0120bd2618
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6bb15dfd0e2c40b99d06ef2d695e3ba7ca78e91b
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-function-from-the-azure-portal"></a>Azure Portal에서 함수 만들기
-## <a name="overview"></a>개요
-Azure 기능은 다른 Azure 서비스, SaaS 제품 및 온-프레미스 시스템에서 발생하는 이벤트에 의해 트리거되는 코드를 구현하는 기능으로 기존 Azure 응용 프로그램 플랫폼을 확장하는 이벤트 기반의 주문형 계산 환경입니다. Azure Functions를 통해 응용 프로그램은 요구에 따라 확장하고 사용하는 리소스에 대해서만 비용을 지불합니다. Azure Functions를 사용하여 다양한 프로그래밍 언어로 구현되는 예약되거나 트리거된 코드 단위를 만들 수 있습니다. Azure Functions에 대해 자세히 알아보려면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
+# <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
-이 토픽에서는 Azure Portal을 사용하여 HTTP 트리거에서 호출되는 간단한 "hello world" Node.js Azure Functions를 만드는 방법을 보여 줍니다. Azure App Service에서 함수 앱을 명시적으로 만들어야 Azure Portal에서 함수를 만들 수 있습니다. 함수 앱이 자동으로 만들어지게 하려면 더 간단한 빠른 시작 환경으로서 비디오를 포함하고 있는 [다른 Azure Functions 빠른 시작 자습서](functions-create-first-azure-function.md)를 참조하세요.
+이 토픽에서는 HTTP 요청에서 호출되는 간단한 "hello world" Azure Function을 만드는 방법을 보여 줍니다. Azure Portal에서 함수를 만들기 전에 Azure App Service에서 함수 앱을 만들어서 함수의 실행을 호스트해야 합니다.
+
+이 빠른 시작을 완료하려면 Azure 계정이 있어야 합니다. [무료 계정](https://azure.microsoft.com/free/)을 사용할 수 있습니다. 또한 Azure에 등록하지 않고 [Azure Functions를 사용](https://azure.microsoft.com/try/app-service/functions/)할 수도 있습니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
-함수 앱은 Azure에서 함수 실행을 호스트합니다. Azure 계정이 없는 경우 [Functions 사용](https://functions.azure.com/try) 환경을 확인하거나 [무료 Azure 계정을 만드세요](https://azure.microsoft.com/free/). Azure Portal에서 함수 앱을 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 로 이동하여 Azure 계정으로 로그인합니다.
-2. **+새로 만들기** > **Compute** > **함수 앱**을 클릭하고 , **구독**을 선택하고 함수 앱을 식별하는 고유한 **앱 이름**을 입력한 후 다음 설정을 지정합니다.
-   
-   * **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)**: **새로 만들기**를 선택하고 새 리소스 그룹에 대한 이름을 입력합니다. 기존 리소스 그룹을 선택할 수도 있지만 함수 앱에 대한 소비 기반 App Service 계획을 만들지 못할 수도 있습니다.
-   * **[호스팅 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**은 다음 중 하나일 수 있습니다. 
-     * **소비 계획**: Azure Functions의 기본 계획 유형입니다. 소비 계획을 선택하는 경우 **위치**를 선택하고 **메모리 할당**(MB)도 설정해야 합니다. 메모리 할당이 비용에 미치는 영향에 대한 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요. 
-     * **App Service 계획**: App Service 계획을 사용하려면 **App Service 계획/위치**를 만들거나 기존 계획이나 위치를 선택해야 합니다. 이러한 설정은 [위치, 기능, 비용을 결정하고 앱과 연결된 리소스를 계산](https://azure.microsoft.com/pricing/details/app-service/) 합니다.  
-   * **저장소 계정**: 각 함수 앱에 저장소 계정이 필요합니다. 기존 저장소 계정을 선택하거나 계정을 만들 수 있습니다. 
-     
-     ![Azure Portal에서 새 함수 앱 만들기](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
+[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-    문자, 숫자 및 하이픈만 포함할 수 있는 유효한 **앱 이름**을 입력해야 합니다. 밑줄(**_**)은 허용되는 문자가 아닙니다.
-
-3. **만들기** 를 클릭하여 새 함수 앱을 프로비전하고 배포합니다.  
-
-### <a name="storage-account-requirements"></a>저장소 계정 요구 사항
-
-함수 앱을 만들 때 Blob, 큐 및 Table storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 내부적으로 Azure Functions는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Azure Storage를 사용합니다. blob 전용 저장소 계정(프리미엄 저장소 포함) 및 범용 저장소 계정(ZRS 복제 사용)과 같은 일부 저장소 계정은 큐 및 같은 테이블을 지원하지 않습니다. 이러한 계정은 새 함수 앱을 만들 때 저장소 계정 블레이드에서 필터링됩니다.
-소비 호스팅 계획을 사용할 경우 함수 앱 콘텐츠(예: 함수 코드 파일 및 바인딩 구성)는 주 저장소 계정의 Azure 파일 공유에 저장됩니다. 기본 저장소 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
-
-저장소 계정 유형에 대한 자세한 내용은 [Azure Storage 서비스 소개](../storage/storage-introduction.md#introducing-the-azure-storage-services)를 참조하세요.
+자세한 내용은 [Azure Portal에서 함수 앱 만들기](functions-create-function-app-portal.md)를 참조하세요.
 
 ## <a name="create-a-function"></a>함수 만들기
-이 단계는 Azure Functions 빠른 시작에서 함수를 만듭니다.
+이 단계에서는 Azure Functions 빠른 시작을 사용하여 새로운 함수 앱에서 함수를 만듭니다.
 
-1. **빠른 시작** 탭에서 **웹후크 + API** 및 **JavaScript**를 클릭한 다음 **함수 만들기**를 클릭합니다. 새로운 미리 정의된 Node.js 함수가 만들어집니다. 
+1. **빠른 시작** 탭에서 **WebHook + API**를 클릭하고 함수에 대한 언어를 선택한 다음 **함수 만들기**를 클릭합니다. 새 미리 정의된 함수는 선택한 언어로 생성됩니다.  
    
     ![](./media/functions-create-first-azure-function-azure-portal/function-app-quickstart-node-webhook.png)
 
-2. (선택 사항) 빠른 시작의 이 시점에서 포털의 Azure Functions 기능을 둘러보도록 선택할 수 있습니다.    둘러보기를 완료했거나 건너뛴 경우 HTTP 트리거를 사용하여 새 함수를 테스트할 수 있습니다.
+4. (선택 사항) 빠른 시작의 이 시점에서 포털의 Azure Functions 기능을 둘러보도록 선택할 수 있습니다. 둘러보기를 완료했거나 건너뛴 경우 HTTP 요청을 전송하여 새 함수를 테스트할 수 있습니다.
 
 
 ## <a name="test-the-function"></a>함수 테스트

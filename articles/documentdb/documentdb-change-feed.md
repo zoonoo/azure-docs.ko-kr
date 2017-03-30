@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/20/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
-ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -66,9 +67,9 @@ DocumentDB의 변경 피드는 모든 계정에 대해 기본적으로 활성화
 
 ![DocumentDB 변경 피드의 분산 처리](./media/documentdb-change-feed/changefeedvisual.png)
 
-다음 섹션에서는 DocumentDB REST API 및 SDK를 사용하여 변경 피드에 액세스하는 방법에 대해 설명합니다.
+다음 섹션에서는 DocumentDB REST API 및 SDK를 사용하여 변경 피드에 액세스하는 방법에 대해 설명합니다. .NET 응용 프로그램의 경우 변경 피드에서 이벤트를 처리하는 데 [변경 피드 프로세서 라이브러리]()를 사용하는 것이 좋습니다.
 
-## <a name="working-with-the-rest-api-and-sdk"></a>REST API 및 SDK 사용
+## <a id="rest-apis"></a>REST API 및 SDK 사용
 DocumentDB에서는 **컬렉션**이라는 저장소 및 처리량의 탄력적인 컨테이너를 제공합니다. 확장성 및 성능을 위해 [파티션 키](documentdb-partition-data.md)를 사용하여 컬렉션 내의 데이터를 논리적으로 그룹화합니다. DocumentDB에서는 ID(읽기/가져오기), 쿼리 및 읽기-피드(검색) 기준 조회를 포함하여 이 데이터에 액세스하기 위한 다양한 API를 제공합니다. 변경 피드는 DocumentDB의 `ReadDocumentFeed` API에 두 가지 새로운 요청 헤더를 채워서 가져올 수 있으며 파티션 키 범위에서 동시에 처리할 수 있습니다.
 
 ### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
@@ -88,8 +89,6 @@ ReadDocumentFeed의 작동 방식에 대해 간략하게 살펴보겠습니다. 
 
 **직렬 읽기 문서 피드**
 
-![DocumentDB ReadDocumentFeed 직렬 실행](./media/documentdb-change-feed/readfeedserial.png)
-
 지원되는 [DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서의 피드를 검색할 수도 있습니다. 예를 들어, 다음 코드 조각에서는 .NET에서 ReadDocumentFeed를 수행하는 방법을 보여 줍니다.
 
     FeedResponse<dynamic> feedResponse = null;
@@ -99,15 +98,10 @@ ReadDocumentFeed의 작동 방식에 대해 간략하게 살펴보겠습니다. 
     }
     while (feedResponse.ResponseContinuation != null);
 
-> [!NOTE]
-> 변경 피드에는 SDK 버전 1.11.0 이상이 필요합니다(현재 비공개 미리 보기 버전에서 사용 가능).
-
 ### <a name="distributed-execution-of-readdocumentfeed"></a>ReadDocumentFeed의 분산 실행
 테라바이트 이상의 데이터를 포함하거나 대량의 업데이트를 수집하는 컬렉션의 경우 단일 클라이언트 컴퓨터에서 읽기 피드의 직렬 실행은 실용적이지 않습니다. 이러한 빅 데이터 시나리오를 지원하기 위해 DocumentDB에서는 API를 제공하여 여러 클라이언트 판독기/소비자에게 `ReadDocumentFeed` 호출을 투명하게 배포합니다. 
 
 **분산 읽기 문서 피드**
-
-![DocumentDB ReadDocumentFeed 분산 실행](./media/documentdb-change-feed/readfeedparallel.png)
 
 증분 변경 내용의 확장 가능한 처리를 제공하기 위해 DocumentDB에서는 파티션 키 범위에 따라 변경 피드 API의 확장 모델을 지원합니다.
 
@@ -337,15 +331,27 @@ ReadDocumentFeed는 DocumentDB 컬렉션의 변경 내용을 증분 처리하는
         // trigger an action, like call an API
     }
 
+## <a id="change-feed-processor"></a>변경 피드 프로세서 라이브러리
+[DocumentDB 변경 피드 프로세서 라이브러리](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor)는 여러 소비자에 대한 변경 피드에서 처리되는 이벤트를 배포하는 데 사용될 수 있습니다. .NET 플랫폼에서 변경 피드 판독기를 빌드할 때 이 구현을 사용해야 합니다. `ChangeFeedProcessorHost` 클래스는 검사점 및 파티션 임대 관리를 제공하는 이벤트 처리기 구현을 위한 스레드 안전, 다중 프로세스, 안전한 런타임 환경을 제공합니다.
+
+[`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs) 클래스를 사용하려면 [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs)을 구현할 수 있습니다. 이 인터페이스는 세 가지 메서드가 포함합니다.
+
+* OpenAsync
+* CloseAsync
+* ProcessEventsAsync
+
+이벤트 처리를 시작하려면 DocumentDB 컬렉션에 적절한 매개 변수를 제공하여 ChangeFeedProcessorHost를 인스턴스화합니다. 그런 다음 `RegisterObserverAsync`을 호출하여 런타임에 `IChangeFeedObserver` 구현을 등록합니다. 이 시점에서 호스트는 "greedy" 알고리즘을 사용하여 DocumentDB 컬렉션의 모든 파티션 키 범위에서 임대를 획득하려 합니다. 이러한 임대는 지정된 시간 프레임 동안 지속되며 갱신되어야 합니다. 새 노드(이 경우 작업자 인스턴스)가 온라인 상태가 되면 임대 예약을 놓고 더 많은 임대를 획득하기 위해 시간이 지남에 따라 노드 간에 부하가 이동합니다.
+
+![DocumentDB 변경 피드 프로세서 호스트 사용](./media/documentdb-change-feed/changefeedprocessor.png)
+
+시간이 지남에 따라 평형이 설정됩니다. 이 동적 기능을 사용하면 확장 및 축소 모두에 대해 소비자에게 적용할 CPU 기반 자동 크기 조정을 할 수 있습니다. 변경 내용을 소비자가 처리할 수 있는 것보다 빠르게 DocumentDB에서 사용할 수 있는 경우 소비자에 대한 CPU가 증가하여 작업자 인스턴스 수의 크기를 자동으로 조정할 수 있습니다.
+
+또한 ChangeFeedProcessorHost 클래스는 별도 DocumentDB 임대 컬렉션을 사용하여 검사점 메커니즘을 구현합니다. 이 메커니즘은 파티션 당 오프셋을 저장하므로 각 소비자가 이전 소비자의 마지막 검사점 무엇인지를 결정할 수 있습니다. 임대를 통해 노드 간에 파티션이 전환되면 이동하는 부하를 용이하게 하는 동기화 메커니즘입니다.
+
 이 문서에서는 DocumentDB의 변경 피드 지원의 연습 및 DocumentDB REST API 및/또는 SDK를 사용하여 DocumentDB 데이터에 대한 변경 내용을 추적하는 방법을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [GitHub의 DocumentDB 변경 피드 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed) 사용
 * [DocumentDB의 리소스 모델 및 계층 구조](documentdb-resources.md)에 대해 자세히 알아보기
 * [DocumentDB SDK](documentdb-sdk-dotnet.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 코딩 시작
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f5f611ce6944d37e0afcc9a14fa79d0356d55347
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,10 +48,10 @@ Resource Manager 배포 모델을 사용하여 Azure Portal에서 VM(가상 컴�
 
 * [Azure Portal에서 정규화된 도메인 이름 만들기](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="virtual-nics"></a>가상 NIC
+## <a name="network-interfaces"></a>네트워크 인터페이스
 네트워크 인터페이스(NIC)는 VM(가상 컴퓨터)과 기본 소프트웨어 네트워크 간 상호 연결입니다. 이 문서에서는 네트워크 인터페이스란 무엇이며 Azure Resource Manager 배포 모델에서 어떻게 사용되는지에 대해 설명합니다.
 
-* [가상 네트워크 인터페이스 개요](../virtual-network/virtual-network-network-interface-overview.md)
+* [가상 네트워크 인터페이스](../virtual-network/virtual-network-network-interface.md)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>가상 NIC 및 DNS 레이블 지정
 영구적으로 유지해야 하는 서버가 있지만 서버가 가축으로 처리되고 해체되며 자주 배포되는 경우 NIC에 DNS 레이블 지정을 사용하여 VNET의 이름을 유지하려고 합니다.  다음 연습을 통해 고정 IP를 가진 NIC를 영구적으로 설정합니다.
@@ -66,10 +67,5 @@ Resource Manager 배포 모델을 사용하여 Azure Portal에서 VM(가상 컴�
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
 * [Azure CLI를 사용하여 내부 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4e5d915d474d7ea161f467def931e3013255f843
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 202684a1ae1106d79b9cee4e4ebf20ffa283f41b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,6 +45,13 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.js 프라미스 기반 클라이언트입니다.
 
 [Github](https://github.com/a8m/doqmentdb) 및 [npm](https://www.npmjs.com/package/doqmentdb)에서 확인하세요.
+
+### <a name="typescript-api"></a>TypeScript API
+*Jelmer Cormont 작성*
+
+TypeScript로 작성된 Node.js 클라이언트에 대한 래퍼입니다(일반 JavaScript에서도 작동). `async/await` 및 간소화된 API를 지원합니다.
+
+[Github](https://github.com/jcormont/documentdb-typescript) 및 [npm](https://www.npmjs.com/package/documentdb-typescript)에서 확인하세요.
 
 ### <a name="swagger-rest-api-for-documentdb"></a>DocumentDB용 Swagger REST API
 *Howard Edidin 작성*
@@ -159,7 +166,7 @@ fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플�
 | [모임: 샬럿 Microsoft 클라우드](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) |Jamie Rance |샬럿, NC |2015년 4월 8일 |해당 없음 |
 | [SQL Saturday #375 - 실리콘 밸리 2015](http://www.sqlsaturday.com/375/Sessions/Details.aspx?sid=15289) |Ike Ellis |마운틴뷰, CA |2015년 3월 28일 |해당 없음 |
 | [모임: 이스탄불 Azure 모임](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) |Daron Yondem |이스탄불, 터키 |2015년 3월 7일 |해당 없음 |
-| [모임:&5;대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) |Michael Collier |사우스필드, MI |2015년 2월 18일 |해당 없음 |
+| [모임: 5대호 지역 .Net 사용자 그룹](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) |Michael Collier |사우스필드, MI |2015년 2월 18일 |해당 없음 |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) |Magnus Mårtensson |스톡홀름, 스웨덴 |2015년 1월 28-29일 |[클라우드용 Azure 새 NoSQL 옵션의 DocumentDB](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
 ### <a name="videos-and-podcasts"></a>비디오 및 팟캐스트

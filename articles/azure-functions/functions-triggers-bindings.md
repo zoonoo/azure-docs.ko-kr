@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
-ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/30/2017
 | --- | --- | --- | --- |  
 | [HTTP/webhook](functions-bindings-http-webhook.md) | [타이머](functions-bindings-timer.md) | [모바일 앱](functions-bindings-mobile-apps.md) | [서비스 버스](functions-bindings-service-bus.md)  |  
 | [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage 큐](functions-bindings-storage-queue.md) |  [Storage 테이블](functions-bindings-storage-table.md) |  
-| [이벤트 허브](functions-bindings-event-hubs.md) | [알림 허브](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| [이벤트 허브](functions-bindings-event-hubs.md) | [알림 허브](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
 | | | | |  
 
 이러한 문서에서는 사용자가 [Azure Functions 개발자 참조](functions-reference.md) 및 [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) 또는 [Node.js](functions-reference-node.md) 개발자 참조 문서를 읽었다고 가정합니다.

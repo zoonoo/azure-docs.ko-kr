@@ -1,5 +1,5 @@
 ---
-title: "Traffic Manager 끝점 모니터링 및 장애 조치(failover) | Microsoft Docs"
+title: "Azure Traffic Manager 끝점 모니터링 | Microsoft Docs"
 description: "이 문서는 Traffic Manager가 끝점 모니터링 및 자동 끝점 장애 조치를 사용하여 Azure 고객이 고가용성 응용 프로그램을 어떻게 배포할 수 있도록 하는지 이해하는 데 도움이 됩니다."
 services: traffic-manager
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 4df9f744c7dde9224157eca1f869c0c420036d76
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: cec4f541ebac6202a3880ec7338a9f0a0ac645b5
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="traffic-manager-endpoint-monitoring-and-failover"></a>Traffic Manager 끝점 모니터링 및 장애 조치(failover)
+# <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 끝점 모니터링
 
 Azure Traffic Manager에는 기본 제공된 끝점 모니터링 및 자동 끝점 장애 조치가 포함됩니다. 이 기능을 통해 Azure 지역 장애를 포함하여 끝점 장애에 대해 복원력 있는 고가용성 응용 프로그램을 제공할 수 있습니다.
 
@@ -131,84 +132,15 @@ Traffic Manager는 비정상 끝점을 포함하는 모든 끝점의 상태를 �
 
 실패한 상태 검사의 문제 해결에 대한 자세한 내용은 [Azure Traffic Manager의 Degraded 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)을 참조하세요.
 
-## <a name="faq"></a>FAQ
 
-### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Traffic Manager 자체는 Azure 하위 지역 장애에 복원력이 있나요?
-
-Traffic Manager는 Azure에서 가용성 높은 응용 프로그램을 전달하는 데 있어서 핵심적인 구성 요소입니다.
-높은 가용성을 제공하려면 Traffic Manager는 매우 높은 수준의 가용성을 유지해야 하고 지역 실패에 대해 복원력도 뛰어나야 합니다.
-
-기본적으로 Traffic Manager 구성 요소는 모든 Azure 지역의 전체 오류에 대해 복원력을 갖습니다. 이러한 복원력은 DNS 이름 서버, API, 저장소 계층 및 끝점 모니터링 서비스 등 모든 Traffic Manager 구성 요소에 해당됩니다.
-
-전체 Azure 하위 지역의 가동 중단과 같은 드문 경우에도, Traffic Manager는 계속 정상적으로 작동해야 합니다. 여러 Azure 하위 지역에 배포된 응용 프로그램은 Traffic Manager에 의존하여 응용 프로그램의 사용 가능한 인스턴스로 트래픽을 전달할 수 있습니다.
-
-### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>리소스 그룹의 위치 선택은 Traffic Manager에 어떤 영향을 주나요?
-
-Traffic Manager는 단일 전역 서비스입니다. 지역에 영향을 받지 않습니다. 리소스 그룹의 위치 선택은 해당 리소스 그룹에 배포된 Traffic Manager 프로필에 어떤 영향도 주지 않습니다.
-
-Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정해야 하며 이를 통해 해당 리소스 그룹에 배포된 리소스의 기본 위치가 결정됩니다. Traffic Manager 프로필을 만들면 리소스 그룹에 만들어집니다. 모든 Traffic Manager 프로필은 위치로 **전역**을 사용하고 리소스 그룹 기본값을 재정의합니다.
-
-### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>각 끝점의 현재 상태를 확인하려면 어떻게 해야 하나요?
-
-각 끝점의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx) 및 [크로스 플랫폼 Azure CLI](../xplat-cli-install.md)를 통해서도 사용할 수 있습니다.
-
-Azure는 지난 끝점 상태에 대한 기록 정보를 제공하지 않으며 끝점 상태 변경에 대한 경고를 생성하는 기능도 없습니다.
-
-### <a name="can-i-monitor-https-endpoints"></a>HTTPS 끝점을 모니터링할 수 있나요?
-
-예. Traffic Manager는 HTTPS를 통한 검색을 지원합니다. 모니터링 구성에서 프로토콜로 **HTTPS**를 구성합니다.
-
-Traffic Manager는 다음을 포함하는 인증서 유효성 검사를 제공할 수 없습니다.
-
-* 서버 쪽 인증서의 유효성이 검사되지 않습니다.
-* SNI 서버 쪽 인증서가 지원되지 않습니다.
-* 클라이언트 인증서는 지원되지 않습니다.
-
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>끝점 상태 검사에 어떤 호스트 헤더가 사용되나요?
-
-Traffic Manager는 HTTP 및 HTTPS 상태 검사에서 호스트 헤더를 사용합니다. Traffic Manager가 사용하는 호스트 헤더는 프로필에 구성된 끝점 대상의 이름입니다. 호스트 헤더에 사용된 값은 target 속성과 별도로 지정할 수 없습니다.
-
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>상태 검사가 시작되는 IP 주소는 무엇인가요?
-
-다음 목록에는 Traffic Manager 상태 검사가 시작될 수 있는 IP 주소가 나와 있습니다. 이 목록의 IP 주소에서 들어오는 연결의 끝점에서는 상태 검사가 허용됩니다.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
 
 ## <a name="next-steps"></a>다음 단계
 
- [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)
+[Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)
 
 Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
 
 [Traffic Manager 프로필을 만드는](traffic-manager-manage-profiles.md)
 
 [Degraded 상태 문제를 해결](traffic-manager-troubleshooting-degraded.md) 합니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
-ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a27ec9e1ebfde3493e41c493b85c0dc7f0ada2a0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,17 +33,13 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 ## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
 Oracle 커넥터는 다음 두 가지 버전의 드라이버를 지원합니다.
 
-- **Oracle용 Microsoft 드라이버**는 버전 2.7부터 데이터 관리 게이트웨이와 번들로 묶여 제공됩니다. 이 드라이버가 **권장**됩니다. 이 드라이버를 사용하면 Oracle에 연결하기 위해 게이트웨이 외에 다른 어떤 것도 설치할 필요가 없으며 복사 성능이 향상될 수도 있습니다. Oracle Database 버전 10g 릴리스 2 이상을 사용할 수 있습니다.
+- **Oracle용 Microsoft 드라이버**는 버전 2.7부터 데이터 관리 게이트웨이와 번들로 묶여 제공됩니다. 이 드라이버가 **권장**됩니다. Oracle에 연결하기 위해 게이트웨이 외에 다른 어떤 것도 설치할 필요가 없으며 복사 성능이 향상될 수도 있습니다. Oracle Database 버전 10g 릴리스 2 이상을 사용할 수 있습니다.
 
     > [!NOTE]
     > 현재 Oracle용 Microsoft 드라이버는 Oracle에서 데이터를 복사하는 것만 지원하고 Oracle로 쓰는 것은 지원하지 않습니다. 데이터 관리 게이트웨이 진단 탭의 연결 테스트 기능은 이 드라이버를 지원하지 않습니다. 또는 복사 마법사를 사용하여 연결의 유효성을 검사할 수도 있습니다.
     >
 
-- **.NET용 Oracle Data Provider: ** Oracle Data Provider를 사용하여 Oracle로 데이터를 복사하거나 Oracle에서 데이터를 복사하도록 선택할 수 있습니다. 이 구성 요소는 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 컴퓨터에 해당 버전(32/64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 은 Oracle Database 10g 릴리스 2 이상에 액세스할 수 있습니다.
-
-    "XCopy 설치"를 선택하는 경우 readme.htm의 단계를 수행합니다. UI(XCopy UI가 아닌 UI)가 포함된 설치 관리자를 선택하는 것이 좋습니다.
-
-    공급자를 설치한 후 서비스 애플릿 또는 데이터 관리 게이트웨이 구성 관리자를 사용하여 컴퓨터에서 데이터 관리 게이트웨이 호스트 서비스를 **다시 시작**합니다.  
+- **Oracle Data Provider for .NET:** 데이터 관리 게이트웨이 버전 2.7 이상은 이 구성 요소를 포함하기 때문에 별도로 설치할 필요가 없습니다. 2.7 미만의 게이트웨이 버전을 사용하는 경우 [여기](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 버전의 게이트웨이를 설치하는 것이 좋습니다. 게이트웨이 버전은 데이터 관리 게이트웨이 구성 관리자의 도움말 페이지에서 찾을 수 있습니다("데이터 관리 게이트웨이" 검색).
 
 ## <a name="copy-data-wizard"></a>데이터 복사 마법사
 Oracle 데이터베이스의 데이터를 지원되는 싱크 데이터 저장소 중 하나에 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
@@ -416,7 +412,7 @@ Oracle 데이터베이스의 데이터를 지원되는 싱크 데이터 저장�
 | --- | --- | --- |
 | type |type 속성은 **OnPremisesOracle** |예 |
 | driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation) 섹션을 참조하세요. | 아니요 |
-| connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 아래 예제를 참조하세요. | 예 |
+| connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용할 게이트웨이 이름입니다. |예 |
 
 온-프레미스 Oracle 데이터 원본의 자격 증명을 설정하는 방법에 대한 자세한 내용은 [데이터 관리 게이트웨이를 사용하여 온-프레미스 원본과 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
@@ -470,14 +466,14 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 >
 >
 
-반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
+반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
 ### <a name="oraclesource"></a>oracleReaderQuery
 원본이 **OracleSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable |아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
+| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select *from MyTable <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select* from MyTable |아니요(**데이터 집합**의 **tableName**이 지정된 경우) |
 
 ### <a name="oraclesink"></a>파이프라인
 **OracleSink** 는 다음 속성을 지원합니다.

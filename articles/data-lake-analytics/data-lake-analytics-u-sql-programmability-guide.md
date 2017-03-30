@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Aanlytics를 위한 U-SQL 프로그래밍 기능 가이드 | Microsoft 문서"
-description: "U-SQL 프로그래밍 기능 가이드"
+title: "Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드 | Microsoft Docs"
+description: "클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake의 서비스 집합에 대해 알아봅니다."
 services: data-lake-analytics
 documentationcenter: 
 author: MikeRys
@@ -14,30 +14,32 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: cd2aafd80db337cadaa2217a6638d93186975b68
-ms.openlocfilehash: 563a6821b4a3736ef1233aa67d86b9ba06565788
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6efdd600386a603b38a5733977067f1a987cdac3
+ms.lasthandoff: 03/17/2017
 
 
 ---
+
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 ## <a name="azure-data-lake"></a>Azure 데이터 레이크
-Azure Data Lake에는 개발자, 데이터 과학자 및 분석가들이 보다 쉽게 다양한 크기, 형태 및 속도의 데이터를 저장하고, 플랫폼 및 언어에 관계없이 모든 유형의 처리 및 분석을 수행할 수 있도록 하는 데 필요한 모든 기능이 포함되어 있습니다. 이 서비스는 배치, 스트리밍 및 대화식 분석을 사용하여 보다 빠르게 작업을 실행하면서 모든 데이터를 수집하고 저장하는 데 따른 복잡성을 없애줍니다.
+Azure Data Lake는 개발자, 데이터 과학자 및 분석가가 크기, 모양 및 속도에 상관없이 데이터를 손쉽게 저장할 수 있는 기능을 포함합니다. Azure Data Lake를 통해 개발자는 플랫폼 및 언어 간에 다양한 유형의 처리 및 분석을 사용할 수도 있습니다. 모든 데이터를 수집하고 저장하는 복잡성을 제거하는 동시에 배치, 스트리밍 및 대화형 분석을 보다 빠르게 사용할 수 있도록 만들어줍니다.
 
-Azure Data Lake는 클라우드 기반 빅 데이터 플랫폼을 제공하기 위해 다음과 같은 일단의 서비스를 작동합니다.
+Azure Data Lake는 클라우드 기반 빅 데이터 플랫폼을 제공하기 위해 함께 작동하는 서비스 집합입니다. 이러한 서비스에는 다음이 포함됩니다.
 
-- HDInsight
+- Azure HDInsight
 - Azure Data Lake Store
 - Azure 데이터 레이크 분석
 
-U-SQL은 빅 데이터 유형의 워크로드를 위해 특별히 설계된 쿼리 언어입니다. U-SQL의 고유한 기능 중 하나는 SQL과 같은 선언적 언어와 C#에서 제공하는 확장성 및 프로그래밍 기능을 결합한 것입니다. 또한 스키마 메타데이터에 액세스하여 조작하고, 데이터 프로세서 및 리듀서와 같은 사용자 지정 구성 요소를 만들 수 있습니다.
+U-SQL은 빅 데이터 유형의 워크로드를 위해 설계된 쿼리 언어입니다. U-SQL의 고유한 기능 중 하나는 SQL과 같은 선언적 언어와 C#에서 제공하는 확장성 및 프로그래밍 기능을 결합한 것입니다. 또한 스키마 메타데이터에 액세스하여 조작하고, 데이터 프로세서 및 리듀서와 같은 사용자 지정 구성 요소를 만들 수 있는 기능을 제공합니다.
 
-이 가이드에서는 C#에서 사용할 수 있는 U-SQL 언어의 확장성과 프로그래밍 기능에 대해 집중적으로 다룹니다.
+이 가이드에서는 C#에서 사용할 수 있는 U-SQL 언어의 확장성과 프로그래밍 기능을 집중적으로 설명합니다.
 
 ## <a name="requirements"></a>요구 사항
-ADL 개발을 시작하려면 [Visual Studio용 Azure Data Lake 도구](https://www.microsoft.com/download/details.aspx?id=49504)를 다운로드하여 설치해야 합니다.
+Azure Data Lake 개발을 시작하려면 [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)를 다운로드하여 설치해야 합니다.
 
-## <a name="starting-with-u-sql"></a>U-SQL 시작  
-이 문서에서는 U-SQL 언어를 설명하지 않지만, 점진적으로 U-SQL 프로그래밍 기능을 도입하기 위해 기본적인 U-SQL 구문에 대해 설명하겠습니다. 자세한 내용은 [U-SQL 언어 참조](http://aka.ms/usql_reference) 가이드를 참조하세요.
+## <a name="get-started-with-u-sql"></a>U-SQL 시작  
+U-SQL 언어에 대한 설명은 이 문서에서 다루지 않습니다. 하지만 U-SQL 프로그래밍 기능을 점진적으로 설명하기 위해 기본적인 U-SQL 구문을 설명하겠습니다. 자세한 내용은 [U-SQL 언어 참조](http://aka.ms/usql_reference) 가이드를 참조하세요.
 
 다음 예제를 살펴보겠습니다.
 
@@ -65,29 +67,29 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-위 예제에는 @input_file **지역 변수**로 정의된 **입력 파일**(input_file.tsv 파일)이 있습니다.
+이 예제에는 @input_file **지역 변수**로 정의된 **입력 파일**(input_file.tsv 파일)이 있습니다.
 
-위 U-SQL 스크립트를 실행하면 다음 작업이 수행됩니다.
+이 예에 표시된 U-SQL 스크립트에 의해 다음 작업이 수행됩니다.
 
 * 초기 **EXTRACT** 문은 입력 파일을 **메모리 행 집합**으로 변환하여 메모리에 데이터를 로드합니다.
 * **SELECT**는 데이터 행 집합에서 데이터를 집계하고 내보내도록 준비하기 위해 작동합니다.
-* **OUTPUT** 명령 - 데이터 행 집합을 **출력 파일**(외부 파일)로 내보냅니다.
+* **OUTPUT**은 데이터 행 집합을 **출력 파일** 즉, 외부 파일로 내보냅니다.
 
-먼저 U-SQL 스크립트에서 C# 식을 직접 사용하는 몇 가지 옵션을 살펴보겠습니다.
+먼저 U-SQL 스크립트에서 C# 식을 사용하는 몇 가지 옵션을 살펴보겠습니다.
 
 ## <a name="c-types-and-expressions-in-u-sql-script"></a>U-SQL 스크립트의 C# 형식 및 식
-일반 C#와 비슷한 U-SQL C# 식은 단일 값, 개체, 메서드 또는 네임스페이스로 평가될 수 있는 하나 이상의 연산자 시퀀스입니다. 식은 리터럴 값, 메서드 호출, 연산자 또는 단순한 이름으로 구성할 수 있습니다. 단순 이름은 변수, 형식 멤버, 메서드 매개 변수, 네임스페이스 또는 형식의 이름일 수 있습니다.
+일반 C#의 식과 비슷한 U-SQL C# 식은 단일 값, 개체, 메서드 또는 네임스페이스로 평가될 수 있는 하나 이상의 연산자 시퀀스입니다. 식은 리터럴 값, 메서드 호출, 연산자 또는 단순한 이름으로 구성할 수 있습니다. 단순 이름은 변수, 형식 멤버, 메서드 매개 변수, 네임스페이스 또는 형식의 이름일 수 있습니다.
 
 U-SQL C# 식에 대해 말할 때는 특히 U-SQL 기본 스크립트인 C# 식을 인용합니다. 또한 이 문서의 뒷부분에서 설명할 기본 C# 코드 숨김 섹션에는 일반 C# 코드 기반 요소로 C# 식이 포함될 수도 있습니다.
 
-식은 매개 변수로 다른 식을 사용하거나 매개 변수가 또 다른 메서드 호출인 메서드 호출을 사용할 수 있습니다. 식의 예는 다음과 같습니다.  
+식은 다른 식을 매개 변수를 사용하는 연산자를 사용할 수 있습니다. 다른 메서드 호출인 매개 변수가 포함된 메서드 호출을 사용할 수도 있습니다. 다음의 식의 예제입니다.  
 
 ```c#
     Convert.ToDateTime(Convert.ToDateTime(dt).ToString("yyyy-MM-dd"))
 ```
 
-U-SQL 언어를 사용하면 기본 제공 이름 공간에서 표준 C# 식을 사용할 수 있습니다.  
- 
+U-SQL 언어를 사용하면 기본 제공되는 네임스페이스의 표준 C# 식을 사용할 수 있습니다.  
+
 ```c#
     Microsoft.Analytics.Interfaces;  
     Microsoft.Analytics.Types.Sql;  
@@ -99,20 +101,20 @@ U-SQL 언어를 사용하면 기본 제공 이름 공간에서 표준 C# 식을 
 
 일반 C# 식은 U-SQL SELECT, EXTRACT에서 사용할 수 있습니다.
 
-또한 C# 식은 DECLARE 또는 IF 문에서도 사용할 수 있습니다. 이러한 식의 예는 다음과 같습니다.   
+또한 C# 식은 DECLARE 또는 IF 문에서도 사용할 수 있습니다. 이런 유형의 식에 대한 예제는 다음과 같습니다.   
 
 ```c#
     DateTime.Today.Day   
     Convert.ToDateTime
 ```
 
-U-SQL 기본 스크립트의 예는 다음과 같습니다.  
+U-SQL 기반 스크립트 예:  
 
 ```sql
     DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 ```
 
-C# 식은 행 집합의 일부로 열을 조작할 때 확장된 기능을 제공할 수 있습니다. 예를 들어 datetime 열을&0;시간의 날짜로 변환하려면 U-SQL 기본 스크립트의 다음 SELECT 부분을 사용할 수 있습니다.
+C# 식은 행 집합의 일부로 열을 조작할 때 확장된 기능을 제공할 수 있습니다. 예를 들어 datetime 열을 0시간의 날짜로 변환하려면 U-SQL 기반 스크립트의 다음 SELECT 부분을 사용할 수 있습니다.
 
 ```sql
 @rs1 =
@@ -129,7 +131,7 @@ AS start_zero_time,
 
 여기서 알 수 있듯이 `System.Convert.ToDateTime` 메서드를 사용하여 변환을 실행합니다.
 
-아래의 좀 더 복잡한 사용 사례 시나리오에서는 몇 가지 기본 C# 연산자의 사용법을 보여 줍니다. 아래 식을 살펴보겠습니다.
+다음은 일부 기본적인 C# 연산자 사용을 보여주는 약간 더 복잡한 시나리오입니다.
 
 ```sql
 @rs1 =
@@ -145,7 +147,7 @@ AS start_zero_time,
 
 여기서는 C# 조건부 연산자 식의 예제를 보여 줍니다.
 
-위 예제에서는 기본 U-SQL 스크립트의 C# 식 사용법을 보여 줍니다. 그러나 U-SQL은 이 문서에서 자세히 다루고 있는 보다 확장성 있는 프로그래밍 기능을 지원합니다.  
+이전 예제는 기본 U-SQL 스크립트에서 C# 식 사용법을 보여줍니다. 그러나 U-SQL은 이 문서의 뒷부분에서 설명할 보다 확장성 있는 프로그래밍 기능을 지원합니다.  
 
 전체 스크립트:
 
@@ -176,8 +178,8 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-### <a name="using-c-expressions-for-data-type-conversions"></a>데이터 형식 변환에 C# 식 사용
-위 예제에서 다음 예제는 C# 식을 사용하는 datetime 데이터 변환 기술을 보여 줍니다. 이 특정 시나리오에서 datetime 문자열 데이터는 자정 00:00:00 시간 표기법을 사용하는 표준 datetime으로 변환됩니다.
+### <a name="use-c-expressions-for-data-type-conversions"></a>데이터 형식 변환에 C# 식 사용
+다음 예제는 C# 식을 사용하여 datetime 데이터 변환을 수행하는 방법을 보여줍니다. 이 특정 시나리오에서 datetime 문자열 데이터는 자정 00:00:00 시간 표기법을 사용하는 표준 datetime으로 변환됩니다.
 
 ```sql
 DECLARE @dt String = "2016-07-06 10:23:15";
@@ -188,14 +190,14 @@ DECLARE @dt String = "2016-07-06 10:23:15";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-### <a name="using-c-expressions-for-todays-date"></a>오늘 날짜에 C# 식 사용
+### <a name="use-c-expressions-for-todays-date"></a>오늘 날짜에 C# 식 사용
 오늘 날짜를 가져오려면 다음 C# 식을 사용할 수 있습니다.
 
 ```c#
 DateTime.Now.ToString("M/d/yyyy")
 ```
 
-스크립트에서
+다음은 스크립트에서 이 식을 사용하는 방법의 예입니다.
 
 ```sql
 @rs1 =
@@ -211,10 +213,10 @@ DateTime.Now.ToString("M/d/yyyy")
     GROUP BY user, des;
 ```
 
-## <a name="in-line-c-function-expressions"></a>인라인 C# 함수 식
-U-SQL에서는 C# 식의 일부로 인라인 함수 식 정의를 사용할 수 있습니다. 이렇게 하면 출력 참조 매개 변수와 함께 C# 함수를 사용할 수 있습니다.
+## <a name="use-inline-c-function-expressions"></a>인라인 C# 함수 식 사용
+U-SQL에서는 C# 식의 일부로 인라인 함수 식 정의를 사용할 수 있습니다. 이렇게 하면 출력 참조 매개 변수와 함께 C# 함수를 사용할 수 있는 추가 가능성이 만들어집니다.
 
-일반 인라인 함수 식 정의
+다음은 일반 인라인 함수 식 정의의 예입니다.
 
 ```c#
     (Func<type of param1, type of param2>)
@@ -223,7 +225,7 @@ U-SQL에서는 C# 식의 일부로 인라인 함수 식 정의를 사용할 수 
     ) (Rowset Column)
 ```
 
-예제:
+예:
 
 ```c#
     (Func<string, DateTime?>)
@@ -237,18 +239,18 @@ U-SQL에서는 C# 식의 일부로 인라인 함수 식 정의를 사용할 수 
     ) (dt)
 ```
 
-이 예제에서는 input_p 문자열 입력 매개 변수를 사용하여 인라인 함수를 정의합니다. 이 함수에서 입력 문자열이 유효한 datetime 값인지 확인합니다. 유효한 경우 이 값을 반환하며, 그렇지 않으면 null을 반환합니다.
+이 예제에서는 문자열 입력 매개 변수 input_p를 사용하여 인라인 함수를 정의합니다. 이 함수에서 입력 문자열이 유효한 datetime 값인지 확인합니다. 유효한 경우 이 값을 반환하며, 그렇지 않으면 null을 반환합니다.
 
-DateTime.TryParse 함수에 `out dt_result` 출력 매개 변수가 있으므로 이 시나리오에 인라인 함수가 필요합니다. 여기서는 `DateTime dt_result`로 정의합니다.
+DateTime.TryParse 함수에 출력 매개 변수 `out dt_result`가 포함되므로 이 시나리오에 인라인 함수가 필요합니다. 여기서는 `DateTime dt_result;`로 정의합니다.
 
 
-## <a name="verifying-data-type-values"></a>데이터 형식 값 확인
-일부 C# 함수는 U-SQL 기본 스크립트에서 C# 식으로 직접 사용할 수 없습니다. 구체적으로 말하면 함수에 출력 참조 매개 변수가 필요합니다. 그러나 이러한 함수는 앞에서 설명한 대로 인라인 함수 식의 일부로 정의하고 사용할 수 있습니다.
+## <a name="verify-data-type-values"></a>데이터 형식 값 확인
+일부 C# 함수는 기본 U-SQL 스크립트에서 C# 식으로 직접 사용될 수 없습니다. 특히, 직접 사용될 수 없는 함수는 출력 참조 매개 변수가 필요한 함수입니다. 그러나 이러한 함수는 앞에서 설명한 대로 인라인 함수 식의 일부로 정의하고 사용할 수 있습니다.
 
-### <a name="using-inline-function-expressions"></a>인라인 함수 식 사용
+### <a name="use-inline-function-expressions"></a>인라인 함수 식 사용
 DateTime 값이 유효한지 확인하려면 `DateTime.TryParse`를 사용할 수 있습니다.
 
-다음은 인라인 함수 식에서 `DateTime.TryParse`를 사용하여 데이터 형식 값을 확인하는 전체 예제입니다.
+다음은 `DateTime.TryParse`를 사용하여 데이터 형식 값을 확인하기 위해 인라인 함수 식을 사용하는 방법을 보여주는 전체 예제입니다.
 
 이 시나리오에서는 DateTime 데이터 형식 값을 확인합니다.
 
@@ -286,7 +288,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-### <a name="using-code-behind"></a>코드 숨김 사용
+### <a name="use-code-behind"></a>코드 숨김 사용
 U-SQL 프로그램의 코드 숨김 섹션에서 동일한 기능을 사용하려면 ToDateTime C# 함수를 정의합니다.
 
 다음은 필요한 사항을 변경한 기본 U-SQL 스크립트 섹션입니다.
@@ -303,7 +305,7 @@ U-SQL 프로그램의 코드 숨김 섹션에서 동일한 기능을 사용하�
         GROUP BY user, des;
 ```
 
-코드 숨김 함수는 다음과 같습니다.
+다음은 코드 숨김 함수입니다.
 
 ```c#
         static public DateTime? ToDateTime(string dt)
@@ -317,20 +319,20 @@ U-SQL 프로그램의 코드 숨김 섹션에서 동일한 기능을 사용하�
         }
 ```
 
-## <a name="using-code-behind"></a>코드 숨김 사용
+## <a name="use-code-behind"></a>코드 숨김 사용
 코드 숨김은 U-SQL 프로젝트의 C# 프로그래밍 기능 섹션입니다. 개념적으로 코드 숨김은 U-SQL 스크립트에서 참조되는 DLL(컴파일된 어셈블리)입니다. Visual Studio 도구를 사용하면 U-SQL 프로젝트의 일부로 C# 프로그래밍 기능 섹션을 관리하고 디버깅할 수 있습니다.
 
-Visual Studio에서 일반적인 U-SQL 프로젝트를 만들 때는 프로젝트의 두 부분이 있습니다. 기본 스크립트 - **.usql** 확장명의 파일입니다.
+Visual Studio에서 일반적인 U-SQL 프로젝트를 만들 때 프로젝트에는 두 부분 즉, 기본 스크립트 및 **.usql** 확장명을 사용하는 파일이 있습니다.
 
-![a](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
+![기본 스크립트 파일](./media/data-lake-analytics-u-sql-programmability-guide/base-script-file.png)
 
 
 일반적인 솔루션 프로젝트:   
-![typical-solution-project](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
+![일반적인 솔루션 프로젝트](./media/data-lake-analytics-u-sql-programmability-guide/typical-solution-project.png)
 
 
-코드(프로젝트의 두 번째 부분) - Script.usql.cs 파일입니다.  
-![code-behind](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
+프로젝트의 두 번째 부분에서 코드 숨김 파일 Script.usql.cs를 호출합니다.  
+![코드 숨김](./media/data-lake-analytics-u-sql-programmability-guide/code-behind.png)
 
 이 파일에는 프로그래밍 기능 개체에 대한 기본 네임스페이스 정의가 포함되어 있습니다.
 
@@ -348,7 +350,7 @@ namespace USQL_Programmability
 }
 ```
 
-위 코드 숨김 템플릿은 자동으로 생성됩니다. 이 파일에는 프로그래밍 기능 개체에 대한 기본 네임스페이스 정의가 포함되어 있습니다. 프로젝트를 실행하는 동안 기본 U-SQL 스크립트에서 컴파일되고 참조됩니다.
+미리 보기 코드 숨김 템플릿은 자동으로 생성됩니다. 이 파일에는 프로그래밍 기능 개체에 대한 기본 네임스페이스 정의가 포함되어 있습니다. 프로젝트를 실행하는 동안 기본 U-SQL 스크립트에서 컴파일되고 참조됩니다.
 
 프로그래밍 기능 개체를 개발하려면 **public** 클래스를 만들어야 합니다.
 
@@ -367,84 +369,88 @@ namespace USQL_Programmability
 }
 ```
 
-프로그래밍 기능 개체는 사용자 정의 함수(**UDF**) 또는 사용자 정의 형식(**UDT, PROCESS, REDUCER** 등)입니다.
+프로그래밍 기능 개체는 사용자 정의 함수, UDF, 사용자 정의 형식, UDT, PROCESS 또는 REDUCER 등입니다.
 
-## <a name="registering-u-sql-assemblies"></a>U-SQL 어셈블리 등록
-U-SQL 확장성 모델은 사용자 지정 코드를 추가하는 기능에 따라 달라집니다. 현재 U-SQL은 .Net 기반 코드, 특히 C#을 추가하는 쉬운 방법을 제공하지만, 다른 .Net 언어(예: VB.Net 또는 F#)로 작성된 사용자 지정 코드를 추가할 수도 있습니다. 다른 언어의 자체 런타임을 배포할 수도 있지만, 이 경우 여전히 .Net 계층을 통해 상호 운용성을 직접 제공해야 합니다. 특정 언어를 지원할 필요가 있으면 기능 요청을 제출하거나 http://aka.ms/adlfeedback에 의견을 남겨 주세요.
+## <a name="register-u-sql-assemblies"></a>U-SQL 어셈블리 등록
+U-SQL 확장성 모델은 사용자 지정 코드를 추가할 수 있는 기능에 크게 의존합니다. 현재 U-SQL은 사용자 고유의 Microsoft .NET 기반 코드(특히 C#)를 손쉽게 추가할 수 있는 방법을 제공합니다. 하지만 다른 .NET 언어(예: VB.NET 또는 F#)로 작성된 사용자 지정 코드를 추가할 수도 있습니다.
 
-### <a name="difference-between-code-behind-and-assembly-registration-through-adl-tools-in-visual-studio"></a>Visual Studio의 ADL 도구를 통한 코드 숨김과 어셈블리 등록의 차이점
-사용자 지정 코드를 사용하는 가장 쉬운 방법은 Visual Studio의 코드 숨김 기능을 위한 ADL 도구를 사용하는 것입니다.
+다른 언어의 자체 런타임을 배포할 수도 있지만, 이 경우 여전히 .NET 계층을 통해 상호 운용성을 직접 제공해야 합니다. 특정 언어를 지원할 필요가 있으면 기능 요청을 제출하거나 http://aka.ms/adlfeedback에 의견을 남겨 주세요.
+
+### <a name="learn-the-difference-between-code-behind-and-assembly-registration-through-azure-data-lake-tools-in-visual-studio"></a>Visual Studio의 Azure Data Lake Tools를 통해 코드 숨김과 어셈블리 등록의 차이점 알아보기
+사용자 지정 코드를 사용하는 가장 쉬운 방법은 Azure Data Lake Tools for Visual Studio의 코드 숨김 기능을 사용하는 것입니다.
 
 앞에서 설명한 대로 스크립트(예: Script.usql)의 사용자 지정 코드를 코드 숨김 파일(예: Script.usql.cs)에 작성합니다.
 
-![code-behind-example](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
-**그림 1**: VS의 ADL 도구에 포함된 코드 숨김 예제(확대하려면 이미지를 클릭하고, 샘플 코드는 [여기](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis)에 있음)
-<br />
+![코드 숨김 예제](./media/data-lake-analytics-u-sql-programmability-guide/code-behind-example.jpg)
+**그림 1**: Visual Studio의 Azure Data Lake Tools의 코드 숨김 예제. (이미지를 확대하려면 클릭하세요. [샘플 코드](https://github.com/Azure/usql/tree/master/Examples/TweetAnalysis)가 제공됩니다.)
+
 
 코드 숨김의 장점은 스크립트를 제출할 때 도구에서 다음 단계를 처리한다는 것입니다.  
 
 1. 코드 숨김 파일용 어셈블리를 빌드합니다.  
 
-1. [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) 문을 사용하여 어셈블리 파일을 등록하고, [REFERENCE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763294.aspx)를 사용하여 어셈블리를 스크립트의 컨텍스트에 로드하는 프롤로그를 스크립트에 추가합니다.
+2. 어셈블리 파일을 등록하기 위해 [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) 문을 사용하는 스크립트에 프롤로그를 추가합니다. 스크립트의 컨텍스트에 어셈블리를 로드하기 위해 [REFERENCE ASSEMBLY]를 사용하기도 합니다(https://msdn.microsoft.com/library/azure/mt763294.aspx).
 
-1. [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx)를 사용하여 일시적으로 등록된 어셈블리를 다시 제거하는 에필로그를 스크립트에 추가합니다.
+3. [DROP ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763295.aspx)를 사용하여 일시적으로 등록된 어셈블리를 다시 제거하는 에필로그를 스크립트에 추가합니다.
 
 스크립트를 열 때 다음과 같이 생성된 프롤로그와 에필로그를 확인할 수 있습니다.
 
-![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+![생성된 프롤로그](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
 
 **그림 2**: 코드 숨김에 대해 자동 생성된 프롤로그 및 에필로그
 <br />
 
-코드 숨김의 단점 중 일부는 다음과 같습니다.
+다음은 코드 숨김의 일부 단점입니다.
 
 * 스크립트를 제출할 때마다 코드가 업로드됩니다.
 * 기능을 다른 사용자와 공유할 수 없습니다.
 
-이렇게 하면 솔루션에 별도의 C# 클래스 라이브러리(U-SQL용)를 추가하거나(그림 3 참조), 코드를 개발하거나, 기존 코드 숨김 코드를 복사한(필요한 C# 코드 변경 없음, 그림 4 참조) 다음 프로젝트에서 [어셈블리 등록] 메뉴 옵션을 사용하여 해당 어셈블리를 등록할 수 있습니다(그림 5 1단계 참조).
+따라서 별도의 C# 클래스 라이브러리(U-SQL용)를 솔루션에 추가하고(그림 3 참조), 코드를 개발하거나 기존 코드 숨김 코드를 복사할 수 있습니다(필요한 C# 코드 변경 없음, 그림4 참조). 그런 다음 프로젝트의 **어셈블리 등록** 메뉴 옵션을 사용하여 어셈블리를 등록합니다(그림5의 1단계 참조).
 
-![creating-project](./media/data-lake-analytics-u-sql-programmability-guide/creating-project.png)
+![프로젝트 만들기](./media/data-lake-analytics-u-sql-programmability-guide/creating-project.png)
 **그림 3**: U-SQL C# 코드 프로젝트 만들기  
 <br />
 
-![class-library](./media/data-lake-analytics-u-sql-programmability-guide/class-library.png)
-**그림 4**: 코드 숨김 파일 옆에 있는 U-SQL C# 클래스 라이브러리  
+![클래스 라이브러리](./media/data-lake-analytics-u-sql-programmability-guide/class-library.png)
+**그림 4**: 코드 숨김 파일 옆에 있는 U-SQL C# 클래스 라이브러리
 <br />
 
-![register-code](./media/data-lake-analytics-u-sql-programmability-guide/register-code.png)
+![코드 등록](./media/data-lake-analytics-u-sql-programmability-guide/register-code.png)
 **그림 5**: U-SQL C# 코드 프로젝트를 등록하는 방법
 <br />
 
-등록 대화 상자(그림 5의 2단계 참조)에서는 어셈블리 등록 위치(Data Lake Analytics 계정, 데이터베이스)와 이름 지정 방법(도구에서 로컬 어셈블리 경로 작성)을 위한 옵션을 제공합니다. 또한 이미 등록된 어셈블리를 다시 등록하는 옵션과 다음과 같이 추가 종속성을 추가하는 두 가지 옵션을 제공합니다.
+등록 대화 상자(그림5의 2단계 참조)에는 어셈블리를 등록하는 방법(예: 사용할 Data Lake Analytics 계정, 사용할 데이터베이스)을 선택할 수 있는 옵션이 있습니다. 어셈블리의 이름을 지정하는 방법에 대한 정보도 제공됩니다. (로컬 어셈블리 경로는 이 도구를 통해 입력됩니다.) 또한 이미 등록된 어셈블리를 다시 등록하는 옵션과 다음과 같은 추가 종속성을 추가할 수 있는 두 가지 옵션을 제공합니다.
 
-* *관리되는 종속성*: 필요한 관리 대상 어셈블리도 표시합니다. 선택한 각 어셈블리는 개별적으로 등록되며 스크립트에서 참조될 수 있습니다. 이 어셈블리는 .Net 어셈블리에 사용합니다.
+**관리되는 종속성**: 필요한 관리되는 어셈블리를 표시합니다. 선택한 각 어셈블리는 개별적으로 등록되며 스크립트에서 참조될 수 있습니다. 이 어셈블리는 .NET 어셈블리에 사용합니다.
 
-* *추가 파일*: 어셈블리에 필요한 추가 리소스 파일을 추가할 수 있습니다. 어셈블리와 함께 등록되며 어셈블리가 참조될 때 자동으로 로드됩니다. 이 파일은 구성 파일, 네이티브 어셈블리, 다른 언어 런타임 및 해당 리소스 등에 사용합니다.
+**추가 파일**: 어셈블리에 필요한 추가 리소스 파일을 추가할 수 있습니다. 어셈블리와 함께 등록되며 어셈블리가 참조될 때 자동으로 로드됩니다. 이 파일은 구성 파일, 네이티브 어셈블리, 다른 언어 런타임 및 해당 리소스 등에 사용합니다.
 
-아래 예제에서는 이러한 두 옵션을 모두 사용합니다. [이미지 처리 최근 블로그 게시물](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/)은 이러한 등록 옵션을 사용할 수 있는 미리 정의된 어셈블리의 사용을 보여 주는 또 다른 예입니다.
+다음 예제에서 이들 두 가지 옵션이 모두 사용됩니다. [이미지 처리에 대한 최근 블로그 게시물](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/)은 이러한 옵션을 등록에 사용할 수 있는 미리 정의된 어셈블리 사용을 보여 주는 또 다른 예입니다.
 
-이제 등록된 어셈블리의 데이터베이스에 대한 권한이 있는 모든 U-SQL 스크립트에서 등록된 어셈블리를 참조할 수 있습니다(그림 4의 U-SQL 스크립트에 있는 코드 참조). 별도로 등록된 모든 어셈블리에 대한 참조를 추가해야 합니다. 추가 리소스 파일은 자동으로 배포됩니다. 해당 스크립트에는 참조된 어셈블리의 코드에 대한 코드 숨김 파일이 더 이상 없지만, 코드 숨김 파일은 다른 코드를 계속 제공할 수 있습니다.
+이제 등록된 어셈블리의 데이터베이스에 대한 권한이 있는 모든 U-SQL 스크립트에서 등록된 어셈블리를 참조할 수 있습니다. (자세한 내용은 그림 4의 U-SQL 스크립트에 있는 코드를 참조하세요.) 별도로 등록된 모든 어셈블리에 대한 참조를 추가해야 합니다. 추가 리소스 파일은 자동으로 배포됩니다. 해당 스크립트에는 참조된 어셈블리의 코드에 대한 코드 숨김 파일이 더 이상 없지만, 코드 숨김 파일은 다른 코드를 계속 제공할 수 있습니다.
 
-### <a name="registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts"></a>Visual Studio 및 U-SQL 스크립트에서 ADL 도구를 통해 어셈블리 등록
-Visual Studio의 ADL 도구를 사용하면 어셈블리를 쉽게 등록할 수 있지만, 예를 들어 다른 플랫폼에서 개발 중이거나 이미 업로드하고 등록하려는 어셈블리를 컴파일한 경우 도구에서 사용자를 위해 수행하는 것과 같은 방식으로 스크립트를 사용하여 등록할 수도 있습니다. 기본적으로 다음 단계를 수행합니다.
+### <a name="register-assemblies-via-azure-data-lake-tools-in-visual-studio-and-in-u-sql-scripts"></a>Visual Studio 및 U-SQL 스크립트에서 Azure Data Lake Tools를 통해 어셈블리 등록
+Visual Studio의 Azure Data Lake Tools를 사용하면 어셈블리를 쉽게 등록할 수 있지만, (예를 들어) 다른 플랫폼에서 개발 중이거나 이미 업로드하고 등록하려는 어셈블리를 컴파일한 경우 (도구가 수행해 주는 것과 같은 방식으로) 스크립트를 사용하여 등록할 수도 있습니다. 다음 단계를 수행하세요.
 
-1. Azure Data Lake Store 계정 또는 Azure Data Lake 계정에 연결된 Microsoft Azure Blob Store 계정에서 선택하는 위치에 어셈블리 dll뿐만 아니라 모든 필수 비시스템 dll 및 리소스 파일도 업로드합니다. 사용 가능한 다양한 업로드 도구(예: Powershell 명령, Visual Studio의 ADL 도구(Data Lake Explorer 업로드), 선호하는 SDK의 업로드 명령 또는 Azure Portal 사용)를 사용할 수 있습니다.
+1. 어셈블리 DLL 및 필요한 모든 비시스템 DLL 및 리소스 파일을 선택한 위치로 업로드합니다. Azure Data Lake 저장소 계정 또는 Azure Data Lake 계정에 연결된 Microsoft Azure Blob Storage 계정에도 업로드할 수 있습니다. 사용 가능한 업로드 도구이면 무엇이든 사용할 수 있습니다(예: Windows PowerShell 명령, Visual Studio의 Azure Data Lake Tool Data Lake Explorer 업로드, 선호하는 SDK의 업로드 명령 또는 Azure Portal을 통해 액세스하는 도구).
 
-1. dll을 업로드한 후에 [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) 문을 사용하여 등록합니다.
+1. DLL을 업로드한 후 [CREATE ASSEMBLY](https://msdn.microsoft.com/library/azure/mt763293.aspx) 문을 사용하여 등록합니다.
 
-아래의 공간 예제에서는 이 방법을 사용합니다.
+아래의 공간 예제에 이 방법이 사용되었습니다.
 
-### <a name="registering-assemblies-that-use-other-net-assemblies-based-on-the-json-and-xml-sample-library"></a>다른 .Net 어셈블리(JSON 및 XML 샘플 라이브러리 기반)를 사용하는 어셈블리 등록
-[U-SQL Github 사이트](https://github.com/Azure/usql/)에서는 사용할 수 있는 공유 예제 어셈블리를 제공합니다. 어셈블리 중 하나인 [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats)는 추출기, 함수 및 출력자를 제공하여 JSON 및 XML 문서를 모두 처리합니다. Microsoft.Analytics.Samples.Formats 어셈블리는 기존의 두 도메인 특정 어셈블리에 따라 JSON과 XML을 각각 처리합니다. JSON 문서를 처리하기 위해 [Newtonsoft Json.Net](http://www.newtonsoft.com/) 라이브러리를 사용하고, XML 문서를 처리하기 위해 [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) 어셈블리를 사용합니다. 이 스크립트를 사용하여 스크립트에 어셈블리를 등록하고 사용하는 방법을 보여 주겠습니다.
+### <a name="register-assemblies-that-use-other-net-assemblies-based-on-the-json-and-xml-sample-library"></a>다른 .NET 어셈블리(JSON 및 XML 샘플 라이브러리 기반)를 사용하는 어셈블리 등록
+[U-SQL Github 사이트](https://github.com/Azure/usql/)에 사용할 수 있는 공유 예제 어셈블리가 제공됩니다. 이러한 어셈블리 중 [Microsoft.Analytics.Samples.Formats](https://github.com/Azure/usql/tree/master/Examples/DataFormats) 어셈블리는 JSON 및 XML 문서를 모두 처리하도록 추출기, 함수 및 출력자를 제공합니다. Microsoft.Analytics.Samples.Formats 어셈블리는 기존의 두 가지 도메인 특정 어셈블리에 따라 JSON과 XML을 각각 처리합니다. JSON 문서 처리에 [Newtonsoft Json.Net](http://www.newtonsoft.com/) 라이브러리를 사용하고, XML 처리에 [System.Xml](https://msdn.microsoft.com/data/bb291078.aspx) 어셈블리를 사용합니다. 이 스크립트를 사용하여 스크립트에 어셈블리를 등록하고 사용하는 방법을 살펴보겠습니다.
 
-먼저 [Visual Studio 프로젝트](https://github.com/Azure/usql/tree/master/Examples/DataFormats)를 로컬 개발 환경에 다운로드합니다(예: Windows용 GitHub 도구를 사용하여 로컬 복사본 만들기). 그런 다음 Visual Studio에서 솔루션을 열고 위에서 설명한대로 프로젝트를 마우스 오른쪽 단추로 클릭하여 어셈블리를 등록합니다. 이 어셈블리에는 두 가지 종속성이 있지만 이미 Azure Data Lake에서 System.Xml을 사용할 수 있으므로 Newtonsoft 종속성만 포함하면 됩니다(명시적으로 참조해야 함). 그림 6에서는 어셈블리 이름을 지정하고(점을 포함하지 않는 다른 이름도 선택할 수 있음)과 Newtonsoft dll도 추가하는 방법을 보여 줍니다. 두 어셈블리 각각은 이제 지정된 데이터베이스(예: JSONBlog)에 개별적으로 등록됩니다.
+먼저 [Visual Studio 프로젝트](https://github.com/Azure/usql/tree/master/Examples/DataFormats)를 로컬 개발 환경에 다운로드합니다(예: Windows용 GitHub 도구를 사용하여 로컬 복사본 만들기). 그런 다음 Visual Studio에서 솔루션을 열고 (이전에 설명한대로) 프로젝트를 마우스 오른쪽 단추로 클릭하여 어셈블리를 등록합니다.
 
-![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+이 어셈블리에는 두 가지 종속성이 있지만 이미 Azure Data Lake에서 System.Xml을 사용할 수 있으므로 Newtonsoft 종속성만 포함하면 됩니다(하지만 명시적으로 참조해야 함). 그림 6에서는 어셈블리 이름을 지정하고(점을 포함하지 않는 다른 이름을 선택할 수도 있음)과 Newtonsoft DLL을 추가하는 방법을 보여 줍니다. 두 어셈블리 각각은 지정된 데이터베이스(예: JSONBlog)에 개별적으로 등록됩니다.
+
+![어셈블리 등록](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
 
 **그림 6**: Visual Studio에서 Microsoft.Analytics.Samples.Formats 어셈블리를 등록하는 방법
 <br />
 
-데이터베이스에 대한 읽기 액세스 권한을 부여하여 등록된 어셈블리를 공유한 사용자 또는 다른 사용자가 이제 자신의 스크립트에서 JSON 기능을 사용하려는 경우 스크립트에 다음 두 가지 참조를 추가합니다.
+이제 여러분 또는 다른 사람(데이터베이스에 대한 읽기 액세스 권한을 부여하여 등록된 어셈블리를 공유한)이 스크립트에서 JSON 기능을 사용하려면 다음 두 가지 참조를 스크립트에 추가합니다.
 
 ```
 REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
@@ -460,18 +466,20 @@ REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 
 JSON 기능을 사용하는 방법에 대한 자세한 내용은 [이 블로그 게시물](https://blogs.msdn.microsoft.com/mrys/?p=755)을 참조하세요.
 
-### <a name="registering-assemblies-that-use-native-c-assemblies-using-the-sql-server-2016-spatial-type-assembly-from-the-feature-pack"></a>네이티브 C++ 어셈블리를 사용하는 어셈블리 등록(기능 팩의 SQL Server 2016 공간 형식 어셈블리 사용)
-이제는 약간 다른 시나리오를 살펴보겠습니다. 사용하려는 어셈블리의 코드에 .Net 기반이 아닌 종속성이 있다고 가정해 보겠습니다. 특히 이 어셈블리에는 네이티브 C++ 어셈블리에 대한 종속성이 있습니다. 이러한 어셈블리의 한 예로 SQL Server 형식을 처리하기 위해 SQL Server 클라이언트 쪽 응용 프로그램에서 사용할 SQL Server hierarchyID, geometry 및 geography 형식의 .Net 기반 구현을 제공하는 [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676) SQL Server 형식 어셈블리가 있습니다(원래는 SQL Server 2016 릴리스 이전의 SQL Server 공간 형식에 대한 구현을 제공하는 어셈블리였습니다).
+### <a name="register-assemblies-that-use-native-c-assemblies-using-the-sql-server-2016-spatial-type-assembly-from-the-feature-pack"></a>네이티브 C++ 어셈블리를 사용하는 어셈블리 등록(기능 팩의 SQL Server 2016 공간 형식 어셈블리 사용)
+이제는 약간 다른 시나리오를 살펴보겠습니다. 사용하려는 어셈블리에 .NET 기반이 아닌 코드에 대한 종속성이 있다고 가정해 보겠습니다. 구체적으로 이 어셈블리에는 네이티브 C++ 어셈블리에 대한 종속성이 있습니다. 이러한 어셈블리의 한 가지 예가 SQL Server 형식 어셈블리 [Microsoft.SqlServer.Types.dll](https://www.microsoft.com/download/details.aspx?id=52676)입니다. 이것은 SQL Server 유형 처리를 위해 SQL Server 클라이언트 쪽 응용 프로그램에서 사용할 SQL Server 계층 ID, 기하 도형 및 지리 형식에 대한 .NET 기반 구현을 제공합니다. (이것은 원래 SQL Server 2016 릴리스 전에 SQL Server 공간 형식에 대한 구현을 제공했던 어셈블리였습니다.)
 
-이 어셈블리를 U-SQL에 등록하는 방법을 살펴보겠습니다.
+U-SQL로 이 어셈블리를 등록하는 방법을 살펴보겠습니다.
 
-먼저 [SQL Server 2016 기능 팩](https://www.microsoft.com/download/details.aspx?id=52676)에서 어셈블리를 다운로드하여 설치합니다. 64비트 버전 라이브러리가 있는지 확인하려고 하므로 64비트 버전의 설치 관리자(ENU\x64\SQLSysClrTypes.msi)를 선택합니다.
+먼저 [SQL Server 2016 기능 팩](https://www.microsoft.com/download/details.aspx?id=52676)에서 어셈블리를 다운로드하여 설치합니다. 64비트 버전 라이브러리가 있는지 확인하기 위해 64비트 버전의 설치 관리자(ENU\x64\SQLSysClrTypes.msi)를 선택합니다.
 
 설치 관리자는 Microsoft.SqlServer.Types.dll 관리되는 어셈블리를 C:\Program Files (x86)\Microsoft SQL Server\130\SDK\Assemblies에 설치하고, SqlServerSpatial130.dll 네이티브 어셈블리를 \Windows\System32에 설치합니다\. 이제 이러한 어셈블리를 Azure Data Lake Store(예: /upload/asm/spatial 폴더)에 업로드합니다.
 
-설치 관리자에서 네이티브 라이브러리를 c:\Windows\System32 시스템 폴더에 설치했으므로 업로드하기 전에 해당 폴더에서 SqlServerSpatial130.dll을 복사하거나 사용하는 도구에서 시스템 폴더의 [파일 시스템 리디렉션](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx)을 수행하지 않는지 확인해야 합니다. 예를 들어 현재 Visual Studio ADL 파일 탐색기를 사용하여 업로드하려는 경우 먼저 파일을 다른 디렉터리에 복사해야 합니다. 그렇지 않으면 Visual Studio가 ADL 업로드 파일 선택 창에서 [파일 시스템 리디렉션]을 수행하는 32비트 응용 프로그램이기 때문에 이 블로그를 작성한 시점부터 업로드된 32비트 버전을 가져오며, 네이티브 어셈블리를 호출하는 U-SQL 스크립트를 실행할 때 런타임에서 다음과 같은 (내부) 오류가 발생합니다.
+설치 관리자에서 네이티브 라이브러리를 c:\Windows\System32 시스템 폴더에 설치했으므로 업로드하기 전에 해당 폴더 밖으로 SqlServerSpatial130.dll을 복사하거나 사용하는 도구에서 시스템 폴더의 [파일 시스템 리디렉션](https://msdn.microsoft.com/library/windows/desktop/aa384187(v=vs.85).aspx)을 수행하지 않도록 해야 합니다.
 
-*Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)*
+예를 들어 현재 Visual Studio Azure Data Lake File Explorer를 사용하여 업로드하려면 먼저 다른 디렉터리에 파일을 복사해야 합니다. 그렇지 않은 경우(이 문서를 작성할 당시를 기준으로) 32비트 버전을 업로드합니다. 이렇게 하는 이유는 Visual Studio가 Azure Data Lake 업로드 파일 선택 창에서 파일 시스템 리디렉션을 수행하는 32비트 응용 프로그램이기 때문입니다. 그러면, 네이티브 어셈블리를 호출하는 U-SQL 스크립트를 실행할 때 다음(내부) 런타임 오류가 발생합니다.
+
+**Inner exception from user expression: An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)**
 
 이제 두 어셈블리 파일을 업로드한 후 다음 스크립트를 사용하여 SQLSpatial 데이터베이스에 등록합니다.
 
@@ -492,7 +500,7 @@ WITH ADDITIONAL_FILES =
      );
 ```
 
-이 경우 하나의 U-SQL 어셈블리만 등록하고 이 U-SQL 어셈블리에 문자열 종속성으로 네이티브 어셈블리를 포함합니다. 공간 어셈블리를 사용하려면 U-SQL 어셈블리를 참조하면 되고 추가 파일이 자동으로 어셈블리에서 사용할 수 있게 됩니다. 공간 어셈블리를 사용 하는 간단한 샘플 스크립트는 다음과 같습니다.
+이 경우 하나의 U-SQL 어셈블리만 등록하고 이 U-SQL 어셈블리에 문자열 종속성으로 네이티브 어셈블리를 포함합니다. 공간 어셈블리를 사용하기 위해 U-SQL 어셈블리만 참조하면 됩니다. 추가 파일은 자동으로 어셈블리에서 사용이 가능해 집니다. 다음은 공간 어셈블리를 사용하는 간단한 샘플 스크립트입니다.
 
 ```sql
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -515,23 +523,23 @@ TO "/output/spatial.csv"
 USING Outputters.Csv();
 ```
 
-SQL 유형 라이브러리는 System.XML 어셈블리에 종속되어 있으므로 참조해야 합니다. 또한 일부 메서드는 기본 제공 C# 형식 대신 System.Data.SqlTypes 형식을 사용합니다. System.Data는 이미 기본적으로 포함되어 있으므로 필요한 SQL 형식을 참조할 수 있습니다. 위 코드는 [Github 사이트](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample)에서 사용할 수 있습니다.
+SQL 유형 라이브러리는 System.XML 어셈블리에 종속되어 있으므로 참조해야 합니다. 또한 일부 메서드는 기본 제공 C# 형식 대신 System.Data.SqlTypes 형식을 사용합니다. System.Data는 이미 기본적으로 포함되어 있으므로 필요한 SQL 형식을 참조할 수 있습니다. 이전 코드는 [Github 사이트](https://github.com/Azure/usql/tree/master/Examples/SQLSpatialExample)에 제공됩니다.
 
 
-### <a name="assembly-versioning-and-other-points"></a>어셈블리 버전 관리 및 기타 사항
-현재 U-SQL은 .Net Framework 버전 4.5를 사용합니다. 따라서 자신의 어셈블리가 해당 런타임 버전과 호환되는지 확인합니다.
+### <a name="use-assembly-versioning"></a>어셈블리 버전 관리 사용
+현재 U-SQL은 .NET Framework 버전 4.5를 사용합니다. 따라서 자신의 어셈블리가 해당 런타임 버전과 호환되는지 확인해야 합니다.
 
-위에서 설명한 대로 U-SQL은 64비트(x64) 형식 코드를 실행합니다. 따라서 코드가 x64에서 실행하도록 컴파일되었는지 확인합니다. 그렇지 않으면 위에서 설명한 잘못된 형식 오류가 발생합니다.
+앞에서 언급했듯이 U-SQL은 64비트(x64) 형식 코드를 실행합니다. 따라서 코드가 x64에서 실행되도록 컴파일되었는지 확인합니다. 그렇지 않으면 앞에서 설명한 잘못된 형식 오류가 발생합니다.
 
-업로드된 각 어셈블리 dll, 리소스 파일(예: 다양한 런타임), 네이티브 어셈블리 또는 구성 파일 등의 크기는 최대 400MB이며, DEPLOY RESOURCE 또는 참조 어셈블리를 통해 배포된 리소스 및 추가 파일의 총 크기는 3GB를 초과할 수 없습니다.
+업로드된 각 어셈블리 DLL, 리소스 파일(예: 다양한 런타임), 네이티브 어셈블리 또는 구성 파일의 크기는 최대 400MB입니다. DEPLOY RESOURCE를 통해 또는 참조 어셈블리를 통해 배포된 리소스 및 추가 파일의 총 크기는 3GB를 초과할 수 없습니다.
 
-마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리의 버전 하나만 포함할 수 있습니다. 예를 들어 NewtonSoft Json.Net 라이브러리의 버전 7과 버전 8이 모두 필요하면 서로 다른 두 데이터베이스에 등록해야 합니다. 또한 각 스크립트는 지정된 어셈블리 dll의 버전 하나만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
+마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 NewtonSoft Json.Net 라이브러리의 버전 7과 버전 8이 모두 필요하면 서로 다른 두 데이터베이스에 등록해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
 
 
-## <a name="user-defined-functions---udf"></a>사용자 정의 함수
-U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 복잡한 계산과 같은 작업을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
+## <a name="use-user-defined-functions-udf"></a>UDF(사용자 정의 함수) 사용
+U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(예: 복잡한 계산)을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
 
-U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
+U-SQL 사용자 정의 함수는 **public** 및 **static**으로 초기화하는 것이 좋습니다.
 
 ```c#
         public static string MyFunction(string param1)
@@ -542,9 +550,9 @@ U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
 
 먼저 UDF를 만드는 간단한 예제를 살펴보겠습니다.
 
-이 사용 사례 시나리오에서는 특정 사용자에 대한 첫 번째 로그인의 회계 기간, 즉 회계 분기 및 회계 월을 결정해야 합니다. 시나리오에서 해당 연도의 첫 번째 회계 월은&6;월입니다.
+이 사용 사례 시나리오에서는 특정 사용자에 대한 첫 번째 로그인의 회계 분기 및 회계 월을 포함하는 회계 기간을 결정해야 합니다. 시나리오에서 해당 연도의 첫 번째 회계 월은 6월입니다.
 
-회계 기간을 계산하기 위해 다음 C# 함수를 소개합니다.
+회계 기간을 계산하기 위해 다음 C# 함수를 도입합니다.
 
 ```c#
         public static string GetFiscalPeriod(DateTime dt)
@@ -581,11 +589,11 @@ U-SQL UDF는 public 및 **static**으로 초기화되어야 합니다.
         }
 ```
 
-단순히 회계 월과 분기를 계산하고 문자열 값을 반환합니다. 첫 번째 회계 분기의 첫 번째 회계 월인&6; 월의 경우 ‘Q1:P1’,&7; 월의 경우 'Q1: P2' 등등입니다.
+단순히 회계 월과 분기를 계산하고 문자열 값을 반환합니다. 첫 번째 회계 분기의 첫 번째 월인 6월에 대해서는 “Q1:P1”을 사용합니다. 7월에 대해서는 “Q1:P2”를 사용하고 이런 방식으로 계속 적용합니다.
 
-이는 U-SQL 프로젝트를 사용할 일반 C# 함수입니다.
+이것은 U-SQL 프로젝트에 사용할 일반 C# 함수입니다.
 
-이 시나리오에서 코드 숨김 섹션을 찾는 방법은 다음과 같습니다.
+이 시나리오의 코드 숨김 섹션은 다음과 같은 모양입니다.
 
 ```c#
 using Microsoft.Analytics.Interfaces;
@@ -637,7 +645,7 @@ namespace USQL_Programmability
 }
 ```
 
-이제 기본 U-SQL 스크립트에서 이 함수를 호출할 것입니다. 이렇게 하려면 NameSpace.Class.Function(매개 변수) 네임스페이스를 포함하여 함수의 정규화된 이름을 제공해야 합니다.
+이제 기본 U-SQL 스크립트에서 이 함수를 호출할 것입니다. 이렇게 하려면 함수에 대해 네임스페이스를 포함하는 정규화된 이름을 제공해야 합니다. 이 경우 NameSpace.Class.Function(매개 변수)입니다.
 
 ```sql
     USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
@@ -685,16 +693,16 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 예제에서는 U-SQL에서 인라인 UDF를 간단하게 사용하는 방법을 보여 줍니다.
 
-### <a name="keeping-state-between-udf-invocations"></a>UDF 호출 간 상태 유지
-U-SQL C# 프로그래밍 기능 개체는 코드 숨김 전역 변수를 통한 상호 작용을 사용하여 더 정교해질 수 있습니다. 다음과 같은 비즈니스 사용 사례 시나리오를 살펴보겠습니다.
+### <a name="keep-state-between-udf-invocations"></a>UDF 호출 사이 상태 유지
+U-SQL C# 프로그래밍 기능 개체는 코드 숨김 전역 변수를 통한 상호 작용을 활용하여 더 정교해질 수 있습니다. 다음과 같은 비즈니스 사용 사례 시나리오를 살펴보겠습니다.
 
-대규모 조직에서는 사용자가 다양한 내부 응용 프로그램 간에 전환할 수 있습니다. 여기에는 Microsoft Dynamics CRM, PowerBI 등이 포함될 수 있습니다. 고객은 다른 응용 프로그램 간에 전환하는 방법, 사용 추세 등을 원격으로 분석하기를 원합니다. 비즈니스의 최종 목표는 응용 프로그램 사용을 최적화하는 것입니다. 다른 응용 프로그램이나 특정 로그온 루틴을 결합할 수 있습니다.
+대규모 조직에서는 사용자가 다양한 내부 응용 프로그램 간에 전환할 수 있습니다. 여기에는 Microsoft Dynamics CRM, PowerBI 등이 포함될 수 있습니다. 고객을 위해 사용자가 다양한 응용 프로그램 사이를 전환하는 방법, 사용 추세 등에 대한 원격 분석을 적용하는 것이 필요할 수 있습니다. 비즈니스의 목표는 응용 프로그램 사용을 최적화하는 것입니다. 다양한 응용 프로그램이나 특정 로그인 루틴을 결합하는 것이 필요할 수 있습니다.
 
-이 목표를 달성하려면 마지막으로 발생한 세션 간의 세션 ID 및 지연 시간을 결정해야 합니다.
+이러한 목표를 달성하려면 세션 ID 및 마지막으로 발생한 세션 간의 지연 시간을 판단해야 합니다.
 
-이전 로그온을 찾아 동일한 응용 프로그램에 생성되는 모든 세션에 이 로그온을 할당해야 합니다. 첫 번째 과제는 U-SQL 기본 스크립트에서 LAG 함수를 사용하여 이미 계산된 열에 대한 계산을 적용할 수 없다는 것입니다. 두 번째 과제는 같은 기간 내의 모든 세션에 대해 특정 세션을 유지해야 한다는 것입니다.
+이전 로그인을 찾은 다음 이 로그인을 동일한 응용 프로그램에 생성되는 모든 세션에 할당해야 합니다. 첫 번째 과제는 U-SQL 기본 스크립트를 사용하면 LAG 함수로 이미 계산된 열에 계산을 적용할 수 없다는 점입니다. 두 번째 과제는 같은 기간 내의 모든 세션에 대해 특정 세션을 유지해야 한다는 것입니다.
 
-이 문제를 해결하기 위해 코드 숨김 섹션 안에 `static public string globalSession;` 전역 변수를 사용하겠습니다.
+이 문제를 해결하기 위해 코드 숨김 섹션 내에 전역 변수 `static public string globalSession;`을 사용하겠습니다.
 
 이 전역 변수는 스크립트를 실행하는 동안 전체 행 집합에 적용됩니다.
 
@@ -742,9 +750,9 @@ namespace USQLApplication21
 }
 ```
 
-`getStampUserSession` 함수 안에 사용되는 `static public string globalSession;` 전역 변수는 Session 매개 변수를 변경할 때마다 다시 초기화됩니다.
+이 예제는 `getStampUserSession` 함수 내에 사용되고 Session 매개 변수가 변경될 때마다 다시 초기화되는 전역 변수 `static public string globalSession;`을 보여줍니다.
 
-U-SQL 기본 스크립트
+U-SQL 기본 스크립트는 다음과 같습니다.
 
 ```sql
 DECLARE @in string = @"\UserSession\test1.tsv";
@@ -792,7 +800,7 @@ USING Outputters.Csv();
 
 여기서 `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` 함수는 두 번째 메모리 행 집합을 계산하는 동안 호출됩니다. `UserSessionTimestamp` 열을 전달하고 `UserSessionTimestamp`가 변경될 때까지 값을 반환합니다.
 
-출력 파일:
+출력 파일은 다음과 같습니다.
 
 ```
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
@@ -819,17 +827,17 @@ USING Outputters.Csv();
 "2016-02-19T01:20:31.4800000-08:00","User4","2016-02-18T14:37:27.6560000-08:00",False,"2136f4cf-7c7d-43c1-8ae2-08f4ad6a6e08"
 ```
 
-이 예제에서는 전체 메모리 행 집합에 적용된 코드 숨김 섹션의 전역 변수를 사용할 때 더 복잡한 사용 사례 시나리오를 보여 줍니다.
+이 예제는 전체 메모리 행 집합에 적용된 코드 숨김 섹션 내부에 전역 변수를 사용하는 보다 세밀한 사용 사례 시나리오를 보여줍니다.
 
-## <a name="using-user-defined-types---udt"></a>사용자 정의 형식 사용
+## <a name="use-user-defined-types-udt"></a>UDT(사용자 정의 형식) 사용
 UDT(사용자 정의 형식)는 U-SQL의 또 다른 프로그래밍 기능입니다. U-SQL UDT는 일반 C# 사용자 정의 형식처럼 작동합니다. C#는 기본 제공 및 사용자 지정 UDT를 사용할 수 있는 강력한 형식의 언어입니다.
 
-U-SQL은 UDT가 행 집합의 꼭지점 사이에서 전달되는 동안 임의의 UDT를 묵시적으로 직렬화/역직렬화할 수 없습니다. 따라서 사용자는 IFormatter 인터페이스를 사용하는 명시적인 포맷터를 제공해야 합니다. 이는 UDT에 대해 직렬화 및 역직렬화 메서드를 U-SQL에 제공합니다. 
+U-SQL은 UDT가 행 집합의 꼭짓점 간에 전달되는 동안 임의의 UDT를 암시적으로 직렬화하거나 역직렬화할 수 없습니다. 다시 말해 사용자가 IFormatter 인터페이스를 사용하여 명시적인 포맷터를 제공해야 합니다. 이렇게 하면 U-SQL에 UDT에 대한 직렬화 및 역직렬화 메서드가 제공됩니다.
 
 > [!NOTE]
-> U-SQL의 기본 제공 추출기 및 출력기는 현재 IFormatter 집합이 있는 파일에/로부터 UDT 데이터를 직렬화/역직렬화할 수 없습니다.  따라서 UDT 데이터를 OUTPUT 문으로 파일에 쓰거나 추출기로 읽는 경우, 사용자는 이를 문자열 또는 바이트 배열으로 전달하고 직렬화 및 역직렬화 코드(예: UDT의 ToString() 메서드) 명시적으로 호출해야 합니다. 반면 사용자 정의 추출기 및 출력기는 UDT를 읽고 쓸 수 있습니다.
+> U-SQL의 기본 제공 추출기 및 출력기는 현재 IFormatter 집합이 있는 파일 사이에서 UDT 데이터를 직렬화하거나 역직렬화할 수 없습니다. 따라서 OUTPUT 문이 있는 파일에 UDT 데이터를 작성하는 경우 또는 추출기로 UDT 데이터를 읽는 경우 UDT 데이터를 문자열 또는 바이트 배열로 전달해야 합니다. 그런 다음 직렬화 및 역직렬화 코드(즉 UDT의 ToString() 메서드)를 명시적으로 호출합니다. 반면 사용자 정의 추출기 및 출력자는 UDT를 읽고 쓸 수 있습니다.
 
-이전 SELECT의 외부에 있는 EXTRACTOR 또는 OUTPUTTER에서 UDT를 사용하는 경우:
+다음과 같이 (이전 SELECT의 외부에 있는) EXTRACTOR 또는 OUTPUTTER에서 UDT를 사용하려고 시도하면:
 
 ```sql
 @rs1 =
@@ -839,7 +847,7 @@ U-SQL은 UDT가 행 집합의 꼭지점 사이에서 전달되는 동안 임의�
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-다음과 같은 오류가 발생합니다.
+다음 오류가 발생합니다.
 
 ```
     Error    1    E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
@@ -851,7 +859,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
     Resolution:
 
-    Implement a custom outputter that knows how to serialize this type or call a serialization method on the type in
+    Implement a custom outputter that knows how to serialize this type, or call a serialization method on the type in
     the preceding SELECT.    C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
     USQL-Programmability\Types.usql    52    1    USQL-Programmability
 ```
@@ -877,16 +885,16 @@ UDT는 현재 GROUP BY에서 사용할 수 없습니다. GROUP BY에 UDT를 사�
 
 UDT를 정의하려면 다음을 수행해야 합니다.
 
-* 다음과 같은 네임스페이스를 추가합니다.
+* 다음 네임스페이스를 추가합니다.
 
 ```c#
     using Microsoft.Analytics.Interfaces
     using System.IO;
 ```
 
-* `Microsoft.Analytics.Interfaces`는 UDT 인터페이스에 필요하고, `System.IO`은 IFormatter 인터페이스를 정의하는 데 필요할 수 있습니다
+* UDT 인터페이스에 필요한 `Microsoft.Analytics.Interfaces`를 추가합니다. 더불어 `System.IO`가 IFormatter 인터페이스를 정의하는 데 필요할 수 있습니다.
 
-* SqlUserDefinedType 특성을 사용하여 UDT를 정의합니다.
+* SqlUserDefinedType 특성을 사용하여 사용자 정의 형식을 정의합니다.
 
 **SqlUserDefinedType**은 어셈블리의 형식 정의를 U-SQL UDT로 표시하는 데 사용됩니다. 특성의 속성에는 UDT의 물리적 특성이 반영됩니다. 이 클래스는 상속될 수 없습니다.
 
@@ -894,9 +902,9 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
 
 클래스 생성자:  
 
-* SqlUserDefinedTypeAttribute(TypeFormatter)
+* SqlUserDefinedTypeAttribute(형식 포맷터)
 
-* TypeFormatter - UDT 포맷터를 정의하는 데 필요한 매개 변수입니다. 특히 여기에는 `IFormatter` 인터페이스 유형이 전달되어야 합니다.
+* 형식 포맷터: UDT 포맷터를 정의하는 필수 매개 변수이며 구체적으로 `IFormatter` 인터페이스 형식이 여기로 전달되어야 합니다.
 
 ```c#
     [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -906,7 +914,7 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
            }
 ```
 
-* 일반 UDT도 IFormatter 인터페이스를 정의하는 데 필요합니다.
+* 다음 예제와 같이, 일반적인 UDT도 IFormatter 인터페이스에 대한 정의가 필요합니다.
 
 ```c#
        public class MyTypeFormatter : IFormatter<MyType>
@@ -925,27 +933,27 @@ SqlUserDefinedType은 UDT 정의에 필요한 특성입니다.
         }
 ```
 
-`IFormatter` 인터페이스 - \<typeparamref name="T">의 루트 형식으로 개체 그래프를 직렬화/역직렬화합니다.
+`IFormatter` 인터페이스는 \<typeparamref name="T">의 루트 형식으로 개체 그래프를 직렬화하고 역직렬화합니다.
 
 \<typeparamref name="T"> - 직렬화/역직렬화할 개체 그래프의 루트 형식입니다.
 
-* Deserialize - 제공된 스트림의 데이터를 역직렬화하고 개체 그래프를 다시 구성합니다.
+* **Deserialize**: 제공된 스트림의 데이터를 역직렬화하고 개체 그래프를 다시 구성합니다.
 
-* Serialize - 제공된 스트림에 지정된 루트를 사용하여 개체 또는 개체 그래프를 직렬화합니다.
+* **Serialize**: 제공된 스트림에 지정된 루트를 사용하여 개체 또는 개체 그래프를 직렬화합니다.
 
-`MyType` 인스턴스 - 형식의 인스턴스입니다.  
-`IColumnWriter` 기록기/`IColumnReader` 판독기 - 기본 열 스트림입니다.  
-`ISerializationContext` 컨텍스트 - 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다. 
- 
-   * *Intermediate* - 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
+`MyType` instance: 해당 형식 인스턴스입니다.  
+`IColumnWriter` writer / `IColumnReader` reader: 기본 열 스트림입니다.  
+`ISerializationContext` context: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
 
-   * *Persistence* - 원본 또는 대상 컨텍스트가 지속형 저장소임을 지정합니다.
+   * **Intermediate**: 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
 
-일반 C# 형식으로 U-SQL UDT 정의는 +/==/!= 등의 연산자에 대한 재정의 및 정적 메서드 등을 포함할 수 있습니다. 예를 들어 U-SQL MIN 집계 함수에 이 UDT를 매개 변수로 사용하는 경우 < 연산자 override를 정의해야 합니다.
+   * **Persistence**: 원본 또는 대상 컨텍스트가 지속형 저장소임을 지정합니다.
+
+일반 C# 형식으로 U-SQL UDT 정의는 +/==/!= 등의 연산자에 대한 재정의를 포함할 수 있습니다. 정적 메서드도 포함할 수 있습니다. 예를 들어 U-SQL MIN 집계 함수에 이 UDT를 매개 변수로 사용하는 경우 < 연산자 override를 정의해야 합니다.
 
 이 가이드의 앞부분에서 Qn:Pn(Q1:P10) 형식의 특정 날짜로 회계 기간을 식별하는 예제를 보여 주었습니다. 다음 예제에서는 회계 기간 값에 대한 사용자 지정 형식을 정의하는 방법을 보여 줍니다.
 
-사용자 지정 UDT 및 이 UDT에 대한 IFormatter 인터페이스가 포함된 코드 숨김 섹션:
+다음은 사용자 지정 UDT 및 IFormatter 인터페이스가 포함된 코드 숨김 섹션의 예제입니다.
 
 ```c#
         [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
@@ -1089,7 +1097,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 
 여기서 볼 수 있듯이 FiscalPeriod 형식의 값을 반환합니다.
 
-다음은 U-SQL 기본 스크립트에서 사용하는 방법입니다. 이 예제에서는 U-SQL 스크립트에서 UDT를 호출하는 다른 방법을 보여 줍니다.
+다음은 U-SQL 기본 스크립트에서 이 값을 사용하는 방법에 대한 예제입니다. 이 예제에서는 U-SQL 스크립트에서 UDT를 호출하는 다른 형식을 보여줍니다.
 
 ```sql
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -1121,7 +1129,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
-       
+
        // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
@@ -1131,7 +1139,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
 OUTPUT @rs2 TO @output_file USING Outputters.Text();
 ```
 
-전체 코드 숨김 섹션:
+다음은 전체 코드 숨김 섹션의 예제입니다.
 
 ```c#
 using Microsoft.Analytics.Interfaces;
@@ -1292,10 +1300,10 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="user-defined-aggregates--udagg"></a>사용자 정의 집계
-UDAGG(사용자 정의 집계)는 U-SQL에서 제공되지 않는 집계 관련 함수입니다. 예제는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계일 수 있습니다.
+## <a name="use-user-defined-aggregates-udagg"></a>UDAGG(사용자 정의 집계) 사용
+UDAGG(사용자 정의 집계)는 U-SQL에 제공되지 않는 집계 관련 함수입니다. 예제에는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계가 포함됩니다.
 
-UDAGG 기본 클래스 정의:
+UDAGG(사용자 정의 집계) 기본 클래스 정의는 다음과 같습니다.
 
 ```c#
     [SqlUserDefinedAggregate]
@@ -1314,7 +1322,7 @@ UDAGG 기본 클래스 정의:
 SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항**입니다.
 
 
-기본 클래스를 사용하면 세 개의 추상 매개 변수, 즉 두 입력 매개 변수와 하나의 결과를 전달할 수 있습니다. 데이터 형식은 변수이며, 클래스를 상속하는 동안 정의해야 합니다.
+기본 클래스를 사용하면 세 개의 추상 매개 변수(두 개는 입력 매개 변수로, 하나는 결과로)를 전달할 수 있습니다. 데이터 형식은 변수이며, 클래스를 상속하는 동안 정의해야 합니다.
 
 ```c#
     public class GuidAggregate : IAggregate<string, string, string>
@@ -1339,21 +1347,21 @@ SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항**입니다.
     }
 ```
 
-* Init는 각 집계 그룹에 대한 초기화 루틴을 제공하며, 계산하는 동안 각 그룹에 대해 한 번씩 호출됩니다.
-* Accumulate - 각 값에 대해 한 번씩 실행됩니다. 집계 알고리즘의 주요 기능을 제공하며, 클래스를 상속하는 동안 정의된 다양한 데이터 형식으로 값을 집계하는 데 사용할 수 있습니다. 변수 데이터 형식의 두 매개 변수를 사용할 수 있습니다.
-* Terminate - 각 집계 그룹에 대해 한 번씩 실행되며, 처리가 끝난 후 각 그룹에 대한 결과를 출력합니다.
+* **Init**는 계산하는 동안 각 그룹에 대해 한 번씩 호출됩니다. 각 집계 그룹에 대한 초기화 루틴을 제공합니다.  
+* **Accumulate**는 각 값에 대해 한 번씩 실행됩니다. 집계 알고리즘의 주요 기능을 제공합니다. 클래스를 상속하는 동안 정의된 다양한 데이터 형식으로 값을 집계하는 데 사용할 수 있습니다. 변수 데이터 형식의 매개 변수 두 개를 사용할 수 있습니다.
+* **Terminate**는 처리가 끝날 때 집계 그룹당 한 번씩 실행되어 각 그룹에 대한 결과를 출력합니다.
 
-올바른 입력 및 출력 데이터 형식을 선언하려면 클래스 정의를 사용합니다.
+올바른 입력 및 출력 데이터 형식을 선언하려면 다음과 같이 클래스 정의를 사용합니다.
 
 ```c#
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1 - Accumulate의 첫 번째 매개 변수
-* T2 - Accumulate의 두 번째 매개 변수
-* TResult - Terminate의 반환 형식
+* T1: Accumulate의 첫 번째 매개 변수
+* T2: Accumulate의 두 번째 매개 변수
+* TResult: Terminate의 반환 형식
 
-예제:
+예:
 
 ```c#
     public class GuidAggregate : IAggregate<string, int, int>
@@ -1365,16 +1373,16 @@ SqlUserDefinedType 특성은 UDAGG 정의의 **선택 사항**입니다.
     public class GuidAggregate : IAggregate<string, string, string>
 ```
 
-### <a name="using-udagg-in-u-sql"></a>U-SQL에서 UDAGG 사용
+### <a name="use-udagg-in-u-sql"></a>U-SQL에서 UDAGG 사용
 UDAGG를 사용하려면 먼저 코드 숨김에 정의하거나 앞에서 설명한 대로 기존 프로그래밍 기능 DLL에서 참조합니다.
 
-이제 다음 구문을 사용합니다.
+그런 다음, 다음 구문을 사용합니다.
 
 ```c#
     AGG<UDAGG_functionname>(param1,param2)
 ```
 
-다음은 UDAGG의 예제입니다.
+UDAGG의 예제는 다음과 같습니다.
 
 ```c#
     public class GuidAggregate : IAggregate<string, string, string>
@@ -1428,33 +1436,33 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 사용 사례 시나리오에서는 특정 사용자에 대한 GUID 클래스를 연결합니다.
 
-## <a name="user-defined-objects--udo"></a>사용자 정의 개체
-U-SQL은 UDO(사용자 정의 개체)라는 사용자 지정 프로그래밍 기능 개체를 정의하는 기능을 제공합니다.
+## <a name="use-user-defined-objects-udo"></a>UDO(사용자 정의 개체) 사용
+U-SQL을 사용하면 UDO(사용자 정의 개체)라는 사용자 지정 프로그래밍 기능 개체를 정의할 수 있습니다.
 
 U-SQL의 UDO 목록은 다음과 같습니다.
 
 * 사용자 정의 추출기
     * 행 단위 추출
-    * 사용자 지정 구조화된 파일 형식의 데이터 추출을 구현하는 데 사용됩니다.
+    * 사용자 지정 구조화된 파일에서 데이터 추출을 구현하는 데 사용됨
 
 * 사용자 정의 출력자
     * 행 단위 출력
-    * 사용자 지정 데이터 형식 또는 사용자 지정 파일 형식을 출력하는 데 사용됩니다.
+    * 사용자 지정 데이터 형식 또는 사용자 지정 파일 형식을 출력하는 데 사용됨
 
 * 사용자 정의 처리기
     * 한 행씩 가져와 한 행씩 생성
-    * 기존 열 집합에서 파생된 값으로 열 수를 줄이거나 새 열을 생성하는 데 사용됩니다.
+    * 열 수를 줄이거나 기존 열 집합에서 파생된 값으로 새 열을 생성하는 데 사용됨
 
 * 사용자 정의 적용자
     * 한 행씩 가져와 0-n 개 행 생성
     * OUTER/CROSS APPLY 사용
 
 * 사용자 정의 결합자
-    * 행 집합 결합 - 사용자 정의 JOIN
+    * 행 집합 결합--사용자 정의 JOIN
 
 * 사용자 정의 리듀서
     * n개 행을 가져와 한 행씩 생성
-    * 행 수를 줄이는 데 사용됩니다.
+    * 행 수를 줄이는 데 사용됨
 
 UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 명시적으로 호출됩니다.
 
@@ -1464,7 +1472,7 @@ UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 �
 * COMBINE
 * REDUCE
 
-## <a name="user-defined-extractor"></a>사용자 정의 추출기
+## <a name="use-user-defined-extractors"></a>UDE(사용자 정의 추출기) 사용
 U-SQL을 사용하면 EXTRACT 문을 사용하여 외부 데이터를 가져올 수 있습니다. EXTRACT 문은 기본 제공 UDO 추출기를 사용할 수 있습니다.  
 
 * *Extractors.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에서 데이터를 추출합니다.
@@ -1473,13 +1481,13 @@ U-SQL을 사용하면 EXTRACT 문을 사용하여 외부 데이터를 가져올 
 
 * *Extractors.Tsv()*: 다른 인코딩의 탭으로 구분된 값(TSV) 파일에서 데이터를 추출합니다.
 
-그러나 사용자 지정 추출기를 개발하는 것이 유용할 수 있습니다. 필요한 경우 이렇게 하면 데이터를 가져 오는 동안 도움이 됩니다.
+사용자 지정 추출기를 개발하는 것이 유용할 수 있습니다. 다음 작업 중 하나를 수행하려는 경우 데이터를 가져오는 동안 도움이 될 수 있습니다.
 
-* 열을 분할하고 개별 값을 수정하여 입력 데이터를 수정합니다. PROCESSOR 기능을 사용하여 열을 결합하는 것이 더 좋습니다.
-* 구조화되지 않은 데이터(예: 웹 페이지/전자 메일) 또는 반 구조화되지 않은 데이터(예: XML/JSON)를 구문 분석합니다.
+* 열을 분할하고 개별 값을 수정하여 입력 데이터를 수정합니다. PROCESSOR 기능이 열을 결합하는 데 더 좋습니다.
+* 구조화되지 않은 데이터(예: 웹 페이지 및 전자 메일) 또는 반 구조화되지 않은 데이터(예: XML/JSON)를 구문 분석합니다.
 * 지원되지 않는 인코딩 데이터를 구문 분석합니다.
 
-UDE(사용자 정의 추출기)를 정의하려면 `IExtractor` 인터페이스를 만들어야 합니다. 열/행 구분 기호, 인코딩 등과 같은 추출기에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. `IExtractor` 인터페이스는 `IEnumerable<IRow>` override에 대한 정의도 포함해야 합니다.
+UDE(사용자 정의 추출기)를 정의하려면 `IExtractor` 인터페이스를 만들어야 합니다. 열/행 구분 기호 및 인코딩 등과 같은 추출기에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. 다음과 같이 `IExtractor` 인터페이스는 `IEnumerable<IRow>` override에 대한 정의도 포함해야 합니다.
 
 ```c#
      [SqlUserDefinedExtractor]
@@ -1498,16 +1506,16 @@ UDE(사용자 정의 추출기)를 정의하려면 `IExtractor` 인터페이스�
      }
 ```
 
-**SqlUserDefinedExtractor** 특성은 UDE로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
+**SqlUserDefinedExtractor** 특성은 UDE(사용자 정의 추출기)로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
 SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 AtomicFileProcessing 속성을 정의하는 데 사용됩니다.
 
 * bool AtomicFileProcessing   
 
-* **true**는 Extractor에 원자성 입력 파일(JSON, XML 등)이 필요함을 나타냅니다.
-* **false**는 Extractor에서 분할/분산 파일(CSV, SEQ 등)을 처리할 수 있음을 나타냅니다.
+* **true**는 추출기에 원자성 입력 파일(JSON, XML 등)이 필요함을 나타냅니다.
+* **false**는 추출기에서 분할/분산 파일(CSV, SEQ 등)을 처리할 수 있음을 나타냅니다.
 
-주 UDE 프로그래밍 개체는 *input* 및 *output*입니다. input 개체는 입력 데이터를 `IUnstructuredReader`로 열거하고, *output* 개체는 출력 데이터를 추출기 작업의 결과로 설정하는 데 사용됩니다.
+주 UDE 프로그래밍 개체는 **input** 및 **output**입니다. input 개체는 입력 데이터를 `IUnstructuredReader`로 열거하는 데 사용됩니다. output 개체는 출력 데이터를 추출기 작업의 결과로 설정하는 데 사용됩니다.
 
 입력 데이터는 `System.IO.Stream` 및 `System.IO.StreamReader`를 통해 액세스됩니다.
 
@@ -1536,13 +1544,13 @@ SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 A
 
 출력 데이터를 설정하려면 `output.Set` 메서드를 사용합니다.
 
-사용자 지정 추출기는 출력으로 정의된 열/값만 출력한다는 것을 알고 있어야 합니다. 메서드 호출을 설정합니다.
+사용자 지정 추출기는 출력에 정의된 열 및 값만 출력한다는 점을 이해하는 것이 중요합니다. 메서드 호출을 설정합니다.
 
 ```c#
     output.Set<string>(count, part);
 ```
 
-실제 추출기 출력은 `yield return output.AsReadOnly();`를 호출함으로써 트리거됩니다.
+실제 추출기 출력은 `yield return output.AsReadOnly();`를 호출하여 트리거됩니다.
 
 다음은 추출기 예제입니다.
 
@@ -1603,9 +1611,9 @@ SqlUserDefinedExtractor는 UDE 정의의 선택적 특성이며, UDE 개체의 A
      }
 ```
 
-이 사용 사례 시나리오에서 추출기는 ‘guid’ 열에 대한 GUID를 다시 생성하고 ‘user’ 열의 값을 UPPER case로 변환합니다. 사용자 지정 추출기는 입력 데이터를 구문 분석하고 이를 조작하여 더 복잡한 결과를 생성할 수 있습니다.
+이 사용 사례 시나리오에서 추출기는 “guid” 열에 대한 GUID를 다시 생성하고 “user” 열의 값을 대문자로 변환합니다. 사용자 지정 추출기는 입력 데이터를 구문 분석하고 이를 조작하여 더 복잡한 결과를 생성할 수 있습니다.
 
-사용자 지정 추출기를 사용하는 기본 U-SQL 스크립트:
+다음은 사용자 지정 추출기를 사용하는 기본 U-SQL 스크립트입니다.
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1623,22 +1631,22 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ```
 
-## <a name="user-defined-outputter"></a>사용자 정의 출력자
+## <a name="use-user-defined-outputters"></a>사용자 정의 출력자 사용
 사용자 정의 출력자는 기본 제공 U-SQL 기능을 확장할 수 있는 또 다른 U-SQL UDO입니다. 추출기와 마찬가지로 여러 개의 기본 제공 출력자가 있습니다.
 
 * *Outputters.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에 데이터를 씁니다.
 * *Outputters.Csv()*: 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에 데이터를 씁니다.
 * *Outputters.Tsv()*: 다른 인코딩의 탭으로 구분된 값(TSV) 파일에 데이터를 씁니다.
 
-사용자 지정 출력자를 사용하면 사용자 정의된 형식으로 데이터를 쓸 수 있습니다. 용도:
+사용자 지정 출력자를 사용하면 사용자 정의된 형식으로 데이터를 쓸 수 있습니다. 이 기능은 다음 작업에 유용할 수 있습니다.
 
-* 반 구조화/구조화되지 않은 파일에 데이터 쓰기
+* 반 구조화되거나 구조화되지 않은 파일에 데이터 쓰기
 * 지원되지 않는 인코딩 데이터 쓰기
 * 출력 데이터 수정 또는 사용자 지정 특성 추가
 
 사용자 정의 출력자를 정의하려면 `IOutputter` 인터페이스를 생성해야 합니다.
 
-기본 `IOutputter` 클래스 구현
+다음은 기본 `IOutputter` 클래스 구현입니다.
 
 ```c#
     public abstract class IOutputter : IUserDefinedOperator
@@ -1650,7 +1658,7 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
     }
 ```
 
-열/행 구분 기호, 인코딩 등과 같은 출력자에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. `IOutputter` 인터페이스는 `void Output` override에 대한 정의도 포함해야 합니다. `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` 특성은 원자성 파일을 처리하기 위해 선택적으로 설정할 수 있습니다(아래 세부 정보 참조).
+열/행 구분 기호, 인코딩 등과 같은 출력자에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. `IOutputter` 인터페이스는 `void Output` override에 대한 정의도 포함해야 합니다. `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` 특성은 원자성 파일 처리를 위해 선택적으로 설정될 수 있습니다. 자세한 내용은 다음 세부 정보를 참조하세요.
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1674,9 +1682,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
         }
 ```
 
-* `Output`은 각 입력 행을 호출했습니다. `IUnstructuredWriter output` 행 집합을 반환합니다.
+* `Output`은 각 입력 행에 대해 호출됩니다. `IUnstructuredWriter output` 행 집합을 반환합니다.
 * 생성자 클래스는 사용자 정의 출력자에 매개 변수를 전달하는 데 사용됩니다.
-* `Close`는 비용이 많이 드는 상태를 해제하거나 마지막 행이 기록된 시점을 인식하도록 선택적으로 재정의됩니다.
+* `Close`는 비용이 높은 상태를 해제하거나 마지막 행이 기록된 시점을 판단하기 위해 선택적으로 재정의하는 데 사용됩니다.
 
 **SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
@@ -1684,10 +1692,10 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
 
 * bool AtomicFileProcessing   
 
-* **true**는 Outputter에 원자성 출력 파일(JSON, XML 등)이 필요함을 나타냅니다.
-* **false**는 Outputter에서 분할/분산 파일(CSV, SEQ 등)을 처리할 수 있음을 나타냅니다.
+* **true**는 출력자에 원자성 출력 파일(JSON, XML 등)이 필요함을 나타냅니다.
+* **false**는 출력자에서 분할/분산 파일(CSV, SEQ 등)을 처리할 수 있음을 나타냅니다.
 
-주요 프로그래밍 개체는 *row* 및 *output*입니다. *row* 개체는 출력 데이터를 `IRow` 인터페이스로 열거하고 *output*는 출력 데이터를 대상 파일로 설정하는 데 사용됩니다.
+주요 프로그래밍 개체는 **row** 및 **output**입니다. **row** 개체는 출력 데이터를 `IRow` 인터페이스로 나열하는 데 사용됩니다. **Output**은 대상 파일에 출력 데이터를 설정하는 데 사용됩니다.
 
 출력 데이터는 `IRow` 인터페이스를 통해 액세스됩니다. 출력 데이터는 한 번에 한 행씩 전달됩니다.
 
@@ -1697,7 +1705,7 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
     row.Get<string>("column_name")
 ```
 
-개별 열 이름은 `row.Schema`를 호출하여 확인할 수 있습니다.
+개별 열 이름은 `row.Schema`를 호출하여 결정될 수 있습니다.
 
 ```c#
     ISchema schema = row.Schema;
@@ -1707,9 +1715,9 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
 
 이렇게 하면 모든 메타데이터 스키마에 대해 유연한 출력자를 빌드할 수 있습니다.
 
-출력 데이터는 `output.BaseStrea`를 `IUnstructuredWriter output`의 일부로 설정된 스트림 매개 변수가 포함된 `System.IO.StreamWriter`를 사용하여 파일에 기록됩니다.
+출력 데이터는 `System.IO.StreamWriter`를 사용하여 파일에 기록됩니다. Stream 매개 변수는 `IUnstructuredWriter output`의 일부로 `output.BaseStrea`로 설정됩니다.
 
-중요 참고 사항 - 각 행을 반복한 후에 데이터 버퍼를 파일로 플러시하려면 사용하도록 설정된(기본값) Disposable 특성과 *using* 키워드를 `StreamWriter` 개체에서 사용해야 합니다.
+각 행을 반복한 후에 파일에 데이터 버퍼를 플러시하는 것이 중요합니다. 또한 Disposable 특성이 활성화된 상태에서(기본값) **using** 키워드와 함께 `StreamWriter` 개체를 사용해야 합니다.
 
 ```c#
     using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1718,9 +1726,9 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
             }
 ```
 
-그렇지 않으면 각각의 반복 후에 Flush() 메서드를 명시적으로 호출합니다. 이는 다음 예제에서 자세히 보여 줍니다.
+그렇지 않으면 매번 반복 후에 Flush() 메서드를 명시적으로 호출합니다. 이 내용은 다음 예제에 표시되어 있습니다.
 
-### <a name="setting-header-and-footer-for-user-defined-outputter"></a>사용자 정의 출력자의 헤더 및 푸터 설정
+### <a name="set-headers-and-footers-for-user-defined-outputter"></a>사용자 정의 출력자의 머리글 및 바닥글 설정
 헤더를 설정하려면 단일 반복 실행 흐름을 사용합니다.
 
 ```c#
@@ -1744,9 +1752,9 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
 
 첫 번째 `if (isHeaderRow)` 블록의 코드는 한 번만 실행됩니다.
 
-푸터의 경우 `System.IO.Stream` 개체의 `output.BaseStream` 인스턴스에 대한 참조를 사용하고 `IOutputter` 인터페이스의 Close() 메서드에 푸터를 작성합니다(아래 예제 참조).
+바닥글의 경우 `System.IO.Stream` 개체(`output.BaseStream`)의 인스턴스에 대한 참조를 사용합니다. `IOutputter` 인터페이스의 Close() 메서드에 바닥글을 작성합니다.  (자세한 내용은 다음 예제를 참조하세요.)
 
-다음은 사용자 정의 출력자의 예제입니다
+다음의 사용자 정의 출력자에 대한 예제입니다.
 
 ```c#
         [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1767,8 +1775,8 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
                 this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
             }
 
-            // Close method is used to write footer to file - executed only once after all rows
-            public override void Close()
+            // The Close method is used to write the footer to the file. It's executed only once, after all rows
+            public override void Close().
             {
                 //Reference to IO.Stream object - g_writer
                 StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
@@ -1784,7 +1792,7 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
                 // Metadata schema initialization to enumerate column names
                 ISchema schema = row.Schema;
 
-                // This is data independent header - HTML table definition
+                // This is a data-independent header--HTML table definition
                 if (IsTableHeader)
                 {
                     streamWriter.Write("<table border=1>");
@@ -1797,7 +1805,7 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
                 string data_wrapper_on = "<td>";
                 string data_wrapper_off = "</td>";
 
-                // Header row output - runs only once
+                // Header row output--runs only once
                 if (isHeaderRow)
                 {
                     streamWriter.Write("<tr>");
@@ -1817,7 +1825,7 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
                     string val = "";
                     try
                     {
-                        // Data type enumeration - require to match the distinct list of types form OUTPUT statement
+                        // Data type enumeration--required to match the distinct list of types from OUTPUT statement
                         switch (col.Type.Name.ToString().ToLower())
                         {
                             case "string": val = row.Get<string>(col.Name).ToString(); break;
@@ -1825,7 +1833,7 @@ SqlUserDefinedOutputter는 사용자 정의 출력자 정의의 선택적 특성
                             default: break;
                         }
                     }
-                    // Hnadling NULL values - keeping them empty
+                    // Handling NULL values--keeping them empty
                     catch (System.NullReferenceException)
                     {
                     }
@@ -1871,16 +1879,16 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
 OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-이는 HTML 출력자이며, 테이블 데이터를 포함한 HTML 파일을 만듭니다.
+HTML 출력자이며, 테이블 데이터로 HTML 파일을 만듭니다.
 
-### <a name="calling-outputter-from-u-sql-base-script"></a>U-SQL 기본 스크립트에서 출력자 호출
+### <a name="call-outputter-from-u-sql-base-script"></a>U-SQL 기본 스크립트에서 출력자 호출
 기본 U-SQL 스크립트에서 사용자 지정 출력자를 호출하려면 출력자 개체의 새 인스턴스를 만들어야 합니다.
 
 ```sql
 OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-기본 스크립트에 개체의 인스턴스를 작성하지 않으려면 함수 래퍼를 만들 수 있습니다. 위에서 다음과 같이 작성합니다.
+앞의 예에서 설명했듯이, 기본 스크립트로 개체 인스턴스를 작성하지 않기 위해 함수 래퍼를 만들 수 있습니다.
 
 ```c#
         // Define the factory classes
@@ -1893,18 +1901,18 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
         }
 ```
 
-이 경우 원래 호출은 다음과 같습니다.
+이 경우 원래 호출은 다음과 같은 모양입니다.
 
 ```sql
 OUTPUT @rs0 TO @output_file USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
-## <a name="user-defined-processor"></a>사용자 정의 처리기
-UDP(사용자 정의 처리기)는 프로그래밍 기능을 적용하여 들어오는 행을 처리할 수 있는 U-SQL UDO 형식입니다. UDP를 사용하면 열을 결합하고, 값을 수정하고, 필요한 경우 새 열을 추가할 수 있습니다. 기본적으로 필요한 데이터 요소를 생성하기 위해 행 집합을 처리하는 데 도움이 됩니다.
+## <a name="use-user-defined-processors"></a>UDP(사용자 정의 처리기) 사용
+UDP(사용자 정의 처리기)는 프로그래밍 기능을 적용하여 들어오는 행을 처리할 수 있는 U-SQL UDO의 형식입니다. UDP를 사용하면 열을 결합하고, 값을 수정하고, 필요한 경우 새 열을 추가할 수 있습니다. 기본적으로 필요한 데이터 요소를 생성하기 위해 행 집합을 처리하는 데 도움이 됩니다.
 
 UDP를 정의하려면 UDP의 선택 사항인 `SqlUserDefinedProcessor` 특성을 포함한 `IProcessor` 인터페이스를 생성해야 합니다.
 
-이 인터페이스는 `IRow` 인터페이스 행 집합 override에 대한 정의를 포함해야 합니다.
+다음 예제와 같이 이 인터페이스는 `IRow` 인터페이스 행 집합 override에 대한 정의를 포함해야 합니다.
 
 ```c#
     [SqlUserDefinedProcessor]
@@ -1921,7 +1929,7 @@ UDP를 정의하려면 UDP의 선택 사항인 `SqlUserDefinedProcessor` 특성�
 
 SqlUserDefinedProcessor 특성은 UDP 정의의 **선택 사항**입니다.
 
-주 프로그래밍 개체는 *input* 및 *output*입니다. input 개체는 입력 열을 열거하고, output 개체는 출력 데이터를 처리기 작업의 결과로 설정하는 데 사용됩니다.
+주 프로그래밍 개체는 **input** 및 **output**입니다. input 개체는 입력 열을 열거하고, output 개체는 출력 데이터를 처리기 작업의 결과로 설정하는 데 사용됩니다.
 
 입력 열을 열거하는 경우 `input.Get` 메서드를 사용합니다.
 
@@ -1929,17 +1937,17 @@ SqlUserDefinedProcessor 특성은 UDP 정의의 **선택 사항**입니다.
     string column_name = input.Get<string>("column_name");
 ```
 
-`input.Get` 메서드에 대한 매개 변수는 U-SQL 기본 스크립트의 ` PROCESS` 문 중 `PRODUCE` 절의 일부로 전달되는 열입니다. 여기서는 올바른 데이터 형식을 사용해야 합니다.
+`input.Get` 메서드에 대한 매개 변수는 U-SQL 기본 스크립트의 `PROCESS` 문의 `PRODUCE` 절의 일부로 전달되는 열입니다. 여기서는 올바른 데이터 형식을 사용해야 합니다.
 
-출력의 경우 output.Set 메서드를 사용합니다.
+출력의 경우 `output.Set` 메서드를 사용합니다.
 
-사용자 지정 생산자는 output.Set 메서드 호출로 정의된 열/값만 출력한다는 것을 알고 있어야 합니다.
+사용자 지정 생산자는 `output.Set` 메서드 호출로 정의된 열과 값만을 출력한다는 점을 아는 것이 중요합니다.
 
 ```c#
     output.Set<string>("mycolumn", mycolumn);
 ```
 
-실제 처리기 출력은 `return output.AsReadOnly()`;를 호출함으로써 트리거됩니다.
+실제 처리기 출력은 `return output.AsReadOnly();`를 호출하여 트리거됩니다.
 
 다음은 처리기 예제입니다.
 
@@ -1961,11 +1969,11 @@ SqlUserDefinedProcessor 특성은 UDP 정의의 **선택 사항**입니다.
      }
 ```
 
-이 사용 사례 시나리오에서 처리기는 기존의 ‘user’(대문자)와 "des"를 결합하여 새로운 ‘full_description’ 열을 생성합니다. 또한 guid를 다시 생성하고 원래 및 새 guid 값을 반환합니다.
+이 사용 사례 시나리오에서 처리기는 기존 열, 이 경우 “user” 대문자와 “des”를 결합하여 “full_description”이라는 새 열을 생성합니다. 또한 GUID를 다시 생성하고 원래 및 새 GUID 값을 반환합니다.
 
-위에서 볼 수 있듯이 output.Set을 호출하는 동안 C# 메서드를 호출할 수 있습니다.
+이전 예제에서 볼 수 있듯이 `output.Set` 메서드 호출 중에 C# 메서드를 호출할 수 있습니다.
 
-사용자 지정 처리기를 사용하는 기본 U-SQL 스크립트:
+다음은 사용자 지정 처리기를 사용하는 기본 U-SQL 스크립트의 예제입니다.
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1990,23 +1998,23 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-## <a name="user-defined-applier"></a>사용자 정의 적용자
+## <a name="use-user-defined-appliers"></a>사용자 정의 적용자 사용
 U-SQL 사용자 정의 적용자를 사용하면 쿼리의 외부 테이블 식에서 반환한 각 행에 대해 사용자 지정 C # 함수를 호출할 수 있습니다. 오른쪽 입력은 왼쪽 입력에서 각 행에 대해 평가되고, 생성된 행은 최종 출력을 위해 결합됩니다. APPLY 연산자에서 생성한 열 목록은 왼쪽 및 오른쪽 입력에 있는 열 집합의 조합입니다.
 
 사용자 정의 적용자는 U-SQL SELECT 식의 일부로 호출됩니다.
 
-사용자 정의 적용자에 대한 일반적인 호출은 다음과 같습니다.
+사용자 정의 적용자에 대한 일반적인 호출은 다음과 같은 모양입니다.
 
 ```sql
     SELECT …
     FROM …
-    CROSS APPLY
+    CROSS APPLYis used to pass parameters
     new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-SELECT 식에서 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: CROSS APPLY 및 OUTER APPLY에서 선택](https://msdn.microsoft.com/library/azure/mt621307.aspx)(영문)을 참조하세요.
+SELECT 식의 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: CROSS APPLY 및 OUTER APPLY에서 선택](https://msdn.microsoft.com/library/azure/mt621307.aspx)(영문)을 참조하세요.
 
-사용자 정의 적용자 기본 클래스 정의:
+사용자 정의 적용자 기본 클래스 정의는 다음과 같습니다.
 
 ```c#
     public abstract class IApplier : IUserDefinedOperator
@@ -2041,10 +2049,10 @@ SELECT 식에서 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: C
 
 **SqlUserDefinedApplier**는 사용자 정의 적용자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
-SqlUserDefinedApplier 특성은 사용자 정의 적용자 정의의 **선택 사항**입니다.
+**SqlUserDefinedApplier**는 사용자 정의 적용자 정의의 **선택 사항**입니다.
 
 
-주요 프로그래밍 개체:
+주요 프로그래밍 개체는 다음과 같습니다.
 
 ```c#
         public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
@@ -2052,7 +2060,7 @@ SqlUserDefinedApplier 특성은 사용자 정의 적용자 정의의 **선택 �
 
 입력 행 집합은 `IRow` 입력으로 전달됩니다. 출력 행은 `IUpdatableRow` 출력 인터페이스로 생성됩니다.
 
-개별 열 이름은 `IRow` 스키마 메서드를 호출하여 확인할 수 있습니다.
+개별 열 이름은 `IRow` 스키마 메서드를 호출하여 결정될 수 있습니다.
 
 ```c#
     ISchema schema = row.Schema;
@@ -2078,11 +2086,11 @@ SqlUserDefinedApplier 특성은 사용자 정의 적용자 정의의 **선택 �
     output.Set<int>("mycolumn", mycolumn)
 ```
 
-사용자 지정 적용자는 output.Set 메서드 호출로 정의된 열/값만 출력한다는 것을 알고 있어야 합니다.
+사용자 지정 적용자는 `output.Set` 메서드 호출로 정의된 열과 값만 출력한다는 점을 이해하는 것이 중요합니다.
 
-실제 출력은 `yield return output.AsReadOnly()`;를 호출함으로써 트리거됩니다.
+실제 출력은 `yield return output.AsReadOnly();`를 호출하여 트리거됩니다.
 
-사용자 정의 적용자 매개 변수는 생성자에 전달할 수 있습니다. 적용자는 기본 U-SQL 스크립트에서 Applier를 호출하는 동안 정의되어야 하는 가변 개수의 열을 반환할 수 있습니다.
+사용자 정의 적용자 매개 변수는 생성자에 전달될 수 있습니다. 적용자는 기본 U-SQL 스크립트에서 Applier를 호출하는 동안 정의되어야 하는 가변 개수의 열을 반환할 수 있습니다.
 
 ```c#
   new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
@@ -2146,7 +2154,7 @@ SqlUserDefinedApplier 특성은 사용자 정의 적용자 정의의 **선택 �
     }
 ```
 
-이 사용자 정의 적용자에 대한 기본 U-SQL 스크립트:
+다음은 이 사용자 정의 적용자에 대한 기본 U-SQL 스크립트입니다.
 
 ```sql
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -2175,7 +2183,7 @@ DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
 OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ```
 
-이 사용 사례 시나리오에서 사용자 정의 적용자는 car fleet 속성에 대한 쉼표로 분리된 값 파서로 작동합니다. 입력 파일 행은 다음과 같습니다.
+이 사용 사례 시나리오에서 사용자 정의 적용자는 car fleet 속성에 대한 쉼표로 구분된 값 파서 역할을 수행합니다. 입력 파일 행은 다음과 같은 모양입니다.
 
 ```
 103    Z1AB2CD123XY45889    Ford,Explorer,2005,SUV,152345
@@ -2183,7 +2191,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 210    X5AB2CD45XY458893    Nissan,Altima,2011,4Dr,74000
 ```
 
-이 파일은 Make, Model 등의 car 속성을 포함하는 Properties 열이 탭으로 분리된 일반적인 TSV 파일입니다. 이러한 속성은 테이블 열로 구문 분석되어야 합니다. 또한 제공된 적용자를 사용하면 전달된 매개 변수(모든 속성 집합 또는 특정 속성 집합만)에 기반하여 결과 행 집합에 동적 개수의 속성을 생성할 수 있습니다.
+이 파일은 제조업체 모델 등의 자동차 속성을 포함하는 속성 열이 탭으로 분리된 일반적인 TSV 파일입니다. 이러한 속성은 테이블 열로 구문 분석되어야 합니다. 제공된 적용자를 사용하면 전달되는 매개 변수를 기반으로 결과 행 집합에 동적인 수의 속성을 생성할 수 있습니다. 모든 속성을 생성하거나 특정 속성 집합만 생성할 수 있습니다.
 
     …USQL_Programmability.ParserApplier ("all")
     …USQL_Programmability.ParserApplier ("make")
@@ -2201,7 +2209,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
-## <a name="user-defined-combiner"></a>사용자 정의 결합자
+## <a name="use-user-defined-combiners"></a>사용자 정의 결합자 사용
 UDC(사용자 정의 결합자)를 사용하면 사용자 지정 논리를 기반으로 하여 왼쪽 및 오른쪽 행 집합의 행을 결합할 수 있습니다. UDC는 COMBINE 식으로 사용됩니다.
 
 결합자는 입력 행 집합, 그룹화 열, 예상 결과 스키마 및 추가 정보에 대해 필요한 정보를 제공하는 COMBINE 식으로 호출됩니다.
@@ -2223,7 +2231,7 @@ Combine_Expression :=
 
 UDC를 정의하려면 UDC 정의에서 선택적인 [`SqlUserDefinedCombiner`] 속성을 포함한 `ICombiner` 인터페이스를 만들어야 합니다.
 
-기본 `ICombiner` 클래스 정의
+기본 `ICombiner` 클래스 정의:
 
 ```c#
     public abstract class ICombiner : IUserDefinedOperator
@@ -2253,19 +2261,19 @@ UDC를 정의하려면 UDC 정의에서 선택적인 [`SqlUserDefinedCombiner`] 
 
 **SqlUserDefinedCombiner** 특성은 사용자 정의 결합자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
-SqlUserDefinedCombiner는 사용자 정의 결합자 정의의 선택적 특성이며, Combiner 모드 속성을 정의하는 데 사용됩니다.
+**SqlUserDefinedCombiner**는 결합자 모드 속성을 정의하는 데 사용됩니다. 사용자 정의 결합자 정의의 선택적 특성입니다.
 
 CombinerMode Mode
 
 CombinerMode 열거형은 다음 값을 포함할 수 있습니다.
 
-* Full (0) - 모든 출력 행이 잠재적으로 왼쪽과 오른쪽에서 동일한 키 값을 가진 모든 입력 행에 따라 달라집니다.
+* Full  (0)    모든 출력 행이 잠재적으로 왼쪽과 오른쪽에서 동일한 키 값을 가진 모든 입력 행에 따라 달라집니다.
 
-* Left (1) - 모든 출력 행이 왼쪽에서 단일 입력 행(그리고 잠재적으로 오른쪽에서 동일한 키 값을 가진 모든 행)에 따라 달라집니다.
+* Left  (1)    모든 출력 행이 왼쪽에서 단일 입력 행(그리고 잠재적으로 오른쪽에서 동일한 키 값을 가진 모든 행)에 따라 달라집니다.
 
-* Right (2) - 모든 출력 행이 오른쪽에서 단일 입력 행(그리고 잠재적으로 왼쪽에서 동일한 키 값을 가진 모든 행)에 따라 달라집니다.
+* Right (2)     모든 출력 행이 오른쪽에서 단일 입력 행(그리고 잠재적으로 왼쪽에서 동일한 키 값을 가진 모든 행)에 따라 달라집니다.
 
-* Inner (3) - 모든 출력 행이 왼쪽과 오른쪽에서 동일한 값을 가진 단일 입력 행에 따라 달라집니다.
+* Inner (3)    모든 출력 행이 왼쪽과 오른쪽에서 동일한 값을 가진 단일 입력 행에 따라 달라집니다.
 
 예: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
@@ -2277,11 +2285,11 @@ CombinerMode 열거형은 다음 값을 포함할 수 있습니다.
         IUpdatableRow output
 ```
 
-입력 행 집합은 *left* 및 *right* `IRowset` 형식의 인터페이스로 전달됩니다. 두 행 집합은 처리하기 위해 모두 열거되어야 합니다. 각 인터페이스를 한 번만 열거할 수 있으므로 필요에 따라 열거하고 캐시해야 합니다.
+입력 행 집합은 **left** 및 **right** `IRowset` 형식의 인터페이스로 전달됩니다. 두 행 집합은 처리하기 위해 모두 열거되어야 합니다. 각 인터페이스를 한 번만 열거할 수 있으므로 필요에 따라 열거하고 캐시해야 합니다.
 
-캐싱을 위해 LINQ 쿼리 실행의 결과로 List\<T\> 형식의 메모리 구조체를 만들 수 있습니다. 구체적으로 List<`IRow`>입니다. 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
+캐싱을 위해 LINQ 쿼리 실행의 결과로 List\<T\> 형식의 메모리 구조체를 만들 수 있습니다(구체적으로 List<`IRow`>). 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
 
-LINQ에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](https://msdn.microsoft.com/library/bb397906.aspx)를 참조하고, IEnumerable\<T\> 인터페이스에 대한 자세한 내용은 [IEnumerable\<T\> 인터페이스](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx)를 참조하세요.
+LINQ 쿼리에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](https://msdn.microsoft.com/library/bb397906.aspx)를 참조하고, IEnumerable\<T\> 인터페이스에 대한 자세한 내용은 [IEnumerable\<T\> 인터페이스](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx)를 참조하세요.
 
 들어오는 `IRowset`에서 실제 데이터 값을 가져오려면 `IRow` 인터페이스의 Get() 메서드를 사용합니다.
 
@@ -2289,7 +2297,7 @@ LINQ에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](https://msdn.microso
     mycolumn = row.Get<int>("mycolumn")
 ```
 
-개별 열 이름은 `IRow` 스키마 메서드를 호출하여 확인할 수 있습니다.
+개별 열 이름은 `IRow` 스키마 메서드를 호출하여 결정될 수 있습니다.
 
 ```c#
     ISchema schema = row.Schema;
@@ -2303,7 +2311,7 @@ LINQ에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](https://msdn.microso
     c# row.Get<int>(row.Schema[0].Name)
 ```
 
-LINQ를 사용한 일반적인 열거형은 다음과 같습니다.
+LINQ를 사용한 일반적인 열거형은 다음과 같은 모양입니다.
 
 ```c#
 var myRowset =
@@ -2314,15 +2322,15 @@ var myRowset =
                           }).ToList();
 ```
 
-두 행 집합을 모두 열거한 후 모든 행을 반복하고, 왼쪽 행 집합의 각 행에 대해 결합자의 조건을 만족하는 모든 행을 찾습니다.
+두 가지 행 집합을 열거한 후 모든 행을 반복할 예정입니다. 왼쪽 행 집합의 각 행에 대해 결합자의 조건을 충족하는 모든 행을 찾을 예정입니다.
 
-출력 값은 `IUpdatableRow` 출력으로 설정해야 합니다
+출력 값은 `IUpdatableRow` 출력으로 설정해야 합니다.
 
 ```c#
     output.Set<int>("mycolumn", mycolumn)
 ```
 
-실제 출력은 `yield return output.AsReadOnly()`;를 호출함으로써 트리거됩니다.
+실제 출력은 `yield return output.AsReadOnly();`를 호출하여 트리거됩니다.
 
 다음은 결합자 예제입니다.
 
@@ -2378,7 +2386,7 @@ var myRowset =
     }
 ```
 
-이 사용 사례 시나리오에서는 판매점에 대한 분석 보고서를 빌드합니다. 목표는 $20,000이 넘고 특정 시간 프레임 내에서 일반 판매점보다 빠르게 인터넷 웹 사이트를 통해 판매하는 모든 제품을 찾는 것입니다.
+이 사용 사례 시나리오에서는 판매점에 대한 분석 보고서를 빌드합니다. 목표는 $20,000이 넘고 특정 시간 프레임 내에 일반 판매점보다 인터넷 웹 사이트를 통해 빠르게 판매된 모든 제품을 찾는 것입니다.
 
 다음은 기본 U-SQL 스크립트이며, 일반 JOIN과 결합자 사이의 논리를 비교할 수 있습니다.
 
@@ -2488,10 +2496,10 @@ OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
     USING MyNameSpace.MyCombiner();
 ```
 
-## <a name="user-defined-reducer"></a>사용자 정의 리듀서
-U-SQL은 IReducer 인터페이스를 구현하여 사용자 정의 연산자 확장성 프레임워크를 사용하는 C#에서 사용자 지정 행 집합 리듀서를 작성할 수 있는 기능을 제공합니다.
+## <a name="use-user-defined-reducers"></a>사용자 정의 리듀서 사용
+U-SQL을 사용하면 IReducer 인터페이스를 구현하고 사용자 정의 연산자 확장성 프레임워크를 사용하여 C#으로 사용자 지정 행 집합 리듀서를 작성할 수 있습니다.
 
-UDR(사용자 정의 리듀서)은 데이터를 추출하는(가져오기) 동안 불필요한 행을 제거하는 데 사용할 수 있습니다. 또한 행/열을 조작하고 평가하는 데 사용할 수 있으며, 프로그래밍 기능 논리에 따라 추출해야 하는 행을 정의합니다.
+UDR(사용자 정의 리듀서)은 데이터를 추출하는(가져오기) 동안 불필요한 행을 제거하는 데 사용할 수 있습니다. 행 및 열을 조작하고 평가하는 데 사용할 수도 있습니다. 프로그래밍 기능 논리를 기반으로 추출해야 하는 행을 정의할 수도 있습니다.
 
 UDR 클래스를 정의하려면 선택적 `SqlUserDefinedReducer` 특성을 사용하여 `IReducer` 인터페이스를 생성해야 합니다.
 
@@ -2511,13 +2519,12 @@ UDR 클래스를 정의하려면 선택적 `SqlUserDefinedReducer` 특성을 사
 ```
 
 **SqlUserDefinedReducer** 특성은 사용자 정의 리듀서로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
-
-SqlUserDefinedReducer는 UDR 정의의 선택적 특성이며, IsRecursive 속성을 정의하는 데 사용됩니다.
+**SqlUserDefinedReducer**는 UDR(사용자 정의 리듀서) 정의의 선택적 특성이며, IsRecursive 속성을 정의하는 데 사용됩니다.
 
 * bool IsRecursive    
 * **true**는 idempotent 유형의 리듀서인지 여부를 나타냅니다.
 
-주 프로그래밍 개체는 *input* 및 *output*입니다. input 개체는 입력 행을 열거하고, output 개체는 출력 행을 감소 작업의 결과로 설정하는 데 사용됩니다.
+주 프로그래밍 개체는 **input** 및 **output**입니다. input 개체는 입력 행을 열거하는 데 사용됩니다. Output 개체는 감소 작업의 결과로 출력 행을 설정하는 데 사용됩니다.
 
 입력 행 열거형의 경우 `Row.Get` 메서드를 사용합니다.
 
@@ -2528,17 +2535,17 @@ SqlUserDefinedReducer는 UDR 정의의 선택적 특성이며, IsRecursive 속�
             }
 ```
 
-중요한 사항은 다음과 같습니다. `Row.Get` 메서드에 대한 매개 변수는 U-SQL 기본 스크립트의 `REDUCE` 문 중 `PRODUCE` 클래스의 일부로 전달되는 열입니다. 여기서도 올바른 데이터 형식을 사용해야 합니다.
+`Row.Get` 메서드에 대한 매개 변수는 U-SQL 기본 스크립트의 `REDUCE` 문의 `PRODUCE` 클래스의 일부로 전달되는 열입니다. 여기서도 올바른 데이터 형식을 사용해야 합니다.
 
-출력의 경우 output.Set 메서드를 사용합니다.
+출력의 경우 `output.Set` 메서드를 사용합니다.
 
-사용자 지정 리듀서는 output.Set 메서드 호출로 정의된 값만 출력한다는 것을 알고 있어야 합니다.
+사용자 지정 리듀서는 `output.Set` 메서드 호출로 정의된 값만 출력한다는 것을 이해하는 것이 중요합니다.
 
 ```c#
     output.Set<string>("mycolumn", guid);
 ```
 
-실제 리듀서 출력은 `yield return output.AsReadOnly()`;를 호출함으로써 트리거됩니다.
+실제 리듀서 출력은 `yield return output.AsReadOnly();`를 호출하여 트리거됩니다.
 
 다음은 리듀서 예제입니다.
 
@@ -2576,9 +2583,9 @@ SqlUserDefinedReducer는 UDR 정의의 선택적 특성이며, IsRecursive 속�
         }
 ```
 
-이 사용 사례 시나리오에서 리듀서는 빈 사용자 이름을 포함한 행을 건너 뜁니다. 행 집합의 각 행에 대해 각 필수 열을 읽은 다음 사용자 이름의 길이를 평가하고 사용자 이름 값의 길이가 0보다 큰 경우에만 실제 행을 출력합니다.
+이 사용 사례 시나리오에서 리듀서는 사용자 이름이 비어 있는 행을 건너 뜁니다. 행 집합의 각 행에 대해 각각의 필수 열을 읽은 다음 사용자 이름의 길이를 평가합니다. 사용자 이름 값 길이가 0보다 큰 경우에만 실제 행을 출력합니다.
 
-사용자 지정 리듀서를 사용하는 기본 U-SQL 스크립트:
+다음은 사용자 지정 리듀서를 사용하는 기본 U-SQL 스크립트입니다.
 
 ```sql
 DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";
@@ -2609,9 +2616,4 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 OUTPUT @rs2 TO @output_file USING Outputters.Text();
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,13 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: c74e8c40ba259df8d22c11f930073ab83e900c62
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d78a77ab28989bbac031e7dd967c050b1322ad7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -29,6 +29,9 @@ ms.lasthandoff: 03/02/2017
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 3 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](iot-hub-what-is-iot-hub.md)를 사용하여 장치를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
+
+> [!NOTE]
+> Docker를 선호하나요? 혹은 호스트 컴퓨터에서 소스 코드를 작성하는 것을 선호하나요? 그렇다면 [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker)에서 Docker 기반 솔루션을 사용해 보세요.
 
 ## <a name="lesson-1-configure-your-device"></a>단원 1: 장치 구성
 ![단원 1 종단간 다이어그램](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
@@ -50,7 +53,7 @@ Raspberry Pi 3의 첫 번째 응용 프로그램을 빌드 및 배포하기 위�
 [도구 얻기](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)로 이동.
 
 ### <a name="create-and-deploy-the-blink-application"></a>깜박임 응용 프로그램 만들기 및 배포
-Github에서 샘플 C 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Raspberry Pi 3 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다.
+Github에서 샘플 C 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Raspberry Pi 3 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다.
 
 *예상 완료 시간: 5분*  
 
