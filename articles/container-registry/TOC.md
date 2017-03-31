@@ -6,6 +6,7 @@
 ## [포털에서 레지스트리 만들기](container-registry-get-started-portal.md)
 ## [Azure CLI 2.0을 사용하여 레지스트리 만들기](container-registry-get-started-azure-cli.md)
 ## [이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)
+## [리포지토리 보기](container-registry-repositories.md)
 
 # 방법
 

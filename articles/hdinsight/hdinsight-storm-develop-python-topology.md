@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -157,10 +157,8 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          USERNAME을 클러스터에 대한 SSH 사용자로 바꾸고 CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
-     2. 파일이 클러스터에 복사된 후에는 SSH를 사용하여 클러스터에 연결하고 작업을 제출합니다. HDInsight에서 SSH 사용에 대한 자세한 내용은 다음을 참조하세요.
-        
-        * [Linux, Unix 또는 OS X에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Windows에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. 파일이 클러스터에 복사된 후에는 SSH를 사용하여 클러스터에 연결하고 작업을 제출합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+     
      3. 연결되면 다음을 사용하여 토폴로지를 시작합니다.
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 80630ec6762ccd00e1e199460703a128f96c1c37
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5c3c7707d2e2eaa0b47084c26e96721afea4e4d8
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -30,9 +30,9 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="get-started"></a>시작
 * [Azure의 Linux에 대한 소개](virtual-machines-linux-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답](virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [가상 컴퓨터에 대한 이미지 정보](virtual-machines-linux-classic-about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [사용자 고유의 Distro 이미지 업로드](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)(및 [Azure 보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 사용 지침)
+* [클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답](linux/classic/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [가상 컴퓨터에 대한 이미지 정보](linux/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [사용자 고유의 Distro 이미지 업로드](linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)(및 [Azure 보증 배포판](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 사용 지침)
 * [Azure 클래식 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="set-up"></a>설정
@@ -44,27 +44,27 @@ ms.lasthandoff: 03/21/2017
 * [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](../service-bus-messaging/service-bus-amqp-apache.md)
 
 ### <a name="databases"></a>데이터베이스
-* [Azure에서 MySQL 성능 최적화](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [MySQL 클러스터](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스](virtual-machines-linux-classic-cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [MariaDbs의 다중 마스터 클러스터 만들기](virtual-machines-linux-classic-mariadb-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure에서 MySQL 성능 최적화](linux/classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [MySQL 클러스터](linux/classic/mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스](linux/classic/cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [MariaDbs의 다중 마스터 클러스터 만들기](linux/classic/mariadb-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ### <a name="hpc"></a>HPC
-* [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](linux/classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](linux/classic/hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ### <a name="docker"></a>Docker
-* [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-linux-classic-cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Azure 포털에서 Docker VM 확장 사용](virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure 포털에서 Docker VM 확장 사용](linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="ubuntu"></a>Ubuntu
-* [방법: MySQL 클러스터](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [방법: Node.js 및 Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [방법: MySQL 클러스터](linux/classic/mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [방법: Node.js 및 Cassandra](linux/classic/cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ### <a name="opensuse"></a>OpenSUSE
-* [방법: MySQL 설치 및 실행](virtual-machines-linux-classic-mysql-on-opensuse.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [방법: MySQL 설치 및 실행](linux/classic/mysql-on-opensuse.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ### <a name="coreos"></a>CoreOS
 * [방법: Azure에서 CoreOS를 사용하는 방법](https://coreos.com/os/docs/latest/booting-on-azure.html)
@@ -72,38 +72,38 @@ ms.lasthandoff: 03/21/2017
 ## <a name="planning"></a>계획
 * [Azure 인프라 서비스 구현 지침](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Linux 사용자 이름 선택](virtual-machines-linux-usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [클래식 배포 모델에서 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법](virtual-machines-linux-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [클래식 배포 모델에서 가상 컴퓨터에 대한 가용성 집합을 구성하는 방법](linux/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Azure VM에 계획된 유지 관리 예약 방법](virtual-machines-linux-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [가상 컴퓨터의 가용성 관리](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure에서 Linux 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="deployment"></a>배포
-* [Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [기본 사항: Linux VM을 캡처하여 템플릿 작성](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기](linux/classic/createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [기본 사항: Linux VM을 캡처하여 템플릿 작성](linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [보증되지 않는 배포에 대한 정보](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="management"></a>관리
 * [SSH](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Linux에 대한 암호 또는 SSH 속성을 다시 설정하는 방법](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Linux에 대한 암호 또는 SSH 속성을 다시 설정하는 방법](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [루트 사용](virtual-machines-linux-use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-resources"></a>Azure 리소스
 * [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VM 확장 및 기능](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Cloud-init에서 사용할 VM에 사용자 지정 데이터 주입](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Cloud-init에서 사용할 VM에 사용자 지정 데이터 주입](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="storage"></a>저장소
-* [Linux VM에 데이터 디스크 연결](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Linux VM에서 데이터 디스크 분리](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Linux VM에 데이터 디스크 연결](linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Linux VM에서 데이터 디스크 분리](linux/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="networking"></a>네트워킹
-* [Azure에서 클래식 가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure에서 클래식 가상 컴퓨터에 끝점을 설정하는 방법](linux/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="troubleshooting"></a>문제 해결
 * [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure에서 새 Linux 가상 컴퓨터 생성 관련 클래식 배포 문제 해결](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)  
-* [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
+* [Azure에서 새 Linux 가상 컴퓨터 생성 관련 클래식 배포 문제 해결](linux/classic/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)  
+* [Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결](linux/classic/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## <a name="reference"></a>참조
 * [ASM(Azure 서비스 관리) 모드의 Azure CLI 명령](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

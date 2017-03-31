@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 0356f3bdbb691b9bde4e906ed30b3b235180f8ba
-ms.openlocfilehash: 9851ec0771c4fec4719aec8c8f43f2e3dd2604f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e64abfd5581c02b609707f7fa712962c024b293b
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/27/2017
 
 다른 논리 서버로 데이터베이스를 복사할 때 새 서버의 보안 주체가 새 데이터베이스의 데이터베이스 소유자가 됩니다. 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하는 경우 복사가 완료된 후 동일한 자격 증명으로 액세스할 수 있도록 주 데이터베이스와 보조 데이터베이스에서 항상 동일한 사용자 자격 증명을 사용해야 합니다. [Azure Active Directory](../active-directory/active-directory-whatis.md)를 사용하는 경우 복사본에서 자격 증명을 관리할 필요가 없습니다. 그러나 데이터베이스를 새 서버로 복사할 때 새 서버에 로그인이 존재하지 않으므로 로그인 기반 액세스가 작동하지 않을 수 있습니다. 다른 논리 서버로 데이터베이스를 복사할 때 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL Database 보안을 관리하는 방법](sql-database-geo-replication-security-config.md) 을 참조하세요. 
 
-[Azure Portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) 또는 [T-SQL](sql-database-copy-transact-sql.md)을 사용하여 SQL Database를 복사할 수 있습니다. 
+[Azure Portal](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) 또는 [T-SQL](sql-database-copy-transact-sql.md)을 사용하여 SQL Database를 복사할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

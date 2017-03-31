@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -97,7 +98,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
   * 기본 드라이브 **C**:에 대한 드라이브 캐싱 정책은 데이터 작업에 적합하지 않습니다.
   * **D**: 드라이브는 페이지 파일에 주로 사용되는 임시 드라이브입니다. **D**: 드라이브는 지속되지 않고 Blob 저장소에 저장되지 않습니다. 관리 작업(예: 가상 컴퓨터 크기 변경)은 **D**: 드라이브를 재설정합니다. tempdb를 비롯한 데이터베이스 파일의 경우 **D**: 드라이브를 사용하지 **않는** 것이 좋습니다.
     
-    디스크 만들기 및 연결에 대한 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+    디스크 만들기 및 연결에 대한 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 * 사용하지 않으려는 서비스를 중지하거나 제거합니다. 예를 들어 가상 컴퓨터가 Reporting Services에만 사용되는 경우 Analysis Services 및 SQL Server Integration Services를 중지하거나 제거합니다. 다음 이미지는 기본적으로 시작되는 서비스의 예입니다.
   
     ![SQL Server 서비스](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -138,7 +139,7 @@ Analysis Services, Reporting Services, SQL Server 데이터베이스 엔진 및 
 SQL Server에 대한 가상 컴퓨터 갤러리 이미지에는 Reporting Services 기본 모드가 설치되어 있지만 보고서 서버는 구성되어 있지 않습니다. 이 섹션의 단계에서 Reporting Services 보고서 서버를 구성합니다. Reporting Services 기본 모드 구성에 대한 자세한 내용은 [Reporting Services 기본 모드 보고서 서버(SSRS)](https://msdn.microsoft.com/library/ms143711.aspx)를 참조하세요.
 
 > [!NOTE]
-> Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하는 방법과 유사한 내용은 [PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)를 참조하세요.
+> Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하는 방법과 유사한 내용은 [PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](../classic/ps-sql-report.md)를 참조하세요.
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>가상 컴퓨터에 연결 및 Reporting Services 구성 관리자 시작
 Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적인 워크플로를 사용할 수 있습니다.
@@ -242,7 +243,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
   
   1. 로컬 컴퓨터에서 보고서가 포함되는 .VHD 하드 드라이브를 만듭니다.
   2. 관리 인증서를 만들고 설치합니다.
-  3. Add-AzureVHD cmdlet [Windows Server VHD 만들기 및 Azure에 업로드](../../virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 사용하여 VHD 파일을 Azure에 업로드합니다.
+  3. Add-AzureVHD cmdlet [Windows Server VHD 만들기 및 Azure에 업로드](../classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 사용하여 VHD 파일을 Azure에 업로드합니다.
   4. 가상 컴퓨터에 디스크를 연결합니다.
 
 ## <a name="install-other-sql-server-services-and-features"></a>다른 SQL Server 서비스 및 기능 설치
@@ -322,7 +323,7 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 끝점을 만드는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* 끝점 만들기:[가상 컴퓨터에 끝점을 설정하는 방법](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* 끝점 만들기:[가상 컴퓨터에 끝점을 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * SQL Server: [Azure에서 SQL Server 가상 컴퓨터 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)의 "SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료"를 참조하세요.
 
 다음 다이어그램에서는 VM의 기능 및 구성 요소에 대한 원격 액세스를 허용하기 위해 VM 방화벽에서 열 포트를 보여 줍니다.
@@ -334,7 +335,7 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 * [Azure 가상 컴퓨터의 SQL Server 개요](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Azure에서 SQL Server 가상 컴퓨터 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [가상 컴퓨터에 데이터 디스크를 연결하는 방법](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [가상 컴퓨터에 데이터 디스크를 연결하는 방법](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Analysis Services 인스턴스의 서버 모드 확인](https://msdn.microsoft.com/library/gg471594.aspx)
 * [다차원 모델링(Adventure Works 자습서)](https://technet.microsoft.com/library/ms170208.aspx)
@@ -346,10 +347,5 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
 * [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

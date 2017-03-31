@@ -28,6 +28,7 @@
 ### [서비스 주체](container-service-kubernetes-service-principal.md)
 ### [컨테이너 관리 - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Kubernetes 컨테이너 부하 분산](container-service-kubernetes-load-balancing.md)
+### [ACS Kubernetes와 Jenkins 통합](container-service-kubernetes-jenkins.md)
 ### Kubernetes 모니터링
 #### [OMS로 모니터링](container-service-kubernetes-oms.md)
 #### [Datadog로 모니터링](container-service-kubernetes-datadog.md)

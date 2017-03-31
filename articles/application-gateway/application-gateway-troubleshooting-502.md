@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -34,9 +34,6 @@ Azure 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있�
 * 백 엔드 VM 또는 VM 크기 조정 설정의 인스턴스는 기본 상태 프로브에 응답하지 않습니다.
 * 사용자 지정 상태 프로브의 구성이 잘못되었거나 부적절합니다.
 * 사용자 요청과 관련된 요청 시간 초과 또는 연결 문제입니다.
-
-> [!note]
-> Application Gateway는 수신 호스트 헤더를 유지하고 백 엔드에 동일한 헤더를 전송합니다. 백 엔드에 다른 헤더가 필요한 경우 이 기능은 작동하지 않습니다. 마찬가지로 백 엔드가 다중 테넌트이고 종단 간 SSL을 사용하는 경우 백 엔드는 SNI 확장인 서버 이름을 예상합니다. 현재 Application Gateway는 종단 간 SSL 시나리오의 백 엔드 요청에서 SNI 헤더를 보내지 않습니다. 그러면 프로브 및 데이터 경로 문제가 발생합니다.
 
 ## <a name="empty-backendaddresspool"></a>비어 있는 BackendAddressPool
 
@@ -109,7 +106,7 @@ BackendAddressPool의 모든 인스턴스가 정상이 아닌 경우 Application
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
 * http://127.0.0.1:port에 대한 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
 * 구성된 포트가 열려 있고 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지를 확인합니다. 여기서 구성된 포트에서 들어오거나 나가는 트래픽을 차단합니다.
-* Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [끝점](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 이 열려 있는지 확인합니다.
+* Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [끝점](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 이 열려 있는지 확인합니다.
 * VM이 Azure Resource Manager를 통해 구성되고 응용 프로그램 게이트웨이가 배포된 VNet의 외부에 있는 경우 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 을 원하는 포트에 대한 액세스를 허용하도록 구성해야 합니다.
 
 ## <a name="problems-with-custom-health-probe"></a>사용자 지정 상태 검색의 문제

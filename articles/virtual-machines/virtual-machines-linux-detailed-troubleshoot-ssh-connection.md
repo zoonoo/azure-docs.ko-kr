@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
-ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
-ms.lasthandoff: 11/30/2016
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 81f73e6c1c4fa48c0235cb497fa9e15b0c92a668
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -120,7 +120,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 * **대상 VM의 SSH 트래픽에 대한 끝점 구성.** 끝점의 개인 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트와 일치해야 합니다. 기본 포트는 22입니다. Resource Manager 배포 모델을 사용하여 만든 VM의 경우 **가상 컴퓨터** > *VM 이름* > **설정** > **끝점**을 선택하여 Azure Portal에서 SSH TCP 포트 번호를 확인합니다.
 * **대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL.** ACL을 통해 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정할 수 있습니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../virtual-network/virtual-networks-acl.md)를 참조하세요.
 
-문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 다른 끝점을 만든 다음 SSH 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 다른 끝점을 만든 다음 SSH 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 <a id="nsg"></a>
 
@@ -133,7 +133,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 ![Linux 기반 Azure 가상 컴퓨터를 강조하는 다이어그램](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-아직 수행하지 않은 경우 [지침에 따라 Linux 기반 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)합니다.
+아직 수행하지 않은 경우 [지침에 따라 Linux 기반 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)합니다.
 
 컴퓨터에서 다시 연결을 시도하세요. 문제가 계속 발생하면 다음과 같은 문제가 있는 것일 수 있습니다.
 

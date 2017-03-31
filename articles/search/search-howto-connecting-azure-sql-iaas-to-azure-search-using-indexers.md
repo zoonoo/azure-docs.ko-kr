@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
-ms.openlocfilehash: 1e436978da0f2fc8c122a1a99bd891fe82929f50
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: be73e3d009cfcbdd585d81512afaed752ae07364
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -51,7 +52,7 @@ Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 
 Azure Search에 필요한 암호화된 연결을 설정한 후 Azure VM에서 SQL Server에 고유한 추가 구성 단계가 있습니다. 아직 수행하지 않은 경우 다음 단계로 이 문서 중 하나를 사용하여 구성을 완료합니다.
 
 * **Resource Manager** VM인 경우 [Azure에서 Resource Manager를 사용하여 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md)을 참조하세요. 
-* **클래식** VM인 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
+* **클래식** VM인 경우 [Azure 클래식에서 SQL Server 가상 컴퓨터에 연결](../virtual-machines/windows/classic/sql-connect.md)을 참조하세요.
 
 특히 "인터넷을 통한 연결"의 각 문서에서 해당 섹션을 검토하세요.
 
@@ -87,10 +88,5 @@ Azure 포털을 사용하여 인덱서를 만드는 경우, 생성 중에 Azure 
 
 ## <a name="next-steps"></a>다음 단계
 구성이 해결되면 이제 Azure VM의 SQL Server를 Azure Search 인덱서에 대한 데이터 원본으로 지정할 수 있습니다. 자세한 내용은 [인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) 을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

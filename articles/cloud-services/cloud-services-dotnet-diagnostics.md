@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 81f814ebb977f0f192d450b9c75aab84d2e1c069
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -39,7 +39,7 @@ Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md)를 참�
 6. 솔루션을 빌드하여 오류가 없는지 확인합니다.
 
 ### <a name="step-2-instrument-your-code"></a>2단계: 코드 계측
-WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]로부터 상속되는 SampleEventSourceWriter 클래스는 다음&4;개의 로깅 메서드를 구현합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**. **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
+WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][EventSource Class]로부터 상속되는 SampleEventSourceWriter 클래스는 다음 4개의 로깅 메서드를 구현합니다. **SendEnums**, **MessageMethod**, **SetOther** 및 **HighFreq**. **WriteEvent** 메서드에 대한 첫 번째 매개 변수는 각 이벤트의 ID를 저장합니다. Run 메서드는 **SampleEventSourceWriter** 클래스에 구현된 각각의 로깅 메서드를 10초마다 호출하는 무한 루프를 구현합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -197,7 +197,7 @@ Visual Studio **서버 Explorer**에서 wadexample 저장소 계정으로 이동
 문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure 진단 문제 해결](../azure-diagnostics-troubleshooting.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [가상 컴퓨터 관련 Azure 진단 문서 목록](../azure-diagnostics.md#cloud-services-using-azure-diagnostics)을 참조하세요.
+수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [가상 컴퓨터 관련 Azure 진단 문서 목록](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics)을 참조하세요.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

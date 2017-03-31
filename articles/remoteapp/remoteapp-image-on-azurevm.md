@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 310cb63756806c8fab208c47bce6c7292ea5e5d7
-ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: efd70d9843f3d8db0c2396c79eacb230fcdfa467
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,9 +38,9 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
     자세한 내용은 [Windows를 실행하는 VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 2. VM에 연결하고 RemoteApp을 통해 공유하려는 앱을 구성합니다. 앱에 필요한 모든 추가 Windows 구성을 수행할 수 있는지 확인합니다.
    
-    자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+    자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 3. Windows Server 원격 데스크톱 세션 호스트 이미지 중 하나를 사용하는 경우 VM이 RemoteApp 사전 요구 사항을 충족하는지 확인하는 유효성 검사 스크립트가 포함되어 있습니다. 스크립트를 실행하려면 바탕 화면에서 **ValidateRemoteAppImage** 를 두 번 클릭합니다. 다음 단계를 진행하기 전에 스크립트에서 보고한 모든 오류가 해결되었는지 확인합니다.
-4. SYSPREP가 일반화되고 이미지를 캡처합니다. 지침에 대해서는 [템플릿으로 사용할 Windows Virtual Machine를 캡처하는 방법](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+4. SYSPREP가 일반화되고 이미지를 캡처합니다. 지침에 대해서는 [템플릿으로 사용할 Windows Virtual Machine를 캡처하는 방법](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="import-the-image-into-the-azure-remoteapp-image-library"></a>Azure RemoteApp 이미지 라이브러리로 이미지 가져오기
 다음 단계를 사용하여 새 이미지를 Azure RemoteApp으로 가져옵니다.
@@ -58,10 +59,5 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 > 
 
 이제 필요에 따라 [클라우드](remoteapp-create-cloud-deployment.md) 컬렉션 또는 [하이브리드](remoteapp-create-hybrid-deployment.md), 컬렉션을 새로 만들 준비가 되었습니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/1/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 106e03a5a99134eb6e5744cbf29ba32efc31f0ba
-ms.openlocfilehash: d76aa3e62c691c4537684bc70d3a91a3dbb8b446
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -140,7 +140,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 ## <a name="post-migration-steps"></a>마이그레이션 후 단계
 
 1. **해당하는 경우 복제된 VM을 가용성 집합에 구성합니다**. Site Recovery는 가용성 집합과 함께 VM 마이그레이션을 지원하지 않습니다. 복제된 VM의 배포에 따라 다음 중 하나를 수행합니다.
-  * 클래식 배포 모델을 사용하여 만든 VM의 경우: Azure Portal에서 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 컴퓨터를 가용성 집합에 추가](../virtual-machines/virtual-machines-windows-classic-configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set)로 이동하세요.
+  * 클래식 배포 모델을 사용하여 만든 VM의 경우: Azure Portal에서 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 컴퓨터를 가용성 집합에 추가](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set)로 이동하세요.
   * 리소스 관리자 배포 모델의 경우: VM의 구성을 저장한 다음 가용성 집합에서 VM을 삭제하고 다시 만듭니다. 이렇게 하려면 [Azure Resource Manager VM 가용성 집합 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)에서 스크립트를 사용합니다. 이 스크립트의 한계를 확인하고 스크립트를 실행하기 전에 가동 중지 시간을 계획합니다.
 
 2. **이전 VM 및 디스크를 삭제합니다**. 삭제하기 전에 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행하는지 확인하세요. RM(리소스 관리자) 배포 모델에서 VM을 삭제하고 Azure Portal의 원본 저장소 계정에서 디스크를 삭제합니다. 클래식 배포 모델에서 클래식 포털 또는 Azure Portal의 VM 및 디스크를 삭제할 수 있습니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 있는 경우 [RM 배포에서 VHD를 삭제할 때 오류 문제 해결](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) 또는 [클래식 배포에서 VHD 삭제 문제 해결](storage-cannot-delete-storage-account-container-vhd.md)을 참조하세요.
@@ -157,8 +157,8 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 가상 컴퓨터 마이그레이션에 대한 특정 시나리오에 대한 다음 리소스를 확인합니다.
 
 * [저장소 계정 간에 Azure 가상 컴퓨터 마이그레이션](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Windows Server VHD를 만들고 Azure에 업로드합니다.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Windows Server VHD를 만들고 Azure에 업로드합니다.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Amazon AWS에서 Microsoft Azure로 가상 컴퓨터 마이그레이션](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Azure Storage 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려면 다음 리소스도 확인하세요.

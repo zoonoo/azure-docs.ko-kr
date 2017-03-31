@@ -69,7 +69,7 @@ ms.lasthandoff: 03/03/2017
 
 가져와야 하는 runbook이 아래 이미지에 표시되어 있습니다.
 
-![Runbook 가져오기](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Runbook 가져오기](./windows/media/vertical-scaling-automation/scale-runbooks.png)
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Runbook에 Webhook 추가
 Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거될 수 있도록 runbook에 Webhook를 추가해야 합니다. Runbook에 대한 Webhook를 만드는 자세한 방법은 여기에서 확인할 수 있습니다.
@@ -88,8 +88,8 @@ Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거
 7. 모니터링 서비스에서 5단계와 6단계의 조건 및 임계값을 확인할 기간 선택
 8. 이전 섹션에서 복사한 Webhook에 붙여넣기
 
-![가상 컴퓨터 1에 경고 추가](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![가상 컴퓨터 1에 경고 추가](./windows/media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![가상 컴퓨터 2에 경고 추가](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
+![가상 컴퓨터 2에 경고 추가](./windows/media/vertical-scaling-automation/add-alert-webhook-2.png)
 
 

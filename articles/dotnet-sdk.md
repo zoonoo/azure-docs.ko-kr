@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 5f61a5422fc36b2468585e601823f292680142ec
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 94c4929c84a671eca210a0e6b53eda5019cc0951
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,7 +81,7 @@ Azure PowerShell을 사용하면 [Azure 환경 만들기 및 배포를 자동화
 
 * [클라우드 서비스 프로젝트 만들기, 열기 및 게시](cloud-services/cloud-services-dotnet-get-started.md)
 * [클라우드 서비스 프로젝트에 대한 배포 패키지 만들기](http://msdn.microsoft.com/library/ff683672.aspx)
-* [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [새 가상 컴퓨터를 만드는 동안 PowerShell 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)
 * [Visual Studio 프로젝트 속성 창에서 클라우드 서비스 프로젝트 설정 보기 및 관리](http://msdn.microsoft.com/library/ee405486.aspx)
 * 서버 탐색기에서 [클라우드 서비스](http://msdn.microsoft.com/library/ff683675.aspx), [가상 컴퓨터](http://msdn.microsoft.com/library/jj131259.aspx) 및 [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) 보기 및 관리

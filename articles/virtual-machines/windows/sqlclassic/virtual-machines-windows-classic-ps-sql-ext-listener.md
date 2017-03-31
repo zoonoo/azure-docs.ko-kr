@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 64d3f55445c82bf2be3ca8e64d7ea5d19e70310b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
 > [!div class="op_single_selector"]
-> * [내부 수신기](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [내부 수신기](../classic/ps-sql-int-listener.md)
+> * [외부 수신기](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -33,7 +34,7 @@ ms.openlocfilehash: 64d3f55445c82bf2be3ca8e64d7ea5d19e70310b
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
-가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
+가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](../classic/portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>외부 수신기에 대한 지침 및 제한 사항
 클라우드 서비스 공용 VIP 주소를 사용하여 배포할 경우 Azure의 가용성 그룹 수신기에 다음과 같은 지침이 적용됩니다.
@@ -47,7 +48,7 @@ ms.openlocfilehash: 64d3f55445c82bf2be3ca8e64d7ea5d19e70310b
 ## <a name="determine-the-accessibility-of-the-listener"></a>수신기의 액세스 가능 여부 확인
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 가상 네트워크에 대한 개인 수신기를 만들려면 [ILB를 사용하여 수신기](virtual-machines-windows-classic-ps-sql-int-listener.md)를 설정하는 단계를 설명하는 이 문서의 다른 버전을 참조하세요.
+이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 가상 네트워크에 대한 개인 수신기를 만들려면 [ILB를 사용하여 수신기](../classic/ps-sql-int-listener.md)를 설정하는 단계를 설명하는 이 문서의 다른 버전을 참조하세요.
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
 외부 부하 분산에서는 VM을 호스팅하는 클라우드 서비스의 공용 가상 IP 주소를 사용합니다. 따라서 이 경우에는 부하 분산 장치를 만들거나 구성할 필요가 없습니다.
@@ -132,10 +133,5 @@ Always On 복제본이 다른 서브넷에 있는 경우 클라이언트는 연�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

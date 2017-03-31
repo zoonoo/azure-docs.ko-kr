@@ -15,9 +15,9 @@ ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5e605c8c509c93feb822781257ad979a0dea00aa
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 671d5c3e88585d7874dbfb0b03adc3cd9374ceca
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -79,8 +79,8 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 ## <a name="compute-intensive-instances"></a>계산 집약적 인스턴스
 Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 [계산 집약적 H 시리즈](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 인스턴스를 비롯하여 [다양한 VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 제공합니다. 
 
-* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [MPI 응용 프로그램을 실행하기 위해 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터 설정](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [MPI 응용 프로그램을 실행하기 위해 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터 설정](../virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 GPU가 많이 사용되는 워크로드의 경우 [NC 및 NV 크기](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/)를 참조하세요.
 

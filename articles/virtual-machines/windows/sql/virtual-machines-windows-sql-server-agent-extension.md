@@ -17,15 +17,15 @@ ms.date: 01/09/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 00832fcabfb3d1f6d9b7b9745335d4154a2caae3
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 56e3b3cd94a1fb7b4d05c06bc652b37d8a57c9e2
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-server-agent-extension.md)
-> * [클래식](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [클래식](../classic/sql-server-agent-extension.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ SQL Server IaaS 에이전트 확장(SQLIaaSExtension)은 관리 작업을 자동
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 문서의 클래식 버전을 보려면 [SQL Server VM에 대한 SQL Server 에이전트 확장 클래식](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)을 참조하세요.
+이 문서의 클래식 버전을 보려면 [SQL Server VM에 대한 SQL Server 에이전트 확장 클래식](../classic/sql-server-agent-extension.md)을 참조하세요.
 
 ## <a name="supported-services"></a>지원되는 서비스
 SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.

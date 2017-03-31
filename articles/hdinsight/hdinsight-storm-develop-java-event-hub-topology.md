@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 85f56e223210f14615f7e4e1c87e35111b238aac
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fcca957dc365d8c38b5a08991939860c5af96813
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -46,11 +46,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
   > [!NOTE]
   > 편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
   
-  * SSH 클라이언트. 자세한 내용은 다음 문서 중 하나를 참조하세요.
-    
-    * [Linux, Unix, OS X 및 Windows 10의 Bash의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * SSH 클라이언트. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * SCP 클라이언트입니다. `scp` 명령은 Windows 10의 Bash를 포함한 모든 Linux, Unix 및 OS X 시스템에서 제공됩니다 `scp` 명령이 포함되지 않은 Windows 시스템의 경우 PSCP를 권장합니다. PSCP는 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 사용할 수 있습니다.
 

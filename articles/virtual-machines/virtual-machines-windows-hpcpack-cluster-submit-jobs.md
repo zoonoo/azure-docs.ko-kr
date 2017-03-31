@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4f5ae7c1750d697e7dae3f03ea5d3936c9fee52b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -29,7 +30,7 @@ Azure의 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클
 ![Azure의 클러스터로 작업 제출][jobsubmit]
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 또는 [Azure PowerShell 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)와 같은 자동화된 도구를 사용하여 헤드 노드 및 클러스터를 배포하는 것이 좋습니다. 이 문서의 단계를 완료하려면 헤드 노드의 DNS 이름 및 클러스터 관리자 자격 증명이 필요합니다.
+* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 또는 [Azure PowerShell 스크립트](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)와 같은 자동화된 도구를 사용하여 헤드 노드 및 클러스터를 배포하는 것이 좋습니다. 이 문서의 단계를 완료하려면 헤드 노드의 DNS 이름 및 클러스터 관리자 자격 증명이 필요합니다.
 * **클라이언트 컴퓨터** - HPC 팩 클라이언트 유틸리티를 실행할 수 있는 Windows 또는 Windows Server 클라이언트 컴퓨터가 필요합니다([시스템 요구 사항](https://technet.microsoft.com/library/dn535781.aspx) 참조). HPC 팩 웹 포털 또는 REST API를 사용하여 작업을 제출하려는 경우 사용자가 선택한 모든 클라이언트 컴퓨터를 사용할 수 있습니다.
 * **HPC 팩 설치 미디어** - HPC Pack 클라이언트 유틸리티를 설치하려면 [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024)에서 최신 버전의 HPC 팩(HPC 팩 2012 R2)용 무료 설치 패키지를 사용할 수 있습니다. 헤드 노드 VM에 설치된 HPC 팩과 동일한 버전의 HPC 팩을 다운로드해야 합니다.
 
@@ -39,7 +40,7 @@ HTTPS를 통해 클러스터로 작업을 제출하도록 REST 인터페이스�
 자세한 절차는 [Microsoft HPC 팩 웹 구성 요소 설치](http://technet.microsoft.com/library/hh314627.aspx)를 참조하세요.
 
 > [!TIP]
-> 일부 HPC Pack용 Azure 빠른 시작 템플릿은 웹 구성을 자동으로 설치하고 구성합니다. [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 를 사용하여 클러스터를 만드는 경우 배포의 일환으로 웹 구성 요소를 선택적으로 설치 및 구성할 수 있습니다.
+> 일부 HPC Pack용 Azure 빠른 시작 템플릿은 웹 구성을 자동으로 설치하고 구성합니다. [HPC 팩 IaaS 배포 스크립트](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 를 사용하여 클러스터를 만드는 경우 배포의 일환으로 웹 구성 요소를 선택적으로 설치 및 구성할 수 있습니다.
 > 
 > 
 
@@ -173,9 +174,4 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

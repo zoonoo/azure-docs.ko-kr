@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
-ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 82c12f4a2a24e190babfd88ff667e24d6c45ebac
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -79,7 +80,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
    * **클러스터 로그인**: 클러스터 로그인 정보를 표시합니다.
    * **구독 코어 사용량**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다. 
    * **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
-   * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다. [PuTTY로 Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) 및 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+   * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
    * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
    * **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다. [Hive/Oozie metastore 사용](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)을 참조하세요.
    * **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.

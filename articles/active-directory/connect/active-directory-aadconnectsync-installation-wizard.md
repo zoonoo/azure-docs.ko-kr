@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f18e11ac7482b78925d1885ceb20696146603ad2
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/03/2017
 
 ![추가 작업의 목록이 있는 페이지](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습니다. ADFS에 있는 추가 옵션은 [ADFS 관리](active-directory-aadconnect-federation-management.md#ad-fs-management)에 문서화됩니다.
+Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습니다. ADFS에 있는 추가 옵션은 [ADFS 관리](active-directory-aadconnect-federation-management.md#manage-ad-fs)에 문서화됩니다.
 
 작업 중 하나를 선택하고 **다음**을 클릭하여 계속합니다.
 

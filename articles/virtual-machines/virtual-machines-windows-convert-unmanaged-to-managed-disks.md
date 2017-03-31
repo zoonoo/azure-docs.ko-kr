@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
-ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 96137d49d3caa0444400edcfcfaa097dc71ba8e3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>기존 Azure VM을 같은 저장소 유형의 관리 디스크로 변환
 
 > [!IMPORTANT]
-> 다음 절차를 수행하면 기본 /vhds 컨테이너에 Blob 하나가 남습니다. 이 파일의 이름은 “VMName.xxxxxxx.status”입니다. 이 파일은 VM에 [VM 확장](virtual-machines-windows-classic-agents-and-extensions.md)을 설치한 경우에만 Azure에 의해 만들어집니다. 남아 있는 이 상태 개체를 삭제하지 마세요. 향후 조치를 통해 이 문제를 해결할 것입니다.
+> 다음 절차를 수행하면 기본 /vhds 컨테이너에 Blob 하나가 남습니다. 이 파일의 이름은 “VMName.xxxxxxx.status”입니다. 이 파일은 VM에 [VM 확장](windows/classic/agents-and-extensions.md)을 설치한 경우에만 Azure에 의해 만들어집니다. 남아 있는 이 상태 개체를 삭제하지 마세요. 향후 조치를 통해 이 문제를 해결할 것입니다.
 
 이 섹션에서는 같은 저장소 유형을 사용할 때 기존 Azure VM을 저장소 계정의 비관리 디스크에서 관리 디스크로 변환하는 방법을 다룹니다. 이 프로세스를 사용하여 프리미엄(SSD) 비관리 디스크에서 프리미엄 관리 디스크로 또는 표준(HDD) 비관리 디스크에서 표준 관리 디스크로 변환할 수 있습니다. 
 

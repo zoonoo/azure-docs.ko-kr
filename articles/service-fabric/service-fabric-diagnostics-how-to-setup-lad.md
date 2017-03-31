@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
-ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 46b62b0ebc5b81241815e3b5b4fa3fe275b88af1
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 클러스터 만들기의 일환으로 클러스터 내의 VM에 진단 확장을 배포하려면 **진단**을 **켜기**로 설정합니다. 클러스터를 만든 후에는 포털을 사용하여 이 설정을 변경할 수 없습니다.
 
-그런 다음 파일을 수집하여 저장소 계정에 배치하도록 LAD(Linux Azure 진단)를 구성합니다. 이 과정은 [LAD를 사용하여 Linux VM 모니터링 및 진단](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 문서의 시나리오 3("고유한 로그 파일 업로드")에 설명되어 있습니다. 이 과정을 따라 하면 추적에 액세스할 수 있습니다. 추적을 원하는 시각화 도우미에 업로드할 수 있습니다.
+그런 다음 파일을 수집하여 저장소 계정에 배치하도록 LAD(Linux Azure 진단)를 구성합니다. 이 과정은 [LAD를 사용하여 Linux VM 모니터링 및 진단](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 문서의 시나리오 3("고유한 로그 파일 업로드")에 설명되어 있습니다. 이 과정을 따라 하면 추적에 액세스할 수 있습니다. 추적을 원하는 시각화 도우미에 업로드할 수 있습니다.
 
 Azure Resource Manager를 사용하여 진단 확장을 배포할 수도 있습니다. Windows 및 Linux의 프로세스는 유사하며 Windows 클러스터는 [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)에 설명되어 있습니다.
 
@@ -48,6 +48,6 @@ Azure Resource Manager를 사용하여 진단 확장을 배포할 수도 있습�
 이 구성을 완료하면 LAD 에이전트는 지정된 로그 파일을 모니터링합니다. 새 줄이 파일에 추가될 때마다 이 에이전트는 사용자가 지정한 저장소로 전송되는 syslog 항목을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-문제를 해결하는 동안 살펴봐야 하는 이벤트에 대해 자세히 알아보려면 [LTTng 설명서](http://lttng.org/docs) 및 [LAD 사용](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
+문제를 해결하는 동안 살펴봐야 하는 이벤트에 대해 자세히 알아보려면 [LTTng 설명서](http://lttng.org/docs) 및 [LAD 사용](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
 

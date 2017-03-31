@@ -17,15 +17,15 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: e0950a5c2c7d40751664c0c5a60facef68a79b2a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [클래식](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [클래식](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/15/2017
 PowerShell을 사용하여 Azure 키 자격 증명 모음 통합을 구성합니다. 다음 섹션에서는 필수 매개 변수 및 샘플 PowerShell 스크립트의 개요를 제공합니다.
 
 ### <a name="install-the-sql-server-iaas-extension"></a>SQL Server IaaS 확장 설치
-먼저 [SQL Server IaaS 확장을 설치](virtual-machines-windows-classic-sql-server-agent-extension.md)합니다.
+먼저 [SQL Server IaaS 확장을 설치](../classic/sql-server-agent-extension.md)합니다.
 
 ### <a name="understand-the-input-parameters"></a>입력 매개 변수 이해
 다음 표에는 다음 섹션에는 PowerShell 스크립트를 실행하는 데 필요한 매개 변수가 나열되어 있습니다.

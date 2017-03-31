@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
-ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 64557a71f30762befe07616c3d274a621f22e235
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -92,10 +92,10 @@ ms.lasthandoff: 02/17/2017
 
 ![복원 작업 완료](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) 해야 할 수도 있습니다.
+가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](../virtual-machines/windows/classic/setup-endpoints.md) 해야 할 수도 있습니다.
 
 ## <a name="post-restore-steps"></a>복원 후 단계
-Ubuntu와 같은 클라우드 초기화 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/virtual-machines-linux-classic-reset-access.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다. 
+Ubuntu와 같은 클라우드 초기화 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/classic/reset-access.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다. 
 
 ## <a name="backup-for-restored-vms"></a>복원된 VM에 대한 백업
 원래 백업한 VM과 같은 이름으로 같은 클라우드 서비스에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 클라우드 서비스에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.

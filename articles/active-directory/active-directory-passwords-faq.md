@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cdf233c2b141f4c73abcabc199b5fc583f14962c
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 636e76e6732287ac78b6c025cc936602a38f49af
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 03/10/2017
   > **A:** [ADFS로 암호 정책 클레임 보내기](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396)에 나와 있는 지침에 따라 ADFS를 사용하는 경우 가능합니다. 암호 해시 동기화를 사용하는 경우에는 불가능합니다. 이는 온-프레미스의 암호 정책을 동기화하지 않기 때문이며, 이에 따라 만료 알림을 클라우드 환경에 게시할 수 없습니다. 두 경우 모두 [PowerShell을 사용하여 암호가 만료될 사용자에게 알림](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx)(영문)을 보낼 수도 있습니다.
   >
   >
-  
+
 ## <a name="password-management-reports"></a>암호 관리 보고서
 * **Q: 데이터가 암호 관리 보고서를 표시하는 데 시간이 얼마나 소요됩니까?**
 
@@ -246,8 +246,8 @@ ms.lasthandoff: 03/10/2017
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.

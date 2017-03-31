@@ -1,3 +1,4 @@
+
 # 개요
 ## [Service Fabric이란?](service-fabric-overview.md)
 ## [마이크로 서비스 이해](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)
 ### 기본 사항
 #### [응용 프로그램 모델](service-fabric-application-model.md)
+#### [응용 프로그램 패키지 작성](service-fabric-package-apps.md)
 #### [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
 #### [서비스 상태](service-fabric-concepts-state.md)
 #### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
 #### [웹 프런트 엔드 추가](service-fabric-add-a-web-frontend.md)
 #### [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)
+#### [Java 개발을 위해 Eclipse 플러그인 시작](service-fabric-get-started-eclipse.md)
 #### [Visual Studio에서 앱 관리](service-fabric-manage-application-in-visual-studio.md)
 #### [Visual Studio에서 보안 연결 구성](service-fabric-visualstudio-configure-secure-connections.md)
 #### 디버그
@@ -62,7 +65,7 @@
 #### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
 #### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
 #### [Reliable Services와 보안 통신](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [원격 서비스](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [역방향 프록시](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Cloud Services에서 마이그레이션
 ### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
 ### [Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [권장 사례](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## 클러스터 만들기 및 관리
 
