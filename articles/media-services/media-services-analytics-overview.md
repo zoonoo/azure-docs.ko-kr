@@ -17,6 +17,7 @@ ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,7 +31,7 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 다음 다이어그램에서는 **미디어 분석** 및 미디어 서비스 플랫폼의 다른 주요 부분을 보여 줍니다. 
 
-![VoD 워크플로](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![VoD 워크플로](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생성한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다. 
 
@@ -129,9 +130,4 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

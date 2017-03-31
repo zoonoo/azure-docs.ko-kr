@@ -68,7 +68,7 @@ Refernce article:
 1. 가상 컴퓨터에 연결합니다. 지침은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 저장소 서비스**를 선택합니다.
 
-    ![서버 관리자 열기](./media/attach-disk/fileandstorageservices.png)
+    ![서버 관리자 열기](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. **디스크**를 선택합니다.
 4. **디스크** 섹션은 디스크를 나열합니다. 대부분의 경우 가상 컴퓨터에는 디스크 0, 디스크 1, 디스크 2가 있습니다. 디스크 0은 운영 체제 디스크이고, 디스크 1은 임시 디스크이며, 디스크 2는 가상 컴퓨터에 새로 연결한 데이터 디스크입니다. 데이터 디스크는 파티션을 **알 수 없음**으로 나열합니다.

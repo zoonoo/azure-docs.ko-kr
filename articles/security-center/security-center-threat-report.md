@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 99c5ea06a0970c360eb711a8b10894d416146693
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -75,9 +76,4 @@ Security Center에는 세 가지 유형의 위협 보고서가 있는데 공격�
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
 * [Azure 보안 센터에서 보안 인시던트 처리](security-center-incident.md)
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

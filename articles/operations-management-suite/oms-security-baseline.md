@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -84,10 +85,5 @@ OMS는 Windows Server 2008 R2에서 Windows Server 2012 R2까지 도메인 구�
 * [OMS(Operations Management Suite) 개요](operations-management-suite-overview.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md)
 * [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
