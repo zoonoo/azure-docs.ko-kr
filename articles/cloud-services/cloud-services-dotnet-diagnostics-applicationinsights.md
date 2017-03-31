@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d6e668f5ceffc6e78ac19f83b6022118d5abbb55
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 78d8908a144dadb5fe9d4c48491abf153defe118
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -42,9 +43,9 @@ Application Insights로 Azure 진단 데이터를 보내도록 클라우드 서�
 
 ![서비스 구성 선택][4]
 
-**APPINSIGHTS_INSTRUMENTATIONKEY** 구성 설정은 게시 중 Visual Studio에서 적절한 Application Insights 리소스 정보로 진단 확장을 구성하는 데 사용됩니다. 구성 설정을 사용하면 각 서비스 구성에 대해 다른 계측 키를 편리하게 정의할 수 있습니다. Visual Studio는 해당 설정을 변환하여 게시할 때 진단 확장 공용 구성에 삽입합니다. PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 적절한 Application Insights 계측 키와 함께 공용 구성 XML이 포함됩니다. 공용 config 파일이 Extensions 폴더에서 생성되고 PaaSDiagnostics.<RoleName>.PubConfig.xml 패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
+**APPINSIGHTS_INSTRUMENTATIONKEY** 구성 설정은 게시 중 Visual Studio에서 적절한 Application Insights 리소스 정보로 진단 확장을 구성하는 데 사용됩니다. 구성 설정을 사용하면 각 서비스 구성에 대해 다른 계측 키를 편리하게 정의할 수 있습니다. Visual Studio는 해당 설정을 변환하여 게시할 때 진단 확장 공용 구성에 삽입합니다. PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 적절한 Application Insights 계측 키와 함께 공용 구성 XML이 포함됩니다. 공용 config 파일이 Extensions 폴더에서 생성되고 PaaSDiagnostics<RoleName>.PubConfig.xml 패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
 
-5) **진단 데이터를 Application Insights로 보내기**를 사용하면 Azure 진단 에이전트에 의해 수집된 모든 성능 카운터 및 오류 수준 로그를 Application Insights로 보내도록 Azure 진단이 자동으로 구성됩니다. Application Insights로 보낼 데이터를 추가로 구성하려는 경우 각 역할에 대한 *diagnostics.wadcfgx* 파일을 수동으로 편집해야 합니다. 구성을 수동으로 업데이트하는 방법에 대한 자세한 내용은 [Application Insights에 데이터를 보내도록 Azure 진단 구성](../azure-diagnostics-configure-applicationinsights.md) 을 참조하세요.
+5) **진단 데이터를 Application Insights로 보내기**를 사용하면 Azure 진단 에이전트에 의해 수집된 모든 성능 카운터 및 오류 수준 로그를 Application Insights로 보내도록 Azure 진단이 자동으로 구성됩니다. Application Insights로 보낼 데이터를 추가로 구성하려는 경우 각 역할에 대한 *diagnostics.wadcfgx* 파일을 수동으로 편집해야 합니다. 구성을 수동으로 업데이트하는 방법에 대한 자세한 내용은 [Application Insights에 데이터를 보내도록 Azure 진단 구성](#configure-azure-diagnostics-to-send-data-to-application-insights) 을 참조하세요.
 
 Azure 진단 데이터를 Application Insights로 보내도록 클라우드 서비스를 구성한 후에는 일반적인 방법으로 Azure에 배포하여 Azure 진단 확장이 사용되는지 확인할 수 있습니다. [Visual Studio를 사용하여 클라우드 서비스 게시](../vs-azure-tools-publishing-a-cloud-service.md)를 참조하세요.  
 
@@ -77,9 +78,4 @@ Application Insights에서 Azure 진단 데이터를 보려면 다음을 수행�
 [4]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/role-designer-appinsights-serviceconfig.png
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3d8300bbb54bd88e6ff3844208ec5d5fa25c5e8d
-ms.openlocfilehash: d935f45f87558dd7f9838ad3b370de0d9a7870a1
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 84d909b3eaa17cb4a1b8a4465615001896000dca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: d935f45f87558dd7f9838ad3b370de0d9a7870a1
 Azure Marketplace 및 Azure Portal에서 [Microsoft HPC 팩 2012 R2 가상 컴퓨터 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)를 사용하여 HPC 클러스터의 헤드 노드를 만드는 방법을 보여 줍니다. 이 HPC 팩 VM 이미지는 HPC 팩 2012 R2 업데이트 3이 미리 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다. Azure에서 HPC 팩의 개념 증명 배포에 대해 이 헤드 노드를 사용합니다. 그런 다음 계산 노드를 HPC 워크로드를 실행하는 클러스터에 추가할 수 있습니다.
 
 > [!TIP]
-> 헤드 노드와 계산 노드를 포함하는 전체 HPC 팩 2012 R2 클러스터를 Azure에 배포하려면 자동화된 방법을 사용하는 것이 좋습니다. 옵션에는 [HPC 팩 IaaS 배포 스크립트](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 및 [Windows 워크로드에 대한 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)와 같은 Resource Manager 템플릿이 포함됩니다. Resource Manager 템플릿은 [Microsoft HPC 팩 2016 클러스터](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates)에 사용할 수도 있습니다. 
+> 헤드 노드와 계산 노드를 포함하는 전체 HPC 팩 2012 R2 클러스터를 Azure에 배포하려면 자동화된 방법을 사용하는 것이 좋습니다. 옵션에는 [HPC 팩 IaaS 배포 스크립트](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 및 [Windows 워크로드에 대한 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)와 같은 Resource Manager 템플릿이 포함됩니다. Resource Manager 템플릿은 [Microsoft HPC 팩 2016 클러스터](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates)에 사용할 수도 있습니다. 
 > 
 > 
 
@@ -75,15 +76,10 @@ Azure Marketplace 및 Azure Portal에서 [Microsoft HPC 팩 2012 R2 가상 컴�
 
 ## <a name="next-steps"></a>다음 단계
 * 이제 HPC 팩 클러스터의 헤드 노드를 사용할 수 있습니다. 예를 들어 HPC 클러스터 관리자를 시작하고 [배포할 일 모음](https://technet.microsoft.com/library/jj884141.aspx)을 완료합니다.
-* 필요 시 클러스터 계산 용량을 늘리려면 클라우드 서비스에 [Azure 버스트 노드](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 추가합니다. 
+* 필요 시 클러스터 계산 용량을 늘리려면 클라우드 서비스에 [Azure 버스트 노드](windows/classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 추가합니다. 
 * 클러스터에서 테스트 워크로드를 실행합니다. 예를 보려면 HPC 팩 [시작하기 가이드](https://technet.microsoft.com/library/jj884144)를 참조하세요.
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
 [marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

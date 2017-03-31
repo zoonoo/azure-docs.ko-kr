@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: a8540a541d05d1d8a0afeb2aeb42c77951ebf8c2
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9916eb7deaae6acb784cac1b7b64d93a03f3c590
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ Azure RemoteApp 이미지 만들기에 대해 자세히 알아보려면 [Azure�
 ### <a name="4-capture-image"></a>4. 이미지 캡처
 VM의 실행이 중지될 때 현재 포털에서 찾아서 캡처합니다.
 
-이미지를 캡처하는 방법을 자세히 알아보려면 [클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지 캡처](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+이미지를 캡처하는 방법을 자세히 알아보려면 [클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지 캡처](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### <a name="5-add-to-azure-remoteapp-template-images"></a>5. Azure RemoteApp 템플릿 이미지에 추가
 현재 포털의 Azure RemoteApp 섹션에서 템플릿 이미지 탭으로 이동하고 추가를 클릭합니다. 팝업 상자에서 "가상 컴퓨터 라이브러리에서 이미지 가져오기"를 선택한 다음 방금 만든 이미지를 선택합니다.

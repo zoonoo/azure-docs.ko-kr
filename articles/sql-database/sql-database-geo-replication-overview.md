@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/16/2017
 
 어떠한 이유로 주 데이터베이스가 실패하거나 단순히 오프라인으로 전환해야 하는 경우 보조 데이터베이스로 *장애 조치* 할 수 있습니다. 장애 조치가 보조 데이터베이스 중 하나로 활성화된 경우 모든 다른 보조가 새 보조로 자동으로 연결됩니다.
 
-[Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
+[Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/library/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
 
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
@@ -107,10 +107,10 @@ ms.lasthandoff: 03/16/2017
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | 설명 |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |하나 이상의 데이터베이스를 가져옵니다. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Azure SQL 데이터베이스와 리소스 그룹 또는 SQL Server 간의 지역에서 복제 링크를 가져옵니다. |
 |  | |
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 03/16/2017
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://msdn.microsoft.com/library/azure/mt643934.aspx) |만들기 작업 동안 상태를 반환합니다. |
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(Failover))](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |지역에서 복제 파트너 관계의 보조 데이터베이스를 새로운 주 데이터베이스로 승격합니다. |
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(Failover))](https://msdn.microsoft.com/library/azure/mt575007.aspx) |지역에서 복제 파트너 관계의 보조 데이터베이스를 새로운 주 데이터베이스로 승격합니다. |
 | [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(Failover))](https://msdn.microsoft.com/library/azure/mt582027.aspx) |강제로 보조 데이터베이스로 장애 조치하고 보조 데이터베이스를 주 데이터베이스로 설정합니다. |
 | [복제 링크 가져오기](https://msdn.microsoft.com/library/azure/mt600929.aspx) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 모든 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
 | [복제 링크 가져오기](https://msdn.microsoft.com/library/azure/mt600778.aspx) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |

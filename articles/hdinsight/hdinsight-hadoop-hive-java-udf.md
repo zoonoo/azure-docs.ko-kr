@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: ec7e5d3229d623ce08a72439317a6a515ee3e373
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c593bca61f8f1cc7c81e4744409f8b4a2c23df64
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -168,10 +170,8 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
    
         ssh myuser@mycluster-ssh.azurehdinsight.net
    
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-   
-   * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
 4. SSH 세션에서 HDInsight 저장소에 jar 파일을 복사합니다.
    
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -211,10 +211,5 @@ Hive는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언
 Hive로 작업하는 다른 방법은 [HDInsight와 함께 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 Hive 사용자 정의 함수에 대한 자세한 내용은 apache.org의 Hive wiki에서 [Hive 연산자 및 사용자 정의 함수](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 섹션을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

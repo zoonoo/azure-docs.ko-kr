@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/25/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
-ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: fc5c87e45f3c92172f01a462451bc145ce8b0b16
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [WebJob SDK를 사용하여 Azure Service Bus로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Azure WebJobs SDK 빠른 참조(PDF 다운로드)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Azure WebJobs SDK 빠른 참조(PDF 다운로드)](https://go.microsoft.com/fwlink/p/?linkid=845558)
 * [GitHub의 WebJobs 설정 설명서](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * 비디오
   * [WebJobs 및 WebJobs SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)

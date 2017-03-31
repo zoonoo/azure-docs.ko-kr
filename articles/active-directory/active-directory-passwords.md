@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 4904a3e21a54a2c60ee8b35a46370a9759a029f3
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="azure-active-directory-password-reset-for-it-administrators"></a>IT 관리자에 대한 Azure Active Directory 암호 재설정
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -64,7 +64,7 @@ Azure AD 암호 재설정을 사용하도록 설정하려는 관리자이거나 
 다음은 Azure AD의 암호 관리 기능을 사용해야 하는 몇가지 이유입니다.
 
 * **비용 절감** -지원 기반 암호 재설정은 일반적으로 조직 IT 지출의 20%입니다.
-* **사용자 환경 개선** -사용자가 자신의 암호를 잊어버릴 때마다 기술 지원팀과의 통화에&1;시간을 보내고 싶어하지 않습니다.
+* **사용자 환경 개선** -사용자가 자신의 암호를 잊어버릴 때마다 기술 지원팀과의 통화에 1시간을 보내고 싶어하지 않습니다.
 * **적은 기술 지원팀** -암호 관리는 대부분의 조직에서 가장 큰 단일 기술 지원팀을 필요로 합니다.
 * **이동성 사용** -사용자가 어디에서든 암호를 재설정할 수 있습니다
 
@@ -177,7 +177,7 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 * 이제 사용자가 이미 등록된 데이터를 가진 경 "올바름"을 클릭하여 메일 또는 전화 통화를 다시 보낼 필요 없이 데이터를 업데이트할 수 있습니다.
 
 #### <a name="improved-reliability-of-password-writeback---september-2015"></a>비밀번호 쓰기 저장의 안정성 향상 - 2015년 9월
-* Azure AD Connect의&9;월 버전으로 비밀번호 쓰기 저장 에이전트는 이제 자세한 연결 및 추가적으로 더욱 강력해진 장애 조치 기능을 더 공격적으로 다시 시도합니다.
+* Azure AD Connect의 9월 버전으로 비밀번호 쓰기 저장 에이전트는 이제 자세한 연결 및 추가적으로 더욱 강력해진 장애 조치 기능을 더 공격적으로 다시 시도합니다.
 
 #### <a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>암호 재설정 보고 데이터를 검색하기 위한 API - 2015년 8월
 * 이제 암호 재설정 보고 관련 데이터는 [Azure AD 보고서 및 이벤트 API](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)에서 직접 검색할 수 있습니다.
@@ -213,8 +213,8 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 2e76b380ae928bc6935f15546d73a302ed32bcd3
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,8 +66,8 @@ SEP(Symantec End Point Protection)도 Azure에서 지원됩니다. 포털 통합
 
 * [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Azure Cloud Services 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)
-* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-trend.md)
+* [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-symantec.md)
 * [Azure 가상 컴퓨터에 대한 새로운 맬웨어 방지 옵션 - McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -129,9 +130,4 @@ Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 �
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

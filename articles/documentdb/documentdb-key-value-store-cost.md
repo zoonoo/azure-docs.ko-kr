@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
-ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 4d6ea897ec24ab9cbf5c131cd4629f45447f1460
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -30,7 +31,7 @@ Azure DocumentDB는 [전역으로 분산된](documentdb-distribute-data-globally
 
 ## <a name="why-we-use-request-units-rus"></a>RU(요청 단위)를 사용하는 이유
 
-DocumentDB 성능은 파티션에 대해 프로비전된 RU([요청 단위](documentdb-programming.md)) 크기를 기준으로 합니다. 프로비저닝은 초 단위이며 초당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/documentdb/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
+DocumentDB 성능은 파티션에 대해 프로비전된 RU([요청 단위](documentdb-request-units.md)) 크기를 기준으로 합니다. 프로비저닝은 초 단위이며 초당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/documentdb/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
 
 전역적으로 분산된 데이터베이스 시스템인 DocumentDB는 고가용성 외에 대기 시간, 처리량 및 일관성에 대한 SLA를 제공하는 유일한 Azure 서비스입니다. 프로비전하는 처리량은 DocumentDB 데이터베이스 계정에 연결된 각 지역에 적용됩니다. 읽기의 경우 DocumentDB는 선택 가능한 여러 개의 잘 정의된 [일관성 수준](documentdb-consistency-levels.md)을 제공합니다. 
 
@@ -55,9 +56,4 @@ DocumentDB 성능은 파티션에 대해 프로비전된 RU([요청 단위](docu
 ## <a name="next-steps"></a>다음 단계
 
 DocumentDB 리소스 프로비저닝 최적화에 대한 새 문서를 계속 확인하세요. 당분간은 [RU 계산기](https://www.documentdb.com/capacityplanner)를 무료로 사용하세요.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

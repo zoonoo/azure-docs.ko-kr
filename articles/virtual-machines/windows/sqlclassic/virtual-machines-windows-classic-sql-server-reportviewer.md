@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업�
 * **게시** 
 
 ## <a name="prerequisites"></a>필수 조건
-[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)에서 "일반 권장 사항 및 모범 사례" 섹션을 검토합니다.
+[Azure 가상 컴퓨터의 SQL Server Business Intelligence](../classic/ps-sql-bi.md)에서 "일반 권장 사항 및 모범 사례" 섹션을 검토합니다.
 
 > [!NOTE]
 > ReportViewer 컨트롤은 Visual Studio Standard Edition 이상 버전과 함께 제공됩니다. Web Developer Express Edition을 사용하려면 [MICROSOFT REPORT VIEWER 2012 런타임](https://www.microsoft.com/download/details.aspx?id=35747) 을 설치하여 ReportViewer 런타임 기능을 사용해야 합니다.
@@ -89,13 +90,8 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 ## <a name="resources"></a>리소스
 [Microsoft 보고서](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)
+[Azure 가상 컴퓨터의 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
-[PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+[PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기](../classic/ps-sql-report.md)
 
 

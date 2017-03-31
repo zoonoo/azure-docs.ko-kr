@@ -17,9 +17,9 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 4307797b3961d8efef4045590e340268f0ad226d
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ab637f9910523cc8d8967dd1507dbcfad9f7ae88
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/10/2017
 최소 서비스 계층을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 표준 S2 및 S3 성능 수준이 좋은 시작점인 경우가 많습니다. 높은 CPU 또는 IO 요구 사항의 데이터베이스의 경우 프리미엄 성능 수준이 적합한 시작점입니다. 프리미엄은 더 많은 CPU를 제공하고 높은 표준 성능 수준에 비해 10배 이상의 IO에서 시작합니다.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>단일 데이터베이스 서비스 계층 및 성능 수준
-단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 
+단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 
 
 호스팅된 데이터베이스 수에 관계 없이, 데이터베이스는 보장된 리소스 집합을 가져오며 데이터베이스의 예상되는 성능 특징은 영향을 받지 않습니다.
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>단일 데이터베이스 확장 및 축소
 
-처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 Azure Portal에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 
+처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 Azure Portal에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/10/2017
 * 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
 > [!IMPORTANT]
-> 자세한 단계는 [Azure Portal에서 단일 데이터베이스 관리](sql-database-manage-single-databases-portal.md), [PowerShell을 사용하여 단일 데이터베이스 관리](sql-database-manage-single-databases-powershell.md) 또는 [Transact-SQL을 사용하여 단일 데이터베이스 관리](sql-database-manage-single-databases-tsql.md)를 참조하세요.
+> 자세한 단계는 [Azure Portal에서 단일 데이터베이스 관리](sql-database-manage-single-databases-portal.md), [PowerShell을 사용하여 단일 데이터베이스 관리](scripts/sql-database-monitor-and-scale-database-powershell.md) 또는 [Transact-SQL을 사용하여 단일 데이터베이스 관리](sql-database-manage-single-databases-tsql.md)를 참조하세요.
 >
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>탄력적 풀 서비스 계층 및 eDTU의 성능
@@ -106,10 +106,10 @@ ms.lasthandoff: 03/10/2017
 
 처음으로 서비스 계층 및 성능 수준을 선택한 후에 탄력적 풀을 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 
 
-* 데이터베이스당 최소 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로&5;분 이내에 완료됩니다.
+* 데이터베이스당 최소 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로 5분 이내에 완료됩니다.
 * 풀 크기를 변경하는 시간(eDTU)은 풀에 있는 모든 데이터베이스의 총 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스의 총 공간이 200GB일 경우, 풀당 풀 eDTU를 변경하는 예상 대기 시간은 3시간 이하입니다.
 
-자세한 단계에 대해서는 [Azure Portal에서 탄력적 풀 관리](sql-database-elastic-pool-manage-portal.md), [Powershell을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-tsql.md) 또는 [C#을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)를 참조하세요.
+자세한 단계에 대해서는 [Azure Portal에서 탄력적 풀 관리](sql-database-elastic-pool-manage-portal.md), [Powershell을 사용하여 탄력적 풀 관리](scripts/sql-database-monitor-and-scale-pool-powershell.md), [Transact-SQL을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-tsql.md) 또는 [C#을 사용하여 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)를 참조하세요.
 
 ## <a name="creating-or-upgrading-to-4tb"></a>만들기 또는 4TB로 업그레이드
 

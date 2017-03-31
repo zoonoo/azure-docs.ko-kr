@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
-ms.openlocfilehash: 9071f344946999d49aee2e6bc420d35edfca96cd
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2a700d04fa93e61502b2fa16ad1c7457dd8bb1e9
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -46,10 +46,7 @@ DataFu은 Hadoop과 함께 사용하기 위해 공개 소스 라이브러리의 
 
 Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니다. 다음 단계를 따라 DataFu를 HDInsight 클러스터에 추가합니다.
 
-1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
-   
-    * [Linux, OS X, Unix 및 Windows 10의 Bash의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 wget 유틸리티를 사용하여 DataFu jar 파일을 다운로드하거나 브라우저에 링크를 복사하여 붙여 넣여 다운로드를 시작합니다.
    

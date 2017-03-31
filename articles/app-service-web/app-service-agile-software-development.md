@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5ef5cfeb82eed86fd0a9b6328c803d6a88cd2822
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발
-이 자습서에서는 [agile 소프트웨어 개발](https://en.wikipedia.org/wiki/Agile_software_development)을 지원하는 [Azure App Service](/services/app-service/)를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다. 여기서는 사용자가 [Azure에서 복잡한 응용 프로그램 배포](app-service-deploy-complex-application-predictably.md)방법을 이미 알고 있다고 가정합니다.
+이 자습서에서는 [agile 소프트웨어 개발](https://en.wikipedia.org/wiki/Agile_software_development)을 지원하는 [Azure App Service](/azure/app-service/)를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다. 여기서는 사용자가 [Azure에서 복잡한 응용 프로그램 배포](app-service-deploy-complex-application-predictably.md)방법을 이미 알고 있다고 가정합니다.
 
 Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나타날 수 있습니다. Azure App Service를 [지속적인 게시](app-service-continuous-deployment.md), [스테이징 환경](web-sites-staged-publishing.md)(슬롯) 및 [모니터링](web-sites-monitor.md)과 같은 기능을 조합과 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)의 배포 관리와 잘 결합하면 Agile 소프트웨어 개발자에게 훌륭한 솔루션의 일부가 될 수 있습니다.
 
@@ -45,7 +45,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 단어에 그림을 넣으려면:
 
-* 배포 아키텍처는&3;가지 환경(또는 Azure의 [리소스 그룹](../azure-resource-manager/resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [크기 조정](web-sites-scale.md) 설정, SQL Database가 있습니다. 
+* 배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](../azure-resource-manager/resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [크기 조정](web-sites-scale.md) 설정, SQL Database가 있습니다. 
 * 각 환경을 별도로 관리할 수 있습니다. 서로 다른 구독에도 존재할 수 있습니다.
 * 스테이징과 프로덕션은 같은 앱 서비스 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
 * 마스터 분기점으로의 커밋이 (프로덕션 데이터를 사용하여) 스테이징 슬롯에서 확인될 때 확인된 스테이징 앱은 [가동 중지 시간 없이](web-sites-staged-publishing.md)프로덕션 슬롯으로 교체됩니다.
@@ -162,7 +162,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 ![](./media/app-service-agile-software-development/test-1-github-view.png)
 
-3 개의 별도 리소스 그룹에서&6;개의 웹앱(한 그룹에&2;개의 응용 프로그램)이 있어야 합니다.
+3 개의 별도 리소스 그룹에서 6개의 웹앱(한 그룹에 2개의 응용 프로그램)이 있어야 합니다.
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
 

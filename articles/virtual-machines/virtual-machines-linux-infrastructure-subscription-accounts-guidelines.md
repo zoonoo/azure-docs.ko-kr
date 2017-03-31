@@ -50,19 +50,19 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 계정/구독 관계에 두 계층 단계의 제한이 있기 때문에 청구 요구에 계정 및 구독의 명명 규칙을 할당하는 것은 중요합니다. 예를 들어 글로벌 기업에서 Azure를 사용하는 경우 지역당 하나의 계정을 갖도록, 지역 수준에서 구독이 관리되도록 선택할 수 있습니다.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
 예를 들어, 다음 구조를 사용할 수 있습니다.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
 한 지역에 특정 그룹과 관련된 두 개 이상의 구독을 갖도록 결정하는 경우 명명 규칙은 계정 또는 구독 이름에 추가 데이터를 인코딩하기 위해 하나의 방법으로 통합해야 합니다. 이 조직에서는 청구 보고 중에 새 계층 단계를 생성하는 데 청구 데이터 조작을 허용합니다.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
 조직은 다음 예제와 같습니다.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 기업 계약의 단일 계정 또는 모든 계정에 대해 다운로드한 파일을 통해 자세한 청구를 제공합니다.
 

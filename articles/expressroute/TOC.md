@@ -2,28 +2,26 @@
 ## [ExpressRoute란?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [연결 모델](expressroute-connectivity-models.md)
+## [회로 및 라우팅 도메인](expressroute-circuit-peerings.md)
 ## [위치 및 파트너](expressroute-locations.md)
 ### [위치별 공급자](expressroute-locations-providers.md)
 ### [공급자별 위치](expressroute-locations.md)
+## [ExpressRoute에 대한 가상 네트워크 게이트웨이](expressroute-about-virtual-network-gateways.md)
 
 # 시작
-## [워크플로](expressroute-workflows.md)
 ## [필수 구성 요소](expressroute-prerequisites.md)
-## [회로 및 라우팅 도메인](expressroute-circuit-peerings.md)
+## [워크플로](expressroute-workflows.md)
 ## [라우팅 요구 사항](expressroute-routing.md)
-## [라우팅 최적화](expressroute-optimize-routing.md)
 ## [NAT 요구 사항](expressroute-nat.md)
 ## [QoS 요구 사항](expressroute-qos.md)
 ## [클래식에서 Resource Manager로 서킷 이동](expressroute-move.md)
-## [ExpressRoute에 대한 가상 네트워크 게이트웨이](expressroute-about-virtual-network-gateways.md)
 
 # 방법
 ## 회로 만들기 및 수정
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
-## 라우팅 구성 만들기 및 수정
-### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+## 피어링 구성 만들기 및 수정
+### [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 ## 가상 네트워크를 ExpressRoute 회로에 연결합니다.
@@ -38,11 +36,12 @@
 ### [PowerShell(클래식)](expressroute-howto-coexist-classic.md)
 ## [클래식에서 Resource Manager로 회로 마이그레이션](expressroute-howto-move-arm.md)
 ## ExpressRoute에 대해 라우터 구성
-### [라우터 구성 설정 샘플](expressroute-config-samples-routing.md)
+### [라우터 구성](expressroute-config-samples-routing.md)
 ### [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)
 
 ## 모범 사례
 ### [네트워크 보안 및 클라우드 서비스에 대한 모범 사례](../best-practices-network-security.md)
+## [라우팅 최적화](expressroute-optimize-routing.md)
 ### [비대칭 라우팅](expressroute-asymmetric-routing.md)
 
 ## 문제 해결

@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
-ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 19247b7d8333e8bd73d33a7838e99180369b8681
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -216,7 +216,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
    
    ![Azure Portal에서 Cloud Services 끝점 확인](./media/virtual-machines-windows-troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   RDP 트래픽을 허용하는 끝점이 없는 경우 [Cloud Services 끝점을 만듭니다](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 개인 포트 3389에 TCP를 허용합니다.
+   RDP 트래픽을 허용하는 끝점이 없는 경우 [Cloud Services 끝점을 만듭니다](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 개인 포트 3389에 TCP를 허용합니다.
 3. **VM 부트 진단 검토**. 이 문제 해결 단계에서는 VM 콘솔 로그를 검토하여 VM이 문제를 보고하는지 확인합니다. 모든 VM에서 부팅 진단이 지원되는 것은 아니므로 이 문제 해결 단계는 선택 사항입니다.
    
     구체적인 문제 해결 단계는 이 문서의 범위를 벗어나지만, RDP 연결에 영향을 주는 더 넓은 문제를 나타낼 수 있습니다. 콘솔 로그 및 VM 스크린샷 검토에 대한 자세한 내용은 [VM 부팅 진단](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)을 참조하세요.

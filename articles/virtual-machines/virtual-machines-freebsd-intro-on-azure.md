@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 24410a07995d5ac813b2bf4cdeed320c72ce7e06
-ms.openlocfilehash: 7845b552bd1360927eae414f57fefbd74ac0b7f7
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: d0fc5de34f7d9e5a607495eb97d9e35dc9eb21f9
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -128,5 +128,5 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 로 가서 FreeBSD VM을 만듭니다.
-* 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md)를 참조하세요.
+* 자체 FreeBSD를 Azure로 가져오려면 [FreeBSD VHD 만들기 및 Azure로 업로드](linux/classic/freebsd-create-upload-vhd.md)를 참조하세요.
 

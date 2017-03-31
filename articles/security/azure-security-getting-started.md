@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
-ms.openlocfilehash: 3ad511b55e33653ea0cf7df2c885d27c1c07441d
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -130,7 +131,7 @@ IP 필터는 게스트 가상 컴퓨터에 다음과 같은 사항을 방지합�
 * [**사용자 정의 라우팅**](../virtual-network/virtual-networks-udr-overview.md). 특정 서브넷으로 흐르는 패킷이 가상 네트워크 보안 어플라이언스로 가도록 홉을 지정하는 사용자 정의 경로를 생성하여 가상 어플라이언스를 통해 패킷의 라우팅을 제어할 수 있습니다.
 * [**IP 전달**](../virtual-network/virtual-networks-udr-overview.md). 가상 네트워크 보안 어플라이언스는 주소가 자신으로 지정되지 않은 들어오는 트래픽을 받을 수 있어야 합니다. 가상 컴퓨터가 다른 대상으로 주소가 지정된 트래픽을 받을 수 있도록 하려면 해당 가상 컴퓨터에서 IP 전달을 사용하도록 설정합니다.
 * [**강제 터널링**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 가상 네트워크의 가상 컴퓨터에서 생성된 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "강제"할 수 있습니다.
-* [**끝점 ACL**](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 끝점 ACL을 정의하여 어떤 컴퓨터가 인터넷에서 가상 네트워크의 가상 컴퓨터에 인바운드 연결을 허용하는지 제어할 수 있습니다.
+* [**끝점 ACL**](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 끝점 ACL을 정의하여 어떤 컴퓨터가 인터넷에서 가상 네트워크의 가상 컴퓨터에 인바운드 연결을 허용하는지 제어할 수 있습니다.
 * [**파트너 네트워크 보안 솔루션**](https://azure.microsoft.com/marketplace/). Azure Marketplace에서 액세스할 수 있는 파트너 네트워크 보안 솔루션은 많습니다.
 
 ### <a name="how-azure-implements-virtual-networks-and-firewalls"></a>Azure가 가상 네트워크 및 방화벽을 구현하는 방법
@@ -147,7 +148,7 @@ Azure가 정상적인 작업의 일부로 서 또는 재해 발생 중에 고객
 ## <a name="secure-remote-access"></a>안전한 원격 액세스
 클라우드에 저장된 데이터는 전송되는 동안 충분한 예방 조치를 통해 공격을 방지하고 기밀성과 무결성을 유지 관리하도록 해야 합니다. 여기에는 조직의 정책 기반, 감사 가능한 ID 및 액세스 관리 메커니즘을 사용하여 연결된 네트워크 제어가 포함됩니다.
 
-기본 제공 암호화 기술을 사용하면 배포 간, Azure 지역 간 및 Azure에서 온-프레미스 데이터 센터에 통신을 암호화할 수 있습니다. [원격 데스크톱 세션](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [원격 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 및 Azure Portal을 통한 가상 컴퓨터에 대한 관리자 액세스는 항상 암호화됩니다.
+기본 제공 암호화 기술을 사용하면 배포 간, Azure 지역 간 및 Azure에서 온-프레미스 데이터 센터에 통신을 암호화할 수 있습니다. [원격 데스크톱 세션](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [원격 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 및 Azure Portal을 통한 가상 컴퓨터에 대한 관리자 액세스는 항상 암호화됩니다.
 
 Azure에서는 온-프레미스 데이터 센터를 클라우드로 안전하게 확장하기 위해 [사이트 간 VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 및 [지점 및 사이트 간 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) 뿐만 아니라 [ExpressRoute](../expressroute/expressroute-introduction.md) 전용 링크를 모두 제공합니다(VPN을 통한 Azure Virtual Network 연결이 암호화됨).
 
@@ -194,9 +195,4 @@ Azure에는 위협 해결 방법을 구현하고 고객이 해당 환경에서 �
 [Microsoft 보안 대응 센터](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Active Directory 블로그](http://blogs.technet.com/b/ad/)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

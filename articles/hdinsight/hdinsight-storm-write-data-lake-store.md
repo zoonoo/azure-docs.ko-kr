@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 376415d34592d18de00513ee9142512eb716e426
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -183,8 +183,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
    
     메시지가 표시되면 클러스터에 대한 SSH 사용자를 만들 때 사용한 암호를 입력합니다. 암호 대신 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하여 개인 키와 일치하는 경로를 지정합니다.
    
-   > [!NOTE]
-   > 개발을 위해 Windows 클라이언트를 사용하는 경우 PuTTY 클라이언트를 사용하여 클러스터에 연결하는 정보는 [Windows에서 SSH로 Linux 기반 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-windows.md) 에 있는 내용을 수행합니다.
+   자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 3. 연결되면 다음 명령을 사용하여 `dev.properties`라는 파일을 만듭니다.
 

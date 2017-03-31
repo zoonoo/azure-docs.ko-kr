@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: b4de2d04c331ac608c77057613276ac8f85ec600
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -154,9 +154,9 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
    > HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
    > 
    > * 길이가 10자 이상이어야 함
-   > * 숫자를&1;개 이상 포함해야 함
-   > * 영숫자가 아닌 문자를&1;개 이상 포함해야 함
-   > * 대문자 또는 소문자를&1;개 이상 포함해야 함
+   > * 숫자를 1개 이상 포함해야 함
+   > * 영숫자가 아닌 문자를 1개 이상 포함해야 함
+   > * 대문자 또는 소문자를 1개 이상 포함해야 함
    > 
    > 
 
@@ -195,10 +195,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 * **Windows 기반** HDInsight 클러스터의 경우 원격 데스크톱을 사용하여 클러스터에 연결합니다. 자세한 내용은 [RDP를 사용하여 HDInsight에 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)을 참조하세요.
   
     연결된 후에는 바탕 화면의 **Hadoop 명령줄** 아이콘을 사용하여 명령 프롬프트를 엽니다.
-* **Linux 기반** HDInsight 클러스터의 경우 SSH를 사용하여 클러스터에 연결합니다. Linux 기반 클러스터에서 SSH 사용에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
-  
-  * [Linux, OS X, Unix 또는 Windows 10의 Bash의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Linux 기반** HDInsight 클러스터의 경우 SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 클러스터에 연결되면 다음 단계에 따라 SAS 저장소 계정의 항목에 대한 읽기 및 목록 전용 권한이 있는지 확인합니다.
 
@@ -247,9 +244,9 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 **해결 방법**: 다음 조건을 충족하는 암호를 사용합니다.
 
 * 길이가 10자 이상이어야 함
-* 숫자를&1;개 이상 포함해야 함
-* 영숫자가 아닌 문자를&1;개 이상 포함해야 함
-* 대문자 또는 소문자를&1;개 이상 포함해야 함
+* 숫자를 1개 이상 포함해야 함
+* 영숫자가 아닌 문자를 1개 이상 포함해야 함
+* 대문자 또는 소문자를 1개 이상 포함해야 함
 
 ## <a name="next-steps"></a>다음 단계
 이제 HDInsight 클러스터에 액세스가 제한된 저장소를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.

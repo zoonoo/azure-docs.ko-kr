@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: dc61f74a10fed1ba9e3959326e0020cf2b4440ea
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 554d1d504205767a287c690d82f03808047b1961
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ Azure 클래식 포털을 사용하여 Linux 가상 컴퓨터를 만들 때, 사
 * [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
-## <a name="obtaining-superuser-privileges-using-sudo"></a> `sudo`
+## <a name="obtaining-superuser-privileges-using-sudo"></a>`sudo`
 Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. Azure Linux 에이전트에서 `sudo` 유틸리티를 사용하여 루트(superuser 계정)로 권한을 상승하도록 이 계정을 구성할 수 있습니다. 이 사용자 계정을 사용하여 로그인한 후 다음 명령 구문을 사용하여 루트로 명령을 실행할 수 있습니다.
 
     # sudo <COMMAND>
@@ -42,7 +43,7 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 ## <a name="firewall-configuration"></a>방화벽 구성
 Azure는 Azure 클래식에서 지정된 포트에 연결을 제한하는 인바운드 패킷 필터를 제공합니다. 기본적으로 허용되는 유일한 포트는 SSH입니다. Azure 클래식 포털에서 끝점을 구성하여 Linux 가상 컴퓨터의 추가 포트 액세스를 열 수 있습니다.
 
-* [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+* [가상 컴퓨터에 끝점을 설정하는 방법](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 Azure 갤러리의 Linux 이미지는 기본적으로 *iptables* 방화벽을 사용하도록 설정하지 않습니다. 원하는 경우 추가 필터링을 제공하도록 이 방화벽을 구성할 수 있습니다.
 
@@ -60,7 +61,7 @@ Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 �
 ### <a name="cloud-init"></a>Cloud-Init
 **Ubuntu** 및 **CoreOS** 이미지는 cloud-init pn Azure를 활용하여 가상 컴퓨터를 부트스트랩하기 위한 추가 기능을 제공합니다.
 
-* [사용자 지정 데이터를 삽입하는 방법](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [사용자 지정 데이터를 삽입하는 방법](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Microsoft Azure의 사용자 지정 데이터 및 Cloud-Init](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
 * [Init 클라우드를 사용하여 Azure 스왑 파티션 만들기](https://wiki.ubuntu.com/AzureSwapPartitions)
 * [Azure에서 CoreOS를 사용하는 방법](https://coreos.com/os/docs/latest/booting-on-azure.html)
@@ -72,7 +73,7 @@ Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능�
 2. 가상 컴퓨터를 종료합니다.
 3. Azure 클래식 포털에서 *캡쳐* 를 클릭하거나 PowerShell 또는 CLI 도구를 사용하여 가상 컴퓨터를 이미지로 캡쳐할 수 있습니다.
    
-   * 참고: [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+   * 참고: [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="attaching-disks"></a>디스크 연결
 각 가상 컴퓨터에는 임시 로컬 *리소스 디스크* 가 연결되어 있습니다. 리소스 디스크의 데이터는 다시 부팅 후 지속되지 않을 수도 있으므로 가상 컴퓨터에서 실행되는 응용 프로그램 및 프로세스에서 **임시** 데이터 저장소에 사용되는 경우가 많습니다. 또한 운영 체제의 페이지 또는 스왑 파일을 저장하는 데 사용됩니다.
@@ -84,13 +85,8 @@ Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 �
 > 
 > 
 
-Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에 대한 자습서의 단계를 다루었습니다.
+Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)에 대한 자습서의 단계를 다루었습니다.
 
 * **참고 항목:** [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) & [Azure에서 Linux VM에 대해 LVM 구성](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -18,6 +18,7 @@ ms.author: jroth
 translationtype: Human Translation
 ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
 ms.openlocfilehash: 1bd099ee9154e920fef5b99e27d2a9711c1d75d1
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 1bd099ee9154e920fef5b99e27d2a9711c1d75d1
 ## <a name="overview"></a>개요
 데이터베이스 관리자 또는 개발자인 경우 Azure VM은 온-프레미스 SQL Server 워크로드 및 응용 프로그램을 클라우드로 이동하는 방법을 제공합니다. 다음 비디오는 SQL Server Azure VM에 대한 기술적 개요를 제공합니다.
 
-> [!비디오 https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
+> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
 > 
 > 
 
@@ -80,7 +81,7 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 
 이 목록 외에도 SQL Server 버전과 운영 체제의 다른 조합을 사용할 수 있습니다. Azure Portal에서 마켓플레이스 검색을 통해 다른 이미지를 찾아보세요. 
 
-## <a name="a-idbyola-option-2-create-a-sql-vm-with-an-existing-license"></a><a id="BYOL"></a> 옵션 2: 기존 라이선스를 사용한 SQL VM 만들기
+## <a id="BYOL"></a> 옵션 2: 기존 라이선스를 사용한 SQL VM 만들기
 사용자 라이선스가 필요할 수도 있습니다(BYOL). 이 시나리오에서는 SQL Server 라이선스에 대한 추가 비용 없이 VM에 대해서만 지불합니다. 사용자 고유 라이선스를 사용하려면 아래의 SQL Server 버전, 버전 및 운영 체제의 매트릭스를 사용합니다. 포털에서 이러한 이미지 이름에는 접두사 **{BYOL}**이 붙습니다.
 
 | 버전 | 운영 체제 | 버전 |
@@ -129,10 +130,5 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 가격 책정에 대한 질문은 [가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)을 참조하세요. **OS/소프트웨어** 목록에서 SQL Server의 대상 버전을 선택합니다. 그런 다음 다양한 크기의 가상 컴퓨터에 대한 가격을 확인합니다. 
 
 추가 질문이 있나요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
