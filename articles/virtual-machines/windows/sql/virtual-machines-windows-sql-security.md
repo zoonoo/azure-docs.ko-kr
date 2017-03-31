@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 12df603e22c8c735bf5c3f892575e79725f7313e
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9fc96d70592bd55685ebbf1b80f6017b74f58925
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -45,7 +46,7 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 ## <a name="considerations-for-securing-connections-to-azure-virtual-machine"></a>Azure 가상 컴퓨터에 대한 연결을 보호하기 위한 고려 사항:
 * 공용 RDP 포트 대신 [Azure 가상 네트워크](../../../virtual-network/virtual-networks-overview.md) 를 사용하여 가상 컴퓨터를 관리하는 것이 좋습니다.
 * [네트워크 보안 그룹](../../../virtual-network/virtual-networks-nsg.md) (NSG)을 사용하여 가상 컴퓨터에 네트워크 트래픽을 허용하거나 거부합니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](../../../virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
-* 끝점을 사용하는 경우 사용하지 않는 모든 끝점은 가상 컴퓨터에서 제거합니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+* 끝점을 사용하는 경우 사용하지 않는 모든 끝점은 가상 컴퓨터에서 제거합니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
 * Azure 가상 컴퓨터의 SQL Server 데이터베이스 엔진의 인스턴스에 대해 암호화된 연결 옵션을 사용하도록 설정합니다. 서명된 인증서로 SQL server 인스턴스를 구성합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192.aspx) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하세요.
 * 가상 컴퓨터를 특정 네트워크에서만 액세스할 수 있도록 하려면 Windows 방화벽을 사용하여 특정 IP 주소나 네트워크 서브넷의 액세스를 제한합니다.
 
@@ -53,10 +54,5 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 성능에 대한 모범 사례에도 관심이 있으면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 
 Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

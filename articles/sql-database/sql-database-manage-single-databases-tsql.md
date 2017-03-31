@@ -16,14 +16,15 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 38c53d6f1a2635afbba199e6f0a2adb23abb6a3a
-ms.openlocfilehash: fcf8326edc2ff84d274f7c4dadeae1fbe2595349
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 951c88124219a6962f655b91275aec64c716b1cd
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="create-and-manage-single-azure-sql-databases-with-transact-sql"></a>Transact-SQL을 사용하여 단일 Azure SQL Database 만들기 및 관리
 
-[Azure Portal](https://portal.azure.com/), PowerShell, Transact-SQL, REST API 또는 C#을 사용하여 단일 Azure SQL Database를 만들고 관리할 수 있습니다. 이 항목은 Azure Portal 사용에 대해 설명합니다. PowerShell의 경우 [Powershell을 사용하여 단일 데이터베이스 만들기 및 관리](sql-database-manage-single-databases-powershell.md)를 참조하세요. Transact-SQL의 경우 [Transact-SQL을 사용하여 단일 데이터베이스 만들기 및 관리](sql-database-manage-single-databases-tsql.md)를 참조하세요. 
+[Azure Portal](https://portal.azure.com/), PowerShell, Transact-SQL, REST API 또는 C#을 사용하여 단일 Azure SQL Database를 만들고 관리할 수 있습니다. 이 항목은 Azure Portal 사용에 대해 설명합니다. PowerShell의 경우 [Powershell을 사용하여 단일 데이터베이스 만들기 및 관리](scripts/sql-database-create-and-configure-database-powershell.md)를 참조하세요. Transact-SQL의 경우 [Transact-SQL을 사용하여 단일 데이터베이스 만들기 및 관리](sql-database-manage-single-databases-tsql.md)를 참조하세요. 
 
 ## <a name="create-an-azure-sql-database-using-transact-sql-in-sql-server-management-studio"></a>SQL Server Management Studio의 Transact-SQL을 사용하여 Azure SQL Database 만들기
 
@@ -53,9 +54,4 @@ SQL Server Management Studio에서 Transact-SQL을 사용하여 SSQL Database를
 * SQL Server Management Studio를 사용하여 관리 작업을 수행하는 방법을 보려면 [SQL Server Management Studio](sql-database-manage-azure-ssms.md)를 참조하세요.
 * SQL Database 서비스에 대한 정보는 [SQL Database 정의](sql-database-technical-overview.md)를 참조하세요. 
 * Azure 데이터베이스 서버 및 데이터베이스 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

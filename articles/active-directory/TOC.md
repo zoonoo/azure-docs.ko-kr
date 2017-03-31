@@ -160,6 +160,8 @@
 #### 앱 게시
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [클래식 포털](active-directory-application-proxy-publish.md)
+
+#### [Azure AD용 PingAccess](application-proxy-ping-access.md)
 #### [보안](application-proxy-security-considerations.md)
 #### [네트워크](application-proxy-network-topology-considerations.md)
 #### [원격 데스크톱](application-proxy-publish-remote-desktop.md)

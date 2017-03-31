@@ -62,6 +62,7 @@
 ### [동기화 중 오류](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [개체가 동기화되지 않음](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [암호 동기화](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # 참조
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

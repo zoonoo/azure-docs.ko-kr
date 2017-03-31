@@ -98,6 +98,11 @@
 ## Arduino 사용
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
+#### [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
+#### [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### 단원 1: 장치 구성
@@ -233,7 +238,9 @@
 #### [REST API 사용](iot-hub-rm-rest.md)
 #### [PowerShell의 템플릿 사용](iot-hub-rm-template-powershell.md)
 #### [.NET의 템플릿 사용](iot-hub-rm-template.md)
-### [파일 업로드 구성](iot-hub-configure-file-upload.md)
+### 파일 업로드 구성
+#### [포털 사용](iot-hub-configure-file-upload.md)
+#### [PowerShell 사용](iot-hub-configure-file-upload-powershell.md)
 ### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
 ### [작업 모니터링](iot-hub-operations-monitoring.md)

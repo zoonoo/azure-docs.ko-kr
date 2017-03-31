@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 9c36e1e463d5d40ba1152481705a5cee9af89460
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -99,5 +99,5 @@ VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-디스크를 추가한 후 해당 디스크를 사용할 수 있도록 준비해야 합니다. 자세한 내용은 [방법: Linux에서 새 데이터 디스크 초기화](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux)를 참조하세요.
+디스크를 추가한 후 해당 디스크를 사용할 수 있도록 준비해야 합니다. 자세한 내용은 [방법: Linux에서 새 데이터 디스크 초기화](linux/classic/attach-disk.md#initialize-a-new-data-disk-in-linux)를 참조하세요.
 

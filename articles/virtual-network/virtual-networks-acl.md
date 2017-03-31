@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 891d950c7d4984b39f2e03af3d0f66af5594a348
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 891d950c7d4984b39f2e03af3d0f66af5594a348
 > 
 > 
 
-ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 네트워크 ACL을 사용하여 다음을 수행할 수 있습니다.
 
@@ -90,10 +91,5 @@ LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 �
 
 ## <a name="next-steps"></a>다음 단계
 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](virtual-networks-acl-powershell.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

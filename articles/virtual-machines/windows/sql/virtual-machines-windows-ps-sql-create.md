@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 218d7dcf14ebbb28ac043e50e6f9248ecb942aaa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
 ## <a name="overview"></a>개요
 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 **Azure Resource Manager** 배포 모델을 사용하는 단일 Azure 가상 컴퓨터를 만드는 방법을 보여 줍니다. 이 자습서에서는 SQL 갤러리의 이미지에서 단일 디스크 드라이브를 사용하여 단일 가상 컴퓨터를 만듭니다. 가상 컴퓨터에서 사용할 저장소, 네트워크 및 계산 리소스에 대한 새 공급자를 만듭니다. 이러한 리소스에 대한 기존 공급자가 있는 경우 대신 이러한 공급자를 사용할 수 있습니다.
 
-이 항목의 클래식 버전이 필요한 경우 [Azure PowerShell 클래식을 사용하여 SQL Server 가상 컴퓨터 프로비전](../sqlclassic/virtual-machines-windows-classic-ps-sql-create.md)을 참조하세요.
+이 항목의 클래식 버전이 필요한 경우 [Azure PowerShell 클래식을 사용하여 SQL Server 가상 컴퓨터 프로비전](../classic/ps-sql-create.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서에는 다음이 필요합니다.
@@ -190,7 +191,7 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>가상 컴퓨터에 대한 운영 체제 속성 설정
-이제 가상 컴퓨터의 운영 체제 속성을 설정할 수 있습니다. [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet을 사용하여 운영 체제 유형을 Windows로 설정하고, [가상 컴퓨터 에이전트](../../virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 설치하도록 요구하고, cmdlet이 자동 업데이트를 사용하도록 지정하고, 이전에 초기화한 변수로 가상 컴퓨터 이름, 컴퓨터 이름 및 자격 증명을 설정합니다.
+이제 가상 컴퓨터의 운영 체제 속성을 설정할 수 있습니다. [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet을 사용하여 운영 체제 유형을 Windows로 설정하고, [가상 컴퓨터 에이전트](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 설치하도록 요구하고, cmdlet이 자동 업데이트를 사용하도록 지정하고, 이전에 초기화한 변수로 가상 컴퓨터 이름, 컴퓨터 이름 및 자격 증명을 설정합니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터에 대한 운영 체제 속성을 설정합니다.
 
@@ -295,10 +296,5 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 
 ## <a name="next-steps"></a>다음 단계
 가상 컴퓨터가 만들어지면 RDP를 사용하여 가상 컴퓨터에 연결하고 연결을 설정할 수 있습니다. 자세한 내용은 [Azure(리소스 관리자)에서 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

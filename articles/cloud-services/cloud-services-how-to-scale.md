@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 04ed5f52a36f5d6483ed197d0886f3a908d393c5
-ms.openlocfilehash: 53bc2f6e0be0af13f95968272aa1f97f1d0918a2
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
+ms.lasthandoff: 03/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2017
 Azure 클래식 포털의 크기 조정 페이지에서 웹 역할 또는 작업자 역할에 대한 자동 크기 조정 설정을 구성할 수 있습니다. 또는 규칙 기반 자동 크기 조정 대신 수동 크기 조정을 구성할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 중점을 둡니다. 가상 컴퓨터(클래식)를 직접 만든 경우 이 가상 컴퓨터는 클라우드 서비스에서 호스트됩니다. 이 정보 중 일부는 이러한 유형의 가상 컴퓨터에 적용됩니다. 가상 컴퓨터 가용성 집합의 크기 조정은 사용자가 구성한 크기 조정 규칙에 따라 설정 및 해제됩니다. 가상 컴퓨터와 가용성 집합에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+> 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 중점을 둡니다. 가상 컴퓨터(클래식)를 직접 만든 경우 이 가상 컴퓨터는 클라우드 서비스에서 호스트됩니다. 이 정보 중 일부는 이러한 유형의 가상 컴퓨터에 적용됩니다. 가상 컴퓨터 가용성 집합의 크기 조정은 사용자가 구성한 크기 조정 규칙에 따라 설정 및 해제됩니다. 가상 컴퓨터와 가용성 집합에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
 응용 프로그램의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
 

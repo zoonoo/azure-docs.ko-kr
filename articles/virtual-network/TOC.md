@@ -123,6 +123,7 @@
 ### 경로
 #### [포털](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [처리량 테스트](virtual-network-bandwidth-testing.md)
 
 # 참조
 ## [PowerShell(리소스 관리자)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)

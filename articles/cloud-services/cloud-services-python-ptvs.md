@@ -346,7 +346,7 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 
 [Cloud Service란?]: cloud-services-choose-me.md
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
-[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[execution model-vms]:../virtual-machines/windows/about.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 

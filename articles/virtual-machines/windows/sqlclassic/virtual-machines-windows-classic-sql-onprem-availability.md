@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: d96140483edffb1f94add16598bf0dc0a85dd6da
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,16 +85,11 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 > 
 
 ## <a name="create-an-availability-group-listener"></a>가용성 그룹 수신기 만들기
-가용성 그룹을 만든 후에는 클라이언트가 복제본에 연결할 수 있게 수신기를 만들어야 합니다. 수신기는 들어오는 연결을 주 또는 읽기 전용 보조 복제본으로 전달합니다. 수신기에 대한 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+가용성 그룹을 만든 후에는 클라이언트가 복제본에 연결할 수 있게 수신기를 만들어야 합니다. 수신기는 들어오는 연결을 주 또는 읽기 전용 보조 복제본으로 전달합니다. 수신기에 대한 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](../classic/ps-sql-int-listener.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 **Azure 복제본 추가 마법사** 를 사용하여 Always On 가용성 그룹을 Azure로 확장하는 것 외에도 일부 SQL Server 워크로드를 완전히 Azure로 이동할 수 있습니다. 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

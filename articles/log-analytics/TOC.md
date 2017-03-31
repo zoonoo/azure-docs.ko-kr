@@ -70,6 +70,9 @@
 ### [Surface Hub](log-analytics-surface-hubs.md)
 ### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Windows 분석
+#### [업데이트 규정 준수](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [업그레이드 준비](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [실시간 데이터](log-analytics-wire-data.md)
 ## 개발
 ### [데이터 수집기 API](log-analytics-data-collector-api.md)
@@ -83,6 +86,6 @@
 ## [REST (영문)](/rest/api/loganalytics)
 
 # 리소스
-## [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Windows 분석](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)

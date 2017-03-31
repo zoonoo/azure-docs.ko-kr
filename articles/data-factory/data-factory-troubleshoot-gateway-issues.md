@@ -15,9 +15,9 @@ ms.date: 01/25/2017
 ms.author: jingwang
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d04bf7c5a457b90c5128050642bee6a2623787a0
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/14/2017
 #### <a name="resolution"></a>해결 방법
 방화벽 프록시 서버 설정을 검사하여 이 설정이 컴퓨터와 [다운로드 센터](https://download.microsoft.com/) 간의 네트워크 연결을 차단하는지 확인한 후 상황에 따라 설정을 업데이트합니다.
 
-또는 다운로드 센터에 액세스할 수있는 다른 컴퓨터의 [다운로드 센터](https://www.microsoft.com/en-US/download/details.aspx?id=39717)에서 최신 게이트웨이의 설치 파일을 다운로드할 수 있습니다. 그런 다음 설치 프로그램 파일을 게이트웨이 호스트 컴퓨터에 복사한 다음 수동으로 실행하여 게이트웨이를 설치하고 업데이트할 수 있습니다.
+또는 다운로드 센터에 액세스할 수있는 다른 컴퓨터의 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 게이트웨이의 설치 파일을 다운로드할 수 있습니다. 그런 다음 설치 프로그램 파일을 게이트웨이 호스트 컴퓨터에 복사한 다음 수동으로 실행하여 게이트웨이를 설치하고 업데이트할 수 있습니다.
 
 ### <a name="2-problem"></a>2. 문제
 Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트웨이를 설치하려고 할 때 이 오류가 표시됩니다.
@@ -252,7 +252,7 @@ SQL 데이터베이스에 연결하기 전에 데이터 관리 게이트웨이 �
     ![데이터 관리 게이트웨이 - 로그 보내기](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
 3. (선택 사항) **로그 보기**를 클릭하여 이벤트 뷰어에서 로그를 검토합니다.
 4. (선택 사항) **개인 정보 취급 방침**을 클릭하여 Microsoft 웹 서비스 개인 정보 취급 방침을 검토합니다.
-5. 업로드할 항목에 만족하면 **로그 보내기**를 클릭하여 문제를 해결하기 위해 지난&7;일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
+5. 업로드할 항목에 만족하면 **로그 보내기**를 클릭하여 문제를 해결하기 위해 지난 7일 동안의 로그를 Microsoft에 보냅니다. 다음 스크린샷과 같이 로그 보내기 작업의 상태를 확인해야 합니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기 상태](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. 작업이 완료되면 다음 스크린샷과 같은 대화 상자가 표시됩니다.

@@ -16,9 +16,9 @@ ms.date: 10/10/2016
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 844f7d6fa4191a54d14010adf974401d3a94ba69
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5bb3a67c999c1d41c50b2b660a97a53125511633
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -40,7 +40,7 @@ Linux 가상 컴퓨터에 대해 *OMS Agent For Linux* 가상 컴퓨터 확장�
 >
 >
 
-다음과 같은&3;가지 방법으로 Log Analytics 가상 컴퓨터 확장을 사용하도록 설정할 수 있습니다.
+다음과 같은 3가지 방법으로 Log Analytics 가상 컴퓨터 확장을 사용하도록 설정할 수 있습니다.
 
 * Azure Portal 사용
 * Azure PowerShell 사용
@@ -385,11 +385,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 1. [KB 2965986](https://support.microsoft.com/kb/2965986#mt1)의 절차를 통해 Azure VM 에이전트가 올바르게 설치되어 작동하는지 확인합니다.
    * VM 에이전트 로그 파일 `C:\WindowsAzure\logs\WaAppAgent.log`를 검토할 수도 있습니다.
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-     * [클래식 VM에 Azure VM 에이전트 설치](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+     * [클래식 VM에 Azure VM 에이전트 설치](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 2. 다음 절차를 통해 Microsoft Monitoring Agent 확장 하트 비트 작업이 실행되고 있는지 확인합니다.
    * 가상 컴퓨터에 로그인합니다.
    * 작업 스케줄러를 열고 `update_azureoperationalinsight_agent_heartbeat` 작업을 찾습니다.
-   * 작업이 활성화되었고&1;분 간격으로 실행되는지 확인합니다.
+   * 작업이 활성화되었고 1분 간격으로 실행되는지 확인합니다.
    * `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`에서 하트비트 로그 파일을 확인합니다.
 3. `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`에서 Microsoft Monitoring Agent VM 확장 로그 파일을 검토합니다.
 4. 가상 컴퓨터가 PowerShell 스크립트를 실행할 수 있는지 확인합니다.

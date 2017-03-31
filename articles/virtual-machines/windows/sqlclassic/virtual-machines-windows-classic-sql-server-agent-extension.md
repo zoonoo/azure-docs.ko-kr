@@ -17,15 +17,15 @@ ms.date: 01/18/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ca346405590d7caa63a888aa139ab1a6f21e365b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4082fe7baad4f9d40746410024e071f34f458a40
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(클래식)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [클래식](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [클래식](../classic/sql-server-agent-extension.md)
 > 
 >
  
@@ -39,9 +39,9 @@ SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 
 | 관리 기능 | 설명 |
 | --- | --- |
-| **SQL 자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업(클래식)](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요. |
-| **SQL 자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 패치(클래식)](virtual-machines-windows-classic-sql-automated-patching.md)를 참조하세요. |
-| **Azure 주요 자격 증명 모음 통합** |SQL Server VM에서 Azure 주요 자격 증명 모음을 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure 주요 자격 증명 모음 통합 구성(클래식)](virtual-machines-windows-classic-ps-sql-keyvault.md)을 참조하세요. |
+| **SQL 자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업(클래식)](../classic/sql-automated-backup.md)을 참조하세요. |
+| **SQL 자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 패치(클래식)](../classic/sql-automated-patching.md)를 참조하세요. |
+| **Azure 주요 자격 증명 모음 통합** |SQL Server VM에서 Azure 주요 자격 증명 모음을 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure 주요 자격 증명 모음 통합 구성(클래식)](../classic/ps-sql-keyvault.md)을 참조하세요. |
 
 ## <a name="prerequisites"></a>필수 조건
 VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사항:

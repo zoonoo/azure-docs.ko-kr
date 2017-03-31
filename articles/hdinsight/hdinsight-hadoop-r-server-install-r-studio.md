@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 970419650e1d3e22637733fdb4fba72ff27f5339
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,10 +44,8 @@ ms.lasthandoff: 01/10/2017
 
    * 헤드 노드: `CLUSTERNAME-ssh.azurehdinsight.net`
    * 에지 노드: `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. 위 명명 패턴을 사용하여 클러스터의 에지 노드로 SSH를 실행합니다. 
+2. 위 명명 패턴을 사용하여 클러스터의 에지 노드로 SSH를 실행합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-   * Linux 클라이언트에서 연결하려면 [Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-   * Windows 클라이언트에서 연결하려면 [PuTTY를 사용하여 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 3. 연결이 완료되면 클러스터의 루트 사용자가 됩니다. SSH 세션에서 다음 명령을 사용합니다.
 
         sudo su -
@@ -81,7 +79,7 @@ ms.lasthandoff: 01/10/2017
        **USERNAME**은 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고, **CLUSTERNAME**은 HDInsight 클러스터의 이름으로 바꿉니다. 또한 `-i id_rsa_key`를 추가하여 암호 대신 SSH 키를 사용할 수도 있습니다.        
    * PuTTY와 Windows 클라이언트를 사용하는 경우
 
-     1. PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) 을 참조합니다.
+     1. PuTTY를 열고 연결 정보를 입력합니다.
      2. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
      3. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
 

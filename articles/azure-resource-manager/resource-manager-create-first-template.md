@@ -31,9 +31,9 @@ ms.lasthandoff: 03/22/2017
 
 2. 빠른 열기(Ctrl+P)에 액세스하고 다음을 실행하여 [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) 확장을 설치합니다. 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. 확장을 사용할 수 있다는 메시지가 나타나면 VS Code를 다시 시작합니다.
 
@@ -45,15 +45,15 @@ ms.lasthandoff: 03/22/2017
 
 2. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. 이 파일을 **azuredeploy.json**으로 저장합니다. 
@@ -63,43 +63,43 @@ ms.lasthandoff: 03/22/2017
 
 3. 해당 JSON을 다음 예제에서와 같이 템플릿의 **리소스** 섹션으로 붙여넣습니다. 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   앞의 예제에는 저장소 계정에 필요하지 않을 수도 있는 많은 자리 표시자 값 및 몇 가지 속성이 포함됩니다.
 
@@ -111,37 +111,37 @@ ms.lasthandoff: 03/22/2017
 
 2. **속성** 요소 내에서 **customDomain**, **암호화** 및 **accessTier**는 모두 필요하지 않은 것으로 나열됩니다. 이러한 값은 시나리오에 중요할 수 있지만 이 예제를 간단하게 하도록 해당 값을 제거해 보겠습니다.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. 현재 **kind** 요소는 자리 표시자 값("string")으로 설정됩니다. VS 코드는 템플릿에서 사용할 값을 파악하는 데 도움이 되는 다수의 기능을 포함합니다. VS 코드는 이 값이 유효하지 않음을 나타냅니다. "string"을 가리키면 VS 코드는 **kind**에 대한 유효한 값이 `Storage` 또는 `BlobStorage`라고 제안합니다. 
 
-  ![VS 코드 제안 값 표시](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![VS 코드 제안 값 표시](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  사용 가능한 값을 보려면 큰따옴표 사이의 문자를 삭제하고 **Ctrl+스페이스바**를 선택합니다. 사용 가능한 옵션에서 **저장소**를 선택합니다.
+   사용 가능한 값을 보려면 큰따옴표 사이의 문자를 삭제하고 **Ctrl+스페이스바**를 선택합니다. 사용 가능한 옵션에서 **저장소**를 선택합니다.
   
-  ![intellisense 표시](./media/resource-manager-create-first-template/intellisense.png)
+   ![intellisense 표시](./media/resource-manager-create-first-template/intellisense.png)
 
-  VS 코드를 사용하지 않는 경우 저장소 계정 템플릿 참조 페이지를 확인합니다. 설명은 동일한 유효 값을 나열합니다. 요소를 **저장소**로 설정합니다.
+   VS 코드를 사용하지 않는 경우 저장소 계정 템플릿 참조 페이지를 확인합니다. 설명은 동일한 유효 값을 나열합니다. 요소를 **저장소**로 설정합니다.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 템플릿은 이제 다음과 같이 표시됩니다.
 
@@ -186,8 +186,6 @@ ms.lasthandoff: 03/22/2017
 
 함수는 대괄호로 묶여 있습니다. [resourceGroup](resource-group-template-functions.md#resourcegroup) 함수는 `location`이라는 속성으로 개체를 반환합니다. 리소스 그룹은 솔루션에 관련된 모든 리소스를 보유합니다. “미국 중부"와 같은 값으로 location 속성을 하드 코딩할 수 있지만 다른 위치에 다시 배포하려면 템플릿을 수동으로 변경해야 합니다. `resourceGroup` 함수를 사용하면 이 템플릿을 다른 위치에 있는 다른 리소스 그룹에 손쉽게 다시 배포할 수 있습니다.
 
-
-
 템플릿은 이제 다음과 같이 표시됩니다.
 
 ```json
@@ -222,71 +220,71 @@ ms.lasthandoff: 03/22/2017
 
 1. 명명 규칙과 일치하는 이름에 대한 접두사를 전달하려면 템플릿의 **매개 변수** 섹션으로 이동합니다. 저장소 계정 이름에 대한 접두사를 허용하는 템플릿에 매개 변수를 추가합니다.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   `uniqueString`은 13자를 반환하고 이름은 24자를 초과할 수 없으므로 접두사는 최대 11자로 제한됩니다. 배포하는 동안 매개 변수에 대한 값을 전달하지 않는 경우 기본 값이 사용됩니다.
 
 2. 템플릿의 **변수** 섹션으로 이동합니다. 접두사와 고유 문자열에서 이름을 생성하려면 다음 변수를 추가합니다.
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. **리소스** 섹션에서 해당 변수에 저장소 계정 이름을 설정합니다.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. 저장소 계정에 대해 다른 SKU 전달을 사용하도록 설정하려면 **매개 변수** 섹션으로 이동합니다. 저장소 이름 접두사에 대한 매개 변수 다음에 허용되는 SKU 값 및 기본값을 지정하는 매개 변수를 추가합니다. 템플릿 참조 페이지 또는 VS 코드에서 허용되는 값을 찾을 수 있습니다. 다음 예제에서는 SKU에 대한 모든 유효한 값이 포함됩니다. 그러나 허용되는 값을 이 템플릿을 통해 배포하려는 SKU의 해당 형식으로만 제한할 수 있습니다.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. 매개 변수에서 값을 사용하도록 SKU 속성을 변경합니다.
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. 파일을 저장합니다.
 

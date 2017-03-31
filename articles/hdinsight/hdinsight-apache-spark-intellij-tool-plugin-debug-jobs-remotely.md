@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9b822da3d8fd2706bc65ab842d063be66904649f
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -75,7 +77,7 @@ ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
            192.xxx.xx.xx hn1-nitinp
            192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
 6. HDInsight 클러스터에서 사용되는 Azure 가상 네트워크에 연결된 컴퓨터에서 IP 주소뿐만 아니라 호스트 이름을 사용하여 두 헤드 노드에 ping을 실행할 수 있는지 확인합니다.
-7. [SSH를 사용하여 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)의 지침을 사용하여 클러스터 헤드 노드에 SSH를 사용합니다. 클러스터 헤드 노드에서 데스크톱 컴퓨터의 IP 주소에 ping을 실행합니다. 컴퓨터에 할당된 두 IP 주소에 대한 연결을 테스트해야 합니다. 하나는 네트워크 연결이고 다른 하나는 컴퓨터가 연결된 Azure 가상 네트워크에 대한 것입니다.
+7. [SSH를 사용하여 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)의 지침을 사용하여 클러스터 헤드 노드에 SSH를 사용합니다. 클러스터 헤드 노드에서 데스크톱 컴퓨터의 IP 주소에 ping을 실행합니다. 컴퓨터에 할당된 두 IP 주소에 대한 연결을 테스트해야 합니다. 하나는 네트워크 연결이고 다른 하나는 컴퓨터가 연결된 Azure 가상 네트워크에 대한 것입니다.
 8. 다른 헤드 노드에서도 해당 단계를 반복합니다. 
 
 ## <a name="step-4-create-a-spark-scala-application-using-the-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>4단계: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark Scala 응용 프로그램 만들기 및 원격 디버깅이 가능하도록 구성
@@ -254,7 +256,7 @@ ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
    
     ![디버그 모드에서 프로그램 실행](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -279,10 +281,5 @@ ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

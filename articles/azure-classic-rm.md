@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f6df10ce5edefbff24011fc20cad8ae927ba5125
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ Azure 플랫폼은 전환 중입니다.  Azure를 처음 접하든, 수년 간 �
 
 그러나 IT 전문가들은 일반적으로 웹 브라우저에서 그래픽 포털을 사용하고, Windows 컴퓨터에서 Azure PowerShell cmdlet을 사용하거나 Windows, OS X 또는 Linux 컴퓨터에서 Azure CLI(명령줄 인터페이스)를 사용하여 이러한 API와 *간접적으로* 상호 작용할 수 있습니다. IT 전문가가 사용하는 이 모든 세 가지 간접 메서드는 API와 직접적으로 상호 작용합니다. 즉, 새로운 기능이 Azure 플랫폼 또는 리소스에 도입되면 항상 API를 통해 먼저 직접적으로 사용 가능하며, 간접적인 메서드는 API가 사용 가능하게 된 후에 새로운 리소스와 기능에 대한 지원을 받게 됩니다.  
 
-아래 섹션에서는 Azure 리소스가 어떻게&3;개의 간접 메서드를 통해 다양한 배포 모델을 사용하여 구성되는지를 설명합니다.
+아래 섹션에서는 Azure 리소스가 어떻게 3개의 간접 메서드를 통해 다양한 배포 모델을 사용하여 구성되는지를 설명합니다.
 
 ## <a name="portals"></a>포털
 Azure에는 다음 두 포털이 있습니다.
@@ -62,7 +62,7 @@ Azure에는 다음 두 포털이 있습니다.
 * **Azure 리소스 관리자 템플릿을 사용한 PowerShell cmdlet:** PowerShell에서 Azure 리소스 관리자 템플릿을 사용하여 Azure 리소스를 생성할 수 있습니다. 템플릿을 저장하고 버전을 지정할 수 있습니다. [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md) 문서를 참조하여 더 알아볼 수 있습니다. 다운로드하고 수정할 수 있는 일반 솔루션에 대해 몇 가지 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 도 지원됩니다.
 
 ## <a name="cli"></a>CLI
-CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  [Azure CLI 설치](cli-install-nodejs.md) 문서를 참조하여 선택한 운영 체제에서 CLI를 설치합니다. PowerShell처럼 [Resource Manager](xplat-cli-azure-resource-manager.md) 또는 [클래식(서비스 관리)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 배포 모델을 사용하여 리소스를 생성하는지 여부에 따라 사용해야 하는 명령이 서로 다릅니다.
+CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  [Azure CLI 설치](cli-install-nodejs.md) 문서를 참조하여 선택한 운영 체제에서 CLI를 설치합니다. PowerShell처럼 [Resource Manager](xplat-cli-azure-resource-manager.md) 또는 [클래식(서비스 관리)](virtual-machines/linux/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 배포 모델을 사용하여 리소스를 생성하는지 여부에 따라 사용해야 하는 명령이 서로 다릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager](azure-resource-manager/resource-group-overview.md)에 대해 알아봅니다.

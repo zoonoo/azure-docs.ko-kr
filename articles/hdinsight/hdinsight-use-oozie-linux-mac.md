@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: dc22bfee0471da2d61d1d3d720e26d5fc785f832
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e4f38a061129b2bb8a840d4eec8d224bcbc22e83
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -107,11 +107,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-    * [Linux, OS X, Unix 또는 Windows에서 HDInsight의 Linux 기반 Hadoop과 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) - 이 문서에서는 사용자가 `ssh` 명령에 액세스할 수 있다고 가정합니다.
-
-    * [PuTTY가 있는 Windows에서 HDInsight의 Linux 기반 Hadoop과 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) - 이 문서에서는 사용자가 PuTTY SSH 클라이언트를 사용한다고 가정합니다.
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. SSH 연결에서 다음 명령을 사용하여 새 파일을 만듭니다.
 
