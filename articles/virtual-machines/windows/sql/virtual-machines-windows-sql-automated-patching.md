@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: b092b8a746f4f94add9727dc17c6b8fc198b6404
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c48e23c1904d824ce2360f83c9df9c8e17d6200a
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-automated-patching.md)
-> * [클래식](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
+> * [클래식](../classic/sql-automated-patching.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ ms.openlocfilehash: b092b8a746f4f94add9727dc17c6b8fc198b6404
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)를 참조하세요.
+이 문서의 클래식 버전을 보려면 [Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)](../classic/sql-automated-patching.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 자동화된 패치를 사용하려면 다음 필수 조건을 고려하세요.
@@ -126,10 +127,5 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

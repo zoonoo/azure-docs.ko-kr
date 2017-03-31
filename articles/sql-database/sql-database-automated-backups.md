@@ -16,15 +16,15 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: 3fd8bda40daa09d1b5d4294382b523d41173b8cb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 8323aa27c93c1c460b31f7f7c822644f5eee929a
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="learn-about-sql-database-backups"></a>SQL Database 백업에 대한 자세한 정보
 
-SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 지리적 중복을 제공합니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 사용자는 아무 작업도 할 필요가 없습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 고유한 저장소 컨테이너에서 백업을 유지하려면 장기 백업 보존 정책을 구성할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 지리적 중복을 제공합니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 사용자는 아무 작업도 할 필요가 없습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 고유한 저장소 컨테이너에서 백업을 유지하려면 장기 백업 보존 정책을 구성할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?
 
@@ -65,11 +65,11 @@ SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 �
 * 표준 서비스 계층은 35일입니다.
 * 프리미엄 서비스 계층은 35일입니다.
 
-데이터베이스를 표준 또는 프리미엄 서비스 계층에서 기본 계층으로 다운그레이드하면 백업이&7;일 동안 저장됩니다. 7일보다 오래된 모든 기존 백업은 더 이상 사용할 수 없게 됩니다. 
+데이터베이스를 표준 또는 프리미엄 서비스 계층에서 기본 계층으로 다운그레이드하면 백업이 7일 동안 저장됩니다. 7일보다 오래된 모든 기존 백업은 더 이상 사용할 수 없게 됩니다. 
 
 데이터베이스를 기본 서비스 계층에서 표준 또는 프리미엄으로 업그레이드하면 SQL Database가 기존 백업을 35일 동안 보관합니다. 새 백업이 발생하면 새 백업을 35일 동안 보관합니다.
 
-데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 보관합니다. 예를 들어 보존 기간이&7;일인 기본 데이터베이스를 삭제한다고 가정해 봅시다. 4일 된 백업은 앞으로&3;일 동안 더 보관됩니다.
+데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 보관합니다. 예를 들어 보존 기간이 7일인 기본 데이터베이스를 삭제한다고 가정해 봅시다. 4일 된 백업은 앞으로 3일 동안 더 보관됩니다.
 
 > [!IMPORTANT]
 > SQL Database를 호스트하는 Azure SQL 서버를 삭제하면 해당 서버에 속하는 모든 데이터베이스도 삭제되어 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
@@ -87,9 +87,9 @@ Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+- 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 - Azure Portal을 사용하여 지정 시간으로 복원하려면 [Azure Portal을 사용하여 지정 시간으로 데이터베이스 복원](sql-database-point-in-time-restore-portal.md)을 참조하세요.
-- PowerShell을 사용하여 지정 시간으로 복원하려면 [PowerShell을 사용하여 지정 시간으로 데이터베이스 복원](sql-database-point-in-time-restore-powershell.md)을 참조하세요.
+- PowerShell을 사용하여 지정 시간으로 복원하려면 [PowerShell을 사용하여 지정 시간으로 데이터베이스 복원](scripts/sql-database-restore-database-powershell.md)을 참조하세요.
 - Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-portal.md)를 참조하세요.
 - PowerShell을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
 

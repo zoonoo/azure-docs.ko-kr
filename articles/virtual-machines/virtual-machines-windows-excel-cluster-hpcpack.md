@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 21ec1f15dc7055cdd3b281216abfbac8554abad0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c8b8b6af19a347804563b091760b18dfc47aa503
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,7 +92,7 @@ HPC Pack IaaS 배포 스크립트는 HPC Pack 클러스터를 배포하는 다�
 
 **구성 파일 만들기**
 
- HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. Microsoft Excel을 포함하는 컴퓨터 노드 이미지에서 만든 컴퓨터 노드 18개와 헤드 노드 1개로 구성된 클러스터를 배포하려면 다음 샘플 구성 파일에 해당 환경의 값을 대체합니다. 구성 파일에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. Microsoft Excel을 포함하는 컴퓨터 노드 이미지에서 만든 컴퓨터 노드 18개와 헤드 노드 1개로 구성된 클러스터를 배포하려면 다음 샘플 구성 파일에 해당 환경의 값을 대체합니다. 구성 파일에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -192,7 +193,7 @@ HPC Pack 배포 스크립트가 일정 시간 동안 실행됩니다. 스크립�
 ### <a name="excel-activation"></a>Excel 활성화
 프로덕션 작업에 대해 ComputeNodeWithExcel VM 이미지를 사용하는 경우 컴퓨터 노드에서 Excel을 정품 인증하려면 유효한 Microsoft Office 라이선스 키를 제공해야 합니다. 이렇게 하지 않으면 평가 버전의 Excel은 30일 후에 만료되며 Excel 통합 문서 실행이 실패하고 COMException(0x800AC472)이 발생합니다. 
 
-Excel의 평가 기간은 30일 연장할 수 있습니다. 이렇게 하려면 헤드 노드에 로그온한 다음 HPC 클러스터 관리자를 통해 모든 Excel 컴퓨터 노드에서 `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe`를 실행합니다. 평가 기간은&2;회까지 연장할 수 있습니다. 그 후에는 유효한 Office 라이선스 키를 제공해야 합니다.
+Excel의 평가 기간은 30일 연장할 수 있습니다. 이렇게 하려면 헤드 노드에 로그온한 다음 HPC 클러스터 관리자를 통해 모든 Excel 컴퓨터 노드에서 `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe`를 실행합니다. 평가 기간은 2회까지 연장할 수 있습니다. 그 후에는 유효한 Office 라이선스 키를 제공해야 합니다.
 
 VM 이미지에 설치되어 있는 Office Professional Plus 2013은 GVLK(일반 볼륨 라이선스 키)를 사용하는 볼륨 버전입니다. KMS(키 관리 서비스)/AD-BA(Active Directory 기반 정품 인증) 또는 MAK(복수 정품 인증 키)를 통해 이 버전을 정품 인증할 수 있습니다. 
 
@@ -355,9 +356,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [run]: ./media/virtual-machines-windows-excel-cluster-hpcpack/run.png
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e5a33f58dfb07b82d4acab533d68135d8ed6a446
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -125,7 +125,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 | Free Edition | Basic Edition | Premium(P1 및 P2) Edition | Office 365 앱만 해당 |
 |:---:|:---:|:---:|:---:|
-| 사용자당 앱&10;개 [1] |사용자당 앱&10;개 [1] |제한 없음 [2] |사용자당 앱&10;개 [1] |
+| 사용자당 앱 10개 [1] |사용자당 앱 10개 [1] |제한 없음 [2] |사용자당 앱 10개 [1] |
 
 1. Azure AD Free 및 Azure AD Basic을 사용하는 최종 사용자에게는 최대 10개의 응용 프로그램에 대한 Single Sign-On 액세스가 제공됩니다.
 2. 응용 프로그램 갤러리 메뉴에 제공되는 템플릿을 사용하여 SAML, SCIM 또는 양식 기반 인증을 지원하는 모든 응용 프로그램을 셀프 서비스로 통합합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)을 참조하세요.
@@ -145,7 +145,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 **자세한 내용:**
 
-* [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
+* [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md#reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)
 **유형:** 일반 기능

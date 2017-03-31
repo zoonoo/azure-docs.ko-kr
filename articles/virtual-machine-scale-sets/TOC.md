@@ -3,22 +3,21 @@
 
 # 시작
 ## [포털에서 크기 집합 배포](virtual-machine-scale-sets-portal-create.md)
-## [Azure CLI를 사용하여 크기 집합 배포](virtual-machine-scale-sets-linux-create-cli.md)
-## [Resource Manager 템플릿을 사용하여 간단한 크기 집합 배포](virtual-machine-scale-sets-mvss-start.md)
+## [PowerShell 또는 Azure CLI를 사용하여 크기 집합 배포](virtual-machine-scale-sets-create.md)
 
 # 방법
 ## 계획 및 디자인
 ### [디자인 고려 사항](virtual-machine-scale-sets-design-overview.md)
-## 크기 집합 템플릿 작성
-### [간단한 크기 집합 배포](virtual-machine-scale-sets-mvss-start.md)
-### [기존 가상 네트워크에 크기 집합 배포](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## 템플릿 만들기
+### [크기 집합 템플릿에 대해 알아보기](virtual-machine-scale-sets-mvss-start.md)
+### [가상 네트워크 추가](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## 배포
-### [포털을 사용하는 크기 집합](virtual-machine-scale-sets-portal-create.md)
+### [포털을 사용하여 만들기](virtual-machine-scale-sets-portal-create.md)
+### [Visual Studio를 사용하여 만들기](virtual-machine-scale-sets-vs-create.md)
+### [PowerShell 또는 Azure CLI를 사용하여 만들기](virtual-machine-scale-sets-create.md)
 ### [관리 디스크가 포함된 크기 집합](virtual-machine-scale-sets-managed-disks.md)
-### [Visual Studio를 사용하는 크기 집합](virtual-machine-scale-sets-vs-create.md)
-### [PowerShell을 사용한 크기 집합](virtual-machine-scale-sets-windows-create.md)
-### [Azure CLI를 사용한 크기 집합](virtual-machine-scale-sets-linux-create-cli.md)
 ### [자동 크기 조정 기능이 포함된 Linux 크기 집합](virtual-machine-scale-sets-linux-autoscale.md)
 ### [자동 크기 조정 기능이 포함된 Windows 크기 집합](virtual-machine-scale-sets-windows-autoscale.md)
 ### [크기 집합의 응용 프로그램](virtual-machine-scale-sets-deploy-app.md)

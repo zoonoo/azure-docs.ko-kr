@@ -4,30 +4,29 @@
 
 # 시작
 ## [네임스페이스 만들기](relay-create-namespace-portal.md)
-## [하이브리드 연결 시작](relay-hybrid-connections-dotnet-get-started.md)
-## [WCF 릴레이 시작](service-bus-dotnet-how-to-use-relay.md)
-## [공유 액세스 서명](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [WCF 릴레이 하이브리드 자습서](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [WCF 릴레이 .NET 자습서](service-bus-relay-tutorial.md)
-## [WCF 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
+## 하이브리드 연결
+### [.NET](relay-hybrid-connections-dotnet-get-started.md)
+### [노드](relay-hybrid-connections-node-get-started.md)
+## [WCF 릴레이](relay-wcf-dotnet-get-started.md)
 
 # 방법
-## [인증 및 권한 부여](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [중단 및 재해 대비 계획](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [하이브리드 연결 프로토콜](relay-hybrid-connections-protocol.md)
-## [일반적인 예외](relay-exceptions.md)
+## 계획 및 디자인
+### [인증 및 보안](relay-authentication-and-authorization.md)
+### [하이브리드 연결 프로토콜](relay-hybrid-connections-protocol.md)
+## 개발
+### [사용 가능한 API](relay-api-overview.md)
+#### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [노드](relay-hybrid-connections-node-ws-api-overview.md)
 
 # 참조
-## [샘플](service-bus-relay-samples.md)
-## [하이브리드 연결 .NET API](/dotnet/api/microsoft.servicebus)
-## [WCF 릴레이 .NET API](/dotnet/api/microsoft.servicebus)
-## [포트 설정](service-bus-relay-port-settings.md)
+## .NET
+### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+## [예외](relay-exceptions.md)
+## [포트 설정](relay-port-settings.md)
 
 # 리소스
-## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [샘플](https://github.com/azure/azure-relay/tree/master/samples)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
-## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

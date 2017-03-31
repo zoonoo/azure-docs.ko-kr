@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c059d39840ae268da647cffd2bfcb937f006356a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -175,7 +175,7 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 가상 컴퓨터를 등록하는 데 문제가 있으면 VM 에이전트 설치 및 네트워크 연결에 대한 다음 정보를 참조하세요. Azure에서 만든 가상 컴퓨터를 보호하는 경우 아마도 다음 정보가 필요 없을 것입니다. 그러나 가상 컴퓨터를 Azure로 마이그레이션한 경우에는 VM 에이전트가 올바르게 설치되었으며 가상 컴퓨터가 가상 네트워크와 통신할 수 있는지 확인해야 합니다.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 컴퓨터에 VM 에이전트 설치
-Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 이 정보는 Azure 갤러리를 통해 생성된 VM을 사용하지 *않는* 상황을(예: 온-프레미스 데이터 센터에서 VM을 마이그레이션한 경우) 위해 제공됩니다. 이런 경우, 가상 컴퓨터를 보호하기 위해 VM 에이전트를 설치해야 합니다. [VM 에이전트](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)에 대해 알아봅니다.
+Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 이 정보는 Azure 갤러리를 통해 생성된 VM을 사용하지 *않는* 상황을(예: 온-프레미스 데이터 센터에서 VM을 마이그레이션한 경우) 위해 제공됩니다. 이런 경우, 가상 컴퓨터를 보호하기 위해 VM 에이전트를 설치해야 합니다. [VM 에이전트](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)에 대해 알아봅니다.
 
 Azure VM을 백업하는 데 문제가 있는 경우 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다(아래 테이블 참조). 다음 테이블에서는 Windows 및 Linux VM용 VM 에이전트에 대한 추가 정보를 제공합니다.
 

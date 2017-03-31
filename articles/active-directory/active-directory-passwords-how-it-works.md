@@ -16,15 +16,15 @@ ms.date: 02/28/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fe83b1df8cc539e94e9541304584640a00551504
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 24c94f80afdb3d3330a835fae2f77ecb213a9ae5
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="how-password-management-works-in-azure-active-directory"></a>Azure Active Directory에서 암호 관리의 작동 원리
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 Azure AD(Azure Active Directory)의 암호 관리는 다음과 같은 논리 구성 요소로 구성됩니다.
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)의 암호 관리는 다음과 같은 논리 구
 특정 디렉터리의 **구성** 탭에 있는 **사용자 암호 다시 설정 정책** 섹션으로 이동하여 [Azure Portal](https://manage.windowsazure.com)에서 해당 디렉터리에 대한 암호 관리 정책을 구성할 수 있습니다. 이 구성 페이지에서 다음을 포함하여 조직이 암호를 관리하는 방법의 다양한 측면을 제어할 수 있습니다.
 
 * 디렉터리의 모든 사용자에 대해 암호 다시 설정 사용 여부 설정
-* 사용자가 암호를 다시 설정하기 위해 통과해야 하는 챌린지 횟수(1회 또는&2;회) 설정
+* 사용자가 암호를 다시 설정하기 위해 통과해야 하는 챌린지 횟수(1회 또는 2회) 설정
 * 아래 선택 항목 중에서 조직의 사용자에 대해 사용하려는 특정 챌린지 유형 설정
   * 휴대폰(문자 또는 음성 통화를 통한 확인 코드)
   * 사무실 전화(음성 통화)
@@ -116,7 +116,7 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 
 자세한 내용은 다음 Azure AD 암호 다시 설정 페이지를 참조하세요.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 다시 설정하는 방법](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)을 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 다시 설정하는 방법](active-directory-passwords-update-your-own-password.md#reset-your-password)을 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) - 사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 조직의 요구에 맞게 서비스의 모양, 느낌 및 동작을 사용자 지정하는 방법에 대해 알아봅니다.
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 조직에서 암호를 신속하게 배포하고 효과적으로 관리하는 방법에 대해 알아봅니다.

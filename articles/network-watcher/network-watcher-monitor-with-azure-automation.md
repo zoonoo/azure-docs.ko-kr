@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 35efe2a6a7a1ea1285a8df26f18de0d425b7c48d
-ms.openlocfilehash: 02a1ba7f2861271ae3b0e2e06bde1b2cd03a378f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 9a6f42e9b7b737e9316dcc1ff39ea532c4b923c5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -55,7 +55,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 ### <a name="create-the-runbook"></a>Runbook 만들기
 
-예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md#create-a-new-automation-account-from-the-azure-portal)을 참조하세요.
+예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)을 참조하세요.
 
 ### <a name="step-1"></a>1단계
 
@@ -191,17 +191,4 @@ Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6efdd600386a603b38a5733977067f1a987cdac3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: ca9937d4c0d87827f8b78ecc495fdad791d139e8
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -2025,7 +2025,7 @@ SELECT 식의 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: CROS
     }
 ```
 
-사용자 정의 적용자를 정의하려면 사용자 정의 적용자 정의에서 선택적인 [`SqlUserDefinedCombiner`] 특성을 포함한 `IApplier` 인터페이스를 생성해야 합니다.
+사용자 정의 적용자를 정의하려면 사용자 정의 적용자 정의에서 선택적인 [`SqlUserDefinedApplier`] 특성을 포함한 `IApplier` 인터페이스를 생성해야 합니다.
 
 ```c#
     [SqlUserDefinedApplier]

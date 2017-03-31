@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 0de0590c1cf5c71a7174fdcca84847b378aa40f8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>암호 관리에 대한 자세한 정보
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 03/15/2017
 ### <a name="supported-clients"></a>지원되는 클라이언트
 비밀번호 쓰기 저장을 사용하려는 경우 Azure AD Connect의 자동 업데이트 기능을 사용하거나 최신 버전의 [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect)를 설치하는 것이 좋습니다.
 
-* **DirSync(1.0.6862 이상의 모든 버전)** - _지원되지 않음_ - 기본 쓰기 저장 기능만을 지원하고 제품 그룹에서 더 이상 지원되지 않습니다. 
+* **DirSync(1.0.6862 이상의 모든 버전)** - _지원되지 않음_ - 기본 쓰기 저장 기능만을 지원하고 제품 그룹에서 더 이상 지원되지 않습니다.
 * **Azure AD Sync** - _사용되지 않음_ - 기본 쓰기 저장 기능을 지원하고 계정 잠금 해제 기능, 다양한 로깅 및 Azure AD Connect에서 향상된 안정성이 제공되지 않습니다. 따라서 **항상** 업그레이드하는 것이 좋습니다.
 * **Azure AD Connect** - _완전히 지원됨_ - 모든 쓰기 저장 기능을 지원합니다. 가장 훌륭한 새로운 기능 및 안정성을 가능하게 하는 최신 버전으로 업그레이드하세요.
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 03/15/2017
 * **Enterprise Mobility Suite** - 비밀번호 쓰기 저장 사용에 대한 제한 없음
 * **Enterprise Cloud Suite** - 비밀번호 쓰기 저장 사용에 대한 제한 없음
 
-평가판 또는 유료인지에 상관 없이 Office 365 라이선스 계획에서 비밀번호 쓰기 저장을 사용하지 않을 수 있습니다. 이 기능을 사용하기 위해 위의 계획 중 하나로 업그레이드해야 합니다. 
+평가판 또는 유료인지에 상관 없이 Office 365 라이선스 계획에서 비밀번호 쓰기 저장을 사용하지 않을 수 있습니다. 이 기능을 사용하기 위해 위의 계획 중 하나로 업그레이드해야 합니다.
 
 Office 365 SKU에 비밀번호 쓰기 저장을 사용할 예정이 없습니다.
 
@@ -166,7 +166,7 @@ Office 365 SKU에 비밀번호 쓰기 저장을 사용할 예정이 없습니다
 * **지원되지 않는 관리자 작업**
  * [Office 관리 포털](https://portal.office.com)에서 관리자 시작 최종 사용자 암호 재설정
  * PowerShell v1, v2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
- 
+
 이러한 제한을 제거하기 위해 노력하고 있지만 아직 공유할 수 있는 일정은 없습니다.
 
 ## <a name="password-writeback-security-model"></a>암호 쓰기 저장 보안 모델
@@ -180,9 +180,9 @@ Office 365 SKU에 비밀번호 쓰기 저장을 사용할 예정이 없습니다
 ### <a name="password-writeback-encryption-details"></a>비밀번호 쓰기 저장 암호화 세부 정보
 아래에서는 사용자가 암호 재설정 요청을 전송한 이후부터 온-프레미스 환경에 도달하기 전까지 최대 서비스 안정성 및 보안을 보장하기 위해 진행되는 암호화 단계를 설명합니다.
 
-* **1단계 - 2048비트 RSA 키를 사용한 암호 암호화** - 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 먼저 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다. 
+* **1단계 - 2048비트 RSA 키를 사용한 암호 암호화** - 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 먼저 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다.
 
-* **2단계 - AES-GCM을 사용한 패키지 수준 암호화** - AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 그러면 기본 Service Bus 채널에 대한 직접 액세스 권한을 가진 사용자가 콘텐츠를 보기/변조하지 않도록 방지합니다. 
+* **2단계 - AES-GCM을 사용한 패키지 수준 암호화** - AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 그러면 기본 Service Bus 채널에 대한 직접 액세스 권한을 가진 사용자가 콘텐츠를 보기/변조하지 않도록 방지합니다.
 
 * **3단계 - 모든 통신이 TLS/SSL에 발생** - 또한 Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 권한이 없는 제3자에게서 콘텐츠를 보호합니다.
 
@@ -623,13 +623,13 @@ Not possible in PowerShell V2
 1. **기존 Azure AD 테넌트를 사용하는 파트너 조직의 사용자** - 제휴한 조직에 기존 Azure AD 테넌트 작업이 있는 경우 **해당 테넌트에서 사용되는 암호 재설정 정책을 따릅니다**. 암호 재설정이 작동하기 위해 파트너 조직은 Azure AD SSPR을 사용하는지 확인해야 합니다. 이 작업은 O365 고객에 대한 추가 비용 없이 [암호 관리 시작](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) 가이드의 단계를 수행하여 활성화될 수 있습니다.
 2. **[셀프 서비스 등록](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)을 사용하여 로그인한 사용자** - 제휴한 조직이 [셀프 서비스 등록](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) 기능을 사용하여 테넌트에 들어간 경우 등록한 전자 메일을 사용하여 재설정을 즉시 다시 설정하도록 합니다.
 3. **B2B 사용자** - 새 [Azure AD B2B 기능](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)을 사용하여 만든 모든 새 B2B 사용자는 초대를 처리하는 동안 등록된 전자 메일을 사용하여 즉시 암호를 재설정할 수 있습니다.
- 
+
 이를 테스트하려면 이러한 파트너 사용자 권한을 사용하여 http://passwordreset.microsoftonline.com으로 이동합니다.  대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동됩니다.  SSPR에서 사용한 데이터에 대한 자세한 정보는 [암호 재설정에서 사용되는 데이터](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset) 개요에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다

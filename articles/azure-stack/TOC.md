@@ -36,8 +36,9 @@
 
 # 보안 및 규정 준수
 ## 방법
-### [사용자 권한 관리](azure-stack-manage-permissions.md)
+### [RBAC 관리](azure-stack-manage-permissions.md)
 ### [AD FS 사용자 추가](azure-stack-add-users-adfs.md)
+### [서비스 주체 만들기](Azure-stack-create-service-principals.md)
 
 # 서비스 제공
 ## 시작
@@ -113,6 +114,9 @@
 # 문제 해결
 ## [알려진 문제](azure-stack-troubleshooting.md)
 ## [Azure Stack의 진단](azure-stack-diagnostics.md)
+
+# 참조
+## [API 버전 프로필 관리](azure-stack-version-profiles.md)
 
 # 리소스
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

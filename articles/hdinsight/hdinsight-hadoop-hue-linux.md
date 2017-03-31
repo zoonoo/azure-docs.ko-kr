@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
-ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a5fbd7cd4b57b1bd54c5483fc39733cfd3a8dcca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -87,10 +89,8 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 2. SSH 터널을 생성하고 이를 통해 프록시 트래픽에 대한 브라우저를 구성했으면 기본 헤드 노드의 호스트 이름을 찾아야 합니다. 포트 22에 SSH를 사용하는 클러스터에 연결하여 수행할 수 있습니다. 예를 들어 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`과 같으며, 여기서 **USERNAME**은 SSH 사용자 이름이고 **CLUSTERNAME**은 클러스터의 이름입니다.
 
-    SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-   * [Linux, Unix 및 Mac OS X 클라이언트에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Windows 클라이언트에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. 일단 연결되면 다음 명령을 사용하여 기본 헤드 노드의 정규화된 도메인 이름을 확인합니다.
 
         hostname -f
@@ -154,9 +154,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

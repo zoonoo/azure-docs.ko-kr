@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 03/29/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6d048b73528d1812f1be9585d30812ca4aeaa397
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -25,7 +25,6 @@ ms.lasthandoff: 03/17/2017
 Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 응용 프로그램 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 응용 프로그램 배포를 Traffic Manager에서 '끝점'으로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 끝점을 선택합니다. Traffic Manager는 현재 끝점 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)을 참조하세요.
 
 Traffic Manager에서 지원되는 끝점에는 세 가지 종류가 있습니다.
-
 * **Azure 끝점**은 Azure에서 호스팅되는 서비스에 사용됩니다.
 * **외부 끝점**은 온-프레미스 또는 다른 호스팅 공급자 중 하나로 Azure 외부에서 호스팅되는 서비스에 사용됩니다.
 * **중첩 끝점** 은 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 Traffic Manager 프로필을 결합하는 데 사용됩니다.
@@ -54,7 +53,7 @@ Azure 끝점을 사용하는 경우 Traffic Manager는 '클래식' IaaS VM, 클�
 * 전 세계 사용자를 위해 응용 프로그램 대기 시간을 줄이려면 Azure에서 추가 지리적 위치에 대한 기존 온-프레미스 응용 프로그램을 확장합니다. 자세한 내용은 [Traffic Manager '성능' 트래픽 라우팅](traffic-manager-routing-methods.md#performance-traffic-routing-method)을 참조하세요.
 * 지속적으로 또는 스파이크 수요를 충족하기 위해 '클라우드로 버스트'로 기존 온-프레미스 응용 프로그램에 대한 추가 용량을 제공하는 데 Azure를 사용합니다.
 
-경우에 따라 Azure 서비스를 참조하는 데 외부 끝점을 사용하는 것이 유용합니다.(예는 [FAQ](#faq) 참조). 이 경우 상태 검사는 외부 끝점 비율이 아닌 Azure 끝점 비율로 청구됩니다. 그러나 Azure 끝점과 달리 기본 서비스를 중지하거나 삭제하는 경우 Traffic Manager에서 끝점을 비활성화하거나 삭제하기 전까지 상태 검사 요금 청구는 계속됩니다.
+경우에 따라 Azure 서비스를 참조하는 데 외부 끝점을 사용하는 것이 유용합니다.(예는 [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints) 참조). 이 경우 상태 검사는 외부 끝점 비율이 아닌 Azure 끝점 비율로 청구됩니다. 그러나 Azure 끝점과 달리 기본 서비스를 중지하거나 삭제하는 경우 Traffic Manager에서 끝점을 비활성화하거나 삭제하기 전까지 상태 검사 요금 청구는 계속됩니다.
 
 ## <a name="nested-endpoints"></a>중첩 끝점
 
@@ -66,7 +65,7 @@ Traffic Manager에서 끝점으로 웹앱을 구성하는 경우 몇 가지 추�
 
 1. '표준' SKU 이상에서의 Web Apps만 Traffic Manager와 함께 사용할 수 있습니다. 더 낮은 SKU의 웹앱을 추가하려는 시도는 실패합니다. 기존 웹앱의 SKU를 다운그레이드하면 Traffic Manager는 해당 웹앱에 더 이상 트래픽을 전송하지 않게 됩니다.
 2. 끝점에서 HTTP 요청을 받으면 요청의 '호스트' 헤더를 사용하여 요청을 처리해야 하는 웹앱을 결정합니다. 호스트 헤더는 요청을 시작하는 데 사용된 DNS 이름을 포함합니다(예: 'contosoapp.azurewebsites.net'). 웹앱에 다른 DNS 이름을 사용하려면 DNS 이름은 앱에 대한 사용자 지정 도메인 이름으로 등록되어야 합니다. Azure 끝점으로 Web App 끝점을 추가하면 Traffic Manager 프로필 DNS 이름은 앱에 대해 자동으로 등록됩니다. 이 등록은 끝점이 삭제될 때 자동으로 제거됩니다.
-3. 각 Traffic Manager 프로필은 각 Azure 지역에서 최대 하나의 웹앱 끝점을 가질 수 있습니다. 이 제약 조건을 해결하려면 웹앱을 외부 끝점으로 구성할 수 있습니다. 자세한 내용은 [FAQ](#faq)을 참조하세요.
+3. 각 Traffic Manager 프로필은 각 Azure 지역에서 최대 하나의 웹앱 끝점을 가질 수 있습니다. 이 제약 조건을 해결하려면 웹앱을 외부 끝점으로 구성할 수 있습니다. 자세한 내용은 [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)을 참조하세요.
 
 ## <a name="enabling-and-disabling-endpoints"></a>끝점 활성화 및 비활성화
 

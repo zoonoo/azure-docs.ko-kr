@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 38fd2e8fce99762cb7c6b6fb160f23a786fb0532
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4d2799b8eecc6f4d733f0e29129df4fed0507959
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -102,7 +103,7 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
         New-AzureVM –ServiceName $svcname -VMs $vm1
 
 > [!NOTE]
-> 추가 설명과 구성 옵션은 **Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성** 의 [명령 집합 빌드](../../virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)섹션을 참조하세요.
+> 추가 설명과 구성 옵션은 **Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성** 의 [명령 집합 빌드](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)섹션을 참조하세요.
 > 
 > 
 
@@ -155,17 +156,12 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 원격 데스크톱을 사용하여 컴퓨터에 로그온한 후 [Azure VM에서 SQL Server 연결을 구성하기 위한 단계](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)의 지침에 따라 SQL Server를 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[가상 컴퓨터 설명서](../../virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에서 PowerShell을 사용하여 가상 컴퓨터를 프로비전하는 추가 지침을 찾을 수 있습니다. SQL Server 및 프리미엄 저장소에 관련된 추가 스크립트는 [가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용](virtual-machines-windows-classic-sql-server-premium-storage.md)을 참조하세요.
+[가상 컴퓨터 설명서](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에서 PowerShell을 사용하여 가상 컴퓨터를 프로비전하는 추가 지침을 찾을 수 있습니다. SQL Server 및 프리미엄 저장소에 관련된 추가 스크립트는 [가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용](../classic/sql-server-premium-storage.md)을 참조하세요.
 
 대부분의 경우 다음 단계는 이 새로운 SQL Server VM에 데이터베이스를 마이그레이션하는 것입니다. 데이터베이스 마이그레이션 지침은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)을 참조하세요.
 
 또한 Azure 포털을 사용하여 SQL 가상 컴퓨터를 만드는 방법을 알아보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 자습서는 포털을 통해 이 PowerShell 항목에서 사용되는 클래식 모델이 아닌 권장되는 리소스 관리자 모델을 사용하여 VM을 만드는 과정을 안내합니다.
 
 이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](../sql/virtual-machines-windows-sql-server-iaas-overview.md)을 확인하는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

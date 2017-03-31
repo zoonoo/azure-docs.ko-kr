@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2214315f084aec80986fe30ebcaff6813162c5f8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,10 +81,7 @@ HDInsight 클러스터에서 Solr을 설치하는 샘플 스크립트는 다음 
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-   
-   * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
      
      > [!IMPORTANT]
      > 이 문서의 이후 단계에서 SSL 터널을 사용하여 Solr 웹 UI에 연결합니다. 다음이 단계를 사용하려면 SSL 터널을 설정하고 브라우저를 구성하여 사용해야 합니다.
@@ -173,10 +170,8 @@ SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 �
    
    1. SSH를 사용하여 포트 22에 있는 클러스터에 연결합니다. 예를 들어 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`과 같으며, 여기서 **USERNAME**은 SSH 사용자 이름이고 **CLUSTERNAME**은 클러스터의 이름입니다.
       
-       SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-      
-      * [Linux, Unix 또는 Mac OS X 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-      * [Windows 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+       자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
    2. 다음 명령을 사용하여 정규화된 호스트 이름을 가져옵니다.
       
            hostname -f

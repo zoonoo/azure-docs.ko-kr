@@ -5,20 +5,17 @@
 ## [DB 만들기 - 포털](sql-database-get-started-portal.md)
 ## [DB 만들기 - Azure CLI](sql-database-get-started-cli.md)
 ## [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
-## 연결
+## 관리
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS 코드](sql-database-connect-query-vscode.md)
+## 연결
 ### [C#](sql-database-connect-query-dotnet.md)
 # 샘플
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # 자습서
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## 복구
-### [포털](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [데이터베이스 설계](sql-database-design-first-database.md)
+
 # 개념
 ## DB 및 서버
 ### [데이터베이스](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## DB 액세스 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## 데이터 보호
 ### [Azure AD 인증](sql-database-aad-authentication-configure.md)
 ### [감사](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [암호화 - 인증서 저장소](sql-database-always-encrypted.md)
 ### [암호화 - 키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md)
 ### [마스크 구성](sql-database-dynamic-data-masking-get-started-portal.md)
-## 백업 및 복원
-### [복원 - 포털](sql-database-restore-database-portal.md)
+## 복구
+### [포털](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [단일 테이블](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## 보존
 ### [보존 - 포털](sql-database-manage-long-term-backup-retention-portal.md)
 ### [보존 - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [단일 테이블 복구](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## 데이터 지역에서 복제
 ### [포털](sql-database-geo-replication-portal.md)
 ### [T-SQL - 구성](sql-database-geo-replication-transact-sql.md)
