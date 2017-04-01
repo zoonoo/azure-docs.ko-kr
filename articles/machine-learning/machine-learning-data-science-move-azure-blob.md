@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev;sachouks
 translationtype: Human Translation
 ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
 ms.openlocfilehash: 1e773a1332d14109e9f50fb7db17528d061a98f2
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -48,10 +49,5 @@ ms.openlocfilehash: 1e773a1332d14109e9f50fb7db17528d061a98f2
 
 * Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

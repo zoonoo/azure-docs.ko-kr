@@ -34,8 +34,6 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 이 예제에서는 VM이 평소보다 더 많은 TCP 세그먼트를 보내고 있으며 이를 경고하려고 합니다. TCP 세그먼트는 예로 사용되며 경고 조건을 사용할 수 있습니다. 경고를 보낸 경우, 통신이 증가한 이유를 알기 위해 패킷 수준 데이터를 포함하려고 하므로 컴퓨터를 일반 통신으로 반환하는 단계를 수행할 수 있습니다.
 이 시나리오에서는 Network Watcher의 기존 인스턴스가 있고 유효한 가상 컴퓨터가 사용되는 리소스 그룹이 있다고 가정합니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>시나리오
 
 이 프로세스를 자동화하려면, 인시던트가 발생할 때 VM에서 트리거할 경고를 만들고 연결하며 Network Watcher를 호출할 Azure Function을 만들고 연결합니다.

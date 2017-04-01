@@ -31,8 +31,6 @@ Network Watcher의 패킷 캡처 기능을 사용하여 포털, PowerShell, CLI,
 
 이 시나리오에서는 가상 컴퓨터에서 패킷 캡처를 이미 실행했다고 가정합니다. 패킷 캡처를 만드는 방법에 대해 알아보려면 [포털에서 패킷 캡처 관리](network-watcher-packet-capture-manage-portal.md)(영문)를 방문하거나 [REST API로 패킷 캡처 관리](network-watcher-packet-capture-manage-rest.md)(영문)를 방문하여 REST를 사용하세요.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>시나리오
 
 이 시나리오에서는 다음을 수행합니다.

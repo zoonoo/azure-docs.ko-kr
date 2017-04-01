@@ -15,17 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
+ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
 ms.openlocfilehash: 42443f614b76b8180ac163b9889163021adbf048
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
 # <a name="introduction-to-topology-in-azure-network-watcher"></a>Azure Network Watcher에서 토폴로지 소개
 
 토폴로지는 가상 네트워크에서 네트워크 리소스의 그래프를 반환합니다. 이 그래프는 리소스 간 상호 연결을 보여 주고 종단 간 네트워크 연결을 나타냅니다.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![토폴로지 개요][1]
 

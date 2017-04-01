@@ -29,8 +29,6 @@ IP 흐름 확인은 가상 컴퓨터의 네트워크 인터페이스를 대상�
 
 Network Watcher의 인스턴스는 IP 흐름을 실행하려는 모든 지역에서 만들어져야 합니다. Network Watcher는 지역 서비스이며 동일한 지역의 리소스에 대해서만 실행할 수 있습니다. NIC와 연결된 경로는 여전히 반환되므로 IP 흐름 확인의 결과에 영향을 주지 않습니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![1][1]
 
 ## <a name="next-steps"></a>다음 단계

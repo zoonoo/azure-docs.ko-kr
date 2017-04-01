@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
 ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 > 
 > 
 
-## <a name="a-namesmalllocalascenario-1-small-to-medium-tabular-dataset-in-a-local-files"></a><a name="smalllocal"></a>시나리오 \#1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
+## <a name="smalllocal"></a>시나리오 \#1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
 ![보통 로컬 파일보다 작음][1]
 
 #### <a name="additional-azure-resources-none"></a>추가 Azure 리소스: 없음
@@ -49,7 +50,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 2. 데이터 집합을 업로드합니다.
 3. 데이터 집합을 업로드한 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
-## <a name="a-namesmalllocalprocessascenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음
+## <a name="smalllocalprocess"></a>시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음
 ![처리 중인 중간 로컬 파일보다 작음][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (IPython Notebook 서버)
@@ -62,7 +63,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 7. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 8. 수집된 데이터 집합으로 시작하여 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
-## <a name="a-namelargelocalascenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>시나리오 \#3: 로컬 파일에서 큰 데이터 집합, Azure Blob을 대상으로 함
+## <a name="largelocal"></a>시나리오 \#3: 로컬 파일에서 큰 데이터 집합, Azure Blob을 대상으로 함
 ![큰 로컬 파일][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (IPython Notebook 서버)
@@ -77,7 +78,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 9. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
 10. 수집된 데이터 집합으로 시작하여 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
-## <a name="a-namesmalllocaltodbascenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
+## <a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 ![Azure에서 SQL DB보다 중간인 로컬 파일보다 작음][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
@@ -107,7 +108,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 10. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 11. 수집된 데이터 집합으로 시작하여 Azure 컴퓨터 학습 실험 흐름을 작성합니다.
 
-## <a name="a-namelargelocaltodbascenario-5-large-dataset-in-a-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
+## <a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 로컬 파일][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
@@ -148,7 +149,7 @@ ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 8. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 9. 업로드 데이터 집합으로 단순 Azure 기계 학습 실험 흐름 시작
 
-## <a name="a-namelargedbtodbascenario-6-large-dataset-in-a-sql-server-database-on-prem-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
+## <a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 SQL DB 온-프레미스][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure 가상 컴퓨터 (SQL Server / IPython Notebook 서버)
@@ -196,7 +197,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 [분리 및 연결을 사용하여 데이터베이스 이동(Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="a-namelargedbtohiveascenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>시나리오 \#7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함
+## <a name="largedbtohive"></a>시나리오 \#7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함
 ![로컬 대상 Hive의 빅 데이터][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>추가 Azure 리소스: Azure HDInsight Hadoop 클러스터 및 Azure Virtual Machine(IPython Notebook 서버)
@@ -240,7 +241,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 9. [데이터 가져오기][import-data] 모듈을 사용하여 `Hive Queries`에서 데이터를 직접 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 10. 업로드 데이터 집합으로 단순 Azure 기계 학습 실험 흐름 시작
 
-## <a name="a-namedecisiontreeadecision-tree-for-scenario-selection"></a><a name="decisiontree"></a>시나리오 선택 의사 결정 트리
+## <a name="decisiontree"></a>시나리오 선택 의사 결정 트리
 - - -
 다음 다이어그램에는 위에서 설명한 시나리오 및 각 항목별 시나리오를 안내하도록 구성된 고급 분석 프로세스 및 기술이 요약되어 있습니다. 데이터 처리, 탐색, 기능 엔지니어링 및 샘플링은 소스, 중간 및/또는 대상 환경에서 하나 이상의 메서드/환경에서 발생할 수 있으며, 필요에 따라 반복적으로 진행할 수 있습니다. 이 다이어그램은 가능한 모든 흐름을 열거한 것이 아니라 일부만을 보여 줄 뿐입니다.
 
@@ -265,9 +266,4 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

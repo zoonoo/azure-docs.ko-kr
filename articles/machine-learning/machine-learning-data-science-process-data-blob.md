@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
+ms.lasthandoff: 12/13/2016
 
 
 ---
-# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
+# <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob 저장소에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Pandas 데이터 프레임에 데이터 로드
@@ -50,7 +51,7 @@ ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
 
 이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
 
-## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>데이터 탐색
+## <a name="blob-dataexploration"></a>데이터 탐색
 다음은 Pandas를 사용하여 데이터를 탐색하는 방법의 예입니다.
 
 1. 행 및 열 수를 검사합니다. 
@@ -95,10 +96,10 @@ ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>기능 생성
+## <a name="blob-featuregen"></a>기능 생성
 다음과 같이 Python을 사용하여 기능을 생성할 수 있습니다.
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>표시기 값 기반 기능 생성
+### <a name="blob-countfeature"></a>표시기 값 기반 기능 생성
 범주 기능은 다음과 같은 방법으로 만들 수 있습니다.
 
 1. 범주 열의 분포를 검사합니다.
@@ -117,7 +118,7 @@ ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>범주화 기능 생성
+### <a name="blob-binningfeature"></a>범주화 기능 생성
 범주화된 기능을 생성하려면 다음 단계를 진행합니다.
 
 1. 열 시퀀스를 추가하여 숫자 열을 범주화합니다.
@@ -131,7 +132,7 @@ ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
+## <a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
 데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다. 
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
@@ -167,10 +168,5 @@ ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
+ms.sourcegitcommit: 1aa8fff31d8d1908b1ea93cb970487d08ea4adf6
 ms.openlocfilehash: ddd6fcc8de133a5ff5f427d070c6c6ec207d9236
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,8 +34,6 @@ IP 흐름 확인은 가상 컴퓨터 간에 트래픽을 허용하는지를 확�
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 시나리오에서는 사용자가 Network Watcher를 만들거나 Network Watcher의 기존 인스턴스를 가져오는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>시나리오
 

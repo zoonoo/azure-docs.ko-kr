@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,8 +33,6 @@ ms.lasthandoff: 02/22/2017
 이 시나리오에서는 가상 컴퓨터에서 반환된 보안 그룹 보기 결과를 알려진 적합한 기준선과 비교합니다.
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>시나리오
 

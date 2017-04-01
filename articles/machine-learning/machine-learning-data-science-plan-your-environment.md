@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: d11f023f263b0bb504e2ecb0ff69bb0cc726618b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -104,10 +105,5 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>고급 분석 시나리오 파악
 이전 섹션의 질문에 대답하고 나면 어떤 시나리오가 가장 적합한지 결정할 수 있습니다. 샘플 시나리오는 [Azure 기계 학습의 고급 분석 시나리오](machine-learning-data-science-plan-sample-scenarios.md)에 약술되어 있습니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

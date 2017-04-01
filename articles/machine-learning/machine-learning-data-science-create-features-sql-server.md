@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
 * Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
 * 데이터가 SQL Server에 저장되어 있습니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md) 을 참조하세요.
 
-## <a name="a-namesql-featuregenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>SQL로 기능 생성
+## <a name="sql-featuregen"></a>SQL로 기능 생성
 이 섹션에서는 SQL을 사용하여 기능을 생성하는 방법에 대해 설명합니다.  
 
 1. [개수 기반 기능 생성](#sql-countfeature)
@@ -50,7 +51,7 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>개수 기반 기능 생성
+### <a name="sql-countfeature"></a>개수 기반 기능 생성
 이 문서에서는 개수 기능을 생성하는 두 가지 방법을 보여 줍니다. 첫 번째 방법에서는 조건부 합계를 사용하고, 두 번째 방법에서는 'where' 절을 사용합니다. 그런 다음 원래 데이터와 함께 개수 기능을 유지하도록 원래 테이블에 조인할 수 있습니다(기본 키 열 사용).
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -58,13 +59,13 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>범주화 기능 생성
+### <a name="sql-binningfeature"></a>범주화 기능 생성
 다음 예제에서는 기능으로 사용할 수 있는 숫자 열을 범주화하여(5개의 bin 사용) 범주화된 기능을 생성하는 방법을 보여 줍니다.
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>단일 열에서 기능 롤아웃
+### <a name="sql-featurerollout"></a>단일 열에서 기능 롤아웃
 이 섹션에서는 테이블의 단일 열을 롤아웃하여 추가 기능을 생성하는 방법을 보여 줍니다. 이 예제에서는 기능을 생성하려는 테이블에 위도 또는 경도 열이 있는 것으로 가정합니다.
 
 다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow( `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
@@ -101,12 +102,12 @@ ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Azure 기계 학습에 연결
+### <a name="sql-aml"></a>Azure 기계 학습에 연결
 새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure 기계 학습에서는 아래 표시된 대로 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 모듈을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
 
 ![azureml 판독기](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Python과 같은 프로그래밍 언어 사용
+## <a name="python"></a>Python과 같은 프로그래밍 언어 사용
 데이터가 SQL Server에 있는 경우 Python을 사용하여 기능을 생성하는 작업은 [데이터 과학 환경에서 Azure Blob 데이터 처리](machine-learning-data-science-process-data-blob.md)에 설명된 대로 Python을 사용하여 Azure Blob의 데이터를 처리하는 것과 유사합니다. 데이터베이스에서 pandas 데이터 프레임으로 데이터를 로드해야 하며, 그런 다음 데이터를 추가로 처리할 수 있습니다. 데이터베이스에 연결하여 데이터 프레임으로 데이터를 로드하는 프로세스는 이 섹션에 설명되어 있습니다.
 
 다음 연결 문자열 형식은 pyodbc를 사용(servername, dbname, username 및 password를 특정 값으로 대체)하여 Python에서 SQL Server 데이터베이스 연결하는 데 사용될 수 있습니다.
@@ -121,10 +122,5 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 이제 [Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기](machine-learning-data-science-create-features-blob.md)토픽에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
