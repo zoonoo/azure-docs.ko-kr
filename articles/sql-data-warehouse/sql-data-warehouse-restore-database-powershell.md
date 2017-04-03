@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0b6f4fa657a16196ba8f42c2137dc3c245d25a07
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -175,9 +177,4 @@ Azure SQL Database 버전의 무중단 업무 방식 기능에 대해 알아보�
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
