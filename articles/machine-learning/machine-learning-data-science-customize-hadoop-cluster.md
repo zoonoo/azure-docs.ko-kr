@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
 ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
 
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-## <a name="a-namecustomizeacustomize-azure-hdinsight-hadoop-cluster"></a><a name="customize"></a>Azure HDInsight Hadoop 클러스터 사용자 지정
+## <a name="customize"></a>Azure HDInsight Hadoop 클러스터 사용자 지정
 사용자 지정 HDInsight Hadoop 클러스터를 만들려면 [**Azure 클래식 포털**](https://manage.windowsazure.com/)에 로그온한 후 왼쪽 아래에서 **새로 만들기**를 클릭한 다음 Data Services -> HDINSIGHT -> **사용자 지정 만들기**를 선택하여 **클러스터 세부 정보** 창을 불러와야 합니다. 
 
 ![작업 영역 만들기](./media/machine-learning-data-science-customize-hadoop-cluster/customize-cluster-img1.png)
@@ -66,7 +67,7 @@ ms.openlocfilehash: 9104c45508afdb5682c44db64576a0cdae95d75f
 
 ![작업 영역 만들기](./media/machine-learning-data-science-customize-hadoop-cluster/script-actions.png)
 
-## <a name="a-nameheadnodea-access-the-head-node-of-hadoop-cluster"></a><a name="headnode"></a> Hadoop 클러스터의 헤드 노드 액세스
+## <a name="headnode"></a> Hadoop 클러스터의 헤드 노드 액세스
 RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 Azure에서 Hadoop 클러스터에 대한 원격 액세스를 설정해야 합니다. 
 
 1. [**Azure 클래식 포털**](https://manage.windowsazure.com/)에 로그인하여 왼쪽에서 **HDInsight**를 선택하고 클러스터 목록에서 Hadoop 클러스터를 선택한 후 **구성** 탭을 클릭하고 페이지 아래쪽에서 **원격 사용** 아이콘을 클릭합니다.
@@ -88,10 +89,5 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 고급 분석 프로세스의 다음 단계는 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure Machine Learning에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 클러스터에 저장된 Hive 레코드를 처리하는 데 사용된 UDF(사용자 정의 함수)의 클러스터 헤드 노드에서 Anaconda에 포함된 Python 모듈에 액세스하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](machine-learning-data-science-move-hive-tables.md#submit)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

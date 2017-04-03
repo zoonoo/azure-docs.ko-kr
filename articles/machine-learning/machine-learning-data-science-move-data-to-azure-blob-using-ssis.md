@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
 ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
+ms.lasthandoff: 12/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐�
 
 * SSIS를 사용하여 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하려면 [Azure HDInsight Hive 작업](https://msdn.microsoft.com/library/mt146771.aspx)을 사용합니다.
 * SSIS를 사용하여 Azure HDInsight 클러스터에서 Pig 스크립트를 실행하려면 [Azure HDInsight Pig 작업](https://msdn.microsoft.com/library/mt146781.aspx)을 사용합니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

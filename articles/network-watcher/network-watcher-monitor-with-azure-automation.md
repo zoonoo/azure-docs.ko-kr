@@ -26,8 +26,6 @@ ms.lasthandoff: 03/29/2017
 
 고객에게 안정적인 서비스를 제공하기 위해서는 네트워크 성능에 대해 깊은 통찰력을 얻는 것이 중요합니다. 따라서 네트워크 중단 상태를 신속하게 검색하고 수정 작업을 수행하여 중단 조건을 완화하는 것이 중요합니다. Azure Automation을 사용하면 Runbook을 통해 프로그래밍 방식으로 작업을 구현 및 실행할 수 있습니다. Azure Automation을 사용하면 지속적인 자동 관리 네트워크 모니터링 및 경고를 수행하는 완벽한 작성법이 만들어집니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>시나리오
 
 다음 이미지의 시나리오는 VPN Gateway 및 터널을 사용하여 온-프레미스 연결이 설정된 여러 계층의 응용 프로그램입니다. 응용 프로그램 성능을 위해서는 VPN Gateway가 작동되어 실행 중인지 확인하는 것이 중요합니다.

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 0f3264abf6216270aa9cdd62ce3acf8640e2375a
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -39,7 +40,7 @@ ms.openlocfilehash: 0f3264abf6216270aa9cdd62ce3acf8640e2375a
 ## <a name="how-to-submit-hive-queries"></a>Hive 쿼리를 제출하는 방법
 Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다. 이렇게 하려면 Hadoop 클러스터의 헤드 노드에 로그인하여 Hadoop 명령줄 콘솔을 열고 여기에서 Hive 쿼리를 제출합니다. Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](machine-learning-data-science-move-hive-tables.md#submit)을 참조하세요.
 
-## <a name="a-nameuniforma-uniform-random-sampling"></a><a name="uniform"></a> 균일한 무작위 샘플링
+## <a name="uniform"></a> 균일한 무작위 샘플링
 균일한 무작위 샘플링은 데이터 집합의 각 행에 동일한 샘플링 기회가 주어짐을 의미합니다. 이는 해당 무작위 필드에 대한 조건을 부여하는 내부 "select" 쿼리 및 외부 "select" 쿼리에서 데이터 집합에 추가 필드 rand()를 추가하여 구현할 수 있습니다.
 
 다음은 예제 쿼리입니다.
@@ -57,7 +58,7 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
 
 여기서 `<sample rate, 0-1>` 은 사용자가 샘플링할 레코드의 비율을 지정합니다.
 
-## <a name="a-namegroupa-random-sampling-by-groups"></a><a name="group"></a> 그룹별 무작위 샘플링
+## <a name="group"></a> 그룹별 무작위 샘플링
 범주 데이터를 샘플링할 때 범주 변수의 특정 값 인스턴스를 모두 포함하거나 제외할 수 있습니다. "그룹별 샘플링"의 의미가 바로 이것입니다.
 예를 들어 값이 NY, MA, CA, NJ, PA 등인 범주 변수 "State"가 있는 경우 샘플링 여부에 상관없이 동일한 state의 레코드를 항상 함께 유지할 수 있습니다.
 
@@ -87,7 +88,7 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
         )c
     on b.catfield=c.catfield
 
-## <a name="a-namestratifiedastratified-sampling"></a><a name="stratified"></a>계층화된 샘플링
+## <a name="stratified"></a>계층화된 샘플링
 무작위 샘플링은 가져온 샘플에 해당 상위 모집단과 동일한 비율의 범주 값이 있는 경우 범주 변수에 대해 계층화됩니다. 위와 동일한 예제에서 데이터에 state별 하위 모집단이 있으며, NJ에 100개의 관찰, NY에 60개의 관찰, WA에 300개의 관찰이 있다고 가정해 보겠습니다. 계층화된 샘플링 비율을 0.5로 지정하면 가져온 샘플에 대략적으로 각각 50개, 30개 및 150개의 NJ, NY 및 WA 관찰이 있게 됩니다.
 
 다음은 예제 쿼리입니다.
@@ -107,10 +108,5 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
 
 
 Hive에서 사용할 수 있는 고급 샘플링 방법에 대한 자세한 내용은 [LanguageManual 샘플링](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

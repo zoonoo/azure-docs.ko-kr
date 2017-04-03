@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;ankarlof
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c7564326426a4b40e4c6ab471b9c315f1633ebb6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -370,10 +371,5 @@ R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동
 
 * 비영구 파일 시스템: 사용자 지정 모듈을 실행할 때 작성한 파일은 동일한 모듈의 여러 실행에서 유지되지 않습니다.
 * 네트워크 액세스 불가
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

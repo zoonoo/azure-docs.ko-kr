@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-sql-server-on-azure"></a><a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
+# <a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여 줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure 기계 학습 스튜디오로 읽어 들여 Azure 기계 학습으로 이동하는 방법을 보여 줍니다.
 
 Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) 라이브러리에 연결하기 위해 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
@@ -39,7 +40,7 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 
 이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>SQL 사용
+## <a name="SQL"></a>SQL 사용
 이 섹션에는 SQL을 사용하여 데이터베이스의 데이터에 대해 간단한 무작위 샘플링을 수행하는 몇 가지 방법을 설명합니다. 데이터 크기 및 해당 분포에 따라 방법을 선택하세요.
 
 아래 두 항목은 SQL Server에서 newid를 사용하여 샘플링을 수행하는 방법을 보여 줍니다. 선택하는 방법은 샘플링할 무작위 수준에 따라 달라집니다. 아래 샘플 코드의 pk_id는 자동으로 생성된 기본 키로 간주됩니다.
@@ -64,12 +65,12 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Azure 기계 학습에 연결
+### <a name="sql-aml"></a>Azure 기계 학습에 연결
 Azure 기계 학습 [데이터 가져오기][import-data] 모듈에서 위의 샘플 쿼리를 직접 사용하여 데이터를 즉시 다운 샘플링한 후 Azure 기계 학습 실험으로 가져올 수 있습니다. 판독기 모듈을 사용하여 샘플링된 데이터를 읽는 스크린 샷이 아래에 표시되어 있습니다.
 
 ![판독기 sql][1]
 
-## <a name="a-namepythonausing-the-python-programming-language"></a><a name="python"></a>Python 프로그래밍 언어 사용
+## <a name="python"></a>Python 프로그래밍 언어 사용
 이 섹션에서는 [pyodbc 라이브러리](https://code.google.com/p/pyodbc/)를 사용하여 Python에서 SQL server 데이터베이스에 ODBC 연결을 설정하는 방법을 보여줍니다. 데이터베이스 연결 문자열은 다음과 같습니다. 여기서 servername, dbname, username 및 password를 고유한 구성으로 바꿉니다.
 
     #Set up the SQL Azure connection
@@ -85,7 +86,7 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 
 이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다. 
 
-### <a name="a-namepython-amlaconnecting-to-azure-machine-learning"></a><a name="python-aml"></a>Azure 기계 학습에 연결
+### <a name="python-aml"></a>Azure 기계 학습에 연결
 다음 샘플 코드를 사용하여 다운 샘플링한 데이터를 파일에 저장한 후 Azure Blob에 업로드할 수 있습니다. [데이터 가져오기][import-data] 모듈을 사용하여 Blob의 데이터를 Azure 기계 학습 실험으로 직접 읽을 수 있습니다. 단계는 다음과 같습니다. 
 
 1. pandas 데이터 프레임을 로컬 파일에 기록합니다.
@@ -123,9 +124,4 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

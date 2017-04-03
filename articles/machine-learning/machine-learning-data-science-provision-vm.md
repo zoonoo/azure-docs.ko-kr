@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
 ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -196,10 +197,5 @@ Microsoft R을 사용하여 데이터베이스 내 분석을 사용하도록 설
 * 문서 참조: [데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일](http://aka.ms/dsvmtenthings)
 * 체계적으로 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana Intelligence 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com) 를 방문하세요. 또한 가상 컴퓨터의 **시작** 메뉴 및 데스크톱에 이 갤러리에 대한 아이콘을 제공합니다.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 
