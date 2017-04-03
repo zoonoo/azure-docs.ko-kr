@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/16/2017
 >
 >
 
-## <a name="a-nameprereqsaprerequisites"></a><a name="prereqs"></a>필수 조건
+## <a name="prereqs"></a>필수 조건
 이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
@@ -52,14 +52,14 @@ ms.lasthandoff: 02/16/2017
 * 프로비전된 **Azure VM의 SQL Server**. 자세한 내용은 [고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook 서버로 설정](machine-learning-data-science-setup-sql-server-virtual-machine.md)을 참조하세요.
 * 로컬로 설치 및 구성된 **Azure PowerShell** . 자세한 내용은 [Azure PowerShell 설치 및 구성법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
-## <a name="a-namefilesourcetosqlonazurevma-moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터 이동
+## <a name="filesource_to_sqlonazurevm"></a> 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터 이동
 데이터가 플랫 파일에 있는 경우(행/열 형식으로 정렬됨) 다음 방법을 통해 Azure 기반의 SQL Server VM으로 데이터를 이동할 수 있습니다.
 
 1. [명령줄 BCP(대량 복사 유틸리티)](#insert-tables-bcp)
 2. [대량 삽입 SQL 쿼리 ](#insert-tables-bulkquery)
 3. [SQL Server의 기본 제공 그래픽 유틸리티(가져오기/내보내기, SSIS)](#sql-builtin-utilities)
 
-### <a name="a-nameinsert-tables-bcpacommand-line-bulk-copy-utility-bcp"></a><a name="insert-tables-bcp"></a>명령줄 BCP(대량 복사 유틸리티)
+### <a name="insert-tables-bcp"></a>명령줄 BCP(대량 복사 유틸리티)
 BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 이는 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM)에서 작동합니다.
 
 > [!NOTE]
@@ -89,7 +89,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 >
 >
 
-### <a name="a-nameinsert-tables-bulkquery-parallelaparallelizing-inserts-for-faster-data-movement"></a><a name="insert-tables-bulkquery-parallel"></a>더 빠른 데이터 이동을 위한 병렬 처리
+### <a name="insert-tables-bulkquery-parallel"></a>더 빠른 데이터 이동을 위한 병렬 처리
 이동하려는 데이터가 큰 경우 PowerShell 스크립트에서 동시에 여러 BCP 명령을 병렬로 수행하면 작업 속도를 높일 수 있습니다.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
     Set-ExecutionPolicy Restricted #reset the execution policy
 
 
-### <a name="a-nameinsert-tables-bulkqueryabulk-insert-sql-query"></a><a name="insert-tables-bulkquery"></a>대량 삽입 SQL 쿼리
+### <a name="insert-tables-bulkquery"></a>대량 삽입 SQL 쿼리
 [대량 삽입 SQL 쿼리](https://msdn.microsoft.com/library/ms188365)는 데이터를 행/열 기반 파일에서 데이터베이스로 가져오는 데 사용할 수 있습니다(지원되는 형식은 [대량 내보내기 또는 가져오기를 위한 데이터 준비(SQL Server)](https://msdn.microsoft.com/library/ms188609) 항목에서 설명).
 
 아래는 대량 삽입을 위한 몇 가지 샘플 명령입니다.  
@@ -154,14 +154,14 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
         ROWTERMINATOR ='\n'   --this should be the row separator in your data
         )
 
-### <a name="a-namesql-builtin-utilitiesabuilt-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>SQL Server의 기본 제공 그래픽 유틸리티
+### <a name="sql-builtin-utilities"></a>SQL Server의 기본 제공 그래픽 유틸리티
 SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이터를 Azure 기반의 SQL Server VM으로 가져올 수 있습니다.
 SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세한 내용은 [SSIS(Integration Services) 및 스튜디오 환경](https://technet.microsoft.com/library/ms140028.aspx)을 참조하세요.
 
 * SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx)  
 * 가져오기/내보내기 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx)
 
-## <a name="a-namesqlonpremtosqlonazurevmamoving-data-from-on-premises-sql-server-to-sql-server-on-an-azure-vm"></a><a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동
+## <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동
 다음과 같은 마이그레이션 전략을 사용할 수도 있습니다.
 
 1. [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
@@ -174,7 +174,7 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사
 **Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사** 는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
-### <a name="a-nameexport-flat-fileaexport-to-flat-file"></a><a name="export-flat-file"></a>플랫 파일로 내보내기
+### <a name="export-flat-file"></a>플랫 파일로 내보내기
 [데이터의 대량 가져오기 및 내보내기(SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 토픽에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
 
 1. 다음과 같이 bcp 유틸리티를 사용하여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
@@ -192,12 +192,12 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
         bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
 4. [파일 원본에서 데이터 이동](#filesource_to_sqlonazurevm) 섹션에 설명된 아무 방법을 사용하여 플랫 파일에서 SQL Server로 데이터를 이동합니다.
 
-### <a name="a-namesql-migrationasql-database-migration-wizard"></a><a name="sql-migration"></a>SQL 데이터베이스 마이그레이션 마법사
+### <a name="sql-migration"></a>SQL 데이터베이스 마이그레이션 마법사
 [SQL Server 데이터베이스 마이그레이션 마법사](http://sqlazuremw.codeplex.com/) 는 두 SQL Server 인스턴스 간에 데이터를 이동할 수 있는 사용자에게 편리한 방법을 제공합니다. 사용자가 원본과 대상 테이블 사이에 데이터 스키마를 매핑하고, 열 유형 및 다양한 기타 기능을 선택할 수 있습니다. 사용자에게는 보이지 않지만 SQL Server 데이터베이스 마이그레이션 마법사는 BCP(대량 복사)를 사용합니다. 아래는 SQL 데이터베이스 마이그레이션 마법사의 시작 화면 스크린샷입니다.  
 
 ![SQL Server 마이그레이션 마법사][2]
 
-### <a name="a-namesql-backupadatabase-back-up-and-restore"></a><a name="sql-backup"></a>데이터베이스 백업 및 복원
+### <a name="sql-backup"></a>데이터베이스 백업 및 복원
 SQL Server는 다음을 지원합니다.
 
 1. [데이터베이스 백업 및 복원 기능](https://msdn.microsoft.com/library/ms187048.aspx)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)(bacpac 사용).

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1654c100c1c57b04a61cf2b9d2cf37d58cec1870
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 1654c100c1c57b04a61cf2b9d2cf37d58cec1870
 > 
 > 
 
-## <a name="a-namesql-dataexplorationaexplore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>SQL 스크립트로 SQL 데이터 탐색
+## <a name="sql-dataexploration"></a>SQL 스크립트로 SQL 데이터 탐색
 SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 몇 가지 샘플 SQL 스크립트는 다음과 같습니다.
 
 1. 일별 관찰 수 가져오기
@@ -53,7 +54,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 > 
 > 
 
-## <a name="a-namepythonaexplore-sql-data-with-python"></a><a name="python"></a>Python으로 SQL 데이터 탐색
+## <a name="python"></a>Python으로 SQL 데이터 탐색
 데이터가 SQL Server에 있는 경우 Python을 사용하여 데이터를 탐색하고 기능을 생성하는 작업은 [데이터 과학 환경에서 Azure Blob 데이터 처리](machine-learning-data-science-process-data-blob.md)에 설명된 대로 Python을 사용하여 Azure Blob의 데이터를 처리하는 것과 유사합니다. 데이터베이스에서 Pandas DataFrame으로 데이터를 로드해야 하며, 그런 다음 데이터를 추가로 처리할 수 있습니다. 데이터베이스에 연결하여 데이터 프레임으로 데이터를 로드하는 프로세스는 이 섹션에 설명되어 있습니다.
 
 다음 연결 문자열 형식은 pyodbc를 사용(servername, dbname, username 및 password를 특정 값으로 대체)하여 Python에서 SQL Server 데이터베이스 연결하는 데 사용될 수 있습니다.
@@ -71,10 +72,5 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python �
 
 ## <a name="cortana-analytics-process-in-action-example"></a>실행 중인 Cortana 분석 프로세스 예
 공용 데이터 집합을 사용하여 Cortana 분석 프로세스의 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

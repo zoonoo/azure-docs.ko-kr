@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/31/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -52,10 +53,5 @@ ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
 
 ## <a name="whats-next"></a>다음 작업
 Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 토픽에 대한 개요는 [데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

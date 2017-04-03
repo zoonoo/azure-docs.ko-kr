@@ -111,7 +111,7 @@
 ### [가격 책정 및 할당량 관리](app-insights-pricing.md)
 ### [SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링](app-insights-scom.md)
 
-##내보내기
+## 내보내기
 ### [연속 내보내기](app-insights-export-telemetry.md)
 ### [데이터 모델 내보내기](app-insights-export-data-model.md)
 ### [Power BI에 내보내기](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [지원](app-insights-get-dev-support.md)
 
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

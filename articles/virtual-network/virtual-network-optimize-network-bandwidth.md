@@ -111,7 +111,7 @@ cd lis4.1.3
 wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
 tar xvzf lis-rpms-4.1.3.tar.gz
 cd LISISO
-install.sh� #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if previous LIS was previously installed
 ```
  
 [다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=51612)를 확인하여 Hyper-V용 Linux Integration Services 버전 4.1에 대해 자세히 알아보세요.

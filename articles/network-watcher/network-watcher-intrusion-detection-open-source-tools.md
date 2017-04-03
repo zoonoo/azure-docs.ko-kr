@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a1199ae3eccc5268006587fa47f2ca4fad362bdc
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.lasthandoff: 02/24/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/24/2017
 패킷 캡처는 네트워크 IDS(침입 검색 시스템)를 구현하고 NSM(네트워크 보안 모니터링)을 수행하기 위한 핵심 구성 요소입니다. 패킷 캡처를 처리하고 가능한 네트워크 침입 및 악의적인 활동의 서명을 찾기 위한 여러 가지 오픈 소스 IDS 도구가 있습니다. Network Watcher에서 제공하는 패킷 캡처를 사용하여 나쁜 영향을 주는 침입 또는 취약성에 대해 네트워크를 분석할 수 있습니다.
 
 이러한 오픈 소스 도구로 Suricata가 있으며, 의심스러운 이벤트가 발생할 때마다 경고를 트리거하고 네트워크 트래픽을 모니터링하는 규칙 집합을 사용하는 IDS 엔진입니다. Suricata는 멀티스레드 엔진을 제공하므로 빨라진 속도 및 효율성으로 네트워크 트래픽 분석을 수행할 수 있습니다. Suricata 및 해당 기능에 대한 자세한 내용은 https://suricata-ids.org/ 웹 사이트를 참조하세요.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>시나리오
 

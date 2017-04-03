@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: huvalo;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
 ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft Azure 기계 학습 Python 클라이언트 라이브러리 미리보�
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 Python 클라이언트 라이브러리는 다음과 같은 환경에서 테스트되었습니다.
 
 * Windows, Mac 및 Linux
@@ -46,7 +47,7 @@ Python 클라이언트 라이브러리는 다음과 같은 환경에서 테스�
 
 Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와 함께 제공되는 [Anaconda](http://continuum.io/downloads#all) 또는 [Canopy](https://store.enthought.com/downloads/) 등의 Python 배포판을 사용하는 것이 좋습니다. IPython은 반드시 필요하지는 않지만 데이터를 대화식으로 조작하고 시각화는 데 훌륭한 환경입니다.
 
-### <a name="a-nameinstallationahow-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Azure 기계 학습 Python 클라이언트 라이브러리를 설치하는 방법
+### <a name="installation"></a>Azure 기계 학습 Python 클라이언트 라이브러리를 설치하는 방법
 이 항목에 설명된 작업을 완료하려면 Azure Machine Learning Python 클라이언트 라이브러리도 설치해야 합니다. [Python 패키지 인덱스](https://pypi.python.org/pypi/azureml)에서 사용할 수 있습니다. Python 환경에 설치하려면 로컬 Python 환경에서 다음 명령을 실행합니다.
 
     pip install azureml
@@ -60,12 +61,12 @@ Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="a-namedatasetaccessause-studio-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>스튜디오 코드 조각을 사용하여 데이터 집합에 액세스
+## <a name="datasetAccess"></a>스튜디오 코드 조각을 사용하여 데이터 집합에 액세스
 Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이터 집합에 프로그래밍 방식으로 액세스할 수 있습니다.
 
 스튜디오 웹 인터페이스에서 필요한 모든 정보를 포함하는 코드 조간을 생성하여 로컬 컴퓨터에 Pandas DataFrame 개체로 데이터 집합을 다운로드하고 역직렬화할 수 있습니다.
 
-### <a name="a-namesecurityasecurity-for-data-access"></a><a name="security"></a>데이터 액세스를 위한 보안
+### <a name="security"></a>데이터 액세스를 위한 보안
 스튜디오에서 Python 클라이언트 라이브러리와 함께 사용하도록 제공하는 코드 조각에는 작업 영역 ID와 권한 부여 토큰이 포함되어 있습니다. 이러한 코드 조각은 작업 영역에 대한 전체 액세스 권한을 제공하고 암호와 같이 보호되어야 합니다.
 
 보안상의 이유로 코드 조각은 이전에 역할이 작업 영역의 **소유자** 로 설정된 사용자만 사용할 수 있습니다. 사용자의 역할은 Azure Machine Learning 스튜디오의 **설정**에서 **사용자** 페이지에 표시됩니다.
@@ -86,7 +87,7 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 권한 부여 토큰은 **설정**의 **권한 부여 토큰** 페이지에서 관리합니다. 토큰을 다시 생성할 수 있지만 이 절차를 수행하면 이전 토큰에 대한 액세스 권한이 취소됩니다.
 
-### <a name="a-nameaccessingdatasetsaaccess-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>로컬 Python 응용 프로그램에서 데이터 집합에 액세스
+### <a name="accessingDatasets"></a>로컬 Python 응용 프로그램에서 데이터 집합에 액세스
 1. Machine Learning Studio의 왼쪽에 있는 탐색 모음에서 **데이터 집합** 을 클릭합니다.
 2. 액세스하려는 데이터 집합을 선택합니다. **내 데이터 집합** 목록 또는 **샘플** 목록에서 데이터 집합을 선택할 수 있습니다.
 3. 아래 쪽 도구 모음에서 **데이터 액세스 코드 생성**을 클릭합니다. 데이터가 Python 클라이언트 라이브러리와 호환되지 않는 형식이면 이 단추는 비활성화됩니다.
@@ -99,7 +100,7 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
    
     ![노트북][ipython-dataset]
 
-## <a name="a-nameaccessingintermediatedatasetsaaccess-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>기계 학습 실험에서 중간 데이터 집합에 액세스
+## <a name="accessingIntermediateDatasets"></a>기계 학습 실험에서 중간 데이터 집합에 액세스
 기계 학습 스튜디오에서 실험을 실행하고 나면 모듈의 출력 노드에서 중간 데이터 집합에 액세스할 수 있습니다. 중간 데이터 집합은 모델 도구가 실행될 때 중간 단계를 위해 생성되고 사용된 데이터입니다.
 
 데이터 형식이 Python 클라이언트 라이브러리와 호환되는 한 중간 데이터 집합에 액세스할 수 있습니다.
@@ -143,7 +144,7 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
     
     ![히스토그램][ipython-histogram]
 
-## <a name="a-nameclientapisause-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>기계 학습 Python 클라이언트 라이브러리를 사용하여 데이터 집합에 액세스, 읽기, 만들기 및 관리
+## <a name="clientApis"></a>기계 학습 Python 클라이언트 라이브러리를 사용하여 데이터 집합에 액세스, 읽기, 만들기 및 관리
 ### <a name="workspace"></a>작업 영역
 작업 영역은 Python 클라이언트 라이브러리의 진입점입니다. `Workspace` 클래스에 인스턴스를 생성할 작업 영역 ID와 권한 부여 토큰을 제공합니다.
 
@@ -334,10 +335,5 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다음 형식�
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

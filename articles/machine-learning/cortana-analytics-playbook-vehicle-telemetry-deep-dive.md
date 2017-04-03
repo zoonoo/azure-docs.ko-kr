@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -705,10 +706,5 @@ Power BI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 ## <a name="summary"></a>요약
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
