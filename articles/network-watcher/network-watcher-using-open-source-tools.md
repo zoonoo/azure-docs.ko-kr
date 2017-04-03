@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 05fb0b7e80684737277626c12468ca9c754a0ac9
+ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
 ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/22/2017
 패킷 캡처에는 네트워크 과학 수사 및 상세한 패킷 검사를 수행할 수 있는 네트워크 데이터가 포함됩니다. 패킷 캡처를 분석하여 네트워크에 대한 정보를 파악할 수 있는 여러 오픈 소스 도구가 있습니다. 이러한 도구 중 하나는 오픈 소스 패킷 캡처 시각화 도구인 CapAnalysis입니다. 패킷 캡처 데이터 시각화는 네트워크의 패턴 및 오류에 대한 정보를 신속하게 얻을 수 있는 유용한 방법입니다. 또한 시각화는 이러한 정보를 손쉽게 공유할 수 있는 수단을 제공합니다.
 
 Azure의 Network Watcher는 네트워크에서 패킷 캡처를 수행하여 이 중요한 데이터를 캡처하는 기능을 제공합니다. 이 문서에서는 CapAnalysis를 Network Watcher와 함께 사용하여 패킷 캡처를 시각화하고 정보를 얻는 방법을 연습합니다.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>시나리오
 

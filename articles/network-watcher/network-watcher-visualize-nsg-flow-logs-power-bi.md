@@ -27,8 +27,6 @@ ms.lasthandoff: 03/22/2017
 
 로그 파일을 수동으로 검색하는 방법으로는 흐름 로깅에 대한 정보를 얻기 어려울 수 있습니다. 이 문서에서는 가장 최근의 흐름 로그를 시각화하고 네트워크 트래픽에 대해 알아보는 솔루션을 제공합니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>시나리오
 
 다음 시나리오에서는 NSG 흐름 로깅 데이터에 대한 싱크로 구성한 저장소 계정에 Power BI 데스크톱을 연결합니다. 저장소 계정에 연결되면 Power BI가 로그를 다운로드하고 구분 분석하여 네트워크 보안 그룹에서 기록한 트래픽의 시각적 표현을 제공합니다.

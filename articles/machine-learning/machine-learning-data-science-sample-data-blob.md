@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
+# <a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
 이 문서에서는 프로그래밍 방식으로 다운로드한 다음 Python으로 작성된 절차에 따라 샘플링하여 Azure Blob 저장소에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다.
 
 다음의 **메뉴** 는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 토픽에 연결되는 링크입니다. 
@@ -68,7 +69,7 @@ ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
 
 이제 추가 탐색 및 기능 생성을 위해 1% 샘플을 사용하여 위의 데이터 프레임으로 작업할 수 있습니다.
 
-## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>데이터 업로드 및 Azure 기계 학습으로 읽어오기
+## <a name="heading"></a>데이터 업로드 및 Azure 기계 학습으로 읽어오기
 다음 샘플 코드를 사용하여 데이터를 다운 샘플링하고 Azure 기계 학습에서 직접 사용할 수 있습니다.
 
 1. 데이터 프레임을 로컬 파일에 기록합니다.
@@ -100,10 +101,5 @@ ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
 3. 아래 이미지에 표시된 대로 Azure 기계 학습 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 를 사용하여 Azure Blob에서 데이터를 읽습니다.
 
 ![판독기 blob](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

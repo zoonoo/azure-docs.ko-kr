@@ -25,8 +25,6 @@ ms.lasthandoff: 03/04/2017
 
 Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 이러한 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 Virtual Network 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이 기능은 PowerShell, CLI 또는 REST API로 호출할 수 있습니다. Network Watcher가 호출되면 Virtual Network 게이트웨이 또는 연결의 상태를 진단하거나 해당 결과를 반환합니다. 이 요청은 장기 실행 트랜잭션이며 진단이 완료되면 결과가 반환됩니다.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="results"></a>결과
 
 반환되는 예비 결과는 전반적인 리소스 상태에 대한 정보를 제공합니다. 다음 섹션에 표시된 대로 리소스에 대한 심층적인 정보를 제공할 수 있습니다.

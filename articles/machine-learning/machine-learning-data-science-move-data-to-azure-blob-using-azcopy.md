@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
 ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -88,10 +89,5 @@ Azure 컨테이너 간 Blob을 전송하려면 다음 명령을 사용합니다.
 > 3. **/Source** 매개 변수를 사용하여 *특정 blob 파일* 을 다운로드하도록 지정할 수 없습니다. 특정 파일을 다운로드하려면 */Pattern* 매개 변수를 사용하여 다운로드할 blob 파일 이름을 지정하세요. **/S** 매개 변수를 사용하면 AzCopy에서 파일 이름 패턴을 재귀적으로 검색할 수 있습니다. 패턴 매개 변수가 없으면 AzCopy는 해당 디렉터리의 모든 파일을 다운로드합니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
