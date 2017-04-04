@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -62,7 +64,7 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 ### <a name="can-i-view-the-compute-nodes"></a>계산 노드를 볼 수 있나요?
 각 계산 노드는 노드 ID를 갖고 있으며 SQL Data Warehouse 및 병렬 데이터 웨어하우스와 관련된 시스템 뷰에 표시됩니다.  시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 계산 노드를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](sql-data-warehouse-reference-tsql-statements.md)를 참조하세요.
 
-## <a name="a-namereplicatedareplicated-tables-for-parallel-data-warehouse"></a><a name="Replicated"></a>병렬 데이터 웨어하우스의 복제 테이블
+## <a name="Replicated"></a>병렬 데이터 웨어하우스의 복제 테이블
 적용 대상: 병렬 데이터 웨어하우스
 
 병렬 데이터 웨어하우스는 분산 테이블을 사용할 뿐 아니라 테이블을 복제하는 옵션을 제공합니다. *복제 테이블*은 각 계산 노드에 통째로 저장된 테이블입니다. 테이블을 복제하면 계산 노드 간에 테이블 행을 전송하지 않아도 조인 또는 집계에 테이블을 사용할 수 있습니다. 테이블 복제는 테이블 크기가 작은 경우에만 가능합니다. 각 계산 노드의 전체 테이블을 저장하려면 추가 저장소가 필요하기 때문입니다.  
@@ -73,10 +75,5 @@ SQL Data Warehouse 및 병렬 데이터 웨어하우스에서 분산 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 분산 테이블을 효과적으로 사용하려면 [SQL Data Warehouse의 테이블 분산](sql-data-warehouse-tables-distribute.md)을 참조하세요.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

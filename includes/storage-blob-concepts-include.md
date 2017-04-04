@@ -14,7 +14,7 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
 
 ![Blob 아키텍처](./media/storage-blob-concepts-include/blob1.png)
 
-* **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이 저장소 계정은 **범용 저장소 계정**이거나, 개체/Blob 저장용으로 특화된 **Blob 저장소 계정**이 될 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure 저장소 계정](../articles/storage/storage-create-storage-account.md)을 참조하세요.
+* **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이 저장소 계정은 **범용 저장소 계정**이거나, 개체/Blob 저장용으로 특화된 **Blob 저장소 계정**이 될 수 있습니다. 자세한 내용은 [Azure Storage 계정 정보](../articles/storage/storage-create-storage-account.md)를 참조하세요.
 * **컨테이너:** 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다. 컨테이너 이름은 소문자여야 합니다.
 * **Blob:** 모든 형식과 크기의 파일입니다. Azure 저장소에는 블록 Blob, 페이지 Blob 및 추가 Blob의 세 가지 Blob 유형이 있습니다.
   
@@ -22,10 +22,5 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
   
     *페이지 Blob* 은 최대 1TB 크기까지 가능하며 빈번한 읽기/쓰기 작업에 대해 더 효율적입니다. Azure 가상 컴퓨터는 OS 및 데이터 디스크로 페이지 Blob을 사용합니다.
   
-    컨테이너 및 Blob를 명명하는 세부 정보는 [컨테이너, Blob 및 메타데이터 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    컨테이너 및 Blob를 명명하는 세부 정보는 [컨테이너, Blob 및 메타데이터 명명 및 참조](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)를 참조하세요.
 

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2ef23effa32e9b7507ad6e6eb29e97609a2034
-ms.openlocfilehash: e59e95c55beeb2af6c704bcaad11c8d622f4e853
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,7 +41,7 @@ az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-또는 `vmss`가 포함된 폴더에 대한 [Azure 빠른 시작 템플릿 Github 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 크기 집합을 배포하는 미리 작성된 템플릿 예제를 볼 수 있습니다. 이미 관리 디스크를 사용하는 템플릿을 알아보려면 [이 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)을 참조하세요.
+또는 `vmss`가 포함된 폴더에 대한 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 크기 집합을 배포하는 미리 작성된 템플릿 예제를 볼 수 있습니다. 이미 관리 디스크를 사용하는 템플릿을 알아보려면 [이 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)을 참조하세요.
 
 ## <a name="api-versions"></a>API 버전
 

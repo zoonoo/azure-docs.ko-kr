@@ -36,7 +36,7 @@ Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 �
 이제 `azure login`를 입력하여 [Azure 계정에 대화식으로 로그인](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)하고 Azure 계정의 대화식 로그인 환경에 대한 메시지를 따릅니다. 
 
 > [!NOTE]
-> 회사 또는 학교 ID가 있고&2;단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 있습니다.
+> 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 있습니다.
 >
 >
 
@@ -677,9 +677,9 @@ info:    group deployment create command OK
 ### <a name="step-2-obtain-the-vhd"></a>2단계: VHD 얻기
 이 경우 .vhd가 반드시 필요합니다. 이미 Azure에 있는 VHD를 사용하거나 업로드할 수 있습니다.
 
-Windows 기반 가상 컴퓨터의 경우 [Windows Server VHD를 만들어서 Azure에 업로드](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+Windows 기반 가상 컴퓨터의 경우 [Windows Server VHD를 만들어서 Azure에 업로드](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-Linux 기반 가상 컴퓨터의 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
+Linux 기반 가상 컴퓨터의 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)를 참조하세요.
 
 ### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>3단계: 템플릿을 사용하여 가상 컴퓨터 만들기
 이제 .vhd에 기반을 둔 새 가상 컴퓨터를 만들 수 있습니다. `azure group create <location>`을 사용하여 배포할 그룹을 만듭니다.
@@ -759,7 +759,7 @@ info:    group deployment create command OK
 Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 VM 응용 프로그램을 배포하려면 다음 단계를 수행하세요.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>1단계: JSON 파일에서 템플릿 검사
-다음은 템플릿에 대한 JSON 파일의 내용입니다. 최신 버전은 [템플릿의 Github 리포지토리](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)에 있습니다. 이 항목에서는 `--template-uri` 스위치를 사용하여 템플릿에서 호출하지만 `--template-file` 스위치를 사용하여 로컬 버전을 전달할 수도 있습니다.
+다음은 템플릿에 대한 JSON 파일의 내용입니다. 최신 버전은 [템플릿의 GitHub 리포지토리](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)에 있습니다. 이 항목에서는 `--template-uri` 스위치를 사용하여 템플릿에서 호출하지만 `--template-file` 스위치를 사용하여 로컬 버전을 전달할 수도 있습니다.
 
 ```json
 {

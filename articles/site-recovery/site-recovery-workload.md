@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -130,6 +130,19 @@ Site Recovery를 사용하여 다음과 같이 SAP 배포를 보호합니다.
 * 테스트 및 디버깅 응용 프로그램에 프로덕션 환경과 유사한 복사본 주문형을 만들어 SAP 개발 및 테스트를 용이하게 합니다.
 
 [자세히 알아봅니다](http://aka.ms/asr-sap) .
+
+## <a name="protect-iis"></a>IIS 보호
+Site Recovery를 사용하여 다음과 같이 IIS 배포를 보호합니다.
+
+Azure Site Recovery는 환경에서 중요한 구성 요소를 콜드 원격 사이트 또는 Microsoft Azure와 같은 공용 클라우드에 복제하여 재해 복구를 제공합니다. 웹 서버와 데이터베이스를 사용하는 가상 컴퓨터가 복구 사이트에 복제되므로 구성 파일 또는 인증서를 별도로 백업할 필요가 없습니다. 변경된 사후 장애 조치인 환경 변수에 따라 달라지는 응용 프로그램 매핑 및 바인딩은 재해 복구 계획에 통합되는 스크립트를 통해 업데이트될 수 있습니다. Virtual Machines는 장애 조치 시에만 복구 사이트에서 사용됩니다. 이 뿐만 아니라 Azure Site Recovery를 통해 다음과 같은 기능을 제공하여 종단 간 장애 조치를 오케스트레이션할 수 있습니다.
+
+-    다양한 계층에서 가상 컴퓨터의 종료 및 시작 순서를 지정합니다.
+-    가상 컴퓨터가 시작된 후에 응용 프로그램 종속성 및 바인딩을 업데이트할 수 있는 스크립트를 추가합니다. 스크립트는 복구 사이트를 가리키기 위해 DNS 서버를 업데이트하는 데 사용할 수 있습니다.
+-    기본 및 복구 네트워크를 매핑하여 가상 컴퓨터 사전 장애 조치에 IP 주소를 할당하고 사후 장애 조치가 업데이트되지 않아도 되는 스크립트를 사용합니다.
+-    웹 서버의 여러 웹 응용 프로그램에서 한 번의 클릭으로 장애 조치하는 기능은 재해가 발생한 경우 혼동을 일으키는 범위를 제거합니다.
+-    DR 드릴의 격리된 환경에서 복구 계획을 테스트하는 기능입니다.
+
+IIS 웹 팜을 보호하는 방법에 대한 [자세한 내용](https://aka.ms/asr-iis)
 
 ## <a name="next-steps"></a>다음 단계
 [필수 구성 요소 확인](site-recovery-prereq.md) 
