@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
 ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -112,10 +114,5 @@ SQL Data Warehouse 백업의 주요 용도는 데이터 웨어하우스를 보�
 * 데이터 웨어하우스를 복원하려면 [SQL Data Warehouse 복원](sql-data-warehouse-restore-database-overview.md)을 참조하세요.
 
 <!-- ### Tutorials -->
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
