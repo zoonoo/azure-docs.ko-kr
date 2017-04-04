@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,7 +61,7 @@ ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Azure 검색 서비스의 서비스 이름 및 api-key 찾기
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Azure 검색 서비스의 서비스 이름 및 api-key 찾기
 Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를 제공해야 합니다. 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -72,7 +73,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 5. 서비스 URL 및 관리 키를 복사합니다. 나중에 **config.properties** 파일에 추가할 때 필요합니다.
 
 ## <a name="download-the-sample-files"></a>샘플 파일 다운로드
-1. Github의 [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) 로 이동합니다.
+1. GitHub의 [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)로 이동합니다.
 2. **Download ZIP**을 클릭하고 .zip 파일을 디스크에 저장한 다음 포함된 모든 파일을 추출합니다. 나중에 프로젝트를 쉽게 찾을 수 있도록 Java 작업 영역에 파일을 추출하는 것이 좋습니다.
 3. 샘플 파일은 읽기 전용입니다. 폴더 속성을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지웁니다.
 
@@ -88,7 +89,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 3. **마침**을 클릭합니다.
 4. **Project Explorer** 를 사용하여 파일을 보고 편집합니다. 아직 열지 않은 경우 **Window** > **Show View** > **Project Explorer**를 클릭하거나 바로 가기를 사용하여 엽니다.
 
-## <a name="configure-the-service-url-and-apikey"></a>서비스 URL 및 api-key 구성
+## <a name="configure-the-service-url-and-api-key"></a>서비스 URL 및 api-key 구성
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 2. 이 문서의 이전 단계를 참조하여 [config.properties](https://portal.azure.com)에 입력할 값을 가져오도록 **Azure 포털**에서 서비스 URL 및 api-key를 찾습니다.
 3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름(URL http://servicename.search.windows.net의 첫 번째 구성 요소)이 동일한 파일의 "service name"을 대체합니다.
@@ -101,7 +102,8 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
    
     ![][6]
 3. **Apply**를 클릭합니다.
-4. **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**를 선택합니다.
+4. <seg>
+  **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**를 선택합니다.</seg>
 5. Apache를 확장하고 이전에 설치한 Apache Tomcat 서버의 버전을 선택합니다. 예제 시스템에는 버전 8이 설치되어 있습니다.
    
     ![][7]
@@ -179,9 +181,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

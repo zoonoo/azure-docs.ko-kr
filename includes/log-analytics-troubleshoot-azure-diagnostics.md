@@ -17,6 +17,8 @@
 *Microsoft.insights* 리소스 공급자가 등록되면 진단 구성을 다시 시도하세요.
 
 
-<!--HONumber=Feb17_HO2-->
+PowerShell에서 다음과 같은 오류 메시지가 나타나면 PowerShell의 버전을 업데이트해야 합니다.
 
+`Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
+PowerShell의 버전을 2016년 11월(v2.3.0)로 업데이트하거나 나중에 [Azure PowerShell cmdlet 시작](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) 문서의 지침을 사용하여 릴리스합니다.

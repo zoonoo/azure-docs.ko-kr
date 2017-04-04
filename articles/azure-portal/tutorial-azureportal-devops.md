@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -62,10 +63,10 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
 9. 프로젝트 및 분기를 선택하면 확인을 클릭합니다. 배포 알림이 표시되기 시작해야 합니다.
    
    ![image9][image9]
-10. Github로 다시 이동하여 Azure와 원본 제어 리포지토리를 통합하도록 만든 웹후크를 확인합니다. Azure 포털을 사용하면 간단한 단계를 통해 Github을 사용하여 통합할 수 있습니다.
+10. GitHub로 다시 이동하여 Azure와 원본 제어 리포지토리를 통합하도록 만든 웹후크를 확인합니다. Azure Portal을 사용하면 간단한 단계를 통해 GitHub와 통합할 수 있습니다.
     
     ![image10][image10]
-11. 연속 배포를 보여주려면 리포지토리에 일부 콘텐츠를 신속하게 추가합니다. 간단한 예제의 경우 Github 리포지토리에 샘플 텍스트 파일을 추가합니다. 앱 서비스로 .NET, Ruby, Python 또는 기타 다른 유형의 응용 프로그램을 자유롭게 사용합니다. 텍스트 파일, ASP.NET MVC, Java 또는 Ruby 응용 프로그램을 선택한 리포지토리에 추가해도 됩니다.
+11. 연속 배포를 보여주려면 리포지토리에 일부 콘텐츠를 신속하게 추가합니다. 간단한 예제의 경우 GitHub 리포지토리에 샘플 텍스트 파일을 추가합니다. 앱 서비스로 .NET, Ruby, Python 또는 기타 다른 유형의 응용 프로그램을 자유롭게 사용합니다. 텍스트 파일, ASP.NET MVC, Java 또는 Ruby 응용 프로그램을 선택한 리포지토리에 추가해도 됩니다.
     
     ![image11][image11]
 12. 리포지토리에 변경 내용을 커밋한 후에 포털 알림 영역에서 새 배포 시작을 확인합니다. 리포지토리에 커밋한 후에 변경 내용을 신속하게 표시하지 않으면 동기화를 클릭합니다.
@@ -334,9 +335,4 @@ Azure는 실행 중인 응용 프로그램을 모니터링하고 문제를 해�
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

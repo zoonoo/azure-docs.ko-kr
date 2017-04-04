@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 35e193a49aac7e3aaf91e2a4798b6eeed8377aae
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c8a915055318697ade229837653df4c105279299
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -47,6 +47,8 @@ Azure DocumentDB .NET Core SDK용 NoSQL 자습서를 시작합니다. 이 자습
 * 데이터베이스 삭제
 
 시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침을 보려면 [전체 솔루션 다운로드 섹션](#GetSolution) 으로 이동하세요.
+
+DocumentDB .NET Core SDK를 사용하여 Xamarin iOS, Android 또는 Forms 응용 프로그램을 빌드하시겠습니까? [DocumentDB를 사용하여 Xamarin 모바일 응용 프로그램 개발](documentdb-mobile-apps-with-xamarin.md)을 참조하세요.
 
 나중에 이 페이지 위쪽 또는 아래쪽에 있는 응답 단추를 통해 의견을 보내주세요. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
@@ -589,6 +591,7 @@ Visual Studio에서 DocumentDB .NET Core SDK에 대한 참조를 복원하려면
 
 ## <a name="next-steps"></a>다음 단계
 * 보다 복잡한 ASP.NET MVC NoSQL 자습서가 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
+* DocumentDB .NET Core SDK를 사용하여 Xamarin iOS, Android 또는 Forms 응용 프로그램을 개발하시겠습니까? [DocumentDB를 사용하여 Xamarin 모바일 응용 프로그램 개발](documentdb-mobile-apps-with-xamarin.md)을 참조하세요.
 * DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
 * [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.

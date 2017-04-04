@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
-ms.lasthandoff: 12/09/2016
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7a9a28ce8be7587c84a1188d643c990cc4fb7355
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 
 **필수 조건:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
@@ -52,8 +52,8 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>네임스페이스 선언 추가
-`program.cs` 파일 맨 위에 다음 **using** 문을 추가합니다.
+### <a name="add-using-directives"></a>지시문을 사용하여 추가
+다음 **using** 지시문을 `Program.cs` 파일 맨 위에 추가합니다.
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager

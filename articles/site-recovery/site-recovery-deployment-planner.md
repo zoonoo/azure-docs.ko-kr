@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 33f1be6911178315752ce9c39aa1428b70db835c
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -67,13 +67,13 @@ Site Recovery Deployment Planner 공개 미리 보기는 현재 VMware에서 Azu
 
 | 서버 요구 사항 | 설명|
 |---|---|
-|프로파일링 및 처리량 측정| <ul><li>운영 체제: Microsoft Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure 저장소 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li></ul> |
+|프로파일링 및 처리량 측정| <ul><li>운영 체제: Microsoft Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure 저장소 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 2 이상으로 설정되어야 합니다.</li></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
 | 사용자 권한 | 프로파일링 중에 VMware vCenter 서버/VMware vSphere ESXi 호스트에 액세스하는 데 사용되는 사용자 계정에 대한 읽기 전용 권한 |
 
 > [!NOTE]
 >
-> 이 도구는 VMDK 및 RDM 디스크를 갖춘 VM만 프로파일링할 수 있습니다. iSCSI 또는 NFS 디스크를 갖춘 VM은 프로파일링할 수 없습니다. Site Recovery는 VMware 서버용 iSCSI 및 NFS 디스크를 지원하지만 Deployment Planner가 게스트 내부에 있지 않고 vCenter 성능 카운터만 사용하여 프로파일링하기 때문에 이러한 디스크 종류는 도구에서 식별할 수 없습니다.
+>이 도구는 VMDK 및 RDM 디스크를 갖춘 VM만 프로파일링할 수 있습니다. iSCSI 또는 NFS 디스크를 갖춘 VM은 프로파일링할 수 없습니다. Site Recovery는 VMware 서버용 iSCSI 및 NFS 디스크를 지원하지만 Deployment Planner가 게스트 내부에 있지 않고 vCenter 성능 카운터만 사용하여 프로파일링하기 때문에 이러한 디스크 종류는 도구에서 식별할 수 없습니다.
 >
 
 ## <a name="download-and-extract-the-public-preview"></a>공개 미리 보기 다운로드 및 압축 풀기
@@ -151,13 +151,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 프로파일링 중에 구성 서버 또는 프로세스 서버에서 Azure로 복제할 때 Site Recovery에서 달성할 수 있는 처리량을 확인하기 위해 저장소 계정 이름과 키를 선택적으로 전달할 수 있습니다. 저장소 계정 이름과 키가 프로파일링 중에 전달되지 않으면 도구에서 달성할 수 있는 처리량을 계산하지 않습니다.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>예제 1: 30일 동안 VM 프로파일링 및 온-프레미스에서 Azure로의 처리량 확인하기
-```
-ASRDeploymentPlanner.exe **-Operation** StartProfiling -Directory “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  30  **-User** vCenterUser1 **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
-```
-
-#### <a name="example-2-profile-vms-for-15-days"></a>예제 2: 15일 동안 프로파일링
-여러 VM 집합에 대해서는 도구의 여러 인스턴스를 실행할 수 있습니다. VM 이름이 프로파일링 집합에서 반복되지 않도록 합니다. 예를 들어&10;개의 VM(VM1 - VM10)을 프로파일링하고 며칠 후에 다른&5;개의 VM(VM11 - VM15)을 프로파일링하려는 경우, 두 번째 VM 집합(VM11 - VM15)에 대한 다른 명령줄 콘솔에서 도구를 실행할 수 있습니다. 그러나 두 번째 VM 집합에 첫 번째 프로파일링 인스턴스의 VM 이름이 없어야 하거나 두 번째 실행을 위해 다른 출력 디렉터리를 사용해야 합니다. 도구의 두 인스턴스가 동일한 VM을 프로파일링하고 동일한 출력 디렉터리를 사용하는 경우 생성된 보고서는 올바르지 않습니다.
+여러 VM 집합에 대해서는 도구의 여러 인스턴스를 실행할 수 있습니다. VM 이름이 프로파일링 집합에서 반복되지 않도록 합니다. 예를 들어 10개의 VM(VM1 - VM10)을 프로파일링하고 며칠 후에 다른 5개의 VM(VM11 - VM15)을 프로파일링하려는 경우, 두 번째 VM 집합(VM11 - VM15)에 대한 다른 명령줄 콘솔에서 도구를 실행할 수 있습니다. 그러나 두 번째 VM 집합에 첫 번째 프로파일링 인스턴스의 VM 이름이 없어야 하거나 두 번째 실행을 위해 다른 출력 디렉터리를 사용해야 합니다. 도구의 두 인스턴스가 동일한 VM을 프로파일링하고 동일한 출력 디렉터리를 사용하는 경우 생성된 보고서는 올바르지 않습니다.
 
 VM 구성은 프로파일링 작업을 시작할 때 한 번 캡처되어 VMDetailList.xml이라는 파일에 저장됩니다. 이 정보는 보고서를 생성할 때 사용 됩니다. 프로파일링을 시작할 때부터 종료할 때까지 VM 구성의 변경 내용(예를 들어 코어, 디스크 또는 NIC 수 증가)은 캡처되지 않습니다. 공개 미리 보기에서 프로파일링 과정 중에 프로파일링된 VM 구성이 변경된 경우 보고서를 생성할 때 최신 VM 세부 정보를 가져오기 위한 해결 방법은 다음과 같습니다.
 
@@ -166,25 +160,27 @@ VM 구성은 프로파일링 작업을 시작할 때 한 번 캡처되어 VMDeta
 
 프로파일링 명령은 프로파일링 디렉터리에 몇 개의 파일을 생성합니다. 파일을 삭제하면 보고서 생성에 영향을 주므로 파일을 삭제하지 마십시오.
 
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>예제 1: 30일 동안 VM 프로파일링 및 온-프레미스에서 Azure로의 처리량 확인하기
 ```
-ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  15  -User vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+```
+
+#### <a name="example-2-profile-vms-for-15-days"></a>예제 2: 15일 동안 프로파일링
+
+```
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
 #### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>예제 3: 도구를 빠르게 테스트하기 위해 1시간 동안 VM 프로파일링
 ```
-ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  0.04  **-User** vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  0.04  -User vCenterUser1
 ```
 
 >[!NOTE]
 >
 >* 도구가 실행 중인 서버를 다시 부팅하거나 충돌이 발생하는 경우 또는 Ctrl + C를 사용하여 도구를 닫는 경우 프로파일링된 데이터가 유지됩니다. 그러나 프로파일링된 데이터의 마지막 15분이 누락되는 경우가 있습니다. 그러한 경우 서버를 다시 시작한 후에 프로파일링 모드에서 도구를 다시 실행합니다.
 >* 저장소 계정 이름과 키가 전달되면 도구는 프로파일링의 마지막 단계에서 처리량을 측정합니다. 프로파일링을 완료하기 전에 도구가 닫히면 처리량이 계산되지 않습니다. 보고서를 생성하기 전에 처리량을 확인하려면 명령줄 콘솔에서GetThroughput 작업을 실행할 수 있습니다. 그렇지 않은 경우 생성된 보고서에 처리량 정보가 포함되지 않습니다.
->* 여러 VM 집합에 대해서는 도구의 여러 인스턴스를 실행할 수 있습니다. VM 이름이 프로파일링 집합에서 반복되지 않도록 합니다. 예를 들어&10;개의 VM(VM1 - VM10)을 프로파일링하고 며칠 후에 다른&5;개의 VM(VM11 - VM15)을 프로파일링하려는 경우, 두 번째 VM 집합(VM11 - VM15)에 대한 다른 명령줄 콘솔에서 도구를 실행할 수 있습니다. 그러나 두 번째 VM 집합에 첫 번째 프로파일링 인스턴스의 VM 이름이 없어야 하거나 두 번째 실행을 위해 다른 출력 디렉터리를 사용해야 합니다. 도구의 두 인스턴스가 동일한 VM을 프로파일링하고 동일한 출력 디렉터리를 사용하는 경우 생성된 보고서는 올바르지 않습니다.
->* VM 구성은 프로파일링 작업을 시작할 때 한 번 캡처되어 VMDetailList.xml이라는 파일에 저장됩니다. 이 정보는 보고서를 생성할 때 사용 됩니다. 프로파일링을 시작할 때부터 종료할 때까지 VM 구성의 변경 내용(예를 들어 코어, 디스크 또는 NIC 수 증가)이 캡처됩니다. 프로파일링된 모든 VM 구성이 공개 미리 보기에서 변경된 경우 다음 해결 방법을 수행하여 최신 VM 세부 정보를 가져옵니다.  
->  * VMdetailList.xml을 백업하고 현재 위치에서 파일을 삭제합니다.  
->  * 보고서를 생성할 때 -User 및 -Password 인수를 전달합니다.  
->  
->* 프로파일링 명령은 프로파일링 디렉터리에 몇 개의 파일을 생성합니다. 파일을 삭제하면 보고서 생성에 영향을 주므로 파일을 삭제하지 마십시오.
+
 
 ## <a name="generate-a-report"></a>보고서 생성
 이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 이 보고서는 DeploymentPlannerReport_<*고유 숫자 식별자*>.xlsm으로 명명되어 지정된 디렉터리에 배치됩니다.
@@ -208,36 +204,36 @@ ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCen
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
 
-### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>예제 1: 프로파일링된 데이터가 로컬 드라이브에 있는 경우 기본값으로 보고서 생성
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>예제 1: 프로파일링된 데이터가 로컬 드라이브에 있는 경우 기본값으로 보고서 생성
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>예제 2: 프로파일링된 데이터가 원격 서버에 있는 경우 보고서 생성
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>예제 2: 프로파일링된 데이터가 원격 서버에 있는 경우 보고서 생성
 사용자는 원격 디렉터리에서 읽기/쓰기 액세스 권한을 가지고 있어야 합니다.
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>예제 3: 지정된 시간 내에 IR을 완료하기 위한 특정 대역폭 및 목표로 보고서 생성
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>예제 3: 지정된 시간 내에 IR을 완료하기 위한 특정 대역폭 및 목표로 보고서 생성
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
-```
-
-### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>예제 4: 기본값 30% 대신 5% 증가율로 보고서 생성
-```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-GrowthFactor** 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>예제 5: 프로파일링된 데이터의 하위 집합으로 보고서 생성
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>예제 4: 기본값 30% 대신 5% 증가율로 보고서 생성
+```
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+```
+
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>예제 5: 프로파일링된 데이터의 하위 집합으로 보고서 생성
 예를 들어 30일 동안 프로파일링된 데이터가 있지만 20일 동안만의 보고서를 생성하려고 합니다.
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -**EndDate** 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>예제 6: 5분 동안의 RPO 보고서 생성
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>예제 6: 5분 동안의 RPO 보고서 생성
 ```
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>계산에 사용된 백분위 수 값
@@ -249,9 +245,9 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 95번째 백분위수 값을 사용하면 실제 워크로드 특성을 정확히 보여 주며, Azure에서 워크로드를 실행할 때 최상의 성능을 제공합니다. 당사는 사용자가 이 숫자를 변경해야 한다고 예상하지 않습니다. 값을 변경(예를 들어 90번째 백분위수로)하지 않은 경우 기본 폴더의 구성 파일 *ASRDeploymentPlanner.exe.config*를 업데이트하고 
 기존 프로파일링된 데이터에 대한 새 보고서를 생성하기 위해 저장할 수 있습니다.
 ```
-&lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
-&lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
-&lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
+<add key="WriteIOPSPercentile" value="95" />      
+<add key="ReadWriteIOPSPercentile" value="95" />      
+<add key="DataChurnPercentile" value="95" />
 ```
 
 ## <a name="growth-factor-considerations"></a>증가율 고려 사항
@@ -259,7 +255,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 시간이 지남에 따라 잠재적 사용량이 증가할 것으로 가정할 때 워크로드 특성의 증가를 고려하는 것이 중요합니다. 보호가 설정된 후 워크로드 특성이 변경되는 경우 보호를 해제하고 다시 사용하도록 설정하지 않고는 다른 저장소 계정으로 전환하여 보호할 수 없기 때문입니다.
 
-예를 들어 현재 VM이 표준 저장소 복제 계정에 적합하다고 가정해 보겠습니다. 다음&3;개월 동안 몇 가지 변경 사항이 발생할 가능성이 있습니다.
+예를 들어 현재 VM이 표준 저장소 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 몇 가지 변경 사항이 발생할 가능성이 있습니다.
 
 * VM에서 실행되는 응용 프로그램의 사용자 수가 증가합니다.
 * 그 결과 VM에서 변동이 증가하므로 Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 저장소로 이동해야 합니다.
@@ -300,7 +296,7 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 
 ### <a name="example"></a>예
 ```
-ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter1_ProfiledData **-VMListFile** E:\vCenter1_ProfiledData\ProfileVMList1.txt  **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 >[!NOTE]
@@ -376,7 +372,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 ![Deployment Planner에 필요한 Azure 코어 수](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
 ### <a name="required-on-premises-infrastructure"></a>필요한 온-프레미스 인프라
-이 숫자는 호환되는 모든 VM을 보호하기에 충분하도록 구성해야 할 구성 서버 및 추가 프로세스 서버의 총 수입니다. 지원되는 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)에 따라 도구가 추가 서버를 권장할 수 있습니다. 권장 사항은 구성 서버 또는 추가 프로세스 서버 중 어느 것에서 먼저 적중되든지 간에 일일 변동량 또는 보호되는 VM의 최대 수(가상 컴퓨터당 평균&3;개의 디스크를 가정) 중 더 큰 수를 기반으로 합니다. 일일 총 변동량 및 보호된 디스크의 총 수에 대한 세부 정보는 "입력" 섹션에 있습니다.
+이 숫자는 호환되는 모든 VM을 보호하기에 충분하도록 구성해야 할 구성 서버 및 추가 프로세스 서버의 총 수입니다. 지원되는 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)에 따라 도구가 추가 서버를 권장할 수 있습니다. 권장 사항은 구성 서버 또는 추가 프로세스 서버 중 어느 것에서 먼저 적중되든지 간에 일일 변동량 또는 보호되는 VM의 최대 수(가상 컴퓨터당 평균 3개의 디스크를 가정) 중 더 큰 수를 기반으로 합니다. 일일 총 변동량 및 보호된 디스크의 총 수에 대한 세부 정보는 "입력" 섹션에 있습니다.
 
 ![Deployment Planner에 필요한 온-프레미스 인프라](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
@@ -438,7 +434,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **디스크 저장소 유형**: **배치할 VM** 열에 언급된 해당 가상 컴퓨터를 모두 복제하는 데 사용되는 표준 또는 프리미엄 저장소 계정입니다.
 
-**제안된 접두사**: 저장소 계정 이름을 지정하는 데 사용할 수 있는&3;자로 구성된 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [저장소 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
+**제안된 접두사**: 저장소 계정 이름을 지정하는 데 사용할 수 있는 3자로 구성된 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [저장소 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
 
 **제안된 계정 이름**: 제안된 접두사를 포함한 후 저장소 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
@@ -464,7 +460,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **저장소 유형**: 표준 또는 프리미엄입니다.
 
-**제안된 접두사**:&3;자로 구성된 저장소 계정 접두사입니다.
+**제안된 접두사**: 3자로 구성된 저장소 계정 접두사입니다.
 
 **저장소 계정**: 제안된 저장소 계정 접두사를 사용하는 이름입니다.
 
@@ -492,7 +488,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [저장소 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
-* 디스크 크기가&1023;GB보다 큽니다. Azure Storage는 현재 1TB보다 큰 디스크 크기를 지원하지 않습니다.
+* 디스크 크기가 1023GB보다 큽니다. Azure Storage는 현재 1TB보다 큰 디스크 크기를 지원하지 않습니다.
 
 * 총 VM 크기(복제 + TFO)가 지원되는 저장소 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 프리미엄 저장소 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 저장소 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 저장소 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
 * 원본 IOPS가 디스크당 지원되는 저장소 IOPS 한도(5000)를 초과합니다.
@@ -521,14 +517,14 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **복제 저장소 대상** | **평균 원본 디스크 I/O 크기** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
 ---|---|---|---
-Standard Storage | 8KB    | 2MBps | 디스크당&168;GB
-프리미엄 P10 디스크 | 8KB    | 2MBps | 디스크당&168;GB
-프리미엄 P10 디스크 | 16KB | 4MBps |    디스크당&336;GB
-프리미엄 P10 디스크 | 32KB 이상 | 8MBps | 디스크당&672;GB
-프리미엄 P20 또는 P30 디스크 | 8KB    | 5MBps | 디스크당&421;GB
-프리미엄 P20 또는 P30 디스크 | 16KB 이상 |10MBps | 디스크당&842;GB
+Standard Storage | 8KB    | 2MBps | 디스크당 168GB
+프리미엄 P10 디스크 | 8KB    | 2MBps | 디스크당 168GB
+프리미엄 P10 디스크 | 16KB | 4MBps |    디스크당 336GB
+프리미엄 P10 디스크 | 32KB 이상 | 8MBps | 디스크당 672GB
+프리미엄 P20 또는 P30 디스크 | 8KB    | 5MBps | 디스크당 421GB
+프리미엄 P20 또는 P30 디스크 | 16KB 이상 |10MBps | 디스크당 842GB
 
-여기서는 I/O가 30% 겹치고 있다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약&5;분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며&5;분 내에 복구 지점이 생성됩니다.
+여기서는 I/O가 30% 겹치고 있다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며 5분 내에 복구 지점이 생성됩니다.
 
 이러한 한도는 테스트를 기반으로 하지만 모든 가능한 응용 프로그램 I/O 조합을 다룰 수는 없습니다. 실제 결과는 응용 프로그램 I/O 조합에 따라 달라질 수 있습니다. 최상의 결과를 얻으려면 배포를 계획한 후에도 항상 테스트 장애 조치를 통해 광범위한 응용 프로그램 테스트를 수행하여 진정한 성능 상황을 이해하는 것이 좋습니다.
 
@@ -546,6 +542,7 @@ Deployment Planner를 업데이트하려면 다음을 수행합니다.
  * 최신 버전에 프로파일링 수정 프로그램이 있는 경우 현재 버전에서 프로파일링을 중지하고 새 버전으로 프로파일링을 다시 시작하는 것이 좋습니다.
 
   >[!NOTE]
+  >
   >새 버전으로 프로파일링을 시작하는 경우 도구가 기존 파일의 프로파일 데이터를 추가하도록 동일한 출력 디렉터리 경로를 전달합니다. 프로파일링된 데이터의 전체 집합을 사용하여 보고서가 생성됩니다. 다른 출력 디렉터리를 전달하는 경우 새 파일이 생성되고 이전의 프로파일링된 데이터는 보고서 생성 시 사용되지 않습니다.
   >
   >각 새 Deployment Planner는 .zip 파일의 누적 업데이트입니다. 최신 파일을 이전 폴더로 복사할 필요가 없습니다. 새 폴더를 만들어 사용할 수 있습니다.

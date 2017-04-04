@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -604,7 +604,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 축하합니다. Node.js 자습서를 만들고 완료했으며 첫 번째 DocumentDB 콘솔 응용 프로그램이 있습니다.
 
 ## <a id="GetSolution"></a>전체 Node.js 자습서 솔루션 다운로드
-이 자습서의 단계를 완료할 시간이 없거나 코드를 다운로드하려는 경우 [Github](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 가져올 수 있습니다.
+이 자습서의 단계를 완료할 시간이 없거나 코드를 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 가져올 수 있습니다.
 
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 실행하려면 다음이 필요합니다.
 

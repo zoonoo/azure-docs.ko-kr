@@ -14,7 +14,3 @@
 6. 블레이드 하단에서 **만들기**를 클릭합니다.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-
