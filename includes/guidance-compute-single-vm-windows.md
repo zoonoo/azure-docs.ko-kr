@@ -1,19 +1,19 @@
-이 문서는 확장성, 가용성, 관리 효율성 및 보안에 주의하면서 Azure에서 Windows VM(가상 컴퓨터)을 실행하기 위한 일련의 검증된 작업 방식을 간략하게 설명합니다. 
+이 문서는 확장성, 가용성, 관리 효율성 및 보안에 주의하면서 Azure에서 Windows VM(가상 컴퓨터)을 실행하기 위한 일련의 검증된 작업 방식을 간략하게 설명합니다.
 
 > [!NOTE]
 > Azure에는 [Azure Resource Manager][resource-manager-overview] 및 클래식이라는 두 가지 서로 다른 배포 모델이 있습니다. 이 문서에서는 새로운 배포를 위해 Microsoft에서 권장하는 리소스 관리자를 사용합니다.
-> 
-> 
+>
+>
 
-단일 실패 지점을 생성하므로 중요한 작업에 단일 VM을 사용하지 않는 것이 좋습니다. 더 높은 가용성을 위해 [가용성 집합][availability-set]에 여러 VM을 배포합니다. 자세한 내용은 [Azure에서 여러 VM 실행][multi-vm]을 참조하세요. 
+단일 실패 지점을 생성하므로 중요한 작업에 단일 VM을 사용하지 않는 것이 좋습니다. 더 높은 가용성을 위해 [가용성 집합][availability-set]에 여러 VM을 배포합니다. 자세한 내용은 [Azure에서 여러 VM 실행][multi-vm]을 참조하세요.
 
 ## <a name="architecture-diagram"></a>아키텍처 다이어그램
 
 Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부분이 많습니다. 계산, 네트워킹 및 저장소 요소가 있습니다.
 
 > 이 아키텍처 다이어그램이 포함된 Visio 문서는 [Microsoft 다운로드 센터][visio-download]에서 다운로드할 수 있습니다. 아 다이어그램은 "계산 - 단일 VM" 페이지에 있습니다.
-> 
-> 
+>
+>
 
 ![[0]][0]
 
@@ -30,11 +30,11 @@ Azure에서 VM을 프로비전할 때에는 VM 자체 이외에도 움직일 부
 
 ## <a name="recommendations"></a>추천
 
-대부분의 시나리오의 경우 다음 권장 사항을 적용합니다. 이러한 권장 사항을 재정의하라는 특정 요구 사항이 있는 경우가 아니면 따릅니다. 
+대부분의 시나리오의 경우 다음 권장 사항을 적용합니다. 이러한 권장 사항을 재정의하라는 특정 요구 사항이 있는 경우가 아니면 따릅니다.
 
 ### <a name="vm-recommendations"></a>VM 권장 사항
 
-Azure에서 다양한 크기의 가상 컴퓨터를 제공하지만 DS 및 GS 시리즈의 컴퓨터 크기가 [Premium Storage][premium-storage]를 지원하므로 이러한 시리즈를 사용하는 것이 좋습니다. 고성능 컴퓨팅과 같은 특수한 워크로드가 발생하지 않는다면 이러한 컴퓨터 크기 중 하나를 선택합니다. 자세한 내용은 [가상 컴퓨터 크기][virtual-machine-sizes]를 참조하세요. 
+Azure에서 다양한 크기의 가상 컴퓨터를 제공하지만 DS 및 GS 시리즈의 컴퓨터 크기가 [Premium Storage][premium-storage]를 지원하므로 이러한 시리즈를 사용하는 것이 좋습니다. 고성능 컴퓨팅과 같은 특수한 워크로드가 발생하지 않는다면 이러한 컴퓨터 크기 중 하나를 선택합니다. 자세한 내용은 [가상 컴퓨터 크기][virtual-machine-sizes]를 참조하세요.
 
 기존 워크로드를 Azure로 이동하는 경우 온-프레미스 서버와 가장 근접하게 일치하는 VM 크기부터 사용하기 시작합니다. 그런 다음 CPU, 메모리, 디스크 IOPS(초당 입력/출력 작업 수)에 따라 실제 워크로드의 성능을 측정하고 필요에 따라 크기를 조정합니다. VM에 대해 여러 NIC가 필요한 경우 최대 NIC 수는 [VM 크기][vm-size-tables]의 함수입니다.   
 
@@ -48,9 +48,9 @@ azure vm sizes --location <location>
 
 ### <a name="disk-and-storage-recommendations"></a>디스크 및 저장소 권장 사항
 
-최상의 디스크 I/O 성능을 위해서는 SSD(반도체 드라이브)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다. 
+최상의 디스크 I/O 성능을 위해서는 SSD(반도체 드라이브)에 데이터를 저장하는 [프리미엄 저장소][premium-storage]가 권장됩니다. 비용은 프로비전된 디스크 크기를 기준으로 산정됩니다. IOPS 및 처리량도 디스크 크기에 따라 달라지므로 디스크를 프로비전할 때 세 가지 요소(용량, IOPS, 처리량)를 모두 고려합니다.
 
-저장소 계정에 대한 IOPS 제한에 도달하지 않도록 하기 위해 VHD(가상 하드 디스크)를 보유하는 각 VM에 대한 별도 Azure Storage 계정을 만듭니다. 
+저장소 계정에 대한 IOPS 제한에 도달하지 않도록 하기 위해 VHD(가상 하드 디스크)를 보유하는 각 VM에 대한 별도 Azure Storage 계정을 만듭니다.
 
 하나 이상의 데이터 디스크를 추가합니다. 새 VHD를 만들 때 형식은 지정되지 않습니다. 디스크를 포맷하려면 VM에 로그인합니다. 데이터 디스크 수가 많은 경우 저장소 계정의 총 I/O 제한에 주의해야 합니다. 자세한 내용은 [가상 컴퓨터 디스크 제한][vm-disk-limits]을 참조하세요.
 
@@ -71,15 +71,15 @@ RDP를 사용하도록 설정하려면 TCP 포트 3389에 인바운드 트래픽
 
 ## <a name="scalability-considerations"></a>확장성 고려 사항
 
-[VM 크기를 변경][vm-resize]하여 VM을 규모 확장 또는 축소할 수 있습니다. 규모를 확장하려면 부하 분산 장치를 기준으로 두 개 이상의 VM을 가용성 집합에 추가합니다. 자세한 내용은 [Azure에서 확장성 및 가용성을 위해 여러 VM 실행][multi-vm]을 참조하세요.
+[VM 크기를 변경](../articles/virtual-machines/virtual-machines-windows-sizes.md)하여 VM의 규모를 확장 또는 축소할 수 있습니다. 규모를 확장하려면 부하 분산 장치를 기준으로 두 개 이상의 VM을 가용성 집합에 추가합니다. 자세한 내용은 [Azure에서 확장성 및 가용성을 위해 여러 VM 실행][multi-vm]을 참조하세요.
 
 ## <a name="availability-considerations"></a>가용성 고려 사항
 
-더 높은 가용성을 위해 가용성 집합에 여러 VM을 배포합니다. 또한 더 높은 [서비스 수준 약정][vm-sla](SLA)을 제공합니다. 
+더 높은 가용성을 위해 가용성 집합에 여러 VM을 배포합니다. 또한 더 높은 [서비스 수준 약정][vm-sla](SLA)을 제공합니다.
 
 사용자의 VM은 [계획된 유지 관리][planned-maintenance] 또는 [계획되지 않은 유지 관리][manage-vm-availability]의 영향을 받을 수 있습니다. [VM 다시 부팅 로그][reboot-logs]를 사용하여 VM 재부팅이 계획된 유지 관리로 발생했는지 여부를 결정할 수 있습니다.
 
-VHD는 [Azure Storage][azure-storage]에 저장되며 Azure Storage는 내구성 및 가용성을 위해 복제됩니다. 
+VHD는 [Azure Storage][azure-storage]에 저장되며 Azure Storage는 내구성 및 가용성을 위해 복제됩니다.
 
 정상 작업 중 실수로 인한 데이터 손실(예: 사용자 오류 때문에 발생)을 막기 위해 [Blob 스냅숏][blob-snapshot] 또는 다른 도구를 사용하여 지정 시간 백업도 구현해야 합니다.
 
@@ -107,7 +107,7 @@ Azure Portal에서 **중지** 버튼은 VM 할당을 취소합니다. 그러나 
 
 **VM 삭제.** VM을 삭제하는 경우 VHD는 삭제되지 않습니다. 즉, 데이터 손실 없이 안전하게 VM을 삭제할 수 있습니다. 그러나 저장소에 대한 비용은 계속 청구됩니다. VHD를 삭제하려면 [Blob 저장소][blob-storage]에서 파일을 삭제합니다.
 
-실수로 삭제하지 않도록 하려면 [리소스 잠금][resource-lock]을 사용하여 전체 리소스 그룹을 잠그거나 VM과 같은 개별 리소스를 잠급니다. 
+실수로 삭제하지 않도록 하려면 [리소스 잠금][resource-lock]을 사용하여 전체 리소스 그룹을 잠그거나 VM과 같은 개별 리소스를 잠급니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
@@ -121,8 +121,8 @@ Azure Portal에서 **중지** 버튼은 VM 할당을 취소합니다. 그러나 
 
 > [!NOTE]
 > RBAC는 VM에 로그온한 사용자가 수행할 수 있는 작업을 제한하지 않습니다. 이러한 사용 권한은 게스트 OS의 계정 유형에 따라 결정됩니다.   
-> 
-> 
+>
+>
 
 로컬 관리자 암호를 재설정하려면 `vm reset-access` Azure CLI 명령을 실행합니다.
 
@@ -132,16 +132,16 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 
 [감사 로그][audit-logs]를 사용하여 프로비전 동작 및 기타 VM 이벤트를 확인합니다.
 
-**데이터 암호화.** OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure Disk Encryption][disk-encryption]을 고려하세요. 
+**데이터 암호화.** OS 및 데이터 디스크를 암호화해야 하는 경우 [Azure Disk Encryption][disk-encryption]을 고려하세요.
 
 ## <a name="solution-deployment"></a>솔루션 배포
 
-이 참조 아키텍처에 대한 배포는 [GitHub][github-folder]에서 사용할 수 있습니다. VNet, NSG 및 단일 VM을 포함합니다. 아키텍처를 배포하려면 다음 단계를 따르세요. 
+이 참조 아키텍처에 대한 배포는 [GitHub][github-folder]에서 사용할 수 있습니다. VNet, NSG 및 단일 VM을 포함합니다. 아키텍처를 배포하려면 다음 단계를 따르세요.
 
 1. 아래 단추를 마우스 오른쪽 단추로 클릭하고 "새 탭에서 링크 열기" 또는 "새 창에서 링크 열기"를 선택합니다.  
    [![Azure에 배포](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
-2. Azure 포털에서 링크가 열렸으면 일부 설정에 대한 값을 입력해야 합니다. 
-   
+2. Azure 포털에서 링크가 열렸으면 일부 설정에 대한 값을 입력해야 합니다.
+
    * **리소스 그룹** 이름이 매개 변수 파일에 이미 정의되어 있으므로 **새로 만들기**를 선택하고 텍스트 상자에 `ra-single-vm-rg`를 입력합니다.
    * **위치** 드롭다운 상자에서 하위 지역을 선택합니다.
    * **템플릿 루트 Uri** 또는 **매개 변수 루트 Uri** 텍스트 상자를 편집하지 마세요.
@@ -151,10 +151,10 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 3. 배포가 완료될 때가지 기다립니다.
 4. 매개 변수 파일에는 하드 코딩된 관리자 사용자 이름 및 암호가 포함되며 둘 다 즉시 변경하는 것이 좋습니다. Azure Portal에서 `ra-single-vm0 `으로 명명된 VM을 클릭합니다. 그런 다음 **지원 + 문제 해결** 블레이드에서 **암호 재설정**을 클릭합니다. **모드** 드롭다운 상자에서 **암호 재설정**을 선택한 후 새 **사용자 이름** 및 **암호**를 선택합니다. **업데이트** 단추를 클릭하여 새 사용자 이름 및 암호를 보존합니다.
 
-이 참조 아키텍처를 배포하는 다른 방법은 [guidance-single-vm][github-folder]] Github 폴더의 추가 정보 파일을 참조하세요. 
+이 참조 아키텍처를 배포하는 다른 방법은 [guidance-single-vm][github-folder]] GitHub 폴더의 추가 정보 파일을 참조하세요.
 
 ## <a name="customize-the-deployment"></a>배포 사용자 지정
-요구 사항을 충족하기 위해 배포를 변경해야 하는 경우 [추가 정보][github-folder] 페이지에 있는 지침을 따릅니다. 
+요구 사항을 충족하기 위해 배포를 변경해야 하는 경우 [추가 정보][github-folder] 페이지에 있는 지침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 더 높은 가용성을 위해 부하 분산 장치 뒤에 둘 이상의 VM을 배포합니다. 자세한 내용은 [Azure에서 여러 VM 실행][multi-vm]을 참조하세요.

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>암호 관리 시작
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -375,7 +375,7 @@ Azure AD 암호 재설정 감사 로그를 사용하여 Azure Portal, PowerBI, A
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Windows PowerShell을 사용하여 암호 쓰기 저장을 사용하도록 설정하려면
 1. 사용자 **디렉터리 동기화 컴퓨터**에서 새 **관리자 권한 Windows PowerShell 창**을 엽니다.
 2. 모듈이 아직 로드되지 않은 경우, `import-module ADSync` 명령에 입력하여 현재 세션으로 Azure AD Connect cmdlet을 로드합니다.
-3. `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`과 같이 `Get-ADSyncConnector` cmdlet을 실행하고 결과를 `$aadConnectorName`에 저장하여 시스템에서 Azure AD Connector의 목록을 가져옵니다.
+3. `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`과 같이 `Get-ADSyncConnector` cmdlet을 실행하고 결과를 `$aadConnectorName`에 저장하여 시스템에서 Azure AD Connector의 목록을 가져옵니다.
 4. 다음 cmdlet을 실행하여 현재 커넥터에 대한 쓰기 저장의 현재 상태를 가져오려면: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. 이 cmdlet을 실행하여 암호 쓰기 저장을 활성화합니다. `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -399,9 +399,9 @@ Azure AD 암호 재설정 감사 로그를 사용하여 Azure Portal, PowerBI, A
 
 #### <a name="why-do-i-need-to-do-this"></a>이렇게 하는 것이 왜 필요한가요?
 
-비밀번호 쓰기 저장이 제대로 작동하려면, Azure AD Connect를 실행하는 컴퓨터가 [Microsoft Azure 데이터 센터 IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=41653)에 정의된 대로 **. servicebus.windows.net* 및 Azure에서 사용되는 특정 IP 주소에 대한 아웃바운드 HTTPS 연결을 설정할 수 있어야 합니다.
+비밀번호 쓰기 저장이 제대로 작동하기 위해 Azure AD Connect를 실행하는 컴퓨터는 Azure Service Bus뿐만 아니라 암호 재설정 서비스를 사용할 수 있어야 합니다.
 
-Azure AD Connect 도구의 경우 **1.1.443.0**(최신) 이상:
+Azure AD Connect 도구 **1.1.443.0** 이상의 경우:
 
 - 최신 버전의 Azure AD Connect 도구에서 다음에 대한 **아웃바운드 HTTPS** 액세스가 필요합니다.
     - *passwordreset.microsoftonline.com*
@@ -421,7 +421,7 @@ Azure AD Connect의 경우 도구 버전 **1.0.8667.0** ~ **1.1.380.0**:
         - 이 구성에서 비밀번호 쓰기 저장이 정상적으로 계속 작동하게 하려면 네트워킹 어플라이언스가 매주 Microsoft Azure Datacenter IP Ranges 목록에서 최신 IP를 받아 업데이트된 상태를 유지하는지 확인해야 합니다. 이러한 IP 범위는 XML 파일 형태로 제공되며 매주 수요일(태평양 표준시)에 업데이트되고 다음 월요일(태평양 표준시)에 발효됩니다.
     - 필요한 단계:
         - *. Servicebus.windows.net에 모든 아웃바운드 HTTPS 연결을 허용합니다.
-        - Microsoft Azure Datacenter IP Ranges 목록에 있는 모든 IP에 대한 모든 아웃바운드 HTTPS 연결을 허용하며 이 구성은 매주 업데이트됩니다.
+        - Microsoft Azure Datacenter IP Ranges 목록에 있는 모든 IP에 대한 모든 아웃바운드 HTTPS 연결을 허용하며 이 구성은 매주 업데이트됩니다. 이 목록은 [여기](https://www.microsoft.com/download/details.aspx?id=41653)에서 다운로드하는 데 사용할 수 있습니다.
 
 > [!NOTE]
 > 위의 지침에 따라 비밀번호 쓰기 저장을 구성했고 Azure AD Connect 이벤트 로그에 오류가 보이지 않으나, 테스트할 때 연결 오류가 발생한다면 사용자 환경에 있는 네트워킹 어플라이언스가 IP 주소에 대한 HTTPS 연결을 차단하는 경우일 수도 있습니다. 예를 들어, *https://*. servicebus.windows.net*에 대한 연결이 허용되는 반면에 해당 범위 내의 특정 IP 주소에 대한 연결이 차단될 수도 있습니다. 이 문제를 해결하려면 포트 443 통해 모든 URL 또는 IP 주소에 대한 모든 아웃바운드 HTTPS 연결을 허용 하거나(위의 옵션 1), 네트워크 팀과 함께 특정 IP 주소에 대한 HTTPS 연결을 명시적으로 허용하도록(위의 옵션 2) 네트워킹 환경을 구성할 필요가 있습니다.
@@ -495,8 +495,8 @@ Azure AD Connect 도구는 ServiceBus 끝점에 주기적인 ping/keepalive를 �
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
-* [**작동 방식**](active-directory-passwords-how-it-works.md) -&6;개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
 * [**정보 활용**](active-directory-passwords-get-insights.md) -우리의 통합된 보고 기능에 대해 알아봅니다

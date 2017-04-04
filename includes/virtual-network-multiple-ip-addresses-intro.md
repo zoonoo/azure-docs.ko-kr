@@ -14,4 +14,4 @@ Azure VM(가상 컴퓨터)에는 하나 이상의 네트워크 인터페이스(N
 
 VM에 연결된 모든 NIC에는 하나 이상의 IP 구성이 연결되어 있습니다. 각 구성에는 하나의 정적 또는 동적 개인 IP 주소가 할당됩니다. 각 구성에는 하나의 공용 IP 주소 리소스가 연결되어 있을 수도 있습니다. 공용 IP 주소 리소스에는 동적 또는 정적 공용 IP 주소가 할당되어 있습니다. Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [Azure의 IP 주소](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md)를 확인하세요. 
 
-각 NIC에 최대 250개의 개인 IP 주소를 할당할 수 있습니다. 각 NIC에 여러 개의 공용 IP 주소를 지정할 수 있지만, Azure 구독에서 사용할 수 있는 공용 IP 주소의 개수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 문서를 참조하세요.
+NIC에 할당할 수 있는 개인 IP 주소의 수를 제한합니다. Azure 구독에서 사용할 수 있는 공용 IP 주소의 수도 제한되어 있습니다. 자세한 내용은 [Azure 제한](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 문서를 참조하세요.

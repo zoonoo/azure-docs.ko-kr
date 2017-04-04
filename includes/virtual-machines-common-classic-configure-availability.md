@@ -1,14 +1,14 @@
 
 
 
-가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 컴퓨터를 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 컴퓨터를 배치하면 가상 컴퓨터가 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방식에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][가상 컴퓨터의 가용성 관리]를 참조하세요.
+가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 컴퓨터를 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 컴퓨터를 배치하면 가상 컴퓨터가 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방식에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][Manage the availability of virtual machines]를 참조하세요.
 
-응용 프로그램을 항상 사용 가능한 상태로 유지하고 효과적으로 실행하려면 가용성 집합과 부하 분산 끝점을 함께 사용하는 것이 가장 좋습니다. 부하 분산 끝점에 대한 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산][Azure 인프라 서비스를 위한 부하 분산]을 참조하세요.
+응용 프로그램을 항상 사용 가능한 상태로 유지하고 효과적으로 실행하려면 가용성 집합과 부하 분산 끝점을 함께 사용하는 것이 가장 좋습니다. 부하가 분산된 끝점에 대한 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산][Load balancing for Azure infrastructure services]을 참조하세요.
 
 다음 두 옵션 중 하나를 사용하여 클래식 가상 컴퓨터를 가용성 집합에 추가할 수 있습니다.
 
-* [옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기][옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기]. 그런 다음 새 가상 컴퓨터를 만들 때 집합에 가상 컴퓨터를 추가합니다.
-* [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가][옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가].
+* [옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기][Option 1: Create a virtual machine and an availability set at the same time]를 참조하세요. 그런 다음 새 가상 컴퓨터를 만들 때 집합에 가상 컴퓨터를 추가합니다.
+* [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가][Option 2: Add an existing virtual machine to an availability set]
 
 > [!NOTE]
 > 클래식 모델에서는 같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.
@@ -36,7 +36,7 @@ Azure 포털을 사용하려면
 8. 구성 설정을 검토합니다. 완료하면 **만들기**를 클릭합니다.
 9. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **가상 컴퓨터** 에서 진행 상황을 추적할 수 있습니다.
 
-Azure PowerShell 명령을 사용하여 Azure 가상 컴퓨터를 만들고 새로운 또는 기존 가용성 집합에 추가하려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Azure PowerShell 명령을 사용하여 Azure 가상 컴퓨터를 만들고 새로운 또는 기존 가용성 집합에 추가하려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a id="addmachine"> </a>옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가
 Azure 포털에서 기존 클래식 가상 컴퓨터를 기존 가용성 집합에 추가하거나 가상 컴퓨터용으로 새 가용성 집합을 만들 수 있습니다. 동일한 가용성 집합의 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다. 이 옵션에서도 단계는 거의 동일합니다. Azure PowerShell에서 기존 가용성 집합에 가상 컴퓨터를 추가할 수 있습니다.
@@ -64,17 +64,12 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 > 
 
 <!-- LINKS -->
-[옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기]: #createset
-[옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가]: #addmachine
+[Option 1: Create a virtual machine and an availability set at the same time]: #createset
+[Option 2: Add an existing virtual machine to an availability set]: #addmachine
 
-[Azure 인프라 서비스를 위한 부하 분산]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
-[가상 컴퓨터의 가용성 관리]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[Load balancing for Azure infrastructure services]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Manage the availability of virtual machines]:../articles/virtual-machines/linux/manage-availability.md
 
-[Windows를 실행하는 가상 컴퓨터 만들기]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Virtual Network 개요]: ../articles/virtual-network/virtual-networks-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
 
