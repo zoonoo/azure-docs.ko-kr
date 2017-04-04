@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
 ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
 ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -76,9 +78,4 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data W
 <!--MSDN references-->
 
 <!--Other web references-->
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

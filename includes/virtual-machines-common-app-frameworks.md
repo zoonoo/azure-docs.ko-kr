@@ -26,7 +26,7 @@
 이러한 템플릿 외에도 [갤러리 템플릿](https://azure.microsoft.com/documentation/templates/)을 통해 검색할 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure 포털
-URL을 Azure 포털에 전송하면 Azure 포털을 사용하여 템플릿을 배포하기 쉽습니다. 배포할 템플릿 파일의 이름이 필요합니다. 템플릿 갤러리의 페이지 또는 Github 리포지토리에서 이름을 찾을 수 있습니다. 이 URL의 {템플릿 이름}을 배포하려는 템플릿 이름으로 변경한 다음 브라우저에 입력합니다.
+URL을 Azure 포털에 전송하면 Azure 포털을 사용하여 템플릿을 배포하기 쉽습니다. 배포할 템플릿 파일의 이름이 필요합니다. 템플릿 갤러리의 페이지 또는 GitHub 리포지토리에서 이름을 찾을 수 있습니다. 이 URL의 {템플릿 이름}을 배포하려는 템플릿 이름으로 변경한 다음 브라우저에 입력합니다.
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 

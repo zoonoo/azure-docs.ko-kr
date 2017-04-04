@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f592dc23938c436e803c7a0d8f7fd2dd5b4185c8
-ms.openlocfilehash: 3b645725b88b33e7283ce2bf89383b285d75cddc
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1c7a95354358d91859ce9d2019cef93b6662811f
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>HDInsight에서 Apache Kafka(미리 보기) 시작
@@ -35,11 +36,7 @@ ms.lasthandoff: 02/15/2017
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* **SSH 및 SCP 사용 경험**. HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-  
-   * **Linux, Unix, OS X 및 Windows 10 클라이언트**: [Linux, OS X, Unix 및 Windows 10의 Bash에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-   * **Windows 클라이언트**: [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+* **SSH 및 SCP 사용 경험**. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 또는 이와 동등한 프로그램(예: OpenJDK)
 
@@ -108,16 +105,9 @@ ms.lasthandoff: 02/15/2017
 
 메시지가 표시되면 SSH 계정에 사용한 암호를 입력합니다.
 
-> [!NOTE]
-> SSH 명령을 포함하지 않는 Windows 버전을 사용하는 경우 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md) 문서를 참조하세요. Windows용 PuTTY SSH 클라이언트 사용에 관한 정보가 포함되어 있습니다.
+자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-* [Linux, Unix, OS X 및 Windows 10의 Bash의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-##<a name="a-idgetkafkainfoaget-the-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Zookeeper 및 Broker 호스트 정보 가져오기
+##<a id="getkafkainfo"></a>Zookeeper 및 Broker 호스트 정보 가져오기
 
 Kafka를 사용할 때는 두 가지 호스트, 즉 *Zookeeper* 호스트와 *Broker* 호스트의 값을 알고 있어야 합니다. 이러한 호스트는 Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
 
@@ -257,7 +247,7 @@ Kafka의 중요한 개념은 소비자에서 레코드를 읽을 때 그룹 ID�
 
 2. 각 세션에서 토픽으로부터 받은 레코드를 계산하는 것을 지켜봅니다. 두 세션의 합계는 앞서 한 소비자로부터 받은 것과 같아야 합니다.
 
-동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 앞에서 만든 `test` 토픽에는&8;개의 파티션이 있습니다. 8개 SSH 세션을 열고 모든 세션에서 소비자를 시작하면 각 소비자는 해당 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
+동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8개 SSH 세션을 열고 모든 세션에서 소비자를 시작하면 각 소비자는 해당 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
 
 > [!IMPORTANT]
 > 소비자 그룹에는 파티션보다 더 많은 소비자 인스턴스가 있을 수 없습니다. 이 예제에서 하나의 소비자 그룹은 토픽의 파티션 수이기 때문에 최대 8개 소비자를 포함할 수 있습니다. 또는 소비자가 8개 이하인 소비자 그룹이 여러 개 있을 수 있습니다.

@@ -11,12 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/03/2017
 ms.author: spelluru
 published: true
 translationtype: Human Translation
 ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
 ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
+ms.lasthandoff: 02/13/2017
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
@@ -234,9 +235,4 @@ ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Azure 데이터 팩터리 시나리오에 영향을 주는 변경은 없습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
