@@ -16,9 +16,9 @@
 ### [Azure Functions를 사용하여 사용자 지정 코드 추가](logic-apps-azure-functions.md)
 ### [루프, 범위 및 데이터 분할](logic-apps-loops-and-scopes.md)
 ### [작성자 논리 앱 정의](logic-apps-author-definitions.md)
+### [논리 앱 호출, 트리거 또는 중첩](logic-apps-http-endpoint.md)
 ### [논리 앱에 대한 사용자 지정 API 만들기](logic-apps-create-api-app.md)
 ### [논리 앱에 대한 사용자 지정 API 호출](logic-apps-custom-hosted-api.md)
-### [트리거로 논리 앱 끝점 호출](logic-apps-http-endpoint.md)
 ### [오류 및 예외 처리](logic-apps-exception-handling.md)
 ### [콘텐츠 형식 처리](logic-apps-content-type.md)
 ### [논리 앱 보안](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [X12 엔터프라이즈 통합](logic-apps-enterprise-integration-x12.md)
 ### [X12 인코딩](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 디코딩](logic-apps-enterprise-integration-x12-decode.md)
+### [재해 복구](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## 온-프레미스 데이터 액세스
 ### [온-프레미스 데이터에 연결](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## 예제, 시나리오 및 연습
 ### [개요](logic-apps-examples-and-scenarios.md)
+### [서버를 사용하지 않는 소셜 대시보드 만들기](logic-apps-scenario-social-serverless.md)
 ### [Azure Functions를 사용하여 논리 앱 호출](logic-apps-scenario-function-sb-trigger.md)
 ### [오류 및 예외 처리 추가](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B 처리](logic-apps-enterprise-integration-b2b.md)

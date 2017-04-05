@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST (영문)](media-services-rest-upload-files.md)
 ### [Aspera를 사용하여 대용량 파일 업로드](media-services-upload-files-with-aspera.md)
+### [StorSimple을 사용하여 파일 업로드](media-services-upload-files-from-storsimple.md)
 ### [기존 Blob 복사](media-services-copying-existing-blob.md)
 
 ## [콘텐츠 인코딩](media-services-encode-asset.md)

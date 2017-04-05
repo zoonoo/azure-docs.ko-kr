@@ -46,6 +46,9 @@
 ### [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)
 ### [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Azure AD Sync 서비스 계정 암호 변경](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [AD 휴지통 사용](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [작업](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md)

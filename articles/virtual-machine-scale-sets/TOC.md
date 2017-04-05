@@ -4,6 +4,7 @@
 # 시작
 ## [포털에서 크기 집합 배포](virtual-machine-scale-sets-portal-create.md)
 ## [PowerShell 또는 Azure CLI를 사용하여 크기 집합 배포](virtual-machine-scale-sets-create.md)
+## [템플릿을 사용하여 자동 크기 조정 앱 배포](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # 방법
 ## 계획 및 디자인

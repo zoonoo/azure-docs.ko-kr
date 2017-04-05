@@ -46,11 +46,12 @@
 ### [보안 고려 사항](best-practices-resource-manager-security.md)
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
-### [정책 할당 및 관리](resource-manager-policy-create-assign.md)
+### [포털 정책 할당](resource-manager-policy-portal.md)
+### [스크립트 정책 할당](resource-manager-policy-create-assign.md)
 ### [리소스 태그 정책](resource-manager-policy-tags.md)
 ### [저장소 정책](resource-manager-policy-storage.md)
-### [Linux VM 정책](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM 정책](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Linux VM 정책](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM 정책](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## 감사 및 문제 해결
 ### [일반 배포 오류 문제 해결](resource-manager-common-deployment-errors.md)
 ### [활동 로그 보기](resource-group-audit.md)

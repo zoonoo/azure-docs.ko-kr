@@ -114,7 +114,6 @@
 #### [Hive 쿼리 사용](machine-learning-data-science-create-features-hive.md)
 #### [TDSP 기능 선택](machine-learning-data-science-select-features.md)
 ### 모델을 만들고 학습 수행
-#### [점수 매기기로 변환](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [실험 수명 주기 관리](machine-learning-version-control.md)
 #### [반복 관리](machine-learning-manage-experiment-iterations.md)
 #### [PowerShell을 사용하여 모델 만들기](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [사용자 지정 R 모듈](machine-learning-custom-r-modules.md)
 ##### [Python 스크립트 실행](machine-learning-execute-python-scripts.md)
 
-## 모델 배포 및 사용
+## 모델 운영
 ### [개요](machine-learning-deploy-consume-web-service-guide.md)
 ### 모델 배포
-#### [작동 방법](machine-learning-model-progression-experiment-to-web-service.md)
 #### [웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
+#### [작동 방법](machine-learning-model-progression-experiment-to-web-service.md)
+#### [배포 준비](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [외부 데이터 사용](machine-learning-web-services-that-use-import-export-modules.md)
 #### [다중 지역 배포](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [웹 서비스 매개 변수 사용](machine-learning-web-service-parameters.md)
 #### [로깅 사용](machine-learning-web-services-logging.md)
 ### 웹 서비스 관리
-#### [끝점 만들기](machine-learning-create-endpoint.md)
 #### [웹 서비스 포털 사용](machine-learning-manage-new-webservice.md)
 #### [API를 사용하여 관리](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [끝점 만들기](machine-learning-create-endpoint.md)
 #### [크기 조정](machine-learning-scaling-webservice.md)
 ### 모델 다시 학습
 #### [개요](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [이상 감지](machine-learning-apps-anomaly-detection-api.md)
 #### [텍스트 분석](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### 추천
-##### [개요](machine-learning-recommendation-api-sample-application.md)
-##### [빠른 시작](machine-learning-recommendation-api-quick-start-guide.md)
-##### [참조](machine-learning-recommendation-api-documentation.md)
-##### [JavaScript 사용](machine-learning-recommendation-api-javascript-integration.md)
-##### [FAQ](machine-learning-recommendation-api-faq.md)
 #### 예측 유지 관리
 ##### [개요](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [아키텍처](cortana-analytics-architecture-predictive-maintenance.md)

@@ -44,6 +44,7 @@
 ### [사용자 계정 관리](api-management-howto-create-or-invite-developers.md)
 ### [자동화를 사용하여 관리](automation-manage-api-management.md)
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
+### [Azure Monitor를 사용한 모니터링](api-management-howto-use-azure-monitor.md)
 # 참조
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST (영문)](/rest/api/apimanagement/)

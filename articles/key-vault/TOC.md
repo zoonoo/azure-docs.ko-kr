@@ -25,6 +25,7 @@
 ## 자동화
 ### [Azure Automation](automation-manage-key-vault.md)
 ### [CLI를 사용하여 생성 및 관리](key-vault-manage-with-cli.md)
+### [CLI 2.0을 사용하여 생성 및 관리](key-vault-manage-with-cli2.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
