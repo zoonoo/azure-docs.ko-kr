@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b886bab44f11354ba60ae06c6d1d671e01316d48
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 405cb202e2b6da0dd24e6f7b8ed55ce8c56e0fe1
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API](#batch-development-apis)중 하나를 사용하여 프로그래밍 방식으로 수행됩니다. 클라이언트 응용 프로그램 또는 서비스는 배치 API를 통해 배치 서비스와 통신할 수 있습니다. 배치 API를 사용하면 가상 컴퓨터 또는 클라우드 서비스 중 하나인 계산 노드의 풀을 만들고 관리할 수 있습니다. 그런 다음 해당 노드에서 작업과 태스크를 실행하도록 예약할 수 있습니다. 
 
-조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 Azure 배치를 사용할 수도 있습니다.
+조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 Azure 배치를 사용할 수도 있습니다.
 
 > [!TIP]
 > 배치 API에서 제공하는 기능을 좀더 자세히 알아볼 준비가 되면 [개발자를 위한 배치 기능 개요](batch-api-basics.md)를 확인하세요.
@@ -56,7 +56,7 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 개발 API에서 제공하는 기능은 다음과 같은 명령줄 도구도 사용할 수 있습니다. 
 
 * [배치 PowerShell cmdlets][batch_ps]: [Azure PowerShell](/powershell/azureps-cmdlets-docs) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell로 배치 리소스를 관리할 수 있습니다.
-* [Azure CLI](../cli-install-nodejs.md): Azure CLI(Azure 명령줄 인터페이스)는 배치를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다.
+* [Azure CLI](/cli/azure/overview): Azure CLI(Azure 명령줄 인터페이스)는 배치를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다.
 
 ## <a name="batch-resource-management"></a>배치 리소스 관리
 
@@ -98,7 +98,7 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
-[batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
+[batch_ps]: /powershell/resourcemanager/azurerm.batch/v2.7.0/azurerm.batch
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples

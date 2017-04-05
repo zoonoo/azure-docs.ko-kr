@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > Linux 가상 컴퓨터의 경우 `vm create``-e` 옵션을 제공해야 합니다. 가상 컴퓨터를 만든 이후에는 SSH를 사용하도록 설정할 수 없습니다. SSH에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+   > Linux 가상 컴퓨터의 경우 `vm create``-e` 옵션을 제공해야 합니다. 가상 컴퓨터를 만든 이후에는 SSH를 사용하도록 설정할 수 없습니다. SSH에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 5. `azure vm show` 명령을 사용하여 VM의 특성을 확인할 수 있습니다. 다음 예제에서는 `myVM`이라는 VM에 대한 정보를 나열합니다.
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>다음 단계
 모든 Azure CLI 1.0 가상 컴퓨터 명령에 대한 자세한 설명은 [클래식 배포 API에서 Azure CLI 1.0 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

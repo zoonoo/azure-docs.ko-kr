@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +35,7 @@ DC/OS 및 Docker Swarm의 경우 내부 시스템에 대한 SSH(보안 셸) 터�
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure Container Service에 배포된](container-service-deployment.md) Kubernetes, DC/OS 또는 Swarm 클러스터
-* 배포 중에 클러스터에 추가된 공개 키에 해당하는 SSH RSA 개인 키 파일. 이러한 명령은 개인 SSH 키가 사용자의 컴퓨터의 `$HOME/.ssh/id_rsa`에 있다고 가정합니다. 자세한 내용은 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)에 대한 다음 지침을 참조하세요. SSH 연결이 작동하지 않는 경우 [SSH 키를 재설정](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)해야 합니다.
+* 배포 중에 클러스터에 추가된 공개 키에 해당하는 SSH RSA 개인 키 파일. 이러한 명령은 개인 SSH 키가 사용자의 컴퓨터의 `$HOME/.ssh/id_rsa`에 있다고 가정합니다. 자세한 내용은 [OS X 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md)에 대한 다음 지침을 참조하세요. SSH 연결이 작동하지 않는 경우 [SSH 키를 재설정](../virtual-machines/linux/troubleshoot-ssh-connection.md)해야 합니다.
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 

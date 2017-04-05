@@ -6,13 +6,13 @@ Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사
 이 문서는 Azure CLI와 함께 사용하여 Azure 구독에서 ARM 리소스(기본적으로 VM)를 관리하고 상호 작용할 수 있는 기본 명령에 대해 설명합니다.  특정 명령줄 스위치 및 옵션에 대해 자세한 도움이 필요할 경우 `azure <command> <subcommand> --help` 또는 `azure help <command> <subcommand>`를 입력하여 온라인 명령 도움말 및 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 이러한 예제에는 템플릿 기반 작업이 포함되지 않으며 이 작업은 일반적으로 리소스 관리자의 VM 배포에 사용하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager에서 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> 이러한 예제에는 템플릿 기반 작업이 포함되지 않으며 이 작업은 일반적으로 리소스 관리자의 VM 배포에 사용하는 것이 좋습니다. 자세한 내용은 [Azure Resource Manager에서 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 > 
 > 
 
 | Task | 리소스 관리자 |
 | --- | --- | --- |
-| 가장 기본적인 VM 만들기 |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` 명령에서 `image-urn`을 가져옵니다. 예제는 [이 문서](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하세요.) |
+| 가장 기본적인 VM 만들기 |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` 명령에서 `image-urn`을 가져옵니다. 예제는 [이 문서](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하세요.) |
 | Linux VM 만들기 |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Windows VM 만들기 |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
 | VM 나열 |`azure  vm list [options]` |

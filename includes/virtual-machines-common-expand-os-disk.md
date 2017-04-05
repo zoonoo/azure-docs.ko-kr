@@ -80,10 +80,5 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Azure Resource Manager VM에 디스크를 연결하는 방법은 이 [문서](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+Azure Resource Manager VM에 디스크를 연결하는 방법은 이 [문서](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 

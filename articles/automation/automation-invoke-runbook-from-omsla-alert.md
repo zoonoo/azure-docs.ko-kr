@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 81cf490eae7f283c0180875cb3a2ed2ffe6333c8
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/18/2017
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>웹후크를 사용하여 Runbook 호출
 
-웹후크를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다.  [Log Analytics 경고](../log-analytics/log-analytics-alerts.md#creating-alert-rules)를 구성하여 경고 작업으로서 웹후크를 사용하여 Runbook을 호출하기 전에 먼저 이 방법을 사용하여 호출되는 Runbook에 대한 웹후크를 만들어야 합니다.  [웹후크 만들기](automation-webhooks.md#creating-a-webhook) 문서의 단계를 검토하여 따르고 경고 규칙을 구성하는 동안 참조할 수 있도록 웹후크 URL을 기록하기 위해 기억해둡니다.   
+웹후크를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다.  [Log Analytics 경고](../log-analytics/log-analytics-alerts.md#alert-rules)를 구성하여 경고 작업으로서 웹후크를 사용하여 Runbook을 호출하기 전에 먼저 이 방법을 사용하여 호출되는 Runbook에 대한 웹후크를 만들어야 합니다.  [웹후크 만들기](automation-webhooks.md#creating-a-webhook) 문서의 단계를 검토하여 따르고 경고 규칙을 구성하는 동안 참조할 수 있도록 웹후크 URL을 기록하기 위해 기억해둡니다.   
 
 ## <a name="calling-a-runbook-directly"></a>Runbook 직접 호출
 

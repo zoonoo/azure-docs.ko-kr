@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
-ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -138,6 +138,16 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 
 - - -
+## <a name="security"></a>보안
+**Q: 시도가 일정 횟수 실패하면 계정이 잠기나요 아니면 좀 더 복잡한 전략이 사용되나요?**</br>
+좀 더 복잡한 계정 잠금 전략이 사용됩니다.  이 전략은 요청의 IP 주소와 입력된 암호를 기반으로 합니다. 또한 실패한 시도가 공격일 가능성에 따라 잠금 기간이 늘어납니다.  
+
+**Q: ‘이 암호가 너무 많이 사용되었습니다’라는 메시지와 함께 특정(공통) 암호가 거부되었습니다. 현재 활성 디렉터리에서 사용되는 암호를 말하는 것입니까?**</br>
+"Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
+
+**Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**</br>
+요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다. 
+
 ## <a name="application-access"></a>응용 프로그램 액세스
 **Q: Azure AD 및 해당 기능과 미리 통합된 응용 프로그램의 목록을 어디에서 찾을 수 있나요?**
 
