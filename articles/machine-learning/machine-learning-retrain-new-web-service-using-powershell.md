@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
-ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 32e3ff626e0f4afe80dac11eccbdaa3146d39c31
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning Management PowerShell cmdlet을 사용하여 New Web 서비스를 다시 학습
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning 관리 PowerShell cmdlet을 사용하여 새 리소스 관리자 기반 웹 서비스를 다시 학습
 새 웹 서비스를 다시 교육하는 경우 새로 학습된 모델을 참조하여 예측 웹 서비스 정의를 업데이트합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
@@ -29,8 +29,6 @@ ms.lasthandoff: 03/02/2017
 
 > [!IMPORTANT]
 > 예측 실험을 Azure Resource Manager(신규) 기반 Machine Learning 웹 서비스로 배포해야 합니다. 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
-
-
 
 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 

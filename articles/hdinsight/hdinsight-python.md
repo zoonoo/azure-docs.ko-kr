@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: b39c913367928e8e98dfb1d6bfdca75fcded13c3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 88d54250c0ce8feff78e2bf122be1c69dd0d8008
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수) 사용
@@ -172,7 +172,7 @@ def create_structure(input):
 
 3. 예제 데이터인 **sample.log**는 대개 date, time, classname, level 및 detail(반환을 원하는 필드) 스키마를 준수합니다. 그러나 '*java.lang.Exception*' 문자열로 시작하며 스키마와 일치하도록 수정해야 하는 몇 개의 줄도 포함되어 있습니다. **if** 문이 이러한 줄을 확인한 후 '*java.lang.Exception*' 문자열을 끝으로 이동하고, 원하는 출력 스키마에 따라 인라인 데이터를 가져오는 입력 데이터를 전달합니다.
 
-4. 그런 다음 **split** 명령을 사용하여 첫&4;개 공백 문자에서 데이터를 분할합니다. 출력은 **date**, **time**, **classname**, **level** 및 **detail**에 할당됩니다.
+4. 그런 다음 **split** 명령을 사용하여 첫 4개 공백 문자에서 데이터를 분할합니다. 출력은 **date**, **time**, **classname**, **level** 및 **detail**에 할당됩니다.
 
 5. 마지막으로 값은 Pig로 반환됩니다.
 
@@ -182,7 +182,8 @@ def create_structure(input):
 Linux 기반 HDInsight 클러스터를 사용하는 경우 **SSH** 단계를 사용합니다. Windows 기반 HDInsight 클러스터 및 Windows 클라이언트를 사용하는 경우 아래의 **PowerShell** 단계를 사용합니다.
 
 ### <a name="ssh"></a>SSH
-SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+
+SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 1. Python 예제인 [streaming.py](#streamingpy)와 [pig_python.py](#jythonpy)를 사용하여 개발 컴퓨터에 파일의 로컬 사본을 만듭니다.
 
@@ -270,7 +271,7 @@ SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight�
 이 단계에서는 Azure PowerShell을 사용합니다. Azure PowerShell 사용에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 1. Python 예제인 [streaming.py](#streamingpy)와 [pig_python.py](#jythonpy)를 사용하여 개발 컴퓨터에 파일의 로컬 사본을 만듭니다.
-2. 다음 PowerShell 스크립트를 사용하여 **streaming.py**와 **pig\_python.py** 파일을 서버에 업로드합니다. 스크립트의 첫&3;개 줄에서 Azure HDInsight 클러스터의 이름과 **streaming.py** 및 **pig\_python.py** 파일의 경로를 바꿉니다.
+2. 다음 PowerShell 스크립트를 사용하여 **streaming.py**와 **pig\_python.py** 파일을 서버에 업로드합니다. 스크립트의 첫 3개 줄에서 Azure HDInsight 클러스터의 이름과 **streaming.py** 및 **pig\_python.py** 파일의 경로를 바꿉니다.
    
    ```powershell
     # Login to your Azure subscription

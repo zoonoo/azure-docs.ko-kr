@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/13/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 34919221a82a024bd3a1d09c1def6040ff6c55e1
+ms.lasthandoff: 03/23/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합 - 공개 미리 보기
@@ -80,7 +80,7 @@ Azure MFA용 NPS 확장을 설치하려면
 -    네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
 -    NPS를 다시 시작합니다.
 
-PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다.
+PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다. 여러 서버에서 확장을 설치하는 경우 인증서를 갱신할 때 가동 중지 시간이 없도록 서버마다 자체 인증서가 있어야 합니다. 
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 

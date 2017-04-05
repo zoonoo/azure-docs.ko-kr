@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b615f97484033bb406022e84fbcf50f88458de3c
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1f64380b0bd271658c0f06e01a9b013ae4e25636
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -758,11 +759,7 @@ __해결 방법__: 이 오류를 해결하려면 `ssh`를 사용하여 각 클�
 sudo pip install azure-storage==0.20.0
 ```
 
-SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-* [Linux, Unix, OS X 또는 Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>클러스터를 만드는 동안 기록에 스크립트가 표시되지 않음
 

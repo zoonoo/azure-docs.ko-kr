@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9a2e9b7809b00ae2b60e152bc240ab2ef775c7bf
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -67,10 +67,7 @@ Windows 기반 HDInsight가 클라우드에서 Hadoop을 사용하는 쉬운 방
 2. 새 테스트 환경을 만들려면 HDInsight에서 Linux 기반 클러스터 만들기 문서에 나와 있는 단계를 따릅니다. 클러스터를 만들기 전에 **옵션 구성**을 선택합니다.
 3. 옵션 구성 블레이드에서 **연결된 저장소 계정**을 선택합니다.
 4. **저장소 키 추가**를 선택하고 메시지가 표시되면, 1단계의 PowerShell 스크립트에서 반환된 저장소 계정을 선택합니다. 각 블레이드에서 **선택**을 클릭합니다. 마지막으로 클러스터를 만듭니다.
-5. 클러스터가 만들어지면 **SSH**를 사용하여 클러스터에 연결합니다. HDInsight에서 SSH를 사용하는 방법을 잘 모르는 경우 다음 문서 중 하나를 참조하세요.
-
-   * [Windows 클라이언트에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
-   * [Linux, Unix, OS X 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+5. 클러스터가 만들어지면 **SSH**를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 6. SSH 세션에서 다음 명령을 사용하여 연결된 저장소 계정에서 새 기본 저장소 계정으로 파일을 복사합니다. CONTAINER를 PowerShell에서 반환하는 컨테이너 정보로 바꿉니다. __ACCOUNT__를 계정 이름으로 바꿉니다. 데이터 경로를 데이터 파일 경로로 바꿉니다.
 
@@ -109,10 +106,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스�
 
 암호보다는 공개 키 인증서가 더 안전하므로 공개 키 인증서를 사용하는 것이 좋습니다. 서명된 공개/개인 키 쌍을 생성한 후 클러스터를 생성할 때 공개 키를 제공하면 인증서 인증이 이루어집니다. SSH를 사용하여 서버에 연결할 때 클라이언트의 개인 키는 연결을 위한 인증을 제공합니다.
 
-HDInsight와 함께 SSH를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Windows 클라이언트에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Linux, Unix 및 OS X 클라이언트에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ### <a name="cluster-customization"></a>클러스터 사용자 지정
 **스크립트 동작** 은 Bash 스크립트에서 작성해야 합니다. 스크립트 동작은 클러스터 생성 중 사용할 수 있지만 Linux 기반 클러스터의 경우 클러스터가 작업을 실행한 후 사용자 지정을 수행할 때에도 사용할 수 있습니다. 자세한 내용은 [스크립트 동작에서 Linux 기반 HDInsight 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md) 및 [Linux 기반 HDInsight에 대한 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -220,8 +214,8 @@ Linux 클러스터 노드에서 직접 실행되는 스크립트가 있는 경�
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
-* [Windows 클라이언트에서 SSH를 사용하여 Linux 기반 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Linux, Unix 또는 Mac 클라이언트에서 SSH를 사용하여 Linux 기반 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Service Bus 요청-응답 기간 작업에서 AMQP 1.0 | Microsoft Docs"
+title: "Azure Service Bus 요청-응답 기간 작업에서 AMQP 1.0 | Microsoft Docs"
 description: "Microsoft Azure Service Bus 요청/응답 기반 작업 목록입니다."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 05c5c8e8c12357fd150be10def6cd9a272d613e2
-ms.openlocfilehash: 4df8ce114600abfa7abe8e70959a2cd51e2cd8a6
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -46,10 +47,10 @@ AMQP 메시지에 매핑되는 Service Bus의 메시지를 나타냅니다. 이 
 요청 전송을 위해 관리 노드에 대한 링크를 만듭니다.  
   
 ```  
-requestLink = session.attach(     
+requestLink = session.attach(       
 role: SENDER,   
-    target: { address: "<entity address>/$management" },   
-    source: { address: ""<my request link unique address>" }   
+       target: { address: "<entity address>/$management" },   
+       source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -59,10 +60,10 @@ role: SENDER,
 관리 노드에서 응답 수신을 위한 링크를 만듭니다.  
   
 ```  
-responseLink = session.attach(    
+responseLink = session.attach(      
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-    target: { address: "<my response link unique address>" }   
+       target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -96,13 +97,13 @@ responseMessage = responseLink.receiveTransfer()
   
 ```  
 Message(  
-properties: {     
+properties: {      
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },         
+           },          
 )  
   
 ```  
@@ -186,7 +187,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-| 메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
 메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
@@ -211,7 +212,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-| 메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
 메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
@@ -341,7 +342,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-| 메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
  메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
@@ -495,7 +496,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |session-id|string|아니요||  
 |reply-to-session-id|string|아니요||  
 |content-type|string|아니요||  
-|properties|map|아니요|Service Bus [BrokeredMessage.Properties](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx)로 매핑합니다.|  
+|properties|map|아니요|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)로 매핑합니다.|  
   
 **sql-rule-action** 맵은 다음 항목을 포함해야 합니다.  
   
@@ -573,7 +574,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-| 메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
+|메시지의 최대 전달 수|맵 목록|예|모든 맵이 메시지를 나타내는 메시지 목록입니다.|  
   
 메시지를 나타내는 맵은 다음 항목을 포함해야 합니다.  
   
@@ -624,8 +625,3 @@ AMQP 및 Service Bus에 대해 자세히 알아보려면 다음 링크를 방문
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [Service Bus 분할 큐 및 토픽에 대한 AMQP 1.0 지원]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.asp
-
-
-<!--HONumber=Nov16_HO4-->
-
-

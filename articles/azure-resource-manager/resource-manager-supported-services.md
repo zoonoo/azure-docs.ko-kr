@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | 컨테이너 서비스 |예 |[컨테이너 서비스 REST](/rest/api/compute/containerservices) |[컨테이너 서비스 리소스](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |예 | | |
 | 크기 집합 |예 |[크기 집합 REST](/rest/api/compute/virtualmachinescalesets) |[크기 집합 리소스](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |예 |[서비스 패브릭 Rest](/rest/api/servicefabric) | [Service Fabric 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |예 |[서비스 패브릭 Rest](/rest/api/servicefabric) | [Service Fabric 리소스](/azure/templates/microsoft.servicefabric/clusters) |
 | 가상 컴퓨터 |예 |[VM REST](/rest/api/compute/virtualmachines) |[VM 리소스](/azure/templates/microsoft.compute/virtualmachines) |
 | 가상 컴퓨터(클래식) |제한적 |- |- |
 | RemoteApp |아니요 |- |- |
@@ -117,11 +117,11 @@ Cloud Services(클래식)는 다른 클래식 리소스와 함께 사용할 수 
 | CDN |예 |[CDN REST](/rest/api/cdn) |[CDN 리소스](/azure/templates/microsoft.cdn/profiles) |
 | 미디어 서비스 |예 |[미디어 서비스 REST](/rest/api/media) |[미디어 리소스](/azure/templates/microsoft.media/mediaservices) |
 
-## <a name="hybrid-integration"></a>하이브리드 통합
+## <a name="enterprise-integration"></a>엔터프라이즈 통합
 | 부여 | 리소스 관리자 사용 | REST API | 템플릿 형식 |
 | --- | --- | --- | --- |
 | BizTalk 서비스 |예 | |[BizTalk 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| 복구 서비스 |예 |[Recovery Services REST](/rest/api/recoveryservices) |[Recovery Services 리소스](/azure/templates/microsoft.recoveryservices/vaults) |
+| 릴레이 | 예 |  | [Relay 리소스](/azure/templates/microsoft.relay/namespaces) |
 | Service Bus |예 |[Service Bus REST](/rest/api/servicebus) |[Service Bus 리소스](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>ID 및 액세스 관리
@@ -139,10 +139,11 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 | 부여 | 리소스 관리자 사용 | REST API | 템플릿 형식 |
 | --- | --- | --- | --- |
 | Advisor | 예 | [Advisor REST](/rest/api/advisor/) | - |
-| 자동화 |예 |[자동화 REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Automation 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| 자동화 |예 |[자동화 REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Automation 리소스](/azure/templates/microsoft.automation/automationaccounts) |
 | 결제 | 예 | [청구 REST](/rest/api/billing/) | - |
 | 키 자격 증명 모음 |예 |[키 자격 증명 모음 REST](/rest/api/keyvault) |[Key Vault 리소스](/azure/templates/microsoft.keyvault/vaults) |
 | Operational Insights |예 | | |
+| 복구 서비스 |예 |[Recovery Services REST](/rest/api/recoveryservices) |[Recovery Services 리소스](/azure/templates/microsoft.recoveryservices/vaults) |
 | 스케줄러 |예 |[스케줄러 REST](/rest/api/scheduler) |[Scheduler 리소스](/azure/templates/microsoft.scheduler/jobcollections) |
 | 보안 |예 |[보안 REST](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | 서버 관리 | 예 | [Server Management REST](/rest/api/servermanagement/) | [Server Management 리소스](/azure/templates/microsoft.servermanagement/gateways) |

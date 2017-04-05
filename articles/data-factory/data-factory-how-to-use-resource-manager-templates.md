@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2faab833724bf4bb3f3262517e1d724868f7524d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -39,8 +40,8 @@ Resource Manager 템플릿을 사용하여 데이터 팩터리 엔터티를 만�
 * [자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하기 위해 파이프라인 생성](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 처리하기 위해 파이프라인 생성](data-factory-build-your-first-pipeline.md)
 
-## <a name="data-factory-templates-on-github"></a>Github의 데이터 팩터리 템플릿 
-Github에서 다음 Azure 빠른 시작 템플릿을 확인해 보세요.
+## <a name="data-factory-templates-on-github"></a>GitHub의 Data Factory 템플릿
+GitHub에서 다음 Azure 빠른 시작 템플릿을 확인해 보세요.
 
 * [Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Azure HDInsight 클러스터에서 Hive 활동으로 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
@@ -252,9 +253,4 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 > 기존 데이터 팩터리에 대한 템플릿 내보내기는 아직 지원되지 않지만 작업 중에 있습니다.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

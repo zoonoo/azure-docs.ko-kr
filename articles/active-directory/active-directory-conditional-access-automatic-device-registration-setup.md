@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -87,7 +87,8 @@ Azure AD Connect:
 | 1단계: 서비스 연결 지점 구성 | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
 | 2단계: 클레임 발급 설정           |                                        | ![확인][1]                    | ![확인][1]        |
 | 3단계: 비-Windows 10 장치 활성화      |                                        |                                | ![확인][1]        |
-
+| 4단계: 배포 및 롤아웃 제어     | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
+| 5단계: 등록된 장치 확인          | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
 
 
 
@@ -292,8 +293,13 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> 위의 규칙에서 컴퓨터에 대한 issuerID 클레임은 Azure AD의 확인된 도메인 이름 중 하나를 포함해야 합니다. 이것은 AD FS 서비스 URL이 아닙니다.
+
+위의 클레임에서
+
+- `$<domain>`은 AD FS 서비스 URL
+- `<verified-domain-name>`은 Azure AD에서 확인된 도메인 이름 중 하나로 교체해야 하는 자리 표시자
+
+
 
 확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)를 참조하세요.  
 확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet을 사용합니다. 

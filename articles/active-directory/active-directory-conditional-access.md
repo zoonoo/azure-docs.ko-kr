@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: af104d47d316b3e46108e7e2ed0771bd06f360af
-ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -81,7 +82,7 @@ Azure AD에서 장치 기반 인증 기관 정책을 구성하는 방법에 대�
 
 ### <a name="multi-factor-authentication-and-location-policies"></a>다단계 인증 및 위치 정책
 * [그룹, 위치 및 다단계 인증 정책에 따라 Azure AD 연결 앱에 대한 조건부 액세스 시작](active-directory-conditional-access-azuread-connected-apps.md)Azure Active Directory 조건부 액세스 시작
-* [지원되는 응용 프로그램](active-directory-conditional-access-supported-apps.md)
+* [지원되는 응용 프로그램 및 브라우저](active-directory-conditional-access-supported-apps.md)
 
 ### <a name="device-based-conditional-access"></a>장치 기반 조건부 액세스
 * [Azure Active Directory 연결 응용 프로그램의 액세스 제어를 위한 장치 기반 조건부 액세스 정책 설정](active-directory-conditional-access-policy-connected-applications.md)
@@ -95,10 +96,5 @@ Azure AD에서 장치 기반 인증 기관 정책을 구성하는 방법에 대�
 ### <a name="next-steps"></a>다음 단계
 * [조건부 액세스 FAQ](active-directory-conditional-faqs.md)
 * [기술 참조](active-directory-conditional-access-technical-reference.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

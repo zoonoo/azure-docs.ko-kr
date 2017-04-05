@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
-ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -60,17 +61,39 @@ Azure에서는 사용 중인 인증서를 제거할 수 없습니다. 인증서�
 ### <a name="disable-ssl-30"></a>SSL 3.0 사용 안 함
 SSL 3.0을 사용하지 않도록 설정하고 TLS 보안을 사용하려면 https://azure.microsoft.com/en-us/blog/how-to-disable-ssl-3-0-in-azure-websites-roles-and-virtual-machines/ 블로그 게시물에 설명되어 있는 시작 태스크를 만듭니다.
 
-## <a name="scale-a-cloud-service"></a>클라우드 서비스 크기 조정
+### <a name="add-nosniff-to-your-website"></a>웹 사이트에 **nosniff** 추가
+클라이언트가 MIME 형식을 스니핑하지 않도록 하려면 *web.config* 파일에 설정을 추가합니다.
+
+```xml
+<configuration>
+   <system.webServer>
+      <httpProtocol>
+         <customHeaders>
+            <add name="X-Content-Type-Options" value="nosniff" />
+         </customHeaders>
+      </httpProtocol>
+   </system.webServer>
+</configuration>
+```
+
+IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작업](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) 문서의 다음 명령을 사용합니다.
+
+```cmd
+%windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
+```
+
+### <a name="customize-iis-for-a-web-role"></a>웹 역할에 대해 IIS 사용자 지정
+[일반적인 시작 작업](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) 문서의 IIS 시작 스크립트를 사용합니다.
+
+## <a name="scaling"></a>확장
 ### <a name="i-cannot-scale-beyond-x-instances"></a>X 인스턴스 이상 확장할 수 없습니다.
 사용자의 Azure 구독은 사용할 수 있는 코어 수를 제한합니다. 사용 가능한 모든 코어를 사용하는 경우 크기 조정은 작동하지 않습니다. 예를 들어 100개의 코어 제한이 있으면 클라우드 서비스에 대한 100개의 A1 크기 가상 컴퓨터 인스턴스나 50개의 A2 크기 가상 컴퓨터 인스턴스를 생성할 수 있습니다.
 
-## <a name="troubleshooting"></a>문제 해결
+## <a name="networking"></a>네트워킹
 ### <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>여러 VIP 클라우드 서비스에서 IP를 예약할 수 없습니다.
 우선, IP를 예약하려고 하는 가상 컴퓨터 인스턴스가 켜져 있는지 확인합니다. 다음으로, 스테이징 및 프로덕션 배포 모두에 대해 예약된 IP를 사용해야 합니다. **않습니다** .
 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+## <a name="remote-desktop"></a>원격 데스크톱
+### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>NSG가 있을 때 원격 데스크톱을 어떻게 수행하나요?
+포트 **20000**을 전달하는 NSG에 규칙을 추가합니다.
 

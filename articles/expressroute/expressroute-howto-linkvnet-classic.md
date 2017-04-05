@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
-ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결(클래식)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -33,6 +33,8 @@ ms.lasthandoff: 02/03/2017
 
 이 문서를 참조하면 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 Azure Express 경로 회로에 연결할 수 있습니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 **Azure 배포 모델 정보**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -42,7 +44,7 @@ ms.lasthandoff: 02/03/2017
 2. 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토해야 합니다.
 3. 활성화된 Express 경로 회로가 있어야 합니다.
    * 지침에 따라 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자가 회로를 사용하도록 설정합니다.
-   * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md) 을 참조하세요.
+   * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md)을 참조하세요.
    * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 종단 간 연결을 사용하도록 작동 중이어야 합니다.
    * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들고 완전히 프로비전해야 합니다. 지침에 따라 [Express 경로에 대한 가상 네트워크를 구성합니다](expressroute-howto-vnet-portal-classic.md).
 
@@ -75,7 +77,7 @@ ms.lasthandoff: 02/03/2017
 
 **권한 부여 만들기**
 
-회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로 관리자는(Contoso IT) 다른 구독의 관리자가(Dev-Test) 회로에 대해 최대&2;개의 가상 네트워크를 연결하도록 설정합니다. Contoso IT 관리자는 Dev-Test Microsoft ID를 지정하여 이것을 설정합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
+회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로 관리자는(Contoso IT) 다른 구독의 관리자가(Dev-Test) 회로에 대해 최대 2개의 가상 네트워크를 연결하도록 설정합니다. Contoso IT 관리자는 Dev-Test Microsoft ID를 지정하여 이것을 설정합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 

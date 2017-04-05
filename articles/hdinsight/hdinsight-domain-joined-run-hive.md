@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 9ddeaea93af8d5a4356d49da76cb64f5e43657db
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 213b6b5274ebde8cc460829ff1edc96a66eef994
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -140,7 +141,7 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
 ## <a name="next-steps"></a>다음 단계
 * 도메인에 가입된 HDInsight 클러스터 구성에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](hdinsight-domain-joined-configure.md)을 참조하세요.
 * 도메인에 가입된 HDInsight 클러스터 관리에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)를 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하는 방법에 대한 자세한 내용은 [Linux, Unix 또는 OS X에서 SSH를 HDInsight의 Linux 기반 Hadoop과 함께 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
+* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 * Hive JDBC를 사용하여 Hive를 연결하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요.
 * Hive ODBC를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [Microsoft Hive ODBC 드라이브와 함께 Hadoop에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 * 파워 쿼리를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [파워 쿼리를 사용하여 Hadoop에 Excel 연결](hdinsight-connect-excel-power-query.md)을 참조하세요.

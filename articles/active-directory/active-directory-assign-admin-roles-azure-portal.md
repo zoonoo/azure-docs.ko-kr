@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: faffd356191b7cca124f0a2cd147837078e4150f
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e8d3eb7e336383eb639e55656b26d881e8c2adb0
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 > [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-assign-admin-roles-azure-portal.md)
+> * [Azure Portal](active-directory-assign-admin-roles-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-assign-admin-roles.md)
 >
 >
@@ -34,29 +34,30 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 * **대금 청구 관리자**: 구입하고, 구독을 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링합니다.
 
-* **전역 관리자 / 회사 관리자**: 모든 관리 기능에 액세스할 수 있습니다. Azure 계정에 등록하는 사람이 전역 관리자가 됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다. 자신의 암호를 다시 설정하려면 암호 다시 설정 서비스(passwordreset.microsoftonline.com)를 사용하거나 다른 전역 관리자에게 자신의 암호를 대신 다시 설정해 달라고 요청해야 합니다.
+* **호환성 관리자**: 이 역할의 사용자는 Office 365 보안 및 규정 준수 센터 및 Exchange 관리 센터 내 관리 권한이 있습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”를 참조하세요.
+
+* **CRM 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft CRM Online 내에서 전역 사용 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+
+* **장치 관리자**: 이 역할의 사용자는 Azure Active Directory에 연결된 모든 Windows 10 장치의 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 장치 개체를 관리하는 기능이 없습니다.
+
+* **디렉터리 읽기 권한자**: [동의 프레임워크](active-directory-integrating-applications.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
+
+* **디렉터리 동기화 계정**: 사용하지 마십시오. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
+
+* **디렉터리 작성자**: [동의 프레임워크](active-directory-integrating-applications.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
+
+* **Exchange 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Exchange Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+
+* **전역 관리자 / 회사 관리자**: 이 역할의 사용자는 Azure Active Directory의 모든 관리 기능 및 Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같은 Azure Active Directory에 페더레이션하는 서비스에 대한 액세스를 가집니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure 포털](https://portal.azure.com)에서 "전역 관리자"입니다.
   >
   >
 
-* **호환성 관리자**: 이 역할의 사용자는 Office 365 보안 및 준수 센터 및 Exchange 관리 센터 내 관리 권한이 있으며 Office 365 관리 센터에서 감사 로그를 읽을 수 있습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)”를 참조하세요.
+* **게스트 초대자**: 이 역할의 사용자는 "구성원이 초대할 수 있음" 사용자 설정이 '아니요'로 설정된 경우 Azure Active Directory B2B 게스트 사용자 초대를 관리할 수 있습니다. B2B 공동 작업에 대한 자세한 내용은 [Azure AD B2B 공동 작업 미리 보기 정보](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
 
-* **CRM 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft CRM Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
-
-* **고객 LockBox 액세스 승인자**: LockBox 서비스가 활성화된 경우 이 역할의 사용자는 회사 정보에 액세스하도록 Microsoft 엔지니어에 대한 요청을 승인할 수 있습니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
-
-* **장치 관리자**: 이 역할의 사용자는 Azure Active Directory에 연결된 모든 Windows 10 장치의 관리자가 됩니다.
-
-* **디렉터리 읽기 권한자**: [동의 프레임워크](active-directory-integrating-applications.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
-
-* **디렉터리 동기화 계정**: 사용하지 마십시오. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
-* **디렉터리 작성자**: [동의 프레임워크](active-directory-integrating-applications.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
-
-* **Exchange 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Exchange Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
-
-* **Intune 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+* **Intune 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 장치를 관리하는 기능을 포함합니다.
 
 * **사서함 관리자**: 이 역할은 RIM Blackberry 장치에 대한 Exchange Online 전자 메일 지원의 일부로만 사용됩니다. 조직이 RIM Blackberry 장치에서 Exchange Online 전자 메일을 사용하지 않는 경우 이 역할을 사용하지 마십시오.
 
@@ -64,43 +65,35 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 * **파트너 계층 2 지원**: 사용하지 마십시오. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
 
-* **게스트 초대자**: 이 역할의 사용자는 게스트 초대를 관리할 수 있습니다. 다른 권한은 포함되지 않습니다.
-
-* **암호 관리자/Helpdesk 관리자**: 암호를 재설정하고, 서비스 요청을 관리하고, 서비스 상태를 모니터링합니다. 암호 관리자는 사용자 및 다른 암호 관리자에 대해서만 암호를 다시 설정할 수 있습니다.
+* **암호 관리자/Helpdesk 관리자**: 이 역할의 사용자는 암호를 재설정하고, 서비스 요청을 관리하고, 서비스 상태를 모니터링할 수 있습니다. 암호 관리자는 사용자 및 다른 암호 관리자에 대해서만 암호를 다시 설정할 수 있습니다.
 
   > [!NOTE]
-  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "기술 지원팀 관리자"로 식별됩니다.
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "기술 지원팀 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com/)에서 "암호 관리자"입니다.
   >
   >
-* **SharePoint 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 사용 권한을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+  
+* **Power BI 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft Power BI 내에서 전역 사용 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US)를 참조하세요.
 
-- **비즈니스용 Skype 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft 비즈니스용 Skype 내에서 전역 사용 권한을 가집니다. 자세한 내용은 Office 365 관리 역할 정보를 참조하세요. 이 역할은 이전에 Lync 서비스 관리자 역할이라고 했습니다.
+* **권한 있는 역할 관리자**: 이 역할의 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management 내에서 역할 할당을 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
 
-- **보안 관리자**: 보안 판독기 역할의 모든 읽기 전용 권한에다 동일한 서비스에 대한 ID 보안 센터, Privileged Identity Management, Office 365 서비스 상태 모니터링 및 Office 365 보안 및 규정 준수 센터와 같은 여러 관리자 권한을 추가했습니다.
+* **보안 관리자**: 이 역할의 사용자는 보안 읽기 역할의 모든 읽기 전용 권한 및 보안 관련 서비스(Azure Active Directory ID 보호, Privileged Identity Management 및 Office 365 보안 및 규정 준수 센터)에 대한 구성을 관리하는 기능을 가집니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 
-- **보안 판독기**: ID 보안 센터, Privileged Identity Management, 감사 로그, Office 365 서비스 상태 모니터링 및 Office 365 보안 및 규정 준수 센터의 여러 보안 기능에 읽기 전용 액세스합니다.
+* **보안 판독기**: 이 역할의 사용자는 Azure Active Directory, ID 보호, Privileged Identity Management의 모든 정보를 포함한 전역 읽기 전용 액세스와 Azure Active Directory 로그인 보고서 및 감사 로그를 읽는 기능을 가집니다. 또한 역할은 Office 365 보안 및 규정 준수 센터의 읽기 전용 권한을 부여합니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 
-* **서비스 관리자**: 서비스 요청을 관리하고 서비스 상태를 모니터링합니다. 보안 판독기 역할의 모든 읽기 전용 권한을 갖고 있습니다. 예를 들어 감사 로그도 읽을 수 있습니다.
+* **서비스 지원 관리자**: 이 역할의 사용자는 Azure 및 Office 365 서비스에 대한 Microsoft로의 지원 요청 및 Azure Portal 및 Office 365 관리자 포털에서 서비스 대시보드 및 메시지 센터에 대한 뷰를 열 수 있습니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+
+* **SharePoint 서비스 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 사용 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 가집니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+
+* **비즈니스용 Skype / Lync Service 관리자**: 이 역할의 사용자는 서비스가 있는 경우 Microsoft 비즈니스용 Skype 내에서 전역 사용 권한을 가지며 Azure Active Directory에서 Skype 관련 사용자 특성을 관리합니다. 또한 이 역할은 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 부여합니다. 자세한 내용은 [Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
   > [!NOTE]
-  > 사용자에게 서비스 관리자 역할을 할당하려면 전역 관리자가 먼저 Exchange Online 등의 서비스에서 사용자에게 관리 권한을 할당한 다음 Azure 클래식 포털에서 해당 사용자에게 서비스 관리자 역할을 할당해야 합니다.
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "Lync Service 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com/)에서 "비즈니스용 Skype 서비스 관리자"입니다.
   >
   >
-* **사용자 계정 관리자**: 암호를 다시 설정하고, 서비스 상태를 모니터링하고, 사용자 계정과 사용자 그룹 및 서비스 요청을 관리합니다. 사용자 관리 관리자의 권한에 몇 가지 제한이 적용됩니다. 예를 들어 전역 관리자를 삭제하거나 다른 관리자를 만들 수 없습니다. 사용자, 다른 암호 관리자 및 다른 사용자 관리의 암호를 다시 설정할 수 있지만 청구, 전역 및 서비스 관리자의 암호는 다시 설정할 수 없습니다.
+
+* **사용자 계정 관리자**: 이 역할의 사용자는 사용자 및 그룹의 모든 측면을 만들고 관리할 수 있습니다. 또한 이 역할은 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능을 포함합니다. 몇 가지 제한 사항이 적용됩니다. 예를 들어 이 역할은 전역 관리자 삭제를 허용하지 않는 반면 관리자가 아닌 사용자에 대한 암호 변경을 허용하며 전역 관리자 또는 다른 권한 있는 관리자에 대한 암호 변경을 허용하지 않습니다.
 
 ## <a name="administrator-permissions"></a>관리자 권한
-
-### <a name="application-administrator"></a>응용 프로그램 관리자
-| 가능한 작업 | 불가능한 작업 |
-| --- | --- |
-| <p>응용 프로그램 만들기 </p><p>소유한 응용 프로그램 관리 </p>|<p>사용자 암호 다시 설정 </p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리 </p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>보고서 감사 로그 확인</p>|
-
-###<a name="application-developer"></a>응용 프로그램 개발자
-
-| 가능한 작업 | 불가능한 작업 |
-| --- | --- |
-|<p>디렉터리 정보 보기 </p><p>모든 응용 프로그램 만들기 및 관리 </p><p>라이선스를 할당하고 응용 프로그램에 액세스 </p><p>Office 지원 티켓을 관리하고 서비스 상태 모니터링</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p><p>보고서 감사 로그 확인</p>|<p>사용자 암호 다시 설정 </p><p>사용자 보기 만들기 및 관리 </p><p>사용자 및 그룹 만들기/편집/삭제</p><p>도메인 관리 </p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임 </p><p>디렉터리 동기화 사용</p>|
-
 
 ### <a name="billing-administrator"></a>대금 청구 관리자
 

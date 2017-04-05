@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff24360696c54091ab93e7e1c8f28d95c226bc0a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/18/2017
 이 문서에서는 Azure SQL Database 또는 SQL Server 데이터베이스를 BACPAC 파일로 내보내는 방법을 설명합니다. 
 
 > [!IMPORTANT]
-> Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2017년 3월 1일에 사용이 중지됩니다. 2016년 12월 1일을 시작으로 모든 SQL Database에서 자동화된 내보내기를 더는 구성할 수 없습니다. 기존의 모든 자동화된 내보내기 작업은 2017년 3월 1일까지 계속 수행됩니다. 2016년 12월 1일 후에는 [장기 백업 보존](sql-database-long-term-retention.md) 또는 [Azure Automation](../automation/automation-intro.md)을 사용하여 선택한 일정에 따라 주기적으로 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플 스크립트의 경우, [Github에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. 
+> Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2017년 3월 1일에 사용이 중지됩니다. 2016년 12월 1일을 시작으로 모든 SQL Database에서 자동화된 내보내기를 더는 구성할 수 없습니다. 기존의 모든 자동화된 내보내기 작업은 2017년 3월 1일까지 계속 수행됩니다. 2016년 12월 1일 후에는 [장기 백업 보존](sql-database-long-term-retention.md) 또는 [Azure Automation](../automation/automation-intro.md)을 사용하여 선택한 일정에 따라 주기적으로 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플 스크립트의 경우, [GitHub에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. 
 >
 
 ## <a name="overview"></a>개요
@@ -60,5 +60,5 @@ ms.lasthandoff: 03/18/2017
 
 * 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 * Azure 내에서 데이터베이스 복사에 대한 개요를 보려면 [Azure SQL Database 복사](sql-database-copy.md)를 참조하세요.
-* [Azure Portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) 또는 [Transact-SQL](sql-database-copy-transact-sql.md)을 사용하여 Azure 내에서 Azure SQL Database를 복사할 수 있습니다. 
+* [Azure Portal](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) 또는 [Transact-SQL](sql-database-copy-transact-sql.md)을 사용하여 Azure 내에서 Azure SQL Database를 복사할 수 있습니다. 
 

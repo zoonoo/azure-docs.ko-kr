@@ -2,8 +2,9 @@
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
-ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,7 +28,7 @@ IT 부서에서는 쉽고 제공할 수 있다고 답했습니다. 또한 문서
 이 응용 프로그램을 만들기 위해 IT 부서는 이를 먼저 모델링하기로 결정했습니다.  BPMN(Business Process Model and Notation) 사용 시 좋은 점은 기술자와 비기술자 모두 쉽게 이해할 수 있다는 점입니다. 이 전체 알림 프로세스는 비즈니스 프로세스로 간주됩니다. 
 
 ## <a name="high-level-view-of-notification-process"></a>알림 프로세스의 상위 수준 보기
-1. 타이머 트리거가 있는 논리 앱에서 시작합니다. 트리거는 기본적으로&1;시간 마다 실행됩니다.
+1. 타이머 트리거가 있는 논리 앱에서 시작합니다. 트리거는 기본적으로 1시간 마다 실행됩니다.
 2. 그런 다음 논리 앱에 HTTP POST를 수행합니다.
 3. 논리 앱이 모든 작업을 수행합니다.
 
@@ -40,7 +41,7 @@ IT 부서에서는 쉽고 제공할 수 있다고 답했습니다. 또한 문서
 
 단계는 다음과 같습니다.
 
-1. API 앱에서 현재 UTC DateTime을 가져와야 합니다.  기본값은&1;시간 이전입니다.
+1. API 앱에서 현재 UTC DateTime을 가져와야 합니다.  기본값은 1시간 이전입니다.
 2. UTC DateTime을 Unix Timestamp 형식으로 변환합니다. DocumentDB에서 타임스탬프에 대한 기본 형식입니다.
 3. DocumentDB 쿼리를 수행하는 API 앱에 값을 게시(POST)합니다. 값은 쿼리에 사용됩니다.
    
@@ -733,7 +734,7 @@ Azure Blob API 사용에 대해 잘 모르는 경우 [Azure Blob 저장소 API �
 
 이 동작에서 전자 메일 알림을 보냅니다.  [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29)를 사용하고 있습니다.   
 
-이 경우 코드는 [101-logic-app-sendgrid Github 리포지토리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid)에 있는 SendGrid 및 논리 앱을 위한 템플릿을 사용하여 생성되었습니다.
+이 경우 코드는 [101-logic-app-sendgrid GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid)에 있는 SendGrid 및 논리 앱을 위한 템플릿을 사용하여 생성되었습니다.
 
 HTTP 작업은 POST입니다. 
 
@@ -873,7 +874,7 @@ emailBody는 쿼리에서 반환된 문서 수("0" 이상일 수 있음)와 "레
 
 ```
 
-트리거는&24;시간 되풀이에 대해 설정됩니다. 작업은 기본 논리 앱에 대한 콜백 URL을 사용하는 HTTP POST입니다. 본문에는 JSON 스키마에 지정된 매개 변수가 포함됩니다. 
+트리거는 24시간 되풀이에 대해 설정됩니다. 작업은 기본 논리 앱에 대한 콜백 URL을 사용하는 HTTP POST입니다. 본문에는 JSON 스키마에 지정된 매개 변수가 포함됩니다. 
 
 #### <a name="operations"></a>작업
 ##### <a name="request"></a>요청
@@ -1111,13 +1112,8 @@ Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처
 워크플로를 미리 계획하고 모델링하는 것이 중요합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Github](https://github.com/HEDIDIN/DocDbNotifications)에 제공된 논리 앱 코드를 다운로드하여 사용하세요. 이제 응용 프로그램에 빌드하고 리포지토리에 변경 내용을 제출해보세요. 
+[GitHub](https://github.com/HEDIDIN/DocDbNotifications)에 제공된 논리 앱 코드를 다운로드하여 사용하세요. 이제 응용 프로그램에 빌드하고 리포지토리에 변경 내용을 제출해보세요. 
 
 DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

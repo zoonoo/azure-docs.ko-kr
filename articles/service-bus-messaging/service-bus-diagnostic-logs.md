@@ -2,10 +2,10 @@
 title: "Azure Service Bus 진단 로그 | Microsoft Docs"
 description: "Azure에서 Service Bus에 대한 진단 로그를 설정하는 방법을 알아봅니다."
 keywords: 
-documentationcenter: 
+documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
-manager: 
+manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/17/2017
-ms.author: babanisa
+ms.date: 03/23/2017
+ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b8ed786fe0c049d9be7ba1ca1cb6adef1950b8e9
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -29,25 +29,25 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 * **[진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
-진단 로그는 기본적으로 **해제**되어 있습니다. 진단 로그를 설정하려면
+진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음을 수행합니다.
 
-1.    Azure Portal에서 스트리밍 작업 블레이드로 이동합니다.
+1.    [Azure Portal](https://portal.azure.com)에서 스트리밍 작업 블레이드로 이동합니다.
 
 2.    **모니터링** 아래의 **진단 로그** 블레이드로 이동합니다.
 
     ![진단 로그에 대한 블레이드 탐색](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.    **진단 켜기**를 선택합니다.
+3.    **진단 켜기**를 클릭합니다.
 
     ![진단 로그 사용](./media/service-bus-diagnostic-logs/image2.png)
 
-4.    **상태**로 **켜기**를 선택합니다.
+4.    **상태**에서 **켜기**를 클릭합니다.
 
     ![진단 로그 상태 변경](./media/service-bus-diagnostic-logs/image3.png)
 
-5.    예를 들어 원하는 보관 대상, 저장소 계정, 이벤트 허브 또는 Azure Log Analytics를 설정합니다.
+5.    저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
 
-6.    수집할 로그의 범주(예: **실행** 또는 **제작**)를 선택합니다.
+6.    수집할 로그의 범주(예: **실행** 또는 **작성**)를 선택합니다.
 
 7.    새 진단 설정을 저장합니다.
 
@@ -96,5 +96,5 @@ Example:
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Bus 소개](service-bus-messaging-overview.md)
-* [Service Bus 시작](service-bus-create-namespace-portal.md)
+* [Service Bus 시작](service-bus-dotnet-get-started-with-queues.md)
 

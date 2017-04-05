@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -44,7 +44,7 @@ Application Gateway는 HTTP, HTTPS 및 WebSocket을 지원합니다.
 
 **Q. 현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?**
 
-백 엔드 풀은 NIC, VMSS(가상 컴퓨터 크기 집합), 공용 IP, 내부 IP 및 FQDN(정규화된 도메인 이름)으로 구성될 수 있습니다. Azure Web Apps에 대한 지원은 현재 제공되지 않습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
+백 엔드 풀은 NIC, 가상 컴퓨터 크기 집합, 공용 IP, 내부 IP 및 FQDN(정규화된 도메인 이름)으로 구성될 수 있습니다. Azure Web Apps에 대한 지원은 현재 제공되지 않습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
 
 **Q. 어떤 지역에서 서비스를 사용할 수 있습니까?**
 
@@ -65,7 +65,6 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 **Q. Application Gateway의 수명 중에 IP 또는 DNS가 변경되나요?**
 
 게이트웨이가 고객에 의해 중지 및 시작된 경우 VIP를 변경할 수 있습니다. Application Gateway와 연결된 DNS는 게이트웨이 수명 중에 변경되지 않습니다. 이러한 이유로 CNAME 별칭을 사용하고 Application Gateway의 DNS 주소를 가리키도록 하는 것이 좋습니다.
-
 
 **Q. Application Gateway에서 고정 IP를 지원하나요?**
 
@@ -124,10 +123,6 @@ Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지�
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 
 호스트 필드는 프로브를 보낼 이름을 지정합니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다르며 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\> 형식입니다. 
-
-**Q. Application Gateway는 다중 테넌트 백 엔드도 지원하나요?**
-
-아니요, 현재 Application Gateway는 수신 호스트 헤더를 유지하고 백 엔드에 동일한 헤더를 전송합니다. 백 엔드에 다른 헤더가 필요한 경우 이 기능은 작동하지 않습니다. 마찬가지로 백 엔드가 다중 테넌트이고 종단 간 SSL을 사용하는 경우 백 엔드는 SNI 확장인 서버 이름을 예상합니다. 현재 Application Gateway는 종단 간 SSL 시나리오의 백 엔드 요청에서 SNI 헤더를 보내지 않습니다. 그러면 프로브 및 데이터 경로 문제가 발생합니다. 
 
 ## <a name="performance"></a>성능
 
@@ -219,7 +214,7 @@ TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 **Q. Application Gateway에서 지원하는 CRS 버전은 무엇인가요?**
 
-Application Gateway는 CRS 2.2.9를 지원합니다.
+Application Gateway는 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 및 CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)을 지원합니다.
 
 **Q. WAF를 모니터링하려면 어떻게 하나요?**
 
@@ -231,11 +226,11 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 **Q. WAF 규칙을 사용자 지정하려면 어떻게 하나요?**
 
-현재 WAF 규칙은 사용자 지정할 수 없습니다.
+예, WAF 규칙은 사용자 지정이 가능합니다. 사용자 지정 방법에 대한 자세한 내용을 보려면 [WAF 규칙 그룹 및 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)을 방문하세요.
 
 **Q. 현재 사용 가능한 규칙은 무엇인가요?**
 
-현재 WAF는 [OWASP 상위 10개 취약점](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)에서 확인할 수 있는 OWASP(Open Web Application Security Project)에 의해 식별된 상위 10개 취약점 대부분에 대해 보안 기준을 제공하는 CRS 2.2.9를 지원합니다.
+현재 WAF는 [OWASP 상위 10개 취약점](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)에서 확인할 수 있는 OWASP(Open Web Application Security Project)에 의해 식별된 상위 10개 취약점 대부분에 대해 보안 기준을 제공하는 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 및 [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)을 지원합니다.
 
 * SQL 삽입 공격 보호
 
@@ -251,15 +246,15 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 * 일반적인 응용 프로그램 구성 오류(예: Apache, IIS 등) 검색
 
-**Q. WAF에서도 DDos 방지를 지원하나요?**
+**Q. WAF에서 DDoS 방지도 지원하나요?**
 
-아니요, WAF는 DDos 방지를 제공하지 않습니다.
+아니요, WAF는 DDoS 방지를 제공하지 않습니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 
 **Q. Application Gateway에서 어떤 유형의 로그를 사용할 수 있나요?**
 
-Application Gateway에서는&3;가지 로그를 사용할 수 있습니다. 이러한 로그 및 기타 진단 기능에 대한 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
+Application Gateway에서는 3가지 로그를 사용할 수 있습니다. 이러한 로그 및 기타 진단 기능에 대한 자세한 내용은 [Application Gateway에 대한 백 엔드 상태, 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조하세요.
 
 - **ApplicationGatewayAccessLog** - 이 로그는 Application Gateway 프런트 엔드에 제출된 각 요청을 포함합니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력을 포함합니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 응용 프로그램 게이트웨이 인스턴스당 하나의 레코드가 포함됩니다.
 - **ApplicationGatewayPerformanceLog** - 이 로그는 인스턴스 단위로 처리된 총 요청, 처리량(바이트), 실패한 총 요청, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다.
@@ -288,4 +283,3 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 ## <a name="next-steps"></a>다음 단계
 
 Application Gateway에 대한 자세한 내용은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
-

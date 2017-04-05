@@ -13,12 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: eadf0611ca46a975c364a1b073828c6c3faf5f77
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9e6e0a696ba27c7758c21fa46754a8539ae2255b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,27 +27,15 @@ ms.lasthandoff: 01/24/2017
 Apache Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Notebook을 사용하여 Spark 작업을 실행하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
-> HDInsight 3.5에서 Spark 1.6 클러스터를 프로비전한 경우 [HDInsight Linux에서 Apache Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)의 지침에 따라 기본적으로 Zeppelin Notebook에 액세스할 수 있습니다. HDInsight 클러스터 버전 3.3, 3.4에서 Zeppelin을 사용하거나 HDInsight 3.5에서 Spark 2.0을 사용하려면 이 문서의 지침에 따라 Zeppelin을 설치해야 합니다.
+> HDInsight 3.5에서 Spark 1.6 클러스터를 프로비전한 경우 [HDInsight Linux에서 Apache Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)의 지침에 따라 기본적으로 Zeppelin에 액세스할 수 있습니다. HDInsight 클러스터 버전 3.3 또는 3.4에서 Zeppelin을 사용하려는 경우 이 문서의 지침에 따라 Zeppelin을 설치해야 합니다.
 >
->
+> 이 문서에서는 스크립트를 사용하여 Spark 2.0 클러스터에서 Zeppelin을 설치하는 것은 지원되지 않습니다.
 
-**필수 조건:**
+## <a name="prerequisites"></a>필수 조건
 
-* 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독이 있어야 합니다. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-  > [!NOTE]
-  > `ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
-  >
-  >
-* SOCKS 프록시를 사용하도록 구성할 수 있는 웹 브라우저
-* **(선택 사항)**: 터널을 통해 특정 요청을 라우팅하는 규칙을 적용할 수 있는 [FoxyProxy](http://getfoxyproxy.org/,) 와 같은 플러그인
-
-  > [!WARNING]
-  > FoxyProxy와 같은 플러그인 없이 브라우저를 통해 만들어진 모든 요청은 터널을 통해 라우팅될 수 있습니다. 이 경우 브라우저에서 웹 페이지의 로딩 속도가 느릴 수 있습니다.
-  >
-  >
 
 ## <a name="install-zeppelin-on-a-spark-cluster"></a>Spark 클러스터에 Zeppelin 설치
 스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. 사용자 지정 스크립트를 사용하여 Azure 포털에서 HDInsight .NET SDK를 사용하거나 Azure PowerShell을 사용하여 Zeppelin을 설치할 수 있습니다. 클러스터 생성 과정의 일부로 또는 클러스터가 작동 및 실행된 이후에 이 스크립트를 사용하여 Zeppelin을 설치할 수 있습니다. 아래 섹션의 링크는 이러한 작업을 수행하는 방법에 지침을 제공합니다.
@@ -199,14 +187,14 @@ HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업�
 
    * **default.password** 를 HDInsight Spark 클러스터를 만드는 동안 관리자에 대해 지정한 암호로 설정합니다.
    * **default.url**을 `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`로 설정합니다. **\<<spark_cluster_name>**을 Spark 클러스터의 이름으로 바꿉니다.
-   * **default.user** 를 클러스터를 만들 때 지정한 관리자의 이름으로 설정합니다. 예: *admin*.
+   * **default.user**를 클러스터를 만들 때 지정한 관리자의 이름으로 설정합니다. 예: *admin*.
 3. **Save**를 클릭하고 Hive 인터프리터를 다시 시작하라는 메시지가 표시되면 **OK**를 클릭합니다.
 4. 새 Notebook을 만들고 다음 문을 실행하여 클러스터의 모든 hive 테이블을 나열합니다.
 
         %hive
         SHOW TABLES
 
-    기본적으로 HDInsight 클러스터에는 **hivesampletable** 이라는 샘플 테이블이 있으므로 다음과 같은 출력이 표시됩니다.
+    기본적으로 HDInsight 클러스터에는 **hivesampletable**이라는 샘플 테이블이 있으므로 다음과 같은 출력이 표시됩니다.
 
     ![Hive 출력](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "출력 Hive")
 5. 다음 문을 실행하여 테이블의 레코드를 나열합니다.

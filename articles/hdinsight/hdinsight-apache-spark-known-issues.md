@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2ba5f280b38622b6a0c966d76617cd5698420b92
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,13 +28,14 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 이 문서는 HDInsight Spark 공개 미리 보기에 대한 모든 알려진 문제를 추적합니다.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy 누수 대화형 세션
-Livy가 여전히 활성 상태인 대화형 세션(Ambari에서 또는 헤드 노드 0 가상 컴퓨터 재부팅으로 인해)으로 시작하는 경우 대화형 작업 세션이 손실됩니다. 이로 인해 새 작업은 수락된 상태에 멈출 수 있으며 시작할 수 없습니다.
+Livy가 여전히 활성 상태인 대화형 세션으로 재시작하는 경우(Ambari에서 또는 헤드 노드 0 가상 컴퓨터 재부팅으로 인해) 대화형 작업 세션이 손실됩니다. 이로 인해 새 작업은 수락된 상태에 멈출 수 있으며 시작할 수 없습니다.
 
 **해결 방법:**
 
 다음 절차에 따라 문제를 해결합니다.
 
-1. 헤드 노드로 ssh합니다. Windows 클라이언트의 경우 [Windows의 PuTTY를 통해 HDInsight의 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. Linux, Unix 또는 OS X의 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 
+1. 헤드 노드로 ssh합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
 2. 다음 명령을 실행하여 Livy를 통해 시작한 대화형 작업의 응용 프로그램 ID를 찾습니다. 
    
         yarn application –list
@@ -61,6 +64,14 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 3. Ambari를 사용하여 777 권한으로 디렉터리가 되도록 spark 로그 위치를 업데이트합니다.  
 4. sudo로 spark-제출을 실행합니다.  
 
+## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix 커넥터가 지원되지 않음
+
+현재 Spark-Phoenix 커넥터는 HDInsight Spark 클러스터에서 지원되지 않습니다.
+
+**해결 방법:**
+
+대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)을 참조하세요.
+
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 관련 문제
 다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.
 
@@ -72,7 +83,7 @@ Spark HDInsight 클러스터에서 사용할 수 있는 Jupyter Notebook은 파�
 
 **해결 방법:**
 
-이 오류가 발생했다고 해서 데이터가 손상되거나 손실된 것은 아닙니다.  Notebook은 여전히 `/var/lib/jupyter`의 디스크에 있으며 클러스터에 대한 SSH를 통해 액세스할 수 있습니다. Windows 클라이언트의 경우 [Windows의 PuTTY를 통해 HDInsight의 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. Linux, Unix 또는 OS X의 경우 [Linux, Unix 또는 OS X에서 HDInsight의 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+이 오류가 발생했다고 해서 데이터가 손상되거나 손실된 것은 아닙니다.  Notebook은 여전히 `/var/lib/jupyter`의 디스크에 있으며 클러스터에 대한 SSH를 통해 액세스할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 SSH를 사용하여 클러스터에 연결한 경우 Notebook을 사용자의 클러스터에서 로컬 컴퓨터에(SCP 또는 WinSCP를 사용하여) 백업으로 복사하여 Notebook의 중요 데이터 손실을 방지할 수 있습니다. 그런 다음 포트 8001의 헤드 노드에 대한 SSH 터널을 통해 게이트웨이를 거치지 않고 Jupyter에 액세스할 수 있습니다.  여기에서 노트북의 출력을 지우고 다시 저장하여 노트북의 크기를 최소화할 수 있습니다.
 
@@ -82,7 +93,7 @@ SSH를 사용하여 클러스터에 연결한 경우 Notebook을 사용자의 �
 * 또한 노트북을 저장할 때 모든 출력을 지워서 크기를 줄입니다.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>노트북 초기 시작이 예상보다 오래 걸리는 경우
-Jupyter Notebook에서 Spark 매직을 사용한 첫 번째 코드 문의 경우&1;분 이상이 걸릴 수 있습니다.  
+Jupyter Notebook에서 Spark 매직을 사용한 첫 번째 코드 문의 경우 1분 이상이 걸릴 수 있습니다.  
 
 **설명:**
 
@@ -124,10 +135,5 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

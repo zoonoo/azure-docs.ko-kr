@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2dd64398fce3a85f92492b01951008eab31a2c3f
-ms.openlocfilehash: a566fe935da98d303f1260cbc2a2009e5702530a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 44e418e52fc18dd22820331f7d921e789da62832
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -34,7 +36,7 @@ Azure PowerShell은 Microsoft Azure에서 작업의 배포와 관리를 제어 �
 ## <a name="prerequisites"></a>필수 조건
 이 절차를 시작하기 전에 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * Azure PowerShell.
     HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn858087.aspx)를 참조하세요.
   
@@ -61,10 +63,7 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만들려면 다음 �
 Linux 클러스터를 만들기 위해 설정해야 하는 두 가지 중요한 매개 변수는 OS 종류를 지정하는 매개 변수와 SSH 사용자 정보를 지정하는 매개 변수입니다.
 
 * **-OSType** 매개 변수는 **Linux**로 지정해야 합니다.
-* 클러스터의 원격 세션에 SSH를 사용하기 위해 SSH 사용자 암호 또는 SSH 공개 키를 지정할 수 있습니다. SSH 사용자 암호와 SSH 공개 키를 둘 다 지정한 경우에는 키가 무시됩니다. 원격 세션에 SSH 키를 사용하려면 SSH 암호를 묻는 메시지가 나타날 때 빈 SSH 암호를 지정해야 합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-  
-  * [Linux, Unix 또는 OS X의 HDInsight에서 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Windows의 HDInsight에서 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+* 클러스터의 원격 세션에 SSH를 사용하기 위해 SSH 사용자 암호 또는 SSH 공개 키를 지정할 수 있습니다. SSH 사용자 암호와 SSH 공개 키를 둘 다 지정한 경우에는 키가 무시됩니다. 원격 세션에 SSH 키를 사용하려면 SSH 암호를 묻는 메시지가 나타날 때 빈 SSH 암호를 지정해야 합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 다음 스크립트는 새 클러스터를 만드는 방법을 보여 줍니다.
 
@@ -187,10 +186,5 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음 리소스를
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

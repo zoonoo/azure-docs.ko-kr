@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b62637150773bdfb48ff654675af5c4ffdd67919
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2cbf4c9576f9cc5b2a71e81181647b71162edc1a
+ms.lasthandoff: 03/30/2017
 
 ---
 
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>PowerShell로 완벽히 구성된 가상 컴퓨터 만들기
 
-이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만듭니다. 스크립트를 실행하면 SSH를 통해 가상 컴퓨터에 액세스할 수 있습니다.
+이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 컴퓨터에 액세스할 수 있습니다.
 
 필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다.
 

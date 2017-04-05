@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 237b78f723fe6dbb800f9e0be2314c7c8a5c668e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -53,12 +53,7 @@ SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
-HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X 및 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
-### <a name="putty-windows-based-clients"></a>PuTTY(Windows 기반 클라이언트)
-Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
-
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용 ](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a id="hive"></a>Hive 명령 사용
 1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
@@ -78,7 +73,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
    * **CREATE EXTERNAL TABLE** - Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
    * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
    * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
-   * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이&3;개 있으므로 **3** 값이 반환되어야 합니다.
+   * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
    * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
      
      > [!NOTE]
@@ -102,7 +97,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과
      
        SELECT * from errorLogs;
      
-     데이터 중 t4 열에 모두 **[ERROR]** 가 포함된&3;개 행이 반환되어야 합니다.
+     데이터 중 t4 열에 모두 **[ERROR]** 가 포함된 3개 행이 반환되어야 합니다.
      
      > [!NOTE]
      > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.

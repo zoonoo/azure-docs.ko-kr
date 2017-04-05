@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: ceb16b1431d689fb7d56c4dd588b50914357680a
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,11 +32,11 @@ Azure AD에서 제공하는 하나 이상의 서비스를 활용하기 위해 �
 * 페더레이션 또는 암호를 사용한 SSO(Single Sign-On)
 * 사용자 프로비전 및 동기화
 * 역할 기반 액세스 제어: 응용 프로그램 역할을 정의하는 디렉터리를 사용하여 응용 프로그램에서 역할 기반 권한 부여 확인을 수행합니다.
-* oAuth 인증 서비스(API/리소스에 대한 액세스 권한을 부여는 Microsoft 응용 프로그램 및 Office 365에서  사용하는 서비스)
+* oAuth 인증 서비스(API/리소스에 대한 액세스 권한을 부여는 Microsoft 응용 프로그램 및 Office 365에서 사용하는 서비스)
 * 응용 프로그램 게시 및 프록시: 개인 네트워크의 응용 프로그램을 인터넷에 게시합니다.
 
 ## <a name="how-are-applications-represented-in-the-directory"></a>응용 프로그램이 디렉터리에 어떻게 표시되나요?
-응용 프로그램은  Azure AD에서 응용 프로그램 개체와 서비스 주체 개체로 표시됩니다.  "home"/"owner" 또는 "publishing" 디렉터리에 등록된 하나의 응용 프로그램 개체와 응용 프로그램이 동작하는 모든 디렉터리의 응용 프로그램을 나타내는 하나 이상의 서비스 주체 개체가 있습니다.  
+응용 프로그램은 Azure AD에서 응용 프로그램 개체와 서비스 주체 개체로 표시됩니다.  "home"/"owner" 또는 "publishing" 디렉터리에 등록된 하나의 응용 프로그램 개체와 응용 프로그램이 동작하는 모든 디렉터리의 응용 프로그램을 나타내는 하나 이상의 서비스 주체 개체가 있습니다.  
 
 응용 프로그램 개체는 Azure AD에 응용 프로그램을 설명하며(다중 테넌트 서비스) 다음을 포함할 수 있습니다(*참고*: 전체 목록은 아님).
 
@@ -118,7 +119,7 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 * 비즈니스 목적의 경우 사용자는 조직 계정을 사용하여 응용 프로그램에 로그인/등록하는 것이 좋습니다.  이후에 사용자가 조직을 떠날 경우 사용하던 응용 프로그램에서 자신의 계정에 액세스할 수 없게 됩니다.
 * 어떤 데이터를 어떤 응용 프로그램과 공유했는지 기록하는 것이 좋습니다.  데이터는 더욱 전송하기 쉬워졌으며 어떤 데이터를 어떤 응용 프로그램으로 누구와 공유했는지 기록해놓는 것이 유용합니다.
 * oAuth용 Azure AD를 사용하는 응용 프로그램은 사용자가 응용 프로그램에 부여할 수 있는 권한 및 관리자가 동의하는 데 필요한 권한을 정확하게 결정합니다.  더 큰 범위 및 보다 중요한 사용 권한에 대해서는 관리자만 동의할 수 있습니다.
-* 사용자가 응용 프로그램을 추가하고 응용 프로그램이 데이터에 액세스하도록 허용하는 것은 감사된 이벤트이므로  Azure 관리 포털 내의 감사 보고서를 보고 디렉터리에 응용 프로그램을 추가하는 방법을 결정할 수 있습니다.
+* 사용자가 응용 프로그램을 추가하고 응용 프로그램이 데이터에 액세스하도록 허용하는 것은 감사된 이벤트이므로 Azure 관리 포털 내의 감사 보고서를 보고 디렉터리에 응용 프로그램을 추가하는 방법을 결정할 수 있습니다.
 
 **참고:** *Microsoft는 수개월 동안 기본 구성을 사용하여 운영해오고 있습니다.*
 
@@ -131,7 +132,7 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 응용 프로그램을 Azure AD에 추가하는 방법 및 응용 프로그램에 맞게 서비스를 구성하는 방법에 대해 자세히 알아보세요.
 
 * 개발자: [응용 프로그램을 AAD와 통합하는 방법에 대해 알아보기](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* 개발자: [Github에서 Azure Active Directory와 통합된 응용 프로그램의 샘플 코드 검토하기](https://github.com/AzureADSamples)
+* 개발자: [GitHub에서 Azure Active Directory와 통합된 앱의 샘플 코드 검토하기](https://github.com/AzureADSamples)
 * 개발자 및 IT 전문가: [Azure Active Directory Graph API용 REST API 설명서 검토하기](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 * IT 전문가: [응용 프로그램 갤러리에서 Azure Active Directory 사전 통합된 응용 프로그램을 사용하는 방법에 대해 알아보기](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 * IT 전문가: [사전 통합된 특정 응용 프로그램 구성에 대한 자습서 찾기](https://msdn.microsoft.com/library/azure/dn893637.aspx)
@@ -143,9 +144,4 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

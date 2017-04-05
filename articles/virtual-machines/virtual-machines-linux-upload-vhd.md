@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 374b2601857b3983bcd7b2f2e11d22b187fe7105
-ms.openlocfilehash: 732ebaaf5bf16c02cfc2185d9e7138daf74c71dd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 15a1605938941b056eda1a151ea018d05bffc246
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -74,28 +74,28 @@ az disk create --resource-group myResourceGroup --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-다음과 같이 [az disk list](/cli/azure/disk/list)를 사용하여 만든 관리 디스크의 URI를 얻습니다.
+다음과 같이 [az disk list](/cli/azure/disk/list)를 사용하여 만든 관리 디스크의 세부 정보를 얻습니다.
 
 ```azurecli
 az disk list --resource-group myResourceGroup \
-  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
+  --query [].{Name:name,ID:id} --output table
 ```
 
 다음 예제와 유사하게 출력됩니다.
 
 ```azurecli
-Name               URI
+Name               ID
 -----------------  ----------------------------------------------------------------------------------------------------
-myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
 ```
 
-이제 [az vm create](/cli/azure/vm#create)를 사용하여 VM을 만들고 관리 디스크의 URI를 지정합니다(`--image`). 다음 예제에서는 업로드된 VHD에서 만들어진 관리 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
+이제 [az vm create](/cli/azure/vm#create)를 사용하여 VM을 만들고 관리 디스크의 이름을 지정합니다(`--attach-os-disk`). 다음 예제에서는 업로드된 VHD에서 만들어진 관리 디스크를 사용하여 `myVM`이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myUMDiskFromVHD
+    --attach-os-disk myManagedDisk
 ```
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크

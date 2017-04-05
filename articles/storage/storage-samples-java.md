@@ -15,8 +15,9 @@ ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: ae5719c60c6ed2d3467f162f3b273d5bfdcf0073
-ms.openlocfilehash: 9a311233a6e604ccdb6ab862f11774bff7382a8d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 98e6022062b4ef5b5c71b54a0e94775b925d216b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 9a311233a6e604ccdb6ab862f11774bff7382a8d
 
 ## <a name="java-sample-index"></a>Java 샘플 인덱스
 
-다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. Github에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
+다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">끝점</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody> 
 <tr> 
@@ -83,11 +84,11 @@ ms.openlocfilehash: 9a311233a6e604ccdb6ab862f11774bff7382a8d
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/SasTests.java">SAS 테스트 샘플</a></td>
-</tr>   
+</tr>     
 <tr> 
 <td>서비스 속성</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java에서 Azure Blob Service 시작</a></td>
-</tr>           
+</tr>             
 <tr> 
 <td>Blob 스냅숏</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
@@ -132,35 +133,35 @@ ms.openlocfilehash: 9a311233a6e604ccdb6ab862f11774bff7382a8d
 <tr> 
 <td rowspan="8"><b>큐</b></td>
 <td>메시지 추가</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">저장소 Java 클라이언트 라이브러리 샘플</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">Storage Java 클라이언트 라이브러리 샘플</a></td> 
 </tr> 
 <tr> 
 <td>클라이언트 쪽 암호화</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/encryption/queue/gettingstarted/QueueGettingStarted.java">저장소 Java 클라이언트 라이브러리 샘플</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/encryption/queue/gettingstarted/QueueGettingStarted.java">Storage Java 클라이언트 라이브러리 샘플</a></td> 
 </tr> 
 <tr> 
 <td>큐 만들기</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure 큐 서비스 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>메시지/큐 삭제</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure 큐 서비스 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>메시지 보기</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure 큐 서비스 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>큐 ACL/메타데이터/통계</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java에서 Azure 큐 서비스 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java에서 Azure Queue Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>큐 서비스 속성</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java에서 Azure 큐 서비스 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java에서 Azure Queue Service 시작</a></td> 
 </tr> 
 <tr> 
 <td>메시지 업데이트</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure 큐 서비스 시작</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java에서 Azure Queue Service 시작</a></td> 
 </tr> 
 <tr> 
 <td rowspan="7"><b>테이블</b></td>
@@ -173,7 +174,7 @@ ms.openlocfilehash: 9a311233a6e604ccdb6ab862f11774bff7382a8d
 </tr> 
 <tr> 
 <td>엔터티 삽입/병합/바꾸기</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">저장소 Java 클라이언트 라이브러리 샘플</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java 클라이언트 라이브러리 샘플</a></td> 
 </tr> 
 <tr> 
 <td>엔터티 쿼리</td> 
@@ -189,7 +190,7 @@ ms.openlocfilehash: 9a311233a6e604ccdb6ab862f11774bff7382a8d
 </tr> 
 <tr> 
 <td>엔터티 업데이트</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">저장소 Java 클라이언트 라이브러리 샘플</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java 클라이언트 라이브러리 샘플</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -216,8 +217,4 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 
 * .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 * 다른 모든 언어: [Azure Storage 샘플](storage-samples.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
 

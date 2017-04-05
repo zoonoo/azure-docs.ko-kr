@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6101c58e41202091ac89320177b0ca5bc36483a8
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 228737056b813c76bf26ee07023db27be710f6d7
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -32,11 +32,11 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name = "create"></a>여러 IP 주소를 사용하여 VM 만들기
 
-여러 IP 주소를 사용하여 VM을 만들려면 PowerShell 또는 Azure CLI를 사용하여 만들어야 합니다. 방법을 보려면 이 문서 맨 위에 있는 PowerShell 또는 CLI 옵션을 클릭합니다. [Windows VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 또는 [Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-portal.md) 문서의 단계에 따라 포털을 사용하여 단일 정적 개인 IP 주소 및 (선택적으로) 단일 공용 IP 주소를 사용하여 VM을 만들 수 있습니다. VM을 만든 후에 이 문서의 [VM에 IP 주소 추가](#add) 섹션에 나오는 단계에 따라 포털을 사용하여 IP 주소 형식을 변경하고 추가 IP 주소를 추가할 수 있습니다.
+여러 IP 주소 또는 고정 개인 IP 주소를 사용하여 VM을 만들려면 PowerShell 또는 Azure CLI를 사용하여 만들어야 합니다. 방법을 보려면 이 문서 맨 위에 있는 PowerShell 또는 CLI 옵션을 클릭합니다. [Windows VM 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 또는 [Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-portal.md) 문서의 단계에 따라 포털을 사용하여 단일 동적 개인 IP 주소 및 (선택적으로) 단일 공용 IP 주소를 사용하여 VM을 만들 수 있습니다. VM을 만든 후에 이 문서의 [VM에 IP 주소 추가](#add) 섹션에 나오는 단계에 따라 포털을 사용하여 IP 주소 형식을 동적에서 고정으로 변경하고 추가 IP 주소를 추가할 수 있습니다.
 
 ## <a name="add"></a>VM에 IP 주소 추가
 
-다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 이 문서의 [시나리오](#Scenario)에서 설명한&3;개의 IP로 구성된 VM이 이미 있다는 가정 하에 진행하되 필수 사항은 아닙니다.
+다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 이 문서의 [시나리오](#Scenario)에서 설명한 3개의 IP로 구성된 VM이 이미 있다는 가정 하에 진행하되 필수 사항은 아닙니다.
 
 ### <a name="coreadd"></a>핵심 단계
 
@@ -46,9 +46,7 @@ ms.lasthandoff: 03/22/2017
 
     ![네트워크 인터페이스](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-4. 선택한 NIC에 대해 표시되는 블레이드에서 다음 그림과 같이 **IP 구성**을 클릭합니다.
-
-    ![IP 구성](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
+4. 선택한 NIC에 대해 표시되는 블레이드에서 **IP 구성**을 클릭합니다.
 
 추가할 IP 주소 형식에 따라, 이어지는 섹션 중 하나의 단계를 완료합니다.
 
@@ -57,19 +55,12 @@ ms.lasthandoff: 03/22/2017
 새 개인 IP 주소를 추가하려면 다음 단계를 완료합니다.
 
 1. 이 문서의 [핵심 단계](#coreadd) 섹션에 나오는 단계를 완료합니다.
-2. **추가**를 클릭합니다. 다음 그림과 같이 나타나는 **IP 구성 추가** 블레이드에서 *고정* 개인 IP 주소가 *10.0.0.7*인 *IPConfig&4;*라는 IP 구성을 만든 후 **확인**을 클릭합니다.
-
-    ![개인 IP 추가](./media/virtual-network-multiple-ip-addresses-portal/figure3.png)
+2. **추가**를 클릭합니다. 나타나는 **IP 구성 추가** 블레이드에서 *고정* 개인 IP 주소가 *10.0.0.7*인 *IPConfig 4*라는 IP 구성을 만든 후 **확인**을 클릭합니다.
 
     > [!NOTE]
     > 고정 IP 주소를 추가할 경우 NIC가 연결된 서브넷의 사용하지 않은 유효한 주소를 지정해야 합니다. 선택한 주소를 사용할 수 없는 경우 포털에 IP 주소로 X가 표시되며 다른 주소를 선택해야 합니다.
 
-    개인 IP 주소 **할당 방법**으로 *동적*을 원할 경우 이 옵션을 선택합니다. IP 주소를 지정할 필요는 없습니다.
-3. 확인을 클릭하면 다음 그림과 같이 블레이드가 닫히고 새 IP 구성이 나열됩니다.
-
-    ![IP 구성](./media/virtual-network-multiple-ip-addresses-portal/figure4.png)
-
-    **확인**을 클릭하여 **IP 구성 추가** 블레이드를 닫습니다.
+3. 확인을 클릭하면 블레이드가 닫히고 새 IP 구성이 나열됩니다. **확인**을 클릭하여 **IP 구성 추가** 블레이드를 닫습니다.
 4. **추가**를 클릭하여 다른 IP 구성을 추가하거나 열려 있는 모든 블레이드를 닫아 IP 주소 추가를 완료할 수 있습니다.
 5. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 사용자 운영 체제별 단계를 완료하여 개인 IP 주소를 VM 운영 체제에 추가합니다.
 
@@ -96,36 +87,22 @@ ms.lasthandoff: 03/22/2017
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>새 IP 구성에 공용 IP 주소 리소스 연결
 
 1. 이 문서의 [핵심 단계](#coreadd) 섹션에 나오는 단계를 완료합니다.
-2. **추가**를 클릭합니다. 나타나는 **IP 구성 추가** 블레이드에서 *IPConfig-4*라는 IP 구성을 만듭니다. 다음 그림과 같이 나타나는 **공용 IP 주소 선택** 블레이드에서 **공용 IP 주소**를 사용하도록 설정하고 사용 가능한 기존 공용 IP 주소 리소스를 선택합니다.
-
-    ![새 IP 구성](./media/virtual-network-multiple-ip-addresses-portal/figure6.png)
+2. **추가**를 클릭합니다. 나타나는 **IP 구성 추가** 블레이드에서 *IPConfig-4*라는 IP 구성을 만듭니다. 나타나는 **공용 IP 주소 선택** 블레이드에서 **공용 IP 주소**를 사용하도록 설정하고 사용 가능한 기존 공용 IP 주소 리소스를 선택합니다.
 
     공용 IP 주소 리소스를 선택한 후 **확인**을 클릭하여 블레이드를 닫습니다. 기존 공용 IP 주소가 없는 경우 이 문서의 [공용 IP 주소 리소스 만들기](#create-public-ip) 섹션에 나와 있는 단계를 완료하여 주소를 하나 만들 수 있습니다. 
 
-3. 다음 그림에 나와 있는 것처럼 새 IP 구성을 검토합니다.
-
-    ![IP 구성](./media/virtual-network-multiple-ip-addresses-portal/figure7.png)
-
-    > [!NOTE]
-    > 개인 IP 주소가 명시적으로 할당되지 않았더라도 모든 IP 구성에는 개인 IP 주소가 있어야 하므로 IP 구성에 자동으로 주소가 하나 할당되어 있습니다.
-    >
-
+3. 새 IP 구성을 검토합니다. 개인 IP 주소가 명시적으로 할당되지 않았더라도 모든 IP 구성에는 개인 IP 주소가 있어야 하므로 IP 구성에 자동으로 주소가 하나 할당되어 있습니다.
 4. **추가**를 클릭하여 다른 IP 구성을 추가하거나 열려 있는 모든 블레이드를 닫아 IP 주소 추가를 완료할 수 있습니다.
 5. 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 사용자 운영 체제별 단계를 완료하여 개인 IP 주소를 VM 운영 체제에 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
 #### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>기존 IP 구성에 공용 IP 주소 리소스 연결
 
 1. 이 문서의 [핵심 단계](#coreadd) 섹션에 나오는 단계를 완료합니다.
-2. 공용 IP 주소 리소스를 추가할 IP 구성을 선택하고, 공용 IP 주소를 사용하도록 설정하고, 사용 가능한 기존 공용 IP 주소 리소스를 선택합니다. 다음 그림에 표시된 예제에서 *myPublicIp3* 공용 IP 주소 리소스는 *IPConfig-3*에 연결됩니다.
-
-    ![기존 IP 구성](./media/virtual-network-multiple-ip-addresses-portal/figure8.png)
-
-    공용 IP 주소 리소스를 선택한 후 **저장**을 클릭하여 블레이드를 닫습니다. 기존 공용 IP 주소가 없는 경우 이 문서의 [공용 IP 주소 리소스 만들기](#create-public-ip) 섹션에 나와 있는 단계를 완료하여 주소를 하나 만들 수 있습니다.
-
-3. 다음 그림에 나와 있는 것처럼 새 IP 구성을 검토합니다.
-
-    ![IP 구성](./media/virtual-network-multiple-ip-addresses-portal/figure9.png)
-
+2. 공용 IP 주소 리소스를 추가할 IP 구성을 클릭합니다.
+3. 나타나는 IPConfig 블레이드에서 **IP 주소**를 클릭합니다.
+4. 나타나는 **공용 IP 주소 선택** 블레이드에서 공용 IP 주소를 선택합니다.
+5. **저장**을 클릭합니다. 그러면 블레이드가 닫힙니다. 기존 공용 IP 주소가 없는 경우 이 문서의 [공용 IP 주소 리소스 만들기](#create-public-ip) 섹션에 나와 있는 단계를 완료하여 주소를 하나 만들 수 있습니다.
+3. 새 IP 구성을 검토합니다.
 4. **추가**를 클릭하여 다른 IP 구성을 추가하거나 열려 있는 모든 블레이드를 닫아 IP 주소 추가를 완료할 수 있습니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
 

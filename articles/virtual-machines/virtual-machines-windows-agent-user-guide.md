@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
-ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: accfd5f0fec69175e584528ff9f6db66402cb89e
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 
-Microsoft AM 에이전트(Azure Virtual Machine 에이전트)는 Azure 패브릭 컨트롤러와의 VM 상호 작용을 관리하는 간단한 보안 프로세스입니다. VM 에이전트는 Azure Virtual Machine 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장은 소프트웨어 설치 및 구성과 같은 가상 컴퓨터의 배포 후 구성을 가능하게 합니다. 또한 가상 컴퓨터 확장은 가상 컴퓨터의 관리자 암호를 다시 설정하는 등의 복구 기능도 가능하게 합니다. Azure VM 에이전트가 없으면 가상 컴퓨터 확장을 실행할 수 없습니다.
+Microsoft Azure VM 에이전트(Virtual Machine 에이전트)는 Azure 패브릭 컨트롤러와의 VM 상호 작용을 관리하는 간단한 보안 프로세스입니다. VM 에이전트는 Azure Virtual Machine 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장은 소프트웨어 설치 및 구성과 같은 가상 컴퓨터의 배포 후 구성을 가능하게 합니다. 또한 가상 컴퓨터 확장은 가상 컴퓨터의 관리자 암호를 다시 설정하는 등의 복구 기능도 가능하게 합니다. Azure VM 에이전트가 없으면 가상 컴퓨터 확장을 실행할 수 없습니다.
 
 이 문서에서는 Azure Virtual Machine 에이전트의 설치, 검색 및 제거에 대해 자세히 설명합니다.
 
@@ -82,8 +83,3 @@ Microsoft Azure VM에 로그인한 경우 작업 관리자를 사용하여 실�
 ## <a name="upgrade-the-vm-agent"></a>VM 에이전트 업그레이드
 
 Windows용 Azure VM 에이전트는 자동으로 업그레이드됩니다. 새 가상 컴퓨터는 Azure에 배포될 때 최신 VM 에이전트는 받습니다. 새 VM 에이전트를 포함하려면 사용자 지정 VM 이미지를 수동으로 업데이트해야 합니다.
-
-
-<!--HONumber=Dec16_HO1-->
-
-

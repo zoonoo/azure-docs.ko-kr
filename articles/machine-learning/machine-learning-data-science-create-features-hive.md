@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5a4ca11079ac2a3962d92c7688e8d7337c31389d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
 
 기능을 만드는 데 필요한 작업은 메모리 집약적일 수 있습니다. 이 경우 Hive 쿼리의 성능이 더욱 중요해지며 특정 매개 변수를 조정하여 성능을 향상시킬 수 있습니다. 이러한 매개 변수를 조정하는 내용은 마지막 섹션에 설명되어 있습니다.
 
-또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대해 제공되는 쿼리 예제가 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에도 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다. 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해서도 설명합니다.
+또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대해 제공되는 쿼리 예제가 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에도 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다. 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해서도 설명합니다.
 
 [!INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
 * Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-move-hive-tables.md) 의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 * 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](machine-learning-data-science-customize-hadoop-cluster.md#headnode)를 참조하세요.
 
-## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>기능 생성
+## <a name="hive-featureengineering"></a>기능 생성
 이 섹션에서는 Hive 쿼리를 사용하여 기능을 생성할 수 있는 방법의 몇 가지 예를 설명합니다. 추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다. 제시된 예는 다음과 같습니다.
 
 1. [빈도 기반 기능 생성](#hive-frequencyfeature)
@@ -48,7 +49,7 @@ ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
 4. [텍스트 필드에서 기능 추출](#hive-textfeatures)
 5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
 
-### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>빈도 기반 기능 생성
+### <a name="hive-frequencyfeature"></a>빈도 기반 기능 생성
 범주 변수의 빈도 수준 또는 여러 범주 변수로 구성된 특정 조합의 빈도 수준을 계산하는 것이 매우 유용한 경우가 종종 있습니다. 사용자는 다음 스크립트를 사용하여 빈도를 계산할 수 있습니다.
 
         select
@@ -62,7 +63,7 @@ ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
         order by frequency desc;
 
 
-### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
+### <a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
 사용하는 모델에 숫자 기능만 허용되는 경우 이진 분류에서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 합니다. 그러려면 숫자가 아닌 각 수준을 숫자 위험으로 바꾸면 됩니다. 이 섹션에서는 범주 변수의 위험 값(로그 odd)을 계산하는 일반 Hive 쿼리를 보여 줍니다.
 
         set smooth_param1=1;
@@ -87,7 +88,7 @@ ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
-### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>날짜/시간 필드에서 기능 추출
+### <a name="hive-datefeatures"></a>날짜/시간 필드에서 기능 추출
 Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니다. Hive의 기본 날짜/시간 형식은 'yyyy-MM-dd 00:00:00'입니다(예: '1970-01-01 12:21:32'). 이 섹션에서는 날짜/시간 필드에서 일 및 월을 추출하는 예제와 기본 형식이 아닌 다른 형식으로 된 날짜/시간 문자열을 기본 형식의 날짜/시간 문자열로 변환하는 예제를 보여 줍니다.
 
         select day(<datetime field>), month(<datetime field>)
@@ -107,13 +108,13 @@ Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니�
 
 이 쿼리에서 *hivesampletable* 은 기본적으로 클러스터가 프로비전될 때 모든 Azure HDInsight Hadoop 클러스터에 미리 설치된 상태로 제공됩니다.
 
-### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>텍스트 필드에서 기능 추출
+### <a name="hive-textfeatures"></a>텍스트 필드에서 기능 추출
 Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으로 구분된 단어 문자열이 포함되어 있으면 다음 쿼리는 문자열의 길이와 문자열에 포함된 단어 수를 추출합니다.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>GPS 좌표 사이의 거리 계산
+### <a name="hive-gpsdistance"></a>GPS 좌표 사이의 거리 계산
 이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것이 이 쿼리의 목적입니다.
 
 이 쿼리에 사용된 필드는 승차 위치와 하차 위치의 GPS 좌표이며 이름은 *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* 및 *dropoff\_latitude*입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
@@ -140,7 +141,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 
 Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>의 **기본 제공 함수** 섹션에서 확인할 수 있습니다.  
 
-## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
+## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.
 
 1. **Java 힙 공간**: 대용량 데이터 집합 조인 또는 긴 레코드 처리와 관련된 쿼리에서 가장 흔히 발생하는 오류는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이를 조정할 수 있습니다. 다음은 예제입니다.
@@ -168,10 +169,5 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
         set mapreduce.reduce.java.opts=-Xmx8192m;
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

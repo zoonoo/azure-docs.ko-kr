@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3440d7e80e6a806c4119dff687fb9c590b8f0d14
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -81,7 +81,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 -   내보낼 blob(또는 blob 접두사) 목록입니다.
 
 ## <a name="shipping-your-drives"></a>드라이브 배송
- 다음으로 Azure Import/Export 도구를 사용하여 내보내려고 선택한 blob 및 드라이브 크기에 따라 전송하려는 드라이브 수를 결정합니다. 자세한 내용은 [Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요.
+ 다음으로 Azure Import/Export 도구를 사용하여 내보내려고 선택한 blob 및 드라이브 크기에 따라 전송하려는 드라이브 수를 결정합니다. 자세한 내용은 [Azure Import/Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요.
 
  드라이브를 단일 패키지로 포장한 다음 이전 단계에서 얻은 주소로 배송합니다. 다음 단계를 위해 패키지의 추적 번호를 적어둡니다.
 
@@ -94,6 +94,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 ## <a name="receiving-the-package"></a>패키지 받기
  내보내기 작업이 처리된 후 암호화된 데이터와 함께 드라이브가 반환됩니다. [작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_Get) 연산을 호출하여 각 드라이브의 BitLocker 키를 검색할 수 있습니다. 그런 다음 이 키를 사용하여 드라이브 잠금을 해제할 수 있습니다. 각 드라이브에 있는 드라이브 매니페스트 파일에는 드라이브의 파일 목록과 각 파일의 원래 blob 주소도 포함됩니다.
 
-## <a name="see-also"></a>참고 항목
- [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>다음 단계
+
+* [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
 

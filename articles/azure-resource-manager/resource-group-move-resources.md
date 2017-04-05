@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/29/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -114,13 +114,9 @@ ms.lasthandoff: 03/22/2017
 * 트래픽 관리자
 * 가상 컴퓨터 - 인증서가 Key Vault에 저장된 경우 새 구독으로의 이동을 지원하지 않습니다.
 * 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
-* 가상 네트워크
+* Virtual Networks - 현재 피어링된 Virtual Network는 VNet 피어링을 사용하지 않도록 설정할 때까지 이동할 수 없습니다. 사용하지 않도록 설정되면 Virtual Network를 성공적으로 이동할 수 있고 VNet 피어링을 사용할 수 있습니다.
+* VPN 게이트웨이 
 
-> [!NOTE] 
-> 게이트웨이가 일시적으로 제거될 때까지 VPN Gateway를 포함하는 Virtual Network를 현재 이동할 수 없습니다. 제거되면 Virtual Network를 성공적으로 이동할 수 있고 게이트웨이를 만들 수 있습니다.
->
-> 현재 피어링된 Virtual Network는 VNet 피어링을 사용하지 않도록 설정할 때까지 이동할 수 없습니다. 사용하지 않도록 설정되면 Virtual Network를 성공적으로 이동할 수 있고 VNet 피어링을 사용할 수 있습니다.
->
  
 ## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
@@ -137,9 +133,14 @@ ms.lasthandoff: 03/22/2017
 * 보안
 * Key Vault에 저장된 인증서를 사용하는 가상 컴퓨터
 * Managed Disks를 포함하는 가상 컴퓨터
+* Managed Disks를 포함하는 Virtual Machines의 가용성 집합
+* Managed Disks를 포함하는 Virtual Machine 규모 집합
+* Managed Disks
+* Managed Disks에서 만든 이미지
+* Managed Disks에서 만든 스냅숏
 * 가상 컴퓨터 크기 집합
 * 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
-* VPN 게이트웨이
+* Marketplace 리소스에서 만든 Virtual Machines는 구독 간에 이동할 수 없습니다. 리소스를 현재 구독에서 프로비전 해제하고 새 구독에 다시 배포해야 합니다.
 
 ## <a name="app-service-limitations"></a>앱 서비스 제한
 앱 서비스 앱으로 작업할 경우에는 앱 서비스 계획만 이동할 수 없습니다. 앱 서비스 앱을 이동할 때는 다음 옵션을 사용할 수 있습니다.

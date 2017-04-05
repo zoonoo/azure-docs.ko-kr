@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Machine Scale Sets: 기존 가상 네트워크 템플릿 | Microsoft Docs"
-description: "기존 가상 네트워크로 크기 집합 템플릿을 만드는 방법에 대해 알아봅니다."
+title: "Azure 크기 집합 템플릿에서 가상 네트워크 참조 | Microsoft Docs"
+description: "기존 Azure Virtual Machine Scale Set 템플릿에 가상 네트워크를 추가하는 방법 알아보기"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -16,18 +16,17 @@ ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ddb3e1789e49d138e744c2238679236134b69324
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
+ms.lasthandoff: 03/24/2017
 
 ---
 
-# <a name="about-this-article"></a>이 문서의 내용
+# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Azure 크기 집합 템플릿에 가상 네트워크에 대한 참조 추가 | Microsoft Docs
 
 이 문서에서는 [실행 가능한 최소 크기 집합 템플릿](./virtual-machine-scale-sets-mvss-start.md)을 수정하여 새 가상 네트워크를 만드는 대신 기존 가상 네트워크에 배포하는 방법을 보여 줍니다.
 
-## <a name="modifying-the-minimum-viable-scale-set-to-deploy-into-an-existing-virtual-network"></a>실행 가능한 최소 크기 집합을 수정하여 기존 가상 네트워크에 배포
+## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
 실행 가능한 최소 크기 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 기존 가상 네트워크에 크기 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)에 있습니다. 이 템플릿(`git diff master minimum-viable-scale-set`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
 

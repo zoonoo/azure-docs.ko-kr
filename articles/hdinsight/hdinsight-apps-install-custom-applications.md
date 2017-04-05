@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 44786974a86a8cef9bfbaa9ea2a131b11747b01e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 275b1cd91347fdfcc36e0e8a6448ccd8818a507d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,7 +85,7 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
 3. 응용 프로그램을 설치한 클러스터를 클릭합니다.
 4. **설정** 블레이드에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. **설치된 앱** 블레이드에 나열된 **Hue**가 표시됩니다.
 5. 목록에서 **Hue** 를 클릭하여 속성을 나열합니다.  
-6. 웹 페이지 링크를 클릭하여 웹 사이트의 유효성을 검사합니다. 브라우저에서 HTTP 끝점을 열어 Hue 웹 UI의 유효성을 검사하고 [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) 또는 기타 [SSH 클라이언트](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용하여 SSH 끝점을 엽니다.
+6. 웹 페이지 링크를 클릭하여 웹 사이트의 유효성을 검사합니다. 브라우저에서 HTTP 끝점을 열어 Hue 웹 UI의 유효성을 검사하고 SSH를 사용하여 SSH 끝점을 엽니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="troubleshoot-the-installation"></a>설치 문제 해결
 포털 알림에서 응용 프로그램 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 클릭).

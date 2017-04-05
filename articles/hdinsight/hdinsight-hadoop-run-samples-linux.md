@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d94e633273ef298079673c100c6edbf95dc3c96d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,10 +36,7 @@ HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
-* **SSH 클라이언트**: HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-  
-  * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **SSH 클라이언트**: 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="the-samples"></a>샘플
 **위치**: 샘플은 HDInsight 클러스터 **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**에 있습니다.
@@ -77,10 +74,8 @@ HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용
 > 
 
 ## <a name="how-to-run-the-samples"></a>샘플을 실행하는 방법
-1. 다음 문서에 설명된 대로 SSH를 사용하여 HDInsight에 연결합니다.
-   
-   * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. SSH를 사용하여 HDInsight에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
 2. `username@#######:~$` 프롬프트에서 다음 명령을 사용하여 샘플을 나열합니다.
    
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -127,7 +122,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
 
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku) 는 9개의 3x3 표로 구성된 논리 퍼즐입니다. 표의 일부 셀에는 숫자가 있고 다른 셀은 비어 있으며, 빈 셀을 해결하는 것이 목표입니다. 위의 링크에는 퍼즐에 대한 자세한 내용이 나와 있지만 이 샘플의 목적은 빈 셀을 해결하는 것입니다. 따라서 입력은 다음과 같은 형식의 파일이어야 합니다.
 
-* 9개 열의&9;개 행
+* 9개 열의 9개 행
 * 각 열은 숫자 또는 `?` (빈 셀을 나타냄)를 포함할 수 있음
 * 셀은 공백으로 구분됨
 

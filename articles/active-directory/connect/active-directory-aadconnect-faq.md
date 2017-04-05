@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c22a8f4a895efc86abc328c6cf82685d7db8c19c
-ms.openlocfilehash: 33de5839e1e8fa70f75636488a0769f7aebf8b95
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -73,15 +73,7 @@ ms.lasthandoff: 02/24/2017
 **Q: 기존 Azure AD Group/Contact 개체의 ImmutableId 특성을 온-프레미스 AD Group/Contact 개체에 하드 매칭하도록 수동 설정하는 것이 지원되나요?**  
 아니요. 현재는 지원되지 않습니다.
 
-## <a name="security"></a>보안
-**Q: 시도가 일정 횟수 실패하면 계정이 잠기나요 아니면 좀 더 복잡한 전략이 사용되나요?**</br>
-좀 더 복잡한 계정 잠금 전략이 사용됩니다.  이 전략은 요청의 IP 주소와 입력된 암호를 기반으로 합니다. 또한 실패한 시도가 공격일 가능성에 따라 잠금 기간이 늘어납니다.  
 
-**Q: ‘이 암호가 너무 많이 사용되었습니다’라는 메시지와 함께 특정(공통) 암호가 거부되었습니다. 현재 활성 디렉터리에서 사용되는 암호를 말하는 것입니까?**</br>
-"Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
-
-**Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**</br>
-요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다. 
 
 ## <a name="custom-configuration"></a>사용자 지정 구성
 **Q: Azure AD Connect에 대한 PowerShell cmdlet 설명서는 어디에 있나요?**  

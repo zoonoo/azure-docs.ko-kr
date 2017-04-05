@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 7bec6b07d8e15845f06b20f24414a0e25a955f38
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +31,7 @@ Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소
 ## <a name="prerequisites"></a>필수 조건
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **최신 웹 브라우저**. Azure 포털은 HTML5 및 Javascript를 사용하며 이전 웹 브라우저에서 제대로 작동하지 않을 수 있습니다.
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
@@ -70,10 +71,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
     * **SSH 사용자 이름**을 입력하고 SSH 암호를 이전에 지정한 관리자 암호와 동일하게 하려면 **클러스터 로그인과 동일한 암호 사용** 확인란을 선택합니다. 그렇지 않으면 **암호** 또는 **공개 키**를 제공합니다. 이 항목은 SSH 사용자를 인증하는 데 사용됩니다. 공개 키를 사용하는 것이 권장 방식입니다. 아래쪽의 **선택** 을 클릭하여 자격 증명 구성을 저장합니다.
    
-        HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-   
-        * [Linux, Unix 또는 OS X의 HDInsight에서 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Windows의 HDInsight에서 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+        자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
     * **리소스 그룹**에서 새 리소스 그룹을 만들지 아니면 기존 집합을 사용할지 여부를 지정합니다.
 

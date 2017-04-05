@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 5c30f459d9fed71fede2da71306a9b48892566f3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0553c29e12d7cb09c8edd291d3bfb36c4fd2ffcc
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
-참고: 이 콘텐츠는 Office365 그룹이라고도 하는 통합 그룹에만 적용됩니다.
+참고: 이 콘텐츠는 Office365 그룹이라고도 하는 통합 그룹에만 적용됩니다. 이러한 cmdlet은 현재 공개 미리 보기에서 제공됩니다.
 
 Office365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리에 설정 개체가 보이지 않습니다. 즉, 디렉터리가 기본 설정으로 구성됩니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
-cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 이 모듈에 대한 자세한 내용과 모듈을 컴퓨터에 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/en-us/powershell/azuread/)를 참조하세요.
+cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 이 모듈에 대한 자세한 내용과 모듈을 컴퓨터에 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/en-us/powershell/azuread/)를 참조하세요. 이러한 cmdlet은 현재 공개 미리 보기 상태이므로 [여기](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85)에서 찾을 수 있는 모듈의 미리 보기 릴리스를 설치해야 합니다.
 
 ## <a name="create-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 만들기
 다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 통합 그룹에 적용됩니다.

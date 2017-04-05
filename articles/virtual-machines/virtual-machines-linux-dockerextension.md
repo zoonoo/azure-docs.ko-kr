@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 508c8433620a1ba3feabc1b35ca2ad461680f37c
-ms.openlocfilehash: 0d1146b4e1d707f914fcb535210b71897efd0b29
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ad69080d2a6a39653291ca42b4aa182090b5bfd9
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,7 +41,7 @@ Docker Machine 및 Azure Container Service 사용을 비롯한 다른 배포 방
  az group create --name myResourceGroup --location westus
 ```
 
-다음으로 [Github의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. 다음과 같이 `newStorageAccountName`, `adminUsername`, `adminPassword` 및 `dnsNameForPublicIP`에 대한 고유한 값을 제공합니다.
+다음으로 [GitHub의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. 다음과 같이 `newStorageAccountName`, `adminUsername`, `adminPassword` 및 `dnsNameForPublicIP`에 대한 고유한 값을 제공합니다.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

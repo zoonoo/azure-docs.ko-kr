@@ -9,16 +9,17 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/27/2017
 ms.author: bprakash
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: d9c85736e9578ff4f821a118a25055e360e33ae9
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: c753eac8caed139250a0db85b639fca57c1e9ea6
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -88,6 +89,7 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 | Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |1.6.2 + 2.0(Linux만 해당) |1.6.0(Linux만 해당) |1.5.2(Linux만 해당/ 실험적 빌드) |1.3.1(Windows만 해당) |-|-|
 | Apache Kafka | 0.10.0 | 0.9.0 |-|-|-|-|
+| Mono |4.2.1 |3.2.8 |-|-|-|-|
 
 **현재 구성 요소 버전 정보 가져오기**
 
@@ -105,6 +107,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 
 | HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure 포털에서 사용 가능 여부 | 지원 만료 날짜 | 사용 중단 날짜 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| HDI 3.6 미리 보기 |HDP 2.6 |Ubuntu 16 |예 |02/28/2017 |예 | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |예 |9/30/2016 |예 | | |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |예 |2016/03/29 |예 |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS 또는 Windows Server 2012R2 |예 |12/02/2015 |예 |06/27/2016 |07/31/2017 |
@@ -113,6 +116,9 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 | HDI 3.0 |HDP 2.0 |Windows Server 2012R2 |예 |2014/02/11 |아니요 |2014/09/17 |2015/06/30 |
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |예 |2013/10/28 |아니요 |2014/05/12 |2015/05/31 |
 | HDI 1.6 |HDP 1.1 | |아니요 |2013/10/28 |아니요 |2014/04/26 |2015/05/31 |
+
+##<a name="hdi-36-preview-with-apache-spark-21"></a>Apache Spark 2.1을 사용한 HDI 3.6 미리 보기
+미리 보기용 HDI 3.6은 2017년 2월 28일에 릴리스됩니다. Apache Spark 2.1용 미리 보기에서 제공됩니다. 자세한 내용은 [Apache Spark 2.1을 사용한 HDI 3.6 미리 보기](https://azure.microsoft.com/en-us/blog/announcing-preview-of-azure-hdinsight-3-6-with-apache-spark-2-1/)를 참조하세요.
 
 ##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 버전 3.2 및 3.3(곧 사용 중단됨)
 HDI 3.2 클러스터에 대한 지원은 2016년 3월 1일 만료되었으며 2017년 4월 1일부터는 사용되지 않습니다. HDI 3.3 클러스터에 대한 지원은 2016년 6월 27일 만료되었으며 2017년 7월 31일부터는 사용되지 않습니다. HDI 3.2 또는 HDI 3.3 클러스터가 있는 경우에는 최신 버전인 HDI 3.5로 클러스터를 업그레이드하세요.

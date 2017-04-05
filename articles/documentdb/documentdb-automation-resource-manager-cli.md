@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/20/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 67d06372d186a0b51eac7a94ad67b9cd7f516319
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/27/2017
 * 'az documentdb -h'를 실행하여 사용할 수 있는 명령의 전체 목록을 가져오거나 [참조 페이지][az-documentdb-ref]로 이동합니다.
 * 'az documentdb <command> -h'를 실행하여 명령 당 필수 및 선택적 매개 변수의 세부 정보 목록을 가져옵니다.
 
-## <a name="a-idcreate-documentdb-account-clia-create-a-documentdb-database-account"></a><a id="create-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 만들기
+## <a id="create-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 만들기
 
 이 명령을 사용하면 DocumentDB 데이터베이스 계정을 만들 수 있습니다. 새 데이터베이스 계정을 특정 [일관성 정책](documentdb-consistency-levels.md)을 사용하여 단일 하위 지역 또는 [다중 하위 지역][scaling-globally]으로 구성합니다. 
 
@@ -65,6 +65,7 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
+                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,7 +94,7 @@ Arguments
 ### <a name="notes"></a>참고 사항
 * 위치는 일반적으로 DocumentDB를 사용할 수 있는 하위 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
-## <a name="a-idupdate-documentdb-account-clia-update-a-documentdb-database-account"></a><a id="update-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 업데이트
+## <a id="update-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 업데이트
 
 이 명령을 사용하면 DocumentDB 데이터베이스 계정 속성을 업데이트할 수 있습니다. 여기에는 일관성 정책과 데이터베이스 계정이 있는 위치가 포함됩니다.
 
@@ -128,7 +129,7 @@ Arguments
     az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
     az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
-## <a name="a-idadd-remove-region-documentdb-account-clia-addremove-region-from-a-documentdb-database-account"></a><a id="add-remove-region-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정에서 지역 추가/제거
+## <a id="add-remove-region-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정에서 지역 추가/제거
 
 기존 DocumentDB 데이터베이스 계정에서 지역을 추가하거나 제거하려면 `--locations` 플래그가 있는 [업데이트](#update-documentdb-account-cli) 명령을 사용합니다. 아래 예제에서는 새 계정을 만들고 이후에 해당 계정에서 지역을 추가하고 제거하는 방법을 보여 줍니다.
 
@@ -138,7 +139,7 @@ Arguments
     az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
 
 
-## <a name="a-iddelete-documentdb-account-clia-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 삭제
+## <a id="delete-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 삭제
 
 이 명령을 사용하면 기존 DocumentDB 데이터베이스 계정을 삭제할 수 있습니다.
 
@@ -152,7 +153,7 @@ Arguments
 
     az documentdb delete -g rg-test -n docdb-test
 
-## <a name="a-idget-documentdb-properties-clia-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-cli"></a> DocumentDB 데이터베이스 계정 속성 가져오기
+## <a id="get-documentdb-properties-cli"></a> DocumentDB 데이터베이스 계정 속성 가져오기
 
 이 명령을 사용하면 기존 DocumentDB 데이터베이스 계정의 속성을 가져올 수 있습니다.
 
@@ -166,9 +167,9 @@ Arguments
 
     az documentdb show -g rg-test -n docdb-test
 
-## <a name="a-idlist-account-keys-clia-list-account-keys"></a><a id="list-account-keys-cli"></a> 계정 키 나열
+## <a id="list-account-keys-cli"></a> 계정 키 나열
 
-DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는&2;개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는&2;개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 사용할 수 있습니다. 두 개의 읽기-쓰기 키(기본 및 보조) 및 두 개의 읽기 전용 키(기본 및 보조)가 있습니다.
+DocumentDB 계정을 만들면 해당 서비스에서 DocumentDB 계정에 액세스할 때 인증에 사용할 수 있는 2개의 마스터 액세스 키가 생성됩니다. DocumentDB에서는 2개의 액세스 키를 제공해서 사용자가 DocumentDB 계정에 대한 중단 없이 키를 다시 생성할 수 있습니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 사용할 수 있습니다. 두 개의 읽기-쓰기 키(기본 및 보조) 및 두 개의 읽기 전용 키(기본 및 보조)가 있습니다.
 
 ```
 Arguments
@@ -180,7 +181,7 @@ Arguments
 
     az documentdb list-keys -g rg-test -n docdb-test
 
-## <a name="a-idregenerate-account-key-clia-regenerate-account-key"></a><a id="regenerate-account-key-cli"></a> 계정 키 다시 생성
+## <a id="regenerate-account-key-cli"></a> 계정 키 다시 생성
 
 저장소 연결을 더욱 안전하게 유지할 수 있도록 정기적으로 DocumentDB 계정의 액세스 키를 변경해야 합니다. 두 개의 액세스 키가 할당되므로 액세스 키 하나를 다시 생성하는 동안 다른 액세스 키를 사용하여 DocumentDB 계정에 대한 연결을 유지할 수 있습니다.
 
@@ -196,9 +197,9 @@ Arguments
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a name="a-idmodify-failover-priority-clia-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-cli"></a> DocumentDB 데이터베이스 계정의 장애 조치 우선 순위 수정
+## <a id="modify-failover-priority-cli"></a> DocumentDB 데이터베이스 계정의 장애 조치 우선 순위 수정
 
-다중 하위 지역 데이터베이스 계정의 경우 DocumentDB 데이터베이스 계정이 있는 다양한 하위 지역의 장애 조치 우선 순위를 변경할 수 있습니다. DocumentDB 데이터베이스 계정의 장애 조치에 대한 자세한 내용은 [DocumentDB를 사용하여 전역적으로 데이터 배포][distribute-data-globally]를 참조하세요.
+다중 하위 지역 데이터베이스 계정의 경우 DocumentDB 데이터베이스 계정이 있는 다양한 하위 지역의 장애 조치 우선 순위를 변경할 수 있습니다. DocumentDB 데이터베이스 계정의 장애 조치(Failover)에 대한 자세한 내용은 [DocumentDB로 데이터를 글로벌 배포](documentdb-distribute-data-globally.md)를 참조하세요.
 
 ```
 Arguments
@@ -208,7 +209,7 @@ Arguments
                                     E.g "East US"=0 "West US"=1.
 ```
 
-예제:
+예:
 
     az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
 

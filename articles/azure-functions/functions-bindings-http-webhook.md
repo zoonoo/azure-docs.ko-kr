@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: ce7534b9ff675e1ae0902ba936e1ea897d80d936
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -118,7 +118,7 @@ _webHookType_ 속성이 있는 HTTP 트리거에서 [webhook](https://en.wikiped
 
 또한 트리거는 특정 webhook 공급자(예: [GitHub](https://developer.github.com/webhooks/) 및 [Slack](https://api.slack.com/outgoing-webhooks))에 맞춰 지정할 수 있습니다. 공급자를 지정하면 Functions 런타임에서 공급자의 유효성 검사 논리를 처리할 수 있습니다.  
 
-### <a name="configuring-github-as-a-webhook-provider"></a>Github를 webhook 공급자로 구성
+### <a name="configuring-github-as-a-webhook-provider"></a>GitHub를 웹후크 공급자로 구성
 GitHub webhook에 응답하려면 먼저 HTTP 트리거를 사용하여 함수를 만들고 _webHookType_ 속성을 "github"로 설정합니다. 그런 다음 [URL](#url) 및 [API 키](#keys)를 GitHub 리포지토리의 **webhook 추가** 페이지에 복사합니다. 자세한 내용은 GitHub의 [Webhook 만들기](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) 설명서를 참조하세요.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)

@@ -4,7 +4,7 @@ description: "ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure Cont
 services: container-service
 documentationcenter: 
 author: sauryadas
-manager: dan.lepow
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: "컨테이너, DC/OS, Azure, 모니터링, elk"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 9433eb9f734dbe1b815074f86b9a691b4d16b5c8
-ms.openlocfilehash: c372c4a04de61f1eace81418ec6dea054007ec1f
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fa17900f8a752d692a62e47d301651cc4f435f06
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -63,12 +64,10 @@ HAPROXY 대시보드에 액세스하려면 `http://$PUBLIC_NODE_IP_ADDRESS:9090/
 
 ## <a name="next-steps"></a>다음 단계
 
-Elasticsearch, Logstash 및 Kibarna에 대한 자세한 내용은 [탄력적 스택 설명서](https://www.elastic.co/guide/index.html)를 참조하세요.
+* 시스템 및 응용 프로그램 로그 전달 및 설정은 [ELK로 DC/OS에서 로그 관리](https://docs.mesosphere.com/1.8/administration/logging/elk/)를 참조하세요.
+
+* 로그를 필터링하려면 [ELK로 로그 필터링](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/)을 참조하세요. 
+
  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

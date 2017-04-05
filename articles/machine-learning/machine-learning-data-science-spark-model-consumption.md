@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 00fec675bed0137473f7e3c5ddfe9c3c0e8344c6
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -47,7 +47,7 @@ HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter 
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>설정: 저장소 위치, 라이브러리 및 사전 설정 Spark 컨텍스트
 Spark는 Azure Storage Blob(WASB)를 읽고 쓸 수 있습니다. 따라서 Spark 및 WASB에 다시 저장된 결과를 사용하여 해당 저장소에 저장된 기존 데이터를 처리할 수 있습니다.
 
-모델 또는 파일을 WASB에저장하려면 경로를 올바르게 지정해야 합니다. *"wasb//"*로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 저장소 디렉터리에 대한 경로를 지정합니다. 
+모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. *"wasb//"*로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 저장소 디렉터리에 대한 경로를 지정합니다. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 저장소 위치에 대한 디렉터리 경로를 설정합니다.
 모델 저장 위치: "wasb:///user/remoteuser/NYCTaxi/Models". 이 경로를 올바르게 설정하지 않으면 점수 매기기를 위한 모델이 로드되지 않습니다.
@@ -531,7 +531,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 Spark 작업 제출](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요. 
 
 Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면  
-[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) 에서 Python 스크립트를 Spark 클러스터의 BLOB에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 여기서는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***로 업로드했습니다.   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 여기서는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***로 업로드했습니다.   
 
 > [!NOTE]
 > 필요한 액세스 키는 Spark 클러스터와 연결된 저장소 계정용 포털에서 찾을 수 있습니다. 
