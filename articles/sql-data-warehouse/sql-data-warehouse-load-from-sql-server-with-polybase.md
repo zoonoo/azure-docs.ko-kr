@@ -37,7 +37,7 @@ ms.lasthandoff: 01/30/2017
 * 데이터를 정의하는 데이터베이스 개체 만들기
 * 데이터를 로드하는 T-SQL 쿼리 실행
 
-> [!비디오 https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 

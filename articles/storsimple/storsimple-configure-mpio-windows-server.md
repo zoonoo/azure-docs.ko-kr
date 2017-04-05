@@ -4,7 +4,7 @@ description: "Windows Server 2012 R2를 실행하는 호스트에 연결된 Stor
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 879fd0f9-c763-4fa0-a5ba-f589a825b2df
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 03/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 4483a395659a09e88fc4174e622143d9acaedf61
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -70,7 +71,7 @@ MPIO는 StorSimple 볼륨을 식별하도록 구성해야 합니다. StorSimple 
 4. 메시지가 표시되면 서버를 다시 부팅합니다.
 5. **MPIO 속성** 대화 상자에서 **MPIO 장치** 탭을 클릭합니다. **추가**를 클릭합니다.
     </br>![MPIO 속성 MPIO 장치](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. **MPIO 지원 추가** 대화 상자의 **장치 하드웨어 ID**에서 장치 일련 번호를 입력 합니다. StorSimple Manager 서비스에 액세스하고 **장치 > 대시보드**를 탐색하여 장치 일련 번호를 알 수 있습니다. StorSimple 관리자 서비스에 액세스하고 **장치 &gt; 대시보드** 를 탐색하여 장치 일련 번호를 알 수 있습니다.
+6. **MPIO 지원 추가** 대화 상자의 **장치 하드웨어 ID**에서 장치 일련 번호를 입력 합니다. StorSimple 관리자 서비스에 액세스하고 **장치 > 대시보드**를 탐색하여 장치 일련 번호를 알 수 있습니다. StorSimple 관리자 서비스에 액세스하고 **장치 &gt; 대시보드** 를 탐색하여 장치 일련 번호를 알 수 있습니다.
     </br>![MPIO 지원 추가](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. 메시지가 표시되면 서버를 다시 부팅합니다.
 
@@ -126,18 +127,17 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 > [!NOTE]
 > **기본 매개 변수를 수정하지 마세요.**
-> 
-> 
+
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>4단계: 고가용성 및 부하 분산을 위해 MPIO 구성
 다중 경로 기반 고가용성 및 부하 분산의 경우 사용할 수 있는 다른 경로 선언을 위해 다중 세션이 수동으로 추가되어야 합니다. 예를들어 SAN에 연결된 두 인터페이스가 호스트에 있고 SAN에 연결된 두 인터페이스가 장비에 있는 경우, 적합한 경로 순열로 구성된 네 개의 세션만 필요합니다(각각의 데이터 인터페이스 및 호스트 인터페이스가 다른 IP 주소에 있고 라우팅할 수 없는 경우 두 세션만 필요).
 
+**장치 및 응용 프로그램 호스트 간에 최소 4개의 활성 병렬 세션을 유지하는 것이 좋습니다.** 이를 위해 Windows Server 시스템에서 4개의 네트워크 인터페이스를 사용하도록 설정하면 됩니다. Windows Server 호스트의 하드웨어 또는 운영 체제 수준에서 실제 네트워크 인터페이스 또는 네트워크 가상화 기술을 사용합니다. 장치에 2개의 네트워크 인터페이스가 있으면 이 구성에서는 8개 세션 중 4개가 활성 세션(활성 컨트롤러에 연결됨)이고 4개가 수동 세션이 됩니다(수동 컨트롤러에 연결됨). 이 구성은 장치 및 클라우드 처리량을 최적화하는 데 도움이 됩니다.
+
 > [!IMPORTANT]
 > **1GbE 및 10GbE 네트워크 인터페이스는 혼용하지 않는 것이 좋습니다. 두 네트워크 인터페이스를 사용하는 경우 두 인터페이스 모두 동일한 유형이어야 합니다.**
-> 
-> 
 
-다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 장치가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 세션을 추가하는 방법에 대해 설명합니다.
+다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 장치가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 세션을 추가하는 방법에 대해 설명합니다. 이 경우 활성 세션은 2개뿐입니다. 4개의 네트워크 인터페이스가 있는 호스트에 2개의 네트워크 인터페이스가 연결된 StorSimple 장치에서 이 동일한 절차를 사용합니다. 여기에 설명된 4개의 세션 대신 8개를 구성해야 합니다.
 
 ### <a name="to-configure-mpio-for-high-availability-and-load-balancing"></a>고가용성 및 부하 분산을 위해 MPIO를 구성하려면
 1. 대상 검색 수행: **iSCSI 초기자 속성** 대화 상자에서 **검색** 탭을 클릭한 다음 **포털 검색**을 클릭합니다.
@@ -169,10 +169,5 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
