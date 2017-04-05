@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 이 샘플 PowerShell 스크립트는 두 개의 탄력적 풀을 만들고 한 탄력적 풀에서 다른 탄력적 풀로 데이터베이스를 이동한 다음 탄력적 풀에서 단일 데이터베이스 성능 수준으로 데이터베이스를 이동합니다. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

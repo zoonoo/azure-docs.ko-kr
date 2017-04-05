@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/)는 공유 리소스에서 응용 프로그램 데이터와 계산을 격리시키는 한 가지 방법으로, 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하며 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux Agent](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 [Azure Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md)을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
+[Docker](https://www.docker.com/)는 공유 리소스에서 응용 프로그램 데이터와 계산을 격리시키는 한 가지 방법으로, 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하며 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux Agent](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 [Azure Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md)을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
 
 이 항목에서는 다음에 대해 설명합니다.
 
@@ -50,9 +50,9 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 * [Azure 클래식 포털에서 Docker VM 확장을 사용하는 방법]
 
 ## <a name="virtual-machine-extensions-for-linux-and-windows"></a>Linux 및 Windows용 가상 컴퓨터 확장
-[Azure용 Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md) 은 특수 동작을 제공하는 여러 VM 확장 중 하나일 뿐이며 추가 VM이 개발 중입니다. 예를 들어, 보안 기능, 커널 및 네트워킹 기능 등을 비롯한 [Linux VM 에이전트 확장](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 여러 기능을 사용하여 Virtual Machine을 수정하고 관리할 수 있습니다. 예제용 VMAccess 확장을 사용하여 관리자 암호 또는 SSH 키를 다시 설정할 수 있습니다.
+[Azure용 Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md) 은 특수 동작을 제공하는 여러 VM 확장 중 하나일 뿐이며 추가 VM이 개발 중입니다. 예를 들어, 보안 기능, 커널 및 네트워킹 기능 등을 비롯한 [Linux VM 에이전트 확장](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 여러 기능을 사용하여 Virtual Machine을 수정하고 관리할 수 있습니다. 예제용 VMAccess 확장을 사용하여 관리자 암호 또는 SSH 키를 다시 설정할 수 있습니다.
 
-전체 목록은 [Azure VM 확장](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+전체 목록은 [Azure VM 확장](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 <!--Anchors-->
 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
@@ -61,8 +61,3 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 [Docker 및 Linux 컨테이너]: #Docker-and-Linux-Containers
 [Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-
-
-<!--HONumber=Jan17_HO3-->
-
-

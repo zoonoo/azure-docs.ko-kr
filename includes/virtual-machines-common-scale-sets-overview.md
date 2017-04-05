@@ -23,7 +23,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 
 용량을 변경하기 위해서 템플릿을 다시 배포하는 경우 SKU와 업데이트된 용량만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. 이와 관련된 예제를 [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)에서 볼 수 있습니다.
 
-자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="monitoring-your-vm-scale-set"></a>VM 규모 집합 모니터링
 [Azure 리소스 탐색기](https://resources.azure.com) 를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
@@ -64,7 +64,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 ## <a name="vm-scale-set-frequently-asked-questions"></a>VM 규모 집합 질문과 대답
 **Q.** VM 규모 집합에 포함할 수 있는 VM의 수는 몇 개입니까?
 
-**A.** 여러 저장소 계정으로 배포될 수 있는 플랫폼 이미지를 사용하는 경우&amp;100;개입니다. 사용자 지정 이미지는 미리 보기 기간 동안 하나의 저장소 계정으로 제한되기 때문에 사용자 지정 이미지를 사용하는 경우 40개까지 가능합니다.
+**A.** 여러 저장소 계정으로 배포될 수 있는 플랫폼 이미지를 사용하는 경우 100개입니다. 사용자 지정 이미지는 미리 보기 기간 동안 하나의 저장소 계정으로 제한되기 때문에 사용자 지정 이미지를 사용하는 경우 40개까지 가능합니다.
 
 **Q.** VM 규모 집합에 존재하는 다른 리소스 제한 사항은 무엇입니까?
 
@@ -115,9 +115,4 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, *�
 **Q.** VM 규모 집합은 Azure 가용성 집합과 작업이 가능합니까?
 
 **A.** 예. VM 규모 집합은 FD 3개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

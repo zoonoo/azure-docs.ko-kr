@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -90,10 +90,10 @@ Big Compute 솔루션 및 워크플로에 결합할 수 있는 계산, 데이터
 > 
 
 ### <a name="compute-services"></a>계산 서비스
-Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 표준 및 사용자 지정 Linux 및 Windows 운영 체제와 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴스 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
+Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 표준 및 사용자 지정 Linux 및 Windows 운영 체제와 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴스 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
 
 > [!NOTE]
-> Azure [H 시리즈와 같은 계산 집약적인 인스턴스](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 활용하여 HPC 워크로드의 성능 및 확장성을 개선합니다. 또한 이러한 인스턴스는 대기 시간이 짧고 처리량이 많은 응용 프로그램 네트워크를 필요로 하는 병렬 MPI 응용 프로그램을 지원합니다. 또한 NVIDIA GPU를 포함한 [N 시리즈](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VM을 사용하여 Azure에서 컴퓨팅 및 시각화 시나리오의 범위를 확장할 수 있습니다.  
+> Azure [H 시리즈와 같은 계산 집약적인 인스턴스](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 활용하여 HPC 워크로드의 성능 및 확장성을 개선합니다. 또한 이러한 인스턴스는 대기 시간이 짧고 처리량이 많은 응용 프로그램 네트워크를 필요로 하는 병렬 MPI 응용 프로그램을 지원합니다. 또한 NVIDIA GPU를 포함한 [N 시리즈](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VM을 사용하여 Azure에서 컴퓨팅 및 시각화 시나리오의 범위를 확장할 수 있습니다.  
 > 
 > 
 

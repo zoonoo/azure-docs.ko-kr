@@ -36,7 +36,7 @@ Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 �
 이제 `azure login`를 입력하여 [Azure 계정에 대화식으로 로그인](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)하고 Azure 계정의 대화식 로그인 환경에 대한 메시지를 따릅니다. 
 
 > [!NOTE]
-> 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 있습니다.
+> 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 있습니다.
 >
 >
 
@@ -100,7 +100,7 @@ data:
 info:    group create command OK
 ```
 
-두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 그러나 이 문서에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
+두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 그러나 이 문서에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
 
 > [!NOTE]
 > ComputeImageVersion의 경우, 템플릿 언어 및 Azure CLI 모두에서 매개 변수로 단순히 '최신'을 제공할 수도 있습니다. 이렇게 하면 사용자 스크립트 또는 템플릿을 수정하지 않고도 최신 및 패치가 적용된 버전의 이미지를 항상 사용할 수 있습니다. 다음과 같습니다.
@@ -232,7 +232,7 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
 * 사용할 외부 세계의 도메인 이름
 * Ubuntu Server 버전 번호 -- 목록 중 하나만 허용
 
-자세한 내용은 [사용자 이름 및 암호 요구 사항](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
+자세한 내용은 [사용자 이름 및 암호 요구 사항](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
 
 이러한 값을 확인했으면 해당 그룹을 만들고 Azure 구독에 이 템플릿을 배포할 수 있습니다.
 
@@ -1264,7 +1264,7 @@ info:    vm show command OK
 >
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>작업: Linux 기반 가상 컴퓨터에 로그온
-일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a id="stop-a-virtual-machine"></a>작업: VM 중지
 다음 명령을 실행합니다.
@@ -1305,4 +1305,4 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ## <a name="next-steps"></a>다음 단계
 **arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리자에 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure Resource Manager 개요](../articles/azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
-사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
