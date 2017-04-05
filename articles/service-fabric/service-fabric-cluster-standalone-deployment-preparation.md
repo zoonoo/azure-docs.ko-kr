@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 1/17/2017
 ms.author: maburlik;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c525925cc581b3c95db330a24799056d6aade92d
-ms.openlocfilehash: 35504d3885c09c142502edf35efc36286b3f9024
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bd9ea82adc97698957dfebc3ee7c14c498808dd3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -96,7 +96,7 @@ UD를 ClusterConfig.json에 지정하는 경우 각 UD의 이름을 선택할 �
 * Service Fabric SDK 제거
 * Service Fabric 런타임 제거 
 * Windows 방화벽 서비스(mpssvc) 활성화
-* 제거 레지스트리 서비스(remoteregistry) 활성화
+* 원격 레지스트리 서비스(remoteregistry) 활성화
 * 파일 공유(SMB) 활성화
 * 클러스터 구성 포트에 따라 필요한 포트 열기
 * Windows SMB 및 원격 레지스트리 서비스: 135, 137, 138, 139 및 445에 대한 필요한 포트 열기

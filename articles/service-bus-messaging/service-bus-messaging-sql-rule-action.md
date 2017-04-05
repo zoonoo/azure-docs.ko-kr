@@ -1,5 +1,5 @@
 ---
-title: "SQLRuleAction 구문 참조 | Microsoft Docs"
+title: "Azure에서 SQLRuleAction 구문 참조 | Microsoft Docs"
 description: "SQLRuleAction 문법에 대한 세부 정보입니다."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5fb6b670ffa496d6626347bc50d537d35d51e08c
-ms.openlocfilehash: b2a5e72860535d92b94063ff9f58aadd6002cfb2
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b4cc2ce4d05b035829584a610d52e6079a13a9c1
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -224,9 +225,4 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 
 - [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [SQLFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

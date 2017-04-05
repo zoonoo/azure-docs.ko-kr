@@ -57,16 +57,19 @@
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
-#### [Reliable Services 수명 주기](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
 #### [신뢰할 수 있는 컬렉션 사용](service-fabric-work-with-reliable-collections.md)
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [Notifications](service-fabric-reliable-services-notifications.md)
 #### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
 #### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
-#### [Reliable Services와 보안 통신](service-fabric-reliable-services-secure-communication.md)
+#### [Reliable Services와 보안 통신 - C#](service-fabric-reliable-services-secure-communication.md)
+#### [Reliable Services와 보안 통신 - Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [원격 서비스](service-fabric-reliable-services-communication-remoting.md)
+##### [원격 서비스 - C#](service-fabric-reliable-services-communication-remoting.md)
+##### [원격 서비스 - Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [역방향 프록시](service-fabric-reverseproxy.md)
 #### [고급 사용](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Azure CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md) 
 #### [클러스터에 보안 적용](service-fabric-cluster-security.md)
 #### [재해 복구](service-fabric-disaster-recovery.md)
+#### [Linux와 Windows 간의 기능 차이점](service-fabric-linux-windows-differences.md)
 
 ### Azure의 클러스터
 #### Azure에서 클러스터 만들기

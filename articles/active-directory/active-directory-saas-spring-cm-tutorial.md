@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
-ms.openlocfilehash: 95fbe26a9bb886c6edbb862c9e15885ffc5eeed6
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 5600adfbc20fb499bdd206e966a9730f49a03e40
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>자습서: SpringCM과 Azure Active Directory 통합
-이 자습서는 Azure Active Directory와 Spring CM 사이에 Single Sign-On을 설정하는 방법을 보여주기 위한 것입니다.
+이 자습서는 Azure Active Directory와 Spring CM 사이에 SSO(Single Sign-On)를 설정하는 방법을 보여주기 위한 것입니다.
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* SpringCM Single Sign-On이 설정된 구독
+* SpringCM SSO(Single Sign-On)가 설정된 구독
 
-이 자습서를 완료한 후 SpringCM에 할당한 Azure Active Directory 사용자가 AAD 액세스 패널에서 Single Sign-On을 수행할 수 있습니다.
+이 자습서를 완료한 후 SpringCM에 할당한 Azure Active Directory 사용자가 AAD 액세스 패널에서 SSO를 수행할 수 있습니다.
 
 1. SpringCM에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
@@ -40,7 +40,8 @@ ms.lasthandoff: 12/14/2016
 ## <a name="enabling-the-application-integration-for-springcm"></a>SpringCM에 응용 프로그램 통합 사용
 이 섹션은 SpringCM에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-springcm-perform-the-following-steps"></a>SpringCM에 응용 프로그램 통합을 사용하도록 설정하려면
+**SpringCM에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![Active Directory](./media/active-directory-saas-spring-cm-tutorial/IC700993.png "Active Directory")
@@ -67,10 +68,11 @@ ms.lasthandoff: 12/14/2016
    
     ![SpringCM](./media/active-directory-saas-spring-cm-tutorial/IC797046.png "SpringCM")
 
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure Active Directory의 계정으로 SpringCM에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 **SpringCM** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Single Sign-On 구성")
@@ -97,32 +99,28 @@ ms.lasthandoff: 12/14/2016
 
 7. ID 공급자 구성 섹션에서 다음 단계를 수행합니다.
    
-    ![ID 공급자 구성](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "ID 공급자 구성")
-   
-    a. 다운로드한 Azure Active Directory 인증서를 업로드하려면 **발급자 인증서 선택** 또는 **발급자 인증서 변경**을 클릭합니다.
-   
-    b. Azure 클래식 포털의 **SpringCM에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
-   
-    c. Azure 클래식 포털의 **SpringCM에서 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **서비스 공급자(SP)가 시작하는 끝점** 텍스트 상자에 붙여 넣습니다.
-   
-    ㄹ. **SAML 사용**으로 설정되었을 때 **사용**을 선택합니다.
-   
-    e. **저장**을 클릭합니다.
+    ![ID 공급자 구성](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "ID 공급자 구성")   
+  1. 다운로드한 Azure Active Directory 인증서를 업로드하려면 **발급자 인증서 선택** 또는 **발급자 인증서 변경**을 클릭합니다.
+  2. Azure 클래식 포털의 **SpringCM에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
+  3. Azure 클래식 포털의 **SpringCM에서 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **서비스 공급자(SP)가 시작하는 끝점** 텍스트 상자에 붙여 넣습니다.
+  4. **SAML 사용**으로 설정되었을 때 **사용**을 선택합니다.
+  5. **Save**를 클릭합니다.
 
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Single Sign-On 구성")
 
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하려면 SpringCM으로 프로비전되어야 합니다.  
+
 SpringCM의 경우 프로비전은 수동 작업입니다.
 
-> [!NOTE]
-> 자세한 내용은 [SpringCM 사용자 만들기 및 편집](http://knowledge.springcm.com/create-and-edit-a-springcm-user)
-> 
+>[!NOTE]
+>자세한 내용은 [SpringCM 사용자 만들기 및 편집](http://knowledge.springcm.com/create-and-edit-a-springcm-user)을 참조하세요. 
 > 
 
-### <a name="to-provision-a-user-account-to-springcm-perform-the-following-steps"></a>사용자 계정을 SpringCM에 프로비전하려면 다음 단계를 수행합니다.
+**사용자 계정을 SpringCM에 프로비전하려면 다음 단계를 수행합니다.**
+
 1. **SpringCM** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. **GOTO**를 클릭하고 **주소록**을 클릭합니다.
@@ -141,15 +139,15 @@ SpringCM의 경우 프로비전은 수동 작업입니다.
 
 8. **Save**를 클릭합니다.
 
-> [!NOTE]
-> 다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
-> 
-> 
+  >[!NOTE]
+  >다른 SpringCM 사용자 계정 생성 도구 또는 SpringCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.  
+  > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-springcm-perform-the-following-steps"></a>SpringCM에 사용자를 할당하려면 다음 단계를 수행합니다.
+**SpringCM에 사용자를 할당하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2. **SpringCM** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.

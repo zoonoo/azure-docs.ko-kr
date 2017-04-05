@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/24/2017
 ms.author: chackdan;maburlik
 translationtype: Human Translation
-ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
-ms.openlocfilehash: d833fb81a903ed9577bcfa64ee27d94cf428729d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 3389684dca62a1b3c8297600c7c09ffef642c854
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -38,6 +38,7 @@ Azure Service Fabric을 사용하면 Windows Server를 실행 중인 가상 컴�
 * [Service Fabric에 대한 전문 지원](http://support.microsoft.com/oas/default.aspx?prid=16146)에 대한 티켓을 엽니다.  [여기](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)에서 Microsoft의 전문 지원에 대해 자세히 알아봅니다.
 * 또한 [Microsoft 프리미어 지원](https://support.microsoft.com/en-us/premier)의 일부로 이 패키지에 대해 지원을 받을 수도 있습니다.
 * 자세한 내용은 [Azure Service Fabric 지원 옵션](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support)을 참조하세요.
+* 지원을 위해 로그를 수집하려면 [Service Fabric 독립 실행형 로그 수집기](https://go.microsoft.com/fwlink/?linkid=842487)를 실행합니다.
 
 <a id="downloadpackage"></a>
 

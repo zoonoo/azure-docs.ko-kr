@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
-ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f4f3caed8390ba3a80d6cf1282f4d2751c67ae6b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -523,7 +524,7 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
     }
 
 #### <a name="sample-code-in-java-for-bes"></a>BES용 Java의 샘플 코드
-다음 샘플에서 보여 주듯이 배치 실행 서비스 REST API는 입력 샘플 csv 및 출력 샘플 csv에 대한 참조로 구성된 JSON을 사용하고 Azure ML에서 작업을 만들어 배치 예측을 수행합니다. [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp)에서 전체 코드를 볼 수 있습니다. 이 Java 샘플을 사용하려면 [apache http 클라이언트 라이브러리](https://hc.apache.org/downloads.cgi)가 필요합니다. 
+다음 샘플에서 보여 주듯이 배치 실행 서비스 REST API는 입력 샘플 csv 및 출력 샘플 csv에 대한 참조로 구성된 JSON을 사용하고 Azure ML에서 작업을 만들어 배치 예측을 수행합니다. [GitHub](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp)에서 전체 코드를 볼 수 있습니다. 이 Java 샘플을 사용하려면 [apache http 클라이언트 라이브러리](https://hc.apache.org/downloads.cgi)가 필요합니다. 
 
     { "GlobalParameters": {}, 
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
@@ -730,9 +731,4 @@ Azure Machine Learning 서비스의 배치 작업을 만들 때 이 배치 실�
 <!-- External Links -->
 [webservicesportal]: https://services.azureml.net/
 [mlstudio]: https://studio.azureml.net
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

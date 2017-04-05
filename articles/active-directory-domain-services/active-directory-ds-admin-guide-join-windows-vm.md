@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9f8d21f6964d26a2e17e31d1f2947e7eb07c177d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/29/2016
 이 문서에서는 Azure 클래식 포털을 사용하여 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 Azure AD 도메인 서비스는 관리되는 도메인에 가입하는 방법을 보여 줍니다.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>1단계: Windows Server 가상 컴퓨터 만들기
-[Azure 클래식 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 자습서에 나와 있는 지침을 따릅니다. 이 새로 만든 가상 컴퓨터는 반드시 Azure AD 도메인 서비스가 사용하도록 설정된 동일한 가상 네트워크에 가입되어야 합니다. '빠른 생성' 옵션으로는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 따라서 가상 컴퓨터를 만들려면 '갤러리에서' 옵션을 사용해야 합니다.
+[Azure 클래식 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) 자습서에 나와 있는 지침을 따릅니다. 이 새로 만든 가상 컴퓨터는 반드시 Azure AD 도메인 서비스가 사용하도록 설정된 동일한 가상 네트워크에 가입되어야 합니다. '빠른 생성' 옵션으로는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 따라서 가상 컴퓨터를 만들려면 '갤러리에서' 옵션을 사용해야 합니다.
 
 Azure AD 도메인 서비스가 사용하도록 설정된 가상 네트워크에 가입할 Windows 가상 컴퓨터를 만들기 위해 다음 단계를 수행합니다.
 

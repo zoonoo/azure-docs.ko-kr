@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
-ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -154,7 +154,7 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
 * *serviceConnectionEndpointPort*는 노드에 배포된 서비스 및 응용 프로그램에서 해당 특정 노드의 Service Fabric 클라이언트와 통신하는 데 사용되는 포트입니다.
 * *httpGatewayEndpointPort*는 Service Fabric Explorer에서 클러스터에 연결하는 데 사용되는 포트입니다.
 * *ephemeralPorts*는 [OS에서 사용되는 동적 포트](https://support.microsoft.com/kb/929851)를 재정의합니다. Service Fabric은 이 중 일부를 응용 프로그램 포트로 사용하고, 나머지를 OS에 사용합니다. 또한 이 범위를 OS에 있는 기존 범위에 매핑하므로 지정된 매핑을 JSON 파일에서 어떤 용도로든 사용할 수 있습니다. 시작 포트와 끝 포트 간의 차이가 255 이상인지 확인해야 합니다. 이 차이가 매우 낮으면 이 범위가 운영 체제에서 공유되므로 충돌이 발생할 수 있습니다. `netsh int ipv4 show dynamicport tcp`를 실행하여 구성된 동적 포트 범위를 참조하세요.
-* *applicationPorts*는 Service Fabric 응용 프로그램에서 사용되는 포트입니다. 이는 응용 프로그램의 끝점 요구 사항을 충족할 수 있는 *ephemeralPorts*의 하위 집합이어야 합니다. Service Fabric은 새 포트가 필요할 때마다 이를 사용하며 이러한 포트의 방화벽 열기를 처리합니다. 
+* *applicationPorts*는 Service Fabric 응용 프로그램에서 사용되는 포트입니다. 응용 프로그램 포트 범위는 응용 프로그램의 끝점 요구 사항을 충족할 수 있을 만큼 충분히 커야 합니다. 이 범위는 컴퓨터의 동적 포트 범위, 즉 구성에 설정된 대로 *ephemeralPorts* 범위에서 제외되어야 합니다.  Service Fabric은 새 포트가 필요할 때마다 이를 사용하며 이러한 포트의 방화벽 열기를 처리합니다. 
 * *reverseProxyEndpointPort*는 선택적 역방향 프록시 끝점입니다. 자세한 내용은 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 
 
 ### <a name="log-settings"></a>로그 설정

@@ -1,6 +1,6 @@
 ---
 title: "5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs"
-description: "예측 솔루션 개발 연습 5단계: Machine Learning Studio에서 예측 실험을 웹 서비스로 배포합니다."
+description: "예측 솔루션 개발 연습 5단계: Azure 기계 학습 스튜디오에서 예측 실험을 웹 서비스로 배포합니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: ac5dfa34c867ecf2f38ebe33d7f5cf6610c33472
-ms.openlocfilehash: 005d96d66843b50d9c7003ae5264896718c37151
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure 기계 학습 웹 서비스 배포
 [Azure 기계 학습에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -34,14 +34,17 @@ ms.lasthandoff: 03/02/2017
 - - -
 다른 사용자가 이 연습에서 개발한 예측 모델을 사용할 수 있도록 Azure의 웹 서비스로 배포할 예정입니다.
 
-지금까지는 모델을 학습하는 실험을 진행했습니다. 하지만 배포된 서비스는 더 이상 학습을 수행하지 않고 모델에 따라 사용자 입력의 점수를 매겨서 예측을 생성합니다. 그러므로 몇 가지 예측을 수행하여 ***학습*** 실험을 ***예측*** 실험으로 변환하겠습니다. 
+지금까지는 모델을 학습하는 실험을 진행했습니다. 하지만 배포된 서비스는 더 이상 학습을 수행하지 않고 모델에 따라 사용자 입력의 점수를 매겨서 새 예측을 생성합니다. 그러므로 몇 가지 예측을 수행하여 ***학습*** 실험을 ***예측*** 실험으로 변환하겠습니다. 
 
-이 작업은 두 단계로 이루어집니다.  
+이 작업은 세 단계로 이루어집니다.  
 
-1. 만든 *학습 실험*을 *예측 실험*으로 변환
-2. 예측 실험을 웹 서비스로 배포
+1. 모델 중 하나 제거
+2. 만든 *학습 실험*을 *예측 실험*으로 변환
+3. 예측 실험을 웹 서비스로 배포
 
-하지만 먼저 이 실험을 약간 간단히 줄여야 합니다. 현재 실험에는 두 개의 다른 모델이 있지만 웹 서비스로 배포할 때는 모델이 하나여야 합니다.  
+## <a name="remove-one-of-the-models"></a>모델 중 하나 제거
+
+먼저 이 실험을 약간 간단히 줄여야 합니다. 현재 실험에는 두 개의 다른 모델이 있지만 웹 서비스로 배포할 때는 하나의 모델만을 사용하려고 합니다.  
 
 우리는 향상된 트리 모델이 SVM 모델보다 더 효율적으로 수행되었다는 결론을 내리게 되었습니다. 가장 먼저 수행할 작업은 [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈과 학습에 사용된 모듈을 제거하는 것입니다. 먼저 실험 캔버스 아래쪽에 있는 **다른 이름으로 저장**을 클릭하여 실험 복사본을 만들 수 있습니다.
 
@@ -52,13 +55,19 @@ ms.lasthandoff: 03/02/2017
 * [데이터 표준화][normalize-data](둘 다)
 * [모델 평가][evaluate-model](모델 평가를 완료했으므로)
 
-각 모듈을 선택하고 Delete 키를 누르거나 모듈을 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
+각 모듈을 선택하고 Delete 키를 누르거나 모듈을 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다. 
+
+![SVM 모델 제거됨][3a]
+
+모델은 다음과 같이 표시됩니다.
+
+![SVM 모델 제거됨][3]
 
 이제 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree]를 사용하여 이 모듈을 배포할 준비가 되었습니다.
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>학습 실험에서 예측 실험으로 변환
 
-예측 실험으로 변환하는 프로세스는 다음 세 단계로 구성됩니다.
+이 모델을 배포하도록 준비하려면 이 학습 실험을 예측 실험으로 변환해야 합니다. 이는 세 가지 단계를 포함합니다.
 
 1. 학습한 모델을 저장한 다음 학습 모듈 바꾸기
 2. 학습에만 필요한 모듈을 제거하여 실험 축소
@@ -85,7 +94,6 @@ ms.lasthandoff: 03/02/2017
 
 이 특정 실험과 함께 하나의 추가 단계를 수행해야 합니다.
 두 개의 [R 스크립트 실행][execute-r-script] 모듈을 추가하여 데이터에 가중치 기능을 제공했습니다. 이 모듈은 학습 및 테스트에만 필요하므로 최종 모델에서는 삭제할 수 있습니다.
-
 Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립트 실행][execute-r-script] 모듈을 하나 제거했습니다. 이제 다른 모듈을 제거하고 [메타데이터 편집기][metadata-editor]를 [모델 점수 매기기][score-model]에 직접 연결할 수 있습니다.    
 
 이제 실험은 다음과 같이 표시됩니다.  
@@ -105,7 +113,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 실험을 Azure Resource Manager에 기반하는 기존 웹 서비스 또는 새 웹 서비스로 배포할 수 있습니다.
 
 ### <a name="deploy-as-a-classic-web-service"></a>기존 웹 서비스로 배포
-실험에서 파생된 기존 웹 서비스를 배포하려면 캔버스에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. Machine Learning Studio에서 실험을 웹 서비스로 배포하고 웹 서비스에 대한 대시보드로 이동합니다. 실험으로 돌아가서(**스냅숏 보기** 또는 **최신 항목 보기**) 간단한 웹 서비스 테스트를 실행할 수 있습니다(아래 **웹 서비스 테스트** 참조). 여기에는 웹 서비스에 액세스할 수 있는 응용 프로그램 만들기에 관한 정보도 있습니다(자세한 내용은 이 연습의 다음 단계를 참조).
+실험에서 파생된 기존 웹 서비스를 배포하려면 캔버스에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. 기계 학습 스튜디오에서 실험을 웹 서비스로 배포하고 웹 서비스에 대한 대시보드로 이동합니다. 이 페이지에서 실험으로 돌아가서(**스냅숏 보기** 또는 **최신 항목 보기**) 간단한 웹 서비스 테스트를 실행할 수 있습니다(아래 **웹 서비스 테스트** 참조). 여기에는 웹 서비스에 액세스할 수 있는 응용 프로그램을 만들기 위한 정보도 있습니다. 자세한 내용은 이 연습의 다음 단계를 참조하세요.
 
 ![웹 서비스 대시보드][6]
 
@@ -116,9 +124,9 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 ### <a name="deploy-as-a-new-web-service"></a>새 웹 서비스로 배포
 
 > [!NOTE] 
-> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
 
-실험에서 파생된 새 웹 서비스를 배포하려면
+실험에서 파생된 새 웹 서비스를 배포하려면:
 
 1. 캔버스 아래에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. Machine Learning Studio를 통해 Azure Machine Learning 웹 서비스 **배포 실험** 페이지로 이동합니다.
 
@@ -126,60 +134,65 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 
 3. **가격 책정 계획**의 경우 기존 가격 책정 계획을 선택하거나 "새로 만들기"를 선택하고 새 계획 이름을 지정한 후 월별 계획 옵션을 선택할 수 있습니다. 계획 계층이 기본적으로 기본 하위 지역에 대한 계획으로 설정되고 웹 서비스는 해당 하위 지역에 배포됩니다.
 
-4. **배포**을 참조하십시오..
+4. **배포**를 클릭합니다.
 
 몇 분 후에 웹 서비스에 대한 **빠른 시작** 페이지가 열립니다.
 
 **구성** 탭을 클릭하여 서비스를 구성할 수 있습니다. 여기에서 서비스를 수정하고 설명을 지정할 수 있습니다. 
 
-웹 서비스 선택을 테스트하려면 **테스트** 탭을 클릭합니다(아래의 **웹 서비스 테스트** 참조). 웹 서비스에 액세스할 수 있는 응용 프로그램 만들기에 대한 정보는 **사용** 탭을 클릭합니다(자세한 내용은 이 연습의 다음 단계 참조).
+웹 서비스를 테스트하려면 **테스트** 탭을 클릭합니다(아래의 **웹 서비스 테스트** 참조). 웹 서비스에 액세스할 수 있는 응용 프로그램 만들기에 대한 정보는 **사용** 탭을 클릭합니다(자세한 내용은 이 연습의 다음 단계 참조).
 
 > [!TIP]
-> 웹 서비스는 배포 후에 업데이트할 수 있습니다. 예를 들어 모델을 변경하려면 학습 실험을 편집하고, 모델 매개 변수를 조정하고, **웹 서비스 배포**를 클릭한 후 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]**를 선택합니다. 실험을 다시 배포하면 이 실험이 웹 서비스를 대체하고 이제 업데이트된 모델을 사용합니다.  
+> 웹 서비스를 배포하고 나서 업데이트할 수 있습니다. 예를 들어 모델을 변경하려면 학습 실험을 편집하고, 모델 매개 변수를 조정하고, **웹 서비스 배포**를 클릭한 후 **웹 서비스 배포[클래식]** 또는 **웹 서비스 배포[신규]**를 선택합니다. 실험을 다시 배포하면 이 실험이 웹 서비스를 대체하고 이제 업데이트된 모델을 사용합니다.  
 > 
 > 
 
 ## <a name="test-the-web-service"></a>웹 서비스 테스트
 
-웹 서비스에 액세스될 때 사용자 데이터는 **웹 서비스 입력**으로 이동됩니다. 여기서 [모델 점수 매기기][score-model] 모듈로 전달되고 점수가 매겨집니다. 예측 실험을 설정했던 방법대로, 모델은 원래 신용 위험 데이터 집합과 동일한 형식의 데이터를 요구합니다.
-
-그런 다음 결과가 웹 서비스로부터 **웹 서비스 출력** 모듈을 거쳐 사용자에게 반환됩니다.
+웹 서비스에 액세스될 때 사용자 데이터는 **웹 서비스 입력** 모듈로 이동됩니다. 여기서 [모델 점수 매기기][score-model] 모듈로 전달되고 점수가 매겨집니다. 예측 실험을 설정했던 방법대로, 모델은 원래 신용 위험 데이터 집합과 동일한 형식의 데이터를 요구합니다.
+결과가 웹 서비스로부터 **웹 서비스 출력** 모듈을 거쳐 사용자에게 반환됩니다.
 
 > [!TIP]
-> 예측 실험을 구성한 방법대로 [모델 점수 매기기][score-model] 모듈에서 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 신용 위험 값만 반환하는 등 다른 결과를 반환하려면 [프로젝트 열][project-columns] 모듈을 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 삽입하고 웹 서비스에서 반환하지 않으려는 열을 제거합니다. 
+> 예측 실험을 구성한 방법대로 [모델 점수 매기기][score-model] 모듈에서 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 하지만 원하는 경우 다른 것을 반환할 수 있습니다. 예를 들어 신용 위험 값만 반환할 수 있습니다. 이를 수행하려면 [모델 점수 매기기][score-model] 및 **웹 서비스 출력** 사이에 [프로젝트 열][project-columns] 모듈을 삽입하여 웹 서비스에서 반환하지 않으려는 열을 제거합니다. 
 > 
 > 
 
-### <a name="test-a-classic-web-service"></a>기존 웹 서비스 배포
+**Machine Learning Studio** 또는 **Azure Machine Learning 웹 서비스** 포털에서 기존 웹 서비스를 테스트할 수 있습니다.
+**Machine Learning 웹 서비스** 포털에서만 새 웹 서비스를 테스트할 수 있습니다.
 
-Machine Learning Studio 또는 Azure Machine Learning 웹 서비스 포털에서 웹 서비스를 테스트할 수 있습니다. Azure Machine Learning 웹 서비스 포털에서 테스트하면 다음과 같은 장점이 있습니다. 
+> [!TIP]
+> Azure Machine Learning 웹 서비스 포털에서 테스트하는 경우 요청-응답 서비스를 테스트하는 데 사용할 수 있는 샘플 데이터가 포털에서 생성되도록 할 수 있습니다. **구성** 페이지에서 **샘플 데이터 사용 여부**에 대해 "예"를 선택합니다. **테스트** 페이지에서 요청-응답 탭을 열면 포털은 원래 신용 위험 데이터 집합에서 가져온 샘플 데이터를 채웁니다.
 
-**Machine Learning Studio에서 테스트**
+### <a name="test-a-classic-web-service"></a>기존 웹 서비스 테스트
 
-1. **대시보드** 페이지에서 **기본 끝점** 아래의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.  
+Machine Learning Studio 또는 Machine Learning 웹 서비스 포털에서 기존 웹 서비스를 테스트할 수 있습니다. 
+
+#### <a name="test-in-machine-learning-studio"></a>Machine Learning Studio에서 테스트
+
+1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 끝점**의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.  
 
 2. 데이터 집합을 입력하고 **확인**을 클릭합니다. 
 
-**Azure Machine Learning 웹 서비스 포털에서 테스트**
+#### <a name="test-in-the-machine-learning-web-services-portal"></a>Machine Learning 웹 서비스 포털에서 테스트
 
-1. **대시보드** 페이지에서 **기본 끝점** 아래의 **테스트** 미리 보기 링크를 클릭합니다. 웹 서비스 끝점에 대한 Azure Machine Learning 웹 서비스 포털의 테스트 페이지가 열리고 서비스에 사용할 입력 데이터를 입력하라는 메시지가 표시됩니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.
+1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 끝점** 아래의 **테스트 미리 보기** 링크를 클릭합니다. 웹 서비스 끝점에 대한 Azure Machine Learning 웹 서비스 포털의 테스트 페이지가 열리고 서비스에 사용할 입력 데이터를 입력하라는 메시지가 표시됩니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.
 
 2. **요청-응답 테스트**를 클릭합니다. 
 
 ### <a name="test-a-new-web-service"></a>새 웹 서비스 테스트
 
-1. Azure Machine Learning 웹 서비스 포털에서 페이지의 맨 위에 있는 **테스트**를 클릭합니다. **테스트** 페이지가 열리면 서비스에 대한 데이터를 입력할 수 있습니다. 표시된 입력 필드는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다. 
+Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할 수 있습니다.
+
+1. [Azure Machine Learning 웹 서비스](https://services.azureml.net/quickstart) 포털에서 페이지의 맨 위에 있는 **테스트**를 클릭합니다. **테스트** 페이지가 열리면 서비스에 대한 데이터를 입력할 수 있습니다. 표시된 입력 필드는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다. 
 
 2. 데이터 집합을 입력하고 **요청-응답 테스트**를 클릭합니다.
 
 테스트의 결과는 출력 열에 있는 페이지의 오른쪽에 표시됩니다. 
 
-> [!TIP]
-> Azure Machine Learning 웹 서비스 포털에서 테스트하는 경우 요청-응답 서비스를 테스트하는 데 사용할 수 있는 샘플 데이터가 포털에서 생성되도록 할 수 있습니다. **구성** 페이지에서 **샘플 데이터 사용 여부**에 대해 "예"를 선택합니다. **테스트** 페이지에서 요청-응답 탭을 열면 포털은 원래 신용 위험 데이터 집합에서 가져온 샘플 데이터를 채웁니다.
 
 ## <a name="manage-the-web-service"></a>웹 서비스 관리
 
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 클래식 웹 서비스 관리
+### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Azure 클래식 포털에서 기존 웹 서비스 관리
 
 기존 웹 서비스를 배포한 후에는 [Azure 클래식 포털](https://manage.windowsazure.com)에서 관리할 수 있습니다.
 
@@ -197,13 +210,13 @@ Machine Learning Studio 또는 Azure Machine Learning 웹 서비스 포털에서
 * [끝점 만들기](machine-learning-create-endpoint.md)
 * [웹 서비스 확장](machine-learning-scaling-webservice.md)
 
-### <a name="manage-a-web-service-in-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리
+### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털에서 기존 또는 새 웹 서비스 관리
 
-클래식 또는 신규의 웹 서비스를 배포한 후에는 [Azure Machine Learning 웹 서비스 포털](https://services.azureml.net)에서 관리할 수 있습니다.
+기존 또는 신규의 웹 서비스를 배포한 후에는 [Microsoft Azure Machine Learning 웹 서비스 포털](https://services.azureml.net/quickstart)에서 관리할 수 있습니다.
 
 웹 서비스의 성능을 모니터링하려면 다음을 수행합니다.
 
-1. [Azure Machine Learning 웹 서비스 포털](https://servics.azureml.net)에 로그인합니다.
+1. [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/quickstart) 포털에 로그인합니다.
 2. **웹 서비스**를 클릭합니다.
 3. 해당 웹 서비스를 클릭합니다.
 4. **대시보드**를 클릭합니다.
@@ -211,9 +224,8 @@ Machine Learning Studio 또는 Azure Machine Learning 웹 서비스 포털에서
 - - -
 **다음: [웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)**
 
-[1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
-[2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+[3a]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3a.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png

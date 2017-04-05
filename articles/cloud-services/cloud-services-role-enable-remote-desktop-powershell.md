@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 04f5800cd2870067548c8cad25f10749d8459e32
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a78fc57d264e9f8074c94b334b24bbf1b7871d08
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -108,5 +108,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 >
 
 ## <a name="additional-resources"></a>추가 리소스
-[클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
+
+[Cloud Services를 구성하는 방법](cloud-services-how-to-configure.md)
+[Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md#remote-desktop)
 

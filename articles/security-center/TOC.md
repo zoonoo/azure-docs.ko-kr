@@ -30,8 +30,8 @@
 #### [NGFW를 통해서만 트래픽 라우팅](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [SQL 서비스 권장 사항](security-center-sql-service-recommendations.md)
-#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [SQL Database에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-databases.md)
+#### [SQL Server에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-servers.md)
 #### [투명한 데이터 암호화 사용](security-center-enable-transparent-data-encryption.md)
 
 ### [가상 컴퓨터 권장 사항](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [서비스 개요](https://azure.microsoft.com/services/security-center/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=security-center)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

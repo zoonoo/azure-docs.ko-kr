@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 202684a1ae1106d79b9cee4e4ebf20ffa283f41b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: a7c366d29cf163c9c30c72751a992a0ebb3462cd
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 
 DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블 및 N 차원 큐브) 및 시계열 변환입니다.
 
-[Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인하세요.
+[GitHub](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인하세요.
 
 ### <a name="documentdb-studio"></a>DocumentDB 스튜디오
 *Ming Liu 작성*
@@ -44,14 +44,14 @@ Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기�
 
 DoQmentDB는 DocumentDB 위에 MongoDB와 비슷한 계층을 제공하는 Node.js 프라미스 기반 클라이언트입니다.
 
-[Github](https://github.com/a8m/doqmentdb) 및 [npm](https://www.npmjs.com/package/doqmentdb)에서 확인하세요.
+[GitHub](https://github.com/a8m/doqmentdb) 및 [npm](https://www.npmjs.com/package/doqmentdb)에서 확인하세요.
 
 ### <a name="typescript-api"></a>TypeScript API
 *Jelmer Cormont 작성*
 
 TypeScript로 작성된 Node.js 클라이언트에 대한 래퍼입니다(일반 JavaScript에서도 작동). `async/await` 및 간소화된 API를 지원합니다.
 
-[Github](https://github.com/jcormont/documentdb-typescript) 및 [npm](https://www.npmjs.com/package/documentdb-typescript)에서 확인하세요.
+[GitHub](https://github.com/jcormont/documentdb-typescript) 및 [npm](https://www.npmjs.com/package/documentdb-typescript)에서 확인하세요.
 
 ### <a name="swagger-rest-api-for-documentdb"></a>DocumentDB용 Swagger REST API
 *Howard Edidin 작성*
@@ -65,7 +65,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 fluent-plugin-documentdb는 Azure DocumentDB로 출력하기 위한 Fluentd 플러그 인입니다.
 
-[Github](https://github.com/yokawasa/fluent-plugin-documentdb) 및 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb)에서 확인하세요.
+[GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) 및 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb)에서 확인하세요.
 
 *[GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)에서 더 많은 공개 소스 DocumentDB 프로젝트를 찾습니다.*
 
@@ -220,14 +220,14 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 이러한 프로젝트는 공개 소스 커뮤니티와 협력하여 Azure DocumentDB 팀에서 적극적으로 개발됩니다.
 
 ### <a name="sdks"></a>SDK
-| 플랫폼 | Github | 패키지 |
+| 플랫폼 | GitHub | 패키지 |
 | --- | --- | --- |
 | Node.js |[azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) |[npm](https://www.npmjs.com/package/documentdb) |
 | Java |[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python |[azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) |[PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
 ### <a name="other-projects"></a>다른 프로젝트
-| 이름 | Github | 웹 사이트 |
+| 이름 | GitHub | 웹 사이트 |
 | --- | --- | --- |
 | 설명서 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[설명서 웹 사이트](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop 커넥터 |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |

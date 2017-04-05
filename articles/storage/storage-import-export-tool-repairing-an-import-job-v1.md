@@ -1,6 +1,6 @@
 ---
-title: "Azure Import 작업 복구 | Microsoft Docs"
-description: "Import-Export 서비스를 사용하여 생성 및 실행된 가져오기 작업을 복구하는 방법을 알아봅니다."
+title: "Azure Import/Export 가져오기 작업 복구 - v1 | Microsoft Docs"
+description: "Azure Import/Export 서비스를 사용하여 생성 및 실행된 가져오기 작업을 복구하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9403fb0bb16227871388f063e9d0004c7186866e
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -33,7 +33,9 @@ Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob Service에 파�
   
 가져오기 작업의 복사 로그 파일을 사용하여 Microsoft Azure Import/Export 도구를 실행할 수 있습니다. 이 도구는 누락된 파일(또는 파일의 일부)을 Microsoft Azure Storage 계정으로 업로드하여 가져오기 작업을 완료합니다.  
   
-가져오기 작업을 복구하는 명령은 **RepairImport**입니다. 다음 매개 변수를 지정할 수 있습니다.  
+## <a name="repairimport-parameters"></a>RepairImport 매개 변수
+
+**RepairImport**와 함께 다음 매개 변수를 지정할 수 있습니다. 
   
 |||  
 |-|-|  
@@ -102,10 +104,11 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
   
 도구에서 필요한 파일을 사용할 수 있게 만들거나 경로 맵 파일을 업데이트한 후에 도구를 다시 실행하여 가져오기 프로세스를 완료할 수 있습니다.  
   
-## <a name="see-also"></a>참고 항목  
-[Azure Import-Export 도구 설정](storage-import-export-tool-setup-v1.md)   
-[가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
-[내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)   
-[Azure Import-Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>다음 단계
+ 
+* [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
+* [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
 

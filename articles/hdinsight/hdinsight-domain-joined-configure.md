@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
-ms.openlocfilehash: b0122a87ec64d16d6e026f9b37a563125a5f1920
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 424ee513afce6ab689c8804594754b1b49234754
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -404,11 +406,6 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
 ## <a name="next-steps"></a>다음 단계
 * Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터를 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성](hdinsight-domain-joined-configure-use-powershell.md)을 참조하세요.
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)을 참조하세요.
-* SSH를 사용하여 도메인 가입 HDInsight 클러스터에 연결하려면 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
+* SSH를 사용하여 도메인에 가입된 HDInsight 클러스터에 연결하려면 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 
 

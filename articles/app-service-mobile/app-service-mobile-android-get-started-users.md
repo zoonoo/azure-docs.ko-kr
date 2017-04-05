@@ -4,7 +4,7 @@ description: "Azure App Service 기능의 Mobile Apps를 사용하여 Google, Fa
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: adrianha
+manager: 
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
-ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
-ms.lasthandoff: 12/13/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fcaab18c2c22bcbdbb42708da9840fb6e5c25b2e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,6 +30,20 @@ ms.lasthandoff: 12/13/2016
 ## <a name="register"></a>인증을 위한 앱 등록 및 Azure App Service 구성
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>허용되는 외부 리디렉션 URL에 앱 추가
+
+보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 응용 프로그램에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
+
+1. [Azure Portal]에서 해당 App Service를 선택합니다.
+
+2. **인증/권한 부여** 메뉴 옵션을 클릭합니다.
+
+3. **허용되는 외부 리디렉션 URL**에서 `appname://easyauth.callback`을 입력합니다.  이 문자열의 _appname_은 모바일 응용 프로그램에 대한 URL 체계입니다.  이 체계는 프로토콜에 대한 일반 URL 사양을 따라야 합니다(문자 및 숫자만 사용하고 문자로 시작).  여러 위치에서 URL 체계에 따라 모바일 응용 프로그램 코드를 조정해야 할 경우 선택한 문자열을 적어두어야 합니다.
+
+4. **확인**을 클릭합니다.
+
+5. **저장**을 클릭합니다.
+
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -41,6 +55,8 @@ ms.lasthandoff: 12/13/2016
 
 ## <a name="add-authentication-to-the-app"></a>앱에 인증 추가
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
+
+
 
 ## <a name="cache-tokens"></a>클라이언트에 인증 토큰 캐시
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]

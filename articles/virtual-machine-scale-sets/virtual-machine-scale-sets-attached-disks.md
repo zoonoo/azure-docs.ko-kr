@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Azure CLI _az vmss disk attach_ 명령을 사용하여 VM 크기 집합에 데�
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> 다양한 VM 크기에 따라 지원하는 연결된 드라이브의 숫자가 제한됩니다. 새 디스크를 추가하기 전에 [가상 컴퓨터 크기 특성](../virtual-machines/virtual-machines-windows-sizes.md)을 확인합니다.
+> 다양한 VM 크기에 따라 지원하는 연결된 드라이브의 숫자가 제한됩니다. 새 디스크를 추가하기 전에 [가상 컴퓨터 크기 특성](../virtual-machines/windows/sizes.md)을 확인합니다.
 
 크기 집합 정의의 _storageProfile_에 있는 _dataDisks_ 속성에 새 항목을 추가하고 변경 내용을 적용하여 디스크를 추가할 수도 있습니다. 이를 테스트하려면 [Azure 리소스 탐색기](https://resources.azure.com/)에서 기존 크기 집합을 찾습니다. _편집_을 선택하고 데이터 디스크의 목록에 새 디스크를 추가합니다. 예: 위의 예제를 사용합니다.
 ```json
@@ -106,10 +107,5 @@ Azure Managed Disks 및 크기 집합 연결 데이터 디스크에 대한 지�
 
 크기 집합에 있는 연결된 데이터 디스크에 대한 Azure Portal 지원은 처음부터 제한됩니다. 요구 사항에 따라 Azure 템플릿, CLI, PowerShell, SDK 및 REST API를 사용하여 연결된 디스크를 관리할 수 있습니다.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

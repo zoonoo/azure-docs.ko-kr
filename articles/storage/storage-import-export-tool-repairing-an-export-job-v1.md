@@ -1,6 +1,6 @@
 ---
-title: "Azure Import 작업 복구 | Microsoft Docs"
-description: "Azure Import-Export 서비스를 사용하여 생성 및 실행된 내보내기 작업을 복구하는 방법을 알아봅니다."
+title: "Azure Import/Export 내보내기 작업 복구 - v1 | Microsoft Docs"
+description: "Azure Import/Export 서비스를 사용하여 생성 및 실행된 내보내기 작업을 복구하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +30,11 @@ ms.lasthandoff: 02/16/2017
   
 이 기능을 사용하려면 Azure Storage에 연결되어 있어야 합니다.  
   
-가져오기 작업을 복구하는 명령은 **RepairExport**입니다. 다음 매개 변수를 지정할 수 있습니다.  
+가져오기 작업을 복구하는 명령은 **RepairExport**입니다.
+
+## <a name="repairexport-parameters"></a>RepairExport 매개 변수
+
+**RepairExport**와 함께 다음 매개 변수를 지정할 수 있습니다.  
   
 |매개 변수|설명|  
 |---------------|-----------------|  
@@ -83,7 +87,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ## <a name="using-repairexport-to-validate-drive-contents"></a>RepairExport를 사용하여 드라이브 내용의 유효성 검사  
 **RepairExport** 옵션과 Azure Import/Export를 함께 사용하여 드라이브 내용이 올바른지 검사할 수도 있습니다. 각 내보내기 드라이브에 있는 매니페스트 파일에는 드라이브 내용에 대한 MD5가 포함되어 있습니다.  
   
-Azure Import/Export 서비스는 내보내기 프로세스 동안 저장소 계정에 이 매니페스트 파일을 저장할 수도 있습니다. 매니페스트 파일의 위치는 작업이 완료될 때 [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업을 통해 사용할 수 있습니다. 드라이브 매니페스트 파일의 형식에 대한 자세한 내용은 [Import-Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조하세요.  
+Azure Import/Export 서비스는 내보내기 프로세스 동안 저장소 계정에 이 매니페스트 파일을 저장할 수도 있습니다. 매니페스트 파일의 위치는 작업이 완료될 때 [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업을 통해 사용할 수 있습니다. 드라이브 매니페스트 파일의 형식에 대한 자세한 내용은 [Import/Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조하세요.  
   
 다음 예제에서는 **/ManifestFile** 및 **/CopyLogFile** 매개 변수를 사용하여 Azure Import/Export 도구를 실행하는 방법을 보여 줍니다.  
   
@@ -129,31 +133,34 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ``` 
   
 복구 프로세스를 마친 후 이 도구는 매니페스트 파일에 참조된 각 파일을 읽고 MD5 해시를 사용하여 파일 무결성을 확인합니다. 위에 있는 매니페스트의 경우 다음 구성 요소가 확인됩니다.  
+
+```  
+G:\pictures\city\redmond.jpg, offset 0, length 3584  
   
-G:\pictures\city\redmond.jpg, 오프셋 0, 길이 3584  
+G:\pictures\city\redmond.jpg, offset 3584, length 3584  
   
-G:\pictures\city\redmond.jpg, 오프셋 3584, 길이 3584  
-  
-G:\pictures\city\redmond.jpg, 오프셋 7168, 길이 3584  
+G:\pictures\city\redmond.jpg, offset 7168, length 3584  
   
 G:\pictures\city\redmond.jpg.properties  
   
-G:\pictures\wild\canyon.jpg, 오프셋 0, 길이 2721  
+G:\pictures\wild\canyon.jpg, offset 0, length 2721  
   
-G:\pictures\wild\canyon.jpg, 오프셋 2721, 길이 2721  
+G:\pictures\wild\canyon.jpg, offset 2721, length 2721  
   
-G:\pictures\wild\canyon.jpg, 오프셋 5442, 길이 2721  
+G:\pictures\wild\canyon.jpg, offset 5442, length 2721  
   
-G:\pictures\wild\canyon.jpg, 오프셋 8163, 길이 2721  
+G:\pictures\wild\canyon.jpg, offset 8163, length 2721  
   
 G:\pictures\wild\canyon.jpg.properties  
-  
+```
+
 확인에 실패한 모든 구성 요소는 도구를 통해 다운로드된 후 드라이브의 동일한 파일에 다시 써집니다.  
   
-## <a name="see-also"></a>참고 항목  
-[Azure Import-Export 도구 설정](storage-import-export-tool-setup-v1.md)   
-[가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
-[가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)   
-[Azure Import-Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>다음 단계
+ 
+* [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
+* [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
 

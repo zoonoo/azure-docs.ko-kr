@@ -21,13 +21,12 @@
 #### [HTTP 및 웹후크 바인딩](functions-bindings-http-webhook.md)
 #### [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)
 #### [Notification Hub 출력 바인딩](functions-bindings-notification-hubs.md)
-#### [큐 및 항목에 대한 Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)
+#### [Service Bus 바인딩](functions-bindings-service-bus.md)
 #### [SendGrid 바인딩](functions-bindings-sendgrid.md)
 #### 저장소 바인딩
 ##### [Blob 바인딩](functions-bindings-storage-blob.md)
 ##### [큐 바인딩](functions-bindings-storage-queue.md)
 ##### [테이블 바인딩](functions-bindings-storage-table.md)
-##### [SendGrid 바인딩](functions-bindings-sendgrid.md)
 #### [타이머 트리거](functions-bindings-timer.md)
 #### [Twilio 출력 바인딩](functions-bindings-twilio.md)
 ### [Azure Portal에서 함수 앱 만들기](functions-create-function-app-portal.md) 
@@ -35,6 +34,8 @@
 ### [로컬에서 개발 및 디버깅](functions-run-local.md)
 ### [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 ### [Azure Functions을 사용하여 예약된 정리 작업 수행하기](functions-scenario-database-table-cleanup.md)
+### [OpenAPI 정의 만들기(미리 보기)](functions-api-definition-getting-started.md)
+#### [함수 참조의 OpenAPI 2.0](functions-api-definition.md)
 
 ## 관리
 ### [함수 앱에 대한 설정 구성](functions-how-to-use-azure-function-app-settings.md)

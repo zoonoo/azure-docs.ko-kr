@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 20e2c9edc4729015f65fbe72649e32effe7f8a3a
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure ML 웹 서비스 배포
+
 예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. 일부 응용 프로그램에서는 소비자 데이터를 데이터 피드에서 사용할 수 있거나 해당 데이터가 Azure Blob 저장소와 같은 외부 데이터 원본에 이미 있을 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(배치 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
 
 데이터 가져오기 및 내보내기 데이터 모듈은 HTTP를 통한 웹 URL, Hive 쿼리, Azure SQL 데이터베이스, Azure 테이블 저장소, Azure Blob 저장소, 데이터 피드 또는 온-프레미스 SQL 데이터베이스 등의 다양한 데이터 위치에서 읽고 쓸 수 있습니다.
@@ -76,7 +77,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 9. **데이터 테이블 이름 필드**에 dbo.ScoredLabels를 입력합니다. 이 테이블이 없으면 실험을 실행하거나 웹 서비스를 호출할 때 만들어집니다.
 10. **쉼표로 구분된 데이터베이스 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.
 
-최종 웹 서비스를 호출하는 응용 프로그램을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정할 수 있습니다.  웹 서비스 매개 변수에 대한 자세한 내용은 Cortana Intelligence 및 기계 학습 블로그에서 [AzureML 웹 서비스 매개 변수 항목](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) 을 참조하세요.
+최종 웹 서비스를 호출하는 응용 프로그램을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대한 자세한 내용은 Cortana Intelligence 및 기계 학습 블로그에서 [AzureML 웹 서비스 매개 변수 항목](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) 을 참조하세요.
 
 가져오기 쿼리 및 대상 테이블에 대한 웹 서비스 매개 변수를 구성하려면
 

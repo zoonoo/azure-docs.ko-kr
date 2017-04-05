@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 935246ad590af0dcdb6d52257a94169f94dd66e5
-ms.openlocfilehash: 3ff7256578cffd30ae9b75ead2dd7f08babca171
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -33,10 +33,10 @@ ms.lasthandoff: 02/17/2017
 | --- | --- | --- |
 | DNS |53(TCP/UDP) |DNS는 대상 포리스트에 대해 조회합니다. |
 | Kerberos |88(TCP/UDP) |AD 포리스트에 대한 Kerberos 인증. |
-| MS-RPC |135(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect 마법사의 초기 구성 중에 사용합니다. |
+| MS-RPC |135(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect 마법사의 초기 구성 중 및 암호 동기화 중에도 사용합니다. |
 | LDAP |389(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터가 Kerberos 서명 및 봉인으로 암호화됩니다. |
 | LDAP/SSL |636(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터 전송이 서명 및 암호화합니다. SSL을 사용하는 경우에만 사용합니다. |
-| RPC |49152- 65535(임의의 높은 RPC 포트)(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
+| RPC |49152- 65535(임의의 높은 RPC 포트)(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중 및 암호 동기화 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>테이블 2 - Azure AD Connect 및 Azure AD
 이 테이블은 Azure AD Connect 서버 및 Azure AD 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: a13b2f7a-612d-4800-bc92-7fc0524f3e89
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
-ms.openlocfilehash: 3217399ee868707309e96234d4954548b063534a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 916722d64f191bc482b50ad4338f6a1da1045b77
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -185,11 +187,6 @@ PowerShell 스크립트는 [GitHub](https://github.com/hdinsight/DomainJoinedHDI
 ## <a name="next-steps"></a>다음 단계
 
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)을 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하는 방법에 대한 자세한 내용은 [Linux, Unix 또는 OS X에서 SSH를 HDInsight의 Linux 기반 Hadoop과 함께 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+* SSH를 사용하여 도메인에 가입된 HDInsight 클러스터에 연결하려면 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3c07980e09362eabdfc80483213b62912e64ecf6
-ms.openlocfilehash: b57dc0b699d7f7e6d539d6622b3d2769adf4257d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c18d17d40dff658a8fc47ef2126dd2c21b68606a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -66,7 +67,7 @@ DocumentDB는 네이티브 [JSON](http://www.json.org) 데이터 모델을 통�
 또는 DateTime을 Unix 타임스탬프, 즉 1970년 1월 1일 이후로 경과된 초 수를 나타내는 숫자로 저장할 수 있습니다. DocumentDB의 내부 타임스탬프(`_ts`) 속성은 이 접근 방식을 따릅니다. [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) 클래스를 사용하여 DateTime을 숫자로 직렬화할 수 있습니다. 
 
 ## <a name="indexing-datetimes-for-range-queries"></a>범위 쿼리의 날짜/시간 인덱싱
-범위 쿼리는 일반적으로 DateTime 값입니다. 예를 들어 어제 이후로 만들어진 주문을 모두 찾거나 지난&5;분 내에 배송된 주문을 모두 찾으려면 범위 쿼리를 수행해야 합니다. 이러한 쿼리를 효율적으로 실행하려면 범위 인덱싱을 위한 컬렉션을 문자열에 구성해야 합니다.
+범위 쿼리는 일반적으로 DateTime 값입니다. 예를 들어 어제 이후로 만들어진 주문을 모두 찾거나 지난 5분 내에 배송된 주문을 모두 찾으려면 범위 쿼리를 수행해야 합니다. 이러한 쿼리를 효율적으로 실행하려면 범위 인덱싱을 위한 컬렉션을 문자열에 구성해야 합니다.
 
     DocumentCollection collection = new DocumentCollection { Id = "orders" };
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
@@ -75,7 +76,7 @@ DocumentDB는 네이티브 [JSON](http://www.json.org) 데이터 모델을 통�
 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에서 인덱싱 정책을 구성하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="querying-datetimes-in-linq"></a>LINQ에서 날짜/시간 쿼리
-DocumentDB .NET SDK는 LINQ를 통해 DocumentDB에 저장된 데이터의 쿼리를 자동으로 지원합니다. 예를 들어 다음 코드 조각에서는 지난&3;일 동안 배송된 주문을 필터링하는 LINQ 쿼리를 보여 줍니다.
+DocumentDB .NET SDK는 LINQ를 통해 DocumentDB에 저장된 데이터의 쿼리를 자동으로 지원합니다. 예를 들어 다음 코드 조각에서는 지난 3일 동안 배송된 주문을 필터링하는 LINQ 쿼리를 보여 줍니다.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -88,12 +89,7 @@ DocumentDB .NET SDK는 LINQ를 통해 DocumentDB에 저장된 데이터의 쿼�
 이 문서에서는 DocumentDB에서 날짜/시간을 저장, 인덱싱 및 쿼리하는 방법에 대해 살펴보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Github 샘플 코드](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)(영문)에서 코드 샘플을 다운로드하여 실행합니다.
+* [GitHub 샘플 코드](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)(영문)에서 코드 샘플을 다운로드하여 실행합니다.
 * [DocumentDB 쿼리](documentdb-sql-query.md)
 * [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

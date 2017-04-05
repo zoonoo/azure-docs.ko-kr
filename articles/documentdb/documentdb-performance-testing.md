@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 6b82132b24fb2be3f0d8ab5112c712c27edb733e
-ms.openlocfilehash: 4d7754e73abedb704b81fa0001e1957422bde1b3
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 86bd591c26a58200dab9872e07e6e8bdf2522df9
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -43,7 +44,7 @@ DocumentDB의 성능 향상을 위해 클라이언트 쪽 구성 옵션이 필�
 ## <a name="run-the-performance-testing-application"></a>성능 테스트 응용 프로그램 실행
 가장 빠른 시작 방법은 아래 단계에 설명된 대로 아래의 .NET 샘플을 컴파일하고 실행하는 것입니다. 소스 코드를 검토하고 자체 클라이언트 응용 프로그램에 대해 비슷한 구성을 구현할 수도 있습니다.
 
-**1단계:**[DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하거나 Github 리포지토리를 분기합니다.
+**1단계:** [DocumentDB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하거나 GitHub 리포지토리를 분기합니다.
 
 **2단계:** App.config에서 EndpointUrl, AuthorizationKey, CollectionThroughput 및 DocumentTemplate(옵션)에 대한 설정을 수정합니다.
 
@@ -112,10 +113,5 @@ DocumentDB의 성능 향상을 위해 클라이언트 쪽 구성 옵션이 필�
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2017
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/14/2017
 > 
 >
 
-이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 단계를 안내합니다. 이 문서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 단계를 안내합니다. 이 문서는 ExpressRoute 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -44,20 +44,25 @@ ms.lasthandoff: 03/14/2017
 ### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>1단계. 필수 조건 및 워크플로 문서에 대한 검토
 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.  
 
-### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2단계. 최신 버전의 Azure PowerShell 모듈 설치
-Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 의 지침을 따르세요.
+### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>2단계. 최신 버전의 Azure SM(서비스 관리) PowerShell 모듈 설치
+Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell cmdlet 시작](/powershell/azureps-cmdlets-docs)에 나온 지침을 따르세요.
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>3단계. Azure 계정에 로그인 및 구독 선택
-1. Windows PowerShell 프롬프트에서 다음 cmdlet 명령을 실행합니다.
-   
+1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+
+        Login-AzureRmAccount
+
+2. 계정에 대한 구독을 확인합니다.
+
+        Get-AzureRmSubscription
+
+3. 둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
+
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. 다음 cmdlet을 사용하여 클래식 배포 모델용 PowerShell에 Azure 구독을 추가합니다.
+
         Add-AzureAccount
-2. 표시된 로그인 화면에서 계정에 로그인합니다.
-3. 구독 목록을 가져옵니다.
-   
-        Get-AzureSubscription
-4. 사용할 구독을 선택합니다.
-   
-        Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 프로비전
 ### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>1단계. Express 경로에 대한 PowerShell 모듈을 가져옵니다.
@@ -183,7 +188,7 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 > 
 
 ### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>8단계: 가상 네트워크를 Express 경로 회로에 연결합니다.
-그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-classic.md) 을 참조하세요. Express 경로에 클래식 배포 모델을 사용하여 가상 네트워크를 만들어야 할 경우 [Express 경로에 대해 가상 네트워크 만들기](expressroute-howto-vnet-portal-classic.md) 를 참조하세요.
+그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-classic.md) 을 참조하세요. ExpressRoute에 클래식 배포 모델을 사용하여 가상 네트워크를 만들어야 하는 경우 [ExpressRoute에 대해 가상 네트워크 만들기](expressroute-howto-vnet-portal-classic.md)를 참조하세요.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Express 경로 회로의 상태 가져오기
 `Get-AzureCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.

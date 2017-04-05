@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 03/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f1b0fde1e6e31a8179ed61508348d850c5dd784f
-ms.openlocfilehash: 9e2c0cff442f7c66a4b1c76ab612175410f49497
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5f712c7fa9b6ee06f7c89de40ba4227a925a35ce
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,15 +36,22 @@ DocumentDB는 NoSQL 데이터베이스이므로 응용 프로그램이 즉석에
 
 다음에는 ODBC 드라이버를 살펴보겠습니다.
 
-## <a name="a-idinstallastep-1-install-the-documentdb-odbc-driver"></a><a id="install"></a>1단계: DocumentDB ODBC 드라이버 설치
-1. 64비트 Windows 운영 체제의 경우는 [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64)를, 32비트 Windows OS.2의 경우는 [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32)를 다운로드합니다. msi 파일을 로컬로 실행합니다. 그러면 **Microsoft Azure DocumentDB ODBC 드라이버 설치 마법사**가 시작됩니다. 
+## <a id="install"></a>1단계: DocumentDB ODBC 드라이버 설치
+
+1. 다음 중에서 환경에 맞는 드라이버를 다운로드합니다.
+
+    * Windows 64비트용 [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64)
+    * Windows 32비트 또는 64비트용 [Microsoft Azure DocumentDB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64)
+    * Windows 32비트용 [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32)
+
+    msi 파일을 로컬로 실행합니다. 그러면 **Microsoft Azure DocumentDB ODBC 드라이버 설치 마법사**가 시작됩니다. 
 2. 기본 입력으로 ODBC 드라이버를 설치하여 설치 마법사를 완료합니다.
 3. Windows 검색 상자에 **ODBC 데이터 원본**을 입력하여 컴퓨터에서 **ODBC 데이터 원본 관리자** 앱을 엽니다. 
     **드라이버** 탭을 클릭하고 **Microsoft DocumentDB ODBC 드라이버**가 표시되는지 확인하여 이 드라이버가 설치되어 있는지 확인할 수 있습니다.
 
     ![DocumentDB OBDC 데이터 원본 관리자](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver.png)
 
-## <a name="a-idconnectastep-2-connect-to-your-documentdb-database"></a><a id="connect"></a>2단계: DocumentDB 데이터베이스에 연결
+## <a id="connect"></a>2단계: DocumentDB 데이터베이스에 연결
 
 1. [DocumentDB ODBC 드라이버 설치](#install) 후에 **ODBC 데이터 원본 관리자** 창에서 **추가**를 클릭합니다. 사용자 또는 시스템 DSN을 만들 수 있습니다. 이 예제에서는 사용자 DSN을 만듭니다.
 2. **새 데이터 원본 만들기** 창에서 **Microsoft DocumentDB ODBC 드라이버**를 선택하고 **마침**을 클릭합니다.
@@ -69,7 +77,7 @@ DocumentDB는 NoSQL 데이터베이스이므로 응용 프로그램이 즉석에
 
     ![사용자 DSN 탭의 새 DocumentDB ODBC DSN](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
-## <a name="a-idcollection-mappingastep-3-create-a-schema-definition-using-the-collection-mapping-method"></a><a id="#collection-mapping"></a>3단계: 컬렉션 매핑 방법을 사용하여 스키마 정의 만들기
+## <a id="#collection-mapping"></a>3단계: 컬렉션 매핑 방법을 사용하여 스키마 정의 만들기
 
 **컬렉션 매핑** 또는 **테이블 구분 기호**의 두 가지 유형의 샘플링 방법을 사용할 수 있습니다. 샘플링 세션은 두 가지 샘플링 방법을 모두 사용할 수 있지만 각 컬렉션은 특정 샘플링 방법만 사용할 수 있습니다. 아래 단계는 컬렉션 매핑 방법을 사용하여 하나 이상의 컬렉션에서 데이터에 대한 스키마를 만듭니다. 이 샘플링 방법은 컬렉션 페이지에서 데이터를 검색하여 데이터의 구조를 확인합니다. 그런 후 컬렉션을 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컬렉션의 데이터가 동일한 형식일 때 효율적이고 빠릅니다. 컬렉션에 형식이 다른 데이터가 포함되어 있을 때는 [테이블 구분 기호 매핑 방법](#table-mapping)을 사용하는 것이 좋습니다. 이 방법이 컬렉션의 데이터 구조를 확인하는 보다 강력한 샘플링 방법을 제공하기 때문입니다. 
 
@@ -87,7 +95,7 @@ DocumentDB는 NoSQL 데이터베이스이므로 응용 프로그램이 즉석에
 
     나중에 DSN과 함께 이 스키마를 사용하려면 DocumentDB ODBC 드라이버 DNS 설정 창을 열고(ODBC 데이터 원본 관리자 사용) 고급 옵션을 클릭한 후 스키마 파일 상자에서 저장된 스키마로 이동합니다. 스키마 파일을 기존 DSN에 저장하면 해당 스키마로 정의된 데이터 및 구조로 범위가 지정되도록 DSN 연결이 수정됩니다.
 
-## <a name="a-idtable-mappingastep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>4단계: 테이블 구분 기호 매핑 방법을 사용하여 스키마 정의 만들기
+## <a id="table-mapping"></a>4단계: 테이블 구분 기호 매핑 방법을 사용하여 스키마 정의 만들기
 
 **컬렉션 매핑** 또는 **테이블 구분 기호**의 두 가지 유형의 샘플링 방법을 사용할 수 있습니다. 샘플링 세션은 두 가지 샘플링 방법을 모두 사용할 수 있지만 각 컬렉션은 특정 샘플링 방법만 사용할 수 있습니다. 
 
@@ -143,8 +151,4 @@ DocumentDB는 NoSQL 데이터베이스이므로 응용 프로그램이 즉석에
 ## <a name="next-steps"></a>다음 단계
 
 DocumentDB에 대해 자세히 알아보려면 [DocumentDB란 무엇인가요?](documentdb-introduction.md)를 참조하세요.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

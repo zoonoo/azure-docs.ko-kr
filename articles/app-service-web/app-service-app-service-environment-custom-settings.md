@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a1271acd3d9132048de39173e43c805a372c909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.openlocfilehash: 8a1271acd3d9132048de39173e43c805a372c909
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Azure 리소스 탐색기를 사용하여 앱 서비스 환경 업데이트
 또는 [Azure 리소스 탐색기](https://resources.azure.com)를 사용하여 앱 서비스 환경을 업데이트할 수 있습니다.  
 
-1. 리소스 탐색기에서 App Service Environment 노드(**subscriptions** > **resourceGroups** > **providers** > **Micrososft.Web** > **hostingEnvironments**)로 이동합니다. 그런 다음 업데이트하려는 특정 앱 서비스 환경을 클릭합니다.
+1. 리소스 탐색기에서 App Service Environment 노드(**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**)로 이동합니다. 그런 다음 업데이트하려는 특정 앱 서비스 환경을 클릭합니다.
 2. 오른쪽 창의 위쪽 도구 모음에서 **읽기/쓰기** 를 클릭하여 리소스 탐색기에서 대화형 편집을 허용합니다.  
 3. 파란색 **편집** 단추를 클릭하여 리소스 관리자 템플릿을 편집 가능하도록 설정합니다.
 4. 오른쪽 창의 아래쪽으로 스크롤합니다. **clusterSettings** 특성은 거의 맨 아래쪽에 있습니다. 여기에서 해당 값을 입력하거나 업데이트할 수 있습니다.
@@ -96,9 +97,4 @@ Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [앱 서비스 �
 <!-- LINKS -->
 
 <!-- IMAGES -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 01ef15db6e62443a2d34bae8bc133f21f4d874f0
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 06702281ab2a44641231783aa1ddad87c22095e8
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
-이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다.  [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
+이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다. [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
 ## <a name="version-4110"></a>버전 4.11.0
 기능 추가 사항:
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/17/2016
   * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
   * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
-  * [MongoDbSource](https://msdn.microsoft.com/en-US/library/mt765123.aspx)
+  * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
 
 ## <a name="version-4100"></a>4.10.0 버전
 * 다음 선택적 속성이 TextFormat에 추가되었습니다.
@@ -180,6 +180,6 @@ ms.lasthandoff: 11/17/2016
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL 데이터 웨어하우스에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md) 문서에서 특히 [메커니즘 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) 및 [메커니즘 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) 섹션을 참조하세요.
+* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL 데이터 웨어하우스에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
 * 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 31a267963199518ed6db4610830062099ed0dde4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -109,7 +109,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 예. 여러 서비스 공급자의 Express 경로 회로가 있을 수 있습니다. 각 Express 경로 회로는 하나의 서비스 공급자화만 연결됩니다. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>같은 위치에 여러 ExpressRoute 회로를 포함할 수 있나요?
-예. 같은 위치에서, 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 하지만 동일한 Virtual Network에 두 개 이상의 ExpressRoute 회로를 연결하는 것은 불가능합니다.
+예. 같은 위치에서, 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 하지만 동일한 위치에서 동일한 Virtual Network에 두 개 이상의 ExpressRoute 회로를 연결하는 것은 불가능합니다.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결하려면 어떻게 해야 하나요?
 기본 단계는 다음과 같습니다.

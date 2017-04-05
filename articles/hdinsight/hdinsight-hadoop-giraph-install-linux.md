@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 699626f24e6f66f4b149feda5eb292e64d4b6647
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: ff27749800319517a8f635530f0f16b928692575
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +32,7 @@ ms.openlocfilehash: 699626f24e6f66f4b149feda5eb292e64d4b6647
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
-## <a name="a-namewhatisawhat-is-giraph"></a><a name="whatis"></a>Giraph란?
+## <a name="whatis"></a>Giraph란?
 
 [Apache Giraph](http://giraph.apache.org/) 를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다. 그래프는 인터넷과 같은 대규모 네트워크의 라우터 간 연결, 소셜 네트워크(또는 소셜 그래프)상의 사람들 간 관계 등 개체 간의 관계를 모델링합니다. 그래프 처리를 통해 그래프의 개체 간 관계를 추론하여 다음을 수행할 수 있습니다.
 
@@ -54,7 +56,7 @@ ms.openlocfilehash: 699626f24e6f66f4b149feda5eb292e64d4b6647
 
 * 클러스터에 대한 기본 저장소(WASB)에 `giraph-examples.jar` 파일을 복사합니다. `/example/jars/giraph-examples.jar`
 
-## <a name="a-nameinstallainstall-giraph-using-script-actions"></a><a name="install"></a>스크립트 동작을 사용하여 Giraph 설치
+## <a name="install"></a>스크립트 동작을 사용하여 Giraph 설치
 
 HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다음 위치에서 사용할 수 있습니다.
 
@@ -85,7 +87,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 4. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터를 계속 만듭니다.
 
-## <a name="a-nameusegiraphahow-do-i-use-giraph-in-hdinsight"></a><a name="usegiraph"></a>HDInsight에서 Giraph를 사용하는 방법
+## <a name="usegiraph"></a>HDInsight에서 Giraph를 사용하는 방법
 
 클러스터가 만들기를 완료하면 다음 단계를 사용하여 Giraph에 포함된 SimpleShortestPathsComputation 예를 실행합니다. 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) 구현을 사용합니다.
 
@@ -93,11 +95,7 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-   
-   * [Linux, Unix, OS X 또는 Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음을 사용하여 **tiny_graph.txt**라는 새 파일을 만듭니다.
    
@@ -178,10 +176,5 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 * [HDInsight 클러스터에 R 설치](hdinsight-hadoop-r-scripts-linux.md): 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 R을 설치하고 사용하는 방법에 대한 지침입니다. R은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. 수백 개의 기본 제공 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 고유한 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다.
 
 * [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

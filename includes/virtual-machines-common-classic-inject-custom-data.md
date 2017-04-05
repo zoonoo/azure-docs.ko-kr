@@ -39,7 +39,7 @@
 Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 사용하여 cloud-config를 cloud-init으로 보낼 수 있습니다. 또는 사용자 지정 데이터 파일이 스크립트인 경우, cloud-init이 스크립트를 실행하기만 하면 됩니다.
 
 ### <a name="ubuntu-cloud-images"></a>Ubuntu 클라우드 이미지
-대부분의 Azure Linux 이미지에서 임시 리소스 디스크와 swap 파일을 구성하도록 "/etc/waagent.conf"를 편집합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하세요.
+대부분의 Azure Linux 이미지에서 임시 리소스 디스크와 swap 파일을 구성하도록 "/etc/waagent.conf"를 편집합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하세요.
 
 그러나 Ubuntu 클라우드 이미지에서 cloud-init을 사용하여 리소스 디스크(즉, "ephemeral" 디스크) 및 swap 파티션을 구성해야 합니다. 자세한 내용은 Ubuntu wiki에서 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)페이지를 참조하세요.
 
@@ -51,9 +51,4 @@ Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 
 [역할 서비스 관리 REST API 참조 추가](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-xplat-cli)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

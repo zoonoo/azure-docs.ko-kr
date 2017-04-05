@@ -71,7 +71,7 @@ RDP를 사용하도록 설정하려면 TCP 포트 3389에 인바운드 트래픽
 
 ## <a name="scalability-considerations"></a>확장성 고려 사항
 
-[VM 크기를 변경](../articles/virtual-machines/virtual-machines-windows-sizes.md)하여 VM의 규모를 확장 또는 축소할 수 있습니다. 규모를 확장하려면 부하 분산 장치를 기준으로 두 개 이상의 VM을 가용성 집합에 추가합니다. 자세한 내용은 [Azure에서 확장성 및 가용성을 위해 여러 VM 실행][multi-vm]을 참조하세요.
+[VM 크기를 변경](../articles/virtual-machines/windows/sizes.md)하여 VM의 규모를 확장 또는 축소할 수 있습니다. 규모를 확장하려면 부하 분산 장치를 기준으로 두 개 이상의 VM을 가용성 집합에 추가합니다. 자세한 내용은 [Azure에서 확장성 및 가용성을 위해 여러 VM 실행][multi-vm]을 참조하세요.
 
 ## <a name="availability-considerations"></a>가용성 고려 사항
 
@@ -162,7 +162,7 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
+[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
@@ -172,40 +172,40 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
-[fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
+[fqdn]:../articles/virtual-machines/windows/portal-create-fqdn.md
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
-[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
+[manage-vm-availability]:../articles/virtual-machines/windows/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
-[planned-maintenance]: ../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md
+[planned-maintenance]:../articles/virtual-machines/windows/planned-maintenance.md
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
-[resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
+[resize-os-disk]:../articles/virtual-machines/windows/expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
-[select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
+[select-vm-image]:../articles/virtual-machines/windows/cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [보안 센터 사용]: ../articles/security-center/security-center-get-started.md#use-security-center
-[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[virtual-machine-sizes]: ../articles/virtual-machines/windows/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
+[vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[vm-size-tables]: ../articles/virtual-machines/windows/sizes.md
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Azure의 단일 Windows VM 아키텍처"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks

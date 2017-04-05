@@ -13,38 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 수정
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [클래식 - PowerShell](expressroute-howto-circuit-classic.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
 
-이 문서에서는 Windows PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 이 문서는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 보여 줍니다.
+이 문서에서는 Windows PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 이 문서에는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 나와 있습니다.
 
 **Azure 배포 모델 정보**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* Azure PowerShell 모듈의 최신 버전(버전 1.0 이상)을 확보합니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)의 지침을 따르세요.
+* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. 자세한 내용은 [Azure PowerShell cmdlet 시작](/powershell/azureps-cmdlets-docs)을 참조하세요. 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Express 경로 회로 만들기 및 프로비전
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
-구성을 시작하려면, Azure 계정에 로그인합니다. PowerShell에 대한 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요. 연결에 도움이 되도록 다음 예제를 사용합니다.
+구성을 시작하려면, Azure 계정에 로그인합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
     Login-AzureRmAccount
 

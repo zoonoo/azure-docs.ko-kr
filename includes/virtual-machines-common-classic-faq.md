@@ -6,7 +6,7 @@
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>클래식 배포 모델에서 만든 내 VM을 새 Resource Manager 모델에 마이그레이션할 수 있나요?
 예. 마이그레이션 방법에 대한 지침은 다음은 참조하세요.
 
-* [Azure PowerShell을 사용하여 클래식에서 Azure Resource manager로 마이그레이션](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+* [Azure PowerShell을 사용하여 클래식에서 Azure Resource manager로 마이그레이션](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md)
 * [Azure CLI를 사용하여 클래식에서 Azure Resource manager로 마이그레이션](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Azure VM에서 무엇을 실행할 수 있습니까?
@@ -26,7 +26,7 @@ Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows
 Azure Resource Manager 배포 모델 및 Azure 포털에서 선호도 그룹 기능을 아직 지원하지 않습니다. 클래식 Azure 포털의 경우 선호도 그룹을 만들고 선호도 그룹에 고정된 저장소 리소스를 만들기 위한 지원을 하지 않고 있습니다. 선호도 그룹을 사용하는 기존 클라우드 서비스를 수정할 필요가 없습니다. 그러나 Azure 기술 지원 엔지니어가 권장하지 않는 한 새 클라우드 서비스에 대한 선호도 그룹을 사용하지 않도록 합니다.
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
-각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
 
@@ -40,7 +40,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.
 
 * Azure에서는 가상 컴퓨터에 대한 콘솔 액세스를 제공하지 않습니다. 부팅이 완료될 때까지 VM에 액세스할 수 없습니다.
-* 대부분의 [크기](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
+* 대부분의 [크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
 * Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 가상 컴퓨터 사양](http://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 컴퓨터 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>이러한 가상 컴퓨터는 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
@@ -52,14 +52,14 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온 하기 위해서는 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
 * [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
-* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
+* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
-원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장을 설치 및 사용하세요.
+원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장을 설치 및 사용하세요.
 
 Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
 * Azure 클래식 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정** 을 클릭합니다.
-* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
+* [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
 * Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
@@ -68,7 +68,7 @@ Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습�
 데이터를 저장하는 데 임시 디스크(기본적으로 Windows의 경우 D: 드라이브 또는 Linux의 경우 /dev/sdb1)를 사용할 수 없습니다. 해당 드라이브는 임시 저장소일 뿐이므로 복구할 수 없는 데이터가 손실될 위험이 있습니다. 이는 가상 컴퓨터를 다른 호스트로 이동할 때 발생할 수 있습니다. 가상 컴퓨터 크기를 조정하고, 호스트를 업데이트 하거나, 호스트의 하드웨어가 실패하는 경우가, 가상 컴퓨터가 이동할 수 있는 몇 가지 이유가 됩니다.
 
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>임시 디스크의 드라이브 문자 변경을 어떻게 합니까?
-Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](../articles/virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="how-can-i-upgrade-the-guest-operating-system"></a>게스트 운영 체제를 업그레이드 하려면 어떻게 해야합니까?
 용어 업그레이드가 일반적으로 의미하는 것은 동일한 하드웨어를 그대로 사용하면서 사용중인 운영 체제의 최신 릴리스로 이동하는 것을 의미합니다. Azure VM의 경우, 보다 최신 릴리스로의 이동은 Linux 및 Windows에 따라 달라집니다.
@@ -81,7 +81,7 @@ Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 �
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>가상 컴퓨터에 대한 기본 사용자 이름 및 암호는 무엇입니까?
 Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 컴퓨터를 만들 때, 가상 컴퓨터에 로그온 하는데 사용할 사용자 이름 및 암호를 제공해야 합니다.
 
-사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장을 설치하고 사용할 수 있습니다.
+사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장을 설치하고 사용할 수 있습니다.
 
 추가 정보:
 
@@ -120,12 +120,12 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 또한 계획된 유지 관리로 인해 다시 부팅할 때 Azure 클래식 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
 
-중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 [Azure Virtual Machines 정보](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

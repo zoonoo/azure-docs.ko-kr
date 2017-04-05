@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,7 +60,7 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 |----|----|----|
 |실행 기간|90일||
 |저장소 보존|90일|실행 시작 시간을 기준으로 합니다.|
-|최소 되풀이 간격|1초|| 앱 서비스 계획이 있는 논리 앱의 경우&15;초
+|최소 되풀이 간격|1초|| 앱 서비스 계획이 있는 논리 앱의 경우 15초
 |최대 되풀이 간격|500일||
 
 
@@ -70,9 +70,9 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 
 |Name|제한|참고 사항|
 |----|----|----|
-|ForEach 항목|5,&000;|[쿼리 작업](../connectors/connectors-native-query.md) 을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
-|Until 반복|5,&000;||
-|SplitOn 항목|5,&000;||
+|ForEach 항목|100,000|[쿼리 작업](../connectors/connectors-native-query.md) 을 사용하여 필요에 따라 큰 배열을 필터링할 수 있습니다.|
+|Until 반복|5, 000||
+|SplitOn 항목|100,000||
 |ForEach 병렬 처리|20|`foreach` 작업에 `"operationOptions": "Sequential"`을 추가하여 순차적인 foreach를 설정할 수 있습니다.|
 
 
@@ -82,8 +82,9 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 
 |Name|제한|참고 사항|
 |----|----|----|
-|초당 작업 실행(버스트)|1,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
-|시간당 작업 실행(유지됨)|1,000,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+|5분당 작업 실행 |100,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+
+정상적인 처리에서 이 한도를 초과하길 기대하거나 일정 기간 동안 이 한도를 초과할 수 있는 부하 테스트를 실행하려는 경우 요구 사항에 도움을 줄 수 있도록 [문의](mailto://logicappsemail@microsoft.com)해 주세요.
 
 ### <a name="definition-limits"></a>정의 한도
 

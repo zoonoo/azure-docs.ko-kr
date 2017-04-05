@@ -12,17 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 9447ccf45cfee74df66b46bd20d872f64ee06efd
-ms.openlocfilehash: 79280958305ba135d23ab9c5c37d83f8b5eaf8f2
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis Cache에서 데이터 가져오기 및 내보내기
-가져오기/내보내기는 프리미엄 캐시에서 Azure 저장소 계정의 페이지 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 가져오기/내보내기를 통해 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
+Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 
+
+- **내보내기** - Azure Redis Cache RDB 스냅숏을 페이지 Blob으로 내보낼 수 있습니다.
+- **가져오기** - Redis Cache RDB 스냅숏을 페이지 Blob 또는 블록 Blob으로 가져올 수 있습니다.
+
+가져오기/내보내기를 통해 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
 이 문서는 Azure Redis Cache를 사용하여 데이터를 가져오고 내보내는 지침을 제공하고 일반적인 질문에 대한 답변을 제공합니다.
 
@@ -35,7 +40,7 @@ ms.lasthandoff: 02/17/2017
 가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스를 진행하는 동안, Azure Redis Cache는 Azure 저장소에서 메모리로 RDB 파일을 로드한 다음 키를 캐시에 삽입합니다.
 
 > [!NOTE]
-> 가져오기 작업을 시작하기 전에, RDB(Redis 데이터베이스) 파일이 Azure Redis Cache 인스턴스와 동일한 지역 및 구독 내 Azure 저장소의 페이지 Blob에 업로드되었는지 확인해야 합니다. 자세한 내용은 [Azure Blob 저장소 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. [Azure Redis Cache 내보내기](#export) 기능을 사용하여 RDB 파일을 내보내면, RDB 파일이 페이지 Blob에 저장되고 가져오기를 수행할 준비가 됩니다.
+> 가져오기 작업을 시작하기 전에, RDB(Redis 데이터베이스) 파일이 Azure Redis Cache 인스턴스와 동일한 지역 및 구독 내 Azure Storage의 페이지 또는 블록 Blob에 업로드되었는지 확인해야 합니다. 자세한 내용은 [Azure Blob 저장소 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. [Azure Redis Cache 내보내기](#export) 기능을 사용하여 RDB 파일을 내보내면, RDB 파일이 페이지 Blob에 저장되고 가져오기를 수행할 준비가 됩니다.
 >
 >
 
@@ -60,7 +65,7 @@ ms.lasthandoff: 02/17/2017
 
     ![가져오기][cache-import-blobs]
 
-    Azure Portal의 알림에 따르거나 감사에서 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다. 자세한 내용은 [Azure Redis Cache를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
+    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/resource-group-audit.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
 
     ![가져오기 진행][cache-import-data-import-complete]
 
@@ -73,7 +78,7 @@ ms.lasthandoff: 02/17/2017
 2. **저장소 컨테이너 선택** 을 클릭하고 원하는 저장소 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
-   > Import/Export는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, [Blob Storage 계정](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)에서는 현재 지원되지 않습니다.
+   > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 저장소 계정 양쪽 모두에서 지원되지만, [Blob Storage 계정](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)에서는 현재 지원되지 않습니다.
    >
    >
 
@@ -85,9 +90,9 @@ ms.lasthandoff: 02/17/2017
 
     ![내보내기][cache-export-data]
 
-    Azure Portal의 알림에 따르거나 감사 로그에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다. 자세한 내용은 [Azure Redis Cache를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
+    Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/resource-group-audit.md)에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다.
 
-    ![][cache-export-data-export-complete]
+    ![데이터 내보내기 완료][cache-export-data-export-complete]
 
     내보내기 프로세스를 진행하는 동안 캐시는 사용할 수 있는 상태로 유지됩니다.
 
@@ -96,6 +101,7 @@ ms.lasthandoff: 02/17/2017
 
 * [어떤 가격 책정 계층에서 가져오기/내보내기를 사용할 수 있나요?](#what-pricing-tiers-can-use-importexport)
 * [Redis 서버에서 데이터를 가져올 수 있나요?](#can-i-import-data-from-any-redis-server)
+* [가져올 수 있는 RDB 버전은 무엇인가요?](#what-rdb-versions-can-i-import)
 * [Import/Export 작업을 진행하는 동안 내 캐시를 사용할 수 있나요?](#is-my-cache-available-during-an-importexport-operation)
 * [Redis 클러스터에 가져오기/내보내기를 사용할 수 있나요?](#can-i-use-importexport-with-redis-cluster)
 * [가져오기/내보내기는 사용자 지정 데이터베이스 설정에서 어떻게 작동합니까?](#how-does-importexport-work-with-a-custom-databases-setting)
@@ -108,7 +114,16 @@ ms.lasthandoff: 02/17/2017
 가져오기/내보내기는 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
 
 ### <a name="can-i-import-data-from-any-redis-server"></a>Redis 서버에서 데이터를 가져올 수 있나요?
-예, Azure Redis Cache 인스턴스에서 내보낸 데이터를 가져오는 것 외에, Linux, Windows, 또는 Amazon Web Services 같은 클라우드 공급자를 비롯한 모든 환경 또는 클라우드에서 실행되는 Redis 서버의 RDB 파일을 가져올 수 있습니다. 이렇게 하려면, 원하는 Redis 서버의 RDB 파일을 Azure 저장소 계정의 페이지 Blob으로 업로드한 다음, 프리미엄 Azure Redis Cache 인스턴스로 가져옵니다. 예를 들어, 프로덕션 캐시의 데이터를 내보내서 마이그레이션 또는 테스트를 위한 스테이징 환경의 일부로 사용되는 캐시로 가져올 수 있습니다.
+예, Azure Redis Cache 인스턴스에서 내보낸 데이터를 가져오는 것 외에, Linux, Windows, 또는 Amazon Web Services 같은 클라우드 공급자를 비롯한 모든 환경 또는 클라우드에서 실행되는 Redis 서버의 RDB 파일을 가져올 수 있습니다. 이렇게 하려면, 원하는 Redis 서버의 RDB 파일을 Azure Storage 계정의 페이지 또는 블록 Blob으로 업로드한 다음, 프리미엄 Azure Redis Cache 인스턴스로 가져옵니다. 예를 들어, 프로덕션 캐시의 데이터를 내보내서 마이그레이션 또는 테스트를 위한 스테이징 환경의 일부로 사용되는 캐시로 가져올 수 있습니다.
+
+> [!IMPORTANT]
+> 페이지 Blob을 사용할 때 Azure Redis Cache 이외의 Redis 서버에서 내보낸 데이터를 성공적으로 가져오려면 페이지 Blob 크기가 512바이트 경계에 맞아야 합니다. 필요한 바이트 패딩을 수행하는 샘플 코드는 [샘플 페이지 Blog 업로드](https://github.com/JimRoberts-MS/SamplePageBlobUpload)(영문)를 참조하세요.
+> 
+> 
+
+### <a name="what-rdb-versions-can-i-import"></a>가져올 수 있는 RDB 버전은 무엇인가요?
+
+Azure Redis Cache는 RDB 버전 7을 통해 RDB 가져오기를 지원합니다.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>Import/Export 작업을 진행하는 동안 내 캐시를 사용할 수 있나요?
 * **내보내기** - 캐시는 사용 가능한 상태로 유지되며, 내보내기 작업을 진행하는 동안 캐시를 계속 사용할 수 있습니다.
@@ -141,7 +156,7 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 이를 해결하려면, 15분이 지나기 전에 가져오기 또는 내보내기 작업을 시작하세요.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Azure Blob 저장소로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?
-가져오기/내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다.
+내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재 핫 및 쿨 계층의 Blob Storage 계정을 비롯한 다른 Blob 형식이 지원되지 않습니다. 자세한 내용은 [Blob Storage 계정](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.

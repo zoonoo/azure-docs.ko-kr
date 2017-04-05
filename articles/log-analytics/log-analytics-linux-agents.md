@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/29/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: fba4e68e78b8267ff2413f94d5ca5066325f9c76
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: b01b0d3d61168c1eec52f3fd040b829e0c51a878
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -27,7 +27,7 @@ Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 �
 
 하나의 관리 포털을 통해 OMS의 Log Analytics에서 이 모든 소스의 데이터를 보고 관리할 수 있습니다. 이렇게 하면 많은 다양한 시스템을 사용하여 데이터를 모니터링할 필요가 줄어들고, 데이터를 사용하기가 쉬워지고, 원하는 데이터를 무엇이든 이미 보유하고 있는 비즈니스 분석 솔루션이나 시스템에 내보낼 수 있습니다.
 
-이 문서는 Linux용 OMS 에이전트를 사용하여 Linux 컴퓨터에 대한 데이터를 수집하고 관리하도록 돕는 빠른 시작 가이드입니다. 프록시 서버 구성, CollectD 메트릭에 대한 정보, 사용자 지정 JSON 데이터 원본과 같은 자세한 기술 정보는 Github에서 [Linux용 OMS 에이전트 개요](https://github.com/Microsoft/OMS-Agent-for-Linux) 및 [Linux용 OMS 에이전트 전체 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md)를 참조하세요.
+이 문서는 Linux용 OMS 에이전트를 사용하여 Linux 컴퓨터에 대한 데이터를 수집하고 관리하도록 돕는 빠른 시작 가이드입니다. 프록시 서버 구성, CollectD 메트릭에 대한 정보, 사용자 지정 JSON 데이터 원본과 같은 자세한 기술 정보는 GitHub의 [Linux용 OMS 에이전트 개요](https://github.com/Microsoft/OMS-Agent-for-Linux)(영문) 및 [Linux용 OMS 에이전트 전체 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md)(영문)를 참조하세요.
 
 현재는 Linux 컴퓨터에서 다음과 같은 유형의 데이터를 수집할 수 있습니다.
 
@@ -149,7 +149,7 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 마찬가지로, 부모 카운터에 대해 선택한 샘플 간격은 모든 자식 카운터에 적용됩니다. 즉, 모든 자식 카운터 샘플 간격 및 인스턴스는 함께 연결되어 있습니다.
 
 ### <a name="add-and-configure-performance-metrics-with-linux"></a>Linux에서 성능 메트릭 추가 및 구성
-수집할 성능 메트릭은 /etc/opt/microsoft/omsagent/conf/omsagent.conf에 포함된 구성에 의해 제어됩니다. Linux 용 OMS 에이전트에 사용할 수 있는 클래스 및 메트릭은 [Available performance metrics](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#appendix-available-performance-metrics) (사용 가능한 성능 메트릭)을 참조하세요.
+수집할 성능 메트릭은 /etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf의 구성으로 제어됩니다. Linux 용 OMS 에이전트에 사용할 수 있는 클래스 및 메트릭은 [Available performance metrics](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#appendix-available-performance-metrics) (사용 가능한 성능 메트릭)을 참조하세요.
 
 수집할 성능 메트릭의 각 개체나 범주는 구성 파일 내에 단일 `<source>` 요소로 정의되어야 합니다. 구문은 아래와 같은 패턴을 따릅니다.
 
@@ -219,9 +219,9 @@ localhost에서 MySQL 서버의 기본 사용자 계정을 정의하려면 다�
 >
 
 ```
-sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>
 
-sudo service omiserverd restart
+sudo /opt/omi/bin/service_control restart
 ```
 
 
@@ -330,12 +330,12 @@ Nagios 또는 Zabbix를 사용하여 Linux 컴퓨터를 관리하는 경우라�
 ### <a name="collect-alerts-from-nagios"></a>Nagios의 경고 수집
 Nagios 서버의 경고를 수집하려면, 다음 구성을 변경해야 합니다.
 
-1. **omsagent** 사용자에게 Nagios 로그 파일(예: /var/log/nagios/nagios.log/var/log/nagios/nagios.log)에 대한 읽기 권한을 부여합니다. nagios.log 파일이 **nagios** 그룹의 소유라는 가정 하에, **omsagent** 사용자를 **nagios** 그룹에 추가합니다.
+1. **omsagent** 사용자에게 Nagios 로그 파일(예: /var/log/nagios/nagios.log)에 대한 읽기 권한을 부여합니다. nagios.log 파일이 **nagios** 그룹의 소유라는 가정 하에, **omsagent** 사용자를 **nagios** 그룹에 추가합니다.
 
     ```
     sudo usermod –a -G nagios omsagent
     ```
-2. omsagent.conf 구성 파일 (/etc/opt/microsoft/omsagent/conf/omsagent.conf)을 수정합니다. 다음 항목이 포함되고 주석 처리되지 않도록 합니다.
+2. omsagent.conf 구성 파일(/etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf)을 수정합니다. 다음 항목이 포함되고 주석 처리되지 않도록 합니다.
 
     ```
     <source>
@@ -353,13 +353,13 @@ Nagios 서버의 경고를 수집하려면, 다음 구성을 변경해야 합니
 3. omsagent 디먼을 다시 시작합니다.
 
     ```
-    sudo service omsagent restart
+    sudo /opt/microsoft/omsagent/bin/service_control restart
     ```
 
 ### <a name="collect-alerts-from-zabbix"></a>Zabbix의 경고 수집
 Zabbix 서버의 경고를 수집하려면 위의 Nagios와 유사한 단계를 수행합니다. 단, 사용자 및 암호를 *일반 텍스트*로 지정해야 합니다. 바람직하지는 않지만 곧 변경될 것입니다. 이 문제에 대처하려면, 사용자를 생성하고 모니터링 권한만 부여하는 것이 좋습니다.
 
-Zabbix용 omsagent.conf 구성 파일(/etc/opt/microsoft/omsagent/conf/omsagent.conf)의 예제 섹션은 다음과 비슷해야 합니다.
+Zabbix용 omsagent.conf 구성 파일(/etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf)의 예제 섹션은 다음과 비슷해야 합니다.
 
 ```
 <source>
@@ -416,7 +416,7 @@ Linux 용 OMS 에이전트는 System Center Operations Manager 에이전트와 �
 3. OMI 서버를 다시 시작합니다.
 
     ```
-    service omiserver restart or systemctl restart omiserver
+    sudo /opt/omi/bin/service_control restart
     ```
 
 ## <a name="database-permissions-required-for-mysql-performance-counters"></a>Database permissions required for MySQL performance counters
@@ -506,7 +506,7 @@ MySQL OMI 인증 파일은 다음 경로에 위치해야 하며 이름을 "mysql
 ## <a name="agent-logs"></a>에이전트 로그
 Linux 용 OMS 에이전트 로그의 위치:
 
-/var/opt/microsoft/omsagent/log/
+/var/opt/microsoft/omsagent/&lt;workspace id&gt;/log/
 
 omsconfig(에이전트 구성) 프로그램에 대한 Linux 용 OMS 에이전트 로그의 위치:
 
@@ -529,15 +529,15 @@ OMI 및 SCX 구성 요소(성능 메트릭 데이터를 제공하는) 로그의 
 ### <a name="important-log-locations"></a>중요 로그 위치
 | 파일 | Path |
 | --- | --- |
-| Linux 용 OMS 에이전트 로그 파일 |`/var/opt/microsoft/omsagent/log/omsagent.log ` |
+| Linux 용 OMS 에이전트 로그 파일 |`/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log ` |
 | OMS 에이전트 구성 로그 파일 |`/var/opt/microsoft/omsconfig/omsconfig.log` |
 
 ### <a name="important-configuration-files"></a>중요 구성 파일
 | 범주 | 파일 위치 |
 | --- | --- |
 | syslog |`/etc/syslog-ng/syslog-ng.conf` 또는 `/etc/rsyslog.conf` 또는 `/etc/rsyslog.d/95-omsagent.conf` |
-| 성능, Nagios, Zabbix, OMS 출력 및 일반 에이전트 |`/etc/opt/microsoft/omsagent/conf/omsagent.conf` |
-| 추가 구성 |`/etc/opt/microsoft/omsagent/conf.d/*.conf` |
+| 성능, Nagios, Zabbix, OMS 출력 및 일반 에이전트 |`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` |
+| 추가 구성 |`/etc/opt/microsoft/omsagent/<workspace id>/omsagent.d/*.conf` |
 
 > [!NOTE]
 > OMS 포털 구성을 사용하도록 설정한 경우 시스템에서 성능 카운터 및 syslog의 편집 구성 파일을 덮어씁니다. OMS 포털에서 구성을 비활성화하거나(전체 노드) 단일 노드의 경우 다음을 실행합니다.
@@ -553,7 +553,7 @@ sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --d
 디버그 로깅을 활성화하려면 OMS 출력 플러그인 및 자세한 정보 출력을 사용할 수 있습니다.
 
 #### <a name="oms-output-plugin"></a>OMS 출력 플러그인
-FluentD를 사용하면 플러그인에서 입력 및 출력의 다양한 로그 수준에 대해 로깅 수준을 지정할 수 있습니다. OMS 출력에 대해 다른 로그 수준을 지정하려면 `/etc/opt/microsoft/omsagent/conf/omsagent.conf` 파일에서 일반 에이전트 구성을 편집합니다.
+FluentD를 사용하면 플러그인에서 입력 및 출력의 다양한 로그 수준에 대해 로깅 수준을 지정할 수 있습니다. OMS 출력에 대해 다른 로그 수준을 지정하려면 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` 파일에서 일반 에이전트 구성을 편집합니다.
 
 구성 파일 아래쪽에서 `log_level` 속성을 `info`에서 `debug`로 변경합니다.
 
@@ -564,7 +564,7 @@ FluentD를 사용하면 플러그인에서 입력 및 출력의 다양한 로그
   num_threads 5
   buffer_chunk_limit 5m
   buffer_type file
-  buffer_path /var/opt/microsoft/omsagent/state/out_oms*.buffer
+  buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms*.buffer
   buffer_queue_limit 10
   flush_interval 20s
   retry_limit 10
@@ -585,7 +585,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 #### <a name="verbose-output"></a>자세한 정보 출력
 OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으로 직접 출력할 수 있으며, 이 데이터 항목은 Linux용 OMS 에이전트 로그 파일에서 확인할 수 있습니다.
 
-`/etc/opt/microsoft/omsagent/conf/omsagent.conf`의 OMS 일반 에이전트 구성 파일에서 각 라인 앞에 `#` 추가하여 OMS 출력 플러그인을 주석 처리합니다.
+`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`의 OMS 일반 에이전트 구성 파일에서 각 라인 앞에 `#` 추가하여 OMS 출력 플러그인을 주석 처리합니다.
 
 ```
 #<match oms.** docker.**>
@@ -594,7 +594,7 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 #  num_threads 5
 #  buffer_chunk_limit 5m
 #  buffer_type file
-#  buffer_path /var/opt/microsoft/omsagent/state/out_oms*.buffer
+#  buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms*.buffer
 #  buffer_queue_limit 10
 #  flush_interval 20s
 #  retry_limit 10
@@ -662,7 +662,7 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 #### <a name="resolutions"></a>해결 방법
 * Nagios 파일에서 읽을 수 있도록 omsagent 사용자를 추가합니다. 자세한 내용은 [Nagios 경고](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts)를 참조하세요.
-* `/etc/opt/microsoft/omsagent/conf/omsagent.conf`의 Linux용 OMS 에이전트 일반 구성 파일에서 다음과 같이 Nagios 원본 및 필터 섹션의 주석이 **모두** 제거되었는지 확인합니다.
+* `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`의 Linux용 OMS 에이전트 일반 구성 파일에서 다음과 같이 Nagios 원본 및 필터 섹션의 주석이 **모두** 제거되었는지 확인합니다.
 
 ```
 <source>
@@ -685,10 +685,10 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 * Linux용 OMS 에이전트가 백업되었습니다.
 
 #### <a name="resolutions"></a>해결 방법
-* `/etc/opt/microsoft/omsagent/conf/omsadmin.conf`가 있는지 확인하여 OMS 서비스에 성공적으로 등록되었는지 확인합니다.
+* `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`가 있는지 확인하여 OMS 서비스에 성공적으로 등록되었는지 확인합니다.
 * omsadmin.sh 명령줄을 사용하여 다시 등록합니다. 자세한 내용은 [명령줄 도구를 사용하여 등록](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 참조하세요.
 * 프록시를 사용할 경우 위의 프록시 문제 해결 단계를 사용합니다
-* Linux용 OMS 에이전트가 OMS 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 백업될 수 있습니다. `service omsagent restart` 또는 `systemctl restart omsagent` 명령을 실행하여 Linux용 OMS 에이전트를 다시 시작합니다.
+* Linux용 OMS 에이전트가 OMS 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 백업될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 Linux용 OMS 에이전트를 다시 시작합니다.
   >[AZURE.NOTE] 이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
 
 ### <a name="syslog-linux-performance-counter-configuration-is-not-applied-in-the-oms-portal"></a>OMS 포털에서 Syslog Linux 성능 카운터 구성이 적용되지 않음
@@ -697,7 +697,7 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 * 포털에서 수정한 설정이 적용되지 않았습니다
 
 #### <a name="resolutions"></a>해결 방법
-`omsconfig`는 Linux용 OMS 에이전트에서 OMS 포털 구성 변경 사항을 5분마다 검색하는 구성 에이전트입니다. 그런 다음 이 구성은 `/etc/opt/microsoft/omsagent/conf/omsagent.conf`에 있는 Linux용 OMS 에이전트 구성 파일에 적용됩니다.
+`omsconfig`는 Linux용 OMS 에이전트에서 OMS 포털 구성 변경 사항을 5분마다 검색하는 구성 에이전트입니다. 그런 다음 이 구성은 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`에 있는 Linux용 OMS 에이전트 구성 파일에 적용됩니다.
 
 * Linux용 OMS 에이전트 구성 에이전트가 포털 구성 서비스와 통신할 수 없어 최신 구성이 적용되지 않는 경우가 있습니다.
 * `omsconfig` 에이전트에 다음이 적용되어 설치되었는지 확인합니다.
@@ -721,7 +721,7 @@ OMS 출력 플러그인을 사용하는 대신 데이터 항목을 `stdout`으�
 * 이 문제는 경합 상태의 알려진 문제이며 Linux용 OMS Agent 버전 1.1.0-217에서 해결되었습니다
 
 #### <a name="resolutions"></a>해결 방법
-* `/etc/opt/microsoft/omsagent/conf/omsadmin.conf` 파일이 있는지 확인하여 성공적으로 등록되었는지 확인합니다.
+* `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 파일이 있는지 확인하여 성공적으로 등록되었는지 확인합니다.
   * 필요할 경우 omsadmin.sh 명령줄을 사용하여 다시 등록합니다. 자세한 내용은 [명령줄 도구를 사용하여 등록](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 참조하세요.
 * OMS 포털의 **데이터** 탭의 **설정**에서 **내 Linux 서버에 다음 구성 적용 설정**이 선택되었는지 확인합니다.  
   ![구성 적용](./media/log-analytics-linux-agents/customloglinuxenabled.png)
@@ -741,7 +741,7 @@ Linux용 OMS Agent 사용자는 권한 있는 사용자 `root`로 실행되지 �
 이 문제는 경합 상태의 알려진 문제이며 Linux용 OMS Agent 버전 1.1.0-217에서 해결되었습니다. 최신 에이전트로 업데이트한 후 다음 명령을 사용하여 최신 버전의 출력 플러그인을 가져오십시오.
 
 ```
-sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/conf/omsagent.conf
+sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf
 ```
 
 ## <a name="known-limitations"></a>알려진 제한 사항
@@ -750,7 +750,7 @@ Linux 용 OMS 에이전트의 현재 제한 사항에 대해 알아보려면 다
 ### <a name="azure-diagnostics"></a>Azure 진단
 Azure에서 실행되는 Linux 가상 컴퓨터의 경우, Azure 진단 및 Operations Management Suite의 데이터 수집을 허용하려면 추가적인 단계가 필요합니다. **버전 2.2** 가 필요합니다.
 
-Linux용 진단 확장 설치 및 구성에 대한 자세한 내용은 [Azure CLI 명령을 사용하여 Linux 진단 확장을 사용하도록 설정](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension)을 참조하세요.
+Linux용 진단 확장 설치 및 구성에 대한 자세한 내용은 [Azure CLI 명령을 사용하여 Linux 진단 확장을 사용하도록 설정](../virtual-machines/linux/classic/diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension)을 참조하세요.
 
 **Linux 진단 확장을 2.0에서 2.2로 업그레이드 Azure CLI ASM:**
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: ba0fc8849a7131a2dee8c9e7db546ca1a22e05df
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c041802cd86f9e8b07771413f867691d76b01abf
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -57,7 +57,7 @@ Linux 데이터 과학 가상 컴퓨터를 사용하면 이러한 부담을 상�
 ## <a name="prerequisites"></a>필수 조건
 Linux 데이터 과학 가상 컴퓨터를 만들려면 먼저 다음이 있어야 합니다.
 
-* **Azure 구독**: 다운로드하려면 [Azure 무료 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
+* **Azure 구독**: 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
 * **Azure 저장소 계정**: 계정을 만들려면 [Azure 저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 만들기
@@ -331,7 +331,7 @@ xgboost 명령줄을 실행하려면 셸에서 다음 명령을 실행합니다.
 
 .model 파일이 지정된 디렉터리에 기록됩니다. 이 데모 예제에 대한 정보는 [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification)에서 찾을 수 있습니다.
 
-xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgboost.readthedocs.org/en/latest/) 및 해당 [Github 리포지토리](https://github.com/dmlc/xgboost)를 참조하세요.
+xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgboost.readthedocs.org/en/latest/) 및 해당 [GitHub 리포지토리](https://github.com/dmlc/xgboost)를 참조하세요.
 
 #### <a name="rattle"></a>Rattle
 Rattle(**R** **A**nalytical **T**ool **T**o **L**earn **E**asily)은 GUI 기반 데이터 탐색 및 모델링 기능을 사용합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.

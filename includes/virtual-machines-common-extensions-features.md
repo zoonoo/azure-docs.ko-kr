@@ -26,7 +26,7 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 | **CentosChefClient** | | |
 | **ChefClient** |Windows에서 Chef 클라이언트를 만듭니다. 아래 DSC 확장을 사용할 수도 있습니다. |[Chef 및 Microsoft Azure](https://www.getchef.com/solutions/azure/) |
 | **LinuxChefClient** | | |
-| **DockerExtension** |원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다. |[Docker 가상 컴퓨터 확장을 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)자세한 내용은 [Docker VM 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하세요. |
+| **DockerExtension** |원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다. |[Docker 가상 컴퓨터 확장을 사용하는 방법](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)자세한 내용은 [Docker VM 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하세요. |
 | **DSC** |PowerShell DSC(Desired State Configuration) 확장 |[Azure PowerShell DSC(Desired State Configuration) 확장](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx) |
 | **PuppetEnterpriseAgent** |Puppet Enterprise의 기능을 구현합니다. |[Azure에서의 Puppet](http://puppetlabs.com/solutions/microsoft) |
 | **CustomScriptExtension**(Windows)**CustomScriptForLinux**(Linux) |시작 시 또는 실행 중에 언제든 VM에서 사용자 지정 스크립트를 호출합니다. |[사용자 지정 스크립트 확장](../articles/virtual-machines/windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
@@ -49,7 +49,7 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 
 | **VM 확장 이름** | 기능 설명 | 추가 정보 |
 | --- | --- | --- |
-| **AzureVmLogCollector** |필요에 따라 **AzureVMLogCollector** 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 전송할 수 있습니다. |[AzureLogCollector 확장](../articles/virtual-machines/virtual-machines-windows-log-collector-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| **AzureVmLogCollector** |필요에 따라 **AzureVMLogCollector** 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 전송할 수 있습니다. |[AzureLogCollector 확장](../articles/virtual-machines/windows/log-collector-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | **IaaSDiagnostics** |Azure 진단을 사용하거나 사용하지 않도록 설정 및 구성하며, **AzureCATExtensionHandler** 에서 SAP 모니터링을 지원하는 데도 사용됩니다. |[Azure Diagnostics 확장을 통한Microsoft Azure 가상 컴퓨터 모니터링](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | **OSPatchingForLinux** |Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다. |[OS 패치 확장 블로그 게시물](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). GitHub의 [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 추가 정보와 원본도 참조하세요. |
 
@@ -72,5 +72,5 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 | VM 확장 이름 | 기능 설명 | 추가 정보 |
 | --- | --- | --- |
 | **BGInfo** |RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다. |[BGInfo 확장](https://msdn.microsoft.com/library/mt589195.aspx) |
-| **HpcVmDrivers** |Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다. |[A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| **HpcVmDrivers** |Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다. |[A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../articles/virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 

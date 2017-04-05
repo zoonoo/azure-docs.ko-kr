@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3206c076350c2105e92d320ce30ce73448ccd3bd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="content-type-header"></a>Content-Type 헤더
 
-먼저 논리 앱에서 사용할 수 있는 변환이나 캐스팅이 필요하지 않은&2;개의 `Content-Types`인 `application/json` 및 `text/plain`을 살펴보겠습니다.
+먼저 논리 앱에서 사용할 수 있는 변환이나 캐스팅이 필요하지 않은 2개의 `Content-Types`인 `application/json` 및 `text/plain`을 살펴보겠습니다.
 
 ## <a name="applicationjson"></a>Application/JSON
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/10/2017
 
 ### <a name="schema-and-schema-generator"></a>스키마 및 스키마 생성기
 
-요청 트리거를 통해 수신할 것으로 예상되는 페이로드에 대한 JSON 스키마를 입력할 수 있습니다. 이 스키마를 통해 디자이너가 요청의 콘텐츠를 사용할 수 있는 토큰을 생성할 수 있습니다. 스키마가 준비되지 않은 경우 `Use sample payload to generate schema`를 선택하여 샘플 페이로드에서 JSON 스키마를 생성할 수 있습니다.
+요청 트리거를 통해 수신할 것으로 예상되는 페이로드에 대한 JSON 스키마를 입력할 수 있습니다. 이 스키마를 통해 디자이너가 요청의 콘텐츠를 사용할 수 있는 토큰을 생성할 수 있습니다. 준비된 스키마가 없을 경우 샘플 페이로드에서 JSON 스키마를 생성할 수 있도록 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
 
 ![스키마](./media/logic-apps-http-endpoint/manualtrigger.png)
 

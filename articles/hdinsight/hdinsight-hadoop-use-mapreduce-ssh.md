@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
-ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e696906adf604ebdb665a7a29fd1bba25095e842
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -55,13 +55,7 @@ SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
-HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X, Unix 및 Windows 10의 Bash에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
-### <a name="putty-windows-clients"></a>PuTTY(Windows 클라이언트)
-
-이전 버전의 Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다( [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
-
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight 의 Linux 기반 Hadoop과 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a id="hadoop"></a>Hadoop 명령 사용
 

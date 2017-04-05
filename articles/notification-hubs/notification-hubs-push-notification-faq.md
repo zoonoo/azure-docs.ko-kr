@@ -13,44 +13,43 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/19/2017
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7f76f8786bf08e4aacc63758260202fe7e1a832f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9f0e7f071f1aa8fdd95c4959eae884afc60644e9
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs---frequently-asked-questions"></a>Azure 알림 허브로 푸시 알림 - 질문과 대답
 ## <a name="general"></a>일반
-### <a name="1----what-is-the-price-model-for-notification-hubs"></a>1.    알림 허브의 가격 책정 모델은 무엇인가요?
-알림 허브는 다음 세 가지 계층으로 제공됩니다.
+### <a name="0--what-is-the-resource-structure-of-notification-hubs"></a>0.  Notification Hubs의 리소스 구조는 무엇입니까?
 
-* **무료** - 한 달 구독 당 최대 1백만 개의 푸시를 가져옵니다.
-* **기본** - 할당량 증가 옵션으로 한 달 구독 당 1천만 개의 푸시를 가져옵니다.
-* **표준** - 할당량 증가 옵션 및 다양한 원격 분석 기능으로 한 달 구독 당 천만 개의 푸시를 가져옵니다.
+Notification Hubs에는 허브 및 네임스페이스의 두 개의 리소스 수준이 있습니다. 허브는 한 앱의 교차 플랫폼 푸시 정보를 저장할 수 있는 단일 푸시 리소스입니다. 네임스페이스는 한 지역의 허브 컬렉션입니다.
 
-최신 세부 정보는 [알림 허브 가격 책정] 페이지에서 찾을 수 있습니다. 가격 책정은 구독 수준에서 설정되며 푸시 알림 시작의 수에 따르며 Azure 구독에서 만든 네임스페이스 및 알림 허브 횟수는 중요하지 않습니다.
+권장되는 일반 매핑은 하나의 네임스페이스를 하나의 앱에 일치하도록 놓는 것입니다. 네임스페이스 내에 프로덕션 앱과 작동하는 프로덕션 허브, 테스트 앱과 작동하는 테스트 허브 등이 있을 수 있습니다.
 
-**무료** 계층은 개발용으로 제공되며 SLA가 보장되지 않습니다. 이 계층은 Azure 알림 허브를 통해 푸시 알림 기능을 탐색하려는 사용자에게 권장되는 출발점이지만 중간에서 대규모 응용 프로그램에 대한 최상의 선택은 아닐 수 있습니다.
+### <a name="1--what-is-the-price-model-for-notification-hubs"></a>1.  알림 허브의 가격 책정 모델은 무엇인가요?
+최신 세부 정보는 [알림 허브 가격 책정] 페이지에서 찾을 수 있습니다. Notification Hubs는 네임스페이스 수준으로 요금이 청구되며(네임스페이스에 대한 위의 리소스 구조 참조) 세 가지 계층을 제공합니다.
 
-**기본** & **표준** 계층은 프로덕션용으로 제공되며, 다음의 주요 기능은 *only for the 표준 tier*사용 가능합니다.
+* **체험** - 푸시 기능을 탐색하기에 좋은 시작 지점으로 프로덕션 앱에는 권장하지 않습니다. 네임스페이스마다 매달 500개의 장치와 1M의 푸시가 SLA 보장 없이 포함됩니다.
+* **기본** - 이 계층 또는 표준 계층은 더 작은 프로덕션 앱에 권장됩니다. 기본적으로 네임스페이스당 매달 200K 장치와 10M의 푸시가 할당량 성장 옵션으로 포함됩니다.
+* **표준** - 중간 및 대형 프로덕션 앱에 권장됩니다. 기본적으로 네임스페이스당 매달 10M 장치와 10M의 푸시가 할당량 증가 옵션으로 포함되며 다양한 원격 분석 기능이 추가됩니다.
 
-* *다양한 원격 분석* - 알림 허브는 원격 분석 데이터 뿐만 아니라 오프라인 보기 및 분석에 대한 푸시 알림 등록 정보를 내보내는 많은 기능을 제공합니다.
-* *다중 테넌트* - 여러 테넌트를 지원하도록 알림 허브를 사용하여 모바일 앱을 만드는 경우에 적합합니다. 그러면 앱의 알림 허브 네임스페이스 수준에서 PNS(푸시 알림 서비스) 자격 증명을 설정한 다음 테넌트를 구분하여 이 공통 네임스페이스에서 개별 허브를 테넌트에 제공할 수 있습니다. 그러면 유지 관리를 쉽게 수행하는 동시에 SAS 키가 각 테넌트에 대해 구분된 알림 허브에서 푸시 알림을 보내고 받을 수 있으므로 테넌트 간에 알림이 겹치지 않습니다.
-* *예약된 푸시* - 푸시 알림을 예약할 수 있으며 이는 이후에 큐에 대기되고 전송됩니다.
-* *대량 가져오기* - 등록을 대량으로 가져올 수 있습니다.
+다음은 몇 가지 뛰어난 표준 계층 기능입니다.
+* *다양한 원격 분석* - Notification Hubs는 푸시 요청 추적을 위해 메시지 원격 분석을, 디버깅을 위해 플랫폼 알림 시스템 피드백을 제공합니다.
+* *다중 테넌트* - 네임스페이스 수준에서 PNS(플랫폼 알림 시스템) 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
+* *예약된 푸시* - 알림이 언제든지 전송되도록 예약할 수 있습니다.
 
-### <a name="2----what-is-the-notification-hubs-sla"></a>2.    알림 허브 SLA란?
-**기본** 및 **표준** Notification Hubs계층의 경우에 올바르게 구성된 응용 프로그램은 지원되는 계층 내에 배포된 알림 허브와 관련된 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있다고 99.9% 이상의 성공률로 보장합니다. SLA에 대해 자세히 알아보려면 [알림 허브 SLA] 페이지를 방문하세요.
+### <a name="2--what-is-the-notification-hubs-sla"></a>2.  알림 허브 SLA란?
+**기본** 및 **표준** Notification Hubs계층의 경우에 올바르게 구성된 응용 프로그램은 지원되는 계층 내에 배포된 알림 허브와 관련된 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있다고 99.9% 이상의 성공률로 보장합니다. SLA에 대해 자세히 알아보려면 [알림 허브 SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지를 방문하세요.
 
 > [!NOTE]
-> 알림 허브는 외부 플랫폼 공급자를 사용하여 장치에 푸시 알림을 보내기 때문에 플랫폼 알림 서비스와 장치 간의 레그에 대해서는 SLA가 보장되지 않습니다.
-> 
-> 
+> 푸시 알림은 타사 플랫폼 알림 시스템(Apple의 APNS, Google의 FCM 등)에 의존하므로 이러한 메시지 배달에 대한 SLA 보장이 없습니다. 일단 Notification Hubs가 PNS(SLA 보장)로의 전송을 일괄 처리하고 나면 전달된 푸시를 가져오는 것은 PNS에 달려 있습니다(SLA 보장 없음).
 
-### <a name="3----which-customers-are-using-notification-hubs"></a>3.    어떤 고객이 알림 허브를 사용하나요?
-많은 고객들이 알림 허브를 사용하고 있으며, 그 중 일부 주요 고객이 아래에 나와 있습니다.
+### <a name="3--which-customers-are-using-notification-hubs"></a>3.  어떤 고객이 알림 허브를 사용하나요?
+많은 고객들이 Notification Hubs를 사용하고 있으며, 그 중 일부 주요 고객이 아래에 나와 있습니다.
 
 * 2014년 소치 동계 올림픽 – 수 백 개의 관심 그룹에서 300만 대 이상의 장치를 사용하여 1억 5천만 개의 알림을 2주 동안 디스패치했습니다. [사례 연구 - 소치]
 * Skanska - [사례 연구 - Skanska]
@@ -59,25 +58,26 @@ ms.openlocfilehash: 7f76f8786bf08e4aacc63758260202fe7e1a832f
 * 7Digital - [사례 연구 - 7Digital]
 * Bing Apps – 수 천만 대의 장치에서 매일 3백만 건의 알림을 전송했습니다.
 
-### <a name="4-how-do-i-upgrade-or-downgrade-my-notification-hubs-to-change-my-service-tier"></a>4. 알림 허브를 업그레이드 또는 다운그레이드하여 서비스 계층을 변경하려면 어떻게 해야 하나요?
-[Azure 클래식 포털]로 이동하여 서비스 버스를 클릭한 다음 해당 네임스페이스를 클릭하고 알림 허브를 클릭합니다. 크기 조정 탭에서 알림 허브 서비스 계층을 변경할 수 있습니다.
+### <a name="4-how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>4. 내 허브 또는 네임스페이스를 다른 계층으로 업그레이드하거나 다운그레이드하려면 어떻게 해야 합니까?
+[Azure Portal], Notification Hubs 네임스페이스 또는 Notification Hubs로 이동하여, 업데이트하려는 리소스를 클릭하고, 탐색에서 가격 책정 계층으로 이동합니다. 원하는 어떠한 계층으로도 업데이트할 수 있습니다. 다음은 몇 가지 참고 사항입니다.
+* 업데이트된 가격 책정 계층은 작업 중인 네임스페이스 내 *모든* 허브에 적용됩니다.
+* 다운그레이드를 수행하는 중이며 장치 수가 다운그레이드하려는 계층의 제한을 초과하는 경우에는 장치를 삭제하여 제한을 충족해야 다운그레이드할 수 있습니다.
 
-![](./media/notification-hubs-faq/notification-hubs-classic-portal-scale.png)
 
 ## <a name="design--development"></a>디자인 및 개발
-### <a name="1----which-server-side-platforms-do-you-support"></a>1.    어떤 서버 쪽 플랫폼을 지원하나요?
-.NET, Java, PHP, Python, Node.js용 SDK와 [전체 샘플] 이 제공되므로 이러한 모든 플랫폼을 사용하여 알림 허브와 통신하도록 앱 백 엔드를 설정할 수 있습니다. 알림 허브 API는 REST 인터페이스에 기반하므로 추가 종속성을 추가하지 않으려는 경우 대신 직접 통신하는 것을 선택할 수 있습니다. 자세한 내용은 [NH - REST API] 페이지에서 찾을 수 있습니다.
+### <a name="1--which-server-side-platforms-do-you-support"></a>1.  어떤 서버 쪽 플랫폼을 지원하나요?
+.NET, Java, Node.js, PHP 및 Python용 서버 SDK가 있습니다. 또한 Notification Hubs API는 REST 인터페이스를 기반으로 하므로 다양한 플랫폼을 작업하거나 추가 종속성을 원하지 않는 경우 REST API와 함께 직접 작동하도록 선택할 수 있습니다. 자세한 내용은 [NH - REST API] 페이지에서 찾을 수 있습니다.
 
-### <a name="2----which-client-platforms-do-you-support"></a>2.    어떤 클라이언트 플랫폼이 지원되나요?
-[Apple iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome 앱](notification-hubs-chrome-push-notifications-get-started.md) 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 플랫폼 등으로 푸시 알림을 보낼 수 있습니다. 이러한 플랫폼에서 푸시 알림을 보내는것을 방지하기 위한 자습서를 시작하는 전체 목록은 [NH - 시작된 자습서] 페이지를 방문하세요.
+### <a name="2--which-client-platforms-do-you-support"></a>2.  어떤 클라이언트 플랫폼이 지원되나요?
+[iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) & [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome 앱](notification-hubs-chrome-push-notifications-get-started.md) 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)로 푸시 알림을 보낼 수 있습니다. [자습서 시작하기] 페이지에서 자세히 알아보세요.
 
-### <a name="3----do-you-support-smsemailweb-notifications"></a>3.    문자 메시지/전자 메일/웹 알림이 지원되나요?
-알림 허브는 기본적으로 위에 나열된 플랫폼을 사용하여 모바일 앱에 알림을 보내는 데 사용됩니다. 따라서 전자 메일이나 문자 메시지 알림을 보내는 기능은 제공되지 않습니다. 그러나 [Azure Mobile Apps]를 사용하여 네이티브 푸시 알림을 보내도록 이러한 기능을 제공하는 타사 플랫폼을 Notification Hubs와 통합할 수 있습니다.
+### <a name="3--do-you-support-smsemailweb-notifications"></a>3.  문자 메시지/전자 메일/웹 알림이 지원되나요?
+Notification Hubs는 Mobile Apps에 알림을 전송하도록 고안되었으며 전자 메일이나 SMS 기능은 제공하지 않습니다. 그러나 이러한 기능을 제공하는 타사 플랫폼을 Notification Hubs와 통합하여 [Azure Mobile Apps]를 사용해 네이티브 푸시 알림을 보낼 수는 있습니다.
 
 또한 알림 허브는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼에서 SignalR을 사용하여 이를 구현하도록 선택할 수 있습니다. Chrome 샌드박스에서 브라우저 앱에 알림을 보내는 방법을 찾으려는 경우 [Chrome 앱 자습서]를 확인합니다.
 
 ### <a name="4----what-is-the-relation-between-azure-mobile-apps-and-azure-notification-hubs-and-when-do-i-use-what"></a>4.    Azure 모바일 앱과 Azure 알림 허브 간에는 어떤 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
-기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure 알림 허브를 사용할 수 있습니다니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure 모바일 앱을 사용하는 것이 좋습니다. Azure 모바일 앱은 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Azure 모바일 앱의 가격 책정에는 알림 허브의 기본 요금이 포함되며, 푸시 사용량이 기본으로 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 비용에 대한 자세한 정보는 [앱 서비스 가격 책정] 페이지에서 제공됩니다.
+기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure 알림 허브를 사용할 수 있습니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure 모바일 앱을 사용하는 것이 좋습니다. Azure 모바일 앱은 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Azure 모바일 앱의 가격 책정에는 알림 허브의 기본 요금이 포함되며, 푸시 사용량이 기본으로 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 비용에 대한 자세한 정보는 [앱 서비스 가격 책정] 페이지에서 제공됩니다.
 
 ### <a name="5----how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>5.    알림 허브를 통해 푸시 알림을 보낼 경우 얼마나 많은 장치를 지원할 수 있나요?
 지원되는 장치 수에 대한 내용은 [알림 허브 가격 책정] 페이지를 참조합니다.
@@ -95,7 +95,7 @@ ms.openlocfilehash: 7f76f8786bf08e4aacc63758260202fe7e1a832f
 기존 고객들은 알림 허브를 사용하여 매일 수백만 건의 푸시 알림을 보내고 있습니다. Azure 알림 허브를 사용하는 한 푸시 알림 도달률의 크기를 조정하기 위해 특별한 작업을 수행할 필요가 없습니다.
 
 ### <a name="7----how-long-does-it-take-for-sent-push-notifications-to-reach-my-device"></a>7.    푸시 알림이 장치에 도달하는 데 시간이 얼마나 걸리나요?
-수신 부하가 비교적 일정하며 기본적으로 수신량이 급증하지 않는 일반적인 사용 시나리오에서 Azure 알림 허브는 분당 **1백만 건 이상의 푸시 알림 전송** 을 처리할 수 있습니다. 이 속도는 태그 수, 들어오는 보내기의 특성 및 기타 외부 요인에 따라 달라질 수 있습니다.
+수신 부하가 비교적 일정하며 기본적으로 수신량이 급증하지 않는 일반적인 사용 시나리오에서 Azure 알림 허브는 분당 **1백만 건 이상의 푸시 알림 전송**을 처리할 수 있습니다. 이 속도는 태그 수, 들어오는 보내기의 특성 및 기타 외부 요인에 따라 달라질 수 있습니다.
 
 예상된 배달 시간 동안 서비스는 플랫폼당 대상 수를 계산한 다음 등록된 태그/태그 식을 기준으로 개별 푸시 알림 배달 서비스에 메시지를 라우팅할 수 있습니다. 그러면 PNS(푸시 알림 서비스)가 알림을 장치로 전송합니다.
 
@@ -198,14 +198,14 @@ Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터
 
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [알림 허브 가격 책정]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[알림 허브 SLA]: http://azure.microsoft.com/support/legal/sla/
+[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [사례 연구 - 소치]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [사례 연구 - Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [사례 연구 - Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [사례 연구 - Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [사례 연구 - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[NH - 시작된 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[NH - Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Chrome 앱 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
@@ -217,12 +217,7 @@ Azure 알림 허브에서는 [Azure 클래식 포털]의 원격 분석 데이터
 [NH - 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
-[전체 샘플]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Apps]: https://azure.microsoft.com/en-us/services/app-service/mobile/
-[앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[complete samples]: https://github.com/Azure/azure-notificationhubs-samples
+[Azure Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
+[앱 서비스 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
 

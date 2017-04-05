@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 이 샘플 PowerShell 스크립트는 새 서버에 기존 데이터베이스의 복사본을 만듭니다. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="copy-a-database-to-a-new-server"></a>새 서버에 데이터베이스 복사
 

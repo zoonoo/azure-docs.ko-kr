@@ -3,8 +3,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -21,16 +22,16 @@ Azure DocumentDB는 [컬렉션의 자동 분할](documentdb-partition-data.md)�
 * ACID 트랜잭션, 즉 저장 프로시저 및 트리거는 컬렉션에 걸쳐 있지 않습니다. 트랜잭션 범위는 컬렉션 내 단일 파티션 키 값 안으로 범위가 지정됩니다.
 * 컬렉션은 스키마를 적용하지 않으므로 동일한 형식이나 다른 형식의 JSON 문서에 사용할 수 있습니다.
 
-[Azure DocumentDB SDK&1;.5.x](documentdb-sdk-dotnet.md) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
+[Azure DocumentDB SDK 1.5.x](documentdb-sdk-dotnet.md) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
 
 > [!NOTE]
 > REST API 2015-12-16 및 SDKs 1.6.0+에 도입된 [서버 쪽 분할](documentdb-partition-data.md)에서는 간단한 사용 사례에 대해 클라이언트 쪽 파티션 확인자 방법을 사용하지 않습니다. 그러나 클라이언트 쪽 분할은 보다 유연하므로 파티션 키 간의 성능 격리 및 병렬 처리 수준을 제어하면서 여러 파티션, 사용 범위/공간 분할 방법 및 해시로부터 결과를 읽어옵니다.
 > 
 > 
 
-예를 들어 .NET에서 각 PartitionResolver 클래스는 [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) 인터페이스의 구체적 구현으로,&3;개의 메서드 [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) 및 [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx)가 있습니다. LINQ 쿼리 및 ReadFeed 반복기는 내부적으로 ResolveForRead 메서드를 사용하여 요청의 파티션 키와 일치하는 모든 컬렉션을 반복합니다. 마찬가지로, 만들기 작업은 ResolveForCreate 메서드를 사용하여 만들기를 해당 파티션으로 라우팅합니다. Replace, Delete 및 Read는 이미 해당 컬렉션에 대한 참조를 포함하는 문서를 사용하기 때문에 변경할 필요가 없습니다.
+예를 들어 .NET에서 각 PartitionResolver 클래스는 [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) 인터페이스의 구체적 구현으로, 3개의 메서드 [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) 및 [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx)가 있습니다. LINQ 쿼리 및 ReadFeed 반복기는 내부적으로 ResolveForRead 메서드를 사용하여 요청의 파티션 키와 일치하는 모든 컬렉션을 반복합니다. 마찬가지로, 만들기 작업은 ResolveForCreate 메서드를 사용하여 만들기를 해당 파티션으로 라우팅합니다. Replace, Delete 및 Read는 이미 해당 컬렉션에 대한 참조를 포함하는 문서를 사용하기 때문에 변경할 필요가 없습니다.
 
-또한 SDK에는 [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 및 [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)를 통해&2;개의 Canonical 분할 기법인 해시와 범위 조회를 지원하는 두 클래스가 포함되어 있습니다. 이러한 클래스를 사용하여 응용 프로그램에 분할 논리를 쉽게 추가할 수 있습니다.  
+또한 SDK에는 [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 및 [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)를 통해 2개의 Canonical 분할 기법인 해시와 범위 조회를 지원하는 두 클래스가 포함되어 있습니다. 이러한 클래스를 사용하여 응용 프로그램에 분할 논리를 쉽게 추가할 수 있습니다.  
 
 ## <a name="add-partitioning-logic-and-register-the-partitionresolver"></a>분할 논리 추가 및 PartitionResolver 등록
 다음은 [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 를 만들고 데이터베이스에 대한 DocumentClient에 등록하는 방법을 보여 주는 코드 조각입니다.
@@ -112,14 +113,14 @@ foreach (UserProfile activeUser in query)
 범위 분할의 특수한 사례는 범위가 단일 불연속 값인 경우로, "조회 분할"이라고도 합니다. 이 분할은 일반적으로 지역별 분할(예: 노르웨이, 덴마크 및 스웨덴이 포함된 스칸디나비아 분할) 또는 다중 테넌트 응용 프로그램의 테넌트 분할에 사용됩니다.
 
 ## <a name="samples"></a>샘플
-이러한 PartitionResolvers를 사용하고 확장하여 다음과 같은 특정 사용 사례에 맞게 사용자 고유의 확인자를 구현하는 방법에 대한 코드 조각이 포함된 [DocumentDB 분할 샘플 Github 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)를 살펴보겠습니다. 
+이러한 PartitionResolvers를 사용하고 확장하여 다음과 같은 특정 사용 사례에 맞게 사용자 고유의 확인자를 구현하는 방법에 대한 코드 조각이 포함된 [DocumentDB 분할 샘플 GitHub 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)를 살펴보겠습니다. 
 
 * GetPartitionKey에 대해 임의 람다 식을 지정하고 복합 분할 키를 구현하거나 다양한 유형의 개체를 다르게 분할하는 데 사용하는 방법
 * 수동 조회 테이블을 사용하여 분할을 수행하는 간단한 [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) 를 만드는 방법. 이 패턴은 일반적으로 지역, 테넌트 ID 또는 응용 프로그램 이름과 같은 불연속 값을 기반으로 하는 분할에 사용됩니다.
 * 새 컬렉션에 대해 등록해야 하는 명명 체계, IndexingPolicy 및 저장 프로시저를 정의하는 템플릿을 기반으로 하여 자동으로 컬렉션을 만드는 [ManagedPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/ManagedHashPartitionResolver.cs) 를 만드는 방법
 * 이전 컬렉션이 가득 찰 때 단순히 새 컬렉션을 만드는 덜 체계적인 [SpilloverPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/SpilloverPartitionResolver.cs) 를 만드는 방법
 * 프로세스 간 및 종료 간에 공유할 수 있도록 PartitionResolver 상태를 JSON으로 직렬화 및 역직렬화하는 방법. 구성 파일 또는 DocumentDB 컬렉션에 이러한 상태를 저장할 수 있습니다.
-* 일관된 해시를 기준으로 분할된 데이터베이스에 파티션을 동적으로 추가 및 제거하기 위한 [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) 클래스. 이 클래스는 내부적으로 [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) 를 사용하여 마이그레이션 동안&4;가지 모드, 즉 이전 파티션 구성표에서 읽기(ReadCurrent), 새 파티션 구성표(ReadNext), 둘 다의 결과 병합(ReadBoth) 또는 마이그레이션 중 사용할 수 없음(None) 중 하나로 읽기 및 쓰기를 라우팅합니다.
+* 일관된 해시를 기준으로 분할된 데이터베이스에 파티션을 동적으로 추가 및 제거하기 위한 [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) 클래스. 이 클래스는 내부적으로 [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) 를 사용하여 마이그레이션 동안 4가지 모드, 즉 이전 파티션 구성표에서 읽기(ReadCurrent), 새 파티션 구성표(ReadNext), 둘 다의 결과 병합(ReadBoth) 또는 마이그레이션 중 사용할 수 없음(None) 중 하나로 읽기 및 쓰기를 라우팅합니다.
 
 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) 을 참조하세요.  
 
@@ -151,14 +152,9 @@ foreach (UserProfile activeUser in query)
 ## <a name="references"></a>참조
 * [DocumentDB에서 서버 쪽 분할](documentdb-partition-data.md)
 * [DocumentDB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
-* [Github의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
+* [GitHub의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

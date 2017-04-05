@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b65e9e6b196965a7df1e4979219117fb87cedbd7
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 693e3aebad339b1a9b5e0afbe7770197ea70dcf6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -40,22 +42,22 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 
 | 부여 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |기본 헤드 노드에서 sshd에 클라이언트를 연결합니다.  [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) |
-| sshd |22 |SSH |에지 노드에서 클라이언트를 sshd에 연결합니다(HDInsight 프리미엄만 해당).  [HDInsight에서 R 서버 사용 시작](hdinsight-hadoop-r-server-get-started.md) |
-| sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다.  [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) |
-| Ambari |443 |HTTPS |Ambari 웹 UI.  [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Ambari REST API.  [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| sshd |22 |SSH |기본 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
+| sshd |22 |SSH |에지 노드에서 클라이언트를 sshd에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
+| sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
+| Ambari |443 |HTTPS |Ambari 웹 UI. [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari REST API. [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API. [Curl에서 Hive 사용](hdinsight-hadoop-use-pig-curl.md), [Curl에서 Pig 사용](hdinsight-hadoop-use-pig-curl.md), [Curl에서 MapReduce 사용](hdinsight-hadoop-use-mapreduce-curl.md)을 참조하세요. |
 | HiveServer2 |443 |ODBC |ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요. |
-| HiveServer2 |443 |JDBC |JDBC를 사용하여 Hive에 연결합니다.  [Hive JDBC 드라이버를 사용하여 HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md) |
+| HiveServer2 |443 |JDBC |JDBC를 사용하여 Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md) |
 
 다음은 특정 클러스터 유형에 대해 사용할 수 있습니다.
 
 | 부여 | 포트 | 프로토콜 | 클러스터 유형 | 설명 |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API.  [HBase를 사용하여 시작](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API.  [Livy를 사용하여 원격으로 Spark 작업 제출](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm 웹 UI.  [HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. [HBase를 사용하여 시작](hdinsight-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. [Livy를 사용하여 원격으로 Spark 작업 제출](hdinsight-apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm 웹 UI. [HDInsight에서 Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>인증
 인터넷에서 공개적으로 노출되는 모든 서비스를 인증해야 합니다.
@@ -138,10 +140,5 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | --- | --- | --- | --- | --- |
 | Broker |작업자 노드 |9092 |[Kafka 유선 프로토콜](http://kafka.apache.org/protocol.html) |클라이언트 통신에 사용됨 |
 | &nbsp; |Zookeeper 노드 |2181 |&nbsp; |클라이언트가 ZooKeeper 연결에 사용하는 포트 |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c239c12dd9fcc849a6b90ec379ebb8690bd049fc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -47,7 +47,7 @@ Azure AD에서 정책 개체는 개별 응용 프로그램 또는 조직의 모�
 비밀 클라이언트와 공용 클라이언트를 구분하는 것이 중요합니다. 다양한 유형의 클라이언트에 대한 자세한 내용은 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1)를 참조하세요.
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>비밀 클라이언트 새로 고침 토큰의 토큰 수명
-비밀 클라이언트는 클라이언트 암호(비밀)를 안전하게 저장할 수 있는 응용 프로그램입니다. 비밀 클라이언트는 요청이 악의적인 행위자가 아닌 응용 프로그램에서 오는 것을 증명할 수 있습니다. 예를 들어 웹앱은 웹 서버에 클라이언트 비밀을 저장할 수 있으므로 비밀 클라이언트입니다. 따라서 노출되지 않습니다. 이러한 흐름은 보다 안전하기 때문에 이러한 흐름에 발급된 새로 고침 토큰의 기본 수명은 더 길고 정책을 사용하여 변경할 수 없습니다.
+비밀 클라이언트는 클라이언트 암호(비밀)를 안전하게 저장할 수 있는 응용 프로그램입니다. 비밀 클라이언트는 요청이 악의적인 행위자가 아닌 응용 프로그램에서 오는 것을 증명할 수 있습니다. 예를 들어 웹앱은 웹 서버에 클라이언트 비밀을 저장할 수 있으므로 비밀 클라이언트입니다. 따라서 노출되지 않습니다. 이러한 흐름은 보다 안전하기 때문에 이러한 흐름에 발급된 새로 고침 토큰의 기본 수명은 `until-revoked`이며 정책을 사용하여 변경할 수 없고 자발적인 암호 재설정에서 취소되지 않습니다.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>공용 클라이언트 새로 고침 토큰의 토큰 수명
 
@@ -203,7 +203,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
     Connect-AzureAD -Confirm
     ```
 
-3. 조직에서 만든 모든 정책을 확인하려면 다음 명령을 실행합니다. 다음 시나리오에서 대부분의 작업 후에 이 명령을 실행합니다. 이 명령을 실행하면 정책의 **ObjectId**를 가져오는 데도 도움이 됩니다.
+3. 조직에서 만든 모든 정책을 확인하려면 다음 명령을 실행합니다. 다음 시나리오에서 대부분의 작업 후에 이 명령을 실행합니다. 이 명령을 실행하면 정책의 ** **을(를) 가져오는 데도 도움이 됩니다.
 
     ```PowerShell
     Get-AzureADPolicy
@@ -243,9 +243,8 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
     이 예에서 설정한 첫 번째 정책이 서비스에 필요한 만큼 엄격한지 확인할 수 있습니다. 단일 단계 새로 고침 토큰이 이틀 후에 만료되도록 설정하려면 다음 명령을 실행합니다.
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
-
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>예: 웹 로그인에 대한 정책 만들기
 
@@ -274,7 +273,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
     2.  서비스 주체의 **ObjectId**가 있으면 다음 명령을 실행합니다.
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -300,7 +299,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
    앱의 **ObjectId**가 있으면 다음 명령을 실행합니다.
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -330,13 +329,13 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
     2.  서비스 주체의 **ObjectId**가 있으면 다음 명령을 실행합니다.
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. `IsOrganizationDefault` 플래그를 false로 설정합니다.
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. 새로운 조직 기본 정책을 만듭니다.
@@ -380,7 +379,7 @@ Get-AzureADPolicy
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> [선택 사항] |원하는 정책의 **ObjectId**입니다. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [선택 사항] |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -388,12 +387,12 @@ Get-AzureADPolicy
 정책에 연결된 모든 앱 및 서비스 주체를 가져옵니다.
 
 ```PowerShell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
+Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |원하는 정책의 **ObjectId**입니다. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -401,12 +400,12 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 기존 정책을 업데이트합니다.
 
 ```PowerShell
-Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
+Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |원하는 정책의 **ObjectId**입니다. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [선택 사항] |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [선택 사항] |true이면 정책을 조직의 기본 정책으로 설정하고 false이면 아무 작업도 수행하지 않습니다. |`-IsOrganizationDefault $true` |
@@ -419,12 +418,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 지정된 정책을 삭제합니다.
 
 ```PowerShell
- Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+ Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |원하는 정책의 **ObjectId**입니다. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |원하는 정책의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,12 +434,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 지정된 정책을 응용 프로그램에 연결합니다.
 
 ```PowerShell
-Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |응용 프로그램의 **ObjectId**입니다. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -449,12 +448,12 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 응용 프로그램에 할당된 정책을 가져옵니다.
 
 ```PowerShell
-Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |응용 프로그램의 **ObjectId**입니다. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -462,12 +461,12 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 응용 프로그램에서 정책을 제거합니다.
 
 ```PowerShell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |응용 프로그램의 **ObjectId**입니다. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -479,12 +478,12 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <O
 지정된 정책을 서비스 주체에 연결합니다.
 
 ```PowerShell
-Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |응용 프로그램의 **ObjectId**입니다. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,12 +492,12 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 지정된 서비스 주체에 연결된 모든 정책을 가져옵니다.
 
 ```PowerShell
-Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |응용 프로그램의 **ObjectId**입니다. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -506,11 +505,11 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 지정된 서비스 주체에서 정책을 제거합니다.
 
 ```PowerShell
-Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |응용 프로그램의 **ObjectId**입니다. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |응용 프로그램의 **ObjectId(ID)**입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |
 

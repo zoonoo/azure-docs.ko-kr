@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
-ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 666d0f655a0705423d025b88a1f457b866008ab9
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링
@@ -262,7 +262,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 해당 서비스에 `HttpRequestMessage` 및 `HttpResponseMessage` 인스턴스를 쉽게 푸시하도록 하는 [Runscope용 기존 클라이언트 라이브러리](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)를 활용할 수 있었습니다. Runscope API에 액세스하기 위해 계정 및 API 키가 필요합니다. API 키를 가져오는 지침은 [Runscope API에 액세스하는 응용 프로그램 만들기](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 동영상 가이드에서 찾을 수 있습니다.
 
 ## <a name="complete-sample"></a>전체 샘플
-샘플에 대한 [원본 코드](https://github.com/darrelmiller/ApimEventProcessor) 및 테스트는 Github에 위치합니다. [API 관리 서비스](api-management-get-started.md), [연결된 이벤트 허브](api-management-howto-log-event-hubs.md) 및 [저장소 계정](../storage/storage-create-storage-account.md)이 있어야 스스로 샘플을 실행합니다.   
+샘플의 [원본 코드](https://github.com/darrelmiller/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. [API 관리 서비스](api-management-get-started.md), [연결된 이벤트 허브](api-management-howto-log-event-hubs.md) 및 [저장소 계정](../storage/storage-create-storage-account.md)이 있어야 스스로 샘플을 실행합니다.   
 
 샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 응용 프로그램으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음 Runscope API에 전달합니다.
 

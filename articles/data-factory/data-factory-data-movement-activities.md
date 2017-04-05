@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -95,6 +95,8 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | 브라질 | 브라질 남부 | 브라질 남부 |
 | 유럽 | 북유럽 | 북유럽 |
 | &nbsp; | 서유럽 | 서유럽 |
+| 영국 | 영국 서부 | 영국 남부 |
+| &nbsp; | 영국 남부 | 영국 남부 |
 | 아시아 태평양 | 동남아시아 | 동남아시아 |
 | &nbsp; | 동아시아 | 동남아시아 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 동부 |
@@ -105,7 +107,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 인도 서부 | 인도 중부 |
 | &nbsp; | 인도 남부 | 인도 중부 |
 
-또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "North Europe"`을 지정하여 북유럽을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
+또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
 
 > [!NOTE]
 > 대상 데이터 저장소의 지역이 위의 목록에 없거나 검색 가능하지 않을 경우 `executionLocation`을 지정하지 않을 경우 기본적으로 복사 작업이 대체 지역을 거치지 않고 실패합니다. 지원되는 지역 목록은 시간이 지남에 따라 확장됩니다.
@@ -155,7 +157,7 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,
@@ -181,7 +183,7 @@ Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는
 Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. 순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. [순차적으로 복사](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence) 섹션을 참조하세요.
 
 ## <a name="type-conversions"></a>형식 변환
-다른 데이터 저장소에는 서로 다른 네이티브 형식 시스템이 있습니다. 복사 활동에서는 다음과 같은&2;단계 방식을 통해 소스 형식에서 싱크 형식으로의 자동 형식 변환을 수행합니다.
+다른 데이터 저장소에는 서로 다른 네이티브 형식 시스템이 있습니다. 복사 활동에서는 다음과 같은 2단계 방식을 통해 소스 형식에서 싱크 형식으로의 자동 형식 변환을 수행합니다.
 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환

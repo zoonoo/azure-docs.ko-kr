@@ -140,7 +140,7 @@ Blob의 최대 크기가 1024GB이며 VHD 파일의 메타데이터(바닥글)�
 ### <a name="striped-disks"></a>스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB 보다 큰 디스크를 만드는 기능을 제공할 뿐 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
 
-Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 경우 다음 지침을 고려합니다.
 
@@ -189,7 +189,7 @@ Azure가 디스크에 대한 기본 명명 규칙의 일환으로 사용하기 �
 
 또한 클라우드 서비스에 사용되는 명명 규칙은 클라우드 서비스 이름이 Microsoft Azure 테넌트와 상관없이 다른 모든 Microsoft Azure 클라우드 서비스 중에서 고유해야 하기 대문에 예외 사항을 용인해야 할 수 있습니다.
 
-고려해야 할 클라우드 서비스의 중요한 한 가지 제한 사항은 클라우드 서비스에 있는 모든 가상 컴퓨터에 대해 한번에 오직 한 개의 가상 컴퓨터 관리 작업을 수행할 수 있다는 것입니다. 클라우드 서비스 내의 하나의 가상 컴퓨터에서 가상 컴퓨터 관리 작업을 수행하면,  다른 가상 컴퓨터에서 새 관리 작업을 수행하기 전에 해당 작업이 완료될 때까지 기다려야 합니다. 따라서, 클라우드 서비스 내의 가상 컴퓨터의 수를 낮게 유지해야 합니다..
+고려해야 할 클라우드 서비스의 중요한 한 가지 제한 사항은 클라우드 서비스에 있는 모든 가상 컴퓨터에 대해 한번에 오직 한 개의 가상 컴퓨터 관리 작업을 수행할 수 있다는 것입니다. 클라우드 서비스 내의 하나의 가상 컴퓨터에서 가상 컴퓨터 관리 작업을 수행하면,  다른 가상 컴퓨터에서 새 관리 작업을 수행하기 전에 해당 작업이 완료될 때까지 기다려야 합니다. 따라서, 클라우드 서비스 내의 가상 컴퓨터의 수를 낮게 유지해야 합니다.
 
 Azure 구독에서 최대 200개의 클라우드 서비스를 지원할 수 있습니다.
 
@@ -390,16 +390,11 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 ## <a name="additional-resources"></a>추가 리소스
 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[가상 컴퓨터의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md)
 
 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

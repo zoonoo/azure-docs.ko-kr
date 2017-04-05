@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
-ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -72,7 +72,7 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 >
 
 ### <a name="virtual-machines"></a>가상 컴퓨터
-공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/virtual-machines-windows-about.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-about.md) VM과 연결할 수 있습니다. 네트워크 인터페이스가 여러 개인 VM의 경우 *기본* 네트워크 인터페이스에만 할당할 수 있습니다. VM에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다.
+공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/windows/about.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-about.md) VM과 연결할 수 있습니다. 네트워크 인터페이스가 여러 개인 VM의 경우 *기본* 네트워크 인터페이스에만 할당할 수 있습니다. VM에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다.
 
 ### <a name="internet-facing-load-balancers"></a>인터넷 연결 부하 분산 장치
 공용 IP 주소를 부하 분산 장치 [프런트 엔드](../load-balancer/load-balancer-overview.md)구성에 할당하여 **Azure Load Balancer** 와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip.md) 시나리오를 구현할 수도 있습니다.
@@ -116,7 +116,7 @@ Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 
 * IP 주소를 통해 다른 앱/리소스에서 액세스하는 리소스
 
 ### <a name="virtual-machines"></a>가상 컴퓨터
-개인 IP 주소는 [Windows](../virtual-machines/virtual-machines-windows-about.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-about.md) VM의 **네트워크 인터페이스**에 할당됩니다. 다중 네트워크 인터페이스 VM의 경우 각 인터페이스에 개인 IP 주소가 할당됩니다. 네트워크 인터페이스의 할당 방법을 동적 또는 정적으로 지정할 수 있습니다.
+개인 IP 주소는 [Windows](../virtual-machines/windows/about.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-about.md) VM의 **네트워크 인터페이스**에 할당됩니다. 다중 네트워크 인터페이스 VM의 경우 각 인터페이스에 개인 IP 주소가 할당됩니다. 네트워크 인터페이스의 할당 방법을 동적 또는 정적으로 지정할 수 있습니다.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>내부 DNS 호스트 이름 확인(VM)
 모든 Azure VM은 명시적으로 사용자 지정 DNS 서버를 구성하지 않으면 기본적으로 [Azure 관리 DNS 서버](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 로 구성됩니다. 이러한 DNS 서버는 동일한 VNet 내에 있는 VM에 대한 내부 이름 확인을 제공합니다.

@@ -25,10 +25,11 @@
 
 # 방법
 ## 데이터 이동
+### [복사 작업 개요](data-factory-data-movement-activities.md)
 ### [데이터 팩터리 복사 마법사](data-factory-azure-copy-wizard.md)
 #### [15분 내에 1TB 로드](data-factory-load-sql-data-warehouse.md)
-### [복사 작업](data-factory-data-movement-activities.md)
-#### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
+### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
+### 커넥터
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -52,16 +53,14 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [웹 테이블](data-factory-web-table-connector.md)
 ### [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)
 ### [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)
-### [입력 및 출력 데이터 집합 열 매핑](data-factory-map-columns.md)
-### [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)
 
 ## [데이터 변환](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive 작업](data-factory-hive-activity.md)
@@ -100,9 +99,9 @@
 ### [제품 권장 사항](data-factory-product-reco-usecase.md)
 ### [고객 프로파일링](data-factory-customer-profiling-usecase.md)
 ### [데이터 팩터리 및 배치를 사용하여 대규모 데이터 집합 처리](data-factory-data-processing-using-batch.md)
-## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-factory)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)

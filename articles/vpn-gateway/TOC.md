@@ -23,6 +23,7 @@
 ## VNet 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [클래식 포털(클래식)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## 배포 모델 간 VNet-VNet 연결 구성
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)
 ## VPN Gateway 삭제
+### [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [P2S 연결을 위한 자체 서명된 루트 인증서 만들기](vpn-gateway-certificates-point-to-site.md)

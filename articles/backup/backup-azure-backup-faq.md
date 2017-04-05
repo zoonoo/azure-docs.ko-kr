@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -181,7 +181,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 예, 백업 서비스에는 PowerShell 스크립트와 함께 사용할 수 있는 몇 가지 이벤트 기반 알림이 있습니다. 전체 설명은 [구성 알림](backup-azure-monitor-vms.md#configure-notifications)을 참조하세요.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>백업 작업을 예약할 수 있는 시간 또는 횟수에 제한이 있나요?<br/>
-예. Windows Server 또는 Windows 워크스테이션에서는 하루 최대&3;번까지 백업 작업을 실행할 수 있습니다. System Center DPM에서는 하루&2;번까지 백업 작업을 실행할 수 있습니다. IaaS VM의 경우 하루에 한 번 백업 작업을 실행할 수 있습니다. Windows Server 또는 Windows 워크스테이션에 대해 예약 정책을 사용하여 일별 또는 주별 일정을 지정할 수 있습니다. System Center DPM을 사용하여 일별, 주별, 월별, 연도별로 일정을 지정할 수 있습니다.
+예. Windows Server 또는 Windows 워크스테이션에서는 하루 최대 3번까지 백업 작업을 실행할 수 있습니다. System Center DPM에서는 하루 2번까지 백업 작업을 실행할 수 있습니다. IaaS VM의 경우 하루에 한 번 백업 작업을 실행할 수 있습니다. Windows Server 또는 Windows 워크스테이션에 대해 예약 정책을 사용하여 일별 또는 주별 일정을 지정할 수 있습니다. System Center DPM을 사용하여 일별, 주별, 월별, 연도별로 일정을 지정할 수 있습니다.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Recovery Services 자격 증명 모음에 전송된 데이터가 백업한 데이터의 크기보다 작은 이유는 무엇인가요?<br/>
  Azure 백업 에이전트 또는 SCDPM 또는 Azure 백업 서버에서 백업된 모든 데이터를 전송하기 전에 압축하고 암호화합니다. 압축 및 암호화를 적용하면 백업 자격 증명 모음에 있는 데이터 크기가 30-40% 줄어듭니다.
@@ -213,7 +213,7 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 
 **Azure VM 백업의 경우:**
 
-* **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md) 을 지원합니다.  가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
+* **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md) 을 지원합니다.  가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
 * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 
 

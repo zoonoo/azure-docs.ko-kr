@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: cc7107ce89c063ae69184039893d9c28c912db08
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2aebded82fcf67bf9ad4a00a703e62eb12e2370c
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -57,7 +58,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 
 첫째, [Azure Import/Export 도구를 다운로드](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)하고 컴퓨터의 디렉터리로 추출합니다 (예: `c:\WAImportExport`).
 
-Azure Import/Export 도구는 다음 파일로 구성 됩니다.
+Azure Import/Export 도구는 다음 파일로 구성됩니다.
 
 * dataset.csv
 * driveset.csv
@@ -74,7 +75,7 @@ Azure Import/Export 도구는 다음 파일로 구성 됩니다.
 명령에 대한 도움말을 출력하려면 매개 변수없이 도구를 실행합니다.
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
@@ -177,7 +178,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export Service
+          blob list blob format in the Put Job operation of the Import/Export service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.
@@ -223,9 +224,4 @@ Examples:
 * [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

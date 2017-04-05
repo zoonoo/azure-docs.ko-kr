@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
-ms.openlocfilehash: b266dc9ead635fb852d64efa82587299f692a153
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5fb930cb71fe008ba63d2068bb36643f40259e76
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
 이 토픽에서는 데이터 과학 환경의 일부로 사용할 수 있는 고급 분석용 Azure 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure Storage Explorer 및 AzCopy와 같은 지원 도구뿐만 아니라 고급 분석 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
 
-## <a name="a-namecreate-vmastep-1-create-a-general-purpose-azure-virtual-machine"></a><a name="create-vm"></a>1단계: 범용 Azure 가상 컴퓨터 만들기
+## <a name="create-vm"></a>1단계: 범용 Azure 가상 컴퓨터 만들기
 Azure 가상 컴퓨터가 이미 있는 경우 여기에서 IPython Notebook 서버를 설정하려면 이 단계를 건너뛰고 [2단계: 기존 가상 컴퓨터에 IPython Notebook에 대한 끝점 추가](#add-endpoint)로 이동할 수 있습니다.
 
 Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 해당 프로젝트에 대한 데이터를 처리하는 데 필요한 컴퓨터의 크기를 결정해야 합니다. 컴퓨터가 작을수록 메모리가 작고 CPU 코어 수가 적지만 비용도 적게 듭니다. 컴퓨터 유형 및 가격 목록은 <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">가상 컴퓨터 가격</a> 페이지를 참조하세요.
@@ -53,15 +54,15 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 ![작업 영역 만들기][29]
 
-## <a name="a-nameadd-endpointastep-2-add-an-endpoint-for-ipython-notebooks-to-an-existing-virtual-machine"></a><a name="add-endpoint"></a>2단계: 기존 가상 컴퓨터에 IPython Notebook에 대한 끝점 추가
+## <a name="add-endpoint"></a>2단계: 기존 가상 컴퓨터에 IPython Notebook에 대한 끝점 추가
 1단계의 지침에 따라 가상 컴퓨터를 만든 경우 IPython Notebook에 대한 끝점이 이미 추가되었으므로 이 단계를 건너뛸 수 있습니다.
 
 가상 컴퓨터가 이미 있는 경우 아래의 3단계에서 설치할 IPython Notebook에 대한 끝점을 추가하려면 먼저 Azure 클래식 포털에 로그인하여 가상 컴퓨터를 선택하고 IPython Notebook 서버에 대한 끝점을 추가합니다. 다음 그림에는 IPython Notebook에 대한 끝점이 Windows 가상 컴퓨터에 추가된 후의 포털에 대한 스크린샷이 나와 있습니다.
 
 ![작업 영역 만들기][17]
 
-## <a name="a-namerun-commandsastep-3-install-ipython-notebook-and-other-supporting-tools"></a><a name="run-commands"></a>3단계: IPython Notebook 및 기타 지원 도구 설치
-가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(**Powershell 명령 창이 아님**)를 열고 다음 명령을 실행합니다.
+## <a name="run-commands"></a>3단계: IPython Notebook 및 기타 지원 도구 설치
+가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(**Powershell 명령 창이 아님**)를 열고 다음 명령을 실행합니다.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -71,7 +72,7 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 메시지가 표시되면 IPython Notebook의 암호화 컴퓨터 관리자의 암호를 입력합니다. 그러면 IPython Notebook을 컴퓨터에서 서비스로 실행할 수 있습니다.
 
-## <a name="a-nameaccessastep-4-access-ipython-notebooks-from-a-web-browser"></a><a name="access"></a>4단계: 웹 브라우저에서 IPython Notebook 액세스
+## <a name="access"></a>4단계: 웹 브라우저에서 IPython Notebook 액세스
 IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍스트 상자에 *https://&#60;virtual machine DNS name>:&#60;public port number>*를 입력합니다. 여기서 *&#60;public port number>*는 IPython Notebook 끝점을 추가할 때 지정한 포트 번호여야 합니다.
 
 *&#60;virtual machine DNS name>*은 Azure 클래식 포털에서 확인할 수 있습니다. 클래식 포털에 로그인한 후 **가상 컴퓨터**를 클릭하고, 사용자가 만든 컴퓨터를 선택한 후 **대시보드**를 선택합니다. 그러면 DNS 이름이 다음과 같이 표시됩니다.
@@ -86,17 +87,17 @@ IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍
 **Chrome:**
 ![작업 영역 만들기][21]
 
-IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**Github 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 Github 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다.
+IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**GitHub 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 GitHub 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다.
 ![작업 영역 만들기][18]
 
-## <a name="a-nameuploadastep-5-upload-an-existing-ipython-notebook-from-a-local-machine-to-the-ipython-notebook-server"></a><a name="upload"></a>5단계: 로컬 컴퓨터에서 IPython Notebook 서버로 기존 IPython Notebook 업로드
+## <a name="upload"></a>5단계: 로컬 컴퓨터에서 IPython Notebook 서버로 기존 IPython Notebook 업로드
 IPython Notebook은 사용자가 로컬 컴퓨터에 있는 기존 IPython Notebook을 가상 컴퓨터의 IPython Notebook 서버로 쉽게 업로드할 수 있는 방법을 제공합니다. 웹 브라우저에서 IPython Notebook에 로그온한 후 IPython Notebook을 업로드할 **디렉터리**를 클릭합니다. 그런 다음 **파일 탐색기**를 사용하여 로컬 컴퓨터에서 업로드할 IPython Notebook .ipynb 파일을 선택한 후 웹 브라우저에서 IPython Notebook 디렉터리로 끌어 놓습니다. **업로드** 단추를 클릭하여 .ipynb 파일을 IPython Notebook 서버에 업로드합니다. 이제 다른 사용자가 자신의 웹 브라우저에서 이 파일을 사용할 수 있습니다.
 
 ![작업 영역 만들기][22]
 
 ![작업 영역 만들기][23]
 
-## <a name="a-nameshutdownashut-down-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
+## <a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
 > [!NOTE]
@@ -134,9 +135,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
