@@ -17,9 +17,9 @@ ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07ee32a293d53dd9c0e0afa5da2bac7ec146a536
-ms.openlocfilehash: c7f39a5396f0f9b6f9a577a3225ccadff1fd0dc9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b95d2f268548b48a1e31f2a35de8feaab251a485
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
@@ -105,7 +105,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 ## <a name="installation"></a>설치
 배포 패키지에서 리포지토리의 RPM 또는 DEB 패키지를 사용한 설치는 선호하는 Azure Linux Azure 설치 및 업그레이드 방법입니다. 모든 [인증 배포 공급자](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다.
 
-원본에서 설치 또는 사용자 지정 위치 또는 접두사로의 설치와 같은 고급 설치 옵션에 대한 자세한 내용은 [Github의 Azure Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent).
+원본에서 설치 또는 사용자 지정 위치 또는 접두사로의 설치와 같은 고급 설치 옵션에 대한 자세한 내용은 [GitHub의 Azure Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
 ## <a name="command-line-options"></a>명령줄 옵션
 ### <a name="flags"></a>플래그
@@ -211,7 +211,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 **Provisioning.PasswordCryptId**  
 형식:String  
-기본값:&6;
+기본값: 6
 
 암호 해시를 생성할 때 암호화에 사용되는 알고리즘입니다.  
  1 - MD5  
@@ -221,7 +221,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 **Provisioning.PasswordCryptSaltLength**  
 형식:String  
-기본값:&10;
+기본값: 10
 
 암호 해시를 생성할 때 사용되는 임의 salt의 길이입니다.
 
@@ -305,6 +305,6 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 * 프로비전 중 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 swap 공간을 구성하려면 다음 리소스를 참조하세요.
   
   * [Ubuntu Wiki: Swap 파티션 구성](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [Azure 가상 컴퓨터에 사용자 지정 데이터 삽입](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 

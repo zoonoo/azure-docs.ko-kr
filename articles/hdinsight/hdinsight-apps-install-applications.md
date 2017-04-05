@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
-ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3b2a18232a9ab8c1b587cfa4fa14ced0c3b515ba
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -101,11 +102,11 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
    * 상태: 응용 프로그램 상태입니다. 
    * 웹 페이지: 에지 노드에 배포한 웹 응용 프로그램이 있는 경우 해당하는 URL입니다. 자격 증명은 클러스터에 대해 구성한 HTTP 사용자 자격 증명과 동일합니다.
    * HTTP 끝점: 자격 증명은 클러스터에 대해 구성한 HTTP 사용자 자격 증명과 동일합니다. 
-   * SSH 끝점: [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다.
+   * SSH 끝점: SSH를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 6. 응용 프로그램을 삭제하려면 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **삭제** 를 클릭합니다.
 
 ## <a name="connect-to-the-edge-node"></a>에지 노드에 연결
-HTTP 및 SSH를 사용하여 에지 노드에 연결할 수 있습니다. 끝점 정보는 [포털](#list-installed-hdinsight-apps-and-properties)에서 찾을 수 있습니다. SSH 사용에 대한 자세한 내용은 [Linux, Unix 및 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 
+HTTP 및 SSH를 사용하여 에지 노드에 연결할 수 있습니다. 끝점 정보는 [포털](#list-installed-hdinsight-apps-and-properties)에서 찾을 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 HTTP 끝점 자격 증명은 HDInsight 클러스터에 대해 구성한 HTTP 사용자 자격 증명입니다. SSH 끝점 자격 증명은 HDInsight 클러스터에 대해 구성한 SSH 자격 증명입니다.
 

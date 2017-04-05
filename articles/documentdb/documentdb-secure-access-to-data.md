@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -80,11 +80,11 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>리소스 토큰
 
 리소스 토큰은 데이터베이스 내에서 응용 프로그램 리소스에 대한 액세스를 제공합니다. 리소스 토큰:
-- 특정 컬렉션, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 대한 액세스를 제공합니다.
+- 특정 컬렉션, 파티션 키, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 대한 액세스를 제공합니다.
 - [사용자](#users)에게 특정 리소스에 대한 [사용 권한](#permissions)이 부여된 경우 생성됩니다.
 - POST, GET 또는 PUT 호출로 권한 리소스가 작동할 때 다시 생성됩니다.
 - 사용자, 리소스 및 사용 권한을 위해 특별히 구성된 해시 리소스 토큰을 사용합니다.
-- 시간은 사용자 지정 가능한 유효 기간으로 제한됩니다. 기본 유효 기간은&1;시간입니다. 하지만 토큰 수명은 최대&5;시간까지 명시적으로 지정할 수 있습니다.
+- 시간은 사용자 지정 가능한 유효 기간으로 제한됩니다. 기본 유효 기간은 1시간입니다. 하지만 토큰 수명은 최대 5시간까지 명시적으로 지정할 수 있습니다.
 - 마스터 키를 전달하기 위한 안전한 대안을 제공합니다. 
 - DocumentDB 계정에서 클라이언트가 부여된 권한에 따라 리소스를 읽고 쓰며 삭제할 수 있도록 합니다.
 
@@ -105,14 +105,14 @@ DocumentDB 리소스 토큰은 사용자가 부여한 권한에 따라 마스터
 
     ![DocumentDB 리소스 토큰 워크플로](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- 리소스 토큰 생성 및 관리는 네이티브 DocumentDB 클라이언트 라이브러리에서 처리하지만 REST를 사용하는 경우 요청/인증 헤더를 구성해야 합니다. REST에 대한 인증 헤더 만들기에 대한 자세한 내용은 [DocumentDB 리소스에 대한 액세스 제어](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) 또는 [SDK에 대한 소스 코드](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)를 참조하세요.
- 
- 리소스 토큰을 생성하거나 broker하는 데 사용되는 중간 계층 서비스의 예는 [ResourceTokenBroker 앱](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)을 참조하세요.
+리소스 토큰 생성 및 관리는 네이티브 DocumentDB 클라이언트 라이브러리에서 처리하지만 REST를 사용하는 경우 요청/인증 헤더를 구성해야 합니다. REST에 대한 인증 헤더 만들기에 대한 자세한 내용은 [DocumentDB 리소스에 대한 액세스 제어](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) 또는 [SDK에 대한 소스 코드](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)를 참조하세요.
+
+리소스 토큰을 생성하거나 broker하는 데 사용되는 중간 계층 서비스의 예는 [ResourceTokenBroker 앱](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)을 참조하세요.
 
 <a id="users"></a>
 
 ## <a name="users"></a>사용자
-DocumentDB 사용자는 DocumentDB 데이터베이스와 연관됩니다.  각 데이터베이스는&0;개 이상의 DocumentDB 사용자를 포함할 수 있습니다.  다음 코드 샘플은 DocumentDB 사용자 리소스를 만드는 방법을 보여 줍니다.
+DocumentDB 사용자는 DocumentDB 데이터베이스와 연관됩니다.  각 데이터베이스는 0개 이상의 DocumentDB 사용자를 포함할 수 있습니다.  다음 코드 샘플은 DocumentDB 사용자 리소스를 만드는 방법을 보여 줍니다.
 
 ```csharp
 //Create a user.
@@ -132,7 +132,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 <a id="permissions"></a>
 
 ## <a name="permissions"></a>권한
-DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다.  각 사용자는&0;개 이상의 DocumentDB 권한을 포함할 수 있습니다.  권한 리소스는 사용자가 특정 응용 프로그램 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다.
+DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다.  각 사용자는 0개 이상의 DocumentDB 권한을 포함할 수 있습니다.  권한 리소스는 사용자가 특정 응용 프로그램 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다.
 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
 * 전체: 사용자가 리소스에 대한 모든 권한을 갖습니다.
@@ -184,5 +184,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * DocumentDB 데이터베이스 보안에 대한 자세한 내용은 [DocumentDB: NoSQL 데이터베이스 보안](documentdb-nosql-database-security.md)을 참조하세요.
 * 마스터 및 읽기 전용 키 관리에 대해 자세히 알아보려면 [DocumentDB 계정을 관리하는 방법](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)을 참조하세요.
 * DocumentDB 권한 부여 토큰을 생성하는 방법에 대해 자세히 알아보려면 [DocumentDB 리소스에 대한 액세스 제어](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources)를 참조하세요.
-
 

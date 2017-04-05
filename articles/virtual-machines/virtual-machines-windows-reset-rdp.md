@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e1331276cda20d235341171852dffeb4a9cb8bb2
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2673c95d2e312d427454585d46ac790cb126fea6
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
-Windows 가상 컴퓨터에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정할 수도 있고 원격 데스크톱 서비스 구성을 다시 설정할 수도 있습니다. 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azureps-cmdlets-docs)하고 Azure 구독에 로그인해야 합니다. [클래식 배포 모델을 사용하여 만든 VM에 대해 이러한 단계를 수행](virtual-machines-windows-classic-reset-rdp.md)할 수도 있습니다.
+Windows 가상 컴퓨터에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정할 수도 있고 원격 데스크톱 서비스 구성을 다시 설정할 수도 있습니다. 암호를 다시 설정하려면 Azure 포털이나 Azure PowerShell의 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azureps-cmdlets-docs)하고 Azure 구독에 로그인해야 합니다. [클래식 배포 모델을 사용하여 만든 VM에 대해 이러한 단계를 수행](windows/classic/reset-rdp.md)할 수도 있습니다.
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>구성 또는 자격 증명을 다시 설정하는 방법
 필요에 따라 몇 가지 방법으로 원격 데스크톱 서비스 및 자격 증명을 재설정할 수 있습니다.
@@ -44,9 +44,15 @@ Windows 가상 컴퓨터를 선택한 다음 **지원 + 문제 해결** > **암�
 
 사용자 이름 및 새 암호를 입력한 후 **업데이트**를 클릭합니다. VM에 연결을 다시 시도하세요.
 
+> [!NOTE] 
+> - 암호를 변경하고 포털에서 작업이 완료되면 VM에서 변경 내용이 적용되는 데 3-5분이 소요될 수 있습니다. 그러나 변경 내용이 적용되지 않으면 VM을 다시 시작해 보세요.
+> - VMAccess 확장은 기본 제공 로컬 관리자 계정에 대해서만 작동하며 다른 로컬 ID나 도메인 ID에 대해서는 아무 작업도 수행하지 않습니다.
+> - 대상 컴퓨터가 도메인 컨트롤러인 경우 이 확장은 도메인 관리자 계정을 다시 설정하거나 이름을 바꿉니다.
+
+
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**원격 데스크톱 서비스 구성을 다시 설정**
 
-Windows 가상 컴퓨터를 선택한 다음 **지원 + 문제 해결** > **암호 재설정**을 클릭합니다. 암호 다시 설정 블레이드가 표시됩니다. 
+Windows 가상 컴퓨터를 선택한 다음 **지원 + 문제 해결** > **암호 재설정**을 클릭합니다. 다음과 같이 암호 다시 설정 블레이드가 표시됩니다.
 
 ![RDP 구성 다시 설정](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 

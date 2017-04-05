@@ -48,6 +48,7 @@
 ### [Stream Analytics와 함께 사용](data-lake-store-stream-analytics.md)
 ### [Power BI와 함께 사용](data-lake-store-power-bi.md)
 ### [데이터 카탈로그와 함께 사용](data-lake-store-with-data-catalog.md)
+### [SQL Data Warehouse의 PolyBase와 함께 사용](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [More Azure 통합 옵션](data-lake-store-integrate-with-other-services.md)
 
 ## 관리

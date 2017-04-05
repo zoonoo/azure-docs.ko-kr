@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: a2dec2daa4be60a4a53a98164265171bf898cafb
-ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,12 +66,11 @@ Azure Portal에서는 응용 프로그램이 배포된 후에도 원격 데스�
 
 4. **열기**를 클릭한 후 **연결**을 클릭하여 원격 데스크톱 연결을 시작합니다.
 
-## <a name="next-steps"></a>다음 단계
+>[!NOTE]
+> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **20000**을 여는 규칙을 작성해야 할 수 있습니다.
 
-[클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
+## <a name="additional-resources"></a>추가 리소스
 
-
-
-<!--HONumber=Nov16_HO5-->
-
+[Cloud Services를 구성하는 방법](cloud-services-how-to-configure.md)
+[Cloud Services FAQ - 원격 데스크톱](cloud-services-faq.md#remote-desktop)
 

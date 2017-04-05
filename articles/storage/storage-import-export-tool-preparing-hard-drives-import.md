@@ -15,20 +15,19 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
-ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d95aaf81ee4d9c19549a57dd1af0f79a1e1bffdd
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
-## <a name="overview"></a>개요
 
 WAImportExport 도구는 [Microsoft Azure Import/Export 서비스](storage-import-export-service.md)에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 이 도구를 사용하여 Azure 데이터 센터에 운송할 하드 드라이브에 데이터를 복사할 수 있습니다. 가져오기 작업이 완료된 후에는 이 도구를 사용하여 손상되거나 누락되거나 다른 Blob과 충돌한 Blob을 복구할 수 있습니다. 완료된 내보내기 작업에서 드라이브를 받은 후에는 이 도구를 사용하여 드라이브에서 손상되거나 누락된 파일을 복구할 수 있습니다. 이 문서에서는 이 도구의 작업을 살펴 보겠습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-### <a name="prerequisites-for-running-waimportexportexe"></a>WAImportExport.exe를 실행하기 위한 필수 조건
+### <a name="requirements-for-waimportexportexe"></a>WAImportExport.exe에 대한 요구 사항
 
 - **컴퓨터 구성**
   - Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제
@@ -52,7 +51,7 @@ WAImportExport 도구는 [Microsoft Azure Import/Export 서비스](storage-impor
 
 ## <a name="download-and-install-waimportexport"></a>WAImportExport 다운로드 및 설치
 
-[최신 WAImportExport.exe 버전](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)을 다운로드합니다. 컴퓨터의 디렉터리에 압축된 내용을 추출합니다.
+[최신 WAImportExport.exe 버전](https://www.microsoft.com/download/details.aspx?id=42659)을 다운로드합니다. 컴퓨터의 디렉터리에 압축된 내용을 추출합니다.
 
 다음 작업은 CSV 파일을 만드는 것입니다.
 
@@ -89,8 +88,8 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | DstBlobPathOrPrefix | **[필수]**<br/> Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 가상 디렉터리가 이미 있거나 없을 수도 있습니다. 없는 경우 Import/Export 서비스에서 하나의 가상 디렉터리를 만듭니다.<br/><br/>대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다. 컨테이너 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요. 루트만 지정된 경우 원본의 디렉터리 구조가 대상 Blob 컨테이너에 복제됩니다. 원본의 디렉터리 구조와 다른 디렉터리 구조가 필요한 경우 CSV에서 여러 행을 매핑합니다.<br/><br/>music/70s/와 같이 컨테이너 또는 Blob 접두사를 지정할 수 있습니다. 대상 디렉터리는 컨테이너 이름과 "/"(슬래시)로 시작해야 하며 선택적으로 "/"로 끝나는 가상 Blob 디렉터리를 포함할 수도 있습니다.<br/><br/>대상 컨테이너가 루트 컨테이너인 경우 슬래시를 포함하여 $root/로 루트 컨테이너를 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob에는 이름에 "/"를 포함할 수 없으므로 대상 디렉터리가 루트 컨테이너인 경우 원본 디렉터리의 모든 하위 디렉터리는 복사되지 않습니다.<br/><br/>**예제**<br/>대상 Blob 경로가 https://mystorageaccount.blob.core.windows.net/video인 경우 이 필드의 값은 video/입니다.  |
 | BlobType | **[선택]** block &#124; page<br/>현재 Import/Export 서비스는 두 가지 종류의 Blob을 지원합니다. 페이지 Blob과 블록 Blob은 기본적으로 모든 파일을 블록 Blob으로 가져옵니다. 그리고 \*.vhd\* 및 .vhdx는 페이지 Blob으로 가져오게 됩니다. 블록 Blob 및 페이지 Blob에 허용되는 크기는 제한됩니다. 자세한 내용은 [저장소 확장성 목표](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)를 참조하세요.  |
 | Disposition | **[선택]** rename &#124; no-overwrite &#124; overwrite <br/> 이 필드는 가져오기 중, 즉 디스크에서 저장소 계정으로 데이터를 업로드할 때의 복사 동작을 지정합니다. 사용할 수 있는 옵션은 rename&#124;overwite&#124;no-overwrite입니다. 아무 옵션도 지정하지 않을 경우 기본값은 "rename"입니다. <br/><br/>**rename**: 이름이 같은 개체가 있으면 대상에 복사본을 만듭니다.<br/>overwrite: 파일을 새 파일로 덮어씁니다. 마지막으로 수정된 파일이 우선합니다.<br/>**no-overwrite**: 이미 파일이 있는 경우 파일 쓰기를 건너뜁니다.|
-| MetadataFile | **[선택]** <br/>이 필드의 값은 개체의 메타데이터를 보존해야 하거나 사용자 지정 메타데이터를 제공해야 하는 경우 제공할 수 있는 메타데이터 파일입니다. 대상 Blob에 대한 메타데이터 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)(영문)을 참조하세요. |
-| PropertiesFile | **[선택]** <br/>대상 Blob에 대한 속성 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)(영문)을 참조하세요. |
+| MetadataFile | **[선택]** <br/>이 필드의 값은 개체의 메타데이터를 보존해야 하거나 사용자 지정 메타데이터를 제공해야 하는 경우 제공할 수 있는 메타데이터 파일입니다. 대상 Blob에 대한 메타데이터 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조하세요. |
+| PropertiesFile | **[선택]** <br/>대상 Blob에 대한 속성 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조하세요. |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>InitialDriveSet 또는 AdditionalDriveSet CSV 파일 준비
 
@@ -269,7 +268,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 </DriveManifest>
 ```
 
-### <a name="sample-journal-file-for-each-drive-ending-with-xml"></a>각 드라이브의 샘플 저널 파일(.xml로 끝남)
+### <a name="sample-journal-file-xml-for-each-drive"></a>각 드라이브의 샘플 저널 파일(XML)
 
 ```xml
 [BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
@@ -286,7 +285,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-for-session-ended-with-jrn--which-records-the-trail-of-sessions"></a>세션의 샘플 저널 파일(.jrn으로 끝남, 세션 내역 기록)
+### <a name="sample-journal-file-jrn-for-session-which-records-the-trail-of-sessions"></a>세션 내역을 기록하는 세션의 샘플 저널 파일(JRN)
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -334,7 +333,7 @@ SessionId는 0-9, 밑줄(\_), 대시(-) 또는 해시(#)로 구성할 수 있으
 
 WAImportExport 도구를 실행하여 파일을 하드 드라이브에 복사할 때마다 이 도구에서 복사 세션을 만듭니다. 복사 세션의 상태는 저널 파일에 기록됩니다. 복사 세션이 중단된 경우(예: 시스템 전원 손실로 인해) 도구를 다시 실행하고 명령줄에서 저널 파일을 지정하여 해당 세션을 다시 시작할 수 있습니다.
 
-Azure Import/Export 도구를 사용하여 준비하는 각 하드 드라이브의 경우 이 도구에서 "&lt;DriveID&gt;.xml" 이름의 단일 저널 파일을 만듭니다. 여기서 드라이브 ID는 도구에서 디스크로부터 읽어들이는 드라이브와 관련된 일련 번호입니다. 가져오기 작업을 만들려면 모든 드라이브의 저널 파일이 필요합니다. 도구가 중단되는 경우 저널 파일을 사용하여 드라이브 준비를 다시 시작할 수도 있습니다.
+Azure Import/Export 도구를 사용하여 준비하는 각 하드 드라이브의 경우 이 도구에서 "&lt;DriveID&gt;.xml" 이름의 단일 저널 파일을 만듭니다. 여기서 드라이브 ID는 도구에서 디스크로부터 읽어 들이는 드라이브와 관련된 일련 번호입니다. 가져오기 작업을 만들려면 모든 드라이브의 저널 파일이 필요합니다. 도구가 중단되는 경우 저널 파일을 사용하여 드라이브 준비를 다시 시작할 수도 있습니다.
 
 #### <a name="what-is-a-log-directory"></a>로그 디렉터리란?
 
@@ -367,11 +366,11 @@ BitLocker에서 TPM을 사용하지 않도록 설정하려면 다음 단계를 �
 3. **시작 시 추가 인증 요구** 정책을 편집합니다.
 4. 정책을 **사용**으로 설정하고 **호환되는 TPM이 없이 BitLocker 허용**이 선택되어 있는지 확인합니다.
 
-####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>내 컴퓨터에 .Net 4 이상의 버전이 설치되어 있는지 확인하려면 어떻게 합니까?
+####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>내 컴퓨터에 .NET 4 이상의 버전이 설치되어 있는지 확인하려면 어떻게 합니까?
 
 모든 Microsoft .NET Framework 버전은 %windir%\Microsoft.NET\Framework\ 디렉터리에 설치됩니다.
 
-도구를 실행해야 하는 대상 컴퓨터에서 위에서 언급한 부분으로 이동합니다. "v4"로 시작하는 폴더 이름을 찾습니다. 이러한 디렉터리가 없으면 컴퓨터에 .Net v4가 설치되지 않은 것입니다. [Microsoft .NET Framework 4(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=17851)를 사용하면 컴퓨터에 .Net 4를 다운로드할 수 있습니다.
+도구를 실행해야 하는 대상 컴퓨터에서 위에서 언급한 부분으로 이동합니다. "v4"로 시작하는 폴더 이름을 찾습니다. 이러한 디렉터리가 없으면 컴퓨터에 .NET 4가 설치되지 않은 것입니다. [Microsoft .NET Framework 4(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=17851)를 사용하면 컴퓨터에 .Net 4를 다운로드할 수 있습니다.
 
 ### <a name="limits"></a>제한
 
@@ -403,9 +402,20 @@ WAImportExport 도구는 배치 기준으로 파일을 읽고 쓰며, 배치 하
 
 ### <a name="waimportexport-output"></a>WAImportExport 출력
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>두 개의 저널 파일이 있습니다. Azure Portal에는 어느 파일을 업로드해야 합니까?
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>저널 파일이 2개 있습니다. Azure Portal에는 어느 파일을 업로드해야 합니까?
 
-**.xml** - WAImportExport 도구를 사용하여 준비하는 각 하드 드라이브의 경우 이 도구에서 "&lt;DriveID&gt;.xml" 이름의 단일 저널 파일을 만듭니다. 여기서 드라이브 ID는 도구에서 디스크로부터 읽어들이는 드라이브와 관련된 일련 번호입니다. Azure Portal에서 가져오기 작업을 만들려면 모든 드라이브의 저널 파일이 필요합니다. 도구가 중단되는 경우 이 저널 파일을 사용하여 드라이브 준비를 다시 시작할 수도 있습니다.
+**.xml** - WAImportExport 도구를 사용하여 준비하는 각 하드 드라이브의 경우 이 도구에서 `<DriveID>.xml` 이름의 단일 저널 파일을 만듭니다. 여기서 드라이브 ID는 도구에서 디스크로부터 읽어 들이는 드라이브와 관련된 일련 번호입니다. Azure Portal에서 가져오기 작업을 만들려면 모든 드라이브의 저널 파일이 필요합니다. 도구가 중단되는 경우 이 저널 파일을 사용하여 드라이브 준비를 다시 시작할 수도 있습니다.
 
-**.jrn** - .jrn 접미사가 있는 저널 파일에는 하드 드라이브의 모든 복사 세션에 대한 상태가 포함됩니다. 가져오기 작업을 만드는 데 필요한 정보도 포함됩니다. WAImportExport 도구를 실행할 때 항상 저널 파일과 복사 세션 ID를 지정해야 합니다.
+**.jrn** - `.jrn` 접미사가 있는 저널 파일에는 하드 드라이브의 모든 복사 세션에 대한 상태가 포함됩니다. 가져오기 작업을 만드는 데 필요한 정보도 포함됩니다. WAImportExport 도구를 실행할 때 항상 저널 파일과 복사 세션 ID를 지정해야 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure Import/Export 도구 설정](storage-import-export-tool-setup.md)
+* [가져오기 프로세스 중에 속성 및 메타데이터 설정](storage-import-export-tool-setting-properties-metadata-import.md)
+* [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+* [자주 사용 되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference.md) 
+* [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
+* [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
 

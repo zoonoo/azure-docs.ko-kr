@@ -1,6 +1,6 @@
 ---
-title: "Azure Import/Export 도구 가져오기 작업 명령에 대한 빠른 참조 | Microsoft Docs"
-description: "가져오기 작업에 자주 사용되는 Azure Import/Export 도구 명령에 대한 명령 참조 이는 Import/Export 도구의 v1을 나타냅니다."
+title: "Azure Import/Export 도구 가져오기 작업 명령에 대한 빠른 참조 - v1 | Microsoft Docs"
+description: "자주 사용되는 가져오기 작업 명령에 대한 Azure Import/Export 도구 명령 참조 Import/Export 도구 v1을 나타냅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 0c58a94a553a22ac06bfdfd8032879f4a4a87fe5
-ms.openlocfilehash: e1c440ee165d148b59f29035b853cd8e13a44e7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 632100f324c47d69f64cff020aafbaa300ae8c2b
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>가져오기 작업에 자주 사용되는 명령에 대한 빠른 참조
+# <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>가져오기 작업에 자주 사용 되는 명령에 대한 빠른 참조
 이 섹션에서는 몇 가지 자주 사용하는 명령에 대한 빠른 참조를 제공합니다. 자세한 사용법은 [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)를 참조하세요.  
 
 ## <a name="prepare-the-disks-when-data-already-copied-to-the-disks"></a>이미 디스크에 데이터가 복사되어 있는 경우 디스크 준비
@@ -59,11 +60,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:music /srcdir:d:\Music /dstd
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favoritemovie.vhd /dstblob:dvd/favoritemovie.vhd  
 ```  
   
-## <a name="see-also"></a>참고 항목  
- [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+## <a name="next-steps"></a>다음 단계
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 

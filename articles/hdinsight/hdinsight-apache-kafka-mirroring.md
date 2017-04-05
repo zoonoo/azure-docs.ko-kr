@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,13 +16,14 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 1527896e4f512cdfa6a4e925bbdca88a1e6a8fe7
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 281901045723266128db9069a6f244acb183ae80
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>MirrorMaker를 사용하여 HDInsight 클러스터에서 Kafka 복제본 만들기(미리 보기)
 
-Apache Kafka에는 한 Kafka 클러스터에서 다른 Kafka 클러스터로 토픽를 복제할 수 있는 미러링 기능이 있습니다. 예를 들어 다른 Azure 영역의 Kafka 클러스터 간에 레코드를 복제합니다.
+Apache Kafka에는 한 Kafka 클러스터에서 다른 Kafka 클러스터로 토픽을 복제할 수 있는 미러링 기능이 있습니다. 예를 들어 다른 Azure 영역의 Kafka 클러스터 간에 레코드를 복제합니다.
 
 미러링은 연속적 프로세스로 실행되거나 한 클러스터에서 다른 클러스터로 데이터를 마이그레이션하는 방법으로 단속적으로 사용될 수 있습니다.
 
@@ -34,7 +36,7 @@ Apache Kafka에는 한 Kafka 클러스터에서 다른 Kafka 클러스터로 토
 
 * Azure Virtual Network: 원본 및 대상 Kafka 클러스터는 서로 직접 통신할 수 있어야 합니다. HDInsight에서는 Kafka API를 공개적으로 인터넷에 공개하지 않기 때문에 원본 및 대상 클러스터가 모두 동일한 Azure Virtual Network에 있어야 합니다.
 
-* 2개 Kafka 클러스터: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Virtual Network에서&2;개의 Kafka를 HDInsight 클러스터에 만듭니다.
+* 2개 Kafka 클러스터: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Virtual Network에서 2개의 Kafka를 HDInsight 클러스터에 만듭니다.
 
 ## <a name="how-does-mirroring-work"></a>미러링 작동 방식
 
@@ -117,18 +119,12 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
    
     **sshuser**은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
    
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-   
-    * [Linux, Mac OS, Unix 클라이언트 및 Windows 10의 Bash에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-    * [Windows 클라이언트에서 HDInsight와 함께 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 Zookeeper 호스트를 찾고 `SOURCE_ZKHOSTS` 변수를 설정한 다음 `testtopic`이라는 새 토픽을 여러 개 만듭니다.
    
     ```bash
-    # Get a list of zookeeper hosts for the source cluster
     SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-    # Create a topic on the source cluster
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
@@ -146,11 +142,11 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
     echo $SOURCE_ZKHOSTS
     ```
    
-    이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
+ 이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
    
-        zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
+       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
    
-    이 정보를 저장합니다. 해당 정보는 다음 섹션에서 사용됩니다.
+ 이 정보를 저장합니다. 해당 정보는 다음 섹션에서 사용됩니다.
 
 ## <a name="configure-mirroring"></a>미러링 구성
 
@@ -160,11 +156,7 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
    
     **sshuser**은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
    
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-   
-    * [Linux, Mac OS, Unix 클라이언트 및 Windows 10의 Bash에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Windows 클라이언트에서 HDInsight와 함께 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 **원본** 클러스터와 통신하는 방법을 설명하는 `consumer.properties` 파일을 만듭니다.
    
@@ -186,11 +178,8 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 3. 대상 클러스터와 통신하는 생산자를 구성하기 전에 **대상** 클러스터에 대한 broker 호스트를 찾아야 합니다. 다음 명령을 사용하여 이 정보를 검색합니다.
    
     ```bash
-    # Install JQ for parsing JSON documents
     sudo apt -y install jq
-    # Get the broker information for the destination cluster
     DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-    # Display the information
     echo $DEST_BROKERHOSTS
     ```
    
@@ -239,28 +228,22 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
     
     ```bash
-    # Install JQ for working with JSON
     sudo apt -y install jq
-    # Retrieve the Kafka brokers
     SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-    # Start a producer
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 이러한 메시지는 **원본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C**를 클릭하여 프로듀서 프로세스를 종료합니다.
+ 커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 이러한 메시지는 **원본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C**를 클릭하여 프로듀서 프로세스를 종료합니다.
 
 3. **대상** 클러스터에 대한 SSH 연결에서 **Ctrl + C**를 사용하여 MirrorMaker 프로세스를 종료합니다. 그런 다음, 다음 명령을 사용하여 `testtopic` 항목이 만들어졌으며 항목의 해당 데이터가 이 미러로 복제되었는지 확인합니다.
     
     ```bash
-    # Get a list of zookeeper hosts for the destination cluster
     DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-    # List topics on destination
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
-    # Retrieve messages from the `testtopic`
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
     
-    이제 항목 목록에 MirrorMaster가 원본 클러스터에서 대상으로 토픽을 미러링할 때 만들어진 `testtopic`이(가) 포함됩니다. 이 항목에서 검색한 메시지는 원본 클러스터에 입력한 것과 동일합니다.
+  이제 항목 목록에 MirrorMaster가 원본 클러스터에서 대상으로 토픽을 미러링할 때 만들어진 `testtopic`이(가) 포함됩니다. 이 항목에서 검색한 메시지는 원본 클러스터에 입력한 것과 동일합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
@@ -276,10 +259,5 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 * [HDInsight에서 Apache Kafka 시작](hdinsight-apache-kafka-get-started.md)
 * [HDInsight의 Kafka에서 Apache Spark 사용](hdinsight-apache-spark-with-kafka.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

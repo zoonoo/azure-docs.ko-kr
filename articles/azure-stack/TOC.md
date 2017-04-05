@@ -65,10 +65,11 @@
 #### [마켓플레이스 항목 만들기 및 게시](azure-stack-create-and-publish-marketplace-item.md)
 #### [사용자 지정 가상 컴퓨터 이미지 추가](azure-stack-add-vm-image.md)
 #### [Linux 가상 컴퓨터 배포](azure-stack-linux.md)
-### 청구 및 차지백
-#### [청구 및 차지백 개요](azure-stack-billing-and-chargeback.md)
-#### [공급자 리소스 사용 API](azure-stack-provider-resource-api.md)
-#### [테넌트 리소스 사용 API](azure-stack-tenant-resource-usage-api.md)
+### 사용량 및 결제
+#### [개요](azure-stack-billing-and-chargeback.md)
+#### [사용량 데이터 보고](azure-stack-usage-reporting.md)
+#### [공급자 사용량 API](azure-stack-provider-resource-api.md)
+#### [테넌트 사용량 API](azure-stack-tenant-resource-usage-api.md)
 #### [사용 FAQ](azure-stack-usage-related-faq.md)
 
 # 서비스 사용

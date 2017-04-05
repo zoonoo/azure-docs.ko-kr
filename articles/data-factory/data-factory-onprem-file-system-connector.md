@@ -1,5 +1,5 @@
 ---
-title: "파일 시스템에서의 데이터 이동 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 파일 시스템 간에 데이터 이동 | Microsoft Docs"
 description: "Azure Data Factory를 사용하여 온-프레미스 파일 시스템에서 데이터를 이동하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
@@ -12,48 +12,185 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0b2c783712419de1ab1897a0404429fc4ed4c688
-ms.openlocfilehash: 244c3320d673b884057b4200bed0c7858b1a2fea
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 9ce6110b3677ccf8252a91654d71de4273e68b9e
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Azure Data Factory를 통한 온-프레미스 파일 시스템에서의 데이터 이동
-이 문서에서는 Azure Data Factory 복사 작업을 사용하여 온-프레미스 파일 시스템에서 데이터를 이동하는 방법을 설명합니다. 온-프레미스 파일 시스템과 함께 원본 또는 싱크로 사용할 수 있는 데이터 저장소 목록은 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 온-프레미스 HDFS로 데이터 이동이 아닌 온-프레미스 HDFS에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파일 시스템과의 연결을 지원합니다. 데이터 관리 게이트웨이 및 단계별 게이트웨이 설정 지침을 알아보려면 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 파일 시스템의 데이터를 다른 곳으로 이동하는 방법 또는 그 반대로 이동하는 방법을 설명합니다. 온-프레미스 파일 시스템에서 지원되는 싱크 데이터 저장소로 또는 지원되는 원본 데이터 저장소에서 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다. 온-프레미스 파일 시스템과 함께 원본 또는 싱크로 사용할 수 있는 데이터 저장소 목록은 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 를 참조하세요. 
+
+## <a name="enabling-connectivity"></a>연결 사용
+Data Factory는 **데이터 관리 게이트웨이**를 통해 온-프레미스 파일 시스템 간의 연결을 지원합니다. Data Factory 서비스에서 파일 시스템을 비롯한 지원되는 온-프레미스 데이터 저장소에 연결하도록 허용하려면 온-프레미스 환경에 데이터 관리 게이트웨이를 설치해야 합니다. 데이터 관리 게이트웨이 및 단계별 게이트웨이 설정 지침을 알아보려면 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 데이터 관리 게이트웨이와 달리 온-프레미스 파일 시스템과 통신하기 위해 다른 이진 파일을 설치할 필요가 없습니다. 파일 시스템이 Azure IaaS VM인 경우에도 데이터 관리 게이트웨이를 설치하여 사용해야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 
+
+Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba.org/)를 설치하고 Windows 서버에 데이터 관리 게이트웨이를 설치합니다. Linux 서버에 대한 데이터 관리 게이트웨이 설치는 지원되지 않습니다.
+
+## <a name="getting-started"></a>시작
+다른 도구/API를 사용하여 파일 시스템 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
+
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+
+또한 **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API**를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
+
+도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다. 
+
+1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
+3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
+
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 파일 시스템으로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples) 섹션을 참조하세요. 
+
+다음 섹션에서는 파일 시스템에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
+
+## <a name="linked-service-properties"></a>연결된 서비스 속성
+**온-프레미스 파일 서버** 연결 서비스를 사용하면 Azure Data Factory에 온-프레미스 파일 시스템을 연결할 수 있습니다. 다음 표에서는 온-프레미스 파일 서버 연결 서비스에 지정된 JSON 요소에 대해 설명합니다.
+
+| 속성 | 설명 | 필수 |
+| --- | --- | --- |
+| type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
+| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 집합 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. |예 |
+| userId |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
+| password |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
+| encryptedCredential |New-AzureRmDataFactoryEncryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
+| gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |예 |
+
+
+### <a name="sample-linked-service-and-dataset-definitions"></a>연결된 서비스 및 데이터 집합 정의 샘플
+| 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 집합 정의의 folderPath |
+| --- | --- | --- |
+| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
+| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
+
+
+### <a name="example-using-username-and-password-in-plain-text"></a>예제: 일반 텍스트에 사용자 이름 및 암호 사용
+
+```JSON
+{
+  "Name": "OnPremisesFileServerLinkedService",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "\\\\Contosogame-Asia",
+      "userid": "Admin",
+      "password": "123456",
+      "gatewayName": "mygateway"
+    }
+  }
+}
+```
+
+### <a name="example-using-encryptedcredential"></a>예제: encryptedcredential 사용
+
+```JSON
+{
+  "Name": " OnPremisesFileServerLinkedService ",
+  "properties": {
+    "type": "OnPremisesFileServer",
+    "typeProperties": {
+      "host": "D:\\",
+      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+      "gatewayName": "mygateway"
+    }
+  }
+}
+```
+
+## <a name="dataset-properties"></a>데이터 집합 속성
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md)를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.
+
+typeProperties 섹션은 데이터 집합의 각 형식마다 다릅니다. 데이터 저장소에 있는 데이터의 위치 및 형식과 같은 정보를 제공합니다. **FileShare** 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음과 같은 속성이 포함됩니다.
+
+| 속성 | 설명 | 필수 |
+| --- | --- | --- |
+| folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 집합 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
+| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 집합에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2014-1-?. txt "<br/><br/>fileFilter는 FileShare 입력 데이터 집합에 적용할 수 있습니다. |아니요 |
+| partitionedBy |partitionedBy를 사용하면 시계열 데이터의 동적 folderPath/fileName을 지정할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수를 포함하는 folderPath가 있습니다. |아니요 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 > [!NOTE]
-> 데이터 관리 게이트웨이와 달리 온-프레미스 파일 시스템과 통신하기 위해 다른 이진 파일을 설치할 필요가 없습니다.
->
-> 연결 및 게이트웨이 관련 문제 해결을 위한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues)을 참조하세요.
->
->
+> fileName 및 fileFilter는 동시에 사용할 수 없습니다.
 
-## <a name="linux-file-share"></a>Linux 파일 공유
-서비스에 연결된 파일 서버와 Linux 파일을 공유하려면 다음 두 단계를 수행합니다.
+### <a name="using-partitionedby-property"></a>partitionedBy 속성 사용
+이전 섹션에서 설명했듯이 **partitionedBy** 속성, [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용하여 시계열 데이터의 동적 folderPath와 filename을 지정할 수 있습니다.
 
-* Linux 서버에 [Samba](https://www.samba.org/)를 설치합니다.
-* Windows 서버에 데이터 관리 게이트웨이를 설치하고 구성합니다. Linux 서버에 대한 데이터 관리 게이트웨이 설치는 지원되지 않습니다.
+시계열 데이터 집합, 예약 및 조각에 대해 자세히 이해하려면 [데이터 집합 만들기](data-factory-create-datasets.md), [예약 및 실행](data-factory-scheduling-and-execution.md) 그리고 [파이프라인 만들기](data-factory-create-pipelines.md)를 참조하세요.
 
-## <a name="copy-wizard"></a>복사 마법사
-온-프레미스 파일 시스템에서 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 복사 마법사를 사용하는 것입니다. 빠른 연습을 위해서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+#### <a name="sample-1"></a>샘플 1:
 
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
+
+이 예제에서 {Slice}는 Data Factory 시스템 변수인 SliceStart의 값(YYYYMMDDHH 형식)으로 대체됩니다. SliceStart는 조각의 시작 시간을 가리킵니다. folderPath는 각 조각에 따라 다릅니다. 예를 들어 wikidatagateway/wikisampledataout/2014100103 또는 wikidatagateway/wikisampledataout/2014100104입니다.
+
+#### <a name="sample-2"></a>샘플 2:
+
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
+
+이 예제에서 SliceStart의 년, 월, 일 및 시는 folderPath 및 fileName 속성에서 사용하는 별도의 변수로 추출됩니다.
+
+## <a name="copy-activity-properties"></a>복사 작업 속성
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 데이터 집합, 정책 등의 속성은 모든 유형의 활동에 사용할 수 있습니다. 반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다.
+
+복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다. 온-프레미스 파일 시스템에서 데이터를 이동하는 경우 복사 작업의 원본 유형을 **FileSystemSource**로 설정합니다. 온-프레미스 파일 시스템으로 데이터를 이동하는 경우 복사 작업의 싱크 유형을 **FileSystemSink**로 설정합니다. 이 섹션에서는 FileSystemSource 및 FileSystemSink에서 지원되는 속성의 목록을 제공합니다.
+
+**FileSystemSource**는 다음 속성을 지원합니다.
+
+| 속성 | 설명 | 허용되는 값 | 필수 |
+| --- | --- | --- | --- |
+| recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
+
+**FileSystemSink**에서 지원하는 속성은 다음과 같습니다.
+
+| 속성 | 설명 | 허용되는 값 | 필수 |
+| --- | --- | --- | --- |
+| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**PreserveHierarchy:** 대상 폴더에서 파일 계층 구조를 유지합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |아니요 |
+
+### <a name="recursive-and-copybehavior-examples"></a>recursive 및 copyBehavior 예제
+이 섹션에서는 recursive 및 copyBehavior 값의 다양한 조합에 대한 복사 작업의 결과 동작을 설명합니다.
+
+| recursive 값 | copyBehavior 값 | 결과 동작 |
+| --- | --- | --- |
+| true |preserveHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같이 원본 폴더와 동일한 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File3에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5에 대해 자동 생성된 이름 |
+| true |mergeFiles |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1, File2, File3, File4 및 File5의 파일 내용이 자동 생성된 파일 이름을 사용하는 파일 하나로 병합됩니다. |
+| false |preserveHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
+| false |flattenHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
+| false |mergeFiles |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1과 File2의 파일 내용이 자동 생성된 파일 이름을 사용하는 파일 하나로 병합됩니다.<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
+
+## <a name="json-examples"></a>JSON 예
 다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, 온-프레미스 파일 시스템과 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하면 데이터를 원본에서 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 나열된 싱크 중 하나로 *직접* 복사할 수 있습니다.
 
-## <a name="sample-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>샘플: 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터 복사
-이 샘플에서는 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다.
+## <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>예제: 온-프레미스 파일 시스템에서 Azure Blob Storage로 데이터 복사
+이 샘플에서는 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
-샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
-
-* [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#on-premises-file-server-linked-service-properties)형식의 연결된 서비스
-* [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)형식의 연결된 서비스
-* [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
-* [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
-* [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+* [OnPremisesFileServer](#linked-service-properties)형식의 연결된 서비스
+* [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스
+* [FileShare](#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+* [FileSystemSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 여기서는 매시간 시계열 데이터를 온-프레미스 파일 시스템에서 Azure Blob 저장소로 복사합니다. 샘플에 사용된 JSON 속성은 샘플 뒤에 나오는 섹션에서 설명합니다.
 
@@ -76,7 +213,7 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 }
 ```
 
-**userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 서버 연결 서비스](#onpremisesfileserver-linked-service-properties)를 참조하세요.
+**userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 서버 연결 서비스](#linked-service-properties)를 참조하세요.
 
 **Azure 저장소 연결 서비스:**
 
@@ -218,7 +355,7 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 }
 ```
 
-**복사 작업:**
+**파일 시스템 원본 및 Blob 싱크를 사용하는 파이프라인의 복사 작업:** 
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **FileSystemSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
@@ -268,18 +405,18 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 }
 ```
 
-## <a name="sample-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>샘플: Azure SQL Database에서 온-프레미스 파일 시스템으로 데이터 복사
+## <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>예제: Azure SQL Database에서 온-프레미스 파일 시스템으로 데이터 복사
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
-* AzureSqlDatabase 형식의 연결된 서비스입니다.
-* OnPremisesFileServer 형식의 연결된 서비스입니다.
-* AzureSqlTable 형식의 입력 데이터 집합입니다.
-* FileShare 형식의 출력 데이터 집합입니다.
-* SqlSource 및 FileSystemSink를 사용하는 복사 작업의 파이프라인
+* [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties) 형식의 연결된 서비스입니다.
+* [OnPremisesFileServer](#linked-service-properties)형식의 연결된 서비스
+* [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties) 형식의 입력 데이터 집합입니다.
+* [FileShare](#dataset-properties) 형식의 출력 데이터 집합입니다.
+* [SqlSource](data-factory-azure-sql-connector.md##copy-activity-properties) 및 [FileSystemSink](#copy-activity-properties)를 사용하는 복사 작업의 파이프라인입니다.
 
 이 샘플에서는 매시간 시계열 데이터를 Azure SQL 테이블에서 온-프레미스 파일 시스템으로 복사합니다. 샘플에 사용된 JSON 속성은 샘플 뒤에 나오는 섹션에서 설명합니다.
 
-**Azure SQL 연결 서비스:**
+**Azure SQL Database 연결된 서비스:**
 
 ```JSON
 {
@@ -310,7 +447,7 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 }
 ```
 
-**userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 시스템 연결 서비스](#onpremisesfileserver-linked-service-properties)를 참조하세요.
+**userid** 및 **password** 속성을 사용하는 대신 **encryptedCredential** 속성을 사용하는 것이 좋습니다. 이 연결 서비스에 대한 자세한 내용은 [파일 시스템 연결 서비스](#linked-service-properties)를 참조하세요.
 
 **Azure SQL 입력 데이터 집합:**
 
@@ -407,7 +544,7 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 }
 ```
 
-**복사 작업을 포함한 파이프라인:**
+**SQL 원본 및 파일 시스템 싱크를 사용하는 파이프라인의 복사 작업:**
 
 파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**로 설정되고 **sink** 형식은 **FileSystemSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 복사할 과거 한 시간의 데이터를 선택합니다.
 
@@ -458,153 +595,8 @@ Data Factory는 데이터 관리 게이트웨이를 통해 온-프레미스 파�
 }
 ```
 
-## <a name="on-premises-file-server-linked-service-properties"></a>온-프레미스 파일 서버 연결 서비스 속성
-온-프레미스 파일 서버 연결 서비스를 사용하면 Azure Data Factory에 온-프레미스 파일 시스템을 연결할 수 있습니다. 다음 표에서는 온-프레미스 파일 서버 연결 서비스에 지정된 JSON 요소에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
-| --- | --- | --- |
-| type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
-| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 집합 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. |예 |
-| userId |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
-| password |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
-| encryptedCredential |New-AzureRmDataFactoryEncryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
-| gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |예 |
-
-온-프레미스 파일 시스템 데이터 원본의 자격 증명을 설정하는 방법에 대한 자세한 내용은 [데이터 관리 게이트웨이를 사용하여 온-프레미스 원본과 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
-
-### <a name="sample-linked-service-and-dataset-definitions"></a>연결된 서비스 및 데이터 집합 정의 샘플
-| 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 집합 정의의 folderPath |
-| --- | --- | --- |
-| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
-| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
-
-**게이트웨이 버전 확인:**
-
-1. 컴퓨터에서 [데이터 관리 게이트웨이 구성 관리자](data-factory-data-management-gateway.md#configuration-manager) 를 시작합니다.
-2. **도움말** 탭으로 전환합니다.
-
-> [!NOTE]
-> 최신 기능 및 픽스를 활용하려면 [게이트웨이를 데이터 관리 게이트웨이 2.0 이상으로 업그레이드](data-factory-data-management-gateway.md#update)하는 것이 좋습니다.
->
->
-
-**예제: 일반 텍스트에 사용자 이름 및 암호 사용**
-
-```JSON
-{
-  "Name": "OnPremisesFileServerLinkedService",
-  "properties": {
-    "type": "OnPremisesFileServer",
-    "typeProperties": {
-      "host": "\\\\Contosogame-Asia",
-      "userid": "Admin",
-      "password": "123456",
-      "gatewayName": "mygateway"
-    }
-  }
-}
-```
-
-**예제: encryptedcredential 사용**
-
-```JSON
-{
-  "Name": " OnPremisesFileServerLinkedService ",
-  "properties": {
-    "type": "OnPremisesFileServer",
-    "typeProperties": {
-      "host": "D:\\",
-      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
-      "gatewayName": "mygateway"
-    }
-  }
-}
-```
-
-## <a name="on-premises-file-system-dataset-type-properties"></a>온-프레미스 파일 시스템 데이터 집합 형식 속성
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md)를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.
-
-typeProperties 섹션은 데이터 집합의 각 형식마다 다릅니다. 데이터 저장소에 있는 데이터의 위치 및 형식과 같은 정보를 제공합니다. **FileShare** 형식의 데이터 집합에 대한 typeProperties 섹션에는 다음과 같은 속성이 포함됩니다.
-
-| 속성 | 설명 | 필수 |
-| --- | --- | --- |
-| folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 집합 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 집합에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
-| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2014-1-?. txt "<br/><br/>fileFilter는 FileShare 입력 데이터 집합에 적용할 수 있습니다. |아니요 |
-| partitionedBy |partitionedBy를 사용하면 시계열 데이터의 동적 folderPath/fileName을 지정할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수를 포함하는 folderPath가 있습니다. |아니요 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](#specifying-textformat), [Json 형식](#specifying-jsonformat), [Avro 형식](#specifying-avroformat), [Orc 형식](#specifying-orcformat) 및 [Parquet 형식](#specifying-parquetformat) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [압축 지정](#specifying-compression) 섹션을 참조하세요. |아니요 |
-
-> [!NOTE]
-> fileName 및 fileFilter는 동시에 사용할 수 없습니다.
->
->
-
-### <a name="using-partitionedby-property"></a>partitionedBy 속성 사용
-이전 섹션에서 설명했듯이 partitionedBy를 사용하여 시계열 데이터의 동적 folderPath와 fileName을 지정할 수 있습니다. 이렇게 하려면 Data Factory 매크로와 지정된 데이터 조각의 논리적 기간을 나타내는 SliceStart 및 SliceEnd 시스템 변수를 사용해야 합니다.
-
-시계열 데이터 집합, 예약 및 조각에 대해 자세히 이해하려면 [데이터 집합 만들기](data-factory-create-datasets.md), [예약 및 실행](data-factory-scheduling-and-execution.md) 그리고 [파이프라인 만들기](data-factory-create-pipelines.md)를 참조하세요.
-
-#### <a name="sample-1"></a>샘플 1:
-
-```JSON
-"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-"partitionedBy":
-[
-    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-],
-```
-
-이 예제에서 {Slice}는 Data Factory 시스템 변수인 SliceStart의 값(YYYYMMDDHH 형식)으로 대체됩니다. SliceStart는 조각의 시작 시간을 가리킵니다. folderPath는 각 조각에 따라 다릅니다. 예를 들어 wikidatagateway/wikisampledataout/2014100103 또는 wikidatagateway/wikisampledataout/2014100104입니다.
-
-#### <a name="sample-2"></a>샘플 2:
-
-```JSON
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy":
- [
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-],
-```
-
-이 예제에서 SliceStart의 년, 월, 일 및 시는 folderPath 및 fileName 속성에서 사용하는 별도의 변수로 추출됩니다.
-
-[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
-
-[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
-
-## <a name="file-share-copy-activity-type-properties"></a>파일 공유 복사 작업 형식 속성
-**FileSystemSource** 는 다음 속성을 지원합니다.
-
-| 속성 | 설명 | 허용되는 값 | 필수 |
-| --- | --- | --- | --- |
-| recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
-
-**FileSystemSink**에서 지원하는 속성은 다음과 같습니다.
-
-| 속성 | 설명 | 허용되는 값 | 필수 |
-| --- | --- | --- | --- |
-| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**PreserveHierarchy:** 대상 폴더에서 파일 계층 구조를 유지합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |아니요 |
-
-### <a name="recursive-and-copybehavior-examples"></a>recursive 및 copyBehavior 예제
-이 섹션에서는 recursive 및 copyBehavior 값의 다양한 조합에 대한 복사 작업의 결과 동작을 설명합니다.
-
-| recursive 값 | copyBehavior 값 | 결과 동작 |
-| --- | --- | --- |
-| true |preserveHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같이 원본 폴더와 동일한 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File3에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5에 대해 자동 생성된 이름 |
-| true |mergeFiles |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1, File2, File3, File4 및 File5의 파일 내용이 자동 생성된 파일 이름을 사용하는 파일 하나로 병합됩니다. |
-| false |preserveHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
-| false |flattenHierarchy |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동으로 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
-| false |mergeFiles |다음과 같은 구조의 Folder1 원본 폴더인 경우<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1과 File2의 파일 내용이 자동 생성된 파일 이름을 사용하는 파일 하나로 병합됩니다.<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
-
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+복사 작업 정의에서 원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
  Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 다양한 최적화 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md) 를 참조하세요.

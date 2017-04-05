@@ -23,18 +23,12 @@
 ## 피어링 구성 만들기 및 수정
 ### [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell(클래식)](expressroute-howto-routing-classic.md)
-## 가상 네트워크를 ExpressRoute 회로에 연결합니다.
+## 가상 네트워크를 Express 경로 회로에 연결합니다.
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
-## ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell(클래식)](expressroute-howto-add-gateway-classic.md)
-## 사이트 간 및 VPN Gateway 및 ExpressRoute 공존 연결 만들기
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell(클래식)](expressroute-howto-coexist-classic.md)
-## [클래식에서 Resource Manager로 회로 마이그레이션](expressroute-howto-move-arm.md)
+## [ExpressRoute에 대한 가상 네트워크 게이트웨이 구성](expressroute-howto-add-gateway-resource-manager.md)
+## [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)
+## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## ExpressRoute에 대해 라우터 구성
 ### [라우터 구성](expressroute-config-samples-routing.md)
 ### [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)

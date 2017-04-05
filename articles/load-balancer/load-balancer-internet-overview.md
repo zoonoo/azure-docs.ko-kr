@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: fb3f7c08c5f3a76e4bd28f3519ab72e8b636b93c
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -28,13 +29,13 @@ Azure 부하 분산 장치는 들어오는 트래픽의 공용 IP 주소 및 포
 
 *servicedefinition.csdef* 파일은 끝점 구성을 포함하며, 웹 역할 또는 작업자 역할 배포에 대한 역할 인스턴스가 여러 개 있는 경우 부하 분산 장치가 설정됩니다. 클라우드 배포에 인스턴스를 추가하는 방법은 서비스 구성 파일(.csfg)에서 인스턴스 개수를 변경하는 것입니다.
 
-다음 그림은 공용 및 개인 TCP 포트 443에서 3개의 가상 컴퓨터 간에 공유되는 암호화된 웹 트래픽의 부하 분산 끝점을 보여 줍니다. 이 세 대의 가상 컴퓨터는 부하 분산 집합에 속합니다.
+다음 그림에서는 공용 및 개인 TCP 포트 80에 대해 3개의 가상 컴퓨터 간에 공유되는 암호화된 웹 트래픽의 부하 분산 끝점을 보여 줍니다. 이 세 대의 가상 컴퓨터는 부하 분산 집합에 속합니다.
 
 ![공용 부하 분산 장치 예](./media/load-balancer-internet-overview/IC727496.png))
 
-그림 1 - 암호화된 웹 트래픽에 대해 부하 분산된 끝점
+그림 1 - 웹 트래픽에 대한 부하 분산 끝점
 
-인터넷 클라이언트가 TCP 포트 443에서 클라우드 서비스의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 가상 컴퓨터에 요청을 분산합니다. 부하 분산 알고리즘에 대한 자세한 내용은 [부하 분산 장치 개요 페이지](load-balancer-overview.md#load-balancer-features)를 참조하세요.
+인터넷 클라이언트가 80 TCP 포트에서 클라우드 서비스의 공용 IP 주소로 웹 페이지 요청을 보내면 Azure Load Balancer에서 부하 분산 집합에 있는 3개의 가상 컴퓨터 간에 요청을 분산합니다. 부하 분산 알고리즘에 대한 자세한 내용은 [부하 분산 장치 개요 페이지](load-balancer-overview.md#load-balancer-features)를 참조하세요.
 
 기본적으로 Azure Load Balancer는 네트워크 트래픽을 여러 가상 컴퓨터 인스턴스에 고르게 분산시킵니다. 세션 선호도도 구성할 수 있습니다. 자세한 내용은 [부하 분산 장치 배포 모드](load-balancer-distribution-mode.md)를 참조하세요.
 
@@ -45,9 +46,4 @@ Azure 부하 분산 장치는 들어오는 트래픽의 공용 IP 주소 및 포
 [인터넷 연결 부하 분산 장치를 시작](load-balancer-get-started-internet-arm-ps.md)하고 특정 부하 분산 장치 네트워크 트래픽 동작에 대한 [배포 모드](load-balancer-distribution-mode.md) 유형을 구성할 수도 있습니다.
 
 응용 프로그램이 부하 분산 장치 뒤의 서버에 대한 연결을 유지해야 하는 경우 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)에 대해 자세히 이해할 수 있습니다. Azure 부하 분산 장치를 사용하는 경우 유휴 연결 동작에 대해 알아보는 데 도움이 됩니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/23/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: dbd4dd3cadf162ea18d58639d31589f7b9b8efc3
-ms.openlocfilehash: 2dfdcd08501a63d62ec6ba565d1abc7d42c8c680
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 4e3840f68c93998a52fa2956c2ea9d0976e0f627
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -54,7 +54,11 @@ PS C:\>Connect-ServiceFabricCluster
 Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용하여 보안된 원격 클러스터 또는 클러스터에 연결하는 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요.
 
 ## <a name="upload-the-application-package"></a>응용 프로그램 패키지 업로드
-응용 프로그램 패키지를 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. 앱 패키지를 로컬로 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet을 사용합니다.  [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 명령으로 응용 프로그램 패키지를 클러스터 이미지 저장소에 업로드합니다. 서비스 패브릭 SDK PowerShell 모듈의 일부인 **Get ImageStoreConnectionStringFromClusterManifest** cmdlet는 이미지 저장소 연결 문자열을 가져오는 데 사용됩니다.  SDK 모듈을 가져오려면 다음을 실행합니다.
+응용 프로그램 패키지를 업로드하면 내부 서비스 패브릭 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다.
+로컬로 응용 프로그램 패키지를 확인하려는 경우 [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet을 사용합니다.
+
+[Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 명령으로 응용 프로그램 패키지를 클러스터 이미지 저장소에 업로드합니다.
+서비스 패브릭 SDK PowerShell 모듈의 일부인 **Get ImageStoreConnectionStringFromClusterManifest** cmdlet는 이미지 저장소 연결 문자열을 가져오는 데 사용됩니다.  SDK 모듈을 가져오려면 다음을 실행합니다.
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -65,7 +69,8 @@ Visual Studio에서 *MyApplication*이라는 응용 프로그램을 빌드하고
 다음 명령은 응용 프로그램 패키지의 내용을 나열합니다.
 
 ```powershell
-PS C:\> tree /f 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -91,19 +96,57 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
+응용 프로그램 패키지가 크거나 파일이 많은 경우 [압축할 수 있습니다](service-fabric-package-apps.md#compress-a-package). 압축은 파일의 크기와 수를 줄입니다.
+부작용은 응용 프로그램 유형 등록 및 등록 취소가 빠르다는 것입니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
+
+패키지를 압축하려면 동일한 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 명령을 사용합니다. 압축은 업로드와 별도로 `SkipCopy` 플래그를 사용하거나 업로드 작업과 함께 수행할 수 있습니다. 압축된 패키지에 압축을 적용하면 아무런 변화가 없습니다.
+압축된 패키지를 풀려면 `UncompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 명령을 사용합니다.
+
+다음 cmdlet은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. 이제 패키지에 `Code` 및 `Config` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다. 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
+
+```
+PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
+PS C:\> tree /f $path
+Folder PATH listing for volume OSDisk
+Volume serial number is 0459-2393
+C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
+|   ApplicationManifest.xml
+|
+└───Stateless1Pkg
+       Code.zip
+       Config.zip
+       ServiceManifest.xml
+```
+
+대형 응용 프로그램 패키지의 경우 압축하는 데 시간이 걸립니다. 최상의 결과를 얻으려면 빠른 SSD 드라이브를 사용합니다. 압축된 패키지의 압축 시간과 크기도 패키지 내용에 따라 다릅니다.
+예를 들어 압축 시간과 함께 초기 크기 및 압축된 패키지 크기를 보여 주는 일부 패키지의 압축 통계가 있습니다.
+
+|초기 크기(MB)|파일 수|압축 시간|압축된 패키지 크기(MB)|
+|----------------:|---------:|---------------:|---------------------------:|
+|100|100|00:00:03.3547592|60|
+|512|100|00:00:16.3850303|307|
+|1024|500|00:00:32.5907950|615|
+|2048|1000|00:01:04.3775554|1231|
+|5012|100|00:02:45.2951288|3074|
+
+압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 그대로 저장되며, 먼저 노드에서 압축이 풀린 후에 응용 프로그램이 실행됩니다.
+
+
 다음 예제에서는 패키지를 이미지 저장소의 "MyApplicationV1"이라는 폴더에 업로드합니다.
 
 ```powershell
-PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
+PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800
 ```
 
 *-ApplicationPackagePathInImageStore* 매개 변수를 지정하지 않으면 응용 프로그램 패키지가 이미지 저장소의 "Debug" 폴더에 복사됩니다.
 
+패키지를 업로드하는 데 걸리는 시간은 여러 요소에 따라 다릅니다. 이러한 요소 중 일부는 패키지의 파일 수, 패키지 크기 및 파일 크기입니다. 원본 컴퓨터와 Service Fabric 클러스터 간의 네트워크 속도 업로드 시간에 영향을 줍니다. [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)의 기본 시간 제한은 30분입니다.
+설명된 요소에 따라 시간 제한을 늘려야 할 수 있습니다. 복사 호출에서 패키지를 압축하는 경우 압축 시간도 고려해야 합니다.
+
 이미지 저장소 및 이미지 저장소 연결 문자열에 대한 보충 정보는 [이미지 저장소 연결 문자열 이해](service-fabric-image-store-connection-string.md)를 참조하세요.
 
 ## <a name="register-the-application-package"></a>응용 프로그램 패키지 등록
-응용 프로그램 패키지가 등록되는 경우 응용 프로그램 매니페스트에서 선언된 응용 프로그램 형식과 버전을 사용할 수 있게 됩니다. 시스템은 이전 단계에서 업로드된 패키지를 읽고, 패키지를 확인하며, 처리된 패키지를 내부 시스템 위치에 복사합니다.  
+응용 프로그램 매니페스트에 선언된 응용 프로그램 유형과 버전은 응용 프로그램 패키지를 등록할 때 사용할 수 있게 됩니다. 시스템은 이전 단계에서 업로드된 패키지를 읽고, 패키지를 확인하며, 처리된 패키지를 내부 시스템 위치에 복사합니다.  
 
 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet을 실행하여 클러스터에서 응용 프로그램 유형을 등록하고 배포할 수 있도록 합니다.
 
@@ -114,9 +157,10 @@ Register application type succeeded
 
 "MyApplicationV1"은 응용 프로그램 패키지가 있는 이미지 저장소의 폴더입니다. 이름이 "MyApplicationType"이고 버전이 "1.0.0"인(둘 다 응용 프로그램 매니페스트에 있음) 응용 프로그램 유형이 이제 클러스터에 등록됩니다.
 
-[Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) 명령은 시스템에서 응용 프로그램 패키지를 성공적으로 등록한 후에만 반환합니다. 등록에 걸리는 시간은 응용 프로그램 패키지의 크기 및 콘텐츠에 따라 다릅니다. **-TimeoutSec** 매개 변수는 필요한 경우 더 긴 제한 시간을 제공합니다(기본 제한 시간은 60초).  큰 앱 패키지가 있고 제한 시간이 발생하는 경우 **-Async** 매개 변수를 사용합니다.
+[Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) 명령은 시스템에서 응용 프로그램 패키지를 성공적으로 등록한 후에만 반환합니다. 등록에 걸리는 시간은 응용 프로그램 패키지의 크기 및 콘텐츠에 따라 다릅니다. **-TimeoutSec** 매개 변수는 필요한 경우 더 긴 제한 시간을 제공합니다(기본 제한 시간은 60초).
 
-[Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) 명령은 성공적으로 등록된 모든 응용 프로그램 유형 버전과 해당 등록 상태를 나열합니다.
+대형 앱 패키지가 있거나 시간 제한이 발생하는 경우 **-Async** 매개 변수를 사용합니다. 클러스터에서 register 명령을 승인할 때 명령이 반환되고 필요에 따라 처리가 계속됩니다.
+[Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) 명령은 성공적으로 등록된 모든 응용 프로그램 유형 버전과 해당 등록 상태를 나열합니다. 이 명령을 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -178,7 +222,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>응용 프로그램 유형 등록 취소
-응용 프로그램 유형의 특정 버전이 더 이상 필요하지 않은 경우 [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) cmdlet 사용하여 해당 응용 프로그램 유형을 등록 취소해야 합니다. 사용하지 않는 응용 프로그램 유형을 등록 취소하면 이미지 저장소에서 사용하는 저장 공간이 해제됩니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
+특정 버전의 응용 프로그램 유형이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) cmdlet을 사용하여 해당 응용 프로그램 유형을 등록 취소해야 합니다. 사용하지 않는 응용 프로그램 유형을 등록 취소하면 이미지 저장소에서 사용하는 저장 공간이 해제됩니다. 응용 프로그램 형식은 이에 대해 인스턴스화된 응용 프로그램이나 이를 참조하는 보류 중인 응용 프로그램이 없는 한 등록 취소할 수 있습니다.
 
 [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype)을 실행하여 현재 클러스터에 등록된 응용 프로그램 유형을 확인합니다.
 
@@ -196,6 +240,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```powershell
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
+
 ## <a name="remove-an-application-package-from-the-image-store"></a>이미지 저장소에서 응용 프로그램 패키지 제거
 응용 프로그램 패키지가 더 이상 필요하지 않은 경우 이미지 저장소에서 해당 응용 프로그램 패키지를 삭제하여 시스템 리소스를 확보할 수 있습니다.
 
@@ -224,6 +269,32 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 
     [...]
 ```
+
+이미지 저장소 및 이미지 저장소 연결 문자열에 대한 보충 정보는 [이미지 저장소 연결 문자열 이해](service-fabric-image-store-connection-string.md)를 참조하세요.
+
+### <a name="deploy-large-application-package"></a>대형 응용 프로그램 패키지 배포
+문제: 대형 응용 프로그램 패키지(GB 단위)에 대한 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 시간이 초과되었습니다.
+다음을 시도해 보세요.
+- [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 명령에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다. 기본적으로 시간 제한은 30분입니다.
+- 원본 컴퓨터와 클러스터 간의 네트워크 연결을 확인합니다. 연결 속도가 느린 경우 네트워크 연결 상태가 좋은 컴퓨터를 사용하는 것이 좋습니다.
+클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
+- 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure 저장소를 사용하도록 이미지 저장소를 구성한 경우 업로드가 제한될 수 있습니다.
+
+문제: 패키지 업로드가 성공적으로 완료되었지만 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) 시간이 초과되었습니다.
+다음을 시도해 보세요.
+- 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
+압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 응용 프로그램 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
+- [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
+- [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype)에 `Async` 스위치를 지정합니다. 클러스터에서 명령을 승인하고 프로비전이 비동기식으로 계속될 때 명령이 반환됩니다.
+이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다.
+
+### <a name="deploy-application-package-with-many-files"></a>많은 파일이 있는 응용 프로그램 패키지 배포
+문제: 많은 파일(1,000개 단위)이 있는 응용 프로그램 패키지에 대한 [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) 시간이 초과되었습니다.
+다음을 시도해 보세요.
+- 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package). 압축하면 파일의 수가 줄어듭니다.
+- [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype)에 `TimeoutSec` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
+- [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype)에 `Async` 스위치를 지정합니다. 클러스터에서 명령을 승인하고 프로비전이 비동기식으로 계속될 때 명령이 반환됩니다.
+이러한 이유로 더 긴 시간 제한을 지정할 필요가 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)

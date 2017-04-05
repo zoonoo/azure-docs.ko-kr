@@ -1,5 +1,5 @@
 ---
-title: "Service Fabric 응용 프로그램 모델 | Microsoft Docs"
+title: "Azure Service Fabric 응용 프로그램 모델 | Microsoft Docs"
 description: "서비스 패브릭에서 응용 프로그램 및 서비스를 모델링 및 설명하는 방법"
 services: service-fabric
 documentationcenter: .net
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 3/02/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 62374d57829067b27bb5876e6bbd9f869cff9187
-ms.openlocfilehash: 4991992f15b941ab9250705e20ff5f37defc30d0
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 87db655d246dad90bf0afbc91ec507b0a86d90eb
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="model-an-application-in-service-fabric"></a>서비스 패브릭에서 응용 프로그램 모델링
-이 문서는 Azure 서비스 패브릭 응용 프로그램 모델에 대한 개요를 제공합니다. 매니페스트 파일을 통해 응용 프로그램 및 서비스를 정의하고, 응용 프로그램을 패키지로 만들고, 배포용으로 준비하는 방법을 설명합니다.
+이 문서에서는 Azure Service Fabric 응용 프로그램 모델의 개요 및 매니페스트 파일을 통해 응용 프로그램과 서비스를 정의하는 방법에 대해 설명합니다.
 
 ## <a name="understand-the-application-model"></a>응용 프로그램 모델의 이해
 응용 프로그램은 특정 기능을 수행하는 구성 서비스 컬렉션입니다. 서비스는 완전한 독립 실행형 기능을 수행하며(서비스는 다른 서비스와 독립적으로 시작 및 실행 가능) 코드, 구성 및 데이터로 이루어집니다. 각 서비스에 대해 코드는 실행 가능한 이진으로 구성되고, 구성은 런타임에 로드할 수 있는 서비스 설정으로 이루어지고, 데이터는 서비스에서 사용할 임의의 정적 데이터로 구성됩니다. 이 계층형 응용 프로그램 모델의 각 구성 요소를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
@@ -85,7 +85,14 @@ ms.lasthandoff: 01/18/2017
 
 **ServiceTypes**는 이 매니페스트의 **CodePackages**에서 지원하는 서비스 유형을 선언합니다. 이러한 서비스 유형 중 하나에 대해 서비스가 인스턴스화되면 코드 패키지의 진입점을 실행하여 이 매니페스트에 선언된 모든 코드 패키지가 활성화됩니다. 결과 프로세스는 런타임에 지원되는 서비스 유형을 등록합니다. 서비스 유형은 코드 패키지 수준이 아니라 매니페스트 수준에서 선언됩니다. 따라서 코드 패키지가 여러 개인 경우 시스템에서 선언된 서비스 유형 중 어떤 하나를 조회하면 모든 코드 패키지가 활성화됩니다.
 
-**SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다. **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).
+**SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다. **EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. 별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작). 
+
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예:
+
+* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
+* 보안 인증서를 설치하여 액세스 제어를 설정합니다.
+
+**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
 
 **EnvironmentVariables**는 이 코드 패키지에 대해 설정된 환경 변수 목록을 제공합니다. `ApplicationManifest.xml`에서 이를 재정의하여 다른 서비스 인스턴스의 다른 값을 제공할 수 있습니다. 
 
@@ -167,95 +174,11 @@ For more information about other features supported by application manifests, re
 *TODO: Service Templates
 -->
 
-## <a name="package-an-application"></a>응용 프로그램 패키지 작성
-### <a name="package-layout"></a>패키지 레이아웃
-서비스 패브릭 클러스터에 배포할 수 있도록 응용 프로그램 매니페스트, 서비스 매니페스트 및 기타 필요한 패키지 파일을 특정 레이아웃으로 구성해야 합니다. 이 문서에 예로 제공된 매니페스트를 다음 디렉터리 구조로 구성해야 합니다.
 
-```
-PS D:\temp> tree /f .\MyApplicationType
-
-D:\TEMP\MYAPPLICATIONTYPE
-│   ApplicationManifest.xml
-│
-└───MyServiceManifest
-    │   ServiceManifest.xml
-    │
-    ├───MyCode
-    │       MyServiceHost.exe
-    │
-    ├───MyConfig
-    │       Settings.xml
-    │
-    └───MyData
-            init.dat
-```
-
-폴더는 각 해당 요소의 **Name** 특성과 일치하도록 이름이 지정됩니다. 예를 들어 서비스 매니페스트에 이름이 각각 **MyCodeA**와 **MyCodeB**인 코드 패키지가 두 개 있으면 이와 동일한 이름의 폴더 두 개에 각 코드 패키지에 필요한 바이너리가 포함됩니다.
-
-### <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예:
-
-* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
-* 보안 인증서를 설치하여 액세스 제어를 설정합니다.
-
-**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.  
-
-### <a name="configure"></a>구성 
-### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
-Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패키지 명령을 사용하여 위에서 설명한 레이아웃과 일치하는 패키지를 자동으로 만들 수 있습니다.
-
-패키지를 만들려면 솔루션 탐색기에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 아래와 같이 패키지 명령을 선택합니다.
-
-![Visual Studio를 통해 응용 프로그램 패키징][vs-package-command]
-
-패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾습니다. Visual Studio에서 응용 프로그램을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
-
-### <a name="build-a-package-by-command-line"></a>명령줄로 패키지 빌드
-`msbuild.exe`를 사용하여 응용 프로그램을 프로그래밍 방식으로 패키징할 수도 있습니다. 내부적으로 보면 Visual Studio가 실행하고 있으므로 출력은 동일합니다.
-
-```shell
-D:\Temp> msbuild HelloWorld.sfproj /t:Package
-```
-
-### <a name="test-the-package"></a>패키지 테스트
-**Test-ServiceFabricApplicationPackage** 명령을 사용하여 PowerShell을 통해 로컬에서 패키지 구조를 확인할 수 있습니다. 이 명령은 매니페스트 구문 해석 문제를 확인하고 모든 참조의 유효성을 검사합니다. 이 명령은 패키지에 포함된 디렉터리와 파일의 구조적인 정확성만을 검사합니다. 필요한 파일이 모두 있는 지만 확인하고 그 이상은 코드 또는 데이터 패키지 콘텐츠를 검사하지 않습니다.
-
-```
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
-False
-Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
-FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-```
-
-이 오류는 서비스 매니페스트 *SetupEntryPoint* 에서 참조되는 **MySetup.bat** 파일이 코드 패키지에 없다는 뜻입니다. 누락된 파일이 추가되면, 응용 프로그램 검사가 통과됩니다.
-
-```
-PS D:\temp> tree /f .\MyApplicationType
-
-D:\TEMP\MYAPPLICATIONTYPE
-│   ApplicationManifest.xml
-│
-└───MyServiceManifest
-    │   ServiceManifest.xml
-    │
-    ├───MyCode
-    │       MyServiceHost.exe
-    │       MySetup.bat
-    │
-    ├───MyConfig
-    │       Settings.xml
-    │
-    └───MyData
-            init.dat
-
-PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
-True
-PS D:\temp>
-```
-
-응용 프로그램이 올바르게 패키징되고 확인 절차를 통과하면 배포 준비가 완료된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
+[응용 프로그램을 패키지](service-fabric-package-apps.md)하고 배포를 준비합니다.
+
 [응용 프로그램 배포 및 제거][10]에서는 PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.
 
 [여러 환경에 대한 응용 프로그램 매개 변수 관리][11]에서는 여러 응용 프로그램 인스턴스의 매개 변수 및 환경 변수를 구성하는 방법을 설명합니다.
@@ -266,7 +189,6 @@ PS D:\temp>
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md

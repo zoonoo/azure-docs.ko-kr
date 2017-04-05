@@ -45,6 +45,8 @@
 ## [인증 프로토콜](active-directory-b2c-reference-protocols.md)
 ## [토큰](active-directory-b2c-reference-tokens.md)
 
+## [위협 관리](active-directory-b2c-reference-threat-management.md)
+
 # 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
@@ -55,7 +57,3 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [지원](active-directory-b2c-support.md)
-
-<!--HONumber=Nov16_HO4-->
-
-

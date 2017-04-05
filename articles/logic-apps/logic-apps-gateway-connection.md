@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -58,6 +58,10 @@ ms.lasthandoff: 03/10/2017
 
 게이트웨이를 설치한 후에 Azure 구독을 게이트웨이에 연결해야 합니다.
 
+> [!IMPORTANT] 
+> 게이트웨이 리소스가 논리 앱과 동일한 Azure 지역에 만들어졌는지 확인합니다. 동일한 지역에 배포하지 않은 경우 논리 앱에서 액세스할 수 없습니다. 
+> 
+
 1. 게이트웨이 설치 중에 사용된 동일한 회사 또는 학교 전자 메일 주소를 사용하여 Azure에 로그인합니다.
 2. **새로 만들기**를 선택합니다.
 3. **온-프레미스 데이터 게이트웨이**를 찾아 선택합니다.
@@ -80,6 +84,11 @@ Azure 구독이 온-프레미스 데이터 게이트웨이 인스턴스와 연�
 4. 연결을 만들려면 **만들기**를 클릭합니다.
 
 이제 논리 앱에 사용할 연결을 구성합니다.
+
+## <a name="data-gateway-connection-modifications"></a>데이터 게이트웨이 연결 수정
+논리 앱에 데이터 게이트웨이 연결을 추가하면 해당 연결에 고유한 설정을 조정하도록 수정해야 합니다. 두 위치 중 한 곳에서 연결을 찾을 수 있습니다.
+* 논리 앱에 대한 주요 블레이드에 개발 도구 섹션의 API 연결에 대한 패널이 표시됩니다. 이를 선택하면 논리 앱과 연결된 모든 API 연결이 표시됩니다. 이 중 하나는 데이터 게이트웨이 연결이 됩니다. 이를 선택하면 연결과 관련된 설정을 보고 수정할 수 있습니다.
+* API 연결을 선택하면 주 블레이드는 구독에 모든 API 연결을 표시합니다. 여기에서 목록은 데이터 게이트웨이 연결이 됩니다. 이를 선택하면 연결과 관련된 설정을 보고 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

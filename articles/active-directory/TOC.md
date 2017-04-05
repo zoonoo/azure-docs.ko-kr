@@ -128,7 +128,6 @@
 
 ## 장치 관리
 ### [장치 등록](active-directory-device-registration-overview.md)
-#### [자동 등록 관리](active-directory-device-registration.md)
 #### [설정](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
 #### [FAQ](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [클래식 포털](active-directory-application-proxy-publish.md)
 
-#### [Azure AD용 PingAccess](application-proxy-ping-access.md)
 #### [보안](application-proxy-security-considerations.md)
 #### [네트워크](application-proxy-network-topology-considerations.md)
 #### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
@@ -173,8 +171,9 @@
 #### [프록시 서버](application-proxy-working-with-proxy-servers.md)
 #### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
 #### [앱 액세스](active-directory-appssoaccess-whatis.md)
-##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure 포털](application-proxy-sso-azure-portal.md)
+#### [KCD와 SSO](active-directory-application-proxy-sso-using-kcd.md)
+#### [헤더와 SSO](application-proxy-ping-access.md)
 #### [클레임 인식 앱](active-directory-application-proxy-claims-aware-apps.md)
 #### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
 #### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)

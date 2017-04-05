@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
-ms.openlocfilehash: 3286a6e98b52f2ce6f173f79ae69f0b86ab2179a
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -29,6 +30,9 @@ Azure 응용 프로그램 게이트웨이는 기본적으로 백 엔드 풀의 �
 ![Application Gateway 프로브 예제][1]
 
 기본 상태 프로브 모니터링 사용 외에도 응용 프로그램의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 이 문서에서는 기본 및 사용자 지정 상태 프로브를 모두 설명합니다.
+
+> [!NOTE]
+> Application Gateway 서브넷에 NSG가 있는 경우 인바운드 트래픽을 위해 Application Gateway 서브넷에서 포트 범위 65503-65534를 열어야 합니다. 이러한 포트는 백 엔드 상태 API가 제대로 작동하기 위해 필요합니다.
 
 ## <a name="default-health-probe"></a>기본 상태 프로브
 
@@ -78,9 +82,4 @@ Azure 응용 프로그램 게이트웨이는 기본적으로 백 엔드 풀의 �
 Application Gateway 상태 모니터링에 대해 알아본 후에 PowerShell 및 Azure Resource Manager 배포 모델을 사용하여 Azure Portal의 [사용자 지정 상태 프로브](application-gateway-create-probe-portal.md) 또는 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md)를 구성할 수 있습니다.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Import-Export 도구 - v1 사용 | Microsoft Docs"
+title: "Azure Import-Export 도구 사용 | Microsoft Docs"
 description: "Import/Export 도구를 사용하여 가져오기 작업을 위한 하드 드라이브 준비, 가져오기 작업 복구 또는 내보내기 작업 복구 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: ca2d4bf2b1e1cb56910fa3ee7af6e45b6b77b450
-ms.openlocfilehash: 7c628022a6de01de50f50256bd2ea0cdba2c2555
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,8 +37,6 @@ Azure Import/Export 도구(WAImportExport.exe)는 Azure Import/Export 서비스�
 - 내보내기 작업을 복구합니다. 
 - 프로세스 중에 문제가 발생한 경우 Azure Import/Export 도구 문제를 해결합니다. 
 
+## <a name="next-steps"></a>다음 단계
 
-
-<!--HONumber=Dec16_HO3-->
-
-
+* [WAImportExport 도구 설정](storage-import-export-tool-setup.md)

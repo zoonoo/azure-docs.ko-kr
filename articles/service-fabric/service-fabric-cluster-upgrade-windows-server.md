@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -127,24 +127,16 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 #### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로
 
-1. [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에서 최신 버전 패키지를 다운로드합니다.
-2. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다.
+1. 클러스터의 노드 중 하나에서 Get-ServiceFabricClusterUpgrade를 실행하고 TargetCodeVersion을 기록해 둡니다.
+2. 인터넷에 연결된 컴퓨터에서 다음을 실행하여 현재 버전과 호환 가능한 모든 업그레이드 버전을 나열하고 연결된 다운로드 링크에서 해당 패키지를 다운로드합니다.
 
     ```powershell
 
-    ###### Connect to the cluster
-    $ClusterName= "mysecurecluster.something.com:19000"
-    $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
-    Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
-        -X509Credential `
-        -ServerCertThumbprint $CertThumbprint  `
-        -FindType FindByThumbprint `
-        -FindValue $CertThumbprint `
-        -StoreLocation CurrentUser `
-        -StoreName My
+    ###### Get list of all upgrade compatible packages  
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. 다운로드 한 패키지를 클러스터 이미지 저장소에 복사합니다.
+3. 클러스터에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 클러스터에 연결합니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다.
 
     ```powershell
 
@@ -155,8 +147,9 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
+4. 다운로드 한 패키지를 클러스터 이미지 저장소에 복사합니다.
 
-4. 복사된 패키지를 등록합니다.
+5. 복사된 패키지를 등록합니다.
 
     ```powershell
 
@@ -167,7 +160,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. 사용 가능한 버전으로의 클러스터 업그레이드를 시작합니다.
+6. 사용 가능한 버전으로의 클러스터 업그레이드를 시작합니다.
 
     ```Powershell
 
@@ -197,6 +190,13 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
+
+### <a name="cluster-certificate-config-upgrade"></a>클러스터 인증서 구성 업그레이드  
+오류는 클러스터 노드 간의 통신을 차단하므로 주의해서 인증서 롤오버가 실행될 수 있도록 클러스터 노드 간 인증에 클러스터 인증서가 사용됩니다.  
+기술적으로 두 가지 옵션이 지원됩니다.  
+
+1. 단일 인증서 업그레이드: 업그레이드 경로는 '인증서 A(기본) -> 인증서 B(기본) -> 인증서 C(기본) ->...'입니다.   
+2. 이중 인증서 업그레이드: 업그레이드 경로는 '인증서 A(기본) -> 인증서 A(기본) 및 B(보조) -> 인증서 B(기본) -> 인증서 B(기본) 및 C(보조) -> 인증서 C(기본) ->...'입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

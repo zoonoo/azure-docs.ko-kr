@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
-ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 48531d69fcefed27785e0e1ae667274fa48ea1d2
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -57,19 +58,15 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 
 모든 삭제를 진행하려면 다음을 수행합니다.
 
-1. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다.
+1. 현재 삭제 임계값을 검색하려면 PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다. 기본값은 500입니다.
+2. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다.
    ![자격 증명](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-2. Azure Active Directory Connector를 선택한 상태로 **실행** 작업, **내보내기**를 차례로 선택합니다.
-3. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold`를 실행합니다.
+3. Azure Active Directory Connector를 선택한 상태로 **실행** 작업, **내보내기**를 차례로 선택합니다.
+4. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`를 실행합니다. 현재 삭제 임계값을 검색할 때 500을 알게 된 값으로 바꿉니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 **개요 항목**
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

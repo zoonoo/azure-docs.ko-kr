@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: edcb6d37eb4d82ff5928ee33cf456c3795eb8131
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f9ff33f33a196e65f6cb7ee7f5332aacb9231f6d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/10/2017
 > 
 > 
 
-기본적으로 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 웹앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나*[모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 이제 Azure 앱 서비스는 Azure 포털에서 포털을 종료하지 않고 SSL 인증서를 구입 및 관리하는 매우 간단한 방법을 제공합니다.  
+기본적으로 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 웹앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나 *[모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 이제 Azure 앱 서비스는 Azure 포털에서 포털을 종료하지 않고 SSL 인증서를 구입 및 관리하는 매우 간단한 방법을 제공합니다.  
 이 문서에서는 간단한 3단계로 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**에 대한 SSL 인증서를 구입 및 구성하는 방법을 설명합니다. 
 
 > [!NOTE]
@@ -85,13 +85,13 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 > 
 
 ## <a name="bkmk_StoreKeyVault"></a>1단계: Azure 주요 자격 증명 모음에 인증서 저장
-이 단계에서는 사용자가 선택한 Azure 키 자격 증명 모음에 구입한 SSL 인증서를 저장하는 방법을 배웁니다.
+이 단계에서는 사용자가 선택한 Azure Key Vault에 구입한 SSL 인증서를 저장하는 방법을 배웁니다.
 
-1. SSL 인증서 구입을 완료했으면 다시 탐색하여 **앱 서비스 인증서** 리소스 블레이드를 수동으로 열어야 합니다(위의 1단계 참조).   
+1. SSL 인증서 구입을 완료했으면 다시 탐색하여 **App Service Certificate** 리소스 블레이드를 수동으로 열어야 합니다(위의 1단계 참조).   
    
    ![KV에 저장할 준비 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
-   이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태가 **"발급 보류 중"** 으로 표시됩니다.
+   이 인증서를 사용하려면 몇 가지 추가 단계를 완료해야 하므로 인증서 상태가 **"발급 보류 중"**으로 표시됩니다.
 2. 인증서 속성 블레이드 안에서 **"인증서 구성"**을 클릭하고 **"1단계 저장"**을 클릭하여 이 인증서를 Azure Key Vault에 저장합니다.
 3. **"Key Vault 상태"** 블레이드에서 **"Key Vault 리포지토리"**를 클릭하여 이 인증서를 저장할 기존 Key Vault를 선택하거나 **"새 Key Vault 만들기"**로 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
    
@@ -173,8 +173,16 @@ SSL 인증서를 요청하기 전에 먼저 인증서로 보안을 설정할 도
 * 도메인 이름 등록 기관에서 제공한 도구를 사용하여 이전 단계의 IP 주소를 가리키도록 사용자 지정 도메인 이름에 대한 A 레코드를 수정합니다.
    이 시점에서 HTTP:// 대신 HTTPS://를 사용하여 앱에 방문하여 인증서가 올바르게 구성 되었는지 확인할 수 있습니다.
 
-## <a name="bkmk_Rekey"></a>App Service Certificate 내보내기
+## <a name="bkmk_Export"></a>App Service Certificate 내보내기
 다른 Azure 서비스와 함께 사용할 수 있도록 App Service Certificate의 로컬 PFX 복사본을 만들 수 있습니다. 자세한 내용은 **[이 블로그 게시물을 읽으세요](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**.
+
+## <a name="bkmk_Renew"></a>App Service Certificate 자동 갱신
+인증서에 대한 자동 갱신 설정을 설정/해제하거나 인증서를 수동으로 갱신하려면 **"인증서 속성"** 블레이드에서 **"자동 갱신 설정"** 옵션을 선택하면 됩니다. 
+
+
+  ![찾아보기를 사용하여 만들기의 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+
+인증서가 만료되기 전에 자동으로 갱신하려면 **"자동 갱신"**을 설정으로 지정합니다. 이것이 기본 옵션입니다. 이 옵션을 설정하면 만료되기 90일 전부터 인증서를 갱신하려고 시도합니다. Azure Portal 환경을 사용하여 App Service 앱에 대해 SSL 바인딩을 만든 경우 준비가 되면 새 인증서와 함께 해당 바인딩도 업데이트됩니다(키 다시 생성 및 동기화 시나리오와 같음). 그렇지 않고 수동으로 갱신을 처리하려는 경우에는 이 설정을 해제해야 합니다. 만료되기 90일 이전인 경우에만 App Service Certificate를 수동으로 갱신할 수 있습니다.
 
 ## <a name="bkmk_Rekey"></a>인증서 키 다시 생성 및 동기화
 1. 보안상의 이유로 인증서 키를 다시 생성하려면 **"인증서 속성"** 블레이드에서 **"키 다시 생성 및 동기화"** 옵션을 선택하면 됩니다. 

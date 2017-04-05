@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -95,7 +95,7 @@ VNET에 게이트웨이가 없거나 Point to Site(지점과 사이트 간)가 �
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Resource Manager VNET에서 Point to Site(지점과 사이트 간) 활성화
-게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 Resource Manager VNET을 구성하려면 여기에 설명된 대로 PowerShell을 사용하여 [PowerShell을 사용하여 Virtual Network에 대해 Point to Site(지점과 사이트 간) 연결을 구성][V2VNETP2S]해야 합니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
+게이트웨이 및 지점-사이트 간 연결을 사용하여 Resource Manager VNET을 구성하려면 [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성][ V2VNETP2S]에 설명된 대로 PowerShell을 사용하거나 [Azure Portal을 사용하여 VNet에 지점 및 사이트 간 연결 구성][V2VNETPortal]에 설명된 대로 Azure Portal을 사용할 수 있습니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>미리 구성된 VNET 만들기
 게이트웨이 및 Point to Site(지점과 사이트 간)를 통해 구성되는 새 VNET을 만들려는 경우 앱 서비스 네트워킹 UI의 기능을 사용하면 됩니다. 단, 이 기능은 Resource Manager VNET에만 해당됩니다.  클래식 게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 클래식 VNET을 만들려면 네트워킹 사용자 인터페이스를 통해 이 작업을 수동으로 진행해야 합니다. 
@@ -300,4 +300,5 @@ VNET에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 

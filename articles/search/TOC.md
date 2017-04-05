@@ -33,8 +33,7 @@
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)
 ## 관리
 ### Azure Search 관리
-#### [Azure Portal](search-manage.md)
-#### [REST](search-get-started-management-api.md)
+#### [Azure 포털](search-manage.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [사용 및 통계 모니터링](search-monitor-usage.md)
 ### [트래픽 분석 검색](search-traffic-analytics.md)
@@ -78,15 +77,10 @@
 ## 코스웨어 및 자습서
 ### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ### [비디오 및 자습서](search-video-demo-tutorial-list.md)
-### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 ## 파트너 및 커뮤니티
 ### [관계형 데이터 모델링](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [다중 레벨 패싯](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 ### [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-search)
-### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)

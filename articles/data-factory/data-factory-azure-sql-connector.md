@@ -15,429 +15,47 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 90f8a2c0a30c9cce411215e1b98954de0ed9b787
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: beec132956ed4d382517379a47da57db983e7b54
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure SQL 데이터베이스 간 데이터 이동
-이 문서는 Azure 데이터 팩토리에서 복사 활동을 사용하여 Azure SQL Database에서 다른 데이터 저장소로(또는 그 반대로) 데이터를 이동하는 방법에 대해 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure SQL Database 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.  
 
-## <a name="supported-sources-and-sinks"></a>지원되는 원본 및 싱크
-복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 모든 지원되는 원본 데이터 저장소에서 Azure SQL Database로 또는 Azure SQL Database에서 모든 지원되는 싱크 데이터 저장소로 데이터를 이동할 수 있습니다.
+모든 지원되는 원본 데이터 저장소에서 Azure SQL Database로 또는 Azure SQL Database에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요.
 
-## <a name="create-pipeline"></a>파이프라인 만들기
-다른 도구/API를 사용하여 Azure SQL Database 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.  
+## <a name="getting-started"></a>시작
+다른 도구/API를 사용하여 Azure SQL Database 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-* 복사 마법사
-* Azure 포털
-* Visual Studio
-* Azure PowerShell
-* .NET API
-* REST API
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-다양한 방법의 복사 작업을 포함하는 파이프라인을 만들기 위한 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조하세요.   
+또한 **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API**를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
 
-## <a name="copy-data-wizard"></a>데이터 복사 마법사
-Azure SQL 데이터베이스 간에 데이터를 복사하는 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
+도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다. 
 
+1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
+3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
 
-다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure SQL Database로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples) 섹션을 참조하세요. 
 
+다음 섹션에서는 Azure SQL Database에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다. 
 
-## <a name="sample-copy-data-from-azure-sql-database-to-azure-blob"></a>샘플: Azure SQL 데이터베이스에서 Azure Blob에 데이터 복사
-샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
-
-1. [AzureSqlDatabase](#azure-sql-linked-service-properties)형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 형식의 연결된 서비스
-3. [AzureSqlTable](#azure-sql-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-
-
-샘플은 Azure SQL database의 테이블에서 Blob으로 (매시간, 매일 등) 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.  
-
-**Azure SQL 연결된 서비스**
-
-```JSON
-{
-  "name": "AzureSqlLinkedService",
-  "properties": {
-    "type": "AzureSqlDatabase",
-    "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-    }
-  }
-}
-```
-연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#azure-sql-linked-service-properties) 섹션을 참조하세요.
-
-**Azure Blob 저장소 연결된 서비스**
-
-```JSON
-{
-  "name": "StorageLinkedService",
-  "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
-  }
-}
-```
-연결된 서비스에서 지원하는 속성의 목록은 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) 문서를 참조하세요.
-
-
-**Azure SQL 입력 데이터 집합**
-
-샘플은 Azure SQL에서 만든 테이블 "MyTable"에 시계열 데이터에 대한 "timestampcolumn" 라는 열이 포함되었다고 가정합니다.
-
-"external": "true"로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Azure Data Factory 서비스에 전달됩니다.
-
-```JSON
-{
-  "name": "AzureSqlInput",
-  "properties": {
-    "type": "AzureSqlTable",
-    "linkedServiceName": "AzureSqlLinkedService",
-    "typeProperties": {
-      "tableName": "MyTable"
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
-}
-```
-
-데이터 집합 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 집합 형식 속성](#azure-sql-dataset-type-properties) 섹션을 참조하세요.  
-
-**Azure Blob 출력 데이터 집합**
-
-데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
-
-```JSON
-{
-  "name": "AzureBlobOutput",
-  "properties": {
-    "type": "AzureBlob",
-    "linkedServiceName": "StorageLinkedService",
-    "typeProperties": {
-      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
-      "partitionedBy": [
-        {
-          "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
-      ],
-      "format": {
-        "type": "TextFormat",
-        "columnDelimiter": "\t",
-        "rowDelimiter": "\n"
-      }
-    },
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
-}
-```
-데이터 집합 형식에서 지원하는 속성의 목록은 [Azure Blob 데이터 집합 형식 속성](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 섹션을 참조하세요.  
-
-**복사 작업을 포함하는 파이프라인**
-
-파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
-
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
-    "description":"pipeline for copy activity",
-    "activities":[  
-      {
-        "name": "AzureSQLtoBlob",
-        "description": "copy activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureSQLInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureBlobOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "SqlSource",
-            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-          },
-          "sink": {
-            "type": "BlobSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-     ]
-   }
-}
-```
-위의 예에서는 SqlSource에 대해 **sqlReaderQuery** 가 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
-
-sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL Database에 대해 실행합니다. 예: `select column1, column2 from mytable` 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
-
-SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsource) 섹션 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 참조하세요.
-
-## <a name="sample-copy-data-from-azure-blob-to-azure-sql-database"></a>샘플: Azure Blob에서 Azure SQL 데이터베이스로 데이터 복사
-샘플이 다음 데이터 팩터리 엔터티를 정의합니다.  
-
-1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 형식의 연결된 서비스
-3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4. [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
-5. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
-
-샘플은 Azure blob에서 Azure SQL database의 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
-
-**Azure SQL 연결된 서비스**
-
-```JSON
-{
-  "name": "AzureSqlLinkedService",
-  "properties": {
-    "type": "AzureSqlDatabase",
-    "typeProperties": {
-      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-    }
-  }
-}
-```
-연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#azure-sql-linked-service-properties) 섹션을 참조하세요.
-
-**Azure Blob 저장소 연결된 서비스**
-
-```JSON
-{
-  "name": "StorageLinkedService",
-  "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-    }
-  }
-}
-```
-연결된 서비스에서 지원하는 속성의 목록은 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) 문서를 참조하세요.
-
-
-**Azure Blob 입력 데이터 집합**
-
-데이터는 매시간 새 blob에 선택됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정은 데이터 팩터리 서비스에 이 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 작업에 의해 생성되지 않는다는 점을 알려줍니다.
-
-```JSON
-{
-  "name": "AzureBlobInput",
-  "properties": {
-    "type": "AzureBlob",
-    "linkedServiceName": "StorageLinkedService",
-    "typeProperties": {
-      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
-      "fileName": "{Hour}.csv",
-      "partitionedBy": [
-        {
-          "name": "Year",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "yyyy"
-          }
-        },
-        {
-          "name": "Month",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "MM"
-          }
-        },
-        {
-          "name": "Day",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "dd"
-          }
-        },
-        {
-          "name": "Hour",
-          "value": {
-            "type": "DateTime",
-            "date": "SliceStart",
-            "format": "HH"
-          }
-        }
-      ],
-      "format": {
-        "type": "TextFormat",
-        "columnDelimiter": ",",
-        "rowDelimiter": "\n"
-      }
-    },
-    "external": true,
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
-    "policy": {
-      "externalData": {
-        "retryInterval": "00:01:00",
-        "retryTimeout": "00:10:00",
-        "maximumRetry": 3
-      }
-    }
-  }
-}
-```
-데이터 집합 형식에서 지원하는 속성의 목록은 [Azure Blob 데이터 집합 형식 속성](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 섹션을 참조하세요.
-
-**Azure SQL 출력 데이터 집합**
-
-샘플은 Azure SQL의 "MyOutputTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL의 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
-
-```JSON
-{
-  "name": "AzureSqlOutput",
-  "properties": {
-    "type": "AzureSqlTable",
-    "linkedServiceName": "AzureSqlLinkedService",
-    "typeProperties": {
-      "tableName": "MyOutputTable"
-    },
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    }
-  }
-}
-```
-데이터 집합 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 집합 형식 속성](#azure-sql-dataset-type-properties) 섹션을 참조하세요.
-
-**복사 작업을 포함하는 파이프라인**
-
-파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **SqlSink**로 설정됩니다.
-
-```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
-    "start":"2014-06-01T18:00:00",
-    "end":"2014-06-01T19:00:00",
-    "description":"pipeline with copy activity",
-    "activities":[  
-      {
-        "name": "AzureBlobtoSQL",
-        "description": "Copy Activity",
-        "type": "Copy",
-        "inputs": [
-          {
-            "name": "AzureBlobInput"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "AzureSqlOutput"
-          }
-        ],
-        "typeProperties": {
-          "source": {
-            "type": "BlobSource",
-            "blobColumnSeparators": ","
-          },
-          "sink": {
-            "type": "SqlSink"
-          }
-        },
-       "scheduler": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "concurrency": 1,
-          "executionPriorityOrder": "OldestFirst",
-          "retry": 0,
-          "timeout": "01:00:00"
-        }
-      }
-      ]
-   }
-}
-```
-SqlSink 및 BlobSource에서 지원하는 속성 목록은 [Sql 싱크](#sqlsink) 섹션 및 [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 참조하세요.
-
-## <a name="azure-sql-linked-service-properties"></a>Azure SQL 연결된 서비스 속성
-샘플에서는 Azure SQL Database를 데이터 팩터리에 연결하는 데 **AzureSqlDatabase** 형식의 연결된 서비스를 사용했습니다. 다음 테이블은 Azure SQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
+## <a name="linked-service-properties"></a>연결된 서비스 속성
+Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 서비스입니다. 다음 테이블은 Azure SQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **AzureSqlDatabase** |예 |
 | connectionString |connectionString 속성에 대한 Azure SQL 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
-> [!NOTE]
+> [!IMPORTANT]
 > 데이터베이스 서버인 [Azure SQL Database 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 해야 합니다. 또한 데이터 팩터리 게이트웨이를 사용하여 온-프레미스 데이터 원본을 포함한 Azure 외부에서 Azure SQL 데이터베이스로 데이터를 복사하는 경우 데이터를 Azure SQL Database로 보내는 컴퓨터에 대한 적절한 IP 주소 범위를 구성합니다.
->
->
 
-## <a name="azure-sql-dataset-type-properties"></a>Azure SQL 데이터 집합 형식 속성
-샘플에서 Azure SQL Database의 테이블을 나타내는 데 **AzureSqlTable** 형식의 데이터 집합을 사용했습니다.
+## <a name="dataset-properties"></a>데이터 집합 속성
+Azure SQL Database에서 입력 또는 출력 데이터를 표시할 데이터 집합을 지정하려면 데이터 집합의 형식 속성을 **AzureSqlTable**로 설정합니다. 데이터 집합의 **linkedServiceName** 속성을 Azure SQL 연결된 서비스의 이름으로 설정합니다.  
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
@@ -447,15 +65,13 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure SQL 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
-## <a name="azure-sql-copy-activity-type-properties"></a>Azure SQL 복사 활동 형식 속성
+## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
 > [!NOTE]
 > 복사 작업은 하나의 입력을 가지고 하나의 출력을 생성합니다.
->
->
 
-반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
+반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
 Azure SQL Database에서 데이터를 이동하는 경우 복사 작업의 원본 유형을 **SqlSource**로 설정합니다. 마찬가지로 Azure SQL Database로 데이터를 이동하는 경우 복사 작업의 싱크 유형을 **SqlSink**로 설정합니다. 이 섹션에서는 SqlSource 및 SqlSink에서 지원되는 속성의 목록을 제공합니다.
 
@@ -537,6 +153,388 @@ GO
     }
 }
 ```
+
+## <a name="json-examples"></a>JSON 예
+다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+
+## <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>예제: Azure SQL Database에서 Azure Blob에 데이터 복사
+샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
+
+1. [AzureSqlDatabase](#linked-service-properties)형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
+3. [AzureSqlTable](#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4. [Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+5. [SqlSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+
+샘플은 Azure SQL database의 테이블에서 Blob으로 (매시간, 매일 등) 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.  
+
+**Azure SQL Database 연결된 서비스:**
+
+```JSON
+{
+  "name": "AzureSqlLinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+    }
+  }
+}
+```
+연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#linked-service) 섹션을 참조하세요.
+
+**Azure Blob 저장소 연결된 서비스:**
+
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+    }
+  }
+}
+```
+연결된 서비스에서 지원하는 속성의 목록은 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) 문서를 참조하세요.
+
+
+**Azure SQL 입력 데이터 집합:**
+
+샘플은 Azure SQL에서 만든 테이블 "MyTable"에 시계열 데이터에 대한 "timestampcolumn" 라는 열이 포함되었다고 가정합니다.
+
+"external": "true"로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Azure Data Factory 서비스에 전달됩니다.
+
+```JSON
+{
+  "name": "AzureSqlInput",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
+
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 집합 형식 속성](#dataset) 섹션을 참조하세요.  
+
+**Azure Blob 출력 데이터 집합:**
+
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+
+```JSON
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
+        },
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
+        }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": "\t",
+        "rowDelimiter": "\n"
+      }
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure Blob 데이터 집합 형식 속성](data-factory-azure-blob-connector.md#dataset-properties) 섹션을 참조하세요.  
+
+**SQL 원본 및 Blob 싱크를 사용하는 파이프라인의 복사 작업:**
+
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "AzureSQLtoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureSQLInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
+위의 예에서는 SqlSource에 대해 **sqlReaderQuery** 가 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
+
+sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL Database에 대해 실행합니다. 예: `select column1, column2 from mytable` 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
+
+SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsource) 섹션 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 참조하세요.
+
+## <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>예제: Azure Blob에서 Azure SQL Database로 데이터 복사
+샘플이 다음 데이터 팩터리 엔터티를 정의합니다.  
+
+1. [AzureSqlDatabase](#linked-service-properties)형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
+3. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4. [AzureSqlTable](#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+5. [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) 및 [SqlSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+
+샘플은 Azure blob에서 Azure SQL database의 테이블로 매시간 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
+
+**Azure SQL 연결된 서비스:**
+
+```JSON
+{
+  "name": "AzureSqlLinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+    }
+  }
+}
+```
+연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#linked-service) 섹션을 참조하세요.
+
+**Azure Blob 저장소 연결된 서비스:**
+
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+    }
+  }
+}
+```
+연결된 서비스에서 지원하는 속성의 목록은 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) 문서를 참조하세요.
+
+
+**Azure Blob 입력 데이터 집합:**
+
+데이터는 매시간 새 blob에 선택됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정은 데이터 팩터리 서비스에 이 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 작업에 의해 생성되지 않는다는 점을 알려줍니다.
+
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
+        },
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
+        }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": "\n"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure Blob 데이터 집합 형식 속성](data-factory-azure-blob-connector.md#dataset-properties) 섹션을 참조하세요.
+
+**Azure SQL Database 출력 데이터 집합:**
+
+샘플은 Azure SQL의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL의 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
+
+```JSON
+{
+  "name": "AzureSqlOutput",
+  "properties": {
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "MyOutputTable"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 집합 형식 속성](#dataset) 섹션을 참조하세요.
+
+**Blob 원본 및 SQL 싱크를 사용하는 파이프라인의 복사 작업:**
+
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **SqlSink**로 설정됩니다.
+
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "AzureBlobtoSQL",
+        "description": "Copy Activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": "AzureBlobInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureSqlOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource",
+            "blobColumnSeparators": ","
+          },
+          "sink": {
+            "type": "SqlSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
+SqlSink 및 BlobSource에서 지원하는 속성 목록은 [Sql 싱크](#sqlsink) 섹션 및 [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties)를 참조하세요.
+
 ## <a name="identity-columns-in-the-target-database"></a>대상 데이터베이스의 ID 열
 이 섹션에서는 ID 열이 없는 원본 테이블에서 ID 열이 있는 대상 테이블로 데이터를 복사하는 예제를 제공합니다.
 
@@ -608,23 +606,24 @@ create table dbo.TargetTbl
 
 원본 테이블과 대상 테이블의 스키마가 서로 다릅니다(대상에 ID가 포함된 추가 열이 있음). 이 시나리오에서는 ID 열을 포함하지 않는 대상 데이터 집합 정의에서 **structure** 속성을 지정해야 합니다.
 
-그런 다음 원본 데이터 집합의 열을 대상 데이터 집합의 열에 매핑합니다. 예제는 [열 매핑 예제](#column-mapping-samples) 섹션을 참조하세요.
+## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
+원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+## <a name="repeatable-copy"></a>반복 가능한 복사
+SQL Server 데이터베이스로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. 그 대신 UPSERT를 수행하려면 [SqlSink에 반복 가능한 쓰기](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) 문서를 참조하세요. 
 
-[!INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)]
+관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+## <a name="invoke-stored-procedure-from-sql-sink"></a>SQL 싱크에서 저장된 프로시저 호출
+파이프라인의 복사 작업에서, SQL 싱크에서 저장된 프로시저를 호출하는 예를 보려면 [복사 작업에서 SQL 싱크에 대한 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md) 문서를 참조하세요. 
 
-### <a name="type-mapping-for-sql-server--azure-sql-database"></a>SQL server 및 Azure SQL 데이터베이스에 대한 형식 매핑
+## <a name="sql-database-to-net-type-mapping"></a>SQL Database에서 .NET 형식으로 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-Azure SQL, SQL Server 및 Sybase 간에 데이터를 이동할 때는SQL 형식과 .NET 형식 간의 다음과 같은 매핑이 사용됩니다.
-
-매핑은 ADO.NET에 대한 SQL Server 데이터 형식 매핑과 같습니다.
+Azure SQL 간에 데이터를 이동할 때는 SQL 형식에서 .NET 형식으로 또는 그 반대로 다음과 같은 매핑이 사용됩니다. 매핑은 ADO.NET에 대한 SQL Server 데이터 형식 매핑과 같습니다.
 
 | SQL Server 데이터베이스 엔진 형식 | .NET Framework 형식 |
 | --- | --- |
@@ -660,10 +659,6 @@ Azure SQL, SQL Server 및 Sybase 간에 데이터를 이동할 때는SQL 형식�
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
-
-[!INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
-
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.

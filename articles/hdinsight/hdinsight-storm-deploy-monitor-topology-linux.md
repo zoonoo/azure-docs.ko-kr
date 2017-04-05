@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 8fd6f5ffc076ea861ed29d992a7a94b6cd2c700b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,11 +36,7 @@ ms.lasthandoff: 03/22/2017
 
 * **HDInsight 클러스터의 Linux 기반 Storm**: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md) 을 참조하세요.
 
-* (선택 사항) **SSH 및 SCP의 기본적인 지식**: HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-  
-  * [HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Windows에서 PuTTY의 HDInsight에 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+* (선택 사항) **SSH 및 SCP의 기본적인 지식**: 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * (선택 사항) **Visual Studio**: Azure SDK 2.5.1 이상 및 Data Lake Tools for Visual Studio 자세한 내용은 [Data Lake Tools for Visual Studio 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
@@ -85,11 +81,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    SSH를 사용하여 HDInsight 클러스터로 연결하는 방법에 대한 자세한 내용은 다음 문서를 참조합니다.
-   
-   * [HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Windows에서 PuTTY의 HDInsight에 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    SSH를 사용하여 HDInsight 클러스터로 연결하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
    

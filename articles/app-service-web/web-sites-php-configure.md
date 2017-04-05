@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 3adbef0d22673d6cd872f583903d0c73469d4fa1
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b62ee732f1730e8934443fb4320327e64d110833
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure 앱 서비스 웹 앱에서 PHP 구성
 ## <a name="introduction"></a>소개
-이 가이드에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱에 대한 기본 제공 PHP 런타임을 구성하고 사용자 지정 PHP 런타임을 제공하며 확장을 사용하도록 설정하는 방법을 보여 줍니다. 앱 서비스를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 앱 서비스에서 PHP 웹 앱을 만들어야 합니다.
+이 가이드에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱에 대한 기본 제공 PHP 런타임을 구성하고 사용자 지정 PHP 런타임을 제공하며 확장을 사용하도록 설정하는 방법을 보여 줍니다. 앱 서비스를 사용하려면 [평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 앱 서비스에서 PHP 웹 앱을 만들어야 합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>방법: 기본 제공 PHP 버전 변경
-기본적으로 PHP 5.4는 앱 서비스 웹 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
+기본적으로 PHP 5.5는 앱 서비스 웹 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
 
-PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
+PHP 5.6 및 PHP 7.0 버전도 사용할 수 있지만 기본적으로는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
 
 ### <a name="azure-portal"></a>Azure 포털
 1. [Azure 포털](https://portal.azure.com) 에서 웹앱을 찾아 **설정** 단추를 클릭합니다.
@@ -49,7 +49,7 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
         PS C:\> Login-AzureRmAccount
 2. 웹앱에 대한 PHP 버전을 설정합니다.
    
-        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
    
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
@@ -62,7 +62,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
         azure login
 2. 웹앱에 대한 PHP 버전을 설정합니다.
    
-        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+        azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
 
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
    
@@ -110,7 +110,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 ### <a name="configure-via-ini-settings"></a>Ini 설정을 통해 구성
 1. `ext` 디렉터리를 `d:\home\site` 디렉터리에 추가합니다.
-2. `.dll` 확장 파일을 `ext` 디렉터리에 둡니다(예: `php_mongo.dll` `php_xdebug.dll`). 확장이 기본 버전의 PHP(본 문서 게시 시점에는 PHP 5.4)와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
+2. `.dll` 확장 파일을 `ext` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 3. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 4. `d:\home\site\ini`에 `extensions.ini`라는 `ini` 파일을 만듭니다.
 5. php.ini 파일에서 사용한 것과 동일한 구문을 사용하여 구성 설정을 `extensions.ini` 파일에 추가합니다. 예를 들어 MongoDB 및 XDebug 확장을 사용하려면 `extensions.ini` 파일에 다음 텍스트를 포함합니다.
@@ -122,7 +122,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 ### <a name="configure-via-app-setting"></a>앱 설정을 통해 구성
 1. `bin` 디렉터리를 루트 디렉터리에 추가합니다.
-2. `.dll` 확장 파일을 `bin` 디렉터리에 둡니다(예: `php_mongo.dll`). 확장이 기본 버전의 PHP(본 문서 게시 시점에는 PHP 5.4)와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
+2. `.dll` 확장 파일을 `bin` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 3. 웹 앱에 배포합니다.
 4. Azure 포털에서 웹앱을 찾아 **설정** 단추를 클릭합니다.
    
@@ -187,7 +187,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 > 
 > 
 
-[무료 평가판]: https://www.windowsazure.com/pricing/free-trial/
+[평가판]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [php.ini 지시문 목록]: http://www.php.net/manual/en/ini.list.php

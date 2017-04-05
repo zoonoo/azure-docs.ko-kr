@@ -8,6 +8,7 @@ manager: paulettm
 editor: cgronlun
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3f0d284e122704ba01676c4b0028e196fe47bca8
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: dcda5e27cbcadff054c8085b72a1b6fb1c07b889
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -40,11 +41,7 @@ Apache Kafka는 HDInsight에서 사용할 수 있는 게시-구독 메시징 솔
 
 * 텍스트 편집기 또는 Java IDE
 
-* SSH 클라이언트(`ssh` 및 `scp` 명령 필요) - HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-  
-  * [Linux, Unix, Mac OS 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+* SSH 클라이언트(`ssh` 및 `scp` 명령 필요) - 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조합니다.
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
@@ -133,11 +130,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
    
     메시지가 표시되면 클러스터를 만들 때 사용한 암호를 입력합니다.
    
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-   
-    * [Linux, Unix, Mac OS 및 Windows 10에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. SSH 연결에서 Kafka 클러스터로 다음 명령을 사용하여 HTTP 로그인 및 클러스터 이름에 대한 변수를 설정합니다. 이 섹션의 다른 단계에서 이러한 값을 사용합니다.
 
@@ -181,7 +174,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
     Storm 클러스터에서 토폴로지를 시작할 때 이러한 값이 사용되므로 Kafka 클러스터 이름 및 Zookeeper 호스트 정보를 저장합니다.
 
     > [!NOTE]
-    > 이전 명령은 Ambari에 직접 연결되는 __http://headnodehost:8080/__ 을 사용합니다. 이 정보를 클러스터 외부에서 인터넷을 통해 검색해야 하는 경우 __https://kafka-BASENAME.azurehdinsight.net/__을 대신으로 사용해야 합니다.
+    > 이전 명령은 Ambari에 직접 연결되는 __http://headnodehost:8080/__을 사용합니다. 이 정보를 클러스터 외부에서 인터넷을 통해 검색해야 하는 경우 __https://kafka-BASENAME.azurehdinsight.net/__을 대신으로 사용해야 합니다.
 
 4. 다음 명령을 사용하여 Kafka에 토픽을 만듭니다.
 
@@ -238,12 +231,8 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
   ```
 
     메시지가 표시되면 클러스터를 만들 때 사용한 암호를 입력합니다.
-
-    HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-    * [Linux, Unix, Mac OS 및 Windows 10의 Bash에서 Linux 기반 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Windows에서 Linux 기반 HDInsight와 SSH(PuTTY) 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+   
+    자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. Storm 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 `set-env-variables.sh` 스크립트를 실행합니다.
 
@@ -284,7 +273,7 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
   ```
 
-    이 명령은 Kafka에서 제공하는 스크립트를 사용하여 토픽를 모니터링합니다. 잠시 후에 토픽에 기록된 임의의 문장을 반환하기 시작합니다. 다음 예제와 유사하게 출력됩니다.
+    이 명령은 Kafka에서 제공하는 스크립트를 사용하여 토픽을 모니터링합니다. 잠시 후에 토픽에 기록된 임의의 문장을 반환하기 시작합니다. 다음 예제와 유사하게 출력됩니다.
 
         i am at two with nature             
         an apple a day keeps the doctor away

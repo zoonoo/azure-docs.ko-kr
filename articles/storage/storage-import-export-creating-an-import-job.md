@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
-ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -105,6 +105,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>배송 정보로 가져오기 작업 업데이트
 추적 번호가 있으면 [작업 속성 업데이트](/api/storageimportexport/jobs#Jobs_Update) 연산을 호출하여 배송업체 이름, 작업의 추적 번호 및 반송을 위한 배송업체 계정 번호를 업데이트합니다. 경우에 따라 드라이브 개수 및 배송 날짜를 지정할 수도 있습니다.
 
-## <a name="see-also"></a>참고 항목
-[Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>다음 단계
+
+* [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
 

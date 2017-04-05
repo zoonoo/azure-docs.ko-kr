@@ -1,5 +1,5 @@
 ---
-title: "Azure 가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로 | Microsoft Docs"
+title: "Azure Import/Export 가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로 - v1 | Microsoft Docs"
 description: "Azure Import/Export 서비스에서 가져오기 작업을 위해 드라이브를 준비하는 전체 과정에 대한 연습을 참조하세요."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: ee7a8c9ae4cda5b67184100dd37ee4e0384aff26
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 313f8c1f3962a943b4c98c530c324ff28aa84c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -85,7 +85,7 @@ ms.lasthandoff: 02/16/2017
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -131,38 +131,50 @@ ms.lasthandoff: 02/16/2017
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
+## <a name="copy-sessions---first-drive"></a>복사 세션 - 첫 번째 드라이브
+
 첫 번째 드라이브의 경우 Azure Import/Export 도구를 두 번 실행하여 두 원본 디렉터리를 복사합니다.  
+
+**첫 번째 복사 세션**
   
 ```
-## First copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
 
+**두 번째 복사 세션**
+
 ```  
-## Second copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
-  
+
+## <a name="copy-sessions---second-drive"></a>복사 세션 - 두 번째 드라이브
+ 
 두 번째 드라이브의 경우 Azure Import/Export 도구를 원본 디렉터리에 대해 각각 한 번씩, 독립 실행형 Blu-Ray™ 이미지 파일에 대해 한 번, 총 세 번 실행합니다.  
   
+**첫 번째 복사 세션** 
+
 ```
-## First copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Video2 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:y /format /encrypt /srcdir:H:\Video2 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
   
+**두 번째 복사 세션**
+
 ```
-## Second copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\john\music /dstdir:music/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```  
   
+**세 번째 복사 세션**  
+
 ```
-## Third copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
-  
+
+## <a name="copy-session-completion"></a>복사 세션 완료
+
 복사 세션을 완료하면 복사 컴퓨터에서 두 개의 드라이브 연결을 끊고 적절한 Windows Azure 데이터 센터로 이동할 수 있습니다. [Windows Azure 관리 포털](https://manage.windowsazure.com/)에서 가져오기 작업을 만들 때 두 개의 저널 파일인 `FirstDrive.jrn` 및 `SecondDrive.jrn`을 업로드합니다.  
   
-## <a name="see-also"></a>참고 항목  
-[가져오기 작업을 위해 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[자주 사용되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference-v1.md) 
+## <a name="next-steps"></a>다음 단계
+
+* [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [자주 사용 되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference-v1.md) 
 

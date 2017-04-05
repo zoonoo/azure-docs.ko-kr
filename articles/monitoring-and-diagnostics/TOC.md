@@ -4,6 +4,7 @@
 ## [경고](monitoring-overview-alerts.md)
 ## [Autoscale](monitoring-overview-autoscale.md)
 ## [활동 로그](monitoring-overview-activity-logs.md)
+## [작업 그룹](monitoring-action-groups.md)
 ## [진단 로그](monitoring-overview-of-diagnostic-logs.md)
 ## [파트너 통합](monitoring-partners.md)
 ## [Azure 진단](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [자동 크기 조정의 웹후크 및 메일 알림 구성](insights-autoscale-to-webhook-email.md)
 ## 활동 로그 관리
 ### [활동 로그의 이벤트 보기](insights-debugging-with-events.md)
-### [활동 로그 경고에 대한 웹후크 구성](insights-auditlog-to-webhook-email.md)
+### [활동 로그 이벤트에 대한 경고 구성](monitoring-activity-log-alerts.md)
 ### [활동 로그 보관](monitoring-archive-activity-log.md)
 ### [활동 로그를 Event Hubs로 스트림](monitoring-stream-activity-logs-event-hubs.md)
 ### [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)
+### [리소스 관리자로 활동 로그 경고 만들기](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## 서비스 알림
+### [서비스 알림 보기](monitoring-service-notifications.md)
+### [서비스 알림에 대한 경고 구성](monitoring-activity-log-alerts-on-service-notifications.md)
+## 작업 그룹
+### [웹후크 스키마에 대해 알아보기](monitoring-activity-log-alerts-webhook.md)
+### [SMS 경고 동작](monitoring-sms-alert-behavior.md)
+### [경고 속도 제한](monitoring-alerts-rate-limiting.md)
+### [Resource Manager로 작업 그룹 만들기](monitoring-create-action-group-with-resource-manager-template.md)
 ## 진단 로그 관리
 ### [보관](monitoring-archive-diagnostic-logs.md)
 ### [Event Hubs로 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 1/30/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2ed6b838608f0f2249ef16b62ff2fb0159fc6e7f
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 34148a8fe2fe5b9ebd2ff4a01ff523f7f5a74c67
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -105,7 +105,7 @@ Azure Data Factory의 데이터 집합은 다음과 같이 정의됩니다.
 
 * type을 AzureSQLTable로 설정합니다.
 * AzureSqlTable 형식과 관련된 tableName 형식 속성은 MyTable로 설정됩니다.
-* linkedServiceName은 AzureSqlDatabase 형식의 연결된 서비스를 가리킵니다. 다음 연결된 서비스의 정의를 참조하세요.
+* linkedServiceName은 다음 JSON 코드 조각으로 정의된 AzureSqlDatabase 형식의 연결된 서비스를 가리킵니다.
 * availability frequency를 Day로 설정하고 interval은 1로 설정합니다. 이는 조각이 매일 생성되는 것을 의미합니다.  
 
 AzureSqlLinkedService는 다음과 같이 정의됩니다.
@@ -139,7 +139,7 @@ AzureSqlLinkedService는 다음과 같이 정의됩니다.
 지원되는 데이터 원본 및 데이터 집합 형식을 정렬합니다. 데이터 집합의 유형 및 구성에 대한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서에서 항목을 참조하세요. 예를 들어 Azure SQL 데이터베이스의 데이터를 사용하는 경우 자세한 내용을 보려면 지원되는 데이터 저장소 목록에서 Azure SQL 데이터베이스를 클릭합니다.  
 
 ## <a name="Structure"></a>데이터 집합 구조
-**구조** 섹션은 데이터 집합의 스키마를 정의합니다. 이름 및 데이터 형식 열의 컬렉션을 포함합니다.  다음 예제에서는 데이터 집합에 3개의 열 slicetimestamp, projectname 및 pageviews가 있으며 형식은 각각 문자열, 문자열 및 10진수입니다.
+**structure** 섹션은 데이터 집합의 스키마를 정의하는 **선택 사항** 섹션입니다. 이름 및 데이터 형식 열의 컬렉션을 포함합니다. **형식 변환**에 필요한 형식 정보를 제공하거나 **열 매핑**을 수행하기 위해 structure 섹션을 사용합니다. 다음 예제에서는 데이터 집합에 3개의 열 `slicetimestamp`, `projectname` 및 `pageviews`가 있으며 형식은 각각 문자열, 문자열 및 10진수입니다.
 
 ```json
 structure:  
@@ -149,6 +149,27 @@ structure:
     { "name": "pageviews", "type": "Decimal"}
 ]
 ```
+
+각 열에는 다음 속성이 포함됩니다.
+
+| 속성 | 설명 | 필수 |
+| --- | --- | --- |
+| name |열의 이름입니다. |예 |
+| type |열의 데이터 형식입니다.  |아니요 |
+| culture |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. |아니요 |
+| format |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 형식 문자열입니다. |아니요 |
+
+"structure" 정보를 포함할 시기 및 **structure** 섹션에 포함할 항목에 대해서는 다음 지침을 따르세요.
+
+* 데이터 스키마 및 형식 정보를 데이터 자체와 함께 저장하는 **구조화된 데이터 원본**(SQL Server, Oracle, Azure 테이블 등의 원본)의 경우 원본 열을 싱크 열에 매핑하고 해당 이름이 동일하지 않은 경우에만 "structure" 섹션을 지정합니다. 
+  
+    구조화된 데이터 원본에 대해 형식 정보를 사용할 수 있으므로 "structure" 섹션을 포함할 때는 형식 정보를 포함시키지 않아야 합니다.
+* **읽기 데이터 원본(특히 Azure Blob)의 스키마인 경우** 스키마 또는 형식 정보를 데이터와 함께 저장하지 않고도 데이터를 저장할 수 있습니다. 이러한 유형의 데이터 원본에는 원본 열을 싱크 열에 매핑하거나 데이터 집합이 복사 작업에 대한 입력 데이터 집합이고, 원본 데이터 집합의 데이터 형식을 싱크에 대한 네이티브 형식으로 변환해야 할 때 "structure" 섹션을 포함합니다. 
+    
+    데이터 팩터리는 Azure Blob과 같은 읽기 데이터 원본의 스키마에 대해 "structure"에 형식 정보를 제공하기 위해 다음과 같은 CLS 규격 .NET 기반 형식 값을 지원합니다. Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan.
+
+데이터 팩터리는 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사할 때 형식 변환을 자동으로 수행합니다. 
+  
 
 ## <a name="Availability"></a> 데이터 집합 가용성
 데이터 집합의 **availability** 섹션은 데이터 집합에 대한 처리 주기(매시, 매일, 매주 등) 또는 조각화 모델을 정의합니다. 데이터 집합 조각화 및 종속성 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요.
@@ -167,11 +188,11 @@ structure:
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| frequency |데이터 집합 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/>**지원되는 빈도**: 분, 시, 일, 주, 월 |예 |해당 없음 |
-| interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 집합을 시간 단위로 조각화해야 하는 경우 **frequency**를 **Hour**로, **interval**을 **1**로 설정합니다.<br/><br/>**참고:** 빈도를 분으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
+| frequency |데이터 집합 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
+| interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 집합을 시간 단위로 조각화해야 하는 경우 <b>Frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고:</b> 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
 | style |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
-| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 집합 조각 경계를 계산합니다. <br/><br/>**참고:** AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 **간격**이 **매시간**(frequency: Hour 및 interval: 1)이고 **AnchorDateTime**에서 **분 및 초**를 포함하는 경우 AnchorDateTime의 **분 및 초** 부분은 무시됩니다. |아니요 |01/01/0001 |
-| offset |모든 데이터 집합 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/>**참고:** anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니요 |해당 없음 |
+| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 집합 조각 경계를 계산합니다. <br/><br/><b>참고:</b> AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>(frequency: Hour 및 interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니요 |01/01/0001 |
+| offset |모든 데이터 집합 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고:</b> anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니요 |해당 없음 |
 
 ### <a name="offset-example"></a>offset example
 기본 자정 대신 오전 6시에 시작하는 일별 조각입니다.

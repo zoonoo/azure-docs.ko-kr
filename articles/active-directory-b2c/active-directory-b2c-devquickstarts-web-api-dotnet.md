@@ -1,10 +1,10 @@
 ---
 title: Azure Active Directory B2C | Microsoft Docs
-description: "Azure Active Directory B2C를 사용하여 Web API를 호출하는 웹 응용 프로그램을 빌드하는 방법을 알아봅니다."
+description: "Azure Active Directory B2C 및 OAuth 2.0 액세스 토큰을 사용하여 .NET 웹앱을 빌드하고 웹 API를 호출하는 방법입니다."
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
+author: parakhj
+manager: krassk
 editor: 
 ms.assetid: d3888556-2647-4a42-b068-027f9374aa61
 ms.service: active-directory-b2c
@@ -12,219 +12,180 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 03/17/2017
+ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: b235c7a773b1c7c2a5f4d5825c6a20c1b0afb7fb
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 02ec1b7a58aff6ae0788e341e8987b9d32cb5a7b
+ms.lasthandoff: 03/27/2017
 
 
 ---
-# <a name="azure-ad-b2c-call-a-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 Web API 호출
-Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계로 강력한 셀프 서비스 ID 관리 기능을 웹앱 및 Web API에 추가할 수 있습니다. 이 문서에서는 전달자 토큰을 사용하여 Web API를 호출하는 .NET MVC(모델-뷰-컨트롤러) "할 일 모음" 웹앱을 만드는 방법을 보여 줍니다.
+# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
 
-이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md) 를 시작하여 Azure AD B2C의 기본 사항에 대해 알아보아야 합니다.
+Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에 추가할 수 있습니다. 이 문서에서는 액세스 토큰을 요청하고 .NET "할 일 모음" 웹앱에서 .NET 웹 API로 호출하는 방법을 설명합니다.
 
-## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
-Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다.  디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다.  아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
+이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 하지 않은 경우 다음을 수행해야 합니다.
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
-다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 웹앱과 Web API 모두는 단일 **응용 프로그램 ID**에서 표현됩니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
+* [.NET 웹앱](active-directory-b2c-devquickstarts-web-dotnet-susi.md) 시작
+* [.NET 웹 API](active-directory-b2c-devquickstarts-api-dotnet.md) 시작
 
-* 응용 프로그램에서 **웹앱/웹 API** 를 포함합니다.
-* **회신 URL**로 `https://localhost:44316/`을 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
-* 앱에 할당된 **응용 프로그램 ID** 를 복사합니다. 이 ID는 나중에도 필요합니다.
+## <a name="prerequisite"></a>필수 요소
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+웹 API를 호출하는 웹 응용 프로그램을 빌드하려면 다음을 수행해야 합니다.
 
-## <a name="create-your-policies"></a>정책 만들기
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 웹앱은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+1. [Azure AD B2C 테넌트를 만듭니다](active-directory-b2c-get-started.md).
+2. [웹 API를 등록합니다](active-directory-b2c-app-registration.md#register-a-web-api).
+3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md#register-a-web-application).
+4. [정책을 설정합니다](active-directory-b2c-reference-policies.md).
+5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
 
-* 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
-* 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-* 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 나중에 필요합니다.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-세 가지 정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
-
-이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작합니다.
+> [!IMPORTANT]
+> 클라이언트 응용 프로그램 및 웹 API는 동일한 Azure AD B2C 디렉터리를 사용해야 합니다.
+>
 
 ## <a name="download-the-code"></a>코드 다운로드
-이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). 진행하면서 샘플을 작성하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip)할 수 있습니다. 구조를 복제할 수도 있습니다.
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
-```
+이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi)에서 유지 관리됩니다. 다음을 실행하여 샘플을 복제할 수 있습니다.
 
-완성된 앱도 [.zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)하거나 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
-
-샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다.
-
-## <a name="configure-the-task-web-app"></a>작업 웹앱 구성
-`TaskWebApp` 이 Azure AD B2C와 통신하도록 하려면 몇 가지 공통 매개 변수를 제공해야 합니다. `TaskWebApp` 프로젝트에서 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다. `AadInstance`, `RedirectUri` 및 `TaskServiceUrl` 값을 있는 그대로 둘 수 있습니다.
-
-```
-  <appSettings>
-
-    ...
-
-    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
-    <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
-    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
-    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
-    <add key="api:TaskServiceUrl" value="https://aadb2cplayground.azurewebsites.net" />
-  </appSettings>
+```console
+git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
 ```
 
-[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. 이제 솔루션에는 `TaskWebApp`과 `TaskService`, 2개의 프로젝트가 있습니다. `TaskWebApp`은 사용자와 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService` 는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다. 이 문서에서는 `TaskWebApp` 웹앱 또는 `TaskService` 웹 API를 구축하는 방법을 다루지 않습니다. Azure AD B2C를 사용하여 .NET 웹앱을 구축하는 방법을 알아보려면 [.NET 웹앱 자습서](active-directory-b2c-devquickstarts-web-dotnet-susi.md)를 참조하세요. Azure AD B2C를 사용하여 보안된 .NET 웹 API를 구축하는 방법을 알아보려면 [.NET 웹 API 자습서](active-directory-b2c-devquickstarts-api-dotnet.md)를 참조하세요.
 
-<appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
-    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
-    <add key="ida:ClientSecret" value="E:i~5GHYRF$Y7BcM" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
-    <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
-    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
-    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
-    <add key="api:TaskServiceUrl" value="https://aadb2cplayground.azurewebsites.net" />
-  </appSettings>
+### <a name="update-the-azure-ad-b2c-configuration"></a>Azure AD B2C 구성 업데이트
 
-## <a name="get-access-tokens-and-call-the-task-api"></a>액세스 토큰을 가져오고 작업 API를 호출합니다.
-이 섹션에서는 또한 Azure AD B2C를 사용하여 보안되는 웹 API에 액세스하기 위해 Azure AD B2C를 사용하여 로그인 중에 받은 토큰을 사용하는 방법을 설명합니다.
+샘플은 데모 테넌트의 정책 및 클라이언트 ID를 사용하도록 구성되어 있습니다. 자신의 테넌트를 사용하려는 경우:
 
-이 문서에서는 API의 보안을 유지하는 방법에 대한 세부 정보를 다루지 않습니다. Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면 [Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
+1. `TaskService` 프로젝트에서 `web.config`을 열고 다음 값을 바꿉니다.
 
-### <a name="save-the-sign-in-token"></a>로그인 토큰 저장
-먼저, (정책 중 하나를 사용하여) 사용자를 인증하고 Azure AD B2C에서 로그인 토큰을 받습니다.  정책을 실행하는 방법을 잘 모를 경우, 돌아가 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md) 를 시작하여 Azure AD B2C의 기본 사항에 대해 알아보아야 합니다.
+    * `ida:Tenant`를 테넌트 이름으로 바꿉니다.
+    * `ida:ClientId`를 웹 API 응용 프로그램 ID로 바꿉니다.
+    * `ida:SignUpSignInPolicyId`를 "등록 또는 로그인" 정책 이름으로 바꿉니다.
 
-`App_Start\Startup.Auth.cs`파일을 엽니다.  `OpenIdConnectAuthenticationOptions`에 반드시 수행해야 할 중요한 변경이 있습니다 - `SaveSignInToken = true`를 설정해야 합니다.
+2. `TaskWebApp` 프로젝트에서 `web.config`를 열고 다음 값을 바꿉니다.
 
-```C#
+    * `ida:Tenant`를 테넌트 이름으로 바꿉니다.
+    * `ida:ClientId`를 웹앱 응용 프로그램 ID로 바꿉니다.
+    * `ida:ClientSecret`을 웹앱 비밀 키로 바꿉니다.
+    * `ida:SignUpSignInPolicyId`를 "등록 또는 로그인" 정책 이름으로 바꿉니다.
+    * `ida:EditProfilePolicyId`를 "프로필 편집" 정책 이름으로 바꿉니다.
+    * `ida:ResetPasswordPolicyId`를 "암호 재설정" 정책 이름으로 바꿉니다.
+
+
+
+## <a name="requesting-and-saving-an-access-token"></a>액세스 토큰 요청 및 저장
+
+### <a name="specify-the-permissions"></a>사용 권한 지정
+
+웹 API에 대한 호출을 만들려면 사용자를 인증하고(등록/로그인 정책 사용) Azure AD B2C에서 [액세스 토큰을 받아야](active-directory-b2c-access-tokens.md) 합니다. 액세스 토큰을 받으려면 먼저 액세스 토큰을 부여하려는 권한을 지정해야 합니다. `/authorize` 끝점에 대한 요청을 만들 때 `scope` 매개 변수에서 권한이 지정됩니다. 예를 들어 `https://contoso.onmicrosoft.com/tasks`의 앱 ID URI를 가진 리소스 응용 프로그램에 대한 "읽기" 권한으로 액세스 토큰을 얻으려면 범위는 `https://contoso.onmicrosoft.com/tasks/read`가 됩니다.
+
+이 샘플의 범위를 지정하려면 `App_Start\Startup.Auth.cs` 파일을 열고 OpenIdConnectAuthenticationOptions에서 `Scope` 변수를 정의합니다.
+
+```CSharp
 // App_Start\Startup.Auth.cs
 
-return new OpenIdConnectAuthenticationOptions
-{
-    // For each policy, give OWIN the policy-specific metadata address, and
-    // set the authentication type to the id of the policy
-    MetadataAddress = String.Format(aadInstance, tenant, policy),
-    AuthenticationType = policy,
+    app.UseOpenIdConnectAuthentication(
+        new OpenIdConnectAuthenticationOptions
+        {
+            ...
 
-    // These are standard OpenID Connect parameters, with values pulled from web.config
-    ClientId = clientId,
-    RedirectUri = redirectUri,
-    PostLogoutRedirectUri = redirectUri,
-    Notifications = new OpenIdConnectAuthenticationNotifications
-    {
-        AuthenticationFailed = OnAuthenticationFailed,
-    },
-    Scope = "openid",
-    ResponseType = "id_token",
-
-    TokenValidationParameters = new TokenValidationParameters
-    {
-        NameClaimType = "name",
-
-        // Add this line to reserve the sign in token for later use
-        SaveSigninToken = true,
-    },
-};
-```
-
-### <a name="get-a-token-in-the-controllers"></a>컨트롤러에서 토큰 가져오기
-`TasksController` 은 HTTP 요청을 API로 보내 작업을 읽고 만들고 삭제하도록 웹 API와 통신을 담당합니다.  API는 Azure AD B2C에 의해 보안이 되므로, 먼저 위의 단계에서 저장한 토큰을 검색해야 합니다.
-
-```C#
-// Controllers\TasksController.cs
-
-public async Task<ActionResult> Index()
-{
-    try {
-
-        var bootstrapContext = ClaimsPrincipal.Current.Identities.First().BootstrapContext as System.IdentityModel.Tokens.BootstrapContext;
-
-    ...
+            // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+            Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+        }
+    );
 }
 ```
 
-`BootstrapContext` 은 B2C 정책 중 하나를 실행하여 획득한 로그인 토큰을 포함합니다.
+### <a name="exchange-the-authorization-code-for-an-access-token"></a>액세스 토큰에 대한 인증 코드 교환
+
+사용자가 등록 또는 로그인 환경을 완료한 후 앱은 Azure AD B2C에서 인증 코드를 받습니다. OWIN OpenID Connect 미들웨어는 코드를 저장하지만 액세스 토큰에 대해 교환하지 않습니다. [MSAL 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)를 사용하여 교환할 수 있습니다. 샘플에서는 권한 부여 코드를 받을 때마다 OpenID Connect 미들웨어로 알림 콜백을 구성합니다. 콜백에서 MSAL을 사용하여 토큰에 대한 코드를 교환하고 토큰을 캐시에 저장합니다.
+
+```CSharp
+/*
+* Callback function when an authorization code is received
+*/
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+    // Extract the code from the response notification
+    var code = notification.Code;
+
+    var userObjectId = notification.AuthenticationTicket.Identity.FindFirst(ObjectIdElement).Value;
+    var authority = String.Format(AadInstance, Tenant, DefaultPolicy);
+    var httpContext = notification.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase;
+
+    // Exchange the code for a token. Make sure to specify the necessary scopes
+    ClientCredential cred = new ClientCredential(ClientSecret);
+    ConfidentialClientApplication app = new ConfidentialClientApplication(authority, Startup.ClientId,
+                                            RedirectUri, cred, new NaiveSessionCache(userObjectId, httpContext));
+    var authResult = await app.AcquireTokenByAuthorizationCodeAsync(new string[] { ReadTasksScope, WriteTasksScope }, code, DefaultPolicy);
+}
+```
+
+## <a name="calling-the-web-api"></a>웹 API 호출
+
+이 섹션에서는 웹 API에 액세스하기 위해 Azure AD B2C를 사용하여 등록/로그인 중에 받은 토큰을 사용하는 방법을 설명합니다.
+
+### <a name="retrieve-the-saved-token-in-the-controllers"></a>컨트롤러에서 저장된 토큰 검색
+
+`TasksController`은 HTTP 요청을 API로 보내 작업을 읽고 만들고 삭제하도록 웹 API와 통신을 담당합니다. API는 Azure AD B2C에 의해 보안되므로, 먼저 위의 단계에서 저장한 토큰을 검색해야 합니다.
+
+```CSharp
+// Controllers\TasksController.cs
+
+/*
+* Uses MSAL to retrieve the token from the cache
+*/
+private async void acquireToken(String[] scope)
+{
+    string userObjectID = ClaimsPrincipal.Current.FindFirst(Startup.ObjectIdElement).Value;
+    string authority = String.Format(Startup.AadInstance, Startup.Tenant, Startup.DefaultPolicy);
+
+    ClientCredential credential = new ClientCredential(Startup.ClientSecret);
+
+    // Retrieve the token using the provided scopes
+    ConfidentialClientApplication app = new ConfidentialClientApplication(authority, Startup.ClientId,
+                                        Startup.RedirectUri, credential,
+                                        new NaiveSessionCache(userObjectID, this.HttpContext));
+    AuthenticationResult result = await app.AcquireTokenSilentAsync(scope);
+
+    accessToken = result.Token;
+}
+```
 
 ### <a name="read-tasks-from-the-web-api"></a>Web API로부터 작업 읽기
+
 이제 토큰이 있으므로 `Authorization` 헤더에서 HTTP `GET` 요청에 토큰을 연결하여 `TaskService`를 안전하게 호출할 수 있습니다.
 
-```C#
+```CSharp
 // Controllers\TasksController.cs
 
 public async Task<ActionResult> Index()
 {
     try {
 
-        ...
+        // Retrieve the token with the specified scopes
+        acquireToken(new string[] { Startup.ReadTasksScope });
 
         HttpClient client = new HttpClient();
-        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, apiEndpoint);
 
-        // Add the token acquired from ADAL to the request headers
-        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bootstrapContext.Token);
+        // Add token to the Authorization header and make the request
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
         HttpResponseMessage response = await client.SendAsync(request);
 
-        if (response.IsSuccessStatusCode)
-        {
-            String responseString = await response.Content.ReadAsStringAsync();
-            JArray tasks = JArray.Parse(responseString);
-            ViewBag.Tasks = tasks;
-            return View();
-        }
-        else
-        {
-            // If the call failed with access denied, show the user an error indicating they might need to sign-in again.
-            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-            {
-                return new RedirectResult("/Error?message=Error: " + response.ReasonPhrase + " You might need to sign in again.");
-            }
-        }
-
-        return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + response.StatusCode);
-    }
-    catch (Exception ex)
-    {
-        return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ex.Message);
-    }
+        // Handle response ...
 }
 
 ```
 
 ### <a name="create-and-delete-tasks-on-the-web-api"></a>Web API에서 작업 만들기 및 삭제
-로그인 토큰을 검색하기 위해 `POST` 및 `DELETE` 요청을 `BootstrapContext` 토큰을 사용하여 웹 API에 보낼 때 동일한 패턴을 따릅니다. 만들기 작업은 구현되어 있습니다. `TasksController.cs`에서 삭제 작업 완료를 시도해 볼 수 있습니다.
+
+캐시에서 액세스 토큰을 검색하기 위해 `POST` 및 `DELETE` 요청을 MSAL을 사용하여 웹 API에 보낼 때 동일한 패턴을 따릅니다.
 
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
-마지막으로 앱을 빌드하고 실행합니다. 등록하고 로그인하여, 로그인된 사용자에 대한 작업을 만듭니다. 로그아웃했다가 다른 사용자로 로그인합니다. 해당 사용자에 대한 작업을 만듭니다. API 가 받는 토큰에서 사용자의 ID를 추출하므로 API에 사용자별 작업이 저장됩니다.
 
-참조를 위해 완료된 샘플은 [.zip 파일로 제공](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)됩니다. 또한 GitHub에서 복제할 수 있습니다.
-
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
-
-<!--
-
-## Next steps
-
-You can now move on to more advanced B2C topics. You might try:
-
-[Call a web API from a web app]()
-
-[Customize the UX for a B2C app]()
-
--->
-
-
-
-<!--HONumber=Dec16_HO4-->
+마지막으로 두 앱을 빌드 및 실행합니다. 등록하고 로그인하여, 로그인된 사용자에 대한 작업을 만듭니다. 로그아웃했다가 다른 사용자로 로그인합니다. 해당 사용자에 대한 작업을 만듭니다. API 가 받는 토큰에서 사용자의 ID를 추출하므로 API에 사용자별 작업이 저장됩니다. 또한 범위 다루기를 시도해 볼 수도 있습니다. "쓰기"에 대한 권한을 제거한 다음 작업을 추가합니다. 범위를 변경할 때마다 로그아웃해야 합니다.
 
 

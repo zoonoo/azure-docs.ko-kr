@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 40042fd5ca2671cc26a67736b1c7a1e907c004d8
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -43,6 +43,8 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 라이선스를 사용 중인 사용자와 그룹을 확인하려면 제품을 클릭합니다. **사용이 허가된 사용자**에는 라이선스가 직접 할당되었거나 하나 이상의 그룹을 통해 할당된 모든 사용자가 표시됩니다. **사용이 허가된 그룹**에는 제품이 할당된 모든 그룹이 표시됩니다.
 
+**PowerShell:** PowerShell cmdlet은 이 오류를 _CountViolation_으로 보고합니다.
+
 ## <a name="conflicting-service-plans"></a>서비스 계획 충돌
 
 **문제:** 그룹에 지정된 제품 중 하나에 이미 다른 제품을 통해 사용자에게 할당된 다른 서비스 계획과 충돌하는 서비스 계획이 포함되어 있습니다. 일부 서비스 계획은 관련된 다른 서비스 계획과 동일한 사용자에게 할당할 수 없는 방식으로 구성되어 있습니다.
@@ -56,11 +58,15 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 충돌하는 제품 라이선스 문제를 해결하는 방법은 항상 관리자가 결정합니다. Azure AD는 라이선스 충돌을 자동으로 해결하지 않습니다.
 
+**PowerShell:** PowerShell cmdlet은 이 오류를 _MutuallyExclusiveViolation_으로 보고합니다.
+
 ## <a name="other-products-depend-on-this-license"></a>기타 제품은 이 라이선스에 종속됨
 
 **문제:** 그룹에 지정된 제품 중 하나에 다른 제품의 다른 서비스 계획이 작동하기 위해 사용되어야 하는 서비스 계획이 포함되어 있습니다. 이 오류는 Azure AD가 기본 서비스 계획을 제거하려고 시도할 때 발생합니다. 예를 들어 그룹에서 사용자가 제거된 결과로 이 오류가 발생할 수 있습니다.
 
 이 문제를 해결하려면 다른 메서드를 통해 필수 계획을 사용자에게 이미 할당하거나 해당 사용자에 대한 종속 서비스를 비활성화했는지 확인해야 합니다. 그 후 해당 사용자에서 그룹 라이선스를 적절하게 제거할 수 있습니다.
+
+**PowerShell:** PowerShell cmdlet은 이 오류를 _DependencyViolation_으로 보고합니다.
 
 ## <a name="usage-location-isnt-allowed"></a>사용 위치가 허용되지 않음
 
@@ -69,6 +75,8 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이선스를 할당하려고 하면 작업이 실패하고 사용자에게 이 오류를 기록합니다.
 
 이 문제를 해결하려면 라이선스가 부여된 그룹의 지원되지 않는 위치에서 사용자를 제거하면 됩니다. 또는 현재 사용 위치 값이 실제 사용자의 위치를 나타내지 않는 경우에는 다음에 라이선스가 정확히 할당되도록 사용 위치 값을 수정하면 됩니다(새 위치가 지원되는 경우).
+
+**PowerShell:** PowerShell cmdlet은 이 오류를 _ProhibitedInUsageLocationViolation_으로 보고합니다.
 
 > [!NOTE]
 > Azure AD가 그룹 라이선스를 할당하면 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 현지법 및 규정을 준수하는 그룹 기반 라이선스를 사용하기 전에 관리자가 올바른 사용 위치 값을 사용자에게 설정하는 것이 좋습니다.

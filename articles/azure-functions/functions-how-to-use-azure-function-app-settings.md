@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 3c18b1929a78137ff3b53b8e084dc35e0c8dcaac
-ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b7334f68e4526b716210b28388afcd0ee6e48940
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
 
 ## <a name="develop"></a>개발
 ### <a name="app-service-editor"></a>앱 서비스 편집기
-App Service 편집기는 Json 구성 파일과 코드 파일을 둘 다 수정하는 데 사용할 수 있는 포털 내 고급 편집기입니다. 이 옵션을 선택하면 기본 편집기와 함께 별도의 브라우저 탭이 실행됩니다. 이를 통해 Github와 통합하고 코드를 실행 및 디버깅하며 함수 앱 설정을 수정할 수 있습니다.
+App Service 편집기는 Json 구성 파일과 코드 파일을 둘 다 수정하는 데 사용할 수 있는 포털 내 고급 편집기입니다. 이 옵션을 선택하면 기본 편집기와 함께 별도의 브라우저 탭이 실행됩니다. 이를 통해 GitHub와 통합하고 코드를 실행 및 디버깅하며 함수 앱 설정을 수정할 수 있습니다.
 
 ![앱 서비스 편집기](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -133,10 +134,5 @@ Azure Functions를 사용하면 일일 사용 할당량을 설정하여 플랫�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

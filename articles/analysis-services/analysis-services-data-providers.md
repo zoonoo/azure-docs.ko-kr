@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 03720b926e3a75c5443308f510b38132144318ff
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 14218a7c2acf6b68025095c1ecb60cb480233044
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -42,7 +42,7 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그�
 [ADOMD 미리 보기](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
 
 ## <a name="download-the-latest-rtm-data-providers"></a>최신 **RTM** 데이터 공급자 다운로드  
-프로덕션 환경에 있으며 완전하게 출시되고 지원되는 버전일 필요한 경우 다음과 같은 데이터 공급자를 사용합니다.
+프로덕션 환경을 사용하며 완전하게 출시되고 지원되는 버전일 필요한 경우 다음과 같은 데이터 공급자를 사용합니다.
 
 [MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>

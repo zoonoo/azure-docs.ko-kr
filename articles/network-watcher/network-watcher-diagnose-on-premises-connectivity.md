@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b832916f5b6fe413f9fc7b3fcefcea40d3ce7ef
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 03/09/2017
 Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 장치의 선택도 고유합니다. Azure는 현재 장치 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 장치](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices)를 지원합니다. 온-프레미스 VPN 장치를 구성하기 전에 장치 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 장치 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 이렇게 하지 않으면 연결이 손실되고 현재까지 해당 문제에 대한 해결은 간단하지 않았으며 보통 문제를 식별하고 해결하는 데 시간이 걸렸습니다.
 
 Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 연결로 모든 문제를 진단하고 몇 분 안에 문제를 해결하기 위해 정보를 바탕으로 결정을 내릴 수 있는 충분한 정보를 얻을 수 있습니다.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>시나리오
 
@@ -53,7 +51,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 | 해시 알고리즘 |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | 1단계 SA(보안 연결) 수명(시간) |28,800초 |10,800초 |
  
-사용자로서 Cisco ASA를 구성해야 합니다. 샘플 구성은 [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt)에서 찾을 수 있습니다. 다른 구성 중에서 해시 알고리즘을 지정해야 합니다. Cisco ASA는 Azure VPN Gateway보다 더 많은 [암호화 및 해시 알고리즘](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html)을 지원합니다. 자신도 모르게 해시 알고리즘으로 SHA-512를 사용하도록 Cisco ASA를 구성했습니다. 이 알고리즘은 정책 기반 연결에 대해 지원되는 알고리즘이 아니므로 VPN 연결이 작동합니다.
+사용자로서 Cisco ASA를 구성해야 합니다. 샘플 구성은 [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt)에서 찾을 수 있습니다. 다른 구성 중에서 해시 알고리즘을 지정해야 합니다. Cisco ASA는 Azure VPN Gateway보다 더 많은 [암호화 및 해시 알고리즘](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html)을 지원합니다. 자신도 모르게 해시 알고리즘으로 SHA-512를 사용하도록 Cisco ASA를 구성했습니다. 이 알고리즘은 정책 기반 연결에 대해 지원되는 알고리즘이 아니므로 VPN 연결이 작동합니다.
 
 이러한 문제는 해결하기 어려우며 근본 원인은 직관적이지 않은 경우가 많습니다. 이 경우 문제 해결에 대한 도움을 얻기 위해 지원 티켓을 열 수 있습니다. 그러나 Azure Network Watcher 문제 해결 API를 사용하면 이러한 문제를 직접 식별할 수 있습니다. 
 

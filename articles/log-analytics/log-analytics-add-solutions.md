@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c187467e8af7503ea22c5953417d8282be97856c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 4cc1f60820861913f43ae449b20381036fd49bdf
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -75,10 +75,10 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 
 | 관리 솔루션                                                                        | 제안                                                                     | 가격 책정 계층<sup>1</sup>                                                    | 메모 |
 | ---                                                                                        | ---                                                                       | ---                                                                                                       | ---   |
-| Activity Log Analytics                                                                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 90일간 데이터 무료 제공 |
+| Activity Log Analytics                                                                     | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 90일간 데이터 무료 제공<br>체험 계층 요금에 적용되지 않는 데이터 |
 | [AD 평가](log-analytics-ad-assessment.md)                                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | [AD 복제 상태](log-analytics-ad-replication-status.md)                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
-| 에이전트 상태                                                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
+| 에이전트 상태                                                                                  | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 체험 계층 요금에 적용되지 않는 데이터 |
 | [경고 관리](log-analytics-solution-alert-management.md)                              | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | Application Insights 커넥터 <br>(미리 보기)                                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>    | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | Automation Hybrid Worker                                                                     | <ul><li>자동화 및 제어</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
@@ -104,8 +104,8 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 | [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | [System Center Operations Manager 평가](log-analytics-scom-assessment.md) <br>(미리 보기) | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul>         | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | 업데이트 관리                                                                               | <ul><li>자동화 및 제어</li></ul>                                    | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                            | Log Analytics 작업 영역을 Automation 계정에 연결해야 함 |
-| [업데이트 규정 준수](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(미리 보기)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용 |
-| [업그레이드 준비](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용 |
+| [업데이트 규정 준수](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(미리 보기)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용<br>체험 계층 요금에 적용되지 않는 데이터 |
+| [업그레이드 준비](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | 데이터 또는 노드 무료 사용<br>체험 계층 요금에 적용되지 않는 데이터 |
 | [VMware 모니터링](log-analytics-vmware.md) <br>(미리 보기)                                 | <ul><li>정보&nbsp;및&nbsp;분석</li><li>Log Analytics</li></ul>     | 무료<br> Standard<br> Premium&nbsp;(OMS)<br> &nbsp;GB당&nbsp;(독립 실행형)<br> &nbsp;노드당&nbsp;(OMS)     | |
 | 실시간 데이터 2.0<br>(미리 보기)                                                                   | <ul><li>Insight and Analytics</li></ul>                                      | 무료<br> &nbsp;노드당&nbsp;(OMS)                                                                         | 미국 동부 및 유럽 서부에서 사용 가능 |
 

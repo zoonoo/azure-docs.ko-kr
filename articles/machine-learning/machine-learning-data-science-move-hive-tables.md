@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
-ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 88c919b64513c8441ab73e2750e7ddfb12fcb63e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -45,7 +46,7 @@ Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Ha
 * **압축을 풉니다** .
 * **고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정** 항목에 설명된 절차에 따라 생성된 기본(또는 해당 컨테이너) 위치로 [업로드](machine-learning-data-science-customize-hadoop-cluster.md) 합니다. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](machine-learning-data-science-process-hive-walkthrough.md#upload)에 나와 있습니다.
 
-## <a name="a-namesubmitahow-to-submit-hive-queries"></a><a name="submit"></a>Hive 쿼리를 제출하는 방법
+## <a name="submit"></a>Hive 쿼리를 제출하는 방법
 다음을 사용하여 Hive 쿼리를 제출할 수 있습니다.
 
 1. [Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출](#headnode)
@@ -56,7 +57,7 @@ Hive 쿼리는 SQL과 유사하므로, SQL에 익숙한 사용자에게는 [SQL 
 
 또한 Hive 쿼리를 제출할 때 Hive 쿼리에서 화면, 헤드 노드의 로컬 파일, Azure blob 등의 출력 대상을 제어할 수 있습니다.
 
-### <a name="a-nameheadnodea-1-submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a> 1. Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출
+### <a name="headnode"></a> 1. Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출
 Hive 쿼리가 복잡한 경우 Hadoop 클러스터의 헤드 노드에서 바로 Hive 쿼리를 제출하면 일반적으로 Hive 편집기 또는 Azure PowerShell 스크립트를 사용하여 제출하는 것보다 반환 시간이 빠릅니다.
 
 Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 화면에서 Hadoop 명령줄을 열고, 명령을 입력합니다 `cd %hive_home%\bin`.
@@ -116,14 +117,14 @@ Azure 저장소 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테�
 
 ![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### <a name="a-namehive-editora-2-submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
+### <a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
 양식의 URL *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*를 웹 브라우저에 입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.
 
-### <a name="a-namepsa-3-submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a> 3. Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
+### <a name="ps"></a> 3. Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
 PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../hdinsight/hdinsight-hadoop-use-hive-powershell.md)을 참조하세요.
 
-## <a name="a-namecreate-tablesacreate-hive-database-and-tables"></a><a name="create-tables"></a>Hive 데이터베이스 및 테이블 만들기
-Hive 쿼리는 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) 에서 공유되며 여기에서 다운로드할 수 있습니다.
+## <a name="create-tables"></a>Hive 데이터베이스 및 테이블 만들기
+Hive 쿼리는 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)에서 공유되며 여기에서 다운로드할 수 있습니다.
 
 다음은 Hive 테이블을 만드는 Hive 쿼리입니다.
 
@@ -149,7 +150,7 @@ Hive 쿼리는 [Github 리포지토리](https://github.com/Azure/Azure-MachineLe
 * **&#60;storage location>**: Hive 테이블의 데이터를 저장할 Azure Storage 위치입니다. *LOCATION &#60;storage location>*을 지정하지 않으면 기본적으로 데이터베이스 및 테이블이 Hive 클러스터의 기본 컨테이너에 있는 *hive/warehouse/* 디렉터리에 저장됩니다. 저장소 위치를 지정하려면 저장소 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *'wasb:///&#60;directory 1>/'* 또는 *'wasb:///&#60;directory 1>/&#60;directory 2>/'* 등의 형식으로 클러스터 기본 컨테이너에 대한 상대 위치로 참조해야 합니다. 쿼리가 실행된 후 기본 컨테이너 내에 상대 디렉터리가 만들어집니다.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: 데이터 파일에 헤더 줄이 있으면 *create table* 쿼리의 **끝**에 이 속성을 추가해야 합니다. 그렇지 않으면 헤더 줄이 테이블의 레코드로 로드됩니다. 데이터 파일에 헤더 줄이 없으면 쿼리에서 이 구성을 생략해도 됩니다.
 
-## <a name="a-nameload-dataaload-data-to-hive-tables"></a><a name="load-data"></a>Hive 테이블에 데이터 로드
+## <a name="load-data"></a>Hive 테이블에 데이터 로드
 다음은 Hive 테이블에 데이터를 로드하는 Hive 쿼리입니다.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
@@ -161,7 +162,7 @@ Hive 쿼리는 [Github 리포지토리](https://github.com/Azure/Azure-MachineLe
   >
   >
 
-## <a name="a-namepartition-orcaadvanced-topics-partitioned-table-and-store-hive-data-in-orc-format"></a><a name="partition-orc"></a>고급 토픽: 분할된 테이블 및 ORC 형식으로 Hive 데이터 저장
+## <a name="partition-orc"></a>고급 토픽: 분할된 테이블 및 ORC 형식으로 Hive 데이터 저장
 데이터가 큰 경우 테이블을 분할하면 테이블의 파티션 몇 개만 검색하면 되는 쿼리의 속도가 향상됩니다. 예를 들어 웹 사이트의 로그 데이터를 날짜별로 분할하는 것이 합리적입니다.
 
 Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) 형식으로 저장하는 방법 또한 도움이 됩니다. ORC 형식에 대한 자세한 내용은 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">ORC 파일을 사용하면 Hive에서 데이터를 읽고, 쓰고, 처리할 때 성능 향상</a>을 참조하세요.
@@ -186,7 +187,7 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
     from <database name>.<partitioned table name>
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
-### <a name="a-nameorcastore-hive-data-in-orc-format"></a><a name="orc"></a>ORC 형식으로 Hive 데이터 저장
+### <a name="orc"></a>ORC 형식으로 Hive 데이터 저장
 blob 저장소의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바로 로드할 수 없습니다. Azure blob의 데이터를 ORC 형식으로 저장된 Hive 테이블에 로드하려면 다음 단계를 수행해야 합니다.
 
 외부 테이블 **STORED AS TEXTFILE** 을 만들고 blob 저장소의 데이터를 이 테이블에 로드합니다.
@@ -235,9 +236,4 @@ blob 저장소의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바�
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 이 절차를 모두 수행했다면 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었을 것입니다.  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

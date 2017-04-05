@@ -1,6 +1,6 @@
 ---
 title: "Azure Import/Export 서비스 REST API 사용 | Microsoft Docs"
-description: "Azure Import/Export 서비스 REST API를 사용하는 방법을 알아봅니다"
+description: "방법 및 참조 자료를 비롯하여 Azure Import/Export 서비스 REST API 사용에 대한 리소스를 찾을 수 있는 위치를 알아봅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 675aef8ec0f9344d2b3073021e83856c2fb34b7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e4f5ca289f4bd87574e448d37a1154b222f221f5
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,7 +39,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 Import/Export 서비스에 대한 요청은 `api-version` 매개 변수를 지정하고 해당 값을 `2016-11-01`로 설정해야 합니다.
 
-## <a name="in-this-section"></a>섹션 내용
+## <a name="importexport-service-operations"></a>Import/Export 서비스 작업
 
 [가져오기 작업 만들기](storage-import-export-creating-an-import-job.md)
 
@@ -52,13 +53,9 @@ Import/Export 서비스에 대한 요청은 `api-version` 매개 변수를 지�
 
 [드라이브 매니페스트 백업](storage-import-export-backing-up-drive-manifests.md)
 
-[Import-Export 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
+[가져오기/내보내기 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="see-also"></a>참고 항목
- [저장소 Import/Export REST](/rest/api/storageimportexport)
+## <a name="next-steps"></a>다음 단계
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [저장소 Import/Export REST](/rest/api/storageimportexport)
 

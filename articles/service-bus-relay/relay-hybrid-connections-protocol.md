@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: f5fd4c6c0b8db3fe91d8b57a68fe33dcff353a59
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: a433b918f48b42d3bf7ee8ee16bd912e278a381d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -138,9 +138,6 @@ JSON 메시지에서 제공되는 주소 URL은 발신자 소켓을 수락하거
 #### <a name="accepting-the-socket"></a>소켓 수락
 수락하면 수신기가 제공된 주소로 웹 소켓 연결을 설정합니다.
 
-미리 보기 기간 동안, 주소 URI는 기본 IP 주소를 사용할 수 있으며 서버가 제공한 TLS 인증서는 해당 주소에 대한 유효성 검사가 실패합니다.
-이는 미리 보기 도중 수정됩니다.
-
 "수락" 메시지에 "Sec-WebSocket-Protocol" 헤더가 있는 경우, 해당 프로토콜을 지원하고 웹 소켓이 설정된 대로 헤더를 설정하면 수신기는 웹 소켓만 수락합니다.
 
 "Sec-WebSocket-Extensions" 헤더에도 동일하게 적용됩니다. 프레임워크가 확장을 지원하는 경우 확장을 위해 필수 "Sec-WebSocket-Extensions" 핸드셰이크의 *서버* 쪽 회신에 헤더를 설정해야 합니다.
@@ -187,7 +184,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 | statusCode |예 |숫자 HTTP 상태 코드 |
 | statusDescription |예 |거부 이유를 읽을 수 있는 사람 |
 
-결과 URI는 WebSocket 연결을 설정하기 위해 사용되고, TLS 인증서는 미리 보기 도중에 주소와 일치하지 않을 수 있으므로, 유효성 검사를 사용하지 못할 수 있습니다.
+결과 URI는 WebSocket 연결을 설정하는 데 사용됩니다.
 
 올바르게 완료한 경우 이 핸드셰이크는 웹 소켓 설정되지 않았기 때문에 HTTP 오류 코드 410과 함께 의도적으로 실패합니다. 오류가 발생하는 경우 옵션은 다음과 같습니다.
 

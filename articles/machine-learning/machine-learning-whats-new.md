@@ -12,15 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
-ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 551b977b90612ddbfa1514a9c2358ebf8179c385
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure 기계 학습의 새로운 기능
+
+### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>Microsoft Azure Machine Learning 업데이트 2017년 3월 릴리스에서는 다음 기능을 제공합니다.
+
+
+
+* Azure Machine Learning BES 작업에 대한 전용 용량
+
+    Machine Learning 배치 풀 처리는 Azure Machine Learning 배치 실행 서비스(BES)에 고객 관리 규모를 제공하는 데 [Azure Batch](../batch/batch-technical-overview.md) 서비스를 사용합니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 Azure Batch 풀을 만들고 예측 가능한 방식으로 실행할 수 있습니다.
+
+    자세한 내용은 [Machine Learning 작업에 대한 Azure Batch 서비스](machine-learning-dedicated-capacity-for-bes-jobs.md)를 참조하세요.
+
+
 ### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Microsoft Azure Machine Learning 업데이트 2016년 8월 릴리스에서는 다음 기능을 제공합니다.
 * 이제 기존 웹 서비스를 새로운 [Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털에서 관리할 수 있습니다. 이를 통해 웹 서비스의 모든 측면을 한 곳에서 관리할 수 있습니다.    
   * 웹 서비스 [사용 통계](machine-learning-manage-new-webservice.md)를 제공합니다.
@@ -40,10 +53,5 @@ ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
 * 샘플 데이터 및 작업 제출 내역을 포함하는 새 BES(일괄 처리 실행 서비스) 테스트 페이지를 제공합니다.
 
 또한 새 웹 서비스 모델에 배포하거나 기존 웹 서비스 모델에 계속해서 배포할 수 있도록 Machine Learning 스튜디오가 업데이트되었습니다. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

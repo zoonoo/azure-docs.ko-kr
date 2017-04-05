@@ -17,9 +17,9 @@ ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c0fc55d24506f669a74d67a803304ebf0b53bf21
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/21/2017
 
 다음 단계를 실행하려면 다음이 필요 합니다.
 
-* 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com/)에서 무료 평가판을 얻을 수 있습니다.
+* 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com/)에서 평가판을 얻을 수 있습니다.
 * Azure 리소스 그룹을 사용할 회사 또는 학교 ID. 개인 계정이 있고 Microsoft ID로 로그인하는 경우 [개인 계정에서 회사 ID를 만들어야](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다.
 * 클라이언트 운영 체제에 따라 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [Mac, Linux 및 Windows용 Azure CLI](../cli-install-nodejs.md)
 * [OpenSSL](https://www.openssl.org/). OpenSSL은 필요한 인증서를 생성하는 데 사용됩니다.
@@ -82,7 +82,7 @@ ms.lasthandoff: 03/21/2017
     
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
-11. 리소스 그룹이 프로비전되면 Azure 클래식 포털의 그룹에서 모든 리소스를 볼 수 있습니다. 다음 스크린샷에 표시된 것과 같이 리소스 그룹은 동일한 가용성 집합에 조인된&3;개의 VM이 있는 가상 네트워크를 포함합니다. 또한 그룹은 관련 공용 IP가 있는 부하 분산 장치를 포함합니다.
+11. 리소스 그룹이 프로비전되면 Azure 클래식 포털의 그룹에서 모든 리소스를 볼 수 있습니다. 다음 스크린샷에 표시된 것과 같이 리소스 그룹은 동일한 가용성 집합에 조인된 3개의 VM이 있는 가상 네트워크를 포함합니다. 또한 그룹은 관련 공용 IP가 있는 부하 분산 장치를 포함합니다.
     
     ![Azure 클래식 포털에서 프로비전된 리소스 그룹](media/virtual-machines-linux-deis-cluster/resource-group.png)
 
@@ -178,7 +178,7 @@ Deis 클러스터를 제어하려면 **deisctl** 이 필요합니다. deisctl은
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 4. GitHub로 id_rsa.pub 또는 사용자가 선택한 공용 키를 추가합니다. SSH 키 구성 화면에서 SSH 키 추가 단추를 사용하여 수행할 수 있습니다.
    
-   ![Github 키](media/virtual-machines-linux-deis-cluster/github-key.png)
+   ![GitHub 키](media/virtual-machines-linux-deis-cluster/github-key.png)
    
    <p />
 5. 새 사용자 등록:

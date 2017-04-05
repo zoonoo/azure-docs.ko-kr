@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 1d3336e7e2e3ec84ab85a8f494717a75f77982b3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 379b32f4e533f48f1593a97e73737a0c5bfb9135
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -75,7 +75,7 @@ NYC taxi의 Spark 2.0 Notebook 및 항공사 비행 지연 데이터 집합은 �
 ### <a name="prerequisites"></a>필수 조건
 다음 절차는 Spark 1.6에 대한 내용입니다. Spark 2.0 버전의 경우 이전에 설명 및 링크된 Notebook을 사용합니다. 
 
-1. Azure 구독이 있어야 합니다. 아직 가지고 있지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+1. Azure 구독이 있어야 합니다. 아직 가지고 있지 않은 경우 [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 2. 이 연습을 완료하는 데는 Spark 1.6 클러스터가 필요합니다. 만드는 방법은 [시작: Azure HDInsight에서 Apache Spark 만들기](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요. 클러스터 유형 및 버전은 **클러스터 유형 선택** 메뉴에서 지정됩니다. 
 
@@ -143,7 +143,7 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 | tip_amount |팁 금액 |
 | tolls_amount |통행료 금액 |
 | total_amount |총 금액 |
-| tipped |팁 지불 여부(아니요 또는 예에 대해&0;/1 지정) |
+| tipped |팁 지불 여부(아니요 또는 예에 대해 0/1 지정) |
 | tip_class |팁 클래스(0: $0, 1: $0-5, 2: $6-10, 3: $11-20, 4: > $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Spark 클러스터의 Jupyter Notebook에서 코드 실행
@@ -155,9 +155,9 @@ Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드�
 
 ![Jupyter 노트북 찾아보기](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-PySpark를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook에 대한 몇 가지 예가 들어 있는 디렉터리를 표시합니다. 이 Spark 항목 모음에 대한 코드 샘플이 포함된 Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 사용할 수 있습니다.
+PySpark를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook에 대한 몇 가지 예가 들어 있는 디렉터리를 표시합니다. 이 Spark 항목 모음에 대한 코드 샘플이 포함된 Notebook은 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 사용할 수 있습니다.
 
-노트북을 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter의 홈 페이지에서 화면 오른쪽의 **업로드** 버튼을 클릭합니다. 파일 탐색기가 열립니다. 여기서 Notebook의 Github(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭할 수 있습니다. 
+노트북을 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter의 홈 페이지에서 화면 오른쪽의 **업로드** 버튼을 클릭합니다. 파일 탐색기가 열립니다. 여기서 Notebook의 GitHub(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭할 수 있습니다. 
 
 **업로드** 버튼을 다시 사용하면 Jupyter 파일 목록에서 파일 이름을 확인할 수 있습니다. 이 **업로드** 버튼을 클릭합니다. 이제 Notebook을 가져왔습니다. 이 단계를 반복하여 이 연습에서 다른 Notebook을 업로드합니다.
 

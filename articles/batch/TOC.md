@@ -37,8 +37,8 @@
 
 # 관련 항목
 ## [배치 Shipyard](https://github.com/Azure/batch-shipyard)
+## [배치 및 데이터 팩터리를 사용하여 데이터 처리](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)
-## [Azure의 Big Compute: 기술 리소스](big-compute-resources.md)
 
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
@@ -48,5 +48,8 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [CLI 샘플](batch-cli-samples.md)
+## [큰 계산 리소스](big-compute-resources.md)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
+
 

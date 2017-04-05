@@ -16,9 +16,9 @@ ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f60937f9a9dd0e7d9939f85d1a9d442a4b7f266
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: beadcbfa4907d68a687ec5144136132d8b0439e1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -44,9 +44,8 @@ ms.lasthandoff: 03/14/2017
 2. Visual Studio에서 **PowerBI-embedded.sln** 을 엽니다. 이 솔루션에서 사용되는 패키지를 업데이트하려면 NuGET 패키지 관리자 콘솔에서 **Update-Package** 명령을 실행해야 할 수 있습니다.
 3. 솔루션을 빌드하십시오.
 4. **ProvisionSample** 콘솔 앱을 실행합니다. 샘플 콘솔 앱에서 작업 영역을 프로비전하고 PBIX 파일을 가져옵니다.
-5. 새 **작업 영역**을 프로비전하려면 옵션 5 **기존 작업 영역 컬렉션에서 새 작업 영역 프로비전**을 선택합니다.
+5. 새 **작업 영역**을 프로비전하려면 옵션 2 **관리 보고**를 선택한 다음, 옵션 3 **PBIX 데스크톱 파일을 작업 영역에 가져오기**를 선택합니다.
 
-    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
 6. **작업 영역 컬렉션** 이름 및 **선택키**를 입력합니다. **Azure 포털**에서 이러한 정보를 가져올 수 있습니다. **선택키**를 가져오는 방법에 대해 알아보려면 Microsoft Power BI Embedded 시작의 [Power BI API 선택키 보기](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) 를 참조하세요.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)

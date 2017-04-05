@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 590d2c39e295e2f855910b00e0302f01d96de8dc
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: c309151e3e3aa6ff235f0dee2ddf975940f34f44
+ms.lasthandoff: 03/24/2017
 
 ---
 
@@ -82,7 +82,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 
 **캡처 구성**
 
-- **저장소** - 패킷 캡처를 저장소 계정에 저장할지 여부를 결정합니다.
+- **저장소 계정** - 패킷 캡처를 저장소 계정에 저장할지 여부를 결정합니다.
 - **파일** - 패킷 캡처를 가상 컴퓨터에 로컬로 저장할지 여부를 결정합니다.
 - **저장소 계정** - 패킷 캡처를 저장할 선택한 저장소 계정입니다. 기본 위치는 https://{저장소 계정 이름}.blob.core.windows.net/network-watcher-logs/subscriptions/{구독 ID}/resourcegroups/{리소스 그룹 이름}/providers/microsoft.compute/virtualmachines/{가상 컴퓨터 이름}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap입니다. (**저장소**를 선택한 경우에만 사용됨)
 - **로컬 파일 경로** - 패킷 캡처를 저장할 가상 컴퓨터의 로컬 경로입니다. (**파일**을 선택한 경우에만 사용됨). 유효한 경로를 제공해야 합니다.

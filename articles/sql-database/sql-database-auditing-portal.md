@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 2/25/2017
 ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e20a30a565198c01f213895a87fe8807a37272cb
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Azure Portal에서 SQL Database 감사 구성 및 관리
 
-다음 섹션에서는 Azure Portal을 사용하여 감사를 구성 및 관리하는 방법을 설명합니다. PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell에서 감사 구성](sql-database-auditing-powershell.md)을 참조하세요. 
+다음 섹션에서는 Azure Portal을 사용하여 감사를 구성 및 관리하는 방법을 설명합니다. PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell에서 감사 구성](scripts/sql-database-create-and-configure-database-powershell.md)을 참조하세요. 
 
 감사의 개요는 [SQL Database 감사](sql-database-auditing.md)를 참조하세요.
 
@@ -188,7 +188,7 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell을 사용하여 데이터베이스 감사 구성](sql-database-auditing-powershell.md)을 참조하세요.
+* PowerShell을 사용하여 감사를 구성 및 관리하려면 [PowerShell을 사용하여 데이터베이스 감사 구성](scripts/sql-database-create-and-configure-database-powershell.md)을 참조하세요.
 * 감사의 개요는 [데이터베이스 감사](sql-database-auditing.md)를 참조하세요.
 
 

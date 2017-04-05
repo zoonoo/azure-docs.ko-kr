@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -61,5 +61,5 @@ Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정�
 ## <a name="next-steps"></a>다음 단계
 
 1. Azure AD를 사용하여 인증을 수행하는 응용 프로그램에 대한 자세한 연습에 대해 [빠른 시작](active-directory-developers-guide.md)을 확인합니다.
-2. [Github](https://github.com/azure-samples)에서 코드 샘플에 대한 전체 목록을 확인합니다.
+2. [GitHub](https://github.com/azure-samples)에서 코드 샘플에 대한 전체 목록을 확인합니다.
 

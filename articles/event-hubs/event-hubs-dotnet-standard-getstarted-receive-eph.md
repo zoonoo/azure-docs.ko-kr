@@ -1,6 +1,6 @@
 ---
-title: ".NET 표준을 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs"
-description: ".NET 표준에서 EventProcessorHost를 사용하여 메시지 수신 시작"
+title: ".NET Standard를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs"
+description: ".NET Standard에서 EventProcessorHost를 사용하여 메시지 수신 시작"
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 65ed5164b8d010453ed34e8b8cdf68915e136007
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용하지만 Visual Studio 2017도 지원됩니다.
+* [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용하지만 Visual Studio 2015도 지원됩니다.
 * [.NET Core Visual Studio 2015 또는 2017 도구](http://www.microsoft.com/net/core).
 * Azure 구독.
 * Azure Event Hubs 네임스페이스.
@@ -53,32 +53,9 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
-1. Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. .NET Core 콘솔 응용 프로그램을 만듭니다.
+Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. .NET Core 콘솔 응용 프로그램을 만듭니다.
 
-    ![새 프로젝트][2]
-
-2. 솔루션 탐색기에서 **project.json** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-3. `"frameworks"` 섹션에서 `"imports"` 선언에 `"portable-net45+win8"` 문자열을 추가합니다. 이제 해당 섹션이 다음과 같이 표시됩니다. 이 문자열은 OData에 대한 Azure Storage 종속성 때문에 필요합니다.
-
-    ```json
-    "frameworks": {
-      "netcoreapp1.0": {
-        "imports": [
-          "dnxcore50",
-          "portable-net45+win8"
-        ]
-      }
-    }
-    ```
-
-4. **파일** 메뉴에서 **모두 저장**을 클릭합니다.
-
-이 자습서에서는 .NET Core 응용 프로그램을 작성하는 방법을 보여 줍니다. 전체 .NET Framework를 대상으로 하려면 `"frameworks"` 섹션에서 project.json 파일에 다음 코드 줄을 추가합니다.
-
-```json
-"net451": {
-},
-```
+![새 프로젝트][2]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
@@ -93,9 +70,9 @@ ms.lasthandoff: 03/22/2017
 2. SimpleEventProcessor.cs 파일을 열고 다음 `using` 문을 파일의 맨 위에 추가합니다.
 
     ```csharp
-    using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 3. `IEventProcessor` 인터페이스를 구현합니다. `SimpleEventProcessor` 클래스의 전체 내용을 다음 코드로 바꿉니다.
@@ -141,6 +118,7 @@ ms.lasthandoff: 03/22/2017
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 2. Event Hubs 연결 문자열, Event Hub 이름, 저장소 계정 컨테이너 이름, 저장소 계정 이름 및 저장소 계정 키의 `Program` 클래스에 상수를 추가합니다. 자리 표시자를 해당 값으로 바꾸어 다음 코드를 추가합니다.

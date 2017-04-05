@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4d9471fcdff26ac76312fcecdb427dca842f7ee3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -90,7 +90,7 @@ SSH 키를 사용하여 클러스터를 구성한 경우에는 `-i` 매개 변�
 
 PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니다.
 
-1. PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) 을 참조합니다.
+1. PuTTY를 열고 연결 정보를 입력합니다. PuTTY에 대해 잘 모르는 경우 [PuTTY 설명서(영문)(http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)를 참조하세요.
 
 2. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
 
@@ -159,9 +159,6 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 * [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 
-HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 

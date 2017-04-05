@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/29/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 43a09fc208bee29c41776df402c5be664bb38e18
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 24b575a3c32c9df963f889954abd152ada4f3102
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -57,6 +57,14 @@ DocumentDB .NET Core SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md)�
 > [!NOTE] 
 > DocumentDB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK에 관심이 있는 경우 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)(으)로 전자 메일을 보내세요.
 
+### <a name="a-name121121httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore121"></a><a name="1.2.1"/>[1.2.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.2.1)
+
+* ASP.NET 컨텍스트 내에서 사용할 경우 일부 비동기 API에서 교착 상태를 일으키는 문제를 해결했습니다.
+
+### <a name="a-name120120httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore120"></a><a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.2.0)
+
+* 특정 조건에서 자동 장애 조치(Failover)를 수행하도록 SDK를 좀 더 탄력적으로 만들었습니다.
+
 ### <a name="a-name112112httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore112"></a><a name="1.1.2"/>[1.1.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.2)
 
 * 문제를 수정하는 경우 때때로 WebException이 발생합니다. 원격 이름을 확인할 수 없습니다.
@@ -94,6 +102,8 @@ DocumentDB .NET Core Preview SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotn
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.2.1](#1.2.1) |2017년 3월 29일 |--- |
+| [1.2.0](#1.2.0) |2017년 3월 25일 |--- |
 | [1.1.2](#1.1.2) |2017년 3월 20일 |--- |
 | [1.1.1](#1.1.1) |2017년 3월 14일 |--- |
 | [1.1.0](#1.1.0) |2017년 2월 16일 |--- |

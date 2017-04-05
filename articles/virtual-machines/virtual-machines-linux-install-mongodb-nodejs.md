@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: ab58592b7dc55dee1f95338b4931fa76e9146a43
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 226d34f9cd762682b2c9e84bf5c32eecf9982b4b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -110,7 +110,7 @@ sudo chkconfig mongod on
 
 
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>템플릿을 사용하여 CentOS에서 기본 MongoDB 인스턴스 만들기
-Github의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 단일 CentOS VM에 기본 MongoDB 인스턴스를 만들 수 있습니다. 이 템플릿은 Linux용 사용자 지정 스크립트 확장을 사용하여 새로 만든 CentOS VM에 `yum` 리포지토리를 추가한 후 MongoDB를 설치합니다.
+GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 단일 CentOS VM에 기본 MongoDB 인스턴스를 만들 수 있습니다. 이 템플릿은 Linux용 사용자 지정 스크립트 확장을 사용하여 새로 만든 CentOS VM에 `yum` 리포지토리를 추가한 후 MongoDB를 설치합니다.
 
 * [CentOS의 기본 MongoDB 인스턴스](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
@@ -157,7 +157,7 @@ test
 
 
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>템플릿을 사용하여 CentOS에서 복합적인 MongoDB 분할된 클러스터 만들기
-Github의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합적인 MongoDB 분할된 클러스터를 만들 수 있습니다. 이 템플릿은 [MongoDB 분할된 클러스터 모범 사례](https://docs.mongodb.com/manual/core/sharded-cluster-components/)에 따라 중복성 및 고가용성을 제공합니다. 템플릿은 각 복제본 세트에&3;개의 노드가 있는&2;개의 분할 클러스터를 만듭니다. 노드가&3;개 있는 구성 서버 복제본 세트 하나와 `mongos` 라우터 서버&2;개가 만들어져서 분할 전반의 응용 프로그램에 대한 일관성을 제공합니다.
+GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합적인 MongoDB 분할된 클러스터를 만들 수 있습니다. 이 템플릿은 [MongoDB 분할된 클러스터 모범 사례](https://docs.mongodb.com/manual/core/sharded-cluster-components/)에 따라 중복성 및 고가용성을 제공합니다. 템플릿은 각 복제본 세트에 3개의 노드가 있는 2개의 분할 클러스터를 만듭니다. 노드가 3개 있는 구성 서버 복제본 세트 하나와 `mongos` 라우터 서버 2개가 만들어져서 분할 전반의 응용 프로그램에 대한 일관성을 제공합니다.
 
 * [CentOS의 MongoDB 분할 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 

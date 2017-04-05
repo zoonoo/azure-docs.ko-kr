@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: cc095b419eae7e85590cdd323a5cf3809c45452e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8c4c8db3cf57537dd77d33b3ded2dc24167f511f
+ms.lasthandoff: 03/25/2017
 
 ---
 
@@ -67,11 +67,15 @@ Traffic Manager는 베니티 DNS 이름을 매핑하는 데 DNS CNAME 레코드�
 
 트래픽 관리자에서 naked 도메인에 대한 전체 지원은 기능 백로그에서 추적됩니다. [커뮤니티 피드백 사이트에서 투표](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)하여 이 기능 요청에 지원을 등록할 수 있습니다.
 
+### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>DNS 쿼리를 처리할 때 Traffic Manager는 클라이언트 서브넷 주소를 고려하나요? 
+아니요. 현재 Traffic Manager는 지리적 및 성능 라우팅 방법에 대해 조회를 수행할 때 대부분의 경우 DNS 확인자의 IP 주소에 해당하는 수신된 DNS 쿼리의 원본 IP 주소만 고려합니다.  
+특히 지원하는 확인자의 클라이언트 서브넷 주소를 DNS 서버로 전달할 수 있는 [EDNS0(DNS에 대한 확장 메커니즘)](https://tools.ietf.org/html/rfc2671)을 제공하는 [RFC 7871 – DNS 쿼리의 클라이언트 서브넷](https://tools.ietf.org/html/rfc7871)은 현재 Traffic Manager에서 지원되지 않습니다. [커뮤니티 피드백 사이트](https://feedback.azure.com/forums/217313-networking)를 통해 이 기능 요청에 대한 지원을 받도록 등록할 수 있습니다.
+
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Traffic Manager 지리적 트래픽 라우팅 방법
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>지리적 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까? 
-지리적 라우팅 형식은 Azure 고객이 지리적 지역에 따라 사용자를 구분해야 하는 시나리오에서 사용할 수 있습니다. 이에 대한 예로 특정 지역의 사용자에게 다른 지역의 사용자와는 다른 사용자 환경을 제공하는 것입니다. 또 다른 예는 특정 지역의 해당 사용자들이 해당 지역의 끝점에서만 제공받도록 하는 로컬 데이터 독립성 지침을 준수하는 것입니다.
+지리적 라우팅 형식은 Azure 고객이 지리적 지역에 따라 사용자를 구분해야 하는 시나리오에서 사용할 수 있습니다. 예를 들어 지리적 트래픽 라우팅 방법을 사용하게 되면 특정 지역의 사용자에게 다른 지역의 사용자와는 다른 사용자 환경을 제공할 수 있습니다. 또 다른 예는 특정 지역의 해당 사용자들이 해당 지역의 끝점에서만 제공받도록 하는 로컬 데이터 독립성 지침을 준수하는 것입니다.
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>지리적 라우팅에 대해 Traffic Manager에서 지원되는 지역은 어디입니까? 
 Traffic Manager에서 사용되는 국가/지역 계층 구조는 [여기](traffic-manager-geographic-regions.md)에서 확인할 수 있습니다. 이 페이지가 변경 내용으로 최신 상태를 유지하는 동안 [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 프로그래밍 방식으로 동일한 정보를 검색할 수 있습니다. 
@@ -79,11 +83,19 @@ Traffic Manager에서 사용되는 국가/지역 계층 구조는 [여기](traff
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Traffic Manager는 어떻게 사용자가 쿼리하는 위치를 결정합니까? 
 Traffic Manager는 쿼리의 원본 IP를 찾고(대개 사용자 대신 쿼리를 수행하는 로컬 DNS 확인자일 수 있음) 지역 맵에 대한 내부 IP를 사용하여 위치를 결정합니다. 이 맵은 인터넷에서 변화를 확인하기 위해 정기적으로 업데이트됩니다. 
 
+### <a name="is-it-guaranteed-that-traffic-manager-will-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Traffic Manager가 모든 경우에 사용자의 정확한 지리적 위치를 올바르게 결정한다고 보장할 수 있나요?
+아니요. 다음과 같은 이유로 Traffic Manager에서는 DNS 쿼리의 원본 IP 주소에서 유추되는 지리적 하위 지역이 사용자 위치에 항상 올바르게 응답한다고는 보장할 수 없습니다. 
+
+- 첫째, 이전 FAQ에 설명된 것처럼 보고 있는 원본 IP 주소는 DNS 확인자가 사용자를 대신해서 조회를 수행하는 주소입니다. DNS 확인자의 지리적 위치는 사용자의 지리적 위치에 대한 적절한 프록시이지만, 해당 DNS 확인자 서비스의 사용 공간 및 고객이 사용하도록 선택한 특정 DNS 확인자 서비스에 따라 다를 수 있습니다. 예를 들어 말레이시아에 있는 고객은 싱가포르에 있는 해당 DNS 서버가 해당 사용자/장치에 대한 쿼리 확인을 처리하도록 선택되었을 수 있는 DNS 확인자 서비스를 사용하도록 장치 설정에 지정할 수 있습니다. 이 경우 Traffic Manager에는 싱가포르 위치에 해당하는 확인자의 IP 주소만 표시됩니다. 이 페이지에서 클라이언트 서브넷 주소 지원과 관련된 이전 FAQ도 참조하세요.
+
+- 둘째, Traffic Manager는 내부 맵을 사용하여 IP 주소-지리적 하위 지역 변환을 수행합니다. 이 맵은 정확도를 높이고 인터넷의 변화하는 특성을 고려하기 위해 지속적으로 유효성이 검사되고 업데이트되지만, 제공하는 정보가 모든 IP 주소의 지리적 위치를 정확히 나타내지 않을 수도 있습니다.
+
+
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>끝점을 지리적 라우팅에 대해 구성된 것과 물리적으로 동일한 지역에 배치해야 합니까? 
 아니요, 끝점의 위치는 지역이 매핑될 수 있는 곳에 대한 제한이 없습니다. 예를 들어 인도에 있는 모든 사용자는 미국 중부 Azure 지역에 있는 끝점으로 향할 수 있습니다.
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>지리적 라우팅을 수행하도록 구성되어 있지 않은 프로필의 끝점에 지리적 지역을 할당할 수 있습니까? 
-예, 프로필의 라우팅 방법이 지리적이 아닌 경우 [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 지리적 지역을 해당 프로필의 끝점에 할당할 수 있습니다. 비지리적 라우팅 형식 프로필의 경우 이 구성은 무시됩니다. 이러한 프로필을 나중에 지리적 라우팅 형식으로 변경하면 Traffic Manager는 그러한 매핑을 사용하게 됩니다.
+예. 프로필의 라우팅 방법이 지리적이 아닌 경우 [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 지리적 지역을 해당 프로필의 끝점에 할당할 수 있습니다. 비지리적 라우팅 형식 프로필의 경우 이 구성은 무시됩니다. 이러한 프로필을 나중에 지리적 라우팅 형식으로 변경하면 Traffic Manager는 그러한 매핑을 사용하게 됩니다.
 
 
 ### <a name="when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic-i-am-getting-an-error"></a>기존 프로필의 라우팅 방법을 지리적으로 변경하려고 시도하면 오류가 발생합니다.
@@ -95,7 +107,7 @@ Traffic Manager는 쿼리의 원본 IP를 찾고(대개 사용자 대신 쿼리�
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>이 라우팅 형식을 지원하는 API 버전에 제한이 있습니까?
 
-예, API 버전 2017-03-01 이상만 지리적 라우팅 형식을 지원합니다. 이전 API 버전은 지리적 라우팅 형식의 프로필을 생성하거나 지리적 지역을 끝점으로 할당하는 데 사용할 수 없습니다. 이전 API 버전을 사용하여 Azure 구독에서 프로필을 검색한 경우 지리적 라우팅 형식의 프로필은 반환되지 않습니다. 또한 이전 API 버전을 사용하는 경우, 지리적 지역 할당을 사용하는 끝점이 있는 반환된 모든 프로필은 지리적 지역 할당이 나타나지 않습니다.
+예. API 버전 2017-03-01 이상만 지리적 라우팅 형식을 지원합니다. 이전 API 버전은 지리적 라우팅 형식의 프로필을 생성하거나 지리적 지역을 끝점으로 할당하는 데 사용할 수 없습니다. 이전 API 버전을 사용하여 Azure 구독에서 프로필을 검색한 경우 지리적 라우팅 형식의 프로필은 반환되지 않습니다. 또한 이전 API 버전을 사용하는 경우, 지리적 지역 할당을 사용하는 끝점이 있는 반환된 모든 프로필은 지리적 지역 할당이 나타나지 않습니다.
 
 
 

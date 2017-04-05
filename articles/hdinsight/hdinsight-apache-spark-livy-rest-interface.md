@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 6cb0da6d7b3aafeb9a8079b427e31c66811a6281
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -32,7 +33,7 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="submit-a-batch-job"></a>배치 작업 제출
@@ -82,7 +83,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 다음 단계를 수행합니다.
 
-1. 먼저 Livy가 클러스터에서 실행 중인지 확인하도록 합니다. 실행 중인 배치 목록을 가져와서 확인할 수 있습니다. Livy를 사용하여 처음으로 작업을 실행하는 경우&0;을 반환해야 합니다.
+1. 먼저 Livy가 클러스터에서 실행 중인지 확인하도록 합니다. 실행 중인 배치 목록을 가져와서 확인할 수 있습니다. Livy를 사용하여 처음으로 작업을 실행하는 경우 0을 반환해야 합니다.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
@@ -165,6 +166,16 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 2. 왼쪽의 탐색 창에서 **Livy**를 클릭한 다음 **구성**을 클릭합니다.
 
 3. **livy-default** 아래에서 `livy.file.local-dir-whitelist` 속성 이름을 추가하고 파일 시스템에 대한 전체 액세스를 허용하려면 값을 **"/"**(슬래시)로 설정합니다. 특정 디렉터리에 대한 액세스만 허용하려면 해당 디렉터리에 대한 경로를 값으로 제공합니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+다음에는 Spark 클러스터에 원격 작업 제출을 위해 Livy를 사용하는 동안에 발생할 수 있는 몇 가지 문제가 나와 있습니다.
+
+### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>추가 저장소의 외부 jar 사용이 지원되지 않음
+
+**문제:** 클러스터와 연결된 추가 저장소의 외부 jar를 참조하는 Livy를 사용하여 Spark 작업을 실행하는 경우 작업이 실패합니다.
+
+**해결 방법:** 사용하려는 jar가 HDInsight 클러스터와 연결된 기본 저장소에서 사용 가능한 상태인지 확인합니다.
 
 
 ## <a name="seealso"></a>참고 항목

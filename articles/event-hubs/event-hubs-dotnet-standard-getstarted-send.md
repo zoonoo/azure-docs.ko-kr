@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: jotaub
+ms.date: 03/27/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 98de5528d8c74630153bf6908c590b3e0a89d870
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 420a79a3f98500fa5e9054c3a59d9ac20ecb6cbf
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2015를 사용하지만 Visual Studio 2017도 지원됩니다.
+* [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용하지만 Visual Studio 2015도 지원됩니다.
 * [.NET Core Visual Studio 2015 또는 2017 도구](http://www.microsoft.com/net/core).
 * Azure 구독.
 * Event Hubs 네임스페이스
@@ -58,6 +58,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
     ```csharp
     using Microsoft.Azure.EventHubs;
     using System.Text;
+    using System.Threading.Tasks;
     ```
 
 2. Event Hubs 연결 문자열 및 엔터티 경로(개별 이벤트 허브 이름)에 대한 `Program` 클래스에 상수를 추가합니다. 대괄호 안의 자리 표시자를 이벤트 허브를 만들 때 얻은 적절한 값으로 바꿉니다.
@@ -92,7 +93,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
     }
     ```
 
-4. 다음과 같이 `SendMessagesToEventHub`이라는 새 메서드를 `Program` 클래스에 추가합니다.
+4. 다음과 같이 `SendMessagesToEventHub`라는 새 메서드를 `Program` 클래스에 추가합니다.
 
     ```csharp
     // Creates an Event Hub client and sends 100 messages to the event hub.

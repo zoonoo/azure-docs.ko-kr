@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/09/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
-ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 3d1f24cb23a58b4478a30c5e4a0858b474d5d90e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -32,16 +32,17 @@ ms.lasthandoff: 03/01/2017
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. ITRP에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-itrp-tutorial/IC775551.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-itrp"></a>ITRP에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-itrp"></a>ITRP에 응용 프로그램 통합 사용
 이 섹션에서는 ITRP에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.
 
-### <a name="to-enable-the-application-integration-for-itrp-perform-the-following-steps"></a>ITRP에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+**ITRP에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
@@ -68,13 +69,16 @@ ms.lasthandoff: 03/01/2017
    
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 ITRP에 인증할 수 있게 하는 방법을 간략하게 설명합니다.  
+
 ITRP에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.  
+
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 **ITRP** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC771709.png "Single Sign-On 구성")
@@ -105,33 +109,30 @@ ITRP에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpri
    
     ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
     
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
-   
-    a. **사용**을 클릭합니다.
-   
-    b. Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
-   
-    c. Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML SSO URL** 텍스트 상자에 붙여 넣습니다.
-   
-    ㄹ. 내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여넣습니다.
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")   
+  1. **사용**을 클릭합니다.
+  2. Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+  3. Azure 클래식 포털의 **ITRP에서 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML SSO URL** 텍스트 상자에 붙여 넣습니다.
+  4. 내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여넣습니다.
       
-    > [!TIP]
-    > 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
-   
-    e. **저장**을 클릭합니다.
+     >[!TIP]
+     >자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하세요.
+     >
+    
+  5. **Save**를 클릭합니다.
 
 9. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-itrp-tutorial/IC775574.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 ITRP에 로그인할 수 있도록 하려면 ITRP로 프로비저닝되어야 합니다.  
+
 ITRP의 경우 프로비저닝 수동 작업입니다.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+
 1. **ITRP** 테넌트에 로그인합니다.
 
 2. 위쪽의 도구 모음에서 **레코드**를 클릭합니다.
@@ -148,21 +149,19 @@ ITRP의 경우 프로비저닝 수동 작업입니다.
 
 5. 새 사람 추가 대화 상자에서 다음 단계를 수행합니다.
    
-    ![사용자](./media/active-directory-saas-itrp-tutorial/IC775577.png "사용자")
-   
-    a. 프로비전할 유효한 AAD 계정의 **이름**과 **전자 메일**을 입력합니다.
-   
-    b. **저장**을 클릭합니다.
+    ![사용자](./media/active-directory-saas-itrp-tutorial/IC775577.png "사용자")   
+  1. 프로비전할 유효한 AAD 계정의 **이름**과 **전자 메일**을 입력합니다.
+  2. **Save**를 클릭합니다.
 
-> [!NOTE]
-> 다른 ITRP 사용자 계정 생성 도구 또는 ITRP가 제공한 API를 사용하여 AAD 사용자 계정을 프로비저닝할 수 있습니다.
-> 
+>[!NOTE]
+>다른 ITRP 사용자 계정 생성 도구 또는 ITRP가 제공한 API를 사용하여 AAD 사용자 계정을 프로비저닝할 수 있습니다. 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-itrp-perform-the-following-steps"></a>ITRP에 사용자를 할당하려면 다음 단계를 수행합니다.
+**ITRP에 사용자를 할당하려면 다음 단계를 수행합니다.**
+
 1. Azure AD 포털에서 테스트 계정을 만듭니다.
 
 2. **ITRP** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.

@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal을 사용하여 ExpressRoute 회로에 라우팅을 구성하는 방법 | Microsoft Docs"
+title: "ExpressRoute 회로에 라우팅을 구성하는 방법(피어링): Resource Manager: Azure | Microsoft Docs"
 description: "이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 65eef5df67adc089f52d8478fd1bb37a481d7d2a
-ms.openlocfilehash: 8d0b9f142ef274667692009bf8dafeb1f2f0f9c7
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 5e33ffc313e7edfcf7243f1113e07b215dc5b10b
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Express 경로 회로의 라우팅 만들기 및 수정
+# <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 > [!div class="op_single_selector"]
 > * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/22/2017
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 * 구성을 시작하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
-* 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-arm.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
+* 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-portal-resource-manager.md) 진행하기 전에 연결 공급자를 통해 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 * 공유 키/MD5 해시를 사용하려는 경우 터널의 양쪽 모두에서 이를 사용하고 최대 25로 문자 수를 제한해야 합니다.
 
 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 
@@ -186,8 +186,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
 ## <a name="next-steps"></a>다음 단계
-다음 단계에서는 [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)합니다.
-
+다음 단계로 [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-portal-resource-manager.md)합니다.
 * Express 경로 워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
 * 회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 * 가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.

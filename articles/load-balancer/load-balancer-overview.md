@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 93577703dd2bc1409250c3df12c2d6265f3f4634
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -111,7 +112,7 @@ Resource Manager 기반 템플릿, API 및 도구를 통해 부하 분산 장치
 
     부하 분산 장치는 가상 컴퓨터가 시작되는 새로운 아웃바운드 연결마다 아웃바운드 포트도 할당합니다. 외부 호스트는 VIP(가상 IP)가 할당된 포트를 통해 트래픽을 확인합니다. 아웃바운드 연결이 많이 필요한 시나리오에서는 VM이 SNAT 전용 아웃바운드 IP 주소를 사용할 수 있도록 [인스턴스 수준 공용 IP](../virtual-network/virtual-networks-instance-level-public-ip.md) 주소를 사용하는 것이 좋습니다. 이렇게 하면 포트 소모 위험이 줄어듭니다.
 
-    VIP 또는 인스턴스 수준 공용 IP(PIP)에서 사용할 수 있는 최대 포트 수는 64,000입니다. 이는 TCP 표준 제한입니다.
+    이 항목에 대한 자세한 내용은 [아웃바운드 연결](load-balancer-outbound-connections.md) 문서를 참조하세요.
 
 ### <a name="support-for-multiple-load-balanced-ip-addresses-for-virtual-machines"></a>가상 컴퓨터에 대해 여러 개의 부하 분산 IP 주소 지원
 가상 컴퓨터 집합에 두 개 이상의 부하 분산된 공용 IP 주소를 할당할 수 있습니다. 이 기능을 사용하면 동일한 가상 컴퓨터 집합에서 여러 개의 SSL 웹 사이트 및/또는 여러 개의 SQL Server AlwaysOn 가용성 그룹 수신기를 호스트할 수 있습니다. 자세한 내용은 [클라우드 서비스당 여러 VIP](load-balancer-multivip.md)를 참조하세요.
@@ -125,10 +126,5 @@ Resource Manager 기반 템플릿, API 및 도구를 통해 부하 분산 장치
 [내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
 
 [인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-arm-ps.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 
