@@ -1,6 +1,6 @@
 ---
 title: "Azure DocumentDB의 일반적인 사용 사례 및 NoSQL 시나리오 | Microsoft Docs"
-description: "DocumentDB의&5;가지 상위 사용 사례인 사용자 생성 콘텐츠, 이벤트 로깅, 카탈로그 데이터, 사용자 기본 설정 데이터 및 IoT(사물 인터넷)에 대해 알아봅니다."
+description: "DocumentDB의 5가지 상위 사용 사례인 사용자 생성 콘텐츠, 이벤트 로깅, 카탈로그 데이터, 사용자 기본 설정 데이터 및 IoT(사물 인터넷)에 대해 알아봅니다."
 services: documentdb
 author: h0n
 manager: jhubbard
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/23/2017
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
-ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9a0ba106b4c2aded8aaac673dfba3610bd4ca0fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -66,7 +66,7 @@ DocumentDB는 카탈로그 데이터를 저장하기 위해 소매 업계에서 
 
  ![Azure DocumentDB 소매 주문 참조 아키텍처](./media/documentdb-use-cases/documentdb-retail-orders.png)
 ## <a name="gaming"></a>게임
-데이터베이스 계층은 게임 응용 프로그램의 중요한 구성 요소입니다. 오늘날의 게임은 모바일/콘솔 클라이언트에서 그래픽 처리를 수행하지만 게임 내 통계, 소셜 미디어 통합 및 고득점 순위표와 같은 사용자 지정되고 개인 설정된 콘텐츠를 제공하기 위해 클라우드에 의존합니다. 게임은 몰입도 높은 게임 환경을 제공하기 위해&1;밀리초의 읽기 및 쓰기 대기 시간을 요구하는 경우가 종종 있습니다. 게임 데이터베이스는 속도가 빨라야 하며 신규 게임 출시 및 기능 업데이트 동안 요청 속도의 대량 스파이크를 처리할 수 있어야 합니다.
+데이터베이스 계층은 게임 응용 프로그램의 중요한 구성 요소입니다. 오늘날의 게임은 모바일/콘솔 클라이언트에서 그래픽 처리를 수행하지만 게임 내 통계, 소셜 미디어 통합 및 고득점 순위표와 같은 사용자 지정되고 개인 설정된 콘텐츠를 제공하기 위해 클라우드에 의존합니다. 게임은 몰입도 높은 게임 환경을 제공하기 위해 1밀리초의 읽기 및 쓰기 대기 시간을 요구하는 경우가 종종 있습니다. 게임 데이터베이스는 속도가 빨라야 하며 신규 게임 출시 및 기능 업데이트 동안 요청 속도의 대량 스파이크를 처리할 수 있어야 합니다.
 
 DocumentDB는 [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)([Next Games](http://www.nextgames.com/)) 및 [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/)와 같은 게임에서 사용됩니다. DocumentDB는 게임 개발자에게 다음과 같은 이점을 제공합니다.
 
@@ -79,7 +79,7 @@ DocumentDB는 [The Walking Dead: No Man's Land](https://azure.microsoft.com//blo
 ![Azure DocumentDB 게임 참조 아키텍처](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## <a name="web-and-mobile-applications"></a>웹 및 모바일 응용 프로그램
-DocumentDB는 일반적으로 웹 및 모바일 응용 프로그램 내에서 사용되며 소셜 상호 작용을 모델링하는 데 특히 적합하며 타사 서비스와 통합하여 풍부한 개인 설정 환경을 구축합니다. 
+DocumentDB는 일반적으로 웹 및 모바일 응용 프로그램 내에서 사용되며 소셜 상호 작용을 모델링하는 데 특히 적합하며 타사 서비스와 통합하여 풍부한 개인 설정 환경을 구축합니다. DocumentDB SDK를 사용하면 인기 있는 [Xamarin 프레임워크](documentdb-mobile-apps-with-xamarin.md)를 사용하여 풍부한 iOS 및 Android 응용 프로그램을 빌드할 수 있습니다.  
 
 ### <a name="social-applications"></a>소셜 응용 프로그램
 DocumentDB의 일반적인 사용 사례는 웹 및 모바일 응용 프로그램, 특히 소셜 미디어 응용 프로그램에 대한 UGC(사용자 생성 콘텐츠)를 저장 및 쿼리하는 것입니다. UGC의 몇 가지 예로 채팅 세션, 트윗, 블로그 게시물, 평가, 의견 등이 있습니다. 대개 소셜 미디어 응용 프로그램의 UGC는 고정된 구조로 제한되지 않는 자유 형식 텍스트, 속성, 태그 및 관계의 혼합입니다. 변환이나 복잡한 개체-관계형 매핑 계층을 요구하지 않고 채팅, 의견, 게시물 등의 콘텐츠를 DocumentDB에 저장할 수 있습니다.  개발자가 응용 프로그램 코드를 반복할 때 요구 사항에 맞게 데이터 속성을 쉽게 추가하거나 수정할 수 있으므로 신속한 개발이 가능합니다.  

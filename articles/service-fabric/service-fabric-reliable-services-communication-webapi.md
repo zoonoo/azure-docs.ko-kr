@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,19 +36,13 @@ ASP.NET Web API는 .NET Framework 위에 HTTP API를 구축할 때 널리 사용
 Web API 응용 프로그램 자체는 변경되지 않습니다. 이전에 작성한 Web API 응용 프로그램과 다르지 않으며 대부분의 응용 프로그램 코드를 이동할 수 있어야 합니다. 하지만 IIS에서 호스팅하는 경우 응용 프로그램을 호스팅하는 위치가 기존과 약간 다를 수 있습니다. 호스팅 부분으로 들어가기 전에 더 친숙한 부분인 Web API 응용 프로그램부터 시작하겠습니다.
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
-Visual Studio 2015에서 단일 상태 비저장 서비스로 새 서비스 패브릭 응용 프로그램을 만들기 시작합니다.
-
-![새 서비스 패브릭 응용 프로그램 만들기](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Visual Studio 2015에서 단일 상태 비저장 서비스로 새 Service Fabric 응용 프로그램을 만드는 것으로 시작합니다.
 
 Web API를 사용하는 상태 비저장 서비스용 Visual Studio 템플릿이 제공됩니다. 이 자습서에서는 이 템플릿을 선택한 경우에 제공되는 Web API 프로젝트를 처음부터 빌드합니다.
 
 Web API 프로젝트를 처음부터 빌드하는 방법을 알아보려면 빈 상태 비저장 서비스 프로젝트를 선택하거나 상태 비저장 서비스 Web API 템플릿으로 시작하고 단순히 따를 수 있습니다.  
 
-![단일 상태 비저장 서비스 만들기](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 첫 번째 단계는 Web API에 대한 일부 NuGet 패키지를 가져오는 것입니다. 우리가 사용할 패키지는 Microsoft.AspNet.WebApi.OwinSelfHost입니다. 이 패키지에는 필요한 모든 Web API 패키지 및 *호스트* 패키지가 포함되어 있습니다. 호스트 패키지는 나중에 중요하게 사용됩니다.
-
-![NuGet 패키지 관리자를 사용하여 Web API 만들기](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 패키지가 설치되면 기본 Web API 프로젝트 구조를 구축하기 시작할 수 있습니다. Web API를 사용한 적이 있다면 프로젝트 구조가 매우 익숙할 것입니다. 먼저 `Controllers` 디렉터리 및 간단한 값 컨트롤러를 추가합니다.
 
@@ -627,16 +622,12 @@ namespace WebService
 }
 ```
 
-이제 모든 항목을 결합하면 프로젝트는 Reliable Services API 진입점 및 OWIN 호스트가 있는 일반적인 Web API 응용 프로그램과 유사해야 합니다.
-
-![Reliable Services API 진입점 및 OWIN 호스트를 사용하는 Web API](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+이제 모든 부분을 제대로 결합했으므로 프로젝트는 Reliable Services API 진입점 및 OWIN 호스트가 있는 일반적인 Web API 응용 프로그램처럼 보입니다.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>웹 브라우저를 통한 실행 및 연결
 아직 하지 않았다면 [개발 환경을 설정](service-fabric-get-started.md)합니다.
 
 이제 서비스를 빌드하고 배포할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 응용 프로그램을 빌드하고 배포합니다. 진단 이벤트 창에서 웹 서버가 http://localhost:8281/에 열렸음을 나타내는 메시지가 표시됩니다.
-
-![Visual Studio 진단 이벤트 창](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > 컴퓨터에서 다른 프로세스에 의해 포트가 이미 열린 경우 오류가 표시될 수 있습니다. 수신기를 열지 못했음을 나타냅니다. 이러한 경우 ServiceManifest.xml에서 끝점 구성에 다른 포트를 사용해 보세요.

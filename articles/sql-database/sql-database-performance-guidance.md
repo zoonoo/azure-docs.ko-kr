@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: a9d496d696298d800bc40b1f3880c95f84e5f29f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 03d38dbce86711395a967cf8bad440fd50a38631
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,8 +27,8 @@ Azure SQL Database는 네 가지 [서비스 계층](sql-database-service-tiers.m
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database의 단일 데이터베이스에 대한 성능 지침을 중심으로 살펴봅니다. 탄력적 풀과 관련된 성능 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 단, 이 문서의 많은 튜닝 권장 사항을 탄력적 풀의 데이터베이스에 적용하고 유사한 성능 이점을 얻을 수는 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="why-service-tiers"></a>왜 서비스 계층인가?
 각 데이터베이스 워크로드는 다를 수 있지만 서비스 계층의 목적은 다양한 성능 수준에서 성능 예측 가능성을 제공하는 것입니다. 데이터베이스 리소스 요구사항이 큰 고객은 더 많은 전용 컴퓨팅 환경에서 작업할 수 있습니다.
@@ -58,7 +58,7 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> P11 및 P15 성능 수준을 사용하는 고객은 추가 비용 없이 최대 4TB의 포함된 저장소를 사용할 수 있습니다. 이 4TB 옵션은 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 현재 공개 미리 보기 상태로 제공됩니다. 현재 제한 사항에 대해서는 [현재 4TB 제한 사항](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)을 참조하세요.
+> P11 및 P15 성능 수준을 사용하는 고객은 추가 비용 없이 최대 4TB의 포함된 저장소를 사용할 수 있습니다. 이 4TB 옵션은 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 현재 공개 미리 보기 상태로 제공됩니다.
 >
 
 ### <a name="maximum-in-memory-oltp-storage"></a>최대 메모리 내 OLTP 저장소
@@ -86,8 +86,8 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 
 > [!NOTE]
 > 현재 이 한도는 탄력적 풀의 데이터베이스에는 적용되지 않습니다.
-> 
-> 
+>
+>
 
 ### <a name="maximum-sessions"></a>최대 세션 수
 현재 활성 세션 수를 보려면 SQL Database에서 이 Transact-SQL 쿼리를 실행하세요.
@@ -105,7 +105,7 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 
 역시 이러한 쿼리도 지정 시간 수를 반환합니다. 시간이 지남에 따라 여러 샘플을 수집하는 경우 자신의 세션 사용을 잘 이해해야 합니다.
 
-SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰를 쿼리하고 **active_session_count** 열을 검토하여 세션에 대한 통계 자료를 얻을 수 있습니다. 
+SQL Database 분석의 경우 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 뷰를 쿼리하고 **active_session_count** 열을 검토하여 세션에 대한 통계 자료를 얻을 수 있습니다.
 
 ## <a name="monitor-resource-use"></a>리소스 사용 모니터링
 
@@ -149,8 +149,8 @@ Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 *
 
 > [!NOTE]
 > 다음 예제에서 **sys.resource_stats**를 쿼리하려면 논리 SQL Database 서버의 **마스터** 데이터베이스에 연결해야 합니다.
-> 
-> 
+>
+>
 
 이 예제에서는 이 뷰의 데이터가 표시되는 방법을 보여줍니다.
 
@@ -164,14 +164,14 @@ Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 *
 다음 예제에서는 **sys.resource_stats** 카탈로그 뷰를 사용하여 SQL Database에서 리소스를 사용하는 방법에 대한 정보를 얻을 수 있는 다른 방법을 보여줍니다.
 
 1. 데이터베이스 userdb1에서 지난 주의 리소스 사용을 확인하고자 할 때 이 쿼리를 실행할 수 있습니다.
-   
+
         SELECT *
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND
               start_time > DATEADD(day, -7, GETDATE())
         ORDER BY start_time DESC;
 2. 워크로드가 성능 수준에 얼마나 적합한지 평가하려면 리소스 메트릭의 각 측면(CPU, 읽기, 쓰기, 작업자 수, 세션 수)까지 집중 분석해야 합니다. 다음은 이러한 리소스 메트릭의 평균값 및 최대값에 대해 보고하기 위해 **sys.resource_stats**를 사용하여 수정한 쿼리입니다.
-   
+
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
@@ -186,35 +186,35 @@ Azure SQL Database는 각 서버에 있는 **마스터** 데이터베이스의 *
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. 각 리소스 메트릭의 평균값 및 최대값에 대한 이 정보를 사용하여 워크로드가 선택한 성능 수준에 얼마나 적합한지 평가할 수 있습니다. 일반적으로 **sys.resource_stats**의 평균값은 대상 크기에 맞게 사용하기에 적합한 기준선을 제공합니다. 기본 측정 기준이 되어야 합니다. 예를 들어 S2 성능 수준과 함께Standard 서비스 계층을 사용할 수 있습니다. CPU 및 I/O 읽기와 쓰기에 대한 평균 사용 비율은 40% 미만, 평균 작업자 수는 50 미만, 평균 세션 수는 200 미만입니다. 사용자의 워크로드는 S1 성능 수준에 적합할 수 있습니다. 데이터베이스가 작업자 및 세션 한도 이내에서 적합한지 여부를 쉽게 확인할 수 있습니다. 데이터베이스가 CPU, 읽기, 쓰기 기준의 낮은 성능 수준에 적합한지 확인하려면 낮은 성능 수준의 DTU 수를 현재 성능 수준의 DTU 수로 나눈 다음 결과에 100을 곱합니다.
-   
-    **S1 DTU / S2 DTU * 100 = 20 / 50* 100 = 40**
-   
+
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+
     결과는 백분율로 표시한 두 성능 수준 간 상대적 성능 차이입니다. 리소스 사용이 이 금액을 초과하지 않는 경우 워크로드가 낮은 성능 수준에 적합할 수 있습니다. 하지만 모든 범위의 리소스 사용 값을 살펴보고 데이터베이스 워크로드가 낮은 성능 수준에 적합한 빈도를 백분율로 확인해야 합니다. 다음 쿼리는 이 예에서 계산된 40%의 임계값을 기준으로 리소스 규격당 적합률을 출력합니다.
-   
+
         SELECT
             (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
             ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
             ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+
     데이터베이스의 SLO(서비스 수준 목표)를 기준으로 워크로드가 낮은 성능 수준에 적합한지 여부를 결정할 수 있습니다. 데이터베이스 워크로드 SLO가 99.9%이고 앞의 쿼리에서 세 가지 리소스 규격에 대해 99.9%보다 큰 값을 반환할 경우 워크로드가 낮은 성능 수준에 적합할 가능성이 높습니다.
-   
+
     적합률을 살펴보면 SLO를 충족하기 위해 상위 성능 수준으로 이동해야 하는지 여부를 알 수 있습니다. 예를 들어 userdb1에서 지난 주에 대한 CPU 사용률은 다음과 같습니다.
-   
+
    | 평균 CPU 사용률 | 최대 CPU 사용률 |
    | --- | --- |
    | 24.5 |100.00 |
-   
-    평균 CPU는 성능 수준 한도의 약&1;/4이며 데이터베이스 성능 수준에 적합합니다. 하지만 최대값은 데이터베이스가 성능 수준 한도에 도달함을 보여줍니다. 다음 상위 성능 수준으로 이동해야 하나요? 워크로드가 100%에 도달하는 횟수를 살펴보고 데이터베이스 워크로드 SLO와 비교합니다.
-   
+
+    평균 CPU는 성능 수준 한도의 약 1/4이며 데이터베이스 성능 수준에 적합합니다. 하지만 최대값은 데이터베이스가 성능 수준 한도에 도달함을 보여줍니다. 다음 상위 성능 수준으로 이동해야 하나요? 워크로드가 100%에 도달하는 횟수를 살펴보고 데이터베이스 워크로드 SLO와 비교합니다.
+
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+
     이 쿼리에서 세 가지 리소스 규격에 대해 99.9% 미만의 값을 반환할 경우 다음 상위 성능 수준으로 이동하거나 응용 프로그램 튜닝 기술을 사용하여 SQL Database에서 부하를 줄입니다.
 4. 이 연습에서는 향후 예상되는 워크로드 증가도 고려합니다.
 
@@ -400,8 +400,8 @@ SQL Server에서 공통적으로 적용되고 Azure SQL Database에도 적용되
 
 > [!NOTE]
 > 이 예제의 볼륨은 의도적으로 작게 만들었지만 최적이 아닌 매개 변수의 영향은 특히 큰 데이터베이스에서 크게 나타날 수 있습니다. 극한의 경우 그 차이는 빠른 케이스에서 몇 초, 느린 케이스에서 몇 시간이 될 수 있습니다.
-> 
-> 
+>
+>
 
 **sys.resource_stats**를 검사하여 특정 테스트의 리소스가 다른 테스트보다 리소스를 더 많이 또는 더 적게 사용했는지 확인할 수 있습니다. 데이터를 비교할 때에는 **sys.resource_stats** 뷰에서 두 테스트가 동일한 5분 기간에 겹치지 않도록 테스트 시간을 구분합니다. 이 연습의 목표는 최대 리소스를 최소화하는 것이 아니라 사용된 총 리소스 양을 최소화하는 것입니다. 일반적으로 대기 시간의 코드를 최적화할 경우 리소스 소비가 감소합니다. 응용 프로그램을 변경해야 하는지, 그리고 변경 내용이 응용 프로그램에서 쿼리 힌트를 사용 중인 고객 경험에 부정적 영향을 미치지 않는지 확인하십시오.
 
@@ -412,8 +412,8 @@ Azure SQL Database는 상용 하드웨어에서 실행되므로 기존 온-프�
 
 > [!NOTE]
 > 이제 SQL Database는 분할을 지원하기 위한 라이브러리를 제공합니다. 자세한 내용은 [탄력적 데이터베이스 클라이언트 라이브러리 개요](sql-database-elastic-database-client-library.md)를 참조하세요.
-> 
-> 
+>
+>
 
 예를 들어 데이터베이스에 고객 이름, 주문, 주문 정보가 포함된 경우(SQL Server에 기본 제공된 기존 예제 Northwind 데이터베이스와 같이) 관련 주문 및 주문 정보가 있는 고객을 그룹화하여 이 데이터를 여러 데이터베이스로 분할할 수 있습니다. 그러면 고객의 데이터가 단일 데이터베이스에 유지된다는 것을 보장할 수 있습니다. 응용 프로그램은 다양한 고객을 데이터베이스로 분할하여 부하를 여러 데이터베이스로 효과적으로 나눕니다. 분할을 통해 고객은 최대 데이터베이스 크기 한도에 도달하지 않을 뿐만 아니라, 개별 데이터베이스가 해당 DTU에 적합한 이상 Azure SQL Database가 다양한 성능 수준의 한도보다 훨씬 큰 워크로드를 처리할 수도 있게 됩니다.
 
@@ -436,5 +436,4 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 응�
 * 서비스 계층에 대한 자세한 내용은 [Azure SQL Database 옵션 및 성능](sql-database-service-tiers.md)
 * 탄력적 풀에 대한 자세한 내용은 [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 * 성능 및 탄력적 풀에 대한 자세한 내용은 [탄력적 풀을 고려 하는 경우](sql-database-elastic-pool-guidance.md)
-
 

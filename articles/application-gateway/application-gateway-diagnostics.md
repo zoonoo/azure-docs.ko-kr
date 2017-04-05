@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 104ef38666957c1317b41a28244e05f3132e7fbf
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,8 +36,9 @@ Azure는 로깅 및 메트릭을 사용하여 리소스를 모니터링할 수 �
 
 Application Gateway는 포털, PowerShell 및 CLI를 통해 백 엔드 풀의 개별 구성원 상태를 모니터링하는 기능을 제공합니다. 성능 진단 로그를 통해 백 엔드 풀의 집계된 상태 요약을 확인할 수도 있습니다. 백 엔드 상태 보고서는 Application Gateway 상태 검색 결과를 백 엔드 인스턴스에 반영합니다. 검색이 성공하고 백 엔드에 트래픽이 제공될 수 있으면 정상으로 간주되고, 그렇지 않으면 비정상으로 간주됩니다.
 
-> [!important]
-> Application Gateway 서브넷에 NSG가 있는 경우 백 엔드 풀 구성원에 대한 Application Gateway 서브넷에 포트 범위 65503-65534가 열려야 합니다. 이러한 포트는 백 엔드 상태가 제대로 작동하기 위해 필요합니다.
+> [!IMPORTANT]
+> Application Gateway 서브넷에 NSG가 있는 경우 인바운드 트래픽을 위해 Application Gateway 서브넷에서 포트 범위 65503-65534를 열어야 합니다. 이러한 포트는 백 엔드 상태 API가 제대로 작동하기 위해 필요합니다.
+
 
 ### <a name="view-backend-health-through-the-portal"></a>포털을 통해 백 엔드 상태 보기
 
@@ -166,7 +167,7 @@ Application Gateway의 경우 3개 로그를 사용할 수 있습니다.
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayAccess",
     "time": "2016-04-11T04:24:37Z",
     "category": "ApplicationGatewayAccessLog",
@@ -194,7 +195,7 @@ Application Gateway의 경우 3개 로그를 사용할 수 있습니다.
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayPerformance",
     "time": "2016-04-09T00:00:00Z",
     "category": "ApplicationGatewayPerformanceLog",
@@ -220,22 +221,30 @@ Application Gateway의 경우 3개 로그를 사용할 수 있습니다.
 
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-    "operationName": "ApplicationGatewayFirewall",
-    "time": "2016-09-20T00:40:04.9138513Z",
-    "category": "ApplicationGatewayFirewallLog",
-    "properties":     {
-        "instanceId":"ApplicationGatewayRole_IN_0",
-        "clientIp":"108.41.16.164",
-        "clientPort":1815,
-        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-        "ruleId":"OWASP_973336",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "action":"Logged",
-        "site":"Global",
-        "message":"XSS Filter - Category 1: Script Tag Vector",
-        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-}
+  "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+  "operationName": "ApplicationGatewayFirewall",
+  "time": "2017-03-20T15:52:09.1494499Z",
+  "category": "ApplicationGatewayFirewallLog",
+  "properties": {
+    "instanceId": "ApplicationGatewayRole_IN_0",
+    "clientIp": "104.210.252.3",
+    "clientPort": "4835",
+    "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
+    "ruleSetType": "OWASP",
+    "ruleSetVersion": "3.0",
+    "ruleId": "941320",
+    "message": "Possible XSS Attack Detected - HTML Tag Handler",
+    "action": "Blocked",
+    "site": "Global",
+    "details": {
+      "message": "Warning. Pattern match \"<(a|abbr|acronym|address|applet|area|audioscope|b|base|basefront|bdo|bgsound|big|blackface|blink|blockquote|body|bq|br|button|caption|center|cite|code|col|colgroup|comment|dd|del|dfn|dir|div|dl|dt|em|embed|fieldset|fn|font|form|frame|frameset|h1|head|h ...\" at ARGS:a.",
+      "data": "Matched Data: <script> found within ARGS:a: <script>alert(\\x22hello\\x22);</script>",
+      "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
+      "line": "865"
+    }
+  }
+} 
+
 ```
 
 ### <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
@@ -252,7 +261,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, PowerBI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
 > [!TIP]
-> Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 Github에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter) 를 사용할 수 있습니다.
+> Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.
 > 
 > 
 
@@ -316,4 +325,3 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
-

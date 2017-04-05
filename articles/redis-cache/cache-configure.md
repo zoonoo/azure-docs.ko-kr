@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -75,7 +75,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 ### <a name="activity-log"></a>활동 로그
 
-캐시에 대해 수행된 작업을 보려면 **활동 로그** 를 클릭합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../azure-resource-manager/resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+캐시에 대해 수행된 작업을 보려면 **활동 로그** 를 클릭합니다. 또한 다른 리소스를 포함하도록 이 뷰를 확장하려면 필터링을 사용하면 됩니다. 감사 로그 작업에 대한 자세한 내용은 [Resource Manager를 사용하는 감사 작업](../azure-resource-manager/resource-group-audit.md)을 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
 
 ### <a name="access-control-iam"></a>액세스 제어(IAM)
 
@@ -278,7 +278,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 
 ![방화벽](./media/cache-configure/redis-firewall-rules.png)
 
-시작 및 끝 IP 주소 범위를 사용하여 방화벽 규칙을 지정할 수 있습니다. 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 저장되면 잠시 지연되었다가 규칙이 적용됩니다. 이러한 지연 시간은 일반적으로&1;분 미만입니다.
+시작 및 끝 IP 주소 범위를 사용하여 방화벽 규칙을 지정할 수 있습니다. 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 저장되면 잠시 지연되었다가 규칙이 적용됩니다. 이러한 지연 시간은 일반적으로 1분 미만입니다.
 
 > [!IMPORTANT]
 > 방화벽 규칙이 구성된 경우에도 Azure Redis Cache 모니터링 시스템에서의 연결은 항상 허용됩니다.
@@ -407,7 +407,7 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 | `maxclients` |가격 책정 계층에 따라 달라집니다.<sup>2</sup> |이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 반환하고 모든 새 연결을 닫습니다. |
 | `maxmemory-policy` |`volatile-lru` |`maxmemory` 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis Cache를 사용할 때의 기본 설정은 `volatile-lru`로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 Azure 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요. |
 | `maxmemory-sample`s |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
-| `lua-time-limit` |5,&000; |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
+| `lua-time-limit` |5, 000 |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
 | `lua-event-limit` |500 |스크립트 이벤트 큐의 최대 크기 |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)를 참조하세요. |
 

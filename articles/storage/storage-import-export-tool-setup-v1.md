@@ -1,6 +1,6 @@
 ---
 title: "Azure Import/Export 도구 v1 설정 | Microsoft Docs"
-description: "Azure Import-Export를 위한 드라이브 준비 및 복구 도구 설정 방법을 알아봅니다."
+description: "Azure Import/Export 서비스를 위한 드라이브 준비 및 복구 도구 설정 방법을 알아봅니다. Import/Export 도구 v1을 나타냅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 2d30d0da6055a66b60ed5a836dd897a87d564237
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 39d7e9a71a290ace6f6f4caf48f1ec5e46fe9a48
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -65,7 +65,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 -   저장소 계정 키입니다.  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Azure Import/Export 도구 설치  
- Azure Import/Export 도구는 다음 파일로 구성 됩니다.  
+ Azure Import/Export 도구는 다음 파일로 구성됩니다.  
   
 -   WAImportExport.exe  
   
@@ -84,7 +84,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
  명령에 대한 도움말을 출력하려면 매개 변수 없이 도구를 실행합니다.  
   
 ```  
-WAImportExport, a client tool for Microsoft Azure Import/Export Service. Microsoft (c) 2013, 2014  
+WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
   
 Copy a Directory:  
     WAImportExport.exe PrepImport  
@@ -200,7 +200,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>  
         - Required. Path to the XML file containing list of blob paths or blob path  
           prefixes for the blobs to be exported. The file format is the same as the  
-          blob list blob format in the Put Job operation of the Import/Export Service  
+          blob list blob format in the Put Job operation of the Import/Export service  
           REST API.  
     /DriveSize:<DriveSize>  
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.  
@@ -254,11 +254,12 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
   
-## <a name="see-also"></a>참고 항목  
- [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [내보내기 작업에 대한 드라이브 사용량 미리 보기](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
- [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
- [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)   
- [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)   
- [Azure Import-Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>다음 단계
+
+* [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [내보내기 작업에 대한 드라이브 사용량 미리 보기](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
 

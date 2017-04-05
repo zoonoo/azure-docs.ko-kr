@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/17/2016
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -266,6 +266,11 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 게스트 실행 파일의 경우 응용 프로그램 및 구성 스크립트가 오류를 표시할 때 콘솔 로그를 볼 수 있으므로 유용합니다.
 콘솔 리디렉션은 `ConsoleRedirection` 요소를 사용하여 `ServiceManifest.xml` 파일에 구성할 수 있습니다.
 
+> [!WARNING]
+> 절대 프로덕션에 배포된 응용 프로그램의 콘솔 리디렉션 정책은 사용하지 마세요. 응용 프로그램 장애 조치(failover)에 영향을 줄 수 있기 때문입니다. 로컬 개발 및 디버깅 목적으로*만* 사용하세요.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -286,7 +291,7 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 로그 파일은 서비스의 작업 디렉터리 중 하나에 저장됩니다. 파일이 어디에 있는지 확인하려면 Service Fabric Explorer를 사용하여 서비스가 실행 중인 노드와 현재 사용 중인 작업 디렉터리를 확인해야 합니다. 이 프로세스는 이 문서의 뒷부분에서 다루겠습니다.
 
 ## <a name="deployment"></a>배포
-마지막 단계는 응용 프로그램을 배포하는 것입니다. 다음 PowerShell 스크립트는 로컬 개발 클러스터에 응용 프로그램을 배포하고 새 Service Fabric 서비스를 시작하는 방법을 보여 줍니다.
+마지막 단계는 [응용 프로그램을 배포](service-fabric-deploy-remove-applications.md)하는 것입니다. 다음 PowerShell 스크립트는 로컬 개발 클러스터에 응용 프로그램을 배포하고 새 Service Fabric 서비스를 시작하는 방법을 보여 줍니다.
 
 ```PowerShell
 
@@ -303,6 +308,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> 패키지가 크거나 파일이 많은 경우 이미지 저장소에 복사하기 전에 [패키지를 압축](service-fabric-package-apps.md#compress-a-package)합니다. [여기](service-fabric-deploy-remove-applications.md#upload-the-application-package)서 자세히 알아보세요.
+>
+
 서비스 패브릭 서비스를 다양한 "구성"으로 배포할 수 있습니다. 예를 들어 단일 또는 다중 인스턴스로 배포할 수도 있고, Service Fabric 클러스터의 각 노드에 서비스 인스턴스가 하나씩 있는 방식으로 배포할 수도 있습니다.
 
 `New-ServiceFabricService` cmdlet의 `InstanceCount` 매개 변수는 서비스 패브릭 클러스터에서 실행되어야 하는 서비스의 인스턴스 개수를 지정하는 데 사용됩니다. 배포하는 응용 프로그램의 유형에 따라 `InstanceCount` 값을 설정할 수 있습니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.

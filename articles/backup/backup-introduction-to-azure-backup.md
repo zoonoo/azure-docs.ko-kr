@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -98,7 +98,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 저장소이며, VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.
 
 ### <a name="back-up-premium-storage-vms"></a>프리미엄 저장소 VM 백업
-Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 저장소 계정에 "AzureBackup-"이라는 임시 준비 위치를 만듭니다. 준비 위치는 복구 지점 스냅숏의 크기와 동일합니다. 저장소 계정에 임시 준비 위치에 맞게 사용 가능한 공간이 있어야 합니다. 자세한 내용은 [Premium Storage 제한](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 저장소의 가격은 모든 [프리미엄 저장소 가격 책정](../storage/storage-premium-storage.md#pricing-and-billing)과 일치합니다.
+Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 저장소 계정에 "AzureBackup-"이라는 임시 준비 위치를 만듭니다. 준비 위치는 복구 지점 스냅숏의 크기와 동일합니다. 저장소 계정에 임시 준비 위치에 맞게 사용 가능한 공간이 있어야 합니다. 자세한 내용은 [Premium Storage 제한](../storage/storage-premium-storage.md#scalability-and-performance-targets) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 저장소의 가격은 모든 [프리미엄 저장소 가격 책정](../storage/storage-premium-storage.md#pricing-and-billing)과 일치합니다.
 
 > [!NOTE]
 > 준비 위치를 수정하거나 편집하지 마십시오.
@@ -203,12 +203,12 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 |  | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM 백업 |
 | --- | --- | --- | --- | --- |
-| 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일&3;회 백업 |하루에 두 번 백업 |하루에 두 번 백업 |매일&1;회 백업 |
-| 백업 주기<br/> (디스크에 대한) |해당 없음 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해&1;시간마다 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해&1;시간마다</p> |해당 없음 |
+| 백업 주기<br/> (백업 자격 증명 모음에 대한) |매일 3회 백업 |하루에 두 번 백업 |하루에 두 번 백업 |매일 1회 백업 |
+| 백업 주기<br/> (디스크에 대한) |해당 없음 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해 1시간마다 |<li>SQL Server에 대해 15분마다 <li>다른 워크로드에 대해 1시간마다</p> |해당 없음 |
 | 보존 옵션 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |
 | 보호된 인스턴스당 최대 복구 지점 |9999|9999|9999|9999|
 | 최대 보존 기간 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |
-| 로컬 디스크의 복구 지점 |해당 없음 |<li>파일 서버의 경우&64;<li>응용 프로그램 서버의 경우&448; |<li>파일 서버의 경우&64;<li>응용 프로그램 서버의 경우&448; |해당 없음 |
+| 로컬 디스크의 복구 지점 |해당 없음 |<li>파일 서버의 경우 64<li>응용 프로그램 서버의 경우 448 |<li>파일 서버의 경우 64<li>응용 프로그램 서버의 경우 448 |해당 없음 |
 | 테이프의 복구 지점 |해당 없음 |Unlimited |해당 없음 |해당 없음 |
 
 ## <a name="what-is-a-protected-instance"></a>보호된 인스턴스란 무엇인가요?

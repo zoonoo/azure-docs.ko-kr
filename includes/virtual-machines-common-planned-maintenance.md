@@ -14,7 +14,7 @@ Microsoft Azure의 업데이트 클래스는 고객이 실행 중인 가상 컴�
 
 다중 인스턴스 구성은 물리적 컴퓨터, 전원 및 네트워크에 대한 중복성을 제공하고 응용 프로그램의 가용성을 보장하기 위해 권장됩니다. 가용성 집합의 모든 가상 컴퓨터는 응용 프로그램에 동일한 목적을 충족시켜야 합니다.
 
-고가용성을 위해 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+고가용성을 위해 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 이와 반대로 단일 인스턴스 구성은 가용성 집합에 배치되지 않은 독립 실행형 가상 컴퓨터에 사용됩니다. 이러한 가상 컴퓨터는 동일한 가용성 집합에 배포되는 둘 이상의 가상 컴퓨터를 요구하는 SLA(서비스 수준 약정)를 충족하지 못합니다.
 
@@ -28,7 +28,7 @@ SLA에 대한 자세한 내용은 [Service Level Agreements(서비스 수준 약
 기본 Azure Platform에서는 가용성 집합에 포함된 각 가상 컴퓨터를 업데이트 도메인 및 장애 도메인에 할당합니다. 각각의 업데이트 도메인은 동일한 시간에 다시 부팅되는 가상 컴퓨터 그룹입니다. 각각의 장애 도메인은 공통된 전원 및 네트워크 스위치를 공유하는 가상 컴퓨터 그룹입니다.
 
 
-업데이트 도메인 및 장애 도메인에 대한 자세한 내용은 [중복성을 위해 가용성 집합에 여러 가상 컴퓨터 구성](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 참조하세요.
+업데이트 도메인 및 장애 도메인에 대한 자세한 내용은 [중복성을 위해 가용성 집합에 여러 가상 컴퓨터 구성](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 참조하세요.
 
 업데이트를 통해 가용성을 유지하기 위해 Azure는 한 번에 하나의 도메인을 업데이트하는 업데이트 도메인을 통해 유지 관리를 수행합니다. 업데이트 도메인의 유지 관리는 도메인에서 각 가상 컴퓨터를 종료하고, 호스트 컴퓨터에 업데이트를 적용한 후, 가상 컴퓨터를 다시 시작하는 것으로 이루어집니다. 도메인에서 유지 관리가 완료되면 Azure는 다음 업데이트 도메인에서 프로세스를 반복하고 모두 업데이트가 될 때까지 각 도메인에서 계속 진행합니다.
 
@@ -55,10 +55,10 @@ SLA에 대한 자세한 내용은 [Service Level Agreements(서비스 수준 약
 단일 인스턴스 구성의 유지 관리는 호스트 컴퓨터에서 실행 중인 각 가상 컴퓨터를 종료하고, 호스트 컴퓨터를 업데이트한 다음, 가상 컴퓨터 다시 시작하는 것으로 이루어집니다. 유지 관리에는 약 15분의 가동 중지 시간이 필요합니다. 계획된 유지 관리 이벤트는 단일 유지 관리 기간에 특정 지역의 모든 가상 컴퓨터에서 실행됩니다.
 
 
-계획된 유지 관리 이벤트는 단일 인스턴트 구성에서 응용 프로그램의 가용성에 영향을 미칩니다. Azure는 단일 인스턴스 구성에서 가상 컴퓨터에 대해 계획된 유지 관리의&1;주 사전 알림을 제공합니다.
+계획된 유지 관리 이벤트는 단일 인스턴트 구성에서 응용 프로그램의 가용성에 영향을 미칩니다. Azure는 단일 인스턴스 구성에서 가상 컴퓨터에 대해 계획된 유지 관리의 1주 사전 알림을 제공합니다.
 
 ## <a name="email-notification"></a>메일 알림
-단일 인스턴스 및 다중 인스턴스 가상 컴퓨터 구성인 경우에만 Azure가 향후 계획된 유지 관리에 대한 전자 메일 경고를&1;주 전에 전송합니다. 이 전자 메일은 구독 관리자 및 공동 관리자 전자 메일 계정으로 전송됩니다. 이러한 유형의 메일의 예는 아래와 같습니다.
+단일 인스턴스 및 다중 인스턴스 가상 컴퓨터 구성인 경우에만 Azure가 향후 계획된 유지 관리에 대한 전자 메일 경고를 1주 전에 전송합니다. 이 전자 메일은 구독 관리자 및 공동 관리자 전자 메일 계정으로 전송됩니다. 이러한 유형의 메일의 예는 아래와 같습니다.
 
 <!--Image reference-->
 ![][image1]
@@ -101,4 +101,4 @@ SLA에 대한 자세한 내용은 [Service Level Agreements(서비스 수준 약
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

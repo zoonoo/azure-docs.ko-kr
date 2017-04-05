@@ -9,6 +9,7 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fd30c5befb378a031e818c29e9bde72c1105bf78
-ms.openlocfilehash: ac7e47835b0ae4fee724c18df949cedfc3a16957
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff1013840c220c54a9120572d16946ab6c5c5b07
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -120,7 +121,8 @@ Linux 기반 HDInsight 클러스터에 빈 에지 노드를 추가하는 방법�
 
 **에지 노드에서 Hive를 사용하려면**
 
-1. SSH를 사용하여 에지 노드에 연결합니다.  [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+1. SSH를 사용하여 에지 노드에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
 2. SSH를 사용하여 에지 노드를 연결한 후 다음 명령을 사용하여 Hive 콘솔을 엽니다.
    
         hive

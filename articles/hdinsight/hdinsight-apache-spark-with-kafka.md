@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>HDInsight의 Kafka(미리 보기)에서 Apache Spark 사용
@@ -32,11 +34,7 @@ Apache Spark를 사용하여 Apache Kafka에(서) 데이터를 스트리밍할 �
 
 * Azure 구독
 
-* SSH 클라이언트(`ssh` 및 `scp` 명령 필요) - HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-    * [Linux, Unix 및 Mac OS의 Linux 기반 HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Windows에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+* SSH 클라이언트(`ssh` 및 `scp` 명령 필요) - 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조합니다.
 
 * [cURL](https://curl.haxx.se/) - HTTP 요청을 만들기 위한 플랫폼 간 유틸리티입니다.
 
@@ -116,7 +114,7 @@ Notebook의 코드에서 수행하는 작업은 다음과 같습니다.
 
 프로젝트의 각 셀에는 코드 수행 작업을 설명하는 주석 또는 텍스트 섹션이 있습니다.
 
-##<a name="a-idkafkahostsakafka-host-information"></a><a id="kafkahosts"></a> Kafka 호스트 정보
+##<a id="kafkahosts"></a> Kafka 호스트 정보
 
 HDInsight에서 Kafka와 작동하는 응용 프로그램을 만들 때는 무엇보다도 먼저 Kafka 클러스터에 대한 Kafka broker와 Zookeeper 호스트 정보를 가져와야 합니다. 이는 클라이언트 응용 프로그램에서 Kafka와 통신하는 데 사용됩니다.
 
@@ -183,10 +181,5 @@ Jupyter Notebook 예제를 사용하려면 Spark 클러스터의 Jupyter Noteboo
 * [HDInsight에서 Apache Kafka 시작](hdinsight-apache-kafka-get-started.md)
 * [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](hdinsight-apache-kafka-mirroring.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

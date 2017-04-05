@@ -52,7 +52,7 @@
 ### [AD 복제 상태](log-analytics-ad-replication-status.md)
 ### [경고 관리](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [용량 관리](log-analytics-capacity.md)
+### [용량 및 성능](log-analytics-capacity.md)
 ### [변경 내용 추적](log-analytics-change-tracking.md)
 ### [컨테이너](log-analytics-containers.md)
 ### [키 자격 증명 모음](log-analytics-azure-key-vault.md)

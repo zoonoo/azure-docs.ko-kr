@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,10 @@ ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 > * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다. 지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
+Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다.
+응용 프로그램 게이트웨이는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드, 사용자 지정 상태 프로브, 다중 사이트 지원 및 기타를 포함하여 많은 ADC(Application Delivery Controller)를 제공합니다.
+
+지원되는 기능의 전체 목록을 찾으려면 [Application Gateway 개요](application-gateway-introduction.md)
 
 ## <a name="scenario"></a>시나리오
 
@@ -47,8 +51,6 @@ Azure 응용 프로그램 게이트웨이는 계층&7; 부하 분산 장치입�
 
 > [!IMPORTANT]
 > 초기 배포 중이 아닌 경우 응용 프로그램 게이트웨이를 구성하면 사용자 지정 상태 프로브, 백 엔드 풀 주소, 추가 규칙 등 응용 프로그램 게이트웨이에 대한 추가 구성이 구성됩니다.
-> 
-> 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -70,7 +72,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 * **이름** - 응용 프로그램 게이트웨이의 이름입니다.
 * **계층** - 이 설정은 Application Gateway의 계층입니다. **WAF** 및 **표준**의 두 개의 계층을 사용할 수 있습니다. WAF에는 웹 응용 프로그램 방화벽 기능이 있습니다.
-* **SKU 크기** - 이 설정은 응용 프로그램 게이트웨이의 크기입니다. 사용 가능한 옵션은 (**소량**, **중간** 및 **대량**)입니다. WAF 계층을 선택할 때 소량은 사용할 수 없습니다.
+* **SKU 크기** - 이 설정은 Application Gateway의 크기입니다. 사용 가능한 옵션은 (**소량**, **중간** 및 **대량**)입니다. WAF 계층을 선택할 때 소량은 사용할 수 없습니다.
 * **인스턴스 수** - 인스턴스 수입니다. 이 값은 2에서 10 사이의 숫자여야 합니다.
 * **리소스 그룹** - Application Gateway를 유지할 리소스 그룹입니다. 기존 리소스 그룹 또는 새 리소스 그룹일 수 있습니다.
 * **위치** - Application Gateway의 지역입니다. 리소스 그룹에서의 위치와 같은 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
@@ -151,19 +153,49 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 Application Gateway가 만들어지면 부하 분산을 위해 응용 프로그램을 호스트하는 시스템을 여전히 Application Gateway에 추가해야 합니다. 이러한 서버의 IP 주소 또는 FQDN 값은 백 엔드 주소 풀에 추가됩니다.
 
-### <a name="step-1"></a>1단계:
+### <a name="ip-address-or-fqdn"></a>IP 주소 또는 FQDN
+
+#### <a name="step-1"></a>1단계
 
 만든 Application Gateway를 클릭하고 **백 엔드 풀**을 클릭한 후 현재 백 엔드 풀을 선택합니다.
 
 ![Application Gateway 백 엔드 풀][11]
 
-### <a name="step-2"></a>2단계
+#### <a name="step-2"></a>2단계
 
-텍스트 상자에 IP 주소 또는 FQDN 값을 추가하고 **저장**을 클릭합니다.
+**대상 추가**를 클릭하여 FQDN 값의 IP 주소 추가
+
+![Application Gateway 백 엔드 풀][11-1]
+
+#### <a name="step-3"></a>3단계
+
+모든 백 엔드 값을 입력한 후 **저장** 클릭
 
 ![Application Gateway 백 엔드 풀에 값을 추가합니다.][12]
 
 이 작업은 값을 백 엔드 풀에 저장합니다. Application Gateway가 업데이트된 후 Application Gateway로 들어가는 트래픽은 이 단계에서 추가한 백 엔드 주소로 라우팅됩니다.
+
+### <a name="virtual-machine-and-nic"></a>가상 컴퓨터 및 NIC
+
+백 엔드 풀 구성원으로 가상 컴퓨터 NIC를 추가할 수도 있습니다. Application Gateway로써 같은 가상 네트워크에 있는 가상 컴퓨터만 드롭다운을 통해 사용할 수 있습니다.
+
+#### <a name="step-1"></a>1단계
+
+만든 Application Gateway를 클릭하고 **백 엔드 풀**을 클릭한 후 현재 백 엔드 풀을 선택합니다.
+
+![Application Gateway 백 엔드 풀][11]
+
+#### <a name="step-2"></a>2단계
+
+**대상 추가**를 클릭하여 새 백 엔드 풀 구성원을 추가합니다. 드롭다운 상자에서 가상 컴퓨터와 NIC를 선택합니다.
+
+![Application Gateway 백 엔드 풀에 nics 추가][13]
+
+#### <a name="step-3"></a>3단계
+
+완료되면 **저장**을 클릭하여 NIC를 백 엔드 구성원으로 저장합니다.
+
+![nic Application Gateway 백 엔드 풀 저장][14]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -187,11 +219,9 @@ Application Gateway가 만들어지면 부하 분산을 위해 응용 프로그�
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
 [12]: ./media/application-gateway-create-gateway-portal/figure12.png
+[13]: ./media/application-gateway-create-gateway-portal/figure13.png
+[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

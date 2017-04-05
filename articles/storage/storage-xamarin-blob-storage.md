@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 41be26b5dc3b7333521f02053ecb4b6ae1b17f73
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2ef27dc58e12d1b9e8eed54239332a53860ddd52
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Xamarin을 사용하면 개발자들이 공유된 C# 코드베이스를 사용�
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>새 Xamarin 응용 프로그램 만들기
-이 자습서에서는 Android, iOS 및 Windows를 대상으로 하는 앱을 만듭니다. 이 앱은 단순히 컨테이너를 만들고 이 컨테이너에 blob을 업로드합니다. Windows에서 Visual Studio를 사용하게 되지만 Mac OS에서 Xamarin Studio를 사용하여 앱을 만들 때도 동일한 방식을 적용할 수 있습니다.
+이 자습서에서는 Android, iOS 및 Windows를 대상으로 하는 앱을 만듭니다. 이 앱은 단순히 컨테이너를 만들고 이 컨테이너에 blob을 업로드합니다. Windows에서 Visual Studio를 사용하게 되지만 macOS에서 Xamarin Studio를 사용하여 앱을 만들 때도 동일한 방식을 적용할 수 있습니다.
 
 다음 단계에 따라 응용 프로그램을 만듭니다.
 

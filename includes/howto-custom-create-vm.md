@@ -44,6 +44,6 @@
 ## <a name="next-steps"></a>다음 단계
 가상 컴퓨터가 만들어진 후에는 자동으로 시작됩니다. 포털에서 상태가 실행 중으로 표시되면 가상 컴퓨터에 로그인할 수 있습니다. 지침을 확인하려면 다음 문서 중 하나를 참조하십시오.
 
-* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

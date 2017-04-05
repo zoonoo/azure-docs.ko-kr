@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 88956ec33009bfd6ce5047085f6d7512d951edee
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,6 +31,7 @@ ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 * 기존 디스크의 경우 Azure 저장소 계정에서 .vhd 파일을 사용할 수 있어야 합니다. 다른 가상 컴퓨터에 연결되지 않은 경우 이미 있는 .vhd 파일을 사용하거나 고유의 .vhd 파일을 저장소 계정에 업로드할 수 있습니다.
 
 또한 [Powershell을 사용하여 데이터 디스크를 연결](virtual-machines-windows-attach-disk-ps.md)할 수 있습니다.
+
 
 
 ## <a name="find-the-virtual-machine"></a>가상 컴퓨터 찾기
@@ -54,7 +56,7 @@ ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 1. 가상 컴퓨터에 연결합니다. 지침은 [Windows를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 저장소 서비스**를 선택합니다.
    
-    ![서버 관리자 열기](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
+    ![서버 관리자 열기](./windows/classic/media/attach-disk/fileandstorageservices.png)
 3. 메뉴를 확장하고 **디스크**를 선택합니다.
 4. **디스크** 섹션은 디스크를 나열합니다. 대부분의 경우에서 디스크 0, 디스크 1 및 디스크 2가 됩니다. 디스크 0은 운영 체제 디스크이고, 디스크 1은 임시 리소스 디스크이며, 디스크 2는 방금 가상 컴퓨터에 연결한 데이터 디스크입니다. 새 데이터 디스크의 파티션은 **알 수 없음**으로 나열됩니다. 디스크를 마우스 오른쪽 단추로 클릭한 다음 **초기화**를 선택합니다.
 5. 디스크가 초기화 될 때 모든 데이터를 삭제된다고 알려 줍니다. **예** 를 클릭하여 경고를 확인하고 디스크를 초기화합니다. 완료되면 파티션이 **GPT**로 나열됩니다. 디스크를 다시 마우스 오른쪽 단추로 클릭하고 **새 볼륨**을 선택합니다.
@@ -91,13 +93,14 @@ fsutil behavior query DisableDeleteNotify
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
+                
+디스크에서 데이터를 삭제한 후 TRIM으로 조각 모음을 실행하여 TRIM 작업이 제대로 플러시되는지 확인할 수 있습니다.
+
+```
+defrag.exe <volume:> -l
+```
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.
 
 

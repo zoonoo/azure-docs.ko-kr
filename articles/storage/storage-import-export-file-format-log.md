@@ -1,7 +1,7 @@
 ---
 
 title: "Azure Import/Export 로그 파일 형식 | Microsoft Docs"
-description: "가져오기-내보내기 서비스 작업에 대한 단계를 실행할 때 만든 로그 파일의 형식에 대해 알아보기"
+description: "Import/Export 서비스 작업에 대한 단계를 실행할 때 만든 로그 파일의 형식에 대해 알아보기"
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -149,7 +149,7 @@ properties-status ::=
 |`Properties/Path/@Hash`|특성, 문자열|속성 파일의 Base16 인코딩 MD5 해시입니다.|  
 |`Blob/Status`|string|Blob을 처리하는 상태입니다.|  
   
-### <a name="drive-status-codes"></a>드라이브 상태 코드  
+# <a name="drive-status-codes"></a>드라이브 상태 코드  
 다음 테이블에서는 드라이브를 처리하는 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  
@@ -178,7 +178,7 @@ properties-status ::=
 |`BlobRequestForbidden`|저장소 계정에 있는 Blob에 액세스할 수 없습니다. 잘못된 저장소 계정 키 또는 컨테이너 SAS 때문일 수 있습니다.|  
 |`InternalError`|드라이브를 처리하는 동안 내부 오류가 발생했습니다.|  
   
-### <a name="blob-status-codes"></a>Blob 상태 코드  
+## <a name="blob-status-codes"></a>Blob 상태 코드  
 다음 테이블에서는 Blob을 처리하는 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  
@@ -197,7 +197,7 @@ properties-status ::=
 |`IOFailed`|Blob을 처리하는 동안 디스크 또는 네트워크 I/O 오류가 발생했습니다.|  
 |`Failed`|Blob을 처리하는 동안 알 수 없는 오류가 발생했습니다.|  
   
-### <a name="import-disposition-status-codes"></a>처리 상태 코드 가져오기  
+## <a name="import-disposition-status-codes"></a>처리 상태 코드 가져오기  
 다음 테이블에서는 가져오기 처리를 해결하기 위한 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  
@@ -208,7 +208,7 @@ properties-status ::=
 |`Overwritten`|Blob은 `overwrite` 가져오기 처리별로 기존 Blob을 덮어씁니다.|  
 |`Cancelled`|이전 오류로 인해 가져오기 처리의 추가 처리가 중지되었습니다.|  
   
-### <a name="page-rangeblock-status-codes"></a>페이지 범위/블록 상태 코드  
+## <a name="page-rangeblock-status-codes"></a>페이지 범위/블록 상태 코드  
 다음 테이블에서는 페이지 범위 또는 블록을 처리하는 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  
@@ -224,7 +224,7 @@ properties-status ::=
 |`Failed`|페이지 범위 또는 블록을 처리하는 동안 알 수 없는 오류가 발생했습니다.|  
 |`Cancelled`|이전 오류로 인해 페이지 범위 또는 블록의 추가 처리가 중지되었습니다.|  
   
-### <a name="metadata-status-codes"></a>메타데이터 상태 코드  
+## <a name="metadata-status-codes"></a>메타데이터 상태 코드  
 다음 테이블에서는 Blob 메타데이터를 처리하는 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  
@@ -242,7 +242,7 @@ properties-status ::=
 |`Failed`|메타데이터를 처리하는 동안 알 수 없는 오류가 발생했습니다.|  
 |`Cancelled`|이전 오류로 인해 메타데이터의 추가 처리가 중지되었습니다.|  
   
-### <a name="properties-status-codes"></a>속성 상태 코드  
+## <a name="properties-status-codes"></a>속성 상태 코드  
 다음 테이블에서는 Blob 속성을 처리하는 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  
@@ -358,6 +358,7 @@ properties-status ::=
 </DriveLog>  
 ```
   
-## <a name="see-also"></a>참고 항목  
-[저장소 Import/Export REST](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>다음 단계
+ 
+* [저장소 Import/Export REST API](/rest/api/storageimportexport/)
 

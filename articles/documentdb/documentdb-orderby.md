@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -90,7 +91,7 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 
 
 ## <a name="samples"></a>샘플
-정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) 을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) 을 참조하세요.  
+정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [GitHub 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) 을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) 을 참조하세요.  
 
 ## <a name="faq"></a>FAQ
 **Order By 쿼리의 예상된 요청 단위(RU) 소비**
@@ -123,17 +124,12 @@ Order By는 Azure Portal에서 쿼리 탐색기를 사용하는 경우 파티션
 Order By가 지원되지 않는다는 오류가 발생하면 Order By를 지원하는 [SDK](documentdb-sdk-dotnet.md)의 버전을 사용하는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) 를 분기하고 주문 데이터를 시작합니다. 
+[GitHub 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)를 분기하고 주문 데이터를 시작합니다. 
 
 ## <a name="references"></a>참조
 * [DocumentDB 쿼리 참조](documentdb-sql-query.md)
 * [DocumentDB 인덱싱 정책 참조](documentdb-indexing-policies.md)
 * [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

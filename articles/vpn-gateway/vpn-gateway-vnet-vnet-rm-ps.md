@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/27/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a4cbc4cd1c48da1120c643892b19692ac583d4c3
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [클래식 - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [클래식 - 클래식 포털](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
-> 
+>
 
 이 문서에서는 VPN 게이트웨이를 사용하여 Resource Manager 배포 모델의 VNet 간에 연결을 만드는 단계를 안내합니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다.
 
@@ -70,13 +72,13 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 ![두 연결 모두](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
-## <a name="a-namesamesubahow-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
+## <a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
 ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>시작하기 전에
 시작하기 전에 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
-### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>1단계 - IP 주소 범위 계획
+### <a name="Step1"></a>1단계 - IP 주소 범위 계획
 다음 단계에서는 두 개의 가상 네트워크와 해당 게이트웨이 서브넷 및 구성을 만듭니다. 그런 다음 두 VNet 간의 VPN 연결을 만듭니다. 네트워크 구성에 대한 IP 주소 범위를 계획하는 것이 중요합니다. 따라서 VNet 범위 또는 로컬 네트워크 범위가 겹치지 않는지 확인해야 합니다.
 
 예제에서 다음 값을 사용합니다.
@@ -94,8 +96,8 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 * 게이트웨이 이름: VNet1GW
 * 공용 IP: VNet1GWIP
 * VpnType: 경로 기반
-* 연결(1 대&4;): VNet1 대 VNet4
-* 연결(1 대&5;): VNet1 대 VNet5
+* 연결(1 대 4): VNet1 대 VNet4
+* 연결(1 대 5): VNet1 대 VNet5
 * 연결 유형: VNet 간
 
 **TestVNet4에 대한 값:**
@@ -114,7 +116,7 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 * 연결: VNet4 대 VNet1
 * 연결 유형: VNet 간
 
-### <a name="a-namestep2astep-2---create-and-configure-testvnet1"></a><a name="Step2"></a>2단계 - TestVNet1 만들기 및 구성
+### <a name="Step2"></a>2단계 - TestVNet1 만들기 및 구성
 1. 변수 선언
    
     변수를 선언하여 시작합니다. 이 예제에서는 이 연습에 대한 값을 사용하여 변수를 선언합니다. 대부분의 경우에 값을 고유한 값으로 바꿔야 합니다. 그러나 이 구성 유형에 익숙해지기 위해 단계를 차례로 실행하는 경우 이 변수를 사용할 수 있습니다. 필요한 경우 변수를 수정한 다음 복사하여 PowerShell 콘솔에 붙여 넣습니다.
@@ -182,7 +184,7 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
         -Subnet $subnet1 -PublicIpAddress $gwpip1
 8. TestVNet1에 대한 게이트웨이 만들기
    
-    이 단계에서는 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면&45;분 이상).
+    이 단계에서는 TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. VNet-VNet 구성에는 RouteBased VpnType이 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상).
    
         New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
@@ -265,7 +267,7 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
     몇 분 후 연결이 설정됩니다.
 4. 연결을 확인합니다. [연결을 확인하는 방법](#verify)섹션을 참조하세요.
 
-## <a name="a-namedifsubahow-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>다른 구독에 있는 VNet을 연결하는 방법
+## <a name="difsub"></a>다른 구독에 있는 VNet을 연결하는 방법
 ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 이 시나리오에서는 TestVNet1 및 TestVNet5를 연결합니다. TestVNet1 및 TestVNet5는 다른 구독에 상주합니다. 이 구성 단계에서는 TestVNet1을 TestVNet5에 연결하기 위해 VNet 간 연결을 추가합니다. 
@@ -421,7 +423,7 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
         $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-## <a name="a-nameverifyahow-to-verify-a-connection"></a><a name="verify"></a>연결을 확인하는 방법
+## <a name="verify"></a>연결을 확인하는 방법
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
@@ -430,10 +432,5 @@ TestVNet1 구성이 끝나면 TestVNet4를 만듭니다. 아래 단계에 따라
 
 * 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) 설명서를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

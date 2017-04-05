@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 553d474c8a9cbd7b8452daf85e1bb74b294b5699
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 579015f419ac0ee886f8e8497760a562ab324c24
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -29,12 +30,12 @@ ms.openlocfilehash: 553d474c8a9cbd7b8452daf85e1bb74b294b5699
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure 클래식 포털][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, 가상 컴퓨터 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
 
 ## <a name="WhatIs"> </a>서비스 관리 정의
-서비스 관리 API는 [Azure 클래식 포털][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
+Service Management API는 [Azure 클래식 포털][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
 
 서비스 관리 API를 사용하려면 [Azure 계정을 만들어야](https://azure.microsoft.com/pricing/free-trial/)합니다.
 
 ## <a name="Concepts"> </a>개념
-Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행 중인 서비스 내에서 액세스할 수 있거나, HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 응용 프로그램에서 인터넷을 통해 직접 액세스할 수 있습니다.
+Python용 Azure SDK는 REST API인 [Azure Service Management API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행 중인 서비스 내에서 액세스할 수 있거나, HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 응용 프로그램에서 인터넷을 통해 직접 액세스할 수 있습니다.
 
 ## <a name="Installation"> </a>설치
 이 문서에서 설명한 모든 기능은 `azure-servicemanagement-legacy` 패키지에서 사용할 수 있으며, 이 패키지는 pip을 사용하여 설치할 수 있습니다. (예를 들어 Python을 처음 사용한다면) 설치에 관한 자세한 내용은 이 문서 [Python 설치 및 Azure SDK](../python-how-to-install.md)
@@ -58,7 +59,7 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-ap
 
 Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인증서](cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
 
-이러한 파일을 만든 후에는 [Azure 클래식 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 적어 두어야 합니다.
+이러한 파일을 만든 후에는 [Azure 클래식 포털][management-portal]에서 "설정" 탭의 "업로드" 작업을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 적어 두어야 합니다.
 
 구독 ID를 얻어 인증서를 만들고 `.cer` 파일을 Azure에 업로드하고 나면 구독 ID 및 `.pem` 파일의 경로를 **ServiceManagementService**에 전달하여 Azure 관리 끝점에 연결할 수 있습니다.
 
@@ -79,7 +80,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 
 이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure 클라우드 서비스 인증서 개요](cloud-services-certs-create.md)를 참조하세요.
 
-인증서를 만든 후에는 [Azure 클래식 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 합니다.
+인증서를 만든 후에는 [Azure 클래식 포털][management-portal]에서 "설정" 탭의 "업로드" 작업을 통해 `.cer` 파일을 Azure에 업로드해야 합니다.
 
 구독 ID를 얻어 인증서를 만들고 `.cer` 파일을 Azure에 업로드하고 나면 구독 ID 및 **개인** 인증서 저장소에 있는 인증서의 위치를 **ServiceManagementService**에 전달하여(다시 말해, *AzureCertificate*를 인증서 이름으로 바꿈) Azure 관리 끝점에 연결할 수 있습니다.
 
@@ -123,7 +124,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 * 오스트레일리아 남동부
 
 ## <a name="CreateCloudService"> </a>방법: 클라우드 서비스 만들기
-응용 프로그램을 만들어 Azure에서 실행하면 코드와 구성은 모두 Azure [클라우드 서비스][클라우드 서비스](이전 Azure 릴리스에서는 *호스티드 서비스*라고 함)라고 합니다. **create\_hosted\_service** 메서드를 통해 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 새 호스팅 서비스를 만들 수 있습니다.
+응용 프로그램을 만들어 Azure에서 실행하면 코드와 구성은 모두 Azure [클라우드 서비스][cloud service](이전 Azure 릴리스에서는 *호스티드 서비스*라 함)라고 합니다. **create\_hosted\_service** 메서드를 통해 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 새 호스팅 서비스를 만들 수 있습니다.
 
     from azure import *
     from azure.servicemanagement import *
@@ -399,42 +400,37 @@ VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 �
         role_size='Small',
         vm_image_name = image_name)
 
-Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
+Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
-Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 ## <a name="What's Next"> </a>다음 단계
 서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/) 에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-[서비스 관리 정의]: #WhatIs
-[개념]: #Concepts
-[방법: 서비스 관리에 연결]: #Connect
-[방법: 사용 가능한 위치 나열]: #ListAvailableLocations
-[방법: 클라우드 서비스 만들기]: #CreateCloudService
-[방법: 클라우드 서비스 삭제]: #DeleteCloudService
-[방법: 배포 만들기]: #CreateDeployment
-[방법: 배포 업데이트]: #UpdateDeployment
-[방법: 스테이징과 프로덕션 간의 배포 이동]: #MoveDeployments
-[방법: 배포 삭제]: #DeleteDeployment
-[방법: 저장소 서비스 만들기]: #CreateStorageService
-[방법: 저장소 서비스 삭제]: #DeleteStorageService
-[방법: 사용 가능한 운영 체제 나열]: #ListOperatingSystems
-[방법: 운영 체제 이미지 만들기]: #CreateVMImage
-[방법: 운영 체제 이미지 삭제]: #DeleteVMImage
-[방법: 가상 컴퓨터 만들기]: #CreateVM
-[방법: 가상 컴퓨터 삭제]: #DeleteVM
-[다음 단계]: #NextSteps
+[What is Service Management]: #WhatIs
+[Concepts]: #Concepts
+[How to: Connect to service management]: #Connect
+[How to: List available locations]: #ListAvailableLocations
+[How to: Create a cloud service]: #CreateCloudService
+[How to: Delete a cloud service]: #DeleteCloudService
+[How to: Create a deployment]: #CreateDeployment
+[How to: Update a deployment]: #UpdateDeployment
+[How to: Move deployments between staging and production]: #MoveDeployments
+[How to: Delete a deployment]: #DeleteDeployment
+[How to: Create a storage service]: #CreateStorageService
+[How to: Delete a storage service]: #DeleteStorageService
+[How to: List available operating systems]: #ListOperatingSystems
+[How to: Create an operating system image]: #CreateVMImage
+[How to: Delete an operating system image]: #DeleteVMImage
+[How to: Create a virtual machine]: #CreateVM
+[How to: Delete a virtual machine]: #DeleteVM
+[Next Steps]: #NextSteps
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[클라우드 서비스]:/services/cloud-services/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[cloud service]:/services/cloud-services/
 
 

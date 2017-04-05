@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 03/23/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6fe5ed03611d68a1201e4fe48580a3499811abeb
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 159aed19b4c5e381ef15c40c15cf6bd7694d2fa3
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -36,12 +36,12 @@ Azure CLI 2.0(az.py)을 사용하여 Azure IoT Hub를 프로그래밍 방식으�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 내에 [계정][lnk-free-trial]을 만들 수 있습니다.
 * [Azure CLI 2.0][lnk-CLI-install].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
-Azure 계정에 로그인하고 IoT Hub 리소스로 작업할 Azure CLI를 구성합니다.
+Azure 계정에 로그인하고 구독을 선택합니다.
 
 1. 명령 프롬프트에서 [login 명령][lnk-login-command]을 실행합니다.
     
@@ -96,7 +96,7 @@ Azure CLI를 사용하여 IoT Hub 같은 [개별 리소스 삭제][lnk-az-resour
 IoT Hub를 삭제하려면 다음 명령을 실행합니다.
 
 ```azurecli
-az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
 리소스 그룹 및 모든 해당 리소스를 삭제하려면 다음 명령을 실행합니다.

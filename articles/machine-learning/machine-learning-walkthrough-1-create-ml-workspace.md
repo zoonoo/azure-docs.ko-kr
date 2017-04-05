@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 116dbf0ee30497d82c984b10e61ae02301e820a4
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8ca42ef8f5314866301f5c9e93caa90dc837a66e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -46,7 +47,7 @@ ms.openlocfilehash: 116dbf0ee30497d82c984b10e61ae02301e820a4
 
 Azure 구독에 대한 관리자는 작업 영역을 만들고 소유자 또는 참가자로 추가해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 공유](machine-learning-create-workspace.md)를 참조하세요.
 
-작업 영역을 만든 후 기계 학습 스튜디오([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 이것이 유일한 작업 영역인 경우 Studio에서 자동으로 열립니다. 그렇지 않으면 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
+작업 영역을 만든 후 Machine Learning Studio([https://studio.azureml.net/Home](https://studio.azureml.net/Home))를 엽니다. 둘 이상의 작업 영역이 있는 경우 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
 
 ![Studio에서 작업 영역 선택][2]
 
@@ -62,9 +63,4 @@ Azure 구독에 대한 관리자는 작업 영역을 만들고 소유자 또는 
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 [2]: ./media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

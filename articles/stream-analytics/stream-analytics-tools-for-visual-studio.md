@@ -1,34 +1,35 @@
 ---
-title: "Azure Stream Analytics Tools for Visual Studio 사용 | Microsoft Docs"
-description: "Azure Stream Analytics Tools for Visual Studio 시작 자습서"
+title: "Visual Studio용 Azure Stream Analytics 도구 사용 | Microsoft Docs"
+description: "Visual Studio용 Azure Stream Analytics 도구 시작 자습서"
 keywords: Visual Studio
 documentationcenter: 
 services: stream-analytics
-author: 
-manager: 
-editor: 
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: 
+ms.date: 03/28/2017
+ms.author: sujie
 translationtype: Human Translation
-ms.sourcegitcommit: 81a5678051b026a16bdae2f2eab7ead2c17f9563
-ms.openlocfilehash: 4874c52b24d9c69fa1d1648035102aaef276f944
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d0125dda4df69279e49a9fad4dc28dcbf6368322
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="use-azure-stream-analytics-tool-for-visual-studio"></a>Azure Stream Analytics Tools for Visual Studio 사용
-Azure Stream Analytics tools for Visual Studio는 현재 일반 공급 상태입니다. Stream Analytics 사용자는 이러한 도구를 통해 풍부한 경험을 얻고 문제를 해결할 수 있을 뿐만 아니라 복잡한 쿼리를 작성하고 로컬에서도 쿼리를 작성할 수 있습니다. 또한 Stream Analytics 작업을 Visual Studio 프로젝트로 내보내는 능력도 갖추게 됩니다.
+# <a name="use-azure-stream-analytics-tool-for-visual-studio"></a>Visual Studio용 Azure Stream Analytics 도구 사용
+Visual Studio용 Azure Stream Analytics 도구는 현재 일반 공급 상태입니다. Stream Analytics 사용자는 이러한 도구를 통해 풍부한 경험을 얻고 문제를 해결할 수 있을 뿐만 아니라 복잡한 쿼리를 작성하고 로컬에서도 쿼리를 작성할 수 있습니다. 또한 Stream Analytics 작업을 Visual Studio 프로젝트로 내보낼 수도 있습니다.
 
 ## <a name="introduction"></a>소개
-이 자습서에서는 Azure Stream Analytics Tools for Visual Studio를 사용하여 Azure Stream Analytics 작업을 만들고 작성하며 로컬에서 테스트하고 관리 및 디버깅하는 방법을 알아봅니다. 
+이 자습서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 Azure Stream Analytics 작업을 만들고 작성하며 로컬에서 테스트하고 관리 및 디버깅하는 방법을 알아봅니다. 
 
 이 자습서를 완료하고 나면 다음을 수행할 수 있습니다.
-* Azure Stream Analytics Tools for Visual Studio 숙지
+* Visual Studio용 Azure Stream Analytics 도구 숙지
 * Stream Analytics 작업 구성 및 배포
 * 로컬 샘플 데이터로 로컬에서 작업 테스트
 * 모니터링을 사용하여 문제 해결
@@ -39,7 +40,7 @@ Azure Stream Analytics tools for Visual Studio는 현재 일반 공급 상태입
 * [Stream Analytics 자습서를 사용하여 IoT 솔루션 빌드](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)에서 **Stream Analytics 작업 만들기** 이전의 단계를 완료합니다. 
 * Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio 2017은 현재 지원되지 않습니다. 
 * Microsoft Azure SDK for .NET 버전 2.7.1 이상.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
-* [Azure Stream Analytics Tools for Visual Studio](http://aka.ms/asatoolsvs) 설치
+* [Visual Studio용 Azure Stream Analytics 도구](http://aka.ms/asatoolsvs) 설치
 
 ## <a name="create-a-stream-analytics-project"></a>Stream Analytics 프로젝트 만들기
 Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 선택합니다. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 후 **Azure Stream Analytics 응용 프로그램**을 클릭합니다.
@@ -56,28 +57,28 @@ Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 �
 2. Azure 계정으로 로그인합니다. 
 
 ## <a name="define-input-sources"></a>입력 원본 정의
-1.  **솔루션 탐색기**에서 **입력** 노드를 확장하고 이름을 **Input.json**에서 **EntryStream.json**으로 바꿉니다. **EntryStream.json**을 두 번 클릭합니다.
-2.  그러면 **입력 별칭**이 **EntryStream**이 됩니다. 입력 별칭은 쿼리 스크립트에 사용됩니다. 
-3.  원본 형식은 **데이터 스트림**입니다.
-4.  원본은 **Event hub**입니다.
-5.  Service Bus 네임스페이스는 드롭다운에서 **tollData** 항목이어야 합니다.
-6.  Event hub 이름은 **entry**로 설정해야 합니다.
-7.  Event hub 정책 이름은 **RootManageSharedAccessKey**(기본값)입니다.
-8.  **이벤트 직렬화 형식**에 대해 **JSON**을, **인코딩**에 대해 **UTF8**을 선택합니다.
+1.    **솔루션 탐색기**에서 **입력** 노드를 확장하고 이름을 **Input.json**에서 **EntryStream.json**으로 바꿉니다. **EntryStream.json**을 두 번 클릭합니다.
+2.    그러면 **입력 별칭**이 **EntryStream**이 됩니다. 입력 별칭은 쿼리 스크립트에 사용됩니다. 
+3.    원본 형식은 **데이터 스트림**입니다.
+4.    원본은 **Event hub**입니다.
+5.    Service Bus 네임스페이스는 드롭다운에서 **tollData** 항목이어야 합니다.
+6.    Event hub 이름은 **entry**로 설정해야 합니다.
+7.    Event hub 정책 이름은 **RootManageSharedAccessKey**(기본값)입니다.
+8.    **이벤트 직렬화 형식**에 대해 **JSON**을, **인코딩**에 대해 **UTF8**을 선택합니다.
    
    설정이 다음과 같이 표시됩니다.
    
    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
    
-9.  마법사를 완료하려면 페이지 맨 아래에서 **저장**을 클릭합니다. 이제 다른 입력 원본을 추가하여 진출 스트림을 만들 수 있습니다. 입력 노드를 마우스 오른쪽 단추로 클릭하고 **새 항목**을 클릭합니다.
+9.    마법사를 완료하려면 페이지 맨 아래에서 **저장**을 클릭합니다. 이제 다른 입력 원본을 추가하여 진출 스트림을 만들 수 있습니다. 입력 노드를 마우스 오른쪽 단추로 클릭하고 **새 항목**을 클릭합니다.
    
    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
    
-10. 팝업 창에서 **Azure Stream Analytics 입력**을 선택하고 이름을 **ExitStream.json**으로 변경합니다. **추가**를 클릭합니다.
+10.    팝업 창에서 **Azure Stream Analytics 입력**을 선택하고 이름을 **ExitStream.json**으로 변경합니다. **추가**를 클릭합니다.
    
    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
-11. 프로젝트에서 **ExitStream.json**을 두 번 클릭하고 진입 스트림과 같은 단계로 입력합니다. 다음 스크린샷과 같이 Event Hub 이름 값을 입력해야 합니다.
+11.    프로젝트에서 **ExitStream.json**을 두 번 클릭하고 진입 스트림과 같은 단계로 입력합니다. 다음 스크린샷과 같이 Event Hub 이름 값을 입력해야 합니다.
    
    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
@@ -87,21 +88,21 @@ Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 �
    
    다음은 차량 등록 데이터가 있는 blob 파일에 대해 참조 데이터 입력을 추가합니다.
    
-12. 프로젝트에서 **입력** 노드를 마우스 오른쪽 단추로 클릭한 다음 스트림 입력에 대한 동일한 프로세스를 수행하지만 데이터 스트림 대신 **참조 데이터**를 선택하고 입력 별칭은 **등록**입니다.
+12.    프로젝트에서 **입력** 노드를 마우스 오른쪽 단추로 클릭한 다음 스트림 입력에 대한 동일한 프로세스를 수행하지만 데이터 스트림 대신 **참조 데이터**를 선택하고 입력 별칭은 **등록**입니다.
    
    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
-13. **tolldata**가 포함된 저장소 계정을 선택합니다. 컨테이너 이름이 **tolldata**여야 하고 **경로 패턴**은 **registration.json**이어야 합니다. 이 파일 이름은 대/소문자를 구분하므로 소문자여야 합니다.
-14. **저장**을 클릭하여 마법사를 마칩니다.
+13.    **tolldata**가 포함된 저장소 계정을 선택합니다. 컨테이너 이름이 **tolldata**여야 하고 **경로 패턴**은 **registration.json**이어야 합니다. 이 파일 이름은 대/소문자를 구분하므로 소문자여야 합니다.
+14.    **저장**을 클릭하여 마법사를 마칩니다.
 
 이제 모든 입력이 정의되었습니다.
 
 ## <a name="define-output"></a>출력 정의
-1.  **솔루션 탐색기**에서 **입력** 노드를 확장하고 **Output.json**을 두 번 클릭합니다.
-2.  출력 별칭을 **출력**으로 설정한 다음 싱크를 SQL Database로 설정합니다.
-2.  데이터베이스 이름으로 **TollDataDB**를 입력합니다.
-3.  **사용자 이름** 필드에 **tolladmin**을, **암호** 필드에 **123toll!**을, **테이블** 필드에 **TollDataRefJoin**을 입력합니다.
-4.  **Save**를 클릭합니다.
+1.    **솔루션 탐색기**에서 **입력** 노드를 확장하고 **Output.json**을 두 번 클릭합니다.
+2.    출력 별칭을 **출력**으로 설정한 다음 싱크를 SQL Database로 설정합니다.
+2.    데이터베이스 이름으로 **TollDataDB**를 입력합니다.
+3.    **사용자 이름** 필드에 **tolladmin**을, **암호** 필드에 **123toll!**을, **테이블** 필드에 **TollDataRefJoin**을 입력합니다.
+4.    **Save**를 클릭합니다.
 
 ![출력 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
@@ -124,9 +125,10 @@ Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 �
 
 이제 첫 번째 Azure Stream Analytics 쿼리를 작성했으므로 다음 경로의 TollApp 폴더에 있는 샘플 데이터 파일을 사용하여 테스트해보겠습니다.
 
-**..\TollApp\TollApp\Data**
+<seg>
+  **..\TollApp\TollApp\Data**</seg>
 
-이 폴더에는 다음 파일이 포함되어 있습니다. •   Entry.json •   Exit.json •   Registration.json
+이 폴더에는 다음 파일이 포함되어 있습니다. •    Entry.json •    Exit.json •    Registration
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>질문: 요금 창구에 들어가는 차량 수
 프로젝트에서 Script.asaql을 두 번 클릭하여 편집기에서 스크립트를 열고 이전 섹션의 스크립트를 편집기에 붙여 넣습니다. 쿼리 편집기에서는 IntelliSense, 구문 색 지정 및 오류 마커를 지원합니다.
@@ -252,10 +254,5 @@ Create a New Azure Stream Analytics Job(새 Azure Stream Analytics 작업 만들
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

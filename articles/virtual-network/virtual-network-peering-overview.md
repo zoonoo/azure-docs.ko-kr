@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ VNet 피어링의 요구 사항 및 주요 측면은 다음과 같습니다.
 * VNet 피어링은 두 개의 VNet 간에 가능하며 피어링을 통해 파생된 전이적 관계가 없습니다. 예를 들어, VNetA가 VNetB와 피어링되고 VNetB가 VNetC와 피어링되는 경우 VNetA는 VNetC와 피어링되지 *않습니다*.
 * 양쪽 구독의 권한 있는 사용자가 피어링을 허용하고 구독이 동일한 Active Directory 테넌트에 연결되면 다른 두 개의 구독에 있는 VNet을 피어링할 수 있습니다.
 * VNet은 둘 다 Resource Manager 배포 모델을 통해 생성된 경우 또는 하나가 Resource Manager 배포 모델을 통해 생성되고 다른 하나가 클래식 배포 모델을 통해 만들어진 경우 피어링될 수 있습니다. 그러나 둘 다 클래식 배포 모델을 통해 만든 경우 서로 피어링될 수 없습니다. 서로 다른 배포 모델을 통해 만든 VNet을 피어링하는 경우 VNet은 모두 *동일한* 구독에 있어야 합니다. *다른* 구독에 있는 다른 배포 모델을 통해 만든 VNet을 피어링하는 기능은 **미리 보기** 릴리스 상태입니다. 자세한 내용은 [PowerShell을 사용하여 가상 네트워크 피어링 만들기](virtual-networks-create-vnetpeering-arm-ps.md) 문서를 참조하세요.
-* 피어링된 VNet에 있는 VM 간의 통신에 추가 대역폭이 제한되지 않지만 적용되는 VM 크기에 따라 최대 네트워크 대역폭이 제한됩니다. 다양한 VM 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-sizes.md) VM 크기 문서를 참조하세요.
+* 피어링된 VNet에 있는 VM 간의 통신에 추가 대역폭이 제한되지 않지만 적용되는 VM 크기에 따라 최대 네트워크 대역폭이 제한됩니다. 다양한 VM 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/windows/sizes.md) 또는 [Linux](../virtual-machines/linux/sizes.md) VM 크기 문서를 참조하세요.
 
 ![기본 VNet 피어링](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ VNet 피어링은 권한 있는 작업입니다. VirtualNetworks 네임스페이
 ## <a name="pricing"></a>가격
 피어링 VNet을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조합니다.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 다음을 사용하여 VNet 피어링을 만드는 방법에 대해 알아봅니다.
 
 * [Azure 포털](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Azure Resource Manager 템플릿](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

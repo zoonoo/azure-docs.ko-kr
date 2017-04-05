@@ -1,16 +1,16 @@
-# [개요](../../virtual-machines-linux-azure-overview.md)
+# [개요](../overview.md)
 ## [이미지](about-images.md)
 ## [VM 확장](agents-and-extensions.md)
 ## [가용성](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [시작](../../virtual-machines-linux-opensource-links.md)
+# [시작](../opensource-links.md)
 ## [포털을 사용하여 Linux VM 만들기](createportal.md)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
-## [SSH 키 만들기](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [SSH 키 만들기](../mac-create-ssh-keys.md)
 
 # 방법
-## [계산](../../virtual-machines-linux-intro-on-azure.md)
+## [계산](../intro-on-azure.md)
 ### [사용자 지정 VM 만들기](create-custom.md)
 ### [VM 캡처](capture-image.md)
 ### [Linux VM으로 원격 데스크톱 사용](remote-desktop.md)

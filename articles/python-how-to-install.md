@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c30c4653d8a14c7bf68ec6935c26725c6f623c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2d6999c6c6e8d9168e2417309207dd14bf4f6f2
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,14 +43,14 @@ Python용 Azure SDK에는 Azure용 Python 응용 프로그램을 개발, 배포 
 ## <a name="where-to-get-python"></a>Python을 구하는 위치
 CPython을 구하는 몇 가지 방법이 있습니다.
 
-* [www.python.org][www.python.org]에서 직접 구하기
-* [www.continuum.io][www.continuum.io], [www.enthought.com][www.enthought.com] 또는 [www.activestate.com][www.activestate.com]과 같은 신뢰할 수 있는 배포자로부터 구하기
+* [www.python.org][www.python.org]에서 직접
+* [www.continuum.io][www.continuum.io], [www.enthought.com][www.enthought.com] 또는 [www.activestate.com][www.activestate.com]과 같은 신뢰할 수 있는 배포자로부터
 * 원본에서 빌드
 
 구체적인 요구 사항이 없다면 처음 두 가지 옵션을 사용하는 것이 좋습니다.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Windows, Linux 및 MacOS에 SDK 설치(클라이언트 라이브러리만 해당)
-Python이 이미 설치되어 있는 경우 pip를 사용하여 기존 Python 2.7 또는 Python 3.3 + 환경에 모든 클라이언트 라이브러리의 번들을 설치할 수 있습니다. 이 경우 [Python 패키지 인덱스][Python 패키지 인덱스](PyPI)에서 패키지가 다운로드됩니다.
+Python이 이미 설치되어 있는 경우 pip를 사용하여 기존 Python 2.7 또는 Python 3.3 + 환경에 모든 클라이언트 라이브러리의 번들을 설치할 수 있습니다. 이 경우 PyPI([Python 패키지 인덱스][Python Package Index])에서 패키지를 다운로드합니다.
 
 관리자 권한이 필요할 수 있습니다.
 
@@ -88,7 +89,7 @@ Python이 이미 설치되어 있는 경우 pip를 사용하여 기존 Python 2.
 ```
 
 ## <a name="getting-more-packages"></a>추가 패키지 가져오기
-[Python 패키지 인덱스][Python 패키지 인덱스](PyPI)에서 다양한 Python 라이브러리를 선택할 수 있습니다.  Distro를 설치하도록 선택했다면 웹 개발 및 기술 컴퓨팅을 포함한 다양한 시나리오에 맞는 거의 모든 흥미로운 기능을 이미 갖추었습니다.
+PyPI([Python 패키지 인덱스][Python Package Index])에서 다양한 Python 라이브러리를 선택할 수 있습니다.  Distro를 설치하도록 선택했다면 웹 개발 및 기술 컴퓨팅을 포함한 다양한 시나리오에 맞는 거의 모든 흥미로운 기능을 이미 갖추었습니다.
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools for Visual Studio
 [Python Tools for Visual Studio][Python Tools for Visual Studio](PTVS)는 VS를 완전한 Python IDE로 전환하는 Microsoft의 무료/OSS 플러그 인입니다.
@@ -110,7 +111,7 @@ Linux 또는 MacOS의 경우 지원되는 주요 Azure 시나리오는 다음과
 
 첫 번째 시나리오에서는 Azure REST API용 Python 래퍼를 통해 [Blob 저장소](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [큐 저장소](storage/storage-python-how-to-use-queue-storage.md), [테이블 저장소](storage/storage-python-how-to-use-table-storage.md) 등의 Azure PaaS 기능을 활용하는 풍부한 기능의 웹앱을 작성할 수 있습니다. 이 기능은 Windows, Mac 및 Linux에서 동일하게 작동합니다.  또한 로컬 개발 컴퓨터 또는 Azure에서 실행되는 Linux VM에서 이러한 클라이언트 라이브러리를 사용할 수 있습니다.
 
-VM 시나리오의 경우, 원하는 Linux VM(Ubuntu, CentOS, SUSE)을 시작한 후 원하는 대로 실행하고 관리하면 됩니다.  예를 들어 Windows/Mac/Linux 컴퓨터에서 [IPython][IPython] REPL/Notebook을 실행하고 Azure에서 IPython Engine을 실행하는 Linux 또는 Windows 다중 프로세싱 VM으로 브라우저를 가리키면 됩니다. 자세한 내용은 [Azure의 IPython Notebook](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 자습서를 참조하세요.
+VM 시나리오의 경우, 원하는 Linux VM(Ubuntu, CentOS, SUSE)을 시작한 후 원하는 대로 실행하고 관리하면 됩니다.  예를 들어 Windows/Mac/Linux 컴퓨터에서 [IPython][IPython] REPL/notebook을 실행하고 Azure에서 IPython Engine을 실행하는 Linux 또는 Windows 다중 프로세싱 VM으로 브라우저를 가리키면 됩니다. 자세한 내용은 [Azure의 IPython Notebook](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 자습서를 참조하세요.
 
 Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 참조하십시오.
 
@@ -120,52 +121,47 @@ Azure Websites 개발 및 게시에 대한 자세한 내용은 [Django를 사용
 
 ## <a name="additional-software-and-resources"></a>추가 소프트웨어 및 리소스
 * [Python ReadTheDocs용 Azure SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-* [Python Github용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)
+* [Python GitHub용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)
 * [공식 Python용 Azure 샘플](https://azure.microsoft.com/documentation/samples/?platform=python)
-* [지속성 분석 Python 배포][지속성 분석 Python 배포]
-* [Enthought Python 배포][Enthought Python 배포]
-* [ActiveState Python 배포][ActiveState Python 배포]
-* [SciPy - Scientific Python 라이브러리 제품군][SciPy - Scientific Python 라이브러리 제품군]
-* [NumPy - Python의 숫자 라이브러리][NumPy - Python의 숫자 라이브러리]
-* [Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS][Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS]
-* [IPython - Python용 고급 REPL/Notebook][IPython - Python용 고급 REPL/Notebook]
+* [지속성 분석 Python 배포][Continuum Analytics Python Distribution]
+* [Enthought Python 배포][Enthought Python Distribution]
+* [ActiveState Python 배포][ActiveState Python Distribution]
+* [SciPy - Scientific Python 라이브러리 제품군][SciPy - A suite of Scientific Python libraries]
+* [NumPy - Python의 숫자 라이브러리][NumPy - A numerics library for Python]
+* [Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS][Django Project - A mature web framework/CMS]
+* [IPython - Python용 고급 REPL/Notebook][IPython - an advanced REPL/Notebook for Python]
 * [Azure의 IPython Notebook](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [GitHub의 Python Tools for Visual Studio][GitHub의 Python Tools for Visual Studio]
+* [GitHub의 Python Tools for Visual Studio][Python Tools for Visual Studio on GitHub]
 * [Python 개발자 센터](/develop/python/)
 
-[지속성 분석 Python 배포]: http://continuum.io
-[Enthought Python 배포]: http://www.enthought.com
-[ActiveState Python 배포]: http://www.activestate.com
+[Continuum Analytics Python Distribution]: http://continuum.io
+[Enthought Python Distribution]: http://www.enthought.com
+[ActiveState Python Distribution]: http://www.activestate.com
 [www.python.org]: http://www.python.org
 [www.continuum.io]: http://continuum.io
 [www.enthought.com]: http://www.enthought.com
 [www.activestate.com]: http://www.activestate.com
-[SciPy - Scientific Python 라이브러리 제품군]: http://www.scipy.org
-[NumPy - Python의 숫자 라이브러리]: http://www.numpy.org
-[Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS]: http://www.djangoproject.com
-[IPython - Python용 고급 REPL/Notebook]: http://ipython.org
+[SciPy - A suite of Scientific Python libraries]: http://www.scipy.org
+[NumPy - A numerics library for Python]: http://www.numpy.org
+[Django Project - A mature web framework/CMS]: http://www.djangoproject.com
+[IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[Azure의 IPython Notebook]: virtual-machines-linux-jupyter-notebook.md
-[클라우드 서비스]: cloud-services-python-ptvs.md
-[웹 사이트]: web-sites-python-ptvs-django-mysql.md
+[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
+[Cloud Services]: cloud-services-python-ptvs.md
+[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[GitHub의 Python Tools for Visual Studio]: https://github.com/microsoft/ptvs
-[Python 패키지 인덱스]: http://pypi.python.org/pypi
-[Python 2.7용 Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkId=254281
-[Python 3.4용 Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Azure Portal을 통해 Linux VM 설정]: create-and-configure-opensuse-vm-in-portal.md
-[Azure 명령줄 인터페이스를 사용하는 방법]: crossplat-cmd-tools.md
-[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-quick-create-cli.md
-[Django를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-django-app.md
-[Bottle을 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-bottle-app.md
-[Flask를 사용하여 Websites 만들기]: web-sites-python-create-deploy-flask-app.md
-[Azure Websites를 사용하여 Python 구성]: web-sites-python-configure.md
-[테이블 저장소]: storage-python-how-to-use-table-storage.md
-[큐 저장소]: storage-python-how-to-use-queue-storage.md
-[Blob 저장소]: storage-python-how-to-use-blob-storage.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
+[Python Package Index]: http://pypi.python.org/pypi
+[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
+[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
+[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
+[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
+[Configuring Python with Azure Websites]: web-sites-python-configure.md
+[table storage]: storage-python-how-to-use-table-storage.md
+[queue storage]: storage-python-how-to-use-queue-storage.md
+[blob storage]: storage-python-how-to-use-blob-storage.md
 

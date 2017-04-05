@@ -41,13 +41,13 @@ Azure를 사용하면 '미국 서부', '북유럽' 또는 '동남 아시아'와 
 
 **Azure Managed Disks**
 * LRS(로컬 중복 저장소)
-  * 저장소 계정을 만든 지역 내에서 데이터를&3;번 복제합니다.
+  * 저장소 계정을 만든 지역 내에서 데이터를 3번 복제합니다.
 
 **저장소 계정 기반 디스크**
 * LRS(로컬 중복 저장소)
-  * 저장소 계정을 만든 지역 내에서 데이터를&3;번 복제합니다.
+  * 저장소 계정을 만든 지역 내에서 데이터를 3번 복제합니다.
 * ZRS(영역 중복 저장소)
-  * 단일 지역 내에서 또는&2;개 지역에 걸쳐&2;~3개 시설에서 데이터를&3;번 복제합니다.
+  * 단일 지역 내에서 또는 2개 지역에 걸쳐 2~3개 시설에서 데이터를 3번 복제합니다.
 * GRS(지역 중복 저장소)
   * 기본 지역에서 수백 마일 떨어져 있는 보조 영역에 데이터를 복제합니다.
 * RA-GRS(읽기 액세스 지역 중복 저장소)
@@ -81,29 +81,24 @@ Azure에서 VM은 이미지에서 만들어집니다. 이미지는 일반적으�
 
 Azure 마켓플레이스의 이미지에서 VM을 만들 때 실제로는 템플릿을 사용하게 됩니다. Azure Resource Manager 템플릿은 VM, 저장소, 가상 네트워킹 등으로 구성된 복잡한 응용 프로그램 환경을 만드는 데 사용할 수 있는 선언적 JSON(JavaScript Object Notation) 파일입니다. [고유 템플릿 빌드](../articles/resource-group-authoring-templates.md) 방법을 비롯하여 [Azure Resource Manager 템플릿](../articles/azure-resource-manager/resource-group-overview.md) 사용에 대해 자세히 알아볼 수 있습니다.
 
-[Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 사용자 지정 이미지를 직접 만들고 업로드하여 특정 빌드 요구 사항에 맞는 사용자 지정 VM을 빠르게 만들 수 있습니다.
+[Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 사용자 지정 이미지를 직접 만들고 업로드하여 특정 빌드 요구 사항에 맞는 사용자 지정 VM을 빠르게 만들 수 있습니다.
 
 ## <a name="availability-sets"></a>가용성 집합
 가용성 집합은 중복성과 가용성을 제공하기 위해 Azure에서 응용 프로그램이 빌드되는 방식을 이해할 수 있도록 하는 VM의 논리적 그룹입니다. 고가용성 응용 프로그램을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족하기 위해 가용성 집합 내에서 둘 이상의 VM을 만드는 것이 좋습니다. 단일 VM이 [Azure Premium Storage](../articles/storage/storage-premium-storage.md)를 사용하는 경우, Azure SLA는 계획되지 않은 유지 관리 이벤트에 적용합니다. 가용성 집합은 하드웨어 장애로부터 보호하고 업데이트를 안전하게 적용할 수 있도록 하는 두 개의 추가 그룹인 FD(장애 도메인)와 UD(업데이트 도메인)로 구성됩니다.
 
 ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-[Linux VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Windows VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 가용성을 관리하는 방법에 대한 자세한 내용을 확인하세요.
+[Linux VM](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Windows VM](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 가용성을 관리하는 방법에 대한 자세한 내용을 확인하세요.
 
 ### <a name="fault-domains"></a>장애 도메인
 장애 도메인은 온-프레미스 데이터 센터 내의 랙과 비슷하게 공통 전원 및 네트워크 스위치를 공유하는 기본 하드웨어의 논리적 그룹입니다. 가용성 집합 내에서 VM을 만들 때 Azure 플랫폼에서는 이러한 오류 도메인에 걸쳐 VM을 자동으로 분산합니다. 이 방법은 잠재적인 물리적 하드웨어 오류, 네트워크 중단 또는 전원 중단의 영향을 제한합니다.
 
 #### <a name="managed-disk-fault-domains-and-availability-sets"></a>Managed Disk 장애 도메인 및 가용성 집합
-[Azure Managed Disks](../articles/storage/storage-faq-for-disks.md)를 사용하는 VM의 경우, 관리 가용성 집합을 사용할 때 VM은 관리 디스크 장애 도메인에 맞춰집니다. 이러한 정렬은 VM에 연결된 모든 관리 디스크가 동일한 관리 디스크 장애 도메인 내에 있도록 합니다. 관리 디스크의 VM만 관리 가용성 집합에서 만들어질 수 있습니다. 관리 디스크 장애 도메인의 수는 지역에 따라 다릅니다. 즉, 지역당&2;개 또는&3;개의 관리 디스크 장애 도메인이 있을 수 있습니다.
+[Azure Managed Disks](../articles/storage/storage-faq-for-disks.md)를 사용하는 VM의 경우, 관리 가용성 집합을 사용할 때 VM은 관리 디스크 장애 도메인에 맞춰집니다. 이러한 정렬은 VM에 연결된 모든 관리 디스크가 동일한 관리 디스크 장애 도메인 내에 있도록 합니다. 관리 디스크의 VM만 관리 가용성 집합에서 만들어질 수 있습니다. 관리 디스크 장애 도메인의 수는 지역에 따라 다릅니다. 즉, 지역당 2개 또는 3개의 관리 디스크 장애 도메인이 있을 수 있습니다.
 
 ### <a name="update-domains"></a>업데이트 도메인
 업데이트 도메인은 동시에 유지 관리를 진행하거나 다시 부팅될 수 있는 기본 하드웨어의 논리적 그룹입니다. 가용성 집합 내에서 VM을 만들 때 Azure 플랫폼에서는 이러한 업데이트 도메인에 걸쳐 VM을 자동으로 분산합니다. 이 방법을 통해 Azure 플랫폼이 정기적으로 유지 관리를 거치는 동안 응용 프로그램에 있는 하나 이상의 인스턴스가 항상 실행됩니다. 재부팅되는 업데이트 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업데이트 도메인만이 재부팅됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 이러한 가용성 및 중복 기능을 사용하여 Azure 환경을 빌드하기 시작할 수 있습니다. 모범 사례 정보는 [Azure 가용성 모범 사례](../articles/best-practices-availability-checklist.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

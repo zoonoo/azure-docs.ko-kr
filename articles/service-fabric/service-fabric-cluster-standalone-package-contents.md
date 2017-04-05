@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 2/15/2017
 ms.author: chackdan;maburlik
 translationtype: Human Translation
-ms.sourcegitcommit: 523a26ad37ab45fabcc5fc99c291abf864297a22
-ms.openlocfilehash: 88a4b9832fa2c0bf0f22e65dec1787e137398791
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: a09ee1955717d7e042c1df3382c4cecd40069e3a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,16 +41,16 @@ ms.lasthandoff: 02/16/2017
 **템플릿** 
 | **파일 이름** | **간단한 설명** |
 | --- | --- |
-| ClusterConfig.Unsecure.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여&3;개 노드의 비보안 단일 컴퓨터(또는 가상 컴퓨터) 개발 클러스터에 대한 설정이 포함된 클러스터 구성 샘플 파일입니다. |
+| ClusterConfig.Unsecure.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여 3개 노드의 비보안 단일 컴퓨터(또는 가상 컴퓨터) 개발 클러스터에 대한 설정이 포함된 클러스터 구성 샘플 파일입니다. |
 | ClusterConfig.Unsecure.MultiMachine.json |클러스터에 있는 각 컴퓨터에 대한 정보를 포함하여 비보안 다중 컴퓨터(또는 가상 컴퓨터) 클러스터에 대한 설정이 포함된 클러스터 구성 샘플 파일입니다. |
-| ClusterConfig.Windows.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여&3;개 노드의 보안 단일 컴퓨터(또는 가상 컴퓨터) 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 [Windows ID](https://msdn.microsoft.com/library/ff649396.aspx)를 사용하여 보안이 유지됩니다. |
+| ClusterConfig.Windows.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여 3개 노드의 보안 단일 컴퓨터(또는 가상 컴퓨터) 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 [Windows ID](https://msdn.microsoft.com/library/ff649396.aspx)를 사용하여 보안이 유지됩니다. |
 | ClusterConfig.Windows.MultiMachine.json |보안 클러스터에 있는 각 컴퓨터에 대한 정보를 포함하여 보안 다중 컴퓨터(또는 가상 컴퓨터) 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 [Windows ID](https://msdn.microsoft.com/library/ff649396.aspx)를 사용하여 보안이 유지됩니다. |
-| ClusterConfig.x509.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여&3;개 노드의 보안 단일 컴퓨터(또는 가상 컴퓨터) 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 x509 인증서를 사용하여 보안이 유지됩니다. |
+| ClusterConfig.x509.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여 3개 노드의 보안 단일 컴퓨터(또는 가상 컴퓨터) 개발 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 x509 인증서를 사용하여 보안이 유지됩니다. |
 | ClusterConfig.x509.MultiMachine.json |보안 클러스터의 각 노드에 대한 정보를 포함하여 보안 다중 컴퓨터(또는 가상 컴퓨터) 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 x509 인증서를 사용하여 보안이 유지됩니다. |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |보안 클러스터의 각 노드에 대한 정보를 포함하여 보안 다중 컴퓨터(또는 가상 컴퓨터) 클러스터에 대한 모든 설정이 포함된 클러스터 구성 샘플 파일입니다. 클러스터는 [그룹 관리 서비스 계정](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)을 사용하여 보안됩니다. |
 
 # <a name="cluster-configuration-samples"></a>클러스터 구성 샘플
-최신 버전의 클러스터 구성 템플릿은 Github 페이지: [독립 실행형 클러스터 구성 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)에서 찾을 수 있습니다.
+최신 버전의 클러스터 구성 템플릿은 [독립 실행형 클러스터 구성 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) GitHub 페이지에서 찾을 수 있습니다.
 
 ## <a name="related"></a>관련 항목
 * [독립 실행형 Azure Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)

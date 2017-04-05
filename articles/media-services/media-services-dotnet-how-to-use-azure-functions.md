@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0469880325b907065b95f94f62ab76d252c0eda5
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
+- 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [체험 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 - AMS(Azure Media Services) 계정에서 작업을 수행하거나 Media Services에서 보낸 이벤트를 수신 대기하는 Azure Functions를 만들려는 경우 [여기](media-services-portal-create-account.md)에 설명한 대로 AMS 계정을 만들어야 합니다.
 - [Azure Functions를 사용하는 방법](../azure-functions/functions-overview.md)을 이해합니다. 또한 다음을 검토합니다.
     - [Azure Functions HTTP 및 웹후크 바인딩](../azure-functions/functions-triggers-bindings.md)
@@ -339,7 +339,7 @@ project.json 파일은 종속성을 포함합니다. 다음은 Nuget의 필수 .
 
 이제 미디어 서비스 응용 프로그램 개발을 시작할 준비가 되었습니다. 
  
-Azure Media Services에서 Azure Functions 및 Logic Apps를 사용하여 사용자 지정 콘텐츠 만들기 워크플로를 만드는 방법에 대한 자세한 내용 및 전체 샘플/솔루션은 [Github의 Media Services .NET 함수 통합 샘플](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)을 참조하세요.
+Azure Media Services에서 Azure Functions 및 Logic Apps를 사용하여 사용자 지정 콘텐츠 만들기 워크플로를 만드는 방법에 대한 자세한 내용 및 전체 샘플/솔루션은 [GitHub의 Media Services .NET 함수 통합 샘플](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)을 참조하세요.
 
 또한 [Azure 웹후크를 사용하여 .NET으로 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)을 참조하세요. 
 

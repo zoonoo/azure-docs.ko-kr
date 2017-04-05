@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/22/2017
 ## <a name="prerequisites"></a>필수 조건
 
 
-* **SSH RSA 공개 키**: 포털 또는 Azure 빠른 시작 템플릿 중 하나를 통해 배포하는 경우 Azure Container Service 가상 컴퓨터에 대한 인증을 위해 SSH RSA 공개 키를 제공해야 합니다. SSH(보안 셸) RSA 키를 만들려면 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) 지침을 참조하세요. 
+* **SSH RSA 공개 키**: 포털 또는 Azure 빠른 시작 템플릿 중 하나를 통해 배포하는 경우 Azure Container Service 가상 컴퓨터에 대한 인증을 위해 SSH RSA 공개 키를 제공해야 합니다. SSH(보안 셸) RSA 키를 만들려면 [OS X 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
 
 * **서비스 주체 클라이언트 ID 및 비밀**: 자세한 내용 및 지침은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
 

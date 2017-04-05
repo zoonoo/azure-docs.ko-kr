@@ -6,7 +6,7 @@
 Azure Resource Manager 템플릿을 사용하면 리소스 간의 종속성을 정의하여 JSON 언어에서 Azure IaaS 인프라를 선언적으로 지정할 수 있습니다. Azure 리소스 관리자 템플릿에 대한 자세한 개요는 다음 문서를 참조하세요.
 
 * [리소스 그룹 개요](../articles/azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell을 사용하여 템플릿 배포](../articles/virtual-machines/virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure PowerShell을 사용하여 템플릿 배포](../articles/virtual-machines/windows/ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="prerequisites"></a>필수 조건
 1. [여기](https://azure.microsoft.com/downloads/)에서 해당 운영 체제에 대한 Azure 명령줄 도구를 다운로드합니다.

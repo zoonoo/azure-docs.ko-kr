@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/16/2017
+ms.date: 3/24/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
-ms.openlocfilehash: 056968900d8078dfe53948a2da1daa26cb04a713
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -44,10 +44,19 @@ Service Fabric에는 컨테이너화된 마이크로 서비스로 구성된 응�
 ## <a name="packaging-a-docker-container-with-yeoman"></a>yeoman과 함께 docker 컨테이너 패키징
 Linux에서 컨테이너를 패키징할 경우 yeoman 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다.
 
-Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 컨테이너를 포함할 수 있습니다. Linux용 Service Fabric SDK는 쉽게 응용 프로그램을 만들고 컨테이너 이미지를 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다. Yeoman을 사용하여 *SimpleContainerApp*이라는 단일 Docker 컨테이너가 있는 새 응용 프로그램을 만들어 보겠습니다. 일반화된 매니페스트 파일을 편집하여 나중에 더 많은 서비스를 추가할 수 있습니다.
+Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 컨테이너를 포함할 수 있습니다. Linux용 Service Fabric SDK는 쉽게 응용 프로그램을 만들고 컨테이너 이미지를 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다. Yeoman을 사용하여 *SimpleContainerApp*이라는 단일 Docker 컨테이너가 있는 응용 프로그램을 만들어 보겠습니다. 일반화된 매니페스트 파일을 편집하여 나중에 더 많은 서비스를 추가할 수 있습니다.
+
+## <a name="install-docker-on-your-development-box"></a>개발 상자에 Docker를 설치합니다.
+
+다음 명령을 실행하여 Linux 개발 상자에 docker를 설치합니다(OSX에서 vagrant 이미지를 사용하는 경우 docker가 이미 설치되어 있음).
+
+```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+```
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
-1. 터미널에서 **yo azuresfguest**를 입력합니다.
+1. 터미널에서 `yo azuresfguest`을 입력합니다.
 2. 프레임워크의 경우 **컨테이너**를 선택합니다.
 3. 응용 프로그램 이름을 지정합니다(예: SimpleContainerApp).
 4. DockerHub 리포지토리에서 컨테이너 이미지에 대한 URL을 제공합니다. 이미지 매개변수는 [리포지토리]/[이미지 이름] 양식을 사용합니다.
@@ -59,26 +68,30 @@ Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하
 
 1. 로컬 Service Fabric 클러스터에 연결합니다.
 
-    ```bash
+```bash
     azure servicefabric cluster connect
-    ```
+```
+
 2. 템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
 
-    ```bash
+```bash
     ./install.sh
-    ```
+```
+
 3. 브라우저를 열고 http://localhost:19080/Explorer에서 Service Fabric Explorer로 이동합니다(Mac OS X에서 Vagrant를 사용하는 경우 localhost를 VM의 개인 IP로 바꿉니다).
 4. 응용 프로그램 노드를 확장하면 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 5. 템플릿에 제공된 제거 스크립트를 사용하여 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 해제합니다.
 
-    ```bash
+```bash
     ./uninstall.sh
-    ```
-예제 응용 프로그램에 대해서는 [GitHub에서 Service Fabric 컨테이너 코드 샘플을 확인하세요](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
+```
+
+예제 응용 프로그램에 대해서는 [GitHub에서 Service Fabric 컨테이너 코드 샘플을 확인하세요](https://github.com/Azure-Samples/service-fabric-dotnet-containers)(영문).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>기존 응용 프로그램에 더 많은 서비스 추가
 
 `yo`을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프로그램에 추가하려면 다음 단계를 수행합니다. 
+
 1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
 2. `yo azuresfguest:AddService`을 실행합니다.
 
@@ -180,7 +193,7 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>컨테이너 간 검색 및 통신 구성
-다음 예제와 같이 `PortBinding` 정책을 사용하여 컨테이너 포트를 서비스 매니페스트의 `Endpoint`에 매핑할 수 있습니다. 끝점 `Endpoint1`(예: 포트 80)은 고정 포트를 지정할 수 있습니다. 어떤 포트도 지정하지 않을 수 있는데, 그런 경우 클러스터의 응용 프로그램 포트 범위에서 포트가 무작위로 선택됩니다.
+`PortBinding` 정책을 사용하면 컨테이너 포트를 서비스 매니페스트의 `Endpoint`에 매핑할 수 있습니다. 끝점 `Endpoint1`(예: 포트 80)은 고정 포트를 지정할 수 있습니다. 어떤 포트도 지정하지 않을 수 있는데, 그런 경우 클러스터의 응용 프로그램 포트 범위에서 포트가 무작위로 선택됩니다.
 
 게스트 컨테이너의 서비스 매니페스트에서 `Endpoint` 태그를 사용하여 끝점을 지정하는 경우 Service Fabric은 이 끝점을 명명 서비스에 자동으로 게시할 수 있습니다. 클러스터에서 실행되는 기타 서비스는 해결용 REST 쿼리를 사용하여 이 컨테이너를 검색할 수 있습니다.
 
@@ -302,5 +315,5 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 * [Azure CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-azure-cli.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
 

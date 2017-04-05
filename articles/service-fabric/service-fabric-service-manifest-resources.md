@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 193bbedca440302ead00eaac0df62fb7fe767515
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -93,7 +93,7 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통신을 암호화하는 데에도 사용됩니다. Service Fabric 서비스에서 HTTPS를 사용할 수 있도록 설정하려면 위의 *ServiceEndpoint3* 끝점과 같이 서비스 매니페스트의 *리소스 -> 끝점 -> 끝점* 섹션에서 프로토콜을 지정합니다.
 
 > [!NOTE]
-> 서비스의 프로토콜은 주요 변경 내용으로 간주되어 응용 프로그램을 업그레이드하는 동안 변경할 수 없습니다.
+> 서비스의 프로토콜은 응용 프로그램 업그레이드 중에 변경될 수 없습니다. 업그레이드 중에 변경되는 경우 불안정한 변경이 됩니다.
 > 
 > 
 

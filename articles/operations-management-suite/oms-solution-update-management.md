@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -87,7 +87,7 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 | 열 | 설명 |
 | --- | --- |
 | **업데이트를 누락한 컴퓨터** | |
-| 중요 또는 보안 업데이트 |누락된 업데이트의 수로 정렬된 업데이트를 누락한 상위&10;대의 컴퓨터를 나열합니다. 컴퓨터 이름을 클릭하여 해당 컴퓨터에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행합니다. |
+| 중요 또는 보안 업데이트 |누락된 업데이트의 수로 정렬된 업데이트를 누락한 상위 10대의 컴퓨터를 나열합니다. 컴퓨터 이름을 클릭하여 해당 컴퓨터에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행합니다. |
 | 30일보다 오래된 중요 또는 보안 업데이트 |데이트 업데이트가 게시된 후의 시간 길이별로 그룹화된 중요 또는 보안 업데이트를 누락한 컴퓨터 수를 식별합니다. 항목 중 하나를 클릭하여 모든 누락된 중요 업데이트를 반환하는 로그 검색을 실행합니다. |
 | **필수 업데이트 누락** | |
 | 중요 또는 보안 업데이트 |범주에서 업데이트를 누락한 컴퓨터 수로 정렬된 컴퓨터가 누락한 업데이트의 분류를 나열합니다. 분류를 클릭하여 해당 분류에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행합니다. |
@@ -106,7 +106,7 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 
 Azure Automation의 runbook에서 업데이트가 설치됩니다.  이러한 runbook을 볼 수 없고 구성이 필요하지 않습니다.  업데이트 배포를 만든 경우 일정을 만들고 여기서 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 runbook이 시작됩니다.  이 마스터 runbook은 필수 업데이트를 설치하는 각 Windows 에이전트에서 하위 runbook을 시작합니다.  
 
-Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
+Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/linux/update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
 
 ### <a name="viewing-update-deployments"></a>업데이트 배포 보기
 **업데이트 배포** 타일을 클릭하여 기존 업데이트 배포의 목록을 볼 수 있습니다.  **예약됨**, **실행 중** 및 **완료됨**와 같은 상태별로 그룹화합니다.<br><br> ![업데이트 배포 일정 페이지](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

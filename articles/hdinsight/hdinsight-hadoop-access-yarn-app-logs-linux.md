@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dd5471da4d1e69b51d355784dfa2551bc61e9ad9
-ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1d568bc6ab8f2801d575d726352f4c68e1f9277a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +33,7 @@ ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
 * Linux 기반 HDInsight 클러스터입니다.
 * ResourceManager 로그 웹 UI에 액세스할 수 있기 전에 [SSH 터널을 만들어야](hdinsight-linux-ambari-ssh-tunnel.md) 합니다.
 
-## <a name="a-nameyarntimelineserverayarn-timeline-server"></a><a name="YARNTimelineServer"></a>YARN Timeline Server
+## <a name="YARNTimelineServer"></a>YARN Timeline Server
 [YARN Timeline Server](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) 는 두 가지 다른 인터페이스를 통해 완료된 응용 프로그램에 대한 제네릭 정보 및 프레임워크별 응용 프로그램 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 * 3.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 응용 프로그램 정보를 저장하고 검색할 수 있습니다.
@@ -44,7 +46,7 @@ ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
 * 응용 프로그램을 완료하려고 시도한 횟수
 * 지정된 응용 프로그램 시도에 사용된 컨테이너
 
-## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>YARN 응용 프로그램 및 로그
+## <a name="YARNAppsAndLogs"></a>YARN 응용 프로그램 및 로그
 
 YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 관리를 응용 프로그램 예약/모니터링과 분리합니다. 이는 전역 *리소스 관리자*(RM), 작업자 노드별 *노드 관리자*(NM) 및 응용 프로그램별 *응용 프로그램 마스터*(AM)를 통해 이루어집니다. 응용 프로그램별 AM은 응용 프로그램을 실행하기 위한 리소스(CPU, 메모리, 디스크, 네트워크)를 RM과 협상합니다. RM은 NM과 협력하여 이러한 리소스를 부여하며, 이 리소스는 *컨테이너는*로 부여됩니다. AM은 RM에 의해 부여받은 컨테이너의 진행률 추적합니다. 응용 프로그램의 특성에 따라 응용 프로그램에 여러 컨테이너가 필요할 수 있습니다.
 
@@ -60,17 +62,14 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 
 ## <a name="yarn-cli-tools"></a>YARN CLI 도구
 
-YARN CLI 도구를 사용하려면 먼저 SSH를 사용하여 HDInsight 클러스터에 연결해야 합니다. HDInsight에서 SSH를 사용하는 방법에 대한 내용은 다음 문서 중 하나를 참조하세요.
-
-* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+YARN CLI 도구를 사용하려면 먼저 SSH를 사용하여 HDInsight 클러스터에 연결해야 합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 이러한 로그를 다음 명령 중 하나를 실행하여 일반 텍스트로 볼 수 있습니다.
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-이러한 명령을 실행할 때 &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> 및 &ltworker-node-address> 정보를 지정해야 합니다.
+이러한 명령을 실행할 때 &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> 및 &lt;worker-node-address> 정보를 지정해야 합니다.
 
 ## <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
 YARN ResourceManager UI는 클러스터 헤드 노드에서 실행하고 Ambari 웹 UI를 통해 액세스할 수 있지만 ResourceManager UI에 액세스할 수 있기 전에 먼저 [SSH 터널을 만들어야](hdinsight-linux-ambari-ssh-tunnel.md) 합니다.
@@ -92,9 +91,4 @@ SSH 터널을 만든 후 다음 단계를 사용하여 YARN 로그를 봅니다.
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

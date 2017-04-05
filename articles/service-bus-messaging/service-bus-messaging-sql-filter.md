@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c5127a457e99772a52b76e28e7fd3a3e4dd861b0
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -90,7 +91,7 @@ ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
   
 `[:IsLetter:]`는 유니코드 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsLetter(c)`에서는 `c`가 유니코드 문자인 경우 `true`를 반환합니다.  
   
-`[:IsDigit:]`는&10;진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
+`[:IsDigit:]`는 10진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
   
 `<regular_identifier>`는 예약된 키워드일 수 없습니다.  
   
@@ -119,7 +120,7 @@ ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
   
 `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`:&0;개 이상의 문자입니다.  
+-   `%`: 0개 이상의 문자입니다.  
   
 -   `_`: 단일 문자입니다.  
   
@@ -158,7 +159,7 @@ ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
   
      이후 버전에서는 이 숫자가 정확한 숫자 의미 체계를 지원하기 위해 다른 데이터 형식으로 저장될 수 있으므로 `<decimal_constant>`에 대한 기본 데이터 형식이 `System.Double`이라는 사실이 해당되지 않습니다.  
   
-     다음은&10;진수 상수에 대한 예입니다.  
+     다음은 10진수 상수에 대한 예입니다.  
   
     ```  
     1894.1204  
@@ -221,7 +222,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
     -   속성이 존재하지 않거나 속성 값이 `null`인 경우 `property IS NULL`은 `true`로 평가됩니다.  
   
-속성 평가 의미 체계:  
+### <a name="property-evaluation-semantics"></a>속성 평가 의미 체계  
   
 -   존재하지 않는 시스템 속성을 평가하려고 시도하면 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 예외가 throw됩니다.  
   
@@ -273,7 +274,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 +---+---+---+---+  
 ```  
   
-연산자 바인딩 의미 체계:  
+### <a name="operator-binding-semantics"></a>연산자 바인딩 의미 체계
   
 -   `>`, `>=`, `<`, `<=`, `!=`, `=`과 같은 비교 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.  
   
@@ -283,8 +284,3 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 
 - [SQLFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

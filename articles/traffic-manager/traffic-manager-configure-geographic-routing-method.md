@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d6756dcc5b47898575002cd7336b8d4d5200e08
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: eab8b66bc4a9cf3090ee81f9bb47430aaf26eeee
+ms.lasthandoff: 03/24/2017
 
 ---
 
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
-지리적 트래픽 라우팅 방법을 사용하면 요청이 발생하는 지리적 위치를 기반으로 특정 끝점에 트래픽을 보낼 수 있습니다. 이 자습서는 이 라우팅 방법을 사용하여 Traffic Manager 프로필을 만들고, 특정 지역에서 트래픽을 받도록 끝점을 구성하는 방법을 보여 줍니다. 
+지리적 트래픽 라우팅 방법을 사용하면 요청이 발생하는 지리적 위치를 기반으로 특정 끝점에 트래픽을 보낼 수 있습니다. 이 자습서는 이 라우팅 방법을 사용하여 Traffic Manager 프로필을 만들고, 특정 지역에서 트래픽을 받도록 끝점을 구성하는 방법을 보여 줍니다.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기 
 
@@ -62,8 +62,6 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-
-- [가중치 적용 트래픽 라우팅 방법](traffic-manager-configure-weighted-routing-method.md)에 대해 알아보세요.
-- [성능 라우팅 방법](traffic-manager-configure-performance-routing-method.md)에 대해 알아보세요.
+- [지리적 트래픽 라우팅 방법](traffic-manager-routing-methods.md#geographic-traffic-routing-method)에 대해 자세히 알아봅니다.
 - [Traffic Manager 설정 테스트](traffic-manager-testing-settings.md)에 대해 알아보세요.
 

@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1ddf62c155264c5f76d8fd738b979c21cb527962
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -346,7 +346,56 @@ ReadDocumentFeed는 DocumentDB 컬렉션의 변경 내용을 증분 처리하는
 
 시간이 지남에 따라 평형이 설정됩니다. 이 동적 기능을 사용하면 확장 및 축소 모두에 대해 소비자에게 적용할 CPU 기반 자동 크기 조정을 할 수 있습니다. 변경 내용을 소비자가 처리할 수 있는 것보다 빠르게 DocumentDB에서 사용할 수 있는 경우 소비자에 대한 CPU가 증가하여 작업자 인스턴스 수의 크기를 자동으로 조정할 수 있습니다.
 
-또한 ChangeFeedProcessorHost 클래스는 별도 DocumentDB 임대 컬렉션을 사용하여 검사점 메커니즘을 구현합니다. 이 메커니즘은 파티션 당 오프셋을 저장하므로 각 소비자가 이전 소비자의 마지막 검사점 무엇인지를 결정할 수 있습니다. 임대를 통해 노드 간에 파티션이 전환되면 이동하는 부하를 용이하게 하는 동기화 메커니즘입니다.
+또한 `ChangeFeedProcessorHost` 클래스는 별도 DocumentDB 임대 컬렉션을 사용하여 검사점 메커니즘을 구현합니다. 이 메커니즘은 파티션당 오프셋을 저장하므로 각 소비자가 이전 소비자의 마지막 검사점 무엇인지를 결정할 수 있습니다. 임대를 통해 노드 간에 파티션이 전환되면 이동하는 부하를 용이하게 하는 동기화 메커니즘입니다.
+
+
+다음은 변경 내용을 콘솔에 출력하는 간단한 변경 피드 프로세서 호스트의 코드 조각입니다.
+
+```cs
+    class DocumentFeedObserver : IChangeFeedObserver
+    {
+        private static int s_totalDocs = 0;
+        public Task OpenAsync(ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Worker opened, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;  // Requires targeting .NET 4.6+.
+        }
+        public Task CloseAsync(ChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.WriteLine("Worker closed, {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+        public Task ProcessEventsAsync(IReadOnlyList<Document> docs, ChangeFeedObserverContext context)
+        {
+            Console.WriteLine("Change feed: total {0} doc(s)", Interlocked.Add(ref s_totalDocs, docs.Count));
+            return Task.CompletedTask;
+        }
+    }
+```
+
+다음 코드 조각은 DocumentDB 컬렉션에서 변경 내용을 수신하는 새 호스트를 등록하는 방법을 보여 줍니다. 여기서는 여러 소비자의 파티션 임대를 관리할 별도의 컬렉션을 구성합니다.
+
+```cs
+    string hostName = Guid.NewGuid().ToString();
+    DocumentCollectionInfo documentCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "documents"
+    };
+
+    DocumentCollectionInfo leaseCollectionLocation = new DocumentCollectionInfo
+    {
+        Uri = new Uri("https://YOUR_SERVICE.documents.azure.com:443/"),
+        MasterKey = "YOUR_SECRET_KEY==",
+        DatabaseName = "db1",
+        CollectionName = "leases"
+    };
+
+    ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation);
+    await host.RegisterObserverAsync<DocumentFeedObserver>();
+```
 
 이 문서에서는 DocumentDB의 변경 피드 지원의 연습 및 DocumentDB REST API 및/또는 SDK를 사용하여 DocumentDB 데이터에 대한 변경 내용을 추적하는 방법을 제공합니다. 
 

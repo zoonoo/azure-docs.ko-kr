@@ -85,6 +85,7 @@
 
 
 ## 통합
+### [Spark에 연결](documentdb-spark-connector.md)
 ### [Azure App Service로 웹 사이트 배포](documentdb-create-documentdb-website.md)
 ### [Logic Apps를 통한 응용 프로그램 로깅](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Azure Functions에 바인딩](../azure-functions/functions-bindings-documentdb.md)

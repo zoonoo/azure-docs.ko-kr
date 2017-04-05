@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 88c42ff541aac2e43724fe62f99e3ddea56afc3c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -31,7 +31,9 @@ ms.lasthandoff: 02/16/2017
 
 로깅 데이터를 사용하여 다음 문제를 식별할 수 있습니다.
 
-**드라이브 오류**
+## <a name="drive-errors"></a>드라이브 오류
+
+다음 항목은 드라이브 오류로 분류됩니다.
 
 -   매니페스트 파일 액세스 또는 읽기 오류
 
@@ -39,7 +41,9 @@ ms.lasthandoff: 02/16/2017
 
 -   드라이브 읽기/쓰기 오류
 
-**Blob 오류**
+## <a name="blob-errors"></a>Blob 오류
+
+다음 항목은 Blob 오류로 분류됩니다.
 
 -   잘못되었거나 충돌하는 Blob 또는 이름
 
@@ -55,8 +59,9 @@ ms.lasthandoff: 02/16/2017
 
 -   Blob 속성 및/또는 메타데이터 파일에 대한 잘못된 스키마
 
-가져오기 또는 내보내기 작업의 일부가 성공적으로 완료되지 않은 상태에서 전체 작업은 여전히 완료되는 경우가 있을 수 있습니다. 이 경우 누락된 데이터를 네트워크를 통해 업로드 또는 다운로드하거나 새 작업을 만들어 데이터를 전송할 수 있습니다. 네트워크를 통해 데이터를 복구하는 방법을 알아보려면 [Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요.
+가져오기 또는 내보내기 작업의 일부가 성공적으로 완료되지 않은 상태에서 전체 작업은 여전히 완료되는 경우가 있을 수 있습니다. 이 경우 누락된 데이터를 네트워크를 통해 업로드 또는 다운로드하거나 새 작업을 만들어 데이터를 전송할 수 있습니다. 네트워크를 통해 데이터를 복구하는 방법을 알아보려면 [Azure Import/Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
-[Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>다음 단계
+
+* [Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
 

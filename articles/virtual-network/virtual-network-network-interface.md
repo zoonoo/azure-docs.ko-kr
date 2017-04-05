@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c3e5ad8b7c8325049cb53d709673c7c7ad58108f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f691f3886fce217ea784237f03a4f02ed58e12ee
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,17 +31,17 @@ NIC(네트워크 인터페이스) 및 네트워크 인터페이스를 사용하�
 
 이 문서에서는 그림에서 보여 주는 개념을 적용하는 방법에 대해 설명합니다. 다음 개념 중 하나를 클릭하면 이 문서의 해당 섹션으로 바로 이동합니다.
 
-- [네트워크 인터페이스](#nics): NIC는 VNet(Azure Virtual Network) 내의 한 서브넷에 연결됩니다. 그림에서 **VM1**에는 서브넷에 NIC 2개가 연결되어 있고, **VM2**에는 NIC 1개가 연결되어 있습니다. 각 NIC는 동일한 VNet에 있는 서로 다른 서브넷에 연결됩니다. 이 섹션에서는 기존 NIC를 나열하고, NIC를 생성, 변경 및 삭제하는 단계를 제공합니다. 
-- [IP 구성](#ip-configs): 하나 이상의 IP 구성이 각 NIC에 연결됩니다. 각 IP 구성마다 개인 IP 주소가 하나씩 할당되며, 연결되는 하나의 공용 IP 주소가 있을 수 있습니다. 그림에서 **NIC1** 및 **NIC3**에는 각각 IP 구성이 하나씩 있고, **NIC2**에는 IP 구성이 두 개 있습니다. NIC1 및 NIC3에 할당된 IP 구성에는 할당된 공용 IP 주소가 있지만, NIC2에 할당된 IP 구성에는 할당된 공용 IP 주소가 없습니다. 이 섹션에서는 고정 및 동적 할당 방법을 통해 할당된 개인 IP 주소로 IP 구성을 생성, 변경 및 삭제하는 단계를 제공합니다. 또한 공용 IP 주소를 IP 구성과 연결하거나 분리하는 단계도 제공합니다. 
+- [네트워크 인터페이스](#nics): NIC는 VNet(Azure Virtual Network) 내의 한 서브넷에 연결됩니다. 그림에서 **VM1**에는 서브넷에 NIC 2개가 연결되어 있고, **VM2**에는 NIC 1개가 연결되어 있습니다. 각 NIC는 동일한 VNet에 있는 서로 다른 서브넷에 연결됩니다. 이 섹션에서는 기존 NIC를 나열하고, NIC를 생성, 변경 및 삭제하는 단계를 제공합니다.
+- [IP 구성](#ip-configs): 하나 이상의 IP 구성이 각 NIC에 연결됩니다. 각 IP 구성마다 개인 IP 주소가 하나씩 할당되며, 연결되는 하나의 공용 IP 주소가 있을 수 있습니다. 그림에서 **NIC1** 및 **NIC3**에는 각각 IP 구성이 하나씩 있고, **NIC2**에는 IP 구성이 두 개 있습니다. NIC1 및 NIC3에 할당된 IP 구성에는 할당된 공용 IP 주소가 있지만, NIC2에 할당된 IP 구성에는 할당된 공용 IP 주소가 없습니다. 이 섹션에서는 고정 및 동적 할당 방법을 통해 할당된 개인 IP 주소로 IP 구성을 생성, 변경 및 삭제하는 단계를 제공합니다. 또한 공용 IP 주소를 IP 구성과 연결하거나 분리하는 단계도 제공합니다.
 - [네트워크 보안 그룹](#nsgs): NSG(네트워크 보안 그룹)는 하나 이상의 인바운드 또는 아웃바운드 보안 규칙을 포함합니다. 이 규칙은 네트워크 인터페이스, 서브넷 또는 둘 다에 들어오고 나가는 네트워크 트래픽 유형을 제어합니다. 그림에서 **NIC1** 및 **NIC3**에는 연결된 NSG가 있지만, **NIC2**에는 연결된 NSG가 없습니다. 이 섹션에서는 NIC에 적용된 NSG를 보고, NIC에 NSG를 추가하고, NIC에서 NSG를 제거하는 단계를 제공합니다.
-- [가상 컴퓨터](#vms): VM에는 하나 이상의 NIC가 연결되지만, VM 크기에 따라 여러 개의 NIC가 연결될 수 있습니다. 각 VM 크기에서 지원하는 NIC 수를 확인하려면 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables) 또는 [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables) VM 크기 문서를 참조하세요. 이 섹션에서는 단일 및 다중 NIC VM을 만들고 기존 VM과 NIC를 연결하거나 분리하는 단계를 제공합니다.
+- [가상 컴퓨터](#vms): VM에는 하나 이상의 NIC가 연결되지만, VM 크기에 따라 여러 개의 NIC가 연결될 수 있습니다. 각 VM 크기에서 지원하는 NIC 수를 확인하려면 [Windows](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-sizes.md) VM 크기 문서를 참조하세요. 이 섹션에서는 단일 및 다중 NIC VM을 만들고 기존 VM과 NIC를 연결하거나 분리하는 단계를 제공합니다.
 
-Azure에서 NIC와 VM을 처음 사용하는 경우 이 문서를 참조하기 전에 [Azure 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)의 연습을 수행하는 것이 좋습니다. 이 연습을 수행하면 VNet과 VM에 익숙해질 수 있습니다. 
+Azure에서 NIC와 VM을 처음 사용하는 경우 이 문서를 참조하기 전에 [Azure 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)의 연습을 수행하는 것이 좋습니다. 이 연습을 수행하면 VNet과 VM에 익숙해질 수 있습니다.
 
 이 문서는 Azure Resource Manager 배포 모델을 통해 만든 VM과 NIC에 적용됩니다. 클래식 배포 모델보다는 Resource Manager 배포 모델을 통해 리소스를 만드는 것이 좋습니다. 두 모델의 차이점에 대해 자세히 알아보려면 [Azure 배포 모델 이해](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요.
 
 이 문서의 나머지 섹션에서는 모든 NIC 관련 작업을 수행하는 단계를 제공합니다. 각 섹션에서는 다음과 같이 나열합니다.
-- Azure Portal에서 작업을 수행하는 단계 - 단계를 수행하려면 [Azure Portal](http://portal.azure.com)에 로그인해야 합니다. 아직 없는 경우 [무료 평가판 계정](https://azure.microsoft.com/free)을 등록합니다.
+- Azure Portal에서 작업을 수행하는 단계 - 단계를 수행하려면 [Azure Portal](http://portal.azure.com)에 로그인해야 합니다. 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 등록합니다.
 - 명령에 대한 명령 참조에 연결되는 링크가 있는 Azure PowerShell을 사용하여 작업을 수행하는 명령 - [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 수행하여 PowerShell을 설치하고 구성합니다. 예제와 함께 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
 - 명령에 대한 명령 참조에 연결되는 링크가 있는 Azure CLI(명령줄 인터페이스)를 사용하여 작업을 수행하는 명령 - [Azure CLI 2.0 설치 및 구성 방법](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 수행하여 Azure CLI를 설치합니다. CLI 명령에 대한 도움말을 보려면 `az <command> -h`를 입력합니다.
 
@@ -58,7 +58,7 @@ NIC를 만들려면 다음 단계를 수행합니다.
 2. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *네트워크 인터페이스*를 입력합니다. 검색 결과에 표시된 **네트워크 인터페이스**를 클릭합니다.
 3. **네트워크 인터페이스** 블레이드가 표시되면 **+ 추가**를 클릭합니다.
 4. 표시되는 **네트워크 인터페이스 만들기** 블레이드에서 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
-    
+
     |**설정**|**필수 여부**|**세부 정보**|
     |---|---|---|
     |**Name**|예|NIC를 만든 후에는 이름을 변경할 수 없습니다. 이름은 선택한 리소스 그룹 내에서 고유해야 합니다. 명명 제안에 대해서는 [명명 규칙](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) 문서를 참조하세요.|
@@ -70,7 +70,7 @@ NIC를 만들려면 다음 단계를 수행합니다.
     |**리소스 그룹**|예| NIC는 연결되는 VM 또는 VNet과 동일하거나 다른 리소스 그룹에 있을 수 있습니다.|
     |**위치**|예|NIC를 연결하는 VM과 VNet은 같은 위치에 있어야 합니다.|
 
-Azure Portal은 동적 개인 IP 주소가 있는 **ipconfig1**이라는 기본 IP 구성을 만들고, 이 구성을 사용자가 만든 NIC에 연결합니다. IP 구성에 대한 자세한 내용은 이 문서의 [IP 구성](#ip-configs) 섹션을 참조하세요. 포털에서 만든 IP 구성의 이름을 지정하거나, 고정 개인 IP 주소를 할당하거나, NIC를 만들 때 공용 IP 주소를 할당할 수 없습니다. PowerShell 또는 CLI를 사용하여 NIC를 만드는 경우에는 IP 구성의 이름, 고정 IP 주소를 지정하고 공용 IP 주소를 할당할 수 있습니다. 개인 IP 주소 할당 방법과 NIC를 만든 후 공용 IP 주소가 NIC에 연결되는지 여부를 변경할 수 있습니다. NIC를 만든 후 설정을 변경하려면 이 문서에 있는 [IP 구성 변경](#change-ip-config) 섹션의 단계를 수행합니다. 
+Azure Portal은 동적 개인 IP 주소가 있는 **ipconfig1**이라는 기본 IP 구성을 만들고, 이 구성을 사용자가 만든 NIC에 연결합니다. IP 구성에 대한 자세한 내용은 이 문서의 [IP 구성](#ip-configs) 섹션을 참조하세요. 포털에서 만든 IP 구성의 이름을 지정하거나, 고정 개인 IP 주소를 할당하거나, NIC를 만들 때 공용 IP 주소를 할당할 수 없습니다. PowerShell 또는 CLI를 사용하여 NIC를 만드는 경우에는 IP 구성의 이름, 고정 IP 주소를 지정하고 공용 IP 주소를 할당할 수 있습니다. 개인 IP 주소 할당 방법과 NIC를 만든 후 공용 IP 주소가 NIC에 연결되는지 여부를 변경할 수 있습니다. NIC를 만든 후 설정을 변경하려면 이 문서에 있는 [IP 구성 변경](#change-ip-config) 섹션의 단계를 수행합니다.
 
 >[!Note]
 > NIC를 VM에 연결하고 VM을 처음 시작한 후에만 Azure에서 NIC에 MAC 주소를 할당합니다. Azure에서 NIC에 할당한 MAC 주소는 지정할 수 없습니다. NIC를 삭제하거나 기본 NIC의 기본 IP 구성에 할당된 개인 IP 주소를 변경할 때까지 MAC 주소는 NIC에 할당된 상태로 유지됩니다. IP 구성에 대한 자세한 내용은 이 문서의 [IP 구성](#ip-configs) 섹션을 참조하세요.
@@ -124,7 +124,7 @@ IP 전달은 NIC가 연결된 VM을 활성화합니다.
 - NIC에 할당된 IP 구성 중 하나에 할당된 IP 주소 중 하나를 대상으로 하지 않는 네트워크 트래픽을 받습니다.
 - IP 구성 중 하나에 할당된 것과 다른 원본 IP 주소로 네트워크 트래픽을 보냅니다.
 
-VM이 전달해야 하는 트래픽을 받는 VM에 연결된 모든 NIC에서 이 설정이 활성화되어야 합니다. NIC가 여러 개 또는 하나 중 어떻게 연결되어 있든 VM은 트래픽을 전달할 수 있습니다. IP 전달은 Azure 설정이지만, VM은 방화벽, WAN 최적화 및 부하 분산 응용 프로그램과 같이 트래픽을 전달할 수 있는 응용 프로그램도 실행해야 합니다. VM에서 네트워크 응용 프로그램을 실행하는 경우 이 VM을 종종 NVA(네트워크 가상 어플라이언스)라고 합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)에서 NVA를 배포할 준비가 된 목록을 볼 수 있습니다. IP 전달은 일반적으로 사용자 정의 경로와 함께 사용됩니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](virtual-networks-udr-overview.md) 문서를 참조하세요. 
+VM이 전달해야 하는 트래픽을 받는 VM에 연결된 모든 NIC에서 이 설정이 활성화되어야 합니다. NIC가 여러 개 또는 하나 중 어떻게 연결되어 있든 VM은 트래픽을 전달할 수 있습니다. IP 전달은 Azure 설정이지만, VM은 방화벽, WAN 최적화 및 부하 분산 응용 프로그램과 같이 트래픽을 전달할 수 있는 응용 프로그램도 실행해야 합니다. VM에서 네트워크 응용 프로그램을 실행하는 경우 이 VM을 종종 NVA(네트워크 가상 어플라이언스)라고 합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)에서 NVA를 배포할 준비가 된 목록을 볼 수 있습니다. IP 전달은 일반적으로 사용자 정의 경로와 함께 사용됩니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](virtual-networks-udr-overview.md) 문서를 참조하세요.
 
 NIC에 대한 IP 전달을 변경하려면 다음 단계를 수행합니다.
 
@@ -188,7 +188,7 @@ NIC에 여러 IP 주소를 할당하면 다음과 같은 시나리오에서 유�
 ### <a name="create-ip-config"></a>NIC에 보조 IP 구성 추가
 
 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 문서에 나열된 제한 내에서 필요한 만큼 많은 IP 구성을 NIC에 추가할 수 있습니다. NIC에 IP 구성을 추가하려면 다음 단계를 수행합니다.
- 
+
 1. IP 구성을 추가하려는 NIC에 대해 이 문서에 있는 [네트워크 인터페이스 설정 보기](#view-nics) 섹션의 1-3단계를 수행합니다.
 2. 선택한 NIC의 블레이드에서 **IP 구성**을 클릭합니다.
 3. IP 구성에 대해 열리는 블레이드에서 **+ 추가**를 클릭합니다.
@@ -199,7 +199,7 @@ NIC에 여러 IP 주소를 할당하면 다음과 같은 시나리오에서 유�
     |**Name**|예|NIC마다 고유해야 합니다.|
     |**형식**|예|기존 NIC에 IP 구성을 추가하고 각 NIC에 기본 IP 구성이 있어야 하므로 유일한 옵션은 **보조**입니다.|
     |**개인 IP 주소 할당 방법**|예|VM을 중지(할당 취소)된 상태에서 다시 시작하면 **동적** 주소가 변경될 수 있습니다. NIC를 삭제할 때까지는 **고정** 주소가 해제되지 않습니다. 다른 IP 구성에서 현재 사용하지 않는 서브넷 주소 공간 범위에서 IP 주소를 지정합니다.|
-    |공용 IP 주소|아니요|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create) 문서를 참조하세요.|
+    |**공용 IP 주소**|아니요|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create) 문서를 참조하세요.|
 5. [가상 컴퓨터에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서의 지침을 수행하여 VM 운영 체제에 보조 개인 IP 주소를 수동으로 추가합니다. VM 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
 |**도구**|**명령**|
@@ -249,14 +249,14 @@ NIC에 NSG를 연결하거나 NIC에서 NSG를 분리하려면 다음 단계를 
 1. NSG를 연결하거나 분리하려는 NIC에 대해 이 문서에 있는 [네트워크 인터페이스와 설정 보기 및 변경](#view-nics) 섹션의 1-3단계를 수행합니다.
 2. 선택한 NIC의 블레이드에서 **네트워크 보안 그룹**을 클릭합니다. 블레이드는 위쪽의 **편집**과 함께 표시됩니다. NSG가 현재 NIC에 연결되어 있지 않으면 **네트워크 보안 그룹** *없음*이 표시됩니다. NSG가 현재 NIC에 연결되어 있으면 **네트워크 보안 그룹** *NSG-Name*(여기서 NSG-Name은 NIC에 현재 연결된 NSG의 이름임)이 표시됩니다.
 3. **편집**을 클릭합니다.
-4. **네트워크 보안 그룹**을 클릭합니다. 나열된 네트워크 보안 그룹이 없는 경우 네트워크 보안 그룹이 구독에 없기 때문입니다. NSG를 만들려면 [네트워크 보안 그룹](virtual-networks-create-nsg-arm-pportal.md) 문서의 단계를 수행합니다. 
+4. **네트워크 보안 그룹**을 클릭합니다. 나열된 네트워크 보안 그룹이 없는 경우 네트워크 보안 그룹이 구독에 없기 때문입니다. NSG를 만들려면 [네트워크 보안 그룹](virtual-networks-create-nsg-arm-pportal.md) 문서의 단계를 수행합니다.
 5. 표시되는 **네트워크 보안 그룹 선택** 블레이드에서 목록에서 기존 NSG를 클릭하여 NIC에 해당 NSG를 연결하거나 **없음**을 클릭하여 현재 NIC에 연결된 NSG를 분리합니다.
 6. **Save**를 클릭합니다.
 
 |**도구**|**명령**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)]|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vms"></a>NIC를 가상 컴퓨터에서 연결 및 분리
 
@@ -269,12 +269,13 @@ VM을 만들 때 기존 NIC를 해당 VM에 연결하거나 기존 NIC를 기존
 
 PowerShell 또는 CLI를 사용하여 포털을 사용할 수 없는 모든 이전 특성을 통해 NIC 또는 VM을 만들 수 있습니다. 다음 섹션의 작업을 수행하기 전에 다음 제약 조건과 동작을 고려하세요.
 
-- VM 크기가 여러 NIC를 지원해야 합니다. 각 VM 크기에서 지원하는 NIC 수에 대한 자세한 내용은 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables) 또는 [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json#size-tables) VM 크기 문서를 참조하세요.
+- VM 크기마다 다른 NIC 수를 지원합니다. 각 VM 크기에서 지원하는 NIC 수에 대한 자세한 내용은 [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. 
 - 기본적으로 VM에 연결된 첫 번째 NIC가 *기본* NIC로 정의됩니다. VM에 연결되는 다른 모든 NIC는 *보조* NIC입니다.
 - 기본적으로 VM의 모든 아웃바운드 트래픽은 기본 NIC의 기본 IP 구성에 할당된 IP 주소로 보내집니다. 물론, VM 운영 체제 내에서 아웃바운드 트래픽에 사용되는 IP 주소를 제어할 수 있습니다.
 - 과거에는 동일한 가용성 집합 내의 모든 VM에 단일 또는 다중 NIC가 있어야 했습니다. NIC가 여러 개 있는 VM은 이제 동일한 가용성 집합에 있을 수 있습니다. VM을 만들 때만 해당 VM을 가용성 집합에 추가할 수 있습니다. 가용성 집합에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 문서를 참조하세요.
 - 동일한 VM에 연결된 NIC는 VNet 내의 다른 서브넷에 연결할 수 있지만, 해당 NIC는 모두 동일한 VNet에 연결되어야 합니다.
 - 기본 또는 보조 NIC의 IP 구성에 대한 IP 주소를 Azure Load Balancer 백 엔드 풀에 추가할 수 있습니다. 이전에 기본 NIC의 기본 IP 주소만 백 엔드 풀에 추가할 수 있었습니다.
+- VM을 삭제해도 연결된 NIC는 삭제되지 않습니다. VM이 삭제되면 VM에서 NIC가 분리됩니다. NIC를 다른 VM에 연결하거나 삭제할 수 있습니다.
 
 ### <a name="vm-create"></a>가상 컴퓨터를 만들 때 하나 이상의 NIC 연결
 

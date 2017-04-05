@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3d04be3d2427bc59d24bfaad227730991b61265b
-ms.openlocfilehash: 162147607baa36de0487cebc06e7ada20f3dd0c0
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 41774c7f1c038ee017d719e59ed79fb68999dac8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,10 +41,10 @@ ms.lasthandoff: 02/11/2017
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## <a name="export-your-database"></a>데이터베이스 내보내기
-[New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx) cmdlet은 서비스에 내보내기 데이터베이스 요청을 제출합니다. 데이터베이스 크기에 따라 내보내기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
+[New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet은 서비스에 내보내기 데이터베이스 요청을 제출합니다. 데이터베이스 크기에 따라 내보내기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
 > [!IMPORTANT]
-> BACPAC 파일의 트랜잭션 일관성을 위해 먼저 [데이터베이스의 사본을 만든 다음](sql-database-copy-powershell.md)데이터베이스 사본을 내보냅니다.
+> BACPAC 파일의 트랜잭션 일관성을 위해 먼저 [데이터베이스의 사본을 만든 다음](scripts/sql-database-copy-database-to-new-server-powershell.md)데이터베이스 사본을 내보냅니다.
 > 
 > 
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/11/2017
 
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>내보내기 작업의 진행률 모니터링
-[New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx)를 실행한 후 [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)를 실행하여 요청 상태를 확인할 수 있습니다. 이 요청 직후에 이 명령을 실행하면 **Status : InProgress**가 반환됩니다. **Status : Succeeded**가 표시되면 내보내기가 완료된 것입니다.
+[New-AzureRmSqlDatabaseExport](https://docs.microsoft.com//powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport)를 실행한 후 [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus)를 실행하여 요청 상태를 확인할 수 있습니다. 이 요청 직후에 이 명령을 실행하면 **Status : InProgress**가 반환됩니다. **Status : Succeeded**가 표시되면 내보내기가 완료된 것입니다.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -100,11 +100,11 @@ ms.lasthandoff: 02/11/2017
 
 ## <a name="automate-export-using-azure-automation"></a>Azure Automation을 사용하여 내보내기 자동화
 
-Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2017년 3월 1일에 사용이 중지됩니다. 2016년 12월 1일을 시작으로 모든 SQL Database에서 자동화된 내보내기를 더는 구성할 수 없습니다. 기존의 모든 자동화된 내보내기 작업은 2017년 3월 1일까지 계속 수행됩니다. 2016년 12월 1일 후에는 [장기 백업 보존](sql-database-long-term-retention.md) 또는 [Azure Automation](../automation/automation-intro.md)을 사용하여 선택한 일정에 따라 주기적으로 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플 스크립트의 경우, [Github에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. 
+Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2017년 3월 1일에 사용이 중지됩니다. 2016년 12월 1일을 시작으로 모든 SQL Database에서 자동화된 내보내기를 더는 구성할 수 없습니다. 기존의 모든 자동화된 내보내기 작업은 2017년 3월 1일까지 계속 수행됩니다. 2016년 12월 1일 후에는 [장기 백업 보존](sql-database-long-term-retention.md) 또는 [Azure Automation](../automation/automation-intro.md)을 사용하여 선택한 일정에 따라 주기적으로 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플 스크립트의 경우, [GitHub에서 샘플 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
-* Powershell을 사용하여 Azure SQL 데이터베이스를 가져오는 방법을 알아보려면 [PowerShell을 사용하여 BACPAC 가져오기](sql-database-import-powershell.md)를 참조하세요.
+* Powershell을 사용하여 Azure SQL 데이터베이스를 가져오는 방법을 알아보려면 [PowerShell을 사용하여 BACPAC 가져오기](scripts/sql-database-import-from-bacpac-powershell.md)를 참조하세요.
 * SQLPackage를 사용하여 BACPAC를 가져오는 방법에 대해 자세히 알아보려면 [SqlPackage를 사용하여 Azure SQL Database로 BACPCAC 가져오기](sql-database-import-sqlpackage.md)를 참조하세요.
 * Azure Portal을 사용하여 BACPAC를 가져오는 방법에 대해 자세히 알아보려면 [Azure Portal을 사용하여 Azure SQL Database로 BACPCAC 가져오기](sql-database-import-portal.md)를 참조하세요.
 * 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
@@ -114,7 +114,7 @@ Azure SQL Database 자동화된 내보내기는 현재 미리 보기이며 및 2
 
 
 ## <a name="additional-resources"></a>추가 리소스
-* [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx)
-* [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)
+* [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport)
+* [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus)
 
 

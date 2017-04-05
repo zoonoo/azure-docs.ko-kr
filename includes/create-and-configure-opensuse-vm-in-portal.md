@@ -7,7 +7,7 @@
 5. 첫 번째 **가상 컴퓨터 구성** 페이지에서:
    
    * **가상 컴퓨터 이름**(예: "testlinuxvm")을 입력합니다. 이름은 3~15자를 포함해야 하며, 문자/숫자/하이픈만 포함할 수 있습니다. 또한 문자로 시작해서 문자나 숫자로 끝나야 합니다.
-   * **계층**을 확인하고 **크기**를 선택합니다. 계층에 따라 선택할 수 있는 크기가 결정됩니다. 크기는 사용 비용과 구성 옵션(예: 연결할 수 있는 데이터 디스크 수)에 영향을 미칩니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+   * **계층**을 확인하고 **크기**를 선택합니다. 계층에 따라 선택할 수 있는 크기가 결정됩니다. 크기는 사용 비용과 구성 옵션(예: 연결할 수 있는 데이터 디스크 수)에 영향을 미칩니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
    * **새 사용자 이름**을 입력하거나 기본값 **azureuser**를 적용합니다. 이 이름은 Sudoers 목록 파일에 추가 됩니다.
    * 사용할 **인증** 형식을 결정합니다. 일반적인 암호 지침은 [강력한 암호](http://msdn.microsoft.com/library/ms161962.aspx)를 참조하세요.
 6. 다음 **가상 컴퓨터 구성** 페이지에서:
@@ -53,8 +53,3 @@
 [Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

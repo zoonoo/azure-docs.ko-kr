@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 3137773458ca5b50b1bf42972d4cfd8e9b8d5cba
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,9 +42,9 @@ ms.openlocfilehash: 3137773458ca5b50b1bf42972d4cfd8e9b8d5cba
 | [U-SQL 샘플 입력 파일](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |U-SQL 작업에서 사용되는 샘플 파일입니다. |
 
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
-Github의 데이터 팩터리에 대해 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
+GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
 
-| 템플릿 | 설명 |
+| Template | 설명 |
 | --- | --- |
 | [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |이 템플릿을 배포하면 지정된 Azure Blob Storage에서 Azure SQL Database에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
 | [Salesforce에서 Azure Blob Storage로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |이 템플릿을 배포하면 지정된 Salesforce 계정에서 Azure Blob Storage에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |
@@ -120,9 +121,4 @@ Github의 데이터 팩터리에 대해 다음 Azure Resource Manager 템플릿�
 16. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다.
 
 Visual Studio를 사용하여 Data Factory 엔터티를 작성하고 Azure에 게시하는 방법에 대한 자세한 내용은 [첫 번째 데이터 팩터리(Visual Studio) 빌드](data-factory-build-your-first-pipeline-using-vs.md) 를 참조하세요.          
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

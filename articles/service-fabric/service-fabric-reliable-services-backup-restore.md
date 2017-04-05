@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
-ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: babda2a4ad7dade942a0c7ece84a6f1d65bd3453
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -240,7 +240,7 @@ class MyCustomActorService : ActorService
 데이터가 백업되고 복원될 수 있도록 하는 것이 중요합니다. 서비스에 대한 데이터 백업 및 복원 기능이 정상적으로 작동하고 있는지를 테스트하기 위해 특정 파티션에 데이터 손실을 유도할 수 있는 PowerShell에서 **Invoke-ServiceFabricPartitionDataLoss** cmdlet을 호출하여 이를 수행할 수 있습니다.  프로그래밍 방식으로 데이터 손실을 호출하고 해당 이벤트에서 복원하는 것도 가능합니다.
 
 > [!NOTE]
-> 백업의 샘플 구현을 찾고 Github의 웹 참조 앱에서 기능을 복원할 수 있습니다. 자세한 내용은 Inventory.Service 서비스를 확인하세요.
+> 백업의 샘플 구현을 찾고 GitHub의 웹 참조 앱에서 기능을 복원할 수 있습니다. 자세한 내용은 Inventory.Service 서비스를 확인하세요.
 > 
 > 
 

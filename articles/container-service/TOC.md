@@ -16,6 +16,7 @@
 ### [DC/OS 컨테이너 부하 분산](container-service-load-balancing.md)
 ### [DC/OS의 앱/사용자별 Orchestrator](container-service-application-specific-marathon.md)
 ### [파일 공유 추가](container-service-dcos-fileshare.md)
+### [Azure Container Registry 사용](container-service-dcos-acr.md)
 ### DC/OS 모니터링
 #### [ELK로 모니터링](container-service-monitoring-elk.md)
 #### [OMS로 모니터링](container-service-monitoring-oms.md)
@@ -36,6 +37,7 @@
 ## Docker Swarm을 사용하여 관리
 ### [Docker 및 Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm 연속 통합](container-service-docker-swarm-setup-ci-cd.md)
+## [컨테이너 보안](container-service-security.md)
 # 참조
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST (영문)](/rest/api/compute/containerservices)
@@ -43,3 +45,4 @@
 ## [지역 가용성](https://azure.microsoft.com/regions/services/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/container-service/)
 ## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-container-service)

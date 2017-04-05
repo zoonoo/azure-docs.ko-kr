@@ -1,5 +1,5 @@
 ---
-title: "Java와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs"
+title: "Java와 함께 Azure Service Bus 항목을 사용하는 방법 | Microsoft Docs"
 description: "Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 응용 프로그램용으로 작성되었습니다."
 services: service-bus-messaging
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
 서비스 버스 토픽 및 구독을 사용하면 다수의 사용자와 응용 프로그램에 대해 다수의 메시지를 처리하도록 확장할 수 있습니다.
 
 ## <a name="create-a-service-namespace"></a>서비스 네임스페이스 만들기
-Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 Service Bus 항목 및 구독을 사용하려면 먼저 응용 프로그램 내에서 Service Bus 리소스의 주소 지정을 위한 범위 컨테이너를 제공하는 네임스페이스를 만들어야 합니다.
 
 네임스페이스를 만들려면
 
@@ -48,7 +49,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Java 파일 맨 위에 다음 import 문을 추가합니다.
+Java 파일 맨 위에 다음 `import` 문을 추가합니다.
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -150,7 +151,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Service Bus 토픽으로 전송된 메시지는 [BrokeredMessage][BrokeredMessage] 클래스의 인스턴스입니다. [BrokeredMessage][BrokeredMessage]* 개체에는 표준 메서드 집합(예: **setLabel** 및 **TimeToLive**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage][BrokeredMessage] 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**가 개체를 직렬화하는 데 사용됩니다. 또는 **java.io.InputStream**을 제공할 수 있습니다.
+Service Bus 토픽으로 전송된 메시지는 [BrokeredMessage][BrokeredMessage] 클래스의 인스턴스입니다. [BrokeredMessage][BrokeredMessage]*개체에는 표준 메서드 집합(예:**setLabel**및**TimeToLive**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage][BrokeredMessage] 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**가 개체를 직렬화하는 데 사용됩니다. 또는 **java.io.InputStream**을 제공할 수 있습니다.
 
 다음 예제는 위의 코드 조각에서 얻은 `TestTopic` **MessageSender**에 테스트 메시지 5개를 보내는 방법을 보여 줍니다.
 루프가 반복될 때마다 각 메시지의 **MessageNumber** 속성 값이 어떻게 달라지는지 확인합니다(메시지를 수신하는 구독 결정).
@@ -263,9 +264,4 @@ service.deleteTopic("TestTopic");
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
 [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
 [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

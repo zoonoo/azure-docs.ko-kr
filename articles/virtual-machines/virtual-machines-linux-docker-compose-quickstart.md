@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 404b1784717d7a2e56e4154dd8995093b37a3bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,7 +42,7 @@ Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정�
 az group create --name myResourceGroup --location westus
 ```
 
-다음으로 [Github의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. `newStorageAccountName`, `adminUsername`, `adminPassword` 및 `dnsNameForPublicIP`에 대한 고유한 값을 제공합니다.
+다음으로 [GitHub의 이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)의 Azure Docker VM 확장을 포함하는 [az group deployment create](/cli/azure/group/deployment#create)로 VM을 배포합니다. `newStorageAccountName`, `adminUsername`, `adminPassword` 및 `dnsNameForPublicIP`에 대한 고유한 값을 제공합니다.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -67,7 +67,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
 최신 [Azure CLI 1.0](../cli-install-nodejs.md)을 설치하고 Azure 계정에 로그인합니다. VM을 만드는 Resource Manager 모드에 있는지 확인합니다(`azure config mode arm`).
 
-다음 예제에서는 `West US` 지역에 `myResourceGroup`이라는 리소스 그룹을 만들고 Azure Docker VM 확장으로 VM을 배포합니다. [Github의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)은 환경을 배포하는 데 사용됩니다.
+다음 예제에서는 `West US` 지역에 `myResourceGroup`이라는 리소스 그룹을 만들고 Azure Docker VM 확장으로 VM을 배포합니다. [GitHub의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)은 환경을 배포하는 데 사용됩니다.
 
 ```azurecli
 azure group create --name myResourceGroup --location "West US" \
@@ -133,7 +133,7 @@ db:
 docker-compose up -d
 ```
 
-이 명령은 `docker-compose.yml`에서 지정된 Docker 컨테이너를 시작합니다. 이 단계를 완료하려면&1;~2분 정도 걸립니다. 다음 예제와 유사한 출력이 표시됩니다.
+이 명령은 `docker-compose.yml`에서 지정된 Docker 컨테이너를 시작합니다. 이 단계를 완료하려면 1~2분 정도 걸립니다. 다음 예제와 유사한 출력이 표시됩니다.
 
 ```bash
 Creating wordpress_db_1...

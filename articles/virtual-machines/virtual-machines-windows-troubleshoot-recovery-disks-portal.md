@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/12/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0997b2c2eec9070cf8043b09e69d0a4d1ae6e56a
-ms.openlocfilehash: 668ab8121a40aa2300d5cb13e561745fc51b545f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bc3013541fdb32f252339140fe61ff7c515a264e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -151,8 +152,4 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Windows VM에서 응용 프로그램 연결 문제 해결](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-
-
-<!--HONumber=Dec16_HO3-->
-
 

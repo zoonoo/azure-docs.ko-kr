@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
-ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -56,7 +56,7 @@ trip\_data 및 trip\_fare를 조인하는 데 사용된 **고유 키**는 다음
 *tip\_amount*를 기반으로 예측 문제를 작성하여 세 종류의 모델링 작업을 보여 줍니다.
 
 1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측하려면 *tip\_amount*가 $0보다 크면 지불된 것이고 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
-2. **다중 클래스 분류**: 여정에 대해 지불된 팁의 범위를 예측합니다. *tip\_amount*를&5;개의 bin 또는 클래스로 나눕니다.
+2. **다중 클래스 분류**: 여정에 대해 지불된 팁의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -105,7 +105,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 **Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md)에 요약된 단계를 수행합니다.
 
 ## <a name="getdata"></a>SQL 데이터 웨어하우스에 데이터 로드
-Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실행하여 Github에서 *-DestDir*매개 변수를 사용하여 지정한 로컬 디렉터리에 공유하는 예제 SQL 스크립트 파일을 다운로드합니다. 매개 변수 *-DestDir* 의 값을 로컬 디렉터리로 변경할 수 있습니다. *-DestDir* 이 존재하지 않는 경우 PowerShell 스크립트를 통해 생성됩니다.
+Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실행하여 GitHub에서 *-DestDir* 매개 변수를 사용하여 지정한 로컬 디렉터리에 공유하는 예제 SQL 스크립트 파일을 다운로드합니다. 매개 변수 *-DestDir* 의 값을 로컬 디렉터리로 변경할 수 있습니다. *-DestDir* 이 존재하지 않는 경우 PowerShell 스크립트를 통해 생성됩니다.
 
 > [!NOTE]
 > 다음 PowerShell 스크립트를 실행할 때 **DestDir** 디렉터리에 만들거나 작성하는 데 관리자 권한이 필요한 경우 *관리자 권한으로 실행* 해야 할 수 있습니다.
@@ -340,7 +340,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 ![][20]
 
 ## <a name="dbexplore"></a>Azure SQL 데이터 웨어하우스에서 데이터 탐색 및 기능 엔지니어링
-이 섹션에서는 **Visual Studio Data Tools**에서 바로 Azure SQL DW에 대해 SQL 쿼리를 실행하여 데이터를 탐색하고 기능을 생성합니다. 이 섹션에서 사용되는 모든 SQL 쿼리는 *SQLDW_Explorations.sql*이라는 샘플 스크립트에서 찾을 수 있습니다. 이 파일은 이미 PowerShell 스크립트에 의해 로컬 디렉터리에 다운로드되었습니다. 또한 [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql)에서 검색할 수 있습니다. 하지만 Github의 파일은 플러그 인된 Azure SQL DW 정보를 갖지 않습니다.
+이 섹션에서는 **Visual Studio Data Tools**에서 바로 Azure SQL DW에 대해 SQL 쿼리를 실행하여 데이터를 탐색하고 기능을 생성합니다. 이 섹션에서 사용되는 모든 SQL 쿼리는 *SQLDW_Explorations.sql*이라는 샘플 스크립트에서 찾을 수 있습니다. 이 파일은 이미 PowerShell 스크립트에 의해 로컬 디렉터리에 다운로드되었습니다. 또한 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql)에서 검색할 수 있습니다. 하지만 GitHub의 파일은 플러그 인된 Azure SQL DW 정보를 갖지 않습니다.
 
 Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL DW에 연결하고 **SQL 개체 탐색기** 를 열어 데이터베이스와 테이블을 가져왔는지 확인합니다. *SQLDW_Explorations.sql* 파일을 검색합니다.
 
@@ -701,7 +701,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 ![그릴 #2][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 차트 및 꺾은선형 그림
-이 예에서는 여정 거리를&5;개의 bin으로 범주화하고 범주화 결과를 시각화합니다.
+이 예에서는 여정 거리를 5개의 bin으로 범주화하고 범주화 결과를 시각화합니다.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']

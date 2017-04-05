@@ -1,6 +1,6 @@
 ---
 title: "GitHub에서 Azure Linux 에이전트 업데이트 | Microsoft Docs"
-description: "Azure Linux VM의 Azure Linux 에이전트를 Github의 최신 버전으로 업데이트하는 방법을 알아봅니다."
+description: "Azure Linux VM의 Azure Linux 에이전트를 GitHub의 최신 버전으로 업데이트하는 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/14/2015
 ms.author: mingzhan
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e5baf0c89325abbef33bbabf1cfe29b878079e44
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d35e70c1d50bd4cb2d47188585354aa3e3d740d4
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -190,10 +191,5 @@ CoreOS에서는 위의 명령이 작동하지 않을 수 있습니다.
 Azure Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확인할 수 있습니다.
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

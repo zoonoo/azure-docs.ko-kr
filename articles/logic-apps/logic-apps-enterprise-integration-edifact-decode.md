@@ -41,7 +41,7 @@ EDIFACT 메시지 디코딩 커넥터를 사용하여 EDI 및 파트너별 속�
 
 2. EDIFACT 메시지 디코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
-3.    검색 상자에서 필터로 "EDIFACT"를 입력합니다. **EDIFACT 메시지 디코딩**을 선택합니다.
+3. 검색 상자에서 필터로 "EDIFACT"를 입력합니다. **EDIFACT 메시지 디코딩**을 선택합니다.
    
     ![EDIFACT 검색](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -56,7 +56,7 @@ EDIFACT 메시지 디코딩 커넥터를 사용하여 EDI 및 파트너별 속�
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
 
-4.    연결 만들기를 완료한 경우 **만들기**를 선택합니다. 연결 정보는 이 예제와 유사해야 합니다.
+4. 연결 만들기를 완료한 경우 **만들기**를 선택합니다. 연결 정보는 이 예제와 유사해야 합니다.
 
     ![통합 계정 세부 정보](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 

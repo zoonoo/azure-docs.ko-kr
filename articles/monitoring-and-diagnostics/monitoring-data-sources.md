@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 3/27/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2a8bb4a5d66eef23afd776b40df487198f452b1e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: b58bc0455c634631a732e28fb46191949dbc2717
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,6 +33,7 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 | 게스트 OS 메트릭 계산(예: 성능 카운터) | 메트릭 | [Windows](../virtual-machines-dotnet-diagnostics.md) 및 Linux 가상 컴퓨터(v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**저장소 테이블 또는 blob:** [Windows 또는 Linux Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**이벤트 허브:** [Windows Azure 진단](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | 사용자 지정 또는 응용 프로그램 메트릭 | 메트릭 | Application Insights를 사용하여 계측된 모든 응용 프로그램 | <ul><li>**REST API:** [Application Insights REST API](https://dev.applicationinsights.io/reference)</li></ul> |
 | 저장소 메트릭 | 메트릭 | Azure 저장소 | <ul><li>**저장소 테이블:** [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)</li></ul> |
+| 청구 데이터 | 메트릭 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure 리소스 사용량 및 RateCard API](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | 활동 로그 | 이벤트 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure Monitor 이벤트 API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**저장소 blob 또는 이벤트 허브:** [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles)</li></ul> |
 | Azure Monitor 진단 로그 | 이벤트 | [여기에 나오는 목록 참조](monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs) | <ul><li>**저장소 blob 또는 이벤트 허브:** [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | 게스트 OS 로그 계산(예: IIS, ETW, syslog) | 이벤트 | [Windows](../virtual-machines-dotnet-diagnostics.md) 및 Linux 가상 컴퓨터(v2), [Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**저장소 테이블 또는 blob:** [Windows 또는 Linux Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**이벤트 허브:** [Windows Azure 진단](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |

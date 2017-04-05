@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7e16fa749389ab876ae413e2ffef7713ed22adac
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: d89135c8f3d5011d7549158a29050e3569defbcc
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -54,6 +54,9 @@ AD FS 관리
 * 통과 인증이 선택되었으나 해당 커넥터 등록이 실패하는 경우 Azure AD Connect 마법사가 실패하도록 하는 문제가 해결되었습니다.
 * 데스크톱 SSO 기능이 사용되도록 설정된 경우 Azure AD Connect 마법사가 선택된 로그인 방법에 대한 유효성 검사를 무시하도록 하는 문제가 해결되었습니다.
 
+암호 재설정
+* 연결이 방화벽 또는 프록시에 의해 중단된 경우 Azure AAD Connect 서버가 다시 연결하려고 하지 않을 수 있는 문제를 해결했습니다.
+
 **새 기능/향상된 기능:**
 
 Azure AD Connect 동기화
@@ -65,6 +68,10 @@ AD FS 관리
 * AD FS 2016을 관리하기 위한 지원이 추가되었습니다.
 * 이제 AD FS를 설치하는 동안 기존 gMSA(그룹 관리 서비스 계정)를 지정할 수 있습니다.
 * 이제 Azure AD 신뢰 당사자 트러스트에 대한 서명 해시 알고리즘으로 SHA-256을 구성할 수 있습니다.
+
+암호 재설정
+* 제품이 더 엄격한 방화벽 규칙이 포함된 환경에서 작동할 수 있도록 향상된 기능을 도입했습니다.
+* Azure Service Bus에 대한 향상된 연결 안정성.
 
 ## <a name="113800"></a>1.1.380.0
 릴리스 날짜: 2016년 12월
@@ -217,7 +224,7 @@ AD FS 관리
 
 **새로운 미리 보기 기능:**
 
-* 새 기본 동기화 주기 간격은 30분입니다. 이전 릴리스에서는&3;시간이었습니다. [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 동작 변경 지원이 추가됩니다.
+* 새 기본 동기화 주기 간격은 30분입니다. 이전 릴리스에서는 3시간이었습니다. [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 동작 변경 지원이 추가됩니다.
 
 **수정된 문제:**
 

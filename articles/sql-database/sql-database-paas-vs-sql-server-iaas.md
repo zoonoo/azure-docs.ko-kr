@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 98cb1d7e5fd464421ae97f2ace33852e71a18a21
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 28edde3e70bca833d888cdf9831c1544d8cdd4bb
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -115,7 +115,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 ### <a name="administration"></a>관리
 많은 비즈니스의 경우 클라우드 서비스로 전환하는 결정은 드는 비용 만큼 관리의 복잡성을 오프로드하는 것과 관련됩니다. Microsoft에서는 **SQL Database**를 사용하여 기본 하드웨어를 관리합니다. Microsoft에서는 모든 데이터를 자동으로 복제하여 고가용성을 제공하고, 데이터베이스 소프트웨어를 구성 및 업그레이드하고, 부하 분산을 관리하고, 서버 오류가 발생하는 경우 장애 조치(Failover)를 투명하게 수행합니다. 데이터베이스 관리를 계속할 수 있지만 데이터베이스 엔진, 서버 운영 체제 또는 하드웨어를 더 이상 관리할 필요가 없습니다.  계속 관리할 수 있는 항목의 예는 데이터베이스 및 로그인, 인덱스 및 쿼리 튜닝 및 감사 및 보안을 들 수 있습니다.
 
-**Azure VM에 대한 SQL Server**에서는 운영 체제와 SQL Server 인스턴스 구성을 완벽히 제어할 수 있습니다. VM에서는 운영 체제 및 데이터베이스 소프트웨어를 업데이트/업그레이드할 시기 및 바이러스 백신 등의 추가 소프트웨어를 설치할 시기를 사용자가 결정합니다. 자동화된 일부 기능이 제공되어 패치, 백업 및 고가용성을 크게 간소화합니다. 또한 VM 크기, 디스크 수 및 해당 저장소 구성도 사용자가 제어할 수 있습니다. Azure를 사용하면 VM이 필요한 크기를 변경할 수 있습니다. 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요. 
+**Azure VM에 대한 SQL Server**에서는 운영 체제와 SQL Server 인스턴스 구성을 완벽히 제어할 수 있습니다. VM에서는 운영 체제 및 데이터베이스 소프트웨어를 업데이트/업그레이드할 시기 및 바이러스 백신 등의 추가 소프트웨어를 설치할 시기를 사용자가 결정합니다. 자동화된 일부 기능이 제공되어 패치, 백업 및 고가용성을 크게 간소화합니다. 또한 VM 크기, 디스크 수 및 해당 저장소 구성도 사용자가 제어할 수 있습니다. Azure를 사용하면 VM이 필요한 크기를 변경할 수 있습니다. 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](../virtual-machines/windows/sizes.md)를 참조하세요. 
 
 ### <a name="service-level-agreement-sla"></a>SLA(서비스 수준 계약)
 IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충족하는 일이 가장 우선합니다. 이 섹션에서는 각 데이터베이스 호스팅 옵션에 어떤 SLA를 적용하는지 살펴봅니다.

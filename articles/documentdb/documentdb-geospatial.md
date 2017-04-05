@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,13 +29,13 @@ ms.lasthandoff: 03/07/2017
 * SQL 및 LINQ에서 Azure DocumentDB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
 * DocumentDB에서 공간 인덱싱을 사용하거나 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 
-코드 샘플은 이 [Github 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) 를 참조하세요.
+코드 샘플은 이 [GitHub 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)를 참조하세요.
 
 ## <a name="introduction-to-spatial-data"></a>공간 데이터 소개
 공간 데이터는 공간에서 개체의 위치와 모양을 설명합니다. 대부분의 응용 프로그램에서 이러한 데이터는 지구의 개체, 즉 지리 공간 데이터에 해당합니다. 공간 데이터를 사용하여 사람, 관심 있는 장소 또는 도시나 호수 경계의 위치를 나타낼 수 있습니다. 일반적인 사용 사례에는 종종 근접 쿼리(예: "내 현재 위치 근처의 모든 커피숍 찾기")가 포함됩니다. 
 
 ### <a name="geojson"></a>GeoJSON
-DocumentDB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원하고 [GeoJSON 사양](http://geojson.org/geojson-spec.html)을 사용하여 나타납니다. GeoJSON 데이터 구조는 항상 유효한 JSON 개체이므로 특수 도구나 라이브러리 없이 DocumentDB를 사용하여 저장 및 쿼리할 수 있습니다. DocumentDB SDK는 쉽게 공간 데이터로 작업할 수 있게 해주는 도우미 클래스와 메서드를 제공합니다. 
+DocumentDB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원하고 [GeoJSON 사양](https://tools.ietf.org/html/rfc7946)을 사용하여 나타납니다. GeoJSON 데이터 구조는 항상 유효한 JSON 개체이므로 특수 도구나 라이브러리 없이 DocumentDB를 사용하여 저장 및 쿼리할 수 있습니다. DocumentDB SDK는 쉽게 공간 데이터로 작업할 수 있게 해주는 도우미 클래스와 메서드를 제공합니다. 
 
 ### <a name="points-linestrings-and-polygons"></a>Points, LineStrings 및 Polygons
 **점** 은 공간 내의 단일 위치를 나타냅니다. 지리 공간 데이터에서 점은 식품점, 키오스크, 자동차 또는 도시의 주소일 수 있는 정확한 위치를 나타냅니다.  점은 좌표 쌍이나 경도 및 위도를 사용하여 GeoJSON(및 DocumentDB)에서 표시됩니다. 점에 대한 예제 JSON은 다음과 같습니다.
@@ -385,7 +385,7 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
 ## <a name="next-steps"></a>다음 단계
 DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
 
-* [Github의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)을 사용하여 코딩 시작
+* [GitHub의 지리 공간 .NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)을 사용하여 코딩 시작
 * [DocumentDB 쿼리 실습](http://www.documentdb.com/sql/demo#geospatial)
 * [DocumentDB 쿼리](documentdb-sql-query.md)
 * [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)

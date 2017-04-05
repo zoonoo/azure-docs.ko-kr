@@ -15,8 +15,9 @@ ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: ae5719c60c6ed2d3467f162f3b273d5bfdcf0073
-ms.openlocfilehash: 2056597abd1d1e895b85770a5525d05c9526b71d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d2b6b3d9483f230ad25ae47255a4f28c1a67e064
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 2056597abd1d1e895b85770a5525d05c9526b71d
 
 ## <a name="net-sample-index"></a>.NET 샘플 인덱스
 
-다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. Github에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
+다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">끝점</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody> 
 <tr> 
@@ -83,11 +84,11 @@ ms.openlocfilehash: 2056597abd1d1e895b85770a5525d05c9526b71d
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">BLOB 시작</a></td>
-</tr>   
+</tr>     
 <tr> 
 <td>서비스 속성</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">BLOB 시작</a></td>
-</tr>           
+</tr>             
 <tr> 
 <td>Blob 스냅숏</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크 백업</a></td>
@@ -216,8 +217,4 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 
 * Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
 * 다른 모든 언어: [Azure Storage 샘플](storage-samples.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
 

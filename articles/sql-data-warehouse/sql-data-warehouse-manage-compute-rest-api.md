@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
-ms.openlocfilehash: 56651c2eb2f702b2ec51070b25239f1acb415289
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 548e61004bd95d9e785fea438eb8b81aa63f1739
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Azure SQL 데이터 웨어하우스의 계산 능력 관리(REST)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Azure SQL Data Warehouse의 계산 능력 관리(REST)
 > [!div class="op_single_selector"]
 > * [개요](sql-data-warehouse-manage-compute-overview.md)
 > * [포털](sql-data-warehouse-manage-compute-portal.md)
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST (영문)](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
@@ -68,7 +70,13 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 데이터베이스를 시작하려면 [데이터베이스 다시 시작][Resume Database] REST API를 사용합니다. 다음 예에서는 Server01 서버에서 호스팅되는 이름이 Database02인 데이터베이스를 시작합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다. 
 
 ```
-POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+```
+
+## <a name="check-database-state"></a>데이터베이스 상태 확인
+
+```json
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}?api-version=2014-04-01 HTTP/1.1
 ```
 
 <a name="next-steps-bk"></a>
@@ -90,9 +98,4 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

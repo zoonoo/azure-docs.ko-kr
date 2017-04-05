@@ -1,5 +1,5 @@
 ---
-title: "Azure 로그 통합에 Azure Security Center 알림 통합(미리 보기) | Microsoft Docs"
+title: "Azure 로그 통합에 Azure Security Center 알림 통합 | Microsoft Docs"
 description: "이 문서는 Azure 로그 통합에 보안 센터 알림을 통합하는 데 도움을 줍니다."
 services: security-center
 documentationcenter: na
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="integrating-azure-security-center-alerts-with-azure-log-integration-preview"></a>Azure 로그 통합에 Azure Security Center 알림 통합(미리 보기)
+# <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Azure 로그 통합에 Azure Security Center 알림 통합
 많은 보안 작업 및 사고 대응 팀은 보안 경고를 조사하고 심사하기 위한 시작점으로 SIEM(보안 정보 및 이벤트 관리) 솔루션을 활용합니다. Azure 로그 통합을 사용하여 고객은 Azure 진단 및 Azure 감사 로그에 수집된 Azure Security Center 경고와 가상 컴퓨터 보안 이벤트를 거의 실시간으로 로그 분석 또는 SIEM 솔루션과 동기화할 수 있습니다.
 
 Azure 로그 통합은 HP ArcSight, Splunk, IBM QRadar 등과 함께 작동합니다.
@@ -53,7 +54,7 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
 ## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Azure 감사 로그 및 보안 센터 경고 통합
 1. 명령 프롬프트를 열고 **c:\Program Files\Microsoft Azure Log Integration**으로 **cd**합니다.
-2. **azlog createazureid** 명령을 실행하여 Azure 구독을 호스트하는 Azure AD(Active Directory) 테넌트에서 [Azure Active Directory 서비스 주체](../active-directory/active-directory-application-objects.md) 를 만듭니다.
+2. **azlog createazureid** 명령을 실행하여 Azure 구독을 호스트하는 Azure AD(Active Directory) 테넌트에서 [Azure Active Directory 서비스 주체](../active-directory/active-directory-application-objects.md)를 만듭니다.
 
     Azure 로그인을 묻는 메시지가 표시됩니다.
 
@@ -92,9 +93,4 @@ Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

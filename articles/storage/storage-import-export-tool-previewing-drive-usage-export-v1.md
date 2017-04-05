@@ -1,6 +1,6 @@
 ---
-title: "내보내기 작업에 대한 드라이브 사용량 미리 보기 | Microsoft Docs"
-description: "Azure Import-Export 서비스에서 내보내기 작업을 위해 선택한 Blob의 목록을 미리 보는 방법을 알아봅니다."
+title: "Azure Import/Export 내보내기 작업에 대한 드라이브 사용량 미리 보기 - v1 | Microsoft Docs"
+description: "Azure Import/Export 서비스에서 내보내기 작업을 위해 선택한 Blob의 목록을 미리 보는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 358e3f2574cab0150c59f96b9bc4d32d959e94a8
-ms.openlocfilehash: 9ba9a3970925466285ae1df4676501fbdd24bd66
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 7bf74247090f91e17f81a9bc98ebfa78334c8c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -25,17 +25,23 @@ ms.lasthandoff: 01/18/2017
 # <a name="previewing-drive-usage-for-an-export-job"></a>내보내기 작업에 대한 드라이브 사용량 미리 보기
 내보내기 작업을 만들기 전에 내보낼 Blob 집합을 선택해야 합니다. Microsoft Azure Import/Export 서비스를 사용하면 Blob 경로 또는 Blob 접두사 목록을 사용하여 선택한 Blob을 나타낼 수 있습니다.  
   
- 그런 다음 보내야 하는 드라이브 수를 결정해야 합니다. Microsoft Azure Import/Export 도구는 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리 볼 수 있는 `PreviewExport` 명령을 제공합니다. 다음 매개 변수를 지정할 수 있습니다.  
-  
-|명령줄 옵션|설명|  
+그런 다음 보내야 하는 드라이브 수를 결정해야 합니다. Import/Export 도구는 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리 볼 수 있는 `PreviewExport` 명령을 제공합니다.
+
+## <a name="command-line-parameters"></a>명령줄 매개 변수
+
+Import/Export 도구의 `PreviewExport` 명령을 사용할 때 다음 매개 변수를 사용할 수 있습니다.
+
+|명령줄 매개 변수|설명|  
 |--------------------------|-----------------|  
 |**/logdir:**<LogDirectory\>|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
 |**/sn:**<StorageAccountName\>|필수입니다. 내보내기 작업에 대한 저장소 계정의 이름입니다.|  
 |**/sk:**<StorageAccountKey\>|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 저장소 계정의 계정 키입니다.|  
 |**/csas:**<ContainerSas\>|저장소 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|필수입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록이 포함된 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|필수입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
 |**/DriveSize:**<DriveSize\>|필수입니다. 내보내기 작업에 사용할 드라이브의 크기는 *예를 들어* 500GB, 1.5TB입니다.|  
-  
+
+## <a name="command-line-example"></a>명령줄 예제
+
 다음 예제에서는 `PreviewExport` 명령을 보여 줍니다.  
   
 ```  
@@ -71,6 +77,7 @@ Number of drives needed:        3
         Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
-## <a name="see-also"></a>참고 항목  
-[Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)
+## <a name="next-steps"></a>다음 단계
+
+* [Azure Import/Export 도구 참조](storage-import-export-tool-how-to-v1.md)
 

@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
-ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -103,7 +103,7 @@ Azure Analysis Services는 현재 1200 호환성 수준의 테이블 형식 모�
 ##### <a name="data-sources"></a>데이터 원본
 Azure Analysis Services 서버에 배포하는 테이블 형식 1200 모델에서 미리 보기를 통해 지원하는 데이터 원본은 다음과 같습니다.
 
-| **클라우드** | **온-프레미스** |
+| **클라우드** | **온-프레미스(데이터 게이트웨이 필요)** |
 | --- | --- |
 | SQL 데이터베이스 |SQL Server |
 | SQL 데이터 웨어하우스 |APS |
@@ -114,7 +114,8 @@ Azure Analysis Services 서버에 배포하는 테이블 형식 1200 모델에�
 Azure Analysis Services의 데이터 모델에는 SQL Server Analysis Services 데이터 모델보다 데이터 원본에 연결하는 별도의 데이터 공급자가 필요할 수 있습니다. 데이터 공급자 요구 사항은 클라우드 또는 온-프레미스에 있는 데이터 원본 및 데이터 모델 형식(메모리 내 또는 직접 쿼리)에 따라 달라집니다. 자세한 내용은 참조 [데이터 원본 연결](analysis-services-datasource.md)을 참조하세요.
 
 ### <a name="client-connections"></a>클라이언트 연결
-Power BI Embedded는 아직 미리 보기에서 지원되지 않습니다.
+
+클라이언트 응용 프로그램에는 Azure Analysis Services에 연결할 최신 클라이언트 [데이터 공급자](analysis-services-data-providers.md)가 필요합니다.
 
 Azure Analysis Services 서버에 라이브 연결되고 OneDrive 또는 SharePoint Online에 저장된 Excel 통합 문서는 지원되지 않습니다.
 

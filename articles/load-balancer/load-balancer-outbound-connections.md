@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
-ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -66,4 +66,8 @@ SNAT 포트는 소진될 수 있는 한정된 리소스입니다. 사용 방법�
 VM이 아웃바운드 흐름을 만들 수 있는 것이 바람직하지 않은 경우도 있습니다. 또는 어떤 대상이 아웃바운드 흐름에 접근할지를 관리하는 요구 사항이 있을 수 있습니다. 이러한 경우에 [NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)을 사용하여 VM에서 도달할 수 있는 대상을 관리합니다. 부하 분산 VM에 NSG를 적용할 때 [태그 기본](../virtual-network/virtual-networks-nsg.md#default-tags) 및 [규칙 기본](../virtual-network/virtual-networks-nsg.md#default-rules)에 주의해야 합니다.
 
 VM에서 Azure Load Balancer의 상태 프로브 요청을 수신할 수 있는지 확인해야 합니다. NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 경우 VM 상태 프로브에 실패하고 VM가 표시됩니다. 부하 분산 장치는 해당 VM에 새 흐름을 보내는 작업을 중지합니다.
+
+## <a name="limitations"></a>제한 사항
+
+보장되지는 않지만 현재 사용할 수 있는 SNAT 포트의 최대 수는 64,511개입니다(65,535 - 1024개 권한 있는 포트).  이 제한은 연결 수로 직접 변환되지 않습니다. SNAT 포트가 할당된 시기와 방법 및 이러한 소모성 리소스를 관리하는 방법에 대한 자세한 내용은 위에서 설명한 내용을 참조하세요.
 

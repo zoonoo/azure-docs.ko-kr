@@ -1,6 +1,6 @@
 ---
 title: "Azure Import/Export 매니페스트 파일 형식 | Microsoft Docs"
-description: "가져오기 내보내기 서비스에서 Azure Blob Storage의 Blob와 가져오기 또는 내보내기 작업에 있는 드라이브의 파일 간에 매핑을 설명하는 드라이브 매니페스트 파일의 형식에 대해 알아보기"
+description: "Import/Export 서비스에서 Azure Blob Storage의 Blob와 가져오기 또는 내보내기 작업에 있는 드라이브의 파일 간에 매핑을 설명하는 드라이브 매니페스트 파일의 형식에 대해 알아봅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -90,7 +90,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## <a name="manifest-xml-elements-and-attributes"></a>매니페스트 XML 요소 및 특성
 
 드라이브 매니페스트 XML 형식의 데이터 요소 및 특성은 다음 테이블에 지정됩니다.  
   
@@ -131,6 +134,7 @@ block-list ::=
 |`Blob/PropertiesPath`|string|선택 사항입니다. 속성 파일의 상대 경로를 지정합니다. 가져오기 작업 중 대상 Blob에 속성이 설정됩니다. 내보내기 작업 중 Blob 속성은 드라이브의 속성에 저장됩니다.|  
 |`Blob/PropertiesPath/@Hash`|특성, 문자열|Blob 속성 파일의 Base16 인코딩 MD5 해시를 지정합니다.|  
   
-## <a name="see-also"></a>참고 항목  
-[저장소 Import/Export REST](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>다음 단계
+ 
+* [저장소 Import/Export REST API](/rest/api/storageimportexport/)
 

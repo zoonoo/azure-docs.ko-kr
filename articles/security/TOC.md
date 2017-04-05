@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Microsoft Azure 로그 통합 소개](security-azure-log-integration-overview.md)
 #### [Azure 로그 통합 시작](security-azure-log-integration-get-started.md)
+#### [Azure Active Directory 감사 로그 통합](security-azure-log-integration-ad.md)
+#### [Security Center 경고 통합](security-azure-log-integration-security-center.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## ID 관리
@@ -44,7 +46,7 @@
 #### [App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
 
 ## 사물 인터넷
-### [IoT 배포 보안](../iot-suite/iot-suite-security-deployment.md)
+### [IoT 배포 보안 유지](../iot-suite/iot-suite-security-deployment.md)
 ### [IoT 보안 모범 사례](../iot-suite/iot-security-best-practices.md)
 
 ## 보안 아키텍처
