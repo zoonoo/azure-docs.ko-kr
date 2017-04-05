@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
-ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -55,9 +56,9 @@ ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
 
 ### <a name="considerations-for-using-gateway"></a>게이트웨이 사용을 위한 고려 사항
 * 데이터 관리 게이트웨이 인스턴스 하나를 여러 온-프레미스 데이터 소스에 사용할 수 있습니다. 그러나 **각 게이트웨이 인스턴스는 Azure Data Factory 하나에만 연결**되며, 다른 Data Factory와 공유할 수는 없습니다.
-* 단일 컴퓨터에 **데이터 관리 게이트웨이 인스턴스를 하나만** 설치할 수 있습니다. 온-프레미스 데이터 소스에 액세스해야 하는 Data Factory가&2;개라면 두 온-프레미스 컴퓨터에 게이트웨이를 설치해야 합니다. 즉, 게이트웨이는 특정 Data Factory에 연결됩니다.
+* 단일 컴퓨터에 **데이터 관리 게이트웨이 인스턴스를 하나만** 설치할 수 있습니다. 온-프레미스 데이터 소스에 액세스해야 하는 Data Factory가 2개라면 두 온-프레미스 컴퓨터에 게이트웨이를 설치해야 합니다. 즉, 게이트웨이는 특정 Data Factory에 연결됩니다.
 * **게이트웨이가 데이터 소스와 같은 컴퓨터에 있을 필요는 없습니다**. 그러나 게이트웨이를 데이터 소스에 가까이 배치하면 게이트웨이가 데이터 소스에 연결하는 데 걸리는 시간을 줄일 수 있습니다. 온-프레미스 데이터 소스를 호스트하는 컴퓨터와는 다른 컴퓨터에 게이트웨이를 설치하는 것이 좋습니다. 게이트웨이와 데이터 소스가 서로 다른 컴퓨터에 있으면 게이트웨이와 데이터 소스 간에 리소스 경합이 발생하지 않습니다.
-* **서로 다른 컴퓨터의 여러 게이트웨이가 동일한 온-프레미스 데이터 원본에 연결**할 수 있습니다. 예를 들어 두 게이트웨이가&2;개의 데이터 팩터리를 처리하지만 동일한 온-프레미스 데이터 원본이 두 데이터 팩터리에 등록되어 있습니다.
+* **서로 다른 컴퓨터의 여러 게이트웨이가 동일한 온-프레미스 데이터 원본에 연결**할 수 있습니다. 예를 들어 두 게이트웨이가 2개의 데이터 팩터리를 처리하지만 동일한 온-프레미스 데이터 원본이 두 데이터 팩터리에 등록되어 있습니다.
 * 컴퓨터에 **Power BI** 시나리오를 처리할 게이트웨이가 이미 설치된 경우 **별도의 Azure Data Factory용 게이트웨이**를 다른 컴퓨터에 설치하세요.
 * **Express 경로**를 사용할 때도 게이트웨이를 사용해야 합니다.
 * **Express 경로**를 사용하더라도 데이터 소스는 방화벽으로 보호되는 온-프레미스 데이터 소스로 취급해야 합니다. 게이트웨이를 사용하여 서비스와 데이터 소스 간의 연결을 설정합니다.
@@ -129,20 +130,25 @@ ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
 ### <a name="ports-and-firewall"></a>포트 및 방화벽
 다음과 같은 고려해야 할 두 방화벽이 있습니다. 조직의 중앙 라우터에서 실행되는 **회사 방화벽** 및 게이트웨이를 설치한 로컬 컴퓨터에서 디먼으로 구성 **Windows 방화벽**입니다.  
 
-![방화벽](./media/data-factory-data-management-gateway/firewalls.png)
+![방화벽](./media/data-factory-data-management-gateway/firewalls2.png)
 
 회사 방화벽 수준에서 다음 도메인 및 아웃바운드 포트를 구성 해야 합니다.
 
 | 도메인 이름 | 포트 | 설명 |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |TCP의 서비스 버스 릴레이에 대한 수신기(액세스 제어 토큰 획득에 443 필요) |
-| *.servicebus.windows.net |9350-9354, 5671 |TCP의 선택적 서비스 버스 릴레이 |
-| *.core.windows.net |443 |HTTPS |
-| *.clouddatahub.net |443 |HTTPS |
-| graph.windows.net |443 |HTTPS |
-| login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |443, 80 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
+| *.core.windows.net |443 |Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)|
+| *frontend.clouddatahub.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
+
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
+
+> [!NOTE]
+> 1. 원본/싱크에 따라, 추가 도메인 및 아웃바운드 포트를 회사/windows 방화벽에서 허용 목록으로 만들어야 할 수 있습니다.
+> 2. 일부 클라우드 데이터베이스(예: [SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 등)에서는 방화벽 구성에서 게이트웨이 컴퓨터의 IP 주소를 허용 목록으로 만들어야 할 수 있습니다.
+>
+>
+
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>소스 데이터 저장소의 데이터를 싱크 데이터 저장소에 복사
 방화벽 규칙이 회사 방화벽, 게이트웨이 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 올바르게 설정되어 있는지 확인합니다. 이러한 규칙을 사용하면 게이트웨이가 소스와 싱크에 모두 정상적으로 연결할 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
@@ -151,6 +157,12 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 * Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 **1433**에서 아웃바운드 **TCP** 통신을 허용합니다.
 * Azure SQL Server의 방화벽 설정을 구성하여 허용된 IP 주소 목록에 게이트웨이 컴퓨터의 IP 주소를 추가합니다.
+
+> [!NOTE]
+> 방화벽이 아웃바운드 포트 1433을 허용하지 않으면 게이트웨이에서 Azure SQL에 직접 액세스할 수 없습니다. 이 경우 SQL Azure Database/SQL Azure DW로 [준비된 복사](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy)를 사용할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS(포트 443)만 필요합니다.
+>
+>
+
 
 ### <a name="proxy-server-considerations"></a>프록시 서버 고려 사항
 회사 네트워크 환경에서 프록시 서버를 사용하여 인터넷에 액세스하는 경우 데이터 관리 게이트웨이가 적절한 프록시 설정을 사용하도록 구성합니다. 초기 등록 단계에서 프록시를 설정할 수 있습니다.
@@ -185,7 +197,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 >
 >
 
-### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성 
+### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성
 HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 경우 게이트웨이는 diahost.exe.config 및 diawp.exe.config의 프록시 설정을 사용합니다.  diahost.exe.config 및 diawp.exe.config에 프록시가 지정되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.  
 
 1. 파일 탐색기에서 원본 파일을 백업할 C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config의 안전한 복사본을 만듭니다.
@@ -210,7 +222,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
 
 > [!IMPORTANT]
 > diahost.exe.config 및 diawp.exe.config를 **둘 다** 업데이트해야 합니다.  
-     
+
 
 이러한 사항 외에 Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
@@ -259,12 +271,12 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
 2. C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).   
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -off
     ```
 4. 다시 켜려면:
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
@@ -366,8 +378,8 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
                 "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
                 "gatewayName": "adftutorialgateway"
             }
-        }
-    }
+         }
+     }
     ```
 게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용 프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.  
 
@@ -386,7 +398,7 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
 
 1. **Azure PowerShell**을 관리자 모드로 시작합니다.
 2. 다음 명령을 실행하고 Azure 자격 증명을 입력하여 Azure 계정에 로그인합니다.
-    
+
     ```PowerShell
     Login-AzureRmAccount
     ```
@@ -413,7 +425,7 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\** 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key**와 연결된 **RegisterGateway.ps1**을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+1. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\** 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key**와 연결된**RegisterGateway.ps1**을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -434,13 +446,13 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
 게이트웨이를 제거하려면 **Remove-AzureRmDataFactoryGateway** cmdlet를 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzureRmDataFactoryGateway** cmdlet를 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.  
 
 ### <a name="list-gateways-using-powershell"></a>PowerShell을 사용하여 게이트웨이 나열
-    
+
 ```PowerShell
 Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>PowerShell을 사용하여 게이트웨이 제거
-    
+
 ```PowerShell
 Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
@@ -448,9 +460,4 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 ## <a name="next-steps"></a>다음 단계
 * [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 이 연습에서는 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인을 만듭니다.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
