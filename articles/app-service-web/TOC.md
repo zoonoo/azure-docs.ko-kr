@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # 자습서
-## [웹앱에 기능 추가](app-service-web-get-started-2.md)
-## [SQL Database를 사용하는 ASP.NET 앱](web-sites-dotnet-get-started.md)
-## [MySQL을 사용하는 Laravel 앱](app-service-web-php-get-started.md)
-## [NOSQL DB를 사용하는 앱](app-service-web-nodejs-sails.md)
-## [Eclipse를 사용하는 Java 앱](app-service-web-eclipse-create-hello-world-web-app.md)
-## [IntelliJ를 사용하는 Java 앱](app-service-web-intellij-create-hello-world-web-app.md)
-## [MySQL을 사용하는 Django 앱](web-sites-python-ptvs-django-mysql.md)
 
 # 개념
 ## [App Service 작동 방법](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # 방법 가이드
 ## 앱 개발    
 ### ASP.NET
-
+#### [SQL Database를 사용하는 ASP.NET 앱](web-sites-dotnet-get-started.md)
 #### [VS Code를 사용하여 ASP.NET Core 앱 개발](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [MySQL을 사용하는 Laravel 앱](app-service-web-php-get-started.md)
 #### [PHP 프로젝트 설정](web-sites-php-configure.md)
 #### [WordPress 멀티 사이트 설정](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [NOSQL DB를 사용하는 앱](app-service-web-nodejs-sails.md)
 #### [io.js 사용](web-sites-nodejs-iojs.md)
 #### [Node.js 앱 디버깅](web-sites-nodejs-debug.md)
 ### 자바
-
+#### [Eclipse를 사용하는 Java 앱](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [IntelliJ를 사용하는 Java 앱](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Java용 Azure SDK 사용](java-create-azure-website-using-java-sdk.md)
 #### [기존 앱 업로드](web-sites-java-add-app.md)
 #### [Eclipse 원격 디버깅](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [IntelliJ 원격 디버깅](app-service-web-debug-java-web-app-in-intellij.md)
+### 파이썬
+#### [MySQL을 사용하는 Django 앱](web-sites-python-ptvs-django-mysql.md)
 
 ### [SendGrid를 사용하여 메일 보내기](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [IIS에서 마이그레이션](web-sites-migration-from-iis-server.md)
 ### [프로덕션에서 테스트](app-service-web-test-in-production-get-start.md)
+### [웹앱에 기능 추가](app-service-web-get-started-2.md)
 
 ## DB/리소스에 연결        
 

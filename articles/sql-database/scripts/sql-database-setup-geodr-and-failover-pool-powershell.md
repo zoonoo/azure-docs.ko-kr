@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 다음 샘플 PowerShell 스크립트는 탄력적 풀의 데이터베이스에 대해 활성 지역 복제를 구성하고 보조 복제본으로 장애 조치합니다.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
