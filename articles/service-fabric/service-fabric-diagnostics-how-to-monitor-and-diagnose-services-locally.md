@@ -3,7 +3,7 @@ title: "Windows에서 Azure 마이크로 서비스 디버그 | Microsoft Docs"
 description: "로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요."
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
