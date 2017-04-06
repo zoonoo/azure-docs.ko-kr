@@ -3,7 +3,7 @@ title: "Azure Service Fabric 모니터링 및 진단 개요 | Microsoft Docs"
 description: "Azure, 개발 또는 온-프레미스에서 호스팅되는 Microsoft Azure Service Fabric 응용 프로그램을 모니터링하고 진단하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: mfussell
 editor: 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/9/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: ebbb29ee031fb477ce284f7a0d27c1522317f4f0
 ms.openlocfilehash: 46a35fa4ec341561ab234f7ec19fb20658fcb2c4

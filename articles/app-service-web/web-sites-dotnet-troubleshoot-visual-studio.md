@@ -38,7 +38,7 @@ ms.lasthandoff: 12/08/2016
 
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱을 작업합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
 
 이 자습서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
@@ -47,7 +47,7 @@ Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.micr
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에 대해서만 작동합니다.
 
-## <a name="a-namesitemanagementaweb-app-configuration-and-management"></a><a name="sitemanagement"></a>웹 앱 구성 및 관리
+## <a name="sitemanagement"></a>웹 앱 구성 및 관리
 Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
 
 1. Visual Studio에서 Azure에 아직 로그인하지 않았으면 **서버 탐색기**에서 **Azure에 연결** 단추를 클릭합니다.
@@ -75,7 +75,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
     이 창에서 지원하지 않는 웹앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기** 를 클릭하여 브라우저 창에서 Azure 포털을 엽니다.
 
-## <a name="a-nameremoteviewaaccess-web-app-files-in-server-explorer"></a><a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
+## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
 일반적으로 Web.config 파일에서 `customErrors` 플래그를 `On` 또는 `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 모두 다음 중 하나와 유사합니다.
 
 **'/' 응용 프로그램의 서버 오류:**
@@ -113,7 +113,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 있도록 Azure 웹 앱의 파일 읽기/편집 기능을 사용하는 한 가지 예에 지나지 않습니다.
 
-## <a name="a-nameremotedebugaremote-debugging-web-apps"></a><a name="remotedebug"></a>원격 디버깅 웹 앱
+## <a name="remotedebug"></a>원격 디버깅 웹 앱
 자세한 오류 메시지에 충분한 정보가 제공되지 않은 경우 로컬로 오류를 다시 만들 수는 없습니다. 이때 문제를 해결하는 또 다른 방법은 원격으로 디버그 모드에서 실행하는 것입니다. 중단점을 설정하고 메모리를 직접 조작하며 코드를 단계별로 실행하고 심지어 코드 경로를 변경할 수 있습니다.
 
 원격 디버깅은 Visual Studio의 Express Edition에서 작동하지 않습니다.
@@ -159,7 +159,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
      ![새 값이 표시된 정보 페이지](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="a-nameremotedebugwja-remote-debugging-webjobs"></a><a name="remotedebugwj"></a> 원격 디버깅 WebJob
+## <a name="remotedebugwj"></a> 원격 디버깅 WebJob
 이 섹션에서는 [Azure WebJob SDK 시작](websites-dotnet-webjobs-sdk.md)에서 만든 프로젝트 및 웹 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다
 
 이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다.
@@ -221,7 +221,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 * 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하십시오.
 
-## <a name="a-namelogsoverviewadiagnostic-logs-overview"></a><a name="logsoverview"></a>진단 로그 개요
+## <a name="logsoverview"></a>진단 로그 개요
 Azure 웹 앱에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
 * **응용 프로그램 추적 로그**<br/>
@@ -237,7 +237,7 @@ Azure 웹 앱에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은
 
 로그는 웹 앱의 파일 시스템에 있는 *LogFiles* 폴더의 파일에 기록되며 FTP를 통해 액세스할 수 있습니다. 웹 서버 로그 및 응용 프로그램 로그는 또한 Azure 저장소 계정에도 기록될 수 있습니다. 저장소 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.  
 
-## <a name="a-nameapptracelogsacreate-and-view-application-trace-logs"></a><a name="apptracelogs"></a>응용 프로그램 추적 로그 만들기 및 보기
+## <a name="apptracelogs"></a>응용 프로그램 추적 로그 만들기 및 보기
 이 섹션에서는 다음 작업을 수행합니다.
 
 * [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 프로젝트에 추적 문을 추가합니다.
@@ -373,7 +373,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 검색 문자열 또는 정규식을 입력하면 Visual Studio에서 클라이언트 측의 로깅 정보가 필터링됩니다. 즉, **Output** 창에 로그가 표시된 후에 조건을 입력할 수 있으며 로그를 다시 생성할 필요 없이 필터링 조건을 변경할 수 있습니다.
 
-## <a name="a-namewebserverlogsaview-web-server-logs"></a><a name="webserverlogs"></a>웹 서버 로그 보기
+## <a name="webserverlogs"></a>웹 서버 로그 보기
 웹 서버 로그는 웹 앱의 모든 HTTP 작업을 기록합니다. **출력** 창에서 웹 서버 로그를 보려면 웹 앱에서 이를 사용하도록 설정하고 Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
 
 1. **서버 탐색기**에서 열었던 **Azure Web App 구성** 탭에서 웹 서버 로깅을 **켜기**로 변경하고 **저장**을 클릭합니다.
@@ -395,7 +395,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 저장소 계정 설정이 복원됩니다.
 
-## <a name="a-namedetailederrorlogsaview-detailed-error-message-logs"></a><a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기
+## <a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기
 자세한 오류 로그에서는 오류 응답 코드(400 이상)를 유발한 HTTP 요청과 관련된 일부 추가 정보가 제공됩니다. **출력** 창에서 웹 서버 로그를 보려면 웹 앱에서 이를 사용하도록 설정하고, Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
 
 1. **서버 탐색기**에서 열었던 **Azure Web App 구성** 탭에서 **자세한 오류 메시지**를 **켜기**로 변경하고 **저장**을 클릭합니다.
@@ -415,7 +415,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
     ![브라우저 창의 자세한 오류 로그](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="a-namedownloadlogsadownload-file-system-logs"></a><a name="downloadlogs"></a>파일 시스템 로그 다운로드
+## <a name="downloadlogs"></a>파일 시스템 로그 다운로드
 **출력** 창에서 모니터링할 수 있는 모든 로그는 *.zip* 파일로 다운로드할 수도 있습니다.
 
 1. **출력** 창에서 **스트리밍 로그 다운로드**를 클릭합니다.
@@ -435,7 +435,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
      참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.  
 
-## <a name="a-namestoragelogsaview-storage-logs"></a><a name="storagelogs"></a>저장소 로그 보기
+## <a name="storagelogs"></a>저장소 로그 보기
 응용 프로그램 추적 로그를 Azure 저장소 계정으로 보낼 수 있고 이들 로그를 Visual Studio에서 볼 수도 있습니다. 그러려면 저장소 계정을 만들고 클래식 포털에서 저장소 로그를 사용하도록 설정한 후 **Azure Web App** 창의 **로그** 탭에서 보면 됩니다.
 
 다음 세 대상 모두 또는 일부에 로그를 보낼 수 있습니다.
@@ -514,7 +514,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
      ![서버 탐색기의 추적 테이블](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
 
-## <a name="a-namefailedrequestlogsaview-failed-request-tracing-logs"></a><a name="failedrequestlogs"></a>실패한 요청 추적 로그 보기
+## <a name="failedrequestlogs"></a>실패한 요청 추적 로그 보기
 실패한 요청 추적 로그는 URL 다시 쓰기 또는 인증 문제 등이 발생하는 경우 IIS에서 HTTP 요청이 처리되는 방식을 자세히 이해해야 하는 경우에 유용합니다.
 
 Azure 웹 앱은 IIS 7.0 이상 버전에서 사용할 수 있는 실패한 요청 추적 기능을 똑같이 사용합니다. 하지만 기록될 오류를 구성하는 IIS 설정에 대한 액세스 권한이 없습니다. 실패한 요청 추적을 사용하도록 설정하면 모든 오류가 캡처됩니다.
@@ -555,7 +555,7 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
     ![브라우저의 실패한 요청 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>다음 단계
+## <a name="nextsteps"></a>다음 단계
 Visual Studio를 사용하여 Azure 웹 앱에서 생성된 로그를 쉽게 보는 방법을 확인했습니다. 다음 섹션에서는 관련 항목에 대한 기타 리소스 링크를 제공합니다.
 
 * Azure 웹 앱 문제 해결
@@ -637,6 +637,6 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석
 Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) (영문) 섹션은 이러한 로그 사용 방법을 이해하는 데 유용할 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure 웹 앱에서 수행할 수 없습니다.
 
-[GetStarted]: web-sites-dotnet-get-started.md
+[GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
 
