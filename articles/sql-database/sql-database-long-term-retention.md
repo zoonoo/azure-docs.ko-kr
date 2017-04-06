@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -112,7 +112,7 @@ Recovery Service는 제공된 보존 정책에 따라 백업 정리를 자동으
     A: 아니요, 자격 증명 모음 및 서버는 복사 시간을 최소화하고 트래픽 요금을 방지하기 위해 동일한 지역에 있어야 합니다.
 5. Q: 한 개의 자격 증명 모음에 저장할 수 있는 데이터베이스는 몇 개인가요?
 
-    A: 현재 자격 증명 모음 당 최대 1000개의 데이터베이스를 지원합니다. 
+    A: 현재 자격 증명 모음당 최대 1000개의 데이터베이스만 지원됩니다. 
 6. Q. 구독 당 만들 수 있는 자격 증명 모음은 몇 개인가요?
 
     A. 구독당 최대 25개의 자격 증명 모음을 만들 수 있습니다.
@@ -146,6 +146,6 @@ Recovery Service는 제공된 보존 정책에 따라 백업 정리를 자동으
 
 
 ## <a name="next-steps"></a>다음 단계
-데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다.. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 

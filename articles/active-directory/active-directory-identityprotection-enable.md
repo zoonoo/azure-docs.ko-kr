@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
 ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -44,10 +45,5 @@ Azure Active Directory ID 보호는 의심스러운 로그인 활동 및 잠재�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

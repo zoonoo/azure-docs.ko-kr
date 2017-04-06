@@ -3,7 +3,7 @@ title: "Azure 서비스 패브릭을 사용하여 상태를 보고하고 확인 
 description: "Azure 서비스 패브릭에서 제공하는 상태 모니터링 도구를 사용하여 서비스 코드에서 상태 보고서를 보내고 서비스의 상태를 확인하는 방법에 대해 알아보세요."
 services: service-fabric
 documentationcenter: .net
-author: toddabel
+author: dkkapur
 manager: mfussell
 editor: 
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
 ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4

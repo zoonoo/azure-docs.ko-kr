@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
 ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -195,10 +196,5 @@ Azure Portal에서 관련된 활동을 감사하기 위한 세 가지 범주가 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
