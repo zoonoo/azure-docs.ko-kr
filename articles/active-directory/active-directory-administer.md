@@ -3,7 +3,7 @@ title: "Azure AD 디렉터리 관리 | Microsoft Docs"
 description: "Azure AD 테넌트의 정의 및 Azure Active Directory를 통해 Azure를 관리하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: curtand
 writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/11/2017
-ms.author: markvi
+ms.date: 04/06/2017
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -146,9 +147,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 <!--Image references-->
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
