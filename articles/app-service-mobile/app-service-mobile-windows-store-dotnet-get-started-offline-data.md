@@ -35,7 +35,7 @@ ms.lasthandoff: 03/09/2017
 이 자습서를 사용하려면 다음 필수 구성 요소가 필요합니다.
 
 * Windows 8.1 이상에서 실행 중인 Visual Studio 2013
-* [Windows 앱 만들기][create a windows app]을 참조하세요.
+* [Windows 앱 만들기][Windows 앱 만들기]을 참조하세요.
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [유니버설 Windows 플랫폼용 SQLite 개발](http://www.sqlite.org/downloads)
 
@@ -108,7 +108,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 <!-- URLs. -->
 [Azure 모바일 앱에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
-[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Windows 앱 만들기]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
