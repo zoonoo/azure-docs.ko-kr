@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/14/2016
+ms.date: 4/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: b49393ecfb6fe639825107c5f038906a36cde687
 ms.openlocfilehash: 3cddd9f9c4b978dfad7ec727be9f43f6ed7c7c8f
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -126,9 +127,4 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

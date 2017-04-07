@@ -10,12 +10,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/17/2015
 ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
 ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -137,10 +138,5 @@ Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-Azu
 * [Application Insights로 Azure 클라우드 서비스 앱 모니터링](app-insights-cloudservices.md)
 * [Application Insights에 Azure 진단 보내기](app-insights-azure-diagnostics.md)
 * [구성 경고 자동화](app-insights-powershell-alerts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

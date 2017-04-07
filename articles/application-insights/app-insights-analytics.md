@@ -76,6 +76,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
+
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 

@@ -272,7 +272,7 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
 이 샘플에서는 리소스 정의의 값을 하드 코딩하는 대신 솔루션에 일반적으로 사용되는 [표준 솔루션 매개 변수](operations-management-suite-solutions-solution-file.md#parameters) 변수를 사용합니다.
 
     {
-        "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
         "parameters": {
           "workspaceName": {
