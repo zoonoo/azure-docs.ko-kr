@@ -1239,7 +1239,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 <td>YARN Timeline Server</td>
 <td>YARN Timeline Server(Generic Application History Server라고도 함)가 기본적으로 사용하도록 설정되었습니다. Timeline Server는 응용 프로그램 ID, 응용 프로그램 이름, 응용 프로그램 상태, 응용 프로그램 전송 시간, 응용 프로그램 완료 시간 등 완료된 응용 프로그램에 대한 일반적인 정보를 제공합니다.
 
-이 응용 프로그램 정보는 URI http://headnodehost:8188에 액세스하거나 YARN 명령: yarn application –list –appStates ALL을 실행하여 헤드 노드에서 검색할 수 있습니다.
+이 응용 프로그램 정보는 URI http://headnodehost:8188 에 액세스하거나 YARN 명령: yarn application –list –appStates ALL을 실행하여 헤드 노드에서 검색할 수 있습니다.
 
 이 정보는 REST API를 통해 https://{ClusterDnsName}. azurehdinsight.net/ws/v1/applicationhistory/에서 원격으로 검색할 수도 있습니다.
 

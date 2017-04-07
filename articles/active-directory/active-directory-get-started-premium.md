@@ -3,8 +3,8 @@ title: "Azure Active Directory Premium 시작하기"
 description: "볼륨 라이선스 웹 사이트를 통해 Azure Active Directory Premium Edition을 등록하는 방법을 설명하는 항목입니다."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services

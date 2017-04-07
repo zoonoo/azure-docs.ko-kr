@@ -80,7 +80,7 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
         cd <app_name>
         php artisan serve
    
-    이제 브라우저의 http://localhost:8000으로 이동하고 Laravel 시작 화면을 참조할 수 있어야 합니다.
+    이제 브라우저의 http://localhost:8000 으로 이동하고 Laravel 시작 화면을 참조할 수 있어야 합니다.
    
     ![Azure에 배포하기 전에 로컬로 PHP(Laravel) 앱 테스트](./media/app-service-web-php-get-started/laravel-splash-screen.png)
 
