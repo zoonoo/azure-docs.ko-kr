@@ -40,7 +40,7 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-Azure Portal(http://portal.azure.com)에 로그인합니다.
+Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
