@@ -250,7 +250,7 @@ Automation 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해
 2. **모든 설정** 블레이드의 **계정 설정** 아래에서 **속성**을 선택합니다. 
 3. **속성** 블레이드에 대한 값을 적어둡니다.
 
- ![Automation 계정 "속성" 블레이드](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![Automation 계정 "속성" 블레이드](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>실행 계정 PowerShell 스크립트 만들기
 이 PowerShell 스크립트는 다음 구성에 대한 지원을 포함합니다.
@@ -415,7 +415,6 @@ Automation 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
