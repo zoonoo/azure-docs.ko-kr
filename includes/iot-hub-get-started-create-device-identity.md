@@ -6,7 +6,7 @@
     ```
     npm install -g iothub-explorer@latest
     ```
-2. 그런 후 다음 명령을 실행하여 허브에 로그인하고 `{iot hub connection string}`을 이전에 복사한 IoT Hub 연결 문자열로 대체합니다.
+2. 이제 다음 명령을 실행하여 허브에 로그인합니다. `{iot hub connection string}`을 이전에 복사한 IoT Hub 연결 문자열로 대체합니다.
 
     ```
     iothub-explorer login "{iot hub connection string}"
@@ -21,7 +21,7 @@
 
 ![][img-identity]
 
-장치 ID를 프로그래밍 방식으로 만드는 방법은 [IoT Hub 시작][lnk-getstarted]을 참조하세요.
+[IoT Hub 시작][lnk-getstarted]을 참조하여 장치 ID를 프로그래밍 방식으로 만듭니다.
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

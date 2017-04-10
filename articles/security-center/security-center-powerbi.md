@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-securi
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Azure 보안 센터 대시보드를 사용하여 Power BI에 액세스
 또한 Azure 보안 센터 대시보드를 사용하여 Power BI 보고서에 액세스할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따릅니다.
 
-1. **Azure 보안 센터** 대시보드에서 **Power BI에서 탐색** 단추를 클릭합니다.
+1. **Azure Security Center** 대시보드에서 **Power BI** 단추를 클릭합니다.
 
-    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. 다음 화면에 표시된 것처럼 **Power BI에서 탐색** 블레이드가 오른쪽에 열립니다.
+    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. 다음 화면에 표시된 것처럼 **Power BI** 블레이드가 오른쪽에 열립니다.
 
-    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. 처음으로 Power BI 대시보드를 만드는 경우 **Power BI에서 탐색** 블레이드에서 다음 옵션 중 하나를 선택할 수 있습니다.
 
    * **보안 Insights 대시보드**: 보안 상태, 스레드 및 탐지를 포함하는 대시보드를 만들려는 경우 이 옵션을 선택합니다. 이 옵션은 구독의 보호 상태 및 감지된 경고를 분석하는 일을 담당하는 DevOps 역할에 보다 일반적입니다.
@@ -119,9 +120,4 @@ Power BI의 [Power BI 콘텐츠 팩 서비스](https://msit.powerbi.com/groups/m
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure 보안 센터 FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

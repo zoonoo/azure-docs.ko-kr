@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제
 | Dynamics CRM |Y |서비스 예정 |Y |서비스 예정 |
 | Oracle |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |
 | Windows 파일 서버 |Y |Y |Y |Y |
+| Citrix XenApp 및 XenDesktop |해당 없음 |Y |해당 없음 |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory 및 DNS 복제
 Active Directory 및 DNS 인프라는 대부분의 엔터프라이즈 앱에 필수적입니다. 재해 복구 중에 워크로드 및 앱을 복구하기 전에 이러한 인프라 구성 요소를 보호하고 복구해야 합니다.
@@ -143,6 +144,17 @@ Azure Site Recovery는 환경에서 중요한 구성 요소를 콜드 원격 사
 -    DR 드릴의 격리된 환경에서 복구 계획을 테스트하는 기능입니다.
 
 IIS 웹 팜을 보호하는 방법에 대한 [자세한 내용](https://aka.ms/asr-iis)
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Citrix XenApp 및 XenDesktop 보호
+Site Recovery를 사용하여 음과 같이 Citrix XenApp와 XenDesktop 배포를 보호합니다.
+
+* 여러 배포 계층(AD DNS 서버, SQL 데이터베이스 서버, Citrix Delivery Controller, StoreFront 서버, XenApp Master(VDA), Citrix XenApp License Server)을 Azure에 복제하여 Citrix XenApp 및 XenDesktop 배포를 보호합니다.
+* Citrix XenApp 및 XenDesktop 배포를 Azure로 마이그레이션하기 위해 Site Recovery를 사용하여 클라우드 마이그레이션을 간소화합니다.
+* 테스트 및 디버깅을 위해 프로덕션 환경과 유사한 주문형 복사본을 만들어 Citrix XenApp/XenDesktop 테스트를 간소화합니다.
+* 이 솔루션은 Windows Server 운영 체제 가상 데스크톱에만 적용할 수 있으며 Azure의 라이선스에 대해 아직 지원되지 않는 클라이언트 가상 데스크톱에는 적용할 수 없습니다. 
+Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/en-us/pricing/licensing-faq/).
+
+Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
 
 ## <a name="next-steps"></a>다음 단계
 [필수 구성 요소 확인](site-recovery-prereq.md) 

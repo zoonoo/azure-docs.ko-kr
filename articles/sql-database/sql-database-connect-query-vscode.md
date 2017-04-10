@@ -10,7 +10,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: manage
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 86471fe29bbc9076624d96b83f7001d8755363bc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: fd5cb0d45d0955b7e4c471dc5ccecac65ad7400a
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Visual Studio Code를 사용하여 데이터에 연결 및 쿼리
 
-[Visual Studio Code](https://code.visualstudio.com/docs)는 확장을 지원하는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. [mssql 확장](https://aka.ms/mssql-marketplace)인 Visual Studio Code를 사용하여 Azure SQL Database를 연결하고 쿼리합니다. 이 가이드는 Visual Studio Code를 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
+[Visual Studio Code](https://code.visualstudio.com/docs)는 확장을 지원하는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. [mssql 확장](https://aka.ms/mssql-marketplace)인 Visual Studio Code를 사용하여 Azure SQL Database를 연결하고 쿼리합니다. 이 빠른 시작은 Visual Studio Code를 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
 
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 

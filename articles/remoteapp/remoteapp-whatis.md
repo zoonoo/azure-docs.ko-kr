@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: bf8f7763db5844a0706264d24ad7a035758ebbda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: bc5de9daeb09339c9488de8699174cd280197525
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-azure-remoteapp"></a>Azure RemoteApp이란?
 > [!IMPORTANT]
-> Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -36,7 +37,7 @@ Azure RemoteApp과 관련된 질문이 있는 경우 [FAQ](remoteapp-faq.md)를 
 
 Azure RemoteApp은 [Microsoft 가상 데스크톱 인프라](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx)의 일부입니다.
 
-**신규!**  Azure RemoteApp에 대해 더 알아보고 싶으세요? 아니면 Azure RemoteApp을 확인할 준비가 되셨나요? 매주 열리는 [전문가에게 물어보세요. 웹 세미나](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)에 참여해 보세요.
+**신규!** Azure RemoteApp에 대해 더 알아보고 싶으세요? 아니면 Azure RemoteApp을 확인할 준비가 되셨나요? 매주 열리는 [전문가에게 물어보세요. 웹 세미나](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)에 참여해 보세요.
 
 ## <a name="azure-remoteapp-collections"></a>Azure RemoteApp 컬렉션
 다음과 같은 두 가지 종류의 [Azure RemoteApp 컬렉션](remoteapp-collections.md)이 있습니다.
@@ -83,10 +84,5 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 
 ### <a name="help-us-help-you"></a>의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집** 또는 **편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

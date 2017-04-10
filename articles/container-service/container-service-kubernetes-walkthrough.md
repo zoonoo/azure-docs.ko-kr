@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -29,12 +29,12 @@ ms.lasthandoff: 03/22/2017
 
 이 문서의 지침은 Azure CLI 2.0 명령을 사용하여 Kubernetes 클러스터를 만드는 방법을 보여줍니다. 그런 다음 `kubectl` 명령줄 도구를 사용하여 클러스터에서 컨테이너 작업을 시작할 수 있습니다.
 
-다음 이미지는&1;개의 마스터와&2;개의 에이전트가 있는 컨테이너 서비스 클러스터의 아키텍처를 보여 줍니다. 마스터 노드는 Kubernetes REST API를 제공합니다. 에이전트 노드는 Azure 가용성 집합에서 그룹화되고 컨테이너를 실행합니다. 모든 VM은 동일한 개인 가상 네트워크에 있으며 서로 완벽하게 액세스할 수 있습니다.
+다음 이미지는 1개의 마스터와 2개의 에이전트가 있는 컨테이너 서비스 클러스터의 아키텍처를 보여 줍니다. 마스터 노드는 Kubernetes REST API를 제공합니다. 에이전트 노드는 Azure 가용성 집합에서 그룹화되고 컨테이너를 실행합니다. 모든 VM은 동일한 개인 가상 네트워크에 있으며 서로 완벽하게 액세스할 수 있습니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>필수 조건
-이 연습에서는[Azure CLI v. 2.0](/cli/azure/install-az-cli2)이 설치 및 설정되어 있다고 가정합니다. `~/.ssh/id_rsa.pub`에 SSH RSA 공개 키도 있어야 합니다. 준비되지 않은 경우 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)의 단계를 참조하세요.
+이 연습에서는[Azure CLI v. 2.0](/cli/azure/install-az-cli2)이 설치 및 설정되어 있다고 가정합니다. `~/.ssh/id_rsa.pub`에 SSH RSA 공개 키도 있어야 합니다. 준비되지 않은 경우 [OS X 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md)의 단계를 참조하세요.
 
 
 

@@ -22,7 +22,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 > [!NOTE]
 > 피어 > 컨트롤러의 잠재적 오류 메시지를 검색하려면 컨트롤러 둘 다에서 핫픽스에 액세스할 수 있어야 합니다.
 >
-> 핫픽스는 3개의 별도 폴더에 복사해야 합니다. 장치 소프트웨어 업데이트는 _FirstOrderUpdate_ 폴더에 복사되어야 하고, 다른 정기적인 업데이트는 모두 _SecondOrderUpdate_ 폴더에 복사되고, 유지 관리 모드 업데이트는 _ThirdOrderUpdate_ 폴더에 복사되어야 합니다.
+> 핫픽스는 3개의 별도 폴더에 복사해야 합니다. 예를 들어, 장치 소프트웨어 업데이트는 _FirstOrderUpdate_ 폴더에 복사할 수 있으며, 다른 정기적인 업데이트는 모두 _SecondOrderUpdate_ 폴더에 복사되고, 유지 관리 모드 업데이트는 _ThirdOrderUpdate_ 폴더에 복사할 수 있습니다.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>일반 모드 핫픽스를 설치 및 확인하려면
 
@@ -40,11 +40,11 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
     메시지가 표시되면 암호를 제공합니다.
    
-    첫 번째 주문 업데이트를 설치하기 위한 샘플 출력은 다음과 같습니다.
+    첫 번째 주문 업데이트를 설치하기 위한 샘플 출력은 다음과 같습니다. 첫 번째 주문 업데이트의 경우 특정 파일을 가리키도록 해야 합니다.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -96,7 +96,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     > [!IMPORTANT]
     > 나머지 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.
      
-7. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. `Start-HcsHotfix cmdlet`을 실행하고 두 번째 주문 업데이트가 있는 폴더를 가리키면 여러 업데이트를 설치할 수 있습니다. 이 cmdlet은 폴더에서 사용할 수 있는 모든 업데이트를 실행합니다. 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 핫픽스를 모두 설치한 후 `Get-HcsSystem` cmdlet을 사용합니다. 버전은 다음과 같아야 합니다.
+7. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. **두 번째 주문 업데이트의 경우 `Start-HcsHotfix cmdlet`을 실행하고 두 번째 주문 업데이트가 있는 폴더를 가리키면 여러 업데이트를 설치할 수 있습니다. 이 cmdlet은 폴더에서 사용할 수 있는 모든 업데이트를 실행합니다.** 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 핫픽스를 모두 설치한 후 `Get-HcsSystem` cmdlet을 사용합니다. 버전은 다음과 같아야 합니다.
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -247,9 +247,4 @@ KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
    `Exit-HcsMaintenanceMode`
 
 5. 유지 관리 모드를 종료하면 컨트롤러가 다시 시작됩니다. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 Azure 클래식 포털로 돌아갑니다. 유지 관리 모드 업데이트가 설치되었는지 24시간 동안 포털에 표시되지 않을 수도 있습니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

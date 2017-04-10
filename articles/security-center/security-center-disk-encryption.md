@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -142,10 +142,10 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 
 ![PowerShell 출력](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-두 가지 방법으로 가상 컴퓨터를 암호화하는 암호화 명령을 실행할 수 있습니다. 첫 번째 방법은 PowerShell ISE 콘솔에서 다음 명령을 입력하는 것입니다.
+두 가지 방법으로 가상 컴퓨터의 모든 드라이브를 암호화하는 암호화 명령을 실행할 수 있습니다. 첫 번째 방법은 PowerShell ISE 콘솔에서 다음 명령을 입력하는 것입니다.
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 이 명령 키를 입력한 후에 **ENTER**키를 누릅니다.

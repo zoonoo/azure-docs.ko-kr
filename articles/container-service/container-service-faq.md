@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a70b82770a13231ee59ac768deb45b232f95687d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/18/2017
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Azure Container Service에 권장되는 특정 오케스트레이터가 있나요? 
 일반적으로 특정 오케스트레이터가 권장되지는 않습니다. 지원되는 오케스트레이터 중 하나에 경험이 있다면 그러한 경험을 Azure Container Service에 적용할 수 있습니다. 하지만 데이터 경향에 따르면 DC/OS는 빅 데이터 및 IoT 워크로드에 대해 성능이 입증되었고 Kubernetes는 클라우드 네이티브 워크로드에 적합하며 Docker Swarm은 Docker 도구와의 통합 및 학습이 쉬운 것으로 알려져 있습니다.
 
-시나리오에 따라 다른 Azure 서비스를 사용하여 사용자 지정 컨테이너 솔루션을 구축하고 관리할 수도 있습니다. 이러한 서비스에는 [Virtual Machines](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) 및 [Batch](../batch/batch-technical-overview.md)가 있습니다.  
+시나리오에 따라 다른 Azure 서비스를 사용하여 사용자 지정 컨테이너 솔루션을 구축하고 관리할 수도 있습니다. 이러한 서비스에는 [Virtual Machines](../virtual-machines/linux/overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) 및 [Batch](../batch/batch-technical-overview.md)가 있습니다.  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Azure Container Service와 ACS Engine의 차이는 무엇인가요? 
 Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의 기능이 포함된 SLA 기반 Azure 서비스입니다. 이 서비스를 사용하면 비교적 적은 수의 구성 옵션을 통해 표준 컨테이너 오케스트레이션 도구를 실행하는 클러스터를 신속하게 구현하고 관리할 수 있습니다. 
@@ -55,7 +55,7 @@ Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>클러스터의 SSH 키는 어떻게 만드나요?
 
-클러스터의 Linux 가상 컴퓨터에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 개인 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) 지침을 참조하세요. 
+클러스터의 Linux 가상 컴퓨터에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 개인 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
 
 [Azure CLI 2.0 명령](container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
 
@@ -66,6 +66,12 @@ Azure Container Service에서 Kubernetes 클러스터를 만들려면 Azure Acti
 
 [Azure CLI 2.0 명령](container-service-create-acs-cluster-cli.md)을 사용하여 Kubernetes 클러스터를 배포하는 경우 서비스 주체 자격 증명이 클러스터에 대해 자동으로 생성될 수 있습니다.
 
+### <a name="how-large-a-cluster-can-i-create"></a>얼마나 큰 클러스터를 만들 수 있나요?
+1, 3 또는 5개의 마스터 노드가 있는 클러스터를 만들 수 있습니다. 최대 100개의 에이전트 노드를 선택할 수 있습니다.
+
+> [!IMPORTANT]
+> 대규모 클러스터 및 노드에 선택한 VM 크기에 따라 구독에서 코어 할당량을 늘려야 합니다. 할당량 증가를 요청하려면 추가 비용 없이 [온라인 고객 지원 요청](../azure-supportability/how-to-create-azure-support-request.md)을 개설합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
+> 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>클러스터를 만든 후 마스터 수는 어떻게 늘리나요? 
 클러스터를 만들고 나면 마스터 수가 고정되어 변경할 수 없습니다. 클러스터를 만드는 동안 고가용성을 위해 다수의 마스터를 적당히 선택해야 합니다.

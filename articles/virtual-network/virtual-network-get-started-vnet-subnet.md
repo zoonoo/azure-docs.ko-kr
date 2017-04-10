@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure 가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 나
 
 두 개의 서브넷이 있는 가상 네트워크를 만들려면 다음 단계를 완료합니다. 일반적으로 서브넷 간의 트래픽 흐름을 제어하기 위해 다른 서브넷이 사용됩니다.
 
-1. [Azure 포털](<https://portal.azure.com>)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다. 
+1. [Azure 포털](<https://portal.azure.com>)에 로그인합니다. 아직 계정이 없는 경우 [1개월 평가판](https://azure.microsoft.com/free)을 등록할 수 있습니다. 
 2. 포털의 **즐겨찾기** 창에서 **새로 만들기**를 클릭합니다.
 3. **새로 만들기** 블레이드에서 **네트워킹**을 클릭합니다. 다음 그림과 같이 **네트워킹** 블레이드에서 **Virtual Network**를 클릭합니다.
 
@@ -101,7 +101,7 @@ VNet과 서브넷이 만들어진 상태에서 VM을 만듭니다. Azure에서 �
     |**리소스 그룹**|**기존 값 사용:** *MyRG* 선택|VNet에 사용했던 리소스 그룹과 동일한 리소스 그룹을 사용하지만 리소스가 동일한 리소스 그룹에 존재하지 않아도 됩니다.|
     |**위치**:|*미국 서부*|위치는 이 문서에서 [두 개의 서브넷이 있는 가상 네트워크 만들기](#create-vnet) 섹션의 5단계에서 지정한 위치와 동일해야 합니다. VM 및 VM이 연결되는 VNet은 동일한 위치에 존재해야 합니다.|
 
-4. **크기 선택** 블레이드에서 *DS1_V2 기본*, **선택**을 차례로 클릭합니다. Azure에서 지원되는 모든 Windows VM 크기 목록은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요.
+4. **크기 선택** 블레이드에서 *DS1_V2 기본*, **선택**을 차례로 클릭합니다. Azure에서 지원되는 모든 Windows VM 크기 목록은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요.
 5. **설정** 블레이드에서 다음 값을 입력하거나 선택하고 **확인**을 클릭합니다.
 
     |**설정**|**값**|**세부 정보**|
@@ -111,7 +111,7 @@ VNet과 서브넷이 만들어진 상태에서 VM을 만듭니다. Azure에서 �
     |**서브넷**|*프런트 엔드* 선택|VNet 내에 존재하는 서브넷이면 무엇이든 선택할 수 있습니다.|
     |**공용 IP 주소**|기본값 적용|공용 IP 주소를 사용하면 인터넷에서 VM에 연결할 수 있습니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.|
     |**네트워크 보안 그룹(방화벽)**|기본값 적용|포털에서 만들어진 **(새)MyWebServer-nsg** 기본 NSG를 클릭하여 해당 설정을 봅니다. **네트워크 보안 그룹 만들기** 블레이드가 열리면 원본 IP 주소에서 들어오는 TCP/3389(RDP) 트래픽을 허용하는 인바운드 규칙이 하나 있는 것을 확인합니다.|
-    |**다른 모든 값**|기본값 적용|나머지 설정에 대해 자세히 알아보려면 [VM 정보](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요.|
+    |**다른 모든 값**|기본값 적용|나머지 설정에 대해 자세히 알아보려면 [VM 정보](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요.|
 
     NSG(네트워크 보안 그룹)를 사용하면 VM에서 양방향으로 흐를 수 있는 네트워크 트래픽 유형에 대해 인바운드/아웃바운드 규칙을 만들 수 있습니다. 기본적으로 VM에 대한 모든 인바운드 트래픽은 거부됩니다. 프로덕션 웹 서버에 대해 TCP/80(HTTP) 및 TCP/443(HTTPS)에 대한 추가 인바운드 규칙을 추가할 수 있습니다. 기본적으로 모든 아웃바운드 트래픽은 허용되기 때문에 아웃바운드 트래픽에 대한 규칙은 없습니다. 규칙을 추가/제거하여 정책에 따라 트래픽을 제어할 수 있습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요.
 
@@ -160,7 +160,7 @@ VNet 하나와 VM 둘을 만들었지만 Azure Portal은 MyRG 리소스 그룹�
 
     ![리소스 그룹 콘텐츠](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-VM, 디스크 및 저장소 계정에 대해 자세히 알아보려면 [가상 컴퓨터](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [디스크](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [저장소 계정](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 개요 문서를 참조하세요. 두 개의 기본 NSG가 포털에서 만들어진 것을 볼 수 있습니다. 포털에 두 개의 NIC(네트워크 인터페이스) 리소스가 만들어진 것도 볼 수 있습니다. NIC는 VM이 VNet을 통해 다른 리소스에 연결할 수 있도록 합니다. NIC에 대해 자세히 알아보려면 [NIC](virtual-network-network-interface.md) 문서를 참조하세요. 포털에 공용 IP 주소 리소스도 하나 생성되었습니다. 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
+VM, 디스크 및 저장소 계정에 대해 자세히 알아보려면 [가상 컴퓨터](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [디스크](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [저장소 계정](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 개요 문서를 참조하세요. 두 개의 기본 NSG가 포털에서 만들어진 것을 볼 수 있습니다. 포털에 두 개의 NIC(네트워크 인터페이스) 리소스가 만들어진 것도 볼 수 있습니다. NIC는 VM이 VNet을 통해 다른 리소스에 연결할 수 있도록 합니다. NIC에 대해 자세히 알아보려면 [NIC](virtual-network-network-interface.md) 문서를 참조하세요. 포털에 공용 IP 주소 리소스도 하나 생성되었습니다. 공용 IP 주소는 공용 IP 주소 리소스에 대한 한 가지 설정입니다. 공용 IP 주소에 대해 자세히 알아보려면 [IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
 
 ## <a name="connect-to-from-vms"></a>VM에 연결
 
@@ -252,5 +252,5 @@ VM의 모든 아웃바운드 연결이 기본적으로 허용되기 때문에 VM
 - [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [네트워크 인터페이스](virtual-network-network-interface.md)
 - [네트워크 보안 그룹](virtual-networks-nsg.md)
-- [가상 컴퓨터](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [가상 컴퓨터](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

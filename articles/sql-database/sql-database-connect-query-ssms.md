@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리
 
-SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 사용하여 사용자 인터페이스 또는 스크립트에서 SQL Server 리소스를 만들고 관리합니다. 이 가이드는 SSMS를 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
+SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 사용하여 사용자 인터페이스 또는 스크립트에서 SQL Server 리소스를 만들고 관리합니다. 이 빠른 시작은 SSMS를 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
 
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
@@ -45,11 +45,11 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>서버에 연결
+## <a name="connect-to-the-server-and-your-new-database"></a>서버와 새 데이터베이스에 연결
 
 SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결합니다.
 
-1. Windows 검색 상자에서 **SSMS**를 입력하고 **Enter** 키를 클릭하여 SSMS를 엽니다.
+1. SQL Server Management Studio를 엽니다.
 
 2. **서버에 연결** 대화 상자에서 다음 정보를 입력합니다.
    - **서버 유형**: 데이터베이스 엔진을 지정합니다.

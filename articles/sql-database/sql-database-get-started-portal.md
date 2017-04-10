@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 만들기
 
 이 빠른 시작 자습서는 Azure에서 SQL Database를 만드는 방법을 설명합니다.  Azure SQL Database는 클라우드에서 항상 사용 가능한 SQL Server Database를 실행하고 크기를 조정할 수 있는 “Database-as-a-Service” 제품입니다.  이 빠른 시작에서는 Azure Portal을 사용하여 새 SQL Database를 만들어서 시작하는 방법을 보여 줍니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
 
@@ -43,10 +45,10 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. 위의 이미지에 표시된 대로 다음과 같은 정보를 사용하여 SQL Database 형식을 작성합니다. 
-   - 데이터베이스 이름: **mySampleDatabase** 사용
-   - 리소스 그룹: **myResourceGroup** 사용
-   - 원본: **샘플(AdventureWorksLT)**을 선택합니다.
+3. 위의 이미지에 표시된 대로 다음과 같은 정보를 사용하여 SQL Database 형식을 작성합니다.     
+   - 데이터베이스 이름: **mySampleDatabase**
+   - 리소스 그룹: **myResourceGroup**
+   - 원본: **샘플(AdventureWorksLT)**
 
 4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 전역적으로 고유한 서버 이름을 지정하는 **새 서버 형식**을 채우고 서버 관리자 로그인에 이름을 제공한 다음 사용자가 선택한 암호를 지정합니다. 
 
@@ -82,7 +84,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 4. **확인**을 클릭한 후 **X**를 클릭하여 **방화벽 설정** 페이지를 닫습니다.
 
-이제 SQL Server Management Studio 또는 선택한 다른 도구를 사용하여 데이터베이스와 해당 서버에 연결할 수 있습니다.
+이제 SQL Server Management Studio 또는 이전에 만든 서버 관리자 계정을 사용하여 이 IP 주소에서 원하는 다른 도구를 사용하여 데이터베이스 및 해당 서버에 연결할 수 있습니다.
 
 ## <a name="query-the-sql-database"></a>SQL Database 쿼리
 
@@ -103,7 +105,7 @@ SQL Database를 만들 경우 **AdventureWorksLT** 샘플 데이터베이스를 
 5. 인증된 후에 쿼리 편집기 창에서 다음 쿼리를 입력합니다.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

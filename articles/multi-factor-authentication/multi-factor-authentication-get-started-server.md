@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -119,24 +119,24 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Enterprise Cloud Suite 라이
 ![클라우드](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## <a name="send-users-an-email"></a>사용자에게 전자 메일 보내기
-사용자를 MFA 서버에 가져왔으니,&2;단계 인증에 등록되었음을 알리는 전자 메일을 보냅니다.
+사용자를 MFA 서버에 가져왔으니, 2단계 인증에 등록되었음을 알리는 전자 메일을 보냅니다.
 
-전자 메일을 보내는 작업은&2;단계 인증에 사용자를 구성하는 방법으로 결정되어야 합니다. 예를 들어, 회사 디렉터리에서 전화 번호를 가져올 수 있었다면 사용자가 예상하는 것을 알 수 있도록 전자 메일에 기본 전화 번호가 포함되어 있습니다. 전화 번호를 가져오지 않았거나 사용자가 모바일 앱을 사용하려는 경우 하이퍼링크를 통해 Azure Multi-Factor Authentication 사용자 포털에 계정 등록을 완료하도록 안내하는 이메일을 보냅니다.
+전자 메일을 보내는 작업은 2단계 인증에 사용자를 구성하는 방법으로 결정되어야 합니다. 예를 들어, 회사 디렉터리에서 전화 번호를 가져올 수 있었다면 사용자가 예상하는 것을 알 수 있도록 전자 메일에 기본 전화 번호가 포함되어 있습니다. 전화 번호를 가져오지 않았거나 사용자가 모바일 앱을 사용하려는 경우 해당 계정 등록을 완료하도록 안내하는 이메일을 보냅니다. 전자 메일에 Azure Multi-factor Authentication 사용자 포털에 대한 하이퍼링크를 포함합니다.
 
 또한 전자 메일의 내용은 사용자에 대해 설정된 인증 방법(전화 통화, SMS, 모바일 앱)에 따라 달라집니다.  예를 들어 사용자가 인증할 때 PIN을 사용해야 하는 경우 전자 메일은 초기 PIN 설정 내용을 알려줍니다.  사용자는 처음 인증할 때 PIN을 변경해야 합니다.
 
 
 ### <a name="configure-email-and-email-templates"></a>전자 메일 및 전자 메일 템플릿 구성
-왼쪽에 있는 전자 메일 아이콘을 클릭하여 이 전자 메일 보내기에 대한 설정을 설정합니다. 여기서 메일 서버의 SMTP 정보를 입력할 수 있으며 **전자 메일을 사용자에게 보내기** 확인란을 선택하여 메일을 보낼 수 있습니다.
+왼쪽에 있는 전자 메일 아이콘을 클릭하여 이 전자 메일 보내기에 대한 설정을 설정합니다. 이 페이지에서는 메일 서버의 SMTP 정보를 입력할 수 있으며 **전자 메일을 사용자에게 보내기** 확인란을 선택하여 전자 메일을 보낼 수 있습니다.
 
 ![메일 설정](./media/multi-factor-authentication-get-started-server/email1.png)
 
-전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가&2;단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
+전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가 2단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
 
 ![메일 템플릿](./media/multi-factor-authentication-get-started-server/email2.png)
 
 ## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Azure Multi-Factor Authentication 서버에서 사용자 데이터를 처리하는 방법
-MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용자의 데이터가 온-프레미스 서버에 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가&2;단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
+MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용자의 데이터가 온-프레미스 서버에 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하면 MFA 서버가 인증을 수행할 Azure MFA 클라우드 서비스에 데이터를 보냅니다. 이러한 인증 요청이 클라우드 서비스에 전송되면 다음 필드가 요청 및 로그에 전송되어 고객의 인증/사용 보고서에서 사용할 수 있게 됩니다. 일부 필드는 선택 사항이므로 Multi-Factor Authentication 서버 내에서 사용하거나 사용하지 않도록 설정할 수 있습니다. MFA 서버에서 MFA 클라우드 서비스로의 통신은 포트 443 아웃바운드를 통해 연결된 SSL/TLS를 사용합니다. 이러한 필드는 다음과 같습니다.
 
 * 고유 ID - 사용자 이름 또는 내부 MFA 서버 ID 
 * 이름과 성(선택 사항)
@@ -155,11 +155,7 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 
 - 사용자 셀프 서비스를 위해 [사용자 포털](multi-factor-authentication-get-started-portal.md)을 설정 및 구성합니다.
 
-- [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)를 사용하여 Azure Multi-Factor Authentication 설정
-
-- [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md)을 사용하여 Azure MFA Server 설정 및 구성 RADIUS를 사용하면 Azure MFA 서버와 다양한 타사 시스템을 통합할 수 있습니다. 
-
-- [Windows 인증](multi-factor-authentication-get-started-server-windows.md)을 사용하여 Azure MFA Server를 설정 및 구성합니다.
+- [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md) 또는 [LDAP 인증](multi-factor-authentication-get-started-server-ldap.md)을 사용하여 Azure MFA 서버를 설정하고 구성합니다.
 
 - [RADIUS를 사용하여 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)를 설정 및 구성합니다. 
 
