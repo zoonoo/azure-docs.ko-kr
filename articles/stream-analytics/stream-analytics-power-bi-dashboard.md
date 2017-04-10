@@ -130,19 +130,19 @@ Power BI 데이터 집합에 대한 자세한 내용은 [Power BI REST API](http
 
 이 자습서에서는 데이터 집합에 대해 한 종류의 차트를 만드는 방법을 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
 
-Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)의 [Stream Analytics 출력 이해]와 (stream-analytics-define-outputs.md "Stream Analytics 출력 이해")를 검토하세요. [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)는 또 하나의 유용한 리소스입니다.
+Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)의 [Stream Analytics 출력 이해](stream-analytics-define-outputs.md "Stream Analytics 출력 이해")를 검토하세요. [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)는 또 하나의 유용한 리소스입니다.
 
 ## <a name="learn-about-limitations-and-best-practices"></a>제한 사항 및 모범 사례에 대해 알아보기
 Power BI는 [Power BI](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")에 설명된 바와 같이 동시성과 처리량 제약 조건을 모두 사용합니다.
 
-현재는 대략&1;초당 한 번 Power BI를 호출할 수 있습니다. 스트리밍 시각적 개체는 15KB의 패킷을 지원합니다. 이보다 크면 스트리밍 시각적 개체가 실패합니다(푸시는 계속 작동).
+현재는 대략 1초당 한 번 Power BI를 호출할 수 있습니다. 스트리밍 시각적 개체는 15KB의 패킷을 지원합니다. 이보다 크면 스트리밍 시각적 개체가 실패합니다(푸시는 계속 작동).
 
 이러한 제한 사항 때문에 Power BI는 Azure Stream Analytics가 데이터 부하를 상당히 줄이는 경우에 가장 적합합니다.
 연속 창 또는 도약 창을 사용하여 데이터 푸시가 최대 초당 한번의 푸시를 수행하고 쿼리가 처리량 요구 사항 범위 내에 있도록 하는 것이 좋습니다.
 
 다음 수식을 사용하여 값을 초 단위로 계산하여 창에 제공할 수 있습니다.
 
-![수식&1;](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
 예:
 - 1,000대의 장치가 1초 간격으로 데이터를 보내고 있습니다.
@@ -151,7 +151,7 @@ Power BI는 [Power BI](https://powerbi.microsoft.com/pricing "Power BI 가격 �
 
 그 결과, 수식은 다음과 같습니다.
 
-![수식&2;](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
 이는 원래 쿼리를 다음과 같이 변경할 수 있다는 의미합니다.
 
@@ -170,7 +170,7 @@ Power BI는 [Power BI](https://powerbi.microsoft.com/pricing "Power BI 가격 �
 
 
 ### <a name="renew-authorization"></a>권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure Multi-Factor Authentication가 Azure Active Directory(Azure AD) 테넌트에서 구성된 경우&2;주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 "인증 사용자 오류"와 같은 증상을 볼 수 있습니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure Multi-Factor Authentication가 Azure Active Directory(Azure AD) 테넌트에서 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 "인증 사용자 오류"와 같은 증상을 볼 수 있습니다.
 
 마찬가지로 토큰이 만료된 후 작업이 시작되려고 하는 경우 오류가 발생하고 작업이 실패합니다. 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. 데이터 손실을 방지하기 위해 **권한 부여 갱신** 링크를 클릭한 다음 **마지막 중지 시간**부터 작업을 다시 시작합니다.
 

@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -83,9 +83,10 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 ![Application Insights 포털을 여는 방법을 보여주는 Visual Studio 스크린샷](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> 액세스 오류가 발생하는 경우 둘 이상의 Microsoft 자격 증명 집합이 있을 수 있으며 이 중 잘못된 자격 증명으로 로그인되어 있을 수 있습니다. 포털에서 로그아웃하고 다시 로그인하세요.
+> 액세스 오류가 발생하는 경우: 둘 이상의 Microsoft 자격 증명 집합이 있습니까, 그리고 잘못된 자격 증명으로 로그인했습니까? 포털에서 로그아웃하고 다시 로그인하세요.
 
 포털은 앱에서 원격 분석의 보기를 엽니다.
+
 ![Application Insights 개요 페이지 스크린샷](./media/app-insights-asp-net/66.png)
 
 자세한 정보를 확인하려면 원하는 타일 또는 차트를 클릭합니다.
@@ -99,7 +100,7 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 
     앱이 실행되는 동시에 라이브 메트릭 스트림을 열어 연결을 허용합니다.
 
-    라이브 메트릭 스트림은 전송된 후&1;분 동안의 원격 분석만 표시합니다. 자세한 기록 조사를 수행하려면 [검색], [메트릭 탐색기] 및 [분석]을 사용합니다. 이러한 위치에 데이터가 표시되려면 몇 분 정도 걸릴 수 있습니다.
+    라이브 메트릭 스트림은 전송된 후 1분 동안의 원격 분석만 표시합니다. 자세한 기록 조사를 수행하려면 [검색], [메트릭 탐색기] 및 [분석]을 사용합니다. 이러한 위치에 데이터가 표시되려면 몇 분 정도 걸릴 수 있습니다.
 
 * [**검색**](app-insights-diagnostic-search.md)에는 요청, 예외 및 페이지 보기와 같은 개별 이벤트가 표시됩니다. 이벤트 유형, 용어 일치 및 속성 값을 기준으로 필터링할 수 있습니다. 이벤트를 클릭하여 속성 및 관련 이벤트를 확인합니다.
 

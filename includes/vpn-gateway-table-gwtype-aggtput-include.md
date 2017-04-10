@@ -4,7 +4,7 @@ UltraPerformance 게이트웨이 SKU는 이 테이블에 표시되지 않습니�
 
 |  | **VPN 게이트웨이 처리량(1)** | **VPN 게이트웨이 최대 IPsec 터널(2)** | **Express 경로 게이트웨이 처리량** | **VPN 게이트웨이 및 Express 경로 공존** |
 | --- | --- | --- | --- | --- |
-| **기본 SKU(3)(5)** |100Mbps |10 |500Mbps |아니요 |
+| **기본 SKU(3)(5)(6)** |100Mbps |10 |500Mbps(6) |아니요 |
 | **표준 SKU(4)(5)** |100Mbps |10 |1000Mbps |예 |
 | **고성능 SKU(4)** |200Mbps |30 |2000Mbps |예 |
 
@@ -13,9 +13,4 @@ UltraPerformance 게이트웨이 SKU는 이 테이블에 표시되지 않습니�
 * (3) BGP는 기본 SKU에 지원되지 않습니다.
 * (4) 정책 기반 VPN은 이 SKU에 지원되지 않습니다. 기본 SKU에서만 지원됩니다.
 * (5) 이 SKU에 대한 활성-활성 S2S VPN Gateway 연결은 지원되지 않습니다. 활성-활성은 HighPerformance SKU에서만 지원됩니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) 기본 SKU는 ExpressRoute와 함께 사용되지 않습니다.

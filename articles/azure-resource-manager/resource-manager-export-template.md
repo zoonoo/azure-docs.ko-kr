@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: cee4748a0b24e11cd8a8ee46471418680fcf7b33
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -53,7 +53,7 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 3. 블레이드에 배포 요약이 표시됩니다. 요약에는 배포 상태와 해당 작업, 매개 변수에 입력한 값이 포함됩니다. 배포에 사용된 템플릿을 보려면 **템플릿 보기**를 선택합니다.
    
      ![배포 요약 보기](./media/resource-manager-export-template/deployment-summary.png)
-4. Resource Manager는 다음&6;개의 파일을 검색합니다.
+4. Resource Manager는 다음 7개의 파일을 검색합니다.
    
    1. **템플릿** - 솔루션의 인프라를 정의하는 템플릿입니다. 포털을 통해 저장소 계정을 만들 때 Resource Manager는 템플릿을 사용하여 배포하고 나중에 참조할 수 있도록 해당 템플릿을 저장했습니다.
    2. **매개 변수** - 배포하는 동안 값을 전달하는 데 사용할 수 있는 매개 변수 파일. 여기에는 첫 번째 배포 중 입력한 값이 포함되어 있지만 템플릿을 다시 배포할 때 이러한 값을 변경할 수 있습니다.
@@ -146,30 +146,30 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
       ![리소스 그룹 내보내기](./media/resource-manager-export-template/export-resource-group.png)
    
      모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 리소스 그룹에 이 문서에 표시된 저장소 계정 및 가상 네트워크만이 있는 경우 오류가 표시되지 않습니다. 그러나 다른 리소스 종류를 만든 경우 내보내기에 문제가 있다는 오류가 표시될 수 있습니다. [내보내기 문제 수정](#fix-export-issues) 섹션에서 이러한 문제를 처리하는 방법을 알아봅니다.
-2. 이 경우에도 솔루션을 재배포하는 데 사용할 수 있는&6;개의 파일이 표시되지만 템플릿이 약간 다릅니다. 이 템플릿에는 저장소 계정 이름용 및 가상 네트워크 이름용 등&2;개의 매개 변수만이 있습니다.
+2. 이 경우에도 솔루션을 재배포하는 데 사용할 수 있는 6개의 파일이 표시되지만 템플릿이 약간 다릅니다. 이 템플릿에는 저장소 계정 이름용 및 가상 네트워크 이름용 등 2개의 매개 변수만이 있습니다.
 
-  ```json
-  "parameters": {
-    "virtualNetworks_VNET_name": {
-      "defaultValue": "VNET",
-      "type": "String"
-    },
-    "storageAccounts_storagetf05092016_name": {
-      "defaultValue": "storagetf05092016",
-      "type": "String"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "virtualNetworks_VNET_name": {
+       "defaultValue": "VNET",
+       "type": "String"
+     },
+     "storageAccounts_storagetf05092016_name": {
+       "defaultValue": "storagetf05092016",
+       "type": "String"
+     }
+   },
+   ```
    
-     Resource Manager는 배포 중 사용된 템플릿을 검색하지 않았습니다. 대신 현재 리소스 구성을 기준으로 새 템플릿을 생성했습니다. 예를 들어 템플릿은 저장소 계정 위치와 복제 값은 다음으로 설정합니다.
+   Resource Manager는 배포 중 사용된 템플릿을 검색하지 않았습니다. 대신 현재 리소스 구성을 기준으로 새 템플릿을 생성했습니다. 예를 들어 템플릿은 저장소 계정 위치와 복제 값은 다음으로 설정합니다.
 
-  ```json 
-  "location": "northeurope",
-  "tags": {},
-  "properties": {
-    "accountType": "Standard_RAGRS"
-  },
-  ```
+   ```json 
+   "location": "northeurope",
+   "tags": {},
+   "properties": {
+     "accountType": "Standard_RAGRS"
+   },
+   ```
 3. 이 템플릿을 사용하여 계속해서 작업하기 위한 두 가지 옵션이 있습니다. 템플릿을 다운로드하고 JSON 편집기를 사용하여 로컬에서 작업할 수 있습니다. 또는 템플릿을 라이브러리에 저장하고 포털을 통해 작업할 수 있습니다.
    
      [VS Code](resource-manager-vs-code.md) 또는 [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)와 같은 JSON 편집기 사용에 익숙한 경우 템플릿을 로컬로 다운로드하고 해당 편집기를 사용하는 것을 선호할 수 있습니다. JSON 편집기를 설정하지 않은 경우 포털을 통해 템플릿을 편집하는 것을 선호할 수 있습니다. 이 항목의 나머지 부분에서는 템플릿을 포털의 라이브러리에 저장했다고 가정합니다. 그러나 JSON 편집기로 로컬에서 작업하든지 포털을 통해 작업하든지 템플릿에 동일한 구문 변경 내용을 만듭니다.
@@ -205,88 +205,88 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
      ![템플릿 편집](./media/resource-manager-export-template/edit-template.png)
 3. 배포 중에 지정하려는 값을 전달할 수 있도록 하려면 **매개 변수** 섹션을 새 매개 변수 정의로 바꿉니다. **storageAccount_accountType**에 대한 **allowedValues** 값을 확인합니다. 실수로 잘못된 값을 입력한 경우 해당 오류는 배포가 시작되기 전에 인식됩니다. 또한 저장소 계정 이름의 접두사만 입력해야 하며 접두사는 11자로 제한됩니다. 접두사를 11자로 제한하면 전체 이름이 저장소 계정의 최대 문자 수를 초과하지 않습니다. 접두사를 사용하면 저장소 계정에 대한 명명 규칙을 적용할 수 있습니다. 다음 단계에서 고유한 이름을 만드는 방법을 확인할 수 있습니다.
 
-  ```json
-  "parameters": {
-    "storageAccount_prefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccount_accountType": {
-      "defaultValue": "Standard_RAGRS",
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    },
-    "virtualNetwork_name": {
-      "type": "string"
-    },
-    "addressPrefix": {
-      "defaultValue": "10.0.0.0/16",
-      "type": "string"
-    },
-    "subnetName": {
-      "defaultValue": "subnet-1",
-      "type": "string"
-    },
-    "subnetAddressPrefix": {
-      "defaultValue": "10.0.0.0/24",
-      "type": "string"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageAccount_prefix": {
+       "type": "string",
+       "maxLength": 11
+     },
+     "storageAccount_accountType": {
+       "defaultValue": "Standard_RAGRS",
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ]
+     },
+     "virtualNetwork_name": {
+       "type": "string"
+     },
+     "addressPrefix": {
+       "defaultValue": "10.0.0.0/16",
+       "type": "string"
+     },
+     "subnetName": {
+       "defaultValue": "subnet-1",
+       "type": "string"
+     },
+     "subnetAddressPrefix": {
+       "defaultValue": "10.0.0.0/24",
+       "type": "string"
+     }
+   },
+   ```
 
 4. 현재 템플릿의 **변수** 섹션이 비어 있습니다. **변수** 섹션에서는 나머지 템플릿의 구문을 간소화하는 값을 만듭니다. 이 섹션을 새 변수 정의로 바꿉니다. **storageAccount_name** 변수는 매개 변수의 접두사를 리소스 그룹 식별자를 기준으로 생성되는 고유 문자열로 자릅니다. 매개 변수 값을 제공하는 경우 고유 이름을 추측할 필요가 없습니다.
 
-  ```json
-  "variables": {
-    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 5. 리소스 정의의 매개 변수와 변수를 사용하려면 **리소스** 섹션을 새 리소스 정의로 바꿉니다. 리소스 속성에 할당된 값을 제외하고 리소스 정의에서 변경된 사항은 거의 없습니다. 속성은 내보낸 템플릿의 속성과 동일합니다. 하드 코드된 값 대신 매개 변수 값에 속성을 할당하기만 하면 됩니다. 리소스 위치는 **resourceGroup().location** 식을 통한 리소스 그룹과 동일한 위치를 사용하도록 설정됩니다. 저장소 계정 이름에 대해 만든 변수는 **변수** 식을 통해 참조됩니다.
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetwork_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetAddressPrefix')]"
-            }
-          }
-        ]
-      },
-      "dependsOn": []
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccount_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "accountType": "[parameters('storageAccount_accountType')]"
-      },
-      "dependsOn": []
-    }
-  ]
-  ```
+   ```json
+   "resources": [
+     {
+       "type": "Microsoft.Network/virtualNetworks",
+       "name": "[parameters('virtualNetwork_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "addressSpace": {
+           "addressPrefixes": [
+             "[parameters('addressPrefix')]"
+           ]
+         },
+         "subnets": [
+           {
+             "name": "[parameters('subnetName')]",
+             "properties": {
+               "addressPrefix": "[parameters('subnetAddressPrefix')]"
+             }
+           }
+         ]
+       },
+       "dependsOn": []
+     },
+     {
+       "type": "Microsoft.Storage/storageAccounts",
+       "name": "[variables('storageAccount_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "tags": {},
+       "properties": {
+         "accountType": "[parameters('storageAccount_accountType')]"
+       },
+       "dependsOn": []
+     }
+   ]
+   ```
 
 6. 템플릿 편집을 마친 경우 **확인**을 선택합니다.
 7. **저장**를 선택하여 변경 내용을 템플릿에 저장합니다.
@@ -393,7 +393,7 @@ parameters.json 파일의 내용을 아래 코드로 바꿉니다.
 ```
 
 ### <a name="virtual-machine-extension"></a>가상 컴퓨터 확장
-가상 컴퓨터 확장의 예는 [Azure Windows VM 확장 구성 샘플](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+가상 컴퓨터 확장의 예는 [Azure Windows VM 확장 구성 샘플](../virtual-machines/windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ### <a name="virtual-network-gateway"></a>가상 네트워크 게이트웨이
 가상 네트워크 게이트웨이 리소스 종류를 추가합니다.

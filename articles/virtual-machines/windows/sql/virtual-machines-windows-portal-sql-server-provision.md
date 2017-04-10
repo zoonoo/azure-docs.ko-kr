@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 1. 사용자 계정을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
    
    > [!NOTE]
-   > Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
+   > Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
    > 
    > 
 2. Azure 포털에서 **새로 만들기**를 클릭합니다. 포털에 **새** 블레이드가 열립니다. SQL Server VM 리소스는 Marketplace의 **계산** 그룹에 있습니다.
@@ -68,7 +68,7 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
     ![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>VM 구성
-SQL Server 가상 컴퓨터를 구성하기 위한&5;개의 블레이드가 있습니다.
+SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있습니다.
 
 | 단계 | 설명 |
 | --- | --- |
@@ -97,14 +97,17 @@ SQL Server 가상 컴퓨터를 구성하기 위한&5;개의 블레이드가 있�
     ![SQL 기본 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. 가상 컴퓨터 크기 선택
-**크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다. VM 실행에 소요되는 월간 비용을 예측합니다.
+**크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다.
+
+> [!IMPORTANT]
+> **크기 선택** 블레이드에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows 가상 컴퓨터 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 
 
 ![SQL VM 크기 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 프로덕션 워크로드에는, [프리미엄 저장소](../../../storage/storage-premium-storage.md)를 지원하는 가상 컴퓨터 크기를 선택하는 것이 좋습니다. 그러한 수준의 성능이 필요하지 않으면, **모두 보기** 단추를 사용하여 모든 컴퓨터 크기 옵션을 표시합니다. 예를 들어, 개발 또는 테스트 환경을 위해 더 작은 컴퓨터 크기를 사용할 수 있습니다.
 
 > [!NOTE]
-> 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. SQL Server VM 크기에 대한 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
+> 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. SQL Server VM 크기에 대한 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 > 
 > 
 
@@ -123,7 +126,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한&5;개의 블레이드가 있�
 * **저장소 계정**아래에서 자동으로 프로비전된 저장소 계정 이름을 적용할 수 있습니다. 또한 **저장소 계정** 을 클릭하여 기존 계정을 선택하고 저장소 계정 유형을 구성할 수도 있습니다. 기본적으로 Azure에서는 로컬 중복 저장소로 새 저장소 계정을 만듭니다. 저장소 옵션에 대한 자세한 내용은 [Azure 저장소 복제](../../../storage/storage-redundancy.md)를 참조하세요.
 * **네트워크**아래에서 자동으로 채워진 값을 사용할 수 있습니다. 각 기능을 클릭하여 **가상 네트워크**, **서브넷**, **공용 IP 주소** 및 **네트워크 보안 그룹**을 수동으로 구성할 수도 있습니다. 이 자습서에서는 기본 값을 유지합니다.
 * Azure에서는 VM에 지정된 것과 동일한 저장소 계정을 통해 **모니터링** 이 기본적으로 사용됩니다. 여기에서 이러한 설정을 변경할 수 있습니다.
-* **가용성 집합**아래에서 가용성 집합을 지정합니다. 이 자습서에서는 **없음**을 선택할 수 있습니다. SQL AlwaysOn 가용성 그룹을 설정하려는 경우 가상 컴퓨터를 다시 만들지 않도록 가용성을 구성합니다.  자세한 내용은 [가상 컴퓨터의 가용성 관리](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* **가용성 집합**아래에서 가용성 집합을 지정합니다. 이 자습서에서는 **없음**을 선택할 수 있습니다. SQL AlwaysOn 가용성 그룹을 설정하려는 경우 가상 컴퓨터를 다시 만들지 않도록 가용성을 구성합니다.  자세한 내용은 [가상 컴퓨터의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 이러한 설정 구성을 완료한 후 **확인**을 클릭합니다.
 
