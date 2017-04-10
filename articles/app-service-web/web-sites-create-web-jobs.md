@@ -25,6 +25,8 @@ ms.lasthandoff: 03/01/2017
 ## <a name="overview"></a>개요
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱의 WebJobs에서 세 가지 방법, 즉 요청 시, 계속 실행 또는 일정에 따라 프로그램이나 스크립트를 실행할 수 있습니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
 
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
+
 이 문서에서는 [Azure 포털](https://portal.azure.com)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 
 Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)를 참조하세요.
