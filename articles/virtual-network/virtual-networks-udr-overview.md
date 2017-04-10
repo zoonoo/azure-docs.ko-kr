@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -57,7 +57,7 @@ Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 �
 | --- | --- | --- | --- |
 | 주소 접두사 |경로가 적용되는 대상 CIDR(예: 10.1.0.0/16)입니다. |공용 인터넷, Azure 가상 네트워크 또는 온-프레미스 데이터 센터에서 주소를 나타내는 유효한 CIDR 범위여야 합니다. |**주소 접두사**에 **다음 홉 주소**의 주소를 포함하지 않도록 하고, 그렇지 않고 포함된 경우에는 패킷이 대상에 도달하지 않고 원본에서 다음 홉으로 이동하는 루프에 입력됩니다. |
 | 다음 홉 유형 |패킷을 전송해야 하는 대상 Azure 홉의 유형입니다. |다음 값 중 하나여야 합니다. <br/> **Virtual Network**. 로컬 가상 네트워크를 나타냅니다. 예를 들어 10.1.0.0/16 및 10.2.0.0/16의 두 서브넷이 동일한 가상 네트워크에 있는 경우 경로 테이블에 있는 각 서브넷의 경로에는 다음 홉 값으로 *Virtual Network*가 포함됩니다. <br/> **Virtual Network 게이트웨이**. Azure S2S VPN 게이트웨이를 나타냅니다. <br/> **인터넷**. Azure 인프라에서 제공하는 기본 인터넷 게이트웨이를 나타냅니다. <br/> **가상 어플라이언스**. Azure 가상 네트워크에 추가한 가상 어플라이언스를 나타냅니다. <br/> **없음**. 블랙 홀을 나타냅니다. 블랙 홀로 전달된 패킷은 아무 곳에도 전달되지 않습니다. |VM 또는 Azure Load Balancer 내부 IP 주소에 트래픽을 보내는 데 **가상 어플라이언스**를 사용하는 것이 좋습니다.  이 형식은 아래에 설명된 대로 IP 주소의 사양을 허용합니다. **없음** 형식을 사용하여 흐름에서 주어진 대상에 패키지를 중지하는 것이 좋습니다. |
-| 다음 홉 주소 |다음 홉 주소에는 패킷을 전달해야 하는 IP 주소가 포함됩니다. 다음 홉 값은 다음 홉 유형이 *가상 어플라이언스*인 경로에서만 허용됩니다. |사용자 정의 경로가 적용되는 Virtual Network 내에서 연결할 수 있는 IP 주소여야 합니다. |IP 주소가 VM을 나타내는 경우 VM에 Azure의 [IP 전달](#IP-forwarding) 을 사용하도록 설정합니다. IP 주소가 Azure Load Balancer의 내부 IP 주소를 나타내는 경우 부하를 분산하려는 각 포트에 대해 일치하는 부하 분산 규칙이 있는지 확인합니다.|
+| 다음 홉 주소 |다음 홉 주소에는 패킷을 전달해야 하는 IP 주소가 포함됩니다. 다음 홉 값은 다음 홉 유형이 *가상 어플라이언스*인 경로에서만 허용됩니다. |**Virtual Network 게이트웨이**를 거치지 않고 사용자 정의 경로가 적용되는 Virtual Network 내에서 연결할 수 있는 IP 주소여야 합니다. IP 주소는 동일한 Virtual Network 또는 피어링된 Virtual Network 상에 있어야 합니다. |IP 주소가 VM을 나타내는 경우 VM에 Azure의 [IP 전달](#IP-forwarding) 을 사용하도록 설정합니다. IP 주소가 Azure Load Balancer의 내부 IP 주소를 나타내는 경우 부하를 분산하려는 각 포트에 대해 일치하는 부하 분산 규칙이 있는지 확인합니다.|
 
 Azure PowerShell에서 "NextHopType" 값의 일부에는 다른 이름이 지정되어 있습니다.
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 0fee02286f6d5dd4614a933590cdab43cc69237f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -72,14 +72,14 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
     ![레코드 집합 추가](./media/dns-getstarted-portal/addrecordset500.png)
 
 5. 만들려는 레코드 유형을 선택합니다. 이 예에서는 **A**를 선택합니다.
-6. **TTL**을 설정합니다. 라이브되는 기본 시간은&1;시간입니다.
+6. **TTL**을 설정합니다. 라이브되는 기본 시간은 1시간입니다.
 7. 레코드의 IP 주소를 추가합니다.
 8. 블레이드의 맨 아래에서 **확인**을 선택하여 DNS 레코드를 만듭니다.
 
 
 ## <a name="view-records"></a>레코드 보기
 
-DNS 영역 블레이드의 아래쪽에서 DNS 영역에 대한 레코드를 볼 수 있습니다. 모든 영역에 생성된 기본 NS 및 SOA 레코드와 사용자가 생성한 모든 새 레코드가 표시됩니다.
+DNS 영역 블레이드의 아래쪽에서 DNS 영역에 대한 레코드를 볼 수 있습니다. 모든 영역에 생성된 기본 DNS 및 SOA 레코드와 사용자가 생성한 모든 새 레코드가 표시됩니다.
 
 ![영역](./media/dns-getstarted-portal/viewzone500.png)
 

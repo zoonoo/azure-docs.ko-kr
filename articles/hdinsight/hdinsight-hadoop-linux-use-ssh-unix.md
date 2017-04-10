@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
@@ -30,16 +30,19 @@ ms.lasthandoff: 03/25/2017
 
 | 주소 | 포트 | 다음에 연결... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 에지 노드(존재하는 경우) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 에지 노드(HDInsight의 R Server) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 에지 노드(에지 노드가 있는 경우 다른 클러스터 형식) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 기본 헤드 노드 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 보조 헤드 노드 |
 
 > [!NOTE]
-> `<edgenodename>`을 에지 노드의 이름으로 바꿉니다. 에지 노드를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md#access-an-edge-node)을 참조하세요.
+> `<edgenodename>`을 에지 노드의 이름으로 바꿉니다.
 >
 > `<clustername>` 을 HDInsight 클러스터 이름으로 바꿉니다.
 >
 > 에지 노드가 있는 경우 __에지 노드에 항상 연결__하는 것이 좋습니다. 헤드 노드는 클러스터의 상태에 중요한 서비스를 호스트합니다. 에지 노드는 배치한 내용을 실행합니다.
+>
+> 에지 노드를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md#access-an-edge-node)을 참조하세요.
 
 ## <a name="ssh-clients"></a>SSH 클라이언트
 

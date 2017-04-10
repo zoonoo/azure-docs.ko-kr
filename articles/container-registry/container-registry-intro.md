@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>개인 Docker 컨테이너 레지스트리 소개
@@ -48,9 +48,7 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 
 
 ## <a name="key-concepts"></a>주요 개념
-* **레지스트리** - Azure 구독 내에서 하나 이상의 컨테이너 레지스트리를 만듭니다. 각 레지스트리는 같은 위치에 있는 표준 Azure [저장소 계정](../storage/storage-introduction.md)에 의해 지원됩니다. 컨테이너 이미지의 네트워크에 가까운 로컬 저장소의 장점을 활용하려면 배포와 동일한 Azure 위치에 레지스트리를 만듭니다.
-
-  레지스트리는 구독의 [Azure Active Directory 테넌트](../active-directory/active-directory-howto-tenant.md)를 기반으로 루트 도메인에 명명됩니다. 예를 들어 Contoso 도메인에 조직 계정이 있는 경우 정규화된 레지스트리 이름은 `myregistry-contoso.azurecr.io` 형식입니다.
+* **레지스트리** - Azure 구독 내에서 하나 이상의 컨테이너 레지스트리를 만듭니다. 각 레지스트리는 같은 위치에 있는 표준 Azure [저장소 계정](../storage/storage-introduction.md)에 의해 지원됩니다. 컨테이너 이미지의 네트워크에 가까운 로컬 저장소의 장점을 활용하려면 배포와 동일한 Azure 위치에 레지스트리를 만듭니다. 정규화된 레지스트리 이름의 형식은 `myregistry.azurecr.io`입니다.
 
   컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure Active Directory에서 지원하는 [서비스주체](../active-directory/active-directory-application-objects.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. 레지스트리로 인증하려면 표준 `docker login` 명령을 실행합니다.
 

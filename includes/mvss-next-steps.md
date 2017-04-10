@@ -1,4 +1,4 @@
-[이 설명서](../articles/azure-resource-manager/resource-group-template-deploy.md)에 따라 이전 템플릿을 배포할 수 있습니다.
+[Azure Resource Manager 설명서](../articles/azure-resource-manager/resource-group-template-deploy.md)에 따라 이전 템플릿을 배포할 수 있습니다.
 
 [실행 가능한 최소 크기 집합 템플릿 문서](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)에서 이 자습서 시리즈를 시작할 수 있습니다.
 

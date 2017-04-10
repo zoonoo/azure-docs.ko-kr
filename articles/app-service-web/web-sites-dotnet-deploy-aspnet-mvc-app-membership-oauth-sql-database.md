@@ -493,7 +493,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
     ![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 8. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다.
 9. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
-10. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자&0;임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. 
+10. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. 
 11.  해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다. 
 12. 데이터를 변경할 수 있는지 확인합니다.
 
@@ -512,7 +512,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 6. *user1@contoso.com*으로 로그인하고(암호 "P_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
 7. 로그아웃합니다.
 8. [Google Developers Console](https://console.developers.google.com/) 로 이동하고 **자격 증명** 탭에서 Azure URL을 사용하도록 리디렉션 URIS 및 JavaScript Orgins를 업데이트합니다.
-9. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. 메시지와 함께 HTTP 400 오류가 발생한 경우 *요청에 리디렉션 URI: https://contactmanager {my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.* 변경 내용이 전파될 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
+9. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. 메시지와 함께 HTTP 400 오류가 발생한 경우 *요청에 리디렉션 URI: https://contactmanager{my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.* 변경 내용이 전파될 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
 
 ### <a name="stop-the-web-app-to-prevent-other-people-from-registering"></a>다른 사용자가 등록할 수 없도록 웹앱 중지
 1. **서버 탐색기**에서 **Azure > App Service > {리소스 그룹} > {웹앱}**으로 이동합니다.

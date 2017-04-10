@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -66,8 +66,8 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 ### <a name="default-tags"></a>기본 태그
 기본 태그는 IP 주소의 범주를 다루기 위해 시스템에서 제공한 식별자입니다. 모든 규칙의 **원본 주소 접두사** 및 **대상 주소 접두사** 속성에 있는 기본 태그를 사용할 수 있습니다. 3개의 기본 태그를 사용할 수 있습니다.
 
-* **VIRTUAL_NETWORK:** 모든 네트워크 주소 공간을 나타내는 기본 태그입니다. 여기에는 연결된 모든 온-프레미스 주소 공간 및 연결된 Azure VNet(로컬 네트워크)뿐만 아니라 가상 네트워크 주소 공간(Azure에 정의된 CIDR 범위)도 포함됩니다.
-* **AZURE_LOADBALANCER:** Azure의 인프라 부하 분산 장치를 나타내는 기본 태그입니다. 이 태그는 Azure의 상태 프로브가 시작되는 Azure 데이터 센터 IP로 변환됩니다.
+* **VIRTUAL_NETWORK**(**VirtualNetwork** Azure Resource Manager를 사용하는 경우): 이 기본 태그는 모든 네트워크 주소 공간을 나타냅니다. 여기에는 연결된 모든 온-프레미스 주소 공간 및 연결된 Azure VNet(로컬 네트워크)뿐만 아니라 가상 네트워크 주소 공간(Azure에 정의된 CIDR 범위)도 포함됩니다.
+* **AZURE_LOADBALANCER**(**AzureLoadBalancer** Azure Resource Manager를 사용하는 경우): 이 기본 태그는 Azure의 인프라 부하 분산 장치를 나타냅니다. 이 태그는 Azure의 상태 프로브가 시작되는 Azure 데이터 센터 IP로 변환됩니다.
 * **INTERNET:** 이 기본 태그는 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간을 나타냅니다. 이 범위에는 [Azure 소유의 공용 IP 공간](https://www.microsoft.com/download/details.aspx?id=41653) 도 포함됩니다.
 
 ### <a name="default-rules"></a>기본 규칙

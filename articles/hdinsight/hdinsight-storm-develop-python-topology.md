@@ -58,7 +58,7 @@ Storm 모듈(https://github.com/apache/storm/blob/master/storm-multilang/python/
 
 ## <a name="python-components-with-a-java-topology"></a>Java 토폴로지를 포함하는 Python 구성 요소
 > [!NOTE]
-> 이 예제는 [JavaTopology](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 디렉터리의 **https://github.com/Azure-Samples/hdinsight-python-storm-wordcount** 에서 사용할 수 있습니다. Maven 기반 프로젝트입니다. Maven에 대해 잘 모르는 경우 Storm 토폴로지에 대한 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm으로 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md) 을 참조하세요.
+> 이 예제는 **JavaTopology** 디렉터리의 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 에서 사용할 수 있습니다. Maven 기반 프로젝트입니다. Maven에 대해 잘 모르는 경우 Storm 토폴로지에 대한 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm으로 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md) 을 참조하세요.
 > 
 > 
 
@@ -124,7 +124,7 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
 
 ## <a name="python-components-with-a-clojure-topology"></a>Clojure 토폴로지를 포함하는 Python 구성 요소
 > [!NOTE]
-> 이 예제는 [ClojureTopology](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 디렉터리의 **https://github.com/Azure-Samples/hdinsight-python-storm-wordcount** 에서 사용할 수 있습니다.
+> 이 예제는 **ClojureTopology** 디렉터리의 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 에서 사용할 수 있습니다.
 > 
 > 
 

@@ -1,11 +1,10 @@
 ---
 title: "Azure SQL Database 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "클라우드에서 DaaS(database-as-a-service)인 SQL Database에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 관계형 데이터베이스를 설정, 연결 및 관리하는 방법을 보여 줍니다."
+description: "Azure SQL 데이터베이스를 사용하는 방법을 알아봅니다."
 services: sql-database
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,122 +12,63 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e982e07b6279c1338398980aa07d46ce08ede11c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 1092d5963cd1b9e21796809374be2534df39e437
+ms.lasthandoff: 04/08/2017
 
 ---
-
-# <a name="sql-database-documentation"></a>SQL Database 설명서
-
-<div class="introHolder">
-    <div class="intro">
-클라우드에서 Microsoft SQL Server 엔진에 빌드된 관계형 DaaS(database-as-a-service)인 SQL Database를 사용하는 방법을 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 SQL Database를 설정, 연결 및 관리하는 방법을 보여 줍니다.
+<div class="content">
+    <h1>SQL Database 설명서</h1>
+    <p style="padding-bottom: 0px; max-width: 1050px;">Azure SQL Database는 Microsoft SQL Server 엔진을 사용하는 관계형 DaaS(Database-as-a-Service)입니다. SQL Database는 안정적이고 안전한 고성능 데이터베이스로, 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 데이터 기반 응용 프로그램 및 웹 사이트를 빌드하는 데 사용할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 SQL Database를 사용하는 방법을 알아보세요.</p>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">빠른 시작</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">다음을 사용하여 SQL DB를 만듭니다.</p>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/sql-database/sql-database-get-started-portal">
+            <img src="media/index/portal.svg" alt="">
+            <span>Azure Portal</span>
+        </a>
     </div>
-    <div class="calloutHolder">
-        <div class="callout">
-            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg" />무료 PluralSight 동영상 교육 - Microsoft Azure를 사용하여 인프라 관리</a>
-        </div>
+    <div class="ico48Link">
+        <a href="/azure/sql-database/sql-database-get-started-cli">
+            <img src="media/index/cli.svg" alt="">
+            <span>Azure CLI</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/sql-database/sql-database-get-started-powershell">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
     </div>
 </div>
 
-<ul class="panelContent cardsFTitle">
-     <li>
-        <a href="/azure/sql-database/sql-database-technical-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/sql-database.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Database에 대해 알아보기</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-database">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Database 비디오 라이브러리</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/sql-database/sql-database-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Database 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/sql-database/sql-database-elastic-scale-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>탄력적 도구 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/sql-database/sql-database-get-started-security">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>액세스 및 사용 권한 관리 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
+<div class="columnHolder">
+    <div class="column50">
+        <h2 style="margin-top: 36px">자습서</h2>
+        <p>SQL Database 응용 프로그램을 빌드 및 배포합니다.</p>
+        <ul class="spaced">
+            <li><a href="/azure/sql-database/sql-database-design-first-database">데이터베이스 설계</a></li>
+            <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">데이터베이스 마이그레이션</a></li>
+        </ul>
+        <h2>샘플</h2>
+        <p>일반적인 작업을 관리하는 스크립트를 찾습니다.</p>
+        <ul class="spaced">
+            <li><a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a></li>
+            <li><a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a></li>
+        </ul>
+    </div>
+    <div class="column50" style="max-width: 400px">
+        <h2 style="margin-top: 36px">동영상 교육</h2>
+        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-dotnet.png" width="400" alt="">
+            <p style="margin-top: 0px">Pluralsight 동영상 교육 - .NET을 사용하여 개발</a></p>
+    </div>
+</div>
 
----
+<hr />
 
-<h2>참조</h2>
+<h2 style="margin-top: 36px">참조</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -136,8 +76,8 @@ ms.lasthandoff: 03/22/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
-                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell(탄력적 DB)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell(탄력적 DB)</a></p>
                         <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
@@ -206,6 +146,4 @@ ms.lasthandoff: 03/22/2017
         </div>
     </li>
 </ul>
-
-
-
+</div>

@@ -21,12 +21,12 @@ ms.lasthandoff: 02/08/2017
 
 ---
 
-#<a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Slack 구성
+# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Slack 구성
 
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Slack으로 자동으로 프로비전 및 프로비전 해제하도록 Slack 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다. 
 
-##<a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 

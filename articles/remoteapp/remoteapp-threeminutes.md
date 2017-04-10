@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>3분 내로 장치에서 Azure RemoteApp 사용해 보기
 > [!IMPORTANT]
-> Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -42,10 +43,5 @@ ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
 > 데모 사용에 대해서는 제어된 환경이기 때문에 게시된 데모 응용 프로그램에서 외부 인터넷 액세스를 설정하지 않았습니다. 이 때문에 OneDrive와 같은 서비스에 액세스할 수 없습니다. 또한, 클립보드 공유(복사 및 붙여넣기) 및 USB와 프린터 리디렉션은 비활성화됩니다.  
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
