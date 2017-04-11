@@ -3,7 +3,7 @@ title: "WebJob으로 백그라운드 작업 실행"
 description: "Azure 웹 앱에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b

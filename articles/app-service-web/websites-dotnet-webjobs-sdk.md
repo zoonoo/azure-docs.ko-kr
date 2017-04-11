@@ -3,7 +3,7 @@ title: "Azure WebJobs SDK 정의"
 description: "Azure WebJobs SDK에 대해 소개하고 SDK의 정의, SDK가 유용한 일반적인 시나리오 및 코드 샘플에 대해 설명합니다."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682

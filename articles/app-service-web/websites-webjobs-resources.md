@@ -3,7 +3,7 @@ title: "Azure WebJobs 설명서 리소스"
 description: "Azure WebJobs 및 Azure WebJobs SDK를 사용하는 방법에 대해 설명하는 권장 리소스입니다."
 services: app-service
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b

@@ -3,7 +3,7 @@ title: "WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법"
 description: "WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법에 대해 알아봅니다. 새 Blob이 컨테이너에 표시된 경우 프로세스를 트리거하고 &quot;poison blobs&quot;을 처리합니다."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c
