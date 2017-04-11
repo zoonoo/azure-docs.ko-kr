@@ -1,7 +1,7 @@
 ---
 title: "Azure Portal을 사용하여 SQL Database 경고 만들기| Microsoft Docs"
 description: "Azure Portal을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 SQL Database 경고를 만듭니다."
-author: CarlRabeler
+author: aamalvea
 manager: jhubbard
 editor: 
 services: sql-database
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: carlrab
+ms.author: aamalvea
 translationtype: Human Translation
 ms.sourcegitcommit: 2679681c77dd6a3410bbe6ddbcf562924b13bfe6
 ms.openlocfilehash: afa21052281200768db24ce35a94097f23f23efe
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,7 +74,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="sql-database-alert-values-and-thresholds"></a>SQL Database 경고 값 및 임계값
 
-| 리소스 종류 | 메트릭 이름 | 친숙한 이름 | 집계 형식 | 최소 경고 시간 창|
+| 리소스 종류    | 메트릭 이름 | 친숙한 이름 | 집계 형식 | 최소 경고 시간 창|
 | --- | --- | --- | --- | --- |
 | SQL 데이터베이스 | cpu_percent | CPU 비율 | 평균 | 5분 |
 | SQL 데이터베이스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
@@ -90,7 +91,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 | SQL 데이터베이스 | sessions_percent | 세션 백분율 | 평균 | 5분 |
 | SQL 데이터베이스 | dtu_limit | DTU 제한 | 평균 | 5분 |
 | SQL 데이터베이스 | dtu_used | DTU 사용됨 | 평균 | 5분 |
-||||||           
+||||||               
 | SQL 데이터 웨어하우스 | cpu_percent | CPU 비율 | 평균 | 10분 |
 | SQL 데이터 웨어하우스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
 | SQL 데이터 웨어하우스 | 저장소 | 총 데이터베이스 크기 | 최대 | 10분 |
@@ -101,7 +102,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 | SQL 데이터 웨어하우스 | dwu_limit | dwu 제한 | 최대 | 10분 |
 | SQL 데이터 웨어하우스 | dwu_consumption_percent | DWU 백분율 | 평균 | 10분 |
 | SQL 데이터 웨어하우스 | dwu_used | DWU 사용됨 | 평균 | 10분 |
-||||||               
+||||||                     
 | 탄력적 풀 | cpu_percent | CPU 비율 | 평균 | 5분 |
 | 탄력적 풀 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
 | 탄력적 풀 | log_write_percent | 로그 IO 비율 | 평균 | 5분 |
@@ -121,10 +122,5 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [Azure Automation Runbook](../automation/automation-starting-a-runbook.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Visual Studio를 사용하여 WebJob 배포"
 description: "Visual Studio를 사용하여 Azure 앱 서비스에 Azure WebJob를 배포하는 방법에 대해 알아봅니다."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
