@@ -3,7 +3,7 @@ title: "WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법
 description: "WebJobs SDK를 사용하여 Azure 서비스 버스 큐 및 항목으로 작업하는 방법에 대해 알아봅니다."
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76

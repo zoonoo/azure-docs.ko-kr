@@ -3,7 +3,7 @@ title: "WebJob으로 백그라운드 작업 실행"
 description: "Azure 웹 앱에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -24,6 +24,8 @@ ms.lasthandoff: 03/01/2017
 # <a name="run-background-tasks-with-webjobs"></a>WebJob으로 백그라운드 작업 실행
 ## <a name="overview"></a>개요
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱의 WebJobs에서 세 가지 방법, 즉 요청 시, 계속 실행 또는 일정에 따라 프로그램이나 스크립트를 실행할 수 있습니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 이 문서에서는 [Azure 포털](https://portal.azure.com)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 

@@ -3,7 +3,7 @@ title: "Azure WebJobs SDK 정의"
 description: "Azure WebJobs SDK에 대해 소개하고 SDK의 정의, SDK가 유용한 일반적인 시나리오 및 코드 샘플에 대해 설명합니다."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
@@ -24,6 +24,8 @@ ms.lasthandoff: 11/17/2016
 # <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK 정의
 ## <a id="overview"></a>개요
 이 문서에서는 WebJobs SDK의 정의에 대해 설명하고 이 SDK가 유용한 몇 가지 일반적인 시나리오를 검토하며 코드에서 SDK를 사용하는 방법을 간략하게 제공합니다.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 [WebJobs](websites-webjobs-resources.md) 는 웹앱, API 앱 또는 모바일 앱과 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 Azure 앱 서비스의 기능입니다. [WebJobs SDK](websites-webjobs-resources.md) 의 목적은 WebJob이 이미지 처리, 큐 처리, RSS 집계, 파일 유지 관리, 전자 메일 보내기 등을 수행하는 일반적인 작업에 대해 작성하는 코드를 간소화하는 것입니다. WebJobs SDK에는 Azure 저장소 및 서비스 버스 작업, 작업 예약 및 오류 처리, 기타 여러 일반적인 시나리오를 위한 기본 제공 기능이 있습니다. 또한 확장 가능하도록 디자인되었습니다. [WebJobs SDK는 오픈 소스](https://github.com/Azure/azure-webjobs-sdk/)이며 [확장에 대한 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)가 있습니다.
 
