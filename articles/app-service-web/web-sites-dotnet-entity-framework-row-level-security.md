@@ -17,6 +17,7 @@ ms.author: thmullan
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ba1bb3d84b462dfebbb2564569517d7336bf54fd
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -203,7 +204,7 @@ ALTER TABLE Contacts ADD UserId nvarchar(128)
 
 ![SSMS AspNetUsers 테이블](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-user1@contoso.com,의 ID를 복사하여 아래 T-SQL 문에 붙여 넣습니다. 이 명령문을 실행하여 연락처 중 3개를 이 UserId와 연결합니다.
+user1@contoso.com의 ID를 복사하여 아래 T-SQL 문에 붙여 넣습니다. 이 명령문을 실행하여 연락처 중 3개를 이 UserId와 연결합니다.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
@@ -236,7 +237,7 @@ go
 
 이 코드는 세 가지를 수행합니다. 우선, RLS 개체에 대한 액세스를 중앙 집중화하고 제한하는 모범 사례의 하나로 새로운 스키마를 만듭니다. 다음으로, 행의 UserId가 SESSION_CONTEXT의 UserId와 일치하면 '1'을 반환하는 조건자 함수를 만듭니다. 마지막으로, Contacts 테이블에 대한 필터 및 차단 조건자로 이 함수를 추가하는 보안 정책을 만듭니다. 필터 조건자는 쿼리가 현재 사용자에게 속하는 행만 반환하도록 하며, 차단 조건자는 응용 프로그램이 우발적으로 잘못된 사용자의 행을 삽입하지 못하도록 막는 안전 장치 역할을 합니다.
 
-이제 응용 프로그램을 실행하고 user1@contoso.com. 이제 이 사용자에는 자신의 UserId에 할당된 연락처만 볼 수 있습니다.
+이제 응용 프로그램을 실행하고 user1@contoso.com. 이제 이 사용자에는 자신의 UserId에 할당된 연락처만 볼 수 있습니다:
 
 ![RLS를 활성화하기 전의 연락처 관리자 응용 프로그램](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-After.png)
 
@@ -248,10 +249,5 @@ go
 이 자습서에는 RLS로 가능한 표면적인 기능을 급히 모았을 뿐입니다. 예를 들면 보다 정교하고 세분화된 액세스 논리를 포함할 수 있으며, SESSION_CONTEXT에는 현재 UserId뿐만 아니라 훨씬 더 많은 내용을 저장할 수 있습니다. 확장 데이터 계층에 다중 테넌트 분할을 지원하기 위해서 [RLS와 탄력적 데이터베이스 도구 클라이언트 라이브러리를 통합](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) 하는 것도 가능합니다.
 
 이러한 가능성 외에도 RLS를 훨씬 더 개선하기 위해 최선을 다하고 있습니다. 질문이나 아이디어가 있거나 보고 싶은 내용이 있으면 의견을 알려 주시기 바랍니다. 여러분의 의견에 감사드립니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
