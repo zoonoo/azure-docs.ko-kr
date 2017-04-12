@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v&2;.0 끝점을 사용하여 .NET MVC 웹 API에 로그인 추가 | Microsoft Docs"
+title: "Azure AD v 2.0 끝점을 사용하여 .NET MVC 웹 API에 로그인 추가 | Microsoft Docs"
 description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 .NET MVC Web API를 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ ASP.NET Web API에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들�
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-골격 앱은 간단한 API에 대한 모든 상용구 코드를 포함하지만 ID 관련 부분은 전혀 포함하지 않습니다. 따라서 진행하지 않으려면 전체 샘플을 대신 복제하거나 [다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip)합니다.
+골격 앱은 간단한 API에 대한 모든 상용구 코드를 포함하지만 ID 관련 부분은 전혀 포함하지 않습니다. 따라서 진행하지 않으려면 전체 샘플을 대신 복제하거나 [다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip)합니다.
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -166,9 +167,4 @@ Todo List Service가 작동하는 것을 보려면 먼저 v2.0 끝점에서 토�
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
