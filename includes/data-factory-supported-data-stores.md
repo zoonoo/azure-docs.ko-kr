@@ -1,5 +1,8 @@
 데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 다음과 같은 데이터 저장소를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
 
+> [!NOTE] 
+> 복사 활동에서 지원되지 않는 데이터 저장소에서/데이터 저장소로 데이터를 이동해야 하는 경우 데이터 복사/이동을 위한 자체 논리가 포함된 **사용자 지정 활동** 을 Data Factory에서 사용합니다. 사용자 지정 활동을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 활동 사용](../articles/data-factory/data-factory-use-custom-activities.md)을 참조하세요.
+
 | Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob 저장소](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |

@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -34,7 +34,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 점수 매기기 프로필은 필드, 함수 및 매개 변수로 구성된 인덱스 정의의 일부입니다.
 
-점수 매기기 프로필을 대략적으로 파악할 수 있도록 아래 예제에서는 'geo'라는 간단한 프로필을 보여 줍니다. 이 프로필은 `hotelName` 필드에 검색 용어가 포함된 항목을 상승시킵니다. 또한 `distance` 함수를 사용하여 현재 위치에서&10;km 이내에 있는 항목의 순위를 높입니다. 'inn'이라는 용어를 검색하는 경우 'inn'이 호텔 이름의 일부분이라면 이름에 'inn'이 포함된 호텔이 들어 있는 문서가 검색 결과에서 더 높은 순위로 표시됩니다.
+점수 매기기 프로필을 대략적으로 파악할 수 있도록 아래 예제에서는 'geo'라는 간단한 프로필을 보여 줍니다. 이 프로필은 `hotelName` 필드에 검색 용어가 포함된 항목을 상승시킵니다. 또한 `distance` 함수를 사용하여 현재 위치에서 10km 이내에 있는 항목의 순위를 높입니다. 'inn'이라는 용어를 검색하는 경우 'inn'이 호텔 이름의 일부분이라면 이름에 'inn'이 포함된 호텔이 들어 있는 문서가 검색 결과에서 더 높은 순위로 표시됩니다.
 
     "scoringProfiles": [
       {
@@ -85,8 +85,6 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 위에서 설명한 것처럼 인덱스 스키마에 정의된 하나 이상의 점수 매기기 프로필을 통해 사용자 지정된 점수 매기기를 구현합니다.
 
 아래 예제에서는 `boostGenre` 및 `newAndHighlyRated`의 두 점수 매기기 프로필이 포함된 인덱스의 스키마를 보여 줍니다. 쿼리 매개 변수로 두 프로필 중 하나를 포함하는 쿼리를 이 인덱스에 대해 실행하는 경우 해당 프로필을 사용하여 결과 집합의 점수를 계산합니다.
-
-[다음 예제를 실행해 보세요.](search-get-started-scoring-profiles.md)
 
     {
       "name": "musicstoreindex",

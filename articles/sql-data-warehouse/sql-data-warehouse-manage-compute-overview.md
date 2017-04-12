@@ -171,7 +171,7 @@ DWU 성능 조정 시기에 대한 권장 사항:
 ## <a name="next-steps"></a>다음 단계
 일부 추가적인 주요 성능 개념을 이해하는 데 도움이 되는 다음 문서를 참조하세요.
 
-* [워크로드 및 동시성 관리][워크로드 및 동시성 관리]
+* [워크로드 및 동시성 관리][Workload and concurrency management]
 * [테이블 디자인 개요][Table design overview]
 * [테이블 배포][Table distribution]
 * [테이블 인덱싱][Table indexing]
