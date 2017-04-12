@@ -9,8 +9,6 @@ Azure를 사용하면 '미국 서부', '북유럽' 또는 '동남 아시아'와 
 
 * **미국 버지니아 주 정부** 및 **미국 아이오와 주 정부**
   * 미국 정부 기관 및 파트너를 위한 물리적 및 논리적 네트워크로 격리된 Azure 인스턴스로, 선별된 미국인이 운영합니다. [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) 및 [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA)와 같은 추가 규정 준수 인증서를 포함합니다. [Azure Government](https://azure.microsoft.com/features/gov/)에 대해 자세히 알아보세요.
-* **인도 중부**, **인도 남부** 및 **인도 서부**
-  * 이러한 지역은 현재 인도 지역에 등록한 볼륨 라이선싱 고객 및 파트너에서 사용할 수 있습니다. 2016년에 사용자가 직접 온라인 구독을 구입한 경우 사용자가 액세스할 수 있습니다.
 * **중국 동부** 및 **중국 북부**
   * 이러한 지역은 Microsoft 및 21Vianet 간의 고유한 파트너십을 통해 사용할 수 있으며, Microsoft에서 데이터 센터를 직접 관리하지 않습니다. [중국의 Microsoft Azure](http://www.windowsazure.cn/)에 대해 자세히 알아보세요.
 * **독일 중부** 및 **독일 북동부**

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 33574b0c1f023a8a5f83b1bf06f0523623891757
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 650ff05715c8c0d915c82f9de49756530b8f3138
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,6 +29,7 @@ ms.lasthandoff: 02/16/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -166,7 +167,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="upload-data-into-a-data-lake-store-account"></a>Data Lake 저장소 계정에 데이터 업로드
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래에 설명된 대로&2;단계 프로세스입니다.
+WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래에 설명된 대로 2단계 프로세스입니다.
 
 1. 업로드할 파일 데이터를 보내지 않고 HTTP PUT 요청을 제출합니다. 다음 명령에서 **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
    
@@ -197,7 +198,7 @@ WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래�
 ## <a name="read-data-from-a-data-lake-store-account"></a>Data Lake 저장소 계정에서 데이터 읽기
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-Data Lake 저장소 계정에서 데이터를 읽는 작업은&2;단계 프로세스입니다.
+Data Lake 저장소 계정에서 데이터를 읽는 작업은 2단계 프로세스입니다.
 
 * 먼저 끝점 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`에 대해 GET 요청을 제출합니다. 다음 GET 요청을 제출할 위치가 반환됩니다.
 * 그러면 끝점 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`에 대해 GET 요청을 제출합니다. 파일 내용이 표시됩니다.

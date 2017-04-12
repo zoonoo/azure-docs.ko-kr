@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
-ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>첫 번째 웹앱에 기능 추가
-[5분 안에 Azure에 웹앱 배포](app-service-web-get-started-cli-nodejs.md)에서 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 샘플 웹앱을 배포합니다. 이 문서에서는 개발한 웹앱에 몇 가지 중요한 기능을 신속하게 추가합니다. 잠시 후에 다음을 수행합니다.
+[5분 안에 Azure에 웹앱 배포](app-service-web-get-started-dotnet.md)에서 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 샘플 웹앱을 배포합니다. 이 문서에서는 개발한 웹앱에 몇 가지 중요한 기능을 신속하게 추가합니다. 잠시 후에 다음을 수행합니다.
 
 * 사용자에게 인증 적용
 * 자동으로 앱 크기 조정

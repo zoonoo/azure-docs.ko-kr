@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -211,7 +211,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 이 섹션에서는 제품 서비스에서 검색한 데이터를 표시하는 간단한 ASP.NET 응용 프로그램을 빌드합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
-1. 관리자 권한으로 Visual Studio&2013;을 실행 중인지 확인합니다.
+1. 관리자 권한으로 Visual Studio 2013을 실행 중인지 확인합니다.
 2. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **설치된 템플릿**에서 **Visual C#** 아래에 있는 **ASP.NET 웹 응용 프로그램**을 클릭합니다. 프로젝트의 이름을 **ProductsPortal**로 지정합니다. 그런 후 **OK**를 클릭합니다.
 
@@ -227,7 +227,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
    ![][19]
 8. **확인**을 클릭합니다.
-9. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) 및 [Azure 리소스 만들기](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources)의 모든 단계를 수행합니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
+9. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [웹 응용 프로그램 만들기](../app-service-web/app-service-web-get-started-dotnet.md) 및 [Azure 리소스 만들기](../app-service-web/app-service-web-get-started-dotnet.md)의 모든 단계를 수행합니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
 10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음 **추가**를 클릭합니다.
 
     ![][17]
@@ -395,7 +395,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 다음 단계를 진행하기 전에 응용 프로그램을 모두 닫습니다.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Azure 웹앱에 ProductsPortal 프로젝트 배포
-다음 단계는 **ProductsPortal** 프런트 엔드를 Azure 웹앱으로 변환하는 것입니다. 먼저 [Azure에 웹 프로젝트 배포](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure) 섹션의 모든 단계에 따라 **ProductsPortal** 프로젝트를 배포합니다. 배포가 완료되면 이 자습서로 돌아가 다음 단계를 진행합니다.
+다음 단계는 **ProductsPortal** 프런트 엔드를 Azure 웹앱으로 변환하는 것입니다. 먼저 [Azure에 웹 프로젝트 배포](../app-service-web/app-service-web-get-started-dotnet.md) 섹션의 모든 단계에 따라 **ProductsPortal** 프로젝트를 배포합니다. 배포가 완료되면 이 자습서로 돌아가 다음 단계를 진행합니다.
 
 > [!NOTE]
 > 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 응용 프로그램이 아직 실행되지 않기 때문에 발생합니다.

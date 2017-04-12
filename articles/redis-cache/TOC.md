@@ -26,7 +26,7 @@
 ###[클러스터링을 통해 캐시 배포](cache-how-to-premium-clustering.md)
 ## 자동화
 ###[Powershell을 사용하여 배포 및 관리](cache-howto-manage-redis-cache-powershell.md)
-###[Azure CLI를 사용하여 배포 및 관리](cache-manage-cli.md)
+###[Azure CLI를 사용하여 배포 및 관리](cli-samples.md)
 ###[Redis Cache 프로비전](cache-redis-cache-arm-provision.md)
 ###[Redis Cache가 포함된 웹앱 프로비전](cache-web-app-arm-with-redis-cache-provision.md)
 ## ASP.NET과 통합

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1fd8fe3847299d98a55a16ab400b43be074a5f33
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 0dbf6a121c07d7d1340898f51a38c3572e57b3a2
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,10 +29,11 @@ ms.lasthandoff: 03/22/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
-> 
+>
 
 [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 03/22/2017
 1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
-   
+
    | 속성 | 값 |
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
@@ -57,35 +58,35 @@ ms.lasthandoff: 03/22/2017
    | 이름 |CreateADLApplication |
 4. **확인** 을 클릭하여 프로젝트를 만듭니다.
 5. Nuget 패키지를 프로젝트에 추가합니다.
-   
+
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
    2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
-      
+
       * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서는 v1.0.4를 사용합니다.
       * `Microsoft.Azure.Management.DataLake.StoreUploader` - 이 자습서는 v1.0.1-미리 보기를 사용합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.11을 사용합니다.
-        
+
         ![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure Data Lake 계정 만들기")
    4. **NuGet 패키지 관리자**를 닫습니다.
 6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
-   
+
         using System;
         using System.IO;
     System.Security.Cryptography.X509Certificates 사용; // 인증서로 만든 Azure AD 응용 프로그램을 사용하는 경우에만 필요      System.Threading 사용;
-   
+
         using Microsoft.Azure.Management.DataLake.Store;
     Microsoft.Azure.Management.DataLake.Store.Models 사용;  Microsoft.Azure.Management.DataLake.StoreUploader 사용;  Microsoft.IdentityModel.Clients.ActiveDirectory 사용;  Microsoft.Rest.Azure.Authentication 사용;
 
 7. 아래와 같이 변수를 선언하고 이미 존재하는 Data Lake Store 이름과 리소스 그룹 이름에 대한 값을 제공합니다. 또한, 여기에 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재해야 합니다. 네임스페이스 선언 후에 다음 코드 조각을 추가합니다.
-   
+
         namespace SdkSample
         {
             class Program
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
                 private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-   
+
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
@@ -112,7 +113,7 @@ ms.lasthandoff: 03/22/2017
 
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>최종 사용자 인증을 사용하는 경우(이 자습서에 권장됨)
 
-이것을 Azure AD 네이티브 응용 프로그램에 사용하여 응용 프로그램을 **대화형으로** 인증합니다. 다시 말해 Azure 자격 증명을 입력하라는 메시지가 표시됩니다. 
+이것을 Azure AD 네이티브 응용 프로그램에 사용하여 응용 프로그램을 **대화형으로** 인증합니다. 다시 말해 Azure 자격 증명을 입력하라는 메시지가 표시됩니다.
 
 사용 편의성을 위해 아래 코드 조각은 모든 Azure 구독에서 작동하는 클라이언트 ID 및 리디렉션 URI에 대한 기본값을 사용합니다. 이 자습서를 신속하게 완료하려면 이 방법을 사용하는 것이 좋습니다. 아래 코드 조각에서 테넌트 ID에 대한 값만 제공합니다. 해당 값은 [Active Directory 응용 프로그램 만들기](data-lake-store-end-user-authenticate-using-active-directory.md)에 제공된 지침을 사용하여 검색할 수 있습니다.
 
@@ -135,7 +136,7 @@ ms.lasthandoff: 03/22/2017
     // Service principal / appplication authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
@@ -143,12 +144,13 @@ ms.lasthandoff: 03/22/2017
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>인증서로 서비스 간 인증을 사용하는 경우
-세 번째 옵션으로 다음 코드 조각은 Azure Active Directory 응용 프로그램/서비스 주체에 대한 인증서를 사용하여 **비대화형으로** 응용 프로그램을 인증하는 데 사용될 수 있습니다. 이것은 [인증서에서 기존 Azure AD 응용 프로그램](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)과 함께 사용합니다.
+
+세 번째 옵션으로 다음 코드 조각은 Azure Active Directory 응용 프로그램/서비스 주체에 대한 인증서를 사용하여 **비대화형으로** 응용 프로그램을 인증하는 데 사용될 수 있습니다. 이것은 [인증서에서 기존 Azure AD 응용 프로그램](../azure-resource-manager/resource-group-authenticate-service-principal.md)과 함께 사용합니다.
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientCert = <AAD-application-client-certificate>
@@ -204,7 +206,7 @@ ms.lasthandoff: 03/22/2017
 `DataLakeStoreUploader` 는 로컬 파일 경로와 Data Lake Store 파일 경로 간의 재귀 업로드 및 다운로드를 지원합니다.    
 
 ## <a name="get-file-or-directory-info"></a>파일 또는 디렉터리 정보 가져오기
-다음 코드 조각은 Data Lake Store에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여 줍니다. 
+다음 코드 조각은 Data Lake Store에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여 줍니다.
 
     // Get file or directory info
     public static async Task<FileStatusProperties> GetItemInfo(string path)
@@ -222,7 +224,7 @@ ms.lasthandoff: 03/22/2017
     }
 
 ## <a name="concatenate-files"></a>파일 연결
-다음 코드 조각은 파일 연결에 사용하는 `ConcatenateFiles` 메서드를 보여 줍니다. 
+다음 코드 조각은 파일 연결에 사용하는 `ConcatenateFiles` 메서드를 보여 줍니다.
 
     // Concatenate files
     public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -261,5 +263,4 @@ ms.lasthandoff: 03/22/2017
 * [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
-
 

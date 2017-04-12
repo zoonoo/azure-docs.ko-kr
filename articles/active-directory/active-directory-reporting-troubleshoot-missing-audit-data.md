@@ -1,6 +1,6 @@
 ---
 title: "문제 해결: Azure Active Directory 활동 로그의 누락된 데이터 - 미리 보기 | Microsoft Docs"
-description: "Azure Active Directory 미리 보기에 사용할 수 있는 다양한 보고서를 나열하는 해결 방법을 제공합니다."
+description: "Azure Active Directory Reporting 미리 보기에 사용할 수 있는 다양한 보고서를 나열합니다."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/09/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ebc92bc23201dbcd01f90e0cc3d5055fb85820be
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c372fe5f3a419a6a27ef00d755d5d46325b956c6
+ms.lasthandoff: 04/06/2017
 
 
 ---
