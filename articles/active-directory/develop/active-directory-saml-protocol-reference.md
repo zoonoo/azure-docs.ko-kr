@@ -38,4 +38,3 @@ Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single si
 
 Azure AD에서 게시하는 페더레이션 메타데이터 문서에 대한 자세한 정보는 [페더레이션 메타데이터](active-directory-federation-metadata.md)를 참조하세요.
 
-

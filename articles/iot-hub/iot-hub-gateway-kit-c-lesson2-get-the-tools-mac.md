@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "iot 개발, iot 소프트웨어, iot 클라우드 서비스, 사물 인터넷 소프트웨어, azure cli, python mac 설치, mac에 git 설치, gulp 실행, node js mac 설치"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 94e538ef-9857-4023-9c3c-e92a0be7c395
 ms.service: iot-hub
 ms.devlang: c

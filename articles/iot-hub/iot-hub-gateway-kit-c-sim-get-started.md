@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "azure iot hub, iot 게이트웨이, 사물 인터넷 시작, iot 도구 키트"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 0c110b8b-bee4-4aec-a18a-dfc292aa17a3
 ms.service: iot-hub
 ms.devlang: c

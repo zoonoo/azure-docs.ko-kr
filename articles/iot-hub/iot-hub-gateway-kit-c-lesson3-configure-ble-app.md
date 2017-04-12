@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "ble 앱, 센서 모니터 앱, 센서 데이터 수집, 센서의 데이터, 센서 데이터를 클라우드로"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: b33e53a1-1df7-4412-ade1-45185aec5bef
 ms.service: iot-hub
 ms.devlang: c

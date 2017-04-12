@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "IoT 개발, IoT 소프트웨어, IoT 클라우드 서비스, 사물 인터넷 소프트웨어, Azure CLI, Ubuntu에 Git 설치, gulp 실행, Node Js Ubuntu 설치"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 0bac1412-385b-4255-a33f-9d44c35feb3e
 ms.service: iot-hub
 ms.devlang: c
