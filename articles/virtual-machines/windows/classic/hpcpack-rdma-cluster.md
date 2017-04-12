@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 680b2bec3af18273d0ac43d7102a99392fd8ebe0
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -85,7 +85,7 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
    작업 실행을 마쳤으면 노드를 오프라인으로 전환하고 HPC 클러스터 관리자에서 **중지** 작업을 사용합니다.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>시나리오 2: 계산 집약적 VM에 계산 노드 배포(IaaS)
-이 시나리오에서는 Azure 가상 네트워크의 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](../../virtual-machines-linux-hpcpack-cluster-options.md)을 제공합니다. 예를 들어, 다음 고려 사항 및 단계는 [HPC 팩 IaaS 배포 스크립트](hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 HPC Pack 2012 R2 클러스터의 배포를 자동화하는 방법을 안내합니다.
+이 시나리오에서는 Azure 가상 네트워크의 VM에 HPC 팩 헤드 노드와 클러스터 계산 노드를 배포합니다. HPC Pack은 자동 배포 스크립트 및 Azure 빠른 시작 템플릿을 포함하여 다양한 [Azure VM의 배포 옵션](../../linux/hpcpack-cluster-options.md)을 제공합니다. 예를 들어, 다음 고려 사항 및 단계는 [HPC 팩 IaaS 배포 스크립트](hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 HPC Pack 2012 R2 클러스터의 배포를 자동화하는 방법을 안내합니다.
 
 ![Azure VM의 클러스터][iaas]
 
@@ -102,7 +102,7 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
    * **Windows Server 운영 체제**: RDMA 연결을 지원하려면 계산 노드 VM에 대해 Windows Server 2012 R2 또는 Windows Server 2012 운영 체제를 지정합니다.
    * **클라우드 서비스**: 헤드 노드를 한 클라우드 서비스에 배포하고 계산 노드를 다른 클라우드 서비스에 배포하는 것이 좋습니다.
    * **헤드 노드 크기**: 이 시나리오의 경우 헤드 노드를 위해 최소한 A4 크기(매우 큼)를 고려합니다.
-   * **HpcVmDrivers 확장**: Windows Server 운영 체제로 크기가 A8 또는 A9인 계산 노드를 배포할 경우 배포 스크립트는 Azure VM 에이전트와 HpcVmDrivers 확장을 자동으로 설치합니다. HpcVmDrivers는 계산 노드 VM이 RDMA 네트워크에 연결할 수 있도록 이 VM에 드라이버를 설치합니다. RDMA 지원 H 시리즈 VM에서는 HpcVmDrivers 확장을 수동으로 설치해야 합니다. [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network)를 참조하세요.
+   * **HpcVmDrivers 확장**: Windows Server 운영 체제로 크기가 A8 또는 A9인 계산 노드를 배포할 경우 배포 스크립트는 Azure VM 에이전트와 HpcVmDrivers 확장을 자동으로 설치합니다. HpcVmDrivers는 계산 노드 VM이 RDMA 네트워크에 연결할 수 있도록 이 VM에 드라이버를 설치합니다. RDMA 지원 H 시리즈 VM에서는 HpcVmDrivers 확장을 수동으로 설치해야 합니다. [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network)를 참조하세요.
    * **클러스터 네트워크 구성**: 배포 스크립트는 토폴로지 5(엔터프라이즈 네트워크에 있는 모든 노드)에 HPC Pack 클러스터를 자동으로 설정합니다. 이 토폴로지는 VM에서의 모든 HPC Pack 클러스터 배포에 필요합니다. 나중에 클러스터 네트워크 토폴로지를 변경하지 마십시오.
 2. **계산 노드를 온라인 상태로 전환하여 작업 실행**
    
